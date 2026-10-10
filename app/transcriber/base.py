@@ -35,8 +35,11 @@ class Transcriber(Protocol):
     device: str
     model_size: str
 
-    def transcribe(self, audio: np.ndarray, cancel: threading.Event | None = None) -> Iterator[Segment]:
+    def transcribe(self, audio: np.ndarray, cancel: threading.Event | None = None,
+                   language: str = "ar") -> Iterator[Segment]:
         """Yield segments in time order as they are produced (16 kHz mono float32 input).
+
+        ``language`` is the spoken language's code (see app/languages.py).
 
         Callers derive progress from ``segment.end / duration``.
         """

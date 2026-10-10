@@ -2,14 +2,22 @@
 
 import { api, esc, h, saveSettings, loadStatus, state } from "../app.js";
 import { modelManager, gpuPanel } from "../components/models.js";
+import { languagePicker } from "../components/langpicker.js";
+import { LANGUAGES, isLanguage, setLang } from "../languages.js";
 
 export async function render(view, { step }) {
   if (step === "welcome") {
     view.append(h(`<div class="welcome">
       <div class="hero"><img src="/icons/icon-256.png" alt=""><div>
         <h1 style="margin:0">Welcome to Tamkeen</h1>
-        <p class="muted" style="margin:0">Learn Arabic from real podcasts, with word-by-word transcripts.</p></div></div>
-      <div class="ar-sample">أَهْلًا وَسَهْلًا</div>
+        <p class="muted" style="margin:0">Learn a language from real podcasts, videos and web pages, word by word.</p></div></div>
+      <div class="card stack">
+        <h2>Which language are you learning?</h2>
+        <div id="lang"></div>
+        <p class="small muted">This sets what the app listens for when it transcribes, how words are explained, and which
+          way the text runs. You can change it later in Settings.</p>
+      </div>
+      <div class="ar-sample" id="hello"></div>
       <div class="card stack">
         <h2>How it works</h2>
         <ol>
@@ -24,9 +32,23 @@ export async function render(view, { step }) {
             Export to Anki when you're ready.</li>
         </ol>
         <p class="small muted">The app re-checks your podcasts every time it starts, so new episodes appear automatically.</p>
-        <div><button class="primary" id="next" type="button">Next: set up transcription →</button></div>
+        <div class="row"><button class="primary" id="next" type="button">Next: set up transcription →</button>
+          <span class="small muted" id="pick-hint">Choose a language above to continue.</span></div>
       </div>
     </div>`));
+    const hello = view.querySelector("#hello");
+    const show = (code) => {
+      const chosen = isLanguage(code);
+      view.querySelector("#next").disabled = !chosen;
+      view.querySelector("#pick-hint").hidden = chosen;
+      hello.textContent = chosen ? LANGUAGES[code].hello : "";
+      if (chosen) setLang(hello, code);
+    };
+    view.querySelector("#lang").append(languagePicker(state.status.settings.study_language, async (code) => {
+      show(code);
+      await saveSettings({ study_language: code });
+    }));
+    show(state.status.settings.study_language);
     view.querySelector("#next").onclick = async () => {
       await saveSettings({ welcome_seen: true });
       location.hash = "#/setup";

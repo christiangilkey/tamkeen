@@ -31,7 +31,7 @@ export async function transport(req) {
 
 export async function getDefinition(ctx, refresh = false) {
   const cfg = definerConfig();
-  const key = await cacheKey(ctx.word, ctx.marked, cfg.language);
+  const key = await cacheKey(ctx.word, ctx.marked, cfg.language, ctx.lang);
   if (!refresh) {
     const cached = await api(`/definitions/${key}`);
     if (cached) return cached;

@@ -20,7 +20,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .. import arabic, audio, db, paths, videos
+from .. import arabic, audio, db, languages, paths, videos
 from .drive import Drive
 
 log = logging.getLogger(__name__)
@@ -76,6 +76,12 @@ def _ungz(data: bytes) -> Any:
 
 # ---------------------------------------------------------------------------------- snapshot
 
+def _language(record: dict[str, Any]) -> str | None:
+    """An episode record's language, if it names one the app knows (older devices send none)."""
+    code = record.get("language")
+    return code if languages.valid(code) else None
+
+
 def snapshot(device_id: str) -> dict[str, Any]:
     with db.session() as conn:
         feeds = [dict(r) for r in conn.execute(
@@ -83,7 +89,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "deleted, created_at, updated_at FROM feeds ORDER BY uid")]
         episodes = [dict(r) for r in conn.execute(
             "SELECT e.uid, f.uid AS feed_uid, e.guid, e.title, substr(e.description, 1, 1500) AS description, "
-            "e.published, e.duration, e.image, e.audio_url, e.audio_type, e.synced_rev AS transcript_rev, e.model, "
+            "e.published, e.duration, e.image, e.audio_url, e.audio_type, e.synced_rev AS transcript_rev, e.model, e.language, "
             "e.transcribe_requested_at, e.remote_audio, e.deleted, e.created_at, e.updated_at "
             "FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE f.deleted = 0 ORDER BY e.uid")]
         vocab = [{**dict(r), "folders": _folder_list(r["folders"])} for r in conn.execute(
@@ -159,11 +165,11 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
             if local is None:
                 cur = conn.execute(
                     "INSERT INTO episodes(feed_id, uid, guid, title, description, published, duration, image, audio_url, "
-                    "audio_type, transcribe_requested_at, remote_audio, deleted, created_at, updated_at) "
-                    "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    "audio_type, language, transcribe_requested_at, remote_audio, deleted, created_at, updated_at) "
+                    "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                     (feed[0], r["uid"], r["guid"], r["title"], r["description"] or "", r["published"], r["duration"],
-                     r["image"], r["audio_url"], r["audio_type"], r["transcribe_requested_at"], r["remote_audio"] or 0,
-                     r.get("deleted") or 0, r["created_at"], r["updated_at"]))
+                     r["image"], r["audio_url"], r["audio_type"], _language(r), r["transcribe_requested_at"],
+                     r["remote_audio"] or 0, r.get("deleted") or 0, r["created_at"], r["updated_at"]))
                 local_id, local_rev = int(cur.lastrowid), None
                 result.merged["episodes"] += 1
             else:
@@ -172,11 +178,12 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
                     conn.execute(
                         "UPDATE episodes SET uid=?, title=?, description=?, published=COALESCE(?, published), "
                         "duration=COALESCE(duration, ?), image=?, audio_url=?, audio_type=?, "
+                        "language=COALESCE(?, language), "
                         "transcribe_requested_at=MAX(COALESCE(transcribe_requested_at, 0), COALESCE(?, 0)), "
                         "remote_audio=MAX(remote_audio, ?), deleted=MAX(deleted, ?), updated_at=? WHERE id=?",
                         (r["uid"], r["title"], r["description"] or "", r["published"], r["duration"], r["image"],
-                         r["audio_url"], r["audio_type"], r["transcribe_requested_at"], r["remote_audio"] or 0,
-                         r.get("deleted") or 0, r["updated_at"], local_id))
+                         r["audio_url"], r["audio_type"], _language(r), r["transcribe_requested_at"],
+                         r["remote_audio"] or 0, r.get("deleted") or 0, r["updated_at"], local_id))
                     result.merged["episodes"] += 1
                 if r.get("deleted") and not local["deleted"]:
                     videos.delete_episode_files(conn, local_id)

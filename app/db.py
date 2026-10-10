@@ -178,7 +178,8 @@ _SYNC_COLUMNS = {
     "feeds": [("uid", "TEXT"), ("updated_at", "REAL"), ("deleted", "INTEGER NOT NULL DEFAULT 0")],
     "episodes": [("uid", "TEXT"), ("updated_at", "REAL"), ("transcribe_requested_at", "REAL"),
                  ("remote_audio", "INTEGER NOT NULL DEFAULT 0"), ("synced_rev", "REAL"),
-                 ("sync_audio_path", "TEXT"), ("deleted", "INTEGER NOT NULL DEFAULT 0")],
+                 ("sync_audio_path", "TEXT"), ("deleted", "INTEGER NOT NULL DEFAULT 0"),
+                 ("language", "TEXT")],  # what it was transcribed/imported as: ar, es, fr, ja, zh, ru
     "vocab": [("uid", "TEXT"), ("updated_at", "REAL"), ("deleted", "INTEGER NOT NULL DEFAULT 0"),
               ("episode_uid", "TEXT"), ("folders", "TEXT NOT NULL DEFAULT '[]'"),
               ("clip", "INTEGER NOT NULL DEFAULT 0")],
@@ -204,7 +205,8 @@ BEGIN UPDATE episodes SET updated_at = {NOW_SQL} WHERE id = NEW.id; END;
 CREATE TRIGGER IF NOT EXISTS episodes_upd AFTER UPDATE ON episodes
 WHEN NEW.updated_at IS OLD.updated_at AND NOT EXISTS (SELECT 1 FROM sync_guard) AND (NEW.title IS NOT OLD.title OR NEW.audio_url IS NOT OLD.audio_url
   OR NEW.duration IS NOT OLD.duration OR NEW.transcribe_requested_at IS NOT OLD.transcribe_requested_at
-  OR NEW.synced_rev IS NOT OLD.synced_rev OR NEW.remote_audio IS NOT OLD.remote_audio OR NEW.deleted IS NOT OLD.deleted)
+  OR NEW.synced_rev IS NOT OLD.synced_rev OR NEW.remote_audio IS NOT OLD.remote_audio OR NEW.deleted IS NOT OLD.deleted
+  OR NEW.language IS NOT OLD.language)
 BEGIN UPDATE episodes SET updated_at = {NOW_SQL} WHERE id = NEW.id; END;
 
 CREATE TRIGGER IF NOT EXISTS vocab_ins AFTER INSERT ON vocab WHEN NEW.updated_at IS NULL AND NOT EXISTS (SELECT 1 FROM sync_guard)
@@ -230,11 +232,19 @@ def _columns(conn: sqlite3.Connection, table: str) -> set[str]:
 def _migrate(conn: sqlite3.Connection) -> None:
     from . import ids
 
+    # Before the app taught other languages, everything was Arabic. An install from then keeps
+    # Arabic as its language and marks what it already transcribed; a new install asks the user.
+    upgrading = "language" not in _columns(conn, "episodes")
     for table, cols in _SYNC_COLUMNS.items():
         have = _columns(conn, table)
         for name, decl in cols:
             if name not in have:
                 conn.execute(f"ALTER TABLE {table} ADD COLUMN {name} {decl}")
+    if upgrading:
+        conn.execute("UPDATE episodes SET language = 'ar' WHERE status = 'done'")
+        used = conn.execute("SELECT 1 FROM settings WHERE key = 'welcome_seen' AND value = 'true'").fetchone()
+        if used or conn.execute("SELECT 1 FROM episodes LIMIT 1").fetchone():
+            conn.execute("INSERT OR IGNORE INTO settings(key, value) VALUES('study_language', '\"ar\"')")
     for name in _TRIGGER_NAMES:  # recreate so trigger changes in new versions take effect
         conn.execute(f"DROP TRIGGER IF EXISTS {name}")
     conn.executescript(_TRIGGERS)
@@ -304,6 +314,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "font_size": 26,                # transcript font size in px (podcasts and videos)
     "page_font_size": 17,           # text size for imported web pages (set separately; smaller by default)
     "welcome_seen": False,
+    "study_language": "",           # the language being learned (ar, es, fr, ja, zh, ru); chosen on first run
     "beam_size": 5,
     # AI word definitions (users bring their own API key).
     "definer_provider": "claude",

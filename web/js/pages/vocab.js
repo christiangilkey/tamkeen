@@ -4,6 +4,7 @@
 
 import { api, esc, h, toast, download, fmtDate, audioUrl, showMenu, shareClip, clipUrl } from "../app.js";
 import { formatTime } from "../wordlookup.js";
+import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
 
 const DAY = 86400;
@@ -12,7 +13,7 @@ const SORTS = {
   added_asc: ["Oldest first", (a, b) => a.created_at - b.created_at],
   changed_desc: ["Recently changed", (a, b) => (b.updated_at || b.created_at) - (a.updated_at || a.created_at)],
   changed_asc: ["Least recently changed", (a, b) => (a.updated_at || a.created_at) - (b.updated_at || b.created_at)],
-  alpha: ["A–Z (Arabic)", (a, b) => a.text.localeCompare(b.text, "ar")],
+  alpha: ["A–Z", (a, b) => a.text.localeCompare(b.text, studyLanguage())],
 };
 const RANGES = { any: "Any time", today: "Today", week: "Last 7 days", month: "Last 30 days", year: "Last 12 months", custom: "Between dates…" };
 
@@ -69,7 +70,7 @@ export async function render(view) {
       <h1 style="margin:0">Vocab</h1>
       <span class="muted" id="count"></span>
       <span class="spacer"></span>
-      <input type="search" id="q" placeholder="Search vocab… ابحث" style="width:220px">
+      <input type="search" id="q" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto" style="width:220px">
       <button type="button" id="csv" title="Export the words shown below">Export CSV</button>
       <button type="button" id="anki" title="Export the words shown below">Export for Anki</button>
     </div>
@@ -95,9 +96,9 @@ export async function render(view) {
     <details class="card" id="add-box" style="margin-bottom:12px">
       <summary style="cursor:pointer"><strong>Add a word manually</strong></summary>
       <form id="add" class="stack" style="margin-top:10px">
-        <input type="text" name="text" class="ar" placeholder="الكلمة" required dir="rtl" style="font-size:20px;width:100%">
+        <input type="text" name="text" class="ar" placeholder="${esc(langInfo(studyLanguage()).word)}" required ${langAttrs(studyLanguage())} style="font-size:20px;width:100%">
         <input type="text" name="meaning" placeholder="Meaning" style="width:100%">
-        <textarea name="sentence" class="ar" rows="2" placeholder="Example sentence (optional)" dir="rtl"></textarea>
+        <textarea name="sentence" class="ar" rows="2" placeholder="Example sentence (optional)" ${langAttrs(studyLanguage())}></textarea>
         <div><button class="primary" type="submit">Add</button></div>
       </form>
     </details>
@@ -280,9 +281,9 @@ export async function render(view) {
       <div>
         <div class="row" style="gap:8px;align-items:flex-start">
           <input type="checkbox" class="pick" aria-label="Select word">
-          <div class="word" dir="rtl" style="flex:1"></div>
+          <div class="word" ${langAttrs(detectLanguage(v.sentence || v.text))} style="flex:1"></div>
         </div>
-        ${v.sentence ? `<div class="sentence" dir="rtl">${highlight(v.sentence, v.text)}</div>` : ""}
+        ${v.sentence ? `<div class="sentence" ${langAttrs(detectLanguage(v.sentence || v.text))}>${highlight(v.sentence, v.text)}</div>` : ""}
         <div class="small muted" style="margin-top:6px">
           ${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}
           ${v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}${changed ? ` · changed ${fmtDate(v.updated_at)}` : ""}
@@ -421,8 +422,8 @@ export async function render(view) {
     const ids = visible().map((v) => v.id);
     return `/api/vocab/export/${fmt}${ids.length === all.length && !st.q ? "" : `?ids=${encodeURIComponent(ids.join(","))}`}`;
   };
-  $("#csv").onclick = () => download(exportUrl("csv"), "arabic-vocab.csv");
-  $("#anki").onclick = () => download(exportUrl("anki"), "arabic-vocab-anki.txt");
+  $("#csv").onclick = () => download(exportUrl("csv"), "tamkeen-vocab.csv");
+  $("#anki").onclick = () => download(exportUrl("anki"), "tamkeen-vocab-anki.txt");
   $("#add").onsubmit = async (e) => {
     e.preventDefault();
     const f = new FormData(e.target);

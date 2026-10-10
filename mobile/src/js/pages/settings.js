@@ -3,6 +3,8 @@
 import { esc, h, on, toast, saveSettings } from "../app.js";
 import { PROVIDERS, define } from "../definer.js";
 import { accountSection } from "../components/account.js";
+import { languagePicker } from "../components/langpicker.js";
+import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { transport } from "../define-service.js";
 import { signIn, signOut } from "../drive.js";
 import { isNative } from "../native.js";
@@ -21,6 +23,13 @@ export async function render(view) {
   const s = settings;
   view.append(h(`<div class="page settings">
     <h1>Settings</h1>
+    <section class="card stack">
+      <h2>Language I'm learning</h2>
+      <div id="study-lang"></div>
+      <p class="small muted">Used for web pages you import here and for word explanations. Set the same one on your computer, which does the transcribing.
+        Things you already transcribed keep the language they were made in.</p>
+    </section>
+
     <section class="card stack">
       <h2>Google account</h2>
       <p class="small muted">Your podcasts, transcripts and vocab come from your computer through a private app folder
@@ -52,9 +61,9 @@ export async function render(view) {
       <label class="check"><input type="checkbox" id="haptics" ${s.haptics !== false ? "checked" : ""}>
         <span>Vibrate lightly when I tap a word or save one</span></label>
       <div class="row">Podcast &amp; video text: <input type="range" id="font" min="16" max="48" value="${s.font_size}" style="flex:1"> <span id="font-val">${s.font_size}px</span></div>
-      <div class="ar" dir="rtl" style="font-size:var(--ar-size);line-height:2">مَرْحَبًا بِكُمْ فِي البودكاست</div>
+      <div class="ar" ${langAttrs(studyLanguage())} style="font-size:var(--ar-size);line-height:2">${esc(langInfo(studyLanguage()).sample)}</div>
       <div class="row">Web page text: <input type="range" id="page-font" min="12" max="40" value="${s.page_font_size || 17}" style="flex:1"> <span id="page-font-val">${s.page_font_size || 17}px</span></div>
-      <div class="ar" dir="rtl" style="font-size:var(--page-size);line-height:2">القهوة مشروب يُحضر من بذور البن المحمصة.</div>
+      <div class="ar" ${langAttrs(studyLanguage())} style="font-size:var(--page-size);line-height:2">${esc(langInfo(studyLanguage()).pageSample)}</div>
     </section>
 
     <section class="card small muted">Tamkeen for Android · <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a></section>
@@ -112,6 +121,12 @@ export async function render(view) {
   $("#def-key").onchange = (e) => saveSettings({ [`llm_key_${prov()}`]: e.target.value.trim() });
   $("#def-model").onchange = (e) => saveSettings({ [`definer_model_${prov()}`]: e.target.value.trim() });
   $("#def-lang").onchange = (e) => saveSettings({ definer_language: e.target.value.trim() || "English" });
+  $("#study-lang").append(languagePicker(s.study_language, async (code) => {
+    await saveSettings({ study_language: code });
+    toast(`Now learning ${LANGUAGES[code].name}`);
+    window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
+  }));
+
   $("#def-test").onclick = async (e) => {
     const out = $("#def-out");
     e.target.disabled = true;
@@ -120,8 +135,8 @@ export async function render(view) {
     try {
       const d = await define({ provider: prov(), key: $("#def-key").value.trim(), model: $("#def-model").value.trim(),
                                language: $("#def-lang").value.trim() || "English" },
-                             { word: "هون", marked: "انتي جديدة ⟦هون⟧؟", podcast: "Real Arabic (Levantine)" }, transport);
-      out.textContent = `✓ Works: هون = “${d.meaning}”`;
+                             { ...langInfo(studyLanguage()).test, lang: studyLanguage() }, transport);
+      out.textContent = `✓ Works: ${langInfo(studyLanguage()).test.word} = “${d.meaning}”`;
       out.style.color = "var(--accent)";
     } catch (err) {
       out.textContent = err.message;

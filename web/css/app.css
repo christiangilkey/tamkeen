@@ -37,8 +37,9 @@
   --brand-grad: linear-gradient(45deg, #360032 0%, #1b526d 52%, #0b8693 100%);
   /* The one alert colour: only for things that need attention (requests, unread messages). */
   --alert: #e5484d;
-  --ar-font: "Noto Naskh Arabic", "Geeza Pro", "Arabic Typesetting", "Traditional Arabic", "Segoe UI",
-    "Noto Sans Arabic", "DejaVu Sans", serif;
+  /* Font for the text being studied. This is the default (Latin and Cyrillic letters); the
+     rules just below swap it per language, chosen by an element's lang attribute. */
+  --ar-font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", "Noto Sans", Roboto, Arial, sans-serif;
   color-scheme: light;
 }
 
@@ -105,7 +106,11 @@ h3 { font-size: 15px; }
 p { margin: 0 0 .75em; }
 .muted { color: var(--muted); }
 .small { font-size: 12px; }
-.ar { font-family: var(--ar-font); direction: rtl; unicode-bidi: plaintext; }
+/* Study text: its font and direction come from its language (lang and dir attributes, see languages.js). */
+:lang(ar) { --ar-font: "Noto Naskh Arabic", "Geeza Pro", "Arabic Typesetting", "Traditional Arabic", "Segoe UI", "Noto Sans Arabic", "DejaVu Sans", serif; }
+:lang(ja) { --ar-font: "Hiragino Sans", "Yu Gothic UI", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", sans-serif; }
+:lang(zh) { --ar-font: "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif; }
+.ar { font-family: var(--ar-font); unicode-bidi: plaintext; }
 [hidden] { display: none !important; }
 
 /* ---------- controls ---------- */
@@ -311,7 +316,6 @@ label.check input { margin-top: 3px; }
   font-family: var(--ar-font);
   font-size: var(--ar-size);
   line-height: 2.1;
-  direction: rtl;
   text-align: start;
   overscroll-behavior: contain;
 }
@@ -360,8 +364,8 @@ label.check input { margin-top: 3px; }
 /* ---------- vocab / search ---------- */
 .vocab-list { display: flex; flex-direction: column; gap: 10px; }
 .vocab-item { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.vocab-item .word { font-family: var(--ar-font); font-size: 28px; line-height: 1.6; direction: rtl; text-align: right; }
-.vocab-item .sentence { font-family: var(--ar-font); font-size: 19px; line-height: 1.9; direction: rtl; text-align: right; color: var(--muted); }
+.vocab-item .word { font-family: var(--ar-font); font-size: 28px; line-height: 1.6; text-align: start; }
+.vocab-item .sentence { font-family: var(--ar-font); font-size: 19px; line-height: 1.9; text-align: start; color: var(--muted); }
 .vocab-item .sentence b { color: var(--text); background: var(--hl); color: var(--hl-ink); border-radius: 4px; padding: 0 2px; font-weight: inherit; }
 .vocab-item .fields { display: flex; flex-direction: column; gap: 6px; }
 .vocab-item input[type=text] { width: 100%; }
@@ -386,7 +390,7 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .welcome .hero { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
 .welcome .hero img { width: 72px; height: 72px; border-radius: 16px; }
 .welcome ol li { margin-bottom: 8px; }
-.welcome .ar-sample { font-family: var(--ar-font); font-size: 26px; direction: rtl; text-align: center; margin: 12px 0; }
+.welcome .ar-sample { font-family: var(--ar-font); font-size: 26px; text-align: center; margin: 12px 0; min-height: 1.6em; }
 .licenses details { border-bottom: 1px solid var(--border); padding: 8px 0; }
 .licenses summary { cursor: pointer; }
 .licenses pre { white-space: pre-wrap; font-size: 12px; max-height: 320px; overflow: auto; background: var(--surface-2); padding: 10px; border-radius: 8px; }
@@ -421,7 +425,8 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 }
 @keyframes wb-in { from { opacity: 0; transform: translateY(4px); } }
 .wb-head { display: flex; align-items: flex-start; gap: 8px; }
-.wb-word { flex: 1; font-family: var(--ar-font); font-size: 30px; line-height: 1.5; text-align: right; }
+.wb-word { flex: 1; font-family: var(--ar-font); font-size: 30px; line-height: 1.5; text-align: start; }
+.wb-reading { font-family: var(--ar-font); font-size: 17px; color: var(--muted); margin: -2px 0 6px; unicode-bidi: plaintext; }
 .wb-close { flex: none; }
 .wb-meaning { font-size: 18px; font-weight: 600; margin: 2px 0 4px; }
 .wb-expl { color: var(--muted); margin: 0 0 8px; }
@@ -476,7 +481,7 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
   max-width: 92%; width: max-content; text-align: center;
   font-family: var(--ar-font); font-size: clamp(18px, calc(var(--ar-size) * .95), 44px); line-height: 1.75;
   color: #fff; background: rgba(0, 0, 0, .66); padding: .1em .6em; border-radius: 10px;
-  direction: rtl; z-index: 2; user-select: none; -webkit-user-select: none;
+  z-index: 2; user-select: none; -webkit-user-select: none;
 }
 .captions:empty, .player.cc-off .captions { display: none; }
 .captions .w { cursor: pointer; border-radius: 5px; padding: 0 .05em; transition: background-color .08s; }
@@ -606,7 +611,8 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .reader-text .w { border-radius: 5px; cursor: pointer; padding: 0 .04em; transition: background-color .08s; }
 .reader-text .w:hover { background: var(--surface-2); }
 .reader-text .w.cur { background: var(--hl); color: var(--hl-ink); }
-.reader-text [dir=auto]:not(:dir(rtl)) { font-family: var(--ui-font); font-size: .94em; line-height: 1.7; }
+/* In a right-to-left page, passages in another (left-to-right) language are set a little smaller. */
+.reader-text[dir=rtl] [dir=auto]:not(:dir(rtl)) { font-family: var(--ui-font); font-size: .94em; line-height: 1.7; }
 @media (max-width: 640px) { .reader-text { padding: 16px 16px 40vh; } }
 
 /* ================================================================ Tamkeen identity
@@ -742,3 +748,13 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .update-text .small { opacity: .85; }
 .update-close { color: #fff; flex: none; }
 .update-close:hover:not(:disabled) { background: rgba(255, 255, 255, .15); }
+
+/* ---------- "which language are you learning?" picker ---------- */
+.lang-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.lang-opt { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 8px; border-radius: 14px;
+  border: 2px solid var(--border); background: var(--surface); min-height: 76px; }
+.lang-opt:hover:not(:disabled) { border-color: var(--accent); }
+.lang-opt[aria-checked="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); }
+.lang-native { font-family: var(--ar-font); font-size: 22px; line-height: 1.4; font-weight: 600; }
+.lang-name { font-size: 13px; color: var(--muted); }
+@media (max-width: 420px) { .lang-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

@@ -15,7 +15,7 @@ from collections.abc import Iterable
 from pathlib import Path
 from typing import Any
 
-from . import arabic, audio, db, downloader, events, paths, sync, transcriber, videos
+from . import arabic, audio, db, downloader, events, languages, paths, sync, transcriber, videos
 from .transcriber import Segment, TranscriptionCancelled
 
 log = logging.getLogger(__name__)
@@ -197,7 +197,7 @@ def _ensure_audio(ep: dict[str, Any], cancel: threading.Event) -> tuple[Path, bo
     return dest, stream_only
 
 
-def _store(episode_id: int, segments: list[Segment], model: str) -> int:
+def _store(episode_id: int, segments: list[Segment], model: str, language: str = languages.DEFAULT) -> int:
     with db.session() as conn:
         _clear_transcript(conn, episode_id)
         widx = 0
@@ -220,7 +220,7 @@ def _store(episode_id: int, segments: list[Segment], model: str) -> int:
             )
             widx += len(words)
         _set_episode(conn, episode_id, status="done", progress=100, error=None, model=model,
-                     transcribed_at=time.time())
+                     language=language, transcribed_at=time.time())
     return widx
 
 
@@ -268,7 +268,8 @@ def _process(job: dict[str, Any], cancel: threading.Event) -> None:
         segments: list[Segment] = []
         last_emit = 0.0
         last_pct = -1.0
-        for seg in engine.transcribe(samples, cancel):
+        language = languages.study()  # the language being learned when the work starts
+        for seg in engine.transcribe(samples, cancel, language):
             segments.append(seg)
             pct = min(99.9, round(100 * seg.end / duration, 1)) if duration else 0.0
             now = time.monotonic()
@@ -281,7 +282,7 @@ def _process(job: dict[str, Any], cancel: threading.Event) -> None:
 
         if cancel.is_set():
             raise TranscriptionCancelled()
-        n_words = _store(ep_id, segments, f"{engine.engine}:{engine.model_size}:{engine.device}")
+        n_words = _store(ep_id, segments, f"{engine.engine}:{engine.model_size}:{engine.device}", language)
         _make_sync_copy(ep_id, audio_path)
         with db.session() as conn:
             conn.execute("UPDATE jobs SET state = 'done', finished_at = ? WHERE id = ?", (time.time(), job["id"]))

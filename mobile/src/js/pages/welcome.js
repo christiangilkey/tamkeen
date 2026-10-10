@@ -4,13 +4,21 @@ import { h, toast, saveSettings } from "../app.js";
 import { signIn } from "../drive.js";
 import { isNative } from "../native.js";
 import { syncNow } from "../sync.js";
+import { settings } from "../store.js";
+import { languagePicker } from "../components/langpicker.js";
+import { LANGUAGES, isLanguage, setLang } from "../languages.js";
 
 export async function render(view) {
   view.append(h(`<div class="welcome">
     <div class="hero"><img src="icons/icon-256.png" alt=""><div>
       <h1 style="margin:0">Tamkeen</h1>
       <p class="muted" style="margin:0">Your podcasts, transcripts and vocab, on your phone.</p></div></div>
-    <div class="ar-sample">أَهْلًا وَسَهْلًا</div>
+    <div class="card stack">
+      <h2>Which language are you learning?</h2>
+      <div id="lang"></div>
+      <p class="small muted">Choose the same one as on your computer. You can change it later in Settings.</p>
+    </div>
+    <div class="ar-sample" id="hello"></div>
     <div class="card stack">
       <ol>
         <li><strong>Transcribe on your computer.</strong> The desktop app makes the word-by-word transcripts.</li>
@@ -23,6 +31,18 @@ export async function render(view) {
       ${isNative ? "" : `<p class="small muted">Preview mode: sign-in works in the installed app.</p>`}
     </div>
   </div>`));
+  const hello = view.querySelector("#hello");
+  const show = (code) => {
+    const chosen = isLanguage(code);
+    view.querySelector("#go").disabled = view.querySelector("#skip").disabled = !chosen;
+    hello.textContent = chosen ? LANGUAGES[code].hello : "";
+    if (chosen) setLang(hello, code);
+  };
+  view.querySelector("#lang").append(languagePicker(settings.study_language, async (code) => {
+    show(code);
+    await saveSettings({ study_language: code });
+  }));
+  show(settings.study_language);
   const finish = async () => { await saveSettings({ welcome_seen: true }); location.hash = "#/"; };
   view.querySelector("#go").onclick = async (e) => {
     e.target.disabled = true;

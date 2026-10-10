@@ -111,8 +111,8 @@ export function vocabAnki(items) {
     if (v.notes) back += (back ? "<br><br>" : "") + `<i>${escHtml(v.notes)}</i>`;
     let source = escHtml(v.episode_title || "");
     if (v.start != null) source += ` @ ${ts(v.start, ",").slice(0, 8)}`;
-    lines.push([`<div dir="rtl" style="font-size:2em">${word}</div>`, back,
-      sentence ? `<div dir="rtl">${sentence}</div>` : "", source, "arabic-podcast"].map(field).join("\t"));
+    lines.push([`<div dir="auto" style="font-size:2em">${word}</div>`, back,
+      sentence ? `<div dir="auto">${sentence}</div>` : "", source, "tamkeen"].map(field).join("\t"));
   }
   return lines.join("\n") + "\n";
 }

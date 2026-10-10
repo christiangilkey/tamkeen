@@ -1,9 +1,11 @@
-// Context-aware Arabic word definer. Shared by the desktop app and the Android app.
+// Context-aware word definer for the language being studied. Shared by the desktop app and the Android app.
 //
 // One request per lookup: the word, its sentence and the neighbouring sentences go to the
 // user's chosen AI provider with their own API key, and a schema-constrained JSON answer
 // comes back. The HTTP transport is injected (desktop relays through its local server to
 // avoid browser CORS limits; Android uses native HTTP), so this file has no platform code.
+
+import { isLanguage, gap } from "./languages.js";
 
 export const PROVIDERS = {
   claude: {
@@ -32,41 +34,135 @@ export const PROVIDERS = {
   },
 };
 
-// Every field is required (strict schemas demand it); the model uses "" or [] when n/a.
-export const SCHEMA = {
-  type: "object",
-  properties: {
-    word: { type: "string", description: "The target word exactly as it appears in the sentence." },
-    vocalized: { type: "string", description: "The word with full tashkeel, as pronounced in this sentence." },
-    lemma: { type: "string", description: "Dictionary form, vocalized (past-tense 3ms for verbs, singular for nouns)." },
-    root: { type: "string", description: "Root letters separated by spaces, e.g. 'ك ت ب'; empty for particles/loanwords." },
-    pos: { type: "string", description: "Part of speech, e.g. verb, noun, adjective, preposition, particle." },
-    morphology: { type: "string", description: "Short analysis: verb form/tense/person, attached prefixes and pronouns, etc." },
-    meaning: { type: "string", description: "Concise meaning of the word in THIS sentence." },
-    explanation: { type: "string", description: "One or two sentences on why it means this here." },
-    other_meanings: { type: "array", items: { type: "string" }, description: "Other common meanings out of context." },
-    dialect: { type: "string", description: "MSA, Levantine, Egyptian, Gulf, Iraqi, Maghrebi, or similar." },
-    dialect_note: { type: "string", description: "Dialect-specific usage note; empty if none." },
-    msa_equivalent: { type: "string", description: "MSA equivalent if the word is dialectal; empty otherwise." },
-    sentence_translation: { type: "string", description: "Natural translation of the whole sentence." },
+// What the AI teacher is told about each language. The answer always has the same fields (so the
+// popup and saved answers work for every language); only what goes in them differs:
+//   vocalized       how the word is read: vowel marks, stress, kana, pinyin or IPA
+//   root            Arabic root letters, or a character-by-character breakdown for Japanese/Chinese
+//   dialect         the variety or register the word belongs to
+//   msa_equivalent  the standard-language equivalent of a regional or slang word
+const TEACH = {
+  ar: {
+    name: "Arabic",
+    variety: "which may be in Modern Standard Arabic or any dialect",
+    why: "Arabic words are highly context-dependent (unvocalized spelling, attached clitics, dialect usage)",
+    vocalized: "The word with full tashkeel, as pronounced in this sentence.",
+    lemma: "Dictionary form, vocalized (past-tense 3ms for verbs, singular for nouns).",
+    root: "Root letters separated by spaces, e.g. 'ك ت ب'; empty for particles/loanwords.",
+    morphology: "Short analysis: verb form/tense/person, attached prefixes and pronouns, etc.",
+    dialect: "MSA, Levantine, Egyptian, Gulf, Iraqi, Maghrebi, or similar.",
+    dialect_note: "Dialect-specific usage note; empty if none.",
+    msa_equivalent: "MSA equivalent if the word is dialectal; empty otherwise.",
   },
-  required: ["word", "vocalized", "lemma", "root", "pos", "morphology", "meaning", "explanation",
-    "other_meanings", "dialect", "dialect_note", "msa_equivalent", "sentence_translation"],
-  additionalProperties: false,
+  es: {
+    name: "Spanish",
+    variety: "which may be from Spain or anywhere in Latin America, formal or colloquial",
+    why: "Spanish words change meaning with context (verb endings that hide the subject, attached pronouns, regional vocabulary and slang)",
+    vocalized: "Pronunciation in IPA as said in this variety, e.g. '/aoˈɾita/'.",
+    lemma: "Dictionary form (infinitive for verbs, masculine singular for nouns and adjectives), with its article for nouns.",
+    root: "Empty string.",
+    morphology: "Short analysis: tense, mood, person and number; attached pronouns; gender and number.",
+    dialect: "Standard, or the region or register if notable: Mexican, Rioplatense, Caribbean, Peninsular, colloquial, slang, etc.",
+    dialect_note: "Regional or register usage note (where it is said, how formal it is); empty if none.",
+    msa_equivalent: "The neutral, widely understood equivalent if the word is regional or slang; empty otherwise.",
+  },
+  fr: {
+    name: "French",
+    variety: "which may be from France, Quebec, Belgium, Switzerland or Africa, formal or colloquial",
+    why: "French words change meaning with context (elided articles and pronouns such as l', j', qu', many forms that sound alike, colloquial speech and slang)",
+    vocalized: "Pronunciation in IPA, e.g. '/tʁyk/'.",
+    lemma: "Dictionary form (infinitive for verbs, masculine singular for nouns and adjectives), with its article for nouns.",
+    root: "Empty string.",
+    morphology: "Short analysis: tense, mood, person and number; elided or attached parts (l', n', -t-il); gender and number.",
+    dialect: "Standard, or the region or register if notable: colloquial, slang, verlan, Quebec, Belgian, literary, etc.",
+    dialect_note: "Regional or register usage note (how formal it is, where it is said); empty if none.",
+    msa_equivalent: "The neutral standard equivalent if the word is slang, verlan or regional; empty otherwise.",
+  },
+  ja: {
+    name: "Japanese",
+    variety: "which may be polite, casual or in a regional dialect",
+    why: "Japanese is written without spaces and leans on context (dropped subjects, particles, many readings per kanji, levels of politeness)",
+    vocalized: "The reading of the word in hiragana as said in this sentence, followed by romaji in parentheses, e.g. 'たべます (tabemasu)'.",
+    lemma: "Dictionary form (plain form for verbs and adjectives), in its usual kanji/kana spelling.",
+    root: "For words written with kanji: each kanji with its meaning, e.g. '学 study + 校 school'; empty for kana-only words.",
+    morphology: "Short analysis: word type and conjugation (polite, past, negative, te-form, potential, passive…), attached particles or auxiliaries.",
+    dialect: "Standard, or the register or dialect if notable: polite, humble, honorific, casual, slang, Kansai, etc.",
+    dialect_note: "Politeness, register or dialect usage note; empty if none.",
+    msa_equivalent: "The standard (Tokyo, neutral-politeness) equivalent if the word is dialectal or slang; empty otherwise.",
+  },
+  zh: {
+    name: "Chinese",
+    variety: "which is Mandarin, possibly with regional or colloquial expressions, in simplified or traditional characters",
+    why: "Chinese is written without spaces and words depend heavily on context (the same character in many words, measure words, particles, set phrases)",
+    vocalized: "Pinyin with tone marks as pronounced in this sentence, e.g. 'kàopǔ'.",
+    lemma: "The word as a dictionary lists it (same script as the sentence).",
+    root: "For words of two or more characters: each character with its meaning, e.g. '靠 rely + 谱 score'; empty for single characters.",
+    morphology: "Short analysis: word type, and any aspect particle, complement, measure word or set pattern involved.",
+    dialect: "Standard Mandarin, or the register or region if notable: colloquial, slang, formal/written, chengyu, Taiwan, Beijing, internet, etc.",
+    dialect_note: "Register or regional usage note; empty if none.",
+    msa_equivalent: "The neutral standard equivalent if the word is slang or regional; empty otherwise.",
+  },
+  ru: {
+    name: "Russian",
+    variety: "which may be formal or colloquial",
+    why: "Russian words change form with their role in the sentence (six cases, verb aspect, moving stress, prefixes)",
+    vocalized: "The word as it appears, with its stress marked by an acute accent, e.g. 'ла́дно'.",
+    lemma: "Dictionary form with stress marked (infinitive for verbs, with its aspect partner if it has one; nominative singular for nouns and adjectives).",
+    root: "Empty string.",
+    morphology: "Short analysis: case, number and gender; verb aspect, tense and person; prefixes.",
+    dialect: "Standard, or the register if notable: colloquial, slang, formal, bookish, vulgar, etc.",
+    dialect_note: "Register usage note; empty if none.",
+    msa_equivalent: "The neutral standard equivalent if the word is slang or colloquial; empty otherwise.",
+  },
 };
 
-const SYSTEM = (lang) => `You are an expert Arabic teacher helping a learner understand words in real podcast audio transcripts, which may be in Modern Standard Arabic or any dialect.
+const teach = (code) => TEACH[isLanguage(code) ? code : "ar"];
 
-The learner tapped one word (or selected a short phrase). It is marked ⟦like this⟧ in the sentence. Analyze that specific occurrence (for a phrase, treat it as one expression), using the sentence, the surrounding sentences and the podcast details to resolve its meaning: Arabic words are highly context-dependent (unvocalized spelling, attached clitics, dialect usage), so the in-context meaning matters most.
+/** The answer's shape for one language. Every field is required (strict schemas demand it); the
+ * model uses "" or [] when a field doesn't apply. */
+export function schemaFor(code) {
+  const t = teach(code);
+  return {
+    type: "object",
+    properties: {
+      word: { type: "string", description: "The target word exactly as it appears in the sentence." },
+      vocalized: { type: "string", description: t.vocalized },
+      lemma: { type: "string", description: t.lemma },
+      root: { type: "string", description: t.root },
+      pos: { type: "string", description: "Part of speech, e.g. verb, noun, adjective, preposition, particle." },
+      morphology: { type: "string", description: t.morphology },
+      meaning: { type: "string", description: "Concise meaning of the word in THIS sentence." },
+      explanation: { type: "string", description: "One or two sentences on why it means this here." },
+      other_meanings: { type: "array", items: { type: "string" }, description: "Other common meanings out of context." },
+      dialect: { type: "string", description: t.dialect },
+      dialect_note: { type: "string", description: t.dialect_note },
+      msa_equivalent: { type: "string", description: t.msa_equivalent },
+      sentence_translation: { type: "string", description: "Natural translation of the whole sentence." },
+    },
+    required: ["word", "vocalized", "lemma", "root", "pos", "morphology", "meaning", "explanation",
+      "other_meanings", "dialect", "dialect_note", "msa_equivalent", "sentence_translation"],
+    additionalProperties: false,
+  };
+}
+
+export const SCHEMA = schemaFor("ar");
+
+/** Instructions for the AI teacher. `lang` is the language explanations are written in; `code`
+ * is the language being studied. */
+export function systemPrompt(lang, code) {
+  const t = teach(code);
+  return `You are an expert ${t.name} teacher helping a learner understand words in real ${t.name} material (podcast and video transcripts, web pages), ${t.variety}.
+
+The learner tapped one word (or selected a short phrase). It is marked ⟦like this⟧ in the sentence. Analyze that specific occurrence (for a phrase, treat it as one expression), using the sentence, the surrounding sentences and the source details to resolve its meaning: ${t.why}, so the in-context meaning matters most.
 
 Transcripts come from speech recognition and may contain small errors; if the word looks misrecognized, say what was probably said in the explanation.
 
 Write all explanations, meanings and translations in ${lang}. Keep "meaning" short (a few words). Return only the JSON object.`;
+}
 
 function userPrompt(ctx) {
   const lines = [];
-  if (ctx.podcast) lines.push(`Podcast: ${ctx.podcast}`);
-  if (ctx.episode) lines.push(`Episode: ${ctx.episode}`);
+  if (ctx.podcast) lines.push(`Source: ${ctx.podcast}`);
+  if (ctx.episode) lines.push(`Title: ${ctx.episode}`);
   if (ctx.before) lines.push(`Previous sentence: ${ctx.before}`);
   lines.push(`Sentence: ${ctx.marked}`);
   if (ctx.after) lines.push(`Next sentence: ${ctx.after}`);
@@ -74,16 +170,21 @@ function userPrompt(ctx) {
   return lines.join("\n");
 }
 
-/** The sentence with the target word (or phrase, words first..last) wrapped in ⟦⟧. */
-export function markWord(words, first, last = first) {
-  return words
-    .map((w, i) => (i === first ? "⟦" : "") + w + (i === last ? "⟧" : ""))
-    .join(" ");
+/** The sentence with the target word (or phrase, words first..last) wrapped in ⟦⟧.
+ * `code` is the language of the sentence (Japanese and Chinese are joined without spaces). */
+export function markWord(words, first, last = first, code = "ar") {
+  let out = "";
+  for (let i = 0; i < words.length; i++) {
+    out += (i ? gap(words[i - 1], words[i], code) : "") + (i === first ? "⟦" : "") + words[i] + (i === last ? "⟧" : "");
+  }
+  return out;
 }
 
-/** Stable cache key for one lookup (same word in the same sentence → same answer). */
-export async function cacheKey(word, marked, lang) {
-  const data = new TextEncoder().encode(`${word}\u0000${marked}\u0000${lang}`);
+/** Stable cache key for one lookup (same word in the same sentence → same answer).
+ * `lang` is the explanation language, `code` the language studied. Arabic keys are unchanged
+ * from before other languages existed, so answers already saved are still found. */
+export async function cacheKey(word, marked, lang, code = "ar") {
+  const data = new TextEncoder().encode(`${word}\u0000${marked}\u0000${lang}${code && code !== "ar" ? `\u0000${code}` : ""}`);
   const hash = await crypto.subtle.digest("SHA-256", data);
   return [...new Uint8Array(hash)].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 40);
 }
@@ -103,7 +204,7 @@ function geminiSchema(s) {
   return out;
 }
 
-function buildRequest(provider, model, key, system, user, lite = false) {
+function buildRequest(provider, model, key, system, user, schema, lite = false) {
   switch (provider) {
     case "claude": {
       const body = {
@@ -111,7 +212,7 @@ function buildRequest(provider, model, key, system, user, lite = false) {
         max_tokens: 4000,
         system,
         messages: [{ role: "user", content: user }],
-        output_config: { format: { type: "json_schema", schema: SCHEMA } },
+        output_config: { format: { type: "json_schema", schema } },
       };
       const headers = { "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json" };
       if (!lite && !model.startsWith("claude-haiku")) {
@@ -128,7 +229,7 @@ function buildRequest(provider, model, key, system, user, lite = false) {
       const body = {
         systemInstruction: { parts: [{ text: system }] },
         contents: [{ role: "user", parts: [{ text: user }] }],
-        generationConfig: { responseMimeType: "application/json", responseSchema: geminiSchema(SCHEMA) },
+        generationConfig: { responseMimeType: "application/json", responseSchema: geminiSchema(schema) },
       };
       if (!lite) body.generationConfig.thinkingConfig = { thinkingLevel: "low" };
       return {
@@ -144,7 +245,7 @@ function buildRequest(provider, model, key, system, user, lite = false) {
         messages: [{ role: "system", content: system }, { role: "user", content: user }],
         response_format: lite
           ? { type: "json_object" }
-          : { type: "json_schema", json_schema: { name: "word_definition", strict: true, schema: SCHEMA } },
+          : { type: "json_schema", json_schema: { name: "word_definition", strict: true, schema } },
       };
       if (!lite) body.reasoning_effort = "low";
       const base = provider === "openai" ? "https://api.openai.com/v1" : "https://api.x.ai/v1";
@@ -224,21 +325,23 @@ function friendlyHttpError(provider, status, bodyText) {
 /**
  * Define one word in context.
  * @param {{provider:string, model:string, key:string, language:string}} cfg
- * @param {{word:string, marked:string, before?:string, after?:string, podcast?:string, episode?:string}} ctx
+ * @param {{word:string, marked:string, lang?:string, before?:string, after?:string, podcast?:string, episode?:string}} ctx
+ *   (`lang` is the code of the language being studied; Arabic when absent)
  * @param {(req:{url:string, headers:object, body:object}) => Promise<{status:number, text:string}>} transport
  */
 export async function define(cfg, ctx, transport) {
   if (!cfg.key) throw new DefinerError("No API key set. Add one in Settings → Word definitions.");
   const model = cfg.model || PROVIDERS[cfg.provider].defaultModel;
-  const system = SYSTEM(cfg.language || "English");
+  const system = systemPrompt(cfg.language || "English", ctx.lang);
   const user = userPrompt(ctx);
+  const schema = schemaFor(ctx.lang);
 
-  let req = buildRequest(cfg.provider, model, cfg.key, system, user);
+  let req = buildRequest(cfg.provider, model, cfg.key, system, user, schema);
   let res = await transport(req);
   // Older/other models may reject the optional speed knobs (effort, thinking level, strict
   // schema). Retry once with a minimal request before giving up.
   if (res.status === 400) {
-    req = buildRequest(cfg.provider, model, cfg.key, system, user, true);
+    req = buildRequest(cfg.provider, model, cfg.key, system, user, schema, true);
     res = await transport(req);
   }
   if (res.status < 200 || res.status >= 300) throw new DefinerError(friendlyHttpError(cfg.provider, res.status, res.text));

@@ -75,6 +75,7 @@ const DEFAULTS = {
   font_size: 26,
   page_font_size: 17,
   welcome_seen: false,
+  study_language: "", // the language being learned (ar, es, fr, ja, zh, ru); chosen on first run
   definer_provider: "claude",
   definer_language: "English",
   definer_model_claude: "", definer_model_gemini: "", definer_model_openai: "", definer_model_grok: "",
@@ -87,6 +88,8 @@ export const settings = { ...DEFAULTS };
 
 export async function loadSettings() {
   Object.assign(settings, DEFAULTS, (await kv.get("settings")) || {});
+  // A phone set up before the app taught other languages was learning Arabic.
+  if (settings.welcome_seen && !settings.study_language) settings.study_language = "ar";
   return settings;
 }
 

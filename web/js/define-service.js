@@ -27,7 +27,7 @@ const relay = async (req) => api("/llm/relay", { method: "POST", body: req });
  */
 export async function getDefinition(ctx, refresh = false) {
   const cfg = definerConfig();
-  const key = await cacheKey(ctx.word, ctx.marked, cfg.language);
+  const key = await cacheKey(ctx.word, ctx.marked, cfg.language, ctx.lang);
   if (!refresh) {
     const cached = await api(`/definitions/${key}`).catch(() => null);
     if (cached) return cached;

@@ -33,9 +33,12 @@ export function activeWordIndex(starts, ends, t, gap = 1.0) {
   return t <= ends[i] + gap ? i : -1;
 }
 
-const TERMINAL = /[.!?؟؛…]["'»”)\]]*$/u;
+const TERMINAL = /[.!?؟؛…。！？．]["'»”’)\]」』）】]*$/u;
 
-/** True if a word ends a sentence (Latin or Arabic punctuation). */
+/** Punctuation and spaces at either edge of a word ("«hola," → "hola"), in any script. */
+export const EDGE_PUNCT = /^[\s\p{P}]+|[\s\p{P}]+$/gu;
+
+/** True if a word ends a sentence (Latin, Arabic, Japanese or Chinese punctuation). */
 export function endsSentence(text) {
   return TERMINAL.test(text);
 }

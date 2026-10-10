@@ -18,7 +18,7 @@ from urllib.parse import urlsplit
 
 import httpx
 
-from . import arabic, db, ids
+from . import arabic, db, ids, languages
 
 LOCAL_FEED_URL = "local:pages"
 LOCAL_FEED_TITLE = "My webpages"
@@ -77,7 +77,8 @@ def fetch_html(url: str) -> dict[str, str]:
     url = clean_url(url)
     try:
         with httpx.Client(follow_redirects=True, timeout=httpx.Timeout(30, connect=15),
-                          headers={"User-Agent": BROWSER_UA, "Accept-Language": "ar,en;q=0.8"}) as client:
+                          headers={"User-Agent": BROWSER_UA,
+                                   "Accept-Language": f"{languages.study()},en;q=0.8"}) as client:
             with client.stream("GET", url) as resp:
                 if resp.status_code >= 400:
                     raise PageError(f"The site answered with an error ({resp.status_code}). "
@@ -146,6 +147,7 @@ def save_page(url: str, title: str, blocks: list[dict[str, Any]], image: str | N
     title = " ".join((title or "").split())[:300] or urlsplit(url).hostname or "Web page"
     image = image if image and image.startswith("https://") else None
     host = site or (urlsplit(url).hostname or "").removeprefix("www.")
+    language = languages.detect(" ".join(text for _kind, text in items[:60]))
     now = time.time()
     with db.session() as conn:
         feed_id = ensure_feed(conn)
@@ -155,13 +157,13 @@ def save_page(url: str, title: str, blocks: list[dict[str, Any]], image: str | N
         if row is None:
             cur = conn.execute(
                 "INSERT INTO episodes(feed_id, uid, guid, title, description, published, image, audio_url, audio_type, "
-                "created_at) VALUES(?,?,?,?,?,?,?,?,?,?)",
-                (feed_id, uid, url, title, host[:200], now, image, url, PAGE_TYPE, now))
+                "language, created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+                (feed_id, uid, url, title, host[:200], now, image, url, PAGE_TYPE, language, now))
             ep_id = int(cur.lastrowid)
         else:
             ep_id = int(row["id"])
-            conn.execute("UPDATE episodes SET title = ?, description = ?, image = ?, deleted = 0 WHERE id = ?",
-                         (title, host[:200], image, ep_id))
+            conn.execute("UPDATE episodes SET title = ?, description = ?, image = ?, language = ?, deleted = 0 "
+                         "WHERE id = ?", (title, host[:200], image, language, ep_id))
             for table in ("words", "segments", "segments_fts"):
                 conn.execute(f"DELETE FROM {table} WHERE episode_id = ?", (ep_id,))
         widx = 0

@@ -13,6 +13,7 @@ import * as chat from "./pages/chat.js";
 import { startBadge } from "./social.js";
 import { initSwipe } from "./swipe.js";
 import { isNewer, showUpdateNotice } from "./updatenotice.js";
+import { detectLanguage, setLang, setStudyLanguage } from "./languages.js";
 import { addUploadedVideo, handle } from "./backend.js";
 import { accessToken, drive } from "./drive.js";
 import { App, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from "./native.js";
@@ -317,6 +318,7 @@ export function applySettings(s) {
   else delete root.dataset.theme;
   root.style.setProperty("--ar-size", `${s.font_size || 26}px`);
   root.style.setProperty("--page-size", `${s.page_font_size || 17}px`);
+  setStudyLanguage(s.study_language);
 }
 export async function saveSettings(values) {
   const s = await saveSettingsPatch(values);
@@ -334,6 +336,7 @@ export function showMenu(x, y, label, items) {
   if (label) {
     const l = h(`<div class="label ar"></div>`);
     l.textContent = label;
+    setLang(l, detectLanguage(label));
     menu.append(l);
   }
   for (const item of items) {
@@ -412,7 +415,7 @@ async function boot() {
   await loadSettings();
   await loadLibrary();
   applySettings(settings);
-  if (!settings.welcome_seen) location.hash = "#/welcome";
+  if (!settings.welcome_seen || !settings.study_language) location.hash = "#/welcome"; // first run: choose a language
   window.addEventListener("hashchange", route);
   initSwipe();
   route();

@@ -6,6 +6,7 @@ import { audio, kv, lib, now, saveLibrary, transcripts } from "./store.js";
 import { fetchTranscript, requestSync, syncNow, syncState } from "./sync.js";
 import { episodeUid, feedUid, findSpans, newUid, normalize, normalizeUrl } from "./shared-logic.js";
 import { settings } from "./store.js";
+import { detectLanguage, isLanguage } from "./languages.js";
 
 export class ApiError extends Error {}
 
@@ -62,7 +63,9 @@ async function savePage(body) {
   const uid = await episodeUid(fuid, url);
   const title = String(body.title || "").replace(/\s+/g, " ").trim().slice(0, 300) || host || "Web page";
   const image = typeof body.image === "string" && body.image.startsWith("https://") ? body.image : null;
+  const language = detectLanguage(segments.slice(0, 60).map((s) => s[2]).join(" "), settings.study_language || "ar");
   const fields = { title, description: String(body.site || host).slice(0, 200), image, audio_url: url, audio_type: "text/html",
+                   language: isLanguage(language) ? language : settings.study_language || "ar",
                    transcript_rev: t, model: "webpage", deleted: 0, updated_at: t };
   let ep = lib.episodes.find((e) => e.uid === uid);
   if (ep) Object.assign(ep, fields);

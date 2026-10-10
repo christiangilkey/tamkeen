@@ -3,9 +3,9 @@
 import { api, esc, h, on, toast, fmtBytes, saveSettings, loadStatus } from "../app.js";
 
 const INFO = {
-  small: "Fastest. Good for clear speech; more mistakes on dialects and fast talk.",
+  small: "Fastest. Good for clear speech; more mistakes on dialects, accents and fast talk.",
   medium: "Balanced accuracy and speed.",
-  "large-v3": "Most accurate, especially for Arabic. Best with a GPU.",
+  "large-v3": "Most accurate in every language. Best with a GPU.",
 };
 
 /** Renders the model list into `el`. Returns a cleanup function. */

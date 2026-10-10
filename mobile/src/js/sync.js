@@ -38,7 +38,8 @@ export function merge(remote) {
     if (newer(r, l)) {
       // A pending request from this phone survives a newer remote record (desktop does the same).
       const req = Math.max(l.transcribe_requested_at || 0, r.transcribe_requested_at || 0) || null;
-      eps.set(r.uid, { ...r, transcribe_requested_at: req });
+      // An older desktop doesn't send a language; keep the one already known.
+      eps.set(r.uid, { ...r, transcribe_requested_at: req, language: r.language || l.language || null });
       changed++;
     }
   }

@@ -4,16 +4,18 @@
 
 import { api, esc, h } from "../app.js";
 import { continueItems, forgetProgress, fraction, leftLabel } from "../progress.js";
+import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 
 const KIND_ICON = { audio: "🎧", video: "🎬", page: "🌐" };
 const KIND_VERB = { audio: "Continue listening", video: "Continue watching", page: "Continue reading" };
 
 function greeting() {
   const hour = new Date().getHours();
-  if (hour < 5) return ["مساء الخير", "Good evening"];
-  if (hour < 12) return ["صباح الخير", "Good morning"];
-  if (hour < 18) return ["نهارك سعيد", "Good afternoon"];
-  return ["مساء الخير", "Good evening"];
+  const [morning, afternoon, evening] = langInfo(studyLanguage()).greet;
+  if (hour < 5) return [evening, "Good evening"];
+  if (hour < 12) return [morning, "Good morning"];
+  if (hour < 18) return [afternoon, "Good afternoon"];
+  return [evening, "Good evening"];
 }
 
 /** Items still in the library (anything deleted since is forgotten). */
@@ -37,7 +39,7 @@ export async function render(view) {
     <section class="hero">
       <div class="hero-top">
         <img class="hero-logo" src="${new URL("../../icons/icon-256.png", import.meta.url).href}" alt="" width="56" height="56">
-        <div><div class="hero-ar ar" dir="rtl" lang="ar">${ar}</div><div class="hero-en">${en}</div></div>
+        <div><div class="hero-ar ar" ${langAttrs(studyLanguage())}>${esc(ar)}</div><div class="hero-en">${en}</div></div>
       </div>
       <div class="hero-main" id="main"><div class="hero-loading">…</div></div>
     </section>

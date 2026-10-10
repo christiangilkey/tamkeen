@@ -1,4 +1,5 @@
-// Episode player: audio controls + RTL transcript with word-level highlighting.
+// Episode player: audio controls + transcript with word-level highlighting, laid out in the
+// direction of the episode's language.
 // Videos ("My videos") play in a <video> with tappable captions on top and the full
 // transcript in a panel beside it (desktop) or below it (phone), toggled by a button.
 //
@@ -7,7 +8,8 @@
 
 import { api, esc, h, on, toast, showMenu, hideMenu, download, saveSettings, state, requestNotifications, audioUrl, buzz } from "../app.js";
 import { saveProgress } from "../progress.js";
-import { activeWordIndex, sentenceBounds, formatTime } from "../wordlookup.js";
+import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
+import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
 import { statusInfo, isVideo } from "./library.js";
 import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
@@ -17,7 +19,6 @@ import * as reader from "./reader.js";
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const LONG_PRESS_MS = 550;
 const CAPTION_WORDS = 12; // longest caption line, in words
-const EDGE_PUNCT = /^[\s«"'“(\[]+|[\s.,!?؟،؛:"'”»)\]…]+$/gu;
 
 function lsGet(key, fallback) {
   try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch { return fallback; }
@@ -89,7 +90,9 @@ export async function render(view, { id, query }) {
   if (reader.isPage(ep) && data.words.text.length) return reader.render(view, { id, data, query });
   if (ep.status !== "done" || !data.words.start.length) return renderPending(view, ep);
 
-  const W = data.words;
+  const lang = episodeLanguage(ep);
+  const segTexts = new Map(data.segments.map((s) => [s.idx, s.text]));
+  const W = regroupWords(data.words, lang, true, (s) => segTexts.get(s)); // real words for Japanese/Chinese
   const n = W.start.length;
   const starts = Float64Array.from(W.start);
   const ends = Float64Array.from(W.end);
@@ -100,7 +103,7 @@ export async function render(view, { id, query }) {
   const img = ep.image || ep.feed_image;
   const vid = isVideo(ep);
   const transcriptHtml = `<div class="transcript-wrap">
-        <div class="transcript ar" id="transcript" lang="ar" dir="rtl" tabindex="0"></div>
+        <div class="transcript ar" id="transcript" ${langAttrs(lang)} tabindex="0"></div>
         <button type="button" class="back-to-current primary" id="back" hidden>↓ Back to current</button>
       </div>`;
   view.append(h(`
@@ -126,7 +129,7 @@ export async function render(view, { id, query }) {
       ${vid ? `<div class="stage" id="stage">
         <div class="screen" id="screen">
           <video id="video" playsinline></video>
-          <div class="captions" id="captions" lang="ar" dir="rtl"></div>
+          <div class="captions" id="captions" ${langAttrs(lang)}></div>
         </div>
         ${transcriptHtml}
       </div>` : transcriptHtml}
@@ -156,7 +159,7 @@ export async function render(view, { id, query }) {
     parts.push(`<p class="seg" data-s="${seg.idx}" data-t="${formatTime(seg.start)}">`);
     const first = w;
     while (w < n && segOf[w] === seg.idx) {
-      if (w > first) parts.push(" ");
+      if (w > first) parts.push(gap(texts[w - 1], texts[w], lang));
       parts.push(`<span class="w" data-i="${w}">${esc(texts[w])}</span>`);
       w++;
     }
@@ -230,7 +233,8 @@ export async function render(view, { id, query }) {
     if (start === capStart) return;
     capStart = start;
     capEl.innerHTML = start < 0 ? ""
-      : Array.from({ length: end - start + 1 }, (_, k) => `<span class="w" data-i="${start + k}">${esc(texts[start + k])}</span>`).join(" ");
+      : Array.from({ length: end - start + 1 }, (_, k) =>
+        `${k ? gap(texts[start + k - 1], texts[start + k], lang) : ""}<span class="w" data-i="${start + k}">${esc(texts[start + k])}</span>`).join("");
     capEls = [...capEl.querySelectorAll(".w")];
   }
   const capWord = (i) => (capStart >= 0 ? capEls[i - capStart] : null);
@@ -465,7 +469,7 @@ export async function render(view, { id, query }) {
     const { i, j } = target;
     const clean = target.text.replace(EDGE_PUNCT, "") || target.text;
     const [si, sj] = sentenceBounds(texts, segOf, i, j);
-    const sentence = texts.slice(si, sj + 1).join(" ");
+    const sentence = sentenceText(si, sj);
     showMenu(x, y, clean, [
       {
         label: "★ Save to vocab",
@@ -490,18 +494,19 @@ export async function render(view, { id, query }) {
   // ---------- definition bubble ----------
   let bubbleTarget = null; // {i, j, si, sj, text}
 
-  function sentenceText(a, b) { return texts.slice(a, b + 1).join(" "); }
+  function sentenceText(a, b) { return joinWords(texts.slice(a, b + 1), lang); }
 
   function contextFor(i, j) {
     const [si, sj] = sentenceBounds(texts, segOf, i, j);
     const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
     const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
-    const word = texts.slice(i, j + 1).join(" ").replace(EDGE_PUNCT, "") || texts[i];
+    const word = joinWords(texts.slice(i, j + 1), lang).replace(EDGE_PUNCT, "") || texts[i];
     return {
       si, sj, word,
       ctx: {
         word,
-        marked: markWord(texts.slice(si, sj + 1), i - si, j - si),
+        lang,
+        marked: markWord(texts.slice(si, sj + 1), i - si, j - si, lang),
         before: prev ? sentenceText(prev[0], prev[1]) : "",
         after: next ? sentenceText(next[0], next[1]) : "",
         podcast: ep.feed_title,
@@ -518,14 +523,11 @@ export async function render(view, { id, query }) {
     onSettings: () => (location.hash = "#/settings"),
     onSave: async (def) => {
       const t = bubbleTarget;
-      const notes = def ? [def.lemma && `Dictionary form: ${def.lemma}`, def.root && `Root: ${def.root}`,
-        def.pos, def.dialect_note].filter(Boolean).join(" · ") : "";
       try {
         await api("/vocab", {
           method: "POST",
-          body: { text: def && def.vocalized ? def.vocalized : t.text, sentence: sentenceText(t.si, t.sj),
-                  episode_id: id, start: starts[t.i], end: ends[t.j], sent_start: starts[t.si], sent_end: ends[t.sj],
-                  meaning: def ? def.meaning : "", notes },
+          body: { ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj),
+                  episode_id: id, start: starts[t.i], end: ends[t.j], sent_start: starts[t.si], sent_end: ends[t.sj] },
         });
         toast(`Saved “${t.text}” to vocab`, { action: { label: "View", run: () => (location.hash = "#/vocab") } });
       } catch (e) {

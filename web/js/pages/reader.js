@@ -3,13 +3,13 @@
 
 import { api, esc, h, toast, showMenu, hideMenu, saveSettings, state, buzz } from "../app.js";
 import { saveProgress } from "../progress.js";
-import { sentenceBounds } from "../wordlookup.js";
+import { sentenceBounds, EDGE_PUNCT } from "../wordlookup.js";
+import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
 import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
 
 const LONG_PRESS_MS = 550;
-const EDGE_PUNCT = /^[\s«"'“(\[]+|[\s.,!?؟،؛:"'”»)\]…]+$/gu;
 const TAGS = { h1: "h2", h2: "h3", h3: "h4", li: "li", q: "blockquote", p: "p" };
 
 export const isPage = (ep) => (ep.audio_type || "") === "text/html";
@@ -30,7 +30,8 @@ async function copyText(text) {
 
 export async function render(view, { id, data, query }) {
   const ep = data.episode;
-  const W = data.words;
+  const lang = episodeLanguage(ep);
+  const W = regroupWords(data.words, lang, false); // real words for Japanese/Chinese
   const n = W.text.length;
   const segOf = Int32Array.from(W.seg);
   const texts = W.text;
@@ -53,14 +54,14 @@ export async function render(view, { id, data, query }) {
         </div>
       </div>
       <div class="transcript-wrap">
-        <div class="reader-text" id="text" tabindex="0"></div>
+        <div class="reader-text" id="text" ${langAttrs(lang)} tabindex="0"></div>
       </div>
     </div>`));
   const $ = (sel) => view.querySelector(sel);
   if (source) $("#original").href = source;
   const tr = $("#text");
 
-  // Build the page in one pass. Each block keeps its own direction, so Arabic and English mix correctly.
+  // Build the page in one pass. Each block keeps its own direction, so right-to-left and left-to-right text mix correctly.
   const parts = [`<h1 class="reader-title" dir="auto">${esc(ep.title)}</h1>`];
   let w = 0;
   let inList = false;
@@ -71,7 +72,7 @@ export async function render(view, { id, data, query }) {
     parts.push(`<${tag} class="seg" dir="auto" data-s="${seg.idx}">`);
     const first = w;
     while (w < n && segOf[w] === seg.idx) {
-      if (w > first) parts.push(" ");
+      if (w > first) parts.push(gap(texts[w - 1], texts[w], lang));
       parts.push(`<span class="w" data-i="${w}">${esc(texts[w])}</span>`);
       w++;
     }
@@ -85,27 +86,24 @@ export async function render(view, { id, data, query }) {
   // ---------- word popup ----------
   let target = null; // {i, j, si, sj, text}
   let marked = null;
-  const sentenceText = (a, b) => texts.slice(a, b + 1).join(" ");
+  const sentenceText = (a, b) => joinWords(texts.slice(a, b + 1), lang);
 
   function contextFor(i, j) {
     const [si, sj] = sentenceBounds(texts, segOf, i, j);
     const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
     const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
-    const word = texts.slice(i, j + 1).join(" ").replace(EDGE_PUNCT, "") || texts[i];
+    const word = joinWords(texts.slice(i, j + 1), lang).replace(EDGE_PUNCT, "") || texts[i];
     return {
       si, sj, word,
-      ctx: { word, marked: markWord(texts.slice(si, sj + 1), i - si, j - si),
+      ctx: { word, lang, marked: markWord(texts.slice(si, sj + 1), i - si, j - si, lang),
              before: prev ? sentenceText(prev[0], prev[1]) : "", after: next ? sentenceText(next[0], next[1]) : "",
              podcast: host || ep.feed_title, episode: ep.title },
     };
   }
 
   async function saveWord(t, def) {
-    const notes = def ? [def.lemma && `Dictionary form: ${def.lemma}`, def.root && `Root: ${def.root}`,
-      def.pos, def.dialect_note].filter(Boolean).join(" · ") : "";
     await api("/vocab", { method: "POST", body: {
-      text: def && def.vocalized ? def.vocalized : t.text, sentence: sentenceText(t.si, t.sj), episode_id: id,
-      meaning: def ? def.meaning : "", notes } });
+      ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj), episode_id: id } });
     toast(`Saved “${t.text}” to vocab`, { action: { label: "View", run: () => (location.hash = "#/vocab") } });
   }
 

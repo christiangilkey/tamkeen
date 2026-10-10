@@ -2,6 +2,7 @@
 
 import { api, esc, h } from "../app.js";
 import { formatTime } from "../wordlookup.js";
+import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 
 function withSpans(text, spans) {
   let out = "";
@@ -20,11 +21,11 @@ export async function render(view, { query }) {
   view.append(h(`<div class="page search-page">
     <h1>Search</h1>
     <form class="search-form row" id="search-form" role="search">
-      <input type="search" name="q" placeholder="Search all transcripts… ابحث" aria-label="Search all transcripts"
+      <input type="search" name="q" placeholder="Search all transcripts… ${esc(langInfo(studyLanguage()).search)}" aria-label="Search all transcripts"
         autocomplete="off" dir="auto">
       <button type="submit" class="primary">Search</button>
     </form>
-    <p class="muted small">Matches ignore diacritics (tashkeel) and spelling variants of alef (أ إ آ ا), taa marbuta/haa (ة ه) and alef maqsura/yaa (ى ي). Transcripts are always shown exactly as transcribed.</p>
+    <p class="muted small">${esc(langInfo(studyLanguage()).searchNote || "Matches ignore capital letters.")} Transcripts are always shown exactly as transcribed.</p>
     <div id="results" class="results"></div>
   </div>`));
   const box = view.querySelector("#results");
@@ -61,7 +62,7 @@ export async function render(view, { query }) {
     for (const r of hits) {
       g.append(h(`<a class="hit" href="#/episode/${epId}?t=${r.start}">
         <span class="t">${isPage ? "🌐" : formatTime(r.start)}</span>
-        <span class="ar" dir="rtl" lang="ar">${withSpans(r.text, r.spans)}</span></a>`));
+        <span class="ar" ${langAttrs(detectLanguage(r.text))}>${withSpans(r.text, r.spans)}</span></a>`));
     }
     box.append(g);
   }

@@ -8,6 +8,7 @@
 import { api, h, toast, saveClip } from "../app.js";
 import * as social from "../social.js";
 import { avatar } from "../components/avatar.js";
+import { detectLanguage, langInfo, setLang, studyLanguage } from "../languages.js";
 
 const fmtClock = (iso) => new Date(iso).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
 const fmtDay = (iso) => new Date(iso).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
@@ -110,12 +111,13 @@ export async function render(view, { friendId }) {
       body.append(b);
     } else if (m.kind === "share" && m.payload) {
       const words = m.payload.words || [];
-      const card = h(`<div class="share-card"><div class="share-title"></div><div class="share-words ar" dir="rtl"></div>
+      const card = h(`<div class="share-card"><div class="share-title"></div><div class="share-words ar"></div>
         <div class="share-action"></div></div>`);
       card.querySelector(".share-title").textContent = m.payload.folder
         ? `📁 ${m.payload.folder} · ${words.length} word${words.length === 1 ? "" : "s"}`
         : `★ ${words.length} word${words.length === 1 ? "" : "s"}`;
       card.querySelector(".share-words").textContent = words.slice(0, 6).map((w) => w.text).join(" · ") + (words.length > 6 ? " …" : "");
+      setLang(card.querySelector(".share-words"), detectLanguage(words.map((w) => w.text).join(" ")));
       const audioCount = words.filter((w) => w.clip).length;
       if (audioCount) card.querySelector(".share-title").textContent += ` · 🔊 audio${audioCount === words.length ? "" : ` for ${audioCount}`}`;
       const action = card.querySelector(".share-action");
@@ -183,7 +185,7 @@ export async function render(view, { friendId }) {
     const conv = await social.conversation(friendId);
     me = conv.me;
     list.innerHTML = "";
-    if (!conv.messages.length) list.append(h(`<p class="muted chat-empty" style="text-align:center">No messages yet. Say مرحبا 👋</p>`));
+    if (!conv.messages.length) list.append(h(`<p class="muted chat-empty" style="text-align:center">No messages yet. Say ${langInfo(studyLanguage()).hi} 👋</p>`));
     conv.messages.forEach(bubble);
     toBottom();
     markShown(conv.messages);

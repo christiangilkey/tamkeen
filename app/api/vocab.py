@@ -303,8 +303,8 @@ def export_vocab(fmt: str, folder: str | None = None, ids: str | None = None) ->
         items = sorted((v for v in items if v["id"] in order), key=lambda v: order[v["id"]])
     if fmt == "csv":
         return Response(exporters.vocab_to_csv(items), media_type="text/csv; charset=utf-8",
-                        headers={"Content-Disposition": 'attachment; filename="arabic-vocab.csv"'})
+                        headers={"Content-Disposition": 'attachment; filename="tamkeen-vocab.csv"'})
     if fmt == "anki":
         return Response(exporters.vocab_to_anki(items), media_type="text/plain; charset=utf-8",
-                        headers={"Content-Disposition": 'attachment; filename="arabic-vocab-anki.txt"'})
+                        headers={"Content-Disposition": 'attachment; filename="tamkeen-vocab-anki.txt"'})
     raise HTTPException(400, "Format must be csv or anki.")

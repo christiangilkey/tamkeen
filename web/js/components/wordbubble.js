@@ -2,6 +2,7 @@
 // supplies the definition fetcher and the audio/vocab actions.
 
 import { esc, buzz } from "../app.js";
+import { langAttrs, langInfo } from "../languages.js";
 
 /**
  * @param {HTMLElement} host positioned (relative) container the bubble lives in
@@ -51,12 +52,15 @@ export function createWordBubble(host, actions) {
   function chips(d) {
     const items = [];
     if (d.pos) items.push(esc(d.pos));
-    if (d.root) items.push(`root <span class="ar" dir="rtl">${esc(d.root)}</span>`);
+    if (d.root && L().root === "Root") items.push(`root <span class="ar" ${attrs()}>${esc(d.root)}</span>`);
     if (d.dialect) items.push(esc(d.dialect));
     return items.map((c) => `<span class="wb-chip">${c}</span>`).join("");
   }
 
   let current = { state: "loading", message: "" };
+  // The language of the word being shown (from the lookup; Arabic for older callers).
+  const L = () => langInfo((ctx && ctx.lang) || "ar");
+  const attrs = () => langAttrs((ctx && ctx.lang) || "ar");
 
   function render(state, message = "") {
     current = { state, message };
@@ -73,21 +77,26 @@ export function createWordBubble(host, actions) {
               <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
     } else {
       const d = def;
+      // How the word is read (kana, pinyin, IPA) goes under the meaning; where the reading is the
+      // word itself with its marks (Arabic vowels, Russian stress) it replaces the headword instead.
+      const reading = L().reading === "below" ? d.vocalized : "";
       body = `
         <div class="wb-meaning">${esc(d.meaning)}</div>
         ${d.explanation ? `<p class="wb-expl">${esc(d.explanation)}</p>` : ""}
         <div class="wb-chips">${chips(d)}</div>
-        ${d.lemma && d.lemma !== d.vocalized ? `<div class="wb-row"><span class="wb-label">Dictionary form</span> <span class="ar" dir="rtl">${esc(d.lemma)}</span></div>` : ""}
+        ${reading ? `<div class="wb-reading" ${attrs()}>${esc(reading)}</div>` : ""}
+        ${d.lemma && d.lemma !== d.vocalized && d.lemma !== word ? `<div class="wb-row"><span class="wb-label">Dictionary form</span> <span class="ar" ${attrs()}>${esc(d.lemma)}</span></div>` : ""}
+        ${d.root && L().root !== "Root" ? `<div class="wb-row"><span class="wb-label">${esc(L().root || "Root")}</span> <span class="ar" ${attrs()}>${esc(d.root)}</span></div>` : ""}
         ${d.morphology ? `<div class="wb-row"><span class="wb-label">Form</span> ${esc(d.morphology)}</div>` : ""}
         ${d.other_meanings.length ? `<div class="wb-row"><span class="wb-label">Also</span> ${d.other_meanings.map(esc).join("; ")}</div>` : ""}
-        ${d.msa_equivalent ? `<div class="wb-row"><span class="wb-label">In MSA</span> <span class="ar" dir="rtl">${esc(d.msa_equivalent)}</span></div>` : ""}
-        ${d.dialect_note ? `<div class="wb-row"><span class="wb-label">Dialect</span> ${esc(d.dialect_note)}</div>` : ""}
+        ${d.msa_equivalent ? `<div class="wb-row"><span class="wb-label">${esc(L().standard)}</span> <span class="ar" ${attrs()}>${esc(d.msa_equivalent)}</span></div>` : ""}
+        ${d.dialect_note ? `<div class="wb-row"><span class="wb-label">${esc(L().note)}</span> ${esc(d.dialect_note)}</div>` : ""}
         ${d.sentence_translation ? `<details class="wb-trans"><summary>Sentence translation</summary>${esc(d.sentence_translation)}</details>` : ""}`;
     }
-    const shown = def && state === "ready" && def.vocalized ? def.vocalized : word;
+    const shown = def && state === "ready" && def.vocalized && L().reading === "replace" ? def.vocalized : word;
     el.innerHTML = `
       <div class="wb-head">
-        <div class="wb-word ar" dir="rtl" lang="ar">${esc(shown)}</div>
+        <div class="wb-word ar" ${attrs()}>${esc(shown)}</div>
         <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)">✕</button>
       </div>
       <div class="wb-body">${body}</div>

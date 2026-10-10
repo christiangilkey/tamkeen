@@ -8,8 +8,8 @@ export async function render(view) {
     <div class="card stack">
       <div class="row"><img src="/icons/icon-256.png" alt="" width="72" height="72" style="border-radius:16px">
         <div><h1 style="margin:0">${esc(a.app_name)}</h1><div class="muted">Version ${esc(a.version)}</div></div></div>
-      <p>A desktop app for studying Arabic podcasts: subscribe to RSS feeds, transcribe episodes locally with Whisper,
-        read along with word-level highlighting, and build a vocabulary list.</p>
+      <p>An app for learning a language from real material: subscribe to podcasts, add your own videos and web pages,
+        transcribe locally with Whisper, read along with word-level highlighting, and build a vocabulary list.</p>
       <dl class="kv small">
         <dt>Data folder</dt><dd><code>${esc(a.data_dir)}</code></dd>
         <dt>Source code</dt><dd><a href="https://github.com/${esc(a.repo)}" target="_blank" rel="noopener">github.com/${esc(a.repo)}</a></dd>

@@ -12,6 +12,7 @@ import * as friends from "./pages/friends.js";
 import * as chat from "./pages/chat.js";
 import { startBadge } from "./social.js";
 import { showUpdateNotice } from "./updatenotice.js";
+import { detectLanguage, setLang, setStudyLanguage } from "./languages.js";
 
 // ---------- API ----------
 export async function api(path, { method = "GET", body, raw } = {}) {
@@ -236,6 +237,7 @@ export function applySettings(s) {
   else delete root.dataset.theme;
   root.style.setProperty("--ar-size", `${s.font_size || 26}px`);
   root.style.setProperty("--page-size", `${s.page_font_size || 17}px`);
+  setStudyLanguage(s.study_language);
   if (state.status) state.status.settings = s;
 }
 
@@ -302,6 +304,7 @@ export function showMenu(x, y, label, items) {
   if (label) {
     const l = h(`<div class="label ar"></div>`);
     l.textContent = label;
+    setLang(l, detectLanguage(label));
     menu.append(l);
   }
   for (const item of items) {
@@ -336,7 +339,7 @@ async function boot() {
   connectEvents();
   try {
     const s = await loadStatus();
-    if (!s.settings.welcome_seen) {
+    if (!s.settings.welcome_seen || !s.settings.study_language) { // first run: choose a language first
       if (!location.hash.startsWith("#/welcome") && !location.hash.startsWith("#/setup")) location.hash = "#/welcome";
     } else if (!s.model_ready && !location.hash.startsWith("#/settings") && !location.hash.startsWith("#/about")) {
       location.hash = "#/setup";

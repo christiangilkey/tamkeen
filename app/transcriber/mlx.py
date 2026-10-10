@@ -16,6 +16,7 @@ from pathlib import Path
 import numpy as np
 
 from .base import Segment, TranscriptionCancelled, Word
+from ..languages import INITIAL_PROMPTS
 
 log = logging.getLogger(__name__)
 
@@ -38,7 +39,8 @@ class MlxTranscriber:
 
         return get_speech_timestamps(audio, VadOptions(min_silence_duration_ms=500))
 
-    def transcribe(self, audio: np.ndarray, cancel: threading.Event | None = None) -> Iterator[Segment]:
+    def transcribe(self, audio: np.ndarray, cancel: threading.Event | None = None,
+                   language: str = "ar") -> Iterator[Segment]:
         import mlx_whisper
 
         chunks = self._speech_chunks(audio)
@@ -77,7 +79,8 @@ class MlxTranscriber:
             result = mlx_whisper.transcribe(
                 speech,
                 path_or_hf_repo=self.model_path,
-                language="ar",
+                language=language,
+                initial_prompt=INITIAL_PROMPTS.get(language),
                 task="transcribe",
                 word_timestamps=True,
                 condition_on_previous_text=False,

@@ -12,7 +12,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse
 from pydantic import BaseModel
 
-from .. import audio, backup, db, events, gpu_libs, hardware, models_manager, paths, transcriber, updates
+from .. import audio, backup, db, events, gpu_libs, hardware, languages, models_manager, paths, transcriber, updates
 from ..version import APP_NAME, GITHUB_REPO, __version__
 
 router = APIRouter(tags=["system"])
@@ -56,6 +56,8 @@ def patch_settings(values: dict[str, Any]) -> dict[str, Any]:
     clean = {k: v for k, v in values.items() if k in ALLOWED_SETTINGS}
     if clean.get("model_size") is not None and clean["model_size"] not in models_manager.SIZES:
         raise HTTPException(400, "Unknown model size.")
+    if "study_language" in clean and not languages.valid(clean["study_language"]):
+        raise HTTPException(400, "Unknown language.")
     result = db.set_settings(clean)
     if "model_size" in clean or "beam_size" in clean:
         transcriber.unload()

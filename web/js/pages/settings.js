@@ -4,6 +4,8 @@ import { api, esc, h, on, toast, download, state, loadStatus, saveSettings, fmtB
 import { modelManager, gpuPanel } from "../components/models.js";
 import { PROVIDERS, define } from "../definer.js";
 import { accountSection } from "../components/account.js";
+import { languagePicker } from "../components/langpicker.js";
+import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
 
 export async function render(view) {
   const status = await loadStatus();
@@ -15,6 +17,13 @@ export async function render(view) {
 
   view.append(h(`<div class="page settings">
     <h1>Settings</h1>
+
+    <section class="card stack">
+      <h2>Language I'm learning</h2>
+      <div id="study-lang"></div>
+      <p class="small muted">Used for new transcriptions, imported web pages and word explanations.
+        Things you already transcribed keep the language they were made in.</p>
+    </section>
 
     <section class="card">
       <h2>Transcription model</h2>
@@ -84,12 +93,12 @@ export async function render(view) {
         <input type="range" id="font" min="16" max="56" step="1" value="${s.font_size}" style="width:220px">
         <span id="font-val">${s.font_size}px</span>
       </div>
-      <div class="ar" dir="rtl" style="font-size:var(--ar-size);line-height:2.1">مَرْحَبًا بِكُمْ فِي حَلْقَةٍ جَدِيدَةٍ مِنَ البودكاست.</div>
+      <div class="ar" ${langAttrs(studyLanguage())} style="font-size:var(--ar-size);line-height:2.1">${esc(langInfo(studyLanguage()).sample)}</div>
       <div class="row">Web page text size:
         <input type="range" id="page-font" min="12" max="40" step="1" value="${s.page_font_size || 17}" style="width:220px">
         <span id="page-font-val">${s.page_font_size || 17}px</span>
       </div>
-      <div class="ar" dir="rtl" style="font-size:var(--page-size);line-height:2">القهوة مشروب يُحضر من بذور البن المحمصة، وتعد واحدة من أكثر المشروبات شعبية في العالم.</div>
+      <div class="ar" ${langAttrs(studyLanguage())} style="font-size:var(--page-size);line-height:2">${esc(langInfo(studyLanguage()).pageSample)}</div>
     </section>
 
     <section class="card stack">
@@ -197,6 +206,12 @@ export async function render(view) {
     k.type = k.type === "password" ? "text" : "password";
     e.target.textContent = k.type === "password" ? "Show" : "Hide";
   };
+  $("#study-lang").append(languagePicker(s.study_language, async (code) => {
+    await saveSettings({ study_language: code });
+    toast(`Now learning ${LANGUAGES[code].name}`);
+    window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
+  }));
+
   $("#def-test").onclick = async (e) => {
     const out = $("#def-test-result");
     e.target.disabled = true;
@@ -207,10 +222,10 @@ export async function render(view) {
     try {
       const d = await define(
         { provider: p, key: $("#def-key").value.trim(), model: $("#def-model").value.trim(), language: $("#def-lang").value.trim() || "English" },
-        { word: "هون", marked: "انتي جديدة ⟦هون⟧؟", podcast: "Real Arabic (Levantine)" },
+        { ...langInfo(studyLanguage()).test, lang: studyLanguage() },
         (req) => api("/llm/relay", { method: "POST", body: req }),
       );
-      out.textContent = `✓ Works (${((performance.now() - t0) / 1000).toFixed(1)} s): هون = “${d.meaning}” (${d.dialect || "?"})`;
+      out.textContent = `✓ Works (${((performance.now() - t0) / 1000).toFixed(1)} s): ${langInfo(studyLanguage()).test.word} = “${d.meaning}” (${d.dialect || "?"})`;
       out.style.color = "var(--accent)";
     } catch (err) {
       out.textContent = err.message;

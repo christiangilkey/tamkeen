@@ -65,6 +65,6 @@
  "srt": "1\n00:00:00,000 --> 00:00:02,500\n‏مرحبا بكم\n\n2\n00:00:02,500 --> 01:01:01,042\n‏في الحلقة\n",
  "vtt": "WEBVTT\n\n00:00:00.000 --> 00:00:02.500\n‏مرحبا بكم\n\n00:00:02.500 --> 01:01:01.042\n‏في الحلقة\n",
  "txt": "T\n\nمرحبا بكم\nفي الحلقة\n",
- "anki": "#separator:tab\n#html:true\n#columns:Front\tBack\tSentence\tSource\tTags\n#tags column:5\n<div dir=\"rtl\" style=\"font-size:2em\">كتاب</div>\tbook, &quot;tome&quot;<br><br><i>n.</i>\t<div dir=\"rtl\">هذا <b>كتاب</b> جميل</div>\tEp @ 00:01:05\tarabic-podcast\n",
+ "anki": "#separator:tab\n#html:true\n#columns:Front\tBack\tSentence\tSource\tTags\n#tags column:5\n<div dir=\"auto\" style=\"font-size:2em\">كتاب</div>\tbook, &quot;tome&quot;<br><br><i>n.</i>\t<div dir=\"auto\">هذا <b>كتاب</b> جميل</div>\tEp @ 00:01:05\ttamkeen\n",
  "csv": "﻿Word/Phrase,Meaning,Notes,Sentence,Episode,Start (s),End (s)\r\nكتاب,\"book, \"\"tome\"\"\",n.,هذا كتاب جميل,Ep,65.00,65.50\r\n"
 }

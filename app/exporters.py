@@ -82,10 +82,10 @@ def vocab_to_anki(items: Sequence[dict[str, Any]]) -> str:
         back = html.escape(v["meaning"] or "")
         if v["notes"]:
             back += ("<br><br>" if back else "") + f"<i>{html.escape(v['notes'])}</i>"
-        front = f'<div dir="rtl" style="font-size:2em">{word}</div>'
-        sentence_html = f'<div dir="rtl">{sentence}</div>' if sentence else ""
+        front = f'<div dir="auto" style="font-size:2em">{word}</div>'
+        sentence_html = f'<div dir="auto">{sentence}</div>' if sentence else ""
         source = html.escape(v["episode_title"] or "")
         if v["start"] is not None:
             source += f" @ {srt_timestamp(v['start'])[:8]}"
-        lines.append("\t".join(_anki_field(x) for x in (front, back, sentence_html, source, "arabic-podcast")))
+        lines.append("\t".join(_anki_field(x) for x in (front, back, sentence_html, source, "tamkeen")))
     return "\n".join(lines) + "\n"

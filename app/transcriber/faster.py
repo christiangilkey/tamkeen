@@ -11,6 +11,7 @@ from pathlib import Path
 import numpy as np
 
 from .base import Segment, TranscriptionCancelled, Word
+from ..languages import INITIAL_PROMPTS
 
 log = logging.getLogger(__name__)
 
@@ -34,10 +35,12 @@ class FasterWhisperTranscriber:
         self.model = WhisperModel(str(model_path), device="cpu", compute_type="int8", cpu_threads=threads)
         self.device = "cpu"
 
-    def transcribe(self, audio: np.ndarray, cancel: threading.Event | None = None) -> Iterator[Segment]:
+    def transcribe(self, audio: np.ndarray, cancel: threading.Event | None = None,
+                   language: str = "ar") -> Iterator[Segment]:
         segments, _info = self.model.transcribe(
             audio,
-            language="ar",
+            language=language,
+            initial_prompt=INITIAL_PROMPTS.get(language),
             task="transcribe",
             beam_size=self.beam_size,
             word_timestamps=True,
