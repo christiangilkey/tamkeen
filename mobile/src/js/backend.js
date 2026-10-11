@@ -16,6 +16,7 @@ const episodeOf = (uid) => lib.episodes.find((e) => e.uid === uid && !e.deleted)
 const liveEpisodes = () => lib.episodes.filter((e) => !e.deleted);
 
 export const LOCAL_FEED_URL = "local:videos";
+const AUDIO_FEED_URL = "local:audio";
 const PAGES_FEED_URL = "local:pages";
 const PAGE_KINDS = ["h1", "h2", "h3", "p", "li", "q"];
 const MAX_PAGE_WORDS = 30000;
@@ -83,13 +84,14 @@ async function savePage(body) {
   return { ...episodeOut(ep), words: words.text.length };
 }
 
-/** Record a video this phone just uploaded to Drive; the computer transcribes it on its next sync. */
-export async function addUploadedVideo({ uid, title, driveName, mime, duration }) {
-  const fuid = await feedUid(LOCAL_FEED_URL);
+/** Record a video or audio file this phone just uploaded to Drive; the computer transcribes it on its next sync. */
+export async function addUploadedVideo({ uid, title, driveName, mime, duration, audio = false }) {
+  const url = audio ? AUDIO_FEED_URL : LOCAL_FEED_URL;
+  const fuid = await feedUid(url);
   const t = now();
   let feed = feedOf(fuid);
   if (!feed) {
-    feed = { uid: fuid, url: LOCAL_FEED_URL, title: "My videos", description: "Video files you added yourself. They're stored in your Google Drive.",
+    feed = { uid: fuid, url, title: audio ? "My audio" : "My videos", description: `${audio ? "Audio" : "Video"} files you added yourself. They're stored in your Google Drive.`,
              image: null, link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
     lib.feeds.push(feed);
   } else if (feed.deleted) {

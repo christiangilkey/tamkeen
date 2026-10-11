@@ -13,6 +13,7 @@ import * as chat from "./pages/chat.js";
 import { startBadge } from "./social.js";
 import { initSwipe } from "./swipe.js";
 import { isNewer, showUpdateNotice } from "./updatenotice.js";
+import { icon } from "./icons.js";
 import { detectLanguage, setLang, setStudyLanguage } from "./languages.js";
 import { addUploadedVideo, handle } from "./backend.js";
 import { accessToken, drive } from "./drive.js";
@@ -239,6 +240,7 @@ async function videoUrl(ep) {
 }
 
 const VIDEO_EXT = /\.(mp4|m4v|mov|webm|mkv|avi|3gp)$/i;
+const AUDIO_EXT = /\.(mp3|m4a|aac|wav|ogg|oga|opus|flac|wma|amr)$/i;
 
 function videoDuration(file) {
   return new Promise((resolve) => {
@@ -255,11 +257,16 @@ function videoDuration(file) {
 
 /** Upload a video to Drive; the computer transcribes it on its next sync. */
 export async function uploadVideo(file, onProgress) {
-  if (!settings.signed_in) throw new Error("Sign in with Google (Settings) first: videos are stored in your Drive.");
-  const ext = (file.name.match(VIDEO_EXT) || [])[1];
-  if (!ext && !(file.type || "").startsWith("video/")) throw new Error("Choose a video file (MP4, MOV, WebM, MKV, AVI or 3GP).");
-  const suffix = `.${(ext || "mp4").toLowerCase()}`;
-  const mime = file.type || "video/mp4";
+  if (!settings.signed_in) throw new Error("Sign in with Google (Settings) first: your files are stored in your Drive.");
+  // Video or audio: the file's type decides (the same button path serves both).
+  const audioExt = (file.name.match(AUDIO_EXT) || [])[1];
+  const audio = !!audioExt || (file.type || "").startsWith("audio/");
+  const ext = audio ? audioExt : (file.name.match(VIDEO_EXT) || [])[1];
+  if (!audio && !ext && !(file.type || "").startsWith("video/")) {
+    throw new Error("Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).");
+  }
+  const suffix = `.${(ext || (audio ? "mp3" : "mp4")).toLowerCase()}`;
+  const mime = file.type || (audio ? "audio/mpeg" : "video/mp4");
   const uid = `e${newUid().slice(1)}`;
   const driveName = `v_${uid}${suffix}`;
   const duration = await videoDuration(file);
@@ -267,8 +274,8 @@ export async function uploadVideo(file, onProgress) {
   const files = (await kv.get("drive_files")) || {};
   files[driveName] = meta;
   await kv.set("drive_files", files);
-  const title = file.name.replace(/\.[^.]+$/, "") || "Video";
-  const ep = await addUploadedVideo({ uid, title, driveName, mime, duration });
+  const title = file.name.replace(/\.[^.]+$/, "") || (audio ? "Audio" : "Video");
+  const ep = await addUploadedVideo({ uid, title, driveName, mime, duration, audio });
   return { ...ep, note: "Your computer transcribes it the next time it syncs." };
 }
 
@@ -417,6 +424,8 @@ async function boot() {
   await loadLibrary();
   applySettings(settings);
   if (!settings.welcome_seen || !settings.study_language) location.hash = "#/welcome"; // first run: choose a language
+  // The app's own line icons in the tab bar and the search button (see icons.js).
+  for (const el of document.querySelectorAll("[data-icon]")) el.innerHTML = icon(el.dataset.icon, Number(el.dataset.size) || 22);
   window.addEventListener("hashchange", route);
   initSwipe();
   route();

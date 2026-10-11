@@ -1,6 +1,7 @@
 // Library: feeds sidebar, episode list with live status, multi-select transcription.
 
 import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, openBrowser } from "../app.js";
+import { icon } from "../icons.js";
 import { importUrl } from "../pageimport.js";
 
 const FILTERS = [
@@ -17,6 +18,9 @@ export const isVideo = (ep) => (ep.audio_type || "").startsWith("video/");
 export const isLocalFeed = (url) => (url || "").startsWith("local:");
 export const isPage = (ep) => (ep.audio_type || "") === "text/html";
 const PAGES_FEED = "local:pages";
+const AUDIO_FEED = "local:audio";
+/** The picture for a built-in feed ("My webpages", "My audio", "My videos"). */
+const localIcon = (url, size) => icon(url === PAGES_FEED ? "page" : url === AUDIO_FEED ? "audio" : "video", size);
 
 export function statusInfo(ep) {
   const p = Math.round(ep.progress || 0);
@@ -48,7 +52,7 @@ export async function render(view, { feedId, query }) {
             </div>
           </form>
           <button type="button" id="open-browser" class="browser-btn" title="Browse the web inside the app and import any page you're reading">
-            <span class="ico">🌐</span><span>Open Web<br>Browser</span></button>
+            <span class="ico">${icon("page", 26)}</span><span>Open Web<br>Browser</span></button>
         </div>
         <form class="add-feed" id="add-feed">
           <label for="feed-url"><strong>Add a podcast</strong></label>
@@ -59,8 +63,12 @@ export async function render(view, { feedId, query }) {
         </form>
         <div class="row">
           <button type="button" id="refresh" class="ghost" title="Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)">⟳ Refresh &amp; sync</button>
-          <button type="button" id="add-video" class="ghost" title="Add a video file of your own; it's transcribed and stored in your Google Drive">🎬 Add video</button>
+          <span class="row" style="flex-wrap:nowrap;gap:4px">
+          <button type="button" id="add-video" class="ghost" title="Add a video file of your own; it's transcribed and stored in your Google Drive">${icon("video", 18)} Add video</button>
           <input type="file" id="video-file" accept="video/*,.mkv" hidden>
+          <button type="button" id="add-audio" class="ghost" title="Add an audio file of your own (a recording, a lesson, a song); it's transcribed and stored in your Google Drive">${icon("audio", 18)} Add audio</button>
+          <input type="file" id="audio-file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.oga,.opus,.flac,.wma,.amr" hidden>
+          </span>
         </div>
         <div class="upload-status" id="upload-status" hidden>
           <div class="small"><span id="upload-name"></span> <span class="muted" id="upload-pct"></span></div>
@@ -91,10 +99,10 @@ export async function render(view, { feedId, query }) {
     feeds = await api("/feeds");
     const list = $("#feed-list");
     list.innerHTML = "";
-    const all = h(`<a class="feed-item${feedId ? "" : " active"}" href="#/library"><div class="ph all">🎧</div><div><div class="t">All episodes</div></div></a>`);
+    const all = h(`<a class="feed-item${feedId ? "" : " active"}" href="#/library"><div class="ph all">${icon("podcast", 22)}</div><div><div class="t">All episodes</div></div></a>`);
     list.append(all);
     for (const f of feeds) {
-      const img = f.url === PAGES_FEED ? `<div class="ph all">🌐</div>` : isLocalFeed(f.url) ? `<div class="ph all">🎬</div>` : f.image ? `<img src="${esc(f.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph"></div>`;
+      const img = isLocalFeed(f.url) ? `<div class="ph all">${localIcon(f.url, 22)}</div>` : f.image ? `<img src="${esc(f.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph"></div>`;
       list.append(h(`<a class="feed-item${f.id === feedId ? " active" : ""}" href="#/feed/${f.id}">
         ${img}<div style="min-width:0"><div class="t">${esc(f.title)}</div>
         <div class="small muted">${f.done_count || 0}/${f.episode_count} transcribed${f.last_error ? " · ⚠" : ""}</div></div></a>`));
@@ -115,15 +123,16 @@ export async function render(view, { feedId, query }) {
     const f = feeds.find((x) => x.id === feedId);
     if (!f) { location.hash = "#/library"; return; }
     if (f.url === PAGES_FEED) {
-      head.append(h(`<div class="lib-head"><div class="ph video-ph">🌐</div><div class="meta"><h1>${esc(f.title)}</h1>
+      head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("page", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
         <div class="desc small">Web pages you imported. Open one to read it with every word clickable. Add more with
         “Add a webpage”, or browse with “Open Web Browser” and press Import Page.</div></div></div>`));
       return;
     }
     if (isLocalFeed(f.url)) {
-      head.append(h(`<div class="lib-head"><div class="ph video-ph">🎬</div><div class="meta"><h1>${esc(f.title)}</h1>
-        <div class="desc small">Video files you added yourself. They're transcribed on your computer and stored in your
-        Google Drive, so every device can play them. Use “🎬 Add video” to add more.</div></div></div>`));
+      const what = f.url === AUDIO_FEED ? "Audio" : "Video";
+      head.append(h(`<div class="lib-head"><div class="ph video-ph">${localIcon(f.url, 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
+        <div class="desc small">${what} files you added yourself. They're transcribed on your computer and stored in your
+        Google Drive, so every device can play them. Use “Add ${what.toLowerCase()}” to add more.</div></div></div>`));
       return;
     }
     const el = h(`<div class="lib-head">
@@ -231,7 +240,7 @@ export async function render(view, { feedId, query }) {
     if (isLocalFeed(ep.feed_url)) {
       btn("Delete", "ghost danger", async () => {
         if (!confirm(isPage(ep) ? `Delete “${ep.title}” from your webpages? Saved vocab is kept.`
-          : `Delete “${ep.title}”? The video and its transcript are removed from this device and from your Google Drive. Saved vocab is kept.`)) return;
+          : `Delete “${ep.title}”? The ${isVideo(ep) ? "video" : "audio"} and its transcript are removed from this device and from your Google Drive. Saved vocab is kept.`)) return;
         try {
           await api(`/episodes/${ep.id}`, { method: "DELETE" });
           row.remove();
@@ -365,12 +374,14 @@ export async function render(view, { feedId, query }) {
     openBrowser(typed).catch((err) => toast(err.message, { error: true }));
   };
   $("#add-video").onclick = () => $("#video-file").click();
-  $("#video-file").onchange = async (e) => {
+  $("#add-audio").onclick = () => $("#audio-file").click();
+  // Video and audio files are added the same way; the file's type decides where it goes.
+  $("#video-file").onchange = $("#audio-file").onchange = async (e) => {
     const file = e.target.files[0];
+    const btn = e.target.id === "audio-file" ? $("#add-audio") : $("#add-video");
     e.target.value = "";
     if (!file) return;
     const box = $("#upload-status");
-    const btn = $("#add-video");
     btn.disabled = true;
     box.hidden = false;
     $("#upload-name").textContent = file.name;

@@ -71,3 +71,14 @@ button, .btn { min-height: 38px; }
 
 /* The update popup sits above the tab bar, in thumb reach. */
 .update-notice { left: 12px; right: 12px; bottom: calc(76px + env(safe-area-inset-bottom)); max-width: none; }
+
+/* ---------- tab bar icons: the app's own line icons (web/js/icons.js) ---------- */
+.tabbar a { color: var(--muted); }
+.tabbar .ico { color: inherit; }
+.tabbar .ico svg { display: block; transition: transform .18s cubic-bezier(.3, 1.6, .5, 1), stroke-width .15s ease; }
+.tabbar a.active { color: var(--accent); }
+.tabbar a.active .ico svg { transform: translateY(-1px) scale(1.08); stroke-width: 2.1; }
+.tabbar a.active .ic .fill { opacity: .22; }
+.tabbar a:active .ico svg { transform: scale(.9); }
+.top-search { display: inline-flex; align-items: center; gap: 6px; }
+.top-ico { display: inline-flex; }

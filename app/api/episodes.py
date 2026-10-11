@@ -88,7 +88,7 @@ def transcribe(body: TranscribeIn) -> dict[str, Any]:
 
 @router.post("/videos")
 async def upload_video(request: Request, filename: str, title: str | None = None) -> dict[str, Any]:
-    """Raw request body = the video file (streamed to disk, so any size works)."""
+    """Raw request body = the video or audio file (streamed to disk, so any size works)."""
     try:
         ep = await videos.save_upload(filename, request.stream(), title)
     except videos.UploadError as exc:

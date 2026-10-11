@@ -224,3 +224,43 @@ def test_video_api_upload_list_and_delete(client, monkeypatch):
     assert client.get(f"/api/episodes/{ep['id']}").status_code == 404
     assert client.get(f"/api/episodes?feed_id={mine['id']}").json()["total"] == 0
     assert client.post("/api/videos?filename=x.txt", content=b"abc").status_code == 400
+
+
+def test_audio_upload_goes_to_my_audio_and_syncs_like_a_video(world, monkeypatch):
+    drive, a, b = world
+    with a:
+        ep = add_video(monkeypatch, "Lesson two.MP3", b"fake audio bytes")
+        assert ep["title"] == "Lesson two" and ep["audio_type"] == "audio/mpeg"
+        assert ep["audio_url"] == f"drive:v_{ep['uid']}.mp3"
+        with db.session() as conn:
+            feed = conn.execute("SELECT * FROM feeds WHERE id = ?", (ep["feed_id"],)).fetchone()
+        assert feed["url"] == videos.AUDIO_FEED_URL and feed["title"] == "My audio"
+        # Videos keep their own feed; a second audio file joins the first.
+        video = add_video(monkeypatch, "clip.mp4")
+        assert video["feed_id"] != ep["feed_id"]
+        assert add_video(monkeypatch, "voice memo.m4a")["feed_id"] == ep["feed_id"]
+    a.sync(drive)
+    assert drive.by_name(f"v_{ep['uid']}.mp3"), "the audio file itself is stored in Drive"
+    b.sync(drive)
+    with b:
+        with db.session() as conn:
+            row = conn.execute("SELECT e.audio_type, e.remote_audio, f.url FROM episodes e JOIN feeds f ON f.id = e.feed_id "
+                               "WHERE e.uid = ?", (ep["uid"],)).fetchone()
+        assert (row["audio_type"], row["remote_audio"], row["url"]) == ("audio/mpeg", 1, videos.AUDIO_FEED_URL)
+
+
+def test_audio_api_upload_plays_in_the_audio_player_and_can_be_deleted(client, monkeypatch):
+    monkeypatch.setattr(audio, "probe_duration", lambda p: 30.0)
+    monkeypatch.setattr(jobs, "enqueue", lambda ids_: list(ids_))
+    r = client.post("/api/videos?filename=Interview.wav", content=b"\x01" * 500)
+    assert r.status_code == 200, r.text
+    ep = r.json()
+    assert ep["audio_type"] == "audio/wav" and not ep["audio_type"].startswith("video/")
+    feeds = client.get("/api/feeds").json()
+    mine = next(f for f in feeds if f["url"] == videos.AUDIO_FEED_URL)
+    assert mine["title"] == "My audio" and mine["episode_count"] == 1
+    assert client.get(f"/api/episodes/{ep['id']}/audio", headers={"Range": "bytes=0-9"}).status_code == 206
+    assert client.delete(f"/api/feeds/{mine['id']}").status_code == 400, "My audio itself can't be removed"
+    assert client.delete(f"/api/episodes/{ep['id']}").json() == {"ok": True}
+    bad = client.post("/api/videos?filename=notes.pdf", content=b"abc")
+    assert bad.status_code == 400 and "audio file" in bad.json()["detail"]
