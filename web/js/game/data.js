@@ -210,6 +210,16 @@ export const WEEKLY_RULES = [
 ];
 export const BATTLE_UNLOCK_WORDS = 100; // saved vocab words needed before battles open
 
+// Weekly raid bosses: the things that get in a learner's way. A guild wears one down together.
+export const BOSSES = [
+  { id: "mumbler", name: "The Mumbler", text: "A fog of garbled speech." },
+  { id: "blank_page", name: "The Blank Page", text: "It stares back at you." },
+  { id: "static", name: "Static", text: "Noise where the words should be." },
+  { id: "forgetting", name: "The Forgetting", text: "It fades whatever you don't revisit." },
+];
+export const RAID_HP_PER_MEMBER = 150; // right answers needed per guild member in a week
+export const LEAGUES = ["Bronze", "Silver", "Gold", "Diamond"];
+
 // Badges are permanent and completable: a record of what you have done, never taken away.
 export const BADGES = [
   { id: "first_word", name: "First word", text: "Look up a word" },
@@ -290,6 +300,12 @@ export function artFiles() {
   add("battle/pad_rival.png", [64, 16], "pad");
   for (const id of ["move_attack", "move_guard", "move_boost", "move_heal", "stat_hp", "stat_atk", "stat_def", "stat_spd"]) add(`icon/${id}.png`, [16, 16], "icon", { id });
   for (const b of BADGES) add(`badge/${b.id}.png`, [24, 24], "badge", { id: b.id });
+  for (const b of BOSSES) {
+    add(`boss/${b.id}_idle.png`, [192, 96], "boss");
+    add(`boss/${b.id}_hurt.png`, [96, 96], "boss");
+    add(`boss/${b.id}_down.png`, [96, 96], "boss");
+  }
+  for (const l of LEAGUES) add(`icon/league_${l.toLowerCase()}.png`, [24, 24], "icon", { id: "league" });
   return out;
 }
 

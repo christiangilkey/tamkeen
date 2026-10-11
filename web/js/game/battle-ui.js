@@ -6,9 +6,10 @@ import { detectLanguage, setLang } from "../languages.js";
 import { BADGES, BATTLE_UNLOCK_WORDS, HABITAT, TYPES, moveById } from "./data.js";
 import { describe } from "./genome.js";
 import { answerQuestion, checkBadges, finishBattle, pickQuestion, quizzable, retention, reviewSummary, weekNumber, weeklyRule } from "./rules.js";
-import { COMBO, FAST_MS, QUESTION_MS, battleResult, eligible, fighters, newBattle, playTurn, rentalPool, teamSize, wildTeam } from "./battle.js";
+import { COMBO, FAST_MS, QUESTION_MS, battleResult, eligible, fighters, fits, newBattle, playTurn, publicProfile, rentalPool, teamSize, wildTeam } from "./battle.js";
 import { FRAME, composeCreature, drawSheet, loadImage } from "./render.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
+import * as social from "../social.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const [W, H] = HABITAT.size;
@@ -87,7 +88,8 @@ export async function openBattleMenu() {
       <button type="button" class="battle-mode" id="b-rental"><strong>Rental duel</strong>
         <span class="small muted">Pick three of this week's six shared creatures; your rival gets the rest. Counts for your skill rating.</span></button>
     </div>
-    <p class="small muted">This week's rule for rated and friend battles: <strong>${rule.name}</strong>. ${rule.text}</p>
+    <p class="small muted">To challenge a friend's team, open <strong>Friends</strong> in the game menu. This week's rule for
+      friend battles: <strong>${rule.name}</strong>. ${rule.text}</p>
     <div id="b-team" class="row"></div>
   </div>`));
   const size = Math.min(team.length, teamSize(null));
@@ -100,6 +102,28 @@ export async function openBattleMenu() {
     runBattle(newBattle({ mine, theirs, mode: "wild", foeForm: 0.55 + rand() * 0.25, rand }), vocab);
   };
   body.querySelector("#b-rental").onclick = () => pickRental(wrap, body, vocab);
+}
+
+/**
+ * Challenge a friend's team. They aren't there: their creatures fight with the moves they chose,
+ * and answer as accurately as their owner usually answers their own words. You answer yours.
+ */
+export async function startFriendBattle(friend, profile) {
+  const game = getGame();
+  const rule = weeklyRule();
+  let vocab = [];
+  try { vocab = await api("/vocab"); } catch { /* counted as none */ }
+  if (vocab.length < BATTLE_UNLOCK_WORDS) { toast(`Battles unlock at ${BATTLE_UNLOCK_WORDS} saved words. You have ${vocab.length}.`); return; }
+  if (!pickQuestion(game, vocab)) { toast("Your words need meanings before they can be asked. Fill some in on the Vocab page."); return; }
+  const mineIdx = eligible(game, rule).slice(0, teamSize(rule));
+  if (!mineIdx.length) { toast(`None of your creatures fit this week's rule (${rule.name}).`); return; }
+  const theirTeam = ((profile && profile.team) || []).filter((g) => fits(g, rule)).slice(0, teamSize(rule));
+  if (!theirTeam.length) { toast(`${friend.username} has no creatures that fit this week's rule (${rule.name}).`); return; }
+  const mine = fighters(game, mineIdx.map((i) => game.roster[i]), { rule });
+  const theirs = fighters(null, theirTeam, { rule });
+  for (const f of theirs) f.name = f.name || friend.username;
+  runBattle(newBattle({ mine, theirs, mode: "friend", rule, foeForm: Number(profile.form) || 0.7,
+    rival: { id: friend.id, name: friend.username, rating: Number(profile.rating) || 1000 } }), vocab);
 }
 
 function pickRental(wrap, body, vocab) {
@@ -242,7 +266,7 @@ function runBattle(b, vocab) {
     chip.classList.toggle("surge", b.combo >= COMBO.length - 1);
   }
   const say = (text) => { $("#b-log").textContent = text; };
-  const who = (side) => (side === "me" ? "Your creature" : b.mode === "wild" ? "The wild creature" : "Your rival's creature");
+  const who = (side) => (side === "me" ? "Your creature" : b.mode === "wild" ? "The wild creature" : b.mode === "friend" ? `${b.rival.name}'s creature` : "Your rival's creature");
 
   async function play(events) {
     for (const ev of events) {
@@ -379,6 +403,11 @@ function runBattle(b, vocab) {
     const pay = finishBattle(game, result);
     saveGame();
     announce({ type: "battle", xp: pay.xp, tier: result.won ? "lucky" : "common" });
+    if (b.mode === "friend" && b.rival && b.rival.id) {
+      // Let the friend know how it went, and refresh what friends see of me.
+      social.reportBattle(b.rival.id, result.won, { rating: game.rating }).catch((e) => toast(`Couldn't tell ${b.rival.name}: ${e.message}`, { error: true }));
+    }
+    social.currentUser().then((u) => { if (u) social.publishGame(publicProfile(game, weeklyRule())).catch(() => {}); });
     sfx(result.won ? "jackpot" : "surprise");
     for (const id of pay.badges) badgeToast(id);
     const lines = [

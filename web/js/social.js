@@ -739,3 +739,85 @@ export async function declineGuildInvite(inviteId) {
   const { error } = await (await sb()).from("guild_invites").delete().eq("id", inviteId);
   if (error) throw new Error(friendly(error));
 }
+
+// ---------------------------------------------------------------- the creature game between friends
+// (schema v5: game_profiles, battles, gifts). Nothing here carries vocab or study material.
+
+/** Publish my game profile: the team friends may challenge and this week's numbers. */
+export async function publishGame(row) {
+  const user = await currentUser();
+  if (!user) return false;
+  const { error } = await (await sb()).from("game_profiles").upsert({ user_id: user.id, ...row });
+  if (error) throw new Error(friendly(error));
+  return true;
+}
+
+/** Game profiles of the given people: Map(user id -> row). */
+export async function gameProfiles(userIds) {
+  const out = new Map();
+  if (!userIds.length) return out;
+  const { data, error } = await (await sb()).from("game_profiles")
+    .select("user_id, team, form, rating, league, week, goal_days, reviews, updated_at").in("user_id", userIds);
+  if (error) throw new Error(friendly(error));
+  for (const r of data) out.set(r.user_id, r);
+  return out;
+}
+
+async function usernames(ids) {
+  const names = new Map();
+  if (!ids.length) return names;
+  const { data } = await (await sb()).from("profiles").select("id, username").in("id", [...new Set(ids)]);
+  for (const p of data || []) names.set(p.id, p.username || "A friend");
+  return names;
+}
+
+/** Tell a friend how a battle against their team went. */
+export async function reportBattle(defenderId, won, detail = null) {
+  const user = await currentUser();
+  if (!user) return;
+  const { error } = await (await sb()).from("battles").insert({ challenger: user.id, defender: defenderId, won, detail });
+  if (error) throw new Error(friendly(error));
+}
+
+/** Battles friends fought against my team that I haven't seen yet: [{id, won, rival: {id, name, rating}}]. */
+export async function battleInbox() {
+  const user = await currentUser();
+  if (!user) return [];
+  const { data, error } = await (await sb()).from("battles").select("id, challenger, won, detail, created_at")
+    .eq("defender", user.id).eq("seen", false).order("created_at");
+  if (error) throw new Error(friendly(error));
+  const names = await usernames(data.map((r) => r.challenger));
+  return data.map((r) => ({ id: r.id, won: r.won, at: r.created_at,
+    rival: { id: r.challenger, name: names.get(r.challenger) || "A friend", rating: (r.detail && r.detail.rating) || 1000 } }));
+}
+
+export async function markBattlesSeen() {
+  const { error } = await (await sb()).rpc("mark_battles_seen");
+  if (error) throw new Error(friendly(error));
+}
+
+/** Send a friend an item or an egg. */
+export async function sendGift(recipientId, kind, payload) {
+  const user = await currentUser();
+  if (!user) throw new Error("Connect first (Settings → Friends & sharing).");
+  const { error } = await (await sb()).from("gifts").insert({ sender: user.id, recipient: recipientId, kind, payload });
+  if (error) throw new Error(/row-level security/.test(error.message || "") ? "That gift couldn't be sent (ten gifts a day at most, and only to friends or guild-mates)." : friendly(error));
+}
+
+/** Gifts waiting for me: [{id, kind, from}]. */
+export async function giftInbox() {
+  const user = await currentUser();
+  if (!user) return [];
+  const { data, error } = await (await sb()).from("gifts").select("id, sender, kind, created_at")
+    .eq("recipient", user.id).is("claimed_at", null).order("created_at");
+  if (error) throw new Error(friendly(error));
+  const names = await usernames(data.map((r) => r.sender));
+  return data.map((r) => ({ id: r.id, kind: r.kind, from: names.get(r.sender) || "A friend" }));
+}
+
+/** Open a gift (once): {kind, payload}. */
+export async function claimGift(id) {
+  const { data, error } = await (await sb()).rpc("claim_gift", { g: id });
+  if (error) throw new Error(friendly(error));
+  return data;
+}

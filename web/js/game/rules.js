@@ -10,7 +10,7 @@
 //     answers that stay accurate, and days kept up.
 
 import { bodyHue, formOf, leadingBranch, newGenome, readyToEvolve, rng, stageOf, weightedPick } from "./genome.js";
-import { BADGES, BRANCHES, BRANCH_IDS, CATALOG, VARIANTS, WEEKLY_RULES, itemById } from "./data.js";
+import { BADGES, BOSSES, BRANCHES, BRANCH_IDS, CATALOG, TYPES, VARIANTS, WEEKLY_RULES, itemById } from "./data.js";
 
 export const VERSION = 2;
 export const GOALS = [5, 10, 20];           // minutes of study a day; the owner chooses
@@ -59,6 +59,9 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     review: {},  // vocab word -> [box, day it is next due, times right, times wrong]
     stats: { lookups: 0, goals: 0, reviews: 0, right: 0, battles: 0, wins: 0, friend_battles: 0, raids: 0, words: 0 },
     week: { n: 0, right: 0, total: 0, paid: false },
+    league: 0,                    // 0 bronze .. 3 diamond: moved by how many days a week the goal is reached
+    goalWeek: { n: 0, days: 0 },  // this week's goal days
+    raid: 0,                      // the week whose raid reward has been claimed
     rating: 1000, // battle skill, nothing to do with how much has been studied
     rivals: {},   // friend id -> {name, wins, losses}
     badges: [],
@@ -84,6 +87,7 @@ export function normalize(state) {
   s.day = { ...fresh.day, ...(s.day || {}) };
   s.stats = { ...fresh.stats, ...(s.stats || {}) };
   s.week = { ...fresh.week, ...(s.week || {}) };
+  s.goalWeek = { ...fresh.goalWeek, ...(s.goalWeek || {}) };
   const blank = fresh.roster[0];
   for (const g of s.roster) {
     g.traits = { ...blank.traits, ...(g.traits || {}) };
@@ -130,6 +134,7 @@ export function rollDay(state, now = new Date()) {
     }
   }
   state.day = freshDay(key);
+  rollLeague(state, now);
   return state;
 }
 
@@ -236,6 +241,8 @@ export function earn(state, event, ctx = {}) {
       out.xp += DAILY_COMPLETE_XP;
       state.coins += 10;
       state.stats.goals++;
+      rollLeague(state, now);
+      state.goalWeek.days = Math.min(7, state.goalWeek.days + 1);
       const key = dayKey(now);
       const yesterday = new Date(now);
       yesterday.setDate(yesterday.getDate() - 1);
@@ -480,6 +487,90 @@ export function finishBattle(state, result, ctx = {}) {
   out.badges = checkBadges(state);
   state.updated_at = now.getTime() / 1000;
   return out;
+}
+
+// ---------- friends: league, raid, gifts ----------
+// The league is about keeping your own promise, not about volume: it counts the days this week
+// you reached your own daily goal, so someone with a 5-minute goal can top someone with 20.
+
+/** Start a new league week when the date calls for it, moving up or down on last week's result. */
+export function rollLeague(state, now = new Date()) {
+  const n = weekNumber(now);
+  if (state.goalWeek.n === n) return;
+  if (state.goalWeek.n) {
+    if (state.goalWeek.days >= 5) state.league = Math.min(3, state.league + 1);
+    else if (state.goalWeek.days <= 1) state.league = Math.max(0, state.league - 1);
+    state.league = Math.max(0, state.league - Math.max(0, n - state.goalWeek.n - 1)); // whole weeks away
+  }
+  state.goalWeek = { n, days: 0 };
+}
+
+/** Share of this week's days so far on which the goal was reached, as a whole percentage. */
+export function leaguePercent(days, now = new Date()) {
+  const elapsed = ((dayNumber(now) + 3) % 7) + 1; // Monday is day 1
+  return Math.min(100, Math.round((100 * Math.min(days, elapsed)) / elapsed));
+}
+
+export const weeklyBoss = (now = new Date()) => BOSSES[weekNumber(now) % BOSSES.length];
+
+/** Right answers this week: what this player has dealt to the guild's raid boss. */
+export const raidDamage = (state, now = new Date()) => (state.week.n === weekNumber(now) ? state.week.right : 0);
+
+/** Take the reward for a defeated raid boss, once a week. Returns {xp, coins, badges} or null. */
+export function claimRaid(state, now = new Date()) {
+  const n = weekNumber(now);
+  if (state.raid === n) return null;
+  state.raid = n;
+  state.stats.raids++;
+  state.coins += 20;
+  grow(state, 150, null);
+  state.updated_at = now.getTime() / 1000;
+  return { xp: 150, coins: 20, badges: checkBadges(state) };
+}
+
+/** A defence result came in: a friend challenged this player's team while they were away. */
+export function recordDefence(state, rival, challengerWon) {
+  if (!rival || !rival.id) return;
+  const r = state.rivals[rival.id] || { name: rival.name || "", wins: 0, losses: 0 };
+  r.name = rival.name || r.name;
+  r[challengerWon ? "losses" : "wins"]++;
+  state.rivals[rival.id] = r;
+}
+
+/** Take an owned item out of the game to give it away. Returns what to send, or null. */
+export function giveItem(state, id) {
+  if (!state.owned.includes(id)) return null;
+  state.owned = state.owned.filter((x) => x !== id);
+  state.decor = state.decor.filter((d) => d.id !== id);
+  for (const g of state.roster) for (const [slot, worn] of Object.entries(g.equipped)) if (worn === id) delete g.equipped[slot];
+  return { id };
+}
+
+/** Take an unhatched egg out of the roster to give it away. Returns what to send, or null. */
+export function giveEgg(state, index) {
+  const g = state.roster[index];
+  if (!g || index === state.active || state.roster.length < 2 || stageOf(g.growth).id !== "egg") return null;
+  state.roster.splice(index, 1);
+  if (state.active > index) state.active--;
+  return { seed: g.seed, type: g.type };
+}
+
+/** Add a gift to the game. Whatever arrives is checked: a gift can only ever be a known item or
+ * a fresh egg. Returns a sentence saying what happened. */
+export function receiveGift(state, kind, payload) {
+  if (kind === "item") {
+    const it = itemById(payload && payload.id);
+    if (!it) return "The gift couldn't be opened.";
+    if (state.owned.includes(it.id)) { state.coins += Math.ceil(it.price / 2); return `You already have ${it.name}, so it became ${Math.ceil(it.price / 2)} coins.`; }
+    state.owned.push(it.id);
+    return `You received ${it.name}. It's in My things.`;
+  }
+  if (kind === "egg" && payload && Number.isFinite(payload.seed) && TYPES[payload.type]) {
+    if (state.roster.length >= MAX_CREATURES) { state.coins += 20; return "Your roster is full, so the egg became 20 coins."; }
+    state.roster.push(newGenome(payload.seed >>> 0, payload.type));
+    return `You received a ${TYPES[payload.type].name} egg. It's with your creatures.`;
+  }
+  return "The gift couldn't be opened.";
 }
 
 // ---------- badges ----------

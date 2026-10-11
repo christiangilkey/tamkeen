@@ -883,3 +883,19 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .b-result h2 { margin: 0; }
 @media (max-width: 520px) { .bq-options, .b-moves { grid-template-columns: 1fr; } .hud-actions { grid-template-columns: repeat(2, 1fr); } }
 .b-hp .hud-bar { flex: none; width: 100%; }
+
+/* ---------- creature game: friends page (league, raid, gifts) ---------- */
+.league-ico { width: 48px; height: 48px; image-rendering: pixelated; flex: none; }
+.league-ico.small { width: 24px; height: 24px; }
+.league-table { display: flex; flex-direction: column; gap: 4px; }
+.league-row { display: grid; grid-template-columns: 22px 24px minmax(70px, 1fr) minmax(50px, 1fr) 40px auto; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 10px; font-size: 14px; }
+.league-row.mine { background: var(--surface-2); font-weight: 600; }
+.league-rank { text-align: center; color: var(--muted); }
+.league-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.league-pct { text-align: end; font-variant-numeric: tabular-nums; }
+.league-act { min-width: 92px; text-align: end; }
+button.small { font-size: 12px; padding: 3px 10px; }
+.boss { width: 96px; height: 96px; flex: none; background-size: 192px 96px; background-repeat: no-repeat; image-rendering: pixelated; animation: boss-idle .9s steps(2) infinite; }
+.boss.down { background-size: 96px 96px; animation: none; }
+@keyframes boss-idle { from { background-position: 0 0; } to { background-position: -192px 0; } }
+@media (max-width: 520px) { .league-row { grid-template-columns: 18px 24px 1fr 36px auto; } .league-row .hud-bar { display: none; } }

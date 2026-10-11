@@ -17,7 +17,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from px import OUT, ROOT  # noqa: E402
 
-MODULES = ["creature", "world", "phase2", "phase3"]
+MODULES = ["creature", "world", "phase2", "phase3", "extra"]
 
 
 def main() -> None:

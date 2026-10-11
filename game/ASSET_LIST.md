@@ -291,3 +291,35 @@ node --test tests/js/game.test.mjs
 
 To see every creature combination with the new art, open Tamkeen's Home screen: the habitat at the bottom
 shows the current creature.
+
+---
+
+## 7. Art added after the brief (delivered 2026-10-11, not wired in yet)
+
+Drawn for things the game gained after this brief was written, or still shows as a symbol or an emoji.
+Nothing loads these files yet; each row says what it is for. All are in the game's style (dark, lit by
+neon), full colour unless noted, and made by `tools/game_art/extra.py`.
+
+| Files | Canvas | Count | For |
+|---|---|---|---|
+| `creature/eyes_big/<style>_<expression>.png` | 20x10 | 30 | Hatchling eyes, a size larger, so eyes shrink relative to the face as a creature grows. Same styles and expressions as `creature/eyes/`; key palette; centre (10,5) on the head's eye socket |
+| `icon/move/<move id>.png` | 16x16 | 26 | One icon per move in `data.MOVES`, to replace the four kind icons on the move buttons |
+| `icon/tag_<id>.png` | 16x16 | 5 | `night_owl early_bird streak_7 flawless comeback` |
+| `icon/form_<id>.png` | 16x16 | 6 | `echo sage keeper twin nocturne champion`, for the evolve choice |
+| `icon/trait_<id>.png` | 16x16 | 4 | `listener reader collector curious` |
+| `icon/rule_<id>.png` | 16x16 | 6 | The weekly rules: `open starters no_heal warm cool solo` |
+| `icon/nav_<id>.png` | 16x16 | 5 | `shop wardrobe roster badges habitat` |
+| `icon/close star badge trophy battle edit evolve combo surge rating egg` | 16x16 | 11 | Replace the symbols the interface writes today: ✕ ★ 🏅 🏆 ⚔ ✎ ✨ 🔥 ⚡ skill 🥚 (coin, freeze, hint, lock and check already exist) |
+| `icon/glow release trade rival defence raid clock` | 16x16 | 7 | The idle layer (glow, release, time away) and play with friends |
+| `ui/pip_on.png` `ui/pip_off.png` | 8x8 | 2 | Team members still standing, in battle (● ○ today) |
+| `ui/slot_empty.png` | 24x24 | 1 | An empty roster or item slot |
+| `structure/plot.png` | 32x32 | 1 | An empty building plot in the habitat |
+| `fx/evolve.png` | strip of 8, 64x64 | 1 | Evolving: light gathers, then bursts |
+| `fx/ready.png` | strip of 4, 32x32 | 1 | The shimmer round a creature that is ready to evolve |
+| `fx/surge.png` | strip of 6, 48x48 | 1 | The charge round a creature in a surge |
+| `fx/combo_fire.png` | strip of 4, 16x16 | 1 | The flame on the combo chip |
+| `battle/faint.png` | strip of 5, 32x32 | 1 | A beaten creature breaking up into pixels |
+| `battle/glance.png` | strip of 4, 32x32 | 1 | The glancing hit after a wrong answer |
+| `fx/question.png` `fx/spark.png` | 8x8 | 2 | Particles for the reward fountain (? and ✦ today) |
+| `fx/shadow_s.png` `fx/shadow_m.png` `fx/shadow_l.png` | 16x4, 24x5, 36x6 | 3 | The shadow under a creature, one per body size |
+| `habitat/rain.png` | 32x32 tile | 1 | Rain to scroll over a habitat; repeats without a seam |

@@ -7,6 +7,7 @@ import { FX_FRAMES, HABITAT, SPECIES, STAGES, TYPES, BRANCHES } from "./data.js"
 import { describe, formOf, readyToEvolve, stageOf } from "./genome.js";
 import { BADGES } from "./data.js";
 import { openBattleMenu } from "./battle-ui.js";
+import { publishNow } from "./friends-game.js";
 import { GOALS, levelOf } from "./rules.js";
 import { FRAME, composeCreature, drawSheet, loadImage } from "./render.js";
 import { getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
@@ -40,9 +41,9 @@ export function habitat() {
       </div>
       <div class="hud-actions">
         <button type="button" class="primary" id="g-battle">⚔ Battle</button>
+        <button type="button" id="g-friends">Friends</button>
         <button type="button" id="g-creatures">Creatures</button>
         <button type="button" id="g-shop">Shop</button>
-        <button type="button" id="g-mine">My things</button>
       </div>
     </div>
   </section>`);
@@ -83,9 +84,10 @@ export function habitat() {
     paintHud();
   };
   $("#g-shop").onclick = () => openShop("shop", () => paintHud());
-  $("#g-mine").onclick = () => openShop("mine", () => paintHud());
   $("#g-creatures").onclick = () => openShop("creatures", () => paintHud());
   $("#g-battle").onclick = () => openBattleMenu();
+  $("#g-friends").onclick = () => openShop("friends", () => paintHud());
+  setTimeout(() => publishNow(), 4000); // keep what friends see of me fresh (only when connected)
   $(".habitat-name").onclick = () => {
     const name = window.prompt("Name your creature", game.creature.name || "");
     if (name === null) return;

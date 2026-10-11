@@ -125,12 +125,12 @@ export function describe(genome) {
   look.variant = variant || null;
   if (variant === "nocturne") {
     const h2 = hue + (265 - hue) * 0.45;
-    look.colors.primary = [hsl(h2, sat * 0.8, light + 4), hsl(h2, sat * 0.8, light - 14), hsl(h2 + 10, sat * 0.6, light - 32), hsl(h2 + 20, sat * 0.5, light - 50)];
+    look.colors.primary = [hsl(h2, sat * 0.8 + 10, light + 9), hsl(h2, sat * 0.8, light - 6), hsl(h2 + 10, sat * 0.7, light - 12), hsl(h2 + 20, sat * 0.6, light - 17)];
     look.colors.accent = [hsl(52, 100, 74), hsl(46, 80, 56)];
     if (look.horn === "none") look.horn = "gem";
   } else if (variant === "twin") {
     const ph = Number.isFinite(genome.partnerHue) ? genome.partnerHue : hue + 150;
-    look.colors.secondary = [hsl(ph, 60, 92), hsl(ph, 72, 78), hsl(ph, 66, 62)];
+    look.colors.secondary = [hsl(ph, 55, 68), hsl(ph, 60, 52), hsl(ph, 55, 37)];
     if (look.pattern === "none") look.pattern = "patch";
   } else if (variant === "champion") {
     look.colors.accent = [hsl(45, 100, 66), hsl(36, 86, 50)];

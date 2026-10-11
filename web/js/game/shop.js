@@ -6,6 +6,8 @@ import { CATALOG, DECOR, ITEMS, SLOTS, TAGS, itemById } from "./data.js";
 import { buy, equip, placeDecor, shopStock } from "./rules.js";
 import { getGame, saveGame, sfx } from "./game.js";
 import { badgesPanel, creaturesPanel } from "./creatures.js";
+import { friendsPanel, gift } from "./friends-game.js";
+import { startFriendBattle } from "./battle-ui.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const fileOf = (it) => (it.slot === "decor" ? `${it.id}.png` : `item/${it.id}.png`);
@@ -21,6 +23,7 @@ export function openShop(tab, changed) {
         <button type="button" data-tab="mine">My things</button>
         <button type="button" data-tab="creatures">Creatures</button>
         <button type="button" data-tab="badges">Badges</button>
+        <button type="button" data-tab="friends">Friends</button>
       </div>
       <span class="spacer"></span>
       <span class="today-chip lit" id="sheet-coins"></span>
@@ -67,6 +70,9 @@ export function openShop(tab, changed) {
         changed();
         paint("mine");
       };
+      const give = h(`<button type="button" class="ghost small" title="Give this to a friend">🎁 Give</button>`);
+      give.onclick = () => gift("item", it.id, () => { changed(); paint("mine"); });
+      el.append(give);
     }
     return el;
   }
@@ -77,6 +83,7 @@ export function openShop(tab, changed) {
     body.innerHTML = "";
     if (which === "creatures") { creaturesPanel(body, game, changed); return; }
     if (which === "badges") { badgesPanel(body, game); return; }
+    if (which === "friends") { friendsPanel(body, game, changed, (friend, profile) => { close(); startFriendBattle(friend, profile); }); return; }
     if (which === "shop") {
       const stock = shopStock(game);
       body.append(h(`<p class="small muted">Today's selection, chosen for your creature. It changes every day. Coins come from
@@ -101,7 +108,7 @@ export function openShop(tab, changed) {
   }
   for (const b of wrap.querySelectorAll("[data-tab]")) b.onclick = () => paint(b.dataset.tab);
   document.body.append(wrap);
-  paint(["mine", "creatures", "badges"].includes(tab) ? tab : "shop");
+  paint(["mine", "creatures", "badges", "friends"].includes(tab) ? tab : "shop");
   return close;
 }
 

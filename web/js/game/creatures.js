@@ -8,6 +8,7 @@ import { branchOptions, evolve, reshape, setActive, variantOptions } from "./rul
 import { knownMoves, loadout } from "./battle.js";
 import { portrait } from "./battle-ui.js";
 import { saveGame, sfx } from "./game.js";
+import { gift } from "./friends-game.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const STAGE_NAME = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", adult: "Adult" };
@@ -100,6 +101,11 @@ export function creaturesPanel(body, game, changed) {
         }));
     } else {
       more.append(h(`<div class="small muted">Bring it out and study to hatch it.</div>`));
+      if (i !== game.active && game.roster.length > 1) {
+        const give = h(`<div><button type="button" class="ghost small">🎁 Give this egg to a friend</button></div>`);
+        give.querySelector("button").onclick = () => gift("egg", i, () => { changed(); creaturesPanel(body, game, changed); });
+        more.append(give);
+      }
     }
     body.append(card);
   });

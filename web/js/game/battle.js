@@ -5,7 +5,7 @@
 
 import { BASE_STATS, MOVES, matchup, moveById } from "./data.js";
 import { describe, leadingBranch, newGenome, rng, stageOf } from "./genome.js";
-import { wildBonus } from "./rules.js";
+import { retention, wildBonus, weekNumber, raidDamage } from "./rules.js";
 
 export const FAST_MS = 5000;       // answer correctly within this and the combo chain grows
 export const QUESTION_MS = 12000;  // after this the question counts as missed
@@ -39,6 +39,35 @@ export function loadout(state, g, rule = null) {
   return picked.map((m) => m.id);
 }
 
+/** A friend's published moves, checked: only real moves, at most four, at least one attack. */
+function checkedMoves(ids, rule) {
+  let moves = ids.map((id) => MOVES.find((m) => m.id === id)).filter(Boolean).slice(0, 4);
+  if (rule && rule.id === "no_heal") moves = moves.filter((m) => m.kind !== "heal");
+  if (!moves.some((m) => m.kind === "attack")) moves.push(MOVES[0]);
+  return moves.map((m) => m.id);
+}
+
+/** Whether a creature (the player's or a friend's) may fight under a rule. */
+export function fits(g, rule) {
+  if (!g || !Number.isFinite(g.seed) || stageOf(g.growth || 0).id === "egg") return false;
+  if (rule && rule.types && !rule.types.includes(g.type)) return false;
+  return !(rule && rule.id === "starters" && g.branch);
+}
+
+/** What a player shares with friends: the team they may challenge (with its chosen moves), how
+ * accurately the player answers their own words, and this week's numbers. No words are shared. */
+export function publicProfile(state, rule, now = new Date()) {
+  const team = eligible(state, rule).slice(0, teamSize(rule)).map((i) => {
+    const g = state.roster[i];
+    return { seed: g.seed, type: g.type, growth: Math.round(g.growth * 1000) / 1000, branch: g.branch || null, branches: g.branches || [],
+             variant: g.variant || null, partnerHue: g.partnerHue, name: (g.name || "").slice(0, 20), equipped: g.equipped || {},
+             loadout: loadout(state, g, rule) };
+  });
+  const form = retention(state);
+  return { team, form: form === null ? 0.7 : Math.round(form * 100) / 100, rating: state.rating, league: state.league,
+           week: weekNumber(now), goal_days: state.goalWeek.n === weekNumber(now) ? state.goalWeek.days : 0, reviews: raidDamage(state, now) };
+}
+
 /** A creature ready to fight. `wild` adds the small edge its age gives against wild creatures only. */
 export function fighter(state, g, { wild = false, rule = null } = {}) {
   const look = describe(g);
@@ -46,7 +75,7 @@ export function fighter(state, g, { wild = false, rule = null } = {}) {
   const k = wild ? wildBonus(g) : 1;
   const hp = Math.round(base.hp * k);
   return { name: g.name || "", look, type: g.type, max: hp, hp, atk: base.atk * k, def: base.def * k, spd: base.spd,
-           moves: loadout(state, g, rule), boost: 0, guard: 0, heals: 2 };
+           moves: Array.isArray(g.loadout) ? checkedMoves(g.loadout, rule) : loadout(state, g, rule), boost: 0, guard: 0, heals: 2 };
 }
 
 /** Which of the owner's creatures may fight under this week's rule (indexes into the roster). */

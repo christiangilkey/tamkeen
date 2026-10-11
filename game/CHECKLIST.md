@@ -49,7 +49,7 @@ Status: ✅ built · 🟡 partly · ⬜ not built
 | Chains and necklaces as an anchored physics chain | ⬜ | Neckwear is a static sprite (the document lists this last, as polish) |
 | Held items in hand sockets | ✅ | One hand |
 | Growth changes proportions: head slower than body, limbs lengthen | ✅ | One head size for life; three torso and limb sizes |
-| Eyes shrink relative to the face | 🟡 | Only relative to the body. A true version needs a second, larger set of eye sprites for hatchlings |
+| Eyes shrink relative to the face | 🟡 | Only relative to the body. The larger hatchling eyes are drawn (`creature/eyes_big/`, 20x10) but not wired in |
 | Items stay placed as the creature grows; optional per-stage offset | ✅ | Sockets, plus `offset: {s, m, l}` on any item |
 | Actions push traits; milestones grant tags | ✅ | Traits: listener, reader, collector, curious. Tags: night_owl, early_bird, streak_7, flawless, comeback |
 | Every cosmetic defined in data with `requires` and `weight_by` | ✅ | `data.ITEMS`, `data.DECOR` |
@@ -105,3 +105,7 @@ The idle layer is not built. Planned shape, agreed in outline with the owner:
 
 Shirts, structures, three more habitats (used as battle backdrops only), emotes, interface frames and
 the pixel digits, boss sprites, league icons, food and item icons.
+
+Added 2026-10-11 (`game/ASSET_LIST.md` section 7, 116 files): larger hatchling eyes, an icon for every move,
+tag, form, habit and weekly rule, icons to replace the symbols and emoji in the interface, effects for
+evolving, surge, a fainting creature and a glancing hit, shadows, an empty plot, and rain.
