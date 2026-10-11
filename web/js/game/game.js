@@ -1,8 +1,8 @@
 // The game's saved state, and the one function the study screens call: reward().
 // Also the "juice": the pop, particles, sounds and rolling numbers that make a reward feel good.
 
-import { saveSettings, state as app } from "../app.js";
-import { COMBO_STEPS, COMBO_WINDOW_MS, earn, normalize, newState, rollDay } from "./rules.js";
+import { api, on, saveSettings, state as app } from "../app.js";
+import { COMBO_STEPS, COMBO_WINDOW_MS, earn, earnAnki, normalize, newState, rollDay } from "./rules.js";
 import { icon } from "./render.js";
 
 let game = null;
@@ -11,6 +11,7 @@ const listeners = new Set();
 const combo = { count: 0, at: 0 };
 
 export function getGame() {
+  listenForAnki();
   if (!game) {
     const saved = app.status && app.status.settings && app.status.settings.game_state;
     game = saved ? normalize(JSON.parse(JSON.stringify(saved))) : newState();
@@ -64,6 +65,28 @@ export function reward(event, anchor = null) {
   if (event.type !== "study" || result.goalDone) showChip(g, result);
   for (const fn of listeners) { try { fn(result, g); } catch { /* a listener must not break studying */ } }
   return result;
+}
+
+/** Credit whatever the Anki companion has reported and the game hasn't counted yet (desktop only:
+ * on the phone there is no Anki add-on to hear from, and the creature arrives through sync). */
+export async function checkAnki() {
+  let report;
+  try { report = await api("/anki/days"); } catch { return null; }
+  const g = getGame();
+  const result = earnAnki(g, report && report.days);
+  if (!result) return null;
+  saveGame();
+  if (result.goalDone || result.matured) celebrate(result, null);
+  for (const fn of listeners) { try { fn(result, g); } catch { /* ignore */ } }
+  return result;
+}
+// (Listening starts on first use rather than here: this file loads while the app shell is still
+// starting up, before its event list exists.)
+let listening = false;
+function listenForAnki() {
+  if (listening) return;
+  listening = true;
+  try { on("anki", () => { checkAnki(); }); } catch { /* this shell has no server events */ }
 }
 
 /** Count study time while `active()` is true. Returns a function that stops counting. */
@@ -138,6 +161,7 @@ export function fountain(x, y, result) {
   label.className = `fx-label fx-${tier}`;
   const mult = result.combo > 1 ? ` ×${result.combo}` : "";
   label.textContent = result.goalDone ? `Daily goal! +${result.xp} XP`
+    : result.type === "anki" ? `Anki: ${result.matured} card${result.matured === 1 ? "" : "s"} matured · +${result.xp} XP`
     : result.item ? ` ${result.item === "freeze" ? "Streak freeze" : "Hint card"}!`
     : `+${result.xp} XP${mult}`;
   if (result.item && !result.goalDone) label.insertAdjacentHTML("afterbegin", icon(result.item === "freeze" ? "freeze" : "hint"));

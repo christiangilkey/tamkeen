@@ -193,6 +193,69 @@ function grow(state, xp, trait) {
   return before === after ? null : after;
 }
 
+/** The day's goal has been reached (by study minutes, or by clearing what was due in Anki): the
+ * big payout, the same whatever the goal's size, and the streak and league day that go with it. */
+function reachGoal(state, now, out) {
+  state.day.done = true;
+  out.goalDone = true;
+  out.tier = "jackpot";
+  out.xp += DAILY_COMPLETE_XP;
+  state.coins += 10;
+  state.stats.goals++;
+  rollLeague(state, now);
+  state.goalWeek.days = Math.min(7, state.goalWeek.days + 1);
+  const yesterday = new Date(now);
+  yesterday.setDate(yesterday.getDate() - 1);
+  state.streak = state.last_complete === dayKey(yesterday) ? state.streak + 1 : 1;
+  state.best_streak = Math.max(state.best_streak, state.streak);
+  state.last_complete = dayKey(now);
+  if (state.streak % 7 === 0) state.items.freeze = Math.min(3, state.items.freeze + 1); // a rest day earned
+  if (state.streak >= 7) grant(state, "streak_7");
+  out.stage = grow(state, DAILY_COMPLETE_XP, null) || out.stage;
+}
+
+/**
+ * Daily totals reported by the Anki companion: [{day, reviews, again, matured, due_left}].
+ * Anki grades are the learner's own word, so volume barely pays. What pays:
+ *   - clearing what was due today, whatever the count (20 cards or 300): that is the day's goal;
+ *   - cards becoming mature, which takes weeks of honest answers.
+ * Totals for a day only count once however often they are reported. Returns a result like
+ * earn()'s, or null when there is nothing new.
+ */
+export function earnAnki(state, days, now = new Date()) {
+  rollDay(state, now);
+  state.anki = state.anki && typeof state.anki === "object" ? state.anki : {};
+  const levelBefore = levelOf(state.xp).level;
+  const out = { type: "anki", xp: 0, tier: "common", item: null, combo: 1, stage: null, levelUp: false, goalDone: false, badges: [], reviews: 0, matured: 0 };
+  const today = dayKey(now);
+  for (const d of Array.isArray(days) ? days : []) {
+    if (!d || !/^\d{4}-\d{2}-\d{2}$/.test(String(d.day))) continue;
+    const seen = state.anki[d.day] || { reviews: 0, matured: 0, cleared: false };
+    const total = Math.max(0, Math.floor(Number(d.reviews) || 0));
+    const mature = Math.max(0, Math.floor(Number(d.matured) || 0));
+    let xp = 0;
+    for (let i = seen.reviews; i < Math.min(total, 200); i++) xp += fade(i, 60, 200); // a trickle that soon dries up
+    xp = Math.round(xp);
+    const newlyMature = Math.max(0, Math.min(mature, 10) - Math.min(seen.matured, 10)); // at most ten a day
+    xp += newlyMature * 15;
+    state.coins += newlyMature;
+    if (xp) out.stage = grow(state, xp, "collector") || out.stage;
+    out.xp += xp;
+    out.reviews += Math.max(0, total - seen.reviews);
+    out.matured += newlyMature;
+    const cleared = d.due_left === 0 && total > 0;
+    if (cleared && !seen.cleared && d.day === today && !state.day.done) reachGoal(state, now, out);
+    state.anki[d.day] = { reviews: Math.max(seen.reviews, total), matured: Math.max(seen.matured, mature), cleared: seen.cleared || cleared };
+  }
+  for (const key of Object.keys(state.anki).sort().slice(0, -14)) delete state.anki[key];
+  if (!out.xp && !out.goalDone) return null;
+  out.levelUp = levelOf(state.xp).level > levelBefore;
+  if (out.levelUp) state.coins += 5;
+  out.badges = checkBadges(state);
+  state.updated_at = now.getTime() / 1000;
+  return out;
+}
+
 /**
  * Something happened while studying. Returns what it earned (or null for nothing):
  *   {type, xp, tier, item, combo, stage, levelUp, goalDone, badges}
@@ -245,23 +308,7 @@ export function earn(state, event, ctx = {}) {
     out.xp = Math.round(seconds * rate);
     out.stage = grow(state, out.xp, event.mode === "read" ? "reader" : "listener");
     if (!day.done && day.seconds >= goal) {
-      day.done = true;
-      out.goalDone = true;
-      out.tier = "jackpot";
-      out.xp += DAILY_COMPLETE_XP;
-      state.coins += 10;
-      state.stats.goals++;
-      rollLeague(state, now);
-      state.goalWeek.days = Math.min(7, state.goalWeek.days + 1);
-      const key = dayKey(now);
-      const yesterday = new Date(now);
-      yesterday.setDate(yesterday.getDate() - 1);
-      state.streak = state.last_complete === dayKey(yesterday) ? state.streak + 1 : 1;
-      state.best_streak = Math.max(state.best_streak, state.streak);
-      state.last_complete = key;
-      if (state.streak % 7 === 0) state.items.freeze = Math.min(3, state.items.freeze + 1); // a rest day earned
-      if (state.streak >= 7) grant(state, "streak_7");
-      out.stage = grow(state, DAILY_COMPLETE_XP, null) || out.stage;
+      reachGoal(state, now, out);
     }
     if (!out.xp) return null;
   } else {

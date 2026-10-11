@@ -322,6 +322,10 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     # The creature game: its whole saved state (see web/js/game/rules.js), and whether it makes sounds.
     "game_state": None,
     "game_sound": True,
+    # The Anki companion (see app/companion.py): its secret, and the daily totals it has reported.
+    "anki_token": "",
+    "anki_days": {},
+    "anki_last_report": None,
     # AI word definitions (users bring their own API key).
     "definer_provider": "claude",
     "definer_language": "English",
@@ -342,7 +346,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
 
 # Settings that hold secrets: never exported in backups.
 SECRET_SETTINGS = ("llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok",
-                   "google_refresh_token")
+                   "google_refresh_token", "anki_token")
 
 
 def get_settings() -> dict[str, Any]:

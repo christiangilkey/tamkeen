@@ -108,7 +108,7 @@ Built on 2026-10-11 as "the garden" (`web/js/game/idle.js` rules, `garden.js` sc
 | Uses for the delivered art: buildings and plot, food, potion, key, ticket, incubator, XP boost, gem, stardust, hearts, glow, release, egg | ✅ | Buildings and plots: the garden. Food raises a creature's hearts (favourite by element, three a day). Potion: half health once in a wild battle. Key: opens a plot early. Ticket: one more battle pays in full. Incubator: a spare egg grows at half speed. XP boost: double XP for 20 minutes. Gems and glow buy supplies; stardust is the release reward; the mystery egg is bought with gems |
 | Over a hundred items to dress creatures | ✅ | 113 wearables in six slots plus 24 decorations (`data.WEARABLES`). All 113 wearables are hand-drawn in Aseprite (sources in `game/art-src/item/`), seen in the wardrobe and on a creature in the desktop preview on 2026-10-11 |
 | Items sit well on creatures | ⏸ | Paused by the owner: the creatures are being redesigned. `tools/preview_items.py` draws every item on every body for when it resumes |
-| Anki companion add-on (see when people review their cards) | ⬜ | Does not exist. The game reads Tamkeen's own study and vocab only |
+| Anki companion add-on (see when people review their cards) | 🟡 | On the `anki-companion` branch, not on main. Add-on in `web/anki-addon/`, receiver in `app/companion.py`, rewards in `rules.earnAnki`: clearing what is due = the day's goal; matured cards +15 XP (ten a day); volume barely pays. Tested with the add-on's own code against the running app, never inside real Anki. Desktop Anki only (no AnkiDroid, no iPhone). Not yet: a retention-over-weeks bonus from Anki, friends seeing each other's Anki activity |
 
 ## Art in use, and art still waiting
 
