@@ -153,3 +153,26 @@ def test_language_travels_with_sync_and_older_devices_cannot_erase_it(world):
         with db.session() as conn:
             row = conn.execute("SELECT title, language FROM episodes WHERE uid = ?", (uid,)).fetchone()
         assert (row["title"], row["language"]) == ("Renamed elsewhere", "ru")
+
+
+def test_creature_game_state_syncs_and_an_unplayed_egg_never_wins(world):
+    drive, a, b = world
+    played = {"v": 1, "xp": 300, "coins": 12, "creature": {"seed": 7, "growth": 0.05}, "updated_at": 1000.0}
+    with a:
+        db.set_settings({"game_state": played})
+    a.sync(drive)
+    with b:
+        # A fresh install that touched a setting: newer, but nothing played.
+        db.set_settings({"game_state": {"v": 1, "xp": 0, "creature": {"seed": 99, "growth": 0}, "updated_at": 5000.0}})
+    b.sync(drive)
+    with b:
+        assert db.get_setting("game_state")["creature"]["seed"] == 7
+        newer = {**played, "xp": 450, "updated_at": 2000.0}
+        db.set_settings({"game_state": newer})
+    b.sync(drive)
+    a.sync(drive)
+    with a:
+        assert db.get_setting("game_state")["xp"] == 450, "the newer save wins"
+    assert engine.game_wins({"xp": 5, "updated_at": 1}, {"xp": 0, "updated_at": 9})
+    assert not engine.game_wins({"xp": 0, "updated_at": 9}, {"xp": 5, "updated_at": 1})
+    assert not engine.game_wins({"xp": 5, "updated_at": 1}, {"xp": 5, "updated_at": 1})

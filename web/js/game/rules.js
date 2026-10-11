@@ -6,7 +6,8 @@
 //   - everything else has steep diminishing returns within a day, so grinding isn't worth it;
 //   - a word only pays once a day, so tapping the same word over and over earns nothing.
 
-import { leadingBranch, newGenome, stageOf } from "./genome.js";
+import { leadingBranch, newGenome, rng, stageOf, weightedPick } from "./genome.js";
+import { CATALOG, itemById } from "./data.js";
 
 export const VERSION = 1;
 export const GOALS = [5, 10, 20];           // minutes of study a day; the owner chooses
@@ -32,8 +33,66 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     items: { freeze: 1, hint: 0 },
     streak: 0, best_streak: 0, last_complete: "",
     day: { key: "", seconds: 0, done: false, taps: 0, saves: 0, xp: 0, words: [] },
+    owned: [],   // ids of items bought
+    decor: [],   // decorations standing in the habitat: {id, x}
+    tags: [],    // earned by how and when the owner studies
     updated_at: 0,
   };
+}
+
+// ---------- the shop ----------
+export const SHOP_SIZE = 6;
+
+/** Today's shop: a few items the owner doesn't have yet, different each day, leaning toward
+ * what suits this creature. Items needing a tag only appear once the tag is earned. */
+export function shopStock(state, now = new Date()) {
+  const pool = CATALOG.filter((it) => !state.owned.includes(it.id) && (it.requires || []).every((t) => state.tags.includes(t)));
+  const key = dayKey(now);
+  let seed = state.creature.seed;
+  for (const ch of key) seed = (Math.imul(seed, 31) + ch.charCodeAt(0)) >>> 0;
+  const rand = rng(seed);
+  const weights = { ...state.creature.traits };
+  for (const t of state.tags) weights[t] = 1;
+  const stock = [];
+  while (pool.length && stock.length < SHOP_SIZE) {
+    const pick = weightedPick(pool, rand, weights);
+    stock.push(pick);
+    pool.splice(pool.indexOf(pick), 1);
+  }
+  return stock;
+}
+
+/** Buy an item with coins. Returns an error message, or "" when bought. */
+export function buy(state, id) {
+  const it = itemById(id);
+  if (!it) return "That item doesn't exist.";
+  if (state.owned.includes(id)) return "You already have it.";
+  if (state.coins < it.price) return `You need ${it.price - state.coins} more coin${it.price - state.coins === 1 ? "" : "s"}.`;
+  state.coins -= it.price;
+  state.owned.push(id);
+  if (it.slot === "decor") placeDecor(state, id, true);
+  else state.creature.equipped[it.slot] = id; // put it straight on
+  return "";
+}
+
+/** Wear an owned item, or pass null to take off whatever is in that slot. */
+export function equip(state, slot, id) {
+  if (id && (!state.owned.includes(id) || (itemById(id) || {}).slot !== slot)) return;
+  if (id) state.creature.equipped[slot] = id;
+  else delete state.creature.equipped[slot];
+}
+
+/** Put an owned decoration out in the habitat (at a spot fixed by the creature's seed) or away. */
+export function placeDecor(state, id, out) {
+  state.decor = state.decor.filter((d) => d.id !== id);
+  if (!out || !state.owned.includes(id)) return;
+  let seed = state.creature.seed;
+  for (const ch of id) seed = (Math.imul(seed, 33) + ch.charCodeAt(0)) >>> 0;
+  state.decor.push({ id, x: Math.round(16 + rng(seed)() * 288) });
+}
+
+function grant(state, tag) {
+  if (!state.tags.includes(tag)) state.tags.push(tag);
 }
 
 /** Make a saved state safe to use (older saves, hand-edited values). */
@@ -44,6 +103,8 @@ export function normalize(state) {
   s.items = { ...fresh.items, ...(s.items || {}) };
   s.day = { ...fresh.day, ...(s.day || {}) };
   s.creature.traits = { ...fresh.creature.traits, ...(s.creature.traits || {}) };
+  s.creature.equipped = s.creature.equipped || {};
+  for (const k of ["owned", "decor", "tags"]) if (!Array.isArray(s[k])) s[k] = [];
   if (!GOALS.includes(s.goal)) s.goal = 10;
   return s;
 }
@@ -158,6 +219,8 @@ export function earn(state, event, ctx = {}) {
     if (!seconds) return null;
     const before = day.seconds;
     day.seconds += seconds;
+    if (now.getHours() >= 22) grant(state, "night_owl");
+    if (now.getHours() < 7 && now.getHours() >= 4) grant(state, "early_bird");
     const goal = state.goal * 60;
     // A trickle while studying, which dries up well past the goal.
     const rate = before < goal ? 0.25 : before < goal * 3 ? 0.08 : 0;
@@ -176,6 +239,7 @@ export function earn(state, event, ctx = {}) {
       state.best_streak = Math.max(state.best_streak, state.streak);
       state.last_complete = key;
       if (state.streak % 7 === 0) state.items.freeze = Math.min(3, state.items.freeze + 1); // a rest day earned
+      if (state.streak >= 7) grant(state, "streak_7");
       out.stage = grow(state, DAILY_COMPLETE_XP, null) || out.stage;
     }
     if (!out.xp) return null;
@@ -183,6 +247,7 @@ export function earn(state, event, ctx = {}) {
     return null;
   }
   out.levelUp = levelOf(state.xp).level > levelBefore;
+  if (out.levelUp) state.coins += 5;
   state.updated_at = now.getTime() / 1000;
   return out;
 }

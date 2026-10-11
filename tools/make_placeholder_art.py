@@ -389,7 +389,46 @@ def sheet(a) -> Image.Image:
     return img
 
 
-MAKERS = {"torso": torso, "head": head, "leg": limb, "arm": limb, "wing": limb, "ear": ear, "tail": tail, "horn": horn,
+def _hue(name: str) -> int:
+    return sum(ord(ch) * (i + 3) for i, ch in enumerate(name)) % 360
+
+
+def item(a) -> Image.Image:
+    """Wearable items: a simple shape per slot, coloured differently per item."""
+    w, h = a["w"], a["h"]
+    img, d = new(w, h)
+    hue = _hue(a["id"])
+    fill, dark = hsl(hue, 0.65, 0.55), hsl(hue, 0.6, 0.38)
+    slot = a["slot"]
+    if slot == "hat":
+        d.rounded_rectangle((4, 2, 15, 11), 4, fill=fill, outline=LINE)
+        d.rectangle((1, 10, 18, 12), fill=dark, outline=LINE)
+    elif slot == "face":
+        for x in (1, 9):
+            d.ellipse((x, 1, x + 5, 6), fill=fill, outline=LINE)
+        d.line((6, 3, 9, 3), fill=LINE)
+    elif slot == "neck":
+        d.arc((1, -6, 14, 6), 0, 180, fill=dark, width=2)
+        d.ellipse((6, 5, 9, 8), fill=fill, outline=LINE)
+    else:  # held
+        d.line((5, 11, 5, 4), fill=LINE, width=2)
+        d.rectangle((6, 1, 11, 6), fill=fill, outline=LINE)
+    return img
+
+
+def decor(a) -> Image.Image:
+    """Habitat decorations: a labelled block standing on the bottom edge."""
+    s = a["w"]
+    img, d = new(s, s)
+    hue = _hue(a["id"])
+    top = s // 3 if s > 16 else s // 4
+    d.rounded_rectangle((1, top, s - 2, s - 1), max(2, s // 8), fill=hsl(hue, 0.5, 0.5), outline=LINE)
+    d.rectangle((3, top + 2, s - 4, top + 3), fill=hsl(hue, 0.55, 0.72))
+    d.ellipse((s // 2 - 2, 0 if s > 16 else top - 3, s // 2 + 2, top), fill=hsl(hue + 40, 0.6, 0.6), outline=LINE)
+    return img
+
+
+MAKERS = {"item": item, "decor": decor, "torso": torso, "head": head, "leg": limb, "arm": limb, "wing": limb, "ear": ear, "tail": tail, "horn": horn,
           "back": back, "eyes": eyes, "mouth": mouth, "pattern": pattern, "egg": egg, "crack": crack, "icon": icon,
           "layer": layer, "sun": simple, "moon": simple, "cloud": simple, "particle": simple, "sheet": sheet}
 

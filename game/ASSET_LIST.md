@@ -7,7 +7,8 @@ Give this whole file to that session.
 replaces a placeholder by having **exactly the same path, file name and pixel size**. Nothing else needs to
 change: drop the PNG in and the app shows it. Looking at the placeholder for any file shows where things sit.
 
-Work in the order of the phases. Phase 1 is everything the app uses today (167 files). Phases 2 and 3 are
+Work in the order of the phases. Phase 1 (167 files) plus the accessories and decorations of Phase 2
+(sections 3.1 and 3.3, 49 files) are what the app uses today, and all 216 have placeholders. The rest is
 for features not built yet; their names and sizes are fixed now so art can be made ahead.
 
 ---
@@ -185,9 +186,10 @@ card), `goal` (target).
 
 ---
 
-## 3. Phase 2: shop, cosmetics, the incremental habitat (not built yet)
+## 3. Phase 2: shop, cosmetics, the incremental habitat
 
-Names and sizes are final; these can be drawn ahead.
+The shop is built: accessories (3.1, except shirts) and decorations (3.3) are in the app with placeholders.
+Everything else in this phase is not built yet; names and sizes are final, so it can be drawn ahead.
 
 ### 3.1 Accessories (full colour, not the key palette)
 
@@ -199,7 +201,7 @@ Worn items snap to sockets, so they stay in place as the creature grows.
 | `item/face/` | 16x8 | 8,4 centre (over the eyes) | `round_glasses shades monocle star_glasses mask` | 5 |
 | `item/neck/` | 16x10 | 8,1 top-centre (hangs from the neck socket) | `gold_chain scarf bowtie bell spiked_collar medal` | 6 |
 | `item/held/` | 12x12 | 6,11 bottom-centre (in the hand) | `book lantern flag balloon microphone quill` | 6 |
-| `item/shirt/` | 16x16 tile | tiling, masked to the torso by the app | `striped plain dotted checked star` | 5 |
+| `item/shirt/` | 16x16 tile | tiling, masked to the torso by the app (not built yet) | `striped plain dotted checked star` | 5 |
 
 ### 3.2 More habitats: 3 themes x 4 layers = 12 files
 
@@ -269,7 +271,8 @@ heart_empty arrow`.
 | Phase | Files | Status in the app |
 |---|---|---|
 | 1. Creatures, eggs, meadow, effects, icons | 167 | built, running on placeholders |
-| 2. Accessories, habitats, decor, structures, items, emotes, interface | about 110 | not built |
+| 2. Accessories (25) and decorations (24) | 49 | built, running on placeholders |
+| 2. Shirts, more habitats, structures, items, emotes, interface | about 60 | not built |
 | 3. Battles, bosses, leagues, badges | about 57 | not built |
 
 Sound is not on this list: the app makes its own sound effects.

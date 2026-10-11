@@ -323,6 +323,7 @@ export function applySettings(s) {
 export async function saveSettings(values) {
   const s = await saveSettingsPatch(values);
   applySettings(s);
+  if ("game_state" in values) requestSync(90000); // the creature reaches the other devices after studying
   return s;
 }
 export async function loadStatus() {

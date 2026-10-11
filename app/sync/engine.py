@@ -82,6 +82,15 @@ def _language(record: dict[str, Any]) -> str | None:
     return code if languages.valid(code) else None
 
 
+def game_wins(theirs: dict[str, Any], mine: dict[str, Any]) -> bool:
+    """Should another device's saved game replace this one? The newer save wins, except that a
+    game nobody has played yet (a fresh install's egg) never replaces one with progress."""
+    their_xp, my_xp = theirs.get("xp") or 0, mine.get("xp") or 0
+    if (their_xp > 0) != (my_xp > 0):
+        return their_xp > 0
+    return (theirs.get("updated_at") or 0) > (mine.get("updated_at") or 0)
+
+
 def snapshot(device_id: str) -> dict[str, Any]:
     with db.session() as conn:
         feeds = [dict(r) for r in conn.execute(
@@ -100,7 +109,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
         defs = [{**dict(r), "data": json.loads(r["data"])} for r in conn.execute(
             "SELECT key, word, sentence, data, provider, model, created_at FROM definitions ORDER BY key")]
     return {"format": FORMAT_VERSION, "device": device_id, "feeds": feeds, "episodes": episodes,
-            "vocab": vocab, "folders": folders, "definitions": defs}
+            "vocab": vocab, "folders": folders, "definitions": defs, "game": db.get_setting("game_state")}
 
 
 def _folder_list(raw: Any) -> list[str]:
@@ -113,7 +122,7 @@ def _folder_list(raw: Any) -> list[str]:
 
 def _content(lib: dict[str, Any]) -> str:
     """Canonical form used to decide whether an upload is needed (ignores who wrote it)."""
-    return json.dumps({k: lib.get(k) for k in ("feeds", "episodes", "vocab", "folders", "definitions")},
+    return json.dumps({k: lib.get(k) for k in ("feeds", "episodes", "vocab", "folders", "definitions", "game")},
                       ensure_ascii=False, sort_keys=True)
 
 
@@ -235,6 +244,20 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
                 (r["key"], r["word"], r["sentence"], json.dumps(r["data"], ensure_ascii=False), r["provider"],
                  r["model"], r["created_at"]))
             result.merged["definitions"] += cur.rowcount
+
+        # The creature game: one saved state for the whole account; the most recently saved wins.
+        game = remote.get("game")
+        if isinstance(game, dict) and isinstance(game.get("creature"), dict):
+            row = conn.execute("SELECT value FROM settings WHERE key = 'game_state'").fetchone()
+            try:
+                mine = json.loads(row["value"]) if row else None
+            except json.JSONDecodeError:
+                mine = None
+            if not isinstance(mine, dict) or game_wins(game, mine):
+                conn.execute("INSERT INTO settings(key, value) VALUES('game_state', ?) "
+                             "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
+                             (json.dumps(game, ensure_ascii=False),))
+                result.merged["game"] = 1
     return downloads
 
 

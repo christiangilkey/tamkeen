@@ -18,7 +18,23 @@ export function getGame() {
   return game;
 }
 
+/** Another device saved a newer game: adopt it (in place, so screens holding the state see it). */
+function adopt(remote) {
+  if (!remote || !remote.creature || !game) return;
+  const theirs = (remote.xp || 0) > 0;
+  const mine = (game.xp || 0) > 0;
+  // The newer save wins, but an unplayed egg never replaces a game with progress.
+  if (theirs !== mine ? !theirs : (remote.updated_at || 0) <= (game.updated_at || 0)) return;
+  const next = normalize(JSON.parse(JSON.stringify(remote)));
+  for (const k of Object.keys(game)) delete game[k];
+  Object.assign(game, next);
+  rollDay(game);
+  for (const fn of listeners) { try { fn({ type: "sync" }, game); } catch { /* ignore */ } }
+}
+if (typeof window !== "undefined") window.addEventListener("tamkeen:game", (e) => adopt(e.detail));
+
 export function saveGame() {
+  game.updated_at = Date.now() / 1000;
   clearTimeout(saveTimer);
   saveTimer = setTimeout(() => saveSettings({ game_state: game }).catch(() => {}), 1200);
 }

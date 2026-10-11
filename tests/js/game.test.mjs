@@ -123,7 +123,7 @@ test("the daily goal is the big payout, the same whatever its size", () => {
     assert.equal(ticks, goal * 12, "reached after exactly the goal's minutes");
     assert.ok(done.xp >= DAILY_COMPLETE_XP);
     assert.equal(s.streak, 1);
-    assert.equal(s.coins, 10);
+    assert.ok(s.coins >= 10, "10 coins for the goal, plus 5 for each level gained on the way");
     const xpAtGoal = s.xp;
     for (let i = 0; i < 12 * 180; i++) earn(s, { type: "study", seconds: 5, mode: "listen" }, { now: at("2026-10-10T12:00:00") });
     assert.ok(s.xp - xpAtGoal < xpAtGoal, "three more hours earn less than reaching the goal did");
@@ -189,4 +189,57 @@ test("every art file the game needs exists at the right place", () => {
     assert.ok(existsSync(new URL(`../../web/game-art/${f.file}`, import.meta.url)), f.file);
     assert.ok(f.w > 0 && f.h > 0);
   }
+});
+
+test("the shop: a daily selection that suits the creature, bought with coins", async () => {
+  const { buy, equip, placeDecor, shopStock, SHOP_SIZE } = await import("../../web/js/game/rules.js");
+  const { CATALOG } = await import("../../web/js/game/data.js");
+  const s = newState(12);
+  const monday = shopStock(s, at("2026-10-12T09:00:00"));
+  assert.equal(monday.length, SHOP_SIZE);
+  assert.deepEqual(shopStock(s, at("2026-10-12T21:00:00")), monday, "the same all day");
+  assert.notDeepEqual(shopStock(s, at("2026-10-13T09:00:00")).map((i) => i.id), monday.map((i) => i.id), "different tomorrow");
+  assert.ok(monday.every((it) => !it.requires), "locked items stay out until their tag is earned");
+  s.tags.push("night_owl", "streak_7");
+  const seen = new Set();
+  for (let d = 1; d <= 28; d++) for (const it of shopStock(s, at(`2026-11-${String(d).padStart(2, "0")}T09:00:00`))) seen.add(it.id);
+  assert.ok([...seen].some((id) => CATALOG.find((x) => x.id === id).requires), "earned tags unlock items");
+
+  const hat = CATALOG.find((x) => x.id === "hat/cap");
+  assert.match(buy(s, hat.id), /need 15 more coins/);
+  s.coins = 40;
+  assert.equal(buy(s, hat.id), "");
+  assert.equal(s.coins, 25);
+  assert.equal(s.creature.equipped.hat, "hat/cap", "a new item goes straight on");
+  assert.match(buy(s, hat.id), /already/);
+  assert.ok(!shopStock(s, at("2026-10-12T09:00:00")).some((it) => it.id === hat.id), "owned items leave the shop");
+  equip(s, "hat", null);
+  assert.equal(s.creature.equipped.hat, undefined);
+  equip(s, "hat", "hat/crown");
+  assert.equal(s.creature.equipped.hat, undefined, "can't wear what you don't own");
+  equip(s, "face", hat.id);
+  assert.equal(s.creature.equipped.face, undefined, "or wear a hat as glasses");
+
+  assert.equal(buy(s, "decor/mushroom"), "");
+  assert.equal(s.decor.length, 1);
+  assert.ok(s.decor[0].x >= 16 && s.decor[0].x <= 304);
+  const x = s.decor[0].x;
+  placeDecor(s, "decor/mushroom", false);
+  assert.equal(s.decor.length, 0);
+  placeDecor(s, "decor/mushroom", true);
+  assert.equal(s.decor[0].x, x, "it goes back to the same spot");
+  assert.equal(describe(s.creature).equipped.hat, undefined);
+});
+
+test("study habits earn tags; levelling up pays coins", () => {
+  const s = newState(13);
+  earn(s, { type: "study", seconds: 5, mode: "listen" }, { now: at("2026-10-10T23:10:00") });
+  assert.deepEqual(s.tags, ["night_owl"]);
+  earn(s, { type: "study", seconds: 5, mode: "listen" }, { now: at("2026-10-11T05:30:00") });
+  assert.ok(s.tags.includes("early_bird"));
+  const coins = s.coins;
+  s.xp = 99;
+  const r = earn(s, { type: "save" }, { now: at("2026-10-11T12:00:00") });
+  assert.ok(r.levelUp);
+  assert.equal(s.coins, coins + 1 + 5);
 });

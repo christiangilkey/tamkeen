@@ -91,6 +91,7 @@ export function describe(genome) {
     horn: stage.id === "hatchling" || stage.id === "egg" ? "none" : horn, // horns come in with age
     back: adult ? back : "none",
     type: genome.type,
+    equipped: { ...(genome.equipped || {}) },
     colors: {
       primary: [hsl(hue, sat, light + 22), hsl(hue, sat, light), hsl(hue + 8, sat, light - 16), hsl(hue + 14, sat, light - 30)],
       secondary: [hsl(belly, sat * 0.55, 90), hsl(belly, sat * 0.7, 76), hsl(belly, sat * 0.7, 58)],

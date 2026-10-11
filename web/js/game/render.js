@@ -2,7 +2,7 @@
 // A creature is assembled from parts (torso, head, ears...) placed on named sockets, recoloured
 // to its own palette, and animated by nudging parts a pixel or two (no per-frame art needed).
 
-import { HEAD, KEY, PART, SIZES, SPECIES } from "./data.js";
+import { HEAD, KEY, PART, SIZES, SLOTS, SPECIES } from "./data.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const images = new Map();   // file -> Promise<HTMLImageElement | null>
@@ -127,6 +127,12 @@ export async function composeCreature(look, pose = {}) {
   const arm = plan.arms ? await part(`creature/arm/${look.species}_${look.size}.png`) : null;
   const wing = plan.wings ? await part(`creature/wing/${look.species}_${look.size}_${step}.png`) : null;
 
+  const worn = {};
+  for (const slot of Object.keys(SLOTS)) {
+    const id = look.equipped && look.equipped[slot];
+    worn[slot] = id && look.stage !== "egg" ? await loadImage(`item/${id}.png`) : null;
+  }
+
   const c = document.createElement("canvas");
   c.width = c.height = FRAME;
   const ctx = c.getContext("2d");
@@ -155,6 +161,11 @@ export async function composeCreature(look, pose = {}) {
   on(mouth, HEAD.mouth, PART.mouth.anchor);
   on(earF, HEAD.earF, PART.ear.anchor);
   on(horn, HEAD.horn, PART.horn.anchor);
+  // Worn items sit on sockets, so they stay in place whatever the creature's size.
+  at(worn.neck, S.neck, SLOTS.neck.anchor, 0, 1);
+  at(worn.held, S.arm, SLOTS.held.anchor, 3, plan.arms ? S.armSize[1] - 2 : 2);
+  on(worn.face, HEAD.face, SLOTS.face.anchor);
+  on(worn.hat, HEAD.hat, SLOTS.hat.anchor);
   return c;
 }
 

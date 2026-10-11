@@ -350,6 +350,10 @@ async function boot() {
   window.addEventListener("hashchange", route);
   route();
   startBadge();
+  // After each sync, pass on the creature game's state in case another device saved a newer one.
+  on("sync", () => api("/settings").then((s) => {
+    window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: s.game_state }));
+  }).catch(() => {}));
   // A newer version? Tell the user once per start, with a link to the release page.
   setTimeout(() => {
     api("/updates/check").then((r) => {

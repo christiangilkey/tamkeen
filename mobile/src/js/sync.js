@@ -21,6 +21,15 @@ function publish(patch) {
 // ---------- merge ----------
 const newer = (r, l) => (r.updated_at || 0) > (l.updated_at || 0);
 
+/** Should another device's saved game replace this one? The newer save wins, except that a game
+ * nobody has played yet (a fresh install's egg) never replaces one with progress. */
+export function gameWins(theirs, mine) {
+  const a = (theirs.xp || 0) > 0;
+  const b = (mine.xp || 0) > 0;
+  if (a !== b) return a;
+  return (theirs.updated_at || 0) > (mine.updated_at || 0);
+}
+
 export function merge(remote) {
   let changed = 0;
   const feeds = new Map(lib.feeds.map((f) => [f.uid, f]));
@@ -62,6 +71,16 @@ export function merge(remote) {
   const defs = new Map(lib.definitions.map((d) => [d.key, d]));
   for (const r of remote.definitions || []) if (!defs.has(r.key)) { defs.set(r.key, r); changed++; }
   lib.definitions = [...defs.values()];
+
+  // The creature game: one saved state for the whole account; the most recently saved wins.
+  const game = remote.game;
+  const mine = settings.game_state;
+  if (game && game.creature && (!mine || gameWins(game, mine))) {
+    settings.game_state = game;
+    kv.set("settings", { ...settings }).catch(console.error);
+    window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: game }));
+    changed++;
+  }
   return changed;
 }
 
@@ -76,6 +95,7 @@ export function snapshot() {
     vocab: [...lib.vocab].sort(byUid),
     folders: [...(lib.folders || [])].sort(byUid),
     definitions: [...lib.definitions].sort((a, b) => (a.key < b.key ? -1 : 1)),
+    game: settings.game_state || null,
   };
 }
 
@@ -87,7 +107,7 @@ function canonical(value) {
   return JSON.stringify(value ?? null);
 }
 const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
-                                   definitions: l.definitions });
+                                   definitions: l.definitions, game: l.game || null });
 
 // ---------- run ----------
 let running = null;

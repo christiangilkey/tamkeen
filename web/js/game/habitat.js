@@ -8,6 +8,7 @@ import { describe, stageOf } from "./genome.js";
 import { GOALS, levelOf } from "./rules.js";
 import { FRAME, composeCreature, drawSheet, loadImage } from "./render.js";
 import { getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
+import { openShop } from "./shop.js";
 
 const [W, H] = HABITAT.size;
 const STAGE_LABEL = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", adult: "Adult" };
@@ -34,6 +35,9 @@ export function habitat() {
         <span class="today-chip" id="g-streak"></span>
         <span class="today-chip" id="g-coins" title="Coins, for the shop (coming)"></span>
         <span class="today-chip" id="g-freeze" title="A streak freeze covers a missed day"></span>
+        <span class="spacer"></span>
+        <button type="button" id="g-mine">My things</button>
+        <button type="button" class="primary" id="g-shop">Shop</button>
       </div>
     </div>
   </section>`);
@@ -71,6 +75,8 @@ export function habitat() {
     saveGame();
     paintHud();
   };
+  $("#g-shop").onclick = () => openShop("shop", () => paintHud());
+  $("#g-mine").onclick = () => openShop("mine", () => paintHud());
   $(".habitat-name").onclick = () => {
     const name = window.prompt("Name your creature", game.creature.name || "");
     if (name === null) return;
@@ -88,6 +94,7 @@ export function habitat() {
   for (const [k, f] of Object.entries(files)) loadImage(f).then((img) => { art[k] = img; });
 
   const pet = { x: W / 2, dir: 1, target: W / 2, wait: 2, step: 0, stepT: 0, mood: "", moodT: 0, hop: 0, blinkT: 3 };
+  const decorArt = {}; // decoration id -> image
   const bursts = [];   // {id, x, y, t}
   const floats = [];   // {img, x, y, t}
   let frames = {};     // pose key -> canvas (composed creature)
@@ -102,7 +109,7 @@ export function habitat() {
 
   function refreshLook() {
     const look = describe(game.creature);
-    const key = JSON.stringify([look.stage, look.branch, look.size]);
+    const key = JSON.stringify([look.stage, look.branch, look.size, look.equipped]);
     if (key === lookKey) return look;
     lookKey = key;
     frames = {};
@@ -158,6 +165,13 @@ export function habitat() {
     if (dark) { ctx.fillStyle = `rgba(20, 12, 48, ${dark})`; ctx.fillRect(0, 0, W, H); }
 
     const groundY = HABITAT.ground;
+    // Decorations stand on the ground, behind the creature.
+    for (const d of game.decor) {
+      if (!(d.id in decorArt)) { decorArt[d.id] = null; loadImage(`${d.id}.png`).then((img) => { decorArt[d.id] = img; }); }
+      const img = decorArt[d.id];
+      if (img) ctx.drawImage(img, Math.round(d.x - img.width / 2), groundY - img.height + 2);
+    }
+    if (dark && game.decor.length) { ctx.fillStyle = `rgba(20, 12, 48, ${dark * 0.6})`; ctx.fillRect(0, groundY - 48, W, 50); }
     if (look.stage === "egg") {
       const wobble = Math.sin(now / 260) * (pet.mood ? 3 : 1);
       if (egg) {
@@ -234,6 +248,7 @@ export function habitat() {
   });
 
   const stop = onGame((result) => {
+    if (result.type === "sync") { paintHud(); return; } // a newer save arrived from another device
     paintHud(true);
     if (result.stage) {
       const x = result.stage === "hatchling" ? W / 2 : pet.x;

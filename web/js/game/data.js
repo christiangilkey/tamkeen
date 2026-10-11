@@ -89,6 +89,58 @@ export const STAGES = [
   { id: "adult", from: 0.7, size: "l" },
 ];
 
+// ---------- things to own ----------
+// Cosmetics only: nothing here makes a creature stronger. `requires` lists tags the owner must
+// have earned for the item to turn up in the shop; `weight_by` makes it turn up more often for
+// creatures with those traits or owners with those tags.
+export const SLOTS = {
+  hat: { name: "Hats", size: [20, 14], anchor: [10, 13] },    // on the head's hat socket
+  face: { name: "Glasses", size: [16, 8], anchor: [8, 4] },   // over the eyes
+  neck: { name: "Neckwear", size: [16, 10], anchor: [8, 1] }, // hangs from the neck socket
+  held: { name: "Held", size: [12, 12], anchor: [6, 11] },    // in the hand
+};
+const item = (slot, id, name, price, extra = {}) => ({ id: `${slot}/${id}`, slot, name, price, ...extra });
+export const ITEMS = [
+  item("hat", "cap", "Cap", 15), item("hat", "beanie", "Beanie", 15), item("hat", "straw", "Straw hat", 20),
+  item("hat", "flower", "Flower crown", 25, { weight_by: { collector: 1.5 } }),
+  item("hat", "bow", "Bow", 20), item("hat", "headphones", "Headphones", 30, { weight_by: { listener: 3 } }),
+  item("hat", "wizard", "Wizard hat", 45, { requires: ["night_owl"] }),
+  item("hat", "crown", "Crown", 80, { requires: ["streak_7"] }),
+  item("face", "round_glasses", "Round glasses", 20, { weight_by: { reader: 3 } }),
+  item("face", "shades", "Shades", 25), item("face", "monocle", "Monocle", 35, { weight_by: { reader: 1.5 } }),
+  item("face", "star_glasses", "Star glasses", 40, { weight_by: { curious: 2 } }), item("face", "mask", "Mask", 30, { requires: ["night_owl"] }),
+  item("neck", "scarf", "Scarf", 15), item("neck", "bowtie", "Bow tie", 20), item("neck", "bell", "Bell", 20),
+  item("neck", "gold_chain", "Gold chain", 50, { weight_by: { collector: 2 } }),
+  item("neck", "spiked_collar", "Spiked collar", 35, { requires: ["night_owl"] }),
+  item("neck", "medal", "Medal", 60, { requires: ["streak_7"] }),
+  item("held", "book", "Book", 20, { weight_by: { reader: 3 } }), item("held", "lantern", "Lantern", 25),
+  item("held", "flag", "Flag", 15), item("held", "balloon", "Balloon", 15),
+  item("held", "microphone", "Microphone", 30, { weight_by: { listener: 3 } }),
+  item("held", "quill", "Quill", 30, { weight_by: { collector: 2 } }),
+];
+// Decorations stand in the habitat. `size` is the sprite's square size in pixels.
+const decor = (id, name, price, size, extra = {}) => ({ id: `decor/${id}`, slot: "decor", name, price, size, ...extra });
+export const DECOR = [
+  decor("flower_red", "Red flowers", 8, 16), decor("flower_blue", "Blue flowers", 8, 16), decor("mushroom", "Mushroom", 10, 16),
+  decor("rock_small", "Small rock", 6, 16), decor("grass_tuft", "Tall grass", 5, 16), decor("lantern_small", "Little lantern", 18, 16),
+  decor("shell", "Shell", 12, 16), decor("signpost", "Signpost", 14, 16),
+  decor("bush", "Bush", 20, 32), decor("rock_big", "Boulder", 18, 32), decor("nest", "Nest", 30, 32), decor("bed", "Bed", 40, 32),
+  decor("food_bowl", "Food bowl", 15, 32), decor("toy_ball", "Toy ball", 15, 32),
+  decor("bookshelf", "Bookshelf", 45, 32, { weight_by: { reader: 3 } }), decor("radio", "Radio", 45, 32, { weight_by: { listener: 3 } }),
+  decor("pond", "Pond", 50, 32), decor("campfire", "Campfire", 35, 32), decor("tent", "Tent", 55, 32), decor("lamp_post", "Lamp post", 30, 32),
+  decor("tree_fruit", "Fruit tree", 70, 48), decor("fountain", "Fountain", 90, 48), decor("arch", "Arch", 80, 48),
+  decor("statue", "Statue", 120, 48, { requires: ["streak_7"] }),
+];
+export const CATALOG = [...ITEMS, ...DECOR];
+export const itemById = (id) => CATALOG.find((x) => x.id === id) || null;
+
+// Tags are earned by how and when the owner studies, and unlock things in the shop.
+export const TAGS = {
+  night_owl: "Night owl: studied after 10 at night",
+  early_bird: "Early bird: studied before 7 in the morning",
+  streak_7: "Seven days in a row",
+};
+
 // ---------- habitat ----------
 export const HABITAT = { size: [320, 144], ground: 124, themes: ["meadow"], layers: ["sky", "far", "mid", "ground"] };
 
@@ -138,6 +190,8 @@ export function artFiles() {
     add(`fx/${id}.png`, [sheet.w, sheet.h], "sheet", { id, frames });
   }
   for (const id of ["xp", "coin", "streak", "freeze", "hint", "goal"]) add(`icon/${id}.png`, [16, 16], "icon", { id });
+  for (const it of ITEMS) add(`item/${it.id}.png`, SLOTS[it.slot].size, "item", { id: it.id, slot: it.slot });
+  for (const it of DECOR) add(`${it.id}.png`, [it.size, it.size], "decor", { id: it.id });
   return out;
 }
 
