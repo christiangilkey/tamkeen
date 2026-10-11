@@ -18,6 +18,8 @@ const SHARED = [
   "icons",
   "js/wordlookup.js",
   "js/languages.js",
+  "js/game",
+  "game-art",
   "js/components/langpicker.js",
   "js/definer.js",
   "js/components/wordbubble.js",

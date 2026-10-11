@@ -8,6 +8,7 @@ import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefi
 import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
+import { reward, trackStudy } from "../game/game.js";
 
 const LONG_PRESS_MS = 550;
 const TAGS = { h1: "h2", h2: "h3", h3: "h4", li: "li", q: "blockquote", p: "p" };
@@ -105,6 +106,7 @@ export async function render(view, { id, data, query }) {
     await api("/vocab", { method: "POST", body: {
       ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj), episode_id: id } });
     toast(`Saved “${t.text}” to vocab`, { action: { label: "View", run: () => (location.hash = "#/vocab") } });
+    reward({ type: "save" }, wordEls[t.i]);
   }
 
   const bubble = createWordBubble($(".transcript-wrap"), {
@@ -128,6 +130,7 @@ export async function render(view, { id, data, query }) {
     buzz("tick");
     mark(i, j);
     bubble.show(wordEls[i], c.ctx);
+    reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, wordEls[i]);
   }
 
   // ---------- clicks, long-press and right-click (same gestures as the player) ----------
@@ -259,7 +262,14 @@ export async function render(view, { id, data, query }) {
     }, 60);
   }
 
+  // Reading counts toward today's goal while the page is being read (scrolled or tapped in the last minute).
+  let lastActive = Date.now();
+  const touch = () => { lastActive = Date.now(); };
+  tr.addEventListener("scroll", touch, { passive: true });
+  tr.addEventListener("pointerdown", touch, { passive: true });
+  const stopStudy = trackStudy("read", () => Date.now() - lastActive < 60000);
   return () => {
+    stopStudy();
     try { localStorage.setItem(posKey, String(Math.round(tr.scrollTop))); } catch { /* storage unavailable */ }
     clearTimeout(scrollTimer);
     remember();

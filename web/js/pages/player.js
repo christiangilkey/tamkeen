@@ -15,6 +15,7 @@ import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
+import { reward, trackStudy } from "../game/game.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const LONG_PRESS_MS = 550;
@@ -481,6 +482,7 @@ export async function render(view, { id, query }) {
                       sent_start: starts[si], sent_end: ends[sj] },
             });
             toast(`Saved “${clean}” to vocab`, { action: { label: "View", run: () => (location.hash = "#/vocab") } });
+            reward({ type: "save" }, wordEls[i]);
           } catch (e) { toast(e.message, { error: true }); }
         },
       },
@@ -530,6 +532,7 @@ export async function render(view, { id, query }) {
                   episode_id: id, start: starts[t.i], end: ends[t.j], sent_start: starts[t.si], sent_end: ends[t.sj] },
         });
         toast(`Saved “${t.text}” to vocab`, { action: { label: "View", run: () => (location.hash = "#/vocab") } });
+        reward({ type: "save" }, wordEls[t.i]);
       } catch (e) {
         toast(e.message, { error: true });
         throw e;
@@ -543,6 +546,7 @@ export async function render(view, { id, query }) {
     buzz("tick");
     playClip(starts[i], ends[j]);
     bubble.show(anchor || wordEls[i], c.ctx);
+    reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, anchor || wordEls[i]);
   }
 
   // ---------- video: captions, transcript panel, full screen ----------
@@ -660,8 +664,10 @@ export async function render(view, { id, query }) {
     });
   }
 
+  const stopStudy = trackStudy("listen", () => !audio.paused); // minutes actually played count toward today's goal
   return () => {
     disposed = true;
+    stopStudy();
     if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
     document.removeEventListener("fullscreenchange", onFullscreen);
     clearTimeout(clipTimer);

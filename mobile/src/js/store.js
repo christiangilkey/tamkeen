@@ -83,6 +83,8 @@ const DEFAULTS = {
   google_email: "",
   signed_in: false,
   haptics: true,
+  game_state: null, // the creature game's saved state
+  game_sound: true,
 };
 export const settings = { ...DEFAULTS };
 

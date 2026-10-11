@@ -1,0 +1,157 @@
+// The game's saved state, and the one function the study screens call: reward().
+// Also the "juice": the pop, particles, sounds and rolling numbers that make a reward feel good.
+
+import { saveSettings, state as app } from "../app.js";
+import { earn, normalize, newState, rollDay } from "./rules.js";
+
+let game = null;
+let saveTimer = 0;
+const listeners = new Set();
+const combo = { count: 0, at: 0 };
+
+export function getGame() {
+  if (!game) {
+    const saved = app.status && app.status.settings && app.status.settings.game_state;
+    game = saved ? normalize(JSON.parse(JSON.stringify(saved))) : newState();
+    rollDay(game);
+  }
+  return game;
+}
+
+export function saveGame() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => saveSettings({ game_state: game }).catch(() => {}), 1200);
+}
+
+/** Be told whenever something is earned: fn(result, state). Returns a function that stops it. */
+export function onGame(fn) {
+  listeners.add(fn);
+  return () => listeners.delete(fn);
+}
+
+/**
+ * Report something the learner did (see rules.js for the events). If it earns anything, the
+ * effects play at `anchor` (the word that was tapped, say) and the Home habitat is told.
+ */
+export function reward(event, anchor = null) {
+  const g = getGame();
+  const result = earn(g, event, { combo });
+  if (!result) return null;
+  saveGame();
+  if (event.type !== "study" || result.goalDone) celebrate(result, anchor);
+  for (const fn of listeners) { try { fn(result, g); } catch { /* a listener must not break studying */ } }
+  return result;
+}
+
+/** Count study time while `active()` is true. Returns a function that stops counting. */
+export function trackStudy(mode, active) {
+  const timer = setInterval(() => { if (!document.hidden && active()) reward({ type: "study", seconds: 5, mode }); }, 5000);
+  return () => clearInterval(timer);
+}
+
+// ---------- sound: tiny synthesised effects, no audio files ----------
+let audioCtx = null;
+function tone(freq, start, length, type = "sine", volume = 0.08) {
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    const t = audioCtx.currentTime + start;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, t);
+    gain.gain.setValueAtTime(volume, t);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t + length);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(t);
+    osc.stop(t + length);
+  } catch { /* no sound available */ }
+}
+export function sfx(kind) {
+  const s = app.status && app.status.settings;
+  if (s && s.game_sound === false) return;
+  if (kind === "common") { tone(880, 0, 0.09, "triangle"); tone(1320, 0.03, 0.08, "sine", 0.05); }
+  else if (kind === "lucky") [659, 784, 988].forEach((f, i) => tone(f, i * 0.08, 0.16, "triangle"));
+  else if (kind === "jackpot") [523, 659, 784, 1047, 1319].forEach((f, i) => tone(f, i * 0.09, 0.28, "square", 0.05));
+  else if (kind === "surprise") { tone(392, 0, 0.12, "sawtooth", 0.04); tone(784, 0.12, 0.25, "triangle"); }
+  else if (kind === "tick") tone(1500, 0, 0.03, "square", 0.02);
+  else if (kind === "pet") { tone(700, 0, 0.08); tone(940, 0.07, 0.12); }
+}
+
+// ---------- particles and pops ----------
+const GLYPHS = { common: ["✦", "+"], lucky: ["✦", "★", "+"], jackpot: ["★", "✦", "◆", "+"], surprise: ["?", "✦"] };
+
+function layer() {
+  let el = document.getElementById("game-fx");
+  if (!el) {
+    el = document.createElement("div");
+    el.id = "game-fx";
+    document.body.append(el);
+  }
+  return el;
+}
+
+/** Shoot a small fountain of particles up from a point on screen, with the XP amount. */
+export function fountain(x, y, result) {
+  const fx = layer();
+  const tier = result.tier;
+  const count = { common: 6, lucky: 12, jackpot: 26, surprise: 8 }[tier] || 6;
+  const glyphs = GLYPHS[tier] || GLYPHS.common;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement("span");
+    p.className = `fx-p fx-${tier}`;
+    p.textContent = glyphs[i % glyphs.length];
+    const angle = -Math.PI / 2 + (Math.random() - 0.5) * (tier === "jackpot" ? 2.6 : 1.5);
+    const dist = 30 + Math.random() * (tier === "jackpot" ? 110 : 60);
+    p.style.left = `${x}px`;
+    p.style.top = `${y}px`;
+    p.style.setProperty("--dx", `${Math.cos(angle) * dist}px`);
+    p.style.setProperty("--dy", `${Math.sin(angle) * dist - 20}px`);
+    p.style.animationDelay = `${Math.random() * 90}ms`;
+    fx.append(p);
+    setTimeout(() => p.remove(), 1100);
+  }
+  const label = document.createElement("span");
+  label.className = `fx-label fx-${tier}`;
+  const mult = result.combo > 1 ? ` ×${result.combo}` : "";
+  label.textContent = result.goalDone ? `Daily goal! +${result.xp} XP`
+    : result.item ? `${result.item === "freeze" ? "❄ Streak freeze" : "💡 Hint card"}!`
+    : `+${result.xp} XP${mult}`;
+  label.style.left = `${x}px`;
+  label.style.top = `${y}px`;
+  fx.append(label);
+  setTimeout(() => label.remove(), 1500);
+  if (tier === "jackpot") {
+    document.body.classList.add("fx-shake");
+    setTimeout(() => document.body.classList.remove("fx-shake"), 420);
+  }
+}
+
+function celebrate(result, anchor) {
+  let x = window.innerWidth / 2;
+  let y = window.innerHeight * 0.4;
+  if (anchor && anchor.getBoundingClientRect) {
+    const r = anchor.getBoundingClientRect();
+    if (r.width) { x = r.left + r.width / 2; y = r.top; }
+    anchor.classList.remove("fx-pop");
+    void anchor.offsetWidth; // restart the animation if it is already running
+    anchor.classList.add("fx-pop");
+    anchor.addEventListener("animationend", () => anchor.classList.remove("fx-pop"), { once: true });
+  }
+  fountain(x, y, result);
+  sfx(result.tier);
+}
+
+/** Count a number on screen up to its new value, ticking as it goes. */
+export function rollNumber(el, to, format = (n) => String(n)) {
+  const from = Number(el.dataset.value || 0);
+  el.dataset.value = String(to);
+  if (to <= from) { el.textContent = format(to); return; }
+  const steps = Math.min(24, to - from);
+  let i = 0;
+  const timer = setInterval(() => {
+    i++;
+    el.textContent = format(Math.round(from + ((to - from) * i) / steps));
+    if (i % 3 === 0) sfx("tick");
+    if (i >= steps) clearInterval(timer);
+  }, 28);
+}

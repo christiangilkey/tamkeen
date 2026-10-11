@@ -316,6 +316,9 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "welcome_seen": False,
     "study_language": "",           # the language being learned (ar, es, fr, ja, zh, ru); chosen on first run
     "beam_size": 5,
+    # The creature game: its whole saved state (see web/js/game/rules.js), and whether it makes sounds.
+    "game_state": None,
+    "game_sound": True,
     # AI word definitions (users bring their own API key).
     "definer_provider": "claude",
     "definer_language": "English",
