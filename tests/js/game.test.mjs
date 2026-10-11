@@ -167,9 +167,11 @@ test("an egg hatches on the first day's goal, and growth reaches adulthood", () 
 });
 
 test("levels, new days and old saves", () => {
-  assert.deepEqual(levelOf(0), { level: 1, into: 0, need: 100 });
-  assert.equal(levelOf(100).level, 2);
-  assert.ok(levelOf(5000).level > levelOf(1000).level);
+  assert.deepEqual(levelOf(0), { level: 1, into: 0, need: 1000 });
+  assert.equal(levelOf(999).level, 1);
+  assert.equal(levelOf(1000).level, 2);
+  assert.deepEqual(levelOf(1000 + 1320), { level: 3, into: 0, need: 1680 }, "ten times the old 100, 132, 168");
+  assert.ok(levelOf(50000).level > levelOf(10000).level);
   const s = newState(11);
   rollDay(s, at("2026-10-10T08:00:00"));
   s.day.taps = 5;
@@ -241,7 +243,7 @@ test("study habits earn tags; levelling up pays coins", () => {
   earn(s, { type: "study", seconds: 5, mode: "listen" }, { now: at("2026-10-11T05:30:00") });
   assert.ok(s.tags.includes("early_bird"));
   const coins = s.coins;
-  s.xp = 99;
+  s.xp = 999;
   const r = earn(s, { type: "save" }, { now: at("2026-10-11T12:00:00") });
   assert.ok(r.levelUp);
   assert.equal(s.coins, coins + 1 + 5);

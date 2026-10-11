@@ -106,13 +106,15 @@ export function normalize(state) {
   return s;
 }
 
+export const LEVEL_COST = 10; // every level costs this many times its base price (the owner raised it from 1)
+
 /** Player level from total XP: each level costs a little more than the last. */
 export function levelOf(xp) {
   let level = 1;
   let need = 100;
   let left = Math.max(0, xp);
-  while (left >= need) { left -= need; level++; need = Math.round(need * 1.12 + 20); }
-  return { level, into: left, need };
+  while (left >= need * LEVEL_COST) { left -= need * LEVEL_COST; level++; need = Math.round(need * 1.12 + 20); }
+  return { level, into: left, need: need * LEVEL_COST };
 }
 
 /** Start a new day if the date has changed. A missed day spends a streak freeze if there is

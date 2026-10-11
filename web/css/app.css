@@ -963,6 +963,38 @@ button.today-chip { cursor: pointer; font: inherit; }
 .plot-act button { font-size: 13px; padding: 4px 10px; }
 .locked-plot { opacity: .7; }
 .build-opt { display: flex; align-items: center; gap: 8px; text-align: start; border-radius: 12px; padding: 6px 10px; }
+
+/* ---------- creature game: tap anything in the bar for an explanation; the word over a petted creature ---------- */
+.hud-tap { background: none; border: 0; padding: 0; min-height: 0; font: inherit; font-size: 13px; cursor: pointer; }
+.hud-tap:hover:not(:disabled) { background: none; text-decoration: underline; }
+.hud-tap.hud-xp { color: inherit; }
+.hud-chips button.today-chip { color: var(--muted); background: var(--surface-2); }
+.hud-chips button.today-chip.lit { background: var(--hl); color: var(--hl-ink); }
+.hud-chips button.today-chip:hover:not(:disabled) { filter: brightness(1.06); }
+#g-stage { white-space: normal; text-align: start; justify-content: flex-start; }
+.info-sheet { width: min(480px, 100%); }
+.info-title { display: flex; align-items: center; gap: 8px; font-size: 17px; }
+.info-now { margin: 0; padding: 8px 12px; border-radius: 12px; background: var(--hl); color: var(--hl-ink); font-weight: 600; }
+.info-list { margin: 4px 0 0; padding-inline-start: 20px; font-size: 14px; }
+.info-list li + li { margin-top: 4px; }
+.info-where { margin: 4px 0 0; font-size: 14px; }
+.info-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 6px 0; }
+.info-step { display: flex; flex-direction: column; align-items: center; padding: 4px 10px; border: 2px solid var(--border); border-radius: 12px; font-size: 13px; }
+.info-step.on { border-color: var(--brand-gold); background: var(--hl); color: var(--hl-ink); }
+.info-habit { display: grid; grid-template-columns: 16px minmax(0, 1.4fr) minmax(60px, 1fr) 40px; align-items: center; gap: 8px; margin-top: 6px; font-size: 14px; }
+.info-pct { text-align: end; font-variant-numeric: tabular-nums; font-size: 13px; }
+.info-form { display: flex; align-items: center; gap: 10px; margin-top: 6px; padding: 8px 10px; border: 2px solid var(--border); border-radius: 12px; font-size: 14px; opacity: .75; }
+.info-form.on { border-color: var(--brand-gold); opacity: 1; }
+.info-form > span { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.pet-word { position: absolute; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; width: max-content; max-width: min(240px, 72%);
+  pointer-events: none; text-align: center; color: #1b1420; line-height: 1.25; padding: 0 4px;
+  border: 8px solid transparent; border-image: url("../game-art/ui/bubble.png") 8 fill / 8px; image-rendering: pixelated; opacity: 0; }
+.pet-word[hidden] { display: none; }
+.pet-word b { font-family: var(--ar-font); font-size: 19px; font-weight: 600; unicode-bidi: plaintext; }
+.pet-word span { font-size: 12px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+.pet-word.show { animation: pet-word 3.6s ease-out both; }
+@keyframes pet-word { from { opacity: 0; transform: translate(-50%, 6px); } 6% { opacity: 1; transform: translate(-50%, 0); } 80% { opacity: 1; } to { opacity: 0; transform: translate(-50%, -6px); } }
+@media (prefers-reduced-motion: reduce) { .pet-word.show { animation: none; opacity: 1; } }
 .build-opt > span { display: flex; flex-direction: column; }
 .build-opt img, .shop-pic img.px-icon { image-rendering: pixelated; }
 .b-potion { margin-top: 8px; width: 100%; padding: 8px; border-radius: 12px; font-size: 13px; }

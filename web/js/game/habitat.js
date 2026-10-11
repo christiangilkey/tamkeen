@@ -3,6 +3,7 @@
 // today's goal, level and streak.
 
 import { api, h, toast } from "../app.js";
+import { detectLanguage, setLang } from "../languages.js";
 import { EMOTES, FX_FRAMES, HABITAT, PLOTS, SCENES, SHADOW, SPECIES, STAGES, TYPES, BRANCHES } from "./data.js";
 import { collect, garden, tick as gardenTick, totalRate } from "./idle.js";
 import { heartsRow } from "./garden.js";
@@ -14,6 +15,7 @@ import { GOALS, checkBadges, levelOf } from "./rules.js";
 import { FRAME, composeCreature, drawSheet, loadImage } from "./render.js";
 import { checkAnki, getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
 import { openShop } from "./shop.js";
+import { openEarned, openEvolution } from "./info.js";
 
 const [W, H] = HABITAT.size;
 const STAGE_LABEL = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", adult: "Adult" };
@@ -23,12 +25,13 @@ export function habitat() {
   const game = getGame();
   const el = h(`<section class="habitat card">
     <div class="habitat-scene"><canvas width="${W}" height="${H}" aria-label="Your creature's habitat"></canvas>
-      <button type="button" class="habitat-name" title="Rename"></button></div>
+      <button type="button" class="habitat-name" title="Rename"></button>
+      <div class="pet-word" hidden><b></b><span></span></div></div>
     <div class="habitat-hud">
       <div class="hud-row">
-        <span class="hud-level" title="Your level">Lv <b id="g-level"></b></span>
+        <button type="button" class="hud-tap hud-level" data-info="xp" title="Your level: tap to see how XP works">Lv <b id="g-level"></b></button>
         <span class="hud-bar" title="XP to the next level"><i id="g-xpbar"></i></span>
-        <span class="hud-xp"><b id="g-xp"></b> XP</span>
+        <button type="button" class="hud-tap hud-xp" data-info="xp" title="Tap to see how XP works"><b id="g-xp"></b> XP</button>
       </div>
       <div class="hud-row">
         <span class="hud-goal" id="g-goal"></span>
@@ -36,13 +39,13 @@ export function habitat() {
         <button type="button" class="ghost hud-goal-btn" id="g-goalbtn" title="Change your daily goal"></button>
       </div>
       <div class="hud-chips">
-        <span class="today-chip" id="g-stage"></span>
-        <span class="today-chip" id="g-streak" title="Days in a row">${icon("streak")} <span></span></span>
-        <span class="today-chip" id="g-coins" title="Coins, for the shop (coming)">${icon("coin")} <span></span></span>
-        <span class="today-chip" id="g-freeze" title="A streak freeze covers a missed day">${icon("freeze")} <span></span></span>
-        <button type="button" class="today-chip" id="g-glow" title="Glow from your buildings: open the garden">${icon("glow")} <span></span></button>
-        <span class="today-chip" id="g-gems" title="Gems, earned from badges, raids and rising a league">${icon("gem")} <span></span></span>
-        <span class="today-chip" id="g-hearts"></span>
+        <button type="button" class="today-chip" id="g-stage" title="Tap to see how your creature evolves"></button>
+        <button type="button" class="today-chip" id="g-streak" data-info="streak" title="Days in a row: tap for more">${icon("streak")} <span></span></button>
+        <button type="button" class="today-chip" id="g-coins" data-info="coin" title="Coins, for the shop: tap for more">${icon("coin")} <span></span></button>
+        <button type="button" class="today-chip" id="g-freeze" data-info="freeze" title="A streak freeze covers a missed day: tap for more">${icon("freeze")} <span></span></button>
+        <button type="button" class="today-chip" id="g-glow" data-info="glow" title="Glow from your buildings: tap for more">${icon("glow")} <span></span></button>
+        <button type="button" class="today-chip" id="g-gems" data-info="gem" title="Gems, for supplies: tap for more">${icon("gem")} <span></span></button>
+        <button type="button" class="today-chip" id="g-hearts" data-info="heart" title="Hearts: tap for more"></button>
         <button type="button" class="today-chip" id="g-scene" title="Move your creature to another habitat">${icon("nav_habitat")} <span></span></button>
       </div>
       <div class="hud-actions">
@@ -107,8 +110,14 @@ export function habitat() {
     if (r.burst || r.gems) saveGame();
     paintHud();
   }
-  $("#g-garden").onclick = $("#g-glow").onclick = () => openShop("garden", () => paintHud());
-  api("/vocab").then((words) => { checkBadges(game, { words: words.length }); gardenBeat(); }).catch(() => {});
+  const go = (tab) => openShop(tab, () => paintHud());
+  $("#g-garden").onclick = () => go("garden");
+  // Everything in the bar explains itself when tapped: how to get it, what it does, where it is spent.
+  for (const b of el.querySelectorAll("[data-info]")) b.onclick = () => openEarned(b.dataset.info, game, go);
+  $("#g-stage").onclick = () => openEvolution(game, go);
+  let vocab = null; // the owner's saved words, once they have loaded
+  const loadVocab = () => api("/vocab").then((words) => { vocab = words; return words; });
+  const vocabReady = loadVocab().then((words) => { checkBadges(game, { words: words.length }); gardenBeat(); }).catch(() => {});
   $("#g-scene").onclick = () => {
     game.scene = HABITAT.themes[(HABITAT.themes.indexOf(scene()) + 1) % HABITAT.themes.length];
     saveGame();
@@ -162,6 +171,43 @@ export function habitat() {
   let raf = 0;
   let timer = 0;
   let seen = false;
+
+  // Petting it brings up one of the owner's saved words over its head for a moment.
+  const say = $(".pet-word");
+  const SAY_MS = 3600; // matches the pet-word animation in app.css
+  let sayTimer = 0;
+  let sayHalf = 0;     // half the bubble's width and its whole height, in scene pixels (to keep it inside the scene)
+  let sayTall = 0;
+  function placeSay(look) {
+    const top = look.stage === "egg" ? 36 : { s: 44, m: 54, l: 66 }[look.size];
+    const x = look.stage === "egg" ? W / 2 : pet.x;
+    say.style.left = `${(Math.max(sayHalf + 2, Math.min(W - sayHalf - 2, x)) / W) * 100}%`;
+    say.style.bottom = `${(Math.min(H - sayTall - 2, H - HABITAT.ground + top + pet.hop) / H) * 100}%`;
+  }
+  async function sayWord() {
+    if (vocab === null) await vocabReady;
+    if (vocab === null || disposed) return; // the words couldn't be read: say nothing rather than something untrue
+    const words = vocab.filter((v) => v && String(v.text || "").trim());
+    const defined = words.filter((v) => String(v.meaning || "").trim());
+    const pick = (defined.length ? defined : words)[Math.floor(Math.random() * (defined.length || words.length))];
+    const [word, meaning] = say.children;
+    word.textContent = pick ? String(pick.text).trim() : "";
+    word.hidden = !pick;
+    if (pick) setLang(word, detectLanguage(pick.sentence || pick.text));
+    meaning.textContent = pick ? String(pick.meaning || "").trim() : "no words saved yet :(";
+    meaning.hidden = !meaning.textContent;
+    pet.emoteT = 0; // the word takes the place of the little heart bubble
+    say.hidden = false;
+    say.classList.remove("show");
+    const px = canvas.clientWidth ? W / canvas.clientWidth : 1; // scene pixels per screen pixel
+    sayHalf = (say.offsetWidth / 2) * px; // measuring also restarts the fade
+    sayTall = say.offsetHeight * px;
+    say.classList.add("show");
+    placeSay(refreshLook());
+    clearTimeout(sayTimer);
+    sayTimer = setTimeout(() => { say.hidden = true; }, SAY_MS);
+    loadVocab().catch(() => {}); // pick up words saved since, for the next time
+  }
 
   function refreshLook() {
     const look = describe(game.creature);
@@ -286,6 +332,7 @@ export function habitat() {
       if (bubble) ctx.drawImage(bubble, Math.round(pet.x + pet.dir * 12 - 6), groundY - { s: 48, m: 58, l: 70 }[look.size] - Math.round(pet.hop));
       else if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), groundY - 44 - (Math.floor(now / 300) % 3));
     }
+    if (!say.hidden) placeSay(look);
     for (let i = floats.length - 1; i >= 0; i--) {
       const f = floats[i];
       f.t += dt;
@@ -349,6 +396,7 @@ export function habitat() {
       cheer("pet");
       sfx("pet");
       if (readyToEvolve(game.creature)) openShop("creatures", () => paintHud()); // evolving starts with a tap
+      else sayWord();
     }
     else if (!egg) { pet.target = Math.max(30, Math.min(W - 30, x)); pet.wait = 0; } // "come here"
   });
@@ -380,6 +428,7 @@ export function habitat() {
     cancelAnimationFrame(raf);
     clearInterval(timer);
     clearInterval(gardenTimer);
+    clearTimeout(sayTimer);
     stop();
   }
   paintHud();
