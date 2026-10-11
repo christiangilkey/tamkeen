@@ -10,7 +10,7 @@ import { openBattleMenu } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
 import { GOALS, levelOf } from "./rules.js";
 import { FRAME, composeCreature, drawSheet, loadImage } from "./render.js";
-import { getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
+import { checkAnki, getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
 import { openShop } from "./shop.js";
 
 const [W, H] = HABITAT.size;
@@ -88,6 +88,7 @@ export function habitat() {
   $("#g-battle").onclick = () => openBattleMenu();
   $("#g-friends").onclick = () => openShop("friends", () => paintHud());
   setTimeout(() => publishNow(), 4000); // keep what friends see of me fresh (only when connected)
+  setTimeout(() => checkAnki(), 1500);  // count Anki reviews reported while this screen was closed
   $(".habitat-name").onclick = () => {
     const name = window.prompt("Name your creature", game.creature.name || "");
     if (name === null) return;

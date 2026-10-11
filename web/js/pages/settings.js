@@ -75,6 +75,19 @@ export async function render(view) {
     </section>
 
     <section class="card stack">
+      <h2>Anki companion (optional)</h2>
+      <p class="small muted">If you study with Anki on this computer, a small add-on can tell Tamkeen how your reviews are going,
+        so they count toward your creature: clearing what is due is the day's goal (whatever the number of cards), and cards
+        that become mature earn a bonus. Only numbers are sent, to Tamkeen on this computer: never your cards.</p>
+      <ol class="small">
+        <li>Press the button below and save the file.</li>
+        <li>Double-click the saved file. Anki opens and asks to install it; say yes, then restart Anki.</li>
+        <li>Review as usual with Tamkeen open. In Anki, <em>Tools → Tamkeen companion…</em> shows whether it is connected.</li>
+      </ol>
+      <div class="row"><button type="button" id="anki-get">Download the Anki add-on</button><span class="small muted" id="anki-status"></span></div>
+    </section>
+
+    <section class="card stack">
       <h2>Audio storage</h2>
       <label class="check"><input type="checkbox" id="delete-after" ${s.delete_audio_after ? "checked" : ""}>
         <span>Delete downloaded audio after transcription<br><span class="small muted">Saves disk space. The player then streams the audio from the podcast's server.</span></span></label>
@@ -211,6 +224,19 @@ export async function render(view) {
     toast(`Now learning ${LANGUAGES[code].name}`);
     window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
   }));
+
+  $("#anki-get").onclick = () => download("/api/anki/addon", "Tamkeen-Anki-Companion.ankiaddon");
+  const paintAnki = async () => {
+    try {
+      const r = await api("/anki/days");
+      const todayKey = new Date().toLocaleDateString("en-CA");
+      const t = (r.days || []).find((d) => d.day === todayKey);
+      $("#anki-status").textContent = !r.last_report ? "No reports yet." : `Last heard from Anki ${new Date(r.last_report * 1000).toLocaleString()}`
+        + (t ? ` · today: ${t.reviews} reviewed, ${t.matured} matured, ${t.due_left ?? "?"} still due` : "");
+    } catch { /* the status line is optional */ }
+  };
+  paintAnki();
+  cleanups.push(on("anki", paintAnki));
 
   $("#def-test").onclick = async (e) => {
     const out = $("#def-test-result");

@@ -164,6 +164,12 @@ def run(browser: bool = False, port: int | None = None, headless: bool = False) 
     server.start()
     log.info("Server listening on %s", server.url)
     try:
+        from . import companion
+
+        companion.write_info(server.port)  # so the Anki add-on can find this run of the app
+    except Exception:  # never let the companion stop the app from opening
+        log.exception("Couldn't write the companion file")
+    try:
         if headless:
             print(f"Serving on {server.url} (Ctrl+C to stop)", flush=True)
             try:

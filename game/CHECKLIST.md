@@ -107,7 +107,7 @@ The idle layer is not built. Planned shape, agreed in outline with the owner:
 |---|---|---|
 | Over a hundred items to dress creatures | ✅ data · 🟡 art | 113 wearables in six slots plus 24 decorations (`data.WEARABLES`). 83 of the wearables are placeholders awaiting art (ASSET_LIST 3.8) |
 | Items sit well on creatures | ⏸ | Paused by the owner: the creatures are being redesigned. `tools/preview_items.py` draws every item on every body for when it resumes |
-| Anki companion add-on (see when people review their cards) | ⬜ | Does not exist. The game reads Tamkeen's own study and vocab only |
+| Anki companion add-on (see when people review their cards) | 🟡 | On the `anki-companion` branch, not on main. Add-on in `web/anki-addon/`, receiver in `app/companion.py`, rewards in `rules.earnAnki`: clearing what is due = the day's goal; matured cards +15 XP (ten a day); volume barely pays. Tested with the add-on's own code against the running app, never inside real Anki. Desktop Anki only (no AnkiDroid, no iPhone). Not yet: a retention-over-weeks bonus from Anki, friends seeing each other's Anki activity |
 
 ## Art delivered but not used yet
 
