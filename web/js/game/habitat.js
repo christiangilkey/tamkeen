@@ -2,13 +2,15 @@
 // wanders, reacts to being petted and to what you earn while studying; the bar underneath shows
 // today's goal, level and streak.
 
-import { h, toast } from "../app.js";
-import { EMOTES, FX_FRAMES, HABITAT, SCENES, SHADOW, SPECIES, STAGES, TYPES, BRANCHES } from "./data.js";
+import { api, h, toast } from "../app.js";
+import { EMOTES, FX_FRAMES, HABITAT, PLOTS, SCENES, SHADOW, SPECIES, STAGES, TYPES, BRANCHES } from "./data.js";
+import { collect, garden, tick as gardenTick, totalRate } from "./idle.js";
+import { heartsRow } from "./garden.js";
 import { describe, formOf, readyToEvolve, stageOf } from "./genome.js";
 import { icon } from "./render.js";
 import { badgeToast, openBattleMenu } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
-import { GOALS, levelOf } from "./rules.js";
+import { GOALS, checkBadges, levelOf } from "./rules.js";
 import { FRAME, composeCreature, drawSheet, loadImage } from "./render.js";
 import { getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
 import { openShop } from "./shop.js";
@@ -38,6 +40,9 @@ export function habitat() {
         <span class="today-chip" id="g-streak" title="Days in a row">${icon("streak")} <span></span></span>
         <span class="today-chip" id="g-coins" title="Coins, for the shop (coming)">${icon("coin")} <span></span></span>
         <span class="today-chip" id="g-freeze" title="A streak freeze covers a missed day">${icon("freeze")} <span></span></span>
+        <button type="button" class="today-chip" id="g-glow" title="Glow from your buildings: open the garden">${icon("glow")} <span></span></button>
+        <span class="today-chip" id="g-gems" title="Gems, earned from badges, raids and rising a league">${icon("gem")} <span></span></span>
+        <span class="today-chip" id="g-hearts"></span>
         <button type="button" class="today-chip" id="g-scene" title="Move your creature to another habitat">${icon("nav_habitat")} <span></span></button>
       </div>
       <div class="hud-actions">
@@ -45,6 +50,7 @@ export function habitat() {
         <button type="button" id="g-friends">${icon("trade")} Friends</button>
         <button type="button" id="g-creatures">${icon("nav_roster")} Creatures</button>
         <button type="button" id="g-shop">${icon("nav_shop")} Shop</button>
+        <button type="button" id="g-garden">${icon("glow")} Garden</button>
       </div>
     </div>
   </section>`);
@@ -84,7 +90,25 @@ export function habitat() {
     $(".habitat-name").textContent = game.creature.name || (stage.id === "egg" ? "Your egg" : "Name me ");
     if (!game.creature.name && stage.id !== "egg") $(".habitat-name").append(h(icon("edit")));
     $("#g-scene span").textContent = SCENES[scene()];
+    const g = garden(game);
+    const waiting = g.plots.reduce((n, p) => n + p.stored, 0);
+    $("#g-glow span").textContent = `${Math.floor(g.glow).toLocaleString()}${waiting >= 1 ? ` +${Math.floor(waiting).toLocaleString()}` : ""}`;
+    $("#g-glow").classList.toggle("lit", waiting >= 1);
+    $("#g-gems span").textContent = game.gems;
+    $("#g-hearts").innerHTML = stage.id === "egg" ? "" : heartsRow(game.creature);
+    $("#g-hearts").hidden = stage.id === "egg";
   }
+  // The garden keeps time: glow builds up, and what studying earned here is paid out.
+  function gardenBeat() {
+    const r = gardenTick(game);
+    if (r.burst) toast(`Daily goal: your buildings sent ${r.burst.toLocaleString()} glow at once.`);
+    if (r.gems) toast(`You earned ${r.gems} gem${r.gems === 1 ? "" : "s"}.`);
+    if (r.bloom) toast("Full bloom: every plot holds a fully grown building.");
+    if (r.burst || r.gems) saveGame();
+    paintHud();
+  }
+  $("#g-garden").onclick = $("#g-glow").onclick = () => openShop("garden", () => paintHud());
+  api("/vocab").then((words) => { checkBadges(game, { words: words.length }); gardenBeat(); }).catch(() => {});
   $("#g-scene").onclick = () => {
     game.scene = HABITAT.themes[(HABITAT.themes.indexOf(scene()) + 1) % HABITAT.themes.length];
     saveGame();
@@ -117,7 +141,9 @@ export function habitat() {
   files.rain = "habitat/rain.png";
   for (const id of Object.keys(FX_FRAMES)) files[id] = `fx/${id}.png`;
   for (const size of Object.keys(SHADOW)) files[`shadow_${size}`] = `fx/shadow_${size}.png`;
+  files.glowIcon = "icon/glow.png";
   for (const [k, f] of Object.entries(files)) loadImage(f).then((img) => { art[k] = img; });
+  const plotArt = {}; // building picture by file name
 
   const pet = { x: W / 2, dir: 1, target: W / 2, wait: 2, step: 0, stepT: 0, mood: "", moodT: 0, hop: 0, blinkT: 3, emote: "", emoteT: 0, idleT: 6 };
   const emote = (id, secs = 1.8) => { if (id) { pet.emote = id; pet.emoteT = secs; } };
@@ -212,7 +238,19 @@ export function habitat() {
       const img = decorArt[d.id];
       if (img) ctx.drawImage(img, Math.round(d.x - img.width / 2), groundY - img.height + 2);
     }
-    if (dark && game.decor.length) { ctx.fillStyle = `rgba(20, 12, 48, ${dark * 0.6})`; ctx.fillRect(0, groundY - 48, W, 50); }
+    // Building plots: an empty plot, or the building on it, with a bobbing light when glow is waiting.
+    const plots = garden(game).plots;
+    for (let i = 0; i < PLOTS.length; i++) {
+      const p = plots[i];
+      if (!p.open) continue;
+      const file = p.tier ? `structure/${p.id}_${p.tier}.png` : "structure/plot.png";
+      if (!(file in plotArt)) { plotArt[file] = null; loadImage(file).then((img) => { plotArt[file] = img; }); }
+      const img = plotArt[file];
+      if (!img) continue;
+      ctx.drawImage(img, Math.round(PLOTS[i].x - img.width / 2), groundY - img.height + 3);
+      if (p.stored >= 1 && art.glowIcon) ctx.drawImage(art.glowIcon, PLOTS[i].x - 8, groundY - img.height - 14 + Math.round(Math.sin(now / 300 + i) * 2));
+    }
+    if (dark && (game.decor.length || plots.some((p) => p.open))) { ctx.fillStyle = `rgba(20, 12, 48, ${dark * 0.6})`; ctx.fillRect(0, groundY - 48, W, 50); }
     if (look.stage === "egg") {
       const wobble = Math.sin(now / 260) * (pet.mood ? 3 : 1);
       if (egg) {
@@ -275,6 +313,7 @@ export function habitat() {
     raf = requestAnimationFrame(loop);
   }
   timer = setInterval(() => { if (document.hidden) { const now = performance.now(); tick(0.1, now); last = now; } }, 1000);
+  const gardenTimer = setInterval(gardenBeat, 5000);
 
   function cheer(kind) {
     pet.mood = "happy";
@@ -290,6 +329,20 @@ export function habitat() {
   canvas.addEventListener("click", (e) => {
     const r = canvas.getBoundingClientRect();
     const x = ((e.clientX - r.left) / r.width) * W;
+    const y = ((e.clientY - r.top) / r.height) * H;
+    // A building with glow waiting is gathered with a tap; an empty plot opens the garden.
+    const plots = garden(game).plots;
+    const hit = PLOTS.findIndex((spot, i) => plots[i].open && Math.abs(x - spot.x) < 16 && y > HABITAT.ground - 50);
+    if (hit >= 0 && plots[hit].stored >= 1) {
+      const got = collect(game, hit);
+      for (let i = 0; i < 4; i++) floats.push({ img: art.glowIcon, x: PLOTS[hit].x - 12 + Math.random() * 16, y: HABITAT.ground - 40 + Math.random() * 8, t: -i * 0.1 });
+      sfx("lucky");
+      toast(`+${got.toLocaleString()} glow`);
+      saveGame();
+      paintHud();
+      return;
+    }
+    if (hit >= 0 && !plots[hit].tier && Math.abs(x - pet.x) > 24) { openShop("garden", () => paintHud()); return; }
     const egg = stageOf(game.creature.growth).id === "egg";
     if (Math.abs(x - (egg ? W / 2 : pet.x)) < 30) {
       cheer("pet");
@@ -325,6 +378,7 @@ export function habitat() {
     disposed = true;
     cancelAnimationFrame(raf);
     clearInterval(timer);
+    clearInterval(gardenTimer);
     stop();
   }
   paintHud();

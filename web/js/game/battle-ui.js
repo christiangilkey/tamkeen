@@ -6,7 +6,7 @@ import { detectLanguage, setLang } from "../languages.js";
 import { BADGES, BATTLE_FRAMES, BATTLE_UNLOCK_WORDS, HABITAT, SHADOW, TYPES, moveById } from "./data.js";
 import { describe } from "./genome.js";
 import { answerQuestion, checkBadges, finishBattle, pickQuestion, quizzable, retention, reviewSummary, weekNumber, weeklyRule } from "./rules.js";
-import { COMBO, FAST_MS, QUESTION_MS, battleResult, eligible, fighters, fits, newBattle, playTurn, publicProfile, rentalPool, teamSize, wildTeam } from "./battle.js";
+import { COMBO, FAST_MS, QUESTION_MS, battleResult, eligible, fighters, fits, newBattle, playTurn, publicProfile, rentalPool, teamSize, usePotion, wildTeam } from "./battle.js";
 import { FRAME, composeCreature, drawSheet, icon, loadImage } from "./render.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import * as social from "../social.js";
@@ -367,6 +367,20 @@ function runBattle(b, vocab) {
       grid.append(btn);
     }
     panel.append(grid);
+    if (b.mode === "wild" && !b.potionUsed && game.items.potion > 0 && cur("me").hp < cur("me").max) {
+      const drink = h(`<button type="button" class="b-potion">${icon("potion")} Use a potion (${game.items.potion}): half its health back, once a battle</button>`);
+      drink.onclick = () => {
+        const amount = usePotion(b);
+        if (!amount) return;
+        game.items.potion--;
+        saveGame();
+        sfx("lucky");
+        numbers.push({ text: `+${amount}`, x: X.me, y: HABITAT.ground - 50, t: 0, color: "#7dffb0" });
+        paintBars();
+        showMoves();
+      };
+      panel.append(drink);
+    }
     say("Choose a move. A question about one of your words decides how well it lands.");
   }
 
@@ -455,6 +469,7 @@ function runBattle(b, vocab) {
       pay.tags.includes("flawless") ? icon("trophy") + " Not one wrong answer: the Champion form and the move Perfect Form are now open." : "",
       pay.tags.includes("comeback") ? icon("trophy") + " Won from the brink: the Champion form and the move Second Wind are now open." : "",
       pay.egg ? icon("egg_mystery") + " The wild creature left you an egg." : "",
+      pay.ticket ? icon("ticket") + " A battle ticket made this one pay in full." : "",
     ].filter(Boolean);
     const panel = $("#b-panel");
     panel.innerHTML = "";

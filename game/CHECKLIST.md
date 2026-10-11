@@ -87,24 +87,25 @@ Status: ✅ built · 🟡 partly · ⬜ not built
 
 ## 5. "Incremental games"
 
-The idle layer is not built. Planned shape, agreed in outline with the owner:
+Built on 2026-10-11 as "the garden" (`web/js/game/idle.js` rules, `garden.js` screens).
 
-| Requirement | Status | Plan |
+| Requirement | Status | Where / note |
 |---|---|---|
-| Production against rising costs | ⬜ | Six structures (art exists) produce "glow"; costs rise faster than output |
-| Prestige that feels like a reward | ⬜ | Releasing an adult to the collection gives a new egg and a lasting boost |
-| It unfolds: the game keeps changing | ⬜ | New habitats, structures and systems appear with progress, not all at once |
-| Real decisions | ⬜ | Structures favour different habits; limited plots in the habitat |
-| Active and idle both worthwhile; no 5-minute timers | ⬜ | About eight hours of offline production; studying multiplies it |
-| Automation is earned | ⬜ | Unlocked by study milestones, not by waiting |
-| A theme and an ending | ⬜ | To design with the owner |
-| Avoid: meaningless numbers, bloat, walls, bad UI | ⬜ | Small numbers, one prestige layer |
-| No ads, no purchases | ✅ | None anywhere |
+| Production against rising costs | ✅ | Six buildings on six plots make glow; each tier costs more than it adds, and a second of a kind costs 60% more (`idle.costOf`) |
+| Prestige that feels like a reward | ✅ | Releasing a grown creature restarts the garden and gives stardust, +50% glow each, for good (`idle.release`) |
+| It unfolds: the game keeps changing | ✅ | Plots and buildings open one at a time with study milestones (`data.PLOTS`, `STRUCTURES[].need`); the Star Loom and last plot only after a first release |
+| Real decisions | ✅ | Each building does best for one study habit; six plots; grow what you have or build another |
+| Active and idle both worthwhile; no 5-minute timers | ✅ | Up to eight hours of glow waits; reaching the day's goal speeds everything by half and sends two hours' worth at once |
+| Automation is earned | ✅ | Glow collects itself after ten daily goals, never for payment (`idle.automated`) |
+| A theme and an ending | 🟡 | The ending exists: "full bloom" when every plot holds a fully grown building. No story around it |
+| Avoid: meaningless numbers, bloat, walls, bad UI | ✅ | Numbers stay in the hundreds and thousands; one prestige layer; a key can open a plot instead of waiting |
+| No ads, no purchases | ✅ | Gems come only from badges, raid wins, rising a league and full bloom |
 
 ## Not from the documents, asked for by the owner
 
 | Request | Status | Note |
 |---|---|---|
+| Uses for the delivered art: buildings and plot, food, potion, key, ticket, incubator, XP boost, gem, stardust, hearts, glow, release, egg | ✅ | Buildings and plots: the garden. Food raises a creature's hearts (favourite by element, three a day). Potion: half health once in a wild battle. Key: opens a plot early. Ticket: one more battle pays in full. Incubator: a spare egg grows at half speed. XP boost: double XP for 20 minutes. Gems and glow buy supplies; stardust is the release reward; the mystery egg is bought with gems |
 | Over a hundred items to dress creatures | ✅ | 113 wearables in six slots plus 24 decorations (`data.WEARABLES`). All 113 wearables are hand-drawn in Aseprite (sources in `game/art-src/item/`), seen in the wardrobe and on a creature in the desktop preview on 2026-10-11 |
 | Items sit well on creatures | ⏸ | Paused by the owner: the creatures are being redesigned. `tools/preview_items.py` draws every item on every body for when it resumes |
 | Anki companion add-on (see when people review their cards) | ⬜ | Does not exist. The game reads Tamkeen's own study and vocab only |

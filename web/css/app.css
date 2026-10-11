@@ -953,3 +953,18 @@ button.today-chip { border: 0; cursor: pointer; font: inherit; font-size: 13px; 
   background: url("../game-art/fx/combo_fire.png") 0 0 / 64px 16px no-repeat; animation: fx-combo-fire .4s steps(4) infinite; }
 @keyframes fx-combo-fire { to { background-position: -64px 0; } }
 @media (prefers-reduced-motion: reduce) { .fx-combo-fire { animation: none; } }
+
+/* ---------- creature game: the garden (buildings, glow, hearts, supplies) ---------- */
+.hud-actions { grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); }
+button.today-chip { cursor: pointer; font: inherit; }
+.hearts { display: inline-flex; gap: 1px; vertical-align: middle; }
+.hearts img { image-rendering: pixelated; }
+.plot-act { flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+.plot-act button { font-size: 13px; padding: 4px 10px; }
+.locked-plot { opacity: .7; }
+.build-opt { display: flex; align-items: center; gap: 8px; text-align: start; border-radius: 12px; padding: 6px 10px; }
+.build-opt > span { display: flex; flex-direction: column; }
+.build-opt img, .shop-pic img.px-icon { image-rendering: pixelated; }
+.b-potion { margin-top: 8px; width: 100%; padding: 8px; border-radius: 12px; font-size: 13px; }
+.creature-head { flex-wrap: wrap; }
+@media (max-width: 560px) { .plot-act { flex-basis: 100%; justify-content: flex-start; } }

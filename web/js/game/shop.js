@@ -8,6 +8,7 @@ import { getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
 import { badgesPanel, creaturesPanel } from "./creatures.js";
 import { friendsPanel, gift } from "./friends-game.js";
+import { gardenPanel, suppliesPanel } from "./garden.js";
 import { startFriendBattle } from "./battle-ui.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
@@ -25,6 +26,8 @@ export function openShop(tab, changed) {
         <button type="button" data-tab="creatures">${icon("nav_roster")} Creatures</button>
         <button type="button" data-tab="badges">${icon("nav_badges")} Badges</button>
         <button type="button" data-tab="friends">${icon("trade")} Friends</button>
+        <button type="button" data-tab="garden">${icon("glow")} Garden</button>
+        <button type="button" data-tab="supplies">${icon("potion")} Supplies</button>
       </div>
       <span class="spacer"></span>
       <span class="today-chip lit" id="sheet-coins">${icon("coin")} <span></span></span>
@@ -84,6 +87,8 @@ export function openShop(tab, changed) {
     body.innerHTML = "";
     if (which === "creatures") { creaturesPanel(body, game, changed); return; }
     if (which === "badges") { badgesPanel(body, game); return; }
+    if (which === "garden") { gardenPanel(body, game, changed); return; }
+    if (which === "supplies") { suppliesPanel(body, game, changed); return; }
     if (which === "friends") { friendsPanel(body, game, changed, (friend, profile) => { close(); startFriendBattle(friend, profile); }); return; }
     if (which === "shop") {
       const stock = shopStock(game);
@@ -109,7 +114,7 @@ export function openShop(tab, changed) {
   }
   for (const b of wrap.querySelectorAll("[data-tab]")) b.onclick = () => paint(b.dataset.tab);
   document.body.append(wrap);
-  paint(["mine", "creatures", "badges", "friends"].includes(tab) ? tab : "shop");
+  paint(["mine", "creatures", "badges", "friends", "garden", "supplies"].includes(tab) ? tab : "shop");
   return close;
 }
 

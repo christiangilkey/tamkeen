@@ -260,6 +260,50 @@ export const WEEKLY_RULES = [
 ];
 export const BATTLE_UNLOCK_WORDS = 100; // saved vocab words needed before battles open
 
+// ---------- the garden ----------
+// Buildings that make glow (rules in idle.js). `rate` is glow an hour at tier 1, `cost` the glow to
+// build it; `trait` is the study habit it does best for; `need` is what must be done before it
+// can be built. Art: structure/<id>_<tier 1-3>.png, and structure/plot.png for an empty plot.
+export const STRUCTURES = [
+  { id: "word_sprout", name: "Word Sprout", rate: 12, cost: 40, trait: "curious", text: "A plant that grows glowing letters. Does best for the curious: looking words up." },
+  { id: "echo_shell", name: "Echo Shell", rate: 20, cost: 150, trait: "listener", text: "A shell that hums with what it has heard. Does best for listeners.",
+    need: { stat: "goals", n: 2, text: "Reach your daily goal twice" } },
+  { id: "page_lantern", name: "Page Lantern", rate: 20, cost: 150, trait: "reader", text: "A lantern folded from pages. Does best for readers.",
+    need: { stat: "lookups", n: 30, text: "Look up 30 words" } },
+  { id: "ink_well", name: "Ink Well", rate: 34, cost: 500, trait: "collector", text: "A small well of ink. Does best for collectors of words.",
+    need: { stat: "words", n: 50, text: "Save 50 words" } },
+  { id: "memory_stone", name: "Memory Stone", rate: 55, cost: 1600, trait: "collector", text: "A carved stone that keeps what you know. Does best for collectors.",
+    need: { mature: 5, text: "Know 5 words well (through battles)" } },
+  { id: "star_loom", name: "Star Loom", rate: 90, cost: 5000, trait: null, text: "A loom that weaves starlight. Steady for everyone.",
+    need: { stardust: 1, text: "Release a grown creature once" } },
+];
+export const TIER_RATE = [0, 1, 2.5, 6];   // how much more a building makes at each tier
+export const TIER_COST = [0, 1, 5, 22];    // how much more each tier costs (tier 1 is building it)
+// Six plots across the habitat. `x` is where each stands in the scene; `need` opens it (or a key does).
+export const PLOTS = [
+  { x: 28, need: { hatched: true, text: "Hatch your first creature" } },
+  { x: 292, need: { stat: "goals", n: 3, text: "Reach your daily goal 3 times" } },
+  { x: 80, need: { stat: "words", n: 30, text: "Save 30 words" } },
+  { x: 240, need: { streak: 5, text: "Keep a 5-day streak" } },
+  { x: 132, need: { mature: 10, text: "Know 10 words well (through battles)" } },
+  { x: 188, need: { stardust: 1, text: "Release a grown creature once" } },
+];
+// Food is bought with glow and raises a creature's hearts; each element has a favourite.
+export const FOODS = [
+  { id: "food_berry", name: "Berry", glow: 30, loves: "ember" }, { id: "food_fish", name: "Fish", glow: 30, loves: "tide" },
+  { id: "food_leaf", name: "Leaf", glow: 30, loves: "grove" }, { id: "food_spark", name: "Spark candy", glow: 30, loves: "spark" },
+  { id: "food_crystal", name: "Rock sugar", glow: 30, loves: "stone" }, { id: "food_cake", name: "Moon cake", glow: 30, loves: "dusk" },
+];
+// Supplies are bought with glow or with gems (gems come only from badges, raids, league rises and full bloom).
+export const SUPPLIES = [
+  { id: "potion", name: "Potion", glow: 150, text: "In a wild battle, restores half of a creature's health once." },
+  { id: "xp_boost", name: "XP boost", gems: 2, text: "Doubles XP from looking up, saving and reviewing words for 20 minutes." },
+  { id: "ticket", name: "Battle ticket", gems: 2, text: "One more battle today pays in full, after the first three." },
+  { id: "incubator", name: "Incubator", gems: 4, text: "Warms an egg so it grows alongside the creature in your habitat." },
+  { id: "key", name: "Plot key", gems: 5, text: "Opens the next building plot without waiting for its milestone." },
+  { id: "egg", name: "Mystery egg", gems: 6, icon: "egg_mystery", text: "A new egg for your roster. Its element leans toward how you study." },
+];
+
 // Weekly raid bosses: the things that get in a learner's way. A guild wears one down together.
 export const BOSSES = [
   { id: "mumbler", name: "The Mumbler", text: "A fog of garbled speech." },
@@ -376,6 +420,9 @@ export function artFiles() {
   extra("ui/pip_off.png", [8, 8]);
   extra("ui/slot_empty.png", [24, 24]);
   extra("structure/plot.png", [32, 32]);
+  for (const s of STRUCTURES) for (const tier of [1, 2, 3]) extra(`structure/${s.id}_${tier}.png`, tier === 3 ? [48, 48] : [32, 32]);
+  for (const f of FOODS) extra(`icon/${f.id}.png`, [16, 16]);
+  for (const id of ["potion", "key", "ticket", "incubator", "xp_boost", "gem", "stardust", "heart_full", "heart_empty"]) extra(`icon/${id}.png`, [16, 16]);
   for (const [id, s] of [["evolve", 64], ["ready", 32]]) extra(`fx/${id}.png`, [s * FX_FRAMES[id], s]);
   for (const id of ["faint", "glance"]) extra(`battle/${id}.png`, [32 * BATTLE_FRAMES[id], 32]);
   for (const [id, n, s] of [["surge", 6, 48], ["combo_fire", 4, 16]]) extra(`fx/${id}.png`, [s * n, s]);

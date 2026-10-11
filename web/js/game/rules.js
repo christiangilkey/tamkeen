@@ -155,6 +155,9 @@ export function rollReward(rand) {
   return { tier: tier.id, xp, item: tier.id === "surprise" ? SURPRISES[Math.floor(rand() * SURPRISES.length)] : null };
 }
 
+/** Double XP while an XP boost is running (see idle.useBoost). */
+const boost = (state, now) => (state.boostUntil && now.getTime() / 1000 < state.boostUntil ? 2 : 1);
+
 function grant(state, tag) {
   if (state.tags.includes(tag)) return false;
   state.tags.push(tag);
@@ -170,6 +173,12 @@ function grow(state, xp, trait) {
   const before = formOf(c).id;
   const wasReady = readyToEvolve(c);
   c.growth = Math.min(1, c.growth + xp / ADULT_XP);
+  // An egg in the incubator grows at half speed alongside, until it hatches.
+  if (state.incubating != null) {
+    const egg = state.roster.find((g) => g.seed === state.incubating && g !== c);
+    if (!egg || stageOf(egg.growth).id !== "egg") state.incubating = null;
+    else { egg.growth = Math.min(1, egg.growth + xp / ADULT_XP / 2); if (stageOf(egg.growth).id !== "egg") state.incubating = null; }
+  }
   if (trait) {
     // Traits drift toward what the owner actually does; the others fade a little.
     // (About ten daily goals of one habit to fill a trait, so one busy afternoon doesn't decide it.)
@@ -212,13 +221,13 @@ export function earn(state, event, ctx = {}) {
     out.combo = COMBO_STEPS[Math.min(combo.count, COMBO_STEPS.length - 1)];
     out.tier = reward.tier;
     out.item = reward.item;
-    out.xp = Math.round(reward.xp * out.combo * fade(day.taps, 40, 120));
+    out.xp = Math.round(reward.xp * out.combo * fade(day.taps, 40, 120) * boost(state, now));
     day.taps++;
     if (out.item) state.items[out.item] = (state.items[out.item] || 0) + 1;
     if (!out.xp && !out.item) return null;
     out.stage = grow(state, out.xp, "curious");
   } else if (event.type === "save") {
-    out.xp = Math.round(20 * fade(day.saves, 15, 45));
+    out.xp = Math.round(20 * fade(day.saves, 15, 45) * boost(state, now));
     day.saves++;
     if (!out.xp) return null;
     state.coins += 1;
@@ -413,7 +422,7 @@ export function answerQuestion(state, uid, correct, now = new Date()) {
   state.week.total++;
   if (correct) { state.stats.right++; state.week.right++; }
   const out = { xp: 0, graduated: false, retentionBonus: false, stage: null };
-  if (correct) out.xp = Math.round(3 * fade(state.day.reviews, 40, 120));
+  if (correct) out.xp = Math.round(3 * fade(state.day.reviews, 40, 120) * boost(state, now));
   state.day.reviews++;
   if (correct && before < MATURE_BOX && rec[0] >= MATURE_BOX) { // well known at last: the bonus that can't be rushed
     out.graduated = true;
@@ -459,10 +468,12 @@ export function finishBattle(state, result, ctx = {}) {
   const now = ctx.now || new Date();
   const rand = ctx.rand || Math.random;
   rollDay(state, now);
-  const share = fade(state.day.battles, 3, 9); // the first few battles of the day are the ones that pay
+  let share = fade(state.day.battles, 3, 9); // the first few battles of the day are the ones that pay
+  const ticket = share < 1 && state.items.ticket > 0; // a battle ticket makes one more pay in full
+  if (ticket) { state.items.ticket--; share = 1; }
   state.day.battles++;
   state.stats.battles++;
-  const out = { xp: Math.round((result.won ? 40 : 15) * share), coins: result.won && share ? Math.ceil(4 * share) : 0, tags: [], egg: false, rating: 0, badges: [] };
+  const out = { xp: Math.round((result.won ? 40 : 15) * share), coins: result.won && share ? Math.ceil(4 * share) : 0, tags: [], egg: false, rating: 0, badges: [], ticket };
   if (result.won) {
     state.stats.wins++;
     // Feats in battle, not hours of grinding, open the special forms and moves.

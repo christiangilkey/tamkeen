@@ -216,6 +216,18 @@ export function playTurn(b, moveId, quality) {
   return events;
 }
 
+/** Drink a potion: half the current creature's health back, once a battle, and only against wild
+ * creatures (battles between people stay a level field). Returns the health restored, or 0. */
+export function usePotion(b) {
+  if (b.over || b.mode !== "wild" || b.potionUsed) return 0;
+  const f = b.mine[b.me];
+  const amount = Math.min(f.max - f.hp, Math.round(f.max / 2));
+  if (amount <= 0) return 0;
+  f.hp += amount;
+  b.potionUsed = true;
+  return amount;
+}
+
 /** What rules.finishBattle needs to know once a battle is over. */
 export function battleResult(b) {
   const asked = b.answers.right + b.answers.wrong;
