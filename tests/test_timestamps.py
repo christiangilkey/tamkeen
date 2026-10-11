@@ -30,15 +30,12 @@ def test_srt_and_vtt():
 
 
 def test_anki_export_marks_word_in_sentence():
-    out = exporters.vocab_to_anki([{"text": "كتاب", "sentence": "هذا كتاب جميل", "meaning": "book", "notes": "",
+    out = exporters.vocab_to_anki([{"uid": "v1", "text": "كتاب", "sentence": "هذا كتاب جميل", "meaning": "book", "notes": "",
                                     "episode_title": "Ep", "start": 65.0, "end": 65.5}])
     lines = out.splitlines()
     assert lines[0] == "#separator:tab"
     row = lines[-1].split("\t")
-    assert len(row) == 5
-    assert "<b>كتاب</b>" in row[2]
-    assert row[1] == "book"
-    assert "00:01:05" in row[3]
+    assert row == ["tk-v1", "book", "<b>كتاب</b><br>هذا [كتاب] جميل", "tamkeen"]
 
 
 def test_csv_has_bom_for_excel():

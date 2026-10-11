@@ -100,19 +100,57 @@ export function vocabCsv(items) {
 }
 
 const escHtml = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#x27;" }[c]));
+// ----- Anki (the same cards as app/exporters.py makes; the format is explained there) -----
+const LABELLED = /^[^:]{1,30}:\s*\S/;
+const MARKED = /^[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+$/u;
+const ankiField = (t) => t.replace(/\t/g, " ").replace(/\r/g, "").replace(/\n/g, "<br>");
+
+/** Split a word's notes into the grammar line and the free notes: [grammar, [note, ...]]. */
+export function ankiGrammar(notes) {
+  const pieces = String(notes || "").replace(/\r/g, "").split("\n").flatMap((line) => line.split(" · "))
+    .map((p) => p.trim()).filter(Boolean);
+  const rows = pieces.filter((p) => LABELLED.test(p));
+  let kind = "";
+  if (rows.length) {
+    kind = pieces.find((p) => !rows.includes(p) && p.length <= 30 && p.split(/\s+/).length <= 3 && !/[.!?]/.test(p)) || "";
+  }
+  const free = pieces.filter((p) => !rows.includes(p) && p !== kind);
+  return [[...(kind ? [kind] : []), ...rows].join(" • "), free];
+}
+
+/** The prompt side of a word's card: its translated sentence with the word's part in [brackets],
+ * or the meaning (or the word itself) when no translation with usable ⟦ ⟧ marks was saved. */
+export function ankiFront(v) {
+  const translation = v.translation || "";
+  if (MARKED.test(translation)) {
+    return escHtml(translation.replace(/\[/g, "(").replace(/\]/g, ")")).replace(/⟦/g, "[").replace(/⟧/g, "]");
+  }
+  return escHtml(v.meaning || "") || escHtml(v.text);
+}
+
+/** [Front, Back] for one saved word. */
+export function ankiFields(v) {
+  const word = escHtml(v.text);
+  let sentence = v.sentence || "";
+  const spans = v.text ? findSpans(sentence, v.text) : [];
+  if (spans.length) {  // found whatever its vowel marks: put the sentence's own spelling in brackets
+    const [a, b] = spans[0];
+    sentence = `${escHtml(sentence.slice(0, a))}[${escHtml(sentence.slice(a, b))}]${escHtml(sentence.slice(b))}`;
+  } else sentence = escHtml(sentence);
+  const [grammar, free] = ankiGrammar(v.notes || "");
+  const lines = [`<b>${word}</b>`];
+  if (sentence) lines.push(sentence);
+  if (grammar) lines.push(`<i>(${escHtml(grammar)})</i>`);
+  free.forEach((note, n) => lines.push((n === 0 ? "Note: " : "") + escHtml(note)));
+  return [ankiField(ankiFront(v)), ankiField(lines.join("<br>"))];
+}
+
 export function vocabAnki(items) {
-  const lines = ["#separator:tab", "#html:true", "#columns:Front\tBack\tSentence\tSource\tTags", "#tags column:5"];
-  const field = (t) => t.replace(/\t/g, " ").replace(/\r/g, "").replace(/\n/g, "<br>");
+  const lines = ["#separator:tab", "#html:true", "#if matches:keep current", "#notetype:Tamkeen", "#deck:Tamkeen",
+    "#guid column:1", "#tags column:4", "#columns:GUID\tFront\tBack\tTags"];
   for (const v of items) {
-    const word = escHtml(v.text);
-    let sentence = escHtml(v.sentence || "");
-    if (word && sentence.includes(word)) sentence = sentence.replace(word, `<b>${word}</b>`);
-    let back = escHtml(v.meaning || "");
-    if (v.notes) back += (back ? "<br><br>" : "") + `<i>${escHtml(v.notes)}</i>`;
-    let source = escHtml(v.episode_title || "");
-    if (v.start != null) source += ` @ ${ts(v.start, ",").slice(0, 8)}`;
-    lines.push([`<div dir="auto" style="font-size:2em">${word}</div>`, back,
-      sentence ? `<div dir="auto">${sentence}</div>` : "", source, "tamkeen"].map(field).join("\t"));
+    const [front, back] = ankiFields(v);
+    lines.push([`tk-${v.uid || ""}`, front, back, "tamkeen"].join("\t"));
   }
   return lines.join("\n") + "\n";
 }

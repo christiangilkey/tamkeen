@@ -65,6 +65,6 @@
  "srt": "1\n00:00:00,000 --> 00:00:02,500\n‏مرحبا بكم\n\n2\n00:00:02,500 --> 01:01:01,042\n‏في الحلقة\n",
  "vtt": "WEBVTT\n\n00:00:00.000 --> 00:00:02.500\n‏مرحبا بكم\n\n00:00:02.500 --> 01:01:01.042\n‏في الحلقة\n",
  "txt": "T\n\nمرحبا بكم\nفي الحلقة\n",
- "anki": "#separator:tab\n#html:true\n#columns:Front\tBack\tSentence\tSource\tTags\n#tags column:5\n<div dir=\"auto\" style=\"font-size:2em\">كتاب</div>\tbook, &quot;tome&quot;<br><br><i>n.</i>\t<div dir=\"auto\">هذا <b>كتاب</b> جميل</div>\tEp @ 00:01:05\ttamkeen\n",
- "csv": "﻿Word/Phrase,Meaning,Notes,Sentence,Episode,Start (s),End (s)\r\nكتاب,\"book, \"\"tome\"\"\",n.,هذا كتاب جميل,Ep,65.00,65.50\r\n"
+ "anki": "#separator:tab\n#html:true\n#if matches:keep current\n#notetype:Tamkeen\n#deck:Tamkeen\n#guid column:1\n#tags column:4\n#columns:GUID\tFront\tBack\tTags\ntk-v1\tbook, &quot;tome&quot;\t<b>كتاب</b><br>هذا [كتاب] جميل<br>Note: n.\ttamkeen\ntk-v2\tThe girl (Sara) was [confused] by the &lt;question&gt;.\t<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من &lt;السؤال&gt;.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.<br>heard in ep. 3\ttamkeen\ntk-v3\tقلم\t<b>قلم</b><br>Note: my own note\ttamkeen\ntk-v4\there\t<b>هون</b><br>انتي جديدة [هون]؟\ttamkeen\ntk-v5\there\t<b>هون</b><br>انتي جديدة [هون]؟\ttamkeen\n",
+ "csv": "﻿Word/Phrase,Meaning,Notes,Sentence,Episode,Start (s),End (s)\r\nكتاب,\"book, \"\"tome\"\"\",n.,هذا كتاب جميل,Ep,65.00,65.50\r\nمُرْتَبِكَة,confused,\"Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.\nheard in ep. 3\",كانت البنت مرتبكة من <السؤال>.,Ep,,\r\nقلم,,my own note,,,,\r\nهون,here,,انتي جديدة هون؟,,,\r\nهون,here,,انتي جديدة هون؟,,,\r\n"
 }

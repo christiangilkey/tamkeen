@@ -13,7 +13,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, Response
 from pydantic import BaseModel
 
-from .. import arabic, audio, db, exporters, ids, paths, sync
+from .. import anki_deck, arabic, audio, db, exporters, ids, paths, sync
 from ..sync import engine
 
 router = APIRouter(prefix="/vocab", tags=["vocab"])
@@ -29,6 +29,7 @@ class VocabIn(BaseModel):
     sent_end: float | None = None
     meaning: str = ""
     notes: str = ""
+    translation: str = ""  # the sentence in the learner's language, ⟦ ⟧ around the word's part
 
 
 class VocabPatch(BaseModel):
@@ -161,9 +162,10 @@ def add_vocab(body: VocabIn) -> dict[str, Any]:
                 title, episode_uid = ep["title"], ep["uid"]
         cur = conn.execute(
             "INSERT INTO vocab(uid, episode_id, episode_uid, text, norm, sentence, start, end, sent_start, sent_end, "
-            "meaning, notes, episode_title, created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            "meaning, notes, translation, episode_title, created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (ids.new_uid(), body.episode_id, episode_uid, text, arabic.normalize(text), body.sentence.strip(),
-             body.start, body.end, body.sent_start, body.sent_end, body.meaning, body.notes, title, time.time()),
+             body.start, body.end, body.sent_start, body.sent_end, body.meaning, body.notes,
+             body.translation.strip(), title, time.time()),
         )
         row = conn.execute("SELECT * FROM vocab WHERE id = ?", (cur.lastrowid,)).fetchone()
     sync.request()
@@ -196,7 +198,8 @@ def _own_clip(row: Any) -> Path | None:
     return path if path.exists() else None
 
 
-def _episode_audio(episode_id: int | None) -> Path | None:
+def _episode_audio(episode_id: int | None, fetch: bool = True) -> Path | None:
+    """The episode's audio file. `fetch=False` only looks on this computer (no download from Drive)."""
     if episode_id is None:
         return None
     with db.session() as conn:
@@ -207,7 +210,7 @@ def _episode_audio(episode_id: int | None) -> Path | None:
     for stored in (ep["audio_path"], ep["sync_audio_path"]):
         if stored and Path(stored).exists():
             return Path(stored)
-    if ep["remote_audio"]:
+    if ep["remote_audio"] and fetch:
         return sync.audio_copy(episode_id)
     return None
 
@@ -294,6 +297,57 @@ def delete_vocab(vocab_id: int) -> dict[str, bool]:
     return {"ok": True}
 
 
+# ----- audio clips for an Anki export -----
+# Each word takes two MP3 clips into Anki: the word alone and its whole sentence. Only audio that
+# is already on this computer is used; a word without it is exported as text.
+
+WORD_LEAD, WORD_TAIL = 0.05, 0.12  # a little air around a single word so its edges aren't clipped
+
+
+def _anki_clip(src: Path, uid: str, part: str, start: float, end: float) -> bytes | None:
+    """One clip as MP3, cut once and then reused (the name carries the times it was cut at)."""
+    path = paths.anki_clips_dir() / f"{uid}-{part}-{round(start * 100)}-{round(end * 100)}.mp3"
+    if not path.exists():
+        for stale in paths.anki_clips_dir().glob(f"{uid}-{part}-*.mp3"):
+            stale.unlink(missing_ok=True)
+        try:
+            audio.cut_clip(src, start, end, path, bitrate=48_000, kind="mp3")
+        except audio.AudioError:
+            return None
+    return path.read_bytes()
+
+
+def _anki_clips(items: list[dict[str, Any]]) -> dict[str, dict[str, bytes]]:
+    """The audio for these words, by uid: {"word": mp3, "sentence": mp3} (whichever exist)."""
+    out: dict[str, dict[str, bytes]] = {}
+    sources: dict[int, Path | None] = {}
+    for v in items:
+        if v["start"] is None and v["sent_start"] is None:
+            continue
+        if v["clip"]:  # a word a friend shared: its own clip, with times inside that clip
+            own = engine.clip_path(v["uid"])
+            src = own if own.exists() else None
+        else:
+            if v["episode_id"] not in sources:
+                sources[v["episode_id"]] = _episode_audio(v["episode_id"], fetch=False)
+            src = sources[v["episode_id"]]
+        if src is None:
+            continue
+        clips: dict[str, bytes] = {}
+        if v["start"] is not None:
+            word_end = v["end"] if v["end"] is not None else v["start"] + 1
+            data = _anki_clip(src, v["uid"], "w", v["start"] - WORD_LEAD, word_end + WORD_TAIL)
+            if data:
+                clips["word"] = data
+        if v["sent_start"] is not None and v["sent_end"] is not None:
+            data = _anki_clip(src, v["uid"], "s", v["sent_start"] - CLIP_LEAD, v["sent_end"] + CLIP_TAIL)
+            if data:
+                clips["sentence"] = data
+        if clips:
+            out[v["uid"]] = clips
+    return out
+
+
 @router.get("/export/{fmt}")
 def export_vocab(fmt: str, folder: str | None = None, ids: str | None = None) -> Response:
     """Export everything, one folder, or exactly the words shown on screen (``ids``)."""
@@ -307,4 +361,7 @@ def export_vocab(fmt: str, folder: str | None = None, ids: str | None = None) ->
     if fmt == "anki":
         return Response(exporters.vocab_to_anki(items), media_type="text/plain; charset=utf-8",
                         headers={"Content-Disposition": 'attachment; filename="tamkeen-vocab-anki.txt"'})
-    raise HTTPException(400, "Format must be csv or anki.")
+    if fmt == "apkg":  # the deck file: the same cards with their layout and audio
+        return Response(anki_deck.build(items, _anki_clips(items)), media_type="application/octet-stream",
+                        headers={"Content-Disposition": 'attachment; filename="tamkeen-vocab.apkg"'})
+    raise HTTPException(400, "Format must be csv, anki or apkg.")

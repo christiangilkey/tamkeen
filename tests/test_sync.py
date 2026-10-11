@@ -179,6 +179,34 @@ def test_older_remote_edit_does_not_overwrite_newer_local(world):
                 assert conn.execute("SELECT meaning FROM vocab WHERE uid='vword1'").fetchone()[0] == "new edit"
 
 
+def test_translation_syncs_and_survives_a_device_that_does_not_know_it(world):
+    drive, a, b = world
+    a.sync(drive)
+    b.sync(drive)
+    with b:
+        with db.session() as conn:
+            conn.execute("UPDATE vocab SET translation='This is a ⟦book⟧' WHERE uid='vword1'")
+    b.sync(drive)
+    assert not a.sync(drive).library_uploaded
+    with a:
+        with db.session() as conn:
+            assert conn.execute("SELECT translation FROM vocab WHERE uid='vword1'").fetchone()[0] == "This is a ⟦book⟧"
+
+    # A device with an older version edits the word, adds one, and uploads both without translations.
+    library = drive.by_name("library.json.gz")
+    lib = engine._ungz(library["data"])
+    (word,) = lib["vocab"]
+    del word["translation"]
+    word.update(meaning="a book", updated_at=time.time() + 60)
+    lib["vocab"].append({**word, "uid": "vold", "text": "قلم"})
+    drive.upload("library.json.gz", engine._gz(lib), "application/gzip", library["id"])
+    a.sync(drive)
+    with a:
+        with db.session() as conn:
+            rows = {r["uid"]: (r["meaning"], r["translation"]) for r in conn.execute("SELECT * FROM vocab")}
+    assert rows == {"vword1": ("a book", "This is a ⟦book⟧"), "vold": ("a book", "")}
+
+
 def test_transcription_request_from_another_device(world, monkeypatch):
     drive, a, b = world
     a.sync(drive)

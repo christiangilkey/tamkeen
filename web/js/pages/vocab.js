@@ -2,7 +2,7 @@
 // Words can be filed in any number of folders; the list can be sorted and filtered by when
 // a word was added or last changed.
 
-import { api, esc, h, toast, download, fmtDate, audioUrl, showMenu, shareClip, clipUrl } from "../app.js";
+import { api, esc, h, toast, download, fmtDate, audioUrl, showMenu, shareClip, clipUrl, platform } from "../app.js";
 import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
@@ -102,7 +102,9 @@ export async function render(view) {
         <div><button class="primary" type="submit">Add</button></div>
       </form>
     </details>
-    <p class="small muted">Tip: in any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”. Tick words to file several into a folder at once. In Anki, use File → Import and pick the exported .txt file.</p>
+    <p class="small muted">Tip: in any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”. Tick words to file several into a folder at once. ${platform === "desktop"
+      ? "“Export for Anki” saves a deck file with each word's audio: open it and Anki adds the cards."
+      : "In Anki, use File → Import and pick the exported .txt file. Export on the computer to get the cards with audio."}</p>
     <div class="vocab-list" id="list"></div>
   </div>`));
   const $ = (s) => view.querySelector(s);
@@ -423,7 +425,13 @@ export async function render(view) {
     return `/api/vocab/export/${fmt}${ids.length === all.length && !st.q ? "" : `?ids=${encodeURIComponent(ids.join(","))}`}`;
   };
   $("#csv").onclick = () => download(exportUrl("csv"), "tamkeen-vocab.csv");
-  $("#anki").onclick = () => download(exportUrl("anki"), "tamkeen-vocab-anki.txt");
+  // The computer makes a deck file that carries the card layout and each word's audio; the phone,
+  // which can't cut audio clips, makes the same cards as a text file.
+  $("#anki").onclick = () => {
+    if (platform !== "desktop") return download(exportUrl("anki"), "tamkeen-vocab-anki.txt");
+    toast("Building the Anki deck with audio…", { timeout: 4000 });
+    return download(exportUrl("apkg"), "tamkeen-vocab.apkg");
+  };
   $("#add").onsubmit = async (e) => {
     e.preventDefault();
     const f = new FormData(e.target);

@@ -113,6 +113,21 @@ test("missing key fails fast without a request", async () => {
   assert.equal(t.calls.length, 0);
 });
 
+test("the translation marks the tapped word's part; the popup's copy has no marks", async () => {
+  const answer = (sentence_translation) => fakeTransport(() => ok({ choices: [{ message: { content: JSON.stringify({ ...ANSWER, sentence_translation }) } }] }));
+  const cfg = { provider: "openai", key: "k", model: "m" };
+  const t = answer("Are you new ⟦here⟧?");
+  const d = await define(cfg, CTX, t);
+  assert.equal(d.sentence_translation, "Are you new here?");
+  assert.equal(d.translation_marked, "Are you new ⟦here⟧?");
+  assert.match(t.calls[0].body.messages[0].content, /"sentence_translation".*⟦ ⟧/);
+  assert.match(SCHEMA.properties.sentence_translation.description, /⟦ ⟧/);
+  // A model that leaves the marks out, or tangles them, still gives a clean translation.
+  assert.equal((await define(cfg, CTX, answer("Are you new here?"))).translation_marked, "");
+  const tangled = await define(cfg, CTX, answer("Are you ⟧new⟦ ⟦here?"));
+  assert.deepEqual([tangled.sentence_translation, tangled.translation_marked], ["Are you new here?", ""]);
+});
+
 test("missing fields are normalized", async () => {
   const t = fakeTransport(() => ok({ choices: [{ message: { content: '{"meaning":"here"}' } }] }));
   const d = await define({ provider: "openai", key: "k", model: "m" }, CTX, t);

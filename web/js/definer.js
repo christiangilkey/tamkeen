@@ -136,7 +136,7 @@ export function schemaFor(code) {
       dialect: { type: "string", description: t.dialect },
       dialect_note: { type: "string", description: t.dialect_note },
       msa_equivalent: { type: "string", description: t.msa_equivalent },
-      sentence_translation: { type: "string", description: "Natural translation of the whole sentence." },
+      sentence_translation: { type: "string", description: "Natural translation of the whole sentence, with ⟦ ⟧ around the part that translates the target word, e.g. 'Are you new ⟦here⟧?'." },
     },
     required: ["word", "vocalized", "lemma", "root", "pos", "morphology", "meaning", "explanation",
       "other_meanings", "dialect", "dialect_note", "msa_equivalent", "sentence_translation"],
@@ -155,6 +155,8 @@ export function systemPrompt(lang, code) {
 The learner tapped one word (or selected a short phrase). It is marked ⟦like this⟧ in the sentence. Analyze that specific occurrence (for a phrase, treat it as one expression), using the sentence, the surrounding sentences and the source details to resolve its meaning: ${t.why}, so the in-context meaning matters most.
 
 Transcripts come from speech recognition and may contain small errors; if the word looks misrecognized, say what was probably said in the explanation.
+
+In "sentence_translation", put the same ⟦ ⟧ marks around the part of your translation that stands for the marked word, so the learner sees which words match. Leave the marks out only if nothing in the translation corresponds to it.
 
 Write all explanations, meanings and translations in ${lang}. Keep "meaning" short (a few words). Return only the JSON object.`;
 }
@@ -284,8 +286,15 @@ function parseJson(text) {
   return JSON.parse(start >= 0 ? cleaned.slice(start, end + 1) : cleaned);
 }
 
+// A translation whose ⟦ ⟧ marks pair up around some text (one marked part, or several).
+const MARKED = /^[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+$/u;
+
 function normalize(obj, fallbackWord) {
   const s = (v) => (typeof v === "string" ? v : v == null ? "" : String(v));
+  // The translation arrives with ⟦ ⟧ around the part that renders the tapped word. It is shown
+  // without the marks; `translation_marked` keeps them for the word's Anki card, and is "" when
+  // the model left them out or tangled them (answers saved before the marks existed lack it too).
+  const translation = s(obj.sentence_translation);
   return {
     word: s(obj.word) || fallbackWord,
     vocalized: s(obj.vocalized),
@@ -299,7 +308,8 @@ function normalize(obj, fallbackWord) {
     dialect: s(obj.dialect),
     dialect_note: s(obj.dialect_note),
     msa_equivalent: s(obj.msa_equivalent),
-    sentence_translation: s(obj.sentence_translation),
+    sentence_translation: translation.replace(/[⟦⟧]/g, ""),
+    translation_marked: MARKED.test(translation) ? translation : "",
   };
 }
 

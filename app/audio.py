@@ -97,7 +97,8 @@ def encode_speech_copy(src: Path, dst: Path, bitrate: int = 32_000) -> Path:
 
     tmp = dst.with_name(dst.name + ".part")
     try:
-        with av.open(str(src)) as inp, av.open(str(tmp), "w", format="ogg") as out:
+        container, encoder, rate, layout = _CLIP_KINDS[kind]
+        with av.open(str(src)) as inp, av.open(str(tmp), "w", format=container) as out:
             ins = next((s for s in inp.streams if s.type == "audio"), None)
             if ins is None:
                 raise AudioError("The file contains no audio stream.")
@@ -131,10 +132,15 @@ def encode_speech_copy(src: Path, dst: Path, bitrate: int = 32_000) -> Path:
     return dst
 
 
-def cut_clip(src: Path, start: float, end: float, dst: Path, bitrate: int = 24_000) -> float:
-    """Save the part of `src` between `start` and `end` (seconds) as a small mono Opus file.
+# How a clip can be stored: container, encoder, sample rate and sample layout the encoder takes.
+_CLIP_KINDS = {"opus": ("ogg", "libopus", 48000, "s16"), "mp3": ("mp3", "libmp3lame", 44100, "s16p")}
 
-    Used for the audio that travels with a shared vocab word. Returns the time in `src` where
+
+def cut_clip(src: Path, start: float, end: float, dst: Path, bitrate: int = 24_000, kind: str = "opus") -> float:
+    """Save the part of `src` between `start` and `end` (seconds) as a small mono audio file.
+
+    Used for the audio that travels with a shared vocab word (Opus) and for the clips in an
+    Anki deck (`kind="mp3"`, which every version of Anki plays). Returns the time in `src` where
     the clip really begins (cuts land on audio-frame boundaries, a few hundredths of a second),
     so word positions inside the clip can be worked out exactly.
     """
@@ -147,13 +153,14 @@ def cut_clip(src: Path, start: float, end: float, dst: Path, bitrate: int = 24_0
     tmp = dst.with_name(dst.name + ".part")
     first: float | None = None
     try:
-        with av.open(str(src)) as inp, av.open(str(tmp), "w", format="ogg") as out:
+        container, encoder, rate, layout = _CLIP_KINDS[kind]
+        with av.open(str(src)) as inp, av.open(str(tmp), "w", format=container) as out:
             ins = next((s for s in inp.streams if s.type == "audio"), None)
             if ins is None:
                 raise AudioError("The file contains no audio stream.")
-            ost = out.add_stream("libopus", rate=48000, layout="mono")
+            ost = out.add_stream(encoder, rate=rate, layout="mono")
             ost.bit_rate = bitrate
-            resampler = av.AudioResampler(format="s16", layout="mono", rate=48000)
+            resampler = av.AudioResampler(format=layout, layout="mono", rate=rate)
             # Jump to just before the clip, then decode forward to the exact spot.
             inp.seek(int(max(0.0, start - 1.0) * av.time_base), any_frame=False, backward=True)
 

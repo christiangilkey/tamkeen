@@ -1,0 +1,150 @@
+/* Card look for the "Basic" note type. Colours and the Arabic font match Tamkeen. */
+
+/* The Arabic font. It lives in Anki's media folder (the leading "_" tells Anki to keep it
+   and sync it to the phone). unicode-range limits it to Arabic letters, so English keeps
+   the normal system font; size-adjust draws Arabic a little larger than English. */
+@font-face {
+  font-family: "TK Naskh";
+  src: url("_tamkeen-naskh.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+  size-adjust: 115%;
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF,
+    U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+/* Colours for day mode... */
+.card {
+  --tk-ink: #1f1a23;
+  --tk-muted: #6d6672;
+  --tk-line: rgba(31, 26, 35, .13);
+  --tk-surface: #ffffff;
+  --tk-accent: #0a7580;
+  --tk-accent-soft: #d4edf0;
+  --tk-on-accent: #ffffff;
+}
+/* ...and for night mode (Anki desktop and AnkiDroid name the class differently). */
+.card.nightMode, .card.night_mode {
+  --tk-ink: #efebf3;
+  --tk-muted: #a9a3b3;
+  --tk-line: rgba(255, 255, 255, .12);
+  --tk-surface: rgba(255, 255, 255, .045);
+  --tk-accent: #4fcbd7;
+  --tk-accent-soft: rgba(43, 184, 198, .17);
+  --tk-on-accent: #03262b;
+}
+/* The card's base colours are the ones it always had (black on white by day; Anki supplies
+   its own at night), so the timer and Image field keep their exact colour too. */
+.card {
+  font-family: "TK Naskh", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 21px;
+  line-height: 1.65;
+  text-align: center;
+  color: black;
+  background-color: white;
+}
+
+/* One centred column, so lines stay a comfortable length on a wide window. */
+.tk { max-width: 600px; margin: 0 auto; color: var(--tk-ink); }
+
+/* The timer and the Image field are deliberately left exactly as they were before this
+   design: same wording, same place, same lettering. Nothing below restyles what is inside them. */
+.card-timer, .tk-asis { font-family: arial; font-size: 20px; line-height: normal; }
+
+/* ----- top strip: deck name on the left, edit button on the right ----- */
+.tk-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 24px; margin-bottom: 22px; font-size: 12px; line-height: 1; color: var(--tk-muted);
+}
+.tk-deck { font-weight: 600; letter-spacing: .09em; text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tk-pencil svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.tk-pencil {
+  flex: none; display: none; align-items: center; justify-content: center; width: 24px; height: 24px;
+  border: 1px solid var(--tk-line); border-radius: 50%; color: var(--tk-muted); cursor: pointer; user-select: none;
+}
+.tk-pencil.tk-on { display: inline-flex; }
+.tk-editing .tk-pencil { background: var(--tk-accent); border-color: var(--tk-accent); color: var(--tk-on-accent); }
+
+/* ----- front: the prompt ----- */
+.tk-prompt { font-size: 25px; font-weight: 500; line-height: 1.5; text-wrap: balance; }
+mark.tk-hl {
+  padding: 0 .2em; border-radius: .3em; background: var(--tk-accent-soft); color: var(--tk-accent);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
+hr#answer { max-width: 600px; height: 1px; margin: 24px auto 18px; border: 0; background: var(--tk-line); }
+
+/* ----- back ----- */
+/* The pieces of the answer are stacked in this order whatever order they arrive in:
+   word, sentence, audio buttons, grammar box, notes. */
+.tk-back { display: flex; flex-direction: column; padding-bottom: 12px; }
+.tk-back .tk-field, .tk-back .tk-view { display: contents; }
+.tk-word { order: 1; font-size: 40px; font-weight: 600; line-height: 1.55; }
+.tk-sentence, .tk-raw { order: 2; }
+.tk-audio { order: 3; }
+.tk-grammar { order: 4; }
+.tk-foot { order: 5; }
+
+.tk-sentence { font-size: 24px; line-height: 2; }
+
+/* The plain field, shown as-is on cards that aren't in the word / sentence / grammar shape. */
+.tk-raw { font-size: 22px; line-height: 1.75; }
+.tk-prompt .tk-raw { font-size: inherit; line-height: inherit; }
+.tk-raw ul, .tk-raw ol { display: inline-block; margin: 8px 0; padding-inline-start: 1.3em; text-align: start; }
+.tk img { max-width: 100%; height: auto; border-radius: 10px; }
+
+/* When a card has been laid out nicely, the plain field hides until the pencil is pressed. */
+.tk-pretty > .tk-raw { display: none; }
+.tk-editing .tk-view { display: none !important; }
+.tk-editing .tk-raw { display: block; }
+.tk-editing .tk-raw::before {
+  content: attr(data-name); display: block; margin: 6px 0 4px;
+  font-size: 11px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--tk-muted);
+}
+.tk-editing [contenteditable] { padding: 8px 10px; border: 1px dashed var(--tk-line); border-radius: 10px; }
+
+/* ----- audio buttons ----- */
+.card .replay-button {
+  display: inline-flex; align-items: center; gap: 8px; margin: 3px; padding: 4px;
+  border: 1px solid var(--tk-line); border-radius: 999px; background: var(--tk-surface);
+  color: var(--tk-ink); text-decoration: none; vertical-align: middle;
+}
+.card .replay-button svg { display: block; width: 26px; height: 26px; }
+.card .replay-button svg circle { fill: var(--tk-accent); stroke: none; }
+.card .replay-button svg path { fill: var(--tk-on-accent); stroke: none; }
+/* The audio field can also hold the script the voice was made from; only the buttons show. */
+.tk-audio { font-size: 0; }
+.tk-audio .replay-button { margin: 16px 4px 0; padding-right: 14px; font-size: 13px; font-weight: 600; line-height: 1; }
+.tk-audio .replay-button::after { content: "Listen"; }
+.tk-audio .replay-button:nth-of-type(1):not(:only-of-type)::after { content: "Word"; }
+.tk-audio .replay-button:nth-of-type(2)::after { content: "Sentence"; }
+
+/* ----- grammar box ----- */
+.tk-grammar {
+  margin-top: 22px; overflow: hidden; text-align: start;
+  border: 1px solid var(--tk-line); border-radius: 14px; background: var(--tk-surface);
+}
+.tk-kind { padding: 10px 16px; font-size: 12px; font-weight: 700; letter-spacing: .08em; line-height: 1.4; text-transform: uppercase; color: var(--tk-accent); }
+.tk-row { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding: 6px 16px; border-top: 1px solid var(--tk-line); }
+.tk-grammar > .tk-row:first-child { border-top: 0; }
+.tk-k { font-size: 13.5px; line-height: 1.4; color: var(--tk-muted); white-space: nowrap; }
+.tk-v { flex: 1; min-width: 0; font-size: 21px; line-height: 1.7; text-align: right; }
+.tk-v.tk-latin { font-size: 15px; color: var(--tk-muted); }
+.tk-plain .tk-v { text-align: start; }
+.tk-kind-more { margin-top: 3px; font-size: 14.5px; font-weight: 400; letter-spacing: 0; line-height: 1.5; text-transform: none; color: var(--tk-muted); }
+
+/* ----- note lines under the box ----- */
+.tk-foot { display: flex; align-items: baseline; gap: 14px; margin-top: 12px; font-size: 16px; line-height: 1.6; text-align: start; }
+.tk-grammar + .tk-foot { margin-top: 16px; }
+.tk-foot .tk-k { flex: 0 0 48px; }
+.tk-foot-text { flex: 1; min-width: 0; }
+
+@media (max-width: 480px) {
+  .tk-bar { margin-bottom: 16px; }
+  .tk-prompt { font-size: 22px; }
+  .tk-word { font-size: 35px; }
+  .tk-sentence { font-size: 22px; }
+  .tk-row { padding: 6px 13px; gap: 12px; }
+  .tk-kind { padding: 9px 13px; }
+}
