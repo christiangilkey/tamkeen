@@ -96,8 +96,8 @@ export function describe(genome) {
   const eyes = EYES[Math.floor(r() * EYES.length)];
   const pattern = weightedPick(PATTERNS, r).id;
   const hue = type.hues[0] + r() * (type.hues[1] - type.hues[0]);
-  const sat = type.dull ? 14 + r() * 12 : 46 + r() * 20;
-  const light = (hue > 38 && hue < 75 ? 30 : 24) + r() * 6; // dark bodies (yellows a touch lighter, or they turn to mud)
+  const sat = type.dull ? 16 + r() * 12 : 55 + r() * 22;
+  const light = (hue > 38 && hue < 75 ? 50 : 40) + r() * 6; // clear mid-tones (yellows lighter, or they turn to mud)
   const belly = hue + (r() < 0.5 ? 28 : -28);
   // ...while the features that appear with age are nudged by how the owner studies.
   const grown = rng(genome.seed ^ 0xabcdef);
@@ -115,9 +115,9 @@ export function describe(genome) {
     type: genome.type,
     equipped: { ...(genome.equipped || {}) },
     colors: {
-      primary: [hsl(hue, sat + 14, light + 17), hsl(hue, sat, light), hsl(hue + 12, sat * 0.85, light - 9), hsl(hue + 26, sat * 0.7, light - 16)],
-      secondary: [hsl(belly, sat * 0.55, 66), hsl(belly, sat * 0.6, 50), hsl(belly, sat * 0.6, 35)],
-      accent: [hsl(type.accent, 100, 66), hsl(type.accent, 88, 44)], // the neon: eyes, circuit lines, fins of light
+      primary: [hsl(hue, sat + 6, light + 14), hsl(hue, sat, light), hsl(hue + 10, sat * 0.9, light - 12), hsl(hue + 24, sat * 0.75, light - 26)],
+      secondary: [hsl(belly, sat * 0.5, 86), hsl(belly, sat * 0.55, 74), hsl(belly, sat * 0.5, 58)],
+      accent: [hsl(type.accent, 100, 66), hsl(type.accent, 88, 44)], // the accent: markings, fins, the lower iris
     },
   };
   // A variant restyles the same animal: its shape and markings stay, so it is still recognisably itself.
@@ -125,12 +125,12 @@ export function describe(genome) {
   look.variant = variant || null;
   if (variant === "nocturne") {
     const h2 = hue + (265 - hue) * 0.45;
-    look.colors.primary = [hsl(h2, sat * 0.8 + 10, light + 9), hsl(h2, sat * 0.8, light - 6), hsl(h2 + 10, sat * 0.7, light - 12), hsl(h2 + 20, sat * 0.6, light - 17)];
+    look.colors.primary = [hsl(h2, sat * 0.8, light + 2), hsl(h2, sat * 0.8, light - 12), hsl(h2 + 10, sat * 0.7, light - 22), hsl(h2 + 20, sat * 0.6, light - 32)];
     look.colors.accent = [hsl(52, 100, 74), hsl(46, 80, 56)];
     if (look.horn === "none") look.horn = "gem";
   } else if (variant === "twin") {
     const ph = Number.isFinite(genome.partnerHue) ? genome.partnerHue : hue + 150;
-    look.colors.secondary = [hsl(ph, 55, 68), hsl(ph, 60, 52), hsl(ph, 55, 37)];
+    look.colors.secondary = [hsl(ph, 50, 86), hsl(ph, 55, 74), hsl(ph, 50, 58)];
     if (look.pattern === "none") look.pattern = "patch";
   } else if (variant === "champion") {
     look.colors.accent = [hsl(45, 100, 66), hsl(36, 86, 50)];

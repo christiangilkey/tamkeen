@@ -15,14 +15,14 @@ GOLD = LEMON
 
 # ---------- hatchling eyes: the same six styles, a size larger (20x10, centred on the eye socket) ----------
 BIG_OPEN = {
-    "dot": ["........", "........", "........", "..KKKK..", "..WAAA..", "..AAAA..", "...AA...", "........", "........", "........"],
-    "round": ["........", "........", ".KKKKKK.", ".AWWNAA.", ".AWANAA.", ".AAANAA.", "..AAAA..", "........", "........", "........"],
-    "oval": ["........", "..KKKK..", ".AWWNAK.", ".AWANAA.", ".AAANAA.", ".AAANAA.", ".AAAAAA.", "..AAAA..", "........", "........"],
-    "sleepy": ["........", "........", "........", "........", "KKKKKKKK", ".AWANAA.", "..AAAA..", "........", "........", "........"],
-    "star": ["........", "...A....", "...A....", "..aAa...", "AAAWAAA.", "..aAa...", "...A....", "...A....", "........", "........"],
-    "wide": ["........", "KKKKKK..", "AWWANAKK", "AWWANAAA", "AAAANAAA", "AAAANAAA", ".AAAAAA.", "........", "........", "........"],
+    "dot": ["........", "........", "...KK...", "..KWNK..", "..KWNK..", "..KNNK..", "..KANK..", "...KK...", "........", "........"],
+    "round": ["..KKKK..", ".KWNNNK.", "KWWNNNNK", "KWWNWWNK", "KWWNWWNK", "KWWNNNNK", "KWWNNNNK", "KWWAAANK", ".KWAAAK.", "..KKKK.."],
+    "oval": ["..KKKK..", ".KWNNNK.", ".KWNWWK.", ".KWNWWK.", ".KWNNNK.", ".KWNNNK.", ".KWNNNK.", ".KWAAAK.", ".KWAAAK.", "..KKKK.."],
+    "sleepy": ["........", "........", "KKKKKKKK", "KKKKKKKK", "KWWNNNNK", "KWWNWWNK", "KWWNNNNK", "KWWAAANK", ".KKKKKK.", "........"],
+    "star": ["..KKKK..", ".KAAAAK.", "KAAAWAAK", "KAAAWAAK", "KAWWWWWK", "KAAAWAAK", "KAAAWAAK", "KAAAAAAK", ".KaAAaK.", "..KKKK.."],
+    "wide": ["KKK.....", "KWWKK...", "KWWNNKK.", "KWWNWWNK", "KWWNWWNK", "KWWNNNNK", ".KWANNNK", "..KAANK.", "...KKK..", "........"],
 }
-BIG_SMALL = {"dot", "star"}
+BIG_SMALL = {"dot"}
 
 
 def big_eye_rows(style, expr):
@@ -31,20 +31,20 @@ def big_eye_rows(style, expr):
     if expr == "open":
         return BIG_OPEN[style]
     if expr == "blink":
-        return [*blank[:4], "..KKKK.." if small else "KKKKKKKK" if wide else ".KKKKKK.", "..aaaa.." if small else "aaaaaaaa" if wide else ".aaaaaa.", *blank[6:]]
+        return [*blank[:4], "........" if small else "K......K", "..KKKK.." if small else ".KKKKKK.", *blank[6:]]
     if expr == "happy":
         if small:
-            return [*blank[:4], "...AA...", "..A..A..", *blank[6:]]
-        return [*blank[:3], ".AAAAAA." if wide else "..AAAA..", "AA....AA" if wide else ".AA..AA.", "A......A", *blank[6:]]
+            return [*blank[:4], "...KK...", "..K..K..", *blank[6:]]
+        return [*blank[:4], ".KKKKKK.", "K......K", *blank[6:]]
     if expr == "sleepy":
         if small:
-            return [*blank[:5], "..a..a..", "...aa...", *blank[7:]]
-        return [*blank[:5], "a......a", "aaaaaaaa" if wide else ".aaaaaa.", *blank[7:]]
+            return [*blank[:5], "..KKKK..", *blank[6:]]
+        return [*blank[:5], "KKKKKKKK", *blank[6:]]
     if small:   # sad
-        return ["........", "........", ".....K..", "..KKKK..", "..WAAA..", "..AAAA..", "...AA...", "........", "........", "........"]
+        return ["........", "....K...", "........", "...KK...", "..KWNK..", "..KNNK..", "..KANK..", "...KK...", "........", "........"]
     rows = [list(r) for r in BIG_OPEN[style]]
     first = next(j for j, r in enumerate(rows) if any(ch != "." for ch in r))
-    for j, cut in ((first, 5), (first + 1, 3)):
+    for j, cut in ((first, 4), (first + 1, 3)):
         for x in range(cut):
             rows[j][x] = "K" if j == first + 1 and rows[j][x] != "." else "."
     return ["".join(r) for r in rows]

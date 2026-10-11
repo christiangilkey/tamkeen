@@ -40,12 +40,12 @@ def colors(kind, rnd):
     """The same formula as describe() in genome.js."""
     hues, accent, dull = TYPES[kind]
     hue = hues[0] + rnd.random() * (hues[1] - hues[0])
-    sat = 14 + rnd.random() * 12 if dull else 46 + rnd.random() * 20
-    light = (30 if 38 < hue < 75 else 24) + rnd.random() * 6
+    sat = 16 + rnd.random() * 12 if dull else 55 + rnd.random() * 22
+    light = (50 if 38 < hue < 75 else 40) + rnd.random() * 6
     belly = hue + (28 if rnd.random() < 0.5 else -28)
     return {
-        "primary": [hsl(hue, sat + 14, light + 17), hsl(hue, sat, light), hsl(hue + 12, sat * 0.85, light - 9), hsl(hue + 26, sat * 0.7, light - 16)],
-        "secondary": [hsl(belly, sat * 0.55, 66), hsl(belly, sat * 0.6, 50), hsl(belly, sat * 0.6, 35)],
+        "primary": [hsl(hue, sat + 6, light + 14), hsl(hue, sat, light), hsl(hue + 10, sat * 0.9, light - 12), hsl(hue + 24, sat * 0.75, light - 26)],
+        "secondary": [hsl(belly, sat * 0.5, 86), hsl(belly, sat * 0.55, 74), hsl(belly, sat * 0.5, 58)],
         "accent": [hsl(accent, 100, 66), hsl(accent, 88, 44)],
     }
 
@@ -151,7 +151,7 @@ def creatures(art, seed=7):
         for size, br in (("s", None), ("m", None), ("l", "echo"), ("l", "sage"), ("l", "keeper"), ("l", None)):
             look = dict(species=sp, size=size, branch=br, colors=colors(kinds[n % 6], rnd), ear=ears[n % 8], tail=tails[(n * 3) % 8],
                         eyes=eyes[n % 6], pattern=pats[n % 7], horn=None if size == "s" else horns[n % 6], back=backs[n % 6] if size == "l" else None)
-            pose = [{}, {"eyes": "happy", "mouth": "smile"}, {"step": 1, "eyes": "blink"}, {"eyes": "sad", "mouth": "sad"}][n % 4]
+            pose = [{}, {"mouth": "smile"}, {"step": 1}, {"eyes": "happy", "mouth": "smile"}, {"mouth": "open"}][n % 5]
             out.append(compose(art, look, pose))
             n += 1
     return sheet(out, 6, 4, cell=(FRAME, FRAME), pad=2)
