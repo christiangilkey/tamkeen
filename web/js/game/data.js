@@ -1,18 +1,18 @@
 // Everything the creature game is made of, as data: body plans, parts, colours, sockets, and the
 // list of art files. The renderer and the rules read this; new content is added here, not in code.
 //
-// Art lives in web/game-art/. Every file listed by artFiles() must exist; the files there now
-// are placeholders (made by tools/make_placeholder_art.py) and are replaced, same name and
-// size, by real pixel art. See game/ASSET_LIST.md for the artist's brief.
+// Art lives in web/game-art/. Every file listed by artFiles() must exist. The creature parts are
+// drawn by hand in Aseprite (sources in game/art-src/, rules in game/CREATURE_DESIGN.md); art is
+// replaced file for file, same name and size. See game/ASSET_LIST.md for the artist's brief.
 
 // ---------- colours ----------
 // Parts are drawn in these exact "key" colours; the app swaps them for each creature's own.
 export const KEY = {
-  primary: ["#8fd3ff", "#4aa3e8", "#2f6fb8", "#1f4780"], // highlight, base, shade, deep shade
+  primary: ["#8fd3ff", "#4aa3e8", "#2f6fb8", "#1f4780"], // highlight, base, shade, and the body's outline
   secondary: ["#fff1c9", "#f5cf7a", "#d49a3f"],          // belly and markings
   accent: ["#ff7a9c", "#d6456e"],                        // tips, gems, type feature
   pattern: "#ff00ff",                                    // pattern tiles only
-  outline: "#1b1420",                                    // never swapped
+  outline: "#1b1420",                                    // never swapped: pupils, eyelids, mouths, noses
 };
 
 // Element types. Each gives a family of body colours; the seed picks within the family.
@@ -37,6 +37,7 @@ export const SIZES = {
 export const HEAD = { size: [32, 28], neck: [13, 26], eye: [19, 14], mouth: [22, 21], earB: [8, 6], earF: [19, 5], horn: [14, 3], hat: [14, 4], face: [19, 14] };
 export const PART = {
   eyes: { size: [16, 8], anchor: [8, 4] },
+  eyesBig: { size: [20, 10], anchor: [10, 5] }, // hatchlings only: eyes shrink relative to the face as it grows
   mouth: { size: [8, 6], anchor: [4, 3] },
   ear: { size: [12, 14], anchor: [6, 13] },
   horn: { size: [12, 12], anchor: [6, 11] },
@@ -186,6 +187,8 @@ export const TAGS = {
   night_owl: "Night owl: studied after 10 at night",
   early_bird: "Early bird: studied before 7 in the morning",
   streak_7: "Seven days in a row",
+  flawless: "Flawless: won a battle without one wrong answer",
+  comeback: "Comeback: won a battle from the brink",
 };
 
 // ---------- special forms ----------
@@ -288,7 +291,11 @@ export const BADGES = [
 ];
 
 // ---------- habitat ----------
-export const HABITAT = { size: [320, 144], ground: 124, themes: ["meadow"], layers: ["sky", "far", "mid", "ground"] };
+export const HABITAT = { size: [320, 144], ground: 124, themes: ["meadow", "oasis", "forest", "shore"], layers: ["sky", "far", "mid", "ground"] };
+// What each habitat is called where the owner picks one.
+export const SCENES = { meadow: "City park", oasis: "Oasis", forest: "Night woods", shore: "Shore" };
+// The little speech bubbles a creature shows above its head (fx/emote_<id>.png, 12x12).
+export const EMOTES = ["love", "hungry", "sleepy", "music", "question", "exclaim", "sweat", "idea"];
 
 // ---------- art files ----------
 const SHEET = (frames, w, h) => ({ w: w * frames, h, frames });
@@ -353,7 +360,40 @@ export function artFiles() {
     add(`boss/${b.id}_down.png`, [96, 96], "boss");
   }
   for (const l of LEAGUES) add(`icon/league_${l.toLowerCase()}.png`, [24, 24], "icon", { id: "league" });
+  // Art added after the first brief (game/ASSET_LIST.md section 7). Its `kind` is "extra": real art only,
+  // the placeholder generator leaves it alone.
+  const extra = (file, size) => add(file, size, "extra");
+  for (const s of EYES) for (const x of EXPRESSIONS) extra(`creature/eyes_big/${s}_${x}.png`, PART.eyesBig.size);
+  for (const m of MOVES) extra(`icon/move/${m.id}.png`, [16, 16]);
+  for (const id of ["night_owl", "early_bird", "streak_7", "flawless", "comeback"]) extra(`icon/tag_${id}.png`, [16, 16]);
+  for (const id of [...BRANCH_IDS, ...Object.keys(VARIANTS)]) extra(`icon/form_${id}.png`, [16, 16]);
+  for (const id of TRAITS) extra(`icon/trait_${id}.png`, [16, 16]);
+  for (const r of WEEKLY_RULES) extra(`icon/rule_${r.id}.png`, [16, 16]);
+  for (const id of ["shop", "wardrobe", "roster", "badges", "habitat"]) extra(`icon/nav_${id}.png`, [16, 16]);
+  for (const id of ["close", "star", "badge", "trophy", "battle", "edit", "evolve", "combo", "surge", "rating", "egg",
+    "glow", "release", "trade", "rival", "defence", "raid", "clock"]) extra(`icon/${id}.png`, [16, 16]);
+  extra("ui/pip_on.png", [8, 8]);
+  extra("ui/pip_off.png", [8, 8]);
+  extra("ui/slot_empty.png", [24, 24]);
+  extra("structure/plot.png", [32, 32]);
+  for (const [id, s] of [["evolve", 64], ["ready", 32]]) extra(`fx/${id}.png`, [s * FX_FRAMES[id], s]);
+  for (const id of ["faint", "glance"]) extra(`battle/${id}.png`, [32 * BATTLE_FRAMES[id], 32]);
+  for (const [id, n, s] of [["surge", 6, 48], ["combo_fire", 4, 16]]) extra(`fx/${id}.png`, [s * n, s]);
+  extra("fx/question.png", [8, 8]);
+  extra("fx/spark.png", [8, 8]);
+  for (const size of Object.keys(SHADOW)) extra(`fx/shadow_${size}.png`, SHADOW[size]);
+  extra("habitat/rain.png", [32, 32]);
+  for (const id of EMOTES) extra(`fx/emote_${id}.png`, [12, 12]);
+  for (const id of ["gift", "check", "lock", "egg_mystery", "arrow"]) extra(`icon/${id}.png`, [16, 16]);
+  for (const id of ["panel", "panel_dark", "bubble", "button", "button_pressed", "button_disabled", "rarity_common", "rarity_lucky", "rarity_jackpot"]) extra(`ui/${id}.png`, [24, 24]);
+  extra("ui/bar_frame.png", [48, 8]);
+  extra("ui/bar_fill.png", [4, 4]);
+  extra("ui/digits.png", [160, 10]);
   return out;
 }
 
-export const FX_FRAMES = { sparkle: 4, dust: 4, burst_lucky: 6, burst_jackpot: 8, hatch: 8, levelup: 8 };
+// Frames in each effect strip. FX_FRAMES are the files in fx/ that the habitat plays; BATTLE_FRAMES are in battle/.
+export const FX_FRAMES = { sparkle: 4, dust: 4, burst_lucky: 6, burst_jackpot: 8, hatch: 8, levelup: 8, evolve: 8, ready: 4 };
+export const BATTLE_FRAMES = { hit: 5, shot: 3, shield: 6, heal: 6, boost: 6, faint: 5, glance: 4 };
+// The shadow under a creature, by body size: fx/shadow_<size>.png.
+export const SHADOW = { s: [16, 4], m: [24, 5], l: [36, 6] };

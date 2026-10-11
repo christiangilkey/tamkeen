@@ -98,6 +98,7 @@ export function toast(message, { error = false, action, timeout = 5000 } = {}) {
   }
   document.getElementById("toasts").append(el);
   setTimeout(() => el.remove(), error ? timeout * 2 : timeout);
+  return el; // so a caller can add to it (the game puts a pixel icon in front)
 }
 
 export function requestNotifications() {

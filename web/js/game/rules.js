@@ -55,6 +55,7 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     day: freshDay(),
     owned: [],   // ids of items bought
     decor: [],   // decorations standing in the habitat: {id, x}
+    scene: "meadow", // which habitat the creature lives in (data.HABITAT.themes)
     tags: [],    // earned by how and when the owner studies and fights
     review: {},  // vocab word -> [box, day it is next due, times right, times wrong]
     stats: { lookups: 0, goals: 0, reviews: 0, right: 0, battles: 0, wins: 0, friend_battles: 0, raids: 0, words: 0 },

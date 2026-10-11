@@ -3,6 +3,7 @@
 
 import { saveSettings, state as app } from "../app.js";
 import { COMBO_STEPS, COMBO_WINDOW_MS, earn, normalize, newState, rollDay } from "./rules.js";
+import { icon } from "./render.js";
 
 let game = null;
 let saveTimer = 0;
@@ -100,7 +101,8 @@ export function sfx(kind) {
 }
 
 // ---------- particles and pops ----------
-const GLYPHS = { common: ["✦", "+"], lucky: ["✦", "★", "+"], jackpot: ["★", "✦", "◆", "+"], surprise: ["?", "✦"] };
+// What flies up from a reward: 8x8 particles from game-art/fx/, by how good the reward was.
+const PARTICLES = { common: ["spark", "plus"], lucky: ["spark", "star", "plus"], jackpot: ["star", "spark", "gem", "plus"], surprise: ["question", "spark"] };
 
 function layer() {
   let el = document.getElementById("game-fx");
@@ -117,11 +119,11 @@ export function fountain(x, y, result) {
   const fx = layer();
   const tier = result.tier;
   const count = { common: 6, lucky: 12, jackpot: 26, surprise: 8 }[tier] || 6;
-  const glyphs = GLYPHS[tier] || GLYPHS.common;
+  const kinds = PARTICLES[tier] || PARTICLES.common;
   for (let i = 0; i < count; i++) {
     const p = document.createElement("span");
     p.className = `fx-p fx-${tier}`;
-    p.textContent = glyphs[i % glyphs.length];
+    p.innerHTML = icon(`fx/${kinds[i % kinds.length]}`, tier === "jackpot" ? 24 : 16);
     const angle = -Math.PI / 2 + (Math.random() - 0.5) * (tier === "jackpot" ? 2.6 : 1.5);
     const dist = 30 + Math.random() * (tier === "jackpot" ? 110 : 60);
     p.style.left = `${x}px`;
@@ -136,8 +138,9 @@ export function fountain(x, y, result) {
   label.className = `fx-label fx-${tier}`;
   const mult = result.combo > 1 ? ` ×${result.combo}` : "";
   label.textContent = result.goalDone ? `Daily goal! +${result.xp} XP`
-    : result.item ? `${result.item === "freeze" ? "❄ Streak freeze" : "💡 Hint card"}!`
+    : result.item ? ` ${result.item === "freeze" ? "Streak freeze" : "Hint card"}!`
     : `+${result.xp} XP${mult}`;
+  if (result.item && !result.goalDone) label.insertAdjacentHTML("afterbegin", icon(result.item === "freeze" ? "freeze" : "hint"));
   label.style.left = `${x}px`;
   label.style.top = `${y}px`;
   fx.append(label);
@@ -185,7 +188,7 @@ function showChip(g, result) {
   const next = COMBO_STEPS[Math.min(combo.count + 1, COMBO_STEPS.length - 1)];
   const label = chip.querySelector(".chip-combo");
   label.hidden = result.type !== "word";
-  label.textContent = hot ? `🔥 ×${result.combo} · next ×${next}` : `next ×${next}`;
+  label.textContent = hot ? `×${result.combo} · next ×${next}` : `next ×${next}`; // while hot, app.css puts the combo flame in front
   chip.classList.toggle("hot", hot);
   chip.classList.toggle("max", result.combo >= COMBO_STEPS[COMBO_STEPS.length - 1]);
   const fuse = chip.querySelector(".chip-fuse");

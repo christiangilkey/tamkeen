@@ -5,6 +5,7 @@ import { h, toast } from "../app.js";
 import { CATALOG, DECOR, ITEMS, SLOTS, TAGS, itemById } from "./data.js";
 import { buy, equip, placeDecor, shopStock } from "./rules.js";
 import { getGame, saveGame, sfx } from "./game.js";
+import { icon } from "./render.js";
 import { badgesPanel, creaturesPanel } from "./creatures.js";
 import { friendsPanel, gift } from "./friends-game.js";
 import { startFriendBattle } from "./battle-ui.js";
@@ -19,15 +20,15 @@ export function openShop(tab, changed) {
   const wrap = h(`<div class="game-sheet-wrap"><div class="game-sheet" role="dialog" aria-label="Shop and wardrobe">
     <div class="game-sheet-head">
       <div class="tabs">
-        <button type="button" data-tab="shop">Shop</button>
-        <button type="button" data-tab="mine">My things</button>
-        <button type="button" data-tab="creatures">Creatures</button>
-        <button type="button" data-tab="badges">Badges</button>
-        <button type="button" data-tab="friends">Friends</button>
+        <button type="button" data-tab="shop">${icon("nav_shop")} Shop</button>
+        <button type="button" data-tab="mine">${icon("nav_wardrobe")} My things</button>
+        <button type="button" data-tab="creatures">${icon("nav_roster")} Creatures</button>
+        <button type="button" data-tab="badges">${icon("nav_badges")} Badges</button>
+        <button type="button" data-tab="friends">${icon("trade")} Friends</button>
       </div>
       <span class="spacer"></span>
-      <span class="today-chip lit" id="sheet-coins"></span>
-      <button type="button" class="ghost icon" data-close title="Close">✕</button>
+      <span class="today-chip lit" id="sheet-coins">${icon("coin")} <span></span></span>
+      <button type="button" class="ghost icon" data-close title="Close">${icon("close")}</button>
     </div>
     <div class="game-sheet-body"></div>
   </div></div>`);
@@ -41,7 +42,7 @@ export function openShop(tab, changed) {
     const owned = game.owned.includes(it.id);
     const worn = it.slot === "decor" ? game.decor.some((d) => d.id === it.id) : game.creature.equipped[it.slot] === it.id;
     const el = h(`<div class="shop-item${worn ? " on" : ""}">
-      <span class="shop-pic"><img alt="" src="${ART}${fileOf(it)}"></span>
+      <span class="shop-pic rarity-${it.price >= 60 ? "jackpot" : it.price >= 30 ? "lucky" : "common"}"><img alt="" src="${ART}${fileOf(it)}"></span>
       <span class="shop-name"></span>
       <span class="small muted">${it.slot === "decor" ? "Decoration" : SLOTS[it.slot].name}</span>
       <button type="button"></button>
@@ -49,7 +50,7 @@ export function openShop(tab, changed) {
     el.querySelector(".shop-name").textContent = it.name;
     const btn = el.querySelector("button");
     if (mode === "shop") {
-      btn.textContent = `◉ ${it.price}`;
+      btn.innerHTML = `${icon("coin")} ${it.price}`;
       btn.className = game.coins >= it.price ? "primary" : "";
       btn.disabled = owned;
       btn.onclick = () => {
@@ -70,7 +71,7 @@ export function openShop(tab, changed) {
         changed();
         paint("mine");
       };
-      const give = h(`<button type="button" class="ghost small" title="Give this to a friend">🎁 Give</button>`);
+      const give = h(`<button type="button" class="ghost small" title="Give this to a friend">${icon("gift")} Give</button>`);
       give.onclick = () => gift("item", it.id, () => { changed(); paint("mine"); });
       el.append(give);
     }
@@ -79,7 +80,7 @@ export function openShop(tab, changed) {
 
   function paint(which) {
     for (const b of wrap.querySelectorAll("[data-tab]")) b.classList.toggle("primary", b.dataset.tab === which);
-    wrap.querySelector("#sheet-coins").textContent = `◉ ${game.coins} coins`;
+    wrap.querySelector("#sheet-coins span").textContent = `${game.coins} coins`;
     body.innerHTML = "";
     if (which === "creatures") { creaturesPanel(body, game, changed); return; }
     if (which === "badges") { badgesPanel(body, game); return; }
@@ -95,12 +96,12 @@ export function openShop(tab, changed) {
       const locked = CATALOG.filter((it) => (it.requires || []).some((t) => !game.tags.includes(t)) && !game.owned.includes(it.id));
       if (locked.length) {
         const need = [...new Set(locked.flatMap((it) => it.requires))].filter((t) => !game.tags.includes(t));
-        body.append(h(`<p class="small muted">🔒 ${locked.length} more item${locked.length === 1 ? "" : "s"} appear once you've earned:
-          ${need.map((t) => TAGS[t]).join("; ")}.</p>`));
+        body.append(h(`<p class="small muted">${icon("lock")} ${locked.length} more item${locked.length === 1 ? "" : "s"} appear once you've earned:
+          ${need.map((t) => `${icon(`tag_${t}`)} ${TAGS[t] || t}`).join("; ")}.</p>`));
       }
     } else {
       const mine = [...ITEMS, ...DECOR].filter((it) => game.owned.includes(it.id));
-      if (!mine.length) body.append(h(`<p class="muted">Nothing yet. Things you buy in the shop are kept here.</p>`));
+      if (!mine.length) body.append(h(`<p class="muted">${icon("ui/slot_empty", 48)} Nothing yet. Things you buy in the shop are kept here.</p>`));
       const grid = h(`<div class="shop-grid"></div>`);
       for (const it of mine) grid.append(card(it, "mine"));
       body.append(grid);

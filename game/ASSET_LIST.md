@@ -250,10 +250,13 @@ heart_empty arrow`.
 
 ---
 
-### 3.8 More accessories: 83 new files (the app has placeholders for all of them)
+### 3.8 More accessories: 83 new files (all drawn, 2026-10-11)
 
-The owner wants well over a hundred things to dress creatures in. These are in the shop now with placeholder
-art. Same rules as 3.1: full colour (not the key palette), 1-pixel `#1b1420` outline, exact canvas size.
+The owner wants well over a hundred things to dress creatures in. **All 113 wearables now have hand-drawn
+art** made in Aseprite, with a source file each in `game/art-src/item/<slot>/`; the app shows them as they
+are (same paths and sizes as the placeholders). The rules they were drawn to: full colour from the palette
+in `tools/game_art/px.py` (not the key palette), a 1-pixel outline in the dark end of the item's own colour
+ramp, exact canvas size.
 
 **The creatures are about to be redesigned (owner, 2026-10-10), so do not spend time fitting items to the
 current bodies.** Draw the items themselves to the canvas sizes and anchor points below; how they sit will be
@@ -309,10 +312,12 @@ Battles and badges are built and use this art. Raid bosses and league icons are 
 |---|---|---|
 | 1. Creatures, eggs, meadow, effects, icons | 167 | built, running on placeholders |
 | 2. Accessories (25), shirts (5) and decorations (24) | 54 | built, real art delivered |
-| 2. More accessories (section 3.8) | 83 | built, running on placeholders: **art needed** |
-| 2. Shirts, more habitats, structures, items, emotes, interface | about 60 | not built |
+| 2. More accessories (section 3.8) | 83 | built, hand-drawn art in place (2026-10-11) |
+| 2. More habitats, emotes, interface frames and digits | about 40 | built and in use (2026-10-11) |
+| 2. Structures, food and item icons | 33 | delivered; the features they belong to are not built |
 | 3. Battle effects, pads, move and stat icons, badges | 41 | built, using the delivered art |
-| 3. Bosses and league icons | 16 | delivered, not used yet |
+| 3. Bosses and league icons | 16 | in use on the Friends page of the game sheet |
+| Added after the brief (section 7) | 116 | 112 in use; `icon/glow`, `icon/release`, `icon/egg` and `structure/plot` wait for features (section 7.2) |
 
 Sound is not on this list: the app makes its own sound effects.
 
@@ -330,32 +335,67 @@ shows the current creature.
 
 ---
 
-## 7. Art added after the brief (delivered 2026-10-11, not wired in yet)
+## 7. Art added after the brief (delivered 2026-10-11; 112 of 116 files in use)
 
 Drawn for things the game gained after this brief was written, or still shows as a symbol or an emoji.
-Nothing loads these files yet; each row says what it is for. All are in the game's style (dark, lit by
-neon), full colour unless noted, and made by `tools/game_art/extra.py`.
+All are in the game's style (dark, lit by neon), full colour unless noted, and made by
+`tools/game_art/extra.py`.
 
-| Files | Canvas | Count | For |
-|---|---|---|---|
-| `creature/eyes_big/<style>_<expression>.png` | 20x10 | 30 | Hatchling eyes, a size larger, so eyes shrink relative to the face as a creature grows. Same styles and expressions as `creature/eyes/`; key palette; centre (10,5) on the head's eye socket |
-| `icon/move/<move id>.png` | 16x16 | 26 | One icon per move in `data.MOVES`, to replace the four kind icons on the move buttons |
-| `icon/tag_<id>.png` | 16x16 | 5 | `night_owl early_bird streak_7 flawless comeback` |
-| `icon/form_<id>.png` | 16x16 | 6 | `echo sage keeper twin nocturne champion`, for the evolve choice |
-| `icon/trait_<id>.png` | 16x16 | 4 | `listener reader collector curious` |
-| `icon/rule_<id>.png` | 16x16 | 6 | The weekly rules: `open starters no_heal warm cool solo` |
-| `icon/nav_<id>.png` | 16x16 | 5 | `shop wardrobe roster badges habitat` |
-| `icon/close star badge trophy battle edit evolve combo surge rating egg` | 16x16 | 11 | Replace the symbols the interface writes today: ✕ ★ 🏅 🏆 ⚔ ✎ ✨ 🔥 ⚡ skill 🥚 (coin, freeze, hint, lock and check already exist) |
-| `icon/glow release trade rival defence raid clock` | 16x16 | 7 | The idle layer (glow, release, time away) and play with friends |
-| `ui/pip_on.png` `ui/pip_off.png` | 8x8 | 2 | Team members still standing, in battle (● ○ today) |
-| `ui/slot_empty.png` | 24x24 | 1 | An empty roster or item slot |
-| `structure/plot.png` | 32x32 | 1 | An empty building plot in the habitat |
-| `fx/evolve.png` | strip of 8, 64x64 | 1 | Evolving: light gathers, then bursts |
-| `fx/ready.png` | strip of 4, 32x32 | 1 | The shimmer round a creature that is ready to evolve |
-| `fx/surge.png` | strip of 6, 48x48 | 1 | The charge round a creature in a surge |
-| `fx/combo_fire.png` | strip of 4, 16x16 | 1 | The flame on the combo chip |
-| `battle/faint.png` | strip of 5, 32x32 | 1 | A beaten creature breaking up into pixels |
-| `battle/glance.png` | strip of 4, 32x32 | 1 | The glancing hit after a wrong answer |
-| `fx/question.png` `fx/spark.png` | 8x8 | 2 | Particles for the reward fountain (? and ✦ today) |
-| `fx/shadow_s.png` `fx/shadow_m.png` `fx/shadow_l.png` | 16x4, 24x5, 36x6 | 3 | The shadow under a creature, one per body size |
-| `habitat/rain.png` | 32x32 tile | 1 | Rain to scroll over a habitat; repeats without a seam |
+All 116 files are listed in `data.artFiles()`, so the test in section 6 fails if one goes missing. The last
+column says where the app uses each one (✅), or that nothing loads it yet (⬜). Wired in on 2026-10-11, in two passes.
+
+| Files | Canvas | Count | For | Used |
+|---|---|---|---|---|
+| `creature/eyes_big/<style>_<expression>.png` | 20x10 | 30 | Hatchling eyes, a size larger, so eyes shrink relative to the face as a creature grows. Same styles and expressions as `creature/eyes/`; key palette; centre (10,5) on the head's eye socket | ✅ `render.composeCreature`, whenever the body size is `s` (`data.PART.eyesBig`); recoloured like every other part |
+| `icon/move/<move id>.png` | 16x16 | 26 | One icon per move in `data.MOVES`, to replace the four kind icons on the move buttons | ✅ the move buttons in battle, at 32px (`battle-ui.showMoves`) |
+| `icon/tag_<id>.png` | 16x16 | 5 | `night_owl early_bird streak_7 flawless comeback` | ✅ beside each condition in the shop's "more items appear once you've earned" line |
+| `icon/form_<id>.png` | 16x16 | 6 | `echo sage keeper twin nocturne champion`, for the evolve choice | ✅ on the adult-form and special-form choices (Creatures page, and when evolving) |
+| `icon/trait_<id>.png` | 16x16 | 4 | `listener reader collector curious` | ✅ on each creature's card, with how far that way of studying has shaped it (a percentage) |
+| `icon/rule_<id>.png` | 16x16 | 6 | The weekly rules: `open starters no_heal warm cool solo` | ✅ beside this week's battle rule on the Friends page of the game sheet |
+| `icon/nav_<id>.png` | 16x16 | 5 | `shop wardrobe roster badges habitat` | ✅ the tabs of the game sheet (`shop wardrobe roster badges`), the Creatures and Shop buttons, and the habitat chooser (`habitat`) |
+| `icon/close star badge trophy battle edit evolve combo surge rating egg` | 16x16 | 11 | Replace the symbols the interface writes today: ✕ ★ 🏅 🏆 ⚔ ✎ ✨ 🔥 ⚡ skill 🥚 (coin, freeze, hint, lock and check already exist) | ✅ all but `egg`: `star` and `goal` on the review messages, `trophy` and `rating` on the battle result, `edit` on "Name me", `evolve` wherever a creature is ready. The egg a wild creature leaves uses `icon/egg_mystery.png` · ⬜ `egg` |
+| `icon/glow release trade rival defence raid clock` | 16x16 | 7 | The idle layer (glow, release, time away) and play with friends | ✅ `trade` (Friends button and tab), `rival` (someone you have fought, in the league table), `defence` (a friend challenged your team), `raid` (the raid card), `clock` (today's minutes; the next boss) · ⬜ `glow release` (the idle layer is not built) |
+| `ui/pip_on.png` `ui/pip_off.png` | 8x8 | 2 | Team members still standing, in battle (● ○ today) | ✅ under each health bar in battle, at 16px |
+| `ui/slot_empty.png` | 24x24 | 1 | An empty roster or item slot | ✅ "My things" when nothing is owned yet |
+| `structure/plot.png` | 32x32 | 1 | An empty building plot in the habitat | ⬜ |
+| `fx/evolve.png` | strip of 8, 64x64 | 1 | Evolving: light gathers, then bursts | ✅ over the creature's picture when Evolve is pressed (`.fx-evolve` in `app.css`; the new form appears in the burst), and on the creature in the habitat |
+| `fx/ready.png` | strip of 4, 32x32 | 1 | The shimmer round a creature that is ready to evolve | ✅ the habitat (it replaces the one wandering sparkle) |
+| `fx/surge.png` | strip of 6, 48x48 | 1 | The charge round a creature in a surge | ✅ round your creature in battle while a surge lasts |
+| `fx/combo_fire.png` | strip of 4, 16x16 | 1 | The flame on the combo chip | ✅ the battle's combo chip (`.fx-combo-fire` in `app.css`) |
+| `battle/faint.png` | strip of 5, 32x32 | 1 | A beaten creature breaking up into pixels | ✅ when a fighter is knocked out, as it sinks and fades |
+| `battle/glance.png` | strip of 4, 32x32 | 1 | The glancing hit after a wrong answer | ✅ in place of the element's burst when your answer was wrong |
+| `fx/question.png` `fx/spark.png` | 8x8 | 2 | Particles for the reward fountain (? and ✦ today) | ✅ the reward fountain, with `fx/plus star gem` (`game.PARTICLES`) |
+| `fx/shadow_s.png` `fx/shadow_m.png` `fx/shadow_l.png` | 16x4, 24x5, 36x6 | 3 | The shadow under a creature, one per body size | ✅ under the creature in the habitat and under both fighters in battle (`data.SHADOW`) |
+| `habitat/rain.png` | 32x32 tile | 1 | Rain to scroll over a habitat; repeats without a seam | ✅ falls over the habitat on about one day in four (`rainy()` in `habitat.js`) |
+
+Wired in at the same time, from the earlier sections: `icon/coin.png`, `icon/streak.png`, `icon/freeze.png`,
+`icon/hint.png` and `icon/lock.png` now stand where the interface wrote ◉ 🔥 ❄ 💡 🔒. The four kind icons
+(`icon/move_attack.png` and its three siblings) are no longer shown, since each move has its own.
+
+How the interface shows them: `render.icon("coin")` writes the picture's tag. Pixel art is always shown at
+its own size or a whole multiple of it (16 or 32 pixels for icons), never smoothed (`.px-icon` in `app.css`).
+
+No emoji are left in the game's interface: 🎁 is `icon/gift.png`, 🎯 is `icon/goal.png`, and the ❄ and 💡 in
+the label that floats up with a dropped item are `icon/freeze.png` and `icon/hint.png`.
+
+### 7.1 From the earlier sections, wired in on 2026-10-11
+
+| Art | Where the app uses it |
+|---|---|
+| `habitat/oasis/` `habitat/forest/` `habitat/shore/` | The habitat chooser on the Home screen (the chip that names the scene). The choice is saved as `scene` in the game's state. They are still the random backdrops in battle |
+| `fx/emote_<id>.png` (8) | A bubble by the creature's head: `love` when petted or on a jackpot, `music` on a lucky reward, `question` on a surprise and now and then, `idea` on a level up, `sleepy` at night, `exclaim` when ready to evolve, `hungry` after noon with no study yet, `sweat` after 6pm with a streak at risk |
+| `ui/panel.png` `ui/panel_dark.png` | The battle's result card and the panel holding the move buttons |
+| `ui/button.png` `button_pressed.png` `button_disabled.png` | The move buttons in battle |
+| `ui/bubble.png` | The creature's name, top left of the habitat |
+| `ui/rarity_common.png` `rarity_lucky.png` `rarity_jackpot.png` | The frame round each picture in the shop and wardrobe, by price (under 30, 30 to 59, 60 and over) |
+| `ui/bar_frame.png` `ui/bar_fill.png` | The XP and daily-goal bars under the habitat and the health bars in battle |
+| `ui/digits.png` | Damage and healing numbers in battle |
+| `icon/stat_hp.png` `stat_atk.png` `stat_def.png` `stat_spd.png` | Each creature's card on the Creatures page |
+| `icon/gift.png` `check.png` `arrow.png` `egg_mystery.png` | Gifts, the reached daily goal, the skill change and the egg on the battle result |
+
+### 7.2 Delivered, with nothing in the game to attach to yet
+
+`icon/food_<id>.png` (6), `icon/potion key ticket incubator xp_boost gem stardust heart_full heart_empty`,
+`icon/glow`, `icon/release`, `icon/egg`, `structure/` (18 buildings and the empty plot). These belong to
+feeding, consumable items and the idle layer (buildings that work while you are away), none of which exist
+in the game. The four kind icons (`icon/move_attack.png` and its siblings) are superseded by the per-move icons.

@@ -20,6 +20,14 @@ export function loadImage(file) {
   return images.get(file);
 }
 
+/** The HTML for a small pixel-art picture from game-art/: icon("coin"), or a path such as icon("ui/pip_on", 8).
+ * `px` is the size to show it at: the art's own size (icons are 16x16) or a whole multiple of it, so the
+ * pixels stay square. */
+export function icon(id, px = 16, alt = "") {
+  const file = id.includes("/") ? id : `icon/${id}`;
+  return `<img class="px-icon" alt="${alt}" width="${px}" height="${px}" src="${ART}${file}.png">`;
+}
+
 const rgbOf = (() => {
   let probe = null;
   const memo = new Map();
@@ -99,6 +107,35 @@ async function patternedTorso(file, look, paletteId) {
 
 export const FRAME = 88; // creatures are composed in a square this size, feet on its bottom edge (room above for hats)
 
+/**
+ * The torso pixels a shirt must not cover: the outline round the body's shape, and anything in the accent
+ * colour that grows out of that outline (back fins, the tip of a floater's tail). Marks inside the body
+ * (ripples, crystals, the rim of a plate) are not joined to the outline, so the shirt covers them.
+ */
+function bareOfShirt(px, w, h, colors) {
+  const at = (x, y) => (x < 0 || y < 0 || x >= w || y >= h || !px[(y * w + x) * 4 + 3] ? null : `${px[(y * w + x) * 4]},${px[(y * w + x) * 4 + 1]},${px[(y * w + x) * 4 + 2]}`);
+  const line = rgbOf(colors.primary[3]).join(",");
+  const accent = colors.accent.map((a) => rgbOf(a).join(","));
+  const around = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]];
+  const bare = new Uint8Array(w * h);
+  const todo = [];
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      if (at(x, y) === line && around.some(([dx, dy]) => at(x + dx, y + dy) === null)) { bare[y * w + x] = 1; todo.push([x, y]); }
+    }
+  }
+  while (todo.length) {
+    const [x, y] = todo.pop();
+    for (const [dx, dy] of around) {
+      const nx = x + dx, ny = y + dy;
+      if (!accent.includes(at(nx, ny)) || bare[ny * w + nx]) continue;
+      bare[ny * w + nx] = 1;
+      todo.push([nx, ny]);
+    }
+  }
+  return bare;
+}
+
 /** The torso wearing a shirt: the shirt's pattern fills the body's shape, leaving its outline. */
 async function shirtedTorso(base, look, paletteId, file) {
   const id = `${file}|${paletteId}|${look.pattern}|${look.equipped.shirt}`;
@@ -115,15 +152,16 @@ async function shirtedTorso(base, look, paletteId, file) {
   t.canvas.height = tile.height;
   t.drawImage(tile, 0, 0);
   const tp = t.getImageData(0, 0, tile.width, tile.height).data;
-  const line = rgbOf(KEY.outline).join(",");
+  const line = rgbOf(KEY.outline).join(","); // the fixed line colour (older art); hand-drawn bodies are outlined in their darkest body colour
   const data = ctx.getImageData(0, 0, c.width, c.height);
   const px = data.data;
+  const bare = bareOfShirt(px, c.width, c.height, look.colors);
   const top = Math.round(c.height * 0.18);      // leave the shoulders' top edge
   const bottom = Math.round(c.height * 0.8);    // and the underside bare
   for (let y = top; y < bottom; y++) {
     for (let x = 0; x < c.width; x++) {
       const i = (y * c.width + x) * 4;
-      if (!px[i + 3] || `${px[i]},${px[i + 1]},${px[i + 2]}` === line) continue;
+      if (!px[i + 3] || bare[y * c.width + x] || `${px[i]},${px[i + 1]},${px[i + 2]}` === line) continue;
       const j = ((y % tile.height) * tile.width + (x % tile.width)) * 4;
       if (!tp[j + 3]) continue;
       px[i] = tp[j]; px[i + 1] = tp[j + 1]; px[i + 2] = tp[j + 2];
@@ -146,6 +184,7 @@ export async function composeCreature(look, pose = {}) {
   const suffix = look.branch ? `_${look.branch}` : "";
   const part = (file) => recolored(file, look.colors, paletteId);
   const step = pose.step ? "b" : "a";
+  const bigEyes = look.size === "s"; // a hatchling's eyes are a size larger: they shrink relative to the face as it grows
   const [torso, head, tail, back, earB, earF, horn, eyes, mouth] = await Promise.all([
     patternedTorso(`creature/torso/${look.species}_${look.size}${suffix}.png`, look, paletteId),
     part(`creature/head/${look.species}${suffix}.png`),
@@ -154,7 +193,7 @@ export async function composeCreature(look, pose = {}) {
     look.ear !== "none" ? part(`creature/ear/${look.ear}.png`) : null,
     look.ear !== "none" ? part(`creature/ear/${look.ear}.png`) : null,
     look.horn !== "none" ? part(`creature/horn/${look.horn}.png`) : null,
-    part(`creature/eyes/${look.eyes}_${pose.eyes || "open"}.png`),
+    part(`creature/${bigEyes ? "eyes_big" : "eyes"}/${look.eyes}_${pose.eyes || "open"}.png`),
     part(`creature/mouth/${pose.mouth || "neutral"}.png`),
   ]);
   const legA = plan.legs ? await part(`creature/leg/${look.species}_${look.size}_${step}.png`) : null;
@@ -202,7 +241,7 @@ export async function composeCreature(look, pose = {}) {
   const on = (img, socket, anchor) => { if (img) ctx.drawImage(img, hx + socket[0] - anchor[0], hy + socket[1] - anchor[1]); };
   on(earB, HEAD.earB, PART.ear.anchor);
   if (head) ctx.drawImage(head, hx, hy);
-  on(eyes, HEAD.eye, PART.eyes.anchor);
+  on(eyes, HEAD.eye, (bigEyes ? PART.eyesBig : PART.eyes).anchor);
   on(mouth, HEAD.mouth, PART.mouth.anchor);
   on(earF, HEAD.earF, PART.ear.anchor);
   on(horn, HEAD.horn, PART.horn.anchor);

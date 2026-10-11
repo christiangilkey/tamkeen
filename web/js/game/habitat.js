@@ -3,10 +3,10 @@
 // today's goal, level and streak.
 
 import { h, toast } from "../app.js";
-import { FX_FRAMES, HABITAT, SPECIES, STAGES, TYPES, BRANCHES } from "./data.js";
+import { EMOTES, FX_FRAMES, HABITAT, SCENES, SHADOW, SPECIES, STAGES, TYPES, BRANCHES } from "./data.js";
 import { describe, formOf, readyToEvolve, stageOf } from "./genome.js";
-import { BADGES } from "./data.js";
-import { openBattleMenu } from "./battle-ui.js";
+import { icon } from "./render.js";
+import { badgeToast, openBattleMenu } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
 import { GOALS, levelOf } from "./rules.js";
 import { FRAME, composeCreature, drawSheet, loadImage } from "./render.js";
@@ -35,15 +35,16 @@ export function habitat() {
       </div>
       <div class="hud-chips">
         <span class="today-chip" id="g-stage"></span>
-        <span class="today-chip" id="g-streak"></span>
-        <span class="today-chip" id="g-coins" title="Coins, for the shop (coming)"></span>
-        <span class="today-chip" id="g-freeze" title="A streak freeze covers a missed day"></span>
+        <span class="today-chip" id="g-streak" title="Days in a row">${icon("streak")} <span></span></span>
+        <span class="today-chip" id="g-coins" title="Coins, for the shop (coming)">${icon("coin")} <span></span></span>
+        <span class="today-chip" id="g-freeze" title="A streak freeze covers a missed day">${icon("freeze")} <span></span></span>
+        <button type="button" class="today-chip" id="g-scene" title="Move your creature to another habitat">${icon("nav_habitat")} <span></span></button>
       </div>
       <div class="hud-actions">
-        <button type="button" class="primary" id="g-battle">⚔ Battle</button>
-        <button type="button" id="g-friends">Friends</button>
-        <button type="button" id="g-creatures">Creatures</button>
-        <button type="button" id="g-shop">Shop</button>
+        <button type="button" class="primary" id="g-battle">${icon("battle")} Battle</button>
+        <button type="button" id="g-friends">${icon("trade")} Friends</button>
+        <button type="button" id="g-creatures">${icon("nav_roster")} Creatures</button>
+        <button type="button" id="g-shop">${icon("nav_shop")} Shop</button>
       </div>
     </div>
   </section>`);
@@ -51,6 +52,8 @@ export function habitat() {
   const canvas = $("canvas");
   const ctx = canvas.getContext("2d");
   ctx.imageSmoothingEnabled = false;
+
+  const scene = () => (HABITAT.themes.includes(game.scene) ? game.scene : HABITAT.themes[0]);
 
   // ----- the bar under the scene -----
   function paintHud(animate = false) {
@@ -60,7 +63,8 @@ export function habitat() {
     if (animate) rollNumber($("#g-xp"), game.xp, (n) => n.toLocaleString());
     else { $("#g-xp").dataset.value = String(game.xp); $("#g-xp").textContent = game.xp.toLocaleString(); }
     const mins = Math.floor(game.day.seconds / 60);
-    $("#g-goal").textContent = game.day.done ? "✓ Daily goal reached" : `Today: ${mins} / ${game.goal} min`;
+    $("#g-goal").textContent = game.day.done ? " Daily goal reached" : `Today: ${mins} / ${game.goal} min`;
+    $("#g-goal").prepend(h(icon(game.day.done ? "check" : "clock")), game.day.done ? "" : " ");
     $("#g-goal").classList.toggle("done", game.day.done);
     $("#g-goalbar").style.width = `${Math.min(100, Math.round((game.day.seconds / (game.goal * 60)) * 100))}%`;
     $("#g-goalbtn").textContent = `Goal: ${game.goal} min`;
@@ -70,14 +74,22 @@ export function habitat() {
     const next = ready || game.creature.show ? null : STAGES[STAGES.indexOf(stageOf(game.creature.growth)) + 1];
     const pct = next ? Math.round(((game.creature.growth - stage.from) / (next.from - stage.from)) * 100) : 100;
     $("#g-stage").textContent = `${TYPES[look.type].name} ${stage.id === "egg" ? "egg" : SPECIES[look.species].name.toLowerCase()} · ${STAGE_LABEL[stage.id]}`
-      + (look.branch ? ` (${BRANCHES[look.branch].name})` : "") + (ready ? " · ✨ ready to evolve: tap it" : next ? ` · ${pct}% to ${STAGE_LABEL[next.id].toLowerCase()}` : "");
+      + (look.branch ? ` (${BRANCHES[look.branch].name})` : "") + (ready ? " · ready to evolve: tap it" : next ? ` · ${pct}% to ${STAGE_LABEL[next.id].toLowerCase()}` : "");
     $("#g-stage").classList.toggle("lit", ready);
-    $("#g-streak").textContent = `🔥 ${game.streak} day${game.streak === 1 ? "" : "s"}`;
+    if (ready) $("#g-stage").prepend(h(icon("evolve")), " ");
+    $("#g-streak span").textContent = `${game.streak} day${game.streak === 1 ? "" : "s"}`;
     $("#g-streak").classList.toggle("lit", game.streak > 0);
-    $("#g-coins").textContent = `◉ ${game.coins}`;
-    $("#g-freeze").textContent = `❄ ${game.items.freeze}`;
-    $(".habitat-name").textContent = game.creature.name || (stage.id === "egg" ? "Your egg" : "Name me ✎");
+    $("#g-coins span").textContent = game.coins;
+    $("#g-freeze span").textContent = game.items.freeze;
+    $(".habitat-name").textContent = game.creature.name || (stage.id === "egg" ? "Your egg" : "Name me ");
+    if (!game.creature.name && stage.id !== "egg") $(".habitat-name").append(h(icon("edit")));
+    $("#g-scene span").textContent = SCENES[scene()];
   }
+  $("#g-scene").onclick = () => {
+    game.scene = HABITAT.themes[(HABITAT.themes.indexOf(scene()) + 1) % HABITAT.themes.length];
+    saveGame();
+    paintHud();
+  };
   $("#g-goalbtn").onclick = () => {
     game.goal = GOALS[(GOALS.indexOf(game.goal) + 1) % GOALS.length];
     saveGame();
@@ -100,11 +112,17 @@ export function habitat() {
   const art = {};
   const files = { sun: "habitat/sun.png", moon: "habitat/moon.png", cloud1: "habitat/cloud_1.png", cloud2: "habitat/cloud_2.png",
                   heart: "fx/heart.png", zzz: "fx/zzz.png", star: "fx/star.png" };
-  for (const layer of HABITAT.layers) files[layer] = `habitat/${HABITAT.themes[0]}/${layer}.png`;
+  for (const theme of HABITAT.themes) for (const layer of HABITAT.layers) files[`${theme}_${layer}`] = `habitat/${theme}/${layer}.png`;
+  for (const id of EMOTES) files[`emote_${id}`] = `fx/emote_${id}.png`;
+  files.rain = "habitat/rain.png";
   for (const id of Object.keys(FX_FRAMES)) files[id] = `fx/${id}.png`;
+  for (const size of Object.keys(SHADOW)) files[`shadow_${size}`] = `fx/shadow_${size}.png`;
   for (const [k, f] of Object.entries(files)) loadImage(f).then((img) => { art[k] = img; });
 
-  const pet = { x: W / 2, dir: 1, target: W / 2, wait: 2, step: 0, stepT: 0, mood: "", moodT: 0, hop: 0, blinkT: 3 };
+  const pet = { x: W / 2, dir: 1, target: W / 2, wait: 2, step: 0, stepT: 0, mood: "", moodT: 0, hop: 0, blinkT: 3, emote: "", emoteT: 0, idleT: 6 };
+  const emote = (id, secs = 1.8) => { if (id) { pet.emote = id; pet.emoteT = secs; } };
+  // It rains on about one day in four (the same days for everyone, so it is weather and not a glitch).
+  const rainy = () => { const d = new Date(); return (d.getDate() * 7 + d.getMonth()) % 4 === 0; };
   const decorArt = {}; // decoration id -> image
   const bursts = [];   // {id, x, y, t}
   const floats = [];   // {img, x, y, t}
@@ -160,19 +178,31 @@ export function habitat() {
     pet.hop = pet.mood === "happy" ? Math.abs(Math.sin(now / 110)) * 6 : 0;
     pet.blinkT -= dt;
     if (pet.blinkT < -0.15) pet.blinkT = 2 + Math.random() * 4;
+    // Now and then it says how it feels, in a little bubble.
+    if (pet.emoteT > 0) pet.emoteT -= dt;
+    else if ((pet.idleT -= dt) < 0) {
+      pet.idleT = 7 + Math.random() * 8;
+      if (look.stage !== "egg") {
+        emote(asleep ? "sleepy" : readyToEvolve(game.creature) ? "exclaim" : !game.day.seconds && hour >= 12 ? "hungry"
+          : !game.day.done && game.streak > 0 && hour >= 18 ? "sweat" : Math.random() < 0.3 ? "question" : "");
+      }
+    }
 
     // Sky: day and night, with a little dusk.
     const dark = night ? 0.55 : hour > 18 ? (hour - 18) * 0.22 : hour < 7.5 ? (7.5 - hour) * 0.3 : 0;
     ctx.clearRect(0, 0, W, H);
-    if (art.sky) ctx.drawImage(art.sky, 0, 0);
+    const here = scene();
+    if (art[`${here}_sky`]) ctx.drawImage(art[`${here}_sky`], 0, 0);
     const arc = (hour >= 6 && hour < 20 ? (hour - 6) / 14 : ((hour + 4) % 24) / 10);
     const orb = night ? art.moon : art.sun;
     if (orb) ctx.drawImage(orb, Math.round(20 + arc * (W - 64)), Math.round(34 - Math.sin(arc * Math.PI) * 26));
     if (art.cloud1) ctx.drawImage(art.cloud1, Math.round(((now / 90) % (W + 60)) - 50), 16);
     if (art.cloud2) ctx.drawImage(art.cloud2, Math.round(((now / 140 + 150) % (W + 40)) - 36), 34);
-    if (art.far) ctx.drawImage(art.far, 0, 0);
-    if (art.mid) ctx.drawImage(art.mid, 0, 0);
-    if (art.ground) ctx.drawImage(art.ground, 0, 0);
+    for (const layer of ["far", "mid", "ground"]) if (art[`${here}_${layer}`]) ctx.drawImage(art[`${here}_${layer}`], 0, 0);
+    if (art.rain && rainy()) {
+      const fall = Math.floor(now / 14) % 32; // the tile repeats, sliding down and a little to the left
+      for (let x = 0; x < W + 32; x += 32) for (let y = -32; y < H; y += 32) ctx.drawImage(art.rain, x - Math.floor(fall / 2), y + fall);
+    }
     if (dark) { ctx.fillStyle = `rgba(20, 12, 48, ${dark})`; ctx.fillRect(0, 0, W, H); }
 
     const groundY = HABITAT.ground;
@@ -202,6 +232,9 @@ export function habitat() {
         mouth: asleep ? "sleep" : pet.mood === "happy" ? "smile" : "neutral",
       };
       const frame = creatureFrame(look, pose);
+      const body = pet.x - pet.dir * 3; // the body sits 3px behind the middle of its frame (the head leans forward)
+      const shadow = art[`shadow_${look.size}`];
+      if (frame && shadow) ctx.drawImage(shadow, Math.round(body - shadow.width / 2), groundY - Math.floor(shadow.height / 2)); // stays on the ground through a hop
       if (frame) {
         ctx.save();
         ctx.translate(Math.round(pet.x), groundY - Math.round(pet.hop));
@@ -209,8 +242,10 @@ export function habitat() {
         ctx.drawImage(frame, -FRAME / 2, -FRAME);
         ctx.restore();
       }
-      if (readyToEvolve(game.creature) && art.sparkle) drawSheet(ctx, art.sparkle, 4, (now / 110) % 4, pet.x + Math.sin(now / 240) * 16, groundY - 44 + Math.cos(now / 190) * 12);
-      if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), groundY - 44 - (Math.floor(now / 300) % 3));
+      if (readyToEvolve(game.creature) && art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, (now / 140) % FX_FRAMES.ready, body, groundY - 28 - Math.round(pet.hop));
+      const bubble = pet.emoteT > 0 && art[`emote_${pet.emote}`];
+      if (bubble) ctx.drawImage(bubble, Math.round(pet.x + pet.dir * 12 - 6), groundY - { s: 48, m: 58, l: 70 }[look.size] - Math.round(pet.hop));
+      else if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), groundY - 44 - (Math.floor(now / 300) % 3));
     }
     for (let i = floats.length - 1; i >= 0; i--) {
       const f = floats[i];
@@ -249,6 +284,7 @@ export function habitat() {
     const img = kind === "pet" ? art.heart : art.star;
     for (let i = 0; i < (kind === "jackpot" ? 6 : 3); i++) floats.push({ img, x: x - 12 + Math.random() * 24, y: y + Math.random() * 10, t: -i * 0.12 });
     if (kind === "jackpot") bursts.push({ id: "burst_jackpot", x, y: y + 16, t: 0 });
+    emote({ pet: "love", jackpot: "love", lucky: "music", surprise: "question" }[kind]);
   }
 
   canvas.addEventListener("click", (e) => {
@@ -265,9 +301,14 @@ export function habitat() {
 
   const stop = onGame((result) => {
     if (result.type === "sync") { paintHud(); return; } // a newer save arrived from another device
+    if (result.type === "evolve") { // chosen on the Creatures page: the light gathers on the creature, then bursts
+      paintHud();
+      if (result.active) { bursts.push({ id: "evolve", x: pet.x - pet.dir * 3, y: HABITAT.ground - 30, t: 0 }); cheer("lucky"); }
+      return;
+    }
     paintHud(true);
-    for (const id of result.badges || []) toast(`🏅 Badge earned: ${(BADGES.find((b) => b.id === id) || {}).name || id}`);
-    if (result.stage === "ready") toast("✨ Your creature is ready to evolve. Tap it when you want to.");
+    for (const id of result.badges || []) badgeToast(id);
+    if (result.stage === "ready") toast("Your creature is ready to evolve. Tap it when you want to.").prepend(h(icon("evolve")), " ");
     if (result.stage) {
       const x = result.stage === "hatchling" ? W / 2 : pet.x;
       bursts.push({ id: result.stage === "hatchling" ? "hatch" : "levelup", x, y: HABITAT.ground - 30, t: 0 });
@@ -275,6 +316,7 @@ export function habitat() {
       sfx("jackpot");
     } else if (result.levelUp) {
       bursts.push({ id: "levelup", x: pet.x, y: HABITAT.ground - 30, t: 0 });
+      emote("idea", 2.4);
     }
     if (result.type !== "study" || result.goalDone) cheer(result.goalDone ? "jackpot" : result.tier); // quiet while time ticks by
   });

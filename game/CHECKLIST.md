@@ -21,13 +21,13 @@ Status: ✅ built · 🟡 partly · ⬜ not built
 | XP counter rolls up with high ticking sound | ✅ | Habitat bar on Home; a chip in the corner while studying (`game.showChip`) |
 | Sounds by tier: pop/clink, 3-note chime, arcade fanfare | ✅ | Synthesised in `game.sfx`, no audio files |
 | Combo chain within 5 seconds, multipliers 1.2 / 1.5 / 2 | ✅ in battles · 🟡 lookups | Battles: answering right within 5 s (`battle.FAST_MS`). Word lookups use 30 s (`COMBO_WINDOW_MS`) because 5 s is too short to read a definition and would reward tapping without reading |
-| UI lights up or catches fire during a combo | ✅ | The chip burns and shows the fuse; in battle a 🔥 badge, then "SURGE" with sparks |
+| UI lights up or catches fire during a combo | ✅ | The chip burns and shows the fuse; in battle a flame badge (`icon/combo.png`), then "SURGE" (`icon/surge.png`) with sparks |
 
 ## 2. "Evolution ideas"
 
 | Requirement | Status | Where / note |
 |---|---|---|
-| Evolution is interactive, not a silent level-up or a menu chore | ✅ | A grown creature sparkles and waits; tapping it opens the choice (`rules.evolve`) |
+| Evolution is interactive, not a silent level-up or a menu chore | ✅ | A grown creature shimmers (`fx/ready.png`) and waits; tapping it opens the choice (`rules.evolve`). Pressing Evolve plays `fx/evolve.png`: light gathers on the old form and the new one appears in the burst |
 | Party-dependent triggers (symbiosis) | ✅ | "Twin" form needs a hatched companion of another element and takes its colours |
 | Environmental / physical action triggers | 🟡 | "Nocturne" form needs study after 10 pm. Nothing yet tied to the habitat itself or to phone motion |
 | Battle milestones instead of grinding | ✅ | "Champion" form and two moves open by winning from the brink or with no wrong answers |
@@ -49,7 +49,7 @@ Status: ✅ built · 🟡 partly · ⬜ not built
 | Chains and necklaces as an anchored physics chain | ⬜ | Neckwear is a static sprite (the document lists this last, as polish) |
 | Held items in hand sockets | ✅ | One hand |
 | Growth changes proportions: head slower than body, limbs lengthen | ✅ | One head size for life; three torso and limb sizes |
-| Eyes shrink relative to the face | 🟡 | Only relative to the body. The larger hatchling eyes are drawn (`creature/eyes_big/`, 20x10) but not wired in |
+| Eyes shrink relative to the face | ✅ | A hatchling wears a larger pair (`creature/eyes_big/`, 20x10) on the same socket; juveniles and adults the 16x8 pair (`render.composeCreature`) |
 | Items stay placed as the creature grows; optional per-stage offset | ✅ | Sockets, plus `offset: {s, m, l}` on any item |
 | Actions push traits; milestones grant tags | ✅ | Traits: listener, reader, collector, curious. Tags: night_owl, early_bird, streak_7, flawless, comeback |
 | Every cosmetic defined in data with `requires` and `weight_by` | ✅ | `data.ITEMS`, `data.DECOR` |
@@ -72,7 +72,7 @@ Status: ✅ built · 🟡 partly · ⬜ not built
 | Streak freezes or rest days | ✅ | |
 | Each player's own deck powers their battles; each tested at their own level | ✅ | Due words first (`rules.pickQuestion`) |
 | Works across subjects | ✅ | Questions come from the player's own words in any language |
-| Low stakes | ✅ | A wrong answer still lands a glancing hit and shows the right answer |
+| Low stakes | ✅ | A wrong answer still lands a glancing hit (drawn as a pale slash, `battle/glance.png`) and shows the right answer |
 | Skill rating separate from study level | ✅ rating · ⬜ matching | `state.rating`, changed by rental and friend battles only, shown beside each friend. You pick who to challenge; nothing matches you automatically |
 | Draft or rental mode from a shared pool | ✅ | "Rental duel": the same six creatures for everyone each week |
 | Rotating weekly rules | ✅ | `data.WEEKLY_RULES`; applied to both teams in friend battles |
@@ -105,15 +105,25 @@ The idle layer is not built. Planned shape, agreed in outline with the owner:
 
 | Request | Status | Note |
 |---|---|---|
-| Over a hundred items to dress creatures | ✅ data · 🟡 art | 113 wearables in six slots plus 24 decorations (`data.WEARABLES`). 83 of the wearables are placeholders awaiting art (ASSET_LIST 3.8) |
+| Over a hundred items to dress creatures | ✅ | 113 wearables in six slots plus 24 decorations (`data.WEARABLES`). All 113 wearables are hand-drawn in Aseprite (sources in `game/art-src/item/`), seen in the wardrobe and on a creature in the desktop preview on 2026-10-11 |
 | Items sit well on creatures | ⏸ | Paused by the owner: the creatures are being redesigned. `tools/preview_items.py` draws every item on every body for when it resumes |
 | Anki companion add-on (see when people review their cards) | ⬜ | Does not exist. The game reads Tamkeen's own study and vocab only |
 
-## Art delivered but not used yet
+## Art in use, and art still waiting
 
-Structures, three more habitats (used as battle backdrops only), emotes, interface frames and the pixel
-digits, food and item icons, and the extra effects the art session added (shadows, evolve, surge, big eyes).
+Wired in on 2026-10-11 (`game/ASSET_LIST.md` section 7 says file by file where each is used). Checked in the
+desktop preview the same day: the habitat, the shop, the Creatures page and the reward fountain live; the
+battle frames, digits, surge and combo flame on a mock-up of the battle screen, since a real battle needs
+100 saved words.
 
-Added 2026-10-11 (`game/ASSET_LIST.md` section 7, 116 files): larger hatchling eyes, an icon for every move,
-tag, form, habit and weekly rule, icons to replace the symbols and emoji in the interface, effects for
-evolving, surge, a fainting creature and a glancing hit, shadows, an empty plot, and rain.
+- **In use:** every icon the interface used to write as an emoji or symbol; the four habitats (chosen with
+  the chip under the scene, saved as `scene`); emotes above the creature; rain on some days; pixel bars,
+  the name bubble, rarity frames in the shop, panels and buttons in battle, pixel damage numbers; the surge
+  charge and the animated combo flame; pixel particles in the reward fountain; icons for tabs, forms,
+  traits, stats, tags, the weekly rule, the raid and rivals.
+- **Still waiting (the features do not exist):** the 18 structures and the empty plot, the food icons, and
+  the potion, key, ticket, incubator, XP boost, gem, stardust, heart, glow and release icons. They belong
+  to feeding, consumable items and the idle layer.
+- **Still script-made, to be redrawn in Aseprite:** 20 icons (league, nav, release, rule, trait), the 26
+  move icons, the 16 badges, the 15 interface pieces, and the decor, egg, effect, battle, boss, habitat and
+  structure folders. Redrawing a file under the same name needs no change to the code.

@@ -826,6 +826,8 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 #game-chip.max { border-color: #ffd54a; animation: chip-burn .5s ease-in-out infinite alternate; }
 @keyframes chip-burn { from { box-shadow: 0 0 6px 2px rgba(255, 120, 40, .55); } to { box-shadow: 0 0 16px 6px rgba(255, 200, 60, .75); } }
 .chip-combo { font-weight: 700; color: #ff8a3d; }
+#game-chip.hot .chip-combo::before { content: ""; display: inline-block; width: 16px; height: 16px; margin-inline-end: 4px; vertical-align: -3px;
+  background: url("../game-art/icon/combo.png") center / 16px 16px no-repeat; image-rendering: pixelated; image-rendering: crisp-edges; }
 .chip-fuse { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: #ff8a3d; transform-origin: left; }
 @keyframes chip-fuse { from { transform: scaleX(1); } to { transform: scaleX(0); } }
 
@@ -846,6 +848,18 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .shop-item.locked { opacity: .45; filter: grayscale(1); }
 .shop-item.rental { cursor: pointer; background: var(--surface); }
 
+/* ---------- creature game: pixel icons and the evolve effect ---------- */
+/* Pixel art from game-art/, made by render.icon(). The tag carries its width and height: the art's own size or a
+   whole multiple of it, so its pixels stay square. Never smoothed. */
+.px-icon { display: inline-block; flex: none; vertical-align: -3px; image-rendering: pixelated; image-rendering: crisp-edges; }
+/* fx/evolve.png, eight 64px frames, played once over a creature's picture: the light gathers, then bursts. */
+.shop-pic { position: relative; }
+.fx-evolve { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; pointer-events: none;
+  background: url("../game-art/fx/evolve.png") 0 0 / 512px 64px no-repeat; image-rendering: pixelated; image-rendering: crisp-edges;
+  animation: fx-evolve .72s steps(8) forwards; }
+@keyframes fx-evolve { to { background-position: -512px 0; } }
+@media (prefers-reduced-motion: reduce) { .fx-evolve { display: none; } }
+
 /* ---------- creature game: battles ---------- */
 .battle-modes { display: grid; gap: 8px; }
 .battle-mode { display: flex; flex-direction: column; gap: 2px; text-align: start; padding: 12px; border-radius: 14px; }
@@ -858,7 +872,8 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .b-hp .hud-bar { background: rgba(255, 255, 255, .15); height: 12px; }
 .b-hp .hud-bar i { background: #52d681; transition: width .35s ease-out; }
 .b-hp.right .hud-bar i { margin-inline-start: auto; }
-.b-pips { font-size: 10px; letter-spacing: 2px; opacity: .8; }
+.b-pips { display: flex; gap: 2px; height: 16px; }
+.b-hp.right .b-pips { justify-content: flex-end; }
 .battle-scene { position: relative; border-radius: 12px; overflow: hidden; }
 .battle-scene canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; image-rendering: crisp-edges; }
 .b-combo { position: absolute; left: 10px; top: 10px; padding: 3px 10px; border-radius: 99px; font-weight: 800; font-size: 14px; background: #ff8a3d; color: #fff; }
@@ -866,7 +881,7 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .b-log { min-height: 2.6em; font-size: 14px; opacity: .92; }
 .b-moves { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .b-move { display: flex; align-items: center; gap: 8px; text-align: start; padding: 10px; border-radius: 12px; }
-.b-move img { width: 24px; height: 24px; image-rendering: pixelated; flex: none; }
+.b-move img { flex: none; } /* the move's icon at 32px (twice its size), its element at 16px: see .px-icon */
 .b-move > span { flex: 1; display: flex; flex-direction: column; min-width: 0; }
 .bq { display: flex; flex-direction: column; gap: 8px; }
 .bq-timer { position: relative; height: 8px; border-radius: 99px; background: rgba(255, 255, 255, .15); overflow: hidden; }
@@ -899,3 +914,42 @@ button.small { font-size: 12px; padding: 3px 10px; }
 .boss.down { background-size: 96px 96px; animation: none; }
 @keyframes boss-idle { from { background-position: 0 0; } to { background-position: -192px 0; } }
 @media (max-width: 520px) { .league-row { grid-template-columns: 18px 24px 1fr 36px auto; } .league-row .hud-bar { display: none; } }
+
+/* ---------- creature game: the pixel-art interface frames (game-art/ui/) ---------- */
+/* Each frame is a 24x24 picture with 8-pixel corners; the browser stretches the middle. Never smoothed. */
+button.today-chip { border: 0; cursor: pointer; font: inherit; font-size: 13px; }
+.fx-p { line-height: 0; }
+/* Bars: ui/bar_frame.png around ui/bar_fill.png, both shown at twice their size. */
+.habitat-hud .hud-bar, .b-hp .hud-bar { height: 16px; box-sizing: border-box; border: 4px solid transparent; border-radius: 0; background: none; overflow: visible;
+  border-image: url("../game-art/ui/bar_frame.png") 2 fill / 4px; image-rendering: pixelated; }
+.habitat-hud .hud-bar i, .b-hp .hud-bar i { border-radius: 0; background: url("../game-art/ui/bar_fill.png") 0 0 / 8px 8px repeat-x; image-rendering: pixelated; }
+.habitat-hud .hud-bar.goal i { filter: hue-rotate(-100deg) saturate(1.5); }
+/* The creature's name sits in a speech bubble. */
+.habitat-name { background: none; color: #1b1420; border: 8px solid transparent; border-radius: 0; padding: 0 2px; line-height: 1.1; font-weight: 600;
+  border-image: url("../game-art/ui/bubble.png") 8 fill / 8px; image-rendering: pixelated; }
+/* Shop and wardrobe pictures stand in a frame that shows how rare the item is (by its price). */
+.shop-pic[class*="rarity-"] { box-sizing: border-box; border: 8px solid transparent; border-radius: 0; background: none; image-rendering: pixelated; }
+.shop-pic.rarity-common { border-image: url("../game-art/ui/rarity_common.png") 8 fill / 8px; }
+.shop-pic.rarity-lucky { border-image: url("../game-art/ui/rarity_lucky.png") 8 fill / 8px; }
+.shop-pic.rarity-jackpot { border-image: url("../game-art/ui/rarity_jackpot.png") 8 fill / 8px; }
+.shop-pic[class*="rarity-"] img { max-width: 56px; max-height: 56px; }
+/* Battle: the panel under the arena, the move buttons and the result card. */
+.b-panel:not(:empty) { border: 8px solid transparent; border-image: url("../game-art/ui/panel_dark.png") 8 fill / 8px; image-rendering: pixelated; padding: 4px; }
+.b-move { border: 8px solid transparent; border-radius: 0; background: none; color: #fff; padding: 2px 4px;
+  border-image: url("../game-art/ui/button.png") 8 fill / 8px; image-rendering: pixelated; }
+.b-move > img { background: #181930; box-shadow: 0 0 0 2px #0d0e20; } /* a dark tile, so every icon reads on the bright button */
+.b-move:active { border-image-source: url("../game-art/ui/button_pressed.png"); }
+.b-move:disabled { border-image-source: url("../game-art/ui/button_disabled.png"); opacity: 1; }
+.b-result { background: none; border: 8px solid transparent; border-radius: 0; padding: 8px; border-image: url("../game-art/ui/panel.png") 8 fill / 8px; image-rendering: pixelated; }
+/* The sheet's tabs carry an icon each now, so they sit a little closer and the coin count never breaks in two. */
+.game-sheet-head .tabs { gap: 4px; margin: 0; }
+.game-sheet-head .tabs button { padding: 4px 9px; }
+#sheet-coins { white-space: nowrap; flex: none; }
+/* A creature's battle numbers and study traits, as icons with a number each. */
+.creature-stats { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.creature-stats > span:not(.spacer) { white-space: nowrap; }
+/* The little flame on the combo chip: fx/combo_fire.png, four 16px frames. */
+.fx-combo-fire { display: inline-block; width: 16px; height: 16px; vertical-align: -3px; image-rendering: pixelated;
+  background: url("../game-art/fx/combo_fire.png") 0 0 / 64px 16px no-repeat; animation: fx-combo-fire .4s steps(4) infinite; }
+@keyframes fx-combo-fire { to { background-position: -64px 0; } }
+@media (prefers-reduced-motion: reduce) { .fx-combo-fire { animation: none; } }

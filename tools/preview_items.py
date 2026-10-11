@@ -56,6 +56,27 @@ def recolor(img: Image.Image, cmap: dict) -> Image.Image:
     return img
 
 
+def bare_of_shirt(torso: Image.Image, colors: dict) -> set:
+    """The torso pixels a shirt must not cover, as bareOfShirt in render.js: the outline round the body's
+    shape, and anything in the accent colour that grows out of it (back fins, a floater's tail tip)."""
+    px, w, h = torso.load(), torso.width, torso.height
+    at = lambda x, y: px[x, y][:3] if 0 <= x < w and 0 <= y < h and px[x, y][3] else None
+    line = hsl_to_rgb(colors["primary"][3])
+    accent = [hsl_to_rgb(a) for a in colors["accent"]]
+    around = [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1)]
+    bare = {(x, y) for y in range(h) for x in range(w)
+            if at(x, y) == line and any(at(x + dx, y + dy) is None for dx, dy in around)}
+    todo = list(bare)
+    while todo:
+        x, y = todo.pop()
+        for dx, dy in around:
+            n = (x + dx, y + dy)
+            if at(*n) in accent and n not in bare:
+                bare.add(n)
+                todo.append(n)
+    return bare
+
+
 def compose(d: dict, look: dict, equipped: dict) -> Image.Image:
     S = d["SIZES"][look["size"]]
     plan = d["SPECIES"][look["species"]]
@@ -104,12 +125,13 @@ def compose(d: dict, look: dict, equipped: dict) -> Image.Image:
     if equipped.get("shirt") and (ART / "item" / f"{equipped['shirt']}.png").exists():
         tile = Image.open(ART / "item" / f"{equipped['shirt']}.png").convert("RGBA")
         tp, px = tile.load(), torso.load()
-        line = hex_to_rgb(d["KEY"]["outline"])
+        line = hex_to_rgb(d["KEY"]["outline"])  # as shirtedTorso in render.js
+        bare = bare_of_shirt(torso, look["colors"])
         for y in range(round(torso.height * 0.18), round(torso.height * 0.8)):
             for x in range(torso.width):
                 r, g, b, a = px[x, y]
                 t = tp[x % tile.width, y % tile.height]
-                if a and (r, g, b) != line and t[3]:
+                if a and (x, y) not in bare and (r, g, b) != line and t[3]:
                     px[x, y] = (t[0], t[1], t[2], a)
     canvas.alpha_composite(torso, (tx, ty))
     if plan["legs"]:
