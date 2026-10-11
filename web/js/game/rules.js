@@ -1,20 +1,24 @@
-// The rules of the game, with no screen code: what studying earns and how a creature grows.
+// The rules of the game, with no screen code: what studying earns, how creatures grow and
+// evolve, the vocab review that powers battles, the shop, and badges.
 //
 // The guiding rule (from the design notes): studying earns breadth and identity, not raw power,
 // and healthy studying is rewarded rather than volume. So:
 //   - the big payout is reaching your own daily goal, the same whether the goal is 5 or 20 minutes;
 //   - everything else has steep diminishing returns within a day, so grinding isn't worth it;
-//   - a word only pays once a day, so tapping the same word over and over earns nothing.
+//   - a word only pays once a day, so tapping the same word over and over earns nothing;
+//   - the bonuses that are hard to fake pay best: words that become well known over weeks,
+//     answers that stay accurate, and days kept up.
 
-import { leadingBranch, newGenome, rng, stageOf, weightedPick } from "./genome.js";
-import { CATALOG, itemById } from "./data.js";
+import { bodyHue, formOf, leadingBranch, newGenome, readyToEvolve, rng, stageOf, weightedPick } from "./genome.js";
+import { BADGES, BRANCHES, BRANCH_IDS, CATALOG, VARIANTS, WEEKLY_RULES, itemById } from "./data.js";
 
-export const VERSION = 1;
+export const VERSION = 2;
 export const GOALS = [5, 10, 20];           // minutes of study a day; the owner chooses
 export const DAILY_COMPLETE_XP = 120;
-export const COMBO_WINDOW_MS = 30000;       // long enough to read a definition before the next word
+export const COMBO_WINDOW_MS = 30000;       // word lookups: long enough to read a definition first
 export const COMBO_STEPS = [1, 1.2, 1.5, 2];
 export const ADULT_XP = 6000;               // creature XP for growth 1.0 (about two months of daily goals)
+export const MAX_CREATURES = 12;
 
 const TIERS = [
   { id: "common", chance: 0.7, xp: [5, 15] },
@@ -25,87 +29,74 @@ const TIERS = [
 const SURPRISES = ["freeze", "hint"];
 
 export const dayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+/** Days since 1970 in local time: a plain number, easy to compare and add to. */
+export const dayNumber = (d = new Date()) => Math.floor((d.getTime() - d.getTimezoneOffset() * 60000) / 86400000);
+/** Weeks since 1970, changing on Mondays. */
+export const weekNumber = (d = new Date()) => Math.floor((dayNumber(d) + 3) / 7);
+
+// ---------- saved state ----------
+const freshDay = (key = "") => ({ key, seconds: 0, done: false, taps: 0, saves: 0, xp: 0, words: [], reviews: 0, battles: 0 });
+
+/** `state.creature` is always the creature out in the habitat (one of `state.roster`). */
+function attach(state) {
+  Object.defineProperty(state, "creature", {
+    get() { return this.roster[this.active] || this.roster[0]; },
+    enumerable: false, configurable: true,
+  });
+  return state;
+}
 
 export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
-  return {
+  return attach({
     v: VERSION, xp: 0, coins: 0, goal: 10,
-    creature: newGenome(seed),
+    roster: [newGenome(seed)], active: 0,
     items: { freeze: 1, hint: 0 },
     streak: 0, best_streak: 0, last_complete: "",
-    day: { key: "", seconds: 0, done: false, taps: 0, saves: 0, xp: 0, words: [] },
+    day: freshDay(),
     owned: [],   // ids of items bought
     decor: [],   // decorations standing in the habitat: {id, x}
-    tags: [],    // earned by how and when the owner studies
+    tags: [],    // earned by how and when the owner studies and fights
+    review: {},  // vocab word -> [box, day it is next due, times right, times wrong]
+    stats: { lookups: 0, goals: 0, reviews: 0, right: 0, battles: 0, wins: 0, friend_battles: 0, raids: 0, words: 0 },
+    week: { n: 0, right: 0, total: 0, paid: false },
+    rating: 1000, // battle skill, nothing to do with how much has been studied
+    rivals: {},   // friend id -> {name, wins, losses}
+    badges: [],
     updated_at: 0,
-  };
-}
-
-// ---------- the shop ----------
-export const SHOP_SIZE = 6;
-
-/** Today's shop: a few items the owner doesn't have yet, different each day, leaning toward
- * what suits this creature. Items needing a tag only appear once the tag is earned. */
-export function shopStock(state, now = new Date()) {
-  const pool = CATALOG.filter((it) => !state.owned.includes(it.id) && (it.requires || []).every((t) => state.tags.includes(t)));
-  const key = dayKey(now);
-  let seed = state.creature.seed;
-  for (const ch of key) seed = (Math.imul(seed, 31) + ch.charCodeAt(0)) >>> 0;
-  const rand = rng(seed);
-  const weights = { ...state.creature.traits };
-  for (const t of state.tags) weights[t] = 1;
-  const stock = [];
-  while (pool.length && stock.length < SHOP_SIZE) {
-    const pick = weightedPick(pool, rand, weights);
-    stock.push(pick);
-    pool.splice(pool.indexOf(pick), 1);
-  }
-  return stock;
-}
-
-/** Buy an item with coins. Returns an error message, or "" when bought. */
-export function buy(state, id) {
-  const it = itemById(id);
-  if (!it) return "That item doesn't exist.";
-  if (state.owned.includes(id)) return "You already have it.";
-  if (state.coins < it.price) return `You need ${it.price - state.coins} more coin${it.price - state.coins === 1 ? "" : "s"}.`;
-  state.coins -= it.price;
-  state.owned.push(id);
-  if (it.slot === "decor") placeDecor(state, id, true);
-  else state.creature.equipped[it.slot] = id; // put it straight on
-  return "";
-}
-
-/** Wear an owned item, or pass null to take off whatever is in that slot. */
-export function equip(state, slot, id) {
-  if (id && (!state.owned.includes(id) || (itemById(id) || {}).slot !== slot)) return;
-  if (id) state.creature.equipped[slot] = id;
-  else delete state.creature.equipped[slot];
-}
-
-/** Put an owned decoration out in the habitat (at a spot fixed by the creature's seed) or away. */
-export function placeDecor(state, id, out) {
-  state.decor = state.decor.filter((d) => d.id !== id);
-  if (!out || !state.owned.includes(id)) return;
-  let seed = state.creature.seed;
-  for (const ch of id) seed = (Math.imul(seed, 33) + ch.charCodeAt(0)) >>> 0;
-  state.decor.push({ id, x: Math.round(16 + rng(seed)() * 288) });
-}
-
-function grant(state, tag) {
-  if (!state.tags.includes(tag)) state.tags.push(tag);
+  });
 }
 
 /** Make a saved state safe to use (older saves, hand-edited values). */
 export function normalize(state) {
   const fresh = newState(1);
-  const s = state && typeof state === "object" && state.creature && Number.isFinite(state.creature.seed) ? state : fresh;
+  let s = state && typeof state === "object" ? state : null;
+  if (s && !Array.isArray(s.roster)) {
+    // Saves from before there could be several creatures kept the one creature here.
+    const only = Object.prototype.hasOwnProperty.call(s, "creature") ? s.creature : null;
+    if (only && Number.isFinite(only.seed)) { s.roster = [only]; s.active = 0; } else s = null;
+  }
+  if (s) s.roster = s.roster.filter((g) => g && Number.isFinite(g.seed));
+  if (!s || !s.roster.length) return fresh;
+  if (Object.prototype.hasOwnProperty.call(s, "creature")) delete s.creature;
+  attach(s);
   for (const [k, v] of Object.entries(fresh)) if (s[k] === undefined) s[k] = v;
   s.items = { ...fresh.items, ...(s.items || {}) };
   s.day = { ...fresh.day, ...(s.day || {}) };
-  s.creature.traits = { ...fresh.creature.traits, ...(s.creature.traits || {}) };
-  s.creature.equipped = s.creature.equipped || {};
-  for (const k of ["owned", "decor", "tags"]) if (!Array.isArray(s[k])) s[k] = [];
+  s.stats = { ...fresh.stats, ...(s.stats || {}) };
+  s.week = { ...fresh.week, ...(s.week || {}) };
+  const blank = fresh.roster[0];
+  for (const g of s.roster) {
+    g.traits = { ...blank.traits, ...(g.traits || {}) };
+    g.equipped = g.equipped || {};
+    g.branches = Array.isArray(g.branches) ? g.branches : g.branch ? [g.branch] : [];
+    g.moves = Array.isArray(g.moves) ? g.moves : [];
+    if (!Number.isFinite(g.growth)) g.growth = 0;
+  }
+  for (const k of ["owned", "decor", "tags", "badges"]) if (!Array.isArray(s[k])) s[k] = [];
+  for (const k of ["review", "rivals"]) if (!s[k] || typeof s[k] !== "object") s[k] = {};
+  if (!(s.active >= 0 && s.active < s.roster.length)) s.active = 0;
   if (!GOALS.includes(s.goal)) s.goal = 10;
+  s.v = VERSION;
   return s;
 }
 
@@ -138,7 +129,7 @@ export function rollDay(state, now = new Date()) {
       }
     }
   }
-  state.day = { key, seconds: 0, done: false, taps: 0, saves: 0, xp: 0, words: [] };
+  state.day = freshDay(key);
   return state;
 }
 
@@ -158,11 +149,20 @@ export function rollReward(rand) {
   return { tier: tier.id, xp, item: tier.id === "surprise" ? SURPRISES[Math.floor(rand() * SURPRISES.length)] : null };
 }
 
+function grant(state, tag) {
+  if (state.tags.includes(tag)) return false;
+  state.tags.push(tag);
+  return true;
+}
+
+/** Give XP to the player and the creature in the habitat. Returns the stage it reached, if it
+ * changed: "hatchling", "juvenile", or "ready" (grown enough to evolve when its owner chooses). */
 function grow(state, xp, trait) {
   const c = state.creature;
   state.xp += xp;
   state.day.xp += xp;
-  const before = stageOf(c.growth).id;
+  const before = formOf(c).id;
+  const wasReady = readyToEvolve(c);
   c.growth = Math.min(1, c.growth + xp / ADULT_XP);
   if (trait) {
     // Traits drift toward what the owner actually does; the others fade a little.
@@ -171,14 +171,16 @@ function grow(state, xp, trait) {
     for (const t of Object.keys(c.traits)) if (t !== trait) c.traits[t] = Math.max(0, c.traits[t] * (1 - step * 0.25));
     c.traits[trait] = Math.min(1, (c.traits[trait] || 0) + step);
   }
-  const after = stageOf(c.growth).id;
-  if (after === "adult" && !c.branch) c.branch = leadingBranch(c);
+  // An adult keeps opening new forms as its owner's habits broaden; it can switch between them.
+  if (c.branch) for (const id of BRANCH_IDS) if (!c.branches.includes(id) && c.traits[BRANCHES[id].trait] >= 0.5) c.branches.push(id);
+  if (!wasReady && readyToEvolve(c)) return "ready";
+  const after = formOf(c).id;
   return before === after ? null : after;
 }
 
 /**
  * Something happened while studying. Returns what it earned (or null for nothing):
- *   {xp, tier, item, combo, stage, levelUp, goalDone}
+ *   {type, xp, tier, item, combo, stage, levelUp, goalDone, badges}
  * Events: {type: "word", key}            a word was looked up (key identifies the word)
  *         {type: "save"}                 a word was saved to vocab
  *         {type: "study", seconds, mode} time spent listening ("listen") or reading ("read")
@@ -190,12 +192,13 @@ export function earn(state, event, ctx = {}) {
   rollDay(state, now);
   const day = state.day;
   const levelBefore = levelOf(state.xp).level;
-  const out = { type: event.type, xp: 0, tier: "common", item: null, combo: 1, stage: null, levelUp: false, goalDone: false };
+  const out = { type: event.type, xp: 0, tier: "common", item: null, combo: 1, stage: null, levelUp: false, goalDone: false, badges: [] };
 
   if (event.type === "word") {
     const key = String(event.key || "");
     if (!key || day.words.includes(key)) return null; // each word pays once a day
     day.words.push(key);
+    state.stats.lookups++;
     const reward = rollReward(rand);
     const combo = ctx.combo || { count: 0, at: 0 };
     combo.count = now.getTime() - combo.at <= COMBO_WINDOW_MS ? combo.count + 1 : 0;
@@ -232,6 +235,7 @@ export function earn(state, event, ctx = {}) {
       out.tier = "jackpot";
       out.xp += DAILY_COMPLETE_XP;
       state.coins += 10;
+      state.stats.goals++;
       const key = dayKey(now);
       const yesterday = new Date(now);
       yesterday.setDate(yesterday.getDate() - 1);
@@ -248,6 +252,303 @@ export function earn(state, event, ctx = {}) {
   }
   out.levelUp = levelOf(state.xp).level > levelBefore;
   if (out.levelUp) state.coins += 5;
+  out.badges = checkBadges(state);
   state.updated_at = now.getTime() / 1000;
   return out;
+}
+
+// ---------- evolving: a moment the owner chooses, with more than one way to go ----------
+
+/** The adult forms open to a creature right now: [{id, name, open, why}]. Its strongest habit
+ * is always open; the others open once that habit has had real use. */
+export function branchOptions(genome) {
+  const lead = leadingBranch(genome);
+  return BRANCH_IDS.map((id) => {
+    const trait = genome.traits[BRANCHES[id].trait] || 0;
+    const open = genome.branches.includes(id) || id === lead || trait >= 0.25;
+    return { id, name: BRANCHES[id].name, open, why: open ? BRANCHES[id].blurb : `Needs more ${BRANCHES[id].trait === "listener" ? "listening" : BRANCHES[id].trait === "reader" ? "reading" : "word collecting"}` };
+  });
+}
+
+/** Special forms and whether this owner has earned them: [{id, name, open, why}]. */
+export function variantOptions(state, genome) {
+  return Object.entries(VARIANTS).map(([id, v]) => {
+    let open;
+    if (id === "twin") open = state.roster.some((g) => g !== genome && formOf(g).id !== "egg" && g.type !== genome.type);
+    else open = [].concat(v.needs).some((t) => state.tags.includes(t));
+    return { id, name: v.name, open, why: open ? v.blurb : v.how };
+  });
+}
+
+/** A new egg for the roster. Its element leans toward how its owner studies. */
+export function layEgg(state, rand = Math.random) {
+  if (state.roster.length >= MAX_CREATURES) return null;
+  const traits = { ...state.creature.traits };
+  for (const t of state.tags) traits[t] = 1;
+  const type = weightedPick([
+    { id: "ember", weight_by: { curious: 2 } }, { id: "tide", weight_by: { listener: 2 } }, { id: "grove", weight_by: { collector: 2 } },
+    { id: "stone", weight_by: { reader: 2 } }, { id: "spark", weight_by: { early_bird: 2 } }, { id: "dusk", weight_by: { night_owl: 2 } },
+  ], rand, traits).id;
+  const egg = newGenome((rand() * 2 ** 32) >>> 0, type);
+  state.roster.push(egg);
+  return egg;
+}
+
+/** Evolve a ready creature into an adult form (and optionally a special form). Returns an error
+ * message, or "" when done. A grown creature leaves an egg behind for the roster. */
+export function evolve(state, index, branch, variant = null, rand = Math.random) {
+  const g = state.roster[index];
+  if (!g || !readyToEvolve(g)) return "It isn't ready to evolve yet.";
+  if (!branchOptions(g).some((b) => b.id === branch && b.open)) return "That form isn't open to it yet.";
+  if (variant && !variantOptions(state, g).some((v) => v.id === variant && v.open)) return "That special form hasn't been earned yet.";
+  g.branch = branch;
+  g.branches = [branch];
+  g.show = null;
+  setVariant(state, g, variant);
+  layEgg(state, rand);
+  checkBadges(state);
+  return "";
+}
+
+function setVariant(state, g, variant) {
+  g.variant = variant || null;
+  delete g.partnerHue;
+  if (variant === "twin") {
+    const partner = state.roster.find((o) => o !== g && formOf(o).id !== "egg" && o.type !== g.type);
+    if (partner) g.partnerHue = bodyHue(partner);
+  }
+}
+
+/** Change how a creature looks among what it has unlocked: another adult form, a special form,
+ * or an earlier stage (pass {show: null} to let it look its age again). Nothing is lost by it. */
+export function reshape(state, index, change) {
+  const g = state.roster[index];
+  if (!g) return;
+  if ("show" in change) g.show = change.show && change.show !== "egg" ? change.show : null;
+  if (!g.branch) return;
+  if (change.branch && g.branches.includes(change.branch)) g.branch = change.branch;
+  if ("variant" in change && (!change.variant || variantOptions(state, g).some((v) => v.id === change.variant && v.open))) setVariant(state, g, change.variant);
+}
+
+/** Choose which creature is out in the habitat (and so the one that grows as you study). */
+export function setActive(state, index) {
+  if (index >= 0 && index < state.roster.length) state.active = index;
+}
+
+// ---------- vocab review: what battles are made of ----------
+// Every saved word with a meaning can be asked. A word moves up a box each time it is answered
+// right and comes back after a longer wait; a wrong answer drops it two boxes. A word that climbs
+// to MATURE_BOX is "well known": it took weeks of right answers to get there, which is why
+// reaching it pays the best bonus.
+const INTERVALS = [0, 1, 2, 4, 8, 16, 32]; // days until a word comes round again, by box
+export const MATURE_BOX = 4;
+const uidOf = (v) => String(v.uid || v.id);
+const meaningOf = (v) => String(v.meaning || "").trim();
+
+export const quizzable = (vocab) => (vocab || []).filter((v) => v && String(v.text || "").trim() && meaningOf(v));
+
+/** How well the owner has been answering lately (0..1), or null before there is enough to go on. */
+export function retention(state) {
+  if (state.week.total >= 10) return state.week.right / state.week.total;
+  return state.stats.reviews >= 10 ? state.stats.right / state.stats.reviews : null;
+}
+
+/**
+ * A question from the owner's own vocab: words that are due come first, so every player is
+ * tested at their own level. Returns {uid, prompt, sentence, options, answer, reverse} or null
+ * when there aren't enough different meanings to make four choices.
+ * `reverse` questions show the meaning and ask for the word.
+ */
+export function pickQuestion(state, vocab, rand = Math.random, now = new Date(), avoid = []) {
+  const pool = quizzable(vocab);
+  const distinct = new Set(pool.map((v) => meaningOf(v).toLowerCase()));
+  if (distinct.size < 4) return null;
+  const today = dayNumber(now);
+  const fresh = pool.filter((v) => !avoid.includes(uidOf(v)));
+  const from = fresh.length ? fresh : pool;
+  const due = from.filter((v) => { const r = state.review[uidOf(v)]; return !r || r[1] <= today; });
+  const list = due.length ? due : from;
+  const word = list[Math.floor(rand() * list.length)];
+  const reverse = rand() < 0.35;
+  const right = reverse ? String(word.text).trim() : meaningOf(word);
+  const seen = new Set([right.toLowerCase(), meaningOf(word).toLowerCase()]);
+  const others = [];
+  const shuffled = pool.slice();
+  for (let i = shuffled.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; }
+  for (const v of shuffled) {
+    if (others.length === 3) break;
+    const text = reverse ? String(v.text).trim() : meaningOf(v);
+    if (seen.has(text.toLowerCase()) || seen.has(meaningOf(v).toLowerCase())) continue;
+    seen.add(text.toLowerCase());
+    seen.add(meaningOf(v).toLowerCase());
+    others.push(text);
+  }
+  if (others.length < 3) return null;
+  const answer = Math.floor(rand() * 4);
+  const options = others.slice();
+  options.splice(answer, 0, right);
+  return { uid: uidOf(word), prompt: reverse ? meaningOf(word) : String(word.text).trim(), sentence: reverse ? "" : String(word.sentence || ""), options, answer, reverse };
+}
+
+/** Record an answer. Returns {xp, graduated, retentionBonus, stage}. */
+export function answerQuestion(state, uid, correct, now = new Date()) {
+  rollDay(state, now);
+  const week = weekNumber(now);
+  if (state.week.n !== week) state.week = { n: week, right: 0, total: 0, paid: false };
+  const rec = state.review[uid] || [0, 0, 0, 0];
+  const before = rec[0];
+  rec[0] = correct ? Math.min(INTERVALS.length - 1, before + 1) : Math.max(0, before - 2);
+  rec[1] = dayNumber(now) + INTERVALS[rec[0]];
+  rec[correct ? 2 : 3]++;
+  state.review[uid] = rec;
+  state.stats.reviews++;
+  state.week.total++;
+  if (correct) { state.stats.right++; state.week.right++; }
+  const out = { xp: 0, graduated: false, retentionBonus: false, stage: null };
+  if (correct) out.xp = Math.round(3 * fade(state.day.reviews, 40, 120));
+  state.day.reviews++;
+  if (correct && before < MATURE_BOX && rec[0] >= MATURE_BOX) { // well known at last: the bonus that can't be rushed
+    out.graduated = true;
+    out.xp += 15;
+    state.coins += 1;
+  }
+  if (!state.week.paid && state.week.total >= 30 && state.week.right / state.week.total >= 0.8) { // accuracy kept up all week
+    state.week.paid = true;
+    out.retentionBonus = true;
+    out.xp += 60;
+    state.coins += 5;
+  }
+  if (out.xp) out.stage = grow(state, out.xp, "collector");
+  state.updated_at = now.getTime() / 1000;
+  return out;
+}
+
+/** How many of the owner's words are well known, and how many are due today. */
+export function reviewSummary(state, vocab, now = new Date()) {
+  const today = dayNumber(now);
+  let mature = 0;
+  let due = 0;
+  for (const v of quizzable(vocab)) {
+    const r = state.review[uidOf(v)];
+    if (r && r[0] >= MATURE_BOX) mature++;
+    if (!r || r[1] <= today) due++;
+  }
+  return { mature, due };
+}
+
+// ---------- battles: what they pay ----------
+export const weeklyRule = (now = new Date()) => WEEKLY_RULES[weekNumber(now) % WEEKLY_RULES.length];
+
+/** A little extra strength from a creature's age, used ONLY against wild creatures and bosses.
+ * Battles between people ignore it: there, everyone fights at the same level. */
+export const wildBonus = (genome) => 1 + 0.15 * Math.min(1, genome.growth);
+
+/**
+ * Settle a finished battle. `result` = {mode: "wild" | "rental" | "friend", won, flawless,
+ * comeback, rival: {id, name, rating}}. Returns {xp, coins, tags, egg, rating, badges}.
+ */
+export function finishBattle(state, result, ctx = {}) {
+  const now = ctx.now || new Date();
+  const rand = ctx.rand || Math.random;
+  rollDay(state, now);
+  const share = fade(state.day.battles, 3, 9); // the first few battles of the day are the ones that pay
+  state.day.battles++;
+  state.stats.battles++;
+  const out = { xp: Math.round((result.won ? 40 : 15) * share), coins: result.won && share ? Math.ceil(4 * share) : 0, tags: [], egg: false, rating: 0, badges: [] };
+  if (result.won) {
+    state.stats.wins++;
+    // Feats in battle, not hours of grinding, open the special forms and moves.
+    if (result.flawless && grant(state, "flawless")) out.tags.push("flawless");
+    if (result.comeback && grant(state, "comeback")) out.tags.push("comeback");
+    if (result.mode === "wild" && state.roster.length < 6 && rand() < 0.15) out.egg = !!layEgg(state, rand);
+  }
+  if (result.mode !== "wild") {
+    const theirs = (result.rival && result.rival.rating) || 1000;
+    const expected = 1 / (1 + 10 ** ((theirs - state.rating) / 400));
+    out.rating = Math.round(24 * ((result.won ? 1 : 0) - expected));
+    state.rating += out.rating;
+  }
+  if (result.mode === "friend" && result.rival && result.rival.id) {
+    state.stats.friend_battles++;
+    const r = state.rivals[result.rival.id] || { name: result.rival.name || "", wins: 0, losses: 0 };
+    r.name = result.rival.name || r.name;
+    r[result.won ? "wins" : "losses"]++;
+    state.rivals[result.rival.id] = r;
+  }
+  state.coins += out.coins;
+  if (out.xp) grow(state, out.xp, null);
+  out.badges = checkBadges(state);
+  state.updated_at = now.getTime() / 1000;
+  return out;
+}
+
+// ---------- badges ----------
+/** Award any badges newly earned. `extra.words` is the number of saved vocab words, when known. */
+export function checkBadges(state, extra = {}) {
+  if (Number.isFinite(extra.words)) state.stats.words = Math.max(state.stats.words, extra.words);
+  const s = state.stats;
+  const anyTrait = (t) => state.roster.some((g) => (g.traits[t] || 0) >= 0.99);
+  const anyForm = (b) => state.roster.some((g) => g.branches.includes(b));
+  const earned = {
+    first_word: s.lookups > 0, first_hatch: state.roster.some((g) => stageOf(g.growth).id !== "egg"), goal_10: s.goals >= 10,
+    streak_7: state.best_streak >= 7, streak_30: state.best_streak >= 30, streak_100: state.best_streak >= 100,
+    words_100: s.words >= 100, words_1000: s.words >= 1000,
+    listener: anyTrait("listener"), reader: anyTrait("reader"), collector: anyTrait("collector"),
+    adult_echo: anyForm("echo"), adult_sage: anyForm("sage"), adult_keeper: anyForm("keeper"),
+    friend_battle: s.friend_battles > 0, raid_win: s.raids > 0,
+  };
+  const fresh = BADGES.map((b) => b.id).filter((id) => earned[id] && !state.badges.includes(id));
+  state.badges.push(...fresh);
+  return fresh;
+}
+
+// ---------- the shop ----------
+export const SHOP_SIZE = 6;
+
+/** Today's shop: a few items the owner doesn't have yet, different each day, leaning toward
+ * what suits this creature. Items needing a tag only appear once the tag is earned. */
+export function shopStock(state, now = new Date()) {
+  const pool = CATALOG.filter((it) => !state.owned.includes(it.id) && (it.requires || []).every((t) => state.tags.includes(t)));
+  const key = dayKey(now);
+  let seed = state.roster[0].seed;
+  for (const ch of key) seed = (Math.imul(seed, 31) + ch.charCodeAt(0)) >>> 0;
+  const rand = rng(seed);
+  const weights = { ...state.creature.traits };
+  for (const t of state.tags) weights[t] = 1;
+  const stock = [];
+  while (pool.length && stock.length < SHOP_SIZE) {
+    const pick = weightedPick(pool, rand, weights);
+    stock.push(pick);
+    pool.splice(pool.indexOf(pick), 1);
+  }
+  return stock;
+}
+
+/** Buy an item with coins. Returns an error message, or "" when bought. */
+export function buy(state, id) {
+  const it = itemById(id);
+  if (!it) return "That item doesn't exist.";
+  if (state.owned.includes(id)) return "You already have it.";
+  if (state.coins < it.price) return `You need ${it.price - state.coins} more coin${it.price - state.coins === 1 ? "" : "s"}.`;
+  state.coins -= it.price;
+  state.owned.push(id);
+  if (it.slot === "decor") placeDecor(state, id, true);
+  else state.creature.equipped[it.slot] = id; // put it straight on
+  return "";
+}
+
+/** Wear an owned item, or pass null to take off whatever is in that slot. */
+export function equip(state, slot, id) {
+  if (id && (!state.owned.includes(id) || (itemById(id) || {}).slot !== slot)) return;
+  if (id) state.creature.equipped[slot] = id;
+  else delete state.creature.equipped[slot];
+}
+
+/** Put an owned decoration out in the habitat (at a spot fixed by the first creature's seed) or away. */
+export function placeDecor(state, id, out) {
+  state.decor = state.decor.filter((d) => d.id !== id);
+  if (!out || !state.owned.includes(id)) return;
+  let seed = state.roster[0].seed;
+  for (const ch of id) seed = (Math.imul(seed, 33) + ch.charCodeAt(0)) >>> 0;
+  state.decor.push({ id, x: Math.round(16 + rng(seed)() * 288) });
 }

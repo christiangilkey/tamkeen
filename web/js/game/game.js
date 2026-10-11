@@ -2,7 +2,7 @@
 // Also the "juice": the pop, particles, sounds and rolling numbers that make a reward feel good.
 
 import { saveSettings, state as app } from "../app.js";
-import { earn, normalize, newState, rollDay } from "./rules.js";
+import { COMBO_STEPS, COMBO_WINDOW_MS, earn, normalize, newState, rollDay } from "./rules.js";
 
 let game = null;
 let saveTimer = 0;
@@ -20,7 +20,7 @@ export function getGame() {
 
 /** Another device saved a newer game: adopt it (in place, so screens holding the state see it). */
 function adopt(remote) {
-  if (!remote || !remote.creature || !game) return;
+  if (!remote || !(remote.roster || remote.creature) || !game) return;
   const theirs = (remote.xp || 0) > 0;
   const mine = (game.xp || 0) > 0;
   // The newer save wins, but an unplayed egg never replaces a game with progress.
@@ -40,6 +40,11 @@ export function saveGame() {
 }
 
 /** Be told whenever something is earned: fn(result, state). Returns a function that stops it. */
+/** Tell the habitat (and anything else listening) that something was earned outside reward(). */
+export function announce(result) {
+  for (const fn of listeners) { try { fn(result, game); } catch { /* a listener must not break the game */ } }
+}
+
 export function onGame(fn) {
   listeners.add(fn);
   return () => listeners.delete(fn);
@@ -55,6 +60,7 @@ export function reward(event, anchor = null) {
   if (!result) return null;
   saveGame();
   if (event.type !== "study" || result.goalDone) celebrate(result, anchor);
+  if (event.type !== "study" || result.goalDone) showChip(g, result);
   for (const fn of listeners) { try { fn(result, g); } catch { /* a listener must not break studying */ } }
   return result;
 }
@@ -155,6 +161,40 @@ function celebrate(result, anchor) {
   }
   fountain(x, y, result);
   sfx(result.tier);
+}
+
+// ---------- the XP readout shown while studying ----------
+// Away from Home there is no habitat on screen, so a small chip appears after each reward: the
+// total rolls up to its new value, and while a combo is alive it catches fire and shows the
+// multiplier with the time left to keep the chain going.
+let chipTimer = 0;
+// Leaving the page puts the readout away (Home has the full bar).
+if (typeof window !== "undefined") window.addEventListener("hashchange", () => document.getElementById("game-chip")?.classList.remove("show", "hot", "max"));
+function showChip(g, result) {
+  if (document.querySelector(".habitat")) return; // Home shows all this already
+  let chip = document.getElementById("game-chip");
+  if (!chip) {
+    chip = document.createElement("div");
+    chip.id = "game-chip";
+    chip.innerHTML = `<span class="chip-xp"><b></b> XP</span><span class="chip-combo" hidden></span><i class="chip-fuse"></i>`;
+    chip.querySelector("b").dataset.value = String(g.xp - (result.xp || 0));
+    document.body.append(chip);
+  }
+  rollNumber(chip.querySelector("b"), g.xp, (n) => n.toLocaleString());
+  const hot = result.type === "word" && combo.count > 0;
+  const next = COMBO_STEPS[Math.min(combo.count + 1, COMBO_STEPS.length - 1)];
+  const label = chip.querySelector(".chip-combo");
+  label.hidden = result.type !== "word";
+  label.textContent = hot ? `🔥 ×${result.combo} · next ×${next}` : `next ×${next}`;
+  chip.classList.toggle("hot", hot);
+  chip.classList.toggle("max", result.combo >= COMBO_STEPS[COMBO_STEPS.length - 1]);
+  const fuse = chip.querySelector(".chip-fuse");
+  fuse.style.animation = "none";
+  void fuse.offsetWidth;
+  fuse.style.animation = result.type === "word" ? `chip-fuse ${COMBO_WINDOW_MS}ms linear forwards` : "none";
+  chip.classList.add("show");
+  clearTimeout(chipTimer);
+  chipTimer = setTimeout(() => chip.classList.remove("show", "hot", "max"), result.type === "word" ? COMBO_WINDOW_MS : 5000);
 }
 
 /** Count a number on screen up to its new value, ticking as it goes. */

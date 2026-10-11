@@ -5,7 +5,10 @@
 
 The list of files, with their sizes, comes from web/js/game/data.js (the single source of truth),
 so this always matches what the game loads. Real pixel art replaces these files one for one:
-same name, same size. Never run with --all once real art is in place.
+same name, same size.
+
+REAL ART IS NOW IN PLACE (delivered 2026-10-10 by the art session; its own generators are in
+tools/game_art/). Do not run this with --all: it would overwrite the real art with placeholders.
 """
 
 from __future__ import annotations
@@ -441,6 +444,9 @@ def main() -> None:
     for a in files:
         path = OUT / a["file"]
         if path.exists() and not overwrite:
+            continue
+        if a["kind"] not in MAKERS or (a["kind"] == "sheet" and a.get("id") in ("hit", "shot", "shield", "heal", "boost")):
+            print("no placeholder for", a["file"], "(it needs real art)")
             continue
         img = MAKERS[a["kind"]](a)
         assert img.size == (a["w"], a["h"]), (a["file"], img.size)

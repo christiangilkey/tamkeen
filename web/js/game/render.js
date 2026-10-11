@@ -2,7 +2,7 @@
 // A creature is assembled from parts (torso, head, ears...) placed on named sockets, recoloured
 // to its own palette, and animated by nudging parts a pixel or two (no per-frame art needed).
 
-import { HEAD, KEY, PART, SIZES, SLOTS, SPECIES } from "./data.js";
+import { HEAD, KEY, PART, SIZES, SLOTS, SPECIES, itemById } from "./data.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const images = new Map();   // file -> Promise<HTMLImageElement | null>
@@ -162,10 +162,12 @@ export async function composeCreature(look, pose = {}) {
   on(earF, HEAD.earF, PART.ear.anchor);
   on(horn, HEAD.horn, PART.horn.anchor);
   // Worn items sit on sockets, so they stay in place whatever the creature's size.
-  at(worn.neck, S.neck, SLOTS.neck.anchor, 0, 1);
-  at(worn.held, S.arm, SLOTS.held.anchor, 3, plan.arms ? S.armSize[1] - 2 : 2);
-  on(worn.face, HEAD.face, SLOTS.face.anchor);
-  on(worn.hat, HEAD.hat, SLOTS.hat.anchor);
+  // (An item's optional `offset: {s: [dx, dy], m: ..., l: ...}` in data.js nudges it per body size.)
+  const nudge = (slot) => { const it = look.equipped && itemById(look.equipped[slot]); return (it && it.offset && it.offset[look.size]) || [0, 0]; };
+  at(worn.neck, S.neck, SLOTS.neck.anchor, nudge("neck")[0], 1 + nudge("neck")[1]);
+  at(worn.held, S.arm, SLOTS.held.anchor, 3 + nudge("held")[0], (plan.arms ? S.armSize[1] - 2 : 2) + nudge("held")[1]);
+  if (worn.face) ctx.drawImage(worn.face, hx + HEAD.face[0] - SLOTS.face.anchor[0] + nudge("face")[0], hy + HEAD.face[1] - SLOTS.face.anchor[1] + nudge("face")[1]);
+  if (worn.hat) ctx.drawImage(worn.hat, hx + HEAD.hat[0] - SLOTS.hat.anchor[0] + nudge("hat")[0], hy + HEAD.hat[1] - SLOTS.hat.anchor[1] + nudge("hat")[1]);
   return c;
 }
 

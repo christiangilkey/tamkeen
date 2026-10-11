@@ -2,9 +2,11 @@
 // wanders, reacts to being petted and to what you earn while studying; the bar underneath shows
 // today's goal, level and streak.
 
-import { h } from "../app.js";
+import { h, toast } from "../app.js";
 import { FX_FRAMES, HABITAT, SPECIES, STAGES, TYPES, BRANCHES } from "./data.js";
-import { describe, stageOf } from "./genome.js";
+import { describe, formOf, readyToEvolve, stageOf } from "./genome.js";
+import { BADGES } from "./data.js";
+import { openBattleMenu } from "./battle-ui.js";
 import { GOALS, levelOf } from "./rules.js";
 import { FRAME, composeCreature, drawSheet, loadImage } from "./render.js";
 import { getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
@@ -35,9 +37,12 @@ export function habitat() {
         <span class="today-chip" id="g-streak"></span>
         <span class="today-chip" id="g-coins" title="Coins, for the shop (coming)"></span>
         <span class="today-chip" id="g-freeze" title="A streak freeze covers a missed day"></span>
-        <span class="spacer"></span>
+      </div>
+      <div class="hud-actions">
+        <button type="button" class="primary" id="g-battle">⚔ Battle</button>
+        <button type="button" id="g-creatures">Creatures</button>
+        <button type="button" id="g-shop">Shop</button>
         <button type="button" id="g-mine">My things</button>
-        <button type="button" class="primary" id="g-shop">Shop</button>
       </div>
     </div>
   </section>`);
@@ -59,11 +64,13 @@ export function habitat() {
     $("#g-goalbar").style.width = `${Math.min(100, Math.round((game.day.seconds / (game.goal * 60)) * 100))}%`;
     $("#g-goalbtn").textContent = `Goal: ${game.goal} min`;
     const look = describe(game.creature);
-    const stage = stageOf(game.creature.growth);
-    const next = STAGES[STAGES.indexOf(stage) + 1];
+    const stage = formOf(game.creature);
+    const ready = readyToEvolve(game.creature);
+    const next = ready || game.creature.show ? null : STAGES[STAGES.indexOf(stageOf(game.creature.growth)) + 1];
     const pct = next ? Math.round(((game.creature.growth - stage.from) / (next.from - stage.from)) * 100) : 100;
     $("#g-stage").textContent = `${TYPES[look.type].name} ${stage.id === "egg" ? "egg" : SPECIES[look.species].name.toLowerCase()} · ${STAGE_LABEL[stage.id]}`
-      + (look.branch ? ` (${BRANCHES[look.branch].name})` : "") + (next ? ` · ${pct}% to ${STAGE_LABEL[next.id].toLowerCase()}` : "");
+      + (look.branch ? ` (${BRANCHES[look.branch].name})` : "") + (ready ? " · ✨ ready to evolve: tap it" : next ? ` · ${pct}% to ${STAGE_LABEL[next.id].toLowerCase()}` : "");
+    $("#g-stage").classList.toggle("lit", ready);
     $("#g-streak").textContent = `🔥 ${game.streak} day${game.streak === 1 ? "" : "s"}`;
     $("#g-streak").classList.toggle("lit", game.streak > 0);
     $("#g-coins").textContent = `◉ ${game.coins}`;
@@ -77,6 +84,8 @@ export function habitat() {
   };
   $("#g-shop").onclick = () => openShop("shop", () => paintHud());
   $("#g-mine").onclick = () => openShop("mine", () => paintHud());
+  $("#g-creatures").onclick = () => openShop("creatures", () => paintHud());
+  $("#g-battle").onclick = () => openBattleMenu();
   $(".habitat-name").onclick = () => {
     const name = window.prompt("Name your creature", game.creature.name || "");
     if (name === null) return;
@@ -109,7 +118,7 @@ export function habitat() {
 
   function refreshLook() {
     const look = describe(game.creature);
-    const key = JSON.stringify([look.stage, look.branch, look.size, look.equipped]);
+    const key = JSON.stringify([game.creature.seed, look.stage, look.branch, look.variant, look.size, look.equipped]);
     if (key === lookKey) return look;
     lookKey = key;
     frames = {};
@@ -198,6 +207,7 @@ export function habitat() {
         ctx.drawImage(frame, -FRAME / 2, -FRAME);
         ctx.restore();
       }
+      if (readyToEvolve(game.creature) && art.sparkle) drawSheet(ctx, art.sparkle, 4, (now / 110) % 4, pet.x + Math.sin(now / 240) * 16, groundY - 44 + Math.cos(now / 190) * 12);
       if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), groundY - 44 - (Math.floor(now / 300) % 3));
     }
     for (let i = floats.length - 1; i >= 0; i--) {
@@ -243,13 +253,19 @@ export function habitat() {
     const r = canvas.getBoundingClientRect();
     const x = ((e.clientX - r.left) / r.width) * W;
     const egg = stageOf(game.creature.growth).id === "egg";
-    if (Math.abs(x - (egg ? W / 2 : pet.x)) < 30) { cheer("pet"); sfx("pet"); }
+    if (Math.abs(x - (egg ? W / 2 : pet.x)) < 30) {
+      cheer("pet");
+      sfx("pet");
+      if (readyToEvolve(game.creature)) openShop("creatures", () => paintHud()); // evolving starts with a tap
+    }
     else if (!egg) { pet.target = Math.max(30, Math.min(W - 30, x)); pet.wait = 0; } // "come here"
   });
 
   const stop = onGame((result) => {
     if (result.type === "sync") { paintHud(); return; } // a newer save arrived from another device
     paintHud(true);
+    for (const id of result.badges || []) toast(`🏅 Badge earned: ${(BADGES.find((b) => b.id === id) || {}).name || id}`);
+    if (result.stage === "ready") toast("✨ Your creature is ready to evolve. Tap it when you want to.");
     if (result.stage) {
       const x = result.stage === "hatchling" ? W / 2 : pet.x;
       bursts.push({ id: result.stage === "hatchling" ? "hatch" : "levelup", x, y: HABITAT.ground - 30, t: 0 });

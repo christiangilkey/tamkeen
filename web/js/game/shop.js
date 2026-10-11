@@ -5,6 +5,7 @@ import { h, toast } from "../app.js";
 import { CATALOG, DECOR, ITEMS, SLOTS, TAGS, itemById } from "./data.js";
 import { buy, equip, placeDecor, shopStock } from "./rules.js";
 import { getGame, saveGame, sfx } from "./game.js";
+import { badgesPanel, creaturesPanel } from "./creatures.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const fileOf = (it) => (it.slot === "decor" ? `${it.id}.png` : `item/${it.id}.png`);
@@ -18,6 +19,8 @@ export function openShop(tab, changed) {
       <div class="tabs">
         <button type="button" data-tab="shop">Shop</button>
         <button type="button" data-tab="mine">My things</button>
+        <button type="button" data-tab="creatures">Creatures</button>
+        <button type="button" data-tab="badges">Badges</button>
       </div>
       <span class="spacer"></span>
       <span class="today-chip lit" id="sheet-coins"></span>
@@ -72,6 +75,8 @@ export function openShop(tab, changed) {
     for (const b of wrap.querySelectorAll("[data-tab]")) b.classList.toggle("primary", b.dataset.tab === which);
     wrap.querySelector("#sheet-coins").textContent = `◉ ${game.coins} coins`;
     body.innerHTML = "";
+    if (which === "creatures") { creaturesPanel(body, game, changed); return; }
+    if (which === "badges") { badgesPanel(body, game); return; }
     if (which === "shop") {
       const stock = shopStock(game);
       body.append(h(`<p class="small muted">Today's selection, chosen for your creature. It changes every day. Coins come from
@@ -96,7 +101,7 @@ export function openShop(tab, changed) {
   }
   for (const b of wrap.querySelectorAll("[data-tab]")) b.onclick = () => paint(b.dataset.tab);
   document.body.append(wrap);
-  paint(tab === "mine" ? "mine" : "shop");
+  paint(["mine", "creatures", "badges"].includes(tab) ? tab : "shop");
   return close;
 }
 

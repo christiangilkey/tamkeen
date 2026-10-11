@@ -250,7 +250,9 @@ heart_empty arrow`.
 
 ---
 
-## 4. Phase 3: battles, raids, leagues (not built yet)
+## 4. Phase 3: battles, raids, leagues
+
+Battles and badges are built and use this art. Raid bosses and league icons are delivered but not used yet.
 
 | Files | Canvas | Count | Notes |
 |---|---|---|---|
@@ -273,7 +275,8 @@ heart_empty arrow`.
 | 1. Creatures, eggs, meadow, effects, icons | 167 | built, running on placeholders |
 | 2. Accessories (25) and decorations (24) | 49 | built, running on placeholders |
 | 2. Shirts, more habitats, structures, items, emotes, interface | about 60 | not built |
-| 3. Battles, bosses, leagues, badges | about 57 | not built |
+| 3. Battle effects, pads, move and stat icons, badges | 41 | built, using the delivered art |
+| 3. Bosses and league icons | 16 | delivered, not used yet |
 
 Sound is not on this list: the app makes its own sound effects.
 

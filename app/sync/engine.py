@@ -247,7 +247,7 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
 
         # The creature game: one saved state for the whole account; the most recently saved wins.
         game = remote.get("game")
-        if isinstance(game, dict) and isinstance(game.get("creature"), dict):
+        if isinstance(game, dict) and (isinstance(game.get("roster"), list) or isinstance(game.get("creature"), dict)):
             row = conn.execute("SELECT value FROM settings WHERE key = 'game_state'").fetchone()
             try:
                 mine = json.loads(row["value"]) if row else None

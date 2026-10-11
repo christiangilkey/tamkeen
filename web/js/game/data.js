@@ -141,6 +141,95 @@ export const TAGS = {
   streak_7: "Seven days in a row",
 };
 
+// ---------- special forms ----------
+// On top of its adult form a creature can take a variant, earned in ways other than plain growth:
+// by the company it keeps, by where and when its owner studies, or by a feat in battle. A variant
+// changes colours and features of the same animal; it never adds power.
+export const VARIANTS = {
+  twin: { name: "Twin", how: "Raise it alongside a hatched creature of another element", blurb: "takes on its companion's colours" },
+  nocturne: { name: "Nocturne", how: "Study after 10 at night", needs: "night_owl", blurb: "a night form with a moonlit glow" },
+  champion: { name: "Champion", how: "Win a battle from the brink, or without a single wrong answer", needs: ["comeback", "flawless"], blurb: "crested and gold-marked" },
+};
+
+// ---------- battles ----------
+// Battles are won by reviewing your own vocab, not by the size of your numbers: every creature
+// fights at the same level whatever its age. What studying adds is choice: more creatures, more
+// moves, more forms.
+export const CYCLE = ["ember", "grove", "stone", "spark", "tide", "dusk"]; // each is strong against the next
+export function matchup(attack, defend) {
+  if (!attack || attack === defend) return 1;
+  const i = CYCLE.indexOf(attack);
+  const j = CYCLE.indexOf(defend);
+  if (i < 0 || j < 0) return 1;
+  return (i + 1) % CYCLE.length === j ? 1.25 : (j + 1) % CYCLE.length === i ? 0.8 : 1;
+}
+// Every body plan has the same total; they differ in where it sits.
+export const BASE_STATS = {
+  blob: { hp: 120, atk: 20, def: 21, spd: 16 },
+  biped: { hp: 100, atk: 23, def: 18, spd: 20 },
+  quad: { hp: 105, atk: 20, def: 23, spd: 17 },
+  floater: { hp: 90, atk: 21, def: 18, spd: 24 },
+};
+const move = (id, name, kind, power, extra = {}) => ({ id, name, kind, power, ...extra });
+export const MOVES = [
+  move("tackle", "Tackle", "attack", 40, { from: "all" }),
+  move("guard", "Guard", "guard", 50, { from: "all" }),
+  // Two per element: the second is learned as a juvenile.
+  move("cinder", "Cinder", "attack", 45, { element: "ember" }), move("wildfire", "Wildfire", "attack", 60, { element: "ember", stage: "juvenile" }),
+  move("vine", "Vine Whip", "attack", 45, { element: "grove" }), move("overgrowth", "Overgrowth", "attack", 60, { element: "grove", stage: "juvenile" }),
+  move("pebble", "Pebble Toss", "attack", 45, { element: "stone" }), move("rockslide", "Rockslide", "attack", 60, { element: "stone", stage: "juvenile" }),
+  move("zap", "Zap", "attack", 45, { element: "spark" }), move("thunderclap", "Thunderclap", "attack", 60, { element: "spark", stage: "juvenile" }),
+  move("splash", "Splash", "attack", 45, { element: "tide" }), move("riptide", "Riptide", "attack", 60, { element: "tide", stage: "juvenile" }),
+  move("shade", "Shade", "attack", 45, { element: "dusk" }), move("nightfall", "Nightfall", "attack", 60, { element: "dusk", stage: "juvenile" }),
+  // One per body plan, learned as a juvenile.
+  move("bounce_back", "Bounce Back", "heal", 30, { species: "blob", stage: "juvenile" }),
+  move("focus", "Focus", "boost", 30, { species: "biped", stage: "juvenile" }),
+  move("charge", "Charge", "attack", 55, { species: "quad", stage: "juvenile" }),
+  move("tailwind", "Tailwind", "boost", 30, { species: "floater", stage: "juvenile" }),
+  // One per adult form.
+  move("resonance", "Resonance", "attack", 68, { branch: "echo", own: true }),
+  move("insight", "Insight", "boost", 40, { branch: "sage" }),
+  move("hoard", "Hoard", "heal", 36, { branch: "keeper" }),
+  // Earned by how you study or fight; any hatched creature can use them.
+  move("night_strike", "Night Strike", "attack", 62, { element: "dusk", tag: "night_owl" }),
+  move("dawn_ray", "Dawn Ray", "attack", 62, { element: "spark", tag: "early_bird" }),
+  move("steady_heart", "Steady Heart", "heal", 34, { tag: "streak_7" }),
+  move("second_wind", "Second Wind", "heal", 40, { tag: "comeback" }),
+  move("perfect_form", "Perfect Form", "boost", 45, { tag: "flawless" }),
+];
+export const moveById = (id) => MOVES.find((m) => m.id === id) || MOVES[0];
+
+// A different rule each week keeps any one team from being "the answer".
+export const WEEKLY_RULES = [
+  { id: "open", name: "Open week", text: "Any creatures, any moves." },
+  { id: "starters", name: "Starters only", text: "Only hatchlings and juveniles may fight (adults sit this week out)." },
+  { id: "no_heal", name: "No healing", text: "Healing moves are not allowed." },
+  { id: "warm", name: "Ember, Spark and Stone", text: "Only Ember, Spark and Stone creatures.", types: ["ember", "spark", "stone"] },
+  { id: "cool", name: "Tide, Grove and Dusk", text: "Only Tide, Grove and Dusk creatures.", types: ["tide", "grove", "dusk"] },
+  { id: "solo", name: "One on one", text: "Teams of one." , team: 1 },
+];
+export const BATTLE_UNLOCK_WORDS = 100; // saved vocab words needed before battles open
+
+// Badges are permanent and completable: a record of what you have done, never taken away.
+export const BADGES = [
+  { id: "first_word", name: "First word", text: "Look up a word" },
+  { id: "first_hatch", name: "First hatch", text: "Hatch an egg" },
+  { id: "goal_10", name: "Ten goals", text: "Reach your daily goal 10 times" },
+  { id: "streak_7", name: "One week", text: "A 7-day streak" },
+  { id: "streak_30", name: "One month", text: "A 30-day streak" },
+  { id: "streak_100", name: "Hundred days", text: "A 100-day streak" },
+  { id: "words_100", name: "100 words", text: "Save 100 words" },
+  { id: "words_1000", name: "1000 words", text: "Save 1000 words" },
+  { id: "listener", name: "Listener", text: "Fill the listening habit" },
+  { id: "reader", name: "Reader", text: "Fill the reading habit" },
+  { id: "collector", name: "Collector", text: "Fill the collecting habit" },
+  { id: "adult_echo", name: "Echo", text: "Raise an Echo adult" },
+  { id: "adult_sage", name: "Sage", text: "Raise a Sage adult" },
+  { id: "adult_keeper", name: "Keeper", text: "Raise a Keeper adult" },
+  { id: "friend_battle", name: "Friendly rival", text: "Finish a battle with a friend" },
+  { id: "raid_win", name: "Raid", text: "Help defeat a weekly boss" },
+];
+
 // ---------- habitat ----------
 export const HABITAT = { size: [320, 144], ground: 124, themes: ["meadow"], layers: ["sky", "far", "mid", "ground"] };
 
@@ -192,6 +281,15 @@ export function artFiles() {
   for (const id of ["xp", "coin", "streak", "freeze", "hint", "goal"]) add(`icon/${id}.png`, [16, 16], "icon", { id });
   for (const it of ITEMS) add(`item/${it.id}.png`, SLOTS[it.slot].size, "item", { id: it.id, slot: it.slot });
   for (const it of DECOR) add(`${it.id}.png`, [it.size, it.size], "decor", { id: it.id });
+  for (const t of TYPE_IDS) {
+    add(`battle/hit_${t}.png`, [160, 32], "sheet", { id: "hit", frames: 5 });
+    add(`battle/shot_${t}.png`, [48, 16], "sheet", { id: "shot", frames: 3 });
+  }
+  for (const id of ["shield", "heal", "boost"]) add(`battle/${id}.png`, [288, 48], "sheet", { id, frames: 6 });
+  add("battle/pad_player.png", [64, 16], "pad");
+  add("battle/pad_rival.png", [64, 16], "pad");
+  for (const id of ["move_attack", "move_guard", "move_boost", "move_heal", "stat_hp", "stat_atk", "stat_def", "stat_spd"]) add(`icon/${id}.png`, [16, 16], "icon", { id });
+  for (const b of BADGES) add(`badge/${b.id}.png`, [24, 24], "badge", { id: b.id });
   return out;
 }
 

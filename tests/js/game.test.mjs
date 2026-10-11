@@ -31,6 +31,9 @@ test("growing changes proportions and unlocks features, never the creature's ide
   g.growth = 0.5;
   const teen = describe(g);
   g.growth = 0.9;
+  assert.equal(describe(g).size, "m", "it waits as a juvenile until its owner evolves it");
+  g.branch = "echo";
+  g.branches = ["echo"];
   const adult = describe(g);
   assert.deepEqual([baby.size, teen.size, adult.size], ["s", "m", "l"]);
   for (const k of ["species", "ear", "tail", "eyes", "pattern", "type"]) assert.equal(adult[k], baby[k], `${k} carries over`);
@@ -158,8 +161,8 @@ test("an egg hatches on the first day's goal, and growth reaches adulthood", () 
   s.creature.growth = 0.699;
   s.creature.traits.reader = 0.9;
   const r = earn(s, { type: "save" }, { now: at("2026-10-10T11:00:00") });
-  assert.equal(r.stage, "adult");
-  assert.equal(s.creature.branch, "sage", "the adult form is fixed when it is reached");
+  assert.equal(r.stage, "ready", "grown enough: now it waits for its owner");
+  assert.equal(s.creature.branch, null);
   assert.ok(ADULT_XP > 3000);
 });
 

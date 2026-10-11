@@ -75,7 +75,7 @@ export function merge(remote) {
   // The creature game: one saved state for the whole account; the most recently saved wins.
   const game = remote.game;
   const mine = settings.game_state;
-  if (game && game.creature && (!mine || gameWins(game, mine))) {
+  if (game && (game.roster || game.creature) && (!mine || gameWins(game, mine))) {
     settings.game_state = game;
     kv.set("settings", { ...settings }).catch(console.error);
     window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: game }));
