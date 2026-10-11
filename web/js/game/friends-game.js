@@ -9,9 +9,14 @@ import { claimRaid, giveEgg, giveItem, leaguePercent, raidDamage, receiveGift, r
 import { publicProfile } from "./battle.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
+import { hasStudyLanguage, studyLanguage } from "../languages.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 let lastPublish = 0;
+
+/** Everything friends may see of my game: team, league, week numbers, today's XP, favourite
+ * creature and the language I'm learning. Never words. */
+export const myPublicRow = () => ({ ...publicProfile(getGame(), weeklyRule()), language: hasStudyLanguage() ? studyLanguage() : null });
 
 /** Share my team and this week's numbers with friends (at most every few minutes unless forced). */
 export async function publishNow(force = false) {
@@ -19,7 +24,7 @@ export async function publishNow(force = false) {
   try {
     if (!(await social.currentUser())) return false;
     lastPublish = Date.now();
-    return await social.publishGame(publicProfile(getGame(), weeklyRule()));
+    return await social.publishGame(myPublicRow());
   } catch {
     return false; // offline, or the online service isn't set up for the game yet
   }

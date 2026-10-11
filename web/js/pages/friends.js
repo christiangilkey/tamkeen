@@ -6,6 +6,8 @@ import { esc, h, toast, showMenu } from "../app.js";
 import * as social from "../social.js";
 import { studyCard, studyEditor } from "../components/studycard.js";
 import { avatar, tagChips } from "../components/avatar.js";
+import { gameBar } from "../game/friend-bar.js";
+import { publishNow } from "../game/friends-game.js";
 
 export async function render(view) {
   view.append(h(`<div class="page friends-page">
@@ -19,7 +21,7 @@ export async function render(view) {
   let editing = false; // true while a form is open: live updates must not redraw over typing
 
   /** One person: picture with online dot, name, guild tags, buttons, and their study card. */
-  function personRow(user, { online = null, tags = [], buttons = [], extra = null, note = "" } = {}) {
+  function personRow(user, { online = null, tags = [], buttons = [], extra = null, note = "", game = null } = {}) {
     const row = h(`<div class="friend-row"><div class="friend-head"><span class="name"></span><span class="spacer"></span></div></div>`);
     const head = row.querySelector(".friend-head");
     head.prepend(avatar(user, { online }));
@@ -30,6 +32,9 @@ export async function render(view) {
       n.textContent = note;
       head.querySelector(".spacer").before(n);
     }
+    // To the right of the name: language, league, today's XP and their favourite creature.
+    const bar = gameBar(game);
+    if (bar) head.querySelector(".spacer").after(bar);
     for (const [label, cls, run] of buttons) {
       const b = h(`<button type="button" class="${cls}"></button>`);
       b.innerHTML = label;
@@ -53,14 +58,17 @@ export async function render(view) {
     let unread = new Map();
     let tags = new Map();
     let online = new Set();
+    let games = new Map();
     try {
       st = await social.friendsState();
       if (st && st.me.username) {
         gs = await social.guildsState();
         const everyone = [...new Set([st.me.id, ...st.friends.map((f) => f.user.id), ...gs.guilds.flatMap((g) => g.members.map((m) => m.id))])];
-        [mine, cards, unread, tags, online] = await Promise.all([
+        await publishNow(); // so my own bar (and what friends see of me) is current
+        [mine, cards, unread, tags, online, games] = await Promise.all([
           social.myStatus(), social.statusesOf(everyone.filter((id) => id !== st.me.id)), social.unreadCounts(),
           social.tagsOf(everyone), social.onlineAmong(everyone),
+          social.gameProfiles(everyone).catch(() => new Map()), // the bar is an extra: never block the list on it
         ]);
       }
     } catch (e) {
@@ -106,6 +114,12 @@ export async function render(view) {
     me.querySelector(".me-photo").append(avatar(st.me, { online: true, large: true }));
     me.querySelector(".me-name").textContent = `@${st.me.username}`;
     if ((tags.get(st.me.id) || []).length) me.querySelector(".me-name").append(" ", tagChips(tags.get(st.me.id)));
+    const myBar = gameBar(games.get(st.me.id));
+    if (myBar) {
+      // What friends see next to my name. The favourite creature is chosen on the Creatures page of the game.
+      myBar.title = "This is what friends see next to your name";
+      me.querySelector(".me-head .spacer").after(myBar);
+    }
     me.querySelector(".me-photo").onclick = () => photoInput.click();
     const removeBtn = me.querySelector("#photo-remove");
     if (removeBtn) {
@@ -253,7 +267,8 @@ export async function render(view) {
           }]);
         }
         members.append(personRow(m, { online: online.has(m.id), tags: (tags.get(m.id) || []).filter((t) => t !== g.tag),
-                                      note: m.id === g.owner ? "founder" : "", buttons, extra: studyCard(cards.get(m.id)) }));
+                                      note: m.id === g.owner ? "founder" : "", buttons, extra: studyCard(cards.get(m.id)),
+                                      game: games.get(m.id) }));
       }
       if (g.members.length === 1) members.append(h(`<p class="small muted">Just you so far. Invite a friend to get it going.</p>`));
       guildList.append(box);
@@ -299,7 +314,7 @@ export async function render(view) {
           if (!confirm(`Remove ${f.user.username} from your friends?`)) return;
           await social.removeFriendship(f.id);
         }],
-      ], extra: studyCard(cards.get(f.user.id)) }));
+      ], extra: studyCard(cards.get(f.user.id)), game: games.get(f.user.id) }));
     }
     body.append(list);
 

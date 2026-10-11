@@ -4,12 +4,12 @@
 import { h, toast } from "../app.js";
 import { BADGES, BRANCHES, SPECIES, STAGES, TRAITS, TYPES, VARIANTS, moveById } from "./data.js";
 import { describe, formOf, readyToEvolve, stageOf } from "./genome.js";
-import { branchOptions, evolve, reshape, setActive, variantOptions } from "./rules.js";
+import { branchOptions, evolve, reshape, setActive, setShowcase, showcaseOf, variantOptions } from "./rules.js";
 import { fighter, knownMoves, loadout } from "./battle.js";
 import { portrait } from "./battle-ui.js";
 import { icon } from "./render.js";
 import { announce, saveGame, sfx } from "./game.js";
-import { gift } from "./friends-game.js";
+import { gift, publishNow } from "./friends-game.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const STAGE_NAME = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", adult: "Adult" };
@@ -57,6 +57,13 @@ export function creaturesPanel(body, game, changed) {
       + (look.branch ? ` · ${BRANCHES[look.branch].name}` : "") + (look.variant ? ` · ${VARIANTS[look.variant].name}` : "") + ` · seed ${g.seed}`;
     card.querySelector("button").onclick = () => { setActive(game, i); repaint(); };
     const more = card.querySelector(".creature-more");
+    if (!egg) {
+      // The favourite: the creature friends see next to my name in their friends list.
+      const shown = showcaseOf(game) === g;
+      const fav = h(`<button type="button" class="ghost small fav-btn${shown ? " on" : ""}" title="Friends see this creature next to your name">${icon("star")} ${shown ? "Shown to friends" : "Show to friends"}</button>`);
+      fav.onclick = () => { setShowcase(game, shown && game.showcase === g.seed ? null : g.seed); repaint(); publishNow(true); };
+      card.querySelector(".creature-info").append(fav);
+    }
     if (!egg) {
       // Its battle numbers, and how far each way of studying has shaped it.
       const f = fighter(game, g);

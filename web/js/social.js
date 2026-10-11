@@ -747,7 +747,13 @@ export async function declineGuildInvite(inviteId) {
 export async function publishGame(row) {
   const user = await currentUser();
   if (!user) return false;
-  const { error } = await (await sb()).from("game_profiles").upsert({ user_id: user.id, ...row });
+  const c = await sb();
+  let { error } = await c.from("game_profiles").upsert({ user_id: user.id, ...row });
+  if (error && error.code === "PGRST204") {
+    // The online database is older than this app (no columns for the friends-list bar yet).
+    const { language, xp_day, xp_today, showcase, ...old } = row;
+    ({ error } = await c.from("game_profiles").upsert({ user_id: user.id, ...old }));
+  }
   if (error) throw new Error(friendly(error));
   return true;
 }
@@ -756,8 +762,10 @@ export async function publishGame(row) {
 export async function gameProfiles(userIds) {
   const out = new Map();
   if (!userIds.length) return out;
-  const { data, error } = await (await sb()).from("game_profiles")
-    .select("user_id, team, form, rating, league, week, goal_days, reviews, updated_at").in("user_id", userIds);
+  const c = await sb();
+  const base = "user_id, team, form, rating, league, week, goal_days, reviews, updated_at";
+  let { data, error } = await c.from("game_profiles").select(`${base}, language, xp_day, xp_today, showcase`).in("user_id", userIds);
+  if (error && error.code === "42703") ({ data, error } = await c.from("game_profiles").select(base).in("user_id", userIds)); // older database
   if (error) throw new Error(friendly(error));
   for (const r of data) out.set(r.user_id, r);
   return out;

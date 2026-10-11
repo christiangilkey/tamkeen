@@ -459,7 +459,7 @@ function runBattle(b, vocab) {
       // Let the friend know how it went, and refresh what friends see of me.
       social.reportBattle(b.rival.id, result.won, { rating: game.rating }).catch((e) => toast(`Couldn't tell ${b.rival.name}: ${e.message}`, { error: true }));
     }
-    social.currentUser().then((u) => { if (u) social.publishGame(publicProfile(game, weeklyRule())).catch(() => {}); });
+    import("./friends-game.js").then((m) => m.publishNow(true));
     sfx(result.won ? "jackpot" : "surprise");
     for (const id of pay.badges) badgeToast(id);
     const lines = [

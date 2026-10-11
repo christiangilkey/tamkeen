@@ -82,6 +82,7 @@ Status: ✅ built · 🟡 partly · ⬜ not built
 | Gifting and trading items or eggs | ✅ gifts · ⬜ trades | Items and unhatched eggs can be given (`gifts` table). No two-way trade screen |
 | Rivalries: named rival, head-to-head record, rematch | 🟡 | Record shown beside each friend, and a Rematch button on results. No single "named rival" |
 | Badges: permanent and completable | ✅ | 16 badges (`data.BADGES`) |
+| Bar next to each name in the friends list: language, league icon, XP today, favourite creature | ✅ code · ⬜ database | `friend-bar.js`; pick the favourite with "Show to friends" on the Creatures page (`rules.setShowcase`). Needs `supabase/v6-game-card.sql` run once; until then the bar shows league only |
 | Weekly leagues with promotion and demotion | ✅ | Bronze to Diamond: 5+ goal days in a week moves up, 0-1 moves down (`rules.rollLeague`) |
 | Original creatures, nothing like Pokémon | ✅ | |
 

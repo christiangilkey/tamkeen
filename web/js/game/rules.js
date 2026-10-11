@@ -65,6 +65,7 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     raid: 0,                      // the week whose raid reward has been claimed
     rating: 1000, // battle skill, nothing to do with how much has been studied
     rivals: {},   // friend id -> {name, wins, losses}
+    showcase: null, // seed of the favourite creature friends see next to my name (null = the one in the habitat)
     badges: [],
     updated_at: 0,
   });
@@ -410,6 +411,18 @@ const uidOf = (v) => String(v.uid || v.id);
 const meaningOf = (v) => String(v.meaning || "").trim();
 
 export const quizzable = (vocab) => (vocab || []).filter((v) => v && String(v.text || "").trim() && meaningOf(v));
+
+/** Choose the creature friends see next to my name (pass null to follow the one in the habitat). */
+export function setShowcase(state, seed) {
+  state.showcase = state.roster.some((g) => g.seed === seed) ? seed : null;
+}
+
+/** The creature shown to friends: the chosen favourite, else the one in the habitat, else the
+ * first that has hatched. Null while there are only eggs. */
+export function showcaseOf(state) {
+  const hatched = (g) => g && stageOf(g.growth).id !== "egg";
+  return [state.roster.find((g) => g.seed === state.showcase), state.creature, ...state.roster].find(hatched) || null;
+}
 
 /** How well the owner has been answering lately (0..1), or null before there is enough to go on. */
 export function retention(state) {

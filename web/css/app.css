@@ -968,3 +968,26 @@ button.today-chip { cursor: pointer; font: inherit; }
 .b-potion { margin-top: 8px; width: 100%; padding: 8px; border-radius: 12px; font-size: 13px; }
 .creature-head { flex-wrap: wrap; }
 @media (max-width: 560px) { .plot-act { flex-basis: 100%; justify-content: flex-start; } }
+
+/* ---------- friends list: the game bar next to a name (language, league, XP today, favourite creature) ---------- */
+.game-bar { display: inline-flex; align-items: center; gap: 8px; padding: 2px 4px 2px 10px; border: 1px solid var(--border); border-radius: 99px; background: var(--surface-2); font-size: 12px; white-space: nowrap; flex: none; }
+.gb-lang { font-weight: 600; }
+.gb-league { display: inline-flex; }
+.gb-league .px-icon { vertical-align: middle; }
+.gb-xp { display: inline-flex; align-items: center; gap: 3px; font-variant-numeric: tabular-nums; }
+.gb-xp b { font-weight: 700; }
+.gb-xp .small { color: var(--muted); font-size: 11px; }
+.gb-xp.none { opacity: .55; }
+.gb-creature { min-height: 0; padding: 0; width: 40px; height: 40px; border-radius: 50%; overflow: hidden; background: var(--surface); border: 1px solid var(--border); display: inline-grid; place-items: center; }
+.gb-creature:hover { border-color: var(--accent); }
+.gb-creature .portrait { display: block; }
+.gb-showcase { display: flex; align-items: center; gap: 12px; margin: 8px 0 2px 44px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); }
+.gb-big { flex: none; }
+.fav-btn { margin-top: 4px; align-self: flex-start; }
+.fav-btn.on { color: var(--accent); border-color: var(--accent); }
+.me-head .game-bar { margin-right: 4px; }
+@media (max-width: 640px) {
+  .game-bar { order: 5; margin-left: 44px; }
+  .friend-head .game-bar ~ button { order: 6; }
+  .gb-showcase { margin-left: 0; }
+}

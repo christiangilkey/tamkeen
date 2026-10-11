@@ -5,7 +5,7 @@
 
 import { BASE_STATS, MOVES, matchup, moveById } from "./data.js";
 import { describe, leadingBranch, newGenome, rng, stageOf } from "./genome.js";
-import { retention, wildBonus, weekNumber, raidDamage } from "./rules.js";
+import { retention, wildBonus, weekNumber, raidDamage, dayKey, showcaseOf } from "./rules.js";
 
 export const FAST_MS = 5000;       // answer correctly within this and the combo chain grows
 export const QUESTION_MS = 12000;  // after this the question counts as missed
@@ -64,8 +64,39 @@ export function publicProfile(state, rule, now = new Date()) {
              loadout: loadout(state, g, rule) };
   });
   const form = retention(state);
+  const fav = showcaseOf(state);
   return { team, form: form === null ? 0.7 : Math.round(form * 100) / 100, rating: state.rating, league: state.league,
-           week: weekNumber(now), goal_days: state.goalWeek.n === weekNumber(now) ? state.goalWeek.days : 0, reviews: raidDamage(state, now) };
+           week: weekNumber(now), goal_days: state.goalWeek.n === weekNumber(now) ? state.goalWeek.days : 0, reviews: raidDamage(state, now),
+           // The small bar next to my name in a friend's list: today's XP and my favourite creature.
+           xp_day: dayKey(now), xp_today: state.day.key === dayKey(now) ? Math.max(0, Math.round(state.day.xp || 0)) : 0,
+           showcase: fav ? { seed: fav.seed, type: fav.type, growth: Math.round(fav.growth * 1000) / 1000, branch: fav.branch || null,
+                             variant: fav.variant || null, partnerHue: fav.partnerHue, show: fav.show || null,
+                             name: (fav.name || "").slice(0, 20) } : null };
+}
+
+/** A friend's XP for "today". Days start at each player's own midnight, so a number counts while
+ * it is dated today, or dated a day either side and updated within the last 18 hours. */
+export function xpToday(profile, now = new Date()) {
+  if (!profile || !profile.xp_day || !Number.isFinite(profile.xp_today)) return 0;
+  if (profile.xp_day === dayKey(now)) return profile.xp_today;
+  const near = [-1, 1].some((d) => dayKey(new Date(now.getTime() + d * 86400000)) === profile.xp_day);
+  const fresh = profile.updated_at && now.getTime() - new Date(profile.updated_at).getTime() < 18 * 3600000;
+  return near && fresh ? profile.xp_today : 0;
+}
+
+/** A friend's showcased creature, checked before it is drawn (it came from another device). */
+export function showcaseGenome(profile) {
+  const g = profile && profile.showcase;
+  if (!g || typeof g !== "object" || !Number.isFinite(g.seed) || !Number.isFinite(g.growth)) return null;
+  if (stageOf(g.growth).id === "egg") return null;
+  const made = newGenome(g.seed);
+  if (typeof g.type === "string") made.type = g.type;
+  made.growth = Math.max(0, Math.min(1, g.growth));
+  for (const k of ["branch", "variant", "show"]) made[k] = typeof g[k] === "string" ? g[k] : null;
+  if (made.branch) made.branches = [made.branch];
+  if (Number.isFinite(g.partnerHue)) made.partnerHue = g.partnerHue;
+  made.name = typeof g.name === "string" ? g.name.slice(0, 20) : "";
+  return made;
 }
 
 /** A creature ready to fight. `wild` adds the small edge its age gives against wild creatures only. */
