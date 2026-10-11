@@ -44,6 +44,11 @@ def clips_dir() -> Path:
     return _sub("clips")
 
 
+def anki_clips_dir() -> Path:
+    """Word and sentence clips already cut for an Anki export, kept so the next export is quick."""
+    return _sub("anki-clips")
+
+
 def models_dir() -> Path:
     return _sub("models")
 

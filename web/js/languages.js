@@ -114,11 +114,25 @@ export function setLang(el, code) {
   return el;
 }
 
+/** `translation` with ⟦ ⟧ put around `meaning`, when the meaning appears in it exactly once as
+ * whole words; "" otherwise. Used for answers that came without the marks (ones saved before
+ * the AI was asked for them, or where it forgot). */
+function markMeaning(translation, meaning) {
+  const wanted = meaning.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  if (!wanted) return "";
+  const hits = [...translation.matchAll(new RegExp(`(?<![\\p{L}\\p{N}])${wanted}(?![\\p{L}\\p{N}])`, "giu"))];
+  if (hits.length !== 1) return "";
+  const from = hits[0].index;
+  const to = from + hits[0][0].length;
+  return `${translation.slice(0, from)}⟦${translation.slice(from, to)}⟧${translation.slice(to)}`;
+}
+
 /** What to store when a looked-up word is saved to vocab (`def` is the AI's answer, or null).
  * Arabic keeps the fully vowelled spelling as the word itself; other languages keep the word as
- * written and note how it is read. */
+ * written and note how it is read. `translation` is the sentence in the learner's own language
+ * with ⟦ ⟧ around the part that renders the word: the front of the word's Anki card. */
 export function vocabFromDefinition(def, word, code) {
-  if (!def) return { text: word, meaning: "", notes: "" };
+  if (!def) return { text: word, meaning: "", notes: "", translation: "" };
   const L = langInfo(code);
   const vowelled = code === "ar" && def.vocalized;
   const notes = [
@@ -127,7 +141,9 @@ export function vocabFromDefinition(def, word, code) {
     def.root && `${L.root || "Root"}: ${def.root}`,
     def.pos, def.dialect_note,
   ].filter(Boolean).join(" · ");
-  return { text: vowelled ? def.vocalized : word, meaning: def.meaning || "", notes };
+  const plain = def.sentence_translation || "";
+  const translation = def.translation_marked || markMeaning(plain, def.meaning || "") || plain;
+  return { text: vowelled ? def.vocalized : word, meaning: def.meaning || "", notes, translation };
 }
 
 // ---------- words with and without spaces ----------

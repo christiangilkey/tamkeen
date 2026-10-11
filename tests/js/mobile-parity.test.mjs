@@ -7,7 +7,20 @@ import * as js from "../../mobile/src/js/shared-logic.js";
 
 const py = JSON.parse(readFileSync(new URL("../fixtures/parity.json", import.meta.url), "utf8"));
 const segs = [{ start: 0.0, end: 2.5, text: "مرحبا بكم" }, { start: 2.5, end: 3661.042, text: "في الحلقة" }];
-const vocab = [{ text: "كتاب", sentence: "هذا كتاب جميل", meaning: 'book, "tome"', notes: "n.", episode_title: "Ep", start: 65.0, end: 65.5 }];
+const vocab = [
+  { uid: "v1", text: "كتاب", sentence: "هذا كتاب جميل", meaning: 'book, "tome"', notes: "n.", episode_title: "Ep", start: 65.0, end: 65.5 },
+  // A looked-up word: vowelled, with the notes the app writes, in a sentence that has no vowel marks,
+  // and the sentence's translation with the word's part marked (it becomes the card's front).
+  { uid: "v2", text: "مُرْتَبِكَة", sentence: "كانت البنت مرتبكة من <السؤال>.", meaning: "confused", episode_title: "Ep", start: null, end: null,
+    notes: "Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.\nheard in ep. 3",
+    translation: "The girl [Sara] was ⟦confused⟧ by the <question>." },
+  { uid: "v3", text: "قلم", sentence: "", meaning: "", notes: "my own note", episode_title: "", start: null, end: null },
+  // Translations without usable marks: the front falls back to the meaning.
+  { uid: "v4", text: "هون", sentence: "انتي جديدة هون؟", meaning: "here", notes: "", episode_title: "", start: null, end: null,
+    translation: "Are you new here?" },
+  { uid: "v5", text: "هون", sentence: "انتي جديدة هون؟", meaning: "here", notes: "", episode_title: "", start: null, end: null,
+    translation: "Are you ⟧new⟦ ⟦here?" },
+];
 
 test("Arabic normalization matches Python", () => {
   for (const [input, expected] of Object.entries(py.normalize)) assert.equal(js.normalize(input), expected, input);

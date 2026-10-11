@@ -149,11 +149,25 @@ test("saved answers: Arabic keys unchanged, other languages kept apart", async (
 });
 
 test("saving a looked-up word: Arabic keeps its vowels, others note the reading", () => {
-  assert.deepEqual(vocabFromDefinition(null, "hola", "es"), { text: "hola", meaning: "", notes: "" });
+  assert.deepEqual(vocabFromDefinition(null, "hola", "es"), { text: "hola", meaning: "", notes: "", translation: "" });
   const ar = vocabFromDefinition({ vocalized: "هَوْن", lemma: "هون", root: "ه و ن", pos: "adverb", meaning: "here", dialect_note: "" }, "هون", "ar");
   assert.equal(ar.text, "هَوْن");
   assert.equal(ar.notes, "Dictionary form: هون · Root: ه و ن · adverb");
   const zh = vocabFromDefinition({ vocalized: "kàopǔ", lemma: "靠谱", root: "靠 rely + 谱 score", pos: "adjective", meaning: "reliable", dialect_note: "colloquial" }, "靠谱", "zh");
   assert.equal(zh.text, "靠谱");
   assert.equal(zh.notes, "Reading: kàopǔ · Dictionary form: 靠谱 · Characters: 靠 rely + 谱 score · adjective · colloquial");
+});
+
+test("saving a looked-up word keeps its sentence translation, marked where the word is", () => {
+  const saved = (def) => vocabFromDefinition({ vocalized: "", lemma: "", root: "", pos: "", dialect_note: "", ...def }, "w", "es").translation;
+  assert.equal(saved({ meaning: "confused", sentence_translation: "The girl was confused by the question.",
+    translation_marked: "The girl was ⟦confused⟧ by the question." }), "The girl was ⟦confused⟧ by the question.");
+  // An answer saved before the AI marked its translation: the meaning is looked for in it.
+  assert.equal(saved({ meaning: "Here", sentence_translation: "Are you new here?" }), "Are you new ⟦here⟧?");
+  assert.equal(saved({ meaning: "a+b (c)", sentence_translation: "It says a+b (c)." }), "It says ⟦a+b (c)⟧.");
+  // Not found as whole words, or found more than once: kept unmarked rather than guessed.
+  assert.equal(saved({ meaning: "the", sentence_translation: "Then there were others." }), "Then there were others.");
+  assert.equal(saved({ meaning: "big", sentence_translation: "The big dog saw the big cat." }), "The big dog saw the big cat.");
+  assert.equal(saved({ meaning: "to write", sentence_translation: "He wrote it." }), "He wrote it.");
+  assert.equal(saved({ meaning: "", sentence_translation: "" }), "");
 });

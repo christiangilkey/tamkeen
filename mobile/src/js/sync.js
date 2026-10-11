@@ -57,7 +57,12 @@ export function merge(remote) {
   const vocab = new Map(lib.vocab.map((v) => [v.uid, v]));
   for (const r of remote.vocab || []) {
     const l = vocab.get(r.uid);
-    if (!l || newer(r, l)) { vocab.set(r.uid, r); changed++; }
+    if (!l) { vocab.set(r.uid, r); changed++; continue; }
+    if (newer(r, l)) {
+      // A device with an older version sends no translation; keep the one already known.
+      vocab.set(r.uid, { ...r, translation: r.translation ?? l.translation ?? "" });
+      changed++;
+    }
   }
   lib.vocab = [...vocab.values()];
 
@@ -92,7 +97,8 @@ export function snapshot() {
     device: "android",
     feeds: [...lib.feeds].sort(byUid),
     episodes: lib.episodes.filter((e) => live.has(e.feed_uid)).sort(byUid),
-    vocab: [...lib.vocab].sort(byUid),
+    // Words saved before translations were kept have none; the desktop writes those as "".
+    vocab: lib.vocab.map((v) => ({ ...v, translation: v.translation || "" })).sort(byUid),
     folders: [...(lib.folders || [])].sort(byUid),
     definitions: [...lib.definitions].sort((a, b) => (a.key < b.key ? -1 : 1)),
     game: settings.game_state || null,

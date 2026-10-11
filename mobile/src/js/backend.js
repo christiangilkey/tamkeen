@@ -293,6 +293,7 @@ const routes = [
     const v = { uid: newUid(), episode_uid: e ? e.uid : null, text, sentence: (body.sentence || "").trim(),
                 start: body.start ?? null, end: body.end ?? null, sent_start: body.sent_start ?? null,
                 sent_end: body.sent_end ?? null, meaning: body.meaning || "", notes: body.notes || "",
+                translation: (body.translation || "").trim(),
                 episode_title: e ? e.title : "", folders: [], deleted: 0, created_at: t, updated_at: t };
     lib.vocab.push(v);
     changed();

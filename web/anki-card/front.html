@@ -1,0 +1,204 @@
+<div class="tk tk-front">
+  <div class="tk-bar">
+    <span class="tk-deck">{{Subdeck}}</span>
+    <a class="tk-pencil" onclick="tkEdit()" title="Show the plain text so it can be edited"><svg viewBox="0 0 16 16"><path d="M10.9 2.6l2.5 2.5-7.6 7.6-3.1.6.6-3.1z"/></svg></a>
+  </div>
+  <div class="tk-field tk-prompt" data-tk="front">
+    <div class="tk-view"></div>
+    <div class="tk-raw" data-name="Front">{{edit:Front}}</div>
+  </div>
+</div>
+
+<div class="card-timer">Time: <span id="timer">0.0</span>s</div>
+
+<script>
+if (!window.ankiTimerLoop) {
+  window.ankiTimerLoop = setInterval(function () {
+    var el = document.getElementById('timer');
+    if (!el) return;
+
+    if (el !== window.ankiTimerEl) {          // this is a freshly rendered side
+      window.ankiTimerEl = el;
+      if (!document.getElementById('answer')) // no #answer means it's a front
+        window.ankiCardStart = Date.now();    // so start a new timing run
+    }
+
+    if (!window.ankiCardStart) window.ankiCardStart = Date.now();
+    el.textContent = ((Date.now() - window.ankiCardStart) / 1000).toFixed(1);
+  }, 50);
+}
+</script>
+
+<script>
+// Lays the card out nicely. It only ever reads the fields and builds a separate copy to show:
+// the fields themselves are never changed, so editing during review saves exactly what you typed.
+(function () {
+  var ARABIC = /[؀-ۿݐ-ݿࢠ-ࣿﭐ-﷿ﹰ-﻿]/;
+
+  function make(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function trim(s) { return (s || '').replace(/ /g, ' ').replace(/^\s+|\s+$/g, ''); }
+  function textOf(n) { return n.nodeType === 8 ? '' : trim(n.textContent); }
+  function auto(e) { e.setAttribute('dir', 'auto'); return e; }
+
+  /** A copy of what a field holds (inside the edit-during-review wrapper when that add-on is on). */
+  function copyOf(field) {
+    var raw = field.querySelector('.tk-raw');
+    return (raw.querySelector('[data-field]') || raw).cloneNode(true);
+  }
+
+  /** [bracketed] words become a highlight. */
+  function highlight(root) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false), found = [], n;
+    while ((n = walker.nextNode())) found.push(n);
+    found.forEach(function (node) {
+      var parts = node.nodeValue.split(/\[([^\[\]]+)\]/);
+      if (parts.length < 2) return;
+      var frag = document.createDocumentFragment();
+      parts.forEach(function (p, i) {
+        if (p) frag.appendChild(i % 2 ? make('mark', 'tk-hl', p) : document.createTextNode(p));
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  /** Split a run of nodes into lines at each <br>, dropping empty lines. */
+  function lines(nodes) {
+    var out = [[]];
+    nodes.forEach(function (n) {
+      if (n.nodeType === 8) return;
+      if (n.nodeType === 1 && n.tagName === 'BR') out.push([]);
+      else if (n.nodeType === 1 && n.tagName === 'DIV') { out.push([n]); out.push([]); }
+      else out[out.length - 1].push(n);
+    });
+    return out.filter(function (line) {
+      return line.some(function (n) { return textOf(n) || (n.querySelector && n.querySelector('img, a')); });
+    });
+  }
+
+  function row(box, key, val) {
+    var root = /^(.*\S)\s*[,;(]\s*root:?\s+([^)]+)\)?$/i.exec(val);  // "..., root ر-ب-ك" gets its own line
+    if (root) val = root[1];
+    var r = make('div', key ? 'tk-row' : 'tk-row tk-plain');
+    if (key) r.appendChild(make('span', 'tk-k', key.charAt(0).toUpperCase() + key.slice(1)));
+    r.appendChild(auto(make('span', 'tk-v' + (ARABIC.test(val) ? '' : ' tk-latin'), val)));
+    box.appendChild(r);
+    if (root) row(box, 'Root', trim(root[2]));
+  }
+
+  /** "(Kind • Label: value • Label: value)" becomes a titled box with one line per label. */
+  function grammarBox(text) {
+    var box = make('div', 'tk-grammar');
+    if (text.charAt(0) === '(' && text.charAt(text.length - 1) === ')') text = text.slice(1, -1);
+    text.split(/\s*•\s*/).forEach(function (part, i) {
+      part = trim(part);
+      if (!part) return;
+      var colon = part.indexOf(':');
+      var key = colon < 0 ? '' : trim(part.slice(0, colon)), val = colon < 0 ? part : trim(part.slice(colon + 1));
+      if (i === 0) {  // the first piece names the kind of word, sometimes with a first detail after it
+        var cut = Math.max(key.lastIndexOf(','), key.lastIndexOf(';'), key.lastIndexOf('—'));
+        var kind = colon < 0 ? part : cut < 0 ? '' : trim(key.slice(0, cut));
+        if (kind) {
+          var root = /^(.*\S)\s*[,;]\s*root:?\s+(.+)$/i.exec(kind);
+          if (root) kind = root[1];
+          var dash = kind.search(/\s[—–]\s/);  // "Noun — abstract noun": the remark goes underneath
+          var title = make('div', 'tk-kind', dash < 0 ? kind : kind.slice(0, dash));
+          if (dash >= 0) title.appendChild(auto(make('div', 'tk-kind-more', trim(kind.slice(dash + 2)))));
+          box.appendChild(title);
+          if (root) row(box, 'Root', trim(root[2]));
+        }
+        if (colon < 0) return;
+        if (cut >= 0) key = trim(key.slice(cut + 1));
+      }
+      var alone = /^root:?\s+(.+)$/i.exec(part);
+      if (colon < 0 && alone) row(box, 'Root', trim(alone[1]));
+      else row(box, key, val);
+    });
+    return box;
+  }
+
+  function footRow(line) {
+    var foot = make('div', 'tk-foot'), label = make('span', 'tk-k'), body = auto(make('div', 'tk-foot-text'));
+    var first = line[0];
+    if (first.nodeType === 3 && /^\s*Note\s*:/i.test(first.nodeValue)) {
+      label.textContent = 'Note';
+      first.nodeValue = first.nodeValue.replace(/^\s*Note\s*:\s*/i, '');
+    }
+    line.forEach(function (n) { body.appendChild(n); });
+    foot.appendChild(label);
+    foot.appendChild(body);
+    return foot;
+  }
+
+  function front(field) {
+    var copy = copyOf(field);
+    if (!/\[[^\[\]]+\]/.test(copy.textContent)) return false;
+    highlight(copy);
+    var view = field.querySelector('.tk-view');
+    while (copy.firstChild) view.appendChild(copy.firstChild);
+    return true;
+  }
+
+  /** A back shaped like <b>word</b>, sentence, <i>(grammar)</i>, notes. Anything else is left alone. */
+  function back(field) {
+    var nodes = [].slice.call(copyOf(field).childNodes), i = 0;
+    while (i < nodes.length && !textOf(nodes[i]) && nodes[i].nodeType !== 1) i++;
+    var head = nodes[i];
+    if (!head || head.nodeType !== 1 || !/^(B|STRONG)$/.test(head.tagName)) return false;
+    var before = [], after = [], grammar = null;
+    for (i++; i < nodes.length; i++) {
+      var n = nodes[i];
+      if (!grammar && n.nodeType === 1 && /^(I|EM)$/.test(n.tagName)) grammar = n;
+      else (grammar ? after : before).push(n);
+    }
+    var sentence = lines(before), notes = lines(after);
+    if (!grammar) {  // no grammar line: the first line is the sentence, unless it is already a note
+      var first = sentence.length && sentence[0][0];
+      var take = first && first.nodeType === 3 && /^\s*Note\s*:/i.test(first.nodeValue) ? 0 : 1;
+      notes = sentence.slice(take);
+      sentence = sentence.slice(0, take);
+    }
+    if (!grammar && !sentence.length && !notes.length) return false;
+
+    var view = field.querySelector('.tk-view'), word = auto(make('div', 'tk-word'));
+    word.innerHTML = head.innerHTML;
+    view.appendChild(word);
+    if (sentence.length) {
+      var s = auto(make('div', 'tk-sentence'));
+      sentence.forEach(function (line, k) {
+        if (k) s.appendChild(make('br'));
+        line.forEach(function (n) { s.appendChild(n); });
+      });
+      highlight(s);
+      view.appendChild(s);
+    }
+    if (grammar) view.appendChild(grammarBox(textOf(grammar)));
+    notes.forEach(function (line) { view.appendChild(footRow(line)); });
+    return true;
+  }
+
+  window.tkRender = function () {
+    [].forEach.call(document.querySelectorAll('.tk-field'), function (field) {
+      if (field.getAttribute('data-done')) return;
+      field.setAttribute('data-done', '1');
+      try {
+        if (field.getAttribute('data-tk') === 'back' ? back(field) : front(field)) field.classList.add('tk-pretty');
+      } catch (e) {  // anything unexpected: show the plain field instead
+        field.querySelector('.tk-view').innerHTML = '';
+      }
+    });
+    if (document.querySelector('.tk [contenteditable]')) {
+      [].forEach.call(document.querySelectorAll('.tk-pencil'), function (p) { p.classList.add('tk-on'); });
+    }
+  };
+  /** The pencil: swap between the laid-out card and the plain, editable text. */
+  window.tkEdit = function () {
+    [].forEach.call(document.querySelectorAll('.tk'), function (t) { t.classList.toggle('tk-editing'); });
+  };
+  window.tkRender();
+})();
+</script>

@@ -102,7 +102,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "e.transcribe_requested_at, e.remote_audio, e.deleted, e.created_at, e.updated_at "
             "FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE f.deleted = 0 ORDER BY e.uid")]
         vocab = [{**dict(r), "folders": _folder_list(r["folders"])} for r in conn.execute(
-            "SELECT uid, episode_uid, text, sentence, start, end, sent_start, sent_end, meaning, notes, "
+            "SELECT uid, episode_uid, text, sentence, start, end, sent_start, sent_end, meaning, notes, translation, "
             "episode_title, folders, clip, deleted, created_at, updated_at FROM vocab ORDER BY uid")]
         folders = [dict(r) for r in conn.execute(
             "SELECT uid, name, deleted, created_at, updated_at FROM vocab_folders ORDER BY uid")]
@@ -206,21 +206,23 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
         ep_ids = {row["uid"]: row["id"] for row in conn.execute("SELECT id, uid FROM episodes")}
         for r in remote.get("vocab", []):
             local = conn.execute("SELECT * FROM vocab WHERE uid = ?", (r["uid"],)).fetchone()
+            # A device with an older version sends no translation: keep the one already known.
             values = (r["text"], arabic.normalize(r["text"]), r["sentence"], r["start"], r["end"], r["sent_start"],
-                      r["sent_end"], r["meaning"], r["notes"], r["episode_title"], r["deleted"], r["episode_uid"],
-                      ep_ids.get(r["episode_uid"]), json.dumps(_folder_list(r.get("folders") or [])),
+                      r["sent_end"], r["meaning"], r["notes"], r.get("translation"), r["episode_title"], r["deleted"],
+                      r["episode_uid"], ep_ids.get(r["episode_uid"]), json.dumps(_folder_list(r.get("folders") or [])),
                       1 if r.get("clip") else 0, r["updated_at"])
             if local is None:
                 conn.execute(
                     "INSERT INTO vocab(text, norm, sentence, start, end, sent_start, sent_end, meaning, notes, "
-                    "episode_title, deleted, episode_uid, episode_id, folders, clip, updated_at, uid, created_at) "
-                    "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (*values, r["uid"], r["created_at"]))
+                    "translation, episode_title, deleted, episode_uid, episode_id, folders, clip, updated_at, uid, "
+                    "created_at) VALUES(?,?,?,?,?,?,?,?,?,COALESCE(?, ''),?,?,?,?,?,?,?,?,?)",
+                    (*values, r["uid"], r["created_at"]))
                 result.merged["vocab"] += 1
             elif _newer(r, local):
                 conn.execute(
                     "UPDATE vocab SET text=?, norm=?, sentence=?, start=?, end=?, sent_start=?, sent_end=?, meaning=?, "
-                    "notes=?, episode_title=?, deleted=?, episode_uid=?, episode_id=?, folders=?, clip=?, updated_at=? "
-                    "WHERE id=?",
+                    "notes=?, translation=COALESCE(?, translation), episode_title=?, deleted=?, episode_uid=?, "
+                    "episode_id=?, folders=?, clip=?, updated_at=? WHERE id=?",
                     (*values, local["id"]))
                 result.merged["vocab"] += 1
 
