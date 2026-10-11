@@ -94,30 +94,77 @@ export const STAGES = [
 // have earned for the item to turn up in the shop; `weight_by` makes it turn up more often for
 // creatures with those traits or owners with those tags.
 export const SLOTS = {
-  hat: { name: "Hats", size: [20, 14], anchor: [10, 13] },    // on the head's hat socket
-  face: { name: "Glasses", size: [16, 8], anchor: [8, 4] },   // over the eyes
+  hat: { name: "Hats", size: [20, 14], anchor: [10, 13] },    // bottom-centre sits on the head's hat socket
+  face: { name: "Face", size: [16, 8], anchor: [8, 4] },      // centred over the eyes
   neck: { name: "Neckwear", size: [16, 10], anchor: [8, 1] }, // hangs from the neck socket
-  held: { name: "Held", size: [12, 12], anchor: [6, 11] },    // in the hand
+  held: { name: "Held", size: [12, 12], anchor: [6, 11] },    // bottom-centre is the hand, in front of the body
+  back: { name: "Back", size: [20, 20], anchor: [14, 19] },   // behind the body, resting on the back socket
+  shirt: { name: "Shirts", size: [16, 16] },                  // a tiling pattern, cut to the torso's shape
 };
-const item = (slot, id, name, price, extra = {}) => ({ id: `${slot}/${id}`, slot, name, price, ...extra });
-export const ITEMS = [
-  item("hat", "cap", "Cap", 15), item("hat", "beanie", "Beanie", 15), item("hat", "straw", "Straw hat", 20),
-  item("hat", "flower", "Flower crown", 25, { weight_by: { collector: 1.5 } }),
-  item("hat", "bow", "Bow", 20), item("hat", "headphones", "Headphones", 30, { weight_by: { listener: 3 } }),
-  item("hat", "wizard", "Wizard hat", 45, { requires: ["night_owl"] }),
-  item("hat", "crown", "Crown", 80, { requires: ["streak_7"] }),
-  item("face", "round_glasses", "Round glasses", 20, { weight_by: { reader: 3 } }),
-  item("face", "shades", "Shades", 25), item("face", "monocle", "Monocle", 35, { weight_by: { reader: 1.5 } }),
-  item("face", "star_glasses", "Star glasses", 40, { weight_by: { curious: 2 } }), item("face", "mask", "Mask", 30, { requires: ["night_owl"] }),
-  item("neck", "scarf", "Scarf", 15), item("neck", "bowtie", "Bow tie", 20), item("neck", "bell", "Bell", 20),
-  item("neck", "gold_chain", "Gold chain", 50, { weight_by: { collector: 2 } }),
-  item("neck", "spiked_collar", "Spiked collar", 35, { requires: ["night_owl"] }),
-  item("neck", "medal", "Medal", 60, { requires: ["streak_7"] }),
-  item("held", "book", "Book", 20, { weight_by: { reader: 3 } }), item("held", "lantern", "Lantern", 25),
-  item("held", "flag", "Flag", 15), item("held", "balloon", "Balloon", 15),
-  item("held", "microphone", "Microphone", 30, { weight_by: { listener: 3 } }),
-  item("held", "quill", "Quill", 30, { weight_by: { collector: 2 } }),
-];
+// Where each body plan holds things: in front of the chest (or at the end of the arm), by body size.
+export const HANDS = {
+  blob: { s: [18, 12], m: [26, 18], l: [37, 27] },
+  quad: { s: [18, 11], m: [26, 16], l: [38, 24] },
+  floater: { s: [17, 11], m: [24, 16], l: [35, 24] },
+  biped: { s: [15, 13], m: [21, 20], l: [30, 29] },
+};
+// Each entry: [id, name, price, extra]. `extra` may hold:
+//   requires   tags the owner must have earned for it to appear in the shop
+//   weight_by  traits or tags that make it appear more often
+//   shift      [dx, dy] to move it from its socket on every body size (e.g. headphones sit lower than a hat)
+//   offset     {s: [dx, dy], m: ..., l: ...} to nudge it on one body size
+const WEARABLES = {
+  hat: [
+    ["cap", "Cap", 15], ["beanie", "Beanie", 15], ["straw", "Straw hat", 20], ["flower", "Flower crown", 25, { weight_by: { collector: 1.5 } }],
+    ["bow", "Bow", 20], ["headphones", "Headphones", 30, { weight_by: { listener: 3 }, shift: [0, 7] }],
+    ["wizard", "Wizard hat", 45, { requires: ["night_owl"] }], ["crown", "Crown", 80, { requires: ["streak_7"] }],
+    ["top_hat", "Top hat", 35], ["party_hat", "Party hat", 15], ["beret", "Beret", 20, { weight_by: { reader: 1.5 } }], ["chef_hat", "Chef's hat", 25],
+    ["cowboy", "Cowboy hat", 30], ["helmet", "Explorer helmet", 30, { weight_by: { curious: 2 } }], ["pirate", "Pirate hat", 40],
+    ["graduation", "Graduation cap", 50, { weight_by: { reader: 2, collector: 2 } }], ["visor", "Sun visor", 15], ["propeller", "Propeller cap", 25, { weight_by: { curious: 2 } }],
+    ["halo", "Halo", 60, { requires: ["flawless"] }], ["leaf_crown", "Leaf crown", 25], ["antlers", "Antlers", 35], ["tiara", "Tiara", 55],
+    ["bucket_hat", "Bucket hat", 20], ["earmuffs", "Earmuffs", 20, { shift: [0, 7], weight_by: { listener: 1.5 } }], ["mushroom_cap", "Mushroom cap", 30],
+    ["viking", "Viking helmet", 45, { requires: ["comeback"] }], ["astronaut", "Space helmet", 70, { weight_by: { curious: 2 }, shift: [0, 9] }],
+    ["bunny_ears", "Bunny ears", 25], ["cat_ears", "Cat ears", 25], ["jester", "Jester hat", 35], ["night_cap", "Night cap", 20, { weight_by: { night_owl: 3 } }],
+  ],
+  face: [
+    ["round_glasses", "Round glasses", 20, { weight_by: { reader: 3 } }], ["shades", "Shades", 25], ["monocle", "Monocle", 35, { weight_by: { reader: 1.5 } }],
+    ["star_glasses", "Star glasses", 40, { weight_by: { curious: 2 } }], ["mask", "Mask", 30, { requires: ["night_owl"] }],
+    ["heart_glasses", "Heart glasses", 30], ["goggles", "Goggles", 30, { weight_by: { curious: 2 } }], ["eye_patch", "Eye patch", 25],
+    ["glasses_3d", "3D glasses", 25], ["reading_glasses", "Reading glasses", 20, { weight_by: { reader: 3 } }], ["snorkel", "Snorkel mask", 35],
+    ["clown_nose", "Clown nose", 15], ["mustache", "Mustache", 20, { shift: [2, 5] }], ["blush", "Rosy cheeks", 10], ["sleep_mask", "Sleep mask", 20, { weight_by: { night_owl: 3 } }],
+    ["pixel_shades", "Pixel shades", 45, { requires: ["flawless"] }], ["whiskers", "Whiskers", 15, { shift: [2, 4] }], ["bandage", "Bandage", 15, { requires: ["comeback"] }],
+  ],
+  neck: [
+    ["scarf", "Scarf", 15], ["bowtie", "Bow tie", 20], ["bell", "Bell", 20], ["gold_chain", "Gold chain", 50, { weight_by: { collector: 2 } }],
+    ["spiked_collar", "Spiked collar", 35, { requires: ["night_owl"] }], ["medal", "Medal", 60, { requires: ["streak_7"] }],
+    ["necktie", "Necktie", 20], ["pearls", "Pearl necklace", 45], ["locket", "Locket", 35, { weight_by: { collector: 2 } }], ["lei", "Flower lei", 25],
+    ["bandana", "Bandana", 15], ["ruff", "Ruff collar", 40, { weight_by: { reader: 2 } }], ["whistle", "Whistle", 20, { weight_by: { listener: 2 } }],
+    ["key_necklace", "Key necklace", 30, { weight_by: { collector: 2 } }], ["shell_necklace", "Shell necklace", 25], ["feather_boa", "Feather boa", 40],
+    ["ribbon", "Ribbon", 15], ["dog_tag", "Name tag", 20], ["amulet", "Amulet", 55, { requires: ["comeback"] }], ["compass", "Compass", 35, { weight_by: { curious: 2 } }],
+  ],
+  held: [
+    ["book", "Book", 20, { weight_by: { reader: 3 } }], ["lantern", "Lantern", 25], ["flag", "Flag", 15], ["balloon", "Balloon", 15],
+    ["microphone", "Microphone", 30, { weight_by: { listener: 3 } }], ["quill", "Quill", 30, { weight_by: { collector: 2 } }],
+    ["umbrella", "Umbrella", 25], ["wooden_sword", "Wooden sword", 30, { requires: ["comeback"] }], ["wand", "Wand", 40, { requires: ["night_owl"] }],
+    ["bouquet", "Bouquet", 20], ["ice_cream", "Ice cream", 15], ["coffee", "Coffee cup", 15, { weight_by: { early_bird: 3 } }], ["tea", "Tea cup", 15, { weight_by: { reader: 1.5 } }],
+    ["pencil", "Pencil", 15, { weight_by: { collector: 2 } }], ["paintbrush", "Paintbrush", 20], ["fishing_rod", "Fishing rod", 30],
+    ["magnifier", "Magnifying glass", 30, { weight_by: { curious: 3 } }], ["torch", "Torch", 25], ["kite", "Kite", 25], ["shield", "Shield", 40, { requires: ["flawless"] }],
+    ["teddy", "Teddy", 30], ["trophy", "Trophy", 90, { requires: ["streak_7"] }],
+  ],
+  back: [
+    ["cape_red", "Red cape", 40], ["cape_star", "Star cape", 60, { requires: ["night_owl"] }], ["backpack", "Backpack", 30, { weight_by: { curious: 2 } }],
+    ["school_bag", "Satchel", 30, { weight_by: { reader: 2 } }], ["angel_wings", "Feather wings", 70, { requires: ["flawless"] }], ["bat_wings", "Bat wings", 55, { weight_by: { night_owl: 3 } }],
+    ["butterfly_wings", "Butterfly wings", 55], ["jetpack", "Jetpack", 80, { weight_by: { curious: 2 } }], ["turtle_shell", "Turtle shell", 45],
+    ["quiver", "Quiver", 35], ["balloons", "Bunch of balloons", 30], ["leaf_cloak", "Leaf cloak", 40],
+  ],
+  shirt: [
+    ["striped", "Striped shirt", 20], ["plain", "Plain shirt", 15], ["dotted", "Dotted shirt", 20], ["checked", "Checked shirt", 25], ["star", "Star shirt", 30],
+    ["hearts", "Hearts shirt", 25], ["zigzag", "Zigzag sweater", 25], ["floral", "Floral shirt", 30], ["galaxy", "Galaxy shirt", 45, { weight_by: { night_owl: 2, curious: 2 } }],
+    ["argyle", "Argyle sweater", 35, { weight_by: { reader: 2 } }],
+  ],
+};
+export const ITEMS = Object.entries(WEARABLES).flatMap(([slot, list]) =>
+  list.map(([id, name, price, extra = {}]) => ({ id: `${slot}/${id}`, slot, name, price, ...extra })));
 // Decorations stand in the habitat. `size` is the sprite's square size in pixels.
 const decor = (id, name, price, size, extra = {}) => ({ id: `decor/${id}`, slot: "decor", name, price, size, ...extra });
 export const DECOR = [

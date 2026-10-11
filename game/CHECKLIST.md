@@ -45,7 +45,7 @@ Status: ✅ built · 🟡 partly · ⬜ not built
 | Share or debug by seed | 🟡 | The seed is shown on each creature's card; no "enter a seed" screen |
 | Modular parts on one rig with named sockets | ✅ | `data.SIZES`, `data.HEAD`, `render.composeCreature` |
 | Glasses and hats snap to face and head sockets | ✅ | |
-| Shirts on the torso (masked shared layer) | ⬜ | Art exists (`item/shirt/`); not drawn yet |
+| Shirts on the torso (masked shared layer) | ✅ | `render.shirtedTorso`: the pattern is cut to the torso's shape |
 | Chains and necklaces as an anchored physics chain | ⬜ | Neckwear is a static sprite (the document lists this last, as polish) |
 | Held items in hand sockets | ✅ | One hand |
 | Growth changes proportions: head slower than body, limbs lengthen | ✅ | One head size for life; three torso and limb sizes |
@@ -63,7 +63,7 @@ Status: ✅ built · 🟡 partly · ⬜ not built
 |---|---|---|
 | Studying earns breadth and identity, not battle power | ✅ | |
 | Power: small growth, only against wild creatures and raids | ✅ wild · ⬜ raids, story | `rules.wildBonus` (up to +15%) |
-| Battles between people at one level for everyone | ✅ engine · ⬜ friends | `battle.fighter`; friend battles themselves are not built |
+| Battles between people at one level for everyone | ✅ | `battle.fighter`; friend battles in `battle-ui.startFriendBattle` |
 | Breadth: new creatures, unlockable moves, evolution forms | ✅ | Roster of up to 12, 26 moves, 3 forms and 3 special forms |
 | Identity: cosmetics, shop currency, habitat decorations | ✅ | |
 | Biggest payout for the day's goal, the same whatever its size | ✅ | Daily goal of 5, 10 or 20 minutes |
@@ -73,16 +73,16 @@ Status: ✅ built · 🟡 partly · ⬜ not built
 | Each player's own deck powers their battles; each tested at their own level | ✅ | Due words first (`rules.pickQuestion`) |
 | Works across subjects | ✅ | Questions come from the player's own words in any language |
 | Low stakes | ✅ | A wrong answer still lands a glancing hit and shows the right answer |
-| Skill rating separate from study level | ✅ engine · ⬜ matching | `state.rating`, changed by rental and friend battles only |
+| Skill rating separate from study level | ✅ rating · ⬜ matching | `state.rating`, changed by rental and friend battles only, shown beside each friend. You pick who to challenge; nothing matches you automatically |
 | Draft or rental mode from a shared pool | ✅ | "Rental duel": the same six creatures for everyone each week |
-| Rotating weekly rules | ✅ rule · 🟡 use | `data.WEEKLY_RULES`; applies to rated and friend battles, so it only bites once those exist |
-| Asynchronous battles against a friend's defence team | ⬜ | Needs new tables in the online service |
-| Friend leagues ranked by % of personal daily goal | ⬜ | Online |
-| Shared weekly boss raids fed by everyone's reviews | ⬜ | Online. Boss art exists |
-| Gifting and trading items or eggs | ⬜ | Online |
-| Rivalries: named rival, head-to-head record, rematch | 🟡 | Records are kept (`state.rivals`); no screen, no friend battles yet |
+| Rotating weekly rules | ✅ | `data.WEEKLY_RULES`; applied to both teams in friend battles |
+| Asynchronous battles against a friend's defence team | ✅ | The friend's published team fights with its chosen moves and answers as accurately as its owner usually does (`game_profiles.form`) |
+| Friend leagues ranked by % of personal daily goal | ✅ | `friends-game.js`; `rules.leaguePercent` |
+| Shared weekly boss raids fed by everyone's reviews | ✅ | Per guild: right answers this week against 150 per member (`rules.raidDamage`, `claimRaid`) |
+| Gifting and trading items or eggs | ✅ gifts · ⬜ trades | Items and unhatched eggs can be given (`gifts` table). No two-way trade screen |
+| Rivalries: named rival, head-to-head record, rematch | 🟡 | Record shown beside each friend, and a Rematch button on results. No single "named rival" |
 | Badges: permanent and completable | ✅ | 16 badges (`data.BADGES`) |
-| Weekly leagues with promotion and demotion | ⬜ | Online. League art exists |
+| Weekly leagues with promotion and demotion | ✅ | Bronze to Diamond: 5+ goal days in a week moves up, 0-1 moves down (`rules.rollLeague`) |
 | Original creatures, nothing like Pokémon | ✅ | |
 
 ## 5. "Incremental games"
@@ -101,10 +101,18 @@ The idle layer is not built. Planned shape, agreed in outline with the owner:
 | Avoid: meaningless numbers, bloat, walls, bad UI | ⬜ | Small numbers, one prestige layer |
 | No ads, no purchases | ✅ | None anywhere |
 
+## Not from the documents, asked for by the owner
+
+| Request | Status | Note |
+|---|---|---|
+| Over a hundred items to dress creatures | ✅ data · 🟡 art | 113 wearables in six slots plus 24 decorations (`data.WEARABLES`). 83 of the wearables are placeholders awaiting art (ASSET_LIST 3.8) |
+| Items sit well on creatures | ⏸ | Paused by the owner: the creatures are being redesigned. `tools/preview_items.py` draws every item on every body for when it resumes |
+| Anki companion add-on (see when people review their cards) | ⬜ | Does not exist. The game reads Tamkeen's own study and vocab only |
+
 ## Art delivered but not used yet
 
-Shirts, structures, three more habitats (used as battle backdrops only), emotes, interface frames and
-the pixel digits, boss sprites, league icons, food and item icons.
+Structures, three more habitats (used as battle backdrops only), emotes, interface frames and the pixel
+digits, food and item icons, and the extra effects the art session added (shadows, evolve, surge, big eyes).
 
 Added 2026-10-11 (`game/ASSET_LIST.md` section 7, 116 files): larger hatchling eyes, an icon for every move,
 tag, form, habit and weekly rule, icons to replace the symbols and emoji in the interface, effects for

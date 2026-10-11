@@ -594,7 +594,7 @@ export function checkBadges(state, extra = {}) {
 }
 
 // ---------- the shop ----------
-export const SHOP_SIZE = 6;
+export const SHOP_SIZE = 8;
 
 /** Today's shop: a few items the owner doesn't have yet, different each day, leaning toward
  * what suits this creature. Items needing a tag only appear once the tag is earned. */

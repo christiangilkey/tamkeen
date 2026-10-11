@@ -413,6 +413,13 @@ def item(a) -> Image.Image:
     elif slot == "neck":
         d.arc((1, -6, 14, 6), 0, 180, fill=dark, width=2)
         d.ellipse((6, 5, 9, 8), fill=fill, outline=LINE)
+    elif slot == "back":
+        d.polygon([(13, 19), (1, 17), (4, 4), (13, 2)], fill=fill, outline=LINE)
+        d.line((6, 7, 11, 15), fill=dark)
+    elif slot == "shirt":
+        d.rectangle((0, 0, w, h), fill=fill)
+        for x in range(0, w, 4):
+            d.line((x, 0, x, h), fill=dark)
     else:  # held
         d.line((5, 11, 5, 4), fill=LINE, width=2)
         d.rectangle((6, 1, 11, 6), fill=fill, outline=LINE)

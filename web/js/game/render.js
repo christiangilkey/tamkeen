@@ -2,7 +2,7 @@
 // A creature is assembled from parts (torso, head, ears...) placed on named sockets, recoloured
 // to its own palette, and animated by nudging parts a pixel or two (no per-frame art needed).
 
-import { HEAD, KEY, PART, SIZES, SLOTS, SPECIES, itemById } from "./data.js";
+import { HANDS, HEAD, KEY, PART, SIZES, SLOTS, SPECIES, itemById } from "./data.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const images = new Map();   // file -> Promise<HTMLImageElement | null>
@@ -97,7 +97,42 @@ async function patternedTorso(file, look, paletteId) {
   return c;
 }
 
-export const FRAME = 72; // creatures are composed in a square this size, feet on its bottom edge
+export const FRAME = 88; // creatures are composed in a square this size, feet on its bottom edge (room above for hats)
+
+/** The torso wearing a shirt: the shirt's pattern fills the body's shape, leaving its outline. */
+async function shirtedTorso(base, look, paletteId, file) {
+  const id = `${file}|${paletteId}|${look.pattern}|${look.equipped.shirt}`;
+  if (tinted.has(id)) return tinted.get(id);
+  const tile = await loadImage(`item/${look.equipped.shirt}.png`);
+  if (!tile || !base) return base;
+  const c = document.createElement("canvas");
+  c.width = base.width;
+  c.height = base.height;
+  const ctx = c.getContext("2d", { willReadFrequently: true });
+  ctx.drawImage(base, 0, 0);
+  const t = document.createElement("canvas").getContext("2d", { willReadFrequently: true });
+  t.canvas.width = tile.width;
+  t.canvas.height = tile.height;
+  t.drawImage(tile, 0, 0);
+  const tp = t.getImageData(0, 0, tile.width, tile.height).data;
+  const line = rgbOf(KEY.outline).join(",");
+  const data = ctx.getImageData(0, 0, c.width, c.height);
+  const px = data.data;
+  const top = Math.round(c.height * 0.18);      // leave the shoulders' top edge
+  const bottom = Math.round(c.height * 0.8);    // and the underside bare
+  for (let y = top; y < bottom; y++) {
+    for (let x = 0; x < c.width; x++) {
+      const i = (y * c.width + x) * 4;
+      if (!px[i + 3] || `${px[i]},${px[i + 1]},${px[i + 2]}` === line) continue;
+      const j = ((y % tile.height) * tile.width + (x % tile.width)) * 4;
+      if (!tp[j + 3]) continue;
+      px[i] = tp[j]; px[i + 1] = tp[j + 1]; px[i + 2] = tp[j + 2];
+    }
+  }
+  ctx.putImageData(data, 0, 0);
+  tinted.set(id, c);
+  return c;
+}
 
 /**
  * Compose one frame of a creature. `look` comes from describe(genome); `pose` is
@@ -130,8 +165,10 @@ export async function composeCreature(look, pose = {}) {
   const worn = {};
   for (const slot of Object.keys(SLOTS)) {
     const id = look.equipped && look.equipped[slot];
-    worn[slot] = id && look.stage !== "egg" ? await loadImage(`item/${id}.png`) : null;
+    worn[slot] = id && slot !== "shirt" && look.stage !== "egg" ? await loadImage(`item/${id}.png`) : null;
   }
+  const torsoFile = `creature/torso/${look.species}_${look.size}${suffix}.png`;
+  const dressed = look.equipped && look.equipped.shirt ? await shirtedTorso(torso, look, paletteId, torsoFile) : torso;
 
   const c = document.createElement("canvas");
   c.width = c.height = FRAME;
@@ -144,11 +181,19 @@ export async function composeCreature(look, pose = {}) {
     if (img) ctx.drawImage(img, tx + socket[0] - anchor[0] + dx, ty + socket[1] - anchor[1] + dy);
   };
   const bob = pose.bob || 0;
+  // Where an item sits: its socket, moved by the item's own `shift` and its per-size `offset`.
+  const nudge = (slot) => {
+    const it = look.equipped && itemById(look.equipped[slot]);
+    const a = (it && it.shift) || [0, 0];
+    const b = (it && it.offset && it.offset[look.size]) || [0, 0];
+    return [a[0] + b[0], a[1] + b[1]];
+  };
+  at(worn.back, S.back, SLOTS.back.anchor, nudge("back")[0], nudge("back")[1]); // capes and packs go behind everything
   at(tail, S.tail, PART.tail.anchor, 0, pose.step ? -1 : 0);
   at(back, S.back, PART.back.anchor);
   if (wing) at(wing, S.back, [wing.width - 2, wing.height - 1]);
   if (legB) at(legB, S.legB, [Math.floor(legB.width / 2), 1]);
-  if (torso) ctx.drawImage(torso, tx, ty);
+  if (dressed) ctx.drawImage(dressed, tx, ty);
   if (legA) at(legA, S.legF, [Math.floor(legA.width / 2), 1]);
   if (arm) at(arm, S.arm, [Math.floor(arm.width / 2), 1], 0, pose.step ? 1 : 0);
   // The head and everything on it move together.
@@ -162,10 +207,8 @@ export async function composeCreature(look, pose = {}) {
   on(earF, HEAD.earF, PART.ear.anchor);
   on(horn, HEAD.horn, PART.horn.anchor);
   // Worn items sit on sockets, so they stay in place whatever the creature's size.
-  // (An item's optional `offset: {s: [dx, dy], m: ..., l: ...}` in data.js nudges it per body size.)
-  const nudge = (slot) => { const it = look.equipped && itemById(look.equipped[slot]); return (it && it.offset && it.offset[look.size]) || [0, 0]; };
   at(worn.neck, S.neck, SLOTS.neck.anchor, nudge("neck")[0], 1 + nudge("neck")[1]);
-  at(worn.held, S.arm, SLOTS.held.anchor, 3 + nudge("held")[0], (plan.arms ? S.armSize[1] - 2 : 2) + nudge("held")[1]);
+  at(worn.held, HANDS[look.species][look.size], SLOTS.held.anchor, nudge("held")[0], nudge("held")[1] + (pose.step ? 1 : 0));
   if (worn.face) ctx.drawImage(worn.face, hx + HEAD.face[0] - SLOTS.face.anchor[0] + nudge("face")[0], hy + HEAD.face[1] - SLOTS.face.anchor[1] + nudge("face")[1]);
   if (worn.hat) ctx.drawImage(worn.hat, hx + HEAD.hat[0] - SLOTS.hat.anchor[0] + nudge("hat")[0], hy + HEAD.hat[1] - SLOTS.hat.anchor[1] + nudge("hat")[1]);
   return c;

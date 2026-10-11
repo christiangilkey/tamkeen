@@ -250,6 +250,41 @@ heart_empty arrow`.
 
 ---
 
+### 3.8 More accessories: 83 new files (the app has placeholders for all of them)
+
+The owner wants well over a hundred things to dress creatures in. These are in the shop now with placeholder
+art. Same rules as 3.1: full colour (not the key palette), 1-pixel `#1b1420` outline, exact canvas size.
+
+**The creatures are about to be redesigned (owner, 2026-10-10), so do not spend time fitting items to the
+current bodies.** Draw the items themselves to the canvas sizes and anchor points below; how they sit will be
+re-checked once the new creatures exist. The notes that follow are for that later pass.
+
+After the redesign, run `.venv/Scripts/python tools/preview_items.py` from the
+`podcast-studio` folder. It draws every item on all four body plans at all three sizes into
+`game/art-preview/items-on-creatures-<slot>.png`, exactly as the app will. Check each row. Things learned
+from the first batch:
+
+- **Hats** sit on a head 32 pixels wide whose top is rounded, with ears and horns beside the hat. Keep the
+  brim's underside flat and no wider than 18 pixels. Headwear that belongs lower (headphones, earmuffs, a
+  space helmet) is drawn on the same canvas; the app moves it down (tell me how many pixels if it looks off).
+- **Held items** must read at a glance against a dark body: bright colours, and fill most of the 12x12
+  canvas. The first microphone and flag were too thin and dark to see.
+- **Back items** are drawn BEHIND the creature, which faces right, so only what sticks out past the body's
+  left and top edges shows. Make capes and wings spread well to the left and upward.
+- **Shirts** show only on the middle of the torso (between about 18% and 80% of its height). Use a pattern
+  that still reads on a body 20 pixels wide.
+
+| Slot | Folder | Canvas | Where it attaches | New files |
+|---|---|---|---|---|
+| hat | `item/hat/` | 20x14 | bottom-centre at 10,13 sits on top of the head | `top_hat` (Top hat), `party_hat` (Party hat), `beret` (Beret), `chef_hat` (Chef's hat), `cowboy` (Cowboy hat), `helmet` (Explorer helmet), `pirate` (Pirate hat), `graduation` (Graduation cap), `visor` (Sun visor), `propeller` (Propeller cap), `halo` (Halo), `leaf_crown` (Leaf crown), `antlers` (Antlers), `tiara` (Tiara), `bucket_hat` (Bucket hat), `earmuffs` (Earmuffs), `mushroom_cap` (Mushroom cap), `viking` (Viking helmet), `astronaut` (Space helmet), `bunny_ears` (Bunny ears), `cat_ears` (Cat ears), `jester` (Jester hat), `night_cap` (Night cap) |
+| face | `item/face/` | 16x8 | centre at 8,4 lies over the eyes | `heart_glasses` (Heart glasses), `goggles` (Goggles), `eye_patch` (Eye patch), `glasses_3d` (3D glasses), `reading_glasses` (Reading glasses), `snorkel` (Snorkel mask), `clown_nose` (Clown nose), `mustache` (Mustache), `blush` (Rosy cheeks), `sleep_mask` (Sleep mask), `pixel_shades` (Pixel shades), `whiskers` (Whiskers), `bandage` (Bandage) |
+| neck | `item/neck/` | 16x10 | top-centre at 8,1 hangs from under the chin | `necktie` (Necktie), `pearls` (Pearl necklace), `locket` (Locket), `lei` (Flower lei), `bandana` (Bandana), `ruff` (Ruff collar), `whistle` (Whistle), `key_necklace` (Key necklace), `shell_necklace` (Shell necklace), `feather_boa` (Feather boa), `ribbon` (Ribbon), `dog_tag` (Name tag), `amulet` (Amulet), `compass` (Compass) |
+| held | `item/held/` | 12x12 | bottom-centre at 6,11 is the hand; the item stands up from it, in front of the chest | `umbrella` (Umbrella), `wooden_sword` (Wooden sword), `wand` (Wand), `bouquet` (Bouquet), `ice_cream` (Ice cream), `coffee` (Coffee cup), `tea` (Tea cup), `pencil` (Pencil), `paintbrush` (Paintbrush), `fishing_rod` (Fishing rod), `magnifier` (Magnifying glass), `torch` (Torch), `kite` (Kite), `shield` (Shield), `teddy` (Teddy), `trophy` (Trophy) |
+| back | `item/back/` | 20x20 | the point 14,19 rests on the creature's back; the item spreads up and to the LEFT (behind it) | `cape_red` (Red cape), `cape_star` (Star cape), `backpack` (Backpack), `school_bag` (Satchel), `angel_wings` (Feather wings), `bat_wings` (Bat wings), `butterfly_wings` (Butterfly wings), `jetpack` (Jetpack), `turtle_shell` (Turtle shell), `quiver` (Quiver), `balloons` (Bunch of balloons), `leaf_cloak` (Leaf cloak) |
+| shirt | `item/shirt/` | 16x16 | a seamless tile; the app cuts it to the torso's shape | `hearts` (Hearts shirt), `zigzag` (Zigzag sweater), `floral` (Floral shirt), `galaxy` (Galaxy shirt), `argyle` (Argyle sweater) |
+
+File name = the id plus `.png`, for example `item/back/cape_red.png`.
+
 ## 4. Phase 3: battles, raids, leagues
 
 Battles and badges are built and use this art. Raid bosses and league icons are delivered but not used yet.
@@ -273,7 +308,8 @@ Battles and badges are built and use this art. Raid bosses and league icons are 
 | Phase | Files | Status in the app |
 |---|---|---|
 | 1. Creatures, eggs, meadow, effects, icons | 167 | built, running on placeholders |
-| 2. Accessories (25) and decorations (24) | 49 | built, running on placeholders |
+| 2. Accessories (25), shirts (5) and decorations (24) | 54 | built, real art delivered |
+| 2. More accessories (section 3.8) | 83 | built, running on placeholders: **art needed** |
 | 2. Shirts, more habitats, structures, items, emotes, interface | about 60 | not built |
 | 3. Battle effects, pads, move and stat icons, badges | 41 | built, using the delivered art |
 | 3. Bosses and league icons | 16 | delivered, not used yet |
