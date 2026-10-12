@@ -963,7 +963,6 @@ button.today-chip { cursor: pointer; font: inherit; }
 .plot-act { flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
 .plot-act button { font-size: 13px; padding: 4px 10px; }
 .locked-plot { opacity: .7; }
-.build-opt { display: flex; align-items: center; gap: 8px; text-align: start; border-radius: 12px; padding: 6px 10px; }
 
 /* ---------- creature game: tap anything in the bar for an explanation; the word over a petted creature ---------- */
 .hud-tap { background: none; border: 0; padding: 0; min-height: 0; font: inherit; font-size: 13px; cursor: pointer; }
@@ -996,6 +995,7 @@ button.today-chip { cursor: pointer; font: inherit; }
 .pet-word.show { animation: pet-word 3.6s ease-out both; }
 @keyframes pet-word { from { opacity: 0; transform: translate(-50%, 6px); } 6% { opacity: 1; transform: translate(-50%, 0); } 80% { opacity: 1; } to { opacity: 0; transform: translate(-50%, -6px); } }
 @media (prefers-reduced-motion: reduce) { .pet-word.show { animation: none; opacity: 1; } }
+.build-opt { display: flex; align-items: center; gap: 8px; text-align: start; border-radius: 12px; padding: 6px 10px; }
 .build-opt > span { display: flex; flex-direction: column; }
 .build-opt img, .shop-pic img.px-icon { image-rendering: pixelated; }
 .b-potion { margin-top: 8px; width: 100%; padding: 8px; border-radius: 12px; font-size: 13px; }
@@ -1023,6 +1023,64 @@ button.today-chip { cursor: pointer; font: inherit; }
   .game-bar { order: 5; margin-left: 44px; }
   .friend-head .game-bar ~ button { order: 6; }
   .gb-showcase { margin-left: 0; }
+}
+
+/* ---------- boxes over the page (components/modal.js): first-run questions, the API-key walkthrough ---------- */
+.modal-back { position: fixed; inset: 0; z-index: 80; background: rgba(0, 0, 0, .55); display: grid; place-items: center; padding: 16px; overflow-y: auto; }
+.modal-box { width: min(520px, 100%); max-height: min(92vh, 860px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, .35); }
+.modal-box.wide { width: min(640px, 100%); }
+.modal-head { display: flex; align-items: center; gap: 8px; padding: 18px 20px 0; }
+.modal-head h2 { flex: 1; margin: 0; font-size: 20px; line-height: 1.25; }
+.modal-body { padding: 14px 20px 20px; overflow-y: auto; }
+.modal-body p { margin-bottom: 0; }
+.modal-body p:first-child { margin-top: 0; }
+button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
+.btn.primary:hover { background: var(--accent); filter: brightness(1.08); }
+
+.lang-grid + .row { margin-top: 10px; }
+.lang-grid + .row button { white-space: normal; text-align: start; height: auto; }
+
+/* the three first-run boxes (components/onboarding.js) */
+.ob-nav { margin-top: 4px; }
+.ob-steps { display: flex; gap: 6px; }
+.ob-steps i { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+.ob-steps i.done { background: var(--accent-soft); }
+.ob-steps i.on { background: var(--accent); width: 22px; border-radius: 99px; }
+.ob-choices { display: grid; gap: 10px; }
+.ob-choice { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: start; padding: 14px 16px; border-radius: 14px; border: 2px solid var(--border); background: var(--surface); white-space: normal; height: auto; }
+.ob-choice strong { font-size: 16px; }
+.ob-choice .small { color: var(--muted); font-weight: 400; }
+.ob-choice[aria-checked="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.ob-sample { font-size: 15px; color: var(--muted); min-height: 1.4em; }
+.ob-where { padding: 10px 14px; border-radius: 12px; background: var(--accent-soft); }
+
+/* Settings → Word definitions (components/aisetup.js): the way to a key is loud until there is one */
+.ai-field { display: flex; flex-direction: column; gap: 4px; }
+.ai-field > label { font-size: 13px; color: var(--muted); }
+.ai-field select, .ai-field > input { width: 100%; max-width: 520px; }
+.ai-field .row input { flex: 1; min-width: 0; max-width: 440px; }
+.key-callout { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding: 14px 16px; border-radius: 14px; border: 2px solid var(--brand-gold); background: color-mix(in srgb, var(--brand-gold) 16%, var(--surface)); }
+.key-callout > div:first-child { flex: 1 1 220px; }
+.key-callout.has-key { border: 0; padding: 0; background: none; gap: 8px; }
+
+/* "I'm stuck": getting an API key, step by step (components/keyhelp.js) */
+.key-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.key-tabs button { border-radius: 99px; padding: 6px 14px; }
+.key-tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+.key-steps { margin-bottom: 0; padding: 0; list-style: none; counter-reset: step; display: grid; gap: 10px; }
+.key-steps li { counter-increment: step; position: relative; padding-inline-start: 40px; min-height: 28px; }
+.key-steps li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 14px; }
+.key-steps li div { color: var(--muted); font-size: 14px; }
+.key-steps code, .key-problems code { background: var(--surface-2); padding: 0 5px; border-radius: 6px; }
+.key-problems summary { cursor: pointer; font-weight: 600; }
+.key-problems dl { margin: 8px 0 0; }
+.key-problems dt { font-weight: 600; margin-top: 8px; }
+.key-problems dd { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+@media (max-width: 640px) {
+  .modal-back { padding: 0; place-items: end center; }
+  .modal-box, .modal-box.wide { width: 100%; border-radius: 20px 20px 0 0; max-height: 94vh; padding-bottom: env(safe-area-inset-bottom); }
+  .key-callout .row { width: 100%; }
+  .key-callout .big { flex: 1; }
 }
 
 /* ---------- seen words: a word never tapped before is drawn in purple (js/lexicon/seen.js) ---------- */

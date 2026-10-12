@@ -10,6 +10,7 @@ import * as settingsPage from "./pages/settings.js";
 import * as welcome from "./pages/welcome.js";
 import * as friends from "./pages/friends.js";
 import * as chat from "./pages/chat.js";
+import * as discover from "./pages/discover.js";
 import { startBadge } from "./social.js";
 import { initSwipe } from "./swipe.js";
 import { isNewer, showUpdateNotice } from "./updatenotice.js";
@@ -192,6 +193,22 @@ export async function fetchPage(url) {
   return { url: res.url || address, html: typeof res.data === "string" ? res.data : String(res.data || "") };
 }
 
+/** One web request to youtube.com, to read a video's captions: {status, text}. Made by the
+ * phone itself (native code), so it isn't held back by the rules for web pages. */
+export async function ytRequest({ url, method = "GET", headers = {}, body }) {
+  if (!isNative) throw new Error("Adding YouTube videos works in the installed Android app.");
+  let res;
+  try {
+    const json = /json/i.test(headers["Content-Type"] || "");
+    res = await NativeHttp.request({ url, method, headers, responseType: "text", connectTimeout: 15000, readTimeout: 30000,
+      data: body === undefined || body === null ? undefined : json ? JSON.parse(body) : body });
+  } catch (e) {
+    throw new Error("Couldn't reach YouTube. Check your connection.");
+  }
+  // Answers in JSON arrive already unpacked; the caller expects text.
+  return { status: res.status, text: typeof res.data === "string" ? res.data : JSON.stringify(res.data ?? "") };
+}
+
 let browserListening = false;
 /** Open the in-app web browser (native screen with an "Import Page" button). */
 export async function openBrowser(url = "") {
@@ -366,6 +383,7 @@ const routes = [
   [/^$/, home, () => ({})],
   [/^library$/, library, () => ({})],
   [/^feed\/(\w+)$/, library, (m) => ({ feedId: m[1] })],
+  [/^discover$/, discover, () => ({})],
   [/^episode\/(\w+)$/, player, (m) => ({ id: m[1] })],
   [/^vocab$/, vocab, () => ({})],
   [/^search$/, search, () => ({})],
@@ -387,7 +405,7 @@ async function route() {
   const hit = routes.find(([re]) => re.test(path));
   if (!hit) { location.hash = "#/"; return; }
   const [re, mod, params] = hit;
-  const key = mod === home ? "home" : mod === library ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
+  const key = mod === home ? "home" : mod === library || mod === discover ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
     : mod === settingsPage ? "settings" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === key));
   document.body.classList.toggle("in-player", mod === player || mod === chat);

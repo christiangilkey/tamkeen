@@ -205,7 +205,7 @@ def _episode_audio(episode_id: int | None, fetch: bool = True) -> Path | None:
     with db.session() as conn:
         ep = conn.execute("SELECT audio_path, sync_audio_path, remote_audio, audio_type FROM episodes WHERE id = ?",
                           (episode_id,)).fetchone()
-    if ep is None or (ep["audio_type"] or "") == "text/html":
+    if ep is None or (ep["audio_type"] or "") in ("text/html", "video/youtube"):
         return None
     for stored in (ep["audio_path"], ep["sync_audio_path"]):
         if stored and Path(stored).exists():

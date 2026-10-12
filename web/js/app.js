@@ -10,6 +10,7 @@ import * as about from "./pages/about.js";
 import * as welcome from "./pages/welcome.js";
 import * as friends from "./pages/friends.js";
 import * as chat from "./pages/chat.js";
+import * as discover from "./pages/discover.js";
 import { startBadge } from "./social.js";
 import { showUpdateNotice } from "./updatenotice.js";
 import { detectLanguage, setLang, setStudyLanguage } from "./languages.js";
@@ -173,6 +174,12 @@ export async function fetchPage(url) {
   return api(`/web/fetch?url=${encodeURIComponent(url)}`);
 }
 
+/** One web request to youtube.com, to read a video's captions: {status, text}. A page may
+ * not call YouTube directly, so the app's own server (on this computer) makes the request. */
+export async function ytRequest(req) {
+  return api("/youtube/request", { method: "POST", body: req });
+}
+
 /** Open the in-app web browser (a second window with an "Import Page" button). */
 export async function openBrowser(url = "") {
   const bridge = window.pywebview && window.pywebview.api;
@@ -253,6 +260,7 @@ const routes = [
   [/^$/, home, () => ({})],
   [/^library$/, library, () => ({})],
   [/^feed\/(\d+)$/, library, (m) => ({ feedId: Number(m[1]) })],
+  [/^discover$/, discover, () => ({})],
   [/^episode\/(\d+)$/, player, (m) => ({ id: Number(m[1]) })],
   [/^vocab$/, vocab, () => ({})],
   [/^search$/, search, () => ({})],
@@ -286,7 +294,7 @@ async function route() {
   }
   if (!match) { location.hash = "#/"; return; }
   const [mod, params] = match;
-  const navKey = mod === home ? "home" : mod === library ? "library" : mod === vocab ? "vocab" : mod === settings ? "settings"
+  const navKey = mod === home ? "home" : mod === library || mod === discover ? "library" : mod === vocab ? "vocab" : mod === settings ? "settings"
     : mod === about ? "about" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === navKey));
   try {

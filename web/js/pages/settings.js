@@ -1,10 +1,12 @@
 // Settings: model, GPU, audio storage, appearance, data backup, updates.
 
-import { api, esc, h, on, toast, download, state, loadStatus, saveSettings, fmtBytes } from "../app.js";
+import { api, esc, h, on, toast, download, loadStatus, saveSettings, fmtBytes } from "../app.js";
 import { modelManager, gpuPanel } from "../components/models.js";
-import { PROVIDERS, define } from "../definer.js";
+import { aiSetup } from "../components/aisetup.js";
+import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { languagePicker } from "../components/langpicker.js";
+import { dictionariesRow } from "../lexicon/seen.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
 
 export async function render(view) {
@@ -51,27 +53,7 @@ export async function render(view) {
         This uses an AI provider with your own API key. You pay the provider directly; a lookup typically costs a
         fraction of a cent. The word, its sentence and the neighbouring sentences are sent to the provider you choose.
         Your key stays on this computer and is never included in data exports.</p>
-      <div class="row">Provider:
-        <select id="def-provider">${Object.entries(PROVIDERS).map(([k, p]) =>
-          `<option value="${k}" ${k === (s.definer_provider || "claude") ? "selected" : ""}>${esc(p.label)}</option>`).join("")}</select>
-        <a id="def-keylink" class="small" target="_blank" rel="noopener">Get an API key ↗</a>
-      </div>
-      <div class="row">API key:
-        <input type="password" id="def-key" autocomplete="off" spellcheck="false" style="flex:1;min-width:240px" placeholder="Paste your API key">
-        <button type="button" class="ghost" id="def-show">Show</button>
-      </div>
-      <div class="row">Model:
-        <input type="text" id="def-model" list="def-models" style="width:240px" spellcheck="false">
-        <datalist id="def-models"></datalist>
-        <span class="small muted">Pick a suggestion or type any model name your account has.</span>
-      </div>
-      <div class="row">Explain in:
-        <input type="text" id="def-lang" style="width:160px" value="${esc(s.definer_language || "English")}">
-      </div>
-      <div class="row">
-        <button type="button" id="def-test">Test with an example</button>
-        <span id="def-test-result" class="small"></span>
-      </div>
+      <div id="ai-setup"></div>
     </section>
 
     <section class="card stack">
@@ -198,32 +180,12 @@ export async function render(view) {
   cleanups.push(on("sync", paintSync));
 
   // ----- AI definitions -----
-  const defProvider = () => $("#def-provider").value;
-  function paintProvider() {
-    const p = defProvider();
-    const info = PROVIDERS[p];
-    const cur = state.status.settings;
-    $("#def-key").value = cur[`llm_key_${p}`] || "";
-    $("#def-model").value = cur[`definer_model_${p}`] || info.defaultModel;
-    $("#def-models").innerHTML = info.models.map((m) => `<option value="${esc(m)}">`).join("");
-    $("#def-keylink").href = info.keyUrl;
-    $("#def-test-result").textContent = "";
-  }
-  paintProvider();
-  $("#def-provider").onchange = async () => { await saveSettings({ definer_provider: defProvider() }); paintProvider(); };
-  $("#def-key").onchange = (e) => saveSettings({ [`llm_key_${defProvider()}`]: e.target.value.trim() });
-  $("#def-model").onchange = (e) => saveSettings({ [`definer_model_${defProvider()}`]: e.target.value.trim() });
-  $("#def-lang").onchange = (e) => saveSettings({ definer_language: e.target.value.trim() || "English" });
-  $("#def-show").onclick = (e) => {
-    const k = $("#def-key");
-    k.type = k.type === "password" ? "text" : "password";
-    e.target.textContent = k.type === "password" ? "Show" : "Hide";
-  };
+  $("#ai-setup").append(aiSetup({ transport: (req) => api("/llm/relay", { method: "POST", body: req }) }));
   $("#study-lang").append(languagePicker(s.study_language, async (code) => {
     await saveSettings({ study_language: code });
     toast(`Now learning ${LANGUAGES[code].name}`);
     window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
-  }));
+  }), commonWordsButton(studyLanguage()), dictionariesRow(studyLanguage()));
 
   $("#anki-get").onclick = () => download("/api/anki/addon", "Tamkeen-Anki-Companion.ankiaddon");
   const paintAnki = async () => {
@@ -237,29 +199,6 @@ export async function render(view) {
   };
   paintAnki();
   cleanups.push(on("anki", paintAnki));
-
-  $("#def-test").onclick = async (e) => {
-    const out = $("#def-test-result");
-    e.target.disabled = true;
-    out.textContent = "Asking…";
-    out.style.color = "";
-    const p = defProvider();
-    const t0 = performance.now();
-    try {
-      const d = await define(
-        { provider: p, key: $("#def-key").value.trim(), model: $("#def-model").value.trim(), language: $("#def-lang").value.trim() || "English" },
-        { ...langInfo(studyLanguage()).test, lang: studyLanguage() },
-        (req) => api("/llm/relay", { method: "POST", body: req }),
-      );
-      out.textContent = `✓ Works (${((performance.now() - t0) / 1000).toFixed(1)} s): ${langInfo(studyLanguage()).test.word} = “${d.meaning}” (${d.dialect || "?"})`;
-      out.style.color = "var(--accent)";
-    } catch (err) {
-      out.textContent = err.message;
-      out.style.color = "var(--danger)";
-    } finally {
-      e.target.disabled = false;
-    }
-  };
 
   $("#delete-after").onchange = (e) => saveSettings({ delete_audio_after: e.target.checked });
   $("#stream").onchange = (e) => saveSettings({ stream_from_source: e.target.checked });

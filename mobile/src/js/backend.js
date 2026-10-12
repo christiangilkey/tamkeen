@@ -7,6 +7,7 @@ import { fetchTranscript, requestSync, syncNow, syncState } from "./sync.js";
 import { episodeUid, feedUid, findSpans, newUid, normalize, normalizeUrl } from "./shared-logic.js";
 import { settings } from "./store.js";
 import { detectLanguage, isLanguage } from "./languages.js";
+import { trending } from "./podcastindex.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
 
 export class ApiError extends Error {}
@@ -21,6 +22,8 @@ const AUDIO_FEED_URL = "local:audio";
 const PAGES_FEED_URL = "local:pages";
 const PAGE_KINDS = ["h1", "h2", "h3", "p", "li", "q"];
 const MAX_PAGE_WORDS = 30000;
+const YOUTUBE_FEED_URL = "local:youtube";
+const MAX_YOUTUBE_WORDS = 60000;
 
 function cleanPageUrl(text) {
   let url = String(text || "").trim();
@@ -78,6 +81,62 @@ async function savePage(body) {
   }
   await transcripts.put(uid, { format: 1, rev: t, model: "webpage", kinds, segments, words });
   // The text has to reach Drive too, so the computer and other devices get the page.
+  const pending = new Set((await kv.get("pending_transcripts")) || []);
+  pending.add(uid);
+  await kv.set("pending_transcripts", [...pending]);
+  changed();
+  return { ...episodeOut(ep), words: words.text.length };
+}
+
+/** Store a YouTube video and its captions (same layout as the desktop's app/youtube.py): the
+ * captions are its transcript; the video itself stays on YouTube. */
+async function saveYouTube(body) {
+  const id = String(body.video_id || "").trim();
+  if (!/^[\w-]{11}$/.test(id)) throw new ApiError("That doesn't look like a YouTube video.");
+  const num = (x) => Math.max(0, Number(x) || 0);
+  const segments = [];
+  const words = { start: [], end: [], text: [], seg: [] };
+  for (const line of [...(body.lines || [])].sort((a, b) => num(a.start) - num(b.start))) {
+    let list = (line.words || []).filter((w) => Array.isArray(w) && String(w[2] ?? "").trim());
+    if (words.text.length + list.length > MAX_YOUTUBE_WORDS) list = list.slice(0, MAX_YOUTUBE_WORDS - words.text.length);
+    if (!list.length) continue;
+    for (const [start, end, text] of list) {
+      words.start.push(num(start));
+      words.end.push(Math.max(num(start), num(end)));
+      words.text.push(String(text).replace(/\s+/g, "").slice(0, 120));
+      words.seg.push(segments.length);
+    }
+    const text = String(line.text || "").replace(/\s+/g, " ").trim() || list.map((w) => w[2]).join(" ");
+    segments.push([line.start == null ? num(list[0][0]) : num(line.start), Math.max(num(line.end), num(list.at(-1)[1])), text.slice(0, 2000)]);
+  }
+  if (!segments.length) throw new ApiError("No captions available for this video.");
+  const t = now();
+  const fuid = await feedUid(YOUTUBE_FEED_URL);
+  let feed = feedOf(fuid);
+  if (!feed) {
+    feed = { uid: fuid, url: YOUTUBE_FEED_URL, title: "YouTube",
+             description: "YouTube videos you added. They play from YouTube; their captions are the transcript.",
+             image: null, link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
+    lib.feeds.push(feed);
+  } else if (feed.deleted) {
+    Object.assign(feed, { deleted: 0, updated_at: t });
+  }
+  const uid = await episodeUid(fuid, id);
+  const model = body.auto ? "youtube-auto" : "youtube-captions";
+  const language = isLanguage(body.language) ? body.language
+    : detectLanguage(segments.slice(0, 60).map((s) => s[2]).join(" "), settings.study_language || "ar");
+  const fields = { title: String(body.title || "").replace(/\s+/g, " ").trim().slice(0, 300) || "YouTube video",
+                   description: String(body.channel || "").slice(0, 200), image: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+                   audio_url: `https://www.youtube.com/watch?v=${id}`, audio_type: "video/youtube",
+                   duration: num(body.duration) || segments.at(-1)[1], language, transcript_rev: t, model, deleted: 0, updated_at: t };
+  let ep = lib.episodes.find((e) => e.uid === uid);
+  if (ep) Object.assign(ep, fields);
+  else {
+    ep = { uid, feed_uid: fuid, guid: id, published: t, transcribe_requested_at: null, remote_audio: 0, created_at: t, ...fields };
+    lib.episodes.push(ep);
+  }
+  await transcripts.put(uid, { format: 1, rev: t, model, segments, words });
+  // The captions have to reach Drive too, so the computer and other devices get the video.
   const pending = new Set((await kv.get("pending_transcripts")) || []);
   pending.add(uid);
   await kv.set("pending_transcripts", [...pending]);
@@ -152,9 +211,13 @@ const routes = [
     if (existing && !existing.deleted) throw new ApiError("You're already subscribed to this feed.");
     const t = now();
     const host = (() => { try { return new URL(url).hostname; } catch { return url; } })();
+    // Added from Trending, the podcast's name and picture are already known; otherwise the
+    // computer fills them in when it first reads the feed.
+    const image = typeof body.image === "string" && body.image.startsWith("https://") ? body.image : null;
     const feed = existing
       ? Object.assign(existing, { deleted: 0, updated_at: t })
-      : { uid, url, title: host, description: "Episodes appear after your computer syncs this feed.", image: null,
+      : { uid, url, title: String(body.title || "").trim().slice(0, 300) || host,
+          description: "Episodes appear after your computer syncs this feed.", image,
           link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
     if (!existing) lib.feeds.push(feed);
     changed();
@@ -231,6 +294,11 @@ const routes = [
     return { episode: ep, segments, words };
   }],
   ["POST", /^\/pages$/, (m, q, body) => savePage(body)],
+  ["POST", /^\/youtube$/, (m, q, body) => saveYouTube(body)],
+  ["GET", /^\/discover\/trending$/, async (m, q) => {
+    try { return { feeds: await trending(q.get("lang"), q.get("fresh") === "true") }; }
+    catch (e) { throw new ApiError(e.message); }
+  }],
   ["DELETE", /^\/episodes\/([\w]+)$/, async (m) => {
     const e = episodeOf(m[1]);
     if (!e) return { ok: true };

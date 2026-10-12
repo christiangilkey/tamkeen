@@ -24,6 +24,9 @@ datas += collect_data_files("faster_whisper")  # Silero VAD model (assets/*.onnx
 _google_client = ROOT / "app" / "sync" / "google_client.json"
 if _google_client.exists():
     datas.append((str(_google_client), "app/sync"))
+_podcastindex_key = ROOT / "app" / "podcastindex_key.json"
+if _podcastindex_key.exists():
+    datas.append((str(_podcastindex_key), "app"))
 datas += collect_data_files("webview")
 
 binaries = collect_dynamic_libs("ctranslate2")

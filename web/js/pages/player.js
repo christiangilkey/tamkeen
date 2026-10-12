@@ -2,6 +2,8 @@
 // direction of the episode's language.
 // Videos ("My videos") play in a <video> with tappable captions on top and the full
 // transcript in a panel beside it (desktop) or below it (phone), toggled by a button.
+// YouTube videos play in YouTube's own embedded player (ytmedia.js); their tappable captions
+// sit BELOW the video, because nothing may be drawn over YouTube's player.
 //
 // Performance: words are rendered once as <span>s. Each animation frame we binary-search
 // the sorted start times (O(log n)) and only touch the DOM when the active word changes.
@@ -15,6 +17,8 @@ import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
+import { importVideo, isYouTube, videoId as youTubeId } from "../youtube.js";
+import { createYouTubeMedia } from "../ytmedia.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 
@@ -53,7 +57,11 @@ function renderPending(view, ep) {
       <a class="btn" href="#/library">Back to library</a></div>
     </div></div>`);
   panel.querySelector("h1").textContent = ep.title;
-  if (isVideo(ep)) {
+  const yt = isYouTube(ep);
+  if (yt) {
+    panel.querySelector("#st").insertAdjacentHTML("afterend",
+      `<p class="small muted">This video's captions aren't on this device yet. They arrive with the next sync, or you can fetch them again now.</p>`);
+  } else if (isVideo(ep)) {
     const v = h(`<video class="pending-video" controls playsinline preload="metadata"></video>`);
     audioUrl(ep.id).then((url) => { v.src = url; }).catch(() => {});
     panel.querySelector(".status-panel").prepend(v);
@@ -70,9 +78,22 @@ function renderPending(view, ep) {
     const go = panel.querySelector("#go");
     const busy = ["queued", "downloading", "transcribing"].includes(ep.status);
     go.hidden = busy;
-    go.textContent = ep.status === "failed" ? "Retry" : "Transcribe";
+    go.textContent = yt ? "Get captions" : ep.status === "failed" ? "Retry" : "Transcribe";
+    if (yt) panel.querySelector("#st").textContent = "Waiting for captions";
   };
-  panel.querySelector("#go").onclick = async () => {
+  panel.querySelector("#go").onclick = async (e) => {
+    if (yt) {
+      // Nothing to transcribe: read the captions from YouTube again, then show the player.
+      e.target.disabled = true;
+      try {
+        await importVideo(ep.audio_url);
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+      } catch (err) {
+        toast(err.message, { error: true });
+        e.target.disabled = false;
+      }
+      return;
+    }
     requestNotifications();
     try { await api("/episodes/transcribe", { method: "POST", body: { ids: [ep.id] } }); }
     catch (e) { toast(e.message, { error: true }); }
@@ -104,12 +125,15 @@ export async function render(view, { id, query }) {
   // ---------- markup ----------
   const img = ep.image || ep.feed_image;
   const vid = isVideo(ep);
+  const yt = isYouTube(ep);
+  // Captions written by a person are timed per line, not per word (see ytcaptions.js).
+  const lineTimed = yt && ep.model !== "youtube-auto";
   const transcriptHtml = `<div class="transcript-wrap">
         <div class="transcript ar" id="transcript" ${langAttrs(lang)} tabindex="0"></div>
         <button type="button" class="back-to-current primary" id="back" hidden>↓ Back to current</button>
       </div>`;
   view.append(h(`
-    <div class="player${vid ? " video" : ""}">
+    <div class="player${vid ? " video" : ""}${yt ? " yt" : ""}">
       <div class="player-head">
         <a class="btn ghost" href="#/feed/${ep.feed_id}" title="Back">←</a>
         ${img ? `<img src="${esc(img)}" alt="" referrerpolicy="no-referrer">` : ""}
@@ -119,7 +143,7 @@ export async function render(view, { id, query }) {
         </div>
         <div class="row">
           ${vid ? `<button type="button" id="toggle-panel" title="Show or hide the full transcript (T)">≡ Transcript</button>
-          <button type="button" class="ghost" id="toggle-cc" title="Show or hide captions (C)">CC</button>
+          <button type="button" class="ghost" id="toggle-cc" title="Show or hide the clickable captions (C)">CC</button>
           <button type="button" class="ghost" id="fullscreen" title="Full screen (F)">⛶</button>` : ""}
           <button type="button" class="ghost" id="font-down" title="Smaller text">A−</button>
           <button type="button" class="ghost" id="font-up" title="Larger text">A+</button>
@@ -128,7 +152,13 @@ export async function render(view, { id, query }) {
           <button type="button" id="exp-vtt">VTT</button>
         </div>
       </div>
-      ${vid ? `<div class="stage" id="stage">
+      ${yt ? `<div class="stage" id="stage">
+        <div class="yt-col">
+          <div class="screen" id="screen"><div id="yt-frame"></div></div>
+          <div class="captions" id="captions" ${langAttrs(lang)}></div>
+        </div>
+        ${transcriptHtml}
+      </div>` : vid ? `<div class="stage" id="stage">
         <div class="screen" id="screen">
           <video id="video" playsinline></video>
           <div class="captions" id="captions" ${langAttrs(lang)}></div>
@@ -174,15 +204,19 @@ export async function render(view, { id, query }) {
   const seen = seenWords({ tokens: texts, lang, els: wordEls });
 
   // ---------- audio ----------
-  const audio = vid ? $("#video") : new Audio();
-  audio.preload = "auto";
-  audio.src = await audioUrl(id);
+  const posKey = `pos:${id}`;
+  const startAt = query.get("t") !== null ? Number(query.get("t")) : lsGet(posKey, 0);
+  let duration = ep.duration || 0;
+  // A YouTube video is driven through an object that behaves like an <audio> element.
+  const audio = yt ? createYouTubeMedia($("#yt-frame"), youTubeId(ep.audio_url) || ep.guid, { start: startAt, duration })
+    : vid ? $("#video") : new Audio();
+  if (!yt) {
+    audio.preload = "auto";
+    audio.src = await audioUrl(id);
+  }
   window.__apsAudio = audio; // handy for debugging from the devtools console
   let speed = lsGet("speed", 1);
   $("#speed").value = String(speed);
-  let duration = ep.duration || 0;
-  const posKey = `pos:${id}`;
-  const startAt = query.get("t") !== null ? Number(query.get("t")) : lsGet(posKey, 0);
 
   audio.addEventListener("loadedmetadata", () => {
     if (Number.isFinite(audio.duration) && audio.duration > 0) duration = audio.duration;
@@ -195,7 +229,8 @@ export async function render(view, { id, query }) {
   }, { once: true });
   audio.addEventListener("error", () => {
     if (disposed) return;
-    toast(vid ? "Couldn't load the video. It streams from your Google Drive: check your connection and that you're signed in."
+    toast(yt ? audio.errorMessage || "YouTube couldn't play this video."
+      : vid ? "Couldn't load the video. It streams from your Google Drive: check your connection and that you're signed in."
       : "Couldn't load the audio. If it streams from the podcast's server, check your connection.", { error: true });
   });
 
@@ -368,6 +403,16 @@ export async function render(view, { id, query }) {
     }, ms);
   }
 
+  /** Play words i..j. Where only whole lines are timed, the line they are in is played instead. */
+  function playWords(i, j = i) {
+    if (!lineTimed) { playClip(starts[i], ends[j]); return; }
+    let a = i;
+    let b = j;
+    while (a > 0 && segOf[a - 1] === segOf[i]) a--;
+    while (b < n - 1 && segOf[b + 1] === segOf[j]) b++;
+    playClip(starts[a], ends[b]);
+  }
+
   // ---------- loop ----------
   function setLoop(first, last) {
     clearLoop();
@@ -524,9 +569,10 @@ export async function render(view, { id, query }) {
     };
   }
 
-  bubble = createWordBubble(vid ? $("#stage") : $(".transcript-wrap"), {
+  // The popup may not cover YouTube's player, so there it lives in the transcript panel.
+  bubble = createWordBubble(vid && !yt ? $("#stage") : $(".transcript-wrap"), {
     fetch: (ctx, refresh) => getDefinition(ctx, refresh),
-    onPlayWord: () => bubbleTarget && playClip(starts[bubbleTarget.i], ends[bubbleTarget.j]),
+    onPlayWord: () => bubbleTarget && playWords(bubbleTarget.i, bubbleTarget.j),
     onPlaySentence: () => bubbleTarget && playClip(starts[bubbleTarget.si], ends[bubbleTarget.sj]),
     onPlayFrom: () => bubbleTarget && seekTo(starts[bubbleTarget.i]),
     onSettings: () => (location.hash = "#/settings"),
@@ -552,7 +598,16 @@ export async function render(view, { id, query }) {
     const c = contextFor(i, j);
     bubbleTarget = { i, j, si: c.si, sj: c.sj, text: c.word };
     buzz("tick");
-    playClip(starts[i], ends[j]);
+    playWords(i, j);
+    if (yt) {
+      // Show the popup beside the word in the transcript panel (opened if need be; a phone
+      // shows the popup as a sheet at the bottom instead, so the panel can stay as it is).
+      anchor = wordEls[i];
+      if (!window.matchMedia("(max-width: 640px)").matches && !playerEl.classList.contains("panel-open")) setPanel(true);
+      follow = true;
+      $("#back").hidden = true;
+      ensureVisible(wordEls[i]);
+    }
     bubble.show(anchor || wordEls[i], c.ctx);
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, anchor || wordEls[i]);
     seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
@@ -573,8 +628,9 @@ export async function render(view, { id, query }) {
       e.preventDefault();
       openMenu(e.clientX, e.clientY, wEl);
     });
-    // Tapping the picture plays/pauses (and closes an open definition).
-    $("#screen").addEventListener("click", (e) => {
+    // Tapping the picture plays/pauses (and closes an open definition). YouTube's player
+    // handles its own taps.
+    if (!yt) $("#screen").addEventListener("click", (e) => {
       if (e.target.closest(".captions")) return;
       if (bubble.open) { bubble.hide(); return; }
       clipEnd = null;
@@ -652,7 +708,7 @@ export async function render(view, { id, query }) {
   document.addEventListener("keydown", onKey);
 
   // ---------- media keys ----------
-  if ("mediaSession" in navigator) {
+  if ("mediaSession" in navigator && !yt) {
     try {
       navigator.mediaSession.metadata = new MediaMetadata({ title: ep.title, artist: ep.feed_title,
         artwork: img ? [{ src: img }] : [] });
@@ -688,8 +744,11 @@ export async function render(view, { id, query }) {
     remember();
     audio.pause();
     delete window.__apsAudio;
-    audio.removeAttribute("src");
-    audio.load();
+    if (yt) audio.dispose();
+    else {
+      audio.removeAttribute("src");
+      audio.load();
+    }
     cancelAnimationFrame(raf);
     clearTimeout(pressTimer);
     document.removeEventListener("keydown", onKey);

@@ -3,6 +3,8 @@
 import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, openBrowser } from "../app.js";
 import { icon } from "../icons.js";
 import { importUrl } from "../pageimport.js";
+import { langInfo, studyLanguage } from "../languages.js";
+import { importVideo, isYouTube, videoId as youTubeId } from "../youtube.js";
 
 const FILTERS = [
   ["", "All"],
@@ -19,7 +21,8 @@ export const isLocalFeed = (url) => (url || "").startsWith("local:");
 export const isPage = (ep) => (ep.audio_type || "") === "text/html";
 const PAGES_FEED = "local:pages";
 const AUDIO_FEED = "local:audio";
-/** The picture for a built-in feed ("My webpages", "My audio", "My videos"). */
+const YOUTUBE_FEED = "local:youtube";
+/** The picture for a built-in feed ("My webpages", "My audio", "My videos", "YouTube"). */
 const localIcon = (url, size) => icon(url === PAGES_FEED ? "page" : url === AUDIO_FEED ? "audio" : "video", size);
 
 export function statusInfo(ep) {
@@ -60,6 +63,16 @@ export async function render(view, { feedId, query }) {
             <input id="feed-url" type="url" placeholder="Paste RSS feed URL" required autocomplete="off">
             <button class="primary" type="submit">Add</button>
           </div>
+        </form>
+        <a class="btn trending-btn" href="#/discover" title="See which podcasts are popular right now in the language you're studying, sorted by topic, and add any with one press">
+          ${icon("trending", 18)} Trending in ${esc(langInfo(studyLanguage()).name)}</a>
+        <form class="add-feed add-yt" id="add-yt">
+          <label for="yt-url"><strong>Add a YouTube video</strong></label>
+          <div class="row">
+            <input id="yt-url" type="text" inputmode="url" placeholder="Paste YouTube link" required autocomplete="off">
+            <button class="primary" type="submit">Add</button>
+          </div>
+          <p class="small muted hint">Plays from YouTube with its captions as clickable text. The video needs captions.</p>
         </form>
         <div class="row">
           <button type="button" id="refresh" class="ghost" title="Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)">⟳ Refresh &amp; sync</button>
@@ -126,6 +139,12 @@ export async function render(view, { feedId, query }) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("page", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
         <div class="desc small">Web pages you imported. Open one to read it with every word clickable. Add more with
         “Add a webpage”, or browse with “Open Web Browser” and press Import Page.</div></div></div>`));
+      return;
+    }
+    if (f.url === YOUTUBE_FEED) {
+      head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("video", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
+        <div class="desc small">YouTube videos you added. They play from YouTube itself, and their captions become
+        text you can click. Add more with “Add a YouTube video”.</div></div></div>`));
       return;
     }
     if (isLocalFeed(f.url)) {
@@ -240,6 +259,7 @@ export async function render(view, { feedId, query }) {
     if (isLocalFeed(ep.feed_url)) {
       btn("Delete", "ghost danger", async () => {
         if (!confirm(isPage(ep) ? `Delete “${ep.title}” from your webpages? Saved vocab is kept.`
+          : isYouTube(ep) ? `Remove “${ep.title}” from your YouTube videos? Saved vocab is kept.`
           : `Delete “${ep.title}”? The ${isVideo(ep) ? "video" : "audio"} and its transcript are removed from this device and from your Google Drive. Saved vocab is kept.`)) return;
         try {
           await api(`/episodes/${ep.id}`, { method: "DELETE" });
@@ -357,6 +377,11 @@ export async function render(view, { feedId, query }) {
     btn.disabled = true;
     btn.textContent = "Importing…";
     try {
+      if (youTubeId(input.value)) { // a YouTube link pasted in the webpage box: add it as a video
+        await addYouTube(input.value);
+        input.value = "";
+        return;
+      }
       const ep = await importUrl(input.value);
       input.value = "";
       toast(`Imported “${ep.title}”.`, { action: { label: "Read", run: () => (location.hash = `#/episode/${ep.id}`) } });
@@ -367,6 +392,28 @@ export async function render(view, { feedId, query }) {
     } finally {
       btn.disabled = false;
       btn.textContent = "Import";
+    }
+  };
+  /** Read the video's captions and open it in the player. */
+  async function addYouTube(link) {
+    const ep = await importVideo(link);
+    toast(`Added “${ep.title}” with ${ep.auto ? "YouTube's automatic captions" : "its captions"}.`);
+    location.hash = `#/episode/${ep.id}`;
+  }
+  $("#add-yt").onsubmit = async (e) => {
+    e.preventDefault();
+    const input = $("#yt-url");
+    const btn = e.target.querySelector("button");
+    btn.disabled = true;
+    btn.textContent = "Getting captions…";
+    try {
+      await addYouTube(input.value);
+      input.value = "";
+    } catch (err) {
+      toast(err.message, { error: true });
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Add";
     }
   };
   $("#open-browser").onclick = () => {

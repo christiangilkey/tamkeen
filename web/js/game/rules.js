@@ -412,18 +412,6 @@ export function setActive(state, index) {
   if (index >= 0 && index < state.roster.length) state.active = index;
 }
 
-// ---------- vocab review: what battles are made of ----------
-// Every saved word with a meaning can be asked. A word moves up a box each time it is answered
-// right and comes back after a longer wait; a wrong answer drops it two boxes. A word that climbs
-// to MATURE_BOX is "well known": it took weeks of right answers to get there, which is why
-// reaching it pays the best bonus.
-const INTERVALS = [0, 1, 2, 4, 8, 16, 32]; // days until a word comes round again, by box
-export const MATURE_BOX = 4;
-const uidOf = (v) => String(v.uid || v.id);
-const meaningOf = (v) => String(v.meaning || "").trim();
-
-export const quizzable = (vocab) => (vocab || []).filter((v) => v && String(v.text || "").trim() && meaningOf(v));
-
 /** Choose the creature friends see next to my name (pass null to follow the one in the habitat). */
 export function setShowcase(state, seed) {
   state.showcase = state.roster.some((g) => g.seed === seed) ? seed : null;
@@ -435,6 +423,18 @@ export function showcaseOf(state) {
   const hatched = (g) => g && stageOf(g.growth).id !== "egg";
   return [state.roster.find((g) => g.seed === state.showcase), state.creature, ...state.roster].find(hatched) || null;
 }
+
+// ---------- vocab review: what battles are made of ----------
+// Every saved word with a meaning can be asked. A word moves up a box each time it is answered
+// right and comes back after a longer wait; a wrong answer drops it two boxes. A word that climbs
+// to MATURE_BOX is "well known": it took weeks of right answers to get there, which is why
+// reaching it pays the best bonus.
+const INTERVALS = [0, 1, 2, 4, 8, 16, 32]; // days until a word comes round again, by box
+export const MATURE_BOX = 4;
+const uidOf = (v) => String(v.uid || v.id);
+const meaningOf = (v) => String(v.meaning || "").trim();
+
+export const quizzable = (vocab) => (vocab || []).filter((v) => v && String(v.text || "").trim() && meaningOf(v));
 
 /** How well the owner has been answering lately (0..1), or null before there is enough to go on. */
 export function retention(state) {

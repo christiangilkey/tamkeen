@@ -11,7 +11,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, RedirectResponse, Response, StreamingResponse
 from pydantic import BaseModel
 
-from .. import db, events, exporters, jobs, pages, sync, videos
+from .. import db, events, exporters, jobs, pages, sync, videos, youtube
 
 router = APIRouter(tags=["episodes"])
 
@@ -189,6 +189,8 @@ def _drive_stream(name: str, media_type: str, request: Request) -> Response:
 @router.get("/episodes/{episode_id}/audio")
 def episode_audio(episode_id: int, request: Request) -> Response:
     ep = _episode(episode_id)
+    if youtube.is_youtube(ep["audio_type"]):
+        raise HTTPException(404, "This video plays from YouTube; the app keeps no copy of its sound.")
     if ep["audio_path"] and Path(ep["audio_path"]).exists():
         path = Path(ep["audio_path"])
         media = ep["audio_type"] or mimetypes.guess_type(path.name)[0] or "audio/mpeg"

@@ -7,32 +7,61 @@
 
 import { isLanguage, gap } from "./languages.js";
 
+// `defaultModel` is each provider's best value for this job: the cheapest of its current models
+// that explains a word well (a lookup is a short question and a short structured answer, so the
+// small models do it properly). `models` is what Settings offers, cheapest first, with a note on
+// each; a user can also type any other model name. Prices are US dollars per million words-worth
+// of text ("tokens") in / out, from the providers' own price lists in October 2026.
 export const PROVIDERS = {
   claude: {
     label: "Claude (Anthropic)",
+    short: "Claude",
     keyUrl: "https://console.anthropic.com/settings/keys",
-    defaultModel: "claude-opus-5-5",
-    models: ["claude-opus-5-5", "claude-sonnet-5-5", "claude-haiku-4-5"],
+    defaultModel: "claude-haiku-5-5",
+    models: [
+      { id: "claude-haiku-5-5", name: "Claude Haiku 5.5", note: "lowest cost ($0.10 / $0.50)" },
+      { id: "claude-sonnet-5-5", name: "Claude Sonnet 5.5", note: "more thorough, about 20× the cost" },
+      { id: "claude-opus-5-5", name: "Claude Opus 5.5", note: "most thorough, about 40× the cost" },
+    ],
   },
   gemini: {
     label: "Gemini (Google)",
+    short: "Gemini",
     keyUrl: "https://aistudio.google.com/apikey",
-    defaultModel: "gemini-flash-latest",
-    models: ["gemini-flash-latest", "gemini-3.8-flash"],
+    defaultModel: "gemini-3.1-flash-lite",
+    models: [
+      { id: "gemini-3.1-flash-lite", name: "Gemini 3.1 Flash-Lite", note: "lowest cost of the current models ($0.25 / $1.50); free allowance" },
+      { id: "gemini-3.5-flash-lite", name: "Gemini 3.5 Flash-Lite", note: "newer, a little dearer ($0.30 / $2.50)" },
+      { id: "gemini-3.8-flash", name: "Gemini 3.8 Flash", note: "most thorough, about 3× the cost" },
+      { id: "gemini-2.5-flash-lite", name: "Gemini 2.5 Flash-Lite", note: "older model, cheapest of all ($0.10 / $0.40)" },
+    ],
   },
   openai: {
     label: "ChatGPT (OpenAI)",
+    short: "OpenAI",
     keyUrl: "https://platform.openai.com/api-keys",
-    defaultModel: "gpt-6.1-sol",
-    models: ["gpt-6.1-sol", "gpt-6-luna", "gpt-6-astra"],
+    defaultModel: "gpt-6-luna",
+    models: [
+      { id: "gpt-6-luna", name: "GPT-6 Luna", note: "lowest cost ($0.10 / $0.50)" },
+      { id: "gpt-6.1-sol", name: "GPT-6.1 Sol", note: "more thorough, about 20× the cost" },
+      { id: "gpt-6-astra", name: "GPT-6 Astra", note: "most thorough, about 100× the cost" },
+    ],
   },
   grok: {
     label: "Grok (xAI)",
+    short: "Grok",
     keyUrl: "https://console.x.ai/",
-    defaultModel: "grok-4.7",
-    models: ["grok-4.7"],
+    defaultModel: "grok-4.3",
+    models: [
+      { id: "grok-4.3", name: "Grok 4.3", note: "lowest cost of the general models ($1.25 / $2.50)" },
+      { id: "grok-4.7", name: "Grok 4.7", note: "newest, about twice the cost" },
+    ],
   },
 };
+
+/** The model a provider's key is used with: the one chosen in Settings, else the provider's default. */
+export const modelFor = (provider, settings) =>
+  (settings && settings[`definer_model_${provider}`]) || PROVIDERS[provider].defaultModel;
 
 // What the AI teacher is told about each language. The answer always has the same fields (so the
 // popup and saved answers work for every language); only what goes in them differs:
@@ -217,7 +246,7 @@ function buildRequest(provider, model, key, system, user, schema, lite = false) 
         output_config: { format: { type: "json_schema", schema } },
       };
       const headers = { "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json" };
-      if (!lite && !model.startsWith("claude-haiku")) {
+      if (!lite && !/^claude-haiku-[34]/.test(model)) { // (Haiku 4.5 and older have no effort setting)
         body.output_config.effort = "low"; // fast lookups; thinking stays adaptive
         if (/^claude-(opus|sonnet)-5-5/.test(model)) {
           // Re-run on a fallback model if a safety classifier declines (rare for vocabulary).
@@ -233,7 +262,8 @@ function buildRequest(provider, model, key, system, user, schema, lite = false) 
         contents: [{ role: "user", parts: [{ text: user }] }],
         generationConfig: { responseMimeType: "application/json", responseSchema: geminiSchema(schema) },
       };
-      if (!lite) body.generationConfig.thinkingConfig = { thinkingLevel: "low" };
+      // (Gemini 2.x has no thinking levels, and its lite model doesn't think unless asked to.)
+      if (!lite && !/^gemini-2/.test(model)) body.generationConfig.thinkingConfig = { thinkingLevel: "low" };
       return {
         url: `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
         headers: { "x-goog-api-key": key, "content-type": "application/json" },
