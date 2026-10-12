@@ -77,6 +77,15 @@ export function merge(remote) {
   for (const r of remote.definitions || []) if (!defs.has(r.key)) { defs.set(r.key, r); changed++; }
   lib.definitions = [...defs.values()];
 
+  // Seen words: the newest change to a lexeme wins (seen, or made new again).
+  const lexemes = new Map((lib.lexemes || []).map((x) => [x.key, x]));
+  for (const r of remote.lexemes || []) {
+    if (!r || String(r.key || "").split("|").length < 3) continue;
+    const l = lexemes.get(r.key);
+    if (!l || newer(r, l)) { lexemes.set(r.key, r); changed++; }
+  }
+  lib.lexemes = [...lexemes.values()];
+
   // The creature game: one saved state for the whole account; the most recently saved wins.
   const game = remote.game;
   const mine = settings.game_state;
@@ -101,6 +110,7 @@ export function snapshot() {
     vocab: lib.vocab.map((v) => ({ ...v, translation: v.translation || "" })).sort(byUid),
     folders: [...(lib.folders || [])].sort(byUid),
     definitions: [...lib.definitions].sort((a, b) => (a.key < b.key ? -1 : 1)),
+    lexemes: [...(lib.lexemes || [])].sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0)),
     game: settings.game_state || null,
   };
 }
@@ -113,7 +123,7 @@ function canonical(value) {
   return JSON.stringify(value ?? null);
 }
 const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
-                                   definitions: l.definitions, game: l.game || null });
+                                   definitions: l.definitions, lexemes: l.lexemes || [], game: l.game || null });
 
 // ---------- run ----------
 let running = null;

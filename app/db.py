@@ -132,6 +132,21 @@ CREATE TABLE IF NOT EXISTS settings (
     value TEXT NOT NULL
 );
 
+-- Words the learner has seen, kept by dictionary form (lexeme) rather than by spelling, so one
+-- row covers every form of a word: وكتبوا، يكتبون and سأكتبها are all "ar|كتب|v".
+-- key = language|lemma, normalized for matching|broad part of speech (see web/js/lexicon/).
+-- lemma is the dictionary form as printed (كَتَب). Synced; a deleted row means "new again".
+CREATE TABLE IF NOT EXISTS known_lexemes (
+    key        TEXT PRIMARY KEY,
+    lang       TEXT NOT NULL,
+    lemma      TEXT NOT NULL DEFAULT '',
+    pos        TEXT NOT NULL DEFAULT '',
+    root       TEXT NOT NULL DEFAULT '',
+    deleted    INTEGER NOT NULL DEFAULT 0,
+    created_at REAL NOT NULL,
+    updated_at REAL NOT NULL
+);
+
 -- AI word definitions, cached per (word, marked sentence, explanation language).
 CREATE TABLE IF NOT EXISTS definitions (
     key        TEXT PRIMARY KEY,
@@ -318,6 +333,10 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "page_font_size": 17,           # text size for imported web pages (set separately; smaller by default)
     "welcome_seen": False,
     "study_language": "",           # the language being learned (ar, es, fr, ja, zh, ru); chosen on first run
+    # Seen words (see web/js/lexicon/seen.js): "no thanks" to the Arabic dictionaries download, and
+    # whether words tapped or saved before seen words were kept have been counted on this device.
+    "lexicon_declined": False,
+    "lexemes_backfilled": [],
     "beam_size": 5,
     # The creature game: its whole saved state (see web/js/game/rules.js), and whether it makes sounds.
     "game_state": None,

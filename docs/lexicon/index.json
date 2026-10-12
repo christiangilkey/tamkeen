@@ -1,0 +1,45 @@
+{
+ "format": 1,
+ "files": {
+  "egy": {
+   "file": "ar-egy.json.gz",
+   "bytes": 2022018,
+   "sha256": "b4644423c25bfef316fc4273513cee512321c613801d8cb30c555e444a6f394f",
+   "title": "Egyptian Arabic",
+   "db": "calima-egy-r13",
+   "license": "GPL-2.0",
+   "stems": 59650,
+   "lexemes": 80700
+  },
+  "glf": {
+   "file": "ar-glf.json.gz",
+   "bytes": 282034,
+   "sha256": "dbcdae45e474ec66451941f3d3c389ab228067086a06098476dcc35c65685aeb",
+   "title": "Gulf Arabic",
+   "db": "calima-glf-01",
+   "license": "CC-BY-4.0",
+   "stems": 11073,
+   "lexemes": 6300
+  },
+  "lev": {
+   "file": "ar-lev.json.gz",
+   "bytes": 345050,
+   "sha256": "9fd8951c87c505eb96fd5ca5ae48adc5eb154aba6b099d4ef70d8572cd96591a",
+   "title": "Levantine Arabic",
+   "db": "calima-lev-01",
+   "license": "CC-BY-4.0",
+   "stems": 11300,
+   "lexemes": 6740
+  },
+  "msa": {
+   "file": "ar-msa.json.gz",
+   "bytes": 611644,
+   "sha256": "922a6122bc0b6e1e8154180472db904354a3fbe02ce727473a4c54fdda37f526",
+   "title": "Modern Standard Arabic",
+   "db": "calima-msa-r13",
+   "license": "GPL-2.0",
+   "stems": 37300,
+   "lexemes": 38571
+  }
+ }
+}

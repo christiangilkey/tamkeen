@@ -1,0 +1,308 @@
+// Seen words on screen: which words of a transcript or page are new to the learner.
+//
+// A word the learner has never tapped is drawn in purple; once tapped (looked up) it is "seen"
+// and drawn like ordinary text, together with every other form of the same word. What is kept
+// is the word's dictionary form (its lexeme, see ./words.js), never the spelling that was tapped.
+// The list lives with the rest of the library (/api/lexemes: known_lexemes on the computer,
+// lib.lexemes on the phone) and travels between devices with it.
+//
+// Arabic needs dictionaries to find a word's dictionary form. They are a small one-time
+// download that is only offered to someone learning Arabic (offerDictionaries below); until
+// they are there, Arabic text is simply not coloured.
+//
+// Shared by the desktop app and the phone.
+
+import { api, h, saveSettings, state, toast } from "../app.js";
+import { LANGUAGES, detectLanguage, onStudyLanguage } from "../languages.js";
+import { Dictionary, arabicCore, matchForm } from "./arabic.js";
+import { lexemeOf, lexemesFor, markedTokens, needsDictionaries, surfaceLexeme } from "./words.js";
+
+const settings = () => (state.status && state.status.settings) || {};
+
+// ---------- the list ----------
+const known = new Set();   // keys of every seen lexeme
+const views = new Set();   // texts on screen that show it
+let knownLoad = null;
+
+async function fetchKnown() {
+  const r = await api("/lexemes");
+  known.clear();
+  for (const key of (r && r.keys) || []) known.add(key);
+}
+/** The list, loaded once. `fresh` asks again (another device may have added to it). */
+function loadKnown(fresh = false) {
+  if (!knownLoad || fresh) knownLoad = fetchKnown().catch(() => { knownLoad = null; });
+  return knownLoad;
+}
+function repaint() {
+  for (const v of views) { v.paint(); if (v.onPaint) { try { v.onPaint(); } catch { /* a screen's own repaint */ } } }
+}
+
+/** Mark lexemes (what lexemesFor / lexemeOf return) as seen. */
+export async function markLexemes(items) {
+  const fresh = [];
+  for (const it of items || []) if (it && it.key && !known.has(it.key)) { known.add(it.key); fresh.push(it); }
+  if (!fresh.length) return 0;
+  repaint();
+  try {
+    await api("/lexemes", { method: "POST", body: { items: fresh.map(({ key, lemma, pos, root }) => ({ key, lemma, pos, root })) } });
+  } catch (e) {
+    for (const it of fresh) known.delete(it.key);
+    repaint();
+    toast(`Couldn't save that word as seen: ${e.message}`, { error: true });
+    return 0;
+  }
+  return fresh.length;
+}
+
+/** Make lexemes count as new again. Takes keys or lexemes. */
+export async function forgetLexemes(items) {
+  const keys = (items || []).map((it) => (typeof it === "string" ? it : it && it.key)).filter((k) => k && known.has(k));
+  if (!keys.length) return 0;
+  for (const k of keys) known.delete(k);
+  repaint();
+  try { await api("/lexemes/forget", { method: "POST", body: { keys } }); }
+  catch (e) { for (const k of keys) known.add(k); repaint(); toast(e.message, { error: true }); return 0; }
+  return keys.length;
+}
+
+// Something else changed the list (the first-run common words, a sync): read it again.
+if (typeof window !== "undefined") {
+  window.addEventListener("tamkeen:lexemes", () => loadKnown(true).then(repaint));
+}
+
+// ---------- dictionaries ----------
+const loaded = new Map(); // language -> promise of its dictionaries
+
+/**
+ * The dictionaries for a language: [] when it needs none, null when it needs them and they
+ * haven't been downloaded.
+ */
+export function dictionaries(lang) {
+  if (!needsDictionaries(lang)) return Promise.resolve([]);
+  if (!loaded.has(lang)) {
+    loaded.set(lang, readDictionaries(lang).catch((e) => { console.warn("Dictionaries failed to load", e); return null; })
+      .then((d) => { if (!d) loaded.delete(lang); return d; }));
+  }
+  return loaded.get(lang);
+}
+
+async function readDictionaries(lang) {
+  const st = await api(`/lexicon/status?lang=${lang}`);
+  if (!st.installed) return null;
+  const dicts = [];
+  for (const name of st.names) dicts.push(new Dictionary(await api(`/lexicon/data/${name}`)));
+  return dicts;
+}
+
+export const lexiconStatus = (lang) => api(`/lexicon/status?lang=${lang}`);
+
+/** Download a language's dictionaries, then colour whatever is on screen. */
+export async function downloadDictionaries(lang) {
+  const st = await api("/lexicon/download", { method: "POST", body: { lang } });
+  loaded.delete(lang);
+  if (settings().lexicon_declined) saveSettings({ lexicon_declined: false }).catch(() => {});
+  for (const v of views) if (v.lang === lang) v.analyze();
+  return st;
+}
+
+export async function removeDictionaries(lang) {
+  const st = await api("/lexicon/remove", { method: "POST", body: { lang } });
+  loaded.delete(lang);
+  for (const v of views) if (v.lang === lang) v.analyze();
+  return st;
+}
+
+/** Settings' line about a language's dictionaries: whether they are here, with a button to
+ * download or remove them. Stays empty for languages that need none. */
+export function dictionariesRow(lang) {
+  const el = h(`<div class="lex-row small" hidden></div>`);
+  if (!needsDictionaries(lang)) return el;
+  const name = (LANGUAGES[lang] || {}).name || "";
+  const paint = async () => {
+    let st;
+    try { st = await lexiconStatus(lang); } catch { return; }
+    const mb = Math.max(1, Math.round(st.bytes / 1e6));
+    el.hidden = false;
+    el.innerHTML = st.installed
+      ? `<span>✓ ${name} word dictionaries are on this device (${mb} MB). Words you have never tapped show in <span class="lex-new-sample">purple</span>.</span>
+         <button type="button" class="ghost" data-act="remove">Remove</button>`
+      : `<span>${name} word dictionaries aren't on this device, so new words can't be shown in <span class="lex-new-sample">purple</span>.</span>
+         <button type="button" data-act="get">Download (about ${mb} MB)</button>`;
+  };
+  el.addEventListener("click", async (e) => {
+    const b = e.target.closest("button[data-act]");
+    if (!b) return;
+    b.disabled = true;
+    try {
+      if (b.dataset.act === "get") { b.textContent = "Downloading…"; await downloadDictionaries(lang); toast(`${name} dictionaries are ready.`); }
+      else await removeDictionaries(lang);
+    } catch (err) { toast(err.message, { error: true }); }
+    paint();
+  });
+  paint();
+  return el;
+}
+
+let offering = false;
+/**
+ * Ask someone learning Arabic whether to download its dictionaries. Shown when Arabic is chosen
+ * as the language to learn, unless they are already here or the answer was "not now"
+ * (Settings keeps the offer). `force` shows it regardless of an earlier "not now".
+ */
+export async function offerDictionaries(lang, force = false) {
+  if (!needsDictionaries(lang) || offering || (!force && settings().lexicon_declined)) return;
+  let st;
+  try { st = await lexiconStatus(lang); } catch { return; }
+  if (st.installed || offering) return;
+  offering = true;
+  const name = (LANGUAGES[lang] || {}).name || "This language's";
+  const mb = Math.max(1, Math.round(st.bytes / 1e6));
+  const el = h(`<div class="lex-offer-back"><div class="lex-offer" role="dialog" aria-modal="true" aria-labelledby="lex-offer-title">
+      <h2 id="lex-offer-title">${name} word dictionaries</h2>
+      <p>Tamkeen can show which words are <span class="lex-new-sample">new to you</span>: a word you have
+        never tapped is drawn in purple, and once you tap one, every form of that word counts as seen
+        (<span class="ar" lang="ar" dir="rtl">كتب، يكتبون، سأكتبها</span>).</p>
+      <p>For ${name} that needs dictionaries: a <strong>one-time download of about ${mb} MB</strong>, made by the
+        CAMeL Lab at New York University Abu Dhabi (Standard, Egyptian, Levantine and Gulf Arabic).
+        They stay on this device and nothing about you is sent anywhere.</p>
+      <p class="small muted" id="lex-offer-note">You can do this later from Settings.</p>
+      <div class="row lex-offer-actions">
+        <button type="button" class="primary" data-act="get">Download</button>
+        <button type="button" data-act="later">Not now</button>
+      </div>
+    </div></div>`);
+  const close = () => { offering = false; el.remove(); };
+  el.querySelector("[data-act=later]").onclick = () => {
+    saveSettings({ lexicon_declined: true }).catch(() => {});
+    close();
+  };
+  el.querySelector("[data-act=get]").onclick = async (e) => {
+    const note = el.querySelector("#lex-offer-note");
+    e.target.disabled = true;
+    e.target.textContent = "Downloading…";
+    note.textContent = "This takes a few seconds.";
+    try {
+      await downloadDictionaries(lang);
+      close();
+      toast(`${name} dictionaries are ready. New words now show in purple.`);
+    } catch (err) {
+      e.target.disabled = false;
+      e.target.textContent = "Try again";
+      note.textContent = err.message;
+      note.classList.add("lex-offer-error");
+    }
+  };
+  document.body.append(el);
+}
+
+// Choosing Arabic as the language to learn (first run, Settings, or an install that was
+// already learning it when this arrived) brings up the offer.
+// During the first-run questions (components/onboarding.js) it waits until they are answered:
+// that screen says when with the "tamkeen:onboarded" event.
+const firstRunShowing = () => !settings().onboarded && !settings().welcome_seen;
+onStudyLanguage((code) => {
+  if (!needsDictionaries(code) || typeof document === "undefined") return;
+  setTimeout(() => { if (!firstRunShowing()) offerDictionaries(code); }, 900);
+});
+if (typeof window !== "undefined") {
+  window.addEventListener("tamkeen:onboarded", (e) => {
+    const lang = (e.detail && e.detail.lang) || settings().study_language;
+    setTimeout(() => offerDictionaries(lang), 500);
+  });
+}
+
+// ---------- things to do once per language, when its words can first be worked out ----------
+const started = new Set();
+function onceReady(lang, dicts) {
+  if (started.has(lang)) return;
+  started.add(lang);
+  // The first-run "I've already started" answer: that language's commonest words count as seen
+  // (web/js/commonwords.js, the onboarding's own file; it clears the setting when it is done).
+  if ((settings().common_words_pending || []).includes(lang)) {
+    import("../commonwords.js").then((m) => m.addCommonWords(lang, dicts)).catch((e) => { started.delete(lang); console.warn(e); });
+  }
+  backfill(lang, dicts).catch((e) => { started.delete(lang); console.warn("Counting earlier words failed", e); });
+}
+
+/** Tokens of `sentence` that are the word `text` (compared the way lexemes are, not letter for letter). */
+function findIn(tokens, text, lang) {
+  const same = lang === "ar" ? (t) => matchForm(arabicCore(t)) : (t) => (surfaceLexeme(t, lang) || {}).key || "";
+  const wanted = new Set(String(text || "").split(/\s+/).map(same).filter(Boolean));
+  return tokens.map((t, i) => (wanted.has(same(t)) ? i : -1)).filter((i) => i >= 0);
+}
+
+/** Words tapped or saved before seen words were kept are seen too. Done once per language on each device. */
+async function backfill(lang, dicts) {
+  const done = settings().lexemes_backfilled || [];
+  if (done.includes(lang)) return;
+  const [lookups, vocab] = await Promise.all([api("/lexemes/lookups").catch(() => []), api("/vocab").catch(() => [])]);
+  const found = [];
+  const take = (tokens, picked, word) => {
+    const all = lexemesFor(tokens, lang, dicts) || [];
+    const hits = picked.map((i) => all[i]).filter(Boolean);
+    if (hits.length) found.push(...hits);
+    else for (const piece of String(word || "").split(/\s+/)) found.push(lexemeOf(piece, lang, dicts)); // no usable sentence
+  };
+  for (const d of lookups || []) {
+    if (detectLanguage(d.word, lang) !== lang) continue;
+    const { tokens, marked } = markedTokens(d.sentence);
+    take(tokens, marked, d.word);
+  }
+  for (const v of vocab || []) {
+    if (detectLanguage(v.text, lang) !== lang) continue;
+    const tokens = String(v.sentence || "").split(/\s+/).filter(Boolean);
+    take(tokens, findIn(tokens, v.text, lang), v.text);
+  }
+  await markLexemes(found.filter(Boolean));
+  await saveSettings({ lexemes_backfilled: [...new Set([...(settings().lexemes_backfilled || []), lang])] });
+}
+
+// ---------- a text on screen ----------
+/**
+ * Colour the words of a text by whether they have been seen. `tokens` are its words, `els` the
+ * elements showing them (same order). Returns at once; the colours appear when the list (and,
+ * for Arabic, the dictionaries) have loaded.
+ *
+ *   .isNew(i)            has word i never been seen? (false while loading, and for non-words)
+ *   .markSeen(i, j)      words i..j were tapped: they and every form of them are now seen
+ *   .markNew(i, j)       make them new again
+ *   .menuItems(i, j)     entries for the right-click menu ("Mark as seen" / "Mark as new")
+ *   .paint(list, first)  colour other elements showing words first, first+1, ... (video captions)
+ *   .onPaint             set to a function to be told whenever colours change
+ *   .close()             the screen is going away
+ */
+export function seenWords({ tokens, lang, els }) {
+  const view = {
+    lang, lexemes: null, onPaint: null,
+    isNew: (i) => !!(view.lexemes && view.lexemes[i] && !known.has(view.lexemes[i].key)),
+    canMark: (i) => !!(view.lexemes && view.lexemes[i]),
+    paint(list = els, first = 0) {
+      for (let k = 0; k < list.length; k++) list[k].classList.toggle("new", view.isNew(first + k));
+    },
+    range: (i, j = i) => (view.lexemes ? view.lexemes.slice(i, j + 1).filter(Boolean) : []),
+    markSeen: (i, j = i) => markLexemes(view.range(i, j)),
+    markNew: (i, j = i) => forgetLexemes(view.range(i, j)),
+    /** The right-click menu's entry for words i..j: mark as seen without looking them up, or as new again. */
+    menuItems(i, j = i) {
+      const words = view.range(i, j);
+      if (!words.length) return [];
+      return [words.some((w) => !known.has(w.key))
+        ? { label: "✓ Mark as seen", run: () => markLexemes(words) }
+        : { label: "↺ Mark as new", run: () => forgetLexemes(words) }];
+    },
+    async analyze() {
+      const [dicts] = await Promise.all([dictionaries(lang), loadKnown(true)]);
+      if (!views.has(view)) return;
+      view.lexemes = dicts === null ? null : lexemesFor(tokens, lang, dicts);
+      if (dicts === null) offerDictionaries(lang); // Arabic text, no dictionaries yet (and not declined)
+      else onceReady(lang, dicts);
+      view.paint();
+      if (view.onPaint) view.onPaint();
+    },
+    close: () => views.delete(view),
+  };
+  views.add(view);
+  view.analyze().catch((e) => console.warn("Seen words unavailable", e));
+  return view;
+}

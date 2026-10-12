@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { artFiles, BRANCH_IDS, SPECIES_IDS, TYPE_IDS } from "../../web/js/game/data.js";
 import { describe, leadingBranch, newGenome, rng, stageOf, weightedPick } from "../../web/js/game/genome.js";
-import { ADULT_XP, DAILY_COMPLETE_XP, earn, fade, levelOf, newState, normalize, rollDay, rollReward } from "../../web/js/game/rules.js";
+import { ADULT_XP, DAILY_COMPLETE_XP, earn, fade, levelOf, newState, normalize, rollDay, rollReward, wordMultiplier } from "../../web/js/game/rules.js";
 
 const at = (iso) => new Date(iso);
 const seq = (...values) => { let i = 0; return () => values[i++ % values.length]; };
@@ -88,11 +88,30 @@ test("a word pays once a day, and combos multiply the next roll", () => {
   assert.equal(earn(s, { type: "word", key: "es:hola" }, { rand: common, now: at("2026-10-10T10:00:05"), combo }), null);
   const second = earn(s, { type: "word", key: "es:mundo" }, { rand: common, now: at("2026-10-10T10:00:10"), combo });
   assert.deepEqual([second.combo, second.xp], [1.2, 12]);
+  assert.deepEqual([second.base, second.mult], [10, 1.2], "the popup's sum: 10 ×1.2 = 12");
   const later = earn(s, { type: "word", key: "es:gato" }, { rand: common, now: at("2026-10-10T10:05:00"), combo });
   assert.equal(later.combo, 1, "the chain breaks after a pause");
   assert.equal(s.xp, 32);
   // Tomorrow the same word pays again.
   assert.ok(earn(s, { type: "word", key: "es:hola" }, { rand: common, now: at("2026-10-11T09:00:00"), combo }));
+});
+
+test("the multiplier shown beside a word is the one that was really applied", () => {
+  // Combo, an XP boost and the day's fade all multiply a lookup. The popup shows one number for
+  // all of them, so base x mult must always equal the XP that was given.
+  const common = seq(0.1, 0.5); // rolls 10 XP
+  const now = at("2026-10-10T10:00:00");
+  const s = newState(8);
+  s.boostUntil = now.getTime() / 1000 + 600; // a double-XP boost is running
+  const combo = { count: 2, at: now.getTime() - 1000 }; // this lookup is the fourth of a chain: x2
+  const boosted = earn(s, { type: "word", key: "a" }, { rand: common, now, combo });
+  assert.deepEqual([boosted.base, boosted.combo, boosted.mult, boosted.xp], [10, 2, 4, 40]);
+  const tired = newState(9);
+  rollDay(tired, now);
+  tired.day.taps = 40; // past the day's first 40 lookups, rewards are worth 0.4
+  const faded = earn(tired, { type: "word", key: "a" }, { rand: common, now, combo: { count: 2, at: now.getTime() - 1000 } });
+  assert.deepEqual([faded.base, faded.combo, faded.mult, faded.xp], [10, 2, 0.8, 8]);
+  assert.equal(wordMultiplier(tired, 0, now), 0.4, "what the next lookup will be worth once the chain breaks");
 });
 
 test("grinding fades fast; a surprise gives an item instead of XP", () => {

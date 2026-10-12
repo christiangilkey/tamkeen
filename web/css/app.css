@@ -785,6 +785,7 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 @keyframes fx-fly { from { transform: translate(-50%, -50%) scale(.4); opacity: 1; } 70% { opacity: 1; } to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1); opacity: 0; } }
 .fx-label { position: absolute; transform: translate(-50%, -100%); font-weight: 800; font-size: 15px; color: #fff; white-space: nowrap;
   background: var(--accent); padding: 2px 10px; border-radius: 99px; box-shadow: 0 4px 12px rgba(0, 0, 0, .3); animation: fx-rise 1.4s ease-out both; }
+.fx-label small { margin-inline-start: 8px; font-size: .78em; font-weight: 700; opacity: .85; } /* the working: "12 ×2" */
 .fx-label.fx-lucky { background: #1596a6; font-size: 17px; }
 .fx-label.fx-jackpot { background: linear-gradient(90deg, #f0a500, #ff6b3d); font-size: 21px; }
 .fx-label.fx-surprise { background: #7a4bd1; }
@@ -1023,3 +1024,26 @@ button.today-chip { cursor: pointer; font: inherit; }
   .friend-head .game-bar ~ button { order: 6; }
   .gb-showcase { margin-left: 0; }
 }
+
+/* ---------- seen words: a word never tapped before is drawn in purple (js/lexicon/seen.js) ---------- */
+/* The purple is the plum at the left end of the top bar (--brand-plum, #360032). As text that
+   exact shade is as good as black, so it is the same hue made light enough to read: deeper on a
+   light page, brighter on a dark one. Seen words keep the ordinary text colour. */
+:root { --new-word: #8f1d84; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --new-word: #dc84d4; } }
+:root[data-theme="dark"] { --new-word: #dc84d4; }
+.transcript .w.new, .reader-text .w.new { color: var(--new-word); }
+.captions .w.new { color: #eaa6e4; } /* over a video the text is always on dark */
+.transcript .w.new.cur, .reader-text .w.new.cur, .captions .w.new.cur { color: var(--hl-ink); }
+.transcript .w, .reader-text .w, .captions .w { transition: background-color .08s, color .35s; }
+.lex-offer-back { position: fixed; inset: 0; z-index: 90; background: rgba(0, 0, 0, .55); display: grid; place-items: center; padding: 16px; }
+.lex-offer { width: min(480px, 100%); background: var(--surface); color: var(--text); border-radius: 18px; padding: 20px 20px 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .45); border-top: 6px solid var(--brand-plum); animation: update-in .25s cubic-bezier(.2, 1.2, .4, 1); }
+.lex-offer h2 { margin: 0 0 8px; font-size: 19px; }
+.lex-offer p { margin: 0 0 10px; line-height: 1.5; }
+.lex-offer .ar { font-size: 1.15em; }
+.lex-new-sample { color: var(--new-word); font-weight: 700; }
+.lex-offer-actions { justify-content: flex-end; gap: 8px; margin-top: 6px; }
+.lex-offer-error { color: var(--danger); }
+.lex-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.lex-row > span { flex: 1; min-width: 200px; }

@@ -161,6 +161,14 @@ export function rollReward(rand) {
 /** Double XP while an XP boost is running (see idle.useBoost). */
 const boost = (state, now) => (state.boostUntil && now.getTime() / 1000 < state.boostUntil ? 2 : 1);
 
+/** Everything a word lookup's rolled XP is multiplied by when it is the `comboCount`-th in a chain:
+ * the combo step, a running XP boost, and how much the day's lookups have faded. The screen shows
+ * this number, so it must be the whole multiplier, not just the combo's share of it. */
+export function wordMultiplier(state, comboCount, now = new Date()) {
+  const step = COMBO_STEPS[Math.max(0, Math.min(comboCount, COMBO_STEPS.length - 1))];
+  return step * fade(state.day.taps, 40, 120) * boost(state, now);
+}
+
 function grant(state, tag) {
   if (state.tags.includes(tag)) return false;
   state.tags.push(tag);
@@ -261,7 +269,7 @@ export function earnAnki(state, days, now = new Date()) {
 
 /**
  * Something happened while studying. Returns what it earned (or null for nothing):
- *   {type, xp, tier, item, combo, stage, levelUp, goalDone, badges}
+ *   {type, xp, tier, item, combo, stage, levelUp, goalDone, badges}  (+ base, mult for a word)
  * Events: {type: "word", key}            a word was looked up (key identifies the word)
  *         {type: "save"}                 a word was saved to vocab
  *         {type: "study", seconds, mode} time spent listening ("listen") or reading ("read")
@@ -287,7 +295,9 @@ export function earn(state, event, ctx = {}) {
     out.combo = COMBO_STEPS[Math.min(combo.count, COMBO_STEPS.length - 1)];
     out.tier = reward.tier;
     out.item = reward.item;
-    out.xp = Math.round(reward.xp * out.combo * fade(day.taps, 40, 120) * boost(state, now));
+    out.base = reward.xp;                                // what was rolled, before any multiplier
+    out.mult = wordMultiplier(state, combo.count, now);  // base x mult = xp (rounded): what the popup shows
+    out.xp = Math.round(out.base * out.mult);
     day.taps++;
     if (out.item) state.items[out.item] = (state.items[out.item] || 0) + 1;
     if (!out.xp && !out.item) return null;

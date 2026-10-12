@@ -2,7 +2,7 @@
 // Also the "juice": the pop, particles, sounds and rolling numbers that make a reward feel good.
 
 import { api, on, saveSettings, state as app } from "../app.js";
-import { COMBO_STEPS, COMBO_WINDOW_MS, earn, earnAnki, normalize, newState, rollDay } from "./rules.js";
+import { COMBO_STEPS, COMBO_WINDOW_MS, earn, earnAnki, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
 import { icon } from "./render.js";
 
 let game = null;
@@ -137,6 +137,11 @@ function layer() {
   return el;
 }
 
+/** A multiplier as shown on screen: "×2", "×1.2", "×0.8". */
+export const times = (m) => `×${Math.round(m * 100) / 100}`;
+/** How a multiplied word reward was worked out, e.g. "12 ×2" for +24 XP; "" when nothing multiplied it. */
+export const sumText = (result) => (result.type === "word" && result.base && result.mult && result.mult !== 1 ? `${result.base} ${times(result.mult)}` : "");
+
 /** Shoot a small fountain of particles up from a point on screen, with the XP amount. */
 export function fountain(x, y, result) {
   const fx = layer();
@@ -159,12 +164,19 @@ export function fountain(x, y, result) {
   }
   const label = document.createElement("span");
   label.className = `fx-label fx-${tier}`;
-  const mult = result.combo > 1 ? ` ×${result.combo}` : "";
   label.textContent = result.goalDone ? `Daily goal! +${result.xp} XP`
     : result.type === "anki" ? `Anki: ${result.matured} card${result.matured === 1 ? "" : "s"} matured · +${result.xp} XP`
     : result.item ? ` ${result.item === "freeze" ? "Streak freeze" : "Hint card"}!`
-    : `+${result.xp} XP${mult}`;
+    : `+${result.xp} XP`;
   if (result.item && !result.goalDone) label.insertAdjacentHTML("afterbegin", icon(result.item === "freeze" ? "freeze" : "hint"));
+  // The big number is what was earned. When it was multiplied, the working goes beside it
+  // ("+24 XP  12 ×2"), so the multiplier can never read as still to come.
+  const sum = sumText(result);
+  if (sum && !result.goalDone && !result.item) {
+    const small = document.createElement("small");
+    small.textContent = sum;
+    label.append(small);
+  }
   label.style.left = `${x}px`;
   label.style.top = `${y}px`;
   fx.append(label);
@@ -209,10 +221,12 @@ function showChip(g, result) {
   }
   rollNumber(chip.querySelector("b"), g.xp, (n) => n.toLocaleString());
   const hot = result.type === "word" && combo.count > 0;
-  const next = COMBO_STEPS[Math.min(combo.count + 1, COMBO_STEPS.length - 1)];
+  // What the next lookup will really be multiplied by (combo, boost and the day's fade together),
+  // the same sum the popup beside the word shows.
+  const next = times(wordMultiplier(g, combo.count + 1));
   const label = chip.querySelector(".chip-combo");
   label.hidden = result.type !== "word";
-  label.textContent = hot ? `×${result.combo} · next ×${next}` : `next ×${next}`; // while hot, app.css puts the combo flame in front
+  label.textContent = hot ? `${times(result.mult)} · next ${next}` : `next ${next}`; // while hot, app.css puts the combo flame in front
   chip.classList.toggle("hot", hot);
   chip.classList.toggle("max", result.combo >= COMBO_STEPS[COMBO_STEPS.length - 1]);
   const fuse = chip.querySelector(".chip-fuse");

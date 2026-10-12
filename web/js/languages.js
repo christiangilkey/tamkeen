@@ -68,7 +68,14 @@ export const langInfo = (code) => (isLanguage(code) ? LANGUAGES[code] : OTHER);
 // Set by each app shell from the saved settings. Until the user has chosen, this is "" and
 // anything that needs a language falls back to Arabic, the app's first language.
 let study = "";
-export function setStudyLanguage(code) { study = isLanguage(code) ? code : ""; }
+const studyListeners = new Set();
+export function setStudyLanguage(code) {
+  const before = study;
+  study = isLanguage(code) ? code : "";
+  if (study !== before) for (const fn of studyListeners) { try { fn(study); } catch { /* a listener must not break settings */ } }
+}
+/** Be told when the language being studied is set or changes: fn(code). */
+export function onStudyLanguage(fn) { studyListeners.add(fn); return () => studyListeners.delete(fn); }
 export const studyLanguage = () => study || "ar";
 export const hasStudyLanguage = () => !!study;
 

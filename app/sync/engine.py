@@ -1,7 +1,7 @@
 """Sync engine: merge the local library with the copy in the user's Google Drive.
 
 Drive layout (hidden app folder, shared by desktop and Android):
-    library.json.gz      feeds, episodes, vocab, vocab folders, definitions (merged record by record)
+    library.json.gz      feeds, episodes, vocab, vocab folders, definitions, seen words (merged record by record)
     t_<episode>.json.gz  one transcript per episode (written once per transcription)
     a_<episode>.ogg      compressed copy of the exact audio that was transcribed
     v_<episode>.<ext>    the user's own video files ("My videos"; see app/videos.py)
@@ -52,7 +52,7 @@ class Result:
     uploaded_audio: int = 0
     uploaded_videos: int = 0
     merged: dict[str, int] = field(default_factory=lambda: {"feeds": 0, "episodes": 0, "vocab": 0, "folders": 0,
-                                                             "definitions": 0})
+                                                             "definitions": 0, "lexemes": 0})
     library_uploaded: bool = False
     requested_transcriptions: list[int] = field(default_factory=list)
     new_feeds: list[int] = field(default_factory=list)  # added on another device; need an RSS fetch here
@@ -108,8 +108,11 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "SELECT uid, name, deleted, created_at, updated_at FROM vocab_folders ORDER BY uid")]
         defs = [{**dict(r), "data": json.loads(r["data"])} for r in conn.execute(
             "SELECT key, word, sentence, data, provider, model, created_at FROM definitions ORDER BY key")]
+        lexemes = [dict(r) for r in conn.execute(
+            "SELECT key, lang, lemma, pos, root, deleted, created_at, updated_at FROM known_lexemes ORDER BY key")]
     return {"format": FORMAT_VERSION, "device": device_id, "feeds": feeds, "episodes": episodes,
-            "vocab": vocab, "folders": folders, "definitions": defs, "game": db.get_setting("game_state")}
+            "vocab": vocab, "folders": folders, "definitions": defs, "lexemes": lexemes,
+            "game": db.get_setting("game_state")}
 
 
 def _folder_list(raw: Any) -> list[str]:
@@ -122,8 +125,9 @@ def _folder_list(raw: Any) -> list[str]:
 
 def _content(lib: dict[str, Any]) -> str:
     """Canonical form used to decide whether an upload is needed (ignores who wrote it)."""
-    return json.dumps({k: lib.get(k) for k in ("feeds", "episodes", "vocab", "folders", "definitions", "game")},
-                      ensure_ascii=False, sort_keys=True)
+    content = {k: lib.get(k) for k in ("feeds", "episodes", "vocab", "folders", "definitions", "game")}
+    content["lexemes"] = lib.get("lexemes") or []  # a device from before seen words were kept sends none
+    return json.dumps(content, ensure_ascii=False, sort_keys=True)
 
 
 # ---------------------------------------------------------------------------------- merge
@@ -246,6 +250,25 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
                 (r["key"], r["word"], r["sentence"], json.dumps(r["data"], ensure_ascii=False), r["provider"],
                  r["model"], r["created_at"]))
             result.merged["definitions"] += cur.rowcount
+
+        # Seen words: the newest change to a lexeme wins (seen, or made new again).
+        for r in remote.get("lexemes") or []:
+            key = str(r.get("key") or "")
+            if key.count("|") < 2:
+                continue
+            local = conn.execute("SELECT updated_at FROM known_lexemes WHERE key = ?", (key,)).fetchone()
+            values = (str(r.get("lemma") or ""), str(r.get("pos") or ""), str(r.get("root") or ""),
+                      1 if r.get("deleted") else 0, r.get("updated_at") or 0)
+            if local is None:
+                conn.execute(
+                    "INSERT INTO known_lexemes(lemma, pos, root, deleted, updated_at, key, lang, created_at) "
+                    "VALUES(?,?,?,?,?,?,?,?)",
+                    (*values, key, key.split("|", 1)[0], r.get("created_at") or r.get("updated_at") or 0))
+                result.merged["lexemes"] += 1
+            elif _newer(r, local):
+                conn.execute("UPDATE known_lexemes SET lemma=?, pos=?, root=?, deleted=?, updated_at=? WHERE key=?",
+                             (*values, key))
+                result.merged["lexemes"] += 1
 
         # The creature game: one saved state for the whole account; the most recently saved wins.
         game = remote.get("game")

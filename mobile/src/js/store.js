@@ -53,7 +53,7 @@ export const audio = {
 
 // ---------- library (in memory, persisted after each change) ----------
 
-export const lib = { feeds: [], episodes: [], vocab: [], folders: [], definitions: [] };
+export const lib = { feeds: [], episodes: [], vocab: [], folders: [], definitions: [], lexemes: [] };
 let saveTimer = 0;
 
 export async function loadLibrary() {
@@ -83,6 +83,8 @@ const DEFAULTS = {
   google_email: "",
   signed_in: false,
   haptics: true,
+  lexicon_declined: false, // "not now" to the Arabic dictionaries download
+  lexemes_backfilled: [],  // languages whose earlier lookups and saved words have been counted as seen
   game_state: null, // the creature game's saved state
   game_sound: true,
 };

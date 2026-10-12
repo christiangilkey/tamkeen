@@ -7,6 +7,7 @@ import { fetchTranscript, requestSync, syncNow, syncState } from "./sync.js";
 import { episodeUid, feedUid, findSpans, newUid, normalize, normalizeUrl } from "./shared-logic.js";
 import { settings } from "./store.js";
 import { detectLanguage, isLanguage } from "./languages.js";
+import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
 
 export class ApiError extends Error {}
 
@@ -355,6 +356,55 @@ const routes = [
     const v = lib.vocab.find((x) => x.uid === m[1]);
     if (v) { v.deleted = 1; v.updated_at = now(); changed(); }
     return { ok: true };
+  }],
+
+  // ----- seen words, by dictionary form (synced; the desktop's are in app/api/lexicon.py) -----
+  ["GET", /^\/lexemes$/, () => ({ keys: (lib.lexemes || []).filter((x) => !x.deleted).map((x) => x.key) })],
+  ["POST", /^\/lexemes$/, (m, q, body) => {
+    const list = (lib.lexemes = lib.lexemes || []);
+    const byKey = new Map(list.map((x) => [x.key, x]));
+    let added = 0;
+    for (const item of (body.items || []).slice(0, 5000)) {
+      const key = String(item.key || "").trim();
+      if (key.split("|").length < 3 || key.length > 200) continue;
+      const have = byKey.get(key);
+      const t = now();
+      if (!have) {
+        const row = { key, lang: key.split("|")[0].slice(0, 8), lemma: String(item.lemma || "").slice(0, 120),
+                      pos: String(item.pos || "").slice(0, 40), root: String(item.root || "").slice(0, 40),
+                      deleted: 0, created_at: t, updated_at: t };
+        list.push(row);
+        byKey.set(key, row);
+        added++;
+      } else if (have.deleted) {
+        Object.assign(have, { deleted: 0, updated_at: t });
+        added++;
+      }
+    }
+    if (added) changed();
+    return { added };
+  }],
+  ["POST", /^\/lexemes\/forget$/, (m, q, body) => {
+    const keys = new Set(body.keys || []);
+    let forgotten = 0;
+    for (const x of lib.lexemes || []) {
+      if (keys.has(x.key) && !x.deleted) { Object.assign(x, { deleted: 1, updated_at: now() }); forgotten++; }
+    }
+    if (forgotten) changed();
+    return { forgotten };
+  }],
+  ["GET", /^\/lexemes\/lookups$/, () => [...lib.definitions].sort((a, b) => (a.created_at || 0) - (b.created_at || 0))
+    .map((d) => ({ word: d.word, sentence: d.sentence }))],
+  // ----- the dictionaries that find a word's dictionary form -----
+  ["GET", /^\/lexicon\/status$/, (m, q) => lexiconStatus(q.get("lang") || "ar")],
+  ["POST", /^\/lexicon\/download$/, async (m, q, body) => {
+    try { return await lexiconDownload(body.lang || "ar"); } catch (e) { throw new ApiError(e.message); }
+  }],
+  ["POST", /^\/lexicon\/remove$/, (m, q, body) => lexiconRemove(body.lang || "ar")],
+  ["GET", /^\/lexicon\/data\/(\w+)$/, async (m) => {
+    const data = await lexiconData(m[1]);
+    if (!data) throw new ApiError("That dictionary hasn't been downloaded.");
+    return data;
   }],
 
   // ----- definitions cache (synced) -----

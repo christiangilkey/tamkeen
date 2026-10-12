@@ -16,6 +16,7 @@ import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
 import { reward, trackStudy } from "../game/game.js";
+import { seenWords } from "../lexicon/seen.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const LONG_PRESS_MS = 550;
@@ -169,6 +170,8 @@ export async function render(view, { id, query }) {
   }
   tr.innerHTML = parts.join("");
   const wordEls = tr.querySelectorAll(".w");
+  // Words never tapped before are drawn in purple; a tap makes every form of the word "seen".
+  const seen = seenWords({ tokens: texts, lang, els: wordEls });
 
   // ---------- audio ----------
   const audio = vid ? $("#video") : new Audio();
@@ -237,8 +240,10 @@ export async function render(view, { id, query }) {
       : Array.from({ length: end - start + 1 }, (_, k) =>
         `${k ? gap(texts[start + k - 1], texts[start + k], lang) : ""}<span class="w" data-i="${start + k}">${esc(texts[start + k])}</span>`).join("");
     capEls = [...capEl.querySelectorAll(".w")];
+    if (start >= 0) seen.paint(capEls, start);
   }
   const capWord = (i) => (capStart >= 0 ? capEls[i - capStart] : null);
+  seen.onPaint = () => { if (capStart >= 0) seen.paint(capEls, capStart); };
 
   function setActive(idx) {
     if (idx === curIdx) return;
@@ -483,10 +488,12 @@ export async function render(view, { id, query }) {
             });
             toast(`Saved “${clean}” to vocab`, { action: { label: "View", run: () => (location.hash = "#/vocab") } });
             reward({ type: "save" }, wordEls[i]);
+            seen.markSeen(i, j);
           } catch (e) { toast(e.message, { error: true }); }
         },
       },
       { label: "📖 Define", run: () => defineAt(i, j) },
+      ...seen.menuItems(i, j),
       { label: "⧉ Copy", run: () => copyText(target.text) },
       { label: "▶ Play from here", run: () => seekTo(starts[i]) },
       { label: "⟲ Loop this sentence", run: () => setLoop(si, sj) },
@@ -533,6 +540,7 @@ export async function render(view, { id, query }) {
         });
         toast(`Saved “${t.text}” to vocab`, { action: { label: "View", run: () => (location.hash = "#/vocab") } });
         reward({ type: "save" }, wordEls[t.i]);
+        seen.markSeen(t.i, t.j);
       } catch (e) {
         toast(e.message, { error: true });
         throw e;
@@ -547,6 +555,7 @@ export async function render(view, { id, query }) {
     playClip(starts[i], ends[j]);
     bubble.show(anchor || wordEls[i], c.ctx);
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, anchor || wordEls[i]);
+    seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
 
   // ---------- video: captions, transcript panel, full screen ----------
@@ -668,6 +677,7 @@ export async function render(view, { id, query }) {
   return () => {
     disposed = true;
     stopStudy();
+    seen.close();
     if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
     document.removeEventListener("fullscreenchange", onFullscreen);
     clearTimeout(clipTimer);

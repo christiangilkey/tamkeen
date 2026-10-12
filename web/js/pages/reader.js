@@ -9,6 +9,7 @@ import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
+import { seenWords } from "../lexicon/seen.js";
 
 const LONG_PRESS_MS = 550;
 const TAGS = { h1: "h2", h2: "h3", h3: "h4", li: "li", q: "blockquote", p: "p" };
@@ -83,6 +84,8 @@ export async function render(view, { id, data, query }) {
   if (inList) parts.push("</ul>");
   tr.innerHTML = parts.join("");
   const wordEls = tr.querySelectorAll(".w");
+  // Words never tapped before are drawn in purple; a tap makes every form of the word "seen".
+  const seen = seenWords({ tokens: texts, lang, els: wordEls });
 
   // ---------- word popup ----------
   let target = null; // {i, j, si, sj, text}
@@ -107,6 +110,7 @@ export async function render(view, { id, data, query }) {
       ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj), episode_id: id } });
     toast(`Saved “${t.text}” to vocab`, { action: { label: "View", run: () => (location.hash = "#/vocab") } });
     reward({ type: "save" }, wordEls[t.i]);
+    seen.markSeen(t.i, t.j);
   }
 
   const bubble = createWordBubble($(".transcript-wrap"), {
@@ -131,6 +135,7 @@ export async function render(view, { id, data, query }) {
     mark(i, j);
     bubble.show(wordEls[i], c.ctx);
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, wordEls[i]);
+    seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
 
   // ---------- clicks, long-press and right-click (same gestures as the player) ----------
@@ -176,6 +181,7 @@ export async function render(view, { id, data, query }) {
     showMenu(x, y, clean, [
       { label: "★ Save to vocab", run: () => saveWord({ ...t, si, sj, text: clean }, null).catch((e) => toast(e.message, { error: true })) },
       { label: "📖 Define", run: () => defineAt(t.i, t.j) },
+      ...seen.menuItems(t.i, t.j),
       { label: "⧉ Copy", run: () => copyText(t.text) },
     ]);
   }
@@ -270,6 +276,7 @@ export async function render(view, { id, data, query }) {
   const stopStudy = trackStudy("read", () => Date.now() - lastActive < 60000);
   return () => {
     stopStudy();
+    seen.close();
     try { localStorage.setItem(posKey, String(Math.round(tr.scrollTop))); } catch { /* storage unavailable */ }
     clearTimeout(scrollTimer);
     remember();
