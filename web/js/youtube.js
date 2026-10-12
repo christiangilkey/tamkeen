@@ -10,6 +10,18 @@ export { videoId };
 export const YT_TYPE = "video/youtube";
 export const isYouTube = (ep) => (ep.audio_type || "") === YT_TYPE;
 
+/** Open a video in the player: straight away if it is already in the library, else after adding
+ * it. Resolves to its episode. */
+export async function watchVideo(link) {
+  const id = videoId(link);
+  if (!id) throw new Error("That doesn't look like a YouTube video.");
+  let ep = null;
+  try { ep = await api(`/youtube/${id}`); } catch { /* not in the library yet */ }
+  if (!ep) ep = await importVideo(id);
+  location.hash = `#/episode/${ep.id}`;
+  return ep;
+}
+
 /** Add the video at `link` to the library. Resolves to the new episode (with `auto` and `words`). */
 export async function importVideo(link) {
   const id = videoId(link);

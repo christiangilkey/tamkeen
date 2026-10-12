@@ -1,12 +1,20 @@
 // Trending podcasts in the language being studied, sorted into categories, each with a
-// one-press "Add". The list comes from the Podcast Index (a free, open podcast directory).
+// one-press "Add". The list comes from Apple's public podcast charts (see ../trending.js).
 
-import { api, esc, h, toast } from "../app.js";
+import { api, appleJson, esc, h, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
-import { feedKey, groupByCategory, languageQuery } from "../trending.js";
+import { COUNTRY_NAMES, STOREFRONTS, feedKey, fetchTrending, groupByCategory } from "../trending.js";
 
 const PREVIEW = 6; // podcasts shown per category until one category is chosen
+const KEEP_MS = 60 * 60 * 1000; // the charts change about once a day: don't ask again within the hour
+const kept = new Map(); // language -> {at, feeds}
+
+/** "Saudi Arabia, Egypt, the UAE and Morocco" */
+function countryList(lang) {
+  const names = (STOREFRONTS[lang] || []).map((c) => COUNTRY_NAMES[c] || c.toUpperCase());
+  return names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names.at(-1)}` : names[0] || "";
+}
 
 export async function render(view, { query }) {
   const lang = studyLanguage();
@@ -17,13 +25,13 @@ export async function render(view, { query }) {
         <a class="btn ghost" href="#/library" title="Back to the library">←</a>
         <div class="meta">
           <h1>${icon("trending", 26)} Trending in ${esc(name)}</h1>
-          <div class="small muted">Podcasts people are listening to right now. Press <strong>+ Add</strong> to put one in your library.</div>
+          <div class="small muted">The most listened-to podcasts right now in ${esc(countryList(lang))}. Press <strong>+ Add</strong> to put one in your library.</div>
         </div>
         <button type="button" class="ghost" id="disc-refresh" title="Load the list again">⟳ Refresh</button>
       </div>
       <div class="tabs disc-cats" id="disc-cats"></div>
       <div id="disc-body"><div class="empty"><span class="spinner"></span> Loading trending podcasts…</div></div>
-      <p class="small muted disc-credit">Podcast data from <strong>Podcast Index</strong> (podcastindex.org).</p>
+      <p class="small muted disc-credit">Charts from <strong>Apple Podcasts</strong>.</p>
     </div>`));
   const $ = (sel) => view.querySelector(sel);
   const body = $("#disc-body");
@@ -126,14 +134,16 @@ export async function render(view, { query }) {
     const btn = $("#disc-refresh");
     btn.disabled = true;
     try {
-      const [data, feeds] = await Promise.all([
-        api(`/discover/trending?lang=${encodeURIComponent(languageQuery(lang))}${fresh ? "&fresh=true" : ""}`),
+      const hit = kept.get(lang);
+      const [trending, feeds] = await Promise.all([
+        hit && !fresh && Date.now() - hit.at < KEEP_MS ? hit.feeds : fetchTrending(lang, appleJson),
         api("/feeds"),
       ]);
+      kept.set(lang, { at: hit && trending === hit.feeds ? hit.at : Date.now(), feeds: trending });
       mine.clear();
       for (const f of feeds) mine.add(feedKey(f.url));
-      groups = groupByCategory(data.feeds);
-      if (!groups.length) message(`Nothing trending in ${name} right now`, "The directory had no podcasts to suggest for this language. Try again later, or paste a podcast's RSS address in the Library.");
+      groups = groupByCategory(trending);
+      if (!groups.length) message(`Nothing trending in ${name} right now`, "The charts had no podcasts in this language just now. Try again later, or paste a podcast's RSS address in the Library.");
       else show();
     } catch (e) {
       message("Trending podcasts couldn't be loaded", e.message);

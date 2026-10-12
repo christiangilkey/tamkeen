@@ -95,23 +95,6 @@ jobs:
             echo "::warning::GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET secrets not set; this build will have sync disabled."
           fi
 
-      - name: Podcast Index key (for Trending podcasts)
-        shell: bash
-        env:
-          PODCASTINDEX_KEY: ${{ secrets.PODCASTINDEX_KEY }}
-          PODCASTINDEX_SECRET: ${{ secrets.PODCASTINDEX_SECRET }}
-        run: |
-          if [ -n "$PODCASTINDEX_KEY" ] && [ -n "$PODCASTINDEX_SECRET" ]; then
-            python - <<'EOF'
-          import json, os
-          json.dump({"key": os.environ["PODCASTINDEX_KEY"].strip(), "secret": os.environ["PODCASTINDEX_SECRET"].strip()},
-                    open("app/podcastindex_key.json", "w"))
-          print("Bundled the Podcast Index key")
-          EOF
-          else
-            echo "::warning::PODCASTINDEX_KEY/PODCASTINDEX_SECRET secrets not set; this build will have Trending podcasts switched off."
-          fi
-
       - name: Linux system libraries
         if: matrix.target == 'linux'
         run: |

@@ -2,12 +2,10 @@
 
 from __future__ import annotations
 
-import hashlib
-
 import httpx
 import pytest
 
-from app import db, ids, podcastindex, youtube
+from app import charts, db, ids, youtube
 from app.sync import engine
 
 from test_sync import FakeDrive, world  # noqa: F401  (pytest fixture)
@@ -130,61 +128,118 @@ def test_youtube_api_add_watch_delete(client):
     assert client.get(f"/api/episodes?feed_id={mine['id']}").json()["total"] == 0
 
 
-# ----- trending podcasts -----
+# ----- trending podcasts (Apple's charts, fetched for web/js/trending.js) -----
 
-FEEDS = [
-    {"id": 1, "url": "https://a.example/rss", "title": " Fnjan  ", "author": "Thmanyah", "description": "x " * 500,
-     "image": "http://a.example/small.jpg", "artwork": "https://a.example/big.jpg", "trendScore": 5, "language": "AR",
-     "categories": {"77": "Society", "78": "Culture"}, "newestItemPublishTime": 1700000000},
-    {"id": 2, "url": "https://b.example/rss", "title": "News", "trendScore": 9, "language": "ar-sa", "categories": None},
-    {"id": 3, "url": "ftp://c.example/rss", "title": "Not a web address"},
-    {"id": 4, "url": "https://d.example/rss", "title": "   "},
-]
+CHART = "https://itunes.apple.com/sa/rss/toppodcasts/limit=200/json?l=en"
 
 
-def test_request_is_signed_the_way_the_directory_expects():
-    h = podcastindex.auth_headers("KEY", "SECRET", 1700000000)
-    assert h["X-Auth-Key"] == "KEY" and h["X-Auth-Date"] == "1700000000"
-    assert h["Authorization"] == hashlib.sha1(b"KEYSECRET1700000000").hexdigest()
-    assert h["User-Agent"]
+def test_chart_requests_only_go_to_apple():
+    for url in ("http://itunes.apple.com/x", "https://example.com/", "https://itunes.apple.com.evil.net/x",
+                "file:///c:/x", "https://127.0.0.1/", ""):
+        with pytest.raises(charts.ChartError, match="allowed"):
+            charts.get_json(url)
 
 
-def test_language_list_is_cleaned():
-    assert podcastindex.clean_languages("AR, ar-SA  es-419,ar") == "ar,ar-sa,es-419"
-    for bad in ("", "../etc", "a", "ar;drop"):
-        with pytest.raises(podcastindex.DirectoryError):
-            podcastindex.clean_languages(bad)
-
-
-def test_trending_tidies_sorts_and_caches(monkeypatch):
+def test_chart_answers_are_kept_for_a_while(monkeypatch):
     calls = []
 
     def fake_get(url, **kw):
-        calls.append((url, kw))
-        return httpx.Response(200, json={"feeds": FEEDS})
+        calls.append(url)
+        return httpx.Response(200, json={"feed": {"entry": []}})
 
-    monkeypatch.setattr(podcastindex, "credentials", lambda: ("KEY", "SECRET"))
-    monkeypatch.setattr(podcastindex.httpx, "get", fake_get)
-    podcastindex._cache.clear()
-    feeds = podcastindex.trending("ar,ar-sa")
-    assert [f["title"] for f in feeds] == ["News", "Fnjan"], "best first; unusable entries dropped"
-    assert feeds[1]["image"] == "https://a.example/big.jpg" and feeds[1]["categories"] == ["Society", "Culture"]
-    assert feeds[1]["language"] == "ar" and len(feeds[1]["description"]) <= 600 and feeds[0]["categories"] == []
-    url, kw = calls[0]
-    assert url.endswith("/podcasts/trending") and kw["params"]["lang"] == "ar,ar-sa" and kw["headers"]["X-Auth-Key"] == "KEY"
-    podcastindex.trending("ar,ar-sa")
-    assert len(calls) == 1, "a second look within the hour doesn't ask the directory again"
-    podcastindex.trending("ar,ar-sa", fresh=True)
+    monkeypatch.setattr(charts.httpx, "get", fake_get)
+    charts._cache.clear()
+    assert charts.get_json(CHART) == {"feed": {"entry": []}}
+    charts.get_json(CHART)
+    assert calls == [CHART], "a second look within the hour doesn't ask Apple again"
+    charts.get_json(CHART.replace("/sa/", "/eg/"))
     assert len(calls) == 2
 
 
-def test_trending_api_explains_itself(client, monkeypatch):
-    podcastindex._cache.clear()
-    monkeypatch.setattr(podcastindex, "credentials", lambda: None)
-    r = client.get("/api/discover/trending?lang=ar")
-    assert r.status_code == 503 and "switched on" in r.json()["detail"]
-    monkeypatch.setattr(podcastindex, "credentials", lambda: ("KEY", "SECRET"))
-    monkeypatch.setattr(podcastindex.httpx, "get", lambda url, **kw: httpx.Response(401, json={}))
-    assert client.get("/api/discover/trending?lang=ar").status_code == 502
-    monkeypatch.setattr(podcastindex.httpx, "get", lambda url, **kw: httpx.Response(200, json={"feeds": FEEDS}))
-    assert [f["id"] for f in client.get("/api/discover/trending?lang=ar").json()["feeds"]] == [2, 1]
+def test_chart_api_passes_answers_and_failures_on(client, monkeypatch):
+    charts._cache.clear()
+    monkeypatch.setattr(charts.httpx, "get", lambda url, **kw: httpx.Response(200, json={"resultCount": 0, "results": []}))
+    r = client.get("/api/discover/apple", params={"url": CHART})
+    assert r.status_code == 200 and r.json() == {"resultCount": 0, "results": []}
+    assert client.get("/api/discover/apple", params={"url": "https://example.com/"}).status_code == 400
+    charts._cache.clear()
+    monkeypatch.setattr(charts.httpx, "get", lambda url, **kw: httpx.Response(503, text="busy"))
+    assert client.get("/api/discover/apple", params={"url": CHART}).status_code == 502
+
+    def offline(url, **kw):
+        raise httpx.ConnectError("no network")
+
+    monkeypatch.setattr(charts.httpx, "get", offline)
+    r = client.get("/api/discover/apple", params={"url": CHART})
+    assert r.status_code == 502 and "Couldn't reach" in r.json()["detail"]
+
+
+# ----- "Open YouTube": a video tapped in the browser window opens in the app's player -----
+
+def test_a_video_already_in_the_library_is_found_again(client):
+    assert client.get(f"/api/youtube/{VIDEO}").status_code == 404
+    assert client.get("/api/youtube/not-a-video-id").status_code == 400
+    body = {"video_id": VIDEO, "title": "الدحيح", "language": "ar", "lines": LINES}
+    ep = client.post("/api/youtube", json=body).json()
+    found = client.get(f"/api/youtube/{VIDEO}").json()
+    assert found["id"] == ep["id"] and found["audio_type"] == "video/youtube"
+    client.delete(f"/api/episodes/{ep['id']}")
+    assert client.get(f"/api/youtube/{VIDEO}").status_code == 404, "a removed video is not offered again"
+
+
+def test_browser_window_waits_for_the_apps_answer(client, monkeypatch):
+    import threading
+
+    from app import events
+
+    asked = []
+
+    def page_answers(event, data):
+        # Stands in for the app's page: it hears the request and reports how adding the video went.
+        asked.append((event, data["video_id"]))
+        reply = {"token": data["token"], "ok": False, "error": "No captions available for this video."}
+        threading.Thread(target=lambda: client.post("/api/youtube/watch-result", json=reply)).start()
+
+    monkeypatch.setattr(events, "publish", page_answers)
+    assert youtube.ask_app_to_watch(VIDEO, timeout=5) == {"ok": False, "error": "No captions available for this video."}
+    assert asked == [("youtube_watch", VIDEO)]
+
+    def page_succeeds(event, data):
+        youtube.answer_watch(data["token"], True, title="الدحيح")
+
+    monkeypatch.setattr(events, "publish", page_succeeds)
+    assert youtube.ask_app_to_watch(VIDEO, timeout=5) == {"ok": True, "title": "الدحيح"}
+
+
+def test_browser_window_gives_up_when_nobody_answers(client, monkeypatch):
+    from app import events
+
+    monkeypatch.setattr(events, "publish", lambda event, data: None)
+    r = youtube.ask_app_to_watch(VIDEO, timeout=0.05)
+    assert r["ok"] is False and "didn't answer" in r["error"]
+    assert youtube.ask_app_to_watch("nonsense")["ok"] is False
+    assert client.post("/api/youtube/watch-result", json={"token": "stale", "ok": True}).json() == {"ok": False}
+    assert not youtube._watching, "nothing is left waiting"
+
+
+# ----- the phone's Library: "All episodes" under Podcasts leaves the built-in lists out -----
+
+def test_episode_list_can_be_limited_to_podcasts(client):
+    from app import pages
+
+    with db.session() as conn:
+        conn.execute("INSERT INTO feeds(uid, url, title, created_at) VALUES('fpod', 'https://example.com/rss', 'Pod', 1)")
+        feed_id = conn.execute("SELECT id FROM feeds WHERE uid = 'fpod'").fetchone()[0]
+        for n in (1, 2):
+            conn.execute("INSERT INTO episodes(feed_id, uid, guid, title, audio_url, created_at) VALUES(?,?,?,?,?,?)",
+                         (feed_id, f"epod{n}", f"g{n}", f"Episode {n}", "https://example.com/a.mp3", n))
+    client.post("/api/youtube", json={"video_id": VIDEO, "title": "Video", "language": "ar", "lines": LINES})
+    pages.save_page("https://example.com/coffee", "Page", [{"kind": "p", "text": "قهوة عربية"}])
+
+    everything = client.get("/api/episodes").json()
+    assert everything["total"] == 4 and everything["counts"] == {"new": 2, "done": 2}
+    only = client.get("/api/episodes?scope=podcasts").json()
+    assert only["total"] == 2 and {e["title"] for e in only["items"]} == {"Episode 1", "Episode 2"}
+    assert only["counts"] == {"new": 2}, "the filter tabs count podcasts only too"
+    assert client.get("/api/episodes?scope=podcasts&status=done").json()["total"] == 0
+    assert client.get(f"/api/episodes?scope=podcasts&feed_id={feed_id}").json()["total"] == 2

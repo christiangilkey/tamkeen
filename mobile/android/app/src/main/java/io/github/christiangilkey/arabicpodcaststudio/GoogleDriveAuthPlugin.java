@@ -138,19 +138,96 @@ public class GoogleDriveAuthPlugin extends Plugin {
     public void openBrowser(PluginCall call) {
         String url = call.getString("url", "");
         String extractor = call.getString("extractor", "");
+        String youtube = call.getString("youtube", "");
+        String home = call.getString("home", ""); // the start page, shown when no address is given
         getActivity().runOnUiThread(() -> {
             try {
-                InAppBrowser.open(getActivity(), url, extractor, json -> {
+                InAppBrowser.open(getActivity(), url, extractor, youtube, home, json -> {
                     android.widget.Toast.makeText(getContext(), "Importing page…", android.widget.Toast.LENGTH_SHORT).show();
                     JSObject event = new JSObject();
                     event.put("result", json);
                     notifyListeners("pageImport", event);
+                }, id -> {
+                    // A YouTube video was tapped: JavaScript adds it and opens the app's player.
+                    JSObject event = new JSObject();
+                    event.put("id", id);
+                    notifyListeners("youtubeVideo", event);
                 });
                 call.resolve();
             } catch (Exception e) {
                 call.reject("Couldn't open the browser: " + e.getMessage(), e);
             }
         });
+    }
+
+    /** Closes the in-app browser (after a tapped YouTube video has opened in the app's player). */
+    @PluginMethod
+    public void closeBrowser(PluginCall call) {
+        getActivity().runOnUiThread(InAppBrowser::close);
+        call.resolve();
+    }
+
+    // ----- the reel window (see ReelSurface) -----
+
+    /** Opens the reel window over a box of the app's screen and loads a reel's embed page in it.
+     *  Where the reel is, and its buttons, come back to JavaScript as "reelState" events. */
+    @PluginMethod
+    public void reelOpen(PluginCall call) {
+        String url = call.getString("url", "");
+        String script = call.getString("script", "");
+        float top = call.getFloat("top", 0f);
+        float height = call.getFloat("height", 0f);
+        if (!ReelSurface.isEmbed(url)) {
+            call.reject("Not a reel.");
+            return;
+        }
+        getActivity().runOnUiThread(() -> {
+            try {
+                ReelSurface.open(getActivity(), getBridge().getWebView(), url, script, top, height, json -> {
+                    JSObject event = new JSObject();
+                    event.put("state", json);
+                    notifyListeners("reelState", event);
+                });
+                call.resolve();
+            } catch (Exception e) {
+                call.reject("Couldn't open the reel: " + e.getMessage(), e);
+            }
+        });
+    }
+
+    /** Shows another reel in the window that is already open. */
+    @PluginMethod
+    public void reelLoad(PluginCall call) {
+        String url = call.getString("url", "");
+        if (!ReelSurface.isEmbed(url)) {
+            call.reject("Not a reel.");
+            return;
+        }
+        getActivity().runOnUiThread(() -> ReelSurface.load(url));
+        call.resolve();
+    }
+
+    /** Moves the reel window when the box it covers moves or changes size. */
+    @PluginMethod
+    public void reelLayout(PluginCall call) {
+        float top = call.getFloat("top", 0f);
+        float height = call.getFloat("height", 0f);
+        getActivity().runOnUiThread(() -> ReelSurface.layout(getActivity(), getBridge().getWebView(), top, height));
+        call.resolve();
+    }
+
+    /** Tells the reel to play, pause or jump (JavaScript run inside the reel's page). */
+    @PluginMethod
+    public void reelRun(PluginCall call) {
+        String script = call.getString("script", "");
+        getActivity().runOnUiThread(() -> ReelSurface.run(script));
+        call.resolve();
+    }
+
+    @PluginMethod
+    public void reelClose(PluginCall call) {
+        getActivity().runOnUiThread(ReelSurface::close);
+        call.resolve();
     }
 
     /** Shows a short message on top of the in-app browser (e.g. "Imported ..."). */

@@ -25,6 +25,8 @@ export async function render(view) {
   const s = settings;
   view.append(h(`<div class="page settings">
     <h1>Settings</h1>
+    <section class="card" id="definer"></section>
+
     <section class="card stack">
       <h2>Language I'm learning</h2>
       <div id="study-lang"></div>
@@ -37,13 +39,6 @@ export async function render(view) {
       <p class="small muted">Your podcasts, transcripts and vocab come from your computer through a private app folder
         in your own Google Drive. Transcription happens on your computer; tap "Transcribe" here and it will do it on its next sync.</p>
       <div id="account"></div>
-    </section>
-
-    <section class="card stack">
-      <h2>Word definitions (AI)</h2>
-      <p class="small muted">Tap any word to hear it and see what it means in that sentence. Uses your own API key
-        (stored only on this phone). The word and its surrounding sentences are sent to the provider you choose.</p>
-      <div id="ai-setup"></div>
     </section>
 
     <section class="card stack">
@@ -101,7 +96,7 @@ export async function render(view) {
   const off = on("sync", paintAccount);
 
   // AI definitions
-  $("#ai-setup").append(aiSetup({ transport }));
+  const offAi = aiSetup($("#definer"), { transport });
   $("#study-lang").append(languagePicker(s.study_language, async (code) => {
     await saveSettings({ study_language: code });
     toast(`Now learning ${LANGUAGES[code].name}`);
@@ -118,5 +113,5 @@ export async function render(view) {
     $("#page-font-val").textContent = `${e.target.value}px`;
     saveSettings({ page_font_size: Number(e.target.value) });
   };
-  return off;
+  return () => { off(); offAi(); };
 }

@@ -65,6 +65,21 @@ def test_browser_start_address():
     assert pages.browser_start("arabic news").startswith("https://www.google.com/search?q=arabic%20news")
 
 
+def test_browser_opens_on_the_start_page_in_the_study_language(fresh_db):
+    from fastapi.testclient import TestClient
+
+    from app.main import create_app
+
+    assert pages.browser_home("http://127.0.0.1:5000/") == "http://127.0.0.1:5000/browser-home.html?lang=ar"
+    db.set_settings({"study_language": "ja"})
+    assert pages.browser_home("http://127.0.0.1:5000") == "http://127.0.0.1:5000/browser-home.html?lang=ja"
+    with TestClient(create_app(start_worker=False)) as c:
+        page = c.get("/browser-home.html?lang=ja")
+        assert page.status_code == 200 and "/js/browser-home.js" in page.text
+        script = c.get("/js/browser-home.js")
+        assert script.status_code == 200 and "google.com/search" in script.text
+
+
 def test_extractor_source_is_plain_script():
     src = pages.extractor_source()
     assert "function extractArticle(doc, url)" in src and "export" not in src.split("function extractArticle")[1]

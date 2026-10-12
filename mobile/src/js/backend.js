@@ -7,7 +7,6 @@ import { fetchTranscript, requestSync, syncNow, syncState } from "./sync.js";
 import { episodeUid, feedUid, findSpans, newUid, normalize, normalizeUrl } from "./shared-logic.js";
 import { settings } from "./store.js";
 import { detectLanguage, isLanguage } from "./languages.js";
-import { trending } from "./podcastindex.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
 
 export class ApiError extends Error {}
@@ -253,6 +252,7 @@ const routes = [
   ["GET", /^\/episodes$/, (m, q) => {
     let eps = liveEpisodes().filter((e) => feedOf(e.feed_uid) && !feedOf(e.feed_uid).deleted);
     if (q.get("feed_id")) eps = eps.filter((e) => e.feed_uid === q.get("feed_id"));
+    else if (q.get("scope") === "podcasts") eps = eps.filter((e) => !feedOf(e.feed_uid).url.startsWith("local:"));
     const counts = {};
     for (const e of eps) counts[episodeStatus(e)] = (counts[episodeStatus(e)] || 0) + 1;
     const status = q.get("status");
@@ -295,9 +295,13 @@ const routes = [
   }],
   ["POST", /^\/pages$/, (m, q, body) => savePage(body)],
   ["POST", /^\/youtube$/, (m, q, body) => saveYouTube(body)],
-  ["GET", /^\/discover\/trending$/, async (m, q) => {
-    try { return { feeds: await trending(q.get("lang"), q.get("fresh") === "true") }; }
-    catch (e) { throw new ApiError(e.message); }
+  // Reels are found and transcribed on the computer; the phone only watches them.
+  ["GET", /^\/reels$/, () => ({ available: false, status: { running: false, state: "idle", log: [] } })],
+  ["GET", /^\/youtube\/([\w-]{11})$/, async (m) => { // a video already here with its captions
+    const fuid = await feedUid(YOUTUBE_FEED_URL);
+    const e = liveEpisodes().find((x) => x.feed_uid === fuid && x.guid === m[1] && x.transcript_rev);
+    if (!e) throw new ApiError("That video isn't in the library yet.");
+    return episodeOut(e);
   }],
   ["DELETE", /^\/episodes\/([\w]+)$/, async (m) => {
     const e = episodeOf(m[1]);

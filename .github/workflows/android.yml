@@ -57,9 +57,6 @@ jobs:
 
       - name: Build web bundle and sync into the Android project
         working-directory: mobile
-        env:
-          PODCASTINDEX_KEY: ${{ secrets.PODCASTINDEX_KEY }}
-          PODCASTINDEX_SECRET: ${{ secrets.PODCASTINDEX_SECRET }}
         run: |
           npm ci
           npm run build

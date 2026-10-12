@@ -6,6 +6,7 @@
 .trending-btn:hover { border-color: var(--accent); text-decoration: none; }
 .add-yt { padding-top: 10px; border-top: 1px solid var(--border); }
 .add-yt .hint { margin: 0; }
+.feed-list[hidden] { display: none; } /* the phone's podcast strip, unused on the computer */
 
 /* ---------- trending podcasts ---------- */
 .discover { max-width: 1200px; }
@@ -51,11 +52,39 @@
 }
 .player.yt .captions:empty { display: block; }
 .player.yt.cc-off .captions { display: none; }
+.player.yt #more { display: none; }
 @media (max-width: 760px) {
-  /* Phone: the video keeps its 16:9 shape at full width (YouTube asks for at least 200 x 200),
-     and the transcript takes whatever height is left. */
-  .player.yt .stage { justify-content: center; }
-  .player.yt .yt-col { flex: none; }
-  .player.yt .screen { flex: none; width: 100%; aspect-ratio: 16 / 9; max-height: 50vh; }
-  .player.yt.panel-open .transcript-wrap { flex: 1 1 0; height: auto; min-height: 0; }
+  /* Phone: a slim one-line banner, then the video at full width in its 16:9 shape (YouTube asks
+     for at least 200 x 200), then the captions; the transcript takes whatever height is left.
+     The less-used banner buttons move into the "more" menu. */
+  .player.yt .player-head { flex-wrap: nowrap; gap: 8px; padding: 4px 10px; }
+  .player.yt .player-head img, .player.yt .player-head .meta .small { display: none; }
+  .player.yt .player-head .meta { flex: 1 1 0; min-width: 0; }
+  .player.yt .player-head .title { display: block; white-space: nowrap; font-size: 14px; }
+  .player.yt .player-head > .row { width: auto; flex: none; flex-wrap: nowrap; gap: 4px; }
+  .player.yt .player-head button, .player.yt .player-head .btn { min-height: 28px; padding: 2px 8px; font-size: 12px; }
+  .player.yt #fullscreen, .player.yt #font-down, .player.yt #font-up,
+  .player.yt #exp-txt, .player.yt #exp-srt, .player.yt #exp-vtt { display: none; }
+  .player.yt #more { display: inline-flex; }
+  .player.yt .stage { justify-content: flex-start; }
+  .player.yt .yt-col { flex: 0 1 auto; }
+  .player.yt .screen { flex: 0 1 auto; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; }
+  .player.yt.panel-open .transcript-wrap { flex: 1 1 0; height: auto; min-height: 96px; }
+  .player.yt .controls { padding: 2px 10px 6px; }
+  .player.yt .btnrow { margin-top: 0; }
+  .player.yt .btnrow .play { width: 38px; height: 38px; font-size: 16px; }
+}
+/* In the phone app the YouTube player has its own banner (with the way back), so the app's
+   top bar steps aside and the video starts higher up. */
+body.in-player:has(.player.yt) .topbar { display: none; }
+@media (max-width: 640px) {
+  /* Phone: the word popup is part of the black bar under the video. It opens directly below the
+     captions (never over them or the video) and scrolls inside itself when it is long.
+     player.js sets --dock-top and --dock-max. */
+  .player.yt .word-bubble.sheet {
+    top: var(--dock-top, auto) !important; bottom: auto; max-height: var(--dock-max, 50vh);
+    border: 0; border-top: 1px solid #2c2c2c; border-radius: 0; box-shadow: none; animation: none;
+    padding: 8px 14px 10px; background: #111; color: #f2f1ec;
+    --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838;
+  }
 }

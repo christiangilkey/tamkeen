@@ -166,3 +166,30 @@ test("Gemini: thinking level only for the models that have one", async () => {
   await define({ provider: "gemini", key: "g", model: "gemini-2.5-flash-lite" }, CTX, t);
   assert.equal(t.calls[1].body.generationConfig.thinkingConfig, undefined);
 });
+
+test("a model's price is one figure, cents per million tokens, and a million tokens is about 800 lookups", async () => {
+  const { PROVIDERS, LOOKUP_TOKENS, LOOKUPS_PER_MILLION, centsPerMillion } = await import("../../web/js/definer.js");
+  assert.equal(LOOKUPS_PER_MILLION, 800);
+  for (const p of Object.values(PROVIDERS)) {
+    for (const m of p.models) {
+      assert.ok(m.in > 0 && m.out >= m.in, `${m.id}: has both prices`);
+      const c = centsPerMillion(m);
+      assert.ok(c >= m.in && c <= m.out, `${m.id}: between the reading and the writing price`);
+    }
+  }
+  // Haiku 5.5: 10¢ read, 50¢ written; a lookup reads about twice what it writes.
+  assert.equal(centsPerMillion(PROVIDERS.claude.models[0]), Math.round((10 * LOOKUP_TOKENS.in + 50 * LOOKUP_TOKENS.out) / (LOOKUP_TOKENS.in + LOOKUP_TOKENS.out)));
+  assert.equal(centsPerMillion(PROVIDERS.claude.models[0]), 23);
+});
+
+test("a pasted key is tidied and recognised by how it starts", async () => {
+  const { cleanKey, keyProvider } = await import("../../web/js/definer.js");
+  assert.equal(cleanKey("  sk-ant-abc123\n"), "sk-ant-abc123");
+  assert.equal(cleanKey("“AIzaSy 12​34”"), "AIzaSy1234");
+  assert.equal(cleanKey(null), "");
+  assert.equal(keyProvider("sk-ant-api03-xyz"), "claude");
+  assert.equal(keyProvider("sk-proj-xyz"), "openai");
+  assert.equal(keyProvider(" AIzaSyXYZ "), "gemini");
+  assert.equal(keyProvider("xai-xyz"), "grok");
+  assert.equal(keyProvider("something-else"), "");
+});

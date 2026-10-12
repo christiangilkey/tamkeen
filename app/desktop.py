@@ -61,12 +61,43 @@ class Server:
         self.thread.join(timeout=5)
 
 
-class BrowserApi:
-    """The only thing exposed to pages shown in the Web Browser window: importing the page
-    being viewed. (Websites can reach this object, so it must never offer more than that.)"""
+def bring_forward(window: Any) -> None:
+    """Put a window in front of the others (un-minimising it first if need be)."""
+    try:
+        if str(getattr(window, "state", "")).lower().endswith("minimized"):
+            window.restore()
+        window.show()  # shows and activates it (don't use on_top here: on Windows it hangs off the UI thread)
+    except Exception as exc:  # e.g. the window was closed meanwhile
+        log.debug("Couldn't bring a window forward: %s", exc)
 
-    def __init__(self) -> None:
+
+class BrowserApi:
+    """The only things exposed to pages shown in the Web Browser window: importing the page
+    being viewed, and handing a YouTube video to the app's player. (Websites can reach this
+    object, so it must never offer more than that.)"""
+
+    def __init__(self, main_window: Any = None) -> None:
         self._window: Any = None
+        self._main = main_window
+
+    def watch_video(self, video_id: str = "") -> dict[str, Any]:
+        """A video was tapped on YouTube: have the app add it (captions) and show it in its
+        own player, then bring the app's window forward. See web/js/youtube-browser.js."""
+        from urllib.parse import urlsplit
+
+        from . import youtube
+
+        try:
+            host = (urlsplit(self._window.get_current_url() or "").hostname or "").lower()
+            if host != "youtube.com" and not host.endswith(".youtube.com"):
+                return {"ok": False, "error": "Videos can only be opened from youtube.com."}
+            result = youtube.ask_app_to_watch(str(video_id))
+        except Exception as exc:  # never let a website's oddities crash the bridge
+            log.exception("Opening a YouTube video from the browser window failed")
+            return {"ok": False, "error": f"Couldn't open this video ({exc.__class__.__name__})."}
+        if result.get("ok") and self._main is not None:
+            bring_forward(self._main)
+        return result
 
     def import_page(self) -> dict[str, Any]:
         from . import pages, sync
@@ -99,30 +130,60 @@ class JsApi:
     def __init__(self, server: Server) -> None:
         self._server = server
         self._window: Any = None
+        self._youtube: Any = None  # the browser window opened by "Open YouTube", while it lives
 
-    def open_browser(self, url: str = "") -> dict[str, Any]:
-        """Open a web browser window with an "Import Page" button (see web/js/browser-toolbar.js)."""
+    def _browser_window(self, title: str, start: str) -> Any:
+        """A web browser window. Every page in it gets the bottom bar with "Import Page"
+        (web/js/browser-toolbar.js) and, on youtube.com, tap-a-video-to-watch-it-in-the-app
+        (web/js/youtube-browser.js)."""
         import webview
 
+        scripts = [(paths.web_dir() / "js" / name).read_text(encoding="utf-8")
+                   for name in ("browser-toolbar.js", "youtube-browser.js")]
+        api = BrowserApi(self._window)
+        window = webview.create_window(f"{title} · {APP_NAME}", start, js_api=api,
+                                       width=1200, height=820, min_size=(640, 480), text_select=True)
+        api._window = window
+
+        def add_scripts() -> None:
+            for script in scripts:
+                try:
+                    window.evaluate_js(script)
+                except Exception as exc:  # e.g. the window closed while a page was loading
+                    log.debug("Couldn't add a browser script: %s", exc)
+
+        window.events.loaded += add_scripts
+        return window
+
+    def open_browser(self, url: str = "") -> dict[str, Any]:
+        """Open a web browser window with an "Import Page" button."""
         from . import pages
 
         try:
-            toolbar = (paths.web_dir() / "js" / "browser-toolbar.js").read_text(encoding="utf-8")
-            api = BrowserApi()
-            window = webview.create_window(f"Web Browser · {APP_NAME}", pages.browser_start(url), js_api=api,
-                                           width=1200, height=820, min_size=(640, 480), text_select=True)
-            api._window = window
-
-            def add_toolbar() -> None:
-                try:
-                    window.evaluate_js(toolbar)
-                except Exception as exc:  # e.g. the window closed while a page was loading
-                    log.debug("Couldn't add the browser toolbar: %s", exc)
-
-            window.events.loaded += add_toolbar
+            # Nothing typed: the start page (news in the study language and a search box).
+            typed = (url or "").strip()
+            self._browser_window("Web Browser",
+                                 pages.browser_start(typed) if typed else pages.browser_home(self._server.url))
         except Exception as exc:
             log.exception("Couldn't open the browser window")
             return {"ok": False, "error": f"Couldn't open the browser window ({exc})."}
+        return {"ok": True}
+
+    def open_youtube(self) -> dict[str, Any]:
+        """Open YouTube in a browser window (or bring back the one already open). Tapping a
+        video there opens it in the app's own player."""
+        import webview
+
+        from . import youtube
+
+        try:
+            if self._youtube is not None and self._youtube in webview.windows:
+                bring_forward(self._youtube)
+            else:
+                self._youtube = self._browser_window("YouTube", youtube.BROWSER_HOME)
+        except Exception as exc:
+            log.exception("Couldn't open the YouTube window")
+            return {"ok": False, "error": f"Couldn't open the YouTube window ({exc})."}
         return {"ok": True}
 
     def save_file(self, url: str, filename: str) -> dict[str, Any]:

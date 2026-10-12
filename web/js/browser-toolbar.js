@@ -40,7 +40,12 @@
   input.type = "text";
   input.spellcheck = false;
   input.placeholder = "Search or type a web address";
-  input.value = location.href;
+  // The app's own start page (web/browser-home.html) shows an empty box, ready to type in.
+  function shownAddress() {
+    var home = /^(127\.0\.0\.1|localhost)$/.test(location.hostname) && location.pathname === "/browser-home.html";
+    return home ? "" : location.href;
+  }
+  input.value = shownAddress();
 
   back.onclick = function () { history.back(); };
   fwd.onclick = function () { history.forward(); };
@@ -97,7 +102,7 @@
   else document.addEventListener("DOMContentLoaded", attach);
   // Keep the address current on sites that change pages without reloading.
   setInterval(function () {
-    if (root.activeElement !== input && input.value !== location.href) input.value = location.href;
+    if (root.activeElement !== input && input.value !== shownAddress()) input.value = shownAddress();
     if (!host.isConnected && document.body) document.body.appendChild(host);
   }, 700);
 })();

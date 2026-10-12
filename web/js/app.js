@@ -11,6 +11,7 @@ import * as welcome from "./pages/welcome.js";
 import * as friends from "./pages/friends.js";
 import * as chat from "./pages/chat.js";
 import * as discover from "./pages/discover.js";
+import * as reels from "./pages/reels.js";
 import { startBadge } from "./social.js";
 import { showUpdateNotice } from "./updatenotice.js";
 import { detectLanguage, setLang, setStudyLanguage } from "./languages.js";
@@ -81,7 +82,7 @@ function emit(event, data) {
 }
 function connectEvents() {
   const es = new EventSource("/api/events");
-  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki"]) {
+  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "reels"]) {
     es.addEventListener(name, (e) => emit(name, JSON.parse(e.data)));
   }
   es.onopen = () => emit("reconnected", {});
@@ -130,6 +131,11 @@ on("episode", (e) => {
 // ---------- platform hooks (the Android app's shell provides its own versions) ----------
 export const platform = "desktop";
 
+/** The window a reel plays in (see pages/reels.js). Reels play on the phone; the computer has none. */
+export function reelSurface() {
+  return null;
+}
+
 /** URL the <audio> (or <video>) element should play for an episode. */
 export async function audioUrl(episodeId) {
   return `/api/episodes/${episodeId}/audio`;
@@ -174,11 +180,45 @@ export async function fetchPage(url) {
   return api(`/web/fetch?url=${encodeURIComponent(url)}`);
 }
 
+/** One address on itunes.apple.com (Apple's podcast charts, for Trending), as parsed JSON.
+ * The app's own server (on this computer) fetches it. */
+export async function appleJson(url) {
+  return api(`/discover/apple?url=${encodeURIComponent(url)}`);
+}
+
 /** One web request to youtube.com, to read a video's captions: {status, text}. A page may
  * not call YouTube directly, so the app's own server (on this computer) makes the request. */
 export async function ytRequest(req) {
   return api("/youtube/request", { method: "POST", body: req });
 }
+
+/** Open YouTube in the app's own browser window. Tapping a video there opens it in Tamkeen's
+ * player (the window asks for it through the "youtube_watch" event, handled below). */
+export async function openYouTube() {
+  const bridge = window.pywebview && window.pywebview.api;
+  if (bridge && bridge.open_youtube) {
+    const r = await bridge.open_youtube();
+    if (r && r.error) throw new Error(r.error);
+    return;
+  }
+  // Running in an ordinary browser (development mode): there is no second window to control.
+  window.open("https://www.youtube.com", "_blank", "noopener");
+  toast("Copy the link of the video you want and paste it under “Add a webpage”.");
+}
+
+// A video was tapped in the YouTube window: add it, show it, and tell the window how it went
+// (it is waiting, to say "No captions available" or to step aside).
+on("youtube_watch", async ({ token, video_id }) => {
+  let result;
+  try {
+    const { watchVideo } = await import("./youtube.js");
+    const ep = await watchVideo(video_id);
+    result = { ok: true, title: ep.title };
+  } catch (e) {
+    result = { ok: false, error: e.message };
+  }
+  api("/youtube/watch-result", { method: "POST", body: { token, ...result } }).catch(() => {});
+});
 
 /** Open the in-app web browser (a second window with an "Import Page" button). */
 export async function openBrowser(url = "") {
@@ -189,7 +229,8 @@ export async function openBrowser(url = "") {
     return;
   }
   // Running in an ordinary browser (development mode): there is no second window to control.
-  window.open(url && /^https?:/i.test(url) ? url : "https://www.google.com", "_blank", "noopener");
+  const home = `/browser-home.html?lang=${encodeURIComponent(state.status?.settings?.study_language || "")}`;
+  window.open(url && /^https?:/i.test(url) ? url : home, "_blank", "noopener");
   toast("Copy the address of the page you want and paste it under “Add a webpage”.");
 }
 
@@ -261,6 +302,8 @@ const routes = [
   [/^library$/, library, () => ({})],
   [/^feed\/(\d+)$/, library, (m) => ({ feedId: Number(m[1]) })],
   [/^discover$/, discover, () => ({})],
+  [/^reels$/, reels, () => ({})],
+  [/^reels\/play$/, reels, () => ({ play: true })],
   [/^episode\/(\d+)$/, player, (m) => ({ id: Number(m[1]) })],
   [/^vocab$/, vocab, () => ({})],
   [/^search$/, search, () => ({})],
@@ -273,6 +316,7 @@ const routes = [
 ];
 
 let cleanup = null;
+let routeTurn = 0; // counts page changes, so a page that finishes loading late knows it was left
 
 function parseHash() {
   const raw = location.hash.replace(/^#\/?/, "");
@@ -294,13 +338,17 @@ async function route() {
   }
   if (!match) { location.hash = "#/"; return; }
   const [mod, params] = match;
-  const navKey = mod === home ? "home" : mod === library || mod === discover ? "library" : mod === vocab ? "vocab" : mod === settings ? "settings"
+  const navKey = mod === home ? "home" : mod === library || mod === discover || mod === reels ? "library" : mod === vocab ? "vocab" : mod === settings ? "settings"
     : mod === about ? "about" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === navKey));
+  const turn = ++routeTurn;
   try {
-    cleanup = (await mod.render(view, params)) || null;
+    const undo = (await mod.render(view, params)) || null;
+    if (turn !== routeTurn) { if (undo) undo(); return; } // left while it was loading: tidy it away
+    cleanup = undo;
   } catch (e) {
     console.error(e);
+    if (turn !== routeTurn) return; // a page that was already left: its failure isn't this page's
     view.innerHTML = `<div class="page"><div class="card"><h2>Something went wrong</h2><p class="muted"></p></div></div>`;
     view.querySelector("p").textContent = e.message;
   }

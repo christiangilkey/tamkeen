@@ -1,0 +1,74 @@
+/* Reels: the list and "Get 10 reels" page, and the phone's reel player (a window for Instagram's
+   embed page on top, and a bar below split in two: the words on the left, the word popup on the
+   right). Shared with the Android app. Uses the colour tokens from app.css. */
+
+/* ---------- the Reels page ---------- */
+.reels { max-width: 900px; }
+.reel-getcard { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.reel-modes { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.reel-mode { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.reel-drop { border: 1px solid var(--border); border-radius: 12px; padding: 8px 12px; background: var(--surface-2); }
+.reel-drop summary { cursor: pointer; display: flex; gap: 8px; align-items: baseline; }
+.reel-drop[open] summary { margin-bottom: 8px; }
+.reel-droplist { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; max-height: 240px; overflow: auto; }
+.reel-pick { display: flex; align-items: center; gap: 8px; padding: 2px 0; cursor: pointer; }
+.reel-pick span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.reel-pick button { min-height: 26px; padding: 0 8px; }
+.reel-drop form input { flex: 1; min-width: 0; }
+.reel-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.reel-chip { border-radius: 99px; min-height: 28px; padding: 2px 10px; font-size: 13px; }
+.reel-saved { display: flex; flex-direction: column; gap: 6px; border: 1px solid var(--border); border-radius: 12px; padding: 8px 12px; background: var(--surface-2); }
+.reel-saved[hidden] { display: none; }
+.reel-saved select { flex: 1; min-width: 0; }
+.reel-saved .hint { margin: 0; }
+.reel-log { display: flex; flex-direction: column; gap: 2px; max-height: 220px; overflow: auto; font-size: 13px; }
+.reel-log:empty { display: none; }
+.reel-logline { display: flex; gap: 6px; align-items: baseline; min-width: 0; }
+.reel-logline .mark { width: 14px; flex: none; text-align: center; color: var(--muted); }
+.reel-logline.kept .mark { color: var(--accent); font-weight: 700; }
+.reel-logline .who { flex: none; font-weight: 600; }
+.reel-logline .what { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.reel-logline .why { flex: none; }
+.reel-listhead { display: flex; align-items: center; gap: 12px; margin: 6px 0 8px; }
+.reel-listhead h2 { margin: 0; flex: 1; font-size: 18px; }
+.reel-listhead .n { font-size: 13px; font-weight: 500; color: var(--muted); }
+.reel-row { grid-template-columns: 44px 1fr auto; }
+.reel-row .ph { width: 44px; height: 44px; display: grid; place-items: center; color: var(--muted); }
+
+/* ---------- the reel player ---------- */
+.reelplay { display: flex; flex-direction: column; height: 100%; min-height: 0; background: #000; color: #f2f1ec; }
+.reel-top { flex: none; display: flex; align-items: center; gap: 8px; padding: 4px 8px; background: #111; }
+.reel-top .btn, .reel-top button { min-height: 30px; padding: 2px 10px; color: inherit; }
+.reel-title { flex: 1; min-width: 0; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.reel-title .muted { color: #aaa8a0; }
+/* The Instagram window sits exactly over this box (the phone puts it there; see app.js). */
+.reel-stage { flex: 1 1 auto; min-height: 120px; background: #000; display: grid; place-items: center; }
+/* The bar: words on the left, a line down the middle, the popup on the right. */
+.reel-bar { flex: none; height: 34%; min-height: 150px; max-height: 300px; display: grid; grid-template-columns: 1fr 1fr;
+  background: #111; border-top: 1px solid #2c2c2c;
+  --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838; }
+.reel-words, .reel-pop { min-width: 0; min-height: 0; overflow: auto; -webkit-overflow-scrolling: touch; }
+.reel-words { padding: 6px 12px 30px; font-size: clamp(17px, calc(var(--ar-size) * .78), 26px); line-height: 1.75; color: #f2f1ec; }
+.reel-words .seg { margin: 0 0 .3em; }
+.reel-words .w { border-radius: 5px; cursor: pointer; padding: 0 .04em; transition: background-color .08s; }
+.reel-words .w.cur { background: var(--hl); color: var(--hl-ink); }
+.reel-words .w:active { display: inline-block; transform: scale(.9); }
+.reel-pop { border-left: 1px solid #383838; padding: 6px 10px; position: relative; }
+.reel-hint { margin: 8px 2px; }
+/* The word popup is part of the bar here, not a floating card or a sheet. */
+.reel-pop .word-bubble, .reel-pop .word-bubble.sheet {
+  position: static !important; width: auto; max-width: none; max-height: none; overflow: visible;
+  border: 0; border-radius: 0; box-shadow: none; padding: 0; background: transparent; color: #f2f1ec; animation: none;
+  visibility: visible !important;
+}
+.reel-pop .wb-actions button { min-height: 28px; padding: 2px 8px; font-size: 12px; }
+/* The computer has no reel window: the words get the room instead. */
+.reelplay.no-video .reel-stage { flex: none; min-height: 0; padding: 14px; }
+.reelplay.no-video .reel-bar { flex: 1; height: auto; max-height: none; }
+.reel-nophone { text-align: center; }
+.reel-nophone p { margin: 0 0 6px; }
+@media (max-width: 640px) {
+  .reel-getcard .row { flex-wrap: wrap; }
+  .reel-logline .why { display: none; }
+}
+body.in-player:has(.reelplay) .topbar { display: none; }

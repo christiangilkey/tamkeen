@@ -17,18 +17,22 @@ may not call youtube.com directly; they still leave from the user's own machine.
 from __future__ import annotations
 
 import re
+import threading
 import time
+import uuid
 from typing import Any
 from urllib.parse import urlsplit
 
 import httpx
 
 from . import arabic, db, ids, languages
+from .version import APP_NAME
 
 LOCAL_FEED_URL = "local:youtube"
 LOCAL_FEED_TITLE = "YouTube"
 YT_TYPE = "video/youtube"
 ALLOWED_HOSTS = {"www.youtube.com", "youtube.com", "m.youtube.com"}
+BROWSER_HOME = "https://www.youtube.com/"
 MAX_WORDS = 60000
 MAX_BODY_BYTES = 12 * 1024 * 1024
 
@@ -170,3 +174,59 @@ def save_video(video_id: str, title: str, lines: list[dict[str, Any]], channel: 
         out = dict(conn.execute("SELECT * FROM episodes WHERE id = ?", (ep_id,)).fetchone())
     out["words"] = widx
     return out
+
+
+def find_video(video_id: str) -> dict[str, Any] | None:
+    """The episode for a video that is already in the library with its captions, else None."""
+    video_id = clean_id(video_id)
+    with db.session() as conn:
+        row = conn.execute(
+            "SELECT e.* FROM episodes e JOIN feeds f ON f.id = e.feed_id "
+            "WHERE f.url = ? AND e.guid = ? AND e.deleted = 0 AND e.status = 'done'",
+            (LOCAL_FEED_URL, video_id)).fetchone()
+    return dict(row) if row is not None else None
+
+
+# ---------------------------------------------------------------- "watch this" from the browser
+# Tapping a video in the app's web browser window (see web/js/youtube-browser.js) has to end up
+# in the app's own page, which is what reads captions and shows the player. The browser window
+# can only reach Python, so Python passes the request on as a live event and waits for the
+# page's answer (POST /api/youtube/watch-result).
+
+WATCH_TIMEOUT = 45.0
+_watching: dict[str, dict[str, Any]] = {}
+_watch_lock = threading.Lock()
+
+
+def ask_app_to_watch(video_id: str, timeout: float = WATCH_TIMEOUT) -> dict[str, Any]:
+    """Ask the app's page to add this video and open it. Returns {"ok": True, "title": ...} or
+    {"ok": False, "error": ...} (for example "No captions available for this video.")."""
+    from . import events
+
+    try:
+        video_id = clean_id(video_id)
+    except YouTubeError as exc:
+        return {"ok": False, "error": str(exc)}
+    token = uuid.uuid4().hex
+    slot: dict[str, Any] = {"done": threading.Event(), "result": None}
+    with _watch_lock:
+        _watching[token] = slot
+    try:
+        events.publish("youtube_watch", {"token": token, "video_id": video_id})
+        if not slot["done"].wait(timeout):
+            return {"ok": False, "error": f"{APP_NAME} didn't answer. Is its main window still open?"}
+        return slot["result"]
+    finally:
+        with _watch_lock:
+            _watching.pop(token, None)
+
+
+def answer_watch(token: str, ok: bool, title: str = "", error: str = "") -> bool:
+    """The app's page reporting how a "watch this" request went. False if nobody is waiting for it."""
+    with _watch_lock:
+        slot = _watching.get(token)
+    if slot is None:
+        return False
+    slot["result"] = {"ok": True, "title": title} if ok else {"ok": False, "error": error or "Couldn't open this video."}
+    slot["done"].set()
+    return True

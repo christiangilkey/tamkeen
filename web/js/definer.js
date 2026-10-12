@@ -10,8 +10,8 @@ import { isLanguage, gap } from "./languages.js";
 // `defaultModel` is each provider's best value for this job: the cheapest of its current models
 // that explains a word well (a lookup is a short question and a short structured answer, so the
 // small models do it properly). `models` is what Settings offers, cheapest first, with a note on
-// each; a user can also type any other model name. Prices are US dollars per million words-worth
-// of text ("tokens") in / out, from the providers' own price lists in October 2026.
+// each; a user can also type any other model name. `in` and `out` are the provider's prices in US
+// cents per million tokens (word-pieces) read and written, from their own price lists in October 2026.
 export const PROVIDERS = {
   claude: {
     label: "Claude (Anthropic)",
@@ -19,9 +19,9 @@ export const PROVIDERS = {
     keyUrl: "https://console.anthropic.com/settings/keys",
     defaultModel: "claude-haiku-5-5",
     models: [
-      { id: "claude-haiku-5-5", name: "Claude Haiku 5.5", note: "lowest cost ($0.10 / $0.50)" },
-      { id: "claude-sonnet-5-5", name: "Claude Sonnet 5.5", note: "more thorough, about 20× the cost" },
-      { id: "claude-opus-5-5", name: "Claude Opus 5.5", note: "most thorough, about 40× the cost" },
+      { id: "claude-haiku-5-5", name: "Claude Haiku 5.5", in: 10, out: 50, note: "lowest cost" },
+      { id: "claude-sonnet-5-5", name: "Claude Sonnet 5.5", in: 200, out: 1000, note: "more thorough" },
+      { id: "claude-opus-5-5", name: "Claude Opus 5.5", in: 400, out: 2000, note: "most thorough" },
     ],
   },
   gemini: {
@@ -30,10 +30,10 @@ export const PROVIDERS = {
     keyUrl: "https://aistudio.google.com/apikey",
     defaultModel: "gemini-3.1-flash-lite",
     models: [
-      { id: "gemini-3.1-flash-lite", name: "Gemini 3.1 Flash-Lite", note: "lowest cost of the current models ($0.25 / $1.50); free allowance" },
-      { id: "gemini-3.5-flash-lite", name: "Gemini 3.5 Flash-Lite", note: "newer, a little dearer ($0.30 / $2.50)" },
-      { id: "gemini-3.8-flash", name: "Gemini 3.8 Flash", note: "most thorough, about 3× the cost" },
-      { id: "gemini-2.5-flash-lite", name: "Gemini 2.5 Flash-Lite", note: "older model, cheapest of all ($0.10 / $0.40)" },
+      { id: "gemini-3.1-flash-lite", name: "Gemini 3.1 Flash-Lite", in: 25, out: 150, note: "lowest cost of the current models; free allowance" },
+      { id: "gemini-3.5-flash-lite", name: "Gemini 3.5 Flash-Lite", in: 30, out: 250, note: "newer" },
+      { id: "gemini-3.8-flash", name: "Gemini 3.8 Flash", in: 75, out: 375, note: "most thorough" },
+      { id: "gemini-2.5-flash-lite", name: "Gemini 2.5 Flash-Lite", in: 10, out: 40, note: "older model, cheapest of all" },
     ],
   },
   openai: {
@@ -42,9 +42,9 @@ export const PROVIDERS = {
     keyUrl: "https://platform.openai.com/api-keys",
     defaultModel: "gpt-6-luna",
     models: [
-      { id: "gpt-6-luna", name: "GPT-6 Luna", note: "lowest cost ($0.10 / $0.50)" },
-      { id: "gpt-6.1-sol", name: "GPT-6.1 Sol", note: "more thorough, about 20× the cost" },
-      { id: "gpt-6-astra", name: "GPT-6 Astra", note: "most thorough, about 100× the cost" },
+      { id: "gpt-6-luna", name: "GPT-6 Luna", in: 10, out: 50, note: "lowest cost" },
+      { id: "gpt-6.1-sol", name: "GPT-6.1 Sol", in: 200, out: 1000, note: "more thorough" },
+      { id: "gpt-6-astra", name: "GPT-6 Astra", in: 1000, out: 5000, note: "most thorough" },
     ],
   },
   grok: {
@@ -53,11 +53,38 @@ export const PROVIDERS = {
     keyUrl: "https://console.x.ai/",
     defaultModel: "grok-4.3",
     models: [
-      { id: "grok-4.3", name: "Grok 4.3", note: "lowest cost of the general models ($1.25 / $2.50)" },
-      { id: "grok-4.7", name: "Grok 4.7", note: "newest, about twice the cost" },
+      { id: "grok-4.3", name: "Grok 4.3", in: 125, out: 250, note: "lowest cost of the general models" },
+      { id: "grok-4.7", name: "Grok 4.7", in: 200, out: 600, note: "newest" },
     ],
   },
 };
+
+// What one word lookup uses, roughly: the instructions, the sentence and the answer's outline go in,
+// a short structured answer comes out. An estimate from the size of the request, not a measurement.
+export const LOOKUP_TOKENS = { in: 850, out: 400 };
+/** About how many lookups a million tokens pays for. */
+export const LOOKUPS_PER_MILLION = Math.round(1e6 / (LOOKUP_TOKENS.in + LOOKUP_TOKENS.out));
+
+/** A model's price as one number: US cents per million tokens, in the mix of reading and writing
+ * that a lookup uses (providers charge less for text read than for text written). */
+export function centsPerMillion(model) {
+  const total = LOOKUP_TOKENS.in + LOOKUP_TOKENS.out;
+  return Math.round((model.in * LOOKUP_TOKENS.in + model.out * LOOKUP_TOKENS.out) / total);
+}
+
+/** A key as it should be stored, however it was pasted: no spaces, line breaks, invisible
+ * characters or quote marks around or inside it (a key never contains any of those). */
+export const cleanKey = (text) => String(text ?? "").replace(/[\s\u200B-\u200D\u2060\uFEFF"'`“”‘’]/g, "");
+
+/** Which provider a key comes from, judged by how it starts; "" when that can't be told. */
+export function keyProvider(key) {
+  const k = cleanKey(key);
+  if (k.startsWith("sk-ant-")) return "claude";
+  if (k.startsWith("xai-")) return "grok";
+  if (k.startsWith("AIza")) return "gemini";
+  if (k.startsWith("sk-")) return "openai";
+  return "";
+}
 
 /** The model a provider's key is used with: the one chosen in Settings, else the provider's default. */
 export const modelFor = (provider, settings) =>

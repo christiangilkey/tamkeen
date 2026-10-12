@@ -11,6 +11,7 @@ import * as welcome from "./pages/welcome.js";
 import * as friends from "./pages/friends.js";
 import * as chat from "./pages/chat.js";
 import * as discover from "./pages/discover.js";
+import * as reels from "./pages/reels.js";
 import { startBadge } from "./social.js";
 import { initSwipe } from "./swipe.js";
 import { isNewer, showUpdateNotice } from "./updatenotice.js";
@@ -24,6 +25,75 @@ import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js"
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
 
 export const platform = "android";
+
+// ---------- the reel window ----------
+// A reel plays from Instagram's embed page in a second, native window laid exactly over a box
+// on the app's screen (ReelSurface.java). web/js/reel-embed.js runs inside that page.
+let reelScript = null;
+
+/** The window a reel plays in: open/load a page, tell it to play/pause/seek, hear where it is. */
+export function reelSurface() {
+  if (!isNative) return previewReelSurface();
+  const hearers = new Set();
+  let handle = null;
+  return {
+    async open({ url, top, height }) {
+      if (reelScript === null) {
+        try { reelScript = await (await fetch(new URL("./reel-embed.js", import.meta.url))).text(); } catch { reelScript = ""; }
+      }
+      handle = await GoogleDriveAuth.addListener("reelState", ({ state }) => {
+        let s;
+        try { s = JSON.parse(JSON.parse(state)); } catch { return; } // the page hasn't started yet
+        if (s && typeof s === "object") for (const fn of hearers) fn(s);
+      });
+      await GoogleDriveAuth.reelOpen({ url, script: reelScript, top, height });
+    },
+    load: (url) => GoogleDriveAuth.reelLoad({ url }),
+    do: (what, time = 0) => GoogleDriveAuth.reelRun({
+      script: `window.__tkReelDo && window.__tkReelDo(${JSON.stringify(what)}, ${Number(time) || 0})` }).catch(() => {}),
+    layout: ({ top, height }) => GoogleDriveAuth.reelLayout({ top, height }).catch(() => {}),
+    close() {
+      if (handle) handle.remove();
+      GoogleDriveAuth.reelClose().catch(() => {});
+    },
+    onState(fn) { hearers.add(fn); return () => hearers.delete(fn); },
+  };
+}
+
+/** Development preview in a browser: a stand-in that "plays" a 20-second clock, so the screen
+ * around the reel (words, popup, next reel) can be tried without a phone. */
+function previewReelSurface() {
+  const hearers = new Set();
+  let box = null;
+  let timer = 0;
+  let s = null;
+  const start = (url) => {
+    s = { ready: true, t: 0, d: 20, paused: false, ends: 0, nav: "", error: "", page: new URL(url).pathname };
+    if (box) box.querySelector("span").textContent = `Preview: ${s.page} would play here`;
+  };
+  return {
+    async open({ url, el }) {
+      box = document.createElement("div");
+      box.style.cssText = "color:#aaa;text-align:center;font-size:13px;display:flex;flex-direction:column;gap:10px;align-items:center";
+      box.innerHTML = `<span></span><div><button type="button">‹ Previous</button> <button type="button">Next ›</button></div>`;
+      const [prev, next] = box.querySelectorAll("button");
+      let presses = 0;
+      prev.onclick = () => { s.nav = `prev:${++presses}`; };
+      next.onclick = () => { s.nav = `next:${++presses}`; };
+      el.append(box);
+      start(url);
+      timer = setInterval(() => {
+        if (!s.paused) { s.t += 0.12; if (s.t >= s.d) { s.t = 0; s.paused = true; s.ends++; } }
+        for (const fn of hearers) fn({ ...s });
+      }, 120);
+    },
+    async load(url) { start(url); },
+    do(what, time = 0) { if (what === "pause") s.paused = true; else if (what === "play") s.paused = false; else if (what === "seek") s.t = time; },
+    layout() {},
+    close() { clearInterval(timer); if (box) box.remove(); },
+    onState(fn) { hearers.add(fn); return () => hearers.delete(fn); },
+  };
+}
 
 // ---------- API (answered on the phone) ----------
 export async function api(path, { method = "GET", body } = {}) {
@@ -193,6 +263,23 @@ export async function fetchPage(url) {
   return { url: res.url || address, html: typeof res.data === "string" ? res.data : String(res.data || "") };
 }
 
+/** One address on itunes.apple.com (Apple's podcast charts, for Trending), as parsed JSON. */
+export async function appleJson(url) {
+  if (!/^https:\/\/itunes\.apple\.com\//.test(url)) throw new Error("Only requests to Apple's podcast directory are allowed here.");
+  try {
+    if (isNative) {
+      const res = await NativeHttp.get({ url, connectTimeout: 15000, readTimeout: 30000 });
+      if (res.status >= 400) throw new Error(String(res.status));
+      return typeof res.data === "string" ? JSON.parse(res.data) : res.data;
+    }
+    const res = await fetch(url); // development preview in a browser
+    if (!res.ok) throw new Error(String(res.status));
+    return await res.json();
+  } catch {
+    throw new Error("Couldn't reach Apple's podcast directory. Check your connection.");
+  }
+}
+
 /** One web request to youtube.com, to read a video's captions: {status, text}. Made by the
  * phone itself (native code), so it isn't held back by the rules for web pages. */
 export async function ytRequest({ url, method = "GET", headers = {}, body }) {
@@ -209,6 +296,17 @@ export async function ytRequest({ url, method = "GET", headers = {}, body }) {
   return { status: res.status, text: typeof res.data === "string" ? res.data : JSON.stringify(res.data ?? "") };
 }
 
+/** Open YouTube in the in-app browser. Tapping a video there opens it in Tamkeen's player. */
+export async function openYouTube() {
+  return openBrowser("https://m.youtube.com/");
+}
+
+/** web/js/youtube-browser.js as text, for the in-app browser to run inside YouTube's pages. */
+async function youtubeBrowserScript() {
+  try { return await (await fetch(new URL("./youtube-browser.js", import.meta.url))).text(); } catch { return ""; }
+}
+
+let openingVideo = false;
 let browserListening = false;
 /** Open the in-app web browser (native screen with an "Import Page" button). */
 export async function openBrowser(url = "") {
@@ -234,8 +332,29 @@ export async function openBrowser(url = "") {
       }
       GoogleDriveAuth.browserToast({ text: message }).catch(() => {});
     });
+    // A video was tapped on YouTube (see youtube-browser.js): add it, then show it in the
+    // app's own player, closing the browser. Without captions the browser stays open.
+    GoogleDriveAuth.addListener("youtubeVideo", async ({ id }) => {
+      if (openingVideo) return;
+      openingVideo = true;
+      try {
+        GoogleDriveAuth.browserToast({ text: "Getting captions…" }).catch(() => {});
+        const { watchVideo } = await import("./youtube.js");
+        await watchVideo(id);
+        emit("feeds", { refreshed: true });
+        await GoogleDriveAuth.closeBrowser();
+      } catch (e) {
+        GoogleDriveAuth.browserToast({ text: e.message || "Couldn't open this video." }).catch(() => {});
+      } finally {
+        openingVideo = false;
+      }
+    });
   }
-  await GoogleDriveAuth.openBrowser({ url, extractor: await extractorSource() });
+  // With no address, the browser opens on the app's start page: a search box and news sites
+  // in the language being studied (handed over as one finished page, see browser-home.js).
+  const { homeHtml } = await import("./browser-home.js");
+  await GoogleDriveAuth.openBrowser({ url, extractor: await extractorSource(), youtube: await youtubeBrowserScript(),
+                                      home: homeHtml(settings.study_language || "") });
 }
 
 // ---------- own videos ----------
@@ -384,6 +503,8 @@ const routes = [
   [/^library$/, library, () => ({})],
   [/^feed\/(\w+)$/, library, (m) => ({ feedId: m[1] })],
   [/^discover$/, discover, () => ({})],
+  [/^reels$/, reels, () => ({})],
+  [/^reels\/play$/, reels, () => ({ play: true })],
   [/^episode\/(\w+)$/, player, (m) => ({ id: m[1] })],
   [/^vocab$/, vocab, () => ({})],
   [/^search$/, search, () => ({})],
@@ -393,6 +514,7 @@ const routes = [
   [/^chat\/([\w-]+)$/, chat, (m) => ({ friendId: m[1] })],
 ];
 let cleanup = null;
+let routeTurn = 0; // counts page changes, so a page that finishes loading late knows it was left
 
 async function route() {
   const raw = location.hash.replace(/^#\/?/, "");
@@ -405,16 +527,20 @@ async function route() {
   const hit = routes.find(([re]) => re.test(path));
   if (!hit) { location.hash = "#/"; return; }
   const [re, mod, params] = hit;
-  const key = mod === home ? "home" : mod === library || mod === discover ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
+  const key = mod === home ? "home" : mod === library || mod === discover || mod === reels ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
     : mod === settingsPage ? "settings" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === key));
-  document.body.classList.toggle("in-player", mod === player || mod === chat);
+  document.body.classList.toggle("in-player", mod === player || mod === chat || (mod === reels && path.startsWith("reels/play")));
   // The tab highlight and swipe animation move as soon as the section changes, not after its data loads.
   window.dispatchEvent(new Event("routed"));
+  const turn = ++routeTurn;
   try {
-    cleanup = (await mod.render(view, { ...params(path.match(re)), query: new URLSearchParams(qs || "") })) || null;
+    const undo = (await mod.render(view, { ...params(path.match(re)), query: new URLSearchParams(qs || "") })) || null;
+    if (turn !== routeTurn) { if (undo) undo(); return; } // left while it was loading: tidy it away
+    cleanup = undo;
   } catch (e) {
     console.error(e);
+    if (turn !== routeTurn) return; // a page that was already left: its failure isn't this page's
     view.innerHTML = `<div class="page"><div class="card"><h2>Something went wrong</h2><p class="muted"></p></div></div>`;
     view.querySelector("p").textContent = e.message;
   }

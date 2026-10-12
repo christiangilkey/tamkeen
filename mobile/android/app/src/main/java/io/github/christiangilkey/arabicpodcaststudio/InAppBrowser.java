@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -33,11 +34,29 @@ import java.net.URLEncoder;
  * Pressing Import Page runs the app's text extractor (web/js/extract.js, passed in as source)
  * inside the page being viewed and hands the result to the listener. The page itself is given
  * no access to the app: this WebView has no bridge to the app's code.
+ *
+ * On youtube.com, tapping a video hands its id to the video listener instead of playing it
+ * there: web/js/youtube-browser.js (passed in as source, run in every page) asks to go to the
+ * made-up address "tamkeen-video://watch?v=<id>", which only this browser understands.
  */
 final class InAppBrowser {
     interface Listener {
         /** `json` is the page's answer exactly as WebView returns it (a JSON-encoded string). */
         void onImport(String json);
+    }
+
+    interface VideoListener {
+        /** A YouTube video was tapped; `id` is its 11-character video id. */
+        void onVideo(String id);
+    }
+
+    private static final String VIDEO_SCHEME = "tamkeen-video";
+    private static Dialog openDialog;
+
+    /** Close the browser if it is open (once a tapped video has opened in the app's player). */
+    static void close() {
+        Dialog d = openDialog;
+        if (d != null && d.isShowing()) d.dismiss();
     }
 
     private static final String HOME = "https://www.google.com/";
@@ -57,7 +76,19 @@ final class InAppBrowser {
         }
     }
 
-    static void open(Activity activity, String url, String extractor, Listener listener) {
+    /**
+     * The address the history files the app's own start page under (see `home` below). Nothing
+     * is ever fetched from it: ".invalid" is a name the internet guarantees never exists.
+     */
+    private static final String START_PAGE = "https://start.tamkeen.invalid/";
+
+    /**
+     * `home` is the app's start page as one finished HTML page (a search box and news sites in
+     * the language being studied, built by web/js/browser-home.js). It is shown when `url` is
+     * empty; without it the browser starts on Google as before.
+     */
+    static void open(Activity activity, String url, String extractor, String youtubeScript, String home,
+                     Listener listener, VideoListener videos) {
         float dp = activity.getResources().getDisplayMetrics().density;
         int pad = Math.round(6 * dp);
         int dark = Color.parseColor("#1c1c1a");
@@ -114,7 +145,23 @@ final class InAppBrowser {
         web.setWebViewClient(new WebViewClient() {
             @Override
             public void doUpdateVisitedHistory(WebView view, String current, boolean isReload) {
-                if (!address.hasFocus()) address.setText(current);
+                if (!address.hasFocus()) address.setText(START_PAGE.equals(current) ? "" : current);
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                android.net.Uri uri = request.getUrl();
+                if (uri == null || !VIDEO_SCHEME.equals(uri.getScheme())) return false;
+                String id = uri.getQueryParameter("v");
+                if (id != null && id.matches("[\\w-]{11}") && videos != null) videos.onVideo(id);
+                return true; // never an address to load
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String finished) {
+                if (youtubeScript != null && !youtubeScript.isEmpty()) {
+                    view.evaluateJavascript("window.__tamkeenBridge='address';" + youtubeScript, null);
+                }
             }
         });
         web.setWebChromeClient(new WebChromeClient() {
@@ -171,6 +218,7 @@ final class InAppBrowser {
             return false;
         });
         dialog.setOnDismissListener(d -> {
+            if (openDialog == dialog) openDialog = null;
             web.stopLoading();
             frame.removeView(web);
             web.destroy();
@@ -182,8 +230,15 @@ final class InAppBrowser {
             window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         }
+        openDialog = dialog;
         dialog.show();
-        web.loadUrl(startUrl(url));
+        boolean nothingTyped = url == null || url.trim().isEmpty();
+        if (nothingTyped && home != null && !home.isEmpty()) {
+            // The last argument keeps the page in the history, so Back returns to it.
+            web.loadDataWithBaseURL(START_PAGE, home, "text/html", "UTF-8", START_PAGE);
+        } else {
+            web.loadUrl(startUrl(url));
+        }
     }
 
     private static Button barButton(Activity activity, String label, int color, float dp) {

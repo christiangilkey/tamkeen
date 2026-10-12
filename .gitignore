@@ -9,4 +9,3 @@ dist/
 app/sync/google_client.json
 mobile/node_modules/
 mobile/www/
-app/podcastindex_key.json

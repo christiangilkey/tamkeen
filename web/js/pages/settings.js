@@ -20,6 +20,8 @@ export async function render(view) {
   view.append(h(`<div class="page settings">
     <h1>Settings</h1>
 
+    <section class="card" id="definer"></section>
+
     <section class="card stack">
       <h2>Language I'm learning</h2>
       <div id="study-lang"></div>
@@ -45,15 +47,6 @@ export async function render(view) {
         and the Android app. Everything is stored in a private app folder in <em>your own</em> Google Drive that only
         this app can see. Sync never goes through any other server.</p>
       <div id="sync-panel"></div>
-    </section>
-
-    <section class="card stack" id="definer">
-      <h2>Word definitions (AI)</h2>
-      <p class="small muted">Click any word in a transcript to hear it and see what it means <em>in that sentence</em>.
-        This uses an AI provider with your own API key. You pay the provider directly; a lookup typically costs a
-        fraction of a cent. The word, its sentence and the neighbouring sentences are sent to the provider you choose.
-        Your key stays on this computer and is never included in data exports.</p>
-      <div id="ai-setup"></div>
     </section>
 
     <section class="card stack">
@@ -180,7 +173,7 @@ export async function render(view) {
   cleanups.push(on("sync", paintSync));
 
   // ----- AI definitions -----
-  $("#ai-setup").append(aiSetup({ transport: (req) => api("/llm/relay", { method: "POST", body: req }) }));
+  cleanups.push(aiSetup($("#definer"), { transport: (req) => api("/llm/relay", { method: "POST", body: req }) }));
   $("#study-lang").append(languagePicker(s.study_language, async (code) => {
     await saveSettings({ study_language: code });
     toast(`Now learning ${LANGUAGES[code].name}`);

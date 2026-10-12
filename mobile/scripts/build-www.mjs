@@ -15,6 +15,7 @@ const out = join(mobile, "www");
 const SHARED = [
   "css/app.css",
   "css/media.css",
+  "css/reels.css",
   "fonts",
   "icons",
   "js/wordlookup.js",
@@ -44,6 +45,10 @@ const SHARED = [
   "js/ytcaptions.js",
   "js/youtube.js",
   "js/ytmedia.js",
+  "js/youtube-browser.js",
+  "js/pages/reels.js",
+  "js/reel-embed.js",
+  "js/browser-home.js",
   "js/trending.js",
   "js/pages/discover.js",
   "js/components/studycard.js",
@@ -71,10 +76,4 @@ cpSync(join(mobile, "src"), out, { recursive: true });
 // This build's version (set by the release workflow), so the app can tell when a newer one exists.
 const version = process.env.APP_VERSION || "0.0.0-dev";
 writeFileSync(join(out, "js", "version.js"), `export const APP_VERSION = ${JSON.stringify(version)};\n`);
-// The Podcast Index key for "Trending podcasts" (set by the build workflow; without it the
-// Trending screen says it isn't switched on).
-const piKey = (process.env.PODCASTINDEX_KEY || "").trim();
-const piSecret = (process.env.PODCASTINDEX_SECRET || "").trim();
-writeFileSync(join(out, "js", "keys.js"),
-  `export const PODCASTINDEX = ${JSON.stringify(piKey && piSecret ? { key: piKey, secret: piSecret } : null)};\n`);
-console.log(`Built ${out} (version ${version}${piKey && piSecret ? "" : ", no Podcast Index key"})`);
+console.log(`Built ${out} (version ${version})`);

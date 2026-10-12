@@ -42,11 +42,15 @@ def _episode(episode_id: int) -> dict[str, Any]:
 
 @router.get("/episodes")
 def list_episodes(feed_id: int | None = None, status: str | None = None, q: str | None = None,
-                  limit: int = 100, offset: int = 0) -> dict[str, Any]:
+                  limit: int = 100, offset: int = 0, scope: str | None = None) -> dict[str, Any]:
+    """`scope=podcasts` leaves out the built-in lists (own videos and audio, webpages, YouTube)."""
     where, args = ["e.deleted = 0"], []
+    podcasts_only = feed_id is None and scope == "podcasts"
     if feed_id is not None:
         where.append("e.feed_id = ?")
         args.append(feed_id)
+    elif podcasts_only:
+        where.append("f.url NOT LIKE 'local:%'")
     if status and status in STATUS_FILTERS:
         values = STATUS_FILTERS[status]
         where.append(f"e.status IN ({','.join('?' * len(values))})")
@@ -57,18 +61,20 @@ def list_episodes(feed_id: int | None = None, status: str | None = None, q: str 
     clause = f"WHERE {' AND '.join(where)}" if where else ""
     limit = max(1, min(limit, 500))
     with db.session() as conn:
-        total = conn.execute(f"SELECT COUNT(*) FROM episodes e {clause}", args).fetchone()[0]
+        total = conn.execute(f"SELECT COUNT(*) FROM episodes e JOIN feeds f ON f.id = e.feed_id {clause}", args).fetchone()[0]
         rows = conn.execute(
             f"""SELECT e.id, e.feed_id, e.title, e.published, e.duration, e.image, e.status, e.progress,
-                       e.error, e.audio_path IS NOT NULL AS has_audio, e.audio_type, f.url AS feed_url,
+                       e.error, e.audio_path IS NOT NULL AS has_audio, e.audio_type, e.guid, e.audio_url,
+                       substr(e.description, 1, 200) AS description, f.url AS feed_url,
                        f.title AS feed_title, f.image AS feed_image
                 FROM episodes e JOIN feeds f ON f.id = e.feed_id {clause}
                 ORDER BY COALESCE(e.published, e.created_at) DESC, e.id DESC LIMIT ? OFFSET ?""",
             [*args, limit, offset],
         ).fetchall()
+        only = "AND e.feed_id = ? " if feed_id is not None else "AND f.url NOT LIKE 'local:%' " if podcasts_only else ""
         counts = dict(conn.execute(
-            f"SELECT e.status, COUNT(*) FROM episodes e WHERE e.deleted = 0 {'AND e.feed_id = ?' if feed_id is not None else ''} "
-            "GROUP BY e.status", [feed_id] if feed_id is not None else []).fetchall())
+            "SELECT e.status, COUNT(*) FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE e.deleted = 0 "
+            f"{only}GROUP BY e.status", [feed_id] if feed_id is not None else []).fetchall())
     return {"total": total, "items": db.rows_to_dicts(rows), "counts": counts,
             "current": jobs.worker.current_episode}
 

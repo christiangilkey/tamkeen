@@ -110,6 +110,10 @@ function renderPending(view, ep) {
 export async function render(view, { id, query }) {
   const data = await api(`/episodes/${id}/transcript`);
   const ep = data.episode;
+  if ((ep.audio_type || "") === "video/instagram") { // an Instagram reel: pages/reels.js plays those
+    location.replace(`#/reels/play?at=${id}`);
+    return undefined;
+  }
   if (reader.isPage(ep) && data.words.text.length) return reader.render(view, { id, data, query });
   if (ep.status !== "done" || !data.words.start.length) return renderPending(view, ep);
 
@@ -145,6 +149,7 @@ export async function render(view, { id, query }) {
           ${vid ? `<button type="button" id="toggle-panel" title="Show or hide the full transcript (T)">≡ Transcript</button>
           <button type="button" class="ghost" id="toggle-cc" title="Show or hide the clickable captions (C)">CC</button>
           <button type="button" class="ghost" id="fullscreen" title="Full screen (F)">⛶</button>` : ""}
+          ${yt ? `<button type="button" class="ghost" id="more" title="Text size, full screen and saving the transcript">⋯</button>` : ""}
           <button type="button" class="ghost" id="font-down" title="Smaller text">A−</button>
           <button type="button" class="ghost" id="font-up" title="Larger text">A+</button>
           <button type="button" id="exp-txt">TXT</button>
@@ -609,6 +614,8 @@ export async function render(view, { id, query }) {
       ensureVisible(wordEls[i]);
     }
     bubble.show(anchor || wordEls[i], c.ctx);
+    fitBubble();
+    requestAnimationFrame(() => requestAnimationFrame(fitBubble)); // again once it has taken its place
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, anchor || wordEls[i]);
     seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
@@ -637,19 +644,34 @@ export async function render(view, { id, query }) {
       audio.paused ? play() : audio.pause();
     });
   }
+  /** YouTube on a phone: the popup opens directly under the captions, as part of the same black
+   * bar, and never over them or the video (see media.css). It may grow down to the play
+   * controls; when that leaves too little room, over them to the bottom of the screen. */
+  function fitBubble() {
+    if (!yt || !window.matchMedia("(max-width: 640px)").matches) return;
+    const el = bubble.el;
+    const top = Math.ceil($(".yt-col").getBoundingClientRect().bottom);
+    const room = $(".controls").getBoundingClientRect().top - top;
+    el.style.setProperty("--dock-max", `${Math.floor(room >= 180 ? room : window.innerHeight - top)}px`);
+    el.style.setProperty("--dock-top", `${top}px`);
+    // If something above shifts where "fixed" positions are measured from, correct for it.
+    const off = el.hidden || !el.classList.contains("sheet") ? 0 : top - el.getBoundingClientRect().top;
+    if (Math.abs(off) > 1) el.style.setProperty("--dock-top", `${top + off}px`);
+  }
   function setPanel(open) {
     if (!vid) return;
     playerEl.classList.toggle("panel-open", open);
     $("#toggle-panel").classList.toggle("primary", open);
     lsSet("videoPanel", open);
     if (open && curIdx >= 0) setTimeout(() => ensureVisible(wordEls[curIdx], true), 300);
-    setTimeout(() => bubble.position(), 300);
+    setTimeout(() => { bubble.position(); fitBubble(); }, 300);
   }
   function setCaptions(on) {
     if (!vid) return;
     playerEl.classList.toggle("cc-off", !on);
     $("#toggle-cc").classList.toggle("ghost", !on);
     lsSet("videoCaptions", on);
+    fitBubble();
   }
   function toggleFullscreen() {
     if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
@@ -667,7 +689,7 @@ export async function render(view, { id, query }) {
   tr.addEventListener("scroll", () => bubble.position(), { passive: true });
   const onFullscreen = () => setTimeout(() => bubble.position(), 100);
   document.addEventListener("fullscreenchange", onFullscreen);
-  const onResize = () => bubble.position();
+  const onResize = () => { bubble.position(); fitBubble(); };
   window.addEventListener("resize", onResize);
   const onOutside = (e) => {
     if (bubble.open && !e.target.closest(".word-bubble") && !e.target.closest(".w") && !e.target.closest("#ctxmenu")
@@ -692,6 +714,21 @@ export async function render(view, { id, query }) {
   };
   $("#font-down").onclick = () => changeFont(-2);
   $("#font-up").onclick = () => changeFont(2);
+  // YouTube's slim banner keeps the less-used buttons in a "more" menu on narrow screens.
+  if (yt) {
+    $("#more").onclick = (e) => {
+      const r = e.currentTarget.getBoundingClientRect();
+      const press = (sel) => () => $(sel).click();
+      showMenu(r.right, r.bottom + 4, "", [
+        { label: "A+  Larger text", run: press("#font-up") },
+        { label: "A−  Smaller text", run: press("#font-down") },
+        ...($("#fullscreen").hidden ? [] : [{ label: "⛶  Full screen", run: press("#fullscreen") }]),
+        { label: "Save transcript as TXT", run: press("#exp-txt") },
+        { label: "Save subtitles as SRT", run: press("#exp-srt") },
+        { label: "Save subtitles as VTT", run: press("#exp-vtt") },
+      ]);
+    };
+  }
 
   // ---------- keyboard ----------
   const onKey = (e) => {
