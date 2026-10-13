@@ -205,3 +205,35 @@ export async function fetchCaptions(id, { language, languageName, taught = [], r
     lines,
   };
 }
+
+/**
+ * Which channel a video belongs to: {id, name, image}. Whatever can't be found comes back "".
+ * The id and name come from the same question fetchCaptions asks; the picture is the one the
+ * channel's own page offers for link previews.
+ */
+export async function fetchChannel(id, request) {
+  const out = { id: "", name: "", image: "" };
+  for (const client of CLIENTS) {
+    let res;
+    try {
+      res = await request({
+        url: PLAYER_URL, method: "POST",
+        headers: { "Content-Type": "application/json", "Accept-Language": "en" },
+        body: JSON.stringify({ context: { client: { ...client, hl: "en" } }, videoId: id }),
+      });
+    } catch { return out; }
+    const d = res && res.status < 400 ? (parse(res.text) || {}).videoDetails : null;
+    if (d && /^UC[\w-]{20,30}$/.test(String(d.channelId || ""))) {
+      out.id = String(d.channelId);
+      out.name = String(d.author || "");
+      break;
+    }
+  }
+  if (!out.id) return out;
+  try {
+    const page = await request({ url: `https://www.youtube.com/channel/${out.id}`, method: "GET", headers: { "Accept-Language": "en" } });
+    const m = page && page.status < 400 ? /<meta property="og:image" content="(https:\/\/[^"]+)"/.exec(page.text) : null;
+    if (m) out.image = m[1].replace(/&amp;/g, "&");
+  } catch { /* no picture: the first letter of the name is shown instead */ }
+  return out;
+}

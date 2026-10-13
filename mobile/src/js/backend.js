@@ -376,6 +376,8 @@ const routes = [
     let eps = liveEpisodes().filter((e) => feedOf(e.feed_uid) && !feedOf(e.feed_uid).deleted);
     if (q.get("feed_id")) eps = eps.filter((e) => e.feed_uid === q.get("feed_id"));
     else if (q.get("scope") === "podcasts") eps = eps.filter((e) => !feedOf(e.feed_uid).url.startsWith("local:"));
+    // One YouTube channel's videos (a video's description is its channel's name).
+    if (q.get("channel")) eps = eps.filter((e) => String(e.description || "").trim() === q.get("channel"));
     const counts = {};
     for (const e of eps) counts[episodeStatus(e)] = (counts[episodeStatus(e)] || 0) + 1;
     const status = q.get("status");

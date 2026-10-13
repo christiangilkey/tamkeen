@@ -196,8 +196,9 @@ export async function ytRequest(req) {
 /** Open YouTube in the app's own browser window, on what is popular this week in the language
  * being studied (see youtube-home.js). Tapping a video there opens it in Tamkeen's player (the
  * window asks for it through the "youtube_watch" event, handled below). */
-export async function openYouTube() {
-  const start = youtubeHome(studyLanguage(), { country: chosenCountry(studyLanguage()) });
+export async function openYouTube(address = "") {
+  // `address`: a YouTube page to open on instead (a followed channel's videos).
+  const start = address || youtubeHome(studyLanguage(), { country: chosenCountry(studyLanguage()) });
   const bridge = window.pywebview && window.pywebview.api;
   if (bridge && bridge.open_youtube) {
     const r = await bridge.open_youtube(start);

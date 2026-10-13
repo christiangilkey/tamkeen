@@ -42,8 +42,10 @@ def _episode(episode_id: int) -> dict[str, Any]:
 
 @router.get("/episodes")
 def list_episodes(feed_id: int | None = None, status: str | None = None, q: str | None = None,
-                  limit: int = 100, offset: int = 0, scope: str | None = None) -> dict[str, Any]:
-    """`scope=podcasts` leaves out the built-in lists (own videos and audio, webpages, YouTube)."""
+                  limit: int = 100, offset: int = 0, scope: str | None = None,
+                  channel: str | None = None) -> dict[str, Any]:
+    """`scope=podcasts` leaves out the built-in lists (own videos and audio, webpages, YouTube).
+    `channel` keeps one YouTube channel's videos (a video's description is its channel's name)."""
     where, args = ["e.deleted = 0"], []
     podcasts_only = feed_id is None and scope == "podcasts"
     if feed_id is not None:
@@ -55,6 +57,9 @@ def list_episodes(feed_id: int | None = None, status: str | None = None, q: str 
         values = STATUS_FILTERS[status]
         where.append(f"e.status IN ({','.join('?' * len(values))})")
         args.extend(values)
+    if channel:
+        where.append("TRIM(e.description) = ?")
+        args.append(channel.strip())
     if q:
         where.append("e.title LIKE ?")
         args.append(f"%{q}%")

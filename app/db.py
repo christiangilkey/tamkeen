@@ -382,6 +382,8 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     # The creature game: its whole saved state (see web/js/game/rules.js), and whether it makes sounds.
     "game_state": None,
     "game_sound": True,
+    # Followed YouTube channels (web/js/ytfollow.js); travels between devices with the library.
+    "youtube_follows": [],
     # The Anki companion (see app/companion.py): its secret, and the daily totals it has reported.
     "anki_token": "",
     "anki_days": {},

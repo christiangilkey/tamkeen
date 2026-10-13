@@ -20,7 +20,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .. import arabic, audio, db, languages, paths, videos
+from .. import arabic, audio, db, languages, paths, videos, youtube
 from .drive import Drive
 
 log = logging.getLogger(__name__)
@@ -115,7 +115,8 @@ def snapshot(device_id: str) -> dict[str, Any]:
             reviews.setdefault(r[0], []).append([r[1], r[2], r[3], r[4]])
     return {"format": FORMAT_VERSION, "device": device_id, "feeds": feeds, "episodes": episodes,
             "vocab": vocab, "folders": folders, "definitions": defs, "lexemes": lexemes, "reviews": reviews,
-            "game": db.get_setting("game_state")}
+            "game": db.get_setting("game_state"),
+            "channels": youtube.clean_follows(db.get_setting("youtube_follows"))}
 
 
 def _folder_list(raw: Any) -> list[str]:
@@ -131,6 +132,7 @@ def _content(lib: dict[str, Any]) -> str:
     content = {k: lib.get(k) for k in ("feeds", "episodes", "vocab", "folders", "definitions", "game")}
     content["lexemes"] = lib.get("lexemes") or []  # a device from before seen words were kept sends none
     content["reviews"] = lib.get("reviews") or {}  # nor does one from before the reviewer
+    content["channels"] = lib.get("channels") or []  # nor one from before channels could be followed
     return json.dumps(content, ensure_ascii=False, sort_keys=True)
 
 
@@ -299,6 +301,21 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
                              "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
                              (json.dumps(game, ensure_ascii=False),))
                 result.merged["game"] = 1
+
+        # Followed YouTube channels: for each channel, the copy that changed last wins.
+        channels = remote.get("channels")
+        if isinstance(channels, list) and channels:
+            row = conn.execute("SELECT value FROM settings WHERE key = 'youtube_follows'").fetchone()
+            try:
+                mine = youtube.clean_follows(json.loads(row["value"]) if row else [])
+            except json.JSONDecodeError:
+                mine = []
+            merged = youtube.merge_follows(mine, channels)
+            if merged != mine:
+                conn.execute("INSERT INTO settings(key, value) VALUES('youtube_follows', ?) "
+                             "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
+                             (json.dumps(merged, ensure_ascii=False),))
+                result.merged["channels"] = len(merged)
     return downloads
 
 

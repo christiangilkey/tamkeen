@@ -252,3 +252,78 @@ def test_youtube_window_only_starts_on_youtube():
     for other in ("", None, "https://example.com/", "http://www.youtube.com/", "javascript:alert(1)",
                   "https://www.youtube.com.evil.example/results"):
         assert youtube.start_address(other) == youtube.BROWSER_HOME
+
+
+# ----- followed YouTube channels -----
+
+CHANNEL = "UC-4KnPMmZzwAzW7SbVATUZQ"
+
+
+def test_follow_lists_merge_like_the_phones():
+    # The same cases as "two devices agree" in tests/js/ytfollow.test.mjs: both must give this.
+    phone = [{"name": "A", "on": 1, "updated_at": 10, "watched_at": 10}, {"name": "B", "on": 1, "updated_at": 20, "watched_at": 20}]
+    computer = [{"name": "B", "on": 0, "updated_at": 30, "watched_at": 20},
+                {"name": "C", "on": 1, "updated_at": 5, "watched_at": 5, "id": CHANNEL}]
+    expected = [
+        {"name": "A", "id": "", "image": "", "on": 1, "watched_at": 10, "updated_at": 10},
+        {"name": "B", "id": "", "image": "", "on": 0, "watched_at": 20, "updated_at": 30},
+        {"name": "C", "id": CHANNEL, "image": "", "on": 1, "watched_at": 5, "updated_at": 5},
+    ]
+    assert youtube.merge_follows(phone, computer) == expected
+    assert youtube.merge_follows(computer, phone) == expected
+    assert youtube.merge_follows(expected, expected) == expected
+    assert youtube.merge_follows([], None) == []
+    names = [r["name"] for r in youtube.merge_follows([{"name": "😀 fun", "on": 1}, {"name": "ﻻ", "on": 1}, {"name": "Z", "on": 1}], [])]
+    assert names == ["Z", "😀 fun", "ﻻ"], "the same order JavaScript sorts in"
+
+
+def test_follow_lists_are_tidied_like_the_phones():
+    tidy = youtube.clean_follows([
+        {"name": "b", "on": 1, "updated_at": 5, "id": "not an id", "image": "http://insecure/x"},
+        "junk", None, {"on": 1}, {"name": ""},
+        {"name": "a", "on": "yes", "watched_at": "7.8", "updated_at": 3},
+        {"name": "b", "on": 0, "updated_at": 9},
+        {"name": "  AJ+   كبريت ", "on": True, "id": CHANNEL, "image": "https://yt3.example/a=s900", "watched_at": 100.9, "updated_at": 100},
+    ])
+    assert tidy == [
+        {"name": "AJ+ كبريت", "id": CHANNEL, "image": "https://yt3.example/a=s900", "on": 1, "watched_at": 100, "updated_at": 100},
+        {"name": "a", "id": "", "image": "", "on": 1, "watched_at": 7, "updated_at": 3},
+        {"name": "b", "id": "", "image": "", "on": 0, "watched_at": 0, "updated_at": 9},
+    ]
+    assert youtube.clean_follows(None) == [] and youtube.clean_follows({"name": "x"}) == []
+
+
+def test_follows_are_saved_through_settings_and_one_channels_videos_can_be_listed(client):
+    r = client.patch("/api/settings", json={"youtube_follows": [{"name": " AJ+ ", "on": 1, "updated_at": 7, "extra": "x"}, "junk"]})
+    assert r.status_code == 200
+    assert r.json()["youtube_follows"] == [{"name": "AJ+", "id": "", "image": "", "on": 1, "watched_at": 0, "updated_at": 7}]
+    assert client.get("/api/settings").json()["youtube_follows"][0]["name"] == "AJ+"
+
+    client.post("/api/youtube", json={"video_id": VIDEO, "title": "One", "channel": "AJ+", "language": "ar", "lines": LINES})
+    client.post("/api/youtube", json={"video_id": "abcdefghijk", "title": "Two", "channel": "Other channel", "language": "ar", "lines": LINES})
+    feed = next(f for f in client.get("/api/feeds").json() if f["url"] == youtube.LOCAL_FEED_URL)
+    everything = client.get(f"/api/episodes?feed_id={feed['id']}").json()
+    assert everything["total"] == 2 and {e["description"] for e in everything["items"]} == {"AJ+", "Other channel"}
+    mine = client.get(f"/api/episodes?feed_id={feed['id']}&channel=AJ%2B").json()
+    assert mine["total"] == 1 and mine["items"][0]["title"] == "One"
+    assert client.get(f"/api/episodes?feed_id={feed['id']}&channel=Nobody").json()["total"] == 0
+
+
+def test_followed_channels_travel_between_devices(world):
+    drive, a, b = world
+    with a:
+        db.set_settings({"youtube_follows": youtube.clean_follows([{"name": "AJ+", "on": 1, "id": CHANNEL, "watched_at": 50, "updated_at": 50}])})
+    a.sync(drive)
+    rb = b.sync(drive)
+    with b:
+        assert db.get_setting("youtube_follows") == [{"name": "AJ+", "id": CHANNEL, "image": "", "on": 1, "watched_at": 50, "updated_at": 50}]
+        assert rb.merged.get("channels") == 1 and not rb.library_uploaded, "receiving it doesn't send anything back"
+        # Unfollowed on the second device, and another channel followed there.
+        db.set_settings({"youtube_follows": [{"name": "AJ+", "id": CHANNEL, "image": "", "on": 0, "watched_at": 50, "updated_at": 90},
+                                             {"name": "Second", "id": "", "image": "", "on": 1, "watched_at": 80, "updated_at": 80}]})
+    b.sync(drive)
+    a.sync(drive)
+    with a:
+        got = db.get_setting("youtube_follows")
+        assert [(r["name"], r["on"]) for r in got] == [("AJ+", 0), ("Second", 1)], "the unfollow arrives too"
+    assert not a.sync(drive).library_uploaded and not b.sync(drive).library_uploaded, "then both are settled"

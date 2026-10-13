@@ -8,6 +8,7 @@
 
 import { drive, gunzipJson, gzipJson } from "./drive.js";
 import { audio, kv, lib, saveLibrary, settings, transcripts } from "./store.js";
+import { cleanFollows, mergeFollows } from "./ytfollow.js";
 
 const LIBRARY = "library.json.gz";
 const listeners = new Set();
@@ -111,6 +112,17 @@ export function merge(remote) {
     window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: game }));
     changed++;
   }
+
+  // Followed YouTube channels: for each channel, the copy that changed last wins.
+  if (Array.isArray(remote.channels) && remote.channels.length) {
+    const before = cleanFollows(settings.youtube_follows);
+    const merged = mergeFollows(before, remote.channels);
+    if (JSON.stringify(merged) !== JSON.stringify(before)) {
+      settings.youtube_follows = merged;
+      kv.set("settings", { ...settings }).catch(console.error);
+      changed++;
+    }
+  }
   return changed;
 }
 
@@ -129,6 +141,7 @@ export function snapshot() {
     lexemes: [...(lib.lexemes || [])].sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0)),
     reviews: lib.reviews || {},
     game: settings.game_state || null,
+    channels: cleanFollows(settings.youtube_follows),
   };
 }
 
@@ -140,7 +153,8 @@ function canonical(value) {
   return JSON.stringify(value ?? null);
 }
 const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
-                                   definitions: l.definitions, lexemes: l.lexemes || [], reviews: l.reviews || {}, game: l.game || null });
+                                   definitions: l.definitions, lexemes: l.lexemes || [], reviews: l.reviews || {}, game: l.game || null,
+                                   channels: l.channels || [] });
 
 // ---------- run ----------
 let running = null;

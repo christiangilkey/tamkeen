@@ -238,3 +238,52 @@ def answer_watch(token: str, ok: bool, title: str = "", error: str = "") -> bool
     slot["result"] = {"ok": True, "title": title} if ok else {"ok": False, "error": error or "Couldn't open this video."}
     slot["done"].set()
     return True
+
+
+# ---------------------------------------------------------------- followed channels
+# The computer's copy of cleanFollows and mergeFollows in web/js/ytfollow.js (which explains the
+# records). The two must agree exactly, or two devices would keep rewriting each other's list.
+
+def _text(value: Any, limit: int) -> str:
+    return " ".join(str("" if value is None else value).split())[:limit]
+
+
+def _whole(value: Any) -> int:
+    try:
+        return max(0, int(float(value)))
+    except (TypeError, ValueError, OverflowError):
+        return 0
+
+
+def _by_name(record: dict[str, Any]) -> bytes:
+    # The same order JavaScript's plain string comparison gives (by UTF-16 units).
+    return record["name"].encode("utf-16-be", "surrogatepass")
+
+
+def clean_follows(raw: Any) -> list[dict[str, Any]]:
+    seen: dict[str, dict[str, Any]] = {}
+    for r in raw if isinstance(raw, list) else []:
+        if not isinstance(r, dict):
+            continue
+        name = _text(r.get("name"), 200)
+        if not name:
+            continue
+        cid = str(r.get("id") or "")
+        image = str(r.get("image") or "")
+        rec = {"name": name, "id": cid if re.fullmatch(r"UC[\w-]{20,30}", cid) else "",
+               "image": image[:500] if image.startswith("https://") else "", "on": 1 if r.get("on") else 0,
+               "watched_at": _whole(r.get("watched_at")), "updated_at": _whole(r.get("updated_at"))}
+        had = seen.get(name)
+        if had is None or rec["updated_at"] > had["updated_at"]:
+            seen[name] = rec
+    return sorted(seen.values(), key=_by_name)
+
+
+def merge_follows(mine: Any, theirs: Any) -> list[dict[str, Any]]:
+    """Two devices' lists as one: for each channel, the copy that changed last wins."""
+    out = {r["name"]: r for r in clean_follows(mine)}
+    for r in clean_follows(theirs):
+        had = out.get(r["name"])
+        if had is None or r["updated_at"] > had["updated_at"]:
+            out[r["name"]] = r
+    return sorted(out.values(), key=_by_name)

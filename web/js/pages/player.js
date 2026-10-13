@@ -17,7 +17,7 @@ import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
-import { importVideo, isYouTube, videoId as youTubeId } from "../youtube.js";
+import { channelOf, followChannel, importVideo, isFollowing, isYouTube, noteWatched, videoId as youTubeId } from "../youtube.js";
 import { createYouTubeMedia } from "../ytmedia.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
@@ -182,6 +182,10 @@ export async function render(view, { id, query }) {
           <button type="button" id="play" class="play primary" title="Play/Pause (Space)">▶</button>
           <button type="button" id="fwd5" title="Forward 5 seconds (→)">5s ⟳</button>
           <select id="speed" title="Playback speed">${SPEEDS.map((s) => `<option value="${s}">${s}×</option>`).join("")}</select>
+          ${yt && channelOf(ep) ? `<span class="follow-wrap">
+            <span class="follow-pop" id="follow-pop" hidden>Following</span>
+            <button type="button" class="follow-btn" id="follow" aria-pressed="false"><span class="mark">+</span><span class="label">Follow</span></button>
+          </span>` : ""}
         </div>
       </div>
     </div>`));
@@ -394,6 +398,51 @@ export async function render(view, { id, query }) {
   };
   $("#seek").addEventListener("input", (e) => { seeking = true; $("#cur").textContent = formatTime(Number(e.target.value)); });
   $("#seek").addEventListener("change", (e) => { seeking = false; seekTo(Number(e.target.value), false); });
+
+  // ---------- follow this video's channel (YouTube) ----------
+  // An outline while not followed, filled once followed; a small "Following" bubble shows for a
+  // moment. Followed channels appear in the Library under YouTube.
+  const followBtn = $("#follow");
+  let followPopTimer = 0;
+  if (followBtn) {
+    const channelName = channelOf(ep);
+    let following = false;
+    const paintFollow = () => {
+      followBtn.classList.toggle("on", following);
+      followBtn.setAttribute("aria-pressed", String(following));
+      followBtn.querySelector(".mark").textContent = following ? "✓" : "+";
+      followBtn.querySelector(".label").textContent = following ? "Following" : "Follow";
+      followBtn.title = following ? `You follow ${channelName}. Press to stop following.` : `Follow ${channelName}: it appears in your Library under YouTube`;
+    };
+    paintFollow();
+    isFollowing(ep).then((yes) => {
+      if (disposed) return;
+      following = yes;
+      paintFollow();
+      if (yes) noteWatched(ep).catch(() => {}); // watching it moves the channel to the front of the bar
+    }).catch(() => {});
+    followBtn.onclick = async () => {
+      following = !following;
+      paintFollow();
+      const pop = $("#follow-pop");
+      clearTimeout(followPopTimer);
+      pop.hidden = true;
+      if (following) {
+        buzz("success");
+        void pop.offsetWidth; // so the little animation starts again on a second press
+        pop.hidden = false;
+        followPopTimer = setTimeout(() => { pop.hidden = true; }, 1300);
+      }
+      try {
+        await followChannel(ep, following);
+      } catch (e) {
+        following = !following;
+        pop.hidden = true;
+        if (!disposed) paintFollow();
+        toast(e.message, { error: true });
+      }
+    };
+  }
 
   // ---------- clips: play one word or one sentence, then pause ----------
   // (or keep playing from there, if that is what the switch in the word popup says)
@@ -801,6 +850,7 @@ export async function render(view, { id, query }) {
     remember();
     audio.pause();
     delete window.__apsAudio;
+    clearTimeout(followPopTimer);
     if (yt) audio.dispose();
     else {
       audio.removeAttribute("src");

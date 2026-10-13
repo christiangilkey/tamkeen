@@ -5,7 +5,8 @@ import { icon } from "../icons.js";
 import { importUrl } from "../pageimport.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { allProgress } from "../progress.js";
-import { importVideo, isYouTube, videoId as youTubeId } from "../youtube.js";
+import { importVideo, isYouTube, loadFollows, unfollowChannel, videoId as youTubeId } from "../youtube.js";
+import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
 import { COUNTRIES, chooseCountry, chosenCountry } from "../youtube-home.js";
 
 const FILTERS = [
@@ -65,6 +66,9 @@ export async function render(view, { feedId: routeFeed, query }) {
   // Phone: which kind is showing ("podcasts" unless the address or the feed says otherwise).
   let kind = phone && KINDS.some((k) => k.key === query.get("show")) ? query.get("show") : "podcasts";
   const filter = query.get("status") || "";
+  // YouTube: the followed channel whose videos are showing ("" = all of them, recently watched first).
+  const channel = query.get("channel") || "";
+  let follows = [];
   const selected = new Set();
   let offset = 0;
   let feeds = [];
@@ -164,8 +168,25 @@ export async function render(view, { feedId: routeFeed, query }) {
       list.append(el);
     }
     const strip = $("#podcast-list");
-    strip.hidden = kind !== "podcasts";
+    strip.hidden = kind !== "podcasts" && kind !== "youtube";
     strip.innerHTML = "";
+    if (kind === "youtube") {
+      // "Recently watched" first, then the followed channels, the one watched most recently first.
+      const base = feedId ? `#/feed/${feedId}` : "#/library?show=youtube";
+      const recent = h(`<a class="feed-item${channel ? "" : " active"}" href="${base}"><div class="ph all">${icon("recent", 22)}</div><div><div class="t">Recently watched</div></div></a>`);
+      remember(recent);
+      strip.append(recent);
+      const followed = followedChannels(follows);
+      for (const c of followed) {
+        const el = h(`<a class="feed-item${c.name === channel ? " active" : ""}" href="${channelHref(base, c.name)}">
+          ${channelPicture(c)}<div style="min-width:0"><div class="t" dir="auto">${esc(c.name)}</div></div></a>`);
+        remember(el);
+        strip.append(el);
+      }
+      if (!followed.length) strip.append(h(`<p class="small muted" style="padding:6px;align-self:center">Channels you follow appear here. Press Follow under a video.</p>`));
+      strip.querySelector(".active")?.scrollIntoView({ block: "nearest", inline: "nearest" });
+      return;
+    }
     if (kind !== "podcasts") return;
     // "All episodes" first, then the podcasts, the one listened to most recently first.
     const heard = new Map();
@@ -187,8 +208,15 @@ export async function render(view, { feedId: routeFeed, query }) {
     strip.querySelector(".active")?.scrollIntoView({ block: "nearest", inline: "nearest" });
   }
 
+  const channelHref = (base, name) => `${base}${base.includes("?") ? "&" : "?"}channel=${encodeURIComponent(name)}`;
+  /** A channel's round picture, or the first letter of its name until one is known. */
+  const channelPicture = (c) => (c.image
+    ? `<img class="round" src="${esc(smallImage(c.image))}" alt="" loading="lazy" referrerpolicy="no-referrer">`
+    : `<div class="ph all round">${esc([...c.name][0] || "?")}</div>`);
+  const youtubeShowing = () => { const f = feeds.find((x) => x.id === feedId); return !!f && f.url === YOUTUBE_FEED; };
+
   async function loadFeeds() {
-    feeds = await api("/feeds");
+    [feeds, follows] = await Promise.all([api("/feeds"), loadFollows().catch(() => [])]);
     if (phone) {
       renderStrips();
       renderHead();
@@ -240,9 +268,46 @@ export async function render(view, { feedId: routeFeed, query }) {
       return;
     }
     if (f.url === YOUTUBE_FEED) {
-      head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("video", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
-        <div class="desc small">YouTube videos you added. They play from YouTube itself, and their captions become
-        text you can click. Find more with “Open YouTube” under “Watch a YouTube video”.</div></div></div>`));
+      const followed = followedChannels(follows);
+      const base = `#/feed/${feedId}`;
+      if (channel) {
+        // One channel's videos, with a way to find more of them and to stop following.
+        const c = followed.find((x) => x.name === channel) || { name: channel, id: "", image: "" };
+        const el = h(`<div class="lib-head">${channelPicture(c).replace('class="', 'class="channel-pic ')}<div class="meta"><h1 dir="auto">${esc(c.name)}</h1>
+          <div class="desc small">Videos you've watched from this channel, newest first.</div>
+          <div class="row" style="margin-top:8px">
+            <button type="button" id="channel-more" title="Open this channel on YouTube inside the app. Tap a video there and it opens in Tamkeen's player">${icon("video", 16)} More from this channel</button>
+            ${followed.includes(c) ? `<button type="button" class="ghost" id="channel-unfollow">Unfollow</button>` : ""}
+          </div></div></div>`);
+        el.querySelector("#channel-more").onclick = () => openYouTube(channelAddress(c, { mobile: phone })).catch((err) => toast(err.message, { error: true }));
+        const un = el.querySelector("#channel-unfollow");
+        if (un) un.onclick = async () => {
+          try {
+            await unfollowChannel(c.name);
+            toast(`Stopped following ${c.name}. Its videos stay under Recently watched.`);
+            location.hash = base;
+          } catch (err) { toast(err.message, { error: true }); }
+        };
+        head.append(el);
+      } else {
+        head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("video", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
+          <div class="desc small">YouTube videos you've watched here, the most recent first. They play from YouTube itself, and their
+          captions become text you can click. Find more with “Open YouTube” under “Watch a YouTube video”.</div></div></div>`));
+      }
+      if (!phone) {
+        // The computer's version of the phone's channel bar: Recently watched, then followed channels.
+        const bar = h(`<div class="tabs yt-channels"></div>`);
+        const chip = (label, href, active, picture = "") => {
+          const b = h(`<button type="button" class="${active ? "active" : ""}">${picture}<span dir="auto"></span></button>`);
+          b.querySelector("span").textContent = label;
+          b.onclick = () => (location.hash = href);
+          bar.append(b);
+        };
+        chip("Recently watched", base, !channel, icon("recent", 15));
+        for (const c of followed) chip(c.name, channelHref(base, c.name), c.name === channel, channelPicture(c));
+        if (!followed.length) bar.append(h(`<span class="small muted">Channels you follow appear here. Press Follow under a video.</span>`));
+        head.append(bar);
+      }
       return;
     }
     if (isLocalFeed(f.url)) {
@@ -291,7 +356,10 @@ export async function render(view, { feedId: routeFeed, query }) {
       const b = h(`<button type="button" class="${key === filter ? "active" : ""}">${label} <span class="n">${n(key)}</span></button>`);
       b.onclick = () => {
         const base = feedId ? `#/feed/${feedId}` : "#/library";
-        location.hash = key ? `${base}?status=${key}` : base;
+        const keep = new URLSearchParams();
+        if (key) keep.set("status", key);
+        if (channel) keep.set("channel", channel); // stay on the same YouTube channel
+        location.hash = keep.size ? `${base}?${keep}` : base;
       };
       tabs.append(b);
     }
@@ -413,10 +481,18 @@ export async function render(view, { feedId: routeFeed, query }) {
     else if (phone) params.set("scope", "podcasts"); // "All episodes" sits under Podcasts there
     if (filter) params.set("status", filter);
     if (titleQuery) params.set("q", titleQuery);
+    if (channel && youtubeShowing()) params.set("channel", channel);
     const data = await api(`/episodes?${params}`);
     renderTabs(data.counts);
     if (!append) listEl.innerHTML = "";
-    for (const ep of data.items) listEl.append(epRow(ep));
+    let items = data.items;
+    if (youtubeShowing() && !channel) {
+      // "Recently watched": the video opened last comes first (a video never opened here counts from when it was added).
+      const opened = new Map(allProgress().map((p) => [String(p.id), (p.ts || 0) / 1000]));
+      const last = (ep) => Math.max(opened.get(String(ep.id)) || 0, ep.published || 0);
+      items = [...items].sort((a, b) => last(b) - last(a));
+    }
+    for (const ep of items) listEl.append(epRow(ep));
     offset += data.items.length;
     $("#more").hidden = offset >= data.total;
     if (!data.total) {

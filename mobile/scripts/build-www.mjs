@@ -52,6 +52,7 @@ const SHARED = [
   "js/ytmedia.js",
   "js/youtube-browser.js",
   "js/youtube-home.js",
+  "js/ytfollow.js",
   "js/pages/reels.js",
   "js/reel-embed.js",
   "js/reel-page.js",

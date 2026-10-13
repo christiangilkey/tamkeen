@@ -60,7 +60,13 @@ def patch_settings(values: dict[str, Any]) -> dict[str, Any]:
         raise HTTPException(400, "Unknown model size.")
     if "study_language" in clean and not languages.valid(clean["study_language"]):
         raise HTTPException(400, "Unknown language.")
+    if "youtube_follows" in clean:
+        from .. import youtube
+
+        clean["youtube_follows"] = youtube.clean_follows(clean["youtube_follows"])
     result = db.set_settings(clean)
+    if "youtube_follows" in clean:
+        sync.request(30)  # followed channels reach the user's other devices
     if "game_state" in clean:
         sync.request(90)  # the creature reaches the user's other devices once they stop studying
     if "model_size" in clean or "beam_size" in clean or any(k.startswith("stt_") for k in clean):

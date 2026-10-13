@@ -91,6 +91,7 @@ const DEFAULTS = {
   lexicon_declined: false, // "not now" to the Arabic dictionaries download
   lexemes_backfilled: [],  // languages whose earlier lookups and saved words have been counted as seen
   game_state: null, // the creature game's saved state
+  youtube_follows: [], // followed YouTube channels (web/js/ytfollow.js); synced with the library
   game_sound: true,
   // The two-way sync with one AnkiDroid deck (anki-droid.js): on or off, the deck's name, and whether
   // the learner has agreed that deleting a word also deletes its card.

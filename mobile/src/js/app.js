@@ -313,8 +313,9 @@ export async function ytRequest({ url, method = "GET", headers = {}, body }) {
 
 /** Open YouTube in the in-app browser, on what is popular this week in the language being
  * studied (see youtube-home.js). Tapping a video there opens it in Tamkeen's player. */
-export async function openYouTube() {
-  return openBrowser(youtubeHome(studyLanguage(), { mobile: true, country: chosenCountry(studyLanguage()) }));
+export async function openYouTube(address = "") {
+  // `address`: a YouTube page to open on instead (a followed channel's videos).
+  return openBrowser(address || youtubeHome(studyLanguage(), { mobile: true, country: chosenCountry(studyLanguage()) }));
 }
 
 /** web/js/youtube-browser.js as text, for the in-app browser to run inside YouTube's pages. */
@@ -543,6 +544,7 @@ export async function saveSettings(values) {
   const s = await saveSettingsPatch(values);
   applySettings(s);
   if ("game_state" in values) requestSync(90000); // the creature reaches the other devices after studying
+  if ("youtube_follows" in values) requestSync(30000); // so do followed channels
   return s;
 }
 export async function loadStatus() {
