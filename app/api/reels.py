@@ -22,6 +22,7 @@ def _view() -> dict[str, Any]:
         "collections": [{"id": c["id"], "name": c["name"]} for c in state["collections"]], "collection": state["collection"],
         "popular": reels.popular_creators(state, lang)[:20],
         "language": lang, "language_name": languages.LANGUAGES.get(lang, lang),
+        "random": lang in reels.RANDOM_WORDS,  # whether "Get random reels" is offered for this language
         "available": reels_worker.available(), "model_ready": bool(db.get_setting("model_size")) or transcriber.cloud.config() is not None,
         "status": reels_worker.status(),
     }
@@ -57,6 +58,15 @@ class Batch(BaseModel):
 def start_batch(body: Batch) -> dict[str, Any]:
     try:
         return reels_worker.start(max(1, min(body.count, 30)))
+    except reels.ReelError as exc:
+        raise HTTPException(400, str(exc)) from exc
+
+
+@router.post("/random")
+def start_random(body: Batch) -> dict[str, Any]:
+    """Get a number of reels in the language being studied, found by searching for random everyday words."""
+    try:
+        return reels_worker.start_random(max(1, min(body.count, 30)))
     except reels.ReelError as exc:
         raise HTTPException(400, str(exc)) from exc
 

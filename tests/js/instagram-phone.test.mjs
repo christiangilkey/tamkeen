@@ -107,6 +107,29 @@ test("a collection gives its name when asked by its number", async () => {
   assert.equal(p.asked.some((a) => a.path.includes("accounts")), false);
 });
 
+// "Get random reels": what Instagram's own search finds for a word.
+test("a search word gives the videos among its top results and under its hashtag, each once", async () => {
+  const p = page({
+    "/api/v1/fbsearch/web/top_serp/": { media_grid: { sections: [{ layout_content: { medias: [
+      { media: media("Top0000001") }, { media: media("Photo00002", { media_type: 1, video_versions: undefined }) },
+      { media: media("Music00003", { clips_metadata: { audio_type: "licensed_music" } }) }] } }] } },
+    "/api/v1/tags/web_info/": { data: { top: { sections: [
+      { layout_content: { one_by_two_item: { clips: { items: [{ media: media("Tag0000004") }] } }, fill_items: [{ media: media("Top0000001") }] } },
+      { layout_content: { medias: [{ media: media("Tag0000005") }] } }] } } },
+  });
+  const s = await p.ask("search", { word: "طبخ" });
+  assert.equal(s.error, "");
+  assert.deepEqual(s.result.posts.map((x) => x.code), ["Top0000001", "Music00003", "Tag0000004", "Tag0000005"], "videos only, none twice");
+  assert.equal(s.result.posts[1].music, true, "marked, so the app can leave it out");
+  assert.equal(s.result.posts[0].src, "https://scontent.cdninstagram.com/Top0000001-360.mp4");
+  assert.deepEqual(p.asked.map((a) => a.path), [`/api/v1/fbsearch/web/top_serp/?query=${encodeURIComponent("طبخ")}`,
+                                                `/api/v1/tags/web_info/?tag_name=${encodeURIComponent("طبخ")}`]);
+  // One of the two refusing is not a failure: the other's videos still come back.
+  const half = await page({ "/api/v1/fbsearch/web/top_serp/": { media_grid: { sections: [{ layout_content: { medias: [{ media: media("Only000001") }] } }] } } }).ask("search", { word: "x" });
+  assert.deepEqual([half.error, half.result.posts.length], ["", 1]);
+  assert.deepEqual((await page({}).ask("search", { word: "x" })).result.posts.length, 0);
+});
+
 test("one post is asked for afresh by the number its short code stands for", async () => {
   // "B" is 1 in Instagram's alphabet, so the code "BA" is post number 64.
   const p = page({ "/api/v1/media/64/info/": { items: [media("BA")] } });

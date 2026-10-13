@@ -100,6 +100,14 @@ def start(count: int = 10) -> dict[str, Any]:
     return status()
 
 
+def start_random(count: int = 10) -> dict[str, Any]:
+    """Get `count` reels in the language being studied, found by searching for a few everyday words
+    picked at random (whatever the choice above the button says)."""
+    if languages.study() not in reels.RANDOM_WORDS:
+        raise reels.ReelError("Random reels aren't set up for this language yet.")
+    return _begin(_run_random, (int(count),), "reels-random", int(count))
+
+
 def start_collections() -> dict[str, Any]:
     """Read the names of the user's saved collections (shown in the dropdown on the Reels page)."""
     global _thread
@@ -629,6 +637,96 @@ def _run_listing() -> None:
     except Exception as exc:
         log.exception("Listing a saved collection failed")
         _say("error", f"Reading that collection failed ({exc.__class__.__name__}: {exc}).")
+    finally:
+        _close(window)
+
+
+# Run in the Instagram window: what Instagram's own search finds for one word (its "top" results
+# and the posts under the hashtag of the same name), as the videos among them. Asked of the site
+# directly, as the signed-in page; no search page is opened.
+_SEARCH = ("(function(word){var H={credentials:'include',headers:{'X-IG-App-ID':'936619743392459','X-Requested-With':'XMLHttpRequest'}};"
+           "var out=[],seen={};function walk(x,depth){if(!x||depth>12)return;"
+           "if(Array.isArray(x)){for(var i=0;i<x.length;i++)walk(x[i],depth+1);return}"
+           "if(typeof x!=='object')return;"
+           "if(typeof x.code==='string'&&x.media_type!==undefined){if(x.media_type===2&&!seen[x.code]){seen[x.code]=1;"
+           "var c=x.clips_metadata||{},u=x.user||x.owner||{};"
+           "out.push({code:x.code,user:typeof u.username==='string'?u.username:'',caption:((x.caption&&x.caption.text)||'').slice(0,300),"
+           "video:true,seconds:Math.round(x.video_duration||0),plays:x.play_count||x.ig_play_count||0,likes:x.like_count||0,taken:x.taken_at||0,"
+           "music:c.audio_type==='licensed_music'||!!c.music_info})}return}"
+           "for(var k in x)walk(x[k],depth+1)}"
+           "function get(u){return fetch(u,H).then(function(r){return r.ok?r.json():null}).then(function(d){walk(d,0)}).catch(function(){})}"
+           "var q=encodeURIComponent(word);"
+           "return get('/api/v1/fbsearch/web/top_serp/?query='+q).then(function(){return get('/api/v1/tags/web_info/?tag_name='+q)})"
+           ".then(function(){return JSON.stringify(out)})})")
+
+
+def _search(window: Any, word: str) -> list[dict[str, Any]]:
+    try:
+        found = json.loads(_ask(window, _SEARCH + "(" + json.dumps(word) + ")", 60) or "[]")
+    except ValueError:
+        return []
+    return found if isinstance(found, list) else []
+
+
+def _run_random(count: int) -> None:
+    import random
+
+    window = None
+    kept = checked = 0
+    try:
+        lang = languages.study()
+        name = languages.LANGUAGES.get(lang, lang)
+        engine = transcriber.get()  # fails here, with a clear message, if no model is set up
+        hook = (paths.web_dir() / "js" / "instagram-worker.js").read_text(encoding="utf-8")
+        window = _signed_in_window(hook, "no reels were fetched")
+        words = list(reels.RANDOM_WORDS[lang])
+        random.shuffle(words)
+        with db.session() as conn:
+            have = {r["guid"] for r in conn.execute(
+                "SELECT e.guid FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE f.url = ? AND e.deleted = 0",
+                (reels.LOCAL_FEED_URL,))}
+        skip = set(reels.load()["seen"]) | have
+        pool: list[dict[str, Any]] = []
+        per_creator: dict[str, int] = {}
+        searches = 0
+        # Only some of what each word finds is taken, so a batch mixes several words' reels.
+        per_word = max(6, -(-count * TRIES_PER_REEL // reels.RANDOM_SEARCHES))
+        while kept < count and checked < count * TRIES_PER_REEL:
+            if _cancel.is_set():
+                raise Stopped("Stopped.")
+            if not pool:
+                if searches >= min(len(words), reels.RANDOM_SEARCHES):
+                    break
+                _say("finding", f"Looking for {name} reels ({searches + 1})…")
+                pool = reels.pick_random(_search(window, words[searches]), skip)[:per_word]
+                skip |= {p["code"] for p in pool}
+                searches += 1
+                time.sleep(PAGE_PAUSE)
+                continue
+            cand = pool.pop(0)
+            if per_creator.get(cand["user"], 0) >= reels.PER_CREATOR:
+                continue
+            checked += 1
+            _say("checking", f"Listening to reel {checked} (kept {kept} of {count})…", kept=kept, checked=checked)
+            if _attempt(window, hook, cand, lang, engine, own_save=False):
+                kept += 1
+                per_creator[cand["user"]] = per_creator.get(cand["user"], 0) + 1
+                _say(None, None, kept=kept)
+        events.publish("feeds", {"refreshed": True})
+        sync.request()
+        _say("done", (f"{kept} random {name} reel{'' if kept == 1 else 's'} ready ({checked} checked)." if kept
+                      else f"No {name} reels could be kept this time ({checked} checked). Try again: the search words change each time.")
+             + (" They sync to your phone with everything else." if kept else ""), kept=kept, checked=checked)
+    except Stopped as exc:
+        if kept:
+            events.publish("feeds", {"refreshed": True})
+            sync.request()
+        _say("stopped", str(exc))
+    except transcriber.NoModelError as exc:
+        _say("error", str(exc))
+    except Exception as exc:
+        log.exception("Getting random reels failed")
+        _say("error", f"Getting reels failed ({exc.__class__.__name__}: {exc}).")
     finally:
         _close(window)
 

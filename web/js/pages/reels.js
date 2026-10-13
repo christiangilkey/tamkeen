@@ -113,6 +113,11 @@ async function renderList(view) {
   let choosing = "";   // the collection just chosen from the list, while Instagram is being read
   let lastAsk = null;  // the last thing asked of Instagram, to ask again once the user has signed in
   let askedForCollections = false;
+  // How many reels to get: for "Get N reels" and "Get N random reels". Remembered on this device.
+  const COUNT_KEY = "reels:count";
+  const cleanCount = (n) => Math.max(1, Math.min(30, Math.round(Number(n)) || 10));
+  let howMany = 10;
+  try { howMany = cleanCount(localStorage.getItem(COUNT_KEY) || 10); } catch { /* storage unavailable */ }
   const loadSaved = async () => { try { saved = await api("/reels/saved"); } catch { /* keep what we had */ } };
 
   async function drawList() {
@@ -130,10 +135,10 @@ async function renderList(view) {
     }
     if (!reels.length) {
       list.append(h(`<div class="empty">${phone && info && info.available
-        ? "No reels yet. Choose one of your Instagram collections above and tick the reels you want."
+        ? "No reels yet. Press “Get random reels” above, or choose one of your Instagram collections and tick the reels you want."
         : phone
         ? "No reels yet. They are found on your computer: open Tamkeen there, go to Library → Reels and press “Get 10 reels”. They arrive here the next time both sync."
-        : "No reels yet. Choose which reels you want above and press “Get 10 reels”."}</div>`));
+        : "No reels yet. Choose which reels you want above and press “Get reels”, or press “Get random reels”."}</div>`));
       return;
     }
     for (const ep of [...reels].reverse()) { // newest at the top of the list
@@ -187,8 +192,18 @@ async function renderList(view) {
         <div class="row reel-collrow" id="reel-colls"></div>
         <div id="reel-picker"></div>
       </div>
+      <div class="row reel-howmany" id="reel-howmany" ${info.random || info.mode !== "saved" ? "" : "hidden"}>
+        <strong>How many?</strong>
+        <span class="reel-count">
+          <button type="button" id="reel-less" title="One fewer" ${busy ? "disabled" : ""}>−</button>
+          <input type="number" id="reel-n-want" min="1" max="30" step="1" inputmode="numeric" value="${howMany}" aria-label="How many reels to get" ${busy ? "disabled" : ""}>
+          <button type="button" id="reel-more" title="One more" ${busy ? "disabled" : ""}>+</button>
+        </span>
+        <button type="button" class="primary" id="reel-random" ${busy ? "disabled" : ""} ${info.random ? "" : "hidden"}
+          title="Reels in ${esc(info.language_name)} on all sorts of everyday subjects, found by searching Instagram for a few words picked at random. Different every time."></button>
+      </div>
       <div class="row">
-        <button type="button" class="primary" id="reel-go" ${busy ? "disabled" : ""} ${info.mode === "saved" ? "hidden" : ""}>${busy ? "Getting reels…" : "Get 10 reels"}</button>
+        <button type="button" class="primary" id="reel-go" ${busy ? "disabled" : ""} ${info.mode === "saved" ? "hidden" : ""}></button>
         <button type="button" class="primary" id="reel-send" ${info.mode === "saved" ? "" : "hidden"} disabled></button>
         <button type="button" class="ghost" id="reel-stop" ${busy ? "" : "hidden"}>Stop</button>
         <button type="button" class="primary" id="reel-signin" ${st.needs_signin && !busy ? "" : "hidden"}>Sign in to Instagram</button>
@@ -227,10 +242,28 @@ async function renderList(view) {
       chip.onclick = () => change({ add: c.username });
       q("#reel-popular").append(chip);
     }
+    // The counter: − and +, or type a number (1 to 30). Both buttons say how many they will get.
+    const want = q("#reel-n-want");
+    const paintCount = () => {
+      q("#reel-go").textContent = busy ? "Getting reels…" : `Get ${howMany} reel${howMany === 1 ? "" : "s"}`;
+      q("#reel-random").textContent = `Get ${howMany} random ${info.language_name} reel${howMany === 1 ? "" : "s"}`;
+    };
+    const setCount = (n, typed = false) => {
+      howMany = cleanCount(n);
+      if (!typed) want.value = howMany;
+      try { localStorage.setItem(COUNT_KEY, String(howMany)); } catch { /* storage unavailable */ }
+      paintCount();
+    };
+    q("#reel-less").onclick = () => setCount(howMany - 1);
+    q("#reel-more").onclick = () => setCount(howMany + 1);
+    want.oninput = () => { if (want.value !== "") setCount(want.value, true); };
+    want.onchange = () => setCount(want.value || howMany);
+    paintCount();
     q("#reel-go").onclick = async () => {
-      try { info.status = await api("/reels/batch", { method: "POST", body: { count: 10 } }); drawGet(); watchBatch(); }
+      try { info.status = await api("/reels/batch", { method: "POST", body: { count: howMany } }); drawGet(); watchBatch(); }
       catch (e) { toast(e.message, { error: true }); }
     };
+    q("#reel-random").onclick = () => start("/reels/random", { count: howMany });
     q("#reel-stop").onclick = () => api("/reels/cancel", { method: "POST" }).catch(() => {});
     // On the phone the sign-in is made in Tamkeen's own browser, which shares it with the reel window.
     q("#reel-signin").onclick = () => openInstagramSignIn().catch((e) => toast(e.message, { error: true }));

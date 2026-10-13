@@ -416,3 +416,56 @@ def test_collections_found_through_the_saves_join_the_ones_on_the_saved_page(wor
         reels.remember_collections(got)
         state = reels.update(collection="17900000000000002")
         assert reels.saved_path(state, "learner") == "/learner/saved/c/17900000000000002/"
+
+
+# ----- "Get random reels": a number of reels found by searching for everyday words -----
+
+def test_random_reels_have_words_to_search_for_in_every_language_reels_cover():
+    assert set(reels.RANDOM_WORDS) == set(reels.COMEDY_WORDS)
+    for lang, words in reels.RANDOM_WORDS.items():
+        assert len(words) >= 2 * reels.RANDOM_SEARCHES, lang  # so two batches in a row needn't search the same words
+        assert len(set(words)) == len(words) and all(w and " " not in w for w in words), lang  # each is also looked up as a hashtag
+
+
+def test_the_phone_searches_for_the_same_random_words():
+    import json
+    import re
+    from pathlib import Path
+
+    js = (Path(__file__).resolve().parents[1] / "mobile" / "src" / "js" / "reels-phone.js").read_text(encoding="utf-8")
+    block = js[js.index("export const RANDOM_WORDS = {"):]
+    block = block[block.index("{"): block.index("};") + 1]
+    phone = json.loads(re.sub(r"\n\s*(\w+): \[", r'\n"\1": [', block).replace("],\n}", "]\n}"))
+    assert phone == reels.RANDOM_WORDS
+
+
+def test_random_reels_are_picked_from_what_a_search_found():
+    import random
+
+    found = [
+        {"code": "GoodReel001", "user": "Some.Creator", "video": True, "seconds": 34},
+        {"code": "GoodReel001", "user": "some.creator", "video": True, "seconds": 34},   # the same one again
+        {"code": "KeptBefore2", "user": "someone", "video": True, "seconds": 20},        # already in the library
+        {"code": "TriedOnce03", "user": "someone", "video": True, "seconds": 20},        # listened to before
+        {"code": "MusicReel04", "user": "someone", "video": True, "seconds": 20, "music": True},  # plays only signed in
+        {"code": "APhoto00005", "user": "someone", "video": False},
+        {"code": "LongVideo06", "user": "someone", "video": True, "seconds": reels.MAX_SECONDS + 1},
+        {"code": "Blink000007", "user": "someone", "video": True, "seconds": 3},
+        {"code": "NoMaker0008", "user": "", "video": True, "seconds": 20},
+        {"code": "bad code", "user": "someone", "video": True, "seconds": 20},
+        {"code": "GoodReel009", "user": "another", "video": True},                        # length unknown: tried
+        {"code": "GoodReel010", "user": "third", "video": True, "seconds": 59},
+    ]
+    picked = reels.pick_random(found, {"KeptBefore2", "TriedOnce03"}, random.Random(1))
+    assert sorted(p["code"] for p in picked) == ["GoodReel001", "GoodReel009", "GoodReel010"]
+    assert next(p for p in picked if p["code"] == "GoodReel001")["user"] == "some.creator"
+    orders = {tuple(p["code"] for p in reels.pick_random(found, set(), random.Random(seed))) for seed in range(12)}
+    assert len(orders) > 1, "a different order each time"
+    assert reels.pick_random([], set()) == []
+
+
+def test_random_reels_api(client, monkeypatch):
+    monkeypatch.delenv("APS_DESKTOP", raising=False)
+    assert client.get("/api/reels").json()["random"] is True, "Arabic has words to search for"
+    r = client.post("/api/reels/random", json={"count": 5})
+    assert r.status_code == 400 and "installed computer app" in r.json()["detail"], "no window to work in here"

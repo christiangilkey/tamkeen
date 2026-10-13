@@ -44,6 +44,25 @@ COMEDY_WORDS = {
     "ru": ["юмор", "приколы", "смешно", "комедия"],
 }
 
+# "Random reels": everyday words searched for, a few picked at random each time, so a batch is a
+# mixed bag of whatever people are posting in the language rather than the same popular creators.
+# (The phone has the same lists in mobile/src/js/reels-phone.js; keep the two in step.)
+RANDOM_WORDS = {
+    "ar": ["يوميات", "طبخ", "قصة", "نصيحة", "ضحك", "كوميديا", "سؤال", "تحدي", "مقابلة", "سفر", "أكل", "حكاية", "تجربة", "معلومة",
+           "شرح", "مطبخ", "رياضة", "أخبار", "بودكاست", "فلوق", "مقالب", "تعليم", "عائلة", "قهوة"],
+    "es": ["vlog", "receta", "historia", "consejo", "humor", "comedia", "pregunta", "reto", "entrevista", "viaje", "comida", "anécdota",
+           "experiencia", "curiosidades", "explicación", "cocina", "deporte", "noticias", "podcast", "rutina", "familia", "café"],
+    "fr": ["vlog", "recette", "histoire", "conseil", "humour", "sketch", "question", "défi", "interview", "voyage", "cuisine", "anecdote",
+           "expérience", "astuce", "explication", "sport", "actualité", "podcast", "routine", "famille", "café", "quotidien"],
+    "ja": ["日常", "料理", "お話", "アドバイス", "お笑い", "コント", "質問", "チャレンジ", "インタビュー", "旅行", "グルメ", "体験",
+           "豆知識", "解説", "スポーツ", "ニュース", "ポッドキャスト", "ルーティン", "家族", "あるある"],
+    "zh": ["日常", "做饭", "故事", "建议", "搞笑", "段子", "问答", "挑战", "采访", "旅行", "美食", "经历", "冷知识", "讲解", "运动", "新闻",
+           "播客", "生活", "家庭", "脱口秀"],
+    "ru": ["влог", "рецепт", "история", "совет", "юмор", "приколы", "вопрос", "челлендж", "интервью", "путешествие", "еда", "опыт",
+           "факты", "объяснение", "спорт", "новости", "подкаст", "рутина", "семья", "кофе"],
+}
+RANDOM_SEARCHES = 8          # at most this many words are searched for in one batch
+
 POPULAR_KEPT = 40            # creators remembered per language
 POPULAR_FRESH_SECONDS = 12 * 3600
 PER_CREATOR = 2              # at most this many reels of one creator in a batch
@@ -396,6 +415,28 @@ def pick_candidates(posts: list[dict[str, Any]], seen: list[str] | set[str], sta
 
 
 # ---------------------------------------------------------------- judging what was heard
+
+def pick_random(posts: list[dict[str, Any]], skip: set[str], rng: Any = None) -> list[dict[str, Any]]:
+    """The reels worth trying out of what a search found, in a random order: videos of reel length
+    that haven't been tried or kept before (`skip`), each once, and none with a song from
+    Instagram's music library (those only play to someone signed in, so a random one isn't worth it)."""
+    import random as _random
+
+    out: list[dict[str, Any]] = []
+    for p in posts:
+        code = str(p.get("code") or "")
+        user = str(p.get("user") or "").lower()
+        if not _CODE.match(code) or code in skip or any(q["code"] == code for q in out):
+            continue
+        if not _USERNAME.match(user) or p.get("video") is False or p.get("music"):
+            continue
+        seconds = float(p.get("seconds") or 0)
+        if seconds > MAX_SECONDS or 0 < seconds < 5:
+            continue
+        out.append({**p, "code": code, "user": user})
+    (rng or _random).shuffle(out)
+    return out
+
 
 def spoken_language(engine: Any, samples: Any, study: str = "") -> tuple[str | None, float, float]:
     """Which language Whisper hears in the first half minute, how sure it is, and how likely it

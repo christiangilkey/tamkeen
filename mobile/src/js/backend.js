@@ -434,6 +434,7 @@ const routes = [
   ["GET", /^\/reels$/, () => phoneReels.reelsView()],
   ["PUT", /^\/reels\/choices$/, (m, q, body) => phoneReels.setReelChoices(body)],
   ["POST", /^\/reels\/collections$/, () => phoneReels.startCollections()],
+  ["POST", /^\/reels\/random$/, (m, q, body) => phoneReels.startRandom(body && body.count)],
   ["GET", /^\/reels\/saved$/, () => phoneReels.reelsListing()],
   ["POST", /^\/reels\/saved\/list$/, (m, q, body) => phoneReels.startListing(String(body.collection || "all"))],
   ["POST", /^\/reels\/saved\/send$/, (m, q, body) => phoneReels.startSelected(body.codes)],

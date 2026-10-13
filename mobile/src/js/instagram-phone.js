@@ -125,6 +125,29 @@
         return true;
       }).then(function () { return { posts: out }; });
     },
+    // What Instagram's own search finds for one word: its "top" results and the posts under the
+    // hashtag of the same name, as the videos among them (for "Get random reels"). The answers nest
+    // posts in several shapes, so they are searched through for anything that is a video post.
+    search: function (arg) {
+      var out = [];
+      var seen = {};
+      function walk(x, depth) {
+        if (!x || depth > 12) return;
+        if (Array.isArray(x)) { for (var i = 0; i < x.length; i++) walk(x[i], depth + 1); return; }
+        if (typeof x !== "object") return;
+        if (typeof x.code === "string" && x.media_type !== undefined) {
+          var p = x.media_type === 2 && !seen[x.code] ? post(x) : null;
+          if (p) { seen[x.code] = 1; out.push(p); }
+          return;
+        }
+        for (var k in x) walk(x[k], depth + 1);
+      }
+      var q = encodeURIComponent(String((arg && arg.word) || ""));
+      var look = function (path) { return get(path).then(function (d) { walk(d, 0); }).catch(function () {}); };
+      return look("/api/v1/fbsearch/web/top_serp/?query=" + q)
+        .then(function () { return look("/api/v1/tags/web_info/?tag_name=" + q); })
+        .then(function () { return { posts: out }; });
+    },
     // One post, asked afresh (the address of a video only works for a while).
     info: function (arg) {
       return get("/api/v1/media/" + pk(String(arg.code)) + "/info/").then(function (d) {
