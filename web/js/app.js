@@ -237,6 +237,12 @@ export async function openBrowser(url = "") {
   toast("Copy the address of the page you want and paste it under “Add a webpage”.");
 }
 
+/** Open Instagram's sign-in page in the in-app browser. (On the phone that browser closes by itself
+ * once signed in. On the computer reels sign in through the Instagram window the app opens itself.) */
+export async function openInstagramSignIn() {
+  return openBrowser("https://www.instagram.com/accounts/login/");
+}
+
 /** Add one of the user's own video files. Resolves to the new episode. */
 export function uploadVideo(file, onProgress) {
   return new Promise((resolve, reject) => {

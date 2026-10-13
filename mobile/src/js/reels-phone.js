@@ -126,7 +126,9 @@ function previewInstagram() {
     async ask(what, arg) {
       await new Promise((r) => setTimeout(r, 400));
       if (what === "whoami") { const was = signedIn; signedIn = true; sessionStorage.setItem("tk-preview-ig", "1"); return { username: was ? "preview" : "" }; }
-      if (what === "collections") return { collections: [{ id: "17900000000000001", name: "Arabic" }, { id: "17900000000000002", name: "Funny" }] };
+      if (what === "savedIds") return arg.max ? { ids: ["17900000000000002", "17900000000000003"], posts: 21, next: "" }
+        : { ids: ["17900000000000001", "17900000000000002"], posts: 21, next: "page2" };
+      if (what === "collectionName") return { name: { "17900000000000001": "Arabic", "17900000000000002": "Funny", "17900000000000003": "Cooking 🍲" }[arg.id] || "" };
       if (what === "list") return { posts: arg.collection === "all" ? posts : posts.slice(0, 3) };
       if (what === "info") return { post: posts.find((p) => p.code === arg.code) || null };
       return null;
@@ -161,7 +163,7 @@ async function job(target, work) {
       await work(ig);
     } catch (e) {
       if (e instanceof NeedsSignIn) {
-        say("signin", "Sign in to Instagram first: press “Sign in to Instagram”, sign in there, close that window, then try again.",
+        say("signin", "Sign in to Instagram first: press “Sign in to Instagram” and sign in there. That window closes by itself and Tamkeen carries on.",
             { needs_signin: true });
       } else if (e instanceof Stopped || e instanceof Cancelled) say("stopped", e.message || "Stopped.");
       else { console.warn("Reels on the phone failed", e); say("error", e.message || String(e)); }
@@ -202,17 +204,51 @@ function tidy(posts) {
   return out;
 }
 
+// Instagram's website has no list of the user's collections, so they are worked out from the
+// saves: every saved post says which collections it is in, and a collection gives its name when
+// asked (see instagram-phone.js). The saves are walked newest first, a page (about 20 posts) at a
+// time, until they run out, or nothing new has turned up for a while, or the limit is reached.
+const WALK_PAGES = 40;  // about 800 of the newest saves
+const WALK_QUIET = 10;  // pages in a row without a new collection before giving up looking
+
 export function startCollections() {
   return job(0, async (ig) => {
-    say("finding", "Looking at your saved collections…");
-    let found = [];
-    try { found = ((await ig.ask("collections")) || {}).collections || []; }
-    catch (e) { console.warn("Instagram wouldn't list the collections", e); }
     const s = await load();
-    s.collections = found.filter((c) => /^\d{5,25}$/.test(String(c.id))).map((c) => ({ id: String(c.id), name: String(c.name || "").trim() || "Collection" }));
-    if (!s.collections.some((c) => c.id === s.collection)) s.collection = "all";
-    keep();
-    say("done", s.collections.length ? `Found ${s.collections.length} saved collection${s.collections.length === 1 ? "" : "s"}.`
+    const before = s.collections;
+    const found = [];       // [{id, name}], most recently saved-to first
+    const looked = new Set();
+    const remember = (complete) => {
+      // Collections known from before that this walk didn't reach are kept, unless it read every save.
+      s.collections = complete ? [...found] : [...found, ...before.filter((c) => !looked.has(c.id))];
+      if (s.collection !== "all" && !s.collections.some((c) => c.id === s.collection)) s.collection = "all";
+      keep();
+    };
+    const count = () => `${found.length} collection${found.length === 1 ? "" : "s"}`;
+    let next = "";
+    let quiet = 0;
+    let complete = false;
+    try {
+      for (let page = 0; page < WALK_PAGES; page++) {
+        if (cancelled) throw new Stopped(`Stopped. Found ${count()} so far.`);
+        say("finding", found.length ? `Looking through your Instagram saves… ${count()} so far. (Stop keeps the ones found.)` : "Looking through your Instagram saves for your collections…");
+        const r = (await ig.ask("savedIds", { max: next }, 60)) || {};
+        const fresh = (r.ids || []).map(String).filter((id) => /^\d{5,25}$/.test(id) && !looked.has(id));
+        for (const id of fresh) {
+          looked.add(id);
+          let name = "";
+          try { name = String(((await ig.ask("collectionName", { id }, 60)) || {}).name || "").replace(/\s+/g, " ").trim().slice(0, 80); }
+          catch (e) { console.warn("Instagram wouldn't name a collection", e); }
+          if (name) { found.push({ id, name }); remember(false); }
+        }
+        quiet = fresh.length ? 0 : quiet + 1;
+        next = String(r.next || "");
+        if (!next) { complete = true; break; }
+        if (quiet >= WALK_QUIET) break;
+      }
+    } finally {
+      remember(complete); // also when stopped or cut off: what was found is kept
+    }
+    say("done", s.collections.length ? `Found ${s.collections.length} saved collection${s.collections.length === 1 ? "" : "s"}. Choose one from the list.`
       : "No collections found in your Instagram saves. You can still choose “Everything I've saved”.");
   });
 }

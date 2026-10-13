@@ -7,7 +7,7 @@
 // a bar split in two: the words on the left, the word popup on the right. When a reel ends the
 // next one starts by itself.
 
-import { api, esc, h, on, toast, platform, buzz, reelSurface, fmtDuration, openBrowser } from "../app.js";
+import { api, esc, h, on, toast, platform, buzz, reelSurface, fmtDuration, openInstagramSignIn } from "../app.js";
 import { icon } from "../icons.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
@@ -37,15 +37,17 @@ function askSignIn(host, counter, { retry, skip }) {
   const box = h(`<div class="reel-signin" id="reel-signin">
     <p><strong>Sign in to Instagram to watch this reel.</strong></p>
     <p class="small muted">Instagram only plays this one to people who are signed in (usually because it uses a song from
-    Instagram's music library). Sign in once, in Tamkeen's own browser, close it, then press Try again.</p>
+    Instagram's music library). Sign in once, in Tamkeen's own browser: it closes by itself when you are signed in, and the reel starts.</p>
     <div class="row"><button type="button" class="primary" data-a="in">Sign in</button>
       <button type="button" data-a="retry">Try again</button><button type="button" class="ghost" data-a="skip">Skip</button></div>
   </div>`);
-  box.querySelector('[data-a="in"]').onclick = () => openBrowser("https://www.instagram.com/accounts/login/").catch((e) => toast(e.message, { error: true }));
+  box.querySelector('[data-a="in"]').onclick = () => openInstagramSignIn().catch((e) => toast(e.message, { error: true }));
   box.querySelector('[data-a="retry"]').onclick = retry;
   box.querySelector('[data-a="skip"]').onclick = skip;
   host.prepend(box);
-  const gone = new MutationObserver(() => { box.remove(); gone.disconnect(); });
+  // The sign-in browser says when the user is signed in (and closes itself): try the reel again then.
+  const offSignedIn = on("instagram", (e) => { if (e && e.signed_in && box.isConnected) retry(); });
+  const gone = new MutationObserver(() => { box.remove(); gone.disconnect(); offSignedIn(); });
   gone.observe(counter, { childList: true, characterData: true, subtree: true });
 }
 
@@ -106,6 +108,8 @@ async function renderList(view) {
   // "From my Instagram saves": the posts of the collection last looked at, and the ones ticked.
   let saved = { collection: "", posts: [], at: 0 };
   const picked = new Set();
+  let choosing = "";   // the collection just chosen from the list, while Instagram is being read
+  let lastAsk = null;  // the last thing asked of Instagram, to ask again once the user has signed in
   let askedForCollections = false;
   const loadSaved = async () => { try { saved = await api("/reels/saved"); } catch { /* keep what we had */ } };
 
@@ -178,7 +182,7 @@ async function renderList(view) {
       </div>
       <div class="reel-saved" id="reel-saved" ${info.mode === "saved" ? "" : "hidden"}>
         <strong>1. Choose a collection</strong>
-        <div class="reel-chips" id="reel-colls"></div>
+        <div class="row reel-collrow" id="reel-colls"></div>
         <div id="reel-picker"></div>
       </div>
       <div class="row">
@@ -227,7 +231,7 @@ async function renderList(view) {
     };
     q("#reel-stop").onclick = () => api("/reels/cancel", { method: "POST" }).catch(() => {});
     // On the phone the sign-in is made in Tamkeen's own browser, which shares it with the reel window.
-    q("#reel-signin").onclick = () => openBrowser("https://www.instagram.com/accounts/login/").catch((e) => toast(e.message, { error: true }));
+    q("#reel-signin").onclick = () => openInstagramSignIn().catch((e) => toast(e.message, { error: true }));
     q("#reel-status").textContent = st.state && st.state !== "idle" ? st.message || "" : "";
     const log = q("#reel-log");
     for (const item of (st.log || []).slice().reverse()) {
@@ -241,6 +245,7 @@ async function renderList(view) {
 
   // ----- "From my Instagram saves": choose a collection, then tick its reels -----
   const start = async (path, body) => {
+    lastAsk = { path, body };
     try { info.status = await api(path, { method: "POST", body }); drawGet(); watchBatch(); }
     catch (e) { toast(e.message, { error: true }); }
   };
@@ -248,18 +253,31 @@ async function renderList(view) {
     if (info.mode !== "saved") return;
     const q = (sel) => card.querySelector(sel);
     const colls = q("#reel-colls");
-    const chip = (label, id) => {
-      const b = h(`<button type="button" class="reel-chip reel-coll${saved.collection === id && saved.at ? " active" : ""}" ${busy ? "disabled" : ""}></button>`);
-      b.textContent = label;
-      b.title = `Show the reels saved in “${label}”`;
-      b.onclick = () => { picked.clear(); start("/reels/saved/list", { collection: id }); };
-      colls.append(b);
+    const known = info.collections || [];
+    // A drop-down list of the collections by name. While one is being read it shows the one asked for;
+    // otherwise the one whose reels are listed below.
+    const showing = busy && choosing ? choosing : saved.at ? saved.collection : "";
+    const select = h(`<select id="reel-coll" aria-label="Your Instagram collections" ${busy ? "disabled" : ""}>
+      <option value="">${known.length ? "Choose a collection…" : "Choose…"}</option></select>`);
+    const option = (label, id) => {
+      const o = document.createElement("option");
+      o.value = id;
+      o.textContent = label;
+      o.selected = showing === id;
+      select.append(o);
     };
-    chip("Everything I've saved", "all");
-    for (const c of info.collections || []) chip(c.name, c.id);
-    const refresh = h(`<button type="button" class="reel-chip ghost" ${busy ? "disabled" : ""}
-      title="Look at your Saved page on Instagram again (in Tamkeen's own Instagram window) for new collections">${(info.collections || []).length ? "↻" : "Find my collections"}</button>`);
-    refresh.onclick = () => start("/reels/collections");
+    for (const c of known) option(c.name, c.id);
+    option("Everything I've saved", "all");
+    select.onchange = () => {
+      if (!select.value) return;
+      choosing = select.value;
+      picked.clear();
+      start("/reels/saved/list", { collection: select.value });
+    };
+    colls.append(select);
+    const refresh = h(`<button type="button" class="${known.length ? "ghost" : "primary"}" id="reel-find" ${busy ? "disabled" : ""}
+      title="Look through your Instagram saves${known.length ? " again" : ""} for your collections">${known.length ? "↻ Look again" : "Find my collections"}</button>`);
+    refresh.onclick = () => { choosing = ""; start("/reels/collections"); };
     colls.append(refresh);
     // The first time this choice is opened, fetch the list of collections without being asked.
     if (!(info.collections || []).length && !busy && !askedForCollections) {
@@ -272,7 +290,8 @@ async function renderList(view) {
     const send = q("#reel-send");
     const name = saved.collection === "all" ? "everything you've saved" : ((info.collections || []).find((c) => c.id === saved.collection) || {}).name;
     if (!saved.at || !name) {
-      box.append(h(`<p class="small muted hint">Press a collection above. Tamkeen looks at it on Instagram and lists its reels here, for you to tick the ones you want.</p>`));
+      box.append(h(`<p class="small muted hint">${known.length ? "Choose one of your collections from the list above." : "Press “Find my collections” to fill the list with the names of your Instagram collections, then choose one."}
+        Tamkeen reads it on Instagram and lists its reels here, for you to tick the ones you want.</p>`));
       send.textContent = info.phone ? "Get the ticked reels" : "Send the ticked reels to my phone";
       return;
     }
@@ -337,6 +356,7 @@ async function renderList(view) {
     if (scrolled && view.querySelector(".reel-picks")) view.querySelector(".reel-picks").scrollTop = scrolled;
     if (st.kept !== lastKept || (was && !st.running)) { lastKept = st.kept; drawList(); }
     if (was && !st.running) {
+      choosing = "";
       picked.clear(); // what was ticked has been dealt with
       // The popular list, the collections, the collection's reels and which are "already in your reels" may all have changed.
       Promise.all([api("/reels").then((v) => { info = v; }), loadSaved()]).then(() => drawGet()).catch(() => {});
@@ -351,13 +371,20 @@ async function renderList(view) {
   }
   const offReels = on("reels", onStatus);
   const offFeeds = on("feeds", () => drawList());
+  // The phone's sign-in browser closes by itself once the user is signed in to Instagram, and says
+  // so: whatever was asked for before (finding the collections, a collection's reels) is asked again.
+  const offSignedIn = on("instagram", (e) => {
+    const st = (info && info.status) || {};
+    if (!e || !e.signed_in || !st.needs_signin || st.running) return;
+    start(lastAsk ? lastAsk.path : "/reels/collections", lastAsk ? lastAsk.body : undefined);
+  });
 
   try { info = await api("/reels"); } catch { info = { available: false }; }
   if (info.available) await loadSaved();
   drawGet();
   await drawList();
   if (info.status && info.status.running) watchBatch();
-  return () => { offReels(); offFeeds(); clearInterval(poll); };
+  return () => { offReels(); offFeeds(); offSignedIn(); clearInterval(poll); };
 }
 
 // ------------------------------------------------------------------------------------ the player

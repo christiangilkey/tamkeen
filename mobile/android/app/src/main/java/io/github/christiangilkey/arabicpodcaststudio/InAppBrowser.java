@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.InputType;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -15,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.CookieManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -51,6 +54,15 @@ final class InAppBrowser {
     }
 
     private static final String VIDEO_SCHEME = "tamkeen-video";
+
+    /**
+     * Asked of the page once a second when the browser was opened for signing in to Instagram:
+     * "in" once the page is Instagram's, past its sign-in pages, and carries the mark Instagram
+     * gives a signed-in visitor. Only that one word comes back; nothing about the account does.
+     */
+    private static final String SIGNED_IN =
+        "(/(^|\\.)instagram\\.com$/.test(location.hostname) && /(^|; )ds_user_id=\\d/.test(document.cookie)"
+        + " && !/^\\/accounts\\/(login|emailsignup|signup)/.test(location.pathname)) ? 'in' : ''";
     private static Dialog openDialog;
 
     /** Close the browser if it is open (once a tapped video has opened in the app's player). */
@@ -88,7 +100,7 @@ final class InAppBrowser {
      * empty; without it the browser starts on Google as before.
      */
     static void open(Activity activity, String url, String extractor, String youtubeScript, String home,
-                     Listener listener, VideoListener videos) {
+                     Listener listener, VideoListener videos, Runnable signedIn) {
         float dp = activity.getResources().getDisplayMetrics().density;
         int pad = Math.round(6 * dp);
         int dark = Color.parseColor("#1c1c1a");
@@ -232,6 +244,28 @@ final class InAppBrowser {
         }
         openDialog = dialog;
         dialog.show();
+        if (signedIn != null) {
+            // Opened for signing in to Instagram (`signedIn` is given): close by itself once the
+            // user is signed in, and say so, so the app can carry on with what needed the sign-in.
+            final Handler watch = new Handler(Looper.getMainLooper());
+            final int[] seen = {0};
+            watch.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (openDialog != dialog) return; // closed by hand, or already closed here
+                    web.evaluateJavascript(SIGNED_IN, value -> {
+                        if (openDialog != dialog) return;
+                        seen[0] = "\"in\"".equals(value) ? seen[0] + 1 : 0;
+                        if (seen[0] >= 2) { // two looks in a row: Instagram has finished signing in
+                            CookieManager.getInstance().flush();
+                            dialog.dismiss();
+                            signedIn.run();
+                        }
+                    });
+                    watch.postDelayed(this, 1000);
+                }
+            }, 1500);
+        }
         boolean nothingTyped = url == null || url.trim().isEmpty();
         if (nothingTyped && home != null && !home.isEmpty()) {
             // The last argument keeps the page in the history, so Back returns to it.

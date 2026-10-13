@@ -500,6 +500,57 @@ def _keep_heard_in_cloud(engine: Any, samples: Any, cand: dict[str, Any], lang: 
 
 # ---------------------------------------------------------------- the batch
 
+WALK_PAGES = 40   # pages of saves looked through for collections (about 20 posts a page, newest first)
+WALK_QUIET = 10   # pages in a row without a new collection before giving up looking
+WALK_SECONDS = 420
+
+# Run in the Instagram window. The Saved page only draws the first few collections, and the site has
+# no address that lists them all. But every saved post says which collections it is in, and a
+# collection gives its name when asked: so walk the saves a page at a time, and ask each new number
+# for its name. Progress is left in window.__tkWalk for `_walk_saves` to read.
+_WALK = ("(function(PAGES,QUIET){var H={credentials:'include',headers:{'X-IG-App-ID':'936619743392459','X-Requested-With':'XMLHttpRequest'}};"
+         "var w=window.__tkWalk={pages:0,names:{},done:false,stop:false,complete:false,error:''};var seen={},quiet=0;"
+         "function name(id){return fetch('/api/v1/feed/collection/'+id+'/all/',H).then(function(r){return r.json()}).then(function(d){"
+         "var c=(d&&d.save_media_response)||d||{};if(typeof c.collection_name==='string'&&c.collection_name)w.names[id]=c.collection_name.slice(0,80)})"
+         ".catch(function(){})}"
+         "function page(max){return fetch('/api/v1/feed/saved/posts/'+(max?'?max_id='+encodeURIComponent(max):''),H)"
+         ".then(function(r){if(!r.ok)throw new Error('http '+r.status);return r.text()}).then(function(t){w.pages++;"
+         "var d=JSON.parse(t),fresh=[],re=/\"saved_collection_ids\":\\s*\\[([^\\]]*)\\]/g,m;"
+         "while((m=re.exec(t))){(m[1].match(/\\d{5,25}/g)||[]).forEach(function(id){if(!seen[id]){seen[id]=1;fresh.push(id)}})}"
+         "quiet=fresh.length?0:quiet+1;"
+         "return fresh.reduce(function(c,id){return c.then(function(){return name(id)})},Promise.resolve()).then(function(){"
+         "var more=!!(d.more_available&&d.next_max_id);if(!more){w.complete=true;return null}"
+         "if(w.stop||w.pages>=PAGES||quiet>=QUIET)return null;return page(String(d.next_max_id))})})}"
+         "page('').catch(function(e){w.error=String((e&&e.message)||e)}).then(function(){w.done=true})})")
+
+
+def _walk_saves(window: Any) -> tuple[dict[str, str], bool]:
+    """The user's collections as {number: name}, worked out from their saves, and whether every
+    save was read. Says how it is getting on; "Stop" keeps what was found so far."""
+    _js(window, f"{_WALK}({WALK_PAGES},{WALK_QUIET})")
+    end = time.monotonic() + WALK_SECONDS
+    walk: dict[str, Any] = {}
+    while time.monotonic() < end:
+        time.sleep(1)
+        if not _alive(window):
+            break
+        try:
+            walk = json.loads(_js(window, "JSON.stringify(window.__tkWalk||{})") or "{}")
+        except ValueError:
+            walk = {}
+        n = len(walk.get("names") or {})
+        if n:
+            _say("finding", f"Looking through your Instagram saves… {n} collection{'' if n == 1 else 's'} so far. (Stop keeps the ones found.)")
+        if walk.get("done"):
+            break
+        if _cancel.is_set():
+            _js(window, "window.__tkWalk && (window.__tkWalk.stop = true)")
+    if walk.get("error"):
+        log.info("Walking the saves for collections stopped early: %s", walk["error"])
+    names = {str(k): str(v) for k, v in (walk.get("names") or {}).items()}
+    return names, bool(walk.get("complete"))
+
+
 def _run_collections() -> None:
     window = None
     try:
@@ -508,8 +559,11 @@ def _run_collections() -> None:
         _say("finding", "Looking at your saved collections…")
         me = _username(window)
         _open(window, f"https://www.instagram.com/{me}/saved/", hook, scrolls=1)
-        found = reels.remember_collections([{"path": link.get("href"), "name": link.get("text")} for link in _links(window)])
-        _say("done", f"Found {len(found)} saved collection{'' if len(found) == 1 else 's'}." if found
+        on_page = [{"path": link.get("href"), "name": link.get("text")} for link in _links(window)]
+        before = reels.load()["collections"]
+        named, complete = _walk_saves(window)
+        found = reels.remember_collections(reels.merge_collections(on_page, named, me, before, complete))
+        _say("done", f"Found {len(found)} saved collection{'' if len(found) == 1 else 's'}. Choose one from the list." if found
              else "No collections found in your Instagram saves. You can still choose “Everything I've saved”.")
     except Stopped as exc:
         _say("stopped", str(exc))

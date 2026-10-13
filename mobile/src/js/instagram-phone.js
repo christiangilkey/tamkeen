@@ -75,15 +75,42 @@
         return { username: (d && d.form_data && d.form_data.username) || "" };
       }).catch(function () { return { username: "" }; });
     },
-    // The user's saved collections: [{id, name}].
-    collections: function () {
-      var out = [];
-      var types = encodeURIComponent('["ALL_MEDIA_AUTO_COLLECTION","MEDIA","AUDIO_AUTO_COLLECTION"]');
-      return pages("/api/v1/collections/list/?collection_types=" + types + "&include_public_only=0&get_cover_media_lists=false", 60, function (c) {
-        if (!c || !c.collection_id || c.collection_type !== "MEDIA") return false;
-        out.push({ id: String(c.collection_id), name: String(c.collection_name || "").slice(0, 80) });
-        return true;
-      }).then(function () { return { collections: out }; });
+    // Instagram's website has no address that lists the user's collections (the app's own one,
+    // /api/v1/collections/list/, answers "not found" there; checked on the real site 2026-10-12).
+    // But every saved post says which collections it is in, and a collection will give its name.
+    // So the app walks the saves a page at a time (savedIds) and asks each new number for its
+    // name (collectionName).
+    //
+    // One page of the user's saves, newest first: the collection numbers its posts carry, how many
+    // posts it had, and where the next page starts ("" = that was the last).
+    savedIds: function (arg) {
+      var max = arg && arg.max ? String(arg.max) : "";
+      return fetch("/api/v1/feed/saved/posts/" + (max ? "?max_id=" + encodeURIComponent(max) : ""),
+                   { credentials: "include", headers: { "X-IG-App-ID": APP_ID, "X-Requested-With": "XMLHttpRequest" } })
+        .then(function (r) {
+          if (!r.ok) throw new Error("http " + r.status);
+          return r.text();
+        }).then(function (text) {
+          var d = JSON.parse(text);
+          // Read from the text itself: the numbers are too long for JavaScript to hold exactly
+          // should Instagram ever send them as numbers instead of text.
+          var ids = [];
+          var lists = /"saved_collection_ids":\s*\[([^\]]*)\]/g;
+          for (var m = lists.exec(text); m; m = lists.exec(text)) {
+            var found = m[1].match(/\d{5,25}/g) || [];
+            for (var i = 0; i < found.length; i++) if (ids.indexOf(found[i]) < 0) ids.push(found[i]);
+          }
+          return { ids: ids, posts: ((d && d.items) || []).length, next: d && d.more_available && d.next_max_id ? String(d.next_max_id) : "" };
+        });
+    },
+    // The name of one collection ("" if Instagram won't say).
+    collectionName: function (arg) {
+      var id = String((arg && arg.id) || "");
+      if (!/^\d{5,25}$/.test(id)) return Promise.reject(new Error("not a collection"));
+      return get("/api/v1/feed/collection/" + id + "/all/").then(function (d) {
+        var c = (d && d.save_media_response) || d || {};
+        return { name: typeof c.collection_name === "string" ? c.collection_name.slice(0, 80) : "" };
+      });
     },
     // The posts in one collection ("all" = everything saved), newest save first.
     list: function (arg) {

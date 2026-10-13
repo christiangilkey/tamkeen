@@ -140,6 +140,12 @@ public class GoogleDriveAuthPlugin extends Plugin {
         String extractor = call.getString("extractor", "");
         String youtube = call.getString("youtube", "");
         String home = call.getString("home", ""); // the start page, shown when no address is given
+        // Opened for signing in to Instagram: the browser closes itself once signed in (see InAppBrowser).
+        boolean forSignIn = Boolean.TRUE.equals(call.getBoolean("closeOnInstagramSignIn", false));
+        Runnable signedIn = !forSignIn ? null : () -> {
+            android.widget.Toast.makeText(getContext(), "Signed in to Instagram", android.widget.Toast.LENGTH_SHORT).show();
+            notifyListeners("instagramSignedIn", new JSObject());
+        };
         getActivity().runOnUiThread(() -> {
             try {
                 InAppBrowser.open(getActivity(), url, extractor, youtube, home, json -> {
@@ -152,7 +158,7 @@ public class GoogleDriveAuthPlugin extends Plugin {
                     JSObject event = new JSObject();
                     event.put("id", id);
                     notifyListeners("youtubeVideo", event);
-                });
+                }, signedIn);
                 call.resolve();
             } catch (Exception e) {
                 call.reject("Couldn't open the browser: " + e.getMessage(), e);

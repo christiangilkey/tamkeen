@@ -148,6 +148,27 @@ def clean_collections(items: Any) -> list[dict[str, str]]:
     return out
 
 
+def merge_collections(page_items: list[dict[str, Any]], named: dict[str, str], username: str,
+                      before: list[dict[str, str]], complete: bool) -> list[dict[str, str]]:
+    """Every collection that is known, as items for `remember_collections`.
+    `page_items`: the links on the user's Saved page (which shows only the first few collections).
+    `named`: {number: name} worked out from the saves themselves (every saved post says which
+    collections it is in; see `reels_worker._walk_saves`). A collection found only that way gets an
+    address with a stand-in name in it; Instagram goes by the number and corrects the address.
+    `before`: what was known already, kept unless every save was read (`complete`)."""
+    me = clean_username(username)
+    out = clean_collections(page_items)
+    for c in out:
+        if named.get(c["id"]):
+            c["name"] = named[c["id"]]  # the collection's own name rather than the link's text
+    for cid, name in named.items():
+        if name and re.fullmatch(r"\d{5,25}", str(cid)) and not any(c["id"] == str(cid) for c in out):
+            out.append({"id": str(cid), "name": name, "path": f"/{me}/saved/c/{cid}/"})
+    if not complete:
+        out.extend(c for c in before if not any(o["id"] == c["id"] for o in out))
+    return clean_collections(out)
+
+
 def saved_path(state: dict[str, Any], username: str) -> str:
     """The address (on instagram.com) of the chosen collection's page, or of everything saved."""
     for c in state["collections"]:

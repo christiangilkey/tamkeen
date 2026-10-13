@@ -29,7 +29,9 @@ function page(answers, { top = true } = {}) {
       const key = Object.keys(answers).find((k) => path.startsWith(k));
       const hit = key ? answers[key] : null;
       const body = typeof hit === "function" ? hit(path) : hit;
-      return Promise.resolve({ ok: !!body, status: body ? 200 : 404, json: () => Promise.resolve(body) });
+      const text = typeof body === "string" ? body : JSON.stringify(body);
+      return Promise.resolve({ ok: !!body, status: body ? 200 : 404, json: () => Promise.resolve(typeof body === "string" ? JSON.parse(body) : body),
+                               text: () => Promise.resolve(text) });
     },
   };
   win.window = win;
@@ -78,18 +80,31 @@ test("one collection is asked for by its number, and no more than the limit come
   assert.equal(s.result.posts.length, 3);
 });
 
-test("the user's own collections are listed by name", async () => {
-  const p = page({ "/api/v1/collections/list/": { items: [
-    { collection_id: "1", collection_name: "All posts", collection_type: "ALL_MEDIA_AUTO_COLLECTION" },
-    { collection_id: "17900000000000001", collection_name: "Arabic", collection_type: "MEDIA" },
-    { collection_id: "17900000000000002", collection_name: "Funny", collection_type: "MEDIA" }] } });
-  assert.deepEqual((await p.ask("collections")).result.collections,
-    [{ id: "17900000000000001", name: "Arabic" }, { id: "17900000000000002", name: "Funny" }]);
+// Instagram's website won't list the collections, so they are worked out from the saves themselves.
+test("a page of saves gives the numbers of the collections its posts are in, and where the next page starts", async () => {
+  // The second number is sent as a bare number too long for JavaScript: it must come through exact.
+  const body = `{"items":[{"media":{"code":"First00001","saved_collection_ids":["17900000000000001",18446744073709551557]}},
+    {"media":{"code":"Second0002","saved_collection_ids":[]}},{"media":{"code":"Third00003","saved_collection_ids":["17900000000000001","17900000000000003"]}}],
+    "more_available":true,"next_max_id":"NEXT"}`;
+  const p = page({ "/api/v1/feed/saved/posts/": (path) => (path.includes("max_id=NEXT") ? { items: [{ media: { code: "Last000004" } }], more_available: false } : body) });
+  const first = await p.ask("savedIds", {});
+  assert.equal(first.error, "");
+  assert.deepEqual({ ...first.result, ids: [...first.result.ids] },
+    { ids: ["17900000000000001", "18446744073709551557", "17900000000000003"], posts: 3, next: "NEXT" });
+  const last = await p.ask("savedIds", { max: "NEXT" });
+  assert.deepEqual({ ...last.result, ids: [...last.result.ids] }, { ids: [], posts: 1, next: "" });
+  assert.deepEqual(p.asked.map((a) => a.path), ["/api/v1/feed/saved/posts/", "/api/v1/feed/saved/posts/?max_id=NEXT"]);
+  assert.equal((await page({}).ask("savedIds", {})).error, "http 404", "a refusal is an error, not an empty page");
 });
 
-test("a site that won't list collections is reported as an error, not as none", async () => {
-  const s = await page({}).ask("collections");
-  assert.equal(s.error, "http 404");
+test("a collection gives its name when asked by its number", async () => {
+  const p = page({ "/api/v1/feed/collection/17900000000000001/all/": { save_media_response: { collection_id: "17900000000000001", collection_name: "Arabic", items: [] }, status: "ok" },
+                   "/api/v1/feed/collection/17900000000000002/all/": { status: "ok" } });
+  assert.deepEqual({ ...(await p.ask("collectionName", { id: "17900000000000001" })).result }, { name: "Arabic" });
+  assert.deepEqual({ ...(await p.ask("collectionName", { id: "17900000000000002" })).result }, { name: "" }, "no name given");
+  assert.equal((await p.ask("collectionName", { id: "17900000000000009" })).error, "http 404");
+  assert.equal((await p.ask("collectionName", { id: "../../accounts" })).error, "not a collection", "only a number is ever put in the address");
+  assert.equal(p.asked.some((a) => a.path.includes("accounts")), false);
 });
 
 test("one post is asked for afresh by the number its short code stands for", async () => {

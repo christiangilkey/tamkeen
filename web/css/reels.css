@@ -34,6 +34,9 @@
 .reel-pickrow .who { font-weight: 600; font-size: 13px; }
 .reel-pickrow .cap { font-size: 13px; color: var(--muted); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .reel-pickrow .tag { max-width: 190px; text-align: right; }
+/* "1. Choose a collection": the drop-down list of collection names, and the button that fills it. */
+.reel-collrow { gap: 8px; flex-wrap: wrap; align-items: center; }
+.reel-collrow select { flex: 1 1 220px; min-width: 0; max-width: 460px; min-height: 36px; }
 /* The "sign in to Instagram" notice in the right half of the player's bar (see askSignIn in reels.js). */
 /* Its half of the bar has no padding and doesn't scroll (see .reel-pop), so it brings its own of both. */
 .reel-signin { padding: 8px 10px; flex: 0 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }

@@ -390,3 +390,29 @@ def test_saves_once_skipped_as_not_playable_outside_can_be_picked_again(world, m
         assert posts["MUSICreel02"]["skipped"] == "" and not posts["MUSICreel02"]["have"], "tickable again"
         assert posts["SILENTreel3"]["skipped"] == "nothing is said in it"
         assert posts["KEPTreel004"]["have"] and posts["KEPTreel004"]["skipped"] == ""
+
+
+# ----- every collection, not only the few the Saved page draws -----
+
+def test_collections_found_through_the_saves_join_the_ones_on_the_saved_page(world):
+    _, a, _ = world
+    with a:
+        on_page = [{"path": "/learner/saved/arabic/17900000000000001/", "name": "Arabic\n12 posts"},
+                   {"path": "/learner/", "name": "not a collection"}]
+        named = {"17900000000000001": "Arabic 🇸🇦", "17900000000000002": "Funny", "17900000000000003": "", "x": "Nope"}
+        before = [{"id": "17900000000000009", "name": "Old one", "path": "/learner/saved/old-one/17900000000000009/"}]
+        got = reels.merge_collections(on_page, named, "Learner", before, complete=False)
+        assert [(c["id"], c["name"]) for c in got] == [
+            ("17900000000000001", "Arabic 🇸🇦"),   # the collection's own name, not the link's text
+            ("17900000000000002", "Funny"),        # known only from the saves
+            ("17900000000000009", "Old one"),      # not reached this time, so kept
+        ]
+        assert got[0]["path"] == "/learner/saved/arabic/17900000000000001/"
+        assert got[1]["path"] == "/learner/saved/c/17900000000000002/", "a stand-in name in the address; Instagram goes by the number"
+        # Every save was read: a collection that didn't turn up is gone.
+        assert [c["id"] for c in reels.merge_collections(on_page, named, "learner", before, complete=True)] == [
+            "17900000000000001", "17900000000000002"]
+        # What comes out can be remembered and chosen, and gives the page to read.
+        reels.remember_collections(got)
+        state = reels.update(collection="17900000000000002")
+        assert reels.saved_path(state, "learner") == "/learner/saved/c/17900000000000002/"

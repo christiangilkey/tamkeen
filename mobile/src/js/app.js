@@ -325,7 +325,7 @@ async function youtubeBrowserScript() {
 let openingVideo = false;
 let browserListening = false;
 /** Open the in-app web browser (native screen with an "Import Page" button). */
-export async function openBrowser(url = "") {
+export async function openBrowser(url = "", { instagramSignIn = false } = {}) {
   if (!isNative) {
     window.open(/^https?:/i.test(url) ? url : "https://www.google.com", "_blank", "noopener");
     toast("Copy the address of the page you want and paste it under “Add a webpage”.");
@@ -365,12 +365,25 @@ export async function openBrowser(url = "") {
         openingVideo = false;
       }
     });
+    // The browser was opened for signing in to Instagram, saw that the user now is, and closed itself.
+    GoogleDriveAuth.addListener("instagramSignedIn", () => emit("instagram", { signed_in: true }));
   }
   // With no address, the browser opens on the app's start page: a search box and news sites
   // in the language being studied (handed over as one finished page, see browser-home.js).
   const { homeHtml } = await import("./browser-home.js");
   await GoogleDriveAuth.openBrowser({ url, extractor: await extractorSource(), youtube: await youtubeBrowserScript(),
-                                      home: homeHtml(settings.study_language || "") });
+                                      home: homeHtml(settings.study_language || ""), closeOnInstagramSignIn: !!instagramSignIn });
+}
+
+/** Open Instagram's sign-in page in the app's own browser (which shares its sign-ins with the reel
+ * window). The browser closes by itself once the user is signed in; "instagram" {signed_in: true}
+ * is emitted then, so whatever was waiting for the sign-in can carry on. */
+export async function openInstagramSignIn() {
+  if (!isNative) { // development preview: pretend the sign-in was made
+    setTimeout(() => emit("instagram", { signed_in: true }), 1200);
+    return;
+  }
+  return openBrowser("https://www.instagram.com/accounts/login/", { instagramSignIn: true });
 }
 
 // ---------- own videos ----------
