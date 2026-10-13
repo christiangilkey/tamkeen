@@ -6,6 +6,9 @@
 .trending-btn:hover { border-color: var(--accent); text-decoration: none; }
 .add-yt { padding-top: 10px; border-top: 1px solid var(--border); }
 .add-yt .hint { margin: 0; }
+.yt-country { display: flex; align-items: center; gap: 8px; }
+.yt-country[hidden] { display: none; }
+.yt-country select { flex: 1; min-width: 0; min-height: 30px; padding: 2px 8px; font-size: 13px; }
 .feed-list[hidden] { display: none; } /* the phone's podcast strip, unused on the computer */
 
 /* ---------- trending podcasts ---------- */
@@ -78,13 +81,49 @@
    top bar steps aside and the video starts higher up. */
 body.in-player:has(.player.yt) .topbar { display: none; }
 @media (max-width: 640px) {
-  /* Phone: the word popup is part of the black bar under the video. It opens directly below the
-     captions (never over them or the video) and scrolls inside itself when it is long.
-     player.js sets --dock-top and --dock-max. */
+  /* Phone: the word popup is part of the black bar under the video. It fills the space from
+     directly below the captions (never over them or the video) down to the play controls.
+     player.js sets --dock-top (and --dock-bottom, used further down). */
   .player.yt .word-bubble.sheet {
-    top: var(--dock-top, auto) !important; bottom: auto; max-height: var(--dock-max, 50vh);
+    top: var(--dock-top, auto) !important; max-height: none;
     border: 0; border-top: 1px solid #2c2c2c; border-radius: 0; box-shadow: none; animation: none;
     padding: 8px 14px 10px; background: #111; color: #f2f1ec;
     --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838;
   }
 }
+
+/* ---------- word popup: buttons row pinned, the rest scrolls ----------
+   The popup's heading stays at its top and its row of buttons (Word, Sentence, Continue, Save)
+   at its bottom; only the definition between them scrolls. */
+.word-bubble { display: flex; flex-direction: column; overflow: hidden; }
+.word-bubble[hidden] { display: none; }
+.word-bubble > .wb-head, .word-bubble > .wb-actions { flex: none; }
+.word-bubble > .wb-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.word-bubble > .wb-actions { margin-top: auto; }
+@media (max-width: 640px) {
+  /* Phone, in a player: the popup stops just above the play controls, which stay in reach, so
+     its buttons row rests right on top of them. player.js sets --dock-bottom. */
+  .player .word-bubble.sheet { bottom: var(--dock-bottom, 0px); padding-bottom: 8px; }
+  .player .word-bubble.sheet > .wb-actions { flex-wrap: nowrap; gap: 4px; margin-top: 6px; padding-top: 8px; }
+  .player .word-bubble.sheet > .wb-actions button { flex: 1 1 auto; min-width: 0; padding: 4px 6px; font-size: 12px; white-space: nowrap; }
+  .player .word-bubble.sheet > .wb-actions button.icon { flex: none; min-width: 28px; }
+}
+
+/* ---------- word popup: the pause / keep-playing switch ----------
+   Top left of the popup, no words: the knob shows a pause sign (purple track: a tapped word
+   plays, then playback pauses) or a play sign (teal track: playback carries on). The two colours
+   are the two ends of the logo's gradient. */
+.word-bubble .wb-mode {
+  flex: none; align-self: center; position: relative; width: 44px; height: 24px; min-height: 0; min-width: 0; padding: 0;
+  border: 0; border-radius: 99px; cursor: pointer;
+  background: linear-gradient(45deg, #4a0b47, #86308f); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
+}
+.word-bubble .wb-mode.on { background: linear-gradient(45deg, #1b526d, #0b8693); }
+.word-bubble .wb-mode:hover:not(:disabled) { background: linear-gradient(45deg, #4a0b47, #86308f); filter: brightness(1.12); }
+.word-bubble .wb-mode.on:hover:not(:disabled) { background: linear-gradient(45deg, #1b526d, #0b8693); }
+.wb-mode .wb-knob {
+  position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; color: #6a1f72;
+  display: grid; place-items: center; box-shadow: 0 1px 3px rgba(0, 0, 0, .35); transition: left .16s ease, color .16s ease;
+}
+.wb-mode.on .wb-knob { left: 22px; color: #0b7783; }
+.wb-mode .wb-knob svg { width: 10px; height: 10px; fill: currentColor; display: block; }

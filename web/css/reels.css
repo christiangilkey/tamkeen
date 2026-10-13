@@ -21,6 +21,26 @@
 .reel-saved[hidden] { display: none; }
 .reel-saved select { flex: 1; min-width: 0; }
 .reel-saved .hint { margin: 0; }
+.reel-coll.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.reel-pickhead { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.reel-picks { display: flex; flex-direction: column; gap: 4px; max-height: 420px; overflow: auto; padding-right: 2px; }
+.reel-pickrow { display: grid; grid-template-columns: auto 54px 1fr auto; gap: 10px; align-items: center; padding: 5px 8px;
+  border: 1px solid var(--border); border-radius: 10px; background: var(--surface); cursor: pointer; }
+.reel-pickrow.off { opacity: .55; cursor: default; }
+.reel-pickrow input { width: 18px; height: 18px; }
+.reel-pickrow img, .reel-pickrow .ph { width: 54px; height: 72px; border-radius: 6px; object-fit: cover; background: var(--surface-2);
+  display: grid; place-items: center; color: var(--muted); }
+.reel-pickrow .txt { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.reel-pickrow .who { font-weight: 600; font-size: 13px; }
+.reel-pickrow .cap { font-size: 13px; color: var(--muted); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.reel-pickrow .tag { max-width: 190px; text-align: right; }
+/* The "sign in to Instagram" notice in the right half of the player's bar (see askSignIn in reels.js). */
+/* Its half of the bar has no padding and doesn't scroll (see .reel-pop), so it brings its own of both. */
+.reel-signin { padding: 8px 10px; flex: 0 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.reel-signin p { margin: 0 0 6px; }
+.reel-signin .row { gap: 6px; flex-wrap: wrap; }
+.reel-signin button { min-height: 30px; padding: 2px 10px; font-size: 13px; }
+.reel-signin ~ .reel-hint { display: none; }
 .reel-log { display: flex; flex-direction: column; gap: 2px; max-height: 220px; overflow: auto; font-size: 13px; }
 .reel-log:empty { display: none; }
 .reel-logline { display: flex; gap: 6px; align-items: baseline; min-width: 0; }
@@ -53,15 +73,42 @@
 .reel-words .w { border-radius: 5px; cursor: pointer; padding: 0 .04em; transition: background-color .08s; }
 .reel-words .w.cur { background: var(--hl); color: var(--hl-ink); }
 .reel-words .w:active { display: inline-block; transform: scale(.9); }
-.reel-pop { border-left: 1px solid #383838; padding: 6px 10px; position: relative; }
-.reel-hint { margin: 8px 2px; }
-/* The word popup is part of the bar here, not a floating card or a sheet. */
+.reel-pop { border-left: 1px solid #383838; padding: 0; display: flex; flex-direction: column; overflow: hidden; }
+.reel-hint { margin: 8px 10px; }
+/* The word popup is part of the bar here, not a floating card or a sheet. It fills its half of the
+   bar: the heading stays at the top and only the explanation under it scrolls. */
 .reel-pop .word-bubble, .reel-pop .word-bubble.sheet {
-  position: static !important; width: auto; max-width: none; max-height: none; overflow: visible;
+  position: static !important; width: auto; max-width: none; height: auto; max-height: none; min-height: 0; flex: 1 1 auto;
+  display: flex; flex-direction: column; overflow: hidden;
   border: 0; border-radius: 0; box-shadow: none; padding: 0; background: transparent; color: #f2f1ec; animation: none;
   visibility: visible !important;
 }
-.reel-pop .wb-actions button { min-height: 28px; padding: 2px 8px; font-size: 12px; }
+.reel-pop .word-bubble[hidden] { display: none; }
+.reel-pop .word-bubble > .wb-head { flex: none; padding: 6px 10px 2px; }
+.reel-pop .word-bubble > .wb-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch; padding: 0 10px 8px; }
+/* The popup's buttons row (Word, Sentence, Continue, Save) does not scroll away. While a popup is
+   open it is a strip across the whole bar, fixed at its bottom edge: directly above the controls. */
+.reel-bar { position: relative; }
+.reel-bar:has(.word-bubble:not([hidden])) { padding-bottom: var(--reel-actions, 44px); }
+.reel-pop .word-bubble > .wb-actions {
+  position: absolute; left: 0; right: 0; bottom: 0; height: var(--reel-actions, 44px); box-sizing: border-box; margin: 0;
+  display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; padding: 5px 8px;
+  background: #1a1a1a; border-top: 1px solid #383838;
+}
+.reel-pop .wb-actions button { flex: 1 1 0; min-width: 0; min-height: 32px; padding: 2px 4px; font-size: 12px; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; }
+.reel-pop .wb-actions button.icon { flex: none; min-width: 32px; }
+/* The controls: always on screen at the very bottom, also while a word's popup is open. */
+.reel-controls { flex: none; display: flex; align-items: center; gap: 6px; padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+  background: #0b0b0b; border-top: 1px solid #2c2c2c; color: #f2f1ec; }
+.reel-controls button { flex: none; min-height: 34px; padding: 2px 8px; font-size: 12px; white-space: nowrap; }
+.reel-controls button:not(.primary) { background: #1d1d1d; border-color: #383838; color: inherit; }
+.reel-controls .play { width: 38px; height: 38px; min-height: 38px; border-radius: 50%; padding: 0; font-size: 15px; }
+.reel-controls input[type=range] { flex: 1 1 auto; min-width: 40px; }
+.reel-controls .t { flex: none; font-size: 11px; color: #aaa8a0; font-variant-numeric: tabular-nums; }
+.reel-controls select { flex: none; min-height: 34px; padding: 2px 4px; font-size: 12px; background: #1d1d1d; border-color: #383838; color: inherit; }
+.reelplay.no-video .reel-controls { display: none; }
 /* The computer has no reel window: the words get the room instead. */
 .reelplay.no-video .reel-stage { flex: none; min-height: 0; padding: 14px; }
 .reelplay.no-video .reel-bar { flex: 1; height: auto; max-height: none; }

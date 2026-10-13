@@ -62,7 +62,7 @@ export const KEY_GUIDES = {
 };
 
 const PROBLEMS = [
-  ["It says the key was rejected", "Check that the provider chosen in Settings is the one whose website gave you the key (a Claude key doesn't work with Gemini selected). Then copy the key again and paste it fresh: a missing letter at the end is the usual cause."],
+  ["It says the key was rejected", "The key has most likely expired or been switched off, so you probably need a new one: make it with the steps above and paste it in. If the key is brand new, copy it again and paste it fresh (a missing letter at the end stops it working)."],
   ["It says quota, billing or rate limit", "The account has no credit yet, or the credit hasn't arrived. Add credit on the provider's Billing page and try again in a few minutes."],
   ["It says it doesn't recognise the model", "Set <b>Model</b> in Settings back to the one marked “recommended”."],
   ["I closed the box before copying the key", "Make a new key the same way, and delete the old one from the provider's list."],

@@ -131,6 +131,7 @@ class JsApi:
         self._server = server
         self._window: Any = None
         self._youtube: Any = None  # the browser window opened by "Open YouTube", while it lives
+        self._youtube_start = ""   # the address that window was last sent to
 
     def _browser_window(self, title: str, start: str) -> Any:
         """A web browser window. Every page in it gets the bottom bar with "Import Page"
@@ -169,18 +170,23 @@ class JsApi:
             return {"ok": False, "error": f"Couldn't open the browser window ({exc})."}
         return {"ok": True}
 
-    def open_youtube(self) -> dict[str, Any]:
+    def open_youtube(self, start: str = "") -> dict[str, Any]:
         """Open YouTube in a browser window (or bring back the one already open). Tapping a
-        video there opens it in the app's own player."""
+        video there opens it in the app's own player. `start` is the YouTube address to open
+        on: what is popular in the study language (worked out by web/js/youtube-home.js)."""
         import webview
 
         from . import youtube
 
         try:
+            address = youtube.start_address(start)
             if self._youtube is not None and self._youtube in webview.windows:
+                if address != self._youtube_start:  # another country (or language) was chosen meanwhile
+                    self._youtube.load_url(address)
                 bring_forward(self._youtube)
             else:
-                self._youtube = self._browser_window("YouTube", youtube.BROWSER_HOME)
+                self._youtube = self._browser_window("YouTube", address)
+            self._youtube_start = address
         except Exception as exc:
             log.exception("Couldn't open the YouTube window")
             return {"ok": False, "error": f"Couldn't open the YouTube window ({exc})."}

@@ -8,6 +8,8 @@ import { episodeUid, feedUid, findSpans, newUid, normalize, normalizeUrl } from 
 import { settings } from "./store.js";
 import { detectLanguage, isLanguage } from "./languages.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
+import { NativeHttp, isNative } from "./native.js";
+import { newEpisodeRecords, parseFeed } from "./rss.js";
 
 export class ApiError extends Error {}
 
@@ -143,6 +145,99 @@ async function saveYouTube(body) {
   return { ...episodeOut(ep), words: words.text.length };
 }
 
+const FEED_WAITING = "Episodes appear after your computer syncs this feed.";
+const FEED_CHECK_EVERY = 60 * 60; // seconds between automatic looks at one podcast's feed
+const FEED_CHECKS_AT_ONCE = 4;
+
+const headerOf = (res, name) => {
+  const headers = (res && res.headers) || {};
+  const key = Object.keys(headers).find((k) => k.toLowerCase() === name);
+  return key ? headers[key] : null;
+};
+
+/** Download a podcast feed's text. `seen` ({etag, modified} from the last read, updated here)
+ * lets the server answer "nothing has changed" instead of sending the whole feed again: then
+ * this resolves to null. Redirects are followed by hand (the phone's own web requests don't
+ * follow one that changes between http and https). */
+async function downloadFeed(url, seen = null) {
+  if (!isNative) { // development preview in a browser: only feeds that allow being read from a page
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`The feed server returned HTTP ${res.status}.`);
+    return res.text();
+  }
+  const headers = { "User-Agent": "Tamkeen/Android (+podcast reader)", Accept: "application/rss+xml, application/xml;q=0.9, */*;q=0.8" };
+  if (seen && seen.etag) headers["If-None-Match"] = seen.etag;
+  if (seen && seen.modified) headers["If-Modified-Since"] = seen.modified;
+  for (let hop = 0; hop < 5; hop++) {
+    const res = await NativeHttp.get({ url, responseType: "text", connectTimeout: 15000, readTimeout: 30000, headers });
+    const next = headerOf(res, "location");
+    if (res.status === 304) return null;
+    if (res.status >= 300 && res.status < 400 && next) { url = new URL(next, url).href; continue; }
+    if (res.status >= 400) throw new Error(`The feed server returned HTTP ${res.status}.`);
+    if (seen) Object.assign(seen, { etag: headerOf(res, "etag"), modified: headerOf(res, "last-modified") });
+    return typeof res.data === "string" ? res.data : String(res.data ?? "");
+  }
+  throw new Error("The feed kept sending the app somewhere else.");
+}
+
+/** Read a podcast's feed on the phone itself and add the episodes it doesn't have yet, so the
+ * phone doesn't depend on the computer for them. Episodes get the same ids the computer gives
+ * them (see rss.js), so both devices end up with one copy. Returns how many were new. */
+async function readFeed(feed, seen = null) {
+  // "Has it changed?" only makes sense once the phone holds this podcast's episodes.
+  if (seen && !lib.episodes.some((e) => e.feed_uid === feed.uid)) Object.assign(seen, { etag: null, modified: null });
+  const xml = await downloadFeed(feed.url, seen);
+  if (xml === null) return 0; // unchanged since the last look
+  const parsed = await parseFeed(xml);
+  const uids = await Promise.all(parsed.episodes.map((ep) => episodeUid(feed.uid, ep.guid)));
+  // From here on nothing waits, so a sync can't slip in between reading the library and adding to it.
+  const t = now();
+  const known = new Set(lib.episodes.filter((e) => e.feed_uid === feed.uid).map((e) => e.uid));
+  if (!known.size || feed.description === FEED_WAITING) {
+    // A podcast just added here: its real name, picture and description. (Afterwards these
+    // are left to the computer, so the two don't keep overwriting each other.)
+    Object.assign(feed, { title: parsed.title, description: parsed.description.slice(0, 1000), image: parsed.image || feed.image || null,
+                          link: parsed.link || feed.link || null, updated_at: t });
+  }
+  const fresh = newEpisodeRecords(feed, parsed.episodes, uids, known, t);
+  lib.episodes.push(...fresh);
+  return fresh.length;
+}
+
+let checking = null;
+/**
+ * Look at the podcasts' feeds for new episodes. Normally each podcast is looked at no more than
+ * once an hour; `force` looks now (the Refresh button), `only` limits it to one podcast.
+ * Resolves to how many new episodes were found.
+ */
+export function checkFeeds({ force = false, only = null } = {}) {
+  if (checking) return checking;
+  checking = (async () => {
+    const checks = (await kv.get("feed_checks")) || {}; // per podcast: when it was last read, and the server's "version" marks
+    const due = lib.feeds.filter((f) => !f.deleted && !f.url.startsWith("local:") && (!only || f.uid === only)
+      && (force || !checks[f.uid] || now() - (checks[f.uid].at || 0) > FEED_CHECK_EVERY));
+    if (!due.length) return 0;
+    let added = 0;
+    let changedAny = false;
+    const queue = [...due];
+    const worker = async () => {
+      for (let feed = queue.shift(); feed; feed = queue.shift()) {
+        const seen = checks[feed.uid] || (checks[feed.uid] = {});
+        const before = feed.updated_at;
+        try { added += await readFeed(feed, seen); } catch (e) { console.warn("Couldn't read the feed", feed.url, e); }
+        if (feed.updated_at !== before) changedAny = true;
+        seen.at = now(); // also after a failure: try again in an hour (or on Refresh), not on every look
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(FEED_CHECKS_AT_ONCE, queue.length) }, worker));
+    for (const uid of Object.keys(checks)) if (!lib.feeds.some((f) => f.uid === uid && !f.deleted)) delete checks[uid];
+    await kv.set("feed_checks", checks);
+    if (added || changedAny) changed();
+    return added;
+  })().finally(() => { checking = null; });
+  return checking;
+}
+
 /** Record a video or audio file this phone just uploaded to Drive; the computer transcribes it on its next sync. */
 export async function addUploadedVideo({ uid, title, driveName, mime, duration, audio = false }) {
   const url = audio ? AUDIO_FEED_URL : LOCAL_FEED_URL;
@@ -216,9 +311,18 @@ const routes = [
     const feed = existing
       ? Object.assign(existing, { deleted: 0, updated_at: t })
       : { uid, url, title: String(body.title || "").trim().slice(0, 300) || host,
-          description: "Episodes appear after your computer syncs this feed.", image,
+          description: FEED_WAITING, image,
           link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
     if (!existing) lib.feeds.push(feed);
+    // Get the episodes now. If the feed can't be reached from the phone, the podcast is still
+    // added and the computer fills it in on its next sync.
+    try {
+      const checks = (await kv.get("feed_checks")) || {};
+      const seen = (checks[feed.uid] = {});
+      await readFeed(feed, seen);
+      seen.at = now(); // just read: the automatic look for new episodes can leave it for an hour
+      await kv.set("feed_checks", checks);
+    } catch (e) { console.warn("Couldn't read the feed on the phone", feed.url, e); }
     changed();
     return feedOut(feed);
   }],
@@ -240,9 +344,15 @@ const routes = [
     }
     return { ok: true };
   }],
-  ["POST", /^\/feeds\/refresh$/, async () => {
-    if (!settings.signed_in) throw new ApiError("Sign in with Google (Settings) to get your library from your computer.");
+  ["POST", /^\/feeds\/refresh$/, async (m, q) => {
     const before = lib.episodes.length;
+    const podcasts = lib.feeds.some((f) => !f.deleted && !f.url.startsWith("local:"));
+    // Look at the podcasts' feeds for new episodes (just the open podcast, or all of them).
+    await checkFeeds({ force: true, only: q.get("feed_id") || null });
+    if (!settings.signed_in) {
+      if (podcasts) return { ok: true, new_episodes: Math.max(0, lib.episodes.length - before), synced: false };
+      throw new ApiError("Sign in with Google (Settings) to get your library from your computer.");
+    }
     await syncNow();
     if (syncState.state === "error") throw new ApiError(syncState.error);
     return { ok: true, new_episodes: Math.max(0, lib.episodes.length - before), synced: true };

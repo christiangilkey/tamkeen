@@ -13,7 +13,7 @@ import { saveProgress } from "../progress.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
 import { statusInfo, isVideo } from "./library.js";
-import { createWordBubble } from "../components/wordbubble.js";
+import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
@@ -265,7 +265,9 @@ export async function render(view, { id, query }) {
   let capEls = [];
   let bubble = null;
   function showCaption(idx) {
-    if (!capEl || (bubble && bubble.open)) return; // keep the tapped word in place while its bubble is open
+    // Keep the tapped word in place while its popup is open. (Not on YouTube when the choice is
+    // to keep playing: there the popup hangs below the captions, so they can carry on.)
+    if (!capEl || (bubble && bubble.open && !(yt && !pauseAfterWord()))) return;
     let start = -1;
     let end = -1;
     if (idx >= 0) {
@@ -394,8 +396,17 @@ export async function render(view, { id, query }) {
   $("#seek").addEventListener("change", (e) => { seeking = false; seekTo(Number(e.target.value), false); });
 
   // ---------- clips: play one word or one sentence, then pause ----------
+  // (or keep playing from there, if that is what the switch in the word popup says)
   function playClip(start, end) {
     const from = Math.max(0, start - 0.04);
+    if (!pauseAfterWord()) {
+      clipEnd = null;
+      clearTimeout(clipTimer);
+      audio.currentTime = from;
+      if (audio.paused) play();
+      kick();
+      return;
+    }
     clipEnd = end + 0.03;  // just past the word: more would start highlighting the next one
     audio.currentTime = from;
     if (audio.paused) play();
@@ -580,6 +591,13 @@ export async function render(view, { id, query }) {
     onPlayWord: () => bubbleTarget && playWords(bubbleTarget.i, bubbleTarget.j),
     onPlaySentence: () => bubbleTarget && playClip(starts[bubbleTarget.si], ends[bubbleTarget.sj]),
     onPlayFrom: () => bubbleTarget && seekTo(starts[bubbleTarget.i]),
+    // The switch was flipped: act on it straight away, as a pause / play button would.
+    onPauseMode: (pause) => {
+      clipEnd = null;
+      clearTimeout(clipTimer);
+      if (pause && !audio.paused) audio.pause();
+      else if (!pause && audio.paused) play();
+    },
     onSettings: () => (location.hash = "#/settings"),
     onSave: async (def) => {
       const t = bubbleTarget;
@@ -644,15 +662,17 @@ export async function render(view, { id, query }) {
       audio.paused ? play() : audio.pause();
     });
   }
-  /** YouTube on a phone: the popup opens directly under the captions, as part of the same black
-   * bar, and never over them or the video (see media.css). It may grow down to the play
-   * controls; when that leaves too little room, over them to the bottom of the screen. */
+  /** On a phone the popup is a sheet that stops just above the play controls, so they stay in
+   * reach, with its row of buttons resting right on top of them (see media.css). On YouTube it
+   * also starts directly under the captions, as part of the same black bar, and never covers
+   * them or the video. */
   function fitBubble() {
-    if (!yt || !window.matchMedia("(max-width: 640px)").matches) return;
+    if (!window.matchMedia("(max-width: 640px)").matches) return;
     const el = bubble.el;
+    const controlsTop = $(".controls").getBoundingClientRect().top;
+    el.style.setProperty("--dock-bottom", `${Math.max(0, Math.round(window.innerHeight - controlsTop))}px`);
+    if (!yt) return;
     const top = Math.ceil($(".yt-col").getBoundingClientRect().bottom);
-    const room = $(".controls").getBoundingClientRect().top - top;
-    el.style.setProperty("--dock-max", `${Math.floor(room >= 180 ? room : window.innerHeight - top)}px`);
     el.style.setProperty("--dock-top", `${top}px`);
     // If something above shifts where "fixed" positions are measured from, correct for it.
     const off = el.hidden || !el.classList.contains("sheet") ? 0 : top - el.getBoundingClientRect().top;

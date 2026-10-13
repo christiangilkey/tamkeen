@@ -16,8 +16,9 @@ import { startBadge } from "./social.js";
 import { initSwipe } from "./swipe.js";
 import { isNewer, showUpdateNotice } from "./updatenotice.js";
 import { icon } from "./icons.js";
-import { detectLanguage, setLang, setStudyLanguage } from "./languages.js";
-import { addUploadedVideo, handle } from "./backend.js";
+import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
+import { chosenCountry, youtubeHome } from "./youtube-home.js";
+import { addUploadedVideo, checkFeeds, handle } from "./backend.js";
 import { accessToken, drive } from "./drive.js";
 import { App, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
@@ -39,7 +40,10 @@ export function reelSurface() {
   return {
     async open({ url, top, height }) {
       if (reelScript === null) {
-        try { reelScript = await (await fetch(new URL("./reel-embed.js", import.meta.url))).text(); } catch { reelScript = ""; }
+        // Two scripts, one after the other: reel-page.js acts on a reel's ordinary page (and steps
+        // aside on an embed page), reel-embed.js on an embed page (and steps aside if the first acted).
+        const read = async (name) => { try { return await (await fetch(new URL(name, import.meta.url))).text(); } catch { return ""; } };
+        reelScript = `${await read("./reel-page.js")}\n${await read("./reel-embed.js")}`;
       }
       handle = await GoogleDriveAuth.addListener("reelState", ({ state }) => {
         let s;
@@ -67,9 +71,15 @@ function previewReelSurface() {
   let box = null;
   let timer = 0;
   let s = null;
+  // A reel's ordinary page (not its embed page) "asks for a sign-in" the first time it is opened,
+  // like a phone that isn't signed in to Instagram yet, and plays when it is tried again.
+  const asked = new Set();
   const start = (url) => {
-    s = { ready: true, t: 0, d: 20, paused: false, ends: 0, nav: "", error: "", page: new URL(url).pathname };
-    if (box) box.querySelector("span").textContent = `Preview: ${s.page} would play here`;
+    const page = new URL(url).pathname;
+    const wall = !page.includes("/embed") && !asked.has(page);
+    if (wall) asked.add(page);
+    s = { ready: !wall, t: 0, d: 20, paused: wall, ends: 0, nav: "", error: wall ? "signin" : "", page };
+    if (box) box.querySelector("span").textContent = wall ? `Preview: Instagram would ask for a sign-in here (${page})` : `Preview: ${page} would play here`;
   };
   return {
     async open({ url, el }) {
@@ -296,9 +306,10 @@ export async function ytRequest({ url, method = "GET", headers = {}, body }) {
   return { status: res.status, text: typeof res.data === "string" ? res.data : JSON.stringify(res.data ?? "") };
 }
 
-/** Open YouTube in the in-app browser. Tapping a video there opens it in Tamkeen's player. */
+/** Open YouTube in the in-app browser, on what is popular this week in the language being
+ * studied (see youtube-home.js). Tapping a video there opens it in Tamkeen's player. */
 export async function openYouTube() {
-  return openBrowser("https://m.youtube.com/");
+  return openBrowser(youtubeHome(studyLanguage(), { mobile: true, country: chosenCountry(studyLanguage()) }));
 }
 
 /** web/js/youtube-browser.js as text, for the in-app browser to run inside YouTube's pages. */
@@ -587,12 +598,19 @@ async function boot() {
     if (fresh.length) toast(fresh.length === 1 ? `New transcript: ${fresh[0].title}` : `${fresh.length} new transcripts`);
     lastDone = new Set(done.map((e) => e.uid));
   });
-  syncNow();
+  // After each of those syncs on start and on return, look at the podcasts' feeds for new
+  // episodes (each podcast at most once an hour), so the phone has them without the computer.
+  const lookForEpisodes = () => checkFeeds().then((n) => {
+    if (!n) return;
+    toast(n === 1 ? "1 new podcast episode" : `${n} new podcast episodes`);
+    emit("feeds", { refreshed: true });
+  }).catch((e) => console.warn(e));
+  syncNow().then(lookForEpisodes, lookForEpisodes);
   setInterval(() => syncNow(), 5 * 60 * 1000);
   // Sign-in tokens last an hour: keep the video streamer's copy fresh during long videos.
   setInterval(refreshMediaToken, 40 * 60 * 1000);
   if (App) {
-    App.addListener("resume", () => syncNow());
+    App.addListener("resume", () => syncNow().then(lookForEpisodes, lookForEpisodes));
     App.addListener("backButton", () => {
       if (location.hash && location.hash !== "#/") history.back();
       else App.exitApp();

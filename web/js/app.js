@@ -14,7 +14,8 @@ import * as discover from "./pages/discover.js";
 import * as reels from "./pages/reels.js";
 import { startBadge } from "./social.js";
 import { showUpdateNotice } from "./updatenotice.js";
-import { detectLanguage, setLang, setStudyLanguage } from "./languages.js";
+import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
+import { chosenCountry, youtubeHome } from "./youtube-home.js";
 
 // ---------- API ----------
 export async function api(path, { method = "GET", body, raw } = {}) {
@@ -192,17 +193,19 @@ export async function ytRequest(req) {
   return api("/youtube/request", { method: "POST", body: req });
 }
 
-/** Open YouTube in the app's own browser window. Tapping a video there opens it in Tamkeen's
- * player (the window asks for it through the "youtube_watch" event, handled below). */
+/** Open YouTube in the app's own browser window, on what is popular this week in the language
+ * being studied (see youtube-home.js). Tapping a video there opens it in Tamkeen's player (the
+ * window asks for it through the "youtube_watch" event, handled below). */
 export async function openYouTube() {
+  const start = youtubeHome(studyLanguage(), { country: chosenCountry(studyLanguage()) });
   const bridge = window.pywebview && window.pywebview.api;
   if (bridge && bridge.open_youtube) {
-    const r = await bridge.open_youtube();
+    const r = await bridge.open_youtube(start);
     if (r && r.error) throw new Error(r.error);
     return;
   }
   // Running in an ordinary browser (development mode): there is no second window to control.
-  window.open("https://www.youtube.com", "_blank", "noopener");
+  window.open(start, "_blank", "noopener");
   toast("Copy the link of the video you want and paste it under “Add a webpage”.");
 }
 

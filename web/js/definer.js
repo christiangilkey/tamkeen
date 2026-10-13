@@ -370,7 +370,41 @@ function normalize(obj, fallbackWord) {
   };
 }
 
+// ---------- what a request used ----------
+/** The tokens a provider's answer says the request used: {in, out} (0 where it doesn't say).
+ * `out` includes the model's thinking, which providers charge as writing. */
+export function usageOf(provider, data) {
+  const n = (v) => (Number.isFinite(v) && v > 0 ? v : 0);
+  if (provider === "gemini") {
+    const u = (data && data.usageMetadata) || {};
+    return { in: n(u.promptTokenCount), out: n(u.candidatesTokenCount) + n(u.thoughtsTokenCount) };
+  }
+  const u = (data && data.usage) || {};
+  if (provider === "claude") {
+    return { in: n(u.input_tokens) + n(u.cache_creation_input_tokens) + n(u.cache_read_input_tokens), out: n(u.output_tokens) };
+  }
+  return { in: n(u.prompt_tokens), out: n(u.completion_tokens) }; // OpenAI and xAI
+}
+
+const usageListeners = new Set();
+/** Be told what each answered request used: fn({provider, model, in, out}). Returns a function
+ * that stops it. (tokenuse.js keeps the day's total with this.) */
+export function onUsage(fn) {
+  usageListeners.add(fn);
+  return () => usageListeners.delete(fn);
+}
+function reportUsage(use) {
+  for (const fn of usageListeners) { try { fn(use); } catch (e) { console.error(e); } }
+}
+
+/** A failed lookup. `keyRejected` is true when the provider refused the key itself. */
 export class DefinerError extends Error {}
+
+/** Did the provider refuse the key (rather than the model name, the quota, or the request)? */
+function keyRefused(status, bodyText) {
+  // 401/403 everywhere; Gemini answers 400 "API key not valid" / "API key expired".
+  return status === 401 || status === 403 || (status === 400 && /api[ _-]?key/i.test(String(bodyText || "").slice(0, 2000)));
+}
 
 function friendlyHttpError(provider, status, bodyText) {
   let detail = "";
@@ -380,8 +414,10 @@ function friendlyHttpError(provider, status, bodyText) {
     detail = (typeof j.error === "string" ? j.error : j.error && (j.error.message || j.error.type)) || j.message || "";
   } catch { detail = (bodyText || "").slice(0, 200); }
   const name = PROVIDERS[provider].label;
-  if (status === 401 || status === 403 || /api[ _-]?key/i.test(detail)) {
-    return `${name} rejected the API key. Check it in Settings.`;
+  if (keyRefused(status, bodyText)) {
+    // A key that was copied whole and filed under the right provider (Settings sees to both) and is
+    // still refused has nearly always been switched off or run out: say so, not just "check it".
+    return `${name} rejected the API key. It has most likely expired, so you probably need a new one.`;
   }
   if (status === 404) return `${name} doesn't recognize that model name. Check it in Settings.${detail ? ` (${detail})` : ""}`;
   if (status === 429) return `${name} rate limit or quota reached. Try again shortly, or check your billing.`;
@@ -411,9 +447,14 @@ export async function define(cfg, ctx, transport) {
     req = buildRequest(cfg.provider, model, cfg.key, system, user, schema, true);
     res = await transport(req);
   }
-  if (res.status < 200 || res.status >= 300) throw new DefinerError(friendlyHttpError(cfg.provider, res.status, res.text));
+  if (res.status < 200 || res.status >= 300) {
+    const err = new DefinerError(friendlyHttpError(cfg.provider, res.status, res.text));
+    err.keyRejected = keyRefused(res.status, res.text);
+    throw err;
+  }
   let data;
   try { data = JSON.parse(res.text); } catch { throw new DefinerError("The provider returned an unreadable response."); }
+  reportUsage({ provider: cfg.provider, model, ...usageOf(cfg.provider, data) }); // (paid for, whatever the answer turns out to be)
   const text = extractText(cfg.provider, data);
   try {
     return { ...normalize(parseJson(text), ctx.word), provider: cfg.provider, model };

@@ -5,6 +5,7 @@
 import { esc, h, platform, state, saveSettings } from "../app.js";
 import { LOOKUPS_PER_MILLION, PROVIDERS, centsPerMillion, cleanKey, define, keyProvider, modelFor } from "../definer.js";
 import { langInfo, studyLanguage } from "../languages.js";
+import { TOKENS_EVENT, describeUsage, tokensToday } from "../tokenuse.js";
 import { showKeyHelp } from "./keyhelp.js";
 
 const OTHER = "__other__";
@@ -40,14 +41,16 @@ export function aiSetup(section, { transport }) {
         <div class="ai-key" id="def-keyrow">
           <input type="password" id="def-key" autocomplete="off" spellcheck="false" placeholder="Paste your API key here">
           <button type="button" class="ghost" id="def-show">Show</button>
-          <a class="btn" id="def-get" target="_blank" rel="noopener"></a>
+          <a class="btn key-get" id="def-get" target="_blank" rel="noopener"></a>
           <button type="button" id="def-stuck">I'm stuck</button>
         </div>
         <span class="small" id="def-key-note" role="status"></span></div>
       <div class="ai-field"><label for="def-lang">Explain in</label>
         <input type="text" id="def-lang"></div>
-      <div class="ai-field ai-test"><button type="button" id="def-test">Test with an example</button>
-        <span id="def-test-result" class="small"></span></div>
+      <div class="ai-field ai-test"><button type="button" id="def-test">Test with an example</button></div>
+      <div class="ai-wide small" id="def-test-result" role="status"></div>
+      <div class="ai-wide ai-use small muted">Tokens used today on ${here}: <strong id="def-use">0</strong>
+        <span id="def-use-detail"></span></div>
     </div>`;
   const $ = (q) => section.querySelector(q);
   const prov = () => $("#def-provider").value;
@@ -62,7 +65,6 @@ export function aiSetup(section, { transport }) {
     $("#def-tag").className = has ? "pill done" : "req-tag";
     $("#def-tag").textContent = has ? "✓ Set up" : "Required";
     $("#def-keyrow").classList.toggle("need", !has);
-    $("#def-get").className = has ? "btn" : "btn primary";
     $("#def-get").textContent = has ? "Get a new key ↗" : `Get your ${info.short} API key ↗`;
     $("#def-get").href = info.keyUrl;
   }
@@ -177,6 +179,7 @@ export function aiSetup(section, { transport }) {
     const out = $("#def-test-result");
     e.target.disabled = true;
     await keyEntered(); // (a key typed a moment ago is saved, and filed under its provider, first)
+    $("#def-key-note").textContent = "";
     out.textContent = "Asking…";
     out.style.color = "";
     const sample = langInfo(studyLanguage()).test;
@@ -190,10 +193,29 @@ export function aiSetup(section, { transport }) {
     } catch (err) {
       out.textContent = err.message;
       out.style.color = "var(--danger)";
+      // A refused key: it isn't "set up" after all, and the key row (where "Get a new key" is) is framed again.
+      if (err.keyRejected) {
+        $("#def-keyrow").classList.add("need");
+        $("#def-tag").className = "req-tag";
+        $("#def-tag").textContent = "Key not working";
+      }
     } finally {
       e.target.disabled = false;
     }
   };
+  // ----- tokens used today: a running total, moving as lookups are answered -----
+  const paintUse = () => {
+    const use = describeUsage(tokensToday());
+    $("#def-use").textContent = use.tokens.toLocaleString();
+    $("#def-use-detail").textContent = `(${use.detail})`;
+  };
+  paintUse();
+  window.addEventListener(TOKENS_EVENT, paintUse);
+
   /** Call when the page goes away. */
-  return () => { clearTimeout(keyTimer); document.removeEventListener("pointerdown", outside, true); };
+  return () => {
+    clearTimeout(keyTimer);
+    document.removeEventListener("pointerdown", outside, true);
+    window.removeEventListener(TOKENS_EVENT, paintUse);
+  };
 }

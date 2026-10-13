@@ -7,9 +7,9 @@
 // a bar split in two: the words on the left, the word popup on the right. When a reel ends the
 // next one starts by itself.
 
-import { api, esc, h, on, toast, platform, buzz, reelSurface, fmtDuration } from "../app.js";
+import { api, esc, h, on, toast, platform, buzz, reelSurface, fmtDuration, openBrowser } from "../app.js";
 import { icon } from "../icons.js";
-import { activeWordIndex, sentenceBounds, EDGE_PUNCT } from "../wordlookup.js";
+import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
 import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
@@ -20,6 +20,35 @@ export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
 export const isReel = (ep) => (ep.audio_type || "") === REEL_TYPE;
 const embedUrl = (ep) => `https://www.instagram.com/reel/${encodeURIComponent(ep.guid)}/embed/`;
+// Some reels (mostly ones with a song from Instagram's music library) have no video on their embed
+// page. Instagram plays those only on the reel's ordinary page, to someone signed in. The computer
+// marks such a reel by ending its address with "#signin"; one found out here is remembered too.
+const pageUrl = (ep) => `https://www.instagram.com/reel/${encodeURIComponent(ep.guid)}/`;
+export const needsSignIn = (ep) => String(ep.audio_url || "").endsWith("#signin");
+const viaPage = new Set();
+/** The page the reel window opens for a reel: its embed page, or its ordinary one. */
+const reelAddress = (ep) => (needsSignIn(ep) || viaPage.has(String(ep.id)) ? pageUrl(ep) : embedUrl(ep));
+
+/** Shown in the bar's right half when Instagram wants a sign-in before it plays a reel. It goes
+ * away by itself when another reel is shown (`counter` is the "3 / 10" label, which changes then). */
+function askSignIn(host, counter, { retry, skip }) {
+  host.querySelector("#reel-signin")?.remove();
+  const box = h(`<div class="reel-signin" id="reel-signin">
+    <p><strong>Sign in to Instagram to watch this reel.</strong></p>
+    <p class="small muted">Instagram only plays this one to people who are signed in (usually because it uses a song from
+    Instagram's music library). Sign in once, in Tamkeen's own browser, close it, then press Try again.</p>
+    <div class="row"><button type="button" class="primary" data-a="in">Sign in</button>
+      <button type="button" data-a="retry">Try again</button><button type="button" class="ghost" data-a="skip">Skip</button></div>
+  </div>`);
+  box.querySelector('[data-a="in"]').onclick = () => openBrowser("https://www.instagram.com/accounts/login/").catch((e) => toast(e.message, { error: true }));
+  box.querySelector('[data-a="retry"]').onclick = retry;
+  box.querySelector('[data-a="skip"]').onclick = skip;
+  host.prepend(box);
+  const gone = new MutationObserver(() => { box.remove(); gone.disconnect(); });
+  gone.observe(counter, { childList: true, characterData: true, subtree: true });
+}
+// Speeds offered under a reel (the choice is shared with the podcast and video player).
+const REEL_SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5];
 
 // Which reels have been watched to the end, on this device.
 const WATCHED = "reels:watched";
@@ -75,6 +104,11 @@ async function renderList(view) {
   const $ = (sel) => view.querySelector(sel);
   let info = null;
   let poll = 0;
+  // "From my Instagram saves": the posts of the collection last looked at, and the ones ticked.
+  let saved = { collection: "", posts: [], at: 0 };
+  const picked = new Set();
+  let askedForCollections = false;
+  const loadSaved = async () => { try { saved = await api("/reels/saved"); } catch { /* keep what we had */ } };
 
   async function drawList() {
     const reels = await loadReels();
@@ -99,7 +133,7 @@ async function renderList(view) {
       const row = h(`<div class="ep reel-row">
         <div class="ph">${icon("video", 22)}</div>
         <div class="info"><div class="title" dir="auto"><a href="#/reels/play?at=${ep.id}"></a></div>
-          <div class="sub">@${esc(ep.description || "")}${ep.duration ? ` · ${ep.duration < 60 ? `${Math.round(ep.duration)} s` : fmtDuration(ep.duration)}` : ""}${seen.has(String(ep.id)) ? " · watched" : ""}</div></div>
+          <div class="sub">@${esc(ep.description || "")}${ep.duration ? ` · ${ep.duration < 60 ? `${Math.round(ep.duration)} s` : fmtDuration(ep.duration)}` : ""}${seen.has(String(ep.id)) ? " · watched" : ""}${needsSignIn(ep) ? " · plays when signed in to Instagram" : ""}</div></div>
         <div class="status"><div class="row"><a class="btn primary" href="#/reels/play?at=${ep.id}">Watch</a>
           <button type="button" class="ghost danger">Delete</button></div></div>
       </div>`);
@@ -140,20 +174,13 @@ async function renderList(view) {
         </details>
       </div>
       <div class="reel-saved" id="reel-saved" ${info.mode === "saved" ? "" : "hidden"}>
-        <label for="reel-collection"><strong>Which saves?</strong></label>
-        <div class="row">
-          <select id="reel-collection">
-            <option value="all">Everything I've saved</option>
-            ${(info.collections || []).map((c) => `<option value="${esc(c.id)}" ${c.id === info.collection ? "selected" : ""}>${esc(c.name)}</option>`).join("")}
-          </select>
-          <button type="button" id="reel-find" ${busy ? "disabled" : ""} title="Tamkeen looks at your Saved page on Instagram (in its own Instagram window) and lists your collections here">${(info.collections || []).length ? "↻ Refresh the list" : "Find my collections"}</button>
-        </div>
-        <p class="small muted hint">Each press of “Get 10 reels” takes the next ones you haven't had yet. Your own saves are never skipped
-        for their language, so reels that mix ${esc(info.language_name)} with English are kept too. Only saves that aren't videos, have no
-        words at all, or can't be shown outside Instagram are left out.</p>
+        <strong>1. Choose a collection</strong>
+        <div class="reel-chips" id="reel-colls"></div>
+        <div id="reel-picker"></div>
       </div>
       <div class="row">
-        <button type="button" class="primary" id="reel-go" ${busy ? "disabled" : ""}>${busy ? (st.target ? "Getting reels…" : "Working…") : "Get 10 reels"}</button>
+        <button type="button" class="primary" id="reel-go" ${busy ? "disabled" : ""} ${info.mode === "saved" ? "hidden" : ""}>${busy ? "Getting reels…" : "Get 10 reels"}</button>
+        <button type="button" class="primary" id="reel-send" ${info.mode === "saved" ? "" : "hidden"} disabled></button>
         <button type="button" class="ghost" id="reel-stop" ${busy ? "" : "hidden"}>Stop</button>
         <span class="small muted" id="reel-status"></span>
       </div>
@@ -167,14 +194,9 @@ async function renderList(view) {
       catch (e) { toast(e.message, { error: true }); }
     };
     card.querySelectorAll('input[name="reel-mode"]').forEach((r) => {
-      r.onchange = () => api("/reels/choices", { method: "PUT", body: { mode: r.value } }).then((v) => { info = v; q("#reel-saved").hidden = v.mode !== "saved"; });
+      r.onchange = () => api("/reels/choices", { method: "PUT", body: { mode: r.value } }).then((v) => { info = v; drawGet(); });
     });
-    q("#reel-collection").onchange = (e) => api("/reels/choices", { method: "PUT", body: { collection: e.target.value } })
-      .then((v) => { info = v; }).catch((err) => toast(err.message, { error: true }));
-    q("#reel-find").onclick = async () => {
-      try { info.status = await api("/reels/collections", { method: "POST" }); drawGet(); watchBatch(); }
-      catch (e) { toast(e.message, { error: true }); }
-    };
+    drawSaved(card, busy);
     const mine = q("#reel-mine");
     for (const name of info.mine) {
       const row = h(`<label class="reel-pick"><input type="checkbox" ${chosen.has(name) ? "checked" : ""}> <span>@${esc(name)}</span>
@@ -211,17 +233,104 @@ async function renderList(view) {
     }
   }
 
+  // ----- "From my Instagram saves": choose a collection, then tick its reels -----
+  const start = async (path, body) => {
+    try { info.status = await api(path, { method: "POST", body }); drawGet(); watchBatch(); }
+    catch (e) { toast(e.message, { error: true }); }
+  };
+  function drawSaved(card, busy) {
+    if (info.mode !== "saved") return;
+    const q = (sel) => card.querySelector(sel);
+    const colls = q("#reel-colls");
+    const chip = (label, id) => {
+      const b = h(`<button type="button" class="reel-chip reel-coll${saved.collection === id && saved.at ? " active" : ""}" ${busy ? "disabled" : ""}></button>`);
+      b.textContent = label;
+      b.title = `Show the reels saved in “${label}”`;
+      b.onclick = () => { picked.clear(); start("/reels/saved/list", { collection: id }); };
+      colls.append(b);
+    };
+    chip("Everything I've saved", "all");
+    for (const c of info.collections || []) chip(c.name, c.id);
+    const refresh = h(`<button type="button" class="reel-chip ghost" ${busy ? "disabled" : ""}
+      title="Look at your Saved page on Instagram again (in Tamkeen's own Instagram window) for new collections">${(info.collections || []).length ? "↻" : "Find my collections"}</button>`);
+    refresh.onclick = () => start("/reels/collections");
+    colls.append(refresh);
+    // The first time this choice is opened, fetch the list of collections without being asked.
+    if (!(info.collections || []).length && !busy && !askedForCollections) {
+      askedForCollections = true;
+      start("/reels/collections");
+      return;
+    }
+
+    const box = q("#reel-picker");
+    const send = q("#reel-send");
+    const name = saved.collection === "all" ? "everything you've saved" : ((info.collections || []).find((c) => c.id === saved.collection) || {}).name;
+    if (!saved.at || !name) {
+      box.append(h(`<p class="small muted hint">Press a collection above. Tamkeen looks at it on Instagram and lists its reels here, for you to tick the ones you want.</p>`));
+      send.textContent = "Send the ticked reels to my phone";
+      return;
+    }
+    const unusable = (p) => p.have || p.video === false || !!p.skipped;
+    const usable = saved.posts.filter((p) => !unusable(p));
+    for (const code of [...picked]) if (!usable.some((p) => p.code === code)) picked.delete(code);
+    const head = h(`<div class="reel-pickhead"><strong>2. Tick the reels you want</strong> <span class="muted small"></span>
+      <span class="spacer"></span><label class="switch small"><input type="checkbox" id="reel-all" ${busy || !usable.length ? "disabled" : ""}> All</label></div>`);
+    head.querySelector("span").textContent = `in “${name}” (${saved.posts.length})`;
+    box.append(head);
+    const list = h(`<div class="reel-picks"></div>`);
+    const paint = () => {
+      send.disabled = busy || !picked.size;
+      send.textContent = busy ? "Working…" : picked.size ? `Send ${picked.size} reel${picked.size === 1 ? "" : "s"} to my phone` : "Send the ticked reels to my phone";
+      head.querySelector("#reel-all").checked = usable.length > 0 && picked.size === usable.length;
+    };
+    for (const p of saved.posts) {
+      const off = unusable(p);
+      const row = h(`<label class="reel-pickrow${off ? " off" : ""}">
+        <input type="checkbox" ${picked.has(p.code) ? "checked" : ""} ${off || busy ? "disabled" : ""}>
+        ${p.thumb ? `<img src="/api/reels/thumb?u=${encodeURIComponent(p.thumb)}" alt="" loading="lazy">` : `<span class="ph">${icon("video", 20)}</span>`}
+        <span class="txt"><span class="who">${p.user ? `@${esc(p.user)}` : "Instagram reel"}${p.seconds ? ` · ${p.seconds < 60 ? `${p.seconds} s` : fmtDuration(p.seconds)}` : ""}</span>
+          <span class="cap" dir="auto"></span></span>
+        <span class="tag small muted">${p.have ? "Already in your reels" : p.video === false ? "Not a video" : p.skipped ? `Can't be used: ${esc(p.skipped)}` : ""}</span>
+      </label>`);
+      row.querySelector(".cap").textContent = p.caption || "";
+      row.querySelector("img")?.addEventListener("error", (e) => { e.target.replaceWith(h(`<span class="ph">${icon("video", 20)}</span>`)); });
+      row.querySelector("input").onchange = (e) => { e.target.checked ? picked.add(p.code) : picked.delete(p.code); paint(); };
+      list.append(row);
+    }
+    if (!saved.posts.length) list.append(h(`<p class="small muted hint">Nothing is saved there yet.</p>`));
+    box.append(list);
+    box.append(h(`<p class="small muted hint">Your own saves are never skipped for their language, so reels that mix ${esc(info.language_name)} with
+      English are kept too. A reel is only left out if it has no words at all; the list below says which. Some reels (mostly ones with a
+      song from Instagram's music library) only play for people signed in to Instagram: those are kept too, and play on your phone once
+      you have signed in to Instagram there.</p>`));
+    head.querySelector("#reel-all").onchange = (e) => {
+      picked.clear();
+      if (e.target.checked) for (const p of usable) picked.add(p.code);
+      list.querySelectorAll("input").forEach((box2, i) => { box2.checked = picked.has(saved.posts[i].code); });
+      paint();
+    };
+    send.onclick = () => {
+      const codes = saved.posts.map((p) => p.code).filter((c) => picked.has(c)); // in the collection's own order
+      start("/reels/saved/send", { codes });
+    };
+    paint();
+  }
+
   let lastKept = -1;
   function onStatus(st) {
     if (!info) return;
     const was = info.status && info.status.running;
     info.status = st;
     const open = view.querySelector("#reel-drop")?.open;
+    const scrolled = view.querySelector(".reel-picks")?.scrollTop || 0;
     drawGet();
     if (open) view.querySelector("#reel-drop").open = true;
+    if (scrolled && view.querySelector(".reel-picks")) view.querySelector(".reel-picks").scrollTop = scrolled;
     if (st.kept !== lastKept || (was && !st.running)) { lastKept = st.kept; drawList(); }
     if (was && !st.running) {
-      api("/reels").then((v) => { info = v; drawGet(); }).catch(() => {}); // the popular list may have changed
+      picked.clear(); // what was ticked has been dealt with
+      // The popular list, the collections, the collection's reels and which are "already in your reels" may all have changed.
+      Promise.all([api("/reels").then((v) => { info = v; }), loadSaved()]).then(() => drawGet()).catch(() => {});
       if (st.state === "error" || st.state === "stopped") toast(st.message, { error: st.state === "error" });
     }
   }
@@ -235,6 +344,7 @@ async function renderList(view) {
   const offFeeds = on("feeds", () => drawList());
 
   try { info = await api("/reels"); } catch { info = { available: false }; }
+  if (info.available) await loadSaved();
   drawGet();
   await drawList();
   if (info.status && info.status.running) watchBatch();
@@ -260,6 +370,15 @@ async function renderPlayer(view, { query }) {
       <div class="reel-bar">
         <div class="reel-words ar" id="reel-words" tabindex="0"></div>
         <div class="reel-pop" id="reel-pop"><p class="small muted reel-hint" id="reel-hint">Tap a word to see what it means.</p></div>
+      </div>
+      <div class="reel-controls" id="reel-controls">
+        <button type="button" id="rc-back" title="Back 5 seconds">⟲ 5s</button>
+        <button type="button" id="rc-play" class="play primary" title="Play / pause">▶</button>
+        <button type="button" id="rc-fwd" title="Forward 5 seconds">5s ⟳</button>
+        <span class="t" id="rc-cur">0:00</span>
+        <input type="range" id="rc-seek" min="0" max="1" step="0.1" value="0" aria-label="Where in the reel">
+        <span class="t" id="rc-dur">0:00</span>
+        <select id="rc-speed" title="Playing speed">${REEL_SPEEDS.map((s) => `<option value="${s}">${s}×</option>`).join("")}</select>
       </div>
     </div>`));
   const $ = (sel) => view.querySelector(sel);
@@ -312,6 +431,38 @@ async function renderPlayer(view, { query }) {
   new MutationObserver(() => { hint.hidden = bubble.open; }).observe(bubble.el, { attributes: true, attributeFilter: ["hidden"] });
 
   const sentence = (a, b) => joinWords(cur.texts.slice(a, b + 1), cur.lang);
+
+  // ----- the controls under the bar: always on screen, also while a word's popup is open -----
+  let last = null;      // what the reel last said about itself
+  let dragging = false; // a finger is on the slider
+  let speedSetOn = "";  // the reel the chosen speed has been passed to
+  let speed = 1;
+  try { speed = Number(JSON.parse(localStorage.getItem("speed"))) || 1; } catch { /* storage unavailable */ }
+  if (!REEL_SPEEDS.includes(speed)) speed = 1;
+  $("#rc-speed").value = String(speed);
+  const jumpTo = (t) => {
+    if (!surface || !last) return;
+    clipEnd = null;
+    surface.do("seek", Math.max(0, Math.min(t, Math.max(0, (last.d || t) - 0.3))));
+  };
+  $("#rc-play").onclick = () => { if (surface) { clipEnd = null; surface.do(last && !last.paused ? "pause" : "play"); } };
+  $("#rc-back").onclick = () => last && jumpTo(last.t - 5);
+  $("#rc-fwd").onclick = () => last && jumpTo(last.t + 5);
+  $("#rc-seek").addEventListener("input", (e) => { dragging = true; $("#rc-cur").textContent = formatTime(Number(e.target.value)); });
+  $("#rc-seek").addEventListener("change", (e) => { dragging = false; jumpTo(Number(e.target.value)); });
+  $("#rc-speed").onchange = (e) => {
+    speed = Number(e.target.value) || 1;
+    try { localStorage.setItem("speed", JSON.stringify(speed)); } catch { /* storage unavailable */ }
+    if (surface) surface.do("rate", speed);
+  };
+  function paintControls(s) {
+    last = s;
+    $("#rc-play").textContent = s.paused ? "▶" : "❚❚";
+    if (s.d) { $("#rc-seek").max = String(s.d); $("#rc-dur").textContent = formatTime(s.d); }
+    if (!dragging) { $("#rc-seek").value = String(s.t); $("#rc-cur").textContent = formatTime(s.t); }
+    // Every reel is a fresh page: give it the chosen speed once it is ready.
+    if (s.ready && speedSetOn !== s.page) { speedSetOn = s.page; if (speed !== 1) surface.do("rate", speed); }
+  }
 
   function playClip(start, end) {
     if (!surface) return;
@@ -407,22 +558,35 @@ async function renderPlayer(view, { query }) {
     seenNav = "";
     skipping = false;
     loadedAt = Date.now();
-    if (!opened) { opened = true; await surface.open({ url: embedUrl(ep), el: stage, ...stageRect() }); }
-    else await surface.load(embedUrl(ep));
+    if (!opened) { opened = true; await surface.open({ url: reelAddress(ep), el: stage, ...stageRect() }); }
+    else await surface.load(reelAddress(ep));
   }
 
   function onState(s) {
     if (disposed || !cur && !surface) return;
     const ep = reels[index];
-    if (!s || !String(s.page || "").includes(ep.guid)) return; // the page for the previous reel is still showing
+    // Instagram may answer a signed-out visit to a reel's ordinary page with its sign-in page, whose address no longer names the reel.
+    const signInPage = !!s && /^\/accounts\//.test(String(s.page || "")) && reelAddress(ep) !== embedUrl(ep);
+    if (!s || !(signInPage || String(s.page || "").includes(ep.guid))) return; // the page for the previous reel is still showing
     playing = !s.paused;
+    paintControls(s);
     if (s.nav && s.nav !== seenNav) {
       seenNav = s.nav;
       show(index + (s.nav.startsWith("prev") ? -1 : 1));
       return;
     }
+    if (s.error === "signin" && !skipping) { // Instagram wants a sign-in before it plays this one
+      skipping = true;
+      askSignIn($("#reel-pop"), $("#reel-n"), { retry: () => show(index), skip: () => show(index + 1) });
+      return;
+    }
     if (s.error === "novideo" && !skipping) {
       skipping = true;
+      if (reelAddress(ep) === embedUrl(ep)) { // no video on its embed page: its ordinary page may still play it
+        viaPage.add(String(ep.id));
+        show(index);
+        return;
+      }
       toast("That reel can't be shown outside Instagram any more. Skipping it.");
       show(index + 1);
       return;

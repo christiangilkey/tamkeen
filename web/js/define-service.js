@@ -3,6 +3,7 @@
 
 import { api, state } from "./app.js";
 import { define, cacheKey, PROVIDERS, DefinerError } from "./definer.js";
+import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 
 export function definerConfig() {
   const s = (state.status && state.status.settings) || {};

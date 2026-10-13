@@ -209,6 +209,47 @@ def test_a_reel_is_stored_as_its_address_and_its_words(world):
             reels.save_reel("DdWrMMkitIL", "x", "", [Segment(0, 1, "  ", [])], "ar", "m")
 
 
+def test_why_a_reel_could_not_be_used_is_remembered_until_it_is_kept(world):
+    _, a, _ = world
+    with a:
+        reels.mark_outcome("code_one_11", "can't be shown outside Instagram")
+        reels.mark_outcome("code_two_22", "nothing is said in it")
+        assert reels.load()["skipped"] == {"code_one_11": "can't be shown outside Instagram", "code_two_22": "nothing is said in it"}
+        reels.mark_outcome("code_one_11")  # tried again later and kept
+        assert reels.load()["skipped"] == {"code_two_22": "nothing is said in it"}
+        reels.update(mode="saved")
+        assert reels.load()["skipped"], "changing a choice doesn't lose it"
+
+
+def test_the_picking_list_is_tidied():
+    posts = [
+        {"code": "ABCDEFGHIJK", "user": "Some.One", "caption": "first line\n  second", "seconds": "14.6", "thumb": "https://scontent.cdninstagram.com/a.jpg?x=1"},
+        {"code": "ABCDEFGHIJK", "user": "again"},
+        {"code": "bad code"},
+        {"code": "PHOTO123456", "video": False, "thumb": "https://evil.example/a.jpg", "user": "not a name!"},
+    ]
+    assert reels.tidy_listing(posts) == [
+        {"code": "ABCDEFGHIJK", "user": "some.one", "caption": "first line second", "video": True, "seconds": 14, "thumb": "https://scontent.cdninstagram.com/a.jpg?x=1"},
+        {"code": "PHOTO123456", "user": "", "caption": "", "video": False, "seconds": 0, "thumb": ""},
+    ]
+    assert len(reels.tidy_listing([{"code": f"code_{i:06d}"} for i in range(200)])) == reels.LIST_LIMIT
+    for ok in ("https://scontent-sjc3-1.cdninstagram.com/v/x.jpg", "https://instagram.fabc1-1.fna.fbcdn.net/x.jpg"):
+        assert reels.thumb_allowed(ok)
+    for bad in ("http://x.cdninstagram.com/x.jpg", "https://cdninstagram.com.evil.net/x.jpg", "https://evil.example/cdninstagram.com/x.jpg",
+                "https://127.0.0.1/x.jpg", "file:///c:/x.jpg", "", "nonsense"):
+        assert not reels.thumb_allowed(bad), bad
+
+
+def test_picking_api(client, monkeypatch):
+    monkeypatch.delenv("APS_DESKTOP", raising=False)
+    assert client.get("/api/reels/saved").json() == {"collection": "", "at": 0.0, "posts": []}
+    for path, body in (("/api/reels/saved/list", {"collection": "all"}), ("/api/reels/saved/send", {"codes": ["ABCDEFGHIJK"]})):
+        r = client.post(path, json=body)
+        assert r.status_code == 400 and "installed computer app" in r.json()["detail"], path
+    assert client.post("/api/reels/saved/list", json={"collection": "no-such"}).status_code == 400
+    assert client.get("/api/reels/thumb", params={"u": "https://evil.example/x.jpg"}).status_code == 400
+
+
 def test_seen_reels_are_remembered(world):
     _, a, _ = world
     with a:
@@ -317,3 +358,35 @@ def test_saved_choices_through_the_api(client, monkeypatch):
     assert client.put("/api/reels/choices", json={"collection": "nope"}).status_code == 400
     r = client.post("/api/reels/collections")
     assert r.status_code == 400 and "installed computer app" in r.json()["detail"]
+
+
+# ----- reels Instagram plays only to someone signed in -----
+
+def test_a_reel_that_needs_a_sign_in_is_marked_in_its_address(world):
+    _, a, _ = world
+    with a:
+        plain = reels.save_reel("PLAINreel01", "someone", "x", SPEECH, "ar", "m")
+        assert plain["audio_url"] == "https://www.instagram.com/reel/PLAINreel01/" and not reels.needs_signin(plain["audio_url"])
+        marked = reels.save_reel("MUSICreel02", "someone", "x", SPEECH, "ar", "m", signin=True)
+        assert marked["audio_url"] == "https://www.instagram.com/reel/MUSICreel02/#signin" and reels.needs_signin(marked["audio_url"])
+        assert marked["audio_type"] == "video/instagram" and marked["guid"] == "MUSICreel02", "still an ordinary reel otherwise"
+        # Saved again later, when its embed page does play: the mark goes.
+        again = reels.save_reel("MUSICreel02", "someone", "x", SPEECH, "ar", "m")
+        assert again["id"] == marked["id"] and not reels.needs_signin(again["audio_url"])
+    assert not reels.needs_signin(None) and not reels.needs_signin("")
+
+
+def test_saves_once_skipped_as_not_playable_outside_can_be_picked_again(world, monkeypatch):
+    from app import reels_worker
+
+    _, a, _ = world
+    with a:
+        monkeypatch.setattr(reels_worker, "_listing", {"collection": "all", "at": 1.0, "posts": reels.tidy_listing(
+            [{"code": "MUSICreel02"}, {"code": "SILENTreel3"}, {"code": "KEPTreel004"}])})
+        reels.mark_outcome("MUSICreel02", reels.NOT_OUTSIDE)        # from before such reels were kept
+        reels.mark_outcome("SILENTreel3", "nothing is said in it")
+        reels.save_reel("KEPTreel004", "someone", "x", SPEECH, "ar", "m")
+        posts = {p["code"]: p for p in reels_worker.listing()["posts"]}
+        assert posts["MUSICreel02"]["skipped"] == "" and not posts["MUSICreel02"]["have"], "tickable again"
+        assert posts["SILENTreel3"]["skipped"] == "nothing is said in it"
+        assert posts["KEPTreel004"]["have"] and posts["KEPTreel004"]["skipped"] == ""

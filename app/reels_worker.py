@@ -12,9 +12,9 @@ stays in the app's browser storage like any other site's). A background thread t
      hear it, checks the language, writes the transcript, and deletes the file.
 Only the address and the words are kept (see reels.py).
 
-With the choice "From my Instagram saves" steps 1 and 2 are replaced by reading the user's own
-Saved page (one collection, or everything saved), and every unseen video there is tried in the
-order Instagram lists them.
+With the choice "From my Instagram saves" there is no batch of ten. The user picks a collection,
+the worker lists the posts in it (`start_listing`), the user ticks the ones they want, and exactly
+those are listened to and kept (`start_selected`).
 
 Everything here needs a real pywebview window, so it is exercised by a scripted real-window run
 rather than by the unit tests.
@@ -49,6 +49,8 @@ _lock = threading.Lock()
 _thread: threading.Thread | None = None
 _cancel = threading.Event()
 _status: dict[str, Any] = {"state": "idle", "message": "", "kept": 0, "target": 0, "checked": 0, "log": []}
+# The posts of the saved collection last looked at, for the picking list (kept in memory only).
+_listing: dict[str, Any] = {"collection": "", "posts": [], "at": 0.0}
 
 
 class Stopped(RuntimeError):
@@ -111,6 +113,48 @@ def start_collections() -> dict[str, Any]:
         _thread = threading.Thread(target=_run_collections, name="reels-collections", daemon=True)
         _thread.start()
     return status()
+
+
+def listing() -> dict[str, Any]:
+    """The posts of the collection last looked at, each marked `have` if it is already in the library."""
+    with db.session() as conn:
+        have = {r["guid"] for r in conn.execute(
+            "SELECT e.guid FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE f.url = ? AND e.deleted = 0",
+            (reels.LOCAL_FEED_URL,))}
+    skipped = reels.load()["skipped"]
+    with _lock:
+        return {"collection": _listing["collection"], "at": _listing["at"],
+                "posts": [{**p, "have": p["code"] in have,
+                           "skipped": "" if p["code"] in have or skipped.get(p["code"]) == reels.NOT_OUTSIDE else skipped.get(p["code"], "")}
+                          for p in _listing["posts"]]}
+
+
+def _begin(target: Any, args: tuple[Any, ...], name: str, count: int = 0) -> dict[str, Any]:
+    global _thread
+    if not available():
+        raise reels.ReelError("Reading your saves works in the installed computer app (it needs its own Instagram window).")
+    with _lock:
+        if _thread is not None and _thread.is_alive():
+            raise reels.ReelError("Busy with Instagram already. Try again when that has finished.")
+        _cancel.clear()
+        _status.update(state="starting", message="Opening Instagram…", kept=0, target=count, checked=0, log=[])
+        _thread = threading.Thread(target=target, args=args, name=name, daemon=True)
+        _thread.start()
+    return status()
+
+
+def start_listing(collection: str) -> dict[str, Any]:
+    """List the posts in one of the user's saved collections (or in everything saved), for picking."""
+    reels.update(mode="saved", collection=collection)
+    return _begin(_run_listing, (), "reels-listing")
+
+
+def start_selected(codes: list[str]) -> dict[str, Any]:
+    """Listen to exactly the reels the user ticked, and keep them."""
+    codes = [c for c in dict.fromkeys(str(c) for c in codes or [])][: reels.LIST_LIMIT]
+    if not codes:
+        raise reels.ReelError("Tick the reels you want first.")
+    return _begin(_run_selected, (codes,), "reels-selected", len(codes))
 
 
 # ---------------------------------------------------------------- the window
@@ -272,7 +316,8 @@ def _username(window: Any) -> str:
 
 
 _LINKS = ("JSON.stringify([].map.call(document.querySelectorAll('main a[href], a[href*=\"/saved/\"]'),function(a){"
-          "var i=a.querySelector('img');return {href:a.getAttribute('href'),text:(a.innerText||'').trim()||(i&&i.alt)||''}}))")
+          "var i=a.querySelector('img');return {href:a.getAttribute('href'),text:(a.innerText||'').trim()||(i&&i.alt)||'',"
+          "img:i?(i.currentSrc||i.src||''):''}}))")
 
 
 def _links(window: Any) -> list[dict[str, str]]:
@@ -292,7 +337,7 @@ def _saved_posts(window: Any, hook: str, address: str) -> list[dict[str, Any]]:
         href = str(link.get("href") or "")
         parts = [x for x in href.split("?")[0].split("/") if x]
         if len(parts) >= 2 and parts[-2] in ("p", "reel", "reels") and not any(p["code"] == parts[-1] for p in out):
-            out.append({**noted.get(parts[-1], {}), "code": parts[-1]})
+            out.append({**noted.get(parts[-1], {}), "code": parts[-1], "thumb": str(link.get("img") or "")})
     return out
 
 
@@ -301,6 +346,21 @@ _DETAILS = ("(function(code){var A='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqr
             "return (" + _GET + ")('/api/v1/media/'+pk+'/info/').then(function(d){var m=d&&d.items&&d.items[0];if(!m)return '';"
             "return JSON.stringify({user:m.user&&m.user.username||'',video:m.media_type===2,"
             "caption:(m.caption&&m.caption.text||'').slice(0,300),seconds:Math.round(m.video_duration||0)})}).catch(function(){return ''})})")
+
+
+_ADDRESS = ("(function(code){var A='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_',pk=0n;"
+            "for(var i=0;i<code.length;i++)pk=pk*64n+BigInt(A.indexOf(code[i]));"
+            "return (" + _GET + ")('/api/v1/media/'+pk+'/info/').then(function(d){var m=d&&d.items&&d.items[0];"
+            "var v=m&&m.video_versions&&m.video_versions[0];return (v&&v.url)||''}).catch(function(){return ''})})")
+
+
+def _video_address(window: Any, code: str) -> str:
+    """Where a reel's video is, asked of Instagram's site as the signed-in page (for reels whose
+    embed page has none). "" if the site won't say."""
+    if not _js(window, "/(^|\\.)instagram\\.com$/.test(location.hostname) ? 'y' : ''"):
+        return ""
+    address = str(_ask(window, _ADDRESS + "(" + json.dumps(code) + ")", 30) or "")
+    return address if address.startswith("https://") else ""
 
 
 def _details(window: Any, code: str) -> dict[str, Any]:
@@ -376,8 +436,15 @@ def _try_reel(window: Any, hook: str, cand: dict[str, Any], lang: str, engine: A
     _open(window, reels.embed_url(code), hook, settle=1.0)
     src = _wait(window, "(function(){var v=document.querySelector('video');var s=v?String(v.currentSrc||v.src||''):'';"
                         "return s.indexOf('http')===0?s:''})()", 10) or ""
+    signin = False
+    if not src and own_save:
+        # Instagram won't play this one on its embed page (a song from its music library, usually).
+        # The user picked it, so it is kept all the same: the site still tells a signed-in page
+        # where the video is, and the phone will play the reel's ordinary page, signed in.
+        src = _video_address(window, code)
+        signin = bool(src)
     if not src:
-        return False, "can't be shown outside Instagram"
+        return False, reels.NOT_OUTSIDE
     path = _fetch_video(src)
     try:
         seconds = audio.probe_duration(path)
@@ -403,8 +470,9 @@ def _try_reel(window: Any, hook: str, cand: dict[str, Any], lang: str, engine: A
     if reason:
         return False, reason
     ep = reels.save_reel(code, creator, cand.get("caption") or "", segments, lang,
-                         f"{engine.engine}:{engine.model_size}:{engine.device}", seconds)
-    return True, f"{ep['words']} words" + ("" if lang == languages.study() else f", in {reels.language_name(lang)}")
+                         f"{engine.engine}:{engine.model_size}:{engine.device}", seconds, signin=signin)
+    return True, (f"{ep['words']} words" + ("" if lang == languages.study() else f", in {reels.language_name(lang)}")
+                  + (" (plays when signed in to Instagram on the phone)" if signin else ""))
 
 
 # ---------------------------------------------------------------- the batch
@@ -431,6 +499,96 @@ def _run_collections() -> None:
                 window.destroy()
             except Exception:
                 pass
+
+
+def _attempt(window: Any, hook: str, cand: dict[str, Any], lang: str, engine: Any, own_save: bool) -> bool:
+    """Try one reel, note how it went in the progress list, and remember that it was tried."""
+    try:
+        ok, outcome = _try_reel(window, hook, cand, lang, engine, own_save=own_save)
+    except transcriber.TranscriptionCancelled:
+        raise Stopped("Stopped.") from None
+    except (reels.ReelError, httpx.HTTPError) as exc:
+        ok, outcome = False, str(exc) or exc.__class__.__name__
+    _note(cand.get("user") or "?", reels.title_for(cand.get("caption") or "", cand.get("user") or "?"), outcome, ok)
+    reels.mark_seen([cand["code"]])
+    reels.mark_outcome(cand["code"], "" if ok else outcome)
+    time.sleep(PAGE_PAUSE)
+    return ok
+
+
+def _close(window: Any) -> None:
+    if window is not None:
+        try:
+            window.destroy()
+        except Exception:
+            pass
+
+
+def _run_listing() -> None:
+    window = None
+    try:
+        hook = (paths.web_dir() / "js" / "instagram-worker.js").read_text(encoding="utf-8")
+        window = _signed_in_window(hook, "your saves couldn't be read")
+        state = reels.load()
+        _say("finding", "Reading that collection on Instagram…")
+        posts = _saved_posts(window, hook, reels.saved_path(state, _username(window)))[: reels.LIST_LIMIT]
+        for i, p in enumerate(posts):  # who made each one, where the page itself didn't say
+            if p.get("user"):
+                continue
+            if _cancel.is_set():
+                raise Stopped("Stopped.")
+            _say("finding", f"Reading your saved posts ({i + 1} of {len(posts)})…")
+            p.update({k: v for k, v in _details(window, p["code"]).items() if v not in (None, "")})
+            time.sleep(0.6)
+        tidy = reels.tidy_listing(posts)
+        with _lock:
+            _listing.update(collection=state["collection"], posts=tidy, at=time.time())
+        _say("done", f"{len(tidy)} saved post{'' if len(tidy) == 1 else 's'} found. Tick the ones you want." if tidy
+             else "Nothing is saved there yet.")
+    except Stopped as exc:
+        _say("stopped", str(exc))
+    except Exception as exc:
+        log.exception("Listing a saved collection failed")
+        _say("error", f"Reading that collection failed ({exc.__class__.__name__}: {exc}).")
+    finally:
+        _close(window)
+
+
+def _run_selected(codes: list[str]) -> None:
+    window = None
+    kept = 0
+    try:
+        lang = languages.study()
+        engine = transcriber.get()  # fails here, with a clear message, if no model is set up
+        hook = (paths.web_dir() / "js" / "instagram-worker.js").read_text(encoding="utf-8")
+        window = _signed_in_window(hook, "no reels were fetched")
+        with _lock:
+            known = {p["code"]: dict(p) for p in _listing["posts"]}
+        for i, code in enumerate(codes):
+            if _cancel.is_set():
+                raise Stopped("Stopped.")
+            _say("checking", f"Listening to reel {i + 1} of {len(codes)}…", kept=kept, checked=i + 1)
+            cand = known.get(code) or {"code": code}
+            if _attempt(window, hook, cand, lang, engine, own_save=True):
+                kept += 1
+                _say(kept=kept)
+        events.publish("feeds", {"refreshed": True})
+        sync.request()
+        left = len(codes) - kept
+        _say("done", f"{kept} of {len(codes)} ready for your phone." + (f" {left} couldn't be used (see below)." if left else ""),
+             kept=kept, checked=len(codes))
+    except Stopped as exc:
+        if kept:
+            events.publish("feeds", {"refreshed": True})
+            sync.request()
+        _say("stopped", str(exc))
+    except transcriber.NoModelError as exc:
+        _say("error", str(exc))
+    except Exception as exc:
+        log.exception("Getting the chosen reels failed")
+        _say("error", f"Getting those reels failed ({exc.__class__.__name__}: {exc}).")
+    finally:
+        _close(window)
 
 
 def _run(count: int) -> None:
@@ -492,17 +650,8 @@ def _run(count: int) -> None:
                 raise Stopped("Stopped.")
             checked += 1
             _say("checking", f"Listening to reel {checked} (kept {kept} of {count})…", kept=kept, checked=checked)
-            try:
-                ok, outcome = _try_reel(window, hook, cand, lang, engine, own_save=mode == "saved")
-            except transcriber.TranscriptionCancelled:
-                raise Stopped("Stopped.") from None
-            except (reels.ReelError, httpx.HTTPError) as exc:
-                ok, outcome = False, str(exc) or exc.__class__.__name__
-            if ok:
+            if _attempt(window, hook, cand, lang, engine, own_save=mode == "saved"):
                 kept += 1
-            _note(cand.get("user") or "?", reels.title_for(cand.get("caption") or "", cand.get("user") or "?"), outcome, ok)
-            reels.mark_seen([cand["code"]])
-            time.sleep(PAGE_PAUSE)
         events.publish("feeds", {"refreshed": True})
         sync.request()
         _say("done", f"{kept} reel{'' if kept == 1 else 's'} ready ({checked} checked). They sync to your phone with everything else.",

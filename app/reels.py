@@ -55,6 +55,7 @@ MIN_LANGUAGE_CONFIDENCE = 0.5
 # languages, often come out as a near tie (a real 14-second Arabic reel: English 0.53, Arabic 0.41).
 CLOSE_SECOND = 0.25
 SEEN_KEPT = 3000
+SKIPPED_KEPT = 800
 
 # Names for languages a reel may turn out to be in (the ones the app teaches come from languages.py).
 _OTHER_LANGUAGES = {"en": "English", "tr": "Turkish", "fa": "Persian", "ur": "Urdu", "hi": "Hindi", "de": "German",
@@ -93,6 +94,14 @@ def reel_url(code: str) -> str:
     return f"https://www.instagram.com/reel/{code}/"
 
 
+SIGNIN_MARK = "#signin"  # ends the address of a reel Instagram only plays to someone signed in
+NOT_OUTSIDE = "can't be shown outside Instagram"
+
+
+def needs_signin(audio_url: str | None) -> bool:
+    return str(audio_url or "").endswith(SIGNIN_MARK)
+
+
 def embed_url(code: str) -> str:
     return f"https://www.instagram.com/reel/{code}/embed/"
 
@@ -113,6 +122,9 @@ def load() -> dict[str, Any]:
         # (name and the page's address; never synced, it stays on this computer), and the one chosen.
         "collections": clean_collections(state.get("collections")),
         "collection": str(state.get("collection") or ALL_SAVED),
+        # Why a reel that was tried could not be used ({code: reason}), for the picking list.
+        "skipped": {str(k): str(v) for k, v in list((state.get("skipped") or {}).items())[-SKIPPED_KEPT:]}
+        if isinstance(state.get("skipped"), dict) else {},
         # True once the user has signed in to Instagram through Facebook in the app's window.
         "facebook": bool(state.get("facebook")),
     }
@@ -175,6 +187,46 @@ def update(mode: str | None = None, add: str | None = None, remove: str | None =
     return save(state)
 
 
+LIST_LIMIT = 80  # posts of one collection shown for picking
+
+
+def tidy_listing(posts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """The posts of a saved collection as the picking list shows them: {code, user, caption, video,
+    seconds, thumb}, in Instagram's order, each once. `video` is False only when it is known not
+    to be one (a photo); `thumb` is its small picture's address, kept only if it is Instagram's."""
+    out: list[dict[str, Any]] = []
+    for p in posts:
+        code = str(p.get("code") or "")
+        if not _CODE.match(code) or any(q["code"] == code for q in out):
+            continue
+        user = str(p.get("user") or "").lower()
+        thumb = str(p.get("thumb") or "")
+        out.append({
+            "code": code, "user": user if _USERNAME.match(user) else "",
+            "caption": " ".join(str(p.get("caption") or "").split())[:160],
+            "video": False if p.get("video") is False else True,
+            "seconds": int(float(p.get("seconds") or 0)),
+            "thumb": thumb if thumb_allowed(thumb) else "",
+        })
+        if len(out) >= LIST_LIMIT:
+            break
+    return out
+
+
+_THUMB_HOST = re.compile(r"(^|\.)(cdninstagram\.com|fbcdn\.net)$")
+
+
+def thumb_allowed(url: str) -> bool:
+    """Only pictures from Instagram's own picture servers are fetched for the picking list."""
+    from urllib.parse import urlsplit
+
+    try:
+        parts = urlsplit(url or "")
+    except ValueError:
+        return False
+    return parts.scheme == "https" and bool(_THUMB_HOST.search(parts.hostname or ""))
+
+
 def remember_collections(items: list[dict[str, Any]]) -> list[dict[str, str]]:
     """Store the collections just read from the user's Saved page; a chosen one that is gone falls back to "all"."""
     state = load()
@@ -198,6 +250,15 @@ def popular_is_fresh(state: dict[str, Any], lang: str, now: float | None = None)
 def mark_seen(codes: list[str]) -> None:
     state = load()
     state["seen"] = list(dict.fromkeys([*state["seen"], *codes]))[-SEEN_KEPT:]
+    save(state)
+
+
+def mark_outcome(code: str, reason: str = "") -> None:
+    """Remember why a tried reel could not be used ("" = it was kept, so any old reason is forgotten)."""
+    state = load()
+    state["skipped"].pop(code, None)
+    if reason:
+        state["skipped"][code] = reason[:120]
     save(state)
 
 
@@ -385,8 +446,11 @@ def title_for(caption: str, creator: str) -> str:
 
 
 def save_reel(code: str, creator: str, caption: str, segments: list[Segment], language: str, model: str,
-              seconds: float | None = None) -> dict[str, Any]:
-    """Store a reel that passed (its address and its words). Returns the episode row."""
+              seconds: float | None = None, signin: bool = False) -> dict[str, Any]:
+    """Store a reel that passed (its address and its words). Returns the episode row.
+    `signin`: Instagram won't play it on its embed page, so the phone plays its ordinary page,
+    signed in; the address is marked so the phone knows without trying."""
+    address = reel_url(code) + (SIGNIN_MARK if signin else "")
     if not _CODE.match(code or ""):
         raise ReelError("That doesn't look like a reel.")
     creator = clean_username(creator)
@@ -404,12 +468,12 @@ def save_reel(code: str, creator: str, caption: str, segments: list[Segment], la
             cur = conn.execute(
                 "INSERT INTO episodes(feed_id, uid, guid, title, description, published, audio_url, audio_type, "
                 "language, created_at) VALUES(?,?,?,?,?,?,?,?,?,?)",
-                (feed_id, uid, code, title_for(caption, creator), creator, now, reel_url(code), REEL_TYPE, language, now))
+                (feed_id, uid, code, title_for(caption, creator), creator, now, address, REEL_TYPE, language, now))
             ep_id = int(cur.lastrowid)
         else:
             ep_id = int(row["id"])
-            conn.execute("UPDATE episodes SET title = ?, description = ?, language = ?, deleted = 0 WHERE id = ?",
-                         (title_for(caption, creator), creator, language, ep_id))
+            conn.execute("UPDATE episodes SET title = ?, description = ?, language = ?, audio_url = ?, deleted = 0 WHERE id = ?",
+                         (title_for(caption, creator), creator, language, address, ep_id))
             for table in ("words", "segments", "segments_fts"):
                 conn.execute(f"DELETE FROM {table} WHERE episode_id = ?", (ep_id,))
         widx = 0

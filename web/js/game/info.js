@@ -6,7 +6,7 @@ import { esc, h } from "../app.js";
 import { BRANCHES, CATALOG, FOODS, MOVES, SPECIES, STAGES, SUPPLIES, TRAITS, TYPES, VARIANTS } from "./data.js";
 import { describe, leadingBranch, readyToEvolve, stageOf } from "./genome.js";
 import { AUTO_GOALS, FEEDS_PER_DAY, OFFLINE_HOURS, garden, hearts, totalRate } from "./idle.js";
-import { ADULT_XP, DAILY_COMPLETE_XP, SHOP_SIZE, branchOptions, levelOf, variantOptions } from "./rules.js";
+import { ADULT_XP, DAILY_COMPLETE_XP, HABIT_XP, SHOP_SIZE, branchOptions, levelOf, variantOptions } from "./rules.js";
 import { icon } from "./render.js";
 
 const fmt = (n) => Math.floor(n).toLocaleString();
@@ -237,7 +237,8 @@ export function openEvolution(game, go) {
     <span class="hud-bar"><i style="width:${pct(t)}%"></i></span><span class="info-pct">${pct(t)}%</span></div>`);
   body.append(h(`<div><strong>2. Your four habits</strong>
     <p class="small muted">Each creature keeps a record of how you studied while it was out. A habit rises when you earn XP that way and the
-      others fade a little, so the bars follow what you have been doing lately. About 1,500 XP of one kind fills a bar.</p>
+      others fade a little, so the bars follow what you have been doing lately. About ${fmt(HABIT_XP.listener)} XP of one kind fills a bar.
+      Curiosity takes ${fmt(HABIT_XP.curious)}, because looking words up pays so much more XP.</p>
     ${bars.join("")}</div>`));
 
   // Adult forms: one per habit.

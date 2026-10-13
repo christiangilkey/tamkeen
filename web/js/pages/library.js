@@ -6,6 +6,7 @@ import { importUrl } from "../pageimport.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { allProgress } from "../progress.js";
 import { importVideo, isYouTube, videoId as youTubeId } from "../youtube.js";
+import { COUNTRIES, chooseCountry, chosenCountry } from "../youtube-home.js";
 
 const FILTERS = [
   ["", "All"],
@@ -95,6 +96,8 @@ export async function render(view, { feedId: routeFeed, query }) {
           <strong>Watch a YouTube video</strong>
           <button type="button" id="open-youtube" class="trending-btn" title="Browse YouTube inside the app. Tap a video and it opens in Tamkeen's player, with its captions as clickable text">
             ${icon("video", 18)} Open YouTube</button>
+          <label class="yt-country small" id="yt-country-row" hidden title="Open YouTube starts on this week's most-watched videos from this country">
+            <span class="muted">Popular in</span> <select id="yt-country"></select></label>
           <p class="small muted hint">Tap any video there to watch it here with clickable captions. The video needs captions.</p>
         </div>
         <div class="add-feed add-yt">
@@ -103,7 +106,6 @@ export async function render(view, { feedId: routeFeed, query }) {
             ${icon("video", 18)} Reels for my phone</a>
         </div>
         <div class="row">
-          <button type="button" id="refresh" class="ghost" title="Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)">⟳ Refresh &amp; sync</button>
           <span class="row" style="flex-wrap:nowrap;gap:4px">
           <button type="button" id="add-video" class="ghost" title="Add a video file of your own; it's transcribed and stored in your Google Drive">${icon("video", 18)} Add video file</button>
           <input type="file" id="video-file" accept="video/*,.mkv" hidden>
@@ -114,6 +116,9 @@ export async function render(view, { feedId: routeFeed, query }) {
         <div class="upload-status" id="upload-status" hidden>
           <div class="small"><span id="upload-name"></span> <span class="muted" id="upload-pct"></span></div>
           <div class="progress"><i id="upload-bar"></i></div>
+        </div>
+        <div class="row">
+          <button type="button" id="refresh" class="ghost" title="Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)">⟳ Refresh &amp; sync</button>
         </div>
         <div class="feed-list" id="feed-list"></div>
         <div class="feed-list" id="podcast-list" hidden></div>
@@ -501,6 +506,15 @@ export async function render(view, { feedId: routeFeed, query }) {
     location.hash = `#/episode/${ep.id}`;
   }
   $("#open-youtube").onclick = () => openYouTube().catch((err) => toast(err.message, { error: true }));
+  // Which country's popular videos Open YouTube starts on (only languages spoken in several have a choice).
+  const ytCountries = COUNTRIES[studyLanguage()] || [];
+  if (ytCountries.length > 1) {
+    const pick = $("#yt-country");
+    for (const [code, name] of ytCountries) pick.append(new Option(name, code));
+    pick.value = chosenCountry(studyLanguage());
+    pick.onchange = () => chooseCountry(studyLanguage(), pick.value);
+    $("#yt-country-row").hidden = false;
+  }
   $("#open-browser").onclick = () => {
     const typed = $("#page-url").value.trim();
     openBrowser(typed).catch((err) => toast(err.message, { error: true }));

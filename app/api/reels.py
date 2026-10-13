@@ -4,7 +4,9 @@ from __future__ import annotations
 
 from typing import Any
 
+import httpx
 from fastapi import APIRouter, HTTPException
+from fastapi.responses import Response
 from pydantic import BaseModel
 
 from .. import db, languages, reels, reels_worker
@@ -66,6 +68,54 @@ def find_collections() -> dict[str, Any]:
         return reels_worker.start_collections()
     except reels.ReelError as exc:
         raise HTTPException(400, str(exc)) from exc
+
+
+@router.get("/saved")
+def saved_listing() -> dict[str, Any]:
+    """The posts of the saved collection last looked at, for ticking."""
+    return reels_worker.listing()
+
+
+class ListIn(BaseModel):
+    collection: str = reels.ALL_SAVED
+
+
+@router.post("/saved/list")
+def list_saved(body: ListIn) -> dict[str, Any]:
+    """Look at one saved collection on Instagram and list what is in it (needs the window)."""
+    try:
+        return reels_worker.start_listing(body.collection)
+    except reels.ReelError as exc:
+        raise HTTPException(400, str(exc)) from exc
+
+
+class SendIn(BaseModel):
+    codes: list[str]
+
+
+@router.post("/saved/send")
+def send_saved(body: SendIn) -> dict[str, Any]:
+    """Listen to exactly the ticked reels and keep them."""
+    try:
+        return reels_worker.start_selected(body.codes)
+    except reels.ReelError as exc:
+        raise HTTPException(400, str(exc)) from exc
+
+
+@router.get("/thumb")
+def thumb(u: str) -> Response:
+    """A reel's small picture for the picking list. Instagram's picture servers refuse to show
+    pictures inside other pages, so the app fetches the picture itself and hands it on."""
+    if not reels.thumb_allowed(u):
+        raise HTTPException(400, "Not an Instagram picture.")
+    try:
+        r = httpx.get(u, timeout=httpx.Timeout(20, connect=10), follow_redirects=False, headers={"User-Agent": "Mozilla/5.0"})
+    except httpx.HTTPError as exc:
+        raise HTTPException(502, "Couldn't fetch the picture.") from exc
+    kind = r.headers.get("content-type", "")
+    if r.status_code != 200 or not kind.startswith("image/") or len(r.content) > 3_000_000:
+        raise HTTPException(404, "No picture.")
+    return Response(r.content, media_type=kind, headers={"Cache-Control": "private, max-age=3600"})
 
 
 @router.post("/cancel")

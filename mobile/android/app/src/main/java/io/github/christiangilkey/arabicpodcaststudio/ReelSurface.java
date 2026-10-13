@@ -39,9 +39,20 @@ final class ReelSurface {
 
     private ReelSurface() {}
 
-    /** Only Instagram's embed pages are shown here. */
+    private static final String SITE = "https://www.instagram.com";
+
+    /** Only a reel's own pages on Instagram are shown here: its embed page, or its ordinary page
+     *  (for reels Instagram plays only to someone signed in). */
     static boolean isEmbed(String url) {
-        return url != null && url.startsWith("https://www.instagram.com/") && url.contains("/embed");
+        if (url == null || !url.startsWith(SITE + "/")) return false;
+        String path = url.substring(SITE.length()).split("[?#]")[0];
+        return path.matches("/(reel|reels|p)/[\\w-]+(/embed(/captioned)?)?/?");
+    }
+
+    /** Instagram sends someone who isn't signed in to its sign-in page; that has to be let through
+     *  so the script inside can report it (the user signs in from the app's own browser). */
+    private static boolean isSignIn(String url) {
+        return url != null && url.startsWith(SITE + "/accounts/login");
     }
 
     /** `top` and `height` are in the app page's own units (CSS pixels), measured from its top. */
@@ -64,7 +75,8 @@ final class ReelSurface {
             @Override
             public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest request) {
                 // A tap on "View profile" and the like must not take this small window somewhere else.
-                return !isEmbed(request.getUrl().toString());
+                String to = request.getUrl().toString();
+                return !isEmbed(to) && !isSignIn(to);
             }
         });
         web.setWebChromeClient(new WebChromeClient());

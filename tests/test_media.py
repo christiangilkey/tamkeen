@@ -243,3 +243,12 @@ def test_episode_list_can_be_limited_to_podcasts(client):
     assert only["counts"] == {"new": 2}, "the filter tabs count podcasts only too"
     assert client.get("/api/episodes?scope=podcasts&status=done").json()["total"] == 0
     assert client.get(f"/api/episodes?scope=podcasts&feed_id={feed_id}").json()["total"] == 2
+
+
+def test_youtube_window_only_starts_on_youtube():
+    start = "https://www.youtube.com/results?search_query=%D9%81%D9%8A&sp=CAMSBAgDEAE%3D&gl=SA&hl=ar"
+    assert youtube.start_address(start) == start
+    assert youtube.start_address("https://m.youtube.com/") == "https://m.youtube.com/"
+    for other in ("", None, "https://example.com/", "http://www.youtube.com/", "javascript:alert(1)",
+                  "https://www.youtube.com.evil.example/results"):
+        assert youtube.start_address(other) == youtube.BROWSER_HOME

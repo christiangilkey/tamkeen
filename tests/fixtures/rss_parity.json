@@ -1,0 +1,176 @@
+{
+ "feed_normal.xml": {
+  "title": "بودكاست تجريبي",
+  "description": "وصف البودكاست",
+  "link": "https://example.com",
+  "image": "https://example.com/cover.jpg",
+  "episodes": [
+   {
+    "guid": "ep-3",
+    "title": "الحلقة الثالثة",
+    "audio_url": "https://cdn.example.com/ep3.mp3",
+    "audio_type": "audio/mpeg",
+    "description": "وصف الحلقة",
+    "published": 1791187200.0,
+    "duration": 3723.0,
+    "image": "https://example.com/ep3.jpg"
+   },
+   {
+    "guid": "ep-2",
+    "title": "الحلقة الثانية",
+    "audio_url": "https://cdn.example.com/ep2.m4a",
+    "audio_type": "audio/x-m4a",
+    "description": "",
+    "published": 1790571600.0,
+    "duration": 754.0,
+    "image": "https://example.com/cover.jpg"
+   },
+   {
+    "guid": "ep-1",
+    "title": "الحلقة الأولى",
+    "audio_url": "https://cdn.example.com/ep1.mp3",
+    "audio_type": "audio/mpeg",
+    "description": "",
+    "published": 1789977600.0,
+    "duration": 95.0,
+    "image": "https://example.com/cover.jpg"
+   }
+  ]
+ },
+ "feed_messy.xml": {
+  "title": "Untitled podcast",
+  "description": "",
+  "link": null,
+  "image": null,
+  "episodes": [
+   {
+    "guid": "untitled",
+    "title": "Untitled episode",
+    "audio_url": "https://cdn.example.com/untitled.mp3",
+    "audio_type": "audio/mpeg",
+    "description": "",
+    "published": null,
+    "duration": null,
+    "image": null
+   },
+   {
+    "guid": "https://cdn.example.com/no-guid.m4a",
+    "title": "Missing guid",
+    "audio_url": "https://cdn.example.com/no-guid.m4a",
+    "audio_type": "audio/mp4",
+    "description": "",
+    "published": null,
+    "duration": null,
+    "image": null
+   },
+   {
+    "guid": "dup",
+    "title": "Junk metadata",
+    "audio_url": "https://cdn.example.com/junk.mp3",
+    "audio_type": "audio/mpeg",
+    "description": "",
+    "published": null,
+    "duration": null,
+    "image": null
+   },
+   {
+    "guid": "dup#db40ea1829",
+    "title": "Duplicate guid",
+    "audio_url": "https://cdn.example.com/dup2.mp3",
+    "audio_type": null,
+    "description": "",
+    "published": null,
+    "duration": null,
+    "image": null
+   },
+   {
+    "guid": "untyped",
+    "title": "Untyped enclosure",
+    "audio_url": "https://cdn.example.com/untyped.ogg?x=1",
+    "audio_type": null,
+    "description": "",
+    "published": null,
+    "duration": null,
+    "image": null
+   },
+   {
+    "guid": "media",
+    "title": "Media RSS only",
+    "audio_url": "https://cdn.example.com/media.mp3",
+    "audio_type": "audio/mpeg",
+    "description": "",
+    "published": null,
+    "duration": null,
+    "image": null
+   }
+  ]
+ },
+ "feed_tricky.xml": {
+  "title": "Café & Co",
+  "description": "All about coffee",
+  "link": "https://example.com/show",
+  "image": "https://example.com/square.png",
+  "episodes": [
+   {
+    "guid": "https://example.com/?p=12&x=1",
+    "title": "Tom & Jerry, part 1",
+    "audio_url": "https://cdn.example.com/ep12.mp3?token=a&b=2",
+    "audio_type": "audio/mpeg",
+    "description": "Line one. Line&nbsp;two.",
+    "published": 1791340200.0,
+    "duration": 45.5,
+    "image": "https://example.com/ep12.jpg"
+   },
+   {
+    "guid": "group",
+    "title": "Media group only",
+    "audio_url": "https://cdn.example.com/group.m4a",
+    "audio_type": "audio/x-m4a",
+    "description": "",
+    "published": 1790848800.0,
+    "duration": null,
+    "image": "https://example.com/group.jpg"
+   },
+   {
+    "guid": "atom-link",
+    "title": "Atom link enclosure",
+    "audio_url": "https://cdn.example.com/atom.mp3",
+    "audio_type": "audio/mpeg",
+    "description": "",
+    "published": 1790780400.0,
+    "duration": 3600.0,
+    "image": "https://example.com/square.png"
+   },
+   {
+    "guid": "twin",
+    "title": "Same id, first",
+    "audio_url": "https://cdn.example.com/twin1.mp3",
+    "audio_type": "audio/mpeg",
+    "description": "",
+    "published": null,
+    "duration": null,
+    "image": "https://example.com/square.png"
+   },
+   {
+    "guid": "twin#536a4110ee",
+    "title": "Same id, second",
+    "audio_url": "https://cdn.example.com/twin2.mp3",
+    "audio_type": "audio/mpeg",
+    "description": "",
+    "published": null,
+    "duration": null,
+    "image": "https://example.com/square.png"
+   },
+   {
+    "guid": "https://cdn.example.com/stream?id=9",
+    "title": "Unknown kind of file is still taken",
+    "audio_url": "https://cdn.example.com/stream?id=9",
+    "audio_type": "application/octet-stream",
+    "description": "",
+    "published": null,
+    "duration": null,
+    "image": "https://example.com/square.png"
+   }
+  ]
+ }
+}

@@ -1073,8 +1073,14 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .ai-wide { grid-column: 1 / -1; }
 .ai-key { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .ai-key input { flex: 1 1 200px; min-width: 0; }
+/* the way to a key: the brand's own blue (the logo's teal), the same in light and dark */
+.btn.key-get, .btn.key-get:hover { background: var(--brand-teal); border-color: var(--brand-teal); color: #fff; font-weight: 600; border-radius: 99px; padding-left: 16px; padding-right: 16px; text-decoration: none; }
+.btn.key-get:hover { filter: brightness(1.12); }
 .ai-key.need { padding: 6px; margin: 0 -6px; border-radius: 14px; border: 2px solid var(--brand-gold); background: color-mix(in srgb, var(--brand-gold) 14%, var(--surface)); }
 .ai-test { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; }
+#def-test-result:empty { display: none; }
+.ai-use { padding-top: 8px; border-top: 1px solid var(--border); }
+.ai-use strong { color: var(--text); font-variant-numeric: tabular-nums; font-size: 14px; }
 /* the model list */
 .model-pick { position: relative; }
 .model-btn { width: 100%; display: flex; align-items: center; gap: 8px; text-align: start; font-weight: 400; }

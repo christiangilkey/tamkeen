@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { artFiles, BRANCH_IDS, SPECIES_IDS, TYPE_IDS } from "../../web/js/game/data.js";
 import { describe, leadingBranch, newGenome, rng, stageOf, weightedPick } from "../../web/js/game/genome.js";
-import { ADULT_XP, DAILY_COMPLETE_XP, earn, fade, levelOf, newState, normalize, rollDay, rollReward, wordMultiplier } from "../../web/js/game/rules.js";
+import { ADULT_XP, DAILY_COMPLETE_XP, HABIT_XP, earn, fade, levelOf, newState, normalize, rollDay, rollReward, wordMultiplier } from "../../web/js/game/rules.js";
 
 const at = (iso) => new Date(iso);
 const seq = (...values) => { let i = 0; return () => values[i++ % values.length]; };
@@ -183,6 +183,23 @@ test("an egg hatches on the first day's goal, and growth reaches adulthood", () 
   assert.equal(r.stage, "ready", "grown enough: now it waits for its owner");
   assert.equal(s.creature.branch, null);
   assert.ok(ADULT_XP > 3000);
+});
+
+test("curiosity fills 20 times more slowly than the other habits, and old saves are converted once", () => {
+  assert.equal(HABIT_XP.curious, HABIT_XP.collector * 20);
+  const now = at("2026-10-10T10:00:00");
+  const looker = newState(21);
+  const r = earn(looker, { type: "word", key: "a" }, { rand: seq(0.1, 0.5), now }); // rolls 10 XP
+  assert.equal(r.xp, 10);
+  assert.ok(Math.abs(looker.creature.traits.curious - 10 / 30000) < 1e-12);
+  const saver = newState(22);
+  earn(saver, { type: "save" }, { now }); // 20 XP of collecting
+  assert.ok(Math.abs(saver.creature.traits.collector - 20 / 1500) < 1e-12);
+  // A save from before the change: its curiosity is brought onto the new scale, once.
+  const old = normalize({ roster: [{ seed: 5, growth: 0.5, traits: { curious: 1, reader: 0.6 } }], xp: 900 });
+  assert.deepEqual([old.creature.traits.curious, old.creature.traits.reader, old.curious20], [0.05, 0.6, true]);
+  assert.equal(normalize(JSON.parse(JSON.stringify(old))).creature.traits.curious, 0.05, "not divided a second time");
+  assert.equal(normalize(JSON.parse(JSON.stringify(newState(23)))).curious20, true);
 });
 
 test("levels, new days and old saves", () => {

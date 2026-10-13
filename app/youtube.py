@@ -41,6 +41,14 @@ class YouTubeError(RuntimeError):
     pass
 
 
+def start_address(url: str | None) -> str:
+    """Where the YouTube window opens: the address asked for if it is on youtube.com, else YouTube's front page."""
+    parts = urlsplit((url or "").strip())
+    if parts.scheme == "https" and parts.hostname in ALLOWED_HOSTS:
+        return (url or "").strip()
+    return BROWSER_HOME
+
+
 def is_youtube(audio_type: str | None) -> bool:
     return (audio_type or "") == YT_TYPE
 
