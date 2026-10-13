@@ -65,16 +65,14 @@
     var v = video();
     return JSON.stringify({
       ready: !!v && v.readyState >= 1, t: v ? v.currentTime : 0, d: (v && v.duration) || 0,
-      paused: v ? v.paused : true, rate: v ? v.playbackRate : 1, ends: ends, nav: nav, error: error, page: location.pathname
+      paused: v ? v.paused : true, ends: ends, nav: nav, error: error, page: location.pathname
     });
   };
-  /** What the app tells the reel to do: "play", "pause", "seek" to a time in seconds, or play at
-   * a "rate" (1 = normal speed, 0.75 = three-quarter speed). */
+  /** What the app tells the reel to do: "play", "pause", or "seek" to a time in seconds. */
   window.__tkReelDo = function (what, time) {
     var v = video();
     if (!v) return;
     if (what === "pause") v.pause();
-    else if (what === "rate") { try { v.playbackRate = Math.max(0.25, Math.min(2, Number(time) || 1)); } catch (e) { /* not ready */ } }
     else if (what === "seek") { try { v.currentTime = Math.max(0, Number(time) || 0); } catch (e) { /* not ready */ } }
     else if (what === "play") { var p = v.play(); if (p && p.catch) p.catch(function () { error = "blocked"; }); }
   };

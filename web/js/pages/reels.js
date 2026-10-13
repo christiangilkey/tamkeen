@@ -11,10 +11,11 @@ import { api, esc, h, on, toast, platform, buzz, reelSurface, fmtDuration, openB
 import { icon } from "../icons.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
-import { createWordBubble } from "../components/wordbubble.js";
+import { createWordBubble, pauseAfterWord, pauseSwitch } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
+import { seenWords } from "../lexicon/seen.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -47,8 +48,6 @@ function askSignIn(host, counter, { retry, skip }) {
   const gone = new MutationObserver(() => { box.remove(); gone.disconnect(); });
   gone.observe(counter, { childList: true, characterData: true, subtree: true });
 }
-// Speeds offered under a reel (the choice is shared with the podcast and video player).
-const REEL_SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5];
 
 // Which reels have been watched to the end, on this device.
 const WATCHED = "reels:watched";
@@ -388,7 +387,6 @@ async function renderPlayer(view, { query }) {
         <span class="t" id="rc-cur">0:00</span>
         <input type="range" id="rc-seek" min="0" max="1" step="0.1" value="0" aria-label="Where in the reel">
         <span class="t" id="rc-dur">0:00</span>
-        <select id="rc-speed" title="Playing speed">${REEL_SPEEDS.map((s) => `<option value="${s}">${s}×</option>`).join("")}</select>
       </div>
     </div>`));
   const $ = (sel) => view.querySelector(sel);
@@ -399,6 +397,7 @@ async function renderPlayer(view, { query }) {
 
   // ----- the reel being shown -----
   let cur = null; // {ep, lang, starts, ends, segOf, texts, els}
+  let seen = null; // which of this reel's words are new to the learner (they are drawn in purple)
   let curIdx = -1;
   let clipEnd = null;
   let seenEnds = 0;
@@ -430,6 +429,7 @@ async function renderPlayer(view, { query }) {
           start: cur.starts[t.i], end: cur.ends[t.j], sent_start: cur.starts[t.si], sent_end: cur.ends[t.sj] } });
         toast(`Saved “${t.text}” to vocab`);
         reward({ type: "save" }, cur.els[t.i]);
+        if (seen) seen.markSeen(t.i, t.j);
       } catch (e) {
         toast(e.message, { error: true });
         throw e;
@@ -445,11 +445,15 @@ async function renderPlayer(view, { query }) {
   // ----- the controls under the bar: always on screen, also while a word's popup is open -----
   let last = null;      // what the reel last said about itself
   let dragging = false; // a finger is on the slider
-  let speedSetOn = "";  // the reel the chosen speed has been passed to
-  let speed = 1;
-  try { speed = Number(JSON.parse(localStorage.getItem("speed"))) || 1; } catch { /* storage unavailable */ }
-  if (!REEL_SPEEDS.includes(speed)) speed = 1;
-  $("#rc-speed").value = String(speed);
+  // The last control is the switch the other player has in its popup: after a tapped word has
+  // played, pause there or keep playing (one choice for the whole app). Flipping it while a popup
+  // is open acts straight away, as a pause / play button would.
+  $("#reel-controls").append(pauseSwitch((pause) => {
+    clipEnd = null;
+    if (!surface || !last || !bubble.open) return;
+    if (pause && !last.paused) surface.do("pause");
+    else if (!pause && last.paused) surface.do("play");
+  }));
   const jumpTo = (t) => {
     if (!surface || !last) return;
     clipEnd = null;
@@ -460,23 +464,18 @@ async function renderPlayer(view, { query }) {
   $("#rc-fwd").onclick = () => last && jumpTo(last.t + 5);
   $("#rc-seek").addEventListener("input", (e) => { dragging = true; $("#rc-cur").textContent = formatTime(Number(e.target.value)); });
   $("#rc-seek").addEventListener("change", (e) => { dragging = false; jumpTo(Number(e.target.value)); });
-  $("#rc-speed").onchange = (e) => {
-    speed = Number(e.target.value) || 1;
-    try { localStorage.setItem("speed", JSON.stringify(speed)); } catch { /* storage unavailable */ }
-    if (surface) surface.do("rate", speed);
-  };
   function paintControls(s) {
     last = s;
     $("#rc-play").textContent = s.paused ? "▶" : "❚❚";
     if (s.d) { $("#rc-seek").max = String(s.d); $("#rc-dur").textContent = formatTime(s.d); }
     if (!dragging) { $("#rc-seek").value = String(s.t); $("#rc-cur").textContent = formatTime(s.t); }
-    // Every reel is a fresh page: give it the chosen speed once it is ready.
-    if (s.ready && speedSetOn !== s.page) { speedSetOn = s.page; if (speed !== 1) surface.do("rate", speed); }
   }
 
+  // Play a word or a sentence, then pause right after it (or keep playing from there, if that is
+  // what the switch says).
   function playClip(start, end) {
     if (!surface) return;
-    clipEnd = end + 0.08;
+    clipEnd = pauseAfterWord() ? end + 0.08 : null;
     surface.do("seek", Math.max(0, start - 0.05));
     surface.do("play");
   }
@@ -495,6 +494,7 @@ async function renderPlayer(view, { query }) {
       podcast: `@${cur.ep.description || "Instagram"}`, episode: cur.ep.title,
     });
     reward({ type: "word", key: `${cur.lang}:${word.toLowerCase()}` }, cur.els[i]);
+    if (seen) seen.markSeen(i, i); // looked up: this word, in all its forms, is no longer new
   }
   wordsEl.addEventListener("click", (e) => {
     const el = e.target.closest(".w");
@@ -508,7 +508,9 @@ async function renderPlayer(view, { query }) {
     if (idx < 0) return;
     const el = cur.els[idx];
     el.classList.add("cur");
-    if (bubble.open) return; // keep the tapped word in view while its popup is open
+    // Keep the tapped word in view while its popup is open (unless the choice is to keep playing:
+    // then the words carry on following the reel).
+    if (bubble.open && pauseAfterWord()) return;
     const box = wordsEl.getBoundingClientRect();
     const r = el.getBoundingClientRect();
     if (r.top < box.top + 4 || r.bottom > box.bottom - 4) wordsEl.scrollTo({ top: wordsEl.scrollTop + r.top - box.top - box.height * 0.3, behavior: "smooth" });
@@ -522,6 +524,7 @@ async function renderPlayer(view, { query }) {
     clipEnd = null;
     curIdx = -1;
     target = null;
+    if (seen) { seen.close(); seen = null; } // the previous reel's words are leaving the screen
     $("#reel-n").textContent = `${index + 1} / ${reels.length}`;
     $("#reel-who").textContent = `@${ep.description || ""}`;
     history.replaceState(null, "", `#/reels/play?at=${ep.id}`); // so "back" and a reopen land on this reel
@@ -554,6 +557,9 @@ async function renderPlayer(view, { query }) {
       wordsEl.setAttribute("dir", langInfo(lang).dir);
       cur = { ep, lang, starts: Float64Array.from(W.start), ends: Float64Array.from(W.end), segOf: Int32Array.from(W.seg),
               texts: W.text, els: wordsEl.querySelectorAll(".w") };
+      // The same colours as the other players: a word never tapped before is purple; a tap makes
+      // every form of that word "seen" (js/lexicon/seen.js).
+      seen = seenWords({ tokens: W.text, lang, els: cur.els });
     }
     if (!surface) {
       stage.innerHTML = "";
@@ -633,6 +639,7 @@ async function renderPlayer(view, { query }) {
     window.removeEventListener("resize", onResize);
     document.removeEventListener("pointerdown", onOutside);
     bubble.hide();
+    if (seen) seen.close();
     if (surface) surface.close();
   };
 }

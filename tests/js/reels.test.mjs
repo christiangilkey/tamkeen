@@ -139,7 +139,7 @@ test("the reel starts by itself, does not repeat, and its end is counted", () =>
   p.tick();
   assert.equal(p.v.plays, 1, "started once, not on every check");
   p.v.currentTime = 4.2;
-  assert.deepEqual(p.state(), { ready: true, t: 4.2, d: 16.7, paused: false, rate: 1, ends: 0, nav: "", error: "", page: "/reel/DeWoCVZJA3M/embed/" });
+  assert.deepEqual(p.state(), { ready: true, t: 4.2, d: 16.7, paused: false, ends: 0, nav: "", error: "", page: "/reel/DeWoCVZJA3M/embed/" });
   p.listeners.ended();
   assert.equal(p.state().ends, 1);
 });
@@ -166,13 +166,6 @@ test("the app can pause, play and jump, and tapping the picture pauses", () => {
   p.win.__tkReelDo("seek", 7.5);
   assert.equal(p.v.currentTime, 7.5);
   p.win.__tkReelDo("play");
-  // The speed chosen under the reel, kept within what a video can do.
-  p.win.__tkReelDo("rate", 0.75);
-  assert.deepEqual([p.v.playbackRate, p.state().rate], [0.75, 0.75]);
-  p.win.__tkReelDo("rate", 9);
-  assert.equal(p.v.playbackRate, 2);
-  p.win.__tkReelDo("rate", "nonsense");
-  assert.equal(p.v.playbackRate, 1);
   assert.equal(p.v.paused, false);
   p.listeners.click({ preventDefault() {}, stopPropagation() {} });
   assert.equal(p.v.paused, true);

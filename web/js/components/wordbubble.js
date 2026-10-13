@@ -29,6 +29,22 @@ function paintSwitch(b) {
   b.firstElementChild.innerHTML = pause ? PAUSE_ICON : PLAY_ICON;
 }
 
+/** The same switch for a player that keeps it among its own controls instead of in the popup
+ *  (the reel player). `onChange(pause)` runs when it is flipped. */
+export function pauseSwitch(onChange) {
+  const box = document.createElement("div");
+  box.innerHTML = modeSwitch();
+  const b = box.firstElementChild;
+  paintSwitch(b);
+  b.addEventListener("click", () => {
+    const pause = !pauseAfterWord();
+    setPauseAfterWord(pause);
+    paintSwitch(b);
+    onChange(pause);
+  });
+  return b;
+}
+
 /**
  * @param {HTMLElement} host positioned (relative) container the bubble lives in
  * @param {{
