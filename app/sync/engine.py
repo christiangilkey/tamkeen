@@ -102,7 +102,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "e.transcribe_requested_at, e.remote_audio, e.deleted, e.created_at, e.updated_at "
             "FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE f.deleted = 0 ORDER BY e.uid")]
         vocab = [{**dict(r), "folders": _folder_list(r["folders"])} for r in conn.execute(
-            "SELECT uid, episode_uid, text, sentence, start, end, sent_start, sent_end, meaning, notes, translation, "
+            "SELECT uid, episode_uid, text, sentence, start, end, sent_start, sent_end, meaning, notes, translation, memo, "
             "episode_title, folders, clip, deleted, created_at, updated_at FROM vocab ORDER BY uid")]
         folders = [dict(r) for r in conn.execute(
             "SELECT uid, name, deleted, created_at, updated_at FROM vocab_folders ORDER BY uid")]
@@ -110,8 +110,11 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "SELECT key, word, sentence, data, provider, model, created_at FROM definitions ORDER BY key")]
         lexemes = [dict(r) for r in conn.execute(
             "SELECT key, lang, lemma, pos, root, deleted, created_at, updated_at FROM known_lexemes ORDER BY key")]
+        reviews: dict[str, list[list[int]]] = {}
+        for r in conn.execute("SELECT vocab_uid, t, rating, day, ms FROM reviews ORDER BY vocab_uid, t"):
+            reviews.setdefault(r[0], []).append([r[1], r[2], r[3], r[4]])
     return {"format": FORMAT_VERSION, "device": device_id, "feeds": feeds, "episodes": episodes,
-            "vocab": vocab, "folders": folders, "definitions": defs, "lexemes": lexemes,
+            "vocab": vocab, "folders": folders, "definitions": defs, "lexemes": lexemes, "reviews": reviews,
             "game": db.get_setting("game_state")}
 
 
@@ -127,6 +130,7 @@ def _content(lib: dict[str, Any]) -> str:
     """Canonical form used to decide whether an upload is needed (ignores who wrote it)."""
     content = {k: lib.get(k) for k in ("feeds", "episodes", "vocab", "folders", "definitions", "game")}
     content["lexemes"] = lib.get("lexemes") or []  # a device from before seen words were kept sends none
+    content["reviews"] = lib.get("reviews") or {}  # nor does one from before the reviewer
     return json.dumps(content, ensure_ascii=False, sort_keys=True)
 
 
@@ -210,22 +214,22 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
         ep_ids = {row["uid"]: row["id"] for row in conn.execute("SELECT id, uid FROM episodes")}
         for r in remote.get("vocab", []):
             local = conn.execute("SELECT * FROM vocab WHERE uid = ?", (r["uid"],)).fetchone()
-            # A device with an older version sends no translation: keep the one already known.
+            # A device with an older version sends no translation or memo: keep the ones already known.
             values = (r["text"], arabic.normalize(r["text"]), r["sentence"], r["start"], r["end"], r["sent_start"],
-                      r["sent_end"], r["meaning"], r["notes"], r.get("translation"), r["episode_title"], r["deleted"],
+                      r["sent_end"], r["meaning"], r["notes"], r.get("translation"), r.get("memo"), r["episode_title"], r["deleted"],
                       r["episode_uid"], ep_ids.get(r["episode_uid"]), json.dumps(_folder_list(r.get("folders") or [])),
                       1 if r.get("clip") else 0, r["updated_at"])
             if local is None:
                 conn.execute(
                     "INSERT INTO vocab(text, norm, sentence, start, end, sent_start, sent_end, meaning, notes, "
-                    "translation, episode_title, deleted, episode_uid, episode_id, folders, clip, updated_at, uid, "
-                    "created_at) VALUES(?,?,?,?,?,?,?,?,?,COALESCE(?, ''),?,?,?,?,?,?,?,?,?)",
+                    "translation, memo, episode_title, deleted, episode_uid, episode_id, folders, clip, updated_at, uid, "
+                    "created_at) VALUES(?,?,?,?,?,?,?,?,?,COALESCE(?, ''),COALESCE(?, ''),?,?,?,?,?,?,?,?,?)",
                     (*values, r["uid"], r["created_at"]))
                 result.merged["vocab"] += 1
             elif _newer(r, local):
                 conn.execute(
                     "UPDATE vocab SET text=?, norm=?, sentence=?, start=?, end=?, sent_start=?, sent_end=?, meaning=?, "
-                    "notes=?, translation=COALESCE(?, translation), episode_title=?, deleted=?, episode_uid=?, "
+                    "notes=?, translation=COALESCE(?, translation), memo=COALESCE(?, memo), episode_title=?, deleted=?, episode_uid=?, "
                     "episode_id=?, folders=?, clip=?, updated_at=? WHERE id=?",
                     (*values, local["id"]))
                 result.merged["vocab"] += 1
@@ -269,6 +273,18 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
                 conn.execute("UPDATE known_lexemes SET lemma=?, pos=?, root=?, deleted=?, updated_at=? WHERE key=?",
                              (*values, key))
                 result.merged["lexemes"] += 1
+
+        # The reviewer's answers: both devices' lists add up; an answer taken back (0) stays taken back.
+        remote_reviews = remote.get("reviews")
+        for uid, entries in (remote_reviews.items() if isinstance(remote_reviews, dict) else ()):
+            for e in entries if isinstance(entries, list) else ():
+                if not (isinstance(e, list) and len(e) >= 3 and all(isinstance(x, int) for x in e[:4])) or e[1] not in (0, 1, 3):
+                    continue
+                cur = conn.execute(
+                    "INSERT INTO reviews(vocab_uid, t, rating, day, ms) VALUES(?,?,?,?,?) "
+                    "ON CONFLICT(vocab_uid, t) DO UPDATE SET rating = 0 WHERE excluded.rating = 0 AND reviews.rating != 0",
+                    (str(uid), e[0], e[1], e[2], e[3] if len(e) > 3 else 0))
+                result.merged["reviews"] = result.merged.get("reviews", 0) + cur.rowcount
 
         # The creature game: one saved state for the whole account; the most recently saved wins.
         game = remote.get("game")

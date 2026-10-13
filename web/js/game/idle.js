@@ -24,6 +24,8 @@ export const STARDUST_BOOST = 0.5;     // each stardust: +50% glow, for good
 export const FEEDS_PER_DAY = 3;
 export const MAX_BOND = 10;            // two points per heart, five hearts
 export const BOOST_MINUTES = 20;
+export const CARDS_GLOW_HOURS = 1;     // clearing the day's flashcards sends this many hours of glow at once...
+export const CARDS_GLOW_MIN = 20;      // ...and never less than this, so it counts before anything is built
 
 const structure = (id) => STRUCTURES.find((s) => s.id === id) || null;
 
@@ -105,6 +107,18 @@ export function tick(state, now = new Date()) {
   if (!g.bloom && g.plots.every((p) => p.tier === 3)) { g.bloom = true; out.gems += 10; out.bloom = true; }
   state.gems += out.gems;
   return out;
+}
+
+/** The flashcards' own reward: glow, which battles never pay (they pay coins). Once the day's cards
+ * are cleared (rules.earn sets day.cardsCleared) an hour of the garden's output arrives, once a
+ * day. Returns the glow paid, or 0. */
+export function cardsGlow(state, now = new Date()) {
+  const g = garden(state);
+  if (!state.day.cardsCleared || g.cardsDay === state.day.key) return 0;
+  g.cardsDay = state.day.key;
+  const glow = Math.max(CARDS_GLOW_MIN, Math.round(totalRate(state, now) * CARDS_GLOW_HOURS));
+  g.glow += glow;
+  return glow;
 }
 
 /** Gather the glow waiting in one plot (or all of them with no index). Returns how much. */

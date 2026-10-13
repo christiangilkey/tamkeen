@@ -250,7 +250,9 @@ export function createAnkiSync(env) {
       for (let round = 1; round <= ROUNDS; round++) {
         const now = env.now();
         const found = await readDeck(env.droid, deck, now);
-        const made = plan(env.vocab(), found.notes, rec.links, ankiFields, {
+        // Every word can carry the learner's own notes ("memo"); one that has none yet simply lacks the key.
+        const words = env.vocab().map((v) => ("memo" in v ? v : { ...v, memo: "" }));
+        const made = plan(words, found.notes, rec.links, ankiFields, {
           now, deletedNotes: {}, elsewhere: await movedAway(env.droid, found.ids),
           deleteOk: Boolean(env.settings.anki_delete_ok), language: env.settings.study_language || "",
         });

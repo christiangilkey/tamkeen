@@ -7,6 +7,8 @@ import { ankiProgressLine, confirmDelete, loadAnkiProgress } from "../components
 import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
+import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
+import { waitText } from "../review/deck.js";
 
 const DAY = 86400;
 const SORTS = {
@@ -123,6 +125,11 @@ export async function render(view) {
       <button type="button" id="csv" title="Export the words shown below">Export CSV</button>
       <button type="button" id="anki" title="The words shown below as an Anki deck file, with their audio and review progress">Export for Anki</button>
     </div>
+    <button type="button" class="review-banner idle" id="review" hidden>
+      <span class="rb-icon">${CARDS_ICON}</span>
+      <span class="rb-text"><strong>Review</strong><span class="rb-sub"></span></span>
+      <span class="rb-go"></span>
+    </button>
     <div class="folder-bar" id="folders"></div>
     <div class="row vocab-filters">
       <label class="small muted">Sort
@@ -161,6 +168,7 @@ export async function render(view) {
 
   let all = [];      // every word matching the search box
   let folders = [];  // [{uid, name}]
+  let log = {};      // the reviewer's record: every answer by word uid (see pages/review.js)
   const selected = new Set();
   const folderName = (uid) => (folders.find((f) => f.uid === uid) || {}).name;
 
@@ -346,6 +354,7 @@ export async function render(view) {
       <div class="fields">
         <input type="text" class="meaning" placeholder="Meaning">
         <textarea class="notes" rows="2" placeholder="Notes (root, grammar, usage…)"></textarea>
+        <textarea class="memo" rows="1" placeholder="My notes (a mnemonic, where you heard it…)" aria-label="My notes"></textarea>
         <div class="row">
           ${(v.episode_id || v.clip) && v.start != null ? `<button type="button" class="play-word">▶ Word</button>` : ""}
           ${(v.episode_id || v.clip) && v.sent_start != null ? `<button type="button" class="play-sent">▶ Sentence</button>` : ""}
@@ -359,6 +368,7 @@ export async function render(view) {
     el.querySelector(".word").textContent = v.text;
     el.querySelector(".meaning").value = v.meaning;
     el.querySelector(".notes").value = v.notes;
+    el.querySelector(".memo").value = v.memo || "";
     const chips = el.querySelector(".item-folders");
     for (const uid of v.folders) {
       const name = folderName(uid);
@@ -386,6 +396,7 @@ export async function render(view) {
     };
     el.querySelector(".meaning").oninput = (e) => save("meaning", e.target.value);
     el.querySelector(".notes").oninput = (e) => save("notes", e.target.value);
+    el.querySelector(".memo").oninput = (e) => save("memo", e.target.value);
     el.querySelector(".folders-btn").onclick = (e) => {
       const r = e.currentTarget.getBoundingClientRect();
       folderMenu(r.left, r.bottom + 4, [v], "toggle");
@@ -415,6 +426,36 @@ export async function render(view) {
     return [...items].sort(SORTS[st.sort][1]);
   }
 
+  // ----- the reviewer -----
+  /** The words a review covers: the open folder's, or all of them. Never narrowed by the search box or the dates. */
+  const reviewWords = () => (st.folder && st.folder !== "none" ? all.filter((v) => v.folders.includes(st.folder)) : all);
+
+  function renderReview() {
+    const banner = $("#review");
+    banner.hidden = Boolean(st.q) || !all.length;
+    if (banner.hidden) return;
+    const o = overview(reviewWords(), log);
+    const scope = st.folder && st.folder !== "none" ? folderName(st.folder) : "";
+    const ready = o.due + o.fresh > 0;
+    banner.classList.toggle("idle", !ready);
+    banner.querySelector("strong").textContent = scope ? `Review “${scope}”` : "Review";
+    banner.querySelector(".rb-go").textContent = ready ? "Start" : "Open";
+    const parts = [];
+    if (o.due) parts.push(`<b>${o.due}</b> due`);
+    if (o.fresh) parts.push(`<b>${o.fresh}</b> new`);
+    banner.querySelector(".rb-sub").innerHTML = ready ? parts.join(" · ")
+      : !o.askable ? "Words that have a meaning turn up here as flashcards."
+      : `All caught up${o.next ? ` · ${o.next.count} word${o.next.count === 1 ? "" : "s"} back ${o.next.days === 1 ? "" : "in "}${waitText(o.next.days)}` : ""}`;
+  }
+
+  function startReview() {
+    openReview({
+      words: reviewWords(), allWords: all, log, playSnippet, highlight,
+      scope: st.folder && st.folder !== "none" ? folderName(st.folder) || "" : "",
+      onClose: () => { audio.pause(); if (view.isConnected) renderAll(); },  // meanings and notes may have been edited on a card
+    });
+  }
+
   function renderBulk() {
     for (const id of [...selected]) if (!all.some((v) => v.id === id)) selected.delete(id);
     $("#bulk").hidden = selected.size === 0;
@@ -433,13 +474,16 @@ export async function render(view) {
     }
     for (const v of items) list.append(item(v));
     renderBulk();
+    renderReview();
   }
 
   async function load() {
-    const [items, fl] = await Promise.all([
+    const [items, fl, answers] = await Promise.all([
       api(`/vocab${st.q ? `?q=${encodeURIComponent(st.q)}` : ""}`),
       api("/vocab/folders"),
+      loadLog().catch(() => log),  // the list still works if the reviewer's record can't be read
     ]);
+    log = answers;
     all = items.map((v) => ({ ...v, folders: v.folders || [] }));
     folders = fl;
     renderAll();
@@ -463,6 +507,7 @@ export async function render(view) {
   $("#from").onchange = (e) => { st.from = e.target.value; savePrefs(); renderAll(); };
   $("#to").onchange = (e) => { st.to = e.target.value; savePrefs(); renderAll(); };
 
+  $("#review").onclick = startReview;
   const pickedItems = () => all.filter((v) => selected.has(v.id));
   $("#bulk-add").onclick = (e) => { const r = e.currentTarget.getBoundingClientRect(); folderMenu(r.left, r.bottom + 4, pickedItems(), "add"); };
   $("#bulk-remove").onclick = (e) => { const r = e.currentTarget.getBoundingClientRect(); folderMenu(r.left, r.bottom + 4, pickedItems(), "remove"); };

@@ -298,7 +298,8 @@
     "nextPos": 1,
     "sortBackwards": false,
     "sortType": "noteFld",
-    "timeLim": 0
+    "timeLim": 0,
+    "schedVer": 2
    },
    "models": {
     "1791700000001": {

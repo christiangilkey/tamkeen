@@ -30,7 +30,7 @@ const SCHEMA = [
 
 const CONF = { activeDecks: [1], addToCur: true, collapseTime: 1200, curDeck: 1, curModel: String(MODEL_ID),
   dueCounts: true, estTimes: true, newBury: true, newSpread: 0, nextPos: 1,
-  sortBackwards: false, sortType: "noteFld", timeLim: 0 };
+  sortBackwards: false, sortType: "noteFld", timeLim: 0, schedVer: 2 };
 const DECK_OPTIONS = { 1: {
   id: 1, name: "Default", mod: 0, usn: 0, maxTaken: 60, autoplay: true, timer: 0, replayq: true, dyn: false,
   new: { bury: true, delays: [1, 10], initialFactor: 2500, ints: [1, 4, 7], order: 1, perDay: 20, separate: true },
@@ -146,9 +146,12 @@ export function cardSchedule(progress, today, position) {
  * `layout`: { front, back, css } texts of the card layout. `font`: the Arabic font file's bytes.
  * `review`: a word's learning progress by its uid (the game's `review` records); `today` is the
  * day number they are measured from (worked out from `now` unless given).
+ * `reviewed(uid, today)`: for a word that has been through the vocab reviewer, what its answers
+ * come to: { schedule, data, log } (`ankiCard` in web/js/review/fsrs.js); null for any other word.
+ * Such a word takes its schedule, memory state and review log from that instead.
  */
-export async function buildDeck(items, clips, layout, font, now = Date.now() / 1000, review = {}, today = dayNumber(new Date(now * 1000))) {
-  const stamp = Math.floor(now), media = [[FONT_NAME, font]], notes = [], cards = [];
+export async function buildDeck(items, clips, layout, font, now = Date.now() / 1000, review = {}, today = dayNumber(new Date(now * 1000)), reviewed = () => null) {
+  const stamp = Math.floor(now), media = [[FONT_NAME, font]], notes = [], cards = [], log = [];
   for (const [n, v] of items.entries()) {
     const [front, back] = ankiFields(v), names = clipNames(v.uid), mine = clips[v.uid] || {};
     let sound = "";
@@ -160,11 +163,24 @@ export async function buildDeck(items, clips, layout, font, now = Date.now() / 1
     const saved = Math.floor(v.created_at || stamp), id = stamp * 1000 + n, sortText = plain(front);
     notes.push({ id, values: [null, `tk-${v.uid || ""}`, MODEL_ID, saved, -1, ` ${TAG} `,
       [front, back, "", sound].join("\x1f"), sortText, await checksum(sortText), 0, ""] });
-    cards.push({ id, values: [null, id, DECK_ID, 0, saved, -1, ...cardSchedule((review || {})[v.uid], today, n + 1), 0, 0, 0, 0, ""] });
+    const done = reviewed(v.uid, today);
+    if (!done) cards.push({ id, values: [null, id, DECK_ID, 0, saved, -1, ...cardSchedule((review || {})[v.uid], today, n + 1), 0, 0, 0, 0, ""] });
+    else {
+      cards.push({ id, values: [null, id, DECK_ID, 0, saved, -1, ...done.schedule, 0, 0, 0, 0, done.data] });
+      for (const [t, ...rest] of done.log) log.push({ id: t, values: [null, id, -1, ...rest] });
+    }
   }
+  // Each line of the review log is named by its time in milliseconds, and no two may share one.
+  // (The same order as the computer writes: by time, then card, then the rest of the line.)
+  log.sort((a, b) => {
+    if (a.id !== b.id) return a.id - b.id;
+    for (let i = 1; i < a.values.length; i++) if (a.values[i] !== b.values[i]) return a.values[i] - b.values[i];
+    return 0;
+  });
+  for (let i = 1; i < log.length; i++) if (log[i].id <= log[i - 1].id) log[i].id = log[i - 1].id + 1;
   const [conf, models, decks, dconf] = collectionJson(layout, stamp).map((o) => JSON.stringify(o));
   const rows = { col: [{ id: 1, values: [null, stamp, stamp * 1000, stamp * 1000, 11, 0, 0, 0, conf, models, decks, dconf, "{}"] }],
-    notes, cards, revlog: [], graves: [] };
+    notes, cards, revlog: log, graves: [] };
   const db = sqliteFile(SCHEMA.map(([name, sql]) => ({ name, sql, rows: rows[name] })));
   const index = Object.fromEntries(media.map(([name], i) => [i, name]));
   return zip([["collection.anki2", db], ...media.map(([, data], i) => [String(i), data]), ["media", new TextEncoder().encode(JSON.stringify(index))]]);

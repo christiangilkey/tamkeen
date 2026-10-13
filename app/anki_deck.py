@@ -25,7 +25,7 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
-from . import exporters, paths
+from . import exporters, fsrs, paths
 
 # Fixed ids, so every export lands in the same card layout and deck instead of adding copies.
 MODEL_ID = 1791700000001
@@ -61,7 +61,10 @@ CREATE INDEX ix_notes_csum on notes (csum);
 
 _CONF = {"activeDecks": [1], "addToCur": True, "collapseTime": 1200, "curDeck": 1, "curModel": str(MODEL_ID),
          "dueCounts": True, "estTimes": True, "newBury": True, "newSpread": 0, "nextPos": 1,
-         "sortBackwards": False, "sortType": "noteFld", "timeLim": 0}
+         "sortBackwards": False, "sortType": "noteFld", "timeLim": 0,
+         # Review-log lines are written the way today's Anki answers (1 again .. 4 easy). Without
+         # this Anki takes the deck for one from its first scheduler and renumbers them.
+         "schedVer": 2}
 _DECK_OPTIONS = {"1": {
     "id": 1, "name": "Default", "mod": 0, "usn": 0, "maxTaken": 60, "autoplay": True, "timer": 0, "replayq": True, "dyn": False,
     "new": {"bury": True, "delays": [1, 10], "initialFactor": 2500, "ints": [1, 4, 7], "order": 1, "perDay": 20, "separate": True},
@@ -105,7 +108,13 @@ def _plain(markup: str) -> str:
 # climbed to, the day it is next due, and how often it was answered right and wrong. The deck
 # carries that as Anki's schedule, so a word that is well known here does not start from nothing
 # there. Anki applies it only when "Import any learning progress" is ticked on its import screen.
-# There is no record of each single answer, so the deck's review log stays empty.
+# The battles keep no record of each single answer, so such a word has no review log in the deck.
+#
+# A word that has been through the vocab reviewer (web/js/pages/review.js) is different: every
+# answer is on record, and its schedule comes from the same memory model Anki uses (FSRS, see
+# fsrs.py). That word goes over with its real wait and due day, Anki's note of how firmly it is
+# remembered (cards.data), and its whole review log, so Anki carries on exactly where the
+# reviewer left off. The reviewer's record wins over the battles' when a word has both.
 
 BOX_DAYS = (0, 1, 2, 4, 8, 16, 32)  # days until a word in box n comes round again (rules.js INTERVALS)
 NEW_CARD = (0, 0)                   # Anki's (type, queue) for a card never studied
@@ -136,16 +145,18 @@ def card_schedule(progress: Any, today: int, position: int) -> tuple[int, int, i
 
 
 def build(items: Sequence[dict[str, Any]], clips: Mapping[str, Mapping[str, bytes]] | None = None,
-          now: float | None = None, review: Mapping[str, Any] | None = None, today: int | None = None) -> bytes:
+          now: float | None = None, review: Mapping[str, Any] | None = None, today: int | None = None,
+          reviews: Mapping[str, Any] | None = None) -> bytes:
     """The .apkg for these words. ``clips`` gives a word's audio by its uid:
     ``{"word": mp3 bytes, "sentence": mp3 bytes}``, either or both. ``review`` gives a word's
     learning progress by its uid (the game's ``review`` records); ``today`` is the day number
-    they are measured from (worked out from ``now`` unless given)."""
-    clips, review = clips or {}, review or {}
+    they are measured from (worked out from ``now`` unless given). ``reviews`` gives the vocab
+    reviewer's answers by uid (``[[t, rating, day, ms], ...]``)."""
+    clips, review, reviews = clips or {}, review or {}, reviews or {}
     stamp = int(time.time() if now is None else now)
     today = day_number(stamp) if today is None else today
     media: dict[str, bytes] = {FONT_NAME: (paths.web_dir() / "fonts" / "NotoNaskhArabic.woff2").read_bytes()}
-    notes, cards = [], []
+    notes, cards, log = [], [], []
     for n, v in enumerate(items):
         front, back = exporters.anki_fields(v)
         names = clip_names(v["uid"])
@@ -158,8 +169,19 @@ def build(items: Sequence[dict[str, Any]], clips: Mapping[str, Mapping[str, byte
         checksum = int(hashlib.sha1(sort_text.encode("utf-8")).hexdigest()[:8], 16)
         notes.append((note_id, exporters.anki_guid(v), MODEL_ID, saved, -1, f" {exporters.ANKI_TAG} ",
                       "\x1f".join((front, back, "", sound)), sort_text, checksum, 0, ""))
-        cards.append((note_id, note_id, DECK_ID, 0, saved, -1, *card_schedule(review.get(v["uid"]), today, n + 1),
-                      0, 0, 0, 0, ""))
+        state = fsrs.replay(reviews.get(v["uid"]))
+        if state is None:
+            cards.append((note_id, note_id, DECK_ID, 0, saved, -1, *card_schedule(review.get(v["uid"]), today, n + 1),
+                          0, 0, 0, 0, ""))
+        else:
+            cards.append((note_id, note_id, DECK_ID, 0, saved, -1, *fsrs.anki_schedule(state, today),
+                          0, 0, 0, 0, fsrs.anki_data(state)))
+            log += [(row[0], note_id, -1, *row[1:]) for row in fsrs.anki_log(reviews.get(v["uid"]))]
+    # Each line of the review log is named by its time in milliseconds, and no two may share one.
+    log.sort()
+    for i in range(1, len(log)):
+        if log[i][0] <= log[i - 1][0]:
+            log[i] = (log[i - 1][0] + 1, *log[i][1:])
 
     out = io.BytesIO()
     with tempfile.TemporaryDirectory() as tmp:
@@ -173,6 +195,7 @@ def build(items: Sequence[dict[str, Any]], clips: Mapping[str, Mapping[str, byte
                           json.dumps(decks), json.dumps(_DECK_OPTIONS)))
             conn.executemany("INSERT INTO notes VALUES(?,?,?,?,?,?,?,?,?,?,?)", notes)
             conn.executemany("INSERT INTO cards VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cards)
+            conn.executemany("INSERT INTO revlog VALUES(?,?,?,?,?,?,?,?,?)", log)
             conn.commit()
         finally:
             conn.close()

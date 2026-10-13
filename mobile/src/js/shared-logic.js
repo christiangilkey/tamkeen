@@ -142,6 +142,9 @@ export function ankiFields(v) {
   if (sentence) lines.push(sentence);
   if (grammar) lines.push(`<i>(${escHtml(grammar)})</i>`);
   free.forEach((note, n) => lines.push((n === 0 ? "Note: " : "") + escHtml(note)));
+  // The learner's own notes (a mnemonic, say) follow as a note of their own, line for line.
+  String(v.memo || "").replace(/\r/g, "").split("\n").map((m) => m.trim()).filter(Boolean)
+    .forEach((m, n) => lines.push((n === 0 ? "Note: " : "") + escHtml(m)));
   return [ankiField(ankiFront(v)), ankiField(lines.join("<br>"))];
 }
 

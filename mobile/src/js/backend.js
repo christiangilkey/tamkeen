@@ -481,7 +481,8 @@ const routes = [
       const nq = normalize(query);
       const lq = query.toLowerCase();
       items = items.filter((v) => normalize(v.text).includes(nq) || normalize(v.sentence).includes(nq)
-        || (v.meaning || "").toLowerCase().includes(lq) || (v.notes || "").toLowerCase().includes(lq));
+        || (v.meaning || "").toLowerCase().includes(lq) || (v.notes || "").toLowerCase().includes(lq)
+        || (v.memo || "").toLowerCase().includes(lq));
     }
     return items.map(vocabOut);
   }],
@@ -546,7 +547,7 @@ const routes = [
     const v = lib.vocab.find((x) => x.uid === m[1]);
     if (!v) throw new ApiError("Not found.");
     if (Array.isArray(body.folders)) v.folders = [...new Set(body.folders)].sort();
-    for (const k of ["meaning", "notes", "text"]) if (body[k] !== undefined && body[k] !== null) v[k] = body[k];
+    for (const k of ["meaning", "notes", "memo", "text"]) if (body[k] !== undefined && body[k] !== null) v[k] = body[k];
     v.updated_at = now();
     changed();
     return vocabOut(v);
@@ -554,6 +555,23 @@ const routes = [
   ["DELETE", /^\/vocab\/([\w]+)$/, (m) => {
     const v = lib.vocab.find((x) => x.uid === m[1]);
     if (v) { v.deleted = 1; v.updated_at = now(); changed(); }
+    return { ok: true };
+  }],
+
+  // ----- the vocab reviewer's answers (synced; the desktop's are in app/api/reviews.py) -----
+  ["GET", /^\/reviews$/, () => ({ reviews: lib.reviews || {} })],
+  ["POST", /^\/reviews$/, (m, q, body) => {
+    const uid = String(body.uid || "").trim(), t = Math.floor(Number(body.t)), rating = Number(body.rating);
+    if (!uid || !(t > 0) || ![0, 1, 3].includes(rating)) throw new ApiError("That isn't an answer.");
+    const list = ((lib.reviews = lib.reviews || {})[uid] = lib.reviews[uid] || []);
+    const have = list.find((e) => e[0] === t);
+    if (have) have[1] = rating;  // the same answer again with rating 0 takes it back (Undo)
+    else {
+      list.push([t, rating, Math.floor(Number(body.day)) || 0, Math.max(0, Math.floor(Number(body.ms)) || 0)]);
+      list.sort((a, b) => a[0] - b[0]);
+    }
+    saveLibrary();
+    requestSync(20000);  // a review session is many answers in a row: wait for a pause
     return { ok: true };
   }],
 

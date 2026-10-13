@@ -115,7 +115,24 @@ CREATE TABLE IF NOT EXISTS vocab (
     -- translation (added by migration): the sentence in the learner's own language with ⟦ ⟧
     -- around the part that renders the word, kept when a looked-up word is saved. '' for words
     -- typed in, or saved before this existed.
+    -- memo (added by migration): the learner's own notes on the word (a mnemonic, say), typed on
+    -- the Vocab page or on the back of its card in the reviewer.
 );
+
+-- The vocab reviewer's record: one row per answer. A word's place in the schedule is worked out
+-- by replaying its answers (web/js/review/fsrs.js), so answers from two devices simply add up.
+--   t       when it was answered, in milliseconds
+--   rating  3 remembered, 1 not remembered, 0 taken back with Undo
+--   day     the answering device's local day number
+--   ms      how long the card was looked at
+CREATE TABLE IF NOT EXISTS reviews (
+    vocab_uid TEXT NOT NULL,
+    t         INTEGER NOT NULL,
+    rating    INTEGER NOT NULL,
+    day       INTEGER NOT NULL,
+    ms        INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (vocab_uid, t)
+) WITHOUT ROWID;
 
 -- Vocab folders (schema v3). A word can be in several: vocab.folders holds a JSON list of folder uids.
 CREATE TABLE IF NOT EXISTS vocab_folders (
@@ -217,7 +234,8 @@ _SYNC_COLUMNS = {
                  ("language", "TEXT")],  # what it was transcribed/imported as: ar, es, fr, ja, zh, ru
     "vocab": [("uid", "TEXT"), ("updated_at", "REAL"), ("deleted", "INTEGER NOT NULL DEFAULT 0"),
               ("episode_uid", "TEXT"), ("folders", "TEXT NOT NULL DEFAULT '[]'"),
-              ("clip", "INTEGER NOT NULL DEFAULT 0"), ("translation", "TEXT NOT NULL DEFAULT ''")],
+              ("clip", "INTEGER NOT NULL DEFAULT 0"), ("translation", "TEXT NOT NULL DEFAULT ''"),
+              ("memo", "TEXT NOT NULL DEFAULT ''")],
     "segments": [("kind", "TEXT")],
 }
 
@@ -249,7 +267,7 @@ BEGIN UPDATE vocab SET updated_at = {NOW_SQL} WHERE id = NEW.id; END;
 CREATE TRIGGER IF NOT EXISTS vocab_upd AFTER UPDATE ON vocab
 WHEN NEW.updated_at IS OLD.updated_at AND NOT EXISTS (SELECT 1 FROM sync_guard) AND (NEW.text IS NOT OLD.text OR NEW.meaning IS NOT OLD.meaning
   OR NEW.notes IS NOT OLD.notes OR NEW.deleted IS NOT OLD.deleted OR NEW.folders IS NOT OLD.folders
-  OR NEW.clip IS NOT OLD.clip OR NEW.translation IS NOT OLD.translation)
+  OR NEW.clip IS NOT OLD.clip OR NEW.translation IS NOT OLD.translation OR NEW.memo IS NOT OLD.memo)
 BEGIN UPDATE vocab SET updated_at = {NOW_SQL} WHERE id = NEW.id; END;
 
 CREATE TRIGGER IF NOT EXISTS folders_ins AFTER INSERT ON vocab_folders WHEN NEW.updated_at IS NULL AND NOT EXISTS (SELECT 1 FROM sync_guard)

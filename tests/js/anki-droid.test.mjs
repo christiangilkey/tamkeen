@@ -332,3 +332,17 @@ test("switched off, it does nothing at all", async () => {
 test("days are counted on the local calendar", () => {
   assert.equal(dayNumber(NOW + 86400) - dayNumber(NOW), 1);
 });
+
+test("the learner's own notes, added to a card in AnkiDroid, come back to the word", async () => {
+  const w = world();
+  const a = w.save("كتاب", "book", { notes: "common" });
+  await w.sync.run();
+  const [card] = w.card(a);
+  w.tick();
+  card.fields[1] += "<br>Note: rhymes with kebab";   // a second "Note:" is the learner's own
+  card.mod += 120;
+  await w.sync.run();
+  assert.equal(a.memo, "rhymes with kebab");
+  assert.equal(a.notes, "common");
+  w.untouched();
+});

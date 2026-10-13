@@ -5,8 +5,8 @@
 import { esc, h } from "../app.js";
 import { BRANCHES, CATALOG, FOODS, MOVES, SPECIES, STAGES, SUPPLIES, TRAITS, TYPES, VARIANTS } from "./data.js";
 import { describe, leadingBranch, readyToEvolve, stageOf } from "./genome.js";
-import { AUTO_GOALS, FEEDS_PER_DAY, OFFLINE_HOURS, garden, hearts, totalRate } from "./idle.js";
-import { ADULT_XP, DAILY_COMPLETE_XP, HABIT_XP, SHOP_SIZE, branchOptions, levelOf, variantOptions } from "./rules.js";
+import { AUTO_GOALS, CARDS_GLOW_MIN, FEEDS_PER_DAY, OFFLINE_HOURS, garden, hearts, totalRate } from "./idle.js";
+import { ADULT_XP, BOTH_COINS, BOTH_XP, DAILY_COMPLETE_XP, HABIT_XP, REVIEW_CLEAR_CARDS, SHOP_SIZE, branchOptions, levelOf, variantOptions } from "./rules.js";
 import { icon } from "./render.js";
 
 const fmt = (n) => Math.floor(n).toLocaleString();
@@ -58,6 +58,8 @@ const EARNED = {
         "Listen or read: a slow trickle while you study, which dries up well past your daily goal.",
         `Reach your daily goal: ${DAILY_COMPLETE_XP}. This is the big one, and it pays the same whether your goal is 5 minutes or 20.`,
         "Battles: 3 for each right answer, 15 more when a word becomes well known, 40 for a win and 15 for a loss (in full for the day's first three battles).",
+        "Vocab reviewer: each card you answer pays a quarter of what looking up a word pays (usually 1 to 4, sometimes 8 to 12, now and then 25 to 50), the same whether you remembered it or not, so there is nothing to gain by fibbing.",
+        `Finish a battle and clear your flashcards on the same day: ${BOTH_XP} more, once a day.`,
         "Doing the same thing many times in one day pays less and less, so a little every day beats one long session.",
       ],
       use: [
@@ -101,6 +103,7 @@ const EARNED = {
         "A word becomes well known through battles: 1.",
         "Keep 8 in 10 battle answers right over a week (30 answers or more): 5.",
         "Your guild beats the weekly raid boss: 20.",
+        `Finish a battle and clear your flashcards on the same day: ${BOTH_COINS}, once a day. Flashcards by themselves pay glow, not coins.`,
       ],
       use: [
         `Things for your creature to wear and for its habitat: hats, glasses, neckwear, things to hold, capes and wings, shirts, and decorations. They cost ${Math.min(...prices)} to ${Math.max(...prices)} coins.`,
@@ -136,6 +139,7 @@ const EARNED = {
         `Buildings in your garden make it all day, even while the app is closed (up to ${OFFLINE_HOURS} hours' worth waits for you).`,
         `Tap a building with a light bobbing over it to gather its glow. After ${AUTO_GOALS} daily goals it gathers itself.`,
         "Reach your daily goal: every building makes half as much again for the rest of the day, and two hours of glow arrive at once.",
+        `Clear the day's flashcards in the vocab reviewer (${REVIEW_CLEAR_CARDS} cards or more, with none left due): an hour of your garden's glow at once, and never less than ${CARDS_GLOW_MIN}. Battles pay coins instead.`,
         "Each kind of building makes more for one study habit, and each heart on your creature adds a little.",
       ],
       use: [
@@ -202,7 +206,7 @@ const STAGE_NAME = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", a
 const HABIT = {
   listener: { name: "Listening", how: "time spent listening to podcasts, audio and videos" },
   reader: { name: "Reading", how: "time spent reading web pages" },
-  collector: { name: "Collecting", how: "saving words, right answers in battles, Anki reviews" },
+  collector: { name: "Collecting", how: "saving words, right answers in battles, cards in the vocab reviewer, Anki reviews" },
   curious: { name: "Curiosity", how: "looking words up" },
 };
 const EGG_LEANS = "Ember for curiosity, Tide for listening, Grove for collecting, Stone for reading, Spark for early mornings and Dusk for late nights";

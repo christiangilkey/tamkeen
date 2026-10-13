@@ -60,8 +60,8 @@ export function merge(remote) {
     const l = vocab.get(r.uid);
     if (!l) { vocab.set(r.uid, r); changed++; continue; }
     if (newer(r, l)) {
-      // A device with an older version sends no translation; keep the one already known.
-      vocab.set(r.uid, { ...r, translation: r.translation ?? l.translation ?? "" });
+      // A device with an older version sends no translation or memo; keep the ones already known.
+      vocab.set(r.uid, { ...r, translation: r.translation ?? l.translation ?? "", memo: r.memo ?? l.memo ?? "" });
       changed++;
     }
   }
@@ -87,6 +87,21 @@ export function merge(remote) {
   }
   lib.lexemes = [...lexemes.values()];
 
+  // The reviewer's answers: both devices' lists add up; an answer taken back (0) stays taken back.
+  const reviews = (lib.reviews = lib.reviews || {});
+  for (const [uid, entries] of Object.entries(remote.reviews && typeof remote.reviews === "object" ? remote.reviews : {})) {
+    const mine = (reviews[uid] = reviews[uid] || []);
+    const at = new Map(mine.map((e) => [e[0], e]));
+    let grew = false;
+    for (const e of Array.isArray(entries) ? entries : []) {
+      if (!Array.isArray(e) || e.length < 3 || !e.slice(0, 4).every(Number.isInteger) || ![0, 1, 3].includes(e[1])) continue;
+      const have = at.get(e[0]);
+      if (!have) { const row = [e[0], e[1], e[2], e[3] || 0]; mine.push(row); at.set(row[0], row); grew = true; changed++; }
+      else if (e[1] === 0 && have[1] !== 0) { have[1] = 0; changed++; }
+    }
+    if (grew) mine.sort((a, b) => a[0] - b[0]);
+  }
+
   // The creature game: one saved state for the whole account; the most recently saved wins.
   const game = remote.game;
   const mine = settings.game_state;
@@ -107,11 +122,12 @@ export function snapshot() {
     device: "android",
     feeds: [...lib.feeds].sort(byUid),
     episodes: lib.episodes.filter((e) => live.has(e.feed_uid)).sort(byUid),
-    // Words saved before translations were kept have none; the desktop writes those as "".
-    vocab: lib.vocab.map((v) => ({ ...v, translation: v.translation || "" })).sort(byUid),
+    // Words saved before translations (or memos) were kept have none; the desktop writes those as "".
+    vocab: lib.vocab.map((v) => ({ ...v, translation: v.translation || "", memo: v.memo || "" })).sort(byUid),
     folders: [...(lib.folders || [])].sort(byUid),
     definitions: [...lib.definitions].sort((a, b) => (a.key < b.key ? -1 : 1)),
     lexemes: [...(lib.lexemes || [])].sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0)),
+    reviews: lib.reviews || {},
     game: settings.game_state || null,
   };
 }
@@ -124,7 +140,7 @@ function canonical(value) {
   return JSON.stringify(value ?? null);
 }
 const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
-                                   definitions: l.definitions, lexemes: l.lexemes || [], game: l.game || null });
+                                   definitions: l.definitions, lexemes: l.lexemes || [], reviews: l.reviews || {}, game: l.game || null });
 
 // ---------- run ----------
 let running = null;

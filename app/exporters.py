@@ -71,6 +71,7 @@ def vocab_to_csv(items: Sequence[dict[str, Any]]) -> str:
 #   Front  the sentence in the learner's own language with the word's [meaning] in brackets
 #          (the prompt); just the meaning for a word that was saved without a translation
 #   Back   <b>word</b><br>sentence with the [word] in brackets<br><i>(kind • Label: value)</i><br>Note: ...
+#          and, after those, the learner's own notes on the word (its memo) as a second "Note: ..."
 # The layout draws that as the word, its sentence with the word highlighted, a grammar box and
 # note lines. The image field is never written, so what the learner types there in Anki is safe.
 
@@ -141,6 +142,9 @@ def anki_fields(v: dict[str, Any]) -> tuple[str, str]:
     if grammar:
         lines.append(f"<i>({html.escape(grammar)})</i>")
     lines += [("Note: " if n == 0 else "") + html.escape(note) for n, note in enumerate(free)]
+    # The learner's own notes (a mnemonic, say) follow as a note of their own, line for line.
+    own = [m.strip() for m in (v.get("memo") or "").replace("\r", "").split("\n") if m.strip()]
+    lines += [("Note: " if n == 0 else "") + html.escape(m) for n, m in enumerate(own)]
     return _anki_field(anki_front(v)), _anki_field("<br>".join(lines))
 
 

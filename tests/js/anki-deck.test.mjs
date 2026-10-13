@@ -204,3 +204,22 @@ test("words take their audio into the deck", needsSqlite, async () => {
     words.map((w, i) => (w.uid === "a2" ? [DECK_ID, 0, 2, 2, 2, 2, 2500, 2, 0] : [DECK_ID, 0, 0, 0, i + 1, 0, 0, 0, 0])));
   db.close();
 });
+
+// ----- words that have been through the vocab reviewer -----
+// tests/fixtures/fsrs_parity.json `deck` is what the computer's builder writes for these words
+// (tests/test_fsrs.py): their notes with the learner's own notes on the back, and for the words
+// with answers on record, Anki's schedule, its memory state and its review log.
+test("reviewed words take the same schedule, memory state and review log as on the computer", needsSqlite, async () => {
+  const { ankiCard } = await import("../../web/js/review/fsrs.js");
+  const fx = JSON.parse(fixture("fsrs_parity.json").toString("utf8"));
+  const files = unzip(await buildDeck(fx.words, {}, layout, font, fx.now, fx.review, fx.today,
+    (uid, today) => ankiCard(fx.reviews[uid], today)));
+  const db = open(files["collection.anki2"]);
+  assert.deepEqual(rows(db, "PRAGMA integrity_check"), [["ok"]]);
+  assert.deepEqual(rows(db, "SELECT * FROM notes ORDER BY id"), fx.deck.notes);
+  assert.deepEqual(rows(db, "SELECT * FROM cards ORDER BY id"), fx.deck.cards);
+  assert.deepEqual(rows(db, "SELECT * FROM revlog ORDER BY id"), fx.deck.revlog);
+  assert.equal(fx.deck.revlog.length, 8);
+  assert.ok(rows(db, "SELECT flds FROM notes ORDER BY id")[0][0].includes("<br>Note: sounds like &#x27;kit-tab&#x27;: a kit of tabs<br>my uncle&#x27;s shop"));
+  db.close();
+});
