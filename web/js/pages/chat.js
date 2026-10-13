@@ -8,6 +8,7 @@
 import { api, h, toast, saveClip } from "../app.js";
 import * as social from "../social.js";
 import { avatar } from "../components/avatar.js";
+import { MEDIA_KINDS, acceptMedia, normalizeMedia, openMedia } from "../components/sendmedia.js";
 import { detectLanguage, langInfo, setLang, studyLanguage } from "../languages.js";
 
 const fmtClock = (iso) => new Date(iso).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
@@ -109,6 +110,51 @@ export async function render(view, { friendId }) {
         }
       };
       body.append(b);
+    } else if (m.kind === "share" && m.payload && m.payload.media) {
+      // Something a friend sent from a player. First only its title and kind, with Accept; the
+      // item (and its words, when they came along) joins the library only after that.
+      const item = normalizeMedia(m.payload.media);
+      const card = h(`<div class="share-card media-card"><div class="media-kind small"></div><div class="share-title" dir="auto"></div>
+        <div class="share-action row"></div></div>`);
+      card.querySelector(".media-kind").textContent = item ? MEDIA_KINDS[item.kind] : "Something this version of the app can't open";
+      card.querySelector(".share-title").textContent = String(m.payload.media.title || "").slice(0, 200);
+      const action = card.querySelector(".share-action");
+      const opener = (hash = "") => {
+        const open = h(`<button type="button" class="primary">Open</button>`);
+        open.onclick = async () => {
+          open.disabled = true;
+          try { await openMedia(item, hash); } catch (e) { toast(e.message, { error: true }); }
+          open.disabled = false;
+        };
+        return open;
+      };
+      if (!item) {
+        action.append(h(`<span class="small muted">Update the app to open this.</span>`));
+      } else if (mine) {
+        action.append(h(`<span class="small muted">Sent${m.payload.media.transcript ? " with its words" : ""}</span>`));
+      } else {
+        const accept = h(`<button type="button" class="primary accept">Accept</button>`);
+        const dismiss = h(`<button type="button" class="ghost">Dismiss</button>`);
+        accept.onclick = async () => {
+          accept.disabled = dismiss.disabled = true;
+          accept.textContent = "Adding…";
+          try {
+            const hash = await acceptMedia({ ...item, transcript: m.payload.media.transcript });
+            action.replaceChildren(h(`<span class="small muted">✓ Accepted</span>`), opener(hash));
+            // Kept on this device now: the copy online (and any words in it) is no longer needed.
+            social.dismissMessage(m.id).catch(() => {});
+          } catch (e) {
+            accept.disabled = dismiss.disabled = false;
+            accept.textContent = "Accept";
+            toast(e.message, { error: true });
+          }
+        };
+        dismiss.onclick = async () => {
+          try { await social.dismissMessage(m.id); el.remove(); } catch (e) { toast(e.message, { error: true }); }
+        };
+        action.append(accept, dismiss);
+      }
+      body.append(card);
     } else if (m.kind === "share" && m.payload) {
       const words = m.payload.words || [];
       const card = h(`<div class="share-card"><div class="share-title"></div><div class="share-words ar"></div>

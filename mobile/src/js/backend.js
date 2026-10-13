@@ -438,6 +438,26 @@ const routes = [
   ["POST", /^\/reels\/saved\/list$/, (m, q, body) => phoneReels.startListing(String(body.collection || "all"))],
   ["POST", /^\/reels\/saved\/send$/, (m, q, body) => phoneReels.startSelected(body.codes)],
   ["POST", /^\/reels\/cancel$/, () => { phoneReels.cancelReels(); return phoneReels.reelsStatus(); }],
+  // A reel a friend sent, accepted in the chat, with the words that came with it (the twin of app/api/shared.py).
+  ["POST", /^\/shared\/reel$/, async (m, q, body) => {
+    const code = String(body.code || "");
+    if (!/^[A-Za-z0-9_-]{5,40}$/.test(code)) throw new ApiError("That doesn't look like a reel.");
+    const num = (x) => Math.max(0, Number(x) || 0);
+    const segments = (Array.isArray(body.segments) ? body.segments : []).slice(0, 400).map((s) => {
+      const words = (Array.isArray(s.words) ? s.words : []).filter((w) => Array.isArray(w) && String(w[2] ?? "").trim())
+        .map((w) => ({ start: num(w[0]), end: Math.max(num(w[0]), num(w[1])), text: String(w[2]).replace(/\s+/g, "").slice(0, 120) }));
+      const text = String(s.text || "").replace(/\s+/g, " ").trim().slice(0, 2000) || words.map((w) => w.text).join(" ");
+      return { start: num(s.start), end: Math.max(num(s.end), words.length ? words.at(-1).end : num(s.start)), text, words };
+    }).filter((s) => s.text);
+    if (!segments.length) throw new ApiError("Nothing was said in this reel.");
+    const lang = isLanguage(body.language) ? body.language : (settings.study_language || "ar");
+    await phoneReels.saveReel({ code, creator: String(body.creator || "").replace(/^@/, "").slice(0, 60), caption: String(body.title || ""),
+                                segments, language: lang, model: String(body.model || "shared").slice(0, 80),
+                                seconds: num(body.seconds) || null, signin: !!body.signin });
+    const ep = lib.episodes.find((e) => e.guid === code && e.audio_type === "video/instagram");
+    changed();
+    return episodeOut(ep);
+  }],
   ["GET", /^\/youtube\/([\w-]{11})$/, async (m) => { // a video already here with its captions
     const fuid = await feedUid(YOUTUBE_FEED_URL);
     const e = liveEpisodes().find((x) => x.feed_uid === fuid && x.guid === m[1] && x.transcript_rev);

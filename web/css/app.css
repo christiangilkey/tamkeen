@@ -1178,3 +1178,10 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .study-card.tappable:hover { border-color: var(--accent); }
 .study-card.tappable:active { background: var(--surface); }
 .study-card.busy { opacity: .6; pointer-events: none; }
+
+/* ---------- send to a friend: the toolbar button, and the card a sent item becomes in a chat ---------- */
+.send-media { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-height: 28px; min-width: 28px; padding: 2px 6px; }
+.media-card .media-kind { text-transform: uppercase; letter-spacing: .04em; font-size: 11px; opacity: .75; }
+.media-card .share-action { gap: 6px; margin-top: 6px; }
+.media-card button.accept { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.msg.mine .media-card .muted { color: inherit; opacity: .8; }

@@ -569,6 +569,14 @@ export async function clearSeen(friendId) {
 }
 
 /** Remove one message sent to me (a shared-words card I've added or dismissed). */
+/** Send a media item to a friend (see components/sendmedia.js). It goes as a "share" message,
+ * which waits in the chat until it is accepted or dismissed; ordinary messages vanish once read. */
+export function sendMediaMessage(friendId, media) {
+  const body = JSON.stringify({ media });
+  if (body.length > 900000) throw new Error("That is too large to send in one message.");
+  return insertMessage(friendId, { kind: "share", body: String(media.title || "").slice(0, 200), payload: { media } });
+}
+
 export async function dismissMessage(id) {
   const { data, error } = await (await sb()).rpc("dismiss_message", { message_id: id });
   if (error) throw new Error(friendly(error));

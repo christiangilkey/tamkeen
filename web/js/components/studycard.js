@@ -99,6 +99,12 @@ const OPENERS = {
   page: openPage,
 };
 
+/** Open an item in Tamkeen's player for its kind (throws with a message if it can't). */
+export async function openItem(s) {
+  if (!s || !OPENERS[s.kind]) throw new Error("This kind of thing has no player in Tamkeen.");
+  await OPENERS[s.kind](s);
+}
+
 /** One item's card (picture, title, and the action that fits its kind). */
 function itemCard(s, { own = false } = {}) {
   const image = social.safeUrl(s.image);

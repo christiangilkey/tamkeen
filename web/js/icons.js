@@ -13,6 +13,7 @@ const PATHS = {
   vocab: `<rect class="fill" x="5" y="3.5" width="14" height="17" rx="2.6"/>
     <rect x="5" y="3.5" width="14" height="17" rx="2.6"/>
     <path d="M12 8.1l1.15 2.75L15.9 12l-2.75 1.15L12 15.9l-1.15-2.75L8.1 12l2.75-1.15z"/>`,
+  send: `<path class="fill" d="M20.5 3.5 3.5 10.6l6.6 2.8 2.8 6.6z"/><path d="M20.5 3.5 3.5 10.6l6.6 2.8 2.8 6.6z"/><path d="M10.1 13.4 20.5 3.5"/>`,
   friends: `<circle class="fill" cx="9" cy="8.4" r="3.2"/><path class="fill" d="M3 19.6a6 6 0 0 1 12 0z"/>
     <circle cx="9" cy="8.4" r="3.2"/><path d="M3 19.6a6 6 0 0 1 12 0"/>
     <path d="M15.6 5.5a3.2 3.2 0 0 1 0 5.8"/><path d="M17.6 14.3a6 6 0 0 1 3.4 5.3"/>`,
