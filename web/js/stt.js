@@ -150,6 +150,27 @@ export function sttFailure(provider, status, body, retryAfter = 0) {
   return new SttError(`${name} couldn't transcribe this (error ${status})${detail ? `: ${detail}` : "."}`, { status });
 }
 
+/** Base64 text with its line breaks taken out. Android's downloader hands a file over with a line
+ * break every 76 characters, and its uploader refuses base64 that has any (so a reel's video,
+ * passed straight from one to the other, never left the phone). */
+export const tidyBase64 = (text) => String(text ?? "").replace(/\s+/g, "");
+
+/** A request that got no answer at all, said plainly. `error` is what the phone or browser threw.
+ * `retry` is true only when it looks like the connection (worth trying again); otherwise the
+ * request itself was at fault and trying again would fail the same way. */
+export function sendFailure(provider, error) {
+  const name = (STT_PROVIDERS[provider] || {}).label || "The provider";
+  const detail = String((error && error.message) || error || "").replace(/\s+/g, " ").trim().slice(0, 160);
+  const connection = /resolve host|unknownhost|no address|timed? ?out|timeout|failed to connect|connect(ion)? (was )?(reset|refused|closed|aborted|lost)|unexpected end of stream|network|socket|handshake|ssl|certificate|failed to fetch|load failed|offline|unreachable|econn|enotfound/i.test(detail);
+  if (connection) {
+    const e = new SttError(`Couldn't reach ${name}. Check your internet connection.${detail ? ` (${detail})` : ""}`);
+    e.retry = true;
+    return e;
+  }
+  if (/out ?of ?memory/i.test(detail)) return new SttError(`This phone ran out of memory getting the audio ready for ${name}. Try a shorter one.`);
+  return new SttError(`The audio couldn't be sent to ${name}: ${detail || "the phone gave no reason"}.`);
+}
+
 export function waitText(seconds) {
   if (seconds < 90) return `${Math.max(1, Math.round(seconds))} seconds`;
   if (seconds < 5400) return `${Math.round(seconds / 60)} minutes`;

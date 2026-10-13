@@ -5,8 +5,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { Mp3Splitter, STT_PROVIDERS, addAudioUse, audioCents, cleanSttKey, describeAudioUse, hoursPerDollar, languageCode, looksLikeMp3,
-         mp3Frame, parseTranscription, perHourText, silentWav, sttConfig, sttFailure, sttKeyProvider, sttModelLabel, toTranscript,
-         transcriptionFields } from "../../web/js/stt.js";
+         mp3Frame, parseTranscription, perHourText, sendFailure, silentWav, sttConfig, sttFailure, sttKeyProvider, sttModelLabel, tidyBase64,
+         toTranscript, transcriptionFields } from "../../web/js/stt.js";
 import { STT_KEY_GUIDES } from "../../web/js/stt.js";
 
 const answer = (words, segments, language = "arabic") => ({
@@ -189,6 +189,38 @@ test("the day's total adds up, and starts again the next day", () => {
   assert.deepEqual(describeAudioUse(null), { length: "0 min", detail: "Nothing sent yet today." });
   const odd = addAudioUse(null, { provider: "groq", model: "mystery", seconds: 60 }, "d");
   assert.equal(describeAudioUse(odd).detail, "1 piece sent", "no price is guessed for a model typed in by hand");
+});
+
+// The owner's bug, 2026-10-13: every reel sent from the phone failed with "Couldn't reach Groq".
+// Android's downloader hands a file over as base64 with a line break every 76 characters, and its
+// uploader refuses base64 with line breaks, so the request died on the phone and was called a
+// connection problem.
+test("a downloaded file's base64 loses its line breaks before it is sent on", () => {
+  const bytes = Uint8Array.from({ length: 400 }, (_, i) => (i * 7) % 256);
+  const clean = Buffer.from(bytes).toString("base64");
+  const asAndroidHandsItOver = `${clean.match(/.{1,76}/g).join("\n")}\n`;
+  assert.notEqual(asAndroidHandsItOver, clean);
+  assert.equal(tidyBase64(asAndroidHandsItOver), clean);
+  assert.equal(tidyBase64(clean.match(/.{1,76}/g).join("\r\n")), clean);
+  assert.deepEqual([...Buffer.from(tidyBase64(asAndroidHandsItOver), "base64")], [...bytes], "the same file comes out");
+  assert.equal(tidyBase64(null), "");
+});
+
+test("a request that got no answer is only called a connection problem when it was one", () => {
+  for (const text of ["Unable to resolve host \"api.groq.com\": No address associated with hostname", "timeout", "SocketTimeoutException: timed out",
+                      "Failed to connect to api.groq.com/104.18.3.205:443", "Failed to fetch", "javax.net.ssl.SSLHandshakeException: Handshake failed",
+                      "unexpected end of stream on com.android.okhttp.Address"]) {
+    const e = sendFailure("groq", new Error(text));
+    assert.match(e.message, /^Couldn't reach Groq\. Check your internet connection\. \(/, text);
+    assert.equal(e.retry, true, text);
+  }
+  // What the phone really said for the reels: its uploader refusing the file's text. Not the connection; not worth trying again.
+  const refused = sendFailure("groq", new Error("Illegal base64 character a"));
+  assert.equal(refused.message, "The audio couldn't be sent to Groq: Illegal base64 character a.");
+  assert.ok(!refused.retry);
+  assert.match(sendFailure("openai", new Error("java.lang.OutOfMemoryError: Failed to allocate")).message, /ran out of memory getting the audio ready for OpenAI/);
+  assert.equal(sendFailure("groq", null).message, "The audio couldn't be sent to Groq: the phone gave no reason.");
+  assert.ok(sendFailure("groq", new Error("x".repeat(500))).message.length < 220, "a long reason is cut short");
 });
 
 test("refusals are said plainly", () => {

@@ -310,7 +310,9 @@ async function tryReel(ig, cfg, known) {
   if (p.seconds > MAX_SECONDS) return [false, "too long"];
   if (!p.src) return [false, NOT_OUTSIDE];
   let b64;
-  try { b64 = await fetchWholeB64(p.src); } catch (e) { return [false, "the video couldn't be downloaded"]; }
+  try { b64 = await fetchWholeB64(p.src); }
+  catch (e) { return [false, `the video couldn't be downloaded${e && e.message ? ` (${String(e.message).slice(0, 120)})` : ""}`]; }
+  if (!b64) return [false, "the video came back empty from Instagram"];
   if (b64.length * 0.75 > MAX_UPLOAD_BYTES) return [false, "too large to send from the phone"];
   // The provider isn't told the language: it writes down what it hears and says which language that was.
   const heard = parseTranscription(await postAudio(cfg, { b64, name: "reel.mp4", type: "video/mp4" }, { get cancelled() { return cancelled; } }));

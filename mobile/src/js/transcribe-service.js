@@ -15,7 +15,7 @@
 // web pages. In a browser (the development preview) plain fetch is used.
 
 import { MAX_UPLOAD_BYTES, Mp3Splitter, STT_PROVIDERS, SttError, addAudioUse, audioUseToday, looksLikeMp3, parseTranscription,
-         silentWav, sttConfig, sttFailure, sttModelLabel, toTranscript, transcriptionFields, waitText } from "./stt.js";
+         sendFailure, silentWav, sttConfig, sttFailure, sttModelLabel, tidyBase64, toTranscript, transcriptionFields, waitText } from "./stt.js";
 import { drive } from "./drive.js";
 import { NativeHttp, isNative } from "./native.js";
 import { kv, lib, now, saveLibrary, settings, transcripts } from "./store.js";
@@ -117,7 +117,7 @@ export async function fetchWholeB64(url) {
   const res = await NativeHttp.request({ url, method: "GET", responseType: "arraybuffer", connectTimeout: 20000, readTimeout: 120000,
     headers: { "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Mobile Safari/537.36" } });
   if (res.status >= 400 || typeof res.data !== "string") throw new Error(`The download was refused (error ${res.status}).`);
-  return res.data;
+  return tidyBase64(res.data); // Android hands it over with line breaks in it, which its own uploader then refuses
 }
 
 // -------------------------------------------------------------------------------------- sending
@@ -143,7 +143,7 @@ export async function postAudio(cfg, { bytes = null, b64 = "", url = "", name = 
     try {
       if (isNative) {
         const data = fields.map(([key, value]) => ({ key, value, type: "string" }));
-        if (!url) data.push({ key: "file", value: b64 || await bytesToB64(bytes), type: "base64File", contentType: type, fileName: name });
+        if (!url) data.push({ key: "file", value: b64 ? tidyBase64(b64) : await bytesToB64(bytes), type: "base64File", contentType: type, fileName: name });
         const res = await NativeHttp.request({ url: info.url, method: "POST", data, dataType: "formData", responseType: "text",
           headers: { Authorization: `Bearer ${cfg.key}`, "Content-Type": "multipart/form-data" }, connectTimeout: 20000, readTimeout: 300000 });
         status = res.status;
@@ -160,7 +160,10 @@ export async function postAudio(cfg, { bytes = null, b64 = "", url = "", name = 
       }
     } catch (e) {
       if (e instanceof Cancelled) throw e;
-      problem = new SttError(`Couldn't reach ${info.label}. Check your internet connection.`);
+      // Not every failure here is the connection: the phone can refuse to build the request at all.
+      problem = sendFailure(cfg.provider, e);
+      console.warn(`Sending audio to ${info.label} failed`, e);
+      if (!problem.retry) throw problem;
       await pause(3 * (attempt + 1), job);
       continue;
     }
