@@ -193,3 +193,25 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
 .word-bubble.quick .wb-meaning { margin-bottom: 0; }
 .word-bubble [data-act="more"] { display: inline-flex; align-items: center; gap: 5px; }
 .word-bubble [data-act="more"] .ic { vertical-align: 0; }
+
+/* ---------- play controls: back 5 s / play / forward 5 s stay in the exact middle ----------
+   Only those three buttons take part in the row, so they are centred whatever else the bar holds.
+   Everything else is hung on the row's ends without taking up room in it: the speed chooser (made
+   smaller) at the left, the quick / detailed lookup switch at the right. Anything added to
+   .btnrow later must be positioned the same way, or it will push the play button off-centre. */
+.player .btnrow { position: relative; flex-wrap: nowrap; }
+.player .btnrow #speed {
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: auto; min-width: 0; height: 30px; padding: 2px 4px; font-size: 12px;
+}
+.player .btnrow .lookup-toggle { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+/* "Looping sentence": beside the speed chooser where there is room for it ... */
+.player .btnrow #loop-chip { position: absolute; left: 72px; top: 50%; transform: translateY(-50%); white-space: nowrap; }
+@media (max-width: 640px) {
+  /* ... and on a phone, just above the bar's left corner. */
+  .player .btnrow #loop-chip { left: 0; top: auto; bottom: calc(100% + 34px); transform: none; }
+}
+@media (max-width: 350px) {
+  /* The narrowest phones: slimmer 5-second buttons, so the ends don't touch them. */
+  .player .btnrow #back5, .player .btnrow #fwd5 { padding: 4px 6px; font-size: 12px; }
+}
