@@ -37,6 +37,14 @@ export function videoId(text) {
   return id && /^[\w-]{11}$/.test(id) ? id : null;
 }
 
+/** Is this the address of a page on YouTube (a video, a channel, anything)? */
+export function isYouTubeAddress(text) {
+  let u;
+  try { u = new URL(String(text || "").trim()); } catch { return false; }
+  const host = u.hostname.toLowerCase();
+  return u.protocol === "https:" && (host === "youtu.be" || host === "youtube.com" || host.endsWith(".youtube.com"));
+}
+
 /** "ar-EG" → "ar"; YouTube's older or regional codes folded onto the app's. */
 export function baseLanguage(code) {
   const b = String(code || "").toLowerCase().split(/[-_]/)[0];

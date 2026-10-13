@@ -323,6 +323,32 @@ async function youtubeBrowserScript() {
   try { return await (await fetch(new URL("./youtube-browser.js", import.meta.url))).text(); } catch { return ""; }
 }
 
+/**
+ * A YouTube link was tapped inside the app: the channel's picture, the title or a suggested video
+ * in YouTube's embedded player, or a YouTube link on a friend's card. Android would hand it to
+ * the phone's own browser; the app keeps it (GoogleDriveAuthPlugin.shouldOverrideLoad sends it
+ * here). A video opens in Tamkeen's player; anything else, such as a channel's page, opens in
+ * the in-app browser, where tapping a video opens it in the player too.
+ */
+export async function openYouTubeLink(url) {
+  const { isYouTubeAddress, videoId } = await import("./ytcaptions.js");
+  if (!isYouTubeAddress(url)) return;
+  if (videoId(url)) {
+    try {
+      const { watchVideo } = await import("./youtube.js");
+      await watchVideo(url);
+      emit("feeds", { refreshed: true });
+      return;
+    } catch (e) {
+      // No captions, most likely: it can still be watched on YouTube's own page, inside the app.
+      toast(`${e.message || "Couldn't open this video here."} Opening it on YouTube instead.`);
+    }
+  }
+  // The browser covers the player: stop what is playing underneath.
+  try { if (window.__apsAudio) window.__apsAudio.pause(); } catch { /* nothing playing */ }
+  await openBrowser(url);
+}
+
 let openingVideo = false;
 let browserListening = false;
 /** Open the in-app web browser (native screen with an "Import Page" button). */
@@ -654,6 +680,12 @@ async function boot() {
   route();
   startBadge();
   setTimeout(checkForUpdate, 3000);
+  // YouTube links tapped inside the app stay in the app (see openYouTubeLink).
+  if (isNative) {
+    GoogleDriveAuth.addListener("youtubeLink", ({ url }) => {
+      openYouTubeLink(url).catch((e) => toast(e.message || "Couldn't open that YouTube page.", { error: true }));
+    });
+  }
 
   // Transcribing and reel picking done on this phone (cloud transcription) report the same
   // way the computer's server does, so the shared screens follow along unchanged.

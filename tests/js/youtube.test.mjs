@@ -169,3 +169,18 @@ test("each way of failing says what happened", async () => {
   await fails({ tracks: [{ baseUrl: "https://evil.example/steal", languageCode: "ar" }] }, "no_captions", /No captions/);
   await assert.rejects(fetchCaptions("lo3KyF50IGE", opts(async () => { throw new Error("offline"); })), (e) => e.code === "network");
 });
+
+test("YouTube addresses are told apart from every other site", async () => {
+  const { isYouTubeAddress } = await import("../../web/js/ytcaptions.js");
+  for (const yes of ["https://www.youtube.com/channel/UC-4KnPMmZzwAzW7SbVATUZQ", "https://www.youtube.com/@ajplussaha",
+    "https://m.youtube.com/watch?v=lo3KyF50IGE", "https://youtu.be/lo3KyF50IGE", "https://youtube.com/", "  https://music.youtube.com/x "]) {
+    assert.equal(isYouTubeAddress(yes), true, yes);
+  }
+  for (const no of ["", null, "youtube.com", "http://www.youtube.com/", "https://www.youtube.com.evil.example/", "https://notyoutube.com/",
+    "https://accounts.google.com/", "tamkeen-video://watch?v=lo3KyF50IGE", "javascript:alert(1)"]) {
+    assert.equal(isYouTubeAddress(no), false, String(no));
+  }
+  // A channel's page is a YouTube address but not a video; a video is both.
+  assert.equal(videoId("https://www.youtube.com/channel/UC-4KnPMmZzwAzW7SbVATUZQ"), null);
+  assert.equal(videoId("https://www.youtube.com/watch?v=lo3KyF50IGE"), "lo3KyF50IGE");
+});

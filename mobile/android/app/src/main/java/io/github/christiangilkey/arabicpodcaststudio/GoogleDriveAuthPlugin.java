@@ -1,6 +1,7 @@
 package io.github.christiangilkey.arabicpodcaststudio;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.CancellationSignal;
 
 import androidx.activity.result.ActivityResult;
@@ -164,6 +165,27 @@ public class GoogleDriveAuthPlugin extends Plugin {
                 call.reject("Couldn't open the browser: " + e.getMessage(), e);
             }
         });
+    }
+
+    /**
+     * A link tapped inside the app is about to leave it: Capacitor hands anything that isn't the
+     * app's own page to the phone's browser. YouTube links are kept instead. Tapping the channel's
+     * picture, the title or a suggested video inside YouTube's embedded player (or a YouTube link
+     * anywhere else in the app) is passed to JavaScript as a "youtubeLink" event, which opens a
+     * channel's page in the in-app browser and a video in the app's own player.
+     * The embedded player's own address (/embed/...) is left alone, as is every other website.
+     */
+    @Override
+    public Boolean shouldOverrideLoad(Uri url) {
+        if (url == null || !"https".equals(url.getScheme()) || url.getHost() == null) return null;
+        String host = url.getHost().toLowerCase(java.util.Locale.ROOT);
+        boolean youtube = host.equals("youtu.be") || host.equals("youtube.com") || host.endsWith(".youtube.com");
+        String path = url.getPath() == null ? "" : url.getPath();
+        if (!youtube || path.startsWith("/embed/")) return null; // Capacitor decides, as before
+        JSObject event = new JSObject();
+        event.put("url", url.toString());
+        notifyListeners("youtubeLink", event, true); // kept until the page is listening
+        return true; // handled: don't load it here, don't open the phone's browser
     }
 
     /** Closes the in-app browser (after a tapped YouTube video has opened in the app's player). */
