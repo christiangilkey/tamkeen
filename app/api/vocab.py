@@ -15,6 +15,7 @@ from pydantic import BaseModel
 
 from .. import anki_deck, arabic, audio, db, exporters, ids, paths, sync
 from ..sync import engine
+from . import reviews
 
 router = APIRouter(prefix="/vocab", tags=["vocab"])
 
@@ -35,6 +36,7 @@ class VocabIn(BaseModel):
 class VocabPatch(BaseModel):
     meaning: str | None = None
     notes: str | None = None
+    memo: str | None = None  # the learner's own notes (a mnemonic, say)
     text: str | None = None
     folders: list[str] | None = None
 
@@ -70,7 +72,7 @@ def _items(q: str | None = None, folder: str | None = None) -> list[dict[str, An
         nq = arabic.normalize(q)
         lq = q.lower()
         items = [v for v in items if nq in v["norm"] or nq in arabic.normalize(v["sentence"])
-                 or lq in v["meaning"].lower() or lq in v["notes"].lower()]
+                 or lq in v["meaning"].lower() or lq in v["notes"].lower() or lq in (v.get("memo") or "").lower()]
     return items
 
 
@@ -276,6 +278,8 @@ def update_vocab(vocab_id: int, body: VocabPatch) -> dict[str, Any]:
             conn.execute("UPDATE vocab SET meaning = ? WHERE id = ?", (body.meaning, vocab_id))
         if body.notes is not None:
             conn.execute("UPDATE vocab SET notes = ? WHERE id = ?", (body.notes, vocab_id))
+        if body.memo is not None:
+            conn.execute("UPDATE vocab SET memo = ? WHERE id = ?", (body.memo, vocab_id))
         if body.text is not None and body.text.strip():
             conn.execute("UPDATE vocab SET text = ?, norm = ? WHERE id = ?",
                          (body.text.strip(), arabic.normalize(body.text), vocab_id))
@@ -364,7 +368,10 @@ def export_vocab(fmt: str, folder: str | None = None, ids: str | None = None) ->
     if fmt == "apkg":  # the deck file: the same cards with their layout, audio and learning progress
         game = db.get_setting("game_state")
         review = game.get("review") if isinstance(game, dict) else None
-        deck = anki_deck.build(items, _anki_clips(items), review=review if isinstance(review, dict) else None)
+        with db.session() as conn:
+            answers = reviews.log(conn)  # the reviewer's record: it decides the schedule of the words it covers
+        deck = anki_deck.build(items, _anki_clips(items), review=review if isinstance(review, dict) else None,
+                               reviews=answers)
         return Response(deck, media_type="application/octet-stream",
                         headers={"Content-Disposition": 'attachment; filename="tamkeen-vocab.apkg"'})
     raise HTTPException(400, "Format must be csv, anki or apkg.")

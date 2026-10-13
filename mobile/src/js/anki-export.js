@@ -32,6 +32,7 @@ export function cutClips(bytes, words) {
  * `key` names the file (words with the same key are cut together), `load()` resolves to its Blob.
  * `source.asset(path)` resolves to a fetch Response for a file shipped with the app.
  * `source.review` is each word's learning progress by uid (the game's `review` records), if any.
+ * `source.reviewed(uid, today)` is what the vocab reviewer's answers come to for a word, if any.
  * `progress(done, total)` is called as each audio file is finished.
  */
 export async function vocabDeck(items, source, progress = () => {}) {
@@ -59,5 +60,5 @@ export async function vocabDeck(items, source, progress = () => {}) {
     text("anki-card/front.html"), text("anki-card/back.html"), text("anki-card/style.css"),
     source.asset("fonts/NotoNaskhArabic.woff2").then((r) => r.arrayBuffer()),
   ]);
-  return buildDeck(items, clips, { front, back, css }, new Uint8Array(font), Date.now() / 1000, source.review || {});
+  return buildDeck(items, clips, { front, back, css }, new Uint8Array(font), Date.now() / 1000, source.review || {}, undefined, source.reviewed || (() => null));
 }

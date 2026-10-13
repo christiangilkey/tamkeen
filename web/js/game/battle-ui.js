@@ -470,6 +470,7 @@ function runBattle(b, vocab) {
       pay.tags.includes("comeback") ? icon("trophy") + " Won from the brink: the Champion form and the move Second Wind are now open." : "",
       pay.egg ? icon("egg_mystery") + " The wild creature left you an egg." : "",
       pay.ticket ? icon("ticket") + " A battle ticket made this one pay in full." : "",
+      pay.both ? `${icon("check")} A battle and your flashcards, both done today: +${pay.both.xp} XP · ${icon("coin")} ${pay.both.coins} coins` : "",
     ].filter(Boolean);
     const panel = $("#b-panel");
     panel.innerHTML = "";

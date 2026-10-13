@@ -17,6 +17,10 @@ export const GOALS = [5, 10, 20];           // minutes of study a day; the owner
 export const DAILY_COMPLETE_XP = 120;
 export const COMBO_WINDOW_MS = 30000;       // word lookups: long enough to read a definition first
 export const COMBO_STEPS = [1, 1.2, 1.5, 2];
+export const REVIEW_SHARE = 0.25;           // a card in the vocab reviewer pays this share of a word lookup's roll (see earn)
+export const REVIEW_CLEAR_CARDS = 5;        // answering this many cards, with nothing left due, clears the day's cards
+export const BOTH_XP = 30;                  // a day with a finished battle AND the flashcards cleared pays this once...
+export const BOTH_COINS = 3;                // ...and these coins (see payBoth): a nudge to do both, not a second wage
 export const ADULT_XP = 6000;               // creature XP for growth 1.0 (about two months of daily goals)
 export const MAX_CREATURES = 12;
 // XP of one kind that fills a habit (about ten daily goals, so one busy afternoon doesn't decide it).
@@ -39,7 +43,7 @@ export const dayNumber = (d = new Date()) => Math.floor((d.getTime() - d.getTime
 export const weekNumber = (d = new Date()) => Math.floor((dayNumber(d) + 3) / 7);
 
 // ---------- saved state ----------
-const freshDay = (key = "") => ({ key, seconds: 0, done: false, taps: 0, saves: 0, xp: 0, words: [], reviews: 0, battles: 0 });
+const freshDay = (key = "") => ({ key, seconds: 0, done: false, taps: 0, saves: 0, xp: 0, words: [], reviews: 0, battles: 0, cards: 0, cardsCleared: false, both: false });
 
 /** `state.creature` is always the creature out in the habitat (one of `state.roster`). */
 function attach(state) {
@@ -62,7 +66,7 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     scene: "meadow", // which habitat the creature lives in (data.HABITAT.themes)
     tags: [],    // earned by how and when the owner studies and fights
     review: {},  // vocab word -> [box, day it is next due, times right, times wrong]
-    stats: { lookups: 0, goals: 0, reviews: 0, right: 0, battles: 0, wins: 0, friend_battles: 0, raids: 0, words: 0 },
+    stats: { lookups: 0, goals: 0, reviews: 0, right: 0, battles: 0, wins: 0, friend_battles: 0, raids: 0, words: 0, cards: 0 },
     week: { n: 0, right: 0, total: 0, paid: false },
     league: 0,                    // 0 bronze .. 3 diamond: moved by how many days a week the goal is reached
     goalWeek: { n: 0, days: 0 },  // this week's goal days
@@ -273,12 +277,25 @@ export function earnAnki(state, days, now = new Date()) {
   return out;
 }
 
+/** Battles and flashcards are paid apart (battles in coins, flashcards in glow: see idle.cardsGlow)
+ * and never share a counter. The one thing that joins them: a day with both a finished battle and
+ * the flashcards cleared pays a small extra, once, whichever half comes second.
+ * Returns {xp, coins, stage} or null. */
+function payBoth(state) {
+  const day = state.day;
+  if (day.both || !day.cardsCleared || !(day.battles > 0)) return null;
+  day.both = true;
+  state.coins += BOTH_COINS;
+  return { xp: BOTH_XP, coins: BOTH_COINS, stage: grow(state, BOTH_XP, null) };
+}
+
 /**
  * Something happened while studying. Returns what it earned (or null for nothing):
  *   {type, xp, tier, item, combo, stage, levelUp, goalDone, badges}  (+ base, mult for a word)
  * Events: {type: "word", key}            a word was looked up (key identifies the word)
  *         {type: "save"}                 a word was saved to vocab
  *         {type: "study", seconds, mode} time spent listening ("listen") or reading ("read")
+ *         {type: "review", cleared}      a card was answered in the vocab reviewer (`cleared`: none is left due)
  * `ctx` carries {rand, now (Date), combo: {count, at}} so the outcome is reproducible in tests.
  */
 export function earn(state, event, ctx = {}) {
@@ -330,6 +347,27 @@ export function earn(state, event, ctx = {}) {
       reachGoal(state, now, out);
     }
     if (!out.xp) return null;
+  } else if (event.type === "review") {
+    // The learner marks their own cards, so "remembered" and "not remembered" pay the same: there
+    // is nothing to gain by fibbing. A card pays a quarter of what looking a word up would have
+    // rolled (the owner's rule), with no combo (that would reward rushing) and no surprise items.
+    // It fades through the day on its own count, apart from the battles' answers (day.reviews,
+    // stats.reviews), so neither eats into the other.
+    const roll = rollReward(rand);
+    out.tier = roll.tier === "surprise" ? "common" : roll.tier;
+    out.base = Math.max(1, Math.round(roll.xp * REVIEW_SHARE));
+    out.xp = Math.round(out.base * fade(day.cards, 50, 150) * boost(state, now));
+    day.cards++;
+    state.stats.cards++;
+    // Nothing left due after a real sitting: the day's cards are cleared (what that is worth is
+    // decided where the garden and the battles are paid, not here).
+    const clearedNow = Boolean(event.cleared) && !day.cardsCleared && day.cards >= REVIEW_CLEAR_CARDS;
+    if (clearedNow) day.cardsCleared = true;
+    out.cleared = clearedNow;
+    if (!out.xp && !clearedNow) return null;
+    if (out.xp) out.stage = grow(state, out.xp, "collector");
+    const both = clearedNow ? payBoth(state) : null; // the cards were the second half of the day's pair
+    if (both) { out.both = both; out.xp += both.xp; out.stage = out.stage || both.stage; }
   } else {
     return null;
   }
@@ -540,7 +578,7 @@ export const wildBonus = (genome) => 1 + 0.15 * Math.min(1, genome.growth);
 
 /**
  * Settle a finished battle. `result` = {mode: "wild" | "rental" | "friend", won, flawless,
- * comeback, rival: {id, name, rating}}. Returns {xp, coins, tags, egg, rating, badges}.
+ * comeback, rival: {id, name, rating}}. Returns {xp, coins, tags, egg, rating, badges, both}.
  */
 export function finishBattle(state, result, ctx = {}) {
   const now = ctx.now || new Date();
@@ -574,6 +612,7 @@ export function finishBattle(state, result, ctx = {}) {
   }
   state.coins += out.coins;
   if (out.xp) grow(state, out.xp, null);
+  out.both = payBoth(state); // on top of out.xp and out.coins, which stay the battle's own
   out.badges = checkBadges(state);
   state.updated_at = now.getTime() / 1000;
   return out;

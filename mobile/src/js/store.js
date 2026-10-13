@@ -53,7 +53,7 @@ export const audio = {
 
 // ---------- library (in memory, persisted after each change) ----------
 
-export const lib = { feeds: [], episodes: [], vocab: [], folders: [], definitions: [], lexemes: [] };
+export const lib = { feeds: [], episodes: [], vocab: [], folders: [], definitions: [], lexemes: [], reviews: {} };
 let saveTimer = 0;
 
 export async function loadLibrary() {

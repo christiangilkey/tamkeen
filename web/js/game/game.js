@@ -3,6 +3,7 @@
 
 import { api, on, saveSettings, state as app } from "../app.js";
 import { COMBO_STEPS, COMBO_WINDOW_MS, earn, earnAnki, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
+import { cardsGlow } from "./idle.js";
 import { icon } from "./render.js";
 
 let game = null;
@@ -60,8 +61,10 @@ export function reward(event, anchor = null) {
   const g = getGame();
   const result = earn(g, event, { combo });
   if (!result) return null;
+  if (result.cleared) result.glow = cardsGlow(g); // the day's flashcards are done: their reward is glow
   saveGame();
-  if (event.type !== "study" || result.goalDone) celebrate(result, anchor);
+  // (`quiet` events still earn, but without the fountain: the vocab reviewer has its own effects.)
+  if ((event.type !== "study" && !event.quiet) || result.goalDone) celebrate(result, anchor);
   if (event.type !== "study" || result.goalDone) showChip(g, result);
   for (const fn of listeners) { try { fn(result, g); } catch { /* a listener must not break studying */ } }
   return result;
