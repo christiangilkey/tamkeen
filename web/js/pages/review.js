@@ -196,7 +196,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     face.onscroll = null;
     face.innerHTML = `<div class="rv-front">
       <span class="rv-kind ${kind[0]}">${kind[1]}</span>
-      <div class="rv-meaning">${esc(p.meaning)}</div>
+      <div class="rv-meaning"${p.meaning.length > 34 ? ` style="font-size:clamp(22px, 5.8vw, 30px)"` : ""}>${esc(p.meaning)}</div>
       ${p.sentence.length ? `<div class="rv-sentence">${p.sentence.map(([text, hit]) => (hit ? `<b>${esc(text)}</b>` : esc(text))).join("")}</div>` : ""}
       <div class="rv-hint">Say the word to yourself, then turn the card</div>
     </div>`;

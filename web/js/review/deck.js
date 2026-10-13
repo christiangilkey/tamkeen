@@ -11,21 +11,80 @@ const MARKED = /^[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+$/u;
 const clean = (s) => String(s || "").trim();
 export const uidOf = (v) => String(v.uid || v.id);
 
+// ----- keeping the answer off the front -----
+// A saved meaning is whatever the AI (or the learner) wrote, and it sometimes names the word
+// itself: "to raise your voice (Egyptian dialect: 'تعلّي' = to make a fuss)". Shown as it is, the
+// front of the card would give the answer away, so the front is cleaned of it first.
+
+// Scripts a word being learned may be written in. (A word in Latin letters is told apart from an
+// explanation in Latin letters only by being the same word, so it is treated more carefully.)
+const SCRIPTS = ["Arabic", "Han", "Hiragana", "Katakana", "Cyrillic", "Hebrew", "Greek", "Hangul", "Thai", "Devanagari"];
+const JAPANESE = ["Han", "Hiragana", "Katakana"];
+const QUOTES = `"'‘’“”«»「」『』`;
+
+/** What gives `word` away inside other text: for a word in its own script, any run of that
+ * script (with its vowel marks); for a word in Latin letters, that very word. */
+function answerPattern(word) {
+  let used = SCRIPTS.filter((s) => new RegExp(`\\p{Script=${s}}`, "u").test(word));
+  if (used.some((s) => JAPANESE.includes(s))) used = [...new Set([...used, ...JAPANESE])];  // a kanji word's reading is in kana
+  if (used.length) {
+    const letter = `[${used.map((s) => `\\p{Script=${s}}`).join("")}]`;
+    return { script: true, re: new RegExp(`${letter}(?:[\\p{M}\\u0640\\u200c-\\u200f\\s'’-]*${letter})*\\p{M}*`, "gu") };
+  }
+  const exact = word.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return exact ? { script: false, re: new RegExp(`(?<![\\p{L}\\p{N}])${exact}(?![\\p{L}\\p{N}])`, "giu") } : null;
+}
+
+/**
+ * `text` (a meaning) without anything that gives `word` away:
+ *   - an aside in brackets that mentions it is dropped whole: "(Egyptian dialect: 'تعلّي' = ...)";
+ *   - the word in quote marks is dropped;
+ *   - for a word in its own script, any of that script left over is dropped too.
+ * A word in Latin letters is only removed inside brackets or quotes, never bare: "animal" really
+ * does mean "animal". What is left is tidied of the punctuation that hung on the removed part.
+ */
+export function hideAnswer(text, word) {
+  const original = clean(text);
+  const found = answerPattern(String(word || ""));
+  const has = (s) => { found.re.lastIndex = 0; return found.re.test(s); };
+  if (!found || !has(original)) return original;
+  let out = original;
+  for (let i = 0; i < 2; i++) out = out.replace(/\s*[(\[（][^()\[\]（）]*[)\]）]/gu, (aside) => (has(aside) ? "" : aside));
+  const quoted = new RegExp(`\\s*[${QUOTES}]([^${QUOTES}]{1,60})[${QUOTES}]`, "gu");
+  out = out.replace(quoted, (all, inner) => (has(inner) && !/[\p{L}\p{N}]/u.test(inner.replace(found.re, "")) ? "" : all));
+  if (found.script) out = out.replace(found.re, "");
+  return out
+    .replace(/[(\[（]\s*[)\]）]/gu, "")                      // brackets left empty
+    .replace(/([,;/(（]|^)\s*[=:→]\s*/gu, "$1 ")              // "= ..." with nothing before the sign
+    .replace(/\s*[=:→]\s*(?=[,;/)）]|$)/gu, "")               // "... =" with nothing after it
+    .replace(/\s*([,;/])(?:\s*[,;/])+/gu, "$1")               // separators left side by side
+    .replace(/\s+([,;.)）])/gu, "$1").replace(/\s{2,}/gu, " ")
+    .replace(/^[\s,;/=:–-]+|[\s,;/=:–-]+$/gu, "");
+}
+
+/** `text` (a translated sentence) with anything in the word's own script replaced by "…". */
+function maskAnswer(text, word) {
+  const found = answerPattern(String(word || ""));
+  return found && found.script ? text.replace(found.re, "…") : text;
+}
+
 /**
  * The front of a word's card, in the learner's own language: the word's meaning, and the
  * sentence it was saved from, translated. `sentence` is a list of [text, isTheWord] pieces so
  * the part that renders the word can be lit up (a translation saved without ⟦ ⟧ marks is one
  * plain piece). A word with a marked translation but no meaning shows the marked part as its
- * meaning. Null when there is nothing to ask with.
+ * meaning. Nothing on the front gives the word away (`hideAnswer`). Null when there is nothing
+ * to ask with.
  */
 export function prompt(v) {
   const translation = clean(v.translation);
   const marked = MARKED.test(translation);
-  const pieces = marked
+  const pieces = (marked
     ? translation.split(/⟦([^⟦⟧]+)⟧/u).map((text, i) => [text, i % 2 === 1]).filter(([text]) => text)
-    : translation.replace(/[⟦⟧]/gu, "") ? [[translation.replace(/[⟦⟧]/gu, ""), false]] : [];
-  const meaning = clean(v.meaning) || (marked ? pieces.filter(([, hit]) => hit).map(([text]) => text.trim()).join(" … ") : "");
-  if (!clean(v.text) || !meaning) return null;
+    : translation.replace(/[⟦⟧]/gu, "") ? [[translation.replace(/[⟦⟧]/gu, ""), false]] : []
+  ).map(([text, hit]) => [maskAnswer(text, v.text), hit]);
+  const meaning = hideAnswer(v.meaning, v.text) || (marked ? pieces.filter(([, hit]) => hit).map(([text]) => text.trim()).join(" … ") : "");
+  if (!clean(v.text) || !/[\p{L}\p{N}]/u.test(meaning)) return null;
   return { meaning, sentence: pieces };
 }
 

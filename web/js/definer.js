@@ -186,7 +186,7 @@ export function schemaFor(code) {
       root: { type: "string", description: t.root },
       pos: { type: "string", description: "Part of speech, e.g. verb, noun, adjective, preposition, particle." },
       morphology: { type: "string", description: t.morphology },
-      meaning: { type: "string", description: "Concise meaning of the word in THIS sentence." },
+      meaning: { type: "string", description: "Concise meaning of the word in THIS sentence: a few words, never the word itself and nothing in the language being studied (it is the question side of a flashcard, the word is the answer)." },
       explanation: { type: "string", description: "One or two sentences on why it means this here." },
       other_meanings: { type: "array", items: { type: "string" }, description: "Other common meanings out of context." },
       dialect: { type: "string", description: t.dialect },
@@ -214,14 +214,14 @@ Transcripts come from speech recognition and may contain small errors; if the wo
 
 In "sentence_translation", put the same ⟦ ⟧ marks around the part of your translation that stands for the marked word, so the learner sees which words match. Leave the marks out only if nothing in the translation corresponds to it.
 
-Write all explanations, meanings and translations in ${lang}. Keep "meaning" short (a few words). Return only the JSON object.`;
+Write all explanations, meanings and translations in ${lang}. Keep "meaning" short (a few words) and entirely in ${lang}: never repeat the word in it or quote any ${t.name} there, because "meaning" becomes the question side of a flashcard whose answer is the word. Notes about dialect or usage belong in "explanation" and "dialect_note". Return only the JSON object.`;
 }
 
 // ----- quick lookup: only the meaning (a much shorter question and answer) -----
 /** The shape of a quick answer. */
 export const QUICK_SCHEMA = {
   type: "object",
-  properties: { meaning: { type: "string", description: "The meaning of the marked word in THIS sentence, in a few words." } },
+  properties: { meaning: { type: "string", description: "The meaning of the marked word in THIS sentence, in a few words: never the word itself and nothing in the language being studied." } },
   required: ["meaning"],
   additionalProperties: false,
 };
@@ -230,7 +230,7 @@ export const QUICK_SCHEMA = {
  * language being studied. */
 export function quickPrompt(lang, code) {
   const t = teach(code);
-  return `You are an expert ${t.name} teacher. A learner tapped one word (or a short phrase) in real ${t.name} material, ${t.variety}. It is marked ⟦like this⟧ in the sentence. Give what it means in THIS sentence, in ${lang}, in a few words: no explanation, no grammar. Return only the JSON object.`;
+  return `You are an expert ${t.name} teacher. A learner tapped one word (or a short phrase) in real ${t.name} material, ${t.variety}. It is marked ⟦like this⟧ in the sentence. Give what it means in THIS sentence, in ${lang}, in a few words: no explanation, no grammar, and never the word itself or any ${t.name} (the answer becomes the question side of a flashcard). Return only the JSON object.`;
 }
 
 /** Cache key of a quick answer (kept apart from the full answer for the same word and sentence). */

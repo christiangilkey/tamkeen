@@ -5,7 +5,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { AGAIN, GOOD, ankiCard, ankiData, ankiLog, ankiSchedule, answer, dayNumber, history, nextWait, recall, replay, waitFor } from "../../web/js/review/fsrs.js";
-import { forecast, plan, prompt, queue, requeue, reviewable, states, strength, waitText } from "../../web/js/review/deck.js";
+import { forecast, hideAnswer, plan, prompt, queue, requeue, reviewable, states, strength, waitText } from "../../web/js/review/deck.js";
 import { earn, newState, REVIEW_CLEAR_CARDS, REVIEW_SHARE } from "../../web/js/game/rules.js";
 
 const py = JSON.parse(readFileSync(new URL("../fixtures/fsrs_parity.json", import.meta.url), "utf8"));
@@ -59,6 +59,31 @@ test("the front of a card is the meaning with the translated sentence under it",
   assert.equal(prompt({ uid: "a", text: " ", meaning: "book" }), null);
   assert.equal(reviewable(word("a")), true);
   assert.equal(reviewable(word("a", { deleted: 1 })), false);
+});
+
+test("the front of a card never gives the word away, whatever its saved meaning says", () => {
+  // The card the owner found: the AI had written the word itself into the meaning.
+  const leaky = "to raise your voice / to tease loudly (Egyptian dialect: 'تعلّي' = to make a fuss, to overdo it, to mock loudly)";
+  assert.equal(hideAnswer(leaky, "تعلّي"), "to raise your voice / to tease loudly");
+  const front = prompt({ uid: "a", text: "تعلّي", meaning: leaky, translation: "Don't ⟦raise your voice⟧ (تعلّي) at me." });
+  assert.equal(front.meaning, "to raise your voice / to tease loudly");
+  assert.deepEqual(front.sentence, [["Don't ", false], ["raise your voice", true], [" (…) at me.", false]]);
+  assert.ok(!/\p{Script=Arabic}/u.test(JSON.stringify(front)), "no Arabic anywhere on the front");
+  // An aside in brackets that mentions the word goes whole; so does the word in quote marks, or bare.
+  assert.equal(hideAnswer("book (كتاب)", "كِتَاب"), "book", "with or without its vowel marks");
+  assert.equal(hideAnswer("'مدرسة': school", "مدرسة"), "school");
+  assert.equal(hideAnswer("raise your voice, تعلّي = make a fuss", "تعلي"), "raise your voice, make a fuss");
+  assert.equal(hideAnswer("学校 (がっこう): school", "学校"), "school", "a kanji word's reading in kana goes too");
+  assert.equal(hideAnswer("привет: hello", "привет"), "hello");
+  // A word in Latin letters is only removed inside brackets or quotes: a cognate keeps its meaning.
+  assert.equal(hideAnswer("house (casa de campo = country house)", "casa"), "house");
+  assert.equal(hideAnswer('"casa" means house', "casa"), "means house");
+  assert.equal(hideAnswer("animal", "animal"), "animal");
+  // Meanings that give nothing away are left exactly as they are.
+  for (const fine of ["confused", "time (3:15), o'clock", "to give up; to quit (informal)", 'the "big" one']) assert.equal(hideAnswer(fine, "ساعة"), fine);
+  // A "meaning" that is only the word itself is nothing to ask with.
+  assert.equal(prompt({ uid: "b", text: "كتاب", meaning: "كتاب" }), null);
+  assert.equal(prompt({ uid: "b", text: "كتاب", meaning: "كتاب", translation: "This is a ⟦book⟧." }).meaning, "book", "the marked part stands in");
 });
 
 test("today's plan: what is due, most overdue first, then new words up to the day's allowance", () => {
