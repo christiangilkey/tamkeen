@@ -156,6 +156,12 @@ public class GoogleDriveAuthPlugin extends Plugin {
                     notifyListeners("pageImport", event);
                 }, id -> {
                     JSObject event = new JSObject();
+                    if (id.startsWith("tamkeen-video://site")) {
+                        // The star in the bar, or a site taken off on the start page: JavaScript keeps the list.
+                        event.put("url", id);
+                        notifyListeners("browserSite", event);
+                        return;
+                    }
                     if (id.startsWith("tamkeen-video:")) {
                         // The Follow button on a channel's page: JavaScript adds it to the followed channels.
                         event.put("url", id);
@@ -261,6 +267,17 @@ public class GoogleDriveAuthPlugin extends Plugin {
     @PluginMethod
     public void reelClose(PluginCall call) {
         getActivity().runOnUiThread(ReelSurface::close);
+        call.resolve();
+    }
+
+    /**
+     * The user's saved sites, for the in-app browser's start page and the star in its bar:
+     * "sites" is the JSON list [{url, title}]. Sent before the browser opens and after each change.
+     */
+    @PluginMethod
+    public void browserSites(PluginCall call) {
+        String sites = call.getString("sites", "[]");
+        getActivity().runOnUiThread(() -> InAppBrowser.setSavedSites(sites));
         call.resolve();
     }
 

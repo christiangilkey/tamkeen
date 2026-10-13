@@ -11,11 +11,26 @@
 </head>
 <body>
   <script type="module">
-    import { HOME_CSS, homeBody } from "/js/browser-home.js";
+    import { HOME_CSS, homeBody, paintSaved } from "/js/browser-home.js";
     const lang = new URLSearchParams(location.search).get("lang") || "";
     document.getElementById("home-style").textContent = HOME_CSS;
     document.body.insertAdjacentHTML("afterbegin", homeBody(lang));
     document.querySelector("input[type=search]").focus({ preventScroll: true });
+
+    // "Your saved sites": kept by the app (this page is served by the app's own local server, so
+    // it may ask). Asked again whenever the page is shown, so a site saved a moment ago is there
+    // when the user comes back to the start page.
+    const takeOff = (url) => fetch("/api/browser/sites", { method: "POST", headers: { "Content-Type": "application/json" },
+                                                           body: JSON.stringify({ url, on: false }) }).catch(() => {});
+    async function showSaved() {
+      try {
+        const res = await fetch("/api/browser/sites", { cache: "no-store" });
+        if (res.ok) paintSaved(document, (await res.json()).sites, takeOff);
+      } catch { /* the app is closing: leave the page as it is */ }
+    }
+    showSaved();
+    window.addEventListener("pageshow", (e) => { if (e.persisted) showSaved(); });
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) showSaved(); });
   </script>
 </body>
 </html>

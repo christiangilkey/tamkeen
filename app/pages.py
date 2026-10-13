@@ -191,3 +191,90 @@ def save_page(url: str, title: str, blocks: list[dict[str, Any]], image: str | N
         out = dict(conn.execute("SELECT * FROM episodes WHERE id = ?", (ep_id,)).fetchone())
     out["words"] = widx
     return out
+
+
+# ---------------------------------------------------------------------------------------------
+# Sites saved to the browser's start page (the setting `browser_sites`). web/js/browser-sites.js
+# is the phone's copy of everything below and explains the records; keep the two alike.
+
+MAX_SITE_RECORDS = 300
+
+
+def site_key(url: Any) -> str:
+    """A web address as the list keeps it: no "#part"; "" if it is not an http or https address."""
+    parts = urlsplit(str(url or "").strip())
+    if parts.scheme.lower() not in ("http", "https") or not parts.netloc:
+        return ""
+    key = f"{parts.scheme.lower()}://{parts.netloc.lower()}{parts.path or '/'}"
+    if parts.query:
+        key += "?" + parts.query
+    return key if len(key) <= 500 else ""
+
+
+def _site_title(value: Any) -> str:
+    return " ".join(str(value if value is not None else "").split())[:120]
+
+
+def _whole(value: Any) -> int:
+    try:
+        return max(0, int(float(value or 0)))
+    except (TypeError, ValueError):
+        return 0
+
+
+def _newer_site(a: dict[str, Any], b: dict[str, Any]) -> dict[str, Any]:
+    """The copy changed last; on a tie, the same one on every device."""
+    if a["updated_at"] != b["updated_at"]:
+        return a if a["updated_at"] > b["updated_at"] else b
+    if a["on"] != b["on"]:
+        return a if a["on"] else b
+    return a if a["title"] <= b["title"] else b
+
+
+def clean_sites(raw: Any) -> list[dict[str, Any]]:
+    seen: dict[str, dict[str, Any]] = {}
+    for r in raw if isinstance(raw, list) else []:
+        if not isinstance(r, dict):
+            continue
+        url = site_key(r.get("url"))
+        if not url:
+            continue
+        rec = {"url": url, "title": _site_title(r.get("title")), "on": 1 if r.get("on") else 0,
+               "updated_at": _whole(r.get("updated_at"))}
+        had = seen.get(url)
+        seen[url] = _newer_site(had, rec) if had else rec
+    everything = list(seen.values())
+    if len(everything) > MAX_SITE_RECORDS:
+        everything = sorted(everything, key=lambda r: (-r["on"], -r["updated_at"], r["url"]))[:MAX_SITE_RECORDS]
+    return sorted(everything, key=lambda r: r["url"])
+
+
+def is_saved(sites: Any, url: Any) -> bool:
+    key = site_key(url)
+    return bool(key) and any(r["on"] and r["url"] == key for r in clean_sites(sites))
+
+
+def set_site(sites: Any, url: Any, title: Any, on: bool, now: float) -> list[dict[str, Any]]:
+    """Put a site on the start page, or take it off."""
+    key = site_key(url)
+    everything = clean_sites(sites)
+    if not key:
+        return everything
+    had = next((r for r in everything if r["url"] == key), None)
+    # Always later than everything already in the list: a change made with a clock that runs
+    # behind still wins, and two sites saved in the same second keep their order.
+    latest = max((r["updated_at"] for r in everything), default=0)
+    rec = {"url": key, "title": _site_title(title) or (had["title"] if had else ""), "on": 1 if on else 0,
+           "updated_at": max(_whole(now), latest + 1)}
+    return clean_sites([r for r in everything if r["url"] != key] + [rec])
+
+
+def saved_sites(sites: Any) -> list[dict[str, str]]:
+    """The sites on the start page, in the order they were saved."""
+    live = sorted((r for r in clean_sites(sites) if r["on"]), key=lambda r: (r["updated_at"], r["url"]))
+    return [{"url": r["url"], "title": r["title"]} for r in live]
+
+
+def merge_sites(mine: Any, theirs: Any) -> list[dict[str, Any]]:
+    """Two devices' lists as one: for each address, the copy that changed last wins."""
+    return clean_sites(clean_sites(mine) + clean_sites(theirs))

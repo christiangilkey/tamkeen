@@ -9,6 +9,7 @@
 import { drive, gunzipJson, gzipJson } from "./drive.js";
 import { audio, kv, lib, saveLibrary, settings, transcripts } from "./store.js";
 import { cleanFollows, mergeFollows } from "./ytfollow.js";
+import { cleanSites, mergeSites } from "./browser-sites.js";
 
 const LIBRARY = "library.json.gz";
 const listeners = new Set();
@@ -123,6 +124,17 @@ export function merge(remote) {
       changed++;
     }
   }
+
+  // Sites saved to the browser's start page: for each address, the copy that changed last wins.
+  if (Array.isArray(remote.sites) && remote.sites.length) {
+    const before = cleanSites(settings.browser_sites);
+    const merged = mergeSites(before, remote.sites);
+    if (JSON.stringify(merged) !== JSON.stringify(before)) {
+      settings.browser_sites = merged;
+      kv.set("settings", { ...settings }).catch(console.error);
+      changed++;
+    }
+  }
   return changed;
 }
 
@@ -142,6 +154,7 @@ export function snapshot() {
     reviews: lib.reviews || {},
     game: settings.game_state || null,
     channels: cleanFollows(settings.youtube_follows),
+    sites: cleanSites(settings.browser_sites),
   };
 }
 
@@ -154,7 +167,7 @@ function canonical(value) {
 }
 const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
                                    definitions: l.definitions, lexemes: l.lexemes || [], reviews: l.reviews || {}, game: l.game || null,
-                                   channels: l.channels || [] });
+                                   channels: l.channels || [], sites: l.sites || [] });
 
 // ---------- run ----------
 let running = null;

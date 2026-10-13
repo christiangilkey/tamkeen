@@ -56,6 +56,37 @@ final class InAppBrowser {
 
     private static final String VIDEO_SCHEME = "tamkeen-video";
 
+    // Sites the user saved to the start page, as the app last handed them over: the JSON list
+    // [{url, title}] that the start page draws, and their addresses alone for the star in the bar.
+    private static String savedSites = "[]";
+    private static final java.util.Set<String> savedUrls = new java.util.HashSet<>();
+    private static Runnable repaintStar; // set while a browser is open
+
+    /** The app's list of saved sites (it changed, or the browser is about to open). */
+    static void setSavedSites(String json) {
+        String list = "[]";
+        java.util.Set<String> urls = new java.util.HashSet<>();
+        try {
+            org.json.JSONArray sites = new org.json.JSONArray(json == null || json.trim().isEmpty() ? "[]" : json);
+            for (int i = 0; i < sites.length(); i++) urls.add(sites.getJSONObject(i).optString("url"));
+            list = sites.toString();
+        } catch (Exception e) {
+            urls.clear(); // not a list: treat it as empty
+        }
+        savedSites = list;
+        savedUrls.clear();
+        savedUrls.addAll(urls);
+        Runnable repaint = repaintStar;
+        if (repaint != null) repaint.run();
+    }
+
+    /** An address as the saved list keeps it: without any "#part". */
+    private static String siteKey(String url) {
+        if (url == null) return "";
+        int hash = url.indexOf('#');
+        return hash < 0 ? url : url.substring(0, hash);
+    }
+
     /**
      * Asked of the page once a second when the browser was opened for signing in to Instagram:
      * "in" once the page is Instagram's, past its sign-in pages, and carries the mark Instagram
@@ -122,6 +153,18 @@ final class InAppBrowser {
         Button back = barButton(activity, "‹", ink, dp);
         Button forward = barButton(activity, "›", ink, dp);
         Button close = barButton(activity, "✕", ink, dp);
+        // The star keeps the site being shown on the start page (hollow until it is); it is not
+        // shown on the start page itself.
+        Button star = barButton(activity, "☆", ink, dp);
+        final String[] shown = { "" }; // the address being shown
+        Runnable paintStar = () -> {
+            boolean site = shown[0].startsWith("http") && !shown[0].startsWith(START_PAGE);
+            boolean on = site && savedUrls.contains(siteKey(shown[0]));
+            star.setText(on ? "★" : "☆");
+            star.setTextColor(on ? Color.parseColor("#f1cf7b") : ink);
+            star.setVisibility(site ? View.VISIBLE : View.GONE);
+        };
+        paintStar.run();
         EditText address = new EditText(activity);
         address.setSingleLine(true);
         address.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
@@ -141,6 +184,7 @@ final class InAppBrowser {
         LinearLayout.LayoutParams grow = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f);
         grow.setMargins(pad, 0, pad, 0);
         bar.addView(address, grow);
+        bar.addView(star);
         bar.addView(close);
         root.addView(bar, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
@@ -159,13 +203,16 @@ final class InAppBrowser {
             @Override
             public void doUpdateVisitedHistory(WebView view, String current, boolean isReload) {
                 if (!address.hasFocus()) address.setText(START_PAGE.equals(current) ? "" : current);
+                shown[0] = current == null ? "" : current;
+                paintStar.run();
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 android.net.Uri uri = request.getUrl();
                 if (uri == null || !VIDEO_SCHEME.equals(uri.getScheme())) return false;
-                if ("follow".equals(uri.getHost())) { // the Follow button on a channel's page
+                // The Follow button on a channel's page, or a saved site taken off on the start page.
+                if ("follow".equals(uri.getHost()) || "site".equals(uri.getHost())) {
                     if (videos != null) videos.onVideo(uri.toString());
                     return true;
                 }
@@ -176,6 +223,11 @@ final class InAppBrowser {
 
             @Override
             public void onPageFinished(WebView view, String finished) {
+                if (START_PAGE.equals(finished) || START_PAGE.equals(view.getUrl())) {
+                    // The start page draws the saved sites it is handed, so one saved a moment
+                    // ago is there when the user comes back to it. (Only ever said to this page.)
+                    view.evaluateJavascript("window.__tkSites&&window.__tkSites(" + savedSites + ")", null);
+                }
                 if (youtubeScript != null && !youtubeScript.isEmpty()) {
                     view.evaluateJavascript("window.__tamkeenBridge='address';" + youtubeScript, null);
                 }
@@ -212,6 +264,15 @@ final class InAppBrowser {
         back.setOnClickListener(v -> { if (web.canGoBack()) web.goBack(); });
         forward.setOnClickListener(v -> { if (web.canGoForward()) web.goForward(); });
         close.setOnClickListener(v -> dialog.dismiss());
+        star.setOnClickListener(v -> {
+            // The app keeps the list; it is told which site and answers with the new list.
+            String site = siteKey(web.getUrl());
+            if (videos == null || !site.startsWith("http") || site.startsWith(START_PAGE)) return;
+            String title = web.getTitle() == null ? "" : web.getTitle();
+            videos.onVideo(VIDEO_SCHEME + "://site?do=toggle&u=" + android.net.Uri.encode(site)
+                + "&t=" + android.net.Uri.encode(title));
+        });
+        repaintStar = paintStar;
         address.setOnEditorActionListener((v, actionId, event) -> {
             boolean enter = event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER
                 && event.getAction() == KeyEvent.ACTION_DOWN;
@@ -236,6 +297,7 @@ final class InAppBrowser {
         });
         dialog.setOnDismissListener(d -> {
             if (openDialog == dialog) openDialog = null;
+            if (repaintStar == paintStar) repaintStar = null;
             web.stopLoading();
             frame.removeView(web);
             web.destroy();

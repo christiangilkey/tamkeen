@@ -51,6 +51,6 @@ test("the phone's version is one self-contained page", () => {
   const html = homeHtml("fr");
   assert.ok(html.startsWith("<!doctype html>") && html.trim().endsWith("</html>"));
   assert.ok(html.includes(HOME_CSS) && html.includes(homeBody("fr")));
-  assert.ok(!/<script/i.test(html), "no script: it must work with nothing else loaded");
+  assert.ok(!/<script[^>]*\ssrc=/i.test(html), "no script file: it must work with nothing else loaded");
   assert.ok(!/<link /i.test(html) && !/src="\//.test(html), "nothing is loaded from the app's own files");
 });

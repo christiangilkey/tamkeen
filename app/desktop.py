@@ -73,8 +73,9 @@ def bring_forward(window: Any) -> None:
 
 class BrowserApi:
     """The only things exposed to pages shown in the Web Browser window: importing the page
-    being viewed, and handing a YouTube video to the app's player. (Websites can reach this
-    object, so it must never offer more than that.)"""
+    being viewed, keeping the site being viewed on the browser's start page, and handing a
+    YouTube video to the app's player. (Websites can reach this object, so it must never offer
+    more than that.)"""
 
     def __init__(self, main_window: Any = None) -> None:
         self._window: Any = None
@@ -134,6 +135,41 @@ class BrowserApi:
         events.publish("feeds", {"refreshed": True})  # an open Library redraws its channel bar
         sync.request(30)
         return {"ok": True, "following": youtube.is_followed(follows, name)}
+
+    def _site(self) -> str:
+        """The address of the website being shown ("" on the app's own start page). It is read
+        from the window, never taken from the page, so a site can only ever save itself."""
+        from urllib.parse import urlsplit
+
+        url = self._window.get_current_url() or ""
+        host = (urlsplit(url).hostname or "").lower()
+        return "" if host in ("127.0.0.1", "localhost", "") else url
+
+    def site_saved(self) -> dict[str, Any]:
+        """Is the site being shown on the browser's start page? (For the star in the bar.)"""
+        from . import db, pages
+
+        try:
+            return {"saved": pages.is_saved(db.get_setting("browser_sites"), self._site())}
+        except Exception:
+            return {"saved": False}
+
+    def save_site(self, title: str = "") -> dict[str, Any]:
+        """The star in the bar was pressed: put this site on the start page, or take it off."""
+        from . import db, pages, sync
+
+        try:
+            url = self._site()
+            if not pages.site_key(url):
+                return {"ok": False, "error": "This page can't be saved."}
+            sites = db.get_setting("browser_sites")
+            on = not pages.is_saved(sites, url)
+            db.set_settings({"browser_sites": pages.set_site(sites, url, str(title or ""), on, time.time())})
+            sync.request(30)
+        except Exception as exc:  # never let a website's oddities crash the bridge
+            log.exception("Saving a site to the start page failed")
+            return {"ok": False, "error": f"Couldn't save this site ({exc.__class__.__name__})."}
+        return {"ok": True, "saved": on}
 
     def import_page(self) -> dict[str, Any]:
         from . import pages, sync

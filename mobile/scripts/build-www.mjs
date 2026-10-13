@@ -58,6 +58,7 @@ const SHARED = [
   "js/reel-embed.js",
   "js/reel-page.js",
   "js/browser-home.js",
+  "js/browser-sites.js",
   "js/trending.js",
   "js/pages/discover.js",
   "js/components/studycard.js",

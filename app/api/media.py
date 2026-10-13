@@ -7,7 +7,7 @@ from typing import Any
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from .. import charts, events, sync, youtube
+from .. import charts, db, events, pages, sync, youtube
 
 router = APIRouter(tags=["media"])
 
@@ -82,3 +82,30 @@ class WatchResult(BaseModel):
 def watch_result(body: WatchResult) -> dict[str, bool]:
     """The app's page answering a "watch this video" request that came from the browser window."""
     return {"ok": youtube.answer_watch(body.token, body.ok, body.title, body.error)}
+
+
+# ----- sites saved to the in-app browser's start page -----
+
+class SiteIn(BaseModel):
+    url: str
+    title: str = ""
+    on: bool = True
+
+
+@router.get("/browser/sites")
+def browser_sites() -> dict[str, Any]:
+    """The sites on the start page, in the order they were saved: [{url, title}]."""
+    return {"sites": pages.saved_sites(db.get_setting("browser_sites"))}
+
+
+@router.post("/browser/sites")
+def set_browser_site(body: SiteIn) -> dict[str, Any]:
+    """Put one site on the start page, or (on = false) take it off."""
+    if not pages.site_key(body.url):
+        raise HTTPException(400, "That isn't a web address.")
+    import time
+
+    sites = pages.set_site(db.get_setting("browser_sites"), body.url, body.title, body.on, time.time())
+    db.set_settings({"browser_sites": sites})
+    sync.request(30)  # so the user's other devices get it
+    return {"sites": pages.saved_sites(sites)}

@@ -20,7 +20,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .. import arabic, audio, db, languages, paths, videos, youtube
+from .. import arabic, audio, db, languages, pages, paths, videos, youtube
 from .drive import Drive
 
 log = logging.getLogger(__name__)
@@ -116,7 +116,8 @@ def snapshot(device_id: str) -> dict[str, Any]:
     return {"format": FORMAT_VERSION, "device": device_id, "feeds": feeds, "episodes": episodes,
             "vocab": vocab, "folders": folders, "definitions": defs, "lexemes": lexemes, "reviews": reviews,
             "game": db.get_setting("game_state"),
-            "channels": youtube.clean_follows(db.get_setting("youtube_follows"))}
+            "channels": youtube.clean_follows(db.get_setting("youtube_follows")),
+            "sites": pages.clean_sites(db.get_setting("browser_sites"))}
 
 
 def _folder_list(raw: Any) -> list[str]:
@@ -133,6 +134,7 @@ def _content(lib: dict[str, Any]) -> str:
     content["lexemes"] = lib.get("lexemes") or []  # a device from before seen words were kept sends none
     content["reviews"] = lib.get("reviews") or {}  # nor does one from before the reviewer
     content["channels"] = lib.get("channels") or []  # nor one from before channels could be followed
+    content["sites"] = lib.get("sites") or []  # nor one from before sites could be saved to the browser's start page
     return json.dumps(content, ensure_ascii=False, sort_keys=True)
 
 
@@ -316,6 +318,21 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
                              "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
                              (json.dumps(merged, ensure_ascii=False),))
                 result.merged["channels"] = len(merged)
+
+        # Sites saved to the browser's start page: for each address, the copy that changed last wins.
+        sites = remote.get("sites")
+        if isinstance(sites, list) and sites:
+            row = conn.execute("SELECT value FROM settings WHERE key = 'browser_sites'").fetchone()
+            try:
+                mine = pages.clean_sites(json.loads(row["value"]) if row else [])
+            except json.JSONDecodeError:
+                mine = []
+            merged = pages.merge_sites(mine, sites)
+            if merged != mine:
+                conn.execute("INSERT INTO settings(key, value) VALUES('browser_sites', ?) "
+                             "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
+                             (json.dumps(merged, ensure_ascii=False),))
+                result.merged["sites"] = len(merged)
     return downloads
 
 

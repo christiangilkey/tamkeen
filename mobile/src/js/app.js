@@ -18,6 +18,7 @@ import { isNewer, showUpdateNotice } from "./updatenotice.js";
 import { icon } from "./icons.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
 import { chosenCountry, youtubeHome } from "./youtube-home.js";
+import { isSaved, savedSites, setSite } from "./browser-sites.js";
 import { addUploadedVideo, checkFeeds, handle } from "./backend.js";
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
@@ -416,14 +417,33 @@ export async function openBrowser(url = "", { instagramSignIn = false } = {}) {
         GoogleDriveAuth.browserToast({ text: e.message || "Couldn't follow this channel." }).catch(() => {});
       }
     });
+    // The star in the browser's bar was pressed (do=toggle), or a site was taken off on the start
+    // page itself (do=remove): change the saved list and hand the browser the new one.
+    GoogleDriveAuth.addListener("browserSite", async ({ url }) => {
+      try {
+        const q = new URL(url).searchParams;
+        const address = q.get("u") || "";
+        const removing = q.get("do") === "remove";
+        const on = removing ? false : !isSaved(settings.browser_sites, address);
+        await saveSettings({ browser_sites: setSite(settings.browser_sites, { url: address, title: q.get("t") || "" },
+                                                    on, Math.floor(Date.now() / 1000)) });
+        await GoogleDriveAuth.browserSites({ sites: JSON.stringify(savedSites(settings.browser_sites)) });
+        if (!removing) GoogleDriveAuth.browserToast({ text: on ? "Saved to your start page." : "Taken off your start page." }).catch(() => {});
+      } catch (e) {
+        GoogleDriveAuth.browserToast({ text: e.message || "Couldn't save this site." }).catch(() => {});
+      }
+    });
     // The browser was opened for signing in to Instagram, saw that the user now is, and closed itself.
     GoogleDriveAuth.addListener("instagramSignedIn", () => emit("instagram", { signed_in: true }));
   }
   // With no address, the browser opens on the app's start page: a search box and news sites
   // in the language being studied (handed over as one finished page, see browser-home.js).
   const { homeHtml } = await import("./browser-home.js");
+  // The user's saved sites: drawn on the start page, and marked by the star in the browser's bar.
+  const sites = savedSites(settings.browser_sites);
+  await GoogleDriveAuth.browserSites({ sites: JSON.stringify(sites) }).catch(() => {});
   await GoogleDriveAuth.openBrowser({ url, extractor: await extractorSource(), youtube: await youtubeBrowserScript(),
-                                      home: homeHtml(settings.study_language || ""), closeOnInstagramSignIn: !!instagramSignIn });
+                                      home: homeHtml(settings.study_language || "", sites), closeOnInstagramSignIn: !!instagramSignIn });
 }
 
 /** Open Instagram's sign-in page in the app's own browser (which shares its sign-ins with the reel
@@ -595,6 +615,7 @@ export async function saveSettings(values) {
   applySettings(s);
   if ("game_state" in values) requestSync(90000); // the creature reaches the other devices after studying
   if ("youtube_follows" in values) requestSync(30000); // so do followed channels
+  if ("browser_sites" in values) requestSync(30000); // and sites saved to the browser's start page
   return s;
 }
 export async function loadStatus() {

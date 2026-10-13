@@ -384,6 +384,8 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "game_sound": True,
     # Followed YouTube channels (web/js/ytfollow.js); travels between devices with the library.
     "youtube_follows": [],
+    # Sites saved to the in-app browser's start page (app/pages.py, web/js/browser-sites.js); travels too.
+    "browser_sites": [],
     # The Anki companion (see app/companion.py): its secret, and the daily totals it has reported.
     "anki_token": "",
     "anki_days": {},

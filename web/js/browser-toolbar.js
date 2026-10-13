@@ -33,6 +33,8 @@
     "border-radius:8px;background:#141413;color:#f2f1ec;outline:none;");
   var status = el("span", FONT + "max-width:38%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#b8b6ad;");
   var imp = el("button", BTN + "background:#2dd4bf;border-color:#2dd4bf;color:#062a26;font-weight:600;padding:0 14px;", "Import Page");
+  // The star keeps the site being shown on the browser's start page (a hollow star until it is).
+  var star = el("button", BTN + "font-size:18px;line-height:1;padding:0 9px;", "☆");
   back.title = "Back";
   fwd.title = "Forward";
   reload.title = "Reload";
@@ -67,6 +69,40 @@
     status.textContent = text;
     status.style.color = good === false ? "#fca5a5" : good ? "#5eead4" : "#b8b6ad";
   }
+
+  var starred = false;
+  function paintStar() {
+    star.textContent = starred ? "★" : "☆";
+    star.style.color = starred ? "#f1cf7b" : "#f2f1ec";
+    star.title = starred ? "On your start page. Press to take it off." : "Keep this site on the browser's start page";
+    star.style.display = shownAddress() ? "" : "none"; // nothing to save on the start page itself
+  }
+  /** Ask the app whether the site being shown is on the start page (it may still be loading). */
+  function askStar(tries) {
+    var api = window.pywebview && window.pywebview.api;
+    if (!api || !api.site_saved) {
+      if (tries > 0) setTimeout(function () { askStar(tries - 1); }, 500);
+      return;
+    }
+    api.site_saved().then(function (r) { starred = !!(r && r.saved); paintStar(); }).catch(function () {});
+  }
+  star.onclick = function () {
+    var api = window.pywebview && window.pywebview.api;
+    if (!api || !api.save_site) { say("Still loading… try again in a moment.", false); return; }
+    api.save_site(document.title || "").then(function (r) {
+      if (r && r.ok) {
+        starred = !!r.saved;
+        paintStar();
+        say(starred ? "★ Saved to your start page." : "Taken off your start page.", true);
+      } else {
+        say((r && r.error) || "Couldn't save this site.", false);
+      }
+    }).catch(function (e) {
+      say("Couldn't save this site. " + (e && e.message ? e.message : ""), false);
+    });
+  };
+  paintStar();
+  askStar(12);
   imp.onclick = function () {
     if (busy) return;
     var api = window.pywebview && window.pywebview.api;
@@ -90,6 +126,7 @@
   bar.appendChild(reload);
   bar.appendChild(input);
   bar.appendChild(status);
+  bar.appendChild(star);
   bar.appendChild(imp);
   root.appendChild(bar);
 
@@ -101,7 +138,9 @@
   if (document.body) attach();
   else document.addEventListener("DOMContentLoaded", attach);
   // Keep the address current on sites that change pages without reloading.
+  var starFor = location.href;
   setInterval(function () {
+    if (starFor !== location.href) { starFor = location.href; askStar(0); } // a new page without a reload
     if (root.activeElement !== input && input.value !== shownAddress()) input.value = shownAddress();
     if (!host.isConnected && document.body) document.body.appendChild(host);
   }, 700);

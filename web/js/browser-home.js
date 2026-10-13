@@ -5,6 +5,10 @@
 //
 // To add or change a site, edit NEWS below: [name as the site writes it, address, short note].
 // A note starting with "Easier" marks news written for learners; those are listed first.
+//
+// Above the news sits "Your saved sites": whatever the user kept with the star in the browser's
+// bar (the list and its rules are in browser-sites.js). `paintSaved` draws it; it is written to
+// stand entirely on its own, because the phone's page carries it as text inside the page.
 
 export const NEWS = {
   ar: [
@@ -162,8 +166,79 @@ export const HOME_CSS = `
   .note { color: var(--muted); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .easy { display: inline-block; margin-inline-end: 6px; padding: 0 7px; border-radius: 99px; background: var(--soft); color: var(--accent); font-size: 11px; font-weight: 700; }
   .tip { color: var(--muted); font-size: 14px; margin-top: 22px; }
+  .saved { position: relative; min-width: 0; }
+  .saved a.site { padding-inline-end: 46px; }
+  .saved .rm { position: absolute; top: 50%; inset-inline-end: 9px; transform: translateY(-50%); width: 30px; height: 30px; padding: 0;
+    border-radius: 50%; border: 1px solid var(--line); background: var(--card); color: var(--muted); font: inherit; font-size: 19px; line-height: 1; font-weight: 400; cursor: pointer; }
+  .saved .rm:hover, .saved .rm:focus-visible { border-color: var(--accent); color: var(--ink); outline: none; }
+  #saved[hidden] { display: none; }
   @media (max-width: 520px) { .grid { grid-template-columns: 1fr 1fr; } a.site { padding: 10px; gap: 8px; } .ico { width: 32px; height: 32px; font-size: 15px; } .ico img { padding: 4px; } .name { font-size: 15px; white-space: normal; } .top { padding: 22px 16px 20px; } form { flex-wrap: nowrap; } button { padding: 0 16px; } }
 `;
+
+/**
+ * Draw "Your saved sites" into the page: one tile per site, each with a small button that takes
+ * it off again. `sites` is [{url, title}]; `onRemove(url)` is told when a site is taken off.
+ * (Self-contained on purpose: no helpers from this file, see the note at the top.)
+ */
+export function paintSaved(doc, sites, onRemove) {
+  var box = doc.getElementById("saved");
+  var grid = doc.getElementById("saved-grid");
+  if (!box || !grid) return;
+  grid.textContent = "";
+  (sites || []).forEach(function (s) {
+    var site;
+    try { site = new URL(s.url); } catch (e) { return; }
+    if (site.protocol !== "https:" && site.protocol !== "http:") return;
+    var name = site.hostname.replace(/^www\./, "");
+    var title = String(s.title || "").trim() || name;
+    var wrap = doc.createElement("div");
+    wrap.className = "saved";
+    var a = doc.createElement("a");
+    a.className = "site";
+    a.href = site.href;
+    a.rel = "noreferrer";
+    var ico = doc.createElement("span");
+    ico.className = "ico";
+    ico.textContent = Array.from(title)[0] || "";
+    var img = doc.createElement("img");
+    img.alt = "";
+    img.referrerPolicy = "no-referrer";
+    img.onload = function () { img.className = "on"; };
+    img.onerror = function () { img.remove(); };
+    img.src = "https://www.google.com/s2/favicons?sz=64&domain=" + encodeURIComponent(name);
+    ico.appendChild(img);
+    var txt = doc.createElement("span");
+    txt.className = "txt";
+    var top = doc.createElement("span");
+    top.className = "name";
+    top.dir = "auto";
+    top.textContent = title;
+    var note = doc.createElement("span"); // always the real address, whatever the page called itself
+    note.className = "note";
+    note.dir = "ltr";
+    note.textContent = name;
+    txt.appendChild(top);
+    txt.appendChild(note);
+    a.appendChild(ico);
+    a.appendChild(txt);
+    var rm = doc.createElement("button");
+    rm.type = "button";
+    rm.className = "rm";
+    rm.title = "Take this site off the start page";
+    rm.setAttribute("aria-label", "Take " + title + " off the start page");
+    rm.textContent = "\u00d7";
+    rm.onclick = function (e) {
+      e.preventDefault();
+      wrap.remove();
+      box.hidden = !grid.children.length;
+      if (onRemove) onRemove(s.url);
+    };
+    wrap.appendChild(a);
+    wrap.appendChild(rm);
+    grid.appendChild(wrap);
+  });
+  box.hidden = !grid.children.length;
+}
 
 /** The page's contents (everything inside <body>). */
 export function homeBody(code) {
@@ -186,17 +261,40 @@ export function homeBody(code) {
     </form>
   </div>
   <main>
+    <section id="saved" hidden>
+      <h2>Your saved sites</h2>
+      <p class="sub">Sites you kept with the star. Press × to take one off.</p>
+      <div class="grid" id="saved-grid"></div>
+    </section>
     <h2>News in ${esc(name)}</h2>
     <p class="sub">Open a site, find an article, then press <strong>Import Page</strong> to read it with every word clickable.</p>
     <div class="grid">${sites}</div>
-    <p class="tip">Looking for something else? Search above, or type a web address in the address box.</p>
+    <p class="tip">Looking for something else? Search above, or type a web address in the address box.
+    To keep a site on this page, open it and press the star (☆) in the browser's bar.</p>
   </main>`;
 }
 
-/** The whole start page as one self-contained HTML document. */
-export function homeHtml(code) {
+/**
+ * The whole start page as one self-contained HTML document (the phone's browser is handed this).
+ * `sites` is [{url, title}], the user's saved sites. The page has no way to talk to the app, so:
+ *   - taking a site off asks to go to the made-up address "tamkeen-video://site?do=remove&u=...",
+ *     which only the app's browser understands (see InAppBrowser.java);
+ *   - the browser calls the page's `__tkSites(list)` whenever the page is shown again, so a site
+ *     saved a moment ago is there when the user comes back to the start page.
+ */
+export function homeHtml(code, sites = []) {
+  // (As text inside a <script>: "<" is written as an escape so nothing can end the script early.)
+  const list = JSON.stringify((sites || []).map((s) => ({ url: String(s.url || ""), title: String(s.title || "") })))
+    .replace(/</g, "\\u003c").replace(/\u2028|\u2029/g, "");
   return `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tamkeen browser</title><style>${HOME_CSS}</style></head>
-<body>${homeBody(code)}</body></html>`;
+<body>${homeBody(code)}
+<script>
+var paintSaved = ${paintSaved.toString()};
+window.__tkSites = function (list) {
+  paintSaved(document, list, function (url) { location.href = "tamkeen-video://site?do=remove&u=" + encodeURIComponent(url); });
+};
+window.__tkSites(${list});
+</script></body></html>`;
 }
