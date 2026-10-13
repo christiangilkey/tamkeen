@@ -49,7 +49,8 @@ final class InAppBrowser {
     }
 
     interface VideoListener {
-        /** A YouTube video was tapped; `id` is its 11-character video id. */
+        /** A YouTube video was tapped; `id` is its 11-character video id. (For the Follow button
+         *  on a channel's page it is the whole made-up address, "tamkeen-video://follow?name=...".) */
         void onVideo(String id);
     }
 
@@ -164,6 +165,10 @@ final class InAppBrowser {
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 android.net.Uri uri = request.getUrl();
                 if (uri == null || !VIDEO_SCHEME.equals(uri.getScheme())) return false;
+                if ("follow".equals(uri.getHost())) { // the Follow button on a channel's page
+                    if (videos != null) videos.onVideo(uri.toString());
+                    return true;
+                }
                 String id = uri.getQueryParameter("v");
                 if (id != null && id.matches("[\\w-]{11}") && videos != null) videos.onVideo(id);
                 return true; // never an address to load

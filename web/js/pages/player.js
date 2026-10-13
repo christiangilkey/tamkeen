@@ -146,6 +146,10 @@ export async function render(view, { id, query }) {
           <div class="title" dir="auto">${esc(ep.title)}</div>
           <div class="small muted">${esc(ep.feed_title)} · ${n.toLocaleString()} words</div>
         </div>
+        ${yt && channelOf(ep) ? `<span class="follow-wrap">
+          <button type="button" class="follow-btn" id="follow" aria-pressed="false"><span class="mark">+</span><span class="label">Follow</span></button>
+          <span class="follow-pop" id="follow-pop" hidden>Following</span>
+        </span>` : ""}
         <div class="row">
           ${vid ? `<button type="button" id="toggle-panel" title="Show or hide the full transcript (T)">≡ Transcript</button>
           <button type="button" class="ghost" id="toggle-cc" title="Show or hide the clickable captions (C)">CC</button>
@@ -183,10 +187,6 @@ export async function render(view, { id, query }) {
           <button type="button" id="play" class="play primary" title="Play/Pause (Space)">▶</button>
           <button type="button" id="fwd5" title="Forward 5 seconds (→)">5s ⟳</button>
           <select id="speed" title="Playback speed">${SPEEDS.map((s) => `<option value="${s}">${s}×</option>`).join("")}</select>
-          ${yt && channelOf(ep) ? `<span class="follow-wrap">
-            <span class="follow-pop" id="follow-pop" hidden>Following</span>
-            <button type="button" class="follow-btn" id="follow" aria-pressed="false"><span class="mark">+</span><span class="label">Follow</span></button>
-          </span>` : ""}
         </div>
       </div>
     </div>`));

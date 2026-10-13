@@ -155,8 +155,14 @@ public class GoogleDriveAuthPlugin extends Plugin {
                     event.put("result", json);
                     notifyListeners("pageImport", event);
                 }, id -> {
-                    // A YouTube video was tapped: JavaScript adds it and opens the app's player.
                     JSObject event = new JSObject();
+                    if (id.startsWith("tamkeen-video:")) {
+                        // The Follow button on a channel's page: JavaScript adds it to the followed channels.
+                        event.put("url", id);
+                        notifyListeners("youtubeFollow", event);
+                        return;
+                    }
+                    // A YouTube video was tapped: JavaScript adds it and opens the app's player.
                     event.put("id", id);
                     notifyListeners("youtubeVideo", event);
                 }, signedIn);

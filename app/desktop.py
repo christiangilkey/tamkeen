@@ -99,6 +99,42 @@ class BrowserApi:
             bring_forward(self._main)
         return result
 
+    def _on_youtube(self) -> bool:
+        from urllib.parse import urlsplit
+
+        host = (urlsplit(self._window.get_current_url() or "").hostname or "").lower()
+        return host == "youtube.com" or host.endswith(".youtube.com")
+
+    def following(self, name: str = "") -> dict[str, Any]:
+        """Is this channel followed? (For the Follow button youtube-browser.js shows on a channel's page.)"""
+        from . import db, youtube
+
+        try:
+            return {"following": self._on_youtube() and youtube.is_followed(db.get_setting("youtube_follows"), name)}
+        except Exception:
+            return {"following": False}
+
+    def follow_channel(self, name: str = "", channel_id: str = "", image: str = "", on: bool = True) -> dict[str, Any]:
+        """Follow (or stop following) the channel whose page is showing: the same list as the
+        player's Follow button (the setting `youtube_follows`)."""
+        from . import db, sync, youtube
+
+        try:
+            if not self._on_youtube():
+                return {"ok": False, "error": "Channels can only be followed from youtube.com."}
+            name = " ".join(str(name or "").split())
+            if not name:
+                return {"ok": False, "error": "Couldn't tell which channel this is."}
+            follows = youtube.set_follow(db.get_setting("youtube_follows"), {"name": name, "id": channel_id, "image": image},
+                                         bool(on), time.time())
+            db.set_settings({"youtube_follows": follows})
+        except Exception as exc:  # never let a website's oddities crash the bridge
+            log.exception("Following a channel from the browser window failed")
+            return {"ok": False, "error": f"Couldn't follow this channel ({exc.__class__.__name__})."}
+        events.publish("feeds", {"refreshed": True})  # an open Library redraws its channel bar
+        sync.request(30)
+        return {"ok": True, "following": youtube.is_followed(follows, name)}
+
     def import_page(self) -> dict[str, Any]:
         from . import pages, sync
 

@@ -287,3 +287,21 @@ def merge_follows(mine: Any, theirs: Any) -> list[dict[str, Any]]:
         if had is None or r["updated_at"] > had["updated_at"]:
             out[r["name"]] = r
     return sorted(out.values(), key=_by_name)
+
+
+def is_followed(follows: Any, name: Any) -> bool:
+    name = _text(name, 200)
+    return any(r["on"] and r["name"] == name for r in clean_follows(follows))
+
+
+def set_follow(follows: Any, channel: dict[str, Any], on: bool, now: float) -> list[dict[str, Any]]:
+    """Follow or unfollow a channel ({name, id?, image?}): the computer's copy of setFollow in ytfollow.js."""
+    name = _text(channel.get("name"), 200)
+    everything = clean_follows(follows)
+    if not name:
+        return everything
+    had = next((r for r in everything if r["name"] == name), None)
+    record = {"name": name, "id": channel.get("id") or (had["id"] if had else ""),
+              "image": channel.get("image") or (had["image"] if had else ""), "on": 1 if on else 0,
+              "watched_at": _whole(now) if on else (had["watched_at"] if had else 0), "updated_at": _whole(now)}
+    return clean_follows([r for r in everything if r["name"] != name] + [record])

@@ -320,7 +320,14 @@ export async function openYouTube(address = "") {
 
 /** web/js/youtube-browser.js as text, for the in-app browser to run inside YouTube's pages. */
 async function youtubeBrowserScript() {
-  try { return await (await fetch(new URL("./youtube-browser.js", import.meta.url))).text(); } catch { return ""; }
+  try {
+    const source = await (await fetch(new URL("./youtube-browser.js", import.meta.url))).text();
+    // The page can't ask the app anything, so it is told up front which channels are followed
+    // (for the Follow button it shows on a channel's page).
+    const { followedChannels } = await import("./ytfollow.js");
+    const names = followedChannels(settings.youtube_follows).map((c) => c.name);
+    return `window.__tamkeenFollowing=${JSON.stringify(names)};${source}`;
+  } catch { return ""; }
 }
 
 /**
@@ -390,6 +397,23 @@ export async function openBrowser(url = "", { instagramSignIn = false } = {}) {
         GoogleDriveAuth.browserToast({ text: e.message || "Couldn't open this video." }).catch(() => {});
       } finally {
         openingVideo = false;
+      }
+    });
+    // The Follow button on a channel's page (see youtube-browser.js): the same followed-channels
+    // list as the player's button.
+    GoogleDriveAuth.addListener("youtubeFollow", async ({ url }) => {
+      try {
+        const q = new URL(url).searchParams;
+        const name = (q.get("name") || "").replace(/\s+/g, " ").trim();
+        if (!name) return;
+        const on = q.get("on") === "1";
+        const { setFollow } = await import("./ytfollow.js");
+        await saveSettings({ youtube_follows: setFollow(settings.youtube_follows,
+          { name, id: q.get("id") || "", image: q.get("image") || "" }, on, Math.floor(Date.now() / 1000)) });
+        emit("feeds", { refreshed: true });
+        GoogleDriveAuth.browserToast({ text: on ? `Following ${name}. It's in your Library under YouTube.` : `Stopped following ${name}.` }).catch(() => {});
+      } catch (e) {
+        GoogleDriveAuth.browserToast({ text: e.message || "Couldn't follow this channel." }).catch(() => {});
       }
     });
     // The browser was opened for signing in to Instagram, saw that the user now is, and closed itself.

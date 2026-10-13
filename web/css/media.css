@@ -136,12 +136,12 @@ body.in-player:has(.player.yt) .topbar { display: none; }
 .wb-mode.on .wb-knob { left: 22px; color: #0b7783; }
 .wb-mode .wb-knob svg { width: 10px; height: 10px; fill: currentColor; display: block; }
 
-/* ---------- YouTube: follow the channel ----------
-   At the right end of the play controls (bottom right of the player, never over the video).
-   An outline in the app's action colour until followed, filled once followed; the "Following"
-   bubble rises above it for a moment. */
-.player.yt .btnrow { position: relative; }
-.follow-wrap { position: absolute; right: 0; top: 50%; transform: translateY(-50%); display: inline-flex; }
+/* ---------- follow the channel (YouTube player; the reel player may use the same) ----------
+   Markup: <span class="follow-wrap"><button class="follow-btn [on]"><span class="mark">+</span>
+   <span class="label">Follow</span></button><span class="follow-pop" hidden>Following</span></span>
+   It sits in the top banner, directly to the right of the title. An outline in the app's action
+   colour until followed, filled once followed; the "Following" bubble drops below it for a moment. */
+.follow-wrap { position: relative; display: inline-flex; flex: none; }
 .follow-btn {
   display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 16px; border-radius: 99px;
   border: 1.5px solid var(--accent); background: transparent; color: var(--accent); font-weight: 600; white-space: nowrap;
@@ -151,21 +151,20 @@ body.in-player:has(.player.yt) .topbar { display: none; }
 .follow-btn.on:hover:not(:disabled) { filter: brightness(1.08); }
 .follow-btn .mark { font-weight: 700; }
 .follow-pop {
-  position: absolute; right: 0; bottom: calc(100% + 8px); padding: 4px 12px; border-radius: 99px;
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 30; padding: 4px 12px; border-radius: 99px;
   background: var(--accent); color: var(--accent-ink); font-size: 12.5px; font-weight: 600; white-space: nowrap;
   box-shadow: 0 4px 14px rgba(0, 0, 0, .28); pointer-events: none; animation: follow-pop 1.3s ease forwards;
 }
 .follow-pop[hidden] { display: none; }
 @keyframes follow-pop {
-  0% { opacity: 0; transform: translateY(6px) scale(.9); }
+  0% { opacity: 0; transform: translateY(-6px) scale(.9); }
   14% { opacity: 1; transform: none; }
   75% { opacity: 1; transform: none; }
-  100% { opacity: 0; transform: translateY(-4px); }
+  100% { opacity: 0; transform: translateY(4px); }
 }
 @media (max-width: 640px) {
-  /* Phone: a round button with just the sign, as the last thing in the row of play controls. */
-  .follow-wrap { position: relative; top: auto; transform: none; }
-  .follow-btn { width: 38px; height: 38px; min-height: 0; padding: 0; justify-content: center; font-size: 17px; }
+  /* Phone: a small round button with just the sign, so the title keeps its room. */
+  .follow-btn, .player.yt .player-head .follow-btn { width: 30px; height: 30px; min-height: 0; padding: 0; justify-content: center; font-size: 16px; }
   .follow-btn .label { display: none; }
 }
 

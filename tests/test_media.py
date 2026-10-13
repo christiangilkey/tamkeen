@@ -327,3 +327,48 @@ def test_followed_channels_travel_between_devices(world):
         got = db.get_setting("youtube_follows")
         assert [(r["name"], r["on"]) for r in got] == [("AJ+", 0), ("Second", 1)], "the unfollow arrives too"
     assert not a.sync(drive).library_uploaded and not b.sync(drive).library_uploaded, "then both are settled"
+
+
+# ----- following from a channel's page in the browser window -----
+
+def test_follow_and_unfollow_like_the_phones():
+    # The same steps as the first test in tests/js/ytfollow.test.mjs.
+    follows = youtube.set_follow([], {"name": "  AJ+   كبريت "}, True, 100.9)
+    assert follows == [{"name": "AJ+ كبريت", "id": "", "image": "", "on": 1, "watched_at": 100, "updated_at": 100}]
+    assert youtube.is_followed(follows, "AJ+ كبريت") and not youtube.is_followed(follows, "Someone else")
+    follows = youtube.set_follow(follows, {"name": "AJ+ كبريت", "id": CHANNEL}, False, 200)
+    assert not youtube.is_followed(follows, "AJ+ كبريت")
+    assert [(r["on"], r["updated_at"], r["watched_at"], r["id"]) for r in follows] == [(0, 200, 100, CHANNEL)]
+    assert youtube.set_follow(follows, {"name": "   "}, True, 300) == follows
+    again = youtube.set_follow(follows, {"name": "AJ+ كبريت"}, True, 400)
+    assert again[0]["id"] == CHANNEL and again[0]["on"] == 1, "what was known about the channel is kept"
+
+
+class _Window:
+    def __init__(self, url):
+        self.url = url
+
+    def get_current_url(self):
+        return self.url
+
+
+def test_browser_window_follows_a_channel_only_on_youtube(client):
+    from app import desktop
+
+    api = desktop.BrowserApi()
+    api._window = _Window(f"https://www.youtube.com/channel/{CHANNEL}/videos")
+    assert api.following("AJ+") == {"following": False}
+    r = api.follow_channel("  AJ+ ", CHANNEL, "https://yt3.example/pic=s900", True)
+    assert r == {"ok": True, "following": True}
+    saved = client.get("/api/settings").json()["youtube_follows"]
+    assert [(c["name"], c["id"], c["image"], c["on"]) for c in saved] == [("AJ+", CHANNEL, "https://yt3.example/pic=s900", 1)]
+    assert api.following("AJ+") == {"following": True}
+    assert api.follow_channel("AJ+", CHANNEL, "", False) == {"ok": True, "following": False}
+    assert client.get("/api/settings").json()["youtube_follows"][0]["on"] == 0
+    assert api.follow_channel("", CHANNEL, "", True)["ok"] is False
+
+    # Any other website shown in the browser may not touch the list.
+    api._window = _Window("https://example.com/")
+    assert api.follow_channel("Evil", "", "", True)["ok"] is False
+    assert api.following("AJ+") == {"following": False}
+    assert [c["name"] for c in client.get("/api/settings").json()["youtube_follows"]] == ["AJ+"]
