@@ -461,6 +461,10 @@ async function renderPlayer(view, { query }) {
     return { top: menuOpen() ? innerHeight + 50 : r.top, left: r.left, width: r.width, height: r.height };
   };
 
+  // Words saved while this player is open (per reel), so a word's popup shows "Saved" again.
+  const savedHere = new Set();
+  const savedKey = (i, j) => `${cur.ep.id}:${i}-${j}`;
+
   const bubble = createWordBubble($("#reel-pop"), {
     noAudio: !surface,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
@@ -474,7 +478,7 @@ async function renderPlayer(view, { query }) {
         await api("/vocab", { method: "POST", body: {
           ...vocabFromDefinition(def, t.text, cur.lang), sentence: sentence(t.si, t.sj), episode_id: cur.ep.id,
           start: cur.starts[t.i], end: cur.ends[t.j], sent_start: cur.starts[t.si], sent_end: cur.ends[t.sj] } });
-        toast(`Saved “${t.text}” to vocab`);
+        savedHere.add(savedKey(t.i, t.j)); // no message: the popup's Save button says "Saved"
         reward({ type: "save" }, cur.els[t.i]);
         if (seen) seen.markSeen(t.i, t.j);
       } catch (e) {
@@ -550,7 +554,7 @@ async function renderPlayer(view, { query }) {
       word, lang: cur.lang, marked: markWord(cur.texts.slice(si, sj + 1), i - si, i - si, cur.lang),
       before: prev ? sentence(prev[0], prev[1]) : "", after: next ? sentence(next[0], next[1]) : "",
       podcast: `@${cur.ep.description || "Instagram"}`, episode: cur.ep.title,
-    });
+    }, { saved: savedHere.has(savedKey(i, i)) });
     reward({ type: "word", key: `${cur.lang}:${word.toLowerCase()}` }, cur.els[i]);
     if (seen) seen.markSeen(i, i); // looked up: this word, in all its forms, is no longer new
   }

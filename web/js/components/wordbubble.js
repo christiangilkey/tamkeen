@@ -217,11 +217,12 @@ export function createWordBubble(host, actions) {
   // Don't let clicks inside the bubble reach the transcript (which would seek).
   el.addEventListener("pointerdown", (e) => e.stopPropagation());
 
-  function show(anchorEl, context) {
+  /** `opts.saved`: this word is already in the vocab list, so the Save button says so. */
+  function show(anchorEl, context, opts = {}) {
     anchor = anchorEl;
     ctx = context;
     def = null;
-    saved = false;
+    saved = !!opts.saved;
     quick = lookupMode() === "quick";
     el.hidden = false;
     load();

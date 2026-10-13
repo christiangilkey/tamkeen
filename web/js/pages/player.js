@@ -583,6 +583,11 @@ export async function render(view, { id, query }) {
     return text ? { i, j, text } : null;
   }
 
+  // Words saved while this screen is open. Saving shows no message of its own: the popup's Save
+  // button and this menu's Save entry change to "Saved" instead.
+  const savedHere = new Set();
+  const savedKey = (i, j) => `${i}-${j}`;
+
   function openMenu(x, y, wEl) {
     let target = selectionWords();
     if (!target && wEl) {
@@ -596,15 +601,16 @@ export async function render(view, { id, query }) {
     const sentence = sentenceText(si, sj);
     showMenu(x, y, clean, [
       {
-        label: "★ Save to vocab",
+        label: savedHere.has(savedKey(i, j)) ? "✓ Saved to vocab" : "★ Save to vocab",
         run: async () => {
+          if (savedHere.has(savedKey(i, j))) return;
           try {
             await api("/vocab", {
               method: "POST",
               body: { text: clean, sentence, episode_id: id, start: starts[i], end: ends[j],
                       sent_start: starts[si], sent_end: ends[sj] },
             });
-            toast(`Saved “${clean}” to vocab`, { action: { label: "View", run: () => (location.hash = "#/vocab") } });
+            savedHere.add(savedKey(i, j));
             reward({ type: "save" }, wordEls[i]);
             seen.markSeen(i, j);
           } catch (e) { toast(e.message, { error: true }); }
@@ -666,7 +672,7 @@ export async function render(view, { id, query }) {
           body: { ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj),
                   episode_id: id, start: starts[t.i], end: ends[t.j], sent_start: starts[t.si], sent_end: ends[t.sj] },
         });
-        toast(`Saved “${t.text}” to vocab`, { action: { label: "View", run: () => (location.hash = "#/vocab") } });
+        savedHere.add(savedKey(t.i, t.j));
         reward({ type: "save" }, wordEls[t.i]);
         seen.markSeen(t.i, t.j);
       } catch (e) {
@@ -690,7 +696,7 @@ export async function render(view, { id, query }) {
       $("#back").hidden = true;
       ensureVisible(wordEls[i]);
     }
-    bubble.show(anchor || wordEls[i], c.ctx);
+    bubble.show(anchor || wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)) });
     fitBubble();
     requestAnimationFrame(() => requestAnimationFrame(fitBubble)); // again once it has taken its place
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, anchor || wordEls[i]);

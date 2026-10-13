@@ -128,10 +128,16 @@ export async function render(view, { id, data, query }) {
     };
   }
 
+  // Words saved while this page is open. Saving shows no message of its own: the popup's Save
+  // button and the right-click menu's Save entry change to "Saved" instead.
+  const savedHere = new Set();
+  const savedKey = (i, j) => `${i}-${j}`;
+
   async function saveWord(t, def) {
+    if (savedHere.has(savedKey(t.i, t.j))) return;
     await api("/vocab", { method: "POST", body: {
       ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj), episode_id: id } });
-    toast(`Saved “${t.text}” to vocab`, { action: { label: "View", run: () => (location.hash = "#/vocab") } });
+    savedHere.add(savedKey(t.i, t.j));
     reward({ type: "save" }, wordEls[t.i]);
     seen.markSeen(t.i, t.j);
   }
@@ -156,7 +162,7 @@ export async function render(view, { id, data, query }) {
     target = { i, j, si: c.si, sj: c.sj, text: c.word };
     buzz("tick");
     mark(i, j);
-    bubble.show(wordEls[i], c.ctx);
+    bubble.show(wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)) });
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, wordEls[i]);
     seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
@@ -202,7 +208,7 @@ export async function render(view, { id, data, query }) {
     const clean = t.text.replace(EDGE_PUNCT, "") || t.text;
     const [si, sj] = sentenceBounds(texts, segOf, t.i, t.j);
     showMenu(x, y, clean, [
-      { label: "★ Save to vocab", run: () => saveWord({ ...t, si, sj, text: clean }, null).catch((e) => toast(e.message, { error: true })) },
+      { label: savedHere.has(savedKey(t.i, t.j)) ? "✓ Saved to vocab" : "★ Save to vocab", run: () => saveWord({ ...t, si, sj, text: clean }, null).catch((e) => toast(e.message, { error: true })) },
       { label: "📖 Define", run: () => defineAt(t.i, t.j) },
       ...seen.menuItems(t.i, t.j),
       { label: "⧉ Copy", run: () => copyText(t.text) },
