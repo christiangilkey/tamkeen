@@ -299,11 +299,8 @@ export async function render(view, { feedId: routeFeed, query }) {
           } catch (err) { toast(err.message, { error: true }); }
         };
         head.append(el);
-      } else {
-        head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("video", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
-          <div class="desc small">YouTube videos you've watched here, the most recent first. They play from YouTube itself, and their
-          captions become text you can click. Find more with “Open YouTube” under “Watch a YouTube video”.</div></div></div>`));
       }
+      // "Recently watched" has no heading of its own: the strip above already says it is YouTube.
       if (!phone) {
         // The computer's version of the phone's channel bar: Recently watched, then followed channels.
         const bar = h(`<div class="tabs yt-channels"></div>`);
