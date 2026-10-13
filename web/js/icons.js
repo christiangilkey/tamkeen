@@ -35,6 +35,8 @@ const PATHS = {
   bolt: `<path class="fill" d="M13.2 3 5.5 13.6h5.3L9.9 21l7.6-10.6h-5.2z"/><path d="M13.2 3 5.5 13.6h5.3L9.9 21l7.6-10.6h-5.2z"/>`,
   target: `<circle class="fill" cx="10.5" cy="13.5" r="7.5"/><path d="M14.6 7.2a7.5 7.5 0 1 0 2.2 2.2"/><path d="M12.3 10.4a3.6 3.6 0 1 0 1.3 1.3"/>
     <path d="M10.5 13.5 17.6 6.4"/><path d="M17.6 6.4V3.5l2.9 2.9z"/>`,
+  // A folder of saved words (the Vocab page).
+  folder: `<path class="fill" d="M3.5 8.3A2.3 2.3 0 0 1 5.8 6h3.3a1.6 1.6 0 0 1 1.2.5l1.1 1.2a1.6 1.6 0 0 0 1.2.5h5.6a2.3 2.3 0 0 1 2.3 2.3v6.2a2.3 2.3 0 0 1-2.3 2.3H5.8a2.3 2.3 0 0 1-2.3-2.3z"/><path d="M3.5 8.3A2.3 2.3 0 0 1 5.8 6h3.3a1.6 1.6 0 0 1 1.2.5l1.1 1.2a1.6 1.6 0 0 0 1.2.5h5.6a2.3 2.3 0 0 1 2.3 2.3v6.2a2.3 2.3 0 0 1-2.3 2.3H5.8a2.3 2.3 0 0 1-2.3-2.3z"/>`,
   podcast: `<path d="M5 13a7 7 0 0 1 14 0"/><rect class="fill" x="3.5" y="13" width="4" height="6.5" rx="1.8"/><rect class="fill" x="16.5" y="13" width="4" height="6.5" rx="1.8"/>
     <rect x="3.5" y="13" width="4" height="6.5" rx="1.8"/><rect x="16.5" y="13" width="4" height="6.5" rx="1.8"/>`,
 };

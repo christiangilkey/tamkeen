@@ -7,6 +7,7 @@ import { ankiProgressLine, confirmDelete, loadAnkiProgress } from "../components
 import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
+import { icon } from "../icons.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 
@@ -143,7 +144,7 @@ export async function render(view) {
     </div>
     <div class="bulk-bar" id="bulk" hidden>
       <span id="bulk-count"></span>
-      <button type="button" id="bulk-add">📁 Add to folder</button>
+      <button type="button" id="bulk-add">${icon("folder", 16)} Add to folder</button>
       <button type="button" id="bulk-remove">Remove from folder</button>
       <button type="button" id="bulk-send">📨 Send to a friend</button>
       <span class="spacer"></span>
@@ -216,15 +217,15 @@ export async function render(view) {
     const bar = $("#folders");
     bar.innerHTML = "";
     const count = (uid) => all.filter((v) => (uid === "none" ? !v.folders.length : v.folders.includes(uid))).length;
-    const chip = (key, label, n) => {
-      const b = h(`<button type="button" class="folder-chip${st.folder === key ? " active" : ""}"><span></span> <span class="n">${n}</span></button>`);
-      b.firstElementChild.textContent = label;
+    const chip = (key, label, n, isFolder = false) => {
+      const b = h(`<button type="button" class="folder-chip${st.folder === key ? " active" : ""}">${isFolder ? `${icon("folder", 15)} ` : ""}<span></span> <span class="n">${n}</span></button>`);
+      b.querySelector("span").textContent = label;
       b.onclick = () => { st.folder = key; savePrefs(); renderAll(); };
       bar.append(b);
     };
     chip("", "All words", all.length);
     chip("none", "Not in a folder", count("none"));
-    for (const f of folders) chip(f.uid, `📁 ${f.name}`, count(f.uid));
+    for (const f of folders) chip(f.uid, f.name, count(f.uid), true);
     const add = h(`<button type="button" class="folder-chip ghost">＋ New folder</button>`);
     add.onclick = async () => { const f = await newFolder(); if (f) { st.folder = f.uid; savePrefs(); renderAll(); } };
     bar.append(add);
@@ -280,7 +281,7 @@ export async function render(view) {
     const entries = targets.map((f) => {
       const inAll = items.every((v) => v.folders.includes(f.uid));
       if (mode === "remove") return { label: `✕ ${f.name}`, run: () => apply(f.uid, false) };
-      if (mode === "add") return { label: `📁 ${f.name}`, run: () => apply(f.uid, true) };
+      if (mode === "add") return { label: f.name, icon: icon("folder", 16), run: () => apply(f.uid, true) };
       return { label: `${inAll ? "☑" : "☐"} ${f.name}`, run: () => apply(f.uid, !inAll) };
     });
     if (mode !== "remove") {
@@ -358,7 +359,7 @@ export async function render(view) {
         <div class="row">
           ${(v.episode_id || v.clip) && v.start != null ? `<button type="button" class="play-word">▶ Word</button>` : ""}
           ${(v.episode_id || v.clip) && v.sent_start != null ? `<button type="button" class="play-sent">▶ Sentence</button>` : ""}
-          <button type="button" class="ghost folders-btn">📁 Folders</button>
+          <button type="button" class="ghost folders-btn">${icon("folder", 16)} Folders</button>
           <span class="spacer"></span>
           <span class="small muted saved" hidden>Saved</span>
           <button type="button" class="ghost danger del">Delete</button>
@@ -374,7 +375,8 @@ export async function render(view) {
       const name = folderName(uid);
       if (!name) continue;
       const c = h(`<span class="tag"></span>`);
-      c.textContent = `📁 ${name}`;
+      c.innerHTML = `${icon("folder", 13)} `;
+      c.append(name);
       chips.append(c);
     }
     const pick = el.querySelector(".pick");
@@ -443,15 +445,32 @@ export async function render(view) {
     const parts = [];
     if (o.due) parts.push(`<b>${o.due}</b> due`);
     if (o.fresh) parts.push(`<b>${o.fresh}</b> new`);
-    banner.querySelector(".rb-sub").innerHTML = ready ? parts.join(" · ")
+    banner.querySelector(".rb-sub").innerHTML = `<span class="rb-run">${ready ? parts.join(" · ")
       : !o.askable ? "Words that have a meaning turn up here as flashcards."
-      : `All caught up${o.next ? ` · ${o.next.count} word${o.next.count === 1 ? "" : "s"} back ${o.next.days === 1 ? "" : "in "}${waitText(o.next.days)}` : ""}`;
+      : `All caught up${o.next ? ` · ${o.next.count} word${o.next.count === 1 ? "" : "s"} back ${o.next.days === 1 ? "" : "in "}${waitText(o.next.days)}` : ""}`}</span>`;
+    fitReview();
   }
+
+  /** The banner's line stops before its button. When it is longer than the room it has, it
+   * slides along to its end and back by itself (review.css), at an easy reading pace. */
+  function fitReview() {
+    const line = $("#review .rb-sub");
+    line.classList.remove("scroll");
+    const hidden = line.scrollWidth - line.clientWidth;  // how much of the line doesn't fit
+    if (!line.clientWidth || hidden < 2) return;
+    line.style.setProperty("--rb-shift", `${-(hidden + 4)}px`);
+    line.style.setProperty("--rb-time", `${Math.max(6, 5 + hidden / 20)}s`);
+    line.classList.add("scroll");
+  }
+  // The room changes with the window (and is nothing at all while the page is hidden).
+  const reviewRoom = new ResizeObserver(fitReview);
+  reviewRoom.observe($("#review"));
 
   function startReview() {
     openReview({
       words: reviewWords(), allWords: all, log, playSnippet, highlight,
       scope: st.folder && st.folder !== "none" ? folderName(st.folder) || "" : "",
+      onDelete: (v) => { all = all.filter((x) => x !== v); selected.delete(v.id); },  // a word deleted from its card
       onClose: () => { audio.pause(); if (view.isConnected) renderAll(); },  // meanings and notes may have been edited on a card
     });
   }
@@ -541,5 +560,5 @@ export async function render(view) {
   };
 
   await load();
-  return () => { audio.pause(); cancelAnimationFrame(raf); };
+  return () => { audio.pause(); cancelAnimationFrame(raf); reviewRoom.disconnect(); };
 }

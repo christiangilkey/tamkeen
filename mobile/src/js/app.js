@@ -564,6 +564,7 @@ export function showMenu(x, y, label, items) {
   for (const item of items) {
     const b = h(`<button type="button" role="menuitem"></button>`);
     b.textContent = item.label;
+    if (item.icon) b.insertAdjacentHTML("afterbegin", `${item.icon} `);  // one of icons.js's drawings, in front of the words
     b.onclick = () => { hideMenu(); item.run(); };
     menu.append(b);
   }

@@ -1,15 +1,16 @@
 // The vocab reviewer: flashcards over the Vocab page, scheduled by FSRS (web/js/review/fsrs.js).
 //
 // A card's front is in the learner's own language: the word's meaning with the translated
-// sentence under it. Its back is the word as the Vocab page shows it (word, sentence, meaning,
-// notes, audio) plus "My notes", the learner's own box for a mnemonic. There are two answers,
+// sentence under it. Its back has the answer on top, large and alone (the word, its sentence
+// and its audio), and under a clear gap everything else about the word: meaning, notes and
+// "My notes", the learner's own box for a mnemonic. There are two answers,
 // "Remembered" and "Not remembered": buttons, a swipe of the card, or the keyboard. A missed
 // word comes back a few cards later until it has been remembered once.
 //
 // It opens as a layer over the page, not as a page of its own, so closing it lands on the Vocab
 // list exactly as it was. Every answer is sent to /reviews as it is given.
 
-import { api, buzz, esc, fmtDate, h, state as app, toast } from "../app.js";
+import { api, buzz, esc, fmtDate, h, platform, state as app, toast } from "../app.js";
 import { detectLanguage, langAttrs } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
 import { reward, trackStudy } from "../game/game.js";
@@ -80,6 +81,8 @@ const ICON = {
   gear: `<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 12h3M11 12h9M4 17h11M19 17h1"/><circle cx="16" cy="7" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="17" r="2"/></svg>`,
   yes: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`,
   no: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>`,
+  trash: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M9.5 7V4.8h5V7M6.5 7l.8 11.2a1.5 1.5 0 0 0 1.5 1.3h6.4a1.5 1.5 0 0 0 1.5-1.3L17.5 7M10 10.8v5.2M14 10.8v5.2"/></svg>`,
+  sound: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>`,
 };
 /** The banner's icon: two cards, one behind the other. */
 export const CARDS_ICON = `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="7.5" y="3.5" width="12" height="15" rx="2.5" transform="rotate(8 13.5 11)"/><rect x="4.5" y="5.5" width="12" height="15" rx="2.5" fill="currentColor" fill-opacity=".22"/></svg>`;
@@ -107,9 +110,10 @@ async function play(el, frames, options) {
  *   scope        the folder's name when only a folder is being reviewed
  *   playSnippet  (word, start, end) => Promise, the Vocab page's audio
  *   highlight    (sentence, word) => html, the Vocab page's way of marking the word
+ *   onDelete     (word) => void, told when a word is deleted from its card
  *   onClose      called when the reviewer is put away
  */
-export function openReview({ words, allWords = words, log, scope = "", playSnippet, highlight, onClose = () => {} }) {
+export function openReview({ words, allWords = words, log, scope = "", playSnippet, highlight, onDelete = () => {}, onClose = () => {} }) {
   if (document.querySelector(".rv")) return;
   const cards = states(log);
   let perDay = newPerDay();
@@ -132,11 +136,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <div class="rv-chips">${NEW_CHOICES.map((n) => `<button type="button" data-n="${n}">${n}</button>`).join("")}</div>
       </div>
       <label class="rv-check"><input type="checkbox" class="rv-auto"> Say the word when the card turns</label>
-      <p class="rv-keys"><kbd>Space</kbd> turn the card, then remembered · <kbd>1</kbd> or <kbd>←</kbd> not remembered · <kbd>2</kbd> or <kbd>→</kbd> remembered · <kbd>Z</kbd> undo · <kbd>W</kbd> word · <kbd>S</kbd> sentence · <kbd>N</kbd> my notes</p>
+      <p class="rv-keys"><kbd>Space</kbd> turn the card, then remembered · <kbd>1</kbd> or <kbd>←</kbd> not remembered · <kbd>2</kbd> or <kbd>→</kbd> remembered · <kbd>Z</kbd> undo · <kbd>W</kbd> word · <kbd>S</kbd> sentence · <kbd>N</kbd> my notes · <kbd>Del</kbd> delete the word</p>
     </div>
     <main class="rv-stage">
       <div class="rv-wrap">
-        <div class="rv-ghost far" hidden></div><div class="rv-ghost" hidden></div>
         <div class="rv-card">
           <div class="rv-scroll"></div>
           <span class="rv-stamp yes">Remembered</span><span class="rv-stamp no">Again</span>
@@ -183,15 +186,14 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     streak.hidden = session.streak < 2;
     streak.textContent = `🔥 ${session.streak}`;
     $(".rv-undo").disabled = !undo.length;
-    const ghosts = el.querySelectorAll(".rv-ghost");
-    ghosts[1].hidden = todo.length < 2;
-    ghosts[0].hidden = todo.length < 3;
   }
 
   // ----- drawing a card -----
   function front(v) {
     const p = prompt(v), state = cards.get(uidOf(v));
     const kind = !state ? ["new", "New word"] : state.learning ? ["again", "Once more"] : ["", "Review"];
+    face.classList.remove("more");
+    face.onscroll = null;
     face.innerHTML = `<div class="rv-front">
       <span class="rv-kind ${kind[0]}">${kind[1]}</span>
       <div class="rv-meaning">${esc(p.meaning)}</div>
@@ -207,40 +209,51 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const sayWord = (v, quiet) => playSnippet(v, v.start, v.end ?? v.start + 1).catch((e) => { if (!quiet) toast(e.message, { error: true }); });
   const saySentence = (v) => playSnippet(v, v.sent_start, v.sent_end).catch((e) => toast(e.message, { error: true }));
 
+  // A notes box is as tall as what is written in it (up to a limit), so nothing hides in a
+  // two-line window. (A hidden window measures nothing: the box then keeps its plain height.)
+  function fit(box) {
+    if (box.tagName !== "TEXTAREA" || !box.scrollHeight) return;
+    box.style.height = "auto";
+    box.style.height = `${box.scrollHeight + 2}px`;
+  }
+  /** Is there more of the back below the card's edge? (The card then fades out at the bottom.) */
+  const more = () => face.classList.toggle("more", face.scrollHeight - face.clientHeight - face.scrollTop > 6);
+  // A window resized, or a phone turned: the boxes wrap their text differently.
+  const onResize = () => { if (!flipped) return; for (const box of face.querySelectorAll("textarea")) fit(box); more(); };
+  window.addEventListener("resize", onResize);
+
   function back(v) {
     const lang = langAttrs(detectLanguage(v.sentence || v.text));
     face.innerHTML = `<div class="rv-back">
-      <div class="vocab-item">
-        <div>
-          <div class="word" ${lang}></div>
-          ${v.sentence ? `<div class="sentence" ${lang}>${highlight(v.sentence, v.text)}</div>` : ""}
-          <div class="small muted" style="margin-top:6px">
-            ${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}
-            ${v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}
-          </div>
-        </div>
-        <div class="fields">
-          <input type="text" class="meaning" placeholder="Meaning" aria-label="Meaning">
-          <textarea class="notes" rows="2" placeholder="Notes (root, grammar, usage…)" aria-label="Notes"></textarea>
-          <label class="rv-own">My notes
-            <textarea class="memo" rows="2" placeholder="Your own way to remember it: a mnemonic, a picture, where you heard it…"></textarea>
-          </label>
-          <div class="row">
-            ${hasWordAudio(v) ? `<button type="button" class="play-word">▶ Word</button>` : ""}
-            ${hasSentenceAudio(v) ? `<button type="button" class="play-sent">▶ Sentence</button>` : ""}
-            <span class="spacer"></span>
-            <span class="small muted saved" hidden>Saved</span>
-          </div>
+      <div class="rv-answer">
+        <div class="rv-word" ${lang}></div>
+        ${v.sentence ? `<div class="rv-ans-sentence" ${lang}>${highlight(v.sentence, v.text)}</div>` : ""}
+        <div class="rv-listen">${hasWordAudio(v) ? `<button type="button" class="play-word">${ICON.sound} Word</button>` : ""}${hasSentenceAudio(v) ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}</div>
+      </div>
+      <div class="rv-details">
+        <label class="rv-field"><span>Meaning</span><input type="text" class="meaning" placeholder="What it means"></label>
+        <label class="rv-field"><span>Notes</span><textarea class="notes" rows="1" placeholder="Root, grammar, usage…"></textarea></label>
+        <label class="rv-field"><span>My notes</span><textarea class="memo" rows="1" placeholder="A mnemonic, a picture, where you heard it…"></textarea></label>
+        <div class="rv-source">
+          <span>${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}${v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}</span>
+          <span class="saved" hidden>Saved</span>
+          <button type="button" class="rv-trash" title="Delete this word (Del)" aria-label="Delete this word">${ICON.trash}</button>
         </div>
       </div>
     </div>`;
+    face.querySelector(".rv-trash").onclick = () => askDelete(v);
     face.scrollTop = 0;
-    face.querySelector(".word").textContent = v.text;
+    const word = face.querySelector(".rv-word");
+    word.textContent = v.text;
+    word.classList.toggle("long", v.text.length > 14);
+    face.onscroll = more;
     for (const field of ["meaning", "notes", "memo"]) {
       const box = face.querySelector(`.${field}`);
       box.value = v[field] || "";
-      box.oninput = () => edit(v, field, box.value);
+      box.oninput = () => { fit(box); more(); edit(v, field, box.value); };
+      fit(box);
     }
+    more();
     const pw = face.querySelector(".play-word"), ps = face.querySelector(".play-sent");
     if (pw) pw.onclick = () => sayWord(v);
     if (ps) ps.onclick = () => saySentence(v);
@@ -363,11 +376,88 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     last.entry[1] = 0;                       // the log holds this same list: 0 means "taken back"
     send(uid, last.entry);
     if (last.before) cards.set(uid, last.before); else cards.delete(uid);
-    todo = last.todo;
+    todo = last.todo.filter((x) => !x.deleted);
     Object.assign(session, last.session);
     if (last.firstTime) tried.delete(uid);
     SOUND.undo();
     show(true);
+  }
+
+  // ----- deleting the word on the table -----
+  // The same deletion as the Vocab page's Delete button: the word goes from the vocab on every
+  // device. Asked first in a box of the reviewer's own, which says so, and says it plainly when
+  // the word's card in the synced Anki deck would go too (see components/ankisync.js).
+  let asking = null;  // closes the "delete this word?" box, while it is open
+
+  /** The Anki sync's settings when this word has a card in the synced deck; else null. */
+  async function ankiCardOf(v) {
+    try {
+      const st = await api("/anki/sync/status");
+      return st.enabled && (await api(`/anki/linked/${v.uid || v.id}`)).linked ? st : null;
+    } catch { return null; }  // no Anki sync on this device
+  }
+
+  async function askDelete(v) {
+    if (asking || busy || !flipped || todo[0] !== v) return;
+    flushEdits();
+    const box = h(`<div class="rv-ask" role="alertdialog" aria-modal="true" aria-labelledby="rv-ask-title">
+      <div class="rv-ask-box">
+        <div class="rv-ask-icon">${ICON.trash}</div>
+        <h3 id="rv-ask-title">Delete this word?</h3>
+        <div class="rv-ask-word" ${langAttrs(detectLanguage(v.sentence || v.text))}></div>
+        <p>It will be removed from your vocab on all your devices, along with its review progress.</p>
+        <p class="rv-ask-anki" hidden></p>
+        <div class="rv-ask-actions">
+          <button type="button" class="rv-keep">Keep it</button>
+          <button type="button" class="rv-delete" disabled>Delete</button>
+        </div>
+      </div>
+    </div>`);
+    box.querySelector(".rv-ask-word").textContent = v.text;
+    const keep = box.querySelector(".rv-keep"), del = box.querySelector(".rv-delete");
+    asking = () => { asking = null; box.remove(); el.focus({ preventScroll: true }); };
+    keep.onclick = () => asking && asking();
+    box.addEventListener("pointerdown", (e) => { if (e.target === box && asking) asking(); });  // a tap outside the box keeps the word
+    el.append(box);
+    keep.focus({ preventScroll: true });
+
+    const anki = await ankiCardOf(v);  // "Delete" waits for this, so the box never undersells what goes
+    if (!asking) return;
+    if (anki) {
+      const name = platform === "desktop" ? "Anki" : "AnkiDroid";
+      const note = box.querySelector(".rv-ask-anki");
+      note.hidden = false;
+      note.innerHTML = `Its card in your ${esc(anki.deck || "synced")} deck in ${name} is removed at the next sync too, <strong>with that card's review history in ${name}. That cannot be undone.</strong>`
+        + (anki.delete_ok ? "" : " From now on, deleting a word removes its card without asking about this again.");
+    }
+    del.disabled = false;
+    del.onclick = async () => {
+      del.disabled = keep.disabled = true;
+      try {
+        if (anki && !anki.delete_ok) await api("/anki/sync/options", { method: "POST", body: { delete_ok: true } });
+        await api(`/vocab/${v.id}`, { method: "DELETE" });
+      } catch (e) {
+        toast(`The word wasn't deleted: ${e.message}`, { error: true });
+        if (asking) asking();
+        return;
+      }
+      if (asking) asking();
+      removeWord(v);
+    };
+  }
+
+  /** The word is gone: take its card off the table and out of what is left of the session. */
+  async function removeWord(v) {
+    busy = true;
+    v.deleted = 1;  // `reviewable` leaves deleted words out of every count from here on
+    cards.delete(uidOf(v));
+    onDelete(v);
+    for (let i = undo.length - 1; i >= 0; i--) if (undo[i].word === v) undo.splice(i, 1);
+    todo = todo.filter((x) => x !== v);
+    SOUND.no();
+    await play(card, [{ transform: "none", opacity: 1 }, { transform: "translateY(36px) scale(.8)", opacity: 0 }], { duration: 260, easing: "ease-in" });
+    busy = false;
+    if (todo.length) show(); else finish();
   }
 
   // ----- the fun: colour, sparks, sounds -----
@@ -556,6 +646,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
 
   // ----- keys -----
   const onKey = (e) => {
+    if (asking) {  // the "delete this word?" box is open: Esc keeps the word; its buttons take every other key
+      if (e.key === "Escape") { e.preventDefault(); asking(); }
+      return;
+    }
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.target.closest && e.target.closest("input, textarea, select")) {  // typing: only Esc means anything, and it leaves the box
       if (e.key === "Escape") { e.preventDefault(); e.target.blur(); }
@@ -576,6 +670,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     else if (key === "z") takeBack();
     else if (flipped && key === "w" && hasWordAudio(v)) sayWord(v);
     else if (flipped && key === "s" && hasSentenceAudio(v)) saySentence(v);
+    else if (settled && key === "Delete") { e.preventDefault(); askDelete(v); }
     else if (flipped && key === "n") { e.preventDefault(); const memo = face.querySelector(".memo"); if (memo) memo.focus(); }
   };
   document.addEventListener("keydown", onKey);
@@ -598,6 +693,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     document.removeEventListener("keydown", onKey);
     window.removeEventListener("popstate", onPop);
     window.removeEventListener("hashchange", onPop);
+    window.removeEventListener("resize", onResize);
     document.body.classList.remove("rv-open");
     el.remove();
     if (inHistory && !byHistory) history.back();
