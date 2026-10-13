@@ -289,3 +289,16 @@ test("moves do what they say; a team fights on; feats and rewards are settled", 
   assert.deepEqual(battleResult(br), { mode: "wild", won: true, flawless: true, comeback: true, rival: null });
   assert.deepEqual(checkBadges(newState(31), { words: 150 }), ["words_100"]);
 });
+
+test("a reverse battle question never shows the word inside its meaning", () => {
+  const vocab = [];
+  for (let i = 0; i < 8; i++) vocab.push({ uid: "w" + i, text: "كلمة" + i, meaning: "meaning " + i });
+  vocab[0] = { uid: "w0", text: "تعلّي", meaning: "to raise your voice (Egyptian dialect: 'تعلّي' = to make a fuss)" };
+  const picks = [0, 0];                       // first word, then "reverse"
+  const rand = () => (picks.length ? picks.shift() : 0.5);
+  const q = pickQuestion(newState(), vocab, rand);
+  assert.equal(q.reverse, true);
+  assert.equal(q.uid, "w0");
+  assert.ok(!q.prompt.includes("تعلّي"), q.prompt);
+  assert.ok(q.prompt.startsWith("to raise your voice"));
+});

@@ -10,6 +10,7 @@
 //     answers that stay accurate, and days kept up.
 
 import { bodyHue, formOf, leadingBranch, newGenome, readyToEvolve, rng, stageOf, weightedPick } from "./genome.js";
+import { hideAnswer } from "../review/deck.js";
 import { BADGES, BOSSES, BRANCHES, BRANCH_IDS, CATALOG, TYPES, VARIANTS, WEEKLY_RULES, itemById } from "./data.js";
 
 export const VERSION = 2;
@@ -502,7 +503,9 @@ export function pickQuestion(state, vocab, rand = Math.random, now = new Date(),
   const due = from.filter((v) => { const r = state.review[uidOf(v)]; return !r || r[1] <= today; });
   const list = due.length ? due : from;
   const word = list[Math.floor(rand() * list.length)];
-  const reverse = rand() < 0.35;
+  // A reverse question shows the meaning, so the meaning must not contain the word itself.
+  const hint = hideAnswer(meaningOf(word), word.text);
+  const reverse = rand() < 0.35 && !!hint;
   const right = reverse ? String(word.text).trim() : meaningOf(word);
   const seen = new Set([right.toLowerCase(), meaningOf(word).toLowerCase()]);
   const others = [];
@@ -520,7 +523,7 @@ export function pickQuestion(state, vocab, rand = Math.random, now = new Date(),
   const answer = Math.floor(rand() * 4);
   const options = others.slice();
   options.splice(answer, 0, right);
-  return { uid: uidOf(word), prompt: reverse ? meaningOf(word) : String(word.text).trim(), sentence: reverse ? "" : String(word.sentence || ""), options, answer, reverse };
+  return { uid: uidOf(word), prompt: reverse ? hint : String(word.text).trim(), sentence: reverse ? "" : String(word.sentence || ""), options, answer, reverse };
 }
 
 /** Record an answer. Returns {xp, graduated, retentionBonus, stage}. */
