@@ -14,6 +14,7 @@ import { episodeLanguage, gap, joinWords, langInfo, regroupWords, vocabFromDefin
 import { createWordBubble, pauseAfterWord, pauseSwitch } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { lookupToggle } from "../components/lookupmode.js";
+import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
@@ -450,9 +451,14 @@ async function renderPlayer(view, { query }) {
   let opened = false;
   let target = null; // the word the popup is about: {i, j, si, sj, text}
 
+  // The reel window lies on top of the app's own page, so a menu the page opens (the list of
+  // friends to send a reel to) would be hidden behind it: while a menu is open the reel window
+  // waits below the screen, and comes back when the menu closes.
+  const menu = document.getElementById("ctxmenu");
+  const menuOpen = () => !!menu && !menu.hidden;
   const stageRect = () => {
     const r = stage.getBoundingClientRect();
-    return { top: r.top, left: r.left, width: r.width, height: r.height };
+    return { top: menuOpen() ? innerHeight + 50 : r.top, left: r.left, width: r.width, height: r.height };
   };
 
   const bubble = createWordBubble($("#reel-pop"), {
@@ -482,6 +488,12 @@ async function renderPlayer(view, { query }) {
   // has no controls row.
   if (surface) $("#rc-left").append(lookupToggle({ compact: true }));
   else $("#reel-prev").before(lookupToggle());
+  // Send the reel being watched to a friend (components/sendmedia.js): the paper-airplane button
+  // after the title. A function, because the reel changes with Next and Previous.
+  $(".reel-title").after(sendButton(() => {
+    const item = mediaFromEpisode(reels[index]);
+    return item && { ...item, language: episodeLanguage(reels[index]) };
+  }));
   // The popup lives in the right half of the bar; the hint shows whenever it is closed.
   const hint = $("#reel-hint");
   new MutationObserver(() => { hint.hidden = bubble.open; }).observe(bubble.el, { attributes: true, attributeFilter: ["hidden"] });
@@ -661,7 +673,7 @@ async function renderPlayer(view, { query }) {
       seenEnds = s.ends;
       markWatched(ep.id);
       // A reel that ended because a word was being replayed stays; otherwise the next one starts.
-      if (clipEnd === null && !bubble.open && Date.now() - loadedAt > 1500) show(index + 1);
+      if (clipEnd === null && !bubble.open && !menuOpen() && Date.now() - loadedAt > 1500) show(index + 1);
       else clipEnd = null;
     }
   }
@@ -672,6 +684,8 @@ async function renderPlayer(view, { query }) {
   const onResize = () => { if (surface && opened) surface.layout(stageRect()); };
   window.addEventListener("resize", onResize);
   const settle = setInterval(onResize, 1500); // the bar can change the stage's size (fonts loading, keyboard)
+  const menuWatch = new MutationObserver(onResize); // a menu opened or closed: see stageRect
+  if (menu) menuWatch.observe(menu, { attributes: true, attributeFilter: ["hidden"] });
   const stopStudy = trackStudy("listen", () => playing);
   const onOutside = (e) => { if (bubble.open && !e.target.closest(".word-bubble") && !e.target.closest(".w")) bubble.hide(); };
   document.addEventListener("pointerdown", onOutside);
@@ -682,6 +696,7 @@ async function renderPlayer(view, { query }) {
     offState();
     stopStudy();
     clearInterval(settle);
+    menuWatch.disconnect();
     window.removeEventListener("resize", onResize);
     document.removeEventListener("pointerdown", onOutside);
     bubble.hide();
