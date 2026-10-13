@@ -22,10 +22,12 @@ const PAGE = 100;
 export const isVideo = (ep) => (ep.audio_type || "").startsWith("video/");
 export const isLocalFeed = (url) => (url || "").startsWith("local:");
 export const isPage = (ep) => (ep.audio_type || "") === "text/html";
+const isReel = (ep) => (ep.audio_type || "") === "video/instagram";
 const PAGES_FEED = "local:pages";
 const AUDIO_FEED = "local:audio";
 const YOUTUBE_FEED = "local:youtube";
 const VIDEOS_FEED = "local:videos";
+const REELS_FEED = "local:reels";
 
 // The phone shows the library as a strip of kinds, always in this order, instead of the
 // computer's side list. Tapping "Podcasts" opens a second strip with the podcasts themselves.
@@ -39,8 +41,10 @@ const KINDS = [
     empty: "No videos of your own yet. Use “Add video file” above." },
   { key: "audio", label: "My audio", icon: "audio", feed: AUDIO_FEED,
     empty: "No audio of your own yet. Use “Add audio file” above." },
-  // Reels have a page of their own (pages/reels.js): this one is a way in, not a list here.
-  { key: "reels", label: "Reels", icon: "video", href: "#/reels" },
+  // The reels themselves are listed here like every other kind; getting new ones has a page of
+  // its own (pages/reels.js), reached from the button at the top of this list.
+  { key: "reels", label: "Reels", icon: "video", feed: REELS_FEED,
+    empty: `No reels yet. <a class="btn primary" href="#/reels" style="margin-top:8px;display:inline-block">Get reels</a>` },
 ];
 // Tapping something in a strip redraws the page; this carries how far down it was scrolled.
 let keepScroll = null;
@@ -133,6 +137,7 @@ export async function render(view, { feedId: routeFeed, query }) {
         <div class="toolbar">
           <label class="switch"><input type="checkbox" id="select-all"> Select all</label>
           <button type="button" id="transcribe-selected" class="primary" disabled>Transcribe selected</button>
+          <button type="button" id="watch-selected" class="primary" hidden>Watch these reels</button>
           <span class="spacer"></span>
           <input type="search" id="title-filter" placeholder="Filter by title" style="width:200px">
         </div>
@@ -214,6 +219,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     ? `<img class="round" src="${esc(smallImage(c.image))}" alt="" loading="lazy" referrerpolicy="no-referrer">`
     : `<div class="ph all round">${esc([...c.name][0] || "?")}</div>`);
   const youtubeShowing = () => { const f = feeds.find((x) => x.id === feedId); return !!f && f.url === YOUTUBE_FEED; };
+  const reelsShowing = () => { const f = feeds.find((x) => x.id === feedId); return !!f && f.url === REELS_FEED; };
 
   async function loadFeeds() {
     [feeds, follows] = await Promise.all([api("/feeds"), loadFollows().catch(() => [])]);
@@ -261,10 +267,14 @@ export async function render(view, { feedId: routeFeed, query }) {
         “Add a webpage”, or browse with “Open Web Browser” and press Import Page.</div></div></div>`));
       return;
     }
-    if (f.url === "local:reels") {
+    if (f.url === REELS_FEED) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("video", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
-        <div class="desc small">Instagram reels found for you. They play from Instagram on your phone, one after another,
-        with the words underneath. <a href="#/reels">Open the Reels page</a> to get more or to watch them.</div></div></div>`));
+        <div class="desc small">Your Instagram reels, newest first. They play from Instagram on your phone, one after another, with the
+        words underneath. Tick some to watch just those.</div>
+        <div class="row" style="margin-top:8px">
+          <a class="btn" href="#/reels" title="Choose more reels from Instagram to add to this list">${icon("video", 16)} Get more reels</a>
+          <a class="btn ghost" href="#/reels/play" title="Play every reel, one after another">▶ Watch all</a>
+        </div></div></div>`));
       return;
     }
     if (f.url === YOUTUBE_FEED) {
@@ -372,7 +382,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       ${img ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph"></div>`}
       <div class="info">
         <div class="title" dir="auto"></div>
-        <div class="sub">${feedId ? "" : `${esc(ep.feed_title)} · `}${fmtDate(ep.published)}${ep.duration ? ` · ${fmtDuration(ep.duration)}` : ""}</div>
+        <div class="sub">${feedId ? "" : `${esc(ep.feed_title)} · `}${isReel(ep) && ep.description ? `@${esc(ep.description)} · ` : ""}${fmtDate(ep.published)}${ep.duration ? ` · ${isReel(ep) && ep.duration < 60 ? `${Math.round(ep.duration)} s` : fmtDuration(ep.duration)}` : ""}</div>
       </div>
       <div class="status"></div>
     </div>`);
@@ -467,6 +477,13 @@ export async function render(view, { feedId: routeFeed, query }) {
     const b = $("#transcribe-selected");
     b.disabled = selected.size === 0;
     b.textContent = selected.size ? `Transcribe selected (${selected.size})` : "Transcribe selected";
+    // Reels are never transcribed from here (they arrive with their words): ticking them is for
+    // watching just those, so the button for that appears instead, once any are ticked.
+    const reels = reelsShowing();
+    b.hidden = reels;
+    const w = $("#watch-selected");
+    w.hidden = !reels || selected.size === 0;
+    w.textContent = selected.size === 1 ? "▶ Watch this reel" : `▶ Watch these ${selected.size} reels`;
   }
 
   async function loadEpisodes(append = false) {
@@ -484,6 +501,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (channel && youtubeShowing()) params.set("channel", channel);
     const data = await api(`/episodes?${params}`);
     renderTabs(data.counts);
+    $("#tabs").hidden = reelsShowing(); // every reel is ready to watch: nothing to filter by
+    updateSelection();
     if (!append) listEl.innerHTML = "";
     let items = data.items;
     if (youtubeShowing() && !channel) {
@@ -549,6 +568,11 @@ export async function render(view, { feedId: routeFeed, query }) {
     $("#select-all").checked = false;
     listEl.querySelectorAll(".sel").forEach((cb) => (cb.checked = false));
     updateSelection();
+  };
+  $("#watch-selected").onclick = () => {
+    // In the order they are listed here (not the order they were ticked in).
+    const ids = [...listEl.querySelectorAll(".ep")].map((row) => row._ep.id).filter((id) => selected.has(id));
+    if (ids.length) location.hash = `#/reels/play?at=${ids[0]}&only=${ids.join(",")}`;
   };
   $("#more").onclick = () => loadEpisodes(true);
   $("#add-page").onsubmit = async (e) => {

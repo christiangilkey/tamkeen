@@ -390,14 +390,19 @@ async function renderList(view) {
 // ------------------------------------------------------------------------------------ the player
 
 async function renderPlayer(view, { query }) {
-  const reels = await loadReels();
+  const everyReel = await loadReels();
+  // "Watch these reels" in the Library: only the ticked ones, in the order they were listed there.
+  const only = (query.get("only") || "").split(",").filter(Boolean);
+  const chosen = only.map((id) => everyReel.find((ep) => String(ep.id) === id)).filter(Boolean);
+  const reels = chosen.length ? chosen : everyReel;
+  const onlyParam = chosen.length ? `&only=${chosen.map((ep) => ep.id).join(",")}` : "";
   if (!reels.length) { location.hash = "#/reels"; return undefined; }
   let index = Math.max(0, reels.findIndex((ep) => String(ep.id) === String(query.get("at"))));
 
   view.append(h(`
     <div class="reelplay">
       <div class="reel-top">
-        <a class="btn ghost" href="#/reels" title="Back to the list">←</a>
+        <a class="btn ghost" href="${chosen.length && chosen[0].feed_id ? `#/feed/${chosen[0].feed_id}` : "#/reels"}" title="Back to the list">←</a>
         <div class="reel-title"><span id="reel-n"></span> <span class="muted" id="reel-who"></span></div>
         <button type="button" class="ghost" id="reel-prev" title="Previous reel">‹</button>
         <button type="button" class="ghost" id="reel-next" title="Next reel">›</button>
@@ -554,7 +559,7 @@ async function renderPlayer(view, { query }) {
     if (seen) { seen.close(); seen = null; } // the previous reel's words are leaving the screen
     $("#reel-n").textContent = `${index + 1} / ${reels.length}`;
     $("#reel-who").textContent = `@${ep.description || ""}`;
-    history.replaceState(null, "", `#/reels/play?at=${ep.id}`); // so "back" and a reopen land on this reel
+    history.replaceState(null, "", `#/reels/play?at=${ep.id}${onlyParam}`); // so "back" and a reopen land on this reel
     wordsEl.innerHTML = `<p class="muted small">Loading the words…</p>`;
     let data;
     try { data = await api(`/episodes/${ep.id}/transcript`); } catch (e) { data = null; }
