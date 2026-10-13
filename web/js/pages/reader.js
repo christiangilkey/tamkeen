@@ -8,6 +8,7 @@ import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefi
 import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { lookupToggle } from "../components/lookupmode.js";
+import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
@@ -75,6 +76,8 @@ export async function render(view, { id, data, query }) {
   const $ = (sel) => view.querySelector(sel);
   if (source) $("#original").href = source;
   $("#font-down").before(lookupToggle()); // quick or detailed lookup
+  // Send this page to a friend (its address travels; their copy is read from the page itself).
+  if (source) $("#font-up").after(sendButton(() => mediaFromEpisode(ep)));
   const tr = $("#text");
 
   // Build the page in one pass. Each block keeps its own direction, so right-to-left and left-to-right text mix correctly.
