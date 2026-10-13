@@ -1,9 +1,11 @@
 // Phone settings: Google account & sync, AI definitions, appearance.
 
 import { esc, h, on, toast, saveSettings } from "../app.js";
-import { PROVIDERS, define } from "../definer.js";
+import { aiSetup } from "../components/aisetup.js";
+import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { languagePicker } from "../components/langpicker.js";
+import { dictionariesRow } from "../lexicon/seen.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { transport } from "../define-service.js";
 import { signIn, signOut } from "../drive.js";
@@ -23,6 +25,8 @@ export async function render(view) {
   const s = settings;
   view.append(h(`<div class="page settings">
     <h1>Settings</h1>
+    <section class="card" id="definer"></section>
+
     <section class="card stack">
       <h2>Language I'm learning</h2>
       <div id="study-lang"></div>
@@ -35,22 +39,6 @@ export async function render(view) {
       <p class="small muted">Your podcasts, transcripts and vocab come from your computer through a private app folder
         in your own Google Drive. Transcription happens on your computer; tap "Transcribe" here and it will do it on its next sync.</p>
       <div id="account"></div>
-    </section>
-
-    <section class="card stack">
-      <h2>Word definitions (AI)</h2>
-      <p class="small muted">Tap any word to hear it and see what it means in that sentence. Uses your own API key
-        (stored only on this phone). The word and its surrounding sentences are sent to the provider you choose.</p>
-      <label class="stack-label">Provider
-        <select id="def-provider">${Object.entries(PROVIDERS).map(([k, p]) =>
-          `<option value="${k}" ${k === s.definer_provider ? "selected" : ""}>${esc(p.label)}</option>`).join("")}</select></label>
-      <label class="stack-label">API key <a id="def-keylink" class="small" target="_blank" rel="noopener">get one ↗</a>
-        <input type="password" id="def-key" autocomplete="off" spellcheck="false" placeholder="Paste your API key"></label>
-      <label class="stack-label">Model
-        <input type="text" id="def-model" list="def-models" spellcheck="false"><datalist id="def-models"></datalist></label>
-      <label class="stack-label">Explain in
-        <input type="text" id="def-lang" value="${esc(s.definer_language)}"></label>
-      <div class="row"><button type="button" id="def-test">Test</button><span id="def-out" class="small"></span></div>
     </section>
 
     <section class="card stack">
@@ -108,43 +96,12 @@ export async function render(view) {
   const off = on("sync", paintAccount);
 
   // AI definitions
-  const prov = () => $("#def-provider").value;
-  function paintProvider() {
-    const p = prov();
-    $("#def-key").value = settings[`llm_key_${p}`] || "";
-    $("#def-model").value = settings[`definer_model_${p}`] || PROVIDERS[p].defaultModel;
-    $("#def-models").innerHTML = PROVIDERS[p].models.map((m) => `<option value="${esc(m)}">`).join("");
-    $("#def-keylink").href = PROVIDERS[p].keyUrl;
-  }
-  paintProvider();
-  $("#def-provider").onchange = async () => { await saveSettings({ definer_provider: prov() }); paintProvider(); };
-  $("#def-key").onchange = (e) => saveSettings({ [`llm_key_${prov()}`]: e.target.value.trim() });
-  $("#def-model").onchange = (e) => saveSettings({ [`definer_model_${prov()}`]: e.target.value.trim() });
-  $("#def-lang").onchange = (e) => saveSettings({ definer_language: e.target.value.trim() || "English" });
+  const offAi = aiSetup($("#definer"), { transport });
   $("#study-lang").append(languagePicker(s.study_language, async (code) => {
     await saveSettings({ study_language: code });
     toast(`Now learning ${LANGUAGES[code].name}`);
     window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
-  }));
-
-  $("#def-test").onclick = async (e) => {
-    const out = $("#def-out");
-    e.target.disabled = true;
-    out.textContent = "Asking…";
-    out.style.color = "";
-    try {
-      const d = await define({ provider: prov(), key: $("#def-key").value.trim(), model: $("#def-model").value.trim(),
-                               language: $("#def-lang").value.trim() || "English" },
-                             { ...langInfo(studyLanguage()).test, lang: studyLanguage() }, transport);
-      out.textContent = `✓ Works: ${langInfo(studyLanguage()).test.word} = “${d.meaning}”`;
-      out.style.color = "var(--accent)";
-    } catch (err) {
-      out.textContent = err.message;
-      out.style.color = "var(--danger)";
-    } finally {
-      e.target.disabled = false;
-    }
-  };
+  }), commonWordsButton(studyLanguage()), dictionariesRow(studyLanguage()));
 
   // Appearance
   view.querySelectorAll("input[name=theme]").forEach((r) => (r.onchange = () => saveSettings({ theme: r.value })));
@@ -156,5 +113,5 @@ export async function render(view) {
     $("#page-font-val").textContent = `${e.target.value}px`;
     saveSettings({ page_font_size: Number(e.target.value) });
   };
-  return off;
+  return () => { off(); offAi(); };
 }

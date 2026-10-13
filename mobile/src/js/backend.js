@@ -8,6 +8,8 @@ import { episodeUid, feedUid, findSpans, newUid, normalize, normalizeUrl } from 
 import { settings } from "./store.js";
 import { detectLanguage, isLanguage } from "./languages.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
+import { NativeHttp, isNative } from "./native.js";
+import { newEpisodeRecords, parseFeed } from "./rss.js";
 
 export class ApiError extends Error {}
 
@@ -21,6 +23,8 @@ const AUDIO_FEED_URL = "local:audio";
 const PAGES_FEED_URL = "local:pages";
 const PAGE_KINDS = ["h1", "h2", "h3", "p", "li", "q"];
 const MAX_PAGE_WORDS = 30000;
+const YOUTUBE_FEED_URL = "local:youtube";
+const MAX_YOUTUBE_WORDS = 60000;
 
 function cleanPageUrl(text) {
   let url = String(text || "").trim();
@@ -83,6 +87,155 @@ async function savePage(body) {
   await kv.set("pending_transcripts", [...pending]);
   changed();
   return { ...episodeOut(ep), words: words.text.length };
+}
+
+/** Store a YouTube video and its captions (same layout as the desktop's app/youtube.py): the
+ * captions are its transcript; the video itself stays on YouTube. */
+async function saveYouTube(body) {
+  const id = String(body.video_id || "").trim();
+  if (!/^[\w-]{11}$/.test(id)) throw new ApiError("That doesn't look like a YouTube video.");
+  const num = (x) => Math.max(0, Number(x) || 0);
+  const segments = [];
+  const words = { start: [], end: [], text: [], seg: [] };
+  for (const line of [...(body.lines || [])].sort((a, b) => num(a.start) - num(b.start))) {
+    let list = (line.words || []).filter((w) => Array.isArray(w) && String(w[2] ?? "").trim());
+    if (words.text.length + list.length > MAX_YOUTUBE_WORDS) list = list.slice(0, MAX_YOUTUBE_WORDS - words.text.length);
+    if (!list.length) continue;
+    for (const [start, end, text] of list) {
+      words.start.push(num(start));
+      words.end.push(Math.max(num(start), num(end)));
+      words.text.push(String(text).replace(/\s+/g, "").slice(0, 120));
+      words.seg.push(segments.length);
+    }
+    const text = String(line.text || "").replace(/\s+/g, " ").trim() || list.map((w) => w[2]).join(" ");
+    segments.push([line.start == null ? num(list[0][0]) : num(line.start), Math.max(num(line.end), num(list.at(-1)[1])), text.slice(0, 2000)]);
+  }
+  if (!segments.length) throw new ApiError("No captions available for this video.");
+  const t = now();
+  const fuid = await feedUid(YOUTUBE_FEED_URL);
+  let feed = feedOf(fuid);
+  if (!feed) {
+    feed = { uid: fuid, url: YOUTUBE_FEED_URL, title: "YouTube",
+             description: "YouTube videos you added. They play from YouTube; their captions are the transcript.",
+             image: null, link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
+    lib.feeds.push(feed);
+  } else if (feed.deleted) {
+    Object.assign(feed, { deleted: 0, updated_at: t });
+  }
+  const uid = await episodeUid(fuid, id);
+  const model = body.auto ? "youtube-auto" : "youtube-captions";
+  const language = isLanguage(body.language) ? body.language
+    : detectLanguage(segments.slice(0, 60).map((s) => s[2]).join(" "), settings.study_language || "ar");
+  const fields = { title: String(body.title || "").replace(/\s+/g, " ").trim().slice(0, 300) || "YouTube video",
+                   description: String(body.channel || "").slice(0, 200), image: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+                   audio_url: `https://www.youtube.com/watch?v=${id}`, audio_type: "video/youtube",
+                   duration: num(body.duration) || segments.at(-1)[1], language, transcript_rev: t, model, deleted: 0, updated_at: t };
+  let ep = lib.episodes.find((e) => e.uid === uid);
+  if (ep) Object.assign(ep, fields);
+  else {
+    ep = { uid, feed_uid: fuid, guid: id, published: t, transcribe_requested_at: null, remote_audio: 0, created_at: t, ...fields };
+    lib.episodes.push(ep);
+  }
+  await transcripts.put(uid, { format: 1, rev: t, model, segments, words });
+  // The captions have to reach Drive too, so the computer and other devices get the video.
+  const pending = new Set((await kv.get("pending_transcripts")) || []);
+  pending.add(uid);
+  await kv.set("pending_transcripts", [...pending]);
+  changed();
+  return { ...episodeOut(ep), words: words.text.length };
+}
+
+const FEED_WAITING = "Episodes appear after your computer syncs this feed.";
+const FEED_CHECK_EVERY = 60 * 60; // seconds between automatic looks at one podcast's feed
+const FEED_CHECKS_AT_ONCE = 4;
+
+const headerOf = (res, name) => {
+  const headers = (res && res.headers) || {};
+  const key = Object.keys(headers).find((k) => k.toLowerCase() === name);
+  return key ? headers[key] : null;
+};
+
+/** Download a podcast feed's text. `seen` ({etag, modified} from the last read, updated here)
+ * lets the server answer "nothing has changed" instead of sending the whole feed again: then
+ * this resolves to null. Redirects are followed by hand (the phone's own web requests don't
+ * follow one that changes between http and https). */
+async function downloadFeed(url, seen = null) {
+  if (!isNative) { // development preview in a browser: only feeds that allow being read from a page
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`The feed server returned HTTP ${res.status}.`);
+    return res.text();
+  }
+  const headers = { "User-Agent": "Tamkeen/Android (+podcast reader)", Accept: "application/rss+xml, application/xml;q=0.9, */*;q=0.8" };
+  if (seen && seen.etag) headers["If-None-Match"] = seen.etag;
+  if (seen && seen.modified) headers["If-Modified-Since"] = seen.modified;
+  for (let hop = 0; hop < 5; hop++) {
+    const res = await NativeHttp.get({ url, responseType: "text", connectTimeout: 15000, readTimeout: 30000, headers });
+    const next = headerOf(res, "location");
+    if (res.status === 304) return null;
+    if (res.status >= 300 && res.status < 400 && next) { url = new URL(next, url).href; continue; }
+    if (res.status >= 400) throw new Error(`The feed server returned HTTP ${res.status}.`);
+    if (seen) Object.assign(seen, { etag: headerOf(res, "etag"), modified: headerOf(res, "last-modified") });
+    return typeof res.data === "string" ? res.data : String(res.data ?? "");
+  }
+  throw new Error("The feed kept sending the app somewhere else.");
+}
+
+/** Read a podcast's feed on the phone itself and add the episodes it doesn't have yet, so the
+ * phone doesn't depend on the computer for them. Episodes get the same ids the computer gives
+ * them (see rss.js), so both devices end up with one copy. Returns how many were new. */
+async function readFeed(feed, seen = null) {
+  // "Has it changed?" only makes sense once the phone holds this podcast's episodes.
+  if (seen && !lib.episodes.some((e) => e.feed_uid === feed.uid)) Object.assign(seen, { etag: null, modified: null });
+  const xml = await downloadFeed(feed.url, seen);
+  if (xml === null) return 0; // unchanged since the last look
+  const parsed = await parseFeed(xml);
+  const uids = await Promise.all(parsed.episodes.map((ep) => episodeUid(feed.uid, ep.guid)));
+  // From here on nothing waits, so a sync can't slip in between reading the library and adding to it.
+  const t = now();
+  const known = new Set(lib.episodes.filter((e) => e.feed_uid === feed.uid).map((e) => e.uid));
+  if (!known.size || feed.description === FEED_WAITING) {
+    // A podcast just added here: its real name, picture and description. (Afterwards these
+    // are left to the computer, so the two don't keep overwriting each other.)
+    Object.assign(feed, { title: parsed.title, description: parsed.description.slice(0, 1000), image: parsed.image || feed.image || null,
+                          link: parsed.link || feed.link || null, updated_at: t });
+  }
+  const fresh = newEpisodeRecords(feed, parsed.episodes, uids, known, t);
+  lib.episodes.push(...fresh);
+  return fresh.length;
+}
+
+let checking = null;
+/**
+ * Look at the podcasts' feeds for new episodes. Normally each podcast is looked at no more than
+ * once an hour; `force` looks now (the Refresh button), `only` limits it to one podcast.
+ * Resolves to how many new episodes were found.
+ */
+export function checkFeeds({ force = false, only = null } = {}) {
+  if (checking) return checking;
+  checking = (async () => {
+    const checks = (await kv.get("feed_checks")) || {}; // per podcast: when it was last read, and the server's "version" marks
+    const due = lib.feeds.filter((f) => !f.deleted && !f.url.startsWith("local:") && (!only || f.uid === only)
+      && (force || !checks[f.uid] || now() - (checks[f.uid].at || 0) > FEED_CHECK_EVERY));
+    if (!due.length) return 0;
+    let added = 0;
+    let changedAny = false;
+    const queue = [...due];
+    const worker = async () => {
+      for (let feed = queue.shift(); feed; feed = queue.shift()) {
+        const seen = checks[feed.uid] || (checks[feed.uid] = {});
+        const before = feed.updated_at;
+        try { added += await readFeed(feed, seen); } catch (e) { console.warn("Couldn't read the feed", feed.url, e); }
+        if (feed.updated_at !== before) changedAny = true;
+        seen.at = now(); // also after a failure: try again in an hour (or on Refresh), not on every look
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(FEED_CHECKS_AT_ONCE, queue.length) }, worker));
+    for (const uid of Object.keys(checks)) if (!lib.feeds.some((f) => f.uid === uid && !f.deleted)) delete checks[uid];
+    await kv.set("feed_checks", checks);
+    if (added || changedAny) changed();
+    return added;
+  })().finally(() => { checking = null; });
+  return checking;
 }
 
 /** Record a video or audio file this phone just uploaded to Drive; the computer transcribes it on its next sync. */
@@ -152,11 +305,24 @@ const routes = [
     if (existing && !existing.deleted) throw new ApiError("You're already subscribed to this feed.");
     const t = now();
     const host = (() => { try { return new URL(url).hostname; } catch { return url; } })();
+    // Added from Trending, the podcast's name and picture are already known; otherwise the
+    // computer fills them in when it first reads the feed.
+    const image = typeof body.image === "string" && body.image.startsWith("https://") ? body.image : null;
     const feed = existing
       ? Object.assign(existing, { deleted: 0, updated_at: t })
-      : { uid, url, title: host, description: "Episodes appear after your computer syncs this feed.", image: null,
+      : { uid, url, title: String(body.title || "").trim().slice(0, 300) || host,
+          description: FEED_WAITING, image,
           link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
     if (!existing) lib.feeds.push(feed);
+    // Get the episodes now. If the feed can't be reached from the phone, the podcast is still
+    // added and the computer fills it in on its next sync.
+    try {
+      const checks = (await kv.get("feed_checks")) || {};
+      const seen = (checks[feed.uid] = {});
+      await readFeed(feed, seen);
+      seen.at = now(); // just read: the automatic look for new episodes can leave it for an hour
+      await kv.set("feed_checks", checks);
+    } catch (e) { console.warn("Couldn't read the feed on the phone", feed.url, e); }
     changed();
     return feedOut(feed);
   }],
@@ -178,9 +344,15 @@ const routes = [
     }
     return { ok: true };
   }],
-  ["POST", /^\/feeds\/refresh$/, async () => {
-    if (!settings.signed_in) throw new ApiError("Sign in with Google (Settings) to get your library from your computer.");
+  ["POST", /^\/feeds\/refresh$/, async (m, q) => {
     const before = lib.episodes.length;
+    const podcasts = lib.feeds.some((f) => !f.deleted && !f.url.startsWith("local:"));
+    // Look at the podcasts' feeds for new episodes (just the open podcast, or all of them).
+    await checkFeeds({ force: true, only: q.get("feed_id") || null });
+    if (!settings.signed_in) {
+      if (podcasts) return { ok: true, new_episodes: Math.max(0, lib.episodes.length - before), synced: false };
+      throw new ApiError("Sign in with Google (Settings) to get your library from your computer.");
+    }
     await syncNow();
     if (syncState.state === "error") throw new ApiError(syncState.error);
     return { ok: true, new_episodes: Math.max(0, lib.episodes.length - before), synced: true };
@@ -190,6 +362,7 @@ const routes = [
   ["GET", /^\/episodes$/, (m, q) => {
     let eps = liveEpisodes().filter((e) => feedOf(e.feed_uid) && !feedOf(e.feed_uid).deleted);
     if (q.get("feed_id")) eps = eps.filter((e) => e.feed_uid === q.get("feed_id"));
+    else if (q.get("scope") === "podcasts") eps = eps.filter((e) => !feedOf(e.feed_uid).url.startsWith("local:"));
     const counts = {};
     for (const e of eps) counts[episodeStatus(e)] = (counts[episodeStatus(e)] || 0) + 1;
     const status = q.get("status");
@@ -231,6 +404,15 @@ const routes = [
     return { episode: ep, segments, words };
   }],
   ["POST", /^\/pages$/, (m, q, body) => savePage(body)],
+  ["POST", /^\/youtube$/, (m, q, body) => saveYouTube(body)],
+  // Reels are found and transcribed on the computer; the phone only watches them.
+  ["GET", /^\/reels$/, () => ({ available: false, status: { running: false, state: "idle", log: [] } })],
+  ["GET", /^\/youtube\/([\w-]{11})$/, async (m) => { // a video already here with its captions
+    const fuid = await feedUid(YOUTUBE_FEED_URL);
+    const e = liveEpisodes().find((x) => x.feed_uid === fuid && x.guid === m[1] && x.transcript_rev);
+    if (!e) throw new ApiError("That video isn't in the library yet.");
+    return episodeOut(e);
+  }],
   ["DELETE", /^\/episodes\/([\w]+)$/, async (m) => {
     const e = episodeOf(m[1]);
     if (!e) return { ok: true };

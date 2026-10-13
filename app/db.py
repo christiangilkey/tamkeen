@@ -333,6 +333,12 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "page_font_size": 17,           # text size for imported web pages (set separately; smaller by default)
     "welcome_seen": False,
     "study_language": "",           # the language being learned (ar, es, fr, ja, zh, ru); chosen on first run
+    # The first-run questions (web/js/components/onboarding.js): answered yet, and "beginner" or "started".
+    "onboarded": False,
+    "study_level": "",
+    # Languages whose 1000 common words are still to be counted as seen: they wait for that
+    # language's dictionaries (web/js/commonwords.js).
+    "common_words_pending": [],
     # Seen words (see web/js/lexicon/seen.js): "no thanks" to the Arabic dictionaries download, and
     # whether words tapped or saved before seen words were kept have been counted on this device.
     "lexicon_declined": False,

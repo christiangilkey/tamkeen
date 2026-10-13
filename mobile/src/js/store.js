@@ -76,6 +76,9 @@ const DEFAULTS = {
   page_font_size: 17,
   welcome_seen: false,
   study_language: "", // the language being learned (ar, es, fr, ja, zh, ru); chosen on first run
+  onboarded: false,   // the first-run questions have been answered (components/onboarding.js)
+  study_level: "",    // "beginner" or "started"
+  common_words_pending: [], // languages whose common words wait for dictionaries before counting as seen (commonwords.js)
   definer_provider: "claude",
   definer_language: "English",
   definer_model_claude: "", definer_model_gemini: "", definer_model_openai: "", definer_model_grok: "",

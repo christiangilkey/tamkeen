@@ -19,6 +19,10 @@ export const COMBO_WINDOW_MS = 30000;       // word lookups: long enough to read
 export const COMBO_STEPS = [1, 1.2, 1.5, 2];
 export const ADULT_XP = 6000;               // creature XP for growth 1.0 (about two months of daily goals)
 export const MAX_CREATURES = 12;
+// XP of one kind that fills a habit (about ten daily goals, so one busy afternoon doesn't decide it).
+// Curiosity takes 20 times as much: looking words up pays far more XP than anything else, and at the
+// same scale it filled in a sitting (the owner's call).
+export const HABIT_XP = { listener: 1500, reader: 1500, collector: 1500, curious: 30000 };
 
 const TIERS = [
   { id: "common", chance: 0.7, xp: [5, 15] },
@@ -66,6 +70,7 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     rating: 1000, // battle skill, nothing to do with how much has been studied
     rivals: {},   // friend id -> {name, wins, losses}
     showcase: null, // seed of the favourite creature friends see next to my name (null = the one in the habitat)
+    curious20: true, // curiosity is counted on its 20-times-longer scale (see normalize for saves from before)
     badges: [],
     updated_at: 0,
   });
@@ -84,6 +89,7 @@ export function normalize(state) {
   if (!s || !s.roster.length) return fresh;
   if (Object.prototype.hasOwnProperty.call(s, "creature")) delete s.creature;
   attach(s);
+  const oldCuriosity = s.curious20 !== true; // saved when curiosity filled 20 times faster
   for (const [k, v] of Object.entries(fresh)) if (s[k] === undefined) s[k] = v;
   s.items = { ...fresh.items, ...(s.items || {}) };
   s.day = { ...fresh.day, ...(s.day || {}) };
@@ -97,6 +103,7 @@ export function normalize(state) {
     g.branches = Array.isArray(g.branches) ? g.branches : g.branch ? [g.branch] : [];
     g.moves = Array.isArray(g.moves) ? g.moves : [];
     if (!Number.isFinite(g.growth)) g.growth = 0;
+    if (oldCuriosity) g.traits.curious = (Number(g.traits.curious) || 0) / 20; // the same lookups, on the new scale
   }
   for (const k of ["owned", "decor", "tags", "badges"]) if (!Array.isArray(s[k])) s[k] = [];
   for (const k of ["review", "rivals"]) if (!s[k] || typeof s[k] !== "object") s[k] = {};
@@ -192,8 +199,7 @@ function grow(state, xp, trait) {
   }
   if (trait) {
     // Traits drift toward what the owner actually does; the others fade a little.
-    // (About ten daily goals of one habit to fill a trait, so one busy afternoon doesn't decide it.)
-    const step = xp / 1500;
+    const step = xp / (HABIT_XP[trait] || HABIT_XP.listener);
     for (const t of Object.keys(c.traits)) if (t !== trait) c.traits[t] = Math.max(0, c.traits[t] * (1 - step * 0.25));
     c.traits[trait] = Math.min(1, (c.traits[trait] || 0) + step);
   }
@@ -412,18 +418,6 @@ export function setActive(state, index) {
   if (index >= 0 && index < state.roster.length) state.active = index;
 }
 
-// ---------- vocab review: what battles are made of ----------
-// Every saved word with a meaning can be asked. A word moves up a box each time it is answered
-// right and comes back after a longer wait; a wrong answer drops it two boxes. A word that climbs
-// to MATURE_BOX is "well known": it took weeks of right answers to get there, which is why
-// reaching it pays the best bonus.
-const INTERVALS = [0, 1, 2, 4, 8, 16, 32]; // days until a word comes round again, by box
-export const MATURE_BOX = 4;
-const uidOf = (v) => String(v.uid || v.id);
-const meaningOf = (v) => String(v.meaning || "").trim();
-
-export const quizzable = (vocab) => (vocab || []).filter((v) => v && String(v.text || "").trim() && meaningOf(v));
-
 /** Choose the creature friends see next to my name (pass null to follow the one in the habitat). */
 export function setShowcase(state, seed) {
   state.showcase = state.roster.some((g) => g.seed === seed) ? seed : null;
@@ -435,6 +429,18 @@ export function showcaseOf(state) {
   const hatched = (g) => g && stageOf(g.growth).id !== "egg";
   return [state.roster.find((g) => g.seed === state.showcase), state.creature, ...state.roster].find(hatched) || null;
 }
+
+// ---------- vocab review: what battles are made of ----------
+// Every saved word with a meaning can be asked. A word moves up a box each time it is answered
+// right and comes back after a longer wait; a wrong answer drops it two boxes. A word that climbs
+// to MATURE_BOX is "well known": it took weeks of right answers to get there, which is why
+// reaching it pays the best bonus.
+const INTERVALS = [0, 1, 2, 4, 8, 16, 32]; // days until a word comes round again, by box
+export const MATURE_BOX = 4;
+const uidOf = (v) => String(v.uid || v.id);
+const meaningOf = (v) => String(v.meaning || "").trim();
+
+export const quizzable = (vocab) => (vocab || []).filter((v) => v && String(v.text || "").trim() && meaningOf(v));
 
 /** How well the owner has been answering lately (0..1), or null before there is enough to go on. */
 export function retention(state) {

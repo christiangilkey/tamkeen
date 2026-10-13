@@ -14,6 +14,8 @@ const out = join(mobile, "www");
 // Files shared verbatim with the desktop app.
 const SHARED = [
   "css/app.css",
+  "css/media.css",
+  "css/reels.css",
   "fonts",
   "anki-card",
   "icons",
@@ -41,8 +43,26 @@ const SHARED = [
   "js/pages/reader.js",
   "js/extract.js",
   "js/pageimport.js",
+  "js/ytcaptions.js",
+  "js/youtube.js",
+  "js/ytmedia.js",
+  "js/youtube-browser.js",
+  "js/youtube-home.js",
+  "js/pages/reels.js",
+  "js/reel-embed.js",
+  "js/reel-page.js",
+  "js/browser-home.js",
+  "js/trending.js",
+  "js/pages/discover.js",
   "js/components/studycard.js",
   "js/components/avatar.js",
+  "js/components/modal.js",
+  "js/components/keyhelp.js",
+  "js/components/aisetup.js",
+  "js/tokenuse.js",
+  "js/components/onboarding.js",
+  "js/commonwords.js",
+  "js/wordlists",
 ];
 
 rmSync(out, { recursive: true, force: true });

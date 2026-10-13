@@ -23,9 +23,13 @@ const PATHS = {
   search: `<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>`,
   video: `<rect class="fill" x="3" y="5.5" width="18" height="13" rx="3"/><rect x="3" y="5.5" width="18" height="13" rx="3"/>
     <path class="solid" d="M10.2 9.3v5.4l4.6-2.7z"/>`,
+  videofile: `<path class="fill" d="M6.5 3.5H14l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H6.5A1.5 1.5 0 0 1 5 19V5a1.5 1.5 0 0 1 1.5-1.5z"/>
+    <path d="M6.5 3.5H14l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H6.5A1.5 1.5 0 0 1 5 19V5a1.5 1.5 0 0 1 1.5-1.5z"/><path d="M14 3.5V8h4.5"/>
+    <path class="solid" d="M10.2 11.8v4.6l3.9-2.3z"/>`,
   audio: `<path d="M4 10v4M8 7v10M12 4.5v15M16 8v8M20 10.5v3"/>`,
   page: `<circle class="fill" cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="8.5"/>
     <path d="M3.5 12h17M12 3.5c2.7 2.5 2.7 14.5 0 17M12 3.5c-2.7 2.5-2.7 14.5 0 17"/>`,
+  trending: `<path d="M3.5 17l5.6-5.6 3.8 3.8L20.5 7.6"/><path d="M15 7.5h5.5V13"/>`,
   podcast: `<path d="M5 13a7 7 0 0 1 14 0"/><rect class="fill" x="3.5" y="13" width="4" height="6.5" rx="1.8"/><rect class="fill" x="16.5" y="13" width="4" height="6.5" rx="1.8"/>
     <rect x="3.5" y="13" width="4" height="6.5" rx="1.8"/><rect x="16.5" y="13" width="4" height="6.5" rx="1.8"/>`,
 };

@@ -178,6 +178,8 @@ export function habitat() {
   let sayTimer = 0;
   let sayHalf = 0;     // half the bubble's width and its whole height, in scene pixels (to keep it inside the scene)
   let sayTall = 0;
+  const said = new Set(); // words shown this round: every saved word turns up once before any comes back
+  let saidLast = "";      // the one shown last, so a new round never opens with the word just seen
   function placeSay(look) {
     const top = look.stage === "egg" ? 36 : { s: 44, m: 54, l: 66 }[look.size];
     const x = look.stage === "egg" ? W / 2 : pet.x;
@@ -188,8 +190,14 @@ export function habitat() {
     if (vocab === null) await vocabReady;
     if (vocab === null || disposed) return; // the words couldn't be read: say nothing rather than something untrue
     const words = vocab.filter((v) => v && String(v.text || "").trim());
-    const defined = words.filter((v) => String(v.meaning || "").trim());
-    const pick = (defined.length ? defined : words)[Math.floor(Math.random() * (defined.length || words.length))];
+    const idOf = (v) => String(v.uid || v.id);
+    let fresh = words.filter((v) => !said.has(idOf(v)));
+    if (!fresh.length) { // every word has had its turn: start again, with any word but the last one
+      said.clear();
+      fresh = words.length > 1 ? words.filter((v) => idOf(v) !== saidLast) : words;
+    }
+    const pick = fresh[Math.floor(Math.random() * fresh.length)];
+    if (pick) { saidLast = idOf(pick); said.add(saidLast); }
     const [word, meaning] = say.children;
     word.textContent = pick ? String(pick.text).trim() : "";
     word.hidden = !pick;

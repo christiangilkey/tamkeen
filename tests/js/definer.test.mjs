@@ -135,3 +135,61 @@ test("missing fields are normalized", async () => {
   assert.deepEqual(d.other_meanings, []);
   assert.equal(d.root, "");
 });
+
+test("each provider has a recommended low-cost model, and Settings lists it first", async () => {
+  const { PROVIDERS, modelFor } = await import("../../web/js/definer.js");
+  for (const [name, p] of Object.entries(PROVIDERS)) {
+    assert.equal(p.models[0].id, p.defaultModel, `${name}: the recommended model heads the list`);
+    assert.ok(p.models.every((m) => m.id && m.name && m.note), `${name}: every model has a name and a note`);
+    assert.match(p.keyUrl, /^https:\/\//);
+    assert.equal(modelFor(name, {}), p.defaultModel);
+    assert.equal(modelFor(name, { [`definer_model_${name}`]: "my-own-model" }), "my-own-model");
+  }
+  assert.equal(PROVIDERS.claude.defaultModel, "claude-haiku-5-5");
+});
+
+test("Claude Haiku 5.5 (the default): low effort, and no fallback, which it doesn't have", async () => {
+  const t = fakeTransport(() => ok({ stop_reason: "end_turn", content: [{ type: "text", text: JSON.stringify(ANSWER) }] }));
+  await define({ provider: "claude", key: "k" }, CTX, t);
+  assert.equal(t.calls[0].body.model, "claude-haiku-5-5");
+  assert.equal(t.calls[0].body.output_config.effort, "low");
+  assert.equal(t.calls[0].body.fallbacks, undefined);
+  assert.equal(t.calls[0].headers["anthropic-beta"], undefined);
+});
+
+test("Gemini: thinking level only for the models that have one", async () => {
+  const answer = () => ok({ candidates: [{ content: { parts: [{ text: JSON.stringify(ANSWER) }] } }] });
+  const t = fakeTransport(answer);
+  await define({ provider: "gemini", key: "g" }, CTX, t);
+  assert.match(t.calls[0].url, /models\/gemini-3\.1-flash-lite:generateContent$/);
+  assert.equal(t.calls[0].body.generationConfig.thinkingConfig.thinkingLevel, "low");
+  await define({ provider: "gemini", key: "g", model: "gemini-2.5-flash-lite" }, CTX, t);
+  assert.equal(t.calls[1].body.generationConfig.thinkingConfig, undefined);
+});
+
+test("a model's price is one figure, cents per million tokens, and a million tokens is about 800 lookups", async () => {
+  const { PROVIDERS, LOOKUP_TOKENS, LOOKUPS_PER_MILLION, centsPerMillion } = await import("../../web/js/definer.js");
+  assert.equal(LOOKUPS_PER_MILLION, 800);
+  for (const p of Object.values(PROVIDERS)) {
+    for (const m of p.models) {
+      assert.ok(m.in > 0 && m.out >= m.in, `${m.id}: has both prices`);
+      const c = centsPerMillion(m);
+      assert.ok(c >= m.in && c <= m.out, `${m.id}: between the reading and the writing price`);
+    }
+  }
+  // Haiku 5.5: 10¢ read, 50¢ written; a lookup reads about twice what it writes.
+  assert.equal(centsPerMillion(PROVIDERS.claude.models[0]), Math.round((10 * LOOKUP_TOKENS.in + 50 * LOOKUP_TOKENS.out) / (LOOKUP_TOKENS.in + LOOKUP_TOKENS.out)));
+  assert.equal(centsPerMillion(PROVIDERS.claude.models[0]), 23);
+});
+
+test("a pasted key is tidied and recognised by how it starts", async () => {
+  const { cleanKey, keyProvider } = await import("../../web/js/definer.js");
+  assert.equal(cleanKey("  sk-ant-abc123\n"), "sk-ant-abc123");
+  assert.equal(cleanKey("“AIzaSy 12​34”"), "AIzaSy1234");
+  assert.equal(cleanKey(null), "");
+  assert.equal(keyProvider("sk-ant-api03-xyz"), "claude");
+  assert.equal(keyProvider("sk-proj-xyz"), "openai");
+  assert.equal(keyProvider(" AIzaSyXYZ "), "gemini");
+  assert.equal(keyProvider("xai-xyz"), "grok");
+  assert.equal(keyProvider("something-else"), "");
+});

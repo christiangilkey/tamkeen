@@ -63,6 +63,12 @@ def browser_start(text: str) -> str:
     return "https://www.google.com/search?q=" + quote(text)
 
 
+def browser_home(server_url: str) -> str:
+    """Address of the browser's own start page (web/browser-home.html): a search box and news
+    sites in the language being studied. Shown when the browser is opened with nothing typed."""
+    return f"{server_url.rstrip('/')}/browser-home.html?lang={languages.study()}"
+
+
 def extractor_source() -> str:
     """web/js/extract.js as plain script text (its final `export` line removed), for running
     inside a page shown in the in-app browser."""

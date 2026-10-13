@@ -973,7 +973,6 @@ button.today-chip { cursor: pointer; font: inherit; }
 .plot-act { flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
 .plot-act button { font-size: 13px; padding: 4px 10px; }
 .locked-plot { opacity: .7; }
-.build-opt { display: flex; align-items: center; gap: 8px; text-align: start; border-radius: 12px; padding: 6px 10px; }
 
 /* ---------- creature game: tap anything in the bar for an explanation; the word over a petted creature ---------- */
 .hud-tap { background: none; border: 0; padding: 0; min-height: 0; font: inherit; font-size: 13px; cursor: pointer; }
@@ -998,14 +997,17 @@ button.today-chip { cursor: pointer; font: inherit; }
 .info-form.on { border-color: var(--brand-gold); opacity: 1; }
 .info-form > span { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .pet-word { position: absolute; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; width: max-content; max-width: min(240px, 72%);
-  pointer-events: none; text-align: center; color: #1b1420; line-height: 1.25; padding: 0 4px;
-  border: 8px solid transparent; border-image: url("../game-art/ui/bubble.png") 8 fill / 8px; image-rendering: pixelated; opacity: 0; }
+  pointer-events: none; text-align: center; color: #fff; background: #000; line-height: 1.25; padding: 4px 10px;
+  border: 2px solid #fff; opacity: 0; }
 .pet-word[hidden] { display: none; }
 .pet-word b { font-family: var(--ar-font); font-size: 19px; font-weight: 600; unicode-bidi: plaintext; }
 .pet-word span { font-size: 12px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
 .pet-word.show { animation: pet-word 3.6s ease-out both; }
 @keyframes pet-word { from { opacity: 0; transform: translate(-50%, 6px); } 6% { opacity: 1; transform: translate(-50%, 0); } 80% { opacity: 1; } to { opacity: 0; transform: translate(-50%, -6px); } }
 @media (prefers-reduced-motion: reduce) { .pet-word.show { animation: none; opacity: 1; } }
+/* The owner's choice: the creature's name and the word over its head are white on black (square, with a white edge). */
+.habitat-name, .habitat-name:hover:not(:disabled) { background: #000; color: #fff; border: 2px solid #fff; border-image: none; padding: 3px 8px; }
+.build-opt { display: flex; align-items: center; gap: 8px; text-align: start; border-radius: 12px; padding: 6px 10px; }
 .build-opt > span { display: flex; flex-direction: column; }
 .build-opt img, .shop-pic img.px-icon { image-rendering: pixelated; }
 .b-potion { margin-top: 8px; width: 100%; padding: 8px; border-radius: 12px; font-size: 13px; }
@@ -1033,6 +1035,99 @@ button.today-chip { cursor: pointer; font: inherit; }
   .game-bar { order: 5; margin-left: 44px; }
   .friend-head .game-bar ~ button { order: 6; }
   .gb-showcase { margin-left: 0; }
+}
+
+/* ---------- boxes over the page (components/modal.js): first-run questions, the API-key walkthrough ---------- */
+.modal-back { position: fixed; inset: 0; z-index: 80; background: rgba(0, 0, 0, .55); display: grid; place-items: center; padding: 16px; overflow-y: auto; }
+.modal-box { width: min(520px, 100%); max-height: min(92vh, 860px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, .35); }
+.modal-box.wide { width: min(640px, 100%); }
+.modal-head { display: flex; align-items: center; gap: 8px; padding: 18px 20px 0; }
+.modal-head h2 { flex: 1; margin: 0; font-size: 20px; line-height: 1.25; }
+.modal-body { padding: 14px 20px 20px; overflow-y: auto; }
+.modal-body p { margin-bottom: 0; }
+.modal-body p:first-child { margin-top: 0; }
+button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
+.btn.primary:hover { background: var(--accent); filter: brightness(1.08); }
+
+.lang-grid + .row { margin-top: 10px; }
+.lang-grid + .row button { white-space: normal; text-align: start; height: auto; }
+
+/* the three first-run boxes (components/onboarding.js) */
+.ob-nav { margin-top: 4px; }
+.ob-steps { display: flex; gap: 6px; }
+.ob-steps i { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+.ob-steps i.done { background: var(--accent-soft); }
+.ob-steps i.on { background: var(--accent); width: 22px; border-radius: 99px; }
+.ob-choices { display: grid; gap: 10px; }
+.ob-choice { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: start; padding: 14px 16px; border-radius: 14px; border: 2px solid var(--border); background: var(--surface); white-space: normal; height: auto; }
+.ob-choice strong { font-size: 16px; }
+.ob-choice .small { color: var(--muted); font-weight: 400; }
+.ob-choice[aria-checked="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.ob-sample { font-size: 15px; color: var(--muted); min-height: 1.4em; }
+.ob-where { padding: 10px 14px; border-radius: 12px; background: var(--accent-soft); }
+
+/* Settings → Word definitions (components/aisetup.js): first on the page, compact, "Required" until
+   there is a key, and the way to a key is loud until then */
+.ai-card { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+.ai-head { display: flex; align-items: center; gap: 10px; }
+.ai-head h2 { flex: 1; margin: 0; }
+.req-tag { font-size: 12px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; padding: 2px 10px; border-radius: 99px; background: var(--brand-gold); color: #2a1d00; white-space: nowrap; }
+.ai-about { margin: 4px 0 10px; }
+.ai-about details { display: inline; }
+.ai-about summary { display: inline; cursor: pointer; text-decoration: underline; }
+.ai-about details[open] { display: block; margin-top: 4px; }
+.ai-setup { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; align-items: end; }
+.ai-field { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.ai-field > label, .ai-label { font-size: 12px; color: var(--muted); }
+.ai-field select, .ai-field > input { width: 100%; }
+.ai-wide { grid-column: 1 / -1; }
+.ai-key { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ai-key input { flex: 1 1 200px; min-width: 0; }
+/* the way to a key: the brand's own blue (the logo's teal), the same in light and dark */
+.btn.key-get, .btn.key-get:hover { background: var(--brand-teal); border-color: var(--brand-teal); color: #fff; font-weight: 600; border-radius: 99px; padding-left: 16px; padding-right: 16px; text-decoration: none; }
+.btn.key-get:hover { filter: brightness(1.12); }
+.ai-key.need { padding: 6px; margin: 0 -6px; border-radius: 14px; border: 2px solid var(--brand-gold); background: color-mix(in srgb, var(--brand-gold) 14%, var(--surface)); }
+.ai-test { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; }
+#def-test-result:empty { display: none; }
+.ai-use { padding-top: 8px; border-top: 1px solid var(--border); }
+.ai-use strong { color: var(--text); font-variant-numeric: tabular-nums; font-size: 14px; }
+/* the model list */
+.model-pick { position: relative; }
+.model-btn { width: 100%; display: flex; align-items: center; gap: 8px; text-align: start; font-weight: 400; }
+.model-name { flex: 1; min-width: 0; }
+.model-price { font-size: 12px; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.model-caret { color: var(--muted); }
+.model-menu { position: absolute; z-index: 30; inset-inline: 0; top: calc(100% + 4px); background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 12px 32px rgba(0, 0, 0, .28); overflow: hidden; }
+.model-banner { padding: 7px 12px; font-size: 13px; font-weight: 700; background: var(--brand-gold); color: #2a1d00; text-align: center; }
+.model-opt { width: 100%; display: flex; align-items: center; gap: 10px; text-align: start; border: 0; border-radius: 0; background: none; padding: 8px 12px; min-height: 0; height: auto; white-space: normal; font-weight: 400; }
+.model-opt + .model-opt { border-top: 1px solid var(--border); }
+.model-opt .model-name .small { display: block; }
+.model-opt[aria-selected="true"] { background: var(--accent-soft); }
+.model-opt[aria-selected="true"] .model-name { font-weight: 600; }
+.model-foot { padding: 6px 12px 8px; border-top: 1px solid var(--border); }
+#def-model-other { margin-top: 4px; }
+.model-btn .model-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 640px) {
+  .ai-setup { grid-template-columns: minmax(0, 1fr); }
+  .model-btn .badge { display: none; } /* no room beside the price; the list still shows it */
+}
+
+/* "I'm stuck": getting an API key, step by step (components/keyhelp.js) */
+.key-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.key-tabs button { border-radius: 99px; padding: 6px 14px; }
+.key-tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+.key-steps { margin-bottom: 0; padding: 0; list-style: none; counter-reset: step; display: grid; gap: 10px; }
+.key-steps li { counter-increment: step; position: relative; padding-inline-start: 40px; min-height: 28px; }
+.key-steps li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 14px; }
+.key-steps li div { color: var(--muted); font-size: 14px; }
+.key-steps code, .key-problems code { background: var(--surface-2); padding: 0 5px; border-radius: 6px; }
+.key-problems summary { cursor: pointer; font-weight: 600; }
+.key-problems dl { margin: 8px 0 0; }
+.key-problems dt { font-weight: 600; margin-top: 8px; }
+.key-problems dd { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+@media (max-width: 640px) {
+  .modal-back { padding: 0; place-items: end center; }
+  .modal-box, .modal-box.wide { width: 100%; border-radius: 20px 20px 0 0; max-height: 94vh; padding-bottom: env(safe-area-inset-bottom); }
 }
 
 /* ---------- seen words: a word never tapped before is drawn in purple (js/lexicon/seen.js) ---------- */

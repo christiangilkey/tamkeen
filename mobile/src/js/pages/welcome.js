@@ -1,11 +1,12 @@
-// First run on the phone: what the app does, then Google sign-in to bring in the library.
+// First run on the phone: the three boxes (components/onboarding.js), then what the app does and
+// Google sign-in to bring in the library.
 
 import { h, toast, saveSettings } from "../app.js";
 import { signIn } from "../drive.js";
 import { isNative } from "../native.js";
 import { syncNow } from "../sync.js";
 import { settings } from "../store.js";
-import { languagePicker } from "../components/langpicker.js";
+import { needsOnboarding, runOnboarding } from "../components/onboarding.js";
 import { LANGUAGES, isLanguage, setLang } from "../languages.js";
 
 export async function render(view) {
@@ -13,11 +14,6 @@ export async function render(view) {
     <div class="hero"><img src="icons/icon-256.png" alt=""><div>
       <h1 style="margin:0">Tamkeen</h1>
       <p class="muted" style="margin:0">Your podcasts, transcripts and vocab, on your phone.</p></div></div>
-    <div class="card stack">
-      <h2>Which language are you learning?</h2>
-      <div id="lang"></div>
-      <p class="small muted">Choose the same one as on your computer. You can change it later in Settings.</p>
-    </div>
     <div class="ar-sample" id="hello"></div>
     <div class="card stack">
       <ol>
@@ -38,11 +34,9 @@ export async function render(view) {
     hello.textContent = chosen ? LANGUAGES[code].hello : "";
     if (chosen) setLang(hello, code);
   };
-  view.querySelector("#lang").append(languagePicker(settings.study_language, async (code) => {
-    show(code);
-    await saveSettings({ study_language: code });
-  }));
   show(settings.study_language);
+  // The three first-run boxes (language, beginner or not, the API key) come before anything else.
+  if (needsOnboarding(settings)) runOnboarding().then(({ lang }) => show(lang));
   const finish = async () => { await saveSettings({ welcome_seen: true }); location.hash = "#/"; };
   view.querySelector("#go").onclick = async (e) => {
     e.target.disabled = true;

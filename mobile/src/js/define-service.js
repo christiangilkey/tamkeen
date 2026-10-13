@@ -2,6 +2,7 @@
 
 import { api } from "./app.js";
 import { define, cacheKey, PROVIDERS, DefinerError } from "./definer.js";
+import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 import { settings } from "./store.js";
 import { isNative } from "./native.js";
 import { registerPlugin } from "./vendor/capacitor-core.js";

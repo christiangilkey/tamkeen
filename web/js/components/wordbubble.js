@@ -4,6 +4,31 @@
 import { esc, buzz } from "../app.js";
 import { langAttrs, langInfo } from "../languages.js";
 
+// ----- what happens after a tapped word has played: pause there, or keep playing -----
+// One choice for the whole app, remembered on this device. Pausing is how it has always worked.
+const PAUSE_KEY = "wordPause";
+export function pauseAfterWord() {
+  try { return localStorage.getItem(PAUSE_KEY) !== "0"; } catch { return true; }
+}
+function setPauseAfterWord(pause) {
+  try { localStorage.setItem(PAUSE_KEY, pause ? "1" : "0"); } catch { /* storage unavailable */ }
+}
+const PAUSE_ICON = `<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="3" height="9" rx="1"/><rect x="7" y="1.5" width="3" height="9" rx="1"/></svg>`;
+const PLAY_ICON = `<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6v8.8a.6.6 0 0 0 .9.5l7-4.4a.6.6 0 0 0 0-1l-7-4.4a.6.6 0 0 0-.9.5z"/></svg>`;
+/** The little switch at the popup's top left: no words, a pause sign or a play sign on its knob. */
+function modeSwitch() {
+  return `<button type="button" class="wb-mode" data-act="mode" role="switch" aria-label="Keep playing after a tapped word"><span class="wb-knob"></span></button>`;
+}
+/** Make a switch show the current choice. */
+function paintSwitch(b) {
+  if (!b) return;
+  const pause = pauseAfterWord();
+  b.classList.toggle("on", !pause);
+  b.setAttribute("aria-checked", String(!pause));
+  b.title = pause ? "After a tapped word plays, it pauses. Switch to keep playing." : "After a tapped word plays, it keeps playing. Switch to pause.";
+  b.firstElementChild.innerHTML = pause ? PAUSE_ICON : PLAY_ICON;
+}
+
 /**
  * @param {HTMLElement} host positioned (relative) container the bubble lives in
  * @param {{
@@ -11,6 +36,8 @@ import { langAttrs, langInfo } from "../languages.js";
  *   onPlayWord: () => void, onPlaySentence: () => void, onPlayFrom: () => void,
  *   onSave: (def: object|null) => Promise<void>, onSettings: () => void,
  *   noAudio?: boolean,   // true for imported web pages: hides the play buttons
+ *   onPauseMode?: (pause: boolean) => void,  // given: the popup shows the pause / keep-playing
+ *                        // switch and calls this when it is flipped (see pauseAfterWord)
  * }} actions
  */
 export function createWordBubble(host, actions) {
@@ -96,6 +123,7 @@ export function createWordBubble(host, actions) {
     const shown = def && state === "ready" && def.vocalized && L().reading === "replace" ? def.vocalized : word;
     el.innerHTML = `
       <div class="wb-head">
+        ${actions.onPauseMode && !actions.noAudio ? modeSwitch() : ""}
         <div class="wb-word ar" ${attrs()}>${esc(shown)}</div>
         <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)">✕</button>
       </div>
@@ -107,6 +135,7 @@ export function createWordBubble(host, actions) {
         <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${saved ? "✓ Saved" : "★ Save"}</button>
         ${state === "ready" ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again">↻</button>` : ""}
       </div>`;
+    paintSwitch(el.querySelector(".wb-mode"));
     requestAnimationFrame(position);
   }
 
@@ -130,6 +159,13 @@ export function createWordBubble(host, actions) {
     if (!b) return;
     switch (b.dataset.act) {
       case "close": hide(); break;
+      case "mode": {
+        const pause = !pauseAfterWord();
+        setPauseAfterWord(pause);
+        paintSwitch(b); // just the switch: the rest of the popup stays where it is scrolled
+        actions.onPauseMode(pause);
+        break;
+      }
       case "word": actions.onPlayWord(); break;
       case "sentence": actions.onPlaySentence(); break;
       case "from": actions.onPlayFrom(); hide(); break;

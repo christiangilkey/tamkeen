@@ -52,6 +52,11 @@ export function isUnfinished(item) {
   return dur > 0 && pos > 2 && dur - pos > MIN_LEFT_SECONDS;
 }
 
+/** Everything remembered (finished or not), in no particular order. */
+export function allProgress() {
+  return Object.values(load());
+}
+
 /** Unfinished items, most recently used first. */
 export function continueItems() {
   return Object.values(load()).filter(isUnfinished).sort((a, b) => b.ts - a.ts);

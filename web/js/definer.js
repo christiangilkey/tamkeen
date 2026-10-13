@@ -7,32 +7,88 @@
 
 import { isLanguage, gap } from "./languages.js";
 
+// `defaultModel` is each provider's best value for this job: the cheapest of its current models
+// that explains a word well (a lookup is a short question and a short structured answer, so the
+// small models do it properly). `models` is what Settings offers, cheapest first, with a note on
+// each; a user can also type any other model name. `in` and `out` are the provider's prices in US
+// cents per million tokens (word-pieces) read and written, from their own price lists in October 2026.
 export const PROVIDERS = {
   claude: {
     label: "Claude (Anthropic)",
+    short: "Claude",
     keyUrl: "https://console.anthropic.com/settings/keys",
-    defaultModel: "claude-opus-5-5",
-    models: ["claude-opus-5-5", "claude-sonnet-5-5", "claude-haiku-4-5"],
+    defaultModel: "claude-haiku-5-5",
+    models: [
+      { id: "claude-haiku-5-5", name: "Claude Haiku 5.5", in: 10, out: 50, note: "lowest cost" },
+      { id: "claude-sonnet-5-5", name: "Claude Sonnet 5.5", in: 200, out: 1000, note: "more thorough" },
+      { id: "claude-opus-5-5", name: "Claude Opus 5.5", in: 400, out: 2000, note: "most thorough" },
+    ],
   },
   gemini: {
     label: "Gemini (Google)",
+    short: "Gemini",
     keyUrl: "https://aistudio.google.com/apikey",
-    defaultModel: "gemini-flash-latest",
-    models: ["gemini-flash-latest", "gemini-3.8-flash"],
+    defaultModel: "gemini-3.1-flash-lite",
+    models: [
+      { id: "gemini-3.1-flash-lite", name: "Gemini 3.1 Flash-Lite", in: 25, out: 150, note: "lowest cost of the current models; free allowance" },
+      { id: "gemini-3.5-flash-lite", name: "Gemini 3.5 Flash-Lite", in: 30, out: 250, note: "newer" },
+      { id: "gemini-3.8-flash", name: "Gemini 3.8 Flash", in: 75, out: 375, note: "most thorough" },
+      { id: "gemini-2.5-flash-lite", name: "Gemini 2.5 Flash-Lite", in: 10, out: 40, note: "older model, cheapest of all" },
+    ],
   },
   openai: {
     label: "ChatGPT (OpenAI)",
+    short: "OpenAI",
     keyUrl: "https://platform.openai.com/api-keys",
-    defaultModel: "gpt-6.1-sol",
-    models: ["gpt-6.1-sol", "gpt-6-luna", "gpt-6-astra"],
+    defaultModel: "gpt-6-luna",
+    models: [
+      { id: "gpt-6-luna", name: "GPT-6 Luna", in: 10, out: 50, note: "lowest cost" },
+      { id: "gpt-6.1-sol", name: "GPT-6.1 Sol", in: 200, out: 1000, note: "more thorough" },
+      { id: "gpt-6-astra", name: "GPT-6 Astra", in: 1000, out: 5000, note: "most thorough" },
+    ],
   },
   grok: {
     label: "Grok (xAI)",
+    short: "Grok",
     keyUrl: "https://console.x.ai/",
-    defaultModel: "grok-4.7",
-    models: ["grok-4.7"],
+    defaultModel: "grok-4.3",
+    models: [
+      { id: "grok-4.3", name: "Grok 4.3", in: 125, out: 250, note: "lowest cost of the general models" },
+      { id: "grok-4.7", name: "Grok 4.7", in: 200, out: 600, note: "newest" },
+    ],
   },
 };
+
+// What one word lookup uses, roughly: the instructions, the sentence and the answer's outline go in,
+// a short structured answer comes out. An estimate from the size of the request, not a measurement.
+export const LOOKUP_TOKENS = { in: 850, out: 400 };
+/** About how many lookups a million tokens pays for. */
+export const LOOKUPS_PER_MILLION = Math.round(1e6 / (LOOKUP_TOKENS.in + LOOKUP_TOKENS.out));
+
+/** A model's price as one number: US cents per million tokens, in the mix of reading and writing
+ * that a lookup uses (providers charge less for text read than for text written). */
+export function centsPerMillion(model) {
+  const total = LOOKUP_TOKENS.in + LOOKUP_TOKENS.out;
+  return Math.round((model.in * LOOKUP_TOKENS.in + model.out * LOOKUP_TOKENS.out) / total);
+}
+
+/** A key as it should be stored, however it was pasted: no spaces, line breaks, invisible
+ * characters or quote marks around or inside it (a key never contains any of those). */
+export const cleanKey = (text) => String(text ?? "").replace(/[\s\u200B-\u200D\u2060\uFEFF"'`“”‘’]/g, "");
+
+/** Which provider a key comes from, judged by how it starts; "" when that can't be told. */
+export function keyProvider(key) {
+  const k = cleanKey(key);
+  if (k.startsWith("sk-ant-")) return "claude";
+  if (k.startsWith("xai-")) return "grok";
+  if (k.startsWith("AIza")) return "gemini";
+  if (k.startsWith("sk-")) return "openai";
+  return "";
+}
+
+/** The model a provider's key is used with: the one chosen in Settings, else the provider's default. */
+export const modelFor = (provider, settings) =>
+  (settings && settings[`definer_model_${provider}`]) || PROVIDERS[provider].defaultModel;
 
 // What the AI teacher is told about each language. The answer always has the same fields (so the
 // popup and saved answers work for every language); only what goes in them differs:
@@ -217,7 +273,7 @@ function buildRequest(provider, model, key, system, user, schema, lite = false) 
         output_config: { format: { type: "json_schema", schema } },
       };
       const headers = { "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json" };
-      if (!lite && !model.startsWith("claude-haiku")) {
+      if (!lite && !/^claude-haiku-[34]/.test(model)) { // (Haiku 4.5 and older have no effort setting)
         body.output_config.effort = "low"; // fast lookups; thinking stays adaptive
         if (/^claude-(opus|sonnet)-5-5/.test(model)) {
           // Re-run on a fallback model if a safety classifier declines (rare for vocabulary).
@@ -233,7 +289,8 @@ function buildRequest(provider, model, key, system, user, schema, lite = false) 
         contents: [{ role: "user", parts: [{ text: user }] }],
         generationConfig: { responseMimeType: "application/json", responseSchema: geminiSchema(schema) },
       };
-      if (!lite) body.generationConfig.thinkingConfig = { thinkingLevel: "low" };
+      // (Gemini 2.x has no thinking levels, and its lite model doesn't think unless asked to.)
+      if (!lite && !/^gemini-2/.test(model)) body.generationConfig.thinkingConfig = { thinkingLevel: "low" };
       return {
         url: `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
         headers: { "x-goog-api-key": key, "content-type": "application/json" },
@@ -313,7 +370,41 @@ function normalize(obj, fallbackWord) {
   };
 }
 
+// ---------- what a request used ----------
+/** The tokens a provider's answer says the request used: {in, out} (0 where it doesn't say).
+ * `out` includes the model's thinking, which providers charge as writing. */
+export function usageOf(provider, data) {
+  const n = (v) => (Number.isFinite(v) && v > 0 ? v : 0);
+  if (provider === "gemini") {
+    const u = (data && data.usageMetadata) || {};
+    return { in: n(u.promptTokenCount), out: n(u.candidatesTokenCount) + n(u.thoughtsTokenCount) };
+  }
+  const u = (data && data.usage) || {};
+  if (provider === "claude") {
+    return { in: n(u.input_tokens) + n(u.cache_creation_input_tokens) + n(u.cache_read_input_tokens), out: n(u.output_tokens) };
+  }
+  return { in: n(u.prompt_tokens), out: n(u.completion_tokens) }; // OpenAI and xAI
+}
+
+const usageListeners = new Set();
+/** Be told what each answered request used: fn({provider, model, in, out}). Returns a function
+ * that stops it. (tokenuse.js keeps the day's total with this.) */
+export function onUsage(fn) {
+  usageListeners.add(fn);
+  return () => usageListeners.delete(fn);
+}
+function reportUsage(use) {
+  for (const fn of usageListeners) { try { fn(use); } catch (e) { console.error(e); } }
+}
+
+/** A failed lookup. `keyRejected` is true when the provider refused the key itself. */
 export class DefinerError extends Error {}
+
+/** Did the provider refuse the key (rather than the model name, the quota, or the request)? */
+function keyRefused(status, bodyText) {
+  // 401/403 everywhere; Gemini answers 400 "API key not valid" / "API key expired".
+  return status === 401 || status === 403 || (status === 400 && /api[ _-]?key/i.test(String(bodyText || "").slice(0, 2000)));
+}
 
 function friendlyHttpError(provider, status, bodyText) {
   let detail = "";
@@ -323,8 +414,10 @@ function friendlyHttpError(provider, status, bodyText) {
     detail = (typeof j.error === "string" ? j.error : j.error && (j.error.message || j.error.type)) || j.message || "";
   } catch { detail = (bodyText || "").slice(0, 200); }
   const name = PROVIDERS[provider].label;
-  if (status === 401 || status === 403 || /api[ _-]?key/i.test(detail)) {
-    return `${name} rejected the API key. Check it in Settings.`;
+  if (keyRefused(status, bodyText)) {
+    // A key that was copied whole and filed under the right provider (Settings sees to both) and is
+    // still refused has nearly always been switched off or run out: say so, not just "check it".
+    return `${name} rejected the API key. It has most likely expired, so you probably need a new one.`;
   }
   if (status === 404) return `${name} doesn't recognize that model name. Check it in Settings.${detail ? ` (${detail})` : ""}`;
   if (status === 429) return `${name} rate limit or quota reached. Try again shortly, or check your billing.`;
@@ -354,9 +447,14 @@ export async function define(cfg, ctx, transport) {
     req = buildRequest(cfg.provider, model, cfg.key, system, user, schema, true);
     res = await transport(req);
   }
-  if (res.status < 200 || res.status >= 300) throw new DefinerError(friendlyHttpError(cfg.provider, res.status, res.text));
+  if (res.status < 200 || res.status >= 300) {
+    const err = new DefinerError(friendlyHttpError(cfg.provider, res.status, res.text));
+    err.keyRejected = keyRefused(res.status, res.text);
+    throw err;
+  }
   let data;
   try { data = JSON.parse(res.text); } catch { throw new DefinerError("The provider returned an unreadable response."); }
+  reportUsage({ provider: cfg.provider, model, ...usageOf(cfg.provider, data) }); // (paid for, whatever the answer turns out to be)
   const text = extractText(cfg.provider, data);
   try {
     return { ...normalize(parseJson(text), ctx.word), provider: cfg.provider, model };

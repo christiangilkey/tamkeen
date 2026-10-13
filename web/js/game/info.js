@@ -6,7 +6,7 @@ import { esc, h } from "../app.js";
 import { BRANCHES, CATALOG, FOODS, MOVES, SPECIES, STAGES, SUPPLIES, TRAITS, TYPES, VARIANTS } from "./data.js";
 import { describe, leadingBranch, readyToEvolve, stageOf } from "./genome.js";
 import { AUTO_GOALS, FEEDS_PER_DAY, OFFLINE_HOURS, garden, hearts, totalRate } from "./idle.js";
-import { ADULT_XP, DAILY_COMPLETE_XP, SHOP_SIZE, branchOptions, levelOf, variantOptions } from "./rules.js";
+import { ADULT_XP, DAILY_COMPLETE_XP, HABIT_XP, SHOP_SIZE, branchOptions, levelOf, variantOptions } from "./rules.js";
 import { icon } from "./render.js";
 
 const fmt = (n) => Math.floor(n).toLocaleString();
@@ -44,7 +44,7 @@ function links(close, items) {
 }
 
 // ---------- what you earn ----------
-// Each entry: {title, pic, now, get: [...], use: [...], where, go: [{label, pic, tab}]}.
+// Each entry: {title, pic, now, get: [...], use: [...], where (left out when it isn't spent anywhere), go: [{label, pic, tab}]}.
 // `tab` is a page of the game sheet (see shop.js), or "evolve" for the evolution guide below.
 const EARNED = {
   xp(game) {
@@ -85,7 +85,6 @@ const EARNED = {
         "A 5-day streak opens a building plot in the garden.",
         "Badges at 7, 30 and 100 days, and each badge pays 2 gems.",
       ],
-      where: "A streak isn't spent. It opens things as it grows.",
       go: [{ label: "See your badges", pic: "nav_badges", tab: "badges" }],
     };
   },
@@ -124,7 +123,6 @@ const EARNED = {
         "It covers one missed day, so your streak carries on as if you had studied.",
         "It is used by itself the next time you open the app after a missed day. Two missed days need two.",
       ],
-      where: "Nowhere to spend it: it is used automatically when you need it.",
       go: [],
     };
   },
@@ -195,7 +193,7 @@ export function openEarned(id, game, go) {
   body.append(h(`<p class="info-now">${c.now}</p>`));
   body.append(h(`<div><strong>How you get it</strong>${list(c.get)}</div>`));
   body.append(h(`<div><strong>What it does</strong>${list(c.use)}</div>`));
-  body.append(h(`<div><strong>Where</strong><p class="info-where">${c.where}</p></div>`));
+  if (c.where) body.append(h(`<div><strong>Where</strong><p class="info-where">${c.where}</p></div>`));
   if (c.go.length) body.append(links(close, c.go.map((l) => ({ ...l, run: () => (l.tab === "evolve" ? openEvolution(game, go) : go(l.tab)) }))));
 }
 
@@ -239,7 +237,8 @@ export function openEvolution(game, go) {
     <span class="hud-bar"><i style="width:${pct(t)}%"></i></span><span class="info-pct">${pct(t)}%</span></div>`);
   body.append(h(`<div><strong>2. Your four habits</strong>
     <p class="small muted">Each creature keeps a record of how you studied while it was out. A habit rises when you earn XP that way and the
-      others fade a little, so the bars follow what you have been doing lately. About 1,500 XP of one kind fills a bar.</p>
+      others fade a little, so the bars follow what you have been doing lately. About ${fmt(HABIT_XP.listener)} XP of one kind fills a bar.
+      Curiosity takes ${fmt(HABIT_XP.curious)}, because looking words up pays so much more XP.</p>
     ${bars.join("")}</div>`));
 
   // Adult forms: one per habit.

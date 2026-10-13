@@ -1,0 +1,221 @@
+// The "Word definitions (AI)" card at the top of Settings, on the computer and the phone: which
+// provider, getting a key from it, the key itself, which model the key is used with, and a test.
+// It is first on the page and marked "Required" because nothing explains a word without it.
+
+import { esc, h, platform, state, saveSettings } from "../app.js";
+import { LOOKUPS_PER_MILLION, PROVIDERS, centsPerMillion, cleanKey, define, keyProvider, modelFor } from "../definer.js";
+import { langInfo, studyLanguage } from "../languages.js";
+import { TOKENS_EVENT, describeUsage, tokensToday } from "../tokenuse.js";
+import { showKeyHelp } from "./keyhelp.js";
+
+const OTHER = "__other__";
+const price = (m) => `${centsPerMillion(m).toLocaleString()}¢ per million tokens`;
+
+/** Fills `section` (the card). `transport` sends one request to a provider (each app has its own
+ * way: see definer.define). */
+export function aiSetup(section, { transport }) {
+  const cur = () => state.status.settings;
+  const here = platform === "desktop" ? "this computer" : "this phone";
+  section.classList.add("ai-card");
+  section.innerHTML = `
+    <div class="ai-head"><h2>Word definitions (AI)</h2><span id="def-tag"></span></div>
+    <div class="small muted ai-about">Tap a word to see what it means <em>in that sentence</em>. An AI provider writes the
+      explanation, using your own key; you pay them directly, a fraction of a cent a word.
+      <details><summary>What is sent, and where is my key kept?</summary>The word, its sentence and the sentences either
+        side go to the provider you choose, and nowhere else. Your key stays on ${here} and is never part of a data export.</details></div>
+    <div class="ai-setup">
+      <div class="ai-field"><label for="def-provider">Provider</label>
+        <select id="def-provider">${Object.entries(PROVIDERS).map(([k, p]) => `<option value="${k}">${esc(p.label)}</option>`).join("")}</select></div>
+      <div class="ai-field"><span class="ai-label" id="def-model-label">Model</span>
+        <div class="model-pick">
+          <button type="button" class="model-btn" id="def-model" aria-haspopup="listbox" aria-expanded="false"></button>
+          <div class="model-menu" id="def-model-menu" hidden>
+            <div class="model-banner">1 million tokens ≈ ${LOOKUPS_PER_MILLION} definitions</div>
+            <div role="listbox" aria-labelledby="def-model-label" id="def-model-list"></div>
+            <div class="model-foot small muted">Tokens are the word-pieces an AI reads and writes. Prices are estimates
+              for the mix a definition uses, from each provider's price list.</div>
+          </div>
+        </div>
+        <input type="text" id="def-model-other" spellcheck="false" autocomplete="off" placeholder="Model name, exactly as the provider writes it" hidden></div>
+      <div class="ai-field ai-wide"><label for="def-key">API key</label>
+        <div class="ai-key" id="def-keyrow">
+          <input type="password" id="def-key" autocomplete="off" spellcheck="false" placeholder="Paste your API key here">
+          <button type="button" class="ghost" id="def-show">Show</button>
+          <a class="btn key-get" id="def-get" target="_blank" rel="noopener"></a>
+          <button type="button" id="def-stuck">I'm stuck</button>
+        </div>
+        <span class="small" id="def-key-note" role="status"></span></div>
+      <div class="ai-field"><label for="def-lang">Explain in</label>
+        <input type="text" id="def-lang"></div>
+      <div class="ai-field ai-test"><button type="button" id="def-test">Test with an example</button></div>
+      <div class="ai-wide small" id="def-test-result" role="status"></div>
+      <div class="ai-wide ai-use small muted">Tokens used today on ${here}: <strong id="def-use">0</strong>
+        <span id="def-use-detail"></span></div>
+    </div>`;
+  const $ = (q) => section.querySelector(q);
+  const prov = () => $("#def-provider").value;
+  $("#def-provider").value = PROVIDERS[cur().definer_provider] ? cur().definer_provider : "claude";
+  $("#def-lang").value = cur().definer_language || "English";
+  let model = ""; // the chosen model's name, or OTHER while one is being typed in
+
+  // "Required" until the chosen provider has a key; the way to a key is loud until then.
+  function paintKey() {
+    const info = PROVIDERS[prov()];
+    const has = !!cur()[`llm_key_${prov()}`];
+    $("#def-tag").className = has ? "pill done" : "req-tag";
+    $("#def-tag").textContent = has ? "✓ Set up" : "Required";
+    $("#def-keyrow").classList.toggle("need", !has);
+    $("#def-get").textContent = has ? "Get a new key ↗" : `Get your ${info.short} API key ↗`;
+    $("#def-get").href = info.keyUrl;
+  }
+
+  // ----- the model list: a menu of our own, so it can carry the banner and the prices -----
+  const menu = $("#def-model-menu");
+  const button = $("#def-model");
+  function paintModel() {
+    const info = PROVIDERS[prov()];
+    const m = info.models.find((x) => x.id === model);
+    button.innerHTML = m
+      ? `<span class="model-name">${esc(m.name)}${m.id === info.defaultModel ? ` <span class="badge">Recommended</span>` : ""}</span>
+         <span class="model-price">${esc(price(m))}</span><span class="model-caret" aria-hidden="true">▾</span>`
+      : `<span class="model-name">Another model</span><span class="model-caret" aria-hidden="true">▾</span>`;
+    $("#def-model-list").innerHTML = info.models.map((x) => `
+      <button type="button" role="option" class="model-opt" data-id="${esc(x.id)}" aria-selected="${x.id === model}">
+        <span class="model-name">${esc(x.name)}${x.id === info.defaultModel ? ` <span class="badge">Recommended</span>` : ""}
+          <span class="small muted">${esc(x.note)}</span></span>
+        <span class="model-price">${esc(price(x))}</span></button>`).join("")
+      + `<button type="button" role="option" class="model-opt" data-id="${OTHER}" aria-selected="${model === OTHER}">
+           <span class="model-name">Another model… <span class="small muted">type its name</span></span></button>`;
+    $("#def-model-other").hidden = model !== OTHER;
+  }
+  function openMenu(open) {
+    menu.hidden = !open;
+    button.setAttribute("aria-expanded", String(open));
+    if (open) (menu.querySelector("[aria-selected=true]") || menu.querySelector(".model-opt")).focus();
+  }
+  button.onclick = () => openMenu(menu.hidden);
+  // "" = the recommended model, so a later version of the app can recommend a better one.
+  const saveModel = (id) => saveSettings({ [`definer_model_${prov()}`]: id === PROVIDERS[prov()].defaultModel ? "" : id });
+  menu.addEventListener("click", async (e) => {
+    const opt = e.target.closest(".model-opt");
+    if (!opt) return;
+    model = opt.dataset.id;
+    paintModel();
+    openMenu(false);
+    if (model === OTHER) $("#def-model-other").focus();
+    else { button.focus(); await saveModel(model); }
+  });
+  menu.addEventListener("keydown", (e) => {
+    const opts = [...menu.querySelectorAll(".model-opt")];
+    const at = opts.indexOf(document.activeElement);
+    if (e.key === "Escape") { e.stopPropagation(); openMenu(false); button.focus(); }
+    else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault();
+      opts[(at + (e.key === "ArrowDown" ? 1 : opts.length - 1)) % opts.length].focus();
+    }
+  });
+  const outside = (e) => { if (!menu.hidden && !e.target.closest(".model-pick")) openMenu(false); };
+  document.addEventListener("pointerdown", outside, true);
+
+  function paintProvider() {
+    const p = prov();
+    const chosen = modelFor(p, cur());
+    model = PROVIDERS[p].models.some((m) => m.id === chosen) ? chosen : OTHER;
+    $("#def-model-other").value = model === OTHER ? chosen : "";
+    $("#def-key").value = cur()[`llm_key_${p}`] || "";
+    $("#def-test-result").textContent = "";
+    $("#def-key-note").textContent = "";
+    paintModel();
+    paintKey();
+  }
+  paintProvider();
+
+  $("#def-provider").onchange = async () => { await saveSettings({ definer_provider: prov() }); paintProvider(); };
+  // The key is saved as soon as it is pasted or typed (not only when the box is left), tidied
+  // of anything that came along with it, and filed under the provider it belongs to: a Gemini
+  // key pasted with Claude selected switches the provider rather than failing later.
+  let keyTimer = 0;
+  async function keyEntered() {
+    clearTimeout(keyTimer);
+    const input = $("#def-key");
+    const key = cleanKey(input.value);
+    if (key !== input.value) input.value = key;
+    const note = $("#def-key-note");
+    const owner = key.length >= 20 ? keyProvider(key) : "";
+    if (key === (cur()[`llm_key_${owner || prov()}`] || "") && (!owner || owner === prov())) return; // nothing new
+    try {
+      if (owner && owner !== prov()) {
+        $("#def-provider").value = owner;
+        await saveSettings({ definer_provider: owner, [`llm_key_${owner}`]: key });
+        paintProvider();
+        note.textContent = `That is a ${PROVIDERS[owner].short} key, so the provider is now ${PROVIDERS[owner].label}. Saved: press “Test with an example” to check it.`;
+      } else {
+        await saveSettings({ [`llm_key_${prov()}`]: key });
+        paintKey();
+        note.textContent = key ? "Saved. Press “Test with an example” to check it." : "Key removed.";
+      }
+      note.style.color = "var(--accent)";
+    } catch (err) {
+      note.textContent = `The key couldn't be saved: ${err.message}`;
+      note.style.color = "var(--danger)";
+    }
+  }
+  $("#def-key").addEventListener("input", (e) => {
+    clearTimeout(keyTimer);
+    if (e.inputType === "insertFromPaste" || e.inputType === "insertFromDrop") keyEntered(); // a paste: straight away
+    else keyTimer = setTimeout(keyEntered, 600);                                             // typing: once it pauses
+  });
+  $("#def-key").addEventListener("change", keyEntered);
+  $("#def-model-other").onchange = (e) => saveModel(e.target.value.trim());
+  $("#def-lang").onchange = (e) => saveSettings({ definer_language: e.target.value.trim() || "English" });
+  $("#def-stuck").onclick = () => showKeyHelp(prov());
+  $("#def-show").onclick = (e) => {
+    const k = $("#def-key");
+    k.type = k.type === "password" ? "text" : "password";
+    e.target.textContent = k.type === "password" ? "Show" : "Hide";
+  };
+
+  $("#def-test").onclick = async (e) => {
+    const out = $("#def-test-result");
+    e.target.disabled = true;
+    await keyEntered(); // (a key typed a moment ago is saved, and filed under its provider, first)
+    $("#def-key-note").textContent = "";
+    out.textContent = "Asking…";
+    out.style.color = "";
+    const sample = langInfo(studyLanguage()).test;
+    const t0 = performance.now();
+    try {
+      const d = await define({ provider: prov(), key: cleanKey($("#def-key").value), model: model === OTHER ? $("#def-model-other").value.trim() : model,
+                               language: $("#def-lang").value.trim() || "English" },
+                             { ...sample, lang: studyLanguage() }, transport);
+      out.textContent = `✓ Works (${((performance.now() - t0) / 1000).toFixed(1)} s): ${sample.word} = “${d.meaning}”`;
+      out.style.color = "var(--accent)";
+    } catch (err) {
+      out.textContent = err.message;
+      out.style.color = "var(--danger)";
+      // A refused key: it isn't "set up" after all, and the key row (where "Get a new key" is) is framed again.
+      if (err.keyRejected) {
+        $("#def-keyrow").classList.add("need");
+        $("#def-tag").className = "req-tag";
+        $("#def-tag").textContent = "Key not working";
+      }
+    } finally {
+      e.target.disabled = false;
+    }
+  };
+  // ----- tokens used today: a running total, moving as lookups are answered -----
+  const paintUse = () => {
+    const use = describeUsage(tokensToday());
+    $("#def-use").textContent = use.tokens.toLocaleString();
+    $("#def-use-detail").textContent = `(${use.detail})`;
+  };
+  paintUse();
+  window.addEventListener(TOKENS_EVENT, paintUse);
+
+  /** Call when the page goes away. */
+  return () => {
+    clearTimeout(keyTimer);
+    document.removeEventListener("pointerdown", outside, true);
+    window.removeEventListener(TOKENS_EVENT, paintUse);
+  };
+}

@@ -1,0 +1,129 @@
+/* Media import: the Trending podcasts page, the YouTube box in the Library, and the YouTube
+   player. Kept apart from app.css; uses the same colour tokens. Shared with the Android app. */
+
+/* ---------- library sidebar ---------- */
+.trending-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-weight: 600; border-radius: 12px; background: var(--surface-2); }
+.trending-btn:hover { border-color: var(--accent); text-decoration: none; }
+.add-yt { padding-top: 10px; border-top: 1px solid var(--border); }
+.add-yt .hint { margin: 0; }
+.yt-country { display: flex; align-items: center; gap: 8px; }
+.yt-country[hidden] { display: none; }
+.yt-country select { flex: 1; min-width: 0; min-height: 30px; padding: 2px 8px; font-size: 13px; }
+.feed-list[hidden] { display: none; } /* the phone's podcast strip, unused on the computer */
+
+/* ---------- trending podcasts ---------- */
+.discover { max-width: 1200px; }
+.disc-head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 8px; }
+.disc-head .meta { flex: 1; min-width: 0; }
+.disc-head h1 { margin: 0 0 2px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.disc-cats { position: sticky; top: 0; z-index: 3; background: var(--bg); padding: 8px 0; margin: 0 0 4px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+.disc-cats button { flex: none; white-space: nowrap; }
+.disc-cat { margin-bottom: 22px; }
+.disc-cat h2 { margin: 10px 0 8px; font-size: 18px; }
+.disc-cat h2 .n { font-size: 13px; font-weight: 500; color: var(--muted); }
+.disc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+.disc-card { display: flex; gap: 12px; align-items: center; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); min-width: 0; }
+.disc-card img, .disc-card .ph { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; flex: none; background: var(--surface-2); }
+.disc-card .ph { display: grid; place-items: center; color: var(--muted); }
+.disc-card .info { flex: 1; min-width: 0; }
+.disc-card .t { font-weight: 600; line-height: 1.3; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.disc-card .a { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.disc-card .a:empty, .disc-card .d:empty { display: none; }
+.disc-card .d { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-top: 2px; }
+.disc-card .add { flex: none; min-width: 84px; }
+.disc-card .add.done { color: var(--accent); background: var(--accent-soft); border-color: transparent; opacity: 1; }
+.disc-more { margin-top: 8px; }
+.disc-msg { max-width: 560px; margin: 32px auto; text-align: center; }
+.disc-credit { margin-top: 24px; text-align: center; }
+@media (max-width: 640px) {
+  .disc-head { flex-wrap: wrap; }
+  .disc-grid { grid-template-columns: 1fr; }
+  .disc-card img, .disc-card .ph { width: 52px; height: 52px; }
+  .disc-card .d { display: none; }
+}
+
+/* ---------- YouTube player ----------
+   The clickable captions sit below the video, never on top of it: YouTube does not allow
+   anything to be drawn over its player. */
+.player.yt .yt-col { flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; background: #000; }
+.player.yt .screen { flex: 1 1 auto; }
+.player.yt .screen iframe { width: 100%; height: 100%; border: 0; display: block; }
+.player.yt .captions {
+  position: static; transform: none; width: auto; max-width: none; flex: none;
+  border-radius: 0; background: #111; padding: .35em .8em; box-sizing: border-box;
+  min-height: calc(1.75em * 2 + .7em); /* room for two lines, so the video doesn't jump as lines change */
+}
+.player.yt .captions:empty { display: block; }
+.player.yt.cc-off .captions { display: none; }
+.player.yt #more { display: none; }
+@media (max-width: 760px) {
+  /* Phone: a slim one-line banner, then the video at full width in its 16:9 shape (YouTube asks
+     for at least 200 x 200), then the captions; the transcript takes whatever height is left.
+     The less-used banner buttons move into the "more" menu. */
+  .player.yt .player-head { flex-wrap: nowrap; gap: 8px; padding: 4px 10px; }
+  .player.yt .player-head img, .player.yt .player-head .meta .small { display: none; }
+  .player.yt .player-head .meta { flex: 1 1 0; min-width: 0; }
+  .player.yt .player-head .title { display: block; white-space: nowrap; font-size: 14px; }
+  .player.yt .player-head > .row { width: auto; flex: none; flex-wrap: nowrap; gap: 4px; }
+  .player.yt .player-head button, .player.yt .player-head .btn { min-height: 28px; padding: 2px 8px; font-size: 12px; }
+  .player.yt #fullscreen, .player.yt #font-down, .player.yt #font-up,
+  .player.yt #exp-txt, .player.yt #exp-srt, .player.yt #exp-vtt { display: none; }
+  .player.yt #more { display: inline-flex; }
+  .player.yt .stage { justify-content: flex-start; }
+  .player.yt .yt-col { flex: 0 1 auto; }
+  .player.yt .screen { flex: 0 1 auto; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; }
+  .player.yt.panel-open .transcript-wrap { flex: 1 1 0; height: auto; min-height: 96px; }
+  .player.yt .controls { padding: 2px 10px 6px; }
+  .player.yt .btnrow { margin-top: 0; }
+  .player.yt .btnrow .play { width: 38px; height: 38px; font-size: 16px; }
+}
+/* In the phone app the YouTube player has its own banner (with the way back), so the app's
+   top bar steps aside and the video starts higher up. */
+body.in-player:has(.player.yt) .topbar { display: none; }
+@media (max-width: 640px) {
+  /* Phone: the word popup is part of the black bar under the video. It fills the space from
+     directly below the captions (never over them or the video) down to the play controls.
+     player.js sets --dock-top (and --dock-bottom, used further down). */
+  .player.yt .word-bubble.sheet {
+    top: var(--dock-top, auto) !important; max-height: none;
+    border: 0; border-top: 1px solid #2c2c2c; border-radius: 0; box-shadow: none; animation: none;
+    padding: 8px 14px 10px; background: #111; color: #f2f1ec;
+    --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838;
+  }
+}
+
+/* ---------- word popup: buttons row pinned, the rest scrolls ----------
+   The popup's heading stays at its top and its row of buttons (Word, Sentence, Continue, Save)
+   at its bottom; only the definition between them scrolls. */
+.word-bubble { display: flex; flex-direction: column; overflow: hidden; }
+.word-bubble[hidden] { display: none; }
+.word-bubble > .wb-head, .word-bubble > .wb-actions { flex: none; }
+.word-bubble > .wb-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.word-bubble > .wb-actions { margin-top: auto; }
+@media (max-width: 640px) {
+  /* Phone, in a player: the popup stops just above the play controls, which stay in reach, so
+     its buttons row rests right on top of them. player.js sets --dock-bottom. */
+  .player .word-bubble.sheet { bottom: var(--dock-bottom, 0px); padding-bottom: 8px; }
+  .player .word-bubble.sheet > .wb-actions { flex-wrap: nowrap; gap: 4px; margin-top: 6px; padding-top: 8px; }
+  .player .word-bubble.sheet > .wb-actions button { flex: 1 1 auto; min-width: 0; padding: 4px 6px; font-size: 12px; white-space: nowrap; }
+  .player .word-bubble.sheet > .wb-actions button.icon { flex: none; min-width: 28px; }
+}
+
+/* ---------- word popup: the pause / keep-playing switch ----------
+   Top left of the popup, no words: the knob shows a pause sign (purple track: a tapped word
+   plays, then playback pauses) or a play sign (teal track: playback carries on). The two colours
+   are the two ends of the logo's gradient. */
+.word-bubble .wb-mode {
+  flex: none; align-self: center; position: relative; width: 44px; height: 24px; min-height: 0; min-width: 0; padding: 0;
+  border: 0; border-radius: 99px; cursor: pointer;
+  background: linear-gradient(45deg, #4a0b47, #86308f); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
+}
+.word-bubble .wb-mode.on { background: linear-gradient(45deg, #1b526d, #0b8693); }
+.word-bubble .wb-mode:hover:not(:disabled) { background: linear-gradient(45deg, #4a0b47, #86308f); filter: brightness(1.12); }
+.word-bubble .wb-mode.on:hover:not(:disabled) { background: linear-gradient(45deg, #1b526d, #0b8693); }
+.wb-mode .wb-knob {
+  position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; color: #6a1f72;
+  display: grid; place-items: center; box-shadow: 0 1px 3px rgba(0, 0, 0, .35); transition: left .16s ease, color .16s ease;
+}
+.wb-mode.on .wb-knob { left: 22px; color: #0b7783; }
+.wb-mode .wb-knob svg { width: 10px; height: 10px; fill: currentColor; display: block; }

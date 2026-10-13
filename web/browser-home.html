@@ -1,0 +1,21 @@
+<!doctype html>
+<!-- The in-app Web Browser's start page on the computer (app/desktop.py opens it when no address
+     was typed): a Google search box and news sites in the language being studied. Everything it
+     shows comes from js/browser-home.js, which the phone uses too. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tamkeen browser</title>
+  <style id="home-style"></style>
+</head>
+<body>
+  <script type="module">
+    import { HOME_CSS, homeBody } from "/js/browser-home.js";
+    const lang = new URLSearchParams(location.search).get("lang") || "";
+    document.getElementById("home-style").textContent = HOME_CSS;
+    document.body.insertAdjacentHTML("afterbegin", homeBody(lang));
+    document.querySelector("input[type=search]").focus({ preventScroll: true });
+  </script>
+</body>
+</html>

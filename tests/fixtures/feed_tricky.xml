@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Things real feeds do: CDATA, escaped characters in ids, several enclosures, Media RSS groups,
+     Atom links, odd date formats, repeated ids. Used by tests/test_rss_parity.py and tests/js/rss.test.mjs. -->
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <atom:link href="https://example.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <title><![CDATA[  Café &   Co  ]]></title>
+    <link>https://example.com/show</link>
+    <description><![CDATA[<p>All about <b>coffee</b></p>]]></description>
+    <image>
+      <url>https://example.com/square.png</url>
+      <title>Not the show's title</title>
+      <link>https://example.com/show</link>
+    </image>
+    <item>
+      <title><![CDATA[Tom & Jerry, part 1]]></title>
+      <guid isPermaLink="false">  https://example.com/?p=12&amp;x=1  </guid>
+      <pubDate>Tue, 06 Oct 2026 21:30:00 -0500</pubDate>
+      <itunes:duration>00:45.5</itunes:duration>
+      <itunes:image href="https://example.com/ep12.jpg"/>
+      <enclosure url="https://cdn.example.com/cover12.jpg" type="image/jpeg" length="10"/>
+      <enclosure url="https://cdn.example.com/ep12.mp3?token=a&amp;b=2" type="audio/mpeg" length="10"/>
+      <description><![CDATA[<p>Line one.</p><p>Line&nbsp;two.</p>]]></description>
+      <content:encoded><![CDATA[<p>The long version.</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Media group only</title>
+      <guid>group</guid>
+      <dc:date>2026-10-01T10:00:00Z</dc:date>
+      <media:group>
+        <media:content url="https://cdn.example.com/group.m4a" type="audio/x-m4a"/>
+        <media:thumbnail url="https://example.com/group.jpg"/>
+      </media:group>
+    </item>
+    <item>
+      <title>Atom link enclosure</title>
+      <guid>atom-link</guid>
+      <pubDate>Wed, 30 Sep 2026 10:00:00 EST</pubDate>
+      <itunes:duration>1:00:00</itunes:duration>
+      <atom:link rel="enclosure" href="https://cdn.example.com/atom.mp3" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Same id, first</title>
+      <guid>twin</guid>
+      <enclosure url="https://cdn.example.com/twin1.mp3" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Same id, second</title>
+      <guid>twin</guid>
+      <enclosure url="https://cdn.example.com/twin2.mp3" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Same id and same file: dropped</title>
+      <guid>twin</guid>
+      <enclosure url="https://cdn.example.com/twin2.mp3" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>A blog post, no sound</title>
+      <guid>post</guid>
+      <link>https://example.com/post</link>
+    </item>
+    <item>
+      <title>Unknown kind of file is still taken</title>
+      <enclosure url="https://cdn.example.com/stream?id=9" type="application/octet-stream"/>
+    </item>
+  </channel>
+</rss>
