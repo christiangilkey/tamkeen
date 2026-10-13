@@ -15,6 +15,7 @@ import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefi
 import { statusInfo, isVideo } from "./library.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
+import { lookupToggle } from "../components/lookupmode.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
 import { channelOf, followChannel, importVideo, isFollowing, isYouTube, noteWatched, videoId as youTubeId } from "../youtube.js";
@@ -635,8 +636,10 @@ export async function render(view, { id, query }) {
   }
 
   // The popup may not cover YouTube's player, so there it lives in the transcript panel.
+  // Quick or detailed lookup: the switch sits with the play controls (podcasts, videos, YouTube).
+  $("#speed").after(lookupToggle());
   bubble = createWordBubble(vid && !yt ? $("#stage") : $(".transcript-wrap"), {
-    fetch: (ctx, refresh) => getDefinition(ctx, refresh),
+    fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onPlayWord: () => bubbleTarget && playWords(bubbleTarget.i, bubbleTarget.j),
     onPlaySentence: () => bubbleTarget && playClip(starts[bubbleTarget.si], ends[bubbleTarget.sj]),
     onPlayFrom: () => bubbleTarget && seekTo(starts[bubbleTarget.i]),

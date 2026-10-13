@@ -3,6 +3,8 @@
 
 import { esc, buzz } from "../app.js";
 import { langAttrs, langInfo } from "../languages.js";
+import { icon } from "../icons.js";
+import { LOOKUP_EVENT, lookupMode } from "./lookupmode.js";
 
 // ----- what happens after a tapped word has played: pause there, or keep playing -----
 // One choice for the whole app, remembered on this device. Pausing is how it has always worked.
@@ -48,7 +50,7 @@ export function pauseSwitch(onChange) {
 /**
  * @param {HTMLElement} host positioned (relative) container the bubble lives in
  * @param {{
- *   fetch: (ctx: object, refresh?: boolean) => Promise<object>,
+ *   fetch: (ctx: object, refresh?: boolean, opts?: {quick?: boolean}) => Promise<object>,
  *   onPlayWord: () => void, onPlaySentence: () => void, onPlayFrom: () => void,
  *   onSave: (def: object|null) => Promise<void>, onSettings: () => void,
  *   noAudio?: boolean,   // true for imported web pages: hides the play buttons
@@ -68,6 +70,9 @@ export function createWordBubble(host, actions) {
   let def = null;
   let token = 0;
   let saved = false;
+  // Quick lookup (see lookupmode.js): this popup shows only the meaning, with "More" to open
+  // the full explanation for this one word.
+  let quick = false;
 
   function position() {
     if (el.hidden || !anchor) return;
@@ -110,7 +115,7 @@ export function createWordBubble(host, actions) {
     const word = ctx.word;
     let body = "";
     if (state === "loading") {
-      body = `<div class="wb-loading"><span class="spinner"></span> Looking up in context…</div>`;
+      body = `<div class="wb-loading"><span class="spinner"></span> ${quick ? "Looking up…" : "Looking up in context…"}</div>`;
     } else if (state === "nokey") {
       body = `<p class="wb-muted">See what this word means in this sentence: add an AI provider key in Settings.</p>
               <button type="button" class="primary" data-act="settings">Set up definitions</button>`;
@@ -118,6 +123,8 @@ export function createWordBubble(host, actions) {
       body = `<p class="wb-error">${esc(message)}</p>
               <div class="row"><button type="button" data-act="retry">Try again</button>
               <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
+    } else if (quick) {
+      body = `<div class="wb-meaning">${esc(def.meaning)}</div>`;
     } else {
       const d = def;
       // How the word is read (kana, pinyin, IPA) goes under the meaning; where the reading is the
@@ -137,6 +144,7 @@ export function createWordBubble(host, actions) {
         ${d.sentence_translation ? `<details class="wb-trans"><summary>Sentence translation</summary>${esc(d.sentence_translation)}</details>` : ""}`;
     }
     const shown = def && state === "ready" && def.vocalized && L().reading === "replace" ? def.vocalized : word;
+    el.classList.toggle("quick", quick);
     el.innerHTML = `
       <div class="wb-head">
         ${actions.onPauseMode && !actions.noAudio ? modeSwitch() : ""}
@@ -145,11 +153,12 @@ export function createWordBubble(host, actions) {
       </div>
       <div class="wb-body">${body}</div>
       <div class="wb-actions">
-        ${actions.noAudio ? "" : `<button type="button" data-act="word" title="Play this word again">🔊 Word</button>
+        ${quick ? `<button type="button" data-act="more" title="Show the full explanation of this word">${icon("target", 15)} More</button>` : ""}
+        ${actions.noAudio || quick ? "" : `<button type="button" data-act="word" title="Play this word again">🔊 Word</button>
         <button type="button" data-act="sentence" title="Play the whole sentence">🔊 Sentence</button>
         <button type="button" data-act="from" title="Continue playing from here">▶ Continue</button>`}
         <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${saved ? "✓ Saved" : "★ Save"}</button>
-        ${state === "ready" ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again">↻</button>` : ""}
+        ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again">↻</button>` : ""}
       </div>`;
     paintSwitch(el.querySelector(".wb-mode"));
     requestAnimationFrame(position);
@@ -159,7 +168,7 @@ export function createWordBubble(host, actions) {
     const my = ++token;
     render("loading");
     try {
-      const d = await actions.fetch(ctx, refresh);
+      const d = await actions.fetch(ctx, refresh, { quick });
       if (my !== token) return;
       def = d;
       render("ready");
@@ -187,6 +196,7 @@ export function createWordBubble(host, actions) {
       case "from": actions.onPlayFrom(); hide(); break;
       case "settings": actions.onSettings(); break;
       case "retry": load(); break;
+      case "more": quick = false; def = null; load(); break;
       case "refresh": def = null; load(true); break;
       case "save":
         // Works with or without a definition (no key, or the lookup failed).
@@ -212,9 +222,20 @@ export function createWordBubble(host, actions) {
     ctx = context;
     def = null;
     saved = false;
+    quick = lookupMode() === "quick";
     el.hidden = false;
     load();
   }
+
+  // The quick / detailed switch was flipped while this popup is open: show the same word the new way.
+  const onLookupMode = () => {
+    if (!el.isConnected) { window.removeEventListener(LOOKUP_EVENT, onLookupMode); return; } // its screen was left
+    if (el.hidden || !ctx) return;
+    quick = lookupMode() === "quick";
+    def = null;
+    load();
+  };
+  window.addEventListener(LOOKUP_EVENT, onLookupMode);
 
   function hide() {
     token++;

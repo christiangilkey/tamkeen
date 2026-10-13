@@ -217,6 +217,25 @@ In "sentence_translation", put the same ⟦ ⟧ marks around the part of your tr
 Write all explanations, meanings and translations in ${lang}. Keep "meaning" short (a few words). Return only the JSON object.`;
 }
 
+// ----- quick lookup: only the meaning (a much shorter question and answer) -----
+/** The shape of a quick answer. */
+export const QUICK_SCHEMA = {
+  type: "object",
+  properties: { meaning: { type: "string", description: "The meaning of the marked word in THIS sentence, in a few words." } },
+  required: ["meaning"],
+  additionalProperties: false,
+};
+
+/** Instructions for a quick lookup. `lang` is the language the meaning is written in; `code` the
+ * language being studied. */
+export function quickPrompt(lang, code) {
+  const t = teach(code);
+  return `You are an expert ${t.name} teacher. A learner tapped one word (or a short phrase) in real ${t.name} material, ${t.variety}. It is marked ⟦like this⟧ in the sentence. Give what it means in THIS sentence, in ${lang}, in a few words: no explanation, no grammar. Return only the JSON object.`;
+}
+
+/** Cache key of a quick answer (kept apart from the full answer for the same word and sentence). */
+export const quickCacheKey = (word, marked, lang, code = "ar") => cacheKey(word, marked, `${lang}\u0000quick`, code);
+
 function userPrompt(ctx) {
   const lines = [];
   if (ctx.podcast) lines.push(`Source: ${ctx.podcast}`);
@@ -431,13 +450,16 @@ function friendlyHttpError(provider, status, bodyText) {
  * @param {{word:string, marked:string, lang?:string, before?:string, after?:string, podcast?:string, episode?:string}} ctx
  *   (`lang` is the code of the language being studied; Arabic when absent)
  * @param {(req:{url:string, headers:object, body:object}) => Promise<{status:number, text:string}>} transport
+ * @param {{quick?: boolean}} [opts] quick = ask only for the meaning; the answer has `quick: true`
+ *   and every other field empty
  */
-export async function define(cfg, ctx, transport) {
+export async function define(cfg, ctx, transport, { quick = false } = {}) {
   if (!cfg.key) throw new DefinerError("No API key set. Add one in Settings → Word definitions.");
   const model = cfg.model || PROVIDERS[cfg.provider].defaultModel;
-  const system = systemPrompt(cfg.language || "English", ctx.lang);
-  const user = userPrompt(ctx);
-  const schema = schemaFor(ctx.lang);
+  const system = quick ? quickPrompt(cfg.language || "English", ctx.lang) : systemPrompt(cfg.language || "English", ctx.lang);
+  // (A quick lookup sends the sentence itself but not its neighbours: less to read, less to pay for.)
+  const user = userPrompt(quick ? { ...ctx, before: "", after: "" } : ctx);
+  const schema = quick ? QUICK_SCHEMA : schemaFor(ctx.lang);
 
   let req = buildRequest(cfg.provider, model, cfg.key, system, user, schema);
   let res = await transport(req);
@@ -457,7 +479,9 @@ export async function define(cfg, ctx, transport) {
   reportUsage({ provider: cfg.provider, model, ...usageOf(cfg.provider, data) }); // (paid for, whatever the answer turns out to be)
   const text = extractText(cfg.provider, data);
   try {
-    return { ...normalize(parseJson(text), ctx.word), provider: cfg.provider, model };
+    const answer = { ...normalize(parseJson(text), ctx.word), provider: cfg.provider, model };
+    if (quick) answer.quick = true;
+    return answer;
   } catch {
     throw new DefinerError("The answer wasn't valid JSON. Try again, or pick a different model.");
   }

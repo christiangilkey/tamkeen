@@ -29,6 +29,7 @@ const SHARED = [
   "js/components/langpicker.js",
   "js/definer.js",
   "js/components/wordbubble.js",
+  "js/components/lookupmode.js",
   "js/components/account.js",
   "js/components/ankisync.js",
   "js/social.js",

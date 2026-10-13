@@ -13,6 +13,7 @@ import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../word
 import { episodeLanguage, gap, joinWords, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
 import { createWordBubble, pauseAfterWord, pauseSwitch } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
+import { lookupToggle } from "../components/lookupmode.js";
 import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
@@ -448,7 +449,7 @@ async function renderPlayer(view, { query }) {
 
   const bubble = createWordBubble($("#reel-pop"), {
     noAudio: !surface,
-    fetch: (ctx, refresh) => getDefinition(ctx, refresh),
+    fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onPlayWord: () => target && playClip(cur.starts[target.i], cur.ends[target.j]),
     onPlaySentence: () => target && playClip(cur.starts[target.si], cur.ends[target.sj]),
     onPlayFrom: () => { if (target && surface) { clipEnd = null; surface.do("seek", cur.starts[target.i]); surface.do("play"); } },
@@ -468,6 +469,11 @@ async function renderPlayer(view, { query }) {
       }
     },
   });
+  // Quick or detailed lookup: with the reel's own controls where there are any (the phone), in
+  // its compact form because that row is full; in the top line on the computer, which has no
+  // controls row.
+  if (surface) $("#reel-controls").append(lookupToggle({ compact: true }));
+  else $("#reel-prev").before(lookupToggle());
   // The popup lives in the right half of the bar; the hint shows whenever it is closed.
   const hint = $("#reel-hint");
   new MutationObserver(() => { hint.hidden = bubble.open; }).observe(bubble.el, { attributes: true, attributeFilter: ["hidden"] });

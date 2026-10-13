@@ -7,12 +7,14 @@ import { sentenceBounds, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
 import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
+import { lookupToggle } from "../components/lookupmode.js";
 import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 
 const LONG_PRESS_MS = 550;
 const TAGS = { h1: "h2", h2: "h3", h3: "h4", li: "li", q: "blockquote", p: "p" };
+const TITLE_SEG = -1; // the title's words form a line of their own, before the page's first block
 
 export const isPage = (ep) => (ep.audio_type || "") === "text/html";
 
@@ -33,10 +35,21 @@ async function copyText(text) {
 export async function render(view, { id, data, query }) {
   const ep = data.episode;
   const lang = episodeLanguage(ep);
-  const W = regroupWords(data.words, lang, false); // real words for Japanese/Chinese
+  // The title is read like the rest of the page: its words go in front of the stored ones, so
+  // they can be tapped and are coloured as new or known just the same.
+  const titleTokens = String(ep.title || "").split(/\s+/).filter(Boolean);
+  const before = titleTokens.length;
+  const W = regroupWords({
+    start: [...titleTokens.map((_, k) => k - before), ...data.words.start],
+    end: [...titleTokens.map((_, k) => k - before + 1), ...data.words.end],
+    text: [...titleTokens, ...data.words.text],
+    seg: [...titleTokens.map(() => TITLE_SEG), ...data.words.seg],
+  }, lang, false); // real words for Japanese/Chinese
   const n = W.text.length;
   const segOf = Int32Array.from(W.seg);
   const texts = W.text;
+  let titleWords = 0;
+  while (titleWords < n && segOf[titleWords] === TITLE_SEG) titleWords++;
   const source = webUrl(ep.audio_url);
   let host = "";
   try { host = new URL(source).hostname.replace(/^www\./, ""); } catch { /* no link */ }
@@ -47,7 +60,7 @@ export async function render(view, { id, data, query }) {
         <a class="btn ghost" href="#/feed/${ep.feed_id}" title="Back">←</a>
         <div class="meta">
           <div class="title" dir="auto">${esc(ep.title)}</div>
-          <div class="small muted">${esc(host || ep.feed_title)} · ${n.toLocaleString()} words</div>
+          <div class="small muted">${esc(host || ep.feed_title)} · ${(n - titleWords).toLocaleString()} words</div>
         </div>
         <div class="row">
           <button type="button" class="ghost" id="font-down" title="Smaller text">A−</button>
@@ -61,11 +74,18 @@ export async function render(view, { id, data, query }) {
     </div>`));
   const $ = (sel) => view.querySelector(sel);
   if (source) $("#original").href = source;
+  $("#font-down").before(lookupToggle()); // quick or detailed lookup
   const tr = $("#text");
 
   // Build the page in one pass. Each block keeps its own direction, so right-to-left and left-to-right text mix correctly.
-  const parts = [`<h1 class="reader-title" dir="auto">${esc(ep.title)}</h1>`];
+  const parts = [`<h1 class="reader-title" dir="auto" data-s="${TITLE_SEG}">`];
   let w = 0;
+  for (; w < titleWords; w++) {
+    if (w) parts.push(gap(texts[w - 1], texts[w], lang));
+    parts.push(`<span class="w" data-i="${w}">${esc(texts[w])}</span>`);
+  }
+  if (!titleWords) parts.push(esc(ep.title));
+  parts.push("</h1>");
   let inList = false;
   for (const seg of data.segments) {
     const tag = TAGS[seg.kind] || "p";
@@ -115,7 +135,7 @@ export async function render(view, { id, data, query }) {
 
   const bubble = createWordBubble($(".transcript-wrap"), {
     noAudio: true,
-    fetch: (ctx, refresh) => getDefinition(ctx, refresh),
+    fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onPlayWord: () => {}, onPlaySentence: () => {}, onPlayFrom: () => {},
     onSettings: () => (location.hash = "#/settings"),
     onSave: async (def) => {
@@ -258,8 +278,9 @@ export async function render(view, { id, data, query }) {
   tr.addEventListener("scroll", () => { clearTimeout(scrollTimer); scrollTimer = setTimeout(remember, 400); }, { passive: true });
   setTimeout(remember, 50); // (a timer, not an animation frame: those pause while the window is hidden)
   // Arrived from search: go to the matching place and point it out.
-  const jump = query && query.get("t") !== null ? Math.floor(Number(query.get("t"))) : -1;
-  if (jump >= 0 && jump < n) {
+  // (Search counts the page's own words; the title's words sit in front of them here.)
+  const jump = query && query.get("t") !== null ? Math.floor(Number(query.get("t"))) + titleWords : -1;
+  if (jump >= titleWords && jump < n) {
     setTimeout(() => {
       const el = wordEls[jump];
       tr.scrollTop = Math.max(0, el.offsetTop - tr.clientHeight * 0.3);

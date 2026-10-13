@@ -168,3 +168,28 @@ body.in-player:has(.player.yt) .topbar { display: none; }
   .follow-btn { width: 38px; height: 38px; min-height: 0; padding: 0; justify-content: center; font-size: 17px; }
   .follow-btn .label { display: none; }
 }
+
+/* ---------- quick / detailed lookup (components/lookupmode.js) ----------
+   The switch: two small round-ended buttons in one pill, a lightning bolt (quick: just the
+   meaning) and a target with an arrow (detailed: the full popup). The chosen one is filled with
+   the app's action colour. */
+.lookup-toggle { display: inline-flex; flex: none; align-items: center; gap: 2px; padding: 2px; border-radius: 99px;
+  background: var(--surface-2); border: 1px solid var(--border); vertical-align: middle; }
+div.lookup-toggle button[data-mode] { display: grid; place-items: center; width: 30px; height: 26px; min-width: 0; min-height: 0;
+  padding: 0; border: 0; border-radius: 99px; background: transparent; color: var(--muted); cursor: pointer; }
+div.lookup-toggle button[data-mode]:hover:not(.on) { background: transparent; color: var(--text); filter: none; }
+div.lookup-toggle button[data-mode].on { background: var(--accent); color: var(--accent-ink); }
+div.lookup-toggle button[data-mode].on .ic .fill { opacity: .28; }
+div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
+/* Compact: only the chosen mode shows; a tap changes to the other. */
+.lookup-toggle.compact button[data-mode]:not(.on) { display: none; }
+/* On the reel player's dark bars. */
+.reel-top .lookup-toggle, .reel-controls .lookup-toggle { background: #1d1d1d; border-color: #383838; }
+.reel-top div.lookup-toggle button[data-mode]:not(.on) { color: #aaa8a0; }
+.reel-controls div.lookup-toggle button[data-mode] { width: 30px; height: 26px; min-height: 0; padding: 0; }
+.reel-controls div.lookup-toggle button[data-mode].on { background: var(--accent); border: 0; color: var(--accent-ink); }
+/* The quick popup: the word, its meaning, and two buttons. */
+.word-bubble.quick:not(.sheet) { width: min(300px, calc(100% - 16px)); }
+.word-bubble.quick .wb-meaning { margin-bottom: 0; }
+.word-bubble [data-act="more"] { display: inline-flex; align-items: center; gap: 5px; }
+.word-bubble [data-act="more"] .ic { vertical-align: 0; }
