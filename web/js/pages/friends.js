@@ -9,6 +9,12 @@ import { avatar, tagChips } from "../components/avatar.js";
 import { gameBar } from "../game/friend-bar.js";
 import { publishNow } from "../game/friends-game.js";
 
+// Whether my own profile card is folded away: remembered between sessions, per device.
+const ME_COLLAPSED = "friends:me-collapsed";
+function meCollapsed() {
+  try { return localStorage.getItem(ME_COLLAPSED) === "1"; } catch { return false; }
+}
+
 export async function render(view) {
   view.append(h(`<div class="page friends-page">
     <div class="row" style="margin-bottom:12px"><h1 style="margin:0">Friends</h1></div>
@@ -19,6 +25,7 @@ export async function render(view) {
   const photoInput = view.querySelector("#photo-file");
   let disposed = false;
   let editing = false; // true while a form is open: live updates must not redraw over typing
+  let friendQuery = ""; // what is typed in "Find a friend": kept across the list's live redraws
 
   /** One person: picture with online dot, name, guild tags, buttons, and their study card. */
   function personRow(user, { online = null, tags = [], buttons = [], extra = null, note = "", game = null } = {}) {
@@ -81,6 +88,8 @@ export async function render(view) {
       return;
     }
     if (disposed) return;
+    // Typing in "Find a friend" when a live update redraws the list: remember, to give the cursor back.
+    const findHadFocus = !!document.activeElement && document.activeElement.id === "friend-find";
     body.innerHTML = "";
     if (!st) {
       body.append(h(`<div class="card stack empty-state">
@@ -109,8 +118,23 @@ export async function render(view) {
         <div class="me-id"><div class="me-name"></div><div class="small muted">Tap your picture to change it</div></div>
         <span class="spacer"></span>
         ${st.me.avatar_path ? `<button type="button" class="ghost small-btn" id="photo-remove">Remove photo</button>` : ""}
-        <button type="button" class="ghost" id="edit-card">Edit what I'm studying</button></div>
+        <button type="button" class="ghost" id="edit-card">Edit what I'm studying</button>
+        <button type="button" class="ghost icon me-toggle" id="me-toggle"><span class="chev"></span></button></div>
       <div id="my-card"></div></section>`);
+    // My profile folds away to one line; the choice is remembered on this device.
+    const fold = (closed) => {
+      me.classList.toggle("collapsed", closed);
+      const t = me.querySelector("#me-toggle");
+      t.title = closed ? "Show my profile" : "Hide my profile";
+      t.setAttribute("aria-label", t.title);
+      t.setAttribute("aria-expanded", String(!closed));
+    };
+    fold(meCollapsed());
+    me.querySelector("#me-toggle").onclick = () => {
+      const closed = !me.classList.contains("collapsed");
+      try { localStorage.setItem(ME_COLLAPSED, closed ? "1" : "0"); } catch { /* storage unavailable: it still folds for now */ }
+      fold(closed);
+    };
     me.querySelector(".me-photo").append(avatar(st.me, { online: true, large: true }));
     me.querySelector(".me-name").textContent = `@${st.me.username}`;
     if ((tags.get(st.me.id) || []).length) me.querySelector(".me-name").append(" ", tagChips(tags.get(st.me.id)));
@@ -307,14 +331,41 @@ export async function render(view) {
     }
     // Online friends first, then by name.
     const sorted = [...st.friends].sort((a, b) => (online.has(b.user.id) - online.has(a.user.id)) || a.user.username.localeCompare(b.user.username));
+    const rows = [];
     for (const f of sorted) {
-      list.append(personRow(f.user, { online: online.has(f.user.id), tags: tags.get(f.user.id) || [], buttons: [
+      const row = personRow(f.user, { online: online.has(f.user.id), tags: tags.get(f.user.id) || [], buttons: [
         messageButton(f.user.id),
         ["Remove", "ghost danger", async () => {
           if (!confirm(`Remove ${f.user.username} from your friends?`)) return;
           await social.removeFriendship(f.id);
         }],
-      ], extra: studyCard(cards.get(f.user.id)), game: games.get(f.user.id) }));
+      ], extra: studyCard(cards.get(f.user.id)), game: games.get(f.user.id) });
+      // What "Find a friend" looks through: the name and any guild tags.
+      rows.push([row, [f.user.username, ...(tags.get(f.user.id) || [])].join(" ").toLowerCase()]);
+    }
+    if (st.friends.length) {
+      // Find a friend: narrows the list as you type. The list redraws itself when friends come
+      // online or message you, so the typed text (and the cursor) is put back afterwards.
+      const find = h(`<input type="search" id="friend-find" class="friend-find" placeholder="Find a friend" aria-label="Find a friend"
+        autocomplete="off" spellcheck="false">`);
+      const none = h(`<p class="small muted" hidden></p>`);
+      const filter = () => {
+        const q = friendQuery.trim().replace(/^@/, "").toLowerCase();
+        let shown = 0;
+        for (const [row, hay] of rows) {
+          row.hidden = !!q && !hay.includes(q);
+          if (!row.hidden) shown++;
+        }
+        none.hidden = shown > 0;
+        none.textContent = shown ? "" : `No friend called “${friendQuery.trim()}”.`;
+      };
+      find.value = friendQuery;
+      find.oninput = () => { friendQuery = find.value; filter(); };
+      list.append(find);
+      for (const [row] of rows) list.append(row);
+      list.append(none);
+      filter();
+      if (findHadFocus) setTimeout(() => { find.focus(); find.setSelectionRange(find.value.length, find.value.length); }, 0);
     }
     body.append(list);
 

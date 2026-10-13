@@ -1185,3 +1185,11 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .media-card .share-action { gap: 6px; margin-top: 6px; }
 .media-card button.accept { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .msg.mine .media-card .muted { color: inherit; opacity: .8; }
+
+/* ---------- friends: find a friend, and my profile folding away ---------- */
+.friend-find { width: 100%; }
+.friend-row[hidden] { display: none; }
+.me-toggle { min-height: 32px; min-width: 32px; padding: 0; display: inline-grid; place-items: center; }
+.me-toggle .chev { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(2px) rotate(-135deg); transition: transform .15s ease; }
+.me-card.collapsed .me-toggle .chev { transform: translateY(-2px) rotate(45deg); }
+.me-card.collapsed #my-card, .me-card.collapsed #edit-card, .me-card.collapsed #photo-remove, .me-card.collapsed .me-id .muted { display: none; }
