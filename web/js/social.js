@@ -249,6 +249,8 @@ export const LINK_TYPES = [
   ["♫ Spotify", "a song, album, playlist or podcast episode (Share → Copy link)", "https://open.spotify.com/track/…"],
   ["♪ Apple Music", "a song, album or playlist (Share → Copy Link)", "https://music.apple.com/…/album/…"],
   ["🎬 IMDb", "a film, series or person page", "https://www.imdb.com/title/tt…"],
+  ["🎞 Instagram reel", "a reel (Share → Copy link). Friends open it in Tamkeen's reel player", "https://www.instagram.com/reel/…"],
+  ["📄 Web page", "any article or page. Friends open it in Tamkeen's reader", "https://example.com/article"],
   ["🎧 Podcast episode", "any episode from your own library: use the 🎧 button on the bar", ""],
 ];
 
@@ -319,13 +321,58 @@ async function previewImdb(u) {
            subtitle: [r.y, r.q, r.s].filter(Boolean).join(" · ").slice(0, 160), image: safeUrl(poster) };
 }
 
-/** Turn a pasted YouTube, Spotify, Apple Music or IMDb link into a card
- * {kind, url, title, subtitle, image}, using the sites' public preview services (no keys). */
+const INSTAGRAM_HOSTS = ["www.instagram.com", "instagram.com", "m.instagram.com"];
+
+/** The short code of an Instagram reel or post link ("" if it isn't one). */
+export function reelCode(link) {
+  const u = httpsUrl(String(link || ""));
+  if (!u || !INSTAGRAM_HOSTS.includes(u.hostname)) return "";
+  const m = u.pathname.match(/\/(?:reels?|p|tv)\/([A-Za-z0-9_-]{5,40})(?:\/|$)/);
+  return m ? m[1] : "";
+}
+
+/** A reel's card. Instagram has no public preview service, so the title comes from my own
+ * library when the reel is already there. */
+async function previewReel(u) {
+  const code = reelCode(u.href);
+  if (!code) throw new Error("That Instagram link isn't a reel. Use Share → Copy link on the reel itself.");
+  let mine = null;
+  try {
+    const { api } = await import("./app.js");
+    const feed = (await api("/feeds")).find((f) => f.url === "local:reels");
+    if (feed) mine = (await api(`/episodes?feed_id=${feed.id}&limit=500`)).items.find((ep) => ep.guid === code) || null;
+  } catch { /* the title is a nicety */ }
+  return { kind: "reel", url: `https://www.instagram.com/reel/${code}/`,
+           title: String((mine && mine.title) || "Instagram reel").slice(0, 200),
+           subtitle: String((mine && mine.description) || "Instagram").replace(/\s+/g, " ").trim().slice(0, 120), image: "" };
+}
+
+/** Any other page: its title and picture are read from the page itself. */
+async function previewPage(u) {
+  let html = "";
+  try {
+    const { fetchPage } = await import("./app.js");
+    html = String((await fetchPage(u.href)).html || "");
+  } catch {
+    throw new Error("Couldn't open that page. Check the link.");
+  }
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const meta = (name) => (doc.querySelector(`meta[property="${name}"], meta[name="${name}"]`) || {}).content || "";
+  const title = (meta("og:title") || doc.title || u.hostname).replace(/\s+/g, " ").trim();
+  let image = "";
+  try { image = safeUrl(new URL(meta("og:image"), u.href).href); } catch { /* no picture */ }
+  return { kind: "page", url: u.href, title: title.slice(0, 200), subtitle: u.hostname.replace(/^www\./, ""), image };
+}
+
+/** Turn a pasted link into a card {kind, url, title, subtitle, image}: YouTube, Spotify, Apple
+ * Music and IMDb through the sites' public preview services (no keys), an Instagram reel, or
+ * any other web page. */
 export async function previewLink(text) {
   const u = httpsUrl(text || "");
   if (!u) throw new Error("Paste a link that starts with https://");
   let kind;
   let endpoint;
+  if (INSTAGRAM_HOSTS.includes(u.hostname)) return previewReel(u);
   if (u.hostname === APPLE_HOST || IMDB_HOSTS.includes(u.hostname)) {
     const apple = u.hostname === APPLE_HOST;
     try {
@@ -341,7 +388,7 @@ export async function previewLink(text) {
     kind = "spotify";
     endpoint = `https://open.spotify.com/oembed?url=${encodeURIComponent(u.href)}`;
   } else {
-    throw new Error("That kind of link isn't supported. Use YouTube, Spotify, Apple Music or IMDb.");
+    return previewPage(u);
   }
   let data;
   try {

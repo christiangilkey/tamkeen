@@ -1172,3 +1172,9 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .lex-offer-error { color: var(--danger); }
 .lex-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
 .lex-row > span { flex: 1; min-width: 200px; }
+
+/* ---------- study cards: an item that opens its player when tapped ---------- */
+.study-card.tappable { cursor: pointer; transition: border-color .12s, background-color .12s; }
+.study-card.tappable:hover { border-color: var(--accent); }
+.study-card.tappable:active { background: var(--surface); }
+.study-card.busy { opacity: .6; pointer-events: none; }

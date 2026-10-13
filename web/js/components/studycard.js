@@ -1,12 +1,20 @@
 // "What I'm studying" cards on the Friends tab: up to three things (a podcast episode, a
-// YouTube video, a Spotify or Apple Music song, an IMDb film or series) plus a short personal
-// note. `studyCard` shows a card; `studyEditor` edits your own.
+// YouTube video, an Instagram reel, a web page, a Spotify or Apple Music song, an IMDb film or
+// series) plus a short personal note. `studyCard` shows a card; `studyEditor` edits your own.
 // Everything a friend typed is inserted as plain text, and only https links are ever used.
+//
+// Tapping an item opens it in Tamkeen's own player for its kind (see openItem): the players
+// are reached through their ordinary doors (youtube.js, pageimport.js, the reels and episode
+// routes), never changed from here. Spotify and Apple Music play in their mini-player in the
+// card; IMDb, which has no player, opens its page.
 
 import { api, esc, h, toast } from "../app.js";
 import * as social from "../social.js";
 
-const KINDS = { podcast: "🎧 Podcast", youtube: "▶ YouTube", spotify: "♫ Spotify", apple: "♪ Apple Music", imdb: "🎬 IMDb" };
+const KINDS = { podcast: "🎧 Podcast", youtube: "▶ YouTube", reel: "🎞 Instagram reel", page: "📄 Web page",
+                spotify: "♫ Spotify", apple: "♪ Apple Music", imdb: "🎬 IMDb" };
+/** What the button on each kind that opens inside Tamkeen says. */
+const OPEN_LABEL = { podcast: "▶ Listen", youtube: "▶ Watch", reel: "▶ Watch", page: "Read" };
 
 function feedUrl(text) {
   try {
@@ -16,6 +24,80 @@ function feedUrl(text) {
     return "";
   }
 }
+
+const sameText = (a, b) => String(a || "").trim().toLowerCase() === String(b || "").trim().toLowerCase();
+
+/** The episode of `feedId` that a card's podcast item means, or null. Newer cards carry the
+ * episode's own id (guid) and audio address; older ones only its title. */
+async function findEpisode(feedId, s) {
+  const list = async (q) => (await api(`/episodes?feed_id=${feedId}&limit=${q ? 50 : 500}${q ? `&q=${encodeURIComponent(q)}` : ""}`)).items;
+  const exact = (eps) => eps.find((ep) => (s.guid && ep.guid === s.guid) || (s.audio_url && ep.audio_url === s.audio_url));
+  let found = s.guid || s.audio_url ? exact(await list("")) : null;
+  if (!found && s.title) {
+    const byTitle = await list(String(s.title).slice(0, 80));
+    found = exact(byTitle) || byTitle.find((ep) => sameText(ep.title, s.title)) || null;
+  }
+  return found || null;
+}
+
+/** Open a podcast episode from a card in the podcast player. A podcast the viewer doesn't
+ * follow is added first, after asking. */
+async function openPodcast(s) {
+  const url = feedUrl(s.feed_url);
+  if (!url) throw new Error("This card doesn't say which podcast the episode is from.");
+  let feed = (await api("/feeds")).find((f) => sameText(f.url, url));
+  let added = false;
+  if (!feed) {
+    if (!confirm(`Add “${s.subtitle || "this podcast"}” to your library and open this episode?`)) return;
+    feed = await api("/feeds", { method: "POST", body: { url } });
+    added = true;
+  }
+  const ep = await findEpisode(feed.id, s);
+  if (ep) { location.hash = `#/episode/${ep.id}`; return; }
+  // The phone gets a new podcast's episodes from the computer, and old episodes can leave a feed.
+  toast(added ? `Added ${feed.title}. The episode will be here once its episode list has arrived.`
+    : `“${s.title}” isn't in ${feed.title}'s episode list any more.`);
+  location.hash = `#/feed/${feed.id}`;
+}
+
+/** Open a reel in the reel player. One that isn't in the library yet is fetched the usual way
+ * (the Reels page shows it arriving), which needs Instagram and a way to transcribe. */
+async function openReel(s) {
+  const code = social.reelCode(s.url);
+  if (!code) throw new Error("That isn't a reel link.");
+  const feed = (await api("/feeds")).find((f) => f.url === "local:reels");
+  const mine = feed ? (await api(`/episodes?feed_id=${feed.id}&limit=500`)).items.find((ep) => ep.guid === code) : null;
+  if (mine && mine.status === "done") { location.hash = `#/reels/play?at=${mine.id}`; return; }
+  try {
+    await api("/reels/saved/send", { method: "POST", body: { codes: [code] } });
+  } catch (e) {
+    toast(`Couldn't get this reel into the reel player: ${e.message}`,
+          { error: true, action: { label: "Open on Instagram", run: () => window.open(social.safeUrl(s.url), "_blank", "noopener") } });
+    return;
+  }
+  toast("Getting this reel ready: it opens in the reel player from the Reels page when it's done.");
+  location.hash = "#/reels";
+}
+
+/** Open a web page in the reader, importing it first unless it is already in the library. */
+async function openPage(s) {
+  const url = social.safeUrl(s.url);
+  if (!url) throw new Error("That isn't a web link.");
+  const feed = (await api("/feeds")).find((f) => f.url === "local:pages");
+  const mine = feed ? (await api(`/episodes?feed_id=${feed.id}&limit=500`)).items.find((ep) => ep.audio_url === url || ep.guid === url) : null;
+  if (mine) { location.hash = `#/episode/${mine.id}`; return; }
+  const { importUrl } = await import("../pageimport.js");
+  const ep = await importUrl(url);
+  location.hash = `#/episode/${ep.id}`;
+}
+
+/** The kinds that open inside Tamkeen, each through its player's own entry point. */
+const OPENERS = {
+  podcast: openPodcast,
+  youtube: async (s) => { await (await import("../youtube.js")).watchVideo(social.safeUrl(s.url)); },
+  reel: openReel,
+  page: openPage,
+};
 
 /** One item's card (picture, title, and the action that fits its kind). */
 function itemCard(s, { own = false } = {}) {
@@ -45,24 +127,45 @@ function itemCard(s, { own = false } = {}) {
       play.textContent = "✕ Close";
     };
     actions.append(play);
-  } else if ((s.kind === "youtube" || s.kind === "imdb" || s.kind === "apple" || s.kind === "spotify") && link) {
-    const open = h(`<a class="btn" target="_blank" rel="noopener"></a>`);
-    open.textContent = s.kind === "youtube" ? "Watch ↗" : "Open ↗";
-    open.href = link;
-    actions.append(open);
-  } else if (s.kind === "podcast" && !own && feedUrl(s.feed_url)) {
-    const sub = h(`<button type="button" title="Add this podcast to your library">＋ Subscribe</button>`);
-    sub.onclick = async () => {
-      sub.disabled = true;
+    // The whole card works like its button (Spotify and Apple Music stay in their mini-player).
+    card.classList.add("tappable");
+    card.onclick = (e) => { if (!e.target.closest("button, a")) play.click(); };
+  } else if (OPENERS[s.kind] && (s.kind === "podcast" ? feedUrl(s.feed_url) : link)) {
+    // Opens inside Tamkeen, in the player for this kind of thing.
+    const open = h(`<button type="button" class="primary"></button>`);
+    open.textContent = OPEN_LABEL[s.kind];
+    let busy = false;
+    const run = async () => {
+      if (busy) return;
+      busy = true;
+      open.disabled = true;
+      card.classList.add("busy");
       try {
-        const feed = await api("/feeds", { method: "POST", body: { url: feedUrl(s.feed_url) } });
-        toast(`Subscribed to ${feed.title}.`, { action: { label: "Open", run: () => (location.hash = `#/feed/${feed.id}`) } });
+        await OPENERS[s.kind](s);
       } catch (e) {
-        toast(e.message, { error: true });
-        sub.disabled = false;
+        // Still reachable when Tamkeen's player can't take it (say, a video with no captions
+        // in the language being studied): offer the page itself.
+        toast(e.message, { error: true, action: link ? { label: s.kind === "youtube" ? "Open on YouTube" : "Open the link",
+                                                         run: () => window.open(link, "_blank", "noopener") } : undefined });
+      } finally {
+        busy = false;
+        open.disabled = false;
+        card.classList.remove("busy");
       }
     };
-    actions.append(sub);
+    open.onclick = (e) => { e.stopPropagation(); run(); };
+    actions.append(open);
+    card.classList.add("tappable");
+    card.title = `Open in Tamkeen: ${s.title || ""}`;
+    card.onclick = (e) => { if (!e.target.closest("button, a")) run(); };
+  } else if ((s.kind === "imdb" || s.kind === "apple" || s.kind === "spotify") && link) {
+    // No player in Tamkeen for these: the page itself opens.
+    const open = h(`<a class="btn" target="_blank" rel="noopener"></a>`);
+    open.textContent = "Open ↗";
+    open.href = link;
+    actions.append(open);
+    card.classList.add("tappable");
+    card.onclick = (e) => { if (!e.target.closest("button, a")) open.click(); };
   }
   return wrap;
 }
@@ -125,7 +228,11 @@ export function studyEditor(current, onSaved) {
     const item = slots[i];
     if (item) {
       const row = h(`<div class="se-filled"></div>`);
-      row.append(itemCard(item, { own: true }));
+      const preview = itemCard(item, { own: true });
+      // While editing, the card is only a preview: tapping it must not leave the editor.
+      preview.querySelectorAll(".study-card").forEach((c) => { c.onclick = null; c.classList.remove("tappable"); c.removeAttribute("title"); });
+      preview.querySelectorAll(".study-actions button.primary").forEach((b) => b.remove());
+      row.append(preview);
       const clear = h(`<button type="button" class="ghost" title="Remove this one">✕</button>`);
       clear.onclick = () => { slots[i] = null; paintSlot(i); };
       row.append(clear);
@@ -134,7 +241,7 @@ export function studyEditor(current, onSaved) {
     }
     const bar = h(`<form class="se-bar row">
       <span class="se-num small muted">${i + 1}</span>
-      <input type="url" placeholder="Paste a YouTube, Spotify, Apple Music or IMDb link" autocomplete="off" style="flex:1;min-width:160px">
+      <input type="url" placeholder="Paste a link: YouTube, a reel, a web page, Spotify, Apple Music, IMDb" autocomplete="off" style="flex:1;min-width:160px">
       <button type="submit">Add</button>
       <button type="button" class="ghost se-pod" title="Pick a podcast episode from your library">🎧</button>
     </form>
@@ -176,7 +283,8 @@ export function studyEditor(current, onSaved) {
           row.querySelector(".muted").textContent = ep.feed_title || "";
           row.onclick = () => {
             slots[i] = { kind: "podcast", title: String(ep.title || "").slice(0, 200), subtitle: String(ep.feed_title || "").slice(0, 120),
-                         image: social.safeUrl(ep.image || ep.feed_image || ""), feed_url: feedUrl(ep.feed_url) };
+                         image: social.safeUrl(ep.image || ep.feed_image || ""), feed_url: feedUrl(ep.feed_url),
+                         guid: String(ep.guid || "").slice(0, 200), audio_url: /^https?:/.test(ep.audio_url || "") && String(ep.audio_url).length <= 300 ? String(ep.audio_url) : "" };
             paintSlot(i);
           };
           results.append(row);
