@@ -86,3 +86,44 @@ def post(url: str, token: str, body: dict, timeout: float = 3.0) -> bool:
             return 200 <= resp.status < 300
     except Exception:  # Tamkeen closed, or started on another port since: try again next time
         return False
+
+
+# ----- the two-way sync (syncer.py does the work inside Anki; these only talk to Tamkeen) -----
+
+def base(addon_dir: str) -> tuple[str, str] | None:
+    """Tamkeen's address for everything to do with Anki, and the token: (url, token), or None."""
+    target = endpoint(addon_dir)
+    return None if target is None else (target[0].rsplit("/", 1)[0], target[1])
+
+
+def ask(url: str, token: str, body: dict | None = None, timeout: float = 10.0, raw: bool = False):
+    """Ask Tamkeen something (a GET, or a POST when there is a body). Returns the answer, or None when
+    Tamkeen is not running or did not accept the request, so every caller can fail quietly."""
+    data = None if body is None else json.dumps(body).encode("utf-8")
+    req = urllib.request.Request(url, data=data, method="GET" if body is None else "POST",
+                                 headers={"Content-Type": "application/json", "X-Tamkeen-Token": token})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            if not 200 <= resp.status < 300:
+                return None
+            answer = resp.read()
+        return answer if raw else json.loads(answer.decode("utf-8"))
+    except Exception:
+        return None
+
+
+DELETED_KEEP_DAYS = 180
+
+
+def note_deleted(log: dict, note_ids, when: float) -> dict:
+    """Remember that these notes were deleted in Anki, and when (0 = seen later, time unknown). The
+    first record of a note is kept: it is the one closest to the deletion."""
+    for note_id in note_ids:
+        log.setdefault(str(int(note_id)), {"at": float(when), "seen": float(when) or 0.0})
+    return log
+
+
+def prune_deleted(log: dict, now: float) -> dict:
+    for key in [k for k, v in log.items() if now - (v.get("seen") or v.get("at") or now) > DELETED_KEEP_DAYS * 86400]:
+        del log[key]
+    return log

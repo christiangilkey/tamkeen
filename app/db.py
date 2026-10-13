@@ -157,6 +157,23 @@ CREATE TABLE IF NOT EXISTS definitions (
     model      TEXT NOT NULL DEFAULT '',
     created_at REAL NOT NULL
 );
+
+-- The two-way Anki sync (app/anki_sync.py). One row per word that has a card in the Anki deck:
+--   note        the card's note id in Anki (NULL when only its progress is known yet)
+--   tf, tb      the word's card front and back when the two sides last agreed
+--   af, ab      the Anki note's front and back at that time
+--   progress    the card's schedule as last read from Anki (JSON, anki_sync.progress_record plus
+--               "due" and "seen" dates). Shown in Tamkeen; never written back to Anki.
+-- Kept on this computer only (the phone keeps its own for AnkiDroid): it describes one Anki collection.
+CREATE TABLE IF NOT EXISTS anki_links (
+    uid      TEXT PRIMARY KEY,
+    note     INTEGER,
+    tf       TEXT NOT NULL DEFAULT '',
+    tb       TEXT NOT NULL DEFAULT '',
+    af       TEXT NOT NULL DEFAULT '',
+    ab       TEXT NOT NULL DEFAULT '',
+    progress TEXT
+);
 """
 
 _init_lock = threading.Lock()
@@ -351,6 +368,13 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "anki_token": "",
     "anki_days": {},
     "anki_last_report": None,
+    # The two-way sync with one Anki deck (see app/anki_sync.py and app/anki_bridge.py): on or off, the
+    # deck's name, whether the learner has agreed that deleting a word also deletes its Anki card, and
+    # what the last sync did and is waiting on.
+    "anki_sync": False,
+    "anki_deck": "Tamkeen",
+    "anki_delete_ok": False,
+    "anki_sync_state": None,
     # AI word definitions (users bring their own API key).
     "definer_provider": "claude",
     "definer_language": "English",

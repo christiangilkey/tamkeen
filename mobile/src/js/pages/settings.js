@@ -6,6 +6,7 @@ import { sttSetup } from "../components/sttsetup.js";
 import { STT_EVENT, testKey, usageToday } from "../transcribe-service.js";
 import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
+import { ankiSyncPanel } from "../components/ankisync.js";
 import { languagePicker } from "../components/langpicker.js";
 import { dictionariesRow } from "../lexicon/seen.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
@@ -44,6 +45,11 @@ export async function render(view) {
         in your own Google Drive. Unless a cloud provider is chosen above, transcription happens on your computer: tap "Transcribe"
         here and it will do it on its next sync.</p>
       <div id="account"></div>
+    </section>
+
+    <section class="card stack">
+      <h2>AnkiDroid (optional)</h2>
+      <div id="anki-sync" class="stack"></div>
     </section>
 
     <section class="card stack">
@@ -128,5 +134,6 @@ export async function render(view) {
     $("#page-font-val").textContent = `${e.target.value}px`;
     saveSettings({ page_font_size: Number(e.target.value) });
   };
-  return () => { off(); offAi(); offStt(); };
+  const offAnki = ankiSyncPanel($("#anki-sync"));
+  return () => { off(); offAi(); offStt(); offAnki(); };
 }

@@ -746,6 +746,12 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .help-dialog li { margin: 8px 0; line-height: 1.45; }
 .help-actions { display: flex; justify-content: flex-end; gap: 8px; }
 
+/* A word's review progress in Anki (read-only), with its latest answers as dots. */
+.anki-progress { margin-top: 4px; }
+.anki-history { display: inline-flex; gap: 2px; margin-inline-start: 6px; vertical-align: middle; }
+.anki-history i { width: 6px; height: 6px; border-radius: 50%; background: var(--danger); opacity: .8; }
+.anki-history i.ok { background: #2e9d5b; }
+
 /* ---------- "new version available" popup ---------- */
 .update-notice { position: fixed; right: 16px; bottom: 16px; z-index: 70; display: flex; align-items: center; gap: 4px; max-width: min(420px, calc(100vw - 32px));
   background: var(--brand-grad); color: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, .35); padding: 6px 6px 6px 4px;

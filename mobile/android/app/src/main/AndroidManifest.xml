@@ -41,4 +41,11 @@
     <!-- Voice notes in friend chats (asked for the first time you tap the microphone). -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- Syncing saved words with the Tamkeen deck in AnkiDroid (asked for when the sync is switched on). -->
+    <uses-permission android:name="com.ichi2.anki.permission.READ_WRITE_DATABASE" />
+    <!-- Lets the app see whether AnkiDroid is installed. -->
+    <queries>
+        <package android:name="com.ichi2.anki" />
+        <provider android:authorities="com.ichi2.anki.flashcards" />
+    </queries>
 </manifest>

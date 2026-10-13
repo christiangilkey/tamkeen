@@ -13,10 +13,11 @@ import { NativeHttp, isNative } from "./native.js";
 import { newEpisodeRecords, parseFeed } from "./rss.js";
 import * as cloud from "./transcribe-service.js";
 import * as phoneReels from "./reels-phone.js";
+import { anki, requestAnkiSync } from "./anki-phone.js";
 
 export class ApiError extends Error {}
 
-const changed = () => { saveLibrary(); requestSync(); };
+const changed = () => { saveLibrary(); requestSync(); requestAnkiSync(); };
 const feedOf = (uid) => lib.feeds.find((f) => f.uid === uid);
 const episodeOf = (uid) => lib.episodes.find((e) => e.uid === uid && !e.deleted);
 const liveEpisodes = () => lib.episodes.filter((e) => !e.deleted);
@@ -619,6 +620,14 @@ const routes = [
     }
     return { ok: true };
   }],
+
+  // ----- the two-way sync with one AnkiDroid deck (anki-droid.js; the computer's are in app/api/anki.py) -----
+  ["GET", /^\/anki\/sync\/status$/, () => anki.status()],
+  ["POST", /^\/anki\/sync\/options$/, (m, q, body) => anki.options(body)],
+  ["POST", /^\/anki\/sync\/resolve$/, (m, q, body) => anki.resolve(body.what, body.choice)],
+  ["POST", /^\/anki\/sync\/run$/, (m, q, body) => anki.run({ ask: body.ask === true })],
+  ["GET", /^\/anki\/progress$/, () => anki.progress()],
+  ["GET", /^\/anki\/linked\/([\w]+)$/, async (m) => ({ linked: await anki.linked(m[1]) })],
 ];
 
 export async function handle(path, method, body) {

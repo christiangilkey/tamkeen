@@ -11,3 +11,5 @@ export const Share = isNative ? registerPlugin("Share") : null;
 export const App = isNative ? registerPlugin("App") : null;
 /** Native web requests (no browser cross-site limits): used to download pages to import. */
 export const NativeHttp = isNative ? registerPlugin("CapacitorHttp") : null;
+/** The Tamkeen deck in AnkiDroid (our own small Android plugin, see android/.../AnkiDroidPlugin.java). */
+export const AnkiDroid = isNative ? registerPlugin("AnkiDroid") : null;

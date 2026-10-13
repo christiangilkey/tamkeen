@@ -3,6 +3,7 @@
 // a word was added or last changed.
 
 import { api, esc, h, toast, download, fmtDate, audioUrl, showMenu, shareClip, clipUrl, platform } from "../app.js";
+import { ankiProgressLine, confirmDelete, loadAnkiProgress } from "../components/ankisync.js";
 import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
@@ -325,6 +326,7 @@ export async function render(view) {
   }
 
   // ----- items -----
+  const ankiProgress = await loadAnkiProgress();  // each word's review progress in Anki, when the deck is synced
   function item(v) {
     const changed = v.updated_at && v.updated_at - v.created_at > 60;
     const el = h(`<div class="card vocab-item">
@@ -338,6 +340,7 @@ export async function render(view) {
           ${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}
           ${v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}${changed ? ` · changed ${fmtDate(v.updated_at)}` : ""}
         </div>
+        ${ankiProgressLine(ankiProgress[v.uid || v.id])}
         <div class="item-folders"></div>
       </div>
       <div class="fields">
@@ -392,7 +395,7 @@ export async function render(view) {
     const ps = el.querySelector(".play-sent");
     if (ps) ps.onclick = () => playSnippet(v, v.sent_start, v.sent_end).catch((e) => toast(e.message, { error: true }));
     el.querySelector(".del").onclick = async () => {
-      if (!confirm(`Delete “${v.text}” from your vocab?`)) return;
+      if (!(await confirmDelete(v))) return;  // says so first when the word's Anki card would go too
       await api(`/vocab/${v.id}`, { method: "DELETE" });
       all = all.filter((x) => x !== v);
       selected.delete(v.id);

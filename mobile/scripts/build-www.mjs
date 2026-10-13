@@ -29,6 +29,7 @@ const SHARED = [
   "js/definer.js",
   "js/components/wordbubble.js",
   "js/components/account.js",
+  "js/components/ankisync.js",
   "js/social.js",
   "js/vendor/supabase.js",
   "js/pages/library.js",

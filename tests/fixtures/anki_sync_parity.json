@@ -1,0 +1,4636 @@
+{
+ "cases": [
+  {
+   "name": "new word goes to anki",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    },
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "مُرْتَبِكَة",
+     "meaning": "confused",
+     "notes": "Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.",
+     "translation": "The girl was ⟦confused⟧ by the question.",
+     "sentence": "كانت البنت مرتبكة من السؤال.",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+       "front": "book",
+       "back": "<b>كتاب</b>",
+       "tags": [
+        "tamkeen",
+        "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+       ]
+      },
+      {
+       "uid": "vbbbbbbbbbbbbbbbbbbbb",
+       "guid": "tk-vbbbbbbbbbbbbbbbbbbbb",
+       "front": "The girl was [confused] by the question.",
+       "back": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+       "tags": [
+        "tamkeen",
+        "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+       ]
+      }
+     ],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {},
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 2,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "nothing to do",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "route add-on: linked by guid",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "book",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "route phone: linked by tag",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "Zq3&f",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "Tamkeen-ID::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "book",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "route import: tamkeen newer wins",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "a book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1000,
+     "tags": [
+      "tamkeen"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [
+      {
+       "note": 10,
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "front": "a book"
+      }
+     ],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {},
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "route import: anki newer wins",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 9000,
+     "tags": [
+      "tamkeen"
+     ],
+     "front": "volume",
+     "back": "<b>كتاب</b><br>Note: seen in a shop",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "set": {
+        "meaning": "volume",
+        "notes": "seen in a shop"
+       }
+      }
+     ],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "volume",
+      "af": "volume",
+      "tb": "<b>كتاب</b><br>Note: seen in a shop",
+      "ab": "<b>كتاب</b><br>Note: seen in a shop"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "route ankiweb: unstudied copy removed",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 4,
+     "progress": null
+    },
+    {
+     "id": 11,
+     "guid": "Zq3&f",
+     "mod": 1500,
+     "tags": [
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [
+      {
+       "note": 11,
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "why": "duplicate"
+      }
+     ],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "book",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "route ankiweb: studied copy kept and tagged",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    },
+    {
+     "id": 11,
+     "guid": "Zq3&f",
+     "mod": 1500,
+     "tags": [
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 7,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [
+      {
+       "note": 10,
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "why": "duplicate"
+      }
+     ],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 11,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "book",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "route ankiweb: edited copy kept and tagged",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    },
+    {
+     "id": 11,
+     "guid": "Zq3&f",
+     "mod": 1500,
+     "tags": [
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b><br>mine",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": [
+      {
+       "note": 11,
+       "add": [
+        "tamkeen-duplicate"
+       ]
+      }
+     ]
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 1,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "route ankiweb: both devices keep the same card",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    },
+    {
+     "id": 11,
+     "guid": "Zq3&f",
+     "mod": 1500,
+     "tags": [
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 11,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [
+      {
+       "note": 11,
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "why": "duplicate"
+      }
+     ],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "book",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "tagged duplicate is ignored",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    },
+    {
+     "id": 11,
+     "guid": "Zq3&f",
+     "mod": 1500,
+     "tags": [
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa",
+      "Tamkeen-Duplicate"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 1,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "hand-made card of an existing word",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 20,
+     "guid": "Hx7$a",
+     "mod": 1500,
+     "tags": [],
+     "front": "a book (thing)",
+     "back": "كِتَاب",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": [
+      {
+       "note": 20,
+       "add": [
+        "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+       ]
+      }
+     ]
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 20,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "a book (thing)",
+      "ab": "كِتَاب"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "hand-made card with the same front",
+   "words": [
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "مُرْتَبِكَة",
+     "meaning": "confused",
+     "notes": "Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.",
+     "translation": "The girl was ⟦confused⟧ by the question.",
+     "sentence": "كانت البنت مرتبكة من السؤال.",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 20,
+     "guid": "Hx7$a",
+     "mod": 1500,
+     "tags": [],
+     "front": "The girl was [confused] by the question.",
+     "back": "x",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": [
+      {
+       "note": 20,
+       "add": [
+        "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+       ]
+      }
+     ]
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vbbbbbbbbbbbbbbbbbbbb": {
+      "note": 20,
+      "tf": "The girl was [confused] by the question.",
+      "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+      "af": "The girl was [confused] by the question.",
+      "ab": "x"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "hand-made card, word on the front",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 20,
+     "guid": "Hx7$a",
+     "mod": 1500,
+     "tags": [],
+     "front": "كتاب",
+     "back": "book",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": [
+      {
+       "note": 20,
+       "add": [
+        "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+       ]
+      }
+     ]
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 20,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "كتاب",
+      "ab": "book"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "hand-made card becomes a word",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    },
+    {
+     "id": 1700000000001,
+     "guid": "Hx7$a",
+     "mod": 1500,
+     "tags": [],
+     "front": "pen",
+     "back": "قلم<br>هذا قلم جديد<br>a loose line",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": [
+      {
+       "note": 1700000000001,
+       "add": [
+        "tamkeen-id::v5802d793908f98b170c6"
+       ]
+      }
+     ]
+    },
+    "tamkeen": {
+     "add": [
+      {
+       "uid": "v5802d793908f98b170c6",
+       "text": "قلم",
+       "meaning": "pen",
+       "translation": "",
+       "sentence": "هذا قلم جديد",
+       "notes": "a loose line",
+       "deleted": 0,
+       "created_at": 1700000000.001,
+       "updated_at": 1800000000.0,
+       "note": 1700000000001
+      }
+     ],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "v5802d793908f98b170c6": {
+      "note": 1700000000001,
+      "tf": "pen",
+      "tb": "<b>قلم</b><br>هذا [قلم] جديد<br>Note: a loose line",
+      "af": "pen",
+      "ab": "قلم<br>هذا قلم جديد<br>a loose line"
+     },
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 1,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "hand-made card the other way round",
+   "words": [],
+   "notes": [
+    {
+     "id": 1700000000002,
+     "guid": "Hx7$b",
+     "mod": 1500,
+     "tags": [],
+     "front": "<div>قلم</div>",
+     "back": "pen",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": [
+      {
+       "note": 1700000000002,
+       "add": [
+        "tamkeen-id::vf803e07ff5f96def0397"
+       ]
+      }
+     ]
+    },
+    "tamkeen": {
+     "add": [
+      {
+       "uid": "vf803e07ff5f96def0397",
+       "text": "قلم",
+       "meaning": "pen",
+       "translation": "",
+       "sentence": "",
+       "notes": "",
+       "deleted": 0,
+       "created_at": 1700000000.002,
+       "updated_at": 1800000000.0,
+       "note": 1700000000002
+      }
+     ],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vf803e07ff5f96def0397": {
+      "note": 1700000000002,
+      "tf": "pen",
+      "tb": "<b>قلم</b>",
+      "af": "<div>قلم</div>",
+      "ab": "pen"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 1,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "hand-made card with only a front",
+   "words": [],
+   "notes": [
+    {
+     "id": 30,
+     "guid": "Hx7$c",
+     "mod": 1500,
+     "tags": [],
+     "front": "قلم",
+     "back": "",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": [
+      {
+       "note": 30,
+       "add": [
+        "tamkeen-id::vd7c4430f08f7f82c26ec"
+       ]
+      }
+     ]
+    },
+    "tamkeen": {
+     "add": [
+      {
+       "uid": "vd7c4430f08f7f82c26ec",
+       "text": "قلم",
+       "meaning": "",
+       "translation": "",
+       "sentence": "",
+       "notes": "",
+       "deleted": 0,
+       "created_at": 1800000000.0,
+       "updated_at": 1800000000.0,
+       "note": 30
+      }
+     ],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vd7c4430f08f7f82c26ec": {
+      "note": 30,
+      "tf": "قلم",
+      "tb": "<b>قلم</b>",
+      "af": "قلم",
+      "ab": ""
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 1,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "hand-made card already a word elsewhere",
+   "words": [
+    {
+     "uid": "v5802d793908f98b170c6",
+     "text": "قلم",
+     "meaning": "pen",
+     "notes": "changed since",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 9000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 1700000000001,
+     "guid": "Hx7$a",
+     "mod": 1500,
+     "tags": [],
+     "front": "pen",
+     "back": "قلم<br>هذا قلم جديد<br>a loose line",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": [
+      {
+       "note": 1700000000001,
+       "add": [
+        "tamkeen-id::v5802d793908f98b170c6"
+       ]
+      }
+     ]
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "v5802d793908f98b170c6": {
+      "note": 1700000000001,
+      "tf": "pen",
+      "tb": "<b>قلم</b><br>Note: changed since",
+      "af": "pen",
+      "ab": "قلم<br>هذا قلم جديد<br>a loose line"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "two words, one hand-made card",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 5.0,
+     "updated_at": 2000.0
+    },
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 4.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 20,
+     "guid": "Hx7$a",
+     "mod": 1500,
+     "tags": [],
+     "front": "book",
+     "back": "كتاب",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+       "front": "book",
+       "back": "<b>كتاب</b>",
+       "tags": [
+        "tamkeen",
+        "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+       ]
+      }
+     ],
+     "update": [],
+     "delete": [],
+     "tag": [
+      {
+       "note": 20,
+       "add": [
+        "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+       ]
+      }
+     ]
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vbbbbbbbbbbbbbbbbbbbb": {
+      "note": 20,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "book",
+      "ab": "كتاب"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 1,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "empty note is skipped",
+   "words": [],
+   "notes": [
+    {
+     "id": 20,
+     "guid": "Hx7$a",
+     "mod": 1500,
+     "tags": [],
+     "front": "",
+     "back": "",
+     "reps": 0,
+     "progress": null
+    },
+    {
+     "id": 21,
+     "guid": "hand21",
+     "mod": 1500,
+     "tags": [],
+     "front": null,
+     "back": null,
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {},
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 2,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "meaning edited in tamkeen",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "a book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [
+      {
+       "note": 10,
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "front": "a book"
+      }
+     ],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "notes edited in tamkeen",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "my remark",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [
+      {
+       "note": 10,
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "back": "<b>كتاب</b><br>Note: my remark"
+      }
+     ],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "write not yet done is sent again",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "a book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [
+      {
+       "note": 10,
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "front": "a book"
+      }
+     ],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "write seen to have worked",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "a book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 6000,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "a book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "a book",
+      "af": "a book",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "meaning edited in anki",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 6000,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "volume",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "set": {
+        "meaning": "volume"
+       }
+      }
+     ],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "volume",
+      "af": "volume",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "notes edited in anki",
+   "words": [
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "مُرْتَبِكَة",
+     "meaning": "confused",
+     "notes": "Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.",
+     "translation": "The girl was ⟦confused⟧ by the question.",
+     "sentence": "كانت البنت مرتبكة من السؤال.",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vbbbbbbbbbbbbbbbbbbbb",
+     "mod": 6000,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+     ],
+     "front": "The girl was [confused] by the question.",
+     "back": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common.<br>Heard twice",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vbbbbbbbbbbbbbbbbbbbb": {
+     "note": 10,
+     "tf": "The girl was [confused] by the question.",
+     "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+     "af": "The girl was [confused] by the question.",
+     "ab": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech."
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [
+      {
+       "uid": "vbbbbbbbbbbbbbbbbbbbb",
+       "set": {
+        "notes": "adjective · Dictionary form: اِرْتَبَكَ · Root: ر ب ك · Common. · Heard twice"
+       }
+      }
+     ],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vbbbbbbbbbbbbbbbbbbbb": {
+      "note": 10,
+      "tf": "The girl was [confused] by the question.",
+      "af": "The girl was [confused] by the question.",
+      "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common.<br>Heard twice",
+      "ab": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common.<br>Heard twice"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "sentence front edited in anki",
+   "words": [
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "مُرْتَبِكَة",
+     "meaning": "confused",
+     "notes": "Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.",
+     "translation": "The girl was ⟦confused⟧ by the question.",
+     "sentence": "كانت البنت مرتبكة من السؤال.",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vbbbbbbbbbbbbbbbbbbbb",
+     "mod": 6000,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+     ],
+     "front": "She was [puzzled] by it.",
+     "back": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vbbbbbbbbbbbbbbbbbbbb": {
+     "note": 10,
+     "tf": "The girl was [confused] by the question.",
+     "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+     "af": "The girl was [confused] by the question.",
+     "ab": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech."
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [
+      {
+       "uid": "vbbbbbbbbbbbbbbbbbbbb",
+       "set": {
+        "translation": "She was ⟦puzzled⟧ by it."
+       }
+      }
+     ],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vbbbbbbbbbbbbbbbbbbbb": {
+      "note": 10,
+      "tf": "She was [puzzled] by it.",
+      "af": "She was [puzzled] by it.",
+      "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+      "ab": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech."
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "sentence front replaced by a meaning",
+   "words": [
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "مُرْتَبِكَة",
+     "meaning": "confused",
+     "notes": "Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.",
+     "translation": "The girl was ⟦confused⟧ by the question.",
+     "sentence": "كانت البنت مرتبكة من السؤال.",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vbbbbbbbbbbbbbbbbbbbb",
+     "mod": 6000,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+     ],
+     "front": "puzzled",
+     "back": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vbbbbbbbbbbbbbbbbbbbb": {
+     "note": 10,
+     "tf": "The girl was [confused] by the question.",
+     "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+     "af": "The girl was [confused] by the question.",
+     "ab": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech."
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [
+      {
+       "uid": "vbbbbbbbbbbbbbbbbbbbb",
+       "set": {
+        "meaning": "puzzled",
+        "translation": ""
+       }
+      }
+     ],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vbbbbbbbbbbbbbbbbbbbb": {
+      "note": 10,
+      "tf": "puzzled",
+      "af": "puzzled",
+      "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+      "ab": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech."
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "own notes edited in anki",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0,
+     "memo": "old"
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 6000,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b><br>Note: n<br>Note: mine<br>second",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "set": {
+        "notes": "n",
+        "memo": "mine\nsecond"
+       }
+      }
+     ],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>كتاب</b><br>Note: n",
+      "ab": "<b>كتاب</b><br>Note: n<br>Note: mine<br>second"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "both edited, anki newer",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "a book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 6000,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "volume",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "set": {
+        "meaning": "volume"
+       }
+      }
+     ],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "volume",
+      "af": "volume",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "both edited, tamkeen newer",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "a book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 4000,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "volume",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [
+      {
+       "note": 10,
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "front": "a book"
+      }
+     ],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "front edited there, back edited here",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "my remark",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 4000,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "volume",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [
+      {
+       "note": 10,
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "back": "<b>كتاب</b><br>Note: my remark"
+      }
+     ],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "set": {
+        "meaning": "volume"
+       }
+      }
+     ],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "volume",
+      "af": "volume",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 1,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "word and sentence edited in anki stay as tamkeen has them",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 6000,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتب</b><br>new sentence",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتب</b><br>new sentence"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "deleted in tamkeen, not yet agreed",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 1,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "book",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [
+     "vaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "deleted in tamkeen, agreed",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 1,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": true,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [
+      {
+       "note": 10,
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "why": "word"
+      }
+     ],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {},
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 1
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "deleted in tamkeen, card edited later",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 1,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 6000,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "volume",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": true,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "set": {
+        "meaning": "volume"
+       }
+      }
+     ],
+     "remove": [],
+     "restore": [
+      "vaaaaaaaaaaaaaaaaaaaa"
+     ]
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "volume",
+      "af": "volume",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 2,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "deleted in tamkeen, card already gone",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 1,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": true,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {},
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "deleted in anki, recorded",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {
+     "10": 3000.0
+    },
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [
+      "vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "restore": []
+    },
+    "links": {},
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 1
+     }
+    }
+   }
+  },
+  {
+   "name": "deleted in anki, recorded without a time",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {
+     "10": 0
+    },
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [
+      "vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "restore": []
+    },
+    "links": {},
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 1
+     }
+    }
+   }
+  },
+  {
+   "name": "deleted in anki, word edited later",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "a book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 5000.0
+    }
+   ],
+   "notes": [],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {
+     "10": 3000.0
+    },
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+       "front": "a book",
+       "back": "<b>كتاب</b>",
+       "tags": [
+        "tamkeen",
+        "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+       ]
+      }
+     ],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {},
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 1,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "recorded deletion of an unlinked note",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {
+     "10": 3000.0
+    },
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+       "front": "book",
+       "back": "<b>كتاب</b>",
+       "tags": [
+        "tamkeen",
+        "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+       ]
+      }
+     ],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {},
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 1,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "card missing without a record",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    },
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "مُرْتَبِكَة",
+     "meaning": "confused",
+     "notes": "Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.",
+     "translation": "The girl was ⟦confused⟧ by the question.",
+     "sentence": "كانت البنت مرتبكة من السؤال.",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 11,
+     "guid": "tk-vbbbbbbbbbbbbbbbbbbbb",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+     ],
+     "front": "The girl was [confused] by the question.",
+     "back": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    },
+    "vbbbbbbbbbbbbbbbbbbbb": {
+     "note": 11,
+     "tf": "The girl was [confused] by the question.",
+     "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+     "af": "The girl was [confused] by the question.",
+     "ab": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech."
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "book",
+      "ab": "<b>كتاب</b>"
+     },
+     "vbbbbbbbbbbbbbbbbbbbb": {
+      "note": 11,
+      "tf": "The girl was [confused] by the question.",
+      "af": "The girl was [confused] by the question.",
+      "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+      "ab": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech."
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [
+     "vaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "whole deck missing",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    },
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "مُرْتَبِكَة",
+     "meaning": "confused",
+     "notes": "Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.",
+     "translation": "The girl was ⟦confused⟧ by the question.",
+     "sentence": "كانت البنت مرتبكة من السؤال.",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    },
+    "vbbbbbbbbbbbbbbbbbbbb": {
+     "note": 11,
+     "tf": "The girl was [confused] by the question.",
+     "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+     "af": "The girl was [confused] by the question.",
+     "ab": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech."
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": true,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "book",
+      "ab": "<b>كتاب</b>"
+     },
+     "vbbbbbbbbbbbbbbbbbbbb": {
+      "note": 11,
+      "tf": "The girl was [confused] by the question.",
+      "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+      "af": "The girl was [confused] by the question.",
+      "ab": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech."
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [
+     "vaaaaaaaaaaaaaaaaaaaa",
+     "vbbbbbbbbbbbbbbbbbbbb"
+    ],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "fresh anki is filled",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    },
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "مُرْتَبِكَة",
+     "meaning": "confused",
+     "notes": "Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.",
+     "translation": "The girl was ⟦confused⟧ by the question.",
+     "sentence": "كانت البنت مرتبكة من السؤال.",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    },
+    {
+     "uid": "vcccccccccccccccccccc",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 1,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": true,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+       "front": "book",
+       "back": "<b>كتاب</b>",
+       "tags": [
+        "tamkeen",
+        "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+       ]
+      },
+      {
+       "uid": "vbbbbbbbbbbbbbbbbbbbb",
+       "guid": "tk-vbbbbbbbbbbbbbbbbbbbb",
+       "front": "The girl was [confused] by the question.",
+       "back": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+       "tags": [
+        "tamkeen",
+        "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+       ]
+      }
+     ],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {},
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 2,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "fresh tamkeen is filled",
+   "words": [],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": {
+      "state": "review"
+     }
+    },
+    {
+     "id": 11,
+     "guid": "tk-vbbbbbbbbbbbbbbbbbbbb",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+     ],
+     "front": "The girl was [confused] by the question.",
+     "back": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+     "reps": 0,
+     "progress": null
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": true,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "text": "كتاب",
+       "meaning": "book",
+       "translation": "",
+       "sentence": "",
+       "notes": "",
+       "deleted": 0,
+       "created_at": 1800000000.0,
+       "updated_at": 1800000000.0,
+       "note": 10
+      },
+      {
+       "uid": "vbbbbbbbbbbbbbbbbbbbb",
+       "text": "مُرْتَبِكَة",
+       "meaning": "confused",
+       "translation": "The girl was ⟦confused⟧ by the question.",
+       "sentence": "كانت البنت مرتبكة من السؤال.",
+       "notes": "adjective · Dictionary form: اِرْتَبَكَ · Root: ر ب ك · Common in everyday speech.",
+       "deleted": 0,
+       "created_at": 1800000000.0,
+       "updated_at": 1800000000.0,
+       "note": 11
+      }
+     ],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "book",
+      "ab": "<b>كتاب</b>"
+     },
+     "vbbbbbbbbbbbbbbbbbbbb": {
+      "note": 11,
+      "tf": "The girl was [confused] by the question.",
+      "tb": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.",
+      "af": "The girl was [confused] by the question.",
+      "ab": "<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من السؤال.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech."
+     }
+    },
+    "progress": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "state": "review"
+     }
+    },
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 2,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "card moved out of the deck",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    },
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "مُرْتَبِكَة",
+     "meaning": "confused",
+     "notes": "Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.",
+     "translation": "The girl was ⟦confused⟧ by the question.",
+     "sentence": "كانت البنت مرتبكة من السؤال.",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [
+     "vaaaaaaaaaaaaaaaaaaaa",
+     "vbbbbbbbbbbbbbbbbbbbb"
+    ],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "tb": "<b>كتاب</b>",
+      "af": "book",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [
+     "vaaaaaaaaaaaaaaaaaaaa",
+     "vbbbbbbbbbbbbbbbbbbbb"
+    ],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "progress is copied",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+     ],
+     "front": "book",
+     "back": "<b>كتاب</b>",
+     "reps": 0,
+     "progress": {
+      "state": "review",
+      "due_days": 3,
+      "interval": 12,
+      "reps": 9,
+      "lapses": 2,
+      "right": 7,
+      "wrong": 2,
+      "history": "1101"
+     }
+    }
+   ],
+   "links": {
+    "vaaaaaaaaaaaaaaaaaaaa": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>كتاب</b>",
+     "af": "book",
+     "ab": "<b>كتاب</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>كتاب</b>",
+      "ab": "<b>كتاب</b>"
+     }
+    },
+    "progress": {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "state": "review",
+      "due_days": 3,
+      "interval": 12,
+      "reps": 9,
+      "lapses": 2,
+      "right": 7,
+      "wrong": 2,
+      "history": "1101"
+     }
+    },
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  }
+ ],
+ "parse": [
+  {
+   "front": "book",
+   "back": "<b>كتاب</b><br>هذا [كتاب] جميل<br><i>(noun • Root: ك ت ب)</i><br>Note: a remark<br>another",
+   "card": {
+    "front": "book",
+    "translation": "",
+    "meaning": "book",
+    "text": "كتاب",
+    "sentence": "هذا كتاب جميل",
+    "grammar": "noun • Root: ك ت ب",
+    "notes": [
+     "a remark",
+     "another"
+    ],
+    "memo": []
+   },
+   "word": {
+    "text": "كتاب",
+    "meaning": "book",
+    "translation": "",
+    "sentence": "هذا كتاب جميل",
+    "notes": "noun · Root: ك ت ب · a remark · another"
+   }
+  },
+  {
+   "front": "The girl (Sara) was [confused] by the &lt;question&gt;.",
+   "back": "<b>مُرْتَبِكَة</b>",
+   "card": {
+    "front": "The girl (Sara) was [confused] by the <question>.",
+    "translation": "The girl (Sara) was ⟦confused⟧ by the <question>.",
+    "meaning": "confused",
+    "text": "مُرْتَبِكَة",
+    "sentence": "",
+    "grammar": "",
+    "notes": [],
+    "memo": []
+   },
+   "word": {
+    "text": "مُرْتَبِكَة",
+    "meaning": "confused",
+    "translation": "The girl (Sara) was ⟦confused⟧ by the <question>.",
+    "sentence": "",
+    "notes": ""
+   }
+  },
+  {
+   "front": "<div>two</div><div>lines</div>",
+   "back": "<div>قلم</div><div>هذا قلم</div><div>Note: one</div><div>Note: mine</div>",
+   "card": {
+    "front": "two\nlines",
+    "translation": "",
+    "meaning": "two\nlines",
+    "text": "قلم",
+    "sentence": "هذا قلم",
+    "grammar": "",
+    "notes": [
+     "one"
+    ],
+    "memo": [
+     "mine"
+    ]
+   },
+   "word": {
+    "text": "قلم",
+    "meaning": "two\nlines",
+    "translation": "",
+    "sentence": "هذا قلم",
+    "notes": "one"
+   }
+  },
+  {
+   "front": "a &amp; b&nbsp;&#x27;c&#39; &#128512; &bogus; [sound:x.mp3]",
+   "back": "word<br/>[sound:tk-v1-w.mp3]<br />sentence<br><i>not grammar</i><br>NOTE:<br>later",
+   "card": {
+    "front": "a & b 'c' 😀 &bogus;",
+    "translation": "",
+    "meaning": "a & b 'c' 😀 &bogus;",
+    "text": "word",
+    "sentence": "sentence",
+    "grammar": "",
+    "notes": [
+     "not grammar",
+     "later"
+    ],
+    "memo": []
+   },
+   "word": {
+    "text": "word",
+    "meaning": "a & b 'c' 😀 &bogus;",
+    "translation": "",
+    "sentence": "sentence",
+    "notes": "not grammar · later"
+   }
+  },
+  {
+   "front": "",
+   "back": "",
+   "card": {
+    "front": "",
+    "translation": "",
+    "meaning": "",
+    "text": "",
+    "sentence": "",
+    "grammar": "",
+    "notes": [],
+    "memo": []
+   },
+   "word": null
+  },
+  {
+   "front": "<style>.a{}</style>x<script>1<2</script>",
+   "back": "<p>w</p><ul><li>one</li><li>two</li></ul>",
+   "card": {
+    "front": "x",
+    "translation": "",
+    "meaning": "x",
+    "text": "w",
+    "sentence": "one",
+    "grammar": "",
+    "notes": [
+     "two"
+    ],
+    "memo": []
+   },
+   "word": {
+    "text": "w",
+    "meaning": "x",
+    "translation": "",
+    "sentence": "one",
+    "notes": "two"
+   }
+  },
+  {
+   "front": "[a] and [b]",
+   "back": "w<br><i>(verb)</i><br>loose",
+   "card": {
+    "front": "[a] and [b]",
+    "translation": "⟦a⟧ and ⟦b⟧",
+    "meaning": "a, b",
+    "text": "w",
+    "sentence": "",
+    "grammar": "verb",
+    "notes": [
+     "loose"
+    ],
+    "memo": []
+   },
+   "word": {
+    "text": "w",
+    "meaning": "a, b",
+    "translation": "⟦a⟧ and ⟦b⟧",
+    "sentence": "",
+    "notes": "verb · loose"
+   }
+  }
+ ],
+ "uids": [
+  [
+   "Hx7$a",
+   "v5802d793908f98b170c6"
+  ],
+  [
+   "b",
+   "v9808481a74b27a2f2f5b"
+  ],
+  [
+   "",
+   "v77172dff13ce30fe4a21"
+  ],
+  [
+   "tk-v123",
+   "v9b659f02ff3bf9af7248"
+  ],
+  [
+   "ß→字",
+   "ve4933e5705a126e9ac91"
+  ],
+  [
+   "NBpR,!w~8(",
+   "v8f4b4e8361cfd3c9b9f7"
+  ]
+ ],
+ "progress": [
+  [
+   [
+    0,
+    0,
+    5,
+    0,
+    0,
+    0
+   ],
+   {
+    "state": "new",
+    "due_days": null,
+    "interval": 0,
+    "reps": 0,
+    "lapses": 0,
+    "right": 0,
+    "wrong": 0,
+    "history": null
+   }
+  ],
+  [
+   [
+    2,
+    2,
+    -3,
+    40,
+    12,
+    3
+   ],
+   {
+    "state": "review",
+    "due_days": -3,
+    "interval": 40,
+    "reps": 12,
+    "lapses": 3,
+    "right": 9,
+    "wrong": 3,
+    "history": null
+   }
+  ],
+  [
+   [
+    2,
+    -1,
+    4,
+    40,
+    12,
+    3
+   ],
+   {
+    "state": "suspended",
+    "due_days": null,
+    "interval": 40,
+    "reps": 12,
+    "lapses": 3,
+    "right": 9,
+    "wrong": 3,
+    "history": null
+   }
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    0,
+    2,
+    0
+   ],
+   {
+    "state": "learning",
+    "due_days": 0,
+    "interval": 0,
+    "reps": 2,
+    "lapses": 0,
+    "right": 2,
+    "wrong": 0,
+    "history": null
+   }
+  ],
+  [
+   [
+    3,
+    3,
+    1,
+    9,
+    20,
+    5
+   ],
+   {
+    "state": "relearning",
+    "due_days": 1,
+    "interval": 9,
+    "reps": 20,
+    "lapses": 5,
+    "right": 15,
+    "wrong": 5,
+    "history": null
+   }
+  ],
+  [
+   [
+    2,
+    2,
+    7,
+    21,
+    10,
+    1,
+    8,
+    2,
+    "1111011111"
+   ],
+   {
+    "state": "review",
+    "due_days": 7,
+    "interval": 21,
+    "reps": 10,
+    "lapses": 1,
+    "right": 8,
+    "wrong": 2,
+    "history": "1111011111"
+   }
+  ],
+  [
+   [
+    2,
+    2,
+    7,
+    21,
+    1,
+    4
+   ],
+   {
+    "state": "review",
+    "due_days": 7,
+    "interval": 21,
+    "reps": 1,
+    "lapses": 4,
+    "right": 0,
+    "wrong": 4,
+    "history": null
+   }
+  ]
+ ]
+}

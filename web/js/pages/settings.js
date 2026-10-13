@@ -7,6 +7,7 @@ import { sttSetup } from "../components/sttsetup.js";
 import { STT_PROVIDERS, sttConfig } from "../stt.js";
 import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
+import { ankiSyncPanel } from "../components/ankisync.js";
 import { languagePicker } from "../components/langpicker.js";
 import { dictionariesRow } from "../lexicon/seen.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
@@ -55,14 +56,19 @@ export async function render(view) {
     </section>
 
     <section class="card stack">
-      <h2>Anki companion (optional)</h2>
-      <p class="small muted">If you study with Anki on this computer, a small add-on can tell Tamkeen how your reviews are going,
-        so they count toward your creature: clearing what is due is the day's goal (whatever the number of cards), and cards
-        that become mature earn a bonus. Only numbers are sent, to Tamkeen on this computer: never your cards.</p>
+      <h2>Anki (optional)</h2>
+      <div id="anki-sync" class="stack"></div>
+      <h3 style="margin:8px 0 0">The Anki add-on</h3>
+      <p class="small muted">If you study with Anki on this computer, a small add-on connects it to Tamkeen. It tells Tamkeen how your
+        reviews are going, so they count toward your creature: clearing what is due is the day's goal (whatever the number of cards),
+        and cards that become mature earn a bonus. For that, only numbers are sent. With the switch above on, it also keeps that one
+        deck and your saved words in step. Everything stays on this computer. If you installed the add-on before the sync existed,
+        download and install it again.</p>
       <ol class="small">
         <li>Press the button below and save the file.</li>
         <li>Double-click the saved file. Anki opens and asks to install it; say yes, then restart Anki.</li>
-        <li>Review as usual with Tamkeen open. In Anki, <em>Tools → Tamkeen companion…</em> shows whether it is connected.</li>
+        <li>Review as usual with Tamkeen open. In Anki, <em>Tools → Tamkeen companion…</em> shows whether it is connected,
+          and <em>Tools → Sync Tamkeen now</em> syncs the deck at once.</li>
       </ol>
       <div class="row"><button type="button" id="anki-get">Download the Anki add-on</button><span class="small muted" id="anki-status"></span></div>
     </section>
@@ -217,6 +223,7 @@ export async function render(view) {
   };
   paintAnki();
   cleanups.push(on("anki", paintAnki));
+  cleanups.push(ankiSyncPanel($("#anki-sync")));
 
   $("#delete-after").onchange = (e) => saveSettings({ delete_audio_after: e.target.checked });
   $("#stream").onchange = (e) => saveSettings({ stream_from_source: e.target.checked });

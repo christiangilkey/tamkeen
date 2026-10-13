@@ -21,6 +21,7 @@ import { chosenCountry, youtubeHome } from "./youtube-home.js";
 import { addUploadedVideo, checkFeeds, handle } from "./backend.js";
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
+import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
 import { accessToken, drive } from "./drive.js";
 import { App, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
@@ -468,6 +469,15 @@ function exportDeck(url) {
   });
 }
 
+/** Where a new AnkiDroid card's audio comes from: the same answer as `audioFor` in exportDeck above.
+ * (Written out a second time so that function stays as it was; the two can become one later.) */
+async function wordAudio(v) {
+  if (v.clip) return { key: clipKey(v.uid), load: () => storedClip(v.uid) };
+  const ep = lib.episodes.find((e) => e.uid === v.episode_uid);
+  if (!ep || !ep.remote_audio || (ep.audio_url || "").startsWith("drive:")) return null;
+  return { key: ep.uid, load: () => audioCopy(ep.uid) };
+}
+
 /** Save bytes as a file the share sheet can hand to another app. Written in pieces: the bridge
  * to Android takes text, and one very long text would be slow. */
 async function writeBytes(filename, bytes) {
@@ -645,6 +655,7 @@ async function boot() {
     emit("sync", s);
     if (s.state !== "idle") return;
     emit("feeds", { synced: true });
+    requestAnkiSync(4000);  // words that just arrived from the computer get their AnkiDroid cards
     const done = lib.episodes.filter((e) => e.transcript_rev);
     const fresh = done.filter((e) => !lastDone.has(e.uid));
     if (fresh.length) toast(fresh.length === 1 ? `New transcript: ${fresh[0].title}` : `${fresh.length} new transcripts`);
@@ -659,10 +670,16 @@ async function boot() {
   }).catch((e) => console.warn(e));
   syncNow().then(lookForEpisodes, lookForEpisodes);
   setInterval(() => syncNow(), 5 * 60 * 1000);
+  // The two-way sync with the Tamkeen deck in AnkiDroid (off until switched on in Settings):
+  // on start, on return to the app, and every 10 minutes while open.
+  onAnki((data) => emit("anki", data));
+  anki.setSource({ asset: (path) => fetch(path), audioFor: wordAudio });
+  requestAnkiSync(8000);
+  setInterval(() => requestAnkiSync(0), 10 * 60 * 1000);
   // Sign-in tokens last an hour: keep the video streamer's copy fresh during long videos.
   setInterval(refreshMediaToken, 40 * 60 * 1000);
   if (App) {
-    App.addListener("resume", () => syncNow().then(lookForEpisodes, lookForEpisodes));
+    App.addListener("resume", () => { syncNow().then(lookForEpisodes, lookForEpisodes); requestAnkiSync(3000); });
     App.addListener("backButton", () => {
       if (location.hash && location.hash !== "#/") history.back();
       else App.exitApp();

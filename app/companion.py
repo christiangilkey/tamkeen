@@ -47,7 +47,7 @@ def addon_zip() -> bytes:
     source = paths.web_dir() / "anki-addon"
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
-        for name in ("__init__.py", "core.py", "manifest.json"):
+        for name in ("__init__.py", "core.py", "syncer.py", "manifest.json"):
             z.write(source / name, name)
         z.writestr("tamkeen.json", json.dumps({"data_dir": str(paths.data_dir())}))
         z.writestr("user_files/README.txt", "Your daily totals are kept here between Anki sessions.\n")
