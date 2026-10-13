@@ -208,6 +208,18 @@ async function readFeed(feed, seen = null) {
   return fresh.length;
 }
 
+/** Remove an episode for good. It stays in the library marked deleted: that mark is what tells
+ * the other devices (the computer then frees the Drive space) and what stops a podcast's feed
+ * from bringing the episode back the next time it is read. */
+async function removeEpisode(uid) {
+  const e = episodeOf(uid);
+  if (!e) return false;
+  Object.assign(e, { deleted: 1, transcribe_requested_at: null, updated_at: now() });
+  await transcripts.delete(e.uid).catch(() => {});
+  await audio.delete(e.uid).catch(() => {});
+  return true;
+}
+
 let checking = null;
 /**
  * Look at the podcasts' feeds for new episodes. Normally each podcast is looked at no more than
@@ -433,16 +445,15 @@ const routes = [
     return episodeOut(e);
   }],
   ["DELETE", /^\/episodes\/([\w]+)$/, async (m) => {
-    const e = episodeOf(m[1]);
-    if (!e) return { ok: true };
-    const f = feedOf(e.feed_uid);
-    if (!f || !f.url.startsWith("local:")) throw new ApiError("Podcast episodes can't be deleted; remove the podcast instead.");
-    // A tombstone: every device removes it, and the computer frees the Drive space.
-    Object.assign(e, { deleted: 1, transcribe_requested_at: null, updated_at: now() });
-    await transcripts.delete(e.uid).catch(() => {});
-    await audio.delete(e.uid).catch(() => {});
-    changed();
+    if (await removeEpisode(m[1])) changed();
     return { ok: true };
+  }],
+  // The Library's "Delete selected": podcast episodes too.
+  ["POST", /^\/episodes\/delete$/, async (m, q, body) => {
+    let n = 0;
+    for (const id of body.ids || []) if (await removeEpisode(id)) n++;
+    if (n) changed();
+    return { deleted: n };
   }],
   ["GET", /^\/episodes\/([\w]+)$/, (m) => {
     const e = episodeOf(m[1]);

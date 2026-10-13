@@ -137,6 +137,7 @@ export async function render(view, { feedId: routeFeed, query }) {
         <div class="toolbar">
           <label class="switch"><input type="checkbox" id="select-all"> Select all</label>
           <button type="button" id="transcribe-selected" class="primary" disabled>Transcribe selected</button>
+          <button type="button" id="delete-selected" class="ghost danger" hidden title="Remove the ticked episodes from your Library for good, on every device">Delete selected</button>
           <button type="button" id="watch-selected" class="primary" hidden>Watch these reels</button>
           <span class="spacer"></span>
           <input type="search" id="title-filter" placeholder="Filter by title" style="width:200px">
@@ -474,6 +475,9 @@ export async function render(view, { feedId: routeFeed, query }) {
     const b = $("#transcribe-selected");
     b.disabled = selected.size === 0;
     b.textContent = selected.size ? `Transcribe selected (${selected.size})` : "Transcribe selected";
+    const d = $("#delete-selected");
+    d.hidden = selected.size === 0;
+    d.textContent = `Delete selected (${selected.size})`;
     // Reels are never transcribed from here (they arrive with their words): ticking them is for
     // watching just those, so the button for that appears instead, once any are ticked.
     const reels = reelsShowing();
@@ -565,6 +569,28 @@ export async function render(view, { feedId: routeFeed, query }) {
     $("#select-all").checked = false;
     listEl.querySelectorAll(".sel").forEach((cb) => (cb.checked = false));
     updateSelection();
+  };
+  $("#delete-selected").onclick = async (e) => {
+    const n = selected.size;
+    if (!n) return;
+    const what = n === 1 ? "this episode" : `these ${n} episodes`;
+    if (!confirm(`Delete ${what}?\n\nThis removes ${n === 1 ? "it" : "them"} from your Library on every device, together with `
+      + `the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. `
+      + `Saved vocab is kept.\n\nThis can't be undone.`)) return;
+    e.target.disabled = true;
+    try {
+      const r = await api("/episodes/delete", { method: "POST", body: { ids: [...selected] } });
+      toast(r.deleted === 1 ? "Deleted 1 episode." : `Deleted ${r.deleted} episodes.`);
+      selected.clear();
+      $("#select-all").checked = false;
+      updateSelection();
+      await loadFeeds();
+      await loadEpisodes();
+    } catch (err) {
+      toast(err.message, { error: true });
+    } finally {
+      e.target.disabled = false;
+    }
   };
   $("#watch-selected").onclick = () => {
     // In the order they are listed here (not the order they were ticked in).

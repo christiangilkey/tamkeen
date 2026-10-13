@@ -137,17 +137,41 @@ def import_page(body: PageIn) -> dict[str, Any]:
     return ep
 
 
-@router.delete("/episodes/{episode_id}")
-def delete_episode(episode_id: int) -> dict[str, bool]:
-    ep = _episode(episode_id)
-    if not videos.is_local_feed(ep["feed_url"]):
-        raise HTTPException(400, "Podcast episodes can't be deleted; remove the podcast instead.")
+def _remove_episode(episode_id: int) -> None:
+    """Remove an episode for good: its audio, transcript and place in the Library. The row stays
+    behind marked deleted, which is what carries the removal to the other devices and stops a
+    podcast's feed from bringing the episode back the next time it is read."""
     jobs.cancel(episode_id)
     with db.session() as conn:
         videos.delete_episode_files(conn, episode_id)
-        conn.execute("UPDATE episodes SET deleted = 1 WHERE id = ?", (episode_id,))
-    sync.request()  # spreads the deletion and removes the video from Drive
+        conn.execute("UPDATE episodes SET deleted = 1, transcribe_requested_at = NULL WHERE id = ?", (episode_id,))
+
+
+@router.delete("/episodes/{episode_id}")
+def delete_episode(episode_id: int) -> dict[str, bool]:
+    _episode(episode_id)  # 404 if it isn't there
+    _remove_episode(episode_id)
+    sync.request()  # spreads the deletion and removes the files from Drive
     return {"ok": True}
+
+
+class DeleteIn(BaseModel):
+    ids: list[int]
+
+
+@router.post("/episodes/delete")
+def delete_episodes(body: DeleteIn) -> dict[str, int]:
+    """Remove several episodes at once (the Library's "Delete selected"). Podcast episodes too."""
+    with db.session() as conn:
+        marks = ",".join("?" * len(body.ids))
+        found = [r["id"] for r in conn.execute(
+            f"SELECT id FROM episodes WHERE deleted = 0 AND id IN ({marks})", body.ids)] if body.ids else []
+    for episode_id in found:
+        _remove_episode(episode_id)
+    if found:
+        events.publish("feeds", {"refreshed": True})
+        sync.request()
+    return {"deleted": len(found)}
 
 
 @router.post("/episodes/{episode_id}/cancel")
