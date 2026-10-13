@@ -414,12 +414,20 @@ async function renderPlayer(view, { query }) {
         <div class="reel-pop" id="reel-pop"><p class="small muted reel-hint" id="reel-hint">Tap a word to see what it means.</p></div>
       </div>
       <div class="reel-controls" id="reel-controls">
-        <button type="button" id="rc-back" title="Back 5 seconds">⟲ 5s</button>
-        <button type="button" id="rc-play" class="play primary" title="Play / pause">▶</button>
-        <button type="button" id="rc-fwd" title="Forward 5 seconds">5s ⟳</button>
-        <span class="t" id="rc-cur">0:00</span>
-        <input type="range" id="rc-seek" min="0" max="1" step="0.1" value="0" aria-label="Where in the reel">
-        <span class="t" id="rc-dur">0:00</span>
+        <div class="rc-seekrow">
+          <span class="t" id="rc-cur">0:00</span>
+          <input type="range" id="rc-seek" min="0" max="1" step="0.1" value="0" aria-label="Where in the reel">
+          <span class="t" id="rc-dur">0:00</span>
+        </div>
+        <div class="rc-btnrow">
+          <span class="rc-side" id="rc-left"></span>
+          <span class="rc-mid">
+            <button type="button" id="rc-back" title="Back 5 seconds">⟲ 5s</button>
+            <button type="button" id="rc-play" class="play primary" title="Play / pause">▶</button>
+            <button type="button" id="rc-fwd" title="Forward 5 seconds">5s ⟳</button>
+          </span>
+          <span class="rc-side" id="rc-right"></span>
+        </div>
       </div>
     </div>`));
   const $ = (sel) => view.querySelector(sel);
@@ -470,9 +478,9 @@ async function renderPlayer(view, { query }) {
     },
   });
   // Quick or detailed lookup: with the reel's own controls where there are any (the phone), in
-  // its compact form because that row is full; in the top line on the computer, which has no
-  // controls row.
-  if (surface) $("#reel-controls").append(lookupToggle({ compact: true }));
+  // its compact form at the left end of the buttons row; in the top line on the computer, which
+  // has no controls row.
+  if (surface) $("#rc-left").append(lookupToggle({ compact: true }));
   else $("#reel-prev").before(lookupToggle());
   // The popup lives in the right half of the bar; the hint shows whenever it is closed.
   const hint = $("#reel-hint");
@@ -486,7 +494,7 @@ async function renderPlayer(view, { query }) {
   // The last control is the switch the other player has in its popup: after a tapped word has
   // played, pause there or keep playing (one choice for the whole app). Flipping it while a popup
   // is open acts straight away, as a pause / play button would.
-  $("#reel-controls").append(pauseSwitch((pause) => {
+  $("#rc-right").append(pauseSwitch((pause) => {
     clipEnd = null;
     if (!surface || !last || !bubble.open) return;
     if (pause && !last.paused) surface.do("pause");
