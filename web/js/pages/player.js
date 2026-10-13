@@ -20,6 +20,7 @@ import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
 import { channelOf, followChannel, importVideo, isFollowing, isYouTube, noteWatched, videoId as youTubeId } from "../youtube.js";
 import { createYouTubeMedia } from "../ytmedia.js";
+import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 
@@ -399,6 +400,12 @@ export async function render(view, { id, query }) {
   };
   $("#seek").addEventListener("input", (e) => { seeking = true; $("#cur").textContent = formatTime(Number(e.target.value)); });
   $("#seek").addEventListener("change", (e) => { seeking = false; seekTo(Number(e.target.value), false); });
+
+  // ---------- send to a friend: the paper airplane (components/sendmedia.js) ----------
+  // First in the banner's row of buttons, for every kind of thing this player plays. It sends
+  // what is playing and the moment it has reached; the user's own files can't be sent, and the
+  // button says so.
+  $(".player-head > .row").prepend(sendButton(() => mediaFromEpisode(ep, { at: audio.currentTime || 0 })));
 
   // ---------- follow this video's channel (YouTube) ----------
   // An outline while not followed, filled once followed; a small "Following" bubble shows for a
