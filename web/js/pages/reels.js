@@ -124,7 +124,9 @@ async function renderList(view) {
       watch.textContent = seen.has(String(first.id)) ? "▶ Watch again from the start" : reels.some((ep) => seen.has(String(ep.id))) ? "▶ Carry on watching" : "▶ Watch";
     }
     if (!reels.length) {
-      list.append(h(`<div class="empty">${phone
+      list.append(h(`<div class="empty">${phone && info && info.available
+        ? "No reels yet. Choose one of your Instagram collections above and tick the reels you want."
+        : phone
         ? "No reels yet. They are found on your computer: open Tamkeen there, go to Library → Reels and press “Get 10 reels”. They arrive here the next time both sync."
         : "No reels yet. Choose which reels you want above and press “Get 10 reels”."}</div>`));
       return;
@@ -152,18 +154,20 @@ async function renderList(view) {
     if (!info) return;
     if (!info.available) {
       box.append(h(`<p class="card small muted">${phone
-        ? "New reels are found and transcribed by Tamkeen on your computer, then sync to this phone."
+        ? `New reels are found and transcribed by Tamkeen on your computer, then sync to this phone. To pick reels from your Instagram
+           saves right here instead, turn on <a href="#/settings">Cloud transcription in Settings</a>.`
         : "Getting reels works in the installed Tamkeen app on your computer (it needs its own Instagram window)."}</p>`));
       return;
     }
     const st = info.status || {};
     const busy = !!st.running;
     const chosen = new Set(info.selected);
+    const modes = MODES.filter(([key]) => !info.modes || info.modes.includes(key));
     const card = h(`<div class="card reel-getcard">
-      <strong>Which reels?</strong>
-      <div class="reel-modes">${MODES.map(([key, label, hint]) => `<label class="reel-mode" title="${esc(hint)}">
+      <strong>${modes.length > 1 ? "Which reels?" : "Reels from my Instagram saves"}</strong>
+      <div class="reel-modes" ${modes.length > 1 ? "" : "hidden"}>${modes.map(([key, label, hint]) => `<label class="reel-mode" title="${esc(hint)}">
         <input type="radio" name="reel-mode" value="${key}" ${info.mode === key ? "checked" : ""}> <span>${esc(label(info.language_name))}</span></label>`).join("")}</div>
-      <div class="reel-creators">
+      <div class="reel-creators" ${modes.some(([key]) => key === "mine" || key === "mix") ? "" : "hidden"}>
         <details class="reel-drop" id="reel-drop">
           <summary><strong>My creators</strong> <span class="muted">${info.mine.length ? `${chosen.size} of ${info.mine.length} chosen` : "none yet"}</span></summary>
           <div class="reel-droplist" id="reel-mine"></div>
@@ -182,6 +186,7 @@ async function renderList(view) {
         <button type="button" class="primary" id="reel-go" ${busy ? "disabled" : ""} ${info.mode === "saved" ? "hidden" : ""}>${busy ? "Getting reels…" : "Get 10 reels"}</button>
         <button type="button" class="primary" id="reel-send" ${info.mode === "saved" ? "" : "hidden"} disabled></button>
         <button type="button" class="ghost" id="reel-stop" ${busy ? "" : "hidden"}>Stop</button>
+        <button type="button" class="primary" id="reel-signin" ${st.needs_signin && !busy ? "" : "hidden"}>Sign in to Instagram</button>
         <span class="small muted" id="reel-status"></span>
       </div>
       <div class="reel-log" id="reel-log"></div>
@@ -222,6 +227,8 @@ async function renderList(view) {
       catch (e) { toast(e.message, { error: true }); }
     };
     q("#reel-stop").onclick = () => api("/reels/cancel", { method: "POST" }).catch(() => {});
+    // On the phone the sign-in is made in Tamkeen's own browser, which shares it with the reel window.
+    q("#reel-signin").onclick = () => openBrowser("https://www.instagram.com/accounts/login/").catch((e) => toast(e.message, { error: true }));
     q("#reel-status").textContent = st.state && st.state !== "idle" ? st.message || "" : "";
     const log = q("#reel-log");
     for (const item of (st.log || []).slice().reverse()) {
@@ -267,7 +274,7 @@ async function renderList(view) {
     const name = saved.collection === "all" ? "everything you've saved" : ((info.collections || []).find((c) => c.id === saved.collection) || {}).name;
     if (!saved.at || !name) {
       box.append(h(`<p class="small muted hint">Press a collection above. Tamkeen looks at it on Instagram and lists its reels here, for you to tick the ones you want.</p>`));
-      send.textContent = "Send the ticked reels to my phone";
+      send.textContent = info.phone ? "Get the ticked reels" : "Send the ticked reels to my phone";
       return;
     }
     const unusable = (p) => p.have || p.video === false || !!p.skipped;
@@ -280,14 +287,16 @@ async function renderList(view) {
     const list = h(`<div class="reel-picks"></div>`);
     const paint = () => {
       send.disabled = busy || !picked.size;
-      send.textContent = busy ? "Working…" : picked.size ? `Send ${picked.size} reel${picked.size === 1 ? "" : "s"} to my phone` : "Send the ticked reels to my phone";
+      const n = `${picked.size} reel${picked.size === 1 ? "" : "s"}`;
+      send.textContent = busy ? "Working…" : info.phone ? (picked.size ? `Get ${n}` : "Get the ticked reels")
+        : picked.size ? `Send ${n} to my phone` : "Send the ticked reels to my phone";
       head.querySelector("#reel-all").checked = usable.length > 0 && picked.size === usable.length;
     };
     for (const p of saved.posts) {
       const off = unusable(p);
       const row = h(`<label class="reel-pickrow${off ? " off" : ""}">
         <input type="checkbox" ${picked.has(p.code) ? "checked" : ""} ${off || busy ? "disabled" : ""}>
-        ${p.thumb ? `<img src="/api/reels/thumb?u=${encodeURIComponent(p.thumb)}" alt="" loading="lazy">` : `<span class="ph">${icon("video", 20)}</span>`}
+        ${p.thumb ? `<img src="${p.thumb.startsWith("data:image/") ? esc(p.thumb) : `/api/reels/thumb?u=${encodeURIComponent(p.thumb)}`}" alt="" loading="lazy">` : `<span class="ph">${icon("video", 20)}</span>`}
         <span class="txt"><span class="who">${p.user ? `@${esc(p.user)}` : "Instagram reel"}${p.seconds ? ` · ${p.seconds < 60 ? `${p.seconds} s` : fmtDuration(p.seconds)}` : ""}</span>
           <span class="cap" dir="auto"></span></span>
         <span class="tag small muted">${p.have ? "Already in your reels" : p.video === false ? "Not a video" : p.skipped ? `Can't be used: ${esc(p.skipped)}` : ""}</span>
@@ -302,7 +311,8 @@ async function renderList(view) {
     box.append(h(`<p class="small muted hint">Your own saves are never skipped for their language, so reels that mix ${esc(info.language_name)} with
       English are kept too. A reel is only left out if it has no words at all; the list below says which. Some reels (mostly ones with a
       song from Instagram's music library) only play for people signed in to Instagram: those are kept too, and play on your phone once
-      you have signed in to Instagram there.</p>`));
+      you have signed in to Instagram there.${info.phone ? ` Each reel's video is sent once to your cloud transcription provider, which writes
+      down its words; a fraction of a cent a reel.` : ""}</p>`));
     head.querySelector("#reel-all").onchange = (e) => {
       picked.clear();
       if (e.target.checked) for (const p of usable) picked.add(p.code);

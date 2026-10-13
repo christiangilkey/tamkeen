@@ -18,7 +18,7 @@ from ..version import APP_NAME, GITHUB_REPO, __version__
 router = APIRouter(tags=["system"])
 
 ALLOWED_SETTINGS = {"model_size", "delete_audio_after", "stream_from_source", "theme", "font_size",
-                    "welcome_seen", "beam_size", *db.DEFAULT_SETTINGS.keys()}
+                    "welcome_seen", "beam_size", *db.DEFAULT_SETTINGS.keys()} - {"stt_usage"}
 
 
 @router.get("/events")
@@ -40,7 +40,9 @@ def status() -> dict[str, Any]:
         "ffmpeg_message": ffmpeg_msg,
         "settings": settings,
         "hardware": hw.to_dict(),
-        "model_ready": bool(size) and models_manager.is_installed(size),
+        # Ready to transcribe: a model on this computer, or a cloud provider set up to do it instead.
+        "model_ready": (bool(size) and models_manager.is_installed(size)) or transcriber.cloud.config(settings) is not None,
+        "local_model_ready": bool(size) and models_manager.is_installed(size),
         "data_dir": str(paths.data_dir()),
         "desktop": os.environ.get("APS_DESKTOP") == "1",
     }
@@ -61,9 +63,33 @@ def patch_settings(values: dict[str, Any]) -> dict[str, Any]:
     result = db.set_settings(clean)
     if "game_state" in clean:
         sync.request(90)  # the creature reaches the user's other devices once they stop studying
-    if "model_size" in clean or "beam_size" in clean:
+    if "model_size" in clean or "beam_size" in clean or any(k.startswith("stt_") for k in clean):
         transcriber.unload()
     return result
+
+
+class SttTestIn(BaseModel):
+    provider: str
+    key: str = ""
+    model: str = ""
+
+
+@router.post("/stt/test")
+def stt_test(body: SttTestIn) -> dict[str, Any]:
+    """Try a cloud transcription key by sending one second of silence with it."""
+    key = body.key.strip()
+    if not key and body.provider == "openai":  # the key entered for word definitions works here too
+        key = str(db.get_setting("llm_key_openai") or "")
+    try:
+        return {"ok": True, "seconds": round(transcriber.cloud.test(body.provider, key, body.model), 2)}
+    except transcriber.cloud.CloudError as exc:
+        return {"ok": False, "message": str(exc), "key_rejected": exc.key_rejected}
+
+
+@router.get("/stt/usage")
+def stt_usage() -> dict[str, Any]:
+    """Audio sent to the cloud provider today from this computer."""
+    return transcriber.cloud.usage()
 
 
 @router.get("/hardware")

@@ -1,8 +1,10 @@
 // Settings: model, GPU, audio storage, appearance, data backup, updates.
 
-import { api, esc, h, on, toast, download, loadStatus, saveSettings, fmtBytes } from "../app.js";
+import { api, esc, h, on, toast, download, loadStatus, saveSettings, fmtBytes, state } from "../app.js";
 import { modelManager, gpuPanel } from "../components/models.js";
 import { aiSetup } from "../components/aisetup.js";
+import { sttSetup } from "../components/sttsetup.js";
+import { STT_PROVIDERS, sttConfig } from "../stt.js";
 import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { languagePicker } from "../components/langpicker.js";
@@ -29,8 +31,11 @@ export async function render(view) {
         Things you already transcribed keep the language they were made in.</p>
     </section>
 
+    <section class="card" id="stt"></section>
+
     <section class="card">
       <h2>Transcription model</h2>
+      <p class="small" id="model-unused" hidden></p>
       <dl class="kv small" style="margin-bottom:10px">
         <dt>Engine</dt><dd>${esc(engineLabel)}</dd>
         <dt>Hardware</dt><dd>${esc(hw.cpu)} · ${hw.cpu_cores} threads · ${hw.ram_gb} GB RAM${hw.nvidia_gpu ? ` · ${esc(hw.nvidia_gpu)}${hw.nvidia_vram_gb ? ` (${hw.nvidia_vram_gb} GB)` : ""}` : ""}</dd>
@@ -179,6 +184,26 @@ export async function render(view) {
     toast(`Now learning ${LANGUAGES[code].name}`);
     window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
   }), commonWordsButton(studyLanguage()), dictionariesRow(studyLanguage()));
+
+  // ----- cloud transcription -----
+  // While a cloud provider writes the transcripts, the model below isn't used: say so there.
+  const paintUnused = () => {
+    const cfg = sttConfig(state.status.settings);
+    $("#model-unused").hidden = !cfg.on;
+    $("#model-unused").textContent = cfg.on
+      ? `Not used at the moment: ${STT_PROVIDERS[cfg.provider].label} writes the transcripts (Cloud transcription, above). Nothing needs downloading here.` : "";
+  };
+  paintUnused();
+  cleanups.push(sttSetup($("#stt"), {
+    test: async (cfg) => {
+      const r = await api("/stt/test", { method: "POST", body: cfg });
+      if (!r.ok) throw Object.assign(new Error(r.message), { keyRejected: !!r.key_rejected });
+      return r.seconds;
+    },
+    usage: () => api("/stt/usage"),
+    onUsage: (fn) => on("stt", fn),
+    changed: async () => { await loadStatus(); paintUnused(); },
+  }));
 
   $("#anki-get").onclick = () => download("/api/anki/addon", "Tamkeen-Anki-Companion.ankiaddon");
   const paintAnki = async () => {

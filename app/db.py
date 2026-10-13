@@ -380,6 +380,15 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "llm_key_gemini": "",
     "llm_key_openai": "",
     "llm_key_grok": "",
+    # Cloud transcription (app/transcriber/cloud.py): "local" = this computer writes the transcripts,
+    # "cloud" = a speech-to-text provider does, with the user's own key. "" for a model = the recommended one.
+    "stt_mode": "local",
+    "stt_provider": "groq",
+    "stt_model_groq": "",
+    "stt_model_openai": "",
+    "stt_key_groq": "",
+    "stt_key_openai": "",
+    "stt_usage": None,              # audio sent to the provider today from this computer
     # Google Drive sync.
     "google_refresh_token": "",
     "google_email": "",
@@ -388,7 +397,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
 }
 
 # Settings that hold secrets: never exported in backups.
-SECRET_SETTINGS = ("llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok",
+SECRET_SETTINGS = ("llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok", "stt_key_groq", "stt_key_openai",
                    "google_refresh_token", "anki_token")
 
 

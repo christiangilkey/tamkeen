@@ -69,19 +69,20 @@ const PROBLEMS = [
   ["Is my key safe?", "Treat it like a password: don't share it or post it anywhere. Tamkeen keeps it only on this device and sends it only to the provider you chose."],
 ];
 
-/** Open the walkthrough on `provider` (one of PROVIDERS' names). */
-export function showKeyHelp(provider) {
+/** Open the walkthrough on `provider` (one of PROVIDERS' names). Another card with keys of its own
+ * (cloud transcription) passes its own `providers`, `guides` and what the key is `used` for. */
+export function showKeyHelp(provider, { providers = PROVIDERS, guides = KEY_GUIDES, used = "ask an AI service to explain words for you" } = {}) {
   const modal = openModal({ title: "How to get an API key", wide: true });
-  let current = KEY_GUIDES[provider] ? provider : "claude";
+  let current = guides[provider] ? provider : Object.keys(guides)[0];
 
   function paint() {
-    const info = PROVIDERS[current];
-    const g = KEY_GUIDES[current];
+    const info = providers[current];
+    const g = guides[current];
     modal.body.innerHTML = "";
     modal.body.append(h(`<div class="key-help stack">
-      <p class="small muted" style="margin:0">An API key is a kind of password that lets Tamkeen ask an AI service to explain words for you.
+      <p class="small muted" style="margin:0">An API key is a kind of password that lets Tamkeen ${esc(used)}.
         You get it from the service's own website; it takes a few minutes.</p>
-      <div class="key-tabs" role="tablist">${Object.entries(PROVIDERS).map(([k, p]) =>
+      <div class="key-tabs" role="tablist">${Object.entries(providers).filter(([k]) => guides[k]).map(([k, p]) =>
         `<button type="button" role="tab" data-p="${k}" aria-selected="${k === current}">${esc(p.short)}</button>`).join("")}</div>
       <ol class="key-steps">${g.steps.map(([what, how]) => `<li><strong>${what}</strong><div>${how}</div></li>`).join("")}</ol>
       <div class="row"><a class="btn primary big" href="${esc(info.keyUrl)}" target="_blank" rel="noopener">Open ${esc(g.site)} ↗</a></div>

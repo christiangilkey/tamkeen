@@ -2,6 +2,8 @@
 
 import { esc, h, on, toast, saveSettings } from "../app.js";
 import { aiSetup } from "../components/aisetup.js";
+import { sttSetup } from "../components/sttsetup.js";
+import { STT_EVENT, testKey, usageToday } from "../transcribe-service.js";
 import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { languagePicker } from "../components/langpicker.js";
@@ -30,14 +32,17 @@ export async function render(view) {
     <section class="card stack">
       <h2>Language I'm learning</h2>
       <div id="study-lang"></div>
-      <p class="small muted">Used for web pages you import here and for word explanations. Set the same one on your computer, which does the transcribing.
+      <p class="small muted">Used for web pages you import here, for word explanations and for anything transcribed from this phone. Set the same one on your computer.
         Things you already transcribed keep the language they were made in.</p>
     </section>
 
+    <section class="card" id="stt"></section>
+
     <section class="card stack">
       <h2>Google account</h2>
-      <p class="small muted">Your podcasts, transcripts and vocab come from your computer through a private app folder
-        in your own Google Drive. Transcription happens on your computer; tap "Transcribe" here and it will do it on its next sync.</p>
+      <p class="small muted">Your podcasts, transcripts and vocab are shared with your computer through a private app folder
+        in your own Google Drive. Unless a cloud provider is chosen above, transcription happens on your computer: tap "Transcribe"
+        here and it will do it on its next sync.</p>
       <div id="account"></div>
     </section>
 
@@ -97,6 +102,16 @@ export async function render(view) {
 
   // AI definitions
   const offAi = aiSetup($("#definer"), { transport });
+  // Cloud transcription
+  const offStt = sttSetup($("#stt"), {
+    test: testKey,
+    usage: () => usageToday(),
+    onUsage: (fn) => {
+      const hear = () => fn(usageToday());
+      window.addEventListener(STT_EVENT, hear);
+      return () => window.removeEventListener(STT_EVENT, hear);
+    },
+  });
   $("#study-lang").append(languagePicker(s.study_language, async (code) => {
     await saveSettings({ study_language: code });
     toast(`Now learning ${LANGUAGES[code].name}`);
@@ -113,5 +128,5 @@ export async function render(view) {
     $("#page-font-val").textContent = `${e.target.value}px`;
     saveSettings({ page_font_size: Number(e.target.value) });
   };
-  return () => { off(); offAi(); };
+  return () => { off(); offAi(); offStt(); };
 }

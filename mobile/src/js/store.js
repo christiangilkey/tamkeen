@@ -83,6 +83,8 @@ const DEFAULTS = {
   definer_language: "English",
   definer_model_claude: "", definer_model_gemini: "", definer_model_openai: "", definer_model_grok: "",
   llm_key_claude: "", llm_key_gemini: "", llm_key_openai: "", llm_key_grok: "",
+  // Cloud transcription (transcribe-service.js): "local" = the computer writes transcripts, "cloud" = a provider does, from this phone.
+  stt_mode: "local", stt_provider: "groq", stt_model_groq: "", stt_model_openai: "", stt_key_groq: "", stt_key_openai: "",
   google_email: "",
   signed_in: false,
   haptics: true,

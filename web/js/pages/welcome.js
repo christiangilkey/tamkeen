@@ -4,6 +4,7 @@
 import { api, esc, h, saveSettings, loadStatus, state } from "../app.js";
 import { modelManager, gpuPanel } from "../components/models.js";
 import { needsOnboarding, runOnboarding } from "../components/onboarding.js";
+import { sttSetup } from "../components/sttsetup.js";
 import { LANGUAGES, isLanguage, setLang } from "../languages.js";
 
 export async function render(view, { step }) {
@@ -63,9 +64,13 @@ export async function render(view, { step }) {
     </div>
     ${hw.gpu_pack_supported ? `<div class="card" style="margin-top:12px"><h2>GPU acceleration (optional)</h2><div id="gpu"></div></div>` : ""}
     <div class="card" style="margin-top:12px"><h2>Choose a model</h2><div id="models"></div></div>
+    <details class="card" style="margin-top:12px" id="cloud-instead">
+      <summary><strong>My computer is too slow for this</strong> <span class="small muted">Let a cloud provider write the transcripts instead (a few cents per hour of audio)</span></summary>
+      <section id="stt" style="margin-top:10px"></section>
+    </details>
     <div class="row" style="margin-top:16px">
       <span class="spacer"></span>
-      <span class="small muted" id="hint">Download a model to continue. You can keep using the app while it downloads.</span>
+      <span class="small muted" id="hint">Download a model to continue, or set up a cloud provider above. You can keep using the app while a model downloads.</span>
       <button class="primary" type="button" id="done" disabled>Start using the app →</button>
     </div>
   </div>`));
@@ -77,6 +82,15 @@ export async function render(view, { step }) {
   };
   const cleanups = [modelManager($("#models"), { hardware: hw, onChange: refresh })];
   if (hw.gpu_pack_supported) cleanups.push(gpuPanel($("#gpu"), hw));
+  cleanups.push(sttSetup($("#stt"), {
+    test: async (cfg) => {
+      const r = await api("/stt/test", { method: "POST", body: cfg });
+      if (!r.ok) throw Object.assign(new Error(r.message), { keyRejected: !!r.key_rejected });
+      return r.seconds;
+    },
+    usage: () => api("/stt/usage"),
+    changed: async () => { await loadStatus(); refresh(); },
+  }));
   $("#done").onclick = async () => {
     await saveSettings({ welcome_seen: true });
     location.hash = "#/";
