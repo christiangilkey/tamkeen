@@ -1112,6 +1112,20 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
   .model-btn .badge { display: none; } /* no room beside the price; the list still shows it */
 }
 
+/* "Cloud transcription" (components/sttsetup.js): the same card, with a choice of who writes the transcripts on top */
+.stt-card { border-color: var(--border); }
+.stt-card:has(.pill.done) { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+.stt-who { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 10px; }
+.stt-choice { display: flex; align-items: flex-start; gap: 8px; padding: 9px 12px; border: 1px solid var(--border); border-radius: 14px; cursor: pointer; }
+.stt-choice:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.stt-choice input { margin-top: 3px; }
+.stt-choice strong, .stt-choice .small { display: block; }
+#stt-model-other { margin-top: 4px; }
+.stt-limit { padding: 8px 12px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--brand-gold) 55%, var(--border)); background: color-mix(in srgb, var(--brand-gold) 10%, var(--surface)); }
+.stt-limit[hidden] { display: none; }
+.stt-card .ai-setup[hidden] { display: none; }
+@media (max-width: 640px) { .stt-who { grid-template-columns: minmax(0, 1fr); } }
+
 /* "I'm stuck": getting an API key, step by step (components/keyhelp.js) */
 .key-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
 .key-tabs button { border-radius: 99px; padding: 6px 14px; }

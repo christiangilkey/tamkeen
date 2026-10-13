@@ -151,7 +151,7 @@ def _clear_transcript(conn: Any, episode_id: int) -> None:
 # --- processing --------------------------------------------------------------------------------
 
 def _friendly_error(exc: BaseException) -> str:
-    if isinstance(exc, (transcriber.NoModelError, downloader.DownloadError, audio.AudioError)):
+    if isinstance(exc, (transcriber.NoModelError, transcriber.cloud.CloudError, downloader.DownloadError, audio.AudioError)):
         return str(exc)
     msg = str(exc) or exc.__class__.__name__
     if "out of memory" in msg.lower():

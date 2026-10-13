@@ -6,6 +6,7 @@ import logging
 import threading
 
 from .. import db, gpu_libs, hardware, models_manager
+from . import cloud
 from .base import Segment, Transcriber, TranscriptionCancelled, Word
 
 log = logging.getLogger(__name__)
@@ -24,9 +25,20 @@ class NoModelError(RuntimeError):
 def get(model_size: str | None = None) -> Transcriber:
     """Return a loaded transcriber for the configured model, (re)loading if settings changed."""
     global _current, _key
+    remote = None if model_size else cloud.config()
+    if remote is not None:
+        # A cloud provider writes the transcripts (Settings → Cloud transcription): no model on this computer is needed.
+        key = ("cloud", remote["provider"], remote["model"] + "\n" + remote["key"])
+        with _lock:
+            if _current is None or _key != key:
+                log.info("Transcribing with %s (%s)", remote["provider"], remote["model"])
+                _current = cloud.CloudTranscriber(remote["provider"], remote["key"], remote["model"])
+                _key = key
+            return _current
     size = model_size or db.get_setting("model_size")
     if not size:
-        raise NoModelError("No transcription model selected yet. Open Settings → Model to download one.")
+        raise NoModelError("No transcription model selected yet. Open Settings → Model to download one, "
+                           "or turn on cloud transcription there.")
     hw = hardware.detect()
     engine = hw.engine
     if not models_manager.is_installed(size, engine):

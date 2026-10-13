@@ -19,6 +19,8 @@ import { icon } from "./icons.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
 import { chosenCountry, youtubeHome } from "./youtube-home.js";
 import { addUploadedVideo, checkFeeds, handle } from "./backend.js";
+import { onJob } from "./transcribe-service.js";
+import { onReels } from "./reels-phone.js";
 import { accessToken, drive } from "./drive.js";
 import { App, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
@@ -423,8 +425,8 @@ export async function uploadVideo(file, onProgress) {
   files[driveName] = meta;
   await kv.set("drive_files", files);
   const title = file.name.replace(/\.[^.]+$/, "") || (audio ? "Audio" : "Video");
-  const ep = await addUploadedVideo({ uid, title, driveName, mime, duration, audio });
-  return { ...ep, note: "Your computer transcribes it the next time it syncs." };
+  const ep = await addUploadedVideo({ uid, title, driveName, mime, duration, audio, file });
+  return { ...ep, note: ep.here ? "It's being transcribed now." : "Your computer transcribes it the next time it syncs." };
 }
 
 // ---------- exports (share sheet) ----------
@@ -623,6 +625,19 @@ async function boot() {
   route();
   startBadge();
   setTimeout(checkForUpdate, 3000);
+
+  // Transcribing and reel picking done on this phone (cloud transcription) report the same
+  // way the computer's server does, so the shared screens follow along unchanged.
+  onJob((event) => {
+    emit("episode", event);
+    if (event.status === "done") { toast(`Transcript ready: ${event.title}`); emit("feeds", { refreshed: true }); }
+    else if (event.status === "failed") toast(`Couldn't transcribe “${event.title}”: ${event.error}`, { error: true });
+    else if (event.note) toast(event.note);
+  });
+  onReels((status) => {
+    emit("reels", status);
+    if (!status.running) emit("feeds", { refreshed: true });
+  });
 
   // Sync on start, when returning to the app, and every 5 minutes while open.
   let lastDone = new Set(lib.episodes.filter((e) => e.transcript_rev).map((e) => e.uid));

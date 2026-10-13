@@ -83,7 +83,7 @@ function emit(event, data) {
 }
 function connectEvents() {
   const es = new EventSource("/api/events");
-  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "reels"]) {
+  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "reels", "stt"]) {
     es.addEventListener(name, (e) => emit(name, JSON.parse(e.data)));
   }
   es.onopen = () => emit("reconnected", {});

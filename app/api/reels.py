@@ -9,7 +9,7 @@ from fastapi import APIRouter, HTTPException
 from fastapi.responses import Response
 from pydantic import BaseModel
 
-from .. import db, languages, reels, reels_worker
+from .. import db, languages, reels, reels_worker, transcriber
 
 router = APIRouter(prefix="/reels", tags=["reels"])
 
@@ -22,7 +22,7 @@ def _view() -> dict[str, Any]:
         "collections": [{"id": c["id"], "name": c["name"]} for c in state["collections"]], "collection": state["collection"],
         "popular": reels.popular_creators(state, lang)[:20],
         "language": lang, "language_name": languages.LANGUAGES.get(lang, lang),
-        "available": reels_worker.available(), "model_ready": bool(db.get_setting("model_size")),
+        "available": reels_worker.available(), "model_ready": bool(db.get_setting("model_size")) or transcriber.cloud.config() is not None,
         "status": reels_worker.status(),
     }
 

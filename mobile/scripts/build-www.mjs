@@ -60,6 +60,8 @@ const SHARED = [
   "js/components/keyhelp.js",
   "js/components/aisetup.js",
   "js/tokenuse.js",
+  "js/stt.js",
+  "js/components/sttsetup.js",
   "js/components/onboarding.js",
   "js/commonwords.js",
   "js/wordlists",

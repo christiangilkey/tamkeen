@@ -7,9 +7,12 @@ import { fetchTranscript, requestSync, syncNow, syncState } from "./sync.js";
 import { episodeUid, feedUid, findSpans, newUid, normalize, normalizeUrl } from "./shared-logic.js";
 import { settings } from "./store.js";
 import { detectLanguage, isLanguage } from "./languages.js";
+import { MAX_UPLOAD_BYTES } from "./stt.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
 import { NativeHttp, isNative } from "./native.js";
 import { newEpisodeRecords, parseFeed } from "./rss.js";
+import * as cloud from "./transcribe-service.js";
+import * as phoneReels from "./reels-phone.js";
 
 export class ApiError extends Error {}
 
@@ -238,8 +241,10 @@ export function checkFeeds({ force = false, only = null } = {}) {
   return checking;
 }
 
-/** Record a video or audio file this phone just uploaded to Drive; the computer transcribes it on its next sync. */
-export async function addUploadedVideo({ uid, title, driveName, mime, duration, audio = false }) {
+/** Record a video or audio file this phone just uploaded to Drive. The computer transcribes it on
+ * its next sync; with cloud transcription on, a file small enough to send (`file`) is transcribed
+ * from here straight away instead. */
+export async function addUploadedVideo({ uid, title, driveName, mime, duration, audio = false, file = null }) {
   const url = audio ? AUDIO_FEED_URL : LOCAL_FEED_URL;
   const fuid = await feedUid(url);
   const t = now();
@@ -256,10 +261,16 @@ export async function addUploadedVideo({ uid, title, driveName, mime, duration, 
                transcribe_requested_at: t, remote_audio: 1, deleted: 0, created_at: t, updated_at: t };
   lib.episodes.push(ep);
   changed();
-  return episodeOut(ep);
+  const here = !!file && cloud.cloudOn() && file.size <= MAX_UPLOAD_BYTES;
+  if (here) cloud.enqueue([uid], { [uid]: file });
+  return { ...episodeOut(ep), here };
 }
 
+/** Where an episode stands. While this phone is transcribing it (cloud transcription), that is
+ * what shows: queued, downloading, transcribing, or failed with the reason. */
 export function episodeStatus(e) {
+  const job = cloud.jobOf(e.uid);
+  if (job) return job.status;
   if (e.transcript_rev) return "done";
   if (e.transcribe_requested_at) return "queued";
   return "new";
@@ -273,8 +284,9 @@ function feedOut(f) {
 
 function episodeOut(e) {
   const f = feedOf(e.feed_uid) || {};
-  return { ...e, id: e.uid, feed_id: e.feed_uid, status: episodeStatus(e), progress: e.transcript_rev ? 100 : 0,
-           error: null, feed_title: f.title || "", feed_image: f.image || null, feed_url: f.url || "",
+  const job = cloud.jobOf(e.uid);
+  return { ...e, id: e.uid, feed_id: e.feed_uid, status: episodeStatus(e), progress: job ? job.progress : e.transcript_rev ? 100 : 0,
+           error: job ? job.error : null, feed_title: f.title || "", feed_image: f.image || null, feed_url: f.url || "",
            has_audio: !!e.remote_audio };
 }
 
@@ -366,7 +378,7 @@ const routes = [
     const counts = {};
     for (const e of eps) counts[episodeStatus(e)] = (counts[episodeStatus(e)] || 0) + 1;
     const status = q.get("status");
-    if (status === "active" || status === "failed") eps = [];
+    if (status === "active") eps = eps.filter((e) => ["downloading", "transcribing"].includes(episodeStatus(e)));
     else if (status) eps = eps.filter((e) => episodeStatus(e) === status);
     const title = (q.get("q") || "").toLowerCase();
     if (title) eps = eps.filter((e) => (e.title || "").toLowerCase().includes(title));
@@ -376,18 +388,15 @@ const routes = [
     return { total: eps.length, items: eps.slice(offset, offset + limit).map(episodeOut), counts, current: null };
   }],
   ["POST", /^\/episodes\/transcribe$/, (m, q, body) => {
-    const queued = [];
-    for (const id of body.ids || []) {
-      const e = episodeOf(id);
-      if (!e || e.transcript_rev) continue;
-      e.transcribe_requested_at = now();
-      e.updated_at = now();
-      queued.push(id);
-    }
-    if (queued.length) changed();
-    return { queued, note: "Your computer will transcribe these the next time it syncs." };
+    const wanted = (body.ids || []).filter((id) => { const e = episodeOf(id); return e && !e.transcript_rev; });
+    // With a cloud provider set up (Settings), the phone transcribes them itself, starting now.
+    if (cloud.cloudOn()) return { queued: cloud.enqueue(wanted), here: true };
+    for (const id of wanted) Object.assign(episodeOf(id), { transcribe_requested_at: now(), updated_at: now() });
+    if (wanted.length) changed();
+    return { queued: wanted, note: "Your computer will transcribe these the next time it syncs." };
   }],
   ["POST", /^\/episodes\/([\w]+)\/cancel$/, (m) => {
+    cloud.cancel(m[1]);
     const e = episodeOf(m[1]);
     if (e && e.transcribe_requested_at) { e.transcribe_requested_at = null; e.updated_at = now(); changed(); }
     return { ok: true };
@@ -405,8 +414,15 @@ const routes = [
   }],
   ["POST", /^\/pages$/, (m, q, body) => savePage(body)],
   ["POST", /^\/youtube$/, (m, q, body) => saveYouTube(body)],
-  // Reels are found and transcribed on the computer; the phone only watches them.
-  ["GET", /^\/reels$/, () => ({ available: false, status: { running: false, state: "idle", log: [] } })],
+  // Reels are normally found and transcribed on the computer and only watched here. With cloud
+  // transcription on, the phone can pick reels from the user's own Instagram saves (reels-phone.js).
+  ["GET", /^\/reels$/, () => phoneReels.reelsView()],
+  ["PUT", /^\/reels\/choices$/, (m, q, body) => phoneReels.setReelChoices(body)],
+  ["POST", /^\/reels\/collections$/, () => phoneReels.startCollections()],
+  ["GET", /^\/reels\/saved$/, () => phoneReels.reelsListing()],
+  ["POST", /^\/reels\/saved\/list$/, (m, q, body) => phoneReels.startListing(String(body.collection || "all"))],
+  ["POST", /^\/reels\/saved\/send$/, (m, q, body) => phoneReels.startSelected(body.codes)],
+  ["POST", /^\/reels\/cancel$/, () => { phoneReels.cancelReels(); return phoneReels.reelsStatus(); }],
   ["GET", /^\/youtube\/([\w-]{11})$/, async (m) => { // a video already here with its captions
     const fuid = await feedUid(YOUTUBE_FEED_URL);
     const e = liveEpisodes().find((x) => x.feed_uid === fuid && x.guid === m[1] && x.transcript_rev);

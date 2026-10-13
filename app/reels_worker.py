@@ -457,6 +457,8 @@ def _try_reel(window: Any, hook: str, cand: dict[str, Any], lang: str, engine: A
         path.unlink(missing_ok=True)
     if not seconds:
         seconds = len(samples) / audio.SAMPLE_RATE
+    if getattr(engine, "engine", "") == "cloud":
+        return _keep_heard_in_cloud(engine, samples, cand, lang, seconds, own_save, signin)
     detected, confidence, share = reels.spoken_language(engine, samples, lang)
     if reels.language_to_use(lang, detected, confidence, own_save, share) != lang:
         lang, share = str(detected), confidence  # a save in another language the app teaches: kept, in that language
@@ -470,6 +472,27 @@ def _try_reel(window: Any, hook: str, cand: dict[str, Any], lang: str, engine: A
     if reason:
         return False, reason
     ep = reels.save_reel(code, creator, cand.get("caption") or "", segments, lang,
+                         f"{engine.engine}:{engine.model_size}:{engine.device}", seconds, signin=signin)
+    return True, (f"{ep['words']} words" + ("" if lang == languages.study() else f", in {reels.language_name(lang)}")
+                  + (" (plays when signed in to Instagram on the phone)" if signin else ""))
+
+
+def _keep_heard_in_cloud(engine: Any, samples: Any, cand: dict[str, Any], lang: str, seconds: float,
+                         own_save: bool, signin: bool) -> tuple[bool, str]:
+    """The same judging when a cloud provider does the listening (Settings → Cloud transcription).
+    It is sent the reel once, without being told the language: it writes down what it hears and
+    says which language that was. (It can't judge the language stretch by stretch, so a reel that
+    mixes two languages comes out less well than with a model on this computer.)"""
+    detected, segments = engine.transcribe_detecting(samples, _cancel)
+    if own_save:
+        if detected and detected != lang and languages.valid(detected):
+            lang = detected  # a save in another language the app teaches: kept, in that language
+    elif detected and detected != lang:
+        return False, reels.verdict(lang, detected, 1.0, [], seconds, 0.0)
+    reason = reels.verdict(lang, detected, 1.0 if detected else 0.0, segments, seconds, 1.0 if detected == lang else 0.0, own_save)
+    if reason:
+        return False, reason
+    ep = reels.save_reel(cand["code"], cand["user"], cand.get("caption") or "", segments, lang,
                          f"{engine.engine}:{engine.model_size}:{engine.device}", seconds, signin=signin)
     return True, (f"{ep['words']} words" + ("" if lang == languages.study() else f", in {reels.language_name(lang)}")
                   + (" (plays when signed in to Instagram on the phone)" if signin else ""))
@@ -507,6 +530,8 @@ def _attempt(window: Any, hook: str, cand: dict[str, Any], lang: str, engine: An
         ok, outcome = _try_reel(window, hook, cand, lang, engine, own_save=own_save)
     except transcriber.TranscriptionCancelled:
         raise Stopped("Stopped.") from None
+    except transcriber.cloud.CloudError as exc:  # a refused key or a used-up allowance: the next reel would fail too
+        raise Stopped(str(exc)) from None
     except (reels.ReelError, httpx.HTTPError) as exc:
         ok, outcome = False, str(exc) or exc.__class__.__name__
     _note(cand.get("user") or "?", reels.title_for(cand.get("caption") or "", cand.get("user") or "?"), outcome, ok)

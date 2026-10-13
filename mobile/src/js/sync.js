@@ -3,7 +3,8 @@
 //   t_<episode>.json.gz   transcripts, downloaded for offline reading and search
 //   a_<episode>.ogg       audio copies, fetched when an episode is first played
 //   v_<episode>.<ext>     the user's own videos, streamed from Drive (DriveMediaWebViewClient.java)
-// The phone never transcribes; it can ask the desktop to (episode.transcribe_requested_at).
+// The phone asks the desktop to transcribe (episode.transcribe_requested_at), unless cloud
+// transcription is on: then it writes transcripts itself (transcribe-service.js) and uploads them here.
 
 import { drive, gunzipJson, gzipJson } from "./drive.js";
 import { audio, kv, lib, saveLibrary, settings, transcripts } from "./store.js";
@@ -172,7 +173,8 @@ async function doSync() {
   return syncState;
 }
 
-/** Upload the text of web pages imported on this phone (before the library mentions them). */
+/** Upload what this phone made itself (the text of imported web pages, captions, transcripts
+ * written through a cloud provider), before the library mentions them. */
 async function uploadPendingTranscripts(files) {
   const pending = (await kv.get("pending_transcripts")) || [];
   if (!pending.length) return;
