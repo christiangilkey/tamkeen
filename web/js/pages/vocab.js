@@ -24,6 +24,50 @@ function lsSet(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage unavailable */ }
 }
 
+/** What to do with the exported file, shown the first time someone exports for Anki.
+ * (Worked out when asked for, not when this file loads: app.js is still starting up then.) */
+function ankiSteps() {
+  return platform === "desktop"
+    ? { need: "You need the Anki app installed on this computer.", steps: [
+      "Save the file from Tamkeen.",
+      "In Anki, click <strong>Import File</strong> and choose it.",
+      "Make sure your deck is formatted the way you want the cards to appear in Anki."] }
+    : { need: "You need the AnkiDroid app installed on this phone.", steps: [
+      "Pick the <strong>Anki</strong> bubble in the row at the bottom. If it isn't there, tap <strong>More</strong>.",
+      "Tap the popup labelled <strong>AnkiDroid</strong>.",
+      "In AnkiDroid, make sure your deck is formatted the way you want the cards to appear."] };
+}
+
+/** Resolves true when the export should go ahead: at once after the first time, otherwise when
+ * the explanation has been read and accepted (false if it was closed instead). */
+function ankiHelp() {
+  if (lsGet("ankiHelpSeen", false)) return Promise.resolve(true);
+  const help = ankiSteps();
+  const dlg = h(`<dialog class="help-dialog">
+    <h2>Sending your words to Anki</h2>
+    <p>${help.need}</p>
+    <ol>${help.steps.map((s) => `<li>${s}</li>`).join("")}</ol>
+    <div class="help-actions">
+      <button type="button" class="ghost" data-go="">Cancel</button>
+      <button type="button" class="primary" data-go="1">Got it, export</button>
+    </div>
+  </dialog>`);
+  document.body.append(dlg);
+  return new Promise((resolve) => {
+    // Answered by the buttons themselves; "close" only covers the Esc / back key. (The browser
+    // sends "close" with its next screen repaint, which would be a needless wait here.)
+    const answer = (go) => {
+      if (!dlg.isConnected) return;
+      dlg.remove();
+      if (go) lsSet("ankiHelpSeen", true);
+      resolve(go);
+    };
+    for (const b of dlg.querySelectorAll("button")) b.onclick = () => answer(Boolean(b.dataset.go));
+    dlg.addEventListener("close", () => answer(false));
+    dlg.showModal();
+  });
+}
+
 function highlight(sentence, word) {
   const s = esc(sentence);
   const w = esc(word);
@@ -72,7 +116,7 @@ export async function render(view) {
       <span class="spacer"></span>
       <input type="search" id="q" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto" style="width:220px">
       <button type="button" id="csv" title="Export the words shown below">Export CSV</button>
-      <button type="button" id="anki" title="Export the words shown below">Export for Anki</button>
+      <button type="button" id="anki" title="The words shown below as an Anki deck file, with their audio">Export for Anki</button>
     </div>
     <div class="folder-bar" id="folders"></div>
     <div class="row vocab-filters">
@@ -103,8 +147,8 @@ export async function render(view) {
       </form>
     </details>
     <p class="small muted">Tip: in any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”. Tick words to file several into a folder at once. ${platform === "desktop"
-      ? "“Export for Anki” saves a deck file with each word's audio: open it and Anki adds the cards."
-      : "In Anki, use File → Import and pick the exported .txt file. Export on the computer to get the cards with audio."}</p>
+      ? "“Export for Anki” saves a deck file with each word's audio, for Anki's Import File button."
+      : "“Export for Anki” shares a deck file with each word's audio: pick the Anki bubble, then AnkiDroid."}</p>
     <div class="vocab-list" id="list"></div>
   </div>`));
   const $ = (s) => view.querySelector(s);
@@ -425,12 +469,12 @@ export async function render(view) {
     return `/api/vocab/export/${fmt}${ids.length === all.length && !st.q ? "" : `?ids=${encodeURIComponent(ids.join(","))}`}`;
   };
   $("#csv").onclick = () => download(exportUrl("csv"), "tamkeen-vocab.csv");
-  // The computer makes a deck file that carries the card layout and each word's audio; the phone,
-  // which can't cut audio clips, makes the same cards as a text file.
-  $("#anki").onclick = () => {
-    if (platform !== "desktop") return download(exportUrl("anki"), "tamkeen-vocab-anki.txt");
+  // "Export for Anki" is an Anki deck file (.apkg) on every device: the cards, their layout and
+  // each word's audio in one file that Anki and AnkiDroid import.
+  $("#anki").onclick = async () => {
+    if (!(await ankiHelp())) return;
     toast("Building the Anki deck with audio…", { timeout: 4000 });
-    return download(exportUrl("apkg"), "tamkeen-vocab.apkg");
+    download(exportUrl("apkg"), "tamkeen-vocab.apkg");
   };
   $("#add").onsubmit = async (e) => {
     e.preventDefault();

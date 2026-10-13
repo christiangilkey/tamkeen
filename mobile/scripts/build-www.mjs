@@ -15,6 +15,7 @@ const out = join(mobile, "www");
 const SHARED = [
   "css/app.css",
   "fonts",
+  "anki-card",
   "icons",
   "js/wordlookup.js",
   "js/languages.js",

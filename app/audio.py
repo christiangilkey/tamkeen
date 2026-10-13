@@ -97,8 +97,7 @@ def encode_speech_copy(src: Path, dst: Path, bitrate: int = 32_000) -> Path:
 
     tmp = dst.with_name(dst.name + ".part")
     try:
-        container, encoder, rate, layout = _CLIP_KINDS[kind]
-        with av.open(str(src)) as inp, av.open(str(tmp), "w", format=container) as out:
+        with av.open(str(src)) as inp, av.open(str(tmp), "w", format="ogg") as out:
             ins = next((s for s in inp.streams if s.type == "audio"), None)
             if ins is None:
                 raise AudioError("The file contains no audio stream.")

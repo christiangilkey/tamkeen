@@ -21,6 +21,7 @@ import { App, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from ".
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
 import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
+import { vocabDeck } from "./anki-export.js";
 
 export const platform = "android";
 
@@ -288,26 +289,61 @@ async function exportText(url) {
     return m[2] === "txt" ? toTxt(segs, t.episode.title) : m[2] === "srt" ? toSrt(segs) : toVtt(segs);
   }
   if ((m = url.match(/\/api\/vocab\/export\/(csv|anki)(?:\?ids=([^&]*))?$/))) {
-    let items = lib.vocab.filter((v) => !v.deleted).sort((a, b) => b.created_at - a.created_at);
-    if (m[2] !== undefined) {
-      // Exactly the words shown on the vocab screen, in that order.
-      const order = decodeURIComponent(m[2]).split(",");
-      items = order.map((uid) => items.find((v) => v.uid === uid)).filter(Boolean);
-    }
+    const items = vocabToExport(m[2]);
     return m[1] === "csv" ? vocabCsv(items) : vocabAnki(items);
   }
   throw new Error("Unknown export.");
 }
 
+/** The words an export covers: all of them, or exactly the ones shown on the vocab screen, in that order. */
+function vocabToExport(ids) {
+  const items = lib.vocab.filter((v) => !v.deleted).sort((a, b) => b.created_at - a.created_at);
+  if (ids === undefined) return items;
+  return decodeURIComponent(ids).split(",").map((uid) => items.find((v) => v.uid === uid)).filter(Boolean);
+}
+
+/** The Anki deck file (.apkg) for the vocab export, as bytes: cards, layout, font and audio. */
+function exportDeck(url) {
+  const m = url.match(/\/api\/vocab\/export\/apkg(?:\?ids=([^&]*))?$/);
+  return vocabDeck(vocabToExport(m[1]), {
+    asset: (path) => fetch(path),
+    // The audio a word's times refer to: its own clip (a word a friend shared), or the synced
+    // copy of its episode. Other episodes (streamed originals, videos, pages) give no audio.
+    audioFor: async (v) => {
+      if (v.clip) return { key: clipKey(v.uid), load: () => storedClip(v.uid) };
+      const ep = lib.episodes.find((e) => e.uid === v.episode_uid);
+      if (!ep || !ep.remote_audio || (ep.audio_url || "").startsWith("drive:")) return null;
+      return { key: ep.uid, load: () => audioCopy(ep.uid) };  // kept on the phone once played; else fetched from Drive
+    },
+  });
+}
+
+/** Save bytes as a file the share sheet can hand to another app. Written in pieces: the bridge
+ * to Android takes text, and one very long text would be slow. */
+async function writeBytes(filename, bytes) {
+  const STEP = 3 * 128 * 1024;
+  let uri = "";
+  for (let at = 0; at < bytes.length || at === 0; at += STEP) {
+    let text = "";
+    for (let i = at; i < Math.min(at + STEP, bytes.length); i += 0x8000) text += String.fromCharCode(...bytes.subarray(i, Math.min(i + 0x8000, at + STEP, bytes.length)));
+    const part = { path: filename, data: btoa(text), directory: "CACHE" };
+    if (at === 0) uri = (await Filesystem.writeFile(part)).uri;
+    else await Filesystem.appendFile(part);
+  }
+  return uri;
+}
+
 export async function download(url, filename) {
   try {
-    const text = await exportText(url);
+    const deck = /\/api\/vocab\/export\/apkg/.test(url);
+    const data = deck ? await exportDeck(url) : await exportText(url);
     if (isNative) {
-      const res = await Filesystem.writeFile({ path: filename, data: text, directory: "CACHE", encoding: "utf8" });
-      await Share.share({ title: filename, files: [res.uri] });
+      const uri = deck ? await writeBytes(filename, data)
+        : (await Filesystem.writeFile({ path: filename, data, directory: "CACHE", encoding: "utf8" })).uri;
+      await Share.share({ title: filename, files: [uri] });
     } else {
       const a = document.createElement("a");
-      a.href = URL.createObjectURL(new Blob([text], { type: "text/plain;charset=utf-8" }));
+      a.href = URL.createObjectURL(new Blob([data], { type: deck ? "application/octet-stream" : "text/plain;charset=utf-8" }));
       a.download = filename;
       a.click();
     }

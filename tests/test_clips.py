@@ -43,6 +43,14 @@ def test_cut_clip_takes_the_requested_part(tmp_path):
         audio.cut_clip(src, 50.0, 55.0, out)
 
 
+def test_sync_copy_is_made_for_real(tmp_path):
+    """The audio copy the phone plays. Other tests swap this function out, so run it once for real."""
+    src = make_wav(tmp_path / "ep.wav")
+    copy = audio.encode_speech_copy(src, tmp_path / "ep.sync.ogg")
+    assert copy.read_bytes()[:4] == b"OggS"
+    assert 11.9 <= audio.probe_duration(copy) <= 12.2
+
+
 @pytest.fixture()
 def client(fresh_db, tmp_path, monkeypatch):
     from fastapi.testclient import TestClient

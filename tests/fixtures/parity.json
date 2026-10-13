@@ -66,5 +66,391 @@
  "vtt": "WEBVTT\n\n00:00:00.000 --> 00:00:02.500\n‏مرحبا بكم\n\n00:00:02.500 --> 01:01:01.042\n‏في الحلقة\n",
  "txt": "T\n\nمرحبا بكم\nفي الحلقة\n",
  "anki": "#separator:tab\n#html:true\n#if matches:keep current\n#notetype:Tamkeen\n#deck:Tamkeen\n#guid column:1\n#tags column:4\n#columns:GUID\tFront\tBack\tTags\ntk-v1\tbook, &quot;tome&quot;\t<b>كتاب</b><br>هذا [كتاب] جميل<br>Note: n.\ttamkeen\ntk-v2\tThe girl (Sara) was [confused] by the &lt;question&gt;.\t<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من &lt;السؤال&gt;.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.<br>heard in ep. 3\ttamkeen\ntk-v3\tقلم\t<b>قلم</b><br>Note: my own note\ttamkeen\ntk-v4\there\t<b>هون</b><br>انتي جديدة [هون]؟\ttamkeen\ntk-v5\there\t<b>هون</b><br>انتي جديدة [هون]؟\ttamkeen\n",
- "csv": "﻿Word/Phrase,Meaning,Notes,Sentence,Episode,Start (s),End (s)\r\nكتاب,\"book, \"\"tome\"\"\",n.,هذا كتاب جميل,Ep,65.00,65.50\r\nمُرْتَبِكَة,confused,\"Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.\nheard in ep. 3\",كانت البنت مرتبكة من <السؤال>.,Ep,,\r\nقلم,,my own note,,,,\r\nهون,here,,انتي جديدة هون؟,,,\r\nهون,here,,انتي جديدة هون؟,,,\r\n"
+ "csv": "﻿Word/Phrase,Meaning,Notes,Sentence,Episode,Start (s),End (s)\r\nكتاب,\"book, \"\"tome\"\"\",n.,هذا كتاب جميل,Ep,65.00,65.50\r\nمُرْتَبِكَة,confused,\"Dictionary form: اِرْتَبَكَ · Root: ر ب ك · adjective · Common in everyday speech.\nheard in ep. 3\",كانت البنت مرتبكة من <السؤال>.,Ep,,\r\nقلم,,my own note,,,,\r\nهون,here,,انتي جديدة هون؟,,,\r\nهون,here,,انتي جديدة هون؟,,,\r\n",
+ "ankiDeck": {
+  "now": 1800000000,
+  "col": {
+   "numbers": [
+    1800000000,
+    1800000000000,
+    1800000000000,
+    11,
+    0,
+    0,
+    0
+   ],
+   "conf": {
+    "activeDecks": [
+     1
+    ],
+    "addToCur": true,
+    "collapseTime": 1200,
+    "curDeck": 1,
+    "curModel": "1791700000001",
+    "dueCounts": true,
+    "estTimes": true,
+    "newBury": true,
+    "newSpread": 0,
+    "nextPos": 1,
+    "sortBackwards": false,
+    "sortType": "noteFld",
+    "timeLim": 0
+   },
+   "models": {
+    "1791700000001": {
+     "id": 1791700000001,
+     "name": "Tamkeen",
+     "type": 0,
+     "mod": 1791700000,
+     "usn": -1,
+     "sortf": 0,
+     "did": 1791700000002,
+     "tmpls": [
+      {
+       "name": "Card 1",
+       "ord": 0,
+       "qfmt": "",
+       "afmt": "",
+       "did": null,
+       "bqfmt": "",
+       "bafmt": ""
+      }
+     ],
+     "flds": [
+      {
+       "name": "Front",
+       "ord": 0,
+       "sticky": false,
+       "rtl": false,
+       "font": "Arial",
+       "size": 20,
+       "media": []
+      },
+      {
+       "name": "Back",
+       "ord": 1,
+       "sticky": false,
+       "rtl": false,
+       "font": "Arial",
+       "size": 20,
+       "media": []
+      },
+      {
+       "name": "image",
+       "ord": 2,
+       "sticky": false,
+       "rtl": false,
+       "font": "Arial",
+       "size": 20,
+       "media": []
+      },
+      {
+       "name": "TTS Input",
+       "ord": 3,
+       "sticky": false,
+       "rtl": false,
+       "font": "Arial",
+       "size": 20,
+       "media": []
+      }
+     ],
+     "css": "",
+     "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+     "latexPost": "\\end{document}",
+     "latexsvg": false,
+     "req": [
+      [
+       0,
+       "any",
+       [
+        0
+       ]
+      ]
+     ],
+     "tags": [],
+     "vers": []
+    }
+   },
+   "decks": {
+    "1": {
+     "id": 1,
+     "name": "Default",
+     "mod": 1800000000,
+     "usn": -1,
+     "lrnToday": [
+      0,
+      0
+     ],
+     "revToday": [
+      0,
+      0
+     ],
+     "newToday": [
+      0,
+      0
+     ],
+     "timeToday": [
+      0,
+      0
+     ],
+     "collapsed": false,
+     "browserCollapsed": false,
+     "desc": "",
+     "dyn": 0,
+     "conf": 1,
+     "extendNew": 0,
+     "extendRev": 0
+    },
+    "1791700000002": {
+     "id": 1791700000002,
+     "name": "Tamkeen",
+     "mod": 1800000000,
+     "usn": -1,
+     "lrnToday": [
+      0,
+      0
+     ],
+     "revToday": [
+      0,
+      0
+     ],
+     "newToday": [
+      0,
+      0
+     ],
+     "timeToday": [
+      0,
+      0
+     ],
+     "collapsed": false,
+     "browserCollapsed": false,
+     "desc": "",
+     "dyn": 0,
+     "conf": 1,
+     "extendNew": 0,
+     "extendRev": 0
+    }
+   },
+   "dconf": {
+    "1": {
+     "id": 1,
+     "name": "Default",
+     "mod": 0,
+     "usn": 0,
+     "maxTaken": 60,
+     "autoplay": true,
+     "timer": 0,
+     "replayq": true,
+     "dyn": false,
+     "new": {
+      "bury": true,
+      "delays": [
+       1,
+       10
+      ],
+      "initialFactor": 2500,
+      "ints": [
+       1,
+       4,
+       7
+      ],
+      "order": 1,
+      "perDay": 20,
+      "separate": true
+     },
+     "lapse": {
+      "delays": [
+       10
+      ],
+      "leechAction": 0,
+      "leechFails": 8,
+      "minInt": 1,
+      "mult": 0
+     },
+     "rev": {
+      "bury": true,
+      "ease4": 1.3,
+      "fuzz": 0.05,
+      "ivlFct": 1,
+      "maxIvl": 36500,
+      "minSpace": 1,
+      "perDay": 100
+     }
+    }
+   },
+   "tags": "{}"
+  },
+  "notes": [
+   [
+    1800000000000,
+    "tk-v1",
+    1791700000001,
+    1800000000,
+    -1,
+    " tamkeen ",
+    "book, &quot;tome&quot;\u001f<b>كتاب</b><br>هذا [كتاب] جميل<br>Note: n.\u001f\u001f",
+    "book, \"tome\"",
+    1419579669,
+    0,
+    ""
+   ],
+   [
+    1800000000001,
+    "tk-v2",
+    1791700000001,
+    1800000000,
+    -1,
+    " tamkeen ",
+    "The girl (Sara) was [confused] by the &lt;question&gt;.\u001f<b>مُرْتَبِكَة</b><br>كانت البنت [مرتبكة] من &lt;السؤال&gt;.<br><i>(adjective • Dictionary form: اِرْتَبَكَ • Root: ر ب ك)</i><br>Note: Common in everyday speech.<br>heard in ep. 3\u001f\u001f",
+    "The girl (Sara) was [confused] by the <question>.",
+    3779418437,
+    0,
+    ""
+   ],
+   [
+    1800000000002,
+    "tk-v3",
+    1791700000001,
+    1800000000,
+    -1,
+    " tamkeen ",
+    "قلم\u001f<b>قلم</b><br>Note: my own note\u001f\u001f",
+    "قلم",
+    2027629056,
+    0,
+    ""
+   ],
+   [
+    1800000000003,
+    "tk-v4",
+    1791700000001,
+    1800000000,
+    -1,
+    " tamkeen ",
+    "here\u001f<b>هون</b><br>انتي جديدة [هون]؟\u001f\u001f",
+    "here",
+    22331610,
+    0,
+    ""
+   ],
+   [
+    1800000000004,
+    "tk-v5",
+    1791700000001,
+    1800000000,
+    -1,
+    " tamkeen ",
+    "here\u001f<b>هون</b><br>انتي جديدة [هون]؟\u001f\u001f",
+    "here",
+    22331610,
+    0,
+    ""
+   ]
+  ],
+  "cards": [
+   [
+    1800000000000,
+    1800000000000,
+    1791700000002,
+    0,
+    1800000000,
+    -1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    ""
+   ],
+   [
+    1800000000001,
+    1800000000001,
+    1791700000002,
+    0,
+    1800000000,
+    -1,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    ""
+   ],
+   [
+    1800000000002,
+    1800000000002,
+    1791700000002,
+    0,
+    1800000000,
+    -1,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    ""
+   ],
+   [
+    1800000000003,
+    1800000000003,
+    1791700000002,
+    0,
+    1800000000,
+    -1,
+    0,
+    0,
+    4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    ""
+   ],
+   [
+    1800000000004,
+    1800000000004,
+    1791700000002,
+    0,
+    1800000000,
+    -1,
+    0,
+    0,
+    5,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    ""
+   ]
+  ],
+  "media": {
+   "0": "_tamkeen-naskh.woff2"
+  }
+ }
 }
