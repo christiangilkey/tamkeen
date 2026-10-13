@@ -18,6 +18,19 @@ mkdir -p "$STAGE"
 cp -R "$APP" "$STAGE/"
 ln -s /Applications "$STAGE/Applications"
 cp README.md "$STAGE/Read Me.md" 2>/dev/null || true
-hdiutil create -volname "Tamkeen" -srcfolder "$STAGE" -ov -format UDZO "$OUT"
+# On build machines hdiutil now and then fails with "Resource busy" (something is still
+# scanning the freshly copied app). Trying again a few seconds later works.
+for attempt in 1 2 3 4 5 6; do
+  if hdiutil create -volname "Tamkeen" -srcfolder "$STAGE" -ov -format UDZO "$OUT"; then
+    break
+  fi
+  if [ "$attempt" = 6 ]; then
+    echo "hdiutil failed $attempt times; giving up." >&2
+    exit 1
+  fi
+  echo "hdiutil failed (attempt $attempt); trying again in 10 seconds..." >&2
+  rm -f "$OUT"
+  sleep 10
+done
 rm -rf "$STAGE"
 echo "Built $OUT"
