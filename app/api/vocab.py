@@ -361,7 +361,10 @@ def export_vocab(fmt: str, folder: str | None = None, ids: str | None = None) ->
     if fmt == "anki":
         return Response(exporters.vocab_to_anki(items), media_type="text/plain; charset=utf-8",
                         headers={"Content-Disposition": 'attachment; filename="tamkeen-vocab-anki.txt"'})
-    if fmt == "apkg":  # the deck file: the same cards with their layout and audio
-        return Response(anki_deck.build(items, _anki_clips(items)), media_type="application/octet-stream",
+    if fmt == "apkg":  # the deck file: the same cards with their layout, audio and learning progress
+        game = db.get_setting("game_state")
+        review = game.get("review") if isinstance(game, dict) else None
+        deck = anki_deck.build(items, _anki_clips(items), review=review if isinstance(review, dict) else None)
+        return Response(deck, media_type="application/octet-stream",
                         headers={"Content-Disposition": 'attachment; filename="tamkeen-vocab.apkg"'})
     raise HTTPException(400, "Format must be csv, anki or apkg.")

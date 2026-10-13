@@ -124,12 +124,30 @@ export function zip(files) {
   return out;
 }
 
+// ----- learning progress (the same rules as app/anki_deck.py, which explains them) -----
+const BOX_DAYS = [0, 1, 2, 4, 8, 16, 32];  // days until a word in box n comes round again
+const STARTING_EASE = 2500;
+
+/** Today as a count of local calendar days since 1970, the way the game's `dayNumber` counts. */
+export const dayNumber = (d) => Math.floor((d.getTime() - d.getTimezoneOffset() * 60000) / 86400000);
+
+/** Anki's [type, queue, due, interval, ease, reviews, lapses] for a word. `progress` is the game's
+ * record [box, day next due, times right, times wrong], or nothing for a word never reviewed. */
+export function cardSchedule(progress, today, position) {
+  const [box, dueDay, right, wrong] = Array.isArray(progress) && progress.length === 4 ? progress.map((x) => Math.trunc(Number(x))) : [0];
+  if (!(box >= 1) || [dueDay, right, wrong].some(Number.isNaN)) return [0, 0, position, 0, 0, 0, 0];
+  const interval = BOX_DAYS[Math.min(box, BOX_DAYS.length - 1)];
+  return [2, 2, Math.max(0, dueDay - today), interval, STARTING_EASE, Math.max(0, right) + Math.max(0, wrong), Math.max(0, wrong)];
+}
+
 /**
  * The .apkg for these words, as bytes.
  * `clips`: a word's audio by its uid, { word: bytes, sentence: bytes } (either or both, or none).
  * `layout`: { front, back, css } texts of the card layout. `font`: the Arabic font file's bytes.
+ * `review`: a word's learning progress by its uid (the game's `review` records); `today` is the
+ * day number they are measured from (worked out from `now` unless given).
  */
-export async function buildDeck(items, clips, layout, font, now = Date.now() / 1000) {
+export async function buildDeck(items, clips, layout, font, now = Date.now() / 1000, review = {}, today = dayNumber(new Date(now * 1000))) {
   const stamp = Math.floor(now), media = [[FONT_NAME, font]], notes = [], cards = [];
   for (const [n, v] of items.entries()) {
     const [front, back] = ankiFields(v), names = clipNames(v.uid), mine = clips[v.uid] || {};
@@ -142,7 +160,7 @@ export async function buildDeck(items, clips, layout, font, now = Date.now() / 1
     const saved = Math.floor(v.created_at || stamp), id = stamp * 1000 + n, sortText = plain(front);
     notes.push({ id, values: [null, `tk-${v.uid || ""}`, MODEL_ID, saved, -1, ` ${TAG} `,
       [front, back, "", sound].join("\x1f"), sortText, await checksum(sortText), 0, ""] });
-    cards.push({ id, values: [null, id, DECK_ID, 0, saved, -1, 0, 0, n + 1, 0, 0, 0, 0, 0, 0, 0, 0, ""] });
+    cards.push({ id, values: [null, id, DECK_ID, 0, saved, -1, ...cardSchedule((review || {})[v.uid], today, n + 1), 0, 0, 0, 0, ""] });
   }
   const [conf, models, decks, dconf] = collectionJson(layout, stamp).map((o) => JSON.stringify(o));
   const rows = { col: [{ id: 1, values: [null, stamp, stamp * 1000, stamp * 1000, 11, 0, 0, 0, conf, models, decks, dconf, "{}"] }],

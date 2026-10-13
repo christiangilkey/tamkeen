@@ -9,7 +9,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { cutOggOpus, oggOpusInfo, packetSamples } from "../../mobile/src/js/ogg-clip.js";
 import { sqliteFile } from "../../mobile/src/js/sqlite-file.js";
-import { DECK_ID, FONT_NAME, MODEL_ID, buildDeck, collectionJson, zip } from "../../mobile/src/js/anki-deck.js";
+import { DECK_ID, FONT_NAME, MODEL_ID, buildDeck, cardSchedule, collectionJson, dayNumber, zip } from "../../mobile/src/js/anki-deck.js";
 import { clipRanges, vocabDeck } from "../../mobile/src/js/anki-export.js";
 
 const fixture = (name) => readFileSync(new URL(`../fixtures/${name}`, import.meta.url));
@@ -142,7 +142,7 @@ test("the deck's settings match the computer's", () => {
 });
 
 test("the phone's deck holds the same notes and cards as the computer's", needsSqlite, async () => {
-  const files = unzip(await buildDeck(vocab, {}, layout, font, py.now));
+  const files = unzip(await buildDeck(vocab, {}, layout, font, py.now, py.review, py.today));
   assert.deepEqual(JSON.parse(new TextDecoder().decode(files.media)), py.media);
   assert.deepEqual(files[0], font);
   const db = open(files["collection.anki2"]);
@@ -157,6 +157,14 @@ test("the phone's deck holds the same notes and cards as the computer's", needsS
   db.close();
 });
 
+test("a word's review progress becomes Anki's schedule, exactly as on the computer", () => {
+  for (const [progress, expected] of py.schedule) assert.deepEqual(cardSchedule(progress, py.today, 7), expected, JSON.stringify(progress));
+  // [type, queue, due, interval, ease, reviews, lapses]: box 3, due in 4 days, 6 right and 1 wrong.
+  assert.deepEqual(cardSchedule([3, py.today + 4, 6, 1], py.today, 7), [2, 2, 4, 4, 2500, 7, 1]);
+  assert.equal(dayNumber(new Date(2026, 9, 12, 23, 59)) - dayNumber(new Date(2026, 9, 12, 0, 1)), 0, "a day is a local calendar day");
+  assert.equal(dayNumber(new Date(2026, 9, 13, 0, 1)) - dayNumber(new Date(2026, 9, 12, 23, 59)), 1);
+});
+
 test("words take their audio into the deck", needsSqlite, async () => {
   const words = [
     { uid: "a1", text: "كتاب", sentence: "هذا كتاب جميل", meaning: "book", notes: "", start: 5.0, end: 5.6, sent_start: 4.5, sent_end: 7.5, episode_uid: "e1" },
@@ -169,6 +177,7 @@ test("words take their audio into the deck", needsSqlite, async () => {
   const steps = [];
   const files = unzip(await vocabDeck(words, {
     asset: async (path) => new Response(path.startsWith("fonts/") ? font : card(path.split("/")[1])),
+    review: { a2: [2, dayNumber(new Date()) + 2, 2, 0] },
     audioFor: async (v) => v.episode_uid === "gone" ? null : {
       key: v.episode_uid,
       load: async () => { loads++; if (v.episode_uid === "broken") throw new Error("offline"); return new Blob([tone]); },
@@ -190,6 +199,8 @@ test("words take their audio into the deck", needsSqlite, async () => {
     "tk-a1": ["", "[sound:tk-a1-w.ogg][sound:tk-a1-s.ogg]"], "tk-a2": ["", "[sound:tk-a2-w.ogg]"],
     "tk-a3": ["", ""], "tk-a4": ["", ""], "tk-a5": ["", ""],  // the image field is never written
   });
-  assert.deepEqual(rows(db, "SELECT did, ord, due FROM cards ORDER BY id"), words.map((_, i) => [DECK_ID, 0, i + 1]));
+  // a2 is in the app's box 2, due in two days; the others have never been reviewed.
+  assert.deepEqual(rows(db, "SELECT did, ord, type, queue, due, ivl, factor, reps, lapses FROM cards ORDER BY id"),
+    words.map((w, i) => (w.uid === "a2" ? [DECK_ID, 0, 2, 2, 2, 2, 2500, 2, 0] : [DECK_ID, 0, 0, 0, i + 1, 0, 0, 0, 0])));
   db.close();
 });

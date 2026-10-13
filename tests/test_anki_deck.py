@@ -5,6 +5,7 @@ from __future__ import annotations
 import io
 import json
 import sqlite3
+import time
 import zipfile
 
 from app import anki_deck, audio, db, exporters, paths
@@ -140,6 +141,35 @@ def test_library_from_before_translations_were_kept_still_exports(tmp_path, monk
     with db.session() as c:
         word = dict(c.execute("SELECT * FROM vocab").fetchone())
     assert word["translation"] == "" and exporters.anki_front(word) == "book"
+
+
+def test_review_progress_becomes_ankis_schedule():
+    today = 20_000
+    new_card = (0, 0, 7, 0, 0, 0, 0)  # (type, queue, due, interval, ease, reviews, lapses) of a card in position 7
+    assert anki_deck.card_schedule(None, today, 7) == new_card
+    assert anki_deck.card_schedule([0, today, 0, 2], today, 7) == new_card, "box 0 is as good as new"
+    # Box 3 comes round every 4 days; due in 4 days; answered 6 times right and once wrong.
+    assert anki_deck.card_schedule([3, today + 4, 6, 1], today, 7) == (2, 2, 4, 4, 2500, 7, 1)
+    assert anki_deck.card_schedule([1, today - 5, 1, 4], today, 7) == (2, 2, 0, 1, 2500, 5, 4), "overdue means due today"
+    assert anki_deck.card_schedule([9, today + 40, 9, 0], today, 7)[3] == 32, "no wait is longer than the top box's"
+    for junk in ("x", [1, 2], [1, "a", 0, 0], {"box": 2}, 5):
+        assert anki_deck.card_schedule(junk, today, 7) == new_card
+
+
+def test_export_carries_review_progress(client, tmp_path):  # noqa: F811
+    known = client.post("/api/vocab", json={"text": "كتاب", "meaning": "book"}).json()
+    fresh = client.post("/api/vocab", json={"text": "قلم", "meaning": "pen"}).json()
+    due_day = anki_deck.day_number(time.time()) + 8
+    db.set_settings({"game_state": {"review": {known["uid"]: [4, due_day, 5, 1]}}})
+    conn, _ = open_deck(client.get("/api/vocab/export/apkg").content, tmp_path)
+    try:
+        cards = {guid: tuple(card) for guid, *card in conn.execute(
+            "SELECT n.guid, c.type, c.queue, c.due, c.ivl, c.factor, c.reps, c.lapses FROM cards c JOIN notes n ON n.id = c.nid")}
+        assert conn.execute("SELECT count(*) FROM revlog").fetchone()[0] == 0, "single answers are not recorded, so there is no log"
+    finally:
+        conn.close()
+    assert cards[f"tk-{known['uid']}"] == (2, 2, 8, 8, 2500, 6, 1)
+    assert cards[f"tk-{fresh['uid']}"][:2] == (0, 0) and cards[f"tk-{fresh['uid']}"][3:] == (0, 0, 0, 0)
 
 
 def test_export_cuts_a_word_clip_and_a_sentence_clip(client, tmp_path, monkeypatch):  # noqa: F811

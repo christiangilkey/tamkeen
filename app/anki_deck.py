@@ -11,6 +11,7 @@ the learner has added to it there, always counts as the newer one.
 
 from __future__ import annotations
 
+import datetime
 import hashlib
 import html
 import io
@@ -99,12 +100,50 @@ def _plain(markup: str) -> str:
     return html.unescape(re.sub(r"<[^>]+>", "", markup)).strip()
 
 
+# ----- learning progress -----
+# The app's own review (the battles, web/js/game/rules.js) keeps, for each word, the box it has
+# climbed to, the day it is next due, and how often it was answered right and wrong. The deck
+# carries that as Anki's schedule, so a word that is well known here does not start from nothing
+# there. Anki applies it only when "Import any learning progress" is ticked on its import screen.
+# There is no record of each single answer, so the deck's review log stays empty.
+
+BOX_DAYS = (0, 1, 2, 4, 8, 16, 32)  # days until a word in box n comes round again (rules.js INTERVALS)
+NEW_CARD = (0, 0)                   # Anki's (type, queue) for a card never studied
+REVIEW_CARD = (2, 2)
+STARTING_EASE = 2500                # Anki's own starting value, in thousandths
+
+
+def day_number(now: float) -> int:
+    """Today as a count of local calendar days since 1970, the way rules.js `dayNumber` counts."""
+    return (datetime.datetime.fromtimestamp(now).date() - datetime.date(1970, 1, 1)).days
+
+
+def card_schedule(progress: Any, today: int, position: int) -> tuple[int, int, int, int, int, int, int]:
+    """Anki's (type, queue, due, interval, ease, reviews, lapses) for a word.
+
+    ``progress`` is the app's record ``[box, day next due, times right, times wrong]``, or
+    nothing for a word never reviewed. A word in box 0 is as good as new, and so is anything
+    that isn't a proper record. Due days are counted from the day of the export.
+    """
+    try:
+        box, due_day, right, wrong = (int(x) for x in progress)
+    except (TypeError, ValueError):
+        box = 0
+    if box < 1:
+        return (*NEW_CARD, position, 0, 0, 0, 0)
+    interval = BOX_DAYS[min(box, len(BOX_DAYS) - 1)]
+    return (*REVIEW_CARD, max(0, due_day - today), interval, STARTING_EASE, max(0, right) + max(0, wrong), max(0, wrong))
+
+
 def build(items: Sequence[dict[str, Any]], clips: Mapping[str, Mapping[str, bytes]] | None = None,
-          now: float | None = None) -> bytes:
+          now: float | None = None, review: Mapping[str, Any] | None = None, today: int | None = None) -> bytes:
     """The .apkg for these words. ``clips`` gives a word's audio by its uid:
-    ``{"word": mp3 bytes, "sentence": mp3 bytes}``, either or both."""
-    clips = clips or {}
+    ``{"word": mp3 bytes, "sentence": mp3 bytes}``, either or both. ``review`` gives a word's
+    learning progress by its uid (the game's ``review`` records); ``today`` is the day number
+    they are measured from (worked out from ``now`` unless given)."""
+    clips, review = clips or {}, review or {}
     stamp = int(time.time() if now is None else now)
+    today = day_number(stamp) if today is None else today
     media: dict[str, bytes] = {FONT_NAME: (paths.web_dir() / "fonts" / "NotoNaskhArabic.woff2").read_bytes()}
     notes, cards = [], []
     for n, v in enumerate(items):
@@ -119,7 +158,8 @@ def build(items: Sequence[dict[str, Any]], clips: Mapping[str, Mapping[str, byte
         checksum = int(hashlib.sha1(sort_text.encode("utf-8")).hexdigest()[:8], 16)
         notes.append((note_id, exporters.anki_guid(v), MODEL_ID, saved, -1, f" {exporters.ANKI_TAG} ",
                       "\x1f".join((front, back, "", sound)), sort_text, checksum, 0, ""))
-        cards.append((note_id, note_id, DECK_ID, 0, saved, -1, 0, 0, n + 1, 0, 0, 0, 0, 0, 0, 0, 0, ""))
+        cards.append((note_id, note_id, DECK_ID, 0, saved, -1, *card_schedule(review.get(v["uid"]), today, n + 1),
+                      0, 0, 0, 0, ""))
 
     out = io.BytesIO()
     with tempfile.TemporaryDirectory() as tmp:

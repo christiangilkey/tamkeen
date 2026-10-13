@@ -454,6 +454,7 @@ function exportDeck(url) {
   const m = url.match(/\/api\/vocab\/export\/apkg(?:\?ids=([^&]*))?$/);
   return vocabDeck(vocabToExport(m[1]), {
     asset: (path) => fetch(path),
+    review: (settings.game_state && settings.game_state.review) || {},  // where each word stands in the battles
     // The audio a word's times refer to: its own clip (a word a friend shared), or the synced
     // copy of its episode. Other episodes (streamed originals, videos, pages) give no audio.
     audioFor: async (v) => {
