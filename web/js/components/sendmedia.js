@@ -102,7 +102,11 @@ export async function sendMedia(friendId, media) {
   return { withWords: !!words };
 }
 
-/** Ask which friend, then send. */
+/** Ask which friend, then send.
+ * The list is the app's ordinary menu (showMenu: the #ctxmenu element, shown and hidden through
+ * its `hidden` attribute). The phone's reel player counts on exactly that: its video is a native
+ * window on top of the page, which it moves away while this menu is open (pages/reels.js). Change
+ * how the list is shown and that has to change with it. */
 async function pickAndSend(x, y, media) {
   const item = normalizeMedia(media);
   if (!item) { toast("This can't be sent: your own audio and video files stay on your devices."); return; }
