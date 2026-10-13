@@ -11,6 +11,26 @@ import { api, esc, h, on, platform, toast } from "../app.js";
 const phone = () => platform === "android";
 const anki = () => (phone() ? "AnkiDroid" : "Anki");
 
+/** The address that opens Settings at its Anki part (the Vocab page's small settings button). Both
+ * app shells ignore what follows the "?" when choosing the page; the panel below looks for it. */
+export const ANKI_SETTINGS = "#/settings?show=anki";
+/** What that button is called on this device. */
+export const ankiSettingsLabel = () => `${anki()} settings`;
+
+/** Bring the Anki part of Settings to the top of the screen and ring it for a moment. Twice: the
+ * parts above it are still filling in when the page opens, and push it down as they grow. */
+function bringIntoView(box) {
+  const part = box.closest(".card") || box;
+  const go = () => { if (part.isConnected) part.scrollIntoView({ block: "start" }); };
+  setTimeout(go, 50);
+  setTimeout(() => {
+    go();
+    if (part.isConnected && part.animate) {
+      part.animate([{ boxShadow: "0 0 0 3px var(--accent)" }, { boxShadow: "0 0 0 3px transparent" }], { duration: 1500, easing: "ease-out" });
+    }
+  }, 600);
+}
+
 function when(ts) {
   if (!ts) return "never";
   const s = Math.round(Date.now() / 1000 - ts);
@@ -109,6 +129,7 @@ export function ankiSyncPanel(box) {
 
   const refresh = () => api("/anki/sync/status").then(paint, () => {});
   refresh();
+  if (/[?&]show=anki(&|$)/.test(location.hash)) bringIntoView(box);  // opened from the Vocab page's settings button
   return on("anki", refresh);
 }
 

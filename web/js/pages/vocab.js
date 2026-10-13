@@ -3,7 +3,7 @@
 // a word was added or last changed.
 
 import { api, esc, h, toast, download, fmtDate, audioUrl, showMenu, shareClip, clipUrl, platform } from "../app.js";
-import { ankiProgressLine, confirmDelete, loadAnkiProgress } from "../components/ankisync.js";
+import { ANKI_SETTINGS, ankiProgressLine, ankiSettingsLabel, confirmDelete, loadAnkiProgress } from "../components/ankisync.js";
 import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
@@ -125,6 +125,7 @@ export async function render(view) {
       <input type="search" id="q" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto" style="width:220px">
       <button type="button" id="csv" title="Export the words shown below">Export CSV</button>
       <button type="button" id="anki" title="The words shown below as an Anki deck file, with their audio and review progress">Export for Anki</button>
+      <button type="button" class="icon" id="anki-settings" title="${ankiSettingsLabel()}" aria-label="${ankiSettingsLabel()}">${icon("settings", 18)}</button>
     </div>
     <button type="button" class="review-banner idle" id="review" hidden>
       <span class="rb-icon">${CARDS_ICON}</span>
@@ -540,6 +541,7 @@ export async function render(view) {
     return `/api/vocab/export/${fmt}${ids.length === all.length && !st.q ? "" : `?ids=${encodeURIComponent(ids.join(","))}`}`;
   };
   $("#csv").onclick = () => download(exportUrl("csv"), "tamkeen-vocab.csv");
+  $("#anki-settings").onclick = () => { location.hash = ANKI_SETTINGS; };  // Settings, at its Anki part
   // "Export for Anki" is an Anki deck file (.apkg) on every device: the cards, their layout and
   // each word's audio in one file that Anki and AnkiDroid import.
   $("#anki").onclick = async () => {
