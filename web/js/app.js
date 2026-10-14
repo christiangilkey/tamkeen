@@ -83,7 +83,7 @@ function emit(event, data) {
 }
 function connectEvents() {
   const es = new EventSource("/api/events");
-  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "reels", "stt"]) {
+  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "reels", "reels_collections", "stt"]) {
     es.addEventListener(name, (e) => emit(name, JSON.parse(e.data)));
   }
   es.onopen = () => emit("reconnected", {});
@@ -340,22 +340,35 @@ async function route() {
   if (cleanup) { try { cleanup(); } catch (e) { console.error(e); } cleanup = null; }
   hideMenu();
   const view = document.getElementById("view");
-  view.innerHTML = "";
-  view.scrollTop = 0;
   let match = null;
   for (const [re, mod, params] of routes) {
     const m = path.match(re);
     if (m) { match = [mod, { ...params(m), query }]; break; }
   }
-  if (!match) { location.hash = "#/"; return; }
+  if (!match) { view.innerHTML = ""; location.hash = "#/"; return; }
   const [mod, params] = match;
+  // Moving around inside the Library (another kind, podcast or filter): the page on screen stays
+  // until the new one has loaded, then the two swap in one go, with the side list where it was
+  // scrolled to. Emptying the page first showed it half built for a moment, then jumping.
+  const inPlace = mod === library && !!view.querySelector(":scope > .library");
+  const target = inPlace ? document.createElement("div") : view;
+  if (!inPlace) {
+    view.innerHTML = "";
+    view.scrollTop = 0;
+  }
   const navKey = mod === home ? "home" : mod === library || mod === discover || mod === reels ? "library" : mod === vocab ? "vocab" : mod === settings ? "settings"
     : mod === about ? "about" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === navKey));
   const turn = ++routeTurn;
   try {
-    const undo = (await mod.render(view, params)) || null;
+    const undo = (await mod.render(target, params)) || null;
     if (turn !== routeTurn) { if (undo) undo(); return; } // left while it was loading: tidy it away
+    if (inPlace) {
+      const sideTop = view.querySelector(".sidebar")?.scrollTop || 0;
+      view.replaceChildren(...target.childNodes);
+      const side = view.querySelector(".sidebar");
+      if (side) side.scrollTop = sideTop;
+    }
     cleanup = undo;
   } catch (e) {
     console.error(e);

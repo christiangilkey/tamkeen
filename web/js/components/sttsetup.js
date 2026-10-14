@@ -32,7 +32,7 @@ export function sttSetup(section, { test, usage, onUsage, changed = () => {} }) 
       You use your own key and pay them directly, a few cents per hour of audio.
       <details><summary>What is sent, and where is my key kept?</summary>The audio of what you transcribe goes to the provider you choose
         (${phone ? "the episode's file, or a reel's video" : "only the parts with speech in them"}), and nowhere else. Nothing else about you or your library is sent.
-        Your key stays on ${here} and is never part of a data export.</details></div>
+        Your key is kept on ${here} and, if you use Google Drive sync, in the app's private folder in your own Google Drive, so your other devices have it too. It is never part of a data export.</details></div>
     <div class="stt-who" role="radiogroup" aria-label="Who writes the transcripts">
       <label class="stt-choice"><input type="radio" name="stt-mode" value="local">
         <span><strong>${local}</strong><span class="small muted">${phone ? "Free. Transcripts arrive when it next syncs." : "Free. Uses the model chosen below."}</span></span></label>

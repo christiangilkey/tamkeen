@@ -264,6 +264,24 @@ label.check input { margin-top: 3px; }
 .feed-item .t { font-weight: 500; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .feed-item .ph.all { display: grid; place-items: center; font-size: 18px; }
 .lib-main { overflow: auto; padding: 16px 20px 40px; min-width: 0; }
+/* The computer's side list, as the phone's strips: the kinds, then (under Podcasts or YouTube)
+   the podcasts or channels; Refresh at the foot. Ways to add something sit above the list they
+   add to, only the row for the kind showing. */
+.library.desk { grid-template-columns: 280px 1fr; }
+.library.desk .sidebar { gap: 0; padding: 12px 10px; }
+.library.desk #feed-list .feed-item { padding: 7px 10px; gap: 12px; }
+.library.desk #feed-list .ph.all { width: 32px; height: 32px; background: transparent; }
+.library.desk #feed-list .feed-item.active .ph.all { color: var(--accent); }
+.library.desk .sub-list { margin: 10px 0 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+.library.desk .refresh-btn { margin-top: auto; flex: none; }
+.lib-actions .act { display: none; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0 0 10px; }
+.library[data-kind="podcasts"] .act[data-kind="podcasts"], .library[data-kind="youtube"] .act[data-kind="youtube"],
+.library[data-kind="pages"] .act[data-kind="pages"], .library[data-kind="videos"] .act[data-kind="videos"],
+.library[data-kind="audio"] .act[data-kind="audio"] { display: flex; }
+.lib-actions .add-feed { flex: 1 1 300px; max-width: 520px; }
+.lib-actions .add-feed .row { flex-wrap: nowrap; }
+.lib-actions .upload-status { max-width: 520px; margin-bottom: 10px; }
+.library.desk .lib-main.empty-kind .tabs, .library.desk .lib-main.empty-kind .toolbar { display: none; }
 .lib-head { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 12px; }
 .lib-head img { width: 88px; height: 88px; border-radius: 10px; object-fit: cover; flex: none; }
 .lib-head .meta { flex: 1; min-width: 0; }
@@ -472,7 +490,16 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .player.video .screen { flex: 1; min-width: 0; min-height: 0; position: relative; display: flex; align-items: center; justify-content: center; background: #000; transition: flex-basis .25s ease; }
 .player.video video { width: 100%; height: 100%; object-fit: contain; display: block; cursor: pointer; }
 .player.video .transcript-wrap { flex: none; width: 0; overflow: hidden; background: var(--bg); transition: width .25s ease; }
-.player.video.panel-open .transcript-wrap { width: min(44%, 520px); border-left: 1px solid var(--border); }
+.player.video.panel-open .transcript-wrap { width: min(44%, 520px); }
+/* The handle on the transcript panel's edge: a slim strip that folds the panel away and back. */
+.player.video .panel-handle {
+  flex: none; width: 22px; min-height: 0; padding: 0; margin: 0; border: 0; border-radius: 0;
+  border-left: 1px solid var(--border); background: var(--surface-2); color: var(--muted); box-shadow: none;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.player.video .panel-handle:hover { color: var(--text); background: var(--surface); }
+.player.video .panel-handle .ic { transform: rotate(180deg); transition: transform .25s ease; }
+.player.video.panel-open .panel-handle .ic { transform: none; }
 .player.video .transcript { padding: 16px 20px 40vh; }
 .player.video .transcript .seg::before { display: none; }
 .player.video:fullscreen { background: #000; }
@@ -494,6 +521,7 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
   .player.video .screen { flex: 1 1 auto; }
   .player.video .transcript-wrap { width: auto; height: 0; transition: height .25s ease; }
   .player.video.panel-open .transcript-wrap { width: auto; height: 58%; border-left: none; border-top: 1px solid var(--border); }
+  .player.video .panel-handle { display: none; }
   .player.video .transcript { padding: 12px 14px 30vh; }
   .captions { bottom: 4%; font-size: clamp(16px, calc(var(--ar-size) * .8), 30px); }
 }

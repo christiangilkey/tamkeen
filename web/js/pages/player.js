@@ -23,6 +23,7 @@ import { createYouTubeMedia } from "../ytmedia.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
+import { icon } from "../icons.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const LONG_PRESS_MS = 550;
@@ -138,6 +139,8 @@ export async function render(view, { id, query }) {
         <div class="transcript ar" id="transcript" ${langAttrs(lang)} tabindex="0"></div>
         <button type="button" class="back-to-current primary" id="back" hidden>↓ Back to current</button>
       </div>`;
+  // Videos (computer): a slim handle on the transcript panel's edge folds the panel away and back.
+  const handleHtml = `<button type="button" class="panel-handle" id="panel-handle">${icon("chevron", 18)}</button>`;
   view.append(h(`
     <div class="player${vid ? " video" : ""}${yt ? " yt" : ""}">
       <div class="player-head">
@@ -168,13 +171,13 @@ export async function render(view, { id, query }) {
           <div class="screen" id="screen"><div id="yt-frame"></div></div>
           <div class="captions" id="captions" ${langAttrs(lang)}></div>
         </div>
-        ${transcriptHtml}
+        ${handleHtml}${transcriptHtml}
       </div>` : vid ? `<div class="stage" id="stage">
         <div class="screen" id="screen">
           <video id="video" playsinline></video>
           <div class="captions" id="captions" ${langAttrs(lang)}></div>
         </div>
-        ${transcriptHtml}
+        ${handleHtml}${transcriptHtml}
       </div>` : transcriptHtml}
       <div class="controls">
         <div class="seekrow">
@@ -626,6 +629,7 @@ export async function render(view, { id, query }) {
 
   // ---------- definition bubble ----------
   let bubbleTarget = null; // {i, j, si, sj, text}
+  let bubbleInPanel = true; // the popup's word was tapped in the transcript panel (not the captions)
 
   function sentenceText(a, b) { return joinWords(texts.slice(a, b + 1), lang); }
 
@@ -648,7 +652,8 @@ export async function render(view, { id, query }) {
     };
   }
 
-  // The popup may not cover YouTube's player, so there it lives in the transcript panel.
+  // The popup may not cover YouTube's player, so there it lives in the transcript panel, or
+  // under the captions when a caption word was tapped (see defineAt).
   // Quick or detailed lookup: the switch sits with the play controls (podcasts, videos, YouTube).
   $("#speed").after(lookupToggle());
   bubble = createWordBubble(vid && !yt ? $("#stage") : $(".transcript-wrap"), {
@@ -687,16 +692,25 @@ export async function render(view, { id, query }) {
     bubbleTarget = { i, j, si: c.si, sj: c.sj, text: c.word };
     buzz("tick");
     playWords(i, j);
-    if (yt) {
-      // Show the popup beside the word in the transcript panel (opened if need be; a phone
-      // shows the popup as a sheet at the bottom instead, so the panel can stay as it is).
+    // The popup belongs to the transcript the word was tapped in: the captions under the video
+    // or the transcript panel beside it.
+    const phone = window.matchMedia("(max-width: 640px)").matches;
+    bubbleInPanel = !(anchor && capEl && capEl.contains(anchor));
+    const opts = { saved: savedHere.has(savedKey(i, j)) };
+    if (yt && !bubbleInPanel && !phone) {
+      // Tapped in the captions: the popup joins the black bar right under them (it may not cover
+      // YouTube's player, so the video gets shorter while it is open). The panel stays as it is.
+      Object.assign(opts, { host: $(".yt-col"), docked: true });
+    } else if (yt) {
+      // Beside the word in the transcript panel (a phone shows the popup as a sheet at the
+      // bottom instead, so the panel can stay as it is).
       anchor = wordEls[i];
-      if (!window.matchMedia("(max-width: 640px)").matches && !playerEl.classList.contains("panel-open")) setPanel(true);
+      opts.host = $(".transcript-wrap");
       follow = true;
       $("#back").hidden = true;
       ensureVisible(wordEls[i]);
     }
-    bubble.show(anchor || wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)) });
+    bubble.show(anchor || wordEls[i], c.ctx, opts);
     fitBubble();
     requestAnimationFrame(() => requestAnimationFrame(fitBubble)); // again once it has taken its place
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, anchor || wordEls[i]);
@@ -745,8 +759,13 @@ export async function render(view, { id, query }) {
   }
   function setPanel(open) {
     if (!vid) return;
+    if (!open && bubble.open && bubbleInPanel) bubble.hide(); // its word is being folded away
     playerEl.classList.toggle("panel-open", open);
     $("#toggle-panel").classList.toggle("primary", open);
+    const handle = $("#panel-handle");
+    handle.title = open ? "Hide the transcript (T)" : "Show the transcript (T)";
+    handle.setAttribute("aria-label", handle.title);
+    handle.setAttribute("aria-expanded", String(open));
     lsSet("videoPanel", open);
     if (open && curIdx >= 0) setTimeout(() => ensureVisible(wordEls[curIdx], true), 300);
     setTimeout(() => { bubble.position(); fitBubble(); }, 300);
@@ -765,7 +784,7 @@ export async function render(view, { id, query }) {
   if (vid) {
     setPanel(lsGet("videoPanel", window.innerWidth > 760));
     setCaptions(lsGet("videoCaptions", true));
-    $("#toggle-panel").onclick = () => setPanel(!playerEl.classList.contains("panel-open"));
+    $("#toggle-panel").onclick = $("#panel-handle").onclick = () => setPanel(!playerEl.classList.contains("panel-open"));
     $("#toggle-cc").onclick = () => setCaptions(playerEl.classList.contains("cc-off"));
     if (document.fullscreenEnabled) $("#fullscreen").onclick = toggleFullscreen;
     else $("#fullscreen").hidden = true;

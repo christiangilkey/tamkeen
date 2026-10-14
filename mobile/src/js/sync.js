@@ -10,6 +10,8 @@ import { drive, gunzipJson, gzipJson } from "./drive.js";
 import { audio, kv, lib, saveLibrary, settings, transcripts } from "./store.js";
 import { cleanFollows, mergeFollows } from "./ytfollow.js";
 import { cleanSites, mergeSites } from "./browser-sites.js";
+import { cleanCollections, mergeCollections } from "./igcollections.js";
+import { cleanKeys, keysFromSettings, takeKeys } from "./aikeys.js";
 
 const LIBRARY = "library.json.gz";
 const listeners = new Set();
@@ -135,6 +137,28 @@ export function merge(remote) {
       changed++;
     }
   }
+
+  // Saved Instagram collections: the list found last, and the collection chosen last.
+  if (remote.ig_collections && typeof remote.ig_collections === "object") {
+    const before = cleanCollections(settings.ig_collections);
+    const merged = mergeCollections(before, remote.ig_collections);
+    if (JSON.stringify(merged) !== JSON.stringify(before)) {
+      settings.ig_collections = merged;
+      kv.set("settings", { ...settings }).catch(console.error);
+      window.dispatchEvent(new CustomEvent("tamkeen:ig-collections")); // an open Reels page redraws its list
+      changed++;
+    }
+  }
+
+  // The user's own AI keys: for each key, the copy changed last wins (see aikeys.js).
+  if (remote.keys && typeof remote.keys === "object") {
+    const take = takeKeys(settings, remote.keys);
+    if (Object.keys(take).length) {
+      Object.assign(settings, take);
+      kv.set("settings", { ...settings }).catch(console.error);
+      changed++;
+    }
+  }
   return changed;
 }
 
@@ -155,6 +179,8 @@ export function snapshot() {
     game: settings.game_state || null,
     channels: cleanFollows(settings.youtube_follows),
     sites: cleanSites(settings.browser_sites),
+    ig_collections: cleanCollections(settings.ig_collections),
+    keys: keysFromSettings(settings),
   };
 }
 
@@ -167,7 +193,8 @@ function canonical(value) {
 }
 const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
                                    definitions: l.definitions, lexemes: l.lexemes || [], reviews: l.reviews || {}, game: l.game || null,
-                                   channels: l.channels || [], sites: l.sites || [] });
+                                   channels: l.channels || [], sites: l.sites || [], ig_collections: cleanCollections(l.ig_collections),
+                                   keys: cleanKeys(l.keys) });
 
 // ---------- run ----------
 let running = null;

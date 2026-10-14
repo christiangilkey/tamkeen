@@ -59,8 +59,8 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 @keyframes rv-swell { to { scale: 1.2; } }
 /* Dragging the card towards an answer warms the whole table to that answer's colour. */
 .rv-glow { position: absolute; inset: 0; pointer-events: none; opacity: calc(max(var(--tilt), -1 * var(--tilt)) * .55); transition: opacity .12s; }
-.rv[data-lean="yes"] .rv-glow { background: radial-gradient(circle at 85% 50%, rgba(46, 213, 151, .85), transparent 60%); }
-.rv[data-lean="no"] .rv-glow { background: radial-gradient(circle at 15% 50%, rgba(255, 99, 99, .8), transparent 60%); }
+.rv[data-lean="yes"] .rv-glow { background: radial-gradient(circle at 85% 50%, rgba(34, 199, 214, .85), transparent 60%); }
+.rv[data-lean="no"] .rv-glow { background: radial-gradient(circle at 15% 50%, rgba(189, 63, 186, .85), transparent 60%); }
 .rv-fx { position: absolute; inset: 0; pointer-events: none; overflow: hidden; overflow: clip; z-index: 5; }
 
 /* ----- top bar ----- */
@@ -172,8 +172,8 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
   position: absolute; top: -20px; z-index: 3; padding: 4px 12px; border: 3px solid; border-radius: 10px; font-weight: 800;
   letter-spacing: .08em; text-transform: uppercase; font-size: 18px; opacity: 0; pointer-events: none; background: var(--surface);
 }
-.rv-stamp.yes { left: 18px; color: #12a877; transform: rotate(-12deg); }
-.rv-stamp.no { right: 18px; color: #e5484d; transform: rotate(12deg); }
+.rv-stamp.yes { left: 18px; color: #12a5b5; transform: rotate(-12deg); }
+.rv-stamp.no { right: 18px; color: #b23aae; transform: rotate(12deg); }
 
 /* ----- the two answers ----- */
 .rv-actions { position: relative; z-index: 2; display: flex; gap: 12px; justify-content: center; padding: 10px 16px calc(18px + env(safe-area-inset-bottom)); min-height: 92px; }
@@ -188,10 +188,12 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-actions button small { text-align: center; }
 .rv-show { background: #fff; color: #360032; box-shadow: 0 8px 22px rgba(0, 0, 0, .28); }
 .rv-show:hover:not(:disabled) { background: #fff; filter: brightness(.96); }
-.rv-yes { background: linear-gradient(180deg, #2ed597, #12a877); color: #03291d; box-shadow: 0 8px 22px rgba(18, 168, 119, .45); }
-.rv-yes:hover:not(:disabled) { background: linear-gradient(180deg, #2ed597, #12a877); filter: brightness(1.08); }
-.rv-no { background: rgba(255, 255, 255, .1); color: #ffd0d0; box-shadow: 0 0 0 2px rgba(255, 120, 120, .7) inset; }
-.rv-no:hover:not(:disabled) { background: rgba(255, 120, 120, .22); }
+/* The answers wear the brand's two colours, brightened so they stand out on the dark table:
+   teal for remembered, purple for not. Solid, like the card. */
+.rv-yes { background: #22c7d6; color: #022a2f; }
+.rv-yes:hover:not(:disabled) { background: #22c7d6; filter: brightness(1.08); }
+.rv-no { background: #bd3fba; color: #fff; }
+.rv-no:hover:not(:disabled) { background: #bd3fba; filter: brightness(1.08); }
 .rv[data-lean="yes"] .rv-yes, .rv[data-lean="no"] .rv-no { transform: scale(1.06); filter: brightness(1.15); }
 .rv-actions[hidden] { display: none; }
 

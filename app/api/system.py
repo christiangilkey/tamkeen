@@ -5,6 +5,7 @@ from __future__ import annotations
 import os
 import subprocess
 import sys
+import time
 from pathlib import Path
 from typing import Any
 
@@ -12,7 +13,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse
 from pydantic import BaseModel
 
-from .. import audio, backup, db, events, gpu_libs, hardware, languages, models_manager, paths, sync, transcriber, updates
+from .. import aikeys, audio, backup, db, events, gpu_libs, hardware, languages, models_manager, paths, sync, transcriber, updates
 from ..version import APP_NAME, GITHUB_REPO, __version__
 
 router = APIRouter(tags=["system"])
@@ -68,7 +69,11 @@ def patch_settings(values: dict[str, Any]) -> dict[str, Any]:
         from .. import pages
 
         clean["browser_sites"] = pages.clean_sites(clean["browser_sites"])
+    # A changed AI key notes when, so it wins over older copies on the user's other devices.
+    clean = aikeys.stamp(db.get_settings(), clean, time.time())
     result = db.set_settings(clean)
+    if aikeys.TIMES in clean:
+        sync.request(5)  # the key reaches the user's other devices
     if "youtube_follows" in clean or "browser_sites" in clean:
         sync.request(30)  # followed channels and saved sites reach the user's other devices
     if "game_state" in clean:

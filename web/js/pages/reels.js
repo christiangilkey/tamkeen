@@ -406,6 +406,11 @@ async function renderList(view) {
   }
   const offReels = on("reels", onStatus);
   const offFeeds = on("feeds", () => drawList());
+  // The other device's collections arrived with the library sync: show its list (and its choice).
+  const offCollections = on("reels_collections", () => {
+    if (!info || !info.available || (info.status && info.status.running)) return;
+    api("/reels").then((v) => { info = v; drawGet(); }).catch(() => {});
+  });
   // The phone's sign-in browser closes by itself once the user is signed in to Instagram, and says
   // so: whatever was asked for before (finding the collections, a collection's reels) is asked again.
   const offSignedIn = on("instagram", (e) => {
@@ -419,7 +424,7 @@ async function renderList(view) {
   drawGet();
   await drawList();
   if (info.status && info.status.running) watchBatch();
-  return () => { offReels(); offFeeds(); offSignedIn(); clearInterval(poll); };
+  return () => { offReels(); offFeeds(); offCollections(); offSignedIn(); clearInterval(poll); };
 }
 
 // ------------------------------------------------------------------------------------ the player

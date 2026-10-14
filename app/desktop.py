@@ -77,9 +77,10 @@ class BrowserApi:
     YouTube video to the app's player. (Websites can reach this object, so it must never offer
     more than that.)"""
 
-    def __init__(self, main_window: Any = None) -> None:
+    def __init__(self, main_window: Any = None, close_after_watch: bool = False) -> None:
         self._window: Any = None
         self._main = main_window
+        self._close_after_watch = close_after_watch  # the YouTube window: done once its video is showing
 
     def watch_video(self, video_id: str = "", at: Any = None) -> dict[str, Any]:
         """A video was tapped on YouTube: have the app add it (captions) and show it in its
@@ -103,7 +104,16 @@ class BrowserApi:
             return {"ok": False, "error": f"Couldn't open this video ({exc.__class__.__name__})."}
         if result.get("ok") and self._main is not None:
             bring_forward(self._main)
+        if result.get("ok") and self._close_after_watch:
+            # A moment's wait, so this answer still reaches the page before its window goes.
+            threading.Timer(0.4, self._close).start()
         return result
+
+    def _close(self) -> None:
+        try:
+            self._window.destroy()
+        except Exception as exc:  # e.g. already closed by hand
+            log.debug("Couldn't close the browser window: %s", exc)
 
     def _on_youtube(self) -> bool:
         from urllib.parse import urlsplit
@@ -210,16 +220,17 @@ class JsApi:
         self._youtube: Any = None  # the browser window opened by "Open YouTube", while it lives
         self._youtube_start = ""   # the address that window was last sent to
 
-    def _browser_window(self, title: str, start: str) -> Any:
+    def _browser_window(self, title: str, start: str, close_after_watch: bool = False) -> Any:
         """A web browser window. Every page in it gets the bottom bar with "Import Page"
         (web/js/browser-toolbar.js) and, on youtube.com, tap-a-video-to-watch-it-in-the-app
         (web/js/youtube-browser.js); on filmot.com, the same for its caption search results
-        (web/js/filmot-browser.js)."""
+        (web/js/filmot-browser.js). `close_after_watch`: the window closes itself once a video
+        tapped in it is showing in the app's player."""
         import webview
 
         scripts = [(paths.web_dir() / "js" / name).read_text(encoding="utf-8")
                    for name in ("browser-toolbar.js", "youtube-browser.js", "filmot-browser.js")]
-        api = BrowserApi(self._window)
+        api = BrowserApi(self._window, close_after_watch)
         window = webview.create_window(f"{title} · {APP_NAME}", start, js_api=api,
                                        width=1200, height=820, min_size=(640, 480), text_select=True)
         api._window = window
@@ -263,7 +274,7 @@ class JsApi:
                     self._youtube.load_url(address)
                 bring_forward(self._youtube)
             else:
-                self._youtube = self._browser_window("YouTube", address)
+                self._youtube = self._browser_window("YouTube", address, close_after_watch=True)
             self._youtube_start = address
         except Exception as exc:
             log.exception("Couldn't open the YouTube window")

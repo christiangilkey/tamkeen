@@ -73,15 +73,23 @@ export function createWordBubble(host, actions) {
   // Quick lookup (see lookupmode.js): this popup shows only the meaning, with "More" to open
   // the full explanation for this one word.
   let quick = false;
+  // Docked (see show): part of its container's layout, below what is already in it, not floating.
+  let docked = false;
 
   function position() {
     if (el.hidden || !anchor) return;
-    if (window.matchMedia("(max-width: 640px)").matches) {
+    const phone = window.matchMedia("(max-width: 640px)").matches;
+    el.classList.toggle("docked", docked && !phone);
+    if (phone) {
       el.classList.add("sheet");
       el.style.left = el.style.top = "";
       return;
     }
     el.classList.remove("sheet");
+    if (docked) {
+      el.style.left = el.style.top = el.style.visibility = "";
+      return;
+    }
     const hr = host.getBoundingClientRect();
     const ar = anchor.getBoundingClientRect();
     const bw = el.offsetWidth;
@@ -217,8 +225,15 @@ export function createWordBubble(host, actions) {
   // Don't let clicks inside the bubble reach the transcript (which would seek).
   el.addEventListener("pointerdown", (e) => e.stopPropagation());
 
-  /** `opts.saved`: this word is already in the vocab list, so the Save button says so. */
+  /** `opts.saved`: this word is already in the vocab list, so the Save button says so.
+   *  `opts.host`: show it in this container from now on, instead of the one it was made in (a
+   *  player with two transcripts shows it in the one the word was tapped in).
+   *  `opts.docked`: it takes its place at the end of that container instead of floating by the
+   *  word (on a computer; a phone always shows it as a sheet). */
   function show(anchorEl, context, opts = {}) {
+    if (opts.host) host = opts.host;
+    if (el.parentNode !== host) host.append(el);
+    docked = !!opts.docked;
     anchor = anchorEl;
     ctx = context;
     def = null;

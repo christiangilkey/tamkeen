@@ -137,10 +137,13 @@ def load() -> dict[str, Any]:
         "selected": [u for u in state.get("selected") or [] if u in mine],
         "popular": state.get("popular") if isinstance(state.get("popular"), dict) else {},
         "seen": [c for c in state.get("seen") or [] if isinstance(c, str)][-SEEN_KEPT:],
-        # The user's own saved collections on Instagram, as last read from their Saved page
-        # (name and the page's address; never synced, it stays on this computer), and the one chosen.
+        # The user's own saved collections on Instagram, as last read from their Saved page, and the
+        # one chosen. Names and numbers are synced with the phone (synced_collections); each one's
+        # page address stays on this computer ("" for one only the phone has found so far).
         "collections": clean_collections(state.get("collections")),
         "collection": str(state.get("collection") or ALL_SAVED),
+        "collections_at": _whole(state.get("collections_at")),  # when the list was found (seconds)
+        "collection_at": _whole(state.get("collection_at")),    # when the collection was chosen
         # Why a reel that was tried could not be used ({code: reason}), for the picking list.
         "skipped": {str(k): str(v) for k, v in list((state.get("skipped") or {}).items())[-SKIPPED_KEPT:]}
         if isinstance(state.get("skipped"), dict) else {},
@@ -153,17 +156,26 @@ _COLLECTION_PATH = re.compile(r"^/[A-Za-z0-9._]{1,30}/saved/[^/?#]{1,200}/(\d{5,
 
 
 def clean_collections(items: Any) -> list[dict[str, str]]:
-    """Collections as [{id, name, path}], dropping anything that isn't a saved-collection address."""
+    """Collections as [{id, name, path}], dropping anything that isn't a saved-collection address.
+    One that came from the phone has its number but no address yet (path "")."""
     out: list[dict[str, str]] = []
     for item in items if isinstance(items, list) else []:
         if not isinstance(item, dict):
             continue
         path = str(item.get("path") or item.get("href") or "").split("?")[0]
         m = _COLLECTION_PATH.match(path)
-        if not m or any(c["id"] == m.group(1) for c in out):
+        if m:
+            cid = m.group(1)
+            path = path if path.endswith("/") else path + "/"
+        elif not path and re.fullmatch(r"\d{5,25}", str(item.get("id") or "")):
+            cid = str(item["id"])
+        else:
             continue
-        name = " ".join(str(item.get("name") or item.get("text") or "").split("\n")[0].split())[:80]
-        out.append({"id": m.group(1), "name": name or f"Collection {len(out) + 1}", "path": path if path.endswith("/") else path + "/"})
+        if any(c["id"] == cid for c in out):
+            continue
+        # (Spaces tidied as on the phone, so a name synced from it stays exactly as it is.)
+        name = _JS_SPACE.sub(" ", str(item.get("name") or item.get("text") or "").split("\n")[0]).strip(" ")[:80]
+        out.append({"id": cid, "name": name or f"Collection {len(out) + 1}", "path": path})
     return out
 
 
@@ -192,7 +204,8 @@ def saved_path(state: dict[str, Any], username: str) -> str:
     """The address (on instagram.com) of the chosen collection's page, or of everything saved."""
     for c in state["collections"]:
         if c["id"] == state["collection"]:
-            return c["path"]
+            # One found by the phone: an address with a stand-in name, as in merge_collections.
+            return c["path"] or f"/{clean_username(username)}/saved/c/{c['id']}/"
     return f"/{clean_username(username)}/saved/all-posts/"
 
 
@@ -223,7 +236,10 @@ def update(mode: str | None = None, add: str | None = None, remove: str | None =
     if collection is not None:
         if collection != ALL_SAVED and not any(c["id"] == collection for c in state["collections"]):
             raise ReelError("That collection isn't in the list. Press “Find my collections” again.")
-        state["collection"] = collection
+        if collection != state["collection"]:
+            state["collection"] = collection
+            state["collection_at"] = int(time.time())
+            _sync_soon()
     return save(state)
 
 
@@ -271,10 +287,95 @@ def remember_collections(items: list[dict[str, Any]]) -> list[dict[str, str]]:
     """Store the collections just read from the user's Saved page; a chosen one that is gone falls back to "all"."""
     state = load()
     state["collections"] = clean_collections(items)
+    state["collections_at"] = int(time.time())
     if not any(c["id"] == state["collection"] for c in state["collections"]):
         state["collection"] = ALL_SAVED
     save(state)
+    _sync_soon()
     return state["collections"]
+
+
+# ---------------------------------------------------------------- collections shared with the phone
+# The computer's copy of cleanCollections and mergeCollections in web/js/igcollections.js (which
+# explains the record). The two must agree exactly, or two devices would keep rewriting each other's copy.
+
+# What JavaScript's \s matches (Python's own \s differs at the edges).
+_JS_SPACE = re.compile("[\t\n\v\f\r    -     　﻿]+")
+
+
+def _whole(value: Any) -> int:
+    if isinstance(value, bool):
+        return int(value)
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return 0
+    return max(0, math.floor(number)) if math.isfinite(number) else 0
+
+
+def clean_synced_collections(raw: Any) -> dict[str, Any]:
+    """A record as stored or received → a tidy one (an empty one for anything else)."""
+    r = raw if isinstance(raw, dict) else {}
+    items: list[dict[str, str]] = []
+    for c in r.get("items") if isinstance(r.get("items"), list) else []:
+        if not isinstance(c, dict):
+            continue
+        cid = "" if c.get("id") is None else str(c.get("id"))
+        if not re.fullmatch(r"\d{5,25}", cid) or any(x["id"] == cid for x in items):
+            continue
+        name = _JS_SPACE.sub(" ", "" if c.get("name") is None else str(c.get("name"))).strip(" ")[:80]
+        items.append({"id": cid, "name": name or f"Collection {len(items) + 1}"})
+        if len(items) >= 200:
+            break
+    chosen = ("" if r.get("chosen") is None else str(r.get("chosen"))) or ALL_SAVED
+    if chosen != ALL_SAVED and not any(c["id"] == chosen for c in items):
+        chosen = ALL_SAVED
+    return {"at": _whole(r.get("at")), "items": items, "chosen": chosen, "chosen_at": _whole(r.get("chosen_at"))}
+
+
+def _list_key(r: dict[str, Any]) -> str:
+    return ",".join(f"{c['id']}:" + ".".join(str(ord(ch)) for ch in c["name"]) for c in r["items"])
+
+
+def merge_synced_collections(mine: Any, theirs: Any) -> dict[str, Any]:
+    """Two devices' records as one: the list found last, and the collection chosen last."""
+    a, b = clean_synced_collections(mine), clean_synced_collections(theirs)
+    list_b = b["at"] > a["at"] or (b["at"] == a["at"] and _list_key(b) > _list_key(a))
+    choose_b = b["chosen_at"] > a["chosen_at"] or (b["chosen_at"] == a["chosen_at"] and b["chosen"] > a["chosen"])
+    found, choice = (b if list_b else a), (b if choose_b else a)
+    return clean_synced_collections({"at": found["at"], "items": found["items"],
+                                     "chosen": choice["chosen"], "chosen_at": choice["chosen_at"]})
+
+
+def synced_collections(state: dict[str, Any] | None = None) -> dict[str, Any]:
+    """This computer's record, for the library sync."""
+    state = state or load()
+    return clean_synced_collections({
+        "at": state["collections_at"], "items": [{"id": c["id"], "name": c["name"]} for c in state["collections"]],
+        "chosen": state["collection"], "chosen_at": state["collection_at"]})
+
+
+def take_synced_collections(theirs: Any) -> bool:
+    """Merge the other device's record into this computer's. True if anything changed here."""
+    state = load()
+    mine = synced_collections(state)
+    merged = merge_synced_collections(mine, theirs)
+    if merged == mine:
+        return False
+    paths = {c["id"]: c["path"] for c in state["collections"]}
+    state["collections"] = clean_collections([{**c, "path": paths.get(c["id"], "")} for c in merged["items"]])
+    state["collections_at"] = merged["at"]
+    state["collection"] = merged["chosen"]
+    state["collection_at"] = merged["chosen_at"]
+    save(state)
+    return True
+
+
+def _sync_soon() -> None:
+    """Share a newly found list or a new choice with the phone before long."""
+    from . import sync
+
+    sync.request(30)
 
 
 def popular_creators(state: dict[str, Any], lang: str) -> list[dict[str, Any]]:

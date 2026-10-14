@@ -21,7 +21,8 @@
 
   <h2>Data stored on your device</h2>
   <p>Your podcast subscriptions, episode lists, downloaded audio, transcripts, saved vocabulary, settings and any API
-  keys you enter are stored only on your device, in the app's data folder. Transcription runs entirely on your device.
+  keys you enter are stored on your device, in the app's data folder (and in your own Google Drive if you use sync;
+  see below). Transcription runs entirely on your device.
   Audio is never uploaded for transcription.</p>
 
   <h2>Pronunciation practice</h2>
@@ -86,7 +87,9 @@
   reels" (on the computer, and on the phone when cloud transcription is on) searches Instagram, as you, for a few
   everyday words in that language picked at random. If you choose
   "From my Instagram saves", the app also reads, from your own Saved page, the names of your saved collections and
-  which posts are in the one you pick; those stay on your computer. To write down
+  which posts are in the one you pick. The list of posts stays on the device that read it; the collection names
+  and which one you picked are kept on your device, and in your own Google Drive if you use sync (so your phone
+  and computer show the same list). To write down
   what is said in a reel, the app fetches that reel's video once, listens to it on your own computer, and deletes
   it straight away. All that is kept is the reel's address, its creator's username and the words spoken (on your
   device, and in your own Google Drive if you use sync). On the phone a reel plays from Instagram's own embed page
@@ -106,7 +109,8 @@
     <li><code>openid</code> and <code>email</code>: to show which Google account is signed in.</li>
   </ul>
   <p>The app uses this folder to sync your subscriptions, transcripts, vocabulary (with your own notes and your answers in the
-  vocab reviewer), cached word definitions and,
+  vocab reviewer), cached word definitions, the API keys you add for AI providers (so a key added on one of your devices works
+  on the others) and,
   if you enable it, compressed copies of transcribed audio between your own devices. This data goes directly
   between your devices and Google. The developer never has access to it. Google's handling of data in your
   Drive is covered by <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
@@ -182,9 +186,11 @@
   audio file if it is small enough to send, and the video of each Instagram reel you choose. That includes the
   audio of files you added yourself, so leave this off for recordings you want to keep private. Nothing else
   about you or your library is sent. That provider's privacy policy applies to those requests. Your key is stored
-  only on that device and is never part of a data export. On the phone, choosing reels from your own Instagram
+  on that device (and in your own Google Drive if you use sync, so your other devices can use it) and is never part
+  of a data export. On the phone, choosing reels from your own Instagram
   saves reads, from Instagram's website and as you, the names of your saved collections and the posts in the one
-  you pick (see "Instagram reels" above); those stay on your phone. The developer receives none of this.</p>
+  you pick (see "Instagram reels" above); the posts stay on your phone, and the collection names and your pick
+  are shared with your computer through your own Google Drive if you use sync. The developer receives none of this.</p>
 
   <h2>Analytics and advertising</h2>
   <p>The app contains no analytics, tracking, advertising or crash-reporting services.</p>

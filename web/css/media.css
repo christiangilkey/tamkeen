@@ -100,6 +100,16 @@ body.in-player:has(.player.yt) .topbar { display: none; }
   }
 }
 
+/* Computer: a word tapped in the captions under a YouTube video opens its popup as part of the
+   same black bar, directly under them (it may not be drawn over YouTube's player, so the video
+   gets shorter while it is open). player.js docks it there; see wordbubble.js. */
+.player.yt .word-bubble.docked {
+  position: static; width: auto; flex: none; max-height: min(40vh, 360px);
+  border: 0; border-top: 1px solid #2c2c2c; border-radius: 0; box-shadow: none; animation: none;
+  padding: 8px 16px 10px; background: #111; color: #f2f1ec;
+  --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838;
+}
+
 /* ---------- word popup: buttons row pinned, the rest scrolls ----------
    The popup's heading stays at its top and its row of buttons (Word, Sentence, Continue, Save)
    at its bottom; only the definition between them scrolls. */

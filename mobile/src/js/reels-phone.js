@@ -18,7 +18,9 @@ import { GoogleDriveAuth, isNative } from "./native.js";
 import { LANGUAGES, isLanguage } from "./languages.js";
 import { episodeUid, feedUid } from "./shared-logic.js";
 import { parseTranscription, sttConfig, sttModelLabel, MAX_UPLOAD_BYTES } from "./stt.js";
-import { kv, lib, now, settings } from "./store.js";
+import { kv, lib, now, saveSettingsPatch, settings } from "./store.js";
+import { requestSync } from "./sync.js";
+import { ALL_SAVED, chooseCollection, cleanCollections, foundCollections } from "./igcollections.js";
 import { Cancelled, cloudOn, fetchWholeB64, postAudio, storeTranscript } from "./transcribe-service.js";
 
 const SITE = "https://www.instagram.com";
@@ -27,7 +29,7 @@ const REEL_TYPE = "video/instagram";
 const LIST_LIMIT = 80;
 const MAX_SECONDS = 240;
 const NOT_OUTSIDE = "can't be shown outside Instagram";
-const SAVED = "reels_phone"; // kept on this phone only: {collections, collection, skipped, tried}
+const SAVED = "reels_phone"; // kept on this phone only: {skipped, tried}
 const TRIED_KEPT = 2000;     // random reels already listened to, so they aren't paid for twice
 const PER_CREATOR = 2;       // at most this many random reels of one creator in a batch
 const RANDOM_SEARCHES = 8;   // at most this many words are searched for in one batch
@@ -63,13 +65,24 @@ let saved = null;
 async function load() {
   if (!saved) {
     const raw = (await kv.get(SAVED)) || {};
-    saved = { collections: Array.isArray(raw.collections) ? raw.collections : [], collection: String(raw.collection || "all"),
-              skipped: raw.skipped && typeof raw.skipped === "object" ? raw.skipped : {},
+    saved = { skipped: raw.skipped && typeof raw.skipped === "object" ? raw.skipped : {},
               tried: Array.isArray(raw.tried) ? raw.tried.map(String) : [] };
+    // Collections used to be kept here, on this phone only; now they are shared (below).
+    if (!settings.ig_collections && Array.isArray(raw.collections) && raw.collections.length) {
+      storeCollections(cleanCollections({ at: 1, items: raw.collections, chosen: raw.collection, chosen_at: 1 }));
+    }
   }
   return saved;
 }
 const keep = () => kv.set(SAVED, saved).catch(console.error);
+
+// The collections found and the one chosen are kept in the settings (settings.ig_collections),
+// which the library sync shares with the computer; web/js/igcollections.js explains the record.
+const collectionsNow = () => cleanCollections(settings.ig_collections);
+function storeCollections(record) {
+  saveSettingsPatch({ ig_collections: record }).catch(console.error);
+  requestSync();
+}
 
 let listed = { collection: "", posts: [], at: 0 }; // the collection last looked at (in memory only)
 const status = { state: "idle", message: "", kept: 0, target: 0, checked: 0, log: [], running: false, needs_signin: false };
@@ -239,15 +252,14 @@ const WALK_QUIET = 10;  // pages in a row without a new collection before giving
 
 export function startCollections() {
   return job(0, async (ig) => {
-    const s = await load();
-    const before = s.collections;
+    await load();
+    const before = collectionsNow().items;
     const found = [];       // [{id, name}], most recently saved-to first
     const looked = new Set();
     const remember = (complete) => {
       // Collections known from before that this walk didn't reach are kept, unless it read every save.
-      s.collections = complete ? [...found] : [...found, ...before.filter((c) => !looked.has(c.id))];
-      if (s.collection !== "all" && !s.collections.some((c) => c.id === s.collection)) s.collection = "all";
-      keep();
+      storeCollections(foundCollections(settings.ig_collections,
+        complete ? [...found] : [...found, ...before.filter((c) => !looked.has(c.id))], Math.floor(now())));
     };
     const count = () => `${found.length} collection${found.length === 1 ? "" : "s"}`;
     let next = "";
@@ -274,16 +286,23 @@ export function startCollections() {
     } finally {
       remember(complete); // also when stopped or cut off: what was found is kept
     }
-    say("done", s.collections.length ? `Found ${s.collections.length} saved collection${s.collections.length === 1 ? "" : "s"}. Choose one from the list.`
+    const known = collectionsNow().items;
+    say("done", known.length ? `Found ${known.length} saved collection${known.length === 1 ? "" : "s"}. Choose one from the list.`
       : "No collections found in your Instagram saves. You can still choose “Everything I've saved”.");
   });
 }
 
+/** The collection chosen on the Reels page (shared with the computer when it changes). */
+function choose(collection) {
+  const before = collectionsNow();
+  const after = chooseCollection(before, collection, Math.floor(now()));
+  if (after.chosen !== before.chosen) storeCollections(after);
+}
+
 export async function startListing(collection) {
-  const s = await load();
-  if (collection !== "all" && !s.collections.some((c) => c.id === collection)) throw new Error("That collection isn't in the list. Press “Find my collections” again.");
-  s.collection = collection;
-  keep();
+  await load();
+  if (collection !== ALL_SAVED && !collectionsNow().items.some((c) => c.id === collection)) throw new Error("That collection isn't in the list. Press “Find my collections” again.");
+  choose(collection);
   return job(0, async (ig) => {
     say("finding", "Reading that collection on Instagram…");
     const posts = tidy(((await ig.ask("list", { collection, limit: LIST_LIMIT }, 90)) || {}).posts);
@@ -478,11 +497,12 @@ export function cancelReels() { cancelled = true; }
 
 /** GET /reels on the phone. */
 export async function reelsView() {
-  const s = await load();
+  await load();
+  const known = collectionsNow();
   const lang = settings.study_language || "ar";
   return {
     phone: true, available: cloudOn(), model_ready: true, mode: "saved", modes: ["saved"], mine: [], selected: [], popular: [],
-    collections: s.collections, collection: s.collection, language: lang, language_name: (LANGUAGES[lang] || {}).name || lang,
+    collections: known.items, collection: known.chosen, language: lang, language_name: (LANGUAGES[lang] || {}).name || lang,
     random: !!RANDOM_WORDS[lang],
     status: reelsStatus(),
   };
@@ -499,11 +519,10 @@ export async function reelsListing() {
 }
 
 export async function setReelChoices(body) {
-  const s = await load();
+  await load();
   if (body && body.collection !== undefined && body.collection !== null) {
-    if (body.collection !== "all" && !s.collections.some((c) => c.id === body.collection)) throw new Error("That collection isn't in the list.");
-    s.collection = body.collection;
-    keep();
+    if (body.collection !== ALL_SAVED && !collectionsNow().items.some((c) => c.id === body.collection)) throw new Error("That collection isn't in the list.");
+    choose(body.collection);
   }
   return reelsView();
 }

@@ -211,6 +211,40 @@ def test_browser_window_waits_for_the_apps_answer(client, monkeypatch):
     assert youtube.ask_app_to_watch(VIDEO, timeout=5) == {"ok": True, "title": "الدحيح"}
 
 
+def test_youtube_window_closes_once_its_video_is_showing(monkeypatch):
+    import time
+
+    from app import desktop
+
+    class FakeWindow:
+        def __init__(self):
+            self.closed = False
+
+        def get_current_url(self):
+            return "https://www.youtube.com/"
+
+        def destroy(self):
+            self.closed = True
+
+    answers = iter([{"ok": False, "error": "No captions available for this video."}, {"ok": True, "title": "Video"}])
+    monkeypatch.setattr(youtube, "ask_app_to_watch", lambda video_id, at=None: next(answers))
+    youtube_api = desktop.BrowserApi(None, close_after_watch=True)
+    youtube_api._window = FakeWindow()
+    assert youtube_api.watch_video(VIDEO)["ok"] is False
+    time.sleep(0.6)
+    assert not youtube_api._window.closed, "a video that couldn't open leaves the window open"
+    assert youtube_api.watch_video(VIDEO)["ok"] is True
+    time.sleep(0.6)
+    assert youtube_api._window.closed
+
+    monkeypatch.setattr(youtube, "ask_app_to_watch", lambda video_id, at=None: {"ok": True, "title": "Video"})
+    browser_api = desktop.BrowserApi(None)  # the ordinary Web Browser stays open
+    browser_api._window = FakeWindow()
+    assert browser_api.watch_video(VIDEO)["ok"] is True
+    time.sleep(0.6)
+    assert not browser_api._window.closed
+
+
 def test_browser_window_gives_up_when_nobody_answers(client, monkeypatch):
     from app import events
 

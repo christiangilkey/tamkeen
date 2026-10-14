@@ -29,8 +29,8 @@ const YOUTUBE_FEED = "local:youtube";
 const VIDEOS_FEED = "local:videos";
 const REELS_FEED = "local:reels";
 
-// The phone shows the library as a strip of kinds, always in this order, instead of the
-// computer's side list. Tapping "Podcasts" opens a second strip with the podcasts themselves.
+// The library is a list of kinds, always in this order: a strip on the phone, the side list on the
+// computer. Choosing "Podcasts" (or "YouTube") opens a second list with the podcasts (or channels).
 const KINDS = [
   { key: "podcasts", label: "Podcasts", icon: "podcast" },
   { key: "youtube", label: "YouTube", icon: "video", feed: YOUTUBE_FEED,
@@ -43,7 +43,7 @@ const KINDS = [
     empty: "No audio of your own yet. Use “Add audio file” above." },
   // The reels themselves are listed here like every other kind; getting new ones has a page of
   // its own (pages/reels.js), reached from the button at the top of this list.
-  { key: "reels", label: "Reels", icon: "video", feed: REELS_FEED,
+  { key: "reels", label: "Reels", icon: "reel", feed: REELS_FEED,
     empty: `No reels yet. <a class="btn primary" href="#/reels" style="margin-top:8px;display:inline-block">Get reels</a>` },
 ];
 // Tapping something in a strip redraws the page; this carries how far down it was scrolled.
@@ -67,8 +67,8 @@ export async function render(view, { feedId: routeFeed, query }) {
   let feedId = routeFeed;
   // (Asked here, not when this file loads: the app shell is still starting up at that point.)
   const phone = platform === "android";
-  // Phone: which kind is showing ("podcasts" unless the address or the feed says otherwise).
-  let kind = phone && KINDS.some((k) => k.key === query.get("show")) ? query.get("show") : "podcasts";
+  // Which kind is showing ("podcasts" unless the address or the feed says otherwise).
+  let kind = KINDS.some((k) => k.key === query.get("show")) ? query.get("show") : "podcasts";
   const filter = query.get("status") || "";
   // YouTube: the followed channel whose videos are showing ("" = all of them, recently watched first).
   const channel = query.get("channel") || "";
@@ -77,10 +77,57 @@ export async function render(view, { feedId: routeFeed, query }) {
   let offset = 0;
   let feeds = [];
 
+  // The computer: the side list is only the kinds and, under Podcasts or YouTube, the podcasts or
+  // channels (as the phone's strips are). The ways to add something sit at the top of the list
+  // they add to, the one row for the kind showing (see .lib-actions in app.css).
+  const deskActions = `
+        <div class="lib-actions">
+          <div class="act" data-kind="podcasts">
+            <form class="add-feed" id="add-feed">
+              <div class="row">
+                <input id="feed-url" type="url" placeholder="Paste a podcast's RSS feed URL" required autocomplete="off" aria-label="Podcast RSS feed URL">
+                <button class="primary" type="submit">Add podcast</button>
+              </div>
+            </form>
+            <a class="btn" href="#/discover" title="See which podcasts are popular right now in the language you're studying, sorted by topic, and add any with one press">
+              ${icon("trending", 18)} Trending in ${esc(langInfo(studyLanguage()).name)}</a>
+          </div>
+          <div class="act" data-kind="youtube">
+            <button type="button" id="open-youtube" class="primary" title="Browse YouTube inside the app. Tap a video and it opens in Tamkeen's player, with its captions as clickable text">
+              ${icon("video", 18)} Open YouTube</button>
+            <label class="yt-country small" id="yt-country-row" hidden title="Open YouTube starts on this week's most-watched videos from this country">
+              <span class="muted">Popular in</span> <select id="yt-country"></select></label>
+            <span class="small muted">Tap a video there to watch it here with clickable captions.</span>
+          </div>
+          <div class="act" data-kind="pages">
+            <form class="add-feed" id="add-page">
+              <div class="row">
+                <input id="page-url" type="text" inputmode="url" placeholder="Paste a website URL" required autocomplete="off" aria-label="Website URL">
+                <button class="primary" type="submit">Import</button>
+              </div>
+            </form>
+            <button type="button" id="open-browser" title="Browse the web inside the app and import any page you're reading">${icon("page", 18)} Open Web Browser</button>
+          </div>
+          <div class="act" data-kind="videos">
+            <button type="button" id="add-video" class="primary" title="Add a video file of your own; it's transcribed and stored in your Google Drive">${icon("videofile", 18)} Add video file</button>
+          </div>
+          <div class="act" data-kind="audio">
+            <button type="button" id="add-audio" class="primary" title="Add an audio file of your own (a recording, a lesson, a song); it's transcribed and stored in your Google Drive">${icon("audio", 18)} Add audio file</button>
+          </div>
+          <input type="file" id="video-file" accept="video/*,.mkv" hidden>
+          <input type="file" id="audio-file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.oga,.opus,.flac,.wma,.amr" hidden>
+          <div class="upload-status" id="upload-status" hidden>
+            <div class="small"><span id="upload-name"></span> <span class="muted" id="upload-pct"></span></div>
+            <div class="progress"><i id="upload-bar"></i></div>
+          </div>
+        </div>`;
+  const deskSidebar = `<div class="feed-list" id="feed-list"></div>
+        <div class="feed-list sub-list" id="podcast-list" hidden></div>
+        <button type="button" id="refresh" class="ghost refresh-btn" title="Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)">⟳ Refresh &amp; sync</button>`;
   view.append(h(`
-    <div class="library">
+    <div class="library${phone ? "" : " desk"}">
       <aside class="sidebar">
-        <div class="add-page">
+        ${!phone ? deskSidebar : `<div class="add-page">
           <form class="add-feed" id="add-page">
             <label for="page-url"><strong>Add a webpage</strong></label>
             <div class="row">
@@ -129,10 +176,11 @@ export async function render(view, { feedId: routeFeed, query }) {
           <button type="button" id="refresh" class="ghost" title="Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)">⟳ Refresh &amp; sync</button>
         </div>
         <div class="feed-list" id="feed-list"></div>
-        <div class="feed-list" id="podcast-list" hidden></div>
+        <div class="feed-list" id="podcast-list" hidden></div>`}
       </aside>
       <section class="lib-main">
         <div id="lib-head"></div>
+        ${phone ? "" : deskActions}
         <div class="tabs" id="tabs"></div>
         <div class="toolbar">
           <label class="switch"><input type="checkbox" id="select-all"> Select all</label>
@@ -147,12 +195,15 @@ export async function render(view, { feedId: routeFeed, query }) {
       </section>
     </div>`));
 
-  const $ = (sel) => view.querySelector(sel);
+  // Looked up in the page itself, not in `view`: on the computer the page is built in a holder and
+  // then moved onto the screen (see route() in app.js).
+  const root = view.lastElementChild;
+  const $ = (sel) => root.querySelector(sel);
   const listEl = $("#episodes");
   let titleQuery = "";
 
   // ----- feeds -----
-  /** Phone: the strip of kinds and, under "Podcasts", the strip of podcasts. */
+  /** The kinds and, under "Podcasts" or "YouTube", the podcasts or channels (strips on the phone). */
   function renderStrips() {
     // A built-in list opened by its own address belongs to its kind; one that doesn't exist
     // yet (nothing added) shows an empty page for that kind.
@@ -163,6 +214,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       if (own) feedId = own.id;
     }
     const remember = (el) => el.addEventListener("click", () => { keepScroll = view.scrollTop; });
+    root.dataset.kind = kind; // which row of ways to add something shows (computer)
     const list = $("#feed-list");
     list.innerHTML = "";
     for (const k of KINDS) {
@@ -206,7 +258,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     for (const { f } of podcasts) {
       const el = h(`<a class="feed-item${f.id === feedId ? " active" : ""}" href="#/feed/${f.id}">
         ${f.image ? `<img src="${esc(f.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph"></div>`}
-        <div style="min-width:0"><div class="t">${esc(f.title)}</div></div></a>`);
+        <div style="min-width:0"><div class="t">${esc(f.title)}</div>
+        <div class="small muted">${f.done_count || 0}/${f.episode_count} transcribed${f.last_error ? " · ⚠" : ""}</div></div></a>`);
       remember(el);
       strip.append(el);
     }
@@ -224,36 +277,19 @@ export async function render(view, { feedId: routeFeed, query }) {
 
   async function loadFeeds() {
     [feeds, follows] = await Promise.all([api("/feeds"), loadFollows().catch(() => [])]);
-    if (phone) {
-      renderStrips();
-      renderHead();
-      return;
-    }
-    const list = $("#feed-list");
-    list.innerHTML = "";
-    const all = h(`<a class="feed-item${feedId ? "" : " active"}" href="#/library"><div class="ph all">${icon("podcast", 22)}</div><div><div class="t">All episodes</div></div></a>`);
-    list.append(all);
-    for (const f of feeds) {
-      const img = isLocalFeed(f.url) ? `<div class="ph all">${localIcon(f.url, 22)}</div>` : f.image ? `<img src="${esc(f.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph"></div>`;
-      list.append(h(`<a class="feed-item${f.id === feedId ? " active" : ""}" href="#/feed/${f.id}">
-        ${img}<div style="min-width:0"><div class="t">${esc(f.title)}</div>
-        <div class="small muted">${f.done_count || 0}/${f.episode_count} transcribed${f.last_error ? " · ⚠" : ""}</div></div></a>`));
-    }
-    if (!feeds.length) {
-      list.append(h(`<p class="small muted" style="padding:6px">No podcasts yet. Paste a feed's RSS URL above. You can usually find it on the podcast's website, or by searching “podcast name RSS”.</p>`));
-    }
+    renderStrips();
     renderHead();
   }
 
   function renderHead() {
     const head = $("#lib-head");
     head.innerHTML = "";
-    // Phone: a kind with nothing in it yet (say, no YouTube videos) has no list of its own.
-    const emptyKind = phone && !feedId && kind !== "podcasts" ? KINDS.find((k) => k.key === kind) : null;
-    view.querySelector(".lib-main").classList.toggle("empty-kind", !!emptyKind);
+    // A kind with nothing in it yet (say, no YouTube videos) has no list of its own.
+    const emptyKind = !feedId && kind !== "podcasts" ? KINDS.find((k) => k.key === kind) : null;
+    $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
     if (emptyKind) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon(emptyKind.icon, 44)}</div><div class="meta"><h1>${emptyKind.label}</h1>
-        <div class="desc small">${emptyKind.empty}</div></div></div>`));
+        <div class="desc small">${phone ? emptyKind.empty : emptyKind.empty.replace(" above", " below")}</div></div></div>`));
       return;
     }
     if (!feedId) {
@@ -301,21 +337,7 @@ export async function render(view, { feedId: routeFeed, query }) {
         };
         head.append(el);
       }
-      // "Recently watched" has no heading of its own: the strip above already says it is YouTube.
-      if (!phone) {
-        // The computer's version of the phone's channel bar: Recently watched, then followed channels.
-        const bar = h(`<div class="tabs yt-channels"></div>`);
-        const chip = (label, href, active, picture = "") => {
-          const b = h(`<button type="button" class="${active ? "active" : ""}">${picture}<span dir="auto"></span></button>`);
-          b.querySelector("span").textContent = label;
-          b.onclick = () => (location.hash = href);
-          bar.append(b);
-        };
-        chip("Recently watched", base, !channel, icon("recent", 15));
-        for (const c of followed) chip(c.name, channelHref(base, c.name), c.name === channel, channelPicture(c));
-        if (!followed.length) bar.append(h(`<span class="small muted">Channels you follow appear here. Press Follow under a video.</span>`));
-        head.append(bar);
-      }
+      // "Recently watched" has no heading of its own: the list of kinds already says it is YouTube.
       return;
     }
     if (isLocalFeed(f.url)) {
@@ -489,14 +511,14 @@ export async function render(view, { feedId: routeFeed, query }) {
 
   async function loadEpisodes(append = false) {
     if (!append) offset = 0;
-    if (phone && !feedId && kind !== "podcasts") { // nothing of this kind yet: renderHead says so
+    if (!feedId && kind !== "podcasts") { // nothing of this kind yet: renderHead says so
       listEl.innerHTML = "";
       $("#more").hidden = true;
       return;
     }
     const params = new URLSearchParams({ limit: PAGE, offset });
     if (feedId) params.set("feed_id", feedId);
-    else if (phone) params.set("scope", "podcasts"); // "All episodes" sits under Podcasts there
+    else params.set("scope", "podcasts"); // "All episodes" sits under Podcasts
     if (filter) params.set("status", filter);
     if (titleQuery) params.set("q", titleQuery);
     if (channel && youtubeShowing()) params.set("channel", channel);
@@ -689,7 +711,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     countsTimer = setTimeout(async () => {
       const params = new URLSearchParams({ limit: 1 });
       if (feedId) params.set("feed_id", feedId);
-      else if (phone) params.set("scope", "podcasts");
+      else params.set("scope", "podcasts");
       renderTabs((await api(`/episodes?${params}`)).counts);
       loadFeeds();
     }, 400);

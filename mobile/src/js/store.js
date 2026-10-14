@@ -3,6 +3,8 @@
 // The library is kept in exactly the format of library.json.gz in Google Drive, so syncing is
 // a record-by-record merge with no translation layer.
 
+import { stampKeys } from "./aikeys.js";
+
 const DB_NAME = "aps";
 const DB_VERSION = 1;
 let dbPromise = null;
@@ -93,6 +95,7 @@ const DEFAULTS = {
   game_state: null, // the creature game's saved state
   youtube_follows: [], // followed YouTube channels (web/js/ytfollow.js); synced with the library
   browser_sites: [],   // sites saved to the in-app browser's start page (web/js/browser-sites.js); synced too
+  ig_collections: null, // saved Instagram collections found and the one chosen (web/js/igcollections.js); synced too
   game_sound: true,
   // The two-way sync with one AnkiDroid deck (anki-droid.js): on or off, the deck's name, and whether
   // the learner has agreed that deleting a word also deletes its card.
@@ -110,7 +113,8 @@ export async function loadSettings() {
 }
 
 export async function saveSettingsPatch(patch) {
-  Object.assign(settings, patch);
+  // A changed AI key notes when, so it wins over older copies on the user's other devices.
+  Object.assign(settings, stampKeys(settings, patch));
   await kv.set("settings", { ...settings });
   return settings;
 }

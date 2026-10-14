@@ -20,7 +20,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .. import arabic, audio, db, languages, pages, paths, videos, youtube
+from .. import aikeys, arabic, audio, db, events, languages, pages, paths, reels, videos, youtube
 from .drive import Drive
 
 log = logging.getLogger(__name__)
@@ -117,7 +117,9 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "vocab": vocab, "folders": folders, "definitions": defs, "lexemes": lexemes, "reviews": reviews,
             "game": db.get_setting("game_state"),
             "channels": youtube.clean_follows(db.get_setting("youtube_follows")),
-            "sites": pages.clean_sites(db.get_setting("browser_sites"))}
+            "sites": pages.clean_sites(db.get_setting("browser_sites")),
+            "ig_collections": reels.synced_collections(),
+            "keys": aikeys.from_settings(db.get_settings())}
 
 
 def _folder_list(raw: Any) -> list[str]:
@@ -135,6 +137,8 @@ def _content(lib: dict[str, Any]) -> str:
     content["reviews"] = lib.get("reviews") or {}  # nor does one from before the reviewer
     content["channels"] = lib.get("channels") or []  # nor one from before channels could be followed
     content["sites"] = lib.get("sites") or []  # nor one from before sites could be saved to the browser's start page
+    content["ig_collections"] = reels.clean_synced_collections(lib.get("ig_collections"))  # nor one from before collections were shared
+    content["keys"] = aikeys.clean(lib.get("keys"))  # nor one from before AI keys were shared
     return json.dumps(content, ensure_ascii=False, sort_keys=True)
 
 
@@ -333,6 +337,18 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
                              "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
                              (json.dumps(merged, ensure_ascii=False),))
                 result.merged["sites"] = len(merged)
+
+    # Saved Instagram collections: the list found last, and the collection chosen last.
+    if isinstance(remote.get("ig_collections"), dict) and reels.take_synced_collections(remote["ig_collections"]):
+        result.merged["ig_collections"] = 1
+        events.publish("reels_collections", {})  # an open Reels page redraws its list
+
+    # The user's own AI keys: for each key, the copy changed last wins (see app/aikeys.py).
+    if isinstance(remote.get("keys"), dict):
+        changes = aikeys.take(db.get_settings(), remote["keys"])
+        if changes:
+            db.set_settings(changes)
+            result.merged["keys"] = len(changes) - 1
     return downloads
 
 

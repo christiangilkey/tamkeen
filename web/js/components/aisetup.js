@@ -22,7 +22,7 @@ export function aiSetup(section, { transport }) {
     <div class="small muted ai-about">Tap a word to see what it means <em>in that sentence</em>. An AI provider writes the
       explanation, using your own key; you pay them directly, a fraction of a cent a word.
       <details><summary>What is sent, and where is my key kept?</summary>The word, its sentence and the sentences either
-        side go to the provider you choose, and nowhere else. Your key stays on ${here} and is never part of a data export.</details></div>
+        side go to the provider you choose, and nowhere else. Your key is kept on ${here} and, if you use Google Drive sync, in the app's private folder in your own Google Drive, so your other devices have it too. It is never part of a data export.</details></div>
     <div class="ai-setup">
       <div class="ai-field"><label for="def-provider">Provider</label>
         <select id="def-provider">${Object.entries(PROVIDERS).map(([k, p]) => `<option value="${k}">${esc(p.label)}</option>`).join("")}</select></div>

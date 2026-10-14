@@ -469,3 +469,66 @@ def test_random_reels_api(client, monkeypatch):
     assert client.get("/api/reels").json()["random"] is True, "Arabic has words to search for"
     r = client.post("/api/reels/random", json={"count": 5})
     assert r.status_code == 400 and "installed computer app" in r.json()["detail"], "no window to work in here"
+
+
+# ----- saved collections shared with the phone through the library sync -----
+
+def test_synced_collections_merge_like_the_phones():
+    # The same cases as "two devices agree" in tests/js/igcollections.test.mjs: both must give this.
+    phone = {"at": 100, "items": [{"id": "17900000000000001", "name": "Arabic"}, {"id": "17900000000000002", "name": "Cooking 🍲"}],
+             "chosen": "17900000000000002", "chosen_at": 300}
+    computer = {"at": 200, "items": [{"id": "17900000000000001", "name": "Arabic"}, {"id": "17900000000000003", "name": "Funny"}],
+                "chosen": "17900000000000003", "chosen_at": 250}
+    expected = {"at": 200, "items": computer["items"], "chosen": "all", "chosen_at": 300}
+    assert reels.merge_synced_collections(phone, computer) == expected
+    assert reels.merge_synced_collections(computer, phone) == expected
+    assert reels.merge_synced_collections(expected, expected) == expected
+    chose = {**phone, "chosen": "17900000000000001"}
+    assert reels.merge_synced_collections(chose, computer)["chosen"] == "17900000000000001"
+    assert reels.merge_synced_collections(computer, chose)["chosen"] == "17900000000000001"
+    empty = {"at": 0, "items": [], "chosen": "all", "chosen_at": 0}
+    assert reels.merge_synced_collections(empty, phone) == reels.clean_synced_collections(phone)
+    assert reels.merge_synced_collections(phone, None) == reels.clean_synced_collections(phone)
+    a = {"at": 5, "items": [{"id": "17900000000000001", "name": "😀"}]}
+    b = {"at": 5, "items": [{"id": "17900000000000001", "name": "ﻻ"}]}
+    assert reels.merge_synced_collections(a, b) == reels.merge_synced_collections(b, a)
+    assert reels.merge_synced_collections(a, b)["items"][0]["name"] == "ﻻ", "the same pick JavaScript makes"
+    # And the tidying, as in "anything odd becomes a tidy record".
+    assert reels.clean_synced_collections([1, 2]) == empty
+    assert reels.clean_synced_collections({
+        "at": "12.9", "chosen": "17900000000000002", "chosen_at": -5,
+        "items": [{"id": "17900000000000001", "name": "  Arabic \n comedy "}, {"id": "17900000000000002x"},
+                  {"id": "17900000000000001", "name": "again"}, {"id": "12", "name": "too short"}, "nope",
+                  {"id": "17900000000000003", "name": "x" * 90}],
+    }) == {"at": 12, "chosen": "all", "chosen_at": 0,
+           "items": [{"id": "17900000000000001", "name": "Arabic comedy"}, {"id": "17900000000000003", "name": "x" * 80}]}
+
+
+def test_collections_found_on_one_device_reach_the_other(world):
+    drive, a, b = world
+    with a:
+        reels.remember_collections(SAVED_LINKS)
+        reels.update(collection="18012345678901234")
+        assert reels.saved_path(reels.load(), "learner") == "/me.name/saved/arabic-comedy/18012345678901234/"
+    a.sync(drive)
+    r = b.sync(drive)
+    assert r.merged.get("ig_collections") == 1
+    with b:
+        state = reels.load()
+        assert [(c["id"], c["name"]) for c in state["collections"]] == [("18012345678901234", "Arabic comedy"), ("17900000000000001", "Collection 2")]
+        assert state["collection"] == "18012345678901234"
+        # B never saw the Saved page, so it goes to the collection by its number (Instagram corrects the rest).
+        assert reels.saved_path(state, "learner") == "/learner/saved/c/18012345678901234/"
+    assert not b.sync(drive).library_uploaded, "receiving the list must not send it back"
+    # B chooses another collection later: A takes the choice and keeps its own page addresses.
+    with b:
+        reels.update(collection="17900000000000001")
+        b_state = reels.load()
+        b_state["collection_at"] += 5  # (so it is later than A's choice, made within the same second)
+        reels.save(b_state)
+    b.sync(drive)
+    a.sync(drive)
+    with a:
+        state = reels.load()
+        assert state["collection"] == "17900000000000001"
+        assert state["collections"][0]["path"] == "/me.name/saved/arabic-comedy/18012345678901234/"

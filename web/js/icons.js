@@ -44,6 +44,12 @@ const PATHS = {
   speak: `<circle class="fill" cx="9" cy="8.4" r="3.2"/><path class="fill" d="M3 19.6a6 6 0 0 1 12 0z"/>
     <circle cx="9" cy="8.4" r="3.2"/><path d="M3 19.6a6 6 0 0 1 12 0"/>
     <path d="M16.3 6.3a3.4 3.4 0 0 1 0 4.4"/><path d="M18.9 4.2a6.6 6.6 0 0 1 0 8.6"/>`,
+  // Points right; turned round with CSS where it should point the other way (the video player's
+  // handle for folding the transcript panel away).
+  chevron: `<path d="M9.5 5.5 16 12l-6.5 6.5"/>`,
+  // A tall phone-shaped frame with a play sign: Instagram reels (so they don't share YouTube's icon).
+  reel: `<rect class="fill" x="6.5" y="3" width="11" height="18" rx="2.8"/><rect x="6.5" y="3" width="11" height="18" rx="2.8"/>
+    <path class="solid" d="M10.5 9.6v4.8l4-2.4z"/>`,
 };
 
 export const ICON_NAMES = Object.keys(PATHS);
