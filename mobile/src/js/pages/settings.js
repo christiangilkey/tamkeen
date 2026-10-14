@@ -12,7 +12,7 @@ import { dictionariesRow } from "../lexicon/seen.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { transport } from "../define-service.js";
 import { signIn, signOut } from "../drive.js";
-import { isNative } from "../native.js";
+import { isIOS, isNative } from "../native.js";
 import { settings } from "../store.js";
 import { syncNow, syncState } from "../sync.js";
 
@@ -47,10 +47,10 @@ export async function render(view) {
       <div id="account"></div>
     </section>
 
-    <section class="card stack">
+    ${isIOS ? "" : `<section class="card stack">
       <h2>AnkiDroid (optional)</h2>
       <div id="anki-sync" class="stack"></div>
-    </section>
+    </section>`}
 
     <section class="card stack">
       <h2>Appearance</h2>
@@ -134,6 +134,6 @@ export async function render(view) {
     $("#page-font-val").textContent = `${e.target.value}px`;
     saveSettings({ page_font_size: Number(e.target.value) });
   };
-  const offAnki = ankiSyncPanel($("#anki-sync"));
+  const offAnki = isIOS ? () => {} : ankiSyncPanel($("#anki-sync")); // AnkiDroid is an Android app
   return () => { off(); offAi(); offStt(); offAnki(); };
 }

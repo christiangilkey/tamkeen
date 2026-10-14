@@ -1,6 +1,6 @@
-// Google sign-in (native Android) and a minimal Drive client for the hidden app folder.
+// Google sign-in (native, Android and iPhone) and a minimal Drive client for the hidden app folder.
 
-import { GoogleDriveAuth, isNative } from "./native.js";
+import { GoogleDriveAuth, isIOS, isNative } from "./native.js";
 import { saveSettingsPatch, settings } from "./store.js";
 
 const API = "https://www.googleapis.com/drive/v3";
@@ -14,7 +14,7 @@ export class AuthError extends Error {}
 
 /** Interactive sign-in: shows Google's account picker / consent the first time. */
 export async function signIn() {
-  if (!isNative) throw new AuthError("Google sign-in works in the installed Android app.");
+  if (!isNative) throw new AuthError("Google sign-in works in the installed app.");
   const r = await GoogleDriveAuth.authorize({ interactive: true });
   token = r.accessToken;
   tokenExpires = Date.now() + 50 * 60 * 1000;
@@ -28,7 +28,8 @@ export async function accessToken(forceRefresh = false) {
   if (!settings.signed_in) throw new AuthError("Not signed in.");
   if (!forceRefresh && token && Date.now() < tokenExpires) return token;
   try {
-    const r = await GoogleDriveAuth.authorize({ interactive: false });
+    // "force" matters on the iPhone, which keeps the token itself and would hand the same one back.
+    const r = await GoogleDriveAuth.authorize({ interactive: false, force: !!forceRefresh });
     token = r.accessToken;
     tokenExpires = Date.now() + 50 * 60 * 1000;
     return token;
@@ -46,6 +47,7 @@ export async function signOut() {
   if (token) fetch(`https://oauth2.googleapis.com/revoke?token=${encodeURIComponent(token)}`, { method: "POST" }).catch(() => {});
   token = null;
   tokenExpires = 0;
+  if (isIOS) await GoogleDriveAuth.signOut().catch(() => {}); // the iPhone keeps the sign-in itself
   await saveSettingsPatch({ signed_in: false, google_email: "" });
 }
 
