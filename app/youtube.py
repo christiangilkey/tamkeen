@@ -206,9 +206,10 @@ _watching: dict[str, dict[str, Any]] = {}
 _watch_lock = threading.Lock()
 
 
-def ask_app_to_watch(video_id: str, timeout: float = WATCH_TIMEOUT) -> dict[str, Any]:
+def ask_app_to_watch(video_id: str, timeout: float = WATCH_TIMEOUT, at: float | None = None) -> dict[str, Any]:
     """Ask the app's page to add this video and open it. Returns {"ok": True, "title": ...} or
-    {"ok": False, "error": ...} (for example "No captions available for this video.")."""
+    {"ok": False, "error": ...} (for example "No captions available for this video.").
+    `at` is the moment (seconds) to open it at, when the video came from a caption search."""
     from . import events
 
     try:
@@ -220,7 +221,7 @@ def ask_app_to_watch(video_id: str, timeout: float = WATCH_TIMEOUT) -> dict[str,
     with _watch_lock:
         _watching[token] = slot
     try:
-        events.publish("youtube_watch", {"token": token, "video_id": video_id})
+        events.publish("youtube_watch", {"token": token, "video_id": video_id, "at": at})
         if not slot["done"].wait(timeout):
             return {"ok": False, "error": f"{APP_NAME} didn't answer. Is its main window still open?"}
         return slot["result"]

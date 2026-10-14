@@ -62,19 +62,32 @@
     } catch (e) { /* nothing playing */ }
   }
 
+  /** The moment a video's address asks for ("t=95", "t=1m35s"), in seconds, or null. A link from
+   * a caption search (see filmot-browser.js) that ended up on YouTube's own page carries one. */
+  function moment(href) {
+    var u;
+    try { u = new URL(href, location.href); } catch (e) { return null; }
+    var s = String(u.searchParams.get("t") || u.searchParams.get("start") || "").trim().toLowerCase();
+    if (!s) return null;
+    if (/^\d+(\.\d+)?s?$/.test(s)) return Math.floor(parseFloat(s));
+    var m = s.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/);
+    return m ? (Number(m[1]) || 0) * 3600 + (Number(m[2]) || 0) * 60 + (Number(m[3]) || 0) : null;
+  }
+
   var busy = false;
   /** Hand video `id` to the app. `onPage` = YouTube's own page for it is already showing. */
   function open(id, onPage) {
     if (busy) return;
+    var at = onPage ? moment(location.href) : null;
     if (window.__tamkeenBridge === "address") { // the phone's browser
-      location.href = "tamkeen-video://watch?v=" + id;
+      location.href = "tamkeen-video://watch?v=" + id + (at === null ? "" : "&t=" + at);
       return;
     }
     var api = window.pywebview && window.pywebview.api;
     if (!api || !api.watch_video) { say("Still loading… try again in a moment.", false); return; }
     busy = true;
     say("Getting captions…");
-    api.watch_video(id).then(function (r) {
+    (at === null ? api.watch_video(id) : api.watch_video(id, at)).then(function (r) {
       if (r && r.ok) {
         say("✓ Opened in Tamkeen", true);
         if (onPage) { // leave YouTube's page for the video, so it isn't playing in two places

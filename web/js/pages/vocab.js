@@ -8,6 +8,7 @@ import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
 import { icon } from "../icons.js";
+import { findInVideo, lacksAudio } from "../filmot.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 
@@ -363,6 +364,7 @@ export async function render(view) {
         <div class="row">
           ${(v.episode_id || v.clip) && v.start != null ? `<button type="button" class="play-word">▶ Word</button>` : ""}
           ${(v.episode_id || v.clip) && v.sent_start != null ? `<button type="button" class="play-sent">▶ Sentence</button>` : ""}
+          ${lacksAudio(v) ? `<button type="button" class="ghost find-video" title="Look for a YouTube video where this word is said">${icon("video", 16)} Find in a video</button>` : ""}
           <button type="button" class="ghost folders-btn">${icon("folder", 16)} Folders</button>
           <span class="spacer"></span>
           <span class="small muted saved" hidden>Saved</span>
@@ -407,6 +409,9 @@ export async function render(view) {
       const r = e.currentTarget.getBoundingClientRect();
       folderMenu(r.left, r.bottom + 4, [v], "toggle");
     };
+    // A word with nothing to listen to: look for it in a video (see filmot.js).
+    const fv = el.querySelector(".find-video");
+    if (fv) fv.onclick = () => findInVideo(v).catch((e) => toast(e.message, { error: true }));
     const pw = el.querySelector(".play-word");
     if (pw) pw.onclick = () => playSnippet(v, v.start, v.end ?? v.start + 1).catch((e) => toast(e.message, { error: true }));
     const ps = el.querySelector(".play-sent");

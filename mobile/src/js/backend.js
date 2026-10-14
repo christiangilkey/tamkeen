@@ -586,6 +586,19 @@ const routes = [
     changed();
     return vocabOut(v);
   }],
+  // "Find in a video" (web/js/filmot.js): the word gets the episode, the times and the sentence it
+  // is said in, as the player saves them. Its old sentence and that sentence's translation go.
+  ["POST", /^\/vocab\/([\w]+)\/source$/, (m, q, body) => {
+    const v = lib.vocab.find((x) => x.uid === m[1] && !x.deleted);
+    const e = body.episode_id ? episodeOf(body.episode_id) : null;
+    const sentence = (body.sentence || "").trim();
+    if (!v || !e) throw new ApiError("Not found.");
+    if (!sentence) throw new ApiError("There is no sentence to save.");
+    Object.assign(v, { episode_uid: e.uid, episode_title: e.title, sentence, start: body.start, end: body.end,
+                       sent_start: body.sent_start, sent_end: body.sent_end, translation: "", clip: 0, updated_at: now() });
+    changed();
+    return vocabOut(v);
+  }],
   ["DELETE", /^\/vocab\/([\w]+)$/, (m) => {
     const v = lib.vocab.find((x) => x.uid === m[1]);
     if (v) { v.deleted = 1; v.updated_at = now(); changed(); }

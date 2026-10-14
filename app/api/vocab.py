@@ -41,6 +41,16 @@ class VocabPatch(BaseModel):
     folders: list[str] | None = None
 
 
+class VocabSource(BaseModel):
+    """Where a word is said: a moment in an episode and the sentence around it."""
+    episode_id: int
+    sentence: str
+    start: float
+    end: float
+    sent_start: float
+    sent_end: float
+
+
 class FolderIn(BaseModel):
     name: str
 
@@ -289,6 +299,30 @@ def update_vocab(vocab_id: int, body: VocabPatch) -> dict[str, Any]:
     if row is None:
         raise HTTPException(404, "Not found.")
     sync.request(delay=10)  # typing in notes: wait for a pause
+    return _out(row)
+
+
+@router.post("/{vocab_id}/source")
+def set_source(vocab_id: int, body: VocabSource) -> dict[str, Any]:
+    """Give a word a place where it is said ("Find in a video" on the Vocab page, web/js/filmot.js):
+    the episode, the word's times and the whole sentence, as the player saves them. The sentence it
+    had (typed in, or from a web page) is replaced, and so is that sentence's translation; the
+    meaning, notes and folders stay. A clip the word came with is left behind for the new source."""
+    sentence = body.sentence.strip()
+    if not sentence:
+        raise HTTPException(400, "There is no sentence to save.")
+    with db.session() as conn:
+        row = conn.execute("SELECT id FROM vocab WHERE id = ? AND deleted = 0", (vocab_id,)).fetchone()
+        ep = conn.execute("SELECT title, uid FROM episodes WHERE id = ? AND deleted = 0", (body.episode_id,)).fetchone()
+        if row is None or ep is None:
+            raise HTTPException(404, "Not found.")
+        conn.execute(
+            "UPDATE vocab SET episode_id = ?, episode_uid = ?, episode_title = ?, sentence = ?, start = ?, end = ?, "
+            "sent_start = ?, sent_end = ?, translation = '', clip = 0, updated_at = ? WHERE id = ?",
+            (body.episode_id, ep["uid"], ep["title"], sentence, body.start, body.end, body.sent_start, body.sent_end,
+             time.time(), vocab_id))
+        row = conn.execute("SELECT * FROM vocab WHERE id = ?", (vocab_id,)).fetchone()
+    sync.request()
     return _out(row)
 
 

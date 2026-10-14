@@ -81,18 +81,23 @@ class BrowserApi:
         self._window: Any = None
         self._main = main_window
 
-    def watch_video(self, video_id: str = "") -> dict[str, Any]:
+    def watch_video(self, video_id: str = "", at: Any = None) -> dict[str, Any]:
         """A video was tapped on YouTube: have the app add it (captions) and show it in its
-        own player, then bring the app's window forward. See web/js/youtube-browser.js."""
+        own player, then bring the app's window forward. See web/js/youtube-browser.js.
+        From Filmot's caption search results (web/js/filmot-browser.js) the moment the word is
+        said comes with it, as `at` (seconds)."""
         from urllib.parse import urlsplit
 
         from . import youtube
 
         try:
             host = (urlsplit(self._window.get_current_url() or "").hostname or "").lower()
-            if host != "youtube.com" and not host.endswith(".youtube.com"):
+            if host not in ("youtube.com", "filmot.com", "www.filmot.com") and not host.endswith(".youtube.com"):
                 return {"ok": False, "error": "Videos can only be opened from youtube.com."}
-            result = youtube.ask_app_to_watch(str(video_id))
+            moment = None
+            if isinstance(at, (int, float)) and not isinstance(at, bool) and 0 <= at < 1_000_000:
+                moment = float(at)
+            result = youtube.ask_app_to_watch(str(video_id), at=moment)
         except Exception as exc:  # never let a website's oddities crash the bridge
             log.exception("Opening a YouTube video from the browser window failed")
             return {"ok": False, "error": f"Couldn't open this video ({exc.__class__.__name__})."}
@@ -208,11 +213,12 @@ class JsApi:
     def _browser_window(self, title: str, start: str) -> Any:
         """A web browser window. Every page in it gets the bottom bar with "Import Page"
         (web/js/browser-toolbar.js) and, on youtube.com, tap-a-video-to-watch-it-in-the-app
-        (web/js/youtube-browser.js)."""
+        (web/js/youtube-browser.js); on filmot.com, the same for its caption search results
+        (web/js/filmot-browser.js)."""
         import webview
 
         scripts = [(paths.web_dir() / "js" / name).read_text(encoding="utf-8")
-                   for name in ("browser-toolbar.js", "youtube-browser.js")]
+                   for name in ("browser-toolbar.js", "youtube-browser.js", "filmot-browser.js")]
         api = BrowserApi(self._window)
         window = webview.create_window(f"{title} · {APP_NAME}", start, js_api=api,
                                        width=1200, height=820, min_size=(640, 480), text_select=True)

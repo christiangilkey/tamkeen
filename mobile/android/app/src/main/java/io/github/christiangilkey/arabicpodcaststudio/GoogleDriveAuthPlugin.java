@@ -169,7 +169,14 @@ public class GoogleDriveAuthPlugin extends Plugin {
                         return;
                     }
                     // A YouTube video was tapped: JavaScript adds it and opens the app's player.
-                    event.put("id", id);
+                    // "<id>@<seconds>" when a moment in it came along (a caption search result).
+                    int cut = id.indexOf('@');
+                    if (cut > 0) {
+                        event.put("at", Integer.parseInt(id.substring(cut + 1)));
+                        event.put("id", id.substring(0, cut));
+                    } else {
+                        event.put("id", id);
+                    }
                     notifyListeners("youtubeVideo", event);
                 }, signedIn);
                 call.resolve();

@@ -327,7 +327,12 @@ async function youtubeBrowserScript() {
     // (for the Follow button it shows on a channel's page).
     const { followedChannels } = await import("./ytfollow.js");
     const names = followedChannels(settings.youtube_follows).map((c) => c.name);
-    return `window.__tamkeenFollowing=${JSON.stringify(names)};${source}`;
+    // With it travels the script for Filmot's caption search results (see filmot.js): each of
+    // the two acts on its own website only.
+    let filmot = "";
+    try { filmot = await (await fetch(new URL("./filmot-browser.js", import.meta.url))).text(); } catch { /* that site just isn't handled */ }
+    return `window.__tamkeenFollowing=${JSON.stringify(names)};${source}
+;${filmot}`;
   } catch { return ""; }
 }
 
@@ -385,13 +390,14 @@ export async function openBrowser(url = "", { instagramSignIn = false } = {}) {
     });
     // A video was tapped on YouTube (see youtube-browser.js): add it, then show it in the
     // app's own player, closing the browser. Without captions the browser stays open.
-    GoogleDriveAuth.addListener("youtubeVideo", async ({ id }) => {
+    // `at` is the moment that came with it, from a caption search result (see filmot.js).
+    GoogleDriveAuth.addListener("youtubeVideo", async ({ id, at }) => {
       if (openingVideo) return;
       openingVideo = true;
       try {
         GoogleDriveAuth.browserToast({ text: "Getting captions…" }).catch(() => {});
-        const { watchVideo } = await import("./youtube.js");
-        await watchVideo(id);
+        const { watchFound } = await import("./filmot.js");
+        await watchFound(id, typeof at === "number" ? at : null);
         emit("feeds", { refreshed: true });
         await GoogleDriveAuth.closeBrowser();
       } catch (e) {

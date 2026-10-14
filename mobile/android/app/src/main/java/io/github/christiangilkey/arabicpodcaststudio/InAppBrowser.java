@@ -49,7 +49,8 @@ final class InAppBrowser {
     }
 
     interface VideoListener {
-        /** A YouTube video was tapped; `id` is its 11-character video id. (For the Follow button
+        /** A YouTube video was tapped; `id` is its 11-character video id, followed by "@" and a
+         *  number of seconds when a moment in it came along. (For the Follow button
          *  on a channel's page it is the whole made-up address, "tamkeen-video://follow?name=...".) */
         void onVideo(String id);
     }
@@ -217,7 +218,12 @@ final class InAppBrowser {
                     return true;
                 }
                 String id = uri.getQueryParameter("v");
-                if (id != null && id.matches("[\\w-]{11}") && videos != null) videos.onVideo(id);
+                if (id != null && id.matches("[\\w-]{11}") && videos != null) {
+                    // A moment in the video may come with it ("&t=95", from a caption search
+                    // result, see web/js/filmot-browser.js): it travels on as "<id>@<seconds>".
+                    String at = uri.getQueryParameter("t");
+                    videos.onVideo(at != null && at.matches("\\d{1,6}") ? id + "@" + at : id);
+                }
                 return true; // never an address to load
             }
 

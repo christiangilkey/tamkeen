@@ -212,11 +212,12 @@ export async function openYouTube(address = "") {
 
 // A video was tapped in the YouTube window: add it, show it, and tell the window how it went
 // (it is waiting, to say "No captions available" or to step aside).
-on("youtube_watch", async ({ token, video_id }) => {
+on("youtube_watch", async ({ token, video_id, at }) => {
   let result;
   try {
-    const { watchVideo } = await import("./youtube.js");
-    const ep = await watchVideo(video_id);
+    // `at`: the moment that came with the video (a caption search result's; see filmot.js).
+    const { watchFound } = await import("./filmot.js");
+    const ep = await watchFound(video_id, at ?? null);
     result = { ok: true, title: ep.title };
   } catch (e) {
     result = { ok: false, error: e.message };
