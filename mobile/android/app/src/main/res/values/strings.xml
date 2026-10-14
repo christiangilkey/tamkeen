@@ -3,5 +3,7 @@
     <string name="app_name">Tamkeen</string>
     <string name="title_activity_main">Tamkeen</string>
     <string name="package_name">io.github.christiangilkey.arabicpodcaststudio</string>
+    <string name="widget_review_label">Cards to review</string>
+    <string name="widget_review_description">How many cards are left to review today</string>
     <string name="custom_url_scheme">io.github.christiangilkey.arabicpodcaststudio</string>
 </resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The review widget: 2 x 1 cells, updated every half hour (which also rolls it over at midnight). -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="110dp"
+    android:minHeight="40dp"
+    android:targetCellWidth="2"
+    android:targetCellHeight="1"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="1800000"
+    android:initialLayout="@layout/widget_review"
+    android:previewLayout="@layout/widget_review"
+    android:description="@string/widget_review_description"
+    android:widgetCategory="home_screen"/>

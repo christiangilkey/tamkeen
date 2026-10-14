@@ -38,6 +38,22 @@ export async function loadLog() {
   return (await api("/reviews")).reviews || {};
 }
 
+/**
+ * Cards left to review today, and on each of the next days if none is reviewed in between, for the
+ * number on the app's icon: {day, counts: [today, tomorrow, ...]} (day as in fsrs.dayNumber). The
+ * later days let the phone's widget and icon roll over at midnight without the app being opened.
+ */
+export async function reviewsLeft(days = 7) {
+  const [words, log] = await Promise.all([api("/vocab"), loadLog()]);
+  const day = dayNumber();
+  const counts = [];
+  for (let i = 0; i < days; i++) {
+    const o = overview(words, log, day + i);
+    counts.push(o.due + o.fresh);
+  }
+  return { day, counts };
+}
+
 /** What is waiting among `words` today, for the banner on the Vocab page. */
 export function overview(words, log, today = dayNumber()) {
   const cards = states(log);
@@ -332,6 +348,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
 
   // ----- answering -----
   const send = (uid, [t, rating, day, ms]) => api("/reviews", { method: "POST", body: { uid, t, rating, day, ms } })
+    .then(() => window.dispatchEvent(new Event("tamkeen:reviewed")))  // the number on the app's icon
     .catch((e) => toast(`That answer wasn't saved: ${e.message}`, { error: true }));
 
   async function grade(rating, from = "") {

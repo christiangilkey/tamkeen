@@ -230,6 +230,18 @@ def update_status() -> dict[str, Any]:
     return updates.status()
 
 
+@router.post("/app-badge")
+def app_badge(body: dict[str, Any]) -> dict[str, Any]:
+    """The number of review cards left today, shown on the taskbar button / Dock icon."""
+    from .. import appbadge
+
+    try:
+        count = max(0, int(body.get("count") or 0))
+    except (TypeError, ValueError):
+        count = 0
+    return {"ok": appbadge.set_count(count)}
+
+
 LICENSES = [
     ("Tamkeen", "MIT", "app.txt"),
     ("OpenAI Whisper (model weights & architecture)", "MIT", "whisper.txt"),

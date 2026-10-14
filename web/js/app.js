@@ -436,12 +436,33 @@ async function boot() {
   on("sync", () => api("/settings").then((s) => {
     window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: s.game_state }));
   }).catch(() => {}));
+  if (state.status && state.status.desktop) startAppBadge();
   // A newer version? Tell the user once per start; a packaged build can install it in place.
   setTimeout(() => {
     api("/updates/check").then((r) => {
       if (r && r.update_available) offerUpdate(r);
     }).catch(() => {});
   }, 2500);
+}
+
+/** The number of cards left to review today on the taskbar button / Dock icon (app/appbadge.py):
+ *  on opening, after each answer, after a sync, and every 10 minutes (for the new day). */
+function startAppBadge() {
+  let timer = 0;
+  const refresh = () => {
+    clearTimeout(timer);
+    timer = setTimeout(async () => {
+      try {
+        const { reviewsLeft } = await import("./pages/review.js");
+        const { counts } = await reviewsLeft(1);
+        await api("/app-badge", { method: "POST", body: { count: counts[0] } });
+      } catch { /* not important enough to bother the user */ }
+    }, 800);
+  };
+  window.addEventListener("tamkeen:reviewed", refresh);
+  on("sync", refresh);
+  setInterval(refresh, 600000);
+  refresh();
 }
 
 /** The update popup for a /updates/check answer (also used by Settings and About). */

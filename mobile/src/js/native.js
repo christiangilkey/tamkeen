@@ -15,3 +15,6 @@ export const NativeHttp = isNative ? registerPlugin("CapacitorHttp") : null;
 export const AnkiDroid = isNative ? registerPlugin("AnkiDroid") : null;
 /** Installs a new release's APK from inside the app (android/.../AppUpdaterPlugin.java). Android only. */
 export const AppUpdater = isNative && Capacitor.getPlatform() === "android" ? registerPlugin("AppUpdater") : null;
+/** Cards left to review today on the app icon (a silent notification) and the home-screen widget
+ *  (android/.../AppBadgePlugin.java). Android only. */
+export const AppBadge = isNative && Capacitor.getPlatform() === "android" ? registerPlugin("AppBadge") : null;

@@ -24,6 +24,21 @@
 
         </activity>
 
+        <!-- Home-screen widget: cards left to review today (ReviewWidget / ReviewBadge). -->
+        <receiver
+            android:name=".ReviewWidget"
+            android:label="@string/widget_review_label"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_review_info" />
+        </receiver>
+        <!-- Moves the count on to the new day just after midnight. -->
+        <receiver android:name=".ReviewBadgeReceiver" android:exported="false" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -40,6 +55,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Installing a new version of Tamkeen from inside the app ("Update now"). Android asks once. -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- The silent "cards to review today" notification that puts the number on the app icon. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- Voice notes in friend chats (asked for the first time you tap the microphone). -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />

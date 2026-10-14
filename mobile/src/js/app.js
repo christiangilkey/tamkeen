@@ -24,7 +24,7 @@ import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
 import { accessToken, drive } from "./drive.js";
-import { App, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from "./native.js";
+import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
 import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
@@ -746,6 +746,36 @@ async function installApk(apk, report) {
   }
 }
 
+// ---------- cards left today, outside the app ----------
+/** Hands Android the number of cards left to review today and on the next days (for midnight),
+ *  for the app icon's number (a silent notification) and the home-screen widget. On opening,
+ *  after each answer, after a sync, and on coming back to the app. The first time, Android 13+
+ *  asks whether Tamkeen may show notifications (the number needs one). */
+function startAppBadge() {
+  if (!AppBadge) return;
+  let timer = 0;
+  const refresh = () => {
+    clearTimeout(timer);
+    timer = setTimeout(async () => {
+      try {
+        const { reviewsLeft } = await import("./pages/review.js");
+        const { day, counts } = await reviewsLeft(7);
+        await AppBadge.setCounts({ day, counts });
+        let asked = false;
+        try { asked = localStorage.getItem("badge_permission_asked") === "1"; } catch { /* private storage off */ }
+        if (!asked && counts[0] > 0) {
+          try { localStorage.setItem("badge_permission_asked", "1"); } catch { /* asked again next time */ }
+          await AppBadge.allowNotification();
+        }
+      } catch { /* not important enough to bother the user */ }
+    }, 800);
+  };
+  window.addEventListener("tamkeen:reviewed", refresh);
+  on("sync", (s) => { if (s && s.state === "idle") refresh(); });
+  App.addListener("resume", refresh);
+  refresh();
+}
+
 // ---------- boot ----------
 async function boot() {
   await loadSettings();
@@ -759,6 +789,7 @@ async function boot() {
   route();
   startBadge();
   setTimeout(checkForUpdate, 3000);
+  startAppBadge();
   // YouTube links tapped inside the app stay in the app (see openYouTubeLink).
   if (isNative) {
     GoogleDriveAuth.addListener("youtubeLink", ({ url }) => {
