@@ -40,6 +40,11 @@ function ankiSteps() {
       "In Anki, click <strong>Import File</strong> and choose it.",
       progress,
       "Make sure your deck is formatted the way you want the cards to appear in Anki."] }
+    : window.Capacitor?.getPlatform?.() === "ios" // the iPhone app: Anki there is AnkiMobile
+    ? { need: "You need the AnkiMobile app installed on this iPhone.", steps: [
+      "Pick <strong>AnkiMobile</strong> in the row of apps. If it isn't there, tap <strong>More</strong>.",
+      progress,
+      "In AnkiMobile, make sure your deck is formatted the way you want the cards to appear."] }
     : { need: "You need the AnkiDroid app installed on this phone.", steps: [
       "Pick the <strong>Anki</strong> bubble in the row at the bottom. If it isn't there, tap <strong>More</strong>.",
       "Tap the popup labelled <strong>AnkiDroid</strong>.",

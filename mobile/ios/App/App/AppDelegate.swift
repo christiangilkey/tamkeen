@@ -37,5 +37,7 @@ class TamkeenViewController: CAPBridgeViewController {
     override func capacitorDidLoad() {
         super.capacitorDidLoad()
         webView?.allowsBackForwardNavigationGestures = true
+        // The page itself never scrolls (its lists do), so it shouldn't stretch like a rubber band.
+        webView?.scrollView.bounces = false
     }
 }

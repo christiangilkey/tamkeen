@@ -33,6 +33,14 @@ import { ankiCard } from "./review/fsrs.js";
 
 export const platform = "android";
 
+if (isIOS) {
+  // An iPhone zooms the whole page in when a small text box is tapped, and leaves it zoomed.
+  // Capping the zoom stops that (Android's app view never zooms in the first place).
+  const viewport = document.querySelector('meta[name="viewport"]');
+  if (viewport) viewport.content += ", maximum-scale=1";
+  document.documentElement.classList.add("ios");
+}
+
 // ---------- the reel window ----------
 // A reel plays from Instagram's embed page in a second, native window laid exactly over a box
 // on the app's screen (ReelSurface.java). web/js/reel-embed.js runs inside that page.

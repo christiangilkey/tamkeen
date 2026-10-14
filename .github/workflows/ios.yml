@@ -85,7 +85,10 @@ jobs:
           cp -R "$APP" "$RUNNER_TEMP/ipa/Payload/"
           (cd "$RUNNER_TEMP/ipa" && zip -qry "$GITHUB_WORKSPACE/dist/Tamkeen-${APP_VERSION}-iPhone.ipa" Payload)
           SIZE=$(du -h "dist/Tamkeen-${APP_VERSION}-iPhone.ipa" | cut -f1)
-          echo "::notice title=iPhone app built::Tamkeen-${APP_VERSION}-iPhone.ipa, ${SIZE}, id ${ID}, version ${VER} (${IOS_BUILD})"
+          # What the app carries besides its own program: Capacitor's libraries, if they are separate files.
+          PARTS=$(ls "$APP/Frameworks" 2>/dev/null | tr '
+' ' ')
+          echo "::notice title=iPhone app built::Tamkeen-${APP_VERSION}-iPhone.ipa, ${SIZE}, id ${ID}, version ${VER} (${IOS_BUILD}), program $(du -h "$APP/App" | cut -f1), libraries: ${PARTS:-built in}"
 
       - uses: actions/upload-artifact@v4
         with:
