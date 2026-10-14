@@ -77,3 +77,13 @@ test("update check compares version numbers, not text", () => {
   assert.equal(isNewer("0.7.9", "0.8.0"), false, "never offer a downgrade");
   assert.equal(isNewer("0.8.0", "0.8.0-dev.12"), false);
 });
+
+// The update popup's progress line (same file).
+const ptBody = src.slice(src.indexOf("export function progressText"), src.indexOf("/**\n * Show the popup")).replace(/export /g, "");
+const { progressText } = new Function(`${ptBody}; return { progressText };`)();
+test("update progress reads as plain words", () => {
+  assert.equal(progressText({ stage: "downloading", done: 0, total: 0 }), "Downloading…");
+  assert.equal(progressText({ stage: "downloading", done: 35 * 1048576, total: 70 * 1048576 }), "Downloading… 50% (35.0 of 70.0 MB)");
+  assert.match(progressText({ stage: "installing" }), /close and open again/);
+  assert.equal(progressText({ stage: "error", error: "No space left." }), "No space left.");
+});

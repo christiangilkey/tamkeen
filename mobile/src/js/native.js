@@ -13,3 +13,5 @@ export const App = isNative ? registerPlugin("App") : null;
 export const NativeHttp = isNative ? registerPlugin("CapacitorHttp") : null;
 /** The Tamkeen deck in AnkiDroid (our own small Android plugin, see android/.../AnkiDroidPlugin.java). */
 export const AnkiDroid = isNative ? registerPlugin("AnkiDroid") : null;
+/** Installs a new release's APK from inside the app (android/.../AppUpdaterPlugin.java). Android only. */
+export const AppUpdater = isNative && Capacitor.getPlatform() === "android" ? registerPlugin("AppUpdater") : null;

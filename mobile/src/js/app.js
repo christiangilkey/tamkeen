@@ -24,7 +24,7 @@ import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
 import { accessToken, drive } from "./drive.js";
-import { App, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from "./native.js";
+import { App, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
 import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
@@ -716,8 +716,34 @@ async function checkForUpdate() {
     if (!res.ok) return;
     const data = await res.json();
     const latest = String(data.tag_name || "").replace(/^v/, "");
-    if (isNewer(latest, APP_VERSION)) showUpdateNotice({ latest, current: APP_VERSION, url: data.html_url });
+    if (!isNewer(latest, APP_VERSION)) return;
+    const apk = (data.assets || []).find((a) => /^Tamkeen-.*-Android\.apk$/.test(a.name || "")
+      && String(a.browser_download_url || "").startsWith(APK_FROM));
+    showUpdateNotice({ latest, current: APP_VERSION, url: data.html_url,
+                       install: AppUpdater && apk ? (report) => installApk(apk, report) : null });
   } catch { /* offline, or GitHub unreachable: try again next time the app opens */ }
+}
+
+const APK_FROM = "https://github.com/christiangilkey/tamkeen/releases/download/";
+
+/** "Update now": download the release's APK and open Android's installer on it. The first time,
+ *  Android asks whether Tamkeen may install apps; the settings screen for that opens instead. */
+async function installApk(apk, report) {
+  const { allowed } = await AppUpdater.canInstall();
+  if (!allowed) {
+    await AppUpdater.openInstallSettings();
+    throw new Error('Allow "Install unknown apps" for Tamkeen, come back, and tap Try again.');
+  }
+  const progress = await AppUpdater.addListener("updateProgress", ({ done, total }) =>
+    report({ stage: "downloading", done, total: total > 0 ? total : apk.size || 0 }));
+  try {
+    const digest = String(apk.digest || "");
+    await AppUpdater.downloadAndInstall({ url: apk.browser_download_url,
+                                          sha256: digest.startsWith("sha256:") ? digest.slice(7) : "" });
+    report({ stage: "installing", message: "Tap Update in Android's installer. Your library stays as it is." });
+  } finally {
+    progress.remove();
+  }
 }
 
 // ---------- boot ----------

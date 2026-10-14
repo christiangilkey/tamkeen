@@ -83,7 +83,7 @@ function emit(event, data) {
 }
 function connectEvents() {
   const es = new EventSource("/api/events");
-  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "reels", "reels_collections", "stt"]) {
+  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "reels", "reels_collections", "stt", "update"]) {
     es.addEventListener(name, (e) => emit(name, JSON.parse(e.data)));
   }
   es.onopen = () => emit("reconnected", {});
@@ -436,12 +436,32 @@ async function boot() {
   on("sync", () => api("/settings").then((s) => {
     window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: s.game_state }));
   }).catch(() => {}));
-  // A newer version? Tell the user once per start, with a link to the release page.
+  // A newer version? Tell the user once per start; a packaged build can install it in place.
   setTimeout(() => {
     api("/updates/check").then((r) => {
-      if (r && r.update_available) showUpdateNotice({ latest: r.latest, current: r.current, url: r.url });
+      if (r && r.update_available) offerUpdate(r);
     }).catch(() => {});
   }, 2500);
+}
+
+/** The update popup for a /updates/check answer (also used by Settings and About). */
+export function offerUpdate(r) {
+  document.getElementById("update-notice")?.remove();
+  return showUpdateNotice({ latest: r.latest, current: r.current, url: r.url,
+                            install: r.can_install ? installUpdate : null });
+}
+
+/** Download and install the newest release (app/updates.py); the app then closes and reopens. */
+function installUpdate(report) {
+  return new Promise((resolve, reject) => {
+    const off = on("update", (s) => {
+      report(s);
+      if (s.stage === "error") { off(); reject(new Error(s.error)); }
+    });
+    api("/updates/install", { method: "POST" }).then((r) => {
+      if (!r.ok) { off(); reject(new Error(r.error)); }
+    }).catch((e) => { off(); reject(e); });
+  });
 }
 
 boot();

@@ -219,6 +219,17 @@ def check_updates() -> dict[str, Any]:
     return updates.check()
 
 
+@router.post("/updates/install")
+def install_update() -> dict[str, Any]:
+    """Download the newest release and install it; progress arrives as "update" events."""
+    return updates.start_install()
+
+
+@router.get("/updates/status")
+def update_status() -> dict[str, Any]:
+    return updates.status()
+
+
 LICENSES = [
     ("Tamkeen", "MIT", "app.txt"),
     ("OpenAI Whisper (model weights & architecture)", "MIT", "whisper.txt"),

@@ -1,6 +1,6 @@
 // About: version, update check, licenses.
 
-import { api, esc, h } from "../app.js";
+import { api, esc, h, offerUpdate } from "../app.js";
 
 export async function render(view) {
   const a = await api("/about");
@@ -39,7 +39,10 @@ export async function render(view) {
     res.textContent = "Checking…";
     const r = await api("/updates/check");
     if (!r.ok) res.textContent = r.error;
-    else if (r.update_available) res.innerHTML = `Version ${esc(r.latest)} is available. <a href="${esc(r.url)}" target="_blank" rel="noopener">Download</a>`;
+    else if (r.update_available) {
+      res.textContent = `Version ${r.latest} is available.`;
+      offerUpdate(r);
+    }
     else res.textContent = r.message || "You're up to date.";
   };
 }

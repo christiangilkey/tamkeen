@@ -11,6 +11,8 @@ public class MainActivity extends BridgeActivity {
         registerPlugin(GoogleDriveAuthPlugin.class);
         // Keeps saved words and the Tamkeen deck in AnkiDroid in step (see AnkiDroidPlugin).
         registerPlugin(AnkiDroidPlugin.class);
+        // Downloads a new release's APK and opens Android's installer on it (see AppUpdaterPlugin).
+        registerPlugin(AppUpdaterPlugin.class);
         super.onCreate(savedInstanceState);
         // Lets the video player stream the user's own videos straight from Google Drive.
         getBridge().setWebViewClient(new DriveMediaWebViewClient(getBridge()));

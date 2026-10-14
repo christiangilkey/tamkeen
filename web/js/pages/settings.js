@@ -1,6 +1,6 @@
 // Settings: model, GPU, audio storage, appearance, data backup, updates.
 
-import { api, esc, h, on, toast, download, loadStatus, saveSettings, fmtBytes, state } from "../app.js";
+import { api, esc, h, on, toast, download, loadStatus, saveSettings, fmtBytes, state, offerUpdate } from "../app.js";
 import { modelManager, gpuPanel } from "../components/models.js";
 import { aiSetup } from "../components/aisetup.js";
 import { sttSetup } from "../components/sttsetup.js";
@@ -283,7 +283,10 @@ export async function render(view) {
     box.textContent = "Checking…";
     const r = await api("/updates/check");
     if (!r.ok) box.textContent = r.error;
-    else if (r.update_available) box.innerHTML = `Version ${esc(r.latest)} is available. <a href="${esc(r.url)}" target="_blank" rel="noopener">Download it from GitHub</a>.`;
+    else if (r.update_available) {
+      box.textContent = `Version ${r.latest} is available.`;
+      offerUpdate(r);
+    }
     else box.textContent = r.message || `You're up to date (${r.current}).`;
   };
 

@@ -781,12 +781,20 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .anki-history i.ok { background: #2e9d5b; }
 
 /* ---------- "new version available" popup ---------- */
-.update-notice { position: fixed; right: 16px; bottom: 16px; z-index: 70; display: flex; align-items: center; gap: 4px; max-width: min(420px, calc(100vw - 32px));
-  background: var(--brand-grad); color: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, .35); padding: 6px 6px 6px 4px;
+.update-notice { position: fixed; right: 16px; bottom: 16px; z-index: 70; display: flex; flex-direction: column; gap: 8px; width: min(420px, calc(100vw - 32px));
+  background: var(--brand-grad); color: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, .35); padding: 12px;
   animation: update-in .35s cubic-bezier(.2, 1.3, .4, 1); }
 @keyframes update-in { from { transform: translateY(20px); opacity: 0; } }
-.update-link { display: flex; align-items: center; gap: 12px; padding: 8px 10px; color: #fff; border-radius: 12px; flex: 1; min-width: 0; }
-.update-link:hover { text-decoration: none; background: rgba(255, 255, 255, .1); }
+.update-main { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.update-main .update-text { flex: 1; }
+.update-bar { height: 6px; border-radius: 3px; background: rgba(255, 255, 255, .25); overflow: hidden; }
+.update-bar span { display: block; height: 100%; width: 0; background: #fff; border-radius: 3px; transition: width .25s; }
+.update-bar.busy span { width: 30%; animation: update-busy 1.2s ease-in-out infinite; }
+@keyframes update-busy { from { transform: translateX(-100%); } to { transform: translateX(340%); } }
+.update-actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; }
+.update-notes { color: #fff; opacity: .9; font-size: .9em; }
+.update-now { background: #fff; color: #1b1030; border: 0; font-weight: 700; }
+.update-now:hover:not(:disabled) { background: #fff; filter: brightness(.95); }
 .update-ico { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; flex: none; background: var(--brand-gold); color: #2a1d00; font-weight: 800; }
 .update-text { display: flex; flex-direction: column; min-width: 0; }
 .update-text .small { opacity: .85; }
