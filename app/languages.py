@@ -12,7 +12,8 @@ import re
 from . import db
 
 # code -> English name. The codes are also Whisper's language codes.
-LANGUAGES = {"es": "Spanish", "ar": "Arabic", "fr": "French", "ja": "Japanese", "zh": "Chinese", "ru": "Russian"}
+LANGUAGES = {"es": "Spanish", "ar": "Arabic", "fr": "French", "ja": "Japanese", "zh": "Chinese", "ru": "Russian",
+             "it": "Italian", "tl": "Tagalog"}
 DEFAULT = "ar"  # the app's first language; anything stored before languages existed is Arabic
 
 # Whisper writes Chinese in either script unless nudged; this opening line asks for simplified.
@@ -39,7 +40,8 @@ def study() -> str:
 
 def detect(text: str, hint: str | None = None) -> str:
     """Which taught language a text is written in, judged by its letters. Text in Latin letters
-    (which could be Spanish, French or something else) counts as the language being studied."""
+    (which could be Spanish, French, Italian, Tagalog or something else) counts as the language
+    being studied."""
     hint = hint if valid(hint) else study()
     sample = (text or "")[:4000]
     counts = {name: len(rx.findall(sample)) for name, rx in _SCRIPTS.items()}

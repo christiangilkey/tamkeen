@@ -48,6 +48,7 @@ export function isYouTubeAddress(text) {
 /** "ar-EG" → "ar"; YouTube's older or regional codes folded onto the app's. */
 export function baseLanguage(code) {
   const b = String(code || "").toLowerCase().split(/[-_]/)[0];
+  if (b === "fil") return "tl";  // YouTube marks Tagalog captions as Filipino
   return b === "cmn" || b === "yue" ? "zh" : b;
 }
 

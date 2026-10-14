@@ -119,11 +119,41 @@ export const NEWS = {
     ["Настоящее Время", "https://www.currenttime.tv/", "Current Time"],
     ["Хабр", "https://habr.com/ru/news/", "Technology news"],
   ],
+  it: [
+    ["Rai News", "https://www.rainews.it/", "Rai, public broadcaster"],
+    ["ANSA", "https://www.ansa.it/", "ANSA, news agency"],
+    ["Corriere della Sera", "https://www.corriere.it/", "Corriere della Sera"],
+    ["la Repubblica", "https://www.repubblica.it/", "la Repubblica"],
+    ["La Stampa", "https://www.lastampa.it/", "La Stampa"],
+    ["Il Sole 24 Ore", "https://www.ilsole24ore.com/", "Business news"],
+    ["Il Post", "https://www.ilpost.it/", "Il Post"],
+    ["Sky TG24", "https://tg24.sky.it/", "Sky TG24"],
+    ["Internazionale", "https://www.internazionale.it/", "World news in Italian"],
+    ["Euronews", "https://it.euronews.com/", "In Italian"],
+    ["Gazzetta dello Sport", "https://www.gazzetta.it/", "Sport"],
+    ["Wikipedia", "https://it.wikipedia.org/", "Italian Wikipedia"],
+  ],
+  tl: [
+    ["Abante", "https://www.abante.com.ph/", "Abante, in Tagalog"],
+    ["Bombo Radyo", "https://www.bomboradyo.com/", "Bombo Radyo"],
+    ["Pilipino Star Ngayon", "https://www.philstar.com/pilipino-star-ngayon", "Philstar's Tagalog paper"],
+    ["Balita", "https://balita.mb.com.ph/", "Manila Bulletin's Tagalog news"],
+    ["Bandera", "https://bandera.inquirer.net/", "Inquirer's Tagalog paper"],
+    ["GMA News", "https://www.gmanetwork.com/news/", "GMA News (much of it in English)"],
+    ["ABS-CBN News", "https://news.abs-cbn.com/", "ABS-CBN News (much of it in English)"],
+    ["Remate", "https://remate.ph/", "Remate, in Tagalog"],
+    ["Pilipino Mirror", "https://pilipinomirror.com/", "Pilipino Mirror, in Tagalog"],
+    ["DZRH", "https://www.dzrh.com.ph/", "DZRH radio news"],
+    ["Radyo Pilipinas", "https://radyopilipinas.ph/", "Radyo Pilipinas, public radio"],
+    ["PTV News", "https://ptvnews.ph/", "PTV, public television"],
+    ["Wikipedia", "https://tl.wikipedia.org/", "Tagalog Wikipedia"],
+  ],
 };
 
-// Language names and the few words on the page, for the six languages (the page itself is in
+// Language names and the few words on the page, for the languages taught (the page itself is in
 // English, like the rest of the app; only the heading greets in the language).
-const NAMES = { ar: "Arabic", es: "Spanish", fr: "French", ja: "Japanese", zh: "Chinese", ru: "Russian" };
+const NAMES = { ar: "Arabic", es: "Spanish", fr: "French", ja: "Japanese", zh: "Chinese", ru: "Russian", it: "Italian",
+                tl: "Tagalog" };
 const RTL = { ar: true };
 
 export const hasNews = (code) => Object.prototype.hasOwnProperty.call(NEWS, code);

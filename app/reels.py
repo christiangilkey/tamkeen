@@ -42,6 +42,8 @@ COMEDY_WORDS = {
     "ja": ["お笑い", "コント", "爆笑", "あるある"],
     "zh": ["搞笑", "喜剧", "段子", "脱口秀"],
     "ru": ["юмор", "приколы", "смешно", "комедия"],
+    "it": ["comicità", "divertente", "scherzi", "battute"],
+    "tl": ["katatawanan", "nakakatawa", "biruan", "banat"],
 }
 
 # "Random reels": everyday words searched for, a few picked at random each time, so a batch is a
@@ -60,6 +62,10 @@ RANDOM_WORDS = {
            "播客", "生活", "家庭", "脱口秀"],
     "ru": ["влог", "рецепт", "история", "совет", "юмор", "приколы", "вопрос", "челлендж", "интервью", "путешествие", "еда", "опыт",
            "факты", "объяснение", "спорт", "новости", "подкаст", "рутина", "семья", "кофе"],
+    "it": ["vlog", "ricetta", "storia", "consiglio", "comicità", "sketch", "domanda", "sfida", "intervista", "viaggio", "cibo", "aneddoto",
+           "esperienza", "curiosità", "spiegazione", "cucina", "sport", "notizie", "podcast", "routine", "famiglia", "caffè"],
+    "tl": ["vlog", "luto", "kwento", "payo", "katatawanan", "biruan", "tanong", "hamon", "panayam", "biyahe", "pagkain", "karanasan",
+           "kaalaman", "paliwanag", "ulam", "palaro", "balita", "podcast", "araw-araw", "pamilya", "kape", "hugot"],
 }
 RANDOM_SEARCHES = 8          # at most this many words are searched for in one batch
 

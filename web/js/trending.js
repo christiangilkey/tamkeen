@@ -21,10 +21,13 @@ export const STOREFRONTS = {
   ja: ["jp"],
   zh: ["cn", "tw"],
   ru: ["ru"],
+  it: ["it", "ch"],
+  tl: ["ph"],
 };
 export const COUNTRY_NAMES = {
   sa: "Saudi Arabia", eg: "Egypt", ae: "the UAE", ma: "Morocco", es: "Spain", mx: "Mexico", ar: "Argentina", co: "Colombia",
-  fr: "France", be: "Belgium", jp: "Japan", cn: "China", tw: "Taiwan", ru: "Russia",
+  fr: "France", be: "Belgium", jp: "Japan", cn: "China", tw: "Taiwan", ru: "Russia", it: "Italy", ch: "Switzerland",
+  ph: "the Philippines",
 };
 /** Apple's main podcast headings. */
 export const MAIN_CATEGORIES = ["Arts", "Business", "Comedy", "Education", "Fiction", "Government", "Health & Fitness",
@@ -68,6 +71,8 @@ const SCRIPTS = { ar: /[؀-ۿ]/, ru: /[Ѐ-ӿ]/, ja: /[぀-ヿ一-鿿]/, zh: /[�
 const LITTLE_WORDS = {
   es: ["el", "la", "los", "las", "de", "del", "que", "y", "en", "un", "una", "con", "por", "para", "más", "tu", "sobre"],
   fr: ["le", "la", "les", "des", "du", "et", "un", "une", "en", "pour", "avec", "est", "sur", "dans", "vous", "qui", "au"],
+  it: ["il", "lo", "la", "gli", "le", "di", "del", "della", "che", "e", "un", "una", "con", "per", "sono", "nel", "sulla"],
+  tl: ["ang", "ng", "mga", "sa", "na", "at", "ay", "si", "kung", "ito", "hindi", "para", "ko", "mo", "natin", "tayo", "kayo"],
   en: ["the", "and", "of", "to", "with", "is", "for", "in", "on", "your", "from", "that", "this", "you", "about", "we"],
 };
 const count = (words, list) => words.reduce((n, w) => n + (list.includes(w) ? 1 : 0), 0);

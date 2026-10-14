@@ -29,6 +29,8 @@ export const START = {
   ja: ["の", "JP", "ja", 3],
   zh: ["的", "TW", "zh-CN", 0],
   ru: ["это", "RU", "ru", 0],
+  it: ["che", "IT", "it", 0],
+  tl: ["ang", "PH", "fil", 0],
 };
 
 /** Countries offered for each language: [YouTube's country code, name, a search word of its own
@@ -46,6 +48,8 @@ export const COUNTRIES = {
   ja: [["JP", "Japan"]],
   zh: [["TW", "Taiwan"], ["HK", "Hong Kong"], ["SG", "Singapore"], ["MY", "Malaysia"]],
   ru: [["RU", "Russia"], ["KZ", "Kazakhstan"], ["BY", "Belarus"], ["UA", "Ukraine"]],
+  it: [["IT", "Italy"], ["CH", "Switzerland"]],
+  tl: [["PH", "Philippines"]],
 };
 
 /** The country to use: the chosen one if it is on the language's list, else the usual one. */

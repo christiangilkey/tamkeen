@@ -169,6 +169,30 @@ const TEACH = {
     dialect_note: "Register usage note; empty if none.",
     msa_equivalent: "The neutral standard equivalent if the word is slang or colloquial; empty otherwise.",
   },
+  it: {
+    name: "Italian",
+    variety: "which may be standard or regional (northern, Roman, Neapolitan, Sicilian and so on), formal or colloquial",
+    why: "Italian words change meaning with context (verb endings that hide the subject, attached and combined pronouns such as dammelo, elided articles such as l' and un', regional words and slang)",
+    vocalized: "Pronunciation in IPA, with the stressed syllable marked, e.g. '/maˈɡari/'.",
+    lemma: "Dictionary form (infinitive for verbs, masculine singular for nouns and adjectives), with its article for nouns.",
+    root: "Empty string.",
+    morphology: "Short analysis: tense, mood, person and number; attached or elided pronouns and articles; gender and number.",
+    dialect: "Standard, or the region or register if notable: colloquial, slang, Roman, Neapolitan, northern, literary, etc.",
+    dialect_note: "Regional or register usage note (where it is said, how formal it is); empty if none.",
+    msa_equivalent: "The neutral standard Italian equivalent if the word is regional, dialect or slang; empty otherwise.",
+  },
+  tl: {
+    name: "Tagalog",
+    variety: "which may be formal Filipino or everyday Tagalog, often mixed with English (Taglish)",
+    why: "Tagalog words change form with affixes and focus (mag-, um-, -in-, -an, i-, reduplication for aspect), linkers such as na and -ng, and frequent English loanwords",
+    vocalized: "The word with its stress and glottal stop marked in the traditional way (acute, grave or circumflex accent), followed by IPA in parentheses, e.g. 'kasí (/kaˈsiʔ/)'.",
+    lemma: "The root word (salitang-ugat) the form is built on, e.g. 'kain' for 'kumain'.",
+    root: "The root word and the affixes on it, e.g. 'kain + -um- (actor focus, completed)'.",
+    morphology: "Short analysis: focus (actor, object, locative, benefactive), aspect (completed, ongoing, contemplated), affixes and reduplication; linker or enclitic if attached.",
+    dialect: "Standard, or the register if notable: formal Filipino, colloquial, Taglish, slang (salitang kalye, gay lingo), regional, etc.",
+    dialect_note: "Register usage note (how formal it is, whether it is English mixed in); empty if none.",
+    msa_equivalent: "The neutral standard Filipino equivalent if the word is slang, English or colloquial; empty otherwise.",
+  },
 };
 
 const teach = (code) => TEACH[isLanguage(code) ? code : "ar"];

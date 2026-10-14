@@ -56,6 +56,22 @@ export const LANGUAGES = {
     pageSample: "Кофе — это напиток из обжаренных зёрен кофейного дерева, один из самых популярных в мире.",
     test: { word: "ладно", marked: "Ну ⟦ладно⟧, пойдём.", podcast: "Real Russian" },
   },
+  it: {
+    ...LTR, name: "Italian", native: "Italiano",
+    hello: "Benvenuto!", hi: "ciao", search: "cerca", word: "la parola",
+    greet: ["Buongiorno", "Buon pomeriggio", "Buonasera"],
+    sample: "Benvenuti a un nuovo episodio del podcast.",
+    pageSample: "Il caffè è una bevanda che si ottiene dai semi tostati della pianta del caffè, ed è una delle più diffuse al mondo.",
+    test: { word: "magari", marked: "Ci vediamo ⟦magari⟧ domani.", podcast: "Italiano vero" },
+  },
+  tl: {
+    ...LTR, name: "Tagalog", native: "Tagalog", root: "Root",
+    hello: "Maligayang pagdating!", hi: "kumusta", search: "hanapin", word: "ang salita",
+    greet: ["Magandang umaga", "Magandang hapon", "Magandang gabi"],
+    sample: "Maligayang pagdating sa bagong episode ng podcast.",
+    pageSample: "Ang kape ay inuming gawa sa mga binusang buto ng halamang kape, at isa ito sa pinakasikat na inumin sa buong mundo.",
+    test: { word: "kasi", marked: "Hindi ako nakapunta ⟦kasi⟧ umulan.", podcast: "Totoong Tagalog" },
+  },
 };
 
 export const LANGUAGE_CODES = Object.keys(LANGUAGES);
@@ -92,9 +108,13 @@ const SCRIPTS = [
   ["latin", /[A-Za-zÀ-ɏ]/g],
 ];
 
+/** The taught languages written in Latin letters: text in Latin letters is one of these when it is
+ * the language being studied (the letters alone can't tell them apart, or from English). */
+export const LATIN_LANGUAGES = ["es", "fr", "it", "tl"];
+
 /** Which language a piece of text is written in, judged by its letters. Used where nothing
  * recorded the language (saved words, search results, things friends send). Text in Latin
- * letters counts as the language being studied when that is Spanish or French. */
+ * letters counts as the language being studied when that is written in Latin letters. */
 export function detectLanguage(text, hint = studyLanguage()) {
   const s = String(text || "").slice(0, 2000);
   const count = {};
@@ -106,7 +126,7 @@ export function detectLanguage(text, hint = studyLanguage()) {
   if (count.kana && (top === "han" || top === "kana")) return "ja";
   if (top === "han") return hint === "ja" ? "ja" : "zh";
   if (top === "ar" || top === "ru") return top;
-  if (top === "latin") return hint === "es" || hint === "fr" ? hint : "en";
+  if (top === "latin") return LATIN_LANGUAGES.includes(hint) ? hint : "en";
   return hint;
 }
 

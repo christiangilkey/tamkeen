@@ -10,8 +10,8 @@ import {
 import { cacheKey, define, markWord, schemaFor, systemPrompt, SCHEMA } from "../../web/js/definer.js";
 import { endsSentence, EDGE_PUNCT } from "../../web/js/wordlookup.js";
 
-test("six languages, each with everything the screens need", () => {
-  assert.deepEqual(LANGUAGE_CODES, ["es", "ar", "fr", "ja", "zh", "ru"]);
+test("eight languages, each with everything the screens need", () => {
+  assert.deepEqual(LANGUAGE_CODES, ["es", "ar", "fr", "ja", "zh", "ru", "it", "tl"]);
   for (const code of LANGUAGE_CODES) {
     const L = LANGUAGES[code];
     for (const key of ["name", "native", "hello", "hi", "search", "word", "sample", "pageSample", "standard", "note"]) {
@@ -170,4 +170,15 @@ test("saving a looked-up word keeps its sentence translation, marked where the w
   assert.equal(saved({ meaning: "big", sentence_translation: "The big dog saw the big cat." }), "The big dog saw the big cat.");
   assert.equal(saved({ meaning: "to write", sentence_translation: "He wrote it." }), "He wrote it.");
   assert.equal(saved({ meaning: "", sentence_translation: "" }), "");
+});
+
+test("Italian and Tagalog: Latin letters count as the language being studied", () => {
+  assert.equal(detectLanguage("Ci vediamo magari domani.", "it"), "it");
+  assert.equal(detectLanguage("Hindi ako nakapunta kasi umulan.", "tl"), "tl");
+  assert.equal(detectLanguage("Hindi ako nakapunta kasi umulan.", "ar"), "en", "Latin text while studying Arabic is not Tagalog");
+  for (const code of ["it", "tl"]) {
+    const prompt = systemPrompt("en", code);
+    assert.match(prompt, code === "it" ? /Italian/ : /Tagalog/);
+    assert.ok(schemaFor(code), `${code} has an answer shape`);
+  }
 });

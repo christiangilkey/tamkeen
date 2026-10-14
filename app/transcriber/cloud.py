@@ -184,7 +184,7 @@ def encode_mp3(samples: np.ndarray, bitrate: int = MP3_BITRATE) -> bytes:
 _LANGUAGE_CODES = {"arabic": "ar", "spanish": "es", "french": "fr", "japanese": "ja", "chinese": "zh", "mandarin": "zh",
                    "russian": "ru", "english": "en", "turkish": "tr", "persian": "fa", "urdu": "ur", "hindi": "hi",
                    "german": "de", "italian": "it", "portuguese": "pt", "korean": "ko", "hebrew": "he",
-                   "indonesian": "id", "dutch": "nl"}
+                   "indonesian": "id", "dutch": "nl", "tagalog": "tl", "filipino": "tl"}
 
 
 def language_code(name: Any) -> str | None:

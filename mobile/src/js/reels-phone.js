@@ -51,6 +51,10 @@ export const RANDOM_WORDS = {
        "播客", "生活", "家庭", "脱口秀"],
   ru: ["влог", "рецепт", "история", "совет", "юмор", "приколы", "вопрос", "челлендж", "интервью", "путешествие", "еда", "опыт",
        "факты", "объяснение", "спорт", "новости", "подкаст", "рутина", "семья", "кофе"],
+  it: ["vlog", "ricetta", "storia", "consiglio", "comicità", "sketch", "domanda", "sfida", "intervista", "viaggio", "cibo", "aneddoto",
+       "esperienza", "curiosità", "spiegazione", "cucina", "sport", "notizie", "podcast", "routine", "famiglia", "caffè"],
+  tl: ["vlog", "luto", "kwento", "payo", "katatawanan", "biruan", "tanong", "hamon", "panayam", "biyahe", "pagkain", "karanasan",
+       "kaalaman", "paliwanag", "ulam", "palaro", "balita", "podcast", "araw-araw", "pamilya", "kape", "hugot"],
 };
 
 const CODE = /^[A-Za-z0-9_-]{5,40}$/;

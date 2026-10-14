@@ -182,7 +182,8 @@ export function waitText(seconds) {
 // Whisper names the language it heard in English ("arabic"); the app uses the short codes.
 const LANGUAGE_CODES = { arabic: "ar", spanish: "es", french: "fr", japanese: "ja", chinese: "zh", mandarin: "zh", russian: "ru",
                          english: "en", turkish: "tr", persian: "fa", urdu: "ur", hindi: "hi", german: "de", italian: "it",
-                         portuguese: "pt", korean: "ko", hebrew: "he", indonesian: "id", dutch: "nl" };
+                         portuguese: "pt", korean: "ko", hebrew: "he", indonesian: "id", dutch: "nl",
+                         tagalog: "tl", filipino: "tl" };
 
 /** "Arabic" / "arabic" / "ar" -> "ar"; "" when the answer doesn't say. */
 export function languageCode(name) {
