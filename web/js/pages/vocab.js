@@ -142,6 +142,8 @@ export async function render(view) {
       <span id="custom-range" class="row" hidden>
         <input type="date" id="from" aria-label="From"> <span class="small muted">to</span> <input type="date" id="to" aria-label="To">
       </span>
+      <span class="spacer"></span>
+      <button type="button" id="select-all" hidden>Select all</button>
     </div>
     <div class="bulk-bar" id="bulk" hidden>
       <span id="bulk-count"></span>
@@ -172,6 +174,7 @@ export async function render(view) {
   let folders = [];  // [{uid, name}]
   let log = {};      // the reviewer's record: every answer by word uid (see pages/review.js)
   const selected = new Set();
+  let shown = [];    // the words listed right now (the open folder, narrowed by the search box and the dates)
   const folderName = (uid) => (folders.find((f) => f.uid === uid) || {}).name;
 
   // One shared audio element for snippet playback.
@@ -480,6 +483,12 @@ export async function render(view) {
     for (const id of [...selected]) if (!all.some((v) => v.id === id)) selected.delete(id);
     $("#bulk").hidden = selected.size === 0;
     $("#bulk-count").textContent = `${selected.size} selected`;
+    // "Select all" ticks every word listed; once they all are, the same button unticks them.
+    const every = shown.length > 0 && shown.every((v) => selected.has(v.id));
+    const button = $("#select-all");
+    button.hidden = shown.length === 0;
+    button.textContent = every ? "Deselect all" : `Select all ${shown.length}`;
+    button.title = every ? "Untick every word listed below" : "Tick every word listed below, to file or send them together";
   }
 
   function renderAll() {
@@ -493,6 +502,7 @@ export async function render(view) {
       list.append(h(`<div class="empty">${all.length ? "No words match these filters." : st.q ? "No matches." : "No saved words yet."}</div>`));
     }
     for (const v of items) list.append(item(v));
+    shown = items;
     renderBulk();
     renderReview();
   }
@@ -533,6 +543,12 @@ export async function render(view) {
   $("#bulk-remove").onclick = (e) => { const r = e.currentTarget.getBoundingClientRect(); folderMenu(r.left, r.bottom + 4, pickedItems(), "remove"); };
   $("#bulk-send").onclick = (e) => { const r = e.currentTarget.getBoundingClientRect(); sendMenu(r.left, r.bottom + 4, pickedItems()); };
   $("#bulk-clear").onclick = () => { selected.clear(); renderAll(); };
+  $("#select-all").onclick = () => {
+    const every = shown.every((v) => selected.has(v.id));
+    for (const v of shown) every ? selected.delete(v.id) : selected.add(v.id);
+    for (const box of list.querySelectorAll(".pick")) box.checked = !every;
+    renderBulk();
+  };
 
   let debounce;
   $("#q").oninput = (e) => { clearTimeout(debounce); debounce = setTimeout(() => { st.q = e.target.value.trim(); load(); }, 200); };
