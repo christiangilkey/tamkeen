@@ -16,6 +16,7 @@ import { formatTime } from "../wordlookup.js";
 import { reward, trackStudy } from "../game/game.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
+import { practise, practiseButton } from "../review/pronounce.js";
 
 const MORE_NEW = 10;      // "Learn 10 more new words" at the end of a session
 const KEY_GUARD_MS = 250; // a key held down while the card turns must not answer it too
@@ -136,7 +137,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <div class="rv-chips">${NEW_CHOICES.map((n) => `<button type="button" data-n="${n}">${n}</button>`).join("")}</div>
       </div>
       <label class="rv-check"><input type="checkbox" class="rv-auto"> Say the word when the card turns</label>
-      <p class="rv-keys"><kbd>Space</kbd> turn the card, then remembered · <kbd>1</kbd> or <kbd>←</kbd> not remembered · <kbd>2</kbd> or <kbd>→</kbd> remembered · <kbd>Z</kbd> undo · <kbd>W</kbd> word · <kbd>S</kbd> sentence · <kbd>N</kbd> my notes · <kbd>Del</kbd> delete the word</p>
+      <p class="rv-keys"><kbd>Space</kbd> turn the card, then remembered · <kbd>1</kbd> or <kbd>←</kbd> not remembered · <kbd>2</kbd> or <kbd>→</kbd> remembered · <kbd>Z</kbd> undo · <kbd>W</kbd> word · <kbd>S</kbd> sentence · <kbd>P</kbd> practise saying it · <kbd>N</kbd> my notes · <kbd>Del</kbd> delete the word</p>
     </div>
     <main class="rv-stage">
       <div class="rv-wrap">
@@ -206,7 +207,15 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
 
   const hasWordAudio = (v) => (v.episode_id || v.clip) && v.start != null;
   const hasSentenceAudio = (v) => (v.episode_id || v.clip) && v.sent_start != null;
-  const sayWord = (v, quiet) => playSnippet(v, v.start, v.end ?? v.start + 1).catch((e) => { if (!quiet) toast(e.message, { error: true }); });
+  // How long a word's audio plays (playSnippet starts a little before it and ends a little after),
+  // and when the one playing now will be over: pronunciation practice must not record it.
+  const wordSeconds = (v) => (v.end ?? v.start + 1) - v.start + 0.6;
+  let wordOverAt = 0;
+  const sayWord = (v, quiet) => {
+    wordOverAt = Date.now() + wordSeconds(v) * 1000 + 400;  // until it has loaded and started
+    return playSnippet(v, v.start, v.end ?? v.start + 1).then(() => { wordOverAt = Date.now() + wordSeconds(v) * 1000; })
+      .catch((e) => { wordOverAt = 0; if (!quiet) toast(e.message, { error: true }); });
+  };
   const saySentence = (v) => playSnippet(v, v.sent_start, v.sent_end).catch((e) => toast(e.message, { error: true }));
 
   // A notes box is as tall as what is written in it (up to a limit), so nothing hides in a
@@ -228,7 +237,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       <div class="rv-answer">
         <div class="rv-word" ${lang}></div>
         ${v.sentence ? `<div class="rv-ans-sentence" ${lang}>${highlight(v.sentence, v.text)}</div>` : ""}
-        <div class="rv-listen">${hasWordAudio(v) ? `<button type="button" class="play-word">${ICON.sound} Word</button>` : ""}${hasSentenceAudio(v) ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}</div>
+        <div class="rv-listen">${hasWordAudio(v) ? `<button type="button" class="play-word">${ICON.sound} Word</button>` : ""}${hasSentenceAudio(v) ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}${hasWordAudio(v) ? practiseButton() : ""}</div>
       </div>
       <div class="rv-details">
         <label class="rv-field"><span>Meaning</span><input type="text" class="meaning" placeholder="What it means"></label>
@@ -257,6 +266,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const pw = face.querySelector(".play-word"), ps = face.querySelector(".play-sent");
     if (pw) pw.onclick = () => sayWord(v);
     if (ps) ps.onclick = () => saySentence(v);
+    const say = face.querySelector(".say-it");  // listens to the learner, then plays the word and the attempt
+    if (say) practise(say, { sayWord: () => sayWord(v, true), wordSeconds: wordSeconds(v), wordBusy: () => wordOverAt - Date.now(), onError: (m) => toast(m, { error: true }) });
 
     const wait = nextWait(cards.get(uidOf(v)) || null, dayNumber());
     actions.innerHTML = `
@@ -670,6 +681,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     else if (key === "z") takeBack();
     else if (flipped && key === "w" && hasWordAudio(v)) sayWord(v);
     else if (flipped && key === "s" && hasSentenceAudio(v)) saySentence(v);
+    else if (flipped && key === "p") { const say = face.querySelector(".say-it"); if (say) say.click(); }
     else if (settled && key === "Delete") { e.preventDefault(); askDelete(v); }
     else if (flipped && key === "n") { e.preventDefault(); const memo = face.querySelector(".memo"); if (memo) memo.focus(); }
   };

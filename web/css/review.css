@@ -45,12 +45,18 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 }
 @keyframes rv-in { from { opacity: 0; transform: scale(1.03); } }
 .rv-bg { position: absolute; inset: 0; background: var(--brand-grad); opacity: .92; pointer-events: none; overflow: hidden; overflow: clip; }
-.rv-bg::before, .rv-bg::after {  /* two soft lights drifting behind the card */
-  content: ""; position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%; filter: blur(70px); opacity: .5;
+/* Two soft lights behind the card, each circling a point of its own, so the colours flow round
+   the table slowly and without a pause. They turn at different speeds and in opposite directions,
+   and swell and shrink at a third and fourth, so the picture never visibly repeats. Standing
+   still (before the first frame, or for someone who has asked for less motion) they sit in
+   opposite corners. */
+.rv-bg::before, .rv-bg::after {
+  content: ""; position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%; filter: blur(70px); opacity: .5; will-change: transform;
 }
-.rv-bg::before { left: -22vmax; top: -24vmax; background: #7a1f73; animation: rv-drift 19s ease-in-out infinite alternate; }
-.rv-bg::after { right: -24vmax; bottom: -26vmax; background: #14b3c4; animation: rv-drift 23s ease-in-out infinite alternate-reverse; }
-@keyframes rv-drift { to { transform: translate(9vmax, 7vmax) scale(1.18); } }
+.rv-bg::before { left: -22vmax; top: -24vmax; background: #7a1f73; transform-origin: 95% 90%; animation: rv-orbit 56s linear infinite, rv-swell 17s ease-in-out infinite alternate; }
+.rv-bg::after { right: -24vmax; bottom: -26vmax; background: #14b3c4; transform-origin: 10% 5%; animation: rv-orbit 73s linear infinite reverse, rv-swell 23s ease-in-out infinite alternate; }
+@keyframes rv-orbit { to { transform: rotate(360deg); } }
+@keyframes rv-swell { to { scale: 1.2; } }
 /* Dragging the card towards an answer warms the whole table to that answer's colour. */
 .rv-glow { position: absolute; inset: 0; pointer-events: none; opacity: calc(max(var(--tilt), -1 * var(--tilt)) * .55); transition: opacity .12s; }
 .rv[data-lean="yes"] .rv-glow { background: radial-gradient(circle at 85% 50%, rgba(46, 213, 151, .85), transparent 60%); }
@@ -253,3 +259,18 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
   .rv-dot, .rv-shout { display: none; }
   .rv-card { transition: none; }
 }
+
+/* ----- "Say it": pronunciation practice (web/js/review/pronounce.js) ----- */
+/* The button keeps one width through every state, so the row beside it never shifts. While it
+   listens it is red and its dot swells with the learner's voice; while the two recordings play
+   it says whose turn it is. */
+.rv-listen { flex-wrap: wrap; }
+.rv-listen .say-it { min-width: 116px; justify-content: center; transition: background-color .15s ease, color .15s ease; }
+.say-it .say-dot { display: none; width: 10px; height: 10px; margin: 0 3px; border-radius: 50%; background: currentColor; transform: scale(calc(.8 + var(--level, 0) * .7)); transition: transform .06s linear; }
+.rv-listen .say-it[data-state="ready"] { opacity: .7; }
+.rv-listen .say-it[data-state="rec"] { background: #e5484d; color: #fff; }
+.rv-listen .say-it[data-state="rec"]:hover:not(:disabled) { background: #e5484d; }
+.say-it[data-state="rec"] .say-dot { display: block; }
+.say-it[data-state="rec"] .ic { display: none; }
+.rv-listen .say-it[data-state="word"], .rv-listen .say-it[data-state="you"] { background: var(--accent); color: var(--surface); }
+.rv-listen .say-it[data-state="word"]:hover:not(:disabled), .rv-listen .say-it[data-state="you"]:hover:not(:disabled) { background: var(--accent); }
