@@ -204,6 +204,21 @@ export async function render(view) {
     await audio.play();
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(watch);
+    // `ended` settles once this stretch has finished playing: the player pauses at `stopAt`, or the
+    // file ends, or something else takes the player over. A timer backs it up, so nothing waiting on
+    // it can hang. (The review card's "Say it" plays the learner's attempt after it.)
+    const ended = new Promise((done) => {
+      const finish = () => {
+        clearTimeout(backup);
+        audio.removeEventListener("pause", finish);
+        audio.removeEventListener("ended", finish);
+        done();
+      };
+      const backup = setTimeout(finish, Math.max(0, stopAt - audio.currentTime) * 1000 + 5000);  // room for a phone that stalls while loading
+      audio.addEventListener("pause", finish);
+      audio.addEventListener("ended", finish);
+    });
+    return { ended };
   }
 
   // ----- folders -----

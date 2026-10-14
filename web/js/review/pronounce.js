@@ -1,20 +1,22 @@
 // "Say it": pronunciation practice on the back of a review card (web/js/pages/review.js).
 //
 // One press listens to the learner saying the word, then plays the word's own audio (the native
-// speaker) and, straight after it, the learner's attempt, so the two can be compared by ear.
+// speaker) and, half a second after that audio has finished, the learner's attempt, so the two can
+// be compared by ear.
 //
 // The attempt is never kept: it lives in this page's memory for the few seconds it takes to play
 // and is dropped. Nothing is written to storage and nothing leaves the device.
 //
 // Listening ends by itself a moment after the learner stops speaking (or at a press of the same
 // button). The silence before and after the attempt is cut off, and a quiet attempt is turned up,
-// so it follows the word at once and at about the same loudness.
+// so it follows the word after exactly that half-second pause and at about the same loudness.
 
 import { icon } from "../icons.js";
 
 const QUIET_MS = 650;     // this long without speech, after some, ends the listening
 const NOTHING_MS = 4000;  // nothing said at all: give up
-const GAP_MS = 280;       // between the word and the attempt
+export const GAP_MS = 500; // the pause between the end of the word's audio and the attempt (the owner's choice)
+const LATE_PRESS_MS = 2500;  // a press this soon after listening ended by itself was meant to end it
 const FRAME = 0.02;       // seconds of sound judged at a time when trimming
 
 /** How long to listen at most, for a word whose own audio is `wordSeconds` long. */
@@ -82,8 +84,20 @@ let ctx = null;  // one sound context for the page, made at the first press
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
 
 /**
+ * Wait until the word's own audio has finished, then the pause before the attempt. `playing` is
+ * what starting the word's audio gave back: { ended }, a promise that settles when it has stopped.
+ * Without one (no audio could be played), the word's expected length stands in for it.
+ */
+export async function afterWord(playing, wordSeconds, wait = sleep) {
+  if (playing && playing.ended && typeof playing.ended.then === "function") await playing.ended;
+  else await wait(wordSeconds * 1000);
+  await wait(GAP_MS);
+}
+
+/**
  * Make `button` (from practiseButton) work.
- *   sayWord      () => Promise that settles once the word's own audio has started
+ *   sayWord      () => Promise for { ended } once the word's own audio has started (`ended`
+ *                settles when it has finished)
  *   wordSeconds  how long that audio lasts
  *   wordBusy     () => milliseconds until audio that is already playing ends (it must not be recorded)
  *   onError      (message) => void, for something the learner should be told
@@ -139,6 +153,7 @@ export function practise(button, { sayWord, wordSeconds, wordBusy = () => 0, onE
         if (gone(me) || enough(level, Date.now() - began)) me.stop();
       }, 50);
       await stopped;
+      me.heardAt = Date.now();
       clearInterval(watch);
       mic.disconnect();
       me.stop = null;
@@ -157,8 +172,7 @@ export function practise(button, { sayWord, wordSeconds, wordBusy = () => 0, onE
 
       // ----- the word, then the attempt -----
       set("word");
-      await sayWord();
-      await sleep(wordSeconds * 1000 + GAP_MS);
+      await afterWord(await sayWord(), wordSeconds);  // the word to its very end, then half a second
       if (gone(me)) return;
       set("you");
       const source = ctx.createBufferSource(), volume = ctx.createGain();
@@ -177,11 +191,16 @@ export function practise(button, { sayWord, wordSeconds, wordBusy = () => 0, onE
   }
 
   button.onclick = async () => {
-    if (run) {  // a second press: stop listening now (the comparison follows), or cut the comparison short
-      if (run.stop) { if (button.dataset.state !== "rec") run.cancelled = true; run.stop(); } else run.cancelled = true;
+    if (run) {  // a second press
+      if (button.dataset.state === "rec") { if (run.stop) run.stop(); return; }  // finish listening now: the comparison follows
+      // Listening ends by itself soon after the learner stops speaking, so the press they meant as
+      // "finish" often comes a moment later. It must not cut the comparison short.
+      if (run.heardAt && Date.now() - run.heardAt < LATE_PRESS_MS) return;
+      run.cancelled = true;  // otherwise it stops everything
+      if (run.stop) run.stop();
       return;
     }
-    const me = run = { stop: null, cancelled: false };
+    const me = run = { stop: null, cancelled: false, heardAt: 0 };
     try {
       ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
       if (ctx.state === "suspended") await ctx.resume();

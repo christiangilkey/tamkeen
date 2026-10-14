@@ -3,7 +3,7 @@
 // (The microphone and the playing are the browser's, and are checked in a real window.)
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { boost, canRecord, listenLimit, listener, practiseButton, speechBounds } from "../../web/js/review/pronounce.js";
+import { GAP_MS, afterWord, boost, canRecord, listenLimit, listener, practiseButton, speechBounds } from "../../web/js/review/pronounce.js";
 import { ICON_NAMES } from "../../web/js/icons.js";
 
 const RATE = 16000;
@@ -71,4 +71,23 @@ test("where there is no microphone the button is left out", () => {
   assert.equal(canRecord(), false);  // Node has none
   assert.equal(practiseButton(), "");
   assert.ok(ICON_NAMES.includes("speak"));
+});
+
+test("the attempt waits for the word's audio to finish, then half a second more", async () => {
+  assert.equal(GAP_MS, 500);
+  const log = [];
+  const wait = (ms) => { log.push(`wait ${ms}`); return Promise.resolve(); };
+  let finish;
+  const ended = new Promise((done) => { finish = done; });
+  const going = afterWord({ ended }, 1.4, wait).then(() => log.push("attempt"));
+  await new Promise((r) => setTimeout(r, 20));
+  assert.deepEqual(log, [], "nothing more happens while the word is still playing, however long it takes");
+  log.push("word over");
+  finish();
+  await going;
+  assert.deepEqual(log, ["word over", `wait ${GAP_MS}`, "attempt"]);
+  // No audio could be played: the word's expected length stands in for it.
+  const quiet = [];
+  await afterWord(undefined, 1.4, (ms) => { quiet.push(ms); return Promise.resolve(); });
+  assert.deepEqual(quiet, [1400, GAP_MS]);
 });

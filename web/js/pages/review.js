@@ -213,8 +213,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   let wordOverAt = 0;
   const sayWord = (v, quiet) => {
     wordOverAt = Date.now() + wordSeconds(v) * 1000 + 400;  // until it has loaded and started
-    return playSnippet(v, v.start, v.end ?? v.start + 1).then(() => { wordOverAt = Date.now() + wordSeconds(v) * 1000; })
-      .catch((e) => { wordOverAt = 0; if (!quiet) toast(e.message, { error: true }); });
+    return playSnippet(v, v.start, v.end ?? v.start + 1).then((playing) => {
+      wordOverAt = Date.now() + wordSeconds(v) * 1000;
+      if (playing && playing.ended) playing.ended.then(() => { wordOverAt = Math.min(wordOverAt, Date.now()); });  // over now
+      return playing;  // { ended }: "Say it" waits on it
+    }).catch((e) => { wordOverAt = 0; if (!quiet) toast(e.message, { error: true }); });
   };
   const saySentence = (v) => playSnippet(v, v.sent_start, v.sent_end).catch((e) => toast(e.message, { error: true }));
 

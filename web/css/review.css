@@ -53,8 +53,8 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-bg::before, .rv-bg::after {
   content: ""; position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%; filter: blur(70px); opacity: .5; will-change: transform;
 }
-.rv-bg::before { left: -22vmax; top: -24vmax; background: #7a1f73; transform-origin: 95% 90%; animation: rv-orbit 56s linear infinite, rv-swell 17s ease-in-out infinite alternate; }
-.rv-bg::after { right: -24vmax; bottom: -26vmax; background: #14b3c4; transform-origin: 10% 5%; animation: rv-orbit 73s linear infinite reverse, rv-swell 23s ease-in-out infinite alternate; }
+.rv-bg::before { left: -22vmax; top: -24vmax; background: #7a1f73; transform-origin: 95% 90%; animation: rv-orbit 36s linear infinite, rv-swell 11s ease-in-out infinite alternate; }
+.rv-bg::after { right: -24vmax; bottom: -26vmax; background: #14b3c4; transform-origin: 10% 5%; animation: rv-orbit 47s linear infinite reverse, rv-swell 15s ease-in-out infinite alternate; }
 @keyframes rv-orbit { to { transform: rotate(360deg); } }
 @keyframes rv-swell { to { scale: 1.2; } }
 /* Dragging the card towards an answer warms the whole table to that answer's colour. */
@@ -192,7 +192,7 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
    teal for remembered, purple for not. Solid, like the card. */
 .rv-yes { background: #22c7d6; color: #022a2f; }
 .rv-yes:hover:not(:disabled) { background: #22c7d6; filter: brightness(1.08); }
-.rv-no { background: #bd3fba; color: #fff; }
+.rv-no { background: #bd3fba; color: #022a2f; }  /* dark text, the same as on .rv-yes (the owner's choice) */
 .rv-no:hover:not(:disabled) { background: #bd3fba; filter: brightness(1.08); }
 .rv[data-lean="yes"] .rv-yes, .rv[data-lean="no"] .rv-no { transform: scale(1.06); filter: brightness(1.15); }
 .rv-actions[hidden] { display: none; }
