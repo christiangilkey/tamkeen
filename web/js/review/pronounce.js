@@ -1,15 +1,16 @@
 // "Say it": pronunciation practice on the back of a review card (web/js/pages/review.js).
 //
-// One press listens to the learner saying the word, then plays the word's own audio (the native
-// speaker) and, half a second after that audio has finished, the learner's attempt, so the two can
-// be compared by ear.
+// One press listens to the learner, then plays the card's own recording of the whole SENTENCE (the
+// native speaker; the word's own audio when the card has no sentence audio) and, half a second
+// after that has finished, the learner's attempt, so the two can be compared by ear.
 //
 // The attempt is never kept: it lives in this page's memory for the few seconds it takes to play
 // and is dropped. Nothing is written to storage and nothing leaves the device.
 //
 // Listening ends by itself a moment after the learner stops speaking (or at a press of the same
 // button). The silence before and after the attempt is cut off, and a quiet attempt is turned up,
-// so it follows the word after exactly that half-second pause and at about the same loudness.
+// so it follows the native recording after exactly that half-second pause and at about the same
+// loudness.
 
 import { icon } from "../icons.js";
 
@@ -19,8 +20,8 @@ export const GAP_MS = 500; // the pause between the end of the word's audio and 
 const LATE_PRESS_MS = 2500;  // a press this soon after listening ended by itself was meant to end it
 const FRAME = 0.02;       // seconds of sound judged at a time when trimming
 
-/** How long to listen at most, for a word whose own audio is `wordSeconds` long. */
-export const listenLimit = (wordSeconds) => Math.round(Math.min(15, Math.max(5, wordSeconds * 2.5 + 2.5)) * 1000);
+/** How long to listen at most, when the native recording is `seconds` long. */
+export const listenLimit = (seconds) => Math.round(Math.min(15, Math.max(5, seconds * 2.5 + 2.5)) * 1000);
 
 /**
  * Decides when to stop listening. Returns a function fed the loudness now (0..1) and the
@@ -76,7 +77,7 @@ const LABEL = { idle: "Say it", ready: "Say it", rec: "Listening", word: "Native
 /** The button's markup, for the row of listen buttons under the word ("" where the device can't listen). */
 export function practiseButton() {
   if (!canRecord()) return "";
-  return `<button type="button" class="say-it" data-state="idle" title="Practise saying it (P): hear the word, then yourself. Your attempt isn't saved.">`
+  return `<button type="button" class="say-it" data-state="idle" title="Practise saying it (P): say it, then hear the sentence and yourself. Your attempt isn't saved.">`
     + `<i class="say-dot" aria-hidden="true"></i>${icon("speak", 17)}<span>${LABEL.idle}</span></button>`;
 }
 
@@ -84,25 +85,25 @@ let ctx = null;  // one sound context for the page, made at the first press
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
 
 /**
- * Wait until the word's own audio has finished, then the pause before the attempt. `playing` is
- * what starting the word's audio gave back: { ended }, a promise that settles when it has stopped.
- * Without one (no audio could be played), the word's expected length stands in for it.
+ * Wait until the native recording has finished, then the pause before the attempt. `playing` is
+ * what starting it gave back: { ended }, a promise that settles when it has stopped. Without one
+ * (nothing could be played), its expected length (`seconds`) stands in for it.
  */
-export async function afterWord(playing, wordSeconds, wait = sleep) {
+export async function afterWord(playing, seconds, wait = sleep) {
   if (playing && playing.ended && typeof playing.ended.then === "function") await playing.ended;
-  else await wait(wordSeconds * 1000);
+  else await wait(seconds * 1000);
   await wait(GAP_MS);
 }
 
 /**
  * Make `button` (from practiseButton) work.
- *   sayWord      () => Promise for { ended } once the word's own audio has started (`ended`
- *                settles when it has finished)
- *   wordSeconds  how long that audio lasts
- *   wordBusy     () => milliseconds until audio that is already playing ends (it must not be recorded)
+ *   sayModel     () => Promise for { ended } once the native recording (the sentence, else the
+ *                word) has started (`ended` settles when it has finished)
+ *   modelSeconds how long that recording lasts
+ *   audioBusy    () => milliseconds until audio that is already playing ends (it must not be recorded)
  *   onError      (message) => void, for something the learner should be told
  */
-export function practise(button, { sayWord, wordSeconds, wordBusy = () => 0, onError = () => {} }) {
+export function practise(button, { sayModel, modelSeconds, audioBusy = () => 0, onError = () => {} }) {
   const label = button.querySelector("span");
   let run = null;  // the attempt in progress: {stop(), cancelled}
 
@@ -125,8 +126,8 @@ export function practise(button, { sayWord, wordSeconds, wordBusy = () => 0, onE
     }
     const release = () => stream.getTracks().forEach((t) => t.stop());
     try {
-      const wait = wordBusy();
-      if (wait > 0) await sleep(wait);  // the word is still being said: it must not end up in the attempt
+      const wait = audioBusy();
+      if (wait > 0) await sleep(wait);  // the card's audio is still playing: it must not end up in the attempt
       if (gone(me)) return;
 
       // ----- listen -----
@@ -139,7 +140,7 @@ export function practise(button, { sayWord, wordSeconds, wordBusy = () => 0, onE
       ear.fftSize = 1024;
       mic.connect(ear);
       const heard = new Float32Array(ear.fftSize);
-      const enough = listener({ maxMs: listenLimit(wordSeconds) });
+      const enough = listener({ maxMs: listenLimit(modelSeconds) });
       const began = Date.now();
       recorder.start();
       set("rec");
@@ -172,7 +173,7 @@ export function practise(button, { sayWord, wordSeconds, wordBusy = () => 0, onE
 
       // ----- the word, then the attempt -----
       set("word");
-      await afterWord(await sayWord(), wordSeconds);  // the word to its very end, then half a second
+      await afterWord(await sayModel(), modelSeconds);  // the sentence to its very end, then half a second
       if (gone(me)) return;
       set("you");
       const source = ctx.createBufferSource(), volume = ctx.createGain();

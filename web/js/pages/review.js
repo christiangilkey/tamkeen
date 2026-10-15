@@ -228,19 +228,23 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
 
   const hasWordAudio = (v) => (v.episode_id || v.clip) && v.start != null;
   const hasSentenceAudio = (v) => (v.episode_id || v.clip) && v.sent_start != null;
-  // How long a word's audio plays (playSnippet starts a little before it and ends a little after),
-  // and when the one playing now will be over: pronunciation practice must not record it.
+  // How long each stretch plays, with the air the Vocab page's player leaves round it.
   const wordSeconds = (v) => (v.end ?? v.start + 1) - v.start + 0.6;
-  let wordOverAt = 0;
-  const sayWord = (v, quiet) => {
-    wordOverAt = Date.now() + wordSeconds(v) * 1000 + 400;  // until it has loaded and started
-    return playSnippet(v, v.start, v.end ?? v.start + 1).then((playing) => {
-      wordOverAt = Date.now() + wordSeconds(v) * 1000;
-      if (playing && playing.ended) playing.ended.then(() => { wordOverAt = Math.min(wordOverAt, Date.now()); });  // over now
+  const sentenceSeconds = (v) => Math.max(0.5, (v.sent_end ?? v.sent_start + 3) - v.sent_start) + 0.6;
+  // When audio started from this card will have finished: "Say it" must not record over it.
+  let audioOverAt = 0;
+  const track = (seconds, started) => {
+    audioOverAt = Date.now() + seconds * 1000 + 400;  // until it has loaded and started
+    return started.then((playing) => {
+      audioOverAt = Date.now() + seconds * 1000;
+      if (playing && playing.ended) playing.ended.then(() => { audioOverAt = Math.min(audioOverAt, Date.now()); });  // over now
       return playing;  // { ended }: "Say it" waits on it
-    }).catch((e) => { wordOverAt = 0; if (!quiet) toast(e.message, { error: true }); });
+    }, (e) => { audioOverAt = 0; throw e; });
   };
-  const saySentence = (v) => playSnippet(v, v.sent_start, v.sent_end).catch((e) => toast(e.message, { error: true }));
+  const sayWord = (v, quiet) => track(wordSeconds(v), playSnippet(v, v.start, v.end ?? v.start + 1))
+    .catch((e) => { if (!quiet) toast(e.message, { error: true }); });
+  const saySentence = (v, quiet) => track(sentenceSeconds(v), playSnippet(v, v.sent_start, v.sent_end ?? v.sent_start + 3))
+    .catch((e) => { if (!quiet) toast(e.message, { error: true }); });
 
   // A notes box is as tall as what is written in it (up to a limit), so nothing hides in a
   // two-line window. (A hidden window measures nothing: the box then keeps its plain height.)
@@ -261,7 +265,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       <div class="rv-answer">
         <div class="rv-word" ${lang}></div>
         ${v.sentence ? `<div class="rv-ans-sentence" ${lang}>${highlight(v.sentence, v.text)}</div>` : ""}
-        <div class="rv-listen">${hasWordAudio(v) ? `<button type="button" class="play-word">${ICON.sound} Word</button>` : ""}${hasSentenceAudio(v) ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}${hasWordAudio(v) ? practiseButton() : ""}</div>
+        <div class="rv-listen">${hasWordAudio(v) ? `<button type="button" class="play-word">${ICON.sound} Word</button>` : ""}${hasSentenceAudio(v) ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}${hasWordAudio(v) || hasSentenceAudio(v) ? practiseButton() : ""}</div>
       </div>
       <div class="rv-details">
         <label class="rv-field"><span>Meaning</span><input type="text" class="meaning" placeholder="What it means"></label>
@@ -290,8 +294,18 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const pw = face.querySelector(".play-word"), ps = face.querySelector(".play-sent");
     if (pw) pw.onclick = () => sayWord(v);
     if (ps) ps.onclick = () => saySentence(v);
-    const say = face.querySelector(".say-it");  // listens to the learner, then plays the word and the attempt
-    if (say) practise(say, { sayWord: () => sayWord(v, true), wordSeconds: wordSeconds(v), wordBusy: () => wordOverAt - Date.now(), onError: (m) => toast(m, { error: true }) });
+    const say = face.querySelector(".say-it");  // listens to the learner, then plays the sentence and the attempt
+    if (say) {
+      // The native model is the whole sentence (the owner's choice); the word's own audio only when
+      // the card has no sentence audio.
+      const sentence = hasSentenceAudio(v);
+      practise(say, {
+        sayModel: () => (sentence ? saySentence(v, true) : sayWord(v, true)),
+        modelSeconds: sentence ? sentenceSeconds(v) : wordSeconds(v),
+        audioBusy: () => audioOverAt - Date.now(),
+        onError: (m) => toast(m, { error: true }),
+      });
+    }
 
     const wait = nextWait(cards.get(uidOf(v)) || null, dayNumber());
     actions.innerHTML = `
