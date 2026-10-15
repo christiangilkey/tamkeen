@@ -18,6 +18,9 @@ const QUIET_MS = 650;     // this long without speech, after some, ends the list
 const NOTHING_MS = 4000;  // nothing said at all: give up
 export const GAP_MS = 500; // the pause between the end of the word's audio and the attempt (the owner's choice)
 const LATE_PRESS_MS = 2500;  // a press this soon after listening ended by itself was meant to end it
+// Android can stay in its quieter phone-call sound mode for a moment after the microphone closes:
+// the native recording waits at least this long after it, so it plays at full loudness.
+const SETTLE_MS = 300;
 const FRAME = 0.02;       // seconds of sound judged at a time when trimming
 
 /** How long to listen at most, when the native recording is `seconds` long. */
@@ -119,7 +122,9 @@ export function practise(button, { sayModel, modelSeconds, audioBusy = () => 0, 
     set("ready");
     let stream;
     try {
-      stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } });
+      // No echo cancellation: on Android it switches the phone into its phone-call sound mode (quieter,
+      // sometimes the earpiece, Bluetooth at call quality), and nothing plays while we listen anyway.
+      stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: true, autoGainControl: true } });
     } catch {
       onError("Tamkeen needs permission to use the microphone to hear you say the word.");
       return;
@@ -172,6 +177,9 @@ export function practise(button, { sayModel, modelSeconds, audioBusy = () => 0, 
       if (!where) { onError("I couldn't hear you. Try again, a little closer to the microphone."); return; }
 
       // ----- the word, then the attempt -----
+      const settle = SETTLE_MS - (Date.now() - me.heardAt);
+      if (settle > 0) await sleep(settle);
+      if (gone(me)) return;
       set("word");
       await afterWord(await sayModel(), modelSeconds);  // the sentence to its very end, then half a second
       if (gone(me)) return;
