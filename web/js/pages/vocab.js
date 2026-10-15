@@ -11,6 +11,7 @@ import { icon } from "../icons.js";
 import { findInVideo, lacksAudio } from "../filmot.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
+import { goalBar } from "../review/goalbar.js";
 
 const DAY = 86400;
 const SORTS = {
@@ -133,6 +134,7 @@ export async function render(view) {
       <span class="rb-text"><strong>Review</strong><span class="rb-sub"></span></span>
       <span class="rb-go"></span>
     </button>
+    <div id="goal" hidden></div>
     <div class="folder-bar" id="folders"></div>
     <div class="row vocab-filters">
       <label class="small muted">Sort
@@ -459,8 +461,10 @@ export async function render(view) {
   function renderReview() {
     const banner = $("#review");
     banner.hidden = Boolean(st.q) || !all.length;
-    if (banner.hidden) return;
+    if (banner.hidden) { goal.close(); $("#goal").hidden = true; return; }
     const o = overview(reviewWords(), log);
+    $("#goal").hidden = !o.askable;
+    goal.update(all, log);  // the whole day's goal, whichever folder is open
     const scope = st.folder && st.folder !== "none" ? folderName(st.folder) : "";
     const ready = o.due + o.fresh > 0;
     banner.classList.toggle("idle", !ready);
@@ -489,6 +493,9 @@ export async function render(view) {
   // The room changes with the window (and is nothing at all while the page is hidden).
   const reviewRoom = new ResizeObserver(fitReview);
   reviewRoom.observe($("#review"));
+  // The day's goal under the banner; changing its new words a day changes the banner's "new" count too.
+  const goal = goalBar($("#goal"));
+  $("#goal").addEventListener("goalchange", renderReview);
 
   function startReview() {
     openReview({
@@ -598,5 +605,5 @@ export async function render(view) {
   };
 
   await load();
-  return () => { audio.pause(); cancelAnimationFrame(raf); reviewRoom.disconnect(); };
+  return () => { audio.pause(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
 }

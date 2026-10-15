@@ -17,6 +17,7 @@ import { reward, trackStudy } from "../game/game.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
+import { forgetAnswer, noteAnswer } from "../review/goal.js";
 
 const MORE_NEW = 10;      // "Learn 10 more new words" at the end of a session
 const KEY_GUARD_MS = 250; // a key held down while the card turns must not answer it too
@@ -31,6 +32,10 @@ function setPref(key, value) {
 export function newPerDay() {
   const n = pref("reviewNewPerDay", NEW_PER_DAY);
   return NEW_CHOICES.includes(n) ? n : NEW_PER_DAY;
+}
+/** Change it (the reviewer's settings and the goal bar on the Vocab page share this one setting). */
+export function setNewPerDay(n) {
+  if (NEW_CHOICES.includes(n)) setPref("reviewNewPerDay", n);
 }
 
 /** Every answer ever given, by word: {uid: [[t, rating, day, ms], ...]}. */
@@ -363,6 +368,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     (log[uid] = log[uid] || []).push(entry);
     cards.set(uid, answer(before, rating, day));
     send(uid, entry);
+    noteAnswer(log[uid], day);  // the time this word took today, for the estimate under the banner
 
     const remembered = rating === GOOD;
     session.answered++;
@@ -406,6 +412,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const last = undo.pop(), uid = uidOf(last.word);
     last.entry[1] = 0;                       // the log holds this same list: 0 means "taken back"
     send(uid, last.entry);
+    forgetAnswer(last.entry[0]);
     if (last.before) cards.set(uid, last.before); else cards.delete(uid);
     todo = last.todo.filter((x) => !x.deleted);
     Object.assign(session, last.session);
@@ -670,7 +677,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   };
   $(".rv-gear").onclick = () => { settings.hidden = !settings.hidden; drawSettings(); };
   for (const b of settings.querySelectorAll("[data-n]")) {
-    b.onclick = () => { perDay = Number(b.dataset.n); setPref("reviewNewPerDay", perDay); bonus = 0; drawSettings(); replan(); };
+    b.onclick = () => { perDay = Number(b.dataset.n); setNewPerDay(perDay); bonus = 0; drawSettings(); replan(); };
   }
   $(".rv-auto").onchange = (e) => { autoplay = e.target.checked; setPref("reviewAutoplay", autoplay); };
   el.addEventListener("pointerdown", (e) => { if (!settings.hidden && !e.target.closest(".rv-settings, .rv-gear")) settings.hidden = true; });
