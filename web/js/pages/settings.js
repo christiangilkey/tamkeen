@@ -197,8 +197,8 @@ export async function render(view) {
   // ----- AI definitions -----
   cleanups.push(aiSetup($("#definer"), { transport: (req) => api("/llm/relay", { method: "POST", body: req }) }));
   $("#ui-lang").append(speakPicker(isUiLanguage(s.ui_language) ? s.ui_language : "en", async (code) => {
-    await chooseUiLanguage(code);
-    window.dispatchEvent(new HashChangeEvent("hashchange")); // (the languages to learn leave this one out)
+    // redrawn either way: the languages to learn leave this one out, and a failed change shows the old one
+    try { await chooseUiLanguage(code); } finally { window.dispatchEvent(new HashChangeEvent("hashchange")); }
   }));
   $("#study-lang").append(languagePicker(s.study_language, async (code) => {
     await saveSettings({ study_language: code });

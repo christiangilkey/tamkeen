@@ -1,0 +1,3 @@
+5896cb72	Mga feature ng laro
+985a5239	Ang nilalang, XP at mga gantimpala, at ang mga tunog habang nag-aaral
+afed91e0	Naka-off: pareho pa rin ang pag-aaral, wala lang ang laro. Mananatili ang mga layunin at progress bar mo, pati ang nilalang mo, kung sakaling i-on mo ulit.

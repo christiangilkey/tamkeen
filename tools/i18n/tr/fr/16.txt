@@ -1,0 +1,3 @@
+5896cb72	Fonctions de jeu
+985a5239	La créature, l'XP et les récompenses, et les sons pendant l'étude
+afed91e0	Désactivé : l'étude fonctionne pareil, sans rien du jeu. Vos objectifs et barres de progression restent, ainsi que votre créature, au cas où vous le réactiveriez.

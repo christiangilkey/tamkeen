@@ -22,7 +22,7 @@ function grid(label, codes, selected, onPick, button) {
  * when the user chooses one. `speaks`: the user's own language, left out (someone who speaks
  * another language sees English first). */
 export function languagePicker(selected, onPick, { speaks = "en" } = {}) {
-  let codes = LANGUAGE_CODES.filter((c) => c !== speaks);
+  let codes = LANGUAGE_CODES.filter((c) => c !== speaks || c === selected); // (still shown while it's the one chosen)
   if (codes.includes("en")) codes = ["en", ...codes.filter((c) => c !== "en")];
   return grid("Language to learn", codes, selected, onPick, (c) => `
       <span class="lang-native" ${langAttrs(c)}>${LANGUAGES[c].native}</span>

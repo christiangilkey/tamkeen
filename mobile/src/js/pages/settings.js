@@ -130,8 +130,8 @@ export async function render(view) {
     },
   });
   $("#ui-lang").append(speakPicker(isUiLanguage(s.ui_language) ? s.ui_language : "en", async (code) => {
-    await chooseUiLanguage(code);
-    window.dispatchEvent(new HashChangeEvent("hashchange")); // (the languages to learn leave this one out)
+    // redrawn either way: the languages to learn leave this one out, and a failed change shows the old one
+    try { await chooseUiLanguage(code); } finally { window.dispatchEvent(new HashChangeEvent("hashchange")); }
   }));
   $("#study-lang").append(languagePicker(s.study_language, async (code) => {
     await saveSettings({ study_language: code });

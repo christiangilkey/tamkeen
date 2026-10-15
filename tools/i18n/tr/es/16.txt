@@ -1,0 +1,3 @@
+5896cb72	Funciones de juego
+985a5239	La criatura, la XP y las recompensas, y los sonidos al estudiar
+afed91e0	Desactivado: estudiar funciona igual, sin nada del juego. Tus metas y barras de progreso se quedan, y también tu criatura, por si lo vuelves a activar.

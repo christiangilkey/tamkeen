@@ -1,0 +1,3 @@
+5896cb72	Funzioni di gioco
+985a5239	La creatura, gli XP e le ricompense, e i suoni mentre studi
+afed91e0	Disattivato: lo studio funziona allo stesso modo, senza nulla del gioco. I tuoi obiettivi e le barre di avanzamento restano, e anche la tua creatura, nel caso tu lo riattivi.

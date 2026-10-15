@@ -7,7 +7,7 @@
 //   4. The app needs an API key from an AI provider; where to set or change it.
 // Shared by the desktop app and the phone (each shows it from its welcome screen).
 
-import { esc, h, state, saveSettings } from "../app.js";
+import { esc, h, state, saveSettings, toast } from "../app.js";
 import { LANGUAGES, isLanguage, langAttrs } from "../languages.js";
 import { PROVIDERS } from "../definer.js";
 import { COMMON_WORDS, addCommonWords, commonWords } from "../commonwords.js";
@@ -26,8 +26,14 @@ export async function chooseUiLanguage(code) {
   const before = isUiLanguage(s.ui_language) ? s.ui_language : "en";
   const values = { ui_language: code };
   if (!s.definer_language || s.definer_language === UI_LANGUAGES[before].name) values.definer_language = UI_LANGUAGES[code].name;
-  if (s.study_language === code) values.study_language = ""; // nobody learns the language they speak
-  await saveSettings(values);
+  // (The language being learned stays, even when it is this one: there must always be one, and the
+  // learn list keeps showing it until another is picked.)
+  try {
+    await saveSettings(values);
+  } catch (e) {
+    toast(e.message || "Couldn't change the language.", { error: true });
+    throw e;
+  }
   if (uiLanguage() === code) return;
   if (uiLanguage() === "en") await startTranslating(code);
   else location.reload();

@@ -1515,6 +1515,21 @@
   "f": "web/js/components/avatar.js"
  },
  {
+  "id": "5896cb72",
+  "k": "Game features",
+  "f": "web/js/components/gameswitch.js"
+ },
+ {
+  "id": "985a5239",
+  "k": "The creature, XP and rewards, and the chimes when you study",
+  "f": "web/js/components/gameswitch.js"
+ },
+ {
+  "id": "afed91e0",
+  "k": "Off: studying works the same, without any of the game. Your goals and progress bars stay, and so does your creature, for if you switch it back on.",
+  "f": "web/js/components/gameswitch.js"
+ },
+ {
   "id": "7fab27b4",
   "k": "the Claude Console",
   "f": "web/js/components/keyhelp.js"
@@ -1868,6 +1883,11 @@
   "id": "f4cfa873",
   "k": "GPU acceleration installed.",
   "f": "web/js/components/models.js"
+ },
+ {
+  "id": "82f06f5b",
+  "k": "Couldn't change the language.",
+  "f": "web/js/components/onboarding.js"
  },
  {
   "id": "defca688",
