@@ -7,6 +7,7 @@ import * as social from "../social.js";
 import { studyCard, studyEditor } from "../components/studycard.js";
 import { avatar, tagChips } from "../components/avatar.js";
 import { gameBar } from "../game/friend-bar.js";
+import { gameOn } from "../components/gameswitch.js";
 import { publishNow } from "../game/friends-game.js";
 
 // Whether my own profile card is folded away: remembered between sessions, per device.
@@ -40,7 +41,7 @@ export async function render(view) {
       head.querySelector(".spacer").before(n);
     }
     // To the right of the name: language, league, today's XP and their favourite creature.
-    const bar = gameBar(game);
+    const bar = gameOn() ? gameBar(game) : null;
     if (bar) head.querySelector(".spacer").after(bar);
     for (const [label, cls, run] of buttons) {
       const b = h(`<button type="button" class="${cls}"></button>`);
@@ -138,7 +139,7 @@ export async function render(view) {
     me.querySelector(".me-photo").append(avatar(st.me, { online: true, large: true }));
     me.querySelector(".me-name").textContent = `@${st.me.username}`;
     if ((tags.get(st.me.id) || []).length) me.querySelector(".me-name").append(" ", tagChips(tags.get(st.me.id)));
-    const myBar = gameBar(games.get(st.me.id));
+    const myBar = gameOn() ? gameBar(games.get(st.me.id)) : null;
     if (myBar) {
       // What friends see next to my name. The favourite creature is chosen on the Creatures page of the game.
       myBar.title = "This is what friends see next to your name";

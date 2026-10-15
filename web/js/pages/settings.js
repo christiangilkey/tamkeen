@@ -8,6 +8,7 @@ import { STT_PROVIDERS, sttConfig } from "../stt.js";
 import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { ankiSyncPanel } from "../components/ankisync.js";
+import { gameSwitch } from "../components/gameswitch.js";
 import { languagePicker, speakPicker } from "../components/langpicker.js";
 import { chooseUiLanguage } from "../components/onboarding.js";
 import { isUiLanguage } from "../i18n.js";
@@ -107,6 +108,8 @@ export async function render(view) {
       </div>
       <div class="ar" ${langAttrs(studyLanguage())} style="font-size:var(--page-size);line-height:2">${esc(langInfo(studyLanguage()).pageSample)}</div>
     </section>
+
+    <section class="card" id="game-switch"></section>
 
     <section class="card stack">
       <h2>Your data</h2>
@@ -236,6 +239,7 @@ export async function render(view) {
   paintAnki();
   cleanups.push(on("anki", paintAnki));
   cleanups.push(ankiSyncPanel($("#anki-sync")));
+  gameSwitch($("#game-switch"));
 
   $("#delete-after").onchange = (e) => saveSettings({ delete_audio_after: e.target.checked });
   $("#stream").onchange = (e) => saveSettings({ stream_from_source: e.target.checked });

@@ -73,7 +73,7 @@ export function overview(words, log, today = dayNumber()) {
 let audioCtx = null;
 function tone(freq, start, length, type = "sine", volume = 0.07) {
   const s = app.status && app.status.settings;
-  if (s && s.game_sound === false) return;
+  if (s && (s.game_sound === false || s.game_enabled === false)) return;  // sound off, or the game off
   try {
     audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
     const t = audioCtx.currentTime + start;

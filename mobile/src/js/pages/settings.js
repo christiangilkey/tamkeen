@@ -7,6 +7,7 @@ import { STT_EVENT, testKey, usageToday } from "../transcribe-service.js";
 import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { ankiSyncPanel } from "../components/ankisync.js";
+import { gameSwitch } from "../components/gameswitch.js";
 import { languagePicker, speakPicker } from "../components/langpicker.js";
 import { chooseUiLanguage } from "../components/onboarding.js";
 import { isUiLanguage } from "../i18n.js";
@@ -72,6 +73,8 @@ export async function render(view) {
       <div class="row">Web page text: <input type="range" id="page-font" min="12" max="40" value="${s.page_font_size || 17}" style="flex:1"> <span id="page-font-val">${s.page_font_size || 17}px</span></div>
       <div class="ar" ${langAttrs(studyLanguage())} style="font-size:var(--page-size);line-height:2">${esc(langInfo(studyLanguage()).pageSample)}</div>
     </section>
+
+    <section class="card" id="game-switch"></section>
 
     <section class="card small muted">Tamkeen for Android · <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a></section>
   </div>`));
@@ -147,5 +150,6 @@ export async function render(view) {
     saveSettings({ page_font_size: Number(e.target.value) });
   };
   const offAnki = ankiSyncPanel($("#anki-sync"));
+  gameSwitch($("#game-switch"));
   return () => { off(); offAi(); offStt(); offAnki(); };
 }

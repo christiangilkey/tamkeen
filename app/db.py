@@ -380,9 +380,11 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "lexicon_declined": False,
     "lexemes_backfilled": [],
     "beam_size": 5,
-    # The creature game: its whole saved state (see web/js/game/rules.js), and whether it makes sounds.
+    # The creature game: its whole saved state (see web/js/game/rules.js), whether it makes sounds,
+    # and whether it is on at all (Settings → Game features; off keeps the state for later).
     "game_state": None,
     "game_sound": True,
+    "game_enabled": True,
     # Followed YouTube channels (web/js/ytfollow.js); travels between devices with the library.
     "youtube_follows": [],
     # Sites saved to the in-app browser's start page (app/pages.py, web/js/browser-sites.js); travels too.

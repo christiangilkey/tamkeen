@@ -2,6 +2,7 @@
 // Also the "juice": the pop, particles, sounds and rolling numbers that make a reward feel good.
 
 import { api, on, saveSettings, state as app } from "../app.js";
+import { gameOn } from "../components/gameswitch.js";
 import { COMBO_STEPS, COMBO_WINDOW_MS, earn, earnAnki, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
 import { cardsGlow } from "./idle.js";
 import { icon } from "./render.js";
@@ -58,6 +59,7 @@ export function onGame(fn) {
  * effects play at `anchor` (the word that was tapped, say) and the Home habitat is told.
  */
 export function reward(event, anchor = null) {
+  if (!gameOn()) return null;  // the game is switched off in Settings
   const g = getGame();
   const result = earn(g, event, { combo });
   if (!result) return null;
@@ -73,6 +75,7 @@ export function reward(event, anchor = null) {
 /** Credit whatever the Anki companion has reported and the game hasn't counted yet (desktop only:
  * on the phone there is no Anki add-on to hear from, and the creature arrives through sync). */
 export async function checkAnki() {
+  if (!gameOn()) return null;
   let report;
   try { report = await api("/anki/days"); } catch { return null; }
   const g = getGame();
@@ -117,7 +120,7 @@ function tone(freq, start, length, type = "sine", volume = 0.08) {
 }
 export function sfx(kind) {
   const s = app.status && app.status.settings;
-  if (s && s.game_sound === false) return;
+  if ((s && s.game_sound === false) || !gameOn()) return;
   if (kind === "common") { tone(880, 0, 0.09, "triangle"); tone(1320, 0.03, 0.08, "sine", 0.05); }
   else if (kind === "lucky") [659, 784, 988].forEach((f, i) => tone(f, i * 0.08, 0.16, "triangle"));
   else if (kind === "jackpot") [523, 659, 784, 1047, 1319].forEach((f, i) => tone(f, i * 0.09, 0.28, "square", 0.05));

@@ -6,6 +6,7 @@ import { api, esc, h } from "../app.js";
 import { continueItems, forgetProgress, fraction, leftLabel } from "../progress.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { habitat } from "../game/habitat.js";
+import { gameOn } from "../components/gameswitch.js";
 
 const KIND_ICON = { audio: "🎧", video: "🎬", page: "🌐" };
 const KIND_VERB = { audio: "Continue listening", video: "Continue watching", page: "Continue reading" };
@@ -48,8 +49,8 @@ export async function render(view) {
     <div class="home-today" id="today"></div>
     <div id="habitat"></div>
   </div>`));
-  // The creature's habitat lives at the bottom of Home.
-  view.querySelector("#habitat").append(habitat().el);
+  // The creature's habitat lives at the bottom of Home (unless the game is switched off in Settings).
+  if (gameOn()) view.querySelector("#habitat").append(habitat().el);
   const main = view.querySelector("#main");
   const more = view.querySelector("#more");
 

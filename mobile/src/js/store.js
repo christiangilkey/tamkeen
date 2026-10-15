@@ -98,6 +98,7 @@ const DEFAULTS = {
   browser_sites: [],   // sites saved to the in-app browser's start page (web/js/browser-sites.js); synced too
   ig_collections: null, // saved Instagram collections found and the one chosen (web/js/igcollections.js); synced too
   game_sound: true,
+  game_enabled: true,
   // The two-way sync with one AnkiDroid deck (anki-droid.js): on or off, the deck's name, and whether
   // the learner has agreed that deleting a word also deletes its card.
   anki_sync: false,
