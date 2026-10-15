@@ -3,6 +3,7 @@
 
 import { api, appleJson, esc, h, toast } from "../app.js";
 import { icon } from "../icons.js";
+import { t, uiLanguage } from "../i18n.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { COUNTRY_NAMES, STOREFRONTS, feedKey, fetchTrending, groupByCategory } from "../trending.js";
 
@@ -12,8 +13,12 @@ const kept = new Map(); // language -> {at, feeds}
 
 /** "Saudi Arabia, Egypt, the UAE and Morocco" */
 function countryList(lang) {
-  const names = (STOREFRONTS[lang] || []).map((c) => COUNTRY_NAMES[c] || c.toUpperCase());
-  return names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names.at(-1)}` : names[0] || "";
+  const names = (STOREFRONTS[lang] || []).map((c) => (COUNTRY_NAMES[c] ? t(COUNTRY_NAMES[c]) : c.toUpperCase()));
+  if (names.length < 2) return names[0] || "";
+  // joined the way the language the app is shown in does it ("A, B y C", "A、B和C")
+  const ui = { en: "en-GB", tl: "fil" }[uiLanguage()] || uiLanguage();
+  try { return new Intl.ListFormat(ui, { type: "conjunction" }).format(names); }
+  catch { return `${names.slice(0, -1).join(", ")} and ${names.at(-1)}`; }
 }
 
 export async function render(view, { query }) {

@@ -31,6 +31,7 @@ export const START = {
   ru: ["это", "RU", "ru", 0],
   it: ["che", "IT", "it", 0],
   tl: ["ang", "PH", "fil", 0],
+  en: ["the", "US", "en", 0],
 };
 
 /** Countries offered for each language: [YouTube's country code, name, a search word of its own
@@ -50,6 +51,8 @@ export const COUNTRIES = {
   ru: [["RU", "Russia"], ["KZ", "Kazakhstan"], ["BY", "Belarus"], ["UA", "Ukraine"]],
   it: [["IT", "Italy"], ["CH", "Switzerland"]],
   tl: [["PH", "Philippines"]],
+  en: [["US", "United States"], ["GB", "United Kingdom"], ["CA", "Canada"], ["AU", "Australia"], ["IE", "Ireland"],
+       ["NZ", "New Zealand"], ["IN", "India"], ["NG", "Nigeria"], ["ZA", "South Africa"], ["PH", "Philippines"]],
 };
 
 /** The country to use: the chosen one if it is on the language's list, else the usual one. */

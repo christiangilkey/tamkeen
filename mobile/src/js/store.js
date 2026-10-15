@@ -77,7 +77,8 @@ const DEFAULTS = {
   font_size: 26,
   page_font_size: 17,
   welcome_seen: false,
-  study_language: "", // the language being learned (ar, es, fr, ja, zh, ru); chosen on first run
+  study_language: "", // the language being learned (ar, es, fr, ja, zh, ru, it, tl, en); chosen on first run
+  ui_language: "",    // the language the user speaks: the app's own words are shown in it (i18n.js)
   onboarded: false,   // the first-run questions have been answered (components/onboarding.js)
   study_level: "",    // "beginner" or "started"
   common_words_pending: [], // languages whose common words wait for dictionaries before counting as seen (commonwords.js)

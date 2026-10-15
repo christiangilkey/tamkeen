@@ -1,0 +1,197 @@
+4d04c64d Quegli episodi sono già in coda o in corso.
+22e136e9 Messi in coda {0} episodi per la trascrizione.
+50adc292 Trascrivi selezionati ({0})
+c35bd621 Elimina selezionati ({0})
+0cd3f428 ▶ Guarda questo reel
+fd92e5e4 ▶ Guarda questi {0} reel
+eefe1c78 Nessun episodio corrisponde a questo filtro.
+1a3a2678 Aggiungi un podcast per iniziare.
+688659c1 Iscritto a {0}
+96141178 Aggiornamento…
+65a23a10 {0} nuovi episodi.
+0959b8b6 Nessun nuovo episodio.
+74ba81d4 Aggiornamento già in corso…
+3beca727 {0} Sincronizzato con Google Drive.
+0ba6e5e4 questo episodio
+00aba819 questi {0} episodi
+15c48a35 Eliminare {0}? Questo rimuove {1} dalla tua Libreria su tutti i dispositivi, insieme a
+4c92d153 Eliminare {0}?
+84deaf7e Questo rimuove {0} dalla tua Libreria su tutti i dispositivi, insieme a
+8a1b7640 l'audio e la trascrizione. Un episodio di podcast eliminato non ritorna quando il podcast viene aggiornato.
+38025b7d Il vocabolario salvato resta. Non si può annullare.
+2fa412d0 Il vocabolario salvato resta.
+fe63a123 Non si può annullare.
+e7f0d454 Eliminato 1 episodio.
+028c52e6 Eliminati {0} episodi.
+72f89e9c «{0}» importato.
+e9acf940 i sottotitoli automatici di YouTube
+b165ef2c Aggiunto «{0}» con {1}.
+8d8f6306 È in trascrizione ora.
+69e00218 Aggiunto «{0}». {1}
+8e3df45a Copiato
+f0926a5a Torna alla libreria
+b1718fc3 I sottotitoli di questo video non sono ancora su questo dispositivo. Arriveranno con la prossima sincronizzazione, oppure puoi recuperarli di nuovo ora.
+4ce6ed15 Puoi guardarlo subito; sottotitoli e trascrizione compariranno quando sarà trascritto.
+084d851b Recupera i sottotitoli
+692d2197 In attesa dei sottotitoli
+0b386a9a ↓ Torna al punto attuale
+66587a7a Segui
+90eeb100 Segui già
+4601bfc8 Mostra o nascondi la trascrizione completa (T)
+49d0d22b ≡ Trascrizione
+10dc1f7d Mostra o nascondi i sottotitoli cliccabili (C)
+c5a976de CC
+f1b59b0b Schermo intero (F)
+d4fcdcaf Dimensione del testo, schermo intero e salvataggio della trascrizione
+9c3ebd2a {0} · {1} parole
+a8ea9e30 Testo più piccolo
+118f9b2b Testo più grande
+7475c2bd TXT
+a81b934c SRT
+fc630e27 VTT
+1ad08a39 Posizione
+857f1b10 ⟲ Frase in ripetizione
+a4130b72 Interrompi la ripetizione
+5c934b0d Indietro di 5 secondi (←)
+651b60e1 Riproduci/Pausa (Spazio)
+addc5a24 Avanti di 5 secondi (→)
+6ff42b75 Velocità di riproduzione
+af85b75e YouTube non è riuscito a riprodurre questo video.
+b66fc2d7 Impossibile caricare il video. Viene riprodotto dal tuo Google Drive: controlla la connessione e di aver effettuato l'accesso.
+6a9b0c2f Impossibile caricare l'audio. Se viene riprodotto dal server del podcast, controlla la connessione.
+70f8bb9a Inizio
+a2bb9d34 Fine
+9c127d35 Riproduzione non riuscita: {0}
+fa150e0d Segui {0}. Premi per smettere di seguirlo.
+bf020dbf Segui {0}: compare nella tua Libreria sotto YouTube
+51d15ed7 ✓ Salvato nel vocabolario
+7031bbea ★ Salva nel vocabolario
+b32f1eb3 📖 Definisci
+010f9005 ⧉ Copia
+3d861abc ▶ Riproduci da qui
+bd22e0c7 ⟲ Ripeti questa frase
+3a68bd5d Nascondi la trascrizione (T)
+def5960f Mostra la trascrizione (T)
+fa4029ea Lo schermo intero non è disponibile qui ({0}).
+a8cf995c A+ Testo più grande
+14225504 A− Testo più piccolo
+401b6b54 ⛶ Schermo intero
+79fc7388 Salva la trascrizione come TXT
+17da46e2 Salva i sottotitoli come SRT
+8d79c7fd Salva i sottotitoli come VTT
+e792120b Apri la pagina originale
+aa139f94 Originale ↗
+63d2b95b Accedi a Instagram per guardare questo reel.
+34560f41 Instagram riproduce questo solo per chi ha effettuato l'accesso (di solito perché usa una canzone della libreria musicale di Instagram). Accedi una volta, nel browser di Tamkeen: si chiude da solo quando hai effettuato l'accesso, e il reel parte.
+ada2e9e9 Accedi
+3da47453 Salta
+3a1f994d Popolari in {0:lower} in questo momento
+5b59e6e1 Prima la comicità. L'app guarda ogni volta cosa va forte su Instagram, quindi questo elenco cambia.
+80c15bea Solo i miei creator
+667e1e2d Solo i creator che hai spuntato qui sotto.
+bc6fef4b Un mix dei due
+dc9dcf7a Prima i tuoi creator, completati con quelli popolari.
+75c864af Dai miei salvati su Instagram
+315194ad Reel che hai salvato tu su Instagram: una delle tue raccolte, o tutto ciò che hai salvato.
+5e405fb8 Brevi video di Instagram nella lingua che studi, con ogni parola cliccabile. Vengono riprodotti da Instagram stesso; si conservano solo le parole.
+17a23503 I tuoi reel
+219d2911 ▶ Guarda di nuovo dall'inizio
+65ec8d5b ▶ Continua a guardare
+b2e08e21 Ancora nessun reel. Premi «Ottieni reel casuali» qui sopra, oppure scegli una delle tue raccolte di Instagram e spunta i reel che vuoi.
+e2f3a685 Ancora nessun reel. Si trovano sul tuo computer: apri lì Tamkeen, vai su Libreria → Reel e premi «Ottieni 10 reel». Arriveranno qui alla prossima sincronizzazione di entrambi.
+78706e7f Ancora nessun reel. Scegli qui sopra quali reel vuoi e premi «Ottieni reel», oppure premi «Ottieni reel casuali».
+36fc5604 · visto
+76a74c58 · si riproduce con l'accesso a Instagram
+9ddd647f I nuovi reel vengono trovati e trascritti da Tamkeen sul tuo computer, poi sincronizzati con questo telefono. Per scegliere qui i reel dai tuoi salvati su Instagram, attiva la <0>Trascrizione nel cloud nelle Impostazioni</0>.
+14c3f907 Ottenere reel funziona nell'app Tamkeen installata sul tuo computer (le serve una sua finestra di Instagram).
+d032a9c7 Quali reel?
+2e78f26e Reel dai miei salvati su Instagram
+52b26d3d {0} di {1} scelti
+b93e9b2b Prima scegli un modello di trascrizione (Impostazioni → Modello): i reel vengono ascoltati con quello.
+e51052d8 I miei creator
+d204d5d4 Nome utente Instagram, es. @creator
+2fbcfcfd Popolari in {0:lower} in questo momento (premi + per seguirne uno):
+15dcfe7b 1. Scegli una raccolta
+a6a2fd45 Quanti?
+c18657e6 Uno in meno
+2fe07a5f Quanti reel ottenere
+8c87ebbd Uno in più
+b2272a97 Reel in {0:lower} su ogni genere di argomento quotidiano, trovati cercando su Instagram alcune parole scelte a caso. Diversi ogni volta.
+9e253470 Ferma
+9648ea78 Accedi a Instagram
+1b8fb836 Rimuovi dai miei creator
+d70b1d33 Aggiungi qui i creator che ti piacciono, o premi + su uno di quelli popolari qui sotto.
+29086cd7 Aggiungi @{0} ai miei creator
+e287a6e3 Recupero dei reel…
+497fe891 Ottieni {0} reel
+c3f837df Ottieni {0} reel casuali in {1:lower}
+5fec38ec Scegli una raccolta…
+c3b69e66 Scegli…
+bfd3da0c Le tue raccolte di Instagram
+203932c8 ↻ Cerca di nuovo
+2149c492 Trova le mie raccolte
+352c41bd Cerca le tue raccolte tra i tuoi salvati su Instagram{0}
+aa91c71a tutto ciò che hai salvato
+3c8b4a44 Scegli una delle tue raccolte dall'elenco qui sopra.
+7f839429 Premi «Trova le mie raccolte» per riempire l'elenco con i nomi delle tue raccolte di Instagram, poi scegline una.
+1ab4d204 {0} Tamkeen la legge su Instagram ed elenca qui i suoi reel, così puoi spuntare quelli che vuoi.
+33354de6 Ottieni i reel spuntati
+71af94b7 Invia i reel spuntati al mio telefono
+4be1d403 2. Spunta i reel che vuoi
+d2e33965 in «{0}» ({1})
+64e93d4f {0} reel
+13b7bfca Elaborazione…
+630b0a7c Ottieni {0}
+828b49fa Invia {0} al mio telefono
+4ad6fa58 Già nei tuoi reel
+5e0330cb Non è un video
+ae455286 Non utilizzabile: {0}
+22bb6297 Lì non c'è ancora niente di salvato.
+deca26e7 I tuoi salvati non vengono mai scartati per la lingua, quindi restano anche i reel che mescolano {0:lower} e inglese. Un reel viene escluso solo se non ha nessuna parola; l'elenco qui sotto dice quali. Alcuni reel (soprattutto quelli con una canzone della libreria musicale di Instagram) si riproducono solo per chi ha effettuato l'accesso a Instagram: restano anche quelli e si riproducono sul tuo telefono dopo che avrai effettuato lì l'accesso a Instagram.{1}
+b70ce367 Torna all'elenco
+d659e007 Reel precedente
+e9aa01dc Reel successivo
+ca3b15db Tocca una parola per vedere cosa significa.
+27c57ad8 Punto del reel
+de6afdb5 Indietro di 5 secondi
+8cfc8cf6 Riproduci / pausa
+2c23a430 Avanti di 5 secondi
+5721bbef Instagram
+8fe4352c Caricamento delle parole…
+6f95e311 Le parole di questo reel non sono ancora su questo dispositivo. Sincronizza e riprova.
+2fc1ecf6 I reel si riproducono sul tuo telefono, nell'app Tamkeen.
+881d280e Qui puoi leggere le parole di questo reel e cercarle.
+c3b3a0e0 Apri questo reel su Instagram ↗
+940ea91f Quel reel non può più essere mostrato fuori da Instagram. Viene saltato.
+7d146544 Ripassa il tuo vocabolario
+7585f238 Avanzamento della sessione
+92197443 Annulla l'ultima risposta (Z)
+6cb73375 Annulla l'ultima risposta
+ddcdbf32 Impostazioni del ripasso
+910308a6 Parole nuove al giorno
+d12c5186 Pronuncia la parola quando la carta si gira
+4a86cd15 <0>Spazio</0> gira la carta, poi ricordata · <1>1</1> o <2>←</2> non ricordata · <3>2</3> o <4>→</4> ricordata · <5>Z</5> annulla · <6>W</6> parola · <7>S</7> frase · <8>P</8> esercitati a dirla · <9>N</9> le mie note · <10>Canc</10> elimina la parola
+4d3ebfca Ricordata
+fcd76105 Di nuovo
+001884b8 {0} rimaste
+b0bc2ae4 Parola nuova
+b7d5d81b Ancora una volta
+e29a79fe Ripasso
+742e0358 Di' la parola tra te e te, poi gira la carta
+66179621 Mostra la parola <0>Spazio</0>
+751a4b16 {0} Parola
+b142c204 {0} Frase
+8669aa56 Episodio
+47b1023a Aggiunta a mano
+19cd7d18 Significato
+57e2a7ce Cosa significa
+70440046 Note
+56f079ba Le mie note
+3250d8de {0} · aggiunta {1}
+c0ae8f6e Salvato
+e1e86d29 Elimina questa parola (Canc)
+200b5172 Elimina questa parola
+983a1927 {0} Non ricordata
+9dd3addc torna tra un momento
+164d054f {0} Ricordata
+292bb5d7 la rivedrai {0}{1}

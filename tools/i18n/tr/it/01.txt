@@ -1,0 +1,195 @@
+8df7f1b3 Spagnolo
+42b5f38b Forma standard
+0bb18642 Uso
+af4f4762 Arabo
+e96857c5 Radice
+3132844d In arabo standard
+93949a50 Dialetto
+23239c1b La ricerca ignora i segni diacritici (tashkeel) e le varianti di alef (أ إ آ ا), taa marbuta/haa (ة ه) e alef maqsura/yaa (ى ي).
+44389f6a Francese
+9239c22d Giapponese
+b6f59f08 Caratteri
+15dc1886 Cinese
+74ad93cb Russo
+485b57ad Italiano
+68ddd91d Tagalog
+649df08a Inglese
+6f442204 Connessione persa con il server locale dell'app.
+59025e2d Richiesta non riuscita ({0})
+21a0c7a3 {0} h {1} min
+e802d434 {0} min
+f921c967 0 MB
+9a27e458 {0} GB
+b53a8982 {0} MB
+c18f8f25 Notifica
+f8f74deb Trascrizione completata: {0}
+cf9b7706 Apri
+3f651190 Trascrizione completata
+0fedb149 Trascrizione non riuscita: {0}. {1}
+377e306b Trascrizione non riuscita
+63616e1e Impossibile salvare l'audio di quella parola.
+b887bd52 Copia il link del video che vuoi e incollalo in «Aggiungi una pagina web».
+6f9d8f3f Copia l'indirizzo della pagina che vuoi e incollalo in «Aggiungi una pagina web».
+72af5edb Caricamento non riuscito ({0}).
+ccc2b8e0 Caricamento non riuscito: il server dell'app non ha risposto.
+136c4303 Salvato in {0}
+8d886c0b Qualcosa è andato storto
+3330dab0 Al Jazeera
+0a3a33ca BBC in arabo
+036338ff Al Arabiya
+ff61c5fd Sky News Arabia
+001f43b5 Asharq Al-Awsat
+103608b8 CNN in arabo
+9f4ff5e2 France 24
+a6fd6e9c Deutsche Welle
+eb602841 Asharq News
+70bd98b5 Independent Arabia
+81667ae6 Al-Quds Al-Arabi
+3d6e75cf Al-Ahram, Egitto
+367c7f69 Youm7, Egitto
+21612f28 Euronews
+7a924fa6 Hespress, Marocco
+8091b468 An-Nahar, Libano
+20a8df9b Spagna
+7f68cca5 BBC in spagnolo
+5bfed743 La radiotelevisione pubblica spagnola
+26ee2701 Le Americhe
+354bf989 Argentina
+41937b20 Messico
+2f737399 Colombia
+36c57243 Perù
+ac92bda0 In spagnolo
+a95f1614 Più facile: notizie per chi impara
+e3772ac4 Francia
+022e7a37 La radiotelevisione pubblica francese
+f5074266 Notizie dal mondo
+cd6a7b87 Canada
+5cb4c9d8 Belgio
+77dcd849 Svizzera
+7fd73ef4 Più facile: notizie NHK in giapponese semplice
+20cf7d0e NHK, emittente pubblica
+863f0927 Yahoo! Notizie Giappone
+bce35235 Asahi Shimbun
+e8faae07 Yomiuri Shimbun
+8d6de353 Mainichi Shimbun
+55708085 Nikkei
+7c3cb127 Sankei Shimbun
+144e3ab3 Tokyo Shimbun
+073ad8e8 Jiji Press
+86e150a1 Kyodo News
+86dd6e9b Telegiornale di TBS
+6ee232e9 Notizie di Nippon TV
+7f22332e BBC in giapponese
+8201ad33 Toyo Keizai
+12fc9530 Notizie di tecnologia
+85da6b7f BBC in cinese
+1950c50c The New York Times
+72b431fc Lianhe Zaobao, Singapore
+16048e43 Xinhua, Cina
+323a3e4c Quotidiano del Popolo, Cina
+b3d6fa9f The Paper, Cina
+081ceae5 Caixin, Cina
+1b9f1261 Sina News, Cina
+5c0fde35 Tencent News, Cina
+9231d52d Jiemian, Cina
+7073d6a9 Financial Times
+1bea7de2 CNA, Taiwan (caratteri tradizionali)
+79da1ae8 UDN, Taiwan (caratteri tradizionali)
+7c820dda HK01, Hong Kong (caratteri tradizionali)
+b36012a4 BBC in russo
+98678be4 Meduza
+3bad3245 Kommersant
+c789d95b Interfax
+321e9515 TASS, agenzia di stampa statale
+2b6cb4c7 RIA Novosti, agenzia di stampa statale
+02f9372c Vedomosti
+7095fe00 Radio Libertà
+179a6338 Novaya Gazeta Europe
+c51e7e5c In russo
+be550421 Current Time
+08c6ecb7 Rai, servizio pubblico
+c90d19b1 ANSA, agenzia di stampa
+1d24e371 Corriere della Sera
+a3f333fa la Repubblica
+30f19411 La Stampa
+a71b2dc8 Notizie di economia
+5dc5bec4 Il Post
+e62a924b Sky TG24
+b63e0d40 Notizie dal mondo in italiano
+37e9fc15 In italiano
+1855c2e3 Sport
+8bf87e8c Wikipedia in italiano
+d477dcd6 Abante, in tagalog
+7033c2e2 Bombo Radyo
+5a063600 Il giornale in tagalog di Philstar
+42e1ab8b Le notizie in tagalog del Manila Bulletin
+2a086357 Il giornale in tagalog dell'Inquirer
+fec623de GMA News (in gran parte in inglese)
+96c7193d ABS-CBN News (in gran parte in inglese)
+6419d26a Remate, in tagalog
+72df35d6 Pilipino Mirror, in tagalog
+ec8ddbd3 Notiziario radio DZRH
+13771236 Radyo Pilipinas, radio pubblica
+1b78aa35 PTV, televisione pubblica
+7d7b8fe2 Wikipedia in tagalog
+291625d9 Più facile: le notizie in tre livelli di inglese
+83372869 Più facile: notizie in inglese lento e semplice
+f2d9c77f BBC, servizio pubblico britannico
+a1aa118a The Guardian
+558f6997 NPR, radio pubblica statunitense
+3d209294 AP, agenzia di stampa
+b1741f08 Reuters, agenzia di stampa
+3a367e23 ABC, servizio pubblico australiano
+a07fa4fa CBC, servizio pubblico canadese
+494a3b5b Più facile: Wikipedia in inglese semplice
+1ceda86d Togli questo sito dalla pagina iniziale
+4b2d7cb9 Più facile
+2f47d946 Leggi il web in {0:lower}
+bd3fb75c Cerca con Google
+bce06414 Cerca
+297a093f I tuoi siti salvati
+ade0111a I siti che hai tenuto con la stella. Premi × per toglierne uno.
+33edab97 Notizie in {0:lower}
+d23485df Apri un sito, trova un articolo e premi <0>Importa pagina</0> per leggerlo con ogni parola cliccabile.
+3af88e50 Cerchi qualcos'altro? Cerca qui sopra o scrivi un indirizzo web nella barra degli indirizzi. Per tenere un sito in questa pagina, aprilo e premi la stella (☆) nella barra del browser.
+7e58a747 Browser di Tamkeen
+0292c83e Importa pagina
+b52b36b7 Indietro
+ba4e7226 Avanti
+cce71553 Ricarica
+d5088cc9 Salva questa pagina in Tamkeen per leggerla con le parole cliccabili
+06a6f0bf Cerca o scrivi un indirizzo web
+abf66062 È nella tua pagina iniziale. Premi per toglierlo.
+d6823a88 Tieni questo sito nella pagina iniziale del browser
+b74fd5e9 Ancora in caricamento… riprova tra un attimo.
+f1ea7bfe ★ Salvato nella tua pagina iniziale.
+28067e68 Tolto dalla tua pagina iniziale.
+7317f63f Impossibile salvare questo sito.
+820599da Importazione…
+41701b8a Impossibile importare questa pagina.
+96bb84ec Conosco già le basi: conta come già viste le {0} parole più comuni in {1:lower}
+b00c7e97 In attesa dei dizionari di {0:lower}: verranno contate quando saranno scaricati.
+ffb2e628 Aggiunta…
+7528191c Impossibile salvare in questo momento. Riprova.
+b80ffddd Verranno contate quando saranno scaricati i dizionari di {0:lower}.
+96d9775a Fatto: {0} parole ora contano come già viste.
+28650781 Contano già come viste.
+db849af4 Amici e condivisione (online)
+17b2a7cb Facoltativo. Collegati per aggiungere amici tramite nome utente, condividere parole e cartelle, tenere le cartelle sincronizzate con gli amici e giocare insieme a quiz di vocabolario dal vivo. Usa lo stesso account Google della sincronizzazione con Drive. Il tuo nome utente, la lista degli amici e ciò che condividi sono salvati sul servizio online dell'app (Supabase); tutto il resto resta nel tuo Google Drive.
+820d6004 Verifica…
+042c862e Riprova
+fdf71228 Collegati con Google
+f709df27 Poi sceglierai un nome utente.
+fd3e7969 Collegamento…
+f7aba881 Collegato. Ora scegli un nome utente.
+64fbd995 Cambia
+efc007a3 Salva
+c2f9b7b4 Collegato
+ed28e068 Scollega
+84c29015 Nome utente
+977867c9 es. layla_impara
+5ff78b85 Gli amici ti trovano con questo nome. {0} Puoi cambiarlo quando vuoi; amici e condivisioni restano collegati.
+aeed20b3 ✓ Disponibile
+c66c12b9 Già in uso
+791b5d6c Ora il tuo nome utente è {0}.
+fa61d32f Scollegare amici e condivisione su questo dispositivo? Il tuo nome utente e i tuoi amici restano salvati online.

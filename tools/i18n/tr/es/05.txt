@@ -1,0 +1,199 @@
+de2f330f Ascua
+fc24ae3b Incendio
+0e1275fa Látigo Cepa
+7c390204 Maleza
+789c7773 Lanzapiedras
+e6277766 Avalancha
+d735dc4a Chispazo
+9ab63902 Trueno
+76ce312e Salpicadura
+2bfd4000 Resaca
+97389d1a Sombra
+25ab466c Anochecer
+157f2572 Rebote
+fe7f55b8 Concentración
+d4e1aee4 Carga
+d9d7e3d0 Viento a favor
+15727c13 Resonancia
+1ed1264f Perspicacia
+2d4c3f4e Acopio
+e0070ea6 Golpe Nocturno
+69b8c2a5 Rayo del Alba
+7b6625f5 Corazón Firme
+ee19d60c Segundo Aliento
+b5c15f07 Forma Perfecta
+8d82fb8f Cualquier criatura, cualquier movimiento.
+9ab28c8b Solo pueden luchar crías y jóvenes (los adultos descansan esta semana).
+ae188585 No se permiten movimientos de curación.
+8c9c8aee Solo criaturas de Brasa, Chispa y Piedra.
+fe2417f4 Solo criaturas de Marea, Arboleda y Ocaso.
+49663788 Equipos de uno.
+9b3a9266 Una planta a la que le crecen letras brillantes. Rinde más con los curiosos: buscar palabras.
+7c5e9fe1 Una caracola que zumba con lo que ha oído. Rinde más con quienes escuchan.
+58e0fe3c Alcanza tu meta diaria dos veces
+edbcf4d7 Un farol plegado con páginas. Rinde más con quienes leen.
+d8e79134 Busca 30 palabras
+b5f0b120 Un pequeño pozo de tinta. Rinde más con los coleccionistas de palabras.
+82e39370 Guarda 50 palabras
+9b2d1f8b Una piedra tallada que guarda lo que sabes. Rinde más con los coleccionistas.
+c2ee073b Sabe bien 5 palabras (con batallas)
+e351da07 Un telar que teje luz de estrellas. Constante para todos.
+b41d02f3 Libera una vez a una criatura adulta
+423e6206 Haz eclosionar tu primera criatura
+ea9f375d Alcanza tu meta diaria 3 veces
+d852f95e Guarda 30 palabras
+a80ee76d Mantén una racha de 5 días
+ad99a14e Sabe bien 10 palabras (con batallas)
+1c1b6779 En una batalla salvaje, recupera una vez la mitad de la salud de una criatura.
+fb54130d Duplica la XP por buscar, guardar y repasar palabras durante 20 minutos.
+05dc8601 Una batalla más hoy paga completa, después de las tres primeras.
+658d01ff Calienta un huevo para que crezca junto a la criatura de tu hábitat.
+7661862b Abre la siguiente parcela de construcción sin esperar a su hito.
+379ee5cf Un huevo nuevo para tu grupo. Su elemento se inclina según cómo estudias.
+7bd136e6 Una niebla de palabras confusas.
+8720a6ee Te devuelve la mirada.
+2cebb5b5 Ruido donde deberían estar las palabras.
+53267fa2 Borra todo lo que no repasas.
+8697f432 Plata
+c57604db Oro
+b3850e04 Diamante
+c0203c34 Busca una palabra
+f51af387 Haz eclosionar un huevo
+d5913b18 Alcanza tu meta diaria 10 veces
+6da30a55 Una racha de 7 días
+90f6c76b Una racha de 30 días
+8ad928d9 Una racha de 100 días
+cd7e4e5a Guarda 100 palabras
+8a81401d Guarda 1000 palabras
+a535d7ff Completa el hábito de escuchar
+479b0d0b Completa el hábito de leer
+f7254f15 Completa el hábito de coleccionar
+9b83b0ca Cría un Eco adulto
+b132f8c5 Cría un Sabio adulto
+28cfd944 Cría un Guardián adulto
+de125314 Termina una batalla con un amigo
+b231ceba Ayuda a derrotar a un jefe semanal
+90b952f5 Parque urbano
+73d5f55c Oasis
+bcce2166 Bosque nocturno
+0b7eaa70 Costa
+f347e8f3 Aprendiendo {0:lower}
+25640d1c Liga {0}
+8f75ec47 XP ganada hoy
+2dd2bed7 hoy
+75050d57 Su criatura favorita
+9d9aab10 Primero conéctate con Google (Ajustes → Amigos y compartir).
+33f400a7 Primero añade un amigo, en la pestaña Amigos.
+98961386 Regalar este huevo a…
+458e9f84 Regalar esto a…
+d19372ac Enviado a {0}.
+33ce4174 Cargando…
+fe0337e8 No se pudo conectar con el servicio en línea. Comprueba tu conexión.
+ab898d21 Luchar contra amigos, la liga, las incursiones de gremio y los regalos necesitan las funciones en línea.
+260bcda8 Elige <0>Conectar con Google</0> en Ajustes → Amigos y compartir. Tus palabras y tu material de estudio nunca se envían: solo tu equipo de criaturas, tu precisión al responder y los totales de esta semana.
+134635e9 Abrir Ajustes
+0908d881 Los datos en línea del juego aún no están disponibles ({0}).
+e235e19c Te está esperando
+de946983 Un huevo
+2dcb4068 Un regalo
+359aac0c {0} de
+86834099 desafió a tu equipo y {0}.
+032d7174 Revancha
+75a9d140 Clasificación según la proporción de días de esta semana en que cada uno alcanzó su propia meta diaria, sea del tamaño que sea. Cinco días o más en una semana te suben de liga; uno o ninguno te bajan.
+561c39e9 Regla de batalla de esta semana:
+bb9d653f Desafiar
+6fb4e940 Aún sin equipo
+f45f3479 Todavía no ha abierto el juego en línea
+60bab8eb Añade amigos en la pestaña Amigos para llenar la liga y desafiar a sus equipos.
+17f11ae4 ¡Derrotado!
+ce9deb48 Quedan {0} de {1}
+fd2b49ec Incursión de {0}: {1}
+1a39a266 {0} Cada respuesta correcta en una batalla esta semana, de cualquier miembro del gremio, le quita uno.
+4145d94b Reclamar la recompensa
+3ef23a47 Incursión ganada: +{0} XP y {1} monedas.
+5954ea17 Recompensa reclamada. El lunes llega un jefe nuevo.
+a2df9bd2 Únete a un gremio o funda uno (pestaña Amigos) para enfrentaros juntos al jefe de la incursión semanal. Esta semana: {0}.
+6b8ca9a3 ¡Meta diaria! +{0} XP
+6caf860b Anki: {0} tarjetas maduraron · +{2} XP
+b72da5f2 Protector de racha
+dce47891 Carta de pista
+29877f37 +{0} XP
+53af6389 XP
+b666a4ab {0} · siguiente {1}
+df2457aa siguiente {0}
+830ead14 {0} de 5 corazones: dale de comer para subirlos
+45260878 Brillo: lo producen tus edificios
+4ac9dac4 {0} de brillo
+ec8782a8 Brillo por hora ahora mismo
+6a6e9e27 {0} por hora
+cba40f6f Gemas: se ganan con insignias, incursiones, subiendo de liga y con el jardín en plena floración
+626f7b1c Polvo de estrellas: cada uno hace todo un {0} % más rápido, para siempre
+f7370cf7 {0} Ahora el brillo se recoge solo.
+7a211303 Alcanza tu meta diaria {0} veces y el brillo se recogerá solo ({1} hasta ahora).
+ddd7a154 Los edificios producen brillo mientras no estás: te espera hasta el equivalente a {0} horas. Cada tipo rinde más con un hábito de estudio distinto, y alcanzar la meta de hoy los acelera a todos a la mitad de tiempo y envía dos horas de brillo de golpe.
+cf6b269f <0>Plena floración.</0> Cada parcela tiene un edificio totalmente crecido. El jardín está completo; liberar una criatura empieza uno nuevo, más rápido.
+39a1c2dc Recoger {0} de brillo
+eabc714b Parcela {0}: cerrada
+467b84dc {0} Se abre cuando: {1}
+1c6e99ed Usar una llave ({0})
+7cf40990 Parcela {0}: vacía
+144a397b Elige qué construir aquí.
+7e08478b {0} {1} · {2} por hora
+0595972e {0} · nivel {1}
+d020fbd3 · le gusta {0} {1}
+9078100c {0} de brillo por hora{1} · {2} esperando
+04aac4c0 Recoger
+53b630e7 Crecer ·
+6d6426d9 Súbelo de nivel: produce bastante más brillo
+50645793 Totalmente crecido
+4dd3fed6 Liberar una criatura adulta
+95b0eef2 Una criatura adulta puede ser liberada. Deja tu grupo y se la recuerda aquí. Tus edificios y tu brillo empiezan de cero, y te quedas con <0/>: cada uno hace que todos los edificios sean un {0} % más rápidos para siempre, así que el siguiente jardín crece mucho más deprisa que el anterior. Cuantos más edificios totalmente crecidos tengas en ese momento, más polvo de estrellas.
+7005fc6d polvo de estrellas
+5fb6a7b7 Aún no tienes ninguna criatura adulta.
+21e10852 esta criatura
+edfb0cc4 ¿Liberar a {0}? Se irá para siempre, y tus edificios y tu brillo empezarán de cero. Conservas el polvo de estrellas, tus otras criaturas y todo lo que tienes.
+d2001733 Liberada. Has ganado {0} de polvo de estrellas.
+28a4bacf Liberadas hasta ahora: {0}.
+55427966 {0} {1} · alimentado {2} de {3} veces hoy. Su favorito cuenta el doble. Los corazones hacen sus edificios un poco más rápidos y no cambian nada en las batallas.
+35b25929 Comida
+9d041fa1 {0} su favorito
+779fc473 A {0} criaturas les encanta
+77690ee2 · tienes {0}
+ff1928e5 Alimentar
+c266a25e ¡Le encanta!
+df139e6c Ñam.
+db09cbc4 Comprar uno por {0} de brillo
+14e351e1 Provisiones
+0e90e484 Las gemas solo salen de lo que haces: cada insignia (2), una incursión ganada (3), subir de liga (2), plena floración (10). Nada se vende por dinero.
+11a9a29c Hay un huevo nuevo con tus criaturas.
+c505c639 Añadir 20 minutos más
+36690a36 Usar ahora
+476c3b07 La XP se duplica durante {0} minutos. ¡A estudiar!
+0a854dda activo {0} min más
+427a838f Calentar un huevo
+e00a97a2 Necesitas un huevo de sobra que no esté en el hábitat
+bdd2a3a3 El huevo se está calentando: crece a la vez que tu criatura.
+6a6002af un huevo se está calentando
+678552eb Úsala en la página Jardín.
+265753d6 Se usa sola cuando una batalla pagaría menos.
+6028b76d Úsala durante una batalla salvaje.
+d3f4cb89 Cambiar nombre
+29cdd5c4 Tu nivel: toca para ver cómo funciona la XP
+1aa6e8ca Nv
+eaeec02c XP hasta el siguiente nivel
+18e480f2 Toca para ver cómo funciona la XP
+890541c0 Cambiar tu meta diaria
+e54c864d Toca para ver cómo evoluciona tu criatura
+0b8ca8e4 Días seguidos: toca para saber más
+ce1213a4 Monedas, para la tienda: toca para saber más
+c3b0236d Un protector de racha cubre un día perdido: toca para saber más
+5894f7c3 Brillo de tus edificios: toca para saber más
+b1e9fef7 Gemas, para provisiones: toca para saber más
+dd8fd086 Corazones: toca para saber más
+b2d3bd7f Llevar tu criatura a otro hábitat
+f5552713 Batalla
+48f77eb7 Criaturas
+55de8870 Tienda
+714d913b Jardín
+3f5aa796 Meta diaria alcanzada
+ad69cbf5 Hoy: {0} / {1} min

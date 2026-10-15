@@ -1,0 +1,198 @@
+79bcdbf3 Layunin: {0} min
+0e5f028b · handa nang mag-evolve: pindutin ito
+72ce9e1e · {0}% bago maging {1}
+4246502f {0} araw
+223e900f Ang itlog mo
+63b41493 Pangalanan mo ako
+98303fea Layunin ngayong araw: nagpadala ang mga gusali mo ng {0} liwanag nang sabay-sabay.
+72e1269a Nakakuha ka ng {0} hiyas.
+61fe2211 Full bloom: may ganap nang lumaking gusali sa bawat lote.
+673e4951 Pangalanan ang nilalang mo
+a8a47536 wala pang naka-save na salita :(
+0a5a8112 +{0} liwanag
+e3b0b563 Handa nang mag-evolve ang nilalang mo. Pindutin ito kung kailan mo gusto.
+b2facb1b Hindi pa bukas ang loteng iyan.
+fcc4027b May nakatayo na riyan.
+bf998c98 Walang ganyang gusali.
+d482d7e0 Hindi pa: {0}.
+710d27b3 Kailangan mo pa ng {0} liwanag.
+efcf13a6 Walang nakatayo riyan.
+2a8a3386 Ganap na itong lumaki.
+579f1557 Bukas na ang lahat ng lote.
+9af0e879 Wala kang susi.
+5b31b02f Ang nilalang na nasa hustong gulang lang ang puwedeng pakawalan.
+934d6b63 Hindi iyan ibinebenta.
+36602b9e Puno na ang grupo mo.
+26de9a27 Kailangan mo pa ng {0} hiyas.
+6c27e5e8 Wala kang ganyan.
+6156ebc8 Hindi kumakain ang itlog. Mapisa mo muna.
+a66174fd Busog na ito ngayong araw.
+bdbaa592 Wala kang XP boost.
+4f42a703 Wala kang incubator.
+e0e5bba3 Pumili ng itlog na wala sa tirahan.
+eacac3ef Nasa incubator na ang itlog na iyan.
+73ed2987 May {0} XP ka at nasa level {1}. {2} XP pa bago ang susunod na level.
+6a75c080 Mag-save ng salita sa vocab mo: 20.
+80e25376 Makinig o magbasa: dahan-dahang patak habang nag-aaral ka, na natutuyo nang lampas na lampas sa layunin mo ngayong araw.
+aa1ab833 Abutin ang layunin mo ngayong araw: {0}. Ito ang pinakamalaki, at pareho ang gantimpala kahit 5 minuto o 20 minuto ang layunin mo.
+e3435b6f Mga laban: 3 bawat tamang sagot, 15 pa kapag naging kilalang-kilala ang isang salita, 40 sa panalo at 15 sa talo (buo para sa unang tatlong laban sa araw).
+da45a83d Vocab reviewer: bawat card na sinasagot mo ay nagbibigay ng ikaapat na bahagi ng ibinibigay ng paghahanap ng salita (karaniwang 1 hanggang 4, minsan 8 hanggang 12, paminsan-minsan 25 hanggang 50), naalala mo man o hindi, kaya walang mapapala sa pandaraya.
+355d88a3 Tapusin ang isang laban at tapusin ang mga flashcard mo sa parehong araw: {0} pa, isang beses kada araw.
+1a385136 Paliit nang paliit ang gantimpala kapag inulit-ulit ang parehong gawain sa isang araw, kaya mas mabuti ang kaunti araw-araw kaysa isang mahabang session.
+5d4196b1 Pinalalaki nito ang nilalang sa tirahan mo: napipisa, lumalaki at nagiging handang mag-evolve.
+4e3ef7b7 Hindi kailanman nagagastos ang XP. Tumataas lang ito.
+27bb53b6 Walang mapaggagastusan: kusa itong gumagana.
+9b7db3ae Paano gumagana ang pag-evolve
+ac4792cf Streak
+ae506790 {0} na sunod-sunod. Ang pinakamahusay mo ay {1}.
+31fb81dc Sa Anki companion, binibilang din bilang layunin ngayong araw ang pagtapos sa lahat ng dapat i-review sa Anki.
+3e2a59d1 Kapag may nalaktawang araw, sasaklawin ito ng streak freeze kung mayroon ka. Kung wala, magsisimula ulit sa zero ang streak. Wala nang ibang mawawala.
+488e945a Kapag umabot ng 7 araw, magbubukas habambuhay ang mga bagong bagay sa tindahan ({0}) at ang galaw sa laban na Matatag na Puso.
+347792fa Ang 5-araw na streak ay nagbubukas ng lote sa hardin.
+f7922bac May badge sa 7, 30 at 100 araw, at bawat badge ay nagbibigay ng 2 hiyas.
+d15f40ca Tingnan ang mga badge mo
+2bef474e Mga barya
+647952d2 Mayroon kang {0}.
+ec4161d7 Mag-save ng salita sa vocab mo: tig-1.
+20b4c331 Umakyat ng level: 5.
+e469d2bf Manalo sa laban: 4 bawat isa sa unang tatlong panalo sa araw, mas kaunti pagkatapos.
+3c1e6885 Nagiging kilalang-kilala ang isang salita sa mga laban: 1.
+dc4529b3 Panatilihing tama ang 8 sa 10 sagot sa laban sa loob ng isang linggo (30 sagot o higit pa): 5.
+d5d064cb Natalo ng guild mo ang lingguhang raid boss: 20.
+64eea943 Tapusin ang isang laban at tapusin ang mga flashcard mo sa parehong araw: {0}, isang beses kada araw. Liwanag ang ibinibigay ng flashcard lang, hindi barya.
+54bb5f6d Pampaganda lang ang lahat ng nabibili ng barya. Walang nagpapalakas sa nilalang.
+fede851e Ang Tindahan. Nag-aalok ito ng {0} bagay araw-araw, pinili para sa nilalang mo, at nagbabago araw-araw.
+4906011f Buksan ang tindahan
+02b8de87 Paminsan-minsan may nalalaglag nang biglaan kapag naghahanap ka ng salita.
+4b6bd7b6 Nagsimula ka nang may isa.
+a66c8544 Kusa itong ginagamit sa susunod na pagbukas mo ng app matapos ang nalaktawang araw. Dalawa ang kailangan sa dalawang nalaktawang araw.
+d5545dea Liwanag
+3647f30f , at may {0} pa na naghihintay sa mga gusali mo
+6319cd67 May {0} liwanag ka{1}. Gumagawa ang mga gusali mo ng {2} kada oras.
+5aafc95b Pindutin ang gusaling may ilaw na lumulutang sa ibabaw para ipunin ang liwanag nito. Pagkatapos ng {0} na layunin sa araw, kusa na itong naiipon.
+5ab759f1 Abutin ang layunin mo ngayong araw: gumagawa ang bawat gusali ng kalahati pa nang higit sa natitirang araw, at dalawang oras na liwanag ang darating agad.
+fb3a6104 Tapusin ang mga flashcard sa araw sa vocab reviewer ({0} card o higit pa, walang natitirang dapat i-review): isang oras na liwanag ng hardin mo nang sabay-sabay, at hindi bababa sa {1}. Barya naman ang ibinibigay ng mga laban.
+5881fc72 Bawat uri ng gusali ay gumagawa ng mas marami para sa isang gawi sa pag-aaral, at bawat puso ng nilalang mo ay nagdadagdag nang kaunti.
+99abeba6 Pagkain para sa nilalang mo ({0} liwanag bawat isa), na pumupuno sa mga puso nito.
+dfc8c596 Mga potion ({0} liwanag) para sa mga ligaw na laban.
+38ccf266 Nasa Garden page ang mga gusali. Nasa Supplies page ang pagkain at mga potion.
+37de88de Buksan ang hardin
+3e321c9f Buksan ang mga gamit
+02904156 Mga hiyas
+4254141b Natalo ng guild mo ang lingguhang raid boss: 3.
+a1d5eec6 Umakyat ng liga (abutin ang layunin mo sa 5 araw ng isang linggo): 2.
+18bf14cc Full bloom, kapag may ganap nang lumaking gusali sa bawat lote ng hardin: 10.
+03611593 Sa mga ginagawa mo lang nanggagaling ang hiyas. Hindi kailanman ibinebenta ang mga ito kapalit ng pera.
+89803371 Ang Supplies page.
+99f9bf69 Mga puso
+7b0609ca May {1} sa 5 puso si {0}.
+3be3ea7c : para sa nilalang na {0} na {1}
+80e48f19 Dalawang pagpapakain ang pumupuno sa isang puso. Doble ang bilang ng paborito nitong pagkain{0}.
+746e8201 Sa bawat nilalang ang mga puso, at hindi kailanman bumababa.
+27cffa5f Walang binabago ang mga puso sa mga laban.
+feeaea73 Pakainin ito sa Supplies page.
+f110690b Paano ito makukuha
+ca032b58 Ano ang ginagawa nito
+525f61b6 Saan
+7ac0138b oras na ginugol sa pakikinig sa podcast, audio at video
+ab60d3ea pag-save ng salita, tamang sagot sa laban, mga card sa vocab reviewer, mga review sa Anki
+7224fd42 Baga para sa pagkamausisa, Alon para sa pakikinig, Kakahuyan para sa pag-iipon, Bato para sa pagbabasa, Kislap para sa maagang umaga at Takipsilim para sa gabing-gabi
+80b6476b Paano nag-e-evolve ang nilalang mo
+00d04503 Si {0} ay {1}. Sumusunod sa paraan ng pag-aaral mo kung ano ang magiging anyo nito, ikaw ang pipili ng oras, at walang pinal sa mga pipiliin mo.
+b89502e9 {0} XP
+80083e78 handa nang mag-evolve
+02a71b4e isang {0}
+729f33b1 {0} XP pa bago ito {1}.
+a105f0d4 Handa na itong mag-evolve: pindutin ito sa tirahan.
+f16b2c73 1. Paglaki
+d4915a51 {0} Lahat ng XP na makukuha mo ay napupunta sa nilalang na nasa tirahan. Naghihintay ang iba, kaya ang ilalabas mo ang una mong pagpili.
+c5a69900 2. Ang apat mong gawi
+9e19cb58 Itinatala ng bawat nilalang kung paano ka nag-aral habang nasa labas ito. Tumataas ang isang gawi kapag nakakuha ka ng XP sa paraang iyon at bumababa nang kaunti ang iba, kaya sinusundan ng mga bar ang mga ginagawa mo kamakailan. Mga {0} XP ng isang uri ang pumupuno sa isang bar. {1} naman sa pagkamausisa, dahil mas malaki ang XP sa paghahanap ng salita.
+174c7e2f Bukas: ang pinakamalakas mong gawi sa ngayon
+28088622 Bukas: lampas na sa 25% ang gawing ito
+94fae88c · dala ang galaw sa laban na {0}
+968f60ab 3. Anyo nito bilang matanda
+ffd15c0d Kapag sapat na ang laki nito, naghihintay ito bilang bata at kumikinang. Pindutin ito at pipiliin mo ang anyo nito bilang matanda. Laging bukas ang anyo ng pinakamalakas mong gawi, at may isa pang bubukas kapag lumampas sa 25% ang gawi nito. Pagkatapos mag-evolve, mabubuksan din ang isang anyo kapag naitaas mo sa 50% ang gawi nito, at puwede kang lumipat sa mga bukas na anyo kahit kailan. Nag-iiwan din ng bagong itlog ang pag-evolve. Walang sariling anyo ang pagkamausisa: makikita ito sa mga itlog mo, sa tindahan at sa hardin.
+93d943d8 {0} Nakuha
+db795d86 4. Mga espesyal na anyo
+7c62f35b Isinusuot sa ibabaw ng anyo bilang matanda. Nanggagaling ang mga ito sa oras ng pag-aaral mo, sa kasama nitong lumaki, at sa nagagawa mo sa laban. Kulay at itsura ang binabago, hindi kailanman ang lakas.
+13878fb7 Nakadepende sa paraan ng pag-aaral mo ang elemento ng bawat bagong itlog: {0}.
+02b6bd4d Mas marami sa tindahan ang bagay sa mga gawi mo, gaya ng headphones para sa mga nakikinig at aklat para sa mga nagbabasa.
+2eaf9a2e Bawat gusali sa hardin ay gumagawa ng mas maraming liwanag para sa isang gawi.
+976f4c1c Hindi pinapansin ang lahat ng ito sa laban ng mga tao: pare-pareho ang level ng lahat ng nilalang, at nananalo ka sa pagkaalam ng mga salita mo.
+8b0adc94 Ano pa ang binabago ng mga gawi mo
+0c20f982 Piliin ang anyo nito ngayon
+3b7ab43a Buksan ang mga nilalang mo
+124ba4b6 Kailangan pa ng {0}
+cb437e4f Hindi pa ito handang mag-evolve.
+a6e6f750 Hindi pa bukas dito ang anyong iyan.
+81b52bd2 Hindi pa nakukuha ang espesyal na anyong iyan.
+5eb43479 Hindi mabuksan ang regalo.
+2890293f Mayroon ka nang {0}, kaya naging {1} barya ito.
+67705e9c Natanggap mo ang {0}. Nasa Mga gamit ko ito.
+c054815c Puno na ang grupo mo, kaya naging 20 barya ang itlog.
+b49d2e5c Nakatanggap ka ng itlog na {0}. Kasama ito ng mga nilalang mo.
+e4d969a9 Walang ganyang item.
+2b338829 Mayroon ka na nito.
+60e6b077 Kailangan mo pa ng {0} barya.
+77e01fe2 Tindahan at aparador
+0ee5c43c Mga gamit ko
+2c578dc8 Mga badge
+2db87a01 Dekorasyon
+9519fbe9 Sa iyo na ang {0}
+4f3e6209 Itago
+26fcf76c Ilagay
+1c99c72c Hubarin
+94433a7e Isuot
+5d632f2d Ibigay ito sa kaibigan
+fbefae1e Ibigay
+1cfad2d7 {0} barya
+a8e4db25 Ang pinili ngayong araw, para sa nilalang mo. Nagbabago ito araw-araw. Nakukuha ang barya sa pag-abot sa layunin mo ngayong araw (10), pag-save ng salita (tig-1) at pag-akyat ng level (5).
+7c0a7817 Nasa iyo na ang lahat ng inaalok.
+db13058c May {0} item pa na lalabas kapag nakuha mo ang:
+1a2cdd14 Wala pa. Dito itinatago ang mga binili mo sa tindahan.
+d0673c80 Koleksyon {0}
+41867351 Hindi maitala bilang nakita ang salitang iyon: {0}
+82c3ca6e ✓ Nasa device na ito ang mga diksyunaryo ng {0} ({1} MB). Ang mga salitang hindi mo pa napipindot ay nakakulay <0>lila</0>.
+e963907d Alisin
+71da2431 Wala sa device na ito ang mga diksyunaryo ng {0}, kaya hindi maipakita nang <0>lila</0> ang mga bagong salita.
+c2232964 I-download (mga {0} MB)
+c177e4b0 Dina-download…
+7443fea8 Handa na ang mga diksyunaryo ng {0}.
+04d17f22 Ng wikang ito
+aaa46e0d Mga diksyunaryo ng {0}
+c33c9385 Kayang ipakita ng Tamkeen kung aling mga salita ang <0>bago sa iyo</0>: kulay lila ang salitang hindi mo pa napipindot, at kapag napindot mo na, ituturing nang nakita ang lahat ng anyo ng salitang iyon (<1/>).
+6280fb05 Kailangan ng {0} ng mga diksyunaryo: <0>isang beses na pag-download na mga {1} MB</0>, gawa ng CAMeL Lab ng New York University Abu Dhabi (Standard, Egyptian, Levantine at Gulf Arabic). Mananatili sila sa device na ito at walang ipapadalang anuman tungkol sa iyo.
+b7c33926 Magagawa mo ito mamaya sa Settings.
+e4571490 Hindi muna
+6813189a Ilang segundo lang ito.
+286b0dcd Handa na ang mga diksyunaryo ng {0}. Kulay lila na ngayon ang mga bagong salita.
+3e13e40a ✓ Markahang nakita
+30320764 ↺ Markahang bago
+3f629623 Walang nabasang teksto sa page na iyon. Subukan ang “Buksan ang Web Browser” at gamitin doon ang I-import ang Page.
+4b0a3f2d Bersyon {0}
+2cf6a510 Isang app para matuto ng wika mula sa totoong materyales: mag-subscribe sa mga podcast, magdagdag ng sarili mong video at web page, mag-transcribe sa sarili mong computer gamit ang Whisper, magbasa habang naka-highlight ang bawat salita, at bumuo ng listahan ng vocab.
+9421c021 Folder ng data
+22a35fbe Source code
+e630fb0f github.com/{0}
+c4740e4c Runtime
+06403f3b Python {0}
+736b9062 Tingnan kung may update
+30dced67 Mga open-source na lisensya
+48e55e8f Nakabatay ang app na ito sa mga proyektong ito. I-click ang isa para basahin ang lisensya nito.
+3aceec04 May bersyon {0} na.
+68680fa2 Pinakabago na ang sa iyo.
+f40382cc 👻 Nawawala ang mga mensahe kapag nakita na · ang voice note kapag napakinggan na
+5e5bb045 Mag-record ng voice note (hanggang 2 minuto)
+68f4145f Mensahe
+72f9eb46 Nire-record…
+0e04dbc9 Ipadala ang voice note
+2394299d Kaibigan
+fd6be475 ▶ Voice note · {0}
+c79a9284 ❚❚ Pinapatugtog…
+08acc9f5 Hindi ma-play ang voice note. {0}
+46e2032a Isang bagay na hindi mabuksan ng bersyong ito ng app
+f92f6701 I-update ang app para buksan ito.
+05da9368 kasama ang mga salita nito
+ebefd2aa Naipadala{0}
+bb54db51 Tanggapin

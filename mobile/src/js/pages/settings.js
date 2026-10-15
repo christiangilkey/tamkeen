@@ -7,7 +7,9 @@ import { STT_EVENT, testKey, usageToday } from "../transcribe-service.js";
 import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { ankiSyncPanel } from "../components/ankisync.js";
-import { languagePicker } from "../components/langpicker.js";
+import { languagePicker, speakPicker } from "../components/langpicker.js";
+import { chooseUiLanguage } from "../components/onboarding.js";
+import { isUiLanguage } from "../i18n.js";
 import { dictionariesRow } from "../lexicon/seen.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { transport } from "../define-service.js";
@@ -29,6 +31,12 @@ export async function render(view) {
   view.append(h(`<div class="page settings">
     <h1>Settings</h1>
     <section class="card" id="definer"></section>
+
+    <section class="card stack">
+      <h2>Language I speak</h2>
+      <div id="ui-lang"></div>
+      <p class="small muted">The app's buttons and messages are shown in this language, and words are explained in it.</p>
+    </section>
 
     <section class="card stack">
       <h2>Language I'm learning</h2>
@@ -118,11 +126,15 @@ export async function render(view) {
       return () => window.removeEventListener(STT_EVENT, hear);
     },
   });
+  $("#ui-lang").append(speakPicker(isUiLanguage(s.ui_language) ? s.ui_language : "en", async (code) => {
+    await chooseUiLanguage(code);
+    window.dispatchEvent(new HashChangeEvent("hashchange")); // (the languages to learn leave this one out)
+  }));
   $("#study-lang").append(languagePicker(s.study_language, async (code) => {
     await saveSettings({ study_language: code });
     toast(`Now learning ${LANGUAGES[code].name}`);
     window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
-  }), commonWordsButton(studyLanguage()), dictionariesRow(studyLanguage()));
+  }, { speaks: isUiLanguage(s.ui_language) ? s.ui_language : "en" }), commonWordsButton(studyLanguage()), dictionariesRow(studyLanguage()));
 
   // Appearance
   view.querySelectorAll("input[name=theme]").forEach((r) => (r.onchange = () => saveSettings({ theme: r.value })));

@@ -1,0 +1,190 @@
+495d921f {0} ¢ per milione di token
+eb7ed7c4 questo computer
+1cfceb0b questo telefono
+8eff88d5 Definizioni delle parole (IA)
+99b34726 Tocca una parola per vedere cosa significa <0>in quella frase</0>. Un fornitore di IA scrive la spiegazione con la tua chiave; lo paghi direttamente, una frazione di centesimo a parola.
+b6db182b Cosa viene inviato e dove è conservata la mia chiave?
+097ae941 La parola, la sua frase e le frasi vicine vanno al fornitore che scegli e da nessun'altra parte. La chiave è conservata su {0} e, se usi la sincronizzazione con Google Drive, nella cartella privata dell'app nel tuo Google Drive, così ce l'hanno anche gli altri tuoi dispositivi. Non fa mai parte di un'esportazione dei dati.
+7ceee3f3 Fornitore
+68c2cc7f Modello
+61131aac 1 milione di token ≈ {0} definizioni
+51823153 I token sono i pezzi di parola che un'IA legge e scrive. I prezzi sono stime per l'uso di una definizione, in base al listino di ogni fornitore.
+525f7051 Nome del modello, scritto esattamente come lo scrive il fornitore
+cf678cab Chiave API
+d608fce7 Incolla qui la tua chiave API
+d97d1ee3 Mostra
+d959e754 Sono bloccato
+63752a4b Spiega in
+3b3ec110 Prova con un esempio
+9bd4649b Token usati oggi su {0}:
+27a7d318 ✓ Configurato
+eed6bfb4 Obbligatorio
+31ba9246 Ottieni una nuova chiave ↗
+c3639477 Ottieni la tua chiave API {0} ↗
+9ef93755 Consigliato
+b729da8b Un altro modello
+883f8daa Un altro modello… <0>scrivi il nome</0>
+e4f6bb0f È una chiave {0}, quindi ora il fornitore è {1}. Salvata: premi «Prova con un esempio» per verificarla.
+1bb58f41 Salvata. Premi «Prova con un esempio» per verificarla.
+19686f61 Chiave rimossa.
+b2731cb4 Impossibile salvare la chiave: {0}
+34d8b60f Nascondi
+b18ce81d Richiesta in corso…
+ce61ce37 ✓ Funziona ({0} s): {1} = «{2}»
+b68a4efa La chiave non funziona
+622cb8b8 Anki
+8558a88a Impostazioni di {0}
+b9e7312c {0} min fa
+002a7fdc {0} aggiunte, {1} modificate, {2} rimosse
+616f33b4 {0} e altri {1}
+56fb7687 Tieni allineate le mie parole salvate e il mio mazzo {0}, in entrambe le direzioni
+71d48a93 Viene letto o modificato solo il mazzo indicato qui sotto: gli altri mazzi, note e carte non vengono mai toccati. Parole nuove, modifiche ed eliminazioni passano in entrambe le direzioni. Una carta creata a mano in quel mazzo diventa una parola qui. I progressi di ripasso di ogni carta sono mostrati nella pagina Vocabolario; Tamkeen non cambia mai la programmazione di {0}, l'immagine di una carta o il suo layout.
+768cd48a Mazzo:
+8ce68640 Salva nome
+33bfb8c9 Dai un nome al mazzo.
+70a256a1 Sincronizzazione con il mazzo «{0}».
+3e4aaec6 Per attivarlo serve il componente aggiuntivo qui sotto (versione 2 o successiva) installato in Anki.
+74a84c68 · {0} parole hanno una carta nel mazzo
+343a67e4 Ultima sincronizzazione con modifiche ({0}): inviate {1}; ricevute {2}
+ea83b3ba Ultima sincronizzazione {0}{1} <0/>Inviato a {2}: {3}<1/>Ricevuto da {4}: {5}
+8ab853ab (profilo «{0}»)
+311e6a3f <0>{0} ha aperta un'altra raccolta</0>{1}, non quella collegata a Tamkeen{2}. Non è stato letto né scritto nulla.
+aa48c6a5 Sincronizza invece con questa raccolta
+e172d1bd Una carta
+4b2e608f {0} carte
+af6cd201 {0} ({1}) verrà rimosso da {2} alla prossima sincronizzazione.
+0fccecc9 Una parola che hai eliminato qui ha ancora
+7e7ed3d8 {0} parole che hai eliminato qui hanno ancora
+a2fd882c la carta
+0c12e651 le carte
+a5554878 la parola
+cde1fdb5 le parole
+8d3900e9 <0>{0} una carta in {1}:</0> {2}. Togliere una carta da {3} ne cancella anche la cronologia dei ripassi. <1>Non si può annullare.</1> Se accetti, le prossime eliminazioni toglieranno le carte senza chiedere di nuovo.
+d0ca7688 Rimuovi {0} da {1}
+3ee6dc97 Tieni {0} e recupera {1}
+458bd73a Una carta è
+2449d2e2 {0} carte sono
+4768f74c AnkiDroid non comunica alle altre app cosa è stato eliminato
+97b8cabc Anki non ha traccia che tu le abbia eliminate qui (forse sono state eliminate su un altro dispositivo, o la raccolta è stata ripristinata)
+9ab802d4 questa parola
+9fe0220f <0>{0} sparita dal mazzo:</0> {1}. {2}, quindi Tamkeen non ha rimosso nulla. Cosa fare con {3}?
+ef8f7e8a Ricrea {0}
+bbba862c Elimina {0} anche qui
+78948622 Le carte di {0} tue parole ora sono in un altro mazzo: restano dove le hai messe e non vengono più sincronizzate.
+c1aa0b00 {0} carte in più di parole che ne avevano già una sono state etichettate «tamkeen-duplicate» e lasciate lì perché tu le controlli.
+dfab2962 {0} note del mazzo sono state escluse (senza campi Front e Back, vuote, o con una carta in un altro mazzo).
+4b701821 {0} modifiche non sono riuscite l'ultima volta e verranno ritentate.
+21b4c80d Questa versione di AnkiDroid non comunica i progressi di ripasso alle altre app. Aggiorna AnkiDroid alla 2.24 o successiva per vederli qui.
+221ca630 Sincronizzazione…
+2b7d938e Sincronizza ora
+11d3ef7f Si sincronizza anche quando apri l'app e ogni pochi minuti mentre è aperta.
+26b0b25f Anki si sincronizza con Tamkeen all'apertura, ogni 10 minuti mentre è aperto, dopo la sincronizzazione di Anki e ogni volta che scegli <0>Strumenti → Sync Tamkeen now</0> in Anki. Anche Tamkeen deve essere aperto.
+27139ab8 non ancora studiata
+c9114940 in ritardo dal {0}
+71ef9cbd scade {0}
+87e1ef1d in ripasso
+b2647e88 ogni {0} {1}
+fb38ecb6 {0} giuste, {1} sbagliate
+3db1270b Le tue ultime risposte in Anki, dalla più vecchia
+5c4b4117 Letto da Anki il {0}. Tamkeen si limita a mostrarlo; non cambia mai la programmazione di Anki.
+c3c7e5f4 Anki: {0}{1}
+f57186fa Eliminare «{0}» dal tuo vocabolario?
+3eb0e9ae Eliminare «{0}» dal tuo vocabolario? Anche la sua carta in {1}, con la cronologia dei ripassi, verrà rimossa.
+890a143b Anche la sua carta in {0}, con la cronologia dei ripassi, verrà rimossa.
+ce01cb8a Questo elimina anche la carta di {0}
+8c9dbb61 «<0>{0}</0>» ha una carta nel tuo mazzo {1} in {2}. Eliminando qui la parola, quella carta verrà rimossa alla prossima sincronizzazione, <1>insieme alla sua cronologia dei ripassi in {3}. Non si può annullare.</1>
+ad439574 Se procedi, d'ora in poi eliminare una parola ne rimuoverà la carta senza questa domanda.
+77dfd213 Annulla
+0a98dcd0 Elimina la parola e la sua carta
+c3e839df Online
+e01fa717 Offline
+7fab27b4 la Claude Console
+881ac247 Premi il pulsante qui sotto. Apre console.anthropic.com nel browser. È un sito diverso dall'app di chat Claude.
+495b9813 Usa il tuo indirizzo email o «Continue with Google». Un abbonamento Claude Pro o Max non copre questo: le chiavi si pagano a parte.
+7403c4f9 Apri <0>Settings → Billing</0>, aggiungi una carta di pagamento e acquista un po' di credito. Le chiavi non funzionano finché l'account non ha credito.
+71b4b60f Apri <0>Settings → API keys</0> e premi <1>Create Key</1>. Dagli un nome che riconosci, come «Tamkeen».
+e04e0bbd La chiave è una lunga riga di lettere che inizia con <0/>. Viene mostrata una sola volta, quindi premi <1>Copy</1> prima di chiudere la finestra.
+48b74851 Torna qui, incollala nella casella <0>Chiave API</0> delle Impostazioni e premi <1>Prova con un esempio</1>.
+0e9e2f65 Google AI Studio
+2628ac25 Premi il pulsante qui sotto. Apre aistudio.google.com nel browser.
+f6541135 Va bene qualsiasi account Google (Gmail). Accetta le condizioni se te lo chiede.
+84e51948 Premi <0>Create API key</0>. Se chiede quale progetto usare, lascia che ne crei uno nuovo.
+8d7a2586 È una lunga riga di lettere che inizia con <0/>. Premi il pulsante di copia accanto. Puoi tornare su questa pagina e copiarla di nuovo più tardi.
+162ab3e6 la piattaforma OpenAI
+faa55261 Premi il pulsante qui sotto. Apre platform.openai.com nel browser. È un sito diverso da ChatGPT.
+0ba16577 Il tuo accesso a ChatGPT funziona anche qui, ma un abbonamento ChatGPT Plus non copre questo: le chiavi si pagano a parte. Potrebbe chiederti di confermare un numero di telefono.
+a6860394 Apri <0>Settings</0> (l'ingranaggio) <1>→ Billing</1>, aggiungi una carta di pagamento e acquista un po' di credito. Le chiavi non funzionano finché l'account non ha credito.
+83803874 Apri <0>API keys</0> e premi <1>Create new secret key</1>. Dagli un nome che riconosci, come «Tamkeen».
+ebf2eda5 la Console xAI
+e76446c0 Premi il pulsante qui sotto. Apre console.x.ai nel browser.
+e3f3d119 Usa il tuo account X, Google o un indirizzo email. Un abbonamento X Premium o SuperGrok non copre questo: le chiavi si pagano a parte.
+d88dbb88 Apri <0>Billing</0>, aggiungi una carta di pagamento e acquista un po' di credito. Le chiavi non funzionano finché l'account non ha credito.
+f6ce8b31 Apri <0>API Keys</0> e premi <1>Create API key</1>. Dagli un nome che riconosci, come «Tamkeen».
+6547e629 La chiave è una lunga riga di lettere che inizia con <0/>. Copiala prima di chiudere la finestra.
+58d7704c Molto probabilmente la chiave è scaduta o è stata disattivata, quindi probabilmente te ne serve una nuova: creala con i passaggi qui sopra e incollala. Se la chiave è nuovissima, copiala di nuovo e reincollala (se manca una lettera alla fine non funziona).
+f443dc0b L'account non ha ancora credito, oppure il credito non è ancora arrivato. Aggiungi credito nella pagina Billing del fornitore e riprova tra qualche minuto.
+43b82a8b Rimetti il <0>Modello</0> nelle Impostazioni su quello indicato come «consigliato».
+995ff549 Crea una nuova chiave nello stesso modo ed elimina quella vecchia dall'elenco del fornitore.
+6b020b42 Trattala come una password: non condividerla e non pubblicarla da nessuna parte. Tamkeen la conserva solo su questo dispositivo e la invia solo al fornitore che hai scelto.
+e1e3cd22 chiedere a un servizio di IA di spiegarti le parole
+fb891cde Come ottenere una chiave API
+15803e0d Una chiave API è una specie di password che permette a Tamkeen di {0}. La ottieni sul sito del servizio; ci vogliono pochi minuti.
+d76fd621 Apri {0} ↗
+26aacc31 Qualcosa non va?
+ddb60451 Lingua da imparare
+cac6d44c La tua lingua
+a70803bd Ricerca rapida
+2c497d03 Ricerca rapida: una parola toccata mostra solo il significato
+c8bed749 Ricerca dettagliata
+4ba6d768 Ricerca dettagliata: una parola toccata mostra la spiegazione completa
+581f8c00 Quanto mostra una parola toccata
+7d0cd0d6 {0}. Tocca per passare a {1}.
+6ae84e4a Chiudi (Esc)
+bbfa773e Chiudi
+19c91326 Equilibrio tra precisione e velocità.
+d661998f Il più preciso in tutte le lingue. Ideale con una GPU.
+ec890ad6 · scaricato
+18e42f19 · scaricato in parte
+0b1d6c0b Preparazione…
+7388d667 {0} di {1}
+1763761d Usa {0}
+781961bc Pausa
+f6fdbe48 Elimina
+58ff0825 Eliminare il modello {0} ({1} MB)? Potrai scaricarlo di nuovo più tardi.
+b5ed1ec0 Riprendi il download
+a479c9c3 Scarica
+b9868e76 Per le nuove trascrizioni si usa il modello {0}.
+a80186d6 Il modello {0} è pronto.
+d70807ed La tua <0>{0}</0> può trascrivere molte volte più velocemente della CPU. Servono le librerie CUDA di NVIDIA (circa 1,2 GB), non incluse nel programma di installazione per mantenerlo leggero.
+c3d90933 L'accelerazione GPU è attiva
+198413b8 Rimuovi le librerie GPU
+6c044a0d Rimuovere le librerie CUDA? La trascrizione userà la CPU.
+42a1ffa7 Verranno rimosse al riavvio dell'app.
+aca57ff9 Rimosse.
+7bb4405c Installato
+71d04aed Riavvia l'app per iniziare a usare la GPU.
+97e292a8 Estrazione…
+0a7b809e Installa l'accelerazione GPU (~1,2 GB)
+2503a349 Scarica i pacchetti ufficiali cuBLAS e cuDNN di NVIDIA da pypi.org e ne verifica i checksum.
+f4cfa873 Accelerazione GPU installata.
+defca688 Passo {0} di 4
+2f04eb15 Avanti →
+03c88b2a Che lingua stai imparando?
+05d17f2b Questo stabilisce cosa ascolta l'app, come vengono spiegate le parole e in che direzione scorre il testo. Puoi cambiarlo più tardi nelle Impostazioni.
+c32ae9f4 ← Indietro
+352fd3bb {0}: hai già iniziato a impararlo?
+49a817fa Sono un principiante assoluto
+959a39d2 Ogni parola è nuova per me.
+9aed0e9c Ho già iniziato
+a6d6fac2 Considera le {0} parole più comuni in {1:lower} come parole che conosco già, così l'app non le tratta come nuove.
+871384d2 Una cosa da configurare: una chiave API
+af91b49e Tocca una parola qualsiasi e Tamkeen ti dice cosa significa <0>in quella frase</0>. Le spiegazioni sono scritte da un servizio di IA, quindi <1>perché l'app funzioni devi darle una chiave API di un fornitore di IA a tua scelta</1>: {0} o {1}.
+c3016d5f Una chiave API è una specie di password che ottieni sul sito del fornitore. Paghi il fornitore direttamente: una ricerca costa una frazione di centesimo, e Gemini ha una quota gratuita.
+ff37cd14 Configurala, o cambiala più tardi, in <0>Impostazioni → Definizioni delle parole (IA)</0>.
+feb628ae Come ottengo una chiave?
+5b8027fa Ho capito
+94331dff Video di YouTube
+6c186598 Reel di Instagram
+78f78ba4 Episodio di podcast
+154cf598 Pagina web
+b41edaea Questo non si può inviare a un amico.

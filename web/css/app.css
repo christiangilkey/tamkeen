@@ -110,6 +110,10 @@ p { margin: 0 0 .75em; }
 :lang(ar) { --ar-font: "Noto Naskh Arabic", "Geeza Pro", "Arabic Typesetting", "Traditional Arabic", "Segoe UI", "Noto Sans Arabic", "DejaVu Sans", serif; }
 :lang(ja) { --ar-font: "Hiragino Sans", "Yu Gothic UI", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", sans-serif; }
 :lang(zh) { --ar-font: "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif; }
+/* (back to the default inside study text in these, when the whole page is in Japanese, say: i18n.js) */
+:lang(es), :lang(fr), :lang(it), :lang(tl), :lang(ru), :lang(en) {
+  --ar-font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", "Noto Sans", Roboto, Arial, sans-serif;
+}
 .ar { font-family: var(--ar-font); unicode-bidi: plaintext; }
 [hidden] { display: none !important; }
 
@@ -1096,6 +1100,8 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 
 /* the three first-run boxes (components/onboarding.js) */
 .ob-nav { margin-top: 4px; }
+.ob-speak { display: grid; gap: 2px; text-align: center; margin-top: -6px; }
+.ob-speak p { margin: 0; font-size: 16px; line-height: 1.45; font-weight: 600; }
 .ob-steps { display: flex; gap: 6px; }
 .ob-steps i { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
 .ob-steps i.done { background: var(--accent-soft); }

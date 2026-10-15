@@ -1,0 +1,199 @@
+de2f330f Tizzone
+fc24ae3b Incendio
+0e1275fa Frustata di Liana
+7c390204 Rigoglio
+789c7773 Lancio di Ciottoli
+e6277766 Frana
+d735dc4a Scossa
+9ab63902 Tuono
+76ce312e Spruzzo
+2bfd4000 Risacca
+97389d1a Ombra
+25ab466c Calar della Notte
+157f2572 Rimbalzo
+fe7f55b8 Concentrazione
+d4e1aee4 Carica
+d9d7e3d0 Vento in Poppa
+15727c13 Risonanza
+1ed1264f Intuito
+2d4c3f4e Scorta
+e0070ea6 Colpo Notturno
+69b8c2a5 Raggio dell'Alba
+7b6625f5 Cuore Saldo
+ee19d60c Secondo Fiato
+b5c15f07 Forma Perfetta
+8d82fb8f Qualsiasi creatura, qualsiasi mossa.
+9ab28c8b Possono combattere solo cuccioli e giovani (gli adulti riposano questa settimana).
+ae188585 Le mosse curative non sono ammesse.
+8c9c8aee Solo creature di Brace, Scintilla e Pietra.
+fe2417f4 Solo creature di Marea, Bosco e Crepuscolo.
+49663788 Squadre da uno.
+9b3a9266 Una pianta su cui crescono lettere luminose. Rende di più con i curiosi: chi cerca parole.
+7c5e9fe1 Una conchiglia che canticchia ciò che ha sentito. Rende di più con chi ascolta.
+58e0fe3c Raggiungi il tuo obiettivo giornaliero due volte
+edbcf4d7 Una lanterna piegata da pagine. Rende di più con chi legge.
+d8e79134 Cerca 30 parole
+b5f0b120 Un piccolo pozzo d'inchiostro. Rende di più con chi colleziona parole.
+82e39370 Salva 50 parole
+9b2d1f8b Una pietra scolpita che custodisce ciò che sai. Rende di più con i collezionisti.
+c2ee073b Conosci bene 5 parole (con le battaglie)
+e351da07 Un telaio che tesse la luce delle stelle. Costante per tutti.
+b41d02f3 Libera una volta una creatura adulta
+423e6206 Fai schiudere la tua prima creatura
+ea9f375d Raggiungi il tuo obiettivo giornaliero 3 volte
+d852f95e Salva 30 parole
+a80ee76d Mantieni una serie di 5 giorni
+ad99a14e Conosci bene 10 parole (con le battaglie)
+1c1b6779 In una battaglia selvatica, ridà una volta metà della salute a una creatura.
+fb54130d Raddoppia gli XP per cercare, salvare e ripassare parole per 20 minuti.
+05dc8601 Un'altra battaglia oggi paga per intero, dopo le prime tre.
+658d01ff Scalda un uovo perché cresca insieme alla creatura del tuo habitat.
+7661862b Apre il prossimo lotto edificabile senza aspettare il suo traguardo.
+379ee5cf Un nuovo uovo per la tua squadra. Il suo elemento dipende da come studi.
+7bd136e6 Una nebbia di parole confuse.
+8720a6ee Ti fissa a sua volta.
+2cebb5b5 Rumore dove dovrebbero esserci le parole.
+53267fa2 Cancella tutto ciò che non ripassi.
+8697f432 Argento
+c57604db Oro
+b3850e04 Diamante
+c0203c34 Cerca una parola
+f51af387 Fai schiudere un uovo
+d5913b18 Raggiungi il tuo obiettivo giornaliero 10 volte
+6da30a55 Una serie di 7 giorni
+90f6c76b Una serie di 30 giorni
+8ad928d9 Una serie di 100 giorni
+cd7e4e5a Salva 100 parole
+8a81401d Salva 1000 parole
+a535d7ff Completa l'abitudine dell'ascolto
+479b0d0b Completa l'abitudine della lettura
+f7254f15 Completa l'abitudine del collezionare
+9b83b0ca Cresci un Eco adulto
+b132f8c5 Cresci un Saggio adulto
+28cfd944 Cresci un Custode adulto
+de125314 Porta a termine una battaglia con un amico
+b231ceba Aiuta a sconfiggere un boss settimanale
+90b952f5 Parco cittadino
+73d5f55c Oasi
+bcce2166 Bosco notturno
+0b7eaa70 Riva
+f347e8f3 Studia: {0:lower}
+25640d1c Lega {0}
+8f75ec47 XP guadagnati oggi
+2dd2bed7 oggi
+75050d57 La sua creatura preferita
+9d9aab10 Prima collegati con Google (Impostazioni → Amici e condivisione).
+33f400a7 Prima aggiungi un amico, nella scheda Amici.
+98961386 Regala questo uovo a…
+458e9f84 Regala questo a…
+d19372ac Inviato a {0}.
+33ce4174 Caricamento…
+fe0337e8 Impossibile raggiungere il servizio online. Controlla la connessione.
+ab898d21 Le battaglie con gli amici, la lega, le incursioni di gilda e i regali richiedono le funzioni online.
+260bcda8 Scegli <0>Collegati con Google</0> in Impostazioni → Amici e condivisione. Le tue parole e il tuo materiale di studio non vengono mai inviati: solo la tua squadra di creature, la precisione delle risposte e i totali di questa settimana.
+134635e9 Apri le Impostazioni
+0908d881 I dati online del gioco non sono ancora disponibili ({0}).
+e235e19c Ti sta aspettando
+de946983 Un uovo
+2dcb4068 Un regalo
+359aac0c {0} da
+86834099 ha sfidato la tua squadra e {0}.
+032d7174 Rivincita
+75a9d140 Classifica in base alla quota di giorni di questa settimana in cui ognuno ha raggiunto il proprio obiettivo giornaliero, di qualsiasi dimensione. Cinque giorni o più in una settimana ti fanno salire di lega; uno o nessuno ti fanno scendere.
+561c39e9 Regola di battaglia di questa settimana:
+bb9d653f Sfida
+6fb4e940 Ancora nessuna squadra
+f45f3479 Non ha ancora aperto il gioco online
+60bab8eb Aggiungi amici nella scheda Amici per riempire la lega e sfidare le loro squadre.
+17f11ae4 Sconfitto!
+ce9deb48 Ne restano {0} su {1}
+fd2b49ec Incursione {0}: {1}
+1a39a266 {0} Ogni risposta giusta in battaglia questa settimana, di chiunque nella gilda, ne toglie uno.
+4145d94b Riscuoti la ricompensa
+3ef23a47 Incursione vinta: +{0} XP e {1} monete.
+5954ea17 Ricompensa riscossa. Lunedì arriva un nuovo boss.
+a2df9bd2 Unisciti a una gilda o fondane una (scheda Amici) per affrontare insieme il boss dell'incursione settimanale. Questa settimana: {0}.
+6b8ca9a3 Obiettivo giornaliero! +{0} XP
+6caf860b Anki: {0} carte maturate · +{2} XP
+b72da5f2 Salva-serie
+dce47891 Carta suggerimento
+29877f37 +{0} XP
+53af6389 XP
+b666a4ab {0} · prossimo {1}
+df2457aa prossimo {0}
+830ead14 {0} cuori su 5: dagli da mangiare per farli salire
+45260878 Bagliore: lo producono i tuoi edifici
+4ac9dac4 {0} di bagliore
+ec8782a8 Bagliore all'ora in questo momento
+6a6e9e27 {0} all'ora
+cba40f6f Gemme: si ottengono con medaglie, incursioni, salendo di lega e con la piena fioritura
+626f7b1c Polvere di stelle: ognuna rende tutto più veloce del {0}%, per sempre
+f7370cf7 {0} Ora il bagliore si raccoglie da solo.
+7a211303 Raggiungi il tuo obiettivo giornaliero {0} volte e il bagliore si raccoglierà da solo ({1} finora).
+ddd7a154 Gli edifici producono bagliore mentre sei via: ti aspetta fino all'equivalente di {0} ore. Ogni tipo rende di più con un'abitudine di studio diversa, e raggiungere l'obiettivo di oggi li accelera tutti della metà e manda subito due ore di bagliore.
+cf6b269f <0>Piena fioritura.</0> Ogni lotto ha un edificio completamente cresciuto. Il giardino è completo; liberare una creatura ne inizia uno nuovo, più veloce.
+39a1c2dc Raccogli {0} di bagliore
+eabc714b Lotto {0}: chiuso
+467b84dc {0} Si apre quando: {1}
+1c6e99ed Usa una chiave ({0})
+7cf40990 Lotto {0}: vuoto
+144a397b Scegli cosa costruire qui.
+7e08478b {0} {1} · {2} all'ora
+0595972e {0} · livello {1}
+d020fbd3 · gli piace {0} {1}
+9078100c {0} di bagliore all'ora{1} · {2} in attesa
+04aac4c0 Raccogli
+53b630e7 Fai crescere ·
+6d6426d9 Alzalo di livello: produce molto più bagliore
+50645793 Completamente cresciuto
+4dd3fed6 Libera una creatura adulta
+95b0eef2 Una creatura adulta può essere liberata. Lascia la tua squadra e viene ricordata qui. I tuoi edifici e il bagliore ripartono da zero, e tieni <0/>: ognuna rende ogni edificio più veloce del {0}% per sempre, così il giardino successivo cresce molto più in fretta del precedente. Più edifici completamente cresciuti hai in quel momento, più polvere di stelle ottieni.
+7005fc6d polvere di stelle
+5fb6a7b7 Non hai ancora una creatura adulta.
+21e10852 questa creatura
+edfb0cc4 Liberare {0}? Se ne andrà per sempre, e i tuoi edifici e il bagliore ripartiranno da zero. Tieni la polvere di stelle, le altre creature e tutto ciò che possiedi.
+d2001733 Liberata. Hai ottenuto {0} di polvere di stelle.
+28a4bacf Liberate finora: {0}.
+55427966 {0} {1} · nutrito {2} volte su {3} oggi. Il suo cibo preferito conta doppio. I cuori rendono i suoi edifici un po' più veloci e non cambiano nulla in battaglia.
+35b25929 Cibo
+9d041fa1 {0} il suo preferito
+779fc473 Piace a {0} creature
+77690ee2 · ne hai {0}
+ff1928e5 Dai da mangiare
+c266a25e Gli piace tantissimo!
+df139e6c Gnam.
+db09cbc4 Comprane uno per {0} di bagliore
+14e351e1 Rifornimenti
+0e90e484 Le gemme arrivano solo da ciò che fai: ogni medaglia (2), un'incursione vinta (3), salire di lega (2), piena fioritura (10). Niente si vende per denaro.
+11a9a29c Un nuovo uovo è con le tue creature.
+c505c639 Aggiungi altri 20 minuti
+36690a36 Usa ora
+476c3b07 Gli XP sono raddoppiati per {0} minuti. Vai a studiare!
+0a854dda attivo ancora per {0} min
+427a838f Scalda un uovo
+e00a97a2 Ti serve un uovo di scorta che non sia fuori nell'habitat
+bdd2a3a3 L'uovo si sta scaldando: cresce insieme alla tua creatura.
+6a6002af un uovo si sta scaldando
+678552eb Usala nella pagina Giardino.
+265753d6 Si usa da sola quando una battaglia pagherebbe meno.
+6028b76d Usala durante una battaglia selvatica.
+d3f4cb89 Rinomina
+29cdd5c4 Il tuo livello: tocca per vedere come funzionano gli XP
+1aa6e8ca Liv
+eaeec02c XP al prossimo livello
+18e480f2 Tocca per vedere come funzionano gli XP
+890541c0 Cambia il tuo obiettivo giornaliero
+e54c864d Tocca per vedere come si evolve la tua creatura
+0b8ca8e4 Giorni di fila: tocca per saperne di più
+ce1213a4 Monete, per il negozio: tocca per saperne di più
+c3b0236d Un salva-serie copre un giorno saltato: tocca per saperne di più
+5894f7c3 Bagliore dai tuoi edifici: tocca per saperne di più
+b1e9fef7 Gemme, per i rifornimenti: tocca per saperne di più
+dd8fd086 Cuori: tocca per saperne di più
+b2d3bd7f Sposta la tua creatura in un altro habitat
+f5552713 Battaglia
+48f77eb7 Creature
+55de8870 Negozio
+714d913b Giardino
+3f5aa796 Obiettivo giornaliero raggiunto
+ad69cbf5 Oggi: {0} / {1} min

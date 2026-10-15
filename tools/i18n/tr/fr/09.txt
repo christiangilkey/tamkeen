@@ -1,0 +1,197 @@
+f0d4b821 Cette réponse n'a pas été enregistrée : {0}
+5ebeb223 Supprimer ce mot ?
+0e347caf Il sera retiré de votre vocabulaire sur tous vos appareils, avec sa progression de révision.
+d9f36924 Le garder
+a6e51c31 Sa carte dans votre paquet {0} de {1} est aussi retirée à la prochaine synchronisation, <0>avec l'historique de révision de cette carte dans {2}. C'est irréversible.</0>
+54b886ee Désormais, supprimer un mot retire sa carte sans redemander.
+720f5ef8 Le mot n'a pas été supprimé : {0}
+ed068c06 {0} d'affilée !
+0126ed40 Cartes du jour terminées ! +{0} de lueur
+be9065f3 Cartes du jour terminées !
+2c13c6b7 Combat et cartes faits aujourd'hui : +{0} XP, +{1} pièces
+bd57d978 Carte jackpot !
+5e816849 Carte chanceuse !
+85b57d0f {0}+{1} XP
+c037d3c7 Dem.
+91e3dd9f probabilité de se souvenir d'un mot appris
+4efea6e1 Séance terminée
+47cbaf0c Tout est à jour
+7890ad9f {0} cartes dans environ {2} minutes{4}.
+c9ead0bf Rien à revoir, et les nouveaux mots du jour sont faits.
+96e9c05a Rien à revoir pour l'instant. Vos mots se reposent.
+581d31c2 Enregistrez quelques mots avec un sens et ils apparaîtront ici.
+d7d2a049 connus depuis 3 semaines et plus
+85df11fd mots en révision
+7ec16612 Apprendre {0} nouveaux mots de plus
+dce4bd3c Ils vous reviennent
+b54a6754 La recherche ignore les majuscules.
+e8082793 Rechercher dans toutes les transcriptions… {0}
+62ce0e88 Rechercher dans toutes les transcriptions
+79bd4f18 {0} Les transcriptions sont toujours affichées telles qu'elles ont été transcrites.
+a568e936 Cherchez dans chaque transcription, vidéo et page web que vous avez ajoutée.
+95a44659 Aucun résultat pour « {0} ».
+54f3e4b2 ({0} affichés)
+679fb77f {0} résultats{2}
+5eb73faa mlx-whisper sur le GPU Apple (Metal)
+8538d459 faster-whisper sur le GPU NVIDIA (CUDA, float16)
+de8877df faster-whisper sur le processeur (int8)
+88519b93 ({0} Go)
+9433c5fb Accélération GPU
+fd17e405 Langue que je parle
+0d6a65aa Les boutons et messages de l'application s'affichent dans cette langue, et les mots y sont expliqués.
+1d1fdf5f Langue que j'apprends
+a553ac64 Utilisée pour les nouvelles transcriptions, les pages web importées et les explications de mots. Ce que vous avez déjà transcrit garde la langue dans laquelle il a été fait.
+099be6af Modèle de transcription
+c1f65ddb Moteur
+b76ab659 Matériel
+d067f1cc {0} · {1} threads · {2} Go de RAM{3}
+17c698af {0} Changer de modèle ne touche que les nouvelles transcriptions ; retranscrivez un épisode depuis la bibliothèque pour l'y utiliser.
+2162db4e Synchroniser avec Google Drive
+3721a5dd Gardez vos podcasts, transcriptions et vocabulaire synchronisés entre cet ordinateur, d'autres ordinateurs et l'application Android. Tout est stocké dans un dossier privé de l'application sur <0>votre propre</0> Google Drive, visible seulement par cette application. La synchronisation ne passe jamais par un autre serveur.
+0ca0b563 Anki (facultatif)
+3c270194 Le module Anki
+22fffbc8 Si vous étudiez avec Anki sur cet ordinateur, un petit module le relie à Tamkeen. Il indique à Tamkeen comment se passent vos révisions, pour qu'elles comptent pour votre créature : terminer ce qui est dû est l'objectif du jour (quel que soit le nombre de cartes), et les cartes qui deviennent matures rapportent un bonus. Pour cela, seuls des chiffres sont envoyés. Avec l'interrupteur ci-dessus activé, il garde aussi ce paquet et vos mots enregistrés synchronisés. Tout reste sur cet ordinateur. Si vous avez installé le module avant l'arrivée de la synchronisation, téléchargez-le et installez-le à nouveau.
+177dd240 Appuyez sur le bouton ci-dessous et enregistrez le fichier.
+e78fa755 Double-cliquez sur le fichier enregistré. Anki s'ouvre et propose de l'installer ; acceptez, puis redémarrez Anki.
+047825e8 Révisez comme d'habitude avec Tamkeen ouvert. Dans Anki, <0>Outils → Tamkeen companion…</0> indique s'il est connecté, et <1>Outils → Sync Tamkeen now</1> synchronise le paquet tout de suite.
+9cf66eeb Télécharger le module Anki
+fb0c95bf Stockage audio
+746fcf10 Supprimer l'audio téléchargé après la transcription<0/><1>Économise de l'espace disque. Le lecteur diffuse alors l'audio depuis le serveur du podcast.</1>
+ddb48157 Toujours diffuser depuis l'URL d'origine<0/><1>L'audio n'est téléchargé que temporairement pour la transcription et n'est jamais conservé. La lecture nécessite une connexion internet.</1>
+41def7a0 Apparence
+0485a026 Thème :
+bc0792d8 Système
+a36ef8ab Clair
+ae1ef014 Sombre
+1970d1e8 Taille du texte des podcasts et vidéos : <0/> <1>{0} px</1>
+ce52a4a4 Taille du texte des pages web : <0/> <1>{0} px</1>
+48cd18da Vos données
+eb32d375 Votre bibliothèque, vos transcriptions, votre vocabulaire, vos modèles et vos réglages sont stockés dans :
+b26720e4 Ouvrir le dossier de données
+146d9a4b Exporter mes données
+65cf972d inclure l'audio téléchargé
+aa4fb3d2 Importer des données…
+2916184c Remplace votre bibliothèque actuelle par une sauvegarde (.zip).
+c76d1807 Mises à jour
+d4bbbea7 La synchronisation n'est pas disponible dans cette version (connexion Google non configurée).
+4a0b7281 Se connecter avec Google
+f0dd6b0d Ouvre votre navigateur pour vous connecter.
+64b8b874 En attente de Google…
+07030d82 Compte Google
+4541689d La dernière synchronisation a échoué : {0}
+0a5d4651 Dernière synchronisation {0}
+be8f16b4 · {0} transcription(s) envoyée(s), {1} reçue(s), {2} audio envoyés
+1b6c524f Connecté
+dc1649a1 Se déconnecter
+cc4c05b0 Envoyer des copies audio compressées (environ 12 Mo par heure)<0/><1>Permet à votre téléphone et à vos autres ordinateurs de lire exactement l'audio qui a été transcrit, pour que le surlignage reste synchronisé même avec les podcasts qui insèrent des publicités différentes à chaque téléchargement. Utilise l'espace de votre Google Drive.</1>
+d578af85 Vous apprenez maintenant : {0:lower}
+b868b1b6 Non utilisé pour le moment : {0} rédige les transcriptions (Transcription dans le cloud, ci-dessus). Rien à télécharger ici.
+4d889f27 Pas encore de rapports.
+f29bbb6a Dernières nouvelles d'Anki {0}
+696d2cc7 · aujourd'hui : {0} révisées, {1} devenues matures, {2} encore dues
+9293dd01 Sauvegarde prête ({0})
+3b151b74 Importer « {0} » ? Cela REMPLACE votre bibliothèque, vos transcriptions et votre vocabulaire actuels par le contenu de la sauvegarde.
+deaefe6d {0} fichiers audio restaurés.
+7427e5f6 Importé. {0}
+b901ec82 Vous êtes à jour ({0}).
+d7854118 N'importe quand
+24345a14 Aujourd'hui
+df833fe8 7 derniers jours
+6b329852 30 derniers jours
+0245d916 12 derniers mois
+9efe99b9 Entre deux dates…
+ed434d6b Cochez <0>Import any learning progress</0> pour garder où en est chaque mot dans vos révisions Tamkeen. Laissez décoché pour que chaque carte reparte de zéro.
+574c12ec L'application Anki doit être installée sur cet ordinateur.
+be71b755 Dans Anki, cliquez sur <0>Import File</0> et choisissez-le.
+e445c6a9 Vérifiez que votre paquet est mis en forme comme vous voulez que les cartes apparaissent dans Anki.
+59e916d5 L'application AnkiDroid doit être installée sur ce téléphone.
+e3b8af2a Choisissez la bulle <0>Anki</0> dans la rangée du bas. Si elle n'y est pas, touchez <1>Plus</1>.
+0ea5d1ae Touchez la fenêtre intitulée <0>AnkiDroid</0>.
+5eeb9580 Dans AnkiDroid, vérifiez que votre paquet est mis en forme comme vous voulez que les cartes apparaissent.
+097027a5 Envoi de vos mots vers Anki
+7c7da884 Compris, exporter
+794da2c6 « Exporter pour Anki » enregistre un fichier de paquet avec l'audio et la progression de révision de chaque mot, pour le bouton Import File d'Anki.
+be8ecb08 « Exporter pour Anki » partage un fichier de paquet avec l'audio et la progression de révision de chaque mot : choisissez la bulle Anki, puis AnkiDroid.
+239c2f13 Vocabulaire
+2fa9797f Rechercher dans le vocabulaire… {0}
+c8aaa372 Exporter les mots affichés ci-dessous
+5755f9ac Exporter en CSV
+b3f6d77c Les mots affichés ci-dessous sous forme de paquet Anki, avec leur audio et leur progression de révision
+3e28846b Exporter pour Anki
+adc4e96a Trier
+b2a08c42 Afficher les mots
+172415f0 ajoutés
+37c6c57b modifiés
+3f66052a Du
+4374aaee au
+ae79ea1e Au
+bfad960e Ajouter à un dossier
+24d51d52 Retirer du dossier
+6f99aa21 📨 Envoyer à un ami
+247fd631 Effacer la sélection
+10365d20 Ajouter un mot à la main
+3dbc0a77 Astuce : dans n'importe quelle transcription, faites un clic droit (ou un appui long) sur un mot ou une expression sélectionnée et choisissez « Enregistrer dans le vocabulaire ». Cochez des mots pour en classer plusieurs à la fois dans un dossier. {0}
+863892c6 Impossible de charger l'audio de ce mot.
+6d19e3ba Nom du nouveau dossier :
+7e6e65f7 Tous les mots
+889ab689 Hors dossier
+4ad414d8 ＋ Nouveau dossier
+e2324f01 Renommer le dossier :
+5ee46641 Supprimer le dossier
+63e908b6 Supprimer le dossier « {0} » ? Les mots qu'il contient sont conservés.
+e4ae0eaf 📨 Envoyer le dossier à un ami
+b44edd40 ＋ Nouveau dossier…
+5b000a6e Ces mots ne sont dans aucun dossier.
+afb8631c {0} mots
+08c2177a Il n'y a aucun mot à envoyer.
+93ccaaea le dossier « {0} » ({1} mots)
+128751ac {0} mots
+e0e017af Envoyer {0} à…
+8106e86e Préparation de l'audio de {0} mots…
+0e770154 avec audio
+8db1d803 ({0} avec audio)
+151df9be {0}{1} envoyé(s) à {2}.
+9afb285b · modifié {0}
+37c1236f ▶ Mot
+b31e5638 ▶ Phrase
+29eb5c50 Chercher une vidéo YouTube où ce mot est prononcé
+9089cae1 Trouver dans une vidéo
+a5420424 Sélectionner le mot
+8e3f51e2 {0} · ajouté {1}{2}
+19adc47b Dossiers
+15a53568 Réviser « {0} »
+952f3754 Commencer
+30cdf73e à revoir
+c2a6b03f nouveaux
+bb866ab5 Les mots qui ont un sens apparaissent ici sous forme de cartes.
+b568b4b7 · {0} mots reviennent {2}{3}
+29a80ea8 Tout est à jour{0}
+e5084bff {0} sélectionnés
+85cce1e1 Tout désélectionner
+b2034f7e Tout sélectionner ({0})
+1ef4fd36 Décocher tous les mots de la liste
+80e145aa Cocher tous les mots de la liste, pour les classer ou les envoyer ensemble
+f1423624 sur {0}
+294ccd52 {0}{1} éléments
+71d86079 Aucun mot ne correspond à ces filtres.
+0be6a257 Aucun résultat.
+78e66aba Pas encore de mots enregistrés.
+d6206ee4 Création du paquet Anki avec l'audio…
+dc289056 Bienvenue dans Tamkeen
+1c1ca506 Apprenez une langue avec de vrais podcasts, vidéos et pages web, mot après mot.
+1dd6a17c Comment ça marche
+58c2a9b6 <0>Ajoutez un podcast avec l'URL de son flux RSS.</0> La plupart des podcasts en publient un. Cherchez « RSS » sur le site du podcast, ou cherchez sur le web « <1>nom du podcast</1> RSS feed ». Les liens Apple Podcasts ne fonctionnent pas directement, mais des sites comme castos.com/tools/find-podcast-rss-feed les transforment en URL RSS.
+668bb8e3 <0>Transcrivez des épisodes.</0> Cliquez sur « Transcrire » sur n'importe quel épisode. Tout se fait sur votre ordinateur. Rien n'est envoyé nulle part.
+264a32cd <0>Écoutez et lisez en même temps.</0> Le mot en cours est surligné. Cliquez sur n'importe quel mot pour y aller, ralentir l'audio ou répéter une phrase en boucle.
+fde41bd9 <0>Constituez votre vocabulaire.</0> Faites un clic droit (ou un appui long) sur un mot ou une expression pour l'enregistrer avec sa phrase. Exportez vers Anki quand vous êtes prêt.
+c7ea5765 L'application revérifie vos podcasts à chaque démarrage, donc les nouveaux épisodes apparaissent tout seuls.
+8b5f192e Suivant : configurer la transcription →
+5b53855d Apple Silicon (Metal)
+f60315a5 Aucun GPU compatible. Le processeur sera utilisé.
+462b6606 Accélération GPU (facultatif)
+2efa49cc Configurer la transcription
+7feeb161 La transcription utilise le modèle de reconnaissance vocale Whisper d'OpenAI, qui fonctionne entièrement sur votre ordinateur. Le modèle est téléchargé une seule fois. Choisissez une taille ci-dessous. Vous pourrez en télécharger d'autres ou les supprimer plus tard dans les Réglages.
+bc26ec8d Votre ordinateur
+1ddc3d58 {0} · {1} · {2} Go de RAM
+a6a63185 GPU
+8cdc1fa4 Recommandation : {0}.

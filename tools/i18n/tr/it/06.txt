@@ -1,0 +1,198 @@
+79bcdbf3 Obiettivo: {0} min
+0e5f028b · pronta a evolversi: toccala
+72ce9e1e · {0}% per {1}
+4246502f {0} giorni
+223e900f Il tuo uovo
+63b41493 Dammi un nome
+98303fea Obiettivo giornaliero: i tuoi edifici hanno mandato {0} di bagliore tutto in una volta.
+72e1269a Hai guadagnato {0} gemme.
+61fe2211 Piena fioritura: ogni lotto ha un edificio completamente cresciuto.
+673e4951 Dai un nome alla tua creatura
+a8a47536 ancora nessuna parola salvata :(
+0a5a8112 +{0} di bagliore
+e3b0b563 La tua creatura è pronta a evolversi. Toccala quando vuoi.
+b2facb1b Quel lotto non è ancora aperto.
+fcc4027b Lì c'è già qualcosa di costruito.
+bf998c98 Quell'edificio non esiste.
+d482d7e0 Non ancora: {0}.
+710d27b3 Ti servono altri {0} di bagliore.
+efcf13a6 Lì non c'è niente di costruito.
+2a8a3386 È completamente cresciuto.
+579f1557 Tutti i lotti sono già aperti.
+9af0e879 Non hai nessuna chiave.
+5b31b02f Si può liberare solo una creatura adulta.
+934d6b63 Non è in vendita.
+36602b9e La tua squadra è al completo.
+26de9a27 Ti servono altre {0} gemme.
+6c27e5e8 Non ne hai.
+6156ebc8 Le uova non mangiano. Prima fallo schiudere.
+a66174fd Per oggi è sazio.
+bdbaa592 Non hai nessun potenziamento XP.
+4f42a703 Non hai nessuna incubatrice.
+e0e5bba3 Scegli un uovo che non sia fuori nell'habitat.
+eacac3ef Quell'uovo è già nell'incubatrice.
+73ed2987 Hai {0} XP e sei al livello {1}. Il prossimo livello è a {2} XP.
+6a75c080 Salvare una parola nel vocabolario: 20.
+80e25376 Ascoltare o leggere: un rivolo lento mentre studi, che si esaurisce ben oltre il tuo obiettivo giornaliero.
+aa1ab833 Raggiungere l'obiettivo giornaliero: {0}. È la ricompensa principale, ed è uguale che il tuo obiettivo sia di 5 minuti o di 20.
+e3435b6f Battaglie: 3 per ogni risposta giusta, altri 15 quando una parola diventa ben conosciuta, 40 per una vittoria e 15 per una sconfitta (per intero nelle prime tre battaglie del giorno).
+da45a83d Ripasso del vocabolario: ogni carta a cui rispondi paga un quarto di quanto paga cercare una parola (di solito da 1 a 4, a volte da 8 a 12, ogni tanto da 25 a 50), che tu l'abbia ricordata o no, quindi barare non serve a niente.
+355d88a3 Finisci una battaglia e completa le tue carte nello stesso giorno: altri {0}, una volta al giorno.
+1a385136 Fare la stessa cosa tante volte nello stesso giorno paga sempre meno, quindi un po' ogni giorno è meglio di una sessione lunga.
+5d4196b1 Fa crescere la creatura del tuo habitat: si schiude, cresce e diventa pronta a evolversi.
+4e3ef7b7 Gli XP non si spendono mai. Salgono e basta.
+27bb53b6 Non c'è niente su cui spenderli: funzionano da soli.
+9b7db3ae Come funziona l'evoluzione
+ac4792cf Serie
+ae506790 {0} di fila. Il tuo record è {1}.
+31fb81dc Con il compagno per Anki, completare tutto ciò che è in scadenza in Anki conta anche come obiettivo del giorno.
+3e2a59d1 Se salti un giorno, un salva-serie lo copre, se ne hai uno. Senza, la serie riparte da zero. Non si perde nient'altro.
+488e945a Raggiungere 7 giorni sblocca per sempre nuovi oggetti nel negozio ({0}) e la mossa di battaglia Cuore Saldo.
+347792fa Una serie di 5 giorni apre un lotto edificabile nel giardino.
+f7922bac Medaglie a 7, 30 e 100 giorni, e ogni medaglia dà 2 gemme.
+d15f40ca Guarda le tue medaglie
+2bef474e Monete
+647952d2 Ne hai {0}.
+ec4161d7 Salvare una parola nel vocabolario: 1 ciascuna.
+20b4c331 Salire di livello: 5.
+e469d2bf Vincere una battaglia: 4 per ognuna delle prime tre vittorie del giorno, meno dopo.
+3c1e6885 Una parola diventa ben conosciuta grazie alle battaglie: 1.
+dc4529b3 Mantenere giuste 8 risposte su 10 in battaglia per una settimana (30 risposte o più): 5.
+d5d064cb La tua gilda sconfigge il boss dell'incursione settimanale: 20.
+64eea943 Finisci una battaglia e completa le tue carte nello stesso giorno: {0}, una volta al giorno. Le carte da sole danno bagliore, non monete.
+54bb5f6d Tutto ciò che si compra con le monete è solo estetico. Niente rende una creatura più forte.
+fede851e Il Negozio. Offre {0} oggetti al giorno, scelti per la tua creatura, e cambia ogni giorno.
+4906011f Apri il negozio
+02b8de87 Ogni tanto ne arriva uno a sorpresa quando cerchi una parola.
+4b6bd7b6 Hai cominciato con uno.
+a66c8544 Si usa da solo la volta dopo che apri l'app dopo un giorno saltato. Due giorni saltati ne richiedono due.
+d5545dea Bagliore
+3647f30f , e altri {0} ti aspettano nei tuoi edifici
+6319cd67 Hai {0} di bagliore{1}. I tuoi edifici ne producono {2} all'ora.
+5aafc95b Tocca un edificio con una luce che fluttua sopra per raccoglierne il bagliore. Dopo {0} obiettivi giornalieri si raccoglie da solo.
+5ab759f1 Raggiungi l'obiettivo giornaliero: ogni edificio produce la metà in più per il resto del giorno, e arrivano subito due ore di bagliore.
+fb3a6104 Completa le carte del giorno nel ripasso del vocabolario ({0} carte o più, senza nessuna in scadenza): un'ora di bagliore del tuo giardino tutta insieme, e mai meno di {1}. Le battaglie invece danno monete.
+5881fc72 Ogni tipo di edificio produce di più con un'abitudine di studio, e ogni cuore della tua creatura aggiunge un po'.
+99abeba6 Cibo per la tua creatura ({0} di bagliore l'uno), che riempie i suoi cuori.
+dfc8c596 Pozioni ({0} di bagliore) per le battaglie selvatiche.
+38ccf266 Gli edifici sono nella pagina Giardino. Cibo e pozioni nella pagina Rifornimenti.
+37de88de Apri il giardino
+3e321c9f Apri i rifornimenti
+02904156 Gemme
+4254141b La tua gilda sconfigge il boss dell'incursione settimanale: 3.
+a1d5eec6 Salire di lega (raggiungere l'obiettivo giornaliero 5 giorni su 7): 2.
+18bf14cc Piena fioritura, quando ogni lotto del giardino ha un edificio completamente cresciuto: 10.
+03611593 Le gemme arrivano solo da ciò che fai. Non si vendono mai per denaro.
+89803371 La pagina Rifornimenti.
+99f9bf69 Cuori
+7b0609ca {0} ha {1} cuori su 5.
+3be3ea7c : per una creatura {0} che è {1}
+80e48f19 Due pasti riempiono un cuore. Il suo cibo preferito conta doppio{0}.
+746e8201 I cuori appartengono a ogni creatura e non scendono mai.
+27cffa5f I cuori non cambiano nulla in battaglia.
+feeaea73 Dagli da mangiare nella pagina Rifornimenti.
+f110690b Come si ottiene
+ca032b58 A cosa serve
+525f61b6 Dove
+7ac0138b il tempo passato ad ascoltare podcast, audio e video
+ab60d3ea salvare parole, risposte giuste in battaglia, carte nel ripasso del vocabolario, ripassi in Anki
+7224fd42 Brace per la curiosità, Marea per l'ascolto, Bosco per il collezionare, Pietra per la lettura, Scintilla per chi si alza presto e Crepuscolo per chi fa tardi
+80b6476b Come si evolve la tua creatura
+00d04503 {0} è {1}. Ciò in cui si trasforma dipende da come studi, il momento lo scegli tu e nessuna scelta è definitiva.
+b89502e9 {0} XP
+80083e78 è pronta a evolversi
+02a71b4e è {0}
+729f33b1 Ancora {0} XP e {1}.
+a105f0d4 È pronta a evolversi: toccala nell'habitat.
+f16b2c73 1. Crescere
+d4915a51 {0} Tutti gli XP che guadagni vanno alla creatura che è fuori nell'habitat. Le altre aspettano, quindi chi fai uscire è la tua prima scelta.
+c5a69900 2. Le tue quattro abitudini
+9e19cb58 Ogni creatura tiene traccia di come hai studiato mentre era fuori. Un'abitudine sale quando guadagni XP in quel modo e le altre calano un po', così le barre seguono quello che hai fatto ultimamente. Circa {0} XP di un tipo riempiono una barra. La curiosità ne richiede {1}, perché cercare parole dà molti più XP.
+174c7e2f Aperta: la tua abitudine più forte finora
+28088622 Aperta: questa abitudine supera il 25%
+94fae88c · porta la mossa di battaglia {0}
+968f60ab 3. La sua forma adulta
+ffd15c0d Quando è cresciuta abbastanza aspetta da giovane e scintilla. Toccala e scegli la sua forma adulta. La forma della tua abitudine più forte è sempre aperta, e un'altra si apre quando la sua abitudine supera il 25%. Dopo l'evoluzione, portare un'altra abitudine al 50% sblocca anche quella forma, e puoi passare da una forma sbloccata all'altra quando vuoi. L'evoluzione ti lascia anche un nuovo uovo. La curiosità non ha una forma sua: si vede nelle tue uova, nel negozio e nel giardino.
+93d943d8 {0} Ottenuta
+db795d86 4. Forme speciali
+7c62f35b Si indossano sopra una forma adulta. Dipendono da quando studi, da chi cresce accanto a lei e da cosa riesci a fare in battaglia. Cambiano colori e tratti, mai la forza.
+13878fb7 L'elemento di ogni nuovo uovo dipende da come studi: {0}.
+02b6bd4d Il negozio offre di più ciò che si adatta alle tue abitudini, come cuffie per chi ascolta e libri per chi legge.
+2eaf9a2e Ogni edificio del giardino produce più bagliore con un'abitudine.
+976f4c1c Le battaglie tra persone ignorano tutto questo: tutte le creature combattono allo stesso livello, e vinci conoscendo le tue parole.
+8b0adc94 Cos'altro cambiano le tue abitudini
+0c20f982 Scegli ora la sua forma
+3b7ab43a Apri le tue creature
+124ba4b6 Serve più {0}
+cb437e4f Non è ancora pronta a evolversi.
+a6e6f750 Quella forma non le è ancora aperta.
+81b52bd2 Quella forma speciale non è ancora stata ottenuta.
+5eb43479 Impossibile aprire il regalo.
+2890293f Hai già {0}, quindi si è trasformato in {1} monete.
+67705e9c Hai ricevuto {0}. È in Le mie cose.
+c054815c La tua squadra è al completo, quindi l'uovo si è trasformato in 20 monete.
+b49d2e5c Hai ricevuto un uovo {0}. È con le tue creature.
+e4d969a9 Quell'oggetto non esiste.
+2b338829 Ce l'hai già.
+60e6b077 Ti servono altre {0} monete.
+77e01fe2 Negozio e guardaroba
+0ee5c43c Le mie cose
+2c578dc8 Medaglie
+2db87a01 Decorazione
+9519fbe9 {0} è tuo
+4f3e6209 Metti via
+26fcf76c Sistema
+1c99c72c Togli
+94433a7e Indossa
+5d632f2d Regala questo a un amico
+fbefae1e Regala
+1cfad2d7 {0} monete
+a8e4db25 La selezione di oggi, scelta per la tua creatura. Cambia ogni giorno. Le monete si ottengono raggiungendo l'obiettivo giornaliero (10), salvando parole (1 ciascuna) e salendo di livello (5).
+7c0a7817 Possiedi già tutto ciò che è in offerta.
+db13058c Altri {0} oggetti compaiono quando avrai ottenuto:
+1a2cdd14 Ancora niente. Ciò che compri nel negozio viene conservato qui.
+d0673c80 Collezione {0}
+41867351 Impossibile segnare quella parola come vista: {0}
+82c3ca6e ✓ I dizionari di {0:lower} sono su questo dispositivo ({1} MB). Le parole che non hai mai toccato appaiono in <0>viola</0>.
+e963907d Rimuovi
+71da2431 I dizionari di {0:lower} non sono su questo dispositivo, quindi le parole nuove non possono apparire in <0>viola</0>.
+c2232964 Scarica (circa {0} MB)
+c177e4b0 Download in corso…
+7443fea8 I dizionari di {0:lower} sono pronti.
+04d17f22 Di questa lingua
+aaa46e0d Dizionari di {0:lower}
+c33c9385 Tamkeen può mostrare quali parole sono <0>nuove per te</0>: una parola che non hai mai toccato appare in viola, e appena ne tocchi una, tutte le forme di quella parola contano come viste (<1/>).
+6280fb05 Per l'{0:lower} servono dei dizionari: un <0>download unico di circa {1} MB</0>, realizzati dal CAMeL Lab della New York University Abu Dhabi (arabo standard, egiziano, levantino e del Golfo). Restano su questo dispositivo e nulla su di te viene inviato da nessuna parte.
+b7c33926 Puoi farlo più tardi dalle Impostazioni.
+e4571490 Non ora
+6813189a Ci vuole qualche secondo.
+286b0dcd I dizionari di {0:lower} sono pronti. Ora le parole nuove appaiono in viola.
+3e13e40a ✓ Segna come vista
+30320764 ↺ Segna come nuova
+3f629623 In quella pagina non è stato trovato testo leggibile. Prova «Apri il browser web» e usa lì Importa pagina.
+4b0a3f2d Versione {0}
+2cf6a510 Un'app per imparare una lingua da materiale reale: iscriviti ai podcast, aggiungi i tuoi video e le tue pagine web, trascrivi sul tuo computer con Whisper, leggi seguendo ogni parola evidenziata e crea una lista di vocaboli.
+9421c021 Cartella dei dati
+22a35fbe Codice sorgente
+e630fb0f github.com/{0}
+c4740e4c Ambiente di esecuzione
+06403f3b Python {0}
+736b9062 Controlla gli aggiornamenti
+30dced67 Licenze open source
+48e55e8f Questa app è basata su questi progetti. Clicca su uno per leggerne la licenza.
+3aceec04 È disponibile la versione {0}.
+68680fa2 Hai la versione più recente.
+f40382cc 👻 I messaggi spariscono dopo essere stati visti · i vocali dopo essere stati ascoltati
+5e5bb045 Registra un messaggio vocale (fino a 2 minuti)
+68f4145f Messaggio
+72f9eb46 Registrazione…
+0e04dbc9 Invia il messaggio vocale
+2394299d Amico
+fd6be475 ▶ Messaggio vocale · {0}
+c79a9284 ❚❚ Riproduzione…
+08acc9f5 Impossibile riprodurre il messaggio vocale. {0}
+46e2032a Qualcosa che questa versione dell'app non può aprire
+f92f6701 Aggiorna l'app per aprirlo.
+05da9368 con le sue parole
+ebefd2aa Inviato{0}
+bb54db51 Accetta

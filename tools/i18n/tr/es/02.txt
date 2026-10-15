@@ -1,0 +1,190 @@
+495d921f {0} ¢ por millón de tokens
+eb7ed7c4 este ordenador
+1cfceb0b este teléfono
+8eff88d5 Definiciones de palabras (IA)
+99b34726 Toca una palabra para ver qué significa <0>en esa frase</0>. Un proveedor de IA escribe la explicación con tu propia clave; le pagas directamente, una fracción de céntimo por palabra.
+b6db182b ¿Qué se envía y dónde se guarda mi clave?
+097ae941 La palabra, su frase y las frases de alrededor van al proveedor que elijas y a ningún otro sitio. Tu clave se guarda en {0} y, si usas la sincronización con Google Drive, en la carpeta privada de la app en tu propio Google Drive, para que tus otros dispositivos también la tengan. Nunca forma parte de una exportación de datos.
+7ceee3f3 Proveedor
+68c2cc7f Modelo
+61131aac 1 millón de tokens ≈ {0} definiciones
+51823153 Los tokens son los trozos de palabra que una IA lee y escribe. Los precios son estimaciones para lo que usa una definición, según la lista de precios de cada proveedor.
+525f7051 Nombre del modelo, tal como lo escribe el proveedor
+cf678cab Clave de API
+d608fce7 Pega aquí tu clave de API
+d97d1ee3 Mostrar
+d959e754 Estoy atascado
+63752a4b Explicar en
+3b3ec110 Probar con un ejemplo
+9bd4649b Tokens usados hoy en {0}:
+27a7d318 ✓ Configurado
+eed6bfb4 Obligatorio
+31ba9246 Obtener una clave nueva ↗
+c3639477 Obtén tu clave de API de {0} ↗
+9ef93755 Recomendado
+b729da8b Otro modelo
+883f8daa Otro modelo… <0>escribe su nombre</0>
+e4f6bb0f Es una clave de {0}, así que ahora el proveedor es {1}. Guardada: pulsa «Probar con un ejemplo» para comprobarla.
+1bb58f41 Guardada. Pulsa «Probar con un ejemplo» para comprobarla.
+19686f61 Clave eliminada.
+b2731cb4 No se pudo guardar la clave: {0}
+34d8b60f Ocultar
+b18ce81d Preguntando…
+ce61ce37 ✓ Funciona ({0} s): {1} = «{2}»
+b68a4efa La clave no funciona
+622cb8b8 Anki
+8558a88a Ajustes de {0}
+b9e7312c hace {0} min
+002a7fdc {0} añadidas, {1} cambiadas, {2} eliminadas
+616f33b4 {0} y {1} más
+56fb7687 Mantener mis palabras guardadas y mi mazo de {0} sincronizados, en los dos sentidos
+71d48a93 Solo se lee o cambia el mazo indicado abajo: tus otros mazos, notas y tarjetas nunca se tocan. Las palabras nuevas, los cambios y las eliminaciones van en los dos sentidos. Una tarjeta que crees a mano en ese mazo se convierte aquí en una palabra. El progreso de repaso de cada tarjeta se muestra en la página Vocabulario; Tamkeen nunca cambia la programación de {0}, la imagen de una tarjeta ni su diseño.
+768cd48a Mazo:
+8ce68640 Guardar nombre
+33bfb8c9 Ponle un nombre al mazo.
+70a256a1 Sincronizando con el mazo «{0}».
+3e4aaec6 Para activarlo hace falta el complemento de abajo (versión 2 o posterior) instalado en Anki.
+74a84c68 · {0} palabras tienen una tarjeta en el mazo
+343a67e4 Última sincronización con cambios ({0}): enviadas {1}; recibidas {2}
+ea83b3ba Última sincronización {0}{1} <0/>Enviado a {2}: {3}<1/>Recibido de {4}: {5}
+8ab853ab (perfil «{0}»)
+311e6a3f <0>{0} tiene abierta otra colección</0>{1}, distinta de la que está vinculada a Tamkeen{2}. No se ha leído ni escrito nada en ella.
+aa48c6a5 Sincronizar con esta colección
+e172d1bd Una tarjeta
+4b2e608f {0} tarjetas
+af6cd201 {0} ({1}) se quitará de {2} en la próxima sincronización.
+0fccecc9 Una palabra que borraste aquí aún tiene
+7e7ed3d8 {0} palabras que borraste aquí aún tienen
+a2fd882c la tarjeta
+0c12e651 las tarjetas
+a5554878 la palabra
+cde1fdb5 las palabras
+8d3900e9 <0>{0} una tarjeta en {1}:</0> {2}. Quitar una tarjeta de {3} también borra allí su historial de repaso. <1>No se puede deshacer.</1> Si aceptas, las próximas eliminaciones quitarán sus tarjetas sin volver a preguntar.
+d0ca7688 Quitar {0} de {1}
+3ee6dc97 Conservar {0} y recuperar {1}
+458bd73a Una tarjeta ha
+2449d2e2 {0} tarjetas han
+4768f74c AnkiDroid no informa a otras apps de lo que se borró
+97b8cabc Anki no tiene constancia de que las borraras aquí (puede que se borraran en otro dispositivo o que se restaurara la colección)
+9ab802d4 esta palabra
+9fe0220f <0>{0} desaparecido del mazo:</0> {1}. {2}, así que Tamkeen no ha quitado nada. ¿Qué hacemos con {3}?
+ef8f7e8a Volver a crear {0}
+bbba862c Borrar {0} aquí también
+78948622 Las tarjetas de {0} de tus palabras están ahora en otro mazo: se quedan donde las pusiste y ya no se sincronizan.
+c1aa0b00 Se etiquetaron como «tamkeen-duplicate» {0} tarjetas extra de palabras que ya tenían una, y se dejaron para que las revises.
+dfab2962 Se omitieron {0} notas del mazo (sin campos Front y Back, sin nada escrito o con alguna tarjeta en otro mazo).
+4b701821 {0} cambios no se pudieron hacer la última vez y se volverán a intentar.
+21b4c80d Esta versión de AnkiDroid no informa a otras apps del progreso de repaso. Actualiza AnkiDroid a la 2.24 o posterior para verlo aquí.
+221ca630 Sincronizando…
+2b7d938e Sincronizar ahora
+11d3ef7f También se sincroniza al abrir la app y cada pocos minutos mientras está abierta.
+26b0b25f Anki se sincroniza con Tamkeen al abrirlo, cada 10 minutos mientras está abierto, después de la sincronización propia de Anki y cuando eliges <0>Herramientas → Sincronizar Tamkeen ahora</0> en Anki. Tamkeen también tiene que estar abierto.
+27139ab8 sin estudiar todavía
+c9114940 atrasada desde {0}
+71ef9cbd vence {0}
+87e1ef1d en repaso
+b2647e88 cada {0} {1}
+fb38ecb6 {0} bien, {1} mal
+3db1270b Tus últimas respuestas en Anki, de la más antigua a la más reciente
+5c4b4117 Leído de Anki el {0}. Tamkeen solo lo muestra; nunca cambia la programación de Anki.
+c3c7e5f4 Anki: {0}{1}
+f57186fa ¿Borrar «{0}» de tu vocabulario?
+3eb0e9ae ¿Borrar «{0}» de tu vocabulario? Su tarjeta en {1}, con su historial de repaso, también se eliminará.
+890a143b Su tarjeta en {0}, con su historial de repaso, también se eliminará.
+ce01cb8a Esto también borra la tarjeta de {0}
+8c9dbb61 «<0>{0}</0>» tiene una tarjeta en tu mazo {1} de {2}. Borrar la palabra aquí quita esa tarjeta en la próxima sincronización, <1>junto con su historial de repaso en {3}. No se puede deshacer.</1>
+ad439574 Si sigues adelante, al borrar una palabra se quitará su tarjeta a partir de ahora sin esta pregunta.
+77dfd213 Cancelar
+0a98dcd0 Borrar la palabra y su tarjeta
+c3e839df En línea
+e01fa717 Sin conexión
+7fab27b4 la Consola de Claude
+881ac247 Pulsa el botón de abajo. Abre console.anthropic.com en tu navegador. Es un sitio distinto de la app de chat de Claude.
+495b9813 Usa tu correo electrónico o «Continuar con Google». Una suscripción de chat Claude Pro o Max no cubre esto: las claves se pagan aparte.
+7403c4f9 Abre <0>Settings → Billing</0>, añade una tarjeta de pago y compra un poco de saldo. Las claves no funcionan hasta que la cuenta tenga saldo.
+71b4b60f Abre <0>Settings → API keys</0> y pulsa <1>Create Key</1>. Ponle un nombre que reconozcas, como «Tamkeen».
+e04e0bbd La clave es una larga línea de letras que empieza por <0/>. Solo se muestra una vez, así que pulsa <1>Copy</1> antes de cerrar el cuadro.
+48b74851 Vuelve aquí, pégala en el cuadro <0>Clave de API</0> de Ajustes y pulsa <1>Probar con un ejemplo</1>.
+0e9e2f65 Google AI Studio
+2628ac25 Pulsa el botón de abajo. Abre aistudio.google.com en tu navegador.
+f6541135 Sirve cualquier cuenta de Google (Gmail). Acepta las condiciones si te lo pide.
+84e51948 Pulsa <0>Create API key</0>. Si pregunta qué proyecto usar, deja que cree uno nuevo.
+8d7a2586 Es una larga línea de letras que empieza por <0/>. Pulsa el botón de copiar que hay al lado. Puedes volver a esta página y copiarla otra vez más tarde.
+162ab3e6 la plataforma de OpenAI
+faa55261 Pulsa el botón de abajo. Abre platform.openai.com en tu navegador. Es un sitio distinto de ChatGPT.
+0ba16577 Tu cuenta de ChatGPT también sirve aquí, pero una suscripción a ChatGPT Plus no cubre esto: las claves se pagan aparte. Puede que te pida confirmar un número de teléfono.
+a6860394 Abre <0>Settings</0> (la rueda dentada) <1>→ Billing</1>, añade una tarjeta de pago y compra un poco de saldo. Las claves no funcionan hasta que la cuenta tenga saldo.
+83803874 Abre <0>API keys</0> y pulsa <1>Create new secret key</1>. Ponle un nombre que reconozcas, como «Tamkeen».
+ebf2eda5 la Consola de xAI
+e76446c0 Pulsa el botón de abajo. Abre console.x.ai en tu navegador.
+e3f3d119 Usa tu cuenta de X, de Google o un correo electrónico. Una suscripción a X Premium o SuperGrok no cubre esto: las claves se pagan aparte.
+d88dbb88 Abre <0>Billing</0>, añade una tarjeta de pago y compra un poco de saldo. Las claves no funcionan hasta que la cuenta tenga saldo.
+f6ce8b31 Abre <0>API Keys</0> y pulsa <1>Create API key</1>. Ponle un nombre que reconozcas, como «Tamkeen».
+6547e629 La clave es una larga línea de letras que empieza por <0/>. Cópiala antes de cerrar el cuadro.
+58d7704c Lo más probable es que la clave haya caducado o esté desactivada, así que seguramente necesitas una nueva: créala con los pasos de arriba y pégala. Si la clave es nueva, cópiala otra vez y pégala de nuevo (si falta una letra al final, no funciona).
+f443dc0b La cuenta aún no tiene saldo, o el saldo todavía no ha llegado. Añade saldo en la página Billing del proveedor y vuelve a intentarlo en unos minutos.
+43b82a8b Vuelve a poner en Ajustes el <0>Modelo</0> marcado como «recomendado».
+995ff549 Crea una clave nueva de la misma forma y borra la antigua de la lista del proveedor.
+6b020b42 Trátala como una contraseña: no la compartas ni la publiques. Tamkeen solo la guarda en este dispositivo y solo la envía al proveedor que elegiste.
+e1e3cd22 pida a un servicio de IA que te explique palabras
+fb891cde Cómo obtener una clave de API
+15803e0d Una clave de API es una especie de contraseña que permite que Tamkeen {0}. La obtienes en la web del propio servicio; tarda unos minutos.
+d76fd621 Abrir {0} ↗
+26aacc31 ¿Algo salió mal?
+ddb60451 Idioma que aprender
+cac6d44c Tu idioma
+a70803bd Búsqueda rápida
+2c497d03 Búsqueda rápida: una palabra tocada muestra solo su significado
+c8bed749 Búsqueda detallada
+4ba6d768 Búsqueda detallada: una palabra tocada muestra la explicación completa
+581f8c00 Cuánto muestra una palabra tocada
+7d0cd0d6 {0}. Toca para cambiar a {1}.
+6ae84e4a Cerrar (Esc)
+bbfa773e Cerrar
+19c91326 Equilibrio entre precisión y velocidad.
+d661998f El más preciso en todos los idiomas. Mejor con una GPU.
+ec890ad6 · descargado
+18e42f19 · descargado en parte
+0b1d6c0b Preparando…
+7388d667 {0} de {1}
+1763761d Usar {0}
+781961bc Pausa
+f6fdbe48 Borrar
+58ff0825 ¿Borrar el modelo {0} ({1} MB)? Puedes volver a descargarlo más tarde.
+b5ed1ec0 Reanudar descarga
+a479c9c3 Descargar
+b9868e76 Usando el modelo {0} para las nuevas transcripciones.
+a80186d6 El modelo {0} está listo.
+d70807ed Tu <0>{0}</0> puede transcribir muchas veces más rápido que la CPU. Para ello necesita las bibliotecas CUDA de NVIDIA (unos 1,2 GB), que no vienen en el instalador para que sea pequeño.
+c3d90933 La aceleración por GPU está activa
+198413b8 Quitar las bibliotecas de GPU
+6c044a0d ¿Quitar las bibliotecas CUDA? La transcripción usará la CPU.
+42a1ffa7 Se quitarán cuando reinicies la app.
+aca57ff9 Quitadas.
+7bb4405c Instalado
+71d04aed Reinicia la app para empezar a usar la GPU.
+97e292a8 Descomprimiendo…
+0a7b809e Instalar la aceleración por GPU (~1,2 GB)
+2503a349 Descarga los paquetes oficiales cuBLAS y cuDNN de NVIDIA desde pypi.org y verifica sus sumas de comprobación.
+f4cfa873 Aceleración por GPU instalada.
+defca688 Paso {0} de 4
+2f04eb15 Siguiente →
+03c88b2a ¿Qué idioma estás aprendiendo?
+05d17f2b Esto define lo que la app escucha, cómo se explican las palabras y en qué dirección va el texto. Puedes cambiarlo más tarde en Ajustes.
+c32ae9f4 ← Atrás
+352fd3bb ¿Ya has empezado a aprender {0:lower}?
+49a817fa Soy principiante total
+959a39d2 Todas las palabras son nuevas para mí.
+9aed0e9c Ya he empezado
+a6d6fac2 Contar las {0} palabras más comunes en {1:lower} como palabras que ya conozco, para que la app no las trate como nuevas.
+871384d2 Una cosa por configurar: una clave de API
+af91b49e Toca cualquier palabra y Tamkeen te dice qué significa <0>en esa frase</0>. Esas explicaciones las escribe un servicio de IA, así que <1>para que la app funcione tienes que darle una clave de API de un proveedor de IA de tu elección</1>: {0} o {1}.
+c3016d5f Una clave de API es una especie de contraseña que obtienes en la web del proveedor. Le pagas directamente: una consulta cuesta una fracción de céntimo, y Gemini tiene un uso gratuito.
+ff37cd14 Configúrala, o cámbiala más tarde, en <0>Ajustes → Definiciones de palabras (IA)</0>.
+feb628ae ¿Cómo consigo una clave?
+5b8027fa Entendido
+94331dff Vídeo de YouTube
+6c186598 Reel de Instagram
+78f78ba4 Episodio de pódcast
+154cf598 Página web
+b41edaea Esto no se puede enviar a un amigo.

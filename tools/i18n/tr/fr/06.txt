@@ -1,0 +1,198 @@
+79bcdbf3 Objectif : {0} min
+0e5f028b · prête à évoluer : touchez-la
+72ce9e1e · {0} % avant {1}
+4246502f {0} jours
+223e900f Votre œuf
+63b41493 Donne-moi un nom
+98303fea Objectif du jour : vos bâtiments ont envoyé {0} de lueur d'un coup.
+72e1269a Vous avez gagné {0} gemmes.
+61fe2211 Pleine floraison : chaque parcelle porte un bâtiment entièrement développé.
+673e4951 Donnez un nom à votre créature
+a8a47536 aucun mot enregistré pour l'instant :(
+0a5a8112 +{0} de lueur
+e3b0b563 Votre créature est prête à évoluer. Touchez-la quand vous voulez.
+b2facb1b Cette parcelle n'est pas encore ouverte.
+fcc4027b Il y a déjà quelque chose de construit ici.
+bf998c98 Ce bâtiment n'existe pas.
+d482d7e0 Pas encore : {0}.
+710d27b3 Il vous manque {0} de lueur.
+efcf13a6 Rien n'est construit ici.
+2a8a3386 Il est entièrement développé.
+579f1557 Toutes les parcelles sont déjà ouvertes.
+9af0e879 Vous n'avez pas de clé.
+5b31b02f Seule une créature adulte peut être libérée.
+934d6b63 Ce n'est pas à vendre.
+36602b9e Votre équipe est complète.
+26de9a27 Il vous manque {0} gemmes.
+6c27e5e8 Vous n'en avez pas.
+6156ebc8 Les œufs ne mangent pas. Faites-le d'abord éclore.
+a66174fd Il est rassasié pour aujourd'hui.
+bdbaa592 Vous n'avez pas de boost d'XP.
+4f42a703 Vous n'avez pas d'incubateur.
+e0e5bba3 Choisissez un œuf qui n'est pas sorti dans l'habitat.
+eacac3ef Cet œuf est déjà dans l'incubateur.
+73ed2987 Vous avez {0} XP et êtes au niveau {1}. Le niveau suivant est à {2} XP.
+6a75c080 Enregistrer un mot dans votre vocabulaire : 20.
+80e25376 Écouter ou lire : un petit filet pendant que vous étudiez, qui se tarit bien après votre objectif du jour.
+aa1ab833 Atteindre votre objectif du jour : {0}. C'est le gros morceau, et il rapporte autant que votre objectif soit de 5 minutes ou de 20.
+e3435b6f Combats : 3 par bonne réponse, 15 de plus quand un mot devient bien connu, 40 pour une victoire et 15 pour une défaite (en entier pour les trois premiers combats du jour).
+da45a83d Révision du vocabulaire : chaque carte répondue rapporte un quart de ce que rapporte la recherche d'un mot (en général 1 à 4, parfois 8 à 12, de temps en temps 25 à 50), que vous vous en soyez souvenu ou non : tricher ne sert à rien.
+355d88a3 Terminez un combat et vos cartes le même jour : {0} de plus, une fois par jour.
+1a385136 Refaire la même chose plusieurs fois dans la journée rapporte de moins en moins : un peu chaque jour vaut mieux qu'une longue séance.
+5d4196b1 Elle fait grandir la créature de votre habitat : elle éclot, grandit et devient prête à évoluer.
+4e3ef7b7 L'XP ne se dépense jamais. Elle ne fait que monter.
+27bb53b6 Rien à dépenser : elle agit toute seule.
+9b7db3ae Comment fonctionne l'évolution
+ac4792cf Série
+ae506790 {0} d'affilée. Votre record est de {1}.
+31fb81dc Avec le compagnon Anki, terminer tout ce qui est dû dans Anki compte aussi comme objectif du jour.
+3e2a59d1 Si vous manquez un jour, un gel de série le couvre si vous en avez un. Sinon, la série repart de zéro. Rien d'autre n'est perdu.
+488e945a Atteindre 7 jours débloque pour toujours de nouveaux articles dans la boutique ({0}) et l'attaque Cœur tranquille.
+347792fa Une série de 5 jours ouvre une parcelle de construction dans le jardin.
+f7922bac Des badges à 7, 30 et 100 jours, et chaque badge rapporte 2 gemmes.
+d15f40ca Voir vos badges
+2bef474e Pièces
+647952d2 Vous en avez {0}.
+ec4161d7 Enregistrer un mot dans votre vocabulaire : 1 chacun.
+20b4c331 Monter d'un niveau : 5.
+e469d2bf Gagner un combat : 4 pour chacune des trois premières victoires du jour, moins ensuite.
+3c1e6885 Un mot devient bien connu grâce aux combats : 1.
+dc4529b3 Garder 8 bonnes réponses sur 10 en combat sur une semaine (30 réponses ou plus) : 5.
+d5d064cb Votre guilde bat le boss du raid hebdomadaire : 20.
+64eea943 Terminez un combat et vos cartes le même jour : {0}, une fois par jour. Les cartes seules rapportent de la lueur, pas de pièces.
+54bb5f6d Tout ce qui s'achète avec des pièces est purement esthétique. Rien ne rend une créature plus forte.
+fede851e La Boutique. Elle propose {0} articles par jour, choisis pour votre créature, et change chaque jour.
+4906011f Ouvrir la boutique
+02b8de87 De temps en temps, on en reçoit un par surprise en cherchant un mot.
+4b6bd7b6 Vous avez commencé avec un.
+a66c8544 Il s'utilise tout seul la prochaine fois que vous ouvrez l'application après un jour manqué. Deux jours manqués en demandent deux.
+d5545dea Lueur
+3647f30f , et {0} de plus vous attend dans vos bâtiments
+6319cd67 Vous avez {0} de lueur{1}. Vos bâtiments en produisent {2} par heure.
+5aafc95b Touchez un bâtiment surmonté d'une lumière qui flotte pour récolter sa lueur. Après {0} objectifs du jour, elle se récolte toute seule.
+5ab759f1 Atteignez votre objectif du jour : chaque bâtiment produit moitié plus pour le reste de la journée, et deux heures de lueur arrivent d'un coup.
+fb3a6104 Terminez les cartes du jour dans la révision du vocabulaire ({0} cartes ou plus, sans aucune en attente) : une heure de lueur de votre jardin d'un coup, et jamais moins de {1}. Les combats rapportent des pièces à la place.
+5881fc72 Chaque type de bâtiment produit plus pour une habitude d'étude, et chaque cœur de votre créature ajoute un peu.
+99abeba6 De la nourriture pour votre créature ({0} de lueur chacune), qui remplit ses cœurs.
+dfc8c596 Des potions ({0} de lueur) pour les combats sauvages.
+38ccf266 Les bâtiments sont sur la page Jardin. La nourriture et les potions, sur la page Fournitures.
+37de88de Ouvrir le jardin
+3e321c9f Ouvrir les fournitures
+02904156 Gemmes
+4254141b Votre guilde bat le boss du raid hebdomadaire : 3.
+a1d5eec6 Monter d'une ligue (atteindre votre objectif du jour 5 jours dans la semaine) : 2.
+18bf14cc Pleine floraison, quand chaque parcelle du jardin porte un bâtiment entièrement développé : 10.
+03611593 Les gemmes ne viennent que de vos actions. Elles ne sont jamais vendues contre de l'argent.
+89803371 La page Fournitures.
+99f9bf69 Cœurs
+7b0609ca {0} a {1} cœurs sur 5.
+3be3ea7c  : pour une créature {0} qui est {1}
+80e48f19 Deux repas remplissent un cœur. Son plat préféré compte double{0}.
+746e8201 Les cœurs appartiennent à chaque créature et ne baissent jamais.
+27cffa5f Les cœurs ne changent rien en combat.
+feeaea73 Nourrissez-la sur la page Fournitures.
+f110690b Comment l'obtenir
+ca032b58 À quoi ça sert
+525f61b6 Où
+7ac0138b le temps passé à écouter des podcasts, des audios et des vidéos
+ab60d3ea enregistrer des mots, les bonnes réponses en combat, les cartes de la révision du vocabulaire, les révisions Anki
+7224fd42 Braise pour la curiosité, Marée pour l'écoute, Bosquet pour la collecte, Pierre pour la lecture, Étincelle pour les lève-tôt et Crépuscule pour les couche-tard
+80b6476b Comment votre créature évolue
+00d04503 {0} est {1}. Ce qu'elle devient suit votre façon d'étudier, vous choisissez le moment, et aucun choix n'est définitif.
+b89502e9 {0} XP
+80083e78 est prête à évoluer
+02a71b4e est {0}
+729f33b1 Encore {0} XP, et elle {1}.
+a105f0d4 Elle est prête à évoluer : touchez-la dans l'habitat.
+f16b2c73 1. Grandir
+d4915a51 {0} Toute l'XP que vous gagnez va à la créature sortie dans l'habitat. Les autres attendent : le choix de celle que vous faites sortir est donc votre premier choix.
+c5a69900 2. Vos quatre habitudes
+9e19cb58 Chaque créature garde une trace de votre façon d'étudier pendant qu'elle était sortie. Une habitude monte quand vous gagnez de l'XP de cette façon et les autres baissent un peu : les barres suivent donc ce que vous avez fait récemment. Environ {0} XP d'un même type remplissent une barre. La curiosité en demande {1}, car chercher des mots rapporte beaucoup plus d'XP.
+174c7e2f Ouverte : votre habitude la plus forte jusqu'ici
+28088622 Ouverte : cette habitude dépasse 25 %
+94fae88c · apporte l'attaque {0}
+968f60ab 3. Sa forme adulte
+ffd15c0d Une fois assez grande, elle attend sous sa forme juvénile en scintillant. Touchez-la et choisissez sa forme adulte. La forme de votre habitude la plus forte est toujours ouverte, et une autre s'ouvre quand son habitude dépasse 25 %. Après l'évolution, faire monter une autre habitude à 50 % débloque aussi cette forme, et vous pouvez passer d'une forme débloquée à l'autre quand vous voulez. Évoluer vous laisse aussi un nouvel œuf. La curiosité n'a pas de forme à elle : elle se voit dans vos œufs, la boutique et le jardin.
+93d943d8 {0} Obtenue
+db795d86 4. Formes spéciales
+7c62f35b Elles se portent par-dessus une forme adulte. Elles viennent du moment où vous étudiez, de qui grandit à ses côtés et de vos exploits en combat. Elles changent les couleurs et les traits, jamais la force.
+13878fb7 L'élément de chaque nouvel œuf dépend de votre façon d'étudier : {0}.
+02b6bd4d La boutique propose davantage ce qui va avec vos habitudes, comme des écouteurs pour ceux qui écoutent et des livres pour ceux qui lisent.
+2eaf9a2e Chaque bâtiment du jardin produit plus de lueur pour une habitude.
+976f4c1c Les combats entre personnes ignorent tout cela : toutes les créatures combattent au même niveau, et c'est en connaissant vos mots que vous gagnez.
+8b0adc94 Ce que vos habitudes changent d'autre
+0c20f982 Choisir sa forme maintenant
+3b7ab43a Ouvrir vos créatures
+124ba4b6 Il faut plus de {0}
+cb437e4f Elle n'est pas encore prête à évoluer.
+a6e6f750 Cette forme ne lui est pas encore ouverte.
+81b52bd2 Cette forme spéciale n'a pas encore été obtenue.
+5eb43479 Impossible d'ouvrir le cadeau.
+2890293f Vous avez déjà {0} : il s'est changé en {1} pièces.
+67705e9c Vous avez reçu {0}. C'est dans Mes affaires.
+c054815c Votre équipe est complète : l'œuf s'est changé en 20 pièces.
+b49d2e5c Vous avez reçu un œuf {0}. Il est avec vos créatures.
+e4d969a9 Cet article n'existe pas.
+2b338829 Vous l'avez déjà.
+60e6b077 Il vous manque {0} pièces.
+77e01fe2 Boutique et garde-robe
+0ee5c43c Mes affaires
+2c578dc8 Badges
+2db87a01 Décoration
+9519fbe9 {0} est à vous
+4f3e6209 Ranger
+26fcf76c Installer
+1c99c72c Retirer
+94433a7e Porter
+5d632f2d Offrir ceci à un ami
+fbefae1e Offrir
+1cfad2d7 {0} pièces
+a8e4db25 La sélection du jour, choisie pour votre créature. Elle change chaque jour. Les pièces s'obtiennent en atteignant votre objectif du jour (10), en enregistrant des mots (1 chacun) et en montant de niveau (5).
+7c0a7817 Vous possédez tout ce qui est proposé.
+db13058c {0} articles de plus apparaissent quand vous aurez obtenu :
+1a2cdd14 Rien pour l'instant. Ce que vous achetez dans la boutique est rangé ici.
+d0673c80 Collection {0}
+41867351 Impossible de marquer ce mot comme vu : {0}
+82c3ca6e ✓ Les dictionnaires de {0:lower} sont sur cet appareil ({1} Mo). Les mots que vous n'avez jamais touchés s'affichent en <0>violet</0>.
+e963907d Supprimer
+71da2431 Les dictionnaires de {0:lower} ne sont pas sur cet appareil : les nouveaux mots ne peuvent pas s'afficher en <0>violet</0>.
+c2232964 Télécharger (environ {0} Mo)
+c177e4b0 Téléchargement…
+7443fea8 Les dictionnaires de {0:lower} sont prêts.
+04d17f22 De cette langue
+aaa46e0d Dictionnaires de {0:lower}
+c33c9385 Tamkeen peut montrer quels mots sont <0>nouveaux pour vous</0> : un mot jamais touché s'affiche en violet, et dès que vous en touchez un, toutes ses formes comptent comme vues (<1/>).
+6280fb05 Pour l'{0:lower}, il faut des dictionnaires : un <0>téléchargement unique d'environ {1} Mo</0>, réalisés par le CAMeL Lab de l'université de New York à Abou Dabi (arabe standard, égyptien, levantin et du Golfe). Ils restent sur cet appareil et rien vous concernant n'est envoyé nulle part.
+b7c33926 Vous pourrez le faire plus tard depuis les Réglages.
+e4571490 Pas maintenant
+6813189a Cela prend quelques secondes.
+286b0dcd Les dictionnaires de {0:lower} sont prêts. Les nouveaux mots s'affichent maintenant en violet.
+3e13e40a ✓ Marquer comme vu
+30320764 ↺ Marquer comme nouveau
+3f629623 Aucun texte lisible n'a été trouvé sur cette page. Essayez « Ouvrir le navigateur web » et utilisez Importer la page.
+4b0a3f2d Version {0}
+2cf6a510 Une application pour apprendre une langue avec du matériel réel : abonnez-vous à des podcasts, ajoutez vos propres vidéos et pages web, transcrivez sur votre ordinateur avec Whisper, lisez en suivant chaque mot surligné et constituez une liste de vocabulaire.
+9421c021 Dossier de données
+22a35fbe Code source
+e630fb0f github.com/{0}
+c4740e4c Environnement d'exécution
+06403f3b Python {0}
+736b9062 Rechercher des mises à jour
+30dced67 Licences open source
+48e55e8f Cette application repose sur ces projets. Cliquez sur l'un d'eux pour lire sa licence.
+3aceec04 La version {0} est disponible.
+68680fa2 Vous êtes à jour.
+f40382cc 👻 Les messages disparaissent une fois vus · les messages vocaux une fois écoutés
+5e5bb045 Enregistrer un message vocal (jusqu'à 2 minutes)
+68f4145f Message
+72f9eb46 Enregistrement…
+0e04dbc9 Envoyer le message vocal
+2394299d Ami
+fd6be475 ▶ Message vocal · {0}
+c79a9284 ❚❚ Lecture…
+08acc9f5 Impossible de lire le message vocal. {0}
+46e2032a Un élément que cette version de l'application ne peut pas ouvrir
+f92f6701 Mettez à jour l'application pour l'ouvrir.
+05da9368 avec ses mots
+ebefd2aa Envoyé{0}
+bb54db51 Accepter

@@ -1,0 +1,180 @@
+f1e86935 Seuls les fournisseurs d'IA pris en charge peuvent être appelés.
+795b8b49 Erreur réseau : {0} : {1}
+d5f6613b La vidéo n'est pas dans votre Google Drive.
+399e0f29 Impossible de diffuser depuis Google Drive : {0}
+c2c60ae0 Cette vidéo n'a pas encore fini d'être envoyée depuis l'autre appareil.
+0b0ce373 Cet épisode n'a pas encore de transcription.
+23eebf4d Le format doit être txt, srt ou vtt.
+1da00bdb Ce n'est pas une adresse web.
+7200d5dc Ce n'est pas une image Instagram.
+812b0382 Impossible de récupérer l'image.
+f0cbe469 Pas d'image.
+a52aaab5 Connexion annulée
+ef3fbb3e La connexion Google a été annulée ou refusée.
+41d8fe44 La connexion a échoué
+0f824e05 Synchronisation en tant que {0}.
+2f18d2c1 Connectez-vous d'abord avec Google.
+c4f7c260 Taille de modèle inconnue.
+066f2c8e Langue inconnue.
+8b90ee48 Impossible d'ouvrir le dossier : {0}
+cf2c5c85 Sauvegarde introuvable.
+3a3aadb1 L'importation a échoué : {0}
+6aeffa09 Police Noto Naskh Arabic
+6f289ed9 Listes de mots courants (issues de wordfreq)
+7ba12057 NVIDIA cuBLAS / cuDNN (téléchargement facultatif)
+7d090ad8 Licence introuvable.
+7c1e44a9 Ce mot n'a pas d'audio.
+faecd643 L'audio de ce mot n'est pas sur cet ordinateur.
+2ccc65dd Cet extrait audio est vide ou trop volumineux.
+3e4be3a5 L'audio de ce mot n'est pas disponible.
+a901ac03 Le format doit être csv, anki ou apkg.
+7b61342e {0} cartes à réviser aujourd'hui
+857dc2df Le fichier ne contient aucune piste audio.
+818903cb Impossible de lire le fichier audio : {0}
+23230497 Impossible de décoder l'audio : {0}
+7f269f16 Le fichier audio est vide ou n'a pas pu être décodé.
+fe34abe1 Impossible de créer la copie audio compressée : {0}
+07431d75 Cette partie de l'audio n'a pas pu être lue.
+1fb3bc7b Impossible de découper l'extrait audio : {0}
+5d9b4909 Les bibliothèques audio (FFmpeg via PyAV) n'ont pas pu se charger : {0} Réinstallez l'application. Si vous la lancez depuis le code source, exécutez : pip install av
+f1e6281f Ce fichier n'est pas une sauvegarde Tamkeen.
+8e11cc63 La base de données de la sauvegarde est endommagée.
+d29882bc Impossible de joindre l'annuaire de podcasts d'Apple ({0}).
+cac34089 L'annuaire de podcasts d'Apple a répondu par une erreur ({0}).
+91243238 L'annuaire de podcasts d'Apple a envoyé une réponse illisible pour l'application.
+b8d1317b Vos totaux quotidiens sont conservés ici entre les sessions Anki.
+23b6910c Le serveur local n'a pas pu démarrer. Consultez le journal dans le dossier de données.
+aad067b1 Délai dépassé au démarrage du serveur local.
+6a992b4f Les vidéos ne peuvent être ouvertes que depuis youtube.com.
+6848287a Impossible d'ouvrir cette vidéo ({0}).
+58551d59 Les chaînes ne peuvent être suivies que depuis youtube.com.
+dbe38de1 Impossible de savoir de quelle chaîne il s'agit.
+ab907e3e Impossible de suivre cette chaîne ({0}).
+9a10260e Cette page ne peut pas être enregistrée.
+47744266 Impossible d'enregistrer ce site ({0}).
+97f9e893 Cette page n'a pas pu être lue.
+23fb4202 Impossible d'importer cette page ({0}).
+3a1427ae Navigateur web
+48dbcf04 Impossible d'ouvrir la fenêtre du navigateur ({0}).
+1d82f236 Impossible d'ouvrir la fenêtre YouTube ({0}).
+d70a665c Le téléchargement a échoué : HTTP {0} depuis {1}.
+c4aaa62e Téléchargement annulé.
+d607cd9a Erreur réseau pendant le téléchargement : {0} : {1}
+c829479b Téléchargement incomplet ({0} sur {1} octets). Réessayez pour reprendre.
+f3ba8566 Somme de contrôle incorrecte : le fichier téléchargé est corrompu. Réessayez.
+990411fc Ça ne ressemble pas à un flux RSS de podcast
+f5b576f8 Impossible de joindre le flux : {0} : {1}
+215c16a3 Pas de version {0} de {1} {2} sur PyPI.
+ba15ae5b Le téléchargement est terminé mais certaines bibliothèques CUDA manquent.
+f376de83 Les téléchargements d'accélération GPU ne sont disponibles que sous Windows et Linux (x86-64).
+3ad92dba GPU NVIDIA
+1f4b65b6 Apple Silicon détecté. {0} tourne sur le GPU du Mac avec MLX.
+09fa7089 {0}{1} détecté.
+a800bf13 {0} : {1} tourne vite sur le GPU.
+1be9657b {0} Installez l'accélération GPU (ci-dessous) et {1} tournera bien plus vite que sur le processeur.
+be2def2e Aucun GPU compatible trouvé : la transcription tourne donc sur le processeur. {0} équilibre précision et vitesse.
+6bf5c220 mémoire insuffisante
+fbaa5c49 Mémoire insuffisante. Essayez un modèle plus petit dans les Réglages.
+dc1a529b La vidéo est encore en cours d'envoi depuis l'autre appareil. Réessayez sous peu.
+2e99c4f9 Impossible de télécharger les dictionnaires ({0}). Vérifiez votre connexion et réessayez.
+e3ec8c21 Les requêtes d'une autre origine ne sont pas autorisées.
+4c3a7b2d Erreur inattendue : {0}
+a6e3c8a8 Somme de contrôle incorrecte pour {0}. Réessayez.
+63eb3e5f Taille de modèle inconnue : {0}
+82e7395c Le modèle {0} est déjà en cours de téléchargement.
+906cd6be Cette adresse n'est pas une page web (elle ressemble à un fichier).
+5f6cc878 Impossible de joindre ce site ({0}).
+a764c39c Les pages web que vous avez importées pour les lire avec des mots cliquables.
+ab650a1a Turc
+1ab65965 Persan
+412e3190 Ourdou
+c9e6b253 Hindi
+da91388c Allemand
+23882c57 Portugais
+dec66c5b Coréen
+2339b8ad Indonésien
+334a85f1 Néerlandais
+0726b71e une autre langue ({0})
+28cd3560 Ça ne ressemble pas à un nom d'utilisateur Instagram.
+36473f9c parlé en {0:lower}, pas en {1:lower}
+697db47b presque pas de paroles (musique ou silence)
+ea4a5ce6 pas en {0:lower}
+39bc1b6f L'obtention de reels fonctionne dans l'application installée sur l'ordinateur (elle a besoin de sa propre fenêtre Instagram).
+b09c2b91 Obtention de reels déjà en cours.
+7e4f80e0 La lecture de vos enregistrements fonctionne dans l'application installée sur l'ordinateur (elle a besoin de sa propre fenêtre Instagram).
+c937ec62 Occupé à obtenir des reels. Réessayez quand ce sera terminé.
+a74514e5 La fenêtre Instagram a été fermée.
+a502191a Instagram · {0}
+5fedaebb Connectez-vous à Instagram dans la fenêtre qui vient de s'ouvrir. Il suffit de le faire une fois.
+e77c6717 Personne n'est connecté à Instagram, donc {0}.
+8599b104 Connecté à Facebook. Transfert vers Instagram…
+a5272ae2 Ce compte Facebook n'est lié à aucun compte Instagram. Connectez-vous plutôt avec un nom d'utilisateur et un mot de passe Instagram dans la fenêtre.
+1094228d Impossible de savoir quel compte Instagram est connecté. Réessayez.
+dd259648 Instagram n'a pas voulu fournir la vidéo ({0}).
+2a2f389b pas de son
+f6abd17f (se lit une fois connecté à Instagram sur le téléphone)
+005d8b21 Parcours de vos enregistrements Instagram… {0} collections jusqu'ici. (Arrêter garde celles trouvées.)
+5b6e17ab vos enregistrements n'ont pas pu être lus
+d859b103 Examen de vos collections enregistrées…
+d8c25947 La lecture de vos enregistrements a échoué ({0} : {1}).
+5207e708 Lecture de vos publications enregistrées ({0} sur {1})…
+b3cd2701 La lecture de cette collection a échoué ({0} : {1}).
+e0022c0d aucun reel n'a été récupéré
+d38405ee {0} reels au hasard en {1:lower} prêts ({3} vérifiés).
+a8aa31cd Aucun reel en {0:lower} n'a pu être gardé cette fois ({1} vérifiés). Réessayez : les mots de recherche changent à chaque fois.
+dc90c318 Ils se synchronisent sur votre téléphone avec tout le reste.
+44244e4a L'obtention de reels a échoué ({0} : {1}).
+251eda10 {0} sur {1} prêts pour votre téléphone.
+42e17d02 L'obtention de ces reels a échoué ({0} : {1}).
+37c936a3 Lecture de vos publications enregistrées…
+1e756cd5 Aucune publication enregistrée n'a été trouvée ici. Enregistrez d'abord des reels sur Instagram, ou choisissez une autre collection.
+bec2e4e2 Examen de ce qui est populaire en {0:lower} ({1})…
+13bad01a Lecture des reels de @{0}…
+234d7e5e Aucun nouveau reel trouvé. Ajoutez des créateurs, ou choisissez « Populaires » ou « Un mélange ».
+52a16bfd Rien de nouveau : chaque vidéo de ces enregistrements a déjà été essayée.
+d7b1a9ec Aucun nouveau reel trouvé cette fois. Réessayez plus tard.
+8f45b7fa {0} reels prêts ({2} vérifiés). Ils se synchronisent sur votre téléphone avec tout le reste.
+d61a7932 Google Drive a refusé la connexion.
+a669d081 Le téléchargement depuis Google Drive a échoué ({0}).
+537a418e L'envoi vers Google Drive a échoué ({0}) : {1}
+ca818b14 La connexion Google n'est pas configurée dans cette version.
+a3edee6d Ce lien de connexion a expiré ou a déjà été utilisé. Réessayez depuis l'application.
+00ace5cc La connexion Google a échoué : {0}
+dd003c52 Google n'a pas renvoyé de jeton d'actualisation. Retirez l'accès de l'application sur myaccount.google.com/permissions et reconnectez-vous.
+5ef0ec78 L'accès à Drive n'a pas été accordé. Reconnectez-vous et autorisez l'application à stocker ses données.
+946a2345 Non connecté à Google.
+1009b96e Votre connexion Google a expiré. Reconnectez-vous.
+e0d7a3c0 Connectez-vous d'abord avec Google dans « Synchroniser avec Google Drive ».
+bd3033ca Votre connexion Google a expiré. Déconnectez-vous puis reconnectez-vous dans « Synchroniser avec Google Drive ».
+9c8459c0 Google n'a pas confirmé votre identité. Déconnectez-vous puis reconnectez-vous dans « Synchroniser avec Google Drive ».
+fed131ce Connectez-vous avec Google (Réglages) pour regarder les vidéos stockées sur Drive.
+06ac7931 Cette vidéo est stockée sur Google Drive : connectez-vous avec Google dans les Réglages pour la transcrire.
+f61d414a {0} a refusé la clé API. Elle a très probablement expiré : il vous en faut sans doute une nouvelle (Réglages → Transcription dans le cloud).
+3666049b {0} ne reconnaît pas le modèle choisi. Remettez celui recommandé dans les Réglages.
+ad279b44 {0} indique que le compte n'a pas de crédit. Ajoutez-en sur sa page Billing.
+97c0918a {0} n'a pas pu transcrire ceci (erreur {1})
+53ab1f8a Impossible de joindre {0} ({1}). Vérifiez votre connexion internet.
+a1ceea0b {0} indique que votre compte a atteint sa limite pour le moment (il demande d'attendre environ {1} minutes). Les comptes gratuits ne peuvent envoyer qu'une certaine quantité d'audio par heure et par jour. Appuyez sur Réessayer plus tard.
+93cf51f7 {0} demandait sans cesse à l'application de ralentir.
+44363ccb Mot
+a6fc4045 Transcripteur
+c37da7ca Aucun modèle de transcription choisi pour l'instant. Ouvrez Réglages → Modèle pour en télécharger un, ou activez-y la transcription dans le cloud.
+59c4123b Le modèle {0} n'est pas encore téléchargé. Ouvrez Réglages → Modèle pour le télécharger.
+6bc27ac6 Impossible de joindre GitHub : {0}
+d6d5bb0f Aucune version publiée pour l'instant.
+57a18645 GitHub a renvoyé HTTP {0}.
+88b0d44f Cette copie de Tamkeen ne peut pas se mettre à jour toute seule. Téléchargez la nouvelle version sur GitHub.
+84393929 Vous avez déjà la version la plus récente ({0}).
+ae41addd Cette version n'a pas d'installateur pour cet ordinateur.
+b953469f Le téléchargement ne correspondait pas au fichier de la version. Réessayez.
+c41c8edb {0} fichiers que vous avez ajoutés vous-même. Ils sont stockés dans votre Google Drive.
+6d8e34b4 Le fichier est vide.
+914295b3 Ce fichier n'a pas de son lisible ({0}).
+94492d5d Seules les requêtes vers youtube.com sont autorisées ici.
+16ca44eb Requête non prise en charge.
+5c5d0d47 Impossible de joindre YouTube ({0}). Vérifiez votre connexion.
+22377066 {0} n'a pas répondu. Sa fenêtre principale est-elle encore ouverte ?
+b8100f5b Bibliothèque
+6b21fb79 À propos
+a689b0be Rechercher dans toutes les transcriptions…
+7ff5a6da Sections

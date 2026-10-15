@@ -18,6 +18,7 @@ import { isNewer, showUpdateNotice } from "./updatenotice.js";
 import { icon } from "./icons.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
 import { chosenCountry, youtubeHome } from "./youtube-home.js";
+import { startTranslating, translateHtml } from "./i18n.js";
 import { isSaved, savedSites, setSite } from "./browser-sites.js";
 import { addUploadedVideo, checkFeeds, handle } from "./backend.js";
 import { onJob } from "./transcribe-service.js";
@@ -449,7 +450,8 @@ export async function openBrowser(url = "", { instagramSignIn = false } = {}) {
   const sites = savedSites(settings.browser_sites);
   await GoogleDriveAuth.browserSites({ sites: JSON.stringify(sites) }).catch(() => {});
   await GoogleDriveAuth.openBrowser({ url, extractor: await extractorSource(), youtube: await youtubeBrowserScript(),
-                                      home: homeHtml(settings.study_language || "", sites), closeOnInstagramSignIn: !!instagramSignIn });
+                                      home: translateHtml(homeHtml(settings.study_language || "", sites)),
+                                      closeOnInstagramSignIn: !!instagramSignIn });
 }
 
 /** Open Instagram's sign-in page in the app's own browser (which shares its sign-ins with the reel
@@ -781,6 +783,7 @@ async function boot() {
   await loadSettings();
   await loadLibrary();
   applySettings(settings);
+  await startTranslating(settings.ui_language); // the app's own words in the user's language
   if (!settings.welcome_seen || !settings.study_language) location.hash = "#/welcome"; // first run: choose a language
   // The app's own line icons in the tab bar and the search button (see icons.js).
   for (const el of document.querySelectorAll("[data-icon]")) el.innerHTML = icon(el.dataset.icon, Number(el.dataset.size) || 22);

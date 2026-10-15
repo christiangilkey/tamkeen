@@ -1,0 +1,190 @@
+495d921f {0}¢ bawat milyong token
+eb7ed7c4 computer na ito
+1cfceb0b phone na ito
+8eff88d5 Kahulugan ng mga salita (AI)
+99b34726 Pindutin ang isang salita para makita ang ibig sabihin nito <0>sa pangungusap na iyon</0>. Isang AI provider ang sumusulat ng paliwanag gamit ang sarili mong key; direkta mo silang binabayaran, maliit na bahagi ng isang sentimo bawat salita.
+b6db182b Ano ang ipinapadala, at saan itinatago ang key ko?
+097ae941 Ang salita, ang pangungusap nito at ang mga pangungusap sa magkabilang gilid ay ipinapadala lang sa provider na pinili mo, at wala nang iba. Itinatago ang key mo sa {0} at, kung gumagamit ka ng Google Drive sync, sa pribadong folder ng app sa sarili mong Google Drive, para makuha rin ito ng iba mo pang device. Hindi ito kailanman kasama sa pag-export ng data.
+7ceee3f3 Provider
+68c2cc7f Model
+61131aac 1 milyong token ≈ {0} kahulugan
+51823153 Ang mga token ay mga piraso ng salita na binabasa at isinusulat ng AI. Tantiya ang mga presyo para sa isang kahulugan, batay sa listahan ng presyo ng bawat provider.
+525f7051 Pangalan ng model, eksaktong gaya ng pagkakasulat ng provider
+cf678cab API key
+d608fce7 I-paste dito ang API key mo
+d97d1ee3 Ipakita
+d959e754 Hindi ko alam ang gagawin
+63752a4b Ipaliwanag sa
+3b3ec110 Subukan gamit ang halimbawa
+9bd4649b Mga token na nagamit ngayon sa {0}:
+27a7d318 ✓ Naka-set up
+eed6bfb4 Kailangan
+31ba9246 Kumuha ng bagong key ↗
+c3639477 Kunin ang {0} API key mo ↗
+9ef93755 Inirerekomenda
+b729da8b Ibang model
+883f8daa Ibang model… <0>i-type ang pangalan</0>
+e4f6bb0f {0} key ito, kaya {1} na ang provider. Na-save: pindutin ang “Subukan gamit ang halimbawa” para suriin ito.
+1bb58f41 Na-save. Pindutin ang “Subukan gamit ang halimbawa” para suriin ito.
+19686f61 Inalis ang key.
+b2731cb4 Hindi ma-save ang key: {0}
+34d8b60f Itago
+b18ce81d Nagtatanong…
+ce61ce37 ✓ Gumagana ({0} s): {1} = “{2}”
+b68a4efa Hindi gumagana ang key
+622cb8b8 Anki
+8558a88a Mga setting ng {0}
+b9e7312c {0} min ang nakalipas
+002a7fdc {0} idinagdag, {1} binago, {2} inalis
+616f33b4 {0} at {1} pa
+56fb7687 Panatilihing magkatugma ang mga naka-save kong salita at ang {0} deck ko, sa magkabilang direksyon
+71d48a93 Ang deck lang na nakapangalan sa ibaba ang binabasa o binabago: hindi kailanman ginagalaw ang iba mong deck, note at card. Ang mga bagong salita, pagbabago at pagbura ay napupunta sa magkabilang direksyon. Ang card na ginawa mo nang mano-mano sa deck na iyon ay nagiging salita rito. Makikita ang review progress ng bawat card sa Vocab page; hindi kailanman binabago ng Tamkeen ang schedule ng {0}, ang larawan ng card, o ang layout ng card.
+768cd48a Deck:
+8ce68640 I-save ang pangalan
+33bfb8c9 Bigyan ng pangalan ang deck.
+70a256a1 Nagsi-sync sa deck na “{0}”.
+3e4aaec6 Para i-on ito, kailangang naka-install sa Anki ang add-on sa ibaba (bersyon 2 o mas bago).
+74a84c68 · {0} salita ang may card sa deck
+343a67e4 Huling sync na may binago ({0}): naipadala {1}; natanggap {2}
+ea83b3ba Huling na-sync {0}{1} <0/>Naipadala sa {2}: {3}<1/>Natanggap mula sa {4}: {5}
+8ab853ab (profile na “{0}”)
+311e6a3f <0>Ibang collection ang nakabukas sa {0}</0>{1} kaysa sa naka-link sa Tamkeen{2}. Walang binasa o isinulat dito.
+aa48c6a5 Ito na lang na collection ang i-sync
+e172d1bd Isang card
+4b2e608f {0} card
+af6cd201 Aalisin ang {0} ({1}) sa {2} sa susunod na sync.
+0fccecc9 May isang salitang binura mo rito na mayroon pa ring
+7e7ed3d8 May {0} salitang binura mo rito na mayroon pa ring
+a2fd882c card
+0c12e651 mga card
+a5554878 salita
+cde1fdb5 mga salita
+8d3900e9 <0>{0} card sa {1}:</0> {2}. Kapag inalis ang card sa {3}, mabubura rin doon ang review history nito. <1>Hindi na ito maibabalik.</1> Kung papayag ka, aalisin na ng mga susunod na pagbura ang mga card nila nang hindi na nagtatanong.
+d0ca7688 Alisin ang {0} sa {1}
+3ee6dc97 Panatilihin ang {0} at ibalik ang {1}
+458bd73a May isang card na
+2449d2e2 May {0} card na
+4768f74c Hindi sinasabi ng AnkiDroid sa ibang app kung ano ang binura
+97b8cabc Walang tala ang Anki na binura mo ang mga ito rito (baka binura sa ibang device, o naibalik ang collection)
+9ab802d4 salitang ito
+9fe0220f <0>{0} nawala sa deck:</0> {1}. {2}, kaya walang inalis ang Tamkeen. Ano ang gagawin sa {3}?
+ef8f7e8a Gawin ulit ang {0}
+bbba862c Burahin din dito ang {0}
+78948622 Nasa ibang deck na ngayon ang mga card ng {0} sa mga salita mo: naiwan sila kung saan mo inilagay at hindi na sini-sync.
+c1aa0b00 {0} sobrang card ng mga salitang may card na ang nilagyan ng tag na “tamkeen-duplicate” at iniwan para tingnan mo.
+dfab2962 {0} note sa deck ang hindi isinama (walang Front at Back field, walang nakasulat, o nasa ibang deck ang isa sa mga card nila).
+4b701821 {0} pagbabago ang hindi nagawa noong huli at susubukan ulit.
+21b4c80d Hindi sinasabi ng bersyong ito ng AnkiDroid sa ibang app ang review progress. I-update ang AnkiDroid sa 2.24 o mas bago para makita ito rito.
+221ca630 Nagsi-sync…
+2b7d938e I-sync ngayon
+11d3ef7f Nagsi-sync din kapag binuksan mo ang app at bawat ilang minuto habang nakabukas ito.
+26b0b25f Nagsi-sync ang Anki sa Tamkeen kapag binuksan mo ito, bawat 10 minuto habang nakabukas, pagkatapos ng sariling sync ng Anki, at tuwing pipiliin mo ang <0>Tools → Sync Tamkeen now</0> sa Anki. Kailangang nakabukas din ang Tamkeen.
+27139ab8 hindi pa napag-aaralan
+c9114940 lampas na mula {0}
+71ef9cbd takdang {0}
+87e1ef1d nire-review
+b2647e88 bawat {0} {1}
+fb38ecb6 {0} tama, {1} mali
+3db1270b Ang mga huli mong sagot sa Anki, mula sa pinakaluma
+5c4b4117 Binasa mula sa Anki noong {0}. Ipinapakita lang ito ng Tamkeen; hindi nito kailanman binabago ang schedule ng Anki.
+c3c7e5f4 Anki: {0}{1}
+f57186fa Burahin ang “{0}” sa vocab mo?
+3eb0e9ae Burahin ang “{0}” sa vocab mo? Aalisin din ang card nito sa {1}, kasama ang review history ng card.
+890a143b Aalisin din ang card nito sa {0}, kasama ang review history ng card.
+ce01cb8a Buburahin din nito ang card sa {0}
+8c9dbb61 May card ang “<0>{0}</0>” sa {1} deck mo sa {2}. Kapag binura mo rito ang salita, aalisin ang card na iyon sa susunod na sync, <1>kasama ang review history nito sa {3}. Hindi na ito maibabalik.</1>
+ad439574 Kung itutuloy mo, mula ngayon aalisin na ang card ng salitang buburahin mo nang hindi na itinatanong ito.
+77dfd213 Kanselahin
+0a98dcd0 Burahin ang salita at ang card nito
+c3e839df Online
+e01fa717 Offline
+7fab27b4 ang Claude Console
+881ac247 Pindutin ang button sa ibaba. Bubuksan nito ang console.anthropic.com sa web browser mo. Iba ang site na ito sa Claude chat app.
+495b9813 Gamitin ang email address mo o “Continue with Google”. Hindi sakop nito ang Claude Pro o Max chat subscription: hiwalay na binabayaran ang mga key.
+7403c4f9 Buksan ang <0>Settings → Billing</0>, magdagdag ng payment card at bumili ng kaunting credit. Hindi gagana ang mga key hangga't walang credit ang account.
+71b4b60f Buksan ang <0>Settings → API keys</0> at pindutin ang <1>Create Key</1>. Bigyan ito ng pangalang makikilala mo, gaya ng “Tamkeen”.
+e04e0bbd Ang key ay mahabang hanay ng mga titik na nagsisimula sa <0/>. Isang beses lang ito ipinapakita, kaya pindutin ang <1>Copy</1> bago isara ang box.
+48b74851 Bumalik dito, i-paste ito sa <0>API key</0> box sa Settings, at pindutin ang <1>Subukan gamit ang halimbawa</1>.
+0e9e2f65 Google AI Studio
+2628ac25 Pindutin ang button sa ibaba. Bubuksan nito ang aistudio.google.com sa web browser mo.
+f6541135 Puwede ang kahit anong Google (Gmail) account. Sumang-ayon sa mga tuntunin kung itanong.
+84e51948 Pindutin ang <0>Create API key</0>. Kung itanong kung aling project ang gagamitin, hayaan itong gumawa ng bago.
+8d7a2586 Isa itong mahabang hanay ng mga titik na nagsisimula sa <0/>. Pindutin ang copy button sa tabi nito. Puwede kang bumalik sa page na ito at kopyahin ulit mamaya.
+162ab3e6 ang OpenAI platform
+faa55261 Pindutin ang button sa ibaba. Bubuksan nito ang platform.openai.com sa web browser mo. Iba ang site na ito sa ChatGPT.
+0ba16577 Gumagana rin dito ang ChatGPT login mo, pero hindi sakop nito ang ChatGPT Plus subscription: hiwalay na binabayaran ang mga key. Baka hingan ka nitong kumpirmahin ang numero ng telepono.
+a6860394 Buksan ang <0>Settings</0> (ang gear) <1>→ Billing</1>, magdagdag ng payment card at bumili ng kaunting credit. Hindi gagana ang mga key hangga't walang credit ang account.
+83803874 Buksan ang <0>API keys</0> at pindutin ang <1>Create new secret key</1>. Bigyan ito ng pangalang makikilala mo, gaya ng “Tamkeen”.
+ebf2eda5 ang xAI Console
+e76446c0 Pindutin ang button sa ibaba. Bubuksan nito ang console.x.ai sa web browser mo.
+e3f3d119 Gamitin ang X account mo, Google, o email address. Hindi sakop nito ang X Premium o SuperGrok subscription: hiwalay na binabayaran ang mga key.
+d88dbb88 Buksan ang <0>Billing</0>, magdagdag ng payment card at bumili ng kaunting credit. Hindi gagana ang mga key hangga't walang credit ang account.
+f6ce8b31 Buksan ang <0>API Keys</0> at pindutin ang <1>Create API key</1>. Bigyan ito ng pangalang makikilala mo, gaya ng “Tamkeen”.
+6547e629 Ang key ay mahabang hanay ng mga titik na nagsisimula sa <0/>. Kopyahin ito bago isara ang box.
+58d7704c Malamang na nag-expire o na-off ang key, kaya malamang kailangan mo ng bago: gumawa nito gamit ang mga hakbang sa itaas at i-paste. Kung bagong-bago ang key, kopyahin ulit at i-paste muli (hindi ito gagana kung may kulang na titik sa dulo).
+f443dc0b Wala pang credit ang account, o hindi pa dumarating ang credit. Magdagdag ng credit sa Billing page ng provider at subukan ulit pagkalipas ng ilang minuto.
+43b82a8b Ibalik ang <0>Model</0> sa Settings sa may markang “inirerekomenda”.
+995ff549 Gumawa ng bagong key sa parehong paraan, at burahin ang luma sa listahan ng provider.
+6b020b42 Ituring itong password: huwag itong ibahagi o i-post kahit saan. Sa device na ito lang ito itinatago ng Tamkeen at sa provider na pinili mo lang ito ipinapadala.
+e1e3cd22 humiling sa isang AI service na ipaliwanag sa iyo ang mga salita
+fb891cde Paano kumuha ng API key
+15803e0d Ang API key ay parang password na nagpapahintulot sa Tamkeen na {0}. Makukuha mo ito sa website mismo ng serbisyo; ilang minuto lang ito.
+d76fd621 Buksan ang {0} ↗
+26aacc31 May nangyaring mali?
+ddb60451 Wikang pag-aaralan
+cac6d44c Wika mo
+a70803bd Mabilisang tingin
+2c497d03 Mabilisang tingin: kahulugan lang ang ipinapakita ng pinindot na salita
+c8bed749 Detalyadong tingin
+4ba6d768 Detalyadong tingin: buong paliwanag ang ipinapakita ng pinindot na salita
+581f8c00 Gaano karami ang ipinapakita ng pinindot na salita
+7d0cd0d6 {0}. Pindutin para palitan ng {1}.
+6ae84e4a Isara (Esc)
+bbfa773e Isara
+19c91326 Balanse ang katumpakan at bilis.
+d661998f Pinakatumpak sa lahat ng wika. Pinakamaganda kung may GPU.
+ec890ad6 · na-download
+18e42f19 · bahagyang na-download
+0b1d6c0b Inihahanda…
+7388d667 {0} sa {1}
+1763761d Gamitin ang {0}
+781961bc I-pause
+f6fdbe48 Burahin
+58ff0825 Burahin ang {0} model ({1} MB)? Puwede mo itong i-download ulit mamaya.
+b5ed1ec0 Ituloy ang pag-download
+a479c9c3 I-download
+b9868e76 Ginagamit ang {0} model para sa mga bagong transcript.
+a80186d6 Handa na ang {0} model.
+d70807ed Kayang mag-transcribe ng <0>{0}</0> mo nang maraming beses na mas mabilis kaysa sa CPU. Kailangan nito ang CUDA libraries ng NVIDIA (mga 1.2 GB), na hindi kasama sa installer para manatili itong maliit.
+c3d90933 Aktibo ang GPU acceleration
+198413b8 Alisin ang GPU libraries
+6c044a0d Alisin ang CUDA libraries? CPU ang gagamitin sa pag-transcribe.
+42a1ffa7 Aalisin ang mga ito kapag ni-restart mo ang app.
+aca57ff9 Inalis na.
+7bb4405c Naka-install
+71d04aed I-restart ang app para simulang gamitin ang GPU.
+97e292a8 Ina-unpack…
+0a7b809e I-install ang GPU acceleration (~1.2 GB)
+2503a349 Dina-download ang opisyal na cuBLAS at cuDNN packages ng NVIDIA mula sa pypi.org at sinusuri ang kanilang checksums.
+f4cfa873 Naka-install na ang GPU acceleration.
+defca688 Hakbang {0} sa 4
+2f04eb15 Susunod →
+03c88b2a Anong wika ang pinag-aaralan mo?
+05d17f2b Itinatakda nito kung ano ang pinakikinggan ng app, kung paano ipinapaliwanag ang mga salita, at kung saang direksyon tumatakbo ang teksto. Puwede mo itong palitan mamaya sa Settings.
+c32ae9f4 ← Bumalik
+352fd3bb Nasimulan mo na bang pag-aralan ang {0}?
+49a817fa Baguhang-baguhan ako
+959a39d2 Bago sa akin ang bawat salita.
+9aed0e9c Nagsimula na ako
+a6d6fac2 Ituring ang {0} pinakakaraniwang salita sa {1} bilang mga salitang alam ko na, para hindi ito ituring ng app na bago.
+871384d2 Isang bagay na ise-set up: isang API key
+af91b49e Pindutin ang kahit anong salita at sasabihin ng Tamkeen ang ibig sabihin nito <0>sa pangungusap na iyon</0>. Isang AI service ang sumusulat ng mga paliwanag na iyon, kaya <1>para gumana ang app kailangan mo itong bigyan ng API key mula sa AI provider na gusto mo</1>: {0} o {1}.
+c3016d5f Ang API key ay parang password na makukuha mo sa website ng provider. Direkta mong binabayaran ang provider: maliit na bahagi ng isang sentimo ang bawat paghahanap, at may libreng allowance ang Gemini.
+ff37cd14 I-set ito, o palitan mamaya, sa <0>Settings → Kahulugan ng mga salita (AI)</0>.
+feb628ae Paano ako makakakuha ng key?
+5b8027fa Sige
+94331dff Video sa YouTube
+6c186598 Instagram reel
+78f78ba4 Episode ng podcast
+154cf598 Web page
+b41edaea Hindi ito maipapadala sa kaibigan.

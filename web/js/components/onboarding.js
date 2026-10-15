@@ -1,17 +1,37 @@
-// The first time the app is opened: three boxes, one after the other.
-//   1. Which language are you learning?
-//   2. Have you already started, or are you a complete beginner? (For someone who has started,
+// The first time the app is opened: four boxes, one after the other.
+//   1. Which language do you speak? (Asked in every language; from then on the app's own words
+//      are in that one, and the AI explains words in it: see i18n.js.)
+//   2. Which language are you learning? (English is offered to everyone who speaks another one.)
+//   3. Have you already started, or are you a complete beginner? (For someone who has started,
 //      the language's 1000 most common words count as already seen: see commonwords.js.)
-//   3. The app needs an API key from an AI provider; where to set or change it.
+//   4. The app needs an API key from an AI provider; where to set or change it.
 // Shared by the desktop app and the phone (each shows it from its welcome screen).
 
 import { esc, h, state, saveSettings } from "../app.js";
 import { LANGUAGES, isLanguage, langAttrs } from "../languages.js";
 import { PROVIDERS } from "../definer.js";
 import { COMMON_WORDS, addCommonWords, commonWords } from "../commonwords.js";
-import { languagePicker } from "./langpicker.js";
+import { SPEAK_QUESTION, UI_LANGUAGES, UI_LANGUAGE_CODES, isUiLanguage, startTranslating, uiLanguage } from "../i18n.js";
+import { languagePicker, speakPicker } from "./langpicker.js";
 import { showKeyHelp } from "./keyhelp.js";
 import { openModal } from "./modal.js";
+
+/**
+ * The user speaks this language: save it, show the app in it, and have the AI explain words in it
+ * (unless they had already picked an explanation language of their own in Settings).
+ * Going from one translation to another reloads the page (the English is not kept on screen).
+ */
+export async function chooseUiLanguage(code) {
+  const s = state.status.settings;
+  const before = isUiLanguage(s.ui_language) ? s.ui_language : "en";
+  const values = { ui_language: code };
+  if (!s.definer_language || s.definer_language === UI_LANGUAGES[before].name) values.definer_language = UI_LANGUAGES[code].name;
+  if (s.study_language === code) values.study_language = ""; // nobody learns the language they speak
+  await saveSettings(values);
+  if (uiLanguage() === code) return;
+  if (uiLanguage() === "en") await startTranslating(code);
+  else location.reload();
+}
 
 /** Has this person been through the boxes (or used the app since before they existed)? */
 export const needsOnboarding = (settings) => !settings.onboarded || !isLanguage(settings.study_language);
@@ -28,30 +48,51 @@ function ask() {
   return new Promise((resolve) => {
     const modal = openModal({ canClose: false });
     const settings = () => state.status.settings;
-    let lang = isLanguage(settings().study_language) ? settings().study_language : "";
+    let speaks = isUiLanguage(settings().ui_language) ? settings().ui_language : "";
+    let lang = isLanguage(settings().study_language) && settings().study_language !== speaks ? settings().study_language : "";
     let level = settings().study_level || "";
-    let step = 1;
+    // (after a reload for a new language, carry on from the second box)
+    let step = speaks ? 1 : 0;
 
-    const dots = () => `<div class="ob-steps" aria-label="Step ${step} of 3">${[1, 2, 3].map((n) =>
+    const dots = () => `<div class="ob-steps" aria-label="Step ${step + 1} of 4">${[0, 1, 2, 3].map((n) =>
       `<i class="${n === step ? "on" : n < step ? "done" : ""}"></i>`).join("")}</div>`;
     const go = (n) => { step = n; paint(); };
 
     function paint() {
       modal.body.innerHTML = "";
-      if (step === 1) {
+      if (step === 0) {
+        modal.setTitle("");
+        const box = h(`<div class="stack">
+          <div class="ob-speak">${UI_LANGUAGE_CODES.map((c) =>
+            `<p lang="${c}" dir="${UI_LANGUAGES[c].dir}">${esc(SPEAK_QUESTION[c])}</p>`).join("")}</div>
+          <div id="ob-speak"></div>
+          <div class="row ob-nav">${dots()}<span class="spacer"></span>
+            <button type="button" class="primary big" id="ob-next" ${speaks ? "" : "disabled"}>Next →</button></div>
+        </div>`);
+        box.querySelector("#ob-speak").append(speakPicker(speaks, async (code) => {
+          speaks = code;
+          if (lang === code) lang = "";
+          box.querySelector("#ob-next").disabled = false;
+          await chooseUiLanguage(code);
+        }));
+        box.querySelector("#ob-next").onclick = () => go(1);
+        modal.body.append(box);
+      } else if (step === 1) {
         modal.setTitle("Which language are you learning?");
         const box = h(`<div class="stack">
           <div id="ob-lang"></div>
           <p class="small muted">This sets what the app listens for, how words are explained, and which way the text runs.
             You can change it later in Settings.</p>
           <div class="row ob-nav">${dots()}<span class="spacer"></span>
+            <button type="button" class="ghost" id="ob-back">← Back</button>
             <button type="button" class="primary big" id="ob-next" ${lang ? "" : "disabled"}>Next →</button></div>
         </div>`);
         box.querySelector("#ob-lang").append(languagePicker(lang, async (code) => {
           lang = code;
           box.querySelector("#ob-next").disabled = false;
           await saveSettings({ study_language: code });
-        }));
+        }, { speaks }));
+        box.querySelector("#ob-back").onclick = () => go(0);
         box.querySelector("#ob-next").onclick = () => go(2);
         modal.body.append(box);
       } else if (step === 2) {

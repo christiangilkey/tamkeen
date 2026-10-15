@@ -9,6 +9,7 @@ import { collect, garden, tick as gardenTick, totalRate } from "./idle.js";
 import { heartsRow } from "./garden.js";
 import { describe, formOf, readyToEvolve, stageOf } from "./genome.js";
 import { icon } from "./render.js";
+import { t, uiLanguage } from "../i18n.js";
 import { badgeToast, openBattleMenu } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
 import { GOALS, checkBadges, levelOf } from "./rules.js";
@@ -82,8 +83,12 @@ export function habitat() {
     const ready = readyToEvolve(game.creature);
     const next = ready || game.creature.show ? null : STAGES[STAGES.indexOf(stageOf(game.creature.growth)) + 1];
     const pct = next ? Math.round(((game.creature.growth - stage.from) / (next.from - stage.from)) * 100) : 100;
-    $("#g-stage").textContent = `${TYPES[look.type].name} ${stage.id === "egg" ? "egg" : SPECIES[look.species].name.toLowerCase()} · ${STAGE_LABEL[stage.id]}`
-      + (look.branch ? ` (${BRANCHES[look.branch].name})` : "") + (ready ? " · ready to evolve: tap it" : next ? ` · ${pct}% to ${STAGE_LABEL[next.id].toLowerCase()}` : "");
+    // Each piece goes through t() so the line reads naturally in the user's language.
+    const kind = t(TYPES[look.type].name);
+    const what = stage.id === "egg" ? t("{0} egg", kind) : t("{0} {1}", kind, t(SPECIES[look.species].name).toLocaleLowerCase(uiLanguage()));
+    $("#g-stage").textContent = `${what} · ${t(STAGE_LABEL[stage.id])}`
+      + (look.branch ? ` (${t(BRANCHES[look.branch].name)})` : "")
+      + (ready ? ` ${t("· ready to evolve: tap it")}` : next ? ` ${t("· {0}% to {1}", pct, t(STAGE_LABEL[next.id].toLowerCase()))}` : "");
     $("#g-stage").classList.toggle("lit", ready);
     if (ready) $("#g-stage").prepend(h(icon("evolve")), " ");
     $("#g-streak span").textContent = `${game.streak} day${game.streak === 1 ? "" : "s"}`;

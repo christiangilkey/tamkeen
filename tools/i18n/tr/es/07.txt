@@ -1,0 +1,200 @@
+419e5a77 eclosiona
+8736920d cría
+6839db6f joven
+82aef589 adulta
+70afe9ef Descartar
+a30d2444 ✓ Aceptado
+d7e5d622 📁 {0} · {1} palabras
+a5dbb7a2 ★ {0} palabras
+aaf0f881 para {0}
+7b347cb7 · 🔊 audio{0}
+35f49dcf Enviado
+03f7e506 Añadir a mi vocabulario
+81506135 ✓ Añadido a tu vocabulario
+fd4130f9 a la carpeta «{0}»
+ee02aae1 Se añadieron {0} palabras{2}.
+69bd4ef9 Ver
+2777c993 Anular envío: borrar este mensaje para los dos
+32fedd8c ¿Anular el envío de este mensaje? Se borrará para los dos.
+93536c19 Aún no hay mensajes. Di {0} 👋
+7aad9d60 Las notas de voz no funcionan en este dispositivo.
+f5985fff La app necesita permiso para usar el micrófono para las notas de voz.
+dad9f44a Fue demasiado corto para enviarlo.
+2b73aff6 Enviando nota de voz…
+f4c667a4 {0} y {1}
+3af45b33 Volver a la biblioteca
+da089e19 Tendencias en {0:lower}
+770dabce	Los pódcasts más escuchados ahora mismo en {0}. Pulsa <0>+ Añadir</0> para poner uno en tu biblioteca.
+5585dc7f Volver a cargar la lista
+c4e76a79 ⟳ Actualizar
+e17054bf Cargando pódcasts en tendencia…
+edaa4f9c Listas de <0>Apple Podcasts</0>.
+55461d2c ✓ Añadido
+109b936a + Añadir
+c2510071 Se añadió «{0}» a tu biblioteca.
+0455d100 No se pudo añadir «{0}»: {1}
+6a720856 Todo
+c96f6acd Ver los {0} de {1}
+d6cc1316 Nada en tendencia en {0:lower} ahora mismo
+75a6baf2 Las listas no tenían pódcasts en este idioma ahora mismo. Inténtalo más tarde o pega la dirección RSS de un pódcast en la Biblioteca.
+57a11040 No se pudieron cargar los pódcasts en tendencia
+a0ffb6d7 Aprended juntos
+3a374802 Añade amigos por nombre de usuario, forma gremios, enviaos mensajes (con notas de voz), envía palabras y carpetas y mira qué estudia cada uno. Conecta tu cuenta de Google en Ajustes para empezar.
+4e4b5579 Abrir Ajustes → Amigos y compartir
+49421c8e Primero elige un nombre de usuario para que tus amigos te encuentren.
+81d5a343 Elegir un nombre de usuario
+c8f5eda8 Quitar foto
+240a677f Cambiar tu foto de perfil
+7fe92d97 Toca tu foto para cambiarla
+c32658e7 Editar lo que estoy estudiando
+cfd93f3f Mostrar mi perfil
+986ce024 Ocultar mi perfil
+7b634db9 Esto es lo que ven tus amigos junto a tu nombre
+cf2f49f6 Foto quitada.
+9d62374f Muestra a tus amigos con qué estás aprendiendo: un episodio de pódcast, un vídeo de YouTube, una canción, una película. Añade también una nota corta.
+1fe1c9e2 quiere ser tu amigo
+61cd9dee {0} y tú ya sois amigos.
+f97e0f3e {0} te invitó a este gremio
+e0d73143 Unirse
+8343796d Te uniste a {0}.
+b59cf9ed Rechazar
+bb386fdb Gremios
+9b343820 ＋ Nuevo gremio
+6e157c5d Crear
+8978ccfe Nombre del gremio
+41ea8208 ETIQ
+c2947194 La etiqueta aparece junto al nombre de los miembros. {0}
+7d96fc5d Gremio «{0}» creado. ¡Invita a tus amigos!
+6fc866d1 Un gremio es un grupo de amigos con su propio nombre y etiqueta. Todos sus miembros se ven aquí, con lo que están estudiando, y pueden enviarse mensajes. Crea uno o espera una invitación.
+612a1349 · lo fundaste tú
+7382cf3e {0} miembros{2}
+88f506a1 ＋ Invitar a un amigo
+7bd335d2 Todos tus amigos ya están en este gremio.
+326d1c75 Primero añade un amigo y luego invítalo.
+67e9cb4d Invitar a {0}
+f318af38 Invitaste a {0} a {1}.
+7e3520a9 Salir
+bffc4127 ¿Salir de «{0}»? Eres el único miembro, así que el gremio se cerrará.
+c7d54e1c El miembro más antiguo pasa a ser el fundador.
+3ae5d4a6 ¿Salir de «{0}»?{1}
+9a4506a3 Solicitud enviada a {0}.
+fa8d4903 ¿Quitar a {0} de {1}?
+f0599be1 De momento solo estás tú. Invita a un amigo para empezar.
+f1d382dd Añadir un amigo
+7ddd5e45 Su nombre de usuario
+a89d6417 Enviar solicitud
+781f394f · {0} en línea
+d2b3ee8a Tus amigos
+e630733e Aún no tienes amigos. Comparte tu nombre de usuario, <0>@{0}</0>, o añade a alguien arriba.
+f034a2d7 ¿Quitar a {0} de tus amigos?
+904e125d Buscar un amigo
+b06dc642 No hay ningún amigo llamado «{0}».
+4f9c0764 Esperando a que acepte
+abe096ed Subiendo tu foto…
+3d7ef010 Foto de perfil actualizada.
+bb72b60d Seguir escuchando
+8fca30f7 Seguir viendo
+4f4840a8 Seguir leyendo
+6a4f54ef Buenas noches
+0f768926 Buenos días
+13fd0a3e Buenas tardes
+2e026239 Continuar
+4e34d263 También en curso
+65a724ff Lo tienes todo al día
+1c3b619c No queda nada a medias. Elige algo nuevo cuando quieras.
+e32ed3b5 Abrir tu biblioteca
+ae2245c8 Pódcasts, vídeos y páginas web
+ea399154 Repasar tu vocabulario
+d6a7fd46 Las palabras que has guardado
+46f72e49 Ver qué estudian tus amigos
+7d84d91b Mensajes y palabras compartidas
+4cdd6ff2 ★ {0} palabras guardadas hoy
+d27bd152 {0} en tu vocabulario
+db2c45d5 Sin empezar
+6a599877 En cola
+b6bd42e4 En curso
+09fef5d8 Falló
+fd52b45d Pódcasts
+d5364a6a Aún no hay vídeos de YouTube. Pulsa «Abrir YouTube» arriba y toca un vídeo.
+43e751cf Mis páginas web
+44616f98 Aún no hay páginas web. Usa «Añadir una página web» o «Abrir navegador web» arriba.
+44473bdb Mis vídeos
+87780e0b Aún no tienes vídeos propios. Usa «Añadir archivo de vídeo» arriba.
+c467d30b Mi audio
+9a5be374 Aún no tienes audio propio. Usa «Añadir archivo de audio» arriba.
+61e340e9 Reels
+2cfb6c20 Aún no hay reels. <0>Conseguir reels</0>
+00d12e01 Descargando {0} %
+08f7cc23 Transcribiendo {0} %
+c94946db Pega la URL del feed RSS de un pódcast
+e9e4317e URL del feed RSS del pódcast
+24ba4ecf Añadir pódcast
+b1de5a9b Mira qué pódcasts son populares ahora mismo en el idioma que estudias, ordenados por tema, y añade cualquiera con un toque
+29109ff4 Navega por YouTube dentro de la app. Toca un vídeo y se abre en el reproductor de Tamkeen, con sus subtítulos como texto clicable
+4c8aacce Abrir YouTube
+a2a04642 Abrir YouTube empieza con los vídeos más vistos de esta semana en este país
+981a7d86 Popular en
+6426a33b Toca un vídeo allí para verlo aquí con subtítulos clicables.
+53a9f5e8 Pega la URL de un sitio web
+b32233ad URL del sitio web
+d6fbc9d2 Importar
+056148af Navega por la web dentro de la app e importa cualquier página que estés leyendo
+71091d5d Abrir navegador web
+547402e6 Añade un archivo de vídeo propio; se transcribe y se guarda en tu Google Drive
+fa7502c2 Añadir archivo de vídeo
+34b21c9b Añade un archivo de audio propio (una grabación, una clase, una canción); se transcribe y se guarda en tu Google Drive
+918f00f2 Añadir archivo de audio
+cddfd770 Buscar episodios nuevos en los feeds y sincronizar con Google Drive (recoge lo que haya en cola en tu teléfono)
+8860c417 ⟳ Actualizar y sincronizar
+54aa4f1a Añadir una página web
+4a2500ac Pega la URL del sitio web
+13a9f630 Abrir navegador<0/>web
+978553c3 Añadir un pódcast
+b2d2623a Pega la URL del feed RSS
+ccf228c9 Ver un vídeo de YouTube
+f19e76a6 Toca allí cualquier vídeo para verlo aquí con subtítulos clicables. El vídeo necesita subtítulos.
+5f0eb45f Reels de Instagram
+d7c052ed Consigue un lote de vídeos cortos populares en el idioma que estudias. Tu ordenador escribe lo que se dice en cada uno, y se reproducen uno tras otro en tu teléfono con las palabras debajo
+1ac27b46 Reels para mi teléfono
+913afff1 Seleccionar todo
+ffed8c0f Transcribir seleccionados
+54971873 Eliminar de tu Biblioteca los episodios marcados para siempre, en todos los dispositivos
+8516a714 Eliminar seleccionados
+18915bbf Ver estos reels
+585efa75 Filtrar por título
+dfe60ca9 Cargar más
+de23e71b Vistos recientemente
+d7cc3213 Aquí aparecen los canales que sigues. Pulsa Seguir debajo de un vídeo.
+10c927f2 Todos los episodios
+ba7dd347 {0}/{1} transcritos{2}
+3f52d1ce Aún no hay pódcasts. Añade uno arriba o mira en Tendencias.
+476f9671 Páginas web que importaste. Abre una para leerla con cada palabra clicable. Añade más con «Añadir una página web», o navega con «Abrir navegador web» y pulsa Importar página.
+8bf58c5b Tus reels de Instagram, los más nuevos primero. Se reproducen desde Instagram en tu teléfono, uno tras otro, con las palabras debajo. Marca algunos para ver solo esos.
+6b9cf91e Elige más reels de Instagram para añadir a esta lista
+1cc9f7e6 Conseguir más reels
+b1fa4fab Reproducir todos los reels, uno tras otro
+3b8796cc ▶ Ver todos
+e3a6fe56 Dejar de seguir
+9905eae6 Vídeos que has visto de este canal, los más recientes primero.
+47763f28 Abre este canal en YouTube dentro de la app. Toca un vídeo y se abre en el reproductor de Tamkeen
+8eb9918e Más de este canal
+6aa45ce0 Dejaste de seguir a {0}. Sus vídeos siguen en Vistos recientemente.
+acdac205 Audio
+bc17c1f0 Vídeo
+8b82dc98 {0} archivos que añadiste tú. Se transcriben en tu ordenador y se guardan en tu Google Drive para que todos tus dispositivos puedan reproducirlos. Usa «Añadir archivo de {1}» para añadir más.
+fb55bc86 ⚠ La última actualización falló: {0}
+814c21ac Comprobado {0}
+1f370d70 Poner en cola los episodios nuevos para transcribirlos automáticamente cuando aparezcan
+6079af61 Transcribir automáticamente los episodios nuevos
+33ec2170 Quitar pódcast
+a1dcfc3e Los episodios nuevos se transcribirán automáticamente.
+2125ead2 Transcripción automática desactivada.
+952950e4 ¿Quitar «{0}»? Se borrarán sus transcripciones y el audio descargado. El vocabulario guardado se conserva.
+2b8200f3 Seleccionar episodio
+d91ebf58 Ver
+9f5cd8a2 Reintentar
+5a635355 Transcribir
+7ddf9ded ¿Borrar «{0}» de tus páginas web? El vocabulario guardado se conserva.
+33fb4593 ¿Quitar «{0}» de tus vídeos de YouTube? El vocabulario guardado se conserva.
+e65bc198 ¿Quitar «{0}» de tus reels? El vocabulario guardado se conserva.
+3c6ef288 ¿Borrar «{0}»? El {1} y su transcripción se eliminan de este dispositivo y de tu Google Drive. El vocabulario guardado se conserva.

@@ -72,10 +72,18 @@ export const LANGUAGES = {
     pageSample: "Ang kape ay inuming gawa sa mga binusang buto ng halamang kape, at isa ito sa pinakasikat na inumin sa buong mundo.",
     test: { word: "kasi", marked: "Hindi ako nakapunta ⟦kasi⟧ umulan.", podcast: "Totoong Tagalog" },
   },
+  en: {
+    ...LTR, name: "English", native: "English",
+    hello: "Welcome!", hi: "hi", search: "search", word: "the word",
+    greet: ["Good morning", "Good afternoon", "Good evening"],
+    sample: "Welcome to a brand new episode of the podcast.",
+    pageSample: "Coffee is a drink made from the roasted seeds of the coffee plant, and it is one of the most popular drinks in the world.",
+    test: { word: "gonna", marked: "I'm ⟦gonna⟧ call you later, okay?", podcast: "Real English" },
+  },
 };
 
 export const LANGUAGE_CODES = Object.keys(LANGUAGES);
-const OTHER = { ...LTR, name: "", native: "" }; // text in a language the app doesn't teach (e.g. English)
+const OTHER = { ...LTR, name: "", native: "" }; // text in a language the app doesn't teach
 
 export const isLanguage = (code) => Object.prototype.hasOwnProperty.call(LANGUAGES, code);
 export const langInfo = (code) => (isLanguage(code) ? LANGUAGES[code] : OTHER);
@@ -110,7 +118,7 @@ const SCRIPTS = [
 
 /** The taught languages written in Latin letters: text in Latin letters is one of these when it is
  * the language being studied (the letters alone can't tell them apart, or from English). */
-export const LATIN_LANGUAGES = ["es", "fr", "it", "tl"];
+export const LATIN_LANGUAGES = ["es", "fr", "it", "tl", "en"];
 
 /** Which language a piece of text is written in, judged by its letters. Used where nothing
  * recorded the language (saved words, search results, things friends send). Text in Latin

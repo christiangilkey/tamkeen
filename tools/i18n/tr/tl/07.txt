@@ -1,0 +1,200 @@
+419e5a77 mapisa
+8736920d bagong pisa
+6839db6f bata
+82aef589 nasa hustong gulang
+70afe9ef Isara
+a30d2444 ✓ Tinanggap
+d7e5d622 📁 {0} · {1} salita
+a5dbb7a2 ★ {0} salita
+aaf0f881 para kay {0}
+7b347cb7 · 🔊 audio{0}
+35f49dcf Naipadala
+03f7e506 Idagdag sa vocab ko
+81506135 ✓ Naidagdag sa vocab mo
+fd4130f9 sa folder na “{0}”
+ee02aae1 Naidagdag ang {0} salita{2}.
+69bd4ef9 Tingnan
+2777c993 I-unsend: burahin ang mensaheng ito para sa inyong dalawa
+32fedd8c I-unsend ang mensaheng ito? Mabubura ito para sa inyong dalawa.
+93536c19 Wala pang mensahe. Sabihin ang {0} 👋
+7aad9d60 Hindi suportado ang voice note sa device na ito.
+f5985fff Kailangan ng app ng pahintulot na gamitin ang mikropono para sa voice note.
+dad9f44a Masyadong maikli para ipadala.
+2b73aff6 Ipinapadala ang voice note…
+f4c667a4 {0} at {1}
+3af45b33 Bumalik sa library
+da089e19 Trending sa {0}
+770dabce Ang mga pinakapinakikinggang podcast ngayon sa {0}. Pindutin ang <0>+ Idagdag</0> para ilagay ang isa sa library mo.
+5585dc7f I-load ulit ang listahan
+c4e76a79 ⟳ I-refresh
+e17054bf Nilo-load ang mga trending na podcast…
+edaa4f9c Mga chart mula sa <0>Apple Podcasts</0>.
+55461d2c ✓ Naidagdag
+109b936a + Idagdag
+c2510071 Naidagdag ang “{0}” sa library mo.
+0455d100 Hindi maidagdag ang “{0}”: {1}
+6a720856 Lahat
+c96f6acd Ipakita ang lahat ng {0} sa {1}
+d6cc1316 Walang trending sa {0} ngayon
+75a6baf2 Walang podcast sa wikang ito sa mga chart ngayon. Subukan ulit mamaya, o mag-paste ng RSS address ng podcast sa Library.
+57a11040 Hindi ma-load ang mga trending na podcast
+a0ffb6d7 Mag-aral nang sabay
+3a374802 Magdagdag ng kaibigan gamit ang username, bumuo ng guild, magpadala ng mensahe sa isa't isa (may voice note pa), magpadala ng mga salita at folder, at tingnan kung ano ang pinag-aaralan ng lahat. Ikonekta ang Google account mo sa Settings para magsimula.
+4e4b5579 Buksan ang Settings → Mga kaibigan at pagbabahagi
+49421c8e Pumili muna ng username, para mahanap ka ng mga kaibigan.
+81d5a343 Pumili ng username
+c8f5eda8 Alisin ang larawan
+240a677f Palitan ang profile photo mo
+7fe92d97 Pindutin ang larawan mo para palitan
+c32658e7 I-edit ang pinag-aaralan ko
+cfd93f3f Ipakita ang profile ko
+986ce024 Itago ang profile ko
+7b634db9 Ito ang nakikita ng mga kaibigan mo sa tabi ng pangalan mo
+cf2f49f6 Inalis ang larawan.
+9d62374f Ipakita sa mga kaibigan mo kung saan ka natututo: isang podcast episode, video sa YouTube, kanta, pelikula. Magdagdag din ng maikling tala.
+1fe1c9e2 gustong makipagkaibigan
+61cd9dee Magkaibigan na kayo ni {0}.
+f97e0f3e Inimbitahan ka ni {0} sa guild na ito
+e0d73143 Sumali
+8343796d Sumali ka sa {0}.
+b59cf9ed Tanggihan
+bb386fdb Mga guild
+9b343820 ＋ Bagong guild
+6e157c5d Gumawa
+8978ccfe Pangalan ng guild
+41ea8208 TAG
+c2947194 Lumalabas ang tag sa tabi ng pangalan ng mga miyembro. {0}
+7d96fc5d Nagawa ang guild na “{0}”. Imbitahan ang mga kaibigan mo!
+6fc866d1 Ang guild ay grupo ng magkakaibigan na may sariling pangalan at tag. Nakikita rito ng lahat ng miyembro ang isa't isa at ang pinag-aaralan nila, at puwede silang magmensahe sa isa't isa. Gumawa ng isa, o maghintay ng imbitasyon.
+612a1349 · ikaw ang nagtatag
+7382cf3e {0} miyembro{2}
+88f506a1 ＋ Mag-imbita ng kaibigan
+7bd335d2 Nasa guild na ito ang lahat ng kaibigan mo.
+326d1c75 Magdagdag muna ng kaibigan, saka sila imbitahan.
+67e9cb4d Imbitahan sa {0}
+f318af38 Inimbitahan si {0} sa {1}.
+7e3520a9 Umalis
+bffc4127 Umalis sa “{0}”? Ikaw lang ang miyembro, kaya isasara ang guild.
+c7d54e1c Ang pinakamatagal na miyembro ang magiging nagtatag.
+3ae5d4a6 Umalis sa “{0}”?{1}
+9a4506a3 Naipadala ang request kay {0}.
+fa8d4903 Alisin si {0} sa {1}?
+f0599be1 Ikaw pa lang sa ngayon. Mag-imbita ng kaibigan para magsimula.
+f1d382dd Magdagdag ng kaibigan
+7ddd5e45 Ang username niya
+a89d6417 Ipadala ang request
+781f394f · {0} online
+d2b3ee8a Mga kaibigan mo
+e630733e Wala ka pang kaibigan. Ibahagi ang username mo, <0>@{0}</0>, o magdagdag ng isa sa itaas.
+f034a2d7 Alisin si {0} sa mga kaibigan mo?
+904e125d Maghanap ng kaibigan
+b06dc642 Walang kaibigang nagngangalang “{0}”.
+4f9c0764 Hinihintay siyang tumanggap
+abe096ed Ina-upload ang larawan mo…
+3d7ef010 Na-update ang profile photo.
+bb72b60d Ituloy ang pakikinig
+8fca30f7 Ituloy ang panonood
+4f4840a8 Ituloy ang pagbabasa
+6a4f54ef Magandang gabi
+0f768926 Magandang umaga
+13fd0a3e Magandang hapon
+2e026239 Ituloy
+4e34d263 Ginagawa pa rin
+65a724ff Wala ka nang naiwan
+1c3b619c Walang naiwang hindi tapos. Pumili ng bago kahit kailan mo gusto.
+e32ed3b5 Buksan ang library mo
+ae2245c8 Mga podcast, video at web page
+ea399154 Balikan ang vocab mo
+d6a7fd46 Ang mga salitang na-save mo
+46f72e49 Tingnan ang pinag-aaralan ng mga kaibigan
+7d84d91b Mga mensahe at ibinahaging salita
+4cdd6ff2 ★ {0} salita ang na-save ngayon
+d27bd152 {0} sa vocab mo
+db2c45d5 Hindi pa nasisimulan
+6a599877 Nakapila
+b6bd42e4 Ginagawa
+09fef5d8 Hindi nagawa
+fd52b45d Mga podcast
+d5364a6a Wala pang YouTube video. Pindutin ang “Buksan ang YouTube” sa itaas at pindutin ang isang video.
+43e751cf Mga webpage ko
+44616f98 Wala pang webpage. Gamitin ang “Magdagdag ng webpage” o “Buksan ang Web Browser” sa itaas.
+44473bdb Mga video ko
+87780e0b Wala ka pang sariling video. Gamitin ang “Magdagdag ng video file” sa itaas.
+c467d30b Audio ko
+9a5be374 Wala ka pang sariling audio. Gamitin ang “Magdagdag ng audio file” sa itaas.
+61e340e9 Reels
+2cfb6c20 Wala pang reels. <0>Kumuha ng reels</0>
+00d12e01 Dina-download {0}%
+08f7cc23 Tina-transcribe {0}%
+c94946db I-paste ang RSS feed URL ng podcast
+e9e4317e RSS feed URL ng podcast
+24ba4ecf Idagdag ang podcast
+b1de5a9b Tingnan kung aling mga podcast ang sikat ngayon sa wikang pinag-aaralan mo, ayon sa paksa, at idagdag ang alinman sa isang pindot
+29109ff4 Mag-browse sa YouTube sa loob ng app. Pindutin ang isang video at bubukas ito sa player ng Tamkeen, na puwedeng i-click ang captions
+4c8aacce Buksan ang YouTube
+a2a04642 Nagsisimula ang Buksan ang YouTube sa mga pinakapinanood na video ngayong linggo sa bansang ito
+981a7d86 Sikat sa
+6426a33b Pindutin doon ang isang video para panoorin ito rito na may captions na puwedeng i-click.
+53a9f5e8 I-paste ang URL ng website
+b32233ad URL ng website
+d6fbc9d2 I-import
+056148af Mag-browse sa web sa loob ng app at i-import ang anumang page na binabasa mo
+71091d5d Buksan ang Web Browser
+547402e6 Magdagdag ng sarili mong video file; ita-transcribe ito at ise-save sa Google Drive mo
+fa7502c2 Magdagdag ng video file
+34b21c9b Magdagdag ng sarili mong audio file (recording, aralin, kanta); ita-transcribe ito at ise-save sa Google Drive mo
+918f00f2 Magdagdag ng audio file
+cddfd770 Tingnan ang mga feed kung may bagong episode at mag-sync sa Google Drive (kasama ang nakapila sa phone mo)
+8860c417 ⟳ I-refresh at i-sync
+54aa4f1a Magdagdag ng webpage
+4a2500ac I-paste ang URL ng website
+13a9f630 Buksan ang Web<0/>Browser
+978553c3 Magdagdag ng podcast
+b2d2623a I-paste ang RSS feed URL
+ccf228c9 Manood ng YouTube video
+f19e76a6 Pindutin doon ang kahit anong video para panoorin ito rito na may captions na puwedeng i-click. Kailangang may captions ang video.
+5f0eb45f Instagram reels
+d7c052ed Kumuha ng isang batch ng sikat na maiikling video sa wikang pinag-aaralan mo. Isinusulat ng computer mo ang sinasabi sa bawat isa, at sunod-sunod silang pinapatugtog sa phone mo nang may mga salita sa ilalim
+1ac27b46 Reels para sa phone ko
+913afff1 Piliin lahat
+ffed8c0f I-transcribe ang napili
+54971873 Tuluyang alisin sa Library mo ang mga may tsek na episode, sa bawat device
+8516a714 Burahin ang napili
+18915bbf Panoorin ang mga reel na ito
+585efa75 I-filter ayon sa pamagat
+dfe60ca9 Mag-load pa
+de23e71b Kamakailang napanood
+d7cc3213 Lalabas dito ang mga channel na sinusundan mo. Pindutin ang Follow sa ilalim ng video.
+10c927f2 Lahat ng episode
+ba7dd347 {0}/{1} na-transcribe{2}
+3f52d1ce Wala pang podcast. Magdagdag sa itaas, o tumingin sa Trending.
+476f9671 Mga web page na in-import mo. Buksan ang isa para basahin na puwedeng i-click ang bawat salita. Magdagdag pa gamit ang “Magdagdag ng webpage”, o mag-browse gamit ang “Buksan ang Web Browser” at pindutin ang I-import ang Page.
+8bf58c5b Ang Instagram reels mo, pinakabago muna. Pinapatugtog sila mula sa Instagram sa phone mo, sunod-sunod, nang may mga salita sa ilalim. Lagyan ng tsek ang ilan para iyon lang ang panoorin.
+6b9cf91e Pumili ng iba pang reel mula sa Instagram para idagdag sa listahang ito
+1cc9f7e6 Kumuha pa ng reels
+b1fa4fab I-play ang bawat reel, sunod-sunod
+3b8796cc ▶ Panoorin lahat
+e3a6fe56 I-unfollow
+9905eae6 Mga video na napanood mo mula sa channel na ito, pinakabago muna.
+47763f28 Buksan ang channel na ito sa YouTube sa loob ng app. Pindutin doon ang isang video at bubukas ito sa player ng Tamkeen
+8eb9918e Iba pa mula sa channel na ito
+6aa45ce0 Hindi mo na sinusundan ang {0}. Nananatili ang mga video nito sa Kamakailang napanood.
+acdac205 Audio
+bc17c1f0 Video
+8b82dc98 Mga {0} file na ikaw mismo ang nagdagdag. Tina-transcribe sila sa computer mo at naka-save sa Google Drive mo, kaya mapapatugtog sila sa bawat device. Gamitin ang “Magdagdag ng {1} file” para magdagdag pa.
+fb55bc86 ⚠ Hindi nagawa ang huling refresh: {0}
+814c21ac Nasuri {0}
+1f370d70 Kusang ipila ang mga bagong episode para sa transcription kapag lumabas
+6079af61 Kusang i-transcribe ang mga bagong episode
+33ec2170 Alisin ang podcast
+a1dcfc3e Kusang ita-transcribe ang mga bagong episode.
+2125ead2 Pinatay ang auto-transcribe.
+952950e4 Alisin ang “{0}”? Buburahin ang mga transcript nito at ang na-download na audio. Mananatili ang na-save na vocab.
+2b8200f3 Piliin ang episode
+d91ebf58 Panoorin
+9f5cd8a2 Subukan ulit
+5a635355 I-transcribe
+7ddf9ded Burahin ang “{0}” sa mga webpage mo? Mananatili ang na-save na vocab.
+33fb4593 Alisin ang “{0}” sa mga YouTube video mo? Mananatili ang na-save na vocab.
+e65bc198 Alisin ang “{0}” sa mga reel mo? Mananatili ang na-save na vocab.
+3c6ef288 Burahin ang “{0}”? Aalisin sa device na ito at sa Google Drive mo ang {1} at ang transcript nito. Mananatili ang na-save na vocab.

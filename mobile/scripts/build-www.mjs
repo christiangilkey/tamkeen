@@ -77,6 +77,8 @@ const SHARED = [
   "js/components/onboarding.js",
   "js/commonwords.js",
   "js/wordlists",
+  "js/i18n.js",
+  "i18n",
 ];
 
 rmSync(out, { recursive: true, force: true });

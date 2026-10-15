@@ -1,0 +1,12 @@
+# Words the code puts into sentences, which the extractor's rules would leave out.
+# game/creatures.js: "Opens as you do more …"
+listening
+reading
+word collecting
+# game/info.js: "{0} more XP until it hatches / is a juvenile"
+hatches
+hatchling
+juvenile
+adult
+# game/habitat.js: the creature line on Home, "{0} {1}" = element and kind ("Ember blob")
+{0} {1}

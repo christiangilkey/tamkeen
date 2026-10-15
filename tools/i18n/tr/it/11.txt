@@ -1,0 +1,180 @@
+027a12c2 Bielorussia
+c951ec00 Ucraina
+8067364d Filippine
+9769121f Regno Unito
+eb2131ec Irlanda
+a2238e91 Nuova Zelanda
+967ce367 India
+9742d008 Nigeria
+35fda17f Sudafrica
+bc288dca Non sembra un video di YouTube.
+37e8b90a Questo video non dice da quale canale proviene.
+bf32bc87 Impossibile raggiungere YouTube. Controlla la connessione.
+873fbc5a YouTube non mostrerà questo video qui: {0}
+47b4cecf YouTube non ha risposto su questo video. Riprova tra un minuto.
+bb0ea382 Nessun sottotitolo disponibile per questo video.
+a66bb5c6 Nessun sottotitolo in {0:lower} disponibile per questo video.
+6f502e0d Impossibile caricare il lettore di YouTube. Controlla la connessione.
+e4b5c056 Il proprietario di questo video non ne consente la riproduzione dentro altre app.
+b2b518b0 Questo video è stato rimosso o reso privato.
+269fa6c0 il lettore di YouTube si sta ancora caricando
+68e1c493 La sincronizzazione con AnkiDroid funziona nell'app installata.
+5ce90e69 AnkiDroid non è installato su questo telefono.
+c175063b Tamkeen non ha il permesso di usare le carte di AnkiDroid. Tocca Sincronizza ora e scegli Consenti, oppure consentilo nelle impostazioni di Android per Tamkeen (Autorizzazioni).
+5eed15f4 Tamkeen non ha il permesso di usare le carte di AnkiDroid.
+6167031d La sincronizzazione con AnkiDroid si è fermata: {0}
+2fd01022 Scelta sconosciuta.
+d18f8d89 Anteprima: qui Instagram chiederebbe di accedere ({0})
+0c7cd35b Anteprima: qui verrebbe riprodotto {0}
+a27c2834 ‹ Precedente
+51802ba8 Successivo ›
+011ae46a Caricamento dell'audio…
+5a1d72f4 Impossibile caricare l'audio sincronizzato, viene riprodotto l'originale. ({0})
+772f977a Il collegamento funziona nell'app Android installata.
+e129fbc7 L'audio di questa parola non è ancora su questo telefono. Sincronizza e riprova.
+bb397028 L'importazione delle pagine funziona nell'app Android installata.
+01dae1d6 Impossibile raggiungere quel sito. Controlla l'indirizzo e la connessione.
+29245f84 Il sito ha risposto con un errore ({0}). Prova «Apri il browser web» e usa lì Importa pagina.
+29161415 Qui sono consentite solo richieste all'elenco dei podcast di Apple.
+0eec41ce Impossibile raggiungere l'elenco dei podcast di Apple. Controlla la connessione.
+bac91013 L'aggiunta di video di YouTube funziona nell'app Android installata.
+9c6c80e5 Impossibile aprire qui questo video.
+9ec8a2aa {0} Si apre invece su YouTube.
+a0db0eba «{0}» importato ({1} parole). È in Le mie pagine web.
+7b230e38 Segui {0}. È nella tua Libreria sotto YouTube.
+116e96c0 Non segui più {0}.
+2023ac63 Salvato nella tua pagina iniziale.
+b794b57c Accedi con Google (Impostazioni) per guardare i video salvati nel tuo Drive.
+83cbe2cb Questo video si sta ancora caricando dal tuo computer.
+7aaa1f34 I video si riproducono nell'app Android installata.
+afe5afc2 Il video non è più nel tuo Google Drive.
+e916be2e Prima accedi con Google (Impostazioni): i tuoi file sono salvati nel tuo Drive.
+97aca1c7 Scegli un file video (MP4, MOV, WebM, MKV, AVI, 3GP) o audio (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).
+2a4b391c Il tuo computer lo trascriverà alla prossima sincronizzazione.
+cfb6ce14 Esportazione sconosciuta.
+b2c43554 Consenti «Installa app sconosciute» per Tamkeen, torna qui e tocca Riprova.
+8daa5363 Tocca Aggiorna nel programma di installazione di Android. La tua libreria resta com'è.
+f1cd4b29 Impossibile aprire quella pagina di YouTube.
+e599c6b1 Trascrizione pronta: {0}
+abc6efcd Impossibile trascrivere «{0}»: {1}
+dbb00f48 Nuova trascrizione: {0}
+737fe002 {0} nuove trascrizioni
+84db0dcd 1 nuovo episodio di podcast
+b2510650 {0} nuovi episodi di podcast
+ec5bfe65 In quella pagina non è stato trovato testo leggibile.
+a2a96aa1 Gli episodi compaiono dopo che il tuo computer ha sincronizzato questo feed.
+37b12633 Il server del feed ha restituito HTTP {0}.
+3155edfa Il feed continuava a mandare l'app altrove.
+48b36ff0 Impossibile scaricare la trascrizione: {0}
+d6be1437 Incolla l'URL di un feed RSS.
+91ad3544 Sei già iscritto a questo feed.
+690e2ff2 Feed non trovato.
+bf2ba910 Accedi con Google (Impostazioni) per ricevere la tua libreria dal computer.
+8b5a0e5e Il tuo computer li trascriverà alla prossima sincronizzazione.
+c7d6726a Episodio non trovato.
+1bd35f3f Non sembra un reel.
+a78d3b8f In questo reel non si dice niente.
+1d6b4183 Quel video non è ancora nella libreria.
+96d03b0f Niente da salvare.
+294611a1 Dai un nome alla cartella.
+08f351d2 Cartella non trovata.
+f1124044 Non trovato.
+4fdd6fdd Non c'è nessuna frase da salvare.
+95b85b31 Non è una risposta.
+6d483033 Quel dizionario non è stato scaricato.
+84c8cb59 Non disponibile sul telefono: {0} {1}
+957efe5e L'accesso con Google funziona nell'app Android installata.
+59af74d7 Accesso non effettuato.
+6e07f63f L'accesso con Google va rinnovato. Apri le Impostazioni e accedi di nuovo.
+b7ac2dcb Errore di Google Drive {0}: {1}
+402eaf0a Google Drive non ha avviato il caricamento.
+977db692 Caricamento su Google Drive non riuscito ({0}).
+5cf59ec6 Caricamento interrotto. Controlla la connessione e riprova.
+979354ab non è una raccolta
+4742fc3e Impossibile scaricare i dizionari. Controlla la connessione e riprova.
+16f085e3 Il dizionario di {0:lower} non è ancora pubblicato.
+a09450db Un dizionario è arrivato danneggiato. Riprova.
+e90c933b Usata per le pagine web che importi qui, per le spiegazioni delle parole e per tutto ciò che viene trascritto da questo telefono. Imposta la stessa sul computer. Ciò che hai già trascritto mantiene la lingua con cui è stato fatto.
+2b7da079 I tuoi podcast, trascrizioni e vocabolario sono condivisi con il computer tramite una cartella privata dell'app nel tuo Google Drive. A meno che tu non scelga qui sopra un fornitore cloud, la trascrizione avviene sul computer: tocca «Trascrivi» qui e lo farà alla prossima sincronizzazione.
+5c90bb93 AnkiDroid (facoltativo)
+10899135 Vibra leggermente quando tocco o salvo una parola
+b0cc938b Testo di podcast e video: <0/> <1>{0}px</1>
+283086ed Testo delle pagine web: <0/> <1>{0}px</1>
+f4c2b5ca Tamkeen per Android · <0>Informativa sulla privacy</0>
+485bef4c L'accesso funziona nell'app installata.
+ecc1d2f5 Accesso effettuato come {0}
+3addceb3 Sincronizzazione non riuscita: {0}
+7ff90624 Modalità anteprima: l'accesso funziona nell'app installata.
+10e45b5e I tuoi podcast, trascrizioni e vocabolario, sul telefono.
+d0ddef8f <0>Trascrivi sul computer.</0> L'app desktop crea le trascrizioni parola per parola.
+f0adf6f0 <0>Accedi con lo stesso account Google</0> qui e sul computer. Tutto si sincronizza tramite una cartella privata dell'app nel tuo Google Drive.
+a6b63644 <0>Tocca una parola qualsiasi</0> per sentirla e vedere cosa significa nel contesto. Tieni premuto per altre opzioni.
+eb2732b0 Accesso effettuato come {0}. Recupero della tua libreria…
+84ab641a non può essere mostrato fuori da Instagram
+61151245 Instagram non si è aperto. Controlla la connessione e riprova.
+d5ee628a Instagram non ha risposto in tempo.
+c6ff8ff1 Già occupato con Instagram. Riprova quando ha finito.
+ff8747f0 Prima attiva la trascrizione nel cloud nelle Impostazioni: è ciò che permette a questo telefono di ascoltare i reel.
+2798b2f0 Apertura di Instagram…
+352cdb34 Prima accedi a Instagram: premi «Accedi a Instagram» e accedi lì. Quella finestra si chiude da sola e Tamkeen continua.
+8fcc7be3 Interrotto.
+752ead87 {0} raccolte
+3d4f9a7c Interrotto. Trovate finora: {0}.
+f351926a Ricerca tra i tuoi salvati su Instagram… finora {0}. (Ferma conserva quelle trovate.)
+42c1b8ad Ricerca delle tue raccolte tra i salvati su Instagram…
+902f4134 Trovate {0} raccolte salvate. Scegline una dall'elenco.
+7271c886 Nessuna raccolta trovata tra i tuoi salvati su Instagram. Puoi comunque scegliere «Tutto ciò che ho salvato».
+a904dcc2 Quella raccolta non è nell'elenco. Premi di nuovo «Trova le mie raccolte».
+96d3280d Lettura di quella raccolta su Instagram…
+c2182d2c Recupero delle immagini…
+5c716b95 Trovati {0} post salvati. Spunta quelli che vuoi.
+c4dbbbdc non è stato possibile leggerlo
+4c93a121 non è un video
+856eba9f non è stato possibile scaricare il video{0}
+923accb8 il video è arrivato vuoto da Instagram
+f1d247f4 troppo grande per essere inviato dal telefono
+b5adf68f non si dice niente
+3bb1a5b6 in {0:lower}, non in {1:lower}
+8a1414e3 quasi nessun parlato
+ed162d4b , in {0:lower}
+c14398dc (si riproduce con l'accesso a Instagram)
+26dda5ef {0} parole{1}{2}
+d7ddc937 Prima spunta i reel che vuoi.
+dd51e085 Ascolto del reel {0} di {1}…
+32ece972 {0} non utilizzabili (vedi sotto).
+3f643109 {0} su {1} pronti da guardare.{2}
+72ef9385 I reel casuali non sono ancora disponibili per questa lingua.
+d2742d01 Interrotto. Conservati {0}.
+0b85ce49 Ricerca di reel in {0:lower} ({1})…
+cbf2cd0c Ascolto del reel {0} (conservati {1} su {2})…
+d7b93b14 {0} reel casuali in {1:lower} pronti da guardare ({3} ascoltati).
+2d9481a1 Questa volta non è stato possibile conservare nessun reel in {0:lower} ({1} ascoltati). Riprova: le parole di ricerca cambiano ogni volta.
+72012544 Quella raccolta non è nell'elenco.
+18cf0eb4 Non sembra il feed RSS di un podcast.
+ea3bb7b5 Podcast senza titolo
+4d02a4af Episodio senza titolo
+1bb1f30e Frase
+a40a4e6b Inizio (s)
+731a0d43 Fine (s)
+83423c19 Nota:
+5969dbe4 Troppe tabelle per una sola pagina.
+02650201 Impossibile leggere l'audio.
+cfb37b58 L'indirizzo dell'audio continuava a mandare l'app altrove.
+3fa8487e Il download è stato rifiutato (errore {0}).
+606d8615 {0} ha restituito qualcosa che non è una trascrizione.
+5a4f2a6b {0} chiede di aspettare {1}…
+253b5798 {0} ha dei problemi (errore {1}). Riprova tra poco.
+cb8c9ee7 {0} non ha risposto.
+dc8e1cb0 Fornitore sconosciuto.
+d9f8661c Prima incolla una chiave API.
+55059cb2 Impossibile scaricare l'audio (il server ha risposto {0}).
+d80623c2 Il download si è fermato a metà (il server ha risposto {0}).
+d580b524 Questo audio non può essere letto come MP3.
+b37be079 L'audio di questo episodio non è un MP3 e pesa {0}: più di quanto {1} accetta in un solo pezzo (25 MB). Trascrivilo sul computer o usa Groq come fornitore.
+802c66c5 L'audio di questo episodio non è un MP3 ed è troppo grande per essere inviato in un solo pezzo. Trascrivilo sul computer.
+b9a6cf4a Il file non è più nel tuo Google Drive.
+673f3233 La trascrizione nel cloud è disattivata. Attivala nelle Impostazioni.
+aad63d75 Quel file è troppo grande per essere inviato dal telefono, quindi lo trascriverà il computer.
+0ab8077d Token del compagno errato. Scarica di nuovo il componente dalle impostazioni di Tamkeen.
+42ea3675 Troppi giorni in un solo resoconto.
+36edb03f File inesistente.

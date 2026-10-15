@@ -1,0 +1,190 @@
+495d921f {0} ¢ par million de tokens
+eb7ed7c4 cet ordinateur
+1cfceb0b ce téléphone
+8eff88d5 Définitions des mots (IA)
+99b34726 Touchez un mot pour voir ce qu'il veut dire <0>dans cette phrase</0>. Un fournisseur d'IA rédige l'explication avec votre propre clé ; vous le payez directement, une fraction de centime par mot.
+b6db182b Qu'est-ce qui est envoyé, et où ma clé est-elle conservée ?
+097ae941 Le mot, sa phrase et les phrases autour sont envoyés au fournisseur que vous choisissez, et nulle part ailleurs. Votre clé est conservée sur {0} et, si vous utilisez la synchronisation Google Drive, dans le dossier privé de l'application sur votre propre Google Drive, pour que vos autres appareils l'aient aussi. Elle ne fait jamais partie d'un export de données.
+7ceee3f3 Fournisseur
+68c2cc7f Modèle
+61131aac 1 million de tokens ≈ {0} définitions
+51823153 Les tokens sont les morceaux de mots qu'une IA lit et écrit. Les prix sont des estimations pour ce qu'utilise une définition, d'après la grille tarifaire de chaque fournisseur.
+525f7051 Nom du modèle, exactement comme l'écrit le fournisseur
+cf678cab Clé API
+d608fce7 Collez votre clé API ici
+d97d1ee3 Afficher
+d959e754 Je suis bloqué
+63752a4b Expliquer en
+3b3ec110 Tester avec un exemple
+9bd4649b Tokens utilisés aujourd'hui sur {0} :
+27a7d318 ✓ Configuré
+eed6bfb4 Obligatoire
+31ba9246 Obtenir une nouvelle clé ↗
+c3639477 Obtenir votre clé API {0} ↗
+9ef93755 Recommandé
+b729da8b Un autre modèle
+883f8daa Un autre modèle… <0>tapez son nom</0>
+e4f6bb0f C'est une clé {0}, le fournisseur est donc maintenant {1}. Enregistrée : appuyez sur « Tester avec un exemple » pour la vérifier.
+1bb58f41 Enregistrée. Appuyez sur « Tester avec un exemple » pour la vérifier.
+19686f61 Clé supprimée.
+b2731cb4 Impossible d'enregistrer la clé : {0}
+34d8b60f Masquer
+b18ce81d Question en cours…
+ce61ce37 ✓ Ça marche ({0} s) : {1} = « {2} »
+b68a4efa La clé ne fonctionne pas
+622cb8b8 Anki
+8558a88a Réglages de {0}
+b9e7312c il y a {0} min
+002a7fdc {0} ajoutés, {1} modifiés, {2} supprimés
+616f33b4 {0} et {1} de plus
+56fb7687 Garder mes mots enregistrés et mon paquet {0} synchronisés, dans les deux sens
+71d48a93 Seul le paquet indiqué ci-dessous est lu ou modifié : vos autres paquets, notes et cartes ne sont jamais touchés. Les nouveaux mots, les modifications et les suppressions passent dans les deux sens. Une carte que vous créez à la main dans ce paquet devient un mot ici. La progression de révision de chaque carte s'affiche sur la page Vocabulaire ; Tamkeen ne change jamais le calendrier de {0}, l'image d'une carte ni sa mise en page.
+768cd48a Paquet :
+8ce68640 Enregistrer le nom
+33bfb8c9 Donnez un nom au paquet.
+70a256a1 Synchronisation avec le paquet « {0} ».
+3e4aaec6 Pour l'activer, le module ci-dessous (version 2 ou ultérieure) doit être installé dans Anki.
+74a84c68 · {0} mots ont une carte dans le paquet
+343a67e4 Dernière synchronisation avec des changements ({0}) : envoyés {1} ; reçus {2}
+ea83b3ba Dernière synchronisation {0}{1} <0/>Envoyé à {2} : {3}<1/>Reçu de {4} : {5}
+8ab853ab (profil « {0} »)
+311e6a3f <0>{0} a une autre collection ouverte</0>{1} que celle liée à Tamkeen{2}. Rien n'y a été lu ni écrit.
+aa48c6a5 Synchroniser plutôt avec cette collection
+e172d1bd Une carte
+4b2e608f {0} cartes
+af6cd201 {0} ({1}) sera retiré de {2} à la prochaine synchronisation.
+0fccecc9 Un mot supprimé ici a encore
+7e7ed3d8 {0} mots supprimés ici ont encore
+a2fd882c la carte
+0c12e651 les cartes
+a5554878 le mot
+cde1fdb5 les mots
+8d3900e9 <0>{0} une carte dans {1} :</0> {2}. Retirer une carte de {3} supprime aussi son historique de révision là-bas. <1>C'est irréversible.</1> Si vous acceptez, les suppressions suivantes retireront leurs cartes sans redemander.
+d0ca7688 Retirer {0} de {1}
+3ee6dc97 Garder {0} et récupérer {1}
+458bd73a Une carte a
+2449d2e2 {0} cartes ont
+4768f74c AnkiDroid n'indique pas aux autres applications ce qui a été supprimé
+97b8cabc Anki n'a aucune trace de leur suppression ici (elles ont peut-être été supprimées sur un autre appareil, ou la collection a été restaurée)
+9ab802d4 ce mot
+9fe0220f <0>{0} disparu du paquet :</0> {1}. {2}, donc Tamkeen n'a rien retiré. Que faire de {3} ?
+ef8f7e8a Recréer {0}
+bbba862c Supprimer {0} ici aussi
+78948622 Les cartes de {0} de vos mots sont maintenant dans un autre paquet : elles restent là où vous les avez mises et ne sont plus synchronisées.
+c1aa0b00 {0} cartes en trop pour des mots qui en avaient déjà une ont reçu l'étiquette « tamkeen-duplicate » et ont été laissées de côté pour que vous les examiniez.
+dfab2962 {0} notes du paquet ont été ignorées (pas de champs Front et Back, rien d'écrit, ou une de leurs cartes est dans un autre paquet).
+4b701821 {0} changements n'ont pas pu être faits la dernière fois et seront retentés.
+21b4c80d Cette version d'AnkiDroid n'indique pas la progression des révisions aux autres applications. Mettez AnkiDroid à jour vers la 2.24 ou plus pour la voir ici.
+221ca630 Synchronisation…
+2b7d938e Synchroniser maintenant
+11d3ef7f La synchronisation a aussi lieu à l'ouverture de l'application et toutes les quelques minutes tant qu'elle est ouverte.
+26b0b25f Anki se synchronise avec Tamkeen à son ouverture, toutes les 10 minutes tant qu'il est ouvert, après sa propre synchronisation, et chaque fois que vous choisissez <0>Outils → Sync Tamkeen now</0> dans Anki. Tamkeen doit aussi être ouvert.
+27139ab8 pas encore étudiée
+c9114940 en retard depuis {0}
+71ef9cbd à revoir {0}
+87e1ef1d en révision
+b2647e88 tous les {0} {1}
+fb38ecb6 {0} justes, {1} fausses
+3db1270b Vos dernières réponses dans Anki, de la plus ancienne à la plus récente
+5c4b4117 Lu dans Anki le {0}. Tamkeen ne fait que l'afficher ; il ne change jamais le calendrier d'Anki.
+c3c7e5f4 Anki : {0}{1}
+f57186fa Supprimer « {0} » de votre vocabulaire ?
+3eb0e9ae Supprimer « {0} » de votre vocabulaire ? Sa carte dans {1}, avec son historique de révision, sera aussi supprimée.
+890a143b Sa carte dans {0}, avec son historique de révision, sera aussi supprimée.
+ce01cb8a Cela supprime aussi la carte {0}
+8c9dbb61 « <0>{0}</0> » a une carte dans votre paquet {1} de {2}. Supprimer le mot ici retire cette carte à la prochaine synchronisation, <1>avec son historique de révision dans {3}. C'est irréversible.</1>
+ad439574 Si vous continuez, supprimer un mot retirera désormais sa carte sans cette question.
+77dfd213 Annuler
+0a98dcd0 Supprimer le mot et sa carte
+c3e839df En ligne
+e01fa717 Hors ligne
+7fab27b4 la Claude Console
+881ac247 Appuyez sur le bouton ci-dessous. Il ouvre console.anthropic.com dans votre navigateur. Ce site est différent de l'application de chat Claude.
+495b9813 Utilisez votre adresse e-mail ou « Continue with Google ». Un abonnement Claude Pro ou Max ne couvre pas cela : les clés se paient à part.
+7403c4f9 Ouvrez <0>Settings → Billing</0>, ajoutez une carte de paiement et achetez un peu de crédit. Les clés ne fonctionnent pas tant que le compte n'a pas de crédit.
+71b4b60f Ouvrez <0>Settings → API keys</0> et appuyez sur <1>Create Key</1>. Donnez-lui un nom que vous reconnaîtrez, comme « Tamkeen ».
+e04e0bbd La clé est une longue suite de lettres qui commence par <0/>. Elle n'est affichée qu'une fois : appuyez sur <1>Copy</1> avant de fermer la fenêtre.
+48b74851 Revenez ici, collez-la dans la case <0>Clé API</0> des Réglages et appuyez sur <1>Tester avec un exemple</1>.
+0e9e2f65 Google AI Studio
+2628ac25 Appuyez sur le bouton ci-dessous. Il ouvre aistudio.google.com dans votre navigateur.
+f6541135 N'importe quel compte Google (Gmail) convient. Acceptez les conditions si on vous le demande.
+84e51948 Appuyez sur <0>Create API key</0>. S'il demande quel projet utiliser, laissez-le en créer un nouveau.
+8d7a2586 C'est une longue suite de lettres qui commence par <0/>. Appuyez sur le bouton de copie à côté. Vous pourrez revenir sur cette page et la copier à nouveau plus tard.
+162ab3e6 la plateforme OpenAI
+faa55261 Appuyez sur le bouton ci-dessous. Il ouvre platform.openai.com dans votre navigateur. Ce site est différent de ChatGPT.
+0ba16577 Votre compte ChatGPT fonctionne aussi ici, mais un abonnement ChatGPT Plus ne couvre pas cela : les clés se paient à part. Un numéro de téléphone peut vous être demandé.
+a6860394 Ouvrez <0>Settings</0> (la roue dentée) <1>→ Billing</1>, ajoutez une carte de paiement et achetez un peu de crédit. Les clés ne fonctionnent pas tant que le compte n'a pas de crédit.
+83803874 Ouvrez <0>API keys</0> et appuyez sur <1>Create new secret key</1>. Donnez-lui un nom que vous reconnaîtrez, comme « Tamkeen ».
+ebf2eda5 la Console xAI
+e76446c0 Appuyez sur le bouton ci-dessous. Il ouvre console.x.ai dans votre navigateur.
+e3f3d119 Utilisez votre compte X, Google ou une adresse e-mail. Un abonnement X Premium ou SuperGrok ne couvre pas cela : les clés se paient à part.
+d88dbb88 Ouvrez <0>Billing</0>, ajoutez une carte de paiement et achetez un peu de crédit. Les clés ne fonctionnent pas tant que le compte n'a pas de crédit.
+f6ce8b31 Ouvrez <0>API Keys</0> et appuyez sur <1>Create API key</1>. Donnez-lui un nom que vous reconnaîtrez, comme « Tamkeen ».
+6547e629 La clé est une longue suite de lettres qui commence par <0/>. Copiez-la avant de fermer la fenêtre.
+58d7704c La clé a très probablement expiré ou été désactivée, il vous en faut donc sans doute une nouvelle : créez-la avec les étapes ci-dessus et collez-la. Si la clé est toute neuve, copiez-la à nouveau et recollez-la (une lettre manquante à la fin l'empêche de fonctionner).
+f443dc0b Le compte n'a pas encore de crédit, ou le crédit n'est pas arrivé. Ajoutez du crédit sur la page Billing du fournisseur et réessayez dans quelques minutes.
+43b82a8b Remettez le <0>Modèle</0> des Réglages sur celui marqué « recommandé ».
+995ff549 Créez une nouvelle clé de la même façon et supprimez l'ancienne de la liste du fournisseur.
+6b020b42 Traitez-la comme un mot de passe : ne la partagez pas et ne la publiez nulle part. Tamkeen la garde uniquement sur cet appareil et ne l'envoie qu'au fournisseur que vous avez choisi.
+e1e3cd22 demander à un service d'IA de vous expliquer des mots
+fb891cde Comment obtenir une clé API
+15803e0d Une clé API est une sorte de mot de passe qui permet à Tamkeen de {0}. Vous l'obtenez sur le site du service ; cela prend quelques minutes.
+d76fd621 Ouvrir {0} ↗
+26aacc31 Un problème ?
+ddb60451 Langue à apprendre
+cac6d44c Votre langue
+a70803bd Consultation rapide
+2c497d03 Consultation rapide : un mot touché affiche seulement son sens
+c8bed749 Consultation détaillée
+4ba6d768 Consultation détaillée : un mot touché affiche l'explication complète
+581f8c00 Ce qu'affiche un mot touché
+7d0cd0d6 {0}. Touchez pour passer à {1}.
+6ae84e4a Fermer (Échap)
+bbfa773e Fermer
+19c91326 Un bon équilibre entre précision et vitesse.
+d661998f Le plus précis dans toutes les langues. Idéal avec un GPU.
+ec890ad6 · téléchargé
+18e42f19 · téléchargé en partie
+0b1d6c0b Préparation…
+7388d667 {0} sur {1}
+1763761d Utiliser {0}
+781961bc Pause
+f6fdbe48 Supprimer
+58ff0825 Supprimer le modèle {0} ({1} Mo) ? Vous pourrez le télécharger à nouveau plus tard.
+b5ed1ec0 Reprendre le téléchargement
+a479c9c3 Télécharger
+b9868e76 Le modèle {0} est utilisé pour les nouvelles transcriptions.
+a80186d6 Le modèle {0} est prêt.
+d70807ed Votre <0>{0}</0> peut transcrire bien plus vite que le processeur. Il faut pour cela les bibliothèques CUDA de NVIDIA (environ 1,2 Go), qui ne sont pas incluses dans l'installateur pour qu'il reste léger.
+c3d90933 L'accélération GPU est active
+198413b8 Supprimer les bibliothèques GPU
+6c044a0d Supprimer les bibliothèques CUDA ? La transcription utilisera le processeur.
+42a1ffa7 Elles seront supprimées au redémarrage de l'application.
+aca57ff9 Supprimées.
+7bb4405c Installé
+71d04aed Redémarrez l'application pour commencer à utiliser le GPU.
+97e292a8 Décompression…
+0a7b809e Installer l'accélération GPU (~1,2 Go)
+2503a349 Télécharge les paquets officiels cuBLAS et cuDNN de NVIDIA depuis pypi.org et vérifie leurs sommes de contrôle.
+f4cfa873 Accélération GPU installée.
+defca688 Étape {0} sur 4
+2f04eb15 Suivant →
+03c88b2a Quelle langue apprenez-vous ?
+05d17f2b Cela détermine ce que l'application écoute, comment les mots sont expliqués et le sens d'écriture du texte. Vous pourrez le changer plus tard dans les Réglages.
+c32ae9f4 ← Retour
+352fd3bb {0} : avez-vous déjà commencé à l'apprendre ?
+49a817fa Je suis grand débutant
+959a39d2 Tous les mots sont nouveaux pour moi.
+9aed0e9c J'ai déjà commencé
+a6d6fac2 Compter les {0} mots les plus courants en {1:lower} comme des mots que je connais déjà, pour que l'application ne les traite pas comme nouveaux.
+871384d2 Une chose à configurer : une clé API
+af91b49e Touchez n'importe quel mot et Tamkeen vous dit ce qu'il veut dire <0>dans cette phrase</0>. Ces explications sont rédigées par un service d'IA, donc <1>pour que l'application fonctionne, vous devez lui donner une clé API d'un fournisseur d'IA de votre choix</1> : {0} ou {1}.
+c3016d5f Une clé API est une sorte de mot de passe que vous obtenez sur le site du fournisseur. Vous payez le fournisseur directement : une recherche coûte une fraction de centime, et Gemini offre un quota gratuit.
+ff37cd14 Configurez-la, ou modifiez-la plus tard, dans <0>Réglages → Définitions des mots (IA)</0>.
+feb628ae Comment obtenir une clé ?
+5b8027fa Compris
+94331dff Vidéo YouTube
+6c186598 Reel Instagram
+78f78ba4 Épisode de podcast
+154cf598 Page web
+b41edaea Impossible d'envoyer ceci à un ami.

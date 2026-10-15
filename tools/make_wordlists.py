@@ -39,6 +39,7 @@ ONE_LETTER = {
     "fr": set("àay"),
     "ru": set("висяаоку"),
     "ar": {"و"},
+    "en": {"a", "i"},
 }
 # French writes these glued to the next word with an apostrophe (l'eau, j'ai, qu'il).
 FRENCH_ELIDED = {"l", "d", "c", "j", "n", "s", "t", "m", "qu"}
@@ -54,6 +55,7 @@ SCRIPT = {
     "ar": re.compile(r"[ء-ي]+"),
     "ja": re.compile(r"[぀-ヿ㐀-䶿一-鿿々]+"),
     "zh": re.compile(r"[㐀-䶿一-鿿]+"),
+    "en": re.compile(r"[a-z]+(?:'[a-z]+)*"),
 }
 
 _AR_MAP = str.maketrans({"آ": "ا", "أ": "ا", "إ": "ا", "ٱ": "ا", "ة": "ه", "ى": "ي", "ؤ": "و", "ئ": "ي", "ـ": None})
@@ -105,7 +107,7 @@ def build(code: str) -> list[str]:
 def main() -> None:
     version = importlib.metadata.version("wordfreq")
     OUT.mkdir(parents=True, exist_ok=True)
-    for code in SCRIPT:
+    for code in sys.argv[1:] or SCRIPT:  # e.g. "python tools/make_wordlists.py en" for one language
         words = build(code)
         body = ",\n".join("  " + ", ".join(json.dumps(w, ensure_ascii=False) for w in words[i:i + 12])
                           for i in range(0, len(words), 12))

@@ -16,6 +16,7 @@ import { startBadge } from "./social.js";
 import { showUpdateNotice } from "./updatenotice.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
 import { chosenCountry, youtubeHome } from "./youtube-home.js";
+import { startTranslating } from "./i18n.js";
 
 // ---------- API ----------
 export async function api(path, { method = "GET", body, raw } = {}) {
@@ -421,6 +422,7 @@ async function boot() {
   connectEvents();
   try {
     const s = await loadStatus();
+    await startTranslating(s.settings.ui_language); // the app's own words in the user's language
     if (!s.settings.welcome_seen || !s.settings.study_language) { // first run: choose a language first
       if (!location.hash.startsWith("#/welcome") && !location.hash.startsWith("#/setup")) location.hash = "#/welcome";
     } else if (!s.model_ready && !location.hash.startsWith("#/settings") && !location.hash.startsWith("#/about")) {

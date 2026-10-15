@@ -1,0 +1,199 @@
+00ac93bc Esto no se puede enviar: tus propios archivos de audio y vídeo se quedan en tus dispositivos.
+004f3577 Primero conéctate y elige un nombre de usuario.
+c7f73bb5 Ajustes
+926fb281 Primero añade un amigo.
+c11d5e1d Amigos
+d7485673 Enviar «{0}» a…
+cf765512 Enviando…
+5b7d7944 , con sus palabras
+7305bd49 Enviado a {0}{1}.
+d2104ca3 Abrir chat
+9bc2575c Enviar
+39a2069e Enviar a un amigo
+095ba688 Mi ordenador
+4ccce6f4 Este ordenador
+8177b1f0 Normalmente tu ordenador escribe las transcripciones y llegan aquí al sincronizar. En su lugar, un proveedor en la nube puede escribirlas directamente desde este teléfono, sin esperar al ordenador.
+667900ba Escribir una transcripción necesita un ordenador potente, sobre todo para el árabe. Si el tuyo es lento, un proveedor en la nube puede escribir las transcripciones.
+08f8b99e el archivo del episodio, o el vídeo de un reel
+d78ea32b solo las partes en las que se habla
+c6286624 Gratis. Las transcripciones llegan en la próxima sincronización.
+2c713dbf Gratis. Usa el modelo elegido abajo.
+82e6ea14 Empieza al momento, en este teléfono. Unos céntimos por hora.
+51e5460e No hace falta un ordenador potente. Unos céntimos por hora.
+0781166f Transcripción en la nube
+3287b173 {0} Usas tu propia clave y les pagas directamente, unos céntimos por hora de audio.
+5a19606e El audio de lo que transcribes va al proveedor que elijas ({0}) y a ningún otro sitio. No se envía nada más sobre ti ni sobre tu biblioteca. Tu clave se guarda en {1} y, si usas la sincronización con Google Drive, en la carpeta privada de la app en tu propio Google Drive, para que tus otros dispositivos también la tengan. Nunca forma parte de una exportación de datos.
+c579b050 Quién escribe las transcripciones
+a1d0104d Un proveedor en la nube
+574970e9 Pagas por la duración del audio, no por lo que tarda el trabajo: un episodio de una hora cuesta el precio por hora; un reel de un minuto, la sexagésima parte. Los precios son de la lista de cada proveedor.
+87bdb7fb Probar la clave
+4e78d0fc Audio enviado hoy desde {0}: <0>0 min</0> <1></1>
+f7798f2d ✓ En uso
+965e5018 Necesita una clave
+0c6c4102 Opcional
+2ed411fd Usando tu clave de OpenAI de Definiciones de palabras (o pega otra)
+d53b60f1 Otro modelo… <0>escribe su nombre (debe dar una marca de tiempo para cada palabra)</0>
+7949d689 Es una clave de {0}, así que ahora el proveedor es {1}. Guardada: pulsa «Probar la clave» para comprobarla.
+4fbb2df0 Esa clave es para las definiciones de palabras (la tarjeta de arriba), no para la transcripción. Las claves de Groq empiezan por gsk_.
+1a3342f6 Guardada. Pulsa «Probar la clave» para comprobarla.
+74f1f89a Usando tu clave de OpenAI de Definiciones de palabras.
+0c54c107 envíe audio a un servicio de transcripción, que escribe lo que se dice
+001e5d7f Enviando un segundo de silencio…
+a32f2cd6 «Transcribir» en este teléfono ahora empieza al momento.
+0ed9fa3f Las nuevas transcripciones las escribirá
+b2a1a8a4 ✓ Funciona ({0} respondió en {1} s). {2}
+3261da26 🎧 Pódcast
+3bb91229 ▶ YouTube
+5c45e761 🎞 Reel de Instagram
+d7738f4e 📄 Página web
+a9c69e4f ♫ Spotify
+3861aa42 ♪ Apple Music
+1e4ac39a 🎬 IMDb
+b11a1339 ▶ Escuchar
+76befb17 ▶ Ver
+852b438f Leer
+a1f4b512 Esta tarjeta no indica de qué pódcast es el episodio.
+1e703a56 este pódcast
+6a6e6ffd ¿Añadir «{0}» a tu biblioteca y abrir este episodio?
+e1d1d3bc Se añadió {0}. El episodio aparecerá aquí cuando llegue su lista de episodios.
+418da3d9 «{0}» ya no está en la lista de episodios de {1}.
+5c710506 Eso no es un enlace a un reel.
+57667d74 No se pudo llevar este reel al reproductor de reels: {0}
+f04b3d68 Abrir en Instagram
+d5bb49b0 Preparando este reel: se abrirá en el reproductor de reels desde la página Reels cuando esté listo.
+06e6cd2c Eso no es un enlace web.
+4f7127fe Tamkeen no tiene reproductor para esto.
+5a572593 ▶ Reproducir
+bf5d9ce2 ✕ Cerrar
+f30f6d12 Abrir en YouTube
+2e100cab Abrir el enlace
+7968361b Abrir en Tamkeen: {0}
+7c116b3c Abrir ↗
+4c9933ea Estás estudiando
+5a60098c Está estudiando
+bbefe019 Añade hasta {0} cosas. Si dejas una barra vacía, no se muestra.
+295fe8e3 ⓘ ¿Qué puedo pegar?
+005c0d1a Enlaces que funcionan aquí
+fcdb3486 Pega un enlace en una barra y aparecerán su título y su imagen. No se lee nada más del enlace.
+24a9a8bc Tu nota (opcional)
+2ea31105 p. ej. Este mes estoy practicando la comprensión auditiva del levantino
+22222442 Solo tus amigos lo ven, en su pestaña Amigos.
+f12682cf Quitar este
+4e729297 Pega un enlace: YouTube, un reel, una página web, Spotify, Apple Music, IMDb
+61cc55aa Añadir
+b7f0ff52 Elige un episodio de pódcast de tu biblioteca
+835326ed Busca tus episodios por título…
+d9c2d84e No se encontraron episodios.
+403d3c13 Guardado. Tus amigos lo verán en su pestaña Amigos.
+40ee915a Seguir reproduciendo tras una palabra tocada
+fdf4b1ff Cuando suena una palabra tocada, se pausa. Cambia para seguir reproduciendo.
+fd838ae4 Cuando suena una palabra tocada, sigue reproduciendo. Cambia para pausar.
+dc76e9f0 raíz
+27d9ea3d Buscando…
+418a3e20 Buscando en contexto…
+ff94d192 Mira qué significa esta palabra en esta frase: añade una clave de proveedor de IA en Ajustes.
+d61d7fe2 Configurar definiciones
+8b926874 Forma de diccionario
+80446347 Forma
+630df194 También
+445b99b1 Traducción de la frase
+86efdc55 Mostrar la explicación completa de esta palabra
+4bab2d8f Más
+859533fe Volver a reproducir esta palabra
+1d6e7301 🔊 Palabra
+d331076e Reproducir toda la frase
+69c9812b 🔊 Frase
+ccfcc710 Seguir reproduciendo desde aquí
+4107fbd9 ▶ Seguir
+499dc627 ✓ Guardada
+d8dba702 ★ Guardar
+3f094ed6 Preguntar de nuevo
+3de9e752 Claude (Anthropic)
+f60dab43 Claude
+c572ccc8 Gemini (Google)
+ddba2c92 Gemini
+2051afa5 modelo antiguo, el más barato de todos
+8f60529a ChatGPT (OpenAI)
+b3a3b36d Grok (xAI)
+3096a55a Grok
+81970e30 el más barato de los modelos generales
+77a71a4f Proveedor desconocido: {0}
+22df2c35 El modelo se negó a definir esta palabra.
+49be65b2 La respuesta se cortó.
+221ce687 Respuesta vacía.
+a37ce5d8 Sin respuesta ({0}).
+7ca4cbae {0} rechazó la clave de API. Lo más probable es que haya caducado, así que seguramente necesitas una nueva.
+51596be7 {0} no reconoce ese nombre de modelo. Revísalo en Ajustes.{1}
+a7141cb1 Se alcanzó el límite de uso o la cuota de {0}. Inténtalo de nuevo en un rato o revisa tu facturación.
+246000e0 {0} tiene problemas en este momento (HTTP {1}). Inténtalo de nuevo.
+eaf5c51f Error de {0} (HTTP {1}){2}
+bfb83732 No hay clave de API. Añade una en Ajustes → Definiciones de palabras.
+ef420a27 El proveedor devolvió una respuesta ilegible.
+bbb59df3 La respuesta no era JSON válido. Inténtalo de nuevo o elige otro modelo.
+90350195 Obteniendo subtítulos…
+6eb49351 ✓ Abierto en Tamkeen
+d10fa6cb No se pudo abrir este vídeo.
+84f89653 Toca el enlace a YouTube de un resultado para abrir ese momento en Tamkeen
+3d7fa970 Se guardó este vídeo y su frase con «{0}».
+a3fb746b «{0}» no está en los subtítulos de este vídeo, así que no se guardó nada con él. Prueba otro resultado.
+3d1f5290 No se pudo guardar este vídeo con «{0}»: {1}
+2e1adabb Batallas
+0dca7b14 Cargando tus palabras…
+51954ab8 <0>Las batallas se desbloquean con {0} palabras guardadas.</0> Tienes {1}.
+7ec3a887 Una batalla es un repaso de tu propio vocabulario: cada movimiento que haces depende de una pregunta sobre una de tus palabras guardadas, y tu rival responde sobre las suyas. Hacen falta unas {0} palabras para que las preguntas no se repitan. Guarda palabras con ★ mientras escuchas y lees.
+685356fd Tienes {0} palabras guardadas, pero solo {1} tienen un significado escrito. Las preguntas necesitan significados: abre Vocabulario y rellena algunos, o guarda palabras desde la ventana de definición (rellena el significado por ti).
+4e3989a7 Tu huevo aún no ha eclosionado. Alcanza la meta de hoy para que eclosione y vuelve a combatir.
+5d1b6d21 {0} % de aciertos últimamente
+3400a4a4 {0} palabras pendientes
+025cfea0 {0} bien sabidas
+d1e6e466 Habilidad {0}
+967af30c Todas las criaturas luchan al mismo nivel. Ganas sabiendo tus palabras: si aciertas, el movimiento impacta; si respondes en menos de {0} segundos, se acumula un combo (×1,2, ×1,5, ×2).
+b03b44a5 Encuentro salvaje
+0f5c66fe Tus propias criaturas contra criaturas salvajes. Solo aquí su edad da a las tuyas una pequeña ventaja.
+81b0d13f Duelo de alquiler
+5a55675f Elige tres de las seis criaturas compartidas de esta semana; tu rival se queda con las demás. Cuenta para tu puntuación de habilidad.
+c7218f9d Para desafiar al equipo de un amigo, abre <0>Amigos</0> en el menú del juego. Regla de esta semana para las batallas entre amigos: <1>{0}</1>. {1}
+04e2e05f Las batallas se desbloquean con {0} palabras guardadas. Tienes {1}.
+f7c24281 Tus palabras necesitan significados para poder preguntarlas. Rellena algunos en la página Vocabulario.
+6781a054 Ninguna de tus criaturas cumple la regla de esta semana ({0}).
+914efb3d {0} no tiene criaturas que cumplan la regla de esta semana ({1}).
+57b02151 Elige tres. Tu rival lucha con las otras tres.
+d7fb7f72 Empezar el duelo
+e4fe0fce Insignia conseguida: {0}
+3184f22c Salir de la batalla
+905cb326 Tú
+c4433e3c Salvaje
+dca34e30 Rival
+5e6db161 {0} de {1} siguen en pie
+3bb10c38 ¡{0} OLEADA ×{1}
+0d36b10d Tu criatura
+1e2a3716 La criatura salvaje
+09503c9a La criatura de {0}
+9fbc3550 La criatura de tu rival
+afc012c1 Un golpe de refilón.
+535531a9 ¡Un golpe arrollador!
+aab84209 ¡Es fuerte contra ese elemento!
+0e909374 Es débil contra ese elemento.
+eb95e537 Protegido.
+b8bb00f9 {0} usó {1}.{2}{3}{4}
+936d5b0e {0} intentó {1}, pero no le quedan curaciones.
+934b913d +{0} PS.
+cd86b7ea {0} usó {1}.{2}
+53849ba1 {0} está fuera de combate.
+565d06e6 Entra {0}.
+b9286298 Poder {0}
+2de11318 Bloquea el siguiente golpe
+d923a217 Golpes más fuertes durante un rato
+66c1c04a Cura (quedan {0})
+da3e3967 Usar una poción ({0}): recupera la mitad de su salud, una vez por batalla
+a3972f01 Elige un movimiento. Una pregunta sobre una de tus palabras decide lo bien que impacta.
+bfd6bf51 ¿Cuál de tus palabras significa esto?
+5fb65141 ¿Qué significa esto?
+37035270 Usar una carta de pista ({0})
+63d63141 Ahora te sabes bien esa palabra. +15 XP
+18a80fec Preciso toda la semana: +60 XP y 5 monedas
+19bb2852 ¡Correcto, y rápido!
+fbc63d40 Correcto.
+c04b920c Se acabó el tiempo.
+e8849508 No exactamente: la respuesta correcta está marcada.
+0639028d No se pudo saber {0}: {1}

@@ -1,0 +1,203 @@
+8d36cc07 · {0} {1} monedas
+c94a5549 · {0} palabras ahora bien sabidas
+13f349e7 {0} bien, {1} mal{2}
+fd1125a9 {0} Habilidad {1}{2} {3} {4}
+8e9fb44f Ni una respuesta mal: ya están disponibles la forma Campeón y el movimiento Forma Perfecta.
+872a8bbd Ganada al límite: ya están disponibles la forma Campeón y el movimiento Segundo Aliento.
+21526016 La criatura salvaje te dejó un huevo.
+6a569f25 Un ticket de batalla hizo que esta pagara completa.
+eda121a1 {0} Una batalla y tus tarjetas, las dos hechas hoy: +{1} XP · {2} {3} monedas
+e3a4b01e ¡Ganaste!
+241517f8 Esta la perdiste
+8f651398 Volver a combatir
+e9b450d1 Hecho
+b9da5b2a Buen combate.
+ac63d5ec Todas las respuestas contaron igualmente para tus palabras.
+a0d275ae ¿Salir de esta batalla? Tus respuestas hasta ahora siguen contando.
+32c9bcb1 Huevo
+9c0c49c5 Cría
+0d67c71d Joven
+17748728 Adulto
+3703cd21 Salud
+1b81f28b Ataque
+af4b8454 Defensa
+2d2cb022 Velocidad
+498c3f86 Moldeado por escuchar
+0a72a97b Moldeado por leer
+fd0127b7 Moldeado por guardar palabras
+59bcab48 Moldeado por buscar palabras
+23907bfa La criatura del hábitat es la que crece mientras estudias. Evolucionar es decisión tuya y se puede cambiar después: no se pierde nada por probar otra forma o por mantener un aspecto más joven.
+b9f2cfaa En el hábitat
+d7ddc5a1 Sacar
+c68f8125 · semilla {0}
+7fcf6bea Visible para amigos
+b28c55c0 Mostrar a amigos
+6c5a6923 Tus amigos ven esta criatura junto a tu nombre
+3eaf4dc6 Lista para evolucionar
+a097aeab Su forma adulta depende de cómo estudias. Elige una:
+bfe934c2 Una forma especial, si te has ganado una:
+0056d527 Evolucionar
+003d086a Evolucionó a su forma {0} y te dejó un huevo.
+b8db515e Aspecto
+e5895e75 Forma adulta
+212631b6 Se desbloquea al practicar más: {0}
+0742949a Forma especial
+824147ae Movimientos de batalla (elige hasta cuatro de {0})
+b08be03b , poder {0}
+8d474b73 Deja al menos un movimiento de ataque.
+1f38a263 Sácalo y estudia para que eclosione.
+50275e1d Regalar este huevo a un amigo
+25e40553 Las insignias son tuyas para siempre: <0/> de {0} conseguidas.
+b38fd978 Gorra
+8d2d0494 Gorro de lana
+5b8d667e Sombrero de paja
+0200e574 Corona de flores
+a1794223 Lazo
+453cce21 Auriculares
+a73f2e84 Sombrero de mago
+410494f2 Corona
+8a6c4f48 Sombrero de copa
+2dad5490 Gorro de fiesta
+fea217c8 Boina
+5856ecee Gorro de chef
+4acabbde Sombrero vaquero
+392c6646 Casco de explorador
+53e6537e Sombrero pirata
+3f77bde0 Birrete de graduación
+d2f9a663 Visera
+e8bf6dcb Gorra con hélice
+f3681d8b Aureola
+f0aeb7b3 Corona de hojas
+216d0c24 Astas
+f81ef643 Tiara
+9a21f3aa Gorro de pescador
+3187598c Orejeras
+0062340f Sombrerete de seta
+ceecea26 Casco vikingo
+68c1942a Casco espacial
+28391e32 Orejas de conejo
+4a6b7158 Orejas de gato
+b9f4aa95 Gorro de bufón
+7e533442 Gorro de dormir
+6b70d2cc Gafas redondas
+904017f8 Gafas de sol
+c1feb92c Monóculo
+745c59f0 Gafas de estrella
+8aadf165 Antifaz
+6741f119 Gafas de corazón
+0b34f86f Gafas protectoras
+bba42049 Parche en el ojo
+fbd954ab Gafas 3D
+58d80900 Gafas de leer
+34a75a40 Gafas de buceo
+f18b06a1 Nariz de payaso
+f6c4e7b6 Bigote
+6e26326c Mejillas sonrosadas
+07e6b11b Antifaz para dormir
+462035a5 Gafas pixeladas
+5575bbff Bigotes de gato
+a81134de Tirita
+83dfe3a2 Bufanda
+5a1a0c91 Pajarita
+d4198662 Cascabel
+5d6614cb Cadena de oro
+2fdb1722 Collar de pinchos
+903467a9 Medalla
+8841f81b Corbata
+b3e12140 Collar de perlas
+14465646 Guardapelo
+ec81fbb3 Collar de flores
+2466135f Pañuelo
+45b27206 Gorguera
+e76c5bf1 Silbato
+fe3b767b Collar con llave
+c8c21a81 Collar de conchas
+997e21c2 Boa de plumas
+ae48c34a Cinta
+5a9a6cd7 Etiqueta con nombre
+59b3f863 Amuleto
+9d5c8e51 Brújula
+f69f2330 Libro
+93e720cf Farol
+a774409a Bandera
+64f241f5 Globo
+24280537 Micrófono
+ff45e635 Pluma
+483fed9c Paraguas
+0c691a9a Espada de madera
+2af4fc97 Varita
+be638732 Ramo de flores
+1242a215 Helado
+63d27f89 Taza de café
+fb46a738 Taza de té
+5136ae1b Lápiz
+28d512c4 Pincel
+72d4d28e Caña de pescar
+40a60bfb Lupa
+917904ac Antorcha
+0a26857b Cometa
+08271419 Escudo
+78ede2e9 Osito de peluche
+1075c086 Trofeo
+266a0fb1 Capa roja
+66d178d7 Capa de estrellas
+0ccf90eb Mochila
+c4b1ad5f Bolso
+a8bbfe7e Alas de plumas
+3c7c880b Alas de murciélago
+573b9116 Alas de mariposa
+4b7e2696 Mochila propulsora
+5d62dc5c Caparazón de tortuga
+7a41f42a Carcaj
+110bb280 Racimo de globos
+03744d8c Capa de hojas
+06f3045f Camiseta de rayas
+dd4fd5df Camiseta lisa
+4dfbc033 Camiseta de lunares
+515bcf68 Camisa de cuadros
+d6a2305b Camiseta de estrellas
+f1bab294 Camiseta de corazones
+816d3505 Jersey de zigzag
+11a5ebab Camisa de flores
+9c10e5aa Camiseta galáctica
+cc58986a Jersey de rombos
+db9a99bf Flores rojas
+b09f1254 Flores azules
+aa146572 Seta
+36ca0758 Piedra pequeña
+c462f354 Hierba alta
+2115a9fc Farolillo
+bdc1fd5d Concha
+89f36136 Poste indicador
+a36ef413 Arbusto
+c6928281 Roca grande
+b14de689 Nido
+1a706e23 Cama
+337b7955 Cuenco de comida
+8d1cb4ea Pelota de juguete
+0d88689c Estantería
+b11bf19e Radio
+64f5d600 Estanque
+f80ba508 Hoguera
+eae12d19 Tienda de campaña
+370793de Farola
+dc94e91a Árbol frutal
+a187c328 Fuente
+f96ddf32 Arco
+237d114f Estatua
+7a115bb8 Búho nocturno: estudió después de las 10 de la noche
+7bcd9fab Madrugador: estudió antes de las 7 de la mañana
+ba785471 Siete días seguidos
+15441302 Impecable: ganó una batalla sin ninguna respuesta mal
+b2c51034 Remontada: ganó una batalla al límite
+86b7531d Críalo junto a una criatura nacida de otro elemento
+9ba079f8 adopta los colores de su compañero
+05b5bd96 Estudia después de las 10 de la noche
+40e4dece una forma nocturna con brillo de luna
+bba9c7c9 Gana una batalla al límite o sin ninguna respuesta mal
+ecc4d7d2 con cresta y marcas doradas
+13b10e8c Placaje
+6e665685 Guardia
+2db9d9c8 escuchar
+227f38db leer
+28cd39db guardar palabras

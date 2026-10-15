@@ -1,0 +1,199 @@
+de2f330f Baga
+fc24ae3b Sunog-gubat
+0e1275fa Hagupit ng Baging
+7c390204 Paglago
+789c7773 Hagis-Bato
+e6277766 Pagguho
+d735dc4a Kuryente
+9ab63902 Kulog
+76ce312e Wisik
+2bfd4000 Agos
+97389d1a Lilim
+25ab466c Pagdilim
+157f2572 Pagbangon
+fe7f55b8 Pokus
+d4e1aee4 Karga
+d9d7e3d0 Hanging Pabor
+15727c13 Taginting
+1ed1264f Unawa
+2d4c3f4e Ipon
+e0070ea6 Hampas ng Gabi
+69b8c2a5 Sinag ng Bukang-liwayway
+7b6625f5 Matatag na Puso
+ee19d60c Second Wind
+b5c15f07 Perfect Form
+8d82fb8f Kahit anong nilalang, kahit anong galaw.
+9ab28c8b Bagong pisa at bata lang ang puwedeng lumaban (pahinga ang mga nasa hustong gulang ngayong linggo).
+ae188585 Bawal ang mga galaw na panggamot.
+8c9c8aee Mga nilalang na Baga, Kislap at Bato lang.
+fe2417f4 Mga nilalang na Alon, Kakahuyan at Takipsilim lang.
+49663788 Tig-iisang miyembro bawat team.
+9b3a9266 Halamang tinutubuan ng kumikinang na mga titik. Pinakamaganda para sa mausisa: naghahanap ng salita.
+7c5e9fe1 Kabibeng umuugong sa mga narinig nito. Pinakamaganda para sa mga nakikinig.
+58e0fe3c Abutin ang layunin mo ngayong araw nang dalawang beses
+edbcf4d7 Parol na tiniklop mula sa mga pahina. Pinakamaganda para sa mga nagbabasa.
+d8e79134 Maghanap ng 30 salita
+b5f0b120 Maliit na balon ng tinta. Pinakamaganda para sa mga nag-iipon ng salita.
+82e39370 Mag-save ng 50 salita
+9b2d1f8b Inukit na batong nag-iingat ng alam mo. Pinakamaganda para sa mga nag-iipon.
+c2ee073b Kilalaning mabuti ang 5 salita (sa mga laban)
+e351da07 Habihang humahabi ng liwanag ng bituin. Tuloy-tuloy para sa lahat.
+b41d02f3 Magpakawala ng isang nasa hustong gulang na nilalang
+423e6206 Mapisa ang una mong nilalang
+ea9f375d Abutin ang layunin mo ngayong araw nang 3 beses
+d852f95e Mag-save ng 30 salita
+a80ee76d Panatilihin ang 5-araw na sunod-sunod
+ad99a14e Kilalaning mabuti ang 10 salita (sa mga laban)
+1c1b6779 Sa ligaw na laban, ibinabalik nang isang beses ang kalahati ng buhay ng isang nilalang.
+fb54130d Doble ang XP sa paghahanap, pag-save at pag-review ng salita nang 20 minuto.
+05dc8601 Buo ang gantimpala ng isa pang laban ngayon, pagkatapos ng unang tatlo.
+658d01ff Pinapainit ang isang itlog para lumaki ito kasabay ng nilalang sa tirahan mo.
+7661862b Binubuksan ang susunod na lote nang hindi na hinihintay ang milestone nito.
+379ee5cf Isang bagong itlog para sa grupo mo. Nakadepende ang elemento nito sa paraan ng pag-aaral mo.
+7bd136e6 Ulap ng magulong pananalita.
+8720a6ee Tinititigan ka rin nito.
+2cebb5b5 Ingay kung saan dapat may mga salita.
+53267fa2 Binubura nito ang anumang hindi mo binabalikan.
+8697f432 Pilak
+c57604db Ginto
+b3850e04 Diyamante
+c0203c34 Maghanap ng isang salita
+f51af387 Mapisa ang isang itlog
+d5913b18 Abutin ang layunin mo ngayong araw nang 10 beses
+6da30a55 7 araw na sunod-sunod
+90f6c76b 30 araw na sunod-sunod
+8ad928d9 100 araw na sunod-sunod
+cd7e4e5a Mag-save ng 100 salita
+8a81401d Mag-save ng 1000 salita
+a535d7ff Punuin ang gawi ng pakikinig
+479b0d0b Punuin ang gawi ng pagbabasa
+f7254f15 Punuin ang gawi ng pag-iipon
+9b83b0ca Magpalaki ng Alingawngaw na nasa hustong gulang
+b132f8c5 Magpalaki ng Pantas na nasa hustong gulang
+28cfd944 Magpalaki ng Tagapag-ingat na nasa hustong gulang
+de125314 Tapusin ang laban kasama ang kaibigan
+b231ceba Tumulong talunin ang lingguhang boss
+90b952f5 Parke ng lungsod
+73d5f55c Oasis
+bcce2166 Kakahuyan sa gabi
+0b7eaa70 Baybayin
+f347e8f3 Nag-aaral ng {0}
+25640d1c {0} liga
+8f75ec47 XP na nakuha ngayon
+2dd2bed7 ngayon
+75050d57 Paborito nilang nilalang
+9d9aab10 Kumonekta muna gamit ang Google (Settings → Mga kaibigan at pagbabahagi).
+33f400a7 Magdagdag muna ng kaibigan, sa Mga Kaibigan tab.
+98961386 Ibigay ang itlog na ito kay…
+458e9f84 Ibigay ito kay…
+d19372ac Naipadala kay {0}.
+33ce4174 Naglo-load…
+fe0337e8 Hindi maabot ang online service. Suriin ang koneksyon mo.
+ab898d21 Kailangan ng online features ang pakikipaglaban sa mga kaibigan, ang liga, ang guild raids at ang mga regalo.
+260bcda8 Piliin ang <0>Kumonekta gamit ang Google</0> sa Settings → Mga kaibigan at pagbabahagi. Hindi kailanman ipinapadala ang mga salita at materyales mo sa pag-aaral: ang team mo ng mga nilalang lang, kung gaano katumpak ang sagot mo, at ang kabuuan ngayong linggo.
+134635e9 Buksan ang Settings
+0908d881 Hindi pa available ang online data ng laro ({0}).
+e235e19c Naghihintay sa iyo
+de946983 Isang itlog
+2dcb4068 Isang regalo
+359aac0c {0} mula kay
+86834099 ay hinamon ang team mo at {0}.
+032d7174 Revanse
+75a9d140 Niraranggo ayon sa bahagi ng mga araw ngayong linggo na naabot ng bawat isa ang sarili niyang layunin, gaano man kalaki. Lima o higit pang araw sa isang linggo ang magpapataas sa iyo ng isang liga; isa o wala ang magpapababa.
+561c39e9 Patakaran sa laban ngayong linggo:
+bb9d653f Hamunin
+6fb4e940 Wala pang team
+f45f3479 Hindi pa nila nabubuksan ang laro online
+60bab8eb Magdagdag ng mga kaibigan sa Mga Kaibigan tab para mapuno ang liga at hamunin ang mga team nila.
+17f11ae4 Natalo!
+ce9deb48 {0} sa {1} ang natitira
+fd2b49ec {0} raid: {1}
+1a39a266 {0} Bawat tamang sagot sa laban ngayong linggo, ng kahit sino sa guild, ay nagbabawas ng isa.
+4145d94b Kunin ang gantimpala
+3ef23a47 Panalo sa raid: +{0} XP at {1} barya.
+5954ea17 Nakuha na ang gantimpala. May bagong boss na darating sa Lunes.
+a2df9bd2 Sumali o magtatag ng guild (Mga Kaibigan tab) para sabay-sabay ninyong harapin ang lingguhang raid boss. Ngayong linggo: {0}.
+6b8ca9a3 Layunin ngayong araw! +{0} XP
+6caf860b Anki: {0} card ang nag-mature · +{2} XP
+b72da5f2 Streak freeze
+dce47891 Hint card
+29877f37 +{0} XP
+53af6389 XP
+b666a4ab {0} · susunod {1}
+df2457aa susunod {0}
+830ead14 {0} sa 5 puso: pakainin ito para tumaas
+45260878 Liwanag: gawa ng mga gusali mo
+4ac9dac4 {0} liwanag
+ec8782a8 Liwanag kada oras ngayon
+6a6e9e27 {0} kada oras
+cba40f6f Hiyas: nakukuha sa badges, raids, pag-akyat ng liga at full bloom
+626f7b1c Stardust: bawat isa ay nagpapabilis sa lahat nang {0}%, habambuhay
+f7370cf7 {0} Kusa nang naiipon ang liwanag.
+7a211303 Abutin ang layunin mo ngayong araw nang {0} beses at kusa nang maiipon ang liwanag ({1} sa ngayon).
+ddd7a154 Gumagawa ng liwanag ang mga gusali habang wala ka: hanggang {0} oras na halaga ang naghihintay sa iyo. Bawat uri ay pinakamaganda para sa ibang gawi sa pag-aaral, at kapag naabot mo ang layunin ngayong araw, bumibilis silang lahat nang kalahati at may dalawang oras na liwanag na darating agad.
+cf6b269f <0>Full bloom.</0> May ganap nang lumaking gusali sa bawat lote. Kumpleto na ang hardin; ang pagpapakawala ng nilalang ay magsisimula ng bago at mas mabilis na hardin.
+39a1c2dc Ipunin ang {0} liwanag
+eabc714b Lote {0}: sarado
+467b84dc {0} Bubukas kapag: {1}
+1c6e99ed Gumamit ng susi ({0})
+7cf40990 Lote {0}: bakante
+144a397b Pumili ng itatayo rito.
+7e08478b {0} {1} · {2} kada oras
+0595972e {0} · antas {1}
+d020fbd3 · gusto ang {0} {1}
+9078100c {0} liwanag kada oras{1} · {2} naghihintay
+04aac4c0 Ipunin
+53b630e7 Palakihin ·
+6d6426d9 Itaas ng isang antas: mas maraming liwanag ang gagawin nito
+50645793 Ganap nang lumaki
+4dd3fed6 Magpakawala ng nilalang na nasa hustong gulang
+95b0eef2 Puwedeng pakawalan ang nilalang na nasa hustong gulang. Aalis ito sa grupo mo at maaalala rito. Magsisimula ulit ang mga gusali at liwanag mo, at itatabi mo ang <0/>: bawat isa ay nagpapabilis sa bawat gusali nang {0}% habambuhay, kaya mas mabilis lalaki ang susunod na hardin. Mas maraming ganap na lumaking gusali sa oras na iyon, mas maraming stardust.
+7005fc6d stardust
+5fb6a7b7 Wala ka pang nilalang na nasa hustong gulang.
+21e10852 nilalang na ito
+edfb0cc4 Pakawalan si {0}? Aalis ito nang tuluyan, at magsisimula ulit ang mga gusali at liwanag mo. Itatabi mo ang stardust, ang iba mong nilalang at lahat ng pag-aari mo.
+d2001733 Pinakawalan na. Nakakuha ka ng {0} stardust.
+28a4bacf Napakawalan na: {0}.
+55427966 {0} {1} · napakain nang {2} sa {3} beses ngayon. Doble ang bilang ng paborito nito. Pinapabilis nang kaunti ng mga puso ang mga gusali nito at walang binabago sa mga laban.
+35b25929 Pagkain
+9d041fa1 {0} ang paborito nito
+779fc473 {0} nilalang ang mahilig dito
+77690ee2 · mayroon kang {0}
+ff1928e5 Pakainin
+c266a25e Gustong-gusto niya iyan!
+df139e6c Sarap.
+db09cbc4 Bumili ng isa sa halagang {0} liwanag
+14e351e1 Mga gamit
+0e90e484 Sa mga ginagawa mo lang nanggagaling ang hiyas: bawat badge (2), panalong raid (3), pag-akyat ng liga (2), full bloom (10). Walang ibinebenta kapalit ng pera.
+11a9a29c May bagong itlog kasama ng mga nilalang mo.
+c505c639 Magdagdag ng 20 minuto pa
+36690a36 Gamitin ngayon
+476c3b07 Doble ang XP nang {0} minuto. Mag-aral ka na!
+0a854dda tumatakbo pa nang {0} min
+427a838f Painitin ang isang itlog
+e00a97a2 Kailangan mo ng ekstrang itlog na wala sa tirahan
+bdd2a3a3 Pinapainit ang itlog: lumalaki ito kasabay ng nilalang mo.
+6a6002af may itlog na pinapainit
+678552eb Gamitin ito sa Garden page.
+265753d6 Kusang ginagamit kapag mas maliit ang gantimpala ng laban.
+6028b76d Gamitin ito sa ligaw na laban.
+d3f4cb89 Palitan ang pangalan
+29cdd5c4 Ang level mo: pindutin para makita kung paano gumagana ang XP
+1aa6e8ca Lv
+eaeec02c XP bago ang susunod na level
+18e480f2 Pindutin para makita kung paano gumagana ang XP
+890541c0 Palitan ang layunin mo kada araw
+e54c864d Pindutin para makita kung paano nag-e-evolve ang nilalang mo
+0b8ca8e4 Sunod-sunod na araw: pindutin para sa higit pa
+ce1213a4 Mga barya, para sa tindahan: pindutin para sa higit pa
+c3b0236d Sinasaklaw ng streak freeze ang isang araw na nalaktawan: pindutin para sa higit pa
+5894f7c3 Liwanag mula sa mga gusali mo: pindutin para sa higit pa
+b1e9fef7 Hiyas, para sa mga gamit: pindutin para sa higit pa
+dd8fd086 Mga puso: pindutin para sa higit pa
+b2d3bd7f Ilipat ang nilalang mo sa ibang tirahan
+f5552713 Laban
+48f77eb7 Mga nilalang
+55de8870 Tindahan
+714d913b Hardin
+3f5aa796 Naabot ang layunin ngayong araw
+ad69cbf5 Ngayon: {0} / {1} min

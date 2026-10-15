@@ -1,0 +1,199 @@
+de2f330f Braise
+fc24ae3b Feu de forêt
+0e1275fa Fouet Liane
+7c390204 Prolifération
+789c7773 Jet de cailloux
+e6277766 Éboulement
+d735dc4a Décharge
+9ab63902 Coup de tonnerre
+76ce312e Éclaboussure
+2bfd4000 Contre-courant
+97389d1a Ombre
+25ab466c Tombée de la nuit
+157f2572 Rebond
+fe7f55b8 Concentration
+d4e1aee4 Charge électrique
+d9d7e3d0 Vent arrière
+15727c13 Résonance
+1ed1264f Intuition
+2d4c3f4e Réserve
+e0070ea6 Frappe nocturne
+69b8c2a5 Rayon de l'aube
+7b6625f5 Cœur tranquille
+ee19d60c Second Souffle
+b5c15f07 Forme Parfaite
+8d82fb8f Toutes les créatures, toutes les attaques.
+9ab28c8b Seuls les nouveau-nés et les juvéniles peuvent combattre (les adultes se reposent cette semaine).
+ae188585 Les attaques de soin sont interdites.
+8c9c8aee Seulement les créatures Braise, Étincelle et Pierre.
+fe2417f4 Seulement les créatures Marée, Bosquet et Crépuscule.
+49663788 Équipes d'une seule créature.
+9b3a9266 Une plante où poussent des lettres lumineuses. Idéale pour les curieux : chercher des mots.
+7c5e9fe1 Un coquillage qui fredonne ce qu'il a entendu. Idéal pour ceux qui écoutent.
+58e0fe3c Atteignez votre objectif du jour deux fois
+edbcf4d7 Une lanterne pliée dans des pages. Idéale pour les lecteurs.
+d8e79134 Cherchez 30 mots
+b5f0b120 Un petit puits d'encre. Idéal pour les collectionneurs de mots.
+82e39370 Enregistrez 50 mots
+9b2d1f8b Une pierre gravée qui garde ce que vous savez. Idéale pour les collectionneurs.
+c2ee073b Connaissez bien 5 mots (grâce aux combats)
+e351da07 Un métier à tisser la lumière des étoiles. Régulier pour tout le monde.
+b41d02f3 Libérez une fois une créature adulte
+423e6206 Faites éclore votre première créature
+ea9f375d Atteignez votre objectif du jour 3 fois
+d852f95e Enregistrez 30 mots
+a80ee76d Tenez une série de 5 jours
+ad99a14e Connaissez bien 10 mots (grâce aux combats)
+1c1b6779 Dans un combat sauvage, rend une fois la moitié de la santé d'une créature.
+fb54130d Double l'XP gagnée en cherchant, enregistrant et révisant des mots pendant 20 minutes.
+05dc8601 Un combat de plus aujourd'hui rapporte la totalité, après les trois premiers.
+658d01ff Réchauffe un œuf pour qu'il grandisse avec la créature de votre habitat.
+7661862b Ouvre la parcelle de construction suivante sans attendre son palier.
+379ee5cf Un nouvel œuf pour votre équipe. Son élément dépend de votre façon d'étudier.
+7bd136e6 Un brouillard de paroles confuses.
+8720a6ee Il vous fixe du regard.
+2cebb5b5 Du bruit là où devraient être les mots.
+53267fa2 Il efface tout ce que vous ne revoyez pas.
+8697f432 Argent
+c57604db Or
+b3850e04 Diamant
+c0203c34 Cherchez un mot
+f51af387 Faites éclore un œuf
+d5913b18 Atteignez votre objectif du jour 10 fois
+6da30a55 Une série de 7 jours
+90f6c76b Une série de 30 jours
+8ad928d9 Une série de 100 jours
+cd7e4e5a Enregistrez 100 mots
+8a81401d Enregistrez 1000 mots
+a535d7ff Remplissez l'habitude d'écoute
+479b0d0b Remplissez l'habitude de lecture
+f7254f15 Remplissez l'habitude de collecte
+9b83b0ca Élevez un Écho adulte
+b132f8c5 Élevez un Sage adulte
+28cfd944 Élevez un Gardien adulte
+de125314 Terminez un combat avec un ami
+b231ceba Aidez à vaincre un boss hebdomadaire
+90b952f5 Parc de la ville
+73d5f55c Oasis
+bcce2166 Bois nocturne
+0b7eaa70 Rivage
+f347e8f3 Apprend : {0:lower}
+25640d1c Ligue {0}
+8f75ec47 XP gagnée aujourd'hui
+2dd2bed7 aujourd'hui
+75050d57 Sa créature préférée
+9d9aab10 Connectez-vous d'abord avec Google (Réglages → Amis et partage).
+33f400a7 Ajoutez d'abord un ami, dans l'onglet Amis.
+98961386 Offrir cet œuf à…
+458e9f84 Offrir ceci à…
+d19372ac Envoyé à {0}.
+33ce4174 Chargement…
+fe0337e8 Impossible de joindre le service en ligne. Vérifiez votre connexion.
+ab898d21 Les combats entre amis, la ligue, les raids de guilde et les cadeaux nécessitent les fonctions en ligne.
+260bcda8 Choisissez <0>Se connecter avec Google</0> dans Réglages → Amis et partage. Vos mots et votre matériel d'étude ne sont jamais envoyés : seulement votre équipe de créatures, la précision de vos réponses et les totaux de la semaine.
+134635e9 Ouvrir les Réglages
+0908d881 Les données en ligne du jeu ne sont pas encore disponibles ({0}).
+e235e19c Vous attend
+de946983 Un œuf
+2dcb4068 Un cadeau
+359aac0c {0} de
+86834099 a défié votre équipe et {0}.
+032d7174 Revanche
+75a9d140 Classement selon la part des jours de la semaine où chacun a atteint son propre objectif du jour, quelle que soit sa taille. Cinq jours ou plus dans la semaine vous font monter d'une ligue ; un seul ou aucun vous fait descendre.
+561c39e9 Règle de combat de la semaine :
+bb9d653f Défier
+6fb4e940 Pas encore d'équipe
+f45f3479 N'a pas encore ouvert le jeu en ligne
+60bab8eb Ajoutez des amis dans l'onglet Amis pour remplir la ligue et défier leurs équipes.
+17f11ae4 Vaincu !
+ce9deb48 Il en reste {0} sur {1}
+fd2b49ec Raid {0} : {1}
+1a39a266 {0} Chaque bonne réponse en combat cette semaine, par n'importe quel membre de la guilde, en retire un.
+4145d94b Récupérer la récompense
+3ef23a47 Raid gagné : +{0} XP et {1} pièces.
+5954ea17 Récompense récupérée. Un nouveau boss arrive lundi.
+a2df9bd2 Rejoignez ou fondez une guilde (onglet Amis) pour affronter ensemble le boss du raid hebdomadaire. Cette semaine : {0}.
+6b8ca9a3 Objectif du jour ! +{0} XP
+6caf860b Anki : {0} cartes devenues matures · +{2} XP
+b72da5f2 Gel de série
+dce47891 Carte indice
+29877f37 +{0} XP
+53af6389 XP
+b666a4ab {0} · suivant {1}
+df2457aa suivant {0}
+830ead14 {0} cœurs sur 5 : nourrissez-le pour les faire monter
+45260878 Lueur : produite par vos bâtiments
+4ac9dac4 {0} de lueur
+ec8782a8 Lueur par heure en ce moment
+6a6e9e27 {0} par heure
+cba40f6f Gemmes : gagnées grâce aux badges, aux raids, en montant de ligue et avec la pleine floraison
+626f7b1c Poussière d'étoile : chacune rend tout {0} % plus rapide, pour toujours
+f7370cf7 {0} La lueur se récolte maintenant toute seule.
+7a211303 Atteignez votre objectif du jour {0} fois et la lueur se récoltera toute seule ({1} jusqu'ici).
+ddd7a154 Les bâtiments produisent de la lueur pendant votre absence : jusqu'à {0} heures de production vous attendent. Chaque type est idéal pour une habitude d'étude différente, et atteindre l'objectif du jour les accélère tous de moitié et envoie d'un coup deux heures de lueur.
+cf6b269f <0>Pleine floraison.</0> Chaque parcelle porte un bâtiment entièrement développé. Le jardin est complet ; libérer une créature en commence un nouveau, plus rapide.
+39a1c2dc Récolter {0} de lueur
+eabc714b Parcelle {0} : fermée
+467b84dc {0} S'ouvre quand : {1}
+1c6e99ed Utiliser une clé ({0})
+7cf40990 Parcelle {0} : vide
+144a397b Choisissez quoi construire ici.
+7e08478b {0} {1} · {2} par heure
+0595972e {0} · niveau {1}
+d020fbd3 · aime {0} {1}
+9078100c {0} de lueur par heure{1} · {2} en attente
+04aac4c0 Récolter
+53b630e7 Faire grandir ·
+6d6426d9 Montez-le d'un niveau : il produit nettement plus de lueur
+50645793 Entièrement développé
+4dd3fed6 Libérer une créature adulte
+95b0eef2 Une créature adulte peut être libérée. Elle quitte votre équipe et reste dans les mémoires ici. Vos bâtiments et votre lueur repartent de zéro, et vous gardez <0/> : chacune rend chaque bâtiment {0} % plus rapide pour toujours, si bien que le jardin suivant pousse bien plus vite que le précédent. Plus vous avez de bâtiments entièrement développés à ce moment-là, plus vous obtenez de poussière d'étoile.
+7005fc6d poussière d'étoile
+5fb6a7b7 Vous n'avez pas encore de créature adulte.
+21e10852 cette créature
+edfb0cc4 Libérer {0} ? Elle partira pour toujours, et vos bâtiments et votre lueur repartiront de zéro. Vous gardez la poussière d'étoile, vos autres créatures et tout ce que vous possédez.
+d2001733 Libérée. Vous avez gagné {0} poussière d'étoile.
+28a4bacf Libérées jusqu'ici : {0}.
+55427966 {0} {1} · nourri {2} fois sur {3} aujourd'hui. Son plat préféré compte double. Les cœurs rendent ses bâtiments un peu plus rapides et ne changent rien en combat.
+35b25929 Nourriture
+9d041fa1 {0} son préféré
+779fc473 {0} créatures adorent ça
+77690ee2 · vous en avez {0}
+ff1928e5 Nourrir
+c266a25e Il adore ça !
+df139e6c Miam.
+db09cbc4 En acheter un pour {0} de lueur
+14e351e1 Fournitures
+0e90e484 Les gemmes ne viennent que de vos actions : chaque badge (2), un raid gagné (3), monter de ligue (2), pleine floraison (10). Rien ne se vend contre de l'argent.
+11a9a29c Un nouvel œuf a rejoint vos créatures.
+c505c639 Ajouter 20 minutes
+36690a36 Utiliser maintenant
+476c3b07 L'XP est doublée pendant {0} minutes. Allez étudier !
+0a854dda encore {0} min
+427a838f Réchauffer un œuf
+e00a97a2 Il vous faut un œuf en réserve qui ne soit pas sorti dans l'habitat
+bdd2a3a3 L'œuf se réchauffe : il grandit en même temps que votre créature.
+6a6002af un œuf se réchauffe
+678552eb Utilisez-la sur la page Jardin.
+265753d6 S'utilise toute seule quand un combat rapporterait moins.
+6028b76d Utilisez-la pendant un combat sauvage.
+d3f4cb89 Renommer
+29cdd5c4 Votre niveau : touchez pour voir comment fonctionne l'XP
+1aa6e8ca Niv.
+eaeec02c XP jusqu'au niveau suivant
+18e480f2 Touchez pour voir comment fonctionne l'XP
+890541c0 Changer votre objectif du jour
+e54c864d Touchez pour voir comment votre créature évolue
+0b8ca8e4 Jours d'affilée : touchez pour en savoir plus
+ce1213a4 Pièces, pour la boutique : touchez pour en savoir plus
+c3b0236d Un gel de série couvre un jour manqué : touchez pour en savoir plus
+5894f7c3 Lueur de vos bâtiments : touchez pour en savoir plus
+b1e9fef7 Gemmes, pour les fournitures : touchez pour en savoir plus
+dd8fd086 Cœurs : touchez pour en savoir plus
+b2d3bd7f Déplacer votre créature vers un autre habitat
+f5552713 Combat
+48f77eb7 Créatures
+55de8870 Boutique
+714d913b Jardin
+3f5aa796 Objectif du jour atteint
+ad69cbf5 Aujourd'hui : {0} / {1} min

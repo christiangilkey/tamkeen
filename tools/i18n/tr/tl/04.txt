@@ -1,0 +1,203 @@
+8d36cc07 · {0} {1} barya
+c94a5549 · {0} salita ang kilalang-kilala na
+13f349e7 {0} tama, {1} mali{2}
+fd1125a9 {0} Galing {1}{2} {3} {4}
+8e9fb44f Walang kahit isang maling sagot: bukas na ang Champion na anyo at ang galaw na Perfect Form.
+872a8bbd Nanalo mula sa bingit: bukas na ang Champion na anyo at ang galaw na Second Wind.
+21526016 Nag-iwan sa iyo ng itlog ang ligaw na nilalang.
+6a569f25 Dahil sa battle ticket, buo ang gantimpala ng labang ito.
+eda121a1 {0} Laban at mga flashcard mo, parehong tapos ngayong araw: +{1} XP · {2} {3} barya
+e3a4b01e Nanalo ka!
+241517f8 Talo ka rito
+8f651398 Lumaban ulit
+e9b450d1 Tapos
+b9da5b2a Magaling na laban.
+ac63d5ec Binilang pa rin para sa mga salita mo ang bawat sagot.
+a0d275ae Umalis sa labang ito? Bilang pa rin ang mga sagot mo hanggang ngayon.
+32c9bcb1 Itlog
+9c0c49c5 Bagong pisa
+0d67c71d Bata
+17748728 Nasa hustong gulang
+3703cd21 Buhay
+1b81f28b Atake
+af4b8454 Depensa
+2d2cb022 Bilis
+498c3f86 Hinubog ng pakikinig
+0a72a97b Hinubog ng pagbabasa
+fd0127b7 Hinubog ng pag-save ng salita
+59bcab48 Hinubog ng paghahanap ng salita
+23907bfa Ang nilalang sa tirahan ang lumalaki habang nag-aaral ka. Ikaw ang pipili kung mag-e-evolve ito at puwede itong baguhin mamaya: walang mawawala kung susubukan mo ang ibang anyo o pananatilihin ang mas batang itsura.
+b9f2cfaa Nasa tirahan
+d7ddc5a1 Ilabas
+c68f8125 · binhi {0}
+7fcf6bea Nakikita ng mga kaibigan
+b28c55c0 Ipakita sa mga kaibigan
+6c5a6923 Nakikita ng mga kaibigan mo ang nilalang na ito sa tabi ng pangalan mo
+3eaf4dc6 Handa nang mag-evolve
+a097aeab Sumusunod ang anyo nito bilang matanda sa paraan ng pag-aaral mo. Pumili ng isa:
+bfe934c2 Isang espesyal na anyo, kung nakakuha ka na:
+0056d527 I-evolve
+003d086a Nag-evolve ito sa anyong {0}, at nag-iwan sa iyo ng itlog.
+b8db515e Itsura
+e5895e75 Anyo bilang matanda
+212631b6 Mabubuksan habang mas dumadami ang {0}
+0742949a Espesyal na anyo
+824147ae Mga galaw sa laban (pumili ng hanggang apat mula sa {0})
+b08be03b , lakas {0}
+8d474b73 Mag-iwan ng kahit isang pang-atakeng galaw.
+1f38a263 Ilabas ito at mag-aral para mapisa.
+50275e1d Ibigay ang itlog na ito sa kaibigan
+25e40553 Sa iyo na habambuhay ang mga badge: <0/> sa {0} ang nakuha.
+b38fd978 Cap
+8d2d0494 Bonnet
+5b8d667e Salakot
+0200e574 Korona ng bulaklak
+a1794223 Laso
+453cce21 Headphones
+a73f2e84 Sumbrero ng salamangkero
+410494f2 Korona
+8a6c4f48 Top hat
+2dad5490 Party hat
+fea217c8 Beret
+5856ecee Sumbrero ng chef
+4acabbde Cowboy hat
+392c6646 Helmet ng manlalakbay
+53e6537e Sumbrero ng pirata
+3f77bde0 Graduation cap
+d2f9a663 Sun visor
+e8bf6dcb Cap na may elisi
+f3681d8b Halo
+f0aeb7b3 Korona ng dahon
+216d0c24 Sungay ng usa
+f81ef643 Tiara
+9a21f3aa Bucket hat
+3187598c Earmuffs
+0062340f Takip ng kabute
+ceecea26 Helmet ng Viking
+68c1942a Helmet pangkalawakan
+28391e32 Tainga ng kuneho
+4a6b7158 Tainga ng pusa
+b9f4aa95 Sumbrero ng payaso
+7e533442 Pantulog na sumbrero
+6b70d2cc Bilog na salamin
+904017f8 Shades
+c1feb92c Monocle
+745c59f0 Salaming bituin
+8aadf165 Maskara
+6741f119 Salaming puso
+0b34f86f Goggles
+bba42049 Takip sa mata
+fbd954ab 3D glasses
+58d80900 Salamin sa pagbabasa
+34a75a40 Snorkel mask
+f18b06a1 Ilong ng payaso
+f6c4e7b6 Bigote
+6e26326c Mamula-mulang pisngi
+07e6b11b Sleep mask
+462035a5 Pixel shades
+5575bbff Bigote ng pusa
+a81134de Benda
+83dfe3a2 Bandana sa leeg
+5a1a0c91 Bow tie
+d4198662 Kampanilya
+5d6614cb Gintong kuwintas
+2fdb1722 Kuwelyong may tinik
+903467a9 Medalya
+8841f81b Kurbata
+b3e12140 Kuwintas na perlas
+14465646 Locket
+ec81fbb3 Kuwintas na bulaklak
+2466135f Bandana
+45b27206 Ruff collar
+e76c5bf1 Pito
+fe3b767b Kuwintas na may susi
+c8c21a81 Kuwintas na kabibe
+997e21c2 Feather boa
+ae48c34a Laso
+5a9a6cd7 Name tag
+59b3f863 Anting-anting
+9d5c8e51 Kompas
+f69f2330 Aklat
+93e720cf Parol
+a774409a Watawat
+64f241f5 Lobo
+24280537 Mikropono
+ff45e635 Pluma
+483fed9c Payong
+0c691a9a Espadang kahoy
+2af4fc97 Wand
+be638732 Pumpon ng bulaklak
+1242a215 Sorbetes
+63d27f89 Tasa ng kape
+fb46a738 Tasa ng tsaa
+5136ae1b Lapis
+28d512c4 Pinsel
+72d4d28e Pamingwit
+40a60bfb Magnifying glass
+917904ac Sulo
+0a26857b Saranggola
+08271419 Kalasag
+78ede2e9 Teddy bear
+1075c086 Tropeo
+266a0fb1 Pulang kapa
+66d178d7 Kapang may bituin
+0ccf90eb Backpack
+c4b1ad5f Sukbit na bag
+a8bbfe7e Pakpak na may balahibo
+3c7c880b Pakpak ng paniki
+573b9116 Pakpak ng paru-paro
+4b7e2696 Jetpack
+5d62dc5c Bahay ng pagong
+7a41f42a Lalagyan ng palaso
+110bb280 Kumpol ng lobo
+03744d8c Kapang dahon
+06f3045f Damit na may guhit
+dd4fd5df Plain na damit
+4dfbc033 Damit na polka dot
+515bcf68 Kamisetang checkered
+d6a2305b Damit na may bituin
+f1bab294 Damit na may puso
+816d3505 Zigzag na sweater
+11a5ebab Floral na damit
+9c10e5aa Damit na galaxy
+cc58986a Argyle na sweater
+db9a99bf Pulang bulaklak
+b09f1254 Asul na bulaklak
+aa146572 Kabute
+36ca0758 Maliit na bato
+c462f354 Matataas na damo
+2115a9fc Maliit na parol
+bdc1fd5d Kabibe
+89f36136 Karatula
+a36ef413 Palumpong
+c6928281 Malaking bato
+b14de689 Pugad
+1a706e23 Kama
+337b7955 Mangkok ng pagkain
+8d1cb4ea Laruang bola
+0d88689c Lalagyan ng aklat
+b11bf19e Radyo
+64f5d600 Lawa
+f80ba508 Siga
+eae12d19 Tolda
+370793de Poste ng ilaw
+dc94e91a Puno ng prutas
+a187c328 Fountain
+f96ddf32 Arko
+237d114f Rebulto
+7a115bb8 Kuwago sa gabi: nag-aral pagkalipas ng 10 ng gabi
+7bcd9fab Maagang ibon: nag-aral bago mag-7 ng umaga
+ba785471 Pitong sunod-sunod na araw
+15441302 Walang mali: nanalo sa laban nang walang kahit isang maling sagot
+b2c51034 Pagbangon: nanalo sa laban mula sa bingit
+86b7531d Palakihin ito kasama ang napisang nilalang ng ibang elemento
+9ba079f8 ginagaya ang kulay ng kasama nito
+05b5bd96 Mag-aral pagkalipas ng 10 ng gabi
+40e4dece anyong pang-gabi na kumikinang sa liwanag ng buwan
+bba9c7c9 Manalo sa laban mula sa bingit, o nang walang kahit isang maling sagot
+ecc4d7d2 may palong at gintong marka
+13b10e8c Sunggab
+6e665685 Bantay
+2db9d9c8 pakikinig
+227f38db pagbabasa
+28cd39db pag-iipon ng salita

@@ -1,0 +1,210 @@
+fd142815 Burahin ang {0}? Aalisin nito ang {1} sa Library mo sa bawat device, kasama ang audio at transcript. Hindi na babalik ang nabura nang podcast episode kapag ni-refresh ang podcast. Mananatili ang na-save na vocab. Hindi na ito maibabalik.
+ab6b534e Aalisin nito ang {0} sa Library mo sa bawat device, kasama ang audio at transcript. Hindi na babalik ang nabura nang podcast episode kapag ni-refresh ang podcast. Mananatili ang na-save na vocab.
+fefb3326 Pumili ng model
+27aa7d41 Masyadong mabagal ang computer ko para dito
+16efb9b4 Hayaan na lang ang isang cloud provider na gumawa ng mga transcript (ilang sentimo kada oras ng audio)
+9ff4b446 Mag-download ng model para magpatuloy, o mag-set up ng cloud provider sa itaas. Puwede mong ituloy ang paggamit ng app habang dina-download ang model.
+9713faa5 Simulang gamitin ang app →
+d9cc6b1c {0}% nabasa
+e078f34f {0} oras {1} min pa
+a99cdd56 {0} min pa
+15710324 Han
+ba1d0a64 Hiragana
+6842e5a7 Katakana
+1cb09555 Cyrillic
+348d0069 Hebreo
+59d5f5b1 Griyego
+bd7d4b95 Hangul
+c32767e0 Thai
+c3376a97 Devanagari
+536c16bd {0} araw
+2985a39c {0} linggo
+682728dc {0} buwan
+67e282ba {0} taon
+2c4f87a8 wala pang isang minuto
+aebe40c4 mga {0} min
+24b8e72e mga {0} oras{1}
+a8bf7da8 sinukat sa device na ito
+60446ee5 mula sa mga dati mong sagot
+ca5a6508 unang hula hangga't hindi ka pa nakakapag-review ng ilan pa
+6403f2b7 Bago
+b83c4cda Mga review
+901df5e4 Layunin ngayong araw
+35c77c57 (unang hula)
+f922fb4c {0} pa ngayong araw{1}
+2081c97d Tapos na ang lahat ngayong araw
+b422c28b Walang dapat i-review ngayon
+f4896ede Ngayon: bagong salita {0} sa {1}, review {2} sa {3}. {4}. Palitan ang bilang ng bagong salita bawat araw
+031683ab {0} bagong salita lang ang naghihintay.
+aa175635 {0}Ang mga review ay ang mga salitang dapat i-review ngayon. Sa katagalan, asahan ang mga 10 bawat araw kada bagong salita (manwal ng Anki): {1} bago bawat araw ≈ {2} review bawat araw.
+16db8f9d Oras kada salita: mga {0} sa bago, {1} sa review ({2}).
+0a730827 Oras kada salita: mga {0} sa bago ({1}), {2} sa review ({3}).
+3997732f Bigkasin ito
+dc353487 Nakikinig
+4fc6e7f7 Katutubo
+72499faf Magsanay bigkasin (P): pakinggan ang salita, saka ang sarili mo. Hindi sine-save ang subok mo.
+a679d9ee Kailangan ng Tamkeen ng pahintulot na gamitin ang mikropono para marinig kang bigkasin ang salita.
+a970acc5 Hindi kita narinig. Subukan ulit, nang mas malapit nang kaunti sa mikropono.
+7bea803a Hindi magamit ang mikropono ngayon.
+4e81fbf0 3–20 titik, numero, tuldok o underscore.
+c9c9d7d4 Hindi ma-load ang online features.
+1d7a1d2e Hindi maabot ang online service. Suriin ang koneksyon mo sa internet.
+79ec683f Ang mga username ay {0}
+ad5eb13f Kumonekta muna.
+5fc4af92 May gumagamit na ng “{0}”. Subukan ang iba.
+d3e6897a (wala pang username)
+ed88ebe6 I-type ang username ng kaibigan mo.
+42f88043 Kumonekta muna (Settings → Mga kaibigan at pagbabahagi).
+76ece8da Pumili muna ng sarili mong username (Settings → Mga kaibigan at pagbabahagi).
+4e2bf6f2 Walang nagngangalang “{0}”. Kailangang eksakto ang username (pero hindi mahalaga ang malaki o maliit na titik).
+967a7678 Ikaw iyan!
+0d09c4f7 Magkaibigan na kayo ni {0}.
+993bd149 Nakapagpadala ka na ng request kay {0}.
+ff44a73d May nakabinbin nang request sa pagitan ninyo ni {0}.
+58f90a69 isang video o kanta sa YouTube Music
+97d30338 isang kanta, album, playlist o podcast episode (Share → Copy link)
+d23e8c8c isang kanta, album o playlist (Share → Copy Link)
+937e2007 page ng pelikula, serye o tao
+e016aab6 isang reel (Share → Copy link). Binubuksan ito ng mga kaibigan sa reel player ng Tamkeen
+ca2da724 kahit anong artikulo o page. Binubuksan ito ng mga kaibigan sa reader ng Tamkeen
+bdfd8662 kahit anong episode mula sa sarili mong library: gamitin ang 🎧 button sa bar
+52c54389 Apple Music
+094b763b hindi nahanap
+6c7af22a Hindi reel ang Instagram link na iyan. Gamitin ang Share → Copy link sa mismong reel.
+0449c7b9 Hindi mabuksan ang page na iyan. Suriin ang link.
+9c5f935e Hindi iyan mahanap sa {0}. Suriin ang link.
+2a0cb6b4 Spotify
+effea02d Sa mga nasa listahan ng kaibigan mo lang puwedeng magpadala ng mensahe.
+3a18cb8c Mag-type muna ng mensahe.
+79b09ca3 Hindi maipadala ang voice note: {0}
+394821e7 Walang maibabahagi.
+81058adf Masyadong malaki para ipadala sa isang mensahe.
+9c6fefee Hindi larawang nababasa ng app ang file na iyan. Subukan ang JPG o PNG.
+c1004cfe Hindi maihanda ang larawang iyan.
+9c4b6c33 Hindi ma-upload ang larawan: {0}
+c3441e47 2–5 titik o numero, walang espasyo.
+f70d9377 May guild na sa pangalang iyan. Subukan ang ibang pangalan.
+abf7ad6f Sarili mong mga kaibigan lang ang puwede mong imbitahan, sa guild na kinabibilangan mo.
+99113664 Isang kaibigan
+0669df82 Naimbitahan na sila sa guild na ito.
+853b17b9 Hindi maipadala ang regalong iyan (hanggang sampung regalo bawat araw, at sa mga kaibigan o kasama sa guild lang).
+d034eb8e Groq
+4de3bd6f Mga episode na lampas 24 MB na hindi MP3: hindi ito kayang hatiin ng phone, kaya ibinibigay kay Groq ang web address ng file at ito na ang kumukuha. (Ayos lang ang MP3 kahit gaano kahaba: halos lahat ng podcast ay MP3.)
+4472c560 ang buong malaking model: pinakamahusay para sa Arabe at mga diyalekto
+bd77aa8a Hindi ma-transcribe mula sa phone na ito gamit ang OpenAI ang mga episode na lampas 24 MB na hindi MP3: error ang lalabas. Hanggang 25 MB lang kada isang beses ang tinatanggap ng OpenAI, at MP3 lang ang kayang hatiin ng phone. I-transcribe ang mga iyon sa computer mo, o piliin ang Groq, na ito na ang kumukuha ng ganoong file. (Ayos lang ang MP3 kahit gaano kahaba: halos lahat ng podcast ay MP3.)
+eba3014e gumagana sa parehong key ng ChatGPT na kahulugan ng salita
+0ffe7a83 ang Groq Console
+2e074132 May libreng allowance ang Groq (ilang oras ng audio bawat araw) na hindi nangangailangan ng payment card. Kapag may card, nagkakahalaga ang isang oras ng audio ng 4 hanggang 11 sentimo.
+953a5f79 Pindutin ang button sa ibaba. Bubuksan nito ang console.groq.com sa web browser mo. (Ibang kumpanya ang Groq sa Grok.)
+e619a44c Gamitin ang email address mo, o “Continue with Google”. Libre ang pagsali.
+63239333 Buksan ang <0>API Keys</0> at pindutin ang <1>Create API Key</1>. Bigyan ito ng pangalang makikilala mo, gaya ng “Tamkeen”.
+cb2680e6 Bumalik dito, i-paste ito sa <0>API key</0> box sa ilalim ng Cloud transcription, at pindutin ang <1>Subukan ang key</1>.
+09604855 Mga 36 sentimo ang isang oras ng audio. Kung gumagamit ka na ng OpenAI key para sa kahulugan ng salita, gumagana rin dito ang parehong key: iwanang walang laman ang box na ito.
+1bd3e72b Gumagana rin dito ang ChatGPT login mo, pero hindi sakop nito ang ChatGPT Plus subscription: hiwalay na binabayaran ang mga key.
+944fc80e Ang provider
+a85ddf87 (pinapahintay nang {0})
+8b0ebde4 Sinasabi ni {0} na naabot na ng account mo ang limitasyon nito sa ngayon{1}. Limitado lang ang audio na maipapadala ng mga libreng account kada oras at kada araw.
+a6fcec4d Masyadong malaki ang audio na iyan para tanggapin ni {0} nang buo.
+964037f2 Hindi kilala ni {0} ang napiling model. Ibalik ito sa inirerekomenda sa Settings.{1}
+e1e8503b Sinasabi ni {0} na walang credit ang account. Magdagdag sa Billing page nito.{1}
+d31e3b99 Hindi ito ma-transcribe ni {0} (error {1}){2}
+30785373 Hindi maabot si {0}. Suriin ang koneksyon mo sa internet.{1}
+ad40a6bc Naubusan ng memory ang phone na ito habang inihahanda ang audio para kay {0}. Subukan ang mas maikli.
+31bc4b92 walang ibinigay na dahilan ang phone
+9f2d7d5a Hindi maipadala kay {0} ang audio: {1}.
+55d8f8bc {0} segundo
+24a671e0 {0} minuto
+6c204c8f {0} oras
+f5071960 {0}¢ kada oras ng audio
+a6a5c3dc wala pang 0.1¢
+8d52756d 0 min
+656cedad Wala pang naipadala ngayon.
+75b73b14 , mga {0}
+675fee00 {0} piraso ang naipadala{2}
+0118d341 Wala pang paghahanap ngayon.
+e5016995 {0} paghahanap{2}
+6f49c311 Saudi Arabia
+1c39abf6 Egypt
+cf5a0fa0 UAE
+32e087f0 Morocco
+fcf29f6c Japan
+d2eaf2aa China
+094d515b Taiwan
+6754fe3c Russia
+ad79ef0f Italya
+eb607d09 Pilipinas
+d9ab8240 Estados Unidos
+5c04a992 United Kingdom
+ceafb51e Australia
+d6663dda Negosyo
+11381a19 Komedya
+aaf87fe5 Edukasyon
+0d23bd8c Kathang-isip
+5c9cb498 Pamahalaan
+89fc9192 Kalusugan at Fitness
+90ccd649 Kasaysayan
+cccd8e9f Bata at Pamilya
+540c98ab Libangan
+131260cb Musika
+34c808d0 Balita
+f31acc39 Relihiyon at Espiritwalidad
+d2d06637 Agham
+4a6df903 Lipunan at Kultura
+2fec45a4 Isports
+d9f273ca TV at Pelikula
+d018b082 Teknolohiya
+7a3f06d3 True Crime
+04975199 Pumili muna ng wikang pag-aaralan (Settings).
+38de31ed Hindi maabot ang mga podcast chart ng Apple. Suriin ang koneksyon mo at subukan ulit.
+7eceb7a9 Hindi maabot ang podcast directory ng Apple. Suriin ang koneksyon mo at subukan ulit.
+6e6a6f20 Iba pa
+b2918a21 Dina-download… {0}% ({1} sa {2} MB)
+a15a5851 Dina-download… {0} MB
+fe01cea2 Ini-install. Magsasara ang Tamkeen at kusang bubukas ulit.
+4265eb9a Hindi natuloy ang update.
+829e6b86 Ano ang bago ↗
+c4cbac00 Mag-update ngayon
+531355b2 (nasa iyo ang {0})
+91b691d1 Available na ang Tamkeen {0}{1}
+d42870c3 Dito ito mai-install, at mananatili ang library mo gaya ng dati.
+3d611376 I-download ito mula sa release page.
+3ab0d731 Nag-a-update…
+3c467cf7 ✓ Sinusundan
+d1541dd9 + Sundan
+90145b11 Sinusundan mo ang channel na ito sa Tamkeen. Pindutin para itigil ang pagsunod.
+e80a9596 Sundan ang channel na ito sa Tamkeen: lalabas ito sa Library mo sa ilalim ng YouTube
+8c9967c9 Hindi na sinusundan
+5a674f33 Hindi masundan ang channel na ito.
+ce8c60f6 Pindutin ang video para panoorin ito sa Tamkeen
+5caa7f81 Lebanon
+674027e1 Jordan
+d115b8d5 United Arab Emirates
+bd6acc86 Algeria
+1aed9ecc Iraq
+93295b0c Kuwait
+55949d4c Libya
+c14c36df Oman
+83ef3e6c Qatar
+edf404d0 Tunisia
+3ae11c72 Bahrain
+ac33d641 Yemen
+349507e4 Chile
+768685ca Estados Unidos
+9d4ac43d Venezuela
+09f199d2 Ecuador
+11760e1a Guatemala
+8a4bf12e Dominican Republic
+a001af75 Bolivia
+1bf429f9 Costa Rica
+66b98924 Uruguay
+71a45296 Paraguay
+1e36b31e Panama
+5aa58871 Honduras
+259a6e93 El Salvador
+4812648c Nicaragua
+fe23c52d Puerto Rico
+d8973b8e Senegal
+2f488ffc Hong Kong
+20c0b7bd Singapore
+ff3ea3be Malaysia
+2f36b6bb Kazakhstan

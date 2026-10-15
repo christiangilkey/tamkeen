@@ -1,0 +1,197 @@
+f0d4b821 Quella risposta non è stata salvata: {0}
+5ebeb223 Eliminare questa parola?
+0e347caf Verrà rimossa dal tuo vocabolario su tutti i tuoi dispositivi, insieme ai suoi progressi di ripasso.
+d9f36924 Tienila
+a6e51c31 Anche la sua carta nel tuo mazzo {0} in {1} viene rimossa alla prossima sincronizzazione, <0>con la cronologia dei ripassi di quella carta in {2}. Non si può annullare.</0>
+54b886ee D'ora in poi, eliminare una parola ne rimuove la carta senza chiederlo di nuovo.
+720f5ef8 La parola non è stata eliminata: {0}
+ed068c06 {0} di fila!
+0126ed40 Carte di oggi completate! +{0} di bagliore
+be9065f3 Carte di oggi completate!
+2c13c6b7 Battaglia e carte fatte oggi: +{0} XP, +{1} monete
+bd57d978 Carta jackpot!
+5e816849 Carta fortunata!
+85b57d0f {0}+{1} XP
+c037d3c7 Dom.
+91e3dd9f probabilità di ricordare una parola imparata
+4efea6e1 Sessione completata
+47cbaf0c Tutto in pari
+7890ad9f {0} carte in circa {2} minuti{4}.
+c9ead0bf Niente da ripassare, e le parole nuove di oggi sono fatte.
+96e9c05a Niente da ripassare per ora. Le tue parole stanno riposando.
+581d31c2 Salva qualche parola con un significato e comparirà qui.
+d7d2a049 conosciute da 3 settimane o più
+85df11fd parole in ripasso
+7ec16612 Impara altre {0} parole nuove
+dce4bd3c Stanno per tornare
+b54a6754 La ricerca non distingue tra maiuscole e minuscole.
+e8082793 Cerca in tutte le trascrizioni… {0}
+62ce0e88 Cerca in tutte le trascrizioni
+79bd4f18 {0} Le trascrizioni sono sempre mostrate esattamente come sono state trascritte.
+a568e936 Cerca in ogni trascrizione, video e pagina web che hai aggiunto.
+95a44659 Nessun risultato per «{0}».
+54f3e4b2 (mostrati {0})
+679fb77f {0} risultati{2}
+5eb73faa mlx-whisper sulla GPU Apple (Metal)
+8538d459 faster-whisper sulla GPU NVIDIA (CUDA, float16)
+de8877df faster-whisper sulla CPU (int8)
+88519b93 ({0} GB)
+9433c5fb Accelerazione GPU
+fd17e405 Lingua che parlo
+0d6a65aa I pulsanti e i messaggi dell'app sono mostrati in questa lingua, e le parole vengono spiegate in essa.
+1d1fdf5f Lingua che sto imparando
+a553ac64 Usata per le nuove trascrizioni, le pagine web importate e le spiegazioni delle parole. Ciò che hai già trascritto mantiene la lingua con cui è stato fatto.
+099be6af Modello di trascrizione
+c1f65ddb Motore
+b76ab659 Hardware
+d067f1cc {0} · {1} thread · {2} GB di RAM{3}
+17c698af {0} Cambiare modello vale solo per le nuove trascrizioni; ritrascrivi un episodio dalla libreria per usarlo lì.
+2162db4e Sincronizza con Google Drive
+3721a5dd Tieni sincronizzati podcast, trascrizioni e vocabolario tra questo computer, altri computer e l'app Android. Tutto è salvato in una cartella privata dell'app nel <0>tuo</0> Google Drive, visibile solo a questa app. La sincronizzazione non passa mai da altri server.
+0ca0b563 Anki (facoltativo)
+3c270194 Il componente aggiuntivo per Anki
+22fffbc8 Se studi con Anki su questo computer, un piccolo componente aggiuntivo lo collega a Tamkeen. Dice a Tamkeen come vanno i tuoi ripassi, così contano per la tua creatura: completare ciò che è in scadenza è l'obiettivo del giorno (qualunque sia il numero di carte), e le carte che maturano danno un bonus. Per questo vengono inviati solo numeri. Con l'interruttore qui sopra attivo, tiene anche allineati quel mazzo e le tue parole salvate. Tutto resta su questo computer. Se hai installato il componente prima che esistesse la sincronizzazione, scaricalo e installalo di nuovo.
+177dd240 Premi il pulsante qui sotto e salva il file.
+e78fa755 Fai doppio clic sul file salvato. Anki si apre e chiede di installarlo; rispondi di sì, poi riavvia Anki.
+047825e8 Ripassa come al solito con Tamkeen aperto. In Anki, <0>Strumenti → Tamkeen companion…</0> mostra se è collegato, e <1>Strumenti → Sync Tamkeen now</1> sincronizza subito il mazzo.
+9cf66eeb Scarica il componente per Anki
+fb0c95bf Archiviazione audio
+746fcf10 Elimina l'audio scaricato dopo la trascrizione<0/><1>Risparmia spazio su disco. Il lettore riproduce poi l'audio in streaming dal server del podcast.</1>
+ddb48157 Riproduci sempre in streaming dall'URL originale<0/><1>L'audio viene scaricato solo temporaneamente per la trascrizione e mai conservato. La riproduzione richiede una connessione a internet.</1>
+41def7a0 Aspetto
+0485a026 Tema:
+bc0792d8 Sistema
+a36ef8ab Chiaro
+ae1ef014 Scuro
+1970d1e8 Dimensione del testo di podcast e video: <0/> <1>{0}px</1>
+ce52a4a4 Dimensione del testo delle pagine web: <0/> <1>{0}px</1>
+48cd18da I tuoi dati
+eb32d375 Libreria, trascrizioni, vocabolario, modelli e impostazioni sono salvati in:
+b26720e4 Apri la cartella dei dati
+146d9a4b Esporta i miei dati
+65cf972d includi l'audio scaricato
+aa4fb3d2 Importa dati…
+2916184c Sostituisce la libreria attuale con un backup (.zip).
+c76d1807 Aggiornamenti
+d4bbbea7 La sincronizzazione non è disponibile in questa versione (accesso Google non configurato).
+4a0b7281 Accedi con Google
+f0dd6b0d Apre il browser per accedere.
+64b8b874 In attesa di Google…
+07030d82 Account Google
+4541689d Ultima sincronizzazione non riuscita: {0}
+0a5d4651 Ultima sincronizzazione {0}
+be8f16b4 · {0} trascrizioni inviate, {1} ricevute, {2} audio inviati
+1b6c524f Accesso effettuato
+dc1649a1 Esci
+cc4c05b0 Carica copie audio compresse (circa 12 MB all'ora)<0/><1>Permette al telefono e agli altri computer di riprodurre esattamente l'audio trascritto, così l'evidenziazione resta sincronizzata anche nei podcast che inseriscono pubblicità diverse a ogni download. Usa lo spazio del tuo Google Drive.</1>
+d578af85 Ora impari: {0:lower}
+b868b1b6 Al momento non usato: le trascrizioni le scrive {0} (Trascrizione nel cloud, qui sopra). Qui non serve scaricare nulla.
+4d889f27 Ancora nessun resoconto.
+f29bbb6a Ultimo contatto con Anki {0}
+696d2cc7 · oggi: {0} ripassate, {1} maturate, {2} ancora in scadenza
+9293dd01 Backup pronto ({0})
+3b151b74 Importare «{0}»? Questo SOSTITUISCE la libreria, le trascrizioni e il vocabolario attuali con il contenuto del backup.
+deaefe6d Ripristinati {0} file audio.
+7427e5f6 Importato. {0}
+b901ec82 Hai la versione più recente ({0}).
+d7854118 Sempre
+24345a14 Oggi
+df833fe8 Ultimi 7 giorni
+6b329852 Ultimi 30 giorni
+0245d916 Ultimi 12 mesi
+9efe99b9 Tra due date…
+ed434d6b Spunta <0>Import any learning progress</0> per mantenere il punto in cui si trova ogni parola nei tuoi ripassi di Tamkeen. Lascialo vuoto per far partire ogni carta come nuova.
+574c12ec Serve l'app Anki installata su questo computer.
+be71b755 In Anki, fai clic su <0>Import File</0> e sceglilo.
+e445c6a9 Assicurati che il mazzo abbia il formato con cui vuoi vedere le carte in Anki.
+59e916d5 Serve l'app AnkiDroid installata su questo telefono.
+e3b8af2a Scegli la bolla <0>Anki</0> nella riga in basso. Se non c'è, tocca <1>Altro</1>.
+0ea5d1ae Tocca il popup chiamato <0>AnkiDroid</0>.
+5eeb9580 In AnkiDroid, assicurati che il mazzo abbia il formato con cui vuoi vedere le carte.
+097027a5 Invio delle tue parole ad Anki
+7c7da884 Ho capito, esporta
+794da2c6 «Esporta per Anki» salva un file di mazzo con l'audio e i progressi di ripasso di ogni parola, per il pulsante Import File di Anki.
+be8ecb08 «Esporta per Anki» condivide un file di mazzo con l'audio e i progressi di ripasso di ogni parola: scegli la bolla di Anki, poi AnkiDroid.
+239c2f13 Vocabolario
+2fa9797f Cerca nel vocabolario… {0}
+c8aaa372 Esporta le parole mostrate qui sotto
+5755f9ac Esporta CSV
+b3f6d77c Le parole mostrate qui sotto come file di mazzo Anki, con audio e progressi di ripasso
+3e28846b Esporta per Anki
+adc4e96a Ordina
+b2a08c42 Mostra parole
+172415f0 aggiunte
+37c6c57b modificate
+3f66052a Dal
+4374aaee al
+ae79ea1e Al
+bfad960e Aggiungi a una cartella
+24d51d52 Togli dalla cartella
+6f99aa21 📨 Invia a un amico
+247fd631 Annulla la selezione
+10365d20 Aggiungi una parola a mano
+3dbc0a77 Suggerimento: in qualsiasi trascrizione, fai clic destro (o tieni premuto) su una parola o una frase selezionata e scegli «Salva nel vocabolario». Spunta le parole per metterne diverse in una cartella insieme. {0}
+863892c6 Impossibile caricare l'audio di questa parola.
+6d19e3ba Nome della nuova cartella:
+7e6e65f7 Tutte le parole
+889ab689 Senza cartella
+4ad414d8 ＋ Nuova cartella
+e2324f01 Rinomina la cartella:
+5ee46641 Elimina la cartella
+63e908b6 Eliminare la cartella «{0}»? Le parole al suo interno restano.
+e4ae0eaf 📨 Invia la cartella a un amico
+b44edd40 ＋ Nuova cartella…
+5b000a6e Queste parole non sono in nessuna cartella.
+afb8631c {0} parole
+08c2177a Non ci sono parole da inviare.
+93ccaaea la cartella «{0}» ({1} parole)
+128751ac {0} parole
+e0e017af Invia {0} a…
+8106e86e Preparazione dell'audio per {0} parole…
+0e770154 con audio
+8db1d803 ({0} con audio)
+151df9be Inviato {0}{1} a {2}.
+9afb285b · modificata {0}
+37c1236f ▶ Parola
+b31e5638 ▶ Frase
+29eb5c50 Cerca un video di YouTube in cui si dice questa parola
+9089cae1 Trova in un video
+a5420424 Seleziona parola
+8e3f51e2 {0} · aggiunta {1}{2}
+19adc47b Cartelle
+15a53568 Ripassa «{0}»
+952f3754 Inizia
+30cdf73e da ripassare
+c2a6b03f nuove
+bb866ab5 Le parole che hanno un significato compaiono qui come carte.
+b568b4b7 · {0} parole tornano {2}{3}
+29a80ea8 Tutto in pari{0}
+e5084bff {0} selezionate
+85cce1e1 Deseleziona tutto
+b2034f7e Seleziona tutte ({0})
+1ef4fd36 Togli la spunta a tutte le parole dell'elenco
+80e145aa Spunta tutte le parole dell'elenco, per archiviarle o inviarle insieme
+f1423624 su {0}
+294ccd52 {0}{1} elementi
+71d86079 Nessuna parola corrisponde a questi filtri.
+0be6a257 Nessun risultato.
+78e66aba Ancora nessuna parola salvata.
+d6206ee4 Creazione del mazzo Anki con l'audio…
+dc289056 Benvenuto in Tamkeen
+1c1ca506 Impara una lingua da podcast, video e pagine web veri, parola per parola.
+1dd6a17c Come funziona
+58c2a9b6 <0>Aggiungi un podcast con l'URL del suo feed RSS.</0> Quasi tutti i podcast ne hanno uno. Cerca «RSS» sul sito del podcast, oppure cerca sul web «<1>nome del podcast</1> RSS feed». I link di Apple Podcasts non funzionano direttamente, ma siti come castos.com/tools/find-podcast-rss-feed li trasformano in un URL RSS.
+668bb8e3 <0>Trascrivi gli episodi.</0> Fai clic su «Trascrivi» in qualsiasi episodio. Tutto funziona sul tuo computer. Non viene caricato nulla da nessuna parte.
+264a32cd <0>Ascolta e leggi insieme.</0> La parola in corso è evidenziata. Fai clic su una parola qualsiasi per saltarci, rallentare l'audio o ripetere una frase.
+fde41bd9 <0>Costruisci il tuo vocabolario.</0> Fai clic destro (o tieni premuto) su una parola o un'espressione per salvarla con la sua frase. Esporta in Anki quando sei pronto.
+c7ea5765 L'app ricontrolla i tuoi podcast a ogni avvio, quindi i nuovi episodi compaiono da soli.
+8b5f192e Avanti: configura la trascrizione →
+5b53855d Apple Silicon (Metal)
+f60315a5 Nessuna GPU supportata. Verrà usata la CPU.
+462b6606 Accelerazione GPU (facoltativa)
+2efa49cc Configura la trascrizione
+7feeb161 La trascrizione usa Whisper, il modello di riconoscimento vocale di OpenAI, che funziona interamente sul tuo computer. Il modello si scarica una sola volta. Scegli una dimensione qui sotto. Potrai scaricarne altri o eliminarli più tardi nelle Impostazioni.
+bc26ec8d Il tuo computer
+1ddc3d58 {0} · {1} · {2} GB di RAM
+a6a63185 GPU
+8cdc1fa4 Consiglio: {0}.

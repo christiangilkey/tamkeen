@@ -148,12 +148,26 @@ export const NEWS = {
     ["PTV News", "https://ptvnews.ph/", "PTV, public television"],
     ["Wikipedia", "https://tl.wikipedia.org/", "Tagalog Wikipedia"],
   ],
+  en: [
+    ["News in Levels", "https://www.newsinlevels.com/", "Easier: the news at three levels of English"],
+    ["VOA Learning English", "https://learningenglish.voanews.com/", "Easier: news in slow, simple English"],
+    ["BBC News", "https://www.bbc.com/news", "BBC, British public broadcaster"],
+    ["The Guardian", "https://www.theguardian.com/", "The Guardian"],
+    ["NPR", "https://www.npr.org/", "NPR, American public radio"],
+    ["AP News", "https://apnews.com/", "AP, news agency"],
+    ["Reuters", "https://www.reuters.com/", "Reuters, news agency"],
+    ["The New York Times", "https://www.nytimes.com/", "The New York Times"],
+    ["ABC News (Australia)", "https://www.abc.net.au/news", "ABC, Australian public broadcaster"],
+    ["CBC News", "https://www.cbc.ca/news", "CBC, Canadian public broadcaster"],
+    ["The Verge", "https://www.theverge.com/", "Technology news"],
+    ["Wikipedia", "https://simple.wikipedia.org/", "Easier: Simple English Wikipedia"],
+  ],
 };
 
 // Language names and the few words on the page, for the languages taught (the page itself is in
 // English, like the rest of the app; only the heading greets in the language).
 const NAMES = { ar: "Arabic", es: "Spanish", fr: "French", ja: "Japanese", zh: "Chinese", ru: "Russian", it: "Italian",
-                tl: "Tagalog" };
+                tl: "Tagalog", en: "English" };
 const RTL = { ar: true };
 
 export const hasNews = (code) => Object.prototype.hasOwnProperty.call(NEWS, code);

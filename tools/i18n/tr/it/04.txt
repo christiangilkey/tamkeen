@@ -1,0 +1,203 @@
+8d36cc07 · {0} {1} monete
+c94a5549 · {0} parole ora ben conosciute
+13f349e7 {0} giuste, {1} sbagliate{2}
+fd1125a9 {0} Abilità {1}{2} {3} {4}
+8e9fb44f Nemmeno una risposta sbagliata: ora sono disponibili la forma Campione e la mossa Forma Perfetta.
+872a8bbd Vinta sul filo del rasoio: ora sono disponibili la forma Campione e la mossa Secondo Fiato.
+21526016 La creatura selvatica ti ha lasciato un uovo.
+6a569f25 Un biglietto battaglia ha fatto pagare questa per intero.
+eda121a1 {0} Una battaglia e le tue carte, entrambe fatte oggi: +{1} XP · {2} {3} monete
+e3a4b01e Hai vinto!
+241517f8 Questa l'hai persa
+8f651398 Combatti ancora
+e9b450d1 Fatto
+b9da5b2a Bella lotta.
+ac63d5ec Ogni risposta ha comunque contato per le tue parole.
+a0d275ae Abbandonare questa battaglia? Le risposte date finora contano comunque.
+32c9bcb1 Uovo
+9c0c49c5 Cucciolo
+0d67c71d Giovane
+17748728 Adulto
+3703cd21 Salute
+1b81f28b Attacco
+af4b8454 Difesa
+2d2cb022 Velocità
+498c3f86 Plasmato dall'ascolto
+0a72a97b Plasmato dalla lettura
+fd0127b7 Plasmato dal salvare parole
+59bcab48 Plasmato dal cercare parole
+23907bfa La creatura nell'habitat è quella che cresce mentre studi. Evolverla è una tua scelta e si può cambiare più tardi: non perdi nulla provando un'altra forma o tenendo un aspetto più giovane.
+b9f2cfaa Nell'habitat
+d7ddc5a1 Fai uscire
+c68f8125 · seme {0}
+7fcf6bea Visibile agli amici
+b28c55c0 Mostra agli amici
+6c5a6923 Gli amici vedono questa creatura accanto al tuo nome
+3eaf4dc6 Pronta a evolversi
+a097aeab La sua forma adulta segue il tuo modo di studiare. Scegline una:
+bfe934c2 Una forma speciale, se ne hai guadagnata una:
+0056d527 Evolvi
+003d086a Si è evoluta nella forma {0} e ti ha lasciato un uovo.
+b8db515e Aspetto
+e5895e75 Forma adulta
+212631b6 Si sblocca con più {0}
+0742949a Forma speciale
+824147ae Mosse di battaglia (scegline fino a quattro su {0})
+b08be03b , potenza {0}
+8d474b73 Tieni almeno una mossa d'attacco.
+1f38a263 Fallo uscire e studia per farlo schiudere.
+50275e1d Regala questo uovo a un amico
+25e40553 Le medaglie restano tue per sempre: <0/> su {0} ottenute.
+b38fd978 Cappellino
+8d2d0494 Berretto di lana
+5b8d667e Cappello di paglia
+0200e574 Corona di fiori
+a1794223 Fiocco
+453cce21 Cuffie
+a73f2e84 Cappello da mago
+410494f2 Corona
+8a6c4f48 Cilindro
+2dad5490 Cappellino da festa
+fea217c8 Basco
+5856ecee Cappello da chef
+4acabbde Cappello da cowboy
+392c6646 Casco da esploratore
+53e6537e Cappello da pirata
+3f77bde0 Tocco di laurea
+d2f9a663 Visiera
+e8bf6dcb Berretto con elica
+f3681d8b Aureola
+f0aeb7b3 Corona di foglie
+216d0c24 Corna di cervo
+f81ef643 Diadema
+9a21f3aa Cappello alla pescatora
+3187598c Paraorecchie
+0062340f Cappello di fungo
+ceecea26 Elmo vichingo
+68c1942a Casco spaziale
+28391e32 Orecchie da coniglio
+4a6b7158 Orecchie da gatto
+b9f4aa95 Cappello da giullare
+7e533442 Berretto da notte
+6b70d2cc Occhiali tondi
+904017f8 Occhiali da sole
+c1feb92c Monocolo
+745c59f0 Occhiali a stella
+8aadf165 Maschera
+6741f119 Occhiali a cuore
+0b34f86f Occhialoni
+bba42049 Benda sull'occhio
+fbd954ab Occhiali 3D
+58d80900 Occhiali da lettura
+34a75a40 Maschera da snorkeling
+f18b06a1 Naso da clown
+f6c4e7b6 Baffi
+6e26326c Guance rosee
+07e6b11b Mascherina per dormire
+462035a5 Occhiali pixel
+5575bbff Baffi da gatto
+a81134de Cerotto
+83dfe3a2 Sciarpa
+5a1a0c91 Papillon
+d4198662 Campanella
+5d6614cb Catena d'oro
+2fdb1722 Collare borchiato
+903467a9 Medaglia
+8841f81b Cravatta
+b3e12140 Collana di perle
+14465646 Medaglione
+ec81fbb3 Ghirlanda di fiori
+2466135f Bandana
+45b27206 Gorgiera
+e76c5bf1 Fischietto
+fe3b767b Collana con chiave
+c8c21a81 Collana di conchiglie
+997e21c2 Boa di piume
+ae48c34a Nastro
+5a9a6cd7 Targhetta con nome
+59b3f863 Amuleto
+9d5c8e51 Bussola
+f69f2330 Libro
+93e720cf Lanterna
+a774409a Bandiera
+64f241f5 Palloncino
+24280537 Microfono
+ff45e635 Penna d'oca
+483fed9c Ombrello
+0c691a9a Spada di legno
+2af4fc97 Bacchetta magica
+be638732 Mazzo di fiori
+1242a215 Gelato
+63d27f89 Tazzina di caffè
+fb46a738 Tazza di tè
+5136ae1b Matita
+28d512c4 Pennello
+72d4d28e Canna da pesca
+40a60bfb Lente d'ingrandimento
+917904ac Torcia
+0a26857b Aquilone
+08271419 Scudo
+78ede2e9 Orsacchiotto
+1075c086 Trofeo
+266a0fb1 Mantello rosso
+66d178d7 Mantello stellato
+0ccf90eb Zaino
+c4b1ad5f Borsa a tracolla
+a8bbfe7e Ali di piume
+3c7c880b Ali di pipistrello
+573b9116 Ali di farfalla
+4b7e2696 Jetpack
+5d62dc5c Guscio di tartaruga
+7a41f42a Faretra
+110bb280 Mazzo di palloncini
+03744d8c Mantello di foglie
+06f3045f Maglietta a righe
+dd4fd5df Maglietta tinta unita
+4dfbc033 Maglietta a pois
+515bcf68 Camicia a quadri
+d6a2305b Maglietta a stelle
+f1bab294 Maglietta a cuori
+816d3505 Maglione a zigzag
+11a5ebab Camicia a fiori
+9c10e5aa Maglietta galattica
+cc58986a Maglione a rombi
+db9a99bf Fiori rossi
+b09f1254 Fiori blu
+aa146572 Fungo
+36ca0758 Sassolino
+c462f354 Erba alta
+2115a9fc Lanternina
+bdc1fd5d Conchiglia
+89f36136 Cartello
+a36ef413 Cespuglio
+c6928281 Masso
+b14de689 Nido
+1a706e23 Letto
+337b7955 Ciotola del cibo
+8d1cb4ea Palla giocattolo
+0d88689c Libreria
+b11bf19e Radio
+64f5d600 Laghetto
+f80ba508 Falò
+eae12d19 Tenda
+370793de Lampione
+dc94e91a Albero da frutto
+a187c328 Fontana
+f96ddf32 Arco
+237d114f Statua
+7a115bb8 Nottambulo: ha studiato dopo le 22
+7bcd9fab Mattiniero: ha studiato prima delle 7
+ba785471 Sette giorni di fila
+15441302 Impeccabile: ha vinto una battaglia senza nessuna risposta sbagliata
+b2c51034 Rimonta: ha vinto una battaglia sul filo del rasoio
+86b7531d Crescila insieme a una creatura schiusa di un altro elemento
+9ba079f8 prende i colori del suo compagno
+05b5bd96 Studia dopo le 22
+40e4dece una forma notturna con un bagliore lunare
+bba9c7c9 Vinci una battaglia sul filo del rasoio o senza nessuna risposta sbagliata
+ecc4d7d2 crestata e con macchie dorate
+13b10e8c Placcaggio
+6e665685 Guardia
+2db9d9c8 ascolto
+227f38db lettura
+28cd39db raccolta di parole

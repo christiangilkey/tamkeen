@@ -12,10 +12,14 @@
 <body>
   <script type="module">
     import { HOME_CSS, homeBody, paintSaved } from "/js/browser-home.js";
+    import { startTranslating } from "/js/i18n.js";
     const lang = new URLSearchParams(location.search).get("lang") || "";
     document.getElementById("home-style").textContent = HOME_CSS;
     document.body.insertAdjacentHTML("afterbegin", homeBody(lang));
     document.querySelector("input[type=search]").focus({ preventScroll: true });
+    // In the language the user speaks, like the rest of the app (js/i18n.js).
+    fetch("/api/settings", { cache: "no-store" }).then((r) => r.json())
+      .then((s) => startTranslating(s.ui_language, "/")).catch(() => {});
 
     // "Your saved sites": kept by the app (this page is served by the app's own local server, so
     // it may ask). Asked again whenever the page is shown, so a site saved a moment ago is there

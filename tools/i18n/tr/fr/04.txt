@@ -1,0 +1,203 @@
+8d36cc07 · {0} {1} pièces
+c94a5549 · {0} mots maintenant bien connus
+13f349e7 {0} justes, {1} fausses{2}
+fd1125a9 {0} Niveau {1}{2} {3} {4}
+8e9fb44f Pas une seule mauvaise réponse : la forme Champion et l'attaque Forme Parfaite sont maintenant disponibles.
+872a8bbd Victoire arrachée de justesse : la forme Champion et l'attaque Second Souffle sont maintenant disponibles.
+21526016 La créature sauvage vous a laissé un œuf.
+6a569f25 Un ticket de combat a fait payer celui-ci en entier.
+eda121a1 {0} Un combat et vos cartes, tous deux faits aujourd'hui : +{1} XP · {2} {3} pièces
+e3a4b01e Vous avez gagné !
+241517f8 Vous avez perdu celui-ci
+8f651398 Combattre encore
+e9b450d1 Terminé
+b9da5b2a Beau combat.
+ac63d5ec Chaque réponse a quand même compté pour vos mots.
+a0d275ae Quitter ce combat ? Vos réponses jusqu'ici comptent toujours.
+32c9bcb1 Œuf
+9c0c49c5 Nouveau-né
+0d67c71d Juvénile
+17748728 Adulte
+3703cd21 Santé
+1b81f28b Attaque
+af4b8454 Défense
+2d2cb022 Vitesse
+498c3f86 Façonné par l'écoute
+0a72a97b Façonné par la lecture
+fd0127b7 Façonné par les mots enregistrés
+59bcab48 Façonné par la recherche de mots
+23907bfa La créature de l'habitat est celle qui grandit pendant que vous étudiez. Évoluer est votre choix et peut être changé plus tard : on ne perd rien à essayer une autre forme ou à garder une apparence plus jeune.
+b9f2cfaa Dans l'habitat
+d7ddc5a1 Faire sortir
+c68f8125 · graine {0}
+7fcf6bea Visible par les amis
+b28c55c0 Montrer aux amis
+6c5a6923 Vos amis voient cette créature à côté de votre nom
+3eaf4dc6 Prête à évoluer
+a097aeab Sa forme adulte suit votre façon d'étudier. Choisissez-en une :
+bfe934c2 Une forme spéciale, si vous en avez gagné une :
+0056d527 Évoluer
+003d086a Elle a évolué vers sa forme {0} et vous a laissé un œuf.
+b8db515e Apparence
+e5895e75 Forme adulte
+212631b6 Se débloque avec plus de pratique : {0}
+0742949a Forme spéciale
+824147ae Attaques de combat (choisissez-en jusqu'à quatre parmi {0})
+b08be03b , puissance {0}
+8d474b73 Gardez au moins une attaque offensive.
+1f38a263 Faites-le sortir et étudiez pour le faire éclore.
+50275e1d Offrir cet œuf à un ami
+25e40553 Les badges sont à vous pour toujours : <0/> sur {0} obtenus.
+b38fd978 Casquette
+8d2d0494 Bonnet
+5b8d667e Chapeau de paille
+0200e574 Couronne de fleurs
+a1794223 Nœud
+453cce21 Casque audio
+a73f2e84 Chapeau de magicien
+410494f2 Couronne
+8a6c4f48 Haut-de-forme
+2dad5490 Chapeau de fête
+fea217c8 Béret
+5856ecee Toque de chef
+4acabbde Chapeau de cow-boy
+392c6646 Casque d'explorateur
+53e6537e Chapeau de pirate
+3f77bde0 Toque de diplômé
+d2f9a663 Visière
+e8bf6dcb Casquette à hélice
+f3681d8b Auréole
+f0aeb7b3 Couronne de feuilles
+216d0c24 Bois de cerf
+f81ef643 Diadème
+9a21f3aa Bob
+3187598c Cache-oreilles
+0062340f Chapeau de champignon
+ceecea26 Casque viking
+68c1942a Casque spatial
+28391e32 Oreilles de lapin
+4a6b7158 Oreilles de chat
+b9f4aa95 Chapeau de bouffon
+7e533442 Bonnet de nuit
+6b70d2cc Lunettes rondes
+904017f8 Lunettes de soleil
+c1feb92c Monocle
+745c59f0 Lunettes étoiles
+8aadf165 Masque
+6741f119 Lunettes cœurs
+0b34f86f Lunettes de protection
+bba42049 Cache-œil
+fbd954ab Lunettes 3D
+58d80900 Lunettes de lecture
+34a75a40 Masque de plongée
+f18b06a1 Nez de clown
+f6c4e7b6 Moustache
+6e26326c Joues roses
+07e6b11b Masque de nuit
+462035a5 Lunettes pixel
+5575bbff Moustaches de chat
+a81134de Pansement
+83dfe3a2 Écharpe
+5a1a0c91 Nœud papillon
+d4198662 Clochette
+5d6614cb Chaîne en or
+2fdb1722 Collier à pointes
+903467a9 Médaille
+8841f81b Cravate
+b3e12140 Collier de perles
+14465646 Médaillon
+ec81fbb3 Collier de fleurs
+2466135f Bandana
+45b27206 Fraise
+e76c5bf1 Sifflet
+fe3b767b Collier à clé
+c8c21a81 Collier de coquillages
+997e21c2 Boa en plumes
+ae48c34a Ruban
+5a9a6cd7 Badge nominatif
+59b3f863 Amulette
+9d5c8e51 Boussole
+f69f2330 Livre
+93e720cf Lanterne
+a774409a Drapeau
+64f241f5 Ballon
+24280537 Micro
+ff45e635 Plume
+483fed9c Parapluie
+0c691a9a Épée en bois
+2af4fc97 Baguette magique
+be638732 Bouquet
+1242a215 Glace
+63d27f89 Tasse de café
+fb46a738 Tasse de thé
+5136ae1b Crayon
+28d512c4 Pinceau
+72d4d28e Canne à pêche
+40a60bfb Loupe
+917904ac Torche
+0a26857b Cerf-volant
+08271419 Bouclier
+78ede2e9 Nounours
+1075c086 Trophée
+266a0fb1 Cape rouge
+66d178d7 Cape étoilée
+0ccf90eb Sac à dos
+c4b1ad5f Besace
+a8bbfe7e Ailes de plumes
+3c7c880b Ailes de chauve-souris
+573b9116 Ailes de papillon
+4b7e2696 Jetpack
+5d62dc5c Carapace de tortue
+7a41f42a Carquois
+110bb280 Grappe de ballons
+03744d8c Cape de feuilles
+06f3045f T-shirt rayé
+dd4fd5df T-shirt uni
+4dfbc033 T-shirt à pois
+515bcf68 Chemise à carreaux
+d6a2305b T-shirt étoiles
+f1bab294 T-shirt cœurs
+816d3505 Pull zigzag
+11a5ebab Chemise fleurie
+9c10e5aa T-shirt galaxie
+cc58986a Pull jacquard
+db9a99bf Fleurs rouges
+b09f1254 Fleurs bleues
+aa146572 Champignon
+36ca0758 Petit caillou
+c462f354 Herbes hautes
+2115a9fc Petite lanterne
+bdc1fd5d Coquillage
+89f36136 Panneau indicateur
+a36ef413 Buisson
+c6928281 Rocher
+b14de689 Nid
+1a706e23 Lit
+337b7955 Gamelle
+8d1cb4ea Balle de jeu
+0d88689c Bibliothèque
+b11bf19e Radio
+64f5d600 Mare
+f80ba508 Feu de camp
+eae12d19 Tente
+370793de Réverbère
+dc94e91a Arbre fruitier
+a187c328 Fontaine
+f96ddf32 Arche
+237d114f Statue
+7a115bb8 Oiseau de nuit : a étudié après 22 h
+7bcd9fab Lève-tôt : a étudié avant 7 h du matin
+ba785471 Sept jours d'affilée
+15441302 Sans faute : a gagné un combat sans aucune mauvaise réponse
+b2c51034 Retour gagnant : a gagné un combat in extremis
+86b7531d Élevez-le avec une créature éclose d'un autre élément
+9ba079f8 prend les couleurs de son compagnon
+05b5bd96 Étudiez après 22 h
+40e4dece une forme nocturne à la lueur de lune
+bba9c7c9 Gagnez un combat in extremis, ou sans aucune mauvaise réponse
+ecc4d7d2 à crête et marques dorées
+13b10e8c Charge
+6e665685 Garde
+2db9d9c8 écoute
+227f38db lecture
+28cd39db collecte de mots

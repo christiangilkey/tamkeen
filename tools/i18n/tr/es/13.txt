@@ -1,0 +1,74 @@
+ada1ad51	Reproductor de música
+6eef6648	Ninguno
+20632bc3	Brasa
+48591bc0	Marea
+ac587f3b	Arboleda
+85f5955f	Chispa
+029690b0	Piedra
+4db13aa0	Ocaso
+c24315eb	Gelatina
+57d0c9cd	Bípedo
+52b712a1	Cuadrúpedo
+506f5f12	Flotante
+e738c7d8	Eco
+c3bd776c	Sabio
+940966d9	Guardián
+9d3045a4	Sombreros
+203bc66d	Cara
+2369e339	Cuello
+87807a0b	En la mano
+514b6d92	Camisetas
+6f45a48a	Gemelo
+75a2b75a	Nocturno
+7881bf71	Campeón
+4869ac12	Semana libre
+ed7aebae	Solo iniciales
+a135954e	Sin curación
+18d1cb31	Brasa, Chispa y Piedra
+a9202974	Marea, Arboleda y Ocaso
+17bff5b7	Uno contra uno
+e33e1fd3	Brote de Palabras
+0a0dcf0b	Concha del Eco
+8a51e70b	Farol de Páginas
+aa0ef1d3	Tintero
+fc274353	Piedra de la Memoria
+1b5d4cf8	Telar de Estrellas
+790456c6	Baya
+3030e8ec	Pescado
+00fe42c2	Hoja
+17541de7	Caramelo chispa
+781aae20	Azúcar de roca
+ceb44980	Pastel de luna
+5f4632af	Poción
+ec7d6643	Impulso de XP
+2b8f2201	Entrada de combate
+7d10b37f	Incubadora
+6953faf6	Llave de parcela
+5afab055	Huevo misterioso
+3d02ef52	El Murmurador
+511e4954	La Página en Blanco
+af92969a	Estática
+47e17523	El Olvido
+37399d70	Primera palabra
+c007882f	Primera eclosión
+e387d81f	Diez metas
+ce70ac02	Una semana
+892a61a4	Un mes
+d4e2f065	Cien días
+26ad9c0c	100 palabras
+a2cb707e	1000 palabras
+37ea46b5	Oyente
+ac5bbe82	Lector
+e3199d24	Coleccionista
+0fbbf940	Rival amistoso
+be66989a	Incursión
+993750ae	El hábitat de tu criatura
+cffa2af0	Lectura
+7f6efe83	Colección
+1a0bff19	Curiosidad
+d956b856	Raíz, gramática, uso…
+887fed4a	Un truco para recordarla, una imagen, dónde la oíste…
+2c1bffd2	Notas (raíz, gramática, uso…)
+e78181f0	Mis notas (un truco para recordarla, dónde la oíste…)
+b245f581	{1:upper} de {0}
+669ac373	Huevo de {0}

@@ -193,6 +193,18 @@ const TEACH = {
     dialect_note: "Register usage note (how formal it is, whether it is English mixed in); empty if none.",
     msa_equivalent: "The neutral standard Filipino equivalent if the word is slang, English or colloquial; empty otherwise.",
   },
+  en: {
+    name: "English",
+    variety: "which may be American, British, Australian or any other variety, formal or colloquial",
+    why: "English words change meaning with context (phrasal verbs such as 'give up', idioms, words that are both noun and verb, contractions, slang)",
+    vocalized: "Pronunciation in IPA as said in this variety, with the stressed syllable marked, e.g. '/ˈɡɒnə/'.",
+    lemma: "Dictionary form (infinitive for verbs, singular for nouns); for a phrasal verb or idiom, the whole phrase.",
+    root: "Empty string.",
+    morphology: "Short analysis: tense and form (past, -ing, -ed participle), plural or possessive, contraction spelled out, phrasal verb or idiom if it is one.",
+    dialect: "Standard, or the variety or register if notable: American, British, Australian, colloquial, slang, formal, etc.",
+    dialect_note: "Regional or register usage note (where it is said, how formal it is); empty if none.",
+    msa_equivalent: "The neutral standard English equivalent if the word is slang, regional or very informal; empty otherwise.",
+  },
 };
 
 const teach = (code) => TEACH[isLanguage(code) ? code : "ar"];

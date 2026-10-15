@@ -1,0 +1,197 @@
+4d04c64d Nakapila na o ginagawa na ang mga episode na iyan.
+22e136e9 Naipila ang {0} episode para sa transcription.
+50adc292 I-transcribe ang napili ({0})
+c35bd621 Burahin ang napili ({0})
+0cd3f428 ▶ Panoorin ang reel na ito
+fd92e5e4 ▶ Panoorin ang {0} reel na ito
+eefe1c78 Walang episode na tugma sa filter na ito.
+1a3a2678 Magdagdag ng podcast para magsimula.
+688659c1 Naka-subscribe sa {0}
+96141178 Nire-refresh…
+65a23a10 {0} bagong episode.
+0959b8b6 Walang bagong episode.
+74ba81d4 Nire-refresh na…
+3beca727 {0} Naka-sync na sa Google Drive.
+0ba6e5e4 ang episode na ito
+00aba819 ang {0} episode na ito
+15c48a35 Burahin ang {0}? Aalisin nito ang {1} sa Library mo sa bawat device, kasama ang
+4c92d153 Burahin ang {0}?
+84deaf7e Aalisin nito ang {0} sa Library mo sa bawat device, kasama ang
+8a1b7640 audio at transcript. Hindi na babalik ang nabura nang podcast episode kapag ni-refresh ang podcast.
+38025b7d Mananatili ang na-save na vocab. Hindi na ito maibabalik.
+2fa412d0 Mananatili ang na-save na vocab.
+fe63a123 Hindi na ito maibabalik.
+e7f0d454 Nabura ang 1 episode.
+028c52e6 Nabura ang {0} episode.
+72f89e9c Na-import ang “{0}”.
+e9acf940 ang automatic captions ng YouTube
+b165ef2c Naidagdag ang “{0}” gamit ang {1}.
+8d8f6306 Tina-transcribe na ito ngayon.
+69e00218 Naidagdag ang “{0}”. {1}
+8e3df45a Nakopya
+f0926a5a Bumalik sa library
+b1718fc3 Wala pa sa device na ito ang captions ng video na ito. Darating sila sa susunod na sync, o puwede mo silang kunin ulit ngayon.
+4ce6ed15 Mapapanood mo na ito ngayon; lalabas ang captions at transcript kapag na-transcribe na.
+084d851b Kunin ang captions
+692d2197 Hinihintay ang captions
+0b386a9a ↓ Bumalik sa kasalukuyan
+66587a7a Sundan
+90eeb100 Sinusundan
+4601bfc8 Ipakita o itago ang buong transcript (T)
+49d0d22b ≡ Transcript
+10dc1f7d Ipakita o itago ang captions na puwedeng i-click (C)
+c5a976de CC
+f1b59b0b Full screen (F)
+d4fcdcaf Laki ng teksto, full screen at pag-save ng transcript
+9c3ebd2a {0} · {1} salita
+a8ea9e30 Mas maliit na teksto
+118f9b2b Mas malaking teksto
+7475c2bd TXT
+a81b934c SRT
+fc630e27 VTT
+1ad08a39 Lumipat
+857f1b10 ⟲ Inuulit ang pangungusap
+a4130b72 Itigil ang pag-ulit
+5c934b0d Bumalik nang 5 segundo (←)
+651b60e1 I-play/I-pause (Space)
+addc5a24 Sumulong nang 5 segundo (→)
+6ff42b75 Bilis ng pag-play
+af85b75e Hindi ma-play ng YouTube ang video na ito.
+b66fc2d7 Hindi ma-load ang video. Nag-i-stream ito mula sa Google Drive mo: suriin ang koneksyon mo at kung naka-sign in ka.
+6a9b0c2f Hindi ma-load ang audio. Kung nag-i-stream ito mula sa server ng podcast, suriin ang koneksyon mo.
+70f8bb9a Simula
+a2bb9d34 Dulo
+9c127d35 Hindi na-play: {0}
+fa150e0d Sinusundan mo ang {0}. Pindutin para itigil ang pagsunod.
+bf020dbf Sundan ang {0}: lalabas ito sa Library mo sa ilalim ng YouTube
+51d15ed7 ✓ Na-save sa vocab
+7031bbea ★ I-save sa vocab
+b32f1eb3 📖 Ipaliwanag
+010f9005 ⧉ Kopyahin
+3d861abc ▶ I-play mula rito
+bd22e0c7 ⟲ Ulitin ang pangungusap na ito
+3a68bd5d Itago ang transcript (T)
+def5960f Ipakita ang transcript (T)
+fa4029ea Hindi puwede ang full screen dito ({0}).
+a8cf995c A+ Mas malaking teksto
+14225504 A− Mas maliit na teksto
+401b6b54 ⛶ Full screen
+79fc7388 I-save ang transcript bilang TXT
+17da46e2 I-save ang subtitles bilang SRT
+8d79c7fd I-save ang subtitles bilang VTT
+e792120b Buksan ang orihinal na page
+aa139f94 Orihinal ↗
+63d2b95b Mag-sign in sa Instagram para mapanood ang reel na ito.
+34560f41 Sa mga naka-sign in lang ipinapalabas ng Instagram ang reel na ito (kadalasan dahil gumagamit ito ng kanta mula sa music library ng Instagram). Mag-sign in nang isang beses, sa sariling browser ng Tamkeen: kusa itong magsasara kapag naka-sign in ka na, at magsisimula ang reel.
+ada2e9e9 Mag-sign in
+3da47453 Laktawan
+3a1f994d Sikat sa {0} ngayon
+5b59e6e1 Comedy muna. Tinitingnan ng app kung ano ang patok sa Instagram tuwing kukuha, kaya nagbabago ang listahang ito.
+80c15bea Mga creator ko lang
+667e1e2d Ang mga creator lang na nilagyan mo ng tsek sa ibaba.
+bc6fef4b Halo ng dalawa
+dc9dcf7a Mga creator mo muna, dinagdagan ng mga sikat.
+75c864af Mula sa mga na-save ko sa Instagram
+315194ad Mga reel na ikaw mismo ang nag-save sa Instagram: isa sa mga collection mo, o lahat ng na-save mo.
+5e405fb8 Maiikling video sa Instagram sa wikang pinag-aaralan mo, na puwedeng i-click ang bawat salita. Pinapatugtog sila mula mismo sa Instagram; ang mga salita lang ang itinatabi.
+17a23503 Ang mga reel mo
+219d2911 ▶ Panoorin ulit mula sa simula
+65ec8d5b ▶ Ituloy ang panonood
+b2e08e21 Wala pang reels. Pindutin ang “Kumuha ng random na reels” sa itaas, o pumili ng isa sa mga Instagram collection mo at lagyan ng tsek ang mga reel na gusto mo.
+e2f3a685 Wala pang reels. Sa computer mo sila hinahanap: buksan doon ang Tamkeen, pumunta sa Library → Reels at pindutin ang “Kumuha ng 10 reels”. Darating sila rito sa susunod na pag-sync ng dalawa.
+78706e7f Wala pang reels. Piliin sa itaas ang mga reel na gusto mo at pindutin ang “Kumuha ng reels”, o pindutin ang “Kumuha ng random na reels”.
+36fc5604 · napanood na
+76a74c58 · tumutugtog kapag naka-sign in sa Instagram
+9ddd647f Hinahanap at tina-transcribe ng Tamkeen sa computer mo ang mga bagong reel, saka sini-sync sa phone na ito. Para pumili ng reels mula sa mga na-save mo sa Instagram dito mismo, i-on ang <0>Cloud transcription sa Settings</0>.
+14c3f907 Gumagana ang pagkuha ng reels sa naka-install na Tamkeen app sa computer mo (kailangan nito ng sariling Instagram window).
+d032a9c7 Aling mga reel?
+2e78f26e Reels mula sa mga na-save ko sa Instagram
+52b26d3d {0} sa {1} ang napili
+b93e9b2b Pumili muna ng transcription model (Settings → Model): ito ang ginagamit sa pakikinig sa reels.
+e51052d8 Mga creator ko
+d204d5d4 Instagram username, hal. @creator
+2fbcfcfd Sikat sa {0} ngayon (pindutin ang + para sundan ang isa):
+15dcfe7b 1. Pumili ng collection
+a6a2fd45 Ilan?
+c18657e6 Bawasan ng isa
+2fe07a5f Ilang reel ang kukunin
+8c87ebbd Dagdagan ng isa
+b2272a97 Reels sa {0} tungkol sa iba't ibang pang-araw-araw na paksa, nahanap sa paghahanap sa Instagram ng ilang salitang pinili nang random. Iba-iba tuwing kukuha.
+9e253470 Itigil
+9648ea78 Mag-sign in sa Instagram
+1b8fb836 Alisin sa mga creator ko
+d70b1d33 Idagdag dito ang mga creator na gusto mo, o pindutin ang + sa isang sikat sa ibaba.
+29086cd7 Idagdag si @{0} sa mga creator ko
+e287a6e3 Kumukuha ng reels…
+497fe891 Kumuha ng {0} reel
+c3f837df Kumuha ng {0} random na reel sa {1}
+5fec38ec Pumili ng collection…
+c3b69e66 Pumili…
+bfd3da0c Ang mga Instagram collection mo
+203932c8 ↻ Hanapin ulit
+2149c492 Hanapin ang mga collection ko
+352c41bd Silipin ang mga na-save mo sa Instagram{0} para hanapin ang mga collection mo
+aa91c71a lahat ng na-save mo
+3c8b4a44 Pumili ng isa sa mga collection mo mula sa listahan sa itaas.
+7f839429 Pindutin ang “Hanapin ang mga collection ko” para punuin ang listahan ng mga pangalan ng Instagram collection mo, saka pumili ng isa.
+1ab4d204 {0} Binabasa ito ng Tamkeen sa Instagram at inililista rito ang mga reel nito, para lagyan mo ng tsek ang mga gusto mo.
+33354de6 Kunin ang mga reel na may tsek
+71af94b7 Ipadala sa phone ko ang mga reel na may tsek
+4be1d403 2. Lagyan ng tsek ang mga reel na gusto mo
+d2e33965 sa “{0}” ({1})
+64e93d4f {0} reel
+13b7bfca Ginagawa…
+630b0a7c Kunin ang {0}
+828b49fa Ipadala ang {0} sa phone ko
+4ad6fa58 Nasa mga reel mo na
+5e0330cb Hindi video
+ae455286 Hindi magagamit: {0}
+22bb6297 Wala pang naka-save diyan.
+deca26e7 Hindi kailanman nilalaktawan dahil sa wika ang sarili mong mga na-save, kaya itinatabi rin ang mga reel na naghahalo ng {0} at Ingles. Hindi lang isinasama ang reel kung wala itong kahit isang salita; sinasabi ng listahan sa ibaba kung alin. May mga reel (karamihan ay may kanta mula sa music library ng Instagram) na tumutugtog lang para sa mga naka-sign in sa Instagram: itinatabi rin sila, at tutugtog sa phone mo kapag naka-sign in ka na roon sa Instagram.{1}
+b70ce367 Bumalik sa listahan
+d659e007 Nakaraang reel
+e9aa01dc Susunod na reel
+ca3b15db Pindutin ang isang salita para makita ang ibig sabihin.
+27c57ad8 Saan sa reel
+de6afdb5 Bumalik nang 5 segundo
+8cfc8cf6 I-play / i-pause
+2c23a430 Sumulong nang 5 segundo
+5721bbef Instagram
+8fe4352c Nilo-load ang mga salita…
+6f95e311 Wala pa sa device na ito ang mga salita ng reel na ito. Mag-sync at subukan ulit.
+2fc1ecf6 Sa phone mo tumutugtog ang reels, sa Tamkeen app.
+881d280e Dito mo mababasa ang mga salita ng reel na ito at mahahanap ang kahulugan nila.
+c3b3a0e0 Buksan ang reel na ito sa Instagram ↗
+940ea91f Hindi na maipapakita ang reel na iyan sa labas ng Instagram. Nilalaktawan.
+7d146544 I-review ang vocab mo
+7585f238 Progreso ng session
+92197443 Bawiin ang huling sagot (Z)
+6cb73375 Bawiin ang huling sagot
+ddcdbf32 Settings ng reviewer
+910308a6 Bagong salita bawat araw
+d12c5186 Bigkasin ang salita kapag binaligtad ang card
+4a86cd15 <0>Space</0> baligtarin ang card, saka naalala · <1>1</1> o <2>←</2> hindi naalala · <3>2</3> o <4>→</4> naalala · <5>Z</5> bawiin · <6>W</6> salita · <7>S</7> pangungusap · <8>P</8> magsanay bigkasin · <9>N</9> mga tala ko · <10>Del</10> burahin ang salita
+4d3ebfca Naalala
+fcd76105 Ulit
+001884b8 {0} pa
+b0bc2ae4 Bagong salita
+b7d5d81b Isa pa
+e29a79fe Review
+742e0358 Bigkasin sa sarili ang salita, saka baligtarin ang card
+66179621 Ipakita ang salita <0>Space</0>
+751a4b16 {0} Salita
+b142c204 {0} Pangungusap
+8669aa56 Episode
+47b1023a Idinagdag nang mano-mano
+19cd7d18 Kahulugan
+57e2a7ce Ano ang ibig sabihin
+70440046 Mga tala
+56f079ba Mga tala ko
+3250d8de {0} · idinagdag {1}
+c0ae8f6e Na-save
+e1e86d29 Burahin ang salitang ito (Del)
+200b5172 Burahin ang salitang ito
+983a1927 {0} Hindi naalala
+9dd3addc babalik maya-maya
+164d054f {0} Naalala
+292bb5d7 makikita ulit {0}{1}

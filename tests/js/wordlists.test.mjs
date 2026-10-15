@@ -25,7 +25,7 @@ test("every language the app teaches has a list of 1000 different words", () => 
 });
 
 test("the lists are in the right writing: no English in the Arabic list, and so on", () => {
-  const expected = { es: "es", fr: "fr", ar: "ar", ru: "ru", zh: "zh", ja: "ja" };
+  const expected = { es: "es", fr: "fr", ar: "ar", ru: "ru", zh: "zh", ja: "ja", en: "en" };
   for (const code of WITH_LISTS) {
     assert.equal(detectLanguage(lists[code].join(" "), code), expected[code], code);
   }
@@ -35,7 +35,7 @@ test("the lists are in the right writing: no English in the Arabic list, and so 
 });
 
 test("the very common words are there", () => {
-  for (const [code, word] of [["es", "que"], ["fr", "est"], ["ar", "في"], ["ru", "что"], ["zh", "我们"], ["ja", "です"]]) {
+  for (const [code, word] of [["es", "que"], ["fr", "est"], ["ar", "في"], ["ru", "что"], ["zh", "我们"], ["ja", "です"], ["en", "the"]]) {
     assert.ok(lists[code].slice(0, 100).includes(word), `${code}: ${word}`);
   }
 });

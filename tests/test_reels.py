@@ -174,10 +174,10 @@ def test_your_own_saves_are_never_skipped_for_language_or_little_speech():
 
 
 def test_your_own_saves_are_kept_in_any_language_the_app_teaches():
-    # Studying Arabic. A French save is kept as French; an English one is still skipped (not taught).
+    # Studying Arabic. A French save is kept as French; a German one is still skipped (not taught).
     assert reels.language_to_use("ar", "fr", 0.95, True, 0.0) == "fr"
     assert reels.language_to_use("ar", "fr", 0.95, False, 0.0) == "ar", "only for your own saves, not for found reels"
-    assert reels.language_to_use("ar", "en", 0.95, True, 0.0) == "ar"
+    assert reels.language_to_use("ar", "de", 0.95, True, 0.0) == "ar"
     assert reels.language_to_use("ar", "fr", 0.4, True, 0.0) == "ar", "not sure enough to call it French"
     assert reels.language_to_use("ar", "fr", 0.55, True, 0.4) == "ar", "a near tie goes to the language being studied"
     assert reels.language_to_use("ar", None, 0.0, True, 0.0) == "ar"

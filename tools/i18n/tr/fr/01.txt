@@ -1,0 +1,195 @@
+8df7f1b3 Espagnol
+42b5f38b Forme standard
+0bb18642 Usage
+af4f4762 Arabe
+e96857c5 Racine
+3132844d En arabe standard
+93949a50 Dialecte
+23239c1b La recherche ignore les signes diacritiques (tashkeel) et les variantes d'alef (أ إ آ ا), de taa marbouta/haa (ة ه) et d'alef maqsoura/yaa (ى ي).
+44389f6a Français
+9239c22d Japonais
+b6f59f08 Caractères
+15dc1886 Chinois
+74ad93cb Russe
+485b57ad Italien
+68ddd91d Tagalog
+649df08a Anglais
+6f442204 Connexion perdue avec le serveur local de l'application.
+59025e2d La requête a échoué ({0})
+21a0c7a3 {0} h {1} min
+e802d434 {0} min
+f921c967 0 Mo
+9a27e458 {0} Go
+b53a8982 {0} Mo
+c18f8f25 Notification
+f8f74deb Transcription terminée : {0}
+cf9b7706 Ouvrir
+3f651190 Transcription terminée
+0fedb149 La transcription a échoué : {0}. {1}
+377e306b La transcription a échoué
+63616e1e Impossible d'enregistrer l'audio de ce mot.
+b887bd52 Copiez le lien de la vidéo voulue et collez-le dans « Ajouter une page web ».
+6f9d8f3f Copiez l'adresse de la page voulue et collez-la dans « Ajouter une page web ».
+72af5edb L'envoi a échoué ({0}).
+ccc2b8e0 L'envoi a échoué : le serveur de l'application n'a pas répondu.
+136c4303 Enregistré dans {0}
+8d886c0b Un problème est survenu
+3330dab0 Al Jazeera
+0a3a33ca BBC en arabe
+036338ff Al Arabiya
+ff61c5fd Sky News Arabia
+001f43b5 Asharq Al-Awsat
+103608b8 CNN en arabe
+9f4ff5e2 France 24
+a6fd6e9c Deutsche Welle
+eb602841 Asharq News
+70bd98b5 Independent Arabia
+81667ae6 Al-Quds Al-Arabi
+3d6e75cf Al-Ahram, Égypte
+367c7f69 Youm7, Égypte
+21612f28 Euronews
+7a924fa6 Hespress, Maroc
+8091b468 An-Nahar, Liban
+20a8df9b Espagne
+7f68cca5 BBC en espagnol
+5bfed743 L'audiovisuel public espagnol
+26ee2701 Les Amériques
+354bf989 Argentine
+41937b20 Mexique
+2f737399 Colombie
+36c57243 Pérou
+ac92bda0 En espagnol
+a95f1614 Plus facile : l'actualité pour les apprenants
+e3772ac4 France
+022e7a37 L'audiovisuel public français
+f5074266 Actualité internationale
+cd6a7b87 Canada
+5cb4c9d8 Belgique
+77dcd849 Suisse
+7fd73ef4 Plus facile : les infos de la NHK en japonais simple
+20cf7d0e NHK, audiovisuel public
+863f0927 Yahoo! Actualités Japon
+bce35235 Asahi Shimbun
+e8faae07 Yomiuri Shimbun
+8d6de353 Mainichi Shimbun
+55708085 Nikkei
+7c3cb127 Sankei Shimbun
+144e3ab3 Tokyo Shimbun
+073ad8e8 Jiji Press
+86e150a1 Kyodo News
+86dd6e9b Journal télévisé de TBS
+6ee232e9 Journal de Nippon TV
+7f22332e BBC en japonais
+8201ad33 Toyo Keizai
+12fc9530 Actualité tech
+85da6b7f BBC en chinois
+1950c50c The New York Times
+72b431fc Lianhe Zaobao, Singapour
+16048e43 Xinhua, Chine
+323a3e4c Le Quotidien du Peuple, Chine
+b3d6fa9f The Paper, Chine
+081ceae5 Caixin, Chine
+1b9f1261 Sina News, Chine
+5c0fde35 Tencent News, Chine
+9231d52d Jiemian, Chine
+7073d6a9 Financial Times
+1bea7de2 CNA, Taïwan (caractères traditionnels)
+79da1ae8 UDN, Taïwan (caractères traditionnels)
+7c820dda HK01, Hong Kong (caractères traditionnels)
+b36012a4 BBC en russe
+98678be4 Meduza
+3bad3245 Kommersant
+c789d95b Interfax
+321e9515 TASS, agence de presse d'État
+2b6cb4c7 RIA Novosti, agence de presse d'État
+02f9372c Vedomosti
+7095fe00 Radio Liberté
+179a6338 Novaïa Gazeta Europe
+c51e7e5c En russe
+be550421 Current Time
+08c6ecb7 Rai, audiovisuel public
+c90d19b1 ANSA, agence de presse
+1d24e371 Corriere della Sera
+a3f333fa la Repubblica
+30f19411 La Stampa
+a71b2dc8 Actualité économique
+5dc5bec4 Il Post
+e62a924b Sky TG24
+b63e0d40 Actualité internationale en italien
+37e9fc15 En italien
+1855c2e3 Sport
+8bf87e8c Wikipédia en italien
+d477dcd6 Abante, en tagalog
+7033c2e2 Bombo Radyo
+5a063600 Le journal en tagalog de Philstar
+42e1ab8b Les infos en tagalog du Manila Bulletin
+2a086357 Le journal en tagalog de l'Inquirer
+fec623de GMA News (en grande partie en anglais)
+96c7193d ABS-CBN News (en grande partie en anglais)
+6419d26a Remate, en tagalog
+72df35d6 Pilipino Mirror, en tagalog
+ec8ddbd3 Infos radio DZRH
+13771236 Radyo Pilipinas, radio publique
+1b78aa35 PTV, télévision publique
+7d7b8fe2 Wikipédia en tagalog
+291625d9 Plus facile : l'actualité à trois niveaux d'anglais
+83372869 Plus facile : l'actualité en anglais lent et simple
+f2d9c77f BBC, audiovisuel public britannique
+a1aa118a The Guardian
+558f6997 NPR, radio publique américaine
+3d209294 AP, agence de presse
+b1741f08 Reuters, agence de presse
+3a367e23 ABC, audiovisuel public australien
+a07fa4fa CBC, audiovisuel public canadien
+494a3b5b Plus facile : Wikipédia en anglais simple
+1ceda86d Retirer ce site de la page d'accueil
+4b2d7cb9 Plus facile
+2f47d946 Lisez le web en {0:lower}
+bd3fb75c Rechercher sur Google
+bce06414 Rechercher
+297a093f Vos sites enregistrés
+ade0111a Les sites gardés avec l'étoile. Appuyez sur × pour en retirer un.
+33edab97 L'actualité en {0:lower}
+d23485df Ouvrez un site, trouvez un article, puis appuyez sur <0>Importer la page</0> pour le lire avec chaque mot cliquable.
+3af88e50 Vous cherchez autre chose ? Faites une recherche ci-dessus ou tapez une adresse web dans la barre d'adresse. Pour garder un site sur cette page, ouvrez-le et appuyez sur l'étoile (☆) dans la barre du navigateur.
+7e58a747 Navigateur Tamkeen
+0292c83e Importer la page
+b52b36b7 Retour
+ba4e7226 Suivant
+cce71553 Recharger
+d5088cc9 Enregistrer cette page dans Tamkeen pour la lire avec des mots cliquables
+06a6f0bf Rechercher ou saisir une adresse web
+abf66062 Sur votre page d'accueil. Appuyez pour le retirer.
+d6823a88 Garder ce site sur la page d'accueil du navigateur
+b74fd5e9 Chargement en cours… réessayez dans un instant.
+f1ea7bfe ★ Enregistré sur votre page d'accueil.
+28067e68 Retiré de votre page d'accueil.
+7317f63f Impossible d'enregistrer ce site.
+820599da Importation…
+41701b8a Impossible d'importer cette page.
+96bb84ec Je connais les bases : compter les {0} mots les plus courants en {1:lower} comme vus
+b00c7e97 En attente des dictionnaires de {0:lower} : ils seront comptés une fois téléchargés.
+ffb2e628 Ajout…
+7528191c Impossible d'enregistrer pour le moment. Réessayez.
+b80ffddd Ils seront comptés une fois les dictionnaires de {0:lower} téléchargés.
+96d9775a C'est fait : {0} mots comptent désormais comme vus.
+28650781 Ils comptent déjà comme vus.
+db849af4 Amis et partage (en ligne)
+17b2a7cb Facultatif. Connectez-vous pour ajouter des amis par nom d'utilisateur, partager des mots et des dossiers, synchroniser des dossiers avec vos amis et jouer ensemble à des quiz de vocabulaire en direct. Cela utilise le même compte Google que la synchronisation Drive. Votre nom d'utilisateur, votre liste d'amis et ce que vous partagez sont stockés sur le service en ligne de l'application (Supabase) ; tout le reste reste dans votre propre Google Drive.
+820d6004 Vérification…
+042c862e Réessayer
+fdf71228 Se connecter avec Google
+f709df27 Vous choisirez ensuite un nom d'utilisateur.
+fd3e7969 Connexion…
+f7aba881 Connecté. Choisissez maintenant un nom d'utilisateur.
+64fbd995 Modifier
+efc007a3 Enregistrer
+c2f9b7b4 Connecté
+ed28e068 Se déconnecter
+84c29015 Nom d'utilisateur
+977867c9 ex. layla_apprend
+5ff78b85 Vos amis vous trouvent grâce à ce nom. {0} Vous pouvez le changer à tout moment ; vos amis et vos partages restent connectés.
+aeed20b3 ✓ Disponible
+c66c12b9 Déjà pris
+791b5d6c Votre nom d'utilisateur est maintenant {0}.
+fa61d32f Se déconnecter des amis et du partage sur cet appareil ? Votre nom d'utilisateur et vos amis sont conservés en ligne.

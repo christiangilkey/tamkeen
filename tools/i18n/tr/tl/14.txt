@@ -1,0 +1,15 @@
+5de77d58	May libreng allowance ang Gemini, kaya puwede kang magsimula nang walang payment card. Sa libreng allowance, maaaring gamitin ng Google ang ipinapadala para pagandahin ang mga produkto nito; kapag nagdagdag ka ng billing sa AI Studio, mapapatay iyon.
+f0fbfe6e	Pinakamabilis. Mainam sa malinaw na pananalita; mas maraming mali sa mga diyalekto, punto at mabilis na pagsasalita.
+538dbdd6	pinakamurang sa mga kasalukuyang modelo; may libreng allowance
+912d81bb	Ipisa muna ang itlog mo; saka ito mapapakain.
+3345dadd	Ipinapadala nang isang beses ang video ng bawat reel sa iyong cloud transcription provider, na nagsusulat ng mga salita nito; bahagi lang ng isang sentimo bawat reel.
+777e4004	Mag-sign out sa Google? Mananatili ang library mo sa computer na ito; titigil lang ito sa pag-sync.
+7b6a557e	2–40 character ang pangalan ng guild; ang tag ay {0}
+3d954bc8	pinakamura; medyo hindi gaanong tumpak
+d7e2aef9	Hindi pa alam ng Android ang permiso ng AnkiDroid. Buksan muna nang isang beses ang AnkiDroid, saka subukan ulit; kung hindi pa rin gumana, i-install ulit ang Tamkeen (iniaalok lang ng Android ang permiso sa mga app na na-install pagkatapos ng AnkiDroid).
+39eb0435	Burahin isa-isa ang mga laman nito; hindi maaalis ang built-in na listahang ito.
+33b60a49	Mag-sign out sa Google? Mananatili ang library mo sa phone na ito; titigil lang ito sa pag-sync.
+c602022a	Mula sa YouTube pinapatugtog ang video na ito; walang itinatagong kopya ng tunog nito ang app.
+3ee00536	Paraan ng analyzer ng CAMeL Tools; mga diksiyonaryong Arabic (opsyonal na download)
+03f8025a	Mga Instagram reel na nahanap para sa iyo. Mula sa Instagram pinapatugtog ang mga ito; ang computer mo ang sumulat ng mga salita.
+470a97a7	Mga YouTube video na idinagdag mo. Mula sa YouTube pinapatugtog ang mga ito; ang caption nila ang transcript.

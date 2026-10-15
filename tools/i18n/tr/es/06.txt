@@ -1,0 +1,198 @@
+79bcdbf3 Meta: {0} min
+0e5f028b · lista para evolucionar: tócala
+72ce9e1e · {0} % para {1}
+4246502f {0} días
+223e900f Tu huevo
+63b41493 Ponme nombre
+98303fea Meta diaria: tus edificios enviaron {0} de brillo de golpe.
+72e1269a Has ganado {0} gemas.
+61fe2211 Plena floración: cada parcela tiene un edificio totalmente crecido.
+673e4951 Ponle nombre a tu criatura
+a8a47536 aún no hay palabras guardadas :(
+0a5a8112 +{0} de brillo
+e3b0b563 Tu criatura está lista para evolucionar. Tócala cuando quieras.
+b2facb1b Esa parcela aún no está abierta.
+fcc4027b Ya hay algo construido ahí.
+bf998c98 Ese edificio no existe.
+d482d7e0 Todavía no: {0}.
+710d27b3 Necesitas {0} de brillo más.
+efcf13a6 No hay nada construido ahí.
+2a8a3386 Está totalmente crecido.
+579f1557 Todas las parcelas ya están abiertas.
+9af0e879 No tienes ninguna llave.
+5b31b02f Solo se puede liberar una criatura adulta.
+934d6b63 Eso no está a la venta.
+36602b9e Tu grupo está completo.
+26de9a27 Necesitas {0} gemas más.
+6c27e5e8 No tienes nada de eso.
+6156ebc8 Los huevos no comen. Primero haz que eclosione.
+a66174fd Ya está llena por hoy.
+bdbaa592 No tienes ningún potenciador de XP.
+4f42a703 No tienes ninguna incubadora.
+e0e5bba3 Elige un huevo que no esté en el hábitat.
+eacac3ef Ese huevo ya está en la incubadora.
+73ed2987 Tienes {0} XP y estás en el nivel {1}. El siguiente nivel está a {2} XP.
+6a75c080 Guardar una palabra en tu vocabulario: 20.
+80e25376 Escuchar o leer: un goteo lento mientras estudias, que se agota bastante después de tu meta diaria.
+aa1ab833 Alcanzar tu meta diaria: {0}. Es lo más importante, y paga lo mismo tanto si tu meta es de 5 minutos como de 20.
+e3435b6f Batallas: 3 por cada respuesta correcta, 15 más cuando una palabra pasa a ser bien sabida, 40 por ganar y 15 por perder (completos en las tres primeras batallas del día).
+da45a83d Repaso de vocabulario: cada tarjeta que respondes paga una cuarta parte de lo que paga buscar una palabra (normalmente de 1 a 4, a veces de 8 a 12, de vez en cuando de 25 a 50), igual si la recordaste que si no, así que no se gana nada haciendo trampa.
+355d88a3 Termina una batalla y completa tus tarjetas el mismo día: {0} más, una vez al día.
+1a385136 Hacer lo mismo muchas veces en un día paga cada vez menos, así que un poco cada día es mejor que una sesión larga.
+5d4196b1 Hace crecer a la criatura de tu hábitat: eclosiona, crece y queda lista para evolucionar.
+4e3ef7b7 La XP nunca se gasta. Solo sube.
+27bb53b6 No se gasta en nada: funciona sola.
+9b7db3ae Cómo funciona la evolución
+ac4792cf Racha
+ae506790 {0} seguidos. Tu mejor marca es {1}.
+31fb81dc Con el compañero de Anki, completar todo lo pendiente en Anki también cuenta como meta del día.
+3e2a59d1 Si te saltas un día, un protector de racha lo cubre si tienes uno. Sin él, la racha vuelve a empezar desde cero. No se pierde nada más.
+488e945a Llegar a 7 días abre cosas nuevas en la tienda para siempre ({0}) y el movimiento de batalla Corazón Firme.
+347792fa Una racha de 5 días abre una parcela de construcción en el jardín.
+f7922bac Insignias a los 7, 30 y 100 días, y cada insignia da 2 gemas.
+d15f40ca Ver tus insignias
+2bef474e Monedas
+647952d2 Tienes {0}.
+ec4161d7 Guardar una palabra en tu vocabulario: 1 cada una.
+20b4c331 Subir de nivel: 5.
+e469d2bf Ganar una batalla: 4 por cada una de las tres primeras victorias del día, menos después.
+3c1e6885 Una palabra pasa a ser bien sabida gracias a las batallas: 1.
+dc4529b3 Acertar 8 de cada 10 respuestas de batalla durante una semana (30 respuestas o más): 5.
+d5d064cb Tu gremio derrota al jefe de la incursión semanal: 20.
+64eea943 Termina una batalla y completa tus tarjetas el mismo día: {0}, una vez al día. Las tarjetas por sí solas dan brillo, no monedas.
+54bb5f6d Todo lo que se compra con monedas es estético. Nada hace más fuerte a una criatura.
+fede851e La Tienda. Ofrece {0} cosas al día, elegidas para tu criatura, y cambia cada día.
+4906011f Abrir la tienda
+02b8de87 De vez en cuando cae uno por sorpresa al buscar una palabra.
+4b6bd7b6 Empezaste con uno.
+a66c8544 Se usa solo la próxima vez que abres la app después de un día perdido. Dos días perdidos necesitan dos.
+d5545dea Brillo
+3647f30f , y te esperan {0} más en tus edificios
+6319cd67 Tienes {0} de brillo{1}. Tus edificios producen {2} por hora.
+5aafc95b Toca un edificio con una luz flotando encima para recoger su brillo. Después de {0} metas diarias, se recoge solo.
+5ab759f1 Alcanza tu meta diaria: cada edificio produce la mitad más durante el resto del día, y llegan dos horas de brillo de golpe.
+fb3a6104 Completa las tarjetas del día en el repaso de vocabulario ({0} tarjetas o más, sin ninguna pendiente): una hora del brillo de tu jardín de golpe, y nunca menos de {1}. Las batallas dan monedas en su lugar.
+5881fc72 Cada tipo de edificio produce más con un hábito de estudio, y cada corazón de tu criatura añade un poco.
+99abeba6 Comida para tu criatura ({0} de brillo cada una), que llena sus corazones.
+dfc8c596 Pociones ({0} de brillo) para las batallas salvajes.
+38ccf266 Los edificios están en la página Jardín. La comida y las pociones, en la página Provisiones.
+37de88de Abrir el jardín
+3e321c9f Abrir provisiones
+02904156 Gemas
+4254141b Tu gremio derrota al jefe de la incursión semanal: 3.
+a1d5eec6 Subir de liga (alcanzar tu meta diaria 5 días de una semana): 2.
+18bf14cc Plena floración, cuando cada parcela del jardín tiene un edificio totalmente crecido: 10.
+03611593 Las gemas solo salen de lo que haces. Nunca se venden por dinero.
+89803371 La página Provisiones.
+99f9bf69 Corazones
+7b0609ca {0} tiene {1} de 5 corazones.
+3be3ea7c : para una criatura {0} que es {1}
+80e48f19 Dos comidas llenan un corazón. Su comida favorita cuenta el doble{0}.
+746e8201 Los corazones son de cada criatura y nunca bajan.
+27cffa5f Los corazones no cambian nada en las batallas.
+feeaea73 Dale de comer en la página Provisiones.
+f110690b Cómo se consigue
+ca032b58 Para qué sirve
+525f61b6 Dónde
+7ac0138b el tiempo escuchando pódcasts, audios y vídeos
+ab60d3ea guardar palabras, respuestas correctas en batallas, tarjetas del repaso de vocabulario, repasos de Anki
+7224fd42 Brasa para la curiosidad, Marea para escuchar, Arboleda para coleccionar, Piedra para leer, Chispa para madrugar y Ocaso para trasnochar
+80b6476b Cómo evoluciona tu criatura
+00d04503 {0} es {1}. En qué se convierte depende de cómo estudias, tú eliges el momento y nada de lo que elijas es definitivo.
+b89502e9 {0} XP
+80083e78 está lista para evolucionar
+02a71b4e es {0}
+729f33b1 {0} XP más hasta que {1}.
+a105f0d4 Está lista para evolucionar: tócala en el hábitat.
+f16b2c73 1. Crecer
+d4915a51 {0} Toda la XP que ganas va a la criatura que está en el hábitat. Las demás esperan, así que a quién sacas es tu primera elección.
+c5a69900 2. Tus cuatro hábitos
+9e19cb58 Cada criatura lleva un registro de cómo estudiaste mientras estaba fuera. Un hábito sube cuando ganas XP de esa forma y los demás bajan un poco, así que las barras siguen lo que has hecho últimamente. Unos {0} XP de un tipo llenan una barra. La curiosidad necesita {1}, porque buscar palabras da mucha más XP.
+174c7e2f Abierta: tu hábito más fuerte hasta ahora
+28088622 Abierta: este hábito pasa del 25 %
+94fae88c · trae el movimiento de batalla {0}
+968f60ab 3. Su forma adulta
+ffd15c0d Cuando ha crecido lo suficiente, espera como joven y brilla. Tócala y eliges su forma adulta. La forma de tu hábito más fuerte siempre está abierta, y otra se abre cuando su hábito pasa del 25 %. Después de evolucionar, subir otro hábito al 50 % desbloquea también esa forma, y puedes cambiar entre las formas desbloqueadas cuando quieras. Evolucionar también te deja un huevo nuevo. La curiosidad no tiene forma propia: se nota en tus huevos, la tienda y el jardín.
+93d943d8 {0} Conseguida
+db795d86 4. Formas especiales
+7c62f35b Se llevan encima de una forma adulta. Dependen de cuándo estudias, junto a quién crece y lo que logras en las batallas. Cambian colores y rasgos, nunca la fuerza.
+13878fb7 El elemento de cada huevo nuevo se inclina según cómo estudias: {0}.
+02b6bd4d La tienda ofrece más de lo que va con tus hábitos, como auriculares para quienes escuchan y libros para quienes leen.
+2eaf9a2e Cada edificio del jardín produce más brillo con un hábito.
+976f4c1c Las batallas entre personas ignoran todo esto: todas las criaturas luchan al mismo nivel, y ganas sabiendo tus palabras.
+8b0adc94 Qué más cambian tus hábitos
+0c20f982 Elegir su forma ahora
+3b7ab43a Abrir tus criaturas
+124ba4b6 Necesita más {0}
+cb437e4f Todavía no está lista para evolucionar.
+a6e6f750 Esa forma aún no está abierta para ella.
+81b52bd2 Esa forma especial aún no se ha conseguido.
+5eb43479 No se pudo abrir el regalo.
+2890293f Ya tienes {0}, así que se convirtió en {1} monedas.
+67705e9c Has recibido {0}. Está en Mis cosas.
+c054815c Tu grupo está completo, así que el huevo se convirtió en 20 monedas.
+b49d2e5c Has recibido un huevo de {0}. Está con tus criaturas.
+e4d969a9 Ese objeto no existe.
+2b338829 Ya lo tienes.
+60e6b077 Necesitas {0} monedas más.
+77e01fe2 Tienda y armario
+0ee5c43c Mis cosas
+2c578dc8 Insignias
+2db87a01 Decoración
+9519fbe9 {0} es tuyo
+4f3e6209 Guardar
+26fcf76c Colocar
+1c99c72c Quitar
+94433a7e Ponerse
+5d632f2d Regalar esto a un amigo
+fbefae1e Regalar
+1cfad2d7 {0} monedas
+a8e4db25 La selección de hoy, elegida para tu criatura. Cambia cada día. Las monedas se ganan alcanzando tu meta diaria (10), guardando palabras (1 cada una) y subiendo de nivel (5).
+7c0a7817 Ya tienes todo lo que hay a la venta.
+db13058c Aparecen {0} objetos más cuando hayas conseguido:
+1a2cdd14 Aún nada. Lo que compres en la tienda se guarda aquí.
+d0673c80 Colección {0}
+41867351 No se pudo marcar esa palabra como vista: {0}
+82c3ca6e ✓ Los diccionarios de {0:lower} están en este dispositivo ({1} MB). Las palabras que nunca has tocado se ven en <0>morado</0>.
+e963907d Quitar
+71da2431 Los diccionarios de {0:lower} no están en este dispositivo, así que las palabras nuevas no se pueden mostrar en <0>morado</0>.
+c2232964 Descargar (unos {0} MB)
+c177e4b0 Descargando…
+7443fea8 Los diccionarios de {0:lower} están listos.
+04d17f22 De este idioma
+aaa46e0d Diccionarios de {0:lower}
+c33c9385 Tamkeen puede mostrar qué palabras son <0>nuevas para ti</0>: una palabra que nunca has tocado se ve en morado, y en cuanto tocas una, todas las formas de esa palabra cuentan como vistas (<1/>).
+6280fb05 Para el {0:lower} hacen falta diccionarios: una <0>descarga única de unos {1} MB</0>, creados por el CAMeL Lab de la Universidad de Nueva York en Abu Dabi (árabe estándar, egipcio, levantino y del Golfo). Se quedan en este dispositivo y no se envía nada sobre ti a ningún sitio.
+b7c33926 Puedes hacerlo más tarde desde Ajustes.
+e4571490 Ahora no
+6813189a Tarda unos segundos.
+286b0dcd Los diccionarios de {0:lower} están listos. Las palabras nuevas ahora se ven en morado.
+3e13e40a ✓ Marcar como vista
+30320764 ↺ Marcar como nueva
+3f629623 No se encontró texto legible en esa página. Prueba «Abrir navegador web» y usa Importar página allí.
+4b0a3f2d Versión {0}
+2cf6a510 Una app para aprender un idioma con material real: suscríbete a pódcasts, añade tus propios vídeos y páginas web, transcribe en tu ordenador con Whisper, lee a la vez con cada palabra resaltada y crea una lista de vocabulario.
+9421c021 Carpeta de datos
+22a35fbe Código fuente
+e630fb0f github.com/{0}
+c4740e4c Entorno de ejecución
+06403f3b Python {0}
+736b9062 Buscar actualizaciones
+30dced67 Licencias de código abierto
+48e55e8f Esta app se basa en estos proyectos. Haz clic en uno para leer su licencia.
+3aceec04 Hay disponible una versión {0}.
+68680fa2 Tienes la última versión.
+f40382cc 👻 Los mensajes desaparecen después de verse · las notas de voz, después de escucharse
+5e5bb045 Grabar una nota de voz (hasta 2 minutos)
+68f4145f Mensaje
+72f9eb46 Grabando…
+0e04dbc9 Enviar nota de voz
+2394299d Amigo
+fd6be475 ▶ Nota de voz · {0}
+c79a9284 ❚❚ Reproduciendo…
+08acc9f5 No se pudo reproducir la nota de voz. {0}
+46e2032a Algo que esta versión de la app no puede abrir
+f92f6701 Actualiza la app para abrir esto.
+05da9368 con sus palabras
+ebefd2aa Enviado{0}
+bb54db51 Aceptar

@@ -1,0 +1,195 @@
+8df7f1b3 Espanyol
+42b5f38b Karaniwang anyo
+0bb18642 Gamit
+af4f4762 Arabe
+e96857c5 Ugat
+3132844d Sa pamantayang Arabe
+93949a50 Diyalekto
+23239c1b Hindi pinapansin ng paghahanap ang mga tuldik (tashkeel) at ang iba't ibang baybay ng alef (أ إ آ ا), taa marbuta/haa (ة ه) at alef maqsura/yaa (ى ي).
+44389f6a Pranses
+9239c22d Hapon
+b6f59f08 Mga titik
+15dc1886 Tsino
+74ad93cb Ruso
+485b57ad Italyano
+68ddd91d Tagalog
+649df08a Ingles
+6f442204 Naputol ang koneksyon sa lokal na server ng app.
+59025e2d Hindi natuloy ang request ({0})
+21a0c7a3 {0} oras {1} min
+e802d434 {0} min
+f921c967 0 MB
+9a27e458 {0} GB
+b53a8982 {0} MB
+c18f8f25 Abiso
+f8f74deb Tapos na ang transcript: {0}
+cf9b7706 Buksan
+3f651190 Tapos na ang transcript
+0fedb149 Hindi nagawa ang transcript: {0}. {1}
+377e306b Hindi nagawa ang transcript
+63616e1e Hindi ma-save ang audio ng salitang iyon.
+b887bd52 Kopyahin ang link ng video na gusto mo at i-paste ito sa “Magdagdag ng webpage”.
+6f9d8f3f Kopyahin ang address ng page na gusto mo at i-paste ito sa “Magdagdag ng webpage”.
+72af5edb Hindi na-upload ({0}).
+ccc2b8e0 Hindi na-upload: hindi sumagot ang server ng app.
+136c4303 Na-save sa {0}
+8d886c0b May nangyaring mali
+3330dab0 Al Jazeera
+0a3a33ca BBC sa Arabe
+036338ff Al Arabiya
+ff61c5fd Sky News Arabia
+001f43b5 Asharq Al-Awsat
+103608b8 CNN sa Arabe
+9f4ff5e2 France 24
+a6fd6e9c Deutsche Welle
+eb602841 Asharq News
+70bd98b5 Independent Arabia
+81667ae6 Al-Quds Al-Arabi
+3d6e75cf Al-Ahram, Egypt
+367c7f69 Youm7, Egypt
+21612f28 Euronews
+7a924fa6 Hespress, Morocco
+8091b468 An-Nahar, Lebanon
+20a8df9b Espanya
+7f68cca5 BBC sa Espanyol
+5bfed743 Pampublikong brodkaster ng Espanya
+26ee2701 Ang Amerika
+354bf989 Argentina
+41937b20 Mexico
+2f737399 Colombia
+36c57243 Peru
+ac92bda0 Sa Espanyol
+a95f1614 Mas madali: balita para sa mga nag-aaral
+e3772ac4 France
+022e7a37 Pampublikong brodkaster ng France
+f5074266 Balitang pandaigdig
+cd6a7b87 Canada
+5cb4c9d8 Belgium
+77dcd849 Switzerland
+7fd73ef4 Mas madali: balita ng NHK sa simpleng Hapon
+20cf7d0e NHK, pampublikong brodkaster
+863f0927 Yahoo! News Japan
+bce35235 Asahi Shimbun
+e8faae07 Yomiuri Shimbun
+8d6de353 Mainichi Shimbun
+55708085 Nikkei
+7c3cb127 Sankei Shimbun
+144e3ab3 Tokyo Shimbun
+073ad8e8 Jiji Press
+86e150a1 Kyodo News
+86dd6e9b Balita sa telebisyon ng TBS
+6ee232e9 Balita ng Nippon TV
+7f22332e BBC sa Hapon
+8201ad33 Toyo Keizai
+12fc9530 Balitang teknolohiya
+85da6b7f BBC sa Tsino
+1950c50c The New York Times
+72b431fc Lianhe Zaobao, Singapore
+16048e43 Xinhua, China
+323a3e4c People's Daily, China
+b3d6fa9f The Paper, China
+081ceae5 Caixin, China
+1b9f1261 Sina News, China
+5c0fde35 Tencent News, China
+9231d52d Jiemian, China
+7073d6a9 Financial Times
+1bea7de2 CNA, Taiwan (tradisyonal na titik)
+79da1ae8 UDN, Taiwan (tradisyonal na titik)
+7c820dda HK01, Hong Kong (tradisyonal na titik)
+b36012a4 BBC sa Ruso
+98678be4 Meduza
+3bad3245 Kommersant
+c789d95b Interfax
+321e9515 TASS, ahensya ng balita ng estado
+2b6cb4c7 RIA Novosti, ahensya ng balita ng estado
+02f9372c Vedomosti
+7095fe00 Radio Liberty
+179a6338 Novaya Gazeta Europe
+c51e7e5c Sa Ruso
+be550421 Current Time
+08c6ecb7 Rai, pampublikong brodkaster
+c90d19b1 ANSA, ahensya ng balita
+1d24e371 Corriere della Sera
+a3f333fa la Repubblica
+30f19411 La Stampa
+a71b2dc8 Balitang pang-negosyo
+5dc5bec4 Il Post
+e62a924b Sky TG24
+b63e0d40 Balitang pandaigdig sa Italyano
+37e9fc15 Sa Italyano
+1855c2e3 Isports
+8bf87e8c Wikipedia sa Italyano
+d477dcd6 Abante, sa Tagalog
+7033c2e2 Bombo Radyo
+5a063600 Pahayagang Tagalog ng Philstar
+42e1ab8b Balitang Tagalog ng Manila Bulletin
+2a086357 Pahayagang Tagalog ng Inquirer
+fec623de GMA News (karamihan ay sa Ingles)
+96c7193d ABS-CBN News (karamihan ay sa Ingles)
+6419d26a Remate, sa Tagalog
+72df35d6 Pilipino Mirror, sa Tagalog
+ec8ddbd3 Balita sa radyo ng DZRH
+13771236 Radyo Pilipinas, pampublikong radyo
+1b78aa35 PTV, pampublikong telebisyon
+7d7b8fe2 Wikipedia sa Tagalog
+291625d9 Mas madali: ang balita sa tatlong antas ng Ingles
+83372869 Mas madali: balita sa mabagal at simpleng Ingles
+f2d9c77f BBC, pampublikong brodkaster ng Britanya
+a1aa118a The Guardian
+558f6997 NPR, pampublikong radyo ng Amerika
+3d209294 AP, ahensya ng balita
+b1741f08 Reuters, ahensya ng balita
+3a367e23 ABC, pampublikong brodkaster ng Australia
+a07fa4fa CBC, pampublikong brodkaster ng Canada
+494a3b5b Mas madali: Simple English Wikipedia
+1ceda86d Alisin ang site na ito sa start page
+4b2d7cb9 Mas madali
+2f47d946 Magbasa sa web sa {0}
+bd3fb75c Maghanap sa Google
+bce06414 Hanapin
+297a093f Mga naka-save mong site
+ade0111a Mga site na itinabi mo gamit ang bituin. Pindutin ang × para alisin ang isa.
+33edab97 Balita sa {0}
+d23485df Magbukas ng site, maghanap ng artikulo, at pindutin ang <0>I-import ang Page</0> para basahin ito na puwedeng i-click ang bawat salita.
+3af88e50 May iba kang hinahanap? Maghanap sa itaas, o mag-type ng web address sa address box. Para itabi ang isang site sa page na ito, buksan ito at pindutin ang bituin (☆) sa bar ng browser.
+7e58a747 Tamkeen browser
+0292c83e I-import ang Page
+b52b36b7 Bumalik
+ba4e7226 Sumulong
+cce71553 I-reload
+d5088cc9 I-save ang page na ito sa Tamkeen para basahin na may mga salitang puwedeng i-click
+06a6f0bf Maghanap o mag-type ng web address
+abf66062 Nasa start page mo. Pindutin para alisin.
+d6823a88 Itabi ang site na ito sa start page ng browser
+b74fd5e9 Naglo-load pa… subukan ulit maya-maya.
+f1ea7bfe ★ Na-save sa start page mo.
+28067e68 Inalis sa start page mo.
+7317f63f Hindi ma-save ang site na ito.
+820599da Ini-import…
+41701b8a Hindi ma-import ang page na ito.
+96bb84ec Alam ko na ang basics: ituring na nakita na ang {0} pinakakaraniwang salita sa {1}
+b00c7e97 Hinihintay ang mga diksyunaryo ng {0}: bibilangin ang mga ito kapag na-download na.
+ffb2e628 Idinadagdag…
+7528191c Hindi ito ma-save ngayon. Subukan ulit.
+b80ffddd Bibilangin ang mga ito kapag na-download na ang mga diksyunaryo ng {0}.
+96d9775a Tapos na: {0} salita ang itinuturing nang nakita.
+28650781 Itinuturing na silang nakita.
+db849af4 Mga kaibigan at pagbabahagi (online)
+17b2a7cb Opsyonal. Kumonekta para magdagdag ng kaibigan gamit ang username, magbahagi ng mga salita at folder, panatilihing naka-sync ang mga folder sa mga kaibigan, at maglaro nang sabay ng live na vocab quiz. Ginagamit nito ang parehong Google account na ginagamit sa Drive sync. Ang username mo, listahan ng kaibigan at mga ibinabahagi mo ay naka-store sa online service ng app (Supabase); lahat ng iba pa ay nananatili sa sarili mong Google Drive.
+820d6004 Sinusuri…
+042c862e Subukan ulit
+fdf71228 Kumonekta gamit ang Google
+f709df27 Pipili ka ng username pagkatapos.
+fd3e7969 Kumokonekta…
+f7aba881 Nakakonekta na. Pumili ngayon ng username.
+64fbd995 Palitan
+efc007a3 I-save
+c2f9b7b4 Nakakonekta
+ed28e068 Idiskonekta
+84c29015 Username
+977867c9 hal. layla_learns
+5ff78b85 Hinahanap ka ng mga kaibigan mo sa pangalang ito. {0} Puwede mo itong palitan anumang oras; mananatiling konektado ang mga kaibigan at ibinahagi mo.
+aeed20b3 ✓ Bakante
+c66c12b9 May gumagamit na
+791b5d6c Ang username mo ngayon ay {0}.
+fa61d32f Idiskonekta ang mga kaibigan at pagbabahagi sa device na ito? Mananatili online ang username at mga kaibigan mo.

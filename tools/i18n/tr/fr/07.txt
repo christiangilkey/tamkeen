@@ -1,0 +1,200 @@
+419e5a77 éclose
+8736920d un nouveau-né
+6839db6f un juvénile
+82aef589 un adulte
+70afe9ef Ignorer
+a30d2444 ✓ Accepté
+d7e5d622 📁 {0} · {1} mots
+a5dbb7a2 ★ {0} mots
+aaf0f881 pour {0}
+7b347cb7 · 🔊 audio{0}
+35f49dcf Envoyé
+03f7e506 Ajouter à mon vocabulaire
+81506135 ✓ Ajouté à votre vocabulaire
+fd4130f9 dans le dossier « {0} »
+ee02aae1 {0} mots ajoutés{2}.
+69bd4ef9 Voir
+2777c993 Annuler l'envoi : supprimer ce message pour vous deux
+32fedd8c Annuler l'envoi de ce message ? Il sera supprimé pour vous deux.
+93536c19 Pas encore de messages. Dites {0} 👋
+7aad9d60 Les messages vocaux ne sont pas pris en charge sur cet appareil.
+f5985fff L'application a besoin d'accéder au micro pour les messages vocaux.
+dad9f44a C'était trop court pour être envoyé.
+2b73aff6 Envoi du message vocal…
+f4c667a4 {0} et {1}
+3af45b33 Retour à la bibliothèque
+da089e19 Tendances en {0:lower}
+770dabce	Les podcasts les plus écoutés en ce moment ({0}). Appuyez sur <0>+ Ajouter</0> pour en mettre un dans votre bibliothèque.
+5585dc7f Recharger la liste
+c4e76a79 ⟳ Actualiser
+e17054bf Chargement des podcasts tendance…
+edaa4f9c Classements d'<0>Apple Podcasts</0>.
+55461d2c ✓ Ajouté
+109b936a + Ajouter
+c2510071 « {0} » a été ajouté à votre bibliothèque.
+0455d100 Impossible d'ajouter « {0} » : {1}
+6a720856 Tout
+c96f6acd Voir les {0} de {1}
+d6cc1316 Rien de tendance en {0:lower} pour l'instant
+75a6baf2 Les classements n'avaient pas de podcasts dans cette langue à l'instant. Réessayez plus tard, ou collez l'adresse RSS d'un podcast dans la Bibliothèque.
+57a11040 Impossible de charger les podcasts tendance
+a0ffb6d7 Apprendre ensemble
+3a374802 Ajoutez des amis par nom d'utilisateur, formez des guildes, échangez des messages (avec messages vocaux), envoyez des mots et des dossiers, et voyez ce que chacun étudie. Connectez votre compte Google dans les Réglages pour commencer.
+4e4b5579 Ouvrir Réglages → Amis et partage
+49421c8e Choisissez d'abord un nom d'utilisateur pour que vos amis vous trouvent.
+81d5a343 Choisir un nom d'utilisateur
+c8f5eda8 Supprimer la photo
+240a677f Changer votre photo de profil
+7fe92d97 Touchez votre photo pour la changer
+c32658e7 Modifier ce que j'étudie
+cfd93f3f Afficher mon profil
+986ce024 Masquer mon profil
+7b634db9 Voici ce que vos amis voient à côté de votre nom
+cf2f49f6 Photo supprimée.
+9d62374f Montrez à vos amis ce avec quoi vous apprenez : un épisode de podcast, une vidéo YouTube, une chanson, un film. Ajoutez aussi une petite note.
+1fe1c9e2 veut devenir votre ami
+61cd9dee Vous et {0} êtes maintenant amis.
+f97e0f3e {0} vous a invité dans cette guilde
+e0d73143 Rejoindre
+8343796d Vous avez rejoint {0}.
+b59cf9ed Refuser
+bb386fdb Guildes
+9b343820 ＋ Nouvelle guilde
+6e157c5d Créer
+8978ccfe Nom de la guilde
+41ea8208 TAG
+c2947194 Le tag apparaît à côté du nom des membres. {0}
+7d96fc5d Guilde « {0} » créée. Invitez vos amis !
+6fc866d1 Une guilde est un groupe d'amis avec son propre nom et son tag. Tous ses membres se voient ici, avec ce qu'ils étudient, et peuvent s'écrire. Créez-en une ou attendez une invitation.
+612a1349 · vous l'avez fondée
+7382cf3e {0} membres{2}
+88f506a1 ＋ Inviter un ami
+7bd335d2 Tous vos amis sont déjà dans cette guilde.
+326d1c75 Ajoutez d'abord un ami, puis invitez-le.
+67e9cb4d Inviter dans {0}
+f318af38 {0} a été invité dans {1}.
+7e3520a9 Quitter
+bffc4127 Quitter « {0} » ? Vous êtes le seul membre, la guilde sera donc fermée.
+c7d54e1c Le plus ancien membre en devient le fondateur.
+3ae5d4a6 Quitter « {0} » ?{1}
+9a4506a3 Demande envoyée à {0}.
+fa8d4903 Retirer {0} de {1} ?
+f0599be1 Vous êtes seul pour l'instant. Invitez un ami pour la lancer.
+f1d382dd Ajouter un ami
+7ddd5e45 Son nom d'utilisateur
+a89d6417 Envoyer la demande
+781f394f · {0} en ligne
+d2b3ee8a Vos amis
+e630733e Pas encore d'amis. Partagez votre nom d'utilisateur, <0>@{0}</0>, ou ajoutez quelqu'un ci-dessus.
+f034a2d7 Retirer {0} de vos amis ?
+904e125d Trouver un ami
+b06dc642 Aucun ami nommé « {0} ».
+4f9c0764 En attente de son acceptation
+abe096ed Envoi de votre photo…
+3d7ef010 Photo de profil mise à jour.
+bb72b60d Reprendre l'écoute
+8fca30f7 Reprendre la vidéo
+4f4840a8 Reprendre la lecture
+6a4f54ef Bonsoir
+0f768926 Bonjour
+13fd0a3e Bon après-midi
+2e026239 Continuer
+4e34d263 Aussi en cours
+65a724ff Vous êtes à jour
+1c3b619c Rien n'est resté en plan. Choisissez quelque chose de nouveau quand vous voulez.
+e32ed3b5 Ouvrir votre bibliothèque
+ae2245c8 Podcasts, vidéos et pages web
+ea399154 Revoir votre vocabulaire
+d6a7fd46 Les mots que vous avez enregistrés
+46f72e49 Voir ce qu'étudient vos amis
+7d84d91b Messages et mots partagés
+4cdd6ff2 ★ {0} mots enregistrés aujourd'hui
+d27bd152 {0} dans votre vocabulaire
+db2c45d5 Pas commencé
+6a599877 En file d'attente
+b6bd42e4 En cours
+09fef5d8 Échec
+fd52b45d Podcasts
+d5364a6a Pas encore de vidéos YouTube. Appuyez sur « Ouvrir YouTube » ci-dessus et touchez une vidéo.
+43e751cf Mes pages web
+44616f98 Pas encore de pages web. Utilisez « Ajouter une page web » ou « Ouvrir le navigateur web » ci-dessus.
+44473bdb Mes vidéos
+87780e0b Pas encore de vidéos à vous. Utilisez « Ajouter un fichier vidéo » ci-dessus.
+c467d30b Mon audio
+9a5be374 Pas encore d'audio à vous. Utilisez « Ajouter un fichier audio » ci-dessus.
+61e340e9 Reels
+2cfb6c20 Pas encore de reels. <0>Obtenir des reels</0>
+00d12e01 Téléchargement {0} %
+08f7cc23 Transcription {0} %
+c94946db Collez l'URL du flux RSS d'un podcast
+e9e4317e URL du flux RSS du podcast
+24ba4ecf Ajouter le podcast
+b1de5a9b Découvrez les podcasts populaires en ce moment dans la langue que vous étudiez, triés par thème, et ajoutez-en un d'un seul geste
+29109ff4 Parcourez YouTube dans l'application. Touchez une vidéo : elle s'ouvre dans le lecteur de Tamkeen, avec ses sous-titres en texte cliquable
+4c8aacce Ouvrir YouTube
+a2a04642 Ouvrir YouTube commence par les vidéos les plus vues de la semaine dans ce pays
+981a7d86 Populaire en
+6426a33b Touchez-y une vidéo pour la regarder ici avec des sous-titres cliquables.
+53a9f5e8 Collez l'URL d'un site web
+b32233ad URL du site web
+d6fbc9d2 Importer
+056148af Parcourez le web dans l'application et importez n'importe quelle page que vous lisez
+71091d5d Ouvrir le navigateur web
+547402e6 Ajoutez un fichier vidéo à vous ; il est transcrit et stocké dans votre Google Drive
+fa7502c2 Ajouter un fichier vidéo
+34b21c9b Ajoutez un fichier audio à vous (un enregistrement, un cours, une chanson) ; il est transcrit et stocké dans votre Google Drive
+918f00f2 Ajouter un fichier audio
+cddfd770 Chercher de nouveaux épisodes dans les flux et synchroniser avec Google Drive (récupère ce qui est en attente sur votre téléphone)
+8860c417 ⟳ Actualiser et synchroniser
+54aa4f1a Ajouter une page web
+4a2500ac Collez l'URL du site web
+13a9f630 Ouvrir le navigateur<0/>web
+978553c3 Ajouter un podcast
+b2d2623a Collez l'URL du flux RSS
+ccf228c9 Regarder une vidéo YouTube
+f19e76a6 Touchez-y n'importe quelle vidéo pour la regarder ici avec des sous-titres cliquables. La vidéo doit avoir des sous-titres.
+5f0eb45f Reels Instagram
+d7c052ed Obtenez une série de courtes vidéos populaires dans la langue que vous étudiez. Votre ordinateur écrit ce qui est dit dans chacune, et elles s'enchaînent sur votre téléphone avec les mots en dessous
+1ac27b46 Reels pour mon téléphone
+913afff1 Tout sélectionner
+ffed8c0f Transcrire la sélection
+54971873 Supprimer définitivement les épisodes cochés de votre Bibliothèque, sur tous les appareils
+8516a714 Supprimer la sélection
+18915bbf Regarder ces reels
+585efa75 Filtrer par titre
+dfe60ca9 Charger plus
+de23e71b Vus récemment
+d7cc3213 Les chaînes que vous suivez apparaissent ici. Appuyez sur Suivre sous une vidéo.
+10c927f2 Tous les épisodes
+ba7dd347 {0}/{1} transcrits{2}
+3f52d1ce Pas encore de podcasts. Ajoutez-en un ci-dessus, ou regardez dans Tendances.
+476f9671 Les pages web que vous avez importées. Ouvrez-en une pour la lire avec chaque mot cliquable. Ajoutez-en avec « Ajouter une page web », ou naviguez avec « Ouvrir le navigateur web » et appuyez sur Importer la page.
+8bf58c5b Vos reels Instagram, les plus récents d'abord. Ils se lisent depuis Instagram sur votre téléphone, l'un après l'autre, avec les mots en dessous. Cochez-en quelques-uns pour ne regarder que ceux-là.
+6b9cf91e Choisir d'autres reels Instagram à ajouter à cette liste
+1cc9f7e6 Obtenir plus de reels
+b1fa4fab Lire tous les reels, l'un après l'autre
+3b8796cc ▶ Tout regarder
+e3a6fe56 Ne plus suivre
+9905eae6 Les vidéos de cette chaîne que vous avez regardées, les plus récentes d'abord.
+47763f28 Ouvrez cette chaîne sur YouTube dans l'application. Touchez une vidéo : elle s'ouvre dans le lecteur de Tamkeen
+8eb9918e Plus de cette chaîne
+6aa45ce0 Vous ne suivez plus {0}. Ses vidéos restent dans Vus récemment.
+acdac205 Audio
+bc17c1f0 Vidéo
+8b82dc98 {0} fichiers que vous avez ajoutés vous-même. Ils sont transcrits sur votre ordinateur et stockés dans votre Google Drive, pour que tous vos appareils puissent les lire. Utilisez « Ajouter un fichier {1} » pour en ajouter.
+fb55bc86 ⚠ La dernière actualisation a échoué : {0}
+814c21ac Vérifié {0}
+1f370d70 Mettre automatiquement en file de transcription les nouveaux épisodes dès leur parution
+6079af61 Transcrire automatiquement les nouveaux épisodes
+33ec2170 Retirer le podcast
+a1dcfc3e Les nouveaux épisodes seront transcrits automatiquement.
+2125ead2 Transcription automatique désactivée.
+952950e4 Retirer « {0} » ? Ses transcriptions et l'audio téléchargé seront supprimés. Le vocabulaire enregistré est conservé.
+2b8200f3 Sélectionner l'épisode
+d91ebf58 Regarder
+9f5cd8a2 Réessayer
+5a635355 Transcrire
+7ddf9ded Supprimer « {0} » de vos pages web ? Le vocabulaire enregistré est conservé.
+33fb4593 Retirer « {0} » de vos vidéos YouTube ? Le vocabulaire enregistré est conservé.
+e65bc198 Retirer « {0} » de vos reels ? Le vocabulaire enregistré est conservé.
+3c6ef288 Supprimer « {0} » ? Le fichier {1} et sa transcription sont supprimés de cet appareil et de votre Google Drive. Le vocabulaire enregistré est conservé.

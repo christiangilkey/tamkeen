@@ -13,7 +13,7 @@ from . import db
 
 # code -> English name. The codes are also Whisper's language codes.
 LANGUAGES = {"es": "Spanish", "ar": "Arabic", "fr": "French", "ja": "Japanese", "zh": "Chinese", "ru": "Russian",
-             "it": "Italian", "tl": "Tagalog"}
+             "it": "Italian", "tl": "Tagalog", "en": "English"}
 DEFAULT = "ar"  # the app's first language; anything stored before languages existed is Arabic
 
 # Whisper writes Chinese in either script unless nudged; this opening line asks for simplified.

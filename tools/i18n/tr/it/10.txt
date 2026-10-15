@@ -1,0 +1,210 @@
+fd142815 Eliminare {0}? Questo rimuove {1} dalla tua Libreria su tutti i dispositivi, insieme all'audio e alla trascrizione. Un episodio di podcast eliminato non ritorna quando il podcast viene aggiornato. Il vocabolario salvato resta. Non si può annullare.
+ab6b534e Questo rimuove {0} dalla tua Libreria su tutti i dispositivi, insieme all'audio e alla trascrizione. Un episodio di podcast eliminato non ritorna quando il podcast viene aggiornato. Il vocabolario salvato resta.
+fefb3326 Scegli un modello
+27aa7d41 Il mio computer è troppo lento per questo
+16efb9b4 Lascia che sia un fornitore cloud a scrivere le trascrizioni (pochi centesimi per ora di audio)
+9ff4b446 Scarica un modello per continuare, oppure configura un fornitore cloud qui sopra. Puoi continuare a usare l'app mentre il modello si scarica.
+9713faa5 Inizia a usare l'app →
+d9cc6b1c {0}% letto
+e078f34f mancano {0} h {1} min
+a99cdd56 mancano {0} min
+15710324 Han
+ba1d0a64 Hiragana
+6842e5a7 Katakana
+1cb09555 Cirillico
+348d0069 Ebraico
+59d5f5b1 Greco
+bd7d4b95 Hangul
+c32767e0 Thai
+c3376a97 Devanagari
+536c16bd {0} giorni
+2985a39c {0} settimane
+682728dc {0} mesi
+67e282ba {0} anni
+2c4f87a8 meno di un minuto
+aebe40c4 circa {0} min
+24b8e72e circa {0} h{1}
+a8bf7da8 misurato su questo dispositivo
+60446ee5 in base alle tue risposte passate
+ca5a6508 una prima stima finché non avrai ripassato ancora un po'
+6403f2b7 Nuove
+b83c4cda Ripassi
+901df5e4 Obiettivo di oggi
+35c77c57 (una prima stima)
+f922fb4c Ne restano {0} oggi{1}
+2081c97d Tutto fatto per oggi
+b422c28b Niente da ripassare oggi
+f4896ede Oggi: parole nuove {0} su {1}, ripassi {2} su {3}. {4}. Cambia le parole nuove al giorno
+031683ab Solo {0} parole nuove in attesa.
+aa175635 {0}I ripassi sono semplicemente le parole in scadenza oggi. A lungo andare, prevedi circa 10 al giorno per ogni parola nuova (manuale di Anki): {1} nuove al giorno ≈ {2} ripassi al giorno.
+16db8f9d Tempo per parola: circa {0} per una nuova, {1} per un ripasso ({2}).
+0a730827 Tempo per parola: circa {0} per una nuova ({1}), {2} per un ripasso ({3}).
+3997732f Dilla
+dc353487 In ascolto
+4fc6e7f7 Madrelingua
+72499faf Esercitati a dirla (P): ascolta la parola, poi te stesso. Il tuo tentativo non viene salvato.
+a679d9ee Tamkeen ha bisogno del permesso di usare il microfono per sentirti dire la parola.
+a970acc5 Non ti ho sentito. Riprova, un po' più vicino al microfono.
+7bea803a Al momento non è stato possibile usare il microfono.
+4e81fbf0 Da 3 a 20 lettere, numeri, punti o trattini bassi.
+c9c9d7d4 Impossibile caricare le funzioni online.
+1d7a1d2e Impossibile raggiungere il servizio online. Controlla la connessione a internet.
+79ec683f I nomi utente sono {0}
+ad5eb13f Prima collegati.
+5fc4af92 «{0}» è già in uso. Provane un altro.
+d3e6897a (ancora nessun nome utente)
+ed88ebe6 Scrivi il nome utente del tuo amico.
+42f88043 Prima collegati (Impostazioni → Amici e condivisione).
+76ece8da Prima scegli il tuo nome utente (Impostazioni → Amici e condivisione).
+4e2bf6f2 Nessuno si chiama «{0}». I nomi utente devono essere esatti (ma maiuscole e minuscole non contano).
+967a7678 Sei tu!
+0d09c4f7 Tu e {0} siete già amici.
+993bd149 Hai già inviato una richiesta a {0}.
+ff44a73d Tu e {0} avete già una richiesta in sospeso.
+58f90a69 un video o una canzone di YouTube Music
+97d30338 una canzone, un album, una playlist o un episodio di podcast (Condividi → Copia link)
+d23e8c8c una canzone, un album o una playlist (Condividi → Copia link)
+937e2007 la pagina di un film, di una serie o di una persona
+e016aab6 un reel (Condividi → Copia link). Gli amici lo aprono nel lettore di reel di Tamkeen
+ca2da724 qualsiasi articolo o pagina. Gli amici lo aprono nel lettore di Tamkeen
+bdfd8662 qualsiasi episodio della tua libreria: usa il pulsante 🎧 sulla barra
+52c54389 Apple Music
+094b763b non trovato
+6c7af22a Quel link di Instagram non è un reel. Usa Condividi → Copia link sul reel stesso.
+0449c7b9 Impossibile aprire quella pagina. Controlla il link.
+9c5f935e Non trovato su {0}. Controlla il link.
+2a0cb6b4 Spotify
+effea02d Puoi scrivere solo alle persone nella tua lista di amici.
+3a18cb8c Prima scrivi un messaggio.
+79b09ca3 Impossibile inviare il messaggio vocale: {0}
+394821e7 Non c'è niente da condividere.
+81058adf È troppo grande per essere inviato in un messaggio.
+9c6fefee Quel file non è un'immagine che l'app riesce a leggere. Prova con un JPG o un PNG.
+c1004cfe Impossibile preparare quell'immagine.
+9c4b6c33 Impossibile caricare l'immagine: {0}
+c3441e47 Da 2 a 5 lettere o numeri, senza spazi.
+f70d9377 Esiste già una gilda con quel nome. Provane un altro.
+abf7ad6f Puoi invitare solo i tuoi amici, in una gilda di cui fai parte.
+99113664 Un amico
+0669df82 È già stato invitato in questa gilda.
+853b17b9 Impossibile inviare quel regalo (al massimo dieci regali al giorno, e solo ad amici o compagni di gilda).
+d034eb8e Groq
+4de3bd6f Episodi oltre 24 MB che non sono MP3: il telefono non può tagliarli a pezzi, quindi a Groq viene dato l'indirizzo web del file e lo scarica da sé. (Gli MP3 di qualsiasi durata vanno bene: quasi tutti i podcast lo sono.)
+4472c560 il modello grande completo: il migliore per l'arabo e i suoi dialetti
+bd77aa8a Gli episodi oltre 24 MB che non sono MP3 non si possono trascrivere da questo telefono con OpenAI: compare invece un errore. OpenAI accetta al massimo 25 MB alla volta, e il telefono può tagliare a pezzi solo gli MP3. Trascrivili sul computer, oppure scegli Groq, che scarica da sé questi file. (Gli MP3 di qualsiasi durata vanno bene: quasi tutti i podcast lo sono.)
+eba3014e funziona con la stessa chiave delle definizioni delle parole di ChatGPT
+0ffe7a83 la Console di Groq
+2e074132 Groq ha una quota gratuita (qualche ora di audio al giorno) che non richiede una carta di pagamento. Con una carta aggiunta, un'ora di audio costa tra 4 e 11 centesimi.
+953a5f79 Premi il pulsante qui sotto. Apre console.groq.com nel browser. (Groq è un'azienda diversa da Grok.)
+e619a44c Usa il tuo indirizzo email o «Continue with Google». L'iscrizione è gratuita.
+63239333 Apri <0>API Keys</0> e premi <1>Create API Key</1>. Dagli un nome che riconosci, come «Tamkeen».
+cb2680e6 Torna qui, incollala nella casella <0>Chiave API</0> sotto Trascrizione nel cloud e premi <1>Prova la chiave</1>.
+09604855 Un'ora di audio costa circa 36 centesimi. Se usi già una chiave OpenAI per le definizioni delle parole, la stessa chiave funziona qui: lascia vuota questa casella.
+1bd3e72b Il tuo accesso a ChatGPT funziona anche qui, ma un abbonamento ChatGPT Plus non copre questo: le chiavi si pagano a parte.
+944fc80e Il fornitore
+a85ddf87 (chiede di aspettare {0})
+8b0ebde4 {0} dice che il tuo account ha raggiunto il limite per ora{1}. Gli account gratuiti possono inviare solo una certa quantità di audio all'ora e al giorno.
+a6fcec4d Quell'audio è troppo grande perché {0} lo accetti in un solo pezzo.
+964037f2 {0} non riconosce il modello scelto. Rimetti quello consigliato nelle Impostazioni.{1}
+e1e8503b {0} dice che l'account non ha credito. Aggiungine un po' nella sua pagina Billing.{1}
+d31e3b99 {0} non è riuscito a trascrivere questo (errore {1}){2}
+30785373 Impossibile raggiungere {0}. Controlla la connessione a internet.{1}
+ad40a6bc Questo telefono ha esaurito la memoria preparando l'audio per {0}. Prova con uno più corto.
+31bc4b92 il telefono non ha dato alcun motivo
+9f2d7d5a Impossibile inviare l'audio a {0}: {1}.
+55d8f8bc {0} secondi
+24a671e0 {0} minuti
+6c204c8f {0} ore
+f5071960 {0} ¢ per ora di audio
+a6a5c3dc meno di 0,1 ¢
+8d52756d 0 min
+656cedad Oggi non è stato ancora inviato niente.
+75b73b14 , circa {0}
+675fee00 {0} pezzi inviati{2}
+0118d341 Oggi ancora nessuna ricerca.
+e5016995 {0} ricerche{2}
+6f49c311 Arabia Saudita
+1c39abf6 Egitto
+cf5a0fa0 gli Emirati Arabi Uniti
+32e087f0 Marocco
+fcf29f6c Giappone
+d2eaf2aa Cina
+094d515b Taiwan
+6754fe3c Russia
+ad79ef0f Italia
+eb607d09 le Filippine
+d9ab8240 gli Stati Uniti
+5c04a992 il Regno Unito
+ceafb51e Australia
+d6663dda Economia
+11381a19 Comicità
+aaf87fe5 Istruzione
+0d23bd8c Narrativa
+5c9cb498 Governo
+89fc9192 Salute e fitness
+90ccd649 Storia
+cccd8e9f Bambini e famiglia
+540c98ab Tempo libero
+131260cb Musica
+34c808d0 Notizie
+f31acc39 Religione e spiritualità
+d2d06637 Scienze
+4a6df903 Società e cultura
+2fec45a4 Sport
+d9f273ca TV e cinema
+d018b082 Tecnologia
+7a3f06d3 True crime
+04975199 Prima scegli una lingua da studiare (Impostazioni).
+38de31ed Impossibile raggiungere le classifiche dei podcast di Apple. Controlla la connessione e riprova.
+7eceb7a9 Impossibile raggiungere l'elenco dei podcast di Apple. Controlla la connessione e riprova.
+6e6a6f20 Altro
+b2918a21 Download… {0}% ({1} di {2} MB)
+a15a5851 Download… {0} MB
+fe01cea2 Installazione. Tamkeen si chiuderà e si riaprirà da solo.
+4265eb9a L'aggiornamento non è riuscito.
+829e6b86 Novità ↗
+c4cbac00 Aggiorna ora
+531355b2 (hai la {0})
+91b691d1 È disponibile Tamkeen {0}{1}
+d42870c3 Si installa qui, e la tua libreria resta com'è.
+3d611376 Scaricala dalla pagina delle versioni.
+3ab0d731 Aggiornamento…
+3c467cf7 ✓ Lo segui
+d1541dd9 + Segui
+90145b11 Segui questo canale in Tamkeen. Premi per smettere di seguirlo.
+e80a9596 Segui questo canale in Tamkeen: compare nella tua Libreria sotto YouTube
+8c9967c9 Non lo segui più
+5a674f33 Impossibile seguire questo canale.
+ce8c60f6 Tocca un video per guardarlo in Tamkeen
+5caa7f81 Libano
+674027e1 Giordania
+d115b8d5 Emirati Arabi Uniti
+bd6acc86 Algeria
+1aed9ecc Iraq
+93295b0c Kuwait
+55949d4c Libia
+c14c36df Oman
+83ef3e6c Qatar
+edf404d0 Tunisia
+3ae11c72 Bahrein
+ac33d641 Yemen
+349507e4 Cile
+768685ca Stati Uniti
+9d4ac43d Venezuela
+09f199d2 Ecuador
+11760e1a Guatemala
+8a4bf12e Repubblica Dominicana
+a001af75 Bolivia
+1bf429f9 Costa Rica
+66b98924 Uruguay
+71a45296 Paraguay
+1e36b31e Panama
+5aa58871 Honduras
+259a6e93 El Salvador
+4812648c Nicaragua
+fe23c52d Porto Rico
+d8973b8e Senegal
+2f488ffc Hong Kong
+20c0b7bd Singapore
+ff3ea3be Malesia
+2f36b6bb Kazakistan

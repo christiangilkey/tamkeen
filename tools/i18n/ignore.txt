@@ -1,0 +1,131 @@
+# Not interface: what the app tells the AI, and protocol text.
+da40160d  # You are an expert {0} teacher helping a learner understand words in re
+8fba7582  # The learner tapped one word (or selected a short phrase). It is marked
+5740f9f9  # In "sentence_translation", put the same ⟦ ⟧ marks around the part of y
+5423d206  # Write all explanations, meanings and translations in {0}. Keep "meanin
+b7f28005  # You are an expert {0} teacher. A learner tapped one word (or a short p
+9083f8be  # Previous sentence: {0}
+04363225  # Next sentence: {0}
+63afdc86  # Target word: {0}
+1feaccd7  # Bearer {0}
+# Pieces of sentences the code glues together at run time (the whole is never on screen like this).
+56806a1f  # Take
+99e68eaa  # off the start page
+d657e55c  # px +
+d8db8897  # ✓ Imported “
+22991ec6  # words). It's in My webpages.
+bec7773b  # "], meta[name="  (a CSS selector)
+b1d31278  # hsl({0} {1}% {2}%)  (a colour)
+57e51abd  # svg attributes
+c7db79d8  # username, avatar_path  (database columns)
+57c7369a  # an HTML tag template
+af2ea5e6  # a CSS media query
+4b424e09  # a CSS easing curve
+796159c4  # CSS easing curve
+3e11bc0a  # CSS transform
+edc83698  # CSS easing curve
+# Database column lists.
+7a4b7332
+15c0add1
+4d235ddb
+03b8b817
+e562f0e4
+519edf33
+620271b0
+69c7175f
+6259dd67
+# Phrases Whisper invents in silence; the transcriber removes them (stt.js). Never shown.
+021cd366
+cca9f817
+470a1f31
+13270bdb
+d4770fe8
+572995b7
+d169a0df
+b27c7d76
+9071c241
+dc0b72d8
+d6c2b40b
+69c7201c
+bb57d867
+# Code, protocol text and shell commands.
+35ee66e3
+4a6167a9
+4d9414c4
+55a17a05
+538f05a0
+008ae16f
+15ee641a
+f3b07687
+2f5ffd0c
+5e25ce00
+89f15720
+e66f823a
+971e7d87
+090d0f91
+3abd766e
+aea39f3c
+092fe85f
+09ca55ca
+fc4a695f
+# Anki note-type names and fields (they live in the Anki deck, not on screen).
+792ad5ec
+153188ed
+808d7dca
+dd19f988
+9c255707
+# Search words for random reels (content in the language studied) and a Whisper filler phrase.
+d8c565a0
+43c2989a
+fe40bed5
+# Names that stay as they are in every language.
+2c1afc6d
+cbbff515
+6b3e9337
+f696647c
+9912a681
+2a8d585a
+189ced9a
+321f257a
+99a2eea7
+57e162dc
+51dc8f68
+b83a1a4a
+ccfe6c72
+26d9c28d
+83ad8510
+b92742c6
+24637e99  # preview test data
+0ee514a0  # preview test data
+# AI and speech model product names.
+97040f8e
+87d5a61c
+52e1850a
+fb60cd64
+4fbda20d
+27eb418f
+529d2b2b
+274adc88
+9859f225
+4620d53d
+26ffa8ac
+c6643f05
+4dbddfd2
+bb4458fb
+c010a73e
+# The word-explainer's instructions to the AI, web headers and browser names (contain a ";").
+7bcde36d
+b5e942dc
+3e28de3b
+61e0afba
+5f813668
+4ef233a3
+fba3b2b6
+76e1d59a
+467dd9fe
+521341e4
+41f09df1
+010457c5
+7aa73de7
+ca70a425
+fb9f8f25

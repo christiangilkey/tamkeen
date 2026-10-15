@@ -1,0 +1,15 @@
+5de77d58	Gemini propose un quota gratuit : vous pouvez donc commencer sans carte de paiement. Avec le quota gratuit, Google peut utiliser ce qui est envoyé pour améliorer ses produits ; activer la facturation dans AI Studio l'en empêche.
+f0fbfe6e	Le plus rapide. Bien pour une parole claire ; plus d'erreurs avec les dialectes, les accents et le débit rapide.
+538dbdd6	le moins cher des modèles actuels ; quota gratuit
+912d81bb	Faites d'abord éclore votre œuf ; ensuite vous pourrez le nourrir.
+3345dadd	La vidéo de chaque reel est envoyée une fois à votre service de transcription en ligne, qui en écrit les mots ; une fraction de centime par reel.
+777e4004	Se déconnecter de Google ? Votre bibliothèque reste sur cet ordinateur ; elle n'est simplement plus synchronisée.
+7b6a557e	Les noms de guilde font de 2 à 40 caractères ; les tags, {0}
+3d954bc8	le moins cher ; un peu moins précis
+d7e2aef9	Android ne connaît pas encore l'autorisation d'AnkiDroid. Ouvrez AnkiDroid une fois, puis réessayez ; si cela ne suffit pas, réinstallez Tamkeen (Android ne propose l'autorisation qu'aux applis installées après AnkiDroid).
+39eb0435	Supprimez ses éléments un par un ; cette liste intégrée ne peut pas être supprimée.
+33b60a49	Se déconnecter de Google ? Votre bibliothèque reste sur ce téléphone ; elle n'est simplement plus synchronisée.
+c602022a	Cette vidéo est lue depuis YouTube ; l'appli n'en garde aucune copie du son.
+3ee00536	Méthode d'analyse CAMeL Tools ; dictionnaires d'arabe (téléchargement facultatif)
+03f8025a	Des reels Instagram trouvés pour vous. Ils sont lus depuis Instagram ; les mots ont été écrits par votre ordinateur.
+470a97a7	Les vidéos YouTube que vous avez ajoutées. Elles sont lues depuis YouTube ; leurs sous-titres servent de transcription.

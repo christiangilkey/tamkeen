@@ -1,0 +1,180 @@
+f1e86935 Ang mga suportadong AI provider lang ang puwedeng tawagan.
+795b8b49 Network error: {0}: {1}
+d5f6613b Wala sa Google Drive mo ang video.
+399e0f29 Hindi ma-stream mula sa Google Drive: {0}
+c2c60ae0 Hindi pa tapos ma-upload ang video na ito mula sa ibang device.
+0b0ce373 Wala pang transcript ang episode na ito.
+23eebf4d Dapat txt, srt o vtt ang format.
+1da00bdb Hindi iyan web address.
+7200d5dc Hindi larawan mula sa Instagram.
+812b0382 Hindi makuha ang larawan.
+f0cbe469 Walang larawan.
+a52aaab5 Kinansela ang sign-in
+ef3fbb3e Kinansela o tinanggihan ang Google sign-in.
+41d8fe44 Hindi natuloy ang sign-in
+0f824e05 Nagsi-sync bilang {0}.
+2f18d2c1 Mag-sign in muna gamit ang Google.
+c4f7c260 Hindi kilalang laki ng model.
+066f2c8e Hindi kilalang wika.
+8b90ee48 Hindi mabuksan ang folder: {0}
+cf2c5c85 Hindi nahanap ang backup.
+3a3aadb1 Hindi natuloy ang import: {0}
+6aeffa09 Noto Naskh Arabic font
+6f289ed9 Mga listahan ng karaniwang salita (mula sa wordfreq)
+7ba12057 NVIDIA cuBLAS / cuDNN (opsyonal na download)
+7d090ad8 Hindi nahanap ang lisensya.
+7c1e44a9 Walang audio ang salitang ito.
+faecd643 Wala sa computer na ito ang audio ng salitang ito.
+2ccc65dd Walang laman o masyadong malaki ang audio clip na iyan.
+3e4be3a5 Hindi available ang audio ng salitang ito.
+a901ac03 Dapat csv, anki o apkg ang format.
+7b61342e {0} card na dapat i-review ngayon
+857dc2df Walang audio stream ang file.
+818903cb Hindi mabasa ang audio file: {0}
+23230497 Hindi ma-decode ang audio: {0}
+7f269f16 Walang laman ang audio file o hindi ito ma-decode.
+fe34abe1 Hindi magawa ang compressed na kopya ng audio: {0}
+07431d75 Hindi mabasa ang bahaging iyon ng audio.
+1fb3bc7b Hindi maputol ang audio clip: {0}
+5d9b4909 Hindi nag-load ang audio libraries (FFmpeg gamit ang PyAV): {0} I-install ulit ang app. Kung pinapatakbo mo ito mula sa source, patakbuhin ang: pip install av
+f1e6281f Hindi Tamkeen backup ang file na ito.
+8e11cc63 Sira ang database ng backup.
+d29882bc Hindi maabot ang podcast directory ng Apple ({0}).
+cac34089 Sumagot ng error ang podcast directory ng Apple ({0}).
+91243238 Nagpadala ang podcast directory ng Apple ng sagot na hindi mabasa ng app.
+b8d1317b Dito itinatabi ang mga kabuuan mo bawat araw sa pagitan ng mga session sa Anki.
+23b6910c Hindi nakapagsimula ang lokal na server. Tingnan ang log sa folder ng data.
+aad067b1 Nag-time out habang sinisimulan ang lokal na server.
+6a992b4f Sa youtube.com lang puwedeng magbukas ng video.
+6848287a Hindi mabuksan ang video na ito ({0}).
+58551d59 Sa youtube.com lang puwedeng sundan ang mga channel.
+dbe38de1 Hindi matukoy kung aling channel ito.
+ab907e3e Hindi masundan ang channel na ito ({0}).
+9a10260e Hindi mase-save ang page na ito.
+47744266 Hindi ma-save ang site na ito ({0}).
+97f9e893 Hindi mabasa ang page na ito.
+23fb4202 Hindi ma-import ang page na ito ({0}).
+3a1427ae Web Browser
+48dbcf04 Hindi mabuksan ang browser window ({0}).
+1d82f236 Hindi mabuksan ang YouTube window ({0}).
+d70a665c Hindi natuloy ang download: HTTP {0} mula sa {1}.
+c4aaa62e Kinansela ang download.
+d607cd9a Network error habang nagda-download: {0}: {1}
+c829479b Hindi kumpleto ang download ({0} sa {1} byte). Subukan ulit para ituloy.
+f3ba8566 Hindi tugma ang checksum: sira ang na-download na file. Pakisubukan ulit.
+990411fc Mukhang hindi ito podcast RSS feed
+f5b576f8 Hindi maabot ang feed: {0}: {1}
+215c16a3 Walang {0} build ng {1} {2} sa PyPI.
+ba15ae5b Tapos na ang download pero may kulang na CUDA libraries.
+f376de83 Sa Windows at Linux (x86-64) lang available ang mga download para sa GPU acceleration.
+3ad92dba NVIDIA GPU
+1f4b65b6 May nakitang Apple Silicon. Tumatakbo ang {0} sa GPU ng Mac gamit ang MLX.
+09fa7089 May nakitang {0}{1}.
+a800bf13 {0}: mabilis tumakbo ang {1} sa GPU.
+1be9657b {0} I-install ang GPU acceleration (sa ibaba) at tatakbo ang {1} nang maraming beses na mas mabilis kaysa sa CPU.
+be2def2e Walang nakitang suportadong GPU, kaya sa CPU tumatakbo ang transcription. Balanse ang katumpakan at bilis ng {0}.
+6bf5c220 naubusan ng memory
+fbaa5c49 Naubusan ng memory. Subukan ang mas maliit na model sa Settings.
+dc1a529b Ina-upload pa ang video mula sa ibang device. Subukan ulit maya-maya.
+2e99c4f9 Hindi ma-download ang mga diksyunaryo ({0}). Suriin ang koneksyon mo at subukan ulit.
+e3ec8c21 Hindi pinapayagan ang cross-origin requests.
+4c3a7b2d Hindi inaasahang error: {0}
+a6e3c8a8 Hindi tugma ang checksum para sa {0}. Pakisubukan ulit.
+63eb3e5f Hindi kilalang laki ng model: {0}
+82e7395c Dina-download na ang {0} model.
+906cd6be Hindi web page ang address na iyan (mukhang file).
+5f6cc878 Hindi maabot ang site na iyan ({0}).
+a764c39c Mga web page na in-import mo para basahin na may mga salitang puwedeng i-click.
+ab650a1a Turkish
+1ab65965 Persian
+412e3190 Urdu
+c9e6b253 Hindi
+da91388c Aleman
+23882c57 Portuges
+dec66c5b Koreano
+2339b8ad Indonesian
+334a85f1 Olandes
+0726b71e ibang wika ({0})
+28cd3560 Mukhang hindi iyan Instagram username.
+36473f9c sinabi sa {0}, hindi sa {1}
+697db47b halos walang nagsasalita (musika o katahimikan)
+ea4a5ce6 hindi sa {0}
+39bc1b6f Gumagana ang pagkuha ng reels sa naka-install na computer app (kailangan nito ng sariling Instagram window).
+b09c2b91 Kumukuha na ng reels.
+7e4f80e0 Gumagana ang pagbasa ng mga na-save mo sa naka-install na computer app (kailangan nito ng sariling Instagram window).
+c937ec62 Abala sa pagkuha ng reels. Subukan ulit kapag tapos na iyon.
+a74514e5 Isinara ang Instagram window.
+a502191a Instagram · {0}
+5fedaebb Mag-sign in sa Instagram sa window na kabubukas lang. Isang beses lang ito kailangang gawin.
+e77c6717 Walang naka-sign in sa Instagram, kaya {0}.
+8599b104 Naka-sign in sa Facebook. Inililipat iyon sa Instagram…
+a5272ae2 Walang naka-link na Instagram account sa Facebook account na iyan. Mag-sign in na lang gamit ang Instagram username at password sa window.
+1094228d Hindi matukoy kung aling Instagram account ang naka-sign in. Subukan ulit.
+dd259648 Ayaw ibigay ng Instagram ang video ({0}).
+2a2f389b walang tunog
+f6abd17f (tumutugtog kapag naka-sign in sa Instagram sa phone)
+005d8b21 Sinisilip ang mga na-save mo sa Instagram… {0} collection sa ngayon. (Itatabi ng Itigil ang mga nahanap na.)
+5b6e17ab hindi mabasa ang mga na-save mo
+d859b103 Tinitingnan ang mga naka-save mong collection…
+d8c25947 Hindi nabasa ang mga na-save mo ({0}: {1}).
+5207e708 Binabasa ang mga naka-save mong post ({0} sa {1})…
+b3cd2701 Hindi nabasa ang collection na iyon ({0}: {1}).
+e0022c0d walang nakuhang reels
+d38405ee {0} random na reel sa {1} ang handa na ({3} ang nasuri).
+a8aa31cd Walang naitabing reel sa {0} ngayon ({1} ang nasuri). Subukan ulit: nagbabago ang mga salitang hinahanap tuwing kukuha.
+dc90c318 Nagsi-sync sila sa phone mo kasama ng lahat ng iba pa.
+44244e4a Hindi nakakuha ng reels ({0}: {1}).
+251eda10 {0} sa {1} ang handa na para sa phone mo.
+42e17d02 Hindi nakuha ang mga reel na iyon ({0}: {1}).
+37c936a3 Binabasa ang mga naka-save mong post…
+1e756cd5 Walang nahanap na naka-save na post diyan. Mag-save muna ng ilang reel sa Instagram, o pumili ng ibang collection.
+bec2e4e2 Tinitingnan ang sikat sa {0} ({1})…
+13bad01a Binabasa ang reels ni @{0}…
+234d7e5e Walang nahanap na bagong reel. Magdagdag ng mga creator, o piliin ang “Sikat” o “Halo”.
+52a16bfd Walang bago riyan: nasubukan na ang bawat video sa mga na-save na iyon.
+d7b1a9ec Walang nahanap na bagong reel ngayon. Subukan ulit mamaya.
+8f45b7fa {0} reel ang handa na ({2} ang nasuri). Nagsi-sync sila sa phone mo kasama ng lahat ng iba pa.
+d61a7932 Tinanggihan ng Google Drive ang sign-in.
+a669d081 Hindi natuloy ang download mula sa Google Drive ({0}).
+537a418e Hindi natuloy ang upload sa Google Drive ({0}): {1}
+ca818b14 Hindi naka-configure ang Google sign-in sa build na ito.
+a3edee6d Nag-expire na o nagamit na ang sign-in link na ito. Pakisubukan ulit mula sa app.
+00ace5cc Hindi natuloy ang Google sign-in: {0}
+dd003c52 Hindi nagbalik ang Google ng refresh token. Alisin ang access ng app sa myaccount.google.com/permissions at mag-sign in ulit.
+5ef0ec78 Hindi ibinigay ang access sa Drive. Mag-sign in ulit at payagan ang app na mag-imbak ng data nito.
+946a2345 Hindi naka-sign in sa Google.
+1009b96e Nag-expire ang Google sign-in mo. Pakisign in ulit.
+e0d7a3c0 Mag-sign in muna gamit ang Google sa ilalim ng “I-sync sa Google Drive”.
+bd3033ca Nag-expire ang Google sign-in mo. Mag-sign out at mag-sign in ulit sa ilalim ng “I-sync sa Google Drive”.
+9c8459c0 Hindi kinumpirma ng Google ang pagkakakilanlan mo. Mag-sign out at mag-sign in ulit sa ilalim ng “I-sync sa Google Drive”.
+fed131ce Mag-sign in gamit ang Google (Settings) para mapanood ang mga video na naka-store sa Drive.
+06ac7931 Naka-store sa Google Drive ang video na ito: mag-sign in gamit ang Google sa Settings para i-transcribe ito.
+f61d414a Tinanggihan ng {0} ang API key. Malamang na nag-expire ito, kaya malamang kailangan mo ng bago (Settings → Cloud transcription).
+3666049b Hindi kilala ni {0} ang napiling model. Ibalik ito sa inirerekomenda sa Settings.
+ad279b44 Sinasabi ni {0} na walang credit ang account. Magdagdag sa Billing page nito.
+97c0918a Hindi ito ma-transcribe ni {0} (error {1})
+53ab1f8a Hindi maabot si {0} ({1}). Suriin ang koneksyon mo sa internet.
+a1ceea0b Sinasabi ni {0} na naabot na ng account mo ang limitasyon nito sa ngayon (pinapahintay nang mga {1} minuto). Limitado lang ang audio na maipapadala ng mga libreng account kada oras at kada araw. Pindutin ang Subukan ulit mamaya.
+93cf51f7 Paulit-ulit na pinababagal ni {0} ang app.
+44363ccb Salita
+a6fc4045 Transcriber
+c37da7ca Wala pang napiling transcription model. Buksan ang Settings → Model para mag-download ng isa, o i-on doon ang cloud transcription.
+59c4123b Hindi pa na-download ang {0} model. Buksan ang Settings → Model para i-download ito.
+6bc27ac6 Hindi maabot ang GitHub: {0}
+d6d5bb0f Wala pang inilabas na release.
+57a18645 Nagbalik ang GitHub ng HTTP {0}.
+88b0d44f Hindi kayang i-update ng kopyang ito ng Tamkeen ang sarili. I-download ang bagong bersyon mula sa GitHub.
+84393929 Nasa iyo na ang pinakabagong bersyon ({0}).
+ae41addd Walang installer ang release na ito para sa computer na ito.
+b953469f Hindi tugma ang download sa release file. Pakisubukan ulit.
+c41c8edb Mga {0} file na ikaw mismo ang nagdagdag. Naka-store sila sa Google Drive mo.
+6d8e34b4 Walang laman ang file.
+914295b3 Walang nababasang tunog ang file na ito ({0}).
+94492d5d Mga request lang sa youtube.com ang pinapayagan dito.
+16ca44eb Hindi suportadong request.
+5c5d0d47 Hindi maabot ang YouTube ({0}). Suriin ang koneksyon mo.
+22377066 Hindi sumagot si {0}. Nakabukas pa ba ang pangunahing window nito?
+b8100f5b Library
+6b21fb79 Tungkol sa app
+a689b0be Hanapin sa lahat ng transcript…
+7ff5a6da Mga seksyon

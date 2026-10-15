@@ -1,0 +1,199 @@
+00ac93bc Impossible d'envoyer ceci : vos propres fichiers audio et vidéo restent sur vos appareils.
+004f3577 Connectez-vous et choisissez d'abord un nom d'utilisateur.
+c7f73bb5 Réglages
+926fb281 Ajoutez d'abord un ami.
+c11d5e1d Amis
+d7485673 Envoyer « {0} » à…
+cf765512 Envoi…
+5b7d7944 , avec ses mots
+7305bd49 Envoyé à {0}{1}.
+d2104ca3 Ouvrir la discussion
+9bc2575c Envoyer
+39a2069e Envoyer à un ami
+095ba688 Mon ordinateur
+4ccce6f4 Cet ordinateur
+8177b1f0 Normalement, votre ordinateur rédige les transcriptions et elles arrivent ici par synchronisation. Un fournisseur cloud peut les rédiger à la place, directement depuis ce téléphone, pour ne pas attendre l'ordinateur.
+667900ba Rédiger une transcription demande un ordinateur puissant, surtout pour l'arabe. Si le vôtre est lent, un fournisseur cloud peut rédiger les transcriptions à sa place.
+08f8b99e le fichier de l'épisode, ou la vidéo d'un reel
+d78ea32b seulement les passages où l'on parle
+c6286624 Gratuit. Les transcriptions arrivent à la prochaine synchronisation.
+2c713dbf Gratuit. Utilise le modèle choisi ci-dessous.
+82e6ea14 Démarre tout de suite, sur ce téléphone. Quelques centimes par heure.
+51e5460e Pas besoin d'un ordinateur puissant. Quelques centimes par heure.
+0781166f Transcription dans le cloud
+3287b173 {0} Vous utilisez votre propre clé et les payez directement, quelques centimes par heure d'audio.
+5a19606e L'audio de ce que vous transcrivez est envoyé au fournisseur que vous choisissez ({0}), et nulle part ailleurs. Rien d'autre sur vous ou votre bibliothèque n'est envoyé. Votre clé est conservée sur {1} et, si vous utilisez la synchronisation Google Drive, dans le dossier privé de l'application sur votre propre Google Drive, pour que vos autres appareils l'aient aussi. Elle ne fait jamais partie d'un export de données.
+c579b050 Qui rédige les transcriptions
+a1d0104d Un fournisseur cloud
+574970e9 Vous payez selon la durée de l'audio, pas selon le temps de traitement : un épisode d'une heure coûte le prix horaire, un reel d'une minute un soixantième. Les prix viennent de la grille tarifaire de chaque fournisseur.
+87bdb7fb Tester la clé
+4e78d0fc Audio envoyé aujourd'hui depuis {0} : <0>0 min</0> <1></1>
+f7798f2d ✓ Utilisé
+965e5018 Clé nécessaire
+0c6c4102 Facultatif
+2ed411fd Votre clé OpenAI des Définitions des mots est utilisée (ou collez-en une autre)
+d53b60f1 Un autre modèle… <0>tapez son nom (il doit donner un horodatage pour chaque mot)</0>
+7949d689 C'est une clé {0}, le fournisseur est donc maintenant {1}. Enregistrée : appuyez sur « Tester la clé » pour la vérifier.
+4fbb2df0 Cette clé sert aux définitions des mots (la carte ci-dessus), pas à la transcription. Les clés Groq commencent par gsk_.
+1a3342f6 Enregistrée. Appuyez sur « Tester la clé » pour la vérifier.
+74f1f89a Votre clé OpenAI des Définitions des mots est utilisée.
+0c54c107 envoyer l'audio à un service de transcription, qui écrit ce qui est dit
+001e5d7f Envoi d'une seconde de silence…
+a32f2cd6 « Transcrire » sur ce téléphone démarre maintenant tout de suite.
+0ed9fa3f Les nouvelles transcriptions seront rédigées par
+b2a1a8a4 ✓ Ça marche ({0} a répondu en {1} s). {2}
+3261da26 🎧 Podcast
+3bb91229 ▶ YouTube
+5c45e761 🎞 Reel Instagram
+d7738f4e 📄 Page web
+a9c69e4f ♫ Spotify
+3861aa42 ♪ Apple Music
+1e4ac39a 🎬 IMDb
+b11a1339 ▶ Écouter
+76befb17 ▶ Regarder
+852b438f Lire
+a1f4b512 Cette carte n'indique pas de quel podcast vient l'épisode.
+1e703a56 ce podcast
+6a6e6ffd Ajouter « {0} » à votre bibliothèque et ouvrir cet épisode ?
+e1d1d3bc {0} ajouté. L'épisode apparaîtra ici dès que sa liste d'épisodes sera arrivée.
+418da3d9 « {0} » ne figure plus dans la liste d'épisodes de {1}.
+5c710506 Ce n'est pas un lien de reel.
+57667d74 Impossible d'envoyer ce reel vers le lecteur de reels : {0}
+f04b3d68 Ouvrir sur Instagram
+d5bb49b0 Préparation de ce reel : il s'ouvrira dans le lecteur de reels depuis la page Reels une fois prêt.
+06e6cd2c Ce n'est pas un lien web.
+4f7127fe Tamkeen n'a pas de lecteur pour ce type de contenu.
+5a572593 ▶ Lire
+bf5d9ce2 ✕ Fermer
+f30f6d12 Ouvrir sur YouTube
+2e100cab Ouvrir le lien
+7968361b Ouvrir dans Tamkeen : {0}
+7c116b3c Ouvrir ↗
+4c9933ea Vous étudiez
+5a60098c Étudie
+bbefe019 Ajoutez jusqu'à {0} éléments. Une barre laissée vide n'est pas affichée.
+295fe8e3 ⓘ Que puis-je coller ?
+005c0d1a Liens acceptés ici
+fcdb3486 Collez un lien dans une barre : son titre et son image apparaissent. Rien d'autre n'est lu depuis le lien.
+24a9a8bc Votre note (facultatif)
+2ea31105 ex. Je travaille l'écoute du levantin ce mois-ci
+22222442 Seuls vos amis le voient, dans leur onglet Amis.
+f12682cf Retirer celui-ci
+4e729297 Collez un lien : YouTube, un reel, une page web, Spotify, Apple Music, IMDb
+61cc55aa Ajouter
+b7f0ff52 Choisissez un épisode de podcast dans votre bibliothèque
+835326ed Rechercher vos épisodes par titre…
+d9c2d84e Aucun épisode trouvé.
+403d3c13 Enregistré. Vos amis le verront dans leur onglet Amis.
+40ee915a Continuer la lecture après un mot touché
+fdf4b1ff Après la lecture d'un mot touché, la lecture se met en pause. Basculez pour continuer.
+fd838ae4 Après la lecture d'un mot touché, la lecture continue. Basculez pour mettre en pause.
+dc76e9f0 racine
+27d9ea3d Recherche…
+418a3e20 Recherche dans le contexte…
+ff94d192 Voyez ce que ce mot veut dire dans cette phrase : ajoutez une clé de fournisseur d'IA dans les Réglages.
+d61d7fe2 Configurer les définitions
+8b926874 Forme du dictionnaire
+80446347 Forme
+630df194 Aussi
+445b99b1 Traduction de la phrase
+86efdc55 Afficher l'explication complète de ce mot
+4bab2d8f Plus
+859533fe Réécouter ce mot
+1d6e7301 🔊 Mot
+d331076e Écouter toute la phrase
+69c9812b 🔊 Phrase
+ccfcc710 Reprendre la lecture à partir d'ici
+4107fbd9 ▶ Continuer
+499dc627 ✓ Enregistré
+d8dba702 ★ Enregistrer
+3f094ed6 Redemander
+3de9e752 Claude (Anthropic)
+f60dab43 Claude
+c572ccc8 Gemini (Google)
+ddba2c92 Gemini
+2051afa5 modèle plus ancien, le moins cher de tous
+8f60529a ChatGPT (OpenAI)
+b3a3b36d Grok (xAI)
+3096a55a Grok
+81970e30 le moins cher des modèles généraux
+77a71a4f Fournisseur inconnu : {0}
+22df2c35 Le modèle a refusé de définir ce mot.
+49be65b2 La réponse a été coupée.
+221ce687 Réponse vide.
+a37ce5d8 Pas de réponse ({0}).
+7ca4cbae {0} a refusé la clé API. Elle a très probablement expiré : il vous en faut sans doute une nouvelle.
+51596be7 {0} ne reconnaît pas ce nom de modèle. Vérifiez-le dans les Réglages.{1}
+a7141cb1 Limite d'utilisation ou quota de {0} atteint. Réessayez bientôt, ou vérifiez votre facturation.
+246000e0 {0} rencontre des problèmes en ce moment (HTTP {1}). Réessayez.
+eaf5c51f Erreur {0} (HTTP {1}){2}
+bfb83732 Aucune clé API. Ajoutez-en une dans Réglages → Définitions des mots.
+ef420a27 Le fournisseur a renvoyé une réponse illisible.
+bbb59df3 La réponse n'était pas du JSON valide. Réessayez, ou choisissez un autre modèle.
+90350195 Récupération des sous-titres…
+6eb49351 ✓ Ouvert dans Tamkeen
+d10fa6cb Impossible d'ouvrir cette vidéo.
+84f89653 Touchez le lien YouTube d'un résultat pour ouvrir ce moment dans Tamkeen
+3d7fa970 Cette vidéo et sa phrase ont été enregistrées avec « {0} ».
+a3fb746b « {0} » n'est pas dans les sous-titres de cette vidéo, rien n'a donc été enregistré avec. Essayez un autre résultat.
+3d1f5290 Impossible d'enregistrer cette vidéo avec « {0} » : {1}
+2e1adabb Combats
+0dca7b14 Chargement de vos mots…
+51954ab8 <0>Les combats se débloquent à {0} mots enregistrés.</0> Vous en avez {1}.
+7ec3a887 Un combat est une révision de votre propre vocabulaire : chaque attaque dépend d'une question sur l'un de vos mots enregistrés, et votre adversaire répond avec les siens. Il faut environ {0} mots pour que les questions restent variées. Enregistrez des mots avec ★ pendant que vous écoutez et lisez.
+685356fd Vous avez {0} mots enregistrés, mais seuls {1} ont un sens écrit. Les questions ont besoin de sens : ouvrez Vocabulaire et complétez-en quelques-uns, ou enregistrez des mots depuis la fenêtre de définition (elle remplit le sens pour vous).
+4e3989a7 Votre œuf n'a pas encore éclos. Atteignez l'objectif du jour pour le faire éclore, puis revenez combattre.
+5d1b6d21 {0} % de bonnes réponses récemment
+3400a4a4 {0} mots à revoir
+025cfea0 {0} bien connus
+d1e6e466 Niveau {0}
+967af30c Toutes les créatures combattent au même niveau. Vous gagnez en connaissant vos mots : répondez juste et l'attaque touche, répondez en moins de {0} secondes et un combo se forme (×1,2, ×1,5, ×2).
+b03b44a5 Rencontre sauvage
+0f5c66fe Vos propres créatures contre des créatures sauvages. Ici seulement, leur âge donne un petit avantage aux vôtres.
+81b0d13f Duel de location
+5a55675f Choisissez trois des six créatures partagées de la semaine ; votre adversaire prend les autres. Compte pour votre classement.
+c7218f9d Pour défier l'équipe d'un ami, ouvrez <0>Amis</0> dans le menu du jeu. Règle de la semaine pour les combats entre amis : <1>{0}</1>. {1}
+04e2e05f Les combats se débloquent à {0} mots enregistrés. Vous en avez {1}.
+f7c24281 Vos mots ont besoin d'un sens avant de pouvoir être demandés. Complétez-en quelques-uns sur la page Vocabulaire.
+6781a054 Aucune de vos créatures ne respecte la règle de la semaine ({0}).
+914efb3d {0} n'a aucune créature qui respecte la règle de la semaine ({1}).
+57b02151 Choisissez-en trois. Votre adversaire combat avec les trois autres.
+d7fb7f72 Lancer le duel
+e4fe0fce Badge obtenu : {0}
+3184f22c Quitter le combat
+905cb326 Vous
+c4433e3c Sauvage
+dca34e30 Adversaire
+5e6db161 {0} sur {1} encore debout
+3bb10c38 {0} DÉFERLANTE ×{1}
+0d36b10d Votre créature
+1e2a3716 La créature sauvage
+09503c9a La créature de {0}
+9fbc3550 La créature de votre adversaire
+afc012c1 Un coup effleuré.
+535531a9 Un coup déferlant !
+aab84209 C'est fort contre cet élément !
+0e909374 C'est faible contre cet élément.
+eb95e537 Protégé.
+b8bb00f9 {0} utilise {1}.{2}{3}{4}
+936d5b0e {0} a tenté {1}, mais n'a plus de soins.
+934b913d +{0} PV.
+cd86b7ea {0} utilise {1}.{2}
+53849ba1 {0} est K.O.
+565d06e6 {0} entre en jeu.
+b9286298 Puissance {0}
+2de11318 Bloque le prochain coup
+d923a217 Coups plus forts pendant un moment
+66c1c04a Soigne ({0} restants)
+da3e3967 Utiliser une potion ({0}) : rend la moitié de sa santé, une fois par combat
+a3972f01 Choisissez une attaque. Une question sur l'un de vos mots décide de sa réussite.
+bfd6bf51 Lequel de vos mots veut dire ceci ?
+5fb65141 Que veut dire ceci ?
+37035270 Utiliser une carte indice ({0})
+63d63141 Ce mot est maintenant bien connu. +15 XP
+18a80fec Précis toute la semaine : +60 XP et 5 pièces
+19bb2852 Juste, et rapide !
+fbc63d40 Juste.
+c04b920c Temps écoulé.
+e8849508 Pas tout à fait : la bonne réponse est indiquée.
+0639028d Impossible de savoir {0} : {1}

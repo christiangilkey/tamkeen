@@ -23,11 +23,12 @@ export const STOREFRONTS = {
   ru: ["ru"],
   it: ["it", "ch"],
   tl: ["ph"],
+  en: ["us", "gb", "au", "ca"],
 };
 export const COUNTRY_NAMES = {
   sa: "Saudi Arabia", eg: "Egypt", ae: "the UAE", ma: "Morocco", es: "Spain", mx: "Mexico", ar: "Argentina", co: "Colombia",
   fr: "France", be: "Belgium", jp: "Japan", cn: "China", tw: "Taiwan", ru: "Russia", it: "Italy", ch: "Switzerland",
-  ph: "the Philippines",
+  ph: "the Philippines", us: "the United States", gb: "the United Kingdom", au: "Australia", ca: "Canada",
 };
 /** Apple's main podcast headings. */
 export const MAIN_CATEGORIES = ["Arts", "Business", "Comedy", "Education", "Fiction", "Government", "Health & Fitness",

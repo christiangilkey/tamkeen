@@ -1,0 +1,15 @@
+5de77d58	Gemini tiene una cuota gratuita, así que puedes empezar sin tarjeta de pago. Con la cuota gratuita, Google puede usar lo que se envía para mejorar sus productos; si añades la facturación en AI Studio, eso se desactiva.
+f0fbfe6e	El más rápido. Bueno para un habla clara; comete más errores con dialectos, acentos y habla rápida.
+538dbdd6	el coste más bajo de los modelos actuales; cuota gratuita
+912d81bb	Primero haz que eclosione tu huevo; después podrás alimentarlo.
+3345dadd	El vídeo de cada reel se envía una vez a tu proveedor de transcripción en la nube, que escribe sus palabras; cuesta una fracción de céntimo por reel.
+777e4004	¿Cerrar sesión en Google? Tu biblioteca se queda en este ordenador; solo deja de sincronizarse.
+7b6a557e	Los nombres de gremio tienen de 2 a 40 caracteres; las etiquetas, {0}
+3d954bc8	el coste más bajo; un poco menos preciso
+d7e2aef9	Android aún no conoce el permiso de AnkiDroid. Abre AnkiDroid una vez y vuelve a intentarlo; si no funciona, vuelve a instalar Tamkeen (Android solo ofrece el permiso a las apps instaladas después de AnkiDroid).
+39eb0435	Borra sus elementos uno a uno; esta lista integrada no se puede eliminar.
+33b60a49	¿Cerrar sesión en Google? Tu biblioteca se queda en este teléfono; solo deja de sincronizarse.
+c602022a	Este vídeo se reproduce desde YouTube; la app no guarda ninguna copia de su sonido.
+3ee00536	Método del analizador de CAMeL Tools; diccionarios de árabe (descarga opcional)
+03f8025a	Reels de Instagram encontrados para ti. Se reproducen desde Instagram; las palabras las escribió tu ordenador.
+470a97a7	Vídeos de YouTube que has añadido. Se reproducen desde YouTube; sus subtítulos son la transcripción.

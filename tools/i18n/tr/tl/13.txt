@@ -1,0 +1,74 @@
+ada1ad51	Music player
+6eef6648	Wala
+20632bc3	Baga
+48591bc0	Alon
+ac587f3b	Kakahuyan
+85f5955f	Kislap
+029690b0	Bato
+4db13aa0	Takipsilim
+c24315eb	Malambot
+57d0c9cd	Dalawang-paa
+52b712a1	Apat-na-paa
+506f5f12	Lumulutang
+e738c7d8	Alingawngaw
+c3bd776c	Pantas
+940966d9	Tagapag-ingat
+9d3045a4	Sumbrero
+203bc66d	Mukha
+2369e339	Sa leeg
+87807a0b	Hawak
+514b6d92	Damit
+6f45a48a	Kambal
+75a2b75a	Panggabi
+7881bf71	Kampeon
+4869ac12	Bukas na linggo
+ed7aebae	Mga panimula lang
+a135954e	Bawal magpagaling
+18d1cb31	Baga, Kislap at Bato
+a9202974	Alon, Kakahuyan at Takipsilim
+17bff5b7	Isa laban sa isa
+e33e1fd3	Usbong ng Salita
+0a0dcf0b	Kabibe ng Alingawngaw
+8a51e70b	Parol ng Pahina
+aa0ef1d3	Tintero
+fc274353	Bato ng Alaala
+1b5d4cf8	Habihan ng Bituin
+790456c6	Berry
+3030e8ec	Isda
+00fe42c2	Dahon
+17541de7	Kendi ng kislap
+781aae20	Asukal na bato
+ceb44980	Moon cake
+5f4632af	Gamot
+ec7d6643	Dagdag-XP
+2b8f2201	Tiket sa laban
+7d10b37f	Incubator
+6953faf6	Susi ng lote
+5afab055	Mahiwagang itlog
+3d02ef52	Ang Bubulong-bulong
+511e4954	Ang Blangkong Pahina
+af92969a	Ingay
+47e17523	Ang Paglimot
+37399d70	Unang salita
+c007882f	Unang pagpisa
+e387d81f	Sampung layunin
+ce70ac02	Isang linggo
+892a61a4	Isang buwan
+d4e2f065	Sandaang araw
+26ad9c0c	100 salita
+a2cb707e	1000 salita
+37ea46b5	Tagapakinig
+ac5bbe82	Mambabasa
+e3199d24	Kolektor
+0fbbf940	Magiliw na karibal
+be66989a	Raid
+993750ae	Tirahan ng iyong nilalang
+cffa2af0	Pagbabasa
+7f6efe83	Pangongolekta
+1a0bff19	Pagkamausisa
+d956b856	Ugat, gramatika, gamit…
+887fed4a	Paraan para matandaan, larawan, kung saan mo narinig…
+2c1bffd2	Mga tala (ugat, gramatika, gamit…)
+e78181f0	Mga tala ko (paraan para matandaan, kung saan ko narinig…)
+b245f581	{1:upper} na {0}
+669ac373	Itlog ng {0}

@@ -1,0 +1,74 @@
+ada1ad51	Lecteur de musique
+6eef6648	Aucun
+20632bc3	Braise
+48591bc0	Marée
+ac587f3b	Bosquet
+85f5955f	Étincelle
+029690b0	Pierre
+4db13aa0	Crépuscule
+c24315eb	Gelée
+57d0c9cd	Bipède
+52b712a1	Quadrupède
+506f5f12	Flottant
+e738c7d8	Écho
+c3bd776c	Sage
+940966d9	Gardien
+9d3045a4	Chapeaux
+203bc66d	Visage
+2369e339	Cou
+87807a0b	En main
+514b6d92	T-shirts
+6f45a48a	Jumeau
+75a2b75a	Nocturne
+7881bf71	Champion
+4869ac12	Semaine libre
+ed7aebae	Débutants seulement
+a135954e	Pas de soins
+18d1cb31	Braise, Étincelle et Pierre
+a9202974	Marée, Bosquet et Crépuscule
+17bff5b7	Un contre un
+e33e1fd3	Pousse de Mots
+0a0dcf0b	Coquille d'Écho
+8a51e70b	Lanterne des Pages
+aa0ef1d3	Encrier
+fc274353	Pierre de Mémoire
+1b5d4cf8	Métier à Étoiles
+790456c6	Baie
+3030e8ec	Poisson
+00fe42c2	Feuille
+17541de7	Bonbon étincelle
+781aae20	Sucre candi
+ceb44980	Gâteau de lune
+5f4632af	Potion
+ec7d6643	Bonus d'XP
+2b8f2201	Ticket de combat
+7d10b37f	Incubateur
+6953faf6	Clé de parcelle
+5afab055	Œuf mystère
+3d02ef52	Le Marmonneur
+511e4954	La Page Blanche
+af92969a	Parasite
+47e17523	L'Oubli
+37399d70	Premier mot
+c007882f	Première éclosion
+e387d81f	Dix objectifs
+ce70ac02	Une semaine
+892a61a4	Un mois
+d4e2f065	Cent jours
+26ad9c0c	100 mots
+a2cb707e	1000 mots
+37ea46b5	Auditeur
+ac5bbe82	Lecteur
+e3199d24	Collectionneur
+0fbbf940	Rival amical
+be66989a	Raid
+993750ae	L'habitat de votre créature
+cffa2af0	Lecture
+7f6efe83	Collection
+1a0bff19	Curiosité
+d956b856	Racine, grammaire, usage…
+887fed4a	Un moyen mnémotechnique, une image, où vous l'avez entendu…
+2c1bffd2	Notes (racine, grammaire, usage…)
+e78181f0	Mes notes (un moyen mnémotechnique, où je l'ai entendu…)
+b245f581	{1:upper} de {0}
+669ac373	Œuf de {0}

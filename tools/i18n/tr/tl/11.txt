@@ -1,0 +1,180 @@
+027a12c2 Belarus
+c951ec00 Ukraine
+8067364d Pilipinas
+9769121f United Kingdom
+eb2131ec Ireland
+a2238e91 New Zealand
+967ce367 India
+9742d008 Nigeria
+35fda17f South Africa
+bc288dca Mukhang hindi iyan YouTube video.
+37e8b90a Hindi sinasabi ng video na ito kung saang channel ito galing.
+bf32bc87 Hindi maabot ang YouTube. Suriin ang koneksyon mo.
+873fbc5a Hindi ipapakita ng YouTube ang video na ito rito: {0}
+47b4cecf Hindi sumagot ang YouTube tungkol sa video na ito. Subukan ulit pagkalipas ng isang minuto.
+bb0ea382 Walang captions ang video na ito.
+a66bb5c6 Walang {0} na captions ang video na ito.
+6f502e0d Hindi ma-load ang YouTube player. Suriin ang koneksyon mo.
+e4b5c056 Hindi pinapayagan ng may-ari ng video na ito na i-play ito sa ibang app.
+b2b518b0 Inalis o ginawang private ang video na ito.
+269fa6c0 naglo-load pa ang YouTube player
+68e1c493 Gumagana ang sync sa AnkiDroid sa naka-install na app.
+5ce90e69 Hindi naka-install ang AnkiDroid sa phone na ito.
+c175063b Hindi pa pinapayagan ang Tamkeen na gamitin ang mga card ng AnkiDroid. Pindutin ang I-sync ngayon at piliin ang Payagan, o payagan ito sa Android settings para sa Tamkeen (Permissions).
+5eed15f4 Hindi pa pinapayagan ang Tamkeen na gamitin ang mga card ng AnkiDroid.
+6167031d Huminto ang sync sa AnkiDroid: {0}
+2fd01022 Hindi kilalang pagpili.
+d18f8d89 Preview: hihingi rito ang Instagram ng sign-in ({0})
+0c7cd35b Preview: dito tutugtog ang {0}
+a27c2834 ‹ Nakaraan
+51802ba8 Susunod ›
+011ae46a Nilo-load ang audio…
+5a1d72f4 Hindi ma-load ang naka-sync na audio, ang orihinal ang ini-stream. ({0})
+772f977a Gumagana ang pagkonekta sa naka-install na Android app.
+e129fbc7 Wala pa sa phone na ito ang audio ng salitang ito. Mag-sync at subukan ulit.
+bb397028 Gumagana ang pag-import ng page sa naka-install na Android app.
+01dae1d6 Hindi maabot ang site na iyan. Suriin ang address at ang koneksyon mo.
+29245f84 Sumagot ng error ang site ({0}). Subukan ang “Buksan ang Web Browser” at gamitin doon ang I-import ang Page.
+29161415 Mga request lang sa podcast directory ng Apple ang pinapayagan dito.
+0eec41ce Hindi maabot ang podcast directory ng Apple. Suriin ang koneksyon mo.
+bac91013 Gumagana ang pagdagdag ng YouTube video sa naka-install na Android app.
+9c6c80e5 Hindi mabuksan dito ang video na ito.
+9ec8a2aa {0} Sa YouTube na lang ito bubuksan.
+a0db0eba Na-import ang “{0}” ({1} salita). Nasa Mga webpage ko ito.
+7b230e38 Sinusundan na ang {0}. Nasa Library mo ito sa ilalim ng YouTube.
+116e96c0 Hindi mo na sinusundan ang {0}.
+2023ac63 Na-save sa start page mo.
+b794b57c Mag-sign in gamit ang Google (Settings) para mapanood ang mga video na naka-store sa Drive mo.
+83cbe2cb Ina-upload pa ang video na ito mula sa computer mo.
+7aaa1f34 Tumutugtog ang mga video sa naka-install na Android app.
+afe5afc2 Wala na sa Google Drive mo ang video.
+e916be2e Mag-sign in muna gamit ang Google (Settings): naka-store sa Drive mo ang mga file mo.
+97aca1c7 Pumili ng video file (MP4, MOV, WebM, MKV, AVI, 3GP) o audio file (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).
+2a4b391c Ita-transcribe ito ng computer mo sa susunod nitong sync.
+cfb6ce14 Hindi kilalang export.
+b2c43554 Payagan ang "Install unknown apps" para sa Tamkeen, bumalik, at pindutin ang Subukan ulit.
+8daa5363 Pindutin ang Update sa installer ng Android. Mananatili ang library mo gaya ng dati.
+f1cd4b29 Hindi mabuksan ang YouTube page na iyan.
+e599c6b1 Handa na ang transcript: {0}
+abc6efcd Hindi ma-transcribe ang “{0}”: {1}
+dbb00f48 Bagong transcript: {0}
+737fe002 {0} bagong transcript
+84db0dcd 1 bagong podcast episode
+b2510650 {0} bagong podcast episode
+ec5bfe65 Walang nabasang teksto sa page na iyon.
+a2a96aa1 Lalabas ang mga episode kapag na-sync na ng computer mo ang feed na ito.
+37b12633 Nagbalik ang feed server ng HTTP {0}.
+3155edfa Paulit-ulit na ipinapadala ng feed ang app sa ibang lugar.
+48b36ff0 Hindi ma-download ang transcript: {0}
+d6be1437 Mag-paste ng RSS feed URL.
+91ad3544 Naka-subscribe ka na sa feed na ito.
+690e2ff2 Hindi nahanap ang feed.
+bf2ba910 Mag-sign in gamit ang Google (Settings) para makuha ang library mo mula sa computer mo.
+8b5a0e5e Ita-transcribe ng computer mo ang mga ito sa susunod nitong sync.
+c7d6726a Hindi nahanap ang episode.
+1bd35f3f Mukhang hindi iyan reel.
+a78d3b8f Walang sinabi sa reel na ito.
+1d6b4183 Wala pa sa library ang video na iyan.
+96d03b0f Walang maise-save.
+294611a1 Bigyan ng pangalan ang folder.
+08f351d2 Hindi nahanap ang folder.
+f1124044 Hindi nahanap.
+4fdd6fdd Walang pangungusap na maise-save.
+95b85b31 Hindi iyan sagot.
+6d483033 Hindi pa na-download ang diksyunaryong iyan.
+84c8cb59 Hindi available sa phone: {0} {1}
+957efe5e Gumagana ang Google sign-in sa naka-install na Android app.
+59af74d7 Hindi naka-sign in.
+6e07f63f Kailangang i-renew ang Google sign-in mo. Buksan ang Settings at mag-sign in ulit.
+b7ac2dcb Error sa Google Drive {0}: {1}
+402eaf0a Hindi sinimulan ng Google Drive ang upload.
+977db692 Hindi natuloy ang upload sa Google Drive ({0}).
+5cf59ec6 Naputol ang upload. Suriin ang koneksyon mo at subukan ulit.
+979354ab hindi collection
+4742fc3e Hindi ma-download ang mga diksyunaryo. Suriin ang koneksyon mo at subukan ulit.
+16f085e3 Hindi pa nailalabas ang diksyunaryo ng {0}.
+a09450db May dumating na sirang diksyunaryo. Subukan ulit.
+e90c933b Ginagamit para sa mga web page na ini-import mo rito, sa paliwanag ng salita at sa anumang tina-transcribe mula sa phone na ito. Itakda rin ang pareho sa computer mo. Nananatili sa dating wika ang mga na-transcribe mo na.
+2b7da079 Ibinabahagi sa computer mo ang mga podcast, transcript at vocab mo sa pamamagitan ng pribadong folder ng app sa sarili mong Google Drive. Maliban kung may napiling cloud provider sa itaas, sa computer mo ginagawa ang transcription: pindutin ang "I-transcribe" dito at gagawin nito iyon sa susunod nitong sync.
+5c90bb93 AnkiDroid (opsyonal)
+10899135 Bahagyang mag-vibrate kapag pinindot o na-save ko ang isang salita
+b0cc938b Teksto sa podcast at video: <0/> <1>{0}px</1>
+283086ed Teksto sa web page: <0/> <1>{0}px</1>
+f4c2b5ca Tamkeen para sa Android · <0>Patakaran sa privacy</0>
+485bef4c Gumagana ang sign-in sa naka-install na app.
+ecc1d2f5 Naka-sign in bilang {0}
+3addceb3 Hindi natuloy ang sync: {0}
+7ff90624 Preview mode: gumagana ang sign-in sa naka-install na app.
+10e45b5e Ang mga podcast, transcript at vocab mo, nasa phone mo.
+d0ddef8f <0>Mag-transcribe sa computer mo.</0> Ang desktop app ang gumagawa ng transcript na salita kada salita.
+f0adf6f0 <0>Mag-sign in gamit ang parehong Google account</0> dito at sa computer mo. Nagsi-sync ang lahat sa pamamagitan ng pribadong folder ng app sa sarili mong Google Drive.
+a6b63644 <0>Pindutin ang kahit anong salita</0> para marinig ito at makita ang ibig sabihin nito sa konteksto. Pindutin nang matagal para sa iba pang opsyon.
+eb2732b0 Naka-sign in bilang {0}. Kinukuha ang library mo…
+84ab641a hindi maipapakita sa labas ng Instagram
+61151245 Hindi bumukas ang Instagram. Suriin ang koneksyon mo at subukan ulit.
+d5ee628a Hindi sumagot sa oras ang Instagram.
+c6ff8ff1 May ginagawa na sa Instagram. Subukan ulit kapag tapos na iyon.
+ff8747f0 I-on muna ang cloud transcription sa Settings: ito ang nagpapahintulot sa phone na ito na makinig sa reels.
+2798b2f0 Binubuksan ang Instagram…
+352cdb34 Mag-sign in muna sa Instagram: pindutin ang “Mag-sign in sa Instagram” at mag-sign in doon. Kusang magsasara ang window na iyon at magpapatuloy ang Tamkeen.
+8fcc7be3 Itinigil.
+752ead87 {0} collection
+3d4f9a7c Itinigil. {0} ang nahanap sa ngayon.
+f351926a Sinisilip ang mga na-save mo sa Instagram… {0} sa ngayon. (Itatabi ng Itigil ang mga nahanap na.)
+42c1b8ad Hinahanap ang mga collection mo sa mga na-save mo sa Instagram…
+902f4134 Nakahanap ng {0} naka-save na collection. Pumili ng isa sa listahan.
+7271c886 Walang nahanap na collection sa mga na-save mo sa Instagram. Puwede mo pa ring piliin ang “Lahat ng na-save ko”.
+a904dcc2 Wala sa listahan ang collection na iyan. Pindutin ulit ang “Hanapin ang mga collection ko”.
+96d3280d Binabasa ang collection na iyan sa Instagram…
+c2182d2c Kinukuha ang mga larawan…
+5c716b95 Nakahanap ng {0} naka-save na post. Lagyan ng tsek ang mga gusto mo.
+c4dbbbdc hindi mabasa
+4c93a121 hindi video
+856eba9f hindi ma-download ang video{0}
+923accb8 walang laman ang video na dumating mula sa Instagram
+f1d247f4 masyadong malaki para ipadala mula sa phone
+b5adf68f walang sinasabi rito
+3bb1a5b6 sa {0}, hindi sa {1}
+8a1414e3 halos walang nagsasalita
+ed162d4b , sa {0}
+c14398dc (tumutugtog kapag naka-sign in sa Instagram)
+26dda5ef {0} salita{1}{2}
+d7ddc937 Lagyan muna ng tsek ang mga reel na gusto mo.
+dd51e085 Pinakikinggan ang reel {0} sa {1}…
+32ece972 {0} ang hindi magamit (tingnan sa ibaba).
+3f643109 {0} sa {1} ang handa nang panoorin.{2}
+72ef9385 Hindi pa naka-set up ang random reels para sa wikang ito.
+d2742d01 Itinigil. {0} ang naitabi.
+0b85ce49 Naghahanap ng {0} na reels ({1})…
+cbf2cd0c Pinakikinggan ang reel {0} (naitabi ang {1} sa {2})…
+d7b93b14 {0} random na reel sa {1} ang handa nang panoorin ({3} ang napakinggan).
+2d9481a1 Walang naitabing reel sa {0} ngayon ({1} ang napakinggan). Subukan ulit: nagbabago ang mga salitang hinahanap tuwing kukuha.
+72012544 Wala sa listahan ang collection na iyan.
+18cf0eb4 Mukhang hindi ito podcast RSS feed.
+ea3bb7b5 Podcast na walang pamagat
+4d02a4af Episode na walang pamagat
+1bb1f30e Pangungusap
+a40a4e6b Simula (s)
+731a0d43 Dulo (s)
+83423c19 Tala:
+5969dbe4 Masyadong maraming table para sa isang page.
+02650201 Hindi mabasa ang audio.
+cfb37b58 Paulit-ulit na ipinapadala ng address ng audio ang app sa ibang lugar.
+3fa8487e Tinanggihan ang download (error {0}).
+606d8615 Nagbalik si {0} ng isang bagay na hindi transcript.
+5a4f2a6b Pinapahintay ni {0} nang {1}…
+253b5798 May problema si {0} (error {1}). Subukan ulit maya-maya.
+cb8c9ee7 Hindi sumagot si {0}.
+dc8e1cb0 Hindi kilalang provider.
+d9f8661c Mag-paste muna ng API key.
+55059cb2 Hindi ma-download ang audio (sumagot ang server ng {0}).
+d80623c2 Huminto sa kalagitnaan ang download (sumagot ang server ng {0}).
+d580b524 Hindi mabasa ang audio na ito bilang MP3.
+b37be079 Hindi MP3 ang audio ng episode na ito at {0} ang laki: higit sa kayang tanggapin ni {1} nang buo (25 MB). I-transcribe ito sa computer mo, o gamitin ang Groq bilang provider.
+802c66c5 Hindi MP3 ang audio ng episode na ito at masyadong malaki para ipadala nang buo. I-transcribe ito sa computer mo.
+b9a6cf4a Wala na sa Google Drive mo ang file.
+673f3233 Naka-off ang cloud transcription. I-on ito sa Settings.
+aad63d75 Masyadong malaki ang file na iyan para ipadala mula sa phone, kaya ang computer mo ang magta-transcribe nito.
+0ab8077d Maling companion token. I-download ulit ang add-on mula sa settings ng Tamkeen.
+42ea3675 Masyadong maraming araw sa isang report.
+36edb03f Walang ganyang file.

@@ -1,0 +1,74 @@
+ada1ad51	Lettore musicale
+6eef6648	Nessuno
+20632bc3	Brace
+48591bc0	Marea
+ac587f3b	Bosco
+85f5955f	Scintilla
+029690b0	Pietra
+4db13aa0	Crepuscolo
+c24315eb	Gelatina
+57d0c9cd	Bipede
+52b712a1	Quadrupede
+506f5f12	Fluttuante
+e738c7d8	Eco
+c3bd776c	Saggio
+940966d9	Custode
+9d3045a4	Cappelli
+203bc66d	Viso
+2369e339	Collo
+87807a0b	In mano
+514b6d92	Magliette
+6f45a48a	Gemello
+75a2b75a	Notturno
+7881bf71	Campione
+4869ac12	Settimana libera
+ed7aebae	Solo iniziali
+a135954e	Niente cure
+18d1cb31	Brace, Scintilla e Pietra
+a9202974	Marea, Bosco e Crepuscolo
+17bff5b7	Uno contro uno
+e33e1fd3	Germoglio di Parole
+0a0dcf0b	Conchiglia dell'Eco
+8a51e70b	Lanterna delle Pagine
+aa0ef1d3	Calamaio
+fc274353	Pietra della Memoria
+1b5d4cf8	Telaio delle Stelle
+790456c6	Bacca
+3030e8ec	Pesce
+00fe42c2	Foglia
+17541de7	Caramella scintilla
+781aae20	Zucchero candito
+ceb44980	Torta della luna
+5f4632af	Pozione
+ec7d6643	Bonus XP
+2b8f2201	Biglietto di battaglia
+7d10b37f	Incubatrice
+6953faf6	Chiave del terreno
+5afab055	Uovo misterioso
+3d02ef52	Il Borbottone
+511e4954	La Pagina Bianca
+af92969a	Interferenza
+47e17523	L'Oblio
+37399d70	Prima parola
+c007882f	Prima schiusa
+e387d81f	Dieci obiettivi
+ce70ac02	Una settimana
+892a61a4	Un mese
+d4e2f065	Cento giorni
+26ad9c0c	100 parole
+a2cb707e	1000 parole
+37ea46b5	Ascoltatore
+ac5bbe82	Lettore
+e3199d24	Collezionista
+0fbbf940	Rivale amichevole
+be66989a	Raid
+993750ae	L'habitat della tua creatura
+cffa2af0	Lettura
+7f6efe83	Collezione
+1a0bff19	Curiosità
+d956b856	Radice, grammatica, uso…
+887fed4a	Un trucco per ricordarla, un'immagine, dove l'hai sentita…
+2c1bffd2	Note (radice, grammatica, uso…)
+e78181f0	Le mie note (un trucco per ricordarla, dove l'ho sentita…)
+b245f581	{1:upper} di {0}
+669ac373	Uovo di {0}

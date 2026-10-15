@@ -1,0 +1,197 @@
+f0d4b821 Hindi na-save ang sagot na iyan: {0}
+5ebeb223 Burahin ang salitang ito?
+0e347caf Aalisin ito sa vocab mo sa lahat ng device mo, kasama ang review progress nito.
+d9f36924 Itabi ito
+a6e51c31 Aalisin din sa susunod na sync ang card nito sa {0} deck mo sa {1}, <0>kasama ang review history ng card na iyon sa {2}. Hindi na ito maibabalik.</0>
+54b886ee Mula ngayon, ang pagbura ng salita ay mag-aalis ng card nito nang hindi na nagtatanong.
+720f5ef8 Hindi nabura ang salita: {0}
+ed068c06 {0} na sunod-sunod!
+0126ed40 Tapos na ang mga card ngayong araw! +{0} liwanag
+be9065f3 Tapos na ang mga card ngayong araw!
+2c13c6b7 Tapos ngayong araw ang laban at mga card: +{0} XP, +{1} barya
+bd57d978 Jackpot card!
+5e816849 Suwerteng card!
+85b57d0f {0}+{1} XP
+c037d3c7 Bukas
+91e3dd9f tsansang maalala ang natutunang salita
+4efea6e1 Tapos ang session
+47cbaf0c Wala ka nang naiwan
+7890ad9f {0} card sa loob ng mga {2} minuto{4}.
+c9ead0bf Walang dapat i-review, at tapos na ang mga bagong salita ngayong araw.
+96e9c05a Walang dapat i-review ngayon. Nagpapahinga ang mga salita mo.
+581d31c2 Mag-save ng ilang salitang may kahulugan at lalabas sila rito.
+d7d2a049 kilala nang 3 linggo o higit pa
+85df11fd mga salitang nire-review
+7ec16612 Mag-aral ng {0} pang bagong salita
+dce4bd3c Babalik sa iyo
+b54a6754 Hindi pinapansin ng paghahanap ang malalaki at maliliit na titik.
+e8082793 Hanapin sa lahat ng transcript… {0}
+62ce0e88 Hanapin sa lahat ng transcript
+79bd4f18 {0} Laging ipinapakita ang mga transcript nang eksakto gaya ng pagkaka-transcribe.
+a568e936 Hanapin sa bawat transcript, video at web page na idinagdag mo.
+95a44659 Walang tugma para sa “{0}”.
+54f3e4b2 (ipinapakita ang {0})
+679fb77f {0} tugma{2}
+5eb73faa mlx-whisper sa Apple GPU (Metal)
+8538d459 faster-whisper sa NVIDIA GPU (CUDA, float16)
+de8877df faster-whisper sa CPU (int8)
+88519b93 ({0} GB)
+9433c5fb GPU acceleration
+fd17e405 Wikang sinasalita ko
+0d6a65aa Sa wikang ito ipinapakita ang mga button at mensahe ng app, at dito rin ipinapaliwanag ang mga salita.
+1d1fdf5f Wikang pinag-aaralan ko
+a553ac64 Ginagamit para sa mga bagong transcript, na-import na web page at paliwanag ng salita. Nananatili sa dating wika ang mga na-transcribe mo na.
+099be6af Transcription model
+c1f65ddb Engine
+b76ab659 Hardware
+d067f1cc {0} · {1} thread · {2} GB RAM{3}
+17c698af {0} Ang pagpapalit ng model ay para lang sa mga bagong transcript; i-transcribe ulit ang episode mula sa library para magamit ito roon.
+2162db4e I-sync sa Google Drive
+3721a5dd Panatilihing naka-sync ang mga podcast, transcript at vocab mo sa pagitan ng computer na ito, ibang computer at Android app. Lahat ay naka-store sa pribadong folder ng app sa <0>sarili mong</0> Google Drive na ang app lang na ito ang nakakakita. Hindi kailanman dumadaan sa ibang server ang sync.
+0ca0b563 Anki (opsyonal)
+3c270194 Ang Anki add-on
+22fffbc8 Kung nag-aaral ka gamit ang Anki sa computer na ito, ikinokonekta ito ng isang maliit na add-on sa Tamkeen. Sinasabi nito sa Tamkeen kung kumusta ang mga review mo, para mabilang sila para sa nilalang mo: ang pagtapos sa mga dapat i-review ang layunin sa araw (gaano man karami ang card), at may bonus ang mga card na nag-mature. Para dito, mga numero lang ang ipinapadala. Kapag naka-on ang switch sa itaas, pinapanatili rin nitong magkatugma ang deck na iyon at ang mga naka-save mong salita. Lahat ay nananatili sa computer na ito. Kung na-install mo ang add-on bago nagkaroon ng sync, i-download at i-install ulit ito.
+177dd240 Pindutin ang button sa ibaba at i-save ang file.
+e78fa755 I-double-click ang na-save na file. Bubukas ang Anki at itatanong kung i-install ito; sumagot ng oo, saka i-restart ang Anki.
+047825e8 Mag-review gaya ng dati habang nakabukas ang Tamkeen. Sa Anki, ipinapakita ng <0>Tools → Tamkeen companion…</0> kung nakakonekta ito, at agad na sini-sync ng <1>Tools → Sync Tamkeen now</1> ang deck.
+9cf66eeb I-download ang Anki add-on
+fb0c95bf Imbakan ng audio
+746fcf10 Burahin ang na-download na audio pagkatapos ng transcription<0/><1>Nakakatipid ng disk space. Ini-stream na ng player ang audio mula sa server ng podcast.</1>
+ddb48157 Laging mag-stream mula sa orihinal na URL<0/><1>Pansamantala lang dina-download ang audio para sa transcription at hindi kailanman itinatabi. Kailangan ng internet para mag-play.</1>
+41def7a0 Itsura
+0485a026 Tema:
+bc0792d8 System
+a36ef8ab Maliwanag
+ae1ef014 Madilim
+1970d1e8 Laki ng teksto sa podcast at video: <0/> <1>{0}px</1>
+ce52a4a4 Laki ng teksto sa web page: <0/> <1>{0}px</1>
+48cd18da Ang data mo
+eb32d375 Naka-store ang library, transcript, vocab, model at settings mo sa:
+b26720e4 Buksan ang folder ng data
+146d9a4b I-export ang data ko
+65cf972d isama ang na-download na audio
+aa4fb3d2 Mag-import ng data…
+2916184c Papalitan ang kasalukuyang library mo ng backup (.zip).
+c76d1807 Mga update
+d4bbbea7 Hindi available ang sync sa build na ito (walang naka-configure na Google sign-in).
+4a0b7281 Mag-sign in gamit ang Google
+f0dd6b0d Bubuksan ang web browser mo para mag-sign in.
+64b8b874 Hinihintay ang Google…
+07030d82 Google account
+4541689d Hindi nagawa ang huling sync: {0}
+0a5d4651 Huling na-sync {0}
+be8f16b4 · {0} transcript ang na-upload, {1} na-download, {2} audio ang na-upload
+1b6c524f Naka-sign in
+dc1649a1 Mag-sign out
+cc4c05b0 Mag-upload ng compressed na kopya ng audio (mga 12 MB kada oras)<0/><1>Hinahayaan ang phone mo at ibang computer na i-play ang eksaktong audio na na-transcribe, kaya nananatiling tugma ang highlight kahit sa mga podcast na naglalagay ng ibang ads sa bawat download. Gumagamit ng storage ng Google Drive mo.</1>
+d578af85 Nag-aaral na ngayon ng {0}
+b868b1b6 Hindi ginagamit sa ngayon: si {0} ang gumagawa ng mga transcript (Cloud transcription, sa itaas). Walang kailangang i-download dito.
+4d889f27 Wala pang report.
+f29bbb6a Huling balita mula sa Anki {0}
+696d2cc7 · ngayon: {0} na-review, {1} nag-mature, {2} dapat pang i-review
+9293dd01 Handa na ang backup ({0})
+3b151b74 I-import ang “{0}”? PAPALITAN nito ang kasalukuyang library, transcript at vocab mo ng laman ng backup.
+deaefe6d Naibalik ang {0} audio file.
+7427e5f6 Na-import. {0}
+b901ec82 Pinakabago na ang sa iyo ({0}).
+d7854118 Kahit kailan
+24345a14 Ngayon
+df833fe8 Nakaraang 7 araw
+6b329852 Nakaraang 30 araw
+0245d916 Nakaraang 12 buwan
+9efe99b9 Sa pagitan ng mga petsa…
+ed434d6b Lagyan ng tsek ang <0>Import any learning progress</0> para manatili kung nasaan na ang bawat salita sa mga review mo sa Tamkeen. Huwag lagyan ng tsek para magsimulang bago ang bawat card.
+574c12ec Kailangang naka-install ang Anki app sa computer na ito.
+be71b755 Sa Anki, i-click ang <0>Import File</0> at piliin ito.
+e445c6a9 Siguraduhing naka-format ang deck mo ayon sa gusto mong itsura ng mga card sa Anki.
+59e916d5 Kailangang naka-install ang AnkiDroid app sa phone na ito.
+e3b8af2a Piliin ang <0>Anki</0> bubble sa hilera sa ibaba. Kung wala, pindutin ang <1>Higit pa</1>.
+0ea5d1ae Pindutin ang popup na may nakasulat na <0>AnkiDroid</0>.
+5eeb9580 Sa AnkiDroid, siguraduhing naka-format ang deck mo ayon sa gusto mong itsura ng mga card.
+097027a5 Ipinapadala ang mga salita mo sa Anki
+7c7da884 Sige, i-export
+794da2c6 Ang “I-export para sa Anki” ay nagse-save ng deck file na may audio at review progress ng bawat salita, para sa Import File button ng Anki.
+be8ecb08 Ang “I-export para sa Anki” ay nagbabahagi ng deck file na may audio at review progress ng bawat salita: piliin ang Anki bubble, saka ang AnkiDroid.
+239c2f13 Vocab
+2fa9797f Hanapin sa vocab… {0}
+c8aaa372 I-export ang mga salitang nakalista sa ibaba
+5755f9ac I-export ang CSV
+b3f6d77c Ang mga salitang nakalista sa ibaba bilang Anki deck file, kasama ang audio at review progress nila
+3e28846b I-export para sa Anki
+adc4e96a Ayusin
+b2a08c42 Ipakita ang mga salita
+172415f0 idinagdag
+37c6c57b binago
+3f66052a Mula
+4374aaee hanggang
+ae79ea1e Hanggang
+bfad960e Idagdag sa folder
+24d51d52 Alisin sa folder
+6f99aa21 📨 Ipadala sa kaibigan
+247fd631 Alisin ang pagpili
+10365d20 Magdagdag ng salita nang mano-mano
+3dbc0a77 Tip: sa kahit anong transcript, i-right-click (o pindutin nang matagal) ang isang salita o napiling parirala at piliin ang “I-save sa vocab”. Lagyan ng tsek ang mga salita para ilagay nang sabay-sabay sa isang folder. {0}
+863892c6 Hindi ma-load ang audio ng salitang ito.
+6d19e3ba Pangalan ng bagong folder:
+7e6e65f7 Lahat ng salita
+889ab689 Wala sa folder
+4ad414d8 ＋ Bagong folder
+e2324f01 Palitan ang pangalan ng folder:
+5ee46641 Burahin ang folder
+63e908b6 Burahin ang folder na “{0}”? Mananatili ang mga salitang nasa loob.
+e4ae0eaf 📨 Ipadala ang folder sa kaibigan
+b44edd40 ＋ Bagong folder…
+5b000a6e Wala sa kahit anong folder ang mga salitang ito.
+afb8631c {0} salita
+08c2177a Walang salitang maipapadala.
+93ccaaea ang folder na “{0}” ({1} salita)
+128751ac {0} salita
+e0e017af Ipadala ang {0} kay…
+8106e86e Inihahanda ang audio para sa {0} salita…
+0e770154 may audio
+8db1d803 ({0} may audio)
+151df9be Naipadala ang {0}{1} kay {2}.
+9afb285b · binago {0}
+37c1236f ▶ Salita
+b31e5638 ▶ Pangungusap
+29eb5c50 Maghanap ng YouTube video kung saan sinasabi ang salitang ito
+9089cae1 Hanapin sa video
+a5420424 Piliin ang salita
+8e3f51e2 {0} · idinagdag {1}{2}
+19adc47b Mga folder
+15a53568 I-review ang “{0}”
+952f3754 Simulan
+30cdf73e dapat i-review
+c2a6b03f bago
+bb866ab5 Lumalabas dito bilang flashcard ang mga salitang may kahulugan.
+b568b4b7 · {0} salita ang babalik {2}{3}
+29a80ea8 Wala ka nang naiwan{0}
+e5084bff {0} ang napili
+85cce1e1 Alisin sa pagkakapili lahat
+b2034f7e Piliin lahat ng {0}
+1ef4fd36 Alisin ang tsek sa bawat salitang nakalista sa ibaba
+80e145aa Lagyan ng tsek ang bawat salitang nakalista sa ibaba, para sabay-sabay na i-file o ipadala
+f1423624 sa {0}
+294ccd52 {0}{1} item
+71d86079 Walang salitang tugma sa mga filter na ito.
+0be6a257 Walang tugma.
+78e66aba Wala pang naka-save na salita.
+d6206ee4 Binubuo ang Anki deck na may audio…
+dc289056 Maligayang pagdating sa Tamkeen
+1c1ca506 Matuto ng wika mula sa totoong podcast, video at web page, salita kada salita.
+1dd6a17c Paano ito gumagana
+58c2a9b6 <0>Magdagdag ng podcast gamit ang RSS feed URL nito.</0> Karamihan ng podcast ay may ganito. Hanapin ang “RSS” sa website ng podcast, o hanapin sa web ang “<1>pangalan ng podcast</1> RSS feed”. Hindi direktang gumagana ang mga link ng Apple Podcasts, pero kayang gawing RSS URL ng mga site gaya ng castos.com/tools/find-podcast-rss-feed.
+668bb8e3 <0>I-transcribe ang mga episode.</0> I-click ang “I-transcribe” sa kahit anong episode. Tumatakbo ang lahat sa computer mo. Walang ina-upload kahit saan.
+264a32cd <0>Makinig at magbasa nang sabay.</0> Naka-highlight ang kasalukuyang salita. I-click ang kahit anong salita para lumipat doon, pabagalin ang audio, o ulitin ang pangungusap.
+fde41bd9 <0>Buuin ang vocab mo.</0> I-right-click (o pindutin nang matagal) ang isang salita o parirala para i-save ito kasama ang pangungusap nito. I-export sa Anki kapag handa ka na.
+c7ea5765 Sinusuri ulit ng app ang mga podcast mo tuwing magsisimula ito, kaya kusang lumalabas ang mga bagong episode.
+8b5f192e Susunod: i-set up ang transcription →
+5b53855d Apple Silicon (Metal)
+f60315a5 Walang suportadong GPU. CPU ang gagamitin.
+462b6606 GPU acceleration (opsyonal)
+2efa49cc I-set up ang transcription
+7feeb161 Gumagamit ang transcription ng Whisper speech-recognition model ng OpenAI, na buong tumatakbo sa computer mo. Isang beses lang dina-download ang model. Pumili ng laki sa ibaba. Puwede kang mag-download ng iba o burahin sila mamaya sa Settings.
+bc26ec8d Ang computer mo
+1ddc3d58 {0} · {1} · {2} GB RAM
+a6a63185 GPU
+8cdc1fa4 Rekomendasyon: {0}.
