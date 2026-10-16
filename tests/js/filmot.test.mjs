@@ -5,7 +5,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
-import { currentHunt, endHunt, filmotAddress, findSpoken, fold, lacksAudio, startHunt } from "../../web/js/filmot.js";
+import { currentHunt, endHunt, filmotAddress, findSpoken, fold, lacksAudio, linesTranscript, startHunt } from "../../web/js/filmot.js";
 
 const VIDEO = "lo3KyF50IGE";
 
@@ -73,18 +73,20 @@ test("the word being looked for is forgotten after half an hour", () => {
 // ----- the scripts that run inside the app's browser -----
 
 /** A pretend browser window on `href` with `file` already run in it. */
-function page(file, href, { bridge, api } = {}) {
+function page(file, href, { bridge, api, find, nodes = [], ready = "complete" } = {}) {
   const source = readFileSync(new URL(`../../web/js/${file}`, import.meta.url), "utf8");
   const listeners = {};
   const gone = [];
+  const timers = [];
   const address = new URL(href);
   const element = () => ({ style: {}, children: [], isConnected: true, textContent: "",
                            appendChild(c) { this.children.push(c); return c; }, attachShadow() { return element(); }, setAttribute() {} });
   const win = {
     location: { get href() { return address.href; }, set href(v) { gone.push(v); }, get hostname() { return address.hostname; },
                 get pathname() { return address.pathname; }, get origin() { return address.origin; }, replace(v) { gone.push(v); } },
-    URL, setTimeout: () => 0, clearTimeout() {}, setInterval: () => 0, history: { length: 2, back() { gone.push("back"); } },
-    document: { createElement: element, body: element(), documentElement: element(), querySelectorAll: () => [] },
+    URL, setTimeout: () => 0, clearTimeout() {}, history: { length: 2, back() { gone.push("back"); } },
+    setInterval(fn) { timers.push(fn); return timers.length; }, clearInterval(n) { timers[n - 1] = null; },
+    document: { createElement: element, body: element(), documentElement: element(), querySelectorAll: () => nodes, readyState: ready },
     addEventListener(type, fn) { listeners[type] = fn; },
     sessionStorage: { getItem: () => null, setItem() {} },
     fetch: async () => ({ text: async () => "" }),
@@ -93,7 +95,10 @@ function page(file, href, { bridge, api } = {}) {
   win.top = win;
   if (bridge) win.__tamkeenBridge = bridge;
   if (api) win.pywebview = { api };
+  if (find) win.__tamkeenFind = true;
   vm.runInNewContext(source, win);
+  /** Let `ms` milliseconds of half-second ticks pass. */
+  const wait = (ms) => { for (let t = 0; t < ms; t += 500) for (const fn of timers) if (fn) fn(); };
   /** Tap a link to `to`. Returns true when the script took the tap for itself. */
   const tap = (to) => {
     let taken = false;
@@ -101,7 +106,7 @@ function page(file, href, { bridge, api } = {}) {
                                            preventDefault() { taken = true; }, stopImmediatePropagation() {} });
     return taken;
   };
-  return { win, gone, tap, listening: !!listeners.click };
+  return { win, gone, tap, wait, listening: !!listeners.click };
 }
 
 test("on Filmot, tapping a result hands the video and its moment to the app (computer)", async () => {
@@ -138,4 +143,71 @@ test("a result that ends up on YouTube's own page still carries its moment", () 
   assert.deepEqual(asked, [[VIDEO, 95], [VIDEO]], "a page without a moment is handed over as before");
   const phone = page("youtube-browser.js", `https://m.youtube.com/watch?v=${VIDEO}&t=1m5s`, { bridge: "address" });
   assert.deepEqual(phone.gone, [`tamkeen-video://watch?v=${VIDEO}&t=65`]);
+});
+
+// ----- "Find in a video" takes the results by itself -----
+// What a Filmot results page could show: a thumbnail, links to moments, an embedded player.
+const A = "aaaaaaaaaaa";
+const B = "bbbbbbbbbbb";
+const C = "ccccccccccc";
+const shown = [
+  { tagName: "A", href: "https://filmot.com/about" },
+  { tagName: "IMG", getAttribute: (k) => (k === "data-src" ? `https://i.ytimg.com/vi/${A}/mqdefault.jpg` : null) },
+  { tagName: "A", href: `https://www.youtube.com/watch?v=${A}&t=42s` },
+  { tagName: "A", href: `https://www.youtube.com/watch?v=${A}&t=90s` },
+  { tagName: "IFRAME", getAttribute: () => `https://www.youtube.com/embed/${B}?start=7` },
+  { tagName: "A", href: `https://youtu.be/${C}` },
+  { tagName: "IMG", getAttribute: () => "https://filmot.com/logo.png" },
+];
+
+test("opened to find a word, the results page hands over its videos top first, once (computer)", async () => {
+  const asked = [];
+  const p = page("filmot-browser.js", "https://filmot.com/search/x/1?gridView=1",
+                 { find: true, nodes: shown, api: { find_results: async (list) => { asked.push(JSON.parse(JSON.stringify(list))); return { ok: true }; } } });
+  p.wait(1000);
+  assert.deepEqual(asked, [[{ id: A, at: 42 }, { id: B, at: 7 }, { id: C, at: 0 }]], "a video's first moment; Filmot's own links and pictures left out");
+  p.wait(10000);
+  assert.equal(asked.length, 1, "only once per page");
+});
+
+test("opened to find a word, the phone is handed the list through the made-up address", () => {
+  const p = page("filmot-browser.js", "https://filmot.com/search/x/1", { find: true, bridge: "address", nodes: shown });
+  p.wait(1000);
+  assert.deepEqual(p.gone, [`tamkeen-video://find?c=${A}.42,${B}.7,${C}.0`]);
+});
+
+test("the results are only taken once the page has loaded, and an empty page says so after a while", () => {
+  const asked = [];
+  const api = { find_results: async (list) => { asked.push(JSON.parse(JSON.stringify(list))); return { ok: false, error: "none" }; } };
+  const loading = page("filmot-browser.js", "https://filmot.com/search/x/1", { find: true, nodes: shown, ready: "loading", api });
+  loading.wait(5000);
+  assert.deepEqual(asked, [], "nothing while the page is still loading");
+  const empty = page("filmot-browser.js", "https://filmot.com/search/x/1", { find: true, nodes: [], api });
+  empty.wait(5500);
+  assert.deepEqual(asked, [], "results may still be on their way");
+  empty.wait(1000);
+  assert.deepEqual(asked, [[]], "then the app is told there were none");
+});
+
+test("nothing is taken by itself unless the browser was opened to find a word, or off the results page", () => {
+  const asked = [];
+  const api = { find_results: async (list) => { asked.push(JSON.parse(JSON.stringify(list))); return { ok: true }; } };
+  page("filmot-browser.js", "https://filmot.com/search/x/1", { nodes: shown, api }).wait(20000);
+  page("filmot-browser.js", "https://filmot.com/captcha-verify", { find: true, nodes: shown, api }).wait(20000);
+  page("filmot-browser.js", "https://www.youtube.com/results?search_query=x", { find: true, nodes: shown, api }).wait(20000);
+  assert.deepEqual(asked, [], "the human check is the user's to answer; nothing happens on it");
+});
+
+test("a video's caption lines take the shape of a stored transcript", () => {
+  const lines = [
+    { start: 3.2, end: 5.0, text: "أنا بقيت عمو؟!", words: [[3.2, 3.8, "أنا"], [3.8, 4.4, " بقيت "], [4.4, 5.0, "عمو؟!"]] },
+    { start: 0.8, end: 3.2, text: "عمو! لو سمحت!", words: [[0.8, 1.5, "عمو!"], [1.5, 2.2, "لو"], [2.2, 3.2, "سمحت!"]] },
+    { start: 6, end: 7, text: "", words: [] },
+  ];
+  const t = linesTranscript(lines);
+  assert.deepEqual(t.segments.map((s) => [s.idx, s.text]), [[0, "عمو! لو سمحت!"], [1, "أنا بقيت عمو؟!"]], "in time order, empty lines left out");
+  assert.deepEqual(t.words.text, ["عمو!", "لو", "سمحت!", "أنا", "بقيت", "عمو؟!"]);
+  assert.deepEqual(t.words.seg, [0, 0, 0, 1, 1, 1]);
+  assert.deepEqual(findSpoken(t, "بقيت"), { start: 3.8, end: 4.4, sent_start: 3.2, sent_end: 5.0, sentence: "أنا بقيت عمو؟!" },
+                   "the card's sentence starts where its line starts");
 });

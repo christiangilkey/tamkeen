@@ -85,7 +85,7 @@ function emit(event, data) {
 }
 function connectEvents() {
   const es = new EventSource("/api/events");
-  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "reels", "reels_collections", "stt", "update"]) {
+  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "youtube_find", "reels", "reels_collections", "stt", "update"]) {
     es.addEventListener(name, (e) => emit(name, JSON.parse(e.data)));
   }
   es.onopen = () => emit("reconnected", {});
@@ -227,11 +227,25 @@ on("youtube_watch", async ({ token, video_id, at }) => {
   api("/youtube/watch-result", { method: "POST", body: { token, ...result } }).catch(() => {});
 });
 
-/** Open the in-app web browser (a second window with an "Import Page" button). */
-export async function openBrowser(url = "") {
+// "Find in a video": the Filmot results page in the browser window listed these videos, top first;
+// keep the first whose captions say the word (see filmot.js), and tell the window how it went.
+on("youtube_find", async ({ token, candidates }) => {
+  let result;
+  try {
+    const { findFromResults } = await import("./filmot.js");
+    result = await findFromResults(candidates || []);
+  } catch (e) {
+    result = { ok: false, error: e.message };
+  }
+  api("/youtube/watch-result", { method: "POST", body: { token, ...result } }).catch(() => {});
+});
+
+/** Open the in-app web browser (a second window with an "Import Page" button). `find`: opened by
+ * "Find in a video" on a word, so its script takes the top result of the search itself. */
+export async function openBrowser(url = "", { find = false } = {}) {
   const bridge = window.pywebview && window.pywebview.api;
   if (bridge && bridge.open_browser) {
-    const r = await bridge.open_browser(url);
+    const r = await (find ? bridge.open_browser(url, true) : bridge.open_browser(url));
     if (r && r.error) throw new Error(r.error);
     return;
   }

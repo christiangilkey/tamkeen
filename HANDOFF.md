@@ -2232,3 +2232,40 @@ originally found in".
   that API; searches sit behind a human check). Options put to the owner: the learner's own library (automatic,
   allowed), YouTube's own search + reading the found videos' captions on the device, or Forvo (word-only
   recordings by native speakers, paid API key, no sentence).
+
+### "Find in a video" takes the top result by itself (2026-10-16, "Vocab Page" chat; committed locally, NOT pushed)
+The owner chose, after hearing that Filmot cannot be searched automatically: "Just have the user do the captia,
+then pull the top YouTube video shown, from its transcript find the word, then seek to the beggining of the
+sentence that word is in".
+- **What the user sees**: Find in a video → a browser window titled "Find in a video" on Filmot's results for the
+  word. If Filmot asks whether you are human, **the user answers it**; the script only says "Answer Filmot's check
+  yourself. Tamkeen then takes the top video by itself." Once the results page is showing, the app tries the
+  listed videos top first (at most 5) and keeps the first whose captions (in the language being studied) say the
+  word: the card becomes exactly a card saved from that video's player, the origin note is added, the player opens
+  at **the start of that sentence**, and the window closes. If none say it: "“…” isn't in the captions of the top N
+  videos. Tap another result to try it." and the window stays; tapping a result by hand works as before.
+- **How**: the button opens the browser with a flag (desktop `JsApi.open_browser(url, find=True)` → a
+  `BrowserApi(find=True)` window whose scripts start with `window.__tamkeenFind = true;`; phone `openBrowser(url,
+  {find: true})` prefixes the same to the script handed to InAppBrowser). `filmot-browser.js`, on a
+  `/search/` page with the flag, waits for `document.readyState === "complete"` and for at least one video (up to
+  6 s, giving up at 15 s), then hands over once: every YouTube link, embedded player and `i.ytimg.com/vi/<id>/`
+  thumbnail (`src` or `data-src`), in page order, deduplicated, each with the first moment any of its links has.
+  - Computer: `BrowserApi.find_results(list)` (refused unless the window was opened to find and is on filmot.com)
+    → `youtube.ask_app_to_find` (cleans ids and moments, at most `FIND_TRIES` = 5, timeout 120 s; it and
+    `ask_app_to_watch` now share `_ask_app`) → event `youtube_find` → `web/js/app.js` → `findFromResults` →
+    answered through the same `/api/youtube/watch-result`. On success the window closes after 0.4 s.
+  - Phone: `tamkeen-video://find?c=<id>.<seconds>,...`; InAppBrowser.java passes host "find" through whole,
+    GoogleDriveAuthPlugin.java sends it as the `youtubeFind` event; `mobile/src/js/app.js` runs `findFromResults`
+    and closes the browser, or shows the error as a browser toast. **Java not compiled here.**
+  - `findFromResults` (filmot.js): a video already in the library is searched in its stored transcript; any other
+    is read with `youtube.readVideo` (new; `importVideo` = `readVideo` + `saveVideo`) and searched in
+    `linesTranscript(lines)` **before** it is kept, so videos without the word never enter the library. The kept
+    video's times are taken again from its stored transcript. Filmot's moment for a video picks the nearest place.
+- **Tested**: tests/js/filmot.test.mjs (5 new: hand-over order/dedup/moments, once per page, phone address, waits
+  for the page, nothing without the flag or on the human-check page; lines → transcript), tests/test_filmot.py
+  (2 new: cleaning in `ask_app_to_find`, the window gate and closing). 389 JS, 306 pytest pass. Live in the
+  preview (`tamkeen-filmot`) with real captions: [made-up id, lo3KyF50IGE] skipped the first, read and kept the
+  second, saved "لو سمحت!" with the word at 2.48 s and the sentence from 2.16 s, opened the player at 2.155, added
+  the origin note; a made-up word left the card untouched with the message above.
+- **NOT tested**: Filmot's real results page (still never seen: its human check), so whether its results are links,
+  players or thumbnails in page order is assumed; the real desktop window; the phone.

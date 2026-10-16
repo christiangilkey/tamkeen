@@ -213,7 +213,8 @@ final class InAppBrowser {
                 android.net.Uri uri = request.getUrl();
                 if (uri == null || !VIDEO_SCHEME.equals(uri.getScheme())) return false;
                 // The Follow button on a channel's page, or a saved site taken off on the start page.
-                if ("follow".equals(uri.getHost()) || "site".equals(uri.getHost())) {
+                // Also "find": the videos a "Find in a video" search listed (web/js/filmot-browser.js).
+                if ("follow".equals(uri.getHost()) || "site".equals(uri.getHost()) || "find".equals(uri.getHost())) {
                     if (videos != null) videos.onVideo(uri.toString());
                     return true;
                 }

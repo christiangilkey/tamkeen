@@ -210,18 +210,52 @@ def ask_app_to_watch(video_id: str, timeout: float = WATCH_TIMEOUT, at: float | 
     """Ask the app's page to add this video and open it. Returns {"ok": True, "title": ...} or
     {"ok": False, "error": ...} (for example "No captions available for this video.").
     `at` is the moment (seconds) to open it at, when the video came from a caption search."""
-    from . import events
-
     try:
         video_id = clean_id(video_id)
     except YouTubeError as exc:
         return {"ok": False, "error": str(exc)}
+    return _ask_app("youtube_watch", {"video_id": video_id, "at": at}, timeout)
+
+
+# "Find in a video" (web/js/filmot.js): the results page the user is looking at in the browser
+# window lists videos; the app's page tries them, top first, and keeps the first whose captions say
+# the word. Reading several videos' captions can take a while.
+FIND_TIMEOUT = 120.0
+FIND_TRIES = 5
+
+
+def ask_app_to_find(candidates: list[dict[str, Any]], timeout: float = FIND_TIMEOUT) -> dict[str, Any]:
+    """Hand the app's page the videos a caption search listed, top first ([{"id", "at"}], `at` the
+    second the word was found at, 0 when unknown). Returns {"ok": True, "title": ...} once one of them
+    is the word's source, else {"ok": False, "error": ...}."""
+    clean: list[dict[str, Any]] = []
+    for c in candidates if isinstance(candidates, list) else []:
+        if not isinstance(c, dict):
+            continue
+        try:
+            video_id = clean_id(str(c.get("id", "")))
+        except YouTubeError:
+            continue
+        at = c.get("at")
+        at = int(at) if isinstance(at, (int, float)) and not isinstance(at, bool) and 0 <= at < 1_000_000 else 0
+        if all(x["id"] != video_id for x in clean):
+            clean.append({"id": video_id, "at": at})
+        if len(clean) >= FIND_TRIES:
+            break
+    return _ask_app("youtube_find", {"candidates": clean}, timeout)
+
+
+def _ask_app(event: str, data: dict[str, Any], timeout: float) -> dict[str, Any]:
+    """Publish `event` with a fresh token for the app's page and wait for its answer
+    (POST /api/youtube/watch-result)."""
+    from . import events
+
     token = uuid.uuid4().hex
     slot: dict[str, Any] = {"done": threading.Event(), "result": None}
     with _watch_lock:
         _watching[token] = slot
     try:
-        events.publish("youtube_watch", {"token": token, "video_id": video_id, "at": at})
+        events.publish(event, {"token": token, **data})
         if not slot["done"].wait(timeout):
             return {"ok": False, "error": f"{APP_NAME} didn't answer. Is its main window still open?"}
         return slot["result"]

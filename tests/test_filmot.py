@@ -109,3 +109,40 @@ def test_where_the_word_was_first_found_goes_on_the_end_of_its_own_notes(client)
     assert plain["memo"] == f"my mnemonic\n{note}", "no note leaves the learner's notes as they were"
     other = client.post("/api/vocab", json={"text": "عمو"}).json()
     assert client.post(f"/api/vocab/{other['id']}/source", json=source).json()["memo"] == note, "notes that were empty"
+
+
+def test_the_listed_videos_reach_the_app_cleaned_and_top_first(monkeypatch):
+    from app import events
+
+    heard = []
+
+    def page_answers(event, data):
+        heard.append((event, data["candidates"]))
+        youtube.answer_watch(data["token"], True, title="Video")
+
+    monkeypatch.setattr(events, "publish", page_answers)
+    listed = [{"id": "bad id", "at": 3}, {"id": VIDEO, "at": 42}, {"id": VIDEO, "at": 90}, "nonsense",
+              {"id": "bbbbbbbbbbb", "at": -5}, {"id": "ccccccccccc", "at": True}] + [{"id": f"d{i:010d}", "at": i} for i in range(9)]
+    assert youtube.ask_app_to_find(listed, timeout=5)["ok"] is True
+    assert heard == [("youtube_find", [{"id": VIDEO, "at": 42}, {"id": "bbbbbbbbbbb", "at": 0}, {"id": "ccccccccccc", "at": 0},
+                                       {"id": "d0000000000", "at": 0}, {"id": "d0000000001", "at": 1}])], "at most five, each once"
+
+
+def test_only_a_window_opened_to_find_a_word_hands_over_results(monkeypatch):
+    asked = []
+    monkeypatch.setattr(youtube, "ask_app_to_find", lambda candidates: asked.append(candidates) or {"ok": True, "title": "Video"})
+    closed = []
+    monkeypatch.setattr(desktop.BrowserApi, "_close", lambda self: closed.append(True))
+    plain = desktop.BrowserApi()
+    plain._window = _Window("https://filmot.com/search/x/1?gridView=1")
+    assert plain.find_results([{"id": VIDEO, "at": 1}])["ok"] is False, "an ordinary browser window does not take results"
+    finder = desktop.BrowserApi(find=True)
+    finder._window = _Window("https://www.youtube.com/watch?v=" + VIDEO)
+    assert finder.find_results([{"id": VIDEO, "at": 1}])["ok"] is False, "nor anything but Filmot's pages"
+    finder._window = _Window("https://filmot.com/search/x/1?gridView=1")
+    assert finder.find_results([{"id": VIDEO, "at": 1}]) == {"ok": True, "title": "Video"}
+    assert asked == [[{"id": VIDEO, "at": 1}]]
+    time.sleep(0.6)
+    assert closed == [True], "the window closes once the word has its video"
+    finder.find_results("not a list")
+    assert asked[-1] == []

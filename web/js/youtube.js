@@ -23,18 +23,31 @@ export async function watchVideo(link) {
 export async function getVideo(link) {
   const id = videoId(link);
   if (!id) throw new Error("That doesn't look like a YouTube video.");
-  let ep = null;
-  try { ep = await api(`/youtube/${id}`); } catch { /* not in the library yet */ }
-  return ep || importVideo(id);
+  return (await libraryVideo(id)) || importVideo(id);
+}
+
+/** The video's episode when it is already in the library, else null. */
+export async function libraryVideo(id) {
+  try { return await api(`/youtube/${id}`); } catch { return null; /* not in the library yet */ }
 }
 
 /** Add the video at `link` to the library. Resolves to the new episode (with `auto` and `words`). */
 export async function importVideo(link) {
   const id = videoId(link);
   if (!id) throw new Error("Paste a YouTube link, like https://www.youtube.com/watch?v=…");
-  const v = await fetchCaptions(id, {
+  return saveVideo(await readVideo(id));
+}
+
+/** A video's captions in the language being studied, read from this device and not yet kept:
+ * {videoId, title, channel, duration, language, auto, lines}. Throws when it has none. */
+export async function readVideo(id) {
+  return fetchCaptions(id, {
     language: studyLanguage(), languageName: langInfo(studyLanguage()).name, taught: LANGUAGE_CODES, request: ytRequest,
   });
+}
+
+/** Keep a video read by readVideo in the library. Resolves to its episode. */
+export async function saveVideo(v) {
   const ep = await api("/youtube", { method: "POST", body: {
     video_id: v.videoId, title: v.title, channel: v.channel, duration: v.duration, language: v.language, auto: v.auto, lines: v.lines,
   } });

@@ -77,10 +77,34 @@ class BrowserApi:
     YouTube video to the app's player. (Websites can reach this object, so it must never offer
     more than that.)"""
 
-    def __init__(self, main_window: Any = None, close_after_watch: bool = False) -> None:
+    def __init__(self, main_window: Any = None, close_after_watch: bool = False, find: bool = False) -> None:
         self._window: Any = None
         self._main = main_window
         self._close_after_watch = close_after_watch  # the YouTube window: done once its video is showing
+        self._find = find  # opened by "Find in a video": hands over the search results it shows
+
+    def find_results(self, candidates: Any = None) -> dict[str, Any]:
+        """"Find in a video": the Filmot results page showing in this window lists these videos, top
+        first ([{"id", "at"}], read by web/js/filmot-browser.js). The app keeps the first whose
+        captions say the word, and this window closes. Only for a window the app opened to find a
+        word, and only from filmot.com."""
+        from urllib.parse import urlsplit
+
+        from . import youtube
+
+        try:
+            host = (urlsplit(self._window.get_current_url() or "").hostname or "").lower()
+            if not self._find or host not in ("filmot.com", "www.filmot.com"):
+                return {"ok": False, "error": "Only a search opened by “Find in a video” can do that."}
+            result = youtube.ask_app_to_find(candidates if isinstance(candidates, list) else [])
+        except Exception as exc:  # never let a website's oddities crash the bridge
+            log.exception("Handing over Filmot's results failed")
+            return {"ok": False, "error": f"Couldn't use these results ({exc.__class__.__name__})."}
+        if result.get("ok"):
+            if self._main is not None:
+                bring_forward(self._main)
+            threading.Timer(0.4, self._close).start()  # after this answer has reached the page
+        return result
 
     def watch_video(self, video_id: str = "", at: Any = None) -> dict[str, Any]:
         """A video was tapped on YouTube: have the app add it (captions) and show it in its
@@ -223,17 +247,20 @@ class JsApi:
         self._youtube: Any = None  # the browser window opened by "Open YouTube", while it lives
         self._youtube_start = ""   # the address that window was last sent to
 
-    def _browser_window(self, title: str, start: str, close_after_watch: bool = False) -> Any:
+    def _browser_window(self, title: str, start: str, close_after_watch: bool = False, find: bool = False) -> Any:
         """A web browser window. Every page in it gets the bottom bar with "Import Page"
         (web/js/browser-toolbar.js) and, on youtube.com, tap-a-video-to-watch-it-in-the-app
         (web/js/youtube-browser.js); on filmot.com, the same for its caption search results
         (web/js/filmot-browser.js). `close_after_watch`: the window closes itself once a video
-        tapped in it is showing in the app's player."""
+        tapped in it is showing in the app's player. `find`: opened by "Find in a video", so on
+        Filmot's results the script takes the top video itself (web/js/filmot-browser.js)."""
         import webview
 
         scripts = [(paths.web_dir() / "js" / name).read_text(encoding="utf-8")
                    for name in ("browser-toolbar.js", "youtube-browser.js", "filmot-browser.js")]
-        api = BrowserApi(self._window, close_after_watch)
+        if find:
+            scripts.insert(0, "window.__tamkeenFind = true;")
+        api = BrowserApi(self._window, close_after_watch, find)
         window = webview.create_window(f"{title} · {APP_NAME}", start, js_api=api,
                                        width=1200, height=820, min_size=(640, 480), text_select=True)
         api._window = window
@@ -248,15 +275,17 @@ class JsApi:
         window.events.loaded += add_scripts
         return window
 
-    def open_browser(self, url: str = "") -> dict[str, Any]:
-        """Open a web browser window with an "Import Page" button."""
+    def open_browser(self, url: str = "", find: bool = False) -> dict[str, Any]:
+        """Open a web browser window with an "Import Page" button. `find`: opened by "Find in a
+        video" on a word (web/js/filmot.js)."""
         from . import pages
 
         try:
             # Nothing typed: the start page (news in the study language and a search box).
             typed = (url or "").strip()
-            self._browser_window("Web Browser",
-                                 pages.browser_start(typed) if typed else pages.browser_home(self._server.url))
+            self._browser_window("Find in a video" if find else "Web Browser",
+                                 pages.browser_start(typed) if typed else pages.browser_home(self._server.url),
+                                 find=bool(find) and bool(typed))
         except Exception as exc:
             log.exception("Couldn't open the browser window")
             return {"ok": False, "error": f"Couldn't open the browser window ({exc})."}

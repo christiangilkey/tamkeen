@@ -10,7 +10,15 @@
 // The moment is always sent, 0 when the link has none: that is how the app knows the video came
 // from a search for a word.
 //
-// It only reads the links Filmot's pages already show. It asks Filmot nothing and presses nothing.
+// When the browser was opened by "Find in a video" (window.__tamkeenFind, set by the app), it does
+// not wait for a tap: once Filmot's results page is showing, it hands over the videos the page
+// lists, top first, and the app keeps the first whose captions say the word (findFromResults in
+// filmot.js). If Filmot first asks whether you are human, the user answers; this script only says
+// what will happen next and never touches that check.
+//   - computer: window.pywebview.api.find_results([{id, at}, ...]);
+//   - phone: "tamkeen-video://find?c=<id>.<seconds>,<id>.<seconds>,...".
+//
+// It only reads what Filmot's pages already show. It asks Filmot nothing and presses nothing.
 // Like the other browser scripts this is plain script (not a module) and uses no innerHTML.
 (function () {
   if (window.top !== window || window.__tamkeenFilmot) return;
@@ -24,6 +32,29 @@
     var m = s.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/);
     if (!m || !s) return 0;
     return (Number(m[1]) || 0) * 3600 + (Number(m[2]) || 0) * 60 + (Number(m[3]) || 0);
+  }
+
+  /** The videos the page lists, in the order shown (top first): every link to one, every embedded
+   * player and every YouTube thumbnail. A video's moment is the first one any of its links gives. */
+  function listed() {
+    var seen = {};
+    var out = [];
+    var nodes = document.querySelectorAll("a[href], iframe[src], img");
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      var v = null;
+      if (n.tagName === "IMG") {
+        var m = String(n.getAttribute("src") || n.getAttribute("data-src") || "").match(/^(?:https?:)?\/\/i\d?\.ytimg\.com\/(?:vi|vi_webp)\/([\w-]{11})\//);
+        if (m) v = { id: m[1], at: 0 };
+      } else {
+        v = video(n.tagName === "A" ? n.href : n.getAttribute("src"));
+      }
+      if (!v) continue;
+      if (seen[v.id]) { if (!seen[v.id].at && v.at) seen[v.id].at = v.at; continue; }
+      seen[v.id] = v;
+      out.push(v);
+    }
+    return out;
   }
 
   /** {id, at} for a link to a YouTube video, else null. */
@@ -100,7 +131,40 @@
     open(v);
   }, true);
 
-  if (window.__tamkeenBridge !== "address" && /^\/search\//.test(location.pathname)) {
+  // ----- "Find in a video": take the results by themselves -----
+  var phone = window.__tamkeenBridge === "address";
+  function handOver(list) {
+    if (phone) {
+      location.href = "tamkeen-video://find?c=" + list.map(function (v) { return v.id + "." + v.at; }).join(",");
+      return;
+    }
+    var api = window.pywebview && window.pywebview.api;
+    if (!api || !api.find_results) { say("Tap a result's link to YouTube to open that moment in Tamkeen", true); return; }
+    busy = true;
+    say(list.length ? "Looking for the word in the top video…" : "Getting the results…");
+    api.find_results(list).then(function (r) {
+      if (r && r.ok) say("✓ Saved in Tamkeen", true);
+      else say((r && r.error) || "Couldn't use these results. Tap one to try it.", false);
+    }).catch(function (e) {
+      say("Couldn't use these results. " + (e && e.message ? e.message : ""), false);
+    }).then(function () { busy = false; });
+  }
+
+  if (window.__tamkeenFind && /^\/search\//.test(location.pathname)) {
+    // Wait for the results to be on the page (it may still be loading), then hand them over once.
+    var waited = 0;
+    var timer = setInterval(function () {
+      waited += 500;
+      var ready = document.readyState === "complete";
+      var list = ready ? listed() : [];
+      if ((ready && (list.length || waited >= 6000)) || waited >= 15000) {
+        clearInterval(timer);
+        handOver(list.slice(0, 8));
+      }
+    }, 500);
+  } else if (window.__tamkeenFind && /captcha|verify/i.test(location.pathname)) {
+    say("Answer Filmot's check yourself. Tamkeen then takes the top video by itself.");
+  } else if (!phone && /^\/search\//.test(location.pathname)) {
     say("Tap a result's link to YouTube to open that moment in Tamkeen", true);
   }
 })();

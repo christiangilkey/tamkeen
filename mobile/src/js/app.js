@@ -368,7 +368,7 @@ export async function openYouTubeLink(url) {
 let openingVideo = false;
 let browserListening = false;
 /** Open the in-app web browser (native screen with an "Import Page" button). */
-export async function openBrowser(url = "", { instagramSignIn = false } = {}) {
+export async function openBrowser(url = "", { instagramSignIn = false, find = false } = {}) {
   if (!isNative) {
     window.open(/^https?:/i.test(url) ? url : "https://www.google.com", "_blank", "noopener");
     toast("Copy the address of the page you want and paste it under “Add a webpage”.");
@@ -390,6 +390,31 @@ export async function openBrowser(url = "", { instagramSignIn = false } = {}) {
         message = e.message || "Couldn't import this page.";
       }
       GoogleDriveAuth.browserToast({ text: message }).catch(() => {});
+    });
+    // "Find in a video" (see filmot.js): the Filmot results page listed these videos, top first.
+    // The first whose captions say the word becomes its source; then the browser closes.
+    GoogleDriveAuth.addListener("youtubeFind", async ({ url: address }) => {
+      if (openingVideo) return;
+      openingVideo = true;
+      try {
+        GoogleDriveAuth.browserToast({ text: "Looking for the word in the top video…" }).catch(() => {});
+        const list = String(new URL(address).searchParams.get("c") || "").split(",").filter(Boolean).map((part) => {
+          const cut = part.lastIndexOf(".");
+          return cut > 0 ? { id: part.slice(0, cut), at: Number(part.slice(cut + 1)) || 0 } : { id: part, at: 0 };
+        });
+        const { findFromResults } = await import("./filmot.js");
+        const r = await findFromResults(list);
+        if (r.ok) {
+          emit("feeds", { refreshed: true });
+          await GoogleDriveAuth.closeBrowser();
+        } else {
+          GoogleDriveAuth.browserToast({ text: r.error }).catch(() => {});
+        }
+      } catch (e) {
+        GoogleDriveAuth.browserToast({ text: e.message || "Couldn't use these results." }).catch(() => {});
+      } finally {
+        openingVideo = false;
+      }
     });
     // A video was tapped on YouTube (see youtube-browser.js): add it, then show it in the
     // app's own player, closing the browser. Without captions the browser stays open.
@@ -451,7 +476,9 @@ export async function openBrowser(url = "", { instagramSignIn = false } = {}) {
   // The user's saved sites: drawn on the start page, and marked by the star in the browser's bar.
   const sites = savedSites(settings.browser_sites);
   await GoogleDriveAuth.browserSites({ sites: JSON.stringify(sites) }).catch(() => {});
-  await GoogleDriveAuth.openBrowser({ url, extractor: await extractorSource(), youtube: await youtubeBrowserScript(),
+  // Opened by "Find in a video": the Filmot script takes the top results by itself (filmot-browser.js).
+  const pageScript = (find ? "window.__tamkeenFind=true;" : "") + await youtubeBrowserScript();
+  await GoogleDriveAuth.openBrowser({ url, extractor: await extractorSource(), youtube: pageScript,
                                       home: translateHtml(homeHtml(settings.study_language || "", sites)),
                                       closeOnInstagramSignIn: !!instagramSignIn });
 }

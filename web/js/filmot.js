@@ -2,12 +2,16 @@
 //
 // A word typed in by hand, or saved from a web page, has no audio. Filmot (filmot.com) is a
 // search engine over YouTube's captions. The button on the Vocab page opens Filmot's ordinary
-// results page for the word in the app's own browser; tapping a result there hands the video and
-// the moment to the app (web/js/filmot-browser.js), which opens it in its own player and keeps
-// that video, the times and the whole spoken sentence on the word, exactly as if the word had
-// been saved from the player.
+// results page for the word in the app's own browser. If Filmot asks whether you are human, the
+// user answers that themselves; the app never does. Once the results are showing, the app's
+// script in that browser (web/js/filmot-browser.js) hands over the videos the page lists, top
+// first (findFromResults below): the first whose captions say the word becomes the word's source,
+// exactly as if the word had been saved from that video's player, and the browser closes.
+// Tapping a result by hand still works too (watchFound).
 //
-// The app asks Filmot nothing itself: the user browses its pages, as in any browser.
+// The app asks Filmot nothing itself: one search per press of the button, in the user's own
+// browser, read from the page in front of them. (Owner's choice, 2026-10-16: "Just have the user
+// do the captcha, then pull the top YouTube video shown".)
 
 import { episodeLanguage, joinWords, regroupWords } from "./languages.js";
 import { sentenceBounds } from "./wordlookup.js";
@@ -101,11 +105,82 @@ export function endHunt() {
   hunt = null;
 }
 
-/** Open Filmot's results for this word in the app's own browser, remembering which word it is for. */
+/** Open Filmot's results for this word in the app's own browser, remembering which word it is for.
+ * The browser is told it was opened to find a word, so its script takes the top result itself. */
 export async function findInVideo(v) {
   const { openBrowser } = await import("./app.js");
   startHunt(v);
-  await openBrowser(filmotAddress(v.text));
+  await openBrowser(filmotAddress(v.text), { find: true });
+}
+
+/** A video's caption lines (as read by ytcaptions.js) in the shape of a stored transcript, so a word
+ * can be looked for before the video is kept. Lines without words are left out, as when stored. */
+export function linesTranscript(lines) {
+  const out = { segments: [], words: { text: [], start: [], end: [], seg: [] } };
+  const kept = (lines || []).filter((l) => l && Array.isArray(l.words) && l.words.length).sort((a, b) => a.start - b.start);
+  kept.forEach((l, idx) => {
+    out.segments.push({ idx, start: l.start, end: l.end, text: l.text });
+    for (const [start, end, text] of l.words) {
+      if (!String(text || "").trim()) continue;
+      out.words.text.push(String(text).trim());
+      out.words.start.push(start);
+      out.words.end.push(end);
+      out.words.seg.push(idx);
+    }
+  });
+  return out;
+}
+
+/** How many of the listed videos are tried before giving up. */
+export const FIND_TRIES = 5;
+
+/** Keep the place found (`hit`) in video `ep` on the waiting word `h`, then open the player at the
+ * start of its sentence. */
+async function keep(h, ep, hit) {
+  const { api, toast } = await import("./app.js");
+  await api(`/vocab/${h.id}/source`, { method: "POST", body: { episode_id: ep.id, ...hit, note: h.note || "" } });
+  hunt = null;
+  toast(`Saved this video and its sentence with “${h.text}”.`);
+  location.hash = `#/episode/${ep.id}?t=${Math.round(hit.sent_start * 1000) / 1000}`;
+}
+
+/**
+ * The results page the user is looking at listed these videos, top first: [{id, at}], `at` being
+ * the moment Filmot found the word at (0 when unknown). Try them in order: the first whose captions
+ * (in the language being studied) say the waiting word becomes its source. A video is only kept in
+ * the library when it is the one used. Resolves to {ok, title} or {ok: false, error}.
+ */
+export async function findFromResults(candidates) {
+  const h = currentHunt();
+  if (!h) return { ok: false, error: "Press “Find in a video” on a word first." };
+  const list = (candidates || []).filter((c) => c && /^[\w-]{11}$/.test(c.id)).slice(0, FIND_TRIES);
+  if (!list.length) return { ok: false, error: `Filmot found no videos for “${h.text}”.` };
+  const yt = await import("./youtube.js");
+  const { api } = await import("./app.js");
+  const { studyLanguage } = await import("./languages.js");
+  for (const c of list) {
+    const at = Number(c.at) > 0 ? Number(c.at) : null;
+    try {
+      let ep = await yt.libraryVideo(c.id);
+      let v = null;
+      let hit = null;
+      if (ep) {
+        hit = findSpoken(await api(`/episodes/${ep.id}/transcript`), h.text, at, episodeLanguage(ep));
+      } else {
+        v = await yt.readVideo(c.id); // throws when it has no captions in the language being studied
+        hit = findSpoken(linesTranscript(v.lines), h.text, at, v.language || studyLanguage());
+      }
+      if (!hit) continue;
+      if (!ep) {
+        ep = await yt.saveVideo(v);
+        // The times as stored, which is what the player and the clips use.
+        hit = findSpoken(await api(`/episodes/${ep.id}/transcript`), h.text, at, episodeLanguage(ep)) || hit;
+      }
+      await keep(h, ep, hit);
+      return { ok: true, title: ep.title };
+    } catch { /* no captions, or not reachable: the next video */ }
+  }
+  return { ok: false, error: `“${h.text}” isn't in the captions of the top ${list.length} video${list.length === 1 ? "" : "s"}. Tap another result to try it.` };
 }
 
 /**
@@ -118,16 +193,13 @@ export async function watchFound(link, at = null) {
   const { getVideo } = await import("./youtube.js");
   const { api, toast } = await import("./app.js");
   const ep = await getVideo(link);
-  let t = at;
   const h = at === null ? null : currentHunt();
   if (h) {
     try {
       const hit = findSpoken(await api(`/episodes/${ep.id}/transcript`), h.text, at, episodeLanguage(ep));
       if (hit) {
-        await api(`/vocab/${h.id}/source`, { method: "POST", body: { episode_id: ep.id, ...hit, note: h.note || "" } });
-        hunt = null;
-        t = hit.sent_start;
-        toast(`Saved this video and its sentence with “${h.text}”.`);
+        await keep(h, ep, hit); // opens the player at the start of the sentence
+        return ep;
       } else {
         toast(`“${h.text}” isn't in this video's captions, so nothing was saved with it. Try another result.`);
       }
@@ -135,6 +207,6 @@ export async function watchFound(link, at = null) {
       toast(`Couldn't save this video with “${h.text}”: ${e.message}`, { error: true });
     }
   }
-  location.hash = `#/episode/${ep.id}${t !== null && t > 0 ? `?t=${Math.round(t * 1000) / 1000}` : ""}`;
+  location.hash = `#/episode/${ep.id}${at !== null && at > 0 ? `?t=${Math.round(at * 1000) / 1000}` : ""}`;
   return ep;
 }
