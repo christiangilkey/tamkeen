@@ -1,6 +1,6 @@
 // Phone settings: Google account & sync, AI definitions, appearance.
 
-import { esc, h, on, toast, saveSettings } from "../app.js";
+import { checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js";
 import { aiSetup } from "../components/aisetup.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { STT_EVENT, testKey, usageToday } from "../transcribe-service.js";
@@ -75,6 +75,13 @@ export async function render(view) {
     </section>
 
     <section class="card" id="game-switch"></section>
+
+    <section class="card stack">
+      <h2>Updates</h2>
+      <div class="row"><span id="app-version"></span><span class="spacer"></span>
+        <button type="button" id="check-updates">Check for updates</button></div>
+      <div class="small muted" id="update-result"></div>
+    </section>
 
     <section class="card small muted">Tamkeen for Android · <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a></section>
   </div>`));
@@ -151,5 +158,16 @@ export async function render(view) {
   };
   const offAnki = ankiSyncPanel($("#anki-sync"));
   gameSwitch($("#game-switch"));
+  import("../version.js").then(({ APP_VERSION }) => { $("#app-version").textContent = `Version ${APP_VERSION}`; }).catch(() => {});
+  $("#check-updates").onclick = async () => {
+    const box = $("#update-result"), button = $("#check-updates");
+    button.disabled = true;
+    box.textContent = "Checking…";
+    const r = await checkForUpdate({ manual: true });
+    button.disabled = false;
+    box.textContent = r.error ? r.error
+      : r.available ? `Version ${r.latest} is available: tap Update now in the box that just opened.`
+      : `You're up to date (${r.current}).`;
+  };
   return () => { off(); offAi(); offStt(); offAnki(); };
 }

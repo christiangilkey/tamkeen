@@ -710,20 +710,27 @@ async function route() {
 const RELEASES = "https://api.github.com/repos/christiangilkey/tamkeen/releases/latest";
 
 /** On opening the app: if GitHub has a newer release than this build, show a popup linking to it. */
-async function checkForUpdate() {
+/** Also Settings' "Check for updates": `manual` says so, and the answer is returned for it to show
+ *  ({current, latest, available} or {error}); on opening the app nothing is shown unless there is one. */
+export async function checkForUpdate({ manual = false } = {}) {
+  const { APP_VERSION } = await import("./version.js");
   try {
-    const { APP_VERSION } = await import("./version.js");
-    if (!APP_VERSION || APP_VERSION.startsWith("0.0.0")) return; // a test build, not a release
+    if (!manual && (!APP_VERSION || APP_VERSION.startsWith("0.0.0"))) return { current: APP_VERSION }; // a test build
     const res = await fetch(RELEASES, { headers: { Accept: "application/vnd.github+json" } });
-    if (!res.ok) return;
+    if (!res.ok) return { current: APP_VERSION, error: `GitHub answered ${res.status}.` };
     const data = await res.json();
     const latest = String(data.tag_name || "").replace(/^v/, "");
-    if (!isNewer(latest, APP_VERSION)) return;
+    if (!isNewer(latest, APP_VERSION)) return { current: APP_VERSION, latest, available: false };
     const apk = (data.assets || []).find((a) => /^Tamkeen-.*-Android\.apk$/.test(a.name || "")
       && String(a.browser_download_url || "").startsWith(APK_FROM));
+    document.getElementById("update-notice")?.remove();
     showUpdateNotice({ latest, current: APP_VERSION, url: data.html_url,
                        install: AppUpdater && apk ? (report) => installApk(apk, report) : null });
-  } catch { /* offline, or GitHub unreachable: try again next time the app opens */ }
+    return { current: APP_VERSION, latest, available: true };
+  } catch {
+    // offline, or GitHub unreachable: try again next time the app opens
+    return { current: APP_VERSION, error: "Couldn't reach GitHub. Check your internet connection." };
+  }
 }
 
 const APK_FROM = "https://github.com/christiangilkey/tamkeen/releases/download/";
@@ -791,7 +798,7 @@ async function boot() {
   initSwipe();
   route();
   startBadge();
-  setTimeout(checkForUpdate, 3000);
+  setTimeout(() => checkForUpdate(), 3000);
   startAppBadge();
   // YouTube links tapped inside the app stay in the app (see openYouTubeLink).
   if (isNative) {
