@@ -9,7 +9,7 @@ from typing import Any
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from .. import db, feeds, paths, sync
+from .. import db, feeds, languages, paths, sync
 
 router = APIRouter(prefix="/feeds", tags=["feeds"])
 _refresh_lock = threading.Lock()
@@ -25,6 +25,9 @@ class FeedPatch(BaseModel):
 
 @router.get("")
 def list_feeds() -> list[dict[str, Any]]:
+    """The podcasts in the language being learned, and the built-in lists (own videos, web pages,
+    YouTube, reels) counting only their items in that language."""
+    study = languages.study()
     with db.session() as conn:
         rows = conn.execute(
             """SELECT f.*,
@@ -32,8 +35,9 @@ def list_feeds() -> list[dict[str, Any]]:
                       SUM(e.status = 'done') AS done_count,
                       MAX(e.published) AS latest
                FROM feeds f LEFT JOIN episodes e ON e.feed_id = f.id AND e.deleted = 0
-               WHERE f.deleted = 0
-               GROUP BY f.id ORDER BY f.title COLLATE NOCASE"""
+                    AND COALESCE(e.language, f.language, ?) = ?
+               WHERE f.deleted = 0 AND (f.url LIKE 'local:%' OR COALESCE(f.language, ?) = ?)
+               GROUP BY f.id ORDER BY f.title COLLATE NOCASE""", (study, study, study, study)
         ).fetchall()
     return db.rows_to_dicts(rows)
 

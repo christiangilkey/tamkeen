@@ -6,7 +6,7 @@ import { audio, kv, lib, now, saveLibrary, transcripts } from "./store.js";
 import { fetchTranscript, requestSync, syncNow, syncState } from "./sync.js";
 import { episodeUid, feedUid, findSpans, newUid, normalize, normalizeUrl } from "./shared-logic.js";
 import { settings } from "./store.js";
-import { detectLanguage, isLanguage } from "./languages.js";
+import { detectLanguage, isLanguage, studyLanguage } from "./languages.js";
 import { MAX_UPLOAD_BYTES } from "./stt.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
 import { NativeHttp, isNative } from "./native.js";
@@ -289,8 +289,39 @@ export function episodeStatus(e) {
   return "new";
 }
 
+// ----- one language at a time: the lists show only what is in the language being learned -----
+const builtIn = (f) => !!(f && String(f.url || "").startsWith("local:"));
+/** A podcast's language (none for the built-in lists: own videos, web pages, YouTube, reels). */
+const feedLanguage = (f) => (builtIn(f) ? null : isLanguage(f && f.language) ? f.language : null);
+/** An episode's language: its own, else its podcast's, else the one being learned. */
+export const episodeLang = (e) => (isLanguage(e.language) ? e.language : feedLanguage(feedOf(e.feed_uid)) || studyLanguage());
+export const wordLang = (v) => (isLanguage(v.language) ? v.language : studyLanguage());
+const studying = (code) => code === studyLanguage();
+const podcastShown = (f) => builtIn(f) || studying(feedLanguage(f) || studyLanguage());
+
+/** Give podcasts, built-in-list items and words without a language one (as the computer does in
+ *  app/db.py fill_languages): podcasts the language most of their transcribed episodes are in,
+ *  built-in items and remaining podcasts the one being learned, words their episode's or what
+ *  their letters say. Not an edit: nothing is marked as changed for sync. */
+export function fillLanguages() {
+  const study = studyLanguage();
+  for (const f of lib.feeds) {
+    if (builtIn(f) || isLanguage(f.language)) continue;
+    const tally = {};
+    for (const e of lib.episodes) if (e.feed_uid === f.uid && isLanguage(e.language)) tally[e.language] = (tally[e.language] || 0) + 1;
+    f.language = Object.keys(tally).sort((a, b) => tally[b] - tally[a])[0] || study;
+  }
+  for (const e of lib.episodes) if (!isLanguage(e.language) && builtIn(feedOf(e.feed_uid))) e.language = study;
+  for (const v of lib.vocab) {
+    if (isLanguage(v.language)) continue;
+    const e = v.episode_uid ? episodeOf(v.episode_uid) : null;
+    const found = e ? episodeLang(e) : detectLanguage(v.text || "", study);
+    v.language = isLanguage(found) ? found : study;
+  }
+}
+
 function feedOut(f) {
-  const eps = liveEpisodes().filter((e) => e.feed_uid === f.uid);
+  const eps = liveEpisodes().filter((e) => e.feed_uid === f.uid && studying(episodeLang(e)));
   return { ...f, id: f.uid, episode_count: eps.length, done_count: eps.filter((e) => e.transcript_rev).length,
            latest: Math.max(0, ...eps.map((e) => e.published || 0)) || null, last_checked: null, last_error: null };
 }
@@ -300,7 +331,7 @@ function episodeOut(e) {
   const job = cloud.jobOf(e.uid);
   return { ...e, id: e.uid, feed_id: e.feed_uid, status: episodeStatus(e), progress: job ? job.progress : e.transcript_rev ? 100 : 0,
            error: job ? job.error : null, feed_title: f.title || "", feed_image: f.image || null, feed_url: f.url || "",
-           has_audio: !!e.remote_audio };
+           has_audio: !!e.remote_audio, language: episodeLang(e) };
 }
 
 function vocabOut(v) {
@@ -320,7 +351,7 @@ async function loadTranscript(uid) {
 
 const routes = [
   // ----- feeds -----
-  ["GET", /^\/feeds$/, () => lib.feeds.filter((f) => !f.deleted).map(feedOut)
+  ["GET", /^\/feeds$/, () => lib.feeds.filter((f) => !f.deleted && podcastShown(f)).map(feedOut)
     .sort((a, b) => a.title.localeCompare(b.title))],
   ["POST", /^\/feeds$/, async (m, q, body) => {
     const url = normalizeUrl(body.url || "");
@@ -334,9 +365,9 @@ const routes = [
     // computer fills them in when it first reads the feed.
     const image = typeof body.image === "string" && body.image.startsWith("https://") ? body.image : null;
     const feed = existing
-      ? Object.assign(existing, { deleted: 0, updated_at: t })
+      ? Object.assign(existing, { deleted: 0, updated_at: t, language: studyLanguage() })
       : { uid, url, title: String(body.title || "").trim().slice(0, 300) || host,
-          description: FEED_WAITING, image,
+          description: FEED_WAITING, image, language: studyLanguage(),  // subscribed while learning this
           link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
     if (!existing) lib.feeds.push(feed);
     // Get the episodes now. If the feed can't be reached from the phone, the podcast is still
@@ -385,7 +416,7 @@ const routes = [
 
   // ----- episodes -----
   ["GET", /^\/episodes$/, (m, q) => {
-    let eps = liveEpisodes().filter((e) => feedOf(e.feed_uid) && !feedOf(e.feed_uid).deleted);
+    let eps = liveEpisodes().filter((e) => feedOf(e.feed_uid) && !feedOf(e.feed_uid).deleted && studying(episodeLang(e)));
     if (q.get("feed_id")) eps = eps.filter((e) => e.feed_uid === q.get("feed_id"));
     else if (q.get("scope") === "podcasts") eps = eps.filter((e) => !feedOf(e.feed_uid).url.startsWith("local:"));
     // One YouTube channel's videos (a video's description is its channel's name).
@@ -489,7 +520,7 @@ const routes = [
     const results = [];
     if (!norm) return { query, results, total: 0 };
     for (const e of liveEpisodes()) {
-      if (!e.transcript_rev) continue;
+      if (!e.transcript_rev || !studying(episodeLang(e))) continue;  // only the language being learned
       const t = await transcripts.get(e.uid);
       if (!t) continue;
       const f = feedOf(e.feed_uid) || {};
@@ -506,7 +537,7 @@ const routes = [
 
   // ----- vocab -----
   ["GET", /^\/vocab$/, (m, q) => {
-    let items = lib.vocab.filter((v) => !v.deleted).sort((a, b) => b.created_at - a.created_at);
+    let items = lib.vocab.filter((v) => !v.deleted && studying(wordLang(v))).sort((a, b) => b.created_at - a.created_at);
     const folder = q.get("folder");
     if (folder === "none") items = items.filter((v) => !(v.folders || []).length);
     else if (folder) items = items.filter((v) => (v.folders || []).includes(folder));
@@ -529,6 +560,8 @@ const routes = [
                 start: body.start ?? null, end: body.end ?? null, sent_start: body.sent_start ?? null,
                 sent_end: body.sent_end ?? null, meaning: body.meaning || "", notes: body.notes || "",
                 translation: (body.translation || "").trim(),
+                // A word typed in, or from an unknown source, is in the language its letters say.
+                language: e ? episodeLang(e) : (isLanguage(detectLanguage(text, studyLanguage())) ? detectLanguage(text, studyLanguage()) : studyLanguage()),
                 episode_title: e ? e.title : "", folders: [], deleted: 0, created_at: t, updated_at: t };
     lib.vocab.push(v);
     changed();

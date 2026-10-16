@@ -41,7 +41,8 @@ export function merge(remote) {
   const feeds = new Map(lib.feeds.map((f) => [f.uid, f]));
   for (const r of remote.feeds || []) {
     const l = feeds.get(r.uid);
-    if (!l || newer(r, l)) { feeds.set(r.uid, r); changed++; }
+    // An older device doesn't send a podcast's language; keep the one already known.
+    if (!l || newer(r, l)) { feeds.set(r.uid, l ? { ...r, language: r.language || l.language || null } : r); changed++; }
   }
   lib.feeds = [...feeds.values()];
   const deadFeeds = new Set(lib.feeds.filter((f) => f.deleted).map((f) => f.uid));
@@ -66,7 +67,8 @@ export function merge(remote) {
     if (!l) { vocab.set(r.uid, r); changed++; continue; }
     if (newer(r, l)) {
       // A device with an older version sends no translation or memo; keep the ones already known.
-      vocab.set(r.uid, { ...r, translation: r.translation ?? l.translation ?? "", memo: r.memo ?? l.memo ?? "" });
+      vocab.set(r.uid, { ...r, translation: r.translation ?? l.translation ?? "", memo: r.memo ?? l.memo ?? "",
+                         language: r.language || l.language || null });
       changed++;
     }
   }

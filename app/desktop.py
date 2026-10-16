@@ -141,7 +141,10 @@ class BrowserApi:
             name = " ".join(str(name or "").split())
             if not name:
                 return {"ok": False, "error": "Couldn't tell which channel this is."}
-            follows = youtube.set_follow(db.get_setting("youtube_follows"), {"name": name, "id": channel_id, "image": image},
+            from . import languages
+
+            follows = youtube.set_follow(db.get_setting("youtube_follows"),
+                                         {"name": name, "id": channel_id, "image": image, "lang": languages.study()},
                                          bool(on), time.time())
             db.set_settings({"youtube_follows": follows})
         except Exception as exc:  # never let a website's oddities crash the bridge

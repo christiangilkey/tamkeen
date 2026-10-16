@@ -13,6 +13,7 @@ import * as chat from "./pages/chat.js";
 import * as discover from "./pages/discover.js";
 import * as reels from "./pages/reels.js";
 import { startBadge } from "./social.js";
+import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { showUpdateNotice } from "./updatenotice.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
 import { chosenCountry, youtubeHome } from "./youtube-home.js";
@@ -303,6 +304,7 @@ export function applySettings(s) {
 }
 
 export async function saveSettings(values) {
+  values = withLearningList(values); // a language switched to stays on the list of languages being learned
   const s = await api("/settings", { method: "PATCH", body: values });
   applySettings(s);
   return s;
@@ -433,6 +435,7 @@ async function boot() {
   }
   window.addEventListener("hashchange", route);
   route();
+  mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   startBadge();
   // After each sync, pass on the creature game's state in case another device saved a newer one.
   on("sync", () => api("/settings").then((s) => {

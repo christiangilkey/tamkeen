@@ -6,7 +6,7 @@ from typing import Any
 
 from fastapi import APIRouter
 
-from .. import arabic, db
+from .. import arabic, db, languages
 
 router = APIRouter(tags=["search"])
 
@@ -17,6 +17,7 @@ def search(q: str, limit: int = 200) -> dict[str, Any]:
     if not norm:
         return {"query": q, "results": [], "total": 0}
     limit = max(1, min(limit, 500))
+    study = languages.study()  # only transcripts in the language being learned
     with db.session() as conn:
         if len(norm) >= 3:
             # Trigram index: substring match, so "كتاب" also finds "والكتاب".
@@ -36,7 +37,8 @@ def search(q: str, limit: int = 200) -> dict[str, Any]:
                 "SELECT s.episode_id, s.idx, s.start, s.end, s.text, e.title AS episode_title, "
                 "e.published, f.title AS feed_title FROM segments s "
                 "JOIN episodes e ON e.id = s.episode_id JOIN feeds f ON f.id = e.feed_id "
-                "WHERE s.episode_id = ? AND s.idx = ?", (ep_id, seg_idx)).fetchone()
+                "WHERE s.episode_id = ? AND s.idx = ? AND e.deleted = 0 AND COALESCE(e.language, f.language, ?) = ?",
+                (ep_id, seg_idx, study, study)).fetchone()
             if row is None:
                 continue
             item = dict(row)

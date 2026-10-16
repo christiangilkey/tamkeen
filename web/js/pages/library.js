@@ -234,7 +234,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       const recent = h(`<a class="feed-item${channel ? "" : " active"}" href="${base}"><div class="ph all">${icon("recent", 22)}</div><div><div class="t">Recently watched</div></div></a>`);
       remember(recent);
       strip.append(recent);
-      const followed = followedChannels(follows);
+      const followed = followedChannels(follows, studyLanguage());
       for (const c of followed) {
         const el = h(`<a class="feed-item${c.name === channel ? " active" : ""}" href="${channelHref(base, c.name)}">
           ${channelPicture(c)}<div style="min-width:0"><div class="t" dir="auto">${esc(c.name)}</div></div></a>`);
@@ -315,7 +315,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       return;
     }
     if (f.url === YOUTUBE_FEED) {
-      const followed = followedChannels(follows);
+      const followed = followedChannels(follows, studyLanguage());
       const base = `#/feed/${feedId}`;
       if (channel) {
         // One channel's videos, with a way to find more of them and to stop following.

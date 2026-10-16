@@ -64,7 +64,7 @@ export async function isFollowing(ep) {
 export async function followChannel(ep, on) {
   const name = channelOf(ep);
   if (!name) throw new Error("This video doesn't say which channel it is from.");
-  await saveSettings({ youtube_follows: setFollow(await loadFollows(), { name }, on, nowSeconds()) });
+  await saveSettings({ youtube_follows: setFollow(await loadFollows(), { name, lang: studyLanguage() }, on, nowSeconds()) });
   if (on) {
     fetchChannel(videoId(ep.audio_url) || ep.guid, ytRequest).then(async (info) => {
       if (!info.id && !info.image) return;

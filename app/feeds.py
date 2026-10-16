@@ -13,7 +13,7 @@ from typing import Any
 import feedparser
 import httpx
 
-from . import db, events, ids
+from . import db, events, ids, languages
 from .version import APP_NAME, __version__
 
 log = logging.getLogger(__name__)
@@ -259,15 +259,16 @@ def add_feed(url: str) -> dict[str, Any]:
             feed_id = int(tomb[0])
             conn.execute(
                 "UPDATE feeds SET deleted = 0, title = ?, description = ?, image = ?, link = ?, last_checked = ?, "
-                "etag = ?, modified = ?, auto_transcribe = 0 WHERE id = ?",
-                (parsed.title, parsed.description, parsed.image, parsed.link, time.time(), etag, modified, feed_id),
+                "etag = ?, modified = ?, auto_transcribe = 0, language = ? WHERE id = ?",
+                (parsed.title, parsed.description, parsed.image, parsed.link, time.time(), etag, modified,
+                 languages.study(), feed_id),
             )
         else:
             cur = conn.execute(
                 "INSERT INTO feeds(url, uid, title, description, image, link, last_checked, etag, modified, "
-                "created_at) VALUES(?,?,?,?,?,?,?,?,?,?)",
+                "created_at, language) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
                 (final_url, ids.feed_uid(final_url), parsed.title, parsed.description, parsed.image, parsed.link,
-                 time.time(), etag, modified, time.time()),
+                 time.time(), etag, modified, time.time(), languages.study()),  # subscribed while learning this
             )
             feed_id = int(cur.lastrowid)
         _upsert_episodes(conn, feed_id, parsed)

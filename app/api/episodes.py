@@ -11,7 +11,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, RedirectResponse, Response, StreamingResponse
 from pydantic import BaseModel
 
-from .. import db, events, exporters, jobs, pages, sync, videos, youtube
+from .. import db, events, exporters, jobs, languages, pages, sync, videos, youtube
 
 router = APIRouter(tags=["episodes"])
 
@@ -31,13 +31,16 @@ class TranscribeIn(BaseModel):
 def _episode(episode_id: int) -> dict[str, Any]:
     with db.session() as conn:
         row = conn.execute(
-            "SELECT e.*, f.title AS feed_title, f.image AS feed_image, f.url AS feed_url FROM episodes e "
-            "JOIN feeds f ON f.id = e.feed_id WHERE e.id = ? AND e.deleted = 0",
+            "SELECT e.*, f.title AS feed_title, f.image AS feed_image, f.url AS feed_url, f.language AS feed_language "
+            "FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE e.id = ? AND e.deleted = 0",
             (episode_id,),
         ).fetchone()
     if row is None:
         raise HTTPException(404, "Episode not found.")
-    return dict(row)
+    out = dict(row)
+    out["language"] = out["language"] or out.pop("feed_language")  # not transcribed yet: its podcast's language
+    out.pop("feed_language", None)
+    return out
 
 
 @router.get("/episodes")
@@ -46,7 +49,9 @@ def list_episodes(feed_id: int | None = None, status: str | None = None, q: str 
                   channel: str | None = None) -> dict[str, Any]:
     """`scope=podcasts` leaves out the built-in lists (own videos and audio, webpages, YouTube).
     `channel` keeps one YouTube channel's videos (a video's description is its channel's name)."""
-    where, args = ["e.deleted = 0"], []
+    # Only what is in the language being learned (an untranscribed episode is in its podcast's).
+    study = languages.study()
+    where, args = ["e.deleted = 0", "COALESCE(e.language, f.language, ?) = ?"], [study, study]
     podcasts_only = feed_id is None and scope == "podcasts"
     if feed_id is not None:
         where.append("e.feed_id = ?")
@@ -79,7 +84,8 @@ def list_episodes(feed_id: int | None = None, status: str | None = None, q: str 
         only = "AND e.feed_id = ? " if feed_id is not None else "AND f.url NOT LIKE 'local:%' " if podcasts_only else ""
         counts = dict(conn.execute(
             "SELECT e.status, COUNT(*) FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE e.deleted = 0 "
-            f"{only}GROUP BY e.status", [feed_id] if feed_id is not None else []).fetchall())
+            f"AND COALESCE(e.language, f.language, ?) = ? {only}GROUP BY e.status",
+            [study, study, *([feed_id] if feed_id is not None else [])]).fetchall())
     return {"total": total, "items": db.rows_to_dicts(rows), "counts": counts,
             "current": jobs.worker.current_episode}
 

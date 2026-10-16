@@ -20,11 +20,12 @@ import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./lang
 import { chosenCountry, youtubeHome } from "./youtube-home.js";
 import { startTranslating, translateHtml } from "./i18n.js";
 import { isSaved, savedSites, setSite } from "./browser-sites.js";
-import { addUploadedVideo, checkFeeds, handle } from "./backend.js";
+import { addUploadedVideo, checkFeeds, fillLanguages, handle } from "./backend.js";
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
 import { accessToken, drive } from "./drive.js";
+import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
 import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
@@ -418,7 +419,7 @@ export async function openBrowser(url = "", { instagramSignIn = false } = {}) {
         const on = q.get("on") === "1";
         const { setFollow } = await import("./ytfollow.js");
         await saveSettings({ youtube_follows: setFollow(settings.youtube_follows,
-          { name, id: q.get("id") || "", image: q.get("image") || "" }, on, Math.floor(Date.now() / 1000)) });
+          { name, id: q.get("id") || "", image: q.get("image") || "", lang: studyLanguage() }, on, Math.floor(Date.now() / 1000)) });
         emit("feeds", { refreshed: true });
         GoogleDriveAuth.browserToast({ text: on ? `Following ${name}. It's in your Library under YouTube.` : `Stopped following ${name}.` }).catch(() => {});
       } catch (e) {
@@ -620,6 +621,7 @@ export function applySettings(s) {
   setStudyLanguage(s.study_language);
 }
 export async function saveSettings(values) {
+  values = withLearningList(values); // a language switched to stays on the list of languages being learned
   const keyTimes = JSON.stringify(settings.key_times || {});
   const s = await saveSettingsPatch(values);
   // After Reset Tamkeen: signing in, or finishing the first screens, brings the library back.
@@ -794,6 +796,7 @@ async function boot() {
   await loadSettings();
   await loadLibrary();
   applySettings(settings);
+  fillLanguages(); // every podcast and word knows its language (only the one being learned is shown)
   await startTranslating(settings.ui_language); // the app's own words in the user's language
   if (!settings.welcome_seen || !settings.study_language) location.hash = "#/welcome"; // first run: choose a language
   // The app's own line icons in the tab bar and the search button (see icons.js).
@@ -801,6 +804,7 @@ async function boot() {
   window.addEventListener("hashchange", route);
   initSwipe();
   route();
+  mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   startBadge();
   setTimeout(() => checkForUpdate(), 3000);
   startAppBadge();

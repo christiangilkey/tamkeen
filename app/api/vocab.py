@@ -13,7 +13,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, Response
 from pydantic import BaseModel
 
-from .. import anki_deck, arabic, audio, db, exporters, ids, paths, sync
+from .. import anki_deck, arabic, audio, db, exporters, ids, languages, paths, sync
 from ..sync import engine
 from . import reviews
 
@@ -71,8 +71,11 @@ def _out(row: Any) -> dict[str, Any]:
 
 
 def _items(q: str | None = None, folder: str | None = None) -> list[dict[str, Any]]:
+    """The saved words in the language being learned (the others wait for theirs to be chosen)."""
+    study = languages.study()
     with db.session() as conn:
-        rows = conn.execute("SELECT * FROM vocab WHERE deleted = 0 ORDER BY created_at DESC").fetchall()
+        rows = conn.execute("SELECT * FROM vocab WHERE deleted = 0 AND COALESCE(language, ?) = ? "
+                            "ORDER BY created_at DESC", (study, study)).fetchall()
     items = [_out(r) for r in rows]
     if folder == "none":
         items = [v for v in items if not v["folders"]]
@@ -167,17 +170,21 @@ def add_vocab(body: VocabIn) -> dict[str, Any]:
         raise HTTPException(400, "Nothing to save.")
     title = ""
     episode_uid = None
+    language = None
     with db.session() as conn:
         if body.episode_id is not None:
-            ep = conn.execute("SELECT title, uid FROM episodes WHERE id = ?", (body.episode_id,)).fetchone()
+            ep = conn.execute("SELECT e.title, e.uid, COALESCE(e.language, f.language) AS language FROM episodes e "
+                              "JOIN feeds f ON f.id = e.feed_id WHERE e.id = ?", (body.episode_id,)).fetchone()
             if ep:
-                title, episode_uid = ep["title"], ep["uid"]
+                title, episode_uid, language = ep["title"], ep["uid"], ep["language"]
+        if not languages.valid(language):
+            language = languages.detect(text, languages.study())  # a word typed in, or from an unknown source
         cur = conn.execute(
             "INSERT INTO vocab(uid, episode_id, episode_uid, text, norm, sentence, start, end, sent_start, sent_end, "
-            "meaning, notes, translation, episode_title, created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            "meaning, notes, translation, episode_title, created_at, language) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (ids.new_uid(), body.episode_id, episode_uid, text, arabic.normalize(text), body.sentence.strip(),
              body.start, body.end, body.sent_start, body.sent_end, body.meaning, body.notes,
-             body.translation.strip(), title, time.time()),
+             body.translation.strip(), title, time.time(), language),
         )
         row = conn.execute("SELECT * FROM vocab WHERE id = ?", (cur.lastrowid,)).fetchone()
     sync.request()

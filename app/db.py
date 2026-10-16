@@ -227,7 +227,8 @@ NOW_SQL = "((julianday('now') - 2440587.5) * 86400.0)"
 
 # Sync columns (schema v2). Added idempotently so old and new databases converge.
 _SYNC_COLUMNS = {
-    "feeds": [("uid", "TEXT"), ("updated_at", "REAL"), ("deleted", "INTEGER NOT NULL DEFAULT 0")],
+    "feeds": [("uid", "TEXT"), ("updated_at", "REAL"), ("deleted", "INTEGER NOT NULL DEFAULT 0"),
+              ("language", "TEXT")],  # the podcast's language (NULL for the built-in lists: own videos, web pages...)
     "episodes": [("uid", "TEXT"), ("updated_at", "REAL"), ("transcribe_requested_at", "REAL"),
                  ("remote_audio", "INTEGER NOT NULL DEFAULT 0"), ("synced_rev", "REAL"),
                  ("sync_audio_path", "TEXT"), ("deleted", "INTEGER NOT NULL DEFAULT 0"),
@@ -235,7 +236,8 @@ _SYNC_COLUMNS = {
     "vocab": [("uid", "TEXT"), ("updated_at", "REAL"), ("deleted", "INTEGER NOT NULL DEFAULT 0"),
               ("episode_uid", "TEXT"), ("folders", "TEXT NOT NULL DEFAULT '[]'"),
               ("clip", "INTEGER NOT NULL DEFAULT 0"), ("translation", "TEXT NOT NULL DEFAULT ''"),
-              ("memo", "TEXT NOT NULL DEFAULT ''")],
+              ("memo", "TEXT NOT NULL DEFAULT ''"),
+              ("language", "TEXT")],  # the word's language: the app shows only the language being learned
     "segments": [("kind", "TEXT")],
 }
 
@@ -320,6 +322,37 @@ def _migrate(conn: sqlite3.Connection) -> None:
     ).fetchall():
         conn.execute("UPDATE vocab SET uid = ?, updated_at = COALESCE(updated_at, ?), episode_uid = ? WHERE id = ?",
                      (ids.new_uid(), row[1], row[2], row[0]))
+    fill_languages(conn)
+
+
+def fill_languages(conn: sqlite3.Connection) -> None:
+    """Give podcasts, built-in-list items and words without a language one, so each shows only
+    while its language is the one being learned. Podcasts: the language most of their transcribed
+    episodes are in, else the one being learned. Words: their episode's, else told by their letters.
+    Run with the sync triggers standing down: working a language out is not an edit to sync."""
+    from . import languages
+
+    row = conn.execute("SELECT value FROM settings WHERE key = 'study_language'").fetchone()
+    study = json.loads(row[0]) if row else ""
+    study = study if languages.valid(study) else languages.DEFAULT
+    conn.execute("INSERT INTO sync_guard VALUES (1)")
+    try:
+        conn.execute("""UPDATE feeds SET language = (SELECT e.language FROM episodes e
+                          WHERE e.feed_id = feeds.id AND e.language IS NOT NULL
+                          GROUP BY e.language ORDER BY COUNT(*) DESC LIMIT 1)
+                        WHERE language IS NULL AND url NOT LIKE 'local:%'""")
+        conn.execute("UPDATE feeds SET language = ? WHERE language IS NULL AND url NOT LIKE 'local:%'", (study,))
+        conn.execute("""UPDATE episodes SET language = ? WHERE language IS NULL
+                        AND feed_id IN (SELECT id FROM feeds WHERE url LIKE 'local:%')""", (study,))
+        conn.execute("""UPDATE vocab SET language = (SELECT COALESCE(e.language, f.language) FROM episodes e
+                          JOIN feeds f ON f.id = e.feed_id WHERE e.id = vocab.episode_id
+                             OR (vocab.episode_uid IS NOT NULL AND e.uid = vocab.episode_uid) LIMIT 1)
+                        WHERE language IS NULL""")
+        for vid, text in conn.execute("SELECT id, text FROM vocab WHERE language IS NULL").fetchall():
+            found = languages.detect(text or "", study)
+            conn.execute("UPDATE vocab SET language = ? WHERE id = ?", (found if languages.valid(found) else study, vid))
+    finally:
+        conn.execute("DELETE FROM sync_guard")
 
 
 @contextmanager
@@ -368,6 +401,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "page_font_size": 17,           # text size for imported web pages (set separately; smaller by default)
     "welcome_seen": False,
     "study_language": "",           # the language being learned (ar, es, fr, ja, zh, ru, it, tl, en); chosen on first run
+    "learning_languages": [],       # every language being learned (the top bar's switch); study_language is the one now
     "ui_language": "",              # the language the user speaks: the app's own words are shown in it (web/js/i18n.js)
     # The first-run questions (web/js/components/onboarding.js): answered yet, and "beginner" or "started".
     "onboarded": False,

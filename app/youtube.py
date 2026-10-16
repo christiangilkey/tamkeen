@@ -271,9 +271,12 @@ def clean_follows(raw: Any) -> list[dict[str, Any]]:
             continue
         cid = str(r.get("id") or "")
         image = str(r.get("image") or "")
+        lang = str(r.get("lang") or "")
         rec = {"name": name, "id": cid if re.fullmatch(r"UC[\w-]{20,30}", cid) else "",
                "image": image[:500] if image.startswith("https://") else "", "on": 1 if r.get("on") else 0,
                "watched_at": _whole(r.get("watched_at")), "updated_at": _whole(r.get("updated_at"))}
+        if re.fullmatch(r"[a-z]{2,3}", lang):
+            rec["lang"] = lang
         had = seen.get(name)
         if had is None or rec["updated_at"] > had["updated_at"]:
             seen[name] = rec
@@ -305,4 +308,7 @@ def set_follow(follows: Any, channel: dict[str, Any], on: bool, now: float) -> l
     record = {"name": name, "id": channel.get("id") or (had["id"] if had else ""),
               "image": channel.get("image") or (had["image"] if had else ""), "on": 1 if on else 0,
               "watched_at": _whole(now) if on else (had["watched_at"] if had else 0), "updated_at": _whole(now)}
+    lang = channel.get("lang") or (had.get("lang") if had else "")
+    if lang:
+        record["lang"] = lang
     return clean_follows([r for r in everything if r["name"] != name] + [record])

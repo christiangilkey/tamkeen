@@ -138,6 +138,11 @@ button:disabled { opacity: .5; cursor: default; }
 button.primary, .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 button.primary:hover:not(:disabled) { filter: brightness(1.08); background: var(--accent); }
 button.danger { color: var(--danger); }
+/* "Which language am I learning now" (components/langswitch.js): a chip in the top bar. */
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 99px;
+  background: rgba(255, 255, 255, .14); color: #fff; border: 1px solid rgba(255, 255, 255, .22); font-weight: 600; flex: none; }
+.lang-switch:hover:not(:disabled) { background: rgba(255, 255, 255, .22); }
+.lang-switch-caret { font-size: .75em; opacity: .8; }
 /* Reset Tamkeen (components/resetapp.js): a plain solid red button. */
 button.danger-solid { background: #d92d20; color: #fff; border-color: #d92d20; font-weight: 700; }
 button.danger-solid:hover:not(:disabled) { background: #d92d20; filter: brightness(1.08); }

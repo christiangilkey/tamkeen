@@ -77,7 +77,7 @@ def _ungz(data: bytes) -> Any:
 # ---------------------------------------------------------------------------------- snapshot
 
 def _language(record: dict[str, Any]) -> str | None:
-    """An episode record's language, if it names one the app knows (older devices send none)."""
+    """A record's language (episode, podcast or word), if it names one the app knows (older devices send none)."""
     code = record.get("language")
     return code if languages.valid(code) else None
 
@@ -95,7 +95,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
     with db.session() as conn:
         feeds = [dict(r) for r in conn.execute(
             "SELECT uid, url, title, substr(description, 1, 1000) AS description, image, link, auto_transcribe, "
-            "deleted, created_at, updated_at FROM feeds ORDER BY uid")]
+            "language, deleted, created_at, updated_at FROM feeds ORDER BY uid")]
         episodes = [dict(r) for r in conn.execute(
             "SELECT e.uid, f.uid AS feed_uid, e.guid, e.title, substr(e.description, 1, 1500) AS description, "
             "e.published, e.duration, e.image, e.audio_url, e.audio_type, e.synced_rev AS transcript_rev, e.model, e.language, "
@@ -103,7 +103,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE f.deleted = 0 ORDER BY e.uid")]
         vocab = [{**dict(r), "folders": _folder_list(r["folders"])} for r in conn.execute(
             "SELECT uid, episode_uid, text, sentence, start, end, sent_start, sent_end, meaning, notes, translation, memo, "
-            "episode_title, folders, clip, deleted, created_at, updated_at FROM vocab ORDER BY uid")]
+            "episode_title, folders, clip, language, deleted, created_at, updated_at FROM vocab ORDER BY uid")]
         folders = [dict(r) for r in conn.execute(
             "SELECT uid, name, deleted, created_at, updated_at FROM vocab_folders ORDER BY uid")]
         defs = [{**dict(r), "data": json.loads(r["data"])} for r in conn.execute(
@@ -159,18 +159,18 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
             if local is None:
                 conn.execute(
                     "INSERT INTO feeds(uid, url, title, description, image, link, auto_transcribe, deleted, created_at, "
-                    "updated_at) VALUES(?,?,?,?,?,?,?,?,?,?)",
+                    "updated_at, language) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
                     (r["uid"], r["url"], r["title"], r["description"] or "", r["image"], r["link"],
-                     r["auto_transcribe"], r["deleted"], r["created_at"], r["updated_at"]))
+                     r["auto_transcribe"], r["deleted"], r["created_at"], r["updated_at"], _language(r)))
                 if not r["deleted"] and not videos.is_local_feed(r["url"]):
                     result.new_feeds.append(int(conn.execute("SELECT last_insert_rowid()").fetchone()[0]))
                 result.merged["feeds"] += 1
             elif _newer(r, local):
                 conn.execute(
                     "UPDATE feeds SET title=?, description=?, image=?, link=?, auto_transcribe=?, deleted=?, "
-                    "updated_at=? WHERE id=?",
+                    "language=COALESCE(?, language), updated_at=? WHERE id=?",
                     (r["title"], r["description"] or "", r["image"], r["link"], r["auto_transcribe"], r["deleted"],
-                     r["updated_at"], local["id"]))
+                     _language(r), r["updated_at"], local["id"]))
                 if r["deleted"] and not local["deleted"]:
                     _purge_feed_episodes(conn, local["id"])
                 elif local["deleted"] and not r["deleted"] and not videos.is_local_feed(r["url"]):
@@ -226,19 +226,19 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
             values = (r["text"], arabic.normalize(r["text"]), r["sentence"], r["start"], r["end"], r["sent_start"],
                       r["sent_end"], r["meaning"], r["notes"], r.get("translation"), r.get("memo"), r["episode_title"], r["deleted"],
                       r["episode_uid"], ep_ids.get(r["episode_uid"]), json.dumps(_folder_list(r.get("folders") or [])),
-                      1 if r.get("clip") else 0, r["updated_at"])
+                      1 if r.get("clip") else 0, _language(r), r["updated_at"])
             if local is None:
                 conn.execute(
                     "INSERT INTO vocab(text, norm, sentence, start, end, sent_start, sent_end, meaning, notes, "
-                    "translation, memo, episode_title, deleted, episode_uid, episode_id, folders, clip, updated_at, uid, "
-                    "created_at) VALUES(?,?,?,?,?,?,?,?,?,COALESCE(?, ''),COALESCE(?, ''),?,?,?,?,?,?,?,?,?)",
+                    "translation, memo, episode_title, deleted, episode_uid, episode_id, folders, clip, language, updated_at, "
+                    "uid, created_at) VALUES(?,?,?,?,?,?,?,?,?,COALESCE(?, ''),COALESCE(?, ''),?,?,?,?,?,?,?,?,?,?)",
                     (*values, r["uid"], r["created_at"]))
                 result.merged["vocab"] += 1
             elif _newer(r, local):
                 conn.execute(
                     "UPDATE vocab SET text=?, norm=?, sentence=?, start=?, end=?, sent_start=?, sent_end=?, meaning=?, "
                     "notes=?, translation=COALESCE(?, translation), memo=COALESCE(?, memo), episode_title=?, deleted=?, episode_uid=?, "
-                    "episode_id=?, folders=?, clip=?, updated_at=? WHERE id=?",
+                    "episode_id=?, folders=?, clip=?, language=COALESCE(?, language), updated_at=? WHERE id=?",
                     (*values, local["id"]))
                 result.merged["vocab"] += 1
 

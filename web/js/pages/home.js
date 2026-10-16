@@ -4,7 +4,7 @@
 
 import { api, esc, h } from "../app.js";
 import { continueItems, forgetProgress, fraction, leftLabel } from "../progress.js";
-import { langAttrs, langInfo, studyLanguage } from "../languages.js";
+import { episodeLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { habitat } from "../game/habitat.js";
 import { gameOn } from "../components/gameswitch.js";
 
@@ -26,8 +26,8 @@ async function existing(items, limit) {
   for (const item of items) {
     if (out.length >= limit) break;
     try {
-      await api(`/episodes/${item.id}`);
-      out.push(item);
+      const ep = await api(`/episodes/${item.id}`);
+      if (episodeLanguage(ep) === studyLanguage()) out.push(item);  // only the language being learned now
     } catch {
       forgetProgress(item.id);
     }

@@ -78,6 +78,7 @@ export const DEFAULTS = {
   page_font_size: 17,
   welcome_seen: false,
   study_language: "", // the language being learned (ar, es, fr, ja, zh, ru, it, tl, en); chosen on first run
+  learning_languages: [], // every language being learned (the top bar's switch); study_language is the one now
   ui_language: "",    // the language the user speaks: the app's own words are shown in it (i18n.js)
   onboarded: false,   // the first-run questions have been answered (components/onboarding.js)
   study_level: "",    // "beginner" or "started"

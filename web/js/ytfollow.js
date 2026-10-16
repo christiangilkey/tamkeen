@@ -11,6 +11,8 @@
 //   on          1 followed, 0 unfollowed
 //   watched_at  when one of its videos was last opened (whole seconds)
 //   updated_at  when this record last changed (whole seconds); the newer copy wins between devices
+//   lang        the language being learned when it was followed: it is listed only under that
+//               language ("" for channels followed before languages were kept apart: listed under all)
 
 const text = (x, max) => String(x == null ? "" : x).replace(/\s+/g, " ").trim().slice(0, max);
 const whole = (x) => Math.max(0, Math.floor(Number(x) || 0));
@@ -27,7 +29,9 @@ export function cleanFollows(raw) {
     if (!name) continue;
     const id = /^UC[\w-]{20,30}$/.test(String(r.id || "")) ? String(r.id) : "";
     const image = /^https:\/\//.test(String(r.image || "")) ? String(r.image).slice(0, 500) : "";
+    const lang = /^[a-z]{2,3}$/.test(String(r.lang || "")) ? String(r.lang) : "";
     const rec = { name, id, image, on: r.on ? 1 : 0, watched_at: whole(r.watched_at), updated_at: whole(r.updated_at) };
+    if (lang) rec.lang = lang;
     const had = seen.get(name);
     if (!had || rec.updated_at > had.updated_at) seen.set(name, rec);
   }
@@ -46,6 +50,8 @@ export function setFollow(list, channel, on, now) {
     name, id: (channel.id || (had && had.id) || ""), image: (channel.image || (had && had.image) || ""),
     on: on ? 1 : 0, watched_at: on ? whole(now) : (had ? had.watched_at : 0), updated_at: whole(now),
   };
+  const lang = channel.lang || (had && had.lang) || "";
+  if (lang) rec.lang = lang;
   return cleanFollows([...all.filter((r) => r.name !== name), rec]);
 }
 
@@ -67,8 +73,8 @@ export function fillChannel(list, name, { id = "", image = "" } = {}, now) {
 }
 
 /** The followed channels, the one watched most recently first. */
-export function followedChannels(list) {
-  return cleanFollows(list).filter((r) => r.on)
+export function followedChannels(list, lang = "") {
+  return cleanFollows(list).filter((r) => r.on && (!lang || !r.lang || r.lang === lang))
     .sort((a, b) => b.watched_at - a.watched_at || b.updated_at - a.updated_at || byName(a, b));
 }
 
