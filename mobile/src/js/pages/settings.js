@@ -8,6 +8,8 @@ import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { ankiSyncPanel } from "../components/ankisync.js";
 import { gameSwitch } from "../components/gameswitch.js";
+import { resetSection } from "../components/resetapp.js";
+import { parkAll } from "../reset.js";
 import { languagePicker, speakPicker } from "../components/langpicker.js";
 import { chooseUiLanguage } from "../components/onboarding.js";
 import { isUiLanguage } from "../i18n.js";
@@ -82,6 +84,8 @@ export async function render(view) {
         <button type="button" id="check-updates">Check for updates</button></div>
       <div class="small muted" id="update-result"></div>
     </section>
+
+    <section class="card" id="reset-app"></section>
 
     <section class="card small muted">Tamkeen for Android · <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a></section>
   </div>`));
@@ -158,6 +162,7 @@ export async function render(view) {
   };
   const offAnki = ankiSyncPanel($("#anki-sync"));
   gameSwitch($("#game-switch"));
+  resetSection($("#reset-app"), parkAll);
   import("../version.js").then(({ APP_VERSION }) => { $("#app-version").textContent = `Version ${APP_VERSION}`; }).catch(() => {});
   $("#check-updates").onclick = async () => {
     const box = $("#update-result"), button = $("#check-updates");

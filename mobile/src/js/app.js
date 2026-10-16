@@ -25,6 +25,7 @@ import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
 import { accessToken, drive } from "./drive.js";
+import { loadParked, maybeRestore, parked } from "./reset.js";
 import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
 import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js";
@@ -621,6 +622,8 @@ export function applySettings(s) {
 export async function saveSettings(values) {
   const keyTimes = JSON.stringify(settings.key_times || {});
   const s = await saveSettingsPatch(values);
+  // After Reset Tamkeen: signing in, or finishing the first screens, brings the library back.
+  if (parked() && await maybeRestore(s)) { location.reload(); return s; }
   applySettings(s);
   if (JSON.stringify(s.key_times || {}) !== keyTimes) requestSync(5000); // an AI key changed: the other devices get it too
   if ("game_state" in values) requestSync(90000); // the creature reaches the other devices after studying
@@ -787,6 +790,7 @@ function startAppBadge() {
 
 // ---------- boot ----------
 async function boot() {
+  await loadParked(); // after Reset Tamkeen: the library is set aside until sign-in (reset.js)
   await loadSettings();
   await loadLibrary();
   applySettings(settings);

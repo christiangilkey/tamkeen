@@ -70,6 +70,10 @@ class Manager:
                     self.sync_now()
 
     def sync_now(self) -> dict[str, Any]:
+        from .. import reset
+
+        if reset.parked():
+            return status()  # after Reset Tamkeen the library is set aside: never compare an empty one with Drive
         if not self._run_lock.acquire(blocking=False):
             return status()
         drive = None

@@ -13,6 +13,7 @@ import { languagePicker, speakPicker } from "../components/langpicker.js";
 import { chooseUiLanguage } from "../components/onboarding.js";
 import { isUiLanguage } from "../i18n.js";
 import { dictionariesRow } from "../lexicon/seen.js";
+import { resetSection } from "../components/resetapp.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
 
 export async function render(view) {
@@ -131,11 +132,17 @@ export async function render(view) {
       <div class="row"><span>Version ${esc(status.version)}</span><button type="button" id="check-updates">Check for updates</button></div>
       <div id="update-result" class="small"></div>
     </section>
+
+    <section class="card" id="reset-app"></section>
   </div>`));
 
   const $ = (q) => view.querySelector(q);
   $("#sync").after(accountSection());
   $("#data-dir").textContent = status.data_dir;
+  resetSection($("#reset-app"), async () => {
+    const r = await api("/reset", { method: "POST" });
+    if (!r.ok) throw new Error(r.error);
+  });
   const cleanups = [modelManager($("#models"), { hardware: hw })];
   if (hw.gpu_pack_supported) cleanups.push(gpuPanel($("#gpu"), hw));
 

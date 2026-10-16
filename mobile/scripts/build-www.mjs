@@ -33,6 +33,7 @@ const SHARED = [
   "js/components/account.js",
   "js/components/ankisync.js",
   "js/components/gameswitch.js",
+  "js/components/resetapp.js",
   "js/social.js",
   "js/vendor/supabase.js",
   "js/pages/library.js",

@@ -138,6 +138,12 @@ button:disabled { opacity: .5; cursor: default; }
 button.primary, .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 button.primary:hover:not(:disabled) { filter: brightness(1.08); background: var(--accent); }
 button.danger { color: var(--danger); }
+/* Reset Tamkeen (components/resetapp.js): a plain solid red button. */
+button.danger-solid { background: #d92d20; color: #fff; border-color: #d92d20; font-weight: 700; }
+button.danger-solid:hover:not(:disabled) { background: #d92d20; filter: brightness(1.08); }
+.reset-ask ul { margin: 0; padding-left: 20px; }
+.reset-ask p { margin: 0; }
+.reset-buttons { justify-content: flex-end; gap: 10px; }
 button.ghost { background: transparent; border-color: transparent; }
 button.ghost:hover:not(:disabled) { background: var(--surface-2); }
 button.icon { padding: 6px; min-width: 32px; }

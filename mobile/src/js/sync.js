@@ -8,6 +8,7 @@
 
 import { drive, gunzipJson, gzipJson } from "./drive.js";
 import { audio, kv, lib, saveLibrary, settings, transcripts } from "./store.js";
+import { parked } from "./reset.js";
 import { cleanFollows, mergeFollows } from "./ytfollow.js";
 import { cleanSites, mergeSites } from "./browser-sites.js";
 import { cleanCollections, mergeCollections } from "./igcollections.js";
@@ -202,13 +203,14 @@ let timer = 0;
 
 /** Schedule a sync shortly (debounced), e.g. after a local edit. */
 export function requestSync(delayMs = 3000) {
-  if (!settings.signed_in) return;
+  if (!settings.signed_in || parked()) return;
   clearTimeout(timer);
   timer = setTimeout(() => syncNow().catch(() => {}), delayMs);
 }
 
 export function syncNow() {
-  if (!settings.signed_in) return Promise.resolve(syncState);
+  // After Reset Tamkeen the library is set aside: never compare an empty one with Drive.
+  if (!settings.signed_in || parked()) return Promise.resolve(syncState);
   if (!running) running = doSync().finally(() => { running = null; });
   return running;
 }

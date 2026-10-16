@@ -72,7 +72,7 @@ export const now = () => Date.now() / 1000; // seconds, matching the desktop's t
 
 // ---------- settings ----------
 
-const DEFAULTS = {
+export const DEFAULTS = {
   theme: "system",
   font_size: 26,
   page_font_size: 17,

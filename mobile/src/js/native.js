@@ -18,3 +18,5 @@ export const AppUpdater = isNative && Capacitor.getPlatform() === "android" ? re
 /** Cards left to review today on the app icon (a silent notification) and the home-screen widget
  *  (android/.../AppBadgePlugin.java). Android only. */
 export const AppBadge = isNative && Capacitor.getPlatform() === "android" ? registerPlugin("AppBadge") : null;
+/** Reset Tamkeen: clears the cookies of the app's browser windows (android/.../AppResetPlugin.java). */
+export const AppReset = isNative && Capacitor.getPlatform() === "android" ? registerPlugin("AppReset") : null;

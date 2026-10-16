@@ -80,7 +80,20 @@ def patch_settings(values: dict[str, Any]) -> dict[str, Any]:
         sync.request(90)  # the creature reaches the user's other devices once they stop studying
     if "model_size" in clean or "beam_size" in clean or any(k.startswith("stt_") for k in clean):
         transcriber.unload()
+    if "welcome_seen" in clean or "onboarded" in clean:
+        from .. import reset
+
+        if reset.maybe_restore():  # after Reset Tamkeen: the first-run screens are done, the library comes back
+            result = db.get_settings()
     return result
+
+
+@router.post("/reset")
+def reset_tamkeen() -> dict[str, Any]:
+    """Settings → Reset Tamkeen (app/reset.py): first-run again, the library set aside until sign-in."""
+    from .. import reset
+
+    return reset.reset()
 
 
 class SttTestIn(BaseModel):

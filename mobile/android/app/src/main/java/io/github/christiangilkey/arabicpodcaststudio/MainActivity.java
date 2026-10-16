@@ -15,6 +15,8 @@ public class MainActivity extends BridgeActivity {
         registerPlugin(AppUpdaterPlugin.class);
         // Cards left to review today on the app icon and the home-screen widget (see ReviewBadge).
         registerPlugin(AppBadgePlugin.class);
+        // Settings → Reset Tamkeen: signs out of the sites in the app's browser windows.
+        registerPlugin(AppResetPlugin.class);
         super.onCreate(savedInstanceState);
         // Lets the video player stream the user's own videos straight from Google Drive.
         getBridge().setWebViewClient(new DriveMediaWebViewClient(getBridge()));

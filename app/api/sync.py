@@ -49,6 +49,9 @@ def callback(state: str = "", code: str = "", error: str = "") -> HTMLResponse:
         return _page("Sign-in cancelled", "Google sign-in was cancelled or denied.", False)
     try:
         email = oauth.complete(state, code)
+        from .. import reset
+
+        reset.maybe_restore()  # after Reset Tamkeen, signing in brings the library back (before any sync)
     except oauth.AuthError as exc:
         return _page("Sign-in failed", str(exc), False)
     except Exception as exc:  # network etc.
