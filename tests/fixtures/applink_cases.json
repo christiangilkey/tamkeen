@@ -1,0 +1,32 @@
+{
+  "_about": "tamkeen://watch links and what both readers make of them: app/applink.py (parse) and web/js/applink.js (parseTamkeenLink). null = refused.",
+  "cases": [
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": ""}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ&from=onyx", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": "onyx"}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ&t=95&from=onyx", "expect": {"video_id": "dQw4w9WgXcQ", "at": 95, "source": "onyx"}},
+    {"url": "tamkeen://watch?v=a-B_c1D2e3F&t=12.5", "expect": {"video_id": "a-B_c1D2e3F", "at": 12.5, "source": ""}},
+    {"url": "tamkeen://watch/?t=0&v=dQw4w9WgXcQ", "expect": {"video_id": "dQw4w9WgXcQ", "at": 0, "source": ""}},
+    {"url": "  TAMKEEN://WATCH?v=dQw4w9WgXcQ  ", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": ""}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ&list=PL123&index=4&feature=share", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": ""}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ&from=<script>alert(1)</script>", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": "scriptalert1script"}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ&t=-5", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": ""}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ&t=1m30s", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": ""}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ&t=0x10", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": ""}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ&t=1e3", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": ""}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ&t=Infinity", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": ""}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ&t=9999999", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": ""}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQ&t=\u0669\u0660", "expect": {"video_id": "dQw4w9WgXcQ", "at": null, "source": ""}},
+    {"url": "tamkeen://watch?v=dQw4w9WgXc", "expect": null},
+    {"url": "tamkeen://watch?v=dQw4w9WgXcQQ", "expect": null},
+    {"url": "tamkeen://watch?v=dQw4w9WgX%20Q", "expect": null},
+    {"url": "tamkeen://watch?v=\u0645\u0631\u062d\u0628\u0627\u0645\u0631\u062d\u0628\u0627\u0645", "expect": null},
+    {"url": "tamkeen://watch", "expect": null},
+    {"url": "tamkeen://watch?id=dQw4w9WgXcQ", "expect": null},
+    {"url": "tamkeen://play?v=dQw4w9WgXcQ", "expect": null},
+    {"url": "tamkeen://watch/other?v=dQw4w9WgXcQ", "expect": null},
+    {"url": "tamkeen:watch?v=dQw4w9WgXcQ", "expect": null},
+    {"url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "expect": null},
+    {"url": "javascript:alert(1)//tamkeen://watch?v=dQw4w9WgXcQ", "expect": null},
+    {"url": "", "expect": null}
+  ]
+}

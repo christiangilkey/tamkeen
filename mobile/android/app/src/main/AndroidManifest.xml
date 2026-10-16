@@ -22,6 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <!-- tamkeen://watch?v=<id>: another app (Onyx Calendar) asking for a YouTube video in
+                 Tamkeen's player (mobile/src/js/app.js, openTamkeenLink). singleTask above makes a
+                 second link reach the open app instead of starting another copy of it. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tamkeen" android:host="watch" />
+            </intent-filter>
+
         </activity>
 
         <!-- Home-screen widget: cards left to review today (ReviewWidget / ReviewBadge). -->

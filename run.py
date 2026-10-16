@@ -4,6 +4,7 @@
     python run.py --browser    # open in your default browser instead
     python run.py --server --port 8790   # server only (development)
     python run.py --smoke-test # headless self-test (used by CI on packaged builds)
+    python run.py "tamkeen://watch?v=<id>"   # open a YouTube video (how other apps ask; see app/applink.py)
 """
 
 from __future__ import annotations
@@ -21,7 +22,17 @@ def main() -> int:
     parser.add_argument("--port", type=int, default=None, help="fixed port (default: a free one)")
     parser.add_argument("--smoke-test", action="store_true", help="run a headless self-test and exit")
     parser.add_argument("--smoke-audio", default=None, help="audio file for the smoke test")
+    parser.add_argument("link", nargs="?", default=None, help="a tamkeen://watch?v=<id> link to open")
     args = parser.parse_args()
+
+    link = None
+    if args.link:
+        from app import applink
+
+        if applink.is_link(args.link):  # anything else is ignored: the app just starts
+            link = args.link
+            if applink.hand_off(link):
+                return 0  # Tamkeen was already running and has the link: no second window
 
     if args.smoke_test:
         from app.smoke import run_smoke_test
@@ -40,7 +51,7 @@ def main() -> int:
 
     from app.desktop import run
 
-    run(browser=args.browser, port=args.port, headless=args.server)
+    run(browser=args.browser, port=args.port, headless=args.server, link=link)
     return 0
 
 

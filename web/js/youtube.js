@@ -12,10 +12,10 @@ export const YT_TYPE = "video/youtube";
 export const isYouTube = (ep) => (ep.audio_type || "") === YT_TYPE;
 
 /** Open a video in the player: straight away if it is already in the library, else after adding
- * it. Resolves to its episode. */
-export async function watchVideo(link) {
+ * it. `at`: the second to start at (a tamkeen://watch link's `t`). Resolves to its episode. */
+export async function watchVideo(link, at = null) {
   const ep = await getVideo(link);
-  location.hash = `#/episode/${ep.id}`;
+  location.hash = `#/episode/${ep.id}${at > 0 ? `?t=${Math.round(at * 1000) / 1000}` : ""}`;
   return ep;
 }
 

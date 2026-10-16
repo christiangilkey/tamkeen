@@ -4,10 +4,11 @@ from __future__ import annotations
 
 from typing import Any
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
 
-from .. import charts, db, events, pages, sync, youtube
+from .. import applink, charts, db, events, pages, sync, youtube
+from ..version import APP_NAME
 
 router = APIRouter(tags=["media"])
 
@@ -82,6 +83,32 @@ class WatchResult(BaseModel):
 def watch_result(body: WatchResult) -> dict[str, bool]:
     """The app's page answering a "watch this video" request that came from the browser window."""
     return {"ok": youtube.answer_watch(body.token, body.ok, body.title, body.error)}
+
+
+# ----- tamkeen://watch links from other apps (see app/applink.py) -----
+
+class LinkIn(BaseModel):
+    url: str = ""
+
+
+@router.post("/app/open-link")
+def open_link(body: LinkIn, x_tamkeen_token: str | None = Header(default=None)) -> dict[str, Any]:
+    """A second launch of the app (Onyx Calendar starting it with a tamkeen:// link) handing its link
+    to this one. Only with this run's secret, in the X-Tamkeen-Token header."""
+    if not applink.token_ok(x_tamkeen_token):
+        raise HTTPException(403, "Not allowed.")
+    link = applink.parse(body.url)
+    if link is None:
+        applink.show()
+        return {"ok": False, "app": APP_NAME, "error": "That isn't a tamkeen://watch?v=… link."}
+    applink.push(link)
+    return {"ok": True, "app": APP_NAME}
+
+
+@router.post("/app/pending-links")
+def pending_links() -> dict[str, Any]:
+    """The links waiting for the page to open (web/js/app.js asks once it has loaded, and on "app_link")."""
+    return {"links": applink.take()}
 
 
 # ----- sites saved to the in-app browser's start page -----

@@ -2269,3 +2269,47 @@ sentence that word is in".
   the origin note; a made-up word left the card untouched with the message above.
 - **NOT tested**: Filmot's real results page (still never seen: its human check), so whether its results are links,
   players or thumbnails in page order is assumed; the real desktop window; the phone.
+
+### `tamkeen://watch` links: other apps open a YouTube video in Tamkeen (2026-10-16, a side chat of the Onyx Calendar chat; committed locally, NOT pushed, NOT released)
+The owner, for Onyx Calendar (their calendar app, Electron desktop + Capacitor Android): "If I have Tamkeen
+installed on the device I'd like a toggleable Tamkeen button to appear which will pop up the news with my Tamkeen
+player." Onyx's News panel lists YouTube news videos; with its "Tamkeen" switch on, it sends the chosen video to
+Tamkeen. **Onyx is built against this exact contract, so keep it.** Onyx shows "update Tamkeen" for versions
+older than **the first release made after this commit (the next one after v0.21.0)**.
+- **The link**: `tamkeen://watch?v=<11-character YouTube id>`, optional `&t=<seconds>` (start time, digits with
+  an optional decimal part only) and `&from=<app>` (e.g. `onyx`, only logged). Anything else in it is ignored; no
+  valid id = refused. Read by `parse` in `app/applink.py` (computer) and `parseTamkeenLink` in `web/js/applink.js`
+  (phone); both run the same cases, `tests/fixtures/applink_cases.json`.
+- **Computer**: Onyx starts `%LOCALAPPDATA%\Programs\ArabicPodcastStudio\ArabicPodcastStudio.exe <link>`. The
+  installer now also registers the `tamkeen` protocol for the user (`HKCU\Software\Classes\tamkeen`, removed on
+  uninstall), so a `tamkeen://` link opened anywhere does the same. `run.py` takes the link as its one positional
+  argument (anything not starting `tamkeen:` is ignored and the app just starts).
+  - Single instance: every run writes `instance.json` in the data folder (`{port, pid, token}`, a new secret each
+    run; deleted on a clean exit). A second launch with a link reads it, lets that pid come to the front
+    (`AllowSetForegroundWindow`), POSTs the link to `/api/app/open-link` with the secret in the
+    `X-Tamkeen-Token` header (never in an address; web pages are refused anyway by `same_origin_only`), and exits
+    (code 0) once the running app answered `{"app": "Tamkeen"}`. Nothing answering within 3 s (a file left by a
+    run that crashed) = start normally. A launch WITHOUT a link still opens a second window as before.
+  - The running app keeps the link (`applink.push`, newest 5), brings its window forward (`bring_forward`) and
+    sends the page the event `app_link`; the page (`openLinks` in `web/js/app.js`) collects it from
+    `POST /api/app/pending-links` and opens it with `watchVideo` (youtube.js; it now takes the start second).
+    A run started BY a link keeps it until the page has loaded and asks. No captions (live news streams):
+    the usual "No captions available for this video." as a red toast. First run not finished: "Choose the
+    language you're learning first, then open the video again."
+- **Phone (Android)**: Onyx sends ACTION_VIEW with data `tamkeen://watch?v=<id>` and
+  `setPackage("io.github.christiangilkey.arabicpodcaststudio")`. MainActivity has a VIEW/DEFAULT/BROWSABLE
+  intent-filter for scheme `tamkeen`, host `watch`; it was already `launchMode="singleTask"`, so a second link
+  reaches the open app (`appUrlOpen`) instead of stacking another. `openTamkeenLink` in `mobile/src/js/app.js`:
+  `appUrlOpen` while open, `App.getLaunchUrl()` on a cold start (once per launch link, remembered in
+  sessionStorage so a page reload doesn't reopen it); closes the in-app browser if open, toasts "Getting
+  captions…", `watchVideo`, errors as a red toast. `web/js/applink.js` added to `build-www.mjs`'s SHARED list.
+- **Tested**: `tests/test_applink.py` (42: every fixture case, the secret only in the header, foreign pages
+  refused, pending links taken once, hand-off to a real local server, stale/broken/wrong-secret files, `run.py`
+  exits without a window when handed off); `tests/js/applink.test.mjs` (same cases). 348 pytest, 390 JS pass.
+  **Live on this PC, the real desktop window run from source** (`.venv\Scripts\python run.py "tamkeen://watch?v=…"`,
+  with `APS_DATA_DIR` set to a throwaway folder): cold start opened Al Jazeera clip `7Lnekifl6Iw` in the player
+  (3.7 s); a second launch with `MuGmJGkojz4&t=30` exited in 0.4 s with code 0, the same window showed that video
+  at 0:30; the live stream `bNyUyrR0PHo` gave the "No captions available" toast. The installer script compiles
+  (Inno Setup 6, checked with a stand-in file list).
+- **NOT tested**: the packaged exe (needs a release build), the protocol registration (not installed here), and
+  anything on a phone (manifest and JS only; nothing native was changed).

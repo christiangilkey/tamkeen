@@ -85,7 +85,7 @@ function emit(event, data) {
 }
 function connectEvents() {
   const es = new EventSource("/api/events");
-  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "youtube_find", "reels", "reels_collections", "stt", "update"]) {
+  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "youtube_find", "app_link", "reels", "reels_collections", "stt", "update"]) {
     es.addEventListener(name, (e) => emit(name, JSON.parse(e.data)));
   }
   es.onopen = () => emit("reconnected", {});
@@ -239,6 +239,38 @@ on("youtube_find", async ({ token, candidates }) => {
   }
   api("/youtube/watch-result", { method: "POST", body: { token, ...result } }).catch(() => {});
 });
+
+// tamkeen://watch?v=<id> links from other apps (Onyx Calendar's News; see app/applink.py): the
+// server keeps them until this page asks, once it has loaded and whenever "app_link" says one came.
+let openingLinks = false;
+async function openLinks() {
+  if (openingLinks) return;
+  openingLinks = true;
+  try {
+    const { links } = await api("/app/pending-links", { method: "POST" });
+    const link = links && links[links.length - 1]; // several at once: the newest one
+    if (!link) return;
+    const s = state.status && state.status.settings;
+    if (!s || !s.welcome_seen || !s.study_language) {
+      toast("Choose the language you're learning first, then open the video again.", { error: true });
+      return;
+    }
+    const busy = toast("Getting captions…");
+    try {
+      const { watchVideo } = await import("./youtube.js");
+      await watchVideo(link.video_id, link.at ?? null);
+    } catch (e) {
+      toast(e.message || "Couldn't open this video.", { error: true }); // e.g. "No captions available for this video."
+    } finally {
+      busy.remove();
+    }
+  } catch (e) {
+    console.warn("Couldn't collect links from other apps", e);
+  } finally {
+    openingLinks = false;
+  }
+}
+on("app_link", openLinks);
 
 /** Open the in-app web browser (a second window with an "Import Page" button). `find`: opened by
  * "Find in a video" on a word, so its script takes the top result of the search itself. */
@@ -449,6 +481,7 @@ async function boot() {
   }
   window.addEventListener("hashchange", route);
   route();
+  openLinks(); // a link this run was started with (or that came while the page was loading)
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   startBadge();
   // After each sync, pass on the creature game's state in case another device saved a newer one.

@@ -52,5 +52,14 @@ Type: dirifempty; Name: "{autoprograms}\{#OldAppName}"
 Name: "{group}\{#AppName}"; Filename: "{app}\{#AppExe}"
 Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppExe}"; Tasks: desktopicon
 
+; tamkeen:// links (tamkeen://watch?v=<YouTube id>, used by Onyx Calendar) open in Tamkeen: Windows
+; starts the exe with the link as its argument (see app/applink.py). For this user only, so no admin
+; prompt; removed on uninstall.
+[Registry]
+Root: HKCU; Subkey: "Software\Classes\tamkeen"; ValueType: string; ValueName: ""; ValueData: "URL:Tamkeen"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "Software\Classes\tamkeen"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""
+Root: HKCU; Subkey: "Software\Classes\tamkeen\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: """{app}\{#AppExe}"",0"
+Root: HKCU; Subkey: "Software\Classes\tamkeen\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#AppExe}"" ""%1"""
+
 [Run]
 Filename: "{app}\{#AppExe}"; Description: "{cm:LaunchProgram,{#AppName}}"; Flags: nowait postinstall skipifsilent

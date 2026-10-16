@@ -365,6 +365,34 @@ export async function openYouTubeLink(url) {
   await openBrowser(url);
 }
 
+/**
+ * tamkeen://watch?v=<id> links from another app on the phone (Onyx Calendar's News; see applink.js):
+ * Android opens the app with the link (AndroidManifest.xml), and the video opens in the player the
+ * way one tapped on YouTube in the in-app browser does.
+ */
+let openingLink = false;
+async function openTamkeenLink(url) {
+  const { parseTamkeenLink } = await import("./applink.js");
+  const link = parseTamkeenLink(url);
+  if (!link || openingLink) return;
+  if (!settings.welcome_seen || !settings.study_language) {
+    toast("Choose the language you're learning first, then open the video again.", { error: true });
+    return;
+  }
+  openingLink = true;
+  try {
+    if (GoogleDriveAuth) GoogleDriveAuth.closeBrowser().catch(() => {}); // the in-app browser would cover the player
+    toast("Getting captions…");
+    const { watchVideo } = await import("./youtube.js");
+    await watchVideo(link.videoId, link.at);
+    emit("feeds", { refreshed: true });
+  } catch (e) {
+    toast(e.message || "Couldn't open this video.", { error: true }); // e.g. "No captions available for this video."
+  } finally {
+    openingLink = false;
+  }
+}
+
 let openingVideo = false;
 let browserListening = false;
 /** Open the in-app web browser (native screen with an "Import Page" button). */
@@ -889,6 +917,15 @@ async function boot() {
   // Sign-in tokens last an hour: keep the video streamer's copy fresh during long videos.
   setInterval(refreshMediaToken, 40 * 60 * 1000);
   if (App) {
+    // tamkeen://watch links: one that arrives while the app is open, and one that started it. (Not
+    // again after the page reloads, e.g. after Reset Tamkeen: Android keeps the starting link.)
+    App.addListener("appUrlOpen", ({ url }) => { openTamkeenLink(url); });
+    App.getLaunchUrl().then((r) => {
+      const url = r && r.url;
+      if (!url || sessionStorage.getItem("launchLinkOpened") === url) return;
+      sessionStorage.setItem("launchLinkOpened", url);
+      openTamkeenLink(url);
+    }).catch(() => {});
     App.addListener("resume", () => { syncNow().then(lookForEpisodes, lookForEpisodes); requestAnkiSync(3000); });
     App.addListener("backButton", () => {
       if (location.hash && location.hash !== "#/") history.back();

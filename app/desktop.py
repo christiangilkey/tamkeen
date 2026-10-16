@@ -19,7 +19,7 @@ from typing import Any
 import httpx
 import uvicorn
 
-from . import events, jobs, paths
+from . import applink, events, jobs, paths
 from .main import create_app, setup_logging
 from .version import APP_NAME
 
@@ -345,12 +345,23 @@ def _browser_mode(server: Server) -> None:
         pass
 
 
-def run(browser: bool = False, port: int | None = None, headless: bool = False) -> None:
+def run(browser: bool = False, port: int | None = None, headless: bool = False, link: str | None = None) -> None:
+    """`link`: a tamkeen://watch link this run was started with (see applink.py); its video opens
+    once the page has loaded."""
     setup_logging()
     os.environ["APS_DESKTOP"] = "0" if browser or headless else "1"
     server = Server(port or free_port())
     server.start()
     log.info("Server listening on %s", server.url)
+    try:
+        applink.write_instance(server.port)  # so a second launch hands its link to this one
+    except Exception:  # never let it stop the app from opening
+        log.exception("Couldn't write the instance file")
+    parsed = applink.parse(link)
+    if parsed:
+        applink.push(parsed)
+    elif link:
+        log.warning("Ignoring a link that isn't tamkeen://watch?v=<video id>: %r", link[:200])
     try:
         from . import companion
 
@@ -380,6 +391,7 @@ def run(browser: bool = False, port: int | None = None, headless: bool = False) 
         window = webview.create_window(APP_NAME, server.url, js_api=api, width=1280, height=860,
                                        min_size=(820, 560), text_select=True)
         api._window = window
+        applink.on_link(lambda: bring_forward(window))
         try:
             webview.start(private_mode=False, storage_path=str(paths.data_dir() / "webview"))
         except Exception as exc:
@@ -387,4 +399,6 @@ def run(browser: bool = False, port: int | None = None, headless: bool = False) 
             os.environ["APS_DESKTOP"] = "0"
             _browser_mode(server)
     finally:
+        applink.on_link(None)
+        applink.remove_instance()
         server.stop()
