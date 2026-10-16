@@ -105,6 +105,7 @@ function world(options = {}) {
     saveSettings: async (patch) => Object.assign(settings, patch),
     load: async () => saved && structuredClone(saved), save: async (state) => { saved = structuredClone(state); },
     changed: () => { changes++; }, emit: () => {}, now: () => clock,
+    languages: { names: { ar: "Arabic", es: "Spanish" }, valid: (c) => c === "ar" || c === "es", study: () => settings.study_language },
     source: { asset: async (path) => ({ text: async () => `[${path}] _tamkeen-naskh.woff2`, arrayBuffer: async () => new ArrayBuffer(8) }), audioFor: async () => null },
   };
   const sync = createAnkiSync(env);
@@ -115,7 +116,7 @@ function world(options = {}) {
     tick(seconds = 60) { clock += seconds; droid && droid.tick(seconds); },
     save(text, meaning, more = {}) {
       const v = { uid: `v${String(++n).padStart(20, "0")}`, text, meaning, notes: "", translation: "", sentence: "", deleted: 0,
-        created_at: clock, updated_at: clock, ...more };
+        language: "ar", created_at: clock, updated_at: clock, ...more };
       vocab.push(v);
       return v;
     },
@@ -265,7 +266,7 @@ test("a card moved to another deck is left where it is", async () => {
 
 test("a note with a card in another deck is not touched", async () => {
   const w = world();
-  const n = w.droid.make("Tamkeen", { Front: "chair", Back: "كرسي" }, { model: 901 });
+  const n = w.droid.make("Tamkeen – Arabic", { Front: "chair", Back: "كرسي" }, { model: 901 });  // a new learner's deck
   n.cards[1].deck = 50;
   w.before = w.other();
   const st = await w.sync.run();
@@ -345,4 +346,44 @@ test("the learner's own notes, added to a card in AnkiDroid, come back to the wo
   assert.equal(a.memo, "rhymes with kebab");
   assert.equal(a.notes, "common");
   w.untouched();
+});
+
+// ----- a deck per language -----
+
+test("each language's words go to its own deck; the old Tamkeen deck stays with the language most words are in", async () => {
+  const w = world();
+  const a = w.save("كتاب", "book"), b = w.save("قلم", "pen");
+  const gato = w.save("gato", "cat", { language: "es" });
+  // a card from before each language had its deck: the Spanish word's, in the old single deck
+  const [front, back] = ankiFields(gato);
+  w.droid.make("Tamkeen", { Front: front, Back: back }, { guid: `tk-${gato.uid}`, tags: ["tamkeen", `tamkeen-id::${gato.uid}`] });
+  const perro = w.save("perro", "dog", { language: "es" });
+  const st = await w.sync.run();
+  assert.deepEqual(st.decks, [{ language: "ar", name: "Tamkeen" }, { language: "es", name: "Tamkeen – Spanish" }]);
+  assert.equal(w.card(a).length, 1);
+  assert.equal(w.card(b).length, 1);
+  assert.equal(w.droid.inDeck("Tamkeen").length, 3, "the old Spanish card stays where it was, and is not made again");
+  assert.deepEqual(w.droid.inDeck("Tamkeen – Spanish").map((n) => n.tags[1]), [`tamkeen-id::${perro.uid}`]);
+  // a hand-made card in the Spanish deck becomes a Spanish word, even with an Arabic word's front
+  w.droid.make("Tamkeen – Spanish", { Front: "book", Back: "el libro" });
+  await w.sync.run();
+  const made = w.vocab.find((v) => v.text === "el libro");
+  assert.equal(made.language, "es");
+  assert.equal(w.card(a)[0].fields[0], "book", "the Arabic word's card is untouched");
+  w.untouched();
+});
+
+test("deck names can be changed in Settings, but two languages cannot share one", async () => {
+  const w = world();
+  w.save("كتاب", "book");
+  await assert.rejects(w.sync.options({ decks: { ar: "Mine", es: "mine" } }), /share/);
+  await assert.rejects(w.sync.options({ decks: { ar: "Mine", es: "Mine::Spanish" } }), /one inside the other/);
+  const st = await w.sync.options({ decks: { es: "Spanish words" } });
+  assert.deepEqual(st.decks, [{ language: "ar", name: "Tamkeen" }, { language: "es", name: "Spanish words" }]);
+});
+
+test("a new learner's decks are named after their languages", async () => {
+  const w = world();
+  const st = await w.sync.status();   // asked before any word is saved
+  assert.equal(st.deck, "Tamkeen – Arabic");
 });

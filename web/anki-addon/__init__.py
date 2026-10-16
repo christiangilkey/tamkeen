@@ -4,10 +4,11 @@ Tells the Tamkeen app on this computer how your Anki reviews are going, so they 
 creature: clearing what is due is the day's goal, and cards that become mature earn a bonus.
 For that, only numbers are sent (reviews, failed, matured, still due).
 
-When "Sync with Anki" is switched on in Tamkeen's settings, it also keeps one deck (called
-"Tamkeen" unless you rename it there) and your saved words in step, both ways: new words, edits and
-deletions, and each card's progress for Tamkeen to show. Only that one deck is read or changed;
-your other decks are never touched. Everything stays on this computer.
+When "Sync with Anki" is switched on in Tamkeen's settings, it also keeps your saved words and
+one deck per language you learn (such as "Tamkeen – Spanish"; the names are set in Tamkeen) in
+step, both ways: new words, edits and deletions, and each card's progress for Tamkeen to show.
+Only those decks are read or changed; your other decks are never touched. Everything stays on
+this computer.
 
 This file is the part that talks to Anki's window; the logic is in core.py (reports) and
 syncer.py (the deck).
@@ -148,11 +149,11 @@ def sync_now(tell: bool = False) -> None:
     _sync["busy"] = True
     totals = {"added": 0, "changed": 0, "removed": 0, "failed": 0}
 
-    def round_(number: int, applied, deck: str) -> None:
+    def round_(number: int, applied, decks: list) -> None:
         if mw.col is None:  # the profile was closed meanwhile
             return _finish("Anki's collection was closed before the sync finished.", False)
         try:
-            body, ids = syncer.request(mw.col, deck, number, applied, _remember_deleted(), mw.pm.name or "")
+            body, ids = syncer.request(mw.col, decks, number, applied, _remember_deleted(), mw.pm.name or "")
         except Exception as exc:
             return _finish(f"The deck could not be read: {exc}", tell)
 
@@ -166,17 +167,19 @@ def sync_now(tell: bool = False) -> None:
             reply, files = got or (None, {})
             if reply is None:
                 return _finish("Tamkeen stopped answering before the sync finished. It will carry on next time.", tell)
+            if not reply.get("enabled") and reply.get("retry"):
+                return _finish("Two of the Anki decks named in Tamkeen's settings clash. Nothing was synced.", tell)
             if not reply.get("enabled"):
                 return _finish("Sync with Anki is switched off in Tamkeen's settings.", tell)
             if reply.get("paused"):
                 return _finish("Tamkeen is linked to a different Anki collection (another profile). Nothing was "
                                "changed. Open Tamkeen's settings to choose which one to sync with.", tell)
             if reply.get("retry") and number < MAX_ROUNDS:
-                return round_(number + 1, None, reply["deck"])
+                return round_(number + 1, None, reply["decks"])
             if mw.col is None:
                 return _finish("Anki's collection was closed before the sync finished.", False)
             try:
-                done, again = syncer.carry_out(mw.col, deck, reply, files, ids)
+                done, again = syncer.carry_out(mw.col, reply, files, ids)
             except Exception as exc:
                 return _finish(f"The deck could not be changed: {exc}", tell)
             for key in totals:
@@ -187,7 +190,7 @@ def sync_now(tell: bool = False) -> None:
                 except Exception:
                     pass
             if again and number < MAX_ROUNDS:
-                return round_(number + 1, done, deck)  # confirms the changes to Tamkeen, and fetches the next batch
+                return round_(number + 1, done, decks)  # confirms the changes to Tamkeen, and fetches the next batch
             failed = f" {totals['failed']} could not be made and will be tried again." if totals["failed"] else ""
             _finish(f"Synced with Tamkeen. In Anki: {totals['added']} added, {totals['changed']} changed, "
                     f"{totals['removed']} removed.{failed}", tell)
@@ -202,7 +205,7 @@ def sync_now(tell: bool = False) -> None:
         timer = _sync["timer"]
         if timer is not None:
             timer.setInterval(max(1, int(config.get("minutes") or 10)) * 60 * 1000)
-        round_(1, None, config["deck"])
+        round_(1, None, config["decks"])
 
     _background(lambda: core.ask(url + "/sync/config", token), begin)
 

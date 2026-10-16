@@ -431,7 +431,8 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     # deck's name, whether the learner has agreed that deleting a word also deletes its Anki card, and
     # what the last sync did and is waiting on.
     "anki_sync": False,
-    "anki_deck": "Tamkeen",
+    "anki_deck": "Tamkeen",          # the single deck there was before each language had its own
+    "anki_decks": None,              # language -> deck name (app/anki_bridge.py deck_names); None until first used
     "anki_delete_ok": False,
     "anki_sync_state": None,
     # AI word definitions (users bring their own API key).

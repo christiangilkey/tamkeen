@@ -32,12 +32,13 @@ def card(w: dict[str, Any]) -> tuple[str, str]:
 
 def note(note_id: int, w: dict[str, Any] | None = None, *, guid: str | None = None, tags: list[str] | None = None,
          front: str | None = None, back: str | None = None, mod: int = 1500, reps: int | None = 0,
-         progress: Any = None, fields: bool = True) -> dict[str, Any]:
+         progress: Any = None, fields: bool = True, language: str | None = None) -> dict[str, Any]:
     """A note as the add-on or the phone reports it. Given a word, it holds that word's card."""
     f, b = card(w) if w else ("", "")
     return {"id": note_id, "guid": guid if guid is not None else f"hand{note_id}", "mod": mod, "tags": tags or [],
             "front": (front if front is not None else f) if fields else None,
-            "back": (back if back is not None else b) if fields else None, "reps": reps, "progress": progress}
+            "back": (back if back is not None else b) if fields else None, "reps": reps, "progress": progress,
+            **({"language": language} if language else {})}
 
 
 def own(note_id: int, w: dict[str, Any], **more: Any) -> dict[str, Any]:
@@ -126,6 +127,16 @@ def cases() -> dict[str, tuple[list[dict], list[dict], dict[str, dict], dict[str
         "fresh tamkeen is filled": ([], [own(10, w, progress={"state": "review"}), own(11, looked_up)], {}, {"delete_ok": True}),
         "card moved out of the deck": ([w, looked_up], [], {A: link(10, w)}, {"elsewhere": [A, B]}),
         # progress
+        # a deck per language
+        "two languages, each word to its own deck": ([w, word(B, "libro", "book", language="es")], [], {}, {}),
+        "a hand-made card in the Spanish deck becomes a Spanish word": (
+            [w], [note(20, guid="Hx7$s", front="book", back="libro", language="es")], {}, {}),
+        "a hand-made card is linked to the word of its deck's language": (
+            [w, word(B, "libro", "book", language="es", created_at=900.0)],
+            [note(20, guid="Hx7$s", front="book", back="el libro", language="es")], {}, {}),
+        "a Spanish word's card in the Arabic deck stays where it is": (
+            [word(B, "libro", "book", language="es")], [own(10, word(B, "libro", "book"), language="ar")],
+            {B: link(10, word(B, "libro", "book"))}, {}),
         "progress is copied": ([w], [own(10, w, progress=anki_sync.progress_record(2, 2, 3, 12, 9, 2, 7, 2, "1101"))], {A: link(10, w)}, {}),
     }
     return {name: (words, notes, links, {"now": NOW, "deleted_notes": {}, "elsewhere": [], "delete_ok": False,
@@ -142,6 +153,11 @@ PARSE = [
     ("<style>.a{}</style>x<script>1<2</script>", "<p>w</p><ul><li>one</li><li>two</li></ul>"),
     ("[a] and [b]", "w<br><i>(verb)</i><br>loose"),
 ]
+NAMES = {"ar": "Arabic", "es": "Spanish", "fr": "French"}
+DECK_CASES = [({}, ["ar", "es"]), ({"ar": "Tamkeen"}, ["ar", "es", "fr"]), ({"ar": " Mine ", "es": ""}, ["es"]),
+              ({"ar": "Tamkeen", "es": "tamkeen"}, []), ({"ar": "Tamkeen", "es": "Tamkeen::Spanish"}, []),
+              ({"ar": "Arabic::Tamkeen", "es": "Spanish"}, ["zz"])]
+FIRST_DECKS = [("Tamkeen", {"ar": 40, "es": 3}), ("My deck", {"es": 2, "ar": 2}), ("", {"fr": 1}), ("Tamkeen", {})]
 GUIDS = ["Hx7$a", "b", "", "tk-v123", "ß→字", "NBpR,!w~8("]
 PROGRESS = [(0, 0, 5, 0, 0, 0), (2, 2, -3, 40, 12, 3), (2, -1, 4, 40, 12, 3), (1, 1, 0, 0, 2, 0), (3, 3, 1, 9, 20, 5),
             (2, 2, 7, 21, 10, 1, 8, 2, "1111011111"), (2, 2, 7, 21, 1, 4)]
@@ -157,6 +173,9 @@ def fixture() -> dict[str, Any]:
         made["parse"].append({"front": front, "back": back, "card": anki_sync.parse_card(front, back), "word": w})
     made["uids"] = [[g, anki_sync.uid_from_guid(g)] for g in GUIDS]
     made["progress"] = [[list(args), anki_sync.progress_record(*args)] for args in PROGRESS]
+    made["decks"] = [[stored, codes, anki_sync.deck_map(stored, codes, NAMES), anki_sync.deck_problem(anki_sync.deck_map(stored, codes, NAMES))]
+                     for stored, codes in DECK_CASES]
+    made["firstDecks"] = [[old, counts, anki_sync.first_decks(old, counts)] for old, counts in FIRST_DECKS]
     return json.loads(json.dumps(made, ensure_ascii=False))
 
 
@@ -199,7 +218,7 @@ def test_only_front_back_and_tags_are_ever_written():
     for name in cases():
         plan = result(name)
         for made in plan["anki"]["create"]:
-            assert set(made) == {"uid", "guid", "front", "back", "tags"}, name
+            assert set(made) == {"uid", "guid", "front", "back", "tags", "language"}, name  # language picks the deck
         for change in plan["anki"]["update"]:
             assert set(change) <= {"note", "uid", "front", "back"}, name
         for tagged in plan["anki"]["tag"]:
@@ -435,3 +454,34 @@ def test_identity_is_read_from_guid_or_tag():
     assert anki_sync.note_uid({"guid": "tk-not a uid", "tags": ["tamkeen-id::nope", "tamkeen"]}) == ""
     assert anki_sync.uid_from_guid("Hx7$a") == anki_sync.uid_from_guid("Hx7$a") != anki_sync.uid_from_guid("Hx7$b")
     assert anki_sync.note_uid({"guid": "tk-" + anki_sync.uid_from_guid("Hx7$a")}) == anki_sync.uid_from_guid("Hx7$a")
+
+
+# ----- a deck per language -----
+
+def test_each_new_card_says_which_language_deck_it_goes_to():
+    plan = result("two languages, each word to its own deck")
+    assert [(c["uid"], c["language"]) for c in plan["anki"]["create"]] == [(A, "ar"), (B, "es")]
+
+
+def test_a_hand_made_card_takes_the_language_of_its_deck():
+    plan = result("a hand-made card in the Spanish deck becomes a Spanish word")
+    assert [(a["text"], a["meaning"], a["language"]) for a in plan["tamkeen"]["add"]] == [("libro", "book", "es")]
+    assert [c["uid"] for c in plan["anki"]["create"]] == [A], "the Arabic word with the same front is not taken for it"
+    plan = result("a hand-made card is linked to the word of its deck's language")
+    assert plan["links"][B]["note"] == 20 and plan["tamkeen"]["add"] == []
+
+
+def test_a_card_already_in_a_deck_stays_whatever_the_decks_language():
+    """Existing cards in the old single deck are neither moved, made again, nor taken for deleted."""
+    plan = result("a Spanish word's card in the Arabic deck stays where it is")
+    assert quiet(plan) and plan["links"][B]["note"] == 10
+
+
+def test_deck_names():
+    assert anki_sync.deck_map({}, ["ar", "es"], NAMES) == {"ar": "Tamkeen – Arabic", "es": "Tamkeen – Spanish"}
+    assert anki_sync.deck_map({"ar": "Tamkeen"}, ["ar", "es"], NAMES)["ar"] == "Tamkeen"
+    assert anki_sync.first_decks("Tamkeen", {"ar": 40, "es": 3}) == {"ar": "Tamkeen"}, "the old deck stays with most words"
+    assert anki_sync.first_decks("Tamkeen", {}) == {}
+    assert anki_sync.deck_problem({"ar": "Tamkeen", "es": "tamkeen"}).startswith("Two languages")
+    assert "one inside the other" in anki_sync.deck_problem({"ar": "Tamkeen", "es": "Tamkeen::Spanish"})
+    assert anki_sync.deck_problem({"ar": "Tamkeen", "es": "Tamkeen – Spanish"}) == ""

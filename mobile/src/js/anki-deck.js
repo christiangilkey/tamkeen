@@ -58,8 +58,10 @@ export function notetype(layout) {
 }
 
 /** The settings row of the deck's database: [conf, models, decks, dconf] as Anki's JSON texts. */
-export function collectionJson(layout, now) {
-  return [CONF, { [MODEL_ID]: notetype(layout) }, { 1: deck(1, "Default", now), [DECK_ID]: deck(DECK_ID, DECK, now) }, DECK_OPTIONS];
+export function collectionJson(layout, now, deckIds = { [DECK]: DECK_ID }) {
+  const decks = { 1: deck(1, "Default", now) };
+  for (const [name, id] of Object.entries(deckIds)) decks[id] = deck(id, name, now);
+  return [CONF, { [MODEL_ID]: notetype(layout) }, decks, DECK_OPTIONS];
 }
 
 const ENTITIES = { "&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&#x27;": "'" };
@@ -149,9 +151,19 @@ export function cardSchedule(progress, today, position) {
  * `reviewed(uid, today)`: for a word that has been through the vocab reviewer, what its answers
  * come to: { schedule, data, log } (`ankiCard` in web/js/review/fsrs.js); null for any other word.
  * Such a word takes its schedule, memory state and review log from that instead.
+ * `decks`: each language's deck name (anki-droid.js deckNames); a word goes to the deck of its
+ * language (`language` for a word that does not say). Without it every word goes to "Tamkeen".
+ * Anki files the cards by the deck's name, so they land in the same deck as the sync's.
  */
-export async function buildDeck(items, clips, layout, font, now = Date.now() / 1000, review = {}, today = dayNumber(new Date(now * 1000)), reviewed = () => null) {
+export async function buildDeck(items, clips, layout, font, now = Date.now() / 1000, review = {}, today = dayNumber(new Date(now * 1000)), reviewed = () => null,
+  decks = null, language = "") {
   const stamp = Math.floor(now), media = [[FONT_NAME, font]], notes = [], cards = [], log = [];
+  const deckIds = {};  // deck name -> its id in this file
+  const deckOf = (v) => {
+    const name = (decks || {})[v.language || ""] || (decks || {})[language || ""] || DECK;
+    if (!(name in deckIds)) deckIds[name] = DECK_ID + Object.keys(deckIds).length;
+    return deckIds[name];
+  };
   for (const [n, v] of items.entries()) {
     const [front, back] = ankiFields(v), names = clipNames(v.uid), mine = clips[v.uid] || {};
     let sound = "";
@@ -164,9 +176,9 @@ export async function buildDeck(items, clips, layout, font, now = Date.now() / 1
     notes.push({ id, values: [null, `tk-${v.uid || ""}`, MODEL_ID, saved, -1, ` ${TAG} `,
       [front, back, "", sound].join("\x1f"), sortText, await checksum(sortText), 0, ""] });
     const done = reviewed(v.uid, today);
-    if (!done) cards.push({ id, values: [null, id, DECK_ID, 0, saved, -1, ...cardSchedule((review || {})[v.uid], today, n + 1), 0, 0, 0, 0, ""] });
+    if (!done) cards.push({ id, values: [null, id, deckOf(v), 0, saved, -1, ...cardSchedule((review || {})[v.uid], today, n + 1), 0, 0, 0, 0, ""] });
     else {
-      cards.push({ id, values: [null, id, DECK_ID, 0, saved, -1, ...done.schedule, 0, 0, 0, 0, done.data] });
+      cards.push({ id, values: [null, id, deckOf(v), 0, saved, -1, ...done.schedule, 0, 0, 0, 0, done.data] });
       for (const [t, ...rest] of done.log) log.push({ id: t, values: [null, id, -1, ...rest] });
     }
   }
@@ -178,8 +190,9 @@ export async function buildDeck(items, clips, layout, font, now = Date.now() / 1
     return 0;
   });
   for (let i = 1; i < log.length; i++) if (log[i].id <= log[i - 1].id) log[i].id = log[i - 1].id + 1;
-  const [conf, models, decks, dconf] = collectionJson(layout, stamp).map((o) => JSON.stringify(o));
-  const rows = { col: [{ id: 1, values: [null, stamp, stamp * 1000, stamp * 1000, 11, 0, 0, 0, conf, models, decks, dconf, "{}"] }],
+  const [conf, models, deckJson, dconf] = collectionJson(layout, stamp, Object.keys(deckIds).length ? deckIds : undefined)
+    .map((o) => JSON.stringify(o));
+  const rows = { col: [{ id: 1, values: [null, stamp, stamp * 1000, stamp * 1000, 11, 0, 0, 0, conf, models, deckJson, dconf, "{}"] }],
     notes, cards, revlog: log, graves: [] };
   const db = sqliteFile(SCHEMA.map(([name, sql]) => ({ name, sql, rows: rows[name] })));
   const index = Object.fromEntries(media.map(([name], i) => [i, name]));

@@ -103,7 +103,8 @@ export const DEFAULTS = {
   // The two-way sync with one AnkiDroid deck (anki-droid.js): on or off, the deck's name, and whether
   // the learner has agreed that deleting a word also deletes its card.
   anki_sync: false,
-  anki_deck: "Tamkeen",
+  anki_deck: "Tamkeen",  // the single deck there was before each language had its own
+  anki_decks: null,      // language -> deck name (anki-droid.js deckNames); null until first used
   anki_delete_ok: false,
 };
 export const settings = { ...DEFAULTS };

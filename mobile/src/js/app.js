@@ -555,6 +555,8 @@ function exportDeck(url) {
     review: (settings.game_state && settings.game_state.review) || {},  // where each word stands in the battles
     // The vocab reviewer's answers decide the schedule of the words they cover.
     reviewed: (uid, today) => ankiCard((lib.reviews || {})[uid], today),
+    // Each word goes to its language's deck, the same one the AnkiDroid sync uses.
+    decks: anki.deckNames(), language: settings.study_language,
     // The audio a word's times refer to: its own clip (a word a friend shared), or the synced
     // copy of its episode. Other episodes (streamed originals, videos, pages) give no audio.
     audioFor: async (v) => {

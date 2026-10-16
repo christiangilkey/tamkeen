@@ -223,3 +223,15 @@ test("reviewed words take the same schedule, memory state and review log as on t
   assert.ok(rows(db, "SELECT flds FROM notes ORDER BY id")[0][0].includes("<br>Note: sounds like &#x27;kit-tab&#x27;: a kit of tabs<br>my uncle&#x27;s shop"));
   db.close();
 });
+
+test("words of different languages go to their language's decks in the file", needsSqlite, async () => {
+  const words = [{ ...vocab[0], language: "ar" }, { ...vocab[2], uid: "v9", language: "es" }, { ...vocab[3], language: undefined }];
+  const files = unzip(await buildDeck(words, {}, layout, font, py.now, {}, py.today, () => null,
+    { ar: "Tamkeen", es: "Tamkeen – Spanish" }, "es"));
+  const db = open(files["collection.anki2"]);
+  const decks = JSON.parse(rows(db, "SELECT decks FROM col")[0][0]);
+  const byId = Object.fromEntries(Object.values(decks).map((d) => [d.id, d.name]));
+  assert.deepEqual(rows(db, "SELECT did FROM cards ORDER BY id").map(([did]) => byId[did]),
+    ["Tamkeen", "Tamkeen – Spanish", "Tamkeen – Spanish"], "a word that does not say goes to the deck of the language being learned");
+  db.close();
+});

@@ -60,5 +60,6 @@ export async function vocabDeck(items, source, progress = () => {}) {
     text("anki-card/front.html"), text("anki-card/back.html"), text("anki-card/style.css"),
     source.asset("fonts/NotoNaskhArabic.woff2").then((r) => r.arrayBuffer()),
   ]);
-  return buildDeck(items, clips, { front, back, css }, new Uint8Array(font), Date.now() / 1000, source.review || {}, undefined, source.reviewed || (() => null));
+  return buildDeck(items, clips, { front, back, css }, new Uint8Array(font), Date.now() / 1000, source.review || {}, undefined, source.reviewed || (() => null),
+    source.decks || null, source.language || "");
 }

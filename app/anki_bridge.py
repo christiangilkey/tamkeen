@@ -19,7 +19,7 @@ import re
 import time
 from typing import Any
 
-from . import anki_deck, anki_sync, db, events, exporters, paths, sync
+from . import anki_deck, anki_sync, db, events, exporters, languages, paths, sync
 
 CREATE_PER_ROUND = 100   # new cards made per round (each may need two audio clips cut first)
 SYNC_MINUTES = 10        # how often the add-on syncs while Anki is open
@@ -33,13 +33,37 @@ def _state() -> dict[str, Any]:
     return dict(state) if isinstance(state, dict) else {}
 
 
+def deck_names() -> dict[str, str]:
+    """Each language's Anki deck, by language code ("es" -> "Tamkeen – Spanish"). The first time
+    this is asked, the single deck there used to be ("Tamkeen", or the name given it in Settings)
+    is kept for the language most saved words are in, so its cards stay where they are."""
+    settings = db.get_settings()
+    with db.session() as conn:  # every language's words, not only the ones on screen
+        counts = {r[0]: r[1] for r in conn.execute(
+            "SELECT language, COUNT(*) FROM vocab WHERE deleted = 0 AND language IS NOT NULL GROUP BY language")
+            if languages.valid(r[0])}
+    stored = settings.get("anki_decks")
+    if not isinstance(stored, dict):
+        stored = anki_sync.first_decks(str(settings.get("anki_deck") or ""), counts)
+        db.set_settings({"anki_decks": stored})
+    codes = set(counts) | {c for c in settings.get("learning_languages") or [] if languages.valid(c)} | {languages.study()}
+    return anki_sync.deck_map(stored, sorted(codes), languages.LANGUAGES)
+
+
 def deck_name() -> str:
-    return str(db.get_setting("anki_deck") or "").strip() or anki_sync.DEFAULT_DECK
+    """The deck of the language being learned now."""
+    return deck_names()[languages.study()]
+
+
+def _deck_list(decks: dict[str, str]) -> list[dict[str, str]]:
+    return [{"language": code, "name": name} for code, name in decks.items()]
 
 
 def config() -> dict[str, Any]:
     """What the add-on needs to know before it looks at anything."""
-    return {"enabled": bool(db.get_setting("anki_sync")), "deck": deck_name(), "minutes": SYNC_MINUTES}
+    decks = deck_names()
+    return {"enabled": bool(db.get_setting("anki_sync")), "decks": _deck_list(decks), "minutes": SYNC_MINUTES,
+            "deck": decks[languages.study()]}
 
 
 def _add(total: dict[str, dict[str, int]], more: dict[str, Any], side: str) -> None:
@@ -76,6 +100,7 @@ def _note(raw: dict[str, Any], today: datetime.date) -> dict[str, Any] | None:
                 "front": None if raw.get("front") is None else str(raw["front"]),
                 "back": None if raw.get("back") is None else str(raw["back"]),
                 "reps": None if raw.get("reps") is None else int(raw["reps"]),
+                "language": raw.get("language") if languages.valid(raw.get("language")) else None,
                 "progress": _progress(raw.get("progress"), today)}
     except (KeyError, TypeError, ValueError):
         return None
@@ -87,9 +112,14 @@ def run(body: dict[str, Any], now: float | None = None) -> dict[str, Any]:
     settings = db.get_settings()
     if not settings["anki_sync"]:
         return {"enabled": False}
-    deck = deck_name()
-    if str(body.get("deck") or "") != deck:
-        return {"enabled": True, "deck": deck, "retry": True}  # the deck was renamed in Settings meanwhile
+    decks = deck_names()
+    if not isinstance(body.get("decks"), list):
+        return {"enabled": False, "upgrade": True}  # an add-on from before each language had its deck
+    sent = {str(d.get("language")): str(d.get("name")) for d in body["decks"] if isinstance(d, dict)}
+    if sent != decks or anki_sync.deck_problem(decks):
+        # The decks were renamed in Settings meanwhile (or two of them clash: then nothing is synced
+        # until Settings has them apart, and the add-on stops after one more look).
+        return {"enabled": not anki_sync.deck_problem(decks), "decks": _deck_list(decks), "retry": True}
     state = _state()
     collection, profile = str(body.get("col") or ""), str(body.get("profile") or "")[:80]
     if state.get("col") and state["col"] != collection:
@@ -98,7 +128,7 @@ def run(body: dict[str, Any], now: float | None = None) -> dict[str, Any]:
         state["other"] = {"col": collection, "profile": profile}
         db.set_settings({"anki_sync_state": state})
         events.publish("anki", {"synced": False})
-        return {"enabled": True, "deck": deck, "paused": "collection"}
+        return {"enabled": True, "decks": _deck_list(decks), "paused": "collection"}
     state.update(col=collection, profile=profile, other=None)
 
     today = datetime.datetime.fromtimestamp(now).date()
@@ -111,7 +141,7 @@ def run(body: dict[str, Any], now: float | None = None) -> dict[str, Any]:
         plan = anki_sync.plan(words, notes, links, exporters.anki_fields, now=now, deleted_notes=deleted,
                               elsewhere=[str(u) for u in body.get("elsewhere") or []],
                               delete_ok=bool(settings["anki_delete_ok"]),
-                              language=str(settings.get("study_language") or ""))
+                              language=languages.study())
         _apply(conn, plan, "memo" in db._columns(conn, "vocab"))
         rows = {r["uid"]: r for r in conn.execute("SELECT * FROM vocab WHERE deleted = 0")}
 
@@ -124,13 +154,14 @@ def run(body: dict[str, Any], now: float | None = None) -> dict[str, Any]:
     for c in creates:
         names = anki_deck.clip_names(c["uid"])
         have = [names[part] for part in ("word", "sentence") if clips.get(c["uid"], {}).get(part)]
-        actions["create"].append({"uid": c["uid"], "guid": c["guid"], "tags": c["tags"], "media": have,
+        deck = decks.get(c["language"]) or anki_sync.default_deck(c["language"], languages.LANGUAGES)
+        actions["create"].append({"uid": c["uid"], "guid": c["guid"], "tags": c["tags"], "media": have, "deck": deck,
                                   "fields": {"Front": c["front"], "Back": c["back"],
                                              "TTS Input": "".join(f"[sound:{name}]" for name in have)}})
     for u in plan["anki"]["update"]:
         fields = {name: u[key] for key, name in (("front", "Front"), ("back", "Back")) if key in u}
         actions["update"].append({"note": u["note"], "fields": fields})
-    reply: dict[str, Any] = {"enabled": True, "deck": deck, "actions": actions,
+    reply: dict[str, Any] = {"enabled": True, "decks": _deck_list(decks), "actions": actions,
                              "more": len(plan["anki"]["create"]) > len(creates)}
     if creates:  # the card layout and its font, for an Anki that does not have them yet
         reply["notetype"] = {**anki_deck._layout(), "id": 0, "did": None}
@@ -161,10 +192,12 @@ def _apply(conn: Any, plan: dict[str, Any], has_memo: bool) -> None:
         if conn.execute("SELECT 1 FROM vocab WHERE uid = ?", (w["uid"],)).fetchone():
             continue
         conn.execute(
-            "INSERT INTO vocab(uid, text, norm, sentence, meaning, notes, translation, episode_title, created_at) "
-            "VALUES(?,?,?,?,?,?,?,?,?)",
+            "INSERT INTO vocab(uid, text, norm, sentence, meaning, notes, translation, episode_title, created_at, "
+            "language) VALUES(?,?,?,?,?,?,?,?,?,?)",
             (w["uid"], w["text"], arabic.normalize(w["text"]), w["sentence"], w["meaning"], w["notes"],
-             w["translation"], "", w["created_at"]))
+             w["translation"], "", w["created_at"],
+             # the language of the deck the card was made in; failing that, what its letters say
+             w["language"] if languages.valid(w.get("language")) else languages.detect(w["text"], languages.study())))
     for change in plan["tamkeen"]["update"]:
         for column, value in change["set"].items():
             if column in _PULLED and (column != "memo" or has_memo):
@@ -219,7 +252,8 @@ def status() -> dict[str, Any]:
     """Everything Settings shows about the sync."""
     settings, state = db.get_settings(), _state()
     return {
-        "enabled": bool(settings["anki_sync"]), "deck": deck_name(), "delete_ok": bool(settings["anki_delete_ok"]),
+        "enabled": bool(settings["anki_sync"]), "deck": deck_name(), "decks": _deck_list(deck_names()),
+        "deck_problem": anki_sync.deck_problem(deck_names()), "delete_ok": bool(settings["anki_delete_ok"]),
         "last_sync": state.get("last_sync"), "last": state.get("last") or _ZERO, "last_change": state.get("last_change"),
         "linked": state.get("linked") or 0, "profile": state.get("profile") or "", "other": state.get("other"),
         "held": _words(list(state.get("held") or [])), "missing": _words(list(state.get("missing") or [])),
@@ -227,12 +261,24 @@ def status() -> dict[str, Any]:
     }
 
 
-def set_options(enabled: bool | None = None, deck: str | None = None, delete_ok: bool | None = None) -> dict[str, Any]:
+def set_options(enabled: bool | None = None, deck: str | None = None, delete_ok: bool | None = None,
+                decks: dict[str, str] | None = None) -> dict[str, Any]:
+    """Switch the sync on or off, name the decks (``decks``: language -> name; ``deck`` names the
+    deck of the language being learned now), and agree to deleting cards."""
     values: dict[str, Any] = {}
     if enabled is not None:
         values["anki_sync"] = bool(enabled)
+    names = dict(deck_names())
     if deck is not None and deck.strip():
-        values["anki_deck"] = deck.strip()[:100]
+        names[languages.study()] = deck.strip()[:100]
+    for code, name in (decks or {}).items():
+        if languages.valid(code) and isinstance(name, str) and name.strip():
+            names[code] = name.strip()[:100]
+    if names != deck_names():
+        problem = anki_sync.deck_problem(names)
+        if problem:
+            raise ValueError(problem)
+        values["anki_decks"] = names
     if delete_ok is not None:
         values["anki_delete_ok"] = bool(delete_ok)
     if values:

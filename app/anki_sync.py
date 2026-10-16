@@ -9,18 +9,23 @@ against the other.
 
 The rules:
 
-  Scope       Only notes of the one chosen deck are ever passed in, so nothing else in a
-              person's Anki can be read, changed or removed from here. (The add-on and the
-              phone's plugin each refuse to touch a note they did not find in that deck.)
+  Scope       Each language being learned has a deck of its own ("Tamkeen – Spanish"; an older
+              single "Tamkeen" deck stays the deck of the language most of its words were in).
+              Only notes of those decks are ever passed in, so nothing else in a person's Anki can
+              be read, changed or removed from here. (The add-on and the phone's plugin each
+              refuse to touch a note they did not find in one of them.) A new word's card goes to
+              the deck of the word's language; a card already in one of the decks stays where it
+              is, whatever the deck's language, so nothing moves and nothing is doubled.
 
   Identity    A word is the same word everywhere by its uid. A note carries it as its guid
               (``tk-<uid>``: cards made by the add-on or by "Export for Anki") or as a tag
               (``tamkeen-id::<uid>``: cards made through AnkiDroid, which cannot set a guid, and
               hand-made cards once they are linked). Both travel with the note through Anki's
-              own sync. A note with neither is hand-made: it is linked to the word with the same
-              front text or the same word, and only when no word matches does it become a new
-              word, with a uid worked out from the note's own guid, so two devices that meet
-              the same hand-made note agree on its uid without talking to each other.
+              own sync. A note with neither is hand-made: it is linked to the word in the deck's
+              language with the same front text or the same word, and only when no word matches
+              does it become a new word, in the deck's language, with a uid worked out from the
+              note's own guid, so two devices that meet the same hand-made note agree on its uid
+              without talking to each other.
 
   Edits       Front and back are merged separately. The side that changed since the last sync
               wins; when both changed, the newer edit wins. From Anki only the meaning (or the
@@ -52,7 +57,7 @@ TAG = "tamkeen"                        # on every card Tamkeen makes (exporters.
 ID_TAG = "tamkeen-id::"                # + the word's uid
 DUPLICATE_TAG = "tamkeen-duplicate"    # a second card of one word, left for the learner to look at
 GUID_PREFIX = "tk-"                    # + the word's uid (exporters.anki_guid)
-DEFAULT_DECK = "Tamkeen"
+DEFAULT_DECK = "Tamkeen"  # the single deck there was before each language had its own
 
 _UID = re.compile(r"^v[0-9a-f]{1,40}$")
 _DROP = re.compile(r"<(script|style)\b[^>]*>.*?</\1\s*>", re.I | re.S)
@@ -109,6 +114,46 @@ def uid_from_guid(guid: str) -> str:
     """The uid a hand-made note's word gets. It depends only on the note's guid, which Anki keeps
     the same on every device, so the computer and the phone make the same word, not two."""
     return "v" + "".join(f"{_mix(guid, seed):08x}" for seed in (0x1F3D5B79, 0x2545F491, 0x9E3779B9))[:20]
+
+
+# ----- one deck per language -----
+
+def default_deck(code: str, names: Mapping[str, str]) -> str:
+    """The deck a language's words go to unless the learner named it: "Tamkeen – Spanish"."""
+    return f"{DEFAULT_DECK} – {names.get(code, code)}"
+
+
+def first_decks(old_name: str, counts: Mapping[str, int]) -> dict[str, str]:
+    """The deck names stored when languages first get a deck each. The one deck there was until
+    then ("Tamkeen", or whatever it was renamed to) stays the deck of the language most words are
+    in, so its cards neither move nor get made a second time. Other languages get their own."""
+    if not counts:
+        return {}
+    top = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[0][0]
+    return {top: (old_name or "").strip()[:100] or DEFAULT_DECK}
+
+
+def deck_map(stored: Mapping[str, Any] | None, codes: Iterable[str], names: Mapping[str, str]) -> dict[str, str]:
+    """Each language's deck: the name stored for it, else its default name."""
+    out = {code: name.strip()[:100] for code, name in (stored or {}).items() if isinstance(name, str) and name.strip()}
+    for code in codes:
+        out.setdefault(code, default_deck(code, names))
+    return dict(sorted(out.items()))
+
+
+def deck_problem(decks: Mapping[str, str]) -> str:
+    """Why these deck names cannot be used together ("" when they can): two languages may not
+    share a deck, and one deck may not sit inside another's."""
+    seen: dict[str, str] = {}
+    for code, name in sorted(decks.items()):
+        key = name.strip().lower()
+        if key in seen:
+            return f"Two languages cannot share the deck “{name}”."
+        for other in seen:
+            if key.startswith(other + "::") or other.startswith(key + "::"):
+                return f"“{name}” and “{seen[other]}” are one inside the other: give each language a deck of its own."
+        seen[key] = name
+    return ""
 
 
 # ----- reading a card back -----
@@ -235,15 +280,16 @@ def plan(words: Sequence[Mapping[str, Any]], notes: Sequence[Mapping[str, Any]],
 
     ``words``          every saved word, tombstones included: uid, text, meaning, notes,
                        translation, sentence, deleted, created_at, updated_at (and memo, if kept)
-    ``notes``          every note of the deck: id, guid, mod (seconds), tags (a list), front and
+    ``notes``          every note of the decks: id, guid, mod (seconds), tags (a list), front and
                        back (None when the note has no such fields), reps (None when unknown),
-                       progress (anything; stored as given)
+                       progress (anything; stored as given), language (its deck's language)
     ``links``          what the last sync agreed, by uid: note, tf, tb (the word's front and back
                        then), af, ab (the note's)
     ``render``         a word's (front, back): exporters.anki_fields
     ``deleted_notes``  notes Anki reports as deleted, by id as text: when (0 if unknown)
     ``elsewhere``      uids whose card exists in Anki outside the deck (moved out by the learner)
     ``delete_ok``      the learner has agreed that deleting a word removes its card
+    ``language``       the language of a word or note that does not say (the one being learned)
 
     Returns the changes for each side, the new links, and what is waiting on the learner.
     Writes to Anki are not assumed to have worked: a link moves on only once the next sync sees
@@ -299,25 +345,30 @@ def plan(words: Sequence[Mapping[str, Any]], notes: Sequence[Mapping[str, Any]],
                 anki["tag"].append({"note": extra["id"], "add": [DUPLICATE_TAG]})
                 duplicates += 1
 
-    # 3. Hand-made notes: the same front as a word's card, or the same word, means that word.
-    fronts: dict[str, list[str]] = {}
-    texts: dict[str, list[str]] = {}
+    # 3. Hand-made notes: the same front as a word's card, or the same word, means that word
+    #    (a word in the language of the note's deck).
+    def lang(item: Mapping[str, Any]) -> str:
+        return str(item.get("language") or language)
+
+    fronts: dict[tuple[str, str], list[str]] = {}
+    texts: dict[tuple[str, str], list[str]] = {}
     rendered: dict[str, tuple[str, str]] = {}
     for w in sorted(words, key=lambda w: (w.get("created_at") or 0, w["uid"])):
         if w.get("deleted") or w["uid"] in resolved:
             continue
         rendered[w["uid"]] = render(w)
-        fronts.setdefault(_key(parse_card(rendered[w["uid"]][0], "")["front"]), []).append(w["uid"])
-        texts.setdefault(_key(w.get("text") or ""), []).append(w["uid"])
+        fronts.setdefault((lang(w), _key(parse_card(rendered[w["uid"]][0], "")["front"])), []).append(w["uid"])
+        texts.setdefault((lang(w), _key(w.get("text") or "")), []).append(w["uid"])
     fresh: dict[str, dict[str, Any]] = {}
 
-    def take(index: dict[str, list[str]], key: str) -> str:
-        return next((u for u in index.get(key, []) if key and u not in resolved), "")
+    def take(index: dict[tuple[str, str], list[str]], key: tuple[str, str]) -> str:
+        return next((u for u in index.get(key, []) if key[1] and u not in resolved), "")
 
     for note in loose:
         card = parse_card(note["front"], note["back"])
-        uid = (take(fronts, _key(card["front"])) or take(texts, _key(card["text"]))
-               or take(texts, _key(card["front"])))
+        here = lang(note)
+        uid = (take(fronts, (here, _key(card["front"]))) or take(texts, (here, _key(card["text"])))
+               or take(texts, (here, _key(card["front"]))))
         if not uid:
             uid = uid_from_guid(str(note.get("guid") or note["id"]))
             if uid in resolved:  # (cannot happen with real guids; never give one word two cards)
@@ -331,14 +382,14 @@ def plan(words: Sequence[Mapping[str, Any]], notes: Sequence[Mapping[str, Any]],
         if uid in by_uid:
             continue
         note = resolved[uid]
-        made = word_from_note(note, language)
+        made = word_from_note(note, lang(note))
         if made is None:
             skipped += 1
             del resolved[uid]
             untagged.discard(note["id"])
             continue
         created = note["id"] / 1000 if 1e12 < note["id"] < now * 1000 else now
-        word = {"uid": uid, **made, "deleted": 0, "created_at": created, "updated_at": now}
+        word = {"uid": uid, **made, "language": lang(note), "deleted": 0, "created_at": created, "updated_at": now}
         tamkeen["add"].append({**word, "note": note["id"]})
         fresh[uid] = word
 
@@ -350,7 +401,7 @@ def plan(words: Sequence[Mapping[str, Any]], notes: Sequence[Mapping[str, Any]],
     def create(word: Mapping[str, Any]) -> None:
         front, back = rendered.get(word["uid"]) or render(word)
         anki["create"].append({"uid": word["uid"], "guid": guid_for(word["uid"]), "front": front, "back": back,
-                               "tags": [TAG, id_tag(word["uid"])]})
+                               "tags": [TAG, id_tag(word["uid"])], "language": lang(word)})
 
     def merge(word: Mapping[str, Any], note: Mapping[str, Any], link: Mapping[str, Any] | None) -> None:
         uid = word["uid"]

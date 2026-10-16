@@ -1,13 +1,13 @@
-"""The Tamkeen deck, read and written inside Anki.
+"""The Tamkeen decks (one per language being learned), read and written inside Anki.
 
 Tamkeen decides what a sync should change (the rules are in the app, app/anki_sync.py). This file
 only does two things for it, and guards both:
 
-  gather()  reads the notes of the one Tamkeen deck (and its sub-decks). Nothing else in the
+  gather()  reads the notes of a Tamkeen deck (and its sub-decks). Nothing else in the
             collection is read, except to learn whether a card Tamkeen made has been moved to
             another deck, so that it is not made a second time.
-  apply()   makes the changes Tamkeen asks for, and refuses any that reach outside the deck:
-            a note may be changed or deleted only if gather() found it in the deck just now.
+  apply()   makes the changes Tamkeen asks for, and refuses any that reach outside the decks:
+            a note may be changed or deleted only if gather() found it in one of them just now.
             Only the fields Front and Back are ever rewritten; the image field is never
             touched, and an existing card layout (with its timer) is never changed.
 
@@ -142,10 +142,11 @@ def _layout(col, notetype: dict):
     return model
 
 
-def apply(col, deck_name: str, actions: dict, notetype: dict | None, media, allowed: set) -> dict:
-    """Make Tamkeen's changes in the deck. ``media(name)`` gives a file's bytes (or None);
-    ``allowed`` is the set of note ids gather() found in the deck during this same sync.
-    Returns how many cards were added, changed and removed, and how many changes failed."""
+def apply(col, actions: dict, notetype: dict | None, media, allowed: set) -> dict:
+    """Make Tamkeen's changes in the decks. A new card names the deck of its word's language.
+    ``media(name)`` gives a file's bytes (or None); ``allowed`` is the set of note ids gather()
+    found in the decks during this same sync. Returns how many cards were added, changed and
+    removed, and how many changes failed."""
     done = {"added": 0, "changed": 0, "removed": 0, "tagged": 0, "failed": 0, "refused": 0}
 
     for name in actions.get("media") or []:
@@ -159,10 +160,14 @@ def apply(col, deck_name: str, actions: dict, notetype: dict | None, media, allo
 
     creates = actions.get("create") or []
     if creates and notetype:
-        deck_id = col.decks.id(deck_name)  # makes the deck when it is not there yet
+        deck_ids_by_name: dict[str, int] = {}
         model = _layout(col, notetype)
         for item in creates:
             try:
+                name = str(item.get("deck") or "Tamkeen")
+                if name not in deck_ids_by_name:
+                    deck_ids_by_name[name] = col.decks.id(name)  # makes the deck when it is not there yet
+                deck_id = deck_ids_by_name[name]
                 if col.db.scalar("select 1 from notes where guid = ?", item["guid"]):
                     continue  # this word's card exists already (in or out of the deck): never make a second
                 note = col.new_note(model)
@@ -231,15 +236,24 @@ def apply(col, deck_name: str, actions: dict, notetype: dict | None, media, allo
 
 # ----- one round of a sync, in the two halves that sit either side of the request to Tamkeen -----
 
-def request(col, deck_name: str, number: int, applied, deleted: dict, profile: str = "") -> tuple[dict, set]:
-    """What to send Tamkeen for round ``number``, and the ids of the deck's notes (for carry_out).
-    ``applied`` is what the round before changed; ``deleted`` is the add-on's list of deleted notes."""
-    found = gather(col, deck_name)
-    body = {"col": collection_id(col), "profile": profile, "deck": deck_name, "round": number,
-            "notes": found["notes"], "outside": found["outside"], "applied": applied,
+def request(col, decks: list, number: int, applied, deleted: dict, profile: str = "") -> tuple[dict, set]:
+    """What to send Tamkeen for round ``number``, and the ids of the decks' notes (for carry_out).
+    ``decks`` is Tamkeen's list of decks, [{language, name}]; each note is sent with the language of
+    the deck it is in. ``applied`` is what the round before changed; ``deleted`` is the add-on's list
+    of deleted notes."""
+    notes, ids, outside = [], set(), 0
+    for deck in decks:
+        found = gather(col, str(deck["name"]))
+        outside += found["outside"]
+        for note in found["notes"]:
+            if note["id"] not in ids:
+                notes.append({**note, "language": deck["language"]})
+                ids.add(note["id"])
+    body = {"col": collection_id(col), "profile": profile, "decks": decks, "round": number,
+            "notes": notes, "outside": outside, "applied": applied,
             "deleted": {key: (value.get("at") or 0) for key, value in deleted.items()},
-            "elsewhere": elsewhere(col, found["ids"])}
-    return body, found["ids"]
+            "elsewhere": elsewhere(col, ids)}
+    return body, ids
 
 
 def wanted_media(reply: dict) -> list[str]:
@@ -251,9 +265,9 @@ def wanted_media(reply: dict) -> list[str]:
     return names
 
 
-def carry_out(col, deck_name: str, reply: dict, files: dict, ids: set) -> tuple[dict, bool]:
+def carry_out(col, reply: dict, files: dict, ids: set) -> tuple[dict, bool]:
     """Make the changes in Tamkeen's answer. Returns what was done, and whether another round is
     needed (to confirm the changes to Tamkeen, or to fetch the next batch of new cards)."""
-    done = apply(col, deck_name, reply.get("actions") or {}, reply.get("notetype"), files.get, ids)
+    done = apply(col, reply.get("actions") or {}, reply.get("notetype"), files.get, ids)
     touched = bool(done["added"] or done["changed"] or done["removed"] or done["tagged"])
     return done, touched or bool(reply.get("more"))

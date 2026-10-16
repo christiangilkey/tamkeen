@@ -411,8 +411,10 @@ def export_vocab(fmt: str, folder: str | None = None, ids: str | None = None) ->
         review = game.get("review") if isinstance(game, dict) else None
         with db.session() as conn:
             answers = reviews.log(conn)  # the reviewer's record: it decides the schedule of the words it covers
+        from .. import anki_bridge  # each word goes to its language's deck, the same one the sync uses
+
         deck = anki_deck.build(items, _anki_clips(items), review=review if isinstance(review, dict) else None,
-                               reviews=answers)
+                               reviews=answers, decks=anki_bridge.deck_names(), language=languages.study())
         return Response(deck, media_type="application/octet-stream",
                         headers={"Content-Disposition": 'attachment; filename="tamkeen-vocab.apkg"'})
     raise HTTPException(400, "Format must be csv, anki or apkg.")

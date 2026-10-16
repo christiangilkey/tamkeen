@@ -51,3 +51,12 @@ test("planning does not change what it was given", () => {
     assert.equal(JSON.stringify([c.words, c.notes, c.links]), before, c.name);
   }
 });
+
+test("deck names per language match Python", () => {
+  const names = { ar: "Arabic", es: "Spanish", fr: "French" };
+  for (const [stored, codes, map, problem] of py.decks) {
+    assert.deepEqual(sync.deckMap(stored, codes, names), map);
+    assert.equal(sync.deckProblem(map), problem);
+  }
+  for (const [old, counts, first] of py.firstDecks) assert.deepEqual(sync.firstDecks(old, counts), first);
+});

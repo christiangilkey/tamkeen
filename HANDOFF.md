@@ -1270,6 +1270,31 @@ exported to Anki in the .apkg; "as fun to use as possible, visually interesting,
   seven cards, then "Today's cards cleared! +20 glow". The both-bonus was only unit-tested (battles need 100 words).
 
 ### Two-way Anki sync, computer and phone (2026-10-12, "two-way Anki sync" chat; committed on main as be04d5f; released in v0.15.0)
+- **A deck per language (2026-10-15, at the owner's choice, asked for by the main chat after 8996ff3; committed
+  locally on main, NOT pushed)**: "A separate Anki deck per language (e.g. 'Tamkeen – Arabic'), instead of one deck
+  for everything." Each language's words get their own deck, default name `Tamkeen – <English name>`, renamable per
+  language in Settings (two languages may not share a deck, and one deck may not sit inside another's; the app
+  refuses such names). Setting `anki_decks` (language -> name; computer `app/anki_bridge.py deck_names`, phone
+  `anki-droid.js deckNames`), filled the first time it is asked: **the old single deck ("Tamkeen", or whatever
+  `anki_deck` was renamed to) stays the deck of the language most saved words are in**, so an existing learner's
+  cards neither move nor get made again. A card already in any of the decks stays where it is whatever the deck's
+  language (an old Spanish card in the old "Tamkeen" deck keeps syncing there); only NEW cards go by the word's
+  language. A hand-made card takes the language of the deck it was made in, and is linked only to a word of that
+  language. The rules take every note with its deck's `language` (`anki_sync.plan`, `anki-sync.js`); new-card
+  actions carry `language`. The sync reads words of every language straight from the database / `lib.vocab`,
+  never from `/api/vocab` (which now shows one language). Words made from Anki cards are stored with the deck's
+  language. "Export for Anki" puts each word in its language's deck inside the one file (Anki files cards by deck
+  NAME on import, ids do not matter: checked with the anki library), so exports and the sync share decks.
+  Add-on is version 3.0 (`syncer.request(col, decks, ...)`, `apply`/`carry_out` without a deck name; the config
+  and every round carry `decks: [{language, name}]`; an older add-on is told the sync is off). **Learners must
+  install the add-on again.** The Java plugin is unchanged (every call already names its deck).
+  Tests: 4 new rule cases + deck-name parity, 4 new end-to-end tests (including an existing learner's "Tamkeen"
+  deck with a Spanish card in it: nothing added, removed or moved), 3 phone tests, 1 phone export test. Also run
+  by hand: the app on a port, the add-on v3 downloaded from it, a throwaway collection that already had a synced
+  "Tamkeen" deck (kept for Arabic, nothing doubled; a Spanish word went to "Tamkeen – Spanish"), and the Settings
+  panel's per-language names and its refusal of a shared name. 325 pytest (with the anki library), 376 JS.
+  Not done (owner's call): moving cards that sit in the "wrong" language's deck (e.g. old Spanish cards in "Tamkeen")
+  into their own deck. The sync never does it; Anki's Browse -> Change Deck does, without losing history.
 - **Pushed and released as v0.15.0 at the owner's request (2026-10-12)**: main (0864dbe) pushed, tag `v0.15.0` on
   that commit, release workflow green (tests, Windows/macOS/Linux installers, APK). The Java plugin compiled for
   the first time in that CI run. The release holds only committed code: other chats' unsaved edits to the reels

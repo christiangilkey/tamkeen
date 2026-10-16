@@ -13,6 +13,7 @@ Needs the ``anki`` library, which the app itself does not use. Without it these 
 from __future__ import annotations
 
 import importlib.util
+import json
 import os
 import shutil
 import sys
@@ -38,6 +39,7 @@ def load(name: str):
 
 core, syncer = load("core"), load("syncer")
 IMAGE = '<img src="my-own-picture.jpg">'
+DECK = "Tamkeen – Arabic"   # a new learner's Arabic deck (each language has its own)
 
 
 class World:
@@ -58,23 +60,23 @@ class World:
         totals = {"added": 0, "changed": 0, "removed": 0, "failed": 0, "refused": 0, "rounds": 0}
         if not config["enabled"]:
             return {**totals, "off": True}
-        deck, applied = config["deck"], None
+        decks, applied = config["decks"], None
         for number in range(1, 41):
             core.note_deleted(self.deleted, syncer.pending_deletions(self.col), 0.0)
-            body, ids = syncer.request(self.col, deck, number, applied, self.deleted, "User 1")
+            body, ids = syncer.request(self.col, decks, number, applied, self.deleted, "User 1")
             reply = self.client.post("/api/anki/sync", json=body, headers=self.headers).json()
             self.last = reply
             totals["rounds"] = number
             if reply.get("paused") or not reply.get("enabled"):
                 return {**totals, "paused": reply.get("paused")}
             if reply.get("retry"):
-                deck = reply["deck"]
+                decks = reply["decks"]
                 continue
             files = {}
             for wanted in syncer.wanted_media(reply):
                 got = self.client.get(f"/api/anki/media/{wanted}", headers=self.headers)
                 files[wanted] = got.content if got.status_code == 200 else None
-            applied, again = syncer.carry_out(self.col, deck, reply, files, ids)
+            applied, again = syncer.carry_out(self.col, reply, files, ids)
             for key in ("added", "changed", "removed", "failed", "refused"):
                 totals[key] += applied[key]
             if not again:
@@ -92,7 +94,7 @@ class World:
         return self.client.get("/api/anki/sync/status").json()
 
     # Anki
-    def notes(self, deck: str = "Tamkeen") -> list:
+    def notes(self, deck: str = DECK) -> list:
         return [self.col.get_note(i) for i in self.col.find_notes(f'"deck:{deck}"')]
 
     def note(self, uid: str):
@@ -141,7 +143,7 @@ def test_nothing_happens_while_the_sync_is_switched_off(world):
     world.client.post("/api/anki/sync/options", json={"enabled": False})
     world.save("كتاب", "book")
     assert world.sync()["off"] is True
-    assert world.col.decks.id_for_name("Tamkeen") is None, "no deck is made in an Anki that has not been asked"
+    assert world.col.decks.id_for_name(DECK) is None, "no deck is made in an Anki that has not been asked"
 
 
 def test_the_add_on_is_refused_without_its_token(world):
@@ -216,7 +218,7 @@ def test_edits_travel_both_ways_and_the_image_field_is_never_written(world):
 
 def test_a_hand_made_card_becomes_a_word_and_one_of_an_existing_word_is_linked(world):
     saved = world.save("كتاب", "book")
-    deck = world.col.decks.id("Tamkeen")
+    deck = world.col.decks.id(DECK)
     basic = world.col.models.by_name("Basic")
     for front, back in (("the book", "كِتَاب"), ("window", "شباك<br>افتح الشباك")):
         n = world.col.new_note(basic)
@@ -236,7 +238,7 @@ def test_a_hand_made_card_becomes_a_word_and_one_of_an_existing_word_is_linked(w
 def test_review_progress_is_read_and_anki_keeps_its_own_schedule(world):
     saved = world.save("كتاب", "book")
     world.sync()
-    world.col.decks.select(world.col.decks.id_for_name("Tamkeen"))
+    world.col.decks.select(world.col.decks.id_for_name(DECK))
     card = world.col.sched.getCard()
     world.col.sched.answerCard(card, 1)   # wrong
     card = world.col.sched.getCard()
@@ -308,7 +310,7 @@ def test_a_different_collection_is_left_alone_until_the_learner_says_so(world, t
     second = World(world.client, tmp_path, "another-profile")
     second.col.db.execute("update col set crt = crt + 86400")  # made on another day: another collection
     done = second.sync()
-    assert done.get("paused") == "collection" and second.col.decks.id_for_name("Tamkeen") is None
+    assert done.get("paused") == "collection" and second.col.decks.id_for_name(DECK) is None
     assert world.status()["other"]["profile"] == "User 1"
     world.client.post("/api/anki/sync/resolve", json={"what": "collection", "choice": "adopt"})
     assert second.sync()["added"] == 1
@@ -318,7 +320,7 @@ def test_a_different_collection_is_left_alone_until_the_learner_says_so(world, t
 def test_a_card_moved_to_another_deck_is_not_made_again(world):
     saved = world.save("كتاب", "book")
     world.sync()
-    card_ids = world.col.find_cards(f'"deck:Tamkeen"')
+    card_ids = world.col.find_cards(f'"deck:{DECK}"')
     spare = world.col.decks.id("Spare")
     world.col.set_deck(card_ids, spare)
     done = world.sync()
@@ -333,15 +335,15 @@ def test_the_add_on_refuses_to_touch_a_note_outside_the_deck(world):
     world.save("كتاب", "book")
     world.sync()
     outsider = world.col.find_notes('"deck:Other"')[0]
-    _, ids = syncer.request(world.col, "Tamkeen", 1, None, {})
+    _, ids = syncer.request(world.col, [{"language": "ar", "name": DECK}], 1, None, {})
     assert outsider not in ids
-    done = syncer.apply(world.col, "Tamkeen", {
+    done = syncer.apply(world.col, {
         "update": [{"note": outsider, "fields": {"Front": "hacked", "Back": "hacked"}}],
         "tag": [{"note": outsider, "add": ["tamkeen-id::vabc"]}], "delete": [outsider]}, None, lambda name: None, ids)
     assert done["refused"] == 3 and done["changed"] == done["removed"] == 0
     # And inside the deck, only Front and Back can be written: never the image field.
     inside = next(iter(ids))
-    done = syncer.apply(world.col, "Tamkeen", {"update": [{"note": inside, "fields": {"image": "x", "TTS Input": "y", "Front": "ok"}}]},
+    done = syncer.apply(world.col, {"update": [{"note": inside, "fields": {"image": "x", "TTS Input": "y", "Front": "ok"}}]},
                         None, lambda name: None, ids)
     note = world.col.get_note(inside)
     assert (note["Front"], note["image"], note["TTS Input"]) == ("ok", "", "")
@@ -350,7 +352,7 @@ def test_the_add_on_refuses_to_touch_a_note_outside_the_deck(world):
 def test_a_note_with_cards_in_two_decks_is_left_out(world):
     """A hand-made note whose second card lives in another deck is not Tamkeen's to change."""
     model = world.col.models.by_name("Basic (and reversed card)")
-    deck, other = world.col.decks.id("Tamkeen"), world.col.decks.id_for_name("Other")
+    deck, other = world.col.decks.id(DECK), world.col.decks.id_for_name("Other")
     n = world.col.new_note(model)
     n["Front"], n["Back"] = "chair", "كرسي"
     world.col.add_note(n, deck)
@@ -522,10 +524,85 @@ def test_the_add_on_is_quiet_when_tamkeen_is_closed_or_the_sync_is_off(world, ad
     world.client.post("/api/anki/sync/options", json={"enabled": False})
     addon.sync_now()
     addon.settle()
-    assert world.col.decks.id_for_name("Tamkeen") is None and addon.window.shown == []
+    assert world.col.decks.id_for_name(DECK) is None and addon.window.shown == []
     (tmp_path / "companion.json").unlink()   # Tamkeen is not running
     addon.sync_now()
     addon.settle()
     assert addon.window.shown == [] and not addon._sync["busy"]
     addon.sync_now(tell=True)                # asked for by hand: then it says why nothing happened
     assert addon.window.shown == ["Tamkeen isn't open right now. Open Tamkeen and try again."]
+
+
+
+# ----- a deck per language -----
+
+def test_each_language_gets_its_own_deck_and_a_hand_made_card_takes_its_decks_language(world):
+    arabic = world.save("كتاب", "book")
+    world.client.patch("/api/settings", json={"study_language": "es", "learning_languages": ["ar", "es"]})
+    spanish = world.save("libro", "book")
+    assert spanish["language"] == "es"
+    assert world.client.get("/api/anki/sync/status").json()["decks"] == [
+        {"language": "ar", "name": DECK}, {"language": "es", "name": "Tamkeen – Spanish"}]
+    assert world.sync()["added"] == 2
+    assert [n.guid for n in world.notes()] == [f"tk-{arabic['uid']}"]
+    assert [n.guid for n in world.notes("Tamkeen – Spanish")] == [f"tk-{spanish['uid']}"]
+    hand = world.col.new_note(world.col.models.by_name("Basic"))
+    hand["Front"], hand["Back"] = "book", "el libro"       # same front as the Arabic word's card
+    world.col.add_note(hand, world.col.decks.id_for_name("Tamkeen – Spanish"))
+    world.sync()
+    made = [v for v in world.client.get("/api/vocab").json() if v["text"] == "el libro"]  # shown while learning Spanish
+    assert len(made) == 1 and made[0]["language"] == "es"
+    assert len(world.notes()) == 1, "the Arabic deck is unchanged"
+
+
+def test_an_existing_learner_keeps_the_tamkeen_deck_and_nothing_is_doubled(world):
+    """Someone who synced (or imported) into the single "Tamkeen" deck before languages had decks."""
+    from app import db
+
+    db.set_settings({"anki_decks": None, "anki_deck": "Tamkeen"})   # as it was before
+    old = [world.save("كتاب", "book"), world.save("قلم", "pen")]
+    old_spanish = world.save("gato", "cat", episode_id=None)
+    with db.session() as conn:
+        conn.execute("UPDATE vocab SET language = 'es' WHERE uid = ?", (old_spanish["uid"],))
+    # their cards from before: all three in the one deck, the Spanish word's too
+    for v in old + [old_spanish]:
+        n = world.col.new_note(world.col.models.by_name("Basic"))
+        n["Front"], n["Back"], n.guid = v["meaning"], v["text"], f"tk-{v['uid']}"
+        world.col.add_note(n, world.col.decks.id("Tamkeen"))
+    decks = world.client.get("/api/anki/sync/status").json()["decks"]
+    assert {"language": "ar", "name": "Tamkeen"} in decks, "the old deck stays the deck of the language with most words"
+    done = world.sync()
+    assert done["added"] == 0 and done["removed"] == 0, "no card made twice, none taken for deleted"
+    assert world.col.decks.id_for_name("Tamkeen – Spanish") is None
+    assert len(world.notes("Tamkeen")) == 3 and world.status()["missing"] == [] and world.status()["moved"] == 0
+    new_spanish = world.save("perro", "dog")
+    with db.session() as conn:
+        conn.execute("UPDATE vocab SET language = 'es' WHERE uid = ?", (new_spanish["uid"],))
+    assert world.sync()["added"] == 1
+    assert [n.guid for n in world.notes("Tamkeen – Spanish")] == [f"tk-{new_spanish['uid']}"]
+    assert len(world.notes("Tamkeen")) == 3, "the old Spanish card stays where it was"
+
+
+def test_two_languages_cannot_share_a_deck(world):
+    reply = world.client.post("/api/anki/sync/options", json={"decks": {"ar": "Same", "es": "same"}})
+    assert reply.status_code == 400 and "share" in reply.json()["detail"]
+    reply = world.client.post("/api/anki/sync/options", json={"decks": {"ar": "Mine", "es": "Mine::Spanish"}})
+    assert reply.status_code == 400
+    assert world.client.post("/api/anki/sync/options", json={"decks": {"es": "Spanish words"}}).json()["decks"][1] == \
+        {"language": "es", "name": "Spanish words"}
+
+
+def test_export_for_anki_uses_each_words_language_deck(world):
+    import io
+    import sqlite3
+    import zipfile
+
+    world.save("كتاب", "book")
+    data = world.client.get("/api/vocab/export/apkg").content
+    folder = world.folder / "unzipped"
+    with zipfile.ZipFile(io.BytesIO(data)) as z:
+        z.extractall(folder)
+    conn = sqlite3.connect(folder / "collection.anki2")
+    decks = json.loads(conn.execute("select decks from col").fetchone()[0])
+    conn.close()
+    assert DECK in [d["name"] for d in decks.values()], "the same deck the sync uses"

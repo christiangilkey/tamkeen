@@ -1,4 +1,4 @@
-// Two-way sync between the saved words and one Anki deck: the rules, and nothing else.
+// Two-way sync between the saved words and the Anki decks (one per language): the rules, and nothing else.
 //
 // This is app/anki_sync.py line for line, for the phone (which syncs with AnkiDroid through
 // anki-droid.js). The rules themselves are explained at the top of that file. Both must give the
@@ -53,6 +53,42 @@ function mix(text, seed) {
   h ^= h >>> 13;
   h = Math.imul(h, 0xc2b2ae35) >>> 0;
   return (h ^ (h >>> 16)) >>> 0;
+}
+
+// ----- one deck per language -----
+
+/** The deck a language's words go to unless the learner named it: "Tamkeen – Spanish". */
+export const defaultDeck = (code, names) => `${DEFAULT_DECK} – ${names[code] || code}`;
+
+/** The deck names stored when languages first get a deck each: the one deck there was until then
+ * keeps its name for the language most words are in, so its cards neither move nor get made twice. */
+export function firstDecks(oldName, counts) {
+  const top = Object.entries(counts || {}).sort((a, b) => (b[1] - a[1]) || byText(a[0], b[0]))[0];
+  return top ? { [top[0]]: String(oldName || "").trim().slice(0, 100) || DEFAULT_DECK } : {};
+}
+
+/** Each language's deck: the name stored for it, else its default name. */
+export function deckMap(stored, codes, names) {
+  const out = {};
+  for (const [code, name] of Object.entries(stored || {})) if (typeof name === "string" && name.trim()) out[code] = name.trim().slice(0, 100);
+  for (const code of codes) if (!(code in out)) out[code] = defaultDeck(code, names);
+  return Object.fromEntries(Object.entries(out).sort((a, b) => byText(a[0], b[0])));
+}
+
+/** Why these deck names cannot be used together ("" when they can). */
+export function deckProblem(decks) {
+  const seen = new Map();
+  for (const [, name] of Object.entries(decks).sort((a, b) => byText(a[0], b[0]))) {
+    const key = name.trim().toLowerCase();
+    if (seen.has(key)) return `Two languages cannot share the deck “${name}”.`;
+    for (const [other, shown] of seen) {
+      if (key.startsWith(`${other}::`) || other.startsWith(`${key}::`)) {
+        return `“${name}” and “${shown}” are one inside the other: give each language a deck of its own.`;
+      }
+    }
+    seen.set(key, name);
+  }
+  return "";
 }
 
 /** The uid a hand-made note's word gets: it depends only on the note's guid, which Anki keeps the
@@ -199,19 +235,21 @@ export function plan(words, notes, links, render, { now, deletedNotes = {}, else
     }
   }
 
-  // 3. Hand-made notes: the same front as a word's card, or the same word, means that word.
+  // 3. Hand-made notes: the same front as a word's card, or the same word, means that word
+  //    (a word in the language of the note's deck).
+  const lang = (item) => String(item.language || language);
   const fronts = new Map(), texts = new Map(), rendered = new Map(), fresh = new Map();
   const put = (index, key, uid) => index.set(key, [...(index.get(key) || []), uid]);
   for (const w of [...words].sort((a, b) => ((a.created_at || 0) - (b.created_at || 0)) || byText(a.uid, b.uid))) {
     if (w.deleted || resolved.has(w.uid)) continue;
     rendered.set(w.uid, render(w));
-    put(fronts, normalize(parseCard(rendered.get(w.uid)[0], "").front), w.uid);
-    put(texts, normalize(w.text || ""), w.uid);
+    put(fronts, `${lang(w)}\0${normalize(parseCard(rendered.get(w.uid)[0], "").front)}`, w.uid);
+    put(texts, `${lang(w)}\0${normalize(w.text || "")}`, w.uid);
   }
-  const take = (index, key) => (key && (index.get(key) || []).find((u) => !resolved.has(u))) || "";
+  const take = (index, here, key) => (key && (index.get(`${here}\0${key}`) || []).find((u) => !resolved.has(u))) || "";
   for (const note of loose) {
-    const card = parseCard(note.front, note.back);
-    let uid = take(fronts, normalize(card.front)) || take(texts, normalize(card.text)) || take(texts, normalize(card.front));
+    const card = parseCard(note.front, note.back), here = lang(note);
+    let uid = take(fronts, here, normalize(card.front)) || take(texts, here, normalize(card.text)) || take(texts, here, normalize(card.front));
     if (!uid) {
       uid = uidFromGuid(String(note.guid || note.id));
       if (resolved.has(uid)) { skipped++; continue; }  // (cannot happen with real guids; never give one word two cards)
@@ -224,7 +262,7 @@ export function plan(words, notes, links, render, { now, deletedNotes = {}, else
   for (const uid of [...resolved.keys()].sort(byText)) {
     if (byUid.has(uid)) continue;
     const note = resolved.get(uid);
-    const made = wordFromNote(note, language);
+    const made = wordFromNote(note, lang(note));
     if (made === null) {
       skipped++;
       resolved.delete(uid);
@@ -232,7 +270,7 @@ export function plan(words, notes, links, render, { now, deletedNotes = {}, else
       continue;
     }
     const created = note.id > 1e12 && note.id < now * 1000 ? note.id / 1000 : now;
-    const word = { uid, ...made, deleted: 0, created_at: created, updated_at: now };
+    const word = { uid, ...made, language: lang(note), deleted: 0, created_at: created, updated_at: now };
     tamkeen.add.push({ ...word, note: note.id });
     fresh.set(uid, word);
   }
@@ -245,7 +283,7 @@ export function plan(words, notes, links, render, { now, deletedNotes = {}, else
   // 5. Word by word.
   const create = (word) => {
     const [front, back] = rendered.get(word.uid) || render(word);
-    anki.create.push({ uid: word.uid, guid: guidFor(word.uid), front, back, tags: [TAG, idTag(word.uid)] });
+    anki.create.push({ uid: word.uid, guid: guidFor(word.uid), front, back, tags: [TAG, idTag(word.uid)], language: lang(word) });
   };
 
   const merge = (word, note, link) => {

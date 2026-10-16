@@ -53,6 +53,7 @@ class SyncIn(BaseModel):
     col: str = ""
     profile: str = ""
     deck: str = ""
+    decks: list[dict[str, Any]] | None = None  # [{language, name}]: the Tamkeen decks the add-on read
     round: int = 1
     notes: list[dict[str, Any]] = []
     deleted: dict[str, float] = {}
@@ -87,6 +88,7 @@ def sync_media(name: str, x_tamkeen_token: str = Header(default="")) -> Response
 class SyncOptions(BaseModel):
     enabled: bool | None = None
     deck: str | None = None
+    decks: dict[str, str] | None = None  # language -> deck name
     delete_ok: bool | None = None
 
 
@@ -102,7 +104,10 @@ def sync_status() -> dict[str, Any]:
 
 @router.post("/sync/options")
 def sync_options(body: SyncOptions) -> dict[str, Any]:
-    return anki_bridge.set_options(body.enabled, body.deck, body.delete_ok)
+    try:
+        return anki_bridge.set_options(body.enabled, body.deck, body.delete_ok, body.decks)
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from exc
 
 
 @router.post("/sync/resolve")

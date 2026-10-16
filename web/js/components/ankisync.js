@@ -7,6 +7,7 @@
 // requests: /anki/sync/status, /anki/sync/options, /anki/sync/resolve, /anki/progress, /anki/linked/<uid>.
 
 import { api, esc, h, on, platform, toast } from "../app.js";
+import { langInfo } from "../languages.js";
 
 const phone = () => platform === "android";
 const anki = () => (phone() ? "AnkiDroid" : "Anki");
@@ -49,31 +50,40 @@ const names = (words) => {
 export function ankiSyncPanel(box) {
   box.innerHTML = `
     <label class="check"><input type="checkbox" class="as-on">
-      <span>Keep my saved words and my ${anki()} deck in step, both ways</span></label>
-    <p class="small muted">Only the one deck named below is ever read or changed: your other decks, notes and cards are never
-      touched. New words, edits and deletions travel both ways. A card you make by hand in that deck becomes a word here.
+      <span>Keep my saved words and my ${anki()} decks in step, both ways</span></label>
+    <p class="small muted">Each language you learn has its own deck, named below. Only those decks are ever read or changed: your
+      other decks, notes and cards are never touched. New words, edits and deletions travel both ways. A card you make by hand in
+      one of them becomes a word here, in that deck's language.
       Each card's review progress is shown on the Vocab page; Tamkeen never changes ${anki()}'s schedule, a card's picture, or the card layout.</p>
-    <div class="row">Deck: <input type="text" class="as-deck" maxlength="100" style="flex:1;min-width:120px">
-      <button type="button" class="as-deck-save">Save name</button></div>
+    <div class="as-decks stack"></div>
+    <div class="row"><button type="button" class="as-deck-save">Save deck names</button></div>
     <div class="as-state stack"></div>`;
   const $ = (q) => box.querySelector(q);
   let current = null;
 
-  const ask = (path, body) => api(path, { method: "POST", body }).then(paint, (e) => toast(e.message, { error: true }));
+  const ask = (path, body) => api(path, { method: "POST", body })
+    .then((st) => { paint(st); return st; }, (e) => { toast(e.message, { error: true }); });
   $(".as-on").onchange = (e) => ask("/anki/sync/options", { enabled: e.target.checked }).then(() => {
     if (e.target.checked && phone()) ask("/anki/sync/run", { ask: true });
   });
   $(".as-deck-save").onclick = () => {
-    const deck = $(".as-deck").value.trim();
-    if (!deck) return toast("Give the deck a name.", { error: true });
-    ask("/anki/sync/options", { deck }).then(() => toast(`Syncing with the deck “${deck}”.`));
+    const decks = {};
+    for (const input of box.querySelectorAll(".as-deck")) decks[input.dataset.lang] = input.value.trim();
+    if (Object.values(decks).some((name) => !name)) return toast("Give each deck a name.", { error: true });
+    ask("/anki/sync/options", { decks }).then((st) => { if (st) toast("Deck names saved."); });
   };
 
   function paint(st) {
     if (!st || !box.isConnected) return;
     current = st;
     $(".as-on").checked = st.enabled;
-    if (document.activeElement !== $(".as-deck")) $(".as-deck").value = st.deck;
+    const rows = $(".as-decks");
+    if (!rows.contains(document.activeElement)) {
+      rows.innerHTML = (st.decks || [{ language: "", name: st.deck }]).map((d) => `<label class="row">
+        <span style="min-width:90px">${esc(d.language ? langInfo(d.language).name : "Deck")}</span>
+        <input type="text" class="as-deck" data-lang="${esc(d.language)}" maxlength="100" style="flex:1;min-width:120px"></label>`).join("");
+      rows.querySelectorAll(".as-deck").forEach((input, i) => { input.value = (st.decks || [{ name: st.deck }])[i].name; });
+    }
     const out = $(".as-state");
     if (!st.enabled) {
       out.innerHTML = phone() ? "" : `<p class="small muted">Switching this on needs the add-on below (version 2 or later) installed in Anki.</p>`;
@@ -81,7 +91,8 @@ export function ankiSyncPanel(box) {
     }
     const parts = [];
     if (st.problem) parts.push(`<p class="small" style="color:var(--danger)">${esc(st.problem)}</p>`);
-    parts.push(`<p class="small ${st.problem ? "muted" : ""}">Last synced ${when(st.last_sync)}${st.linked ? ` · ${st.linked} words have a card in the deck` : ""}
+    if (st.deck_problem && st.deck_problem !== st.problem) parts.push(`<p class="small" style="color:var(--danger)">${esc(st.deck_problem)} Nothing is synced until the names are apart.</p>`);
+    parts.push(`<p class="small ${st.problem ? "muted" : ""}">Last synced ${when(st.last_sync)}${st.linked ? ` · ${st.linked} words have a card in the decks` : ""}
       <br>Sent to ${anki()}: ${tally(st.last.to_anki)}<br>Received from ${anki()}: ${tally(st.last.to_tamkeen)}
       ${st.last_change && st.last_change.at !== st.last_sync ? `<br><span class="muted">Last sync that changed anything (${when(st.last_change.at)}): sent ${tally(st.last_change.to_anki)}; received ${tally(st.last_change.to_tamkeen)}</span>` : ""}</p>`);
     if (st.other) {
@@ -176,7 +187,7 @@ export async function confirmDelete(v) {
   if (st.delete_ok) return confirm(`Delete “${v.text}” from your vocab?\n\nIts card in ${anki()}, with that card's review history, will be removed too.`);
   const dlg = h(`<dialog class="help-dialog">
     <h2>This also deletes the ${anki()} card</h2>
-    <p>“<span dir="auto">${esc(v.text)}</span>” has a card in your ${esc(st.deck)} deck in ${anki()}. Deleting the word here removes that card at the next sync,
+    <p>“<span dir="auto">${esc(v.text)}</span>” has a card in your ${esc(((st.decks || []).find((d) => d.language === v.language) || { name: st.deck }).name)} deck in ${anki()}. Deleting the word here removes that card at the next sync,
       <strong>together with the card's review history in ${anki()}. That cannot be undone.</strong></p>
     <p style="margin-top:10px">If you go ahead, deleting a word will remove its card from now on without this question.</p>
     <div class="help-actions" style="margin-top:18px">

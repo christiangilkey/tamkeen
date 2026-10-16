@@ -146,17 +146,27 @@ def card_schedule(progress: Any, today: int, position: int) -> tuple[int, int, i
 
 def build(items: Sequence[dict[str, Any]], clips: Mapping[str, Mapping[str, bytes]] | None = None,
           now: float | None = None, review: Mapping[str, Any] | None = None, today: int | None = None,
-          reviews: Mapping[str, Any] | None = None) -> bytes:
+          reviews: Mapping[str, Any] | None = None, decks: Mapping[str, str] | None = None,
+          language: str | None = None) -> bytes:
     """The .apkg for these words. ``clips`` gives a word's audio by its uid:
     ``{"word": mp3 bytes, "sentence": mp3 bytes}``, either or both. ``review`` gives a word's
     learning progress by its uid (the game's ``review`` records); ``today`` is the day number
     they are measured from (worked out from ``now`` unless given). ``reviews`` gives the vocab
-    reviewer's answers by uid (``[[t, rating, day, ms], ...]``)."""
+    reviewer's answers by uid (``[[t, rating, day, ms], ...]``). ``decks`` gives each language's deck
+    name (anki_bridge.deck_names): a word goes to the deck of its language (``language`` for a word
+    that does not say). Without it every word goes to one deck called "Tamkeen". Anki files the
+    cards by the deck's name, so they land in the same deck as the sync's."""
     clips, review, reviews = clips or {}, review or {}, reviews or {}
     stamp = int(time.time() if now is None else now)
     today = day_number(stamp) if today is None else today
     media: dict[str, bytes] = {FONT_NAME: (paths.web_dir() / "fonts" / "NotoNaskhArabic.woff2").read_bytes()}
     notes, cards, log = [], [], []
+    deck_ids: dict[str, int] = {}  # deck name -> its id in this file (Anki goes by the name)
+
+    def deck_of(v: Mapping[str, Any]) -> int:
+        name = (decks or {}).get(v.get("language") or "") or (decks or {}).get(language or "") or exporters.ANKI_DECK
+        return deck_ids.setdefault(name, DECK_ID + len(deck_ids))
+
     for n, v in enumerate(items):
         front, back = exporters.anki_fields(v)
         names = clip_names(v["uid"])
@@ -171,10 +181,10 @@ def build(items: Sequence[dict[str, Any]], clips: Mapping[str, Mapping[str, byte
                       "\x1f".join((front, back, "", sound)), sort_text, checksum, 0, ""))
         state = fsrs.replay(reviews.get(v["uid"]))
         if state is None:
-            cards.append((note_id, note_id, DECK_ID, 0, saved, -1, *card_schedule(review.get(v["uid"]), today, n + 1),
+            cards.append((note_id, note_id, deck_of(v), 0, saved, -1, *card_schedule(review.get(v["uid"]), today, n + 1),
                           0, 0, 0, 0, ""))
         else:
-            cards.append((note_id, note_id, DECK_ID, 0, saved, -1, *fsrs.anki_schedule(state, today),
+            cards.append((note_id, note_id, deck_of(v), 0, saved, -1, *fsrs.anki_schedule(state, today),
                           0, 0, 0, 0, fsrs.anki_data(state)))
             log += [(row[0], note_id, -1, *row[1:]) for row in fsrs.anki_log(reviews.get(v["uid"]))]
     # Each line of the review log is named by its time in milliseconds, and no two may share one.
@@ -189,10 +199,12 @@ def build(items: Sequence[dict[str, Any]], clips: Mapping[str, Mapping[str, byte
         conn = sqlite3.connect(db_file)
         try:
             conn.executescript(_SCHEMA)
-            decks = {"1": _deck(1, "Default", stamp), str(DECK_ID): _deck(DECK_ID, exporters.ANKI_DECK, stamp)}
+            in_file = {"1": _deck(1, "Default", stamp)}
+            for name, deck_id in (deck_ids or {exporters.ANKI_DECK: DECK_ID}).items():
+                in_file[str(deck_id)] = _deck(deck_id, name, stamp)
             conn.execute("INSERT INTO col VALUES(1,?,?,?,11,0,0,0,?,?,?,?,'{}')",
                          (stamp, stamp * 1000, stamp * 1000, json.dumps(_CONF), json.dumps({str(MODEL_ID): _layout()}),
-                          json.dumps(decks), json.dumps(_DECK_OPTIONS)))
+                          json.dumps(in_file), json.dumps(_DECK_OPTIONS)))
             conn.executemany("INSERT INTO notes VALUES(?,?,?,?,?,?,?,?,?,?,?)", notes)
             conn.executemany("INSERT INTO cards VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cards)
             conn.executemany("INSERT INTO revlog VALUES(?,?,?,?,?,?,?,?,?)", log)

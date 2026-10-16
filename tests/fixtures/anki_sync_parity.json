@@ -46,7 +46,8 @@
        "tags": [
         "tamkeen",
         "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
-       ]
+       ],
+       "language": "ar"
       },
       {
        "uid": "vbbbbbbbbbbbbbbbbbbbb",
@@ -56,7 +57,8 @@
        "tags": [
         "tamkeen",
         "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
-       ]
+       ],
+       "language": "ar"
       }
      ],
      "update": [],
@@ -1340,6 +1342,7 @@
        "translation": "",
        "sentence": "هذا قلم جديد",
        "notes": "a loose line",
+       "language": "ar",
        "deleted": 0,
        "created_at": 1700000000.001,
        "updated_at": 1800000000.0,
@@ -1432,6 +1435,7 @@
        "translation": "",
        "sentence": "",
        "notes": "",
+       "language": "ar",
        "deleted": 0,
        "created_at": 1700000000.002,
        "updated_at": 1800000000.0,
@@ -1517,6 +1521,7 @@
        "translation": "",
        "sentence": "",
        "notes": "",
+       "language": "ar",
        "deleted": 0,
        "created_at": 1800000000.0,
        "updated_at": 1800000000.0,
@@ -1697,7 +1702,8 @@
        "tags": [
         "tamkeen",
         "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
-       ]
+       ],
+       "language": "ar"
       }
      ],
      "update": [],
@@ -3563,7 +3569,8 @@
        "tags": [
         "tamkeen",
         "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
-       ]
+       ],
+       "language": "ar"
       }
      ],
      "update": [],
@@ -3634,7 +3641,8 @@
        "tags": [
         "tamkeen",
         "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
-       ]
+       ],
+       "language": "ar"
       }
      ],
      "update": [],
@@ -3942,7 +3950,8 @@
        "tags": [
         "tamkeen",
         "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
-       ]
+       ],
+       "language": "ar"
       },
       {
        "uid": "vbbbbbbbbbbbbbbbbbbbb",
@@ -3952,7 +3961,8 @@
        "tags": [
         "tamkeen",
         "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
-       ]
+       ],
+       "language": "ar"
       }
      ],
      "update": [],
@@ -4043,6 +4053,7 @@
        "translation": "",
        "sentence": "",
        "notes": "",
+       "language": "ar",
        "deleted": 0,
        "created_at": 1800000000.0,
        "updated_at": 1800000000.0,
@@ -4055,6 +4066,7 @@
        "translation": "The girl was ⟦confused⟧ by the question.",
        "sentence": "كانت البنت مرتبكة من السؤال.",
        "notes": "adjective · Dictionary form: اِرْتَبَكَ · Root: ر ب ك · Common in everyday speech.",
+       "language": "ar",
        "deleted": 0,
        "created_at": 1800000000.0,
        "updated_at": 1800000000.0,
@@ -4180,6 +4192,409 @@
      "vaaaaaaaaaaaaaaaaaaaa",
      "vbbbbbbbbbbbbbbbbbbbb"
     ],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "two languages, each word to its own deck",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    },
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "libro",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0,
+     "language": "es"
+    }
+   ],
+   "notes": [],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+       "front": "book",
+       "back": "<b>كتاب</b>",
+       "tags": [
+        "tamkeen",
+        "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+       ],
+       "language": "ar"
+      },
+      {
+       "uid": "vbbbbbbbbbbbbbbbbbbbb",
+       "guid": "tk-vbbbbbbbbbbbbbbbbbbbb",
+       "front": "book",
+       "back": "<b>libro</b>",
+       "tags": [
+        "tamkeen",
+        "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+       ],
+       "language": "es"
+      }
+     ],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {},
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 2,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "a hand-made card in the Spanish deck becomes a Spanish word",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    }
+   ],
+   "notes": [
+    {
+     "id": 20,
+     "guid": "Hx7$s",
+     "mod": 1500,
+     "tags": [],
+     "front": "book",
+     "back": "libro",
+     "reps": 0,
+     "progress": null,
+     "language": "es"
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+       "front": "book",
+       "back": "<b>كتاب</b>",
+       "tags": [
+        "tamkeen",
+        "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+       ],
+       "language": "ar"
+      }
+     ],
+     "update": [],
+     "delete": [],
+     "tag": [
+      {
+       "note": 20,
+       "add": [
+        "tamkeen-id::v81dd7d6e2418d7198fc5"
+       ]
+      }
+     ]
+    },
+    "tamkeen": {
+     "add": [
+      {
+       "uid": "v81dd7d6e2418d7198fc5",
+       "text": "libro",
+       "meaning": "book",
+       "translation": "",
+       "sentence": "",
+       "notes": "",
+       "language": "es",
+       "deleted": 0,
+       "created_at": 1800000000.0,
+       "updated_at": 1800000000.0,
+       "note": 20
+      }
+     ],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "v81dd7d6e2418d7198fc5": {
+      "note": 20,
+      "tf": "book",
+      "tb": "<b>libro</b>",
+      "af": "book",
+      "ab": "libro"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 1,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 1,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "a hand-made card is linked to the word of its deck's language",
+   "words": [
+    {
+     "uid": "vaaaaaaaaaaaaaaaaaaaa",
+     "text": "كتاب",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0
+    },
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "libro",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 900.0,
+     "updated_at": 2000.0,
+     "language": "es"
+    }
+   ],
+   "notes": [
+    {
+     "id": 20,
+     "guid": "Hx7$s",
+     "mod": 1500,
+     "tags": [],
+     "front": "book",
+     "back": "el libro",
+     "reps": 0,
+     "progress": null,
+     "language": "es"
+    }
+   ],
+   "links": {},
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [
+      {
+       "uid": "vaaaaaaaaaaaaaaaaaaaa",
+       "guid": "tk-vaaaaaaaaaaaaaaaaaaaa",
+       "front": "book",
+       "back": "<b>كتاب</b>",
+       "tags": [
+        "tamkeen",
+        "tamkeen-id::vaaaaaaaaaaaaaaaaaaaa"
+       ],
+       "language": "ar"
+      }
+     ],
+     "update": [],
+     "delete": [],
+     "tag": [
+      {
+       "note": 20,
+       "add": [
+        "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+       ]
+      }
+     ]
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vbbbbbbbbbbbbbbbbbbbb": {
+      "note": 20,
+      "tf": "book",
+      "tb": "<b>libro</b>",
+      "af": "book",
+      "ab": "el libro"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
+    "duplicates": 0,
+    "skipped": 0,
+    "counts": {
+     "to_anki": {
+      "added": 1,
+      "changed": 0,
+      "removed": 0
+     },
+     "to_tamkeen": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "a Spanish word's card in the Arabic deck stays where it is",
+   "words": [
+    {
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "text": "libro",
+     "meaning": "book",
+     "notes": "",
+     "translation": "",
+     "sentence": "",
+     "deleted": 0,
+     "created_at": 1000.0,
+     "updated_at": 2000.0,
+     "language": "es"
+    }
+   ],
+   "notes": [
+    {
+     "id": 10,
+     "guid": "tk-vbbbbbbbbbbbbbbbbbbbb",
+     "mod": 1500,
+     "tags": [
+      "tamkeen",
+      "tamkeen-id::vbbbbbbbbbbbbbbbbbbbb"
+     ],
+     "front": "book",
+     "back": "<b>libro</b>",
+     "reps": 0,
+     "progress": null,
+     "language": "ar"
+    }
+   ],
+   "links": {
+    "vbbbbbbbbbbbbbbbbbbbb": {
+     "note": 10,
+     "tf": "book",
+     "tb": "<b>libro</b>",
+     "af": "book",
+     "ab": "<b>libro</b>"
+    }
+   },
+   "options": {
+    "now": 1800000000.0,
+    "deleted_notes": {},
+    "elsewhere": [],
+    "delete_ok": false,
+    "language": "ar"
+   },
+   "plan": {
+    "anki": {
+     "create": [],
+     "update": [],
+     "delete": [],
+     "tag": []
+    },
+    "tamkeen": {
+     "add": [],
+     "update": [],
+     "remove": [],
+     "restore": []
+    },
+    "links": {
+     "vbbbbbbbbbbbbbbbbbbbb": {
+      "note": 10,
+      "tf": "book",
+      "af": "book",
+      "tb": "<b>libro</b>",
+      "ab": "<b>libro</b>"
+     }
+    },
+    "progress": {},
+    "held": [],
+    "missing": [],
+    "moved": [],
     "duplicates": 0,
     "skipped": 0,
     "counts": {
@@ -4631,6 +5046,125 @@
     "wrong": 4,
     "history": null
    }
+  ]
+ ],
+ "decks": [
+  [
+   {},
+   [
+    "ar",
+    "es"
+   ],
+   {
+    "ar": "Tamkeen – Arabic",
+    "es": "Tamkeen – Spanish"
+   },
+   ""
+  ],
+  [
+   {
+    "ar": "Tamkeen"
+   },
+   [
+    "ar",
+    "es",
+    "fr"
+   ],
+   {
+    "ar": "Tamkeen",
+    "es": "Tamkeen – Spanish",
+    "fr": "Tamkeen – French"
+   },
+   ""
+  ],
+  [
+   {
+    "ar": " Mine ",
+    "es": ""
+   },
+   [
+    "es"
+   ],
+   {
+    "ar": "Mine",
+    "es": "Tamkeen – Spanish"
+   },
+   ""
+  ],
+  [
+   {
+    "ar": "Tamkeen",
+    "es": "tamkeen"
+   },
+   [],
+   {
+    "ar": "Tamkeen",
+    "es": "tamkeen"
+   },
+   "Two languages cannot share the deck “tamkeen”."
+  ],
+  [
+   {
+    "ar": "Tamkeen",
+    "es": "Tamkeen::Spanish"
+   },
+   [],
+   {
+    "ar": "Tamkeen",
+    "es": "Tamkeen::Spanish"
+   },
+   "“Tamkeen::Spanish” and “Tamkeen” are one inside the other: give each language a deck of its own."
+  ],
+  [
+   {
+    "ar": "Arabic::Tamkeen",
+    "es": "Spanish"
+   },
+   [
+    "zz"
+   ],
+   {
+    "ar": "Arabic::Tamkeen",
+    "es": "Spanish",
+    "zz": "Tamkeen – zz"
+   },
+   ""
+  ]
+ ],
+ "firstDecks": [
+  [
+   "Tamkeen",
+   {
+    "ar": 40,
+    "es": 3
+   },
+   {
+    "ar": "Tamkeen"
+   }
+  ],
+  [
+   "My deck",
+   {
+    "es": 2,
+    "ar": 2
+   },
+   {
+    "ar": "My deck"
+   }
+  ],
+  [
+   "",
+   {
+    "fr": 1
+   },
+   {
+    "fr": "Tamkeen"
+   }
+  ],
+  [
+   "Tamkeen",
+   {},
+   {}
   ]
  ]
 }
