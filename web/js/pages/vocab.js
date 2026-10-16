@@ -9,6 +9,7 @@ import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages
 import * as social from "../social.js";
 import { icon } from "../icons.js";
 import { findInVideo, lacksAudio } from "../filmot.js";
+import { cardSentence, findWord } from "../cardtext.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
@@ -79,11 +80,10 @@ function ankiHelp() {
 }
 
 function highlight(sentence, word) {
-  const s = esc(sentence);
-  const w = esc(word);
-  if (!w) return s;
-  const at = s.indexOf(w);
-  return at < 0 ? s : `${s.slice(0, at)}<b>${w}</b>${s.slice(at + w.length)}`;
+  // Found whatever its vowel marks: a word saved with them sits unvowelled in a web page's text.
+  const at = findWord(sentence, word);
+  if (!at) return esc(sentence);
+  return `${esc(sentence.slice(0, at[0]))}<b>${esc(sentence.slice(at[0], at[1]))}</b>${esc(sentence.slice(at[1]))}`;
 }
 
 /** [from, to) in seconds for a date-range choice; null bounds mean open-ended. */
@@ -366,7 +366,7 @@ export async function render(view) {
           <input type="checkbox" class="pick" aria-label="Select word">
           <div class="word" ${langAttrs(detectLanguage(v.sentence || v.text))} style="flex:1"></div>
         </div>
-        ${v.sentence ? `<div class="sentence" ${langAttrs(detectLanguage(v.sentence || v.text))}>${highlight(v.sentence, v.text)}</div>` : ""}
+        ${v.sentence ? `<div class="sentence" ${langAttrs(detectLanguage(v.sentence || v.text))}>${highlight(cardSentence(v.sentence, v.text), v.text)}</div>` : ""}
         <div class="small muted" style="margin-top:6px">
           ${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}
           ${v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}${changed ? ` · changed ${fmtDate(v.updated_at)}` : ""}

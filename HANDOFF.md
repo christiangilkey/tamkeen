@@ -2199,3 +2199,36 @@ translated so English learners can use the app.
   reel search words.
 - Checked live in Spanish (every page scanned for English), Arabic (RTL screenshots) and Japanese. The
   phone build was built but NOT tried on a phone. Known leftover: `<pre>` text (About's "Loading…") stays English.
+
+### Cards the same size whatever they were saved from; the origin note on "Find in a video" (2026-10-15, "Vocab Page" chat; committed locally, NOT pushed)
+Owner (through the main chat, with a phone screenshot of a web-page card whose "sentence" was a whole paragraph):
+cards from text sources "should be exactly the same as the cards added from audio sources", and once "Find in a
+video" gives a card a video, "attach a note with the original source and the sentence from the text it was
+originally found in".
+- **Why web-page cards were big**: nothing was wrong with the sentence rule; news Arabic writes whole paragraphs
+  as ONE sentence joined by commas (the example is 300+ characters ending in its only full stop).
+- **`web/js/cardtext.js`** (new, shared with the phone via `build-www.mjs`): `cardSentence(sentence, word)` shows
+  at most `CARD_SENTENCE_MAX` = 110 characters: the clause the word is in (clauses end at ، , ; ؛ : . ! ? ؟ …
+  followed by a space), then neighbouring clauses while they fit (the one after first); a single clause longer
+  than that is cut by whole words; "…" marks a cut side. `cardTranslation` does the same around the ⟦ ⟧ part and
+  drops a mark the cut leaves without its partner. `findWord` finds the word ignoring vowel marks and letter
+  variants (أ/إ/آ, ى, ة). `fold` moved here from filmot.js (still exported from filmot.js).
+- **Display only; the saved sentence is never changed**, so existing cards are fixed too and nothing is lost.
+  Used by: the Vocab page's card (`vocab.js`, whose `highlight` now also uses `findWord`, so a vowelled word is lit
+  inside an unvowelled page sentence), the reviewer's back (`review.js`) and front (`deck.js` `prompt`, the
+  translation). **Not** applied to the Anki export (exporters.anki_fields + its JS twin, parity-tested): Anki
+  cards from web pages still carry the whole sentence.
+- **Origin note**: `startHunt` keeps `originNote(v)` = "First found in: <source title or 'typed in by hand'> —
+  <the whole original sentence>"; `watchFound` sends it as `note` to `POST /api/vocab/<id>/source`, which adds it
+  on a new line at the end of `memo` (My notes) unless already there (desktop `app/api/vocab.py`, phone
+  `backend.js`). A word typed in with no sentence gets no note.
+- Measured in a preview at 375 px wide (launch config `tamkeen-filmot`, port 8880, new data folder): the owner's
+  example card went from 666 px to 413 px tall; a YouTube card beside it is 395 px (the rest is the second line of
+  the sentence and the Find in a video button). Picture: `..\card-size-shots\text-card-before-after.png`.
+  Reviewer back showed the cut sentence with the word lit. Tests: `tests/js/cardtext.test.mjs` (8), one more in
+  `tests/test_filmot.py`; 384 JS and 304 pytest pass. Not checked on a phone.
+- **Asked, not built (waiting for the owner's choice through the main chat)**: "Find in a video" searching by
+  itself. Filmot cannot be searched automatically (no public API; its terms allow automated access only through
+  that API; searches sit behind a human check). Options put to the owner: the learner's own library (automatic,
+  allowed), YouTube's own search + reading the found videos' captions on the device, or Forvo (word-only
+  recordings by native speakers, paid API key, no sentence).

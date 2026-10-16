@@ -56,6 +56,7 @@ const SHARED = [
   "js/ytmedia.js",
   "js/youtube-browser.js",
   "js/filmot.js",
+  "js/cardtext.js",
   "js/filmot-browser.js",
   "js/youtube-home.js",
   "js/ytfollow.js",

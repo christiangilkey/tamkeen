@@ -13,6 +13,7 @@
 import { api, buzz, esc, fmtDate, h, platform, state as app, toast } from "../app.js";
 import { detectLanguage, langAttrs } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
+import { cardSentence } from "../cardtext.js";
 import { reward, trackStudy } from "../game/game.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
@@ -264,7 +265,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     face.innerHTML = `<div class="rv-back">
       <div class="rv-answer">
         <div class="rv-word" ${lang}></div>
-        ${v.sentence ? `<div class="rv-ans-sentence" ${lang}>${highlight(v.sentence, v.text)}</div>` : ""}
+        ${v.sentence ? `<div class="rv-ans-sentence" ${lang}>${highlight(cardSentence(v.sentence, v.text), v.text)}</div>` : ""}
         <div class="rv-listen">${hasWordAudio(v) ? `<button type="button" class="play-word">${ICON.sound} Word</button>` : ""}${hasSentenceAudio(v) ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}${hasWordAudio(v) || hasSentenceAudio(v) ? practiseButton() : ""}</div>
       </div>
       <div class="rv-details">

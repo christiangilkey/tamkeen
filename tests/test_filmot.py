@@ -93,3 +93,19 @@ def test_only_youtube_and_filmot_pages_may_hand_over_a_video(monkeypatch):
         api._window = _Window(elsewhere)
         assert api.watch_video(VIDEO, 5)["ok"] is False
     assert len(asked) == 8, "other websites reach nothing"
+
+
+def test_where_the_word_was_first_found_goes_on_the_end_of_its_own_notes(client):
+    word = client.post("/api/vocab", json={"text": "بقيت", "sentence": "a long sentence from a web page"}).json()
+    client.patch(f"/api/vocab/{word['id']}", json={"memo": "my mnemonic"})
+    ep = client.post("/api/youtube", json={"video_id": VIDEO, "title": "Video", "language": "ar", "lines": LINES}).json()
+    note = "First found in: A web page — a long sentence from a web page"
+    source = {"episode_id": ep["id"], "sentence": "أنا بقيت عمو؟!", "start": 3.8, "end": 4.4, "sent_start": 3.2, "sent_end": 5.0,
+              "note": note}
+    assert client.post(f"/api/vocab/{word['id']}/source", json=source).json()["memo"] == f"my mnemonic\n{note}"
+    again = client.post(f"/api/vocab/{word['id']}/source", json=source).json()
+    assert again["memo"] == f"my mnemonic\n{note}", "the same note is never added twice"
+    plain = client.post(f"/api/vocab/{word['id']}/source", json={**source, "note": ""}).json()
+    assert plain["memo"] == f"my mnemonic\n{note}", "no note leaves the learner's notes as they were"
+    other = client.post("/api/vocab", json={"text": "عمو"}).json()
+    assert client.post(f"/api/vocab/{other['id']}/source", json=source).json()["memo"] == note, "notes that were empty"

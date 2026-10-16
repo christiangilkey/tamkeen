@@ -11,6 +11,9 @@
 
 import { episodeLanguage, joinWords, regroupWords } from "./languages.js";
 import { sentenceBounds } from "./wordlookup.js";
+import { fold } from "./cardtext.js";
+
+export { fold };
 
 export const FILMOT = "https://filmot.com";
 
@@ -28,13 +31,6 @@ export function filmotAddress(word) {
 /** True when a saved word has nothing to listen to: no moment in an episode and no clip of its own. */
 export function lacksAudio(v) {
   return !((v.episode_id || v.clip) && v.start != null);
-}
-
-/** Text as it is compared: no vowel marks or punctuation, one spelling for the Arabic letters
- * that are written several ways, lower case. */
-export function fold(text) {
-  return String(text || "").normalize("NFC").replace(HARAKAT, "").replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه")
-    .replace(/[^\p{L}\p{N}\p{M}]+/gu, " ").trim().toLowerCase();
 }
 
 /**
@@ -85,7 +81,17 @@ const HUNT_MS = 30 * 60 * 1000;
 let hunt = null; // {id, text, since}
 
 export function startHunt(v, now = Date.now()) {
-  hunt = { id: v.id, text: v.text, since: now };
+  hunt = { id: v.id, text: v.text, note: originNote(v), since: now };
+}
+
+/** The note a word keeps about where it was first found, once a video replaces its sentence and
+ * source: that source's name and the whole original sentence (nothing of it is lost). Empty for a
+ * word that had neither. */
+export function originNote(v) {
+  const sentence = String((v && v.sentence) || "").replace(/\s+/g, " ").trim();
+  const title = String((v && v.episode_title) || "").replace(/\s+/g, " ").trim();
+  if (!sentence && !title) return "";
+  return `First found in: ${title || "typed in by hand"}${sentence ? ` — ${sentence}` : ""}`;
 }
 export function currentHunt(now = Date.now()) {
   if (hunt && now - hunt.since > HUNT_MS) hunt = null;
@@ -118,7 +124,7 @@ export async function watchFound(link, at = null) {
     try {
       const hit = findSpoken(await api(`/episodes/${ep.id}/transcript`), h.text, at, episodeLanguage(ep));
       if (hit) {
-        await api(`/vocab/${h.id}/source`, { method: "POST", body: { episode_id: ep.id, ...hit } });
+        await api(`/vocab/${h.id}/source`, { method: "POST", body: { episode_id: ep.id, ...hit, note: h.note || "" } });
         hunt = null;
         t = hit.sent_start;
         toast(`Saved this video and its sentence with “${h.text}”.`);

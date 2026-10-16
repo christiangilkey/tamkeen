@@ -627,8 +627,11 @@ const routes = [
     const sentence = (body.sentence || "").trim();
     if (!v || !e) throw new ApiError("Not found.");
     if (!sentence) throw new ApiError("There is no sentence to save.");
+    // Where the word was first found goes on the end of its own notes (see originNote in filmot.js).
+    const note = (body.note || "").trim();
+    const memo = note && !(v.memo || "").includes(note) ? [(v.memo || "").trim(), note].filter(Boolean).join("\n") : (v.memo || "");
     Object.assign(v, { episode_uid: e.uid, episode_title: e.title, sentence, start: body.start, end: body.end,
-                       sent_start: body.sent_start, sent_end: body.sent_end, translation: "", clip: 0, updated_at: now() });
+                       sent_start: body.sent_start, sent_end: body.sent_end, translation: "", clip: 0, memo, updated_at: now() });
     changed();
     return vocabOut(v);
   }],

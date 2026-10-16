@@ -2,6 +2,7 @@
 // the phone and tested in tests/js/review.test.mjs. The memory model itself is fsrs.js.
 
 import { RETENTION, nextWait, recall, replay } from "./fsrs.js";
+import { cardTranslation } from "../cardtext.js";
 
 export const NEW_CHOICES = [0, 5, 10, 20, 50];
 export const NEW_PER_DAY = 20;   // new words a day unless the learner chooses otherwise
@@ -77,7 +78,9 @@ function maskAnswer(text, word) {
  * to ask with.
  */
 export function prompt(v) {
-  const translation = clean(v.translation);
+  // Only the part around the word, so a card from a long web-page sentence is no bigger than one
+  // saved from a player (see cardtext.js).
+  const translation = cardTranslation(clean(v.translation));
   const marked = MARKED.test(translation);
   const pieces = (marked
     ? translation.split(/⟦([^⟦⟧]+)⟧/u).map((text, i) => [text, i % 2 === 1]).filter(([text]) => text)
