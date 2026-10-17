@@ -2566,6 +2566,8 @@ status pills running into "Filter by title".
      "reduce motion", not if the finger is already on it).
   The pinned chevron (the owner's option 4) was not built.
 - Phone Library: "Filter by title" now has its own line under the status pills (`mobile/src/css/mobile.css`).
+- Order of the kinds (owner, same day): Podcasts, YouTube, My webpages, Reels, My videos, My audio, in `KINDS`
+  (library.js: phone row and desktop side list) and the + sheet's `WAYS` (addsheet.js).
 - Rows that wrap instead of scrolling (Vocab folder chips, reels/YouTube chips, the creature card's buttons, the
   computer's status pills) get nothing; there is nothing hidden to hint at.
 - Checked in the preview: phone build at 375 px (peek 28–30% on both Library rows, fade, nudge called on both rows)

@@ -17,9 +17,9 @@ const WAYS = [
   { key: "podcast", label: "Podcast", icon: "podcast", text: "Paste a feed address, or choose from what's trending", step: true },
   { key: "youtube", label: "YouTube", icon: "video", text: "Find a video and watch it with clickable captions", step: true },
   { key: "page", label: "Web page", icon: "page", text: "Import an article to read with clickable words", step: true },
+  { key: "reels", label: "Reels", icon: "reel", text: "Short Instagram videos to watch on your phone" },
   { key: "video", label: "Video file", icon: "videofile", text: "A video of your own, from this device" },
   { key: "audio", label: "Audio file", icon: "audio", text: "A recording of your own, from this device" },
-  { key: "reels", label: "Reels", icon: "reel", text: "Short Instagram videos to watch on your phone" },
 ];
 
 /**

@@ -36,14 +36,14 @@ const KINDS = [
     empty: "No YouTube videos yet. Press + and choose YouTube." },
   { key: "pages", label: "My webpages", icon: "page", feed: PAGES_FEED,
     empty: "No webpages yet. Press + and choose Web page." },
-  { key: "videos", label: "My videos", icon: "videofile", feed: VIDEOS_FEED,
-    empty: "No videos of your own yet. Press + and choose Video file." },
-  { key: "audio", label: "My audio", icon: "audio", feed: AUDIO_FEED,
-    empty: "No audio of your own yet. Press + and choose Audio file." },
   // The reels themselves are listed here like every other kind; getting new ones has a page of
   // its own (pages/reels.js), reached from the + button.
   { key: "reels", label: "Reels", icon: "reel", feed: REELS_FEED,
     empty: "No reels yet. Press + and choose Reels." },
+  { key: "videos", label: "My videos", icon: "videofile", feed: VIDEOS_FEED,
+    empty: "No videos of your own yet. Press + and choose Video file." },
+  { key: "audio", label: "My audio", icon: "audio", feed: AUDIO_FEED,
+    empty: "No audio of your own yet. Press + and choose Audio file." },
 ];
 // Tapping something in a strip redraws the page; this carries how far down it was scrolled.
 let keepScroll = null;
