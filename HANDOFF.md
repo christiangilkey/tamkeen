@@ -515,6 +515,19 @@ once real art arrives). Real art replaces files one for one, same name and size.
 - Tested in the preview by loading the real friends.js with a stand-in for social.js (the preview copy is not
   signed in to Supabase): see how in this chat's transcript if needed again. Not tested on the phone.
 
+### Friends tab redesign (2026-10-16, forked chat; committed locally as 922bb62, NOT pushed)
+- `pages/friends.js` rewritten around a segmented control: Feed (my foldable profile card + friends'/guild-mates'
+  study cards, newest first), Friends (requests, Add a friend, Find a friend, my friends, sent requests), Guilds
+  (invitations, New guild, guild rows that open to show members). Segment remembered in localStorage
+  `friends:segment`; counts on the segments (requests, invitations).
+- One row layout `itemRow()` for people and guilds: lead (avatar / `.guild-emblem`), name + tags, status line from
+  `social.seenAgo` (`seenText()`: Online / Last seen N min/h/days ago / Not seen yet), game bar (if `gameOn()`),
+  `.row-act` line-icon buttons right-aligned. Confirmations use `confirmBox()` on `components/modal.js`.
+- New icons in icons.js: message, check, close, userplus, userminus, edit, leave, add (named `add`, not `plus`:
+  another chat was adding its own `plus` at the same time).
+- Before/after pictures: `../friends-redesign-shots/` (outside the repo). Tested in the preview with a stand-in for
+  social.js at 1100 px and 390 px; not with real accounts, not on a real phone.
+
 ## Next steps (in order)
 0. v0.5.0 is released. Test on the phone: video upload from phone,
    streaming + seeking, captions tap, transcript panel, folder sync. Phone-recorded HEVC video may not play in the
