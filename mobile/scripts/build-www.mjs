@@ -21,6 +21,8 @@ const SHARED = [
   "anki-card",
   "icons",
   "js/wordlookup.js",
+  "js/correction.js",
+  "js/fixword.js",
   "js/languages.js",
   "js/lexicon",
   "js/icons.js",

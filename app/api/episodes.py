@@ -11,7 +11,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, RedirectResponse, Response, StreamingResponse
 from pydantic import BaseModel
 
-from .. import db, events, exporters, jobs, languages, pages, sync, videos, youtube
+from .. import corrections, db, events, exporters, jobs, languages, pages, sync, videos, youtube
 
 router = APIRouter(tags=["episodes"])
 
@@ -184,6 +184,25 @@ def delete_episodes(body: DeleteIn) -> dict[str, int]:
 def cancel(episode_id: int) -> dict[str, bool]:
     jobs.cancel(episode_id)
     return {"ok": True}
+
+
+class CorrectIn(BaseModel):
+    first: int
+    last: int
+    expect: list[str]
+    words: list[str]
+
+
+@router.post("/episodes/{episode_id}/correct")
+def correct_words(episode_id: int, body: CorrectIn) -> dict[str, Any]:
+    """Change misheard words in the transcript (a word lookup found them; see app/corrections.py)."""
+    _episode(episode_id)
+    try:
+        out = corrections.correct_words(episode_id, body.first, body.last, body.expect, body.words)
+    except corrections.CorrectionError as exc:
+        raise HTTPException(409, str(exc)) from exc
+    sync.request(delay=30)  # the other devices get the corrected transcript
+    return out
 
 
 @router.get("/episodes/{episode_id}/transcript")

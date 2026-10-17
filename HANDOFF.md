@@ -2426,3 +2426,36 @@ in the settings on the webpage, then pull the word from the top videos of that q
   already chosen / no list / no language, form sent; Tagalog as "fil"), 1 in tests/test_filmot.py (`_find_language`).
   398 JS, 349 pytest pass. In the preview the button handed the window bridge
   `…/search/<word>/1?gridView=1&lang=ar` and {lang: "ar", values: ["ar"], names: ["Arabic"]}.
+
+#### Misheard words put right from the word popup (2026-10-17, "Media import" chat; committed locally on main, not pushed)
+The owner's request (via the main chat): when a tapped word is a speech-recognition mishearing or a misspelling,
+the AI should say so, the popup should show and define the right word, and the transcript should be fixed.
+- **The AI answer** (`web/js/definer.js`): both lookups (detailed and quick) have a `correction` field: "" or the
+  word actually said, filled only when the model is confident (`CORRECTION_RULES` in both prompts: never rare words,
+  names, dialect, slang or spelling variants). `cleanCorrection` drops one that only repeats the word or differs
+  in case/punctuation, or is longer than 4 words. `ctx.noCorrect` (after an Undo) tells the model the word is right.
+- **The cache** (`definer.lookup`, used by both `define-service.js` files, which now only supply load/save):
+  after an Undo the answer is kept under a separate "keep" key (`keepKey`); a keep key for the word and sentence
+  (here or synced from another device, since answer entries are never replaced across devices) means no answer
+  that corrects it is used and new ones are asked with `noCorrect`. `rememberAnswer` / `storeDefinition` put the
+  answer under the corrected sentence too, with `corrected_from`, so tapping the word again shows the correction
+  (with Undo) without a new question.
+- **The transcript**: `web/js/correction.js` (pure, tested; `planCorrection` keeps each word's punctuation, word
+  for word or one word to a short phrase; `replaceInText` changes only the changed words in the line) and
+  `web/js/fixword.js` (`wordFixer`: calls the API, updates the words on screen, redraws). Computer:
+  `POST /api/episodes/{id}/correct` {first, last, expect, words} → `app/corrections.py` (words, line text and
+  norm, `segments_fts`, and a new `transcribed_at` so sync sends it; 409 when the words no longer read `expect`).
+  Phone: the same route in `mobile/src/js/backend.js` (transcript, `transcript_rev`, `pending_transcripts`).
+  Undo is the same call the other way round.
+- **The popup** (`wordbubble.js`): actions `onCorrect(def)` / `onUndoCorrect(fix)`; shows the right word as the
+  headword and a line "Transcript said X · Undo" (or "(not changed in the transcript)" where it can't be
+  changed). Save saves the right word (`vocabFromDefinition` uses `def.correction`).
+- **Screens**: `player.js`, `reader.js` (title words are not stored, so they are never changed; offset =
+  `titleWords`), `reels.js` (new `contextAt`). Not changed where words are regrouped for display (Japanese,
+  Chinese): the popup still shows the right word.
+- Checked in the desktop preview with a stand-in AI answer: podcast, web page and reel (correct, the stored
+  transcript and line change, Save keeps the right word, tap again comes from the cache, Undo restores and the
+  word is asked again as written and then left alone); the phone's route in the phone preview on a temporary
+  page. **Not checked: a real AI provider (how often each model flags words, and whether it over-corrects
+  dialect), a real phone, and two real devices syncing a correction** (the sync path is covered by
+  `tests/test_corrections.py`). Tests: `tests/js/correction.test.mjs`, `tests/test_corrections.py`.

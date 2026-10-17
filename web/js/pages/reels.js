@@ -13,6 +13,7 @@ import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../word
 import { episodeLanguage, gap, joinWords, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
 import { createWordBubble, pauseAfterWord, pauseSwitch } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
+import { wordFixer } from "../fixword.js";
 import { lookupToggle } from "../components/lookupmode.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { markWord } from "../definer.js";
@@ -506,6 +507,19 @@ async function renderPlayer(view, { query }) {
   const bubble = createWordBubble($("#reel-pop"), {
     noAudio: !surface,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
+    // Misheard words, put right in this reel's words when a lookup finds them (fixword.js).
+    onCorrect: async (def) => {
+      const t = target;
+      const done = cur && cur.fixer ? await cur.fixer.apply(t, def) : null;
+      if (done && t === target) t.text = done.word;
+      return done;
+    },
+    onUndoCorrect: async (fx) => {
+      const t = target;
+      const back = await cur.fixer.undo(t, fx.from);
+      if (t === target) t.text = back.word;
+      return back;
+    },
     onPlayWord: () => target && playClip(cur.starts[target.i], cur.ends[target.j]),
     onPlaySentence: () => target && playClip(cur.starts[target.si], cur.ends[target.sj]),
     onPlayFrom: () => { if (target && surface) { clipEnd = null; surface.do("seek", cur.starts[target.i]); surface.do("play"); } },
@@ -580,19 +594,25 @@ async function renderPlayer(view, { query }) {
     surface.do("play");
   }
 
-  function define(i) {
-    const [si, sj] = sentenceBounds(cur.texts, cur.segOf, i, i);
+  /** Word i of the current reel, with its sentence: what a lookup is asked about. */
+  function contextAt(i, j = i) {
+    const [si, sj] = sentenceBounds(cur.texts, cur.segOf, i, j);
     const prev = si > 0 ? sentenceBounds(cur.texts, cur.segOf, si - 1) : null;
     const next = sj < cur.texts.length - 1 ? sentenceBounds(cur.texts, cur.segOf, sj + 1) : null;
-    const word = cur.texts[i].replace(EDGE_PUNCT, "") || cur.texts[i];
+    const word = joinWords(cur.texts.slice(i, j + 1), cur.lang).replace(EDGE_PUNCT, "") || cur.texts[i];
+    return { si, sj, word, ctx: {
+      word, lang: cur.lang, marked: markWord(cur.texts.slice(si, sj + 1), i - si, j - si, cur.lang),
+      before: prev ? sentence(prev[0], prev[1]) : "", after: next ? sentence(next[0], next[1]) : "",
+      podcast: `@${cur.ep.description || "Instagram"}`, episode: cur.ep.title,
+    } };
+  }
+
+  function define(i) {
+    const { si, sj, word, ctx } = contextAt(i);
     target = { i, j: i, si, sj, text: word };
     buzz("tick");
     playClip(cur.starts[i], cur.ends[i]);
-    bubble.show(cur.els[i], {
-      word, lang: cur.lang, marked: markWord(cur.texts.slice(si, sj + 1), i - si, i - si, cur.lang),
-      before: prev ? sentence(prev[0], prev[1]) : "", after: next ? sentence(next[0], next[1]) : "",
-      podcast: `@${cur.ep.description || "Instagram"}`, episode: cur.ep.title,
-    }, { saved: savedHere.has(savedKey(i, i)) });
+    bubble.show(cur.els[i], ctx, { saved: savedHere.has(savedKey(i, i)) });
     reward({ type: "word", key: `${cur.lang}:${word.toLowerCase()}` }, cur.els[i]);
     if (seen) seen.markSeen(i, i); // looked up: this word, in all its forms, is no longer new
   }
@@ -657,6 +677,14 @@ async function renderPlayer(view, { query }) {
       wordsEl.setAttribute("dir", langInfo(lang).dir);
       cur = { ep, lang, starts: Float64Array.from(W.start), ends: Float64Array.from(W.end), segOf: Int32Array.from(W.seg),
               texts: W.text, els: wordsEl.querySelectorAll(".w") };
+      const reel = cur;
+      cur.fixer = wordFixer({
+        episodeId: ep.id, texts: W.text, editable: W === data.words, contextFor: contextAt,
+        redraw: (first, last) => {
+          for (let k = first; k <= last; k++) reel.els[k].textContent = reel.texts[k];
+          if (seen && seen.analyze) seen.analyze();
+        },
+      });
       // The same colours as the other players: a word never tapped before is purple; a tap makes
       // every form of that word "seen" (js/lexicon/seen.js).
       seen = seenWords({ tokens: W.text, lang, els: cur.els });

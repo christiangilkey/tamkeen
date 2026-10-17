@@ -12,6 +12,7 @@ import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./le
 import { NativeHttp, isNative } from "./native.js";
 import { newEpisodeRecords, parseFeed } from "./rss.js";
 import * as cloud from "./transcribe-service.js";
+import { replaceInText } from "./correction.js";
 import * as phoneReels from "./reels-phone.js";
 import { anki, requestAnkiSync } from "./anki-phone.js";
 
@@ -446,6 +447,40 @@ const routes = [
     const e = episodeOf(m[1]);
     if (e && e.transcribe_requested_at) { e.transcribe_requested_at = null; e.updated_at = now(); changed(); }
     return { ok: true };
+  }],
+  // Misheard words, changed in place after a word lookup found them (as app/corrections.py does on
+  // the computer). The new transcript goes to Drive with the next sync, so the computer gets it too.
+  ["POST", /^\/episodes\/([\w]+)\/correct$/, async (m, q, body) => {
+    const e = episodeOf(m[1]);
+    if (!e || !e.transcript_rev) throw new ApiError("Episode not found.");
+    const first = Number(body.first), last = Number(body.last);
+    const expect = (body.expect || []).map(String);
+    const words = (body.words || []).map((w) => String(w).replace(/\s+/g, " ").trim());
+    const count = last - first + 1;
+    if (!(first >= 0) || !(count >= 1 && count <= 8) || expect.length !== count || words.length !== count
+        || words.some((w) => !w || w.length > 120)) throw new ApiError("That change doesn't fit the transcript.");
+    const t = await loadTranscript(e.uid);
+    if (!t || t.words.text.slice(first, last + 1).join("\u0000") !== expect.join("\u0000")) {
+      throw new ApiError("The transcript has changed since the word was looked up. Tap it again.");
+    }
+    const segs = new Set();
+    for (let k = 0; k < count; k++) segs.add(t.words.seg[first + k]);
+    for (const seg of segs) {
+      const idx = t.words.seg.map((s, i) => (s === seg ? i : -1)).filter((i) => i >= 0);
+      const old = idx.map((i) => t.words.text[i]);
+      const next = idx.map((i) => (i >= first && i <= last ? words[i - first] : t.words.text[i]));
+      if (t.segments[seg]) t.segments[seg][2] = replaceInText(t.segments[seg][2], old, next);
+    }
+    for (let k = 0; k < count; k++) t.words.text[first + k] = words[k];
+    const rev = now();
+    t.rev = rev;
+    await transcripts.put(e.uid, t);
+    Object.assign(e, { transcript_rev: rev, updated_at: rev });
+    const pending = new Set((await kv.get("pending_transcripts")) || []);
+    pending.add(e.uid);
+    await kv.set("pending_transcripts", [...pending]);
+    changed();
+    return { ok: true, transcribed_at: rev };
   }],
   ["GET", /^\/episodes\/([\w]+)\/transcript$/, async (m) => {
     const e = episodeOf(m[1]);

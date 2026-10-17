@@ -178,7 +178,8 @@ export function vocabFromDefinition(def, word, code) {
   ].filter(Boolean).join(" · ");
   const plain = def.sentence_translation || "";
   const translation = def.translation_marked || markMeaning(plain, def.meaning || "") || plain;
-  return { text: vowelled ? def.vocalized : word, meaning: def.meaning || "", notes, translation };
+  // (A misheard word is saved as the word that was said.)
+  return { text: vowelled ? def.vocalized : (def.correction || word), meaning: def.meaning || "", notes, translation };
 }
 
 // ---------- words with and without spaces ----------

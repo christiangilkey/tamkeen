@@ -15,6 +15,7 @@ import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefi
 import { statusInfo, isVideo } from "./library.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
+import { wordFixer } from "../fixword.js";
 import { lookupToggle } from "../components/lookupmode.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
@@ -656,8 +657,33 @@ export async function render(view, { id, query }) {
   // under the captions when a caption word was tapped (see defineAt).
   // Quick or detailed lookup: the switch sits with the play controls (podcasts, videos, YouTube).
   $("#speed").after(lookupToggle());
+  // Misheard words, put right in the transcript when a lookup finds them (fixword.js). Only where
+  // the words on screen are the stored ones (not Japanese or Chinese, regrouped for display).
+  const fixer = wordFixer({
+    episodeId: id, texts, editable: W === data.words, contextFor,
+    redraw: (first, last) => {
+      for (let k = first; k <= last; k++) {
+        wordEls[k].textContent = texts[k];
+        const c = capWord(k);
+        if (c) c.textContent = texts[k];
+      }
+      if (seen.analyze) seen.analyze(); // the changed words may be new to the learner, or not
+    },
+  });
   bubble = createWordBubble(vid && !yt ? $("#stage") : $(".transcript-wrap"), {
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
+    onCorrect: async (def) => {
+      const t = bubbleTarget;
+      const done = await fixer.apply(t, def);
+      if (done && t === bubbleTarget) t.text = done.word;
+      return done;
+    },
+    onUndoCorrect: async (fx) => {
+      const t = bubbleTarget;
+      const back = await fixer.undo(t, fx.from);
+      if (t === bubbleTarget) t.text = back.word;
+      return back;
+    },
     onPlayWord: () => bubbleTarget && playWords(bubbleTarget.i, bubbleTarget.j),
     onPlaySentence: () => bubbleTarget && playClip(starts[bubbleTarget.si], ends[bubbleTarget.sj]),
     onPlayFrom: () => bubbleTarget && seekTo(starts[bubbleTarget.i]),

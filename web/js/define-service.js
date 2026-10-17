@@ -2,7 +2,7 @@
 // (The Android app provides its own version of this file with native HTTP and local storage.)
 
 import { api, state } from "./app.js";
-import { askJson, define, cacheKey, quickCacheKey, PROVIDERS, DefinerError } from "./definer.js";
+import { askJson, lookup, rememberAnswer, PROVIDERS } from "./definer.js";
 import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 
 export function definerConfig() {
@@ -32,31 +32,15 @@ export const askAi = (prompt) => askJson(definerConfig(), prompt, relay);
  *   a full answer already kept is used as it is, otherwise a short, cheaper request is made
  */
 export async function getDefinition(ctx, refresh = false, { quick = false } = {}) {
-  const cfg = definerConfig();
-  const key = await cacheKey(ctx.word, ctx.marked, cfg.language, ctx.lang);
-  if (!refresh) {
-    const cached = await api(`/definitions/${key}`).catch(() => null);
-    if (cached) return cached;
-  }
-  if (quick) {
-    const quickKey = await quickCacheKey(ctx.word, ctx.marked, cfg.language, ctx.lang);
-    if (!refresh) {
-      const cached = await api(`/definitions/${quickKey}`).catch(() => null);
-      if (cached) return cached;
-    }
-    if (!cfg.key) throw new DefinerError("NO_KEY");
-    const data = await define(cfg, ctx, relay, { quick: true });
-    api(`/definitions/${quickKey}`, {
-      method: "PUT",
-      body: { key: quickKey, word: ctx.word, sentence: ctx.marked, data, provider: data.provider, model: data.model },
-    }).catch(() => {});
-    return data;
-  }
-  if (!cfg.key) throw new DefinerError("NO_KEY");
-  const data = await define(cfg, ctx, relay);
-  api(`/definitions/${key}`, {
-    method: "PUT",
-    body: { key, word: ctx.word, sentence: ctx.marked, data, provider: data.provider, model: data.model },
-  }).catch(() => {});
-  return data;
+  return lookup(definerConfig(), ctx, { refresh, quick, transport: relay, load: loadAnswer, save: saveAnswer });
 }
+
+/** Keep an answer for this word and sentence without asking (see definer.rememberAnswer). */
+export const storeDefinition = (ctx, data) => rememberAnswer(definerConfig(), ctx, data, saveAnswer);
+
+const loadAnswer = (key) => api(`/definitions/${key}`).catch(() => null);
+// (Not waited for: the answer is shown at once; keeping it is a background job here.)
+const saveAnswer = async (key, word, sentence, data) => {
+  api(`/definitions/${key}`, { method: "PUT", body: { key, word, sentence, data, provider: data.provider, model: data.model } })
+    .catch(() => {});
+};

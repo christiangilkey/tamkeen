@@ -1,7 +1,7 @@
 // Definition bubble shown when a word is clicked/tapped. Platform-independent: the caller
 // supplies the definition fetcher and the audio/vocab actions.
 
-import { esc, buzz } from "../app.js";
+import { esc, buzz, toast } from "../app.js";
 import { langAttrs, langInfo } from "../languages.js";
 import { icon } from "../icons.js";
 import { LOOKUP_EVENT, lookupMode } from "./lookupmode.js";
@@ -54,6 +54,9 @@ export function pauseSwitch(onChange) {
  *   onPlayWord: () => void, onPlaySentence: () => void, onPlayFrom: () => void,
  *   onSave: (def: object|null) => Promise<void>, onSettings: () => void,
  *   noAudio?: boolean,   // true for imported web pages: hides the play buttons
+ *   onCorrect?: (def: object) => Promise<{word: string, ctx: object}|null>,  // the lookup found the
+ *                        // word misheard (def.correction): change the transcript; null if it can't
+ *   onUndoCorrect?: (fix: {from: string, to: string}) => Promise<{word: string, ctx: object}>,
  *   onPauseMode?: (pause: boolean) => void,  // given: the popup shows the pause / keep-playing
  *                        // switch and calls this when it is flipped (see pauseAfterWord)
  * }} actions
@@ -73,6 +76,9 @@ export function createWordBubble(host, actions) {
   // Quick lookup (see lookupmode.js): this popup shows only the meaning, with "More" to open
   // the full explanation for this one word.
   let quick = false;
+  // A misheard word put right (see fixword.js): {from: what the transcript said, to: the word
+  // said, applied: the transcript was changed (so Undo is offered)}.
+  let fix = null;
   // Docked (see show): part of its container's layout, below what is already in it, not floating.
   let docked = false;
 
@@ -120,7 +126,7 @@ export function createWordBubble(host, actions) {
 
   function render(state, message = "") {
     current = { state, message };
-    const word = ctx.word;
+    const word = fix ? fix.to : ctx.word;
     let body = "";
     if (state === "loading") {
       body = `<div class="wb-loading"><span class="spinner"></span> ${quick ? "Looking up…" : "Looking up in context…"}</div>`;
@@ -159,6 +165,9 @@ export function createWordBubble(host, actions) {
         <div class="wb-word ar" ${attrs()}>${esc(shown)}</div>
         <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)">✕</button>
       </div>
+      ${fix ? `<div class="wb-fix"><span class="wb-label">Transcript said</span> <span class="ar" ${attrs()}>${esc(fix.from)}</span>
+        ${fix.applied && actions.onUndoCorrect ? `<button type="button" class="ghost" data-act="undo" title="Put back what the transcript said">Undo</button>`
+          : fix.applied ? "" : `<span class="wb-muted">(not changed in the transcript)</span>`}</div>` : ""}
       <div class="wb-body">${body}</div>
       <div class="wb-actions">
         ${quick ? `<button type="button" data-act="more" title="Show the full explanation of this word">${icon("target", 15)} More</button>` : ""}
@@ -179,6 +188,19 @@ export function createWordBubble(host, actions) {
       const d = await actions.fetch(ctx, refresh, { quick });
       if (my !== token) return;
       def = d;
+      if (d && d.correction && !ctx.noCorrect) {
+        // Misheard: show the word that was said, and change the transcript to it.
+        fix = { from: ctx.word, to: d.correction, applied: false };
+        if (actions.onCorrect) {
+          try {
+            const done = await actions.onCorrect(d);
+            if (my !== token) return;
+            if (done) { fix = { from: fix.from, to: done.word, applied: true }; ctx = { ...done.ctx }; }
+          } catch { /* the transcript stays as it was; the popup still shows the word that was said */ }
+        }
+      } else if (d && d.corrected_from && !fix) {
+        fix = { from: d.corrected_from, to: ctx.word, applied: true }; // corrected earlier
+      }
       render("ready");
     } catch (e) {
       if (my !== token) return;
@@ -206,6 +228,21 @@ export function createWordBubble(host, actions) {
       case "retry": load(); break;
       case "more": quick = false; def = null; load(); break;
       case "refresh": def = null; load(true); break;
+      case "undo": {
+        // Put the transcript back as it was, and look the word up again as written.
+        b.disabled = true;
+        try {
+          const back = await actions.onUndoCorrect(fix);
+          ctx = { ...back.ctx, noCorrect: true };
+          fix = null;
+          def = null;
+          load(true);
+        } catch (err) {
+          b.disabled = false;
+          toast(err && err.message ? err.message : "Couldn't undo that.", { error: true });
+        }
+        break;
+      }
       case "save":
         // Works with or without a definition (no key, or the lookup failed).
         b.disabled = true;
@@ -237,6 +274,7 @@ export function createWordBubble(host, actions) {
     anchor = anchorEl;
     ctx = context;
     def = null;
+    fix = null;
     saved = !!opts.saved;
     quick = lookupMode() === "quick";
     el.hidden = false;

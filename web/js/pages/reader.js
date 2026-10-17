@@ -7,6 +7,7 @@ import { sentenceBounds, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
 import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
+import { wordFixer } from "../fixword.js";
 import { lookupToggle } from "../components/lookupmode.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { markWord } from "../definer.js";
@@ -40,12 +41,13 @@ export async function render(view, { id, data, query }) {
   // they can be tapped and are coloured as new or known just the same.
   const titleTokens = String(ep.title || "").split(/\s+/).filter(Boolean);
   const before = titleTokens.length;
-  const W = regroupWords({
+  const together = {
     start: [...titleTokens.map((_, k) => k - before), ...data.words.start],
     end: [...titleTokens.map((_, k) => k - before + 1), ...data.words.end],
     text: [...titleTokens, ...data.words.text],
     seg: [...titleTokens.map(() => TITLE_SEG), ...data.words.seg],
-  }, lang, false); // real words for Japanese/Chinese
+  };
+  const W = regroupWords(together, lang, false); // real words for Japanese/Chinese
   const n = W.text.length;
   const segOf = Int32Array.from(W.seg);
   const texts = W.text;
@@ -142,9 +144,30 @@ export async function render(view, { id, data, query }) {
     seen.markSeen(t.i, t.j);
   }
 
+  // Misheard or misspelt words, put right in the page's text when a lookup finds them (fixword.js).
+  // Not in the title (it isn't part of the stored text), nor where words are regrouped for display.
+  const fixer = wordFixer({
+    episodeId: id, texts, offset: titleWords, editable: W === together, contextFor,
+    redraw: (first, last) => {
+      for (let k = first; k <= last; k++) wordEls[k].textContent = texts[k];
+      if (seen.analyze) seen.analyze();
+    },
+  });
   const bubble = createWordBubble($(".transcript-wrap"), {
     noAudio: true,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
+    onCorrect: async (def) => {
+      const t = target;
+      const done = await fixer.apply(t, def);
+      if (done && t === target) t.text = done.word;
+      return done;
+    },
+    onUndoCorrect: async (fx) => {
+      const t = target;
+      const back = await fixer.undo(t, fx.from);
+      if (t === target) t.text = back.word;
+      return back;
+    },
     onPlayWord: () => {}, onPlaySentence: () => {}, onPlayFrom: () => {},
     onSettings: () => (location.hash = "#/settings"),
     onSave: async (def) => {

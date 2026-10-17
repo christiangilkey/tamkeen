@@ -35,7 +35,7 @@ test("a quick lookup asks only for the meaning, with every provider", async () =
     const text = said(t.calls[0]);
     assert.ok(text.includes("انتي جديدة ⟦هون⟧؟"), `${provider}: the sentence is sent`);
     assert.ok(!text.includes("مرحبا!") && !text.includes("أهلا فيكي."), `${provider}: the neighbouring sentences are not`);
-    assert.ok(!text.includes("sentence_translation") && !text.includes("morphology"), `${provider}: none of the full answer's fields are asked for`);
+    assert.ok(!text.includes("sentence_translation") && !text.includes("morphology"), `${provider}: none of the full answer's other fields are asked for`);
     assert.ok(text.includes("meaning"), provider);
   }
 });
@@ -48,13 +48,13 @@ test("the full lookup is unchanged, and far bigger than the quick one", async ()
   assert.ok(said(full.calls[0]).includes("sentence_translation"));
   const quick = fakeTransport(ANSWERS.claude);
   await define({ provider: "claude", key: "k", model: "", language: "English" }, CTX, quick, { quick: true });
-  assert.ok(said(quick.calls[0]).length < said(full.calls[0]).length / 3, "a quick request is under a third the size");
+  assert.ok(said(quick.calls[0]).length < said(full.calls[0]).length / 2, "a quick request is under half the size");
 });
 
 test("the quick instructions name the language studied and the language to answer in", () => {
   const p = quickPrompt("French", "es");
   assert.ok(p.includes("Spanish") && p.includes("in French") && p.includes("⟦like this⟧"));
-  assert.deepEqual(QUICK_SCHEMA.required, ["meaning"]);
+  assert.deepEqual(QUICK_SCHEMA.required, ["meaning", "correction"], "the meaning, and a misheard word's correction");
   assert.ok(Object.keys(schemaFor("ar").properties).length > 10, "the full shape is untouched");
 });
 

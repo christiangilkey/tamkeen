@@ -6,6 +6,7 @@
 // avoid browser CORS limits; Android uses native HTTP), so this file has no platform code.
 
 import { isLanguage, gap } from "./languages.js";
+import { EDGE_PUNCT } from "./wordlookup.js";
 
 // `defaultModel` is each provider's best value for this job: the cheapest of its current models
 // that explains a word well (a lookup is a short question and a short structured answer, so the
@@ -209,6 +210,16 @@ const TEACH = {
 
 const teach = (code) => TEACH[isLanguage(code) ? code : "ar"];
 
+// ----- misheard words -----
+// Transcripts come from speech recognition. Every lookup also asks whether the tapped word is what
+// was really said; when the model is confident it was misheard or misspelt, "correction" holds the
+// word that was said and the rest of the answer is about THAT word (see correction.js).
+const CORRECTION_FIELD = {
+  type: "string",
+  description: "Empty, unless the marked word is very likely a speech-recognition mishearing or a misspelling of a different word: then the word (or words) actually said, written as it should appear in the transcript.",
+};
+const CORRECTION_RULES = `The text comes from speech recognition or the web and may contain errors. Judge, from the sentence and the sentences around it, whether the marked word is what was actually said. Only if you are confident it is a mishearing or misspelling of a different word, put the word that was said in "correction" and answer every other field about THAT word. Otherwise leave "correction" empty. Never "correct" a word that is plausible as written: rare words, names, foreign words, dialect, slang and colloquial forms, and spelling variants all stay as they are.`;
+
 /** The answer's shape for one language. Every field is required (strict schemas demand it); the
  * model uses "" or [] when a field doesn't apply. */
 export function schemaFor(code) {
@@ -229,9 +240,10 @@ export function schemaFor(code) {
       dialect_note: { type: "string", description: t.dialect_note },
       msa_equivalent: { type: "string", description: t.msa_equivalent },
       sentence_translation: { type: "string", description: "Natural translation of the whole sentence, with ⟦ ⟧ around the part that translates the target word, e.g. 'Are you new ⟦here⟧?'." },
+      correction: CORRECTION_FIELD,
     },
     required: ["word", "vocalized", "lemma", "root", "pos", "morphology", "meaning", "explanation",
-      "other_meanings", "dialect", "dialect_note", "msa_equivalent", "sentence_translation"],
+      "other_meanings", "dialect", "dialect_note", "msa_equivalent", "sentence_translation", "correction"],
     additionalProperties: false,
   };
 }
@@ -246,7 +258,7 @@ export function systemPrompt(lang, code) {
 
 The learner tapped one word (or selected a short phrase). It is marked ⟦like this⟧ in the sentence. Analyze that specific occurrence (for a phrase, treat it as one expression), using the sentence, the surrounding sentences and the source details to resolve its meaning: ${t.why}, so the in-context meaning matters most.
 
-Transcripts come from speech recognition and may contain small errors; if the word looks misrecognized, say what was probably said in the explanation.
+${CORRECTION_RULES}
 
 In "sentence_translation", put the same ⟦ ⟧ marks around the part of your translation that stands for the marked word, so the learner sees which words match. Leave the marks out only if nothing in the translation corresponds to it.
 
@@ -257,8 +269,11 @@ Write all explanations, meanings and translations in ${lang}. Keep "meaning" sho
 /** The shape of a quick answer. */
 export const QUICK_SCHEMA = {
   type: "object",
-  properties: { meaning: { type: "string", description: "The meaning of the marked word in THIS sentence, in a few words: never the word itself and nothing in the language being studied." } },
-  required: ["meaning"],
+  properties: {
+    meaning: { type: "string", description: "The meaning of the marked word in THIS sentence, in a few words: never the word itself and nothing in the language being studied." },
+    correction: CORRECTION_FIELD,
+  },
+  required: ["meaning", "correction"],
   additionalProperties: false,
 };
 
@@ -266,11 +281,54 @@ export const QUICK_SCHEMA = {
  * language being studied. */
 export function quickPrompt(lang, code) {
   const t = teach(code);
-  return `You are an expert ${t.name} teacher. A learner tapped one word (or a short phrase) in real ${t.name} material, ${t.variety}. It is marked ⟦like this⟧ in the sentence. Give what it means in THIS sentence, in ${lang}, in a few words: no explanation, no grammar, and never the word itself or any ${t.name} (the answer becomes the question side of a flashcard). Return only the JSON object.`;
+  return `You are an expert ${t.name} teacher. A learner tapped one word (or a short phrase) in real ${t.name} material, ${t.variety}. It is marked ⟦like this⟧ in the sentence. Give what it means in THIS sentence, in ${lang}, in a few words: no explanation, no grammar, and never the word itself or any ${t.name} (the answer becomes the question side of a flashcard). ${CORRECTION_RULES} Return only the JSON object.`;
 }
 
 /** Cache key of a quick answer (kept apart from the full answer for the same word and sentence). */
 export const quickCacheKey = (word, marked, lang, code = "ar") => cacheKey(word, marked, `${lang}\u0000quick`, code);
+
+/** Cache key of an answer given after the learner undid a correction of this word in this sentence
+ * ("keep it as written"). Its own key, so it reaches the other devices (an answer cache entry
+ * is never replaced there) and tells them not to correct the word again. */
+const keepKey = (word, marked, lang, code, quick) => cacheKey(word, marked, `${lang}${quick ? "\u0000quick" : ""}\u0000keep`, code);
+
+/**
+ * One lookup through the answer cache, the same on the computer and the phone.
+ * `load(key)` resolves to a kept answer or null; `save(key, word, sentence, data)` keeps one.
+ * Quick lookups use a full answer when one is kept. Once the learner has undone a correction of
+ * the word in this sentence (here or on another device), no answer that corrects it is used and
+ * new answers are asked for with ctx.noCorrect.
+ */
+export async function lookup(cfg, ctx, { refresh = false, quick = false, transport, load, save }) {
+  const lang = cfg.language || "English";
+  const [full, short, keptFullKey, keptShortKey] = await Promise.all([
+    cacheKey(ctx.word, ctx.marked, lang, ctx.lang), quickCacheKey(ctx.word, ctx.marked, lang, ctx.lang),
+    keepKey(ctx.word, ctx.marked, lang, ctx.lang, false), keepKey(ctx.word, ctx.marked, lang, ctx.lang, true)]);
+  const keptFull = await load(keptFullKey);
+  const keptShort = await load(keptShortKey);
+  const confirmed = !!ctx.noCorrect || !!keptFull || !!keptShort;
+  if (!refresh) {
+    if (keptFull) return keptFull;
+    if (quick && keptShort) return keptShort;
+    for (const key of quick ? [full, short] : [full]) {
+      const cached = await load(key);
+      if (cached && !(confirmed && cached.correction)) return cached;
+    }
+  }
+  if (!cfg.key) throw new DefinerError("NO_KEY");
+  const data = await define(cfg, confirmed ? { ...ctx, noCorrect: true } : ctx, transport, { quick });
+  await save(confirmed ? (quick ? keptShortKey : keptFullKey) : (quick ? short : full), ctx.word, ctx.marked, data);
+  return data;
+}
+
+/** Keep an answer for a word in a sentence without asking (after a correction, the answer goes
+ * with the corrected sentence too). Resolves to the key. */
+export async function rememberAnswer(cfg, ctx, data, save) {
+  const lang = cfg.language || "English";
+  const key = await (data.quick ? quickCacheKey : cacheKey)(ctx.word, ctx.marked, lang, ctx.lang);
+  await save(key, ctx.word, ctx.marked, data);
+  return key;
+}
 
 function userPrompt(ctx) {
   const lines = [];
@@ -280,6 +338,8 @@ function userPrompt(ctx) {
   lines.push(`Sentence: ${ctx.marked}`);
   if (ctx.after) lines.push(`Next sentence: ${ctx.after}`);
   lines.push(`Target word: ${ctx.word}`);
+  // The learner undid a correction of this word: it stays as written.
+  if (ctx.noCorrect) lines.push(`The learner has confirmed the target word is right as written: leave "correction" empty.`);
   return lines.join("\n");
 }
 
@@ -401,7 +461,16 @@ function parseJson(text) {
 // A translation whose ⟦ ⟧ marks pair up around some text (one marked part, or several).
 const MARKED = /^[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+$/u;
 
-function normalize(obj, fallbackWord) {
+/** The model's "correction", tidied: "" when there is none, when it only repeats the word (or
+ * differs in punctuation, spaces or letter case), or when it is not a short run of words. */
+export function cleanCorrection(value, word) {
+  const fix = String(value ?? "").replace(/[⟦⟧"“”«»]/g, "").replace(EDGE_PUNCT, "").replace(/\s+/g, " ").trim();
+  if (!fix || fix.length > 60 || fix.split(" ").length > 4) return "";
+  const bare = (x) => String(x || "").replace(EDGE_PUNCT, "").replace(/\s+/g, " ").trim().toLocaleLowerCase();
+  return bare(fix) === bare(word) ? "" : fix;
+}
+
+function normalize(obj, fallbackWord, noCorrect = false) {
   const s = (v) => (typeof v === "string" ? v : v == null ? "" : String(v));
   // The translation arrives with ⟦ ⟧ around the part that renders the tapped word. It is shown
   // without the marks; `translation_marked` keeps them for the word's Anki card, and is "" when
@@ -422,6 +491,7 @@ function normalize(obj, fallbackWord) {
     msa_equivalent: s(obj.msa_equivalent),
     sentence_translation: translation.replace(/[⟦⟧]/g, ""),
     translation_marked: MARKED.test(translation) ? translation : "",
+    correction: noCorrect ? "" : cleanCorrection(obj.correction, fallbackWord),
   };
 }
 
@@ -540,7 +610,7 @@ export async function define(cfg, ctx, transport, { quick = false } = {}) {
   reportUsage({ provider: cfg.provider, model, ...usageOf(cfg.provider, data) }); // (paid for, whatever the answer turns out to be)
   const text = extractText(cfg.provider, data);
   try {
-    const answer = { ...normalize(parseJson(text), ctx.word), provider: cfg.provider, model };
+    const answer = { ...normalize(parseJson(text), ctx.word, !!ctx.noCorrect), provider: cfg.provider, model };
     if (quick) answer.quick = true;
     return answer;
   } catch {
