@@ -279,12 +279,14 @@ async function openLinks() {
 on("app_link", openLinks);
 
 /** Open the in-app web browser (a second window with an "Import Page" button). `find`: opened by
- * "Find in a video" on a word, so its script takes the top result of the search itself. */
-export async function openBrowser(url = "", { find = false } = {}) {
+ * "Find in a video" on a word, so its script takes the top result of the search itself.
+ * `signIn`: opened to sign in somewhere, not to read, so without the "Import Page" button. */
+export async function openBrowser(url = "", { find = false, signIn = false } = {}) {
   const bridge = window.pywebview && window.pywebview.api;
   if (bridge && bridge.open_browser) {
     // `find` is {lang, values, names}: the language whose captions the search is for (see filmot.js).
-    const r = await (find ? bridge.open_browser(url, find) : bridge.open_browser(url));
+    const r = await (find ? bridge.open_browser(url, find)
+                     : signIn ? bridge.open_browser(url, false, false) : bridge.open_browser(url));
     if (r && r.error) throw new Error(r.error);
     return;
   }
@@ -297,7 +299,7 @@ export async function openBrowser(url = "", { find = false } = {}) {
 /** Open Instagram's sign-in page in the in-app browser. (On the phone that browser closes by itself
  * once signed in. On the computer reels sign in through the Instagram window the app opens itself.) */
 export async function openInstagramSignIn() {
-  return openBrowser("https://www.instagram.com/accounts/login/");
+  return openBrowser("https://www.instagram.com/accounts/login/", { signIn: true });
 }
 
 /** Add one of the user's own video files. Resolves to the new episode. */

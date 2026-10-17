@@ -126,8 +126,12 @@
   bar.appendChild(reload);
   bar.appendChild(input);
   bar.appendChild(status);
-  bar.appendChild(star);
-  bar.appendChild(imp);
+  // A window opened for something other than reading pages (signing in, YouTube, finding a word
+  // in a video; app/desktop.py says which) has nothing to import or keep on the start page.
+  if (!window.__tamkeenNoImport) {
+    bar.appendChild(star);
+    bar.appendChild(imp);
+  }
   root.appendChild(bar);
 
   function attach() {

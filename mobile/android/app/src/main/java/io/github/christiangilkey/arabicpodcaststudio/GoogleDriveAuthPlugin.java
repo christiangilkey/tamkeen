@@ -143,13 +143,16 @@ public class GoogleDriveAuthPlugin extends Plugin {
         String home = call.getString("home", ""); // the start page, shown when no address is given
         // Opened for signing in to Instagram: the browser closes itself once signed in (see InAppBrowser).
         boolean forSignIn = Boolean.TRUE.equals(call.getBoolean("closeOnInstagramSignIn", false));
+        // Opened to read web pages (the ordinary browser), or for something else such as signing
+        // in, YouTube or finding a word in a video: then it has no "Import Page" button.
+        boolean forReading = !forSignIn && !Boolean.FALSE.equals(call.getBoolean("forReading", true));
         Runnable signedIn = !forSignIn ? null : () -> {
             android.widget.Toast.makeText(getContext(), "Signed in to Instagram", android.widget.Toast.LENGTH_SHORT).show();
             notifyListeners("instagramSignedIn", new JSObject());
         };
         getActivity().runOnUiThread(() -> {
             try {
-                InAppBrowser.open(getActivity(), url, extractor, youtube, home, json -> {
+                InAppBrowser.open(getActivity(), url, extractor, youtube, home, forReading, json -> {
                     android.widget.Toast.makeText(getContext(), "Importing page…", android.widget.Toast.LENGTH_SHORT).show();
                     JSObject event = new JSObject();
                     event.put("result", json);

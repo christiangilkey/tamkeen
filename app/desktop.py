@@ -259,19 +259,24 @@ class JsApi:
         self._youtube: Any = None  # the browser window opened by "Open YouTube", while it lives
         self._youtube_start = ""   # the address that window was last sent to
 
-    def _browser_window(self, title: str, start: str, close_after_watch: bool = False, find: Any = False) -> Any:
+    def _browser_window(self, title: str, start: str, close_after_watch: bool = False, find: Any = False,
+                        reading: bool = True) -> Any:
         """A web browser window. Every page in it gets the bottom bar with "Import Page"
         (web/js/browser-toolbar.js) and, on youtube.com, tap-a-video-to-watch-it-in-the-app
         (web/js/youtube-browser.js); on filmot.com, the same for its caption search results
         (web/js/filmot-browser.js). `close_after_watch`: the window closes itself once a video
         tapped in it is showing in the app's player. `find`: opened by "Find in a video", so on
-        Filmot's results the script takes the top video itself (web/js/filmot-browser.js)."""
+        Filmot's results the script takes the top video itself (web/js/filmot-browser.js).
+        `reading`: opened to read web pages. A window opened for something else (signing in,
+        YouTube, finding a word in a video) has no "Import Page" or save-to-start-page buttons."""
         import webview
 
         scripts = [(paths.web_dir() / "js" / name).read_text(encoding="utf-8")
                    for name in ("browser-toolbar.js", "youtube-browser.js", "filmot-browser.js")]
         if find:
             scripts.insert(0, f"window.__tamkeenFind = {json.dumps(_find_language(find))};")
+        if not reading:
+            scripts.insert(0, "window.__tamkeenNoImport = true;")
         api = BrowserApi(self._window, close_after_watch, bool(find))
         window = webview.create_window(f"{title} · {APP_NAME}", start, js_api=api,
                                        width=1200, height=820, min_size=(640, 480), text_select=True)
@@ -287,9 +292,11 @@ class JsApi:
         window.events.loaded += add_scripts
         return window
 
-    def open_browser(self, url: str = "", find: Any = False) -> dict[str, Any]:
+    def open_browser(self, url: str = "", find: Any = False, reading: bool = True) -> dict[str, Any]:
         """Open a web browser window with an "Import Page" button. `find`: opened by "Find in a
-        video" on a word (web/js/filmot.js), with the language whose captions it is for."""
+        video" on a word (web/js/filmot.js), with the language whose captions it is for.
+        `reading` false: opened for something other than reading pages (signing in), so
+        without the button. "Find in a video" windows never have it."""
         from . import pages
 
         try:
@@ -297,7 +304,8 @@ class JsApi:
             typed = (url or "").strip()
             self._browser_window("Find in a video" if find else "Web Browser",
                                  pages.browser_start(typed) if typed else pages.browser_home(self._server.url),
-                                 find=find if find and typed else False)
+                                 find=find if find and typed else False,
+                                 reading=bool(reading) and not find)
         except Exception as exc:
             log.exception("Couldn't open the browser window")
             return {"ok": False, "error": f"Couldn't open the browser window ({exc})."}
@@ -318,7 +326,7 @@ class JsApi:
                     self._youtube.load_url(address)
                 bring_forward(self._youtube)
             else:
-                self._youtube = self._browser_window("YouTube", address, close_after_watch=True)
+                self._youtube = self._browser_window("YouTube", address, close_after_watch=True, reading=False)
             self._youtube_start = address
         except Exception as exc:
             log.exception("Couldn't open the YouTube window")

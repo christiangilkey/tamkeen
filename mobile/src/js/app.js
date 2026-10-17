@@ -341,7 +341,8 @@ export async function ytRequest({ url, method = "GET", headers = {}, body }) {
  * studied (see youtube-home.js). Tapping a video there opens it in Tamkeen's player. */
 export async function openYouTube(address = "") {
   // `address`: a YouTube page to open on instead (a followed channel's videos).
-  return openBrowser(address || youtubeHome(studyLanguage(), { mobile: true, country: chosenCountry(studyLanguage()) }));
+  return openBrowser(address || youtubeHome(studyLanguage(), { mobile: true, country: chosenCountry(studyLanguage()) }),
+                     { reading: false });
 }
 
 /** web/js/youtube-browser.js as text, for the in-app browser to run inside YouTube's pages. */
@@ -384,7 +385,7 @@ export async function openYouTubeLink(url) {
   }
   // The browser covers the player: stop what is playing underneath.
   try { if (window.__apsAudio) window.__apsAudio.pause(); } catch { /* nothing playing */ }
-  await openBrowser(url);
+  await openBrowser(url, { reading: false });
 }
 
 /**
@@ -417,8 +418,10 @@ async function openTamkeenLink(url) {
 
 let openingVideo = false;
 let browserListening = false;
-/** Open the in-app web browser (native screen with an "Import Page" button). */
-export async function openBrowser(url = "", { instagramSignIn = false, find = false } = {}) {
+/** Open the in-app web browser (native screen with an "Import Page" button). `reading` false:
+ * opened for something other than reading pages (YouTube), so without that button; a sign-in or
+ * "Find in a video" browser never has it either. */
+export async function openBrowser(url = "", { instagramSignIn = false, find = false, reading = true } = {}) {
   if (!isNative) {
     window.open(/^https?:/i.test(url) ? url : "https://www.google.com", "_blank", "noopener");
     toast("Copy the address of the page you want and paste it under “Add a webpage”.");
@@ -531,7 +534,8 @@ export async function openBrowser(url = "", { instagramSignIn = false, find = fa
   const pageScript = (find ? `window.__tamkeenFind=${JSON.stringify(find === true ? {} : find)};` : "") + await youtubeBrowserScript();
   await GoogleDriveAuth.openBrowser({ url, extractor: await extractorSource(), youtube: pageScript,
                                       home: translateHtml(homeHtml(settings.study_language || "", sites)),
-                                      closeOnInstagramSignIn: !!instagramSignIn });
+                                      closeOnInstagramSignIn: !!instagramSignIn,
+                                      forReading: !!reading && !instagramSignIn && !find });
 }
 
 /** Open Instagram's sign-in page in the app's own browser (which shares its sign-ins with the reel

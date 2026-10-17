@@ -130,10 +130,12 @@ final class InAppBrowser {
     /**
      * `home` is the app's start page as one finished HTML page (a search box and news sites in
      * the language being studied, built by web/js/browser-home.js). It is shown when `url` is
-     * empty; without it the browser starts on Google as before.
+     * empty; without it the browser starts on Google as before. `forReading` false: opened for
+     * something other than reading pages (signing in, YouTube, finding a word in a video), so
+     * there is no "Import Page" button and no star.
      */
     static void open(Activity activity, String url, String extractor, String youtubeScript, String home,
-                     Listener listener, VideoListener videos, Runnable signedIn) {
+                     boolean forReading, Listener listener, VideoListener videos, Runnable signedIn) {
         float dp = activity.getResources().getDisplayMetrics().density;
         int pad = Math.round(6 * dp);
         int dark = Color.parseColor("#1c1c1a");
@@ -163,7 +165,7 @@ final class InAppBrowser {
             boolean on = site && savedUrls.contains(siteKey(shown[0]));
             star.setText(on ? "★" : "☆");
             star.setTextColor(on ? Color.parseColor("#f1cf7b") : ink);
-            star.setVisibility(site ? View.VISIBLE : View.GONE);
+            star.setVisibility(site && forReading ? View.VISIBLE : View.GONE);
         };
         paintStar.run();
         EditText address = new EditText(activity);
@@ -265,6 +267,7 @@ final class InAppBrowser {
             ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM | Gravity.END);
         corner.setMargins(0, 0, Math.round(16 * dp), Math.round(20 * dp));
         frame.addView(importButton, corner);
+        if (!forReading) importButton.setVisibility(View.GONE);
         root.addView(frame, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
 
         // ----- behaviour -----
