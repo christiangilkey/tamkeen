@@ -1286,14 +1286,15 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .friends-title { margin: 0 0 12px; }
 .segmented { display: flex; gap: 4px; padding: 4px; margin: 0 auto 14px; max-width: 460px; border-radius: 14px; background: var(--surface-2); }
 .seg-btn { flex: 1; min-height: 38px; border: none; border-radius: 10px; background: transparent; color: var(--muted); font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
-.seg-btn:hover:not(:disabled) { background: transparent; color: var(--text); }
+@media (hover: hover) { .seg-btn:hover:not(:disabled) { background: transparent; color: var(--text); } }
+.seg-btn:hover:not(:disabled):not(.on) { background: transparent; }
 .seg-btn.on, .seg-btn.on:hover:not(:disabled) { background: var(--surface); color: var(--text); }
 .seg-btn .nav-count { margin-left: 0; }
 .friends-page .sec-title { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 18px; font-weight: 700; }
 .friends-page .sec-title .new-guild { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; }
 .item-row { border-top: 1px solid var(--border); }
 .item-row:first-of-type, .sec-title + .item-row, .friend-find + .item-row { border-top: none; }
-.item-row[hidden] { display: none; }
+.item-row[hidden], .seg-pane[hidden] { display: none; }
 .item-main { display: flex; align-items: center; gap: 12px; padding: 10px 0; min-height: 60px; }
 .item-main.openable { cursor: pointer; }
 .item-lead { flex: none; display: inline-grid; place-items: center; width: 40px; }
@@ -1305,11 +1306,12 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .item-game { flex: none; }
 .item-actions { flex: none; display: flex; align-items: center; gap: 6px; margin-left: auto; }
 .row-act { position: relative; width: 38px; height: 38px; min-height: 0; padding: 0; border-radius: 50%; display: inline-grid; place-items: center; background: transparent; border: 1px solid var(--border); color: var(--text); }
-.row-act:hover:not(:disabled) { border-color: var(--accent); background: transparent; }
+@media (hover: hover) { .row-act:hover:not(:disabled) { border-color: var(--accent); background: transparent; } }
+.row-act:hover:not(:disabled) { background: transparent; }
 .row-act.go { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .row-act.has-new { border-color: var(--accent); color: var(--accent); }
 .row-act.warn { color: var(--danger); }
-.row-act.warn:hover:not(:disabled) { border-color: var(--danger); }
+@media (hover: hover) { .row-act.warn:hover:not(:disabled) { border-color: var(--danger); } }
 .row-act.muted-act { opacity: .45; }
 .row-act .nav-count { position: absolute; top: -5px; right: -6px; margin: 0; }
 .chev-act .ic, .me-toggle .ic { transform: rotate(90deg); transition: transform .15s ease; }

@@ -115,6 +115,16 @@ export async function render(view) {
     return sec;
   }
 
+  /** Show the chosen part and light its button: no network, no redrawing. */
+  function showSegment() {
+    segBar.querySelectorAll(".seg-btn").forEach((b) => {
+      const on = b.dataset.seg === segment;
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-selected", String(on));
+    });
+    body.querySelectorAll(".seg-pane").forEach((pane) => { pane.hidden = pane.dataset.seg !== segment; });
+  }
+
   async function load() {
     if (editing) return;
     let st;
@@ -126,11 +136,15 @@ export async function render(view) {
     let seen = new Map();
     let games = new Map();
     try {
-      st = await social.friendsState();
+      // Everything that doesn't depend on something else is asked for at the same time: on a phone
+      // each request is a round trip, and waiting for them one after another made the page slow.
+      // (Sharing my own game profile runs alongside; it is throttled and usually returns at once.)
+      const published = publishNow().catch(() => false);
+      [st, gs] = await Promise.all([social.friendsState(), social.guildsState().catch(() => null)]);
+      gs = gs || { guilds: [], invites: [], sent: [] };
       if (st && st.me.username) {
-        gs = await social.guildsState();
         const everyone = [...new Set([st.me.id, ...st.friends.map((f) => f.user.id), ...gs.guilds.flatMap((g) => g.members.map((m) => m.id))])];
-        await publishNow(); // so my own bar (and what friends see of me) is current
+        await published; // so my own bar (what friends see of me) is current
         [mine, cards, unread, tags, seen, games] = await Promise.all([
           social.myStatus(), social.statusesOf(everyone.filter((id) => id !== st.me.id)), social.unreadCounts(),
           social.tagsOf(everyone), social.seenAgo(everyone),
@@ -180,7 +194,7 @@ export async function render(view) {
     segBar.hidden = false;
     segBar.innerHTML = "";
     for (const [id, label] of SEGMENTS) {
-      const b = h(`<button type="button" role="tab" class="seg-btn${id === segment ? " on" : ""}"><span></span></button>`);
+      const b = h(`<button type="button" role="tab" class="seg-btn${id === segment ? " on" : ""}" data-seg="${id}"><span></span></button>`);
       b.querySelector("span").textContent = label;
       b.setAttribute("aria-selected", String(id === segment));
       if (waiting[id]) b.append(h(`<span class="nav-count">${waiting[id]}</span>`));
@@ -188,16 +202,26 @@ export async function render(view) {
         if (segment === id) return;
         segment = id;
         remember(SEGMENT, id);
-        friendQuery = "";
-        load();
+        showSegment();
         view.closest("#view")?.scrollTo?.({ top: 0 });
       };
       segBar.append(b);
     }
 
-    if (segment === "feed") drawFeed();
-    else if (segment === "friends") drawFriends();
-    else drawGuilds();
+    // All three parts are drawn once from the data just loaded, each in its own pane, so switching
+    // between them is instant; live updates and the minute's refresh redraw them quietly.
+    const panes = {};
+    for (const [id] of SEGMENTS) {
+      panes[id] = h(`<div class="seg-pane" data-seg="${id}"></div>`);
+      body.append(panes[id]);
+    }
+    let out = panes.feed;
+    drawFeed();
+    out = panes.friends;
+    drawFriends();
+    out = panes.guilds;
+    drawGuilds();
+    showSegment();
 
     // ======================================================== Feed
     function drawFeed() {
@@ -255,7 +279,7 @@ export async function render(view) {
         editor.querySelector("#se-save").after(cancel);
         myBox.append(editor);
       };
-      body.append(me);
+      out.append(me);
 
       // What friends and guild-mates are studying, most recently changed first.
       const people = new Map();
@@ -275,7 +299,7 @@ export async function render(view) {
           status: statusOf(u.id), statusOn: online(u.id), game: games.get(u.id), actions: [messageAct(u.id)], extra: studyCard(c),
         }));
       }
-      body.append(sec);
+      out.append(sec);
     }
 
     // ======================================================== Friends
@@ -288,7 +312,7 @@ export async function render(view) {
             iconButton("close", "Decline", async () => { await social.removeFriendship(r.id); load(); }),
           ] }));
         }
-        body.append(sec);
+        out.append(sec);
       }
 
       const add = h(`<form class="card add-friend">
@@ -312,7 +336,7 @@ export async function render(view) {
           btn.disabled = false;
         }
       };
-      body.append(add);
+      out.append(add);
 
       const onlineCount = st.friends.filter((f) => online(f.user.id)).length;
       const list = sectionCard("Your friends", st.friends.length ? `${st.friends.length} · ${onlineCount} online` : "");
@@ -362,7 +386,7 @@ export async function render(view) {
         filter();
         if (findHadFocus) setTimeout(() => { find.focus(); find.setSelectionRange(find.value.length, find.value.length); }, 0);
       }
-      body.append(list);
+      out.append(list);
 
       if (st.outgoing.length) {
         const sec = sectionCard("Waiting for them to accept");
@@ -371,7 +395,7 @@ export async function render(view) {
             iconButton("close", "Cancel request", async () => { await social.removeFriendship(r.id); load(); }),
           ] }));
         }
-        body.append(sec);
+        out.append(sec);
       }
     }
 
@@ -387,7 +411,7 @@ export async function render(view) {
             iconButton("close", "Decline", async () => { await social.declineGuildInvite(inv.id).catch(() => {}); load(); }),
           ] }));
         }
-        body.append(sec);
+        out.append(sec);
       }
 
       const sec = sectionCard("Your guilds", gs.guilds.length ? String(gs.guilds.length) : "");
@@ -513,7 +537,7 @@ export async function render(view) {
         row.dataset.guild = g.id;
         sec.append(row);
       }
-      body.append(sec);
+      out.append(sec);
     }
   }
 
