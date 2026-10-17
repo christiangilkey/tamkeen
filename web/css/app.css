@@ -560,6 +560,36 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .tag { font-size: 12px; padding: 1px 8px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }
 .vocab-item .pick { margin-top: 10px; }
 
+/* ---------- Vocab page layout (the owner's, 2026-10-16): Review block first, a ⋯ menu, word cards
+   that open on a tap (web/js/pages/vocab.js) ---------- */
+.vocab-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.vocab-head h1 { margin: 0; }
+.vocab-more { width: 42px; height: 42px; min-height: 0; padding: 0; border-radius: 50%; display: grid; place-items: center; }
+.review-block { margin-bottom: 18px; }
+.review-block .goal-wrap { margin-bottom: 0; }
+.vocab-search { width: 100%; margin-bottom: 12px; }
+.vocab-add { margin-bottom: 12px; }
+.vocab-add[hidden] { display: none; }
+.vocab-page .vocab-item { display: block; padding: 0; }
+.vi-head { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; cursor: pointer; border-radius: inherit; }
+.vi-head:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.vi-head .pick { margin-top: 9px; flex: none; }
+.vi-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.vocab-page .vocab-item .word { font-size: 26px; line-height: 1.5; }
+.vi-meaning { font-size: 15px; }
+.vi-meaning[hidden] { display: none; }
+.vocab-page .vocab-item .sentence { font-size: 17px; line-height: 1.8; }
+.vi-quick { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.vi-quick button { min-height: 0; padding: 5px 12px; border-radius: 99px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+.vi-chev { flex: none; margin-top: 9px; color: var(--muted); transition: transform .15s ease; }
+.vocab-item.open .vi-chev { transform: rotate(90deg); }
+.vi-body { display: flex; flex-direction: column; gap: 8px; margin: 0 16px; padding: 12px 0 16px 34px; border-top: 1px solid var(--border); }
+.vi-body[hidden] { display: none; }
+.vi-body .item-folders:empty { display: none; }
+.vi-translation { color: var(--muted); }
+.vi-actions { gap: 8px; flex-wrap: wrap; }
+@media (max-width: 560px) { .vi-body { padding-left: 0; } }
+
 /* ---------- friends ---------- */
 .nav-count { display: inline-block; min-width: 18px; padding: 0 5px; margin-left: 4px; border-radius: 99px; background: var(--danger); color: #fff; font-size: 11px; line-height: 18px; text-align: center; font-weight: 600; }
 .tabbar .nav-count { position: absolute; top: 2px; margin-left: 14px; }

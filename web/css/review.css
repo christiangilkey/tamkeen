@@ -3,32 +3,29 @@
    it follows the app's light or dark theme, so its back looks like a word on the Vocab page. */
 
 /* ---------- the banner on the Vocab page ---------- */
+/* The first thing on the Vocab page (the owner's layout, 2026-10-16): one solid brand colour while
+   there are cards to do, so the day's task stands out; a plain surface once everything is done. */
 .review-banner {
-  display: flex; align-items: center; gap: 14px; width: 100%; margin: 0 0 14px; padding: 14px 18px;
-  border: 0; border-radius: 18px; background: var(--brand-grad); color: #fff; text-align: start;
-  box-shadow: 0 6px 22px rgba(27, 82, 109, .28); position: relative; overflow: hidden; cursor: pointer;
+  display: flex; align-items: center; gap: 16px; width: 100%; margin: 0 0 12px; padding: 20px 20px;
+  border: 1px solid transparent; border-radius: 22px; background: #22c7d6; color: #022a2f; text-align: start;
+  position: relative; overflow: hidden; cursor: pointer;
 }
-.review-banner:hover:not(:disabled) { background: var(--brand-grad); filter: brightness(1.1); }
-.review-banner::after {  /* a slow sheen, so the button looks alive */
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .16) 50%, transparent 60%);
-  transform: translateX(-100%); animation: rb-sheen 5s ease-in-out infinite;
-}
-@keyframes rb-sheen { 0%, 55% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-.review-banner .rb-icon { flex: none; width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(255, 255, 255, .14); color: var(--brand-gold); }
+.review-banner:hover:not(:disabled) { background: #22c7d6; filter: brightness(1.06); }
+.review-banner .rb-icon { flex: none; width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: rgba(2, 42, 47, .12); color: #022a2f; }
 .review-banner .rb-text { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
-.review-banner strong { font-size: 18px; letter-spacing: .01em; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.review-banner strong { font-size: 22px; letter-spacing: .01em; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 /* The line under the title never runs under the button: it is cut where its room ends. When it
    is longer than that room (vocab.js measures, and adds "scroll"), it slides along to its end and
    back by itself so the rest can be read; for someone who has asked for less motion it ends in "…". */
-.review-banner .rb-sub { font-size: 13.5px; opacity: .88; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.review-banner .rb-sub { font-size: 15px; opacity: .9; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .review-banner .rb-sub.scroll { text-overflow: clip; }
 .review-banner .rb-sub.scroll .rb-run { display: inline-block; animation: rb-scroll var(--rb-time, 8s) ease-in-out infinite; }
 @keyframes rb-scroll { 0%, 20% { transform: translateX(0); } 50%, 70% { transform: translateX(var(--rb-shift, 0)); } 100% { transform: translateX(0); } }
-.review-banner .rb-sub b { color: var(--brand-gold); font-weight: 700; }
-.review-banner .rb-go { flex: none; padding: 8px 16px; border-radius: 99px; background: var(--brand-gold); color: #2a1d00; font-weight: 700; font-size: 14px; }
-.review-banner.idle .rb-go { background: rgba(255, 255, 255, .16); color: #fff; }
-.review-banner.idle::after { animation: none; }
+.review-banner .rb-sub b { color: inherit; font-weight: 800; font-size: 17px; }
+.review-banner .rb-go { flex: none; padding: 11px 24px; border-radius: 99px; background: #022a2f; color: #22c7d6; font-weight: 700; font-size: 16px; }
+.review-banner.idle, .review-banner.idle:hover:not(:disabled) { background: var(--surface); color: var(--text); border-color: var(--border); }
+.review-banner.idle .rb-icon { background: var(--surface-2); color: var(--muted); }
+.review-banner.idle .rb-go { background: var(--surface-2); color: var(--text); }
 .vocab-item .memo { border-style: dashed; }
 .folder-chip.active .ic .fill { opacity: .3; }  /* the open folder's icon is softly filled in */
 
@@ -255,7 +252,7 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 @media (max-width: 350px) { .rv-actions button svg { display: none; } }  /* a very narrow phone: words before icons */
 @media (hover: none) { .rv kbd, .rv-keys { display: none; } }
 @media (prefers-reduced-motion: reduce) {
-  .rv, .rv-panel, .rv-bg::before, .rv-bg::after, .review-banner::after, .rv.miss .rv-stage, .rv-forecast i, .rv-ask, .rv-ask-box { animation: none; }
+  .rv, .rv-panel, .rv-bg::before, .rv-bg::after, .rv.miss .rv-stage, .rv-forecast i, .rv-ask, .rv-ask-box { animation: none; }
   .review-banner .rb-sub.scroll { text-overflow: ellipsis; }
   .review-banner .rb-sub.scroll .rb-run { display: inline; animation: none; }
   .rv-dot, .rv-shout { display: none; }

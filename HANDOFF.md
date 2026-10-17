@@ -2333,3 +2333,27 @@ older than **the first release made after this commit (the next one after v0.21.
   (Inno Setup 6, checked with a stand-in file list).
 - **NOT tested**: the packaged exe (needs a release build), the protocol registration (not installed here), and
   anything on a phone (manifest and JS only; nothing native was changed).
+
+### Vocab page redesign: the Review block first, cards that open on a tap, a ⋯ menu (2026-10-16, "Vocab Page" chat; committed locally, NOT pushed)
+The owner (a UI plan pasted to the main chat, "Build it"): a prominent Review block at the top in a bold colour;
+word cards that show little until tapped; secondary actions such as Export for Anki in a ⋯ menu.
+- **Order now**: title + count + ⋯ (top right) → the Review block (`<section class="review-block">` holding the
+  same `#review` banner and `#goal` bar as before) → search box (full width) → folders → sort/date filters and
+  Select all → bulk bar → list. "Add a word manually" is no longer a box on the page: ⋯ → Add a word shows the
+  form (`#add`, with Cancel; it hides again after adding). The tip paragraph now shows only in an empty list.
+- **⋯ menu** (`showMenu`): Add a word, Export CSV, Export for Anki (same `ankiHelp` + .apkg as before), Anki
+  settings (`ANKI_SETTINGS`). New line icons in icons.js: `more` (three dots) and `sound` (loudspeaker).
+- **Banner look** (review.css, top block, agreed with the Spaced Repetition chat by message): solid teal #22c7d6
+  with dark #022a2f text while there are cards to do, a plain `--surface` card when idle; bigger (22 px title,
+  17 px counts, 52 px icon, dark pill "Start"); the gradient, shadow and sheen animation are gone.
+- **Word cards** (`item()` in vocab.js, styles at the end of the Vocab part of app.css, `.vi-*`): closed = tick
+  box, the word, its meaning (hidden when empty), the cardtext.js-trimmed sentence, compact "Word"/"Sentence" play
+  pills, a chevron. A tap on the card's top part (not on its tick box, buttons or links; Enter/Space when focused)
+  opens it in place: source line, Anki progress, folder tags, the translation (read only, marks removed),
+  meaning/notes/my notes, Find in a video, Folders, Delete. One card open at a time (`openId`; it stays open when
+  the list is redrawn). Editing the meaning updates the closed card's meaning too. Select all / bulk work as before.
+- Measured at 375 px: closed cards 100-190 px tall (were about 400-670). Pictures (before/after, phone and desktop):
+  `..\card-size-shots\vocab-phone-before-after.png`, `vocab-desktop-before-after.png`, `vocab-after-phone-open-card.png`.
+  Checked in the preview (`tamkeen-filmot`): one-open-at-a-time, ticking keeps a card open, bulk bar, meaning
+  mirrored, ⋯ menu entries, Add a word, Review opens and closes the reviewer; 390 JS and 348 pytest pass.
+  **Not checked**: a real phone, light theme by eye.

@@ -110,6 +110,10 @@ export function rangeBounds(range, fromDate, toDate, now = Date.now() / 1000) {
   }
 }
 
+/** How words get here, for someone whose list is still empty. */
+const TIP = `In any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”.
+  Add a word by hand, or export your words for Anki, from the ⋯ menu.`;
+
 export async function render(view) {
   const prefs = lsGet("vocabView", {});
   const st = {
@@ -124,22 +128,25 @@ export async function render(view) {
   const savePrefs = () => lsSet("vocabView", { folder: st.folder, sort: st.sort, dateField: st.dateField,
                                                range: st.range, from: st.from, to: st.to });
 
+  // The owner's layout (2026-10-16): the Review block first and bold, so the day's task is the first
+  // thing seen; then search and folders; each word a short card that opens on a tap; the less used
+  // things (adding a word by hand, the exports, Anki's settings) in the ⋯ menu.
   view.append(h(`<div class="page vocab-page">
-    <div class="row" style="margin-bottom:12px">
-      <h1 style="margin:0">Vocab</h1>
+    <div class="vocab-head">
+      <h1>Vocab</h1>
       <span class="muted" id="count"></span>
       <span class="spacer"></span>
-      <input type="search" id="q" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto" style="width:220px">
-      <button type="button" id="csv" title="Export the words shown below">Export CSV</button>
-      <button type="button" id="anki" title="The words shown below as an Anki deck file, with their audio and review progress">Export for Anki</button>
-      <button type="button" class="icon" id="anki-settings" title="${ankiSettingsLabel()}" aria-label="${ankiSettingsLabel()}">${icon("settings", 18)}</button>
+      <button type="button" class="icon vocab-more" id="more" title="More: add a word, export, Anki settings" aria-label="More" aria-haspopup="menu">${icon("more", 22)}</button>
     </div>
-    <button type="button" class="review-banner idle" id="review" hidden>
-      <span class="rb-icon">${CARDS_ICON}</span>
-      <span class="rb-text"><strong>Review</strong><span class="rb-sub"></span></span>
-      <span class="rb-go"></span>
-    </button>
-    <div id="goal" hidden></div>
+    <section class="review-block">
+      <button type="button" class="review-banner idle" id="review" hidden>
+        <span class="rb-icon">${CARDS_ICON}</span>
+        <span class="rb-text"><strong>Review</strong><span class="rb-sub"></span></span>
+        <span class="rb-go"></span>
+      </button>
+      <div id="goal" hidden></div>
+    </section>
+    <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto">
     <div class="folder-bar" id="folders"></div>
     <div class="row vocab-filters">
       <label class="small muted">Sort
@@ -161,18 +168,13 @@ export async function render(view) {
       <span class="spacer"></span>
       <button type="button" class="ghost" id="bulk-clear">Clear selection</button>
     </div>
-    <details class="card" id="add-box" style="margin-bottom:12px">
-      <summary style="cursor:pointer"><strong>Add a word manually</strong></summary>
-      <form id="add" class="stack" style="margin-top:10px">
-        <input type="text" name="text" class="ar" placeholder="${esc(langInfo(studyLanguage()).word)}" required ${langAttrs(studyLanguage())} style="font-size:20px;width:100%">
-        <input type="text" name="meaning" placeholder="Meaning" style="width:100%">
-        <textarea name="sentence" class="ar" rows="2" placeholder="Example sentence (optional)" ${langAttrs(studyLanguage())}></textarea>
-        <div><button class="primary" type="submit">Add</button></div>
-      </form>
-    </details>
-    <p class="small muted">Tip: in any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”. Tick words to file several into a folder at once. ${platform === "desktop"
-      ? "“Export for Anki” saves a deck file with each word's audio and review progress, for Anki's Import File button."
-      : "“Export for Anki” shares a deck file with each word's audio and review progress: pick the Anki bubble, then AnkiDroid."}</p>
+    <form id="add" class="card stack vocab-add" hidden>
+      <div class="row"><strong>Add a word</strong><span class="spacer"></span><button type="button" class="ghost" id="add-cancel">Cancel</button></div>
+      <input type="text" name="text" class="ar" placeholder="${esc(langInfo(studyLanguage()).word)}" required ${langAttrs(studyLanguage())} style="font-size:20px;width:100%">
+      <input type="text" name="meaning" placeholder="Meaning" style="width:100%">
+      <textarea name="sentence" class="ar" rows="2" placeholder="Example sentence (optional)" ${langAttrs(studyLanguage())}></textarea>
+      <div><button class="primary" type="submit">Add</button></div>
+    </form>
     <div class="vocab-list" id="list"></div>
   </div>`));
   const $ = (s) => view.querySelector(s);
@@ -363,29 +365,42 @@ export async function render(view) {
 
   // ----- items -----
   const ankiProgress = await loadAnkiProgress();  // each word's review progress in Anki, when the deck is synced
+  // A word is a short card: the word, its meaning, the bit of its sentence around it and its play
+  // buttons. A tap opens it in place for editing (meaning, notes, my notes, folders, delete); one
+  // card is open at a time, and it stays open when the list is drawn again.
+  let openId = null;
   function item(v) {
     const changed = v.updated_at && v.updated_at - v.created_at > 60;
+    const lang = langAttrs(detectLanguage(v.sentence || v.text));
+    const hasWord = (v.episode_id || v.clip) && v.start != null;
+    const hasSentence = (v.episode_id || v.clip) && v.sent_start != null;
+    const translation = String(v.translation || "").replace(/[⟦⟧]/g, "").trim();
     const el = h(`<div class="card vocab-item">
-      <div>
-        <div class="row" style="gap:8px;align-items:flex-start">
-          <input type="checkbox" class="pick" aria-label="Select word">
-          <div class="word" ${langAttrs(detectLanguage(v.sentence || v.text))} style="flex:1"></div>
+      <div class="vi-head" role="button" tabindex="0" aria-expanded="false">
+        <input type="checkbox" class="pick" aria-label="Select word">
+        <div class="vi-main">
+          <div class="word" ${lang}></div>
+          <div class="vi-meaning"></div>
+          ${v.sentence ? `<div class="sentence" ${lang}>${highlight(cardSentence(v.sentence, v.text), v.text)}</div>` : ""}
+          ${hasWord || hasSentence ? `<div class="vi-quick">
+            ${hasWord ? `<button type="button" class="play-word">${icon("sound", 15)} Word</button>` : ""}
+            ${hasSentence ? `<button type="button" class="play-sent">${icon("sound", 15)} Sentence</button>` : ""}
+          </div>` : ""}
         </div>
-        ${v.sentence ? `<div class="sentence" ${langAttrs(detectLanguage(v.sentence || v.text))}>${highlight(cardSentence(v.sentence, v.text), v.text)}</div>` : ""}
-        <div class="small muted" style="margin-top:6px">
+        <span class="vi-chev" aria-hidden="true">${icon("chevron", 20)}</span>
+      </div>
+      <div class="vi-body" hidden>
+        <div class="small muted">
           ${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}
           ${v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}${changed ? ` · changed ${fmtDate(v.updated_at)}` : ""}
         </div>
         ${ankiProgressLine(ankiProgress[v.uid || v.id])}
         <div class="item-folders"></div>
-      </div>
-      <div class="fields">
-        <input type="text" class="meaning" placeholder="Meaning">
-        <textarea class="notes" rows="2" placeholder="Notes (root, grammar, usage…)"></textarea>
+        ${translation ? `<div class="vi-translation small"></div>` : ""}
+        <input type="text" class="meaning" placeholder="Meaning" aria-label="Meaning">
+        <textarea class="notes" rows="2" placeholder="Notes (root, grammar, usage…)" aria-label="Notes"></textarea>
         <textarea class="memo" rows="1" placeholder="My notes (a mnemonic, where you heard it…)" aria-label="My notes"></textarea>
-        <div class="row">
-          ${(v.episode_id || v.clip) && v.start != null ? `<button type="button" class="play-word">▶ Word</button>` : ""}
-          ${(v.episode_id || v.clip) && v.sent_start != null ? `<button type="button" class="play-sent">▶ Sentence</button>` : ""}
+        <div class="row vi-actions">
           ${lacksAudio(v) ? `<button type="button" class="ghost find-video" title="Look for a YouTube video where this word is said">${icon("video", 16)} Find in a video</button>` : ""}
           <button type="button" class="ghost folders-btn">${icon("folder", 16)} Folders</button>
           <span class="spacer"></span>
@@ -395,9 +410,33 @@ export async function render(view) {
       </div>
     </div>`);
     el.querySelector(".word").textContent = v.text;
+    const shownMeaning = el.querySelector(".vi-meaning");
+    shownMeaning.textContent = v.meaning;
+    shownMeaning.hidden = !v.meaning;
+    if (translation) el.querySelector(".vi-translation").textContent = translation;
     el.querySelector(".meaning").value = v.meaning;
     el.querySelector(".notes").value = v.notes;
     el.querySelector(".memo").value = v.memo || "";
+    // Opening and closing: a tap anywhere on the card's top part, except its own controls.
+    const head = el.querySelector(".vi-head");
+    const body = el.querySelector(".vi-body");
+    const setOpen = (on) => {
+      el.classList.toggle("open", on);
+      body.hidden = !on;
+      head.setAttribute("aria-expanded", String(on));
+    };
+    el.__close = () => setOpen(false);
+    const toggle = () => {
+      const on = openId !== v.id;
+      for (const other of list.querySelectorAll(".vocab-item.open")) if (other !== el) other.__close();
+      openId = on ? v.id : null;
+      setOpen(on);
+    };
+    head.onclick = (e) => { if (!e.target.closest("input, button, a, textarea, select")) toggle(); };
+    head.onkeydown = (e) => {
+      if (e.target === head && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggle(); }
+    };
+    setOpen(openId === v.id);
     const chips = el.querySelector(".item-folders");
     for (const uid of v.folders) {
       const name = folderName(uid);
@@ -424,7 +463,11 @@ export async function render(view) {
         } catch (e) { toast(e.message, { error: true }); }
       }, 500);
     };
-    el.querySelector(".meaning").oninput = (e) => save("meaning", e.target.value);
+    el.querySelector(".meaning").oninput = (e) => {
+      save("meaning", e.target.value);
+      shownMeaning.textContent = e.target.value;  // the closed card shows it too
+      shownMeaning.hidden = !e.target.value;
+    };
     el.querySelector(".notes").oninput = (e) => save("notes", e.target.value);
     el.querySelector(".memo").oninput = (e) => save("memo", e.target.value);
     el.querySelector(".folders-btn").onclick = (e) => {
@@ -531,7 +574,7 @@ export async function render(view) {
     $("#count").textContent = `${items.length}${filtered ? ` of ${all.length}` : ""} item${items.length === 1 ? "" : "s"}`;
     list.innerHTML = "";
     if (!items.length) {
-      list.append(h(`<div class="empty">${all.length ? "No words match these filters." : st.q ? "No matches." : "No saved words yet."}</div>`));
+      list.append(h(`<div class="empty">${all.length ? "No words match these filters." : st.q ? "No matches." : `No saved words yet.<p class="small">${TIP}</p>`}</div>`));
     }
     for (const v of items) list.append(item(v));
     shown = items;
@@ -588,15 +631,29 @@ export async function render(view) {
     const ids = visible().map((v) => v.id);
     return `/api/vocab/export/${fmt}${ids.length === all.length && !st.q ? "" : `?ids=${encodeURIComponent(ids.join(","))}`}`;
   };
-  $("#csv").onclick = () => download(exportUrl("csv"), "tamkeen-vocab.csv");
-  $("#anki-settings").onclick = () => { location.hash = ANKI_SETTINGS; };  // Settings, at its Anki part
   // "Export for Anki" is an Anki deck file (.apkg) on every device: the cards, their layout and
   // each word's audio in one file that Anki and AnkiDroid import.
-  $("#anki").onclick = async () => {
+  const exportAnki = async () => {
     if (!(await ankiHelp())) return;
     toast("Building the Anki deck with audio…", { timeout: 4000 });
     download(exportUrl("apkg"), "tamkeen-vocab.apkg");
   };
+  const openAdd = () => {
+    $("#add").hidden = false;
+    $("#add").scrollIntoView({ block: "nearest" });
+    $("#add").querySelector("[name=text]").focus();
+  };
+  // The ⋯ menu: the things used now and then.
+  $("#more").onclick = (e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    showMenu(r.left, r.bottom + 6, "", [
+      { label: "Add a word", icon: icon("vocab", 16), run: openAdd },
+      { label: "Export CSV", icon: icon("page", 16), run: () => download(exportUrl("csv"), "tamkeen-vocab.csv") },
+      { label: "Export for Anki", icon: icon("send", 16), run: exportAnki },
+      { label: ankiSettingsLabel(), icon: icon("settings", 16), run: () => { location.hash = ANKI_SETTINGS; } },  // Settings, at its Anki part
+    ]);
+  };
+  $("#add-cancel").onclick = () => { $("#add").reset(); $("#add").hidden = true; };
   $("#add").onsubmit = async (e) => {
     e.preventDefault();
     const f = new FormData(e.target);
@@ -605,6 +662,7 @@ export async function render(view) {
       const v = await api("/vocab", { method: "POST", body: { text: f.get("text"), meaning: f.get("meaning"), sentence: f.get("sentence") } });
       if (inFolder.length) await api(`/vocab/${v.id}`, { method: "PATCH", body: { folders: inFolder } });
       e.target.reset();
+      e.target.hidden = true;
       load();
     } catch (err) { toast(err.message, { error: true }); }
   };

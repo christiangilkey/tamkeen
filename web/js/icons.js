@@ -47,6 +47,10 @@ const PATHS = {
   // Points right; turned round with CSS where it should point the other way (the video player's
   // handle for folding the transcript panel away).
   chevron: `<path d="M9.5 5.5 16 12l-6.5 6.5"/>`,
+  // Three dots in a row: "more" (a menu of the less used things, such as the Vocab page's exports).
+  more: `<circle class="solid" cx="5.5" cy="12" r="1.5"/><circle class="solid" cx="12" cy="12" r="1.5"/><circle class="solid" cx="18.5" cy="12" r="1.5"/>`,
+  // A loudspeaker: play a word's or a sentence's audio.
+  sound: `<path class="solid" d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>`,
   // A tall phone-shaped frame with a play sign: Instagram reels (so they don't share YouTube's icon).
   reel: `<rect class="fill" x="6.5" y="3" width="11" height="18" rx="2.8"/><rect x="6.5" y="3" width="11" height="18" rx="2.8"/>
     <path class="solid" d="M10.5 9.6v4.8l4-2.4z"/>`,
