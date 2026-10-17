@@ -2378,6 +2378,13 @@ The owner's UI plan, relayed by the main chat: separate adding from the content,
   a signed-out copy of a test library (adding a web page through the sheet worked end to end). Pictures:
   `C:\Users\chris\.claude\uploads\library-redesign\`. Not checked on a real phone; the video/audio file choosers
   were not opened (they can't be driven from the preview).
-- Found on the way: the `tamkeen-media` launch config's data folder (`…/0aacd342…/scratchpad/reels-data`) is signed
-  in to Google Drive again (the refresh token row is back), so a server on it syncs with the owner's real library.
-  I used my own signed-out copy (launch config `library-look`, port 8799) instead.
+- Tested on my own copy of a test library with the sign-in rows deleted (launch config `library-look`, port 8799).
+  (I first reported `reels-data` as signed in again; that was wrong: its rows hold `""`, which means signed out.)
+- **2026-10-16: "signed in again" checked, and it was not.** The report came via the main chat from the Library
+  Look chat. Read through SQLite (journal included), `reels-data`'s two rows hold `""`, the JSON for an empty
+  value, which is how the app stores "signed out" (`oauth.signed_in()` is `bool(get_setting(...))`). Its main
+  file alone (as a copy without `-wal` would be) is signed out too. Its log and main file are untouched since
+  2026-10-13 16:08, so no app has run on it since; the only server running at the time was another chat's,
+  on `e2e-video`, signed out. All 26 test libraries under the chats' scratch folders read signed out; only the
+  real library (`%APPDATA%/ArabicPodcastStudio`) is signed in. Most likely the row was seen to EXIST and read
+  as "set". The shared memory note now says how to read it.
