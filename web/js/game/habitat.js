@@ -22,9 +22,11 @@ const [W, H] = HABITAT.size;
 const STAGE_LABEL = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", adult: "Adult" };
 
 /** Build the habitat section. Returns {el, dispose}. */
-export function habitat() {
+/** The habitat. `compact`: Home's card (a short strip of the scene, level and XP, three currencies,
+ *  the game's buttons in one row); tapping its scene opens the whole habitat (pages/habitatpage.js). */
+export function habitat({ compact = false } = {}) {
   const game = getGame();
-  const el = h(`<section class="habitat card">
+  const el = h(`<section class="habitat card${compact ? " compact" : ""}">
     <div class="habitat-scene"><canvas width="${W}" height="${H}" aria-label="Your creature's habitat"></canvas>
       <button type="button" class="habitat-name" title="Rename"></button>
       <div class="pet-word" hidden><b></b><span></span></div></div>
@@ -48,6 +50,7 @@ export function habitat() {
         <button type="button" class="today-chip" id="g-gems" data-info="gem" title="Gems, for supplies: tap for more">${icon("gem")} <span></span></button>
         <button type="button" class="today-chip" id="g-hearts" data-info="heart" title="Hearts: tap for more"></button>
         <button type="button" class="today-chip" id="g-scene" title="Move your creature to another habitat">${icon("nav_habitat")} <span></span></button>
+        ${compact ? `<a class="today-chip hud-open" href="#/habitat" title="Everything about your creature">Open habitat ›</a>` : ""}
       </div>
       <div class="hud-actions">
         <button type="button" class="primary" id="g-battle">${icon("battle")} Battle</button>
@@ -446,5 +449,13 @@ export function habitat() {
   }
   paintHud();
   loop();
+  if (compact) {
+    // On Home the scene is a doorway: a tap opens the whole habitat instead of petting.
+    el.querySelector(".habitat-scene").addEventListener("click", (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      location.hash = "#/habitat";
+    }, true);
+  }
   return { el, dispose };
 }

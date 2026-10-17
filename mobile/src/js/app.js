@@ -2,6 +2,7 @@
 // (library, player, vocab, search) import from "../app.js" and work unchanged.
 
 import * as home from "./pages/home.js";
+import * as habitatPage from "./pages/habitatpage.js";
 import * as library from "./pages/library.js";
 import * as player from "./pages/player.js";
 import * as vocab from "./pages/vocab.js";
@@ -736,6 +737,7 @@ document.addEventListener("pointerdown", (e) => { if (!e.target.closest("#ctxmen
 // ---------- router ----------
 const routes = [
   [/^$/, home, () => ({})],
+  [/^habitat$/, habitatPage, () => ({})],
   [/^library$/, library, () => ({})],
   [/^feed\/(\w+)$/, library, (m) => ({ feedId: m[1] })],
   [/^discover$/, discover, () => ({})],

@@ -1,6 +1,7 @@
 // App shell: API client, live events (SSE), router, toasts, theme, downloads.
 
 import * as home from "./pages/home.js";
+import * as habitatPage from "./pages/habitatpage.js";
 import * as library from "./pages/library.js";
 import * as player from "./pages/player.js";
 import * as vocab from "./pages/vocab.js";
@@ -359,6 +360,7 @@ export async function saveSettings(values) {
 // ---------- router ----------
 const routes = [
   [/^$/, home, () => ({})],
+  [/^habitat$/, habitatPage, () => ({})],
   [/^library$/, library, () => ({})],
   [/^feed\/(\d+)$/, library, (m) => ({ feedId: Number(m[1]) })],
   [/^discover$/, discover, () => ({})],
