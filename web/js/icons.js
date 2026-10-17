@@ -50,6 +50,19 @@ const PATHS = {
   // A tall phone-shaped frame with a play sign: Instagram reels (so they don't share YouTube's icon).
   reel: `<rect class="fill" x="6.5" y="3" width="11" height="18" rx="2.8"/><rect x="6.5" y="3" width="11" height="18" rx="2.8"/>
     <path class="solid" d="M10.5 9.6v4.8l4-2.4z"/>`,
+  // Row actions on the Friends tab: message, accept, decline, add or remove a person, rename, leave, add new.
+  message: `<path class="fill" d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 3.5V17H6.5A2.5 2.5 0 0 1 4 14.5z"/>
+    <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 3.5V17H6.5A2.5 2.5 0 0 1 4 14.5z"/>`,
+  check: `<path d="M5 12.5l4.5 4.5L19 7.5"/>`,
+  close: `<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>`,
+  userplus: `<circle class="fill" cx="9" cy="8.4" r="3.2"/><circle cx="9" cy="8.4" r="3.2"/><path d="M3 19.6a6 6 0 0 1 12 0"/>
+    <path d="M18.5 8.5v6M15.5 11.5h6"/>`,
+  userminus: `<circle class="fill" cx="9" cy="8.4" r="3.2"/><circle cx="9" cy="8.4" r="3.2"/><path d="M3 19.6a6 6 0 0 1 12 0"/>
+    <path d="M15.5 11.5h6"/>`,
+  edit: `<path class="fill" d="M15.2 4.8a2 2 0 0 1 2.8 0l1.2 1.2a2 2 0 0 1 0 2.8L9 19l-4.5 1 1-4.5z"/>
+    <path d="M15.2 4.8a2 2 0 0 1 2.8 0l1.2 1.2a2 2 0 0 1 0 2.8L9 19l-4.5 1 1-4.5z"/><path d="M13.5 6.5l4 4"/>`,
+  leave: `<path d="M10 4.5H6.5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2H10"/><path d="M14.5 8l4 4-4 4"/><path d="M18.5 12H9.5"/>`,
+  add: `<path d="M12 5.5v13M5.5 12h13"/>`,
 };
 
 export const ICON_NAMES = Object.keys(PATHS);

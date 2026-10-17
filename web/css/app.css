@@ -1258,3 +1258,63 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .me-toggle .chev { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(2px) rotate(-135deg); transition: transform .15s ease; }
 .me-card.collapsed .me-toggle .chev { transform: translateY(-2px) rotate(45deg); }
 .me-card.collapsed #my-card, .me-card.collapsed #edit-card, .me-card.collapsed #photo-remove, .me-card.collapsed .me-id .muted { display: none; }
+
+/* ---------- Friends tab: segmented control, one row layout for people and guilds, confirm boxes ---------- */
+.friends-title { margin: 0 0 12px; }
+.segmented { display: flex; gap: 4px; padding: 4px; margin: 0 auto 14px; max-width: 460px; border-radius: 14px; background: var(--surface-2); }
+.seg-btn { flex: 1; min-height: 38px; border: none; border-radius: 10px; background: transparent; color: var(--muted); font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.seg-btn:hover:not(:disabled) { background: transparent; color: var(--text); }
+.seg-btn.on, .seg-btn.on:hover:not(:disabled) { background: var(--surface); color: var(--text); }
+.seg-btn .nav-count { margin-left: 0; }
+.friends-page .sec-title { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 18px; font-weight: 700; }
+.friends-page .sec-title .new-guild { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; }
+.item-row { border-top: 1px solid var(--border); }
+.item-row:first-of-type, .sec-title + .item-row, .friend-find + .item-row { border-top: none; }
+.item-row[hidden] { display: none; }
+.item-main { display: flex; align-items: center; gap: 12px; padding: 10px 0; min-height: 60px; }
+.item-main.openable { cursor: pointer; }
+.item-lead { flex: none; display: inline-grid; place-items: center; width: 40px; }
+.item-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.item-name { display: flex; align-items: center; gap: 6px; min-width: 0; font-weight: 600; }
+.item-name .n { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item-status { color: var(--muted); }
+.item-status.on { color: var(--accent); }
+.item-game { flex: none; }
+.item-actions { flex: none; display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.row-act { position: relative; width: 38px; height: 38px; min-height: 0; padding: 0; border-radius: 50%; display: inline-grid; place-items: center; background: transparent; border: 1px solid var(--border); color: var(--text); }
+.row-act:hover:not(:disabled) { border-color: var(--accent); background: transparent; }
+.row-act.go { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.row-act.has-new { border-color: var(--accent); color: var(--accent); }
+.row-act.warn { color: var(--danger); }
+.row-act.warn:hover:not(:disabled) { border-color: var(--danger); }
+.row-act.muted-act { opacity: .45; }
+.row-act .nav-count { position: absolute; top: -5px; right: -6px; margin: 0; }
+.chev-act .ic, .me-toggle .ic { transform: rotate(90deg); transition: transform .15s ease; }
+.chev-act.open .ic { transform: rotate(-90deg); }
+.me-card .me-toggle .ic { transform: rotate(-90deg); }
+.me-card.collapsed .me-toggle .ic { transform: rotate(90deg); }
+.guild-emblem { min-width: 40px; height: 40px; padding: 0 6px; border-radius: 12px; display: inline-grid; place-items: center; background: var(--surface-2); color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
+.guild-members { padding: 0 0 6px 52px; }
+.guild-members .item-row:first-of-type { border-top: 1px solid var(--border); }
+.item-row > .study { margin-left: 52px; margin-bottom: 10px; }
+.guild-members .item-row > .study { margin-left: 52px; }
+.add-friend { display: flex; flex-direction: column; gap: 10px; }
+.add-row { display: flex; gap: 8px; }
+.add-row input { flex: 1; min-width: 0; }
+.add-row .tag-input { flex: none; width: 90px; text-transform: uppercase; }
+.guild-form { display: flex; flex-direction: column; gap: 10px; padding: 6px 0 12px; }
+.confirm-buttons { display: flex; gap: 10px; margin-top: 18px; }
+.confirm-buttons button { flex: 1; min-height: 44px; }
+button.danger-solid { background: var(--danger); border-color: var(--danger); color: #fff; }
+@media (max-width: 640px) {
+  .item-main { flex-wrap: wrap; row-gap: 6px; }
+  /* The name keeps at least this much room; actions that don't fit beside it move to their own line, still on the right. */
+  .item-text { flex: 1 1 150px; }
+  .item-game { order: 5; flex-basis: 100%; padding-left: 52px; }
+  .item-actions { order: 6; }
+  .item-row > .study, .guild-members .item-row > .study { margin-left: 0; }
+  .guild-members { padding-left: 12px; }
+  .row-act { width: 36px; height: 36px; }
+  .add-row { flex-direction: column; }
+  .add-row .tag-input { width: 100%; }
+}

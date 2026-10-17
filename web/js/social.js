@@ -670,6 +670,16 @@ export async function heartbeat(online = true) {
   await (await sb()).rpc("heartbeat", { online }).then(() => {}, () => {});
 }
 
+/** Seconds since each person was last seen: Map(user id -> seconds). People never seen are left out. */
+export async function seenAgo(userIds) {
+  const out = new Map();
+  if (!userIds.length) return out;
+  const { data, error } = await (await sb()).rpc("seen_ago", { people: userIds });
+  if (error) return out;
+  for (const r of data) if (r.seconds !== null) out.set(r.user_id, Number(r.seconds));
+  return out;
+}
+
 /** Who of these people is online right now: Set of user ids. */
 export async function onlineAmong(userIds) {
   const out = new Set();
