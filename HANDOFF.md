@@ -2577,6 +2577,26 @@ status pills running into "Filter by title".
   and desktop (Trending topics fade; wrapped status pills untouched). The nudge's movement itself needs a visible
   window; in the hidden preview only its calls could be checked. Pictures: `C:\Users\chris\.claude\uploads\library-redesign\scroll-hint-frame1-rest.png` and `scroll-hint-frame2-nudged.png`. Not on a real phone.
 
+## No Import Page outside reading (commit 6fe635a)
+Browser windows know why they were opened. Desktop: `_browser_window(..., reading=False)` puts
+`window.__tamkeenNoImport = true` before the toolbar script, which then leaves out Import Page and
+the star. Used by open_youtube, open_browser(find) and open_browser(url, False, False) (the
+Instagram sign-in from web/js/app.js `openBrowser(url, { signIn: true })`). Phone: openBrowser
+sends `forReading` (false for openYouTube, the YouTube-link fallback, Instagram sign-in and Find in
+a video); GoogleDriveAuthPlugin passes it to InAppBrowser.open, which hides importButton and the star.
+
+### Reel player: "The link to this photo or video may be broken" (2026-10-17, "Instagram Reels Player" chat; commit in this note's log line, not pushed)
+Owner's report (v0.24.0): a reel showed Instagram's broken-link page and 0:00. Cause, checked signed out in a
+browser on the same creator's reel `Def3XHdlelv`: the reel EXISTS but is **age-restricted**; Instagram's embed
+page answers such posts (also private, removed, or embedding turned off) with that broken-link page, and the
+reel's ordinary page says "Age-restricted content ... Log in to continue". So it plays only signed in, and the
+owner's reel window had been signed out by Instagram. Fix: `reel-embed.js` spots that page at once (selectors
+`.EmbedBrokenMedia, .ebmMessage, a[href*='utm_campaign=invalid']`; a normal reel's embed page has none of them)
+and hides it; `reels.js` then goes to the ordinary page as before (signed out: the sign-in notice, which now
+mentions age-restricted reels and expired sign-ins; Skip only when there is another reel). A reel with no video
+even on its ordinary page is skipped only while some other reel hasn't failed (`failsInRow`), so a one-reel
+queue or a queue of failures no longer goes round forever. Not checked on a real phone.
+
 ### "Troubleshoot" when a key fails (2026-10-17, "API key setup and onboarding flow" chat; owner's request via the main chat)
 Owner: "If an API key fails add a troubleshoot button feature that lists common reasons an API fails such as
 VPN, expired key, ect...". A **Troubleshoot** button now sits beside the error in: Settings → Word definitions
