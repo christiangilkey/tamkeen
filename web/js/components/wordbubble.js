@@ -57,6 +57,8 @@ export function pauseSwitch(onChange) {
  *   onCorrect?: (def: object) => Promise<{word: string, ctx: object}|null>,  // the lookup found the
  *                        // word misheard (def.correction): change the transcript; null if it can't
  *   onUndoCorrect?: (fix: {from: string, to: string}) => Promise<{word: string, ctx: object}>,
+ *   onFindVideo?: (def: object|null) => Promise<void>,  // given: a "Find in a video" button beside
+ *                        // Save, which saves the word if need be and looks for it in a video (filmot.js)
  *   onPauseMode?: (pause: boolean) => void,  // given: the popup shows the pause / keep-playing
  *                        // switch and calls this when it is flipped (see pauseAfterWord)
  * }} actions
@@ -175,6 +177,7 @@ export function createWordBubble(host, actions) {
         <button type="button" data-act="sentence" title="Play the whole sentence">🔊 Sentence</button>
         <button type="button" data-act="from" title="Continue playing from here">▶ Continue</button>`}
         <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${saved ? "✓ Saved" : "★ Save"}</button>
+        ${actions.onFindVideo && !quick ? `<button type="button" data-act="findvideo" title="Save this word and find a YouTube video where it is said">${icon("video", 15)} Find in a video</button>` : ""}
         ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again">↻</button>` : ""}
       </div>`;
     paintSwitch(el.querySelector(".wb-mode"));
@@ -243,6 +246,17 @@ export function createWordBubble(host, actions) {
         }
         break;
       }
+      case "findvideo":
+        // Saves the word first when it isn't saved yet, exactly as Save does.
+        b.disabled = true;
+        try {
+          await actions.onFindVideo(def);
+          saved = true;
+          render(current.state, current.message);
+        } catch {
+          b.disabled = false;
+        }
+        break;
       case "save":
         // Works with or without a definition (no key, or the lookup failed).
         b.disabled = true;

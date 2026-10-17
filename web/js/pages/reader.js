@@ -135,13 +135,34 @@ export async function render(view, { id, data, query }) {
   const savedHere = new Set();
   const savedKey = (i, j) => `${i}-${j}`;
 
+  const savedRows = new Map();  // savedKey -> the word as saved, for "Find in a video"
   async function saveWord(t, def) {
-    if (savedHere.has(savedKey(t.i, t.j))) return;
-    await api("/vocab", { method: "POST", body: {
+    if (savedHere.has(savedKey(t.i, t.j))) return savedRows.get(savedKey(t.i, t.j)) || null;
+    const row = await api("/vocab", { method: "POST", body: {
       ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj), episode_id: id } });
     savedHere.add(savedKey(t.i, t.j));
+    savedRows.set(savedKey(t.i, t.j), row);
     reward({ type: "save" }, wordEls[t.i]);
     seen.markSeen(t.i, t.j);
+    return row;
+  }
+
+  /** "Find in a video" from the popup: the word's card (the one already saved from this page if
+   * there is one, else saved now exactly as Save does), then a video where it is said (filmot.js).
+   * The card keeps this page and its sentence as where the word was first found. */
+  async function findWordInVideo(t, def) {
+    const { findInVideo } = await import("../filmot.js");
+    const { fold } = await import("../cardtext.js");
+    let v = savedRows.get(savedKey(t.i, t.j)) || null;
+    if (!v) {
+      const same = (x) => fold(x.text) === fold(t.text) || (def && def.vocalized && fold(x.text) === fold(def.vocalized));
+      const found = (await api(`/vocab?q=${encodeURIComponent(t.text)}`)).filter(same);
+      v = found.find((x) => String(x.episode_id) === String(id)) || found[0] || null;
+      if (v) { savedHere.add(savedKey(t.i, t.j)); savedRows.set(savedKey(t.i, t.j), v); }
+    }
+    if (!v) v = await saveWord(t, def);
+    if (!v) throw new Error("Couldn't find this word in your vocab.");
+    await findInVideo(v);
   }
 
   // Misheard or misspelt words, put right in the page's text when a lookup finds them (fixword.js).
@@ -172,6 +193,10 @@ export async function render(view, { id, data, query }) {
     onSettings: () => (location.hash = "#/settings"),
     onSave: async (def) => {
       try { await saveWord(target, def); } catch (e) { toast(e.message, { error: true }); throw e; }
+    },
+    // A web page's words have nothing to listen to: one tap saves the word and finds it in a video.
+    onFindVideo: async (def) => {
+      try { await findWordInVideo(target, def); } catch (e) { toast(e.message, { error: true }); throw e; }
     },
   });
 

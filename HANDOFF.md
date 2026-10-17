@@ -2530,3 +2530,24 @@ the AI should say so, the popup should show and define the right word, and the t
 - At 640 px and less the player top row's Transcript button shows only the new `transcript` line icon (icons.js);
   its word is in `<span class="lbl">`, hidden by the last section of `web/css/media.css`; aria-label "Transcript".
   YouTube title on a 375 px phone: 83 px -> 132 px. Desktop unchanged.
+
+### "Find in a video" in the word popup of web pages (2026-10-17, "Vocab Page" chat; committed locally, NOT pushed)
+Owner: "The whole forvo find in video option we have on vocab cards should be a button right on the initial word
+pop up as well" (screenshot: the popup on an imported web page).
+- `wordbubble.js`: optional action `onFindVideo(def)`; when a page passes it, a "Find in a video" button (line
+  icon `video`) sits beside Save (not in the quick-lookup popup). Handled like Save: disabled while working, then
+  the popup shows "✓ Saved".
+- `reader.js` (web pages, `noAudio`) passes it: `findWordInVideo` uses the card already saved from this page
+  (this visit's `savedRows`, else `/vocab?q=` matched with cardtext `fold` on the word or its vowelled form,
+  preferring this page's card), else saves the word exactly as Save does (`saveWord`, which now returns the row:
+  the corrected word, the meaning shown, this page and sentence), then `findInVideo`. So the origin note is
+  "First found in: <page title> — <sentence>" and the search is in the card's language.
+- **Players and reels do not get it on purpose**: a word saved there already has its own audio, and Find in a video
+  would replace that source and sentence. Passing `onFindVideo` from player.js / reels.js is all it takes if the
+  owner wants it there too.
+- Checked in a test copy (preview slots were full: `run.py --server --port 8881` on the `tamkeen-filmot` data
+  folder, the built-in browser pointed at it): on an imported page the popup shows Save + Find in a video; one tap
+  saved the word with the page's sentence and title (language ar), turned Save into "✓ Saved", handed the window
+  `…/search/استهداف/1?gridView=1&lang=ar` with the Arabic choices and set the origin note; a second tap, and a tap
+  after reloading the page, reused the same card (one copy). Picture: `..\card-size-shots\popup-find-in-video.jpg`.
+  412 JS, 357 pytest pass. Not checked on a phone.
