@@ -18,6 +18,7 @@ import { showUpdateNotice } from "./updatenotice.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
 import { chosenCountry, youtubeHome } from "./youtube-home.js";
 import { startTranslating } from "./i18n.js";
+import { initScrollHints } from "./scrollhint.js";
 
 // ---------- API ----------
 export async function api(path, { method = "GET", body, raw } = {}) {
@@ -486,6 +487,7 @@ async function boot() {
     toast(e.message, { error: true });
   }
   window.addEventListener("hashchange", route);
+  initScrollHints(); // rows that scroll sideways show that they do
   route();
   openLinks(); // a link this run was started with (or that came while the page was loading)
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"

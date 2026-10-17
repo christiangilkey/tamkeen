@@ -26,6 +26,7 @@ const SHARED = [
   "js/languages.js",
   "js/lexicon",
   "js/icons.js",
+  "js/scrollhint.js",
   "js/game",
   "game-art",
   "js/components/langpicker.js",

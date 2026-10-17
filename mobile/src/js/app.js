@@ -33,6 +33,7 @@ import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js"
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
 import { vocabDeck } from "./anki-export.js";
 import { ankiCard } from "./review/fsrs.js";
+import { initScrollHints } from "./scrollhint.js";
 
 export const platform = "android";
 
@@ -882,6 +883,7 @@ async function boot() {
   for (const el of document.querySelectorAll("[data-icon]")) el.innerHTML = icon(el.dataset.icon, Number(el.dataset.size) || 22);
   window.addEventListener("hashchange", route);
   initSwipe();
+  initScrollHints(); // rows that scroll sideways show that they do
   route();
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   startBadge();

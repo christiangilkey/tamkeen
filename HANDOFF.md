@@ -2551,3 +2551,23 @@ pop up as well" (screenshot: the popup on an imported web page).
   `…/search/استهداف/1?gridView=1&lang=ar` with the Arabic choices and set the origin note; a second tap, and a tap
   after reloading the page, reused the same card (one copy). Picture: `..\card-size-shots\popup-find-in-video.jpg`.
   412 JS, 357 pytest pass. Not checked on a phone.
+
+### Rows that scroll sideways show that they do (2026-10-17, "Library Look" chat; committed locally, NOT pushed)
+Owner's request (relayed by the main chat): make it obvious that the sideways rows scroll; fix the phone Library's
+status pills running into "Filter by title".
+- `web/js/scrollhint.js`, started once by both app shells (`initScrollHints()`), finds the rows by selector
+  (`.hscroll`, `.lib-bar .tabs`, `.lib-bar .kind-row`, `.library .feed-list.sub-list`, `.disc-cats`, `.topbar .nav`)
+  and acts only while a row really scrolls sideways and has more than fits:
+  1. peek: changes the gaps (−4…+14 px) and, if needed, the items' side padding (±4 px) so the item at the right
+     edge is cut to 25–65%; if nothing in that range works, the row is left as it was;
+  2. fade: classes `hs-more` / `hs-back` put a mask on the edge with more beyond it (CSS at the top of
+     `web/css/media.css`); it disappears at the end of the scroll;
+  3. nudge: the first time a row appears after the app starts, it slides 34 px left and back (not with
+     "reduce motion", not if the finger is already on it).
+  The pinned chevron (the owner's option 4) was not built.
+- Phone Library: "Filter by title" now has its own line under the status pills (`mobile/src/css/mobile.css`).
+- Rows that wrap instead of scrolling (Vocab folder chips, reels/YouTube chips, the creature card's buttons, the
+  computer's status pills) get nothing; there is nothing hidden to hint at.
+- Checked in the preview: phone build at 375 px (peek 28–30% on both Library rows, fade, nudge called on both rows)
+  and desktop (Trending topics fade; wrapped status pills untouched). The nudge's movement itself needs a visible
+  window; in the hidden preview only its calls could be checked. Pictures: `C:\Users\chris\.claude\uploads\library-redesign\scroll-hint-frame1-rest.png` and `scroll-hint-frame2-nudged.png`. Not on a real phone.

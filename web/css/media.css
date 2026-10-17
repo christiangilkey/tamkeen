@@ -1,6 +1,16 @@
 /* Media import: the Trending podcasts page, the YouTube box in the Library, and the YouTube
    player. Kept apart from app.css; uses the same colour tokens. Shared with the Android app. */
 
+/* ---------- rows that scroll sideways (web/js/scrollhint.js) ----------
+   While a row has more than fits, the edge with more beyond it fades out; the fade goes once the
+   row is scrolled to that end. (The peek and the first-time nudge are done by the script.) */
+.hs-more { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 44px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 44px), transparent); }
+.hs-back { -webkit-mask-image: linear-gradient(to right, transparent, #000 32px); mask-image: linear-gradient(to right, transparent, #000 32px); }
+.hs-back.hs-more {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 32px, #000 calc(100% - 44px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 32px, #000 calc(100% - 44px), transparent);
+}
+
 /* ---------- library ---------- */
 .feed-list[hidden] { display: none; } /* the podcast / channel list, only under Podcasts and YouTube */
 
