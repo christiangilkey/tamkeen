@@ -40,7 +40,11 @@ ONE_LETTER = {
     "ru": set("висяаоку"),
     "ar": {"و"},
     "en": {"a", "i"},
+    "it": set("aeèoi"),
+    "tl": {"o"},
 }
+# wordfreq's own name for a language, where it differs from the app's (Tagalog is "fil", Filipino).
+WORDFREQ_CODE = {"tl": "fil"}
 # French writes these glued to the next word with an apostrophe (l'eau, j'ai, qu'il).
 FRENCH_ELIDED = {"l", "d", "c", "j", "n", "s", "t", "m", "qu"}
 
@@ -56,6 +60,8 @@ SCRIPT = {
     "ja": re.compile(r"[぀-ヿ㐀-䶿一-鿿々]+"),
     "zh": re.compile(r"[㐀-䶿一-鿿]+"),
     "en": re.compile(r"[a-z]+(?:'[a-z]+)*"),
+    "it": re.compile(r"[a-zàèéìíîòóùú]+"),
+    "tl": re.compile(r"[a-zñ]+(?:-[a-zñ]+)*"),
 }
 
 _AR_MAP = str.maketrans({"آ": "ا", "أ": "ا", "إ": "ا", "ٱ": "ا", "ة": "ه", "ى": "ي", "ؤ": "و", "ئ": "ي", "ـ": None})
@@ -74,7 +80,7 @@ def same_word_key(word: str, code: str) -> str:
 def keep(word: str, code: str) -> bool:
     if not SCRIPT[code].fullmatch(word):
         return False
-    if code in ("es", "fr") and word in ENGLISH - {"a", "y", "on", "est", "me", "in"}:
+    if code in ("es", "fr", "it", "tl") and word in ENGLISH - {"a", "y", "on", "est", "me", "in", "i", "it", "to"}:
         return False
     if code == "es" and word in {"in", "to"}:
         return False
@@ -91,7 +97,7 @@ def keep(word: str, code: str) -> bool:
 def build(code: str) -> list[str]:
     out: list[str] = []
     seen: set[str] = set()
-    for word in top_n_list(code, 4000):
+    for word in top_n_list(WORDFREQ_CODE.get(code, code), 4000):
         if not keep(word, code):
             continue
         key = same_word_key(word, code)

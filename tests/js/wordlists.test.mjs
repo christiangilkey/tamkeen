@@ -7,7 +7,7 @@ import { lexemesFor, needsDictionaries } from "../../web/js/lexicon/words.js";
 
 // Languages added since the lists were last built (tools/make_wordlists.py). Without a list the
 // "I've already started" step simply has no common words to add for them.
-const NOT_YET = ["it", "tl"];
+const NOT_YET = [];
 const WITH_LISTS = LANGUAGE_CODES.filter((c) => !NOT_YET.includes(c));
 const lists = Object.fromEntries(await Promise.all(
   WITH_LISTS.map(async (code) => [code, (await import(`../../web/js/wordlists/${code}.js`)).default])));
@@ -25,7 +25,7 @@ test("every language the app teaches has a list of 1000 different words", () => 
 });
 
 test("the lists are in the right writing: no English in the Arabic list, and so on", () => {
-  const expected = { es: "es", fr: "fr", ar: "ar", ru: "ru", zh: "zh", ja: "ja", en: "en" };
+  const expected = { es: "es", fr: "fr", ar: "ar", ru: "ru", zh: "zh", ja: "ja", en: "en", it: "it", tl: "tl" };
   for (const code of WITH_LISTS) {
     assert.equal(detectLanguage(lists[code].join(" "), code), expected[code], code);
   }
