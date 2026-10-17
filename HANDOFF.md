@@ -2628,3 +2628,25 @@ page and its status page. The key is never shown (anything key-shaped in a messa
   made-up keys in Settings (both tests), the Mnemonic maker test, the popup's button, and boxes for a dropped
   connection, an unsupported country and no credit; the box in Spanish at phone width (375 px). Not checked: a
   real phone, a real VPN or region block, the Library row with a real failed cloud transcription.
+
+### Phone reels: "stuck at reel 2" (2026-10-17, "Media import" chat; committed locally, NOT pushed, NOT released)
+The owner, phone v0.24.0, Spanish, cloud transcription: "Listening to reel 2 of 70…" never moved. (The "of 70"
+line is the TICKED-reels job, `startSelected`: 70 reels were ticked; "Get random reels" words it differently.)
+- **Cause**: nothing in trying one reel (`tryReel` in `mobile/src/js/reels-phone.js`) had an overall limit. The
+  send (`postAudio`) allows 4 tries with a 5-minute read limit each, and a 429 ("slow down", e.g. Groq's free
+  hourly allowance used up by podcasts) was waited out SILENTLY for up to 20 minutes (`LONGEST_WAIT`), because
+  the reels job passed no `say`. Stop was only checked between reels. Not reproduced on the owner's phone; the
+  three paths were reproduced in the phone build.
+- **Fix**: `bounded(work, seconds)` gives up on a promise after a time limit or at once on Stop;
+  `tryWithin` tries one reel within `REEL_SECONDS` (180) and turns a failure that is only this reel's into a
+  reason; the download has `DOWNLOAD_SECONDS` (75). `postAudio` honours `job.longestWait` (new; reels pass
+  `PROVIDER_WAIT` = 90 s) and the reels job now passes `say`, so a wait is shown. A longer wait, a refused key or
+  Stop end the batch with "N added, M skipped". Progress: "Reel 2 of the 70 you ticked: listening… (1 added, 0
+  skipped so far)"; random: "Getting 10 Spanish reels: 1 added, 0 skipped so far; listening to the next one…".
+- **Checked** in the phone build with the pretend Instagram, time sped up 50x, fetch replaced (nothing sent to a
+  real provider): downloads hanging → each skipped "the video took too long to download", batch ends "0 added,
+  12 skipped"; Stop while one hangs → "Stopped. 0 added, 0 skipped." within a second; Groq asking to wait 5
+  minutes → the batch ends with Groq's own reason plus the tally after one call; Groq never answering → that
+  reel skipped "took over 3 minutes", the next tried. 357 pytest; JS all pass except `i18n.test.mjs`, which
+  fails on five strings from other chats' unsaved work, not these. **Not checked on a real phone.**
+- `transcribe-service.js` is the cloud chat's file: one line (`job.longestWait`), default unchanged.
