@@ -150,12 +150,66 @@
     }).then(function () { busy = false; });
   }
 
+  // ----- the language of the captions -----
+  // The app asks for the language being learned in the search's address ("&lang=…"). When the
+  // results page also has its own list of caption languages and another one is chosen in it, the
+  // script chooses the learned one there, once per page, as a person would, and waits for the page
+  // to show those results. That list names languages in English ("Arabic", "German"), which tells
+  // it apart from the site's own interface-language list (which says "Deutsch", "Español").
+  var want = window.__tamkeenFind && typeof window.__tamkeenFind === "object" ? window.__tamkeenFind : {};
+  function languageList() {
+    var lists = document.querySelectorAll("select");
+    for (var i = 0; i < lists.length; i++) {
+      var texts = [];
+      for (var j = 0; j < lists[i].options.length; j++) texts.push(String(lists[i].options[j].text || "").trim());
+      if (texts.indexOf("English") >= 0 && (texts.indexOf("German") >= 0 || texts.indexOf("Spanish") >= 0 || texts.indexOf("French") >= 0)) return lists[i];
+    }
+    return null;
+  }
+  /** Choose the learned language in the page's list. True when that was done (the page will change). */
+  function chooseLanguage() {
+    var values = (want.values || []).map(function (v) { return String(v).toLowerCase(); });
+    var names = (want.names || []).map(function (v) { return String(v).toLowerCase(); });
+    if (!values.length && !names.length) return null;
+    var key = "tamkeen-lang:" + location.pathname + location.search;
+    try { if (sessionStorage.getItem(key)) return null; } catch (e) { /* not kept: tried once per load */ }
+    var list = languageList();
+    if (!list) return null;
+    var pick = null;
+    for (var i = 0; i < list.options.length && !pick; i++) {
+      var o = list.options[i];
+      if (values.indexOf(String(o.value || "").toLowerCase()) >= 0 || names.indexOf(String(o.text || "").trim().toLowerCase()) >= 0) pick = o;
+    }
+    if (!pick || list.value === pick.value) return null;
+    try { sessionStorage.setItem(key, "1"); } catch (e) { /* see above */ }
+    list.value = pick.value;
+    list.dispatchEvent(new Event("input", { bubbles: true }));
+    list.dispatchEvent(new Event("change", { bubbles: true }));
+    return list;
+  }
+
   if (window.__tamkeenFind && /^\/search\//.test(location.pathname)) {
-    // Wait for the results to be on the page (it may still be loading), then hand them over once.
+    // Wait for the results to be on the page (it may still be loading), choose the caption
+    // language if the page offers a choice, then hand the results over once.
     var waited = 0;
+    var chose = null;     // the language list just changed, or null
+    var choseAt = -1;
+    var asked = false;
     var timer = setInterval(function () {
       waited += 500;
       var ready = document.readyState === "complete";
+      if (ready && !asked) {
+        asked = true;
+        chose = chooseLanguage();
+        if (chose) { choseAt = waited; say("Showing videos with captions in the language you're learning…"); return; }
+      }
+      if (chose) {
+        // A page that does not reload by itself when the list changes is sent with its own form.
+        if (waited - choseAt === 2000 && chose.form) {
+          try { chose.form.requestSubmit ? chose.form.requestSubmit() : chose.form.submit(); } catch (e) { /* the results shown stay */ }
+        }
+        if (waited - choseAt < 5000) return;  // the page is (probably) on its way with those results
+      }
       var list = ready ? listed() : [];
       if ((ready && (list.length || waited >= 6000)) || waited >= 15000) {
         clearInterval(timer);

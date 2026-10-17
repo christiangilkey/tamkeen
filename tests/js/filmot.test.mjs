@@ -5,7 +5,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
-import { currentHunt, endHunt, filmotAddress, findSpoken, fold, lacksAudio, linesTranscript, startHunt } from "../../web/js/filmot.js";
+import { currentHunt, endHunt, filmotAddress, filmotLang, findSpoken, fold, lacksAudio, languageChoices, linesTranscript, startHunt } from "../../web/js/filmot.js";
 
 const VIDEO = "lo3KyF50IGE";
 
@@ -73,11 +73,12 @@ test("the word being looked for is forgotten after half an hour", () => {
 // ----- the scripts that run inside the app's browser -----
 
 /** A pretend browser window on `href` with `file` already run in it. */
-function page(file, href, { bridge, api, find, nodes = [], ready = "complete" } = {}) {
+function page(file, href, { bridge, api, find, nodes = [], selects = [], ready = "complete" } = {}) {
   const source = readFileSync(new URL(`../../web/js/${file}`, import.meta.url), "utf8");
   const listeners = {};
   const gone = [];
   const timers = [];
+  const kept = new Map();
   const address = new URL(href);
   const element = () => ({ style: {}, children: [], isConnected: true, textContent: "",
                            appendChild(c) { this.children.push(c); return c; }, attachShadow() { return element(); }, setAttribute() {} });
@@ -86,16 +87,17 @@ function page(file, href, { bridge, api, find, nodes = [], ready = "complete" } 
                 get pathname() { return address.pathname; }, get origin() { return address.origin; }, replace(v) { gone.push(v); } },
     URL, setTimeout: () => 0, clearTimeout() {}, history: { length: 2, back() { gone.push("back"); } },
     setInterval(fn) { timers.push(fn); return timers.length; }, clearInterval(n) { timers[n - 1] = null; },
-    document: { createElement: element, body: element(), documentElement: element(), querySelectorAll: () => nodes, readyState: ready },
+    document: { createElement: element, body: element(), documentElement: element(), querySelectorAll: (q) => (q === "select" ? selects : nodes), readyState: ready },
     addEventListener(type, fn) { listeners[type] = fn; },
-    sessionStorage: { getItem: () => null, setItem() {} },
+    sessionStorage: { getItem: (k) => (kept.has(k) ? kept.get(k) : null), setItem: (k, v) => kept.set(k, String(v)) },
+    Event: class { constructor(type) { this.type = type; } },
     fetch: async () => ({ text: async () => "" }),
   };
   win.window = win;
   win.top = win;
   if (bridge) win.__tamkeenBridge = bridge;
   if (api) win.pywebview = { api };
-  if (find) win.__tamkeenFind = true;
+  if (find) win.__tamkeenFind = find;
   vm.runInNewContext(source, win);
   /** Let `ms` milliseconds of half-second ticks pass. */
   const wait = (ms) => { for (let t = 0; t < ms; t += 500) for (const fn of timers) if (fn) fn(); };
@@ -210,4 +212,62 @@ test("a video's caption lines take the shape of a stored transcript", () => {
   assert.deepEqual(t.words.seg, [0, 0, 0, 1, 1, 1]);
   assert.deepEqual(findSpoken(t, "بقيت"), { start: 3.8, end: 4.4, sent_start: 3.2, sent_end: 5.0, sentence: "أنا بقيت عمو؟!" },
                    "the card's sentence starts where its line starts");
+});
+
+// ----- the language of the captions -----
+test("the search asks Filmot for captions in the language being learned", () => {
+  assert.equal(filmotAddress("كتاب", "ar"), `https://filmot.com/search/${encodeURIComponent("كتاب")}/1?gridView=1&lang=ar`);
+  assert.ok(filmotAddress("salamat", "tl").endsWith("&lang=fil"), "Tagalog by YouTube's caption code");
+  assert.equal(filmotLang("zh"), "zh");
+  assert.equal(filmotLang("he"), "iw", "Filmot's own lists use YouTube's old code for Hebrew");
+  assert.ok(!filmotAddress("كتاب").includes("lang="), "no language, no filter");
+  assert.deepEqual(languageChoices("tl", "Tagalog"), { lang: "fil", values: ["fil", "tl"], names: ["Tagalog", "Filipino"] });
+  assert.deepEqual(languageChoices("ar", "Arabic"), { lang: "ar", values: ["ar"], names: ["Arabic"] });
+});
+
+/** A <select> with these [value, text] options, `value` chosen. Records what is done to it. */
+function select(options, value, form = null) {
+  const s = { options: options.map(([v, text]) => ({ value: v, text })), value, form, events: [] };
+  s.dispatchEvent = (e) => s.events.push(e.type);
+  return s;
+}
+const CAPTION_LANGS = [["", "Any language"], ["en", "English"], ["de", "German"], ["es", "Spanish"], ["ar", "Arabic"], ["fil", "Filipino"]];
+const SITE_LANGS = [["de", "Deutsch"], ["en", "English"], ["es", "Español"]];
+const AR = { lang: "ar", values: ["ar"], names: ["Arabic"] };
+
+test("on the results page the learned language is chosen in the page's own caption-language list, then the results are taken", () => {
+  const asked = [];
+  const api = { find_results: async (list) => { asked.push(JSON.parse(JSON.stringify(list))); return { ok: true }; } };
+  const site = select(SITE_LANGS, "en");
+  const captions = select(CAPTION_LANGS, "");
+  const p = page("filmot-browser.js", "https://filmot.com/search/x/1?gridView=1", { find: AR, nodes: shown, selects: [site, captions], api });
+  p.wait(500);
+  assert.equal(captions.value, "ar", "Arabic chosen in the caption list");
+  assert.deepEqual(captions.events, ["input", "change"]);
+  assert.equal(site.value, "en", "the site's own interface language is never touched");
+  p.wait(4000);
+  assert.deepEqual(asked, [], "it waits for the page to show those results");
+  p.wait(1500);
+  assert.equal(asked.length, 1, "a page that did not change is used as it is");
+});
+
+test("a list that already shows the language, or a page without one, goes straight to the results", () => {
+  const asked = [];
+  const api = { find_results: async (list) => { asked.push(list.length); return { ok: true }; } };
+  const already = select(CAPTION_LANGS, "ar");
+  page("filmot-browser.js", "https://filmot.com/search/x/1?lang=ar", { find: AR, nodes: shown, selects: [already], api }).wait(1000);
+  page("filmot-browser.js", "https://filmot.com/search/x/1", { find: AR, nodes: shown, selects: [select(SITE_LANGS, "en")], api }).wait(1000);
+  page("filmot-browser.js", "https://filmot.com/search/x/1", { find: true, nodes: shown, selects: [select(CAPTION_LANGS, "")], api }).wait(1000);
+  assert.deepEqual(asked, [3, 3, 3]);
+  assert.deepEqual(already.events, []);
+});
+
+test("a list with its own form is sent when choosing alone does not change the page; Tagalog goes by its caption code", () => {
+  let sent = 0;
+  const form = { requestSubmit() { sent++; } };
+  const captions = select(CAPTION_LANGS, "", form);
+  page("filmot-browser.js", "https://filmot.com/search/x/1", { find: languageChoices("tl", "Tagalog"), nodes: shown, selects: [captions],
+                                                               api: { find_results: async () => ({ ok: true }) } }).wait(3000);
+  assert.equal(captions.value, "fil");
+  assert.equal(sent, 1);
 });

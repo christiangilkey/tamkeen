@@ -526,7 +526,8 @@ export async function openBrowser(url = "", { instagramSignIn = false, find = fa
   const sites = savedSites(settings.browser_sites);
   await GoogleDriveAuth.browserSites({ sites: JSON.stringify(sites) }).catch(() => {});
   // Opened by "Find in a video": the Filmot script takes the top results by itself (filmot-browser.js).
-  const pageScript = (find ? "window.__tamkeenFind=true;" : "") + await youtubeBrowserScript();
+  // `find` is {lang, values, names}: the language whose captions the search is for (see filmot.js).
+  const pageScript = (find ? `window.__tamkeenFind=${JSON.stringify(find === true ? {} : find)};` : "") + await youtubeBrowserScript();
   await GoogleDriveAuth.openBrowser({ url, extractor: await extractorSource(), youtube: pageScript,
                                       home: translateHtml(homeHtml(settings.study_language || "", sites)),
                                       closeOnInstagramSignIn: !!instagramSignIn });

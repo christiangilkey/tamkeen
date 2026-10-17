@@ -146,3 +146,11 @@ def test_only_a_window_opened_to_find_a_word_hands_over_results(monkeypatch):
     assert closed == [True], "the window closes once the word has its video"
     finder.find_results("not a list")
     assert asked[-1] == []
+
+
+def test_the_find_language_written_into_the_page_is_only_plain_short_words():
+    clean = desktop._find_language({"lang": "fil", "values": ["fil", "tl", "</script>", 5], "names": ["Tagalog", "Filipino", "x" * 60],
+                                    "extra": "ignored"})
+    assert clean == {"lang": "fil", "values": ["fil", "tl"], "names": ["Tagalog", "Filipino"]}
+    assert desktop._find_language(True) == {"lang": "", "values": [], "names": []}
+    assert desktop._find_language({"lang": "ar;alert(1)"})["lang"] == ""

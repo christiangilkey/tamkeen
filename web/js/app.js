@@ -282,7 +282,8 @@ on("app_link", openLinks);
 export async function openBrowser(url = "", { find = false } = {}) {
   const bridge = window.pywebview && window.pywebview.api;
   if (bridge && bridge.open_browser) {
-    const r = await (find ? bridge.open_browser(url, true) : bridge.open_browser(url));
+    // `find` is {lang, values, names}: the language whose captions the search is for (see filmot.js).
+    const r = await (find ? bridge.open_browser(url, find) : bridge.open_browser(url));
     if (r && r.error) throw new Error(r.error);
     return;
   }

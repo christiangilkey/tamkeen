@@ -24,12 +24,33 @@ export const FILMOT = "https://filmot.com";
 // Arabic vowel marks and the stretching line: captions are written without them.
 const HARAKAT = /[ؐ-ًؚ-ٰٟۖ-ۭـ]/g;
 
-/** Filmot's results page for `word`: the address its own search box goes to. */
-export function filmotAddress(word) {
+// Filmot names languages by YouTube's caption codes, older ones included (its own lists use "iw" for
+// Hebrew); where those differ from the app's, the caption code comes first and the app's after it.
+const FILMOT_CODES = { tl: ["fil", "tl"], zh: ["zh", "zh-Hans", "zh-CN", "zh-Hant", "zh-TW"], he: ["iw", "he"] };
+// Other English names a language may go by in Filmot's list.
+const OTHER_NAMES = { tl: ["Filipino"], zh: ["Chinese (Simplified)", "Chinese (Traditional)"] };
+
+/** The language code Filmot is asked for: the caption code for the app's language `lang`. */
+export function filmotLang(lang) {
+  return (FILMOT_CODES[lang] || [lang || ""])[0];
+}
+
+/** What the browser script may find in Filmot's own caption-language list for `lang`, and its
+ * English `name` (from languages.js): {lang, values, names}. */
+export function languageChoices(lang, name = "") {
+  const values = [...new Set([...(FILMOT_CODES[lang] || []), lang].filter(Boolean))];
+  const names = [...new Set([name, ...(OTHER_NAMES[lang] || [])].filter(Boolean))];
+  return { lang: filmotLang(lang), values, names };
+}
+
+/** Filmot's results page for `word`: the address its own search box goes to, asking for captions in
+ * language `lang` (the language being learned) when given. */
+export function filmotAddress(word, lang = "") {
   let q = String(word || "").replace(HARAKAT, "").replace(/["“”]/g, " ").replace(/\s+/g, " ").trim().replace(/\//g, "\\");
   if (!q) return `${FILMOT}/`;
   if (q.includes(" ")) q = `"${q}"`; // several words: Filmot looks for them together only in quotation marks
-  return `${FILMOT}/search/${encodeURIComponent(q)}/1?gridView=1`;
+  const code = filmotLang(lang);
+  return `${FILMOT}/search/${encodeURIComponent(q)}/1?gridView=1${code ? `&lang=${encodeURIComponent(code)}` : ""}`;
 }
 
 /** True when a saved word has nothing to listen to: no moment in an episode and no clip of its own. */
@@ -109,8 +130,13 @@ export function endHunt() {
  * The browser is told it was opened to find a word, so its script takes the top result itself. */
 export async function findInVideo(v) {
   const { openBrowser } = await import("./app.js");
+  const { langInfo, studyLanguage } = await import("./languages.js");
+  // The word's own language (each word keeps one), else the language being learned.
+  const lang = v.language || studyLanguage();
   startHunt(v);
-  await openBrowser(filmotAddress(v.text), { find: true });
+  // The search asks Filmot for captions in that language; the browser script also picks it in the
+  // results page's own language list when the address alone did not (filmot-browser.js).
+  await openBrowser(filmotAddress(v.text, lang), { find: languageChoices(lang, langInfo(lang).name) });
 }
 
 /** A video's caption lines (as read by ytcaptions.js) in the shape of a stored transcript, so a word

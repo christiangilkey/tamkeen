@@ -2401,3 +2401,28 @@ The owner's UI plan, relayed by the main chat: separate adding from the content,
   on `e2e-video`, signed out. All 26 test libraries under the chats' scratch folders read signed out; only the
   real library (`%APPDATA%/ArabicPodcastStudio`) is signed in. Most likely the row was seen to EXIST and read
   as "set". The shared memory note now says how to read it.
+
+### "Find in a video" asks for captions in the language being learned (2026-10-17, "Vocab Page" chat; committed locally, NOT pushed)
+Owner: "after the user does the captia, then automatically select the language to the language the user is learning
+in the settings on the webpage, then pull the word from the top videos of that query".
+- **Address first** (one page load): `filmotAddress(word, lang)` adds `&lang=<code>` with YouTube's caption code
+  (`filmotLang`: tl → fil, he → iw, the rest unchanged). The word's own `language`, else the study language.
+- **The page's list as a fallback**: `languageChoices(lang, name)` = {lang, values (codes), names (English names,
+  plus Filipino for Tagalog)} travels to the browser script as `window.__tamkeenFind` (desktop: `open_browser(url,
+  find)` → `_find_language` keeps only short plain words before writing it into the page; phone: prefixed to the
+  script). On a find-mode `/search/` page, `filmot-browser.js` looks for a `<select>` whose options are English
+  language names (it has "English" and "German"/"Spanish"/"French"), which keeps it off Filmot's interface-language
+  list (native names). If another language is chosen there, it chooses the learned one (input + change events),
+  once per page address (sessionStorage), sends the list's own form after 2 s if the page has not changed, and
+  waits 5 s before taking whatever results are showing. Videos are still checked for captions in the learned
+  language and for the word before one is used (findFromResults), so a page that ignores both still cannot give a
+  wrong-language card.
+- **Unverified, and why**: Filmot's caption-search results page sits behind its human check (seen again
+  2026-10-17), so neither its address parameter for the language nor its language list could be seen. `lang=` is a
+  guess (Filmot's own keyword search uses the same codes in its address, `/cloudbyword/<code>/<word>`, and its
+  language list there has values like `ar`, `iw`); an unknown parameter is ignored by a site, so the guess costs
+  nothing if wrong.
+- Tests: 4 new in tests/js/filmot.test.mjs (address, choices, choosing in the page's list and not in the site's,
+  already chosen / no list / no language, form sent; Tagalog as "fil"), 1 in tests/test_filmot.py (`_find_language`).
+  398 JS, 349 pytest pass. In the preview the button handed the window bridge
+  `…/search/<word>/1?gridView=1&lang=ar` and {lang: "ar", values: ["ar"], names: ["Arabic"]}.
