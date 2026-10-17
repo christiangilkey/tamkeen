@@ -747,7 +747,7 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .home-h { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 4px 0 0; }
 .continue-row { position: relative; display: flex; align-items: center; gap: 12px; padding: 12px 14px 16px; overflow: hidden; color: var(--text); transition: transform .08s ease; }
 .continue-row:hover { text-decoration: none; border-color: var(--accent); }
-.continue-row .continue-ico { font-size: 22px; }
+.continue-row .continue-ico { display: grid; place-items: center; color: var(--text); flex: none; }
 .continue-row .t { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .continue-row .continue-bar { height: 4px; background: var(--surface-2); }
 .caught-up { text-align: center; padding: 6px 0 10px; }
@@ -759,9 +759,9 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .choice { display: flex; align-items: center; gap: 14px; padding: 14px 16px; color: var(--text); transition: transform .08s ease, border-color .12s ease; }
 .choice:hover { text-decoration: none; border-color: var(--accent); }
 .choice > span:last-child { display: flex; flex-direction: column; }
-.choice-ico { font-size: 24px; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); flex: none; }
+.choice-ico { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--surface-2); color: var(--text); flex: none; }
 .today-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-.today-chip { padding: 5px 12px; border-radius: 99px; background: var(--surface-2); color: var(--muted); font-size: 13px; }
+.today-chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 99px; background: var(--surface-2); color: var(--muted); font-size: 13px; }
 .today-chip.lit { background: var(--hl); color: var(--hl-ink); font-weight: 600; }
 @media (max-width: 760px) {
   /* Phone: the Continue button sits low, where the thumb already rests. */

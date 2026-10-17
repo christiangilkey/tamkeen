@@ -7,8 +7,10 @@ import { continueItems, forgetProgress, fraction, leftLabel } from "../progress.
 import { episodeLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { habitat } from "../game/habitat.js";
 import { gameOn } from "../components/gameswitch.js";
+import { icon } from "../icons.js";
 
-const KIND_ICON = { audio: "🎧", video: "🎬", page: "🌐" };
+// The app's own white line icons (icons.js), the same as the tab bar's.
+const KIND_ICON = { audio: "podcast", video: "video", page: "page" };
 const KIND_VERB = { audio: "Continue listening", video: "Continue watching", page: "Continue reading" };
 
 function greeting() {
@@ -74,7 +76,7 @@ export async function render(view) {
     if (items.length > 1) more.append(h(`<h2 class="home-h">Also in progress</h2>`));
     for (const item of items.slice(1)) {
       const row = h(`<a class="continue-row card" href="#/episode/${item.id}">
-        <span class="continue-ico">${KIND_ICON[item.kind] || "▶"}</span>
+        <span class="continue-ico">${icon(KIND_ICON[item.kind] || "video", 22)}</span>
         <span class="continue-text"><span class="t" dir="auto"></span>
           <span class="small muted">${esc(leftLabel(item))}</span></span>
         <span class="continue-bar"><i style="width:${Math.round(fraction(item) * 100)}%"></i></span>
@@ -89,11 +91,11 @@ export async function render(view) {
       <div class="caught-up-sub">Nothing left unfinished. Pick something new whenever you like.</div>
     </div>`));
     more.append(h(`<div class="home-choices">
-      <a class="choice card" href="#/library"><span class="choice-ico">🎧</span><span><strong>Open your library</strong>
+      <a class="choice card" href="#/library"><span class="choice-ico">${icon("library", 24)}</span><span><strong>Open your library</strong>
         <span class="small muted">Podcasts, videos and web pages</span></span></a>
-      <a class="choice card" href="#/vocab"><span class="choice-ico">★</span><span><strong>Look over your vocab</strong>
+      <a class="choice card" href="#/vocab"><span class="choice-ico">${icon("vocab", 24)}</span><span><strong>Look over your vocab</strong>
         <span class="small muted">The words you've saved</span></span></a>
-      <a class="choice card" href="#/friends"><span class="choice-ico">👥</span><span><strong>See what friends are studying</strong>
+      <a class="choice card" href="#/friends"><span class="choice-ico">${icon("friends", 24)}</span><span><strong>See what friends are studying</strong>
         <span class="small muted">Messages and shared words</span></span></a>
     </div>`));
   }
@@ -107,7 +109,7 @@ export async function render(view) {
     const box = view.querySelector("#today");
     if (box) {
       box.append(h(`<div class="today-chips">
-        <span class="today-chip${today ? " lit" : ""}">★ ${today} word${today === 1 ? "" : "s"} saved today</span>
+        <span class="today-chip${today ? " lit" : ""}">${icon("vocab", 14)} ${today} word${today === 1 ? "" : "s"} saved today</span>
         <span class="today-chip">${words.length} in your vocab</span>
       </div>`));
     }
