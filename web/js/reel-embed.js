@@ -15,6 +15,10 @@
   var wired = null;
 
   function video() { return document.querySelector("video"); }
+  // Instagram's "The link to this photo or video may be broken" page: what its embed page shows for
+  // a post it won't show outside Instagram (age-restricted, private, removed, or not allowed to be
+  // embedded). The app tries the reel's ordinary page next, so it is known at once, not after a wait.
+  function broken() { return !!document.querySelector(".EmbedBrokenMedia, .ebmMessage, a[href*='utm_campaign=invalid']"); }
 
   function wire(v) {
     if (wired === v) return;
@@ -57,6 +61,10 @@
     addButtons();
     var v = video();
     if (v) wire(v);
+    else if (!error && broken()) {
+      error = "novideo";
+      if (document.body) document.body.style.visibility = "hidden"; // not Instagram's confusing message (the buttons stay)
+    }
     else if (!error && Date.now() - started > 12000) error = "novideo"; // this reel can't be shown outside Instagram
   }, 300);
 

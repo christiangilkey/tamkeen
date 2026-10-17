@@ -100,7 +100,7 @@ test("Instagram's own continue-with-Facebook button is pressed, and only on its 
 
 // ----- reel-embed.js: the reel in the phone's small window -----
 
-function embedPage({ withVideo = true } = {}) {
+function embedPage({ withVideo = true, broken = false } = {}) {
   const ticks = [];
   const added = [];
   let now = 1000;
@@ -118,10 +118,10 @@ function embedPage({ withVideo = true } = {}) {
     location: { pathname: "/reel/DeWoCVZJA3M/embed/" },
     document: {
       head: { appendChild() {} }, documentElement: { appendChild() {} },
-      body: { appendChild: (el) => added.push(el) },
+      body: { style: {}, appendChild: (el) => added.push(el) },
       createElement: element,
       getElementById: (id) => added.find((el) => el.id === id) || null,
-      querySelector: (sel) => (sel === "video" && withVideo ? v : null),
+      querySelector: (sel) => (sel === "video" && withVideo ? v : broken && /EmbedBrokenMedia/.test(sel) ? {} : null),
     },
   };
   win.window = win;
@@ -130,6 +130,17 @@ function embedPage({ withVideo = true } = {}) {
   const tick = (ms = 300) => { now += ms; ticks.forEach((f) => f()); };
   return { win, v, tick, listeners, added, state: () => JSON.parse(win.__tkReelState()) };
 }
+
+test("Instagram's broken-link embed page is reported at once and hidden", () => {
+  // What the embed page shows for an age-restricted, private or removed reel.
+  const p = embedPage({ withVideo: false, broken: true });
+  p.tick();
+  assert.equal(p.state().error, "novideo", "known on the first check, not after the 12-second wait");
+  assert.equal(p.win.document.body.style.visibility, "hidden");
+  const plain = embedPage({ withVideo: false });
+  plain.tick();
+  assert.equal(plain.state().error, "", "a page still loading is given time");
+});
 
 test("the reel starts by itself, does not repeat, and its end is counted", () => {
   const p = embedPage();

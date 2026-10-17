@@ -39,14 +39,15 @@ function askSignIn(host, counter, { retry, skip }) {
   host.querySelector("#reel-signin")?.remove();
   const box = h(`<div class="reel-signin" id="reel-signin">
     <p><strong>Sign in to Instagram to watch this reel.</strong></p>
-    <p class="small muted">Instagram only plays this one to people who are signed in (usually because it uses a song from
-    Instagram's music library). Sign in once, in Tamkeen's own browser: it closes by itself when you are signed in, and the reel starts.</p>
+    <p class="small muted">Instagram only plays this one to people who are signed in (because it uses a song from
+    Instagram's music library, or because it is age-restricted). Sign in once, in Tamkeen's own browser: it closes by
+    itself when you are signed in, and the reel starts. If you were signed in before, Instagram may have signed you out.</p>
     <div class="row"><button type="button" class="primary" data-a="in">Sign in</button>
-      <button type="button" data-a="retry">Try again</button><button type="button" class="ghost" data-a="skip">Skip</button></div>
+      <button type="button" data-a="retry">Try again</button>${skip ? `<button type="button" class="ghost" data-a="skip">Skip</button>` : ""}</div>
   </div>`);
   box.querySelector('[data-a="in"]').onclick = () => openInstagramSignIn().catch((e) => toast(e.message, { error: true }));
   box.querySelector('[data-a="retry"]').onclick = retry;
-  box.querySelector('[data-a="skip"]').onclick = skip;
+  if (skip) box.querySelector('[data-a="skip"]').onclick = skip;
   host.prepend(box);
   // The sign-in browser says when the user is signed in (and closes itself): try the reel again then.
   const offSignedIn = on("instagram", (e) => { if (e && e.signed_in && box.isConnected) retry(); });
@@ -485,6 +486,7 @@ async function renderPlayer(view, { query }) {
   let seenNav = "";
   let loadedAt = 0;
   let skipping = false;
+  let failsInRow = 0; // reels in a row that couldn't be played: when every one has failed, stop going round
   let playing = false;
   let disposed = false;
   let opened = false;
@@ -714,6 +716,7 @@ async function renderPlayer(view, { query }) {
     if (!s || !(signInPage || String(s.page || "").includes(ep.guid))) return; // the page for the previous reel is still showing
     playing = !s.paused;
     paintControls(s);
+    if (s.ready) failsInRow = 0;
     if (s.nav && s.nav !== seenNav) {
       seenNav = s.nav;
       show(index + (s.nav.startsWith("prev") ? -1 : 1));
@@ -721,7 +724,7 @@ async function renderPlayer(view, { query }) {
     }
     if (s.error === "signin" && !skipping) { // Instagram wants a sign-in before it plays this one
       skipping = true;
-      askSignIn($("#reel-pop"), $("#reel-n"), { retry: () => show(index), skip: () => show(index + 1) });
+      askSignIn($("#reel-pop"), $("#reel-n"), { retry: () => show(index), skip: reels.length > 1 ? () => show(index + 1) : null });
       return;
     }
     if (s.error === "novideo" && !skipping) {
@@ -731,8 +734,17 @@ async function renderPlayer(view, { query }) {
         show(index);
         return;
       }
-      toast("That reel can't be shown outside Instagram any more. Skipping it.");
-      show(index + 1);
+      // Its ordinary page has no video either, signed in: Instagram won't play it to this account
+      // (removed, made private, or age-restricted for it). On to the next reel, if there is one
+      // that hasn't failed too.
+      failsInRow++;
+      if (reels.length > 1 && failsInRow < reels.length) {
+        toast("Instagram won't play that reel any more (removed, private or age-restricted). Skipping it.");
+        show(index + 1);
+      } else {
+        toast(reels.length > 1 ? "Instagram won't play any of these reels right now." : "Instagram won't play this reel any more: it may have been removed, made private or be age-restricted.",
+              { error: true });
+      }
       return;
     }
     if (cur) {
