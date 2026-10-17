@@ -2357,3 +2357,27 @@ word cards that show little until tapped; secondary actions such as Export for A
   Checked in the preview (`tamkeen-filmot`): one-open-at-a-time, ticking keeps a card open, bulk bar, meaning
   mirrored, ⋯ menu entries, Add a word, Review opens and closes the reviewer; 390 JS and 348 pytest pass.
   **Not checked**: a real phone, light theme by eye.
+
+### Library: one + button for adding, one sticky header row (2026-10-16, "Library Look" chat; committed locally, NOT pushed)
+The owner's UI plan, relayed by the main chat: separate adding from the content, and one consistent filter row.
+- Every way of adding something left the Library. The round **+ button** (`.add-fab`, bottom right; on the phone
+  above the tab bar) opens `web/js/components/addsheet.js`, a sheet on `components/modal.js` that lists Podcast,
+  YouTube, Web page, Video file, Audio file, Reels. Podcast, YouTube and Web page open a small step inside the
+  sheet (feed address + Trending; Open YouTube + "Popular in"; page address + Open Web Browser); the files open
+  the chooser straight away (the Library still owns the hidden file inputs and the upload bar); Reels goes to
+  `#/reels`. The reels header lost "Get more reels" (kept "Watch all"); empty kinds now say "Press + and choose …".
+- **One header row** (`.lib-bar`, sticky) at the top of the Library on every kind: on the phone the kinds as small
+  pills in one sideways line, then the status pills and the title filter, then Select all / Transcribe / Delete
+  (and the phone's refresh icon). The computer keeps its side list for the kinds (and its Refresh & sync at the
+  bottom of it); its row is the status pills, the filter and the select row. The pills now show on every kind,
+  reels and empty kinds too. Library messages pop up above the + button (`body:has(.add-fab) .toasts`).
+- Styles: `web/css/media.css` (top section) and `mobile/src/css/mobile.css` (Library part). The old add-control
+  rules in `app.css` (`.lib-actions`, `.add-page`, `.browser-btn`, `.add-feed`) are now unused but left in place
+  (another chat was editing app.css). New icons `plus` and `refresh` in icons.js.
+- Checked in the preview: phone build (`mobile/www`, test podcasts typed into its storage) and the desktop server on
+  a signed-out copy of a test library (adding a web page through the sheet worked end to end). Pictures:
+  `C:\Users\chris\.claude\uploads\library-redesign\`. Not checked on a real phone; the video/audio file choosers
+  were not opened (they can't be driven from the preview).
+- Found on the way: the `tamkeen-media` launch config's data folder (`…/0aacd342…/scratchpad/reels-data`) is signed
+  in to Google Drive again (the refresh token row is back), so a server on it syncs with the owner's real library.
+  I used my own signed-out copy (launch config `library-look`, port 8799) instead.

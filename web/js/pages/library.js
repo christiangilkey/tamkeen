@@ -1,13 +1,12 @@
 // Library: feeds sidebar, episode list with live status, multi-select transcription.
 
-import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, openBrowser, openYouTube, platform } from "../app.js";
+import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, openYouTube, platform } from "../app.js";
 import { icon } from "../icons.js";
-import { importUrl } from "../pageimport.js";
-import { langInfo, studyLanguage } from "../languages.js";
+import { studyLanguage } from "../languages.js";
 import { allProgress } from "../progress.js";
-import { importVideo, isYouTube, loadFollows, unfollowChannel, videoId as youTubeId } from "../youtube.js";
+import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
-import { COUNTRIES, chooseCountry, chosenCountry } from "../youtube-home.js";
+import { openAddSheet } from "../components/addsheet.js";
 
 const FILTERS = [
   ["", "All"],
@@ -34,17 +33,17 @@ const REELS_FEED = "local:reels";
 const KINDS = [
   { key: "podcasts", label: "Podcasts", icon: "podcast" },
   { key: "youtube", label: "YouTube", icon: "video", feed: YOUTUBE_FEED,
-    empty: "No YouTube videos yet. Press “Open YouTube” above and tap a video." },
+    empty: "No YouTube videos yet. Press + and choose YouTube." },
   { key: "pages", label: "My webpages", icon: "page", feed: PAGES_FEED,
-    empty: "No webpages yet. Use “Add a webpage” or “Open Web Browser” above." },
+    empty: "No webpages yet. Press + and choose Web page." },
   { key: "videos", label: "My videos", icon: "videofile", feed: VIDEOS_FEED,
-    empty: "No videos of your own yet. Use “Add video file” above." },
+    empty: "No videos of your own yet. Press + and choose Video file." },
   { key: "audio", label: "My audio", icon: "audio", feed: AUDIO_FEED,
-    empty: "No audio of your own yet. Use “Add audio file” above." },
+    empty: "No audio of your own yet. Press + and choose Audio file." },
   // The reels themselves are listed here like every other kind; getting new ones has a page of
-  // its own (pages/reels.js), reached from the button at the top of this list.
+  // its own (pages/reels.js), reached from the + button.
   { key: "reels", label: "Reels", icon: "reel", feed: REELS_FEED,
-    empty: `No reels yet. <a class="btn primary" href="#/reels" style="margin-top:8px;display:inline-block">Get reels</a>` },
+    empty: "No reels yet. Press + and choose Reels." },
 ];
 // Tapping something in a strip redraws the page; this carries how far down it was scrolled.
 let keepScroll = null;
@@ -77,122 +76,45 @@ export async function render(view, { feedId: routeFeed, query }) {
   let offset = 0;
   let feeds = [];
 
-  // The computer: the side list is only the kinds and, under Podcasts or YouTube, the podcasts or
-  // channels (as the phone's strips are). The ways to add something sit at the top of the list
-  // they add to, the one row for the kind showing (see .lib-actions in app.css).
-  const deskActions = `
-        <div class="lib-actions">
-          <div class="act" data-kind="podcasts">
-            <form class="add-feed" id="add-feed">
-              <div class="row">
-                <input id="feed-url" type="url" placeholder="Paste a podcast's RSS feed URL" required autocomplete="off" aria-label="Podcast RSS feed URL">
-                <button class="primary" type="submit">Add podcast</button>
-              </div>
-            </form>
-            <a class="btn" href="#/discover" title="See which podcasts are popular right now in the language you're studying, sorted by topic, and add any with one press">
-              ${icon("trending", 18)} Trending in ${esc(langInfo(studyLanguage()).name)}</a>
-          </div>
-          <div class="act" data-kind="youtube">
-            <button type="button" id="open-youtube" class="primary" title="Browse YouTube inside the app. Tap a video and it opens in Tamkeen's player, with its captions as clickable text">
-              ${icon("video", 18)} Open YouTube</button>
-            <label class="yt-country small" id="yt-country-row" hidden title="Open YouTube starts on this week's most-watched videos from this country">
-              <span class="muted">Popular in</span> <select id="yt-country"></select></label>
-            <span class="small muted">Tap a video there to watch it here with clickable captions.</span>
-          </div>
-          <div class="act" data-kind="pages">
-            <form class="add-feed" id="add-page">
-              <div class="row">
-                <input id="page-url" type="text" inputmode="url" placeholder="Paste a website URL" required autocomplete="off" aria-label="Website URL">
-                <button class="primary" type="submit">Import</button>
-              </div>
-            </form>
-            <button type="button" id="open-browser" title="Browse the web inside the app and import any page you're reading">${icon("page", 18)} Open Web Browser</button>
-          </div>
-          <div class="act" data-kind="videos">
-            <button type="button" id="add-video" class="primary" title="Add a video file of your own; it's transcribed and stored in your Google Drive">${icon("videofile", 18)} Add video file</button>
-          </div>
-          <div class="act" data-kind="audio">
-            <button type="button" id="add-audio" class="primary" title="Add an audio file of your own (a recording, a lesson, a song); it's transcribed and stored in your Google Drive">${icon("audio", 18)} Add audio file</button>
-          </div>
-          <input type="file" id="video-file" accept="video/*,.mkv" hidden>
-          <input type="file" id="audio-file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.oga,.opus,.flac,.wma,.amr" hidden>
-          <div class="upload-status" id="upload-status" hidden>
-            <div class="small"><span id="upload-name"></span> <span class="muted" id="upload-pct"></span></div>
-            <div class="progress"><i id="upload-bar"></i></div>
-          </div>
-        </div>`;
-  const deskSidebar = `<div class="feed-list" id="feed-list"></div>
-        <div class="feed-list sub-list" id="podcast-list" hidden></div>
-        <button type="button" id="refresh" class="ghost refresh-btn" title="Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)">⟳ Refresh &amp; sync</button>`;
+  // The Library shows only what is there. Every way of adding something sits behind the round +
+  // button (components/addsheet.js). One header row stays at the top while the list scrolls:
+  // the kinds (on the phone; the computer keeps them in its side list), the status pills and the
+  // title filter, then ticking several at once.
   view.append(h(`
     <div class="library${phone ? "" : " desk"}">
-      <aside class="sidebar">
-        ${!phone ? deskSidebar : `<div class="add-page">
-          <form class="add-feed" id="add-page">
-            <label for="page-url"><strong>Add a webpage</strong></label>
-            <div class="row">
-              <input id="page-url" type="text" inputmode="url" placeholder="Paste website URL" required autocomplete="off">
-              <button class="primary" type="submit">Import</button>
-            </div>
-          </form>
-          <button type="button" id="open-browser" class="browser-btn" title="Browse the web inside the app and import any page you're reading">
-            <span class="ico">${icon("page", 26)}</span><span>Open Web<br>Browser</span></button>
-        </div>
-        <form class="add-feed" id="add-feed">
-          <label for="feed-url"><strong>Add a podcast</strong></label>
-          <div class="row">
-            <input id="feed-url" type="url" placeholder="Paste RSS feed URL" required autocomplete="off">
-            <button class="primary" type="submit">Add</button>
+      ${phone ? "" : `<aside class="sidebar">
+        <div class="feed-list" id="feed-list"></div>
+        <div class="feed-list sub-list" id="podcast-list" hidden></div>
+        <button type="button" id="refresh" class="ghost refresh-btn" title="Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)">⟳ Refresh &amp; sync</button>
+      </aside>`}
+      <section class="lib-main">
+        <div class="lib-bar">
+          ${phone ? `<div class="feed-list kind-row" id="feed-list"></div>` : ""}
+          <div class="filter-row">
+            <div class="tabs" id="tabs"></div>
+            <input type="search" id="title-filter" placeholder="Filter by title" aria-label="Filter by title">
           </div>
-        </form>
-        <a class="btn trending-btn" href="#/discover" title="See which podcasts are popular right now in the language you're studying, sorted by topic, and add any with one press">
-          ${icon("trending", 18)} Trending in ${esc(langInfo(studyLanguage()).name)}</a>
-        <div class="add-feed add-yt">
-          <strong>Watch a YouTube video</strong>
-          <button type="button" id="open-youtube" class="trending-btn" title="Browse YouTube inside the app. Tap a video and it opens in Tamkeen's player, with its captions as clickable text">
-            ${icon("video", 18)} Open YouTube</button>
-          <label class="yt-country small" id="yt-country-row" hidden title="Open YouTube starts on this week's most-watched videos from this country">
-            <span class="muted">Popular in</span> <select id="yt-country"></select></label>
-          <p class="small muted hint">Tap any video there to watch it here with clickable captions. The video needs captions.</p>
+          <div class="toolbar">
+            <label class="switch"><input type="checkbox" id="select-all"> Select all</label>
+            <button type="button" id="transcribe-selected" class="primary" disabled>Transcribe selected</button>
+            <button type="button" id="delete-selected" class="ghost danger" hidden title="Remove the ticked episodes from your Library for good, on every device">Delete selected</button>
+            <button type="button" id="watch-selected" class="primary" hidden>Watch these reels</button>
+            <span class="spacer"></span>
+            ${phone ? `<button type="button" id="refresh" class="ghost icon" title="Check for new episodes and sync with Google Drive" aria-label="Refresh and sync">${icon("refresh", 20)}</button>` : ""}
+          </div>
         </div>
-        <div class="add-feed add-yt">
-          <strong>Instagram reels</strong>
-          <a class="btn trending-btn" href="#/reels" title="Get a batch of popular short videos in the language you're studying. Your computer writes down what is said in each, and they play one after another on your phone with the words underneath">
-            ${icon("video", 18)} Reels for my phone</a>
-        </div>
-        <div class="row">
-          <span class="row" style="flex-wrap:nowrap;gap:4px">
-          <button type="button" id="add-video" class="ghost" title="Add a video file of your own; it's transcribed and stored in your Google Drive">${icon("video", 18)} Add video file</button>
-          <input type="file" id="video-file" accept="video/*,.mkv" hidden>
-          <button type="button" id="add-audio" class="ghost" title="Add an audio file of your own (a recording, a lesson, a song); it's transcribed and stored in your Google Drive">${icon("audio", 18)} Add audio file</button>
-          <input type="file" id="audio-file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.oga,.opus,.flac,.wma,.amr" hidden>
-          </span>
-        </div>
+        ${phone ? `<div class="feed-list sub-list" id="podcast-list" hidden></div>` : ""}
+        <div id="lib-head"></div>
         <div class="upload-status" id="upload-status" hidden>
           <div class="small"><span id="upload-name"></span> <span class="muted" id="upload-pct"></span></div>
           <div class="progress"><i id="upload-bar"></i></div>
         </div>
-        <div class="row">
-          <button type="button" id="refresh" class="ghost" title="Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)">⟳ Refresh &amp; sync</button>
-        </div>
-        <div class="feed-list" id="feed-list"></div>
-        <div class="feed-list" id="podcast-list" hidden></div>`}
-      </aside>
-      <section class="lib-main">
-        <div id="lib-head"></div>
-        ${phone ? "" : deskActions}
-        <div class="tabs" id="tabs"></div>
-        <div class="toolbar">
-          <label class="switch"><input type="checkbox" id="select-all"> Select all</label>
-          <button type="button" id="transcribe-selected" class="primary" disabled>Transcribe selected</button>
-          <button type="button" id="delete-selected" class="ghost danger" hidden title="Remove the ticked episodes from your Library for good, on every device">Delete selected</button>
-          <button type="button" id="watch-selected" class="primary" hidden>Watch these reels</button>
-          <span class="spacer"></span>
-          <input type="search" id="title-filter" placeholder="Filter by title" style="width:200px">
-        </div>
         <div class="episodes" id="episodes"></div>
         <div class="row" style="justify-content:center;margin-top:12px"><button type="button" id="more" hidden>Load more</button></div>
       </section>
+      <button type="button" class="add-fab" id="add-fab" title="Add to your library" aria-label="Add to your library">${icon("plus", 28)}</button>
+      <input type="file" id="video-file" accept="video/*,.mkv" hidden>
+      <input type="file" id="audio-file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.oga,.opus,.flac,.wma,.amr" hidden>
     </div>`));
 
   // Looked up in the page itself, not in `view`: on the computer the page is built in a holder and
@@ -225,6 +147,9 @@ export async function render(view, { feedId: routeFeed, query }) {
       remember(el);
       list.append(el);
     }
+    // Phone: the kinds are one sideways line; keep the chosen one in sight (say, Reels at the far end).
+    const chosen = list.querySelector(".active");
+    if (phone && chosen) list.scrollLeft = Math.max(0, chosen.offsetLeft - list.offsetLeft - 24);
     const strip = $("#podcast-list");
     strip.hidden = kind !== "podcasts" && kind !== "youtube";
     strip.innerHTML = "";
@@ -289,7 +214,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
     if (emptyKind) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon(emptyKind.icon, 44)}</div><div class="meta"><h1>${emptyKind.label}</h1>
-        <div class="desc small">${phone ? emptyKind.empty : emptyKind.empty.replace(" above", " below")}</div></div></div>`));
+        <div class="desc small">${emptyKind.empty}</div></div></div>`));
       return;
     }
     if (!feedId) {
@@ -300,8 +225,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (!f) { location.hash = "#/library"; return; }
     if (f.url === PAGES_FEED) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("page", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
-        <div class="desc small">Web pages you imported. Open one to read it with every word clickable. Add more with
-        “Add a webpage”, or browse with “Open Web Browser” and press Import Page.</div></div></div>`));
+        <div class="desc small">Web pages you imported. Open one to read it with every word clickable. Press + to add more.</div></div></div>`));
       return;
     }
     if (f.url === REELS_FEED) {
@@ -309,7 +233,6 @@ export async function render(view, { feedId: routeFeed, query }) {
         <div class="desc small">Your Instagram reels, newest first. They play from Instagram on your phone, one after another, with the
         words underneath. Tick some to watch just those.</div>
         <div class="row" style="margin-top:8px">
-          <a class="btn" href="#/reels" title="Choose more reels from Instagram to add to this list">${icon("video", 16)} Get more reels</a>
           <a class="btn ghost" href="#/reels/play" title="Play every reel, one after another">▶ Watch all</a>
         </div></div></div>`));
       return;
@@ -344,7 +267,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       const what = f.url === AUDIO_FEED ? "Audio" : "Video";
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${localIcon(f.url, 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
         <div class="desc small">${what} files you added yourself. They're transcribed on your computer and stored in your
-        Google Drive, so every device can play them. Use “Add ${what.toLowerCase()} file” to add more.</div></div></div>`));
+        Google Drive, so every device can play them. Press + to add more.</div></div></div>`));
       return;
     }
     const el = h(`<div class="lib-head">
@@ -512,6 +435,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   async function loadEpisodes(append = false) {
     if (!append) offset = 0;
     if (!feedId && kind !== "podcasts") { // nothing of this kind yet: renderHead says so
+      renderTabs({});
       listEl.innerHTML = "";
       $("#more").hidden = true;
       return;
@@ -524,7 +448,6 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (channel && youtubeShowing()) params.set("channel", channel);
     const data = await api(`/episodes?${params}`);
     renderTabs(data.counts);
-    $("#tabs").hidden = reelsShowing(); // every reel is ready to watch: nothing to filter by
     updateSelection();
     if (!append) listEl.innerHTML = "";
     let items = data.items;
@@ -538,32 +461,16 @@ export async function render(view, { feedId: routeFeed, query }) {
     offset += data.items.length;
     $("#more").hidden = offset >= data.total;
     if (!data.total) {
-      listEl.append(h(`<div class="empty">${feeds.length ? "No episodes match this filter." : "Add a podcast to get started."}</div>`));
+      listEl.append(h(`<div class="empty">${feeds.length ? "No episodes match this filter." : "Press + to add a podcast, a video or a web page."}</div>`));
     }
   }
 
   // ----- wiring -----
-  $("#add-feed").onsubmit = async (e) => {
-    e.preventDefault();
-    const input = $("#feed-url");
-    const btn = e.target.querySelector("button");
-    btn.disabled = true;
-    btn.textContent = "Adding…";
-    try {
-      const feed = await api("/feeds", { method: "POST", body: { url: input.value } });
-      input.value = "";
-      toast(`Subscribed to ${feed.title}`);
-      location.hash = `#/feed/${feed.id}`;
-    } catch (err) {
-      toast(err.message, { error: true });
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Add";
-    }
-  };
   $("#refresh").onclick = async (e) => {
-    e.target.disabled = true;
-    e.target.textContent = "Refreshing…";
+    const button = e.currentTarget;
+    const label = button.innerHTML;
+    button.disabled = true;
+    if (!phone) button.textContent = "Refreshing…"; // the phone's is an icon on its own
     try {
       const r = await api(feedId ? `/feeds/refresh?feed_id=${feedId}` : "/feeds/refresh", { method: "POST" });
       const found = r.new_episodes ? `${r.new_episodes} new episode(s).` : "No new episodes.";
@@ -573,8 +480,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     } catch (err) {
       toast(err.message, { error: true });
     } finally {
-      e.target.disabled = false;
-      e.target.textContent = "⟳ Refresh & sync";
+      button.disabled = false;
+      button.innerHTML = label;
     }
   };
   $("#select-all").onchange = (e) => {
@@ -620,56 +527,12 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (ids.length) location.hash = `#/reels/play?at=${ids[0]}&only=${ids.join(",")}`;
   };
   $("#more").onclick = () => loadEpisodes(true);
-  $("#add-page").onsubmit = async (e) => {
-    e.preventDefault();
-    const input = $("#page-url");
-    const btn = e.target.querySelector("button");
-    btn.disabled = true;
-    btn.textContent = "Importing…";
-    try {
-      if (youTubeId(input.value)) { // a YouTube link pasted in the webpage box: add it as a video
-        await addYouTube(input.value);
-        input.value = "";
-        return;
-      }
-      const ep = await importUrl(input.value);
-      input.value = "";
-      toast(`Imported “${ep.title}”.`, { action: { label: "Read", run: () => (location.hash = `#/episode/${ep.id}`) } });
-      location.hash = `#/feed/${ep.feed_id}`;
-      scheduleReload();
-    } catch (err) {
-      toast(err.message, { error: true });
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Import";
-    }
-  };
-  /** Read the video's captions and open it in the player. */
-  async function addYouTube(link) {
-    const ep = await importVideo(link);
-    toast(`Added “${ep.title}” with ${ep.auto ? "YouTube's automatic captions" : "its captions"}.`);
-    location.hash = `#/episode/${ep.id}`;
-  }
-  $("#open-youtube").onclick = () => openYouTube().catch((err) => toast(err.message, { error: true }));
-  // Which country's popular videos Open YouTube starts on (only languages spoken in several have a choice).
-  const ytCountries = COUNTRIES[studyLanguage()] || [];
-  if (ytCountries.length > 1) {
-    const pick = $("#yt-country");
-    for (const [code, name] of ytCountries) pick.append(new Option(name, code));
-    pick.value = chosenCountry(studyLanguage());
-    pick.onchange = () => chooseCountry(studyLanguage(), pick.value);
-    $("#yt-country-row").hidden = false;
-  }
-  $("#open-browser").onclick = () => {
-    const typed = $("#page-url").value.trim();
-    openBrowser(typed).catch((err) => toast(err.message, { error: true }));
-  };
-  $("#add-video").onclick = () => $("#video-file").click();
-  $("#add-audio").onclick = () => $("#audio-file").click();
+  // The + button: every way of adding something.
+  $("#add-fab").onclick = () => openAddSheet({ pickFile: (kind) => $(kind === "audio" ? "#audio-file" : "#video-file").click() });
   // Video and audio files are added the same way; the file's type decides where it goes.
   $("#video-file").onchange = $("#audio-file").onchange = async (e) => {
     const file = e.target.files[0];
-    const btn = e.target.id === "audio-file" ? $("#add-audio") : $("#add-video");
+    const btn = $("#add-fab");
     e.target.value = "";
     if (!file) return;
     const box = $("#upload-status");
@@ -734,7 +597,6 @@ export async function render(view, { feedId: routeFeed, query }) {
 
   await loadFeeds();
   await loadEpisodes();
-  if (!feeds.length && !phone) $("#feed-url").focus();
   if (keepScroll !== null) { // came from a tap in a strip: stay where the reader was
     view.scrollTop = keepScroll;
     keepScroll = null;
