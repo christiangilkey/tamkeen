@@ -481,6 +481,31 @@ function friendlyHttpError(provider, status, bodyText) {
 }
 
 /**
+ * Ask the learner's AI for any small JSON answer: the same provider, key, model and transport as a
+ * word lookup (the review card's Mnemonic maker uses it). `prompt` is {system, user, schema}.
+ * Resolves to the parsed object; failures are DefinerErrors with the same plain messages as a
+ * lookup's ("NO_KEY" when no key is set).
+ */
+export async function askJson(cfg, { system, user, schema }, transport) {
+  if (!cfg.key) throw new DefinerError("NO_KEY");
+  const model = cfg.model || PROVIDERS[cfg.provider].defaultModel;
+  let res = await transport(buildRequest(cfg.provider, model, cfg.key, system, user, schema));
+  if (res.status === 400) res = await transport(buildRequest(cfg.provider, model, cfg.key, system, user, schema, true));
+  if (res.status < 200 || res.status >= 300) {
+    const err = new DefinerError(friendlyHttpError(cfg.provider, res.status, res.text));
+    err.keyRejected = keyRefused(res.status, res.text);
+    throw err;
+  }
+  let data;
+  try { data = JSON.parse(res.text); } catch { throw new DefinerError("The provider returned an unreadable response."); }
+  reportUsage({ provider: cfg.provider, model, ...usageOf(cfg.provider, data) });
+  try { return parseJson(extractText(cfg.provider, data)); } catch (e) {
+    if (e instanceof DefinerError) throw e;
+    throw new DefinerError("The answer wasn't valid JSON. Try again, or pick a different model.");
+  }
+}
+
+/**
  * Define one word in context.
  * @param {{provider:string, model:string, key:string, language:string}} cfg
  * @param {{word:string, marked:string, lang?:string, before?:string, after?:string, podcast?:string, episode?:string}} ctx

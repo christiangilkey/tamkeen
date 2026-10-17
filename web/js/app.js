@@ -154,6 +154,11 @@ export async function googleIdToken() {
  * has nothing to vibrate, so this does nothing here (the visual feedback is in the styles). */
 export function buzz() {}
 
+/** The text on the clipboard (the review card's Paste button). */
+export async function readClipboard() {
+  return navigator.clipboard.readText();
+}
+
 // ---------- audio clips of shared words ----------
 /** The clip to send with a word: {blob, times}, or null when the word has no audio here. */
 export async function shareClip(word) {

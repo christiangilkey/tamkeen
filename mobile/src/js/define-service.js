@@ -1,7 +1,7 @@
 // Phone glue for the shared definer: settings, the synced answer cache, and native HTTPS.
 
 import { api } from "./app.js";
-import { define, cacheKey, quickCacheKey, PROVIDERS, DefinerError } from "./definer.js";
+import { askJson, define, cacheKey, quickCacheKey, PROVIDERS, DefinerError } from "./definer.js";
 import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 import { settings } from "./store.js";
 import { isNative } from "./native.js";
@@ -29,6 +29,9 @@ export async function transport(req) {
   const r = await fetch(req.url, { method: "POST", headers: req.headers, body: JSON.stringify(req.body) });
   return { status: r.status, text: await r.text() };
 }
+
+/** A small JSON answer from the learner's AI (see definer.askJson), sent the same way as a lookup. */
+export const askAi = (prompt) => askJson(definerConfig(), prompt, transport);
 
 /** `opts.quick` = only the meaning is wanted (see components/lookupmode.js): a full answer already
  * kept is used as it is, otherwise a short, cheaper request is made. */

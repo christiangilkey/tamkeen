@@ -10,14 +10,17 @@
 // It opens as a layer over the page, not as a page of its own, so closing it lands on the Vocab
 // list exactly as it was. Every answer is sent to /reviews as it is given.
 
-import { api, buzz, esc, fmtDate, h, platform, state as app, toast } from "../app.js";
-import { detectLanguage, langAttrs } from "../languages.js";
+import { api, buzz, esc, fmtDate, h, platform, readClipboard, state as app, toast } from "../app.js";
+import { detectLanguage, langAttrs, langInfo } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
 import { cardSentence } from "../cardtext.js";
 import { reward, trackStudy } from "../game/game.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
+import { soundAlikes } from "../review/mnemonic.js";
+import { askAi } from "../define-service.js";
+import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
 import { forgetAnswer, noteAnswer } from "../review/goal.js";
 
 const MORE_NEW = 10;      // "Learn 10 more new words" at the end of a session
@@ -104,6 +107,10 @@ const ICON = {
   gear: `<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 12h3M11 12h9M4 17h11M19 17h1"/><circle cx="16" cy="7" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="17" r="2"/></svg>`,
   yes: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`,
   no: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>`,
+  paste: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4.5" width="12" height="16" rx="2.2"/><path d="M9.5 4.5V3.5h5v1M9.5 11h5M9.5 14.5h3.5"/></svg>`,
+  copy: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="11" height="11" rx="2.2"/><path d="M15.5 8.5V6.2a1.7 1.7 0 0 0-1.7-1.7H6.2a1.7 1.7 0 0 0-1.7 1.7v7.6a1.7 1.7 0 0 0 1.7 1.7h2.3"/></svg>`,
+  check: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`,
+  bulb: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg>`,
   trash: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M9.5 7V4.8h5V7M6.5 7l.8 11.2a1.5 1.5 0 0 0 1.5 1.3h6.4a1.5 1.5 0 0 0 1.5-1.3L17.5 7M10 10.8v5.2M14 10.8v5.2"/></svg>`,
   sound: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>`,
 };
@@ -260,6 +267,85 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const onResize = () => { if (!flipped) return; for (const box of face.querySelectorAll("textarea")) fit(box); more(); };
   window.addEventListener("resize", onResize);
 
+  // ----- My notes: Paste, and the Mnemonic maker -----
+  /** Put what is on the clipboard into My notes (after what is there already), saved like typing. */
+  async function pasteInto(box, v) {
+    let text;
+    try { text = await readClipboard(); } catch {
+      toast("The clipboard couldn't be read here. Press and hold in the box and choose Paste instead.", { error: true });
+      return;
+    }
+    text = String(text || "").trim();
+    if (!text) { toast("There is nothing copied to paste."); return; }
+    box.value = box.value.trim() ? `${box.value.replace(/\s+$/, "")}\n${text}` : text;
+    fit(box);
+    more();
+    edit(v, "memo", box.value);
+    box.focus({ preventScroll: true });
+  }
+
+  /** Copy `text`, falling back to the old way where the clipboard can't be written directly. */
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); return true; } catch { /* try the old way */ }
+    const spare = document.createElement("textarea");
+    spare.value = text;
+    spare.style.cssText = "position:fixed;opacity:0;left:-999px;top:0";
+    el.append(spare);
+    spare.select();
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch { /* not supported */ }
+    spare.remove();
+    return ok;
+  }
+
+  const mnemonics = new Map();  // what the Mnemonic maker came up with for each word, while the reviewer is open
+
+  /** The Mnemonic maker below My notes: five sound-alikes in the learner's own language, each with a copy button. */
+  function mnemonicMaker(box, v) {
+    const go = box.querySelector(".rv-mnemo-go"), note = box.querySelector(".rv-mnemo-note"), list = box.querySelector(".rv-mnemo-list");
+    const label = go.querySelector("span");
+    const speaks = (UI_LANGUAGES[uiLanguage()] || UI_LANGUAGES.en).name;
+    const say = (text, error = false) => { note.hidden = !text; note.textContent = text || ""; note.classList.toggle("error", error); };
+    const draw = (items) => {
+      list.innerHTML = "";
+      for (const text of items) {
+        const row = h(`<li><span class="rv-mnemo-text" translate="no"></span><button type="button" class="rv-copy" title="Copy">${ICON.copy}<span>Copy</span></button></li>`);
+        row.querySelector(".rv-mnemo-text").textContent = text;
+        const copy = row.querySelector(".rv-copy");
+        copy.onclick = async () => {
+          if (!(await copyText(text))) { toast("That couldn't be copied here.", { error: true }); return; }
+          buzz("tick");
+          copy.classList.add("done");
+          copy.innerHTML = `${ICON.check}<span>Copied</span>`;
+          setTimeout(() => { if (copy.isConnected) { copy.classList.remove("done"); copy.innerHTML = `${ICON.copy}<span>Copy</span>`; } }, 1400);
+        };
+        list.append(row);
+      }
+      list.hidden = !items.length;
+      label.textContent = items.length ? "Make 5 more" : "Mnemonic maker";
+      say(items.length ? `${speaks} words that sound like it: copy one into My notes and picture it with the meaning.` : "");
+    };
+    const had = mnemonics.get(uidOf(v));
+    if (had) draw(had);
+    go.onclick = async () => {
+      go.disabled = true;
+      label.textContent = "Thinking…";
+      say("");
+      try {
+        const studyName = (langInfo(detectLanguage(v.sentence || v.text)) || {}).name || "the language being learned";
+        const items = await soundAlikes(v, { ask: askAi, study: studyName, speaks, avoid: mnemonics.get(uidOf(v)) || [] });
+        mnemonics.set(uidOf(v), items);
+        if (go.isConnected) draw(items);
+      } catch (e) {
+        if (!go.isConnected) return;
+        label.textContent = (mnemonics.get(uidOf(v)) || []).length ? "Make 5 more" : "Mnemonic maker";
+        say(e && e.message === "NO_KEY" ? "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions." : (e && e.message) || "That didn't work. Try again.", true);
+      } finally {
+        go.disabled = false;
+      }
+    };
+  }
+
   function back(v) {
     const lang = langAttrs(detectLanguage(v.sentence || v.text));
     face.innerHTML = `<div class="rv-back">
@@ -271,7 +357,15 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       <div class="rv-details">
         <label class="rv-field"><span>Meaning</span><input type="text" class="meaning" placeholder="What it means"></label>
         <label class="rv-field"><span>Notes</span><textarea class="notes" rows="1" placeholder="Root, grammar, usage…"></textarea></label>
-        <label class="rv-field"><span>My notes</span><textarea class="memo" rows="1" placeholder="A mnemonic, a picture, where you heard it…"></textarea></label>
+        <div class="rv-field">
+          <div class="rv-field-head"><span>My notes</span><button type="button" class="rv-paste" title="Paste what you copied into My notes">${ICON.paste} Paste</button></div>
+          <textarea class="memo" rows="1" placeholder="A mnemonic, a picture, where you heard it…" aria-label="My notes"></textarea>
+        </div>
+        <div class="rv-mnemo">
+          <button type="button" class="rv-mnemo-go">${ICON.bulb}<span>Mnemonic maker</span></button>
+          <p class="rv-mnemo-note" hidden></p>
+          <ul class="rv-mnemo-list" hidden></ul>
+        </div>
         <div class="rv-source">
           <span>${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}${v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}</span>
           <span class="saved" hidden>Saved</span>
@@ -280,6 +374,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       </div>
     </div>`;
     face.querySelector(".rv-trash").onclick = () => askDelete(v);
+    const memo = face.querySelector(".memo");
+    face.querySelector(".rv-paste").onclick = () => pasteInto(memo, v);
+    mnemonicMaker(face.querySelector(".rv-mnemo"), v);
     face.scrollTop = 0;
     const word = face.querySelector(".rv-word");
     word.textContent = v.text;

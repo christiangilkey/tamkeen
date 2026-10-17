@@ -2,7 +2,7 @@
 // (The Android app provides its own version of this file with native HTTP and local storage.)
 
 import { api, state } from "./app.js";
-import { define, cacheKey, quickCacheKey, PROVIDERS, DefinerError } from "./definer.js";
+import { askJson, define, cacheKey, quickCacheKey, PROVIDERS, DefinerError } from "./definer.js";
 import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 
 export function definerConfig() {
@@ -21,6 +21,9 @@ export function hasKey() {
 }
 
 const relay = async (req) => api("/llm/relay", { method: "POST", body: req });
+
+/** A small JSON answer from the learner's AI (see definer.askJson), through the same relay. */
+export const askAi = (prompt) => askJson(definerConfig(), prompt, relay);
 
 /**
  * Definition for ctx (see definer.define), from the cache when possible.

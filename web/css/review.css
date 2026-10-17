@@ -144,6 +144,24 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-field input[type=text] { font-weight: 600; }
 .rv-field textarea { min-height: 42px; max-height: 170px; }
 .rv-field input[type=text]:focus-visible, .rv-field textarea:focus-visible { outline: none; border-color: var(--accent); }
+/* My notes: its label with a Paste button on the right. */
+.rv-field-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.rv-field-head > span { padding-inline-start: 2px; font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.rv-paste { display: inline-flex; align-items: center; gap: 5px; min-height: 28px; padding: 0 11px; border: 0; border-radius: 99px; background: var(--surface-2); color: var(--text); font-size: 12.5px; font-weight: 600; }
+.rv-paste:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.15); }
+/* The Mnemonic maker: one button, then five sound-alikes, each with a copy button on its right. */
+.rv-mnemo { display: flex; flex-direction: column; gap: 10px; }
+.rv-mnemo-go { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 0; border-radius: 14px; background: var(--accent-soft); color: var(--accent); font-size: 14.5px; font-weight: 700; }
+.rv-mnemo-go:hover:not(:disabled) { background: var(--accent-soft); filter: brightness(1.12); }
+.rv-mnemo-go:disabled { opacity: .7; }
+.rv-mnemo-note { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); text-align: center; }
+.rv-mnemo-note.error { color: var(--danger); }
+.rv-mnemo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.rv-mnemo-list li { display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 14px; border-radius: 12px; background: var(--surface-2); }
+.rv-mnemo-list .rv-mnemo-text { flex: 1; min-width: 0; font-size: 15.5px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; user-select: text; -webkit-user-select: text; }
+.rv-copy { flex: none; display: inline-flex; align-items: center; gap: 5px; min-height: 34px; padding: 0 11px; border: 0; border-radius: 10px; background: var(--surface); color: var(--text); font-size: 12.5px; font-weight: 600; }
+.rv-copy:hover:not(:disabled) { background: var(--surface); filter: brightness(1.2); }
+.rv-copy.done { color: var(--accent); }
 .rv-source { display: flex; align-items: center; gap: 10px; min-height: 38px; font-size: 12px; color: var(--muted); }
 .rv-source > span:first-child { flex: 1; text-align: start; }
 .rv-trash { flex: none; width: 38px; height: 38px; min-height: 0; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; background: transparent; color: var(--muted); margin-inline-end: -6px; }
@@ -192,9 +210,11 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-show:hover:not(:disabled) { background: #fff; filter: brightness(.96); }
 /* The answers wear the brand's two colours, brightened so they stand out on the dark table:
    teal for remembered, purple for not. Solid, like the card. */
-.rv-yes { background: #22c7d6; color: #022a2f; }
-.rv-yes:hover:not(:disabled) { background: #22c7d6; filter: brightness(1.08); }
-.rv-no { background: #bd3fba; color: #022a2f; }  /* dark text, the same as on .rv-yes (the owner's choice) */
+/* White text on both (the owner's choice). The teal is the deeper brand teal (--brand-teal), so the
+   white reads clearly on it: the light #22c7d6 was too pale for white. */
+.rv-yes { background: #0b8693; color: #fff; }
+.rv-yes:hover:not(:disabled) { background: #0b8693; filter: brightness(1.08); }
+.rv-no { background: #bd3fba; color: #fff; }
 .rv-no:hover:not(:disabled) { background: #bd3fba; filter: brightness(1.08); }
 .rv[data-lean="yes"] .rv-yes, .rv[data-lean="no"] .rv-no { transform: scale(1.06); filter: brightness(1.15); }
 .rv-actions[hidden] { display: none; }

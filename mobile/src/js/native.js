@@ -17,6 +17,8 @@ export const App = isNative ? registerPlugin("App") : null;
 export const NativeHttp = isNative ? registerPlugin("CapacitorHttp") : null;
 /** The Tamkeen deck in AnkiDroid (our own small Android plugin, see android/.../AnkiDroidPlugin.java). */
 export const AnkiDroid = isNative && !isIOS ? registerPlugin("AnkiDroid") : null; // AnkiDroid is an Android app
+// Android's own clipboard (ClipboardPlugin.java): the web view may refuse a page that reads it.
+export const TamkeenClipboard = isNative && !isIOS ? registerPlugin("TamkeenClipboard") : null;
 /** Installs a new release's APK from inside the app (android/.../AppUpdaterPlugin.java). Android only. */
 export const AppUpdater = isNative && Capacitor.getPlatform() === "android" ? registerPlugin("AppUpdater") : null;
 /** Cards left to review today on the app icon (a silent notification) and the home-screen widget

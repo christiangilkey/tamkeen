@@ -17,6 +17,8 @@ public class MainActivity extends BridgeActivity {
         registerPlugin(AppBadgePlugin.class);
         // Settings → Reset Tamkeen: signs out of the sites in the app's browser windows.
         registerPlugin(AppResetPlugin.class);
+        // The review card's Paste button reads the phone's clipboard (see ClipboardPlugin).
+        registerPlugin(ClipboardPlugin.class);
         super.onCreate(savedInstanceState);
         // Lets the video player stream the user's own videos straight from Google Drive.
         getBridge().setWebViewClient(new DriveMediaWebViewClient(getBridge()));

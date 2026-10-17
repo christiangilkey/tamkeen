@@ -27,7 +27,7 @@ import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
 import { accessToken, drive } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
-import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, isIOS, isNative } from "./native.js";
+import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, isIOS, isNative } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
 import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
@@ -275,6 +275,13 @@ export async function clipUrl(word) {
 export function buzz(kind = "tick") {
   if (settings.haptics === false || !navigator.vibrate) return;
   try { navigator.vibrate(kind === "success" ? [14, 50, 22] : 8); } catch { /* not supported */ }
+}
+
+/** The text on the clipboard (the review card's Paste button). Android's web view may refuse a page
+ * that reads it, so on Android the phone's own clipboard is asked (ClipboardPlugin.java). */
+export async function readClipboard() {
+  if (TamkeenClipboard) return (await TamkeenClipboard.read()).text || "";
+  return navigator.clipboard.readText();
 }
 
 // ---------- web pages ----------
