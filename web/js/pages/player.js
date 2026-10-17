@@ -156,7 +156,7 @@ export async function render(view, { id, query }) {
           <span class="follow-pop" id="follow-pop" hidden>Following</span>
         </span>` : ""}
         <div class="row">
-          ${vid ? `<button type="button" id="toggle-panel" title="Show or hide the full transcript (T)">≡ Transcript</button>
+          ${vid ? `<button type="button" id="toggle-panel" title="Show or hide the full transcript (T)" aria-label="Transcript">${icon("transcript", 16)}<span class="lbl">Transcript</span></button>
           <button type="button" class="ghost" id="toggle-cc" title="Show or hide the clickable captions (C)">CC</button>
           <button type="button" class="ghost" id="fullscreen" title="Full screen (F)">⛶</button>` : ""}
           ${yt ? `<button type="button" class="ghost" id="more" title="Text size, full screen and saving the transcript">⋯</button>` : ""}
