@@ -1,6 +1,6 @@
 // The review card's "Mnemonic maker": five words or short phrases in the learner's own language
 // that SOUND like the word being learned, to hang a memory on (the keyword method). The learner
-// copies the one they like into My notes and builds a picture around it.
+// copies the one they like into Personal notes and builds a picture around it.
 //
 // The words come from the learner's own AI: the provider, key and model of their word lookups,
 // asked through the same route a lookup takes on this device (`askAi` in define-service.js, which

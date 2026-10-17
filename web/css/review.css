@@ -144,7 +144,7 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-field input[type=text] { font-weight: 600; }
 .rv-field textarea { min-height: 42px; max-height: 170px; }
 .rv-field input[type=text]:focus-visible, .rv-field textarea:focus-visible { outline: none; border-color: var(--accent); }
-/* My notes: its label with a Paste button on the right. */
+/* Personal notes: its label with a Paste button on the right. */
 .rv-field-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .rv-field-head > span { padding-inline-start: 2px; font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
 .rv-paste { display: inline-flex; align-items: center; gap: 5px; min-height: 28px; padding: 0 11px; border: 0; border-radius: 99px; background: var(--surface-2); color: var(--text); font-size: 12.5px; font-weight: 600; }

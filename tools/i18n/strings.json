@@ -8165,11 +8165,6 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "4a86cd15",
-  "k": "<0>Space</0> turn the card, then remembered · <1>1</1> or <2>←</2> not remembered · <3>2</3> or <4>→</4> remembered · <5>Z</5> undo · <6>W</6> word · <7>S</7> sentence · <8>P</8> practise saying it · <9>N</9> my notes · <10>Del</10> delete the word",
-  "f": "web/js/pages/review.js"
- },
- {
   "id": "4d3ebfca",
   "k": "Remembered",
   "f": "web/js/pages/review.js"
@@ -8247,11 +8242,6 @@
  {
   "id": "d956b856",
   "k": "Root, grammar, usage…",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "56f079ba",
-  "k": "My notes",
   "f": "web/js/pages/review.js"
  },
  {
@@ -9102,16 +9092,6 @@
  {
   "id": "8e3f51e2",
   "k": "{0} · added {1}{2}",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "2c1bffd2",
-  "k": "Notes (root, grammar, usage…)",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "e78181f0",
-  "k": "My notes (a mnemonic, where you heard it…)",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -12178,5 +12158,40 @@
   "id": "7ff5a6da",
   "k": "Sections",
   "f": "mobile/src/index.html"
+ },
+ {
+  "id": "1f434d3d",
+  "k": "<0>Space</0> turn the card, then remembered · <1>1</1> or <2>←</2> not remembered · <3>2</3> or <4>→</4> remembered · <5>Z</5> undo · <6>W</6> word · <7>S</7> sentence · <8>P</8> practise saying it · <9>N</9> personal notes · <10>Del</10> delete the word",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "4d8637fa",
+  "k": "{0} words that sound like it: copy one into Personal notes and picture it with the meaning.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "c420e532",
+  "k": "Grammar notes",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "3e8c21da",
+  "k": "Personal notes",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "7a625323",
+  "k": "Paste what you copied into Personal notes",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "dd5422ef",
+  "k": "Grammar notes (root, grammar, usage…)",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "d5b39987",
+  "k": "Personal notes (a mnemonic, where you heard it…)",
+  "f": "web/js/pages/vocab.js"
  }
 ]

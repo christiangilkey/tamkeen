@@ -1,0 +1,8 @@
+# Review card and Vocab page: Grammar notes and Personal notes (owner, 2026-10-17)
+1f434d3d	<0>Espace</0> retourner la carte, puis « je m'en souviens » · <1>1</1> ou <2>←</2> oublié · <3>2</3> ou <4>→</4> je m'en souviens · <5>Z</5> annuler · <6>W</6> mot · <7>S</7> phrase · <8>P</8> m'entraîner à le dire · <9>N</9> notes personnelles · <10>Suppr</10> supprimer le mot
+4d8637fa	Des mots de votre langue qui lui ressemblent à l'oreille : copiez-en un dans Notes personnelles et imaginez-le avec le sens.
+c420e532	Notes de grammaire
+3e8c21da	Notes personnelles
+7a625323	Coller ce que vous avez copié dans Notes personnelles
+dd5422ef	Notes de grammaire (racine, grammaire, usage…)
+d5b39987	Notes personnelles (un moyen mnémotechnique, où je l'ai entendu…)

@@ -1,0 +1,8 @@
+# Review card and Vocab page: Grammar notes and Personal notes (owner, 2026-10-17)
+1f434d3d	<0>Espacio</0> girar la tarjeta y luego recordada · <1>1</1> o <2>←</2> no recordada · <3>2</3> o <4>→</4> recordada · <5>Z</5> deshacer · <6>W</6> palabra · <7>S</7> frase · <8>P</8> practicar la pronunciación · <9>N</9> notas personales · <10>Supr</10> borrar la palabra
+4d8637fa	Palabras de tu idioma que suenan parecido: copia una en Notas personales e imagínala junto con el significado.
+c420e532	Notas gramaticales
+3e8c21da	Notas personales
+7a625323	Pega lo que copiaste en Notas personales
+dd5422ef	Notas gramaticales (raíz, gramática, uso…)
+d5b39987	Notas personales (un truco para recordarla, dónde la oíste…)

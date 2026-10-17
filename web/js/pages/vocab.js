@@ -366,7 +366,7 @@ export async function render(view) {
   // ----- items -----
   const ankiProgress = await loadAnkiProgress();  // each word's review progress in Anki, when the deck is synced
   // A word is a short card: the word, its meaning, the bit of its sentence around it and its play
-  // buttons. A tap opens it in place for editing (meaning, notes, my notes, folders, delete); one
+  // buttons. A tap opens it in place for editing (meaning, grammar notes, personal notes, folders, delete); one
   // card is open at a time, and it stays open when the list is drawn again.
   let openId = null;
   function item(v) {
@@ -398,8 +398,8 @@ export async function render(view) {
         <div class="item-folders"></div>
         ${translation ? `<div class="vi-translation small"></div>` : ""}
         <input type="text" class="meaning" placeholder="Meaning" aria-label="Meaning">
-        <textarea class="notes" rows="2" placeholder="Notes (root, grammar, usage…)" aria-label="Notes"></textarea>
-        <textarea class="memo" rows="1" placeholder="My notes (a mnemonic, where you heard it…)" aria-label="My notes"></textarea>
+        <textarea class="notes" rows="2" placeholder="Grammar notes (root, grammar, usage…)" aria-label="Grammar notes"></textarea>
+        <textarea class="memo" rows="1" placeholder="Personal notes (a mnemonic, where you heard it…)" aria-label="Personal notes"></textarea>
         <div class="row vi-actions">
           ${lacksAudio(v) ? `<button type="button" class="ghost find-video" title="Look for a YouTube video where this word is said">${icon("video", 16)} Find in a video</button>` : ""}
           <button type="button" class="ghost folders-btn">${icon("folder", 16)} Folders</button>

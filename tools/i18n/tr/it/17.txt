@@ -1,0 +1,8 @@
+# Review card and Vocab page: Grammar notes and Personal notes (owner, 2026-10-17)
+1f434d3d	<0>Spazio</0> gira la carta, poi ricordata · <1>1</1> o <2>←</2> non ricordata · <3>2</3> o <4>→</4> ricordata · <5>Z</5> annulla · <6>W</6> parola · <7>S</7> frase · <8>P</8> esercitati a dirla · <9>N</9> note personali · <10>Canc</10> elimina la parola
+4d8637fa	Parole della tua lingua che suonano simili: copiane una in Note personali e immaginala insieme al significato.
+c420e532	Note grammaticali
+3e8c21da	Note personali
+7a625323	Incolla in Note personali ciò che hai copiato
+dd5422ef	Note grammaticali (radice, grammatica, uso…)
+d5b39987	Note personali (un trucco per ricordarla, dove l'ho sentita…)

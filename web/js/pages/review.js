@@ -2,8 +2,8 @@
 //
 // A card's front is in the learner's own language: the word's meaning with the translated
 // sentence under it. Its back has the answer on top, large and alone (the word, its sentence
-// and its audio), and under a clear gap everything else about the word: meaning, notes and
-// "My notes", the learner's own box for a mnemonic. There are two answers,
+// and its audio), and under a clear gap everything else about the word: meaning, grammar notes and
+// "Personal notes", the learner's own box for a mnemonic. There are two answers,
 // "Remembered" and "Not remembered": buttons, a swipe of the card, or the keyboard. A missed
 // word comes back a few cards later until it has been remembered once.
 //
@@ -166,7 +166,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <div class="rv-chips">${NEW_CHOICES.map((n) => `<button type="button" data-n="${n}">${n}</button>`).join("")}</div>
       </div>
       <label class="rv-check"><input type="checkbox" class="rv-auto"> Say the word when the card turns</label>
-      <p class="rv-keys"><kbd>Space</kbd> turn the card, then remembered · <kbd>1</kbd> or <kbd>←</kbd> not remembered · <kbd>2</kbd> or <kbd>→</kbd> remembered · <kbd>Z</kbd> undo · <kbd>W</kbd> word · <kbd>S</kbd> sentence · <kbd>P</kbd> practise saying it · <kbd>N</kbd> my notes · <kbd>Del</kbd> delete the word</p>
+      <p class="rv-keys"><kbd>Space</kbd> turn the card, then remembered · <kbd>1</kbd> or <kbd>←</kbd> not remembered · <kbd>2</kbd> or <kbd>→</kbd> remembered · <kbd>Z</kbd> undo · <kbd>W</kbd> word · <kbd>S</kbd> sentence · <kbd>P</kbd> practise saying it · <kbd>N</kbd> personal notes · <kbd>Del</kbd> delete the word</p>
     </div>
     <main class="rv-stage">
       <div class="rv-wrap">
@@ -267,8 +267,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const onResize = () => { if (!flipped) return; for (const box of face.querySelectorAll("textarea")) fit(box); more(); };
   window.addEventListener("resize", onResize);
 
-  // ----- My notes: Paste, and the Mnemonic maker -----
-  /** Put what is on the clipboard into My notes (after what is there already), saved like typing. */
+  // ----- Personal notes: Paste, and the Mnemonic maker -----
+  /** Put what is on the clipboard into Personal notes (after what is there already), saved like typing. */
   async function pasteInto(box, v) {
     let text;
     try { text = await readClipboard(); } catch {
@@ -300,7 +300,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
 
   const mnemonics = new Map();  // what the Mnemonic maker came up with for each word, while the reviewer is open
 
-  /** The Mnemonic maker below My notes: five sound-alikes in the learner's own language, each with a copy button. */
+  /** The Mnemonic maker below Personal notes: five sound-alikes in the learner's own language, each with a copy button. */
   function mnemonicMaker(box, v) {
     const go = box.querySelector(".rv-mnemo-go"), note = box.querySelector(".rv-mnemo-note"), list = box.querySelector(".rv-mnemo-list");
     const label = go.querySelector("span");
@@ -323,7 +323,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       }
       list.hidden = !items.length;
       label.textContent = items.length ? "Make 5 more" : "Mnemonic maker";
-      say(items.length ? `${speaks} words that sound like it: copy one into My notes and picture it with the meaning.` : "");
+      say(items.length ? `${speaks} words that sound like it: copy one into Personal notes and picture it with the meaning.` : "");
     };
     const had = mnemonics.get(uidOf(v));
     if (had) draw(had);
@@ -356,10 +356,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       </div>
       <div class="rv-details">
         <label class="rv-field"><span>Meaning</span><input type="text" class="meaning" placeholder="What it means"></label>
-        <label class="rv-field"><span>Notes</span><textarea class="notes" rows="1" placeholder="Root, grammar, usage…"></textarea></label>
+        <label class="rv-field"><span>Grammar notes</span><textarea class="notes" rows="1" placeholder="Root, grammar, usage…"></textarea></label>
         <div class="rv-field">
-          <div class="rv-field-head"><span>My notes</span><button type="button" class="rv-paste" title="Paste what you copied into My notes">${ICON.paste} Paste</button></div>
-          <textarea class="memo" rows="1" placeholder="A mnemonic, a picture, where you heard it…" aria-label="My notes"></textarea>
+          <div class="rv-field-head"><span>Personal notes</span><button type="button" class="rv-paste" title="Paste what you copied into Personal notes">${ICON.paste} Paste</button></div>
+          <textarea class="memo" rows="1" placeholder="A mnemonic, a picture, where you heard it…" aria-label="Personal notes"></textarea>
         </div>
         <div class="rv-mnemo">
           <button type="button" class="rv-mnemo-go">${ICON.bulb}<span>Mnemonic maker</span></button>

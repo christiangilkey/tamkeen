@@ -1,0 +1,8 @@
+# Review card and Vocab page: Grammar notes and Personal notes (owner, 2026-10-17)
+1f434d3d	<0>Space</0> baligtarin ang card, saka naalala · <1>1</1> o <2>←</2> hindi naalala · <3>2</3> o <4>→</4> naalala · <5>Z</5> bawiin · <6>W</6> salita · <7>S</7> pangungusap · <8>P</8> magsanay bigkasin · <9>N</9> mga personal na tala · <10>Del</10> burahin ang salita
+4d8637fa	Mga salita sa wika mo na kahawig ang tunog: kopyahin ang isa sa Mga personal na tala at ilarawan ito kasama ang kahulugan.
+c420e532	Mga tala sa gramatika
+3e8c21da	Mga personal na tala
+7a625323	Idikit sa Mga personal na tala ang kinopya mo
+dd5422ef	Mga tala sa gramatika (ugat, gramatika, gamit…)
+d5b39987	Mga personal na tala (paraan para matandaan, kung saan ko narinig…)

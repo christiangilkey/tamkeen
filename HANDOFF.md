@@ -2451,6 +2451,10 @@ right of them ... Also include a paste button onto the my notes box".
   Opus 5.5/Fable can't turn it off, so effort low), Gemini `thinkingLevel: minimal`, OpenAI `reasoning_effort:
   none`, Grok low (Grok has only low/high). A 400 still falls back to the plain request. Not yet tried against a
   real provider (no key on the dev machine): the owner's "Try it" shows the real time.
+- Labels renamed (owner: "The 'notes' on back of card should be 'Grammar Notes' and the 'my notes' should be
+  'Personal Notes'"): "Grammar notes" (`notes` field) and "Personal notes" (`memo`) on the review card and the
+  Vocab page (shown in capitals by CSS on the card). Field names in the data and in Anki are unchanged (the Anki
+  card shows no labels). Translations in `tools/i18n/tr/<code>/17.txt`.
 - Paste: `readClipboard()` in both app shells. On Android the page can't read the clipboard, so a new plugin
   `ClipboardPlugin.java` ("TamkeenClipboard", registered in MainActivity, read only, on the UI thread) answers;
   `TamkeenClipboard` in native.js. It appends to My notes and saves like typing. **The Java has not been compiled
