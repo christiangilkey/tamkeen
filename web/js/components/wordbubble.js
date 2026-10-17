@@ -5,6 +5,8 @@ import { esc, buzz, toast } from "../app.js";
 import { langAttrs, langInfo } from "../languages.js";
 import { icon } from "../icons.js";
 import { LOOKUP_EVENT, lookupMode } from "./lookupmode.js";
+import { showTroubleshoot } from "./troubleshoot.js";
+import { kindOf } from "../trouble.js";
 
 // ----- what happens after a tapped word has played: pause there, or keep playing -----
 // One choice for the whole app, remembered on this device. Pausing is how it has always worked.
@@ -122,6 +124,7 @@ export function createWordBubble(host, actions) {
   }
 
   let current = { state: "loading", message: "" };
+  let lastError = null; // what the failed lookup threw (the Troubleshoot box reads it)
   // The language of the word being shown (from the lookup; Arabic for older callers).
   const L = () => langInfo((ctx && ctx.lang) || "ar");
   const attrs = () => langAttrs((ctx && ctx.lang) || "ar");
@@ -138,6 +141,7 @@ export function createWordBubble(host, actions) {
     } else if (state === "error") {
       body = `<p class="wb-error">${esc(message)}</p>
               <div class="row"><button type="button" data-act="retry">Try again</button>
+              ${kindOf(lastError) ? `<button type="button" data-act="trouble">Troubleshoot</button>` : ""}
               <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
     } else if (quick) {
       body = `<div class="wb-meaning">${esc(def.meaning)}</div>`;
@@ -208,7 +212,7 @@ export function createWordBubble(host, actions) {
     } catch (e) {
       if (my !== token) return;
       if (e && e.message === "NO_KEY") render("nokey");
-      else render("error", e && e.message ? e.message : String(e));
+      else { lastError = e; render("error", e && e.message ? e.message : String(e)); }
     }
   }
 
@@ -229,6 +233,7 @@ export function createWordBubble(host, actions) {
       case "from": actions.onPlayFrom(); hide(); break;
       case "settings": actions.onSettings(); break;
       case "retry": load(); break;
+      case "trouble": showTroubleshoot(lastError); break;
       case "more": quick = false; def = null; load(); break;
       case "refresh": def = null; load(true); break;
       case "undo": {

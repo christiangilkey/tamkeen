@@ -12193,5 +12193,290 @@
   "id": "d5b39987",
   "k": "Personal notes (a mnemonic, where you heard it…)",
   "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "7a1e17bc",
+  "k": "Troubleshoot",
+  "f": "web/js/components/troubleshoot.js"
+ },
+ {
+  "id": "9e3456c2",
+  "k": "Other common causes",
+  "f": "web/js/components/troubleshoot.js"
+ },
+ {
+  "id": "c0a6a091",
+  "k": "{0} status page ↗",
+  "f": "web/js/components/troubleshoot.js"
+ },
+ {
+  "id": "f82142b3",
+  "k": "Most likely",
+  "f": "web/js/components/troubleshoot.js"
+ },
+ {
+  "id": "4b4de4e9",
+  "k": "{0} key page ↗",
+  "f": "web/js/components/troubleshoot.js"
+ },
+ {
+  "id": "45940469",
+  "k": "{0} isn't available in your country or region.",
+  "f": "web/js/definer.js"
+ },
+ {
+  "id": "eff674e3",
+  "k": "Couldn't reach {0}. Check your internet connection.",
+  "f": "web/js/definer.js"
+ },
+ {
+  "id": "796297bd",
+  "k": "The key has expired or been switched off",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "a8676c27",
+  "k": "Make a new key on the provider's key page and paste it in.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "64587d6e",
+  "k": "Part of the key is missing, or a space came with it",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "3d171562",
+  "k": "Copy the whole key again and paste it fresh.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "27522397",
+  "k": "The key is from a different provider",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "92ca2b98",
+  "k": "Choose the provider whose website gave you the key.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "63987d76",
+  "k": "The key was deleted, or the account was closed",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "1588d496",
+  "k": "Check the key is still listed on the key page. If not, make a new one.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "c96b7484",
+  "k": "No credit or billing is set up",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "0ad9708a",
+  "k": "Add a payment card and a little credit on the provider's Billing page.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "e1e28b30",
+  "k": "A spending limit was reached",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "18251e5e",
+  "k": "Raise the monthly limit in the provider's billing settings, or wait for next month.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "f6cdf0dd",
+  "k": "The free allowance is used up for now",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "11671580",
+  "k": "Wait until tomorrow, or add billing to lift the limit.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "84d0d9ac",
+  "k": "Too many requests in a short time",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "d42b2d76",
+  "k": "Wait a minute, then try again.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "4c4f1f6e",
+  "k": "Free accounts may only send so much per hour and per day",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "7675faf6",
+  "k": "Wait a while, or add billing to raise the limit.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "084837dc",
+  "k": "This device isn't online",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "d2a2dab5",
+  "k": "Open any website to check, then try again.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "963deb8a",
+  "k": "A VPN or proxy is in the way",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "19c37976",
+  "k": "Turn the VPN or proxy off and try again.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "55a21539",
+  "k": "A firewall, or a work or school network, blocks it",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "587e5785",
+  "k": "Try another network, such as your phone's mobile data.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "562f6211",
+  "k": "The provider is down",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "ea828f0c",
+  "k": "Check its status page, then try again later.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "5b1b4424",
+  "k": "The date and time on this device are wrong",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "05d71e52",
+  "k": "Set the clock to update automatically: secure connections fail when it is off.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "cc2c0140",
+  "k": "The provider doesn't serve your country or region",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "a0d0b371",
+  "k": "Choose another provider in Settings.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "c47e8828",
+  "k": "A VPN makes it look as if you are somewhere else",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "e5984aea",
+  "k": "Turn the VPN off, or set it to your own country.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "47ab6e8d",
+  "k": "That model isn't available to your key",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "2f6cf7e5",
+  "k": "Set Model back to the recommended one in Settings.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "9f9d4258",
+  "k": "The model was renamed or retired",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "3e1adb41",
+  "k": "Choose a model from the list instead of typing a name.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "0e77e507",
+  "k": "New or free accounts can't use every model",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "9de897f2",
+  "k": "Use the recommended model, or add billing to the account.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "fd6e38d8",
+  "k": "The provider is having problems or is very busy",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "4154fe68",
+  "k": "Check its status page and try again in a few minutes.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "5a4f728f",
+  "k": "The provider refused the key",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "25b375a4",
+  "k": "The account has no credit or reached a limit",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "5720edd4",
+  "k": "The provider asked the app to slow down",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "6ac5f256",
+  "k": "The provider couldn't be reached",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "2cba2077",
+  "k": "The provider isn't available where you are",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "2121e96e",
+  "k": "The provider doesn't recognise the model",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "d2b04c49",
+  "k": "The provider is having problems",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "04f3c5cd",
+  "k": "Something went wrong with the provider",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "ec853b07",
+  "k": "The key is for word definitions, not transcription",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "26d88d64",
+  "k": "Transcription needs its own key: a Groq key starts with gsk_. An OpenAI key works for both.",
+  "f": "web/js/trouble.js"
  }
 ]

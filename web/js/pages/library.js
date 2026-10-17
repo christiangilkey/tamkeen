@@ -7,6 +7,7 @@ import { allProgress } from "../progress.js";
 import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
 import { openAddSheet } from "../components/addsheet.js";
+import { troubleshootButton } from "../components/troubleshoot.js";
 
 const FILTERS = [
   ["", "All"],
@@ -393,6 +394,9 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (ep.status === "failed" && ep.error) {
       const err = h(`<div class="err"></div>`);
       err.textContent = ep.error;
+      // A cloud transcription the provider refused (a key, credit, the connection): what to check.
+      const fix = /\b(Groq|OpenAI)\b/.test(ep.error) ? troubleshootButton(ep.error, { service: "stt" }) : null;
+      if (fix) err.append(" ", fix);
       box.append(err);
     }
     // Title becomes a link once done (videos can be watched straight away).

@@ -1,0 +1,58 @@
+# Troubleshoot: when an AI or transcription key fails (owner, 2026-10-17)
+7a1e17bc	Risolvi problemi
+9e3456c2	Altre cause frequenti
+c0a6a091	Pagina di stato di {0} ↗
+f82142b3	Più probabile
+4b4de4e9	Pagina delle chiavi di {0} ↗
+45940469	{0} non è disponibile nel tuo paese o nella tua regione.
+eff674e3	Impossibile raggiungere {0}. Controlla la connessione a internet.
+796297bd	La chiave è scaduta o è stata disattivata
+a8676c27	Crea una nuova chiave nella pagina delle chiavi del fornitore e incollala.
+64587d6e	Manca un pezzo della chiave, o si è infilato uno spazio
+3d171562	Copia di nuovo tutta la chiave e incollala da capo.
+27522397	La chiave è di un altro fornitore
+92ca2b98	Scegli il fornitore il cui sito ti ha dato la chiave.
+63987d76	La chiave è stata eliminata, o l'account è stato chiuso
+1588d496	Controlla che la chiave sia ancora nella pagina delle chiavi. Se non c'è, creane una nuova.
+c96b7484	Non è impostato né credito né pagamento
+0ad9708a	Aggiungi una carta di pagamento e un po' di credito nella pagina Billing del fornitore.
+e1e28b30	È stato raggiunto un limite di spesa
+18251e5e	Alza il limite mensile nelle impostazioni di pagamento del fornitore, o aspetta il mese prossimo.
+f6cdf0dd	La quota gratuita per ora è finita
+11671580	Aspetta fino a domani, o aggiungi un metodo di pagamento per togliere il limite.
+84d0d9ac	Troppe richieste in poco tempo
+d42b2d76	Aspetta un minuto, poi riprova.
+4c4f1f6e	Gli account gratuiti possono inviare solo una certa quantità all'ora e al giorno
+7675faf6	Aspetta un po', o aggiungi un metodo di pagamento per alzare il limite.
+084837dc	Questo dispositivo non è connesso
+d2a2dab5	Apri un sito qualsiasi per controllare, poi riprova.
+963deb8a	Una VPN o un proxy si mette in mezzo
+19c37976	Disattiva la VPN o il proxy e riprova.
+55a21539	Un firewall, o una rete di lavoro o di scuola, lo blocca
+587e5785	Prova un'altra rete, come i dati mobili del telefono.
+562f6211	Il fornitore non funziona
+ea828f0c	Controlla la sua pagina di stato, poi riprova più tardi.
+5b1b4424	La data e l'ora di questo dispositivo sono sbagliate
+05d71e52	Imposta l'orologio in automatico: le connessioni sicure falliscono se è sbagliato.
+cc2c0140	Il fornitore non serve il tuo paese o la tua regione
+a0d0b371	Scegli un altro fornitore nelle Impostazioni.
+c47e8828	Una VPN fa sembrare che tu sia altrove
+e5984aea	Disattiva la VPN, o impostala sul tuo paese.
+47ab6e8d	Quel modello non è disponibile per la tua chiave
+2f6cf7e5	Rimetti in Modello quello consigliato, nelle Impostazioni.
+9f9d4258	Il modello è stato rinominato o ritirato
+3e1adb41	Scegli un modello dall'elenco invece di scriverne il nome.
+0e77e507	Gli account nuovi o gratuiti non possono usare tutti i modelli
+9de897f2	Usa il modello consigliato, o aggiungi un metodo di pagamento all'account.
+fd6e38d8	Il fornitore ha problemi o è molto occupato
+4154fe68	Controlla la sua pagina di stato e riprova tra qualche minuto.
+5a4f728f	Il fornitore ha rifiutato la chiave
+25b375a4	L'account non ha credito o ha raggiunto un limite
+5720edd4	Il fornitore ha chiesto all'app di rallentare
+6ac5f256	Impossibile raggiungere il fornitore
+2cba2077	Il fornitore non è disponibile dove ti trovi
+2121e96e	Il fornitore non riconosce il modello
+d2b04c49	Il fornitore ha problemi
+04f3c5cd	Qualcosa è andato storto con il fornitore
+ec853b07	La chiave è per le definizioni delle parole, non per la trascrizione
+26d88d64	La trascrizione ha bisogno di una chiave propria: una chiave Groq inizia con gsk_. Una chiave OpenAI va bene per entrambe.

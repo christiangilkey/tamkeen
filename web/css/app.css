@@ -1348,3 +1348,20 @@ button.danger-solid { background: var(--danger); border-color: var(--danger); co
   .add-row { flex-direction: column; }
   .add-row .tag-input { width: 100%; }
 }
+
+/* ---------- "Troubleshoot" beside a failed key (components/troubleshoot.js) ---------- */
+button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-weight: 600; border-radius: 99px; vertical-align: middle; }
+.wb-error ~ .row button[data-act="trouble"] { font-weight: 600; }
+.trouble .trouble-what { font-size: 17px; margin: 0; }
+.trouble .trouble-said { margin: 0; overflow-wrap: anywhere; }
+.trouble-h { margin: 6px 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.trouble-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.trouble-list li { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 12px; background: var(--surface-2); }
+.trouble-list li strong { font-size: 15px; }
+.trouble-list li span { color: var(--muted); font-size: 14px; }
+.trouble-more summary { cursor: pointer; font-weight: 600; }
+.trouble-more .trouble-list { margin-top: 10px; }
+.trouble-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.trouble-links .btn { text-align: center; justify-content: center; white-space: normal; min-width: 0; height: auto; }
+.trouble, .trouble-list li { min-width: 0; overflow-wrap: anywhere; }
+.trouble-links .btn:only-child { grid-column: 1 / -1; }

@@ -1,0 +1,58 @@
+# Troubleshoot: when an AI or transcription key fails (owner, 2026-10-17)
+7a1e17bc	Solucionar problemas
+9e3456c2	Otras causas frecuentes
+c0a6a091	Página de estado de {0} ↗
+f82142b3	Lo más probable
+4b4de4e9	Página de claves de {0} ↗
+45940469	{0} no está disponible en tu país o región.
+eff674e3	No se pudo conectar con {0}. Revisa tu conexión a internet.
+796297bd	La clave caducó o se desactivó
+a8676c27	Crea una clave nueva en la página de claves del proveedor y pégala.
+64587d6e	Falta un trozo de la clave, o se coló un espacio
+3d171562	Vuelve a copiar la clave entera y pégala de nuevo.
+27522397	La clave es de otro proveedor
+92ca2b98	Elige el proveedor cuya web te dio la clave.
+63987d76	La clave se borró o la cuenta se cerró
+1588d496	Comprueba que la clave sigue en la página de claves. Si no está, crea una nueva.
+c96b7484	No hay saldo ni facturación configurada
+0ad9708a	Añade una tarjeta y un poco de saldo en la página Billing del proveedor.
+e1e28b30	Se alcanzó un límite de gasto
+18251e5e	Sube el límite mensual en los ajustes de facturación del proveedor, o espera al mes que viene.
+f6cdf0dd	La cuota gratuita se agotó por ahora
+11671580	Espera hasta mañana, o añade facturación para quitar el límite.
+84d0d9ac	Demasiadas solicitudes en poco tiempo
+d42b2d76	Espera un minuto y vuelve a intentarlo.
+4c4f1f6e	Las cuentas gratuitas solo pueden enviar cierta cantidad por hora y por día
+7675faf6	Espera un rato, o añade facturación para subir el límite.
+084837dc	Este dispositivo no tiene conexión
+d2a2dab5	Abre cualquier web para comprobarlo y vuelve a intentarlo.
+963deb8a	Una VPN o un proxy se interpone
+19c37976	Desactiva la VPN o el proxy y vuelve a intentarlo.
+55a21539	Un cortafuegos, o una red del trabajo o de la escuela, lo bloquea
+587e5785	Prueba otra red, como los datos móviles de tu teléfono.
+562f6211	El proveedor no funciona
+ea828f0c	Mira su página de estado y vuelve a intentarlo más tarde.
+5b1b4424	La fecha y la hora de este dispositivo están mal
+05d71e52	Pon el reloj en automático: las conexiones seguras fallan si está mal.
+cc2c0140	El proveedor no da servicio en tu país o región
+a0d0b371	Elige otro proveedor en Ajustes.
+c47e8828	Una VPN hace parecer que estás en otro lugar
+e5984aea	Desactiva la VPN, o ponla en tu propio país.
+47ab6e8d	Ese modelo no está disponible para tu clave
+2f6cf7e5	Vuelve a poner en Modelo el recomendado, en Ajustes.
+9f9d4258	El modelo cambió de nombre o se retiró
+3e1adb41	Elige un modelo de la lista en vez de escribir un nombre.
+0e77e507	Las cuentas nuevas o gratuitas no pueden usar todos los modelos
+9de897f2	Usa el modelo recomendado, o añade facturación a la cuenta.
+fd6e38d8	El proveedor tiene problemas o está muy ocupado
+4154fe68	Mira su página de estado y vuelve a intentarlo en unos minutos.
+5a4f728f	El proveedor rechazó la clave
+25b375a4	La cuenta no tiene saldo o llegó a un límite
+5720edd4	El proveedor pidió a la app que fuera más despacio
+6ac5f256	No se pudo conectar con el proveedor
+2cba2077	El proveedor no está disponible donde estás
+2121e96e	El proveedor no reconoce el modelo
+d2b04c49	El proveedor tiene problemas
+04f3c5cd	Algo salió mal con el proveedor
+ec853b07	La clave es para las definiciones de palabras, no para la transcripción
+26d88d64	La transcripción necesita su propia clave: una clave de Groq empieza por gsk_. Una clave de OpenAI sirve para las dos cosas.

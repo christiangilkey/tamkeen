@@ -1,0 +1,58 @@
+# Troubleshoot: when an AI or transcription key fails (owner, 2026-10-17)
+7a1e17bc	Dépannage
+9e3456c2	Autres causes fréquentes
+c0a6a091	Page d'état de {0} ↗
+f82142b3	Le plus probable
+4b4de4e9	Page des clés de {0} ↗
+45940469	{0} n'est pas disponible dans votre pays ou votre région.
+eff674e3	Impossible de joindre {0}. Vérifiez votre connexion Internet.
+796297bd	La clé a expiré ou a été désactivée
+a8676c27	Créez une nouvelle clé sur la page des clés du fournisseur et collez-la.
+64587d6e	Il manque un morceau de la clé, ou une espace s'y est glissée
+3d171562	Copiez de nouveau la clé entière et collez-la à nouveau.
+27522397	La clé vient d'un autre fournisseur
+92ca2b98	Choisissez le fournisseur dont le site vous a donné la clé.
+63987d76	La clé a été supprimée, ou le compte a été fermé
+1588d496	Vérifiez que la clé figure toujours sur la page des clés. Sinon, créez-en une nouvelle.
+c96b7484	Aucun crédit ni facturation n'est configuré
+0ad9708a	Ajoutez une carte de paiement et un peu de crédit sur la page Billing du fournisseur.
+e1e28b30	Une limite de dépenses a été atteinte
+18251e5e	Relevez la limite mensuelle dans les réglages de facturation du fournisseur, ou attendez le mois prochain.
+f6cdf0dd	Le quota gratuit est épuisé pour l'instant
+11671580	Attendez demain, ou ajoutez la facturation pour lever la limite.
+84d0d9ac	Trop de demandes en peu de temps
+d42b2d76	Attendez une minute, puis réessayez.
+4c4f1f6e	Les comptes gratuits ne peuvent envoyer qu'une certaine quantité par heure et par jour
+7675faf6	Attendez un moment, ou ajoutez la facturation pour relever la limite.
+084837dc	Cet appareil n'est pas connecté
+d2a2dab5	Ouvrez n'importe quel site pour vérifier, puis réessayez.
+963deb8a	Un VPN ou un proxy bloque le passage
+19c37976	Désactivez le VPN ou le proxy et réessayez.
+55a21539	Un pare-feu, ou un réseau de travail ou d'école, le bloque
+587e5785	Essayez un autre réseau, comme les données mobiles de votre téléphone.
+562f6211	Le fournisseur est en panne
+ea828f0c	Consultez sa page d'état, puis réessayez plus tard.
+5b1b4424	La date et l'heure de cet appareil sont fausses
+05d71e52	Réglez l'horloge en mode automatique : les connexions sécurisées échouent si elle est fausse.
+cc2c0140	Le fournisseur ne dessert pas votre pays ou votre région
+a0d0b371	Choisissez un autre fournisseur dans les Réglages.
+c47e8828	Un VPN fait croire que vous êtes ailleurs
+e5984aea	Désactivez le VPN, ou réglez-le sur votre propre pays.
+47ab6e8d	Ce modèle n'est pas disponible pour votre clé
+2f6cf7e5	Remettez Modèle sur celui recommandé, dans les Réglages.
+9f9d4258	Le modèle a été renommé ou retiré
+3e1adb41	Choisissez un modèle dans la liste au lieu de taper un nom.
+0e77e507	Les comptes nouveaux ou gratuits ne peuvent pas utiliser tous les modèles
+9de897f2	Utilisez le modèle recommandé, ou ajoutez la facturation au compte.
+fd6e38d8	Le fournisseur a des problèmes ou est très sollicité
+4154fe68	Consultez sa page d'état et réessayez dans quelques minutes.
+5a4f728f	Le fournisseur a refusé la clé
+25b375a4	Le compte n'a pas de crédit ou a atteint une limite
+5720edd4	Le fournisseur a demandé à l'app de ralentir
+6ac5f256	Impossible de joindre le fournisseur
+2cba2077	Le fournisseur n'est pas disponible là où vous êtes
+2121e96e	Le fournisseur ne reconnaît pas le modèle
+d2b04c49	Le fournisseur a des problèmes
+04f3c5cd	Un problème est survenu avec le fournisseur
+ec853b07	La clé sert aux définitions de mots, pas à la transcription
+26d88d64	La transcription a besoin de sa propre clé : une clé Groq commence par gsk_. Une clé OpenAI sert aux deux.

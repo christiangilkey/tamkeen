@@ -11,6 +11,7 @@ import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
 import { soundAlikes } from "../review/mnemonic.js";
 import { TOKENS_EVENT, describeUsage, tokensToday } from "../tokenuse.js";
 import { showKeyHelp } from "./keyhelp.js";
+import { troubleshootButton } from "./troubleshoot.js";
 
 const OTHER = "__other__";
 const price = (m) => `${centsPerMillion(m).toLocaleString()}¢ per million tokens`;
@@ -192,6 +193,8 @@ export function aiSetup(section, { transport }) {
     } catch (err) {
       out.textContent = err.message === "NO_KEY" ? "Add your API key above first." : err.message;
       out.style.color = "var(--danger)";
+      const fix = troubleshootButton(err);
+      if (fix) out.append(" ", fix);
     } finally {
       e.target.disabled = false;
     }
@@ -261,6 +264,8 @@ export function aiSetup(section, { transport }) {
     } catch (err) {
       out.textContent = err.message;
       out.style.color = "var(--danger)";
+      const fix = troubleshootButton(err);
+      if (fix) out.append(" ", fix);
       // A refused key: it isn't "set up" after all, and the key row (where "Get a new key" is) is framed again.
       if (err.keyRejected) {
         $("#def-keyrow").classList.add("need");

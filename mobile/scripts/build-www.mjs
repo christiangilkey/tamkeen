@@ -77,6 +77,8 @@ const SHARED = [
   "js/components/sendmedia.js",
   "js/components/avatar.js",
   "js/components/modal.js",
+  "js/components/troubleshoot.js",
+  "js/trouble.js",
   "js/components/addsheet.js",
   "js/components/keyhelp.js",
   "js/components/aisetup.js",

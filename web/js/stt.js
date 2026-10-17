@@ -1,5 +1,7 @@
 // Cloud transcription: letting a speech-to-text provider write the transcripts instead of this
 // computer. Shared by the desktop app and the Android app; no platform code in here.
+
+import { problemKind } from "./trouble.js";
 //
 // The user brings their own key (like the AI word definitions) and pays the provider directly, by
 // the hour of audio. Both providers below run Whisper and speak the same request format: an audio
@@ -115,9 +117,11 @@ export function transcriptionFields({ model, language = "", prompt = "" }) {
 }
 
 export class SttError extends Error {
-  constructor(message, { status = 0, keyRejected = false, retryAfter = 0, tooLarge = false } = {}) {
+  constructor(message, { status = 0, keyRejected = false, retryAfter = 0, tooLarge = false, kind = "", provider = "" } = {}) {
     super(message);
     this.status = status;
+    this.kind = kind || (keyRejected ? "key" : ""); // what went wrong, for the Troubleshoot box (see trouble.js)
+    this.provider = provider;
     this.keyRejected = keyRejected; // the provider refused the key itself
     this.retryAfter = retryAfter;   // seconds the provider asked the app to wait (its limit was reached)
     this.tooLarge = tooLarge;
@@ -133,21 +137,24 @@ export function sttFailure(provider, status, body, retryAfter = 0) {
     detail = String((data && data.error && (data.error.message || data.error)) || "").slice(0, 200);
   } catch { detail = String(body || "").slice(0, 200); }
   const wait = Math.max(0, Math.round(Number(retryAfter) || 0));
+  const kind = problemKind(status, detail);
+  const failed = (message, extra = {}) => new SttError(message, { status, kind, provider, ...extra });
+  if (kind === "region") return failed(`${name} isn't available in your country or region.`);
   if (status === 401 || status === 403) {
-    return new SttError(`${name} rejected the API key. It has most likely expired, so you probably need a new one.`, { status, keyRejected: true });
+    return failed(`${name} rejected the API key. It has most likely expired, so you probably need a new one.`, { keyRejected: true, kind: "key" });
   }
   if (status === 429) {
     return new SttError(`${name} says your account has reached its limit for now${wait ? ` (it asks to wait ${waitText(wait)})` : ""}. `
-      + "Free accounts may only send so much audio per hour and per day.", { status, retryAfter: wait });
+      + "Free accounts may only send so much audio per hour and per day.", { status, retryAfter: wait, kind, provider });
   }
-  if (status === 413) return new SttError(`That audio is too large for ${name} to take in one piece.`, { status, tooLarge: true });
+  if (status === 413) return new SttError(`That audio is too large for ${name} to take in one piece.`, { status, tooLarge: true, provider });
   if (status === 404 || /model/i.test(detail) && status === 400) {
-    return new SttError(`${name} doesn't recognise the chosen model. Set it back to the recommended one in Settings.${detail ? ` (${detail})` : ""}`, { status });
+    return failed(`${name} doesn't recognise the chosen model. Set it back to the recommended one in Settings.${detail ? ` (${detail})` : ""}`, { kind: "model" });
   }
   if (status === 402 || /billing|quota|credit/i.test(detail)) {
-    return new SttError(`${name} says the account has no credit. Add some on its Billing page.${detail ? ` (${detail})` : ""}`, { status });
+    return failed(`${name} says the account has no credit. Add some on its Billing page.${detail ? ` (${detail})` : ""}`, { kind: "credit" });
   }
-  return new SttError(`${name} couldn't transcribe this (error ${status})${detail ? `: ${detail}` : "."}`, { status });
+  return failed(`${name} couldn't transcribe this (error ${status})${detail ? `: ${detail}` : "."}`);
 }
 
 /** Base64 text with its line breaks taken out. Android's downloader hands a file over with a line
@@ -163,7 +170,7 @@ export function sendFailure(provider, error) {
   const detail = String((error && error.message) || error || "").replace(/\s+/g, " ").trim().slice(0, 160);
   const connection = /resolve host|unknownhost|no address|timed? ?out|timeout|failed to connect|connect(ion)? (was )?(reset|refused|closed|aborted|lost)|unexpected end of stream|network|socket|handshake|ssl|certificate|failed to fetch|load failed|offline|unreachable|econn|enotfound/i.test(detail);
   if (connection) {
-    const e = new SttError(`Couldn't reach ${name}. Check your internet connection.${detail ? ` (${detail})` : ""}`);
+    const e = new SttError(`Couldn't reach ${name}. Check your internet connection.${detail ? ` (${detail})` : ""}`, { kind: "network", provider });
     e.retry = true;
     return e;
   }

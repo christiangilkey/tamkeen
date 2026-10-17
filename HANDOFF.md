@@ -2576,3 +2576,35 @@ status pills running into "Filter by title".
 - Checked in the preview: phone build at 375 px (peek 28–30% on both Library rows, fade, nudge called on both rows)
   and desktop (Trending topics fade; wrapped status pills untouched). The nudge's movement itself needs a visible
   window; in the hidden preview only its calls could be checked. Pictures: `C:\Users\chris\.claude\uploads\library-redesign\scroll-hint-frame1-rest.png` and `scroll-hint-frame2-nudged.png`. Not on a real phone.
+
+### "Troubleshoot" when a key fails (2026-10-17, "API key setup and onboarding flow" chat; owner's request via the main chat)
+Owner: "If an API key fails add a troubleshoot button feature that lists common reasons an API fails such as
+VPN, expired key, ect...". A **Troubleshoot** button now sits beside the error in: Settings → Word definitions
+"Test with an example", the Mnemonic maker's "Try it", Settings → Cloud transcription "Test the key", a failed
+word lookup in the popup (between Try again and Settings), the review card's Mnemonic maker, and a failed cloud
+transcription in the Library (only when the error names Groq or OpenAI, so local Whisper/download failures don't
+get it). It opens a small in-app box (`components/modal.js`): the problem in one line, the app's message, "Most
+likely" causes each with one thing to do, "Other common causes" folded away, and two links: the provider's key
+page and its status page. The key is never shown (anything key-shaped in a message is blanked).
+- **Sorting** (`web/js/trouble.js`, pure, `tests/js/trouble.test.mjs`): `problemKind(status, body)` gives
+  key (401/403, Gemini's 400 "API key…"), credit (402, quota/billing text), rate (429), network (status 0 = no
+  answer), region (unsupported country: checked FIRST, because OpenAI answers it with 403), model (404), server
+  (5xx) or other. Text-only errors (the computer's cloud transcription, kept on the episode) go through
+  `kindFromMessage`. `troubleshooting(kind, { stt })` returns the box's heading and causes.
+- **Errors now carry `kind`, `provider`, `status`**: `DefinerError` (definer.js `httpFailure`) and `SttError`
+  (stt.js `sttFailure`/`sendFailure`). New messages: "{name} isn't available in your country or region.",
+  "Couldn't reach {name}. Check your internet connection." (status 0, which the desktop relay returns; a phone
+  transport that throws is now caught by definer.js `send` and reported the same way instead of a raw error),
+  and "{name} says the account has no credit…" for 402. `keyRejected` is now `kind === "key"`, so a region
+  refusal is no longer called an expired key.
+- **Status pages**: status.claude.com, aistudio.google.com/status, status.openai.com, status.x.ai, groqstatus.com
+  (`STATUS_PAGES`; all answered except status.x.ai, which refuses scripted requests).
+- **Translations**: `tools/i18n/tr/<code>/18-troubleshoot.txt` in all 8 languages. Cause titles are
+  `{ title, fix }` objects and the headings a Map of pairs, because `extract.mjs` skips a string right after
+  "[" or "key:". When I ran `extract.mjs`, 192 NEW strings from other chats' work were also untranslated; I left
+  them out of `strings.json` (kept HEAD's list plus my 57) rather than translate other chats' text. Running
+  `extract.mjs` again will bring them back and `tests/js/i18n.test.mjs` will fail until they are translated.
+- Checked in the desktop preview (fresh test data, not signed in): real refusals from Anthropic and Groq with
+  made-up keys in Settings (both tests), the Mnemonic maker test, the popup's button, and boxes for a dropped
+  connection, an unsupported country and no credit; the box in Spanish at phone width (375 px). Not checked: a
+  real phone, a real VPN or region block, the Library row with a real failed cloud transcription.

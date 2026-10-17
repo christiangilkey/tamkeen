@@ -6,6 +6,7 @@
 import { esc, platform, state, saveSettings } from "../app.js";
 import { STT_KEY_GUIDES, STT_PROVIDERS, cleanSttKey, describeAudioUse, hoursPerDollar, perHourText, sttConfig, sttKeyProvider } from "../stt.js";
 import { showKeyHelp } from "./keyhelp.js";
+import { troubleshootButton } from "./troubleshoot.js";
 
 const OTHER = "__other__";
 
@@ -238,6 +239,8 @@ export function sttSetup(section, { test, usage, onUsage, changed = () => {} }) 
     } catch (err) {
       out.textContent = err.message;
       out.style.color = "var(--danger)";
+      const fix = troubleshootButton(err, { service: "stt" });
+      if (fix) out.append(" ", fix);
       refused = !!err.keyRejected; // a refused key: not "in use" after all, and the key row is framed again
     } finally {
       e.target.disabled = false;

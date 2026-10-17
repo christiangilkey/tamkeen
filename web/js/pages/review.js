@@ -20,6 +20,7 @@ import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, revie
 import { practise, practiseButton } from "../review/pronounce.js";
 import { soundAlikes } from "../review/mnemonic.js";
 import { askMnemonic } from "../define-service.js";
+import { troubleshootButton } from "../components/troubleshoot.js";
 import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
 import { forgetAnswer, noteAnswer } from "../review/goal.js";
 
@@ -340,6 +341,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         if (!go.isConnected) return;
         label.textContent = (mnemonics.get(uidOf(v)) || []).length ? "Make 5 more" : "Mnemonic maker";
         say(e && e.message === "NO_KEY" ? "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions." : (e && e.message) || "That didn't work. Try again.", true);
+        const fix = troubleshootButton(e);
+        if (fix) note.append(" ", fix);
       } finally {
         go.disabled = false;
       }

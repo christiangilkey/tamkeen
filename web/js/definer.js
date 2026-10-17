@@ -7,6 +7,7 @@
 
 import { isLanguage, gap } from "./languages.js";
 import { EDGE_PUNCT } from "./wordlookup.js";
+import { problemKind } from "./trouble.js";
 
 // `defaultModel` is each provider's best value for this job: the cheapest of its current models
 // that explains a word well (a lookup is a short question and a short structured answer, so the
@@ -567,13 +568,29 @@ function reportUsage(use) {
   for (const fn of usageListeners) { try { fn(use); } catch (e) { console.error(e); } }
 }
 
-/** A failed lookup. `keyRejected` is true when the provider refused the key itself. */
+/** A failed lookup. One the provider refused also carries `provider`, `status` (0 = no answer at
+ * all), `kind` (what went wrong, see trouble.js, for the Troubleshoot box) and `keyRejected`
+ * (the provider refused the key itself). */
 export class DefinerError extends Error {}
 
-/** Did the provider refuse the key (rather than the model name, the quota, or the request)? */
-function keyRefused(status, bodyText) {
-  // 401/403 everywhere; Gemini answers 400 "API key not valid" / "API key expired".
-  return status === 401 || status === 403 || (status === 400 && /api[ _-]?key/i.test(String(bodyText || "").slice(0, 2000)));
+/** Send one request. A transport that throws (no connection on the phone) answers status 0, as the
+ * computer's relay does, so both are reported the same way. */
+async function send(transport, req) {
+  try {
+    return await transport(req);
+  } catch (e) {
+    return { status: 0, text: String((e && e.message) || e || "") };
+  }
+}
+
+/** The error for a request the provider refused, or that got no answer. */
+function httpFailure(provider, res) {
+  const err = new DefinerError(friendlyHttpError(provider, res.status, res.text));
+  err.provider = provider;
+  err.status = res.status;
+  err.kind = problemKind(res.status, res.text);
+  err.keyRejected = err.kind === "key";
+  return err;
 }
 
 function friendlyHttpError(provider, status, bodyText) {
@@ -584,13 +601,17 @@ function friendlyHttpError(provider, status, bodyText) {
     detail = (typeof j.error === "string" ? j.error : j.error && (j.error.message || j.error.type)) || j.message || "";
   } catch { detail = (bodyText || "").slice(0, 200); }
   const name = PROVIDERS[provider].label;
-  if (keyRefused(status, bodyText)) {
+  const kind = problemKind(status, bodyText);
+  if (kind === "region") return `${name} isn't available in your country or region.`;
+  if (kind === "network") return `Couldn't reach ${name}. Check your internet connection.`;
+  if (kind === "key") {
     // A key that was copied whole and filed under the right provider (Settings sees to both) and is
     // still refused has nearly always been switched off or run out: say so, not just "check it".
     return `${name} rejected the API key. It has most likely expired, so you probably need a new one.`;
   }
   if (status === 404) return `${name} doesn't recognize that model name. Check it in Settings.${detail ? ` (${detail})` : ""}`;
   if (status === 429) return `${name} rate limit or quota reached. Try again shortly, or check your billing.`;
+  if (kind === "credit") return `${name} says the account has no credit. Add some on its Billing page.`;
   if (status >= 500) return `${name} is having problems right now (HTTP ${status}). Try again.`;
   return `${name} error (HTTP ${status})${detail ? `: ${detail}` : ""}`;
 }
@@ -605,13 +626,9 @@ function friendlyHttpError(provider, status, bodyText) {
 export async function askJson(cfg, { system, user, schema }, transport) {
   if (!cfg.key) throw new DefinerError("NO_KEY");
   const model = cfg.model || PROVIDERS[cfg.provider].defaultModel;
-  let res = await transport(buildRequest(cfg.provider, model, cfg.key, system, user, schema, false, cfg.effort || "low"));
-  if (res.status === 400) res = await transport(buildRequest(cfg.provider, model, cfg.key, system, user, schema, true));
-  if (res.status < 200 || res.status >= 300) {
-    const err = new DefinerError(friendlyHttpError(cfg.provider, res.status, res.text));
-    err.keyRejected = keyRefused(res.status, res.text);
-    throw err;
-  }
+  let res = await send(transport, buildRequest(cfg.provider, model, cfg.key, system, user, schema, false, cfg.effort || "low"));
+  if (res.status === 400) res = await send(transport, buildRequest(cfg.provider, model, cfg.key, system, user, schema, true));
+  if (res.status < 200 || res.status >= 300) throw httpFailure(cfg.provider, res);
   let data;
   try { data = JSON.parse(res.text); } catch { throw new DefinerError("The provider returned an unreadable response."); }
   reportUsage({ provider: cfg.provider, model, ...usageOf(cfg.provider, data) });
@@ -639,18 +656,14 @@ export async function define(cfg, ctx, transport, { quick = false } = {}) {
   const schema = quick ? QUICK_SCHEMA : schemaFor(ctx.lang);
 
   let req = buildRequest(cfg.provider, model, cfg.key, system, user, schema);
-  let res = await transport(req);
+  let res = await send(transport, req);
   // Older/other models may reject the optional speed knobs (effort, thinking level, strict
   // schema). Retry once with a minimal request before giving up.
   if (res.status === 400) {
     req = buildRequest(cfg.provider, model, cfg.key, system, user, schema, true);
-    res = await transport(req);
+    res = await send(transport, req);
   }
-  if (res.status < 200 || res.status >= 300) {
-    const err = new DefinerError(friendlyHttpError(cfg.provider, res.status, res.text));
-    err.keyRejected = keyRefused(res.status, res.text);
-    throw err;
-  }
+  if (res.status < 200 || res.status >= 300) throw httpFailure(cfg.provider, res);
   let data;
   try { data = JSON.parse(res.text); } catch { throw new DefinerError("The provider returned an unreadable response."); }
   reportUsage({ provider: cfg.provider, model, ...usageOf(cfg.provider, data) }); // (paid for, whatever the answer turns out to be)
