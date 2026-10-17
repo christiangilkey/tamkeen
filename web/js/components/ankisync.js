@@ -231,7 +231,10 @@ export async function moveToLanguageDecks() {
     try {
       const done = await api("/anki/move", { method: "POST" });
       say(done.phone
-        ? `<p>Moved ${done.moved} ${done.moved === 1 ? "card" : "cards"} to ${done.moved === 1 ? "its" : "their"} language's deck.${done.skipped ? ` ${done.skipped} could not be moved (a card on loan to a filtered deck, say) and stayed where ${done.skipped === 1 ? "it was" : "they were"}.` : ""}</p>`
+        // (whole sentences, one for a single card and one for more, so each language can word them its own way)
+        ? `<p>${done.moved === 1 ? "Moved 1 card to its language's deck." : `Moved ${done.moved} cards to their language's deck.`}</p>`
+          + (done.skipped === 1 ? "<p>1 could not be moved (a card on loan to a filtered deck, say) and stayed where it was.</p>"
+            : done.skipped ? `<p>${done.skipped} could not be moved (a card on loan to a filtered deck, say) and stayed where they were.</p>` : "")
         : `<p>The cards will move the next time Anki syncs with Tamkeen: open Anki, or choose <em>Tools → Sync Tamkeen now</em> there.
            Settings shows when it is done.</p>`);
     } catch (e) {
@@ -248,10 +251,10 @@ export async function moveToLanguageDecks() {
   if (!info.count) {
     return say(`<p>Every card is already in its language's deck. Nothing to move.</p>`);
   }
-  const where = Object.entries(info.moves).map(([deck, n]) => `<li>${n} to <strong>${esc(deck)}</strong></li>`).join("");
-  say(`<p>${info.count === 1 ? "One card is" : `${info.count} cards are`} in another language's deck. ${info.count === 1 ? "It" : "They"} will move:</p>
+  const where = Object.entries(info.moves).map(([deck, n]) => `<li>${n} → <strong>${esc(deck)}</strong></li>`).join("");
+  say(`<p>${info.count === 1 ? "One card is in another language's deck. It will move:" : `${info.count} cards are in another language's deck. They will move:`}</p>
     <ul style="margin:0">${where}</ul>
     <p class="small muted">Each card keeps its review history. Nothing else in ${anki()} changes, and your other decks are not touched.</p>`,
     `<button type="button" class="ghost" data-act="close">Cancel</button>
-     <button type="button" class="primary" data-act="move">Move ${info.count === 1 ? "the card" : `${info.count} cards`}</button>`);
+     <button type="button" class="primary" data-act="move">${info.count === 1 ? "Move the card" : `Move ${info.count} cards`}</button>`);
 }

@@ -195,6 +195,21 @@
   "f": "web/js/app.js"
  },
  {
+  "id": "46c3ccdd",
+  "k": "Choose the language you're learning first, then open the video again.",
+  "f": "web/js/app.js"
+ },
+ {
+  "id": "90350195",
+  "k": "Getting captions…",
+  "f": "web/js/app.js"
+ },
+ {
+  "id": "d10fa6cb",
+  "k": "Couldn't open this video.",
+  "f": "web/js/app.js"
+ },
+ {
   "id": "6f9d8f3f",
   "k": "Copy the address of the page you want and paste it under “Add a webpage”.",
   "f": "web/js/app.js"
@@ -1015,6 +1030,171 @@
   "f": "web/js/components/account.js"
  },
  {
+  "id": "bafb6ef2",
+  "k": "Podcast",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "cfe04561",
+  "k": "Paste a feed address, or choose from what's trending",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "09d837be",
+  "k": "Find a video and watch it with clickable captions",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "154cf598",
+  "k": "Web page",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "f922c9f6",
+  "k": "Import an article to read with clickable words",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "61e340e9",
+  "k": "Reels",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "83d2bc34",
+  "k": "Short Instagram videos to watch on your phone",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "61ca215b",
+  "k": "Video file",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "9e717b9a",
+  "k": "A video of your own, from this device",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "fb1e17a0",
+  "k": "Audio file",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "0e8a7c1c",
+  "k": "A recording of your own, from this device",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "206ad75e",
+  "k": "Add to your library",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "350fdaeb",
+  "k": "‹ All the ways to add",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "73b04161",
+  "k": "Paste a podcast's RSS feed address",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "825aa64b",
+  "k": "Podcast RSS feed address",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "24ba4ecf",
+  "k": "Add podcast",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "1758356d",
+  "k": "or",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "382c6e00",
+  "k": "Podcasts popular right now in the language you're studying, sorted by topic",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "da089e19",
+  "k": "Trending in {0}",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "688659c1",
+  "k": "Subscribed to {0}",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "4c8aacce",
+  "k": "Open YouTube",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "a2a04642",
+  "k": "Open YouTube starts on this week's most-watched videos from this country",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "981a7d86",
+  "k": "Popular in",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "e69ef3fc",
+  "k": "Tap a video there and it opens here, with its captions as words you can click. The video needs captions.",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "0bc298a1",
+  "k": "Paste a website address",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "ba46c1f5",
+  "k": "Website address",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "d6fbc9d2",
+  "k": "Import",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "71091d5d",
+  "k": "Open Web Browser",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "5d382182",
+  "k": "Browse inside the app and press Import Page on anything you want to read.",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "e9acf940",
+  "k": "YouTube's automatic captions",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "b165ef2c",
+  "k": "Added “{0}” with {1}.",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "72f89e9c",
+  "k": "Imported “{0}”.",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "852b438f",
+  "k": "Read",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
   "id": "495d921f",
   "k": "{0}¢ per million tokens",
   "f": "web/js/components/aisetup.js"
@@ -1110,6 +1290,26 @@
   "f": "web/js/components/aisetup.js"
  },
  {
+  "id": "86fa0600",
+  "k": "Mnemonic maker",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "fa76400f",
+  "k": "The sound-alike words on the back of a review card. It uses the same key; less thinking answers sooner.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "d08d8da0",
+  "k": "Thinking",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "7ddd66b6",
+  "k": "Try it",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
   "id": "27a7d318",
   "k": "✓ Set up",
   "f": "web/js/components/aisetup.js"
@@ -1142,6 +1342,31 @@
  {
   "id": "883f8daa",
   "k": "Another model… <0>type its name</0>",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "c16dec45",
+  "k": "{0} (fastest, recommended)",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "fd63eaaf",
+  "k": "Same as word definitions",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "9693b227",
+  "k": "This model doesn't take a thinking setting.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "a60d9c9c",
+  "k": "Thinking…",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "de0599b0",
+  "k": "Add your API key above first.",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -1210,33 +1435,33 @@
   "f": "web/js/components/ankisync.js"
  },
  {
-  "id": "56fb7687",
-  "k": "Keep my saved words and my {0} deck in step, both ways",
+  "id": "d634d7a1",
+  "k": "Keep my saved words and my {0} decks in step, both ways",
   "f": "web/js/components/ankisync.js"
  },
  {
-  "id": "71d48a93",
-  "k": "Only the one deck named below is ever read or changed: your other decks, notes and cards are never touched. New words, edits and deletions travel both ways. A card you make by hand in that deck becomes a word here. Each card's review progress is shown on the Vocab page; Tamkeen never changes {0}'s schedule, a card's picture, or the card layout.",
+  "id": "1f4549dd",
+  "k": "Each language you learn has its own deck, named below. Only those decks are ever read or changed: your other decks, notes and cards are never touched. New words, edits and deletions travel both ways. A card you make by hand in one of them becomes a word here, in that deck's language. Each card's review progress is shown on the Vocab page; Tamkeen never changes {0}'s schedule, a card's picture, or the card layout.",
   "f": "web/js/components/ankisync.js"
  },
  {
-  "id": "768cd48a",
-  "k": "Deck:",
+  "id": "ad997b8b",
+  "k": "Save deck names",
   "f": "web/js/components/ankisync.js"
  },
  {
-  "id": "8ce68640",
-  "k": "Save name",
+  "id": "cf16536f",
+  "k": "Give each deck a name.",
   "f": "web/js/components/ankisync.js"
  },
  {
-  "id": "33bfb8c9",
-  "k": "Give the deck a name.",
+  "id": "01f61b61",
+  "k": "Deck names saved.",
   "f": "web/js/components/ankisync.js"
  },
  {
-  "id": "70a256a1",
-  "k": "Syncing with the deck “{0}”.",
+  "id": "168e4932",
+  "k": "Deck",
   "f": "web/js/components/ankisync.js"
  },
  {
@@ -1245,8 +1470,13 @@
   "f": "web/js/components/ankisync.js"
  },
  {
-  "id": "74a84c68",
-  "k": "· {0} words have a card in the deck",
+  "id": "2e547a18",
+  "k": "{0} Nothing is synced until the names are apart.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "6f68523d",
+  "k": "· {0} words have a card in the decks",
   "f": "web/js/components/ankisync.js"
  },
  {
@@ -1395,6 +1625,16 @@
   "f": "web/js/components/ankisync.js"
  },
  {
+  "id": "e8a0694a",
+  "k": "Cards in another language's deck will move to their own at Anki's next sync.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "ba95bad5",
+  "k": "{0} cards were moved to their language's deck ({1}).",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
   "id": "21b4c80d",
   "k": "This version of AnkiDroid does not tell other apps about review progress. Update AnkiDroid to 2.24 or later to see it here.",
   "f": "web/js/components/ankisync.js"
@@ -1502,6 +1742,96 @@
  {
   "id": "0a98dcd0",
   "k": "Delete the word and its card",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "e93d02ca",
+  "k": "Move Anki cards to their language's deck",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "9ce3bd42",
+  "k": "OK",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "09701b49",
+  "k": "Moving…",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "0c443a1e",
+  "k": "Moved 1 card to its language's deck.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "077b3afc",
+  "k": "Moved {0} cards to their language's deck.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "10e5fda8",
+  "k": "1 could not be moved (a card on loan to a filtered deck, say) and stayed where it was.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "5e56ad8c",
+  "k": "{0} could not be moved (a card on loan to a filtered deck, say) and stayed where they were.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "721a5cd2",
+  "k": "The cards will move the next time Anki syncs with Tamkeen: open Anki, or choose <0>Tools → Sync Tamkeen now</0> there. Settings shows when it is done.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "a8e5a756",
+  "k": "This works with the Anki sync. Switch on “Keep my saved words and my {0} decks in step” in Settings first.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "134635e9",
+  "k": "Open Settings",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "acba4224",
+  "k": "Tamkeen has not synced with {0} yet, so it does not know where the cards are. Sync first, then try again.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "722b3443",
+  "k": "This is already waiting for Anki's next sync with Tamkeen.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "7d8c0147",
+  "k": "Every card is already in its language's deck. Nothing to move.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "f7f0f25b",
+  "k": "One card is in another language's deck. It will move:",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "577a01f9",
+  "k": "{0} cards are in another language's deck. They will move:",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "f0b872b4",
+  "k": "Each card keeps its review history. Nothing else in {0} changes, and your other decks are not touched.",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "e78a8a82",
+  "k": "Move the card",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "247c9a70",
+  "k": "Move {0} cards",
   "f": "web/js/components/ankisync.js"
  },
  {
@@ -1708,6 +2038,36 @@
   "id": "cac6d44c",
   "k": "Your language",
   "f": "web/js/components/langpicker.js"
+ },
+ {
+  "id": "efaf5f1d",
+  "k": "Add a language to learn",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "f23ad26a",
+  "k": "Its podcasts, videos, words and reviews are kept apart from your other languages. Switch between them from the top bar.",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "8a4ed579",
+  "k": "The language you're learning now",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "75bd5fbb",
+  "k": "Learning {0}. Change language",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "b69e98b2",
+  "k": "＋ Add a language…",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "fa47f84b",
+  "k": "Learning now",
+  "f": "web/js/components/langswitch.js"
  },
  {
   "id": "a70803bd",
@@ -1970,6 +2330,56 @@
   "f": "web/js/components/onboarding.js"
  },
  {
+  "id": "74026a93",
+  "k": "Reset Tamkeen",
+  "f": "web/js/components/resetapp.js"
+ },
+ {
+  "id": "ae41208a",
+  "k": "Start again as if Tamkeen were new: you're signed out and see the first screens again. Nothing is deleted. Your library, words and settings come back when you sign in.",
+  "f": "web/js/components/resetapp.js"
+ },
+ {
+  "id": "61837f5f",
+  "k": "Reset Tamkeen?",
+  "f": "web/js/components/resetapp.js"
+ },
+ {
+  "id": "7c7d3232",
+  "k": "Tamkeen will start again as on first use:",
+  "f": "web/js/components/resetapp.js"
+ },
+ {
+  "id": "785b510e",
+  "k": "signed out of Google, your Friends account, and Instagram and YouTube in the app's browser",
+  "f": "web/js/components/resetapp.js"
+ },
+ {
+  "id": "62d1d509",
+  "k": "your AI and transcription keys removed from this device",
+  "f": "web/js/components/resetapp.js"
+ },
+ {
+  "id": "6e772256",
+  "k": "the welcome screens and language questions shown again",
+  "f": "web/js/components/resetapp.js"
+ },
+ {
+  "id": "90f5271b",
+  "k": "<0>Nothing is deleted.</0> Your podcasts, videos, words, reviews and settings are set aside and come back as soon as you sign in to Google, or when you finish the first screens.",
+  "f": "web/js/components/resetapp.js"
+ },
+ {
+  "id": "6d27dcf1",
+  "k": "Resetting…",
+  "f": "web/js/components/resetapp.js"
+ },
+ {
+  "id": "6c461cb8",
+  "k": "Tamkeen couldn't be reset. Nothing was changed.",
+  "f": "web/js/components/resetapp.js"
+ },
+ {
   "id": "94331dff",
   "k": "YouTube video",
   "f": "web/js/components/sendmedia.js"
@@ -1982,11 +2392,6 @@
  {
   "id": "78f78ba4",
   "k": "Podcast episode",
-  "f": "web/js/components/sendmedia.js"
- },
- {
-  "id": "154cf598",
-  "k": "Web page",
   "f": "web/js/components/sendmedia.js"
  },
  {
@@ -2260,11 +2665,6 @@
   "f": "web/js/components/studycard.js"
  },
  {
-  "id": "852b438f",
-  "k": "Read",
-  "f": "web/js/components/studycard.js"
- },
- {
   "id": "a1f4b512",
   "k": "This card doesn't say which podcast the episode is from.",
   "f": "web/js/components/studycard.js"
@@ -2435,6 +2835,31 @@
   "f": "web/js/components/studycard.js"
  },
  {
+  "id": "7a1e17bc",
+  "k": "Troubleshoot",
+  "f": "web/js/components/troubleshoot.js"
+ },
+ {
+  "id": "9e3456c2",
+  "k": "Other common causes",
+  "f": "web/js/components/troubleshoot.js"
+ },
+ {
+  "id": "c0a6a091",
+  "k": "{0} status page ↗",
+  "f": "web/js/components/troubleshoot.js"
+ },
+ {
+  "id": "f82142b3",
+  "k": "Most likely",
+  "f": "web/js/components/troubleshoot.js"
+ },
+ {
+  "id": "4b4de4e9",
+  "k": "{0} key page ↗",
+  "f": "web/js/components/troubleshoot.js"
+ },
+ {
   "id": "40ee915a",
   "k": "Keep playing after a tapped word",
   "f": "web/js/components/wordbubble.js"
@@ -2495,6 +2920,26 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
+  "id": "3a97676e",
+  "k": "Put back what the transcript said",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "39fc7212",
+  "k": "Undo",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "cb93d649",
+  "k": "(not changed in the transcript)",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "e66da09d",
+  "k": "Transcript said",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
   "id": "86efdc55",
   "k": "Show the full explanation of this word",
   "f": "web/js/components/wordbubble.js"
@@ -2545,8 +2990,23 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
+  "id": "a8a5b895",
+  "k": "Save this word and find a YouTube video where it is said",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "9089cae1",
+  "k": "Find in a video",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
   "id": "3f094ed6",
   "k": "Ask again",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "58c330e9",
+  "k": "Couldn't undo that.",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -2600,6 +3060,31 @@
   "f": "web/js/definer.js"
  },
  {
+  "id": "e3de5ab0",
+  "k": "Off",
+  "f": "web/js/definer.js"
+ },
+ {
+  "id": "a124947c",
+  "k": "Low",
+  "f": "web/js/definer.js"
+ },
+ {
+  "id": "d404968e",
+  "k": "Medium",
+  "f": "web/js/definer.js"
+ },
+ {
+  "id": "b1a5954a",
+  "k": "High",
+  "f": "web/js/definer.js"
+ },
+ {
+  "id": "44cc4b12",
+  "k": "This model always thinks a little: Off means as little as it can.",
+  "f": "web/js/definer.js"
+ },
+ {
   "id": "77a71a4f",
   "k": "Unknown provider: {0}",
   "f": "web/js/definer.js"
@@ -2625,6 +3110,16 @@
   "f": "web/js/definer.js"
  },
  {
+  "id": "45940469",
+  "k": "{0} isn't available in your country or region.",
+  "f": "web/js/definer.js"
+ },
+ {
+  "id": "eff674e3",
+  "k": "Couldn't reach {0}. Check your internet connection.",
+  "f": "web/js/definer.js"
+ },
+ {
   "id": "7ca4cbae",
   "k": "{0} rejected the API key. It has most likely expired, so you probably need a new one.",
   "f": "web/js/definer.js"
@@ -2640,6 +3135,11 @@
   "f": "web/js/definer.js"
  },
  {
+  "id": "ad279b44",
+  "k": "{0} says the account has no credit. Add some on its Billing page.",
+  "f": "web/js/definer.js"
+ },
+ {
   "id": "246000e0",
   "k": "{0} is having problems right now (HTTP {1}). Try again.",
   "f": "web/js/definer.js"
@@ -2647,11 +3147,6 @@
  {
   "id": "eaf5c51f",
   "k": "{0} error (HTTP {1}){2}",
-  "f": "web/js/definer.js"
- },
- {
-  "id": "bfb83732",
-  "k": "No API key set. Add one in Settings → Word definitions.",
   "f": "web/js/definer.js"
  },
  {
@@ -2665,18 +3160,13 @@
   "f": "web/js/definer.js"
  },
  {
-  "id": "90350195",
-  "k": "Getting captions…",
-  "f": "web/js/filmot-browser.js"
+  "id": "bfb83732",
+  "k": "No API key set. Add one in Settings → Word definitions.",
+  "f": "web/js/definer.js"
  },
  {
   "id": "6eb49351",
   "k": "✓ Opened in Tamkeen",
-  "f": "web/js/filmot-browser.js"
- },
- {
-  "id": "d10fa6cb",
-  "k": "Couldn't open this video.",
   "f": "web/js/filmot-browser.js"
  },
  {
@@ -2685,8 +3175,68 @@
   "f": "web/js/filmot-browser.js"
  },
  {
+  "id": "3575edb8",
+  "k": "Looking for the word in the top video…",
+  "f": "web/js/filmot-browser.js"
+ },
+ {
+  "id": "fe2cb66b",
+  "k": "Getting the results…",
+  "f": "web/js/filmot-browser.js"
+ },
+ {
+  "id": "dfebdc6c",
+  "k": "✓ Saved in Tamkeen",
+  "f": "web/js/filmot-browser.js"
+ },
+ {
+  "id": "adb1dce3",
+  "k": "Couldn't use these results. Tap one to try it.",
+  "f": "web/js/filmot-browser.js"
+ },
+ {
+  "id": "ece4c60d",
+  "k": "Couldn't use these results.",
+  "f": "web/js/filmot-browser.js"
+ },
+ {
+  "id": "58103f1e",
+  "k": "Showing videos with captions in the language you're learning…",
+  "f": "web/js/filmot-browser.js"
+ },
+ {
+  "id": "42a0c143",
+  "k": "Answer Filmot's check yourself. Tamkeen then takes the top video by itself.",
+  "f": "web/js/filmot-browser.js"
+ },
+ {
+  "id": "80559b82",
+  "k": "typed in by hand",
+  "f": "web/js/filmot.js"
+ },
+ {
+  "id": "0c88254c",
+  "k": "First found in: {0}{1}",
+  "f": "web/js/filmot.js"
+ },
+ {
   "id": "3d7fa970",
   "k": "Saved this video and its sentence with “{0}”.",
+  "f": "web/js/filmot.js"
+ },
+ {
+  "id": "4d91deca",
+  "k": "Press “Find in a video” on a word first.",
+  "f": "web/js/filmot.js"
+ },
+ {
+  "id": "24ed8380",
+  "k": "Filmot found no videos for “{0}”.",
+  "f": "web/js/filmot.js"
+ },
+ {
+  "id": "441d5e0d",
+  "k": "“{0}” isn't in the captions of the top {1} video{2}. Tap another result to try it.",
   "f": "web/js/filmot.js"
  },
  {
@@ -4780,11 +5330,6 @@
   "f": "web/js/game/friends-game.js"
  },
  {
-  "id": "134635e9",
-  "k": "Open Settings",
-  "f": "web/js/game/friends-game.js"
- },
- {
   "id": "0908d881",
   "k": "The game's online data isn't available yet ({0}).",
   "f": "web/js/game/friends-game.js"
@@ -6440,11 +6985,6 @@
   "f": "web/js/pages/discover.js"
  },
  {
-  "id": "da089e19",
-  "k": "Trending in {0}",
-  "f": "web/js/pages/discover.js"
- },
- {
   "id": "770dabce",
   "k": "The most listened-to podcasts right now in {0}. Press <0>+ Add</0> to put one in your library.",
   "f": "web/js/pages/discover.js"
@@ -6513,6 +7053,46 @@
   "id": "57a11040",
   "k": "Trending podcasts couldn't be loaded",
   "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "bb386fdb",
+  "k": "Guilds",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "78978743",
+  "k": "Not seen yet",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "12608b67",
+  "k": "Last seen {0} min ago",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "ff6c3395",
+  "k": "Last seen {0} h ago",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "961ad11f",
+  "k": "Last seen {0} day{1} ago",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "ccc9a7d2",
+  "k": "Last seen over a month ago",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "969aa741",
+  "k": "Friends sections",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "7534bf92",
+  "k": "{0} ({1} new)",
+  "f": "web/js/pages/friends.js"
  },
  {
   "id": "a0ffb6d7",
@@ -6585,8 +7165,23 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "1fe1c9e2",
-  "k": "wants to be friends",
+  "id": "29f6fa46",
+  "k": "What everyone is studying",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "2acf9a78",
+  "k": "Nobody has shared what they're studying yet.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "2c153dc0",
+  "k": "Add friends or join a guild to see what they're studying here.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "cdfe806f",
+  "k": "Friend requests",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -6595,8 +7190,83 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "f97e0f3e",
-  "k": "{0} invited you to this guild",
+  "id": "b59cf9ed",
+  "k": "Decline",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "f1d382dd",
+  "k": "Add a friend",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "7ddd5e45",
+  "k": "Their username",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "a89d6417",
+  "k": "Send request",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "9a4506a3",
+  "k": "Request sent to {0}.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "d2b3ee8a",
+  "k": "Your friends",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "cd229e08",
+  "k": "{0} · {1} online",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "e630733e",
+  "k": "No friends yet. Share your username, <0>@{0}</0>, or add someone above.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "b16fc7ff",
+  "k": "Remove friend",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "1ada4056",
+  "k": "Remove {0}?",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "ee7e971c",
+  "k": "{0} will no longer be on your friends list. You can add each other again later.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "904e125d",
+  "k": "Find a friend",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "b06dc642",
+  "k": "No friend called “{0}”.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "4f9c0764",
+  "k": "Waiting for them to accept",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "84837a21",
+  "k": "Cancel request",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "124a0ba3",
+  "k": "Guild invitations",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -6610,18 +7280,13 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "b59cf9ed",
-  "k": "Decline",
+  "id": "b9cc0468",
+  "k": "Your guilds",
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "bb386fdb",
-  "k": "Guilds",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "9b343820",
-  "k": "＋ New guild",
+  "id": "e1c85cdb",
+  "k": "New guild",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -6655,18 +7320,8 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "612a1349",
-  "k": "· you founded it",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "7382cf3e",
-  "k": "{0} member{1}{2}",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "88f506a1",
-  "k": "＋ Invite a friend",
+  "id": "3ee4fbee",
+  "k": "Invite a friend",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -6690,13 +7345,18 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "7e3520a9",
-  "k": "Leave",
+  "id": "49293437",
+  "k": "Leave guild",
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "bffc4127",
-  "k": "Leave “{0}”? You're the only member, so the guild will be closed.",
+  "id": "d2839170",
+  "k": "Leave {0}?",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "8d39828d",
+  "k": "You're the only member, so the guild will be closed.",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -6705,18 +7365,38 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "3ae5d4a6",
-  "k": "Leave “{0}”?{1}",
+  "id": "2bdc67b8",
+  "k": "You can join again if someone invites you.",
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "9a4506a3",
-  "k": "Request sent to {0}.",
+  "id": "7e3520a9",
+  "k": "Leave",
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "fa8d4903",
-  "k": "Remove {0} from {1}?",
+  "id": "20c74057",
+  "k": "Request pending",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "e0a731d8",
+  "k": "Add friend",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "8f65200d",
+  "k": "Remove from {0}",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "c8e8a875",
+  "k": "{0} will no longer be in {1}.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "7a978838",
+  "k": "Founder · {0}",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -6725,53 +7405,23 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "f1d382dd",
-  "k": "Add a friend",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "7ddd5e45",
-  "k": "Their username",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "a89d6417",
-  "k": "Send request",
-  "f": "web/js/pages/friends.js"
- },
- {
   "id": "781f394f",
   "k": "· {0} online",
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "d2b3ee8a",
-  "k": "Your friends",
+  "id": "612a1349",
+  "k": "· you founded it",
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "e630733e",
-  "k": "No friends yet. Share your username, <0>@{0}</0>, or add someone above.",
+  "id": "7ff5271b",
+  "k": "Hide members",
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "f034a2d7",
-  "k": "Remove {0} from your friends?",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "904e125d",
-  "k": "Find a friend",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "b06dc642",
-  "k": "No friend called “{0}”.",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "4f9c0764",
-  "k": "Waiting for them to accept",
+  "id": "075b3d2a",
+  "k": "Show members",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -6865,8 +7515,8 @@
   "f": "web/js/pages/home.js"
  },
  {
-  "id": "4cdd6ff2",
-  "k": "★ {0} word{1} saved today",
+  "id": "afaa0fed",
+  "k": "{0} word{1} saved today",
   "f": "web/js/pages/home.js"
  },
  {
@@ -6900,8 +7550,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "d5364a6a",
-  "k": "No YouTube videos yet. Press “Open YouTube” above and tap a video.",
+  "id": "1581574d",
+  "k": "No YouTube videos yet. Press + and choose YouTube.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -6910,8 +7560,13 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "44616f98",
-  "k": "No webpages yet. Use “Add a webpage” or “Open Web Browser” above.",
+  "id": "f2c11421",
+  "k": "No webpages yet. Press + and choose Web page.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "4a3365aa",
+  "k": "No reels yet. Press + and choose Reels.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -6920,8 +7575,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "87780e0b",
-  "k": "No videos of your own yet. Use “Add video file” above.",
+  "id": "bc4aba2d",
+  "k": "No videos of your own yet. Press + and choose Video file.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -6930,18 +7585,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "9a5be374",
-  "k": "No audio of your own yet. Use “Add audio file” above.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "61e340e9",
-  "k": "Reels",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "2cfb6c20",
-  "k": "No reels yet. <0>Get reels</0>",
+  "id": "34d32c26",
+  "k": "No audio of your own yet. Press + and choose Audio file.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -6955,96 +7600,6 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "c94946db",
-  "k": "Paste a podcast's RSS feed URL",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "e9e4317e",
-  "k": "Podcast RSS feed URL",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "24ba4ecf",
-  "k": "Add podcast",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "b1de5a9b",
-  "k": "See which podcasts are popular right now in the language you're studying, sorted by topic, and add any with one press",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "29109ff4",
-  "k": "Browse YouTube inside the app. Tap a video and it opens in Tamkeen's player, with its captions as clickable text",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "4c8aacce",
-  "k": "Open YouTube",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "a2a04642",
-  "k": "Open YouTube starts on this week's most-watched videos from this country",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "981a7d86",
-  "k": "Popular in",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "6426a33b",
-  "k": "Tap a video there to watch it here with clickable captions.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "53a9f5e8",
-  "k": "Paste a website URL",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "b32233ad",
-  "k": "Website URL",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "d6fbc9d2",
-  "k": "Import",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "056148af",
-  "k": "Browse the web inside the app and import any page you're reading",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "71091d5d",
-  "k": "Open Web Browser",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "547402e6",
-  "k": "Add a video file of your own; it's transcribed and stored in your Google Drive",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "fa7502c2",
-  "k": "Add video file",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "34b21c9b",
-  "k": "Add an audio file of your own (a recording, a lesson, a song); it's transcribed and stored in your Google Drive",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "918f00f2",
-  "k": "Add audio file",
-  "f": "web/js/pages/library.js"
- },
- {
   "id": "cddfd770",
   "k": "Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)",
   "f": "web/js/pages/library.js"
@@ -7055,53 +7610,18 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "54aa4f1a",
-  "k": "Add a webpage",
+  "id": "d699a922",
+  "k": "Check for new episodes and sync with Google Drive",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "4a2500ac",
-  "k": "Paste website URL",
+  "id": "4e925fda",
+  "k": "Refresh and sync",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "13a9f630",
-  "k": "Open Web<0/>Browser",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "978553c3",
-  "k": "Add a podcast",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "b2d2623a",
-  "k": "Paste RSS feed URL",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "ccf228c9",
-  "k": "Watch a YouTube video",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "f19e76a6",
-  "k": "Tap any video there to watch it here with clickable captions. The video needs captions.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "5f0eb45f",
-  "k": "Instagram reels",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "d7c052ed",
-  "k": "Get a batch of popular short videos in the language you're studying. Your computer writes down what is said in each, and they play one after another on your phone with the words underneath",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "1ac27b46",
-  "k": "Reels for my phone",
+  "id": "585efa75",
+  "k": "Filter by title",
   "f": "web/js/pages/library.js"
  },
  {
@@ -7127,11 +7647,6 @@
  {
   "id": "18915bbf",
   "k": "Watch these reels",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "585efa75",
-  "k": "Filter by title",
   "f": "web/js/pages/library.js"
  },
  {
@@ -7165,23 +7680,13 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "476f9671",
-  "k": "Web pages you imported. Open one to read it with every word clickable. Add more with “Add a webpage”, or browse with “Open Web Browser” and press Import Page.",
+  "id": "0d4800a7",
+  "k": "Web pages you imported. Open one to read it with every word clickable. Press + to add more.",
   "f": "web/js/pages/library.js"
  },
  {
   "id": "8bf58c5b",
   "k": "Your Instagram reels, newest first. They play from Instagram on your phone, one after another, with the words underneath. Tick some to watch just those.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "6b9cf91e",
-  "k": "Choose more reels from Instagram to add to this list",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "1cc9f7e6",
-  "k": "Get more reels",
   "f": "web/js/pages/library.js"
  },
  {
@@ -7230,8 +7735,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "8b82dc98",
-  "k": "{0} files you added yourself. They're transcribed on your computer and stored in your Google Drive, so every device can play them. Use “Add {1} file” to add more.",
+  "id": "2e1a712a",
+  "k": "{0} files you added yourself. They're transcribed on your computer and stored in your Google Drive, so every device can play them. Press + to add more.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -7350,13 +7855,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "1a3a2678",
-  "k": "Add a podcast to get started.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "688659c1",
-  "k": "Subscribed to {0}",
+  "id": "954481cf",
+  "k": "Press + to add a podcast, a video or a web page.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -7425,21 +7925,6 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "72f89e9c",
-  "k": "Imported “{0}”.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "e9acf940",
-  "k": "YouTube's automatic captions",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "b165ef2c",
-  "k": "Added “{0}” with {1}.",
-  "f": "web/js/pages/library.js"
- },
- {
   "id": "8d8f6306",
   "k": "It's being transcribed now.",
   "f": "web/js/pages/library.js"
@@ -7500,8 +7985,8 @@
   "f": "web/js/pages/player.js"
  },
  {
-  "id": "49d0d22b",
-  "k": "≡ Transcript",
+  "id": "5bcd6022",
+  "k": "Transcript",
   "f": "web/js/pages/player.js"
  },
  {
@@ -7715,23 +8200,28 @@
   "f": "web/js/pages/reader.js"
  },
  {
+  "id": "1e5080c8",
+  "k": "Couldn't find this word in your vocab.",
+  "f": "web/js/pages/reader.js"
+ },
+ {
+  "id": "3da47453",
+  "k": "Skip",
+  "f": "web/js/pages/reels.js"
+ },
+ {
   "id": "63d2b95b",
   "k": "Sign in to Instagram to watch this reel.",
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "34560f41",
-  "k": "Instagram only plays this one to people who are signed in (usually because it uses a song from Instagram's music library). Sign in once, in Tamkeen's own browser: it closes by itself when you are signed in, and the reel starts.",
+  "id": "8c94fa16",
+  "k": "Instagram only plays this one to people who are signed in (because it uses a song from Instagram's music library, or because it is age-restricted). Sign in once, in Tamkeen's own browser: it closes by itself when you are signed in, and the reel starts. If you were signed in before, Instagram may have signed you out.",
   "f": "web/js/pages/reels.js"
  },
  {
   "id": "ada2e9e9",
   "k": "Sign in",
-  "f": "web/js/pages/reels.js"
- },
- {
-  "id": "3da47453",
-  "k": "Skip",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -8125,8 +8615,18 @@
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "940ea91f",
-  "k": "That reel can't be shown outside Instagram any more. Skipping it.",
+  "id": "a7fc9779",
+  "k": "Instagram won't play that reel any more (removed, private or age-restricted). Skipping it.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "f4f2fa9d",
+  "k": "Instagram won't play any of these reels right now.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "34d035e1",
+  "k": "Instagram won't play this reel any more: it may have been removed, made private or be age-restricted.",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -8162,6 +8662,11 @@
  {
   "id": "d12c5186",
   "k": "Say the word when the card turns",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "1f434d3d",
+  "k": "<0>Space</0> turn the card, then remembered · <1>1</1> or <2>←</2> not remembered · <3>2</3> or <4>→</4> remembered · <5>Z</5> undo · <6>W</6> word · <7>S</7> sentence · <8>P</8> practise saying it · <9>N</9> personal notes · <10>Del</10> delete the word",
   "f": "web/js/pages/review.js"
  },
  {
@@ -8205,6 +8710,46 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "be0bf6d1",
+  "k": "The clipboard couldn't be read here. Press and hold in the box and choose Paste instead.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "2b382bdb",
+  "k": "There is nothing copied to paste.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "af74f7c5",
+  "k": "Copy",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "13289035",
+  "k": "That couldn't be copied here.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "d878e2e3",
+  "k": "Make 5 more",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "4d8637fa",
+  "k": "{0} words that sound like it: copy one into Personal notes and picture it with the meaning.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "7893f7ae",
+  "k": "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "9ae914fa",
+  "k": "That didn't work. Try again.",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "751a4b16",
   "k": "{0} Word",
   "f": "web/js/pages/review.js"
@@ -8235,13 +8780,28 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "70440046",
-  "k": "Notes",
+  "id": "c420e532",
+  "k": "Grammar notes",
   "f": "web/js/pages/review.js"
  },
  {
   "id": "d956b856",
   "k": "Root, grammar, usage…",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "3e8c21da",
+  "k": "Personal notes",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "7a625323",
+  "k": "Paste what you copied into Personal notes",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "ecef5b19",
+  "k": "{0} Paste",
   "f": "web/js/pages/review.js"
  },
  {
@@ -8825,6 +9385,21 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "0a23b23f",
+  "k": "You need the AnkiMobile app installed on this iPhone.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "9d03110d",
+  "k": "Pick <0>AnkiMobile</0> in the row of apps. If it isn't there, tap <1>More</1>.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "0bbf1f69",
+  "k": "In AnkiMobile, make sure your deck is formatted the way you want the cards to appear.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "59e916d5",
   "k": "You need the AnkiDroid app installed on this phone.",
   "f": "web/js/pages/vocab.js"
@@ -8855,13 +9430,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "794da2c6",
-  "k": "“Export for Anki” saves a deck file with each word's audio and review progress, for Anki's Import File button.",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "be8ecb08",
-  "k": "“Export for Anki” shares a deck file with each word's audio and review progress: pick the Anki bubble, then AnkiDroid.",
+  "id": "12b2bdbf",
+  "k": "In any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”. Add a word by hand, or export your words for Anki, from the ⋯ menu.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -8870,28 +9440,13 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "7fc0dbd9",
+  "k": "More: add a word, export, Anki settings",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "2fa9797f",
   "k": "Search vocab… {0}",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "c8aaa372",
-  "k": "Export the words shown below",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "5755f9ac",
-  "k": "Export CSV",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "b3f6d77c",
-  "k": "The words shown below as an Anki deck file, with their audio and review progress",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "3e28846b",
-  "k": "Export for Anki",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -8950,13 +9505,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "10365d20",
-  "k": "Add a word manually",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "3dbc0a77",
-  "k": "Tip: in any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”. Tick words to file several into a folder at once. {0}",
+  "id": "35c2eb2c",
+  "k": "Add a word",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -9060,28 +9610,23 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "44363ccb",
+  "k": "Word",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "1bb1f30e",
+  "k": "Sentence",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "9afb285b",
   "k": "· changed {0}",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "37c1236f",
-  "k": "▶ Word",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "b31e5638",
-  "k": "▶ Sentence",
-  "f": "web/js/pages/vocab.js"
- },
- {
   "id": "29eb5c50",
   "k": "Look for a YouTube video where this word is said",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "9089cae1",
-  "k": "Find in a video",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -9092,6 +9637,16 @@
  {
   "id": "8e3f51e2",
   "k": "{0} · added {1}{2}",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "dd5422ef",
+  "k": "Grammar notes (root, grammar, usage…)",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "d5b39987",
+  "k": "Personal notes (a mnemonic, where you heard it…)",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -9187,6 +9742,16 @@
  {
   "id": "d6206ee4",
   "k": "Building the Anki deck with audio…",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "5755f9ac",
+  "k": "Export CSV",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "3e28846b",
+  "k": "Export for Anki",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -9475,6 +10040,11 @@
   "f": "web/js/review/goalbar.js"
  },
  {
+  "id": "d4928a6e",
+  "k": "No sound-alikes came back. Try again.",
+  "f": "web/js/review/mnemonic.js"
+ },
+ {
   "id": "3997732f",
   "k": "Say it",
   "f": "web/js/review/pronounce.js"
@@ -9485,8 +10055,8 @@
   "f": "web/js/review/pronounce.js"
  },
  {
-  "id": "72499faf",
-  "k": "Practise saying it (P): hear the word, then yourself. Your attempt isn't saved.",
+  "id": "fb8207e8",
+  "k": "Practise saying it (P): say it, then hear the sentence and yourself. Your attempt isn't saved.",
   "f": "web/js/review/pronounce.js"
  },
  {
@@ -10075,6 +10645,256 @@
   "f": "web/js/trending.js"
  },
  {
+  "id": "796297bd",
+  "k": "The key has expired or been switched off",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "a8676c27",
+  "k": "Make a new key on the provider's key page and paste it in.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "64587d6e",
+  "k": "Part of the key is missing, or a space came with it",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "3d171562",
+  "k": "Copy the whole key again and paste it fresh.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "27522397",
+  "k": "The key is from a different provider",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "92ca2b98",
+  "k": "Choose the provider whose website gave you the key.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "63987d76",
+  "k": "The key was deleted, or the account was closed",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "1588d496",
+  "k": "Check the key is still listed on the key page. If not, make a new one.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "c96b7484",
+  "k": "No credit or billing is set up",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "0ad9708a",
+  "k": "Add a payment card and a little credit on the provider's Billing page.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "e1e28b30",
+  "k": "A spending limit was reached",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "18251e5e",
+  "k": "Raise the monthly limit in the provider's billing settings, or wait for next month.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "f6cdf0dd",
+  "k": "The free allowance is used up for now",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "11671580",
+  "k": "Wait until tomorrow, or add billing to lift the limit.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "84d0d9ac",
+  "k": "Too many requests in a short time",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "d42b2d76",
+  "k": "Wait a minute, then try again.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "4c4f1f6e",
+  "k": "Free accounts may only send so much per hour and per day",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "7675faf6",
+  "k": "Wait a while, or add billing to raise the limit.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "084837dc",
+  "k": "This device isn't online",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "d2a2dab5",
+  "k": "Open any website to check, then try again.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "963deb8a",
+  "k": "A VPN or proxy is in the way",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "19c37976",
+  "k": "Turn the VPN or proxy off and try again.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "55a21539",
+  "k": "A firewall, or a work or school network, blocks it",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "587e5785",
+  "k": "Try another network, such as your phone's mobile data.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "562f6211",
+  "k": "The provider is down",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "ea828f0c",
+  "k": "Check its status page, then try again later.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "5b1b4424",
+  "k": "The date and time on this device are wrong",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "05d71e52",
+  "k": "Set the clock to update automatically: secure connections fail when it is off.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "cc2c0140",
+  "k": "The provider doesn't serve your country or region",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "a0d0b371",
+  "k": "Choose another provider in Settings.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "c47e8828",
+  "k": "A VPN makes it look as if you are somewhere else",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "e5984aea",
+  "k": "Turn the VPN off, or set it to your own country.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "47ab6e8d",
+  "k": "That model isn't available to your key",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "2f6cf7e5",
+  "k": "Set Model back to the recommended one in Settings.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "9f9d4258",
+  "k": "The model was renamed or retired",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "3e1adb41",
+  "k": "Choose a model from the list instead of typing a name.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "0e77e507",
+  "k": "New or free accounts can't use every model",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "9de897f2",
+  "k": "Use the recommended model, or add billing to the account.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "fd6e38d8",
+  "k": "The provider is having problems or is very busy",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "4154fe68",
+  "k": "Check its status page and try again in a few minutes.",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "5a4f728f",
+  "k": "The provider refused the key",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "25b375a4",
+  "k": "The account has no credit or reached a limit",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "5720edd4",
+  "k": "The provider asked the app to slow down",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "6ac5f256",
+  "k": "The provider couldn't be reached",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "2cba2077",
+  "k": "The provider isn't available where you are",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "2121e96e",
+  "k": "The provider doesn't recognise the model",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "d2b04c49",
+  "k": "The provider is having problems",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "04f3c5cd",
+  "k": "Something went wrong with the provider",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "ec853b07",
+  "k": "The key is for word definitions, not transcription",
+  "f": "web/js/trouble.js"
+ },
+ {
+  "id": "26d88d64",
+  "k": "Transcription needs its own key: a Groq key starts with gsk_. An OpenAI key works for both.",
+  "f": "web/js/trouble.js"
+ },
+ {
   "id": "b2918a21",
   "k": "Downloading… {0}% ({1} of {2} MB)",
   "f": "web/js/updatenotice.js"
@@ -10460,6 +11280,21 @@
   "f": "mobile/src/js/anki-droid.js"
  },
  {
+  "id": "64cd269c",
+  "k": "A sync with AnkiDroid is running. Try again in a moment.",
+  "f": "mobile/src/js/anki-droid.js"
+ },
+ {
+  "id": "8d4dbd4e",
+  "k": "Two languages cannot share the deck “{0}”.",
+  "f": "mobile/src/js/anki-sync.js"
+ },
+ {
+  "id": "3ad4b928",
+  "k": "“{0}” and “{1}” are one inside the other: give each language a deck of its own.",
+  "f": "mobile/src/js/anki-sync.js"
+ },
+ {
   "id": "d18f8d89",
   "k": "Preview: Instagram would ask for a sign-in here ({0})",
   "f": "mobile/src/js/app.js"
@@ -10490,8 +11325,8 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "772f977a",
-  "k": "Connecting works in the installed Android app.",
+  "id": "4c6de3cb",
+  "k": "Connecting works in the installed app.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -10570,8 +11405,8 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "7aaa1f34",
-  "k": "Videos play in the installed Android app.",
+  "id": "37eb8e15",
+  "k": "Videos play in the installed app.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -10597,6 +11432,16 @@
  {
   "id": "cfb6ce14",
   "k": "Unknown export.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "a4a37122",
+  "k": "GitHub answered {0}.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "df0aa924",
+  "k": "Couldn't reach GitHub. Check your internet connection.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -10705,6 +11550,16 @@
   "f": "mobile/src/js/backend.js"
  },
  {
+  "id": "e198d09b",
+  "k": "That change doesn't fit the transcript.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
+  "id": "69511d5f",
+  "k": "The transcript has changed since the word was looked up. Tap it again.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
   "id": "1bd35f3f",
   "k": "That doesn't look like a reel.",
   "f": "mobile/src/js/backend.js"
@@ -10760,8 +11615,8 @@
   "f": "mobile/src/js/backend.js"
  },
  {
-  "id": "957efe5e",
-  "k": "Google sign-in works in the installed Android app.",
+  "id": "1492a513",
+  "k": "Google sign-in works in the installed app.",
   "f": "mobile/src/js/drive.js"
  },
  {
@@ -10815,6 +11670,11 @@
   "f": "mobile/src/js/lexicon-store.js"
  },
  {
+  "id": "5c90bb93",
+  "k": "AnkiDroid (optional)",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
   "id": "e90c933b",
   "k": "Used for web pages you import here, for word explanations and for anything transcribed from this phone. Set the same one on your computer. Things you already transcribed keep the language they were made in.",
   "f": "mobile/src/js/pages/settings.js"
@@ -10822,11 +11682,6 @@
  {
   "id": "2b7da079",
   "k": "Your podcasts, transcripts and vocab are shared with your computer through a private app folder in your own Google Drive. Unless a cloud provider is chosen above, transcription happens on your computer: tap \"Transcribe\" here and it will do it on its next sync.",
-  "f": "mobile/src/js/pages/settings.js"
- },
- {
-  "id": "5c90bb93",
-  "k": "AnkiDroid (optional)",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -10867,6 +11722,11 @@
  {
   "id": "33b60a49",
   "k": "Sign out of Google? Your library stays on this phone; it just stops syncing.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "ba28f9f2",
+  "k": "Version {0} is available: tap Update now in the box that just opened.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -11100,6 +11960,16 @@
   "f": "mobile/src/js/reels-phone.js"
  },
  {
+  "id": "7f8b10c7",
+  "k": "Tamkeen has already been reset. Sign in or finish the first screens to bring your library back.",
+  "f": "mobile/src/js/reset.js"
+ },
+ {
+  "id": "020ed627",
+  "k": "Your library couldn't be set aside safely, so nothing was reset.",
+  "f": "mobile/src/js/reset.js"
+ },
+ {
   "id": "18cf0eb4",
   "k": "This doesn't look like a podcast RSS feed.",
   "f": "mobile/src/js/rss.js"
@@ -11115,8 +11985,8 @@
   "f": "mobile/src/js/rss.js"
  },
  {
-  "id": "1bb1f30e",
-  "k": "Sentence",
+  "id": "70440046",
+  "k": "Notes",
   "f": "mobile/src/js/shared-logic.js"
  },
  {
@@ -11278,6 +12148,16 @@
   "id": "23eebf4d",
   "k": "Format must be txt, srt or vtt.",
   "f": "app/api/episodes.py"
+ },
+ {
+  "id": "d88f9041",
+  "k": "Not allowed.",
+  "f": "app/api/media.py"
+ },
+ {
+  "id": "5591ee57",
+  "k": "That isn't a tamkeen://watch?v=… link.",
+  "f": "app/api/media.py"
  },
  {
   "id": "1da00bdb",
@@ -11482,6 +12362,16 @@
  {
   "id": "aad067b1",
   "k": "Timed out starting the local server.",
+  "f": "app/desktop.py"
+ },
+ {
+  "id": "d6d720ba",
+  "k": "Only a search opened by “Find in a video” can do that.",
+  "f": "app/desktop.py"
+ },
+ {
+  "id": "a6f9a4d1",
+  "k": "Couldn't use these results ({0}).",
   "f": "app/desktop.py"
  },
  {
@@ -11935,6 +12825,21 @@
   "f": "app/reels_worker.py"
  },
  {
+  "id": "a804202f",
+  "k": "Tamkeen has already been reset. Sign in or finish the first-run screens to bring your library back.",
+  "f": "app/reset.py"
+ },
+ {
+  "id": "81e5939e",
+  "k": "Something is still being transcribed. Wait for it to finish, or stop it, then reset.",
+  "f": "app/reset.py"
+ },
+ {
+  "id": "b8603b5b",
+  "k": "Your library couldn't be saved to Google Drive first, so nothing was reset ({0}).",
+  "f": "app/reset.py"
+ },
+ {
   "id": "d61a7932",
   "k": "Google Drive rejected the sign-in.",
   "f": "app/sync/drive.py"
@@ -12020,11 +12925,6 @@
   "f": "app/transcriber/cloud.py"
  },
  {
-  "id": "ad279b44",
-  "k": "{0} says the account has no credit. Add some on its Billing page.",
-  "f": "app/transcriber/cloud.py"
- },
- {
   "id": "97c0918a",
   "k": "{0} couldn't transcribe this (error {1})",
   "f": "app/transcriber/cloud.py"
@@ -12043,11 +12943,6 @@
   "id": "93cf51f7",
   "k": "{0} kept asking the app to slow down.",
   "f": "app/transcriber/cloud.py"
- },
- {
-  "id": "44363ccb",
-  "k": "Word",
-  "f": "app/transcriber/__init__.py"
  },
  {
   "id": "a6fc4045",
@@ -12158,325 +13053,5 @@
   "id": "7ff5a6da",
   "k": "Sections",
   "f": "mobile/src/index.html"
- },
- {
-  "id": "1f434d3d",
-  "k": "<0>Space</0> turn the card, then remembered · <1>1</1> or <2>←</2> not remembered · <3>2</3> or <4>→</4> remembered · <5>Z</5> undo · <6>W</6> word · <7>S</7> sentence · <8>P</8> practise saying it · <9>N</9> personal notes · <10>Del</10> delete the word",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "4d8637fa",
-  "k": "{0} words that sound like it: copy one into Personal notes and picture it with the meaning.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "c420e532",
-  "k": "Grammar notes",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "3e8c21da",
-  "k": "Personal notes",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "7a625323",
-  "k": "Paste what you copied into Personal notes",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "dd5422ef",
-  "k": "Grammar notes (root, grammar, usage…)",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "d5b39987",
-  "k": "Personal notes (a mnemonic, where you heard it…)",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "7a1e17bc",
-  "k": "Troubleshoot",
-  "f": "web/js/components/troubleshoot.js"
- },
- {
-  "id": "9e3456c2",
-  "k": "Other common causes",
-  "f": "web/js/components/troubleshoot.js"
- },
- {
-  "id": "c0a6a091",
-  "k": "{0} status page ↗",
-  "f": "web/js/components/troubleshoot.js"
- },
- {
-  "id": "f82142b3",
-  "k": "Most likely",
-  "f": "web/js/components/troubleshoot.js"
- },
- {
-  "id": "4b4de4e9",
-  "k": "{0} key page ↗",
-  "f": "web/js/components/troubleshoot.js"
- },
- {
-  "id": "45940469",
-  "k": "{0} isn't available in your country or region.",
-  "f": "web/js/definer.js"
- },
- {
-  "id": "eff674e3",
-  "k": "Couldn't reach {0}. Check your internet connection.",
-  "f": "web/js/definer.js"
- },
- {
-  "id": "796297bd",
-  "k": "The key has expired or been switched off",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "a8676c27",
-  "k": "Make a new key on the provider's key page and paste it in.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "64587d6e",
-  "k": "Part of the key is missing, or a space came with it",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "3d171562",
-  "k": "Copy the whole key again and paste it fresh.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "27522397",
-  "k": "The key is from a different provider",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "92ca2b98",
-  "k": "Choose the provider whose website gave you the key.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "63987d76",
-  "k": "The key was deleted, or the account was closed",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "1588d496",
-  "k": "Check the key is still listed on the key page. If not, make a new one.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "c96b7484",
-  "k": "No credit or billing is set up",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "0ad9708a",
-  "k": "Add a payment card and a little credit on the provider's Billing page.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "e1e28b30",
-  "k": "A spending limit was reached",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "18251e5e",
-  "k": "Raise the monthly limit in the provider's billing settings, or wait for next month.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "f6cdf0dd",
-  "k": "The free allowance is used up for now",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "11671580",
-  "k": "Wait until tomorrow, or add billing to lift the limit.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "84d0d9ac",
-  "k": "Too many requests in a short time",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "d42b2d76",
-  "k": "Wait a minute, then try again.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "4c4f1f6e",
-  "k": "Free accounts may only send so much per hour and per day",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "7675faf6",
-  "k": "Wait a while, or add billing to raise the limit.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "084837dc",
-  "k": "This device isn't online",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "d2a2dab5",
-  "k": "Open any website to check, then try again.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "963deb8a",
-  "k": "A VPN or proxy is in the way",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "19c37976",
-  "k": "Turn the VPN or proxy off and try again.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "55a21539",
-  "k": "A firewall, or a work or school network, blocks it",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "587e5785",
-  "k": "Try another network, such as your phone's mobile data.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "562f6211",
-  "k": "The provider is down",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "ea828f0c",
-  "k": "Check its status page, then try again later.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "5b1b4424",
-  "k": "The date and time on this device are wrong",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "05d71e52",
-  "k": "Set the clock to update automatically: secure connections fail when it is off.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "cc2c0140",
-  "k": "The provider doesn't serve your country or region",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "a0d0b371",
-  "k": "Choose another provider in Settings.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "c47e8828",
-  "k": "A VPN makes it look as if you are somewhere else",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "e5984aea",
-  "k": "Turn the VPN off, or set it to your own country.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "47ab6e8d",
-  "k": "That model isn't available to your key",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "2f6cf7e5",
-  "k": "Set Model back to the recommended one in Settings.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "9f9d4258",
-  "k": "The model was renamed or retired",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "3e1adb41",
-  "k": "Choose a model from the list instead of typing a name.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "0e77e507",
-  "k": "New or free accounts can't use every model",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "9de897f2",
-  "k": "Use the recommended model, or add billing to the account.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "fd6e38d8",
-  "k": "The provider is having problems or is very busy",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "4154fe68",
-  "k": "Check its status page and try again in a few minutes.",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "5a4f728f",
-  "k": "The provider refused the key",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "25b375a4",
-  "k": "The account has no credit or reached a limit",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "5720edd4",
-  "k": "The provider asked the app to slow down",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "6ac5f256",
-  "k": "The provider couldn't be reached",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "2cba2077",
-  "k": "The provider isn't available where you are",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "2121e96e",
-  "k": "The provider doesn't recognise the model",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "d2b04c49",
-  "k": "The provider is having problems",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "04f3c5cd",
-  "k": "Something went wrong with the provider",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "ec853b07",
-  "k": "The key is for word definitions, not transcription",
-  "f": "web/js/trouble.js"
- },
- {
-  "id": "26d88d64",
-  "k": "Transcription needs its own key: a Groq key starts with gsk_. An OpenAI key works for both.",
-  "f": "web/js/trouble.js"
  }
 ]

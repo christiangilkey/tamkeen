@@ -129,3 +129,16 @@ fba3b2b6
 7aa73de7
 ca70a425
 fb9f8f25
+# The misheard-word check, the quick lookup and the Mnemonic maker: instructions to the AI.
+ad5770c7
+1bbffc1d
+a1949978
+256c5568
+0e4dd48f
+03509fe3
+e19bfad1
+12ee6713
+7d306683
+# A phone screen setting, and a YouTube caption-track name Filmot is matched against.
+6a56b00a
+db2dff44

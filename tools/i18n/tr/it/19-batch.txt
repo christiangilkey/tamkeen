@@ -1,0 +1,179 @@
+46c3ccdd	Scegli prima la lingua che stai imparando, poi riapri il video.
+bafb6ef2	Podcast
+cfe04561	Incolla l'indirizzo di un feed, o scegli tra le tendenze
+09d837be	Trova un video e guardalo con sottotitoli cliccabili
+f922c9f6	Importa un articolo da leggere con parole cliccabili
+83d2bc34	Brevi video di Instagram da guardare sul telefono
+61ca215b	File video
+9e717b9a	Un tuo video, da questo dispositivo
+fb1e17a0	File audio
+0e8a7c1c	Una tua registrazione, da questo dispositivo
+206ad75e	Aggiungi alla tua libreria
+350fdaeb	‹ Tutti i modi per aggiungere
+73b04161	Incolla l'indirizzo del feed RSS di un podcast
+825aa64b	Indirizzo del feed RSS del podcast
+1758356d	oppure
+382c6e00	I podcast più popolari in questo momento nella lingua che studi, ordinati per argomento
+e69ef3fc	Tocca lì un video e si apre qui, con i sottotitoli come parole cliccabili. Il video deve avere i sottotitoli.
+0bc298a1	Incolla l'indirizzo di un sito web
+ba46c1f5	Indirizzo del sito web
+5d382182	Naviga nell'app e premi Importa pagina su qualsiasi cosa tu voglia leggere.
+86fa0600	Generatore di mnemotecniche
+fa76400f	Le parole che suonano simili, sul retro di una carta di ripasso. Usa la stessa chiave; meno ragionamento risponde prima.
+d08d8da0	Ragionamento
+7ddd66b6	Prova
+c16dec45	{0} (il più veloce, consigliato)
+fd63eaaf	Come per le definizioni delle parole
+9693b227	Questo modello non prevede un'impostazione di ragionamento.
+a60d9c9c	Sto pensando…
+de0599b0	Aggiungi prima la tua chiave API qui sopra.
+d634d7a1	Tieni allineate le mie parole salvate e i miei mazzi {0}, in entrambe le direzioni
+1f4549dd	Ogni lingua che impari ha il suo mazzo, con il nome indicato qui sotto. Vengono letti o modificati solo quei mazzi: gli altri mazzi, note e carte non vengono mai toccati. Parole nuove, modifiche ed eliminazioni vanno in entrambe le direzioni. Una carta che crei a mano in uno di essi diventa una parola qui, nella lingua di quel mazzo. I progressi di ripasso di ogni carta sono mostrati nella pagina Vocabolario; Tamkeen non cambia mai la pianificazione di {0}, l'immagine di una carta o il layout delle carte.
+ad997b8b	Salva i nomi dei mazzi
+cf16536f	Dai un nome a ogni mazzo.
+01f61b61	Nomi dei mazzi salvati.
+168e4932	Mazzo
+2e547a18	{0} Non si sincronizza nulla finché i nomi non sono distinti.
+6f68523d	· {0} parole hanno una carta nei mazzi
+e8a0694a	Le carte che si trovano nel mazzo di un'altra lingua passeranno al proprio alla prossima sincronizzazione di Anki.
+ba95bad5	{0} carte sono state spostate nel mazzo della loro lingua ({1}).
+e93d02ca	Sposta le carte di Anki nel mazzo della loro lingua
+9ce3bd42	OK
+09701b49	Spostamento…
+0c443a1e	1 carta è stata spostata nel mazzo della sua lingua.
+077b3afc	{0} carte sono state spostate nel mazzo della loro lingua.
+10e5fda8	1 non è stata spostata (ad esempio una carta prestata a un mazzo filtrato) ed è rimasta dov'era.
+5e56ad8c	{0} non sono state spostate (ad esempio una carta prestata a un mazzo filtrato) e sono rimaste dov'erano.
+721a5cd2	Le carte si sposteranno la prossima volta che Anki si sincronizza con Tamkeen: apri Anki, oppure scegli lì <0>Tools → Sync Tamkeen now</0>. Le Impostazioni mostrano quando è fatto.
+a8e5a756	Funziona con la sincronizzazione di Anki. Prima attiva «Tieni allineate le mie parole salvate e i miei mazzi {0}» nelle Impostazioni.
+acba4224	Tamkeen non si è ancora sincronizzato con {0}, quindi non sa dove sono le carte. Sincronizza prima, poi riprova.
+722b3443	Questo è già in attesa della prossima sincronizzazione di Anki con Tamkeen.
+7d8c0147	Ogni carta è già nel mazzo della sua lingua. Niente da spostare.
+f7f0f25b	Una carta è nel mazzo di un'altra lingua. Verrà spostata:
+577a01f9	{0} carte sono nel mazzo di un'altra lingua. Verranno spostate:
+f0b872b4	Ogni carta mantiene la sua cronologia di ripasso. Nient'altro cambia in {0} e gli altri tuoi mazzi non vengono toccati.
+e78a8a82	Sposta la carta
+247c9a70	Sposta {0} carte
+efaf5f1d	Aggiungi una lingua da imparare
+f23ad26a	I suoi podcast, video, parole e ripassi sono tenuti separati dalle altre lingue. Passa dall'una all'altra dalla barra in alto.
+8a4ed579	La lingua che stai imparando ora
+75bd5fbb	Stai imparando {0:lower}. Cambia lingua
+b69e98b2	＋ Aggiungi una lingua…
+fa47f84b	In studio ora
+74026a93	Reimposta Tamkeen
+ae41208a	Ricomincia come se Tamkeen fosse nuovo: esci dagli account e rivedi le prime schermate. Non si elimina nulla. Libreria, parole e impostazioni tornano quando accedi.
+61837f5f	Reimpostare Tamkeen?
+7c7d3232	Tamkeen ricomincerà come al primo utilizzo:
+785b510e	uscita da Google, dal tuo account Amici e da Instagram e YouTube nel browser dell'app
+62d1d509	le tue chiavi di IA e di trascrizione rimosse da questo dispositivo
+6e772256	le schermate di benvenuto e le domande sulla lingua mostrate di nuovo
+90f5271b	<0>Non si elimina nulla.</0> I tuoi podcast, video, parole, ripassi e impostazioni vengono messi da parte e tornano appena accedi a Google, o quando finisci le prime schermate.
+6d27dcf1	Reimpostazione…
+6c461cb8	Non è stato possibile reimpostare Tamkeen. Non è cambiato nulla.
+3a97676e	Ripristina quello che diceva la trascrizione
+39fc7212	Annulla
+cb93d649	(non cambiato nella trascrizione)
+e66da09d	La trascrizione diceva
+a8a5b895	Salva questa parola e trova un video di YouTube in cui viene detta
+58c330e9	Non è stato possibile annullare.
+e3de5ab0	Disattivato
+a124947c	Basso
+d404968e	Medio
+b1a5954a	Alto
+44cc4b12	Questo modello ragiona sempre un po': Disattivato significa il meno possibile.
+3575edb8	Cerco la parola nel primo video…
+fe2cb66b	Recupero dei risultati…
+dfebdc6c	✓ Salvato in Tamkeen
+adb1dce3	Non è stato possibile usare questi risultati. Toccane uno per provarlo.
+ece4c60d	Non è stato possibile usare questi risultati.
+58103f1e	Mostro i video con sottotitoli nella lingua che stai imparando…
+42a0c143	Rispondi tu al controllo di Filmot. Poi Tamkeen prende da solo il primo video.
+80559b82	scritta a mano
+0c88254c	Trovata la prima volta in: {0}{1}
+4d91deca	Prima premi «Trova in un video» su una parola.
+24ed8380	Filmot non ha trovato video per «{0}».
+441d5e0d	«{0}» non è nei sottotitoli dei primi {1} video. Tocca un altro risultato per provarlo.
+78978743	Non ancora visto
+12608b67	Visto {0} min fa
+ff6c3395	Visto {0} h fa
+961ad11f	Visto {0} giorni fa
+ccc9a7d2	Visto più di un mese fa
+969aa741	Sezioni di Amici
+7534bf92	{0} ({1} nuove)
+29f6fa46	Cosa studiano tutti
+2acf9a78	Nessuno ha ancora condiviso cosa sta studiando.
+2c153dc0	Aggiungi amici o unisciti a una gilda per vedere qui cosa studiano.
+cdfe806f	Richieste di amicizia
+cd229e08	{0} · {1} online
+b16fc7ff	Rimuovi amico
+1ada4056	Rimuovere {0}?
+ee7e971c	{0} non sarà più nella tua lista di amici. Potrete aggiungervi di nuovo più avanti.
+84837a21	Annulla richiesta
+124a0ba3	Inviti alle gilde
+b9cc0468	Le tue gilde
+e1c85cdb	Nuova gilda
+3ee4fbee	Invita un amico
+49293437	Lascia la gilda
+d2839170	Lasciare {0}?
+8d39828d	Sei l'unico membro, quindi la gilda verrà chiusa.
+2bdc67b8	Puoi rientrare se qualcuno ti invita.
+20c74057	Richiesta in attesa
+e0a731d8	Aggiungi amico
+8f65200d	Rimuovi da {0}
+c8e8a875	{0} non farà più parte di {1}.
+7a978838	Fondatore · {0}
+7ff5271b	Nascondi membri
+075b3d2a	Mostra membri
+afaa0fed	{0} parole salvate oggi
+1581574d	Ancora nessun video di YouTube. Premi + e scegli YouTube.
+f2c11421	Ancora nessuna pagina web. Premi + e scegli Pagina web.
+4a3365aa	Ancora nessun reel. Premi + e scegli Reel.
+bc4aba2d	Ancora nessun video tuo. Premi + e scegli File video.
+34d32c26	Ancora nessun audio tuo. Premi + e scegli File audio.
+d699a922	Cerca nuovi episodi e sincronizza con Google Drive
+4e925fda	Aggiorna e sincronizza
+0d4800a7	Le pagine web che hai importato. Aprine una per leggerla con ogni parola cliccabile. Premi + per aggiungerne altre.
+2e1a712a	File {0} che hai aggiunto tu. Vengono trascritti sul tuo computer e salvati nel tuo Google Drive, così ogni dispositivo può riprodurli. Premi + per aggiungerne altri.
+954481cf	Premi + per aggiungere un podcast, un video o una pagina web.
+5bcd6022	Trascrizione
+1e5080c8	Non è stato possibile trovare questa parola nel tuo vocabolario.
+8c94fa16	Instagram riproduce questo reel solo a chi ha effettuato l'accesso (perché usa una canzone della libreria musicale di Instagram, o perché ha limiti di età). Accedi una volta, nel browser di Tamkeen: si chiude da solo quando hai effettuato l'accesso, e il reel parte. Se avevi già effettuato l'accesso, Instagram potrebbe averti disconnesso.
+a7fc9779	Instagram non riproduce più quel reel (rimosso, privato o con limiti di età). Lo salto.
+f4f2fa9d	Instagram non riproduce nessuno di questi reel al momento.
+34d035e1	Instagram non riproduce più questo reel: potrebbe essere stato rimosso, reso privato o avere limiti di età.
+be0bf6d1	Qui non è stato possibile leggere gli appunti. Tieni premuto nella casella e scegli Incolla.
+2b382bdb	Non c'è niente di copiato da incollare.
+af74f7c5	Copia
+13289035	Qui non è stato possibile copiare.
+d878e2e3	Creane altre 5
+7893f7ae	Il Generatore di mnemotecniche usa la tua chiave di IA. Aggiungine una in Impostazioni → Definizioni delle parole.
+9ae914fa	Non ha funzionato. Riprova.
+ecef5b19	{0} Incolla
+0a23b23f	Serve l'app AnkiMobile installata su questo iPhone.
+9d03110d	Scegli <0>AnkiMobile</0> nella fila di app. Se non c'è, tocca <1>Altro</1>.
+0bbf1f69	In AnkiMobile, assicurati che il tuo mazzo abbia il formato con cui vuoi che appaiano le carte.
+12b2bdbf	In qualsiasi trascrizione, fai clic destro (o tieni premuto) su una parola o una frase selezionata e scegli «Salva nel vocabolario». Aggiungi una parola a mano, o esporta le tue parole per Anki, dal menu ⋯.
+7fc0dbd9	Altro: aggiungi una parola, esporta, impostazioni di Anki
+35c2eb2c	Aggiungi una parola
+d4928a6e	Non è arrivata nessuna parola simile. Riprova.
+fb8207e8	Esercitati a dirla (P): dilla, poi ascolta la frase e te stesso. Il tuo tentativo non viene salvato.
+64cd269c	È in corso una sincronizzazione con AnkiDroid. Riprova tra un momento.
+8d4dbd4e	Due lingue non possono condividere il mazzo «{0}».
+3ad4b928	«{0}» e «{1}» sono uno dentro l'altro: dai a ogni lingua un mazzo tutto suo.
+4c6de3cb	Il collegamento funziona nell'app installata.
+37eb8e15	I video si riproducono nell'app installata.
+a4a37122	GitHub ha risposto {0}.
+df0aa924	Impossibile raggiungere GitHub. Controlla la connessione a internet.
+e198d09b	Questa modifica non corrisponde alla trascrizione.
+69511d5f	La trascrizione è cambiata da quando è stata cercata la parola. Toccala di nuovo.
+1492a513	L'accesso con Google funziona nell'app installata.
+ba28f9f2	È disponibile la versione {0}: tocca Aggiorna ora nella finestra appena aperta.
+7f8b10c7	Tamkeen è già stato reimpostato. Accedi o finisci le prime schermate per riavere la tua libreria.
+020ed627	Non è stato possibile mettere da parte la tua libreria in sicurezza, quindi non è stato reimpostato nulla.
+d88f9041	Non consentito.
+5591ee57	Questo non è un link tamkeen://watch?v=….
+d6d720ba	Solo una ricerca aperta da «Trova in un video» può farlo.
+a6f9a4d1	Non è stato possibile usare questi risultati ({0}).
+a804202f	Tamkeen è già stato reimpostato. Accedi o finisci le schermate iniziali per riavere la tua libreria.
+81e5939e	C'è ancora qualcosa in trascrizione. Aspetta che finisca, o fermalo, poi reimposta.
+b8603b5b	Non è stato possibile salvare prima la tua libreria su Google Drive, quindi non è stato reimpostato nulla ({0}).

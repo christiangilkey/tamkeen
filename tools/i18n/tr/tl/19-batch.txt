@@ -1,0 +1,179 @@
+46c3ccdd	Piliin muna ang wikang pinag-aaralan mo, saka buksan ulit ang video.
+bafb6ef2	Podcast
+cfe04561	I-paste ang address ng feed, o pumili mula sa mga trending
+09d837be	Maghanap ng video at panoorin ito na may captions na puwedeng i-click
+f922c9f6	Mag-import ng artikulo para basahin na may mga salitang puwedeng i-click
+83d2bc34	Maiikling video sa Instagram na mapapanood sa phone mo
+61ca215b	Video file
+9e717b9a	Sarili mong video, mula sa device na ito
+fb1e17a0	Audio file
+0e8a7c1c	Sarili mong recording, mula sa device na ito
+206ad75e	Idagdag sa library mo
+350fdaeb	‹ Lahat ng paraan ng pagdagdag
+73b04161	I-paste ang address ng RSS feed ng isang podcast
+825aa64b	Address ng RSS feed ng podcast
+1758356d	o
+382c6e00	Mga podcast na sikat ngayon sa wikang pinag-aaralan mo, ayon sa paksa
+e69ef3fc	Pindutin doon ang isang video at bubukas ito rito, na ang captions ay mga salitang puwedeng i-click. Kailangang may captions ang video.
+0bc298a1	I-paste ang address ng isang website
+ba46c1f5	Address ng website
+5d382182	Mag-browse sa loob ng app at pindutin ang I-import ang Page sa anumang gusto mong basahin.
+86fa0600	Gawa ng mnemonic
+fa76400f	Ang mga salitang magkatunog, sa likod ng review card. Parehong key ang gamit nito; mas kaunting pag-iisip, mas mabilis sumagot.
+d08d8da0	Pag-iisip
+7ddd66b6	Subukan
+c16dec45	{0} (pinakamabilis, inirerekomenda)
+fd63eaaf	Kapareho ng kahulugan ng mga salita
+9693b227	Walang setting ng pag-iisip ang modelong ito.
+a60d9c9c	Nag-iisip…
+de0599b0	Idagdag muna ang API key mo sa itaas.
+d634d7a1	Panatilihing magkatugma ang mga naka-save kong salita at ang mga {0} deck ko, sa magkabilang direksyon
+1f4549dd	Bawat wikang pinag-aaralan mo ay may sariling deck, na may pangalang nasa ibaba. Iyon lang ang binabasa o binabago: hindi kailanman ginagalaw ang iba mong deck, note at card. Ang mga bagong salita, pagbabago at pagbura ay napupunta sa magkabilang direksyon. Ang card na ginawa mo nang mano-mano sa isa sa mga iyon ay nagiging salita rito, sa wika ng deck na iyon. Makikita sa Vocab page ang review progress ng bawat card; hindi kailanman binabago ng Tamkeen ang schedule ng {0}, ang larawan ng card, o ang layout ng card.
+ad997b8b	I-save ang mga pangalan ng deck
+cf16536f	Bigyan ng pangalan ang bawat deck.
+01f61b61	Na-save ang mga pangalan ng deck.
+168e4932	Deck
+2e547a18	{0} Walang masi-sync hangga't hindi magkakaiba ang mga pangalan.
+6f68523d	· {0} salita ang may card sa mga deck
+e8a0694a	Ang mga card na nasa deck ng ibang wika ay lilipat sa sarili nilang deck sa susunod na sync ng Anki.
+ba95bad5	{0} card ang inilipat sa deck ng kanilang wika ({1}).
+e93d02ca	Ilipat ang mga Anki card sa deck ng kanilang wika
+9ce3bd42	OK
+09701b49	Inililipat…
+0c443a1e	Inilipat ang 1 card sa deck ng wika nito.
+077b3afc	{0} card ang inilipat sa deck ng kanilang wika.
+10e5fda8	May 1 na hindi mailipat (halimbawa, card na nakahiram sa isang filtered deck) at nanatili kung nasaan ito.
+5e56ad8c	May {0} na hindi mailipat (halimbawa, card na nakahiram sa isang filtered deck) at nanatili kung nasaan sila.
+721a5cd2	Lilipat ang mga card sa susunod na mag-sync ang Anki sa Tamkeen: buksan ang Anki, o piliin doon ang <0>Tools → Sync Tamkeen now</0>. Makikita sa Settings kapag tapos na.
+a8e5a756	Gumagana ito kasama ng Anki sync. I-on muna sa Settings ang “Panatilihing magkatugma ang mga naka-save kong salita at ang mga {0} deck ko”.
+acba4224	Hindi pa nakaka-sync ang Tamkeen sa {0}, kaya hindi nito alam kung nasaan ang mga card. Mag-sync muna, saka subukan ulit.
+722b3443	Naghihintay na ito sa susunod na sync ng Anki sa Tamkeen.
+7d8c0147	Nasa deck na ng wika nito ang bawat card. Walang ililipat.
+f7f0f25b	May isang card na nasa deck ng ibang wika. Ililipat ito:
+577a01f9	May {0} card na nasa deck ng ibang wika. Ililipat ang mga ito:
+f0b872b4	Mananatili ang review history ng bawat card. Walang ibang magbabago sa {0}, at hindi gagalawin ang iba mong deck.
+e78a8a82	Ilipat ang card
+247c9a70	Ilipat ang {0} card
+efaf5f1d	Magdagdag ng wikang pag-aaralan
+f23ad26a	Hiwalay sa iba mong wika ang mga podcast, video, salita at review nito. Magpalipat-lipat sa mga ito mula sa itaas na bar.
+8a4ed579	Ang wikang pinag-aaralan mo ngayon
+75bd5fbb	Pinag-aaralan ang {0}. Palitan ang wika
+b69e98b2	＋ Magdagdag ng wika…
+fa47f84b	Pinag-aaralan ngayon
+74026a93	I-reset ang Tamkeen
+ae41208a	Magsimula ulit na parang bago ang Tamkeen: masa-sign out ka at makikita mo ulit ang mga unang screen. Walang mabubura. Babalik ang library, mga salita at settings mo kapag nag-sign in ka.
+61837f5f	I-reset ang Tamkeen?
+7c7d3232	Magsisimula ulit ang Tamkeen na parang unang gamit:
+785b510e	masa-sign out sa Google, sa account mo sa Friends, at sa Instagram at YouTube sa browser ng app
+62d1d509	aalisin sa device na ito ang mga AI at transcription key mo
+6e772256	ipapakita ulit ang mga welcome screen at tanong tungkol sa wika
+90f5271b	<0>Walang mabubura.</0> Itatabi ang mga podcast, video, salita, review at settings mo, at babalik agad kapag nag-sign in ka sa Google, o kapag natapos mo ang mga unang screen.
+6d27dcf1	Nire-reset…
+6c461cb8	Hindi ma-reset ang Tamkeen. Walang nabago.
+3a97676e	Ibalik ang sinabi ng transcript
+39fc7212	I-undo
+cb93d649	(hindi binago sa transcript)
+e66da09d	Sabi ng transcript
+a8a5b895	I-save ang salitang ito at maghanap ng YouTube video kung saan ito sinasabi
+58c330e9	Hindi ma-undo iyon.
+e3de5ab0	Off
+a124947c	Mababa
+d404968e	Katamtaman
+b1a5954a	Mataas
+44cc4b12	Laging nag-iisip nang kaunti ang modelong ito: ang Off ay pinakakaunting posible.
+3575edb8	Hinahanap ang salita sa nangungunang video…
+fe2cb66b	Kinukuha ang mga resulta…
+dfebdc6c	✓ Na-save sa Tamkeen
+adb1dce3	Hindi magamit ang mga resultang ito. Pindutin ang isa para subukan.
+ece4c60d	Hindi magamit ang mga resultang ito.
+58103f1e	Ipinapakita ang mga video na may captions sa wikang pinag-aaralan mo…
+42a0c143	Ikaw ang sumagot sa check ng Filmot. Pagkatapos, kusang kukunin ng Tamkeen ang nangungunang video.
+80559b82	tinype nang mano-mano
+0c88254c	Unang nakita sa: {0}{1}
+4d91deca	Pindutin muna ang “Hanapin sa video” sa isang salita.
+24ed8380	Walang nahanap na video ang Filmot para sa “{0}”.
+441d5e0d	Wala ang “{0}” sa captions ng nangungunang {1} video. Pindutin ang ibang resulta para subukan.
+78978743	Hindi pa nakikita
+12608b67	Huling nakita {0} min ang nakalipas
+ff6c3395	Huling nakita {0} oras ang nakalipas
+961ad11f	Huling nakita {0} araw ang nakalipas
+ccc9a7d2	Huling nakita mahigit isang buwan na ang nakalipas
+969aa741	Mga seksyon ng Friends
+7534bf92	{0} ({1} bago)
+29f6fa46	Ang pinag-aaralan ng lahat
+2acf9a78	Wala pang nagbahagi ng pinag-aaralan nila.
+2c153dc0	Magdagdag ng mga kaibigan o sumali sa isang guild para makita rito ang pinag-aaralan nila.
+cdfe806f	Mga friend request
+cd229e08	{0} · {1} online
+b16fc7ff	Alisin ang kaibigan
+1ada4056	Alisin si {0}?
+ee7e971c	Hindi na makikita si {0} sa listahan ng mga kaibigan mo. Puwede ulit kayong magdagdag sa isa't isa mamaya.
+84837a21	Kanselahin ang request
+124a0ba3	Mga imbitasyon sa guild
+b9cc0468	Mga guild mo
+e1c85cdb	Bagong guild
+3ee4fbee	Mag-imbita ng kaibigan
+49293437	Umalis sa guild
+d2839170	Umalis sa {0}?
+8d39828d	Ikaw lang ang miyembro, kaya isasara ang guild.
+2bdc67b8	Puwede kang sumali ulit kung may mag-imbita sa iyo.
+20c74057	Nakabinbin ang request
+e0a731d8	Idagdag bilang kaibigan
+8f65200d	Alisin sa {0}
+c8e8a875	Hindi na kasama si {0} sa {1}.
+7a978838	Nagtatag · {0}
+7ff5271b	Itago ang mga miyembro
+075b3d2a	Ipakita ang mga miyembro
+afaa0fed	{0} salita ang na-save ngayong araw
+1581574d	Wala pang YouTube video. Pindutin ang + at piliin ang YouTube.
+f2c11421	Wala pang web page. Pindutin ang + at piliin ang Web page.
+4a3365aa	Wala pang reels. Pindutin ang + at piliin ang Reels.
+bc4aba2d	Wala ka pang sariling video. Pindutin ang + at piliin ang Video file.
+34d32c26	Wala ka pang sariling audio. Pindutin ang + at piliin ang Audio file.
+d699a922	Tingnan kung may bagong episode at mag-sync sa Google Drive
+4e925fda	I-refresh at i-sync
+0d4800a7	Mga web page na in-import mo. Buksan ang isa para basahin ito na puwedeng i-click ang bawat salita. Pindutin ang + para magdagdag pa.
+2e1a712a	Mga {0} file na ikaw mismo ang nagdagdag. Tina-transcribe ang mga ito sa computer mo at sine-save sa Google Drive mo, kaya mapapatugtog ito ng bawat device. Pindutin ang + para magdagdag pa.
+954481cf	Pindutin ang + para magdagdag ng podcast, video o web page.
+5bcd6022	Transcript
+1e5080c8	Hindi makita ang salitang ito sa vocab mo.
+8c94fa16	Pinapatugtog lang ng Instagram ang reel na ito sa mga naka-sign in (dahil gumagamit ito ng kanta mula sa music library ng Instagram, o dahil may age restriction ito). Mag-sign in nang isang beses sa sariling browser ng Tamkeen: kusa itong magsasara kapag naka-sign in ka na, at magsisimula ang reel. Kung naka-sign in ka dati, baka na-sign out ka ng Instagram.
+a7fc9779	Hindi na pinapatugtog ng Instagram ang reel na iyon (inalis, pribado o may age restriction). Lalaktawan ito.
+f4f2fa9d	Hindi pinapatugtog ng Instagram ang alinman sa mga reel na ito ngayon.
+34d035e1	Hindi na pinapatugtog ng Instagram ang reel na ito: baka inalis ito, ginawang pribado o may age restriction.
+be0bf6d1	Hindi mabasa rito ang clipboard. Pindutin nang matagal ang kahon at piliin ang Paste.
+2b382bdb	Walang nakopyang ipe-paste.
+af74f7c5	Kopyahin
+13289035	Hindi iyon makopya rito.
+d878e2e3	Gumawa ng 5 pa
+7893f7ae	Ginagamit ng Gawa ng mnemonic ang AI key mo. Magdagdag ng isa sa Settings → Kahulugan ng mga salita.
+9ae914fa	Hindi iyon gumana. Subukan ulit.
+ecef5b19	{0} I-paste
+0a23b23f	Kailangang naka-install ang AnkiMobile app sa iPhone na ito.
+9d03110d	Piliin ang <0>AnkiMobile</0> sa hanay ng mga app. Kung wala roon, pindutin ang <1>More</1>.
+0bbf1f69	Sa AnkiMobile, tiyaking naka-format ang deck mo sa paraang gusto mong lumabas ang mga card.
+12b2bdbf	Sa anumang transcript, i-right click (o pindutin nang matagal) ang isang salita o napiling parirala at piliin ang “I-save sa vocab”. Magdagdag ng salita nang mano-mano, o i-export ang mga salita mo para sa Anki, mula sa ⋯ menu.
+7fc0dbd9	Iba pa: magdagdag ng salita, i-export, settings ng Anki
+35c2eb2c	Magdagdag ng salita
+d4928a6e	Walang bumalik na magkatunog na salita. Subukan ulit.
+fb8207e8	Sanayin ang pagbigkas (P): sabihin ito, saka pakinggan ang pangungusap at ang sarili mo. Hindi sine-save ang subok mo.
+64cd269c	May sync sa AnkiDroid na tumatakbo. Subukan ulit maya-maya.
+8d4dbd4e	Hindi puwedeng magkahati ang dalawang wika sa deck na “{0}”.
+3ad4b928	Nasa loob ng isa't isa ang “{0}” at “{1}”: bigyan ng sariling deck ang bawat wika.
+4c6de3cb	Gumagana ang pagkonekta sa naka-install na app.
+37eb8e15	Napapatugtog ang mga video sa naka-install na app.
+a4a37122	Sumagot ang GitHub ng {0}.
+df0aa924	Hindi maabot ang GitHub. Tingnan ang internet connection mo.
+e198d09b	Hindi tugma sa transcript ang pagbabagong iyon.
+69511d5f	Nagbago ang transcript mula nang hanapin ang salita. Pindutin ito ulit.
+1492a513	Gumagana ang pag-sign in sa Google sa naka-install na app.
+ba28f9f2	Available na ang bersyon {0}: pindutin ang Mag-update ngayon sa kahong kabubukas lang.
+7f8b10c7	Na-reset na ang Tamkeen. Mag-sign in o tapusin ang mga unang screen para maibalik ang library mo.
+020ed627	Hindi maitabi nang ligtas ang library mo, kaya walang na-reset.
+d88f9041	Hindi pinapayagan.
+5591ee57	Hindi iyan link na tamkeen://watch?v=….
+d6d720ba	Ang search lang na binuksan ng “Hanapin sa video” ang makagagawa niyan.
+a6f9a4d1	Hindi magamit ang mga resultang ito ({0}).
+a804202f	Na-reset na ang Tamkeen. Mag-sign in o tapusin ang mga unang screen para maibalik ang library mo.
+81e5939e	May tina-transcribe pa. Hintaying matapos ito, o ihinto ito, saka mag-reset.
+b8603b5b	Hindi muna ma-save ang library mo sa Google Drive, kaya walang na-reset ({0}).

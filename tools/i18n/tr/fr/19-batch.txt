@@ -1,0 +1,179 @@
+46c3ccdd	Choisissez d'abord la langue que vous apprenez, puis rouvrez la vidéo.
+bafb6ef2	Podcast
+cfe04561	Collez l'adresse d'un flux, ou choisissez parmi les tendances
+09d837be	Trouvez une vidéo et regardez-la avec des sous-titres cliquables
+f922c9f6	Importez un article à lire avec des mots cliquables
+83d2bc34	De courtes vidéos Instagram à regarder sur votre téléphone
+61ca215b	Fichier vidéo
+9e717b9a	Une vidéo à vous, depuis cet appareil
+fb1e17a0	Fichier audio
+0e8a7c1c	Un enregistrement à vous, depuis cet appareil
+206ad75e	Ajouter à votre bibliothèque
+350fdaeb	‹ Toutes les façons d'ajouter
+73b04161	Collez l'adresse du flux RSS d'un podcast
+825aa64b	Adresse du flux RSS du podcast
+1758356d	ou
+382c6e00	Les podcasts populaires en ce moment dans la langue que vous étudiez, classés par thème
+e69ef3fc	Touchez-y une vidéo et elle s'ouvre ici, avec ses sous-titres en mots cliquables. La vidéo doit avoir des sous-titres.
+0bc298a1	Collez l'adresse d'un site web
+ba46c1f5	Adresse du site web
+5d382182	Naviguez dans l'appli et appuyez sur Importer la page sur tout ce que vous voulez lire.
+86fa0600	Créateur de mnémoniques
+fa76400f	Les mots qui sonnent pareil, au dos d'une carte de révision. Il utilise la même clé ; moins de réflexion répond plus vite.
+d08d8da0	Réflexion
+7ddd66b6	Essayer
+c16dec45	{0} (le plus rapide, recommandé)
+fd63eaaf	Comme pour les définitions des mots
+9693b227	Ce modèle ne propose pas de réglage de réflexion.
+a60d9c9c	Réflexion…
+de0599b0	Ajoutez d'abord votre clé d'API ci-dessus.
+d634d7a1	Garder mes mots enregistrés et mes paquets {0} synchronisés, dans les deux sens
+1f4549dd	Chaque langue que vous apprenez a son propre paquet, nommé ci-dessous. Seuls ces paquets sont lus ou modifiés : vos autres paquets, notes et cartes ne sont jamais touchés. Les nouveaux mots, les modifications et les suppressions vont dans les deux sens. Une carte que vous créez à la main dans l'un d'eux devient un mot ici, dans la langue de ce paquet. La progression de révision de chaque carte s'affiche sur la page Vocabulaire ; Tamkeen ne modifie jamais le planning de {0}, l'image d'une carte ni la mise en page des cartes.
+ad997b8b	Enregistrer les noms des paquets
+cf16536f	Donnez un nom à chaque paquet.
+01f61b61	Noms des paquets enregistrés.
+168e4932	Paquet
+2e547a18	{0} Rien n'est synchronisé tant que les noms ne sont pas distincts.
+6f68523d	· {0} mots ont une carte dans les paquets
+e8a0694a	Les cartes qui sont dans le paquet d'une autre langue passeront dans le leur à la prochaine synchronisation d'Anki.
+ba95bad5	{0} cartes ont été déplacées dans le paquet de leur langue ({1}).
+e93d02ca	Déplacer les cartes Anki dans le paquet de leur langue
+9ce3bd42	OK
+09701b49	Déplacement…
+0c443a1e	1 carte a été déplacée dans le paquet de sa langue.
+077b3afc	{0} cartes ont été déplacées dans le paquet de leur langue.
+10e5fda8	1 n'a pas pu être déplacée (une carte prêtée à un paquet filtré, par exemple) et est restée où elle était.
+5e56ad8c	{0} n'ont pas pu être déplacées (une carte prêtée à un paquet filtré, par exemple) et sont restées où elles étaient.
+721a5cd2	Les cartes seront déplacées à la prochaine synchronisation d'Anki avec Tamkeen : ouvrez Anki, ou choisissez-y <0>Tools → Sync Tamkeen now</0>. Les Réglages indiquent quand c'est fait.
+a8e5a756	Cela fonctionne avec la synchronisation Anki. Activez d'abord « Garder mes mots enregistrés et mes paquets {0} synchronisés » dans les Réglages.
+acba4224	Tamkeen ne s'est pas encore synchronisé avec {0}, il ne sait donc pas où sont les cartes. Synchronisez d'abord, puis réessayez.
+722b3443	Cela attend déjà la prochaine synchronisation d'Anki avec Tamkeen.
+7d8c0147	Chaque carte est déjà dans le paquet de sa langue. Rien à déplacer.
+f7f0f25b	Une carte est dans le paquet d'une autre langue. Elle sera déplacée :
+577a01f9	{0} cartes sont dans le paquet d'une autre langue. Elles seront déplacées :
+f0b872b4	Chaque carte garde son historique de révision. Rien d'autre ne change dans {0}, et vos autres paquets ne sont pas touchés.
+e78a8a82	Déplacer la carte
+247c9a70	Déplacer {0} cartes
+efaf5f1d	Ajouter une langue à apprendre
+f23ad26a	Ses podcasts, vidéos, mots et révisions sont séparés de vos autres langues. Passez de l'une à l'autre depuis la barre du haut.
+8a4ed579	La langue que vous apprenez maintenant
+75bd5fbb	Langue apprise : {0}. Changer de langue
+b69e98b2	＋ Ajouter une langue…
+fa47f84b	En cours d'apprentissage
+74026a93	Réinitialiser Tamkeen
+ae41208a	Recommencer comme si Tamkeen était neuf : vous êtes déconnecté et revoyez les premiers écrans. Rien n'est supprimé. Votre bibliothèque, vos mots et vos réglages reviennent quand vous vous connectez.
+61837f5f	Réinitialiser Tamkeen ?
+7c7d3232	Tamkeen recommencera comme à la première utilisation :
+785b510e	déconnexion de Google, de votre compte Amis, et d'Instagram et YouTube dans le navigateur de l'appli
+62d1d509	vos clés d'IA et de transcription retirées de cet appareil
+6e772256	les écrans d'accueil et les questions de langue affichés à nouveau
+90f5271b	<0>Rien n'est supprimé.</0> Vos podcasts, vidéos, mots, révisions et réglages sont mis de côté et reviennent dès que vous vous connectez à Google, ou quand vous terminez les premiers écrans.
+6d27dcf1	Réinitialisation…
+6c461cb8	Impossible de réinitialiser Tamkeen. Rien n'a été modifié.
+3a97676e	Remettre ce que disait la transcription
+39fc7212	Annuler
+cb93d649	(non modifié dans la transcription)
+e66da09d	La transcription disait
+a8a5b895	Enregistrer ce mot et trouver une vidéo YouTube où il est dit
+58c330e9	Impossible d'annuler.
+e3de5ab0	Désactivé
+a124947c	Faible
+d404968e	Moyen
+b1a5954a	Élevé
+44cc4b12	Ce modèle réfléchit toujours un peu : Désactivé signifie le moins possible.
+3575edb8	Recherche du mot dans la première vidéo…
+fe2cb66b	Récupération des résultats…
+dfebdc6c	✓ Enregistré dans Tamkeen
+adb1dce3	Impossible d'utiliser ces résultats. Touchez-en un pour l'essayer.
+ece4c60d	Impossible d'utiliser ces résultats.
+58103f1e	Affichage des vidéos avec des sous-titres dans la langue que vous apprenez…
+42a0c143	Répondez vous-même à la vérification de Filmot. Tamkeen prend ensuite tout seul la première vidéo.
+80559b82	saisi à la main
+0c88254c	Trouvé pour la première fois dans : {0}{1}
+4d91deca	Appuyez d'abord sur « Trouver dans une vidéo » sur un mot.
+24ed8380	Filmot n'a trouvé aucune vidéo pour « {0} ».
+441d5e0d	« {0} » n'est pas dans les sous-titres des {1} premières vidéos. Touchez un autre résultat pour l'essayer.
+78978743	Pas encore vu
+12608b67	Vu il y a {0} min
+ff6c3395	Vu il y a {0} h
+961ad11f	Vu il y a {0} jours
+ccc9a7d2	Vu il y a plus d'un mois
+969aa741	Sections Amis
+7534bf92	{0} ({1} nouvelles)
+29f6fa46	Ce que chacun étudie
+2acf9a78	Personne n'a encore partagé ce qu'il étudie.
+2c153dc0	Ajoutez des amis ou rejoignez une guilde pour voir ici ce qu'ils étudient.
+cdfe806f	Demandes d'ami
+cd229e08	{0} · {1} en ligne
+b16fc7ff	Retirer cet ami
+1ada4056	Retirer {0} ?
+ee7e971c	{0} ne sera plus dans votre liste d'amis. Vous pourrez vous ajouter à nouveau plus tard.
+84837a21	Annuler la demande
+124a0ba3	Invitations de guilde
+b9cc0468	Vos guildes
+e1c85cdb	Nouvelle guilde
+3ee4fbee	Inviter un ami
+49293437	Quitter la guilde
+d2839170	Quitter {0} ?
+8d39828d	Vous êtes le seul membre, la guilde sera donc fermée.
+2bdc67b8	Vous pourrez revenir si quelqu'un vous invite.
+20c74057	Demande en attente
+e0a731d8	Ajouter en ami
+8f65200d	Retirer de {0}
+c8e8a875	{0} ne fera plus partie de {1}.
+7a978838	Fondateur · {0}
+7ff5271b	Masquer les membres
+075b3d2a	Afficher les membres
+afaa0fed	{0} mots enregistrés aujourd'hui
+1581574d	Pas encore de vidéos YouTube. Appuyez sur + et choisissez YouTube.
+f2c11421	Pas encore de pages web. Appuyez sur + et choisissez Page web.
+4a3365aa	Pas encore de reels. Appuyez sur + et choisissez Reels.
+bc4aba2d	Pas encore de vidéos à vous. Appuyez sur + et choisissez Fichier vidéo.
+34d32c26	Pas encore d'audio à vous. Appuyez sur + et choisissez Fichier audio.
+d699a922	Chercher de nouveaux épisodes et synchroniser avec Google Drive
+4e925fda	Actualiser et synchroniser
+0d4800a7	Les pages web que vous avez importées. Ouvrez-en une pour la lire avec chaque mot cliquable. Appuyez sur + pour en ajouter.
+2e1a712a	Fichiers {0} que vous avez ajoutés vous-même. Ils sont transcrits sur votre ordinateur et stockés dans votre Google Drive, pour que tous vos appareils puissent les lire. Appuyez sur + pour en ajouter.
+954481cf	Appuyez sur + pour ajouter un podcast, une vidéo ou une page web.
+5bcd6022	Transcription
+1e5080c8	Impossible de trouver ce mot dans votre vocabulaire.
+8c94fa16	Instagram ne lit ce reel que pour les personnes connectées (parce qu'il utilise une chanson de la bibliothèque musicale d'Instagram, ou parce qu'il est soumis à une limite d'âge). Connectez-vous une fois, dans le navigateur de Tamkeen : il se ferme tout seul une fois connecté, et le reel démarre. Si vous étiez déjà connecté, Instagram vous a peut-être déconnecté.
+a7fc9779	Instagram ne lit plus ce reel (supprimé, privé ou soumis à une limite d'âge). Il est ignoré.
+f4f2fa9d	Instagram ne lit aucun de ces reels pour le moment.
+34d035e1	Instagram ne lit plus ce reel : il a peut-être été supprimé, rendu privé ou soumis à une limite d'âge.
+be0bf6d1	Le presse-papiers n'a pas pu être lu ici. Restez appuyé dans le champ et choisissez Coller.
+2b382bdb	Rien n'a été copié à coller.
+af74f7c5	Copier
+13289035	Impossible de copier ici.
+d878e2e3	En créer 5 de plus
+7893f7ae	Le Créateur de mnémoniques utilise votre clé d'IA. Ajoutez-en une dans Réglages → Définitions des mots.
+9ae914fa	Ça n'a pas marché. Réessayez.
+ecef5b19	{0} Coller
+0a23b23f	L'appli AnkiMobile doit être installée sur cet iPhone.
+9d03110d	Choisissez <0>AnkiMobile</0> dans la rangée d'applis. S'il n'y est pas, touchez <1>Plus</1>.
+0bbf1f69	Dans AnkiMobile, vérifiez que votre paquet a la mise en forme voulue pour les cartes.
+12b2bdbf	Dans n'importe quelle transcription, faites un clic droit (ou un appui long) sur un mot ou une expression sélectionnée et choisissez « Enregistrer dans le vocabulaire ». Ajoutez un mot à la main, ou exportez vos mots pour Anki, depuis le menu ⋯.
+7fc0dbd9	Plus : ajouter un mot, exporter, réglages Anki
+35c2eb2c	Ajouter un mot
+d4928a6e	Aucun mot ressemblant n'est revenu. Réessayez.
+fb8207e8	S'entraîner à le dire (P) : dites-le, puis écoutez la phrase et vous-même. Votre essai n'est pas enregistré.
+64cd269c	Une synchronisation avec AnkiDroid est en cours. Réessayez dans un instant.
+8d4dbd4e	Deux langues ne peuvent pas partager le paquet « {0} ».
+3ad4b928	« {0} » et « {1} » sont l'un dans l'autre : donnez à chaque langue son propre paquet.
+4c6de3cb	La connexion fonctionne dans l'appli installée.
+37eb8e15	Les vidéos se lisent dans l'appli installée.
+a4a37122	GitHub a répondu {0}.
+df0aa924	Impossible de joindre GitHub. Vérifiez votre connexion internet.
+e198d09b	Cette modification ne correspond pas à la transcription.
+69511d5f	La transcription a changé depuis la recherche du mot. Touchez-le à nouveau.
+1492a513	La connexion Google fonctionne dans l'appli installée.
+ba28f9f2	La version {0} est disponible : touchez Mettre à jour dans la fenêtre qui vient de s'ouvrir.
+7f8b10c7	Tamkeen a déjà été réinitialisé. Connectez-vous ou terminez les premiers écrans pour récupérer votre bibliothèque.
+020ed627	Votre bibliothèque n'a pas pu être mise de côté en toute sécurité, donc rien n'a été réinitialisé.
+d88f9041	Non autorisé.
+5591ee57	Ce n'est pas un lien tamkeen://watch?v=….
+d6d720ba	Seule une recherche ouverte par « Trouver dans une vidéo » peut faire cela.
+a6f9a4d1	Impossible d'utiliser ces résultats ({0}).
+a804202f	Tamkeen a déjà été réinitialisé. Connectez-vous ou terminez les écrans de démarrage pour récupérer votre bibliothèque.
+81e5939e	Une transcription est encore en cours. Attendez qu'elle se termine, ou arrêtez-la, puis réinitialisez.
+b8603b5b	Votre bibliothèque n'a pas pu être enregistrée d'abord dans Google Drive, donc rien n'a été réinitialisé ({0}).
