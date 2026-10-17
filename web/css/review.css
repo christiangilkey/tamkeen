@@ -103,6 +103,11 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
   touch-action: pan-y; will-change: transform; transform-style: preserve-3d;
   transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .18s ease-out;
 }
+/* On the cards, the brand's colours (the owner's choice): secondary text in a high-contrast purple
+   instead of grey, and the highlighted word in teal instead of yellow. Lighter purple on a dark card. */
+.rv-card { --muted: #8e2b8c; --hl: #22c7d6; --hl-ink: #022a2f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .rv-card { --muted: #e08ade; } }
+:root[data-theme="dark"] .rv-card { --muted: #e08ade; }
 .rv-card.dragging { transition: none; cursor: grabbing; }
 .rv-card.settle { transition: transform .32s cubic-bezier(.2, 1.5, .4, 1); }
 .rv-scroll { height: min(680px, calc(100dvh - 176px - env(safe-area-inset-top) - env(safe-area-inset-bottom))); overflow-y: auto; overscroll-behavior: contain; border-radius: 24px; scrollbar-width: none; }
