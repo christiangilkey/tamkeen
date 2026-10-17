@@ -642,54 +642,59 @@ async function renderPlayer(view, { query }) {
     if (disposed) return;
     index = (i + reels.length) % reels.length;
     const ep = reels[index];
+    // The same reel once more (its ordinary page after the embed page, or "Try again"): its words
+    // stay on screen as they are. Drawing them again made the bar flash, and their colours fade in again.
+    const again = !!cur && cur.ep === ep;
     bubble.hide();
     clipEnd = null;
-    curIdx = -1;
     target = null;
-    if (seen) { seen.close(); seen = null; } // the previous reel's words are leaving the screen
     $("#reel-n").textContent = `${index + 1} / ${reels.length}`;
     $("#reel-who").textContent = `@${ep.description || ""}`;
     history.replaceState(null, "", `#/reels/play?at=${ep.id}${onlyParam}`); // so "back" and a reopen land on this reel
-    wordsEl.innerHTML = `<p class="muted small">Loading the words…</p>`;
-    let data;
-    try { data = await api(`/episodes/${ep.id}/transcript`); } catch (e) { data = null; }
-    if (disposed || reels[index] !== ep) return;
-    const lang = episodeLanguage(ep);
-    if (!data || !data.words.start.length) {
-      cur = null;
-      wordsEl.innerHTML = `<p class="muted small">This reel's words aren't on this device yet. Sync and try again.</p>`;
-    } else {
-      const segText = new Map(data.segments.map((s) => [s.idx, s.text]));
-      const W = regroupWords(data.words, lang, true, (s) => segText.get(s));
-      const parts = [];
-      let w = 0;
-      for (const seg of data.segments) {
-        parts.push(`<p class="seg">`);
-        const first = w;
-        while (w < W.start.length && W.seg[w] === seg.idx) {
-          if (w > first) parts.push(gap(W.text[w - 1], W.text[w], lang));
-          parts.push(`<span class="w" data-i="${w}">${esc(W.text[w])}</span>`);
-          w++;
+    if (!again) {
+      curIdx = -1;
+      if (seen) { seen.close(); seen = null; } // the previous reel's words are leaving the screen
+      wordsEl.innerHTML = `<p class="muted small">Loading the words…</p>`;
+      let data;
+      try { data = await api(`/episodes/${ep.id}/transcript`); } catch (e) { data = null; }
+      if (disposed || reels[index] !== ep) return;
+      const lang = episodeLanguage(ep);
+      if (!data || !data.words.start.length) {
+        cur = null;
+        wordsEl.innerHTML = `<p class="muted small">This reel's words aren't on this device yet. Sync and try again.</p>`;
+      } else {
+        const segText = new Map(data.segments.map((s) => [s.idx, s.text]));
+        const W = regroupWords(data.words, lang, true, (s) => segText.get(s));
+        const parts = [];
+        let w = 0;
+        for (const seg of data.segments) {
+          parts.push(`<p class="seg">`);
+          const first = w;
+          while (w < W.start.length && W.seg[w] === seg.idx) {
+            if (w > first) parts.push(gap(W.text[w - 1], W.text[w], lang));
+            parts.push(`<span class="w" data-i="${w}">${esc(W.text[w])}</span>`);
+            w++;
+          }
+          parts.push("</p>");
         }
-        parts.push("</p>");
+        wordsEl.innerHTML = parts.join("");
+        wordsEl.scrollTop = 0;
+        wordsEl.setAttribute("lang", lang);
+        wordsEl.setAttribute("dir", langInfo(lang).dir);
+        cur = { ep, lang, starts: Float64Array.from(W.start), ends: Float64Array.from(W.end), segOf: Int32Array.from(W.seg),
+                texts: W.text, els: wordsEl.querySelectorAll(".w") };
+        const reel = cur;
+        cur.fixer = wordFixer({
+          episodeId: ep.id, texts: W.text, editable: W === data.words, contextFor: contextAt,
+          redraw: (first, last) => {
+            for (let k = first; k <= last; k++) reel.els[k].textContent = reel.texts[k];
+            if (seen && seen.analyze) seen.analyze();
+          },
+        });
+        // The same colours as the other players: a word never tapped before is purple; a tap makes
+        // every form of that word "seen" (js/lexicon/seen.js).
+        seen = seenWords({ tokens: W.text, lang, els: cur.els });
       }
-      wordsEl.innerHTML = parts.join("");
-      wordsEl.scrollTop = 0;
-      wordsEl.setAttribute("lang", lang);
-      wordsEl.setAttribute("dir", langInfo(lang).dir);
-      cur = { ep, lang, starts: Float64Array.from(W.start), ends: Float64Array.from(W.end), segOf: Int32Array.from(W.seg),
-              texts: W.text, els: wordsEl.querySelectorAll(".w") };
-      const reel = cur;
-      cur.fixer = wordFixer({
-        episodeId: ep.id, texts: W.text, editable: W === data.words, contextFor: contextAt,
-        redraw: (first, last) => {
-          for (let k = first; k <= last; k++) reel.els[k].textContent = reel.texts[k];
-          if (seen && seen.analyze) seen.analyze();
-        },
-      });
-      // The same colours as the other players: a word never tapped before is purple; a tap makes
-      // every form of that word "seen" (js/lexicon/seen.js).
-      seen = seenWords({ tokens: W.text, lang, els: cur.els });
     }
     if (!surface) {
       stage.innerHTML = "";

@@ -65,6 +65,9 @@
   function wantsSignIn(v) {
     if (/^\/accounts\/(login|emailsignup|signup)/.test(location.pathname)) return true;
     if (document.querySelector('input[name="username"], input[name="password"]')) return true;
+    // Instagram's own "Log in" links where the reel should be (an age-restricted reel, or a sign-in
+    // that has run out, when its cookie is still there and the check below would be fooled).
+    if (!v && Date.now() - started > 3000 && document.querySelector('a[href^="/accounts/login"]')) return true;
     // No reel after a good wait, and no sign of being signed in: Instagram is showing its
     // "open the app / sign up" page instead.
     return !v && Date.now() - started > 8000 && !/(^|; )ds_user_id=\d/.test(document.cookie);
