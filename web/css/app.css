@@ -1278,6 +1278,11 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .friend-find { width: 100%; }
 .friend-row[hidden] { display: none; }
 .me-toggle { min-height: 32px; min-width: 32px; padding: 0; display: inline-grid; place-items: center; }
+/* The fold arrow stays in the card's top-right corner, open or folded, on any screen width; the
+   header keeps room for it so it never sits on the name or the tags. */
+.me-card { position: relative; }
+.me-card .me-head { padding-right: 44px; }
+.me-card .me-toggle { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; }
 .me-toggle .chev { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(2px) rotate(-135deg); transition: transform .15s ease; }
 .me-card.collapsed .me-toggle .chev { transform: translateY(-2px) rotate(45deg); }
 .me-card.collapsed #my-card, .me-card.collapsed #edit-card, .me-card.collapsed #photo-remove, .me-card.collapsed .me-id .muted { display: none; }
