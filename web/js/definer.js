@@ -91,6 +91,39 @@ export function keyProvider(key) {
 export const modelFor = (provider, settings) =>
   (settings && settings[`definer_model_${provider}`]) || PROVIDERS[provider].defaultModel;
 
+// ---------- the Mnemonic maker's own model and thinking (Settings, under Word definitions) ----------
+/** How hard the model may think before it answers. "off" = as little as the model allows: the fastest. */
+export const THINKING = [
+  { id: "off", name: "Off", note: "fastest" },
+  { id: "low", name: "Low" },
+  { id: "medium", name: "Medium" },
+  { id: "high", name: "High", note: "slowest" },
+];
+/** The Mnemonic maker's model setting meaning "the model the word lookups use". */
+export const SAME_MODEL = "same";
+
+/** What the Mnemonic maker asks with: the lookups' provider and key (`base`, a definerConfig), its
+ * own model (setting mnemonic_model_<provider>: "" = the provider's fastest, the recommended one;
+ * "same" = the lookups' model) and its own thinking level (mnemonic_effort, "off" unless set). */
+export function mnemonicConfig(base, settings) {
+  const s = settings || {};
+  const pick = s[`mnemonic_model_${base.provider}`] || "";
+  const model = pick === SAME_MODEL ? base.model : pick || PROVIDERS[base.provider].defaultModel;
+  const effort = THINKING.some((t) => t.id === s.mnemonic_effort) ? s.mnemonic_effort : "off";
+  return { ...base, model, effort };
+}
+
+/** Can the thinking level be set for this model? {ok, note}: `note` says how "Off" works where it
+ * can't be switched off entirely. (Haiku 4.5 and older, and Gemini 2.x, take no thinking level.) */
+export function thinkingFor(provider, model) {
+  if (provider === "claude" && /^claude-haiku-[34]/.test(model)) return { ok: false, note: "" };
+  if (provider === "gemini" && /^gemini-2/.test(model)) return { ok: false, note: "" };
+  if (provider === "claude" && /^claude-(opus-5-5|fable)/.test(model)) {
+    return { ok: true, note: "This model always thinks a little: Off means as little as it can." };
+  }
+  return { ok: true, note: "" };
+}
+
 // What the AI teacher is told about each language. The answer always has the same fields (so the
 // popup and saved answers work for every language); only what goes in them differs:
 //   vocalized       how the word is read: vowel marks, stress, kana, pinyin or IPA
@@ -377,7 +410,8 @@ function geminiSchema(s) {
   return out;
 }
 
-function buildRequest(provider, model, key, system, user, schema, lite = false) {
+// `effort` is how hard the model may think: "off", "low" (word lookups), "medium" or "high" (see THINKING).
+function buildRequest(provider, model, key, system, user, schema, lite = false, effort = "low") {
   switch (provider) {
     case "claude": {
       const body = {
@@ -389,8 +423,13 @@ function buildRequest(provider, model, key, system, user, schema, lite = false) 
       };
       const headers = { "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json" };
       if (!lite && !/^claude-haiku-[34]/.test(model)) { // (Haiku 4.5 and older have no effort setting)
-        body.output_config.effort = "low"; // fast lookups; thinking stays adaptive
-        if (/^claude-(opus|sonnet)-5-5/.test(model)) {
+        body.output_config.effort = effort === "off" ? "low" : effort; // "low" = fast lookups; thinking stays adaptive
+        if (effort === "off") {
+          // Thinking switched off: Sonnet 5.5 says so its own way; Opus 5.5 and Fable can't, so they stay at "low".
+          if (/^claude-sonnet-5-5/.test(model)) body.thinking = { type: "between_tools" };
+          else if (!/^claude-(opus-5-5|fable)/.test(model)) body.thinking = { type: "disabled" };
+        }
+        if (/^claude-(opus|sonnet)-5-5/.test(model) && !body.thinking) {
           // Re-run on a fallback model if a safety classifier declines (rare for vocabulary).
           body.fallbacks = "default";
           headers["anthropic-beta"] = "server-side-fallback-2026-07-01";
@@ -405,7 +444,9 @@ function buildRequest(provider, model, key, system, user, schema, lite = false) 
         generationConfig: { responseMimeType: "application/json", responseSchema: geminiSchema(schema) },
       };
       // (Gemini 2.x has no thinking levels, and its lite model doesn't think unless asked to.)
-      if (!lite && !/^gemini-2/.test(model)) body.generationConfig.thinkingConfig = { thinkingLevel: "low" };
+      if (!lite && !/^gemini-2/.test(model)) {
+        body.generationConfig.thinkingConfig = { thinkingLevel: effort === "off" ? "minimal" : effort };
+      }
       return {
         url: `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
         headers: { "x-goog-api-key": key, "content-type": "application/json" },
@@ -421,7 +462,11 @@ function buildRequest(provider, model, key, system, user, schema, lite = false) 
           ? { type: "json_object" }
           : { type: "json_schema", json_schema: { name: "word_definition", strict: true, schema } },
       };
-      if (!lite) body.reasoning_effort = "low";
+      // (OpenAI: "none" switches reasoning off. Grok has only "low" and "high".)
+      if (!lite) {
+        body.reasoning_effort = provider === "grok" ? (effort === "medium" || effort === "high" ? "high" : "low")
+          : effort === "off" ? "none" : effort;
+      }
       const base = provider === "openai" ? "https://api.openai.com/v1" : "https://api.x.ai/v1";
       return { url: `${base}/chat/completions`, headers: { authorization: `Bearer ${key}`, "content-type": "application/json" }, body };
     }
@@ -553,13 +598,14 @@ function friendlyHttpError(provider, status, bodyText) {
 /**
  * Ask the learner's AI for any small JSON answer: the same provider, key, model and transport as a
  * word lookup (the review card's Mnemonic maker uses it). `prompt` is {system, user, schema}.
+ * `cfg.effort` is how hard the model may think (see THINKING; "low", as for a lookup, when absent).
  * Resolves to the parsed object; failures are DefinerErrors with the same plain messages as a
  * lookup's ("NO_KEY" when no key is set).
  */
 export async function askJson(cfg, { system, user, schema }, transport) {
   if (!cfg.key) throw new DefinerError("NO_KEY");
   const model = cfg.model || PROVIDERS[cfg.provider].defaultModel;
-  let res = await transport(buildRequest(cfg.provider, model, cfg.key, system, user, schema));
+  let res = await transport(buildRequest(cfg.provider, model, cfg.key, system, user, schema, false, cfg.effort || "low"));
   if (res.status === 400) res = await transport(buildRequest(cfg.provider, model, cfg.key, system, user, schema, true));
   if (res.status < 200 || res.status >= 300) {
     const err = new DefinerError(friendlyHttpError(cfg.provider, res.status, res.text));

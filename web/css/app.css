@@ -1180,6 +1180,11 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 #def-test-result:empty { display: none; }
 .ai-use { padding-top: 8px; border-top: 1px solid var(--border); }
 .ai-use strong { color: var(--text); font-variant-numeric: tabular-nums; font-size: 14px; }
+/* the Mnemonic maker's own model and thinking, at the foot of the card */
+.ai-mnemo { display: flex; flex-direction: column; gap: 6px; padding-top: 10px; border-top: 1px solid var(--border); }
+.ai-mnemo-head { display: flex; flex-direction: column; gap: 2px; }
+.ai-mnemo-row { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto; gap: 8px 14px; align-items: end; }
+#mn-note:empty, #mn-test-result:empty { display: none; }
 /* the model list */
 .model-pick { position: relative; }
 .model-btn { width: 100%; display: flex; align-items: center; gap: 8px; text-align: start; font-weight: 400; }
@@ -1197,7 +1202,7 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 #def-model-other { margin-top: 4px; }
 .model-btn .model-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 640px) {
-  .ai-setup { grid-template-columns: minmax(0, 1fr); }
+  .ai-setup, .ai-mnemo-row { grid-template-columns: minmax(0, 1fr); }
   .model-btn .badge { display: none; } /* no room beside the price; the list still shows it */
 }
 

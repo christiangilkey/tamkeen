@@ -19,7 +19,7 @@ import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
 import { soundAlikes } from "../review/mnemonic.js";
-import { askAi } from "../define-service.js";
+import { askMnemonic } from "../define-service.js";
 import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
 import { forgetAnswer, noteAnswer } from "../review/goal.js";
 
@@ -333,7 +333,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       say("");
       try {
         const studyName = (langInfo(detectLanguage(v.sentence || v.text)) || {}).name || "the language being learned";
-        const items = await soundAlikes(v, { ask: askAi, study: studyName, speaks, avoid: mnemonics.get(uidOf(v)) || [] });
+        const items = await soundAlikes(v, { ask: askMnemonic, study: studyName, speaks, avoid: mnemonics.get(uidOf(v)) || [] });
         mnemonics.set(uidOf(v), items);
         if (go.isConnected) draw(items);
       } catch (e) {

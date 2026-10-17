@@ -1,7 +1,7 @@
 // Phone glue for the shared definer: settings, the synced answer cache, and native HTTPS.
 
 import { api } from "./app.js";
-import { askJson, lookup, rememberAnswer, PROVIDERS } from "./definer.js";
+import { askJson, lookup, mnemonicConfig, rememberAnswer, PROVIDERS } from "./definer.js";
 import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 import { settings } from "./store.js";
 import { isNative } from "./native.js";
@@ -32,6 +32,8 @@ export async function transport(req) {
 
 /** A small JSON answer from the learner's AI (see definer.askJson), sent the same way as a lookup. */
 export const askAi = (prompt) => askJson(definerConfig(), prompt, transport);
+/** The same for the review card's Mnemonic maker, with its own model and thinking (Settings). */
+export const askMnemonic = (prompt) => askJson(mnemonicConfig(definerConfig(), settings), prompt, transport);
 
 /** `opts.quick` = only the meaning is wanted (see components/lookupmode.js): a full answer already
  * kept is used as it is, otherwise a short, cheaper request is made. */

@@ -442,6 +442,13 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "definer_model_gemini": "",
     "definer_model_openai": "",
     "definer_model_grok": "",
+    # The review card's Mnemonic maker: its own model ("" = the provider's fastest, "same" = the
+    # lookups' model) and how hard it thinks ("off", "low", "medium", "high"). See definer.mnemonicConfig.
+    "mnemonic_model_claude": "",
+    "mnemonic_model_gemini": "",
+    "mnemonic_model_openai": "",
+    "mnemonic_model_grok": "",
+    "mnemonic_effort": "off",
     "llm_key_claude": "",
     "llm_key_gemini": "",
     "llm_key_openai": "",

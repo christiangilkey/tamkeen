@@ -2440,6 +2440,17 @@ right of them ... Also include a paste button onto the my notes box".
   the phone). "Make 5 more" passes the earlier ones as `avoid`. Results are kept per word while the reviewer is
   open (`mnemonics` Map in review.js), never stored. The suggestions carry `translate="no"`. No key gives
   "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions."
+- Its own model and thinking (owner, after v0.24.0: "set an option for how hard the model should think on it in
+  the settings. Or give an option to set a different model for just the thinking of mneumonics"): a "Mnemonic
+  maker" row at the foot of the Word definitions card (aisetup.js, so computer and phone) with Model ("" = the
+  provider's `defaultModel`, its fastest = the default; "same" = the lookups' model; or any listed model), Thinking
+  (Off = default / Low / Medium / High; hidden for Haiku 4.x and Gemini 2.x) and "Try it" (times a real
+  request). Settings `mnemonic_model_<provider>`, `mnemonic_effort` (db.py, store.js); `definer.mnemonicConfig`,
+  `thinkingFor`; review.js asks through `askMnemonic`. `buildRequest(..., effort)` (default "low", so lookups are
+  unchanged) maps Off to: Claude `thinking: disabled` + effort low (Sonnet 5.5 `between_tools`, no fallbacks;
+  Opus 5.5/Fable can't turn it off, so effort low), Gemini `thinkingLevel: minimal`, OpenAI `reasoning_effort:
+  none`, Grok low (Grok has only low/high). A 400 still falls back to the plain request. Not yet tried against a
+  real provider (no key on the dev machine): the owner's "Try it" shows the real time.
 - Paste: `readClipboard()` in both app shells. On Android the page can't read the clipboard, so a new plugin
   `ClipboardPlugin.java` ("TamkeenClipboard", registered in MainActivity, read only, on the UI thread) answers;
   `TamkeenClipboard` in native.js. It appends to My notes and saves like typing. **The Java has not been compiled

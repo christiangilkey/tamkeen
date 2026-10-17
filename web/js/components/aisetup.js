@@ -1,10 +1,14 @@
 // The "Word definitions (AI)" card at the top of Settings, on the computer and the phone: which
 // provider, getting a key from it, the key itself, which model the key is used with, and a test.
 // It is first on the page and marked "Required" because nothing explains a word without it.
+// At its foot, the review card's Mnemonic maker has its own model and thinking level (it uses the same key).
 
 import { esc, h, platform, state, saveSettings } from "../app.js";
-import { LOOKUPS_PER_MILLION, PROVIDERS, centsPerMillion, cleanKey, define, keyProvider, modelFor } from "../definer.js";
+import { LOOKUPS_PER_MILLION, PROVIDERS, SAME_MODEL, THINKING, askJson, centsPerMillion, cleanKey, define, keyProvider,
+  mnemonicConfig, modelFor, thinkingFor } from "../definer.js";
 import { langInfo, studyLanguage } from "../languages.js";
+import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
+import { soundAlikes } from "../review/mnemonic.js";
 import { TOKENS_EVENT, describeUsage, tokensToday } from "../tokenuse.js";
 import { showKeyHelp } from "./keyhelp.js";
 
@@ -51,6 +55,18 @@ export function aiSetup(section, { transport }) {
       <div class="ai-wide small" id="def-test-result" role="status"></div>
       <div class="ai-wide ai-use small muted">Tokens used today on ${here}: <strong id="def-use">0</strong>
         <span id="def-use-detail"></span></div>
+      <div class="ai-wide ai-mnemo">
+        <div class="ai-mnemo-head"><strong>Mnemonic maker</strong>
+          <span class="small muted">The sound-alike words on the back of a review card. It uses the same key; less thinking answers sooner.</span></div>
+        <div class="ai-mnemo-row">
+          <div class="ai-field"><label for="mn-model">Model</label><select id="mn-model"></select></div>
+          <div class="ai-field" id="mn-think-field"><label for="mn-think">Thinking</label>
+            <select id="mn-think">${THINKING.map((t) => `<option value="${t.id}">${esc(t.name)}${t.note ? ` (${esc(t.note)})` : ""}</option>`).join("")}</select></div>
+          <div class="ai-field ai-test"><button type="button" id="mn-test">Try it</button></div>
+        </div>
+        <div class="small muted" id="mn-note"></div>
+        <div class="small" id="mn-test-result" role="status"></div>
+      </div>
     </div>`;
   const $ = (q) => section.querySelector(q);
   const prov = () => $("#def-provider").value;
@@ -104,6 +120,7 @@ export function aiSetup(section, { transport }) {
     openMenu(false);
     if (model === OTHER) $("#def-model-other").focus();
     else { button.focus(); await saveModel(model); }
+    paintThinking();
   });
   menu.addEventListener("keydown", (e) => {
     const opts = [...menu.querySelectorAll(".model-opt")];
@@ -130,7 +147,57 @@ export function aiSetup(section, { transport }) {
   }
   paintProvider();
 
-  $("#def-provider").onchange = async () => { await saveSettings({ definer_provider: prov() }); paintProvider(); };
+  // ----- the Mnemonic maker: its own model and thinking level -----
+  const mnModel = $("#mn-model"), mnThink = $("#mn-think");
+  const lookupModel = () => (model === OTHER ? $("#def-model-other").value.trim() : model) || PROVIDERS[prov()].defaultModel;
+  const mnConfig = () => mnemonicConfig({ provider: prov(), key: cleanKey($("#def-key").value), model: lookupModel() },
+    { ...cur(), [`mnemonic_model_${prov()}`]: mnModel.value, mnemonic_effort: mnThink.value });
+  function paintMnemonic() {
+    const p = prov(), info = PROVIDERS[p];
+    const pick = cur()[`mnemonic_model_${p}`] || "";
+    const fastest = info.models.find((m) => m.id === info.defaultModel);
+    const opts = [`<option value="">${esc(fastest ? fastest.name : info.defaultModel)} (fastest, recommended)</option>`,
+      `<option value="${SAME_MODEL}">Same as word definitions</option>`,
+      ...info.models.filter((m) => m.id !== info.defaultModel).map((m) => `<option value="${esc(m.id)}">${esc(m.name)} (${esc(m.note)})</option>`)];
+    if (pick && pick !== SAME_MODEL && !info.models.some((m) => m.id === pick)) opts.push(`<option value="${esc(pick)}">${esc(pick)}</option>`);
+    mnModel.innerHTML = opts.join("");
+    mnModel.value = pick;
+    mnThink.value = mnemonicConfig({ provider: p, model: "" }, cur()).effort;
+    paintThinking();
+    $("#mn-test-result").textContent = "";
+  }
+  // The thinking choice only where the chosen model takes one, with a word where "Off" can't be quite off.
+  function paintThinking() {
+    const t = thinkingFor(prov(), mnConfig().model);
+    $("#mn-think-field").hidden = !t.ok;
+    $("#mn-note").textContent = t.ok ? t.note : "This model doesn't take a thinking setting.";
+  }
+  mnModel.onchange = async () => { await saveSettings({ [`mnemonic_model_${prov()}`]: mnModel.value }); paintThinking(); };
+  mnThink.onchange = () => saveSettings({ mnemonic_effort: mnThink.value });
+  paintMnemonic();
+  // Try it: five sound-alikes for the example word, and how long they took.
+  $("#mn-test").onclick = async (e) => {
+    const out = $("#mn-test-result");
+    e.target.disabled = true;
+    await keyEntered();
+    out.textContent = "Thinking…";
+    out.style.color = "";
+    const lang = langInfo(studyLanguage());
+    const speaks = (UI_LANGUAGES[uiLanguage()] || UI_LANGUAGES.en).name;
+    const t0 = performance.now();
+    try {
+      const items = await soundAlikes({ text: lang.test.word }, { ask: (q) => askJson(mnConfig(), q, transport), study: lang.name, speaks });
+      out.textContent = `✓ ${((performance.now() - t0) / 1000).toFixed(1)} s: ${lang.test.word} → ${items.join(" · ")}`;
+      out.style.color = "var(--accent)";
+    } catch (err) {
+      out.textContent = err.message === "NO_KEY" ? "Add your API key above first." : err.message;
+      out.style.color = "var(--danger)";
+    } finally {
+      e.target.disabled = false;
+    }
+  };
+
+  $("#def-provider").onchange = async () => { await saveSettings({ definer_provider: prov() }); paintProvider(); paintMnemonic(); };
   // The key is saved as soon as it is pasted or typed (not only when the box is left), tidied
   // of anything that came along with it, and filed under the provider it belongs to: a Gemini
   // key pasted with Claude selected switches the provider rather than failing later.
@@ -148,6 +215,7 @@ export function aiSetup(section, { transport }) {
         $("#def-provider").value = owner;
         await saveSettings({ definer_provider: owner, [`llm_key_${owner}`]: key });
         paintProvider();
+        paintMnemonic();
         note.textContent = `That is a ${PROVIDERS[owner].short} key, so the provider is now ${PROVIDERS[owner].label}. Saved: press “Test with an example” to check it.`;
       } else {
         await saveSettings({ [`llm_key_${prov()}`]: key });
