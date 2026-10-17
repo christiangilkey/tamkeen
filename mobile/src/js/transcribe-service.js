@@ -173,7 +173,8 @@ export async function postAudio(cfg, { bytes = null, b64 = "", url = "", name = 
     }
     if (status === 429) { // the account's limit (free accounts: so much audio an hour); the answer says how long to wait
       const wait = retryAfter || 20;
-      if (waited + wait > LONGEST_WAIT) throw sttFailure(cfg.provider, 429, body, wait);
+      // A job may set a shorter limit (`longestWait`, seconds): picking reels doesn't sit for 20 minutes.
+      if (waited + wait > ((job && job.longestWait) || LONGEST_WAIT)) throw sttFailure(cfg.provider, 429, body, wait);
       waited += wait;
       if (job && job.say) job.say(`${info.label} asks to wait ${waitText(wait)}…`);
       await pause(wait + 1, job);

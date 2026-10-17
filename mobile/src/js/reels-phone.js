@@ -64,6 +64,47 @@ const USERNAME = /^[A-Za-z0-9._]{1,30}$/;
 
 class NeedsSignIn extends Error {}
 class Stopped extends Error {}
+class TookTooLong extends Error {}
+
+// How long one reel may take altogether (asking Instagram, downloading, the provider writing it
+// down), and the download alone. A reel that takes longer is skipped and the next one tried.
+const REEL_SECONDS = 180;
+const DOWNLOAD_SECONDS = 75;
+const PROVIDER_WAIT = 90; // a "slow down" from the provider longer than this ends the batch instead
+
+/** `work` (a promise), given up on after `seconds`, or as soon as Stop is pressed. What it was
+ * doing carries on in the background but is no longer waited for. */
+function bounded(work, seconds) {
+  return new Promise((resolve, reject) => {
+    let over = false;
+    const finish = (fn, value) => {
+      if (over) return;
+      over = true;
+      clearTimeout(timer);
+      clearInterval(stop);
+      fn(value);
+    };
+    const timer = setTimeout(() => finish(reject, new TookTooLong()), seconds * 1000);
+    const stop = setInterval(() => { if (cancelled) finish(reject, new Stopped("Stopped.")); }, 300);
+    Promise.resolve(work).then((v) => finish(resolve, v), (e) => finish(reject, e));
+  });
+}
+
+/** One reel tried, within its time limit; its outcome as [kept, why]. A failure only this reel
+ * has comes back as a reason; one the next reel would have too (Stop, a refused key, the
+ * provider's limit) is thrown, to end the batch. */
+async function tryWithin(ig, cfg, cand, options) {
+  try { return await bounded(tryReel(ig, cfg, cand, options), REEL_SECONDS); }
+  catch (e) {
+    if (e instanceof Stopped) throw e;
+    if (e instanceof Cancelled) throw new Stopped("Stopped.");
+    if (e.keyRejected || e.status === 429) throw new Stopped(e.message);
+    if (e instanceof TookTooLong) return [false, `took over ${REEL_SECONDS / 60} minutes`];
+    return [false, e.message || String(e)];
+  }
+}
+
+const tally = (kept, skipped) => `${kept} added, ${skipped} skipped`;
 
 // ---------------------------------------------------------------------------- what is remembered
 
@@ -363,12 +404,18 @@ async function tryReel(ig, cfg, known, { random = false } = {}) {
   if (p.seconds > MAX_SECONDS) return [false, "too long"];
   if (!p.src) return [false, NOT_OUTSIDE];
   let b64;
-  try { b64 = await fetchWholeB64(p.src); }
-  catch (e) { return [false, `the video couldn't be downloaded${e && e.message ? ` (${String(e.message).slice(0, 120)})` : ""}`]; }
+  try { b64 = await bounded(fetchWholeB64(p.src), DOWNLOAD_SECONDS); }
+  catch (e) {
+    if (e instanceof Stopped) throw e;
+    return [false, e instanceof TookTooLong ? "the video took too long to download"
+      : `the video couldn't be downloaded${e && e.message ? ` (${String(e.message).slice(0, 120)})` : ""}`];
+  }
   if (!b64) return [false, "the video came back empty from Instagram"];
   if (b64.length * 0.75 > MAX_UPLOAD_BYTES) return [false, "too large to send from the phone"];
   // The provider isn't told the language: it writes down what it hears and says which language that was.
-  const heard = parseTranscription(await postAudio(cfg, { b64, name: "reel.mp4", type: "video/mp4" }, { get cancelled() { return cancelled; } }));
+  // A "slow down" from the provider is shown, and only a short one is waited out (see PROVIDER_WAIT).
+  const heard = parseTranscription(await postAudio(cfg, { b64, name: "reel.mp4", type: "video/mp4" },
+    { get cancelled() { return cancelled; }, say: (message) => say(null, message), longestWait: PROVIDER_WAIT }));
   const words = heard.segments.reduce((n, s) => n + (s.words.length || s.text.split(/\s+/).filter(Boolean).length), 0);
   if (!words) return [false, "nothing is said in it"];
   const study = settings.study_language || "ar";
@@ -391,26 +438,25 @@ export function startSelected(codes) {
     const cfg = sttConfig(settings);
     const s = await load();
     let kept = 0;
-    for (let i = 0; i < list.length; i++) {
-      if (cancelled) throw new Stopped("Stopped.");
-      say("checking", `Listening to reel ${i + 1} of ${list.length}…`, { kept, checked: i + 1 });
-      const known = listed.posts.find((p) => p.code === list[i]) || { code: list[i] };
-      let ok = false;
-      let outcome;
-      try { [ok, outcome] = await tryReel(ig, cfg, known); }
-      catch (e) {
-        if (e instanceof Cancelled) throw new Stopped("Stopped.");
-        if (e.keyRejected || e.status === 429) throw new Stopped(e.message); // the next reel would fail the same way
-        outcome = e.message || String(e);
+    let i = 0;
+    try {
+      for (; i < list.length; i++) {
+        if (cancelled) throw new Stopped("Stopped.");
+        say("checking", `Reel ${i + 1} of the ${list.length} you ticked: listening… (${tally(kept, i - kept)} so far)`, { kept, checked: i + 1 });
+        const known = listed.posts.find((p) => p.code === list[i]) || { code: list[i] };
+        const [ok, outcome] = await tryWithin(ig, cfg, known);
+        note(known.user || "?", titleFor(known.caption || "", known.user || "?"), outcome, ok);
+        delete s.skipped[list[i]];
+        if (!ok) s.skipped[list[i]] = String(outcome).slice(0, 120);
+        keep();
+        if (ok) { kept++; say(null, null, { kept }); }
       }
-      note(known.user || "?", titleFor(known.caption || "", known.user || "?"), outcome, ok);
-      delete s.skipped[list[i]];
-      if (!ok) s.skipped[list[i]] = String(outcome).slice(0, 120);
-      keep();
-      if (ok) { kept++; say(null, null, { kept }); }
+    } catch (e) {
+      if (e instanceof Stopped) throw new Stopped(`${e.message} ${tally(kept, i - kept)}.`);
+      throw e;
     }
     const left = list.length - kept;
-    say("done", `${kept} of ${list.length} ready to watch.${left ? ` ${left} couldn't be used (see below).` : ""}`, { kept, checked: list.length });
+    say("done", `${tally(kept, left)}.${left ? " The list below says why each was skipped." : ""}`, { kept, checked: list.length });
   });
 }
 
@@ -459,7 +505,7 @@ export function startRandom(count) {
     let kept = 0;
     let checked = 0;
     while (kept < want && checked < want * TRIES_PER_REEL) {
-      if (cancelled) throw new Stopped(`Stopped. ${kept} kept.`);
+      if (cancelled) throw new Stopped(`Stopped. ${tally(kept, checked - kept)}.`);
       if (!pool.length) {
         if (searches >= Math.min(words.length, RANDOM_SEARCHES)) break;
         say("finding", `Looking for ${name} reels (${searches + 1})…`, { kept, checked });
@@ -474,14 +520,13 @@ export function startRandom(count) {
       const cand = pool.shift();
       if ((perCreator.get(cand.user) || 0) >= PER_CREATOR) continue;
       checked++;
-      say("checking", `Listening to reel ${checked} (kept ${kept} of ${want})…`, { kept, checked });
+      say("checking", `Getting ${want} ${name} reels: ${tally(kept, checked - 1 - kept)} so far; listening to the next one…`, { kept, checked });
       let ok = false;
       let outcome;
-      try { [ok, outcome] = await tryReel(ig, cfg, cand, { random: true }); }
+      try { [ok, outcome] = await tryWithin(ig, cfg, cand, { random: true }); }
       catch (e) {
-        if (e instanceof Cancelled) throw new Stopped(`Stopped. ${kept} kept.`);
-        if (e.keyRejected || e.status === 429) throw new Stopped(e.message); // the next reel would fail the same way
-        outcome = e.message || String(e);
+        if (e instanceof Stopped) throw new Stopped(`${e.message} ${tally(kept, checked - 1 - kept)}.`);
+        throw e;
       }
       note(cand.user || "?", titleFor(cand.caption || "", cand.user || "?"), outcome, ok);
       s.tried = [...s.tried, cand.code].slice(-TRIED_KEPT);
@@ -492,8 +537,8 @@ export function startRandom(count) {
         say(null, null, { kept });
       }
     }
-    say("done", kept ? `${kept} random ${name} reel${kept === 1 ? "" : "s"} ready to watch (${checked} listened to).`
-      : `No ${name} reels could be kept this time (${checked} listened to). Try again: the search words change each time.`, { kept, checked });
+    say("done", kept ? `${tally(kept, checked - kept)}: ${kept} random ${name} reel${kept === 1 ? "" : "s"} ready to watch.`
+      : `${tally(0, checked)}: no ${name} reels could be kept this time. Try again: the search words change each time.`, { kept, checked });
   });
 }
 
