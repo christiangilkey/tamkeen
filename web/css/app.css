@@ -858,18 +858,6 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 
 /* ---------- creature game: habitat on Home ---------- */
 .habitat { padding: 0; overflow: hidden; }
-/* Home's compact creature card (habitat({ compact: true })): a short strip of the scene that opens
-   the whole habitat, level and XP, three currencies, and the game's buttons in one scrolling row. */
-.habitat.compact .habitat-scene { height: 120px; overflow: hidden; cursor: pointer; }
-.habitat.compact .habitat-scene canvas { height: 120px; object-fit: cover; object-position: center 70%; }
-.habitat.compact .habitat-name { pointer-events: none; }
-.habitat.compact .hud-row + .hud-row { display: none; }
-.habitat.compact .hud-chips > :not(#g-streak):not(#g-coins):not(#g-gems):not(.hud-open) { display: none; }
-.habitat.compact .hud-open { margin-left: auto; text-decoration: none; }
-.habitat.compact .hud-actions { display: flex; overflow-x: auto; gap: 6px; scrollbar-width: none; }
-.habitat.compact .hud-actions::-webkit-scrollbar { display: none; }
-.habitat.compact .hud-actions button { flex: 0 0 auto; padding: 6px 14px; white-space: nowrap; }
-.habitat-page .back-link { display: inline-block; margin-bottom: 10px; }
 .habitat-scene { position: relative; background: #0d1b2a; }
 .habitat-scene canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; image-rendering: crisp-edges; cursor: pointer; }
 .habitat-name { position: absolute; left: 8px; top: 8px; background: rgba(0, 0, 0, .45); color: #fff; border: 0; border-radius: 99px; padding: 2px 10px; font-size: 12px; }

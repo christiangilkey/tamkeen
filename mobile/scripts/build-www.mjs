@@ -47,7 +47,6 @@ const SHARED = [
   "js/pages/chat.js",
   "js/updatenotice.js",
   "js/pages/home.js",
-  "js/pages/habitatpage.js",
   "js/progress.js",
   "js/pages/reader.js",
   "js/extract.js",

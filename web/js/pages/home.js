@@ -50,8 +50,7 @@ export async function render(view) {
     <div id="habitat"></div>
   </div>`));
   // The creature's habitat lives at the bottom of Home (unless the game is switched off in Settings).
-  // On Home it is a compact card; the whole habitat has its own page (#/habitat).
-  if (gameOn()) view.querySelector("#habitat").append(habitat({ compact: true }).el);
+  if (gameOn()) view.querySelector("#habitat").append(habitat().el);
   const main = view.querySelector("#main");
   const more = view.querySelector("#more");
 
