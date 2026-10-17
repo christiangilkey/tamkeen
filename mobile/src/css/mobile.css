@@ -39,8 +39,10 @@ body.in-player .tabbar { display: none; }
 .lib-bar .kind-row { flex-direction: row; overflow-x: auto; gap: 6px; padding: 0 0 2px; scrollbar-width: none; }
 .lib-bar .kind-row::-webkit-scrollbar { display: none; }
 .lib-bar .kind-row .feed-item { flex: none; flex-direction: row; width: auto; gap: 6px; padding: 6px 12px 6px 10px; border-radius: 99px; background: var(--surface-2); }
-.lib-bar .kind-row .feed-item.active { background: var(--accent); color: var(--accent-ink); }
+/* The chosen kind: a dark teal pill with a teal edge, so its white icon and label read as well as the others'. */
+.lib-bar .kind-row .feed-item.active { background: var(--accent-soft); color: var(--text); box-shadow: inset 0 0 0 1.5px var(--accent); }
 .lib-bar .kind-row .feed-item .ph.all { width: 20px; height: 20px; background: transparent; color: inherit; }
+.lib-bar .kind-row .feed-item .ph.all svg { width: 20px; height: 20px; }
 .lib-bar .kind-row .feed-item .t { font-size: 13px; font-weight: 600; white-space: nowrap; -webkit-line-clamp: 1; }
 /* The status pills get the whole width; "Filter by title" has its own line under them. */
 .lib-bar .filter-row { flex-wrap: wrap; gap: 0 8px; }
