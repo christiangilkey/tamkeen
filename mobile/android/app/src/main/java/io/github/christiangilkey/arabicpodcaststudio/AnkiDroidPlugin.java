@@ -511,6 +511,58 @@ public class AnkiDroidPlugin extends Plugin {
     }
 
     /**
+     * Move a note's cards from one Tamkeen deck to another (made if missing), keeping their review
+     * history: { moved, skipped }. Only cards sitting in the `deck` it comes from are moved; a card
+     * on loan to a filtered deck stays there. Refused when the note is not in `deck`.
+     */
+    @PluginMethod
+    public void moveNote(PluginCall call) {
+        guarded(call, () -> {
+            String deck = call.getString("deck", "");
+            String to = call.getString("to", "");
+            long id = call.getLong("id", 0L);
+            JSObject out = new JSObject();
+            if (to.trim().isEmpty() || !noteInDeck(deck, id)) {
+                out.put("moved", false);
+                out.put("refused", true);
+                call.resolve(out);
+                return;
+            }
+            long target = -1;
+            try (Cursor c = resolver().query(DECKS, new String[] { "deck_id", "deck_name" }, null, null, null)) {
+                while (c != null && c.moveToNext()) {
+                    if (c.getString(1).equalsIgnoreCase(to)) target = c.getLong(0);
+                }
+            }
+            if (target < 0) {
+                ContentValues values = new ContentValues();
+                values.put("deck_name", to);
+                Uri made = resolver().insert(DECKS, values);
+                if (made == null) throw new Exception("the deck could not be made");
+                target = Long.parseLong(made.getLastPathSegment());
+            }
+            Set<Long> from = deckIds(deck, null);
+            Uri cards = Uri.withAppendedPath(Uri.withAppendedPath(NOTES, Long.toString(id)), "cards");
+            int moved = 0, skipped = 0;
+            try (Cursor c = resolver().query(cards, new String[] { "ord", "deck_id" }, null, null, null)) {
+                while (c != null && c.moveToNext()) {
+                    if (!from.contains(c.getLong(1))) {
+                        skipped++;
+                        continue;
+                    }
+                    ContentValues move = new ContentValues();
+                    move.put("deck_id", target);
+                    resolver().update(Uri.withAppendedPath(cards, Integer.toString(c.getInt(0))), move, null, null);
+                    moved++;
+                }
+            }
+            out.put("moved", moved > 0);
+            out.put("skipped", skipped);
+            call.resolve(out);
+        });
+    }
+
+    /**
      * Delete a note of the deck, with its cards and their review history. { deleted }
      * Refused when the note is not in the deck, or when any of its cards sits in another deck.
      */

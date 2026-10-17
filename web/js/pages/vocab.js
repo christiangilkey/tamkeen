@@ -3,7 +3,7 @@
 // a word was added or last changed.
 
 import { api, esc, h, toast, download, fmtDate, audioUrl, showMenu, shareClip, clipUrl, platform } from "../app.js";
-import { ANKI_SETTINGS, ankiProgressLine, ankiSettingsLabel, confirmDelete, loadAnkiProgress } from "../components/ankisync.js";
+import { ANKI_SETTINGS, MOVE_LABEL, ankiProgressLine, ankiSettingsLabel, confirmDelete, loadAnkiProgress, moveToLanguageDecks } from "../components/ankisync.js";
 import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
@@ -651,6 +651,7 @@ export async function render(view) {
       { label: "Export CSV", icon: icon("page", 16), run: () => download(exportUrl("csv"), "tamkeen-vocab.csv") },
       { label: "Export for Anki", icon: icon("send", 16), run: exportAnki },
       { label: ankiSettingsLabel(), icon: icon("settings", 16), run: () => { location.hash = ANKI_SETTINGS; } },  // Settings, at its Anki part
+      { label: MOVE_LABEL, icon: icon("folder", 16), run: moveToLanguageDecks },
     ]);
   };
   $("#add-cancel").onclick = () => { $("#add").reset(); $("#add").hidden = true; };

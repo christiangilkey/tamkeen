@@ -763,6 +763,8 @@ const routes = [
   ["POST", /^\/anki\/sync\/resolve$/, (m, q, body) => anki.resolve(body.what, body.choice)],
   ["POST", /^\/anki\/sync\/run$/, (m, q, body) => anki.run({ ask: body.ask === true })],
   ["GET", /^\/anki\/progress$/, () => anki.progress()],
+  ["GET", /^\/anki\/move$/, () => anki.moveInfo()],
+  ["POST", /^\/anki\/move$/, () => anki.moveCards()],
   ["GET", /^\/anki\/linked\/([\w]+)$/, async (m) => ({ linked: await anki.linked(m[1]) })],
 ];
 

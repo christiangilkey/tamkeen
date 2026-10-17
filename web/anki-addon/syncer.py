@@ -223,6 +223,24 @@ def apply(col, actions: dict, notetype: dict | None, media, allowed: set) -> dic
         except Exception:
             done["failed"] += 1
 
+    # Cards moved to their language's deck, when the learner asked (each card keeps its review history).
+    # A card on loan to a filtered deck is left there: Anki puts it back where it came from later.
+    for item in actions.get("move") or []:
+        if item["note"] not in allowed:
+            done["refused"] += 1
+            continue
+        try:
+            cards = col.db.list("select id from cards where nid = ? and odid = 0", item["note"])
+            if not cards:
+                done["move_skipped"] = done.get("move_skipped", 0) + 1
+                continue
+            col.set_deck(cards, col.decks.id(str(item["deck"])))
+            done["moved"] = done.get("moved", 0) + 1
+        except Exception:
+            done["failed"] += 1
+    if actions.get("move"):
+        done.setdefault("moved", 0)  # tells Tamkeen the move it asked for was carried out
+
     removable = [int(n) for n in actions.get("delete") or [] if n in allowed]
     done["refused"] += len(actions.get("delete") or []) - len(removable)
     if removable:
@@ -269,5 +287,5 @@ def carry_out(col, reply: dict, files: dict, ids: set) -> tuple[dict, bool]:
     """Make the changes in Tamkeen's answer. Returns what was done, and whether another round is
     needed (to confirm the changes to Tamkeen, or to fetch the next batch of new cards)."""
     done = apply(col, reply.get("actions") or {}, reply.get("notetype"), files.get, ids)
-    touched = bool(done["added"] or done["changed"] or done["removed"] or done["tagged"])
+    touched = bool(done["added"] or done["changed"] or done["removed"] or done["tagged"] or "moved" in done)
     return done, touched or bool(reply.get("more"))

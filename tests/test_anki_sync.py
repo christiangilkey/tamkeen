@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 from typing import Any
 
-from app import anki_sync, exporters
+from app import anki_sync, arabic, exporters
 
 FIXTURE = Path(__file__).resolve().parent / "fixtures" / "anki_sync_parity.json"
 NOW = 1_800_000_000.0
@@ -158,6 +158,21 @@ DECK_CASES = [({}, ["ar", "es"]), ({"ar": "Tamkeen"}, ["ar", "es", "fr"]), ({"ar
               ({"ar": "Tamkeen", "es": "tamkeen"}, []), ({"ar": "Tamkeen", "es": "Tamkeen::Spanish"}, []),
               ({"ar": "Arabic::Tamkeen", "es": "Spanish"}, ["zz"])]
 FIRST_DECKS = [("Tamkeen", {"ar": 40, "es": 3}), ("My deck", {"es": 2, "ar": 2}), ("", {"fr": 1}), ("Tamkeen", {})]
+MISPLACED = ([word(A, language="ar"), word(B, "gato", "cat", language="es"), word(C, "perro", "dog", language="es", deleted=1)],
+             [{"id": 10, "language": "ar"}, {"id": 11, "language": "ar"}, {"id": 12, "language": "ar"}],
+             {A: {"note": 10}, B: {"note": 11}, C: {"note": 12}})
+HIDE = [("to raise your voice (Egyptian dialect: 'تعلّي' = to make a fuss)", "تعلّى"), ("book", "كتاب"),
+        ("كِتَاب = book", "كتاب"), ("book (كتاب), volume", "كتاب"), ("cat (gato)", "gato"), ("animal", "animal"),
+        ("“gato”, cat", "gato"), ("كتاب", "كتاب"), ("to eat (食べる, たべる)", "食べる"), ("house (дом); home", "дом"),
+        ("peace (שלום) / hello", "שלום"), ("the cat = el Gato, a pet", "gato"), ("ein „Haus“, house", "Haus"),
+        ("a, ; / b", "x"), ("", "كتاب"), ("water (الماء) ,, drink", "ماء")]
+FRONTS = [{"text": "قلم", "meaning": "pen (قلم)", "sentence": "هذا قلم", "translation": ""},
+          {"text": "قلم", "meaning": "", "sentence": "هذا قلم جديد", "translation": ""},
+          {"text": "قلم", "meaning": "", "sentence": "", "translation": "This is a new pen."},
+          {"text": "قلم", "meaning": "", "sentence": "", "translation": "This قلم is new."},
+          {"text": "قلم", "meaning": "قلم", "sentence": "", "translation": ""},
+          {"text": "gato", "meaning": "", "sentence": "", "translation": "The gato is here."},
+          {"text": "قلم", "meaning": "pen", "sentence": "", "translation": "This is a ⟦pen⟧."}]
 GUIDS = ["Hx7$a", "b", "", "tk-v123", "ß→字", "NBpR,!w~8("]
 PROGRESS = [(0, 0, 5, 0, 0, 0), (2, 2, -3, 40, 12, 3), (2, -1, 4, 40, 12, 3), (1, 1, 0, 0, 2, 0), (3, 3, 1, 9, 20, 5),
             (2, 2, 7, 21, 10, 1, 8, 2, "1111011111"), (2, 2, 7, 21, 1, 4)]
@@ -176,6 +191,9 @@ def fixture() -> dict[str, Any]:
     made["decks"] = [[stored, codes, anki_sync.deck_map(stored, codes, NAMES), anki_sync.deck_problem(anki_sync.deck_map(stored, codes, NAMES))]
                      for stored, codes in DECK_CASES]
     made["firstDecks"] = [[old, counts, anki_sync.first_decks(old, counts)] for old, counts in FIRST_DECKS]
+    made["hide"] = [[text, w, exporters.hide_answer(text, w)] for text, w in HIDE]
+    made["misplaced"] = [[MISPLACED, anki_sync.misplaced_cards(*MISPLACED)]]
+    made["fronts"] = [[v, exporters.anki_front(v)] for v in FRONTS]
     return json.loads(json.dumps(made, ensure_ascii=False))
 
 
@@ -485,3 +503,22 @@ def test_deck_names():
     assert anki_sync.deck_problem({"ar": "Tamkeen", "es": "tamkeen"}).startswith("Two languages")
     assert "one inside the other" in anki_sync.deck_problem({"ar": "Tamkeen", "es": "Tamkeen::Spanish"})
     assert anki_sync.deck_problem({"ar": "Tamkeen", "es": "Tamkeen – Spanish"}) == ""
+
+
+def test_card_fronts_never_show_the_word():
+    for v in FRONTS:
+        front = exporters.anki_front(v)
+        assert front and not arabic.find_spans(front, v["text"]), (v, front)  # the word itself is not on it
+    assert exporters.anki_front(FRONTS[0]) == "pen"
+    assert exporters.anki_front(FRONTS[1]) == "هذا … جديد", "no meaning: the sentence with a gap"
+    assert exporters.anki_front(FRONTS[4]) == "…"
+
+
+def test_a_front_that_is_only_the_word_is_not_taken_for_a_meaning():
+    w = word(A, "قلم", "")
+    plan = run([w], [own(10, w, front="قلم", mod=6000)], {A: link(10, w, af="old")})
+    assert plan["tamkeen"]["update"] == [], "the word itself is never stored as its meaning"
+
+
+def test_cards_in_another_languages_deck_are_found_for_moving():
+    assert anki_sync.misplaced_cards(*MISPLACED) == [{"note": 11, "uid": B, "from": "ar", "to": "es"}]

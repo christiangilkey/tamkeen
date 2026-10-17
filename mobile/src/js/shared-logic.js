@@ -125,7 +125,73 @@ export function ankiFront(v) {
   if (MARKED.test(translation)) {
     return escHtml(translation.replace(/\[/g, "(").replace(/\]/g, ")")).replace(/⟦/g, "[").replace(/⟧/g, "]");
   }
-  return escHtml(v.meaning || "") || escHtml(v.text);
+  const text = v.text || "";
+  const meaning = hideAnswer(v.meaning || "", text);
+  if (meaning) return escHtml(meaning);
+  const said = translation.replace(/[⟦⟧]/g, "").trim();
+  if (said && !givesAway(said, text)) return escHtml(said);
+  const spans = text ? findSpans(v.sentence || "", text) : [];
+  if (spans.length) {
+    const [a, b] = spans[0];
+    return escHtml(`${v.sentence.slice(0, a)}…${v.sentence.slice(b)}`.trim());
+  }
+  return "…";
+}
+
+// ----- keeping the word off the front (hide_answer in app/exporters.py: the same letter ranges) -----
+const SCRIPT_LETTERS = {
+  Arabic: "؀-؋؍-ؚ؜-؞ؠ-ۿݐ-ݿࢠ-ࣿﭐ-﷿ﹰ-﻿",
+  Han: "々㐀-䶿一-鿿豈-﫿",
+  Hiragana: "぀-ゟ",
+  Katakana: "゠-ヿㇰ-ㇿ",
+  Cyrillic: "Ѐ-ԯ",
+  Hebrew: "֐-׿",
+  Greek: "Ͱ-Ͽἀ-῿",
+  Hangul: "ᄀ-ᇿ㄰-㆏가-힯",
+  Thai: "฀-๿",
+  Devanagari: "ऀ-ॿ",
+};
+const JAPANESE = ["Han", "Hiragana", "Katakana"];
+const MARKS = "̀-ͯ҃-҉֑-ׇؐ-ًؚ-ٰٟۖ-ۜ۟-ۤۧۨ"
+  + "۪-ۭ࣓-ࣿऀ-ःऺ-ॏ॑-ॗॢॣัิ-ฺ็-๎゙゚";
+const QUOTES = `"'‘’“”«»「」『』`;
+
+function answerPattern(word) {
+  let used = Object.keys(SCRIPT_LETTERS).filter((name) => new RegExp(`[${SCRIPT_LETTERS[name]}]`, "u").test(word));
+  if (used.some((name) => JAPANESE.includes(name))) used = Object.keys(SCRIPT_LETTERS).filter((name) => used.includes(name) || JAPANESE.includes(name));
+  if (used.length) {
+    const letter = `[${used.map((name) => SCRIPT_LETTERS[name]).join("")}]`;
+    return { script: true, re: new RegExp(`${letter}(?:[${MARKS}ـ‌-‏\\s'’-]*${letter})*[${MARKS}]*`, "gu") };
+  }
+  const exact = word.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return exact ? { script: false, re: new RegExp(`(?<![\\p{L}\\p{N}_])${exact}(?![\\p{L}\\p{N}_])`, "giu") } : null;
+}
+
+/** `text` (a meaning) without anything that gives `word` away: the same as hide_answer in app/exporters.py. */
+export function hideAnswer(text, word) {
+  const original = String(text || "").trim();
+  const found = answerPattern(String(word || ""));
+  const has = (s) => { found.re.lastIndex = 0; return found.re.test(s); };
+  if (!found || !has(original)) return original;
+  let out = original;
+  for (let i = 0; i < 2; i++) out = out.replace(/\s*[(\[（][^()\[\]（）]*[)\]）]/gu, (aside) => (has(aside) ? "" : aside));
+  const quoted = new RegExp(`\\s*[${QUOTES}]([^${QUOTES}]{1,60})[${QUOTES}]`, "gu");
+  out = out.replace(quoted, (all, inner) => (has(inner) && !/[\p{L}\p{N}]/u.test(inner.replace(found.re, "")) ? "" : all));
+  if (found.script) out = out.replace(found.re, "");
+  out = out.replace(/[(\[（]\s*[)\]）]/gu, "")             // brackets left empty
+    .replace(/([,;/(（]|^)\s*[=:→]\s*/gu, "$1 ")            // "= ..." with nothing before the sign
+    .replace(/\s*[=:→]\s*(?=[,;/)）]|$)/gu, "")              // "... =" with nothing after it
+    .replace(/\s*([,;/])(?:\s*[,;/])+/gu, "$1")              // separators left side by side
+    .replace(/\s+([,;.)）])/gu, "$1").replace(/\s{2,}/gu, " ");
+  return out.replace(/^[\s,;/=:–-]+|[\s,;/=:–-]+$/gu, "");
+}
+
+/** Whether `text` shows `word` (as hideAnswer would find it). */
+export function givesAway(text, word) {
+  const found = answerPattern(String(word || ""));
+  if (!found) return false;
+  found.re.lastIndex = 0;
+  return found.re.test(String(text || ""));
 }
 
 /** [Front, Back] for one saved word. */

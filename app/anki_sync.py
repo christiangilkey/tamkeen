@@ -51,7 +51,7 @@ import re
 from collections.abc import Callable, Iterable, Mapping, Sequence
 from typing import Any
 
-from . import arabic
+from . import arabic, exporters
 
 TAG = "tamkeen"                        # on every card Tamkeen makes (exporters.ANKI_TAG)
 ID_TAG = "tamkeen-id::"                # + the word's uid
@@ -156,6 +156,21 @@ def deck_problem(decks: Mapping[str, str]) -> str:
     return ""
 
 
+def misplaced_cards(words: Sequence[Mapping[str, Any]], notes: Sequence[Mapping[str, Any]],
+                    links: Mapping[str, Mapping[str, Any]]) -> list[dict[str, Any]]:
+    """Cards that sit in another language's deck than their word's (from before each language had
+    its deck): [{note, uid, from, to}], language codes. Only the learner's "Move Anki cards to their
+    language's deck" moves them; a sync never does."""
+    by_uid = {w["uid"]: w for w in words}
+    deck_language = {n["id"]: n.get("language") for n in notes}
+    out = []
+    for uid, link in sorted(links.items()):
+        word, here = by_uid.get(uid), deck_language.get(link.get("note"))
+        if word and not word.get("deleted") and here and word.get("language") and word["language"] != here:
+            out.append({"note": link["note"], "uid": uid, "from": here, "to": word["language"]})
+    return out
+
+
 # ----- reading a card back -----
 
 def _entity(match: re.Match[str]) -> str:
@@ -245,7 +260,10 @@ def _pull(word: Mapping[str, Any], old: Mapping[str, Any], new: Mapping[str, Any
           has_base: bool) -> dict[str, str]:
     """What an edit made in Anki changes in the word: only the parts that differ from ``old``."""
     out: dict[str, str] = {}
-    if front and new["front"] != old["front"] and new["front"]:
+    # A front that is only the word itself, or the "…" a card without a meaning shows, is not a
+    # meaning to keep (fronts never show the word now: exporters.hide_answer).
+    stand_in = new["front"] == "…" or not exporters.hide_answer(new["front"], str(word.get("text") or ""))
+    if front and new["front"] != old["front"] and new["front"] and not (stand_in and not new["translation"]):
         if new["translation"]:
             out["translation"] = new["translation"]
         elif not _MARKED.fullmatch(word.get("translation") or ""):

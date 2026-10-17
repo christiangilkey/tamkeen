@@ -53,7 +53,7 @@ def test_typed_notes_stay_notes():
 
 def test_word_without_meaning_or_sentence_still_makes_a_card():
     front, back = exporters.anki_fields({"uid": "v2", "text": "كتاب", "sentence": "", "meaning": "", "notes": ""})
-    assert (front, back) == ("كتاب", "<b>كتاب</b>")
+    assert (front, back) == ("…", "<b>كتاب</b>"), "the front never shows the word itself"
 
 
 def test_text_export_names_each_word_once():

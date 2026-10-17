@@ -90,6 +90,17 @@ function fakeDroid({ installed = true, permission = "granted", old = false } = {
       notes.delete(id);
       return { deleted: true };
     },
+    async moveNote({ deck, id, to }) {
+      calls.push(["moveNote", id]);
+      const n = notes.get(id);
+      if (!droid.inDeck(deck).includes(n)) return { moved: false, refused: true };
+      let d = decks.find((x) => x.name.toLowerCase() === to.toLowerCase());
+      if (!d) decks.push(d = { id: 100 + decks.length, name: to });
+      const from = new Set(decks.filter((x) => x.name === deck || x.name.startsWith(`${deck}::`)).map((x) => x.id));
+      let moved = 0;
+      for (const c of n.cards) if (from.has(c.deck)) { c.deck = d.id; moved++; }
+      return { moved: moved > 0, skipped: n.cards.length - moved };
+    },
     async addMedia({ name, data }) { media.push([name, data.length]); return { name: name.replace(/(\.\w+)$/, "_77$1") }; },
   };
   return droid;
@@ -386,4 +397,28 @@ test("a new learner's decks are named after their languages", async () => {
   const w = world();
   const st = await w.sync.status();   // asked before any word is saved
   assert.equal(st.deck, "Tamkeen – Arabic");
+});
+
+test("cards in another language's deck move to their own when asked, keeping their history", async () => {
+  const w = world();
+  w.save("كتاب", "book");
+  const gato = w.save("gato", "cat", { language: "es" });
+  const [front, back] = ankiFields(gato);
+  const old = w.droid.make("Tamkeen", { Front: front, Back: back }, { guid: `tk-${gato.uid}`, tags: ["tamkeen", `tamkeen-id::${gato.uid}`] });
+  Object.assign(old.cards[0], { type: 2, queue: 2, interval: 9, reps: 5, lapses: 1 });
+  await w.sync.run();
+  assert.equal(w.droid.inDeck("Tamkeen").length, 2, "a sync alone moves nothing");
+  let info = await w.sync.moveInfo();
+  assert.equal(info.count, 1);
+  assert.deepEqual(info.moves, { "Tamkeen – Spanish": 1 });
+  const done = await w.sync.moveCards();
+  assert.equal(done.moved, 1);
+  assert.deepEqual(w.droid.inDeck("Tamkeen – Spanish").map((n) => n.id), [old.id], "the same card, not a new one");
+  assert.deepEqual([old.cards[0].reps, old.cards[0].interval], [5, 9], "its review history stays with it");
+  info = await w.sync.moveInfo();
+  assert.equal(info.count, 0);
+  assert.equal((await w.sync.moveCards()).moved, 0, "asked twice: nothing more to do");
+  await w.sync.run();
+  assert.equal(w.droid.calls.filter(([c]) => c === "addNote").length, 1, "the moved card is not made again");
+  w.untouched();
 });

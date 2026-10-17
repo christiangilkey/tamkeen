@@ -1535,7 +1535,7 @@
     "links": {
      "vd7c4430f08f7f82c26ec": {
       "note": 30,
-      "tf": "قلم",
+      "tf": "…",
       "tb": "<b>قلم</b>",
       "af": "قلم",
       "ab": ""
@@ -5165,6 +5165,230 @@
    "Tamkeen",
    {},
    {}
+  ]
+ ],
+ "hide": [
+  [
+   "to raise your voice (Egyptian dialect: 'تعلّي' = to make a fuss)",
+   "تعلّى",
+   "to raise your voice"
+  ],
+  [
+   "book",
+   "كتاب",
+   "book"
+  ],
+  [
+   "كِتَاب = book",
+   "كتاب",
+   "book"
+  ],
+  [
+   "book (كتاب), volume",
+   "كتاب",
+   "book, volume"
+  ],
+  [
+   "cat (gato)",
+   "gato",
+   "cat"
+  ],
+  [
+   "animal",
+   "animal",
+   "animal"
+  ],
+  [
+   "“gato”, cat",
+   "gato",
+   "cat"
+  ],
+  [
+   "كتاب",
+   "كتاب",
+   ""
+  ],
+  [
+   "to eat (食べる, たべる)",
+   "食べる",
+   "to eat"
+  ],
+  [
+   "house (дом); home",
+   "дом",
+   "house; home"
+  ],
+  [
+   "peace (שלום) / hello",
+   "שלום",
+   "peace / hello"
+  ],
+  [
+   "the cat = el Gato, a pet",
+   "gato",
+   "the cat = el Gato, a pet"
+  ],
+  [
+   "ein „Haus“, house",
+   "Haus",
+   "ein „Haus“, house"
+  ],
+  [
+   "a, ; / b",
+   "x",
+   "a, ; / b"
+  ],
+  [
+   "",
+   "كتاب",
+   ""
+  ],
+  [
+   "water (الماء) ,, drink",
+   "ماء",
+   "water, drink"
+  ]
+ ],
+ "misplaced": [
+  [
+   [
+    [
+     {
+      "uid": "vaaaaaaaaaaaaaaaaaaaa",
+      "text": "كتاب",
+      "meaning": "book",
+      "notes": "",
+      "translation": "",
+      "sentence": "",
+      "deleted": 0,
+      "created_at": 1000.0,
+      "updated_at": 2000.0,
+      "language": "ar"
+     },
+     {
+      "uid": "vbbbbbbbbbbbbbbbbbbbb",
+      "text": "gato",
+      "meaning": "cat",
+      "notes": "",
+      "translation": "",
+      "sentence": "",
+      "deleted": 0,
+      "created_at": 1000.0,
+      "updated_at": 2000.0,
+      "language": "es"
+     },
+     {
+      "uid": "vcccccccccccccccccccc",
+      "text": "perro",
+      "meaning": "dog",
+      "notes": "",
+      "translation": "",
+      "sentence": "",
+      "deleted": 1,
+      "created_at": 1000.0,
+      "updated_at": 2000.0,
+      "language": "es"
+     }
+    ],
+    [
+     {
+      "id": 10,
+      "language": "ar"
+     },
+     {
+      "id": 11,
+      "language": "ar"
+     },
+     {
+      "id": 12,
+      "language": "ar"
+     }
+    ],
+    {
+     "vaaaaaaaaaaaaaaaaaaaa": {
+      "note": 10
+     },
+     "vbbbbbbbbbbbbbbbbbbbb": {
+      "note": 11
+     },
+     "vcccccccccccccccccccc": {
+      "note": 12
+     }
+    }
+   ],
+   [
+    {
+     "note": 11,
+     "uid": "vbbbbbbbbbbbbbbbbbbbb",
+     "from": "ar",
+     "to": "es"
+    }
+   ]
+  ]
+ ],
+ "fronts": [
+  [
+   {
+    "text": "قلم",
+    "meaning": "pen (قلم)",
+    "sentence": "هذا قلم",
+    "translation": ""
+   },
+   "pen"
+  ],
+  [
+   {
+    "text": "قلم",
+    "meaning": "",
+    "sentence": "هذا قلم جديد",
+    "translation": ""
+   },
+   "هذا … جديد"
+  ],
+  [
+   {
+    "text": "قلم",
+    "meaning": "",
+    "sentence": "",
+    "translation": "This is a new pen."
+   },
+   "This is a new pen."
+  ],
+  [
+   {
+    "text": "قلم",
+    "meaning": "",
+    "sentence": "",
+    "translation": "This قلم is new."
+   },
+   "…"
+  ],
+  [
+   {
+    "text": "قلم",
+    "meaning": "قلم",
+    "sentence": "",
+    "translation": ""
+   },
+   "…"
+  ],
+  [
+   {
+    "text": "gato",
+    "meaning": "",
+    "sentence": "",
+    "translation": "The gato is here."
+   },
+   "…"
+  ],
+  [
+   {
+    "text": "قلم",
+    "meaning": "pen",
+    "sentence": "",
+    "translation": "This is a ⟦pen⟧."
+   },
+   "This is a [pen]."
   ]
  ]
 }

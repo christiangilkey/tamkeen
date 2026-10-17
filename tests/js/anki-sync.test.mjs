@@ -6,7 +6,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import * as sync from "../../mobile/src/js/anki-sync.js";
-import { ankiFields } from "../../mobile/src/js/shared-logic.js";
+import { ankiFields, ankiFront, hideAnswer } from "../../mobile/src/js/shared-logic.js";
+import { hideAnswer as reviewerHides } from "../../web/js/review/deck.js";
 
 const py = JSON.parse(readFileSync(new URL("../fixtures/anki_sync_parity.json", import.meta.url), "utf8"));
 const plain = (x) => JSON.parse(JSON.stringify(x));
@@ -59,4 +60,16 @@ test("deck names per language match Python", () => {
     assert.equal(sync.deckProblem(map), problem);
   }
   for (const [old, counts, first] of py.firstDecks) assert.deepEqual(sync.firstDecks(old, counts), first);
+});
+
+test("card fronts keep the word off, the same as Python and as the reviewer", () => {
+  for (const [text, word, expected] of py.hide) {
+    assert.equal(hideAnswer(text, word), expected, `${text} / ${word}`);
+    assert.equal(reviewerHides(text, word), expected, `the reviewer's own rule: ${text} / ${word}`);
+  }
+  for (const [v, front] of py.fronts) assert.equal(ankiFront(v), front, JSON.stringify(v));
+});
+
+test("cards in another language's deck are found as in Python", () => {
+  for (const [[words, notes, links], expected] of py.misplaced) assert.deepEqual(sync.misplacedCards(words, notes, links), expected);
 });

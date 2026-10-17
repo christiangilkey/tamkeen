@@ -606,3 +606,39 @@ def test_export_for_anki_uses_each_words_language_deck(world):
     decks = json.loads(conn.execute("select decks from col").fetchone()[0])
     conn.close()
     assert DECK in [d["name"] for d in decks.values()], "the same deck the sync uses"
+
+
+def test_cards_move_to_their_languages_deck_when_asked_keeping_their_history(world):
+    from app import db
+
+    db.set_settings({"anki_decks": None, "anki_deck": "Tamkeen"})   # a learner from before each language had a deck
+    arabic = world.save("كتاب", "book")
+    gato = world.save("gato", "cat")
+    with db.session() as conn:
+        conn.execute("UPDATE vocab SET language = 'es' WHERE uid = ?", (gato["uid"],))
+    for v in (arabic, gato):
+        n = world.col.new_note(world.col.models.by_name("Basic"))
+        n["Front"], n["Back"], n.guid = v["meaning"], v["text"], f"tk-{v['uid']}"
+        world.col.add_note(n, world.col.decks.id("Tamkeen"))
+    world.sync()
+    assert world.col.decks.id_for_name("Tamkeen – Spanish") is None, "a sync alone moves nothing"
+    info = world.client.get("/api/anki/move").json()
+    assert info["count"] == 1 and info["moves"] == {"Tamkeen – Spanish": 1}
+    note_id = world.col.db.scalar("select id from notes where guid = ?", f"tk-{gato['uid']}")
+    card = world.col.get_card(world.col.find_cards(f"nid:{note_id}")[0])
+    card.start_timer()
+    world.col.sched.answerCard(card, 3)   # reviewed once: the history must go along
+    history = world.col.db.all("select id, ease from revlog where cid = ?", card.id)
+    assert world.client.post("/api/anki/move").json()["pending"] is True
+    world.sync()
+    moved = [world.col.get_note(i) for i in world.col.find_notes('"deck:Tamkeen – Spanish"')]
+    assert [n.guid for n in moved] == [f"tk-{gato['uid']}"]
+    assert world.col.db.all("select id, ease from revlog where cid = ?", card.id) == history
+    assert [n.guid for n in world.notes("Tamkeen")] == [f"tk-{arabic['uid']}"]
+    info = world.client.get("/api/anki/move").json()
+    assert info["count"] == 0 and info["pending"] is False and info["last"]["moved"] == 1
+    world.client.post("/api/anki/move")   # asked twice: nothing more to do, nothing breaks
+    world.sync()
+    info = world.client.get("/api/anki/move").json()
+    assert info["pending"] is False and info["last"]["moved"] == 0
+    assert len(world.notes("Tamkeen – Spanish")) == 1 and len(world.notes("Tamkeen")) == 1

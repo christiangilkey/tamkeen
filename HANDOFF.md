@@ -1283,6 +1283,31 @@ exported to Anki in the .apkg; "as fun to use as possible, visually interesting,
   seven cards, then "Today's cards cleared! +20 glow". The both-bonus was only unit-tested (battles need 100 words).
 
 ### Two-way Anki sync, computer and phone (2026-10-12, "two-way Anki sync" chat; committed on main as be04d5f; released in v0.15.0)
+- **Card fronts never show the word; cards move to their language's deck (2026-10-17, owner's answers relayed by
+  the main chat; committed locally on main, NOT pushed)**.
+  - **Fronts**: a word without a marked translation used to show its meaning as is (sometimes naming the word:
+    "… (Egyptian dialect: 'تعلّي' = …)"), or the word itself when it had no meaning. Now `exporters.anki_front` /
+    `shared-logic.js ankiFront` clean the meaning with the reviewer's rule (`hide_answer` / `hideAnswer`, the same
+    letter ranges on both sides; a JS test checks both agree with `web/js/review/deck.js hideAnswer` on 16 samples),
+    and with nothing left show the unmarked translation if it does not show the word, else the sentence with "…"
+    for the word, else "…". Existing cards get the cleaned Front through the ordinary sync (the word's rendering
+    changed, the card did not, so Tamkeen's side wins; only the Front field is rewritten, review history stays).
+    Both sides compute the same front, so they do not fight. Guard: a Front from Anki that is only the word, or
+    "…", is never taken as a meaning (`anki_sync._pull`). **Update every device before it syncs**: an older
+    version still renders the old front and would take the cleaned one coming back from Anki as an edit to the
+    meaning. Fixtures: `parity.json` (only v3's front changed, by a script, not a full rewrite) and
+    `fsrs_parity.json` (`python -m tests.test_fsrs`).
+  - **Move**: Vocab page ⋯ menu → "Move Anki cards to their language's deck" (`moveToLanguageDecks` in
+    `components/ankisync.js`, a `modal.js` box: says how many and to which decks, then moves). Rule:
+    `misplaced_cards` / `misplacedCards` (a linked card whose deck's language differs from its word's).
+    Computer: `GET/POST /api/anki/move`; the request is kept in `anki_sync_state.move` and the add-on moves the
+    cards at its next sync (`syncer.apply` "move": `col.set_deck`, keeps the history; cards on loan to a filtered
+    deck stay), reports `moved` back, and Settings shows the result (`last_move`). Phone: the same routes in
+    `backend.js` move at once through a new plugin method `AnkiDroidPlugin.moveNote` (updates each card's deck;
+    **not compiled yet**, first compile is the next CI run). Running it again moves only what is still misplaced.
+  - Tests: front rule (Python, phone, reviewer agree), the pull guard, `misplaced` parity, an end-to-end move in a
+    real collection (history kept, safe twice), a phone move test. Also run by hand: the app on a port, the box from
+    the ⋯ menu, the stand-in Anki moving the card at its next sync. 380 pytest (with the anki library), 410 JS.
 - **A deck per language (2026-10-15, at the owner's choice, asked for by the main chat after 8996ff3; committed
   locally on main, NOT pushed)**: "A separate Anki deck per language (e.g. 'Tamkeen – Arabic'), instead of one deck
   for everything." Each language's words get their own deck, default name `Tamkeen – <English name>`, renamable per

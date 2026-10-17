@@ -18,7 +18,7 @@
 //     AnkiDroid 2.24 on; older versions report none. Single answers cannot be read on any
 //     version, so "right" and "wrong" are worked out from the counts.
 
-import { deckMap, deckProblem, defaultDeck, firstDecks, noteUid, plan, progressRecord } from "./anki-sync.js";
+import { deckMap, deckProblem, defaultDeck, firstDecks, misplacedCards, noteUid, plan, progressRecord } from "./anki-sync.js";
 import { ankiFields } from "./shared-logic.js";
 import { clipRanges, cutClips } from "./anki-export.js";
 
@@ -342,6 +342,7 @@ export function createAnkiSync(env) {
       linked: state.linked || 0, profile: "", other: null, held: named(state.held), missing: named(state.missing),
       moved: (state.moved || []).length, duplicates: state.duplicates || 0, skipped: state.skipped || 0,
       phone: true, busy, problem: state.problem || "", schedules: state.schedules !== false, failed: state.failed || 0,
+      last_move: state.last_move || null, move_pending: false,
     };
   }
 
@@ -384,8 +385,63 @@ export function createAnkiSync(env) {
     return status();
   }
 
+  // ----- "Move Anki cards to their language's deck" (the Vocab page's ⋯ menu) -----
+
+  /** The cards that sit in another language's deck than their word's, read from AnkiDroid now. */
+  async function misplaced() {
+    const rec = await data(), decks = deckNames();
+    const found = await readDecks(env.droid, decks, env.now());
+    const linkedTo = new Map(Object.entries(rec.links).map(([uid, link]) => [link.note, uid]));
+    const links = {};
+    for (const n of found.notes) {
+      const uid = noteUid(n) || linkedTo.get(n.id);
+      if (uid) links[uid] = { note: n.id };
+    }
+    return { decks, found, list: misplacedCards(env.vocab(), found.notes, links).filter((m) => decks[m.to]) };
+  }
+
+  /** How many cards would move, and to which decks (the same shape as the computer's /api/anki/move). */
+  async function moveInfo() {
+    const rec = await data();
+    const base = { enabled: Boolean(env.settings.anki_sync), synced: true, count: 0, moves: {}, pending: false,
+      last: rec.state.last_move || null, phone: true };
+    if (!base.enabled) return base;
+    const problem = await ready(false) || deckProblem(deckNames());
+    if (problem) return { ...base, problem };
+    const { decks, list } = await misplaced();
+    for (const m of list) base.moves[decks[m.to]] = (base.moves[decks[m.to]] || 0) + 1;
+    return { ...base, count: list.length };
+  }
+
+  /** Move them now (AnkiDroid keeps each card's review history). Safe to run again: only cards still in
+   * another language's deck are touched. */
+  async function moveCards() {
+    if (busy) throw new Error("A sync with AnkiDroid is running. Try again in a moment.");
+    const problem = await ready(true) || deckProblem(deckNames());
+    if (problem) throw new Error(problem);
+    busy = true;
+    let moved = 0, skipped = 0;
+    try {
+      const { decks, found, list } = await misplaced();
+      for (const m of list) {
+        try {
+          const r = await env.droid.moveNote({ deck: found.deckOf.get(m.note), id: m.note, to: decks[m.to] });
+          if (r.moved) moved++;
+          else skipped++;
+        } catch (e) { skipped++; console.warn(e); }
+      }
+      const rec = await data();
+      rec.state.last_move = { at: env.now(), moved, skipped };
+      await env.save(rec);
+    } finally {
+      busy = false;
+      env.emit("anki", { synced: false });
+    }
+    return { ...(await moveInfo()), moved, skipped };
+  }
+
   return {
-    run, status, options, resolve, deckNames,
+    run, status, options, resolve, deckNames, moveInfo, moveCards,
     progress: async () => ({ ...(await data()).progress }),
     linked: async (uid) => Boolean(((await data()).links[uid] || {}).note),
     setSource: (source) => { env.source = source; },

@@ -4,7 +4,7 @@
 // anki-droid.js). The rules themselves are explained at the top of that file. Both must give the
 // same answers: tests/fixtures/anki_sync_parity.json is written by the Python and checked here.
 
-import { normalize } from "./shared-logic.js";
+import { hideAnswer, normalize } from "./shared-logic.js";
 
 export const TAG = "tamkeen";
 export const ID_TAG = "tamkeen-id::";
@@ -91,6 +91,18 @@ export function deckProblem(decks) {
   return "";
 }
 
+/** Cards that sit in another language's deck than their word's: [{ note, uid, from, to }] (see misplaced_cards in the Python). */
+export function misplacedCards(words, notes, links) {
+  const byUid = new Map(words.map((w) => [w.uid, w]));
+  const deckLanguage = new Map(notes.map((n) => [n.id, n.language]));
+  const out = [];
+  for (const uid of Object.keys(links).sort(byText)) {
+    const word = byUid.get(uid), here = deckLanguage.get(links[uid].note);
+    if (word && !word.deleted && here && word.language && word.language !== here) out.push({ note: links[uid].note, uid, from: here, to: word.language });
+  }
+  return out;
+}
+
 /** The uid a hand-made note's word gets: it depends only on the note's guid, which Anki keeps the
  * same on every device, so the computer and the phone make the same word, not two. */
 export function uidFromGuid(guid) {
@@ -169,7 +181,9 @@ const same = (a, b) => a.length === b.length && a.every((x, i) => x === b[i]);
 /** What an edit made in Anki changes in the word: only the parts that differ from `old`. */
 function pull(word, old, now, front, back, hasBase) {
   const out = {};
-  if (front && now.front !== old.front && now.front) {
+  // A front that is only the word itself, or the "…" a card without a meaning shows, is not a meaning to keep.
+  const standIn = now.front === "…" || !hideAnswer(now.front, String(word.text || ""));
+  if (front && now.front !== old.front && now.front && !(standIn && !now.translation)) {
     if (now.translation) out.translation = now.translation;
     else if (!MARKED.test(word.translation || "")) out.meaning = now.front;
     else if (hasBase) { out.meaning = now.front; out.translation = ""; }  // the sentence was replaced by a plain meaning

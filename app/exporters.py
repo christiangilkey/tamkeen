@@ -83,6 +83,78 @@ _LABELLED = re.compile(r"^[^:]{1,30}:\s*\S")
 _MARKED = re.compile(r"[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+")
 
 
+# ----- keeping the word off the front -----
+# The reviewer's rule (hideAnswer in web/js/review/deck.js), written out again here and in
+# mobile/src/js/shared-logic.js with the same letter ranges on both sides, so the computer and the
+# phone make the same front and the two-way Anki sync has nothing to argue about. A meaning is
+# whatever the AI or the learner wrote, and it sometimes names the word itself: "to raise your
+# voice (Egyptian dialect: 'تعلّي' = to make a fuss)". On a card's front that gives the answer away.
+
+_SCRIPT_LETTERS = {
+    "Arabic": "؀-؋؍-ؚ؜-؞ؠ-ۿݐ-ݿࢠ-ࣿﭐ-﷿ﹰ-﻿",
+    "Han": "々㐀-䶿一-鿿豈-﫿",
+    "Hiragana": "぀-ゟ",
+    "Katakana": "゠-ヿㇰ-ㇿ",
+    "Cyrillic": "Ѐ-ԯ",
+    "Hebrew": "֐-׿",
+    "Greek": "Ͱ-Ͽἀ-῿",
+    "Hangul": "ᄀ-ᇿ㄰-㆏가-힯",
+    "Thai": "฀-๿",
+    "Devanagari": "ऀ-ॿ",
+}
+_JAPANESE = ("Han", "Hiragana", "Katakana")
+_MARKS = ("̀-ͯ҃-҉֑-ׇؐ-ًؚ-ٰٟۖ-ۜ۟-ۤۧۨ"
+          "۪-ۭ࣓-ࣿऀ-ःऺ-ॏ॑-ॗॢॣัิ-ฺ็-๎"
+          "゙゚")
+_QUOTES = "\"'‘’“”«»「」『』"
+
+
+def _answer_pattern(word: str) -> tuple[bool, re.Pattern[str]] | None:
+    """What gives ``word`` away inside other text: for a word in its own script, any run of that
+    script (with its vowel marks); for a word in Latin letters, that very word."""
+    used = [name for name, letters in _SCRIPT_LETTERS.items() if re.search(f"[{letters}]", word)]
+    if any(name in _JAPANESE for name in used):  # a kanji word's reading is in kana
+        used = [name for name in _SCRIPT_LETTERS if name in used or name in _JAPANESE]
+    if used:
+        letter = "[" + "".join(_SCRIPT_LETTERS[name] for name in used) + "]"
+        return True, re.compile(letter + "(?:[" + _MARKS + "ـ‌-‏\\s'’-]*" + letter + ")*[" + _MARKS + "]*")
+    exact = word.strip()
+    return (False, re.compile(r"(?<!\w)" + re.escape(exact) + r"(?!\w)", re.I)) if exact else None
+
+
+def hide_answer(text: str, word: str) -> str:
+    """``text`` (a meaning) without anything that gives ``word`` away: an aside in brackets that
+    mentions it is dropped whole, the word in quote marks is dropped, and for a word in its own
+    script any of that script left over is dropped too. A word in Latin letters is only removed
+    inside brackets or quotes, never bare ("animal" really does mean "animal"). What is left is
+    tidied of the punctuation that hung on the removed part."""
+    original = (text or "").strip()
+    found = _answer_pattern(str(word or ""))
+    if not found or not found[1].search(original):
+        return original
+    script, rx = found
+    out = original
+    for _ in range(2):
+        out = re.sub(r"\s*[(\[（][^()\[\]（）]*[)\]）]", lambda m: "" if rx.search(m.group(0)) else m.group(0), out)
+    quoted = re.compile(r"\s*[" + _QUOTES + "]([^" + _QUOTES + "]{1,60})[" + _QUOTES + "]")
+    out = quoted.sub(lambda m: "" if rx.search(m.group(1)) and not re.search(r"[^\W_]", rx.sub("", m.group(1)))
+                     else m.group(0), out)
+    if script:
+        out = rx.sub("", out)
+    out = re.sub(r"[(\[（]\s*[)\]）]", "", out)                  # brackets left empty
+    out = re.sub(r"([,;/(（]|^)\s*[=:→]\s*", r"\1 ", out)        # "= ..." with nothing before the sign
+    out = re.sub(r"\s*[=:→]\s*(?=[,;/)）]|$)", "", out)          # "... =" with nothing after it
+    out = re.sub(r"\s*([,;/])(?:\s*[,;/])+", r"\1", out)         # separators left side by side
+    out = re.sub(r"\s{2,}", " ", re.sub(r"\s+([,;.)）])", r"\1", out))
+    return re.sub(r"^[\s,;/=:–-]+|[\s,;/=:–-]+$", "", out)
+
+
+def gives_away(text: str, word: str) -> bool:
+    """Whether ``text`` shows ``word`` (as hide_answer would find it)."""
+    found = _answer_pattern(str(word or ""))
+    return bool(found and found[1].search(text or ""))
+
+
 def anki_guid(v: dict[str, Any]) -> str:
     """The same word always gets the same id in Anki, so exporting twice never doubles a card."""
     return f"tk-{v.get('uid') or ''}"
@@ -116,13 +188,27 @@ def anki_front(v: dict[str, Any]) -> str:
     A word saved from a lookup carries its sentence translated, with ⟦ ⟧ around the part that
     renders the word; the marks become the [brackets] the card layout highlights (brackets of
     the translation's own turn into parentheses, so only the word's part lights up). A word
-    without such a translation shows its meaning, or the word itself when it has none.
+    without such a translation shows its meaning, kept from giving the word away (``hide_answer``).
+    With nothing of the meaning left, it shows the translated sentence if that does not show the
+    word, else its own sentence with "…" where the word is, else just "…": never the word itself.
     """
     translation = v.get("translation") or ""
     if _MARKED.fullmatch(translation):
         plain = translation.replace("[", "(").replace("]", ")")
         return html.escape(plain).replace("⟦", "[").replace("⟧", "]")
-    return html.escape(v["meaning"] or "") or html.escape(v["text"])
+    text = v.get("text") or ""
+    meaning = hide_answer(v.get("meaning") or "", text)
+    if meaning:
+        return html.escape(meaning)
+    said = translation.replace("⟦", "").replace("⟧", "").strip()
+    if said and not gives_away(said, text):
+        return html.escape(said)
+    sentence = v.get("sentence") or ""
+    spans = arabic.find_spans(sentence, text) if text else []
+    if spans:
+        a, b = spans[0]
+        return html.escape(f"{sentence[:a]}…{sentence[b:]}".strip())
+    return "…"
 
 
 def anki_fields(v: dict[str, Any]) -> tuple[str, str]:

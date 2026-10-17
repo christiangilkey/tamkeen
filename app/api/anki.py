@@ -124,6 +124,18 @@ def progress() -> dict[str, Any]:
     return anki_bridge.progress()
 
 
+@router.get("/move")
+def move_info() -> dict[str, Any]:
+    """How many Anki cards sit in another language's deck than their word's."""
+    return anki_bridge.move_info()
+
+
+@router.post("/move")
+def move() -> dict[str, Any]:
+    """Move them to their language's deck at the add-on's next sync."""
+    return anki_bridge.request_move()
+
+
 @router.get("/linked/{uid}")
 def is_linked(uid: str) -> dict[str, bool]:
     return {"linked": anki_bridge.linked(uid)}

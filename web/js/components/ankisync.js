@@ -8,6 +8,7 @@
 
 import { api, esc, h, on, platform, toast } from "../app.js";
 import { langInfo } from "../languages.js";
+import { openModal } from "./modal.js";
 
 const phone = () => platform === "android";
 const anki = () => (phone() ? "AnkiDroid" : "Anki");
@@ -121,6 +122,8 @@ export function ankiSyncPanel(box) {
     if (st.duplicates) notes.push(`${st.duplicates} extra cards of words that already have one were tagged “tamkeen-duplicate” and left alone for you to look at.`);
     if (st.skipped) notes.push(`${st.skipped} notes in the deck were left out (no Front and Back fields, nothing written on them, or one of their cards is in another deck).`);
     if (st.failed) notes.push(`${st.failed} changes could not be made last time and will be tried again.`);
+    if (st.move_pending) notes.push("Cards in another language's deck will move to their own at Anki's next sync.");
+    else if (st.last_move && st.last_move.moved) notes.push(`${st.last_move.moved} cards were moved to their language's deck (${when(st.last_move.at)}).`);
     if (st.schedules === false) notes.push("This version of AnkiDroid does not tell other apps about review progress. Update AnkiDroid to 2.24 or later to see it here.");
     if (notes.length) parts.push(`<p class="small muted">${notes.map(esc).join("<br>")}</p>`);
     parts.push(phone()
@@ -204,4 +207,51 @@ export async function confirmDelete(v) {
   });
   if (go) await api("/anki/sync/options", { method: "POST", body: { delete_ok: true } });
   return go;
+}
+
+// ----- "Move Anki cards to their language's deck" (the Vocab page's ⋯ menu) -----
+
+export const MOVE_LABEL = "Move Anki cards to their language's deck";
+
+/** Asks first, saying how many cards will move and where, then moves them: on the phone at once
+ * through AnkiDroid, on the computer at the add-on's next sync. Their review history goes with
+ * them, and running it again moves only what is still in the wrong deck. */
+export async function moveToLanguageDecks() {
+  let info;
+  try { info = await api("/anki/move"); } catch (e) { toast(e.message, { error: true }); return; }
+  const box = openModal({ title: MOVE_LABEL });
+  const say = (html, buttons = `<button type="button" class="primary" data-act="close">OK</button>`) => {
+    box.body.innerHTML = `<div class="stack">${html}</div><div class="row" style="justify-content:flex-end;margin-top:16px">${buttons}</div>`;
+    for (const b of box.body.querySelectorAll("button[data-act]")) b.onclick = () => act(b.dataset.act);
+  };
+  const act = async (what) => {
+    if (what === "close") return box.close();
+    if (what === "settings") { box.close(); location.hash = ANKI_SETTINGS; return; }
+    say(`<p>Moving…</p>`, "");
+    try {
+      const done = await api("/anki/move", { method: "POST" });
+      say(done.phone
+        ? `<p>Moved ${done.moved} ${done.moved === 1 ? "card" : "cards"} to ${done.moved === 1 ? "its" : "their"} language's deck.${done.skipped ? ` ${done.skipped} could not be moved (a card on loan to a filtered deck, say) and stayed where ${done.skipped === 1 ? "it was" : "they were"}.` : ""}</p>`
+        : `<p>The cards will move the next time Anki syncs with Tamkeen: open Anki, or choose <em>Tools → Sync Tamkeen now</em> there.
+           Settings shows when it is done.</p>`);
+    } catch (e) {
+      say(`<p style="color:var(--danger)">${esc(e.message)}</p>`);
+    }
+  };
+  if (!info.enabled) {
+    return say(`<p>This works with the Anki sync. Switch on “Keep my saved words and my ${anki()} decks in step” in Settings first.</p>`,
+      `<button type="button" class="ghost" data-act="close">Cancel</button><button type="button" class="primary" data-act="settings">Open Settings</button>`);
+  }
+  if (info.problem) return say(`<p>${esc(info.problem)}</p>`);
+  if (!info.synced) return say(`<p>Tamkeen has not synced with ${anki()} yet, so it does not know where the cards are. Sync first, then try again.</p>`);
+  if (info.pending) return say(`<p>This is already waiting for Anki's next sync with Tamkeen.</p>`);
+  if (!info.count) {
+    return say(`<p>Every card is already in its language's deck. Nothing to move.</p>`);
+  }
+  const where = Object.entries(info.moves).map(([deck, n]) => `<li>${n} to <strong>${esc(deck)}</strong></li>`).join("");
+  say(`<p>${info.count === 1 ? "One card is" : `${info.count} cards are`} in another language's deck. ${info.count === 1 ? "It" : "They"} will move:</p>
+    <ul style="margin:0">${where}</ul>
+    <p class="small muted">Each card keeps its review history. Nothing else in ${anki()} changes, and your other decks are not touched.</p>`,
+    `<button type="button" class="ghost" data-act="close">Cancel</button>
+     <button type="button" class="primary" data-act="move">Move ${info.count === 1 ? "the card" : `${info.count} cards`}</button>`);
 }

@@ -161,6 +161,18 @@ def run(body: dict[str, Any], now: float | None = None) -> dict[str, Any]:
     for u in plan["anki"]["update"]:
         fields = {name: u[key] for key, name in (("front", "Front"), ("back", "Back")) if key in u}
         actions["update"].append({"note": u["note"], "fields": fields})
+    # "Move Anki cards to their language's deck", when the learner asked for it (Vocab page ⋯ menu).
+    misplaced = anki_sync.misplaced_cards(words, notes, plan["links"])
+    if isinstance(body.get("applied"), dict) and "moved" in body["applied"]:
+        state["last_move"] = {"at": now, "moved": int(body["applied"].get("moved") or 0),
+                              "skipped": int(body["applied"].get("move_skipped") or 0)}
+        state["move"] = False
+    if state.get("move"):
+        if misplaced:
+            actions["move"] = [{"note": m["note"], "deck": decks[m["to"]]} for m in misplaced if m["to"] in decks]
+        else:
+            state.update(move=False, last_move={"at": now, "moved": 0, "skipped": 0})
+    state["misplaced"] = [{"from": m["from"], "to": m["to"]} for m in misplaced]
     reply: dict[str, Any] = {"enabled": True, "decks": _deck_list(decks), "actions": actions,
                              "more": len(plan["anki"]["create"]) > len(creates)}
     if creates:  # the card layout and its font, for an Anki that does not have them yet
@@ -258,6 +270,7 @@ def status() -> dict[str, Any]:
         "linked": state.get("linked") or 0, "profile": state.get("profile") or "", "other": state.get("other"),
         "held": _words(list(state.get("held") or [])), "missing": _words(list(state.get("missing") or [])),
         "moved": len(state.get("moved") or []), "duplicates": state.get("duplicates") or 0, "skipped": state.get("skipped") or 0,
+        "last_move": state.get("last_move"), "move_pending": bool(state.get("move")),
     }
 
 
@@ -285,6 +298,27 @@ def set_options(enabled: bool | None = None, deck: str | None = None, delete_ok:
         db.set_settings(values)
         events.publish("anki", {"synced": False})
     return status()
+
+
+def move_info() -> dict[str, Any]:
+    """How many cards sit in another language's deck (as the last sync saw), and where they would go."""
+    state, decks = _state(), deck_names()
+    moves: dict[str, int] = {}
+    for m in state.get("misplaced") or []:
+        name = decks.get(m["to"], m["to"])
+        moves[name] = moves.get(name, 0) + 1
+    return {"enabled": bool(db.get_setting("anki_sync")), "synced": bool(state.get("last_sync")),
+            "count": sum(moves.values()), "moves": moves, "pending": bool(state.get("move")),
+            "last": state.get("last_move"), "phone": False}
+
+
+def request_move() -> dict[str, Any]:
+    """Ask the add-on to move those cards at its next sync (it keeps their review history)."""
+    state = _state()
+    state["move"] = True
+    db.set_settings({"anki_sync_state": state})
+    events.publish("anki", {"synced": False})
+    return move_info()
 
 
 def linked(uid: str) -> bool:
