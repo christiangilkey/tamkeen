@@ -4,5 +4,13 @@
   "webDir": "www",
   "android": {
     "allowMixedContent": false
+  },
+  "ios": {
+    "backgroundColor": "#131116"
+  },
+  "plugins": {
+    "GoogleDriveAuth": {
+      "iosClientId": "419555269865-6kjs7ri9thm4fvn5ctq42o06026ntepf.apps.googleusercontent.com"
+    }
   }
 }

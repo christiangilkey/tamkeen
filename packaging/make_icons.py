@@ -17,6 +17,7 @@ LOGO = ROOT / "packaging" / "brand" / "tamkeen-logo.webp"
 OUT = ROOT / "packaging" / "icons"
 WEB = ROOT / "web" / "icons"
 ANDROID = ROOT / "mobile" / "android" / "app" / "src" / "main" / "res"
+IOS = ROOT / "mobile" / "ios" / "App" / "App" / "Assets.xcassets"
 DOCS = ROOT / "docs"
 
 PLUM, MID, TEAL = (54, 0, 50), (27, 82, 109), (11, 134, 147)
@@ -106,6 +107,16 @@ def main() -> None:
         round_icon.resize((px, px), Image.LANCZOS).save(d / "ic_launcher_round.png")
         fg = round(px * 108 / 48)
         foreground.resize((fg, fg), Image.LANCZOS).save(d / "ic_launcher_foreground.png")
+
+    # iPhone: one full square with no see-through parts (the phone rounds the corners itself),
+    # and the opening screen: the wordmark alone on the app's dark background.
+    if IOS.exists():
+        compose(S, 0.62, rounded=False).convert("RGB").save(IOS / "AppIcon.appiconset" / "AppIcon-512@2x.png")
+        side = 2732
+        splash = Image.new("RGBA", (side, side), (19, 17, 22, 255))
+        splash.alpha_composite(compose(side, 0.24, background=False))
+        for name in ("splash-2732x2732.png", "splash-2732x2732-1.png", "splash-2732x2732-2.png"):
+            splash.convert("RGB").save(IOS / "Splash.imageset" / name, optimize=True)
     print("Icons written.")
 
 

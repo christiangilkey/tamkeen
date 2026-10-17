@@ -27,7 +27,7 @@ import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
 import { accessToken, drive } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
-import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, isNative } from "./native.js";
+import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, isIOS, isNative } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
 import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
@@ -35,6 +35,14 @@ import { vocabDeck } from "./anki-export.js";
 import { ankiCard } from "./review/fsrs.js";
 
 export const platform = "android";
+
+if (isIOS) {
+  // An iPhone zooms the whole page in when a small text box is tapped, and leaves it zoomed.
+  // Capping the zoom stops that (Android's app view never zooms in the first place).
+  const viewport = document.querySelector('meta[name="viewport"]');
+  if (viewport) viewport.content += ", maximum-scale=1";
+  document.documentElement.classList.add("ios");
+}
 
 // ---------- the reel window ----------
 // A reel plays from Instagram's embed page in a second, native window laid exactly over a box
@@ -197,7 +205,13 @@ const WEB_CLIENT_ID = "419555269865-0954ljffgrnbveq04lvh3ii6c032rhv3.apps.google
 /** Google ID token for the online features. Google gets a hash of a one-time code (nonce) and
  * Supabase the code itself, so a token can't be replayed by anyone else. */
 export async function googleIdToken() {
-  if (!isNative) throw new Error("Connecting works in the installed Android app.");
+  if (!isNative) throw new Error("Connecting works in the installed app.");
+  if (isIOS) {
+    // The iPhone's ID token comes with its Google sign-in (issued for the app's "iOS" client,
+    // which Supabase also trusts) and carries no one-time code.
+    const r = await GoogleDriveAuth.getIdToken({});
+    return { token: r.idToken };
+  }
   const nonce = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => b.toString(16).padStart(2, "0")).join("");
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(nonce));
   const hashed = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
@@ -523,8 +537,8 @@ export async function openInstagramSignIn() {
 }
 
 // ---------- own videos ----------
-// Videos stream from the user's Drive through DriveMediaWebViewClient.java, which adds the
-// sign-in token that a <video> element can't send itself.
+// Videos stream from the user's Drive through DriveMediaWebViewClient.java (on the iPhone,
+// DriveMediaHandler.swift), which adds the sign-in token that a <video> element can't send itself.
 async function refreshMediaToken() {
   if (!isNative || !settings.signed_in) return;
   try { await GoogleDriveAuth.setMediaToken({ token: await accessToken() }); } catch (e) { console.warn(e); }
@@ -533,11 +547,11 @@ async function refreshMediaToken() {
 async function videoUrl(ep) {
   if (!settings.signed_in) throw new Error("Sign in with Google (Settings) to watch videos stored in your Drive.");
   if (!ep.remote_audio) throw new Error("This video is still uploading from your computer.");
-  if (!isNative) throw new Error("Videos play in the installed Android app.");
+  if (!isNative) throw new Error("Videos play in the installed app.");
   await refreshMediaToken();
   const id = await driveFileId(ep.audio_url.slice("drive:".length));
   if (!id) throw new Error("The video isn't in your Google Drive any more.");
-  return `${location.origin}/_drive/${id}`;
+  return isIOS ? `tkdrive://media/${id}` : `${location.origin}/_drive/${id}`;
 }
 
 const VIDEO_EXT = /\.(mp4|m4v|mov|webm|mkv|avi|3gp)$/i;

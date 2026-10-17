@@ -1,0 +1,11 @@
+{
+  "name": "tamkeen-native",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tamkeen's own iPhone code: Google sign-in, the in-app browser, the reel window and video streaming from Drive (the iPhone twin of android/app/src/main/java).",
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    }
+  }
+}

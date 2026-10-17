@@ -1,0 +1,96 @@
+# Builds the iPhone app (.ipa).
+# - Runs on pushes to the "ios" branch that change the phone app or the shared screens (test
+#   builds, downloadable from the run's "Artifacts"), and by hand from the Actions tab.
+# - The app is NOT signed here: it is installed by sideloading (AltStore), which signs it on the
+#   owner's own computer with their Apple ID. So no Apple account or secret is needed to build.
+
+name: iOS
+
+on:
+  push:
+    branches: [ios]
+    paths: ["mobile/**", "web/**", ".github/workflows/ios.yml"]
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  ipa:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Version from tag
+        shell: bash
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then V="${GITHUB_REF_NAME#v}"; else V="0.0.0-dev.${GITHUB_RUN_NUMBER}"; fi
+          echo "APP_VERSION=$V" >> "$GITHUB_ENV"
+          # An iPhone app's version is numbers only ("0.18.0"); its build number counts the builds.
+          echo "IOS_VERSION=${V%%-*}" >> "$GITHUB_ENV"
+          echo "IOS_BUILD=${GITHUB_RUN_NUMBER}" >> "$GITHUB_ENV"
+
+      - name: Choose Xcode
+        shell: bash
+        run: |
+          # Capacitor 8 is built with Xcode 26; use the newest one this machine has.
+          NEWEST=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1 || true)
+          if [ -n "$NEWEST" ]; then sudo xcode-select -s "$NEWEST/Contents/Developer"; fi
+          echo "::notice title=Xcode::$(xcodebuild -version | tr '\n' ' ')"
+
+      - name: Build web bundle and sync into the iPhone project
+        working-directory: mobile
+        run: |
+          npm ci
+          npm run build
+          npx cap sync ios
+
+      - name: Build the app (unsigned)
+        working-directory: mobile/ios/App
+        shell: bash
+        run: |
+          set -o pipefail
+          xcodebuild -list -project App.xcodeproj || true
+          if ! xcodebuild -project App.xcodeproj -scheme App -configuration Release \
+                -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/dd" \
+                CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+                MARKETING_VERSION="$IOS_VERSION" CURRENT_PROJECT_VERSION="$IOS_BUILD" \
+                build > "$RUNNER_TEMP/xcode.log" 2>&1; then
+            tail -n 300 "$RUNNER_TEMP/xcode.log"
+            # Surface the real errors as one annotation (readable without opening the full log).
+            MSG=$(grep -E "error:|error :|xcodebuild: error|ld: |Undefined symbol|fatal error|BUILD FAILED" "$RUNNER_TEMP/xcode.log" \
+                  | sed -e "s#$GITHUB_WORKSPACE/##g" -e "s#$RUNNER_TEMP/##g" | awk '!seen[$0]++' | head -45 \
+                  | sed -e 's/%/%25/g' | awk 'BEGIN { ORS = "%0A" } { print }')
+            echo "::error title=iPhone build failed::${MSG:-no error lines found; see the log}"
+            exit 1
+          fi
+          tail -n 40 "$RUNNER_TEMP/xcode.log"
+          grep -E "warning: " "$RUNNER_TEMP/xcode.log" | grep -E "native-ios|App/App/" \
+            | sed -e "s#$GITHUB_WORKSPACE/##g" | awk '!seen[$0]++' | head -30 || true
+
+      - name: Package the .ipa
+        shell: bash
+        run: |
+          APP="$RUNNER_TEMP/dd/Build/Products/Release-iphoneos/App.app"
+          test -d "$APP" || { echo "::error::The build made no App.app"; exit 1; }
+          test -f "$APP/public/index.html" || { echo "::error::The app's screens are missing from the build"; exit 1; }
+          grep -q "GoogleDriveAuthPlugin" "$APP/capacitor.config.json" \
+            || { echo "::error::Tamkeen's own iPhone code isn't registered in the build"; exit 1; }
+          ID=$(/usr/libexec/PlistBuddy -c "Print :CFBundleIdentifier" "$APP/Info.plist")
+          VER=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "$APP/Info.plist")
+          # An .ipa is a zip file with the app inside a folder called Payload.
+          mkdir -p "$RUNNER_TEMP/ipa/Payload" dist
+          cp -R "$APP" "$RUNNER_TEMP/ipa/Payload/"
+          (cd "$RUNNER_TEMP/ipa" && zip -qry "$GITHUB_WORKSPACE/dist/Tamkeen-${APP_VERSION}-iPhone.ipa" Payload)
+          SIZE=$(du -h "dist/Tamkeen-${APP_VERSION}-iPhone.ipa" | cut -f1)
+          # What the app carries besides its own program: Capacitor's libraries, if they are separate files.
+          PARTS=$(ls "$APP/Frameworks" 2>/dev/null | xargs)
+          echo "::notice title=iPhone app built::Tamkeen-${APP_VERSION}-iPhone.ipa, ${SIZE}, id ${ID}, version ${VER} (${IOS_BUILD}), program $(du -h "$APP/App" | cut -f1), libraries: ${PARTS:-built in}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: installer-ios
+          path: dist/*.ipa
+          if-no-files-found: error
