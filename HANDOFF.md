@@ -2427,6 +2427,32 @@ The owner's UI plan, relayed by the main chat: separate adding from the content,
   real library (`%APPDATA%/ArabicPodcastStudio`) is signed in. Most likely the row was seen to EXIST and read
   as "set". The shared memory note now says how to read it.
 
+#### Review card: Mnemonic maker, Paste on My notes, white answer-button text (2026-10-17, "Spaced Repetition System (fork)" chat; committed locally on main as 6046c39, not pushed)
+The owner's words: "On the bottom buttons, the text should be white ... a feature for the back of the cards called
+(mneumonics maker) at the bottom below my notes box. Once clicked it will generate 5 sub boxes with words that
+sound like the target word but in the users selected native language ... each ... will have a copy button in the
+right of them ... Also include a paste button onto the my notes box".
+- `web/js/review/mnemonic.js` (pure, tested in `tests/js/mnemonic.test.mjs`): the prompt (5 words or short
+  phrases in the UI language that SOUND like the word; prefer ones that suggest a picture of the meaning; never
+  translate or repeat it), `cleanItems`, `soundAlikes(v, {ask, study, speaks, avoid})`. `definer.askJson(cfg,
+  {system, user, schema}, transport)` is a general "small JSON answer" call (same provider/key/model, same
+  errors, usage counted); `askAi` in both define-service.js files sends it (relay on the computer, native HTTP on
+  the phone). "Make 5 more" passes the earlier ones as `avoid`. Results are kept per word while the reviewer is
+  open (`mnemonics` Map in review.js), never stored. The suggestions carry `translate="no"`. No key gives
+  "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions."
+- Paste: `readClipboard()` in both app shells. On Android the page can't read the clipboard, so a new plugin
+  `ClipboardPlugin.java` ("TamkeenClipboard", registered in MainActivity, read only, on the UI thread) answers;
+  `TamkeenClipboard` in native.js. It appends to My notes and saves like typing. **The Java has not been compiled
+  here** (CI compiles it).
+- `.rv-yes` is now `#0b8693` (the deeper brand teal) with white text; `.rv-no` purple with white text.
+- Checked in a preview of main at 390 x 844 with a stand-in AI answer (no real key): no-key message, five boxes,
+  Copy then "Copied", Paste appending and saving, "Make 5 more" asking for different ones. Not checked: a real AI
+  provider, a real phone (clipboard plugin, copy in the WebView), and the new English strings are not yet in the
+  web/i18n dictionaries (run tools/i18n when the interface languages are next updated).
+- Gotcha met: another chat began editing definer.js in the seconds between my `git status` and my commit, and
+  `git add` of the whole file swept its unfinished lines in. Undone at once (soft reset, nothing pushed) and
+  recommitted with only my block staged. Re-read each file's diff right before committing it.
+
 ### "Find in a video" asks for captions in the language being learned (2026-10-17, "Vocab Page" chat; committed locally, NOT pushed)
 Owner: "after the user does the captia, then automatically select the language to the language the user is learning
 in the settings on the webpage, then pull the word from the top videos of that query".
@@ -2484,3 +2510,8 @@ the AI should say so, the popup should show and define the right word, and the t
   page. **Not checked: a real AI provider (how often each model flags words, and whether it over-corrects
   dialect), a real phone, and two real devices syncing a correction** (the sync path is covered by
   `tests/test_corrections.py`). Tests: `tests/js/correction.test.mjs`, `tests/test_corrections.py`.
+
+### Phone: Transcript button is icon-only (2026-10-17, "Player look" chat; committed on main, not pushed)
+- At 640 px and less the player top row's Transcript button shows only the new `transcript` line icon (icons.js);
+  its word is in `<span class="lbl">`, hidden by the last section of `web/css/media.css`; aria-label "Transcript".
+  YouTube title on a 375 px phone: 83 px -> 132 px. Desktop unchanged.
