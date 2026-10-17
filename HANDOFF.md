@@ -2011,13 +2011,14 @@ want it. The owner's iPhone runs the newest iOS.
   screens use it to mean "the phone app"). Differences: ID token without a nonce (`googleIdToken`), the media
   address, no AnkiDroid card or sync (AnkiDroid is Android-only; "Export for Anki" shares the deck file, worded
   for AnkiMobile), native sign-out, viewport capped at 1x (an iPhone zooms into small text boxes otherwise).
-- **Still needed from the owner before sync and friends work on the iPhone:**
-  1. An **"iOS" OAuth client** in Google Cloud (Meridian -> Google Auth Platform -> Clients -> Create client ->
-     iOS; bundle ID `io.github.christiangilkey.arabicpodcaststudio`). Its client ID (public) goes in
-     `mobile/capacitor.config.json` -> `plugins.GoogleDriveAuth.iosClientId`. Until then the app says "Google
-     sign-in isn't switched on in this iPhone build yet."
-  2. The same client ID added to **Supabase** (Authentication -> Sign In / Providers -> Google -> Client IDs),
-     or connecting to friends fails on the iPhone.
+- **Google sign-in set up (2026-10-14, with the owner signed in):**
+  1. **"iOS" OAuth client** "Tamkeen iPhone" in Google Cloud (Meridian -> Google Auth Platform -> Clients), bundle
+     ID `io.github.christiangilkey.arabicpodcaststudio`, client ID (public)
+     `419555269865-6kjs7ri9thm4fvn5ctq42o06026ntepf.apps.googleusercontent.com`, in
+     `mobile/capacitor.config.json` -> `plugins.GoogleDriveAuth.iosClientId` (commit e104b0d; build
+     0.0.0-dev.4 has it).
+  2. The same client ID added as the third entry of **Supabase** -> Authentication -> Sign In / Providers ->
+     Google -> Client IDs (checked after reloading the page). Nothing else there was changed.
 - **Known risks, untested (nothing has run on a phone):**
   - **YouTube's embedded player** may refuse to play ("error 153"): the app's page lives at
     `capacitor://localhost`, so no web address is sent to YouTube as the referrer. Planned fix if it happens:
@@ -2199,6 +2200,25 @@ translated so English learners can use the app.
   reel search words.
 - Checked live in Spanish (every page scanned for English), Arabic (RTL screenshots) and Japanese. The
   phone build was built but NOT tried on a phone. Known leftover: `<pre>` text (About's "Loading…") stays English.
+
+#### "Say it" plays the whole sentence (2026-10-15, "Spaced Repetition System (fork)" chat; committed locally on main, not pushed)
+The owner, on v0.21.0 Android: "I press the button, say something which records. The app SHOULD play the full
+sentence audio, stop for about .5 seconds, then play my recording back to me." After listening, `practise` in
+`web/js/review/pronounce.js` now plays a "model" (`sayModel`/`modelSeconds`, renamed from `sayWord`/`wordSeconds`;
+`wordBusy` is now `audioBusy`): review.js passes the card's SENTENCE (`saySentence`, `sentenceSeconds`), or the
+word when the card has no sentence audio; `afterWord` waits for its `{ ended }`, then `GAP_MS` 500, then the
+attempt. review.js tracks any audio started from the card (`track`, `audioOverAt`) so listening never starts
+over it, and shows "Say it" when the card has word OR sentence audio. Measured in a preview of main with a
+stand-in microphone: sentence card, 4.25 s to 7.92 s played in full, then 515 ms, then the attempt; a
+word-only card, the word, then 513 ms. **Not checked on a real phone**: the Android-only parts (WebView
+microphone, decoding the recording, audio routing after the microphone closes) could not be tried here.
+**Then (same day):** `getUserMedia` uses `echoCancellation: false` (on Android echo cancellation selects the
+phone-call sound mode: quieter, sometimes the earpiece, Bluetooth at call quality; nothing plays while Say it
+listens) and the model waits `SETTLE_MS` = 300 ms after the microphone closes. Both from the Pronunciation
+chat's notes on the Android path; neither tried on a phone. If the owner still hears it muffled, next steps:
+play the attempt through an `<audio>` element from a blob URL instead of the shared `ctx`.
+**Gotcha met:** `node --check file.js` passed a file with a stray `}` that the browser refused (the whole app
+went blank). Check browser modules by copying them to a `.mjs` file and running `node --check` on that.
 
 ### Cards the same size whatever they were saved from; the origin note on "Find in a video" (2026-10-15, "Vocab Page" chat; committed locally, NOT pushed)
 Owner (through the main chat, with a phone screenshot of a web-page card whose "sentence" was a whole paragraph):
