@@ -12,6 +12,7 @@ import * as friends from "./pages/friends.js";
 import * as chat from "./pages/chat.js";
 import * as discover from "./pages/discover.js";
 import * as reels from "./pages/reels.js";
+import * as books from "./pages/books.js";
 import { startBadge } from "./social.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { showUpdateNotice } from "./updatenotice.js";
@@ -374,6 +375,7 @@ const routes = [
   [/^discover$/, discover, () => ({})],
   [/^reels$/, reels, () => ({})],
   [/^reels\/play$/, reels, () => ({ play: true })],
+  [/^books$/, books, () => ({})],
   [/^episode\/(\d+)$/, player, (m) => ({ id: Number(m[1]) })],
   [/^vocab$/, vocab, () => ({})],
   [/^search$/, search, () => ({})],
@@ -415,7 +417,7 @@ async function route() {
     view.innerHTML = "";
     view.scrollTop = 0;
   }
-  const navKey = mod === home ? "home" : mod === library || mod === discover || mod === reels ? "library" : mod === vocab ? "vocab" : mod === settings ? "settings"
+  const navKey = mod === home ? "home" : mod === library || mod === discover || mod === reels || mod === books ? "library" : mod === vocab ? "vocab" : mod === settings ? "settings"
     : mod === about ? "about" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === navKey));
   const turn = ++routeTurn;

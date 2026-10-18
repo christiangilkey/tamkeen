@@ -12,6 +12,7 @@ import * as friends from "./pages/friends.js";
 import * as chat from "./pages/chat.js";
 import * as discover from "./pages/discover.js";
 import * as reels from "./pages/reels.js";
+import * as books from "./pages/books.js";
 import * as webYouTube from "./web-youtube.js";
 import * as webSites from "./web-sites.js";
 import { webReelSurface } from "./web-reels.js";
@@ -825,6 +826,7 @@ const routes = [
   [/^discover$/, discover, () => ({})],
   [/^reels$/, reels, () => ({})],
   [/^reels\/play$/, reels, () => ({ play: true })],
+  [/^books$/, books, () => ({})],
   [/^youtube$/, webYouTube, () => ({})], // the web app's YouTube page (the apps use their own browser)
   [/^sites$/, webSites, () => ({})], // the web app's popular websites (the apps use their own browser)
   [/^episode\/(\w+)$/, player, (m) => ({ id: m[1] })],
@@ -849,7 +851,7 @@ async function route() {
   let hit = routes.find(([re]) => re.test(path));
   if (!hit) { location.hash = "#/"; return; }
   const [re, mod, params] = hit;
-  const key = mod === home ? "home" : mod === library || mod === discover || mod === reels || mod === webYouTube || mod === webSites ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
+  const key = mod === home ? "home" : mod === library || mod === discover || mod === reels || mod === webYouTube || mod === webSites || mod === books ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
     : mod === settingsPage ? "settings" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === key));
   document.body.classList.toggle("in-player", mod === player || mod === chat || (mod === reels && path.startsWith("reels/play")));

@@ -1,0 +1,19 @@
+The free book shelf: public-domain books (optional download, one book at a time)
+
+Tamkeen's Books section offers famous books in each language taught, picked because they are in the
+public domain: their authors died long enough ago (or the works are old enough) that nobody owns them,
+both in the country they were written in and in the United States. Each book is downloaded only when
+the learner adds it (docs/books/<language>/<book>.json.gz, made by tools/build_books.py), and each
+names where its text was taken from:
+
+  Project Gutenberg (https://www.gutenberg.org): the public-domain text of the eBook. The Project
+  Gutenberg header, licence and trademark have been removed, as that licence allows for text that is
+  passed on without the Project Gutenberg name; nothing here claims to be a Project Gutenberg eBook.
+
+  Wikisource (https://wikisource.org): public-domain texts transcribed by Wikisource's volunteers.
+
+  Aozora Bunko 青空文庫 (https://www.aozora.gr.jp): Japanese works in the public domain, typed in and
+  proofread by Aozora Bunko's volunteers; their furigana are left out (Tamkeen adds its own).
+
+Only the text of each work is kept: headings and paragraphs. Introductions, notes and illustrations
+by later editors are left out where they could be told apart.

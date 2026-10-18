@@ -2897,3 +2897,28 @@ and a very extensive word library per language to explain words instead.
   of a language's files are here (v0.28.0 users), fetches the rest without asking. Databases downloaded from
   github.com/CAMeL-Lab/camel-tools-data/releases (morphology_db_calima-msa-r13-0.4.0, -egy-r13-0.2.0).
 
+## Books (2026-10-18; v0.29.0)
+Owner asked for a books feature in the Library: famous public-domain books per language to pick and read one
+page at a time, plus uploading their own EPUB, PDF, TXT, AZW3 and DOC files. Owner agreed to bundling PDF.js.
+- **Shelf:** `tools/build_books.py` (BOOKS list: id, title, author, year, English blurb, source) fetches from
+  Gutenberg (plain text, PG header/licence stripped), Wikisource (MediaWiki parse API; follows tables of contents,
+  chained "next" chapters, picks the modern-spelling edition; skips header/notes boxes) and Aozora Bunko (XHTML,
+  furigana dropped) → `docs/books/<lang>/<id>.json.gz` + `index.json` (16 MB, ~90 books: en 14, es 10, fr 11,
+  it 12, ru 12, ar 8, ja 11, zh 10, tl 10). Gutenberg ids were checked against pg_catalog.csv (three I'd
+  remembered were other books). Arabic/Russian/Japanese have almost nothing on Gutenberg. tests/test_books.py
+  checks the index. **Only downloadable once docs/books is pushed** (GitHub Pages).
+- **Storage:** like a web page: feed "local:books" ("My books"), audio_type "text/book", guid "book:<lang>/<id>" or
+  "file:<name>:<size>", description = author, segments kind h2/p, up to 500k words (`app/books.py`, POST /books;
+  phone `backend.js saveBook`).
+- **Reader:** `web/js/pages/book.js` (player.js hands text/book episodes to it): pages from `bookpages.paginate`
+  (character budget measured with the book's own text after `document.fonts.ready`; shrinks if a page overflows;
+  headings start pages), word taps/popup/save/seen words per page, swipe/arrows/keys (right-to-left aware),
+  page slider, position in localStorage `book:<id>` + progress.js. Styles in app.css (`.book-reader`, `.book-foot`).
+- **Uploads:** `web/js/bookfiles.js` (own code: zip via DecompressionStream("deflate-raw"), EPUB spine, DOCX XML,
+  DOC via Compound File + piece table, AZW3/MOBI PalmDOC + KF8 boundary, TXT/MD/HTML; DRM/password refused) and
+  PDF.js 6.3.289 legacy build in `web/js/vendor/pdfjs` (+cmaps; `licenses/pdfjs.txt`). Tested: TXT, DOCX, PDF
+  (made here), Alice EPUB/AZW3/MOBI from Gutenberg. **.doc reading is untested** (no sample file).
+- **UI:** Library "Books" section (Free classics / Add a file), + sheet "Book", shelf page `#/books`
+  (`web/js/pages/books.js`, with `uploadBook()`), book icon in icons.js.
+- Not translated yet: the new texts are English only.
+

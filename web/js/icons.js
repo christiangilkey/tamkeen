@@ -46,6 +46,9 @@ const PATHS = {
   speak: `<circle class="fill" cx="9" cy="8.4" r="3.2"/><path class="fill" d="M3 19.6a6 6 0 0 1 12 0z"/>
     <circle cx="9" cy="8.4" r="3.2"/><path d="M3 19.6a6 6 0 0 1 12 0"/>
     <path d="M16.3 6.3a3.4 3.4 0 0 1 0 4.4"/><path d="M18.9 4.2a6.6 6.6 0 0 1 0 8.6"/>`,
+  // An open book: the Library's Books and the free shelf (pages/books.js).
+  book: `<path class="fill" d="M3.5 6.2c2.7-1 5.6-.9 8.5.6 2.9-1.5 5.8-1.6 8.5-.6v12.3c-2.7-1-5.6-.9-8.5.6-2.9-1.5-5.8-1.6-8.5-.6z"/>
+    <path d="M3.5 6.2c2.7-1 5.6-.9 8.5.6 2.9-1.5 5.8-1.6 8.5-.6v12.3c-2.7-1-5.6-.9-8.5.6-2.9-1.5-5.8-1.6-8.5-.6z"/><path d="M12 6.8v12.3"/>`,
   // Points right; turned round with CSS where it should point the other way (the video player's
   // handle for folding the transcript panel away).
   chevron: `<path d="M9.5 5.5 16 12l-6.5 6.5"/>`,

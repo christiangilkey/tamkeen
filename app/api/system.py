@@ -274,6 +274,8 @@ LICENSES = [
     ("The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)", "Apache 2.0 / MIT / NAIST", "kuromoji.txt"),
     ("CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)", "CC BY-SA 4.0", "cc-cedict.txt"),
     ("Wiktionary via Wiktextract: word meanings for No AI (optional download)", "CC BY-SA 4.0", "wiktionary.txt"),
+    ("PDF.js (Mozilla): reading PDF books you add", "Apache 2.0", "pdfjs.txt"),
+    ("The free book shelf: Project Gutenberg, Wikisource, Aozora Bunko (optional download)", "Public domain", "free-books.txt"),
     ("pywebview", "BSD 3-Clause", "pywebview.txt"),
     ("FastAPI / Starlette / Uvicorn", "MIT / BSD 3-Clause", "fastapi.txt"),
     ("feedparser", "BSD 2-Clause", "feedparser.txt"),

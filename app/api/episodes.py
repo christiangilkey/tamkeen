@@ -11,7 +11,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, RedirectResponse, Response, StreamingResponse
 from pydantic import BaseModel
 
-from .. import corrections, db, events, exporters, jobs, languages, pages, sync, tashkeel, videos, youtube
+from .. import books, corrections, db, events, exporters, jobs, languages, pages, sync, tashkeel, videos, youtube
 
 router = APIRouter(tags=["episodes"])
 
@@ -137,6 +137,28 @@ def import_page(body: PageIn) -> dict[str, Any]:
     try:
         ep = pages.save_page(body.url, body.title, body.blocks, body.image, body.site)
     except pages.PageError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    events.publish("feeds", {"refreshed": True})
+    sync.request()
+    return ep
+
+
+class BookIn(BaseModel):
+    guid: str
+    title: str = ""
+    author: str = ""
+    lang: str = ""
+    blocks: list[dict[str, Any]]
+    source: str = ""
+
+
+@router.post("/books")
+def add_book(body: BookIn) -> dict[str, Any]:
+    """A book from the free shelf or an uploaded file, already split into headings and paragraphs
+    in the app's page (web/js/books.js)."""
+    try:
+        ep = books.save_book(body.guid, body.title, body.author, body.lang, body.blocks, body.source)
+    except books.BookError as exc:
         raise HTTPException(400, str(exc)) from exc
     events.publish("feeds", {"refreshed": True})
     sync.request()
