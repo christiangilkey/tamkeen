@@ -129,6 +129,24 @@ export function createWordBubble(host, actions) {
   const L = () => langInfo((ctx && ctx.lang) || "ar");
   const attrs = () => langAttrs((ctx && ctx.lang) || "ar");
 
+  // A misheard word put right: one small purple pill, "what the transcript said → the word", with
+  // an ✕ on its right that puts the transcript back. Tapping the pill says what happened.
+  let fixInfo = false;
+  function fixPill() {
+    const undo = fix.applied && actions.onUndoCorrect;
+    const why = fix.applied
+      ? "The transcription most likely misheard this word, so the AI put the word that was said in its place in the transcript."
+      : "The transcription most likely misheard this word. The AI shows the word that was said, but the transcript here can't be changed.";
+    return `<div class="wb-fix">
+        <span class="wb-pill">
+          <button type="button" class="wb-pill-text" data-act="fixinfo" title="Why is this word different?" aria-expanded="${fixInfo}">
+            <s class="ar" ${attrs()}>${esc(fix.from)}</s><span aria-hidden="true">→</span><span class="ar" ${attrs()}>${esc(fix.to)}</span></button>
+          ${undo ? `<button type="button" class="wb-pill-x" data-act="undo" title="Undo: put back what the transcript said" aria-label="Undo the correction">${icon("close", 13)}</button>` : ""}
+        </span>
+      </div>
+      ${fixInfo ? `<p class="wb-fix-why">${why}</p>` : ""}`;
+  }
+
   function render(state, message = "") {
     current = { state, message };
     const word = fix ? fix.to : ctx.word;
@@ -169,17 +187,15 @@ export function createWordBubble(host, actions) {
       <div class="wb-head">
         ${actions.onPauseMode && !actions.noAudio ? modeSwitch() : ""}
         <div class="wb-word ar" ${attrs()}>${esc(shown)}</div>
-        <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)">✕</button>
+        <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>
-      ${fix ? `<div class="wb-fix"><span class="wb-label">Transcript said</span> <span class="ar" ${attrs()}>${esc(fix.from)}</span>
-        ${fix.applied && actions.onUndoCorrect ? `<button type="button" class="ghost" data-act="undo" title="Put back what the transcript said">Undo</button>`
-          : fix.applied ? "" : `<span class="wb-muted">(not changed in the transcript)</span>`}</div>` : ""}
+      ${fix ? fixPill() : ""}
       <div class="wb-body">${body}</div>
       <div class="wb-actions">
         ${quick ? `<button type="button" data-act="more" title="Show the full explanation of this word">${icon("target", 15)} More</button>` : ""}
-        ${actions.noAudio || quick ? "" : `<button type="button" data-act="word" title="Play this word again">🔊 Word</button>
-        <button type="button" data-act="sentence" title="Play the whole sentence">🔊 Sentence</button>
-        <button type="button" data-act="from" title="Continue playing from here">▶ Continue</button>`}
+        ${actions.noAudio || quick ? "" : `<button type="button" data-act="word" title="Play this word again">${icon("sound", 15)} Word</button>
+        <button type="button" data-act="sentence" title="Play the whole sentence">${icon("sound", 15)} Sentence</button>
+        <button type="button" data-act="from" title="Continue playing from here">${icon("play", 15)} Continue</button>`}
         <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${saved ? "✓ Saved" : "★ Save"}</button>
         ${actions.onFindVideo && !quick ? `<button type="button" data-act="findvideo" title="Save this word and find a YouTube video where it is said">${icon("video", 15)} Find in a video</button>` : ""}
         ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again">↻</button>` : ""}
@@ -236,6 +252,7 @@ export function createWordBubble(host, actions) {
       case "trouble": showTroubleshoot(lastError); break;
       case "more": quick = false; def = null; load(); break;
       case "refresh": def = null; load(true); break;
+      case "fixinfo": fixInfo = !fixInfo; render(current.state, current.message); break;
       case "undo": {
         // Put the transcript back as it was, and look the word up again as written.
         b.disabled = true;
@@ -294,6 +311,7 @@ export function createWordBubble(host, actions) {
     ctx = context;
     def = null;
     fix = null;
+    fixInfo = false;
     saved = !!opts.saved;
     quick = lookupMode() === "quick";
     el.hidden = false;

@@ -281,9 +281,22 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
 
 /* ---------- a misheard word put right (wordbubble.js, fixword.js) ----------
    Under the headword: what the transcript said, and Undo. */
-.word-bubble .wb-fix { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin: -2px 0 8px; font-size: 13px; color: var(--muted); }
-.word-bubble .wb-fix .ar { color: var(--text); font-size: 17px; line-height: 1.3; text-decoration: line-through; text-decoration-color: var(--muted); }
-.word-bubble .wb-fix button { min-height: 0; padding: 1px 10px; font-size: 12px; }
+/* A misheard word put right (wordbubble.js): one purple pill on one line, "said → right ✕". */
+.word-bubble .wb-fix { display: flex; min-width: 0; margin: -2px 0 6px; }
+.wb-pill { display: inline-flex; align-items: center; max-width: 100%; min-width: 0; border-radius: 99px; background: #6a3d8f; color: #fff; overflow: hidden; }
+.word-bubble .wb-pill button { min-height: 0; border: 0; border-radius: 0; background: transparent; color: inherit; box-shadow: none; }
+.wb-pill .wb-pill-text { display: inline-flex; align-items: baseline; gap: 6px; min-width: 0; padding: 2px 6px 2px 11px; font-size: 13px; line-height: 1.5; white-space: nowrap; }
+.wb-pill .wb-pill-text:only-child { padding-right: 11px; }
+.wb-pill .wb-pill-text > * { overflow: hidden; text-overflow: ellipsis; }
+/* Short of room, what the transcript said gives way first; the right word keeps its room longest. */
+.wb-pill .wb-pill-text s { flex: 0 20 auto; min-width: 2em; }
+.wb-pill .wb-pill-text s ~ .ar { flex: 0 1 auto; min-width: 0; }
+.wb-pill .wb-pill-text .ar { font-family: var(--ar-font); font-size: 15px; }
+.wb-pill .wb-pill-text s { opacity: .75; text-decoration-thickness: 1.5px; }
+.wb-pill .wb-pill-text span[aria-hidden] { opacity: .75; flex: none; }
+.wb-pill .wb-pill-x { flex: none; display: grid; place-items: center; width: 26px; padding: 4px 8px 4px 2px; opacity: .85; }
+.wb-pill .wb-pill-x:hover, .wb-pill .wb-pill-text:hover { background: rgba(255, 255, 255, .12); }
+.word-bubble .wb-fix-why { margin: -2px 0 8px; font-size: 13px; color: var(--muted); }
 
 /* ---------- player top row on a phone: icon-only buttons ----------
    The video's title needs the room, so a button that has a line icon shows just the icon there

@@ -55,6 +55,8 @@ const PATHS = {
   more: `<circle class="solid" cx="5.5" cy="12" r="1.5"/><circle class="solid" cx="12" cy="12" r="1.5"/><circle class="solid" cx="18.5" cy="12" r="1.5"/>`,
   // A loudspeaker: play a word's or a sentence's audio.
   sound: `<path class="solid" d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>`,
+  // A play sign: carry on playing from here.
+  play: `<path class="fill" d="M8 5.5v13l10.5-6.5z"/><path d="M8 5.5v13l10.5-6.5z"/>`,
   // A tall phone-shaped frame with a play sign: Instagram reels (so they don't share YouTube's icon).
   reel: `<rect class="fill" x="6.5" y="3" width="11" height="18" rx="2.8"/><rect x="6.5" y="3" width="11" height="18" rx="2.8"/>
     <path class="solid" d="M10.5 9.6v4.8l4-2.4z"/>`,
