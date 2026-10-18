@@ -1,5 +1,6 @@
 // Phone settings: Google account & sync, AI definitions, appearance.
 
+import { taskTargetCard } from "../components/tasktarget.js";
 import { checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js";
 import { aiSetup } from "../components/aisetup.js";
 import { sttSetup } from "../components/sttsetup.js";
@@ -89,6 +90,8 @@ export async function render(view) {
 
     <section class="card" id="game-switch"></section>
 
+    <section class="card" id="task-target"></section>
+
     <section class="card stack" ${isWeb ? "hidden" : ""}>
       <h2>Updates</h2>
       <div class="row"><span id="app-version"></span><span class="spacer"></span>
@@ -174,6 +177,7 @@ export async function render(view) {
   };
   const offAnki = isIOS || isWeb ? () => {} : ankiSyncPanel($("#anki-sync")); // AnkiDroid is an Android app
   gameSwitch($("#game-switch"));
+  taskTargetCard($("#task-target"));
   resetSection($("#reset-app"), parkAll);
   import("../version.js").then(({ APP_VERSION }) => { $("#app-version").textContent = `Version ${APP_VERSION}`; }).catch(() => {});
   $("#check-updates").onclick = async () => {

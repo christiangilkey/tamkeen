@@ -2,13 +2,17 @@
 // teal part the new words done today out of the day's goal, its purple part the reviews done out of
 // those due today, the counts under it and about how long the rest will take. Tapping it opens a
 // small popup to change "new words a day", the same setting as the reviewer's own (one setting,
-// localStorage `reviewNewPerDay`). The numbers are worked out in review/goal.js.
+// localStorage `reviewNewPerDay`). The numbers are worked out in review/goal.js. Under it, "Send to
+// Google Tasks" (or "Send to Onyx", as Settings says) puts the rest of today's review in the learner's
+// to-do list with its estimated time (review/sendtask.js).
 
+import { toast } from "../app.js";
 import { icon } from "../icons.js";
 import { dayNumber } from "./fsrs.js";
 import { NEW_CHOICES, states } from "./deck.js";
 import { deviceTimes, estimate, expectedReviews, model, secondsText, timeText, today, wordCost } from "./goal.js";
 import { newPerDay, setNewPerDay } from "../pages/review.js";
+import { TARGET_NAMES, reviewTask, sendReviewTask, taskTarget } from "./sendtask.js";
 
 const MIN_SHARE = 0.15;  // the smaller part of the bar is never thinner than this, so it can be seen
 
@@ -27,6 +31,7 @@ export function goalBar(root) {
       <span class="goal-counts"><span class="goal-key new">New <b></b></span><span class="goal-key rev">Reviews <b></b></span></span>
       <span class="goal-time"></span>
     </button>
+    <button type="button" class="ghost goal-send" hidden>${icon("send", 15)} <span></span></button>
     <div class="goal-pop" role="dialog" aria-label="Today's goal" hidden>
       <h3>${icon("target", 18)} New words a day</h3>
       <div class="goal-chips">${NEW_CHOICES.map((n) => `<button type="button" data-n="${n}">${n}</button>`).join("")}</div>
@@ -36,6 +41,7 @@ export function goalBar(root) {
   const $ = (s) => root.querySelector(s);
   const button = $(".goal"), pop = $(".goal-pop");
   let words = [], log = {};
+  let plan = null; // today's review as a task, while there is some left (review/sendtask.js)
 
   function draw() {
     const goal = newPerDay();
@@ -61,6 +67,11 @@ export function goalBar(root) {
     const time = $(".goal-time");
     time.textContent = left.ms ? `${cap(timeText(left))} left today${left.guess ? " (a first guess)" : ""}`
       : t.newDone + t.revDone ? "All done for today" : "Nothing due today";
+    plan = left.ms ? reviewTask(t, left) : null;
+    const send = $(".goal-send");
+    send.hidden = !plan;
+    send.querySelector("span").textContent = `Send to ${TARGET_NAMES[taskTarget()]}`;
+    send.title = plan ? `Add “${plan.title}” to ${TARGET_NAMES[taskTarget()]} for today (choose where in Settings)` : "";
     button.setAttribute("aria-label", `Today: new words ${t.newDone} of ${t.newTarget}, reviews ${t.revDone} of ${t.revTarget}. ${time.textContent}. Change the new words a day`);
 
     for (const b of pop.querySelectorAll(".goal-chips button")) b.classList.toggle("on", Number(b.dataset.n) === goal);
@@ -89,6 +100,13 @@ export function goalBar(root) {
     document.removeEventListener("keydown", onKey);
   }
   button.onclick = () => (pop.hidden ? open() : close());
+  $(".goal-send").onclick = async (e) => {
+    if (!plan) return;
+    const b = e.currentTarget;
+    b.disabled = true;
+    try { await sendReviewTask(plan); } catch (err) { toast(err.message || "Couldn't send the task.", { error: true }); }
+    finally { b.disabled = false; }
+  };
   for (const b of pop.querySelectorAll(".goal-chips button")) {
     b.onclick = () => { setNewPerDay(Number(b.dataset.n)); draw(); root.dispatchEvent(new Event("goalchange", { bubbles: true })); };
   }

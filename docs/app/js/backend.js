@@ -575,6 +575,15 @@ const routes = [
   }],
   ["POST", /^\/pages$/, (m, q, body) => savePage(body)],
   ["POST", /^\/books$/, (m, q, body) => saveBook(body)],
+  // The Review tab's "Send to Google Tasks" / "Send to Onyx" (googletasks.js; the computer's is app/googletasks.py).
+  ["POST", /^\/tasks\/review$/, async (m, q, body) => {
+    const { sendReviewTask } = await import("./googletasks.js");
+    try { return await sendReviewTask(body || {}); } catch (e) { throw new ApiError(e.message); }
+  }],
+  ["POST", /^\/open-onyx$/, async (m, q, body) => {
+    const { openOnyx } = await import("./googletasks.js");
+    try { return openOnyx((body || {}).url); } catch (e) { throw new ApiError(e.message); }
+  }],
   ["POST", /^\/youtube$/, (m, q, body) => saveYouTube(body)],
   // Reels are normally found and transcribed on the computer and only watched here. With cloud
   // transcription on, the phone can pick reels from the user's own Instagram saves (reels-phone.js).
