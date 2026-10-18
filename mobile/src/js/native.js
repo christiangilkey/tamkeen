@@ -16,6 +16,19 @@ export const proxied = (url) => (isWeb && PROXY ? `${PROXY.replace(/\/$/, "")}/f
 /** The "Web" Google client: Supabase trusts its ID tokens, Android asks for them on its behalf,
  *  and the web app signs in with it directly. */
 export const GOOGLE_WEB_CLIENT_ID = "419555269865-0954ljffgrnbveq04lvh3ii6c032rhv3.apps.googleusercontent.com";
+/** fetch() through the go-between server. Some sites (YouTube, Apple) turn away part of the
+ *  requests coming from Cloudflare's computers (403/429); the next try usually leaves from another
+ *  one and gets through, so up to 4 tries. Outside the web app: an ordinary fetch. */
+export async function webFetch(url, opts = {}) {
+  if (!isWeb) return fetch(url, opts);
+  let res;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    res = await fetch(proxied(url), opts);
+    if (res.status !== 403 && res.status !== 429) break;
+    await new Promise((r) => setTimeout(r, 300 * (attempt + 1)));
+  }
+  return res;
+}
 /** Where a fetch through the go-between server really ended up (after forwarding). */
 export const finalUrl = (res, asked) => (res.headers && res.headers.get("X-Final-Url")) || res.url || asked;
 

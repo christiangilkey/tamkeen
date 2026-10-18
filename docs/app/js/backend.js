@@ -9,7 +9,7 @@ import { settings } from "./store.js";
 import { detectLanguage, isLanguage, studyLanguage } from "./languages.js";
 import { MAX_UPLOAD_BYTES } from "./stt.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
-import { NativeHttp, isNative, proxied } from "./native.js";
+import { NativeHttp, isNative, webFetch } from "./native.js";
 import { newEpisodeRecords, parseFeed } from "./rss.js";
 import * as cloud from "./transcribe-service.js";
 import { replaceInText } from "./correction.js";
@@ -166,7 +166,7 @@ const headerOf = (res, name) => {
  * follow one that changes between http and https). */
 async function downloadFeed(url, seen = null) {
   if (!isNative) { // the web app (through the go-between server), or a development preview
-    const res = await fetch(proxied(url));
+    const res = await webFetch(url);
     if (!res.ok) throw new Error(`The feed server returned HTTP ${res.status}.`);
     return res.text();
   }

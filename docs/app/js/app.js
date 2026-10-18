@@ -12,6 +12,7 @@ import * as friends from "./pages/friends.js";
 import * as chat from "./pages/chat.js";
 import * as discover from "./pages/discover.js";
 import * as reels from "./pages/reels.js";
+import * as webYouTube from "./web-youtube.js";
 import { startBadge } from "./social.js";
 import { initSwipe } from "./swipe.js";
 import { isNewer, showUpdateNotice } from "./updatenotice.js";
@@ -27,7 +28,7 @@ import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
 import { accessToken, drive, googleScript } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
-import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, proxied } from "./native.js";
+import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, webFetch } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
 import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
@@ -318,7 +319,7 @@ export async function fetchPage(url) {
   if (!/^https?:\/\/[^\s/]+/i.test(address)) throw new Error("Paste a web address, like https://example.com/article");
   if (isWeb) { // the web app reads the page through the go-between server
     let page;
-    try { page = await fetch(proxied(address), { headers: { "Accept-Language": "ar,en;q=0.8" } }); } catch {
+    try { page = await webFetch(address, { headers: { "Accept-Language": "ar,en;q=0.8" } }); } catch {
       throw new Error("Couldn't reach that site. Check the address and your connection.");
     }
     if (page.status >= 400) throw new Error(`The site answered with an error (${page.status}).`);
@@ -346,7 +347,9 @@ export async function appleJson(url) {
       if (res.status >= 400) throw new Error(String(res.status));
       return typeof res.data === "string" ? JSON.parse(res.data) : res.data;
     }
-    const res = await fetch(proxied(url)); // the web app, or a development preview in a browser
+    // The web app, or a development preview in a browser. Apple's directory lets web pages ask it
+    // directly (and turns most requests from Cloudflare's computers away), so no go-between here.
+    const res = await fetch(url);
     if (!res.ok) throw new Error(String(res.status));
     return await res.json();
   } catch {
@@ -358,17 +361,11 @@ export async function appleJson(url) {
  * phone itself (native code), so it isn't held back by the rules for web pages. */
 export async function ytRequest({ url, method = "GET", headers = {}, body }) {
   if (isWeb) { // the web app asks YouTube through the go-between server
-    // YouTube turns away some of the requests coming from Cloudflare's computers ("automated
-    // queries", 403/429); the next try usually leaves from another one and gets through.
     let res;
-    for (let attempt = 0; attempt < 4; attempt++) {
-      try {
-        res = await fetch(proxied(url), { method, headers, body: body === undefined || body === null ? undefined : body });
-      } catch (e) {
-        throw new Error("Couldn't reach YouTube. Check your connection.");
-      }
-      if (res.status !== 403 && res.status !== 429) break;
-      await new Promise((r) => setTimeout(r, 300 * (attempt + 1)));
+    try {
+      res = await webFetch(url, { method, headers, body: body === undefined || body === null ? undefined : body });
+    } catch (e) {
+      throw new Error("Couldn't reach YouTube. Check your connection.");
     }
     return { status: res.status, text: await res.text() };
   }
@@ -389,6 +386,10 @@ export async function ytRequest({ url, method = "GET", headers = {}, body }) {
  * studied (see youtube-home.js). Tapping a video there opens it in Tamkeen's player. */
 export async function openYouTube(address = "") {
   // `address`: a YouTube page to open on instead (a followed channel's videos).
+  if (isWeb) { // a web page can't catch a video tapped on YouTube's own site, so its list is shown here
+    location.hash = address ? `#/youtube?u=${encodeURIComponent(address)}` : "#/youtube";
+    return;
+  }
   return openBrowser(address || youtubeHome(studyLanguage(), { mobile: true, country: chosenCountry(studyLanguage()) }),
                      { reading: false });
 }
@@ -430,6 +431,10 @@ export async function openYouTubeLink(url) {
       // No captions, most likely: it can still be watched on YouTube's own page, inside the app.
       toast(`${e.message || "Couldn't open this video here."} Opening it on YouTube instead.`);
     }
+  }
+  if (isWeb) { // no captions: watch it on YouTube itself
+    window.open(url, "_blank", "noopener");
+    return;
   }
   // The browser covers the player: stop what is playing underneath.
   try { if (window.__apsAudio) window.__apsAudio.pause(); } catch { /* nothing playing */ }
@@ -822,6 +827,7 @@ const routes = [
   [/^discover$/, discover, () => ({})],
   [/^reels$/, reels, () => ({})],
   [/^reels\/play$/, reels, () => ({ play: true })],
+  [/^youtube$/, webYouTube, () => ({})], // the web app's YouTube page (the apps use their own browser)
   [/^episode\/(\w+)$/, player, (m) => ({ id: m[1] })],
   [/^vocab$/, vocab, () => ({})],
   [/^search$/, search, () => ({})],
@@ -845,7 +851,7 @@ async function route() {
   if (!hit) { location.hash = "#/"; return; }
   if (isWeb && hit[1] === reels) hit = [/^/, appOnly, () => ({})]; // reels need the app's own Instagram window
   const [re, mod, params] = hit;
-  const key = mod === home ? "home" : mod === library || mod === discover || mod === reels ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
+  const key = mod === home ? "home" : mod === library || mod === discover || mod === reels || mod === webYouTube ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
     : mod === settingsPage ? "settings" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === key));
   document.body.classList.toggle("in-player", mod === player || mod === chat || (mod === reels && path.startsWith("reels/play")));
