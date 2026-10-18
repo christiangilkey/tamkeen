@@ -18,7 +18,12 @@ const out = join(root, "docs", "app");
 const proxyFile = join(here, "proxy-url.txt");
 const proxy = (process.env.TAMKEEN_PROXY || (existsSync(proxyFile) ? readFileSync(proxyFile, "utf8") : "")).trim();
 if (proxy && !/^(https:\/\/[\w.-]+|http:\/\/localhost:\d+)\/?$/.test(proxy)) throw new Error(`The go-between server's address doesn't look right: ${proxy}`);
-const version = process.env.APP_VERSION || "0.0.0-web";
+// The latest release's number (its git tag), unless one is given.
+let version = process.env.APP_VERSION || "";
+if (!version) {
+  try { version = execFileSync("git", ["describe", "--tags", "--abbrev=0"], { cwd: root, encoding: "utf8" }).trim().replace(/^v/, ""); } catch { /* no tags here */ }
+}
+version = version || "0.0.0-web";
 
 // 1. The phone bundle, freshly built.
 execFileSync(process.execPath, [join(root, "mobile", "scripts", "build-www.mjs")], { stdio: "inherit", env: { ...process.env, APP_VERSION: version } });

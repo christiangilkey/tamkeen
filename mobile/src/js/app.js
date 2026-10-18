@@ -358,11 +358,17 @@ export async function appleJson(url) {
  * phone itself (native code), so it isn't held back by the rules for web pages. */
 export async function ytRequest({ url, method = "GET", headers = {}, body }) {
   if (isWeb) { // the web app asks YouTube through the go-between server
+    // YouTube turns away some of the requests coming from Cloudflare's computers ("automated
+    // queries", 403/429); the next try usually leaves from another one and gets through.
     let res;
-    try {
-      res = await fetch(proxied(url), { method, headers, body: body === undefined || body === null ? undefined : body });
-    } catch (e) {
-      throw new Error("Couldn't reach YouTube. Check your connection.");
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        res = await fetch(proxied(url), { method, headers, body: body === undefined || body === null ? undefined : body });
+      } catch (e) {
+        throw new Error("Couldn't reach YouTube. Check your connection.");
+      }
+      if (res.status !== 403 && res.status !== 429) break;
+      await new Promise((r) => setTimeout(r, 300 * (attempt + 1)));
     }
     return { status: res.status, text: await res.text() };
   }
