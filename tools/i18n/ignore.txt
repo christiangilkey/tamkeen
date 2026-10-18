@@ -148,3 +148,14 @@ db2dff44
 057067d3  # Egyptian words
 9ed22417  # Gulf words
 6b5eb532  # Apache 2.0 (licence name)
+# Not interface: the English phrasal-verb list (lexicon/english.js), the sample word forms shown in the
+# language being learned (seen.js EXAMPLES, drawn as content), and a licence name on About.
+f69d1f63  # phrasal verbs
+956dd8fb  # كتب، يكتبون، سأكتبها
+7dc60c4f  # hablo, hablaste, háblame
+c16a6e7e  # parle, parlons, parlez-moi
+5d3f35e9  # parlo, parliamo, parlami
+82120541  # говорю, сказала, скажи
+2b8c44b4  # run, ran, running
+a16c86fc  # kumain, kakain, kinain
+58848303  # ODbL 1.0 (licence name)

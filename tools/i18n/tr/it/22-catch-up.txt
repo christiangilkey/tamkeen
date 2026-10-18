@@ -1,0 +1,27 @@
+b90bc82b	Molto probabilmente la trascrizione ha capito male questa parola, quindi l'IA ha messo al suo posto nella trascrizione la parola che è stata detta.
+48625603	Molto probabilmente la trascrizione ha capito male questa parola. L'IA mostra la parola che è stata detta, ma qui la trascrizione non si può modificare.
+c432d63e	Annulla: ripristina quello che diceva la trascrizione
+3d6eef62	Annulla la correzione
+a27b99cf	Perché questa parola è diversa?
+1fa955a7	Questa tabella di parole è di un'altra versione dell'app.
+84d8d02d	Mostra l'accento tonico (ла́дно)
+f5eab3f0	I dizionari di {0:lower} non sono su questo dispositivo, quindi ogni forma di una parola conta come una parola diversa.
+cadfed16	l'elenco di parole di wordfreq per il filippino, con cui l'app controlla le radici che trova (kumain, kakain, kinain: kain)
+74da1e87	elenchi di parole liberi (l'elenco di lemmatizzazione di Michal Měchura e le frequenze delle parole di wordfreq) e il CMU Pronouncing Dictionary, che dà la pronuncia americana mostrata nella finestra della parola
+84ee7564	il dizionario di OpenRussian.org, che dà anche l'accento di ogni parola, così il testo russo può mostrarlo (ла́дно)
+359544fb	elenchi di parole liberi (gli elenchi di lemmatizzazione di Michal Měchura e le frequenze delle parole di wordfreq)
+f9657a45	In {0:lower} serve una tabella delle forme delle parole: un <0>download unico di circa {1} MB</0>, realizzata a partire da {2}. Resta su questo dispositivo e nulla su di te viene inviato da nessuna parte. Senza, ogni forma di una parola conta come una parola diversa.
+a5d14ec2	circa {0}
+95a4caee	{0}–{1} min
+48a80f34	ha richiesto più di {0} minuti
+d6993df4	{0} aggiunti, {1} saltati
+360993c3	il video ci ha messo troppo a scaricarsi
+3727f60b	Reel {0} dei {1} che hai spuntato: ascolto… ({2} finora)
+f239c335	L'elenco qui sotto dice perché ciascuno è stato saltato.
+4c93d4b8	Interrotto. {0}.
+403ebed9	Ricerca di {0} reel in {1:lower}: {2} finora; ascolto del prossimo…
+3d0a21ac	{0}: {1} reel casuali in {2:lower} pronti da guardare.
+ceda21f2	{0}: questa volta non è stato possibile conservare nessun reel in {1:lower}. Riprova: le parole di ricerca cambiano ogni volta.
+2d7a6fa1	Tabelle di parole di spagnolo, francese, italiano e inglese (download facoltativo)
+026482d9	CMU Pronouncing Dictionary: pronunce americane nella tabella di parole dell'inglese
+08a5e4bd	Tabella di parole del russo con l'accento, da OpenRussian.org (download facoltativo)

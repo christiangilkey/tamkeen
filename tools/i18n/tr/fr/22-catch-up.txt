@@ -1,0 +1,27 @@
+b90bc82b	La transcription a très probablement mal entendu ce mot : l'IA a donc mis à sa place, dans la transcription, le mot qui a été dit.
+48625603	La transcription a très probablement mal entendu ce mot. L'IA affiche le mot qui a été dit, mais la transcription ne peut pas être modifiée ici.
+c432d63e	Annuler : remettre ce que disait la transcription
+3d6eef62	Annuler la correction
+a27b99cf	Pourquoi ce mot est-il différent ?
+1fa955a7	Cette table de mots vient d'une autre version de l'app.
+84d8d02d	Afficher l'accent tonique (ла́дно)
+f5eab3f0	Les dictionnaires de {0:lower} ne sont pas sur cet appareil : chaque forme d'un mot compte donc comme un mot différent.
+cadfed16	la liste de mots wordfreq pour le filipino, avec laquelle l'app vérifie les racines qu'elle trouve (kumain, kakain, kinain : kain)
+74da1e87	des listes de mots libres (la liste de lemmatisation de Michal Měchura et les fréquences de mots de wordfreq) et le CMU Pronouncing Dictionary, qui donne la prononciation américaine affichée dans la fenêtre du mot
+84ee7564	le dictionnaire OpenRussian.org, qui donne aussi l'accent tonique de chaque mot, pour que le texte russe puisse l'afficher (ла́дно)
+359544fb	des listes de mots libres (les listes de lemmatisation de Michal Měchura et les fréquences de mots de wordfreq)
+f9657a45	En {0:lower}, il faut une table des formes des mots : un <0>téléchargement unique d'environ {1} Mo</0>, réalisée à partir de {2}. Elle reste sur cet appareil et rien vous concernant n'est envoyé nulle part. Sans elle, chaque forme d'un mot compte comme un mot différent.
+a5d14ec2	environ {0}
+95a4caee	{0}–{1} min
+48a80f34	a pris plus de {0} minutes
+d6993df4	{0} ajoutés, {1} ignorés
+360993c3	le téléchargement de la vidéo a pris trop de temps
+3727f60b	Reel {0} sur les {1} cochés : écoute… ({2} pour l'instant)
+f239c335	La liste ci-dessous indique pourquoi chacun a été ignoré.
+4c93d4b8	Arrêté. {0}.
+403ebed9	Recherche de {0} reels en {1:lower} : {2} pour l'instant ; écoute du suivant…
+3d0a21ac	{0} : {1} reels au hasard en {2:lower} prêts à regarder.
+ceda21f2	{0} : aucun reel en {1:lower} n'a pu être gardé cette fois. Réessayez : les mots de recherche changent à chaque fois.
+2d7a6fa1	Tables de mots espagnols, français, italiens et anglais (téléchargement facultatif)
+026482d9	CMU Pronouncing Dictionary : prononciations américaines dans la table de mots anglais
+08a5e4bd	Table de mots russes avec l'accent tonique, d'OpenRussian.org (téléchargement facultatif)

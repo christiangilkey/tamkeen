@@ -1,0 +1,27 @@
+b90bc82b	Lo más probable es que la transcripción oyera mal esta palabra, así que la IA puso en la transcripción la palabra que se dijo.
+48625603	Lo más probable es que la transcripción oyera mal esta palabra. La IA muestra la palabra que se dijo, pero aquí la transcripción no se puede cambiar.
+c432d63e	Deshacer: volver a lo que decía la transcripción
+3d6eef62	Deshacer la corrección
+a27b99cf	¿Por qué esta palabra es distinta?
+1fa955a7	Esta tabla de palabras es de otra versión de la app.
+84d8d02d	Mostrar el acento tónico (ла́дно)
+f5eab3f0	Los diccionarios de {0:lower} no están en este dispositivo, así que cada forma de una palabra cuenta como una palabra distinta.
+cadfed16	la lista de palabras de wordfreq para el filipino, con la que la app comprueba las raíces que encuentra (kumain, kakain, kinain: kain)
+74da1e87	listas de palabras abiertas (la lista de lematización de Michal Měchura y los recuentos de palabras de wordfreq) y el CMU Pronouncing Dictionary, que da la pronunciación estadounidense que se ve en la ventana de la palabra
+84ee7564	el diccionario de OpenRussian.org, que también da el acento tónico de cada palabra, para que el texto ruso pueda mostrarlo (ла́дно)
+359544fb	listas de palabras abiertas (las listas de lematización de Michal Měchura y los recuentos de palabras de wordfreq)
+f9657a45	Para el {0:lower} hace falta una tabla de formas de palabras: una <0>descarga única de unos {1} MB</0>, creada con {2}. Se queda en este dispositivo y no se envía nada sobre ti a ningún sitio. Sin ella, cada forma de una palabra cuenta como una palabra distinta.
+a5d14ec2	unos {0}
+95a4caee	{0}–{1} min
+48a80f34	tardó más de {0} minutos
+d6993df4	{0} añadidos, {1} omitidos
+360993c3	el vídeo tardó demasiado en descargarse
+3727f60b	Reel {0} de los {1} que marcaste: escuchando… ({2} hasta ahora)
+f239c335	La lista de abajo dice por qué se omitió cada uno.
+4c93d4b8	Detenido. {0}.
+403ebed9	Buscando {0} reels en {1:lower}: {2} hasta ahora; escuchando el siguiente…
+3d0a21ac	{0}: {1} reels al azar en {2:lower} listos para ver.
+ceda21f2	{0}: esta vez no se pudo conservar ningún reel en {1:lower}. Inténtalo de nuevo: las palabras de búsqueda cambian cada vez.
+2d7a6fa1	Tablas de palabras de español, francés, italiano e inglés (descarga opcional)
+026482d9	CMU Pronouncing Dictionary: pronunciaciones estadounidenses en la tabla de palabras del inglés
+08a5e4bd	Tabla de palabras del ruso con acento tónico, de OpenRussian.org (descarga opcional)

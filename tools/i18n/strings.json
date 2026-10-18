@@ -2880,6 +2880,31 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
+  "id": "b90bc82b",
+  "k": "The transcription most likely misheard this word, so the AI put the word that was said in its place in the transcript.",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "48625603",
+  "k": "The transcription most likely misheard this word. The AI shows the word that was said, but the transcript here can't be changed.",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "c432d63e",
+  "k": "Undo: put back what the transcript said",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "3d6eef62",
+  "k": "Undo the correction",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "a27b99cf",
+  "k": "Why is this word different?",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
   "id": "27d9ea3d",
   "k": "Looking up…",
   "f": "web/js/components/wordbubble.js"
@@ -2920,26 +2945,6 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "3a97676e",
-  "k": "Put back what the transcript said",
-  "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "39fc7212",
-  "k": "Undo",
-  "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "cb93d649",
-  "k": "(not changed in the transcript)",
-  "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "e66da09d",
-  "k": "Transcript said",
-  "f": "web/js/components/wordbubble.js"
- },
- {
   "id": "86efdc55",
   "k": "Show the full explanation of this word",
   "f": "web/js/components/wordbubble.js"
@@ -2955,8 +2960,8 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "1d6e7301",
-  "k": "🔊 Word",
+  "id": "44363ccb",
+  "k": "Word",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -2965,8 +2970,8 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "69c9812b",
-  "k": "🔊 Sentence",
+  "id": "1bb1f30e",
+  "k": "Sentence",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -2975,8 +2980,8 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "4107fbd9",
-  "k": "▶ Continue",
+  "id": "2e026239",
+  "k": "Continue",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -6660,8 +6665,63 @@
   "f": "web/js/igcollections.js"
  },
  {
+  "id": "080c79ed",
+  "k": "This Chinese dictionary is from a different version of the app.",
+  "f": "web/js/lexicon/chinese.js"
+ },
+ {
+  "id": "8079905a",
+  "k": "This Japanese dictionary is from a different version of the app.",
+  "f": "web/js/lexicon/kuromoji.js"
+ },
+ {
+  "id": "cd8a2a7e",
+  "k": "Show furigana (small kana over kanji)",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "48f745cc",
+  "k": "Show pinyin over the characters, coloured by tone",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "fcfd569a",
+  "k": "Chinese characters",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "c17ef03e",
+  "k": "As written",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "6a018382",
+  "k": "Simplified (简体)",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "6c401cdd",
+  "k": "Traditional (繁體)",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "cb91bc89",
+  "k": "These work once the {0} dictionary is on this device.",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "1fa955a7",
+  "k": "This word table is from a different version of the app.",
+  "f": "web/js/lexicon/romance.js"
+ },
+ {
   "id": "41867351",
   "k": "Couldn't save that word as seen: {0}",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "84d8d02d",
+  "k": "Show stress marks (ла́дно)",
   "f": "web/js/lexicon/seen.js"
  },
  {
@@ -6680,6 +6740,11 @@
   "f": "web/js/lexicon/seen.js"
  },
  {
+  "id": "f5eab3f0",
+  "k": "{0} word dictionaries aren't on this device, so each spelling of a word counts as a different word.",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
   "id": "c2232964",
   "k": "Download (about {0} MB)",
   "f": "web/js/lexicon/seen.js"
@@ -6695,8 +6760,53 @@
   "f": "web/js/lexicon/seen.js"
  },
  {
+  "id": "1eccdd79",
+  "k": "For Japanese that needs a dictionary: it splits Japanese text into real words, so a tap lands on the whole word, gives each word's dictionary form, and shows furigana (small kana over kanji). It is IPADIC, from the Nara Institute of Science and Technology",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "dae622d1",
+  "k": "For Chinese that needs a dictionary: it splits Chinese text into real words, so a tap lands on the whole word, shows pinyin over the characters coloured by tone, and treats simplified and traditional characters as the same word. It is CC-CEDICT with word counts from wordfreq",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "cadfed16",
+  "k": "the wordfreq word list for Filipino, which the app checks the roots it finds against (kumain, kakain, kinain: kain)",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "74da1e87",
+  "k": "open word lists (Michal Měchura's lemmatization list and the wordfreq word counts) and the CMU Pronouncing Dictionary, which gives the US pronunciation shown in the word popup",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "84ee7564",
+  "k": "the OpenRussian.org dictionary, which also gives each word's stress, so Russian text can show it (ла́дно)",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "359544fb",
+  "k": "open word lists (Michal Měchura's lemmatization lists and the wordfreq word counts)",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
   "id": "04d17f22",
   "k": "This language's",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "4af2e1ae",
+  "k": "{0}: a <0>one-time download of about {1} MB</0>. It stays on this device and nothing about you is sent anywhere.",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "6280fb05",
+  "k": "For {0} that needs dictionaries: a <0>one-time download of about {1} MB</0>, made by the CAMeL Lab at New York University Abu Dhabi (Standard, Egyptian, Levantine and Gulf Arabic). They stay on this device and nothing about you is sent anywhere.",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "f9657a45",
+  "k": "For {0} that needs a table of word forms: a <0>one-time download of about {1} MB</0>, made from {2}. It stays on this device and nothing about you is sent anywhere. Without it, each spelling of a word counts as a different word.",
   "f": "web/js/lexicon/seen.js"
  },
  {
@@ -6707,11 +6817,6 @@
  {
   "id": "c33c9385",
   "k": "Tamkeen can show which words are <0>new to you</0>: a word you have never tapped is drawn in purple, and once you tap one, every form of that word counts as seen (<1/>).",
-  "f": "web/js/lexicon/seen.js"
- },
- {
-  "id": "6280fb05",
-  "k": "For {0} that needs dictionaries: a <0>one-time download of about {1} MB</0>, made by the CAMeL Lab at New York University Abu Dhabi (Standard, Egyptian, Levantine and Gulf Arabic). They stay on this device and nothing about you is sent anywhere.",
   "f": "web/js/lexicon/seen.js"
  },
  {
@@ -7462,11 +7567,6 @@
  {
   "id": "13fd0a3e",
   "k": "Good afternoon",
-  "f": "web/js/pages/home.js"
- },
- {
-  "id": "2e026239",
-  "k": "Continue",
   "f": "web/js/pages/home.js"
  },
  {
@@ -9610,16 +9710,6 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "44363ccb",
-  "k": "Word",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "1bb1f30e",
-  "k": "Sentence",
-  "f": "web/js/pages/vocab.js"
- },
- {
   "id": "9afb285b",
   "k": "· changed {0}",
   "f": "web/js/pages/vocab.js"
@@ -9955,13 +10045,13 @@
   "f": "web/js/review/goal.js"
  },
  {
-  "id": "aebe40c4",
-  "k": "about {0} min",
+  "id": "a5d14ec2",
+  "k": "about {0}",
   "f": "web/js/review/goal.js"
  },
  {
-  "id": "24b8e72e",
-  "k": "about {0} h{1}",
+  "id": "95a4caee",
+  "k": "{0}–{1} min",
   "f": "web/js/review/goal.js"
  },
  {
@@ -10945,6 +11035,101 @@
   "f": "web/js/updatenotice.js"
  },
  {
+  "id": "b7219bda",
+  "k": "Egyptian",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "475410e2",
+  "k": "Levantine",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "81298f3a",
+  "k": "Gulf",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "64202d79",
+  "k": "a dialect",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "0757a38e",
+  "k": "Vowels are a guess here: this sounds like {0} Arabic, and the vowel model learned Standard Arabic.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "01738e86",
+  "k": "No vowels here: this sounds like {0} Arabic, and the vowel model only knows Standard Arabic. Settings can show them as a guess.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "ebf17aa6",
+  "k": "Add vowels to Arabic?",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "f6ca8deb",
+  "k": "Arabic is written without its short vowels. Tamkeen can add them to your Arabic transcripts, pages and reels, so you can see how each word is said. That needs a vowel model, a one-time {0} MB download kept on this computer. Your phone gets the vowels from here when it syncs.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "79151896",
+  "k": "It learned Standard Arabic: on news-style Arabic about 4 words in 5 come out fully right. It doesn't know Egyptian, Levantine or Gulf speech, so those are left without vowels unless you ask for a guess.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "3a719e9b",
+  "k": "Download ({0} MB)",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "ec1c7366",
+  "k": "Downloading the vowel model. Vowels appear when it is done.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "955dc8cb",
+  "k": "Show or hide vowel marks (V)",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "deee2838",
+  "k": "Show vowels (حَرَكات) in transcripts, pages and reels",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "451a444b",
+  "k": "Also on Egyptian, Levantine and Gulf speech (a guess, often wrong)",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "59e8699c",
+  "k": "Tamkeen on your computer adds the vowels (download the vowel model in its Settings); they come here when you sync.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "10d9f8dc",
+  "k": "Adding vowels…",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "e549162d",
+  "k": "✓ The vowel model is on this computer ({0} MB).{1}",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "b281359a",
+  "k": "Downloading the vowel model… {0}%",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "2820e9e6",
+  "k": "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}",
+  "f": "web/js/vowels.js"
+ },
+ {
   "id": "3c467cf7",
   "k": "✓ Following",
   "f": "web/js/youtube-browser.js"
@@ -11760,6 +11945,21 @@
   "f": "mobile/src/js/reels-phone.js"
  },
  {
+  "id": "8fcc7be3",
+  "k": "Stopped.",
+  "f": "mobile/src/js/reels-phone.js"
+ },
+ {
+  "id": "48a80f34",
+  "k": "took over {0} minutes",
+  "f": "mobile/src/js/reels-phone.js"
+ },
+ {
+  "id": "d6993df4",
+  "k": "{0} added, {1} skipped",
+  "f": "mobile/src/js/reels-phone.js"
+ },
+ {
   "id": "61151245",
   "k": "Instagram didn't open. Check your connection and try again.",
   "f": "mobile/src/js/reels-phone.js"
@@ -11787,11 +11987,6 @@
  {
   "id": "352cdb34",
   "k": "Sign in to Instagram first: press “Sign in to Instagram” and sign in there. That window closes by itself and Tamkeen carries on.",
-  "f": "mobile/src/js/reels-phone.js"
- },
- {
-  "id": "8fcc7be3",
-  "k": "Stopped.",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
@@ -11855,6 +12050,11 @@
   "f": "mobile/src/js/reels-phone.js"
  },
  {
+  "id": "360993c3",
+  "k": "the video took too long to download",
+  "f": "mobile/src/js/reels-phone.js"
+ },
+ {
   "id": "856eba9f",
   "k": "the video couldn't be downloaded{0}",
   "f": "mobile/src/js/reels-phone.js"
@@ -11905,18 +12105,13 @@
   "f": "mobile/src/js/reels-phone.js"
  },
  {
-  "id": "dd51e085",
-  "k": "Listening to reel {0} of {1}…",
+  "id": "3727f60b",
+  "k": "Reel {0} of the {1} you ticked: listening… ({2} so far)",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
-  "id": "32ece972",
-  "k": "{0} couldn't be used (see below).",
-  "f": "mobile/src/js/reels-phone.js"
- },
- {
-  "id": "3f643109",
-  "k": "{0} of {1} ready to watch.{2}",
+  "id": "f239c335",
+  "k": "The list below says why each was skipped.",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
@@ -11925,8 +12120,8 @@
   "f": "mobile/src/js/reels-phone.js"
  },
  {
-  "id": "d2742d01",
-  "k": "Stopped. {0} kept.",
+  "id": "4c93d4b8",
+  "k": "Stopped. {0}.",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
@@ -11935,18 +12130,18 @@
   "f": "mobile/src/js/reels-phone.js"
  },
  {
-  "id": "cbf2cd0c",
-  "k": "Listening to reel {0} (kept {1} of {2})…",
+  "id": "403ebed9",
+  "k": "Getting {0} {1} reels: {2} so far; listening to the next one…",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
-  "id": "d7b93b14",
-  "k": "{0} random {1} reel{2} ready to watch ({3} listened to).",
+  "id": "3d0a21ac",
+  "k": "{0}: {1} random {2} reel{3} ready to watch.",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
-  "id": "2d9481a1",
-  "k": "No {0} reels could be kept this time ({1} listened to). Try again: the search words change each time.",
+  "id": "ceda21f2",
+  "k": "{0}: no {1} reels could be kept this time. Try again: the search words change each time.",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
@@ -12237,6 +12432,36 @@
  {
   "id": "3ee00536",
   "k": "CAMeL Tools analyzer method; Arabic dictionaries (optional download)",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "cb9ed3a8",
+  "k": "CATT Arabic vowel model, Abjad AI (optional download)",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "2d7a6fa1",
+  "k": "Spanish, French, Italian and English word tables (optional download)",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "026482d9",
+  "k": "CMU Pronouncing Dictionary: US pronunciations in the English word table",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "08a5e4bd",
+  "k": "Russian word table with stress, from OpenRussian.org (optional download)",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "f88f293f",
+  "k": "The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "a3451771",
+  "k": "CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)",
   "f": "app/api/system.py"
  },
  {
@@ -12750,6 +12975,11 @@
   "f": "app/reels_worker.py"
  },
  {
+  "id": "cbf2cd0c",
+  "k": "Listening to reel {0} (kept {1} of {2})…",
+  "f": "app/reels_worker.py"
+ },
+ {
   "id": "d38405ee",
   "k": "{0} random {1} reel{2} ready ({3} checked).",
   "f": "app/reels_worker.py"
@@ -12770,8 +13000,18 @@
   "f": "app/reels_worker.py"
  },
  {
+  "id": "dd51e085",
+  "k": "Listening to reel {0} of {1}…",
+  "f": "app/reels_worker.py"
+ },
+ {
   "id": "251eda10",
   "k": "{0} of {1} ready for your phone.",
+  "f": "app/reels_worker.py"
+ },
+ {
+  "id": "32ece972",
+  "k": "{0} couldn't be used (see below).",
   "f": "app/reels_worker.py"
  },
  {
@@ -12908,6 +13148,16 @@
   "id": "06ac7931",
   "k": "This video is stored in Google Drive: sign in with Google in Settings to transcribe it.",
   "f": "app/sync/__init__.py"
+ },
+ {
+  "id": "2d689417",
+  "k": "Couldn't download the vowel model ({0}). Check your connection and try again.",
+  "f": "app/tashkeel.py"
+ },
+ {
+  "id": "da48fac9",
+  "k": "The vowel model isn't downloaded.",
+  "f": "app/tashkeel.py"
  },
  {
   "id": "f61d414a",
@@ -13048,185 +13298,5 @@
   "id": "7ff5a6da",
   "k": "Sections",
   "f": "mobile/src/index.html"
- },
- {
-  "id": "080c79ed",
-  "k": "This Chinese dictionary is from a different version of the app.",
-  "f": "web/js/lexicon/chinese.js"
- },
- {
-  "id": "8079905a",
-  "k": "This Japanese dictionary is from a different version of the app.",
-  "f": "web/js/lexicon/kuromoji.js"
- },
- {
-  "id": "cd8a2a7e",
-  "k": "Show furigana (small kana over kanji)",
-  "f": "web/js/lexicon/readings.js"
- },
- {
-  "id": "48f745cc",
-  "k": "Show pinyin over the characters, coloured by tone",
-  "f": "web/js/lexicon/readings.js"
- },
- {
-  "id": "fcfd569a",
-  "k": "Chinese characters",
-  "f": "web/js/lexicon/readings.js"
- },
- {
-  "id": "c17ef03e",
-  "k": "As written",
-  "f": "web/js/lexicon/readings.js"
- },
- {
-  "id": "6a018382",
-  "k": "Simplified (简体)",
-  "f": "web/js/lexicon/readings.js"
- },
- {
-  "id": "6c401cdd",
-  "k": "Traditional (繁體)",
-  "f": "web/js/lexicon/readings.js"
- },
- {
-  "id": "cb91bc89",
-  "k": "These work once the {0} dictionary is on this device.",
-  "f": "web/js/lexicon/readings.js"
- },
- {
-  "id": "1eccdd79",
-  "k": "For Japanese that needs a dictionary: it splits Japanese text into real words, so a tap lands on the whole word, gives each word's dictionary form, and shows furigana (small kana over kanji). It is IPADIC, from the Nara Institute of Science and Technology",
-  "f": "web/js/lexicon/seen.js"
- },
- {
-  "id": "dae622d1",
-  "k": "For Chinese that needs a dictionary: it splits Chinese text into real words, so a tap lands on the whole word, shows pinyin over the characters coloured by tone, and treats simplified and traditional characters as the same word. It is CC-CEDICT with word counts from wordfreq",
-  "f": "web/js/lexicon/seen.js"
- },
- {
-  "id": "4af2e1ae",
-  "k": "{0}: a <0>one-time download of about {1} MB</0>. It stays on this device and nothing about you is sent anywhere.",
-  "f": "web/js/lexicon/seen.js"
- },
- {
-  "id": "f88f293f",
-  "k": "The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "a3451771",
-  "k": "CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "b7219bda",
-  "k": "Egyptian",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "475410e2",
-  "k": "Levantine",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "81298f3a",
-  "k": "Gulf",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "64202d79",
-  "k": "a dialect",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "0757a38e",
-  "k": "Vowels are a guess here: this sounds like {0} Arabic, and the vowel model learned Standard Arabic.",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "01738e86",
-  "k": "No vowels here: this sounds like {0} Arabic, and the vowel model only knows Standard Arabic. Settings can show them as a guess.",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "ebf17aa6",
-  "k": "Add vowels to Arabic?",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "f6ca8deb",
-  "k": "Arabic is written without its short vowels. Tamkeen can add them to your Arabic transcripts, pages and reels, so you can see how each word is said. That needs a vowel model, a one-time {0} MB download kept on this computer. Your phone gets the vowels from here when it syncs.",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "79151896",
-  "k": "It learned Standard Arabic: on news-style Arabic about 4 words in 5 come out fully right. It doesn't know Egyptian, Levantine or Gulf speech, so those are left without vowels unless you ask for a guess.",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "3a719e9b",
-  "k": "Download ({0} MB)",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "ec1c7366",
-  "k": "Downloading the vowel model. Vowels appear when it is done.",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "955dc8cb",
-  "k": "Show or hide vowel marks (V)",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "deee2838",
-  "k": "Show vowels (حَرَكات) in transcripts, pages and reels",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "451a444b",
-  "k": "Also on Egyptian, Levantine and Gulf speech (a guess, often wrong)",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "59e8699c",
-  "k": "Tamkeen on your computer adds the vowels (download the vowel model in its Settings); they come here when you sync.",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "10d9f8dc",
-  "k": "Adding vowels…",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "e549162d",
-  "k": "✓ The vowel model is on this computer ({0} MB).{1}",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "b281359a",
-  "k": "Downloading the vowel model… {0}%",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "2820e9e6",
-  "k": "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "cb9ed3a8",
-  "k": "CATT Arabic vowel model, Abjad AI (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "2d689417",
-  "k": "Couldn't download the vowel model ({0}). Check your connection and try again.",
-  "f": "app/tashkeel.py"
- },
- {
-  "id": "da48fac9",
-  "k": "The vowel model isn't downloaded.",
-  "f": "app/tashkeel.py"
  }
 ]

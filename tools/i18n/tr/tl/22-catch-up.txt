@@ -1,0 +1,27 @@
+b90bc82b	Malamang na mali ang pagkarinig ng transcription sa salitang ito, kaya inilagay ng AI sa transcript ang salitang sinabi.
+48625603	Malamang na mali ang pagkarinig ng transcription sa salitang ito. Ipinapakita ng AI ang salitang sinabi, pero hindi mababago rito ang transcript.
+c432d63e	I-undo: ibalik ang sinabi ng transcript
+3d6eef62	I-undo ang pagtatama
+a27b99cf	Bakit iba ang salitang ito?
+1fa955a7	Galing sa ibang bersyon ng app ang talaan ng mga salitang ito.
+84d8d02d	Ipakita ang mga marka ng diin (ла́дно)
+f5eab3f0	Wala sa device na ito ang mga diksyunaryo ng {0}, kaya ibang salita ang bawat anyo ng isang salita.
+cadfed16	ang listahan ng salita ng wordfreq para sa Filipino, na pinagtatapatan ng app ng mga ugat na nahahanap nito (kumain, kakain, kinain: kain)
+74da1e87	mga bukas na listahan ng salita (ang lemmatization list ni Michal Měchura at ang bilang ng mga salita ng wordfreq) at ang CMU Pronouncing Dictionary, na nagbibigay ng pagbigkas na US na makikita sa popup ng salita
+84ee7564	ang diksyunaryo ng OpenRussian.org, na nagbibigay rin ng diin ng bawat salita, kaya maipapakita ito sa tekstong Russian (ла́дно)
+359544fb	mga bukas na listahan ng salita (ang mga lemmatization list ni Michal Měchura at ang bilang ng mga salita ng wordfreq)
+f9657a45	Kailangan ng {0} ng talaan ng mga anyo ng salita: <0>isang beses na pag-download na mga {1} MB</0>, na ginawa mula sa {2}. Mananatili ito sa device na ito at walang ipapadalang anuman tungkol sa iyo. Kung wala ito, ibang salita ang bawat anyo ng isang salita.
+a5d14ec2	mga {0}
+95a4caee	{0}–{1} min
+48a80f34	lumampas sa {0} minuto
+d6993df4	{0} ang naidagdag, {1} ang nilaktawan
+360993c3	masyadong natagalan ang pag-download ng video
+3727f60b	Reel {0} sa {1} na tinsekan mo: pinapakinggan… ({2} sa ngayon)
+f239c335	Sinasabi ng listahan sa ibaba kung bakit nilaktawan ang bawat isa.
+4c93d4b8	Itinigil. {0}.
+403ebed9	Kumukuha ng {0} na reel sa {1}: {2} sa ngayon; pinapakinggan ang susunod…
+3d0a21ac	{0}: {1} random na reel sa {2} ang handa nang panoorin.
+ceda21f2	{0}: walang naitabing reel sa {1} ngayon. Subukan ulit: nagbabago ang mga salitang hinahanap tuwing kukuha.
+2d7a6fa1	Mga talaan ng salita ng Spanish, French, Italian at English (opsyonal na download)
+026482d9	CMU Pronouncing Dictionary: mga pagbigkas na US sa talaan ng salita ng English
+08a5e4bd	Talaan ng salita ng Russian na may diin, mula sa OpenRussian.org (opsyonal na download)
