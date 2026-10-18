@@ -2865,3 +2865,28 @@ docs/app at every release** so the web app matches.
   on the Reels page). `native.js webFetch` retries 403/429 (YouTube and Apple refuse some Cloudflare requests);
   Apple's directory is asked directly (it allows web pages, and refuses most Cloudflare requests).
   **The worker.js change for Instagram has to be pasted into Cloudflare by the owner.**
+
+## No AI: built-in dictionary (2026-10-18; v0.28.0)
+Owner asked for an option, on every version, to use no AI tool, with AI shown as heavily recommended in Settings,
+and a very extensive word library per language to explain words instead.
+- **Data:** `tools/build_meanings.py` streams the English Wiktionary as extracted by Wiktextract (kaikki.org
+  per-language `.jsonl.gz`, CC BY-SA 4.0) into `docs/lexicon/<lang>-meanings.json.gz` (index names `mean-<lang>`):
+  `{format, kind: "meanings", words: {key: [[shown, pos, [glosses], "root|reading|dialect"]]}, forms: {key: [[lemma key, what form]]}}`.
+  Counts: ar 22.7k words (+ Egyptian, Levantine, Gulf, Hijazi, Moroccan, Tunisian Wiktionary words, marked with the
+  dialect), es 106k (618k forms), fr 91k, it 152k, ru 56k (355k forms), ja 82k (kana readings), zh 131k (pinyin;
+  simplified spellings linked via zh-cedict's t2s), tl 27k, en 192k (only common words from en-lemmas + phrases of them;
+  the full list was 37 MB). Sizes 0.9-12.6 MB. Licence note `licenses/wiktionary.txt`, About list, docs/lexicon README.
+- **Downloads:** same machinery as the word tables with `kind=meanings` (`app/lexicon.py` KINDS/MEANINGS,
+  `mobile/src/js/lexicon-store.js`, routes in app/api/lexicon.py and backend.js).
+- **Lookup:** setting `definer_mode` ("ai" default | "dictionary"). Both `define-service.js` files: `getDefinition` →
+  `web/js/meanings.js dictionaryDefine` (candidates: the spelling, the lemma from the language's word tables via
+  `lexemeOf`, Arabic clitics stripped; `web/js/lexicon/meaningdata.js` = the pure matching + answer, tested in
+  tests/js/meanings.test.mjs). Answer has definer.js's shape (meaning = first gloss, other_meanings, lemma, vocalized,
+  root, pos, morphology = "form of", dialect), provider "dictionary". askAi/askMnemonic throw "AI is turned off".
+  Popup state "nomeanings" offers the download. Settings (aisetup.js): two choices at the top, AI with a
+  "Strongly recommended" banner; with No AI the key settings hide and a warning box + download row show; choosing
+  it downloads the study language's meanings (and word tables) at once. Onboarding mentions it.
+- **Web app "add to home screen" button** (`mobile/src/js/web-install.js`): top-bar icon in the browser only (not
+  when standalone); steps for iPhone/iPad (Safari or other), Android (Chrome, Samsung, Firefox; Chrome's own
+  install prompt when offered), computer (Chrome, Edge, Safari).
+- Not translated yet: the new Settings/popup/onboarding/web-install texts are English only.

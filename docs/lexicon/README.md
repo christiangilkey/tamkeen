@@ -66,3 +66,16 @@ To rebuild them, download the four databases from
 `index.json` lists each file's size and SHA-256 checksum; the apps refuse a file that doesn't match.
 The rest of this repository is under its own licence (see `LICENSE` at the top); these files are
 only stored alongside it.
+
+## Word meanings (No AI)
+
+Someone who chooses **No AI** in Settings → Word definitions gets a word's meanings from these files
+instead of an AI provider (`web/js/meanings.js`, `web/js/lexicon/meaningdata.js`): one per language,
+downloaded only then.
+
+| File | Made from | Licence |
+|---|---|---|
+| `<lang>-meanings.json.gz` (ar, es, fr, it, ru, en, tl, ja, zh) | The English [Wiktionary](https://en.wiktionary.org) as extracted by [Wiktextract](https://github.com/tatuylonen/wiktextract) ([kaikki.org](https://kaikki.org)): each word's part of speech, its first few definitions, its full spelling (Arabic vowels, Russian stress), reading (kana, pinyin) or Arabic root, and which word each form belongs to. Arabic includes Wiktionary's Egyptian, Levantine, Gulf, Hijazi, Moroccan and Tunisian words; English keeps only common words and phrases made of them | Creative Commons Attribution-ShareAlike 4.0: `LICENSE-CC-BY-SA-4.0.txt` |
+
+Rebuilt with `tools/build_meanings.py` (see the top of that file).
+

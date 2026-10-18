@@ -31,6 +31,7 @@ class KeysIn(BaseModel):
 
 class LangIn(BaseModel):
     lang: str = "ar"
+    kind: str = "words"  # "words" (word tables) or "meanings" (No AI, see app/lexicon.py)
 
 
 def _lang(key: str) -> str:
@@ -97,21 +98,21 @@ def past_lookups() -> list[dict[str, str]]:
 # ----- dictionaries -----
 
 @router.get("/lexicon/status")
-def lexicon_status(lang: str = "ar") -> dict[str, Any]:
-    return lexicon.status(lang)
+def lexicon_status(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
+    return lexicon.status(lang, kind)
 
 
 @router.post("/lexicon/download")
 def lexicon_download(body: LangIn) -> dict[str, Any]:
     try:
-        return lexicon.download(body.lang)
+        return lexicon.download(body.lang, body.kind)
     except lexicon.LexiconError as exc:
         raise HTTPException(502, str(exc)) from exc
 
 
 @router.post("/lexicon/remove")
 def lexicon_remove(body: LangIn) -> dict[str, Any]:
-    return lexicon.remove(body.lang)
+    return lexicon.remove(body.lang, body.kind)
 
 
 @router.get("/lexicon/data/{name}")

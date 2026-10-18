@@ -84,6 +84,7 @@ export const DEFAULTS = {
   study_level: "",    // "beginner" or "started"
   common_words_pending: [], // languages whose common words wait for dictionaries before counting as seen (commonwords.js)
   definer_provider: "claude",
+  definer_mode: "ai", // "ai", or "dictionary": No AI, words explained by the built-in dictionary (meanings.js)
   definer_language: "English",
   definer_model_claude: "", definer_model_gemini: "", definer_model_openai: "", definer_model_grok: "",
   // The review card's Mnemonic maker: its own model ("" = fastest, "same" = the lookups') and thinking (definer.mnemonicConfig).

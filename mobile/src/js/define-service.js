@@ -1,7 +1,8 @@
 // Phone glue for the shared definer: settings, the synced answer cache, and native HTTPS.
 
 import { api } from "./app.js";
-import { askJson, lookup, mnemonicConfig, rememberAnswer, PROVIDERS } from "./definer.js";
+import { DefinerError, askJson, lookup, mnemonicConfig, rememberAnswer, PROVIDERS } from "./definer.js";
+import { dictionaryDefine } from "./meanings.js";
 import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 import { settings } from "./store.js";
 import { isNative, isWeb } from "./native.js";
@@ -19,6 +20,12 @@ export function definerConfig() {
   };
 }
 
+const definerMode = () => settings.definer_mode || "ai";
+/** "No AI" chosen in Settings: words are explained by the built-in dictionary (meanings.js), and
+ *  nothing is sent to an AI provider (the Mnemonic maker says it is off). */
+export const noAi = () => definerMode() === "dictionary";
+const aiOff = () => { throw new DefinerError("AI is turned off (Settings → Word definitions → No AI), so this isn't available."); };
+
 /** Send a provider request. Native HTTP on the phone avoids browser cross-site (CORS) limits. */
 export async function transport(req) {
   if (CapacitorHttp) {
@@ -34,13 +41,14 @@ export async function transport(req) {
 }
 
 /** A small JSON answer from the learner's AI (see definer.askJson), sent the same way as a lookup. */
-export const askAi = (prompt) => askJson(definerConfig(), prompt, transport);
+export const askAi = (prompt) => (noAi() ? aiOff() : askJson(definerConfig(), prompt, transport));
 /** The same for the review card's Mnemonic maker, with its own model and thinking (Settings). */
-export const askMnemonic = (prompt) => askJson(mnemonicConfig(definerConfig(), settings), prompt, transport);
+export const askMnemonic = (prompt) => (noAi() ? aiOff() : askJson(mnemonicConfig(definerConfig(), settings), prompt, transport));
 
 /** `opts.quick` = only the meaning is wanted (see components/lookupmode.js): a full answer already
  * kept is used as it is, otherwise a short, cheaper request is made. */
 export async function getDefinition(ctx, refresh = false, { quick = false } = {}) {
+  if (noAi()) return dictionaryDefine(ctx, { quick, language: definerConfig().language });
   return lookup(definerConfig(), ctx, { refresh, quick, transport, load: loadAnswer, save: saveAnswer });
 }
 

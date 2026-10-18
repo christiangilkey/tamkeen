@@ -415,6 +415,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     # Seen words (see web/js/lexicon/seen.js): "no thanks" to the Arabic dictionaries download, and
     # whether words tapped or saved before seen words were kept have been counted on this device.
     "lexicon_declined": False,
+    "definer_mode": "ai",  # "ai", or "dictionary": No AI, the built-in dictionary (web/js/meanings.js)
     "ru_stress": True,              # Russian text shows stress marks (ла́дно) once its word table is here
     # Arabic vowel marks (app/tashkeel.py, web/js/vowels.js): shown or not, and also on dialect speech,
     # where they are a guess (the model learned Standard Arabic).

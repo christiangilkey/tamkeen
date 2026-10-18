@@ -80,6 +80,96 @@
    "stems": 11300,
    "lexemes": 6740
   },
+  "mean-ar": {
+   "file": "ar-meanings.json.gz",
+   "bytes": 1479667,
+   "sha256": "bccc31befaddd8d5baadf6053ee310d508bb04128e12b8747d8b6dea3b09a1a7",
+   "title": "Arabic meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 22693,
+   "forms": 9771
+  },
+  "mean-en": {
+   "file": "en-meanings.json.gz",
+   "bytes": 12608179,
+   "sha256": "ee1eb545925b5f8b3d7e7d52f295e5d0855a9879e0433a100ea4a2036f49bfae",
+   "title": "English meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 191916,
+   "forms": 41105
+  },
+  "mean-es": {
+   "file": "es-meanings.json.gz",
+   "bytes": 7314601,
+   "sha256": "c1e42860e38f2673a51c51453e37e3239db5edac97cd9698c521178fc4cfdfbf",
+   "title": "Spanish meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 105742,
+   "forms": 618477
+  },
+  "mean-fr": {
+   "file": "fr-meanings.json.gz",
+   "bytes": 4486080,
+   "sha256": "35f115c64d2e379bbf75ee711d4df965b92f3bf23c21924dd4d4f661e5e71c7d",
+   "title": "French meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 90606,
+   "forms": 277012
+  },
+  "mean-it": {
+   "file": "it-meanings.json.gz",
+   "bytes": 6266876,
+   "sha256": "9a0d83f4bbce117c370951d96a885918ff7b165b8009f8c116e56404d936a1a8",
+   "title": "Italian meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 151846,
+   "forms": 405477
+  },
+  "mean-ja": {
+   "file": "ja-meanings.json.gz",
+   "bytes": 3225748,
+   "sha256": "5bb81bbcad2eba33d05d5341a89e3e3ca44cb7ad61ba8e4cf7a506dcc1383bba",
+   "title": "Japanese meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 82097,
+   "forms": 4509
+  },
+  "mean-ru": {
+   "file": "ru-meanings.json.gz",
+   "bytes": 6018499,
+   "sha256": "9ad5eda07ce847cbd8f94f7ccde725f7f7d9049195ba5378b3f262925d04f887",
+   "title": "Russian meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 56374,
+   "forms": 355058
+  },
+  "mean-tl": {
+   "file": "tl-meanings.json.gz",
+   "bytes": 933648,
+   "sha256": "efb6e9f9e04edd1e3642413ff60ebee2d16057e091be5e8105349891d4b5f854",
+   "title": "Tagalog meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 26639,
+   "forms": 5290
+  },
+  "mean-zh": {
+   "file": "zh-meanings.json.gz",
+   "bytes": 6042860,
+   "sha256": "ad3a45662f6cb9fc0b8b0b0aa4c6b973de1820aa4edfdc525957be8465fdc095",
+   "title": "Chinese meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 131412,
+   "forms": 84183
+  },
   "msa": {
    "file": "ar-msa.json.gz",
    "bytes": 611644,

@@ -34,6 +34,11 @@ LANGUAGES = {"ar": ("msa", "egy", "lev", "glf"), "es": ("es",), "fr": ("fr",), "
 FILES = {"msa": "ar-msa.json.gz", "egy": "ar-egy.json.gz", "lev": "ar-lev.json.gz", "glf": "ar-glf.json.gz",
          "es": "es-lemmas.json.gz", "fr": "fr-lemmas.json.gz", "it": "it-lemmas.json.gz", "ru": "ru-lemmas.json.gz",
          "en": "en-lemmas.json.gz", "tl": "tl-roots.json.gz", "ja": "ja-ipadic.bin.gz", "zh": "zh-cedict.json.gz"}
+# Word meanings for "No AI" in Settings (tools/build_meanings.py, from Wiktionary): one file a language,
+# downloaded only when that is chosen. `kind="meanings"` below.
+MEANINGS = {lang: (f"mean-{lang}",) for lang in LANGUAGES}
+FILES.update({f"mean-{lang}": f"{lang}-meanings.json.gz" for lang in LANGUAGES})
+KINDS = {"words": LANGUAGES, "meanings": MEANINGS}
 
 _lock = threading.Lock()
 
@@ -93,8 +98,8 @@ def file_path(name: str) -> Path | None:
     return path if path.exists() else None
 
 
-def status(lang: str = "ar") -> dict[str, Any]:
-    names = LANGUAGES.get(lang, ())
+def status(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
+    names = KINDS.get(kind, LANGUAGES).get(lang, ())
     try:
         files = index().get("files", {})
     except (LexiconError, OSError, json.JSONDecodeError):
@@ -102,17 +107,17 @@ def status(lang: str = "ar") -> dict[str, Any]:
     out = {name: {"title": files.get(name, {}).get("title", name), "bytes": files.get(name, {}).get("bytes", 0),
                   "license": files.get(name, {}).get("license", ""), "installed": file_path(name) is not None}
            for name in names}
-    return {"lang": lang, "needed": bool(names), "names": list(names),
+    return {"lang": lang, "kind": kind, "needed": bool(names), "names": list(names),
             "installed": bool(names) and all(f["installed"] for f in out.values()),
             "bytes": sum(f["bytes"] for f in out.values()), "files": out}
 
 
-def download(lang: str = "ar") -> dict[str, Any]:
+def download(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
     """Fetch every dictionary for a language that isn't here yet. Each file is checked against
     the published checksum before it is kept."""
     with _lock:
         files = index(refresh=True).get("files", {})
-        for name in LANGUAGES.get(lang, ()):
+        for name in KINDS.get(kind, LANGUAGES).get(lang, ()):
             if file_path(name) is not None:
                 continue
             meta = files.get(name)
@@ -124,13 +129,13 @@ def download(lang: str = "ar") -> dict[str, Any]:
             tmp = lexicon_dir() / f"{name}.part"
             tmp.write_bytes(blob)
             tmp.replace(lexicon_dir() / FILES[name])
-    return status(lang)
+    return status(lang, kind)
 
 
-def remove(lang: str = "ar") -> dict[str, Any]:
+def remove(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
     with _lock:
-        for name in LANGUAGES.get(lang, ()):
+        for name in KINDS.get(kind, LANGUAGES).get(lang, ()):
             path = file_path(name)
             if path is not None:
                 path.unlink(missing_ok=True)
-    return status(lang)
+    return status(lang, kind)

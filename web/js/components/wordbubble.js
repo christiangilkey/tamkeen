@@ -1,6 +1,7 @@
 // Definition bubble shown when a word is clicked/tapped. Platform-independent: the caller
 // supplies the definition fetcher and the audio/vocab actions.
 
+import { NO_MEANINGS, downloadMeanings } from "../meanings.js";
 import { esc, buzz, toast } from "../app.js";
 import { langAttrs, langInfo } from "../languages.js";
 import { icon } from "../icons.js";
@@ -158,6 +159,10 @@ export function createWordBubble(host, actions) {
     } else if (state === "nokey") {
       body = `<p class="wb-muted">See what this word means in this sentence: add an AI provider key in Settings.</p>
               <button type="button" class="primary" data-act="settings">Set up definitions</button>`;
+    } else if (state === "nomeanings") {
+      body = `<p class="wb-muted">AI is off, so words are explained by the built-in ${esc(L().name || "")} dictionary. It isn't on this device yet: download it once and it works offline.</p>
+              <div class="row"><button type="button" class="primary" data-act="getmeanings">Download the dictionary</button>
+              <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
     } else if (state === "error") {
       body = `<p class="wb-error">${esc(message)}</p>
               <div class="row"><button type="button" data-act="retry">Try again</button>
@@ -231,6 +236,7 @@ export function createWordBubble(host, actions) {
     } catch (e) {
       if (my !== token) return;
       if (e && e.message === "NO_KEY") render("nokey");
+      else if (e && e.message === NO_MEANINGS) render("nomeanings"); // No AI, and this language's dictionary isn't here
       else { lastError = e; render("error", e && e.message ? e.message : String(e)); }
     }
   }
@@ -252,6 +258,12 @@ export function createWordBubble(host, actions) {
       case "from": actions.onPlayFrom(); hide(); break;
       case "settings": actions.onSettings(); break;
       case "retry": load(); break;
+      case "getmeanings":
+        b.disabled = true;
+        b.textContent = "Downloading…";
+        try { await downloadMeanings((ctx && ctx.lang) || "ar"); load(); }
+        catch (err) { b.disabled = false; b.textContent = "Try again"; toast(err && err.message ? err.message : String(err), { error: true }); }
+        break;
       case "trouble": showTroubleshoot(lastError); break;
       case "more": quick = false; def = null; load(); break;
       case "refresh": def = null; load(true); break;

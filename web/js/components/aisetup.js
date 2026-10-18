@@ -2,11 +2,15 @@
 // provider, getting a key from it, the key itself, which model the key is used with, and a test.
 // It is first on the page and marked "Required" because nothing explains a word without it.
 // At its foot, the review card's Mnemonic maker has its own model and thinking level (it uses the same key).
+// Above it all, the choice between AI (strongly recommended) and No AI: the built-in dictionary
+// (meanings.js), downloaded per language, which gives a word's usual meanings but not the one in
+// its sentence.
 
 import { esc, h, platform, state, saveSettings } from "../app.js";
 import { LOOKUPS_PER_MILLION, PROVIDERS, SAME_MODEL, THINKING, askJson, centsPerMillion, cleanKey, define, keyProvider,
   mnemonicConfig, modelFor, thinkingFor } from "../definer.js";
 import { langInfo, studyLanguage } from "../languages.js";
+import { downloadMeanings, meaningsStatus, removeMeanings } from "../meanings.js";
 import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
 import { soundAlikes } from "../review/mnemonic.js";
 import { TOKENS_EVENT, describeUsage, tokensToday } from "../tokenuse.js";
@@ -20,7 +24,7 @@ const price = (m) => `${centsPerMillion(m).toLocaleString()}¢ per million token
  * way: see definer.define). */
 export function aiSetup(section, { transport }) {
   const cur = () => state.status.settings;
-  const here = platform === "desktop" ? "this computer" : "this phone";
+  const here = platform === "desktop" ? "this computer" : window.TAMKEEN_WEB === true ? "this browser" : "this phone";
   section.classList.add("ai-card");
   section.innerHTML = `
     <div class="ai-head"><h2>Word definitions (AI)</h2><span id="def-tag"></span></div>
@@ -28,6 +32,28 @@ export function aiSetup(section, { transport }) {
       explanation, using your own key; you pay them directly, a fraction of a cent a word.
       <details><summary>What is sent, and where is my key kept?</summary>The word, its sentence and the sentences either
         side go to the provider you choose, and nowhere else. Your key is kept on ${here} and, if you use Google Drive sync, in the app's private folder in your own Google Drive, so your other devices have it too. It is never part of a data export.</details></div>
+    <div class="def-modes" role="radiogroup" aria-label="How words are explained">
+      <label class="def-mode def-mode-ai">
+        <span class="def-banner">Strongly recommended</span>
+        <span class="def-mode-row"><input type="radio" name="def-mode" value="ai">
+          <span><strong>AI explanations</strong>
+          <span class="small muted">What the word means in <em>this</em> sentence, its grammar, a translation of the sentence,
+            misheard words put right, and the Mnemonic maker. Needs an API key: a fraction of a cent a word (Gemini has a free allowance).</span></span></span>
+      </label>
+      <label class="def-mode def-mode-dict">
+        <span class="def-mode-row"><input type="radio" name="def-mode" value="dictionary">
+          <span><strong>No AI: built-in dictionary</strong>
+          <span class="small muted">Free, and works offline once downloaded. Shows a word's usual meanings from Wiktionary,
+            in English, but not which one fits the sentence. No sentence translations, corrections or mnemonics.</span></span></span>
+      </label>
+    </div>
+    <div class="def-dict" hidden>
+      <div class="def-warn"><strong>AI explanations are strongly recommended.</strong> Real speech is full of words whose meaning
+        depends on the sentence, slang and dialect a dictionary doesn't have, and transcription mistakes. With No AI you see
+        a list of possible meanings and have to guess which one is meant.
+        <button type="button" class="primary" id="def-to-ai">Use AI explanations</button></div>
+      <div class="def-dict-row small" id="def-dict-row"></div>
+    </div>
     <div class="ai-setup">
       <div class="ai-field"><label for="def-provider">Provider</label>
         <select id="def-provider">${Object.entries(PROVIDERS).map(([k, p]) => `<option value="${k}">${esc(p.label)}</option>`).join("")}</select></div>
@@ -75,8 +101,62 @@ export function aiSetup(section, { transport }) {
   $("#def-lang").value = cur().definer_language || "English";
   let model = ""; // the chosen model's name, or OTHER while one is being typed in
 
+  // ----- AI or No AI -----
+  const mode = () => (cur().definer_mode === "dictionary" ? "dictionary" : "ai");
+  function paintMode() {
+    const dict = mode() === "dictionary";
+    for (const r of section.querySelectorAll("input[name=def-mode]")) r.checked = r.value === mode();
+    section.querySelector(".def-mode-ai").classList.toggle("on", !dict);
+    section.querySelector(".def-mode-dict").classList.toggle("on", dict);
+    $(".def-dict").hidden = !dict;
+    $(".ai-setup").hidden = dict;
+    if (dict) paintDict(); else paintKey();
+  }
+  // The built-in dictionary of the language being learned: here, or a button to download it.
+  async function paintDict() {
+    $("#def-tag").className = "pill";
+    $("#def-tag").textContent = "No AI";
+    const lang = studyLanguage();
+    const name = langInfo(lang).name || lang;
+    const row = $("#def-dict-row");
+    let st;
+    try { st = await meaningsStatus(lang); } catch (err) { row.textContent = err.message; return; }
+    const mb = Math.max(1, Math.round((st.bytes || 0) / 1e6));
+    row.innerHTML = st.installed
+      ? `<span>✓ The ${esc(name)} dictionary is on ${here} (${mb} MB).</span> <button type="button" class="ghost" data-act="remove">Remove</button>`
+      : `<span>The ${esc(name)} dictionary isn't on ${here} yet, so tapped words can't be explained.</span>
+         <button type="button" class="primary" data-act="get">Download (about ${mb} MB)</button>`;
+  }
+  $("#def-dict-row").addEventListener("click", async (e) => {
+    const b = e.target.closest("button[data-act]");
+    if (!b) return;
+    b.disabled = true;
+    const lang = studyLanguage();
+    try {
+      if (b.dataset.act === "get") { b.textContent = "Downloading…"; await downloadMeanings(lang); }
+      else await removeMeanings(lang);
+    } catch (err) {
+      $("#def-dict-row").append(Object.assign(document.createElement("div"), { className: "wb-error", textContent: err.message }));
+      b.disabled = false;
+      return;
+    }
+    paintDict();
+  });
+  for (const r of section.querySelectorAll("input[name=def-mode]")) {
+    r.onchange = async () => {
+      await saveSettings({ definer_mode: r.value });
+      paintMode();
+      if (r.value === "dictionary") { // straight away, so the next tapped word has its meaning
+        const st = await meaningsStatus(studyLanguage()).catch(() => null);
+        if (st && !st.installed) $("#def-dict-row button[data-act=get]")?.click();
+      }
+    };
+  }
+  $("#def-to-ai").onclick = async () => { await saveSettings({ definer_mode: "ai" }); paintMode(); };
+
   // "Required" until the chosen provider has a key; the way to a key is loud until then.
   function paintKey() {
+    if (mode() === "dictionary") return;
     const info = PROVIDERS[prov()];
     const has = !!cur()[`llm_key_${prov()}`];
     $("#def-tag").className = has ? "pill done" : "req-tag";
@@ -147,6 +227,7 @@ export function aiSetup(section, { transport }) {
     paintKey();
   }
   paintProvider();
+  paintMode();
 
   // ----- the Mnemonic maker: its own model and thinking level -----
   const mnModel = $("#mn-model"), mnThink = $("#mn-think");

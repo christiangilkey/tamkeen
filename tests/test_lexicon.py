@@ -126,7 +126,7 @@ def test_dictionaries_are_only_there_once_downloaded(client, tmp_path, monkeypat
 
 def test_languages_without_dictionaries_need_none(client):
     st = client.get("/api/lexicon/status?lang=xx").json()  # (every taught language has one now)
-    assert st == {"lang": "xx", "needed": False, "names": [], "installed": False, "bytes": 0, "files": {}}
+    assert st == {"lang": "xx", "kind": "words", "needed": False, "names": [], "installed": False, "bytes": 0, "files": {}}
     # Spanish, French, Italian and Russian have one table of word forms each.
     for lang in ("es", "fr", "it", "ru"):
         st = client.get(f"/api/lexicon/status?lang={lang}").json()
@@ -163,3 +163,17 @@ def test_japanese_and_chinese_dictionaries(client):
     assert client.post("/api/lexicon/download", json={"lang": "zh"}).json()["installed"]
     data = client.get("/api/lexicon/data/zh").json()
     assert data["kind"] == "zh" and data["words"]["学习"][0] == "xue2 xi2" and data["t2s"]["學"] == "学"
+
+
+def test_word_meanings_for_no_ai_are_a_separate_download(client):
+    """No AI (Settings): each language's meanings file is downloaded on its own (kind=meanings)."""
+    st = client.get("/api/lexicon/status?lang=es&kind=meanings").json()
+    assert st["kind"] == "meanings" and st["names"] == ["mean-es"] and not st["installed"]
+    words = client.get("/api/lexicon/status?lang=es").json()
+    assert words["names"] == ["es"]  # the word tables are their own download
+    st = client.post("/api/lexicon/download", json={"lang": "tl", "kind": "meanings"}).json()
+    assert st["installed"] and st["names"] == ["mean-tl"]
+    data = client.get("/api/lexicon/data/mean-tl").json()
+    assert data["kind"] == "meanings" and "bahay" in data["words"]
+    assert client.post("/api/lexicon/remove", json={"lang": "tl", "kind": "meanings"}).json()["installed"] is False
+

@@ -141,7 +141,9 @@ function ask() {
             ${esc(names.slice(0, -1).join(", "))} or ${esc(names[names.length - 1])}.</p>
           <p>An API key is a kind of password you get from the provider's website. You pay the provider directly:
             a lookup costs a fraction of a cent, and Gemini has a free allowance.</p>
-          <p class="ob-where">Set it, or change it later, in <strong>Settings → Word definitions (AI)</strong>.</p>
+          <p class="ob-where">Set it, or change it later, in <strong>Settings → Word definitions (AI)</strong>.
+            There you can also choose <strong>No AI</strong>: a free built-in dictionary that shows a word's usual meanings,
+            but not the one in its sentence (AI is strongly recommended).</p>
           <div class="row ob-nav">${dots()}<span class="spacer"></span>
             <button type="button" class="ghost" id="ob-back">← Back</button>
             <button type="button" id="ob-help">How do I get a key?</button>

@@ -273,6 +273,7 @@ LICENSES = [
     ("Russian word table with stress, from OpenRussian.org (optional download)", "CC BY-SA 4.0", "openrussian.txt"),
     ("The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)", "Apache 2.0 / MIT / NAIST", "kuromoji.txt"),
     ("CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)", "CC BY-SA 4.0", "cc-cedict.txt"),
+    ("Wiktionary via Wiktextract: word meanings for No AI (optional download)", "CC BY-SA 4.0", "wiktionary.txt"),
     ("pywebview", "BSD 3-Clause", "pywebview.txt"),
     ("FastAPI / Starlette / Uvicorn", "MIT / BSD 3-Clause", "fastapi.txt"),
     ("feedparser", "BSD 2-Clause", "feedparser.txt"),
