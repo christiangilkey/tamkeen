@@ -28,6 +28,7 @@ const AUDIO_FEED = "local:audio";
 const YOUTUBE_FEED = "local:youtube";
 const VIDEOS_FEED = "local:videos";
 const REELS_FEED = "local:reels";
+const BOOKS_FEED = "local:books";
 
 // The library is a list of kinds, always in this order: a strip on the phone, the side list on the
 // computer. Choosing "Podcasts" (or "YouTube") opens a second list with the podcasts (or channels).
@@ -37,6 +38,8 @@ const KINDS = [
     empty: "No YouTube videos yet. Press + and choose YouTube." },
   { key: "pages", label: "My webpages", icon: "page", feed: PAGES_FEED,
     empty: "No webpages yet. Press + and choose Web page." },
+  { key: "books", label: "Books", icon: "book", feed: BOOKS_FEED,
+    empty: "No books yet. Pick a free classic in the language you're learning, or add a book of your own." },
   // The reels themselves are listed here like every other kind; getting new ones has a page of
   // its own (pages/reels.js), reached from the + button.
   { key: "reels", label: "Reels", icon: "reel", feed: REELS_FEED,
@@ -49,7 +52,7 @@ const KINDS = [
 // Tapping something in a strip redraws the page; this carries how far down it was scrolled.
 let keepScroll = null;
 /** The picture for a built-in feed ("My webpages", "My audio", "My videos", "YouTube"). */
-const localIcon = (url, size) => icon(url === PAGES_FEED ? "page" : url === AUDIO_FEED ? "audio" : "video", size);
+const localIcon = (url, size) => icon(url === PAGES_FEED ? "page" : url === BOOKS_FEED ? "book" : url === AUDIO_FEED ? "audio" : "video", size);
 
 export function statusInfo(ep) {
   const p = Math.round(ep.progress || 0);
@@ -201,6 +204,15 @@ export async function render(view, { feedId: routeFeed, query }) {
   const youtubeShowing = () => { const f = feeds.find((x) => x.id === feedId); return !!f && f.url === YOUTUBE_FEED; };
   const reelsShowing = () => { const f = feeds.find((x) => x.id === feedId); return !!f && f.url === REELS_FEED; };
 
+  /** "Free classics" (the shelf, pages/books.js) and "Add a file" (your own book). */
+  function bookButtons() {
+    const row = h(`<div class="row" style="margin-top:8px;gap:8px;flex-wrap:wrap">
+      <a class="btn primary" href="#/books">${icon("book", 16)} Free classics</a>
+      <button type="button" class="ghost">${icon("plus", 16)} Add a file</button></div>`);
+    row.querySelector("button").onclick = async () => (await import("./books.js")).uploadBook();
+    return row;
+  }
+
   async function loadFeeds() {
     [feeds, follows] = await Promise.all([api("/feeds"), loadFollows().catch(() => [])]);
     renderStrips();
@@ -216,6 +228,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (emptyKind) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon(emptyKind.icon, 44)}</div><div class="meta"><h1>${emptyKind.label}</h1>
         <div class="desc small">${emptyKind.empty}</div></div></div>`));
+      if (emptyKind.key === "books") head.querySelector(".meta").append(bookButtons());
       return;
     }
     if (!feedId) {
@@ -227,6 +240,13 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (f.url === PAGES_FEED) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("page", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
         <div class="desc small">Web pages you imported. Open one to read it with every word clickable. Press + to add more.</div></div></div>`));
+      return;
+    }
+    if (f.url === BOOKS_FEED) {
+      const el = h(`<div class="lib-head"><div class="ph video-ph">${icon("book", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
+        <div class="desc small">Books you're reading, a page at a time with every word clickable.</div></div></div>`);
+      el.querySelector(".meta").append(bookButtons());
+      head.append(el);
       return;
     }
     if (f.url === REELS_FEED) {

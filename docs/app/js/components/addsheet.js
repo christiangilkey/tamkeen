@@ -17,6 +17,7 @@ const WAYS = [
   { key: "podcast", label: "Podcast", icon: "podcast", text: "Paste a feed address, or choose from what's trending", step: true },
   { key: "youtube", label: "YouTube", icon: "video", text: "Find a video and watch it with clickable captions", step: true },
   { key: "page", label: "Web page", icon: "page", text: "Import an article to read with clickable words", step: true },
+  { key: "book", label: "Book", icon: "book", text: "A free classic, or your own EPUB, PDF, TXT, Kindle or Word file", step: true },
   { key: "reels", label: "Reels", icon: "reel", text: "Short Instagram videos to watch on your phone" },
   { key: "video", label: "Video file", icon: "videofile", text: "A video of your own, from this device" },
   { key: "audio", label: "Audio file", icon: "audio", text: "A recording of your own, from this device" },
@@ -74,6 +75,7 @@ export function openAddSheet({ pickFile }) {
     body.append(box);
     if (key === "podcast") podcastStep(box);
     else if (key === "youtube") youtubeStep(box);
+    else if (key === "book") bookStep(box);
     else pageStep(box);
     box.querySelector("input")?.focus();
   }
@@ -130,6 +132,19 @@ export function openAddSheet({ pickFile }) {
     box.querySelector("#aw-open-youtube").onclick = () => {
       sheet.close();
       openYouTube().catch((err) => toast(err.message, { error: true }));
+    };
+  }
+
+  function bookStep(box) {
+    box.append(h(`<a class="btn primary aw-wide" href="#/books">${icon("book", 18)} Free classics</a>`),
+      h(`<p class="small muted aw-note">Famous books in the language you're learning, free because they are in the public domain.</p>`),
+      h(`<div class="aw-or">or</div>`),
+      h(`<button type="button" class="aw-wide">${icon("plus", 18)} Add a book of your own</button>`),
+      h(`<p class="small muted aw-note">EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM.</p>`));
+    box.querySelector("a.aw-wide").onclick = () => sheet.close();
+    box.querySelector("button.aw-wide").onclick = async () => {
+      sheet.close();
+      (await import("../pages/books.js")).uploadBook();
     };
   }
 

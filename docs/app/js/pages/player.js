@@ -19,6 +19,7 @@ import { wordFixer } from "../fixword.js";
 import { lookupToggle } from "../components/lookupmode.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
+import { isBook } from "../books.js";
 import { channelOf, followChannel, importVideo, isFollowing, isYouTube, noteWatched, videoId as youTubeId } from "../youtube.js";
 import { createYouTubeMedia } from "../ytmedia.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
@@ -122,6 +123,7 @@ export async function render(view, { id, query }) {
     return undefined;
   }
   if (reader.isPage(ep) && data.words.text.length) return reader.render(view, { id, data, query });
+  if (isBook(ep) && data.words.text.length) return (await import("./book.js")).render(view, { id, data, query });
   if (ep.status !== "done" || !data.words.start.length) return renderPending(view, ep);
 
   const lang = episodeLanguage(ep);

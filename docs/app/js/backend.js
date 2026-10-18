@@ -28,6 +28,11 @@ const AUDIO_FEED_URL = "local:audio";
 const PAGES_FEED_URL = "local:pages";
 const PAGE_KINDS = ["h1", "h2", "h3", "p", "li", "q"];
 const MAX_PAGE_WORDS = 30000;
+// Books (same layout as the desktop's app/books.py): a free classic or an uploaded file, already
+// split into headings and paragraphs by web/js/books.js; read a page at a time (pages/book.js).
+const BOOKS_FEED_URL = "local:books";
+const BOOK_KINDS = ["h2", "p"];
+const MAX_BOOK_WORDS = 500000;
 const YOUTUBE_FEED_URL = "local:youtube";
 const MAX_YOUTUBE_WORDS = 60000;
 
@@ -87,6 +92,56 @@ async function savePage(body) {
   }
   await transcripts.put(uid, { format: 1, rev: t, model: "webpage", kinds, segments, words });
   // The text has to reach Drive too, so the computer and other devices get the page.
+  const pending = new Set((await kv.get("pending_transcripts")) || []);
+  pending.add(uid);
+  await kv.set("pending_transcripts", [...pending]);
+  changed();
+  return { ...episodeOut(ep), words: words.text.length };
+}
+
+/** Store a book: its text is its "transcript", one segment per heading or paragraph. */
+async function saveBook(body) {
+  const guid = String(body.guid || "").trim().slice(0, 300);
+  if (!/^(book|file):/.test(guid)) throw new ApiError("Unknown book.");
+  const segments = [];
+  const kinds = [];
+  const words = { start: [], end: [], text: [], seg: [] };
+  for (const b of body.blocks || []) {
+    let tokens = String(b.text || "").split(/\s+/).filter(Boolean);
+    if (words.text.length + tokens.length > MAX_BOOK_WORDS) tokens = tokens.slice(0, MAX_BOOK_WORDS - words.text.length);
+    if (!tokens.length) continue;
+    const first = words.text.length;
+    tokens.forEach((t, i) => { words.start.push(first + i); words.end.push(first + i + 1); words.text.push(t); words.seg.push(segments.length); });
+    segments.push([first, first + tokens.length, tokens.join(" ")]);
+    kinds.push(BOOK_KINDS.includes(b.kind) ? b.kind : "p");
+  }
+  if (!segments.length) throw new ApiError("No readable text was found in that book.");
+  const t = now();
+  const fuid = await feedUid(BOOKS_FEED_URL);
+  let feed = feedOf(fuid);
+  if (!feed) {
+    feed = { uid: fuid, url: BOOKS_FEED_URL, title: "My books", description: "Books to read a page at a time with clickable words.",
+             image: null, link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
+    lib.feeds.push(feed);
+  } else if (feed.deleted) {
+    Object.assign(feed, { deleted: 0, updated_at: t });
+  }
+  const uid = await episodeUid(fuid, guid);
+  const title = String(body.title || "").replace(/\s+/g, " ").trim().slice(0, 300) || "Book";
+  const author = String(body.author || "").replace(/\s+/g, " ").trim().slice(0, 200);
+  const language = isLanguage(body.lang) ? body.lang
+    : detectLanguage(segments.slice(0, 80).map((s) => s[2]).join(" "), settings.study_language || "ar");
+  const fields = { title, description: author, image: null, audio_url: String(body.source || "").slice(0, 500), audio_type: "text/book",
+                   language: isLanguage(language) ? language : settings.study_language || "ar",
+                   transcript_rev: t, model: "book", deleted: 0, updated_at: t };
+  let ep = lib.episodes.find((e) => e.uid === uid);
+  if (ep) Object.assign(ep, fields);
+  else {
+    ep = { uid, feed_uid: fuid, guid, published: t, duration: null, transcribe_requested_at: null, remote_audio: 0,
+           created_at: t, ...fields };
+    lib.episodes.push(ep);
+  }
+  await transcripts.put(uid, { format: 1, rev: t, model: "book", kinds, segments, words });
   const pending = new Set((await kv.get("pending_transcripts")) || []);
   pending.add(uid);
   await kv.set("pending_transcripts", [...pending]);
@@ -519,6 +574,7 @@ const routes = [
     return { sentence, guess };
   }],
   ["POST", /^\/pages$/, (m, q, body) => savePage(body)],
+  ["POST", /^\/books$/, (m, q, body) => saveBook(body)],
   ["POST", /^\/youtube$/, (m, q, body) => saveYouTube(body)],
   // Reels are normally found and transcribed on the computer and only watched here. With cloud
   // transcription on, the phone can pick reels from the user's own Instagram saves (reels-phone.js).

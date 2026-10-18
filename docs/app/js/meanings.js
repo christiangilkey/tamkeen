@@ -18,16 +18,21 @@ export const NO_MEANINGS = "NO_MEANINGS";
 export { matchKey };
 
 // ---------- the files ----------
-const loaded = new Map(); // lang -> Promise<data|null>
+const loaded = new Map(); // lang -> Promise<[data, ...]|null>: the language's files, the one asked first first
 
 export const meaningsStatus = (lang) => api(`/lexicon/status?lang=${lang}&kind=meanings`);
 
 function load(lang) {
   if (!loaded.has(lang)) {
     loaded.set(lang, (async () => {
-      const st = await meaningsStatus(lang);
+      let st = await meaningsStatus(lang);
+      // Some of the language's files here but not all (a file added in a later version, like Arabic's
+      // CAMeL glosses): the rest come without asking again.
+      if (!st.installed && Object.values(st.files || {}).some((f) => f.installed)) {
+        st = await api("/lexicon/download", { method: "POST", body: { lang, kind: "meanings" } });
+      }
       if (!st.installed) return null;
-      return api(`/lexicon/data/mean-${lang}`);
+      return Promise.all(st.names.map((name) => api(`/lexicon/data/${name}`)));
     })().catch((e) => { console.warn("Meanings failed to load", e); return null; })
       .then((d) => { if (!d) loaded.delete(lang); return d; }));
   }
@@ -68,9 +73,16 @@ async function candidates(word, lang) {
 /** The popup's answer for ctx ({word, lang, ...}) from the built-in dictionary. */
 export async function dictionaryDefine(ctx, { quick = false, language = "English" } = {}) {
   const lang = ctx.lang || "ar";
-  const data = await load(lang);
-  if (!data) throw new DefinerError(NO_MEANINGS);
-  const found = findIn(data, await candidates(ctx.word, lang));
+  const files = await load(lang);
+  if (!files) throw new DefinerError(NO_MEANINGS);
+  // Wiktionary first; for Arabic, the CAMeL glosses when Wiktionary lacks the word (or has it only as a name).
+  const keys = await candidates(ctx.word, lang);
+  let found = null;
+  for (const data of files) {
+    const hit = data && findIn(data, keys);
+    if (hit && hit.groups.some((g) => g[1] !== "name")) { found = hit; break; }
+    found = found || hit;
+  }
   if (!found || !found.groups.length) {
     throw new DefinerError("This word isn't in the built-in dictionary. It may be a name, slang, or a form it doesn't know.");
   }
