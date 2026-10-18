@@ -17,7 +17,17 @@ and each keeps the licence of the database it was made from:
 | `ar-glf.json.gz` | `calima-glf-01` (Gulf Arabic) | Creative Commons Attribution 4.0: `LICENSE-CC-BY-4.0.txt` |
 | `ar-lev.json.gz` | `calima-lev-01` (Levantine Arabic) | Creative Commons Attribution 4.0: `LICENSE-CC-BY-4.0.txt` |
 
-What was changed: only the fields the lookup needs were kept (word pieces, their categories and
+For Spanish, French and Italian the files are tables of word forms and their dictionary forms
+(hablas → hablar), read by `web/js/lexicon/romance.js`:
+
+| File | Made from | Licence |
+|---|---|---|
+| `es-lemmas.json.gz`, `fr-lemmas.json.gz`, `it-lemmas.json.gz` | [Lemmatization lists](https://github.com/michmech/lemmatization-lists) by Michal Měchura; word counts from [wordfreq](https://github.com/rspeer/wordfreq) by Robyn Speer (CC BY-SA 4.0) to keep the forms people meet and to choose between two dictionary forms for one spelling | Open Database License 1.0: `LICENSE-ODbL-1.0.txt` |
+
+They are rebuilt with `tools/build_lemmas.py` (see the top of that file); a few common Italian
+words the lists get wrong are corrected there by hand (`EXTRA`).
+
+What was changed in the Arabic files: only the fields the lookup needs were kept (word pieces, their categories and
 which go together, lemma, part of speech, root, corpus frequency, spelling); glosses,
 tokenizations and phonetics were dropped, and the result was written as gzipped JSON.
 

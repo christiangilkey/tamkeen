@@ -25,7 +25,11 @@ from . import paths
 log = logging.getLogger(__name__)
 
 BASE_URL = "https://christiangilkey.github.io/tamkeen/lexicon/"
-LANGUAGES = {"ar": ("msa", "egy", "lev", "glf")}  # Standard Arabic first: it is the one tried first
+# The files each language uses, by name (Standard Arabic first: it is the one tried first).
+# Spanish, French and Italian have one table of word forms each (tools/build_lemmas.py).
+LANGUAGES = {"ar": ("msa", "egy", "lev", "glf"), "es": ("es",), "fr": ("fr",), "it": ("it",)}
+FILES = {"msa": "ar-msa.json.gz", "egy": "ar-egy.json.gz", "lev": "ar-lev.json.gz", "glf": "ar-glf.json.gz",
+         "es": "es-lemmas.json.gz", "fr": "fr-lemmas.json.gz", "it": "it-lemmas.json.gz"}
 
 _lock = threading.Lock()
 
@@ -78,10 +82,10 @@ def index(refresh: bool = False) -> dict[str, Any]:
 
 
 def file_path(name: str) -> Path | None:
-    """The downloaded dictionary `name` ("msa", "egy", ...), or None if it isn't here."""
-    if not name.isalnum():
+    """The downloaded dictionary `name` ("msa", "egy", "es", ...), or None if it isn't here."""
+    if name not in FILES:
         return None
-    path = lexicon_dir() / f"ar-{name}.json.gz"
+    path = lexicon_dir() / FILES[name]
     return path if path.exists() else None
 
 
@@ -113,9 +117,9 @@ def download(lang: str = "ar") -> dict[str, Any]:
             blob = _fetch(meta["file"])
             if hashlib.sha256(blob).hexdigest() != meta["sha256"]:
                 raise LexiconError("A dictionary arrived damaged. Try again.")
-            tmp = lexicon_dir() / f"ar-{name}.part"
+            tmp = lexicon_dir() / f"{name}.part"
             tmp.write_bytes(blob)
-            tmp.replace(lexicon_dir() / f"ar-{name}.json.gz")
+            tmp.replace(lexicon_dir() / FILES[name])
     return status(lang)
 
 

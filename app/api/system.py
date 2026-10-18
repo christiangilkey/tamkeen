@@ -267,6 +267,7 @@ LICENSES = [
     ("Noto Naskh Arabic font", "SIL Open Font License 1.1", "noto-naskh-arabic.txt"),
     ("Common-word lists (from wordfreq)", "CC BY-SA 4.0", "wordfreq.txt"),
     ("CAMeL Tools analyzer method; Arabic dictionaries (optional download)", "MIT; GPL v2 / CC BY 4.0", "camel-tools.txt"),
+    ("Spanish, French and Italian word tables (optional download)", "ODbL 1.0", "lemmatization-lists.txt"),
     ("pywebview", "BSD 3-Clause", "pywebview.txt"),
     ("FastAPI / Starlette / Uvicorn", "MIT / BSD 3-Clause", "fastapi.txt"),
     ("feedparser", "BSD 2-Clause", "feedparser.txt"),

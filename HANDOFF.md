@@ -2679,3 +2679,29 @@ line is the TICKED-reels job, `startSelected`: 70 reels were ticked; "Get random
 - Translations: the popup's sentence changed; strings.json and `tr/*/10.txt` swap ids 16db8f9d / 0a730827 for
   4ee48926 in all 8 languages; dictionaries rebuilt (`build.mjs --check` clean). Tests: `tests/js/goal.test.mjs`
   (11). Checked in the `tamkeen-goal` preview (fresh folder, not signed in) at desktop size and 390 px.
+
+### Seen words for Spanish, French and Italian by dictionary form (2026-10-17; committed locally on main, NOT pushed)
+Asked by the owner through the main chat ("Ensure spanish parser senses word changes like subjunctive,
+conjugations, words with attached pronouns"). Owner chose a separate download per language, like Arabic.
+- `web/js/lexicon/romance.js` (pure, shared): clean the word (lower case, punctuation off, accents KEPT:
+  esta/está differ), French/Italian elisions off (l'homme -> homme, dell'anno -> anno; po' keeps its
+  apostrophe), look the form up in the language's table, and if the table doesn't know it, take pronouns
+  joined to a verb off and look again (dámelo -> dar, díselo -> decir via `COMMANDS`, vámonos -> ir,
+  mangiarlo -> mangiare, dimmi -> dire, donne-moi -> donner). Keys stay `<lang>|<lemma>|x`, so a word
+  already in its dictionary form keeps the key it always had.
+- Tables `docs/lexicon/{es,fr,it}-lemmas.json.gz` (0.9 / 0.6 / 0.7 MB): `tools/build_lemmas.py` from Michal
+  Měchura's lemmatization lists (ODbL 1.0) + wordfreq counts (CC BY-SA) that pick between readings
+  (casa stays casa, not casar) and keep common forms; `EXTRA` fixes a few Italian words by hand. Credits:
+  `docs/lexicon/README.md`, `LICENSE-ODbL-1.0.txt`, `licenses/lemmatization-lists.txt` (on About).
+  A spelling with two dictionary forms gets one: ligas -> liga, liguemos -> ligar; sé -> ser; lo/la -> el.
+- `words.js`: `usesDictionaries` (ar, es, fr, it: has a download) vs `needsDictionaries` (only ar: nothing
+  coloured without it). Without the table Spanish/French/Italian work by spelling as before (plus elisions).
+- `seen.js`: the download offer and Settings line cover the three languages; "not now" is per language
+  (`lexicon_declined` is now a list; an old `true` means Arabic). `upgradeKeys`: the first time a table
+  loads, every seen word of that language kept by spelling also gets its dictionary form (hablas ->
+  hablar), once per device (marker `es:lemmas1` in `lexemes_backfilled`); old entries stay.
+- Server/phone: `app/lexicon.py` `LANGUAGES`/`FILES`, `mobile/src/js/lexicon-store.js`.
+- Checked in a desktop preview: offer -> download -> old "hablas" also whitened hablaste/hablemos; tapping
+  Dámelo whitened darte. **The tables only download in an installed app once docs/lexicon is pushed.**
+  New on-screen sentences (offer paragraph, Settings line) are not translated yet: run tools/i18n.
+- Tests: `tests/js/romance.test.mjs` (8, hand-made and real tables), `tests/test_lexicon.py`.

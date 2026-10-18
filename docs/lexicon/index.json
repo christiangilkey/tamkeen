@@ -11,6 +11,26 @@
    "stems": 59650,
    "lexemes": 80700
   },
+  "es": {
+   "file": "es-lemmas.json.gz",
+   "bytes": 928110,
+   "sha256": "a196d6c7b747e4ab201f83239109df64b22b7a9d9a8967e2c06a091f488666e9",
+   "title": "Spanish word forms",
+   "db": "lemmatization-lists + wordfreq",
+   "license": "ODbL-1.0",
+   "forms": 236601,
+   "lexemes": 67736
+  },
+  "fr": {
+   "file": "fr-lemmas.json.gz",
+   "bytes": 639455,
+   "sha256": "9eeff41efbf35169da73b19fb42e0b058d78d5bad17b52d279b75f4bab75f467",
+   "title": "French word forms",
+   "db": "lemmatization-lists + wordfreq",
+   "license": "ODbL-1.0",
+   "forms": 173521,
+   "lexemes": 36021
+  },
   "glf": {
    "file": "ar-glf.json.gz",
    "bytes": 282034,
@@ -20,6 +40,16 @@
    "license": "CC-BY-4.0",
    "stems": 11073,
    "lexemes": 6300
+  },
+  "it": {
+   "file": "it-lemmas.json.gz",
+   "bytes": 705916,
+   "sha256": "9cddf4964d7c88208fdf2fff6faf1476635ca0e2edcf8c384b265eccfb38672e",
+   "title": "Italian word forms",
+   "db": "lemmatization-lists + wordfreq",
+   "license": "ODbL-1.0",
+   "forms": 224761,
+   "lexemes": 27988
   },
   "lev": {
    "file": "ar-lev.json.gz",

@@ -125,8 +125,12 @@ def test_dictionaries_are_only_there_once_downloaded(client, tmp_path, monkeypat
 
 
 def test_languages_without_dictionaries_need_none(client):
-    st = client.get("/api/lexicon/status?lang=es").json()
-    assert st == {"lang": "es", "needed": False, "names": [], "installed": False, "bytes": 0, "files": {}}
+    st = client.get("/api/lexicon/status?lang=ru").json()
+    assert st == {"lang": "ru", "needed": False, "names": [], "installed": False, "bytes": 0, "files": {}}
+    # Spanish, French and Italian have one table of word forms each.
+    for lang in ("es", "fr", "it"):
+        st = client.get(f"/api/lexicon/status?lang={lang}").json()
+        assert st["needed"] and st["names"] == [lang] and not st["installed"]
 
 
 def test_the_published_dictionaries_match_their_index():
@@ -135,7 +139,8 @@ def test_the_published_dictionaries_match_their_index():
 
     folder = Path(__file__).resolve().parent.parent / "docs" / "lexicon"
     index = json.loads((folder / "index.json").read_text(encoding="utf-8"))
-    assert sorted(index["files"]) == sorted(lexicon.LANGUAGES["ar"])
+    assert sorted(index["files"]) == sorted(lexicon.FILES)
+    assert all(index["files"][name]["file"] == lexicon.FILES[name] for name in lexicon.FILES)
     for meta in index["files"].values():
         blob = (folder / meta["file"]).read_bytes()
         assert len(blob) == meta["bytes"] and hashlib.sha256(blob).hexdigest() == meta["sha256"]

@@ -1,12 +1,15 @@
-// Phone side of the Arabic word dictionaries (the desktop's is app/lexicon.py): downloaded once,
-// when someone learning Arabic agrees to it, from the same address the desktop uses, and kept
+// Phone side of the word dictionaries (Arabic; Spanish, French, Italian word tables; the desktop's is app/lexicon.py): downloaded once,
+// when someone learning that language agrees to it, from the same address the desktop uses, and kept
 // in the phone's storage. web/js/lexicon/ explains what they are for.
 
 import { kv } from "./store.js";
 import { gunzipJson } from "./drive.js";
 
 const BASE_URL = "https://christiangilkey.github.io/tamkeen/lexicon/";
-const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"] }; // Standard Arabic first: it is the one tried first
+// Standard Arabic first: it is the one tried first. Spanish, French and Italian have one table each.
+const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"], es: ["es"], fr: ["fr"], it: ["it"] };
+// Sizes to show before anything has been fetched (the real ones come with the file list).
+const ESTIMATE = { ar: 3300000, es: 2000000, fr: 2000000, it: 2000000 };
 
 // (A different address can be set for testing a build before the files are published.)
 function base() {
@@ -34,8 +37,7 @@ export async function lexiconStatus(lang = "ar") {
     const meta = index.files[name] || {};
     files[name] = { title: meta.title || name, bytes: meta.bytes || 0, license: meta.license || "", installed: have.has(name) };
   }
-  // Before anything has been fetched the sizes aren't known; the four files total about 3.3 MB.
-  const bytes = names.reduce((n, name) => n + files[name].bytes, 0) || (names.length ? 3300000 : 0);
+  const bytes = names.reduce((n, name) => n + files[name].bytes, 0) || ESTIMATE[lang] || 0;
   return { lang, needed: names.length > 0, names, installed: names.length > 0 && names.every((n) => have.has(n)), bytes, files };
 }
 
@@ -66,7 +68,7 @@ export async function lexiconRemove(lang = "ar") {
   return lexiconStatus(lang);
 }
 
-/** A downloaded dictionary, unpacked and ready for web/js/lexicon/arabic.js. */
+/** A downloaded dictionary, unpacked and ready for web/js/lexicon/ (arabic.js or romance.js). */
 export async function lexiconData(name) {
   const blob = await kv.get(`lexicon:${name}`);
   return blob ? gunzipJson(blob) : null;

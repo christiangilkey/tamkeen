@@ -1,14 +1,19 @@
 // The lexeme behind each word of a text: what "have I seen this word before?" is asked about.
 //
-// A lexeme is a dictionary entry, not a spelling. Arabic gets real analysis (./arabic.js), so
-// one known form covers every form of the word. The other languages have no analyzer yet: for
-// them a word is known by its spelling, lower-cased. No screen or network code here.
+// A lexeme is a dictionary entry, not a spelling. Arabic (./arabic.js) and Spanish, French and
+// Italian (./romance.js) are analyzed, so one known form covers every form of the word. The other
+// languages have no analyzer yet: for them a word is known by its spelling, lower-cased.
+// No screen or network code here.
 
 import { analyzeArabic } from "./arabic.js";
+import { LemmaTable, ROMANCE, romanceLexeme } from "./romance.js";
 import { EDGE_PUNCT } from "../wordlookup.js";
 
 /** Languages whose words can only be told apart with downloaded dictionaries. */
 export const needsDictionaries = (lang) => lang === "ar";
+/** Languages that have dictionaries to download: needed (Arabic), or making the analysis better
+ * (Spanish, French, Italian: without them a word is known by its spelling). */
+export const usesDictionaries = (lang) => lang === "ar" || ROMANCE.has(lang);
 
 /** A word identified by how it is written (languages without an analyzer). */
 export function surfaceLexeme(token, lang) {
@@ -23,6 +28,10 @@ export function surfaceLexeme(token, lang) {
  */
 export function lexemesFor(tokens, lang, dicts = null) {
   if (needsDictionaries(lang)) return dicts && dicts.length ? analyzeArabic(tokens, dicts) : null;
+  if (ROMANCE.has(lang)) {
+    const table = (dicts || []).find((d) => d instanceof LemmaTable) || null;
+    return tokens.map((t) => romanceLexeme(t, lang, table));
+  }
   return tokens.map((t) => surfaceLexeme(t, lang));
 }
 
