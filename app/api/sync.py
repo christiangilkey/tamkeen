@@ -22,13 +22,13 @@ def status() -> dict[str, Any]:
 
 
 @router.post("/login")
-def login(request: Request) -> dict[str, Any]:
+def login(request: Request, tasks: bool = False) -> dict[str, Any]:
     # Google requires the system browser for sign-in (embedded webviews are blocked); it
-    # redirects back to this local server.
+    # redirects back to this local server. `tasks`: also ask for Google Tasks (googletasks.py).
     port = request.url.port
     redirect = f"http://127.0.0.1:{port}/api/sync/callback"
     try:
-        url = oauth.begin(redirect)
+        url = oauth.begin(redirect, tasks=tasks)
     except oauth.AuthError as exc:
         raise HTTPException(400, str(exc)) from exc
     webbrowser.open(url)

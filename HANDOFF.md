@@ -2922,3 +2922,20 @@ page at a time, plus uploading their own EPUB, PDF, TXT, AZW3 and DOC files. Own
   (`web/js/pages/books.js`, with `uploadBook()`), book icon in icons.js.
 - Not translated yet: the new texts are English only.
 
+
+## Review session to Google Tasks / Onyx (2026-10-18; after v0.29.0)
+Owner: "Have my tamkeen review session be able to be sent to onyx via a send to google tasks button that switches to
+onyx when clicked in the settings, this task wil include the estimated time for reviewing". Chosen: a button under
+the day's goal on the Review banner (`review/goalbar.js` → `review/sendtask.js`), Settings card "Today's review as a
+to-do" (`components/tasktarget.js`, setting `review_task_target` "google" | "onyx").
+- Task text (`review/tasktext.js`, tested): "Tamkeen review (N min)" with goal.js's estimate (roundMinutes), notes
+  "X reviews and Y new words left today…", due today, id `tamkeen-review-<day>`.
+- **Google Tasks:** scope `https://www.googleapis.com/auth/tasks`, asked only when first used. Computer:
+  `app/googletasks.py` + POST /api/tasks/review (opens the browser sign-in with the extra scope, include_granted_scopes,
+  returns needs_permission; setting `google_scopes` records what was granted); phone: GoogleDriveAuthPlugin
+  `authorize({tasks:true})`; web: GIS token client; `mobile/src/js/googletasks.js` + backend route. One task a day
+  (setting `review_task` {day,id}: PATCH that day's task). iPhone: not yet (its sign-in plugin is on the ios branch).
+  **Needs the Google Tasks API enabled in Google Cloud project Meridian and the scope on the consent screen.**
+- **Onyx:** `onyx://task?title&minutes&due&notes&id&from=tamkeen&n=<ms>` (contract from Onyx's chat, Onyx 1.43.0:
+  opens Magic add for that day; same id updates; n makes each Android send new). Computer: POST /api/open-onyx
+  (os.startfile, onyx:// only); phone/web: location.href. Not tried against a real Onyx install from here.

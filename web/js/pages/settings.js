@@ -1,5 +1,6 @@
 // Settings: model, GPU, audio storage, appearance, data backup, updates.
 
+import { taskTargetCard } from "../components/tasktarget.js";
 import { api, esc, h, on, toast, download, loadStatus, saveSettings, fmtBytes, state, offerUpdate } from "../app.js";
 import { modelManager, gpuPanel } from "../components/models.js";
 import { aiSetup } from "../components/aisetup.js";
@@ -113,6 +114,8 @@ export async function render(view) {
     </section>
 
     <section class="card" id="game-switch"></section>
+
+    <section class="card" id="task-target"></section>
 
     <section class="card stack">
       <h2>Your data</h2>
@@ -250,6 +253,7 @@ export async function render(view) {
   cleanups.push(on("anki", paintAnki));
   cleanups.push(ankiSyncPanel($("#anki-sync")));
   gameSwitch($("#game-switch"));
+  taskTargetCard($("#task-target"));
 
   $("#delete-after").onchange = (e) => saveSettings({ delete_audio_after: e.target.checked });
   $("#stream").onchange = (e) => saveSettings({ stream_from_source: e.target.checked });

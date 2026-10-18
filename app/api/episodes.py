@@ -11,7 +11,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, RedirectResponse, Response, StreamingResponse
 from pydantic import BaseModel
 
-from .. import books, corrections, db, events, exporters, jobs, languages, pages, sync, tashkeel, videos, youtube
+from .. import books, googletasks, corrections, db, events, exporters, jobs, languages, pages, sync, tashkeel, videos, youtube
 
 router = APIRouter(tags=["episodes"])
 
@@ -141,6 +141,48 @@ def import_page(body: PageIn) -> dict[str, Any]:
     events.publish("feeds", {"refreshed": True})
     sync.request()
     return ep
+
+
+class ReviewTaskIn(BaseModel):
+    title: str
+    notes: str = ""
+    due: str
+    minutes: int = 0
+
+
+@router.post("/tasks/review")
+def review_task(body: ReviewTaskIn, request: Request) -> dict[str, Any]:
+    """The Review tab's "Send to Google Tasks". The first time, Google is asked for permission in
+    the browser ({"needs_permission": true}); press the button again once it is given."""
+    try:
+        return googletasks.send_review(body.model_dump())
+    except googletasks.NeedsPermission:
+        import webbrowser
+
+        from ..sync import oauth
+
+        try:
+            url = oauth.begin(f"http://127.0.0.1:{request.url.port}/api/sync/callback", tasks=True)
+        except oauth.AuthError as exc:
+            raise HTTPException(400, str(exc)) from exc
+        webbrowser.open(url)
+        return {"needs_permission": True}
+    except googletasks.TaskError as exc:
+        raise HTTPException(400, str(exc)) from exc
+
+
+class OnyxIn(BaseModel):
+    url: str
+
+
+@router.post("/open-onyx")
+def open_onyx(body: OnyxIn) -> dict[str, bool]:
+    """Send a task to Onyx Calendar (an onyx:// link, opened by the system)."""
+    try:
+        googletasks.open_onyx(body.url)
+    except googletasks.TaskError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    return {"ok": True}
 
 
 class BookIn(BaseModel):

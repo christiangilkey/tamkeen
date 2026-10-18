@@ -52,19 +52,21 @@ public class GoogleDriveAuthPlugin extends Plugin {
             new ActivityResultContracts.StartIntentSenderForResult(), this::onConsentResult);
     }
 
-    private AuthorizationRequest request() {
-        return AuthorizationRequest.builder()
-            .setRequestedScopes(Arrays.asList(
-                new Scope("https://www.googleapis.com/auth/drive.appdata"),
-                new Scope("email"),
-                new Scope("openid")))
-            .build();
+    /** `tasks`: Google Tasks too (the Review tab's "Send to Google Tasks"), asked the first time it is used. */
+    private AuthorizationRequest request(boolean tasks) {
+        java.util.List<Scope> scopes = new java.util.ArrayList<>(Arrays.asList(
+            new Scope("https://www.googleapis.com/auth/drive.appdata"),
+            new Scope("email"),
+            new Scope("openid")));
+        if (tasks) scopes.add(new Scope("https://www.googleapis.com/auth/tasks"));
+        return AuthorizationRequest.builder().setRequestedScopes(scopes).build();
     }
 
     @PluginMethod
     public void authorize(PluginCall call) {
         boolean interactive = Boolean.TRUE.equals(call.getBoolean("interactive", true));
-        Identity.getAuthorizationClient(getActivity()).authorize(request())
+        boolean tasks = Boolean.TRUE.equals(call.getBoolean("tasks", false));
+        Identity.getAuthorizationClient(getActivity()).authorize(request(tasks))
             .addOnSuccessListener(result -> {
                 if (!result.hasResolution()) {
                     resolveWith(call, result);

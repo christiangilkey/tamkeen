@@ -40,6 +40,7 @@ const SHARED = [
   "js/components/account.js",
   "js/components/ankisync.js",
   "js/components/gameswitch.js",
+  "js/components/tasktarget.js",
   "js/components/resetapp.js",
   "js/components/langswitch.js",
   "js/social.js",

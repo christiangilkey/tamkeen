@@ -415,7 +415,10 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     # Seen words (see web/js/lexicon/seen.js): "no thanks" to the Arabic dictionaries download, and
     # whether words tapped or saved before seen words were kept have been counted on this device.
     "lexicon_declined": False,
-    "definer_mode": "ai",  # "ai", or "dictionary": No AI, the built-in dictionary (web/js/meanings.js)
+    "definer_mode": "ai",
+    "review_task_target": "google",  # the Review tab's button sends the day's review to "google" (Tasks) or "onyx"
+    "google_scopes": "",  # what the Google sign-in allows (space-separated), e.g. whether Google Tasks is allowed
+    "review_task": {},  # {"day", "id"}: today's review task in Google Tasks, updated rather than added again  # "ai", or "dictionary": No AI, the built-in dictionary (web/js/meanings.js)
     "ru_stress": True,              # Russian text shows stress marks (ла́дно) once its word table is here
     # Arabic vowel marks (app/tashkeel.py, web/js/vowels.js): shown or not, and also on dialect speech,
     # where they are a guess (the model learned Standard Arabic).

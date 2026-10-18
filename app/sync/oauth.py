@@ -1,7 +1,8 @@
 """Google sign-in for installed apps: system browser + loopback redirect + PKCE.
 
 Only the `drive.appdata` scope is requested: the app sees its own hidden folder in the
-user's Drive and nothing else.
+user's Drive and nothing else. Google Tasks (the Review tab's "Send to Google Tasks", see
+app/googletasks.py) is asked for separately, the first time it is used.
 """
 
 from __future__ import annotations
@@ -25,6 +26,7 @@ AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 REVOKE_URL = "https://oauth2.googleapis.com/revoke"
 SCOPES = "https://www.googleapis.com/auth/drive.appdata openid email"
+TASKS_SCOPE = "https://www.googleapis.com/auth/tasks"
 
 
 class AuthError(RuntimeError):
@@ -57,8 +59,9 @@ def _b64(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).rstrip(b"=").decode("ascii")
 
 
-def begin(redirect_uri: str) -> str:
-    """Start sign-in. Returns the Google URL to open in the system browser."""
+def begin(redirect_uri: str, tasks: bool = False) -> str:
+    """Start sign-in. Returns the Google URL to open in the system browser. `tasks`: also ask
+    for Google Tasks (on top of what was granted before)."""
     cfg = client_config()
     if cfg is None:
         raise AuthError("Google sign-in isn't configured in this build.")
@@ -73,7 +76,8 @@ def begin(redirect_uri: str) -> str:
         "client_id": cfg[0],
         "redirect_uri": redirect_uri,
         "response_type": "code",
-        "scope": SCOPES,
+        "scope": f"{SCOPES} {TASKS_SCOPE}" if tasks else SCOPES,
+        "include_granted_scopes": "true",
         "state": state,
         "code_challenge": _b64(hashlib.sha256(verifier.encode("ascii")).digest()),
         "code_challenge_method": "S256",
@@ -120,7 +124,7 @@ def complete(state: str, code: str) -> str:
     if "https://www.googleapis.com/auth/drive.appdata" not in granted:
         raise AuthError("Drive access wasn't granted. Sign in again and allow the app to store its data.")
     email = _email_from_id_token(data.get("id_token"))
-    db.set_settings({"google_refresh_token": refresh, "google_email": email})
+    db.set_settings({"google_refresh_token": refresh, "google_email": email, "google_scopes": " ".join(sorted(granted))})
     with _lock:
         _access.update(token=data.get("access_token"), expires=time.time() + int(data.get("expires_in", 3600)) - 60)
     return email
@@ -178,6 +182,6 @@ def sign_out() -> None:
             httpx.post(REVOKE_URL, params={"token": refresh}, timeout=15)
         except httpx.HTTPError:
             pass
-    db.set_settings({"google_refresh_token": "", "google_email": ""})
+    db.set_settings({"google_refresh_token": "", "google_email": "", "google_scopes": "", "review_task": {}})
     with _lock:
         _access.update(token=None, expires=0.0)
