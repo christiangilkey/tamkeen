@@ -29,7 +29,7 @@ import { addUploadedVideo, checkFeeds, fillLanguages, handle } from "./backend.j
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
-import { accessToken, drive, googleScript } from "./drive.js";
+import { RECONNECT_EVENT, accessToken, drive, googleScript, reconnect } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
 import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, webFetch } from "./native.js";
@@ -967,6 +967,18 @@ async function boot() {
   route();
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   mountInstallButton(document.querySelector(".topbar")); // the web app: how to add it to the home screen
+  if (isWeb) { // the web app's Drive pass ran out while nobody was tapping: one tap renews it (drive.js)
+    let asking = false;
+    window.addEventListener(RECONNECT_EVENT, () => {
+      if (asking) return;
+      asking = true;
+      toast("Your Google connection needs renewing.", { timeout: 60000, action: { label: "Reconnect Google", run: async () => {
+        try { await reconnect(); asking = false; syncNow(); toast("Reconnected to Google."); }
+        catch (e) { asking = false; toast(e.message || "Couldn't reconnect to Google.", { error: true }); }
+      } } });
+      setTimeout(() => { asking = false; }, 60000);
+    });
+  }
   startBadge();
   setTimeout(() => checkForUpdate(), 3000);
   startAppBadge();

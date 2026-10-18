@@ -67,6 +67,15 @@ function savedWebToken() {
   } catch { /* storage off */ }
 }
 
+// The web app: when its hour-long Drive pass has run out and renewing it needs a tap.
+export const RECONNECT_EVENT = "tamkeen:reconnect";
+export const RECONNECT_TEXT = "Your Google connection needs renewing: tap Reconnect.";
+
+/** The web app's "Reconnect Google" (must be called from a tap): a fresh Drive pass. */
+export async function reconnect() {
+  return webToken(false);
+}
+
 /** Interactive sign-in: shows Google's account picker / consent the first time. */
 export async function signIn() {
   if (isWeb) {
@@ -90,6 +99,13 @@ export async function accessToken(forceRefresh = false) {
   if (isWeb && !token) savedWebToken();
   if (!forceRefresh && token && Date.now() < tokenExpires) return token;
   if (isWeb) {
+    // Renewing opens Google's small window, which a browser (and an app on the home screen) only
+    // allows straight after a tap; otherwise it asks "Allow this site to open?". So without a tap
+    // just now, nothing is opened: the app shows a "Reconnect Google" button instead (app.js).
+    if (!(navigator.userActivation && navigator.userActivation.isActive)) {
+      window.dispatchEvent(new Event(RECONNECT_EVENT));
+      throw new AuthError(RECONNECT_TEXT);
+    }
     try { return await webToken(false); } catch (e) {
       throw new AuthError("Your Google sign-in needs renewing. Open Settings and sign in again.");
     }
