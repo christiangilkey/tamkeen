@@ -74,6 +74,15 @@ test("Russian and Tagalog", () => {
   assert.match(look(file("tl"), "bahay", "tl").meaning, /house/);
 });
 
+test("Arabic: the CAMeL glosses cover words Wiktionary lacks, Egyptian ones marked", () => {
+  const camel = file("ar-camel");
+  const now = look(camel, "دلوقتي", "ar");
+  assert.equal(now.meaning, "now");
+  assert.equal(now.dialect, "Egyptian Arabic");
+  assert.match(look(camel, "استقلال", "ar").meaning, /independence/);
+  for (const groups of Object.values(camel.words)) for (const g of groups) assert.ok(!g[2].includes("TBA"));
+});
+
 test("a word that isn't there finds nothing", () => {
   assert.equal(findIn(file("tl"), ["qqqzzz"]), null);
 });

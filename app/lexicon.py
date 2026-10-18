@@ -36,8 +36,10 @@ FILES = {"msa": "ar-msa.json.gz", "egy": "ar-egy.json.gz", "lev": "ar-lev.json.g
          "en": "en-lemmas.json.gz", "tl": "tl-roots.json.gz", "ja": "ja-ipadic.bin.gz", "zh": "zh-cedict.json.gz"}
 # Word meanings for "No AI" in Settings (tools/build_meanings.py, from Wiktionary): one file a language,
 # downloaded only when that is chosen. `kind="meanings"` below.
-MEANINGS = {lang: (f"mean-{lang}",) for lang in LANGUAGES}
-FILES.update({f"mean-{lang}": f"{lang}-meanings.json.gz" for lang in LANGUAGES})
+# Arabic has a second file, asked when Wiktionary lacks a word: the CAMeL databases' glosses
+# (tools/build_arabic_glosses.py).
+MEANINGS = {lang: (f"mean-{lang}",) for lang in LANGUAGES} | {"ar": ("mean-ar", "mean-arc")}
+FILES.update({f"mean-{lang}": f"{lang}-meanings.json.gz" for lang in LANGUAGES} | {"mean-arc": "ar-camel-meanings.json.gz"})
 KINDS = {"words": LANGUAGES, "meanings": MEANINGS}
 
 _lock = threading.Lock()

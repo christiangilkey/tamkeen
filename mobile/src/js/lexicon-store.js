@@ -9,9 +9,10 @@ const BASE_URL = "https://christiangilkey.github.io/tamkeen/lexicon/";
 // Standard Arabic first: it is the one tried first. Spanish, French and Italian have one table each.
 const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"], es: ["es"], fr: ["fr"], it: ["it"], ru: ["ru"], en: ["en"], tl: ["tl"], ja: ["ja"], zh: ["zh"] };
 // Word meanings for "No AI" (web/js/meanings.js): one file a language, only when that is chosen.
-const MEANINGS = Object.fromEntries(Object.keys(LANGUAGES).map((l) => [l, [`mean-${l}`]]));
+// Arabic has a second file, asked when Wiktionary lacks a word (the CAMeL databases' glosses).
+const MEANINGS = { ...Object.fromEntries(Object.keys(LANGUAGES).map((l) => [l, [`mean-${l}`]])), ar: ["mean-ar", "mean-arc"] };
 const KINDS = { words: LANGUAGES, meanings: MEANINGS };
-const MEANING_ESTIMATE = { ar: 1300000, es: 7300000, fr: 4500000, it: 6300000, ru: 6000000, en: 20000000, tl: 950000, ja: 3300000, zh: 6000000 };
+const MEANING_ESTIMATE = { ar: 3000000, es: 7300000, fr: 4500000, it: 6300000, ru: 6000000, en: 20000000, tl: 950000, ja: 3300000, zh: 6000000 };
 // Sizes to show before anything has been fetched (the real ones come with the file list).
 const ESTIMATE = { ar: 3300000, es: 1000000, fr: 700000, it: 700000, ru: 2400000, en: 600000, tl: 120000, ja: 11400000, zh: 1900000 };
 

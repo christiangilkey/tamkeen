@@ -2890,3 +2890,10 @@ and a very extensive word library per language to explain words instead.
   when standalone); steps for iPhone/iPad (Safari or other), Android (Chrome, Samsung, Firefox; Chrome's own
   install prompt when offered), computer (Chrome, Edge, Safari).
 - Not translated yet: the new Settings/popup/onboarding/web-install texts are English only.
+- **Arabic fallback (after v0.28.0):** `tools/build_arabic_glosses.py` → `docs/lexicon/ar-camel-meanings.json.gz`
+  (index `mean-arc`, 1.5 MB, GPL v2): the English glosses of CAMeL's calima-msa-r13 and calima-egy-r13 (39,294 words;
+  Gulf/Levantine have none, all "TBA"), keyed like the Wiktionary file, plus stem spelling → lemma. `MEANINGS.ar` =
+  (mean-ar, mean-arc) on both platforms; `meanings.js` asks the files in order (Wiktionary first) and, when only some
+  of a language's files are here (v0.28.0 users), fetches the rest without asking. Databases downloaded from
+  github.com/CAMeL-Lab/camel-tools-data/releases (morphology_db_calima-msa-r13-0.4.0, -egy-r13-0.2.0).
+

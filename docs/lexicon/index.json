@@ -90,6 +90,16 @@
    "words": 22693,
    "forms": 9771
   },
+  "mean-arc": {
+   "file": "ar-camel-meanings.json.gz",
+   "bytes": 1513637,
+   "sha256": "d1015c85f3c49ae49c17f8e75d4917c5771379cc27b5fb1988f85b95ed1d75c4",
+   "title": "Arabic meanings (CAMeL glosses)",
+   "db": "calima-msa, calima-egy",
+   "license": "GPL-2.0",
+   "words": 39294,
+   "forms": 20229
+  },
   "mean-en": {
    "file": "en-meanings.json.gz",
    "bytes": 12608179,

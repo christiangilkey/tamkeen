@@ -79,3 +79,11 @@ downloaded only then.
 
 Rebuilt with `tools/build_meanings.py` (see the top of that file).
 
+Arabic has a second meanings file, asked when Wiktionary lacks a word (or has it only as a name):
+
+| File | Made from | Licence |
+|---|---|---|
+| `ar-camel-meanings.json.gz` | The English glosses of the CAMeL Tools morphology databases (CAMeL Lab, NYU Abu Dhabi), the same databases as the Arabic word tables above: calima-msa-r13 (Standard Arabic, from the SAMA/Buckwalter lexicon) and calima-egy-r13 (Egyptian; marked as Egyptian). 39,294 dictionary words with their part of speech, vowelled form and root, and each stem spelling pointing to its word. The Gulf and Levantine databases have no glosses yet | GNU GPL v2: `LICENSE-GPL-2.0.txt` |
+
+Rebuilt with `tools/build_arabic_glosses.py` (see the top of that file).
+

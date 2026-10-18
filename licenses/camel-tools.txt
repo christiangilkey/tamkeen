@@ -39,3 +39,8 @@ not part of this program) are cut-down copies of the CAMeL Lab's morphology data
 
 The files, their full licence texts, what was changed and how to rebuild them:
 https://github.com/christiangilkey/tamkeen/tree/main/docs/lexicon
+
+The same Standard Arabic and Egyptian databases also give the English glosses of the No AI word
+meanings for Arabic (docs/lexicon/ar-camel-meanings.json.gz, made by tools/build_arabic_glosses.py),
+asked when Wiktionary doesn't have a word. That file is under the GNU GPL v2, like the databases.
+
