@@ -690,11 +690,13 @@ async function renderPlayer(view, { query }) {
         cur = null;
         wordsEl.innerHTML = `<p class="muted small">This reel's words aren't on this device yet. Sync and try again.</p>`;
       } else {
+        await readingsReady(lang); // Japanese and Chinese: the dictionary that splits them into words
+        if (disposed || reels[index] !== ep) return;
         const segText = new Map(data.segments.map((s) => [s.idx, s.text]));
         const W = regroupWords(data.words, lang, true, (s) => segText.get(s));
+        const shown = displayWords(W.text, data.vowels, (i) => W.seg[i]); // Arabic: drawn vowelled (vowels.js)
         const parts = [];
         let w = 0;
-        const shown = displayWords(W.text, data.vowels, (i) => W.seg[i]); // Arabic: drawn vowelled (vowels.js)
         for (const seg of data.segments) {
           parts.push(`<p class="seg">`);
           const first = w;
@@ -708,8 +710,6 @@ async function renderPlayer(view, { query }) {
         wordsEl.innerHTML = parts.join("");
         wordsEl.scrollTop = 0;
         wordsEl.scrollLeft = 0;
-        await readingsReady(lang); // Japanese and Chinese: the dictionary that splits them into words
-        if (disposed || reels[index] !== ep) return;
         wordsEl.setAttribute("lang", lang);
         wordsEl.setAttribute("dir", langInfo(lang).dir);
         cur = { ep, lang, starts: Float64Array.from(W.start), ends: Float64Array.from(W.end), segOf: Int32Array.from(W.seg),

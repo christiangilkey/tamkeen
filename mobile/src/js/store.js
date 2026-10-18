@@ -111,13 +111,13 @@ export const DEFAULTS = {
   anki_deck: "Tamkeen",  // the single deck there was before each language had its own
   anki_decks: null,      // language -> deck name (anki-droid.js deckNames); null until first used
   anki_delete_ok: false,
-};
-export const settings = { ...DEFAULTS };
   // Japanese and Chinese reading aids (web/js/lexicon/readings.js): furigana, pinyin, and the characters
   // Chinese is shown in ("" as written, "simplified", "traditional").
   furigana: true,
   pinyin: true,
   zh_script: "",
+};
+export const settings = { ...DEFAULTS };
 
 export async function loadSettings() {
   Object.assign(settings, DEFAULTS, (await kv.get("settings")) || {});

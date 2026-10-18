@@ -443,6 +443,11 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "anki_decks": None,              # language -> deck name (app/anki_bridge.py deck_names); None until first used
     "anki_delete_ok": False,
     "anki_sync_state": None,
+    # Japanese and Chinese reading aids (web/js/lexicon/readings.js): furigana over kanji, pinyin over
+    # Chinese characters, and which characters Chinese is shown in ("" as written, "simplified", "traditional").
+    "furigana": True,
+    "pinyin": True,
+    "zh_script": "",
     # AI word definitions (users bring their own API key).
     "definer_provider": "claude",
     "definer_language": "English",
@@ -450,11 +455,6 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "definer_model_gemini": "",
     "definer_model_openai": "",
     "definer_model_grok": "",
-    # Japanese and Chinese reading aids (web/js/lexicon/readings.js): furigana over kanji, pinyin over
-    # Chinese characters, and which characters Chinese is shown in ("" as written, "simplified", "traditional").
-    "furigana": True,
-    "pinyin": True,
-    "zh_script": "",
     # The review card's Mnemonic maker: its own model ("" = the provider's fastest, "same" = the
     # lookups' model) and how hard it thinks ("off", "low", "medium", "high"). See definer.mnemonicConfig.
     "mnemonic_model_claude": "",

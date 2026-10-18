@@ -126,8 +126,8 @@ export async function render(view, { id, query }) {
 
   const lang = episodeLanguage(ep);
   const segTexts = new Map(data.segments.map((s) => [s.idx, s.text]));
-  const W = regroupWords(data.words, lang, true, (s) => segTexts.get(s)); // real words for Japanese/Chinese
   await readingsReady(lang); // Japanese and Chinese: the dictionary that splits them into words, if downloaded
+  const W = regroupWords(data.words, lang, true, (s) => segTexts.get(s)); // real words for Japanese/Chinese
   const n = W.start.length;
   const starts = Float64Array.from(W.start);
   const ends = Float64Array.from(W.end);

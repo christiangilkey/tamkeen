@@ -386,10 +386,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const word = face.querySelector(".rv-word");
     word.textContent = v.text;
     word.classList.toggle("long", v.text.length > 14);
-    face.onscroll = more;
     // Japanese and Chinese: furigana / pinyin over the answer and its sentence (when switched on).
     const said = detectLanguage(v.sentence || v.text);
     for (const el of face.querySelectorAll(".rv-word, .rv-ans-sentence")) addReadings(el, said);
+    face.onscroll = more;
     for (const field of ["meaning", "notes", "memo"]) {
       const box = face.querySelector(`.${field}`);
       box.value = v[field] || "";

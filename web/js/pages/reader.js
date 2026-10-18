@@ -50,8 +50,8 @@ export async function render(view, { id, data, query }) {
     text: [...titleTokens, ...data.words.text],
     seg: [...titleTokens.map(() => TITLE_SEG), ...data.words.seg],
   };
-  const W = regroupWords(together, lang, false); // real words for Japanese/Chinese
   await readingsReady(lang); // Japanese and Chinese: the dictionary that splits them into words, if downloaded
+  const W = regroupWords(together, lang, false); // real words for Japanese/Chinese
   const n = W.text.length;
   const segOf = Int32Array.from(W.seg);
   const texts = W.text;
