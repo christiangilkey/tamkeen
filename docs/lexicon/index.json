@@ -70,6 +70,17 @@
    "license": "GPL-2.0",
    "stems": 37300,
    "lexemes": 38571
+  },
+  "ru": {
+   "file": "ru-lemmas.json.gz",
+   "bytes": 2403089,
+   "sha256": "0834761ffef27612f1966b5b5001b396fbc737bd2314f5aebd77ffbe6a313083",
+   "title": "Russian word forms and stress",
+   "db": "OpenRussian.org",
+   "license": "CC-BY-SA-4.0",
+   "forms": 309572,
+   "lexemes": 53581,
+   "stressed": 331638
   }
  }
 }

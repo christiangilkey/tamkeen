@@ -412,6 +412,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     # Seen words (see web/js/lexicon/seen.js): "no thanks" to the Arabic dictionaries download, and
     # whether words tapped or saved before seen words were kept have been counted on this device.
     "lexicon_declined": False,
+    "ru_stress": True,              # Russian text shows stress marks (ла́дно) once its word table is here
     "lexemes_backfilled": [],
     "beam_size": 5,
     # The creature game: its whole saved state (see web/js/game/rules.js), whether it makes sounds,

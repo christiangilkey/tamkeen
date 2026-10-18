@@ -24,7 +24,13 @@ For Spanish, French and Italian the files are tables of word forms and their dic
 |---|---|---|
 | `es-lemmas.json.gz`, `fr-lemmas.json.gz`, `it-lemmas.json.gz` | [Lemmatization lists](https://github.com/michmech/lemmatization-lists) by Michal Měchura; word counts from [wordfreq](https://github.com/rspeer/wordfreq) by Robyn Speer (CC BY-SA 4.0) to keep the forms people meet and to choose between two dictionary forms for one spelling | Open Database License 1.0: `LICENSE-ODbL-1.0.txt` |
 
-They are rebuilt with `tools/build_lemmas.py` (see the top of that file); a few common Italian
+Russian has one table of word forms with stress, read by `web/js/lexicon/russian.js`:
+
+| File | Made from | Licence |
+|---|---|---|
+| `ru-lemmas.json.gz` | The [OpenRussian.org dictionary data](https://github.com/Badestrand/russian-dictionary) (much of it from Wiktionary): every form of each noun, adjective and verb with its stress, and each verb's aspect partner; word counts from wordfreq (CC BY-SA 4.0) to keep common forms | Creative Commons Attribution-ShareAlike 4.0: `LICENSE-CC-BY-SA-4.0.txt` |
+
+It is rebuilt with `tools/build_russian.py`. The Spanish, French and Italian tables are rebuilt with `tools/build_lemmas.py` (see the top of that file); a few common Italian
 words the lists get wrong are corrected there by hand (`EXTRA`).
 
 What was changed in the Arabic files: only the fields the lookup needs were kept (word pieces, their categories and

@@ -1365,3 +1365,4 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .trouble-links .btn { text-align: center; justify-content: center; white-space: normal; min-width: 0; height: auto; }
 .trouble, .trouble-list li { min-width: 0; overflow-wrap: anywhere; }
 .trouble-links .btn:only-child { grid-column: 1 / -1; }
+.lex-stress { display: inline-flex; align-items: center; gap: 6px; flex-basis: 100%; }

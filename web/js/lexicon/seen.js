@@ -17,6 +17,7 @@ import { api, h, saveSettings, state, toast } from "../app.js";
 import { LANGUAGES, detectLanguage, langAttrs, onStudyLanguage } from "../languages.js";
 import { Dictionary, arabicCore, matchForm } from "./arabic.js";
 import { LemmaTable } from "./romance.js";
+import { stressed } from "./russian.js";
 import { lexemeOf, lexemesFor, markedTokens, needsDictionaries, usesDictionaries } from "./words.js";
 
 const settings = () => (state.status && state.status.settings) || {};
@@ -131,7 +132,8 @@ export function dictionariesRow(lang) {
     el.hidden = false;
     el.innerHTML = st.installed
       ? `<span>✓ ${name} word dictionaries are on this device (${mb} MB). Words you have never tapped show in <span class="lex-new-sample">purple</span>.</span>
-         <button type="button" class="ghost" data-act="remove">Remove</button>`
+         <button type="button" class="ghost" data-act="remove">Remove</button>
+         ${lang === "ru" ? `<label class="lex-stress"><input type="checkbox" data-act="stress" ${settings().ru_stress !== false ? "checked" : ""}> Show stress marks (ла́дно)</label>` : ""}`
       : needsDictionaries(lang)
         ? `<span>${name} word dictionaries aren't on this device, so new words can't be shown in <span class="lex-new-sample">purple</span>.</span>`
         : `<span>${name} word dictionaries aren't on this device, so each spelling of a word counts as a different word.</span>`;
@@ -147,6 +149,11 @@ export function dictionariesRow(lang) {
       else await removeDictionaries(lang);
     } catch (err) { toast(err.message, { error: true }); }
     paint();
+  });
+  el.addEventListener("change", async (e) => {
+    if (e.target.dataset.act !== "stress") return;
+    await saveSettings({ ru_stress: e.target.checked }).catch((err) => toast(err.message, { error: true }));
+    repaint();
   });
   paint();
   return el;
@@ -166,7 +173,12 @@ function setDeclined(lang, on) {
 }
 
 // What the offer shows for each language: forms of one word, and who made the files.
-const EXAMPLES = { ar: "كتب، يكتبون، سأكتبها", es: "hablo, hablaste, háblame", fr: "parle, parlons, parlez-moi", it: "parlo, parliamo, parlami" };
+const EXAMPLES = { ar: "كتب، يكتبون، سأكتبها", es: "hablo, hablaste, háblame", fr: "parle, parlons, parlez-moi", it: "parlo, parliamo, parlami",
+  ru: "говорю, сказала, скажи" };
+const SOURCES = {
+  ru: "the OpenRussian.org dictionary, which also gives each word's stress, so Russian text can show it (ла́дно)",
+};
+const WORD_LISTS = "open word lists (Michal Měchura's lemmatization lists and the wordfreq word counts)";
 
 let offering = false;
 /**
@@ -192,7 +204,7 @@ export async function offerDictionaries(lang, force = false) {
         CAMeL Lab at New York University Abu Dhabi (Standard, Egyptian, Levantine and Gulf Arabic).
         They stay on this device and nothing about you is sent anywhere.</p>`
     : `<p>For ${name} that needs a table of word forms: a <strong>one-time download of about ${mb} MB</strong>, made from
-        open word lists (Michal Měchura's lemmatization lists and the wordfreq word counts). It stays on this
+        ${SOURCES[lang] || WORD_LISTS}. It stays on this
         device and nothing about you is sent anywhere. Without it, each spelling of a word counts as a different word.</p>`}
       <p class="small muted" id="lex-offer-note">You can do this later from Settings.</p>
       <div class="row lex-offer-actions">
@@ -243,7 +255,7 @@ if (typeof window !== "undefined") {
 // ---------- things to do once per language, when its words can first be worked out ----------
 const started = new Set();
 function onceReady(lang, dicts) {
-  if (dicts.length) upgradeKeys(lang, dicts).catch((e) => console.warn("Converting seen words failed", e));
+  if (dicts.length || lang === "ru") upgradeKeys(lang, dicts).catch((e) => console.warn("Converting seen words failed", e));
   if (started.has(lang)) return;
   started.add(lang);
   // The first-run "I've already started" answer: that language's commonest words count as seen
@@ -254,14 +266,16 @@ function onceReady(lang, dicts) {
   backfill(lang, dicts).catch((e) => { started.delete(lang); console.warn("Counting earlier words failed", e); });
 }
 
-const UPGRADES = { es: "es:lemmas1", fr: "fr:lemmas1", it: "it:lemmas1" };
+// Russian is converted twice: once for е/ё and stress marks (no table needed), once for its table.
+const UPGRADES = { es: "es:lemmas1", fr: "fr:lemmas1", it: "it:lemmas1", ru: "ru:lemmas1" };
+const upgradeMark = (lang, dicts) => (lang === "ru" && !dicts.length ? "ru:yo1" : dicts.length ? UPGRADES[lang] : null);
 const upgrading = new Set();
 /** Seen words kept before a language had its word table were kept by spelling (es|hablas|x).
  * Once the table is here, each of those also counts for its dictionary form (es|hablar|x), so
  * nothing seen turns new again. The old entries stay: they are harmless. Once per device per
  * table version (remembered in `lexemes_backfilled`, next to the other once-only jobs). */
 async function upgradeKeys(lang, dicts) {
-  const mark = UPGRADES[lang];
+  const mark = upgradeMark(lang, dicts);
   if (!mark || upgrading.has(lang) || (settings().lexemes_backfilled || []).includes(mark)) return;
   upgrading.add(lang);
   try {
@@ -333,7 +347,17 @@ export function seenWords({ tokens, lang, els }) {
     isNew: (i) => !!(view.lexemes && view.lexemes[i] && !known.has(view.lexemes[i].key)),
     canMark: (i) => !!(view.lexemes && view.lexemes[i]),
     paint(list = els, first = 0) {
-      for (let k = 0; k < list.length; k++) list[k].classList.toggle("new", view.isNew(first + k));
+      // Russian with its table: the words show their stress (ла́дно), unless switched off in Settings.
+      const stress = lang === "ru" && view.table && settings().ru_stress !== false;
+      for (let k = 0; k < list.length; k++) {
+        const el = list[k];
+        el.classList.toggle("new", view.isNew(first + k));
+        if (stress || el.dataset.stressed) {
+          const text = stress ? stressed(tokens[first + k], view.table) : tokens[first + k];
+          if (el.textContent !== text) el.textContent = text;
+          if (stress) el.dataset.stressed = "1"; else delete el.dataset.stressed;
+        }
+      }
     },
     range: (i, j = i) => (view.lexemes ? view.lexemes.slice(i, j + 1).filter(Boolean) : []),
     markSeen: (i, j = i) => markLexemes(view.range(i, j)),
@@ -352,6 +376,7 @@ export function seenWords({ tokens, lang, els }) {
       // No dictionaries yet: Arabic isn't coloured; Spanish, French and Italian go by spelling.
       const usable = dicts === null && !needsDictionaries(lang) ? [] : dicts;
       view.lexemes = usable === null ? null : lexemesFor(tokens, lang, usable);
+      view.table = (usable || []).find((d) => d instanceof LemmaTable) || null;
       if (dicts === null) offerDictionaries(lang); // (unless the learner said "not now")
       if (usable !== null) onceReady(lang, usable);
       view.paint();

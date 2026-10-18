@@ -125,10 +125,10 @@ def test_dictionaries_are_only_there_once_downloaded(client, tmp_path, monkeypat
 
 
 def test_languages_without_dictionaries_need_none(client):
-    st = client.get("/api/lexicon/status?lang=ru").json()
-    assert st == {"lang": "ru", "needed": False, "names": [], "installed": False, "bytes": 0, "files": {}}
-    # Spanish, French and Italian have one table of word forms each.
-    for lang in ("es", "fr", "it"):
+    st = client.get("/api/lexicon/status?lang=ja").json()
+    assert st == {"lang": "ja", "needed": False, "names": [], "installed": False, "bytes": 0, "files": {}}
+    # Spanish, French, Italian and Russian have one table of word forms each.
+    for lang in ("es", "fr", "it", "ru"):
         st = client.get(f"/api/lexicon/status?lang={lang}").json()
         assert st["needed"] and st["names"] == [lang] and not st["installed"]
 

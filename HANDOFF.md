@@ -2705,3 +2705,25 @@ conjugations, words with attached pronouns"). Owner chose a separate download pe
   Dámelo whitened darte. **The tables only download in an installed app once docs/lexicon is pushed.**
   New on-screen sentences (offer paragraph, Settings line) are not translated yet: run tools/i18n.
 - Tests: `tests/js/romance.test.mjs` (8, hand-made and real tables), `tests/test_lexicon.py`.
+
+### Russian: seen words by dictionary form, е = ё, and stress marks (2026-10-17; committed locally on main, NOT pushed)
+Asked by the owner through the main chat. Source chosen: the OpenRussian.org dictionary data
+(github.com/Badestrand/russian-dictionary, CC BY-SA 4.0, much of it from Wiktionary): one source gives the
+forms, the stress of every form, and each verb's aspect partner.
+- `tools/build_russian.py` -> `docs/lexicon/ru-lemmas.json.gz` (2.4 MB): forms -> dictionary form; perfective
+  verbs are filed under their imperfective partner (сказать -> говорить, сделал -> делать); `stress` {form:
+  index of the stressed vowel, or -i-1 for an е that is ё}, kept only where every source agrees (за́мок /
+  замо́к: no mark) and for words of 2+ vowels; `shown` = dictionary forms written with ё. Forms beyond
+  wordfreq's top 300k are left out.
+- `web/js/lexicon/russian.js`: matching form = lower case, stress marks off, ё -> е (so ещё = еще even without
+  the table); `stressed(token, table)` puts U+0301 after the stressed vowel (or writes ё), keeping case and
+  punctuation. Keys `ru|<lemma with е>|x`.
+- `seen.js` paints the stress on transcript/caption/page words when the table is there and the setting
+  `ru_stress` (default true; db.py + phone store.js) is on; Settings' dictionaries line has a "Show stress
+  marks" switch. Old Russian seen words are converted twice: `ru:yo1` (е/ё, stress, no table) and
+  `ru:lemmas1` (table). NOT done: stress marks on vocab/Anki cards (the AI popup already shows stress).
+- Limits: a neuter adjective form that is also a noun (новое) stays its own word; data has some quirks
+  (год's plural is listed as лета).
+- Credits: `docs/lexicon/README.md`, `LICENSE-CC-BY-SA-4.0.txt`, `licenses/openrussian.txt` (on About).
+- Checked in a desktop preview: stress shown, switch works, old "книги" whitened книга, tapping сказала
+  whitened говорю and Скажи. Tests: `tests/js/russian.test.mjs`.

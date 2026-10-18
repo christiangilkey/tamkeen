@@ -94,7 +94,8 @@ export const DEFAULTS = {
   google_email: "",
   signed_in: false,
   haptics: true,
-  lexicon_declined: false, // "not now" to the Arabic dictionaries download
+  lexicon_declined: false, // "not now" to a dictionaries download (a list of languages; true = Arabic)
+  ru_stress: true,         // Russian text shows stress marks (ла́дно) once its word table is here
   lexemes_backfilled: [],  // languages whose earlier lookups and saved words have been counted as seen
   game_state: null, // the creature game's saved state
   youtube_follows: [], // followed YouTube channels (web/js/ytfollow.js); synced with the library

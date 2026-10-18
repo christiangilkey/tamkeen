@@ -1,0 +1,17 @@
+Russian word table with stress marks (optional download)
+
+People learning Russian can download a table of word forms, their dictionary forms and where
+their stress falls, so every form of a word (and both verbs of an aspect pair) counts as the same
+word, and Russian text can show its stress (ла́дно). The table is not part of this program; the
+app downloads it only when the learner agrees.
+
+It is made from the OpenRussian.org dictionary data, https://github.com/Badestrand/russian-dictionary
+(compiled by the OpenRussian.org team and users, much of it from Wiktionary), licensed under the
+Creative Commons Attribution-ShareAlike 4.0 International License:
+https://creativecommons.org/licenses/by-sa/4.0/
+Word counts from wordfreq by Robyn Speer (CC BY-SA 4.0) decide which forms are kept.
+
+What was changed: only the word forms, their dictionary forms, stress positions and aspect pairs
+were kept (no translations or sentences), and perfective verbs are listed under their
+imperfective partner. The table is distributed under CC BY-SA 4.0. The file, the licence and how
+to rebuild it: https://github.com/christiangilkey/tamkeen/tree/main/docs/lexicon
