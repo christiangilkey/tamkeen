@@ -108,7 +108,15 @@ button, .btn { min-height: 38px; }
 .top-ico { display: inline-flex; }
 
 /* The web app's "add to home screen" button and its steps (web-install.js) */
-.top-install { margin-inline-start: auto; color: #fff; padding: 6px; min-width: 0; }
+.top-install { margin-inline-start: auto; color: #fff; padding: 0; width: 36px; height: 36px; min-width: 0; display: inline-grid; place-items: center; position: relative; border-radius: 50%; isolation: isolate; }
+/* A purple ring travelling round the button, so it is noticed (only shown in a browser tab, see web-install.js) */
+.top-install::before { content: ""; position: absolute; inset: -3px; border-radius: 50%; z-index: -1; padding: 2px;
+  background: conic-gradient(from var(--ring-turn, 0deg), transparent 0deg, #e08ade 90deg, #8e2b8c 180deg, transparent 270deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); animation: top-install-ring 2.4s linear infinite; }
+@property --ring-turn { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+@keyframes top-install-ring { to { --ring-turn: 360deg; } }
+@media (prefers-reduced-motion: reduce) { .top-install::before { animation: none; background: #e08ade; } }
 .top-install + .top-search { margin-inline-start: 4px; }
 .install-steps { margin: 0; padding-inline-start: 22px; display: grid; gap: 10px; line-height: 1.5; }
 
