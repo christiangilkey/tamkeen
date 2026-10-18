@@ -2756,3 +2756,75 @@ forms, the stress of every form, and each verb's aspect partner.
 - kumain/kakain/kinain/kumakain/pagkain -> kain; sinabi/sasabihin -> sabi; inumin -> inom; tinuturuan -> turo.
   Limits: some derived nouns join their root (pagkain -> kain; magulang "parents" -> gulang "age").
 - Tests: `tests/js/tagalog.test.mjs`. Checked in a desktop preview: tapping Kumain whitened Kakain, kinain, pagkain.
+
+### Arabic vowel marks (tashkeel) on transcripts, pages, reels and review cards (2026-10-18, "Arabic vowels" chat; committed locally on main, NOT pushed)
+- **Model: CATT** (Character-based Arabic Tashkeel Transformer, Abjad AI; code and weights Apache-2.0,
+  `licenses/catt.txt`, on About), encoder-only, int8 ONNX (21.6 MB) from
+  `huggingface.co/TigreGotico/catt-diacritizer` pinned to commit 8ad7636, SHA-256 checked. Runs on onnxruntime,
+  which faster-whisper already brings: no new dependency. 3.4 s per hour of audio on the owner's CPU (4 threads).
+  Rejected: CAMeL Tools' BERT disambiguator (needs PyTorch + a 500 MB model, best database is LDC-licensed),
+  Shakkala and Mishkal (clearly less accurate in CATT's comparison), libtashkeel (weights' licence not stated).
+- **Accuracy measured** (scripts in this chat's scratchpad, `eval/`): WikiNews public test set (400 news
+  sentences): 77% of words fully right including the case ending, 87% ignoring the last letter (published CATT
+  numbers reproduced). 15 hand-vowelled podcast-style Standard Arabic sentences: 92% fully right, 94% ignoring
+  the last letter (most misses: no kasra under إ, one passive/active slip). 15 hand-vowelled dialect sentences:
+  Levantine 15% / Egyptian 5% / Gulf 0% fully right (44% / 24% / 56% ignoring endings): it vowels dialect as if
+  it were MSA (كتير -> كَتَيْرِ, بكرا -> بِكْرًا). So dialect is held back (below).
+- **Computer only makes them** (`app/tashkeel.py`): a background worker vowels every Arabic episode (status done,
+  language ar or NULL) whose vowels are missing or stale: at start, after a transcription, after sync downloads
+  transcripts, and first when one is opened. Stored beside the original: `words.vowelled` (NULL = same as the
+  word) and `episodes.vowels` = JSON {rev, dialect, guess, model[, dirty]}; current while rev == transcribed_at.
+  Making them moves transcribed_at on, so sync re-sends the transcript (`vowels` in t_<uid>.json.gz:
+  {words, dialect, guess, model}). **First run with the model re-uploads every Arabic transcript once.**
+  Corrected words (computer `corrections.words_changed`, phone backend.js) lose their vowels at once and the
+  episode is marked dirty, then remade. Originals, segments, norm and the search index are never touched.
+- **Dialect**: `judge_dialect` counts giveaway words (stricter list than lexicon/arabic.js MARKERS; no
+  دول/قوي/أبي/كذا). >= 1% of words -> whole transcript is that dialect; any line with one is a `guess`.
+  Hand test: all 15 dialect lines flagged, 0 of 15 MSA lines. Guesses are left plain unless Settings
+  "Also on Egyptian, Levantine and Gulf speech (a guess, often wrong)" is on; the حَ button then turns dashed and
+  its tooltip / a toast says why.
+- **Screens**: `web/js/vowels.js` (+ pure `vowelmarks.js` for tests). Only the DRAWN text changes
+  (`displayWords` -> `shown[i]`); `texts`/tokens stay original for lookups, saving, seen words, search
+  (checked: tapped word and saved word/sentence are unvowelled). Player transcript + video captions (حَ button
+  by A−, key V), reader (title stays plain), reel player (button in the controls row on the phone), review
+  card answer side (`vowelCard`: computer vowels the sentence via POST /vowels/sentence; phone fills it from the
+  transcript's vowels with replaceInText). Settings line under "Language I'm learning" (both platforms; the
+  phone says the computer adds them). Turning vowels on without the model asks first (22 MB prompt).
+  Settings `show_vowels`, `vowels_dialect` (per device). SSE event `vowels` (status, or {episode_id} when done).
+- API: GET /vowels/status, POST /vowels/download, POST /vowels/remove, GET /episodes/{id}/vowels,
+  POST /vowels/sentence; transcript responses carry `vowels`. Phone backend has the same routes from IndexedDB.
+- Tests: `tests/test_tashkeel.py` (14 + 1 real-model test, run with TAMKEEN_TASHKEEL_MODEL=<path to
+  catt_eo.int8.onnx>), `tests/js/vowels.test.mjs` (6). Checked in a desktop preview on a throwaway library
+  (real download from Hugging Face, checksum, remove, prompt, MSA, Levantine held back and shown as a guess,
+  reader, review card) and a phone-size build in the scratchpad. Pictures: `../vowels-pictures/`.
+  **Not done / not checked**: never on a real phone or with real Whisper output; the Vocab list's cards are not
+  vowelled (only the reviewer); page titles are not vowelled; the new English strings are not in the i18n tables.
+
+### Japanese and Chinese: real words, furigana, pinyin, simplified/traditional (2026-10-18; commit 1d9b9b1, NOT pushed)
+Asked through the main chat: tapping words in Japanese/Chinese was unreliable (the device's Intl.Segmenter cut
+食べました into 食/べ/ま/した) and every conjugated form counted as a new word.
+- **Japanese** = kuromoji.js 0.1.2 ported to `web/js/lexicon/kuromoji.js` (one ES module) + IPADIC packed by
+  `tools/build_cjk.py` into `docs/lexicon/ja-ipadic.bin.gz` (11.4 MB, binary "TKJA" file, 30 MB unpacked, loads in
+  ~0.15 s). `lexicon/japanese.js` joins kuromoji's pieces into learner words (a verb/adjective keeps its endings:
+  食べました, 食べている, 飲みたくなかった; prefix お茶, suffix 日本人/田中さん; particles and noun+です stay apart).
+  Seen key = dictionary form (`ja|食べる|x`). Furigana only over kanji (`furigana()`); IPADIC's 日本=にっぽん fixed to にほん.
+- **Chinese** = CC-CEDICT + wordfreq counts → `docs/lexicon/zh-cedict.json.gz` (1.9 MB): cheapest-path cut by word
+  rarity (`lexicon/chinese.js`), traditional is simplified char by char before cutting, so 學習 = 学习 (key `zh|学习|x`).
+  Pinyin from CC-CEDICT (common polyphones like 了/的/得 set by hand in `COMMON_READING`), tone colours 1 red,
+  2 orange, 3 green, 4 blue, 5 grey. Display "As written / Simplified / Traditional" (setting `zh_script`).
+- **Glue** = `lexicon/readings.js`: `readingsReady(lang)` loads the dictionary (the screens await it before
+  `regroupWords`) and registers it with `languages.js setWordSplitter`; `readingHtml()` / `addReadings()` draw
+  `<ruby><rt data-r>` with the reading put on screen by CSS `::before`, so an element's text stays the word.
+  `web/js/wordface.js wordHtml(text, lang)` is the shared word-drawing hook (agreed with the Arabic vowels chat).
+  Settings: `furigana` and `pinyin` (both ON by default), `zh_script`; switches under the language picker.
+- Same download offer as the other languages (seen.js `READERS` text); the desktop serves the Japanese file as
+  bytes (`api(..., { bytes: true })`), the phone unzips it with DecompressionStream. Old seen words convert on first
+  load (`UPGRADES` ja:lemmas1 / zh:lemmas1).
+- Licences: `licenses/kuromoji.txt` (Apache 2.0, doublearray MIT, IPADIC NAIST notice), `licenses/cc-cedict.txt`
+  (CC BY-SA 4.0), README in docs/lexicon, About list. **Only downloadable once docs/lexicon is pushed.**
+- Checked: desktop preview (phone size) and the phone build at phone size, throwaway data folders. NOT tried on a
+  real phone or with real Japanese/Chinese audio. **Furigana/pinyin in transcripts, captions, pages and reels need
+  the 5 render lines to call `wordHtml(shown[w], lang)`** (the vowels chat's lines, asked of it); review cards have them.
+- Known limits: a Chinese page imported while learning Japanese is marked Japanese (old `languages.detect` hint);
+  slang missing from CC-CEDICT splits (靠谱 → 靠/谱); review cards show Chinese as saved (not converted to the
+  chosen characters). Tests: `tests/js/cjk.test.mjs` (8, real dictionaries), `tests/test_lexicon.py`.
