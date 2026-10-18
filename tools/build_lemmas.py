@@ -12,6 +12,9 @@ web/js/lexicon/romance.js). They come from two open data sets:
     pip install wordfreq
     python tools/build_lemmas.py es=path/to/lemmatization-es.txt fr=... it=... en=... cmu=path/to/cmudict.dict
 
+Tagalog has no list of forms: its table is just wordfreq's Filipino word list, most common first,
+which web/js/lexicon/tagalog.js checks the roots it finds against (`tl=wordfreq`).
+
 English also gets US pronunciations (IPA) from the CMU Pronouncing Dictionary
 (https://github.com/cmusphinx/cmudict, BSD-style licence, see licenses/cmudict.txt), for the
 words people meet most, shown in the word popup.
@@ -35,7 +38,7 @@ from wordfreq import top_n_list, zipf_frequency
 OUT = Path(__file__).resolve().parent.parent / "docs" / "lexicon"
 FORMAT = 1
 KEEP = 250_000  # forms beyond this many of the language's commonest words are left out
-TITLES = {"es": "Spanish", "fr": "French", "it": "Italian", "en": "English"}
+TITLES = {"es": "Spanish", "fr": "French", "it": "Italian", "en": "English", "tl": "Tagalog"}
 IPA_WORDS = 60_000  # English words that get a pronunciation
 WORD = re.compile(r"^[\w'’-]+$")
 # Common words the lists get wrong or leave out (checked by hand): form -> dictionary form.
@@ -99,6 +102,13 @@ def pronunciations(path: Path) -> dict[str, str]:
     return found
 
 
+def tagalog_words() -> dict:
+    """wordfreq's Filipino list (its only list for the language), letters only, most common first."""
+    words = [w for w in top_n_list("fil", 100_000, wordlist="small") if re.fullmatch(r"[a-zñ'-]+", w) and len(w) > 1]
+    return {"format": FORMAT, "kind": "lemmas", "name": "tl", "lang": "tl", "title": "Tagalog",
+            "license": "CC-BY-SA-4.0", "lemmas": words, "forms": {}}
+
+
 def convert(lang: str, path: Path) -> dict:
     common = set(top_n_list(lang, KEEP, wordlist="large"))
     readings: dict[str, set[str]] = {}
@@ -151,16 +161,17 @@ def main(args: list[str]) -> None:
             continue
         if lang not in TITLES or not src:
             raise SystemExit(f"Expected lang=path with lang one of {', '.join(TITLES)}; got {arg!r}")
-        data = convert(lang, Path(src))
+        data = tagalog_words() if lang == "tl" else convert(lang, Path(src))
         if lang == "en" and cmu:
             data["ipa"] = pronunciations(Path(cmu))
             data["ipa_source"] = "CMU Pronouncing Dictionary"
         blob = gzip.compress(json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode("utf-8"), mtime=0)
-        file = f"{lang}-lemmas.json.gz"
+        file = "tl-roots.json.gz" if lang == "tl" else f"{lang}-lemmas.json.gz"
         (OUT / file).write_bytes(blob)
         index["files"][lang] = {"file": file, "bytes": len(blob), "sha256": hashlib.sha256(blob).hexdigest(),
-                                "title": f"{TITLES[lang]} word forms", "db": "lemmatization-lists + wordfreq",
-                                "license": "ODbL-1.0", "forms": len(data["forms"]), "lexemes": len(data["lemmas"])}
+                                "title": "Tagalog word list" if lang == "tl" else f"{TITLES[lang]} word forms",
+                                "db": "wordfreq (fil)" if lang == "tl" else "lemmatization-lists + wordfreq",
+                                "license": data["license"], "forms": len(data["forms"]), "lexemes": len(data["lemmas"])}
         print(f"{file}: {len(blob) / 1e6:.2f} MB, {len(data['forms']):,} forms, {len(data['lemmas']):,} dictionary forms")
     index["files"] = dict(sorted(index["files"].items()))
     index_path.write_text(json.dumps(index, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

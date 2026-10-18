@@ -91,6 +91,16 @@
    "forms": 309572,
    "lexemes": 53581,
    "stressed": 331638
+  },
+  "tl": {
+   "file": "tl-roots.json.gz",
+   "bytes": 119677,
+   "sha256": "745f1679fc042e484b7e72bec1837e3f76f6a11454588c3616a662e4abaa3909",
+   "title": "Tagalog word list",
+   "db": "wordfreq (fil)",
+   "license": "CC-BY-SA-4.0",
+   "forms": 0,
+   "lexemes": 30021
   }
  }
 }

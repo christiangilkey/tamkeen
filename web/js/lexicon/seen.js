@@ -186,8 +186,9 @@ function setDeclined(lang, on) {
 
 // What the offer shows for each language: forms of one word, and who made the files.
 const EXAMPLES = { ar: "كتب، يكتبون، سأكتبها", es: "hablo, hablaste, háblame", fr: "parle, parlons, parlez-moi", it: "parlo, parliamo, parlami",
-  ru: "говорю, сказала, скажи", en: "run, ran, running" };
+  ru: "говорю, сказала, скажи", en: "run, ran, running", tl: "kumain, kakain, kinain" };
 const SOURCES = {
+  tl: "the wordfreq word list for Filipino, which the app checks the roots it finds against (kumain, kakain, kinain: kain)",
   en: "open word lists (Michal Měchura's lemmatization list and the wordfreq word counts) and the CMU Pronouncing Dictionary, which gives the US pronunciation shown in the word popup",
   ru: "the OpenRussian.org dictionary, which also gives each word's stress, so Russian text can show it (ла́дно)",
 };
@@ -282,7 +283,7 @@ function onceReady(lang, dicts) {
 }
 
 // Russian is converted twice: once for е/ё and stress marks (no table needed), once for its table.
-const UPGRADES = { es: "es:lemmas1", fr: "fr:lemmas1", it: "it:lemmas1", ru: "ru:lemmas1", en: "en:lemmas1" };
+const UPGRADES = { es: "es:lemmas1", fr: "fr:lemmas1", it: "it:lemmas1", ru: "ru:lemmas1", en: "en:lemmas1", tl: "tl:lemmas1" };
 const upgradeMark = (lang, dicts) => (lang === "ru" && !dicts.length ? "ru:yo1" : dicts.length ? UPGRADES[lang] : null);
 const upgrading = new Set();
 /** Seen words kept before a language had its word table were kept by spelling (es|hablas|x).

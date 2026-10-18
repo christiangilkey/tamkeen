@@ -7,9 +7,9 @@ import { gunzipJson } from "./drive.js";
 
 const BASE_URL = "https://christiangilkey.github.io/tamkeen/lexicon/";
 // Standard Arabic first: it is the one tried first. Spanish, French and Italian have one table each.
-const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"], es: ["es"], fr: ["fr"], it: ["it"], ru: ["ru"], en: ["en"] };
+const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"], es: ["es"], fr: ["fr"], it: ["it"], ru: ["ru"], en: ["en"], tl: ["tl"] };
 // Sizes to show before anything has been fetched (the real ones come with the file list).
-const ESTIMATE = { ar: 3300000, es: 1000000, fr: 700000, it: 700000, ru: 2400000, en: 600000 };
+const ESTIMATE = { ar: 3300000, es: 1000000, fr: 700000, it: 700000, ru: 2400000, en: 600000, tl: 120000 };
 
 // (A different address can be set for testing a build before the files are published.)
 function base() {

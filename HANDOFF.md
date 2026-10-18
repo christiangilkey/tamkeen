@@ -2742,3 +2742,17 @@ forms, the stress of every form, and each verb's aspect partner.
 - Credits: README, `LICENSE-CMUdict.txt`, `licenses/cmudict.txt`, `licenses/lemmatization-lists.txt` (About).
 - Checked in a desktop preview: tapping "looking" whitened "after" (look after), popup showed /ˈlʊkɪŋ/, /ˈmaɪs/.
   Tests: `tests/js/english.test.mjs`.
+
+### Tagalog: seen words by root (2026-10-17; committed locally, NOT pushed)
+- `web/js/lexicon/tagalog.js`: takes off, in every order (a small search, cached per word), the linker -ng,
+  suffixes -an/-in/-han/-hin (with the o->u change and a dropped last vowel: bilhin <- bili, gawin <- gawa),
+  prefixes (mag-, nag-, pag-, ma-, ka-, i-, ipag-, maka-, maki-, pinaka- ... and hyphened nag-aaral),
+  mam-/man-/mang- swallowing the root's first consonant (mamili <- bili, manalo <- talo), the infixes -um-/-in-
+  (ni- before l/y/w), and a repeated first syllable. Keeps only results that are words in
+  `docs/lexicon/tl-roots.json.gz` (wordfreq's Filipino list, 30k words, 0.12 MB, CC BY-SA, made by
+  `tools/build_lemmas.py tl=wordfreq`); of the real words it reaches that can't be reduced further, the
+  commonest wins. `NOT_ROOTS` stops particles (kina, sina ...) and prefixes being taken for roots; roots need
+  4+ letters (so mahal stays mahal), except via the linker (isang -> isa).
+- kumain/kakain/kinain/kumakain/pagkain -> kain; sinabi/sasabihin -> sabi; inumin -> inom; tinuturuan -> turo.
+  Limits: some derived nouns join their root (pagkain -> kain; magulang "parents" -> gulang "age").
+- Tests: `tests/js/tagalog.test.mjs`. Checked in a desktop preview: tapping Kumain whitened Kakain, kinain, pagkain.

@@ -29,6 +29,11 @@ from the [CMU Pronouncing Dictionary](https://github.com/cmusphinx/cmudict) (BSD
 `LICENSE-CMUdict.txt`); `web/js/lexicon/english.js` reads them, with a hand-written list of common
 phrasal verbs.
 
+Tagalog has no table of forms: `tl-roots.json.gz` is [wordfreq](https://github.com/rspeer/wordfreq)'s
+Filipino word list (CC BY-SA 4.0: `LICENSE-CC-BY-SA-4.0.txt`), most common first, made by
+`tools/build_lemmas.py tl=wordfreq`. `web/js/lexicon/tagalog.js` takes prefixes, infixes, suffixes and
+repeated syllables off a word and keeps the result only when it is a word in that list.
+
 Russian has one table of word forms with stress, read by `web/js/lexicon/russian.js`:
 
 | File | Made from | Licence |
