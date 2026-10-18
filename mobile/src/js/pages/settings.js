@@ -19,7 +19,7 @@ import { readingsRow } from "../lexicon/readings.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { transport } from "../define-service.js";
 import { signIn, signOut } from "../drive.js";
-import { isIOS, isNative } from "../native.js";
+import { isIOS, isNative, isWeb } from "../native.js";
 import { settings } from "../store.js";
 import { syncNow, syncState } from "../sync.js";
 
@@ -60,7 +60,7 @@ export async function render(view) {
       <div id="account"></div>
     </section>
 
-    ${isIOS ? "" : `<section class="card stack">
+    ${isIOS || isWeb ? "" : `<section class="card stack">
       <h2>AnkiDroid (optional)</h2>
       <div id="anki-sync" class="stack"></div>
     </section>`}
@@ -80,7 +80,7 @@ export async function render(view) {
 
     <section class="card" id="game-switch"></section>
 
-    <section class="card stack">
+    <section class="card stack" ${isWeb ? "hidden" : ""}>
       <h2>Updates</h2>
       <div class="row"><span id="app-version"></span><span class="spacer"></span>
         <button type="button" id="check-updates">Check for updates</button></div>
@@ -89,7 +89,7 @@ export async function render(view) {
 
     <section class="card" id="reset-app"></section>
 
-    <section class="card small muted">Tamkeen for Android · <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a></section>
+    <section class="card small muted">Tamkeen ${isWeb ? "on the web" : isIOS ? "for iPhone" : "for Android"} · <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a></section>
   </div>`));
   const $ = (q) => view.querySelector(q);
   $("#haptics").onchange = (e) => saveSettings({ haptics: e.target.checked });
@@ -99,7 +99,7 @@ export async function render(view) {
     const box = $("#account");
     if (!settings.signed_in) {
       box.innerHTML = `<button type="button" class="primary" id="login">Sign in with Google</button>
-        ${isNative ? "" : `<p class="small muted">Sign-in works in the installed app.</p>`}`;
+        ${isNative || isWeb ? "" : `<p class="small muted">Sign-in works in the installed app.</p>`}`;
       box.querySelector("#login").onclick = async (e) => {
         e.target.disabled = true;
         try {
@@ -163,7 +163,7 @@ export async function render(view) {
     $("#page-font-val").textContent = `${e.target.value}px`;
     saveSettings({ page_font_size: Number(e.target.value) });
   };
-  const offAnki = isIOS ? () => {} : ankiSyncPanel($("#anki-sync")); // AnkiDroid is an Android app
+  const offAnki = isIOS || isWeb ? () => {} : ankiSyncPanel($("#anki-sync")); // AnkiDroid is an Android app
   gameSwitch($("#game-switch"));
   resetSection($("#reset-app"), parkAll);
   import("../version.js").then(({ APP_VERSION }) => { $("#app-version").textContent = `Version ${APP_VERSION}`; }).catch(() => {});

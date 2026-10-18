@@ -3,7 +3,7 @@
 
 import { h, toast, saveSettings } from "../app.js";
 import { signIn } from "../drive.js";
-import { isNative } from "../native.js";
+import { isNative, isWeb } from "../native.js";
 import { syncNow } from "../sync.js";
 import { settings } from "../store.js";
 import { needsOnboarding, runOnboarding } from "../components/onboarding.js";
@@ -24,7 +24,7 @@ export async function render(view) {
       </ol>
       <button type="button" class="primary" id="go">Sign in with Google</button>
       <button type="button" class="ghost" id="skip">Not now</button>
-      ${isNative ? "" : `<p class="small muted">Preview mode: sign-in works in the installed app.</p>`}
+      ${isNative || isWeb ? "" : `<p class="small muted">Preview mode: sign-in works in the installed app.</p>`}
     </div>
   </div>`));
   const hello = view.querySelector("#hello");

@@ -9,7 +9,7 @@ import { settings } from "./store.js";
 import { detectLanguage, isLanguage, studyLanguage } from "./languages.js";
 import { MAX_UPLOAD_BYTES } from "./stt.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
-import { NativeHttp, isNative } from "./native.js";
+import { NativeHttp, isNative, proxied } from "./native.js";
 import { newEpisodeRecords, parseFeed } from "./rss.js";
 import * as cloud from "./transcribe-service.js";
 import { replaceInText } from "./correction.js";
@@ -165,8 +165,8 @@ const headerOf = (res, name) => {
  * this resolves to null. Redirects are followed by hand (the phone's own web requests don't
  * follow one that changes between http and https). */
 async function downloadFeed(url, seen = null) {
-  if (!isNative) { // development preview in a browser: only feeds that allow being read from a page
-    const res = await fetch(url);
+  if (!isNative) { // the web app (through the go-between server), or a development preview
+    const res = await fetch(proxied(url));
     if (!res.ok) throw new Error(`The feed server returned HTTP ${res.status}.`);
     return res.text();
   }

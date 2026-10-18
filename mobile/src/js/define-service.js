@@ -4,7 +4,7 @@ import { api } from "./app.js";
 import { askJson, lookup, mnemonicConfig, rememberAnswer, PROVIDERS } from "./definer.js";
 import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 import { settings } from "./store.js";
-import { isNative } from "./native.js";
+import { isNative, isWeb } from "./native.js";
 import { registerPlugin } from "./vendor/capacitor-core.js";
 
 const CapacitorHttp = isNative ? registerPlugin("CapacitorHttp") : null;
@@ -26,7 +26,10 @@ export async function transport(req) {
                                             responseType: "text" });
     return { status: r.status, text: typeof r.data === "string" ? r.data : JSON.stringify(r.data) };
   }
-  const r = await fetch(req.url, { method: "POST", headers: req.headers, body: JSON.stringify(req.body) });
+  // In the web app the provider is called straight from the page with the learner's own key;
+  // Anthropic asks pages to say so explicitly.
+  const headers = isWeb && /anthropic\.com/.test(req.url) ? { ...req.headers, "anthropic-dangerous-direct-browser-access": "true" } : req.headers;
+  const r = await fetch(req.url, { method: "POST", headers, body: JSON.stringify(req.body) });
   return { status: r.status, text: await r.text() };
 }
 

@@ -14,7 +14,7 @@
 // Only "From my Instagram saves" is offered on the phone. "Popular" and "my creators" need the
 // window to browse search pages and profiles, which the computer's window can and this one can't.
 
-import { GoogleDriveAuth, isNative } from "./native.js";
+import { GoogleDriveAuth, isNative, isWeb } from "./native.js";
 import { LANGUAGES, isLanguage } from "./languages.js";
 import { episodeUid, feedUid } from "./shared-logic.js";
 import { parseTranscription, sttConfig, sttModelLabel, MAX_UPLOAD_BYTES } from "./stt.js";
@@ -155,6 +155,7 @@ let pageScript = null;
 
 /** A page of instagram.com to ask things from: {ask(what, arg), close()}. */
 async function instagram() {
+  if (isWeb) throw new Error("Reels play in the installed app.");
   if (!isNative) return previewInstagram();
   if (pageScript === null) pageScript = await (await fetch(new URL("./instagram-phone.js", import.meta.url))).text();
   let latest = null;

@@ -6,6 +6,18 @@ export const isNative = Capacitor.isNativePlatform();
 /** True in the iPhone app. The shared screens treat both phones alike (platform "android" means
  * "the phone app"); this marks the few places where the iPhone has to differ. */
 export const isIOS = isNative && Capacitor.getPlatform() === "ios";
+/** True in the web app (the phone app's screens served from GitHub Pages, see webapp/build-web.mjs),
+ *  which sets window.TAMKEEN_WEB before loading. Not the same as a development preview. */
+export const isWeb = !isNative && typeof window !== "undefined" && window.TAMKEEN_WEB === true;
+const PROXY = (typeof window !== "undefined" && window.TAMKEEN_PROXY) || "";
+/** In the web app, another website is read through Tamkeen's go-between server (webapp/worker.js),
+ *  since a web page may not read other sites itself. Elsewhere the address is returned as it is. */
+export const proxied = (url) => (isWeb && PROXY ? `${PROXY.replace(/\/$/, "")}/fetch?url=${encodeURIComponent(url)}` : url);
+/** The "Web" Google client: Supabase trusts its ID tokens, Android asks for them on its behalf,
+ *  and the web app signs in with it directly. */
+export const GOOGLE_WEB_CLIENT_ID = "419555269865-0954ljffgrnbveq04lvh3ii6c032rhv3.apps.googleusercontent.com";
+/** Where a fetch through the go-between server really ended up (after forwarding). */
+export const finalUrl = (res, asked) => (res.headers && res.headers.get("X-Final-Url")) || res.url || asked;
 
 /** Google sign-in, the in-app browser and the reel window: our own small plugin, written twice
  * (android/.../GoogleDriveAuthPlugin.java and native-ios/.../GoogleDriveAuthPlugin.swift). */

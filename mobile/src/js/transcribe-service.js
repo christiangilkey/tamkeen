@@ -17,7 +17,7 @@
 import { MAX_UPLOAD_BYTES, Mp3Splitter, STT_PROVIDERS, SttError, addAudioUse, audioUseToday, looksLikeMp3, parseTranscription,
          sendFailure, silentWav, sttConfig, sttFailure, sttModelLabel, tidyBase64, toTranscript, transcriptionFields, waitText } from "./stt.js";
 import { drive } from "./drive.js";
-import { NativeHttp, isNative } from "./native.js";
+import { NativeHttp, finalUrl, isNative, proxied } from "./native.js";
 import { kv, lib, now, saveLibrary, settings, transcripts } from "./store.js";
 import { driveFileId, requestSync } from "./sync.js";
 
@@ -85,11 +85,11 @@ function countUse(cfg, seconds) {
 export async function fetchRange(url, from, to) {
   const range = `bytes=${from}-${to}`;
   if (!isNative) {
-    const res = await fetch(url, { headers: { Range: range } });
+    const res = await fetch(proxied(url), { headers: { Range: range } });
     const bytes = new Uint8Array(await res.arrayBuffer());
     const m = /\/(\d+)\s*$/.exec(res.headers.get("content-range") || "");
     return { status: res.status, bytes, total: m ? Number(m[1]) : res.status === 200 ? bytes.length : 0,
-             type: res.headers.get("content-type") || "", url: res.url || url };
+             type: res.headers.get("content-type") || "", url: finalUrl(res, url) };
   }
   let at = url;
   for (let hop = 0; hop < 8; hop++) {
@@ -110,7 +110,7 @@ export async function fetchRange(url, from, to) {
 /** A whole (small) file as base64 text, e.g. a reel's video. */
 export async function fetchWholeB64(url) {
   if (!isNative) {
-    const res = await fetch(url);
+    const res = await fetch(proxied(url));
     if (!res.ok) throw new Error(`The download was refused (error ${res.status}).`);
     return bytesToB64(await res.blob());
   }

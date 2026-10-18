@@ -24,10 +24,10 @@ import { addUploadedVideo, checkFeeds, fillLanguages, handle } from "./backend.j
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
-import { accessToken, drive } from "./drive.js";
+import { accessToken, drive, googleScript } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
-import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, isIOS, isNative } from "./native.js";
+import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, proxied } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
 import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
@@ -200,12 +200,11 @@ export async function audioUrl(uid) {
 }
 
 // ---------- online features (friends, sharing) ----------
-// The "Web" Google client that Supabase trusts; Android issues the ID token for it.
-const WEB_CLIENT_ID = "419555269865-0954ljffgrnbveq04lvh3ii6c032rhv3.apps.googleusercontent.com";
 
 /** Google ID token for the online features. Google gets a hash of a one-time code (nonce) and
  * Supabase the code itself, so a token can't be replayed by anyone else. */
 export async function googleIdToken() {
+  if (isWeb) return webIdToken();
   if (!isNative) throw new Error("Connecting works in the installed app.");
   if (isIOS) {
     // The iPhone's ID token comes with its Google sign-in (issued for the app's "iOS" client,
@@ -216,8 +215,34 @@ export async function googleIdToken() {
   const nonce = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => b.toString(16).padStart(2, "0")).join("");
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(nonce));
   const hashed = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
-  const r = await GoogleDriveAuth.getIdToken({ serverClientId: WEB_CLIENT_ID, nonce: hashed });
+  const r = await GoogleDriveAuth.getIdToken({ serverClientId: GOOGLE_WEB_CLIENT_ID, nonce: hashed });
   return { token: r.idToken, nonce };
+}
+
+/** The web app: a small window with Google's own button (a browser hands out an ID token only
+ *  after a tap on it), with the same one-time code as on Android. */
+async function webIdToken() {
+  const google = await googleScript();
+  const nonce = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => b.toString(16).padStart(2, "0")).join("");
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(nonce));
+  const hashed = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
+  return new Promise((resolve, reject) => {
+    const box = h(`<div class="modal-back web-signin"><div class="modal-box modal-body stack" role="dialog" aria-modal="true" style="text-align:center;width:min(380px,100%)">
+      <h2>Connect with Google</h2>
+      <p class="small muted">Friends and sharing use your Google account to know it's you.</p>
+      <div class="gbutton" style="display:flex;justify-content:center"></div>
+      <button type="button" class="ghost">Cancel</button></div></div>`);
+    const done = (fn) => { box.remove(); fn(); };
+    box.querySelector("button").onclick = () => done(() => reject(new Error("Connecting was cancelled.")));
+    document.body.append(box);
+    google.accounts.id.initialize({
+      client_id: GOOGLE_WEB_CLIENT_ID, nonce: hashed, auto_select: false,
+      login_hint: settings.google_email || undefined,
+      callback: (r) => done(() => (r && r.credential ? resolve({ token: r.credential, nonce })
+        : reject(new Error("Google didn't sign you in.")))),
+    });
+    google.accounts.id.renderButton(box.querySelector(".gbutton"), { theme: "filled_blue", size: "large", shape: "pill", text: "continue_with" });
+  });
 }
 
 // ---------- audio clips of shared words ----------
@@ -291,6 +316,14 @@ export async function fetchPage(url) {
   let address = String(url || "").trim();
   if (address && !/^[a-z][a-z0-9+.-]*:\/\//i.test(address)) address = `https://${address}`;
   if (!/^https?:\/\/[^\s/]+/i.test(address)) throw new Error("Paste a web address, like https://example.com/article");
+  if (isWeb) { // the web app reads the page through the go-between server
+    let page;
+    try { page = await fetch(proxied(address), { headers: { "Accept-Language": "ar,en;q=0.8" } }); } catch {
+      throw new Error("Couldn't reach that site. Check the address and your connection.");
+    }
+    if (page.status >= 400) throw new Error(`The site answered with an error (${page.status}).`);
+    return { url: finalUrl(page, address), html: await page.text() };
+  }
   if (!isNative) throw new Error("Importing pages works in the installed Android app.");
   let res;
   try {
@@ -313,7 +346,7 @@ export async function appleJson(url) {
       if (res.status >= 400) throw new Error(String(res.status));
       return typeof res.data === "string" ? JSON.parse(res.data) : res.data;
     }
-    const res = await fetch(url); // development preview in a browser
+    const res = await fetch(proxied(url)); // the web app, or a development preview in a browser
     if (!res.ok) throw new Error(String(res.status));
     return await res.json();
   } catch {
@@ -324,6 +357,15 @@ export async function appleJson(url) {
 /** One web request to youtube.com, to read a video's captions: {status, text}. Made by the
  * phone itself (native code), so it isn't held back by the rules for web pages. */
 export async function ytRequest({ url, method = "GET", headers = {}, body }) {
+  if (isWeb) { // the web app asks YouTube through the go-between server
+    let res;
+    try {
+      res = await fetch(proxied(url), { method, headers, body: body === undefined || body === null ? undefined : body });
+    } catch (e) {
+      throw new Error("Couldn't reach YouTube. Check your connection.");
+    }
+    return { status: res.status, text: await res.text() };
+  }
   if (!isNative) throw new Error("Adding YouTube videos works in the installed Android app.");
   let res;
   try {
@@ -542,6 +584,7 @@ export async function openBrowser(url = "", { instagramSignIn = false, find = fa
  * window). The browser closes by itself once the user is signed in; "instagram" {signed_in: true}
  * is emitted then, so whatever was waiting for the sign-in can carry on. */
 export async function openInstagramSignIn() {
+  if (isWeb) throw new Error("Reels play in the installed app.");
   if (!isNative) { // development preview: pretend the sign-in was made
     setTimeout(() => emit("instagram", { signed_in: true }), 1200);
     return;
@@ -560,6 +603,15 @@ async function refreshMediaToken() {
 async function videoUrl(ep) {
   if (!settings.signed_in) throw new Error("Sign in with Google (Settings) to watch videos stored in your Drive.");
   if (!ep.remote_audio) throw new Error("This video is still uploading from your computer.");
+  if (isWeb) { // a browser can't add the sign-in to a video's address, so the video is fetched first
+    if (objectUrls.has(ep.uid)) return objectUrls.get(ep.uid);
+    const id = await driveFileId(ep.audio_url.slice("drive:".length));
+    if (!id) throw new Error("The video isn't in your Google Drive any more.");
+    toast("Loading video…");
+    const url = URL.createObjectURL(await drive.downloadBlob(id));
+    objectUrls.set(ep.uid, url);
+    return url;
+  }
   if (!isNative) throw new Error("Videos play in the installed app.");
   await refreshMediaToken();
   const id = await driveFileId(ep.audio_url.slice("drive:".length));
@@ -747,6 +799,16 @@ export function hideMenu() { document.getElementById("ctxmenu").hidden = true; }
 document.addEventListener("pointerdown", (e) => { if (!e.target.closest("#ctxmenu")) hideMenu(); }, true);
 
 // ---------- router ----------
+/** The web app, on a screen only the installed app has (reels play in its own Instagram window). */
+const appOnly = {
+  render(view) {
+    view.innerHTML = `<div class="page"><div class="card stack" style="text-align:center">
+      <h2>Reels play in the app</h2>
+      <p class="muted">Instagram reels need the Tamkeen app on Android or iPhone. Everything else works here.</p>
+      <a class="btn primary" href="https://github.com/christiangilkey/tamkeen/releases/latest" target="_blank" rel="noopener">Get the app</a>
+      <a class="btn ghost" href="#/library">Back to the library</a></div></div>`;
+  },
+};
 const routes = [
   [/^$/, home, () => ({})],
   [/^library$/, library, () => ({})],
@@ -773,8 +835,9 @@ async function route() {
   const view = document.getElementById("view");
   view.innerHTML = "";
   view.scrollTop = 0;
-  const hit = routes.find(([re]) => re.test(path));
+  let hit = routes.find(([re]) => re.test(path));
   if (!hit) { location.hash = "#/"; return; }
+  if (isWeb && hit[1] === reels) hit = [/^/, appOnly, () => ({})]; // reels need the app's own Instagram window
   const [re, mod, params] = hit;
   const key = mod === home ? "home" : mod === library || mod === discover || mod === reels ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
     : mod === settingsPage ? "settings" : mod === friends || mod === chat ? "friends" : "";
@@ -803,6 +866,7 @@ const RELEASES = "https://api.github.com/repos/christiangilkey/tamkeen/releases/
  *  ({current, latest, available} or {error}); on opening the app nothing is shown unless there is one. */
 export async function checkForUpdate({ manual = false } = {}) {
   const { APP_VERSION } = await import("./version.js");
+  if (isWeb) return { current: APP_VERSION, latest: APP_VERSION, available: false }; // a web page is always the latest
   try {
     if (!manual && (!APP_VERSION || APP_VERSION.startsWith("0.0.0"))) return { current: APP_VERSION }; // a test build
     const res = await fetch(RELEASES, { headers: { Accept: "application/vnd.github+json" } });
