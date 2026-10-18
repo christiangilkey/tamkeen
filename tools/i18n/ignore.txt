@@ -142,3 +142,4 @@ e19bfad1
 # A phone screen setting, and a YouTube caption-track name Filmot is matched against.
 6a56b00a
 db2dff44
+067a88a4  # licence names on About (Japanese dictionary), not interface text

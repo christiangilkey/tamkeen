@@ -111,6 +111,11 @@ export const DEFAULTS = {
   anki_delete_ok: false,
 };
 export const settings = { ...DEFAULTS };
+  // Japanese and Chinese reading aids (web/js/lexicon/readings.js): furigana, pinyin, and the characters
+  // Chinese is shown in ("" as written, "simplified", "traditional").
+  furigana: true,
+  pinyin: true,
+  zh_script: "",
 
 export async function loadSettings() {
   Object.assign(settings, DEFAULTS, (await kv.get("settings")) || {});

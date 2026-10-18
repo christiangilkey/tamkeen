@@ -14,6 +14,7 @@ import { api, buzz, esc, fmtDate, h, platform, readClipboard, state as app, toas
 import { detectLanguage, langAttrs, langInfo } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
 import { cardSentence } from "../cardtext.js";
+import { addReadings } from "../lexicon/readings.js";
 import { reward, trackStudy } from "../game/game.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
@@ -385,6 +386,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     word.textContent = v.text;
     word.classList.toggle("long", v.text.length > 14);
     face.onscroll = more;
+    // Japanese and Chinese: furigana / pinyin over the answer and its sentence (when switched on).
+    const said = detectLanguage(v.sentence || v.text);
+    for (const el of face.querySelectorAll(".rv-word, .rv-ans-sentence")) addReadings(el, said);
     for (const field of ["meaning", "notes", "memo"]) {
       const box = face.querySelector(`.${field}`);
       box.value = v[field] || "";

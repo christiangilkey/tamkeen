@@ -7,9 +7,9 @@ import { gunzipJson } from "./drive.js";
 
 const BASE_URL = "https://christiangilkey.github.io/tamkeen/lexicon/";
 // Standard Arabic first: it is the one tried first. Spanish, French and Italian have one table each.
-const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"], es: ["es"], fr: ["fr"], it: ["it"], ru: ["ru"], en: ["en"], tl: ["tl"] };
+const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"], es: ["es"], fr: ["fr"], it: ["it"], ru: ["ru"], en: ["en"], tl: ["tl"], ja: ["ja"], zh: ["zh"] };
 // Sizes to show before anything has been fetched (the real ones come with the file list).
-const ESTIMATE = { ar: 3300000, es: 1000000, fr: 700000, it: 700000, ru: 2400000, en: 600000, tl: 120000 };
+const ESTIMATE = { ar: 3300000, es: 1000000, fr: 700000, it: 700000, ru: 2400000, en: 600000, tl: 120000, ja: 11400000, zh: 1900000 };
 
 // (A different address can be set for testing a build before the files are published.)
 function base() {
@@ -68,8 +68,11 @@ export async function lexiconRemove(lang = "ar") {
   return lexiconStatus(lang);
 }
 
-/** A downloaded dictionary, unpacked and ready for web/js/lexicon/ (arabic.js or romance.js). */
+/** A downloaded dictionary, unpacked and ready for web/js/lexicon/ (arabic.js, romance.js, ...).
+ * The Japanese one is binary (kuromoji.js): an ArrayBuffer. */
 export async function lexiconData(name) {
   const blob = await kv.get(`lexicon:${name}`);
-  return blob ? gunzipJson(blob) : null;
+  if (!blob) return null;
+  if (name === "ja") return new Response(new Blob([blob]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+  return gunzipJson(blob);
 }

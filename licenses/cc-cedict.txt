@@ -1,0 +1,28 @@
+Chinese dictionary: CC-CEDICT with word counts from wordfreq (optional download)
+
+People learning Chinese can download a dictionary that splits Chinese text into words, gives each
+word's pinyin, and treats simplified and traditional characters as the same word. It is not part
+of this program; the app downloads it only when the learner agrees (docs/lexicon/zh-cedict.json.gz).
+
+It is made from CC-CEDICT (https://cc-cedict.org, published by MDBG, https://www.mdbg.net),
+"Community maintained free Chinese-English dictionary", the edition of 2026-10-17:
+
+    CEDICT - Copyright (C) 1997, 1998 Paul Andrew Denisowski
+    CC-CEDICT: the CC-CEDICT contributors
+
+and from the Chinese word counts of wordfreq 3.1.1 by Robyn Speer
+(https://github.com/rspeer/wordfreq; Robyn Speer. (2022). rspeer/wordfreq: v3.0. Zenodo.
+https://doi.org/10.5281/zenodo.7199437), which decide which way of cutting a sentence into words
+is likeliest.
+
+Both are licensed under the Creative Commons Attribution-ShareAlike 4.0 International License,
+and so is the dictionary file made from them:
+
+    https://creativecommons.org/licenses/by-sa/4.0/
+    (full text: docs/lexicon/LICENSE-CC-BY-SA-4.0.txt)
+
+What was changed: only the words, their pinyin and their simplified and traditional spellings were
+kept (the English definitions were dropped); one reading was chosen for each word (common readings
+of a few characters that have several, like 了 le, were set by hand); a word count was added to
+each word; words with letters or digits were left out; and the result was written as gzipped JSON
+by tools/build_cjk.py.

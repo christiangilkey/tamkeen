@@ -17,6 +17,8 @@ import { api, h, saveSettings, state, toast } from "../app.js";
 import { LANGUAGES, detectLanguage, langAttrs, onStudyLanguage } from "../languages.js";
 import { Dictionary, arabicCore, matchForm } from "./arabic.js";
 import { LemmaTable } from "./romance.js";
+import { JapaneseDictionary } from "./kuromoji.js";
+import { ChineseDictionary } from "./chinese.js";
 import { stressed } from "./russian.js";
 import { lexemeOf, lexemesFor, markedTokens, needsDictionaries, usesDictionaries } from "./words.js";
 
@@ -95,8 +97,9 @@ async function readDictionaries(lang) {
   if (!st.installed) return null;
   const dicts = [];
   for (const name of st.names) {
+    if (name === "ja") { dicts.push(new JapaneseDictionary(await api("/lexicon/data/ja", { bytes: true }))); continue; } // binary
     const data = await api(`/lexicon/data/${name}`);
-    dicts.push(data && data.kind === "lemmas" ? new LemmaTable(data) : new Dictionary(data));
+    dicts.push(data && data.kind === "lemmas" ? new LemmaTable(data) : data && data.kind === "zh" ? new ChineseDictionary(data) : new Dictionary(data));
   }
   return dicts;
 }
@@ -121,12 +124,14 @@ export async function downloadDictionaries(lang) {
   if (declined(lang)) setDeclined(lang, false).catch(() => {});
   if (offerShown && offerShown.lang === lang) offerShown.close(); // downloaded another way (Settings) meanwhile
   for (const v of views) if (v.lang === lang) v.analyze();
+  window.dispatchEvent(new CustomEvent("tamkeen:dictionaries", { detail: { lang, installed: true } })); // (lexicon/readings.js)
   return st;
 }
 
 export async function removeDictionaries(lang) {
   const st = await api("/lexicon/remove", { method: "POST", body: { lang } });
   loaded.delete(lang);
+  window.dispatchEvent(new CustomEvent("tamkeen:dictionaries", { detail: { lang, installed: false } }));
   for (const v of views) if (v.lang === lang) v.analyze();
   return st;
 }
@@ -186,7 +191,12 @@ function setDeclined(lang, on) {
 
 // What the offer shows for each language: forms of one word, and who made the files.
 const EXAMPLES = { ar: "كتب، يكتبون، سأكتبها", es: "hablo, hablaste, háblame", fr: "parle, parlons, parlez-moi", it: "parlo, parliamo, parlami",
-  ru: "говорю, сказала, скажи", en: "run, ran, running", tl: "kumain, kakain, kinain" };
+  ru: "говорю, сказала, скажи", en: "run, ran, running", tl: "kumain, kakain, kinain", ja: "食べる、食べました、食べている", zh: "学习、學習" };
+// Japanese and Chinese: a dictionary that does more than the other languages' tables.
+const READERS = {
+  ja: "For Japanese that needs a dictionary: it splits Japanese text into real words, so a tap lands on the whole word, gives each word's dictionary form, and shows furigana (small kana over kanji). It is IPADIC, from the Nara Institute of Science and Technology",
+  zh: "For Chinese that needs a dictionary: it splits Chinese text into real words, so a tap lands on the whole word, shows pinyin over the characters coloured by tone, and treats simplified and traditional characters as the same word. It is CC-CEDICT with word counts from wordfreq",
+};
 const SOURCES = {
   tl: "the wordfreq word list for Filipino, which the app checks the roots it finds against (kumain, kakain, kinain: kain)",
   en: "open word lists (Michal Měchura's lemmatization list and the wordfreq word counts) and the CMU Pronouncing Dictionary, which gives the US pronunciation shown in the word popup",
@@ -214,7 +224,8 @@ export async function offerDictionaries(lang, force = false) {
       <p>Tamkeen can show which words are <span class="lex-new-sample">new to you</span>: a word you have
         never tapped is drawn in purple, and once you tap one, every form of that word counts as seen
         (<span class="ar" ${langAttrs(lang)}>${EXAMPLES[lang] || ""}</span>).</p>
-      ${needsDictionaries(lang)
+      ${READERS[lang] ? `<p>${READERS[lang]}: a <strong>one-time download of about ${mb} MB</strong>. It stays on this
+        device and nothing about you is sent anywhere.</p>` : needsDictionaries(lang)
     ? `<p>For ${name} that needs dictionaries: a <strong>one-time download of about ${mb} MB</strong>, made by the
         CAMeL Lab at New York University Abu Dhabi (Standard, Egyptian, Levantine and Gulf Arabic).
         They stay on this device and nothing about you is sent anywhere.</p>`
@@ -283,7 +294,7 @@ function onceReady(lang, dicts) {
 }
 
 // Russian is converted twice: once for е/ё and stress marks (no table needed), once for its table.
-const UPGRADES = { es: "es:lemmas1", fr: "fr:lemmas1", it: "it:lemmas1", ru: "ru:lemmas1", en: "en:lemmas1", tl: "tl:lemmas1" };
+const UPGRADES = { es: "es:lemmas1", fr: "fr:lemmas1", it: "it:lemmas1", ru: "ru:lemmas1", en: "en:lemmas1", tl: "tl:lemmas1", ja: "ja:lemmas1", zh: "zh:lemmas1" };
 const upgradeMark = (lang, dicts) => (lang === "ru" && !dicts.length ? "ru:yo1" : dicts.length ? UPGRADES[lang] : null);
 const upgrading = new Set();
 /** Seen words kept before a language had its word table were kept by spelling (es|hablas|x).

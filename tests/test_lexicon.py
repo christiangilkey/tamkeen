@@ -125,8 +125,8 @@ def test_dictionaries_are_only_there_once_downloaded(client, tmp_path, monkeypat
 
 
 def test_languages_without_dictionaries_need_none(client):
-    st = client.get("/api/lexicon/status?lang=ja").json()
-    assert st == {"lang": "ja", "needed": False, "names": [], "installed": False, "bytes": 0, "files": {}}
+    st = client.get("/api/lexicon/status?lang=xx").json()  # (every taught language has one now)
+    assert st == {"lang": "xx", "needed": False, "names": [], "installed": False, "bytes": 0, "files": {}}
     # Spanish, French, Italian and Russian have one table of word forms each.
     for lang in ("es", "fr", "it", "ru"):
         st = client.get(f"/api/lexicon/status?lang={lang}").json()
@@ -144,4 +144,22 @@ def test_the_published_dictionaries_match_their_index():
     for meta in index["files"].values():
         blob = (folder / meta["file"]).read_bytes()
         assert len(blob) == meta["bytes"] and hashlib.sha256(blob).hexdigest() == meta["sha256"]
-        assert json.loads(gzip.decompress(blob))["format"] == 1
+        if meta["file"].endswith(".bin.gz"):  # the Japanese dictionary: binary, see web/js/lexicon/kuromoji.js
+            assert gzip.decompress(blob)[:4] == b"TKJA"
+        else:
+            assert json.loads(gzip.decompress(blob))["format"] == 1
+
+
+def test_japanese_and_chinese_dictionaries(client):
+    """Japanese and Chinese download one dictionary each (from the repository's own copy here);
+    the Japanese one is binary and is sent as bytes."""
+    for lang, name in (("ja", "ja"), ("zh", "zh")):
+        st = client.get(f"/api/lexicon/status?lang={lang}").json()
+        assert st["needed"] and st["names"] == [name] and not st["installed"] and st["bytes"] > 1_000_000
+    assert client.post("/api/lexicon/download", json={"lang": "ja"}).json()["installed"]
+    r = client.get("/api/lexicon/data/ja")
+    assert r.status_code == 200 and r.headers["content-type"] == "application/octet-stream"
+    assert r.content[:4] == b"TKJA", "sent gzipped, arrives unpacked"
+    assert client.post("/api/lexicon/download", json={"lang": "zh"}).json()["installed"]
+    data = client.get("/api/lexicon/data/zh").json()
+    assert data["kind"] == "zh" and data["words"]["学习"][0] == "xue2 xi2" and data["t2s"]["學"] == "学"

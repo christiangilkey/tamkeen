@@ -19,6 +19,7 @@ import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
+import { readingsReady } from "../lexicon/readings.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -688,6 +689,8 @@ async function renderPlayer(view, { query }) {
         wordsEl.innerHTML = parts.join("");
         wordsEl.scrollTop = 0;
         wordsEl.scrollLeft = 0;
+        await readingsReady(lang); // Japanese and Chinese: the dictionary that splits them into words
+        if (disposed || reels[index] !== ep) return;
         wordsEl.setAttribute("lang", lang);
         wordsEl.setAttribute("dir", langInfo(lang).dir);
         cur = { ep, lang, starts: Float64Array.from(W.start), ends: Float64Array.from(W.end), segOf: Int32Array.from(W.seg),

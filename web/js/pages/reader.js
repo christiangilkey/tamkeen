@@ -13,6 +13,7 @@ import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
+import { readingsReady } from "../lexicon/readings.js";
 
 const LONG_PRESS_MS = 550;
 const TAGS = { h1: "h2", h2: "h3", h3: "h4", li: "li", q: "blockquote", p: "p" };
@@ -48,6 +49,7 @@ export async function render(view, { id, data, query }) {
     seg: [...titleTokens.map(() => TITLE_SEG), ...data.words.seg],
   };
   const W = regroupWords(together, lang, false); // real words for Japanese/Chinese
+  await readingsReady(lang); // Japanese and Chinese: the dictionary that splits them into words, if downloaded
   const n = W.text.length;
   const segOf = Int32Array.from(W.seg);
   const texts = W.text;

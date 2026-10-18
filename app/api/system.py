@@ -271,6 +271,8 @@ LICENSES = [
     ("CMU Pronouncing Dictionary: US pronunciations in the English word table", "BSD-style", "cmudict.txt"),
     ("Russian word table with stress, from OpenRussian.org (optional download)", "CC BY-SA 4.0", "openrussian.txt"),
     ("pywebview", "BSD 3-Clause", "pywebview.txt"),
+    ("The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)", "Apache 2.0 / MIT / NAIST", "kuromoji.txt"),
+    ("CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)", "CC BY-SA 4.0", "cc-cedict.txt"),
     ("FastAPI / Starlette / Uvicorn", "MIT / BSD 3-Clause", "fastapi.txt"),
     ("feedparser", "BSD 2-Clause", "feedparser.txt"),
     ("httpx", "BSD 3-Clause", "httpx.txt"),

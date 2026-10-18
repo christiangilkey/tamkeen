@@ -1,0 +1,14 @@
+080c79ed	Galing sa ibang bersyon ng app ang diksyunaryong Chinese na ito.
+8079905a	Galing sa ibang bersyon ng app ang diksyunaryong Japanese na ito.
+cd8a2a7e	Ipakita ang furigana (maliliit na kana sa ibabaw ng kanji)
+48f745cc	Ipakita ang pinyin sa ibabaw ng mga character, may kulay ayon sa tono
+fcfd569a	Mga Chinese na character
+c17ef03e	Gaya ng pagkakasulat
+6a018382	Simplified (简体)
+6c401cdd	Traditional (繁體)
+cb91bc89	Gagana ang mga ito kapag nasa device na ito ang diksyunaryong {0}.
+1eccdd79	Kailangan ng Japanese ng diksyunaryo: hinahati nito ang tekstong Japanese sa totoong mga salita, kaya buong salita ang napipili sa isang tap, ibinibigay ang anyong-diksyunaryo ng bawat salita, at ipinapakita ang furigana (maliliit na kana sa ibabaw ng kanji). Ito ang IPADIC, mula sa Nara Institute of Science and Technology
+dae622d1	Kailangan ng Chinese ng diksyunaryo: hinahati nito ang tekstong Chinese sa totoong mga salita, kaya buong salita ang napipili sa isang tap, ipinapakita ang pinyin sa ibabaw ng mga character na may kulay ayon sa tono, at itinuturing na iisang salita ang simplified at traditional na mga character. Ito ang CC-CEDICT, kasama ang dalas ng mga salita mula sa wordfreq
+4af2e1ae	{0}: isang <0>minsanang download na mga {1} MB</0>. Mananatili ito sa device na ito at walang anumang tungkol sa iyo ang ipapadala kahit saan.
+f88f293f	Ang diksyunaryong IPADIC at kuromoji: mga salitang Japanese at furigana (opsyonal na download)
+a3451771	CC-CEDICT at wordfreq: mga salitang Chinese at pinyin (opsyonal na download)

@@ -24,6 +24,7 @@ const SHARED = [
   "js/correction.js",
   "js/fixword.js",
   "js/languages.js",
+  "js/wordface.js",
   "js/lexicon",
   "js/icons.js",
   "js/scrollhint.js",

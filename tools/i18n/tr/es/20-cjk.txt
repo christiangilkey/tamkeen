@@ -1,0 +1,14 @@
+080c79ed	Este diccionario de chino es de otra versión de la app.
+8079905a	Este diccionario de japonés es de otra versión de la app.
+cd8a2a7e	Mostrar furigana (kana pequeños sobre los kanji)
+48f745cc	Mostrar pinyin sobre los caracteres, con colores según el tono
+fcfd569a	Caracteres chinos
+c17ef03e	Como están escritos
+6a018382	Simplificados (简体)
+6c401cdd	Tradicionales (繁體)
+cb91bc89	Funcionan cuando el diccionario de {0:lower} está en este dispositivo.
+1eccdd79	Para el japonés hace falta un diccionario: divide el texto japonés en palabras reales, así que al tocar se elige la palabra entera, da la forma de diccionario de cada palabra y muestra furigana (kana pequeños sobre los kanji). Es IPADIC, del Instituto de Ciencia y Tecnología de Nara
+dae622d1	Para el chino hace falta un diccionario: divide el texto chino en palabras reales, así que al tocar se elige la palabra entera, muestra el pinyin sobre los caracteres con colores según el tono y trata los caracteres simplificados y tradicionales como la misma palabra. Es CC-CEDICT, con frecuencias de palabras de wordfreq
+4af2e1ae	{0}: una <0>descarga única de unos {1} MB</0>. Se queda en este dispositivo y no se envía nada sobre ti a ningún sitio.
+f88f293f	El diccionario IPADIC y kuromoji: palabras japonesas y furigana (descarga opcional)
+a3451771	CC-CEDICT y wordfreq: palabras chinas y pinyin (descarga opcional)

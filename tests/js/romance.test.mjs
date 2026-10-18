@@ -86,7 +86,7 @@ test("without the table a word is its spelling, as before, but elisions still co
 });
 
 test("the language plumbing", () => {
-  assert.deepEqual(["ar", "es", "fr", "it", "ru", "ja"].map(usesDictionaries), [true, true, true, true, true, false]);
+  assert.deepEqual(["ar", "es", "fr", "it", "ru", "ja", "zh", "xx"].map(usesDictionaries), [true, true, true, true, true, true, true, false]);
   assert.deepEqual(["ar", "es"].map(needsDictionaries), [true, false], "only Arabic waits for its dictionaries");
   assert.deepEqual(lexemesFor(["Hablas", "dámelo"], "es", [es]).map((x) => x.key), ["es|hablar|x", "es|dar|x"]);
   assert.deepEqual(lexemesFor(["Hablas"], "es", null).map((x) => x.key), ["es|hablas|x"]);

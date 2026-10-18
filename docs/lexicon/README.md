@@ -43,6 +43,17 @@ Russian has one table of word forms with stress, read by `web/js/lexicon/russian
 It is rebuilt with `tools/build_russian.py`. The Spanish, French and Italian tables are rebuilt with `tools/build_lemmas.py` (see the top of that file); a few common Italian
 words the lists get wrong are corrected there by hand (`EXTRA`).
 
+Japanese and Chinese have a dictionary each that splits their text (written without spaces) into
+words and gives each word's reading, for furigana and pinyin (`web/js/lexicon/japanese.js`,
+`chinese.js`, `readings.js`):
+
+| File | Made from | Licence |
+|---|---|---|
+| `ja-ipadic.bin.gz` | The IPADIC dictionary (mecab-ipadic-2.7.0-20070801, Nara Institute of Science and Technology) as prepared by [kuromoji.js](https://github.com/takuyaa/kuromoji.js) 0.1.2 (Apache 2.0), whose tokenizer is ported to `web/js/lexicon/kuromoji.js`: padding removed, entry descriptions shortened (pronunciations dropped), packed into one binary file | NAIST / ICOT notice, Apache 2.0 and MIT: `LICENSE-IPADIC.txt` |
+| `zh-cedict.json.gz` | [CC-CEDICT](https://cc-cedict.org) (MDBG, 2026-10-17): every word in simplified characters with its pinyin and traditional spelling (definitions dropped; one reading per word, a few common characters' readings set by hand); word counts from [wordfreq](https://github.com/rspeer/wordfreq) to choose the likeliest way to cut a sentence | Creative Commons Attribution-ShareAlike 4.0: `LICENSE-CC-BY-SA-4.0.txt` |
+
+Both are rebuilt with `tools/build_cjk.py` (see the top of that file).
+
 What was changed in the Arabic files: only the fields the lookup needs were kept (word pieces, their categories and
 which go together, lemma, part of speech, root, corpus frequency, spelling); glosses,
 tokenizations and phonetics were dropped, and the result was written as gzipped JSON.

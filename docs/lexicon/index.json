@@ -61,6 +61,15 @@
    "forms": 224761,
    "lexemes": 27988
   },
+  "ja": {
+   "file": "ja-ipadic.bin.gz",
+   "bytes": 11376974,
+   "sha256": "5548e00edb3714f662bae68a3e470c79e795e8c7938c9e591590ec82d18edfe4",
+   "title": "Japanese dictionary",
+   "db": "mecab-ipadic-2.7.0-20070801 (kuromoji.js 0.1.2)",
+   "license": "NAIST (IPADIC)",
+   "entries": 392126
+  },
   "lev": {
    "file": "ar-lev.json.gz",
    "bytes": 345050,
@@ -101,6 +110,15 @@
    "license": "CC-BY-SA-4.0",
    "forms": 0,
    "lexemes": 30021
+  },
+  "zh": {
+   "file": "zh-cedict.json.gz",
+   "bytes": 1915246,
+   "sha256": "3936c964d52dbccf3e0a81b01b954dd2d10b8d9f0e315128b78bfa44963e22ed",
+   "title": "Chinese dictionary",
+   "db": "CC-CEDICT + wordfreq",
+   "license": "CC-BY-SA-4.0",
+   "words": 120712
   }
  }
 }

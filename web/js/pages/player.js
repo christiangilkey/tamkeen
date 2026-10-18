@@ -24,6 +24,7 @@ import { createYouTubeMedia } from "../ytmedia.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
+import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
@@ -124,6 +125,7 @@ export async function render(view, { id, query }) {
   const lang = episodeLanguage(ep);
   const segTexts = new Map(data.segments.map((s) => [s.idx, s.text]));
   const W = regroupWords(data.words, lang, true, (s) => segTexts.get(s)); // real words for Japanese/Chinese
+  await readingsReady(lang); // Japanese and Chinese: the dictionary that splits them into words, if downloaded
   const n = W.start.length;
   const starts = Float64Array.from(W.start);
   const ends = Float64Array.from(W.end);

@@ -21,7 +21,7 @@ import { startTranslating } from "./i18n.js";
 import { initScrollHints } from "./scrollhint.js";
 
 // ---------- API ----------
-export async function api(path, { method = "GET", body, raw } = {}) {
+export async function api(path, { method = "GET", body, raw, bytes } = {}) {
   const opts = { method, headers: {} };
   if (raw !== undefined) {
     opts.body = raw;
@@ -36,7 +36,8 @@ export async function api(path, { method = "GET", body, raw } = {}) {
     throw new Error("Lost connection to the app's local server.");
   }
   const type = res.headers.get("content-type") || "";
-  const data = type.includes("application/json") ? await res.json() : await res.text();
+  // (`bytes`: the answer is a file, an ArrayBuffer: the Japanese dictionary.)
+  const data = bytes && res.ok ? await res.arrayBuffer() : type.includes("application/json") ? await res.json() : await res.text();
   if (!res.ok) {
     let detail = data && data.detail ? data.detail : data;
     if (Array.isArray(detail)) detail = detail.map((d) => d.msg).join("; ");

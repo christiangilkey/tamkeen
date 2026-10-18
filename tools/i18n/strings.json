@@ -13048,5 +13048,75 @@
   "id": "7ff5a6da",
   "k": "Sections",
   "f": "mobile/src/index.html"
+ },
+ {
+  "id": "080c79ed",
+  "k": "This Chinese dictionary is from a different version of the app.",
+  "f": "web/js/lexicon/chinese.js"
+ },
+ {
+  "id": "8079905a",
+  "k": "This Japanese dictionary is from a different version of the app.",
+  "f": "web/js/lexicon/kuromoji.js"
+ },
+ {
+  "id": "cd8a2a7e",
+  "k": "Show furigana (small kana over kanji)",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "48f745cc",
+  "k": "Show pinyin over the characters, coloured by tone",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "fcfd569a",
+  "k": "Chinese characters",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "c17ef03e",
+  "k": "As written",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "6a018382",
+  "k": "Simplified (简体)",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "6c401cdd",
+  "k": "Traditional (繁體)",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "cb91bc89",
+  "k": "These work once the {0} dictionary is on this device.",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "1eccdd79",
+  "k": "For Japanese that needs a dictionary: it splits Japanese text into real words, so a tap lands on the whole word, gives each word's dictionary form, and shows furigana (small kana over kanji). It is IPADIC, from the Nara Institute of Science and Technology",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "dae622d1",
+  "k": "For Chinese that needs a dictionary: it splits Chinese text into real words, so a tap lands on the whole word, shows pinyin over the characters coloured by tone, and treats simplified and traditional characters as the same word. It is CC-CEDICT with word counts from wordfreq",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "4af2e1ae",
+  "k": "{0}: a <0>one-time download of about {1} MB</0>. It stays on this device and nothing about you is sent anywhere.",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "f88f293f",
+  "k": "The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "a3451771",
+  "k": "CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)",
+  "f": "app/api/system.py"
  }
 ]

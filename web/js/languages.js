@@ -200,6 +200,19 @@ export function joinWords(words, code) {
   return out;
 }
 
+// Better word splitters, from dictionaries: web/js/lexicon/readings.js sets one for Japanese and for
+// Chinese once that language's dictionary is loaded. Until then the device's own word breaker is used.
+const splitters = new Map();
+/**
+ * Split a language's text with `splitter` from now on (null: back to the device's word breaker).
+ *   split(text)  [{index, segment}, ...] covering the text, like Intl.Segmenter's segments
+ *   show(word)   optional: the word as it is to be shown (Chinese in the characters the learner chose)
+ */
+export function setWordSplitter(code, splitter) {
+  if (splitter) splitters.set(code, splitter);
+  else splitters.delete(code);
+}
+
 const OPENERS = /^[「『（《〈【〔［｛“‘(\[{«¿¡]+$/u;
 const LETTERS = /[\p{L}\p{N}]/u;
 
@@ -207,9 +220,9 @@ const LETTERS = /[\p{L}\p{N}]/u;
  * Japanese and Chinese only: turn the pieces a transcript or page was stored as into real words.
  *
  * Speech recognition returns these languages one or two characters at a time, and an imported
- * page arrives as whole unbroken sentences. The device's built-in word breaker (Intl.Segmenter)
- * finds the word boundaries; each word's time is worked out from the pieces it covers, so the
- * highlight and "play this word" still line up. Punctuation stays attached to its word, as in
+ * page arrives as whole unbroken sentences. A dictionary (setWordSplitter above), or until it is
+ * loaded the device's built-in word breaker (Intl.Segmenter), finds the word boundaries; each
+ * word's time is worked out from the pieces it covers, so the highlight and "play this word" still line up. Punctuation stays attached to its word, as in
  * the other languages.
  *
  * W is {start: [], end: [], seg: [], text: []} (parallel lists, one entry per piece).
@@ -217,8 +230,11 @@ const LETTERS = /[\p{L}\p{N}]/u;
  * where the gaps between pieces are real spaces). `segText(seg)` may give a line's original text.
  */
 export function regroupWords(W, code, across = true, segText = null) {
-  if (!langInfo(code).unspaced || typeof Intl === "undefined" || !Intl.Segmenter || !W.text.length) return W;
-  const breaker = new Intl.Segmenter(code, { granularity: "word" });
+  const custom = splitters.get(code);
+  if (!langInfo(code).unspaced || !W.text.length) return W;
+  if (!custom && (typeof Intl === "undefined" || !Intl.Segmenter)) return W;
+  const breaker = custom ? { segment: (text) => custom.split(text) } : new Intl.Segmenter(code, { granularity: "word" });
+  const show = (custom && custom.show) || ((word) => word);
   const out = { start: [], end: [], seg: [], text: [] };
   const n = W.text.length;
   let a = 0;
@@ -275,7 +291,7 @@ export function regroupWords(W, code, across = true, segText = null) {
       let l = last;
       while (owner[f] === null) f++;
       while (owner[l] === null) l--;
-      out.text.push(run.slice(f, l + 1));
+      out.text.push(show(run.slice(f, l + 1)));
       out.start.push(timeAt(f, 0));
       out.end.push(timeAt(l, 1));
       out.seg.push(W.seg[a]);
