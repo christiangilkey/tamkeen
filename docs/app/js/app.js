@@ -15,6 +15,7 @@ import * as reels from "./pages/reels.js";
 import * as webYouTube from "./web-youtube.js";
 import * as webSites from "./web-sites.js";
 import { webReelSurface } from "./web-reels.js";
+import { mountInstallButton } from "./web-install.js";
 import { startBadge } from "./social.js";
 import { initSwipe } from "./swipe.js";
 import { isNewer, showUpdateNotice } from "./updatenotice.js";
@@ -963,6 +964,7 @@ async function boot() {
   initScrollHints(); // rows that scroll sideways show that they do
   route();
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
+  mountInstallButton(document.querySelector(".topbar")); // the web app: how to add it to the home screen
   startBadge();
   setTimeout(() => checkForUpdate(), 3000);
   startAppBadge();

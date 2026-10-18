@@ -1245,6 +1245,18 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 :root { --new-word: #8f1d84; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --new-word: #dc84d4; } }
 :root[data-theme="dark"] { --new-word: #dc84d4; }
+/* Settings → Word definitions: AI (strongly recommended) or No AI (the built-in dictionary) */
+.def-modes { display: grid; gap: 10px; margin: 12px 0; }
+.def-mode { display: block; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); cursor: pointer; overflow: hidden; }
+.def-mode.on { border-color: var(--accent); }
+.def-mode-row { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; }
+.def-mode-row input { margin-top: 4px; flex: none; }
+.def-mode-row strong { display: block; margin-bottom: 2px; }
+.def-banner { display: block; padding: 6px 14px; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 13px; letter-spacing: .02em; }
+.def-warn { padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--accent); background: var(--surface); line-height: 1.45; }
+.def-warn button { display: block; margin-top: 10px; }
+.def-dict { display: grid; gap: 10px; }
+.def-dict-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .transcript .w.new, .reader-text .w.new { color: var(--new-word); }
 .captions .w.new { color: #eaa6e4; } /* over a video the text is always on dark */
 .transcript .w.new.cur, .reader-text .w.new.cur, .captions .w.new.cur { color: var(--hl-ink); }

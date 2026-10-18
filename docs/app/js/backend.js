@@ -756,12 +756,12 @@ const routes = [
   ["GET", /^\/lexemes\/lookups$/, () => [...lib.definitions].sort((a, b) => (a.created_at || 0) - (b.created_at || 0))
     .map((d) => ({ word: d.word, sentence: d.sentence }))],
   // ----- the dictionaries that find a word's dictionary form -----
-  ["GET", /^\/lexicon\/status$/, (m, q) => lexiconStatus(q.get("lang") || "ar")],
+  ["GET", /^\/lexicon\/status$/, (m, q) => lexiconStatus(q.get("lang") || "ar", q.get("kind") || "words")],
   ["POST", /^\/lexicon\/download$/, async (m, q, body) => {
-    try { return await lexiconDownload(body.lang || "ar"); } catch (e) { throw new ApiError(e.message); }
+    try { return await lexiconDownload(body.lang || "ar", body.kind || "words"); } catch (e) { throw new ApiError(e.message); }
   }],
-  ["POST", /^\/lexicon\/remove$/, (m, q, body) => lexiconRemove(body.lang || "ar")],
-  ["GET", /^\/lexicon\/data\/(\w+)$/, async (m) => {
+  ["POST", /^\/lexicon\/remove$/, (m, q, body) => lexiconRemove(body.lang || "ar", body.kind || "words")],
+  ["GET", /^\/lexicon\/data\/([\w-]+)$/, async (m) => {
     const data = await lexiconData(m[1]);
     if (!data) throw new ApiError("That dictionary hasn't been downloaded.");
     return data;

@@ -106,3 +106,9 @@ button, .btn { min-height: 38px; }
 .tabbar a:active .ico svg { transform: scale(.9); }
 .top-search { display: inline-flex; align-items: center; gap: 6px; }
 .top-ico { display: inline-flex; }
+
+/* The web app's "add to home screen" button and its steps (web-install.js) */
+.top-install { margin-inline-start: auto; color: #fff; padding: 6px; min-width: 0; }
+.top-install + .top-search { margin-inline-start: 4px; }
+.install-steps { margin: 0; padding-inline-start: 22px; display: grid; gap: 10px; line-height: 1.5; }
+
