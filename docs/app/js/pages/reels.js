@@ -139,7 +139,9 @@ async function renderList(view) {
       watch.textContent = seen.has(String(first.id)) ? "▶ Watch again from the start" : reels.some((ep) => seen.has(String(ep.id))) ? "▶ Carry on watching" : "▶ Watch";
     }
     if (!reels.length) {
-      list.append(h(`<div class="empty">${phone && info && info.available
+      list.append(h(`<div class="empty">${info && info.web
+        ? "No reels yet. Paste a reel's link above, or add reels in the Tamkeen app: they arrive here after a sync."
+        : phone && info && info.available
         ? "No reels yet. Press “Get random reels” above, or choose one of your Instagram collections and tick the reels you want."
         : phone
         ? "No reels yet. They are found on your computer: open Tamkeen there, go to Library → Reels and press “Get 10 reels”. They arrive here the next time both sync."
@@ -167,6 +169,7 @@ async function renderList(view) {
     const box = $("#reel-get");
     box.innerHTML = "";
     if (!info) return;
+    if (info.web) { drawWeb(box); return; }
     if (!info.available) {
       box.append(h(`<p class="card small muted">${phone
         ? `New reels are found and transcribed by Tamkeen on your computer, then sync to this phone. To pick reels from your Instagram
@@ -281,6 +284,41 @@ async function renderList(view) {
       line.querySelector(".why").textContent = item.kept ? item.outcome : `skipped: ${item.outcome}`;
       log.append(line);
     }
+  }
+
+  // ----- the web app: add a public reel from its link -----
+  function drawWeb(box) {
+    const st = info.status || {};
+    const busy = !!st.running;
+    const card = h(`<div class="card stack reel-webcard">
+      <strong>Add a reel</strong>
+      <form class="row" id="reel-link" style="gap:8px">
+        <input type="url" inputmode="url" placeholder="Paste an Instagram reel link" aria-label="Instagram reel link" style="flex:1" ${busy || !info.available ? "disabled" : ""}>
+        <button class="primary" type="submit" ${busy || !info.available ? "disabled" : ""}>${busy ? "Adding…" : "Add"}</button>
+      </form>
+      ${info.available ? "" : `<p class="small">Turn on <a href="#/settings">Cloud transcription in Settings</a> first: it is what listens to the reel and writes its words.</p>`}
+      <div class="small muted" id="reel-status"></div>
+      <div id="reel-log"></div>
+      <p class="small muted">On the web you can watch your reels and add public ones from their link. Picking reels from your
+        Instagram saves, random reels, and reels with a song from Instagram's music library need the Tamkeen app on your phone
+        or computer. Reels added there show up here after a sync.</p>
+    </div>`);
+    box.append(card);
+    card.querySelector("#reel-status").textContent = st.state && st.state !== "idle" ? st.message || "" : "";
+    for (const item of (st.log || []).slice().reverse()) {
+      const line = h(`<div class="reel-logline${item.kept ? " kept" : ""}"><span class="mark">${item.kept ? "✓" : "–"}</span>
+        <span class="who">@${esc(item.creator)}</span> <span class="what" dir="auto"></span> <span class="why muted"></span></div>`);
+      line.querySelector(".what").textContent = item.title;
+      line.querySelector(".why").textContent = item.kept ? item.outcome : `skipped: ${item.outcome}`;
+      card.querySelector("#reel-log").append(line);
+    }
+    card.querySelector("#reel-link").onsubmit = (e) => {
+      e.preventDefault();
+      const link = e.target.querySelector("input").value.trim();
+      const m = /instagram\.com\/(?:[\w.]+\/)?(?:reels?|p|tv)\/([A-Za-z0-9_-]{5,40})/.exec(link);
+      if (!m) { toast("Paste a link to an Instagram reel, like https://www.instagram.com/reel/…", { error: true }); return; }
+      start("/reels/saved/send", { codes: [m[1]] });
+    };
   }
 
   // ----- "From my Instagram saves": choose a collection, then tick its reels -----
