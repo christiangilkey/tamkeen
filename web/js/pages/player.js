@@ -26,6 +26,7 @@ import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
+import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
@@ -213,7 +214,7 @@ export async function render(view, { id, query }) {
     const first = w;
     while (w < n && segOf[w] === seg.idx) {
       if (w > first) parts.push(gap(texts[w - 1], texts[w], lang));
-      parts.push(`<span class="w" data-i="${w}">${esc(shown[w])}</span>`);
+      parts.push(`<span class="w" data-i="${w}">${wordHtml(shown[w], lang)}</span>`);
       w++;
     }
     if (w === first) parts.push(esc(seg.text));
@@ -296,7 +297,7 @@ export async function render(view, { id, query }) {
     capStart = start;
     capEl.innerHTML = start < 0 ? ""
       : Array.from({ length: end - start + 1 }, (_, k) =>
-        `${k ? gap(texts[start + k - 1], texts[start + k], lang) : ""}<span class="w" data-i="${start + k}">${esc(shown[start + k])}</span>`).join("");
+        `${k ? gap(texts[start + k - 1], texts[start + k], lang) : ""}<span class="w" data-i="${start + k}">${wordHtml(shown[start + k], lang)}</span>`).join("");
     capEls = [...capEl.querySelectorAll(".w")];
     if (start >= 0) seen.paint(capEls, start);
   }

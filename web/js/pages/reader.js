@@ -13,6 +13,7 @@ import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
+import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
 import { readingsReady } from "../lexicon/readings.js";
 
@@ -94,7 +95,7 @@ export async function render(view, { id, data, query }) {
   let w = 0;
   for (; w < titleWords; w++) {
     if (w) parts.push(gap(texts[w - 1], texts[w], lang));
-    parts.push(`<span class="w" data-i="${w}">${esc(shown[w])}</span>`);
+    parts.push(`<span class="w" data-i="${w}">${wordHtml(shown[w], lang)}</span>`);
   }
   if (!titleWords) parts.push(esc(ep.title));
   parts.push("</h1>");
@@ -107,7 +108,7 @@ export async function render(view, { id, data, query }) {
     const first = w;
     while (w < n && segOf[w] === seg.idx) {
       if (w > first) parts.push(gap(texts[w - 1], texts[w], lang));
-      parts.push(`<span class="w" data-i="${w}">${esc(shown[w])}</span>`);
+      parts.push(`<span class="w" data-i="${w}">${wordHtml(shown[w], lang)}</span>`);
       w++;
     }
     if (w === first) parts.push(esc(seg.text));

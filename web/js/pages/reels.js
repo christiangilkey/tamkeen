@@ -20,6 +20,7 @@ import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
+import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton } from "../vowels.js";
 
 export const REEL_TYPE = "video/instagram";
@@ -699,7 +700,7 @@ async function renderPlayer(view, { query }) {
           const first = w;
           while (w < W.start.length && W.seg[w] === seg.idx) {
             if (w > first) parts.push(gap(W.text[w - 1], W.text[w], lang));
-            parts.push(`<span class="w" data-i="${w}">${esc(shown[w])}</span>`);
+            parts.push(`<span class="w" data-i="${w}">${wordHtml(shown[w], lang)}</span>`);
             w++;
           }
           parts.push("</p>");
