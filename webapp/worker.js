@@ -6,6 +6,7 @@
 //   - web pages to import                        GET  any public http(s) address
 //   - YouTube captions and channel pages         GET  youtube.com addresses
 //   - YouTube's video information                POST https://www.youtube.com/youtubei/v1/player
+//   - Instagram reels' public embed pages and video files   GET
 // Nothing else: only Tamkeen's own web addresses may use it, no other POST, no addresses inside
 // private networks, no cookies passed either way.
 //
@@ -65,7 +66,10 @@ export default {
     if (method !== "GET" && method !== "POST") return refuse(405, "Only GET and POST.", origin);
     if (method === "POST" && !POST_ALLOWED.some((p) => target.href.startsWith(p))) return refuse(403, "That address can't be sent to.", origin);
 
-    const headers = new Headers({ "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Mobile Safari/537.36 Tamkeen" });
+    // Instagram's reel embed pages include the reel's video only for a plain "Mozilla/5.0" visitor.
+    const agent = /(^|\.)instagram\.com$/.test(target.hostname) ? "Mozilla/5.0"
+      : "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Mobile Safari/537.36 Tamkeen";
+    const headers = new Headers({ "User-Agent": agent });
     for (const name of PASS_REQUEST_HEADERS) {
       const value = request.headers.get(name);
       if (value) headers.set(name, value);

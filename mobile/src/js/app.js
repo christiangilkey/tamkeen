@@ -13,6 +13,7 @@ import * as chat from "./pages/chat.js";
 import * as discover from "./pages/discover.js";
 import * as reels from "./pages/reels.js";
 import * as webYouTube from "./web-youtube.js";
+import { webReelSurface } from "./web-reels.js";
 import { startBadge } from "./social.js";
 import { initSwipe } from "./swipe.js";
 import { isNewer, showUpdateNotice } from "./updatenotice.js";
@@ -53,6 +54,7 @@ let reelScript = null;
 
 /** The window a reel plays in: open/load a page, tell it to play/pause/seek, hear where it is. */
 export function reelSurface() {
+  if (isWeb) return webReelSurface(); // an ordinary video player (see web-reels.js)
   if (!isNative) return previewReelSurface();
   const hearers = new Set();
   let handle = null;
@@ -810,16 +812,6 @@ export function hideMenu() { document.getElementById("ctxmenu").hidden = true; }
 document.addEventListener("pointerdown", (e) => { if (!e.target.closest("#ctxmenu")) hideMenu(); }, true);
 
 // ---------- router ----------
-/** The web app, on a screen only the installed app has (reels play in its own Instagram window). */
-const appOnly = {
-  render(view) {
-    view.innerHTML = `<div class="page"><div class="card stack" style="text-align:center">
-      <h2>Reels play in the app</h2>
-      <p class="muted">Instagram reels need the Tamkeen app on Android or iPhone. Everything else works here.</p>
-      <a class="btn primary" href="https://github.com/christiangilkey/tamkeen/releases/latest" target="_blank" rel="noopener">Get the app</a>
-      <a class="btn ghost" href="#/library">Back to the library</a></div></div>`;
-  },
-};
 const routes = [
   [/^$/, home, () => ({})],
   [/^library$/, library, () => ({})],
@@ -849,7 +841,6 @@ async function route() {
   view.scrollTop = 0;
   let hit = routes.find(([re]) => re.test(path));
   if (!hit) { location.hash = "#/"; return; }
-  if (isWeb && hit[1] === reels) hit = [/^/, appOnly, () => ({})]; // reels need the app's own Instagram window
   const [re, mod, params] = hit;
   const key = mod === home ? "home" : mod === library || mod === discover || mod === reels || mod === webYouTube ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
     : mod === settingsPage ? "settings" : mod === friends || mod === chat ? "friends" : "";

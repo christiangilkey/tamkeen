@@ -13,7 +13,7 @@ export async function render(view) {
   view.append(h(`<div class="welcome">
     <div class="hero"><img src="icons/icon-256.png" alt=""><div>
       <h1 style="margin:0">Tamkeen</h1>
-      <p class="muted" style="margin:0">Your podcasts, transcripts and vocab, on your phone.</p></div></div>
+      <p class="muted" style="margin:0">Your podcasts, transcripts and vocab, ${isWeb ? "in your browser" : "on your phone"}.</p></div></div>
     <div class="ar-sample" id="hello"></div>
     <div class="card stack">
       <ol>

@@ -155,7 +155,7 @@ let pageScript = null;
 
 /** A page of instagram.com to ask things from: {ask(what, arg), close()}. */
 async function instagram() {
-  if (isWeb) throw new Error("Reels play in the installed app.");
+  if (isWeb) return webInstagram();
   if (!isNative) return previewInstagram();
   if (pageScript === null) pageScript = await (await fetch(new URL("./instagram-phone.js", import.meta.url))).text();
   let latest = null;
@@ -201,6 +201,24 @@ async function instagram() {
 }
 
 /** Development preview in a browser: a pretend Instagram with a few saved posts, so the screen can be tried. */
+/** The web app: no Instagram window, only reels' public embed pages (see web-reels.js). Enough
+ *  to add a reel from its link; the rest of Instagram (saves, collections, search) needs the app. */
+function webInstagram() {
+  return {
+    async ask(what, arg) {
+      if (what === "whoami") return { username: "web" };
+      if (what === "info") {
+        const { reelInfo } = await import("./web-reels.js");
+        const post = await reelInfo(arg && arg.code);
+        if (!post) throw new Error("Instagram doesn't show this reel publicly.");
+        return { post };
+      }
+      throw new Error("That needs the Tamkeen app (it reads Instagram while you're signed in there).");
+    },
+    close() {},
+  };
+}
+
 function previewInstagram() {
   const posts = ["Maqlab01", "Daheka02", "Souq0003", "Qahwa004", "Photo005"].map((code, i) => ({
     code, user: ["comedy.ar", "daheka", "souq.life", "qahwa.talk", "pictures"][i], caption: ["مقلب في السوق 😂 #ضحك", "يوم في حياتي", "أسعار اليوم", "", "صورة"][i],
@@ -553,7 +571,7 @@ export async function reelsView() {
   const known = collectionsNow();
   const lang = settings.study_language || "ar";
   return {
-    phone: true, available: cloudOn(), model_ready: true, mode: "saved", modes: ["saved"], mine: [], selected: [], popular: [],
+    phone: true, web: isWeb, available: cloudOn(), model_ready: true, mode: "saved", modes: isWeb ? [] : ["saved"], mine: [], selected: [], popular: [],
     collections: known.items, collection: known.chosen, language: lang, language_name: (LANGUAGES[lang] || {}).name || lang,
     random: !!RANDOM_WORDS[lang],
     status: reelsStatus(),

@@ -2854,3 +2854,14 @@ docs/app at every release** so the web app matches.
   Drive videos load whole as a blob before playing.
 - Tested in the browser pane against a local copy of the worker and the live one (feeds, audio range, page
   import, YouTube captions 5/5). **Not yet tested: a real Google sign-in and Drive sync on the web.**
+- **Web additions (v0.27.0):** `mobile/src/js/web-youtube.js` = the web app's own YouTube page (#/youtube:
+  popular for the language, search, a followed channel's videos), read from m.youtube.com's ytInitialData through
+  the server. `web-reels.js` = reels on the web: a reel's public embed page (`/reel/<code>/embed/captioned/`,
+  fetched with a plain "Mozilla/5.0" agent, which the worker sets for instagram.com; other agents get a page
+  without the video) gives `contextJSON` → `gql_data.shortcode_media` (video_url, owner, caption, duration); the
+  video plays in a `<video>` (`webReelSurface`, same calls as the phone's reel window). Adding a public reel by its
+  link runs the phone's `startSelected` with a web stand-in for Instagram (`webInstagram` in reels-phone.js) and the
+  user's cloud transcription key. Saves/collections/random reels and music reels stay app-only (note in Settings and
+  on the Reels page). `native.js webFetch` retries 403/429 (YouTube and Apple refuse some Cloudflare requests);
+  Apple's directory is asked directly (it allows web pages, and refuses most Cloudflare requests).
+  **The worker.js change for Instagram has to be pasted into Cloudflare by the owner.**

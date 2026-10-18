@@ -60,6 +60,15 @@ export async function render(view) {
       <div id="account"></div>
     </section>
 
+    ${isWeb ? `<section class="card stack">
+      <h2>Tamkeen on the web</h2>
+      <p class="small muted">This works like the app, with a few things that need the Tamkeen app on your phone or computer:
+        reels from your Instagram saves and random reels, reels with a song from Instagram's music library, the built-in web
+        browser (Import Page and Find in a video), AnkiDroid sync, and the number on the app icon. What you add in the app
+        shows up here after a sync.</p>
+      <a class="btn ghost" href="https://github.com/christiangilkey/tamkeen/releases/latest" target="_blank" rel="noopener">Get the app</a>
+    </section>` : ""}
+
     ${isIOS || isWeb ? "" : `<section class="card stack">
       <h2>AnkiDroid (optional)</h2>
       <div id="anki-sync" class="stack"></div>
