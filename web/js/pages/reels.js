@@ -631,12 +631,20 @@ async function renderPlayer(view, { query }) {
     const el = cur.els[idx];
     el.classList.add("cur");
     // Keep the tapped word in view while its popup is open (unless the choice is to keep playing:
-    // then the words carry on following the reel).
+    // then the words carry on following the reel), and leave the words alone for a moment after a
+    // finger has slid them.
     if (bubble.open && pauseAfterWord()) return;
+    if (Date.now() - slidAt < 3000) return;
     const box = wordsEl.getBoundingClientRect();
     const r = el.getBoundingClientRect();
+    if (surface) { // the phone: one line, the current word kept in the middle
+      wordsEl.scrollBy({ left: r.left + r.width / 2 - (box.left + box.width / 2), behavior: "smooth" });
+      return;
+    }
     if (r.top < box.top + 4 || r.bottom > box.bottom - 4) wordsEl.scrollTo({ top: wordsEl.scrollTop + r.top - box.top - box.height * 0.3, behavior: "smooth" });
   }
+  let slidAt = 0;
+  for (const type of ["touchstart", "wheel"]) wordsEl.addEventListener(type, () => { slidAt = Date.now(); }, { passive: true });
 
   async function show(i) {
     if (disposed) return;
@@ -679,6 +687,7 @@ async function renderPlayer(view, { query }) {
         }
         wordsEl.innerHTML = parts.join("");
         wordsEl.scrollTop = 0;
+        wordsEl.scrollLeft = 0;
         wordsEl.setAttribute("lang", lang);
         wordsEl.setAttribute("dir", langInfo(lang).dir);
         cur = { ep, lang, starts: Float64Array.from(W.start), ends: Float64Array.from(W.end), segOf: Int32Array.from(W.seg),

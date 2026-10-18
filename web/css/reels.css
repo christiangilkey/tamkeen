@@ -98,6 +98,24 @@
 }
 .reel-pop .word-bubble[hidden] { display: none; }
 .reel-pop .word-bubble > .wb-head { flex: none; padding: 6px 10px 2px; }
+.reel-pop .wb-word { min-width: 0; overflow-wrap: anywhere; } /* a long word wraps instead of pushing ✕ off the edge */
+.reel-pop .word-bubble > .wb-fix { flex: none; margin: 0 0 6px; padding: 0 10px; } /* "Transcript said …" */
+/* On the phone the words are ONE line across the top of the bar that slides along with the reel
+   (the current word kept in the middle; a finger can slide it too), and the popup gets the whole
+   width and the rest of the height under it. The computer, with no reel window, keeps the
+   two halves. */
+.reelplay:not(.no-video) .reel-bar { display: flex; flex-direction: column; }
+.reelplay:not(.no-video) .reel-words { flex: none; overflow-x: auto; overflow-y: hidden; white-space: nowrap; scrollbar-width: none;
+  padding: 4px 12px; line-height: 1.6; font-size: clamp(18px, calc(var(--ar-size) * .8), 24px); border-bottom: 1px solid #2c2c2c;
+  unicode-bidi: isolate; } /* the line runs the language's way (its dir), not decided again by its first letters */
+.reelplay:not(.no-video) .reel-words::-webkit-scrollbar { display: none; }
+.reelplay:not(.no-video) .reel-words .seg { display: inline-block; margin: 0; } /* a box each, so the space between them holds in right-to-left text too */
+.reelplay:not(.no-video) .reel-words .seg + .seg { margin-inline-start: .9em; }
+.reelplay:not(.no-video) .reel-words > p.muted { white-space: normal; margin: 4px 0; }
+.reelplay:not(.no-video) .reel-pop { flex: 1 1 auto; border-left: 0; }
+/* The game's XP readout: in the reel player it sits in the top line, clear of the arrows and the send
+   button (lower down, the reel window would cover it). */
+body:has(.reelplay) #game-chip { top: 3px; right: 120px; max-width: calc(100vw - 180px); }
 .reel-pop .word-bubble > .wb-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch; padding: 0 10px 8px; }
 /* The popup's buttons row (Word, Sentence, Continue, Save) does not scroll away. While a popup is

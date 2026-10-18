@@ -21,7 +21,12 @@ function page({ path = "/reel/Dcy9o3Hy2rl/", host = "www.instagram.com", withVid
     play() { this.paused = false; this.plays++; return Promise.resolve(); },
     pause() { this.paused = true; },
     getBoundingClientRect: () => ({ left: 0, top: 0, right: 400, bottom: 800, width: 400, height: 800 }),
+    attrs: {}, hasAttribute(k) { return k in this.attrs; }, setAttribute(k, val) { this.attrs[k] = val; }, removeAttribute(k) { delete this.attrs[k]; },
   };
+  // The box Instagram's page puts round the video, transformed (which would keep it from filling the window).
+  const style = () => ({ props: { transform: "translateX(0px)" }, getPropertyValue(k) { return this.props[k] || ""; }, setProperty(k, val) { this.props[k] = val; } });
+  const box = { style: style(), parentElement: null };
+  v.parentElement = box;
   const element = () => ({ style: {}, attrs: {}, setAttribute(k, val) { this.attrs[k] = val; }, getAttribute(k) { return this.attrs[k] ?? null; },
     addEventListener(type, fn) { this[`on${type}`] = fn; }, appendChild() {} });
   const win = {
@@ -41,9 +46,10 @@ function page({ path = "/reel/Dcy9o3Hy2rl/", host = "www.instagram.com", withVid
   };
   win.window = win;
   win.top = win;
+  box.parentElement = win.document.documentElement;
   vm.runInNewContext(read("reel-page.js") + (alsoEmbedScript ? `\n${read("reel-embed.js")}` : ""), win);
   const tick = (ms = 300) => { now += ms; ticks.forEach((f) => f()); };
-  return { win, v, tick, listeners, winListeners, added, ticks, state: () => JSON.parse(win.__tkReelState()), active: typeof win.__tkReelState === "function" };
+  return { win, v, box, tick, listeners, winListeners, added, ticks, state: () => JSON.parse(win.__tkReelState()), active: typeof win.__tkReelState === "function" };
 }
 
 test("it acts on a reel's ordinary page and steps aside elsewhere", () => {
@@ -160,4 +166,12 @@ test("it says when Instagram wants a sign-in, and when a signed-in page simply h
   assert.equal(gone.state().error, "");
   gone.tick(8000);
   assert.equal(gone.state().error, "novideo");
+});
+
+test("only the reel's own video is shown, and the boxes round it are kept from shrinking it", () => {
+  const p = page();
+  p.tick();
+  assert.equal(p.v.attrs["data-tk-reel"], "1", "the video the page shows is the one marked to fill the window");
+  assert.equal(p.box.style.props.transform, "none", "a transformed box round it would make it fill only that box");
+  assert.equal(p.box.style.props.contain, "none");
 });

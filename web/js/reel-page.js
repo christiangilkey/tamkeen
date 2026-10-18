@@ -73,6 +73,23 @@
     return !v && Date.now() - started > 8000 && !/(^|; )ds_user_id=\d/.test(document.cookie);
   }
 
+  // "position: fixed" fills the window only when no box around the video is transformed, filtered
+  // or contained (each of those makes the video fill that box instead, which left it a narrow
+  // column in the middle of Instagram's page). Undo those on every box around it, and keep the
+  // page from scrolling. Instagram may put them back, so this runs on every check.
+  var UNLOCK = { transform: "none", filter: "none", "backdrop-filter": "none", perspective: "none", contain: "none", "will-change": "auto" };
+  function pin(v) {
+    if (!v.hasAttribute("data-tk-reel")) {
+      var old = document.querySelectorAll("video[data-tk-reel]");
+      for (var i = 0; i < old.length; i++) old[i].removeAttribute("data-tk-reel");
+      v.setAttribute("data-tk-reel", "1");
+    }
+    for (var a = v.parentElement; a && a !== document.documentElement; a = a.parentElement) {
+      for (var k in UNLOCK) if (a.style.getPropertyValue(k) !== UNLOCK[k]) a.style.setProperty(k, UNLOCK[k], "important");
+    }
+    if (window.scrollX || window.scrollY) window.scrollTo(0, 0);
+  }
+
   // Dialogs Instagram puts in front of the reel: press their "Not now".
   function dismissDialogs() {
     var dialogs = document.querySelectorAll('[role="dialog"]');
@@ -89,10 +106,16 @@
     }
   }
 
-  // The reel fills the window, on black. Instagram's page stays as it is underneath.
+  // The reel fills the window, on black, and nothing else of Instagram's page shows: not its header,
+  // its "Use the app" banner or its bar of buttons at the bottom (they are made invisible, which also
+  // keeps taps off them; dialogs are still answered by dismissDialogs). Only the reel's video (marked
+  // data-tk-reel by pin; the page may hold other reels' videos too) and this script's own
+  // Previous / Next buttons are visible.
   var style = document.createElement("style");
   style.textContent = "html,body{background:#000!important;overflow:hidden!important}" +
-    "video{position:fixed!important;left:0!important;top:0!important;width:100vw!important;height:100vh!important;" +
+    "body *:not([data-tk]){visibility:hidden!important}" +
+    "video[data-tk-reel]{visibility:visible!important;position:fixed!important;left:0!important;top:0!important;width:100vw!important;height:100vh!important;" +
+    "max-width:none!important;max-height:none!important;margin:0!important;" +
     "object-fit:contain!important;background:#000!important;z-index:2147483000!important}";
   (document.head || document.documentElement).appendChild(style);
 
@@ -140,7 +163,7 @@
     var v = video();
     if (wantsSignIn(v)) { error = "signin"; return; }
     if (error === "signin") error = "";
-    if (v) { wire(v); hold(v); }
+    if (v) { wire(v); hold(v); pin(v); }
     else if (!error && Date.now() - started > 15000) error = "novideo";
   }, 300);
 
