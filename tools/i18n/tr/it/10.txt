@@ -37,8 +37,7 @@ b422c28b Niente da ripassare oggi
 f4896ede Oggi: parole nuove {0} su {1}, ripassi {2} su {3}. {4}. Cambia le parole nuove al giorno
 031683ab Solo {0} parole nuove in attesa.
 aa175635 {0}I ripassi sono semplicemente le parole in scadenza oggi. A lungo andare, prevedi circa 10 al giorno per ogni parola nuova (manuale di Anki): {1} nuove al giorno ≈ {2} ripassi al giorno.
-16db8f9d Tempo per parola: circa {0} per una nuova, {1} per un ripasso ({2}).
-0a730827 Tempo per parola: circa {0} per una nuova ({1}), {2} per un ripasso ({3}).
+4ee48926 Tempo per parola, contando le volte in cui torna una parola non ricordata: circa {0} per una nuova, {1} per un ripasso ({2}).
 3997732f Dilla
 dc353487 In ascolto
 4fc6e7f7 Madrelingua

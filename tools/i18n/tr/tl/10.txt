@@ -37,8 +37,7 @@ b422c28b Walang dapat i-review ngayon
 f4896ede Ngayon: bagong salita {0} sa {1}, review {2} sa {3}. {4}. Palitan ang bilang ng bagong salita bawat araw
 031683ab {0} bagong salita lang ang naghihintay.
 aa175635 {0}Ang mga review ay ang mga salitang dapat i-review ngayon. Sa katagalan, asahan ang mga 10 bawat araw kada bagong salita (manwal ng Anki): {1} bago bawat araw ≈ {2} review bawat araw.
-16db8f9d Oras kada salita: mga {0} sa bago, {1} sa review ({2}).
-0a730827 Oras kada salita: mga {0} sa bago ({1}), {2} sa review ({3}).
+4ee48926 Oras kada salita, kasama ang pagbalik ng salitang hindi naalala: mga {0} sa bago, {1} sa review ({2}).
 3997732f Bigkasin ito
 dc353487 Nakikinig
 4fc6e7f7 Katutubo

@@ -10030,13 +10030,8 @@
   "f": "web/js/review/goalbar.js"
  },
  {
-  "id": "16db8f9d",
-  "k": "Time per word: about {0} for a new one, {1} for a review ({2}).",
-  "f": "web/js/review/goalbar.js"
- },
- {
-  "id": "0a730827",
-  "k": "Time per word: about {0} for a new one ({1}), {2} for a review ({3}).",
+  "id": "4ee48926",
+  "k": "Time per word, counting the times a missed word comes back: about {0} for a new one, {1} for a review ({2}).",
   "f": "web/js/review/goalbar.js"
  },
  {

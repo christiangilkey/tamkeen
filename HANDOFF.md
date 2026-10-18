@@ -2650,3 +2650,32 @@ line is the TICKED-reels job, `startSelected`: 70 reels were ticked; "Get random
   reel skipped "took over 3 minutes", the next tried. 357 pytest; JS all pass except `i18n.test.mjs`, which
   fails on five strings from other chats' unsaved work, not these. **Not checked on a real phone.**
 - `transcribe-service.js` is the cloud chat's file: one line (`job.longestWait`), default unchanged.
+
+### Goal bar: a better "time left today" estimate (2026-10-17, "daily goal progress bar" chat; committed locally on main, NOT pushed)
+- Owner: "Make time estimated better" (relayed by the main chat). Read as the goal bar's "about N min left today",
+  the only forward-looking time estimate (the reviewer's end screen "N cards in about M minutes" is time spent).
+- **What was wrong**: it averaged whole word-days and then trimmed the slowest tenth, which are exactly the words
+  that were missed and came back; words not finished that day were dropped; the moment between cards was not
+  counted; a word already missed today cost a whole new word. Result: about 20% too low.
+- **Now** (`web/js/review/goal.js`, rewritten; `goalbar.js` uses `model` / `estimate` / `timeText` / `wordCost`):
+  looks, not words. Each look is "new" (a word's first look on its first day), "review" (an older word's first look
+  of the day) or "again" (a later look the same day after a miss). Per kind: the share remembered (all answers on
+  record, nudged by a guess worth 5 answers) and the time of a remembered and of a missed look (this device's
+  looks first, then all on record, then a guess; mean of the last 300 without the fastest and slowest 5%; looks
+  at the 60 s cap left out as "away"). A fresh word costs p * remembered + (1 - p) * (missed + the return looks,
+  1/q of them on average); a word missed today costs only the return looks; each look + 0.6 s between cards.
+  Until a word has come back often enough, return looks are timed like reviews.
+- **Shown**: "about 9 min" (rounded to the minute under 15, to 5 under an hour, then to 10); a range ("8–12 min")
+  while the times rest on fewer than 30 looks (±20%) or on a guess (±35%, plus "(a first guess)").
+- **This device's record** `reviewTimes` is now `{ts: [...]}`, the times of the answers given here (last 900);
+  the older `{new, review}` record is still read. Undo removes the time. review.js unchanged.
+- **Measured** (script and the old version in the shared notes folder `goal-backtest/`, run with
+  `node backtest.mjs [reviews.json]`): simulated learners on the app's own scheduler, 5 x 90 days, each day
+  estimated from the days before for the words actually studied that day: before 24% off on average (21% too
+  low), after 16% off (1% too low); with speed that does not depend on remembering: before 20%, after 15%. The
+  rest is day-to-day speed, which nothing predicts. **NOT measured on the owner's real log**: copying the live
+  library to extract it was refused by the permission check; with the owner's OK, run the script on an export
+  of the `reviews` table.
+- Translations: the popup's sentence changed; strings.json and `tr/*/10.txt` swap ids 16db8f9d / 0a730827 for
+  4ee48926 in all 8 languages; dictionaries rebuilt (`build.mjs --check` clean). Tests: `tests/js/goal.test.mjs`
+  (11). Checked in the `tamkeen-goal` preview (fresh folder, not signed in) at desktop size and 390 px.

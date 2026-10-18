@@ -37,8 +37,7 @@ b422c28b Rien à revoir aujourd'hui
 f4896ede Aujourd'hui : nouveaux mots {0} sur {1}, révisions {2} sur {3}. {4}. Changer le nombre de nouveaux mots par jour
 031683ab Seulement {0} nouveaux mots en attente.
 aa175635 {0}Les révisions sont simplement les mots dus aujourd'hui. À long terme, comptez environ 10 par jour par nouveau mot (manuel d'Anki) : {1} nouveaux par jour ≈ {2} révisions par jour.
-16db8f9d Temps par mot : environ {0} pour un nouveau, {1} pour une révision ({2}).
-0a730827 Temps par mot : environ {0} pour un nouveau ({1}), {2} pour une révision ({3}).
+4ee48926 Temps par mot, en comptant les retours d'un mot oublié : environ {0} pour un nouveau, {1} pour une révision ({2}).
 3997732f Dites-le
 dc353487 Écoute
 4fc6e7f7 Locuteur natif

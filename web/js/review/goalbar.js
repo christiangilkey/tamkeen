@@ -7,7 +7,7 @@
 import { icon } from "../icons.js";
 import { dayNumber } from "./fsrs.js";
 import { NEW_CHOICES, states } from "./deck.js";
-import { deviceTimes, expectedReviews, minutesText, pace, secondsText, timeLeft, today } from "./goal.js";
+import { deviceTimes, estimate, expectedReviews, model, secondsText, timeText, today, wordCost } from "./goal.js";
 import { newPerDay, setNewPerDay } from "../pages/review.js";
 
 const MIN_SHARE = 0.15;  // the smaller part of the bar is never thinner than this, so it can be seen
@@ -40,7 +40,7 @@ export function goalBar(root) {
   function draw() {
     const goal = newPerDay();
     const t = today(words, states(log), dayNumber(), goal);
-    const p = pace(deviceTimes(), log);
+    const m = model(log, deviceTimes());
 
     // The two parts share the bar by how many each has today.
     const total = t.newTarget + t.revTarget;
@@ -57,19 +57,19 @@ export function goalBar(root) {
       count.style.minWidth = `${String(target).length * 2 + 1}ch`;  // the line doesn't shift as the done count grows
     }
 
-    const left = timeLeft(t, p);
-    const guessing = (t.newLeft && p.new.from === "guess") || (t.revLeft && p.review.from === "guess");
+    const left = estimate(t, m);
     const time = $(".goal-time");
-    time.textContent = left ? `${cap(minutesText(left))} left today${guessing ? " (a first guess)" : ""}`
+    time.textContent = left.ms ? `${cap(timeText(left))} left today${left.guess ? " (a first guess)" : ""}`
       : t.newDone + t.revDone ? "All done for today" : "Nothing due today";
     button.setAttribute("aria-label", `Today: new words ${t.newDone} of ${t.newTarget}, reviews ${t.revDone} of ${t.revTarget}. ${time.textContent}. Change the new words a day`);
 
     for (const b of pop.querySelectorAll(".goal-chips button")) b.classList.toggle("on", Number(b.dataset.n) === goal);
     const short = t.newDone + t.newLeft < goal ? `Only ${t.waiting} new word${t.waiting === 1 ? " is" : "s are"} waiting. ` : "";
     $(".goal-help").textContent = `${short}Reviews are simply the words due today. In the long run expect about 10 a day per new word (Anki's manual): ${goal} new a day ≈ ${expectedReviews(goal)} reviews a day.`;
-    $(".goal-pace").textContent = p.new.from === p.review.from
-      ? `Time per word: about ${secondsText(p.new.ms)} for a new one, ${secondsText(p.review.ms)} for a review (${FROM[p.new.from]}).`
-      : `Time per word: about ${secondsText(p.new.ms)} for a new one (${FROM[p.new.from]}), ${secondsText(p.review.ms)} for a review (${FROM[p.review.from]}).`;
+    // Per word, counting the looks a missed word takes coming back. Where the times come from: the
+    // least measured of the kinds involved.
+    const from = ["guess", "log", "device"].find((f) => [m.new, m.review, m.again].some((k) => k.from === f));
+    $(".goal-pace").textContent = `Time per word, counting the times a missed word comes back: about ${secondsText(wordCost(m, "new").ms)} for a new one, ${secondsText(wordCost(m, "review").ms)} for a review (${FROM[from]}).`;
   }
 
   // ----- the popup -----

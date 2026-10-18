@@ -37,8 +37,7 @@ b422c28b Nada pendiente hoy
 f4896ede Hoy: palabras nuevas {0} de {1}, repasos {2} de {3}. {4}. Cambiar las palabras nuevas al día
 031683ab Solo quedan {0} palabras nuevas esperando.
 aa175635 {0}Los repasos son simplemente las palabras pendientes hoy. A la larga, cuenta con unos 10 al día por cada palabra nueva (manual de Anki): {1} nuevas al día ≈ {2} repasos al día.
-16db8f9d Tiempo por palabra: unos {0} por una nueva, {1} por un repaso ({2}).
-0a730827 Tiempo por palabra: unos {0} por una nueva ({1}), {2} por un repaso ({3}).
+4ee48926 Tiempo por palabra, contando las veces que vuelve una palabra no recordada: unos {0} por una nueva, {1} por un repaso ({2}).
 3997732f Dilo
 dc353487 Escuchando
 4fc6e7f7 Nativo
