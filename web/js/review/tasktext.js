@@ -28,8 +28,9 @@ export function reviewTask(t, left, now = new Date()) {
  *  onyx://task?title&minutes&due&notes&id&from&n. The same `id` updates the task in Onyx rather than
  *  adding another; `n` (when it was sent) makes each send count as new on Android. */
 export function onyxLink(task, now = Date.now()) {
-  const q = new URLSearchParams({ title: task.title, minutes: String(task.minutes), due: task.due, notes: task.notes,
-                                  id: task.id, from: "tamkeen", n: String(now) });
+  // (Onyx takes titles up to 120 characters, notes up to 1000 and 1-600 minutes.)
+  const q = new URLSearchParams({ title: String(task.title).slice(0, 120), minutes: String(Math.min(600, Math.max(1, task.minutes))),
+                                  due: task.due, notes: String(task.notes || "").slice(0, 1000), id: task.id, from: "tamkeen", n: String(now) });
   return `onyx://task?${q}`;
 }
 
