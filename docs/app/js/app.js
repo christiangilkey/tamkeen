@@ -29,7 +29,7 @@ import { addUploadedVideo, checkFeeds, fillLanguages, handle } from "./backend.j
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
-import { RECONNECT_EVENT, accessToken, drive, googleScript, reconnect } from "./drive.js";
+import { RECONNECT_EVENT, accessToken, drive, reconnect } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
 import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, webFetch } from "./native.js";
@@ -209,8 +209,8 @@ export async function audioUrl(uid) {
 
 /** Google ID token for the online features. Google gets a hash of a one-time code (nonce) and
  * Supabase the code itself, so a token can't be replayed by anyone else. */
-export async function googleIdToken() {
-  if (isWeb) return webIdToken();
+export async function googleIdToken({ host = null } = {}) {
+  if (isWeb) return webIdToken(host);
   if (!isNative) throw new Error("Connecting works in the installed app.");
   if (isIOS) {
     // The iPhone's ID token comes with its Google sign-in (issued for the app's "iOS" client,
@@ -225,30 +225,62 @@ export async function googleIdToken() {
   return { token: r.idToken, nonce };
 }
 
-/** The web app: a small window with Google's own button (a browser hands out an ID token only
- *  after a tap on it), with the same one-time code as on Android. */
-async function webIdToken() {
-  const google = await googleScript();
-  const nonce = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => b.toString(16).padStart(2, "0")).join("");
+// ---------- the web app's sign-in for Friends: Google's own page, and back ----------
+// Google's pop-up button is unreliable in an app opened from the home screen (pop-ups are blocked
+// or lost), so the web app goes to Google's sign-in page itself and Google sends it straight back
+// to this address with the sign-in (an ID token) after the "#". Needs this page's address among the
+// Web client's "Authorized redirect URIs" in Google Cloud.
+const WEB_SIGNIN_KEY = "tk_web_signin";
+
+function randomHex(n) {
+  return Array.from(crypto.getRandomValues(new Uint8Array(n)), (b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function goToGoogleSignIn() {
+  const nonce = randomHex(16);
+  const state = randomHex(16);
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(nonce));
   const hashed = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
-  return new Promise((resolve, reject) => {
-    const box = h(`<div class="modal-back web-signin"><div class="modal-box modal-body stack" role="dialog" aria-modal="true" style="text-align:center;width:min(380px,100%)">
-      <h2>Connect with Google</h2>
-      <p class="small muted">Friends and sharing use your Google account to know it's you.</p>
-      <div class="gbutton" style="display:flex;justify-content:center"></div>
-      <button type="button" class="ghost">Cancel</button></div></div>`);
-    const done = (fn) => { box.remove(); fn(); };
-    box.querySelector("button").onclick = () => done(() => reject(new Error("Connecting was cancelled.")));
-    document.body.append(box);
-    google.accounts.id.initialize({
-      client_id: GOOGLE_WEB_CLIENT_ID, nonce: hashed, auto_select: false,
-      login_hint: settings.google_email || undefined,
-      callback: (r) => done(() => (r && r.credential ? resolve({ token: r.credential, nonce })
-        : reject(new Error("Google didn't sign you in.")))),
-    });
-    google.accounts.id.renderButton(box.querySelector(".gbutton"), { theme: "filled_blue", size: "large", shape: "pill", text: "continue_with" });
+  try { sessionStorage.setItem(WEB_SIGNIN_KEY, JSON.stringify({ nonce, state, back: location.hash || "#/friends" })); } catch { /* storage off */ }
+  const q = new URLSearchParams({
+    client_id: GOOGLE_WEB_CLIENT_ID, response_type: "id_token", scope: "openid email",
+    redirect_uri: location.origin + location.pathname, nonce: hashed, state, prompt: "select_account",
   });
+  if (settings.google_email) q.set("login_hint", settings.google_email);
+  location.href = `https://accounts.google.com/o/oauth2/v2/auth?${q}`;
+}
+
+/** The web app: sign in to Friends. With `host`, a "Sign in with Google" button is put there and
+ *  tapping it goes to Google; without, it goes at once. Either way the page leaves for Google, so
+ *  this never resolves: finishWebSignIn() completes the sign-in when Google sends the learner back. */
+function webIdToken(host = null) {
+  if (!host) { goToGoogleSignIn(); return new Promise(() => {}); }
+  const b = h(`<button type="button" class="primary google-signin">${GOOGLE_G} Sign in with Google</button>`);
+  b.onclick = () => { b.disabled = true; goToGoogleSignIn(); };
+  host.append(b);
+  return new Promise(() => {});
+}
+
+const GOOGLE_G = `<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true" style="vertical-align:-3px;background:#fff;border-radius:50%;padding:2px"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.8 6C12.3 13.6 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.4 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C.9 16.6 0 20.2 0 24s.9 7.4 2.6 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.2-8.4 2.2-6.4 0-11.7-4.1-13.6-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>`;
+
+/** Back from Google's sign-in page (the address ends "#id_token=…" or "#error=…"): put the screen
+ *  the learner was on back, and finish signing in to Friends with what Google sent. */
+async function finishWebSignIn() {
+  const answer = new URLSearchParams(location.hash.slice(1));
+  let kept = null;
+  try { kept = JSON.parse(sessionStorage.getItem(WEB_SIGNIN_KEY) || "null"); sessionStorage.removeItem(WEB_SIGNIN_KEY); } catch { /* storage off */ }
+  history.replaceState(null, "", location.pathname + location.search + ((kept && kept.back) || "#/friends"));
+  if (answer.get("error")) { toast(answer.get("error") === "access_denied" ? "Sign-in was cancelled." : "Google didn't sign you in.", { error: true }); return; }
+  if (!kept || answer.get("state") !== kept.state) { toast("That sign-in came back without being asked for here. Try again.", { error: true }); return; }
+  try {
+    const social = await import("./social.js");
+    await social.connectWithIdToken({ token: answer.get("id_token"), nonce: kept.nonce });
+    toast("Signed in to Friends.");
+    emit("feeds", { refreshed: true });
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+  } catch (e) {
+    toast(e.message || "Couldn't sign in to Friends.", { error: true });
+  }
 }
 
 // ---------- audio clips of shared words ----------
@@ -958,6 +990,8 @@ async function boot() {
   applySettings(settings);
   fillLanguages(); // every podcast and word knows its language (only the one being learned is shown)
   await startTranslating(settings.ui_language); // the app's own words in the user's language
+  // The web app, back from Google's sign-in page for Friends (see finishWebSignIn).
+  if (isWeb && /(^|[#&])(id_token|error)=/.test(location.hash)) finishWebSignIn();
   if (!settings.welcome_seen || !settings.study_language) location.hash = "#/welcome"; // first run: choose a language
   // The app's own line icons in the tab bar and the search button (see icons.js).
   for (const el of document.querySelectorAll("[data-icon]")) el.innerHTML = icon(el.dataset.icon, Number(el.dataset.size) || 22);

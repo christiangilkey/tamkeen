@@ -167,12 +167,28 @@ export async function render(view) {
     body.innerHTML = "";
     if (!st) {
       segBar.hidden = true;
-      body.append(h(`<div class="card stack empty-state">
+      const card = h(`<div class="card stack empty-state">
         <h2>Learn together</h2>
         <p class="muted">Add friends by username, form guilds, message each other (with voice notes), send words and
-          folders, and see what everyone is studying. Connect your Google account in Settings to start.</p>
-        <div><a class="btn primary" href="#/settings">Open Settings → Friends &amp; sharing</a></div>
-      </div>`));
+          folders, and see what everyone is studying. Sign in with your Google account to start.</p>
+        <div class="friends-signin"></div>
+      </div>`);
+      body.append(card);
+      const spot = card.querySelector(".friends-signin");
+      const connected = () => { toast("Signed in. Now choose a username."); load(); };
+      if (window.TAMKEEN_WEB === true) {
+        // The web app: a "Sign in with Google" button right here; it goes to Google's page and back.
+        social.connect({ host: spot }).then(connected).catch((err) => { if (!disposed) toast(err.message, { error: true }); });
+      } else {
+        const b = h(`<button type="button" class="primary">Sign in with Google</button>`);
+        b.onclick = async () => {
+          b.disabled = true;
+          b.textContent = "Signing in…";
+          try { await social.connect(); connected(); }
+          catch (err) { toast(err.message, { error: true }); b.disabled = false; b.textContent = "Sign in with Google"; }
+        };
+        spot.append(b);
+      }
       return;
     }
     if (!st.me.username) {

@@ -54,10 +54,15 @@ export async function currentUser() {
   }
 }
 
-/** Sign in to the online features with the app's Google account. */
-export async function connect() {
+/** Sign in to the online features with the app's Google account. `opts.host`: in the web app,
+ *  where to put Google's sign-in button (instead of a small window with it). */
+export async function connect(opts = {}) {
+  return connectWithIdToken(await googleIdToken(opts));
+}
+
+/** Sign in to the online features with a Google ID token already in hand ({token, nonce}). */
+export async function connectWithIdToken({ token, nonce }) {
   const c = await sb();
-  const { token, nonce } = await googleIdToken();
   const { data, error } = await c.auth.signInWithIdToken({ provider: "google", token, ...(nonce ? { nonce } : {}) });
   if (error) throw new Error(friendly(error));
   return data.user;
