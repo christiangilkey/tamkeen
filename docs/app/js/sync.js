@@ -1,0 +1,354 @@
+// Phone side of Google Drive sync: same files and merge rules as app/sync/engine.py.
+//   library.json.gz       merged record by record (newest updated_at wins; tombstones kept)
+//   t_<episode>.json.gz   transcripts, downloaded for offline reading and search
+//   a_<episode>.ogg       audio copies, fetched when an episode is first played
+//   v_<episode>.<ext>     the user's own videos, streamed from Drive (DriveMediaWebViewClient.java)
+// The phone asks the desktop to transcribe (episode.transcribe_requested_at), unless cloud
+// transcription is on: then it writes transcripts itself (transcribe-service.js) and uploads them here.
+
+import { drive, gunzipJson, gzipJson } from "./drive.js";
+import { audio, kv, lib, saveLibrary, settings, transcripts } from "./store.js";
+import { parked } from "./reset.js";
+import { cleanFollows, mergeFollows } from "./ytfollow.js";
+import { cleanSites, mergeSites } from "./browser-sites.js";
+import { cleanCollections, mergeCollections } from "./igcollections.js";
+import { cleanKeys, keysFromSettings, takeKeys } from "./aikeys.js";
+
+const LIBRARY = "library.json.gz";
+const listeners = new Set();
+export const syncState = { state: "idle", last_sync: null, error: null, downloaded: 0 };
+
+export function onSync(fn) { listeners.add(fn); return () => listeners.delete(fn); }
+function publish(patch) {
+  Object.assign(syncState, patch);
+  for (const fn of listeners) { try { fn({ ...syncState }); } catch (e) { console.error(e); } }
+}
+
+// ---------- merge ----------
+const newer = (r, l) => (r.updated_at || 0) > (l.updated_at || 0);
+
+/** Should another device's saved game replace this one? The newer save wins, except that a game
+ * nobody has played yet (a fresh install's egg) never replaces one with progress. */
+export function gameWins(theirs, mine) {
+  const a = (theirs.xp || 0) > 0;
+  const b = (mine.xp || 0) > 0;
+  if (a !== b) return a;
+  return (theirs.updated_at || 0) > (mine.updated_at || 0);
+}
+
+export function merge(remote) {
+  let changed = 0;
+  const feeds = new Map(lib.feeds.map((f) => [f.uid, f]));
+  for (const r of remote.feeds || []) {
+    const l = feeds.get(r.uid);
+    // An older device doesn't send a podcast's language; keep the one already known.
+    if (!l || newer(r, l)) { feeds.set(r.uid, l ? { ...r, language: r.language || l.language || null } : r); changed++; }
+  }
+  lib.feeds = [...feeds.values()];
+  const deadFeeds = new Set(lib.feeds.filter((f) => f.deleted).map((f) => f.uid));
+
+  const eps = new Map(lib.episodes.map((e) => [e.uid, e]));
+  for (const r of remote.episodes || []) {
+    const l = eps.get(r.uid);
+    if (!l) { eps.set(r.uid, r); changed++; continue; }
+    if (newer(r, l)) {
+      // A pending request from this phone survives a newer remote record (desktop does the same).
+      const req = Math.max(l.transcribe_requested_at || 0, r.transcribe_requested_at || 0) || null;
+      // An older desktop doesn't send a language; keep the one already known.
+      eps.set(r.uid, { ...r, transcribe_requested_at: req, language: r.language || l.language || null });
+      changed++;
+    }
+  }
+  lib.episodes = [...eps.values()].filter((e) => !deadFeeds.has(e.feed_uid));
+
+  const vocab = new Map(lib.vocab.map((v) => [v.uid, v]));
+  for (const r of remote.vocab || []) {
+    const l = vocab.get(r.uid);
+    if (!l) { vocab.set(r.uid, r); changed++; continue; }
+    if (newer(r, l)) {
+      // A device with an older version sends no translation or memo; keep the ones already known.
+      vocab.set(r.uid, { ...r, translation: r.translation ?? l.translation ?? "", memo: r.memo ?? l.memo ?? "",
+                         language: r.language || l.language || null });
+      changed++;
+    }
+  }
+  lib.vocab = [...vocab.values()];
+
+  const folders = new Map((lib.folders || []).map((f) => [f.uid, f]));
+  for (const r of remote.folders || []) {
+    const l = folders.get(r.uid);
+    if (!l || newer(r, l)) { folders.set(r.uid, r); changed++; }
+  }
+  lib.folders = [...folders.values()];
+
+  const defs = new Map(lib.definitions.map((d) => [d.key, d]));
+  for (const r of remote.definitions || []) if (!defs.has(r.key)) { defs.set(r.key, r); changed++; }
+  lib.definitions = [...defs.values()];
+
+  // Seen words: the newest change to a lexeme wins (seen, or made new again).
+  const lexemes = new Map((lib.lexemes || []).map((x) => [x.key, x]));
+  for (const r of remote.lexemes || []) {
+    if (!r || String(r.key || "").split("|").length < 3) continue;
+    const l = lexemes.get(r.key);
+    if (!l || newer(r, l)) { lexemes.set(r.key, r); changed++; }
+  }
+  lib.lexemes = [...lexemes.values()];
+
+  // The reviewer's answers: both devices' lists add up; an answer taken back (0) stays taken back.
+  const reviews = (lib.reviews = lib.reviews || {});
+  for (const [uid, entries] of Object.entries(remote.reviews && typeof remote.reviews === "object" ? remote.reviews : {})) {
+    const mine = (reviews[uid] = reviews[uid] || []);
+    const at = new Map(mine.map((e) => [e[0], e]));
+    let grew = false;
+    for (const e of Array.isArray(entries) ? entries : []) {
+      if (!Array.isArray(e) || e.length < 3 || !e.slice(0, 4).every(Number.isInteger) || ![0, 1, 3].includes(e[1])) continue;
+      const have = at.get(e[0]);
+      if (!have) { const row = [e[0], e[1], e[2], e[3] || 0]; mine.push(row); at.set(row[0], row); grew = true; changed++; }
+      else if (e[1] === 0 && have[1] !== 0) { have[1] = 0; changed++; }
+    }
+    if (grew) mine.sort((a, b) => a[0] - b[0]);
+  }
+
+  // The creature game: one saved state for the whole account; the most recently saved wins.
+  const game = remote.game;
+  const mine = settings.game_state;
+  if (game && (game.roster || game.creature) && (!mine || gameWins(game, mine))) {
+    settings.game_state = game;
+    kv.set("settings", { ...settings }).catch(console.error);
+    window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: game }));
+    changed++;
+  }
+
+  // Followed YouTube channels: for each channel, the copy that changed last wins.
+  if (Array.isArray(remote.channels) && remote.channels.length) {
+    const before = cleanFollows(settings.youtube_follows);
+    const merged = mergeFollows(before, remote.channels);
+    if (JSON.stringify(merged) !== JSON.stringify(before)) {
+      settings.youtube_follows = merged;
+      kv.set("settings", { ...settings }).catch(console.error);
+      changed++;
+    }
+  }
+
+  // Sites saved to the browser's start page: for each address, the copy that changed last wins.
+  if (Array.isArray(remote.sites) && remote.sites.length) {
+    const before = cleanSites(settings.browser_sites);
+    const merged = mergeSites(before, remote.sites);
+    if (JSON.stringify(merged) !== JSON.stringify(before)) {
+      settings.browser_sites = merged;
+      kv.set("settings", { ...settings }).catch(console.error);
+      changed++;
+    }
+  }
+
+  // Saved Instagram collections: the list found last, and the collection chosen last.
+  if (remote.ig_collections && typeof remote.ig_collections === "object") {
+    const before = cleanCollections(settings.ig_collections);
+    const merged = mergeCollections(before, remote.ig_collections);
+    if (JSON.stringify(merged) !== JSON.stringify(before)) {
+      settings.ig_collections = merged;
+      kv.set("settings", { ...settings }).catch(console.error);
+      window.dispatchEvent(new CustomEvent("tamkeen:ig-collections")); // an open Reels page redraws its list
+      changed++;
+    }
+  }
+
+  // The user's own AI keys: for each key, the copy changed last wins (see aikeys.js).
+  if (remote.keys && typeof remote.keys === "object") {
+    const take = takeKeys(settings, remote.keys);
+    if (Object.keys(take).length) {
+      Object.assign(settings, take);
+      kv.set("settings", { ...settings }).catch(console.error);
+      changed++;
+    }
+  }
+  return changed;
+}
+
+export function snapshot() {
+  const live = new Set(lib.feeds.filter((f) => !f.deleted).map((f) => f.uid));
+  const byUid = (a, b) => (a.uid < b.uid ? -1 : a.uid > b.uid ? 1 : 0);
+  return {
+    format: 1,
+    device: "android",
+    feeds: [...lib.feeds].sort(byUid),
+    episodes: lib.episodes.filter((e) => live.has(e.feed_uid)).sort(byUid),
+    // Words saved before translations (or memos) were kept have none; the desktop writes those as "".
+    vocab: lib.vocab.map((v) => ({ ...v, translation: v.translation || "", memo: v.memo || "" })).sort(byUid),
+    folders: [...(lib.folders || [])].sort(byUid),
+    definitions: [...lib.definitions].sort((a, b) => (a.key < b.key ? -1 : 1)),
+    lexemes: [...(lib.lexemes || [])].sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0)),
+    reviews: lib.reviews || {},
+    game: settings.game_state || null,
+    channels: cleanFollows(settings.youtube_follows),
+    sites: cleanSites(settings.browser_sites),
+    ig_collections: cleanCollections(settings.ig_collections),
+    keys: keysFromSettings(settings),
+  };
+}
+
+function canonical(value) {
+  if (Array.isArray(value)) return `[${value.map(canonical).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value).sort().map((k) => `${JSON.stringify(k)}:${canonical(value[k])}`).join(",")}}`;
+  }
+  return JSON.stringify(value ?? null);
+}
+const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
+                                   definitions: l.definitions, lexemes: l.lexemes || [], reviews: l.reviews || {}, game: l.game || null,
+                                   channels: l.channels || [], sites: l.sites || [], ig_collections: cleanCollections(l.ig_collections),
+                                   keys: cleanKeys(l.keys) });
+
+// ---------- run ----------
+let running = null;
+let timer = 0;
+
+/** Schedule a sync shortly (debounced), e.g. after a local edit. */
+export function requestSync(delayMs = 3000) {
+  if (!settings.signed_in || parked()) return;
+  clearTimeout(timer);
+  timer = setTimeout(() => syncNow().catch(() => {}), delayMs);
+}
+
+export function syncNow() {
+  // After Reset Tamkeen the library is set aside: never compare an empty one with Drive.
+  if (!settings.signed_in || parked()) return Promise.resolve(syncState);
+  if (!running) running = doSync().finally(() => { running = null; });
+  return running;
+}
+
+async function doSync() {
+  publish({ state: "syncing", error: null });
+  try {
+    let files = Object.fromEntries((await drive.list()).map((f) => [f.name, f]));
+    await uploadPendingTranscripts(files);
+    await uploadPendingClips(files);
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const meta = files[LIBRARY];
+      const remote = meta ? await gunzipJson(await drive.download(meta.id)) : null;
+      if (remote) merge(remote);
+      const local = snapshot();
+      if (remote && content(remote) === content(local)) break;
+      if (meta) {
+        const current = await drive.get(meta.id);
+        if (current.modifiedTime !== meta.modifiedTime) { files[LIBRARY] = current; continue; }
+      }
+      files[LIBRARY] = await drive.upload(LIBRARY, await gzipJson(local), "application/gzip", meta ? meta.id : null);
+      break;
+    }
+    saveLibrary();
+    await kv.set("drive_files", files);
+    await forgetDeleted();
+    const downloaded = await prefetchTranscripts(files);
+    publish({ state: "idle", last_sync: Date.now() / 1000, downloaded });
+  } catch (e) {
+    publish({ state: "error", error: e.message || String(e) });
+  }
+  return syncState;
+}
+
+/** Upload what this phone made itself (the text of imported web pages, captions, transcripts
+ * written through a cloud provider), before the library mentions them. */
+async function uploadPendingTranscripts(files) {
+  const pending = (await kv.get("pending_transcripts")) || [];
+  if (!pending.length) return;
+  const left = [];
+  for (const uid of pending) {
+    const payload = await transcripts.get(uid);
+    const ep = lib.episodes.find((e) => e.uid === uid);
+    if (!payload || !ep || ep.deleted) continue;
+    const name = `t_${uid}.json.gz`;
+    try {
+      files[name] = await drive.upload(name, await gzipJson(payload), "application/gzip", files[name] ? files[name].id : null);
+    } catch (e) {
+      console.warn("Page upload failed", uid, e);
+      left.push(uid);
+    }
+  }
+  await kv.set("pending_transcripts", left);
+}
+
+/** Upload audio clips of words friends shared with this phone, so the computer gets them too. */
+async function uploadPendingClips(files) {
+  const pending = (await kv.get("pending_clips")) || [];
+  if (!pending.length) return;
+  const left = [];
+  for (const uid of pending) {
+    const blob = await audio.get(`clip:${uid}`);
+    const word = lib.vocab.find((v) => v.uid === uid);
+    if (!blob || !word || word.deleted) continue;
+    const name = `c_${uid}.ogg`;
+    try {
+      if (!files[name]) files[name] = await drive.upload(name, blob, "audio/ogg");
+    } catch (e) {
+      console.warn("Clip upload failed", uid, e);
+      left.push(uid);
+    }
+  }
+  await kv.set("pending_clips", left);
+}
+
+/** Free phone storage held by videos deleted on any device. */
+async function forgetDeleted() {
+  for (const ep of lib.episodes) {
+    if (!ep.deleted) continue;
+    await transcripts.delete(ep.uid).catch(() => {});
+    await audio.delete(ep.uid).catch(() => {});
+  }
+}
+
+async function prefetchTranscripts(files) {
+  let n = 0;
+  for (const ep of lib.episodes) {
+    if (ep.deleted) continue;
+    const rev = ep.transcript_rev;
+    const meta = files[`t_${ep.uid}.json.gz`];
+    if (!rev || !meta) continue;
+    const have = await transcripts.get(ep.uid);
+    if (have && have.rev >= rev - 1e-3) continue;
+    try {
+      await transcripts.put(ep.uid, await gunzipJson(await drive.download(meta.id)));
+      n++;
+    } catch (e) {
+      console.warn("Transcript download failed", ep.uid, e);
+    }
+  }
+  return n;
+}
+
+/** Download a transcript now (e.g. when opening an episode before a sync finished). */
+export async function fetchTranscript(uid) {
+  const files = (await kv.get("drive_files")) || {};
+  let meta = files[`t_${uid}.json.gz`];
+  if (!meta) meta = (await drive.list()).find((f) => f.name === `t_${uid}.json.gz`);
+  if (!meta) return null;
+  const payload = await gunzipJson(await drive.download(meta.id));
+  await transcripts.put(uid, payload);
+  return payload;
+}
+
+/** Drive file id for a file in the app folder (cached; refreshed if missing). */
+export async function driveFileId(name) {
+  let files = (await kv.get("drive_files")) || {};
+  if (!files[name]) {
+    files = Object.fromEntries((await drive.list()).map((f) => [f.name, f]));
+    await kv.set("drive_files", files);
+  }
+  return files[name] ? files[name].id : null;
+}
+
+/** Local audio copy for an episode, downloading it from Drive the first time. */
+export async function audioCopy(uid) {
+  const cached = await audio.get(uid);
+  if (cached) return cached;
+  const name = `a_${uid}.ogg`;
+  let files = (await kv.get("drive_files")) || {};
+  if (!files[name]) {
+    files = Object.fromEntries((await drive.list()).map((f) => [f.name, f]));
+    await kv.set("drive_files", files);
+  }
+  if (!files[name]) return null;
+  const blob = await drive.downloadBlob(files[name].id);
+  await audio.put(uid, blob);
+  return blob;
+}

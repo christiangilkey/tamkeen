@@ -2831,3 +2831,26 @@ Asked through the main chat: tapping words in Japanese/Chinese was unreliable (t
 - Known limits: a Chinese page imported while learning Japanese is marked Japanese (old `languages.detect` hint);
   slang missing from CC-CEDICT splits (靠谱 → 靠/谱); review cards show Chinese as saved (not converted to the
   chosen characters). Tests: `tests/js/cjk.test.mjs` (8, real dictionaries), `tests/test_lexicon.py`.
+
+## Web app (2026-10-18; released with v0.26.0)
+The owner asked for a web version. It is the phone app's screens served by GitHub Pages at
+**https://christiangilkey.github.io/tamkeen/app/** (folder `docs/app`, built by `node webapp/build-web.mjs`,
+which runs `mobile/scripts/build-www.mjs` and adds `window.TAMKEEN_WEB`/`TAMKEEN_PROXY`, a manifest and an
+offline service worker; the version is the latest git tag unless `APP_VERSION` is set). **Rebuild and commit
+docs/app at every release** so the web app matches.
+- **Go-between server** = `webapp/worker.js`, a Cloudflare Worker on the owner's Cloudflare account (free plan),
+  live at `https://tamkeen-proxy.christiangilkey.workers.dev` (address in `webapp/proxy-url.txt`). The owner
+  pasted the code into Cloudflare's editor (Workers → tamkeen-proxy → Edit code → Deploy); a change to
+  worker.js has to be pasted there again. Only the web app's origins (github.io, localhost:8791 for testing),
+  public addresses only, POST only to YouTube's player endpoint, no cookies.
+- Web mode in the phone code: `native.js isWeb / proxied() / finalUrl()`; feeds, audio ranges, page import, Apple
+  search and YouTube go through the server. YouTube turns away ~40% of requests from Cloudflare ("automated
+  queries", 403), so the web `ytRequest` tries up to 4 times.
+- Google sign-in on the web: Google Identity Services with the existing Web client (419555269865-0954…), whose
+  Authorized JavaScript origins now include https://christiangilkey.github.io and http://localhost:8791 (owner
+  added them 2026-10-18). Drive token lasts an hour (kept in localStorage for that hour); Friends ID token from
+  Google's button with the same nonce scheme as Android. Claude calls add `anthropic-dangerous-direct-browser-access`.
+- Not on the web: Reels (a "play in the app" page), the in-app browser (opens a new tab), AnkiDroid, Updates.
+  Drive videos load whole as a blob before playing.
+- Tested in the browser pane against a local copy of the worker and the live one (feeds, audio range, page
+  import, YouTube captions 5/5). **Not yet tested: a real Google sign-in and Drive sync on the web.**

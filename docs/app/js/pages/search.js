@@ -1,0 +1,69 @@
+// Full-text search across all transcripts.
+
+import { api, esc, h } from "../app.js";
+import { formatTime } from "../wordlookup.js";
+import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
+
+function withSpans(text, spans) {
+  let out = "";
+  let pos = 0;
+  for (const [a, b] of spans) {
+    out += esc(text.slice(pos, a)) + `<mark>${esc(text.slice(a, b))}</mark>`;
+    pos = b;
+  }
+  return out + esc(text.slice(pos));
+}
+
+export async function render(view, { query }) {
+  const q = query.get("q") || "";
+  const input = document.querySelector("#global-search input");
+  if (input) input.value = q;
+  view.append(h(`<div class="page search-page">
+    <h1>Search</h1>
+    <form class="search-form row" id="search-form" role="search">
+      <input type="search" name="q" placeholder="Search all transcripts… ${esc(langInfo(studyLanguage()).search)}" aria-label="Search all transcripts"
+        autocomplete="off" dir="auto">
+      <button type="submit" class="primary">Search</button>
+    </form>
+    <p class="muted small">${esc(langInfo(studyLanguage()).searchNote || "Matches ignore capital letters.")} Transcripts are always shown exactly as transcribed.</p>
+    <div id="results" class="results"></div>
+  </div>`));
+  const box = view.querySelector("#results");
+  // The page has its own search box (the phone has no search bar in its header).
+  const form = view.querySelector("#search-form");
+  form.q.value = q;
+  form.onsubmit = (e) => {
+    e.preventDefault();
+    const next = form.q.value.trim();
+    if (next && next !== q) location.hash = `#/search?q=${encodeURIComponent(next)}`;
+  };
+  if (!q) {
+    form.q.focus();
+    box.append(h(`<div class="empty">Search every transcript, video and web page you've added.</div>`));
+    return;
+  }
+  const data = await api(`/search?q=${encodeURIComponent(q)}`);
+  if (!data.results.length) {
+    box.append(h(`<div class="empty">No matches for “${esc(q)}”.</div>`));
+    return;
+  }
+  box.append(h(`<p class="muted">${data.total} match${data.total === 1 ? "" : "es"}${data.total > data.results.length ? ` (showing ${data.results.length})` : ""}</p>`));
+  const groups = new Map();
+  for (const r of data.results) {
+    if (!groups.has(r.episode_id)) groups.set(r.episode_id, []);
+    groups.get(r.episode_id).push(r);
+  }
+  for (const [epId, hits] of groups) {
+    const g = h(`<div class="ep-group card">
+      <div style="margin-bottom:6px"><strong dir="auto">${esc(hits[0].episode_title)}</strong>
+      <span class="small muted"> · ${esc(hits[0].feed_title)}</span></div></div>`);
+    // In an imported web page a hit's "time" is a word position, not a moment in a recording.
+    const isPage = hits[0].feed_title === "My webpages";
+    for (const r of hits) {
+      g.append(h(`<a class="hit" href="#/episode/${epId}?t=${r.start}">
+        <span class="t">${isPage ? "🌐" : formatTime(r.start)}</span>
+        <span class="ar" ${langAttrs(detectLanguage(r.text))}>${withSpans(r.text, r.spans)}</span></a>`));
+    }
+    box.append(g);
+  }
+}

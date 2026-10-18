@@ -1,0 +1,168 @@
+/* Reels: the list and "Get 10 reels" page, and the phone's reel player (a window for Instagram's
+   embed page on top, and a bar below split in two: the words on the left, the word popup on the
+   right). Shared with the Android app. Uses the colour tokens from app.css. */
+
+/* ---------- the Reels page ---------- */
+.reels { max-width: 900px; }
+.reel-getcard { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.reel-modes { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.reel-mode { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.reel-drop { border: 1px solid var(--border); border-radius: 12px; padding: 8px 12px; background: var(--surface-2); }
+.reel-drop summary { cursor: pointer; display: flex; gap: 8px; align-items: baseline; }
+.reel-drop[open] summary { margin-bottom: 8px; }
+.reel-droplist { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; max-height: 240px; overflow: auto; }
+.reel-pick { display: flex; align-items: center; gap: 8px; padding: 2px 0; cursor: pointer; }
+.reel-pick span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.reel-pick button { min-height: 26px; padding: 0 8px; }
+.reel-drop form input { flex: 1; min-width: 0; }
+.reel-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.reel-chip { border-radius: 99px; min-height: 28px; padding: 2px 10px; font-size: 13px; }
+.reel-saved { display: flex; flex-direction: column; gap: 6px; border: 1px solid var(--border); border-radius: 12px; padding: 8px 12px; background: var(--surface-2); }
+.reel-saved[hidden] { display: none; }
+.reel-saved select { flex: 1; min-width: 0; }
+.reel-saved .hint { margin: 0; }
+.reel-coll.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.reel-pickhead { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.reel-picks { display: flex; flex-direction: column; gap: 4px; max-height: 420px; overflow: auto; padding-right: 2px; }
+.reel-pickrow { display: grid; grid-template-columns: auto 54px 1fr auto; gap: 10px; align-items: center; padding: 5px 8px;
+  border: 1px solid var(--border); border-radius: 10px; background: var(--surface); cursor: pointer; }
+.reel-pickrow.off { opacity: .55; cursor: default; }
+.reel-pickrow input { width: 18px; height: 18px; }
+.reel-pickrow img, .reel-pickrow .ph { width: 54px; height: 72px; border-radius: 6px; object-fit: cover; background: var(--surface-2);
+  display: grid; place-items: center; color: var(--muted); }
+.reel-pickrow .txt { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.reel-pickrow .who { font-weight: 600; font-size: 13px; }
+.reel-pickrow .cap { font-size: 13px; color: var(--muted); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.reel-pickrow .tag { max-width: 190px; text-align: right; }
+/* "How many?": a counter (− number +) beside the buttons that get that many reels. */
+.reel-howmany { gap: 10px; flex-wrap: wrap; align-items: center; }
+.reel-count { display: inline-flex; align-items: center; gap: 4px; }
+.reel-count button { min-width: 36px; min-height: 36px; padding: 0; font-size: 18px; line-height: 1; }
+.reel-count input { width: 56px; min-height: 36px; text-align: center; font-size: 16px; -moz-appearance: textfield; appearance: textfield; }
+.reel-count input::-webkit-outer-spin-button, .reel-count input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+/* "1. Choose a collection": the drop-down list of collection names, and the button that fills it. */
+.reel-collrow { gap: 8px; flex-wrap: wrap; align-items: center; }
+.reel-collrow select { flex: 1 1 220px; min-width: 0; max-width: 460px; min-height: 36px; }
+/* The "sign in to Instagram" notice in the right half of the player's bar (see askSignIn in reels.js). */
+/* Its half of the bar has no padding and doesn't scroll (see .reel-pop), so it brings its own of both. */
+.reel-signin { padding: 8px 10px; flex: 0 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.reel-signin p { margin: 0 0 6px; }
+.reel-signin .row { gap: 6px; flex-wrap: wrap; }
+.reel-signin button { min-height: 30px; padding: 2px 10px; font-size: 13px; }
+.reel-signin ~ .reel-hint { display: none; }
+.reel-log { display: flex; flex-direction: column; gap: 2px; max-height: 220px; overflow: auto; font-size: 13px; }
+.reel-log:empty { display: none; }
+.reel-logline { display: flex; gap: 6px; align-items: baseline; min-width: 0; }
+.reel-logline .mark { width: 14px; flex: none; text-align: center; color: var(--muted); }
+.reel-logline.kept .mark { color: var(--accent); font-weight: 700; }
+.reel-logline .who { flex: none; font-weight: 600; }
+.reel-logline .what { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.reel-logline .why { flex: none; }
+.reel-listhead { display: flex; align-items: center; gap: 12px; margin: 6px 0 8px; }
+.reel-listhead h2 { margin: 0; flex: 1; font-size: 18px; }
+.reel-listhead .n { font-size: 13px; font-weight: 500; color: var(--muted); }
+.reel-row { grid-template-columns: 44px 1fr auto; }
+.reel-row .ph { width: 44px; height: 44px; display: grid; place-items: center; color: var(--muted); }
+
+/* ---------- the reel player ---------- */
+.reelplay { display: flex; flex-direction: column; height: 100%; min-height: 0; background: #000; color: #f2f1ec; }
+.reel-top { flex: none; display: flex; align-items: center; gap: 8px; padding: 4px 8px; background: #111; }
+.reel-top .btn, .reel-top button { min-height: 30px; padding: 2px 10px; color: inherit; }
+.reel-title { flex: 1; min-width: 0; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.reel-title .muted { color: #aaa8a0; }
+/* The Instagram window sits exactly over this box (the phone puts it there; see app.js). */
+.reel-stage { flex: 1 1 auto; min-height: 120px; background: #000; display: grid; place-items: center; }
+/* The bar: words on the left, a line down the middle, the popup on the right. */
+.reel-bar { flex: none; height: 34%; min-height: 150px; max-height: 300px; display: grid; grid-template-columns: 1fr 1fr;
+  background: #111; border-top: 1px solid #2c2c2c;
+  --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838; }
+.reel-words, .reel-pop { min-width: 0; min-height: 0; overflow: auto; -webkit-overflow-scrolling: touch; }
+.reel-words { padding: 6px 12px 30px; font-size: clamp(17px, calc(var(--ar-size) * .78), 26px); line-height: 1.75; color: #f2f1ec; }
+.reel-words .seg { margin: 0 0 .3em; }
+.reel-words .w { border-radius: 5px; cursor: pointer; padding: 0 .04em; transition: background-color .08s, color .35s; }
+.reel-words .w.cur { background: var(--hl); color: var(--hl-ink); }
+/* Words never tapped before are purple, as in the other players. The bar is always dark, so it is
+   the light purple used for captions over a video. */
+.reel-words .w.new { color: #eaa6e4; }
+.reel-words .w.new.cur { color: var(--hl-ink); }
+.reel-words .w:active { display: inline-block; transform: scale(.9); }
+.reel-pop { border-left: 1px solid #383838; padding: 0; display: flex; flex-direction: column; overflow: hidden; }
+.reel-hint { margin: 8px 10px; }
+/* The word popup is part of the bar here, not a floating card or a sheet. It fills its half of the
+   bar: the heading stays at the top and only the explanation under it scrolls. */
+.reel-pop .word-bubble, .reel-pop .word-bubble.sheet {
+  position: static !important; width: auto; max-width: none; height: auto; max-height: none; min-height: 0; flex: 1 1 auto;
+  display: flex; flex-direction: column; overflow: hidden;
+  border: 0; border-radius: 0; box-shadow: none; padding: 0; background: transparent; color: #f2f1ec; animation: none;
+  visibility: visible !important;
+}
+.reel-pop .word-bubble[hidden] { display: none; }
+.reel-pop .word-bubble > .wb-head { flex: none; padding: 6px 10px 2px; }
+.reel-pop .wb-word { min-width: 0; overflow-wrap: anywhere; } /* a long word wraps instead of pushing ✕ off the edge */
+.reel-pop .word-bubble > .wb-fix { flex: none; margin: 0 0 6px; padding: 0 10px; } /* the purple "misheard" pill */
+.reel-pop .word-bubble > .wb-fix-why { flex: none; margin: 0 0 6px; padding: 0 10px; color: #b9b6ad; }
+/* On the phone the words are ONE line across the top of the bar that slides along with the reel
+   (the current word kept in the middle; a finger can slide it too), and the popup gets the whole
+   width and the rest of the height under it. The computer, with no reel window, keeps the
+   two halves. */
+.reelplay:not(.no-video) .reel-bar { display: flex; flex-direction: column; }
+.reelplay:not(.no-video) .reel-words { flex: none; overflow-x: auto; overflow-y: hidden; white-space: nowrap; scrollbar-width: none;
+  padding: 4px 12px; line-height: 1.6; font-size: clamp(18px, calc(var(--ar-size) * .8), 24px); border-bottom: 1px solid #2c2c2c;
+  unicode-bidi: isolate; } /* the line runs the language's way (its dir), not decided again by its first letters */
+.reelplay:not(.no-video) .reel-words::-webkit-scrollbar { display: none; }
+.reelplay:not(.no-video) .reel-words .seg { display: inline-block; margin: 0; } /* a box each, so the space between them holds in right-to-left text too */
+.reelplay:not(.no-video) .reel-words .seg + .seg { margin-inline-start: .9em; }
+.reelplay:not(.no-video) .reel-words > p.muted { white-space: normal; margin: 4px 0; }
+.reelplay:not(.no-video) .reel-pop { flex: 1 1 auto; border-left: 0; }
+/* The game's XP readout: in the reel player it sits in the top line, clear of the arrows and the send
+   button (lower down, the reel window would cover it). */
+body:has(.reelplay) #game-chip { top: 3px; right: 120px; max-width: calc(100vw - 180px); }
+.reel-pop .word-bubble > .wb-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch; padding: 0 10px 8px; }
+/* The popup's buttons row (Word, Sentence, Continue, Save) does not scroll away. While a popup is
+   open it is a strip across the whole bar, fixed at its bottom edge: directly above the controls. */
+.reel-bar { position: relative; }
+.reel-bar:has(.word-bubble:not([hidden])) { padding-bottom: var(--reel-actions, 44px); }
+.reel-pop .word-bubble > .wb-actions {
+  position: absolute; left: 0; right: 0; bottom: 0; height: var(--reel-actions, 44px); box-sizing: border-box; margin: 0;
+  display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; padding: 5px 8px;
+  background: #1a1a1a; border-top: 1px solid #383838;
+}
+.reel-pop .wb-actions button { flex: 1 1 0; min-width: 0; min-height: 32px; padding: 2px 4px; font-size: 12px; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; }
+.reel-pop .wb-actions button.icon { flex: none; min-width: 32px; }
+/* The controls: always on screen at the very bottom, also while a word's popup is open. Two
+   lines: the slider with its two times, and under it the buttons. Back 5 s, play and forward 5 s
+   sit exactly in the middle of the bar whatever is at the two ends (equal side columns). */
+.reel-controls { flex: none; display: flex; flex-direction: column; gap: 2px; padding: 4px 8px calc(6px + env(safe-area-inset-bottom));
+  background: #0b0b0b; border-top: 1px solid #2c2c2c; color: #f2f1ec; }
+.rc-seekrow { display: flex; align-items: center; gap: 6px; }
+.rc-btnrow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 6px; }
+.rc-mid { display: flex; align-items: center; gap: 6px; }
+.rc-side { display: flex; align-items: center; min-width: 0; }
+#rc-right { justify-content: flex-end; }
+.reel-controls button { flex: none; min-height: 34px; padding: 2px 8px; font-size: 12px; white-space: nowrap; }
+.reel-controls button:not(.primary) { background: #1d1d1d; border-color: #383838; color: inherit; }
+.reel-controls .play { width: 38px; height: 38px; min-height: 38px; border-radius: 50%; padding: 0; font-size: 15px; }
+.reel-controls input[type=range] { flex: 1 1 auto; min-width: 40px; }
+.reel-controls .t { flex: none; font-size: 11px; color: #aaa8a0; font-variant-numeric: tabular-nums; }
+/* The pause / keep-playing switch, as in the other player's popup (media.css): a pause sign on a
+   purple track = a tapped word plays, then the reel pauses; a play sign on teal = it carries on. */
+.reel-controls button.wb-mode {
+  flex: none; position: relative; width: 44px; height: 24px; min-height: 0; min-width: 0; padding: 0;
+  border: 0; border-radius: 99px; cursor: pointer;
+  background: linear-gradient(45deg, #4a0b47, #86308f); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
+}
+.reel-controls button.wb-mode.on { background: linear-gradient(45deg, #1b526d, #0b8693); }
+.reel-controls button.wb-mode::after { content: ""; position: absolute; inset: -8px -4px; } /* a bigger target for a thumb */
+.reelplay.no-video .reel-controls { display: none; }
+/* The computer has no reel window: the words get the room instead. */
+.reelplay.no-video .reel-stage { flex: none; min-height: 0; padding: 14px; }
+.reelplay.no-video .reel-bar { flex: 1; height: auto; max-height: none; }
+.reel-nophone { text-align: center; }
+.reel-nophone p { margin: 0 0 6px; }
+@media (max-width: 640px) {
+  .reel-getcard .row { flex-wrap: wrap; }
+  .reel-logline .why { display: none; }
+}
+body.in-player:has(.reelplay) .topbar { display: none; }
