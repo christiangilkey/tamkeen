@@ -139,8 +139,11 @@ export function openAddSheet({ pickFile }) {
         <button class="primary" type="submit">Import</button>
       </form>`),
     h(`<div class="aw-or">or</div>`),
-    h(`<button type="button" class="aw-wide">${icon("page", 18)} Open Web Browser</button>`),
-    h(`<p class="small muted aw-note">Browse inside the app and press Import Page on anything you want to read.</p>`));
+    ...(window.TAMKEEN_WEB === true // the web app has no browser of its own: popular sites to copy addresses from
+      ? [h(`<button type="button" class="aw-wide">${icon("page", 18)} Popular websites</button>`),
+         h(`<p class="small muted aw-note">News sites in the language you're learning. Open one, copy an article's address, and paste it above.</p>`)]
+      : [h(`<button type="button" class="aw-wide">${icon("page", 18)} Open Web Browser</button>`),
+         h(`<p class="small muted aw-note">Browse inside the app and press Import Page on anything you want to read.</p>`)]));
     const form = box.querySelector("form");
     const input = form.querySelector("input");
     form.onsubmit = (e) => {
@@ -158,7 +161,7 @@ export function openAddSheet({ pickFile }) {
       });
     };
     box.querySelector("button.aw-wide").onclick = () => {
-      const typed = input.value.trim();
+      const typed = window.TAMKEEN_WEB === true ? "" : input.value.trim();
       sheet.close();
       openBrowser(typed).catch((err) => toast(err.message, { error: true }));
     };

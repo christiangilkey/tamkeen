@@ -13,6 +13,7 @@ import * as chat from "./pages/chat.js";
 import * as discover from "./pages/discover.js";
 import * as reels from "./pages/reels.js";
 import * as webYouTube from "./web-youtube.js";
+import * as webSites from "./web-sites.js";
 import { webReelSurface } from "./web-reels.js";
 import { startBadge } from "./social.js";
 import { initSwipe } from "./swipe.js";
@@ -477,6 +478,10 @@ let browserListening = false;
  * opened for something other than reading pages (YouTube), so without that button; a sign-in or
  * "Find in a video" browser never has it either. */
 export async function openBrowser(url = "", { instagramSignIn = false, find = false, reading = true } = {}) {
+  if (isWeb && reading && !instagramSignIn && !find && !/^https?:/i.test(url)) { // the popular websites page instead
+    location.hash = "#/sites";
+    return;
+  }
   if (!isNative) {
     window.open(/^https?:/i.test(url) ? url : "https://www.google.com", "_blank", "noopener");
     toast("Copy the address of the page you want and paste it under “Add a webpage”.");
@@ -820,6 +825,7 @@ const routes = [
   [/^reels$/, reels, () => ({})],
   [/^reels\/play$/, reels, () => ({ play: true })],
   [/^youtube$/, webYouTube, () => ({})], // the web app's YouTube page (the apps use their own browser)
+  [/^sites$/, webSites, () => ({})], // the web app's popular websites (the apps use their own browser)
   [/^episode\/(\w+)$/, player, (m) => ({ id: m[1] })],
   [/^vocab$/, vocab, () => ({})],
   [/^search$/, search, () => ({})],
@@ -842,7 +848,7 @@ async function route() {
   let hit = routes.find(([re]) => re.test(path));
   if (!hit) { location.hash = "#/"; return; }
   const [re, mod, params] = hit;
-  const key = mod === home ? "home" : mod === library || mod === discover || mod === reels || mod === webYouTube ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
+  const key = mod === home ? "home" : mod === library || mod === discover || mod === reels || mod === webYouTube || mod === webSites ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
     : mod === settingsPage ? "settings" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === key));
   document.body.classList.toggle("in-player", mod === player || mod === chat || (mod === reels && path.startsWith("reels/play")));
