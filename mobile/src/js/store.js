@@ -96,6 +96,8 @@ export const DEFAULTS = {
   haptics: true,
   lexicon_declined: false, // "not now" to a dictionaries download (a list of languages; true = Arabic)
   ru_stress: true,         // Russian text shows stress marks (ла́дно) once its word table is here
+  show_vowels: false,      // Arabic: words drawn with vowel marks, made on the computer (js/vowels.js)
+  vowels_dialect: false,   // ...also on dialect speech, where they are a guess
   lexemes_backfilled: [],  // languages whose earlier lookups and saved words have been counted as seen
   game_state: null, // the creature game's saved state
   youtube_follows: [], // followed YouTube channels (web/js/ytfollow.js); synced with the library

@@ -13,6 +13,7 @@ import { languagePicker, speakPicker } from "../components/langpicker.js";
 import { chooseUiLanguage } from "../components/onboarding.js";
 import { isUiLanguage } from "../i18n.js";
 import { dictionariesRow } from "../lexicon/seen.js";
+import { vowelsRow } from "../vowels.js";
 import { readingsRow } from "../lexicon/readings.js";
 import { resetSection } from "../components/resetapp.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
@@ -212,8 +213,8 @@ export async function render(view) {
     await saveSettings({ study_language: code });
     toast(`Now learning ${LANGUAGES[code].name}`);
     window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
+  }, { speaks: isUiLanguage(s.ui_language) ? s.ui_language : "en" }), commonWordsButton(studyLanguage()), dictionariesRow(studyLanguage()), vowelsRow(studyLanguage()));
   $("#study-lang").append(readingsRow(studyLanguage())); // Japanese and Chinese: furigana, pinyin, characters
-  }, { speaks: isUiLanguage(s.ui_language) ? s.ui_language : "en" }), commonWordsButton(studyLanguage()), dictionariesRow(studyLanguage()));
 
   // ----- cloud transcription -----
   // While a cloud provider writes the transcripts, the model below isn't used: say so there.

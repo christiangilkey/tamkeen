@@ -20,7 +20,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .. import aikeys, arabic, audio, db, events, languages, pages, paths, reels, videos, youtube
+from .. import aikeys, arabic, audio, db, events, languages, pages, paths, reels, tashkeel, videos, youtube
 from .drive import Drive
 
 log = logging.getLogger(__name__)
@@ -375,6 +375,7 @@ def transcript_payload(episode_id: int) -> dict[str, Any]:
     kinds = {"kinds": [s["kind"] for s in segs]} if any(s["kind"] for s in segs) else {}
     return {
         **kinds,
+        **tashkeel.payload_part(episode_id),  # Arabic: each word's vowelled copy, made on the computer
         "format": FORMAT_VERSION, "rev": ep["transcribed_at"], "model": ep["model"],
         "segments": [[round(s["start"], 3), round(s["end"], 3), s["text"]] for s in segs],
         "words": {"start": [round(w["start"], 3) for w in words], "end": [round(w["end"], 3) for w in words],
@@ -398,6 +399,7 @@ def store_transcript(episode_id: int, payload: dict[str, Any]) -> None:
         conn.executemany(
             "INSERT INTO words(episode_id, idx, seg_idx, start, end, text) VALUES(?,?,?,?,?,?)",
             [(episode_id, i, w["seg"][i], w["start"][i], w["end"][i], w["text"][i]) for i in range(len(w["text"]))])
+        tashkeel.store_from_payload(conn, episode_id, payload)
         # A local download of this episode may not match the audio the other device transcribed
         # (dynamically inserted ads), so playback switches to the synced copy.
         old = conn.execute("SELECT audio_path FROM episodes WHERE id = ?", (episode_id,)).fetchone()

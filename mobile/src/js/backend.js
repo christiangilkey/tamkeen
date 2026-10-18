@@ -472,6 +472,11 @@ const routes = [
       if (t.segments[seg]) t.segments[seg][2] = replaceInText(t.segments[seg][2], old, next);
     }
     for (let k = 0; k < count; k++) t.words.text[first + k] = words[k];
+    // Arabic: the changed words lose their vowels; the computer makes them again ("dirty").
+    if (t.vowels && Array.isArray(t.vowels.words)) {
+      for (let k = 0; k < count; k++) t.vowels.words[first + k] = null;
+      t.vowels.dirty = true;
+    }
     const rev = now();
     t.rev = rev;
     await transcripts.put(e.uid, t);
@@ -491,7 +496,27 @@ const routes = [
     const words = t ? t.words : { start: [], end: [], text: [], seg: [] };
     const ep = episodeOut(e);
     if (e.transcript_rev && !t) ep.status = "new";
-    return { episode: ep, segments, words };
+    return { episode: ep, segments, words, vowels: (t && t.vowels) || null };
+  }],
+  // Arabic vowel marks: made on the computer (app/tashkeel.py), they arrive inside the transcript.
+  ["GET", /^\/episodes\/([\w]+)\/vowels$/, async (m) => {
+    const e = episodeOf(m[1]);
+    const t = e && e.transcript_rev ? await transcripts.get(e.uid) : null;
+    return { vowels: (t && t.vowels) || null, pending: false };
+  }],
+  ["GET", /^\/vowels\/status$/, () => ({ phone: true })],
+  // A saved word's sentence with vowels (review cards): taken from the transcript it was saved
+  // from, when that is on the phone (the computer runs the vowel model instead).
+  ["POST", /^\/vowels\/sentence$/, async (m, q, body) => {
+    const e = body.episode ? episodeOf(body.episode) : null;
+    const t = e && e.transcript_rev ? await transcripts.get(e.uid) : null;
+    const v = t && t.vowels;
+    if (!v || !Array.isArray(v.words) || body.start == null) return { sentence: null };
+    const lo = Number(body.start) - 0.05, hi = Number(body.end ?? body.start + 30) + 0.05;
+    const idx = t.words.text.map((_, i) => i).filter((i) => t.words.start[i] >= lo && t.words.end[i] <= hi);
+    const sentence = replaceInText(String(body.sentence || ""), idx.map((i) => t.words.text[i]), idx.map((i) => v.words[i] || t.words.text[i]));
+    const guess = !!v.dialect || idx.some((i) => (v.guess || []).includes(t.words.seg[i]));
+    return { sentence, guess };
   }],
   ["POST", /^\/pages$/, (m, q, body) => savePage(body)],
   ["POST", /^\/youtube$/, (m, q, body) => saveYouTube(body)],

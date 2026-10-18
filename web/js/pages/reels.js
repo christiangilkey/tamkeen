@@ -20,6 +20,7 @@ import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
+import { displayWords, paintWords, vowelsButton } from "../vowels.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -547,6 +548,22 @@ async function renderPlayer(view, { query }) {
   // has no controls row.
   if (surface) $("#rc-left").append(lookupToggle({ compact: true }));
   else $("#reel-prev").before(lookupToggle());
+  // Arabic reels: the vowels switch beside it (vowels.js), and their vowels once the computer has made them.
+  const redrawVowels = () => {
+    if (cur) paintWords(cur.els, displayWords(cur.texts, cur.vowels, (i) => cur.segOf[i]));
+  };
+  const vowelsBtn = vowelsButton("ar", redrawVowels, () => cur && cur.vowels);
+  vowelsBtn.hidden = true;
+  if (surface) $("#rc-left").append(vowelsBtn);
+  else $("#reel-prev").before(vowelsBtn);
+  const offVowels = on("vowels", async (d) => {
+    const reel = cur;
+    if (!reel || !d || String(d.episode_id) !== String(reel.ep.id)) return;
+    try {
+      const r = await api(`/episodes/${reel.ep.id}/vowels`);
+      if (r && r.vowels && cur === reel) { reel.vowels = r.vowels; redrawVowels(); vowelsBtn.repaint(); }
+    } catch { /* shown next time */ }
+  });
   // Send the reel being watched to a friend (components/sendmedia.js): the paper-airplane button
   // after the title. A function, because the reel changes with Next and Previous.
   $(".reel-title").after(sendButton(() => {
@@ -676,12 +693,13 @@ async function renderPlayer(view, { query }) {
         const W = regroupWords(data.words, lang, true, (s) => segText.get(s));
         const parts = [];
         let w = 0;
+        const shown = displayWords(W.text, data.vowels, (i) => W.seg[i]); // Arabic: drawn vowelled (vowels.js)
         for (const seg of data.segments) {
           parts.push(`<p class="seg">`);
           const first = w;
           while (w < W.start.length && W.seg[w] === seg.idx) {
             if (w > first) parts.push(gap(W.text[w - 1], W.text[w], lang));
-            parts.push(`<span class="w" data-i="${w}">${esc(W.text[w])}</span>`);
+            parts.push(`<span class="w" data-i="${w}">${esc(shown[w])}</span>`);
             w++;
           }
           parts.push("</p>");
@@ -694,7 +712,7 @@ async function renderPlayer(view, { query }) {
         wordsEl.setAttribute("lang", lang);
         wordsEl.setAttribute("dir", langInfo(lang).dir);
         cur = { ep, lang, starts: Float64Array.from(W.start), ends: Float64Array.from(W.end), segOf: Int32Array.from(W.seg),
-                texts: W.text, els: wordsEl.querySelectorAll(".w") };
+                texts: W.text, els: wordsEl.querySelectorAll(".w"), vowels: data.vowels || null };
         const reel = cur;
         cur.fixer = wordFixer({
           episodeId: ep.id, texts: W.text, editable: W === data.words, contextFor: contextAt,
@@ -707,6 +725,8 @@ async function renderPlayer(view, { query }) {
         // every form of that word "seen" (js/lexicon/seen.js).
         seen = seenWords({ tokens: W.text, lang, els: cur.els });
       }
+      vowelsBtn.hidden = !cur || cur.lang !== "ar";
+      vowelsBtn.repaint();
     }
     if (!surface) {
       stage.innerHTML = "";
@@ -792,6 +812,7 @@ async function renderPlayer(view, { query }) {
   await show(index);
   return () => {
     disposed = true;
+    offVowels();
     offState();
     stopStudy();
     clearInterval(settle);

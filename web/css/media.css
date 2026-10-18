@@ -305,3 +305,10 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
   .player-head #toggle-panel .lbl { display: none; }
   .player-head #toggle-panel { padding-left: 7px; padding-right: 7px; }
 }
+
+/* Arabic vowels switch (js/vowels.js): حَ, filled in while the words show their vowel marks. */
+.vowels-btn { font-family: var(--ar-font); font-size: 18px; line-height: 1; min-width: 34px; }
+button.ghost.vowels-btn.on, button.ghost.vowels-btn.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+button.ghost.vowels-btn.on.held { background: transparent; color: var(--accent); border: 1px dashed var(--accent); }
+.reel-controls .vowels-btn { height: 26px; min-height: 0; padding: 0 8px; }
+.vowels-row label { display: inline-flex; align-items: center; gap: 6px; flex-basis: 100%; }

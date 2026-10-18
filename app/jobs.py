@@ -15,7 +15,7 @@ from collections.abc import Iterable
 from pathlib import Path
 from typing import Any
 
-from . import arabic, audio, db, downloader, events, languages, paths, sync, transcriber, videos
+from . import arabic, audio, db, downloader, events, languages, paths, sync, tashkeel, transcriber, videos
 from .transcriber import Segment, TranscriptionCancelled
 
 log = logging.getLogger(__name__)
@@ -292,6 +292,7 @@ def _process(job: dict[str, Any], cancel: threading.Event) -> None:
                 _set_episode(conn, ep_id, audio_path=None)
         log.info("Transcribed episode %s: %d segments, %d words", ep_id, len(segments), n_words)
         _episode_event(ep_id, status="done", progress=100, title=ep["title"], words=n_words)
+        tashkeel.kick(first=ep_id)  # Arabic: its vowelled copy, if the vowel model is here
         sync.request()
     except (TranscriptionCancelled, downloader.Cancelled):
         if worker._stop.is_set():

@@ -11,7 +11,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, RedirectResponse, Response, StreamingResponse
 from pydantic import BaseModel
 
-from .. import corrections, db, events, exporters, jobs, languages, pages, sync, videos, youtube
+from .. import corrections, db, events, exporters, jobs, languages, pages, sync, tashkeel, videos, youtube
 
 router = APIRouter(tags=["episodes"])
 
@@ -213,9 +213,14 @@ def transcript(episode_id: int) -> dict[str, Any]:
                             (episode_id,)).fetchall()
         words = conn.execute("SELECT start, end, text, seg_idx FROM words WHERE episode_id = ? ORDER BY idx",
                              (episode_id,)).fetchall()
+    # Arabic: each word's vowelled copy, if made yet; if not, it is made now (in the background).
+    vowels = tashkeel.for_episode(episode_id) if tashkeel.is_arabic(ep.get("language")) else None
+    if vowels is None and tashkeel.is_arabic(ep.get("language")) and tashkeel.installed():
+        tashkeel.kick(first=episode_id)
     # Columnar layout keeps a 10k-word payload small and lets the client build typed arrays directly.
     return {
         "episode": ep,
+        "vowels": vowels,
         "segments": db.rows_to_dicts(segs),
         "words": {
             "start": [round(w["start"], 3) for w in words],

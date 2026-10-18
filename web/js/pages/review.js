@@ -16,6 +16,7 @@ import { formatTime } from "../wordlookup.js";
 import { cardSentence } from "../cardtext.js";
 import { addReadings } from "../lexicon/readings.js";
 import { reward, trackStudy } from "../game/game.js";
+import { vowelCard } from "../vowels.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
@@ -418,6 +419,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       <button type="button" class="rv-yes"><span>${ICON.yes} Remembered</span><small>see it ${wait === 1 ? "" : "in "}${waitText(wait)} <kbd>2</kbd></small></button>`;
     actions.querySelector(".rv-no").onclick = () => grade(AGAIN);
     actions.querySelector(".rv-yes").onclick = () => grade(GOOD);
+    vowelCard(face, v, highlight); // Arabic with "Show vowels" on: the word and its sentence vowelled
   }
 
   /** Put todo[0] on the table (its back, when an answer has just been taken back). */

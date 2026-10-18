@@ -14,7 +14,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from . import audio, db, events, gpu_libs, jobs, paths, sync
+from . import audio, db, events, gpu_libs, jobs, paths, sync, tashkeel
 from .api import router as api_router
 from .api.feeds import refresh_in_background
 from .version import APP_NAME, __version__
@@ -61,6 +61,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     if app.state.start_worker:
         jobs.worker.start()
         refresh_in_background()
+        tashkeel.kick()  # Arabic transcripts still without their vowels (only once the vowel model is here)
         if sync.oauth.signed_in():
             sync.manager.start()
     log.info("%s %s started; data folder: %s", APP_NAME, __version__, paths.data_dir())

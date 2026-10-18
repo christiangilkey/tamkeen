@@ -14,7 +14,7 @@ import uuid
 from pathlib import Path
 from typing import Any
 
-from .. import db, events
+from .. import db, events, tashkeel
 from . import engine, oauth
 from .drive import DriveError, GoogleDrive
 
@@ -90,6 +90,8 @@ class Manager:
                 for feed_id in result.new_feeds:
                     feeds_mod.refresh_feed(feed_id)
                 self.request(delay=1)
+            if result.downloaded_transcripts:
+                tashkeel.kick()  # Arabic transcripts from the phone get their vowels here
             summary = result.summary()
             self._publish(state="idle", last_sync=time.time(), last_result=summary)
             if result.downloaded_transcripts or any(result.merged.values()):

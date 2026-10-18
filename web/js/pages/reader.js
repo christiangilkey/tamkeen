@@ -13,6 +13,7 @@ import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
+import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
 import { readingsReady } from "../lexicon/readings.js";
 
 const LONG_PRESS_MS = 550;
@@ -53,6 +54,10 @@ export async function render(view, { id, data, query }) {
   const n = W.text.length;
   const segOf = Int32Array.from(W.seg);
   const texts = W.text;
+  // Arabic with "Show vowels" on: the words are DRAWN vowelled (vowels.js); the title has no vowels.
+  const withTitle = (v) => (v && Array.isArray(v.words) ? { ...v, words: [...titleTokens.map(() => null), ...v.words] } : null);
+  let vowels = withTitle(data.vowels);
+  let shown = displayWords(texts, vowels, (i) => segOf[i]);
   let titleWords = 0;
   while (titleWords < n && segOf[titleWords] === TITLE_SEG) titleWords++;
   const source = webUrl(ep.audio_url);
@@ -89,7 +94,7 @@ export async function render(view, { id, data, query }) {
   let w = 0;
   for (; w < titleWords; w++) {
     if (w) parts.push(gap(texts[w - 1], texts[w], lang));
-    parts.push(`<span class="w" data-i="${w}">${esc(texts[w])}</span>`);
+    parts.push(`<span class="w" data-i="${w}">${esc(shown[w])}</span>`);
   }
   if (!titleWords) parts.push(esc(ep.title));
   parts.push("</h1>");
@@ -102,7 +107,7 @@ export async function render(view, { id, data, query }) {
     const first = w;
     while (w < n && segOf[w] === seg.idx) {
       if (w > first) parts.push(gap(texts[w - 1], texts[w], lang));
-      parts.push(`<span class="w" data-i="${w}">${esc(texts[w])}</span>`);
+      parts.push(`<span class="w" data-i="${w}">${esc(shown[w])}</span>`);
       w++;
     }
     if (w === first) parts.push(esc(seg.text));
@@ -113,6 +118,10 @@ export async function render(view, { id, data, query }) {
   const wordEls = tr.querySelectorAll(".w");
   // Words never tapped before are drawn in purple; a tap makes every form of the word "seen".
   const seen = seenWords({ tokens: texts, lang, els: wordEls });
+  const redrawVowels = () => { shown = displayWords(texts, vowels, (i) => segOf[i]); paintWords(wordEls, shown); };
+  const vowelsBtn = vowelsButton(lang, redrawVowels, () => vowels);
+  if (vowelsBtn) $("#font-down").before(vowelsBtn);
+  const stopVowels = watchVowels(id, (v) => { vowels = withTitle(v); redrawVowels(); if (vowelsBtn) vowelsBtn.repaint(); });
 
   // ---------- word popup ----------
   let target = null; // {i, j, si, sj, text}
@@ -356,6 +365,7 @@ export async function render(view, { id, data, query }) {
   const stopStudy = trackStudy("read", () => Date.now() - lastActive < 60000);
   return () => {
     stopStudy();
+    stopVowels();
     seen.close();
     try { localStorage.setItem(posKey, String(Math.round(tr.scrollTop))); } catch { /* storage unavailable */ }
     clearTimeout(scrollTimer);

@@ -232,13 +232,16 @@ _SYNC_COLUMNS = {
     "episodes": [("uid", "TEXT"), ("updated_at", "REAL"), ("transcribe_requested_at", "REAL"),
                  ("remote_audio", "INTEGER NOT NULL DEFAULT 0"), ("synced_rev", "REAL"),
                  ("sync_audio_path", "TEXT"), ("deleted", "INTEGER NOT NULL DEFAULT 0"),
-                 ("language", "TEXT")],  # what it was transcribed/imported as: ar, es, fr, ja, zh, ru
+                 ("language", "TEXT"),  # what it was transcribed/imported as: ar, es, fr, ja, zh, ru
+                 ("vowels", "TEXT")],  # Arabic vowel marks made for it (JSON, see app/tashkeel.py)
     "vocab": [("uid", "TEXT"), ("updated_at", "REAL"), ("deleted", "INTEGER NOT NULL DEFAULT 0"),
               ("episode_uid", "TEXT"), ("folders", "TEXT NOT NULL DEFAULT '[]'"),
               ("clip", "INTEGER NOT NULL DEFAULT 0"), ("translation", "TEXT NOT NULL DEFAULT ''"),
               ("memo", "TEXT NOT NULL DEFAULT ''"),
               ("language", "TEXT")],  # the word's language: the app shows only the language being learned
     "segments": [("kind", "TEXT")],
+    # Arabic vowel marks (app/tashkeel.py): each word's vowelled copy (NULL = the word as it is).
+    "words": [("vowelled", "TEXT")],
 }
 
 # updated_at is bumped automatically whenever a synced field changes locally. Sync writes
@@ -413,6 +416,10 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     # whether words tapped or saved before seen words were kept have been counted on this device.
     "lexicon_declined": False,
     "ru_stress": True,              # Russian text shows stress marks (ла́дно) once its word table is here
+    # Arabic vowel marks (app/tashkeel.py, web/js/vowels.js): shown or not, and also on dialect speech,
+    # where they are a guess (the model learned Standard Arabic).
+    "show_vowels": False,
+    "vowels_dialect": False,
     "lexemes_backfilled": [],
     "beam_size": 5,
     # The creature game: its whole saved state (see web/js/game/rules.js), whether it makes sounds,

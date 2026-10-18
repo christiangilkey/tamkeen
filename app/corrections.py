@@ -10,7 +10,7 @@ from __future__ import annotations
 import time
 from typing import Any
 
-from . import arabic, db
+from . import arabic, db, tashkeel
 
 MAX_WORDS = 8          # words changed at once
 MAX_WORD_CHARS = 120
@@ -70,6 +70,8 @@ def correct_words(episode_id: int, first: int, last: int, expect: list[str], wor
                 conn.execute("INSERT INTO segments_fts(norm, episode_id, seg_idx) VALUES(?,?,?)", (norm, episode_id, seg))
         for idx, text in new_by_idx.items():
             conn.execute("UPDATE words SET text = ? WHERE episode_id = ? AND idx = ?", (text, episode_id, idx))
+        tashkeel.words_changed(conn, episode_id, list(new_by_idx), now)  # Arabic: their vowels are made again
         # A fresh transcribed_at makes the next sync publish the changed transcript.
         conn.execute("UPDATE episodes SET transcribed_at = ? WHERE id = ?", (now, episode_id))
+    tashkeel.kick(first=episode_id)
     return {"ok": True, "transcribed_at": now}

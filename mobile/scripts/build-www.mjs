@@ -28,6 +28,8 @@ const SHARED = [
   "js/lexicon",
   "js/icons.js",
   "js/scrollhint.js",
+  "js/vowels.js",
+  "js/vowelmarks.js",
   "js/game",
   "game-art",
   "js/components/langpicker.js",

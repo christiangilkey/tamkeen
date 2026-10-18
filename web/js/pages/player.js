@@ -26,6 +26,7 @@ import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
+import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const LONG_PRESS_MS = 550;
@@ -131,6 +132,9 @@ export async function render(view, { id, query }) {
   const ends = Float64Array.from(W.end);
   const segOf = Int32Array.from(W.seg);
   const texts = W.text;
+  // Arabic with "Show vowels" on: the words are DRAWN vowelled (vowels.js); `texts` stay as they are.
+  let vowels = data.vowels || null;
+  let shown = displayWords(texts, vowels, (i) => segOf[i]);
 
   // ---------- markup ----------
   const img = ep.image || ep.feed_image;
@@ -209,7 +213,7 @@ export async function render(view, { id, query }) {
     const first = w;
     while (w < n && segOf[w] === seg.idx) {
       if (w > first) parts.push(gap(texts[w - 1], texts[w], lang));
-      parts.push(`<span class="w" data-i="${w}">${esc(texts[w])}</span>`);
+      parts.push(`<span class="w" data-i="${w}">${esc(shown[w])}</span>`);
       w++;
     }
     if (w === first) parts.push(esc(seg.text));
@@ -292,7 +296,7 @@ export async function render(view, { id, query }) {
     capStart = start;
     capEl.innerHTML = start < 0 ? ""
       : Array.from({ length: end - start + 1 }, (_, k) =>
-        `${k ? gap(texts[start + k - 1], texts[start + k], lang) : ""}<span class="w" data-i="${start + k}">${esc(texts[start + k])}</span>`).join("");
+        `${k ? gap(texts[start + k - 1], texts[start + k], lang) : ""}<span class="w" data-i="${start + k}">${esc(shown[start + k])}</span>`).join("");
     capEls = [...capEl.querySelectorAll(".w")];
     if (start >= 0) seen.paint(capEls, start);
   }
@@ -659,6 +663,15 @@ export async function render(view, { id, query }) {
   // under the captions when a caption word was tapped (see defineAt).
   // Quick or detailed lookup: the switch sits with the play controls (podcasts, videos, YouTube).
   $("#speed").after(lookupToggle());
+  // Arabic: the vowels switch (vowels.js), and the vowels themselves once the computer has made them.
+  const redrawVowels = () => {
+    shown = displayWords(texts, vowels, (i) => segOf[i]);
+    paintWords(wordEls, shown);
+    if (capStart >= 0) paintWords(capEls, shown, capStart);
+  };
+  const vowelsBtn = vowelsButton(lang, redrawVowels, () => vowels);
+  if (vowelsBtn) $("#font-down").before(vowelsBtn);
+  const stopVowels = watchVowels(id, (v) => { vowels = v; redrawVowels(); if (vowelsBtn) vowelsBtn.repaint(); });
   // Misheard words, put right in the transcript when a lookup finds them (fixword.js). Only where
   // the words on screen are the stored ones (not Japanese or Chinese, regrouped for display).
   const fixer = wordFixer({
@@ -873,6 +886,7 @@ export async function render(view, { id, query }) {
     else if (vid && (e.key === "t" || e.key === "T")) setPanel(!playerEl.classList.contains("panel-open"));
     else if (vid && (e.key === "c" || e.key === "C")) setCaptions(playerEl.classList.contains("cc-off"));
     else if (vid && (e.key === "f" || e.key === "F") && document.fullscreenEnabled) toggleFullscreen();
+    else if (vowelsBtn && (e.key === "v" || e.key === "V") && !e.ctrlKey && !e.metaKey) vowelsBtn.click();
   };
   document.addEventListener("keydown", onKey);
 
@@ -902,6 +916,7 @@ export async function render(view, { id, query }) {
   return () => {
     disposed = true;
     stopStudy();
+    stopVowels();
     seen.close();
     if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
     document.removeEventListener("fullscreenchange", onFullscreen);
