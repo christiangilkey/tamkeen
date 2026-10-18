@@ -2798,7 +2798,10 @@ forms, the stress of every form, and each verb's aspect partner.
   (real download from Hugging Face, checksum, remove, prompt, MSA, Levantine held back and shown as a guess,
   reader, review card) and a phone-size build in the scratchpad. Pictures: `../vowels-pictures/`.
   **Not done / not checked**: never on a real phone or with real Whisper output; the Vocab list's cards are not
-  vowelled (only the reviewer); page titles are not vowelled; the new English strings are not in the i18n tables.
+  vowelled (only the reviewer); page titles are not vowelled.
+- Translations: `tools/i18n/tr/<code>/21-vowels.txt` (8 languages). The dialect names are whole phrases
+  ("Egyptian" = "Árabe egipcio", "a dialect" = "Un dialecto árabe") so `{0}` in the dialect note reads right;
+  the three dialect word lists in tashkeel.py and "Apache 2.0" are in ignore.txt.
 
 ### Japanese and Chinese: real words, furigana, pinyin, simplified/traditional (2026-10-18; commit 1d9b9b1, NOT pushed)
 Asked through the main chat: tapping words in Japanese/Chinese was unreliable (the device's Intl.Segmenter cut

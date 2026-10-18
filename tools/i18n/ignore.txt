@@ -143,3 +143,8 @@ e19bfad1
 6a56b00a
 db2dff44
 067a88a4  # licence names on About (Japanese dictionary), not interface text
+# Arabic vowels: the dialect giveaway words (app/tashkeel.py) and a licence name on About.
+2c7e1252  # Levantine words
+057067d3  # Egyptian words
+9ed22417  # Gulf words
+6b5eb532  # Apache 2.0 (licence name)

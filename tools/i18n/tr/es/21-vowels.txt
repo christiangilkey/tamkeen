@@ -1,0 +1,22 @@
+b7219bda	Árabe egipcio
+475410e2	Árabe levantino
+81298f3a	Árabe del Golfo
+64202d79	Un dialecto árabe
+0757a38e	Aquí las vocales son una suposición: suena a {0:lower}, y el modelo de vocales aprendió árabe estándar.
+01738e86	Aquí no hay vocales: suena a {0:lower}, y el modelo de vocales solo conoce el árabe estándar. En Ajustes puedes mostrarlas como suposición.
+ebf17aa6	¿Añadir vocales al árabe?
+f6ca8deb	El árabe se escribe sin sus vocales cortas. Tamkeen puede añadirlas a tus transcripciones, páginas y reels en árabe, para que veas cómo se dice cada palabra. Para eso hace falta un modelo de vocales, una descarga única de {0} MB que se guarda en este ordenador. Tu teléfono recibe las vocales desde aquí cuando sincroniza.
+79151896	Aprendió árabe estándar: en árabe de estilo periodístico, unas 4 de cada 5 palabras salen totalmente bien. No conoce el habla egipcia, levantina ni del Golfo, así que esas se quedan sin vocales salvo que pidas una suposición.
+3a719e9b	Descargar ({0} MB)
+ec1c7366	Descargando el modelo de vocales. Las vocales aparecerán cuando termine.
+955dc8cb	Mostrar u ocultar las vocales (V)
+deee2838	Mostrar las vocales (حَرَكات) en transcripciones, páginas y reels
+451a444b	También en el habla egipcia, levantina y del Golfo (una suposición, a menudo errónea)
+59e8699c	Tamkeen en tu ordenador añade las vocales (descarga el modelo de vocales en sus Ajustes); llegan aquí cuando sincronizas.
+10d9f8dc	Añadiendo vocales…
+e549162d	✓ El modelo de vocales está en este ordenador ({0} MB). {1}
+b281359a	Descargando el modelo de vocales… {0}%
+2820e9e6	Las vocales del árabe necesitan un modelo de vocales ({0} MB, árabe estándar). {1}
+cb9ed3a8	Modelo de vocales árabes CATT, de Abjad AI (descarga opcional)
+2d689417	No se pudo descargar el modelo de vocales ({0}). Revisa tu conexión e inténtalo de nuevo.
+da48fac9	El modelo de vocales no está descargado.

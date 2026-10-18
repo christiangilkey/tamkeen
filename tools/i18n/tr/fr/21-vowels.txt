@@ -1,0 +1,22 @@
+b7219bda	Arabe égyptien
+475410e2	Arabe levantin
+81298f3a	Arabe du Golfe
+64202d79	Dialecte arabe
+0757a38e	Ici, les voyelles sont une supposition : ce passage semble être en {0:lower}, et le modèle de voyelles a appris l'arabe standard.
+01738e86	Pas de voyelles ici : ce passage semble être en {0:lower}, et le modèle de voyelles ne connaît que l'arabe standard. Les Réglages permettent de les afficher comme supposition.
+ebf17aa6	Ajouter les voyelles à l'arabe ?
+f6ca8deb	L'arabe s'écrit sans ses voyelles brèves. Tamkeen peut les ajouter à vos transcriptions, pages et reels en arabe, pour que vous voyiez comment chaque mot se prononce. Il faut pour cela un modèle de voyelles, un téléchargement unique de {0} Mo conservé sur cet ordinateur. Votre téléphone reçoit les voyelles d'ici lors de la synchronisation.
+79151896	Il a appris l'arabe standard : sur un arabe de style journalistique, environ 4 mots sur 5 sortent entièrement justes. Il ne connaît pas les parlers égyptien, levantin ou du Golfe, qui restent donc sans voyelles, sauf si vous demandez une supposition.
+3a719e9b	Télécharger ({0} Mo)
+ec1c7366	Téléchargement du modèle de voyelles. Les voyelles apparaîtront une fois terminé.
+955dc8cb	Afficher ou masquer les voyelles (V)
+deee2838	Afficher les voyelles (حَرَكات) dans les transcriptions, pages et reels
+451a444b	Aussi pour les parlers égyptien, levantin et du Golfe (une supposition, souvent fausse)
+59e8699c	Tamkeen sur votre ordinateur ajoute les voyelles (téléchargez le modèle de voyelles dans ses Réglages) ; elles arrivent ici lors de la synchronisation.
+10d9f8dc	Ajout des voyelles…
+e549162d	✓ Le modèle de voyelles est sur cet ordinateur ({0} Mo). {1}
+b281359a	Téléchargement du modèle de voyelles… {0} %
+2820e9e6	Les voyelles de l'arabe nécessitent un modèle de voyelles ({0} Mo, arabe standard). {1}
+cb9ed3a8	Modèle de voyelles arabes CATT, d'Abjad AI (téléchargement facultatif)
+2d689417	Impossible de télécharger le modèle de voyelles ({0}). Vérifiez votre connexion et réessayez.
+da48fac9	Le modèle de voyelles n'est pas téléchargé.

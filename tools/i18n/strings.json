@@ -13118,5 +13118,115 @@
   "id": "a3451771",
   "k": "CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)",
   "f": "app/api/system.py"
+ },
+ {
+  "id": "b7219bda",
+  "k": "Egyptian",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "475410e2",
+  "k": "Levantine",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "81298f3a",
+  "k": "Gulf",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "64202d79",
+  "k": "a dialect",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "0757a38e",
+  "k": "Vowels are a guess here: this sounds like {0} Arabic, and the vowel model learned Standard Arabic.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "01738e86",
+  "k": "No vowels here: this sounds like {0} Arabic, and the vowel model only knows Standard Arabic. Settings can show them as a guess.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "ebf17aa6",
+  "k": "Add vowels to Arabic?",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "f6ca8deb",
+  "k": "Arabic is written without its short vowels. Tamkeen can add them to your Arabic transcripts, pages and reels, so you can see how each word is said. That needs a vowel model, a one-time {0} MB download kept on this computer. Your phone gets the vowels from here when it syncs.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "79151896",
+  "k": "It learned Standard Arabic: on news-style Arabic about 4 words in 5 come out fully right. It doesn't know Egyptian, Levantine or Gulf speech, so those are left without vowels unless you ask for a guess.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "3a719e9b",
+  "k": "Download ({0} MB)",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "ec1c7366",
+  "k": "Downloading the vowel model. Vowels appear when it is done.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "955dc8cb",
+  "k": "Show or hide vowel marks (V)",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "deee2838",
+  "k": "Show vowels (حَرَكات) in transcripts, pages and reels",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "451a444b",
+  "k": "Also on Egyptian, Levantine and Gulf speech (a guess, often wrong)",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "59e8699c",
+  "k": "Tamkeen on your computer adds the vowels (download the vowel model in its Settings); they come here when you sync.",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "10d9f8dc",
+  "k": "Adding vowels…",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "e549162d",
+  "k": "✓ The vowel model is on this computer ({0} MB).{1}",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "b281359a",
+  "k": "Downloading the vowel model… {0}%",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "2820e9e6",
+  "k": "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}",
+  "f": "web/js/vowels.js"
+ },
+ {
+  "id": "cb9ed3a8",
+  "k": "CATT Arabic vowel model, Abjad AI (optional download)",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "2d689417",
+  "k": "Couldn't download the vowel model ({0}). Check your connection and try again.",
+  "f": "app/tashkeel.py"
+ },
+ {
+  "id": "da48fac9",
+  "k": "The vowel model isn't downloaded.",
+  "f": "app/tashkeel.py"
  }
 ]
