@@ -22,7 +22,12 @@ For Spanish, French and Italian the files are tables of word forms and their dic
 
 | File | Made from | Licence |
 |---|---|---|
-| `es-lemmas.json.gz`, `fr-lemmas.json.gz`, `it-lemmas.json.gz` | [Lemmatization lists](https://github.com/michmech/lemmatization-lists) by Michal Měchura; word counts from [wordfreq](https://github.com/rspeer/wordfreq) by Robyn Speer (CC BY-SA 4.0) to keep the forms people meet and to choose between two dictionary forms for one spelling | Open Database License 1.0: `LICENSE-ODbL-1.0.txt` |
+| `es-lemmas.json.gz`, `fr-lemmas.json.gz`, `it-lemmas.json.gz`, `en-lemmas.json.gz` | [Lemmatization lists](https://github.com/michmech/lemmatization-lists) by Michal Měchura; word counts from [wordfreq](https://github.com/rspeer/wordfreq) by Robyn Speer (CC BY-SA 4.0) to keep the forms people meet and to choose between two dictionary forms for one spelling | Open Database License 1.0: `LICENSE-ODbL-1.0.txt` |
+
+The English table also carries US pronunciations (IPA) for the 60,000 commonest words, converted
+from the [CMU Pronouncing Dictionary](https://github.com/cmusphinx/cmudict) (BSD-style licence:
+`LICENSE-CMUdict.txt`); `web/js/lexicon/english.js` reads them, with a hand-written list of common
+phrasal verbs.
 
 Russian has one table of word forms with stress, read by `web/js/lexicon/russian.js`:
 

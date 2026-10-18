@@ -28,9 +28,10 @@ BASE_URL = "https://christiangilkey.github.io/tamkeen/lexicon/"
 # The files each language uses, by name (Standard Arabic first: it is the one tried first).
 # Spanish, French and Italian have one table of word forms each (tools/build_lemmas.py); Russian
 # has one with stress marks too (tools/build_russian.py).
-LANGUAGES = {"ar": ("msa", "egy", "lev", "glf"), "es": ("es",), "fr": ("fr",), "it": ("it",), "ru": ("ru",)}
+LANGUAGES = {"ar": ("msa", "egy", "lev", "glf"), "es": ("es",), "fr": ("fr",), "it": ("it",), "ru": ("ru",), "en": ("en",)}
 FILES = {"msa": "ar-msa.json.gz", "egy": "ar-egy.json.gz", "lev": "ar-lev.json.gz", "glf": "ar-glf.json.gz",
-         "es": "es-lemmas.json.gz", "fr": "fr-lemmas.json.gz", "it": "it-lemmas.json.gz", "ru": "ru-lemmas.json.gz"}
+         "es": "es-lemmas.json.gz", "fr": "fr-lemmas.json.gz", "it": "it-lemmas.json.gz", "ru": "ru-lemmas.json.gz",
+         "en": "en-lemmas.json.gz"}
 
 _lock = threading.Lock()
 

@@ -103,11 +103,23 @@ async function readDictionaries(lang) {
 
 export const lexiconStatus = (lang) => api(`/lexicon/status?lang=${lang}`);
 
+/** A word's pronunciation from the language's downloaded table (English: US IPA from the CMU
+ * Pronouncing Dictionary), or "" when there is none. Never asks to download anything. */
+export async function pronounceWord(word, lang) {
+  if (lang !== "en") return "";
+  const dicts = await dictionaries(lang);
+  const table = (dicts || []).find((d) => d instanceof LemmaTable);
+  if (!table) return "";
+  const { pronunciation } = await import("./english.js");
+  return pronunciation(word, table);
+}
+
 /** Download a language's dictionaries, then colour whatever is on screen. */
 export async function downloadDictionaries(lang) {
   const st = await api("/lexicon/download", { method: "POST", body: { lang } });
   loaded.delete(lang);
   if (declined(lang)) setDeclined(lang, false).catch(() => {});
+  if (offerShown && offerShown.lang === lang) offerShown.close(); // downloaded another way (Settings) meanwhile
   for (const v of views) if (v.lang === lang) v.analyze();
   return st;
 }
@@ -174,13 +186,15 @@ function setDeclined(lang, on) {
 
 // What the offer shows for each language: forms of one word, and who made the files.
 const EXAMPLES = { ar: "كتب، يكتبون، سأكتبها", es: "hablo, hablaste, háblame", fr: "parle, parlons, parlez-moi", it: "parlo, parliamo, parlami",
-  ru: "говорю, сказала, скажи" };
+  ru: "говорю, сказала, скажи", en: "run, ran, running" };
 const SOURCES = {
+  en: "open word lists (Michal Měchura's lemmatization list and the wordfreq word counts) and the CMU Pronouncing Dictionary, which gives the US pronunciation shown in the word popup",
   ru: "the OpenRussian.org dictionary, which also gives each word's stress, so Russian text can show it (ла́дно)",
 };
 const WORD_LISTS = "open word lists (Michal Měchura's lemmatization lists and the wordfreq word counts)";
 
 let offering = false;
+let offerShown = null; // {lang, close} while the offer is on screen
 /**
  * Ask someone learning Arabic whether to download its dictionaries. Shown when Arabic is chosen
  * as the language to learn, unless they are already here or the answer was "not now"
@@ -212,7 +226,8 @@ export async function offerDictionaries(lang, force = false) {
         <button type="button" data-act="later">Not now</button>
       </div>
     </div></div>`);
-  const close = () => { offering = false; el.remove(); };
+  const close = () => { offering = false; offerShown = null; el.remove(); };
+  offerShown = { lang, close };
   el.querySelector("[data-act=later]").onclick = () => {
     setDeclined(lang, true).catch(() => {});
     close();
@@ -267,7 +282,7 @@ function onceReady(lang, dicts) {
 }
 
 // Russian is converted twice: once for е/ё and stress marks (no table needed), once for its table.
-const UPGRADES = { es: "es:lemmas1", fr: "fr:lemmas1", it: "it:lemmas1", ru: "ru:lemmas1" };
+const UPGRADES = { es: "es:lemmas1", fr: "fr:lemmas1", it: "it:lemmas1", ru: "ru:lemmas1", en: "en:lemmas1" };
 const upgradeMark = (lang, dicts) => (lang === "ru" && !dicts.length ? "ru:yo1" : dicts.length ? UPGRADES[lang] : null);
 const upgrading = new Set();
 /** Seen words kept before a language had its word table were kept by spelling (es|hablas|x).

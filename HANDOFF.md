@@ -2727,3 +2727,18 @@ forms, the stress of every form, and each verb's aspect partner.
 - Credits: `docs/lexicon/README.md`, `LICENSE-CC-BY-SA-4.0.txt`, `licenses/openrussian.txt` (on About).
 - Checked in a desktop preview: stress shown, switch works, old "книги" whitened книга, tapping сказала
   whitened говорю and Скажи. Tests: `tests/js/russian.test.mjs`.
+
+### English: seen words by dictionary form, phrasal verbs, US pronunciation (2026-10-17; committed locally, NOT pushed)
+- `docs/lexicon/en-lemmas.json.gz` (0.6 MB) by `tools/build_lemmas.py en=... cmu=...`: Měchura's English list
+  (ODbL; ran -> run, mice -> mouse, went -> go, better -> good) + `ipa` {word: US IPA} for wordfreq's top 60k
+  words, converted from the CMU Pronouncing Dictionary (BSD-style; `to_ipa` puts ˈ/ˌ before the syllable with a
+  simple onset rule; first pronunciation only).
+- `web/js/lexicon/english.js`: contractions undone (don't -> do, can't -> can, won't -> will, she's/John's ->
+  she/john); `PHRASAL` = a hand-written list of ~330 common phrasal verbs: verb + particle, or verb + short
+  pronoun + particle (give it up), share the lexeme `en|give up|x`; punctuation between breaks it.
+  `pronunciation(word, table)`.
+- Popup: `wordbubble.js` shows the IPA next to the word for English (`pronounceWord` in seen.js; nothing
+  without the table). Old English seen words converted once (`en:lemmas1`).
+- Credits: README, `LICENSE-CMUdict.txt`, `licenses/cmudict.txt`, `licenses/lemmatization-lists.txt` (About).
+- Checked in a desktop preview: tapping "looking" whitened "after" (look after), popup showed /ˈlʊkɪŋ/, /ˈmaɪs/.
+  Tests: `tests/js/english.test.mjs`.

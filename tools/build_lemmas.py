@@ -1,4 +1,4 @@
-"""Build the Spanish, French and Italian word tables: each word form and its dictionary form.
+"""Build the Spanish, French, Italian and English word tables: each word form and its dictionary form.
 
 The app uses them to treat hablas, hablaste and hablemos as one word, hablar (see
 web/js/lexicon/romance.js). They come from two open data sets:
@@ -10,7 +10,11 @@ web/js/lexicon/romance.js). They come from two open data sets:
     (ligas: liga "league" or ligar "to tie"?) by how common each is.
 
     pip install wordfreq
-    python tools/build_lemmas.py es=path/to/lemmatization-es.txt fr=... it=...
+    python tools/build_lemmas.py es=path/to/lemmatization-es.txt fr=... it=... en=... cmu=path/to/cmudict.dict
+
+English also gets US pronunciations (IPA) from the CMU Pronouncing Dictionary
+(https://github.com/cmusphinx/cmudict, BSD-style licence, see licenses/cmudict.txt), for the
+words people meet most, shown in the word popup.
 
 Writes docs/lexicon/<lang>-lemmas.json.gz and adds it to docs/lexicon/index.json. The tables are
 derived databases, so they stay under the Open Database License (docs/lexicon/README.md).
@@ -31,7 +35,8 @@ from wordfreq import top_n_list, zipf_frequency
 OUT = Path(__file__).resolve().parent.parent / "docs" / "lexicon"
 FORMAT = 1
 KEEP = 250_000  # forms beyond this many of the language's commonest words are left out
-TITLES = {"es": "Spanish", "fr": "French", "it": "Italian"}
+TITLES = {"es": "Spanish", "fr": "French", "it": "Italian", "en": "English"}
+IPA_WORDS = 60_000  # English words that get a pronunciation
 WORD = re.compile(r"^[\w'’-]+$")
 # Common words the lists get wrong or leave out (checked by hand): form -> dictionary form.
 EXTRA = {
@@ -43,6 +48,55 @@ EXTRA = {
 def clean(word: str) -> str:
     """As the app cleans a word (romance.js cleanWord): NFC, lower case, one kind of apostrophe."""
     return unicodedata.normalize("NFC", word.strip().replace("’", "'")).lower()
+
+
+# ---------- CMU Pronouncing Dictionary (ARPAbet) to IPA, US English ----------
+ARPA = {"AA": "ɑ", "AE": "æ", "AH": "ʌ", "AO": "ɔ", "AW": "aʊ", "AY": "aɪ", "B": "b", "CH": "tʃ", "D": "d", "DH": "ð",
+        "EH": "ɛ", "ER": "ɝ", "EY": "eɪ", "F": "f", "G": "ɡ", "HH": "h", "IH": "ɪ", "IY": "i", "JH": "dʒ", "K": "k",
+        "L": "l", "M": "m", "N": "n", "NG": "ŋ", "OW": "oʊ", "OY": "ɔɪ", "P": "p", "R": "ɹ", "S": "s", "SH": "ʃ",
+        "T": "t", "TH": "θ", "UH": "ʊ", "UW": "u", "V": "v", "W": "w", "Y": "j", "Z": "z", "ZH": "ʒ"}
+ONSETS = {"pl", "pɹ", "bl", "bɹ", "tɹ", "dɹ", "kl", "kɹ", "ɡl", "ɡɹ", "fl", "fɹ", "θɹ", "ʃɹ", "sp", "st", "sk", "sm",
+          "sn", "sl", "sw", "tw", "kw", "dw", "pj", "bj", "kj", "fj", "mj", "hj", "spl", "spɹ", "stɹ", "skɹ", "skw"}
+
+
+def to_ipa(phones: list[str]) -> str:
+    """ARPAbet phones to IPA with stress marks before the stressed syllable (a simple onset rule)."""
+    out: list[str] = []  # (symbol) per phone
+    marks: list[tuple[int, str]] = []
+    for p in phones:
+        base, stress = (p[:-1], p[-1]) if p[-1].isdigit() else (p, "")
+        sym = ARPA.get(base, "")
+        if base == "AH" and stress == "0":
+            sym = "ə"
+        if base == "ER" and stress == "0":
+            sym = "ɚ"
+        if stress in ("1", "2"):
+            marks.append((len(out), "ˈ" if stress == "1" else "ˌ"))
+        out.append(sym)
+    for vowel, mark in reversed(marks):
+        start = vowel
+        # Take in as many consonants before the vowel as can start a syllable together.
+        for n in (3, 2, 1):
+            cluster = out[vowel - n:vowel] if vowel - n >= 0 else None
+            if cluster and all(c and c not in "ɑæʌɔəɛɝɚɪiʊu" and not c.startswith(("a", "e", "o")) for c in cluster)                     and (n == 1 or "".join(cluster) in ONSETS):
+                start = vowel - n
+                break
+        out.insert(start, mark)
+    return "".join(out)
+
+
+def pronunciations(path: Path) -> dict[str, str]:
+    common = top_n_list("en", IPA_WORDS, wordlist="large")
+    wanted = set(common)
+    found: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        parts = line.split("#")[0].split()
+        if len(parts) < 2 or "(" in parts[0]:
+            continue  # only the first pronunciation of each word
+        word = parts[0].lower()
+        if word in wanted and word not in found:
+            found[word] = to_ipa(parts[1:])
+    return found
 
 
 def convert(lang: str, path: Path) -> dict:
@@ -90,11 +144,17 @@ def convert(lang: str, path: Path) -> dict:
 def main(args: list[str]) -> None:
     index_path = OUT / "index.json"
     index = json.loads(index_path.read_text(encoding="utf-8"))
+    cmu = next((a.partition("=")[2] for a in args if a.startswith("cmu=")), None)
     for arg in args:
         lang, _, src = arg.partition("=")
+        if lang == "cmu":
+            continue
         if lang not in TITLES or not src:
             raise SystemExit(f"Expected lang=path with lang one of {', '.join(TITLES)}; got {arg!r}")
         data = convert(lang, Path(src))
+        if lang == "en" and cmu:
+            data["ipa"] = pronunciations(Path(cmu))
+            data["ipa_source"] = "CMU Pronouncing Dictionary"
         blob = gzip.compress(json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode("utf-8"), mtime=0)
         file = f"{lang}-lemmas.json.gz"
         (OUT / file).write_bytes(blob)

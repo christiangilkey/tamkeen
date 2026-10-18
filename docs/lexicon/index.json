@@ -11,6 +11,16 @@
    "stems": 59650,
    "lexemes": 80700
   },
+  "en": {
+   "file": "en-lemmas.json.gz",
+   "bytes": 599805,
+   "sha256": "2790d37372e82ab0eabe65dc44684a0ab89b00490a4a309ae8d9224a0416c5a8",
+   "title": "English word forms",
+   "db": "lemmatization-lists + wordfreq",
+   "license": "ODbL-1.0",
+   "forms": 37604,
+   "lexemes": 26051
+  },
   "es": {
    "file": "es-lemmas.json.gz",
    "bytes": 928110,

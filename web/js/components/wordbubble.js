@@ -7,6 +7,7 @@ import { icon } from "../icons.js";
 import { LOOKUP_EVENT, lookupMode } from "./lookupmode.js";
 import { showTroubleshoot } from "./troubleshoot.js";
 import { kindOf } from "../trouble.js";
+import { pronounceWord } from "../lexicon/seen.js";
 
 // ----- what happens after a tapped word has played: pause there, or keep playing -----
 // One choice for the whole app, remembered on this device. Pausing is how it has always worked.
@@ -75,6 +76,7 @@ export function createWordBubble(host, actions) {
   let anchor = null;
   let ctx = null;
   let def = null;
+  let ipa = ""; // English: US pronunciation from the downloaded word table (lexicon/seen.js)
   let token = 0;
   let saved = false;
   // Quick lookup (see lookupmode.js): this popup shows only the meaning, with "More" to open
@@ -187,6 +189,7 @@ export function createWordBubble(host, actions) {
       <div class="wb-head">
         ${actions.onPauseMode && !actions.noAudio ? modeSwitch() : ""}
         <div class="wb-word ar" ${attrs()}>${esc(shown)}</div>
+        ${ipa ? `<span class="wb-ipa" translate="no" title="US pronunciation (CMU Pronouncing Dictionary)">${esc(ipa)}</span>` : ""}
         <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>
       ${fix ? fixPill() : ""}
@@ -315,6 +318,11 @@ export function createWordBubble(host, actions) {
     saved = !!opts.saved;
     quick = lookupMode() === "quick";
     el.hidden = false;
+    ipa = "";
+    const shownFor = context;
+    pronounceWord(context.word, context.lang).then((p) => {
+      if (p && ctx === shownFor && !el.hidden) { ipa = p; render(current.state, current.message); }
+    }).catch(() => {});
     load();
   }
 

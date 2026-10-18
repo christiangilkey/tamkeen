@@ -32,6 +32,7 @@ export class LemmaTable {
     this.isLemma = new Set(data.lemmas);
     this.stress = data.stress || null; // Russian: where each form's stress falls (see russian.js)
     this.shown = data.shown || null;   // Russian: dictionary forms written with ё
+    this.ipa = data.ipa || null;       // English: US pronunciations (see english.js)
   }
 
   /** The dictionary form of a word form the table knows, or null. */

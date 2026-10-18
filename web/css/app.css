@@ -1366,3 +1366,4 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .trouble, .trouble-list li { min-width: 0; overflow-wrap: anywhere; }
 .trouble-links .btn:only-child { grid-column: 1 / -1; }
 .lex-stress { display: inline-flex; align-items: center; gap: 6px; flex-basis: 100%; }
+.wb-ipa { font-size: 14px; color: var(--muted, #8a8494); margin-inline-start: 8px; white-space: nowrap; } /* English: US pronunciation */
