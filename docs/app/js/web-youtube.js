@@ -6,7 +6,7 @@
 import { esc, toast } from "./app.js";
 import { webFetch } from "./native.js";
 import { settings } from "./store.js";
-import { chosenCountry, youtubeHome } from "./youtube-home.js";
+import { chosenCountry, handmadeOnly, searchFilterCode, setHandmadeOnly, youtubeHome } from "./youtube-home.js";
 
 
 /** The data YouTube puts in its pages ("ytInitialData"): a JSON object on the computer site,
@@ -76,14 +76,18 @@ export async function render(view, { query }) {
   const lang = settings.study_language || "";
   const q = query.get("q") || "";
   const given = query.get("u") || "";
-  const address = q ? `${SITE}/results?search_query=${encodeURIComponent(q)}`
+  const handmade = handmadeOnly();
+  const sp = searchFilterCode(handmade);
+  const address = q ? `${SITE}/results?search_query=${encodeURIComponent(q)}${sp ? `&sp=${encodeURIComponent(sp)}` : ""}`
     : /^https:\/\/(www\.|m\.)?youtube\.com\//.test(given) ? given.replace(/^https:\/\/(www\.)?youtube\.com/, SITE)
-    : youtubeHome(lang, { mobile: true, country: chosenCountry(lang) });
+    : youtubeHome(lang, { mobile: true, country: chosenCountry(lang), handmade });
   view.innerHTML = `<div class="page stack">
     <form class="row web-yt-search" style="gap:8px">
       <input type="search" placeholder="Search YouTube" aria-label="Search YouTube" style="flex:1" value="${esc(q)}">
       <button class="primary" type="submit">Search</button>
     </form>
+    <label class="row small" style="gap:8px;align-items:center;margin:0"${given ? " hidden" : ""}>
+      <input type="checkbox" class="web-yt-handmade"${handmade ? " checked" : ""}> Only videos with handmade subtitles</label>
     <p class="small muted" style="margin:0">${q ? "" : given ? "This channel's videos." : "Popular this week."} Tap a video to watch it with its captions as words you can tap. It needs captions.</p>
     <div class="web-yt-list stack"><p class="muted">Loading videos…</p></div>
   </div>`;
@@ -93,6 +97,7 @@ export async function render(view, { query }) {
     const text = form.querySelector("input").value.trim();
     location.hash = text ? `#/youtube?q=${encodeURIComponent(text)}` : "#/youtube";
   };
+  view.querySelector(".web-yt-handmade").onchange = (e) => { setHandmadeOnly(e.target.checked); render(view, { query }); };
   const list = view.querySelector(".web-yt-list");
   let videos;
   try { videos = await fetchVideos(address); } catch (e) {
