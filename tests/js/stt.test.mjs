@@ -248,3 +248,16 @@ test("refusals are said plainly", () => {
   assert.match(sttFailure("openai", 404, '{"error":{"message":"The model `x` does not exist"}}').message, /doesn't recognise the chosen model/);
   assert.match(sttFailure("groq", 400, "{}").message, /couldn't transcribe this \(error 400\)/);
 });
+
+test("cloud transcription is off while a language with a model of its own (Bisaya) is learned", async () => {
+  const { cloudBlocked, sttConfig: config } = await import("../../web/js/stt.js");
+  const chosen = { stt_mode: "cloud", stt_key_groq: "gsk_x" };
+  assert.equal(config({ ...chosen, study_language: "es" }).on, true);
+  const ceb = config({ ...chosen, study_language: "ceb" });
+  assert.equal(ceb.on, false, "no provider knows Bisaya");
+  assert.equal(ceb.mode, "local");
+  assert.equal(ceb.blocked, true, "Settings greys the choice out and says why");
+  assert.equal(cloudBlocked("ceb"), true);
+  assert.equal(cloudBlocked("th"), false, "Thai has a better model of its own, but providers know Thai: it keeps the cloud");
+  assert.equal(cloudBlocked(""), false);
+});

@@ -78,6 +78,14 @@ def is_installed(size: str, engine: str | None = None) -> bool:
     return (model_dir(size, engine) / "manifest.json").exists()
 
 
+def needs_own_model(code: str | None) -> bool:
+    """Whether language `code` can only be written by a model of its own (LANGUAGE_MODELS), downloaded
+    or not: no cloud provider knows it (they fail, or write a neighbour: Bisaya as Tagalog), so cloud
+    transcription is off while it is studied (transcriber/cloud.py config). A model marked
+    "cloud_ok" is only better at a language cloud providers do know: that language keeps the cloud."""
+    return any(m["language"] == code and not m.get("cloud_ok") for m in LANGUAGE_MODELS.values())
+
+
 def for_language(code: str | None, engine: str | None = None) -> str | None:
     """The downloaded model made for language `code` (see LANGUAGE_MODELS), if there is one."""
     engine = engine or current_engine()

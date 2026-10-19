@@ -1,0 +1,3 @@
+59b8d1d2 Désactivé pour cette langue
+eb7e884a Pas pour le {0} : les services vocaux en ligne ne le connaissent pas, ils échouent ou écrivent du {1} à la place. Votre ordinateur écrit les transcriptions en {2}, avec le modèle {3} téléchargé là-bas (Réglages → Écoute et transcriptions → Modèle de transcription), et elles arrivent ici à sa prochaine synchronisation. Votre choix du cloud est conservé pour quand vous apprendrez une autre langue.
+eb52057a Pas pour le {0} : les services vocaux en ligne ne le connaissent pas, ils échouent ou écrivent du {1} à la place. Cet ordinateur écrit lui-même les transcriptions en {2}, au mieux avec le modèle {3} (Modèle de transcription, juste en dessous). Votre choix du cloud est conservé pour quand vous apprendrez une autre langue.

@@ -7,7 +7,8 @@
 import { esc, platform, state, saveSettings } from "../app.js";
 import { icon } from "../icons.js";
 import "./settingsui.js"; // (the looks of the "More options" fold, which holds the model and today's use)
-import { STT_KEY_GUIDES, STT_PROVIDERS, cleanSttKey, describeAudioUse, hoursPerDollar, perHourText, sttConfig, sttKeyProvider } from "../stt.js";
+import { LANGUAGES } from "../languages.js";
+import { OWN_MODEL_LANGUAGES, STT_KEY_GUIDES, STT_PROVIDERS, cleanSttKey, describeAudioUse, hoursPerDollar, perHourText, sttConfig, sttKeyProvider } from "../stt.js";
 import { showKeyHelp } from "./keyhelp.js";
 import { troubleshootButton } from "./troubleshoot.js";
 
@@ -43,6 +44,7 @@ export function sttSetup(section, { test, usage, onUsage, changed = () => {} }) 
       <label class="stt-choice"><input type="radio" name="stt-mode" value="cloud">
         <span><strong>A cloud provider</strong><span class="small muted">${phone ? "Starts at once, on this phone. A few cents an hour." : "No strong computer needed. A few cents an hour."}</span></span></label>
     </div>
+    <p class="small stt-blocked" id="stt-blocked" role="note" hidden></p>
     <div class="ai-setup" id="stt-fields">
       <div class="ai-field ai-wide" data-find="sttkey"><label for="stt-provider">Provider</label>
         <select id="stt-provider">${Object.entries(STT_PROVIDERS).map(([k, p]) => `<option value="${k}">${esc(p.label)}</option>`).join("")}</select></div>
@@ -86,11 +88,15 @@ export function sttSetup(section, { test, usage, onUsage, changed = () => {} }) 
   function paintState() {
     const cfg = sttConfig(cur());
     const cloud = cfg.mode === "cloud";
-    section.querySelectorAll("input[name=stt-mode]").forEach((r) => { r.checked = r.value === cfg.mode; });
+    section.querySelectorAll("input[name=stt-mode]").forEach((r) => {
+      r.checked = r.value === cfg.mode;
+      r.disabled = cfg.blocked && r.value === "cloud"; // (a language with a model of its own: see blockedNote)
+    });
     $("#stt-fields").hidden = !cloud;
     const tag = $("#stt-tag");
     tag.className = refused && cloud ? "req-tag" : cfg.on ? "pill done" : cloud ? "req-tag" : "pill";
-    tag.textContent = refused && cloud ? "Key not working" : cfg.on ? "✓ In use" : cloud ? "Needs a key" : "Optional";
+    tag.textContent = cfg.blocked ? "Off for this language" : refused && cloud ? "Key not working" : cfg.on ? "✓ In use" : cloud ? "Needs a key" : "Optional";
+    blockedNote(cfg.blocked);
     const info = STT_PROVIDERS[prov()];
     const has = !!cur()[`stt_key_${prov()}`] || borrowed();
     $("#stt-keyrow").classList.toggle("need", cloud && (!has || refused));
@@ -101,6 +107,21 @@ export function sttSetup(section, { test, usage, onUsage, changed = () => {} }) 
     $("#stt-limit").hidden = !phone || !info.phoneLimit;
     $("#stt-limit").textContent = phone ? info.phoneLimit || "" : "";
     $("#stt-key").placeholder = borrowed() ? "Using your OpenAI key from Word definitions (or paste another)" : "Paste your API key here";
+  }
+
+  // Learning a language with a speech model of its own (Bisaya): no cloud provider knows it, so the
+  // choice is greyed out and this says why. The saved choice is kept for other languages.
+  function blockedNote(blocked) {
+    const note = $("#stt-blocked");
+    note.hidden = !blocked;
+    if (!blocked) return;
+    const lang = cur().study_language;
+    const name = LANGUAGES[lang]?.name || lang;
+    const short = name.replace(/\s*\(.*\)$/, ""); // "Bisaya (Cebuano)" once, then "Bisaya"
+    const instead = OWN_MODEL_LANGUAGES[lang];
+    note.textContent = phone
+      ? `Not for ${name}: online speech services don't know it, so they fail or write ${instead} instead. Your computer writes ${short} transcripts, with the ${short} model downloaded there (Settings → Listening & transcripts → Transcription model), and they arrive here when it next syncs. Your cloud choice is kept for when you learn another language.`
+      : `Not for ${name}: online speech services don't know it, so they fail or write ${instead} instead. This computer writes ${short} transcripts itself, best with the ${short} model (Transcription model, just below). Your cloud choice is kept for when you learn another language.`;
   }
 
   // ----- the model list: a menu of our own, so it can carry the banner and the prices -----

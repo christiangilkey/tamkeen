@@ -1224,6 +1224,8 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .stt-choice { display: flex; align-items: flex-start; gap: 8px; padding: 9px 12px; border: 1px solid var(--border); border-radius: 14px; cursor: pointer; }
 .stt-choice:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
 .stt-choice input { margin-top: 3px; }
+.stt-choice:has(input:disabled) { opacity: .5; cursor: default; }
+.stt-blocked { margin: 0 0 10px; padding: 10px 12px; border-radius: 12px; background: var(--surface-2); line-height: 1.45; }
 .stt-choice strong, .stt-choice .small { display: block; }
 #stt-model-other { margin-top: 4px; }
 .stt-limit { padding: 8px 12px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--brand-gold) 55%, var(--border)); background: color-mix(in srgb, var(--brand-gold) 10%, var(--surface)); }

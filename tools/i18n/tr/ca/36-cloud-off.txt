@@ -1,0 +1,3 @@
+59b8d1d2 Desactivat per a aquesta llengua
+eb7e884a No per al {0}: els serveis de veu en línia no el coneixen, així que fallen o escriuen en {1}. L'ordinador escriu les transcripcions en {2}, amb el model {3} baixat allà (Configuració → Escolta i transcripcions → Model de transcripció), i arriben aquí la propera vegada que se sincronitza. La teva tria del núvol es desa per quan aprenguis una altra llengua.
+eb52057a No per al {0}: els serveis de veu en línia no el coneixen, així que fallen o escriuen en {1}. Aquest ordinador escriu ell mateix les transcripcions en {2}, millor amb el model {3} (Model de transcripció, just a sota). La teva tria del núvol es desa per quan aprenguis una altra llengua.

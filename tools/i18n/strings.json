@@ -2640,8 +2640,18 @@
   "f": "web/js/components/models.js"
  },
  {
+  "id": "03b9e92f",
+  "k": "Typhoon Whisper Turbo, retrained on Thai by SCB 10X: about half the mistakes of large-v3 on everyday Thai talk, and faster. Once downloaded it writes every Thai transcript on this computer, whichever model is picked above. Best with a GPU.",
+  "f": "web/js/components/models.js"
+ },
+ {
   "id": "44514063",
   "k": "Bisaya",
+  "f": "web/js/components/models.js"
+ },
+ {
+  "id": "9b953082",
+  "k": "Thai (Typhoon)",
   "f": "web/js/components/models.js"
  },
  {
@@ -3290,6 +3300,11 @@
   "f": "web/js/components/sttsetup.js"
  },
  {
+  "id": "59b8d1d2",
+  "k": "Off for this language",
+  "f": "web/js/components/sttsetup.js"
+ },
+ {
   "id": "f7798f2d",
   "k": "✓ In use",
   "f": "web/js/components/sttsetup.js"
@@ -3307,6 +3322,16 @@
  {
   "id": "2ed411fd",
   "k": "Using your OpenAI key from Word definitions (or paste another)",
+  "f": "web/js/components/sttsetup.js"
+ },
+ {
+  "id": "eb7e884a",
+  "k": "Not for {0}: online speech services don't know it, so they fail or write {1} instead. Your computer writes {2} transcripts, with the {3} model downloaded there (Settings → Listening & transcripts → Transcription model), and they arrive here when it next syncs. Your cloud choice is kept for when you learn another language.",
+  "f": "web/js/components/sttsetup.js"
+ },
+ {
+  "id": "eb52057a",
+  "k": "Not for {0}: online speech services don't know it, so they fail or write {1} instead. This computer writes {2} transcripts itself, best with the {3} model (Transcription model, just below). Your cloud choice is kept for when you learn another language.",
   "f": "web/js/components/sttsetup.js"
  },
  {

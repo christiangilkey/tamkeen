@@ -1,0 +1,3 @@
+59b8d1d2 Naka-off para sa wikang ito
+eb7e884a Hindi para sa {0}: hindi ito kilala ng mga online speech service, kaya pumapalya sila o {1} ang isinusulat. Ang computer mo ang gumagawa ng mga transcript na {2}, gamit ang {3} model na naka-download doon (Settings → Pakikinig at mga transcript → Transcription model), at darating sila rito sa susunod na mag-sync ito. Nakatabi ang pinili mong cloud para sa pag-aaral mo ng ibang wika.
+eb52057a Hindi para sa {0}: hindi ito kilala ng mga online speech service, kaya pumapalya sila o {1} ang isinusulat. Ang computer na ito mismo ang gumagawa ng mga transcript na {2}, pinakamahusay gamit ang {3} model (Transcription model, sa ibaba lang). Nakatabi ang pinili mong cloud para sa pag-aaral mo ng ibang wika.

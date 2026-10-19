@@ -3128,3 +3128,21 @@ and failed. Now Bisaya never goes to a cloud provider:
 - **Friends tab renamed "Feed" → "Activity"**: "Feed" is also the game's feeding a creature and the two shared
   translations, so the tab read "Alimentar"/"Nourrir" etc.
 - Translations: `tools/i18n/tr/<code>/35-page-guides.txt`.
+
+## Cloud transcription is off for languages only their own model knows (2026-10-19; committed, not pushed)
+Owner: "On languages that require a custom whisper or listening model disable the cloud computing audio
+transcription option in settings and explain why." Today that is Bisaya (ceb).
+- **Which languages**: `app/models_manager.py` `needs_own_model(code)`: a LANGUAGE_MODELS language, unless its
+  entry has `"cloud_ok": True` (a model that is only *better* at a language cloud providers know, e.g. Thai's
+  Typhoon: Thai keeps the cloud). On the screens: `web/js/stt.js` `OWN_MODEL_LANGUAGES = { ceb: "Tagalog" }`
+  (each with what providers write instead) and `cloudBlocked(code)`; keep the two lists in step.
+- **Computer**: `transcriber/cloud.py` `config()` returns None while such a language is studied, so episodes,
+  reels and `/api/status` (model_ready) all use this computer; `transcriber.get(language=…)` also never sends
+  such a language to the cloud, and a downloaded language model (Bisaya, Typhoon) still beats the cloud.
+- **Screens** (both apps, `web/js/components/sttsetup.js`): `sttConfig()` gives `blocked`, `on: false`,
+  `mode: "local"` for such a language; the "A cloud provider" choice is greyed out, the tag says "Off for this
+  language", and a note says why (no provider knows it, they fail or write Tagalog; the computer writes it with
+  the Bisaya model; the cloud choice is kept for other languages). The saved `stt_mode` is NOT changed.
+- Phone messages for Bisaya episodes/reels (library.js `computerOnlyNotice`, reels-phone.js `BISAYA_REELS`) are
+  still worded for Bisaya only: generalise them if another such language is added.
+- Tests: tests/test_language_models.py, tests/js/stt.test.mjs. Translations: `tools/i18n/tr/<code>/36-cloud-off.txt`.

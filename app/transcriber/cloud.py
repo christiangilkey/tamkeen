@@ -30,7 +30,7 @@ from typing import Any
 import httpx
 import numpy as np
 
-from .. import db, events
+from .. import db, events, models_manager
 from ..audio import SAMPLE_RATE
 from ..languages import INITIAL_PROMPTS, whisper_code
 from .base import Segment, TranscriptionCancelled, Word
@@ -66,6 +66,10 @@ def config(settings: dict[str, Any] | None = None) -> dict[str, str] | None:
     (not chosen, or no key to use it with)."""
     s = settings if settings is not None else db.get_settings()
     if s.get("stt_mode") != "cloud":
+        return None
+    # Off while a language with its own model is studied (Bisaya): no provider knows it. The choice
+    # stays saved, for when another language is studied again (Settings says so: sttsetup.js).
+    if models_manager.needs_own_model(s.get("study_language")):
         return None
     provider = s.get("stt_provider") if s.get("stt_provider") in PROVIDERS else "groq"
     # An OpenAI key entered for word definitions works for transcription too.

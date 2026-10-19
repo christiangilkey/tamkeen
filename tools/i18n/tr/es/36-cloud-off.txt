@@ -1,0 +1,3 @@
+59b8d1d2 Desactivado para este idioma
+eb7e884a No para {0}: los servicios de voz en línea no lo conocen, así que fallan o escriben {1} en su lugar. Tu ordenador escribe las transcripciones en {2}, con el modelo {3} descargado allí (Ajustes → Escucha y transcripciones → Modelo de transcripción), y llegan aquí cuando se sincroniza. Tu elección de la nube se guarda para cuando aprendas otro idioma.
+eb52057a No para {0}: los servicios de voz en línea no lo conocen, así que fallan o escriben {1} en su lugar. Este ordenador escribe él mismo las transcripciones en {2}, mejor con el modelo {3} (Modelo de transcripción, justo debajo). Tu elección de la nube se guarda para cuando aprendas otro idioma.

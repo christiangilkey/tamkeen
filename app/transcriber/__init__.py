@@ -27,9 +27,11 @@ def get(model_size: str | None = None, language: str | None = None) -> Transcrib
     `language` with a model of its own on this computer (models_manager.LANGUAGE_MODELS), that one."""
     global _current, _key
     remote = None if model_size else cloud.config()
-    if remote is not None and language and models_manager.for_language(language, hardware.detect().engine):
-        # A model made for this language (Bisaya) writes it far better than any cloud provider, which
-        # doesn't know the language: it wins even when cloud transcription is on.
+    if remote is not None and language and (models_manager.needs_own_model(language)
+                                            or models_manager.for_language(language, hardware.detect().engine)):
+        # A language only its own model knows (Bisaya) is never sent to a cloud provider, which fails or
+        # writes Tagalog: this computer writes it, with that model once downloaded. And a model made for
+        # the language, once downloaded here, writes it better than the cloud: it wins too.
         remote = None
     if remote is not None:
         # A cloud provider writes the transcripts (Settings → Cloud transcription): no model on this computer is needed.
