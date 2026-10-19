@@ -3111,3 +3111,20 @@ and failed. Now Bisaya never goes to a cloud provider:
   "Not started", in every language.
 - Also: language tiles and the "I already know the basics" button wrap long text instead of clipping on phones
   (web/css/app.css `.lang-opt`, `#basics button`). Translations: `tools/i18n/tr/<code>/34-bisaya-computer.txt`.
+
+## First-visit page guides; Vocab "No cards to study"; Friends tab "Activity" (2026-10-19; committed, not pushed)
+- **Page guides** (`web/js/components/tour.js` `firstVisitTour(page, root, steps)`): the first time the Library, Vocab
+  and Friends (only once signed in with a username: called after the signed-in panes are drawn) are opened, the page
+  dims and each button is outlined in turn with a card (title, one line, Back/Next/Skip; Esc skips, arrow keys step,
+  mirrored for Arabic). Steps whose button isn't on screen are left out (computer vs phone layout, empty lists,
+  hidden tabs); each step's button is looked up again when shown, because Friends redraws on live updates. Shown
+  once per page per device (localStorage `tamkeenToursSeen`); never over a popup (`.modal-back`). Settings → Look &
+  feel → Page guides → "Show the guides again" (both `web/js/pages/settings.js` and the phone's
+  `mobile/src/js/pages/settings.js`) clears it. tour.js is in `mobile/scripts/build-www.mjs`'s file list (new files
+  under web/js must be added there or the phone and web app fail to load the page). Steps live in each page:
+  library.js (end of render), vocab.js (after the first load), friends.js (after showSegment in load).
+- **Vocab review box with no words**: stays in place, plain and not pressable, saying "No cards to study"
+  (vocab.js renderReview; also when the open folder is empty). Hidden only while searching, as before.
+- **Friends tab renamed "Feed" → "Activity"**: "Feed" is also the game's feeding a creature and the two shared
+  translations, so the tab read "Alimentar"/"Nourrir" etc.
+- Translations: `tools/i18n/tr/<code>/35-page-guides.txt`.

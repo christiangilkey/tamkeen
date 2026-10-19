@@ -1,0 +1,43 @@
+e98287e9 Guide delle pagine
+bc981983 Avanti
+81c0d915 Attività
+0d40a9b2 Cosa stanno studiando adesso i tuoi amici e i compagni di gilda, dal più recente.
+00d1229b Aggiungi un amico con il suo nome utente, rispondi alle richieste di amicizia e scrivi agli amici, anche con messaggi vocali.
+78c698e3 Gruppi di studio: creane uno o unisciti a uno, e chatta con tutti i membri.
+b7871841 La tua foto
+4abe3311 Toccala per cambiare la foto che vedono i tuoi amici.
+1e22c8da Il tuo livello nel gioco
+62634184 Gli amici vedono questo accanto al tuo nome: il tuo livello e la tua creatura preferita.
+5ad3f1a6 Cosa sto studiando
+00b5118b Mostra agli amici con cosa stai imparando: un episodio di podcast, un video, una canzone o un film, con una breve nota.
+d982cb02 Riduci il profilo
+3513786b Riduci il profilo a una riga, o riaprilo.
+72078d27 Apre una chat con quella persona. Un numero sopra indica nuovi messaggi.
+f5b39567 Cosa mostrare
+356d37c4 Passa tra podcast, video di YouTube, pagine web, libri, reel e i tuoi video.
+263d8153 I tuoi podcast e canali
+cb0e0ae2 Toccane uno per vedere solo i suoi episodi o video.
+83926c81 Filtra per avanzamento
+caa0a42a Mostra tutto, o solo ciò che non è iniziato, in attesa, in trascrizione, fatto o non riuscito. I numeri contano ciascuno.
+5a1ee6c6 Cerca per titolo
+f605024e Scrivi parte di un titolo per trovare un episodio.
+752270a2 Un episodio
+2a562854 Trascrivi scrive le sue parole così puoi leggere mentre ascolti e toccare qualsiasi parola. Quando è fatto, Apri lo riproduce con la trascrizione.
+75a35244 Più di uno insieme
+71ed35a2 Spunta gli episodi (o Seleziona tutto), poi trascrivili tutti con un solo tocco.
+bc4f1c4a Cerca nuovi episodi e allinea la tua libreria con gli altri dispositivi tramite Google Drive.
+d091dd51 Aggiungi qualcosa da cui imparare: un podcast, un video di YouTube, una pagina web, un libro, dei reel, o un tuo file video o audio.
+19f8b411 La prima volta che apri la Libreria, il Vocabolario e gli Amici, una breve guida mostra a cosa serve ogni pulsante.
+8a35efc2 Mostra di nuovo le guide
+a2f143a8 Compariranno la prossima volta che apri ciascuna pagina.
+1b8fae9a Nessuna scheda da studiare
+3c3a1272 Le parole salvate come schede. Mostra quante sono da ripassare oggi e quante sono nuove: premilo per iniziare.
+55da47da Obiettivo giornaliero
+6e419c58 Quante parole nuove vuoi imparare ogni giorno. Cambialo qui.
+dc02b791 Trova una parola salvata cercando la parola stessa o il suo significato.
+b34e55f5 Tocca una cartella per vedere solo le sue parole; il Ripasso allora riguarda solo quelle. Nuova cartella ne crea una.
+db8e8df7 Ordine e date
+82348697 Cambia l'ordine dell'elenco, o mostra solo le parole aggiunte o modificate nel periodo che scegli.
+c61252a9 Una parola salvata
+a4284878 Tocca una parola per aprirla: il significato, la frase da cui viene e la registrazione. Spunta la casella per sceglierne più di una.
+f59d91ac Aggiungi una parola a mano, esporta le parole per Anki o come foglio di calcolo, e le impostazioni di Anki.

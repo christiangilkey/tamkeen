@@ -1,0 +1,43 @@
+e98287e9 Guides des pages
+bc981983 Suivant
+81c0d915 Activité
+0d40a9b2 Ce que vos amis et les membres de vos guildes étudient en ce moment, du plus récent au plus ancien.
+00d1229b Ajoutez un ami par son nom d'utilisateur, répondez aux demandes d'amitié et écrivez à vos amis, avec des messages vocaux aussi.
+78c698e3 Des groupes d'étude : créez-en un ou rejoignez-en un, et discutez avec tous ses membres.
+b7871841 Votre photo
+4abe3311 Touchez-la pour changer la photo que vos amis voient.
+1e22c8da Votre niveau dans le jeu
+62634184 Vos amis voient ceci à côté de votre nom : votre niveau et votre créature préférée.
+5ad3f1a6 Ce que j'étudie
+00b5118b Montrez à vos amis avec quoi vous apprenez : un épisode de podcast, une vidéo, une chanson ou un film, avec une courte note.
+d982cb02 Replier votre profil
+3513786b Réduisez votre profil à une ligne, ou rouvrez-le.
+72078d27 Ouvre une discussion avec cette personne. Un chiffre dessus signale de nouveaux messages.
+f5b39567 Que montrer
+356d37c4 Passez des podcasts aux vidéos YouTube, pages web, livres, reels et à vos propres vidéos.
+263d8153 Vos podcasts et chaînes
+cb0e0ae2 Touchez-en un pour ne voir que ses épisodes ou vidéos.
+83926c81 Filtrer par avancement
+caa0a42a Tout afficher, ou seulement ce qui n'est pas commencé, en attente, en cours de transcription, terminé ou en échec. Les chiffres comptent chacun.
+5a1ee6c6 Chercher par titre
+f605024e Tapez une partie d'un titre pour trouver un épisode.
+752270a2 Un épisode
+2a562854 Transcrire écrit ses mots pour que vous puissiez lire en même temps et toucher n'importe quel mot. Une fois terminé, Ouvrir le lit avec sa transcription.
+75a35244 Plusieurs à la fois
+71ed35a2 Cochez des épisodes (ou Tout sélectionner), puis transcrivez-les tous d'un seul geste.
+bc4f1c4a Cherche de nouveaux épisodes et met votre bibliothèque à jour avec vos autres appareils via Google Drive.
+d091dd51 Ajoutez de quoi apprendre : un podcast, une vidéo YouTube, une page web, un livre, des reels, ou un fichier vidéo ou audio à vous.
+19f8b411 La première fois que vous ouvrez la Bibliothèque, le Vocabulaire et les Amis, un court guide montre à quoi sert chaque bouton.
+8a35efc2 Revoir les guides
+a2f143a8 Ils s'afficheront la prochaine fois que vous ouvrirez chaque page.
+1b8fae9a Aucune carte à étudier
+3c3a1272 Vos mots enregistrés en cartes. Il indique combien sont à revoir aujourd'hui et combien sont nouveaux : appuyez pour commencer.
+55da47da Objectif quotidien
+6e419c58 Le nombre de nouveaux mots que vous voulez apprendre chaque jour. Modifiez-le ici.
+dc02b791 Trouvez un mot enregistré par le mot lui-même ou par son sens.
+b34e55f5 Touchez un dossier pour ne voir que ses mots ; la Révision ne porte alors que sur eux. Nouveau dossier en crée un.
+db8e8df7 Tri et dates
+82348697 Changez l'ordre de la liste, ou n'affichez que les mots ajoutés ou modifiés pendant la période choisie.
+c61252a9 Un mot enregistré
+a4284878 Touchez un mot pour l'ouvrir : son sens, la phrase d'où il vient et son enregistrement. Cochez la case pour en choisir plusieurs.
+f59d91ac Ajoutez un mot à la main, exportez vos mots pour Anki ou en tableur, et les réglages d'Anki.

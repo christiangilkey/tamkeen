@@ -1390,3 +1390,14 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .trouble-links .btn:only-child { grid-column: 1 / -1; }
 .lex-stress { display: inline-flex; align-items: center; gap: 6px; flex-basis: 100%; }
 .wb-ipa { font-size: 14px; color: var(--muted, #8a8494); margin-inline-start: 8px; white-space: nowrap; } /* English: US pronunciation */
+
+/* ---------- first-visit guide (components/tour.js): the page dims, one button outlined, a card says what it does ---------- */
+.tour { position: fixed; inset: 0; z-index: 85; }
+.tour-hole { position: fixed; border-radius: 14px; border: 2px solid var(--accent); pointer-events: none;
+  box-shadow: 0 0 0 200vmax rgba(0, 0, 0, .62); }
+.tour-card { position: fixed; background: var(--surface); color: var(--text); border: 1px solid var(--border);
+  border-radius: 16px; padding: 14px 16px 12px; }
+.tour-count { margin-bottom: 2px; }
+.tour-title { margin: 0 0 4px; font-size: 17px; line-height: 1.3; }
+.tour-text { margin: 0 0 12px; line-height: 1.45; }
+.tour-buttons { display: flex; align-items: center; gap: 6px; }

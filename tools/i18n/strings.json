@@ -3160,6 +3160,11 @@
   "f": "web/js/components/settingsui.js"
  },
  {
+  "id": "e98287e9",
+  "k": "Page guides",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "86a5e01f",
   "k": "Google Drive sync",
   "f": "web/js/components/settingsui.js"
@@ -3583,6 +3588,21 @@
   "id": "c001f24c",
   "k": "Onyx <0>(opens Onyx, which fits it into your day)</0>",
   "f": "web/js/components/tasktarget.js"
+ },
+ {
+  "id": "3da47453",
+  "k": "Skip",
+  "f": "web/js/components/tour.js"
+ },
+ {
+  "id": "bc981983",
+  "k": "Next",
+  "f": "web/js/components/tour.js"
+ },
+ {
+  "id": "e9b450d1",
+  "k": "Done",
+  "f": "web/js/components/tour.js"
  },
  {
   "id": "7a1e17bc",
@@ -4392,11 +4412,6 @@
  {
   "id": "8f651398",
   "k": "Battle again",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "e9b450d1",
-  "k": "Done",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -8145,6 +8160,11 @@
   "f": "web/js/pages/discover.js"
  },
  {
+  "id": "81c0d915",
+  "k": "Activity",
+  "f": "web/js/pages/friends.js"
+ },
+ {
   "id": "bb386fdb",
   "k": "Guilds",
   "f": "web/js/pages/friends.js"
@@ -8217,6 +8237,66 @@
  {
   "id": "81d5a343",
   "k": "Choose a username",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "0d40a9b2",
+  "k": "What your friends and guild-mates are studying right now, newest first.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "00d1229b",
+  "k": "Add a friend by their username, answer friend requests, and message friends, with voice notes too.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "78c698e3",
+  "k": "Study groups: make one or join one, and chat with everyone in it.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "b7871841",
+  "k": "Your picture",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "4abe3311",
+  "k": "Tap it to change the photo your friends see.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "1e22c8da",
+  "k": "Your game level",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "62634184",
+  "k": "Friends see this next to your name: your level and your favourite creature.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "5ad3f1a6",
+  "k": "What I'm studying",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "00b5118b",
+  "k": "Show friends what you're learning from: a podcast episode, a video, a song or a film, with a short note.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "d982cb02",
+  "k": "Fold your profile",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "3513786b",
+  "k": "Shrink your profile to one line, or open it again.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "72078d27",
+  "k": "Opens a chat with that person. A number on it means new messages.",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -9070,6 +9150,76 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "f5b39567",
+  "k": "What to show",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "356d37c4",
+  "k": "Switch between podcasts, YouTube videos, webpages, books, reels and your own videos.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "263d8153",
+  "k": "Your podcasts and channels",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "cb0e0ae2",
+  "k": "Tap one to see only its episodes or videos.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "83926c81",
+  "k": "Filter by progress",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "caa0a42a",
+  "k": "Show everything, or only what's not started, waiting, being transcribed, done or failed. The numbers count each.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "5a1ee6c6",
+  "k": "Find by title",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "f605024e",
+  "k": "Type part of a title to find an episode.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "752270a2",
+  "k": "An episode",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "2a562854",
+  "k": "Transcribe writes down its words so you can read along and tap any word. Once done, Open plays it with its transcript.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "75a35244",
+  "k": "Several at once",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "71ed35a2",
+  "k": "Tick episodes (or Select all), then transcribe them all with one press.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "bc4f1c4a",
+  "k": "Checks for new episodes, and brings your library up to date with your other devices through Google Drive.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "d091dd51",
+  "k": "Add something to learn from: a podcast, a YouTube video, a webpage, a book, reels, or a video or audio file of your own.",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "f0926a5a",
   "k": "Back to library",
   "f": "web/js/pages/player.js"
@@ -9303,11 +9453,6 @@
   "id": "1e5080c8",
   "k": "Couldn't find this word in your vocab.",
   "f": "web/js/pages/reader.js"
- },
- {
-  "id": "3da47453",
-  "k": "Skip",
-  "f": "web/js/pages/reels.js"
  },
  {
   "id": "63d2b95b",
@@ -10350,6 +10495,21 @@
   "f": "web/js/pages/settings.js"
  },
  {
+  "id": "19f8b411",
+  "k": "The first time you open the Library, Vocab and Friends, a short guide shows what each button does.",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "8a35efc2",
+  "k": "Show the guides again",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "a2f143a8",
+  "k": "They'll show the next time you open each page.",
+  "f": "web/js/pages/settings.js"
+ },
+ {
   "id": "2162db4e",
   "k": "Sync with Google Drive",
   "f": "web/js/pages/settings.js"
@@ -10865,6 +11025,11 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "1b8fae9a",
+  "k": "No cards to study",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "15a53568",
   "k": "Review “{0}”",
   "f": "web/js/pages/vocab.js"
@@ -10962,6 +11127,56 @@
  {
   "id": "3e28846b",
   "k": "Export for Anki",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "3c3a1272",
+  "k": "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "55da47da",
+  "k": "Daily goal",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "6e419c58",
+  "k": "How many new words you want to learn each day. Change it here.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "dc02b791",
+  "k": "Find a saved word by the word itself or by its meaning.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "b34e55f5",
+  "k": "Tap a folder to see only its words; Review then covers just those. New folder makes one.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "db8e8df7",
+  "k": "Sort and dates",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "82348697",
+  "k": "Change the order of the list, or show only words added or changed in a time you choose.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "c61252a9",
+  "k": "A saved word",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "a4284878",
+  "k": "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "f59d91ac",
+  "k": "Add a word by hand, export your words for Anki or as a spreadsheet, and Anki's settings.",
   "f": "web/js/pages/vocab.js"
  },
  {

@@ -13,6 +13,7 @@ import { cardSentence, findWord } from "../cardtext.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
+import { firstVisitTour } from "../components/tour.js";
 
 const DAY = 86400;
 const SORTS = {
@@ -508,8 +509,21 @@ export async function render(view) {
 
   function renderReview() {
     const banner = $("#review");
-    banner.hidden = Boolean(st.q) || !all.length;
-    if (banner.hidden) { goal.close(); $("#goal").hidden = true; return; }
+    banner.hidden = Boolean(st.q);
+    // No words yet (or none in the open folder): the box stays where it always is, with nothing to start.
+    const none = !reviewWords().length;
+    banner.disabled = none;
+    if (banner.hidden || none) {
+      goal.close(); $("#goal").hidden = true;
+      if (banner.hidden) return;
+      banner.classList.add("idle");
+      banner.querySelector("strong").textContent = "Review";
+      banner.querySelector(".rb-go").textContent = "";
+      banner.querySelector(".rb-sub").innerHTML = `<span class="rb-run"></span>`;
+      banner.querySelector(".rb-run").textContent = "No cards to study";
+      fitReview();
+      return;
+    }
     const o = overview(reviewWords(), log);
     $("#goal").hidden = !o.askable;
     goal.update(all, log);  // the whole day's goal, whichever folder is open
@@ -669,5 +683,17 @@ export async function render(view) {
   };
 
   await load();
+  firstVisitTour("vocab", view.querySelector(".vocab-page"), [
+    { target: "#review", title: "Review",
+      text: "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start." },
+    { target: "#goal", title: "Daily goal", text: "How many new words you want to learn each day. Change it here." },
+    { target: "#q", title: "Search", text: "Find a saved word by the word itself or by its meaning." },
+    { target: "#folders", title: "Folders",
+      text: "Tap a folder to see only its words; Review then covers just those. New folder makes one." },
+    { target: ".vocab-filters", title: "Sort and dates", text: "Change the order of the list, or show only words added or changed in a time you choose." },
+    { target: "#list .vocab-item", title: "A saved word",
+      text: "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several." },
+    { target: "#more", title: "More", text: "Add a word by hand, export your words for Anki or as a spreadsheet, and Anki's settings." },
+  ]);
   return () => { audio.pause(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
 }

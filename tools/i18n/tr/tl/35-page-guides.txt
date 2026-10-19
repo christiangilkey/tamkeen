@@ -1,0 +1,43 @@
+e98287e9 Mga gabay sa pahina
+bc981983 Susunod
+81c0d915 Aktibidad
+0d40a9b2 Ang pinag-aaralan ngayon ng mga kaibigan at kasama mo sa guild, pinakabago muna.
+00d1229b Magdagdag ng kaibigan gamit ang username nila, sagutin ang mga friend request, at magmensahe sa mga kaibigan, pati voice note.
+78c698e3 Mga study group: gumawa o sumali sa isa, at makipag-chat sa lahat ng nasa loob nito.
+b7871841 Ang litrato mo
+4abe3311 I-tap ito para palitan ang litratong nakikita ng mga kaibigan mo.
+1e22c8da Ang level mo sa laro
+62634184 Nakikita ito ng mga kaibigan mo sa tabi ng pangalan mo: ang level mo at ang paborito mong nilalang.
+5ad3f1a6 Ang pinag-aaralan ko
+00b5118b Ipakita sa mga kaibigan kung saan ka natututo: isang episode ng podcast, video, kanta o pelikula, may maikling note.
+d982cb02 Itiklop ang profile mo
+3513786b Paliitin ang profile mo sa isang linya, o buksan itong muli.
+72078d27 Nagbubukas ng chat sa taong iyon. Ang numero rito ay mga bagong mensahe.
+f5b39567 Ano ang ipapakita
+356d37c4 Magpalipat-lipat sa mga podcast, video sa YouTube, webpage, libro, reels at sarili mong mga video.
+263d8153 Ang mga podcast at channel mo
+cb0e0ae2 I-tap ang isa para makita lang ang mga episode o video nito.
+83926c81 I-filter ayon sa progreso
+caa0a42a Ipakita lahat, o ang hindi pa nasisimulan, naghihintay, tina-transcribe, tapos o pumalya lang. Binibilang ng mga numero ang bawat isa.
+5a1ee6c6 Hanapin ayon sa pamagat
+f605024e I-type ang bahagi ng pamagat para makahanap ng episode.
+752270a2 Isang episode
+2a562854 Isinusulat ng I-transcribe ang mga salita nito para makasabay kang magbasa at ma-tap ang kahit anong salita. Kapag tapos na, pinapatugtog ito ng Buksan kasama ang transcript.
+75a35244 Ilan nang sabay
+71ed35a2 Lagyan ng tsek ang mga episode (o Piliin lahat), saka i-transcribe silang lahat sa isang pindot.
+bc4f1c4a Tumitingin ng mga bagong episode, at pinapantay ang library mo sa iba mo pang device sa pamamagitan ng Google Drive.
+d091dd51 Magdagdag ng mapag-aaralan: podcast, video sa YouTube, webpage, libro, reels, o sarili mong video o audio file.
+19f8b411 Sa unang beses na buksan mo ang Library, Vocab at Mga Kaibigan, may maikling gabay na nagpapakita kung ano ang ginagawa ng bawat button.
+8a35efc2 Ipakita ulit ang mga gabay
+a2f143a8 Lalabas sila sa susunod na buksan mo ang bawat pahina.
+1b8fae9a Walang card na pag-aaralan
+3c3a1272 Ang mga na-save mong salita bilang flashcard. Ipinapakita kung ilan ang dapat i-review ngayon at ilan ang bago: pindutin para magsimula.
+55da47da Araw-araw na layunin
+6e419c58 Ilang bagong salita ang gusto mong matutunan bawat araw. Palitan dito.
+dc02b791 Hanapin ang na-save na salita gamit ang salita mismo o ang kahulugan nito.
+b34e55f5 I-tap ang isang folder para makita lang ang mga salita nito; iyon lang din ang sakop ng Review. Gumagawa ng folder ang Bagong folder.
+db8e8df7 Ayos at petsa
+82348697 Palitan ang ayos ng listahan, o ipakita lang ang mga salitang idinagdag o binago sa panahong pipiliin mo.
+c61252a9 Isang na-save na salita
+a4284878 I-tap ang salita para buksan ito: ang kahulugan, ang pangungusap na pinanggalingan nito, at ang recording. Lagyan ng tsek ang kahon para pumili ng marami.
+f59d91ac Magdagdag ng salita nang mano-mano, i-export ang mga salita mo para sa Anki o bilang spreadsheet, at ang settings ng Anki.

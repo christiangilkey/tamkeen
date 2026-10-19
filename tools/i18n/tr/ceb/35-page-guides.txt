@@ -1,0 +1,43 @@
+e98287e9 Mga giya sa panid
+bc981983 Sunod
+81c0d915 Kalihokan
+0d40a9b2 Ang gitun-an karon sa imong mga higala ug kauban sa guild, ang pinakabag-o una.
+00d1229b Pagdugang og higala pinaagi sa ilang username, tubaga ang mga friend request, ug padalhi og mensahe ang mga higala, apil ang voice note.
+78c698e3 Mga grupo sa pagtuon: paghimo og usa o apil sa usa, ug pakig-chat sa tanan nga sakop niini.
+b7871841 Imong litrato
+4abe3311 I-tap kini aron usbon ang litrato nga makita sa imong mga higala.
+1e22c8da Imong level sa dula
+62634184 Makita kini sa imong mga higala tupad sa imong ngalan: imong level ug imong paborito nga linalang.
+5ad3f1a6 Akong gitun-an
+00b5118b Ipakita sa mga higala kung asa ka nagkat-on: usa ka episode sa podcast, video, kanta o salida, uban sa mubo nga nota.
+d982cb02 Pilua ang imong profile
+3513786b Gamya ang imong profile ngadto sa usa ka linya, o ablihi kini pag-usab.
+72078d27 Moabli og chat sa maong tawo. Ang numero niini nagpasabot og bag-ong mga mensahe.
+f5b39567 Unsay ipakita
+356d37c4 Pagbalhin-balhin sa mga podcast, video sa YouTube, webpage, libro, reels ug imong kaugalingong mga video.
+263d8153 Imong mga podcast ug channel
+cb0e0ae2 I-tap ang usa aron makita lang ang mga episode o video niini.
+83926c81 I-filter sumala sa pag-uswag
+caa0a42a Ipakita ang tanan, o kadtong wala pa masugdi, naghulat, gi-transcribe, nahuman o napakyas lang. Giihap sa mga numero ang matag usa.
+5a1ee6c6 Pangitaa pinaagi sa titulo
+f605024e I-type ang bahin sa titulo aron makakita og episode.
+752270a2 Usa ka episode
+2a562854 Ang I-transcribe magsulat sa mga pulong niini aron makabasa ka uban niini ug ma-tap ang bisan unsang pulong. Kon nahuman na, ang Ablihi magpatokar niini uban sa transcript.
+75a35244 Daghan dungan
+71ed35a2 Tsekan ang mga episode (o Pilia ang tanan), unya i-transcribe silang tanan sa usa ka pindot.
+bc4f1c4a Mosusi og bag-ong mga episode, ug ipahiangay ang imong library sa uban nimong device pinaagi sa Google Drive.
+d091dd51 Pagdugang og makat-onan: podcast, video sa YouTube, webpage, libro, reels, o imong kaugalingong video o audio file.
+19f8b411 Sa unang higayon nga ablihan nimo ang Library, Vocab ug Mga higala, usa ka mubo nga giya magpakita kung unsay buhaton sa matag button.
+8a35efc2 Ipakita pag-usab ang mga giya
+a2f143a8 Mogawas sila sa sunod nga ablihan nimo ang matag panid.
+1b8fae9a Walay card nga tun-an
+3c3a1272 Imong mga na-save nga pulong isip flashcard. Gipakita kung pila ang angay i-review karon ug pila ang bag-o: pindota aron magsugod.
+55da47da Adlaw-adlaw nga tumong
+6e419c58 Pila ka bag-ong pulong ang gusto nimong makat-onan matag adlaw. Usba dinhi.
+dc02b791 Pangitaa ang na-save nga pulong pinaagi sa pulong mismo o sa kahulogan niini.
+b34e55f5 I-tap ang usa ka folder aron makita lang ang mga pulong niini; mao ra usab kana ang sakop sa Review. Ang Bag-ong folder mohimo og usa.
+db8e8df7 Han-ay ug petsa
+82348697 Usba ang han-ay sa listahan, o ipakita lang ang mga pulong nga gidugang o giusab sulod sa panahon nga imong pilion.
+c61252a9 Usa ka na-save nga pulong
+a4284878 I-tap ang pulong aron ablihan kini: ang kahulogan, ang sentence nga gigikanan niini, ug ang recording. Tsekan ang kahon aron mopili og daghan.
+f59d91ac Pagdugang og pulong sa kamot, i-export ang imong mga pulong para sa Anki o isip spreadsheet, ug ang settings sa Anki.

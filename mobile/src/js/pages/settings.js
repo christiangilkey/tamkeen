@@ -29,6 +29,7 @@ import { signIn, signOut } from "../drive.js";
 import { isIOS, isNative, isWeb } from "../native.js";
 import { settings } from "../store.js";
 import { syncNow, syncState } from "../sync.js";
+import { resetTours } from "../components/tour.js";
 import { SECTIONS, confirmBox, findsFor, moreOptions, revealFind, sectionOfFind, sectionPage, settingsHome } from "../components/settingsui.js";
 
 const android = !isIOS && !isWeb; // AnkiDroid and the vibration are Android things
@@ -191,8 +192,14 @@ function look(body) {
         <span>Vibrate lightly when I tap a word or save one</span></label>
     </section>
     <section class="card" id="game-switch" data-find="game"></section>
+    <section class="card set-card" data-find="guides">
+      <h2>Page guides</h2>
+      <p class="set-hint">The first time you open the Library, Vocab and Friends, a short guide shows what each button does.</p>
+      <div class="row"><button type="button" id="guides-again">Show the guides again</button><span class="small muted" id="guides-done"></span></div>
+    </section>
   </div>`));
   const $ = (q) => body.querySelector(q);
+  $("#guides-again").onclick = () => { resetTours(); $("#guides-done").textContent = "They'll show the next time you open each page."; };
   $("#haptics").onchange = (e) => saveSettings({ haptics: e.target.checked });
   body.querySelectorAll("input[name=theme]").forEach((r) => (r.onchange = () => saveSettings({ theme: r.value })));
   $("#font").oninput = (e) => {

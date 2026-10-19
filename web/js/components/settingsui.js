@@ -52,6 +52,7 @@ export const FINDS = [
   { s: "look", id: "textsize", label: "Text size", words: "font bigger smaller larger" },
   { s: "look", id: "haptics", label: "Vibration", words: "haptics buzz vibrate", on: ["phone"] },
   { s: "look", id: "game", label: "Game features", words: "creature rewards chimes sounds" },
+  { s: "look", id: "guides", label: "Page guides", words: "help tour tips explain buttons tutorial" },
   { s: "account", id: "drive", label: "Google Drive sync", words: "google sign account backup devices phone computer" },
   { s: "account", id: "friends", label: "Friends & sharing", words: "username online share quiz connect" },
   { s: "apps", id: "anki", label: "Anki", words: "flashcards deck addon cards", on: ["desktop"] },

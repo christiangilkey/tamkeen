@@ -1,0 +1,43 @@
+e98287e9 Guias das páginas
+bc981983 Próximo
+81c0d915 Atividade
+0d40a9b2 O que seus amigos e colegas de guilda estão estudando agora, do mais recente para o mais antigo.
+00d1229b Adicione um amigo pelo nome de usuário, responda a pedidos de amizade e mande mensagens para os amigos, inclusive de voz.
+78c698e3 Grupos de estudo: crie um ou entre em um, e converse com todos que estão nele.
+b7871841 Sua foto
+4abe3311 Toque nela para trocar a foto que seus amigos veem.
+1e22c8da Seu nível no jogo
+62634184 Seus amigos veem isso ao lado do seu nome: seu nível e sua criatura favorita.
+5ad3f1a6 O que estou estudando
+00b5118b Mostre aos amigos com o que você está aprendendo: um episódio de podcast, um vídeo, uma música ou um filme, com uma nota curta.
+d982cb02 Recolher seu perfil
+3513786b Reduza seu perfil a uma linha, ou abra de novo.
+72078d27 Abre uma conversa com essa pessoa. Um número nele indica mensagens novas.
+f5b39567 O que mostrar
+356d37c4 Alterne entre podcasts, vídeos do YouTube, páginas da web, livros, reels e seus próprios vídeos.
+263d8153 Seus podcasts e canais
+cb0e0ae2 Toque em um para ver só os episódios ou vídeos dele.
+83926c81 Filtrar por andamento
+caa0a42a Mostra tudo, ou só o que não começou, está esperando, sendo transcrito, pronto ou com falha. Os números contam cada um.
+5a1ee6c6 Buscar pelo título
+f605024e Digite parte de um título para achar um episódio.
+752270a2 Um episódio
+2a562854 Transcrever escreve as palavras dele para você ler junto e tocar em qualquer palavra. Quando estiver pronto, Abrir toca o episódio com a transcrição.
+75a35244 Vários de uma vez
+71ed35a2 Marque episódios (ou Selecionar tudo) e transcreva todos de uma só vez.
+bc4f1c4a Procura episódios novos e deixa sua biblioteca igual nos seus outros aparelhos pelo Google Drive.
+d091dd51 Adicione algo para aprender: um podcast, um vídeo do YouTube, uma página da web, um livro, reels, ou um arquivo de vídeo ou áudio seu.
+19f8b411 Na primeira vez que você abre a Biblioteca, o Vocabulário e os Amigos, um guia curto mostra para que serve cada botão.
+8a35efc2 Mostrar os guias de novo
+a2f143a8 Eles vão aparecer na próxima vez que você abrir cada página.
+1b8fae9a Nenhum cartão para estudar
+3c3a1272 Suas palavras salvas como cartões. Mostra quantas vencem hoje e quantas são novas: toque para começar.
+55da47da Meta diária
+6e419c58 Quantas palavras novas você quer aprender por dia. Mude aqui.
+dc02b791 Ache uma palavra salva pela própria palavra ou pelo significado.
+b34e55f5 Toque em uma pasta para ver só as palavras dela; a Revisão então cobre só essas. Nova pasta cria uma.
+db8e8df7 Ordem e datas
+82348697 Mude a ordem da lista, ou mostre só as palavras adicionadas ou alteradas no período que você escolher.
+c61252a9 Uma palavra salva
+a4284878 Toque em uma palavra para abri-la: o significado, a frase de onde veio e a gravação. Marque a caixa para escolher várias.
+f59d91ac Adicione uma palavra à mão, exporte suas palavras para o Anki ou como planilha, e as configurações do Anki.

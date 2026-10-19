@@ -23,6 +23,7 @@ import { readingsRow } from "../lexicon/readings.js";
 import { resetSection } from "../components/resetapp.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
+import { resetTours } from "../components/tour.js";
 import { SECTIONS, confirmBox, findsFor, moreOptions, revealFind, sectionOfFind, sectionPage, settingsHome } from "../components/settingsui.js";
 
 const THEMES = { system: "System", light: "Light", dark: "Dark" };
@@ -205,9 +206,15 @@ function look(body, status) {
       <div class="set-sample ar" ${langAttrs(lang)} style="font-size:var(--page-size);line-height:2">${esc(langInfo(lang).pageSample)}</div>
     </section>
     <section class="card" id="game-switch" data-find="game"></section>
+    <section class="card set-card" data-find="guides">
+      <h2>Page guides</h2>
+      <p class="set-hint">The first time you open the Library, Vocab and Friends, a short guide shows what each button does.</p>
+      <div class="row"><button type="button" id="guides-again">Show the guides again</button><span class="small muted" id="guides-done"></span></div>
+    </section>
   </div>`));
   const $ = (q) => body.querySelector(q);
   gameSwitch($("#game-switch"));
+  $("#guides-again").onclick = () => { resetTours(); $("#guides-done").textContent = "They'll show the next time you open each page."; };
   body.querySelectorAll("input[name=theme]").forEach((r) => (r.onchange = () => saveSettings({ theme: r.value })));
   let fontTimer;
   $("#font").oninput = (e) => {
