@@ -8620,6 +8620,26 @@
   "f": "web/js/pages/home.js"
  },
  {
+  "id": "327d0ac7",
+  "k": "Bisaya is transcribed on your computer",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "98fda207",
+  "k": "A phone can't write Bisaya transcripts: the online speech services don't know Bisaya, so they fail or write Tagalog.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "ac9c1952",
+  "k": "Open Tamkeen on your computer and download the <0>Bisaya</0> model there (Settings → Listening & transcripts → Transcription model). Your computer then transcribes these episodes, and they show up here with their transcripts the next time both sync.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "2457b3f7",
+  "k": "They're waiting in the queue for your computer now.",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "db2c45d5",
   "k": "Not started",
   "f": "web/js/pages/library.js"
@@ -8702,6 +8722,11 @@
  {
   "id": "08f7cc23",
   "k": "Transcribing {0}%",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "c3ae49bb",
+  "k": "Waiting for your computer",
   "f": "web/js/pages/library.js"
  },
  {
@@ -13862,6 +13887,11 @@
  {
   "id": "1edda8bd",
   "k": "That needs the Tamkeen app (it reads Instagram while you're signed in there).",
+  "f": "mobile/src/js/reels-phone.js"
+ },
+ {
+  "id": "28d0566e",
+  "k": "Bisaya reels can't be transcribed on a phone. Get them in Tamkeen on your computer (Library → Reels), with the Bisaya transcription model downloaded there (Settings → Listening & transcripts). They show up here the next time both sync.",
   "f": "mobile/src/js/reels-phone.js"
  },
  {

@@ -12,7 +12,7 @@ import { api, esc, h, on, toast, showMenu, hideMenu, download, saveSettings, sta
 import { saveProgress } from "../progress.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
-import { statusInfo, isVideo } from "./library.js";
+import { computerOnlyNotice, statusInfo, isVideo } from "./library.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { wordFixer } from "../fixword.js";
@@ -103,8 +103,12 @@ function renderPending(view, ep) {
       return;
     }
     requestNotifications();
-    try { await api("/episodes/transcribe", { method: "POST", body: { ids: [ep.id] } }); }
-    catch (e) { toast(e.message, { error: true }); }
+    try {
+      const r = await api("/episodes/transcribe", { method: "POST", body: { ids: [ep.id] } });
+      // The phone has left it for the computer: say so (its answer has a note then).
+      if (r && r.note && (r.queued || []).includes(ep.id)) { ep.transcribe_requested_at = Date.now() / 1000; paint(); }
+      if (r && r.computer_only) computerOnlyNotice();
+    } catch (e) { toast(e.message, { error: true }); }
   };
   paint();
   return on("episode", (e) => {

@@ -1,0 +1,6 @@
+327d0ac7 Sa computer mo tina-transcribe ang Bisaya
+98fda207 Hindi kayang gumawa ng transcript na Bisaya ang telepono: hindi kilala ng mga online speech service ang Bisaya, kaya pumapalya sila o Tagalog ang isinusulat.
+ac9c1952 Buksan ang Tamkeen sa computer mo at i-download doon ang <0>Bisaya</0> model (Settings → Pakikinig at mga transcript → Transcription model). Ita-transcribe na ng computer mo ang mga episode na ito, at lalabas sila rito kasama ang transcript sa susunod na mag-sync ang dalawa.
+2457b3f7 Naghihintay na sila sa pila para sa computer mo.
+28d0566e Hindi ma-transcribe sa telepono ang mga Bisaya reel. Kunin sila sa Tamkeen sa computer mo (Library → Reels), na naka-download doon ang Bisaya transcription model (Settings → Pakikinig at mga transcript). Lalabas sila rito sa susunod na mag-sync ang dalawa.
+c3ae49bb Hinihintay ang computer mo

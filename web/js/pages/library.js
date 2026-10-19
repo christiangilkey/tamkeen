@@ -7,7 +7,21 @@ import { allProgress } from "../progress.js";
 import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
 import { openAddSheet } from "../components/addsheet.js";
+import { openModal } from "../components/modal.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
+
+/** The phone (or web app) asked to transcribe Bisaya: only the computer can, with its Bisaya model
+ *  (no cloud provider knows the language). The episodes are queued for the computer; this says so. */
+export function computerOnlyNotice() {
+  const box = openModal({ title: "Bisaya is transcribed on your computer" });
+  box.body.append(h(`<div class="stack">
+    <p>A phone can't write Bisaya transcripts: the online speech services don't know Bisaya, so they fail or write Tagalog.</p>
+    <p>Open Tamkeen on your computer and download the <strong>Bisaya</strong> model there (Settings → Listening &amp; transcripts → Transcription model).
+      Your computer then transcribes these episodes, and they show up here with their transcripts the next time both sync.</p>
+    <p class="small muted">They're waiting in the queue for your computer now.</p>
+    <div><button type="button" class="primary">OK</button></div></div>`));
+  box.body.querySelector("button").onclick = box.close;
+}
 
 const FILTERS = [
   ["", "All"],
@@ -62,7 +76,8 @@ export function statusInfo(ep) {
     case "transcribing": return { cls: "active", label: `Transcribing ${p}%`, bar: p };
     case "done": return { cls: "done", label: "Done" };
     case "failed": return { cls: "failed", label: "Failed" };
-    default: return { cls: "", label: "Not started" };
+    // Asked for on the phone, for the computer to transcribe when it next syncs.
+    default: return ep.transcribe_requested_at ? { cls: "queued", label: "Waiting for your computer" } : { cls: "", label: "Not started" };
   }
 }
 
@@ -433,6 +448,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     requestNotifications();
     try {
       const r = await api("/episodes/transcribe", { method: "POST", body: { ids } });
+      if (r.computer_only) { computerOnlyNotice(); return; }
       if (!r.queued.length) toast("Those episodes are already queued or in progress.");
       else toast(`Queued ${r.queued.length} episode${r.queued.length > 1 ? "s" : ""} for transcription.`);
     } catch (e) {

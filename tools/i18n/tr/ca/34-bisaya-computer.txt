@@ -1,0 +1,6 @@
+327d0ac7 El bisaia es transcriu a l'ordinador
+98fda207 Un mòbil no pot escriure transcripcions en bisaia: els serveis de veu en línia no coneixen el bisaia, així que fallen o escriuen en tagal.
+ac9c1952 Obre Tamkeen a l'ordinador i baixa-hi el model <0>Bisaya</0> (Configuració → Escolta i transcripcions → Model de transcripció). Llavors l'ordinador transcriurà aquests episodis, i apareixeran aquí amb les transcripcions la propera vegada que tots dos se sincronitzin.
+2457b3f7 Ara són a la cua esperant l'ordinador.
+28d0566e Els reels en bisaia no es poden transcriure en un mòbil. Aconsegueix-los a Tamkeen a l'ordinador (Biblioteca → Reels), amb el model de transcripció Bisaya baixat allà (Configuració → Escolta i transcripcions). Apareixeran aquí la propera vegada que tots dos se sincronitzin.
+c3ae49bb Esperant l'ordinador

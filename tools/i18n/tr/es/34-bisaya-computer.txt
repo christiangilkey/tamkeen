@@ -1,0 +1,6 @@
+327d0ac7 El bisaya se transcribe en tu ordenador
+98fda207 Un teléfono no puede escribir transcripciones en bisaya: los servicios de voz en línea no conocen el bisaya, así que fallan o escriben tagalo.
+ac9c1952 Abre Tamkeen en tu ordenador y descarga allí el modelo <0>Bisaya</0> (Ajustes → Escucha y transcripciones → Modelo de transcripción). Tu ordenador transcribirá entonces estos episodios, y aparecerán aquí con sus transcripciones la próxima vez que ambos se sincronicen.
+2457b3f7 Ya están en la cola esperando a tu ordenador.
+28d0566e Los reels en bisaya no se pueden transcribir en un teléfono. Consíguelos en Tamkeen en tu ordenador (Biblioteca → Reels), con el modelo de transcripción Bisaya descargado allí (Ajustes → Escucha y transcripciones). Aparecerán aquí la próxima vez que ambos se sincronicen.
+c3ae49bb Esperando a tu ordenador

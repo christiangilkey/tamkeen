@@ -3095,3 +3095,19 @@ field 5 = 1, e.g. `CAMSBggDEAEoAQ==`), and web-app searches get `sp=EgIoAQ==` (`
 CC filter keeps videos with uploaded (person-made) captions and drops auto-caption-only ones. Checked live: the
 Spanish start page's results change and carry CC badges. Searches typed inside YouTube's own page (computer and
 phone in-app browser) aren't changed: only the start page.
+
+## Bisaya is transcribed only on the computer (2026-10-19; committed, not pushed)
+Owner pressed Transcribe on a Bisaya podcast on the phone: it went to the cloud provider, which doesn't know Bisaya,
+and failed. Now Bisaya never goes to a cloud provider:
+- **Phone** (`mobile/src/js/backend.js` POST /episodes/transcribe and the video upload's `here`): with study language
+  `ceb` episodes are queued for the computer (`transcribe_requested_at`) even when cloud transcription is on; the answer
+  has `computer_only: "ceb"`, and the Library and player then show `computerOnlyNotice()` (web/js/pages/library.js): a
+  popup saying to download the Bisaya model on the computer (Settings → Listening & transcripts → Transcription
+  model), after which the transcripts arrive on the phone by sync. Reels (`mobile/src/js/reels-phone.js`): `job()`
+  refuses with `BISAYA_REELS`, `/reels` returns `available: false, computer_only: <that text>`, shown on the Reels page.
+- **Computer** (`app/transcriber/__init__.py` get): a language with its own downloaded model (Bisaya) uses it even when
+  cloud transcription is chosen.
+- Any episode queued from the phone for the computer now says "Waiting for your computer" (statusInfo) instead of
+  "Not started", in every language.
+- Also: language tiles and the "I already know the basics" button wrap long text instead of clipping on phones
+  (web/css/app.css `.lang-opt`, `#basics button`). Translations: `tools/i18n/tr/<code>/34-bisaya-computer.txt`.

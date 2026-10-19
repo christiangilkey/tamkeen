@@ -264,7 +264,13 @@ async function signedInInstagram() {
 
 // ----------------------------------------------------------------------------------- the jobs
 
+// Bisaya reels are listened to only by the computer, with its Bisaya model (no cloud provider knows the
+// language): the phone doesn't try, and says where to get them.
+export const BISAYA_REELS = "Bisaya reels can't be transcribed on a phone. Get them in Tamkeen on your computer (Library → Reels), "
+  + "with the Bisaya transcription model downloaded there (Settings → Listening & transcripts). They show up here the next time both sync.";
+
 async function job(target, work) {
+  if ((settings.study_language || "") === "ceb") throw new Error(BISAYA_REELS);
   if (status.running) throw new Error("Busy with Instagram already. Try again when that has finished.");
   if (!cloudOn()) throw new Error("Turn on cloud transcription in Settings first: it is what lets this phone listen to reels.");
   cancelled = false;
@@ -580,7 +586,7 @@ export async function reelsView() {
   const known = collectionsNow();
   const lang = settings.study_language || "ar";
   return {
-    phone: true, web: isWeb, available: cloudOn(), model_ready: true, mode: "saved", modes: isWeb ? [] : ["saved"], mine: [], selected: [], popular: [],
+    phone: true, web: isWeb, available: cloudOn() && lang !== "ceb", computer_only: lang === "ceb" ? BISAYA_REELS : "", model_ready: true, mode: "saved", modes: isWeb ? [] : ["saved"], mine: [], selected: [], popular: [],
     collections: known.items, collection: known.chosen, language: lang, language_name: (LANGUAGES[lang] || {}).name || lang,
     random: !!RANDOM_WORDS[lang],
     status: reelsStatus(),

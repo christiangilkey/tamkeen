@@ -330,7 +330,7 @@ export async function addUploadedVideo({ uid, title, driveName, mime, duration, 
                transcribe_requested_at: t, remote_audio: 1, deleted: 0, created_at: t, updated_at: t };
   lib.episodes.push(ep);
   changed();
-  const here = !!file && cloud.cloudOn() && file.size <= MAX_UPLOAD_BYTES;
+  const here = !!file && cloud.cloudOn() && file.size <= MAX_UPLOAD_BYTES && studyLanguage() !== "ceb"; // (Bisaya: the computer)
   if (here) cloud.enqueue([uid], { [uid]: file });
   return { ...episodeOut(ep), here };
 }
@@ -491,11 +491,14 @@ const routes = [
   }],
   ["POST", /^\/episodes\/transcribe$/, (m, q, body) => {
     const wanted = (body.ids || []).filter((id) => { const e = episodeOf(id); return e && !e.transcript_rev; });
+    // Bisaya is written only by the computer, with its Bisaya model: no cloud provider knows the
+    // language (they hear it as Tagalog, or fail). Queued for the computer whatever is set here.
+    const bisaya = studyLanguage() === "ceb";
     // With a cloud provider set up (Settings), the phone transcribes them itself, starting now.
-    if (cloud.cloudOn()) return { queued: cloud.enqueue(wanted), here: true };
+    if (cloud.cloudOn() && !bisaya) return { queued: cloud.enqueue(wanted), here: true };
     for (const id of wanted) Object.assign(episodeOf(id), { transcribe_requested_at: now(), updated_at: now() });
     if (wanted.length) changed();
-    return { queued: wanted, note: "Your computer will transcribe these the next time it syncs." };
+    return { queued: wanted, note: "Your computer will transcribe these the next time it syncs.", ...(bisaya ? { computer_only: "ceb" } : {}) };
   }],
   ["POST", /^\/episodes\/([\w]+)\/cancel$/, (m) => {
     cloud.cancel(m[1]);

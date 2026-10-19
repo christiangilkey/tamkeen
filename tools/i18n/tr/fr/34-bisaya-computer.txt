@@ -1,0 +1,6 @@
+327d0ac7 Le bisaya se transcrit sur votre ordinateur
+98fda207 Un téléphone ne peut pas écrire de transcriptions en bisaya : les services vocaux en ligne ne connaissent pas le bisaya, ils échouent ou écrivent du tagalog.
+ac9c1952 Ouvrez Tamkeen sur votre ordinateur et téléchargez-y le modèle <0>Bisaya</0> (Réglages → Écoute et transcriptions → Modèle de transcription). Votre ordinateur transcrira alors ces épisodes, qui apparaîtront ici avec leur transcription à la prochaine synchronisation des deux.
+2457b3f7 Ils attendent maintenant dans la file de votre ordinateur.
+28d0566e Les reels en bisaya ne peuvent pas être transcrits sur un téléphone. Récupérez-les dans Tamkeen sur votre ordinateur (Bibliothèque → Reels), avec le modèle de transcription Bisaya téléchargé là-bas (Réglages → Écoute et transcriptions). Ils apparaîtront ici à la prochaine synchronisation des deux.
+c3ae49bb En attente de votre ordinateur

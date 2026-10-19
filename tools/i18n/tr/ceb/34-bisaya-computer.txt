@@ -1,0 +1,6 @@
+327d0ac7 Sa imong computer gi-transcribe ang Bisaya
+98fda207 Dili makahimo og Bisaya nga transcript ang telepono: wala kaila ang mga online speech service sa Bisaya, mao nga mapakyas sila o Tagalog ang isulat.
+ac9c1952 Ablihi ang Tamkeen sa imong computer ug i-download didto ang <0>Bisaya</0> nga model (Settings → Pagpaminaw ug mga transcript → Model sa transcript). Unya i-transcribe sa imong computer kining mga episode, ug mogawas sila dinhi uban sa ilang transcript sunod nga mag-sync ang duha.
+2457b3f7 Naghulat na sila sa pila alang sa imong computer.
+28d0566e Dili ma-transcribe sa telepono ang mga Bisaya nga reel. Kuhaa sila sa Tamkeen sa imong computer (Library → Reels), nga na-download didto ang Bisaya nga transcription model (Settings → Pagpaminaw ug mga transcript). Mogawas sila dinhi sunod nga mag-sync ang duha.
+c3ae49bb Naghulat sa imong computer

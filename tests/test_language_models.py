@@ -126,9 +126,13 @@ def test_the_bisaya_model_writes_bisaya_and_only_bisaya(local):
     assert transcriber.get(language="es").prompt is True
     assert transcriber.get(language="ceb").model_size == "bisaya"
     assert transcriber.get().model_size == "small"
-    # Cloud transcription, once chosen, writes everything.
+    # Cloud transcription, once chosen, writes everything except Bisaya: the Bisaya model wins there,
+    # as no cloud provider knows the language.
     db.set_settings({"stt_mode": "cloud", "stt_key_groq": "gsk_test"})
-    assert transcriber.get(language="ceb").engine == "cloud"
+    assert transcriber.get(language="es").engine == "cloud"
+    assert transcriber.get(language="ceb").model_size == "bisaya"
+    models_manager.delete("bisaya")
+    assert transcriber.get(language="ceb").engine == "cloud", "without the Bisaya model, the cloud as before"
 
 
 def test_the_bisaya_model_is_offered_but_cannot_be_picked(local):
