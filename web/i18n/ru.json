@@ -306,6 +306,8 @@
 "Open YouTube":"Открыть YouTube",
 "Open YouTube starts on this week's most-watched videos from this country":"«Открыть YouTube» начинается с самых просматриваемых видео этой недели в этой стране",
 "Popular in":"Популярное в стране",
+"Leaves out videos that only have YouTube's automatic captions, which are often wrong and have no punctuation":"Убирает видео, у которых есть только автоматические субтитры YouTube: в них часто ошибки и нет знаков препинания",
+"Only videos with handmade subtitles":"Только видео с субтитрами, сделанными вручную",
 "Tap a video there and it opens here, with its captions as words you can click. The video needs captions.":"Нажмите там на видео, и оно откроется здесь, с субтитрами из кликабельных слов. У видео должны быть субтитры.",
 "Free classics":"Бесплатная классика",
 "Famous books in the language you're learning, free because they are in the public domain.":"Известные книги на изучаемом вами языке, бесплатные, потому что они в общественном достоянии.",

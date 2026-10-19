@@ -80,25 +80,42 @@ export function chooseCountry(lang, code) {
   try { localStorage.setItem(storeKey(lang), countryFor(lang, code)); } catch { /* storage unavailable */ }
 }
 
+// "Only videos with handmade subtitles": YouTube's own Subtitles/CC search filter, which keeps the
+// videos whose captions a person wrote and uploaded, and leaves out those with only YouTube's automatic
+// ones (often wrong, and with no punctuation). Off unless chosen; remembered on this device.
+const HANDMADE_KEY = "ytHandmadeCaptions";
+export function handmadeOnly() {
+  try { return localStorage.getItem(HANDMADE_KEY) === "1"; } catch { return false; }
+}
+export function setHandmadeOnly(on) {
+  try { localStorage.setItem(HANDMADE_KEY, on ? "1" : "0"); } catch { /* storage unavailable */ }
+}
+
 const SORT_BY_VIEWS = 3;
 const THIS_WEEK = 3;
 const VIDEOS_ONLY = 1;
+const SUBTITLES = 0x28; // the filters' field 5, "Subtitles/CC"
 
 /** YouTube's search-filter code (its "sp" value): most viewed, uploaded this week, videos only,
- * and optionally a length. It is a few numbered fields packed together and written in base64. */
-export function filterCode(length = 0) {
-  const filters = [0x08, THIS_WEEK, 0x10, VIDEOS_ONLY, ...(length ? [0x18, length] : [])];
+ * optionally a length, and optionally only videos with handmade subtitles. It is a few numbered
+ * fields packed together and written in base64. */
+export function filterCode(length = 0, { handmade = false } = {}) {
+  const filters = [0x08, THIS_WEEK, 0x10, VIDEOS_ONLY, ...(length ? [0x18, length] : []), ...(handmade ? [SUBTITLES, 1] : [])];
   const bytes = [0x08, SORT_BY_VIEWS, 0x12, filters.length, ...filters];
   return btoa(String.fromCharCode(...bytes));
 }
 
+/** The filter code for an ordinary search (most relevant first): only handmade subtitles, or none. */
+export const searchFilterCode = (handmade) => (handmade ? btoa(String.fromCharCode(0x12, 2, SUBTITLES, 1)) : "");
+
 /**
  * The address "Open YouTube" should open for a study language.
  * @param {string} lang one of the app's language codes
- * @param {{mobile?: boolean, country?: string}} [opts] the phone uses YouTube's phone site;
- *   `country` is the user's choice from COUNTRIES (anything else falls back to the usual one)
+ * @param {{mobile?: boolean, country?: string, handmade?: boolean}} [opts] the phone uses YouTube's
+ *   phone site; `country` is the user's choice from COUNTRIES (anything else falls back to the usual
+ *   one); `handmade`: only videos whose subtitles a person made (handmadeOnly())
  */
-export function youtubeHome(lang, { mobile = false, country = "" } = {}) {
+export function youtubeHome(lang, { mobile = false, country = "", handmade = false } = {}) {
   const site = mobile ? "https://m.youtube.com" : "https://www.youtube.com";
   const start = START[lang];
   if (!start) return `${site}/`;
@@ -106,7 +123,7 @@ export function youtubeHome(lang, { mobile = false, country = "" } = {}) {
   const gl = countryFor(lang, country);
   const own = (COUNTRIES[lang] || []).find(([c]) => c === gl);
   const q = new URLSearchParams({
-    search_query: (own && own[2]) || word, sp: filterCode(length),
+    search_query: (own && own[2]) || word, sp: filterCode(length, { handmade }),
     gl, hl: language, persist_gl: "1", persist_hl: "1", // remembered, so going back or reloading keeps them
   });
   return `${site}/results?${q}`;

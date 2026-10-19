@@ -306,6 +306,8 @@
 "Open YouTube":"YouTubeを開く",
 "Open YouTube starts on this week's most-watched videos from this country":"「YouTubeを開く」は、この国で今週いちばん見られた動画から始まります",
 "Popular in":"人気の国",
+"Leaves out videos that only have YouTube's automatic captions, which are often wrong and have no punctuation":"YouTube の自動字幕しかない動画を除きます（自動字幕は間違いが多く、句読点もありません）",
+"Only videos with handmade subtitles":"手作りの字幕がある動画だけ",
 "Tap a video there and it opens here, with its captions as words you can click. The video needs captions.":"そこで動画をタップするとここで開き、字幕がクリックできる単語になります。字幕のある動画が必要です。",
 "Free classics":"無料の名作",
 "Famous books in the language you're learning, free because they are in the public domain.":"学んでいる言語の有名な本。パブリックドメインなので無料です。",

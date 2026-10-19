@@ -22,7 +22,7 @@ import { initSwipe } from "./swipe.js";
 import { isNewer, showUpdateNotice } from "./updatenotice.js";
 import { icon } from "./icons.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
-import { chosenCountry, youtubeHome } from "./youtube-home.js";
+import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating, translateHtml } from "./i18n.js";
 import { isSaved, savedSites, setSite } from "./browser-sites.js";
 import { addUploadedVideo, checkFeeds, fillLanguages, handle } from "./backend.js";
@@ -427,7 +427,7 @@ export async function openYouTube(address = "") {
     location.hash = address ? `#/youtube?u=${encodeURIComponent(address)}` : "#/youtube";
     return;
   }
-  return openBrowser(address || youtubeHome(studyLanguage(), { mobile: true, country: chosenCountry(studyLanguage()) }),
+  return openBrowser(address || youtubeHome(studyLanguage(), { mobile: true, country: chosenCountry(studyLanguage()), handmade: handmadeOnly() }),
                      { reading: false });
 }
 

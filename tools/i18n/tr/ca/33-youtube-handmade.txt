@@ -1,0 +1,2 @@
+e897fcca Deixa fora els vídeos que només tenen els subtítols automàtics de YouTube, que sovint tenen errors i no porten puntuació
+28543490 Només vídeos amb subtítols fets a mà

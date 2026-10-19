@@ -306,6 +306,8 @@
 "Open YouTube":"เปิด YouTube",
 "Open YouTube starts on this week's most-watched videos from this country":"เปิด YouTube จะเริ่มที่วิดีโอยอดนิยมประจำสัปดาห์ของประเทศนี้",
 "Popular in":"ยอดนิยมใน",
+"Leaves out videos that only have YouTube's automatic captions, which are often wrong and have no punctuation":"ไม่แสดงวิดีโอที่มีแค่คำบรรยายอัตโนมัติของ YouTube ซึ่งมักผิดและไม่มีเครื่องหมายวรรคตอน",
+"Only videos with handmade subtitles":"เฉพาะวิดีโอที่มีคำบรรยายที่คนทำขึ้นเอง",
 "Tap a video there and it opens here, with its captions as words you can click. The video needs captions.":"แตะวิดีโอที่นั่น แล้ววิดีโอจะเปิดที่นี่ พร้อมคำบรรยายเป็นคำที่คลิกได้ วิดีโอต้องมีคำบรรยาย",
 "Free classics":"หนังสือคลาสสิกฟรี",
 "Famous books in the language you're learning, free because they are in the public domain.":"หนังสือมีชื่อเสียงในภาษาที่คุณเรียน อ่านได้ฟรีเพราะเป็นสาธารณสมบัติ",

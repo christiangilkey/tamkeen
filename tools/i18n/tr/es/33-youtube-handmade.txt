@@ -1,0 +1,2 @@
+e897fcca Deja fuera los vídeos que solo tienen los subtítulos automáticos de YouTube, que suelen tener errores y no llevan puntuación
+28543490 Solo vídeos con subtítulos hechos a mano

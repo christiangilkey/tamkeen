@@ -17,7 +17,7 @@ import { startBadge } from "./social.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { showUpdateNotice } from "./updatenotice.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
-import { chosenCountry, youtubeHome } from "./youtube-home.js";
+import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating } from "./i18n.js";
 import { initScrollHints } from "./scrollhint.js";
 
@@ -208,7 +208,7 @@ export async function ytRequest(req) {
  * window asks for it through the "youtube_watch" event, handled below). */
 export async function openYouTube(address = "") {
   // `address`: a YouTube page to open on instead (a followed channel's videos).
-  const start = address || youtubeHome(studyLanguage(), { country: chosenCountry(studyLanguage()) });
+  const start = address || youtubeHome(studyLanguage(), { country: chosenCountry(studyLanguage()), handmade: handmadeOnly() });
   const bridge = window.pywebview && window.pywebview.api;
   if (bridge && bridge.open_youtube) {
     const r = await bridge.open_youtube(start);

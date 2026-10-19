@@ -1,0 +1,2 @@
+e897fcca Écarte les vidéos qui n'ont que les sous-titres automatiques de YouTube, souvent fautifs et sans ponctuation
+28543490 Seulement les vidéos avec des sous-titres faits à la main

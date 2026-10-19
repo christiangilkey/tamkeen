@@ -3086,3 +3086,12 @@ Owner asked for the Bisaya transcription model "BuzzASR/cebuano (large)": Whispe
 - Tests: `tests/test_language_models.py` (a made-up tiny Whisper converted and loaded by CTranslate2; which model
   writes what; Settings API; download fetches only the pinned files then converts). Translations:
   `tools/i18n/tr/<code>/33-bisaya-model.txt`.
+
+## YouTube: "Only videos with handmade subtitles" (2026-10-19; committed, not pushed)
+A checkbox under Open YouTube in the add sheet (computer + phone apps) and on the web app's `#/youtube` page.
+Stored per device in localStorage `ytHandmadeCaptions` (web/js/youtube-home.js `handmadeOnly`/`setHandmadeOnly`).
+When on, the start page's `sp` filter gets YouTube's Subtitles/CC field (`filterCode(length, {handmade})`:
+field 5 = 1, e.g. `CAMSBggDEAEoAQ==`), and web-app searches get `sp=EgIoAQ==` (`searchFilterCode`). YouTube's
+CC filter keeps videos with uploaded (person-made) captions and drops auto-caption-only ones. Checked live: the
+Spanish start page's results change and carry CC badges. Searches typed inside YouTube's own page (computer and
+phone in-app browser) aren't changed: only the start page.

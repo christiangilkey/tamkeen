@@ -1540,6 +1540,16 @@
   "f": "web/js/components/addsheet.js"
  },
  {
+  "id": "e897fcca",
+  "k": "Leaves out videos that only have YouTube's automatic captions, which are often wrong and have no punctuation",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "28543490",
+  "k": "Only videos with handmade subtitles",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
   "id": "e69ef3fc",
   "k": "Tap a video there and it opens here, with its captions as words you can click. The video needs captions.",
   "f": "web/js/components/addsheet.js"

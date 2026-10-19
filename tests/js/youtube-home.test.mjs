@@ -11,6 +11,25 @@ test("the filter asks for videos from this week, most watched first", () => {
   assert.equal(filterCode(3), "CAMSBggDEAEYAw==");
 });
 
+test("only videos with handmade subtitles: YouTube's own Subtitles/CC filter, remembered on the device", async () => {
+  const { handmadeOnly, searchFilterCode, setHandmadeOnly } = await import("../../web/js/youtube-home.js");
+  assert.equal(filterCode(0, { handmade: true }), "CAMSBggDEAEoAQ==");
+  assert.equal(filterCode(3, { handmade: true }), "CAMSCAgDEAEYAygB", "with a length too");
+  assert.equal(searchFilterCode(true), "EgIoAQ==", "the code YouTube's Filters menu uses for Subtitles/CC");
+  assert.equal(searchFilterCode(false), "");
+  assert.equal(new URL(youtubeHome("es", { handmade: true })).searchParams.get("sp"), "CAMSBggDEAEoAQ==");
+  assert.equal(new URL(youtubeHome("es")).searchParams.get("sp"), filterCode(0), "off unless chosen");
+  const store = new Map();
+  globalThis.localStorage = { getItem: (k) => (store.has(k) ? store.get(k) : null), setItem: (k, v) => store.set(k, String(v)) };
+  try {
+    assert.equal(handmadeOnly(), false);
+    setHandmadeOnly(true);
+    assert.equal(handmadeOnly(), true);
+    setHandmadeOnly(false);
+    assert.equal(handmadeOnly(), false);
+  } finally { delete globalThis.localStorage; }
+});
+
 test("every taught language starts on a list in that language", () => {
   for (const code of LANGUAGE_CODES) {
     assert.ok(START[code], `${code} has a start`);

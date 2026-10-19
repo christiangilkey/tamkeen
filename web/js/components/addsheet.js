@@ -10,7 +10,7 @@ import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { importUrl } from "../pageimport.js";
 import { importVideo, videoId as youTubeId } from "../youtube.js";
-import { COUNTRIES, chooseCountry, chosenCountry } from "../youtube-home.js";
+import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, setHandmadeOnly } from "../youtube-home.js";
 import { openModal } from "./modal.js";
 
 const WAYS = [
@@ -128,6 +128,12 @@ export function openAddSheet({ pickFile }) {
       pick.onchange = () => chooseCountry(lang, pick.value);
       box.append(row);
     }
+    const handmade = h(`<label class="aw-country" title="Leaves out videos that only have YouTube's automatic captions, which are often wrong and have no punctuation">
+        <input type="checkbox"> Only videos with handmade subtitles</label>`);
+    const tick = handmade.querySelector("input");
+    tick.checked = handmadeOnly();
+    tick.onchange = () => setHandmadeOnly(tick.checked);
+    box.append(handmade);
     box.append(h(`<p class="small muted aw-note">Tap a video there and it opens here, with its captions as words you can click. The video needs captions.</p>`));
     box.querySelector("#aw-open-youtube").onclick = () => {
       sheet.close();

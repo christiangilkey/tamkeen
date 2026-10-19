@@ -1,0 +1,2 @@
+e897fcca Deixa de fora os vídeos que só têm as legendas automáticas do YouTube, que costumam ter erros e não têm pontuação
+28543490 Só vídeos com legendas feitas à mão

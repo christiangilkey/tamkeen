@@ -1,0 +1,2 @@
+e897fcca Esclude i video che hanno solo i sottotitoli automatici di YouTube, spesso sbagliati e senza punteggiatura
+28543490 Solo video con sottotitoli fatti a mano
