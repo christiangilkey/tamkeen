@@ -159,3 +159,4 @@ c16a6e7e  # parle, parlons, parlez-moi
 2b8c44b4  # run, ran, running
 a16c86fc  # kumain, kakain, kinain
 58848303  # ODbL 1.0 (licence name)
+75208e29  # {0}px (a text size in Settings, Look & feel)

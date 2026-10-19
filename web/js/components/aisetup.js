@@ -1,7 +1,9 @@
-// The "Word definitions (AI)" card at the top of Settings, on the computer and the phone: which
+// The "How words are explained" card (Settings → Word definitions), on the computer and the phone: which
 // provider, getting a key from it, the key itself, which model the key is used with, and a test.
-// It is first on the page and marked "Required" because nothing explains a word without it.
-// At its foot, the review card's Mnemonic maker has its own model and thinking level (it uses the same key).
+// It is marked "Required" until there is a key, because nothing explains a word without it. In view:
+// AI or No AI, the provider, the key and a test. Under "More options" (most people never change
+// them): the model, the language words are explained in, today's tokens, and the review card's
+// Mnemonic maker with its own model and thinking level (it uses the same key).
 // Above it all, the choice between AI (strongly recommended) and No AI: the built-in dictionary
 // (meanings.js), downloaded per language, which gives a word's usual meanings but not the one in
 // its sentence.
@@ -14,6 +16,8 @@ import { downloadMeanings, meaningsStatus, removeMeanings } from "../meanings.js
 import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
 import { soundAlikes } from "../review/mnemonic.js";
 import { TOKENS_EVENT, describeUsage, tokensToday } from "../tokenuse.js";
+import { icon } from "../icons.js";
+import "./settingsui.js"; // (the looks of the "More options" fold)
 import { showKeyHelp } from "./keyhelp.js";
 import { troubleshootButton } from "./troubleshoot.js";
 
@@ -27,24 +31,22 @@ export function aiSetup(section, { transport }) {
   const here = platform === "desktop" ? "this computer" : window.TAMKEEN_WEB === true ? "this browser" : "this phone";
   section.classList.add("ai-card");
   section.innerHTML = `
-    <div class="ai-head"><h2>Word definitions (AI)</h2><span id="def-tag"></span></div>
+    <div class="ai-head"><h2>How words are explained</h2><span id="def-tag"></span></div>
     <div class="small muted ai-about">Tap a word to see what it means <em>in that sentence</em>. An AI provider writes the
       explanation, using your own key; you pay them directly, a fraction of a cent a word.
       <details><summary>What is sent, and where is my key kept?</summary>The word, its sentence and the sentences either
         side go to the provider you choose, and nowhere else. Your key is kept on ${here} and, if you use Google Drive sync, in the app's private folder in your own Google Drive, so your other devices have it too. It is never part of a data export.</details></div>
-    <div class="def-modes" role="radiogroup" aria-label="How words are explained">
+    <div class="def-modes" role="radiogroup" aria-label="How words are explained" data-find="mode">
       <label class="def-mode def-mode-ai">
-        <span class="def-banner">Strongly recommended</span>
         <span class="def-mode-row"><input type="radio" name="def-mode" value="ai">
-          <span><strong>AI explanations</strong>
-          <span class="small muted">What the word means in <em>this</em> sentence, its grammar, a translation of the sentence,
-            misheard words put right, and the Mnemonic maker. Needs an API key: a fraction of a cent a word (Gemini has a free allowance).</span></span></span>
+          <span><strong>AI explanations <span class="badge">Recommended</span></strong>
+          <span class="small muted">The meaning in <em>this</em> sentence, its grammar and a translation. Needs an API key:
+            a fraction of a cent a word (Gemini has a free allowance).</span></span></span>
       </label>
       <label class="def-mode def-mode-dict">
         <span class="def-mode-row"><input type="radio" name="def-mode" value="dictionary">
           <span><strong>No AI: built-in dictionary</strong>
-          <span class="small muted">Free, and works offline once downloaded. Shows a word's usual meanings from Wiktionary,
-            in English, but not which one fits the sentence. No sentence translations, corrections or mnemonics.</span></span></span>
+          <span class="small muted">Free, and works offline. A word's usual meanings, but not which one fits the sentence.</span></span></span>
       </label>
     </div>
     <div class="def-dict" hidden>
@@ -55,19 +57,8 @@ export function aiSetup(section, { transport }) {
       <div class="def-dict-row small" id="def-dict-row"></div>
     </div>
     <div class="ai-setup">
-      <div class="ai-field"><label for="def-provider">Provider</label>
+      <div class="ai-field ai-wide" data-find="key"><label for="def-provider">Provider</label>
         <select id="def-provider">${Object.entries(PROVIDERS).map(([k, p]) => `<option value="${k}">${esc(p.label)}</option>`).join("")}</select></div>
-      <div class="ai-field"><span class="ai-label" id="def-model-label">Model</span>
-        <div class="model-pick">
-          <button type="button" class="model-btn" id="def-model" aria-haspopup="listbox" aria-expanded="false"></button>
-          <div class="model-menu" id="def-model-menu" hidden>
-            <div class="model-banner">1 million tokens ≈ ${LOOKUPS_PER_MILLION} definitions</div>
-            <div role="listbox" aria-labelledby="def-model-label" id="def-model-list"></div>
-            <div class="model-foot small muted">Tokens are the word-pieces an AI reads and writes. Prices are estimates
-              for the mix a definition uses, from each provider's price list.</div>
-          </div>
-        </div>
-        <input type="text" id="def-model-other" spellcheck="false" autocomplete="off" placeholder="Model name, exactly as the provider writes it" hidden></div>
       <div class="ai-field ai-wide"><label for="def-key">API key</label>
         <div class="ai-key" id="def-keyrow">
           <input type="password" id="def-key" autocomplete="off" spellcheck="false" placeholder="Paste your API key here">
@@ -76,13 +67,28 @@ export function aiSetup(section, { transport }) {
           <button type="button" id="def-stuck">I'm stuck</button>
         </div>
         <span class="small" id="def-key-note" role="status"></span></div>
-      <div class="ai-field"><label for="def-lang">Explain in</label>
-        <input type="text" id="def-lang"></div>
-      <div class="ai-field ai-test"><button type="button" id="def-test">Test with an example</button></div>
+      <div class="ai-field ai-test ai-wide"><button type="button" id="def-test">Test with an example</button></div>
       <div class="ai-wide small" id="def-test-result" role="status"></div>
-      <div class="ai-wide ai-use small muted">Tokens used today on ${here}: <strong id="def-use">0</strong>
+      <details class="set-more ai-wide"><summary>${icon("chevron", 16)}<span>More options</span></summary>
+      <div class="set-more-body ai-more">
+      <div class="ai-more-row">
+        <div class="ai-field" data-find="aimodel"><span class="ai-label" id="def-model-label">Model</span>
+          <div class="model-pick">
+            <button type="button" class="model-btn" id="def-model" aria-haspopup="listbox" aria-expanded="false"></button>
+            <div class="model-menu" id="def-model-menu" hidden>
+              <div class="model-banner">1 million tokens ≈ ${LOOKUPS_PER_MILLION} definitions</div>
+              <div role="listbox" aria-labelledby="def-model-label" id="def-model-list"></div>
+              <div class="model-foot small muted">Tokens are the word-pieces an AI reads and writes. Prices are estimates
+                for the mix a definition uses, from each provider's price list.</div>
+            </div>
+          </div>
+          <input type="text" id="def-model-other" spellcheck="false" autocomplete="off" placeholder="Model name, exactly as the provider writes it" hidden></div>
+        <div class="ai-field" data-find="explain"><label for="def-lang">Explain in</label>
+          <input type="text" id="def-lang"></div>
+      </div>
+      <div class="ai-use small muted" data-find="usage">Tokens used today on ${here}: <strong id="def-use">0</strong>
         <span id="def-use-detail"></span></div>
-      <div class="ai-wide ai-mnemo">
+      <div class="ai-mnemo" data-find="mnemonic">
         <div class="ai-mnemo-head"><strong>Mnemonic maker</strong>
           <span class="small muted">The sound-alike words on the back of a review card. It uses the same key; less thinking answers sooner.</span></div>
         <div class="ai-mnemo-row">
@@ -94,6 +100,7 @@ export function aiSetup(section, { transport }) {
         <div class="small muted" id="mn-note"></div>
         <div class="small" id="mn-test-result" role="status"></div>
       </div>
+      </div></details>
     </div>`;
   const $ = (q) => section.querySelector(q);
   const prov = () => $("#def-provider").value;

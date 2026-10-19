@@ -935,18 +935,28 @@
   "f": "web/js/commonwords.js"
  },
  {
-  "id": "db849af4",
-  "k": "Friends & sharing (online)",
+  "id": "719d0ef2",
+  "k": "Friends & sharing",
   "f": "web/js/components/account.js"
  },
  {
-  "id": "17b2a7cb",
-  "k": "Optional. Connect to add friends by username, share words and folders, keep folders in sync with friends, and play live vocab quizzes together. This uses the same Google account as Drive sync. Your username, friend list and anything you share are stored on the app's online service (Supabase); everything else stays in your own Google Drive.",
+  "id": "53124438",
+  "k": "Optional. Add friends by username, share words and folders, keep folders in sync with friends, and play live vocab quizzes together.",
   "f": "web/js/components/account.js"
  },
  {
   "id": "820d6004",
   "k": "Checking…",
+  "f": "web/js/components/account.js"
+ },
+ {
+  "id": "34622eeb",
+  "k": "What is stored online?",
+  "f": "web/js/components/account.js"
+ },
+ {
+  "id": "51715bc4",
+  "k": "This uses the same Google account as Drive sync. Your username, friend list and anything you share are stored on the app's online service (Supabase); everything else stays in your own Google Drive.",
   "f": "web/js/components/account.js"
  },
  {
@@ -1025,8 +1035,13 @@
   "f": "web/js/components/account.js"
  },
  {
-  "id": "fa61d32f",
-  "k": "Disconnect from friends & sharing on this device? Your username and friends are kept online.",
+  "id": "8c4f2844",
+  "k": "Disconnect from friends & sharing?",
+  "f": "web/js/components/account.js"
+ },
+ {
+  "id": "0f14a44f",
+  "k": "This device stops using Friends. Your username and friends are kept online.",
   "f": "web/js/components/account.js"
  },
  {
@@ -1052,6 +1067,11 @@
  {
   "id": "f922c9f6",
   "k": "Import an article to read with clickable words",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "f69f2330",
+  "k": "Book",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -1210,11 +1230,6 @@
   "f": "web/js/components/aisetup.js"
  },
  {
-  "id": "8eff88d5",
-  "k": "Word definitions (AI)",
-  "f": "web/js/components/aisetup.js"
- },
- {
   "id": "99b34726",
   "k": "Tap a word to see what it means <0>in that sentence</0>. An AI provider writes the explanation, using your own key; you pay them directly, a fraction of a cent a word.",
   "f": "web/js/components/aisetup.js"
@@ -1230,28 +1245,23 @@
   "f": "web/js/components/aisetup.js"
  },
  {
+  "id": "3adbad50",
+  "k": "AI explanations <0>Recommended</0>",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "7aa94634",
+  "k": "The meaning in <0>this</0> sentence, its grammar and a translation. Needs an API key: a fraction of a cent a word (Gemini has a free allowance).",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "50d514a9",
+  "k": "Free, and works offline. A word's usual meanings, but not which one fits the sentence.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
   "id": "7ceee3f3",
   "k": "Provider",
-  "f": "web/js/components/aisetup.js"
- },
- {
-  "id": "68c2cc7f",
-  "k": "Model",
-  "f": "web/js/components/aisetup.js"
- },
- {
-  "id": "61131aac",
-  "k": "1 million tokens ≈ {0} definitions",
-  "f": "web/js/components/aisetup.js"
- },
- {
-  "id": "51823153",
-  "k": "Tokens are the word-pieces an AI reads and writes. Prices are estimates for the mix a definition uses, from each provider's price list.",
-  "f": "web/js/components/aisetup.js"
- },
- {
-  "id": "525f7051",
-  "k": "Model name, exactly as the provider writes it",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -1275,13 +1285,38 @@
   "f": "web/js/components/aisetup.js"
  },
  {
-  "id": "63752a4b",
-  "k": "Explain in",
+  "id": "3b3ec110",
+  "k": "Test with an example",
   "f": "web/js/components/aisetup.js"
  },
  {
-  "id": "3b3ec110",
-  "k": "Test with an example",
+  "id": "86c0a35e",
+  "k": "More options",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "68c2cc7f",
+  "k": "Model",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "61131aac",
+  "k": "1 million tokens ≈ {0} definitions",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "51823153",
+  "k": "Tokens are the word-pieces an AI reads and writes. Prices are estimates for the mix a definition uses, from each provider's price list.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "525f7051",
+  "k": "Model name, exactly as the provider writes it",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "63752a4b",
+  "k": "Explain in",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -1307,6 +1342,21 @@
  {
   "id": "7ddd66b6",
   "k": "Try it",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "e963907d",
+  "k": "Remove",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "c2232964",
+  "k": "Download (about {0} MB)",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "c177e4b0",
+  "k": "Downloading…",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -1437,6 +1487,11 @@
  {
   "id": "d634d7a1",
   "k": "Keep my saved words and my {0} decks in step, both ways",
+  "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "0829312b",
+  "k": "How the sync works",
   "f": "web/js/components/ankisync.js"
  },
  {
@@ -2160,6 +2215,11 @@
   "f": "web/js/components/models.js"
  },
  {
+  "id": "796b8e0e",
+  "k": "Delete the {0} model?",
+  "f": "web/js/components/models.js"
+ },
+ {
   "id": "58ff0825",
   "k": "Delete the {0} model ({1} MB)? You can download it again later.",
   "f": "web/js/components/models.js"
@@ -2315,11 +2375,6 @@
   "f": "web/js/components/onboarding.js"
  },
  {
-  "id": "ff37cd14",
-  "k": "Set it, or change it later, in <0>Settings → Word definitions (AI)</0>.",
-  "f": "web/js/components/onboarding.js"
- },
- {
   "id": "feb628ae",
   "k": "How do I get a key?",
   "f": "web/js/components/onboarding.js"
@@ -2460,6 +2515,206 @@
   "f": "web/js/components/sendmedia.js"
  },
  {
+  "id": "db07be18",
+  "k": "Languages",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "b7764d5b",
+  "k": "The language you speak and the one you're learning.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "06dfc421",
+  "k": "Word definitions",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "ab8f190a",
+  "k": "What you see when you tap a word.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "2b541ab0",
+  "k": "Listening & transcripts",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "e2e7cdc0",
+  "k": "Who writes down what is said in podcasts, videos and reels.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "aaaa4873",
+  "k": "Look & feel",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "483df961",
+  "k": "Theme, text size and the game.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "9fdce180",
+  "k": "Account & sync",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "b4727310",
+  "k": "Google Drive sync, and Friends.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "8bae644d",
+  "k": "Apps & connections",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "feecbb61",
+  "k": "Other apps Tamkeen works with.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "923a6ba3",
+  "k": "Data & updates",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "dca7d5e7",
+  "k": "Backups, updates and starting again.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "fd17e405",
+  "k": "Language I speak",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "1d1fdf5f",
+  "k": "Language I'm learning",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "942aa9b5",
+  "k": "Count common words as seen",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "bfd6240b",
+  "k": "Word dictionaries",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "080a7931",
+  "k": "Vowel marks",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "d4c5ba0c",
+  "k": "Furigana",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "b8ede630",
+  "k": "Pinyin and characters",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "836829ac",
+  "k": "AI explanations or built-in dictionary",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "b0ca7e02",
+  "k": "AI provider and API key",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "6572e8b8",
+  "k": "AI model",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "8a49e27a",
+  "k": "Language words are explained in",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "320fc87b",
+  "k": "Tokens used today",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "c579b050",
+  "k": "Who writes the transcripts",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "5e1ffa82",
+  "k": "Transcription provider and key",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "099be6af",
+  "k": "Transcription model",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "9433c5fb",
+  "k": "GPU acceleration",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "fb0c95bf",
+  "k": "Audio storage",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "a797e309",
+  "k": "Theme",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "3cc6e124",
+  "k": "Text size",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "39b345e7",
+  "k": "Vibration",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "86a5e01f",
+  "k": "Google Drive sync",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "48cd18da",
+  "k": "Your data",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "c76d1807",
+  "k": "Updates",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "7ceacdca",
+  "k": "Privacy policy",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "9a6f37a7",
+  "k": "Search settings",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "86b0c277",
+  "k": "Nothing found. Try another word.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "095ba688",
   "k": "My computer",
   "f": "web/js/components/sttsetup.js"
@@ -2525,23 +2780,18 @@
   "f": "web/js/components/sttsetup.js"
  },
  {
-  "id": "c579b050",
-  "k": "Who writes the transcripts",
-  "f": "web/js/components/sttsetup.js"
- },
- {
   "id": "a1d0104d",
   "k": "A cloud provider",
   "f": "web/js/components/sttsetup.js"
  },
  {
-  "id": "574970e9",
-  "k": "You pay for the length of the audio, not for how long the work takes: an hour-long episode costs the hourly price, a one-minute reel a sixtieth of it. Prices are from each provider's price list.",
+  "id": "87bdb7fb",
+  "k": "Test the key",
   "f": "web/js/components/sttsetup.js"
  },
  {
-  "id": "87bdb7fb",
-  "k": "Test the key",
+  "id": "574970e9",
+  "k": "You pay for the length of the audio, not for how long the work takes: an hour-long episode costs the hourly price, a one-minute reel a sixtieth of it. Prices are from each provider's price list.",
   "f": "web/js/components/sttsetup.js"
  },
  {
@@ -2580,8 +2830,8 @@
   "f": "web/js/components/sttsetup.js"
  },
  {
-  "id": "4fbb2df0",
-  "k": "That key is for word definitions (the card above), not for transcription. Groq keys start with gsk_.",
+  "id": "6e670402",
+  "k": "That key is for Word definitions, not for transcription. Groq keys start with gsk_.",
   "f": "web/js/components/sttsetup.js"
  },
  {
@@ -4242,11 +4492,6 @@
  {
   "id": "9d5c8e51",
   "k": "Compass",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "f69f2330",
-  "k": "Book",
   "f": "web/js/game/data.js"
  },
  {
@@ -6730,11 +6975,6 @@
   "f": "web/js/lexicon/seen.js"
  },
  {
-  "id": "e963907d",
-  "k": "Remove",
-  "f": "web/js/lexicon/seen.js"
- },
- {
   "id": "71da2431",
   "k": "{0} word dictionaries aren't on this device, so new words can't be shown in <0>purple</0>.",
   "f": "web/js/lexicon/seen.js"
@@ -6742,16 +6982,6 @@
  {
   "id": "f5eab3f0",
   "k": "{0} word dictionaries aren't on this device, so each spelling of a word counts as a different word.",
-  "f": "web/js/lexicon/seen.js"
- },
- {
-  "id": "c2232964",
-  "k": "Download (about {0} MB)",
-  "f": "web/js/lexicon/seen.js"
- },
- {
-  "id": "c177e4b0",
-  "k": "Downloading…",
   "f": "web/js/lexicon/seen.js"
  },
  {
@@ -6913,6 +7143,46 @@
   "id": "68680fa2",
   "k": "You're up to date.",
   "f": "web/js/pages/about.js"
+ },
+ {
+  "id": "8e3df45a",
+  "k": "Copied",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "a8ea9e30",
+  "k": "Smaller text",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "118f9b2b",
+  "k": "Larger text",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "51d15ed7",
+  "k": "✓ Saved to vocab",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "7031bbea",
+  "k": "★ Save to vocab",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "b32f1eb3",
+  "k": "📖 Define",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "010f9005",
+  "k": "⧉ Copy",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "3af45b33",
+  "k": "Back to the library",
+  "f": "web/js/pages/books.js"
  },
  {
   "id": "f40382cc",
@@ -7085,11 +7355,6 @@
   "f": "web/js/pages/discover.js"
  },
  {
-  "id": "3af45b33",
-  "k": "Back to the library",
-  "f": "web/js/pages/discover.js"
- },
- {
   "id": "770dabce",
   "k": "The most listened-to podcasts right now in {0}. Press <0>+ Add</0> to put one in your library.",
   "f": "web/js/pages/discover.js"
@@ -7205,13 +7470,8 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "3a374802",
-  "k": "Add friends by username, form guilds, message each other (with voice notes), send words and folders, and see what everyone is studying. Connect your Google account in Settings to start.",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "4e4b5579",
-  "k": "Open Settings → Friends & sharing",
+  "id": "4a0b7281",
+  "k": "Sign in with Google",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -8035,11 +8295,6 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "8e3df45a",
-  "k": "Copied",
-  "f": "web/js/pages/player.js"
- },
- {
   "id": "f0926a5a",
   "k": "Back to library",
   "f": "web/js/pages/player.js"
@@ -8112,16 +8367,6 @@
  {
   "id": "9c3ebd2a",
   "k": "{0} · {1} words",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "a8ea9e30",
-  "k": "Smaller text",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "118f9b2b",
-  "k": "Larger text",
   "f": "web/js/pages/player.js"
  },
  {
@@ -8212,26 +8457,6 @@
  {
   "id": "bf020dbf",
   "k": "Follow {0}: it appears in your Library under YouTube",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "51d15ed7",
-  "k": "✓ Saved to vocab",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "7031bbea",
-  "k": "★ Save to vocab",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "b32f1eb3",
-  "k": "📖 Define",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "010f9005",
-  "k": "⧉ Copy",
   "f": "web/js/pages/player.js"
  },
  {
@@ -9120,6 +9345,136 @@
   "f": "web/js/pages/search.js"
  },
  {
+  "id": "bc0792d8",
+  "k": "System",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "a36ef8ab",
+  "k": "Light",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "ae1ef014",
+  "k": "Dark",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "29211387",
+  "k": "System theme",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "9e5ba0f0",
+  "k": "Light theme",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "d51c5960",
+  "k": "Dark theme",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "2dbd3af2",
+  "k": "App in {0}",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "f330c509",
+  "k": "AI explanations with {0}",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "8f59bae0",
+  "k": "Needs an API key",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "248639f7",
+  "k": "{0} writes the transcripts",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "13e5ef57",
+  "k": "Cloud transcription needs a key",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "4de3810b",
+  "k": "This computer writes the transcripts",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "91634dad",
+  "k": "Download a transcription model",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "5a76cc44",
+  "k": "Game features on",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "f0650323",
+  "k": "Game features off",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "b541e85d",
+  "k": "Google Drive: not connected",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "d1c26a42",
+  "k": "Last sync failed",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "8db4b22b",
+  "k": "Google Drive: {0}",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "f34d4b91",
+  "k": "Google Drive: connected",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "b1124ecc",
+  "k": "Review to-do: {0}",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "8e5aa09b",
+  "k": "Anki sync on",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "55a68b9d",
+  "k": "Extras for reading {0}.",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "0d6a65aa",
+  "k": "The app's buttons and messages are shown in this language, and words are explained in it.",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "a553ac64",
+  "k": "Used for new transcriptions, imported web pages and word explanations. Things you already transcribed keep the language they were made in.",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "fd3f000c",
+  "k": "Reading help",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "d578af85",
+  "k": "Now learning {0}",
+  "f": "web/js/pages/settings.js"
+ },
+ {
   "id": "5eb73faa",
   "k": "mlx-whisper on the Apple GPU (Metal)",
   "f": "web/js/pages/settings.js"
@@ -9140,36 +9495,6 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "9433c5fb",
-  "k": "GPU acceleration",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "fd17e405",
-  "k": "Language I speak",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "0d6a65aa",
-  "k": "The app's buttons and messages are shown in this language, and words are explained in it.",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "1d1fdf5f",
-  "k": "Language I'm learning",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "a553ac64",
-  "k": "Used for new transcriptions, imported web pages and word explanations. Things you already transcribed keep the language they were made in.",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "099be6af",
-  "k": "Transcription model",
-  "f": "web/js/pages/settings.js"
- },
- {
   "id": "c1f65ddb",
   "k": "Engine",
   "f": "web/js/pages/settings.js"
@@ -9185,61 +9510,6 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "17c698af",
-  "k": "{0} Changing the model affects new transcriptions only; re-transcribe an episode from the library to use it there.",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "2162db4e",
-  "k": "Sync with Google Drive",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "3721a5dd",
-  "k": "Keep your podcasts, transcripts and vocab in sync between this computer, other computers and the Android app. Everything is stored in a private app folder in <0>your own</0> Google Drive that only this app can see. Sync never goes through any other server.",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "0ca0b563",
-  "k": "Anki (optional)",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "3c270194",
-  "k": "The Anki add-on",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "22fffbc8",
-  "k": "If you study with Anki on this computer, a small add-on connects it to Tamkeen. It tells Tamkeen how your reviews are going, so they count toward your creature: clearing what is due is the day's goal (whatever the number of cards), and cards that become mature earn a bonus. For that, only numbers are sent. With the switch above on, it also keeps that one deck and your saved words in step. Everything stays on this computer. If you installed the add-on before the sync existed, download and install it again.",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "177dd240",
-  "k": "Press the button below and save the file.",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "e78fa755",
-  "k": "Double-click the saved file. Anki opens and asks to install it; say yes, then restart Anki.",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "047825e8",
-  "k": "Review as usual with Tamkeen open. In Anki, <0>Tools → Tamkeen companion…</0> shows whether it is connected, and <1>Tools → Sync Tamkeen now</1> syncs the deck at once.",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "9cf66eeb",
-  "k": "Download the Anki add-on",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "fb0c95bf",
-  "k": "Audio storage",
-  "f": "web/js/pages/settings.js"
- },
- {
   "id": "746fcf10",
   "k": "Delete downloaded audio after transcription<0/><1>Saves disk space. The player then streams the audio from the podcast's server.</1>",
   "f": "web/js/pages/settings.js"
@@ -9250,78 +9520,48 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "41def7a0",
-  "k": "Appearance",
+  "id": "17c698af",
+  "k": "{0} Changing the model affects new transcriptions only; re-transcribe an episode from the library to use it there.",
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "0485a026",
-  "k": "Theme:",
+  "id": "b868b1b6",
+  "k": "Not used at the moment: {0} writes the transcripts (Cloud transcription, above). Nothing needs downloading here.",
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "bc0792d8",
-  "k": "System",
+  "id": "8423f899",
+  "k": "For the language you're learning. The example shows how big it will be.",
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "a36ef8ab",
-  "k": "Light",
+  "id": "2a5b54a0",
+  "k": "Podcasts & videos",
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "ae1ef014",
-  "k": "Dark",
+  "id": "c573c285",
+  "k": "Web pages",
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "1970d1e8",
-  "k": "Podcast & video text size: <0/> <1>{0}px</1>",
+  "id": "2162db4e",
+  "k": "Sync with Google Drive",
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "ce52a4a4",
-  "k": "Web page text size: <0/> <1>{0}px</1>",
+  "id": "01ef9525",
+  "k": "Keeps your podcasts, transcripts and vocab the same on this computer, other computers and your phone.",
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "48cd18da",
-  "k": "Your data",
+  "id": "22b684a7",
+  "k": "Everything is stored in a private app folder in <0>your own</0> Google Drive that only this app can see. Sync never goes through any other server.",
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "eb32d375",
-  "k": "Your library, transcripts, vocab, models and settings are stored in:",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "b26720e4",
-  "k": "Open data folder",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "146d9a4b",
-  "k": "Export my data",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "65cf972d",
-  "k": "include downloaded audio",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "aa4fb3d2",
-  "k": "Import data…",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "2916184c",
-  "k": "Replaces your current library with a backup (.zip).",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "c76d1807",
-  "k": "Updates",
+  "id": "31be6197",
+  "k": "Where is it stored?",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -9330,8 +9570,8 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "4a0b7281",
-  "k": "Sign in with Google",
+  "id": "848d80ca",
+  "k": "Not signed in",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -9365,6 +9605,11 @@
   "f": "web/js/pages/settings.js"
  },
  {
+  "id": "cc4c05b0",
+  "k": "Upload compressed audio copies (about 12 MB per hour)<0/><1>Lets your phone and other computers play exactly the audio that was transcribed, so highlighting stays in sync even on podcasts that insert different ads per download. Uses your Google Drive storage.</1>",
+  "f": "web/js/pages/settings.js"
+ },
+ {
   "id": "1b6c524f",
   "k": "Signed in",
   "f": "web/js/pages/settings.js"
@@ -9375,23 +9620,58 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "cc4c05b0",
-  "k": "Upload compressed audio copies (about 12 MB per hour)<0/><1>Lets your phone and other computers play exactly the audio that was transcribed, so highlighting stays in sync even on podcasts that insert different ads per download. Uses your Google Drive storage.</1>",
+  "id": "af70c2ba",
+  "k": "Sign out of Google?",
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "777e4004",
-  "k": "Sign out of Google? Your library stays on this computer; it just stops syncing.",
+  "id": "5dfc94fd",
+  "k": "Your library stays on this computer; it just stops syncing.",
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "d578af85",
-  "k": "Now learning {0}",
+  "id": "0ca0b563",
+  "k": "Anki (optional)",
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "b868b1b6",
-  "k": "Not used at the moment: {0} writes the transcripts (Cloud transcription, above). Nothing needs downloading here.",
+  "id": "31061d48",
+  "k": "For people who also study with Anki on this computer.",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "3c270194",
+  "k": "The Anki add-on",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "177dd240",
+  "k": "Press the button below and save the file.",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "e78fa755",
+  "k": "Double-click the saved file. Anki opens and asks to install it; say yes, then restart Anki.",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "047825e8",
+  "k": "Review as usual with Tamkeen open. In Anki, <0>Tools → Tamkeen companion…</0> shows whether it is connected, and <1>Tools → Sync Tamkeen now</1> syncs the deck at once.",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "9cf66eeb",
+  "k": "Download the Anki add-on",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "346217cc",
+  "k": "What the add-on does",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "cccca32e",
+  "k": "It tells Tamkeen how your reviews are going, so they count toward your creature: clearing what is due is the day's goal (whatever the number of cards), and cards that become mature earn a bonus. For that, only numbers are sent. With the switch above on, it also keeps that one deck and your saved words in step. Everything stays on this computer. If you installed the add-on before the sync existed, download and install it again.",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -9410,8 +9690,43 @@
   "f": "web/js/pages/settings.js"
  },
  {
+  "id": "eb32d375",
+  "k": "Your library, transcripts, vocab, models and settings are stored in:",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "b26720e4",
+  "k": "Open data folder",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "146d9a4b",
+  "k": "Export my data",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "65cf972d",
+  "k": "include downloaded audio",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "aa4fb3d2",
+  "k": "Import data…",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "2916184c",
+  "k": "Replaces your current library with a backup (.zip).",
+  "f": "web/js/pages/settings.js"
+ },
+ {
   "id": "9293dd01",
   "k": "Backup ready ({0})",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "e3a1377f",
+  "k": "Import data?",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -11515,13 +11830,13 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "bb397028",
-  "k": "Importing pages works in the installed Android app.",
+  "id": "01dae1d6",
+  "k": "Couldn't reach that site. Check the address and your connection.",
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "01dae1d6",
-  "k": "Couldn't reach that site. Check the address and your connection.",
+  "id": "bb397028",
+  "k": "Importing pages works in the installed Android app.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -11585,13 +11900,13 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "37eb8e15",
-  "k": "Videos play in the installed app.",
+  "id": "afe5afc2",
+  "k": "The video isn't in your Google Drive any more.",
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "afe5afc2",
-  "k": "The video isn't in your Google Drive any more.",
+  "id": "37eb8e15",
+  "k": "Videos play in the installed app.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -11850,8 +12165,38 @@
   "f": "mobile/src/js/lexicon-store.js"
  },
  {
-  "id": "5c90bb93",
-  "k": "AnkiDroid (optional)",
+  "id": "dc170e1d",
+  "k": "Google Tasks, Onyx, and the Tamkeen app.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "1ceebe39",
+  "k": "AnkiDroid, Google Tasks and Onyx.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "ee622c1c",
+  "k": "Google Tasks and Onyx.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "7c53db40",
+  "k": "Starting again, and the privacy policy.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "e774c246",
+  "k": "Updates, starting again, and the privacy policy.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "985f8a33",
+  "k": "Your computer writes the transcripts",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "e2d909d2",
+  "k": "AnkiDroid sync on",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -11860,28 +12205,23 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "2b7da079",
-  "k": "Your podcasts, transcripts and vocab are shared with your computer through a private app folder in your own Google Drive. Unless a cloud provider is chosen above, transcription happens on your computer: tap \"Transcribe\" here and it will do it on its next sync.",
-  "f": "mobile/src/js/pages/settings.js"
- },
- {
   "id": "10899135",
   "k": "Vibrate lightly when I tap a word or save one",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "b0cc938b",
-  "k": "Podcast & video text: <0/> <1>{0}px</1>",
+  "id": "585c71c0",
+  "k": "Your podcasts, transcripts and vocab are shared with your computer through a private app folder in your own Google Drive.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "283086ed",
-  "k": "Web page text: <0/> <1>{0}px</1>",
+  "id": "0b252362",
+  "k": "Who transcribes what I add here?",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "f4c2b5ca",
-  "k": "Tamkeen for Android · <0>Privacy policy</0>",
+  "id": "6a5f967d",
+  "k": "Unless a cloud provider is chosen in Listening & transcripts, transcription happens on your computer: tap \"Transcribe\" here and it will do it on its next sync.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -11900,8 +12240,28 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "33b60a49",
-  "k": "Sign out of Google? Your library stays on this phone; it just stops syncing.",
+  "id": "4520d4e1",
+  "k": "Your library stays on this phone; it just stops syncing.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "5c90bb93",
+  "k": "AnkiDroid (optional)",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "5cbc70fe",
+  "k": "This works like the app, with a few things that need the Tamkeen app on your phone or computer.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "1b5e130c",
+  "k": "What needs the app?",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "3ec02d90",
+  "k": "Reels from your Instagram saves and random reels, reels with a song from Instagram's music library, the built-in web browser (Import Page and Find in a video), AnkiDroid sync, and the number on the app icon. What you add in the app shows up here after a sync.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -11912,11 +12272,6 @@
  {
   "id": "7ff90624",
   "k": "Preview mode: sign-in works in the installed app.",
-  "f": "mobile/src/js/pages/welcome.js"
- },
- {
-  "id": "10e45b5e",
-  "k": "Your podcasts, transcripts and vocab, on your phone.",
   "f": "mobile/src/js/pages/welcome.js"
  },
  {

@@ -712,7 +712,7 @@ export async function render(view, { id, query }) {
       if (pause && !audio.paused) audio.pause();
       else if (!pause && audio.paused) play();
     },
-    onSettings: () => (location.hash = "#/settings"),
+    onSettings: () => (location.hash = "#/settings?s=words"),
     onSave: async (def) => {
       const t = bubbleTarget;
       try {

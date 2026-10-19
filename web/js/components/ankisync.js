@@ -52,12 +52,12 @@ export function ankiSyncPanel(box) {
   box.innerHTML = `
     <label class="check"><input type="checkbox" class="as-on">
       <span>Keep my saved words and my ${anki()} decks in step, both ways</span></label>
-    <p class="small muted">Each language you learn has its own deck, named below. Only those decks are ever read or changed: your
+    <details class="set-info"><summary>How the sync works</summary>Each language you learn has its own deck, named below. Only those decks are ever read or changed: your
       other decks, notes and cards are never touched. New words, edits and deletions travel both ways. A card you make by hand in
       one of them becomes a word here, in that deck's language.
-      Each card's review progress is shown on the Vocab page; Tamkeen never changes ${anki()}'s schedule, a card's picture, or the card layout.</p>
-    <div class="as-decks stack"></div>
-    <div class="row"><button type="button" class="as-deck-save">Save deck names</button></div>
+      Each card's review progress is shown on the Vocab page; Tamkeen never changes ${anki()}'s schedule, a card's picture, or the card layout.</details>
+    <div class="as-decks stack" hidden></div>
+    <div class="row as-deck-row" hidden><button type="button" class="as-deck-save">Save deck names</button></div>
     <div class="as-state stack"></div>`;
   const $ = (q) => box.querySelector(q);
   let current = null;
@@ -85,6 +85,9 @@ export function ankiSyncPanel(box) {
         <input type="text" class="as-deck" data-lang="${esc(d.language)}" maxlength="100" style="flex:1;min-width:120px"></label>`).join("");
       rows.querySelectorAll(".as-deck").forEach((input, i) => { input.value = (st.decks || [{ name: st.deck }])[i].name; });
     }
+    // The deck names only matter once the sync is on.
+    rows.hidden = !st.enabled;
+    $(".as-deck-row").hidden = !st.enabled;
     const out = $(".as-state");
     if (!st.enabled) {
       out.innerHTML = phone() ? "" : `<p class="small muted">Switching this on needs the add-on below (version 2 or later) installed in Anki.</p>`;

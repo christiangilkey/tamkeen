@@ -1,0 +1,92 @@
+719d0ef2	Amis et partage
+53124438	Facultatif. Ajoutez des amis par nom d'utilisateur, partagez des mots et des dossiers, synchronisez des dossiers avec vos amis et jouez ensemble à des quiz de vocabulaire en direct.
+34622eeb	Qu'est-ce qui est stocké en ligne ?
+51715bc4	Cela utilise le même compte Google que la synchronisation Drive. Votre nom d'utilisateur, votre liste d'amis et ce que vous partagez sont stockés sur le service en ligne de l'application (Supabase) ; tout le reste reste dans votre propre Google Drive.
+8c4f2844	Se déconnecter des amis et du partage ?
+0f14a44f	Cet appareil n'utilisera plus Amis. Votre nom d'utilisateur et vos amis sont conservés en ligne.
+3adbad50	Explications par IA <0>Recommandé</0>
+7aa94634	Le sens dans <0>cette</0> phrase, sa grammaire et une traduction. Nécessite une clé API : une fraction de centime par mot (Gemini offre un quota gratuit).
+50d514a9	Gratuit, et fonctionne hors ligne. Les sens habituels d'un mot, mais pas celui qui convient à la phrase.
+86c0a35e	Plus d'options
+0829312b	Comment fonctionne la synchronisation
+796b8e0e	Supprimer le modèle {0} ?
+db07be18	Langues
+b7764d5b	La langue que vous parlez et celle que vous apprenez.
+06dfc421	Définitions des mots
+ab8f190a	Ce que vous voyez quand vous touchez un mot.
+2b541ab0	Écoute et transcriptions
+e2e7cdc0	Qui écrit ce qui se dit dans les podcasts, les vidéos et les reels.
+aaaa4873	Apparence
+483df961	Thème, taille du texte et jeu.
+9fdce180	Compte et synchronisation
+b4727310	Synchronisation Google Drive, et Amis.
+8bae644d	Applications et connexions
+feecbb61	Les autres applications avec lesquelles Tamkeen fonctionne.
+923a6ba3	Données et mises à jour
+dca7d5e7	Sauvegardes, mises à jour et nouveau départ.
+942aa9b5	Compter les mots courants comme vus
+bfd6240b	Dictionnaires de mots
+080a7931	Signes de voyelles
+d4c5ba0c	Furigana
+b8ede630	Pinyin et caractères
+836829ac	Explications par IA ou dictionnaire intégré
+b0ca7e02	Fournisseur d'IA et clé API
+6572e8b8	Modèle d'IA
+8a49e27a	Langue des explications
+320fc87b	Jetons utilisés aujourd'hui
+5e1ffa82	Fournisseur de transcription et clé
+a797e309	Thème
+3cc6e124	Taille du texte
+39b345e7	Vibration
+86a5e01f	Synchronisation Google Drive
+7ceacdca	Politique de confidentialité
+9a6f37a7	Rechercher dans les réglages
+86b0c277	Rien trouvé. Essayez un autre mot.
+6e670402	Cette clé sert aux Définitions des mots, pas à la transcription. Les clés Groq commencent par gsk_.
+29211387	Thème du système
+9e5ba0f0	Thème clair
+d51c5960	Thème sombre
+2dbd3af2	Langue de l'application : {0}
+f330c509	Explications par IA avec {0}
+8f59bae0	Clé API nécessaire
+248639f7	{0} rédige les transcriptions
+13e5ef57	La transcription dans le cloud nécessite une clé
+4de3810b	Cet ordinateur rédige les transcriptions
+91634dad	Téléchargez un modèle de transcription
+5a76cc44	Fonctions de jeu activées
+f0650323	Fonctions de jeu désactivées
+b541e85d	Google Drive : non connecté
+d1c26a42	La dernière synchronisation a échoué
+8db4b22b	Google Drive : {0}
+f34d4b91	Google Drive : connecté
+b1124ecc	Révision en tâche : {0}
+8e5aa09b	Synchronisation Anki activée
+55a68b9d	Pour mieux lire : {0:lower}.
+fd3f000c	Aide à la lecture
+8423f899	Pour la langue que vous apprenez. L'exemple montre la taille obtenue.
+2a5b54a0	Podcasts et vidéos
+c573c285	Pages web
+01ef9525	Garde vos podcasts, transcriptions et vocabulaire identiques sur cet ordinateur, vos autres ordinateurs et votre téléphone.
+22b684a7	Tout est stocké dans un dossier privé de l'application sur <0>votre propre</0> Google Drive, visible seulement par cette application. La synchronisation ne passe jamais par un autre serveur.
+31be6197	Où est-ce stocké ?
+848d80ca	Non connecté
+af70c2ba	Se déconnecter de Google ?
+5dfc94fd	Votre bibliothèque reste sur cet ordinateur ; elle n'est simplement plus synchronisée.
+31061d48	Pour ceux qui étudient aussi avec Anki sur cet ordinateur.
+346217cc	Ce que fait le module
+cccca32e	Il indique à Tamkeen comment se passent vos révisions, pour qu'elles comptent pour votre créature : terminer ce qui est dû est l'objectif du jour (quel que soit le nombre de cartes), et les cartes qui deviennent matures rapportent un bonus. Pour cela, seuls des chiffres sont envoyés. Avec l'interrupteur ci-dessus activé, il garde aussi ce paquet et vos mots enregistrés synchronisés. Tout reste sur cet ordinateur. Si vous avez installé le module avant l'arrivée de la synchronisation, téléchargez-le et installez-le à nouveau.
+e3a1377f	Importer des données ?
+dc170e1d	Google Tasks, Onyx et l'application Tamkeen.
+1ceebe39	AnkiDroid, Google Tasks et Onyx.
+ee622c1c	Google Tasks et Onyx.
+7c53db40	Nouveau départ, et politique de confidentialité.
+e774c246	Mises à jour, nouveau départ, et politique de confidentialité.
+985f8a33	Votre ordinateur rédige les transcriptions
+e2d909d2	Synchronisation AnkiDroid activée
+585c71c0	Vos podcasts, transcriptions et vocabulaire sont partagés avec votre ordinateur via un dossier privé de l'application sur votre propre Google Drive.
+0b252362	Qui transcrit ce que j'ajoute ici ?
+6a5f967d	Sauf si un fournisseur cloud est choisi dans Écoute et transcriptions, la transcription se fait sur votre ordinateur : touchez « Transcrire » ici et il s'en chargera à sa prochaine synchronisation.
+4520d4e1	Votre bibliothèque reste sur ce téléphone ; elle n'est simplement plus synchronisée.
+5cbc70fe	Cela fonctionne comme l'application, à part quelques fonctions qui nécessitent l'application Tamkeen sur votre téléphone ou votre ordinateur.
+1b5e130c	Qu'est-ce qui nécessite l'application ?
+3ec02d90	Les reels de vos enregistrements Instagram et les reels au hasard, les reels avec une chanson de la bibliothèque musicale d'Instagram, le navigateur web intégré (Importer la page et Trouver dans une vidéo), la synchronisation AnkiDroid et le nombre sur l'icône de l'application. Ce que vous ajoutez dans l'application apparaît ici après une synchronisation.

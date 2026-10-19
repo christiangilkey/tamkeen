@@ -1,0 +1,92 @@
+719d0ef2	Amics i compartir
+53124438	Opcional. Afegeix amics pel nom d'usuari, comparteix paraules i carpetes, mantén carpetes sincronitzades amb amics i jugueu junts a qüestionaris de vocabulari en directe.
+34622eeb	Què es guarda en línia?
+51715bc4	Fa servir el mateix compte de Google que la sincronització amb Drive. El teu nom d'usuari, la teva llista d'amics i tot el que comparteixis es guarden al servei en línia de l'app (Supabase); tota la resta es queda al teu propi Google Drive.
+8c4f2844	Vols desconnectar-te d'amics i compartir?
+0f14a44f	Aquest dispositiu deixa de fer servir Amics. El teu nom d'usuari i els teus amics es conserven en línia.
+3adbad50	Explicacions amb IA <0>Recomanat</0>
+7aa94634	El significat en <0>aquesta</0> frase, la seva gramàtica i una traducció. Cal una clau d'API: una fracció de cèntim per paraula (Gemini té una quota gratuïta).
+50d514a9	Gratuït, i funciona sense connexió. Els significats habituals d'una paraula, però no quin encaixa amb la frase.
+86c0a35e	Més opcions
+0829312b	Com funciona la sincronització
+796b8e0e	Vols suprimir el model {0}?
+db07be18	Llengües
+b7764d5b	La llengua que parles i la que aprens.
+06dfc421	Definicions de paraules
+ab8f190a	El que veus quan toques una paraula.
+2b541ab0	Escolta i transcripcions
+e2e7cdc0	Qui escriu el que es diu als pòdcasts, vídeos i reels.
+aaaa4873	Aspecte
+483df961	Tema, mida del text i el joc.
+9fdce180	Compte i sincronització
+b4727310	Sincronització amb Google Drive, i Amics.
+8bae644d	Apps i connexions
+feecbb61	Altres apps amb què funciona Tamkeen.
+923a6ba3	Dades i actualitzacions
+dca7d5e7	Còpies de seguretat, actualitzacions i tornar a començar.
+942aa9b5	Comptar les paraules freqüents com a vistes
+bfd6240b	Diccionaris de paraules
+080a7931	Signes vocàlics
+d4c5ba0c	Furigana
+b8ede630	Pinyin i caràcters
+836829ac	Explicacions amb IA o diccionari integrat
+b0ca7e02	Proveïdor d'IA i clau d'API
+6572e8b8	Model d'IA
+8a49e27a	Llengua en què s'expliquen les paraules
+320fc87b	Tokens fets servir avui
+5e1ffa82	Proveïdor de transcripció i clau
+a797e309	Tema
+3cc6e124	Mida del text
+39b345e7	Vibració
+86a5e01f	Sincronització amb Google Drive
+7ceacdca	Política de privadesa
+9a6f37a7	Cerca a la configuració
+86b0c277	No s'ha trobat res. Prova una altra paraula.
+6e670402	Aquesta clau és per a Definicions de paraules, no per a la transcripció. Les claus de Groq comencen per gsk_.
+29211387	Tema del sistema
+9e5ba0f0	Tema clar
+d51c5960	Tema fosc
+2dbd3af2	Llengua de l'app: {0}
+f330c509	Explicacions amb IA de {0}
+8f59bae0	Cal una clau d'API
+248639f7	{0} escriu les transcripcions
+13e5ef57	La transcripció al núvol necessita una clau
+4de3810b	Aquest ordinador escriu les transcripcions
+91634dad	Baixa un model de transcripció
+5a76cc44	Funcions de joc activades
+f0650323	Funcions de joc desactivades
+b541e85d	Google Drive: no connectat
+d1c26a42	L'última sincronització ha fallat
+8db4b22b	Google Drive: {0}
+f34d4b91	Google Drive: connectat
+b1124ecc	Repàs com a tasca: {0}
+8e5aa09b	Sincronització amb Anki activada
+55a68b9d	Ajudes per llegir en {0:lower}.
+fd3f000c	Ajuda per llegir
+8423f899	Per a la llengua que aprens. L'exemple mostra com de gran es veurà.
+2a5b54a0	Pòdcasts i vídeos
+c573c285	Pàgines web
+01ef9525	Manté iguals els teus pòdcasts, transcripcions i vocabulari en aquest ordinador, en altres ordinadors i al teu telèfon.
+22b684a7	Tot es guarda en una carpeta privada de l'app al <0>teu propi</0> Google Drive que només aquesta app pot veure. La sincronització no passa mai per cap altre servidor.
+31be6197	On es guarda?
+848d80ca	Sense sessió iniciada
+af70c2ba	Vols tancar la sessió de Google?
+5dfc94fd	La teva biblioteca es queda en aquest ordinador; només deixa de sincronitzar-se.
+31061d48	Per a qui també estudia amb Anki en aquest ordinador.
+346217cc	Què fa el complement
+cccca32e	Explica a Tamkeen com van els teus repassos perquè comptin per a la teva criatura: completar el que tens pendent és la meta del dia (sigui quin sigui el nombre de targetes), i les targetes que maduren donen una bonificació. Per a això només s'envien números. Amb l'interruptor de dalt activat, també manté sincronitzades aquella baralla i les teves paraules desades. Tot es queda en aquest ordinador. Si vas instal·lar el complement abans que existís la sincronització, torna'l a baixar i instal·la'l de nou.
+e3a1377f	Vols importar dades?
+dc170e1d	Google Tasks, Onyx i l'app Tamkeen.
+1ceebe39	AnkiDroid, Google Tasks i Onyx.
+ee622c1c	Google Tasks i Onyx.
+7c53db40	Tornar a començar, i la política de privadesa.
+e774c246	Actualitzacions, tornar a començar, i la política de privadesa.
+985f8a33	El teu ordinador escriu les transcripcions
+e2d909d2	Sincronització amb AnkiDroid activada
+585c71c0	Els teus pòdcasts, transcripcions i vocabulari es comparteixen amb l'ordinador a través d'una carpeta privada de l'app al teu propi Google Drive.
+0b252362	Qui transcriu el que afegeixo aquí?
+6a5f967d	Tret que triïs un proveïdor al núvol a Escolta i transcripcions, la transcripció es fa a l'ordinador: toca «Transcriu» aquí i ho farà a la propera sincronització.
+4520d4e1	La teva biblioteca es queda en aquest telèfon; només deixa de sincronitzar-se.
+5cbc70fe	Funciona com l'app, amb unes quantes coses que necessiten l'app Tamkeen al telèfon o a l'ordinador.
+1b5e130c	Què necessita l'app?
+3ec02d90	Reels del que has desat a Instagram i reels a l'atzar, reels amb una cançó de la biblioteca musical d'Instagram, el navegador web integrat («Importa la pàgina» i «Busca-la en un vídeo»), la sincronització amb AnkiDroid i el número a la icona de l'app. El que afegeixis a l'app apareix aquí després d'una sincronització.

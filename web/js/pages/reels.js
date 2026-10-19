@@ -173,7 +173,7 @@ async function renderList(view) {
     if (!info.available) {
       box.append(h(`<p class="card small muted">${phone
         ? `New reels are found and transcribed by Tamkeen on your computer, then sync to this phone. To pick reels from your Instagram
-           saves right here instead, turn on <a href="#/settings">Cloud transcription in Settings</a>.`
+           saves right here instead, turn on <a href="#/settings?s=listening&show=who">Cloud transcription in Settings</a>.`
         : "Getting reels works in the installed Tamkeen app on your computer (it needs its own Instagram window)."}</p>`));
       return;
     }
@@ -296,7 +296,7 @@ async function renderList(view) {
         <input type="url" inputmode="url" placeholder="Paste an Instagram reel link" aria-label="Instagram reel link" style="flex:1" ${busy || !info.available ? "disabled" : ""}>
         <button class="primary" type="submit" ${busy || !info.available ? "disabled" : ""}>${busy ? "Adding…" : "Add"}</button>
       </form>
-      ${info.available ? "" : `<p class="small">Turn on <a href="#/settings">Cloud transcription in Settings</a> first: it is what listens to the reel and writes its words.</p>`}
+      ${info.available ? "" : `<p class="small">Turn on <a href="#/settings?s=listening&show=who">Cloud transcription in Settings</a> first: it is what listens to the reel and writes its words.</p>`}
       <div class="small muted" id="reel-status"></div>
       <div id="reel-log"></div>
       <p class="small muted">On the web you can watch your reels and add public ones from their link. Picking reels from your
@@ -566,7 +566,7 @@ async function renderPlayer(view, { query }) {
     onPlayWord: () => target && playClip(cur.starts[target.i], cur.ends[target.j]),
     onPlaySentence: () => target && playClip(cur.starts[target.si], cur.ends[target.sj]),
     onPlayFrom: () => { if (target && surface) { clipEnd = null; surface.do("seek", cur.starts[target.i]); surface.do("play"); } },
-    onSettings: () => (location.hash = "#/settings"),
+    onSettings: () => (location.hash = "#/settings?s=words"),
     onSave: async (def) => {
       const t = target;
       try {

@@ -2939,3 +2939,39 @@ to-do" (`components/tasktarget.js`, setting `review_task_target` "google" | "ony
 - **Onyx:** `onyx://task?title&minutes&due&notes&id&from=tamkeen&n=<ms>` (contract from Onyx's chat, Onyx 1.43.0:
   opens Magic add for that day; same id updates; n makes each Android send new). Computer: POST /api/open-onyx
   (os.startfile, onyx:// only); phone/web: location.href. Not tried against a real Onyx install from here.
+
+## Settings redesign: a short list of sections, search, "More options" (2026-10-18; branch `settings-redesign`, NOT merged, NOT pushed)
+Asked for: "think like a UI designer and make the settings much more intuitive and easy to use and understand
+for the user without feeling overwhelming."
+- **Before**: one long page (computer about 4,700 px tall, 16 cards, 89 controls in view at once; phone about
+  5,100 px, 13 cards), starting with the densest card (AI provider, model prices, key, Mnemonic maker).
+- **Now**: Settings opens on a home screen with a search box and seven rows, each with a line icon and a live
+  one-line status (gold when something needs doing): **Languages** (Learning Arabic · App in English), **Word
+  definitions** (AI explanations with Gemini / Needs an API key / No AI), **Listening & transcripts**, **Look &
+  feel**, **Account & sync** (Google Drive: you@…), **Apps & connections** (Anki, review to-do), **Data & updates**.
+  Each opens its own screen `#/settings?s=<id>` with "‹ Settings" back (goes back in history when you came from
+  the list, so the phone's back button works too). Expert options sit under a quiet "More options" fold: the AI
+  model, "Explain in", tokens today and the Mnemonic maker; the transcription model and audio sent today; the
+  computer's engine/hardware and Audio storage; Drive's audio copies; "I already know the basics". Long
+  paragraphs became one line plus a small "What is stored online?"-style fold. The "Strongly recommended"
+  coloured bar is now a small Recommended badge; browser confirm boxes in Settings (sign out, disconnect, import,
+  delete model, remove GPU libraries) are the app's own popup (`confirmBox`).
+- **Code**: `web/js/components/settingsui.js` (new, shared): SECTIONS, FINDS (the search index: section, a
+  `data-find` id on the screen, label, extra English words; `on`/`langs` limit by device / study language),
+  `settingsHome`, `sectionPage`, `moreOptions`, `revealFind` (`?show=<find id>` opens the section, unfolds and
+  rings the setting; `#/settings?show=anki` still works), `confirmBox`, and its own styles (no shadows,
+  centred 680 px column, segmented Theme control, sliders with a sample). `web/js/pages/settings.js` and
+  `mobile/src/js/pages/settings.js` are rewritten as a home + one builder per section; every setting key, id,
+  API call and behaviour is as before. Card markup changed in aisetup.js, sttsetup.js, account.js, ankisync.js
+  (deck names show only when the sync is on). New icons: sun, cloud, link, data. Links into Settings from the
+  word popup, reels, Friends, the Friends game and "send to a friend" now open the right section.
+  `mobile/scripts/build-www.mjs` copies settingsui.js.
+- **Translations**: 92 new strings in `tools/i18n/tr/<code>/30-settings.txt` for es ar fr ja zh ru it tl and
+  pt ca ceb th (the last four for when main's new-language work is merged). `tools/i18n/strings.json` here is
+  main's committed list plus these only; after merging, run `node tools/i18n/extract.mjs` and
+  `node tools/i18n/build.mjs` again (web/i18n/*.json and strings.json are generated, so conflicts there are
+  settled by re-running them).
+- **Checked**: computer preview (scratch copy of a signed-out library) and phone/web-app builds at 375 px, dark
+  and light, Arabic right-to-left; every section, search, deep links, back. 472 JS tests and 379 pytest pass.
+  Pictures: `..\settings-redesign-shots\` (outside the repo). **Not checked**: a real phone, signed-in states
+  with a real account.

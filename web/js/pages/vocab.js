@@ -326,7 +326,7 @@ export async function render(view) {
     let st;
     try { st = await social.friendsState(); } catch (e) { toast(e.message, { error: true }); return; }
     if (!st || !st.me.username) {
-      toast("Connect and choose a username first.", { action: { label: "Settings", run: () => (location.hash = "#/settings") } });
+      toast("Connect and choose a username first.", { action: { label: "Settings", run: () => (location.hash = "#/settings?s=account&show=friends") } });
       return;
     }
     if (!st.friends.length) {
