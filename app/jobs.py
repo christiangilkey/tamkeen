@@ -252,7 +252,8 @@ def _process(job: dict[str, Any], cancel: threading.Event) -> None:
         return
     temp_audio: Path | None = None
     try:
-        engine = transcriber.get()  # fail fast if no model, before downloading audio
+        language = languages.study()  # the language being learned when the work starts
+        engine = transcriber.get(language=language)  # fail fast if no model, before downloading audio
         audio_path, is_temp = _ensure_audio(ep, cancel)
         if is_temp:
             temp_audio = audio_path
@@ -268,7 +269,6 @@ def _process(job: dict[str, Any], cancel: threading.Event) -> None:
         segments: list[Segment] = []
         last_emit = 0.0
         last_pct = -1.0
-        language = languages.study()  # the language being learned when the work starts
         for seg in engine.transcribe(samples, cancel, language):
             segments.append(seg)
             pct = min(99.9, round(100 * seg.end / duration, 1)) if duration else 0.0

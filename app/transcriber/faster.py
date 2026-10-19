@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 import os
 import threading
-from collections.abc import Iterator
+from collections.abc import Iterable, Iterator
 from pathlib import Path
 
 import numpy as np
@@ -19,11 +19,12 @@ log = logging.getLogger(__name__)
 class FasterWhisperTranscriber:
     engine = "faster-whisper"
 
-    def __init__(self, model_path: Path, model_size: str, device: str, beam_size: int = 5) -> None:
+    def __init__(self, model_path: Path, model_size: str, device: str, beam_size: int = 5, prompt: bool = True) -> None:
         from faster_whisper import WhisperModel
 
         self.model_size = model_size
         self.beam_size = beam_size
+        self.prompt = prompt  # False for a model retrained on its language, which needs no steering
         if device == "cuda":
             try:
                 self.model = WhisperModel(str(model_path), device="cuda", compute_type="float16")
@@ -40,7 +41,7 @@ class FasterWhisperTranscriber:
         segments, _info = self.model.transcribe(
             audio,
             language=whisper_code(language),
-            initial_prompt=INITIAL_PROMPTS.get(language),
+            initial_prompt=INITIAL_PROMPTS.get(language) if self.prompt else None,
             task="transcribe",
             beam_size=self.beam_size,
             word_timestamps=True,
@@ -51,9 +52,68 @@ class FasterWhisperTranscriber:
             # already removes the silence it targets.)
             condition_on_previous_text=False,
         )
-        for seg in segments:  # lazy generator: decoding happens as we iterate
-            if cancel is not None and cancel.is_set():
-                raise TranscriptionCancelled()
-            words = [Word(float(w.start), float(w.end), w.word.strip(), float(w.probability))
-                     for w in (seg.words or []) if w.word.strip()]
-            yield Segment(float(seg.start), float(seg.end), seg.text.strip(), words)
+
+        def converted() -> Iterator[Segment]:
+            for seg in segments:  # lazy generator: decoding happens as we iterate
+                if cancel is not None and cancel.is_set():
+                    raise TranscriptionCancelled()
+                words = [Word(float(w.start), float(w.end), w.word.strip(), float(w.probability))
+                         for w in (seg.words or []) if w.word.strip()]
+                yield Segment(float(seg.start), float(seg.end), seg.text.strip(), words)
+
+        return regroup(converted())
+
+
+def _letters(text: str) -> str:
+    return "".join(text.split())
+
+
+def regroup(segments: Iterable[Segment], limit: int = 30) -> Iterator[Segment]:
+    """Put each word back in the line its text belongs to.
+
+    When a line starts without a space (the Bisaya model, retrained on text without timings, often
+    does), faster-whisper glues its first word onto the line before ("walking" + "unya" =
+    "walkingunya") and from there files every word one line early, though the words' times and the
+    lines' text are right. Lines are held until their words and text have the same letters again,
+    then the words are shared out by each line's text, a glued word cut where the line ends."""
+    held: list[Segment] = []
+    text = words = ""
+    for seg in segments:
+        held.append(seg)
+        text += _letters(seg.text)
+        words += "".join(w.text for w in seg.words)
+        if text == words or len(held) >= limit:
+            if text == words and len(held) > 1:
+                _share_out(held)
+            yield from held
+            held, text, words = [], "", ""
+    yield from held  # never matched up: as faster-whisper gave them
+
+
+def _share_out(held: list[Segment]) -> None:
+    words = [w for seg in held for w in seg.words]
+    new: list[list[Word]] = []
+    i, carry = 0, None
+    for seg in held:
+        need, got = len(_letters(seg.text)), []
+        while need > 0 and (carry is not None or i < len(words)):
+            if carry is not None:
+                w, carry = carry, None
+            else:
+                w, i = words[i], i + 1
+            if len(w.text) <= need:
+                got.append(w)
+                need -= len(w.text)
+            else:  # glued across the line break: the first `need` letters stay on this line
+                cut = w.start + (w.end - w.start) * need / len(w.text)
+                got.append(Word(w.start, cut, w.text[:need], w.prob))
+                carry = Word(cut, w.end, w.text[need:], w.prob)
+                need = 0
+        new.append(got)
+    # Only when every line's words now spell its text exactly.
+    if any("".join(w.text for w in got) != _letters(seg.text) for seg, got in zip(held, new)):
+        return
+    for seg, got in zip(held, new):
+        seg.words = got
+        if got:
+            seg.start, seg.end = got[0].start, got[-1].end

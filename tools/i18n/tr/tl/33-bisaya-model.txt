@@ -1,0 +1,4 @@
+58279c6f Whisper large-v3 na muling sinanay sa Bisaya (Cebuano) ng BuzzASR: mas kaunti ang mali sa Bisaya. Kapag na-download na, ito ang susulat ng lahat ng transcript sa Bisaya sa computer na ito, anuman ang modelong pinili sa itaas. Pinakamaganda kung may GPU.
+44514063 Bisaya
+6f378422 Inihahanda para sa Tamkeen (ilang minuto)…
+e0d3a0cd Hindi suportadong uri ng weights {0} sa {1}

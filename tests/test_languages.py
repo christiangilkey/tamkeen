@@ -114,7 +114,7 @@ def test_transcription_listens_for_the_study_language_and_records_it(world, monk
     audio_file.write_bytes(b"x")
     with a:
         db.set_settings({"study_language": "es"})
-        monkeypatch.setattr(jobs.transcriber, "get", lambda *args: fake)
+        monkeypatch.setattr(jobs.transcriber, "get", lambda *args, **kw: fake)
         monkeypatch.setattr(jobs, "_ensure_audio", lambda ep, cancel: (audio_file, False))
         monkeypatch.setattr(jobs.audio, "probe_duration", lambda p: 1.0)
         monkeypatch.setattr(jobs.audio, "decode", lambda p: np.zeros(16000, dtype=np.float32))

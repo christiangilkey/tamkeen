@@ -7,7 +7,12 @@ const INFO = {
   small: "Fastest. Good for clear speech; more mistakes on dialects, accents and fast talk.",
   medium: "Balanced accuracy and speed.",
   "large-v3": "Most accurate in every language. Best with a GPU.",
+  bisaya: "Whisper large-v3 retrained on Bisaya (Cebuano) by BuzzASR: far fewer mistakes in Bisaya. Once downloaded it writes every Bisaya transcript on this computer, whichever model is picked above. Best with a GPU.",
 };
+// Models made for one language (app/models_manager.py LANGUAGE_MODELS): not picked, used for their language.
+const NAME = { bisaya: "Bisaya" };
+const BUSY = ["preparing", "downloading", "converting"];
+const name = (size) => NAME[size] || size;
 
 /** Renders the model list into `el`. Returns a cleanup function. */
 export function modelManager(el, { hardware, onChange } = {}) {
@@ -22,29 +27,33 @@ export function modelManager(el, { hardware, onChange } = {}) {
     const dl = data.download;
     el.innerHTML = "";
     for (const m of data.models) {
-      const busy = dl.size === m.size && ["preparing", "downloading"].includes(dl.state);
+      const busy = dl.size === m.size && BUSY.includes(dl.state);
+      // A language's own model is offered to people learning that language (and kept listed once downloaded).
+      if (m.language && m.language !== data.study_language && !m.installed && !m.partial && !busy) continue;
       const recommended = hardware && hardware.recommended === m.size;
       const row = h(`<div class="model-row">
-        <input type="radio" name="model" value="${m.size}" ${data.selected === m.size ? "checked" : ""} ${m.installed ? "" : "disabled"} aria-label="Use ${m.size}">
+        ${m.language ? `<input type="radio" disabled tabindex="-1" aria-hidden="true" style="visibility:hidden">` : `<input type="radio" name="model" value="${m.size}" ${data.selected === m.size ? "checked" : ""} ${m.installed ? "" : "disabled"} aria-label="Use ${m.size}">`}
         <div>
-          <div><strong>${m.size}</strong>${recommended ? `<span class="badge">Recommended</span>` : ""}
+          <div><strong>${esc(name(m.size))}</strong>${recommended ? `<span class="badge">Recommended</span>` : ""}
             <span class="small muted"> · ~${fmtBytes(m.approx_mb * 2 ** 20)}${m.installed ? " · downloaded" : m.partial ? " · partially downloaded" : ""}</span></div>
           <div class="small muted">${esc(INFO[m.size] || "")}</div>
           ${busy ? `<div class="progress"><i style="width:${dl.total ? (100 * dl.done) / dl.total : 0}%"></i></div>
-                    <div class="small muted">${dl.state === "preparing" ? "Preparing…" : `${fmtBytes(dl.done)} of ${fmtBytes(dl.total)}`}</div>` : ""}
+                    <div class="small muted">${dl.state === "preparing" ? "Preparing…" : dl.state === "converting" ? "Getting it ready for Tamkeen (a few minutes)…" : `${fmtBytes(dl.done)} of ${fmtBytes(dl.total)}`}</div>` : ""}
           ${dl.size === m.size && dl.state === "error" ? `<div class="small" style="color:var(--danger)">${esc(dl.error)}</div>` : ""}
         </div>
         <div class="row"></div>
       </div>`);
       const actions = row.querySelector(".row");
-      if (busy) {
+      if (busy && dl.state === "converting") {
+        // Nothing to pause while the download is being converted.
+      } else if (busy) {
         const b = h(`<button type="button" class="ghost">Pause</button>`);
         b.onclick = () => api("/models/cancel", { method: "POST" });
         actions.append(b);
       } else if (m.installed) {
         const b = h(`<button type="button" class="ghost danger">Delete</button>`);
         b.onclick = async () => {
-          if (!(await confirmBox(`Delete the ${m.size} model?`, `Delete the ${m.size} model (${m.disk_mb} MB)? You can download it again later.`, { ok: "Delete", danger: true }))) return;
+          if (!(await confirmBox(`Delete the ${name(m.size)} model?`, `Delete the ${name(m.size)} model (${m.disk_mb} MB)? You can download it again later.`, { ok: "Delete", danger: true }))) return;
           await api(`/models/${m.size}`, { method: "DELETE" });
           if (data.selected === m.size) await saveSettings({ model_size: null }).catch(() => {});
           load();
@@ -53,13 +62,14 @@ export function modelManager(el, { hardware, onChange } = {}) {
         actions.append(b);
       } else {
         const b = h(`<button type="button" class="${recommended ? "primary" : ""}">${m.partial ? "Resume download" : "Download"}</button>`);
-        b.disabled = ["preparing", "downloading"].includes(dl.state);
+        b.disabled = BUSY.includes(dl.state);
         b.onclick = async () => {
           try { await api(`/models/${m.size}/download`, { method: "POST" }); load(); }
           catch (e) { toast(e.message, { error: true }); }
         };
         actions.append(b);
       }
+      if (m.language) { el.append(row); continue; }
       row.querySelector("input").onchange = async () => {
         await saveSettings({ model_size: m.size });
         data.selected = m.size;
@@ -76,12 +86,13 @@ export function modelManager(el, { hardware, onChange } = {}) {
     data.download = s;
     if (s.state === "done") {
       await load();
-      if (!data.selected || !data.models.find((m) => m.size === data.selected && m.installed)) {
+      const own = data.models.find((m) => m.size === s.size && m.language);
+      if (!own && (!data.selected || !data.models.find((m) => m.size === data.selected && m.installed))) {
         await saveSettings({ model_size: s.size });
         data.selected = s.size;
         paint();
       }
-      toast(`The ${s.size} model is ready.`);
+      toast(`The ${name(s.size)} model is ready.`);
       await loadStatus();
       onChange && onChange();
     } else if (s.state === "error" || s.state === "idle") {

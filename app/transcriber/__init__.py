@@ -22,8 +22,9 @@ class NoModelError(RuntimeError):
     pass
 
 
-def get(model_size: str | None = None) -> Transcriber:
-    """Return a loaded transcriber for the configured model, (re)loading if settings changed."""
+def get(model_size: str | None = None, language: str | None = None) -> Transcriber:
+    """Return a loaded transcriber for the configured model, (re)loading if settings changed. For a
+    `language` with a model of its own on this computer (models_manager.LANGUAGE_MODELS), that one."""
     global _current, _key
     remote = None if model_size else cloud.config()
     if remote is not None:
@@ -35,12 +36,12 @@ def get(model_size: str | None = None) -> Transcriber:
                 _current = cloud.CloudTranscriber(remote["provider"], remote["key"], remote["model"])
                 _key = key
             return _current
-    size = model_size or db.get_setting("model_size")
+    hw = hardware.detect()
+    engine = hw.engine
+    size = model_size or models_manager.for_language(language, engine) or db.get_setting("model_size")
     if not size:
         raise NoModelError("No transcription model selected yet. Open Settings → Model to download one, "
                            "or turn on cloud transcription there.")
-    hw = hardware.detect()
-    engine = hw.engine
     if not models_manager.is_installed(size, engine):
         raise NoModelError(f"The {size} model isn't downloaded yet. Open Settings → Model to download it.")
     device = hw.device
@@ -60,7 +61,9 @@ def get(model_size: str | None = None) -> Transcriber:
                 gpu_libs.load()
             from .faster import FasterWhisperTranscriber
 
-            _current = FasterWhisperTranscriber(path, size, device, beam_size=int(db.get_setting("beam_size") or 5))
+            prompt = models_manager.LANGUAGE_MODELS.get(size, {}).get("prompt", True)
+            _current = FasterWhisperTranscriber(path, size, device, beam_size=int(db.get_setting("beam_size") or 5),
+                                                prompt=prompt)
         _key = key
         return _current
 

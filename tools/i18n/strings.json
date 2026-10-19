@@ -2625,6 +2625,21 @@
   "f": "web/js/components/models.js"
  },
  {
+  "id": "58279c6f",
+  "k": "Whisper large-v3 retrained on Bisaya (Cebuano) by BuzzASR: far fewer mistakes in Bisaya. Once downloaded it writes every Bisaya transcript on this computer, whichever model is picked above. Best with a GPU.",
+  "f": "web/js/components/models.js"
+ },
+ {
+  "id": "44514063",
+  "k": "Bisaya",
+  "f": "web/js/components/models.js"
+ },
+ {
+  "id": "1763761d",
+  "k": "Use {0}",
+  "f": "web/js/components/models.js"
+ },
+ {
   "id": "ec890ad6",
   "k": "· downloaded",
   "f": "web/js/components/models.js"
@@ -2640,13 +2655,13 @@
   "f": "web/js/components/models.js"
  },
  {
-  "id": "7388d667",
-  "k": "{0} of {1}",
+  "id": "6f378422",
+  "k": "Getting it ready for Tamkeen (a few minutes)…",
   "f": "web/js/components/models.js"
  },
  {
-  "id": "1763761d",
-  "k": "Use {0}",
+  "id": "7388d667",
+  "k": "{0} of {1}",
   "f": "web/js/components/models.js"
  },
  {
@@ -15368,6 +15383,11 @@
   "id": "93cf51f7",
   "k": "{0} kept asking the app to slow down.",
   "f": "app/transcriber/cloud.py"
+ },
+ {
+  "id": "e0d3a0cd",
+  "k": "Unsupported weight type {0} in {1}",
+  "f": "app/transcriber/convert.py"
  },
  {
   "id": "a6fc4045",

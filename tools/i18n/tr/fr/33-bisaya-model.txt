@@ -1,0 +1,4 @@
+58279c6f Whisper large-v3 réentraîné sur le bisaya (cebuano) par BuzzASR : bien moins d'erreurs en bisaya. Une fois téléchargé, il écrit toutes les transcriptions en bisaya de cet ordinateur, quel que soit le modèle choisi ci-dessus. Idéal avec un GPU.
+44514063 Bisaya
+6f378422 Préparation pour Tamkeen (quelques minutes)…
+e0d3a0cd Type de poids non pris en charge {0} dans {1}

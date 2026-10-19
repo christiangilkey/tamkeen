@@ -34,6 +34,7 @@ def status() -> dict[str, Any]:
     settings = db.get_settings()
     hw = hardware.detect()
     size = settings.get("model_size")
+    own = models_manager.for_language(languages.study())  # e.g. the Bisaya model, for a Bisaya learner
     return {
         "version": __version__,
         "app_name": APP_NAME,
@@ -42,8 +43,9 @@ def status() -> dict[str, Any]:
         "settings": settings,
         "hardware": hw.to_dict(),
         # Ready to transcribe: a model on this computer, or a cloud provider set up to do it instead.
-        "model_ready": (bool(size) and models_manager.is_installed(size)) or transcriber.cloud.config(settings) is not None,
-        "local_model_ready": bool(size) and models_manager.is_installed(size),
+        "model_ready": (bool(size) and models_manager.is_installed(size)) or bool(own)
+                       or transcriber.cloud.config(settings) is not None,
+        "local_model_ready": (bool(size) and models_manager.is_installed(size)) or bool(own),
         "data_dir": str(paths.data_dir()),
         "desktop": os.environ.get("APS_DESKTOP") == "1",
     }
@@ -128,7 +130,7 @@ def get_hardware() -> dict[str, Any]:
 @router.get("/models")
 def list_models() -> dict[str, Any]:
     return {"models": models_manager.list_models(), "download": models_manager.status(),
-            "selected": db.get_setting("model_size")}
+            "selected": db.get_setting("model_size"), "study_language": languages.study()}
 
 
 @router.post("/models/{size}/download")
@@ -147,7 +149,7 @@ def cancel_model_download() -> dict[str, bool]:
 
 @router.delete("/models/{size}")
 def delete_model(size: str) -> dict[str, bool]:
-    if size not in models_manager.SIZES:
+    if size not in models_manager.SIZES and size not in models_manager.LANGUAGE_MODELS:
         raise HTTPException(400, "Unknown model size.")
     models_manager.delete(size)
     return {"ok": True}

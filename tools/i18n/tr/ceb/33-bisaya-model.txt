@@ -1,0 +1,4 @@
+58279c6f Ang Whisper large-v3 nga gibansay pag-usab sa Binisaya (Cebuano) sa BuzzASR: mas gamay kaayo ang sayop sa Binisaya. Kung ma-download na, kini ang mosulat sa tanang transcript nga Binisaya niining kompyuter, bisan unsa pa ang modelo nga gipili sa ibabaw. Labing maayo kung naay GPU.
+44514063 Binisaya
+6f378422 Giandam pa para sa Tamkeen (pipila ka minuto)…
+e0d3a0cd Dili masabtan nga klase sa weights {0} sa {1}

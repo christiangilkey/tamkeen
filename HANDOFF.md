@@ -3053,3 +3053,36 @@ style (สวัสดี: sà-wàt-dii). The Royal Thai General System was not 
   `test_thai_reading_table`. Translations: `tools/i18n/tr/<code>/32-thai-readings.txt`.
 - **Not checked**: a real phone or the phone build (`mobile/www` not rebuilt), the review card's readings on
   screen (same code as the reader, `addReadings`), and ๆ (repeat the previous word), which gets no reading yet.
+
+## Bisaya speech model: BuzzASR/cebuano (2026-10-19; not released yet)
+Owner asked for the Bisaya transcription model "BuzzASR/cebuano (large)": Whisper large-v3 retrained on Cebuano
+(FLEURS + Goldfish text, MIT licence, FLEURS character error 5.9% against 15.4% for plain large-v3).
+- **Where**: `app/models_manager.py` `LANGUAGE_MODELS["bisaya"]` (repo + pinned revision e8556a6, the 5 files the
+  conversion needs, faster-whisper only: no Mac/mlx version) and `for_language(code)`. Settings → Listening &
+  transcripts → Transcription model shows a "Bisaya" row (no pick-circle) to people learning Bisaya, and keeps it
+  listed once downloaded (`web/js/components/models.js`, `/api/models` now also returns `study_language`).
+- **Download = fetch + convert on the user's computer**: BuzzASR is only published for Hugging Face transformers, so
+  after the usual resumable, checksummed download (into `models/faster-whisper/bisaya/download/`) the state goes to
+  `converting` and `app/transcriber/convert.py` (numpy + CTranslate2's spec classes, NO PyTorch/transformers) writes
+  model.bin etc. Its output is byte-for-byte the same as `ct2-transformers-converter --quantization float16
+  --copy_files tokenizer.json preprocessor_config.json` (checked on the real model; takes ~7 s). Nothing hosted by us.
+- **When it is used**: `transcriber.get(language=…)`: an episode in a language with its own downloaded model uses it
+  whatever model is picked (jobs.py passes the study language; `/api/status` counts it as a ready model). Cloud
+  transcription, once chosen, still wins. Still asked for Tagalog ("tl", as BuzzASR's own generation_config says) but
+  WITHOUT the Bisaya INITIAL_PROMPT (`LANGUAGE_MODELS[…]["prompt"] = False` → FasterWhisperTranscriber(prompt=False)).
+  Reels (`reels_worker.py`) still call `transcriber.get()` without a language, so reels use the picked model.
+- **Measured** on the 7 two-minute Bisaya podcast clips the prompt was tuned on (talk show, Mass readings,
+  Bisaya-English chat, storytelling): Bisaya-only words 10% of all words against 5% (large-v3 + prompt), Tagalog-only
+  words 1.1% against 3.8%, 737 s of speech written down against 684 s. With or without the prompt: the same (so
+  without; the prompt version once wrote a broken letter). Weak spot: fewer full stops and capitals (its training text
+  had few), e.g. a whole storytelling clip with no full stop.
+- **Words filed on the wrong line** (found in the app on a real clip): BuzzASR often starts a line without a space,
+  so faster-whisper glued that word onto the line before ("-walking" + "unya" = "-walkingunya") and filed every
+  later word one line early (13 of 68 lines) though word times and line text were right. `faster.py` `regroup`
+  holds lines until their letters and their words' letters match again, then shares the words out by each line's
+  text (a glued word cut at the line end, its time split by letters). Lines that already match pass straight
+  through (all models). Not fixed: faster-whisper files "mag-try" as "mag" + "-try" in every language, so the
+  reader shows "mag -try" (old behaviour; Bisaya and Tagalog write many such words).
+- Tests: `tests/test_language_models.py` (a made-up tiny Whisper converted and loaded by CTranslate2; which model
+  writes what; Settings API; download fetches only the pinned files then converts). Translations:
+  `tools/i18n/tr/<code>/33-bisaya-model.txt`.

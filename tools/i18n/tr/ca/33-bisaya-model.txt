@@ -1,0 +1,4 @@
+58279c6f Whisper large-v3 reentrenat en bisaia (cebuà) per BuzzASR: molts menys errors en bisaia. Un cop baixat, escriu totes les transcripcions en bisaia d'aquest ordinador, sigui quin sigui el model triat a dalt. Millor amb una GPU.
+44514063 Bisaia
+6f378422 S'està preparant per a Tamkeen (uns minuts)…
+e0d3a0cd Tipus de pesos no compatible {0} a {1}
