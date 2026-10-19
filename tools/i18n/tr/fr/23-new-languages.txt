@@ -1,0 +1,257 @@
+8782d9fe	Portugais du Brésil
+2c5e77fc	Catalan
+b46e924a	Bisaya (cebuano)
+752be6ae	Ce fichier est trop volumineux (plus de 200 Mo).
+1b9728ae	Ce fichier est endommagé (ce n'est pas un fichier ZIP/EPUB/DOCX complet).
+6ef6b413	Ce fichier utilise un type de compression que Tamkeen ne sait pas lire.
+6a0b6c0f	Ce livre est protégé (DRM), son texte ne peut donc pas être lu. Seuls les livres sans DRM peuvent être ajoutés.
+c13b66dd	Cet EPUB est endommagé (pas de table des matières).
+6256156a	Ce fichier Word est endommagé.
+fb5d490e	Ce n'est pas un fichier Word .doc. Essayez de l'enregistrer en .docx.
+39b183eb	Ce fichier Word ne contient pas de texte.
+5ec26261	Ce fichier Word est protégé par un mot de passe, son texte ne peut donc pas être lu.
+a693bbf2	Aucun texte n'a été trouvé dans ce fichier Word. Essayez de l'enregistrer en .docx.
+a351250c	Ce livre Kindle est protégé (DRM), son texte ne peut donc pas être lu. Seuls les livres sans DRM peuvent être ajoutés.
+fadca512	Ce fichier Kindle est compressé d'une façon que Tamkeen ne sait pas lire. Convertissez-le en EPUB (par exemple avec l'application gratuite Calibre) et ajoutez celui-ci.
+f259da8d	Ce PDF est protégé par un mot de passe, son texte ne peut donc pas être lu.
+1b90296b	Impossible d'ouvrir ce PDF.
+912836e3	Lecture de la page {0} sur {1}…
+6d3042c8	Impossible de joindre la bibliothèque de livres de Tamkeen. Vérifiez votre connexion et réessayez.
+deb3baad	Le livre est arrivé endommagé. Réessayez.
+451b9cbc	Lecture du fichier…
+245d2a43	Aucun texte n'a été trouvé dans ce fichier. Un livre numérisé (des photos de pages) n'a pas de texte à lire.
+56a2285c	Enregistrement…
+7014f38a	Le site d'information de Globo
+e0f6253e	O Globo, Rio de Janeiro
+1c42950d	La BBC, en portugais du Brésil
+d9c6b1fb	Agência Brasil, agence de presse publique
+ecae6445	Nexo, articles explicatifs
+6e5c2fcb	Politique
+3df709c2	Sciences et curiosités
+e82e2b93	Deutsche Welle, en portugais du Brésil
+c0fe72d8	Wikipédia en portugais
+02df8597	3Cat, l'audiovisuel public catalan
+509d117d	El Periódico, édition en catalan
+033e952f	La Vanguardia, édition en catalan
+ff6dd1ba	La radio RAC1
+d46049a6	La radio-télévision municipale de Barcelone
+abe62d2b	L'audiovisuel public valencien
+f72932a0	L'audiovisuel public des Baléares
+ee6ba5de	Magazine d'actualité hebdomadaire
+017db5d6	Wikipédia en catalan
+5bd2b489	Le journal en bisaya de SunStar, Cebu
+097174e3	Le journal en bisaya de SunStar, Davao
+c236bde4	Le journal en bisaya de SunStar, Cagayan de Oro
+99dad9d9	Le journal en bisaya de The Freeman, Cebu
+04eddcb9	Les infos radio de RMN, Cebu
+1f87a792	Bombo Radyo, Cebu
+b8757fe8	Bombo Radyo, Davao
+d62cbb14	Bombo Radyo, Butuan
+4d81a0a3	Dictionnaire bisaya–anglais
+73ea03bd	Wikipédia en bisaya (beaucoup de courts articles automatiques)
+3c45c568	Thai PBS, l'audiovisuel public
+89514a21	Bangkok Biz News, économie
+d5429913	MCOT, l'audiovisuel public
+0b56148b	Siamsport, sport
+a1817b50	Wikipédia en thaï
+564aebf5	Un classique gratuit, ou votre propre fichier EPUB, PDF, TXT, Kindle ou Word
+01bc0d6b	Classiques gratuits
+217c2a25	Des livres célèbres dans la langue que vous apprenez, gratuits car ils sont dans le domaine public.
+4e20f045	Ajouter votre propre livre
+d993cd1c	EPUB, PDF, TXT, Kindle AZW3 ou Word, sans DRM.
+169dd244	Sites web populaires
+b8e51206	Des sites d'information dans la langue que vous apprenez. Ouvrez-en un, copiez l'adresse d'un article et collez-la ci-dessus.
+a1cac7d8	ce navigateur
+fa8bf630	Comment les mots sont expliqués
+cf7318e9	Vivement recommandé
+796a0595	Explications par IA
+0ca1aaeb	Ce que le mot veut dire dans <0>cette</0> phrase, sa grammaire, une traduction de la phrase, les mots mal entendus corrigés, et le Créateur de mnémoniques. Nécessite une clé API : une fraction de centime par mot (Gemini offre un quota gratuit).
+49eec3e6	Sans IA : dictionnaire intégré
+9c434872	Gratuit, et fonctionne hors ligne une fois téléchargé. Affiche les sens habituels d'un mot d'après le Wiktionnaire, en anglais, mais pas celui qui convient à la phrase. Pas de traduction des phrases, de corrections ni de mnémoniques.
+a70179e6	<0>Les explications par IA sont vivement recommandées.</0> La vraie parole est pleine de mots dont le sens dépend de la phrase, d'argot et de dialecte absents des dictionnaires, et d'erreurs de transcription. Sans IA, vous voyez une liste de sens possibles et devez deviner lequel est le bon.
+7544ab30	Utiliser les explications par IA
+0f1aa62d	Sans IA
+70da8a0a	✓ Le dictionnaire de {0:lower} est sur {1} ({2} Mo).
+808117a6	Le dictionnaire de {0:lower} n'est pas encore sur {1} : les mots touchés ne peuvent donc pas être expliqués.
+9ab59592	Réglez-le, ou modifiez-le plus tard, dans <0>Réglages → Définitions des mots (IA)</0>. Vous pouvez aussi y choisir <1>Sans IA</1> : un dictionnaire intégré gratuit qui affiche les sens habituels d'un mot, mais pas celui qu'il a dans sa phrase (l'IA est vivement recommandée).
+e9940534	La révision du jour comme tâche à faire
+7e3312af	Le bouton de l'onglet Révision envoie le reste de la révision du jour, avec le temps qu'elle devrait prendre, vers :
+9cea74c5	Google Tasks <0>(Google vous demande l'autorisation la première fois)</0>
+c001f24c	Onyx <0>(ouvre Onyx, qui la place dans votre journée)</0>
+3386ce50	L'IA est désactivée : les mots sont donc expliqués par le dictionnaire intégré de {0:lower}. Il n'est pas encore sur cet appareil : téléchargez-le une fois et il fonctionnera hors ligne.
+395b22e4	Télécharger le dictionnaire
+a13e07aa	L'IA est désactivée (Réglages → Définitions des mots → Sans IA), cette fonction n'est donc pas disponible.
+f3f91e1e	Portugais (Brésil)
+f5285e5c	le Dictionary of Cebuano Visayan de Wolff
+b016324b	les bases de données arabes CAMeL
+382f42b1	Wiktionnaire
+bbc70fda	, en anglais
+bf672d07	D'après le dictionnaire intégré ({0}{1}) : les sens habituels du mot. Il ne peut pas dire lequel convient à cette phrase.
+51444687	une liste des mots bisayas les plus courants, comptés dans des textes web en bisaya de la collection OPUS NLLB, avec laquelle l'application vérifie les racines qu'elle trouve (mokaon, mikaon, gikaon : kaon)
+8c6c358b	Ce mot n'est pas dans le dictionnaire intégré. C'est peut-être un nom, de l'argot ou une forme qu'il ne connaît pas.
+40137935	Retour à Mes livres
+81f54719	Page précédente
+fb06270f	Page
+4bfc194b	Page suivante
+48a704f7	{0} av. J.-C.
+e1e3700f	{0} apr. J.-C.
+a5188242	Ajout de « {0} »…
+d2936330	« {0} » ajouté à Mes livres.
+6c5e33b0	Impossible de lire ce fichier.
+5f94aeb4	Livres en {0:lower}
+f689db93	Des livres célèbres, gratuits car ils sont dans le domaine public. Ajoutez-en un et lisez-le page par page, chaque mot étant cliquable. Ou ajoutez votre propre livre.
+70ebead0	Votre propre livre
+c25f48d6	EPUB, PDF, TXT, Kindle AZW3 ou Word, sans DRM. Il est lu sur cet appareil et ajouté à Mes livres.
+195e97d3	Ajouter un fichier
+d9fffb0d	Chargement de la bibliothèque…
+53633ec9	Pas encore de livres gratuits en {0:lower}.
+49102c78	{0} Ko
+0122668f	{0} · environ {1} de lecture · {2}
+e79e9cf5	Aucun podcast en {0:lower} n'est dans les classements : voici donc les mieux notés sur Spotify et Apple Podcasts.
+4ea062ed	Les podcasts les plus écoutés en ce moment en {0}.
+5e7709de	Notes de <0>Spotify</0> et d'<1>Apple Podcasts</1>.
+b389210d	{0} Appuyez sur <0>+ Ajouter</0> pour en mettre un dans votre bibliothèque.
+cba998b6	Ajoutez des amis par nom d'utilisateur, formez des guildes, échangez des messages (avec des messages vocaux), envoyez des mots et des dossiers, et voyez ce que chacun étudie. Connectez-vous avec votre compte Google pour commencer.
+b5531a88	Connecté. Choisissez maintenant un nom d'utilisateur.
+c66b2adc	Connexion…
+4a7fdd8c	Livres
+71381287	Pas encore de livres. Choisissez un classique gratuit dans la langue que vous apprenez, ou ajoutez votre propre livre.
+8933cc20	Les livres que vous lisez, page par page, chaque mot étant cliquable.
+f98f3020	Pas encore de reels. Collez le lien d'un reel ci-dessus, ou ajoutez des reels dans l'application Tamkeen : ils arrivent ici après une synchronisation.
+4b5b4888	Activez d'abord la <0>transcription dans le cloud dans les Réglages</0> : c'est elle qui écoute le reel et écrit ses mots.
+c5c47401	Ajouter un reel
+4bb4efb6	Collez le lien d'un reel Instagram
+0dfb37d0	Lien du reel Instagram
+0c2f86c7	Sur le web, vous pouvez regarder vos reels et ajouter des reels publics à partir de leur lien. Choisir des reels dans vos enregistrements Instagram, des reels au hasard et des reels avec une chanson de la bibliothèque musicale d'Instagram nécessite l'application Tamkeen sur votre téléphone ou votre ordinateur. Les reels ajoutés là-bas apparaissent ici après une synchronisation.
+66f216cc	UCSP, abréviation de Unsa y Cheka Sa Parlor?, est un podcast inspiré d'une expression populaire de l'argot gay bisaya, très parlé dans les régions des Visayas et de Mindanao aux Philippines. Animé par Lyle Go et Shaneee ; l'expression correspond à peu près à « What's the tea? » en anglais (« quels sont les potins ? »).
+b7f0771c	Crosseyed Podcast : des entretiens avec des personnes inspirantes de Cagayan de Oro. Crosseyed Convos : des discussions amusantes sur tous les sujets que mes amis et moi trouvons intéressants et divertissants.
+83f1bce5	Barok and Takya Bisaya Podcast est un podcast philippin en cebuano. Ils parlent de tout et de rien, comme la famille, la tradition, la société et la culture philippines, en bisaya. Qu'attendez-vous ? Téléchargez dès maintenant le podcast pinoy en cebuano : Barok and Takya Bisaya Podcast.
+65d7024f	Bienvenue dans Cge, Storya Ta: A Bisaya Couple Podcast ! Nous publions un nouvel épisode chaque semaine. Installez-vous dans votre fauteuil le plus confortable, enlevez vos chaussures et préparez-vous à plonger dans la bulle de Yin et Nol. Des montagnes russes de rires, de leçons de vie et de décisions parfois discutables : en somme, tout et n'importe quoi, sans script et sans filtre. Alors attachez votre ceinture, car c'est le podcast où tout peut arriver, et arrivera sans doute !
+3534296f	Brighter Bisaya est un réseau de médias en ligne familial qui veut informer, éduquer et inspirer les Bisayas et Cebuanos de tous âges par des émissions de conversation intelligentes et créatives. L'entreprise est déterminée à publier des vlogs et des podcasts simples et parlants sur l'art, l'éducation, la philosophie, les sciences, la technologie, l'inspiration et le divertissement, en cebuano, binisaya, tagalog, anglais et filipino.
+b819d08f	Kapoy explain man. Pour la publicité, les commentaires ou les suggestions de sujets, écrivez-nous à sevillaacevincent@gmail.com.
+cc4289fa	Les lectures de la messe du dimanche en cebuano | Mga pagbasa sa Santos nga Misa sa Binisaya. Les nouveaux épisodes sortent le lundi qui précède la messe. Envoyez vos remarques à sundaymassreadings@gmail.com. Merci tout particulièrement au P. Alvin, à Lorena, Celine, Aimee, Belinda, Ivy, Praxi, au P. Gerry, à Belton, Agnes et au diacre Roman.
+ee681aee	Un podcast d'histoires en tout genre. Ziwi parle de ses expériences personnelles et de ses leçons de vie. #Bisaya #Storytelling #Philippines #ChikaMinute #Chikahan
+5561133e	Jeana et Justein sont meilleurs amis et viennent de la province ensoleillée de Cebu. Approchant la trentaine, ces amis du lycée parlent de la vie d'adulte, des idées qu'on apprend et désapprend, et de leurs priorités. Si vous voulez retrouver cette chaleur familière, comme après une conversation sincère avec un ami de longue date, rejoignez-les dans ce nouveau podcast. Nouveaux épisodes le vendredi ! Offrez-nous un café sur ko-fi.com/wanbatsrabesh ☕️ La musique n'est pas de nous ; elle vient d'Audionautix.com.
+2f32eaa3	Unsa Man Jud Podcast est un podcast bisaya, une émission de discussion en cebuano, qui parle de choses binutbot et binuang. Parfois, nous parlons aussi de choses sineryoso, mais qui a envie d'écouter ça, hein ? Alors nous parlons plutôt de choses amusantes. Bref, si vous comprenez la langue, rejoignez-nous !
+ad54f954	Coffee Break with Juppe, c'est votre pause de 5 minutes loin du chaos de la journée. Des pensées en vrac, de petites histoires et des réflexions sincères, servies courtes et simples, à savourer avec un café. Lancez la lecture pour votre dose quotidienne de discussion légère et de bonnes ondes.
+c4ff21cc	Bonjour ! Bienvenue dans Bisaya Podcasts PH ! C'est très difficile de trouver des podcasts en bisaya. Et encore plus difficile de trouver un public, surtout quand on est un podcast bisaya. Ce podcast veut réunir les podcasts bisayas du monde entier pour qu'on puisse facilement se trouver et se connecter avec d'autres podcasteurs et auditeurs. Je sais qu'il est difficile de trouver un public, surtout dans notre langue maternelle. Mais ensemble, nous pouvons agrandir notre plateforme.
+29f7f4bc	Paître le peuple de Dieu par une prédication et un enseignement efficaces de la Parole de Dieu, afin de le préparer à connaître, aimer, servir et annoncer Jésus.
+7e5120d9	Discussions et réactions pleines de bonne humeur sur l'actualité, la famille, les relations et l'humour bisaya.
+2473e96b	Introduction
+4195c313	Pour donner accès à la Bible en cebuano en audio.
+59e8c6a1	Sugilanon nga gisuwat ni Senador Vicente Rama bahin kang Amboy nga palahubog, ug ang iyang pamahala nga kinabuhi tungod sa iyang pagkapalahubog. Kini ay una nga istorya sa daghan nga nahabutang na istorya sa librong 'Larawan'. (Résumé d'April Gonzales)
+6b4e3b92	Usa ka Bisaya nga sibya kung aha maghisgot-hisgot mi sa nagkalain-laing mga butang! Animé par Lewey Jimoya
+88da3d5b	Envoyer vers {0}
+4ac22389	Ajouter « {0} » à {1} pour aujourd'hui (choisissez où dans les Réglages)
+a0b74487	Impossible d'envoyer la tâche.
+e79101e5	Envoyé vers Onyx : {0}.
+0e90681b	Autorisez Tamkeen à ajouter des tâches dans la fenêtre du navigateur qui s'est ouverte, puis appuyez de nouveau sur Envoyer.
+6b514385	La tâche de révision du jour dans Google Tasks a été mise à jour : {0}.
+4d263331	Ajouté à Google Tasks : {0}.
+d8803f2b	Révision Tamkeen ({0} min)
+37db2048	Vos cartes
+d567fe70	Reste aujourd'hui : {0} ; environ {1}, selon l'estimation de Tamkeen.
+37497aa5	Brésil
+a2b7c120	Thaïlande
+a495190b	Portugal
+a42522a0	Angola
+a40a9be0	Mozambique
+9d3bd1fb	Andorre
+db79573c	{0} Se connecter avec Google
+c46d4f59	La connexion a été annulée.
+71abc87d	Google ne vous a pas connecté.
+e21573ca	Cette connexion est revenue sans avoir été demandée ici. Réessayez.
+6ed09657	Connecté à Amis.
+46729ba2	Impossible de se connecter à Amis.
+2bbb4134	Le site a répondu par une erreur ({0}).
+9ae12679	Les reels se lisent dans l'application installée.
+be990723	Chargement de la vidéo…
+fde42b27	Votre connexion Google doit être renouvelée.
+d3b174d2	Reconnecter Google
+2c534112	Reconnecté à Google.
+f9ab4ef2	Impossible de se reconnecter à Google.
+09dd50fd	Livre inconnu.
+fca43b82	Aucun texte lisible n'a été trouvé dans ce livre.
+fba1a5a5	Mes livres
+78539b41	Impossible de joindre Google. Vérifiez votre connexion.
+b7592d30	La fenêtre Google a été fermée avant la connexion.
+66ec6394	Tamkeen a besoin de son dossier Drive privé pour conserver votre bibliothèque. Reconnectez-vous et laissez cette case cochée.
+76c6ab28	Votre connexion Google doit être renouvelée : touchez Reconnecter.
+2a66b8ea	Connectez-vous d'abord avec Google (Réglages → Compte Google).
+5c2a23a4	Google Tasks n'a pas été autorisé : la tâche n'a donc pas pu être ajoutée.
+f8575a96	La fenêtre de Google a été fermée avant d'autoriser Google Tasks.
+5e475346	L'envoi vers Google Tasks fonctionne sur Android, sur l'ordinateur et dans l'application web. Choisissez Onyx dans les Réglages, ou utilisez l'un de ceux-là.
+25d9c3cc	La tâche a besoin d'un jour.
+bbdefd6e	Révision Tamkeen
+3d81cff6	Impossible de joindre Google Tasks. Vérifiez votre connexion.
+8548a469	Google Tasks n'est pas encore activé pour le projet Google de Tamkeen.
+a846f437	Google Tasks a répondu par une erreur ({0}).
+214ae7a1	Ce n'est pas un lien Onyx.
+16b02880	Tamkeen sur le web
+14f62c3c	Cela fonctionne comme l'application, à part quelques fonctions qui nécessitent l'application Tamkeen sur votre téléphone ou votre ordinateur : les reels de vos enregistrements Instagram et les reels au hasard, les reels avec une chanson de la bibliothèque musicale d'Instagram, le navigateur web intégré (Importer la page et Trouver dans une vidéo), la synchronisation AnkiDroid et le nombre sur l'icône de l'application. Ce que vous ajoutez dans l'application apparaît ici après une synchronisation.
+f3534216	Obtenir l'application
+91e5fbb9	sur le web
+99e0c004	pour iPhone
+0c3c76a9	pour Android
+a74ff4ca	Tamkeen {0} · <0>Politique de confidentialité</0>
+79f78eb5	dans votre navigateur
+c2e8b4c9	sur votre téléphone
+b71b7dd2	Vos podcasts, transcriptions et votre vocabulaire, {0}.
+54e60766	Instagram n'affiche pas ce reel publiquement.
+1edda8bd	Il faut pour cela l'application Tamkeen (elle lit Instagram pendant que vous y êtes connecté).
+e165040b	en haut de l'écran
+55ccdc03	en bas de l'écran
+41a15e18	Touchez le bouton <0>Partager</0> {0} {1}.
+cbc7ba0a	Faites défiler la liste et touchez <0>Sur l'écran d'accueil</0>.
+bf13c2df	Touchez <0>Ajouter</0> (en haut à droite). Tamkeen est maintenant sur votre écran d'accueil.
+96914e14	(en haut à droite)
+b32ca313	Touchez le bouton <0>Partager</0> {0} dans la barre d'adresse{1}.
+87deb031	Touchez <0>Sur l'écran d'accueil</0> (faites défiler vers le bas si vous ne le voyez pas).
+785f548a	Touchez <0>Ajouter</0>. S'il n'y est pas, ouvrez cette page dans Safari et ajoutez-la depuis Safari.
+ae260712	Touchez le menu <0>≡</0> en bas à droite.
+1b5b232c	Touchez <0>Ajouter la page à</0>, puis <1>Écran d'accueil</1>.
+ca117803	Touchez <0>Ajouter</0>.
+2b256040	Touchez le menu
+bb5798ce	Touchez <0>Installer</0> (ou <1>Ajouter à l'écran d'accueil</1>).
+2f614469	Touchez le menu <0>⋮</0> en haut à droite.
+022e6668	Touchez <0>Ajouter à l'écran d'accueil</0> (ce peut être <1>Installer l'application</1>).
+1034fc99	Touchez <0>Installer</0> ou <1>Ajouter</1>. Tamkeen s'ouvre alors comme une application, sans le navigateur autour.
+887b182d	Ou ouvrez le menu <0>⋮</0>, puis <1>Caster, enregistrer et partager</1> → <2>Installer la page en tant qu'application</2>.
+b85d0d03	Cliquez sur <0>Installer</0>.
+06d74687	Ouvrez le menu <0>…</0>, puis <1>Applications</1> → <2>Installer ce site en tant qu'application</2>.
+8829f1b7	Sur un Mac, dans la barre des menus, choisissez <0>Fichier</0> → <1>Ajouter au Dock</1>.
+7487434a	Cliquez sur <0>Ajouter</0>.
+95b40a2a	téléphone Android
+d992aac8	Installer Tamkeen
+1a96de2a	Ajouter Tamkeen à votre écran d'accueil
+8607e4ba	Installer maintenant
+26e74130	Tamkeen s'ouvre alors depuis sa propre icône, en plein écran, comme une application. Sur votre {0} :
+def8615b	Impossible de joindre Instagram. Vérifiez votre connexion.
+fcb5223a	Instagram a répondu par une erreur ({0}). Réessayez dans une minute.
+797a2936	Plus facile ·
+4c449da1	Ouvrez un site (il s'ouvre dans un nouvel onglet), trouvez un article, copiez son adresse, puis revenez ici pour la coller.
+db59af69	Collez l'adresse d'un article
+cbc27e21	Adresse de l'article
+db248300	Coller
+263fcf38	Votre navigateur n'a pas permis de coller depuis ici. Appuyez longuement sur la case et choisissez Coller.
+d3478410	Impossible d'importer cette page.
+effc9a4e	YouTube a répondu par une erreur ({0}). Réessayez dans une minute.
+ecc87af7	Impossible de lire la page de YouTube. Réessayez dans une minute.
+6f77246b	Les vidéos de cette chaîne.
+82f79ac4	Populaires cette semaine.
+e17e232a	Rechercher sur YouTube
+bd7d0814	{0} Touchez une vidéo pour la regarder avec ses sous-titres en mots que vous pouvez toucher. Elle doit avoir des sous-titres.
+7724494e	Chargement des vidéos…
+f64fc328	Aucune vidéo trouvée.
+a385bf96	Wiktionnaire via Wiktextract : sens des mots pour le mode Sans IA (téléchargement facultatif)
+81e74ccd	La bibliothèque de livres gratuits : Project Gutenberg, Wikisource, Aozora Bunko (téléchargement facultatif)
+8db0aa84	Domaine public
+d1198df0	Des livres à lire page par page, avec des mots cliquables.
+7141db00	Connectez-vous d'abord avec Google (Réglages → Synchroniser avec Google Drive).
+819dc7ab	Impossible de joindre Google Tasks ({0}). Vérifiez votre connexion.
+80e1cb7a	Google Tasks a refusé la tâche ({0}).
+6c8a35f3	Onyx ne semble pas installé sur cet ordinateur.
+08f0c0cf	Malais
+4d3bb51e	Javanais
+1d6b8a69	Vietnamien
+c1439807	Lao

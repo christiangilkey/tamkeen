@@ -1,0 +1,257 @@
+8782d9fe	Portugués (Brasil)
+2c5e77fc	Catalán
+b46e924a	Bisaya (cebuano)
+752be6ae	Ese archivo es demasiado grande (más de 200 MB).
+1b9728ae	Ese archivo está dañado (no es un archivo ZIP/EPUB/DOCX completo).
+6ef6b413	Ese archivo usa un tipo de compresión que Tamkeen no puede leer.
+7014f38a	El sitio de noticias de Globo
+6a0b6c0f	Este libro está protegido (DRM), así que su texto no se puede leer. Solo se pueden añadir libros sin DRM.
+c13b66dd	Ese EPUB está dañado (no tiene índice).
+6256156a	Ese archivo de Word está dañado.
+fb5d490e	Ese no es un archivo .doc de Word. Prueba a guardarlo como .docx.
+39b183eb	Ese archivo de Word no tiene texto.
+5ec26261	Este archivo de Word está protegido con contraseña, así que su texto no se puede leer.
+a693bbf2	No se encontró texto en ese archivo de Word. Prueba a guardarlo como .docx.
+a351250c	Este libro de Kindle está protegido (DRM), así que su texto no se puede leer. Solo se pueden añadir libros sin DRM.
+fadca512	Este archivo de Kindle está comprimido de una forma que Tamkeen no puede leer. Conviértelo a EPUB (por ejemplo, con la app gratuita Calibre) y añade ese.
+f259da8d	Este PDF está protegido con contraseña, así que su texto no se puede leer.
+1b90296b	No se pudo abrir ese PDF.
+912836e3	Leyendo la página {0} de {1}…
+6d3042c8	No se pudo conectar con la estantería de libros de Tamkeen. Comprueba tu conexión e inténtalo de nuevo.
+deb3baad	El libro llegó dañado. Inténtalo de nuevo.
+451b9cbc	Leyendo el archivo…
+245d2a43	No se encontró texto en ese archivo. Un libro escaneado (fotos de páginas) no tiene texto que leer.
+56a2285c	Guardando…
+e0f6253e	O Globo, Río de Janeiro
+1c42950d	BBC, en portugués de Brasil
+d9c6b1fb	Agência Brasil, agencia pública de noticias
+ecae6445	Nexo, artículos explicativos
+6e5c2fcb	Política
+3df709c2	Ciencia y curiosidades
+e82e2b93	Deutsche Welle, en portugués de Brasil
+c0fe72d8	Wikipedia en portugués
+02df8597	3Cat, la radiotelevisión pública catalana
+509d117d	El Periódico, edición en catalán
+033e952f	La Vanguardia, edición en catalán
+ff6dd1ba	Radio RAC1
+d46049a6	La radiotelevisión municipal de Barcelona
+abe62d2b	La radiotelevisión pública valenciana
+f72932a0	La radiotelevisión pública balear
+ee6ba5de	Revista semanal de noticias
+017db5d6	Wikipedia en catalán
+5bd2b489	El periódico en bisaya de SunStar, Cebú
+097174e3	El periódico en bisaya de SunStar, Davao
+c236bde4	El periódico en bisaya de SunStar, Cagayán de Oro
+99dad9d9	El periódico en bisaya de The Freeman, Cebú
+04eddcb9	Noticias de radio RMN, Cebú
+1f87a792	Bombo Radyo, Cebú
+b8757fe8	Bombo Radyo, Davao
+d62cbb14	Bombo Radyo, Butuan
+4d81a0a3	Diccionario bisaya–inglés
+73ea03bd	Wikipedia en bisaya (muchos artículos cortos automáticos)
+3c45c568	Thai PBS, la televisión pública
+89514a21	Bangkok Biz News, economía
+d5429913	MCOT, la radiotelevisión pública
+0b56148b	Siamsport, deportes
+a1817b50	Wikipedia en tailandés
+564aebf5	Un clásico gratuito, o tu propio archivo EPUB, PDF, TXT, Kindle o Word
+01bc0d6b	Clásicos gratuitos
+217c2a25	Libros famosos en el idioma que estás aprendiendo, gratuitos porque son de dominio público.
+4e20f045	Añadir un libro propio
+d993cd1c	EPUB, PDF, TXT, Kindle AZW3 o Word, sin DRM.
+169dd244	Sitios web populares
+b8e51206	Sitios de noticias en el idioma que estás aprendiendo. Abre uno, copia la dirección de un artículo y pégala arriba.
+a1cac7d8	este navegador
+fa8bf630	Cómo se explican las palabras
+cf7318e9	Muy recomendado
+796a0595	Explicaciones con IA
+0ca1aaeb	Qué significa la palabra en <0>esta</0> frase, su gramática, una traducción de la frase, las palabras mal oídas corregidas y el Creador de mnemotecnias. Necesita una clave de API: una fracción de céntimo por palabra (Gemini tiene un uso gratuito).
+49eec3e6	Sin IA: diccionario integrado
+9c434872	Gratis, y funciona sin conexión una vez descargado. Muestra los significados habituales de una palabra según Wikcionario, en inglés, pero no cuál encaja en la frase. Sin traducciones de frases, correcciones ni mnemotecnias.
+a70179e6	<0>Las explicaciones con IA son muy recomendables.</0> El habla real está llena de palabras cuyo significado depende de la frase, de jerga y dialecto que un diccionario no tiene, y de errores de transcripción. Sin IA ves una lista de posibles significados y tienes que adivinar cuál es.
+7544ab30	Usar explicaciones con IA
+0f1aa62d	Sin IA
+70da8a0a	✓ El diccionario de {0:lower} está en {1} ({2} MB).
+808117a6	El diccionario de {0:lower} aún no está en {1}, así que las palabras que toques no se pueden explicar.
+9ab59592	Configúralo, o cámbialo más tarde, en <0>Ajustes → Definiciones de palabras (IA)</0>. Allí también puedes elegir <1>Sin IA</1>: un diccionario integrado y gratuito que muestra los significados habituales de una palabra, pero no el que tiene en su frase (la IA es muy recomendable).
+e9940534	El repaso de hoy como tarea pendiente
+7e3312af	El botón de la pestaña Repaso envía el resto del repaso de hoy, con el tiempo que debería llevar, a:
+9cea74c5	Google Tasks <0>(Google te pide permiso la primera vez)</0>
+c001f24c	Onyx <0>(abre Onyx, que lo encaja en tu día)</0>
+3386ce50	La IA está desactivada, así que las palabras se explican con el diccionario integrado de {0:lower}. Aún no está en este dispositivo: descárgalo una vez y funcionará sin conexión.
+395b22e4	Descargar el diccionario
+a13e07aa	La IA está desactivada (Ajustes → Definiciones de palabras → Sin IA), así que esto no está disponible.
+f3f91e1e	Portugués (Brasil)
+f5285e5c	el Dictionary of Cebuano Visayan de Wolff
+b016324b	las bases de datos árabes de CAMeL
+382f42b1	Wikcionario
+bbc70fda	, en inglés
+bf672d07	Del diccionario integrado ({0}{1}): los significados habituales de la palabra. No puede decir cuál encaja en esta frase.
+51444687	una lista de las palabras bisayas más comunes, contadas en textos web en bisaya de la colección OPUS NLLB, con la que la app comprueba las raíces que encuentra (mokaon, mikaon, gikaon: kaon)
+8c6c358b	Esta palabra no está en el diccionario integrado. Puede ser un nombre, jerga o una forma que no conoce.
+40137935	Volver a Mis libros
+81f54719	Página anterior
+fb06270f	Página
+4bfc194b	Página siguiente
+48a704f7	{0} a. C.
+e1e3700f	{0} d. C.
+a5188242	Añadiendo «{0}»…
+d2936330	«{0}» añadido a Mis libros.
+6c5e33b0	No se pudo leer ese archivo.
+5f94aeb4	Libros en {0:lower}
+f689db93	Libros famosos, gratuitos porque son de dominio público. Añade uno y léelo página a página, con cada palabra en la que puedes hacer clic. O añade un libro propio.
+70ebead0	Tu propio libro
+c25f48d6	EPUB, PDF, TXT, Kindle AZW3 o Word, sin DRM. Se lee en este dispositivo y se añade a Mis libros.
+195e97d3	Añadir un archivo
+d9fffb0d	Cargando la estantería…
+53633ec9	Aún no hay libros gratuitos en {0:lower}.
+49102c78	{0} KB
+0122668f	{0} · unos {1} de lectura · {2}
+e79e9cf5	Ningún pódcast en {0:lower} está en las listas, así que estos son los mejor valorados en Spotify y Apple Podcasts.
+4ea062ed	Los pódcasts más escuchados ahora mismo en {0}.
+5e7709de	Valoraciones de <0>Spotify</0> y <1>Apple Podcasts</1>.
+b389210d	{0} Pulsa <0>+ Añadir</0> para poner uno en tu biblioteca.
+cba998b6	Añade amigos por nombre de usuario, forma gremios, enviaos mensajes (con notas de voz), envía palabras y carpetas, y mira lo que estudia cada uno. Inicia sesión con tu cuenta de Google para empezar.
+b5531a88	Sesión iniciada. Ahora elige un nombre de usuario.
+c66b2adc	Iniciando sesión…
+4a7fdd8c	Libros
+71381287	Aún no hay libros. Elige un clásico gratuito en el idioma que estás aprendiendo, o añade un libro propio.
+8933cc20	Los libros que estás leyendo, página a página y con cada palabra en la que puedes hacer clic.
+f98f3020	Aún no hay reels. Pega arriba el enlace de un reel, o añade reels en la app Tamkeen: llegan aquí tras una sincronización.
+4b5b4888	Activa primero la <0>transcripción en la nube en Ajustes</0>: es lo que escucha el reel y escribe sus palabras.
+c5c47401	Añadir un reel
+4bb4efb6	Pega el enlace de un reel de Instagram
+0dfb37d0	Enlace del reel de Instagram
+0c2f86c7	En la web puedes ver tus reels y añadir reels públicos desde su enlace. Para elegir reels de lo que guardaste en Instagram, reels al azar y reels con una canción de la biblioteca musical de Instagram necesitas la app Tamkeen en tu teléfono u ordenador. Los reels que añadas allí aparecen aquí tras una sincronización.
+66f216cc	UCSP, abreviatura de Unsa y Cheka Sa Parlor?, es un pódcast inspirado en una frase popular de la jerga gay bisaya, muy hablada en las regiones de Bisayas y Mindanao de Filipinas. Presentado por Lyle Go y Shaneee; la frase equivale más o menos a «What's the tea?» en inglés (¿cuál es el chisme?).
+b7f0771c	Crosseyed Podcast: entrevistas a personas inspiradoras de Cagayán de Oro. Crosseyed Convos: charlas divertidas sobre cualquier tema que a mis amigos y a mí nos parezca interesante y entretenido.
+83f1bce5	Barok and Takya Bisaya Podcast es un pódcast filipino en cebuano. Hablan de todo lo que hay bajo el sol, como la familia, la tradición, la sociedad y la cultura filipinas, en bisaya. ¿A qué esperas? Descarga ya el pódcast pinoy en cebuano: Barok and Takya Bisaya Podcast.
+65d7024f	¡Bienvenido a Cge, Storya Ta: A Bisaya Couple Podcast! Subimos un episodio nuevo cada semana. Coge tu silla más cómoda, quítate los zapatos y prepárate para entrar en la burbuja de Yin y Nol. Una montaña rusa de risas, lecciones de vida y alguna que otra decisión cuestionable; básicamente, de todo y de nada, sin guion y sin filtros. Así que abróchate el cinturón, porque este es el pódcast donde puede pasar cualquier cosa, ¡y probablemente pasará!
+3534296f	Brighter Bisaya es una red de medios en línea para toda la familia que busca informar, educar e inspirar a bisayas y cebuanos de todas las edades con programas de conversación inteligentes y creativos. La empresa está decidida a publicar vlogs y pódcasts sencillos y cercanos sobre arte, educación, filosofía, ciencia, tecnología, inspiración y entretenimiento en cebuano, binisaya, tagalo, inglés y filipino.
+b819d08f	Kapoy explain man. Para publicidad, comentarios o sugerencias de temas, escríbenos a sevillaacevincent@gmail.com.
+cc4289fa	Lecturas de la misa del domingo en cebuano | Mga pagbasa sa Santos nga Misa sa Binisaya. Los episodios nuevos salen el lunes anterior a la misa. Envía tus comentarios a sundaymassreadings@gmail.com. Gracias especiales al P. Alvin, Lorena, Celine, Aimee, Belinda, Ivy, Praxi, el P. Gerry, Belton, Agnes y el diácono Roman.
+ee681aee	Un pódcast de historias variadas. Ziwi habla de sus experiencias personales y lecciones de vida. #Bisaya #Storytelling #Philippines #ChikaMinute #Chikahan
+5561133e	Jeana y Justein son mejores amigos de la soleada provincia de Cebú. Ya cerca de los treinta, estos amigos del instituto hablan de cómo moverse en la vida adulta, de aprender y desaprender ideas y de fijar prioridades. Si quieres sentir esa calidez familiar, como la que te dejan las charlas sinceras con un amigo de toda la vida, únete a ellos en este pódcast nuevo. ¡Episodios nuevos los viernes! Invítanos a un café en ko-fi.com/wanbatsrabesh ☕️ La música no es nuestra; es de Audionautix.com.
+2f32eaa3	Unsa Man Jud Podcast es un pódcast bisaya, o un programa de charla en cebuano, que habla de cosas binutbot y binuang. A veces también hablamos de cosas sineryoso, pero ¿quién quiere escuchar eso, verdad? Así que mejor hablamos de cosas divertidas. En fin, si entiendes el idioma, ¡únete!
+ad54f954	Coffee Break with Juppe es tu pausa de 5 minutos en medio del caos del día. Ideas sueltas, historias breves y reflexiones sinceras, servidas cortas y sencillas, y mejor con un café. Dale al play para tu dosis diaria de charla ligera y buen rollo.
+c4ff21cc	¡Hola! ¡Bienvenido a Bisaya Podcasts PH! Es muy difícil encontrar pódcasts en bisaya. Y aún más difícil encontrar público, sobre todo si eres un pódcast bisaya. Este pódcast quiere unir a los pódcasts bisayas de todo el mundo para que podamos buscarnos y conectar fácilmente con otros podcasters y oyentes. Sé que cuesta encontrar público, sobre todo en nuestra lengua materna. Pero juntos podemos hacer más grande nuestra plataforma.
+29f7f4bc	Pastorear al pueblo de Dios mediante la predicación y la enseñanza eficaces de la Palabra de Dios, para prepararlo a conocer, amar, servir y proclamar a Jesús.
+7e5120d9	Charla con buen rollo y reacciones sobre temas de actualidad, la familia, las relaciones y el humor bisaya.
+2473e96b	Introducción
+4195c313	Para ofrecer acceso en audio a la Biblia en cebuano.
+59e8c6a1	Sugilanon nga gisuwat ni Senador Vicente Rama bahin kang Amboy nga palahubog, ug ang iyang pamahala nga kinabuhi tungod sa iyang pagkapalahubog. Kini ay una nga istorya sa daghan nga nahabutang na istorya sa librong 'Larawan'. (Resumen de April Gonzales)
+6b4e3b92	Usa ka Bisaya nga sibya kung aha maghisgot-hisgot mi sa nagkalain-laing mga butang! Presentado por Lewey Jimoya
+88da3d5b	Enviar a {0}
+4ac22389	Añadir «{0}» a {1} para hoy (elige dónde en Ajustes)
+a0b74487	No se pudo enviar la tarea.
+e79101e5	Enviado a Onyx: {0}.
+0e90681b	Permite que Tamkeen añada tareas en la ventana del navegador que se abrió y vuelve a pulsar Enviar.
+6b514385	La tarea del repaso de hoy en Google Tasks se ha actualizado: {0}.
+4d263331	Añadido a Google Tasks: {0}.
+d8803f2b	Repaso de Tamkeen ({0} min)
+37db2048	Tus tarjetas
+d567fe70	Quedan hoy: {0}; unos {1}, según el cálculo de Tamkeen.
+37497aa5	Brasil
+a2b7c120	Tailandia
+a495190b	Portugal
+a42522a0	Angola
+a40a9be0	Mozambique
+9d3bd1fb	Andorra
+db79573c	{0} Iniciar sesión con Google
+c46d4f59	Se canceló el inicio de sesión.
+71abc87d	Google no inició tu sesión.
+e21573ca	Ese inicio de sesión volvió sin haberse pedido desde aquí. Inténtalo de nuevo.
+6ed09657	Sesión iniciada en Amigos.
+46729ba2	No se pudo iniciar sesión en Amigos.
+2bbb4134	El sitio respondió con un error ({0}).
+9ae12679	Los reels se reproducen en la app instalada.
+be990723	Cargando el vídeo…
+fde42b27	Hay que renovar tu conexión con Google.
+d3b174d2	Volver a conectar Google
+2c534112	Conectado de nuevo a Google.
+f9ab4ef2	No se pudo volver a conectar con Google.
+09dd50fd	Libro desconocido.
+fca43b82	No se encontró texto legible en ese libro.
+fba1a5a5	Mis libros
+78539b41	No se pudo conectar con Google. Comprueba tu conexión.
+b7592d30	La ventana de Google se cerró antes de iniciar sesión.
+66ec6394	Tamkeen necesita su carpeta privada de Drive para guardar tu biblioteca. Inicia sesión de nuevo y deja marcada esa casilla.
+76c6ab28	Hay que renovar tu conexión con Google: toca Volver a conectar.
+2a66b8ea	Primero inicia sesión con Google (Ajustes → Cuenta de Google).
+5c2a23a4	No se permitió el acceso a Google Tasks, así que no se pudo añadir la tarea.
+f8575a96	La ventana de Google se cerró antes de permitir Google Tasks.
+5e475346	Enviar a Google Tasks funciona en Android, en el ordenador y en la app web. Elige Onyx en Ajustes, o usa uno de esos.
+25d9c3cc	La tarea necesita un día.
+bbdefd6e	Repaso de Tamkeen
+3d81cff6	No se pudo conectar con Google Tasks. Comprueba tu conexión.
+8548a469	Google Tasks aún no está activado en el proyecto de Google de Tamkeen.
+a846f437	Google Tasks respondió con un error ({0}).
+214ae7a1	Ese no es un enlace de Onyx.
+16b02880	Tamkeen en la web
+14f62c3c	Funciona como la app, salvo algunas cosas que necesitan la app Tamkeen en tu teléfono u ordenador: reels de lo que guardaste en Instagram y reels al azar, reels con una canción de la biblioteca musical de Instagram, el navegador web integrado (Importar página y Buscar en un vídeo), la sincronización con AnkiDroid y el número en el icono de la app. Lo que añadas en la app aparece aquí tras una sincronización.
+f3534216	Descargar la app
+91e5fbb9	en la web
+99e0c004	para iPhone
+0c3c76a9	para Android
+a74ff4ca	Tamkeen {0} · <0>Política de privacidad</0>
+79f78eb5	en tu navegador
+c2e8b4c9	en tu teléfono
+b71b7dd2	Tus pódcasts, transcripciones y vocabulario, {0}.
+54e60766	Instagram no muestra este reel públicamente.
+1edda8bd	Eso necesita la app Tamkeen (lee Instagram mientras tienes la sesión iniciada allí).
+e165040b	en la parte superior de la pantalla
+55ccdc03	en la parte inferior de la pantalla
+41a15e18	Toca el botón <0>Compartir</0> {0} {1}.
+cbc7ba0a	Desplázate por la lista y toca <0>Añadir a pantalla de inicio</0>.
+bf13c2df	Toca <0>Añadir</0> (arriba a la derecha). Tamkeen ya está en tu pantalla de inicio.
+96914e14	(arriba a la derecha)
+b32ca313	Toca el botón <0>Compartir</0> {0} en la barra de direcciones{1}.
+87deb031	Toca <0>Añadir a pantalla de inicio</0> (desplázate hacia abajo si no lo ves).
+785f548a	Toca <0>Añadir</0>. Si no aparece, abre esta página en Safari y añádela desde allí.
+ae260712	Toca el menú <0>≡</0> abajo a la derecha.
+1b5b232c	Toca <0>Añadir página a</0> y luego <1>Pantalla de inicio</1>.
+ca117803	Toca <0>Añadir</0>.
+2b256040	Toca el menú
+bb5798ce	Toca <0>Instalar</0> (o <1>Añadir a la pantalla de inicio</1>).
+2f614469	Toca el menú <0>⋮</0> arriba a la derecha.
+022e6668	Toca <0>Añadir a la pantalla de inicio</0> (puede decir <1>Instalar aplicación</1>).
+1034fc99	Toca <0>Instalar</0> o <1>Añadir</1>. Tamkeen se abrirá entonces como una app, sin el navegador alrededor.
+887b182d	O abre el menú <0>⋮</0> y luego <1>Enviar, guardar y compartir</1> → <2>Instalar página como aplicación</2>.
+b85d0d03	Haz clic en <0>Instalar</0>.
+06d74687	Abre el menú <0>…</0> y luego <1>Aplicaciones</1> → <2>Instalar este sitio como una aplicación</2>.
+8829f1b7	En un Mac, en la barra de menús elige <0>Archivo</0> → <1>Añadir al Dock</1>.
+7487434a	Haz clic en <0>Añadir</0>.
+95b40a2a	teléfono Android
+d992aac8	Instalar Tamkeen
+1a96de2a	Añade Tamkeen a tu pantalla de inicio
+8607e4ba	Instalar ahora
+26e74130	Así Tamkeen se abre desde su propio icono, a pantalla completa, como una app. En este {0}:
+def8615b	No se pudo conectar con Instagram. Comprueba tu conexión.
+fcb5223a	Instagram respondió con un error ({0}). Inténtalo de nuevo en un minuto.
+797a2936	Más fácil ·
+4c449da1	Abre un sitio (se abre en una pestaña nueva), busca un artículo, copia su dirección y vuelve aquí para pegarla.
+db59af69	Pega la dirección de un artículo
+cbc27e21	Dirección del artículo
+db248300	Pegar
+263fcf38	Tu navegador no permitió pegar desde aquí. Mantén pulsado el cuadro y elige Pegar.
+d3478410	No se pudo importar esa página.
+effc9a4e	YouTube respondió con un error ({0}). Inténtalo de nuevo en un minuto.
+ecc87af7	No se pudo leer la página de YouTube. Inténtalo de nuevo en un minuto.
+6f77246b	Los vídeos de este canal.
+82f79ac4	Populares esta semana.
+e17e232a	Buscar en YouTube
+bd7d0814	{0} Toca un vídeo para verlo con sus subtítulos como palabras que puedes tocar. Necesita subtítulos.
+7724494e	Cargando vídeos…
+f64fc328	No se encontraron vídeos.
+a385bf96	Wikcionario vía Wiktextract: significados de palabras para Sin IA (descarga opcional)
+81e74ccd	La estantería de libros gratuitos: Project Gutenberg, Wikisource, Aozora Bunko (descarga opcional)
+8db0aa84	Dominio público
+d1198df0	Libros para leer página a página con palabras en las que puedes hacer clic.
+7141db00	Primero inicia sesión con Google (Ajustes → Sincronizar con Google Drive).
+819dc7ab	No se pudo conectar con Google Tasks ({0}). Comprueba tu conexión.
+80e1cb7a	Google Tasks rechazó la tarea ({0}).
+6c8a35f3	Parece que Onyx no está instalado en este ordenador.
+08f0c0cf	Malayo
+4d3bb51e	Javanés
+1d6b8a69	Vietnamita
+c1439807	Lao

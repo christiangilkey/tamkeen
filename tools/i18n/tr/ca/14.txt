@@ -1,0 +1,200 @@
+09dd50fd Llibre desconegut.
+fca43b82 No s'ha trobat text llegible en aquest llibre.
+fba1a5a5 Els meus llibres
+a2a96aa1 Els episodis apareixeran quan el teu ordinador sincronitzi aquest canal.
+37b12633 El servidor del canal ha retornat HTTP {0}.
+3155edfa El canal redirigia l'app una vegada i una altra.
+48b36ff0 No s'ha pogut baixar la transcripció: {0}
+d6be1437 Enganxa l'URL d'un canal RSS.
+91ad3544 Ja estàs subscrit a aquest canal.
+690e2ff2 No s'ha trobat el canal.
+39eb0435 Esborra'n els elements un per un; aquesta llista integrada no es pot eliminar.
+bf2ba910 Inicia la sessió amb Google (Configuració) per portar la teva biblioteca des de l'ordinador.
+8b5a0e5e El teu ordinador els transcriurà la propera vegada que se sincronitzi.
+c7d6726a No s'ha trobat l'episodi.
+e198d09b Aquest canvi no encaixa amb la transcripció.
+69511d5f La transcripció ha canviat des que es va buscar la paraula. Torna-la a tocar.
+1bd35f3f Això no sembla un reel.
+a78d3b8f En aquest reel no es diu res.
+1d6b4183 Aquest vídeo encara no és a la biblioteca.
+96d03b0f No hi ha res per desar.
+294611a1 Posa un nom a la carpeta.
+08f351d2 No s'ha trobat la carpeta.
+f1124044 No s'ha trobat.
+4fdd6fdd No hi ha cap frase per desar.
+95b85b31 Això no és una resposta.
+6d483033 Aquest diccionari no s'ha baixat.
+84c8cb59 No disponible al telèfon: {0} {1}
+78539b41 No s'ha pogut connectar amb Google. Comprova la connexió.
+661015cd {0} openid email
+b7592d30 La finestra de Google s'ha tancat abans d'iniciar la sessió.
+66ec6394 Tamkeen necessita la seva carpeta privada de Drive per guardar la teva biblioteca. Torna a iniciar la sessió i deixa marcada aquella casella.
+76c6ab28 Cal renovar la teva connexió amb Google: toca Torna a connectar.
+1492a513 L'inici de sessió amb Google funciona a l'app instal·lada.
+59af74d7 No has iniciat la sessió.
+6e07f63f Cal renovar el teu inici de sessió de Google. Obre Configuració i torna a iniciar la sessió.
+b7ac2dcb Error {0} de Google Drive: {1}
+402eaf0a Google Drive no ha començat la pujada.
+977db692 La pujada a Google Drive ha fallat ({0}).
+5cf59ec6 S'ha interromput la pujada. Comprova la connexió i torna-ho a provar.
+2a66b8ea Primer inicia la sessió amb Google (Configuració → Compte de Google).
+5c2a23a4 No s'ha donat permís a Google Tasks, així que no s'ha pogut afegir la tasca.
+f8575a96 La finestra de Google s'ha tancat abans de donar permís a Google Tasks.
+5e475346 Enviar a Google Tasks funciona a Android, a l'ordinador i a l'app web. Tria Onyx a Configuració, o fes servir una d'aquestes opcions.
+25d9c3cc La tasca necessita un dia.
+bbdefd6e Repàs de Tamkeen
+3d81cff6 No s'ha pogut connectar amb Google Tasks. Comprova la connexió.
+8548a469 Google Tasks encara no està activat per al projecte de Google de Tamkeen.
+a846f437 Google Tasks ha respost amb un error ({0}).
+214ae7a1 Això no és un enllaç d'Onyx.
+979354ab no és una col·lecció
+4742fc3e No s'han pogut baixar els diccionaris. Comprova la connexió i torna-ho a provar.
+16f085e3 El diccionari de l'idioma {0:lower} encara no s'ha publicat.
+a09450db Un diccionari ha arribat malmès. Torna-ho a provar.
+16b02880 Tamkeen al web
+14f62c3c Funciona com l'app, amb unes quantes coses que necessiten l'app Tamkeen al telèfon o a l'ordinador: reels del que has desat a Instagram i reels a l'atzar, reels amb una cançó de la biblioteca musical d'Instagram, el navegador web integrat («Importa la pàgina» i «Busca-la en un vídeo»), la sincronització amb AnkiDroid i el número a la icona de l'app. El que afegeixis a l'app apareix aquí després d'una sincronització.
+f3534216 Aconsegueix l'app
+5c90bb93 AnkiDroid (opcional)
+91e5fbb9 al web
+99e0c004 per a iPhone
+0c3c76a9 per a Android
+e90c933b Es fa servir per a les pàgines web que importes aquí, per a les explicacions de paraules i per a tot el que es transcrigui des d'aquest telèfon. Posa la mateixa a l'ordinador. El que ja has transcrit conserva la llengua amb què es va fer.
+2b7da079 Els teus pòdcasts, transcripcions i vocabulari es comparteixen amb l'ordinador a través d'una carpeta privada de l'app al teu propi Google Drive. Tret que triïs un proveïdor al núvol a dalt, la transcripció es fa a l'ordinador: toca «Transcriu» aquí i ho farà a la propera sincronització.
+10899135 Vibra lleugerament quan toco o deso una paraula
+b0cc938b Text de pòdcasts i vídeos: <0/> <1>{0}px</1>
+283086ed Text de pàgines web: <0/> <1>{0}px</1>
+a74ff4ca Tamkeen {0} · <0>Política de privadesa</0>
+485bef4c L'inici de sessió funciona a l'app instal·lada.
+ecc1d2f5 Sessió iniciada com a {0}
+3addceb3 La sincronització ha fallat: {0}
+33b60a49 Vols tancar la sessió de Google? La teva biblioteca es queda en aquest telèfon; només deixa de sincronitzar-se.
+ba28f9f2 Hi ha disponible la versió {0}: toca Actualitza ara al quadre que s'acaba d'obrir.
+79f78eb5 al navegador
+c2e8b4c9 al telèfon
+7ff90624 Mode de previsualització: l'inici de sessió funciona a l'app instal·lada.
+b71b7dd2 Els teus pòdcasts, transcripcions i vocabulari, {0}.
+d0ddef8f <0>Transcriu a l'ordinador.</0> L'app d'escriptori fa les transcripcions paraula per paraula.
+f0adf6f0 <0>Inicia la sessió amb el mateix compte de Google</0> aquí i a l'ordinador. Tot se sincronitza a través d'una carpeta privada de l'app al teu propi Google Drive.
+a6b63644 <0>Toca qualsevol paraula</0> per sentir-la i veure què vol dir en context. Mantén-la premuda per a més opcions.
+eb2732b0 Sessió iniciada com a {0}. Portant la teva biblioteca…
+84ab641a no es pot mostrar fora d'Instagram
+8fcc7be3 Aturat.
+48a80f34 ha tardat més de {0} minuts
+d6993df4 {0} afegits, {1} omesos
+61151245 Instagram no s'ha obert. Comprova la connexió i torna-ho a provar.
+d5ee628a Instagram no ha respost a temps.
+54e60766 Instagram no mostra aquest reel públicament.
+1edda8bd Per a això cal l'app Tamkeen (llegeix Instagram mentre hi tens la sessió iniciada).
+c6ff8ff1 Ja s'està treballant amb Instagram. Torna-ho a provar quan acabi.
+ff8747f0 Primer activa la transcripció al núvol a Configuració: és el que permet que aquest telèfon escolti els reels.
+2798b2f0 Obrint Instagram…
+352cdb34 Primer inicia la sessió a Instagram: prem «Inicia la sessió a Instagram» i inicia-hi la sessió. Aquella finestra es tanca tota sola i Tamkeen continua.
+752ead87 Col·leccions: {0}
+3d4f9a7c Aturat. Se n'han trobat {0} fins ara.
+f351926a Revisant el que has desat a Instagram… {0} fins ara. (Atura conserva les que s'han trobat.)
+42c1b8ad Buscant les teves col·leccions entre el que has desat a Instagram…
+902f4134 Col·leccions desades trobades: {0}. Tria'n una de la llista.
+7271c886 No s'han trobat col·leccions en el que has desat a Instagram. Encara pots triar «Tot el que he desat».
+a904dcc2 Aquesta col·lecció no és a la llista. Torna a prémer «Busca les meves col·leccions».
+96d3280d Llegint aquesta col·lecció a Instagram…
+c2182d2c Obtenint les imatges…
+5c716b95 Publicacions desades trobades: {0}. Marca les que vulguis.
+c4dbbbdc no s'ha pogut llegir
+4c93a121 no és un vídeo
+360993c3 el vídeo ha tardat massa a baixar-se
+856eba9f no s'ha pogut baixar el vídeo{0}
+923accb8 el vídeo ha arribat buit d'Instagram
+f1d247f4 massa gran per enviar-lo des del telèfon
+b5adf68f no s'hi diu res
+3bb1a5b6 en {0:lower}, no en {1:lower}
+8a1414e3 gairebé no s'hi parla
+ed162d4b , en {0:lower}
+c14398dc (es reprodueix amb la sessió d'Instagram iniciada)
+26dda5ef {0} paraules{1}{2}
+d7ddc937 Primer marca els reels que vulguis.
+3727f60b Reel {0} dels {1} que has marcat: escoltant… ({2} fins ara)
+f239c335 La llista de sota diu per què s'ha omès cadascun.
+72ef9385 Els reels a l'atzar encara no estan configurats per a aquesta llengua.
+4c93d4b8 Aturat. {0}.
+0b85ce49 Buscant reels en {0:lower} ({1})…
+403ebed9 Aconseguint {0} reels en {1:lower}: {2} fins ara; escoltant el següent…
+3d0a21ac {0}: {1} reel{3} a l'atzar en {2:lower} a punt per mirar.
+ceda21f2 {0}: aquesta vegada no s'ha pogut conservar cap reel en {1:lower}. Torna-ho a provar: les paraules de cerca canvien cada vegada.
+72012544 Aquesta col·lecció no és a la llista.
+7f8b10c7 Tamkeen ja s'ha restablert. Inicia la sessió o acaba les primeres pantalles per recuperar la teva biblioteca.
+020ed627 No s'ha pogut apartar la teva biblioteca de manera segura, així que no s'ha restablert res.
+18cf0eb4 Això no sembla un canal RSS de pòdcast.
+ea3bb7b5 Pòdcast sense títol
+4d02a4af Episodi sense títol
+70440046 Notes
+a40a4e6b Inici (s)
+731a0d43 Final (s)
+83423c19 Nota:
+5969dbe4 Massa taules per a una sola pàgina.
+0225752e Maayong buntag kaninyong tanan. Karon, atong hisgotan ang atong kinabuhi diri sa Sugbo ug sa Mindanao.
+02650201 No s'ha pogut llegir l'àudio.
+cfb37b58 L'adreça de l'àudio redirigia l'app una vegada i una altra.
+3fa8487e S'ha rebutjat la baixada (error {0}).
+606d8615 {0} ha retornat una cosa que no és una transcripció.
+5a4f2a6b {0} demana esperar {1}…
+253b5798 {0} té problemes (error {1}). Torna-ho a provar d'aquí a una estona.
+cb8c9ee7 {0} no ha respost.
+dc8e1cb0 Proveïdor desconegut.
+d9f8661c Primer enganxa una clau d'API.
+55059cb2 No s'ha pogut baixar l'àudio (el servidor ha respost {0}).
+d80623c2 La baixada s'ha aturat a mitges (el servidor ha respost {0}).
+d580b524 Aquest àudio no s'ha pogut llegir com a MP3.
+b37be079 L'àudio d'aquest episodi no és MP3 i ocupa {0}: més del que {1} accepta d'una vegada (25 MB). Transcriu-lo a l'ordinador o fes servir Groq com a proveïdor.
+802c66c5 L'àudio d'aquest episodi no és MP3 i és massa gran per enviar-lo d'una vegada. Transcriu-lo a l'ordinador.
+b9a6cf4a El fitxer ja no és al teu Google Drive.
+673f3233 La transcripció al núvol està desactivada. Activa-la a Configuració.
+aad63d75 Aquest fitxer és massa gran per enviar-lo des del telèfon, així que el transcriurà el teu ordinador.
+a11dbc0f (display-mode: standalone)
+e165040b a la part de dalt de la pantalla
+55ccdc03 a la part de baix de la pantalla
+41a15e18 Toca el botó <0>Comparteix</0> {0} {1}.
+cbc7ba0a Desplaça't per la llista i toca <0>Afegeix a la pantalla d'inici</0>.
+bf13c2df Toca <0>Afegeix</0> (a dalt a la dreta). Ara Tamkeen és a la pantalla d'inici.
+96914e14 (a dalt a la dreta)
+b32ca313 Toca el botó <0>Comparteix</0> {0} a la barra d'adreces{1}.
+87deb031 Toca <0>Afegeix a la pantalla d'inici</0> (desplaça't cap avall si no el veus).
+785f548a Toca <0>Afegeix</0>. Si no hi és, obre aquesta pàgina a Safari i afegeix-la des d'allà.
+ae260712 Toca el menú <0>≡</0> a baix a la dreta.
+1b5b232c Toca <0>Afegeix la pàgina a</0> i després <1>Pantalla d'inici</1>.
+ca117803 Toca <0>Afegeix</0>.
+2b256040 Toca el menú
+bb5798ce Toca <0>Instal·la</0> (o <1>Afegeix a la pantalla d'inici</1>).
+2f614469 Toca el menú <0>⋮</0> a dalt a la dreta.
+022e6668 Toca <0>Afegeix a la pantalla d'inici</0> (pot dir <1>Instal·la l'aplicació</1>).
+1034fc99 Toca <0>Instal·la</0> o <1>Afegeix</1>. Després Tamkeen s'obre com una app, sense el navegador al voltant.
+887b182d O obre el menú <0>⋮</0> i després <1>Emet, desa i comparteix</1> → <2>Instal·la la pàgina com a aplicació</2>.
+b85d0d03 Fes clic a <0>Instal·la</0>.
+06d74687 Obre el menú <0>…</0> i després <1>Aplicacions</1> → <2>Instal·la aquest lloc com a aplicació</2>.
+8829f1b7 En un Mac, a la barra de menús tria <0>Fitxer</0> → <1>Afegeix al Dock</1>.
+7487434a Fes clic a <0>Afegeix</0>.
+95b40a2a Telèfon Android
+d992aac8 Instal·la Tamkeen
+1a96de2a Afegeix Tamkeen a la pantalla d'inici
+8607e4ba Instal·la ara
+26e74130 Després Tamkeen s'obre des de la seva pròpia icona, a pantalla completa, com una app. En aquest {0}:
+def8615b No s'ha pogut connectar amb Instagram. Comprova la connexió.
+fcb5223a Instagram ha respost amb un error ({0}). Torna-ho a provar d'aquí a un minut.
+797a2936 Més fàcil ·
+4c449da1 Obre un lloc (s'obre en una pestanya nova), busca un article, copia'n l'adreça i després torna i enganxa-la aquí.
+db59af69 Enganxa l'adreça d'un article
+cbc27e21 Adreça de l'article
+db248300 Enganxa
+263fcf38 El teu navegador no ha permès enganxar des d'aquí. Mantén premut el quadre i tria Enganxa.
+d3478410 No s'ha pogut importar aquesta pàgina.
+effc9a4e YouTube ha respost amb un error ({0}). Torna-ho a provar d'aquí a un minut.
+ecc87af7 No s'ha pogut llegir la pàgina de YouTube. Torna-ho a provar d'aquí a un minut.
+6f77246b Els vídeos d'aquest canal.
+82f79ac4 Popular aquesta setmana.
+e17e232a Cerca a YouTube
+bd7d0814 {0} Toca un vídeo per mirar-lo amb els subtítols com a paraules que pots tocar. Ha de tenir subtítols.
+7724494e Carregant vídeos…
+f64fc328 No s'ha trobat cap vídeo.
+0ab8077d El testimoni del complement és incorrecte. Torna a baixar el complement des de la configuració de Tamkeen.
+42ea3675 Massa dies en un sol informe.
+36edb03f Aquest fitxer no existeix.
+f1e86935 Només es pot cridar els proveïdors d'IA compatibles.

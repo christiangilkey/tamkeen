@@ -1,0 +1,200 @@
+45260878 Sanag: gihimo sa imong mga building
+4ac9dac4 {0} sanag
+ec8782a8 Sanag matag oras karon
+6a6e9e27 {0} matag oras
+cba40f6f Mutya: makuha gikan sa mga badge, raid, pagsaka og liga ug hingpit nga pagpamulak
+626f7b1c Abog sa bituon: ang matag usa mopaspas sa tanan og {0}%, hangtod sa hangtod
+f7370cf7 {0} Ang sanag motigom na sa kaugalingon.
+7a211303 Abta ang imong adlaw-adlaw nga tumong {0} ka beses ug ang sanag motigom na sa kaugalingon ({1} na karon).
+ddd7a154 Ang mga building mohimo og sanag samtang wala ka: hangtod {0} ka oras ang maghulat kanimo. Ang matag klase labing maayo para sa lain-laing batasan sa pagtuon, ug ang pagkab-ot sa tumong karon mopaspas sa tanan og katunga ug mopadala og duha ka oras nga sanag dayon.
+cf6b269f <0>Hingpit nga pagpamulak.</0> Ang matag lote naay building nga hingpit na nga dako. Kompleto na ang tanaman; ang pagbuhi og linalang magsugod og bag-o ug mas paspas nga tanaman.
+39a1c2dc Kuhaa ang {0} sanag
+eabc714b Lote {0}: sirado
+467b84dc {0} Maablihan kung: {1}
+1c6e99ed Gamita ang yawe ({0})
+7cf40990 Lote {0}: walay sulod
+144a397b Pili og itukod dinhi.
+7e08478b {0} {1} · {2} matag oras
+0595972e {0} · ang-ang {1}
+d020fbd3 · ganahan og {0} {1}
+9078100c {0} sanag matag oras{1} · {2} ang naghulat
+04aac4c0 Kuhaa
+53b630e7 Padakua ·
+6d6426d9 Isaka kini og usa ka ang-ang: mas daghan kaayo ang sanag nga mahimo niini
+50645793 Hingpit na nga dako
+4dd3fed6 Buhii ang dako na nga linalang
+95b0eef2 Ang dako na nga linalang mahimong buhian. Mobiya kini sa imong roster ug hinumdoman dinhi. Ang imong mga building ug sanag magsugod pag-usab, ug imong mapabilin ang <0/>: ang matag usa mopaspas sa matag building og {0}% hangtod sa hangtod, busa ang sunod nga tanaman mas paspas kaayo nga motubo kaysa sa nauna. Kung mas daghan ang hingpit nga dako nga building niadtong higayona, mas daghan ang abog sa bituon.
+7005fc6d abog sa bituon
+5fb6a7b7 Wala ka pay hamtong nga linalang.
+21e10852 kini nga linalang
+edfb0cc4 Buhian ang {0}? Mobiya kini hangtod sa hangtod, ug ang imong mga building ug sanag magsugod pag-usab. Imong mapabilin ang abog sa bituon, ang imong ubang mga linalang ug tanan nga imong gipanag-iya.
+d2001733 Nabuhian. Nakakuha ka og {0} abog sa bituon.
+28a4bacf Nabuhian hangtod karon: {0}.
+912d81bb Pusaa una ang imong itlog; dayon mapakaon na kini.
+55427966 {0} {1} · gipakaon {2} sa {3} ka beses karon. Doble ang ihap sa iyang paborito. Ang mga kasingkasing mopaspas og gamay sa iyang mga building ug walay usbon sa mga sangka.
+35b25929 Pagkaon
+9d041fa1 {0} iyang paborito
+779fc473 Ganahan kaayo niini ang mga linalang nga {0}
+77690ee2 · naa kay {0}
+ff1928e5 Pakan-a
+c266a25e Ganahan kaayo kana siya!
+df139e6c Lami.
+db09cbc4 Palita ang usa sa {0} sanag
+14e351e1 Suplay
+0e90e484 Ang mga mutya makuha ra gikan sa imong mga buhat: matag badge (2), nadaog nga raid (3), pagsaka og liga (2), hingpit nga pagpamulak (10). Walay gibaligya baylo sa kwarta.
+11a9a29c Naa nay bag-ong itlog uban sa imong mga linalang.
+c505c639 Dugangi og 20 ka minuto
+36690a36 Gamita karon
+476c3b07 Doble ang XP sulod sa {0} ka minuto. Lakaw ug pagtuon!
+0a854dda nagdagan pa sulod sa {0} ka min
+427a838f Painiti ang itlog
+e00a97a2 Kinahanglan ka og ekstra nga itlog nga wala sa habitat
+bdd2a3a3 Gipainit ang itlog: motubo kini samtang motubo ang imong linalang.
+6a6002af gipainit ang usa ka itlog
+678552eb Gamita kini sa Garden page.
+265753d6 Gamiton kini sa kaugalingon kung mas gamay ang bayad sa usa ka sangka.
+6028b76d Gamita kini panahon sa ihalas nga sangka.
+993750ae Habitat sa imong linalang
+d3f4cb89 Ilisi ang ngalan
+29cdd5c4 Imong lebel: i-tap aron makita kung giunsa pagkuha ang XP
+1aa6e8ca Lv
+eaeec02c XP hangtod sa sunod nga lebel
+18e480f2 I-tap aron makita kung giunsa pagkuha ang XP
+890541c0 Usba ang imong adlaw-adlaw nga tumong
+e54c864d I-tap aron makita kung giunsa pag-evolve sa imong linalang
+0b8ca8e4 Mga adlaw nga sunod-sunod: i-tap para sa dugang
+ce1213a4 Mga coin, para sa tindahan: i-tap para sa dugang
+c3b0236d Ang streak freeze motabon sa adlaw nga nalaktawan: i-tap para sa dugang
+5894f7c3 Sanag gikan sa imong mga building: i-tap para sa dugang
+b1e9fef7 Mga mutya, para sa suplay: i-tap para sa dugang
+dd8fd086 Mga kasingkasing: i-tap para sa dugang
+b2d3bd7f Ibalhin ang imong linalang sa laing habitat
+f5552713 Sangka
+48f77eb7 Mga linalang
+55de8870 Tindahan
+714d913b Tanaman
+3f5aa796 Naabot ang adlaw-adlaw nga tumong
+ad69cbf5 Karon: {0} / {1} min
+79bcdbf3 Tumong: {0} min
+669ac373 Itlog nga {0}
+0e5f028b · andam na mo-evolve: i-tap kini
+72ce9e1e · {0}% ngadto sa {1}
+4246502f {0} ka adlaw
+223e900f Imong itlog
+63b41493 Hatagi kog ngalan
+98303fea Adlaw-adlaw nga tumong: ang imong mga building mipadala og {0} sanag dayon.
+72e1269a Nakakuha ka og {0} ka mutya.
+61fe2211 Hingpit nga pagpamulak: ang matag lote naay building nga hingpit na nga dako.
+673e4951 Hatagi og ngalan ang imong linalang
+a8a47536 wala pay pulong nga na-save :(
+0a5a8112 +{0} sanag
+e3b0b563 Andam na mo-evolve ang imong linalang. I-tap kini kung gusto na nimo.
+b2facb1b Kana nga lote wala pa maablihi.
+fcc4027b Naa nay natukod didto.
+bf998c98 Wala kana nga building.
+d482d7e0 Dili pa: {0}.
+710d27b3 Kinahanglan ka og {0} pa ka sanag.
+efcf13a6 Walay natukod didto.
+2a8a3386 Hingpit na kini nga dako.
+579f1557 Abli na ang matag lote.
+9af0e879 Wala kay yawe.
+5b31b02f Ang dako na (hamtong) nga linalang ra ang mabuhian.
+934d6b63 Dili kana gibaligya.
+36602b9e Puno na ang imong roster.
+26de9a27 Kinahanglan ka og {0} pa ka mutya.
+6c27e5e8 Wala kay ingon ana.
+6156ebc8 Ang mga itlog dili mokaon. Pusaa una kini.
+a66174fd Busog na kini para karon.
+bdbaa592 Wala kay XP boost.
+4f42a703 Wala kay incubator.
+e0e5bba3 Pili og itlog nga wala sa habitat.
+eacac3ef Naa na sa incubator kana nga itlog.
+73ed2987 Naa kay {0} XP ug lebel {1} ka. Ang sunod nga lebel {2} XP pa.
+6a75c080 I-save ang pulong sa imong vocab: 20.
+80e25376 Paminaw o basa: hinay nga tulo samtang nagtuon ka, nga mohubas kung molapas ka na og maayo sa imong adlaw-adlaw nga tumong.
+aa1ab833 Abta ang imong adlaw-adlaw nga tumong: {0}. Kini ang dako, ug parehas ra ang bayad bisan 5 o 20 minuto ang imong tumong.
+e3435b6f Mga sangka: 3 sa matag sakto nga tubag, 15 pa kung ang usa ka pulong mahimong kabalo na kaayo, 40 sa pagdaog ug 15 sa pagkapildi (hingpit para sa unang tulo ka sangka sa adlaw).
+da45a83d Vocab reviewer: ang matag card nga imong tubagon mobayad og ikaupat sa bayad sa pagpangita og pulong (kasagaran 1 hangtod 4, usahay 8 hangtod 12, panagsa 25 hangtod 50), parehas ra nahinumdoman man nimo o wala, busa walay makuha sa pagpamakak.
+355d88a3 Humana ang sangka ug limpyohi ang imong mga flashcard sa samang adlaw: {0} pa, kausa matag adlaw.
+1a385136 Ang pagbuhat sa samang butang sa daghang higayon sa usa ka adlaw mas mokunhod ang bayad, busa ang gamay matag adlaw mas maayo kaysa usa ka taas nga sesyon.
+5d4196b1 Mopadako kini sa linalang sa imong habitat: mapusa kini, modako ug mahimong andam mo-evolve.
+4e3ef7b7 Ang XP dili gyud magasto. Mosaka ra kini.
+27bb53b6 Walay gastohan niini: kini ra ang molihok.
+9b7db3ae Giunsa pag-evolve
+ac4792cf Streak
+ae506790 {0} nga sunod-sunod. Ang imong labing taas kay {1}.
+31fb81dc Uban sa Anki companion, ang paghuman sa tanan nga takdang i-review sa Anki maisip usab nga tumong sa adlaw.
+3e2a59d1 Kung malaktawan nimo ang usa ka adlaw, tabonan kini sa streak freeze kung naa kay usa. Kung wala, magsugod pag-usab ang streak gikan sa zero. Walay lain nga mawala.
+488e945a Kung moabot og 7 ka adlaw, maablihan hangtod sa hangtod ang bag-ong mga butang sa tindahan ({0}) ug ang lihok sa sangka nga Lig-on nga Kasingkasing.
+347792fa Ang 5 ka adlaw nga streak moabli og lote sa pagtukod sa tanaman.
+f7922bac Mga badge sa 7, 30 ug 100 ka adlaw, ug ang matag badge mobayad og 2 ka mutya.
+d15f40ca Tan-awa ang imong mga badge
+2bef474e Mga coin
+647952d2 Naa kay {0}.
+ec4161d7 I-save ang pulong sa imong vocab: 1 matag usa.
+20b4c331 Mosaka og lebel: 5.
+e469d2bf Modaog sa sangka: 4 sa matag usa sa unang tulo ka daog sa adlaw, mas gamay human niana.
+3c1e6885 Ang pulong mahimong kabalo na kaayo pinaagi sa mga sangka: 1.
+dc4529b3 Ipabilin nga sakto ang 8 sa 10 ka tubag sa sangka sulod sa usa ka semana (30 ka tubag o labaw pa): 5.
+d5d064cb Mapildi sa imong guild ang senemanang raid boss: 20.
+64eea943 Humana ang sangka ug limpyohi ang imong mga flashcard sa samang adlaw: {0}, kausa matag adlaw. Ang mga flashcard ra mobayad og sanag, dili coin.
+54bb5f6d Ang tanan nga mapalit gamit ang coin para sa hitsura ra. Walay mopakusog sa linalang.
+fede851e Ang Tindahan. Nagtanyag kini og {0} ka butang matag adlaw, gipili para sa imong linalang, ug mausab matag adlaw.
+4906011f Ablihi ang tindahan
+02b8de87 Usahay, mohulog ang usa isip sorpresa kung mangita ka og pulong.
+4b6bd7b6 Nagsugod ka nga naay usa.
+a66c8544 Gamiton kini sa kaugalingon sa sunod nimong pag-abli sa app human sa adlaw nga nalaktawan. Duha ka adlaw nga nalaktawan, duha ang kinahanglan.
+d5545dea Sanag
+3647f30f , ug {0} pa ang naghulat sa imong mga building
+6319cd67 Naa kay {0} sanag{1}. Ang imong mga building mohimo og {2} matag oras.
+5aafc95b I-tap ang building nga naay suga nga naglutaw-lutaw sa ibabaw aron makuha ang sanag niini. Human sa {0} ka adlaw-adlaw nga tumong, kini na ang motigom sa kaugalingon.
+5ab759f1 Abta ang imong adlaw-adlaw nga tumong: ang matag building mohimo og katunga pa sa nahabilin nga adlaw, ug moabot dayon ang duha ka oras nga sanag.
+fb3a6104 Limpyohi ang mga flashcard sa adlaw sa vocab reviewer ({0} ka card o labaw pa, nga walay nahabilin nga takdang i-review): usa ka oras nga sanag sa imong tanaman dayon, ug dili gyud mobaba sa {1}. Ang mga sangka mobayad og coin hinuon.
+5881fc72 Ang matag klase sa building mohimo og mas daghan para sa usa ka batasan sa pagtuon, ug ang matag kasingkasing sa imong linalang modugang og gamay.
+99abeba6 Pagkaon para sa imong linalang ({0} sanag matag usa), nga mopuno sa iyang mga kasingkasing.
+dfc8c596 Mga tambal ({0} sanag) para sa ihalas nga mga sangka.
+38ccf266 Ang mga building naa sa Garden page. Ang pagkaon ug mga tambal naa sa Supplies page.
+37de88de Ablihi ang tanaman
+3e321c9f Ablihi ang suplay
+02904156 Mga mutya
+4254141b Mapildi sa imong guild ang senemanang raid boss: 3.
+a1d5eec6 Mosaka og liga (abta ang imong adlaw-adlaw nga tumong sa 5 ka adlaw sa usa ka semana): 2.
+18bf14cc Hingpit nga pagpamulak, kung ang matag lote sa tanaman naay building nga hingpit na nga dako: 10.
+03611593 Ang mga mutya makuha ra gikan sa imong mga buhat. Dili gyud kini ibaligya baylo sa kwarta.
+89803371 Ang Supplies page.
+99f9bf69 Mga kasingkasing
+7b0609ca Ang {0} naay {1} sa 5 ka kasingkasing.
+3be3ea7c : para sa {0} nga linalang nga {1}
+80e48f19 Duha ka pagpakaon mopuno og usa ka kasingkasing. Doble ang ihap sa iyang paboritong pagkaon{0}.
+746e8201 Ang mga kasingkasing iya sa matag linalang, ug dili gyud kini mokunhod.
+27cffa5f Walay usbon ang mga kasingkasing sa mga sangka.
+feeaea73 Pakan-a kini sa Supplies page.
+f110690b Giunsa pagkuha
+ca032b58 Unsay buhaton niini
+525f61b6 Asa
+dc353487 Pagpaminaw
+7ac0138b oras nga gigamit sa pagpaminaw og mga podcast, audio ug video
+cffa2af0 Pagbasa
+7f6efe83 Pagtigom
+ab60d3ea pag-save og mga pulong, sakto nga mga tubag sa sangka, mga card sa vocab reviewer, mga review sa Anki
+1a0bff19 Pagkakuryoso
+7224fd42 Baga para sa pagkakuryoso, Balud para sa pagpaminaw, Kalasangan para sa pagtigom, Bato para sa pagbasa, Aligato para sa sayo sa buntag ug Kilumkilom para sa lawom nga gabii
+80b6476b Giunsa pag-evolve sa imong linalang
+00d04503 Ang {0} usa ka {1}. Ang mahimo niini nagsunod sa paagi sa imong pagtuon, ikaw ang mopili sa higayon, ug walay bisan unsa nga imong pilion ang permanente.
+b89502e9 {0} XP
+80083e78 andam na mo-evolve
+02a71b4e usa ka {0}
+729f33b1 {0} pa ka XP hangtod nga kini {1}.
+a105f0d4 Andam na kini mo-evolve: i-tap kini sa habitat.
+f16b2c73 1. Pagdako
+d4915a51 {0} Ang tanan nga XP nga imong makuha moadto sa linalang nga naa sa habitat. Ang uban maghulat, busa kung kinsa ang imong ipagawas mao ang imong unang pili.
+c5a69900 2. Imong upat ka batasan
+9e19cb58 Ang matag linalang nagtipig og rekord kung giunsa nimo pagtuon samtang naa kini sa gawas. Mosaka ang usa ka batasan kung makakuha ka og XP sa maong paagi ug ang uban mohinay-hinay og kunhod, busa ang mga bar nagsunod sa imong gibuhat bag-o lang. Mga {0} XP sa usa ka klase ang mopuno sa bar. Ang Pagkakuryoso nanginahanglan og {1}, kay ang pagpangita og mga pulong mobayad og mas daghan kaayo nga XP.
+174c7e2f Abli: ang imong labing kusgan nga batasan hangtod karon
+28088622 Abli: kini nga batasan milapas na sa 25%
+94fae88c · modala sa lihok sa sangka nga {0}
+968f60ab 3. Ang hamtong nga porma niini
+ffd15c0d Kung igo na ang pagdako niini, maghulat kini isip batan-on ug mosidlak. I-tap kini ug ikaw ang mopili sa hamtong nga porma niini. Ang porma sa imong labing kusgan nga batasan kanunay abli, ug ang lain maablihan kung ang batasan niini molapas sa 25%. Human mo-evolve, ang pagpasaka sa laing batasan ngadto sa 50% moabli usab sa maong porma, ug makabalhin ka tali sa mga naablihan nga porma bisan kanus-a nimo gusto. Ang pag-evolve mobilin usab kanimo og bag-ong itlog. Ang Pagkakuryoso walay kaugalingong porma: makita kini sa imong mga itlog, sa tindahan ug sa tanaman.
+93d943d8 {0} Nakuha
+db795d86 4. Espesyal nga mga porma
+7c62f35b Isul-ob sa ibabaw sa hamtong nga porma. Gikan kini sa oras sa imong pagtuon, kinsa ang kauban niini sa pagdako, ug unsa ang imong nahimo sa sangka. Mausab niini ang mga kolor ug mga bahin, dili gyud ang kusog.

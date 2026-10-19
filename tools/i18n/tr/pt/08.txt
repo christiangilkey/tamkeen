@@ -1,0 +1,200 @@
+13878fb7 O elemento de cada ovo novo tende para o seu jeito de estudar: {0}.
+02b6bd4d A loja oferece mais do que combina com seus hábitos, como fones de ouvido para quem escuta e livros para quem lê.
+2eaf9a2e Cada construção do jardim produz mais brilho com um hábito.
+976f4c1c As batalhas entre pessoas ignoram tudo isso: todas as criaturas lutam no mesmo nível, e você vence sabendo suas palavras.
+8b0adc94 O que mais seus hábitos mudam
+0c20f982 Escolher a forma agora
+3b7ab43a Abrir suas criaturas
+124ba4b6 Precisa de mais {0}
+cb437e4f Ela ainda não está pronta para evoluir.
+a6e6f750 Essa forma ainda não está aberta para ela.
+81b52bd2 Essa forma especial ainda não foi conquistada.
+5eb43479 Não foi possível abrir o presente.
+2890293f Você já tem {0}, então virou {1} moedas.
+67705e9c Você recebeu {0}. Está em Minhas coisas.
+c054815c Seu grupo está cheio, então o ovo virou 20 moedas.
+b49d2e5c Você recebeu um ovo de {0}. Ele está com suas criaturas.
+e4d969a9 Esse item não existe.
+2b338829 Você já tem isso.
+60e6b077 Você precisa de mais {0} moeda(s).
+77e01fe2 Loja e guarda-roupa
+0ee5c43c Minhas coisas
+2c578dc8 Insígnias
+2db87a01 Decoração
+9519fbe9 {0} é seu
+4f3e6209 Guardar
+26fcf76c Colocar
+1c99c72c Tirar
+94433a7e Usar
+5d632f2d Dar isto a um amigo
+fbefae1e Dar
+1cfad2d7 {0} moedas
+a8e4db25 A seleção de hoje, escolhida para sua criatura. Ela muda todo dia. As moedas vêm de alcançar sua meta diária (10), salvar palavras (1 cada) e subir de nível (5).
+7c0a7817 Você já tem tudo o que está à venda.
+db13058c Mais {0} item(ns) aparecem quando você conquistar:
+1a2cdd14 Nada ainda. O que você comprar na loja fica guardado aqui.
+d0673c80 Coleção {0}
+080c79ed Este dicionário de chinês é de outra versão do app.
+8079905a Este dicionário de japonês é de outra versão do app.
+f5285e5c Dicionário de cebuano visaya de Wolff
+b016324b os bancos de dados de árabe do CAMeL
+382f42b1 Wiktionary
+bbc70fda , em inglês
+bf672d07 Do dicionário embutido ({0}{1}): os significados comuns da palavra. Ele não sabe dizer qual deles se encaixa nesta frase.
+cd8a2a7e Mostrar furigana (kana pequenos sobre os kanji)
+48f745cc Mostrar pinyin sobre os caracteres, colorido pelo tom
+fcfd569a Caracteres chineses
+c17ef03e Como está escrito
+6a018382 Simplificados (简体)
+6c401cdd Tradicionais (繁體)
+cb91bc89 Funcionam quando o dicionário de {0:lower} estiver neste dispositivo.
+1fa955a7 Esta tabela de palavras é de outra versão do app.
+41867351 Não foi possível marcar essa palavra como vista: {0}
+84d8d02d Mostrar a sílaba tônica (ла́дно)
+82c3ca6e ✓ Os dicionários de {0:lower} estão neste dispositivo ({1} MB). As palavras que você nunca tocou aparecem em <0>roxo</0>.
+71da2431 Os dicionários de {0:lower} não estão neste dispositivo, então as palavras novas não podem aparecer em <0>roxo</0>.
+f5eab3f0 Os dicionários de {0:lower} não estão neste dispositivo, então cada forma de uma palavra conta como uma palavra diferente.
+7443fea8 Os dicionários de {0:lower} estão prontos.
+058c38b0 falo, falamos, fale-me
+2dfade8e parlo, parlem, digues-m'ho
+69f76f1b mokaon, mikaon, gikaon
+1eccdd79 Para o japonês, é preciso um dicionário: ele divide o texto japonês em palavras de verdade, para que um toque pegue a palavra inteira, dá a forma de dicionário de cada palavra e mostra furigana (kana pequenos sobre os kanji). É o IPADIC, do Instituto de Ciência e Tecnologia de Nara
+dae622d1 Para o chinês, é preciso um dicionário: ele divide o texto chinês em palavras de verdade, para que um toque pegue a palavra inteira, mostra pinyin sobre os caracteres colorido pelo tom e trata caracteres simplificados e tradicionais como a mesma palavra. É o CC-CEDICT, com as frequências de palavras do wordfreq
+cadfed16 a lista de palavras do wordfreq para o filipino, com a qual o app confere as raízes que encontra (kumain, kakain, kinain: kain)
+51444687 uma lista das palavras mais comuns do bisaya, contadas em textos da web em bisaya da coleção OPUS NLLB, com a qual o app confere as raízes que encontra (mokaon, mikaon, gikaon: kaon)
+74da1e87 listas de palavras abertas (a lista de lematização de Michal Měchura e as contagens de palavras do wordfreq) e o CMU Pronouncing Dictionary, que dá a pronúncia americana mostrada na janela da palavra
+84ee7564 o dicionário do OpenRussian.org, que também dá a sílaba tônica de cada palavra, para que o texto em russo possa mostrá-la (ла́дно)
+359544fb listas de palavras abertas (as listas de lematização de Michal Měchura e as contagens de palavras do wordfreq)
+04d17f22 Deste idioma
+4af2e1ae {0}: um <0>download único de cerca de {1} MB</0>. Ele fica neste dispositivo, e nada sobre você é enviado para lugar nenhum.
+6280fb05 Para o {0:lower}, são precisos dicionários: um <0>download único de cerca de {1} MB</0>, feitos pelo CAMeL Lab da Universidade de Nova York em Abu Dhabi (árabe padrão, egípcio, levantino e do Golfo). Eles ficam neste dispositivo, e nada sobre você é enviado para lugar nenhum.
+f9657a45 Para o {0:lower}, é preciso uma tabela de formas de palavras: um <0>download único de cerca de {1} MB</0>, feita a partir de {2}. Ela fica neste dispositivo, e nada sobre você é enviado para lugar nenhum. Sem ela, cada forma de uma palavra conta como uma palavra diferente.
+aaa46e0d Dicionários de {0:lower}
+c33c9385 O Tamkeen pode mostrar quais palavras são <0>novas para você</0>: uma palavra que você nunca tocou aparece em roxo, e assim que você toca em uma, todas as formas dessa palavra contam como vistas (<1/>).
+b7c33926 Você pode fazer isso depois nas Configurações.
+e4571490 Agora não
+6813189a Isso leva alguns segundos.
+286b0dcd Os dicionários de {0:lower} estão prontos. As palavras novas agora aparecem em roxo.
+3e13e40a ✓ Marcar como vista
+30320764 ↺ Marcar como nova
+8c6c358b Esta palavra não está no dicionário embutido. Pode ser um nome, uma gíria ou uma forma que ele não conhece.
+3f629623 Nenhum texto legível foi encontrado nessa página. Tente “Abrir o navegador” e use Importar página lá.
+4b0a3f2d Versão {0}
+2cf6a510 Um app para aprender um idioma com material real: assine podcasts, adicione seus próprios vídeos e páginas da web, transcreva no seu computador com o Whisper, leia acompanhando com cada palavra destacada e monte uma lista de vocabulário.
+9421c021 Pasta de dados
+22a35fbe Código-fonte
+e630fb0f github.com/{0}
+c4740e4c Ambiente de execução
+06403f3b Python {0}
+736b9062 Procurar atualizações
+30dced67 Licenças de código aberto
+48e55e8f Este app é feito com base nestes projetos. Clique em um para ler a licença.
+3aceec04 A versão {0} está disponível.
+68680fa2 Você está com a versão mais recente.
+8e3df45a Copiado
+40137935 Voltar para Meus livros
+a8ea9e30 Texto menor
+118f9b2b Texto maior
+81f54719 Página anterior
+fb06270f Página
+4bfc194b Próxima página
+51d15ed7 ✓ Salva no vocabulário
+7031bbea ★ Salvar no vocabulário
+b32f1eb3 📖 Definir
+010f9005 ⧉ Copiar
+48a704f7 {0} a.C.
+e1e3700f {0} d.C.
+a5188242 Adicionando “{0}”…
+d2936330 “{0}” adicionado a Meus livros.
+6c5e33b0 Não foi possível ler esse arquivo.
+3af45b33 Voltar para a biblioteca
+5f94aeb4 Livros em {0:lower}
+f689db93 Livros famosos, gratuitos porque estão em domínio público. Adicione um e leia uma página por vez, com todas as palavras clicáveis. Ou adicione um livro seu.
+70ebead0 Seu próprio livro
+c25f48d6 EPUB, PDF, TXT, Kindle AZW3 ou Word, sem DRM. Ele é lido neste dispositivo e adicionado a Meus livros.
+195e97d3 Adicionar um arquivo
+d9fffb0d Carregando a estante…
+53633ec9 Ainda não há livros gratuitos em {0:lower}.
+49102c78 {0} KB
+0122668f {0} · cerca de {1} de leitura · {2}
+f40382cc 👻 As mensagens somem depois de vistas · as mensagens de voz, depois de ouvidas
+5e5bb045 Gravar uma mensagem de voz (até 2 minutos)
+68f4145f Mensagem
+72f9eb46 Gravando…
+0e04dbc9 Enviar mensagem de voz
+2394299d Amigo
+fd6be475 ▶ Mensagem de voz · {0}
+c79a9284 ❚❚ Tocando…
+08acc9f5 Não foi possível tocar a mensagem de voz. {0}
+46e2032a Algo que esta versão do app não consegue abrir
+f92f6701 Atualize o app para abrir isto.
+05da9368 com as palavras
+ebefd2aa Enviado{0}
+bb54db51 Aceitar
+70afe9ef Dispensar
+a30d2444 ✓ Aceito
+d7e5d622 📁 {0} · {1} palavra(s)
+a5dbb7a2 ★ {0} palavra(s)
+aaf0f881 para {0}
+7b347cb7 · 🔊 áudio{0}
+35f49dcf Enviado
+03f7e506 Adicionar ao meu vocabulário
+81506135 ✓ Adicionado ao seu vocabulário
+fd4130f9 na pasta “{0}”
+ee02aae1 {0} palavra(s) adicionada(s){2}.
+69bd4ef9 Ver
+2777c993 Cancelar envio: apagar esta mensagem para vocês dois
+32fedd8c Cancelar o envio desta mensagem? Ela será apagada para vocês dois.
+93536c19 Nenhuma mensagem ainda. Diga {0} 👋
+7aad9d60 As mensagens de voz não funcionam neste dispositivo.
+f5985fff O app precisa de permissão para usar o microfone para as mensagens de voz.
+dad9f44a Ficou curto demais para enviar.
+2b73aff6 Enviando mensagem de voz…
+f4c667a4 {0} e {1}
+e79e9cf5 Nenhum podcast em {0:lower} está nas paradas, então estes são os mais bem avaliados no Spotify e no Apple Podcasts.
+4ea062ed Os podcasts mais ouvidos agora em: {0}.
+5e7709de Avaliações do <0>Spotify</0> e do <1>Apple Podcasts</1>.
+edaa4f9c Paradas do <0>Apple Podcasts</0>.
+b389210d {0} Toque em <0>+ Adicionar</0> para colocar um na sua biblioteca.
+5585dc7f Carregar a lista de novo
+c4e76a79 ⟳ Atualizar
+e17054bf Carregando podcasts em alta…
+55461d2c ✓ Adicionado
+109b936a + Adicionar
+c2510071 “{0}” adicionado à sua biblioteca.
+0455d100 Não foi possível adicionar “{0}”: {1}
+6a720856 Tudo
+c96f6acd Ver todos os {0} de {1}
+d6cc1316 Nada em alta em {0:lower} agora
+75a6baf2 As paradas não tinham podcasts neste idioma agora. Tente de novo mais tarde ou cole o endereço RSS de um podcast na Biblioteca.
+57a11040 Não foi possível carregar os podcasts em alta
+bb386fdb Guildas
+78978743 Ainda não visto
+12608b67 Visto há {0} min
+ff6c3395 Visto há {0} h
+961ad11f Visto há {0} dia(s)
+ccc9a7d2 Visto há mais de um mês
+969aa741 Seções de Amigos
+7534bf92 {0} ({1} novos)
+a0ffb6d7 Aprendam juntos
+cba998b6 Adicione amigos pelo nome de usuário, forme guildas, troque mensagens (com mensagens de voz), envie palavras e pastas e veja o que todo mundo está estudando. Entre com sua conta do Google para começar.
+b5531a88 Você entrou. Agora escolha um nome de usuário.
+4a0b7281 Entrar com o Google
+c66b2adc Entrando…
+49421c8e Primeiro escolha um nome de usuário, para que seus amigos encontrem você.
+81d5a343 Escolher um nome de usuário
+c8f5eda8 Remover foto
+240a677f Mudar sua foto de perfil
+7fe92d97 Toque na sua foto para mudá-la
+c32658e7 Editar o que estou estudando
+cfd93f3f Mostrar meu perfil
+986ce024 Ocultar meu perfil
+7b634db9 É isto que seus amigos veem ao lado do seu nome
+cf2f49f6 Foto removida.
+9d62374f Mostre aos seus amigos com o que você está aprendendo: um episódio de podcast, um vídeo do YouTube, uma música, um filme. Adicione também uma nota curta.
+29f6fa46 O que todo mundo está estudando
+2acf9a78 Ninguém compartilhou ainda o que está estudando.
+2c153dc0 Adicione amigos ou entre em uma guilda para ver aqui o que eles estão estudando.
+cdfe806f Pedidos de amizade
+61cd9dee Você e {0} agora são amigos.
+b59cf9ed Recusar

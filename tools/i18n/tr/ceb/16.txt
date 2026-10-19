@@ -1,0 +1,12 @@
+c41c8edb Mga {0} file nga ikaw mismo ang nagdugang. Gitipigan kini sa imong Google Drive.
+6d8e34b4 Walay sulod ang file.
+914295b3 Kini nga file walay tingog nga mabasa ({0}).
+94492d5d Ang mga hangyo ra sa youtube.com ang gitugotan dinhi.
+16ca44eb Dili suportado nga hangyo.
+5c5d0d47 Dili maabot ang YouTube ({0}). Susiha ang imong koneksyon.
+470a97a7 Mga YouTube video nga imong gidugang. Mag-play kini gikan sa YouTube; ang mga caption niini mao ang transcript.
+22377066 Wala motubag ang {0}. Abli pa ba ang main window niini?
+b8100f5b Library
+6b21fb79 Mahitungod
+a689b0be Pangitaa sa tanang transcript…
+7ff5a6da Mga seksyon

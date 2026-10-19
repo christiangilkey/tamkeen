@@ -1,0 +1,200 @@
+2de11318 Bloqueia o próximo golpe
+d923a217 Golpes mais fortes por um tempo
+66c1c04a Cura (restam {0})
+da3e3967 Usar uma poção ({0}): recupera metade da saúde, uma vez por batalha
+a3972f01 Escolha um golpe. Uma pergunta sobre uma das suas palavras decide se ele acerta bem.
+bfd6bf51 Qual das suas palavras significa isto?
+5fb65141 O que isto significa?
+37035270 Usar uma carta de dica ({0})
+63d63141 Agora você conhece bem essa palavra. +15 XP
+18a80fec Precisão a semana toda: +60 XP e 5 moedas
+19bb2852 Certo, e rápido!
+fbc63d40 Certo.
+c04b920c Acabou o tempo.
+e8849508 Não exatamente: a resposta certa está marcada.
+0639028d Não foi possível avisar {0}: {1}
+8d36cc07 · {0} {1} moedas
+c94a5549 · palavras agora bem conhecidas: {0}
+13f349e7 {0} acertos, {1} erros{2}
+fd1125a9 {0} Habilidade {1}{2} {3} {4}
+8e9fb44f Nenhuma resposta errada: a forma Campeã e o golpe Forma Perfeita agora estão liberados.
+872a8bbd Vitória por um triz: a forma Campeã e o golpe Segundo Fôlego agora estão liberados.
+21526016 A criatura selvagem deixou um ovo para você.
+6a569f25 Um ingresso de batalha fez esta render a recompensa completa.
+eda121a1 {0} Uma batalha e seus cartões, os dois feitos hoje: +{1} XP · {2} {3} moedas
+e3a4b01e Você venceu!
+241517f8 Desta vez você perdeu
+8f651398 Batalhar de novo
+e9b450d1 Pronto
+b9da5b2a Boa luta.
+ac63d5ec Todas as respostas contaram para as suas palavras mesmo assim.
+a0d275ae Sair desta batalha? Suas respostas até agora continuam valendo.
+32c9bcb1 Ovo
+9c0c49c5 Filhote
+0d67c71d Jovem
+17748728 Adulto
+3703cd21 Saúde
+1b81f28b Ataque
+af4b8454 Defesa
+2d2cb022 Velocidade
+498c3f86 Moldado pela escuta
+0a72a97b Moldado pela leitura
+fd0127b7 Moldado por salvar palavras
+59bcab48 Moldado por consultar palavras
+23907bfa A criatura no habitat é a que cresce enquanto você estuda. Evoluir é escolha sua e pode ser mudado depois: não se perde nada ao experimentar outra forma ou ao manter uma aparência mais jovem.
+b9f2cfaa No habitat
+d7ddc5a1 Trazer para fora
+c68f8125 · semente {0}
+7fcf6bea Visível para os amigos
+b28c55c0 Mostrar aos amigos
+6c5a6923 Seus amigos veem esta criatura ao lado do seu nome
+3eaf4dc6 Pronta para evoluir
+a097aeab A forma adulta dela depende de como você estuda. Escolha uma:
+bfe934c2 Uma forma especial, se você tiver conquistado uma:
+0056d527 Evoluir
+6eef6648 Nenhum
+003d086a Ela evoluiu para a forma {0} e deixou um ovo para você.
+b8db515e Visual
+e5895e75 Forma adulta
+212631b6 Libera quando você pratica mais: {0}
+0742949a Forma especial
+824147ae Golpes de batalha (escolha até quatro de {0})
+b08be03b , poder {0}
+8d474b73 Mantenha pelo menos um golpe de ataque.
+1f38a263 Traga-o para fora e estude para ele eclodir.
+50275e1d Dar este ovo a um amigo
+25e40553 As insígnias são suas para sempre: <0/> de {0} conquistadas.
+20632bc3 Brasa
+48591bc0 Maré
+ac587f3b Bosque
+85f5955f Faísca
+029690b0 Pedra
+4db13aa0 Crepúsculo
+c24315eb Gelatina
+57d0c9cd Bípede
+52b712a1 Quadrúpede
+506f5f12 Flutuante
+e738c7d8 Eco
+c3bd776c Sábio
+940966d9 Guardião
+9d3045a4 Chapéus
+203bc66d Rosto
+2369e339 Pescoço
+87807a0b Na mão
+514b6d92 Camisetas
+b38fd978 Boné
+8d2d0494 Gorro de lã
+5b8d667e Chapéu de palha
+0200e574 Coroa de flores
+a1794223 Laço
+453cce21 Fones de ouvido
+a73f2e84 Chapéu de mago
+410494f2 Coroa
+8a6c4f48 Cartola
+2dad5490 Chapéu de festa
+fea217c8 Boina
+5856ecee Chapéu de chef
+4acabbde Chapéu de caubói
+392c6646 Capacete de explorador
+53e6537e Chapéu de pirata
+3f77bde0 Capelo de formatura
+d2f9a663 Viseira
+e8bf6dcb Boné com hélice
+f3681d8b Auréola
+f0aeb7b3 Coroa de folhas
+216d0c24 Chifres de cervo
+f81ef643 Tiara
+9a21f3aa Chapéu bucket
+3187598c Protetores de orelha
+0062340f Chapéu de cogumelo
+ceecea26 Capacete viking
+68c1942a Capacete espacial
+28391e32 Orelhas de coelho
+4a6b7158 Orelhas de gato
+b9f4aa95 Chapéu de bobo da corte
+7e533442 Touca de dormir
+6b70d2cc Óculos redondos
+904017f8 Óculos escuros
+c1feb92c Monóculo
+745c59f0 Óculos de estrela
+8aadf165 Máscara
+6741f119 Óculos de coração
+0b34f86f Óculos de proteção
+bba42049 Tapa-olho
+fbd954ab Óculos 3D
+58d80900 Óculos de leitura
+34a75a40 Máscara de mergulho
+f18b06a1 Nariz de palhaço
+f6c4e7b6 Bigode
+6e26326c Bochechas rosadas
+07e6b11b Máscara de dormir
+462035a5 Óculos pixelados
+5575bbff Bigodes de gato
+a81134de Curativo
+83dfe3a2 Cachecol
+5a1a0c91 Gravata-borboleta
+d4198662 Sininho
+5d6614cb Corrente de ouro
+2fdb1722 Coleira com spikes
+903467a9 Medalha
+8841f81b Gravata
+b3e12140 Colar de pérolas
+14465646 Medalhão
+ec81fbb3 Colar havaiano
+2466135f Bandana
+45b27206 Gola de rufo
+e76c5bf1 Apito
+fe3b767b Colar com chave
+c8c21a81 Colar de conchas
+997e21c2 Estola de plumas
+ae48c34a Fita
+5a9a6cd7 Crachá
+59b3f863 Amuleto
+9d5c8e51 Bússola
+93e720cf Lanterna
+a774409a Bandeira
+64f241f5 Balão
+24280537 Microfone
+ff45e635 Pena de escrever
+483fed9c Guarda-chuva
+0c691a9a Espada de madeira
+2af4fc97 Varinha
+be638732 Buquê
+1242a215 Sorvete
+63d27f89 Xícara de café
+fb46a738 Xícara de chá
+5136ae1b Lápis
+28d512c4 Pincel
+72d4d28e Vara de pescar
+40a60bfb Lupa
+917904ac Tocha
+0a26857b Pipa
+08271419 Escudo
+78ede2e9 Ursinho de pelúcia
+1075c086 Troféu
+266a0fb1 Capa vermelha
+66d178d7 Capa de estrelas
+0ccf90eb Mochila
+c4b1ad5f Bolsa a tiracolo
+a8bbfe7e Asas de penas
+3c7c880b Asas de morcego
+573b9116 Asas de borboleta
+4b7e2696 Mochila a jato
+5d62dc5c Casco de tartaruga
+7a41f42a Aljava
+110bb280 Cacho de balões
+03744d8c Manto de folhas
+06f3045f Camiseta listrada
+dd4fd5df Camiseta lisa
+4dfbc033 Camiseta de bolinhas
+515bcf68 Camisa xadrez
+d6a2305b Camiseta de estrelas
+f1bab294 Camiseta de corações
+816d3505 Suéter de zigue-zague
+11a5ebab Camisa florida
+9c10e5aa Camiseta de galáxia
+cc58986a Suéter de losangos
+db9a99bf Flores vermelhas
+b09f1254 Flores azuis
+aa146572 Cogumelo
+36ca0758 Pedrinha

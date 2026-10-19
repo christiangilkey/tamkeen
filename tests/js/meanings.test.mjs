@@ -4,7 +4,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
-import { answerFrom, arabicVariants, findIn, matchKey } from "../../web/js/lexicon/meaningdata.js";
+import { answerFrom, arabicVariants, cebuanoVariants, findIn, matchKey, ordinary, wordKeys } from "../../web/js/lexicon/meaningdata.js";
 
 const file = (lang) => JSON.parse(gunzipSync(readFileSync(new URL(`../../docs/lexicon/${lang}-meanings.json.gz`, import.meta.url))).toString("utf8"));
 const look = (data, word, lang, extra = []) => {
@@ -83,6 +83,116 @@ test("Arabic: the CAMeL glosses cover words Wiktionary lacks, Egyptian ones mark
   for (const groups of Object.values(camel.words)) for (const g of groups) assert.ok(!g[2].includes("TBA"));
 });
 
+test("Portuguese, Catalan and Thai", () => {
+  assert.match(look(file("pt"), "casa", "pt").meaning, /house|home/);
+  assert.match(look(file("ca"), "casa", "ca").meaning, /house|home/);
+  assert.match(look(file("th"), "บ้าน", "th").meaning, /house|home/);
+});
+
+test("Bisaya: o/u and e/i are one letter, so Wiktionary's and Wolff's spellings both find a word", () => {
+  assert.equal(matchKey("Kaáyo", "ceb"), "kaayu");
+  assert.equal(matchKey("kaayu", "ceb"), matchKey("kaayo", "ceb"));
+  assert.match(look(file("ceb"), "balay", "ceb").meaning, /house/);
+  const wolff = file("ceb-wolff");
+  assert.match(wolff.source, /Wolff/);
+  assert.match(look(wolff, "kaon", "ceb").meaning, /eat/);
+  assert.match(look(wolff, "hatag", "ceb").meaning, /give/);
+  assert.equal(look(wolff, "kaon", "ceb").model, "Wiktionary", "(the popup is told which dictionary; see meanings.js)");
+  const told = answerFrom(findIn(wolff, [matchKey("hatag", "ceb")]), "hatag", "ceb", { source: wolff.source });
+  assert.equal(told.model, "Wolff's Dictionary of Cebuano Visayan");
+  assert.match(told.explanation, /Wolff/);
+  // Wolff's three-vowel spelling is shown as Bisaya is written today (o in the last syllable).
+  assert.ok(wolff.words[matchKey("kaon", "ceb")].some((g) => g[0] === "káon"), "Wolff's káun is shown káon");
+  const k = (w) => matchKey(w, "ceb");
+  assert.ok(cebuanoVariants(k("akong")).includes(k("ako")) && cebuanoVariants(k("maoy")).includes(k("mao")), "the linker and y come off");
+});
+
 test("a word that isn't there finds nothing", () => {
   assert.equal(findIn(file("tl"), ["qqqzzz"]), null);
+});
+
+test("number words have meanings in every language (tools/build_meanings.py --numbers)", () => {
+  assert.match(look(file("es"), "tres", "es").meaning, /three/);
+  assert.match(look(file("fr"), "deux", "fr").meaning, /two/);
+  assert.match(look(file("ca"), "dues", "ca").meaning, /two/);
+  assert.match(look(file("tl"), "dalawa", "tl").meaning, /two/);
+  assert.match(look(file("en"), "million", "en").meaning, /1 000 000|million/);
+  assert.match(look(file("fr"), "neuf", "fr").meaning, /nine/, "the number first when the word's other meanings are things");
+  assert.match(look(file("fr"), "un", "fr").meaning, /\ba\b/, "a little word keeps its own meaning first");
+});
+
+test("a verb form before a rare noun spelled the same, when the word table says it is the verb", () => {
+  const es = file("es");
+  const put = findIn(es, ["pongo", "poner"]);
+  assert.match(put.groups[0][2][0], /put/, "pongo is 'I put' before 'orangutan'");
+  assert.match(put.formOf, /first-person singular/);
+  assert.ok(put.groups.some((g) => /orangutan/.test(g[2][0])), "the noun is still there");
+  assert.match(findIn(es, ["pongo"]).groups[0][2][0], /orangutan/, "without the word table, the word's own entry");
+  assert.match(findIn(es, ["gracias", "gracia"]).groups[0][2][0], /thank/, "an exclamation keeps its own meaning");
+  const ca = file("ca");
+  assert.match(findIn(ca, ["faig", "fer"]).groups[0][2][0], /make|do/);
+  assert.match(findIn(ca, ["sóc", "ser"]).groups[0][2][0], /\bbe\b/, "sóc -> soc -> ser: through the other spelling");
+});
+
+test("a Tagalog or Bisaya root found by taking affixes off: the verb before the pronoun", () => {
+  const ceb = file("ceb");
+  assert.match(findIn(ceb, [matchKey("nakita", "ceb"), matchKey("kita", "ceb")]).groups[0][2][0], /see/);
+  const k = (w) => matchKey(w, "ceb");
+  assert.match(findIn(ceb, [k("imong"), k("imong"), k("imo")]).groups[0][2][0], /2nd person|your/, "imong is imo with the linker");
+  assert.match(findIn(file("tl"), ["nilang", "nila"]).groups[0][2][0], /their/, "nilang is nila, not indigo");
+});
+
+test("Tagalog and Bisaya gaps: prefixes, chat spellings, Tagalog and English words (build_meanings.py --fill)", () => {
+  const tl = file("tl");
+  const ceb = file("ceb");
+  const k = (w) => matchKey(w, "ceb");
+  assert.match(findIn(tl, ["mag"]).formOf, /prefix mag-/);
+  assert.match(findIn(tl, ["nung"]).groups[0][2][0], /when/);
+  assert.match(findIn(tl, ["ding"]).groups[0][2][0], /too|also/);
+  const school = findIn(tl, ["school"]);
+  assert.equal(String(school.groups[0][3]).split("|")[2], "English word", "marked as borrowed");
+  assert.equal(school.groups.some(ordinary), false, "and so only a last resort");
+  assert.match(findIn(ceb, [k("mas")]).groups[0][2][0], /more/);
+  assert.match(findIn(ceb, [k("matag")]).groups[0][2][0], /each/);
+  assert.equal(findIn(ceb, [k("bai")]), null, "English bae shares Bisaya bai's key, so it is not borrowed");
+  // A borrowed meaning gives way to the word's own language reached another way.
+  const data = { lang: "ceb", words: { x: [["x", "noun", ["English thing"], "||English word"]], y: [["y", "verb", ["Bisaya thing"], ""]] }, forms: {} };
+  assert.equal(findIn(data, ["x", "y"]).key, "y");
+  assert.equal(findIn(data, ["x"]).key, "x", "and is there when nothing else is");
+});
+
+test("Italian po', mo', di': the apostrophe is part of the word", () => {
+  assert.deepEqual(wordKeys("po'", "it", () => "poco"), ["po'", "poco", "po"]);
+  assert.deepEqual(wordKeys("po’,", "it", () => "poco"), ["po'", "poco", "po"], "curly apostrophe, a comma after it");
+  assert.deepEqual(wordKeys("l'anno", "it", () => "anno"), ["l'anno", "anno"]);
+  assert.deepEqual(wordKeys("Casa", "es", () => "casa"), ["casa"]);
+  assert.match(look(file("it"), "po'", "it", ["poco"]).meaning, /little/);
+});
+
+test("Chinese single characters have their everyday meaning first; Japanese spellings find each other", () => {
+  const zh = file("zh");
+  assert.match(look(zh, "的", "zh").meaning, /genitive|possess/, "的: de, the possessive, before dí 'bright'");
+  assert.match(look(zh, "都", "zh").meaning, /^all/, "都: dōu 'all' before dū 'capital'");
+  assert.match(look(zh, "我", "zh").meaning, /\bI\b/);
+  assert.match(look(zh, "还", "zh").meaning, /still/, "还 is 還 (still), before the old form it also is");
+  assert.match(look(zh, "这", "zh").meaning, /this/);
+  // The modern sense before the literary or original one (CC-CEDICT's order, for single characters).
+  for (const [w, sense] of [["是", /^to be/], ["和", /^and/], ["就", /^then/], ["会", /can/], ["后", /behind/], ["当", /to be/],
+    ["月", /^moon/], ["但", /^but/], ["从", /^from/], ["快", /fast|quick/], ["等", /wait/], ["了", /perfective|completion/]]) {
+    assert.match(look(zh, w, "zh").meaning, sense, w);
+  }
+  // Words of two or more characters keep Wiktionary's order, their usual meaning first.
+  assert.match(look(zh, "告诉", "zh", ["告訴"]).meaning, /tell/);
+  assert.match(look(zh, "一起", "zh", ["一起"]).meaning, /together/);
+  const ja = file("ja");
+  assert.match(look(ja, "まだ", "ja").meaning, /not yet|still/, "まだ: see 未だ");
+  assert.match(look(ja, "分かる", "ja").meaning, /understand/, "分かる: see わかる");
+  assert.match(look(ja, "ください", "ja").meaning, /下さる|please/, "ください: see 下さい");
+  // A kana spelling that is many words: the commonest written one, none too rare, not a single kana.
+  assert.match(look(ja, "なん", "ja").meaning, /what/, "なん: 何, not 男");
+  assert.match(look(ja, "みる", "ja").meaning, /see|look/, "みる: 見る, not ミル");
+  assert.equal(look(ja, "ませ", "ja"), null, "ませ is not 釻 'hanging ring' (the app then looks up ます)");
+  assert.equal(look(ja, "お", "ja"), null, "a single kana points nowhere");
+  assert.match(look(ja, "生き", "ja").meaning, /living|alive/, "生き: the いき entries written 生き, not 息 'breath'");
+  assert.match(look(ja, "口", "ja").meaning, /mouth/, "a topic label (Buddhism) is not an old sense");
 });

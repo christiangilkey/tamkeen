@@ -1,0 +1,200 @@
+c462f354 Taas nga sagbot
+2115a9fc Gamay nga parol
+bdc1fd5d Kinhason
+89f36136 Karatula
+a36ef413 Kahoykahoy
+c6928281 Dakong bato
+b14de689 Salag
+1a706e23 Higdaanan
+337b7955 Panaksan sa pagkaon
+8d1cb4ea Bola nga dulaan
+0d88689c Estante sa libro
+b11bf19e Radyo
+64f5d600 Linaw
+f80ba508 Kalayo sa kampo
+eae12d19 Tolda
+370793de Poste sa suga
+dc94e91a Kahoy nga mamunga
+a187c328 Fountain
+f96ddf32 Arko
+237d114f Estatwa
+7a115bb8 Mangtas sa gabii: nagtuon human sa alas 10 sa gabii
+7bcd9fab Sayo nga langgam: nagtuon sa dili pa alas 7 sa buntag
+ba785471 Pito ka adlaw nga sunod-sunod
+15441302 Walay buling: midaog sa sangka nga walay bisan usa ka sayop nga tubag
+b2c51034 Pagbawi: midaog sa sangka gikan sa ngilit
+6f45a48a Kaluha
+86b7531d Padakua kini uban sa napusa nga linalang sa laing elemento
+9ba079f8 mosunod sa mga kolor sa iyang kauban
+75a2b75a Panggabii
+05b5bd96 Pagtuon human sa alas 10 sa gabii
+40e4dece porma sa gabii nga naay siga sa bulan
+7881bf71 Kampeon
+bba9c7c9 Pagdaog sa sangka gikan sa ngilit, o nga walay bisan usa ka sayop nga tubag
+ecc4d7d2 naay korona sa ulo ug marka nga bulawan
+13b10e8c Dasmag
+6e665685 Bantay
+de2f330f Uling
+fc24ae3b Sunog sa Lasang
+0e1275fa Latigo nga Baging
+7c390204 Labong sa Tanom
+789c7773 Labay og Gagmay nga Bato
+e6277766 Pagdahili sa Bato
+d735dc4a Kuryente
+9ab63902 Dahunog sa Dalugdog
+76ce312e Sabwag
+2bfd4000 Kusog nga Sulog
+97389d1a Landong
+25ab466c Pag-abot sa Gabii
+157f2572 Pagbangon
+fe7f55b8 Konsentrasyon
+d4e1aee4 Pagkarga
+d9d7e3d0 Hangin sa Likod
+15727c13 Lanog-lanog
+1ed1264f Kaalam
+2d4c3f4e Tigom
+e0070ea6 Hampak sa Gabii
+69b8c2a5 Silaw sa Kaadlawon
+7b6625f5 Lig-on nga Kasingkasing
+ee19d60c Ikaduhang Ginhawa
+b5c15f07 Perpekto nga Porma
+4869ac12 Bukas nga semana
+8d82fb8f Bisan unsang linalang, bisan unsang lihok.
+ed7aebae Mga sinugdanan ra
+9ab28c8b Ang mga bag-ong napusa ug batan-on ra ang makaaway (ang mga hamtong mopahulay karong semanaha).
+a135954e Walay pag-ayo
+ae188585 Dili tugotan ang mga lihok nga pang-ayo.
+18d1cb31 Baga, Aligato ug Bato
+8c9c8aee Mga linalang nga Baga, Aligato ug Bato ra.
+a9202974 Balud, Kalasangan ug Kilumkilom
+fe2417f4 Mga linalang nga Balud, Kalasangan ug Kilumkilom ra.
+17bff5b7 Usa batok sa usa
+49663788 Usa ra ka linalang matag team.
+e33e1fd3 Turok sa Pulong
+9b3a9266 Tanom nga motubo og nagsiga nga mga letra. Labing maayo para sa mga kuryoso: ang nangita og mga pulong.
+0a0dcf0b Kinhason sa Lanog
+7c5e9fe1 Kinhason nga nagdagungdong sa iyang nadungog. Labing maayo para sa mga naminaw.
+58e0fe3c Abta ang imong adlaw-adlaw nga tumong kaduha
+8a51e70b Parol sa Panid
+edbcf4d7 Parol nga gipilo gikan sa mga panid. Labing maayo para sa mga magbabasa.
+d8e79134 Pangitaa ang 30 ka pulong
+aa0ef1d3 Tintero
+b5f0b120 Gamay nga tubod sa tinta. Labing maayo para sa mga tigtigom og mga pulong.
+82e39370 I-save ang 50 ka pulong
+fc274353 Bato sa Panumdoman
+9b2d1f8b Kinulit nga bato nga nagtipig sa imong nahibaloan. Labing maayo para sa mga tigtigom.
+c2ee073b Kahibalo og maayo sa 5 ka pulong (pinaagi sa mga sangka)
+1b5d4cf8 Habolan sa Bituon
+e351da07 Habolan nga naghabol og kahayag sa bituon. Lig-on para sa tanan.
+b41d02f3 Buhii ang usa ka dako na nga linalang kausa
+423e6206 Pusaa ang imong unang linalang
+ea9f375d Abta ang imong adlaw-adlaw nga tumong 3 ka beses
+d852f95e I-save ang 30 ka pulong
+a80ee76d Ipadayon ang 5 ka adlaw nga streak
+ad99a14e Kahibalo og maayo sa 10 ka pulong (pinaagi sa mga sangka)
+790456c6 Berry
+3030e8ec Isda
+00fe42c2 Dahon
+17541de7 Kendi nga aligato
+781aae20 Asukar nga bato
+ceb44980 Moon cake
+5f4632af Tambal
+1c1b6779 Sa ihalas nga sangka, ibalik ang katunga sa kusog sa linalang, kausa.
+ec7d6643 Dugang-XP
+fb54130d Doblehon ang XP gikan sa pagpangita, pag-save ug pag-review og mga pulong sulod sa 20 minuto.
+2b8f2201 Ticket sa sangka
+05dc8601 Usa pa ka sangka karon ang hingpit nga bayran, human sa unang tulo.
+7d10b37f Incubator
+658d01ff Painiton ang itlog aron motubo kini uban sa linalang sa imong habitat.
+6953faf6 Yawe sa lote
+7661862b Ablihan ang sunod nga lote sa pagtukod nga dili na maghulat sa milestone niini.
+5afab055 Misteryosong itlog
+379ee5cf Bag-ong itlog para sa imong roster. Ang elemento niini mohilig sa paagi sa imong pagtuon.
+3d02ef52 Ang Yangongo
+7bd136e6 Gabon sa gubot nga sinultihan.
+511e4954 Ang Blangkong Panid
+8720a6ee Motutok kini balik kanimo.
+af92969a Static
+2cebb5b5 Kasaba diin unta ang mga pulong.
+47e17523 Ang Pagkalimot
+53267fa2 Mapapas niini ang bisan unsa nga dili nimo balikan.
+8697f432 Pilak
+c57604db Bulawan
+b3850e04 Diamante
+37399d70 Unang pulong
+c0203c34 Pangitaa ang usa ka pulong
+c007882f Unang pagpusa
+f51af387 Pusaa ang usa ka itlog
+e387d81f Napulo ka tumong
+d5913b18 Abta ang imong adlaw-adlaw nga tumong 10 ka beses
+ce70ac02 Usa ka semana
+6da30a55 7 ka adlaw nga streak
+892a61a4 Usa ka bulan
+90f6c76b 30 ka adlaw nga streak
+d4e2f065 Gatos ka adlaw
+8ad928d9 100 ka adlaw nga streak
+26ad9c0c 100 ka pulong
+cd7e4e5a I-save ang 100 ka pulong
+a2cb707e 1000 ka pulong
+8a81401d I-save ang 1000 ka pulong
+37ea46b5 Tigpaminaw
+a535d7ff Pun-a ang batasan sa pagpaminaw
+ac5bbe82 Magbabasa
+479b0d0b Pun-a ang batasan sa pagbasa
+e3199d24 Tigtigom
+f7254f15 Pun-a ang batasan sa pagtigom
+9b83b0ca Padakua ang hamtong nga Lanog
+b132f8c5 Padakua ang hamtong nga Maalamon
+28cfd944 Padakua ang hamtong nga Magbalantay
+0fbbf940 Mahigalaon nga kaatbang
+de125314 Humana ang sangka uban sa higala
+be66989a Raid
+b231ceba Tabangi sa pagpildi ang senemanang boss
+90b952f5 Parke sa siyudad
+73d5f55c Oasis
+bcce2166 Kalasangan sa gabii
+0b7eaa70 Baybayon
+f347e8f3 Nagtuon og {0}
+25640d1c Liga {0}
+8f75ec47 XP nga nakuha karon
+2dd2bed7 karon
+75050d57 Ilang paboritong linalang
+9d9aab10 Mag-connect una gamit ang Google (Settings → Mga higala ug pagpaambit).
+33f400a7 Pagdugang una og higala, sa Friends tab.
+98961386 Ihatag kini nga itlog kang…
+458e9f84 Ihatag kini kang…
+d19372ac Gipadala kang {0}.
+33ce4174 Nag-load…
+fe0337e8 Dili maabot ang online service. Susiha ang imong koneksyon.
+ab898d21 Ang pakig-sangka sa mga higala, ang liga, mga raid sa guild ug mga regalo nanginahanglan sa mga online feature.
+260bcda8 Pilia ang <0>Mag-connect gamit ang Google</0> ubos sa Settings → Mga higala ug pagpaambit. Ang imong mga pulong ug materyal sa pagtuon dili gyud ipadala: ang imong team sa mga linalang ra, ang katukma sa imong pagtubag, ug ang mga total karong semanaha.
+0908d881 Ang online data sa dula dili pa magamit ({0}).
+e235e19c Naghulat kanimo
+de946983 Usa ka itlog
+2dcb4068 Usa ka regalo
+359aac0c {0} gikan kang
+86834099 mihagit sa imong team ug {0}.
+032d7174 Balik-sangka
+75a9d140 Gihan-ay sumala sa bahin sa mga adlaw karong semanaha nga ang matag usa kaninyo nakaabot sa kaugalingong adlaw-adlaw nga tumong, bisan unsa pa kadako. Kung lima o labaw pa ka adlaw sa usa ka semana, mosaka ka og liga; kung usa o wala, manaog ka.
+561c39e9 Lagda sa sangka karong semanaha:
+bb9d653f Hagita
+6fb4e940 Wala pay team
+f45f3479 Wala pa nila maablihi ang dula online
+60bab8eb Pagdugang og mga higala sa Friends tab aron mapuno ang liga ug mahagit ang ilang mga team.
+17f11ae4 Napildi!
+ce9deb48 {0} sa {1} ang nahabilin
+fd2b49ec Raid sa {0}: {1}
+1a39a266 {0} Ang matag sakto nga tubag sa sangka karong semanaha, sa bisan kinsa sa guild, mokuha og usa.
+4145d94b Kuhaa ang ganti
+3ef23a47 Nadaog ang raid: +{0} XP ug {1} ka coin.
+5954ea17 Nakuha na ang ganti. Moabot ang bag-ong boss sa Lunes.
+a2df9bd2 Apil o pagtukod og guild (Friends tab) aron dungan ninyong atubangon ang senemanang raid boss. Karong semanaha: {0}.
+6b8ca9a3 Adlaw-adlaw nga tumong! +{0} XP
+6caf860b Anki: {0} ka card ang nahamtong · +{2} XP
+b72da5f2 Streak freeze
+dce47891 Hint card
+29877f37 +{0} XP
+53af6389 XP
+b666a4ab {0} · sunod {1}
+df2457aa sunod {0}
+830ead14 {0} sa 5 ka kasingkasing: pakan-a kini aron motaas

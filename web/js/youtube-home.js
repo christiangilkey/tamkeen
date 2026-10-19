@@ -31,6 +31,10 @@ export const START = {
   ru: ["это", "RU", "ru", 0],
   it: ["che", "IT", "it", 0],
   tl: ["ang", "PH", "fil", 0],
+  pt: ["não", "BR", "pt-BR", 0],
+  ca: ["amb", "ES", "ca", 0],
+  ceb: ["kaayo", "PH", "fil", 0],  // (YouTube has no Bisaya interface: Filipino is the nearest)
+  th: ["ที่", "TH", "th", 0],
   en: ["the", "US", "en", 0],
 };
 
@@ -51,6 +55,10 @@ export const COUNTRIES = {
   ru: [["RU", "Russia"], ["KZ", "Kazakhstan"], ["BY", "Belarus"], ["UA", "Ukraine"]],
   it: [["IT", "Italy"], ["CH", "Switzerland"]],
   tl: [["PH", "Philippines"]],
+  pt: [["BR", "Brazil"], ["PT", "Portugal"], ["AO", "Angola"], ["MZ", "Mozambique"]],
+  ca: [["ES", "Spain"], ["AD", "Andorra"], ["FR", "France"]],
+  ceb: [["PH", "Philippines"]],
+  th: [["TH", "Thailand"]],
   en: [["US", "United States"], ["GB", "United Kingdom"], ["CA", "Canada"], ["AU", "Australia"], ["IE", "Ireland"],
        ["NZ", "New Zealand"], ["IN", "India"], ["NG", "Nigeria"], ["ZA", "South Africa"], ["PH", "Philippines"]],
 };

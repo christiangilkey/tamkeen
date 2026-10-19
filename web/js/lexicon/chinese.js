@@ -6,6 +6,8 @@
 // 我 / 们在 / 学 / 习). Words come from CC-CEDICT, which also gives each word's pinyin and both
 // ways of writing it: text in traditional characters (Taiwan, Hong Kong) is turned into simplified
 // to be cut and recognised, so 學習 and 学习 are the same word, and can be shown either way.
+// A few characters are both: CC-CEDICT lists 么 as an old form of 幺 and 著 of 着, yet 么 and 著 are
+// everyday simplified characters (什么, 著名). Those are read both ways and the likelier word wins.
 //
 // The file (docs/lexicon/zh-cedict.json.gz, made by tools/build_cjk.py) holds:
 //   words  {simplified word: [pinyin with tone numbers, how rare (centibels; 0 = unknown)]}
@@ -25,6 +27,8 @@ const MAX_WORD = 8; // characters: longer CC-CEDICT entries are idioms and names
 const RARE_WORD = 850;
 const RARE_CHAR = 900;
 const UNKNOWN_CHAR = 1000;
+const VARIANT = 150; // reading a character as an old variant of another (份 as 分): see forms()
+const AS_SIMPLIFIED = 200; // reading a character of simplified-looking text as traditional (於 as 于)
 
 export class ChineseDictionary {
   constructor(data) {
@@ -34,17 +38,82 @@ export class ChineseDictionary {
     this.t2s = data.t2s || {};
     this.s2t = data.s2t || {};
     this.s2tc = data.s2tc || {};
+    // Traditional characters that simplified words use as they are (么 in 什么, 份 in 一份).
+    const used = new Set();
+    for (const w of Object.keys(this.words)) for (const ch of w) used.add(ch);
+    this.both = new Set(Object.keys(this.t2s).filter((ch) => used.has(ch)));
   }
 
   entry(simplified) {
     return Object.prototype.hasOwnProperty.call(this.words, simplified) ? this.words[simplified] : null;
   }
 
-  /** Text in simplified characters, character for character (same length). */
+  /** Text in simplified characters, character for character (same length): 學習 -> 学习. Characters
+   * that are also simplified (么, 著) are put in their likeliest form, as in the words they make. */
   simplify(text) {
     let out = "";
-    for (const ch of String(text || "")) out += this.t2s[ch] || ch;
+    const traditional = this.isTraditional(text);
+    const re = /((?:[㐀-䶿一-鿿豈-﫿〇]|[\u{20000}-\u{3134f}])+)|([^])/gu;
+    let m;
+    while ((m = re.exec(String(text || "")))) {
+      if (m[1]) for (const w of this.words_(m[1], traditional)) out += w.lemma;
+      else out += m[0];
+    }
     return out;
+  }
+
+  /** Is the text written in traditional characters? Yes when it has one that is only traditional (學, 說). */
+  isTraditional(text) {
+    for (const ch of String(text || "")) if (this.t2s[ch] && !this.both.has(ch)) return true;
+    return false;
+  }
+
+  /** The simplified forms a character may stand for: [[form, extra cost], ...]. A character that is
+   * also simplified (么, 著) may be either. In traditional text, taking it as an old variant (份 for
+   * 分, which traditional writes 分 too) costs a little more than taking it as the traditional form of
+   * a character (著 for 着). In simplified text it is as written unless that makes no word (於是 -> 于是). */
+  forms(ch, traditional) {
+    const s = this.t2s[ch];
+    if (!s) return [[ch, 0]];
+    if (!this.both.has(ch)) return [[s, 0]];
+    if (!traditional) return [[ch, 0], [s, AS_SIMPLIFIED]];
+    return [[s, (this.s2tc[s] || s) === ch ? 0 : VARIANT], [ch, 0]];
+  }
+
+  /** A run of Chinese characters cut into words: [{a, b, lemma}] (character indexes; the word in
+   * simplified characters). The cheapest cut wins: see cut(). */
+  words_(run, traditional = true) {
+    const chars = Array.from(run);
+    const options = chars.map((ch) => this.forms(ch, traditional));
+    const n = chars.length;
+    const best = new Float64Array(n + 1).fill(Infinity);
+    const from = new Int32Array(n + 1);
+    const lemma = new Array(n + 1);
+    best[0] = 0;
+    for (let i = 0; i < n; i++) {
+      if (best[i] === Infinity) continue;
+      let spellings = [["", 0]]; // [the word so far in simplified characters, its extra cost]
+      for (let j = i; j < Math.min(n, i + MAX_WORD); j++) {
+        spellings = spellings.flatMap(([w, x]) => options[j].map(([ch, y]) => [w + ch, x + y])).slice(0, 8);
+        let c = Infinity;
+        let found = null;
+        for (const [w, extra] of spellings) {
+          const e = this.entry(w);
+          if (!e) continue;
+          const cost = (e[1] || (j === i ? RARE_CHAR : RARE_WORD)) + extra;
+          if (cost < c) { c = cost; found = w; }
+        }
+        if (found === null) {
+          if (j !== i) continue;
+          c = UNKNOWN_CHAR;
+          found = spellings[0][0];
+        }
+        if (best[i] + c < best[j + 1]) { best[j + 1] = best[i] + c; from[j + 1] = i; lemma[j + 1] = found; }
+      }
+    }
+    const out = [];
+    for (let j = n; j > 0; j = from[j]) out.push({ a: from[j], b: j, lemma: lemma[j] });
+    return out.reverse();
   }
 
   /** A word (in simplified characters) in traditional characters. */
@@ -69,29 +138,10 @@ export class ChineseDictionary {
     return e ? e[0] : "";
   }
 
-  /** Cut a run of Chinese characters into words: [[from, to], ...] (indexes into `simp`). */
-  cut(simp) {
-    const chars = Array.from(simp);
-    const n = chars.length;
-    const best = new Float64Array(n + 1).fill(Infinity);
-    const from = new Int32Array(n + 1);
-    best[0] = 0;
-    for (let i = 0; i < n; i++) {
-      if (best[i] === Infinity) continue;
-      let w = "";
-      for (let j = i; j < Math.min(n, i + MAX_WORD); j++) {
-        w += chars[j];
-        const e = this.entry(w);
-        let c;
-        if (e) c = e[1] || (j === i ? RARE_CHAR : RARE_WORD);
-        else if (j === i) c = UNKNOWN_CHAR;
-        else continue;
-        if (best[i] + c < best[j + 1]) { best[j + 1] = best[i] + c; from[j + 1] = i; }
-      }
-    }
-    const cuts = [];
-    for (let j = n; j > 0; j = from[j]) cuts.push([from[j], j]);
-    return cuts.reverse();
+  /** Cut a run of Chinese characters into words: [[from, to], ...] (character indexes). Every way
+   * is tried and the cheapest wins: a word costs more the rarer it is (see words_()). */
+  cut(text) {
+    return this.words_(text).map((w) => [w.a, w.b]);
   }
 }
 
@@ -100,6 +150,7 @@ export class ChineseDictionary {
  * numbers in other scripts stay whole words. */
 export function chineseWords(dict, text) {
   const s = String(text || "");
+  const traditional = dict.isTraditional(s);
   const out = [];
   const re = /((?:[㐀-䶿一-鿿豈-﫿〇]|[\u{20000}-\u{3134f}])+)|([\p{L}\p{N}][\p{L}\p{N}'’.-]*[\p{L}\p{N}]|[\p{L}\p{N}])|(\s+)|([^])/gu;
   let m;
@@ -107,13 +158,10 @@ export function chineseWords(dict, text) {
     const at = m.index;
     if (m[1]) {
       const run = m[1];
-      const simp = dict.simplify(run);
       const chars = Array.from(run);
       const units = [0]; // where each character starts in UTF-16 units
       for (const ch of chars) units.push(units[units.length - 1] + ch.length);
-      const simpChars = Array.from(simp);
-      for (const [a, b] of dict.cut(simp)) {
-        const lemma = simpChars.slice(a, b).join("");
+      for (const { a, b, lemma } of dict.words_(run, traditional)) {
         const e = dict.entry(lemma);
         out.push({ text: chars.slice(a, b).join(""), index: at + units[a], lemma, pinyin: e ? e[0] : "" });
       }

@@ -1,6 +1,26 @@
 {
  "format": 1,
  "files": {
+  "ca": {
+   "file": "ca-lemmas.json.gz",
+   "bytes": 886410,
+   "sha256": "ee051c03317318cff60ce4481d9e54577565eb477ce227e4b2ab054a4a2a0a4f",
+   "title": "Catalan word forms",
+   "db": "lemmatization-lists + wordfreq",
+   "license": "ODbL-1.0",
+   "forms": 233216,
+   "lexemes": 62652
+  },
+  "ceb": {
+   "file": "ceb-roots.json.gz",
+   "bytes": 255568,
+   "sha256": "524eba9bef98130ebc1ac3c3ca174fbbfaa71687714b4be5f62e43135ea12b0a",
+   "title": "Bisaya (Cebuano) word list",
+   "db": "OPUS NLLB Cebuano text",
+   "license": "ODC-BY-1.0",
+   "forms": 0,
+   "lexemes": 60000
+  },
   "egy": {
    "file": "ar-egy.json.gz",
    "bytes": 2022018,
@@ -82,13 +102,13 @@
   },
   "mean-ar": {
    "file": "ar-meanings.json.gz",
-   "bytes": 1479667,
-   "sha256": "bccc31befaddd8d5baadf6053ee310d508bb04128e12b8747d8b6dea3b09a1a7",
+   "bytes": 1483322,
+   "sha256": "46d609d34e20e08a2a1855a257a588b46b883eebf85f032d2f273d4ea4dbbce4",
    "title": "Arabic meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
-   "words": 22693,
-   "forms": 9771
+   "words": 22813,
+   "forms": 9795
   },
   "mean-arc": {
    "file": "ar-camel-meanings.json.gz",
@@ -100,85 +120,135 @@
    "words": 39294,
    "forms": 20229
   },
+  "mean-ca": {
+   "file": "ca-meanings.json.gz",
+   "bytes": 1997850,
+   "sha256": "5207537d968b56bbfb0302c64a82fb8bc9bc078f65aa885ef72553a0adca8128",
+   "title": "Catalan meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 31166,
+   "forms": 150932
+  },
+  "mean-ceb": {
+   "file": "ceb-meanings.json.gz",
+   "bytes": 2590153,
+   "sha256": "e692387312f5199cce44debc3cdfa0f0d31bc56817b931c5969b5084724c363c",
+   "title": "Cebuano meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 29306,
+   "forms": 1067
+  },
+  "mean-cebw": {
+   "file": "ceb-wolff-meanings.json.gz",
+   "bytes": 860622,
+   "sha256": "80c25ece21acfe25db863a6cdf46a50cb4c6d07c99b4f958a9e9fc03a29bea53",
+   "title": "Bisaya meanings (Wolff's dictionary)",
+   "db": "Wolff, A Dictionary of Cebuano Visayan (Project Gutenberg)",
+   "license": "public-domain-us",
+   "words": 17111,
+   "forms": 2785
+  },
   "mean-en": {
    "file": "en-meanings.json.gz",
-   "bytes": 12608179,
-   "sha256": "ee1eb545925b5f8b3d7e7d52f295e5d0855a9879e0433a100ea4a2036f49bfae",
+   "bytes": 12614097,
+   "sha256": "3e7b3e0dc727eb0ecd380c0d9922ef8c30e2e0c4ba4d17d50e02145d2076db13",
    "title": "English meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
-   "words": 191916,
-   "forms": 41105
+   "words": 192020,
+   "forms": 41112
   },
   "mean-es": {
    "file": "es-meanings.json.gz",
-   "bytes": 7314601,
-   "sha256": "c1e42860e38f2673a51c51453e37e3239db5edac97cd9698c521178fc4cfdfbf",
+   "bytes": 7318211,
+   "sha256": "05a38fce36b4f85f247df5a3fb0301ee0d0bf3c8f42a60e1e619e724b18b450a",
    "title": "Spanish meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
-   "words": 105742,
-   "forms": 618477
+   "words": 105856,
+   "forms": 618568
   },
   "mean-fr": {
    "file": "fr-meanings.json.gz",
-   "bytes": 4486080,
-   "sha256": "35f115c64d2e379bbf75ee711d4df965b92f3bf23c21924dd4d4f661e5e71c7d",
+   "bytes": 4489093,
+   "sha256": "f6401f020c4f91b9b62032ac231e4477d51004825bf2ce0f1788bf1b124da2f1",
    "title": "French meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
-   "words": 90606,
-   "forms": 277012
+   "words": 90781,
+   "forms": 277040
   },
   "mean-it": {
    "file": "it-meanings.json.gz",
-   "bytes": 6266876,
-   "sha256": "9a0d83f4bbce117c370951d96a885918ff7b165b8009f8c116e56404d936a1a8",
+   "bytes": 6268417,
+   "sha256": "e542515f686c4ba8c90129ccde227d30adc2b8f7ebf9484000acf5e86c95e14e",
    "title": "Italian meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
-   "words": 151846,
-   "forms": 405477
+   "words": 151972,
+   "forms": 405489
   },
   "mean-ja": {
    "file": "ja-meanings.json.gz",
-   "bytes": 3225748,
-   "sha256": "5bb81bbcad2eba33d05d5341a89e3e3ca44cb7ad61ba8e4cf7a506dcc1383bba",
+   "bytes": 3763712,
+   "sha256": "9c0026d0ad9aebda5b773a4398663334c58faf9dbe7fd916b6ed58731964779c",
    "title": "Japanese meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
-   "words": 82097,
-   "forms": 4509
+   "words": 94318,
+   "forms": 9642
+  },
+  "mean-pt": {
+   "file": "pt-meanings.json.gz",
+   "bytes": 4833436,
+   "sha256": "2b4beed69c7cbeb37cda787972bfac95bce82d6111d4c9ad455ce71189667030",
+   "title": "Portuguese meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 71670,
+   "forms": 325594
   },
   "mean-ru": {
    "file": "ru-meanings.json.gz",
-   "bytes": 6018499,
-   "sha256": "9ad5eda07ce847cbd8f94f7ccde725f7f7d9049195ba5378b3f262925d04f887",
+   "bytes": 6027515,
+   "sha256": "4913c47bf77a15a2cfe1fff556f40f0675f4d27b2cca5a2f04fb6e0b0698df74",
    "title": "Russian meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
-   "words": 56374,
-   "forms": 355058
+   "words": 56523,
+   "forms": 355591
+  },
+  "mean-th": {
+   "file": "th-meanings.json.gz",
+   "bytes": 647434,
+   "sha256": "ebd95b3173992d052b8ae47618b0182724e500f3f7534ec153a47467503d7de7",
+   "title": "Thai meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 16602,
+   "forms": 807
   },
   "mean-tl": {
    "file": "tl-meanings.json.gz",
-   "bytes": 933648,
-   "sha256": "efb6e9f9e04edd1e3642413ff60ebee2d16057e091be5e8105349891d4b5f854",
+   "bytes": 2339708,
+   "sha256": "854c57d6424f4246e7fb1cfe9de8083a8eec82f0524d5d51c75cf9c6bce12445",
    "title": "Tagalog meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
-   "words": 26639,
-   "forms": 5290
+   "words": 34678,
+   "forms": 5418
   },
   "mean-zh": {
    "file": "zh-meanings.json.gz",
-   "bytes": 6042860,
-   "sha256": "ad3a45662f6cb9fc0b8b0b0aa4c6b973de1820aa4edfdc525957be8465fdc095",
+   "bytes": 6905192,
+   "sha256": "bf9430e5fd625007c0d880edf9cf461652ecd0fc4a7e14689080b55638b855b2",
    "title": "Chinese meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
-   "words": 131412,
-   "forms": 84183
+   "words": 146334,
+   "forms": 106279
   },
   "msa": {
    "file": "ar-msa.json.gz",
@@ -190,16 +260,26 @@
    "stems": 37300,
    "lexemes": 38571
   },
+  "pt": {
+   "file": "pt-lemmas.json.gz",
+   "bytes": 1108043,
+   "sha256": "2fa9f3d0b64fe15cfd91f8b39c2fa9245f769a1fa0a903fc18d337d566e62566",
+   "title": "Portuguese word forms",
+   "db": "lemmatization-lists + wordfreq",
+   "license": "ODbL-1.0",
+   "forms": 290434,
+   "lexemes": 92350
+  },
   "ru": {
    "file": "ru-lemmas.json.gz",
-   "bytes": 2403089,
-   "sha256": "0834761ffef27612f1966b5b5001b396fbc737bd2314f5aebd77ffbe6a313083",
+   "bytes": 2409256,
+   "sha256": "1d4d89e7bd0b1433300be8f963d237fda79ceb3523c80fe768754ef333db59f4",
    "title": "Russian word forms and stress",
    "db": "OpenRussian.org",
    "license": "CC-BY-SA-4.0",
-   "forms": 309572,
-   "lexemes": 53581,
-   "stressed": 331638
+   "forms": 311607,
+   "lexemes": 53583,
+   "stressed": 332032
   },
   "tl": {
    "file": "tl-roots.json.gz",

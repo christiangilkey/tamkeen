@@ -1,0 +1,200 @@
+13878fb7 Ang elemento sa matag bag-ong itlog mohilig sa paagi sa imong pagtuon: {0}.
+02b6bd4d Mas daghan ang itanyag sa tindahan nga mohaom sa imong mga batasan, sama sa headphones para sa mga naminaw ug mga libro para sa mga magbabasa.
+2eaf9a2e Ang matag building sa tanaman mohimo og mas daghang sanag para sa usa ka batasan.
+976f4c1c Ang mga sangka tali sa mga tawo dili motagad niining tanan: ang matag linalang moaway sa samang lebel, ug modaog ka pinaagi sa pagkahibalo sa imong mga pulong.
+8b0adc94 Unsa pa ang mausab sa imong mga batasan
+0c20f982 Pilia karon ang porma niini
+3b7ab43a Ablihi ang imong mga linalang
+124ba4b6 Kinahanglan og dugang {0}
+cb437e4f Dili pa kini andam mo-evolve.
+a6e6f750 Kana nga porma dili pa abli para niini.
+81b52bd2 Kana nga espesyal nga porma wala pa makuha.
+5eb43479 Dili maablihan ang regalo.
+2890293f Naa na kay {0}, busa nahimo kini nga {1} ka coin.
+67705e9c Nakadawat ka og {0}. Naa kini sa Akong mga butang.
+c054815c Puno na ang imong roster, busa ang itlog nahimo nga 20 ka coin.
+b49d2e5c Nakadawat ka og itlog nga {0}. Naa kini uban sa imong mga linalang.
+e4d969a9 Wala kana nga butang.
+2b338829 Naa na kay ingon ana.
+60e6b077 Kinahanglan ka og {0} pa ka coin.
+77e01fe2 Tindahan ug aparador
+0ee5c43c Akong mga butang
+2c578dc8 Mga badge
+2db87a01 Dekorasyon
+9519fbe9 Imo na ang {0}
+4f3e6209 Itago
+26fcf76c Ibutang sa gawas
+1c99c72c Huboa
+94433a7e Isul-ob
+5d632f2d Ihatag kini sa higala
+fbefae1e Ihatag
+1cfad2d7 {0} ka coin
+a8e4db25 Ang pinili karon, para sa imong linalang. Mausab kini matag adlaw. Ang mga coin gikan sa pagkab-ot sa imong adlaw-adlaw nga tumong (10), pag-save og mga pulong (1 matag usa) ug pagsaka og lebel (5).
+7c0a7817 Imo na ang tanan nga gitanyag.
+db13058c {0} pa ka butang ang mogawas kung makuha na nimo ang:
+1a2cdd14 Wala pa. Ang mga butang nga imong paliton sa tindahan gitipigan dinhi.
+d0673c80 Koleksyon {0}
+080c79ed Kini nga diksyonaryo sa Insik gikan sa laing bersyon sa app.
+8079905a Kini nga diksyonaryo sa Hinapon gikan sa laing bersyon sa app.
+f5285e5c Wolff's Dictionary of Cebuano Visayan
+b016324b ang CAMeL Arabic databases
+382f42b1 Wiktionary
+bbc70fda , sa Iningles
+bf672d07 Gikan sa built-in nga diksyonaryo ({0}{1}): ang komon nga mga kahulogan sa pulong. Dili kini makasulti kung hain ang mohaom niini nga sentence.
+cd8a2a7e Ipakita ang furigana (gagmay nga kana ibabaw sa kanji)
+48f745cc Ipakita ang pinyin ibabaw sa mga karakter, gikoloran sumala sa tono
+fcfd569a Mga karakter sa Insik
+c17ef03e Sama sa pagkasulat
+6a018382 Simplified (简体)
+6c401cdd Traditional (繁體)
+cb91bc89 Mogana kini kung naa na niini nga device ang diksyonaryo sa {0}.
+1fa955a7 Kini nga table sa mga pulong gikan sa laing bersyon sa app.
+41867351 Wala ma-save kana nga pulong isip nakita na: {0}
+84d8d02d Ipakita ang mga marka sa stress (ла́дно)
+82c3ca6e ✓ Ang mga diksyonaryo sa pulong sa {0} naa na niini nga device ({1} MB). Ang mga pulong nga wala pa nimo ma-tap makita nga <0>purpura</0>.
+71da2431 Ang mga diksyonaryo sa pulong sa {0} wala niini nga device, busa ang bag-ong mga pulong dili makita nga <0>purpura</0>.
+f5eab3f0 Ang mga diksyonaryo sa pulong sa {0} wala niini nga device, busa ang matag baybay sa pulong maisip nga lahi nga pulong.
+7443fea8 Andam na ang mga diksyonaryo sa {0}.
+058c38b0 falo, falamos, fale-me
+2dfade8e parlo, parlem, digues-m'ho
+69f76f1b mokaon, mikaon, gikaon
+1eccdd79 Para sa Hinapon nga nanginahanglan og diksyonaryo: gibahin niini ang teksto sa Hinapon ngadto sa tinuod nga mga pulong, aron ang tap motugpa sa tibuok pulong, gihatag ang porma sa diksyonaryo sa matag pulong, ug gipakita ang furigana (gagmay nga kana ibabaw sa kanji). Kini ang IPADIC, gikan sa Nara Institute of Science and Technology
+dae622d1 Para sa Insik nga nanginahanglan og diksyonaryo: gibahin niini ang teksto sa Insik ngadto sa tinuod nga mga pulong, aron ang tap motugpa sa tibuok pulong, gipakita ang pinyin ibabaw sa mga karakter nga gikoloran sumala sa tono, ug giisip nga parehas nga pulong ang simplified ug traditional nga mga karakter. Kini ang CC-CEDICT uban sa ihap sa mga pulong gikan sa wordfreq
+cadfed16 ang listahan sa mga pulong sa wordfreq para sa Filipino, nga gigamit sa app sa pagsusi sa mga gamut nga makit-an niini (kumain, kakain, kinain: kain)
+51444687 listahan sa labing komon nga mga pulong sa Bisaya, giihap gikan sa teksto sa web sa Bisaya sa OPUS NLLB collection, nga gigamit sa app sa pagsusi sa mga gamut nga makit-an niini (mokaon, mikaon, gikaon: kaon)
+74da1e87 bukas nga mga listahan sa pulong (ang lemmatization list ni Michal Měchura ug ang ihap sa mga pulong sa wordfreq) ug ang CMU Pronouncing Dictionary, nga naghatag sa paglitok sa US nga makita sa popup sa pulong
+84ee7564 ang diksyonaryo sa OpenRussian.org, nga naghatag usab sa stress sa matag pulong, aron ang teksto sa Ruso makapakita niini (ла́дно)
+359544fb bukas nga mga listahan sa pulong (ang mga lemmatization list ni Michal Měchura ug ang ihap sa mga pulong sa wordfreq)
+04d17f22 Ang kini nga pinulongan
+4af2e1ae {0}: <0>usa ka higayon nga download nga mga {1} MB</0>. Magpabilin kini niini nga device ug walay bisan unsa bahin nimo nga ipadala bisan asa.
+6280fb05 Para sa {0} nga nanginahanglan og mga diksyonaryo: <0>usa ka higayon nga download nga mga {1} MB</0>, gihimo sa CAMeL Lab sa New York University Abu Dhabi (Sumbanan, Ehiptohanon, Levantine ug Gulf nga Arabiko). Magpabilin kini niini nga device ug walay bisan unsa bahin nimo nga ipadala bisan asa.
+f9657a45 Para sa {0} nga nanginahanglan og table sa mga porma sa pulong: <0>usa ka higayon nga download nga mga {1} MB</0>, gihimo gikan sa {2}. Magpabilin kini niini nga device ug walay bisan unsa bahin nimo nga ipadala bisan asa. Kung wala kini, ang matag baybay sa pulong maisip nga lahi nga pulong.
+aaa46e0d Mga diksyonaryo sa pulong sa {0}
+c33c9385 Mapakita sa Tamkeen kung hain nga mga pulong ang <0>bag-o kanimo</0>: ang pulong nga wala pa nimo ma-tap makita nga purpura, ug kung ma-tap na nimo kini, ang matag porma sa maong pulong maisip nga nakita na (<1/>).
+b7c33926 Mabuhat nimo kini unya gikan sa Settings.
+e4571490 Dili karon
+6813189a Pipila ra ka segundo kini.
+286b0dcd Andam na ang mga diksyonaryo sa {0}. Ang bag-ong mga pulong makita na karon nga purpura.
+3e13e40a ✓ Markahi nga nakita na
+30320764 ↺ Markahi nga bag-o
+8c6c358b Kini nga pulong wala sa built-in nga diksyonaryo. Basin ngalan kini, slang, o porma nga wala niini mailhi.
+3f629623 Walay mabasa nga teksto nga nakit-an niana nga page. Sulayi ang “Ablihi ang Web Browser” ug gamita didto ang I-import ang Page.
+4b0a3f2d Bersyon {0}
+2cf6a510 App para sa pagtuon og pinulongan gikan sa tinuod nga materyal: mag-subscribe sa mga podcast, pagdugang sa imong kaugalingong mga video ug web page, paghimo og transcript sa lokal gamit ang Whisper, pagbasa uban sa highlight matag pulong, ug paghimo og listahan sa bokabularyo.
+9421c021 Folder sa data
+22a35fbe Source code
+e630fb0f github.com/{0}
+c4740e4c Runtime
+06403f3b Python {0}
+736b9062 Susiha kung naay update
+30dced67 Mga open-source license
+48e55e8f Kini nga app gitukod gamit kining mga proyekto. I-click ang usa aron mabasa ang license niini.
+3aceec04 Naa nay bersyon {0}.
+68680fa2 Bag-o na ang imong bersyon.
+8e3df45a Nakopya
+40137935 Balik sa Akong mga libro
+a8ea9e30 Mas gamay nga teksto
+118f9b2b Mas dako nga teksto
+81f54719 Miaging page
+fb06270f Page
+4bfc194b Sunod nga page
+51d15ed7 ✓ Na-save sa vocab
+7031bbea ★ I-save sa vocab
+b32f1eb3 📖 Kahulogan
+010f9005 ⧉ Kopyaha
+48a704f7 {0} BC
+e1e3700f {0} AD
+a5188242 Gidugang ang “{0}”…
+d2936330 Gidugang ang “{0}” sa Akong mga libro.
+6c5e33b0 Dili mabasa kana nga file.
+3af45b33 Balik sa library
+5f94aeb4 Mga libro sa {0}
+f689db93 Bantogang mga libro, libre kay naa na sa public domain. Pagdugang og usa ug basaha kini matag page, nga ang matag pulong ma-click. O pagdugang sa imong kaugalingong libro.
+70ebead0 Imong kaugalingong libro
+c25f48d6 EPUB, PDF, TXT, Kindle AZW3 o Word, walay DRM. Basahon kini niini nga device ug idugang sa Akong mga libro.
+195e97d3 Pagdugang og file
+d9fffb0d Gi-load ang estante…
+53633ec9 Wala pay libre nga mga libro para sa {0}.
+49102c78 {0} KB
+0122668f {0} · mga {1} sa pagbasa · {2}
+f40382cc 👻 Mawala ang mga mensahe human makita · ang mga voice note human ma-play
+5e5bb045 Pag-record og voice note (hangtod 2 ka minuto)
+68f4145f Mensahe
+72f9eb46 Nag-record…
+0e04dbc9 Ipadala ang voice note
+2394299d Higala
+fd6be475 ▶ Voice note · {0}
+c79a9284 ❚❚ Nag-play…
+08acc9f5 Dili ma-play ang voice note. {0}
+46e2032a Butang nga dili maablihan niini nga bersyon sa app
+f92f6701 I-update ang app aron maablihan kini.
+05da9368 uban sa mga pulong niini
+ebefd2aa Gipadala{0}
+bb54db51 Dawata
+70afe9ef Isalikway
+a30d2444 ✓ Gidawat
+d7e5d622 📁 {0} · {1} ka pulong
+a5dbb7a2 ★ {0} ka pulong
+aaf0f881 para sa {0}
+7b347cb7 · 🔊 audio{0}
+35f49dcf Gipadala
+03f7e506 Idugang sa akong vocab
+81506135 ✓ Gidugang sa imong vocab
+fd4130f9 sa folder nga “{0}”
+ee02aae1 Gidugang ang {0} ka pulong{2}.
+69bd4ef9 Tan-awa
+2777c993 I-unsend: tangtanga kini nga mensahe para ninyong duha
+32fedd8c I-unsend kini nga mensahe? Matangtang kini para ninyong duha.
+93536c19 Wala pay mensahe. Isulti ang {0} 👋
+7aad9d60 Dili suportado ang mga voice note niini nga device.
+f5985fff Kinahanglan sa app ang pagtugot nga mogamit sa mikropono para sa mga voice note.
+dad9f44a Mubo ra kaayo kana aron ipadala.
+2b73aff6 Gipadala ang voice note…
+f4c667a4 {0} ug {1}
+e79e9cf5 Walay podcast sa {0} nga naa sa mga chart, busa kini ang labing daghang rating sa Spotify ug Apple Podcasts.
+4ea062ed Ang mga podcast nga labing gipaminawan karon sa {0}.
+5e7709de Mga rating gikan sa <0>Spotify</0> ug <1>Apple Podcasts</1>.
+edaa4f9c Mga chart gikan sa <0>Apple Podcasts</0>.
+b389210d {0} Pindota ang <0>+ Idugang</0> aron ibutang ang usa sa imong library.
+5585dc7f I-load pag-usab ang listahan
+c4e76a79 ⟳ I-refresh
+e17054bf Gi-load ang mga trending nga podcast…
+55461d2c ✓ Gidugang
+109b936a + Idugang
+c2510071 Gidugang ang “{0}” sa imong library.
+0455d100 Dili madugang ang “{0}”: {1}
+6a720856 Tanan
+c96f6acd Ipakita ang tanang {0} sa {1}
+d6cc1316 Walay trending sa {0} karon
+75a6baf2 Walay podcast sa mga chart niini nga pinulongan karon. Sulayi pag-usab unya, o i-paste ang RSS address sa podcast sa Library.
+57a11040 Dili ma-load ang mga trending nga podcast
+bb386fdb Mga guild
+78978743 Wala pa makita
+12608b67 Kataposang nakita {0} min ang milabay
+ff6c3395 Kataposang nakita {0} ka oras ang milabay
+961ad11f Kataposang nakita {0} ka adlaw ang milabay
+ccc9a7d2 Kataposang nakita labaw sa usa ka bulan ang milabay
+969aa741 Mga seksyon sa Mga higala
+7534bf92 {0} ({1} bag-o)
+a0ffb6d7 Pagtuon nga dungan
+cba998b6 Pagdugang og mga higala pinaagi sa username, paghimo og mga guild, pagpadala og mensahe sa usag usa (uban sa voice note), pagpadala og mga pulong ug folder, ug tan-awa kung unsa ang gitun-an sa tanan. Mag-sign in gamit ang imong Google account aron magsugod.
+b5531a88 Naka-sign in na. Karon pilia ang username.
+4a0b7281 Mag-sign in gamit ang Google
+c66b2adc Nag-sign in…
+49421c8e Pili una og username, aron makit-an ka sa mga higala.
+81d5a343 Pili og username
+c8f5eda8 Tangtanga ang litrato
+240a677f Usba ang imong profile photo
+7fe92d97 I-tap ang imong hulagway aron usbon kini
+c32658e7 Usba ang akong gitun-an
+cfd93f3f Ipakita ang akong profile
+986ce024 Itago ang akong profile
+7b634db9 Kini ang makita sa mga higala tapad sa imong ngalan
+cf2f49f6 Natangtang ang litrato.
+9d62374f Ipakita sa imong mga higala kung asa ka nagtuon: episode sa podcast, YouTube video, kanta, salida. Pagdugang usab og mubo nga note.
+29f6fa46 Unsay gitun-an sa tanan
+2acf9a78 Wala pay nagpaambit kung unsa ang ilang gitun-an.
+2c153dc0 Pagdugang og mga higala o apil sa guild aron makita dinhi ang ilang gitun-an.
+cdfe806f Mga hangyo sa pagpakighigala
+61cd9dee Magkahigala na mo ni {0}.
+b59cf9ed Isalikway

@@ -68,12 +68,39 @@ function finish(g) {
     parts: g.tokens.map((t) => ({ text: t.surface, reading: hiragana(READING[t.surface] || t.reading || "") })) };
 }
 
+// Drawn-out speech: すごーい, ねー, かわいいーー, 寒ーい. A long-vowel mark after hiragana or a kanji
+// isn't part of the spelling the dictionary knows (in katakana it is: ラーメン), so the text is cut
+// without it and each mark is given back to the word it follows.
+const DRAWN_OUT = /(?<=[ぁ-ゖ㐀-䶿一-鿿])[ー〜～]+/gu;
+
+function tokensOf(dict, text) {
+  if (!DRAWN_OUT.test(text)) return tokenize(dict, text);
+  DRAWN_OUT.lastIndex = 0;
+  const at = []; // at[i]: where character i of the shortened text is in the original
+  let short = "";
+  let from = 0;
+  for (const m of text.matchAll(DRAWN_OUT)) {
+    for (let i = from; i < m.index; i++) at.push(i);
+    short += text.slice(from, m.index);
+    from = m.index + m[0].length;
+  }
+  for (let i = from; i < text.length; i++) at.push(i);
+  short += text.slice(from);
+  at.push(text.length);
+  const tokens = tokenize(dict, short);
+  return tokens.map((t, k) => {
+    const start = at[t.start];
+    const end = k + 1 < tokens.length ? at[tokens[k + 1].start] : text.length;
+    return { ...t, start, surface: text.slice(start, end) };
+  });
+}
+
 /** The words of a text: [{text, index, lemma, kind, parts: [{text, reading}]}], covering all of it
  * (spaces and punctuation come out as words of kind "punct"). */
 export function japaneseWords(dict, text) {
   const out = [];
   let g = null;
-  for (const t of tokenize(dict, String(text || ""))) {
+  for (const t of tokensOf(dict, String(text || ""))) {
     if (g && joins(g, t)) { g.tokens.push(t); continue; }
     if (g) out.push(finish(g));
     g = { kind: kindOf(t), tokens: [t] };

@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 
 from .base import Segment, TranscriptionCancelled, Word
-from ..languages import INITIAL_PROMPTS
+from ..languages import INITIAL_PROMPTS, whisper_code
 
 log = logging.getLogger(__name__)
 
@@ -39,7 +39,7 @@ class FasterWhisperTranscriber:
                    language: str = "ar") -> Iterator[Segment]:
         segments, _info = self.model.transcribe(
             audio,
-            language=language,
+            language=whisper_code(language),
             initial_prompt=INITIAL_PROMPTS.get(language),
             task="transcribe",
             beam_size=self.beam_size,

@@ -1,0 +1,200 @@
+63987d76 La clau s'ha esborrat o el compte s'ha tancat
+1588d496 Comprova que la clau encara surt a la pàgina de claus. Si no, crea'n una de nova.
+c96b7484 No hi ha saldo ni facturació configurats
+0ad9708a Afegeix una targeta de pagament i una mica de saldo a la pàgina Billing del proveïdor.
+e1e28b30 S'ha arribat a un límit de despesa
+18251e5e Apuja el límit mensual a la configuració de facturació del proveïdor, o espera al mes que ve.
+f6cdf0dd De moment s'ha esgotat la quota gratuïta
+11671580 Espera fins demà, o afegeix facturació per treure el límit.
+84d0d9ac Massa sol·licituds en poc temps
+d42b2d76 Espera un minut i torna-ho a provar.
+4c4f1f6e Els comptes gratuïts només poden enviar una certa quantitat per hora i per dia
+7675faf6 Espera una estona, o afegeix facturació per apujar el límit.
+084837dc Aquest dispositiu no té connexió
+d2a2dab5 Obre qualsevol web per comprovar-ho i torna-ho a provar.
+963deb8a Hi ha una VPN o un servidor intermediari pel mig
+19c37976 Desactiva la VPN o el servidor intermediari i torna-ho a provar.
+55a21539 Un tallafoc, o una xarxa de la feina o de l'escola, ho bloqueja
+587e5785 Prova una altra xarxa, com ara les dades mòbils del telèfon.
+562f6211 El proveïdor no funciona
+ea828f0c Mira'n la pàgina d'estat i torna-ho a provar més tard.
+5b1b4424 La data i l'hora d'aquest dispositiu no són correctes
+05d71e52 Posa el rellotge en automàtic: les connexions segures fallen si no és correcte.
+cc2c0140 El proveïdor no dona servei al teu país o regió
+a0d0b371 Tria un altre proveïdor a Configuració.
+c47e8828 Una VPN fa que sembli que ets en un altre lloc
+e5984aea Desactiva la VPN, o posa-hi el teu propi país.
+47ab6e8d Aquest model no està disponible per a la teva clau
+2f6cf7e5 Torna a posar el Model recomanat a Configuració.
+9f9d4258 El model ha canviat de nom o s'ha retirat
+3e1adb41 Tria un model de la llista en lloc d'escriure'n el nom.
+0e77e507 Els comptes nous o gratuïts no poden fer servir tots els models
+9de897f2 Fes servir el model recomanat, o afegeix facturació al compte.
+fd6e38d8 El proveïdor té problemes o està molt ocupat
+4154fe68 Mira'n la pàgina d'estat i torna-ho a provar d'aquí a uns minuts.
+5a4f728f El proveïdor ha rebutjat la clau
+25b375a4 El compte no té saldo o ha arribat a un límit
+5720edd4 El proveïdor ha demanat a l'app que vagi més a poc a poc
+6ac5f256 No s'ha pogut connectar amb el proveïdor
+2cba2077 El proveïdor no està disponible on ets
+2121e96e El proveïdor no reconeix el model
+d2b04c49 El proveïdor té problemes
+04f3c5cd Alguna cosa ha anat malament amb el proveïdor
+ec853b07 La clau és per a les definicions de paraules, no per a la transcripció
+26d88d64 La transcripció necessita la seva pròpia clau: una clau de Groq comença per gsk_. Una clau d'OpenAI serveix per a totes dues coses.
+b2918a21 Baixant… {0} % ({1} de {2} MB)
+a15a5851 Baixant… {0} MB
+fe01cea2 Instal·lant. Tamkeen es tancarà i es tornarà a obrir tot sol.
+4265eb9a L'actualització ha fallat.
+829e6b86 Novetats ↗
+c4cbac00 Actualitza ara
+531355b2 (tens la {0})
+91b691d1 Tamkeen {0} està disponible{1}
+d42870c3 S'instal·la aquí mateix, i la teva biblioteca es queda tal com és.
+3d611376 Baixa-la des de la pàgina de versions.
+3ab0d731 Actualitzant…
+b7219bda Àrab egipci
+475410e2 Àrab llevantí
+81298f3a Àrab del Golf
+64202d79 Un dialecte àrab
+0757a38e Aquí les vocals són una suposició: això sembla {0:lower}, i el model de vocals va aprendre àrab estàndard.
+01738e86 Aquí no hi ha vocals: això sembla {0:lower}, i el model de vocals només coneix l'àrab estàndard. A Configuració les pots mostrar com a suposició.
+ebf17aa6 Vols afegir vocals a l'àrab?
+f6ca8deb L'àrab s'escriu sense les vocals curtes. Tamkeen les pot afegir a les teves transcripcions, pàgines i reels en àrab, perquè vegis com es diu cada paraula. Per a això cal un model de vocals, una baixada única de {0} MB que es guarda en aquest ordinador. El teu telèfon rep les vocals des d'aquí quan se sincronitza.
+79151896 Va aprendre àrab estàndard: en àrab d'estil periodístic, unes 4 paraules de cada 5 surten del tot bé. No coneix la parla egípcia, llevantina ni del Golf, així que aquestes es queden sense vocals tret que demanis una suposició.
+3a719e9b Baixa ({0} MB)
+ec1c7366 Baixant el model de vocals. Les vocals apareixeran quan acabi.
+955dc8cb Mostra o amaga les vocals (V)
+deee2838 Mostra les vocals (حَرَكات) a les transcripcions, pàgines i reels
+451a444b També en la parla egípcia, llevantina i del Golf (una suposició, sovint errònia)
+59e8699c Tamkeen al teu ordinador hi afegeix les vocals (baixa el model de vocals a la seva Configuració); arriben aquí quan sincronitzes.
+10d9f8dc Afegint les vocals…
+e549162d ✓ El model de vocals és en aquest ordinador ({0} MB).{1}
+b281359a Baixant el model de vocals… {0} %
+2820e9e6 Les vocals de l'àrab necessiten un model de vocals ({0} MB, àrab estàndard).{1}
+3c467cf7 ✓ Seguint
+d1541dd9 + Segueix
+90145b11 Segueixes aquest canal a Tamkeen. Prem per deixar de seguir-lo.
+e80a9596 Segueix aquest canal a Tamkeen: apareixerà a la teva Biblioteca, a YouTube
+8c9967c9 Ja no el segueixes
+5a674f33 No s'ha pogut seguir aquest canal.
+ce8c60f6 Toca un vídeo per mirar-lo a Tamkeen
+5caa7f81 Líban
+674027e1 Jordània
+d115b8d5 Emirats Àrabs Units
+bd6acc86 Algèria
+1aed9ecc Iraq
+93295b0c Kuwait
+55949d4c Líbia
+c14c36df Oman
+83ef3e6c Qatar
+edf404d0 Tunísia
+3ae11c72 Bahrain
+ac33d641 Iemen
+349507e4 Xile
+768685ca Estats Units
+9d4ac43d Veneçuela
+09f199d2 Equador
+11760e1a Guatemala
+8a4bf12e República Dominicana
+a001af75 Bolívia
+1bf429f9 Costa Rica
+66b98924 Uruguai
+71a45296 Paraguai
+1e36b31e Panamà
+5aa58871 Hondures
+259a6e93 El Salvador
+4812648c Nicaragua
+fe23c52d Puerto Rico
+d8973b8e Senegal
+2f488ffc Hong Kong
+20c0b7bd Singapur
+ff3ea3be Malàisia
+2f36b6bb Kazakhstan
+027a12c2 Bielorússia
+c951ec00 Ucraïna
+8067364d Filipines
+a495190b Portugal
+a42522a0 Angola
+a40a9be0 Moçambic
+9d3bd1fb Andorra
+9769121f Regne Unit
+eb2131ec Irlanda
+a2238e91 Nova Zelanda
+967ce367 Índia
+9742d008 Nigèria
+35fda17f Sud-àfrica
+bc288dca Això no sembla un vídeo de YouTube.
+37e8b90a Aquest vídeo no diu de quin canal és.
+bf32bc87 No s'ha pogut connectar amb YouTube. Comprova la connexió.
+873fbc5a YouTube no mostrarà aquest vídeo aquí: {0}
+47b4cecf YouTube no ha respost sobre aquest vídeo. Torna-ho a provar d'aquí a un minut.
+bb0ea382 Aquest vídeo no té subtítols.
+a66bb5c6 Aquest vídeo no té subtítols en {0:lower}.
+6f502e0d No s'ha pogut carregar el reproductor de YouTube. Comprova la connexió.
+e4b5c056 El propietari d'aquest vídeo no permet que es reprodueixi dins d'altres apps.
+b2b518b0 Aquest vídeo s'ha eliminat o s'ha fet privat.
+269fa6c0 el reproductor de YouTube encara s'està carregant
+68e1c493 La sincronització amb AnkiDroid funciona a l'app instal·lada.
+5ce90e69 AnkiDroid no està instal·lat en aquest telèfon.
+d7e2aef9 Android encara no coneix el permís d'AnkiDroid. Obre AnkiDroid un cop i torna-ho a provar; si no funciona, torna a instal·lar Tamkeen (Android només ofereix el permís a les apps instal·lades després d'AnkiDroid).
+c175063b Tamkeen no té permís per fer servir les targetes d'AnkiDroid. Toca Sincronitza ara i tria Permet, o permet-ho a la configuració d'Android per a Tamkeen (Permisos).
+5eed15f4 Tamkeen no té permís per fer servir les targetes d'AnkiDroid.
+6167031d La sincronització amb AnkiDroid s'ha aturat: {0}
+2fd01022 Opció desconeguda.
+64cd269c Hi ha una sincronització amb AnkiDroid en curs. Torna-ho a provar d'aquí a un moment.
+8d4dbd4e Dues llengües no poden compartir la baralla «{0}».
+3ad4b928 «{0}» i «{1}» estan l'una dins de l'altra: dona a cada llengua una baralla pròpia.
+d18f8d89 Previsualització: aquí Instagram demanaria iniciar la sessió ({0})
+0c7cd35b Previsualització: aquí es reproduiria {0}
+a27c2834 ‹ Anterior
+51802ba8 Següent ›
+011ae46a Carregant l'àudio…
+5a1d72f4 No s'ha pogut carregar l'àudio sincronitzat; es reprodueix l'original. ({0})
+4c6de3cb Connectar-se funciona a l'app instal·lada.
+db79573c {0} Inicia la sessió amb Google
+c46d4f59 S'ha cancel·lat l'inici de sessió.
+71abc87d Google no t'ha iniciat la sessió.
+e21573ca Aquest inici de sessió ha arribat sense que s'hagués demanat aquí. Torna-ho a provar.
+6ed09657 Sessió iniciada a Amics.
+46729ba2 No s'ha pogut iniciar la sessió a Amics.
+e129fbc7 L'àudio d'aquesta paraula encara no és en aquest telèfon. Sincronitza i torna-ho a provar.
+01dae1d6 No s'ha pogut connectar amb aquest lloc. Revisa l'adreça i la connexió.
+2bbb4134 El lloc ha respost amb un error ({0}).
+bb397028 Importar pàgines funciona a l'app d'Android instal·lada.
+29245f84 El lloc ha respost amb un error ({0}). Prova «Obre el navegador web» i fes servir «Importa la pàgina» allà.
+29161415 Aquí només es permeten sol·licituds al directori de pòdcasts d'Apple.
+0eec41ce No s'ha pogut connectar amb el directori de pòdcasts d'Apple. Comprova la connexió.
+bac91013 Afegir vídeos de YouTube funciona a l'app d'Android instal·lada.
+9c6c80e5 Aquest vídeo no s'ha pogut obrir aquí.
+9ec8a2aa {0} S'obrirà a YouTube.
+a0db0eba S'ha importat «{0}» ({1} paraules). És a Les meves pàgines web.
+7b230e38 Segueixes {0}. És a la teva Biblioteca, a YouTube.
+116e96c0 Has deixat de seguir {0}.
+2023ac63 S'ha desat a la teva pàgina d'inici.
+9ae12679 Els reels es reprodueixen a l'app instal·lada.
+b794b57c Inicia la sessió amb Google (Configuració) per veure els vídeos guardats al teu Drive.
+83cbe2cb Aquest vídeo encara s'està pujant des del teu ordinador.
+afe5afc2 El vídeo ja no és al teu Google Drive.
+be990723 Carregant el vídeo…
+37eb8e15 Els vídeos es reprodueixen a l'app instal·lada.
+e916be2e Primer inicia la sessió amb Google (Configuració): els teus fitxers es guarden al teu Drive.
+97aca1c7 Tria un fitxer de vídeo (MP4, MOV, WebM, MKV, AVI, 3GP) o d'àudio (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).
+2a4b391c El teu ordinador el transcriurà la propera vegada que se sincronitzi.
+cfb6ce14 Exportació desconeguda.
+a4a37122 GitHub ha respost {0}.
+df0aa924 No s'ha pogut connectar amb GitHub. Comprova la connexió a internet.
+b2c43554 Permet «Instal·la aplicacions desconegudes» per a Tamkeen, torna i toca Torna-ho a provar.
+8daa5363 Toca Actualitza a l'instal·lador d'Android. La teva biblioteca es queda tal com és.
+fde42b27 Cal renovar la teva connexió amb Google.
+d3b174d2 Torna a connectar Google
+2c534112 S'ha tornat a connectar amb Google.
+f9ab4ef2 No s'ha pogut tornar a connectar amb Google.
+f1cd4b29 No s'ha pogut obrir aquesta pàgina de YouTube.
+e599c6b1 Transcripció a punt: {0}
+abc6efcd No s'ha pogut transcriure «{0}»: {1}
+dbb00f48 Transcripció nova: {0}
+737fe002 {0} transcripcions noves
+84db0dcd 1 episodi de pòdcast nou
+b2510650 {0} episodis de pòdcast nous
+ec5bfe65 No s'ha trobat text llegible en aquesta pàgina.

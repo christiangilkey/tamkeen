@@ -1,0 +1,200 @@
+c462f354 Herba alta
+2115a9fc Fanalet
+bdc1fd5d Petxina
+89f36136 Pal indicador
+a36ef413 Arbust
+c6928281 Roca grossa
+b14de689 Niu
+1a706e23 Llit
+337b7955 Bol de menjar
+8d1cb4ea Pilota de joguina
+0d88689c Prestatgeria
+b11bf19e Ràdio
+64f5d600 Estany
+f80ba508 Foguera
+eae12d19 Tenda de campanya
+370793de Fanal de carrer
+dc94e91a Arbre fruiter
+a187c328 Font
+f96ddf32 Arc
+237d114f Estàtua
+7a115bb8 Noctàmbul: has estudiat després de les 10 de la nit
+7bcd9fab Matiner: has estudiat abans de les 7 del matí
+ba785471 Set dies seguits
+15441302 Impecable: has guanyat una batalla sense cap resposta incorrecta
+b2c51034 Remuntada: has guanyat una batalla in extremis
+6f45a48a Bessó
+86b7531d Cria-la al costat d'una criatura nascuda d'un altre element
+9ba079f8 adopta els colors de la seva companya
+75a2b75a Nocturn
+05b5bd96 Estudia després de les 10 de la nit
+40e4dece una forma nocturna amb una resplendor de lluna
+7881bf71 Campió
+bba9c7c9 Guanya una batalla in extremis o sense cap resposta incorrecta
+ecc4d7d2 amb cresta i marques daurades
+13b10e8c Placatge
+6e665685 Guàrdia
+de2f330f Caliu
+fc24ae3b Incendi
+0e1275fa Fuet de Liana
+7c390204 Brostada
+789c7773 Llançament de Còdols
+e6277766 Allau de Roques
+d735dc4a Descàrrega
+9ab63902 Tro
+76ce312e Esquitx
+2bfd4000 Ressaca
+97389d1a Ombra
+25ab466c Caiguda de la Nit
+157f2572 Rebot
+fe7f55b8 Concentració
+d4e1aee4 Càrrega
+d9d7e3d0 Vent a Favor
+15727c13 Ressonància
+1ed1264f Perspicàcia
+2d4c3f4e Acopi
+e0070ea6 Cop Nocturn
+69b8c2a5 Raig de l'Alba
+7b6625f5 Cor Ferm
+ee19d60c Segon Alè
+b5c15f07 Forma Perfecta
+4869ac12 Setmana lliure
+8d82fb8f Qualsevol criatura, qualsevol moviment.
+ed7aebae Només inicials
+9ab28c8b Només poden lluitar cries i joves (les adultes descansen aquesta setmana).
+a135954e Sense curació
+ae188585 No es permeten moviments de curació.
+18d1cb31 Brasa, Espurna i Pedra
+8c9c8aee Només criatures de Brasa, Espurna i Pedra.
+a9202974 Marea, Bosquet i Capvespre
+fe2417f4 Només criatures de Marea, Bosquet i Capvespre.
+17bff5b7 U contra u
+49663788 Equips d'una criatura.
+e33e1fd3 Brot de Paraules
+9b3a9266 Una planta a la qual creixen lletres brillants. Rendeix més amb els curiosos: buscar paraules.
+0a0dcf0b Petxina de l'Eco
+7c5e9fe1 Una petxina que brunzeix amb el que ha sentit. Rendeix més amb qui escolta.
+58e0fe3c Arriba a la teva meta diària dues vegades
+8a51e70b Fanal de Pàgines
+edbcf4d7 Un fanal plegat amb pàgines. Rendeix més amb qui llegeix.
+d8e79134 Busca 30 paraules
+aa0ef1d3 Tinter
+b5f0b120 Un petit pou de tinta. Rendeix més amb els col·leccionistes de paraules.
+82e39370 Desa 50 paraules
+fc274353 Pedra de la Memòria
+9b2d1f8b Una pedra tallada que guarda el que saps. Rendeix més amb els col·leccionistes.
+c2ee073b Sap bé 5 paraules (amb batalles)
+1b5d4cf8 Teler d'Estrelles
+e351da07 Un teler que teixeix llum d'estrelles. Constant per a tothom.
+b41d02f3 Allibera una criatura adulta un cop
+423e6206 Fes néixer la teva primera criatura
+ea9f375d Arriba a la teva meta diària 3 vegades
+d852f95e Desa 30 paraules
+a80ee76d Mantén una ratxa de 5 dies
+ad99a14e Sap bé 10 paraules (amb batalles)
+790456c6 Baia
+3030e8ec Peix
+00fe42c2 Fulla
+17541de7 Caramel d'espurna
+781aae20 Sucre candi
+ceb44980 Pastís de lluna
+5f4632af Poció
+1c1b6779 En una batalla salvatge, recupera un cop la meitat de la salut d'una criatura.
+ec7d6643 Impuls d'XP
+fb54130d Duplica l'XP per buscar, desar i repassar paraules durant 20 minuts.
+2b8f2201 Tiquet de batalla
+05dc8601 Una batalla més avui paga del tot, després de les tres primeres.
+7d10b37f Incubadora
+658d01ff Escalfa un ou perquè creixi al costat de la criatura del teu hàbitat.
+6953faf6 Clau de parcel·la
+7661862b Obre la següent parcel·la per construir sense esperar la seva fita.
+5afab055 Ou misteriós
+379ee5cf Un ou nou per al teu grup. El seu element tendeix cap a la teva manera d'estudiar.
+3d02ef52 El Remugador
+7bd136e6 Una boira de paraules embolicades.
+511e4954 La Pàgina en Blanc
+8720a6ee Et torna la mirada.
+af92969a Estàtica
+2cebb5b5 Soroll on haurien de ser les paraules.
+47e17523 L'Oblit
+53267fa2 Esvaeix tot el que no tornes a repassar.
+8697f432 Plata
+c57604db Or
+b3850e04 Diamant
+37399d70 Primera paraula
+c0203c34 Busca una paraula
+c007882f Primer naixement
+f51af387 Fes eclosionar un ou
+e387d81f Deu metes
+d5913b18 Arriba a la teva meta diària 10 vegades
+ce70ac02 Una setmana
+6da30a55 Una ratxa de 7 dies
+892a61a4 Un mes
+90f6c76b Una ratxa de 30 dies
+d4e2f065 Cent dies
+8ad928d9 Una ratxa de 100 dies
+26ad9c0c 100 paraules
+cd7e4e5a Desa 100 paraules
+a2cb707e 1000 paraules
+8a81401d Desa 1000 paraules
+37ea46b5 Oient
+a535d7ff Omple l'hàbit d'escoltar
+ac5bbe82 Lector
+479b0d0b Omple l'hàbit de llegir
+e3199d24 Col·leccionista
+f7254f15 Omple l'hàbit de col·leccionar
+9b83b0ca Cria un Eco adult
+b132f8c5 Cria un Savi adult
+28cfd944 Cria un Guardià adult
+0fbbf940 Rival amistós
+de125314 Acaba una batalla amb un amic
+be66989a Incursió
+b231ceba Ajuda a derrotar un cap setmanal
+90b952f5 Parc urbà
+73d5f55c Oasi
+bcce2166 Bosc nocturn
+0b7eaa70 Costa
+f347e8f3 Aprèn {0:lower}
+25640d1c Lliga {0}
+8f75ec47 XP guanyada avui
+2dd2bed7 avui
+75050d57 La seva criatura preferida
+9d9aab10 Primer connecta't amb Google (Configuració → Amics i compartir).
+33f400a7 Primer afegeix un amic, a la pestanya Amics.
+98961386 Regala aquest ou a…
+458e9f84 Regala això a…
+d19372ac S'ha enviat a {0}.
+33ce4174 Carregant…
+fe0337e8 No s'ha pogut connectar amb el servei en línia. Comprova la connexió.
+ab898d21 Les batalles amb amics, la lliga, les incursions de gremi i els regals necessiten les funcions en línia.
+260bcda8 Tria <0>Connecta amb Google</0> a Configuració → Amics i compartir. Les teves paraules i el teu material d'estudi no s'envien mai: només el teu equip de criatures, la precisió de les teves respostes i els totals d'aquesta setmana.
+0908d881 Les dades en línia del joc encara no estan disponibles ({0}).
+e235e19c T'està esperant
+de946983 Un ou
+2dcb4068 Un regal
+359aac0c {0} de
+86834099 ha desafiat el teu equip i {0}.
+032d7174 Revenja
+75a9d140 Classificació segons la proporció de dies d'aquesta setmana en què cadascú ha arribat a la seva pròpia meta diària, sigui de la mida que sigui. Cinc dies o més en una setmana et fan pujar de lliga; un o cap, baixar.
+561c39e9 Norma de batalla d'aquesta setmana:
+bb9d653f Desafia
+6fb4e940 Encara sense equip
+f45f3479 Encara no ha obert el joc en línia
+60bab8eb Afegeix amics a la pestanya Amics per omplir la lliga i desafiar els seus equips.
+17f11ae4 Derrotat!
+ce9deb48 En queden {0} de {1}
+fd2b49ec Incursió ({0}): {1}
+1a39a266 {0} Cada resposta correcta en una batalla aquesta setmana, de qualsevol membre del gremi, li'n treu un.
+4145d94b Reclama la recompensa
+3ef23a47 Incursió guanyada: +{0} XP i {1} monedes.
+5954ea17 Recompensa reclamada. Dilluns arriba un cap nou.
+a2df9bd2 Uneix-te a un gremi o funda'n un (pestanya Amics) per enfrontar-vos junts al cap de la incursió setmanal. Aquesta setmana: {0}.
+6b8ca9a3 Meta diària! +{0} XP
+6caf860b Anki: targetes madurades: {0} · +{2} XP
+b72da5f2 Protector de ratxa
+dce47891 Carta de pista
+29877f37 +{0} XP
+53af6389 XP
+b666a4ab {0} · següent: {1}
+df2457aa següent: {0}
+830ead14 {0} de 5 cors: dona-li menjar per pujar-los

@@ -135,6 +135,23 @@ test("other languages: a word is its spelling, lower-cased, until they get an an
   assert.equal(lexemeOf("كتب", "ar", dicts).key, "ar|كتب|v", "a word on its own reads as its commonest sense");
 });
 
+test("everyday words the counts rank too low: كل is 'every', لكن 'but', قبل 'before'", () => {
+  const one = (w) => lexemeOf(w, "ar", dicts);
+  for (const [w, lemma] of [["كل", "كُلّ"], ["قبل", "قَبْل"], ["مثل", "مِثْل"], ["حول", "حَوْل"], ["نحو", "نَحْو"], ["بدون", "دُون"],
+    ["أكثر", "أَكْثَر"], ["بكل", "كُلّ"], ["كله", "كُلّ"]]) {
+    assert.equal(one(w).lemma.normalize("NFC"), lemma.normalize("NFC"), w);
+  }
+  for (const w of ["لكن", "ولكن", "لكنه", "لكنها"]) assert.equal(one(w).key, "ar|لكن|fw", w);
+  assert.equal(one("وأنا").key, "ar|انا|fw", "and I");
+  assert.equal(one("فهم").key, "ar|فهم|v", "not ف + هم");
+  assert.equal(one("ليس").lemma, "لَيْسَ");
+  // In a sentence too, and a word before that wants a verb still makes one: قد قبل, "has accepted".
+  assert.equal(read("كل يوم أذهب إلى العمل قبل الساعة الثامنة")["كل"].key, "ar|كل|n");
+  assert.equal(read("كل يوم أذهب إلى العمل قبل الساعة الثامنة")["قبل"].key, "ar|قبل|n");
+  assert.equal(read("قد قبل الطالب الدعوة")["قبل"].key, "ar|قبل|v");
+  assert.equal(read("الطعام جيد لكن السعر مرتفع")["لكن"].key, "ar|لكن|fw");
+});
+
 test("a looked-up sentence gives back the word that was tapped", () => {
   const { tokens, marked } = markedTokens("انتي جديدة ⟦هون⟧؟");
   assert.deepEqual(tokens, ["انتي", "جديدة", "هون", "؟"]);

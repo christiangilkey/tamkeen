@@ -27,9 +27,27 @@ import json
 import sys
 from pathlib import Path
 
-from wordfreq import top_n_list
+from wordfreq import top_n_list, word_frequency, zipf_frequency
 
 OUT = Path(__file__).resolve().parent.parent / "docs" / "lexicon"
+# Everyday words OpenRussian lists without their forms (others.csv has no table): the personal
+# pronouns, the small numbers, наш and ваш, and the future of быть. Stressed vowels marked as there.
+EXTRA = {
+    "я": "меня' мне мной мно'ю", "ты": "тебя' тебе' тобо'й тобо'ю", "он": "его' него' ему' нему' им ним нём",
+    "она": "её неё ей ней е'ю не'ю", "оно": "его' него' ему' нему' им ним нём", "мы": "нас нам на'ми",
+    "вы": "вас вам ва'ми", "они": "их них и'ми ни'ми", "кто": "кого' кому' кем ком", "что": "чего' чему'",
+    "себя": "себе' собо'й собо'ю",
+    "один": "одного' одному' одни'м одно'м одна' одно'й одну' одно' одни' одни'х одни'ми",
+    "два": "двух двум двумя' две", "три": "трёх трём тремя'", "четыре": "четырёх четырём четырьмя'",
+    "пять": "пяти' пятью'", "шесть": "шести' шестью'", "семь": "семи' семью'", "восемь": "восьми' восемью' восьмью'",
+    "девять": "девяти' девятью'", "десять": "десяти' десятью'",
+    "наш": "на'шего на'шему на'шим на'шем на'ша на'шей на'шу на'ше на'ши на'ших на'шими",
+    "ваш": "ва'шего ва'шему ва'шим ва'шем ва'ша ва'шей ва'шу ва'ше ва'ши ва'ших ва'шими",
+    "быть": "бу'ду бу'дешь бу'дет бу'дем бу'дете бу'дут", "год": "лет",
+    # Spellings whose everyday word the counts don't pick: чем is mostly "than" (not что), начал "began",
+    # but начало "the beginning" and честь "honour" (not forms of начинать, считать).
+    "чем": "чем", "начинать": "на'чал", "начало": "нача'ло", "честь": "честь",
+}
 FORMAT = 1
 KEEP = 300_000
 VOWELS = set("аеёиоуыэюя")
@@ -109,6 +127,28 @@ def main(folder: str) -> None:
             for col in cols:
                 for v in variants(r.get(col, "")):
                     add(v, lemma)
+    extra_of: dict[str, str] = {}
+    for lemma, forms_text in EXTRA.items():
+        shown.setdefault(match(lemma), lemma)
+        for v in forms_text.split():
+            add(v, match(lemma))
+            extra_of.setdefault(match(v), match(lemma))
+
+    # How common a word is, to choose between two words that share a spelling (были is быть, not
+    # быль "true story"; стояла стоять, not стоялый): how often its dictionary form is met, written as
+    # it is (with ё: лёт "flight" is rare, лет "years" is not), plus its forms that no other word has
+    # (an aspect pair's forms all count for its imperfective). Other shared spellings say nothing.
+    usage: dict[str, float] = {}
+    for form, owners in readings.items():
+        if len(owners) == 1:
+            owner = next(iter(owners))
+            usage[owner] = usage.get(owner, 0.0) + word_frequency(form, "ru")
+    freq_of: dict[str, float] = {}
+
+    def freq(lemma: str) -> float:
+        if lemma not in freq_of:
+            freq_of[lemma] = usage.get(lemma, 0.0) + word_frequency(shown.get(lemma, lemma), "ru")
+        return freq_of[lemma]
 
     forms: dict[str, int] = {}
     stress: dict[str, int] = {}
@@ -120,9 +160,10 @@ def main(folder: str) -> None:
         options = sorted(readings[form])
         for lemma in options:
             lemma_id(lemma)
-        # A form that is itself a dictionary form keeps its own key; otherwise the first reading
-        # (rare: one spelling in two words' tables).
-        best = form if form in options else options[0]
+        # One spelling in two words' tables: the more common word, a form that is itself a dictionary
+        # form staying that word unless the other is over twice as common (хорошо stays хорошо, but
+        # жила "vein" is mostly жить "lived"). A form from EXTRA is that word's (его is он).
+        best = extra_of.get(form) or max(options, key=lambda lemma: (freq(lemma) * (2 if lemma == form else 1), lemma == form))
         if form not in common and best not in common:
             continue
         if best != form:

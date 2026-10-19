@@ -4,9 +4,10 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  COUNTRY_NAMES, OTHER, STOREFRONTS, chartUrl, feedKey, fetchTrending, groupByCategory, inLanguage, lookupUrl,
-  mergeCharts, parseChart,
+  CATEGORY_CHARTS, CATEGORY_IDS, COUNTRY_NAMES, MAIN_CATEGORIES, OTHER, STOREFRONTS, chartUrl, feedKey, fetchTrending, groupByCategory,
+  hasPicks, inLanguage, lookupUrl, mainCategory, mergeCharts, parseChart,
 } from "../../web/js/trending.js";
+import { PICKS } from "../../web/js/podcast-picks.js";
 import { LANGUAGE_CODES } from "../../web/js/languages.js";
 
 // One podcast the way Apple's chart lists it.
@@ -59,7 +60,46 @@ test("only podcasts in the language being studied are kept", () => {
   assert.ok(!inLanguage(item("The Joe Rogan Experience", "The official podcast of comedian Joe Rogan, with the best of his talks."), "es"));
   assert.ok(inLanguage(item("Les Grosses Têtes", "Retrouvez tous les jours le meilleur des Grosses Têtes en podcast sur RTL."), "fr"));
   assert.ok(!inLanguage(item("Up First", "The news you need to start your day, from NPR, in ten minutes."), "fr"));
-  assert.ok(inLanguage(item("LEGEND"), "fr"), "nothing to judge by: kept");
+  assert.ok(inLanguage(item("LEGEND"), "fr", true), "nothing to judge by, in France's own chart: kept");
+  assert.ok(!inLanguage(item("LEGEND"), "fr"), "nothing to judge by, in Belgium's chart: left out");
+  assert.ok(!inLanguage(item("Dear MOR"), "tl", true), "Tagalog is never the main language of its chart");
+});
+
+test("shows in the other languages of a country's chart are left out", () => {
+  const item = (title, description = "", author = "") => ({ title, description, author });
+  // Switzerland's chart (for Italian) is mostly German and French; Belgium's (for French) half Dutch.
+  const german = item("Echo der Zeit", "«Echo der Zeit» ist die älteste politische Hintergrundsendung von Radio SRF.");
+  const swissFrench = item("Le Point J", "Le Point J: votre point info du jour. Du lundi au jeudi, nous répondons à une question.");
+  const italian = item("Il Mondo", "Il podcast quotidiano di Internazionale: le notizie del giorno raccontate dai giornalisti.");
+  assert.ok(inLanguage(italian, "it") && !inLanguage(german, "it") && !inLanguage(swissFrench, "it"));
+  const dutch = item("De verrekijkers", "De verrekijkers is een wekelijkse afspraak met de wereld, waarin één buitenlands thema centraal staat.");
+  assert.ok(!inLanguage(dutch, "fr") && inLanguage(swissFrench, "fr"));
+  assert.ok(!inLanguage(swissFrench, "en"), "French in Canada's chart isn't English");
+  // The Gulf's charts hold Persian shows, written in the same letters as Arabic.
+  assert.ok(!inLanguage(item("پادکست رخ", "داستان زندگی کسانی که قسمتی از تاریخ ایران و جهان را رقم زدند"), "ar"));
+  assert.ok(inLanguage(item("كتب غيّرتنا", "الشرق بودكاست تقدم كتب غیرتنا مع راما الحجي. نتطرق في هذا البودكاست"), "ar"));
+  // The Philippines' charts: Chinese, Japanese, Vietnamese, Hindi, Czech, Spanish and English shows.
+  for (const [title, description] of [
+    ["2024TikTok音乐排行榜", "来自 TikTok Hits 的最大病毒式点击！2023年 TikTok排行榜"],
+    ["NHKラジオニュース", "こちらのポッドキャストは、NHKラジオニュースを、いつでもどこでもお聞きになれるサービスです。"],
+    ["VOV - Tin nhanh 24h", "Cập nhật liên tục, nhanh nhất các tin tức, sự kiện nóng nhất trong ngày."],
+    ["Facebook account ko delete kaise Karen", "Aap facebook account ko kis prakar se delete kar sakte hai. Is podcast me ya jankari."],
+    ["Alarm", "Audio kanál online deníku Alarm. Poslechněte si podcasty o politice, kultuře, sportu, nebo společnosti."],
+    ["TikTok", "TikTok: cinco opiniones diferentes de chicas que usan esta app y la red."],
+    ["Pinoy Radio Tivo", "Pinoy Radio at your own pace"],
+  ]) assert.ok(!inLanguage(item(title, description), "tl"), title);
+  assert.ok(inLanguage(item("Dear LOVE", "Ang mga istoryang kukurot, kikiliti, at magpapakilig sa natutulog mong puso!"), "tl"));
+  // Neighbours that share letters: Portuguese "você", Catalan "Barça".
+  assert.ok(inLanguage(item("BBC Lê", "A equipe da BBC lê para você algumas de suas melhores reportagens.", "BBC Brasil"), "pt"));
+  assert.ok(inLanguage(item("Lo que hay que saber", "Las noticias de la jornada, condensadas en dos minutos, dos veces al día."), "es"));
+  assert.ok(inLanguage(item("El Barça juga a RAC1", "Podcasts del programa El Barça juga a RAC1 - L'hora a hora", "RAC1"), "ca"));
+});
+
+test("each podcast is filed under one of Apple's 19 main headings, whatever the country calls it", () => {
+  assert.equal(mainCategory({ category: "Football" }, { genres: ["Football", "Podcasts", "Sport"], genreIds: ["1546", "26", "1545"] }), "Sports");
+  assert.equal(mainCategory({ category: "Football" }, { genres: ["Football", "Podcasts", "Sport"] }), "Sports", "by name when there are no numbers");
+  assert.equal(mainCategory({ category: "Islam" }, { genres: ["Islam", "Religion & Spirituality"], genreIds: [1440, 1314] }), "Religion & Spirituality");
+  assert.equal(mainCategory({ category: "" }, { genres: ["Podcasts"], genreIds: ["26"] }), "");
 });
 
 test("countries are merged: high in several beats high in one", () => {
@@ -110,6 +150,21 @@ test("the whole fetch: charts, then feed addresses", async () => {
   assert.equal(new Set(lookups.flatMap((u) => new URL(u).searchParams.get("id").split(","))).size, 4, "each podcast is looked up once");
 });
 
+test("a show Apple lists twice (in two countries' stores, or under two ids) appears once", async () => {
+  const apple = pretendApple({
+    charts: { sa: chart(entry(1, "قناة الشيخ"), entry(2, "فنجان")), eg: chart(entry(3, "قناة الشيخ"), entry(4, "الدحيح")) },
+    feeds: { 1: { feedUrl: "https://a.example/rss" }, 2: { feedUrl: "https://b.example/rss" }, 3: { feedUrl: "https://c.example/rss" },
+             4: { feedUrl: "http://www.a.example/rss/" } },
+  });
+  const feeds = await fetchTrending("ar", apple.getJson);
+  assert.deepEqual(feeds.map((f) => f.id), ["1", "2"], "same name and maker, or the same feed: once");
+});
+
+test("languages thin in their countries' overall charts read the 19 category charts too", () => {
+  assert.deepEqual([...CATEGORY_CHARTS].sort(), ["ca", "th", "tl"]);
+  assert.equal(CATEGORY_IDS.length, MAIN_CATEGORIES.length, "one id per main heading, in the same order");
+});
+
 test("one country's chart failing doesn't empty the page; all failing says so", async () => {
   const charts = { sa: chart(entry(1, "فنجان")), eg: chart(entry(4, "الدحيح")) };
   const feeds = { 1: { feedUrl: "https://a.example/rss" }, 4: { feedUrl: "https://d.example/rss" } };
@@ -119,6 +174,49 @@ test("one country's chart failing doesn't empty the page; all failing says so", 
   await assert.rejects(fetchTrending("ar", pretendApple({ charts, feeds, fail: ["/lookup"] }).getJson), /Couldn't reach Apple's podcast directory/);
   await assert.rejects(fetchTrending("xx", pretendApple({ charts, feeds }).getJson), /Choose a language/);
   assert.deepEqual(await fetchTrending("ar", pretendApple({ charts: {}, feeds }).getJson), [], "empty charts are just empty");
+});
+
+test("Catalan is told from Spanish, and Bisaya from Tagalog, in the same countries' charts", () => {
+  const item = (title, description = "", author = "") => ({ title, description, author });
+  const catalan = item("La Sotana", "Programa d'humor esportiu i de tot el que passa amb el Barça, cada setmana.", "La Sotana");
+  const catalanTitle = item("Via lliure - Il·lustres execrables", "Podcasts del programa Via lliure - Il·lustres execrables", "RAC1");
+  const spanish = item("Nadie Sabe Nada", "Andreu Buenafuente y Berto Romero improvisan con las preguntas de los oyentes.", "SER Podcast");
+  const french = item("L'œil de Philippe Caverivière", "Philippe Caverivière décortique l'actualité et ose tout face aux invités de RTL Matin.", "RTL");
+  assert.ok(inLanguage(catalan, "ca") && inLanguage(catalanTitle, "ca"));
+  assert.ok(!inLanguage(spanish, "ca") && !inLanguage(french, "ca"), "Spanish and French shows aren't Catalan");
+  assert.ok(inLanguage(spanish, "es") && !inLanguage(catalan, "es"), "and Catalan ones aren't Spanish");
+  const bisaya = item("Dili Ni Advice", "Usa ka Bisaya nga podcast. Dili ni advice, istorya ra gyud nato.", "Darling and Kringkay");
+  const tagalog = item("Barangay Love Stories", "Ang mga kwento ng pag-ibig na hindi mo malilimutan, ngayon at kailanman.", "GMA");
+  assert.ok(inLanguage(bisaya, "ceb") && !inLanguage(tagalog, "ceb"));
+  assert.ok(inLanguage(tagalog, "tl") && !inLanguage(bisaya, "tl"));
+  assert.ok(inLanguage(item("Não Inviabilize", "Histórias reais que você não vai acreditar."), "pt"));
+  assert.ok(inLanguage(item("People You May Know", "พอดแคสต์ที่ชวนคุยเรื่องคน"), "th") && !inLanguage(item("The Daily"), "th"));
+});
+
+test("Catalan reads Spain's 19 category charts too; Bisaya adds its most-rated podcasts after any that chart", async () => {
+  const apple = pretendApple({
+    charts: { es: chart(entry(1, "Crims", { artist: "Catalunya Ràdio", summary: "Les històries de crims més famoses, amb Carles Porta." }),
+                        entry(2, "Nadie Sabe Nada", { summary: "Andreu Buenafuente y Berto Romero improvisan con los oyentes." })) },
+    feeds: { 1: { feedUrl: "https://crims.example/rss", genres: ["True Crime"] }, 2: { feedUrl: "https://nsn.example/rss" } },
+  });
+  const ca = await fetchTrending("ca", apple.getJson);
+  assert.deepEqual(ca.map((f) => f.title), ["Crims"]);
+  const chartsRead = apple.seen.filter((u) => u.includes("/rss/"));
+  assert.equal(chartsRead.length, 1 + CATEGORY_IDS.length, "the overall chart and every category chart");
+  assert.ok(chartsRead.includes(chartUrl("es", 1488)));
+  assert.equal(chartUrl("es", 1303), "https://itunes.apple.com/es/rss/toppodcasts/limit=200/genre=1303/json?l=en");
+
+  assert.ok(hasPicks("ceb") && !hasPicks("ca") && !hasPicks("es"));
+  assert.ok(PICKS.ceb.length >= 20, "a good handful of Bisaya podcasts");
+  for (const p of PICKS.ceb) {
+    assert.match(p.url, /^https?:\/\//);
+    assert.ok(p.title && p.id && Number.isFinite(p.ratings), p.title);
+  }
+  assert.ok(PICKS.ceb.every((p, i) => i === 0 || PICKS.ceb[i - 1].ratings >= p.ratings || PICKS.ceb[i - 1].ratings === p.ratings), "most-rated first");
+  const ceb = await fetchTrending("ceb", pretendApple({ charts: {}, feeds: {} }).getJson);
+  assert.deepEqual(ceb.map((f) => f.url), PICKS.ceb.map((p) => p.url), "with nothing charting: the picks, most-rated first");
+  const offline = await fetchTrending("ceb", pretendApple({ charts: {}, feeds: {}, fail: ["/rss/", "/lookup"] }).getJson);
+  assert.equal(offline.length, PICKS.ceb.length, "the picks don't need Apple to answer");
 });
 
 test("the same feed is recognised however its address is written", () => {

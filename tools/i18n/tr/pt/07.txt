@@ -1,0 +1,200 @@
+45260878 Brilho: produzido pelas suas construções
+4ac9dac4 {0} de brilho
+ec8782a8 Brilho por hora agora
+6a6e9e27 {0} por hora
+cba40f6f Gemas: ganhas com insígnias, raides, subindo de liga e com o jardim em plena floração
+626f7b1c Poeira estelar: cada uma deixa tudo {0}% mais rápido, para sempre
+f7370cf7 {0} Agora o brilho se coleta sozinho.
+7a211303 Alcance sua meta diária {0} vezes e o brilho passa a se coletar sozinho ({1} até agora).
+ddd7a154 As construções produzem brilho enquanto você está fora: até {0} horas de brilho ficam esperando por você. Cada tipo rende mais com um hábito de estudo diferente, e alcançar a meta de hoje acelera todas pela metade e manda duas horas de brilho de uma vez.
+cf6b269f <0>Plena floração.</0> Todos os terrenos têm uma construção totalmente crescida. O jardim está completo; libertar uma criatura começa um novo, mais rápido.
+39a1c2dc Coletar {0} de brilho
+eabc714b Terreno {0}: fechado
+467b84dc {0} Abre quando você: {1}
+1c6e99ed Usar uma chave ({0})
+7cf40990 Terreno {0}: vazio
+144a397b Escolha algo para construir aqui.
+7e08478b {0} {1} · {2} por hora
+0595972e {0} · nível {1}
+d020fbd3 · gosta de {0} {1}
+9078100c {0} de brilho por hora{1} · {2} esperando
+04aac4c0 Coletar
+53b630e7 Crescer ·
+6d6426d9 Suba um nível: produz bem mais brilho
+50645793 Totalmente crescida
+4dd3fed6 Libertar uma criatura adulta
+95b0eef2 Uma criatura adulta pode ser libertada. Ela sai do seu grupo e fica lembrada aqui. Suas construções e seu brilho recomeçam do zero, e você fica com <0/>: cada uma deixa todas as construções {0}% mais rápidas para sempre, então o próximo jardim cresce muito mais rápido que o anterior. Quanto mais construções totalmente crescidas houver na hora, mais poeira estelar.
+7005fc6d poeira estelar
+5fb6a7b7 Você ainda não tem nenhuma criatura adulta.
+21e10852 esta criatura
+edfb0cc4 Libertar {0}? Ela vai embora para sempre, e suas construções e seu brilho recomeçam do zero. Você fica com a poeira estelar, suas outras criaturas e tudo o que é seu.
+d2001733 Libertada. Você ganhou {0} de poeira estelar.
+28a4bacf Libertadas até agora: {0}.
+912d81bb Primeiro faça seu ovo eclodir; depois ele pode ser alimentado.
+55427966 {0} {1} · alimentada {2} de {3} vezes hoje. A favorita dela conta em dobro. Os corações deixam as construções dela um pouco mais rápidas e não mudam nada nas batalhas.
+35b25929 Comida
+9d041fa1 {0} a favorita dela
+779fc473 Criaturas de {0} adoram
+77690ee2 · você tem {0}
+ff1928e5 Alimentar
+c266a25e Ela adora isso!
+df139e6c Nham.
+db09cbc4 Comprar um por {0} de brilho
+14e351e1 Suprimentos
+0e90e484 As gemas só vêm do que você faz: cada insígnia (2), um raide vencido (3), subir de liga (2), plena floração (10). Nada é vendido por dinheiro.
+11a9a29c Há um ovo novo com suas criaturas.
+c505c639 Adicionar mais 20 minutos
+36690a36 Usar agora
+476c3b07 O XP está dobrado por {0} minutos. Vá estudar!
+0a854dda ativo por mais {0} min
+427a838f Aquecer um ovo
+e00a97a2 Você precisa de um ovo sobrando que não esteja no habitat
+bdd2a3a3 O ovo está aquecendo: ele cresce junto com sua criatura.
+6a6002af um ovo está aquecendo
+678552eb Use-a na página Jardim.
+265753d6 Usado sozinho quando uma batalha renderia menos.
+6028b76d Use-a durante uma batalha selvagem.
+993750ae O habitat da sua criatura
+d3f4cb89 Renomear
+29cdd5c4 Seu nível: toque para ver como o XP funciona
+1aa6e8ca Nv
+eaeec02c XP até o próximo nível
+18e480f2 Toque para ver como o XP funciona
+890541c0 Mudar sua meta diária
+e54c864d Toque para ver como sua criatura evolui
+0b8ca8e4 Dias seguidos: toque para saber mais
+ce1213a4 Moedas, para a loja: toque para saber mais
+c3b0236d Um protetor de sequência cobre um dia perdido: toque para saber mais
+5894f7c3 Brilho das suas construções: toque para saber mais
+b1e9fef7 Gemas, para suprimentos: toque para saber mais
+dd8fd086 Corações: toque para saber mais
+b2d3bd7f Levar sua criatura para outro habitat
+f5552713 Batalha
+48f77eb7 Criaturas
+55de8870 Loja
+714d913b Jardim
+3f5aa796 Meta diária alcançada
+ad69cbf5 Hoje: {0} / {1} min
+79bcdbf3 Meta: {0} min
+669ac373 Ovo de {0}
+0e5f028b · pronta para evoluir: toque nela
+72ce9e1e · {0}% para {1}
+4246502f {0} dia(s)
+223e900f Seu ovo
+63b41493 Me dê um nome
+98303fea Meta diária: suas construções mandaram {0} de brilho de uma vez.
+72e1269a Você ganhou {0} gema(s).
+61fe2211 Plena floração: todos os terrenos têm uma construção totalmente crescida.
+673e4951 Dê um nome à sua criatura
+a8a47536 nenhuma palavra salva ainda :(
+0a5a8112 +{0} de brilho
+e3b0b563 Sua criatura está pronta para evoluir. Toque nela quando quiser.
+b2facb1b Esse terreno ainda não está aberto.
+fcc4027b Já tem algo construído aí.
+bf998c98 Essa construção não existe.
+d482d7e0 Ainda não: {0}.
+710d27b3 Você precisa de mais {0} de brilho.
+efcf13a6 Não há nada construído aí.
+2a8a3386 Ela está totalmente crescida.
+579f1557 Todos os terrenos já estão abertos.
+9af0e879 Você não tem nenhuma chave.
+5b31b02f Só uma criatura crescida (adulta) pode ser libertada.
+934d6b63 Isso não está à venda.
+36602b9e Seu grupo está cheio.
+26de9a27 Você precisa de mais {0} gema(s).
+6c27e5e8 Você não tem nada disso.
+6156ebc8 Ovos não comem. Primeiro faça-o eclodir.
+a66174fd Ela já está satisfeita por hoje.
+bdbaa592 Você não tem nenhum bônus de XP.
+4f42a703 Você não tem nenhuma chocadeira.
+e0e5bba3 Escolha um ovo que não esteja no habitat.
+eacac3ef Esse ovo já está na chocadeira.
+73ed2987 Você tem {0} XP e está no nível {1}. Faltam {2} XP para o próximo nível.
+6a75c080 Salvar uma palavra no seu vocabulário: 20.
+80e25376 Ouvir ou ler: um pinga-pinga lento enquanto você estuda, que seca bem depois da sua meta diária.
+aa1ab833 Alcançar sua meta diária: {0}. Esta é a principal, e rende o mesmo se a sua meta for de 5 minutos ou de 20.
+e3435b6f Batalhas: 3 por cada resposta certa, mais 15 quando uma palavra passa a ser bem conhecida, 40 por uma vitória e 15 por uma derrota (completos nas três primeiras batalhas do dia).
+da45a83d Revisor de vocabulário: cada cartão que você responde rende um quarto do que rende consultar uma palavra (normalmente de 1 a 4, às vezes de 8 a 12, de vez em quando de 25 a 50), o mesmo tendo você lembrado ou não, então não se ganha nada trapaceando.
+355d88a3 Termine uma batalha e conclua seus cartões no mesmo dia: mais {0}, uma vez por dia.
+1a385136 Fazer a mesma coisa muitas vezes no mesmo dia rende cada vez menos, então um pouco todo dia vale mais que uma sessão longa.
+5d4196b1 Faz a criatura do seu habitat crescer: ela eclode, cresce e fica pronta para evoluir.
+4e3ef7b7 O XP nunca é gasto. Ele só sobe.
+27bb53b6 Não há onde gastar: funciona sozinho.
+9b7db3ae Como a evolução funciona
+ac4792cf Sequência
+ae506790 {0} seguidos. Seu recorde é {1}.
+31fb81dc Com o complemento do Anki, concluir tudo o que está pendente no Anki também conta como a meta do dia.
+3e2a59d1 Se você perder um dia, um protetor de sequência cobre esse dia, se você tiver um. Sem ele, a sequência recomeça do zero. Nada mais é perdido.
+488e945a Chegar a 7 dias libera coisas novas na loja para sempre ({0}) e o golpe de batalha Coração Firme.
+347792fa Uma sequência de 5 dias abre um terreno para construir no jardim.
+f7922bac Insígnias aos 7, 30 e 100 dias, e cada insígnia rende 2 gemas.
+d15f40ca Ver suas insígnias
+2bef474e Moedas
+647952d2 Você tem {0}.
+ec4161d7 Salvar uma palavra no seu vocabulário: 1 cada.
+20b4c331 Subir de nível: 5.
+e469d2bf Vencer uma batalha: 4 por cada uma das três primeiras vitórias do dia, menos depois disso.
+3c1e6885 Uma palavra passa a ser bem conhecida pelas batalhas: 1.
+dc4529b3 Acertar 8 de cada 10 respostas de batalha ao longo de uma semana (30 respostas ou mais): 5.
+d5d064cb Sua guilda derrota o chefe do raide semanal: 20.
+64eea943 Termine uma batalha e conclua seus cartões no mesmo dia: {0}, uma vez por dia. Os cartões sozinhos rendem brilho, não moedas.
+54bb5f6d Tudo o que se compra com moedas é só visual. Nada deixa uma criatura mais forte.
+fede851e A Loja. Ela oferece {0} coisas por dia, escolhidas para sua criatura, e muda todo dia.
+4906011f Abrir a loja
+02b8de87 De vez em quando, um aparece de surpresa quando você consulta uma palavra.
+4b6bd7b6 Você começou com um.
+a66c8544 Ele é usado sozinho na próxima vez que você abrir o app depois de um dia perdido. Dois dias perdidos precisam de dois.
+d5545dea Brilho
+3647f30f , e mais {0} esperam nas suas construções
+6319cd67 Você tem {0} de brilho{1}. Suas construções produzem {2} por hora.
+5aafc95b Toque em uma construção com uma luz flutuando em cima para coletar o brilho dela. Depois de {0} metas diárias, ele se coleta sozinho.
+5ab759f1 Alcance sua meta diária: cada construção produz metade a mais pelo resto do dia, e duas horas de brilho chegam de uma vez.
+fb3a6104 Conclua os cartões do dia no revisor de vocabulário ({0} cartões ou mais, sem nenhum pendente): uma hora do brilho do seu jardim de uma vez, e nunca menos de {1}. As batalhas rendem moedas em vez disso.
+5881fc72 Cada tipo de construção produz mais com um hábito de estudo, e cada coração da sua criatura soma um pouco.
+99abeba6 Comida para sua criatura ({0} de brilho cada), que enche os corações dela.
+dfc8c596 Poções ({0} de brilho) para as batalhas selvagens.
+38ccf266 As construções ficam na página Jardim. A comida e as poções ficam na página Suprimentos.
+37de88de Abrir o jardim
+3e321c9f Abrir os suprimentos
+02904156 Gemas
+4254141b Sua guilda derrota o chefe do raide semanal: 3.
+a1d5eec6 Subir de liga (alcançar sua meta diária em 5 dias de uma semana): 2.
+18bf14cc Plena floração, quando todos os terrenos do jardim têm uma construção totalmente crescida: 10.
+03611593 As gemas só vêm do que você faz. Elas nunca são vendidas por dinheiro.
+89803371 A página Suprimentos.
+99f9bf69 Corações
+7b0609ca {0} tem {1} de 5 corações.
+3be3ea7c : para uma criatura de {0} que é {1}
+80e48f19 Duas refeições enchem um coração. A comida favorita dela conta em dobro{0}.
+746e8201 Os corações pertencem a cada criatura e nunca diminuem.
+27cffa5f Os corações não mudam nada nas batalhas.
+feeaea73 Alimente-a na página Suprimentos.
+f110690b Como se ganha
+ca032b58 Para que serve
+525f61b6 Onde
+dc353487 Escuta
+7ac0138b tempo ouvindo podcasts, áudios e vídeos
+cffa2af0 Leitura
+7f6efe83 Coleção
+ab60d3ea salvar palavras, respostas certas nas batalhas, cartões no revisor de vocabulário, revisões do Anki
+1a0bff19 Curiosidade
+7224fd42 Brasa para a curiosidade, Maré para a escuta, Bosque para a coleção, Pedra para a leitura, Faísca para as madrugadas e Crepúsculo para as noites
+80b6476b Como sua criatura evolui
+00d04503 {0} é {1}. No que ela se transforma depende de como você estuda, você escolhe o momento, e nada do que você escolher é definitivo.
+b89502e9 {0} XP
+80083e78 ficar pronta para evoluir
+02a71b4e virar {0}
+729f33b1 Faltam {0} XP para {1}.
+a105f0d4 Ela está pronta para evoluir: toque nela no habitat.
+f16b2c73 1. Crescendo
+d4915a51 {0} Todo o XP que você ganha vai para a criatura que está no habitat. As outras esperam, então quem você traz para fora é a sua primeira escolha.
+c5a69900 2. Seus quatro hábitos
+9e19cb58 Cada criatura registra como você estudou enquanto ela estava fora. Um hábito sobe quando você ganha XP desse jeito e os outros diminuem um pouco, então as barras acompanham o que você tem feito ultimamente. Cerca de {0} XP de um tipo enchem uma barra. A curiosidade precisa de {1}, porque consultar palavras rende muito mais XP.
+174c7e2f Aberta: seu hábito mais forte até agora
+28088622 Aberta: este hábito passou de 25%
+94fae88c · traz o golpe de batalha {0}
+968f60ab 3. A forma adulta
+ffd15c0d Quando ela cresce o suficiente, fica esperando como jovem e brilha. Toque nela e escolha a forma adulta. A forma do seu hábito mais forte está sempre aberta, e outra abre quando o hábito dela passa de 25%. Depois de evoluir, levar outro hábito a 50% também libera essa forma, e você pode trocar entre as formas liberadas quando quiser. Evoluir também deixa um ovo novo para você. A curiosidade não tem forma própria: ela aparece nos seus ovos, na loja e no jardim.
+93d943d8 {0} Conquistada
+db795d86 4. Formas especiais
+7c62f35b Usadas por cima de uma forma adulta. Elas vêm de quando você estuda, de quem cresce ao lado dela e do que você consegue nas batalhas. Mudam cores e traços, nunca a força.

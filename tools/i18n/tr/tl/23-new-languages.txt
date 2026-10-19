@@ -1,0 +1,257 @@
+8782d9fe	Portuges ng Brazil
+2c5e77fc	Catalan
+b46e924a	Bisaya (Cebuano)
+752be6ae	Masyadong malaki ang file na iyan (higit sa 200 MB).
+1b9728ae	Sira ang file na iyan (hindi ito buong ZIP/EPUB/DOCX file).
+6ef6b413	Gumagamit ang file na iyan ng uri ng compression na hindi mabasa ng Tamkeen.
+6a0b6c0f	Protektado (DRM) ang librong ito, kaya hindi mabasa ang teksto nito. Mga librong walang DRM lang ang puwedeng idagdag.
+c13b66dd	Sira ang EPUB na iyan (walang table of contents).
+6256156a	Sira ang Word file na iyan.
+fb5d490e	Hindi iyan Word .doc file. Subukang i-save ito bilang .docx.
+39b183eb	Walang teksto ang Word file na iyan.
+5ec26261	May password ang Word file na ito, kaya hindi mabasa ang teksto nito.
+a693bbf2	Walang nakitang teksto sa Word file na iyan. Subukang i-save ito bilang .docx.
+a351250c	Protektado (DRM) ang Kindle book na ito, kaya hindi mabasa ang teksto nito. Mga librong walang DRM lang ang puwedeng idagdag.
+fadca512	Naka-compress ang Kindle file na ito sa paraang hindi mabasa ng Tamkeen. I-convert ito sa EPUB (halimbawa gamit ang libreng app na Calibre) at iyon ang idagdag.
+f259da8d	May password ang PDF na ito, kaya hindi mabasa ang teksto nito.
+1b90296b	Hindi mabuksan ang PDF na iyan.
+912836e3	Binabasa ang page {0} sa {1}…
+6d3042c8	Hindi maabot ang book shelf ng Tamkeen. Suriin ang koneksyon mo at subukan ulit.
+deb3baad	Sira ang dumating na libro. Subukan ulit.
+451b9cbc	Binabasa ang file…
+245d2a43	Walang nakitang teksto sa file na iyan. Walang tekstong mababasa sa na-scan na libro (mga larawan ng page).
+56a2285c	Sine-save…
+7014f38a	News site ng Globo
+e0f6253e	O Globo, Rio de Janeiro
+1c42950d	BBC, sa Brazilian Portuguese
+d9c6b1fb	Agência Brasil, pampublikong ahensya ng balita
+ecae6445	Nexo, mga artikulong nagpapaliwanag
+6e5c2fcb	Pulitika
+3df709c2	Agham at mga kakaibang bagay
+e82e2b93	Deutsche Welle, sa Brazilian Portuguese
+c0fe72d8	Wikipedia sa Portuguese
+02df8597	3Cat, pampublikong brodkaster ng Catalonia
+509d117d	El Periódico, edisyong Catalan
+033e952f	La Vanguardia, edisyong Catalan
+ff6dd1ba	RAC1 radio
+d46049a6	Brodkaster ng lungsod ng Barcelona
+abe62d2b	Pampublikong brodkaster ng Valencia
+f72932a0	Pampublikong brodkaster ng Balearic Islands
+ee6ba5de	Lingguhang news magazine
+017db5d6	Wikipedia sa Catalan
+5bd2b489	Pahayagang Bisaya ng SunStar, Cebu
+097174e3	Pahayagang Bisaya ng SunStar, Davao
+c236bde4	Pahayagang Bisaya ng SunStar, Cagayan de Oro
+99dad9d9	Pahayagang Bisaya ng The Freeman, Cebu
+04eddcb9	Balita sa radyo ng RMN, Cebu
+1f87a792	Bombo Radyo, Cebu
+b8757fe8	Bombo Radyo, Davao
+d62cbb14	Bombo Radyo, Butuan
+4d81a0a3	Diksyunaryong Bisaya–English
+73ea03bd	Wikipedia sa Bisaya (maraming maiikling artikulong awtomatikong ginawa)
+3c45c568	Thai PBS, pampublikong brodkaster
+89514a21	Bangkok Biz News, negosyo
+d5429913	MCOT, pampublikong brodkaster
+0b56148b	Siamsport, sports
+a1817b50	Wikipedia sa Thai
+564aebf5	Isang libreng klasiko, o sarili mong EPUB, PDF, TXT, Kindle o Word file
+01bc0d6b	Mga libreng klasiko
+217c2a25	Mga sikat na libro sa wikang pinag-aaralan mo, libre dahil nasa public domain na.
+4e20f045	Magdagdag ng sarili mong libro
+d993cd1c	EPUB, PDF, TXT, Kindle AZW3 o Word, walang DRM.
+169dd244	Mga sikat na website
+b8e51206	Mga news site sa wikang pinag-aaralan mo. Magbukas ng isa, kopyahin ang address ng isang artikulo, at i-paste ito sa itaas.
+a1cac7d8	browser na ito
+fa8bf630	Paano ipinapaliwanag ang mga salita
+cf7318e9	Lubos na inirerekomenda
+796a0595	Paliwanag ng AI
+0ca1aaeb	Ang ibig sabihin ng salita sa <0>pangungusap na ito</0>, ang grammar nito, salin ng pangungusap, pagtatama sa mga salitang mali ang pagkarinig, at ang Gawa ng mnemonic. Kailangan ng API key: bahagi lang ng isang sentimo bawat salita (may libreng allowance ang Gemini).
+49eec3e6	Walang AI: built-in na diksyunaryo
+9c434872	Libre, at gumagana offline kapag na-download na. Ipinapakita ang karaniwang kahulugan ng salita mula sa Wiktionary, sa English, pero hindi kung alin ang bagay sa pangungusap. Walang salin ng pangungusap, pagtatama o mnemonic.
+a70179e6	<0>Lubos na inirerekomenda ang paliwanag ng AI.</0> Puno ang totoong pananalita ng mga salitang nakadepende sa pangungusap ang kahulugan, ng slang at diyalektong wala sa diksyunaryo, at ng mga mali sa transcription. Kapag Walang AI, listahan ng posibleng kahulugan ang makikita mo at kailangan mong hulaan kung alin ang tinutukoy.
+7544ab30	Gamitin ang paliwanag ng AI
+0f1aa62d	Walang AI
+70da8a0a	✓ Nasa {1} na ang diksyunaryo ng {0} ({2} MB).
+808117a6	Wala pa sa {1} ang diksyunaryo ng {0}, kaya hindi maipaliwanag ang mga salitang pinindot mo.
+9ab59592	I-set ito, o baguhin mamaya, sa <0>Settings → Kahulugan ng mga salita (AI)</0>. Doon mo rin puwedeng piliin ang <1>Walang AI</1>: isang libreng built-in na diksyunaryo na nagpapakita ng karaniwang kahulugan ng salita, pero hindi ang kahulugan nito sa pangungusap (lubos na inirerekomenda ang AI).
+e9940534	Ang review ngayong araw bilang to-do
+7e3312af	Ipinapadala ng button sa Review tab ang natitirang review ngayong araw, kasama ang oras na kakailanganin nito, sa:
+9cea74c5	Google Tasks <0>(hihingi ng pahintulot ang Google sa unang beses)</0>
+c001f24c	Onyx <0>(binubuksan ang Onyx, na isisingit ito sa araw mo)</0>
+3386ce50	Naka-off ang AI, kaya ang built-in na diksyunaryo ng {0} ang nagpapaliwanag ng mga salita. Wala pa ito sa device na ito: i-download ito nang isang beses at gagana ito offline.
+395b22e4	I-download ang diksyunaryo
+a13e07aa	Naka-off ang AI (Settings → Kahulugan ng mga salita → Walang AI), kaya hindi ito available.
+f3f91e1e	Portuges (Brazil)
+f5285e5c	ang Dictionary of Cebuano Visayan ni Wolff
+b016324b	ang mga Arabic database ng CAMeL
+382f42b1	Wiktionary
+bbc70fda	, sa English
+bf672d07	Mula sa built-in na diksyunaryo ({0}{1}): ang karaniwang kahulugan ng salita. Hindi nito masasabi kung alin ang bagay sa pangungusap na ito.
+51444687	isang listahan ng pinakakaraniwang salitang Bisaya, binilang mula sa tekstong Bisaya sa web sa koleksyong OPUS NLLB, na pinagtatapatan ng app ng mga ugat na nahahanap nito (mokaon, mikaon, gikaon: kaon)
+8c6c358b	Wala ang salitang ito sa built-in na diksyunaryo. Baka pangalan ito, slang, o anyong hindi nito alam.
+40137935	Bumalik sa Mga libro ko
+81f54719	Nakaraang page
+fb06270f	Page
+4bfc194b	Susunod na page
+48a704f7	{0} BC
+e1e3700f	{0} AD
+a5188242	Idinadagdag ang “{0}”…
+d2936330	Naidagdag ang “{0}” sa Mga libro ko.
+6c5e33b0	Hindi mabasa ang file na iyan.
+5f94aeb4	Mga libro sa {0}
+f689db93	Mga sikat na libro, libre dahil nasa public domain na. Magdagdag ng isa at basahin ito nang isang page bawat pagkakataon, na puwedeng i-click ang bawat salita. O magdagdag ng sarili mong libro.
+70ebead0	Sarili mong libro
+c25f48d6	EPUB, PDF, TXT, Kindle AZW3 o Word, walang DRM. Binabasa ito sa device na ito at idinadagdag sa Mga libro ko.
+195e97d3	Magdagdag ng file
+d9fffb0d	Nilo-load ang shelf…
+53633ec9	Wala pang libreng libro sa {0}.
+49102c78	{0} KB
+0122668f	{0} · mga {1} ng pagbabasa · {2}
+e79e9cf5	Walang podcast sa {0} na nasa charts, kaya ito ang may pinakamaraming rating sa Spotify at Apple Podcasts.
+4ea062ed	Ang mga podcast na pinakapinakikinggan ngayon sa {0}.
+5e7709de	Mga rating mula sa <0>Spotify</0> at <1>Apple Podcasts</1>.
+b389210d	{0} Pindutin ang <0>+ Idagdag</0> para ilagay ang isa sa library mo.
+cba998b6	Magdagdag ng kaibigan gamit ang username, bumuo ng guild, magpadalahan ng mensahe (may voice note pa), magpadala ng mga salita at folder, at tingnan kung ano ang pinag-aaralan ng lahat. Mag-sign in gamit ang Google account mo para magsimula.
+b5531a88	Naka-sign in na. Pumili ngayon ng username.
+c66b2adc	Nagsa-sign in…
+4a7fdd8c	Mga libro
+71381287	Wala pang libro. Pumili ng libreng klasiko sa wikang pinag-aaralan mo, o magdagdag ng sarili mong libro.
+8933cc20	Mga librong binabasa mo, isang page bawat pagkakataon at puwedeng i-click ang bawat salita.
+f98f3020	Wala pang reels. Mag-paste ng link ng reel sa itaas, o magdagdag ng reels sa Tamkeen app: darating sila rito pagkatapos mag-sync.
+4b5b4888	I-on muna ang <0>Cloud transcription sa Settings</0>: ito ang nakikinig sa reel at nagsusulat ng mga salita nito.
+c5c47401	Magdagdag ng reel
+4bb4efb6	Mag-paste ng link ng Instagram reel
+0dfb37d0	Link ng Instagram reel
+0c2f86c7	Sa web, mapapanood mo ang mga reel mo at makakapagdagdag ka ng mga pampublikong reel mula sa link nila. Kailangan ang Tamkeen app sa phone o computer mo para pumili ng reels mula sa mga na-save mo sa Instagram, para sa random na reels, at para sa reels na may kanta mula sa music library ng Instagram. Lalabas dito ang reels na idinagdag doon pagkatapos mag-sync.
+66f216cc	Ang UCSP, maikli para sa Unsa y Cheka Sa Parlor?, ay podcast na hango sa isang sikat na parirala sa Bisayang gay lingo, na karaniwang sinasalita sa Visayas at Mindanao sa Pilipinas. Hino-host nina Lyle Go at Shaneee; halos katumbas ng parirala ang “What's the tea?” sa English (“Ano'ng chika?”).
+b7f0771c	Crosseyed Podcast: panayam sa mga nakaka-inspire na tao sa Cagayan de Oro City. Crosseyed Convos: masayang usapan tungkol sa kahit anong paksang interesante at nakakaaliw para sa akin at sa mga kaibigan ko.
+83f1bce5	Ang Barok and Takya Bisaya Podcast ay isang Filipino podcast sa wikang Cebuano. Pinag-uusapan nila ang lahat ng bagay sa ilalim ng araw, gaya ng pamilya, tradisyon, lipunan at kulturang Pilipino, sa wikang Bisaya. Ano pa'ng hinihintay mo? I-download na ang Pinoy podcast sa wikang Cebuano: Barok and Takya Bisaya Podcast.
+65d7024f	Maligayang pagdating sa Cge, Storya Ta: A Bisaya Couple Podcast! Nag-a-upload kami ng bagong episode linggo-linggo. Kunin ang pinakakomportable mong upuan, tanggalin ang sapatos, at maghanda nang sumisid sa mundo nina Yin at Nol. Isang rollercoaster ng tawanan, aral sa buhay, at paminsan-minsang kaduda-dudang desisyon; sa madaling salita, lahat ng bagay sa ilalim ng araw, walang script at walang filter. Kaya mag-seatbelt ka na, dahil ito ang podcast kung saan puwedeng mangyari ang kahit ano, at malamang mangyayari nga!
+3534296f	Ang Brighter Bisaya ay isang family-friendly na online media network na naglalayong magbigay-impormasyon, magturo, at magbigay-inspirasyon sa mga Bisaya/Cebuano sa lahat ng edad sa pamamagitan ng matatalino at malikhaing usapang palabas. Desidido ang kompanya na maglathala ng mga simple at relatable na vlog at podcast tungkol sa sining, edukasyon, pilosopiya, agham, teknolohiya, inspirasyon, at libangan sa Cebuano, Binisaya, Tagalog, English, at Filipino.
+b819d08f	Kapoy explain man. Para sa ad inquiries, komento, o mungkahing paksa, makipag-ugnayan sa amin sa sevillaacevincent@gmail.com.
+cc4289fa	Mga pagbasa sa Misa ng Linggo sa Cebuano | Mga pagbasa sa Santos nga Misa sa Binisaya. Inilalabas ang mga bagong episode tuwing Lunes bago ang Misa. Ipadala ang lahat ng feedback sa sundaymassreadings@gmail.com. Espesyal na pasasalamat kina Fr. Alvin, Lorena, Celine, Aimee, Belinda, Ivy, Praxi, Fr. Gerry, Belton, Agnes at Deacon Roman.
+ee681aee	Isang podcast tungkol sa iba't ibang kuwento. Ikinukuwento ni Ziwi ang mga personal niyang karanasan at aral sa buhay. #Bisaya #Storytelling #Philippines #ChikaMinute #Chikahan
+5561133e	Magbestfriend sina Jeana at Justein mula sa maaraw na probinsya ng Cebu. Ngayong nasa huling bahagi na sila ng kanilang twenties, pinag-uusapan ng magkaibigang ito mula high school ang pagharap sa adulthood, ang pagkatuto at pag-unlearn ng mga konsepto, at ang pagtatakda ng priorities. Kung gusto mong maramdaman ang pamilyar at mainit na pakiramdam na parang taos-pusong kuwentuhan kasama ang matagal nang kaibigan, samahan sila sa bagong podcast na ito. Bagong episode tuwing Biyernes! Ilibre kami ng kape sa ko-fi.com/wanbatsrabesh ☕️ Hindi amin ang lahat ng musika; galing ito sa Audionautix.com.
+2f32eaa3	Ang Unsa Man Jud Podcast ay isang Bisaya podcast o talk show na sinasalita sa wikang Cebuano at tungkol sa mga binutbot at binuang na bagay. Minsan pinag-uusapan din namin ang mga sineryoso na bagay pero sino ba'ng gustong makinig doon, 'di ba? Kaya mga nakakatuwang bagay na lang ang pinag-uusapan namin. Anyway, kung naiintindihan mo ang wika, sumali ka sa amin!
+ad54f954	Ang Coffee Break with Juppe ang 5-minutong pahinga mo mula sa gulo ng araw. Mga random na isip, maiikling kuwento, at tapat na pagninilay, maikli at simple, at pinakamasarap kasama ang kape. I-play para sa araw-araw mong dosis ng magaang kuwentuhan at good vibes.
+c4ff21cc	Hello! Maligayang pagdating sa Bisaya Podcasts PH! Napakahirap maghanap ng mga Bisaya podcast. Mas mahirap pang maghanap ng audience, lalo na kung Bisaya podcast ka. Layunin ng podcast na ito na pag-isahin ang mga Bisaya podcast sa buong mundo para madali tayong makapaghanap at makakonekta sa kapwa podcaster at sa mga tagapakinig. Alam kong mahirap maghanap ng audience, lalo na sa sarili nating wika. Pero kung magkakasama tayo, mapapalaki natin ang ating plataporma.
+29f7f4bc	Upang pastulan ang bayan ng Diyos sa pamamagitan ng mabisang pangangaral at pagtuturo ng Salita ng Diyos, para maihanda silang makilala, mahalin, paglingkuran at ipahayag si Jesus.
+7e5120d9	Good vibes na usapan at reaksyon sa mga napapanahong isyu, pamilya, relasyon at Bisayang humor.
+2473e96b	Panimula
+4195c313	Para magbigay ng audio access sa Bibliyang Cebuano.
+59e8c6a1	Sugilanon nga gisuwat ni Senador Vicente Rama bahin kang Amboy nga palahubog, ug ang iyang pamahala nga kinabuhi tungod sa iyang pagkapalahubog. Kini ay una nga istorya sa daghan nga nahabutang na istorya sa librong 'Larawan'. (Buod ni April Gonzales)
+6b4e3b92	Usa ka Bisaya nga sibya kung aha maghisgot-hisgot mi sa nagkalain-laing mga butang! Hino-host ni Lewey Jimoya
+88da3d5b	Ipadala sa {0}
+4ac22389	Idagdag ang “{0}” sa {1} para ngayong araw (piliin kung saan sa Settings)
+a0b74487	Hindi maipadala ang task.
+e79101e5	Naipadala sa Onyx: {0}.
+0e90681b	Payagan ang Tamkeen na magdagdag ng mga task sa bumukas na browser window, saka pindutin ulit ang Ipadala.
+6b514385	Na-update ang review task ngayong araw sa Google Tasks: {0}.
+4d263331	Naidagdag sa Google Tasks: {0}.
+d8803f2b	Tamkeen review ({0} min)
+37db2048	Ang mga card mo
+d567fe70	Natitira ngayong araw: {0}; mga {1}, ayon sa tantya ng Tamkeen.
+37497aa5	Brazil
+a2b7c120	Thailand
+a495190b	Portugal
+a42522a0	Angola
+a40a9be0	Mozambique
+9d3bd1fb	Andorra
+db79573c	{0} Mag-sign in gamit ang Google
+c46d4f59	Kinansela ang pag-sign in.
+71abc87d	Hindi ka na-sign in ng Google.
+e21573ca	Bumalik ang sign-in na iyan nang hindi ito hiningi mula rito. Subukan ulit.
+6ed09657	Naka-sign in na sa Mga Kaibigan.
+46729ba2	Hindi maka-sign in sa Mga Kaibigan.
+2bbb4134	Sumagot ang site nang may error ({0}).
+9ae12679	Sa naka-install na app tumutugtog ang reels.
+be990723	Nilo-load ang video…
+fde42b27	Kailangang i-renew ang koneksyon mo sa Google.
+d3b174d2	Ikonekta ulit ang Google
+2c534112	Nakakonekta ulit sa Google.
+f9ab4ef2	Hindi makakonekta ulit sa Google.
+09dd50fd	Hindi kilalang libro.
+fca43b82	Walang nakitang mababasang teksto sa librong iyan.
+fba1a5a5	Mga libro ko
+78539b41	Hindi maabot ang Google. Suriin ang koneksyon mo.
+b7592d30	Naisara ang Google window bago naka-sign in.
+66ec6394	Kailangan ng Tamkeen ang sarili nitong pribadong folder sa Drive para itabi ang library mo. Mag-sign in ulit at iwanang naka-tsek ang kahong iyon.
+76c6ab28	Kailangang i-renew ang koneksyon mo sa Google: pindutin ang Ikonekta ulit.
+2a66b8ea	Mag-sign in muna gamit ang Google (Settings → Google account).
+5c2a23a4	Hindi pinayagan ang Google Tasks, kaya hindi naidagdag ang task.
+f8575a96	Naisara ang window ng Google bago pinayagan ang Google Tasks.
+5e475346	Gumagana ang pagpapadala sa Google Tasks sa Android, sa computer at sa web app. Piliin ang Onyx sa Settings, o gamitin ang isa sa mga iyon.
+25d9c3cc	Kailangan ng task ng araw.
+bbdefd6e	Tamkeen review
+3d81cff6	Hindi maabot ang Google Tasks. Suriin ang koneksyon mo.
+8548a469	Hindi pa naka-on ang Google Tasks para sa Google project ng Tamkeen.
+a846f437	Sumagot ang Google Tasks nang may error ({0}).
+214ae7a1	Hindi iyan link ng Onyx.
+16b02880	Tamkeen sa web
+14f62c3c	Gumagana ito tulad ng app, maliban sa ilang bagay na kailangan ang Tamkeen app sa phone o computer mo: reels mula sa mga na-save mo sa Instagram at random na reels, reels na may kanta mula sa music library ng Instagram, ang built-in na web browser (I-import ang Page at Hanapin sa video), AnkiDroid sync, at ang numero sa icon ng app. Lalabas dito ang idinagdag mo sa app pagkatapos mag-sync.
+f3534216	Kunin ang app
+91e5fbb9	sa web
+99e0c004	para sa iPhone
+0c3c76a9	para sa Android
+a74ff4ca	Tamkeen {0} · <0>Privacy policy</0>
+79f78eb5	sa browser mo
+c2e8b4c9	sa phone mo
+b71b7dd2	Ang mga podcast, transcript at vocab mo, {0}.
+54e60766	Hindi ipinapakita ng Instagram ang reel na ito sa publiko.
+1edda8bd	Kailangan iyan ng Tamkeen app (binabasa nito ang Instagram habang naka-sign in ka roon).
+e165040b	sa itaas ng screen
+55ccdc03	sa ibaba ng screen
+41a15e18	Pindutin ang <0>Share</0> button {0} {1}.
+cbc7ba0a	Mag-scroll pababa sa listahan at pindutin ang <0>Add to Home Screen</0>.
+bf13c2df	Pindutin ang <0>Add</0> (kanang itaas). Nasa home screen mo na ang Tamkeen.
+96914e14	(kanang itaas)
+b32ca313	Pindutin ang <0>Share</0> button {0} sa address bar{1}.
+87deb031	Pindutin ang <0>Add to Home Screen</0> (mag-scroll pababa kung hindi mo ito makita).
+785f548a	Pindutin ang <0>Add</0>. Kung wala ito roon, buksan ang page na ito sa Safari at doon ito idagdag.
+ae260712	Pindutin ang menu <0>≡</0> sa kanang ibaba.
+1b5b232c	Pindutin ang <0>Add page to</0>, saka ang <1>Home screen</1>.
+ca117803	Pindutin ang <0>Add</0>.
+2b256040	Pindutin ang menu
+bb5798ce	Pindutin ang <0>Install</0> (o <1>Add to Home screen</1>).
+2f614469	Pindutin ang menu <0>⋮</0> sa kanang itaas.
+022e6668	Pindutin ang <0>Add to Home screen</0> (puwedeng <1>Install app</1> ang nakasulat).
+1034fc99	Pindutin ang <0>Install</0> o <1>Add</1>. Pagkatapos, bubukas ang Tamkeen na parang app, nang walang browser sa paligid nito.
+887b182d	O buksan ang menu <0>⋮</0>, saka ang <1>Cast, save and share</1> → <2>Install page as app</2>.
+b85d0d03	I-click ang <0>Install</0>.
+06d74687	Buksan ang menu <0>…</0>, saka ang <1>Apps</1> → <2>Install this site as an app</2>.
+8829f1b7	Sa Mac, sa menu bar piliin ang <0>File</0> → <1>Add to Dock</1>.
+7487434a	I-click ang <0>Add</0>.
+95b40a2a	Android phone
+d992aac8	I-install ang Tamkeen
+1a96de2a	Idagdag ang Tamkeen sa home screen mo
+8607e4ba	I-install ngayon
+26e74130	Pagkatapos, bubukas ang Tamkeen mula sa sarili nitong icon, full screen, na parang app. Sa {0} na ito:
+def8615b	Hindi maabot ang Instagram. Suriin ang koneksyon mo.
+fcb5223a	Sumagot ang Instagram nang may error ({0}). Subukan ulit pagkalipas ng isang minuto.
+797a2936	Mas madali ·
+4c449da1	Magbukas ng site (bubukas ito sa bagong tab), maghanap ng artikulo, kopyahin ang address nito, saka bumalik dito at i-paste ito.
+db59af69	I-paste ang address ng isang artikulo
+cbc27e21	Address ng artikulo
+db248300	I-paste
+263fcf38	Hindi pinayagan ng browser mo ang pag-paste mula rito. Pindutin nang matagal ang kahon at piliin ang Paste.
+d3478410	Hindi ma-import ang page na iyan.
+effc9a4e	Sumagot ang YouTube nang may error ({0}). Subukan ulit pagkalipas ng isang minuto.
+ecc87af7	Hindi mabasa ang page ng YouTube. Subukan ulit pagkalipas ng isang minuto.
+6f77246b	Mga video ng channel na ito.
+82f79ac4	Sikat ngayong linggo.
+e17e232a	Maghanap sa YouTube
+bd7d0814	{0} Pindutin ang isang video para panoorin ito na ang captions ay mga salitang puwedeng pindutin. Kailangan nito ng captions.
+7724494e	Nilo-load ang mga video…
+f64fc328	Walang nakitang video.
+a385bf96	Wiktionary sa pamamagitan ng Wiktextract: mga kahulugan ng salita para sa Walang AI (opsyonal na download)
+81e74ccd	Ang libreng book shelf: Project Gutenberg, Wikisource, Aozora Bunko (opsyonal na download)
+8db0aa84	Public domain
+d1198df0	Mga librong babasahin nang isang page bawat pagkakataon, na may mga salitang puwedeng i-click.
+7141db00	Mag-sign in muna gamit ang Google (Settings → I-sync sa Google Drive).
+819dc7ab	Hindi maabot ang Google Tasks ({0}). Suriin ang koneksyon mo.
+80e1cb7a	Tinanggihan ng Google Tasks ang task ({0}).
+6c8a35f3	Mukhang hindi naka-install ang Onyx sa computer na ito.
+08f0c0cf	Malay
+4d3bb51e	Javanese
+1d6b8a69	Vietnamese
+c1439807	Lao

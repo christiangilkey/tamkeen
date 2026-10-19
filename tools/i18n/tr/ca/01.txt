@@ -1,0 +1,200 @@
+8df7f1b3 Castellà
+42b5f38b Forma estàndard
+0bb18642 Ús
+af4f4762 Àrab
+e96857c5 Arrel
+3132844d En àrab estàndard
+93949a50 Dialecte
+23239c1b La cerca no té en compte els diacrítics (tashkeel) ni les variants de l'àlef (أ إ آ ا), la taa marbuta/haa (ة ه) i l'àlef maqsura/yaa (ى ي).
+44389f6a Francès
+9239c22d Japonès
+b6f59f08 Caràcters
+15dc1886 Xinès
+74ad93cb Rus
+485b57ad Italià
+68ddd91d Tagal
+8782d9fe Portuguès (Brasil)
+2c5e77fc Català
+b46e924a Bisaia (cebuà)
+c32767e0 Tai
+649df08a Anglès
+2db9d9c8 escoltar
+227f38db llegir
+28cd39db guardar paraules
+419e5a77 surti de l'ou
+8736920d cria
+6839db6f jove
+82aef589 adulta
+b245f581 {1:upper} de {0}
+6f442204 S'ha perdut la connexió amb el servidor local de l'app.
+59025e2d La sol·licitud ha fallat ({0})
+21a0c7a3 {0} h {1} min
+e802d434 {0} min
+f921c967 0 MB
+9a27e458 {0} GB
+b53a8982 {0} MB
+c18f8f25 Notificació
+f8f74deb Transcripció acabada: {0}
+cf9b7706 Obre
+3f651190 Transcripció acabada
+0fedb149 La transcripció ha fallat: {0}. {1}
+377e306b La transcripció ha fallat
+63616e1e No s'ha pogut desar l'àudio d'aquesta paraula.
+b887bd52 Copia l'enllaç del vídeo que vulguis i enganxa'l a «Afegeix una pàgina web».
+46c3ccdd Tria primer la llengua que aprens i després torna a obrir el vídeo.
+90350195 Obtenint els subtítols…
+d10fa6cb No s'ha pogut obrir aquest vídeo.
+6f9d8f3f Copia l'adreça de la pàgina que vulguis i enganxa-la a «Afegeix una pàgina web».
+72af5edb La pujada ha fallat ({0}).
+ccc2b8e0 La pujada ha fallat: el servidor de l'app no ha respost.
+136c4303 Desat a {0}
+8d886c0b Alguna cosa ha anat malament
+752be6ae Aquest fitxer és massa gran (més de 200 MB).
+1b9728ae Aquest fitxer està malmès (no és un fitxer ZIP/EPUB/DOCX complet).
+6ef6b413 Aquest fitxer fa servir un tipus de compressió que Tamkeen no pot llegir.
+6a0b6c0f Aquest llibre està protegit (DRM), així que no se'n pot llegir el text. Només es poden afegir llibres sense DRM.
+c13b66dd Aquest EPUB està malmès (no té índex).
+6256156a Aquest fitxer de Word està malmès.
+fb5d490e Aquest no és un fitxer .doc de Word. Prova de desar-lo com a .docx.
+39b183eb Aquest fitxer de Word no té text.
+5ec26261 Aquest fitxer de Word està protegit amb contrasenya, així que no se'n pot llegir el text.
+a693bbf2 No s'ha trobat text en aquest fitxer de Word. Prova de desar-lo com a .docx.
+a351250c Aquest llibre de Kindle està protegit (DRM), així que no se'n pot llegir el text. Només es poden afegir llibres sense DRM.
+fadca512 Aquest fitxer de Kindle està comprimit d'una manera que Tamkeen no pot llegir. Converteix-lo a EPUB (per exemple, amb l'app gratuïta Calibre) i afegeix-lo.
+f259da8d Aquest PDF està protegit amb contrasenya, així que no se'n pot llegir el text.
+1b90296b No s'ha pogut obrir aquest PDF.
+912836e3 Llegint la pàgina {0} de {1}…
+6d3042c8 No s'ha pogut accedir al prestatge de llibres de Tamkeen. Comprova la connexió i torna-ho a provar.
+deb3baad El llibre ha arribat malmès. Torna-ho a provar.
+451b9cbc Llegint el fitxer…
+245d2a43 No s'ha trobat text en aquest fitxer. Un llibre escanejat (imatges de pàgines) no té text per llegir.
+56a2285c Desant…
+3330dab0 Al Jazeera
+0a3a33ca BBC en àrab
+036338ff Al Arabiya
+ff61c5fd Sky News Arabia
+001f43b5 Asharq Al-Awsat
+103608b8 CNN en àrab
+9f4ff5e2 France 24
+a6fd6e9c Deutsche Welle
+eb602841 Asharq News
+70bd98b5 Independent Arabia
+81667ae6 Al-Quds Al-Arabi
+3d6e75cf Al-Ahram, Egipte
+367c7f69 Youm7, Egipte
+21612f28 Euronews
+7a924fa6 Hespress, Marroc
+8091b468 An-Nahar, Líban
+20a8df9b Espanya
+7f68cca5 BBC en castellà
+5bfed743 La televisió pública d'Espanya
+26ee2701 Amèrica
+354bf989 Argentina
+41937b20 Mèxic
+2f737399 Colòmbia
+36c57243 Perú
+ac92bda0 En castellà
+a95f1614 Més fàcil: notícies per a estudiants
+e3772ac4 França
+022e7a37 La televisió pública de França
+f5074266 Notícies del món
+cd6a7b87 Canadà
+5cb4c9d8 Bèlgica
+77dcd849 Suïssa
+7fd73ef4 Més fàcil: notícies de la NHK en japonès senzill
+20cf7d0e NHK, televisió pública
+863f0927 Yahoo! Notícies Japó
+bce35235 Asahi Shimbun
+e8faae07 Yomiuri Shimbun
+8d6de353 Mainichi Shimbun
+55708085 Nikkei
+7c3cb127 Sankei Shimbun
+144e3ab3 Tokyo Shimbun
+073ad8e8 Jiji Press
+86e150a1 Kyodo News
+86dd6e9b Notícies de la televisió TBS
+6ee232e9 Notícies de Nippon TV
+7f22332e BBC en japonès
+8201ad33 Toyo Keizai
+12fc9530 Notícies de tecnologia
+85da6b7f BBC en xinès
+1950c50c The New York Times
+72b431fc Lianhe Zaobao, Singapur
+16048e43 Xinhua, Xina
+323a3e4c Diari del Poble, Xina
+b3d6fa9f The Paper, Xina
+081ceae5 Caixin, Xina
+1b9f1261 Sina News, Xina
+5c0fde35 Tencent News, Xina
+9231d52d Jiemian, Xina
+7073d6a9 Financial Times
+1bea7de2 CNA, Taiwan (caràcters tradicionals)
+79da1ae8 UDN, Taiwan (caràcters tradicionals)
+7c820dda HK01, Hong Kong (caràcters tradicionals)
+b36012a4 BBC en rus
+98678be4 Meduza
+3bad3245 Kommersant
+c789d95b Interfax
+321e9515 TASS, agència de notícies estatal
+2b6cb4c7 RIA Novosti, agència de notícies estatal
+02f9372c Vedomosti
+7095fe00 Ràdio Llibertat
+179a6338 Novaya Gazeta Europa
+c51e7e5c En rus
+be550421 Current Time
+08c6ecb7 RAI, televisió pública
+c90d19b1 ANSA, agència de notícies
+1d24e371 Corriere della Sera
+a3f333fa la Repubblica
+30f19411 La Stampa
+a71b2dc8 Notícies d'economia
+5dc5bec4 Il Post
+e62a924b Sky TG24
+b63e0d40 Notícies del món en italià
+37e9fc15 En italià
+1855c2e3 Esports
+8bf87e8c Viquipèdia en italià
+d477dcd6 Abante, en tagal
+7033c2e2 Bombo Radyo
+5a063600 El diari en tagal de Philstar
+42e1ab8b Notícies en tagal del Manila Bulletin
+2a086357 El diari en tagal de l'Inquirer
+fec623de GMA News (bona part en anglès)
+96c7193d ABS-CBN News (bona part en anglès)
+6419d26a Remate, en tagal
+72df35d6 Pilipino Mirror, en tagal
+ec8ddbd3 Notícies de ràdio DZRH
+13771236 Radyo Pilipinas, ràdio pública
+1b78aa35 PTV, televisió pública
+7d7b8fe2 Viquipèdia en tagal
+7014f38a El web de notícies de Globo
+6e0b993a Folha de S.Paulo
+81596add O Estado de S. Paulo
+e0f6253e O Globo, Rio de Janeiro
+1c42950d BBC, en portuguès del Brasil
+d9c6b1fb Agência Brasil, agència pública de notícies
+12c8c2cd CNN Brasil
+ecae6445 Nexo, articles explicatius
+6e5c2fcb Política
+3df709c2 Ciència i curiositats
+e82e2b93 Deutsche Welle, en portuguès del Brasil
+c0fe72d8 Viquipèdia en portuguès
+02df8597 3Cat, mitjà públic català
+b07bcee1 Ara
+509d117d El Periódico, edició en català
+033e952f La Vanguardia, edició en català
+953219fd El Punt Avui
+bdcd5a6a Nació Digital
+a79fdf63 El Nacional
+ff6dd1ba RAC1 ràdio
+d46049a6 La televisió i ràdio de Barcelona
+abe62d2b Mitjà públic valencià
+f72932a0 Mitjà públic de les Illes Balears
+ee6ba5de Revista setmanal d'actualitat
+017db5d6 Viquipèdia en català
+5bd2b489 El diari en bisaia de SunStar, Cebu
+097174e3 El diari en bisaia de SunStar, Davao
+c236bde4 El diari en bisaia de SunStar, Cagayan de Oro
+99dad9d9 El diari en bisaia de The Freeman, Cebu
+04eddcb9 Notícies de ràdio RMN, Cebu
+1f87a792 Bombo Radyo, Cebu

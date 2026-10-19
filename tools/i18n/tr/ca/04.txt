@@ -1,0 +1,200 @@
+5a19606e L'àudio del que transcrius va al proveïdor que triïs ({0}), i enlloc més. No s'envia res més sobre tu ni sobre la teva biblioteca. La teva clau es guarda a {1} i, si fas servir la sincronització amb Google Drive, a la carpeta privada de l'app al teu propi Google Drive, perquè també la tinguin els teus altres dispositius. Mai no forma part d'una exportació de dades.
+c579b050 Qui escriu les transcripcions
+a1d0104d Un proveïdor al núvol
+574970e9 Pagues per la durada de l'àudio, no pel temps que tarda la feina: un episodi d'una hora costa el preu per hora; un reel d'un minut, una seixantena part. Els preus són de la llista de cada proveïdor.
+87bdb7fb Prova la clau
+4e78d0fc Àudio enviat avui des de {0}: <0>0 min</0> <1></1>
+f7798f2d ✓ En ús
+965e5018 Cal una clau
+0c6c4102 Opcional
+2ed411fd S'està fent servir la teva clau d'OpenAI de Definicions de paraules (o enganxa'n una altra)
+d53b60f1 Un altre model… <0>escriu-ne el nom (ha de donar una marca de temps per a cada paraula)</0>
+7949d689 Aquesta clau és per a {0}, així que ara el proveïdor és {1}. Desada: prem «Prova la clau» per comprovar-la.
+4fbb2df0 Aquesta clau és per a les definicions de paraules (la targeta de dalt), no per a la transcripció. Les claus de Groq comencen per gsk_.
+1a3342f6 Desada. Prem «Prova la clau» per comprovar-la.
+74f1f89a S'està fent servir la teva clau d'OpenAI de Definicions de paraules.
+0c54c107 enviï àudio a un servei de transcripció, que escriu el que es diu
+001e5d7f Enviant un segon de silenci…
+a32f2cd6 Ara «Transcriu» en aquest telèfon comença de seguida.
+0ed9fa3f Les noves transcripcions les escriurà
+b2a1a8a4 ✓ Funciona ({0} ha respost en {1} s). {2}
+3261da26 🎧 Pòdcast
+3bb91229 ▶ YouTube
+5c45e761 🎞 Reel d'Instagram
+d7738f4e 📄 Pàgina web
+a9c69e4f ♫ Spotify
+3861aa42 ♪ Apple Music
+1e4ac39a 🎬 IMDb
+b11a1339 ▶ Escolta
+76befb17 ▶ Mira
+a1f4b512 Aquesta targeta no diu de quin pòdcast és l'episodi.
+1e703a56 aquest pòdcast
+6a6e6ffd Vols afegir «{0}» a la teva biblioteca i obrir aquest episodi?
+e1d1d3bc S'ha afegit {0}. L'episodi apareixerà aquí quan arribi la seva llista d'episodis.
+418da3d9 «{0}» ja no és a la llista d'episodis del pòdcast {1}.
+5c710506 Això no és un enllaç a un reel.
+57667d74 No s'ha pogut portar aquest reel al reproductor de reels: {0}
+f04b3d68 Obre a Instagram
+d5bb49b0 Preparant aquest reel: quan estigui a punt, s'obrirà al reproductor de reels des de la pàgina Reels.
+06e6cd2c Això no és un enllaç web.
+4f7127fe Tamkeen no té cap reproductor per a aquesta mena de coses.
+5a572593 ▶ Reprodueix
+ada1ad51 Reproductor de música
+bf5d9ce2 ✕ Tanca
+f30f6d12 Obre a YouTube
+2e100cab Obre l'enllaç
+7968361b Obre a Tamkeen: {0}
+7c116b3c Obre ↗
+4c9933ea Estàs estudiant
+5a60098c Està estudiant
+bbefe019 Afegeix fins a {0} coses. Si deixes una barra buida, no es mostra.
+295fe8e3 ⓘ Què puc enganxar?
+005c0d1a Enllaços que funcionen aquí
+fcdb3486 Enganxa un enllaç en una barra i n'apareixeran el títol i la imatge. No es llegeix res més de l'enllaç.
+24a9a8bc La teva nota (opcional)
+2ea31105 p. ex. Aquest mes treballo la comprensió oral del llevantí
+22222442 Només ho veuen els teus amics, a la seva pestanya Amics.
+f12682cf Treu aquest
+4e729297 Enganxa un enllaç: YouTube, un reel, una pàgina web, Spotify, Apple Music, IMDb
+61cc55aa Afegeix
+b7f0ff52 Tria un episodi de pòdcast de la teva biblioteca
+835326ed Cerca els teus episodis pel títol…
+d9c2d84e No s'ha trobat cap episodi.
+403d3c13 Desat. Els teus amics ho veuran a la seva pestanya Amics.
+e9940534 El repàs d'avui com a tasca
+7e3312af El botó de la pestanya Repàs envia la resta del repàs d'avui, amb el temps que hauria de durar, a:
+9cea74c5 Google Tasks <0>(Google et demana permís el primer cop)</0>
+c001f24c Onyx <0>(obre Onyx, que l'encaixa al teu dia)</0>
+7a1e17bc Resolució de problemes
+9e3456c2 Altres causes habituals
+c0a6a091 Pàgina d'estat: {0} ↗
+f82142b3 El més probable
+4b4de4e9 Pàgina de claus: {0} ↗
+40ee915a Continua reproduint després d'una paraula tocada
+fdf4b1ff Quan sona una paraula tocada, es posa en pausa. Canvia-ho per continuar reproduint.
+fd838ae4 Quan sona una paraula tocada, continua reproduint. Canvia-ho per posar en pausa.
+dc76e9f0 arrel
+b90bc82b Probablement la transcripció ha entès malament aquesta paraula, així que la IA ha posat a la transcripció la paraula que es va dir.
+48625603 Probablement la transcripció ha entès malament aquesta paraula. La IA mostra la paraula que es va dir, però aquí la transcripció no es pot canviar.
+c432d63e Desfés: torna a posar el que deia la transcripció
+3d6eef62 Desfés la correcció
+a27b99cf Per què aquesta paraula és diferent?
+27d9ea3d Cercant…
+418a3e20 Cercant en context…
+ff94d192 Mira què vol dir aquesta paraula en aquesta frase: afegeix una clau d'un proveïdor d'IA a Configuració.
+d61d7fe2 Configura les definicions
+3386ce50 La IA està desactivada, així que les paraules s'expliquen amb el diccionari integrat de l'idioma {0:lower}. Encara no és en aquest dispositiu: baixa'l un cop i funcionarà sense connexió.
+395b22e4 Baixa el diccionari
+8b926874 Forma de diccionari
+80446347 Forma
+630df194 També
+445b99b1 Traducció de la frase
+86efdc55 Mostra l'explicació completa d'aquesta paraula
+4bab2d8f Més
+859533fe Torna a reproduir aquesta paraula
+44363ccb Paraula
+d331076e Reprodueix tota la frase
+1bb1f30e Frase
+ccfcc710 Continua reproduint des d'aquí
+2e026239 Continua
+499dc627 ✓ Desada
+d8dba702 ★ Desa
+a8a5b895 Desa aquesta paraula i busca un vídeo de YouTube on es digui
+9089cae1 Busca-la en un vídeo
+3f094ed6 Torna a preguntar
+58c330e9 No s'ha pogut desfer.
+a13e07aa La IA està desactivada (Configuració → Definicions de paraules → Sense IA), així que això no està disponible.
+3de9e752 Claude (Anthropic)
+f60dab43 Claude
+c572ccc8 Gemini (Google)
+ddba2c92 Gemini
+538dbdd6 el cost més baix dels models actuals; quota gratuïta
+2051afa5 model antic, el més barat de tots
+8f60529a ChatGPT (OpenAI)
+b3a3b36d Grok (xAI)
+3096a55a Grok
+81970e30 el cost més baix dels models generals
+e3de5ab0 Desactivat
+a124947c Baix
+d404968e Mitjà
+b1a5954a Alt
+44cc4b12 Aquest model sempre raona una mica: Desactivat vol dir tan poc com pugui.
+77a71a4f Proveïdor desconegut: {0}
+22df2c35 El model s'ha negat a definir aquesta paraula.
+49be65b2 La resposta ha quedat tallada.
+221ce687 Resposta buida.
+a37ce5d8 Sense resposta ({0}).
+45940469 {0} no està disponible al teu país o regió.
+eff674e3 No s'ha pogut connectar amb {0}. Comprova la connexió a internet.
+7ca4cbae {0} ha rebutjat la clau d'API. El més probable és que hagi caducat, així que segurament en necessites una de nova.
+51596be7 {0} no reconeix aquest nom de model. Revisa'l a Configuració.{1}
+a7141cb1 S'ha arribat al límit d'ús o a la quota ({0}). Torna-ho a provar d'aquí a una estona o revisa la facturació.
+ad279b44 {0} diu que el compte no té saldo. Afegeix-ne una mica a la seva pàgina Billing.
+246000e0 {0} té problemes ara mateix (HTTP {1}). Torna-ho a provar.
+eaf5c51f Error: {0} (HTTP {1}){2}
+ef420a27 El proveïdor ha retornat una resposta il·legible.
+bbb59df3 La resposta no era JSON vàlid. Torna-ho a provar o tria un altre model.
+bfb83732 No hi ha cap clau d'API. Afegeix-ne una a Configuració → Definicions de paraules.
+6eb49351 ✓ Obert a Tamkeen
+84f89653 Toca l'enllaç a YouTube d'un resultat per obrir aquell moment a Tamkeen
+3575edb8 Buscant la paraula al primer vídeo…
+fe2cb66b Obtenint els resultats…
+dfebdc6c ✓ Desat a Tamkeen
+adb1dce3 No s'han pogut fer servir aquests resultats. Toca'n un per provar-lo.
+ece4c60d No s'han pogut fer servir aquests resultats.
+58103f1e Es mostren vídeos amb subtítols en la llengua que aprens…
+42a0c143 Respon tu mateix la comprovació de Filmot. Després Tamkeen agafa el primer vídeo tot sol.
+f3f91e1e Portuguès (Brasil)
+80559b82 escrita a mà
+0c88254c Trobada per primer cop a: {0}{1}
+3d7fa970 S'han desat aquest vídeo i la seva frase amb «{0}».
+4d91deca Primer prem «Busca-la en un vídeo» en una paraula.
+24ed8380 Filmot no ha trobat cap vídeo per a «{0}».
+441d5e0d «{0}» no és als subtítols dels primers vídeos ({1}). Toca un altre resultat per provar-lo.
+a3fb746b «{0}» no és als subtítols d'aquest vídeo, així que no s'hi ha desat res. Prova un altre resultat.
+3d1f5290 No s'ha pogut desar aquest vídeo amb «{0}»: {1}
+2e1adabb Batalles
+0dca7b14 Carregant les teves paraules…
+51954ab8 <0>Les batalles es desbloquegen amb {0} paraules desades.</0> En tens {1}.
+7ec3a887 Una batalla és un repàs del teu propi vocabulari: cada moviment que fas depèn d'una pregunta sobre una de les teves paraules desades, i el teu rival respon sobre les seves. Calen unes {0} paraules perquè les preguntes no es repeteixin. Desa paraules amb ★ mentre escoltes i llegeixes.
+685356fd Tens {0} paraules desades, però només {1} tenen un significat escrit. Les preguntes necessiten significats: obre Vocabulari i omple'n alguns, o desa paraules des de la finestra de definició (t'omple el significat).
+4e3989a7 El teu ou encara no s'ha obert. Arriba a la meta d'avui perquè s'obri i torna per combatre.
+5d1b6d21 {0} % d'encerts últimament
+3400a4a4 Per repassar: {0}
+025cfea0 {0} ben sabudes
+d1e6e466 Habilitat {0}
+967af30c Totes les criatures lluiten al mateix nivell. Guanyes si saps les teves paraules: si l'encertes, el moviment impacta; si respons en menys de {0} segons, es va formant un combo (×1,2, ×1,5, ×2).
+b03b44a5 Trobada salvatge
+0f5c66fe Les teves criatures contra criatures salvatges. Només aquí la seva edat dona un petit avantatge a les teves.
+81b0d13f Duel de lloguer
+5a55675f Tria tres de les sis criatures compartides d'aquesta setmana; el teu rival es queda la resta. Compta per a la teva puntuació d'habilitat.
+c7218f9d Per desafiar l'equip d'un amic, obre <0>Amics</0> al menú del joc. Norma d'aquesta setmana per a les batalles entre amics: <1>{0}</1>. {1}
+04e2e05f Les batalles es desbloquegen amb {0} paraules desades. En tens {1}.
+f7c24281 Les teves paraules necessiten significats per poder-les preguntar. Omple'n alguns a la pàgina Vocabulari.
+6781a054 Cap de les teves criatures no compleix la norma d'aquesta setmana ({0}).
+914efb3d {0} no té cap criatura que compleixi la norma d'aquesta setmana ({1}).
+57b02151 Tria'n tres. El teu rival lluita amb les altres tres.
+d7fb7f72 Comença el duel
+dca34e30 Rival
+e4fe0fce Insígnia aconseguida: {0}
+3184f22c Surt de la batalla
+905cb326 Tu
+c4433e3c Salvatge
+5e6db161 {0} de {1} encara drets
+3bb10c38 {0} ESCLAT ×{1}
+0d36b10d La teva criatura
+1e2a3716 La criatura salvatge
+09503c9a La criatura de {0}
+9fbc3550 La criatura del teu rival
+afc012c1 Un cop de refilada.
+535531a9 Un cop esclatant!
+aab84209 És fort contra aquest element!
+0e909374 És feble contra aquest element.
+eb95e537 Protegit.
+b8bb00f9 {0} ha fet servir {1}.{2}{3}{4}
+936d5b0e {0} ha intentat {1}, però no li queden curacions.
+934b913d +{0} PS.
+cd86b7ea {0} ha fet servir {1}.{2}
+53849ba1 {0} queda fora de combat.
+565d06e6 Entra {0}.
+b9286298 Poder {0}

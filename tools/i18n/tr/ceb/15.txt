@@ -1,0 +1,200 @@
+795b8b49 Sayop sa network: {0}: {1}
+d5f6613b Wala ang video sa imong Google Drive.
+399e0f29 Dili maka-stream gikan sa Google Drive: {0}
+c602022a Kini nga video mag-play gikan sa YouTube; walay kopya sa tingog niini nga gitipigan sa app.
+c2c60ae0 Wala pa mahuman ang pag-upload niini nga video gikan sa laing device.
+0b0ce373 Wala pay transcript kini nga episode.
+23eebf4d Ang format kinahanglan txt, srt o vtt.
+d88f9041 Dili gitugotan.
+5591ee57 Dili kana tamkeen://watch?v=… nga link.
+1da00bdb Dili kana web address.
+7200d5dc Dili hulagway sa Instagram.
+812b0382 Dili makuha ang hulagway.
+f0cbe469 Walay hulagway.
+a52aaab5 Gikansela ang pag-sign in
+ef3fbb3e Gikansela o gibalibaran ang Google sign-in.
+41d8fe44 Napakyas ang pag-sign in
+0f824e05 Nag-sync isip {0}.
+2f18d2c1 Mag-sign in una gamit ang Google.
+c4f7c260 Wala mailhi nga gidak-on sa model.
+066f2c8e Wala mailhi nga pinulongan.
+8b90ee48 Dili maablihan ang folder: {0}
+cf2c5c85 Wala makit-i ang backup.
+3a3aadb1 Napakyas ang pag-import: {0}
+6aeffa09 Font nga Noto Naskh Arabic
+6f289ed9 Mga listahan sa komon nga pulong (gikan sa wordfreq)
+3ee00536 Pamaagi sa CAMeL Tools analyzer; mga diksyonaryo sa Arabiko (opsyonal nga download)
+cb9ed3a8 CATT vowel model sa Arabiko, Abjad AI (opsyonal nga download)
+2d7a6fa1 Mga table sa pulong sa Espanyol, Pranses, Italyano ug Iningles (opsyonal nga download)
+026482d9 CMU Pronouncing Dictionary: paglitok sa US sa table sa pulong sa Iningles
+08a5e4bd Table sa pulong sa Ruso uban sa stress, gikan sa OpenRussian.org (opsyonal nga download)
+f88f293f Ang IPADIC nga diksyonaryo ug kuromoji: mga pulong sa Hinapon ug furigana (opsyonal nga download)
+a3451771 CC-CEDICT ug wordfreq: mga pulong sa Insik ug pinyin (opsyonal nga download)
+a385bf96 Wiktionary pinaagi sa Wiktextract: mga kahulogan sa pulong para sa Walay AI (opsyonal nga download)
+81e74ccd Ang libre nga estante sa libro: Project Gutenberg, Wikisource, Aozora Bunko (opsyonal nga download)
+8db0aa84 Public domain
+7ba12057 NVIDIA cuBLAS / cuDNN (opsyonal nga download)
+7d090ad8 Wala makit-i ang license.
+7c1e44a9 Walay audio kini nga pulong.
+faecd643 Ang audio niini nga pulong wala niini nga computer.
+2ccc65dd Kana nga audio clip walay sulod o dako ra kaayo.
+3e4be3a5 Dili magamit ang audio niini nga pulong.
+a901ac03 Ang format kinahanglan csv, anki o apkg.
+7b61342e {0} ka card nga i-review karon
+857dc2df Walay audio stream ang file.
+818903cb Dili mabasa ang audio file: {0}
+23230497 Dili ma-decode ang audio: {0}
+7f269f16 Walay sulod ang audio file o dili kini ma-decode.
+fe34abe1 Dili mahimo ang compressed nga kopya sa audio: {0}
+07431d75 Dili mabasa kana nga bahin sa audio.
+1fb3bc7b Dili maputol ang audio clip: {0}
+5d9b4909 Napakyas ang pag-load sa audio libraries (FFmpeg pinaagi sa PyAV): {0} I-install pag-usab ang app. Kung nagpadagan ka gikan sa source, padagana: pip install av
+f1e6281f Kini nga file dili backup sa Tamkeen.
+8e11cc63 Guba ang database sa backup.
+d1198df0 Mga libro nga basahon matag page nga ma-click ang mga pulong.
+d29882bc Dili maabot ang podcast directory sa Apple ({0}).
+cac34089 Mitubag og sayop ang podcast directory sa Apple ({0}).
+91243238 Ang podcast directory sa Apple nagpadala og tubag nga dili mabasa sa app.
+b8d1317b Ang imong adlaw-adlaw nga mga total gitipigan dinhi tali sa mga sesyon sa Anki.
+23b6910c Wala masugdi ang lokal nga server. Tan-awa ang log sa folder sa data.
+aad067b1 Nahutdan sa oras sa pagsugod sa lokal nga server.
+d6d720ba Ang pagpangita ra nga giablihan sa “Pangitaa sa video” ang makahimo niana.
+a6f9a4d1 Dili magamit kining mga resulta ({0}).
+6a992b4f Ang mga video maablihan ra gikan sa youtube.com.
+6848287a Dili maablihan kini nga video ({0}).
+58551d59 Ang mga channel ma-follow ra gikan sa youtube.com.
+dbe38de1 Dili mahibaw-an kung unsang channel kini.
+ab907e3e Dili ma-follow kini nga channel ({0}).
+9a10260e Dili ma-save kini nga page.
+47744266 Wala ma-save kining site ({0}).
+97f9e893 Dili mabasa kini nga page.
+23fb4202 Wala ma-import kining page ({0}).
+3a1427ae Web Browser
+48dbcf04 Dili maablihan ang browser window ({0}).
+1d82f236 Dili maablihan ang YouTube window ({0}).
+d70a665c Napakyas ang pag-download: HTTP {0} gikan sa {1}.
+c4aaa62e Gikansela ang pag-download.
+d607cd9a Sayop sa network samtang nag-download: {0}: {1}
+c829479b Dili kompleto ang download ({0} sa {1} bytes). Sulayi pag-usab aron ipadayon.
+f3ba8566 Dili tugma ang checksum: guba ang na-download nga file. Palihug sulayi pag-usab.
+990411fc Daw dili kini RSS feed sa podcast
+f5b576f8 Dili maabot ang feed: {0}: {1}
+7141db00 Mag-sign in una gamit ang Google (Settings → I-sync sa Google Drive).
+819dc7ab Dili maabot ang Google Tasks ({0}). Susiha ang imong koneksyon.
+43d1089a wala pa magamit
+80e1cb7a Gibalibaran sa Google Tasks ang task ({0}).
+6c8a35f3 Daw wala ma-install ang Onyx niini nga computer.
+215c16a3 Walay {0} nga build sa {1} {2} sa PyPI.
+ba15ae5b Nahuman ang download apan kulang ang pipila ka CUDA libraries.
+f376de83 Ang mga download sa GPU acceleration magamit ra sa Windows ug Linux (x86-64).
+3ad92dba NVIDIA GPU
+1f4b65b6 Nakit-an ang Apple Silicon. Ang {0} modagan sa GPU sa Mac gamit ang MLX.
+09fa7089 Nakit-an ang {0}{1}.
+a800bf13 Ang {0} {1} paspas nga modagan sa GPU.
+1be9657b {0} I-install ang GPU acceleration (sa ubos) ug ang {1} modagan og daghang beses nga mas paspas kaysa sa CPU.
+be2def2e Walay suportado nga GPU nga nakit-an, busa ang transcript modagan sa CPU. Ang {0} balanse sa katukma ug kapaspas.
+6bf5c220 nahutdan sa memorya
+fbaa5c49 Nahutdan sa memorya. Sulayi ang mas gamay nga model sa Settings.
+dc1a529b Gi-upload pa ang video gikan sa laing device. Sulayi pag-usab sa makadiyot.
+2e99c4f9 Wala ma-download ang mga diksyonaryo ({0}). Susiha ang imong koneksyon ug sulayi pag-usab.
+e3ec8c21 Dili gitugotan ang mga cross-origin nga hangyo.
+4c3a7b2d Wala gilauman nga sayop: {0}
+a6e3c8a8 Dili tugma ang checksum sa {0}. Palihug sulayi pag-usab.
+63eb3e5f Wala mailhi nga gidak-on sa model: {0}
+82e7395c Gi-download na ang model nga {0}.
+906cd6be Kana nga address dili web page (daw file kini).
+5f6cc878 Dili maabot kana nga site ({0}).
+a764c39c Mga web page nga imong gi-import aron basahon nga ma-click ang mga pulong.
+ab650a1a Turko
+1ab65965 Persiano
+412e3190 Urdu
+c9e6b253 Hindi
+da91388c Aleman
+23882c57 Portuges
+dec66c5b Koreano
+2339b8ad Indonesian
+334a85f1 Olandes
+08f0c0cf Malay
+4d3bb51e Javanese
+1d6b8a69 Bietnamis
+c1439807 Lao
+0726b71e laing pinulongan ({0})
+28cd3560 Daw dili kana Instagram username.
+36473f9c gisulti sa {0}, dili sa {1}
+697db47b halos walay sinultihan (musika o kahilom)
+ea4a5ce6 dili sa {0}
+03f8025a Mga Instagram reel nga nakit-an para nimo. Mag-play kini gikan sa Instagram; ang mga pulong gisulat sa imong computer.
+39bc1b6f Ang pagkuha og mga reel mogana sa na-install nga computer app (kinahanglan niini ang kaugalingong Instagram window).
+b09c2b91 Gikuha na ang mga reel.
+7e4f80e0 Ang pagbasa sa imong mga save mogana sa na-install nga computer app (kinahanglan niini ang kaugalingong Instagram window).
+c937ec62 Busy sa pagkuha og mga reel. Sulayi pag-usab kung nahuman na kana.
+a74514e5 Gisirado ang Instagram window.
+a502191a Instagram · {0}
+5fedaebb Mag-sign in sa Instagram sa window nga bag-o lang naablihan. Kausa ra kini kinahanglan buhaton.
+e77c6717 Walay naka-sign in sa Instagram, busa {0}.
+8599b104 Naka-sign in sa Facebook. Gidala kana ngadto sa Instagram…
+a5272ae2 Kana nga Facebook account walay Instagram account nga naka-link niini. Mag-sign in gamit ang Instagram username ug password sa window hinuon.
+1094228d Dili mahibaw-an kung unsang Instagram account ang naka-sign in. Sulayi pag-usab.
+dd259648 Dili ihatag sa Instagram ang video ({0}).
+2a2f389b walay tingog
+f6abd17f (mag-play kung naka-sign in sa Instagram sa phone)
+005d8b21 Gitan-aw ang imong mga save sa Instagram… {0} ka collection na hangtod karon. (Ang Hunonga motipig sa mga nakit-an na.)
+5b6e17ab dili mabasa ang imong mga save
+d859b103 Gitan-aw ang imong gi-save nga mga collection…
+d8c25947 Napakyas ang pagbasa sa imong mga save ({0}: {1}).
+5207e708 Gibasa ang imong gi-save nga mga post ({0} sa {1})…
+b3cd2701 Napakyas ang pagbasa niana nga collection ({0}: {1}).
+e0022c0d walay reel nga nakuha
+cbf2cd0c Gipaminawan ang reel {0} (natipigan ang {1} sa {2})…
+d38405ee {0} ka random nga reel sa {1} ang andam ({3} ang gisusi).
+a8aa31cd Walay reel sa {0} nga natipigan karon ({1} ang gisusi). Sulayi pag-usab: mausab ang mga pulong sa pagpangita matag higayon.
+dc90c318 Mo-sync kini sa imong phone uban sa tanan.
+44244e4a Napakyas ang pagkuha og mga reel ({0}: {1}).
+dd51e085 Gipaminawan ang reel {0} sa {1}…
+251eda10 {0} sa {1} ang andam na para sa imong phone.
+32ece972 {0} ang dili magamit (tan-awa sa ubos).
+42e17d02 Napakyas ang pagkuha niana nga mga reel ({0}: {1}).
+37c936a3 Gibasa ang imong gi-save nga mga post…
+1e756cd5 Walay gi-save nga post nga nakit-an didto. Pag-save una og pipila ka reel sa Instagram, o pili og laing collection.
+bec2e4e2 Gitan-aw kung unsa ang popular sa {0} ({1})…
+13bad01a Gibasa ang mga reel ni @{0}…
+234d7e5e Walay bag-ong reel nga nakit-an. Pagdugang og mga creator, o pilia ang “Popular” o “Sagol sa duha”.
+52a16bfd Walay bag-o didto: ang matag video sa maong mga save nasulayan na.
+d7b1a9ec Walay bag-ong reel nga nakit-an karon. Sulayi pag-usab unya.
+8f45b7fa {0} ka reel ang andam ({2} ang gisusi). Mo-sync kini sa imong phone uban sa tanan.
+a804202f Na-reset na ang Tamkeen. Mag-sign in o humana ang unang mga screen aron mobalik ang imong library.
+81e5939e Naay gi-transcribe pa. Hulata nga mahuman kini, o hunonga kini, dayon i-reset.
+b8603b5b Dili una ma-save ang imong library sa Google Drive, busa walay gi-reset ({0}).
+d61a7932 Gisalikway sa Google Drive ang pag-sign in.
+a669d081 Napakyas ang pag-download sa Google Drive ({0}).
+537a418e Napakyas ang pag-upload sa Google Drive ({0}): {1}
+ca818b14 Ang Google sign-in wala ma-configure niini nga build.
+a3edee6d Kini nga sign-in link na-expire na o nagamit na. Palihug sulayi pag-usab gikan sa app.
+00ace5cc Napakyas ang Google sign-in: {0}
+dd003c52 Wala mohatag ang Google og refresh token. Tangtanga ang access sa app sa myaccount.google.com/permissions ug mag-sign in pag-usab.
+5ef0ec78 Wala gihatag ang access sa Drive. Mag-sign in pag-usab ug tugoti ang app nga motipig sa data niini.
+946a2345 Wala naka-sign in sa Google.
+1009b96e Na-expire na ang imong Google sign-in. Palihug mag-sign in pag-usab.
+e0d7a3c0 Mag-sign in una gamit ang Google ubos sa “I-sync sa Google Drive”.
+bd3033ca Na-expire na ang imong Google sign-in. Mag-sign out ug mag-sign in pag-usab ubos sa “I-sync sa Google Drive”.
+9c8459c0 Wala gikumpirma sa Google ang imong pagkatawo. Mag-sign out ug mag-sign in pag-usab ubos sa “I-sync sa Google Drive”.
+fed131ce Mag-sign in gamit ang Google (Settings) aron matan-aw ang mga video nga gitipigan sa Drive.
+06ac7931 Kini nga video gitipigan sa Google Drive: mag-sign in gamit ang Google sa Settings aron ma-transcribe kini.
+2d689417 Wala ma-download ang vowel model ({0}). Susiha ang imong koneksyon ug sulayi pag-usab.
+da48fac9 Wala pa ma-download ang vowel model.
+f61d414a Gisalikway sa {0} ang API key. Lagmit na-expire na kini, busa basin kinahanglan ka og bag-o (Settings → Cloud nga transcript).
+3666049b Wala mailhi sa {0} ang gipili nga model. Ibalik kini sa girekomenda sa Settings.
+97c0918a Dili kini ma-transcribe sa {0} (sayop {1})
+53ab1f8a Dili maabot ang {0} ({1}). Susiha ang imong koneksyon sa internet.
+a1ceea0b Matod sa {0}, naabot na sa imong account ang limit niini sa pagkakaron (gipahulat og mga {1} ka minuto). Ang libre nga mga account makapadala ra og limitado nga audio matag oras ug matag adlaw. Pindota ang Sulayi pag-usab unya.
+93cf51f7 Kanunay gihangyo sa {0} nga mohinay ang app.
+a6fc4045 Transcriber
+c37da7ca Wala pay napili nga model sa transcript. Ablihi ang Settings → Model aron mag-download og usa, o i-on didto ang cloud nga transcript.
+59c4123b Ang model nga {0} wala pa ma-download. Ablihi ang Settings → Model aron i-download kini.
+6bc27ac6 Dili maabot ang GitHub: {0}
+d6d5bb0f Wala pay release nga napatik.
+57a18645 Mibalik ang GitHub og HTTP {0}.
+88b0d44f Kini nga kopya sa Tamkeen dili maka-update sa kaugalingon. I-download ang bag-ong bersyon gikan sa GitHub.
+84393929 Naa na nimo ang pinakabag-ong bersyon ({0}).
+ae41addd Kini nga release walay installer para niini nga computer.
+b953469f Ang download dili tugma sa release file. Palihug sulayi pag-usab.

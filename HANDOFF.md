@@ -2939,3 +2939,50 @@ to-do" (`components/tasktarget.js`, setting `review_task_target` "google" | "ony
 - **Onyx:** `onyx://task?title&minutes&due&notes&id&from=tamkeen&n=<ms>` (contract from Onyx's chat, Onyx 1.43.0:
   opens Magic add for that day; same id updates; n makes each Android send new). Computer: POST /api/open-onyx
   (os.startfile, onyx:// only); phone/web: location.href. Not tried against a real Onyx install from here.
+
+## Four more languages: Brazilian Portuguese (pt), Catalan (ca), Bisaya/Cebuano (ceb), Thai (th) (2026-10-18; not released yet)
+Owner asked for Bisaya and Catalan "with the exact same attention to detail and media curation depth", then Brazilian
+Portuguese and Thai. Everything a language has, these have:
+- **Core**: web/js/languages.js (ceb name "Bisaya (Cebuano)", native Binisaya; th `unspaced: true`, told by Thai letters;
+  pt/ca/ceb in LATIN_LANGUAGES), app/languages.py, definer.js TEACH (ceb: root + affixes/focus like Tagalog; th: RTGS
+  romanization with tones + IPA, compounds as "root"), i18n.js UI_LANGUAGES + SPEAK_QUESTION, app.css Thai fonts.
+- **Whisper doesn't know Cebuano**: `WHISPER_CODES = {ceb: "tl"}` (app/languages.py `whisper_code`, web/js/stt.js
+  `whisperCode`/`heardAs`) + a Cebuano INITIAL_PROMPT (also mobile transcribe-service PROMPTS) steering it to Bisaya
+  spelling. Reels: Bisaya heard as "tl" counts as Bisaya (app/reels.py spoken_language/other_language; reels-phone).
+  NOT tried on real Bisaya audio — expect weaker transcripts than other languages.
+- **Podcast charts** (web/js/trending.js): pt Brazil, th Thailand, ca Spain **plus Spain's 19 category charts**
+  (CATEGORY_CHARTS; ~110 real Catalan shows ranked by listeners: Crims, La competència, La Sotana…), ceb: NO Bisaya
+  podcast is in Apple's PH top 200/19 category charts or Spotify's PH top 100 (checked 2026-10-18), so
+  web/js/podcast-picks.js (made by **tools/build_podcast_picks.mjs**) lists the 35 Bisaya podcasts with public feeds,
+  most-rated first (Spotify ratings read by hand from Spotify pages + Apple ratings in 10 stores fetched by the tool):
+  Unsa'y Cheka Sa Parlor 298, Crosseyed 48, Dili Ni Advice 40, Barok and Takya 30… Discover says so ("No podcast in X is
+  in the charts, so these are the most-rated ones"). inLanguage now tells Catalan from Spanish/French and Bisaya from
+  Tagalog (OWN words+letters, RIVALS, OTHER_LITTLE_WORDS for de/nl/sv/no). Spotify-only Bisaya hits (Batang Bisaya,
+  RMN's Bisayang Sugilanon) have no feed, so can't be added.
+- **YouTube** START/COUNTRIES (pt BR/PT/AO/MZ "não"; ca ES/AD/FR "amb"; ceb PH "kaayo" hl fil; th TH "ที่"), Filmot
+  codes (pt-BR), news sites (all checked live; Bisaya has only 10 real Bisaya-language sites — test allows 10),
+  reel search words (app/reels.py + reels-phone.js).
+- **Word tables**: pt/ca from lemmatization-lists + wordfreq (tools/build_lemmas.py; romance.js now does pt hyphen
+  clitics incl. fazê-lo→fazer, dir-lhe-ei→dizer, and ca elision + clitics dona-m'ho→donar). ceb: **web/js/lexicon/cebuano.js**
+  root finder (mo-/mi-/nag-/gi-/-on/-an/paN-/syncope imnon→inom, sudlan→sulod; verb prefixes only accepted when the
+  root shows ≥2 verb forms in the list; KEEP set for words never taken apart) checked against docs/lexicon/ceb-roots.json.gz
+  = 60k commonest words counted from OPUS NLLB Cebuano web text (Hiligaynon/Waray/JW lines filtered; scratch counter,
+  output in build_lemmas `ceb=path`). Thai needs no table (Intl.Segmenter splits it).
+- **No AI meanings**: Wiktionary for all four (ceb 14k, th 16.5k, ca 31k+151k forms, pt 72k+326k forms) plus a Bisaya
+  fallback like Arabic's CAMeL: **tools/build_cebuano_glosses.py** parses Wolff's *Dictionary of Cebuano Visayan* (PG
+  #40074, public domain in the US) → ceb-wolff-meanings.json.gz ("mean-cebw", 17k words). Bisaya keys fold o→u, e→i
+  and drop stress marks (build_meanings.key / meaningdata.matchKey) so Wolff's 3-vowel spelling matches modern; shown
+  forms modernised (káun→káon). cebuanoVariants tries the linker off (akong→ako, maoy→mao). The popup names the
+  dictionary used (dictionaryName). ~74% of the 3000 commonest Bisaya words get a meaning.
+- **Common-word lists**: pt/ca wordfreq; th = PyThaiNLP tnc_freq (CC0); ceb = the NLLB counts minus English/brands
+  (make_wordlists.py `th=path ceb=path`).
+- **Books** (tools/build_books.py): pt 11 (Machado, Alencar, Azevedo, Lima Barreto…), ca 12 (Oller, Bertrana, Rusiñol,
+  Verdaguer's Canigó/L'Atlàntida, Guimerà…; old pre-Fabra spelling in some), th 7 from th.wikisource (Damrong's Nithan
+  Boran Khadi, Aesop, Sunthorn Phu's two nirat, Lilit Taleng Phai, Rachathirat, Sam Kok vol 1), ceb **2** (Larawan,
+  Wala'y Igsoon: all the clean PD Bisaya text found; Archive.org scans are garbled; eBible's Bisaya Bibles aren't PD).
+  New builder features: a source may be a list of pages; Thai plain tables read row by row (poems); "## " and
+  ALL-CAPS-line headings (ca/ceb/pt only).
+- **Interface translations**: strings.json re-extracted (3012 strings, 358 new). Translated in parallel sessions
+  i18n-catalan / i18n-bisaya / i18n-portuguese / i18n-thai (tr/<code>/) and i18n-catchup (tr/<old code>/23-*.txt).
+- Licences: licenses/cebuano-sources.txt, licenses/pythainlp.txt, lemmatization-lists.txt updated, system.py list.
+- Data files must be pushed (docs/lexicon, docs/books) before installed apps can download them.

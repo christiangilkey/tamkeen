@@ -1,0 +1,200 @@
+ada2e9e9 Entrar
+3a1f994d Populares em {0:lower} agora
+5b59e6e1 Comédia primeiro. O app vê o que está fazendo sucesso no Instagram a cada vez, então esta lista muda.
+80c15bea Só meus criadores
+667e1e2d Só os criadores que você marcou abaixo.
+bc6fef4b Uma mistura dos dois
+dc9dcf7a Seus criadores primeiro, completados com os populares.
+75c864af Dos meus salvos do Instagram
+315194ad Reels que você mesmo salvou no Instagram: uma das suas coleções ou tudo o que você salvou.
+5e405fb8 Vídeos curtos do Instagram no idioma que você estuda, com todas as palavras clicáveis. Eles tocam do próprio Instagram; só as palavras são guardadas.
+17a23503 Seus reels
+219d2911 ▶ Assistir de novo desde o começo
+65ec8d5b ▶ Continuar assistindo
+f98f3020 Nenhum reel ainda. Cole o link de um reel acima ou adicione reels no app do Tamkeen: eles chegam aqui depois de uma sincronização.
+b2e08e21 Nenhum reel ainda. Toque em “Obter reels aleatórios” acima ou escolha uma das suas coleções do Instagram e marque os reels que você quer.
+e2f3a685 Nenhum reel ainda. Eles são buscados no seu computador: abra o Tamkeen lá, vá em Biblioteca → Reels e toque em “Obter 10 reels”. Eles chegam aqui na próxima vez que os dois sincronizarem.
+78706e7f Nenhum reel ainda. Escolha acima quais reels você quer e toque em “Obter reels”, ou toque em “Obter reels aleatórios”.
+36fc5604 · assistido
+76a74c58 · toca quando você está conectado ao Instagram
+9ddd647f Os reels novos são buscados e transcritos pelo Tamkeen no seu computador e depois sincronizados com este celular. Para escolher reels dos seus salvos do Instagram aqui mesmo, ative a <0>Transcrição na nuvem nas Configurações</0>.
+14c3f907 Obter reels funciona no app Tamkeen instalado no seu computador (ele precisa da própria janela do Instagram).
+d032a9c7 Quais reels?
+2e78f26e Reels dos meus salvos do Instagram
+52b26d3d {0} de {1} escolhidos
+b93e9b2b Primeiro escolha um modelo de transcrição (Configurações → Modelo): os reels são ouvidos com ele.
+e51052d8 Meus criadores
+d204d5d4 Nome de usuário do Instagram, ex.: @criador
+2fbcfcfd Populares em {0:lower} agora (toque em + para seguir um):
+15dcfe7b 1. Escolha uma coleção
+a6a2fd45 Quantos?
+c18657e6 Um a menos
+2fe07a5f Quantos reels obter
+8c87ebbd Um a mais
+b2272a97 Reels em {0:lower} sobre todo tipo de assunto do dia a dia, encontrados buscando no Instagram algumas palavras escolhidas ao acaso. Diferentes a cada vez.
+9e253470 Parar
+9648ea78 Entrar no Instagram
+1b8fb836 Remover dos meus criadores
+d70b1d33 Adicione aqui criadores de que você gosta, ou toque em + em um dos populares abaixo.
+29086cd7 Adicionar @{0} aos meus criadores
+e287a6e3 Obtendo reels…
+497fe891 Obter {0} reel(s)
+c3f837df Obter {0} reel(s) aleatório(s) em {1:lower}
+4b5b4888 Primeiro ative a <0>Transcrição na nuvem nas Configurações</0>: é ela que ouve o reel e escreve as palavras.
+c5c47401 Adicionar um reel
+4bb4efb6 Cole o link de um reel do Instagram
+0dfb37d0 Link do reel do Instagram
+0c2f86c7 Na web, você pode assistir aos seus reels e adicionar reels públicos pelo link. Escolher reels dos seus salvos do Instagram, reels aleatórios e reels com uma música da biblioteca musical do Instagram exige o app Tamkeen no seu celular ou computador. Os reels adicionados lá aparecem aqui depois de uma sincronização.
+5fec38ec Escolha uma coleção…
+c3b69e66 Escolher…
+bfd3da0c Suas coleções do Instagram
+203932c8 ↻ Procurar de novo
+2149c492 Encontrar minhas coleções
+352c41bd Procurar nos seus salvos do Instagram{0} as suas coleções
+aa91c71a tudo o que você salvou
+3c8b4a44 Escolha uma das suas coleções na lista acima.
+7f839429 Toque em “Encontrar minhas coleções” para preencher a lista com os nomes das suas coleções do Instagram e depois escolha uma.
+1ab4d204 {0} O Tamkeen a lê no Instagram e lista os reels dela aqui, para você marcar os que quiser.
+33354de6 Obter os reels marcados
+71af94b7 Enviar os reels marcados para o meu celular
+4be1d403 2. Marque os reels que você quer
+d2e33965 em “{0}” ({1})
+64e93d4f {0} reel(s)
+13b7bfca Trabalhando…
+630b0a7c Obter {0}
+828b49fa Enviar {0} para o meu celular
+4ad6fa58 Já está nos seus reels
+5e0330cb Não é um vídeo
+ae455286 Não pode ser usado: {0}
+22bb6297 Ainda não há nada salvo aí.
+3345dadd O vídeo de cada reel é enviado uma vez para o seu provedor de transcrição na nuvem, que escreve as palavras dele; uma fração de centavo por reel.
+deca26e7 Seus próprios salvos nunca são descartados por causa do idioma, então os reels que misturam {0:lower} com inglês também são mantidos. Um reel só fica de fora se não tiver nenhuma palavra; a lista abaixo diz quais. Alguns reels (principalmente os que têm uma música da biblioteca musical do Instagram) só tocam para quem está conectado ao Instagram: esses também são mantidos e tocam no seu celular depois que você entrar no Instagram lá.{1}
+b70ce367 Voltar para a lista
+d659e007 Reel anterior
+e9aa01dc Próximo reel
+ca3b15db Toque em uma palavra para ver o que ela significa.
+27c57ad8 Em que ponto do reel
+de6afdb5 Voltar 5 segundos
+8cfc8cf6 Reproduzir / pausar
+2c23a430 Avançar 5 segundos
+5721bbef Instagram
+8fe4352c Carregando as palavras…
+6f95e311 As palavras deste reel ainda não estão neste dispositivo. Sincronize e tente de novo.
+2fc1ecf6 Os reels tocam no seu celular, no app Tamkeen.
+881d280e Aqui você pode ler as palavras deste reel e consultá-las.
+c3b3a0e0 Abrir este reel no Instagram ↗
+a7fc9779 O Instagram não toca mais esse reel (removido, privado ou com restrição de idade). Pulando.
+f4f2fa9d O Instagram não toca nenhum destes reels agora.
+34d035e1 O Instagram não toca mais este reel: ele pode ter sido removido, ficado privado ou ter restrição de idade.
+7d146544 Revise seu vocabulário
+7585f238 Progresso da sessão
+92197443 Desfazer a última resposta (Z)
+6cb73375 Desfazer a última resposta
+ddcdbf32 Configurações da revisão
+910308a6 Palavras novas por dia
+d12c5186 Falar a palavra quando o cartão virar
+1f434d3d <0>Espaço</0> virar o cartão e depois lembrei · <1>1</1> ou <2>←</2> não lembrei · <3>2</3> ou <4>→</4> lembrei · <5>Z</5> desfazer · <6>W</6> palavra · <7>S</7> frase · <8>P</8> praticar a pronúncia · <9>N</9> notas pessoais · <10>Del</10> excluir a palavra
+4d3ebfca Lembrei
+fcd76105 De novo
+001884b8 Faltam {0}
+b0bc2ae4 Palavra nova
+b7d5d81b Mais uma vez
+e29a79fe Revisão
+742e0358 Diga a palavra para si mesmo e depois vire o cartão
+66179621 Mostrar a palavra <0>Espaço</0>
+be0bf6d1 Não foi possível ler a área de transferência aqui. Toque e segure na caixa e escolha Colar.
+2b382bdb Não há nada copiado para colar.
+af74f7c5 Copiar
+13289035 Não foi possível copiar aqui.
+d878e2e3 Criar mais 5
+4d8637fa Palavras do seu idioma que soam parecido: copie uma em Notas pessoais e imagine-a junto com o significado.
+7893f7ae O Criador de mnemônicos usa sua chave de IA. Adicione uma em Configurações → Definições de palavras.
+9ae914fa Não funcionou. Tente de novo.
+751a4b16 {0} Palavra
+b142c204 {0} Frase
+8669aa56 Episódio
+47b1023a Adicionada à mão
+19cd7d18 Significado
+57e2a7ce O que significa
+c420e532 Notas gramaticais
+d956b856 Raiz, gramática, uso…
+3e8c21da Notas pessoais
+7a625323 Colar o que você copiou em Notas pessoais
+ecef5b19 {0} Colar
+887fed4a Um truque para lembrar, uma imagem, onde você ouviu…
+3250d8de {0} · adicionada {1}
+c0ae8f6e Salvo
+e1e86d29 Excluir esta palavra (Del)
+200b5172 Excluir esta palavra
+983a1927 {0} Não lembrei
+9dd3addc volta daqui a pouco
+164d054f {0} Lembrei
+292bb5d7 você a verá {0}{1}
+f0d4b821 Essa resposta não foi salva: {0}
+5ebeb223 Excluir esta palavra?
+0e347caf Ela será removida do seu vocabulário em todos os seus dispositivos, junto com o progresso de revisão.
+d9f36924 Manter
+a6e51c31 O cartão dela no seu baralho {0} no {1} também é removido na próxima sincronização, <0>com o histórico de revisão desse cartão no {2}. Isso não pode ser desfeito.</0>
+54b886ee A partir de agora, excluir uma palavra remove o cartão dela sem perguntar sobre isso de novo.
+720f5ef8 A palavra não foi excluída: {0}
+ed068c06 {0} seguidas!
+0126ed40 Cartões de hoje concluídos! +{0} de brilho
+be9065f3 Cartões de hoje concluídos!
+2c13c6b7 Batalha e cartões feitos hoje: +{0} XP, +{1} moedas
+bd57d978 Cartão premiado!
+5e816849 Cartão da sorte!
+85b57d0f {0}+{1} XP
+c037d3c7 Amanhã
+91e3dd9f chance de lembrar uma palavra aprendida
+4efea6e1 Sessão concluída
+47cbaf0c Tudo em dia
+7890ad9f {0} cartão(ões) em cerca de {2} min{4}.
+c9ead0bf Nada está pendente, e as palavras novas de hoje já foram feitas.
+96e9c05a Nada está pendente agora. Suas palavras estão descansando.
+581d31c2 Salve algumas palavras com significado e elas vão aparecer aqui.
+d7d2a049 conhecidas há 3 semanas ou mais
+85df11fd palavras em revisão
+7ec16612 Aprender mais {0} palavra(s) nova(s)
+dce4bd3c Voltando para você
+b54a6754 A busca não diferencia maiúsculas de minúsculas.
+e8082793 Pesquisar em todas as transcrições… {0}
+62ce0e88 Pesquisar em todas as transcrições
+79bd4f18 {0} As transcrições sempre aparecem exatamente como foram transcritas.
+a568e936 Pesquise em todas as transcrições, vídeos e páginas da web que você adicionou.
+95a44659 Nenhum resultado para “{0}”.
+54f3e4b2 (mostrando {0})
+679fb77f {0} resultado(s){2}
+5eb73faa mlx-whisper na GPU da Apple (Metal)
+8538d459 faster-whisper na GPU da NVIDIA (CUDA, float16)
+de8877df faster-whisper na CPU (int8)
+88519b93 ({0} GB)
+9433c5fb Aceleração por GPU
+fd17e405 Idioma que eu falo
+0d6a65aa Os botões e as mensagens do app aparecem neste idioma, e as palavras são explicadas nele.
+1d1fdf5f Idioma que estou aprendendo
+a553ac64 Usado para as novas transcrições, as páginas da web importadas e as explicações de palavras. O que você já transcreveu mantém o idioma em que foi feito.
+099be6af Modelo de transcrição
+c1f65ddb Motor
+b76ab659 Hardware
+d067f1cc {0} · {1} threads · {2} GB de RAM{3}
+17c698af {0} Mudar o modelo só afeta as novas transcrições; transcreva de novo um episódio pela biblioteca para usá-lo nele.
+2162db4e Sincronizar com o Google Drive
+3721a5dd Mantenha seus podcasts, transcrições e vocabulário sincronizados entre este computador, outros computadores e o app para Android. Tudo fica guardado numa pasta privada do app no <0>seu próprio</0> Google Drive, que só este app consegue ver. A sincronização nunca passa por nenhum outro servidor.
+0ca0b563 Anki (opcional)
+3c270194 O complemento do Anki
+22fffbc8 Se você estuda com o Anki neste computador, um pequeno complemento o conecta ao Tamkeen. Ele conta ao Tamkeen como estão indo suas revisões, para que elas contem para sua criatura: concluir o que está pendente é a meta do dia (seja qual for o número de cartões), e os cartões que amadurecem rendem um bônus. Para isso, só números são enviados. Com o botão acima ativado, ele também mantém esse baralho e suas palavras salvas sincronizados. Tudo fica neste computador. Se você instalou o complemento antes de a sincronização existir, baixe e instale de novo.
+177dd240 Toque no botão abaixo e salve o arquivo.
+e78fa755 Clique duas vezes no arquivo salvo. O Anki abre e pergunta se quer instalá-lo; diga que sim e depois reinicie o Anki.
+047825e8 Revise normalmente com o Tamkeen aberto. No Anki, <0>Tools → Tamkeen companion…</0> mostra se ele está conectado, e <1>Tools → Sync Tamkeen now</1> sincroniza o baralho na hora.
+9cf66eeb Baixar o complemento do Anki
+fb0c95bf Armazenamento de áudio
+746fcf10 Excluir o áudio baixado depois da transcrição<0/><1>Economiza espaço em disco. O player passa a transmitir o áudio do servidor do podcast.</1>
+ddb48157 Sempre transmitir da URL original<0/><1>O áudio é baixado só temporariamente para a transcrição e nunca é guardado. A reprodução precisa de conexão com a internet.</1>
+41def7a0 Aparência
+0485a026 Tema:
+bc0792d8 Sistema
+a36ef8ab Claro
+ae1ef014 Escuro
+1970d1e8 Tamanho do texto de podcasts e vídeos: <0/> <1>{0}px</1>
+ce52a4a4 Tamanho do texto de páginas da web: <0/> <1>{0}px</1>
+48cd18da Seus dados

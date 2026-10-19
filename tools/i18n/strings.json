@@ -75,6 +75,26 @@
   "f": "web/js/languages.js"
  },
  {
+  "id": "8782d9fe",
+  "k": "Brazilian Portuguese",
+  "f": "web/js/languages.js"
+ },
+ {
+  "id": "2c5e77fc",
+  "k": "Catalan",
+  "f": "web/js/languages.js"
+ },
+ {
+  "id": "b46e924a",
+  "k": "Bisaya (Cebuano)",
+  "f": "web/js/languages.js"
+ },
+ {
+  "id": "c32767e0",
+  "k": "Thai",
+  "f": "web/js/languages.js"
+ },
+ {
   "id": "649df08a",
   "k": "English",
   "f": "web/js/languages.js"
@@ -233,6 +253,106 @@
   "id": "8d886c0b",
   "k": "Something went wrong",
   "f": "web/js/app.js"
+ },
+ {
+  "id": "752be6ae",
+  "k": "That file is too big (over 200 MB).",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "1b9728ae",
+  "k": "That file is damaged (not a complete ZIP/EPUB/DOCX file).",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "6ef6b413",
+  "k": "That file uses a kind of compression Tamkeen can't read.",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "6a0b6c0f",
+  "k": "This book is protected (DRM), so its text can't be read. Only DRM-free books can be added.",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "c13b66dd",
+  "k": "That EPUB is damaged (no table of contents).",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "6256156a",
+  "k": "That Word file is damaged.",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "fb5d490e",
+  "k": "That isn't a Word .doc file. Try saving it as .docx.",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "39b183eb",
+  "k": "That Word file has no text.",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "5ec26261",
+  "k": "This Word file is password-protected, so its text can't be read.",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "a693bbf2",
+  "k": "No text was found in that Word file. Try saving it as .docx.",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "a351250c",
+  "k": "This Kindle book is protected (DRM), so its text can't be read. Only DRM-free books can be added.",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "fadca512",
+  "k": "This Kindle file is compressed in a way Tamkeen can't read. Convert it to EPUB (for example with the free app Calibre) and add that.",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "f259da8d",
+  "k": "This PDF is password-protected, so its text can't be read.",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "1b90296b",
+  "k": "That PDF couldn't be opened.",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "912836e3",
+  "k": "Reading page {0} of {1}…",
+  "f": "web/js/bookfiles.js"
+ },
+ {
+  "id": "6d3042c8",
+  "k": "Couldn't reach Tamkeen's book shelf. Check your connection and try again.",
+  "f": "web/js/books.js"
+ },
+ {
+  "id": "deb3baad",
+  "k": "The book arrived damaged. Try again.",
+  "f": "web/js/books.js"
+ },
+ {
+  "id": "451b9cbc",
+  "k": "Reading the file…",
+  "f": "web/js/books.js"
+ },
+ {
+  "id": "245d2a43",
+  "k": "No text was found in that file. A scanned book (pictures of pages) has no text to read.",
+  "f": "web/js/books.js"
+ },
+ {
+  "id": "56a2285c",
+  "k": "Saving…",
+  "f": "web/js/books.js"
  },
  {
   "id": "3330dab0",
@@ -725,6 +845,251 @@
   "f": "web/js/browser-home.js"
  },
  {
+  "id": "7014f38a",
+  "k": "Globo's news site",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "6e0b993a",
+  "k": "Folha de S.Paulo",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "81596add",
+  "k": "O Estado de S. Paulo",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "e0f6253e",
+  "k": "O Globo, Rio de Janeiro",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "1c42950d",
+  "k": "BBC, in Brazilian Portuguese",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "d9c6b1fb",
+  "k": "Agência Brasil, public news agency",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "12c8c2cd",
+  "k": "CNN Brasil",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "ecae6445",
+  "k": "Nexo, explainers",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "6e5c2fcb",
+  "k": "Politics",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "3df709c2",
+  "k": "Science and curiosities",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "e82e2b93",
+  "k": "Deutsche Welle, in Brazilian Portuguese",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "c0fe72d8",
+  "k": "Portuguese Wikipedia",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "02df8597",
+  "k": "3Cat, Catalan public broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "b07bcee1",
+  "k": "Ara",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "509d117d",
+  "k": "El Periódico, Catalan edition",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "033e952f",
+  "k": "La Vanguardia, Catalan edition",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "953219fd",
+  "k": "El Punt Avui",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "bdcd5a6a",
+  "k": "Nació Digital",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "a79fdf63",
+  "k": "El Nacional",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "ff6dd1ba",
+  "k": "RAC1 radio",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "d46049a6",
+  "k": "Barcelona's city broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "abe62d2b",
+  "k": "Valencian public broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "f72932a0",
+  "k": "Balearic public broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "ee6ba5de",
+  "k": "Weekly news magazine",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "017db5d6",
+  "k": "Catalan Wikipedia",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "5bd2b489",
+  "k": "SunStar's Bisaya paper, Cebu",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "097174e3",
+  "k": "SunStar's Bisaya paper, Davao",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "c236bde4",
+  "k": "SunStar's Bisaya paper, Cagayan de Oro",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "99dad9d9",
+  "k": "The Freeman's Bisaya paper, Cebu",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "04eddcb9",
+  "k": "RMN radio news, Cebu",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "1f87a792",
+  "k": "Bombo Radyo, Cebu",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "b8757fe8",
+  "k": "Bombo Radyo, Davao",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "d62cbb14",
+  "k": "Bombo Radyo, Butuan",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "4d81a0a3",
+  "k": "Bisaya–English dictionary",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "73ea03bd",
+  "k": "Bisaya Wikipedia (many short automatic articles)",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "3c45c568",
+  "k": "Thai PBS, public broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "1b8b97d3",
+  "k": "Thairath",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "08d6fedf",
+  "k": "Khaosod",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "2b67ce16",
+  "k": "Matichon",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "7f1ca720",
+  "k": "BBC Thai",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "84725fb8",
+  "k": "The Standard",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "3ac72d15",
+  "k": "Prachatai",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "4a4d5d52",
+  "k": "Sanook News",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "90e5530a",
+  "k": "PPTV HD 36",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "7d180266",
+  "k": "Workpoint Today",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "89514a21",
+  "k": "Bangkok Biz News, business",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "d5429913",
+  "k": "MCOT, public broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "0b56148b",
+  "k": "Siamsport, sport",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "a1817b50",
+  "k": "Thai Wikipedia",
+  "f": "web/js/browser-home.js"
+ },
+ {
   "id": "291625d9",
   "k": "Easier: the news at three levels of English",
   "f": "web/js/browser-home.js"
@@ -1055,6 +1420,16 @@
   "f": "web/js/components/addsheet.js"
  },
  {
+  "id": "f69f2330",
+  "k": "Book",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "564aebf5",
+  "k": "A free classic, or your own EPUB, PDF, TXT, Kindle or Word file",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
   "id": "61e340e9",
   "k": "Reels",
   "f": "web/js/components/addsheet.js"
@@ -1150,6 +1525,26 @@
   "f": "web/js/components/addsheet.js"
  },
  {
+  "id": "01bc0d6b",
+  "k": "Free classics",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "217c2a25",
+  "k": "Famous books in the language you're learning, free because they are in the public domain.",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "4e20f045",
+  "k": "Add a book of your own",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "d993cd1c",
+  "k": "EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM.",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
   "id": "0bc298a1",
   "k": "Paste a website address",
   "f": "web/js/components/addsheet.js"
@@ -1162,6 +1557,16 @@
  {
   "id": "d6fbc9d2",
   "k": "Import",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "169dd244",
+  "k": "Popular websites",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "b8e51206",
+  "k": "News sites in the language you're learning. Open one, copy an article's address, and paste it above.",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -1205,6 +1610,11 @@
   "f": "web/js/components/aisetup.js"
  },
  {
+  "id": "a1cac7d8",
+  "k": "this browser",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
   "id": "1cfceb0b",
   "k": "this phone",
   "f": "web/js/components/aisetup.js"
@@ -1227,6 +1637,46 @@
  {
   "id": "097ae941",
   "k": "The word, its sentence and the sentences either side go to the provider you choose, and nowhere else. Your key is kept on {0} and, if you use Google Drive sync, in the app's private folder in your own Google Drive, so your other devices have it too. It is never part of a data export.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "fa8bf630",
+  "k": "How words are explained",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "cf7318e9",
+  "k": "Strongly recommended",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "796a0595",
+  "k": "AI explanations",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "0ca1aaeb",
+  "k": "What the word means in <0>this</0> sentence, its grammar, a translation of the sentence, misheard words put right, and the Mnemonic maker. Needs an API key: a fraction of a cent a word (Gemini has a free allowance).",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "49eec3e6",
+  "k": "No AI: built-in dictionary",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "9c434872",
+  "k": "Free, and works offline once downloaded. Shows a word's usual meanings from Wiktionary, in English, but not which one fits the sentence. No sentence translations, corrections or mnemonics.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "a70179e6",
+  "k": "<0>AI explanations are strongly recommended.</0> Real speech is full of words whose meaning depends on the sentence, slang and dialect a dictionary doesn't have, and transcription mistakes. With No AI you see a list of possible meanings and have to guess which one is meant.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "7544ab30",
+  "k": "Use AI explanations",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -1307,6 +1757,36 @@
  {
   "id": "7ddd66b6",
   "k": "Try it",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "0f1aa62d",
+  "k": "No AI",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "70da8a0a",
+  "k": "✓ The {0} dictionary is on {1} ({2} MB).",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "e963907d",
+  "k": "Remove",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "808117a6",
+  "k": "The {0} dictionary isn't on {1} yet, so tapped words can't be explained.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "c2232964",
+  "k": "Download (about {0} MB)",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "c177e4b0",
+  "k": "Downloading…",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -2315,8 +2795,8 @@
   "f": "web/js/components/onboarding.js"
  },
  {
-  "id": "ff37cd14",
-  "k": "Set it, or change it later, in <0>Settings → Word definitions (AI)</0>.",
+  "id": "9ab59592",
+  "k": "Set it, or change it later, in <0>Settings → Word definitions (AI)</0>. There you can also choose <1>No AI</1>: a free built-in dictionary that shows a word's usual meanings, but not the one in its sentence (AI is strongly recommended).",
   "f": "web/js/components/onboarding.js"
  },
  {
@@ -2835,6 +3315,26 @@
   "f": "web/js/components/studycard.js"
  },
  {
+  "id": "e9940534",
+  "k": "Today's review as a to-do",
+  "f": "web/js/components/tasktarget.js"
+ },
+ {
+  "id": "7e3312af",
+  "k": "The Review tab's button sends the rest of today's review, with the time it should take, to:",
+  "f": "web/js/components/tasktarget.js"
+ },
+ {
+  "id": "9cea74c5",
+  "k": "Google Tasks <0>(Google asks you to allow it the first time)</0>",
+  "f": "web/js/components/tasktarget.js"
+ },
+ {
+  "id": "c001f24c",
+  "k": "Onyx <0>(opens Onyx, which fits it into your day)</0>",
+  "f": "web/js/components/tasktarget.js"
+ },
+ {
   "id": "7a1e17bc",
   "k": "Troubleshoot",
   "f": "web/js/components/troubleshoot.js"
@@ -2922,6 +3422,16 @@
  {
   "id": "d61d7fe2",
   "k": "Set up definitions",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "3386ce50",
+  "k": "AI is off, so words are explained by the built-in {0} dictionary. It isn't on this device yet: download it once and it works offline.",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "395b22e4",
+  "k": "Download the dictionary",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -3013,6 +3523,11 @@
   "id": "58c330e9",
   "k": "Couldn't undo that.",
   "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "a13e07aa",
+  "k": "AI is turned off (Settings → Word definitions → No AI), so this isn't available.",
+  "f": "web/js/define-service.js"
  },
  {
   "id": "3de9e752",
@@ -3213,6 +3728,11 @@
   "id": "42a0c143",
   "k": "Answer Filmot's check yourself. Tamkeen then takes the top video by itself.",
   "f": "web/js/filmot-browser.js"
+ },
+ {
+  "id": "f3f91e1e",
+  "k": "Portuguese (Brazil)",
+  "f": "web/js/filmot.js"
  },
  {
   "id": "80559b82",
@@ -4242,11 +4762,6 @@
  {
   "id": "9d5c8e51",
   "k": "Compass",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "f69f2330",
-  "k": "Book",
   "f": "web/js/game/data.js"
  },
  {
@@ -6675,6 +7190,31 @@
   "f": "web/js/lexicon/kuromoji.js"
  },
  {
+  "id": "f5285e5c",
+  "k": "Wolff's Dictionary of Cebuano Visayan",
+  "f": "web/js/lexicon/meaningdata.js"
+ },
+ {
+  "id": "b016324b",
+  "k": "the CAMeL Arabic databases",
+  "f": "web/js/lexicon/meaningdata.js"
+ },
+ {
+  "id": "382f42b1",
+  "k": "Wiktionary",
+  "f": "web/js/lexicon/meaningdata.js"
+ },
+ {
+  "id": "bbc70fda",
+  "k": ", in English",
+  "f": "web/js/lexicon/meaningdata.js"
+ },
+ {
+  "id": "bf672d07",
+  "k": "From the built-in dictionary ({0}{1}): the word's usual meanings. It can't tell which one fits this sentence.",
+  "f": "web/js/lexicon/meaningdata.js"
+ },
+ {
   "id": "cd8a2a7e",
   "k": "Show furigana (small kana over kanji)",
   "f": "web/js/lexicon/readings.js"
@@ -6730,11 +7270,6 @@
   "f": "web/js/lexicon/seen.js"
  },
  {
-  "id": "e963907d",
-  "k": "Remove",
-  "f": "web/js/lexicon/seen.js"
- },
- {
   "id": "71da2431",
   "k": "{0} word dictionaries aren't on this device, so new words can't be shown in <0>purple</0>.",
   "f": "web/js/lexicon/seen.js"
@@ -6745,18 +7280,23 @@
   "f": "web/js/lexicon/seen.js"
  },
  {
-  "id": "c2232964",
-  "k": "Download (about {0} MB)",
-  "f": "web/js/lexicon/seen.js"
- },
- {
-  "id": "c177e4b0",
-  "k": "Downloading…",
-  "f": "web/js/lexicon/seen.js"
- },
- {
   "id": "7443fea8",
   "k": "{0} dictionaries are ready.",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "058c38b0",
+  "k": "falo, falamos, fale-me",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "2dfade8e",
+  "k": "parlo, parlem, digues-m'ho",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "69f76f1b",
+  "k": "mokaon, mikaon, gikaon",
   "f": "web/js/lexicon/seen.js"
  },
  {
@@ -6772,6 +7312,11 @@
  {
   "id": "cadfed16",
   "k": "the wordfreq word list for Filipino, which the app checks the roots it finds against (kumain, kakain, kinain: kain)",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "51444687",
+  "k": "a list of the commonest Bisaya words, counted from Bisaya web text in the OPUS NLLB collection, which the app checks the roots it finds against (mokaon, mikaon, gikaon: kaon)",
   "f": "web/js/lexicon/seen.js"
  },
  {
@@ -6850,6 +7395,11 @@
   "f": "web/js/lexicon/seen.js"
  },
  {
+  "id": "8c6c358b",
+  "k": "This word isn't in the built-in dictionary. It may be a name, slang, or a form it doesn't know.",
+  "f": "web/js/meanings.js"
+ },
+ {
   "id": "3f629623",
   "k": "No readable text was found on that page. Try “Open Web Browser” and use Import Page there.",
   "f": "web/js/pageimport.js"
@@ -6913,6 +7463,136 @@
   "id": "68680fa2",
   "k": "You're up to date.",
   "f": "web/js/pages/about.js"
+ },
+ {
+  "id": "8e3df45a",
+  "k": "Copied",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "40137935",
+  "k": "Back to My books",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "a8ea9e30",
+  "k": "Smaller text",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "118f9b2b",
+  "k": "Larger text",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "81f54719",
+  "k": "Previous page",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "fb06270f",
+  "k": "Page",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "4bfc194b",
+  "k": "Next page",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "51d15ed7",
+  "k": "✓ Saved to vocab",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "7031bbea",
+  "k": "★ Save to vocab",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "b32f1eb3",
+  "k": "📖 Define",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "010f9005",
+  "k": "⧉ Copy",
+  "f": "web/js/pages/book.js"
+ },
+ {
+  "id": "48a704f7",
+  "k": "{0} BC",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "e1e3700f",
+  "k": "{0} AD",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "a5188242",
+  "k": "Adding “{0}”…",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "d2936330",
+  "k": "Added “{0}” to My books.",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "6c5e33b0",
+  "k": "Couldn't read that file.",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "3af45b33",
+  "k": "Back to the library",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "5f94aeb4",
+  "k": "Books in {0}",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "f689db93",
+  "k": "Famous books, free because they are in the public domain. Add one and read it a page at a time, with every word clickable. Or add a book of your own.",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "70ebead0",
+  "k": "Your own book",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "c25f48d6",
+  "k": "EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM. It is read on this device and added to My books.",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "195e97d3",
+  "k": "Add a file",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "d9fffb0d",
+  "k": "Loading the shelf…",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "53633ec9",
+  "k": "No free books for {0} yet.",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "49102c78",
+  "k": "{0} KB",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "0122668f",
+  "k": "{0} · about {1} of reading · {2}",
+  "f": "web/js/pages/books.js"
  },
  {
   "id": "f40382cc",
@@ -7085,13 +7765,28 @@
   "f": "web/js/pages/discover.js"
  },
  {
-  "id": "3af45b33",
-  "k": "Back to the library",
+  "id": "e79e9cf5",
+  "k": "No podcast in {0} is in the charts, so these are the most-rated ones on Spotify and Apple Podcasts.",
   "f": "web/js/pages/discover.js"
  },
  {
-  "id": "770dabce",
-  "k": "The most listened-to podcasts right now in {0}. Press <0>+ Add</0> to put one in your library.",
+  "id": "4ea062ed",
+  "k": "The most listened-to podcasts right now in {0}.",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "5e7709de",
+  "k": "Ratings from <0>Spotify</0> and <1>Apple Podcasts</1>.",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "edaa4f9c",
+  "k": "Charts from <0>Apple Podcasts</0>.",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "b389210d",
+  "k": "{0} Press <0>+ Add</0> to put one in your library.",
   "f": "web/js/pages/discover.js"
  },
  {
@@ -7107,11 +7802,6 @@
  {
   "id": "e17054bf",
   "k": "Loading trending podcasts…",
-  "f": "web/js/pages/discover.js"
- },
- {
-  "id": "edaa4f9c",
-  "k": "Charts from <0>Apple Podcasts</0>.",
   "f": "web/js/pages/discover.js"
  },
  {
@@ -7205,13 +7895,23 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "3a374802",
-  "k": "Add friends by username, form guilds, message each other (with voice notes), send words and folders, and see what everyone is studying. Connect your Google account in Settings to start.",
+  "id": "cba998b6",
+  "k": "Add friends by username, form guilds, message each other (with voice notes), send words and folders, and see what everyone is studying. Sign in with your Google account to start.",
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "4e4b5579",
-  "k": "Open Settings → Friends & sharing",
+  "id": "b5531a88",
+  "k": "Signed in. Now choose a username.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "4a0b7281",
+  "k": "Sign in with Google",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "c66b2adc",
+  "k": "Signing in…",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -7665,6 +8365,16 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "4a7fdd8c",
+  "k": "Books",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "71381287",
+  "k": "No books yet. Pick a free classic in the language you're learning, or add a book of your own.",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "4a3365aa",
   "k": "No reels yet. Press + and choose Reels.",
   "f": "web/js/pages/library.js"
@@ -7782,6 +8492,11 @@
  {
   "id": "0d4800a7",
   "k": "Web pages you imported. Open one to read it with every word clickable. Press + to add more.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "8933cc20",
+  "k": "Books you're reading, a page at a time with every word clickable.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -8035,11 +8750,6 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "8e3df45a",
-  "k": "Copied",
-  "f": "web/js/pages/player.js"
- },
- {
   "id": "f0926a5a",
   "k": "Back to library",
   "f": "web/js/pages/player.js"
@@ -8112,16 +8822,6 @@
  {
   "id": "9c3ebd2a",
   "k": "{0} · {1} words",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "a8ea9e30",
-  "k": "Smaller text",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "118f9b2b",
-  "k": "Larger text",
   "f": "web/js/pages/player.js"
  },
  {
@@ -8212,26 +8912,6 @@
  {
   "id": "bf020dbf",
   "k": "Follow {0}: it appears in your Library under YouTube",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "51d15ed7",
-  "k": "✓ Saved to vocab",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "7031bbea",
-  "k": "★ Save to vocab",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "b32f1eb3",
-  "k": "📖 Define",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "010f9005",
-  "k": "⧉ Copy",
   "f": "web/js/pages/player.js"
  },
  {
@@ -8385,6 +9065,11 @@
   "f": "web/js/pages/reels.js"
  },
  {
+  "id": "f98f3020",
+  "k": "No reels yet. Paste a reel's link above, or add reels in the Tamkeen app: they arrive here after a sync.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
   "id": "b2e08e21",
   "k": "No reels yet. Press “Get random reels” above, or choose one of your Instagram collections and tick the reels you want.",
   "f": "web/js/pages/reels.js"
@@ -8522,6 +9207,31 @@
  {
   "id": "c3f837df",
   "k": "Get {0} random {1} reel{2}",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "4b5b4888",
+  "k": "Turn on <0>Cloud transcription in Settings</0> first: it is what listens to the reel and writes its words.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "c5c47401",
+  "k": "Add a reel",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "4bb4efb6",
+  "k": "Paste an Instagram reel link",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "0dfb37d0",
+  "k": "Instagram reel link",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "0c2f86c7",
+  "k": "On the web you can watch your reels and add public ones from their link. Picking reels from your Instagram saves, random reels, and reels with a song from Instagram's music library need the Tamkeen app on your phone or computer. Reels added there show up here after a sync.",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -9330,11 +10040,6 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "4a0b7281",
-  "k": "Sign in with Google",
-  "f": "web/js/pages/settings.js"
- },
- {
   "id": "f0dd6b0d",
   "k": "Opens your web browser to sign in.",
   "f": "web/js/pages/settings.js"
@@ -9960,6 +10665,476 @@
   "f": "web/js/pages/welcome.js"
  },
  {
+  "id": "fd23eda9",
+  "k": "Unsa’y Cheka Sa Parlor",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "f9a11c2f",
+  "k": "Lyle Go and Shaneee | TAGM Marketing Solutions Inc.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "66f216cc",
+  "k": "UCSP, short for Unsa y Cheka Sa Parlor?, is a podcast inspired by a popular phrase in Bisaya gay lingo, commonly spoken in the Visayas and Mindanao regions of the Philippines. Hosted by Lyle Go and Shaneee, the phrase translates closely to What s the tea? in English.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "c9476ace",
+  "k": "Crosseyed",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "416e5e3c",
+  "k": "Gary Monton | Bisaya Podcast",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "b7f0771c",
+  "k": "Crosseyed Podcast - An interview of inspiring people in Cagayan de Oro City. Crosseyed Convos - A fun discussion of any topics that my friends and I find interesting and entertaining.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "572329d1",
+  "k": "Dili Ni Advice - A Bisaya Podcast",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "6c8793d1",
+  "k": "Darling and Kringkay The Pod Network Entertainment",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "e6feaa11",
+  "k": "Barok and Takya Bisaya Podcast",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "30e343f4",
+  "k": "Barok & Takya",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "83f1bce5",
+  "k": "Barok and Takya Bisaya Podcast is a Filipino Podcast in the Cebuano language. They talk about anything under the sun like Family, Tradition, Filipino Society and Culture in the Bisaya language. What are you waiting for, download now the Pinoy Podcast in the Cebuano language or dialect – Barok and Takya Bisaya Podcast.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "f6112f30",
+  "k": "Cge Storya Ta: A Bisaya Couple Podcast",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "8c29ec7d",
+  "k": "Yin + Nol",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "65d7024f",
+  "k": "Welcome to Cge, Storya Ta: A Bisaya Couple Podcast ! We upload a new episode every week. Grab your comfiest chair, kick off your shoes, and get ready to dive into Yin and Nol s bubble. A rollercoaster of laughter, life lessons, and the occasional questionable decisions, basically anything and everything under the sun - all unscripted and unfiltered. So, buckle up for the ride, because this is the podcast where anything can happen, and probably will!",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "49bc6e59",
+  "k": "Brighter Bisaya",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "3534296f",
+  "k": "Brighter Bisaya is a family-friendly online media network that aims to inform, educate, and inspire Bisaya/Cebuanos in all age groups through smart and creative conversation-based shows. The company is passionately determined to publish relatable simplified vlogs and podcasts about art, education, philosophy, science, technology, inspiration, and entertainment in Cebuano, Binisaya, Tagalog, English, and Filipino language.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "e59b5c99",
+  "k": "Kasikas: Bisaya Podcast",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "2f359fd1",
+  "k": "Ace Vincent Sevilla",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "b819d08f",
+  "k": "Kapoy explain man. For ad inquiries, comments, or topic suggestions, please contact us through sevillaacevincent@gmail.com.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "a4b3025e",
+  "k": "Sunday Mass Readings in Cebuano",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "41126fc0",
+  "k": "Ben",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "cc4289fa",
+  "k": "Sunday Mass readings in Cebuano | Mga pagbasa sa Santos nga Misa sa Binisaya. New episodes are released on the Monday before the Mass. Send all feedback to sundaymassreadings@gmail.com. Special thanks to Fr. Alvin, Lorena, Celine, Aimee, Belinda, Ivy, Praxi, Fr. Gerry, Belton, Agnes and Deacon Roman.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "2a59645c",
+  "k": "Storytelling with Ziwi (Bisaya Podcast)",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "35a7384d",
+  "k": "Ziwi Tea",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "ee681aee",
+  "k": "A podcast about random stories. Ziwi talks about her personal experiences and life lessons. #Bisaya #Storytelling #Philippines #ChikaMinute #Chikahan",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "c0da64f1",
+  "k": "Wanbats Ra Besh | Bisaya Society & Culture",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "c65ee463",
+  "k": "Jna and Ju",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "5561133e",
+  "k": "Jeana and Justein are best friends from the sunny province of Cebu. Now in their late-twenties, these high school friends talk about navigating adulthood, learning and unlearning concepts, and making priorities. If you want to experience that familiar warm, fuzzy feels inside - kinda like what heartfelt convos with a long-time friend makes you feel, join them in this fresh podcast. New episodes on Fridays! x Buy us some coffee at ko-fi.com/wanbatsrabesh ☕️ All music is not ours and from Audionautix.com.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "51f2914b",
+  "k": "Bisaya Jokes!",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "78a5056a",
+  "k": "DJ Bisdak",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "a6bc3cb4",
+  "k": "Podcast para pakatawa sa mga bisdak!",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "5f38602a",
+  "k": "NAYSJUAN SESSIONS | Binisaya Podcast",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "cd567294",
+  "k": "JUAN MARCUZ TIMAY",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "16a70550",
+  "k": "Ang naysjuan paminawon nga Binisaya o Bisaya podcast 20 minutes before sa atoang naysjuan nga pagkatulog. Busa, kon Bisaya ta o kasabot tag Binisaya nga pinulongan ug kon trip nato adunay makat-onan, paminawa na tawon nato ning podcast ni Juan. Diri gastorya tag mga estoryahanan nga praktikal ug mapuslanon nga makatabang sa tanan, mapabata man o mapatiguwang, aron mas mapasayon ang pagkinabuhi. ➖➖➖➖➖ JUST BUY ME A COFFEE: buymeacoffee.com/JUANMARCUZTIMAY",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "5ee1603d",
+  "k": "Purok Pabula Ph",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "155acb68",
+  "k": "p b Purok Pabula PH /b mao ni ang lugar sa tinuod nga istorya—walay script, walay arte, diretso ra. /p p /p p Dinhi, lain-lain mi ug panan-aw—naa’y abogado, naa’y pilosopo, naa’y engineer, ug naa pud mi’y mga kasinatian sa kinabuhi nga among gidala sa lamesa. Kada episode, among hisgutan ang mga butang nga atong madunggan adlaw-adlaw—fake news, politika, kultura, ug mga tinuohan nga atong gidak-an. /p p /p p Dili ni perpekto. br / Dili ni pina-polished. br / Pero tinuod ni. /p p /p p Murag istorya ra sa purok—pero naay unod. /p p /p p Kay usahay, dili klaro ang kamatuoran. br / Ug usahay, ang",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "6606f08e",
+  "k": "Kinabuhing Kristohanon: a Wali Bisaya Preaching",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "42bb34c3",
+  "k": "Barok and Takya",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "88b9b348",
+  "k": "Welcome sa Kinabuhing Kristohanon, usa ka Wali Bisaya Preaching nga magdala kanimo sa panaw sa pagtuo, espiritwalidad, ug komunidad. Ang among pasundayag kay usa ka talagsaon nga pagsagol sa mga tinuohan, ang Pulong sa Dios Bible, ug mga kasinatian nga makatandog sa kasingkasing sa mga Pilipinong Kristiyano. Ang matag episode nagsusi sa atong pagtuo, magsuhid sa lawom nga epekto sa Kristiyanismo sa atong adlaw-adlaw nga kinabuhi. Atong hisgotan ang kamahinungdanon sa pagsimba, ang esensya sa serbisyo sa komunidad, ug ang makapabag-o nga gahum sa espirituhanong mga buhat. Ang atong mga panagsul",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "2d2313a6",
+  "k": "Bisaya In America",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "9c57b087",
+  "k": "Genie H",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "a2a821cf",
+  "k": "Unsa Man Jud",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "42054007",
+  "k": "DD & Friends",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "2f32eaa3",
+  "k": "Unsa Man Jud Podcast is a Bisaya Podcast or a talk show that is spoken in Cebuano language that talks about binutbot and binuang stuff. Sometimes we also talk about sineryoso stuff but who wants to listen to that, right? So we talk about fun stuff instead. Anyway, if you can understand the language, come join us!",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "a8f21295",
+  "k": "Bisaya Thoughts",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "aa746ddb",
+  "k": "Phil Andrew",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "e1e3cd8e",
+  "k": "These are my Bisaya thoughts about anything random sa life, family, love, work, or even sa mga nahitabo ron sa Pilipinas. But basically, ganahan ra jud ko mag-yaw2x. Mainly because ganahan ko ipagawas akong mga gibati ug mga na learn sa life given nga hapit nako mag 40. I m using this as an outlet ug part ni siya sa akong journey to be a better version of myself. If ganahan mo mu-journey with me, hope makatabang ni ninyo. Reach out if ganahan mo makig-chika or naa mo questions or magpa advice mo ug stranger like me: philampong@gmail.com IG: instagram.com/philandrew23 FB: facebook.com/phile",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "026bb096",
+  "k": "Coffee Break with Juppe",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "9708095f",
+  "k": "Jupiter Baguioso",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "ad54f954",
+  "k": "Coffee Break with Juppe is your 5-minute pause from the chaos of the day. Random thoughts, quick stories, and honest reflections—served short, simple, and best enjoyed with coffee. Hit play for your daily dose of light talk and real vibes.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "5d5efc1a",
+  "k": "NAYSJUAN DAILY,",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "aa91b142",
+  "k": "Bisaya Podcasts PH",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "c4ff21cc",
+  "k": "Hello! Welcome to Bisaya Podcasts PH! It is so hard to look for Bisaya podcasts. It is even harder to look for an audience especially if you are a Bisaya podcast. This podcast aims to unite Bisaya Podcasts around the world so we can easily search and connect with fellow podcasters and audiences alike. I know it is hard to find an audience, especially with our mother tongue. But together we can make our platform bigger.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "58610005",
+  "k": "Ptr. Stanley Pilapil",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "29f7f4bc",
+  "k": "To shepherd God s people through the effective preaching and teaching of God s Word in order to equip them to know, love, serve and proclaim Jesus.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "94e606a0",
+  "k": "Bisaya Vibes by Team Conato PH",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "7e5120d9",
+  "k": "Good vibes discussion and reaction on current issues, family, relationships and bisaya humor.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "b37cc66f",
+  "k": "BANHA | Istorya Ug Uban Pa - Bisaya Podcast",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "eb990eab",
+  "k": "Danrev Tipdas",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "8807c90a",
+  "k": "BANHA | Istorya Ug Uban Pa PODCAST is a Bisaya Podcast Kamo naa moy mga sugilanon. Mga istorya nga basin dili lang pud diay ikaw ang naka-agi. Kami naa pud mi amua nga mga sugilanon.TARA! Tabi ta! Let’s Banha. Let Our Stories Make the Noise. Wa ta kabalo sa atuang pag share we find hope and healing in our stories. Maminaw mi, no judgment here. Share lang gud, bisan unsa pa na imuhang sugilanon sa kinabuhi andam mi maminaw. Know that ikaw ug ang imuhang sugilanon it matters. TARA! BANHA NATA! ISTORYA UG UBAN PA!",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "93347587",
+  "k": "Bisaya Espesyal",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "e785744b",
+  "k": "Mr. Wazzquiin",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "8d6c5728",
+  "k": "This podcast talks about relationships, lifestyle and more about Bisaya. Kung Bisaya ka, Espesyal ka! I am happy to bear with you and please be with me Para Mas bongga! We are about discover the world around us Kaya kapit Lang kapatid at h wag Kang aalis. This is Mr. Wazzquiin ang inyung gwapo nga host!",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "ef9504fa",
+  "k": "TTB Cebuano Pagtuon sa Bibliya (Cebuano)",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "97e8c475",
+  "k": "THRU the BIBLE",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "75e6f3b4",
+  "k": "Hibaloi ang tibuok Pulong sa Dios pinaagi sa kasaligan nga pagtulon-an sa Biblia sa THRU the BIBLE sa Cebuano. Ang matag yugto naghatag og tin-aw ug praktikal nga pagtulon-an aron matabangan kang masabtan ang Kasulatan ug magamit kini sa adlaw-adlaw nga kinabuhi. Panaw sa tibuok Biblia, usa ka leksiyon matag higayon, uban sa mga tigpaminaw sa tibuok kalibotan. Pagkat-on pa sa TTB.BIBLE",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "5223eb1f",
+  "k": "Balaan nga Bibliya - Cebuano (Cebuano)",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "35b90dfb",
+  "k": "International Scripture Ministries",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "861fa74e",
+  "k": "Paminawa ang Balaang Bibliya sa Cebuano nga pinulongan sa klaro, buhi, ug bisan kanus-a, bisan asa. Gihatag sa International Scripture Ministries (ISM), kining Audio Bible nagdala sa Pulong sa Dios ngadto sa kinabuhi pinaagi sa gamhanang pagbasa, musika, ug maayong disenyo sa tingog, aron masinati nimo ang Kasulatan sa pinulongan sa imong kasingkasing. Bisan kung bag-o pa ka nagtuon sa Bibliya o nagtinguha kang motubo sa imong pagtuo, kining podcast makatabang kanimo sa pagpaminaw sa tibuok Bibliya, kapitulo matag kapitulo. Niining Audio Bible, imong makit-an: • Ang Balaang Bibliya sa Cebuano",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "e1cc70f2",
+  "k": "Ang Santos nga Ebanghelyo sa Matag Adlaw",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "c7f849a8",
+  "k": "Roger W.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "41739ec2",
+  "k": "Ang balaang pulong sa tanang panahon",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "bb6ed1ae",
+  "k": "Teacher D",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "4cf306d2",
+  "k": "Daisy Lynn Robin",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "2473e96b",
+  "k": "Introduction",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "9c355e53",
+  "k": "Sugboanon (Cebuano) nga Bibliya",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "0171127e",
+  "k": "Maria Chona Gabotero Labrador",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "4195c313",
+  "k": "This is to provide audio access for Cebuano Bible.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "ffd1e2bb",
+  "k": "Cebuano / Bisaya: Pagkatinon-an sa Biblia",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "01eb8066",
+  "k": "Paul J. Bucknell",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "4b92fc32",
+  "k": "Mga pagtulon-an sa pagkatinon-an sa Biblia sa Cebuano/Bisaya gikan sa Biblical Foundations for Freedom. Ang D1 Ang Agos nagpatin-aw sa tulo ka ang-ang sa espirituhanong pagtubo ug unsaon pagtabang sa uban nga motubo. Ang D2 Mahimong Usa ka Magbubuntog nagtudlo unsaon pag-atubang sa kabalaka, garbo, kailibgon, kasuko, kasub-anan, ug uban pang pagsulay pinaagi sa kamatuoran ug grasya sa Dios.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "75d7f598",
+  "k": "Bored Bisayas",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "75891209",
+  "k": "Hello there! We re Luke and Mona. We re a couple of Bisayas. AY teka. Buset. Ga-Iningles na man hinuon mi nga Bisaya gani. Aw. So, bale mga Bisaya mi unya kay bored man mi so magstorya mi about stuff. Mga butang-butang sa kalibutan nga gusto namo storyahan. Topics are anything under the sun. Like how kulang sa height si Mona ug sobra sa weight si Luke... at one point in time. Basically, just another Bisaya podcast. Or you know... a place where Luke and Mona talk in private and are public at the same time. You can email us at boredbisayas@gmail.com or follow our other soc med accounts.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "fe9979fa",
+  "k": "Mga Balak Sugbuanon",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "7f8b3682",
+  "k": "Jesson Morata",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "883032a0",
+  "k": "Tipiganan sa mga Balak Sugbuanon",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "bb8c2d74",
+  "k": "Unang Sugilanon gikan sa Librong 'Larawan': Si Amboy, ang Palahubog by Vicente Rama (1887 - 1956)",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "59e8c6a1",
+  "k": "Sugilanon nga gisuwat ni Senador Vicente Rama bahin kang Amboy nga palahubog, ug ang iyang pamahala nga kinabuhi tungod sa iyang pagkapalahubog. Kini ay una nga istorya sa daghan nga nahabutang na istorya sa librong 'Larawan'. (Summary by April Gonzales)",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "d47f0ec5",
+  "k": "Hisgutanan: Bisaya nga Podcast ni Lewey Jimoya",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "8f03afd2",
+  "k": "Lewey Jimoya",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "6b4e3b92",
+  "k": "Usa ka Bisaya nga sibya kung aha maghisgot-hisgot mi sa nagkalain-laing mga butang! Hosted by Lewey Jimoya",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "e450b3f0",
+  "k": "Binisaya nga tulumanon",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "920927d6",
+  "k": "Bai Maloy",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "8c1c3ec7",
+  "k": "Maka hatag ug inspirasyon ug kalingawan sa mga kaigsoonan nga naa sa lagyu nga dapit ug maka hupay sa ilang kamingaw.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
   "id": "d9cc6b1c",
   "k": "{0}% read",
   "f": "web/js/progress.js"
@@ -10007,11 +11182,6 @@
  {
   "id": "bd7d4b95",
   "k": "Hangul",
-  "f": "web/js/review/deck.js"
- },
- {
-  "id": "c32767e0",
-  "k": "Thai",
   "f": "web/js/review/deck.js"
  },
  {
@@ -10105,6 +11275,16 @@
   "f": "web/js/review/goalbar.js"
  },
  {
+  "id": "88da3d5b",
+  "k": "Send to {0}",
+  "f": "web/js/review/goalbar.js"
+ },
+ {
+  "id": "4ac22389",
+  "k": "Add “{0}” to {1} for today (choose where in Settings)",
+  "f": "web/js/review/goalbar.js"
+ },
+ {
   "id": "f4896ede",
   "k": "Today: new words {0} of {1}, reviews {2} of {3}. {4}. Change the new words a day",
   "f": "web/js/review/goalbar.js"
@@ -10122,6 +11302,11 @@
  {
   "id": "4ee48926",
   "k": "Time per word, counting the times a missed word comes back: about {0} for a new one, {1} for a review ({2}).",
+  "f": "web/js/review/goalbar.js"
+ },
+ {
+  "id": "a0b74487",
+  "k": "Couldn't send the task.",
   "f": "web/js/review/goalbar.js"
  },
  {
@@ -10158,6 +11343,51 @@
   "id": "7bea803a",
   "k": "The microphone couldn't be used just now.",
   "f": "web/js/review/pronounce.js"
+ },
+ {
+  "id": "c9c6fe67",
+  "k": "Google Tasks",
+  "f": "web/js/review/sendtask.js"
+ },
+ {
+  "id": "67e5c742",
+  "k": "Onyx",
+  "f": "web/js/review/sendtask.js"
+ },
+ {
+  "id": "e79101e5",
+  "k": "Sent to Onyx: {0}.",
+  "f": "web/js/review/sendtask.js"
+ },
+ {
+  "id": "0e90681b",
+  "k": "Allow Tamkeen to add tasks in the browser window that opened, then press Send again.",
+  "f": "web/js/review/sendtask.js"
+ },
+ {
+  "id": "6b514385",
+  "k": "Today's review task in Google Tasks is updated: {0}.",
+  "f": "web/js/review/sendtask.js"
+ },
+ {
+  "id": "4d263331",
+  "k": "Added to Google Tasks: {0}.",
+  "f": "web/js/review/sendtask.js"
+ },
+ {
+  "id": "d8803f2b",
+  "k": "Tamkeen review ({0} min)",
+  "f": "web/js/review/tasktext.js"
+ },
+ {
+  "id": "37db2048",
+  "k": "Your cards",
+  "f": "web/js/review/tasktext.js"
+ },
+ {
+  "id": "d567fe70",
+  "k": "{0} left today: about {1}, by Tamkeen's estimate.",
+  "f": "web/js/review/tasktext.js"
  },
  {
   "id": "4e81fbf0",
@@ -10617,6 +11847,16 @@
  {
   "id": "ceafb51e",
   "k": "Australia",
+  "f": "web/js/trending.js"
+ },
+ {
+  "id": "37497aa5",
+  "k": "Brazil",
+  "f": "web/js/trending.js"
+ },
+ {
+  "id": "a2b7c120",
+  "k": "Thailand",
   "f": "web/js/trending.js"
  },
  {
@@ -11340,6 +12580,26 @@
   "f": "web/js/youtube-home.js"
  },
  {
+  "id": "a495190b",
+  "k": "Portugal",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "a42522a0",
+  "k": "Angola",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "a40a9be0",
+  "k": "Mozambique",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "9d3bd1fb",
+  "k": "Andorra",
+  "f": "web/js/youtube-home.js"
+ },
+ {
   "id": "9769121f",
   "k": "United Kingdom",
   "f": "web/js/youtube-home.js"
@@ -11510,18 +12770,53 @@
   "f": "mobile/src/js/app.js"
  },
  {
+  "id": "db79573c",
+  "k": "{0} Sign in with Google",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "c46d4f59",
+  "k": "Sign-in was cancelled.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "71abc87d",
+  "k": "Google didn't sign you in.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "e21573ca",
+  "k": "That sign-in came back without being asked for here. Try again.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "6ed09657",
+  "k": "Signed in to Friends.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "46729ba2",
+  "k": "Couldn't sign in to Friends.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
   "id": "e129fbc7",
   "k": "This word's audio isn't on this phone yet. Sync and try again.",
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "bb397028",
-  "k": "Importing pages works in the installed Android app.",
+  "id": "01dae1d6",
+  "k": "Couldn't reach that site. Check the address and your connection.",
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "01dae1d6",
-  "k": "Couldn't reach that site. Check the address and your connection.",
+  "id": "2bbb4134",
+  "k": "The site answered with an error ({0}).",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "bb397028",
+  "k": "Importing pages works in the installed Android app.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -11575,6 +12870,11 @@
   "f": "mobile/src/js/app.js"
  },
  {
+  "id": "9ae12679",
+  "k": "Reels play in the installed app.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
   "id": "b794b57c",
   "k": "Sign in with Google (Settings) to watch videos stored in your Drive.",
   "f": "mobile/src/js/app.js"
@@ -11585,13 +12885,18 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "37eb8e15",
-  "k": "Videos play in the installed app.",
+  "id": "afe5afc2",
+  "k": "The video isn't in your Google Drive any more.",
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "afe5afc2",
-  "k": "The video isn't in your Google Drive any more.",
+  "id": "be990723",
+  "k": "Loading video…",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "37eb8e15",
+  "k": "Videos play in the installed app.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -11635,6 +12940,26 @@
   "f": "mobile/src/js/app.js"
  },
  {
+  "id": "fde42b27",
+  "k": "Your Google connection needs renewing.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "d3b174d2",
+  "k": "Reconnect Google",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "2c534112",
+  "k": "Reconnected to Google.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "f9ab4ef2",
+  "k": "Couldn't reconnect to Google.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
   "id": "f1cd4b29",
   "k": "Couldn't open that YouTube page.",
   "f": "mobile/src/js/app.js"
@@ -11672,6 +12997,21 @@
  {
   "id": "ec5bfe65",
   "k": "No readable text was found on that page.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
+  "id": "09dd50fd",
+  "k": "Unknown book.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
+  "id": "fca43b82",
+  "k": "No readable text was found in that book.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
+  "id": "fba1a5a5",
+  "k": "My books",
   "f": "mobile/src/js/backend.js"
  },
  {
@@ -11795,6 +13135,31 @@
   "f": "mobile/src/js/backend.js"
  },
  {
+  "id": "78539b41",
+  "k": "Couldn't reach Google. Check your connection.",
+  "f": "mobile/src/js/drive.js"
+ },
+ {
+  "id": "661015cd",
+  "k": "{0} openid email",
+  "f": "mobile/src/js/drive.js"
+ },
+ {
+  "id": "b7592d30",
+  "k": "The Google window was closed before signing in.",
+  "f": "mobile/src/js/drive.js"
+ },
+ {
+  "id": "66ec6394",
+  "k": "Tamkeen needs its private Drive folder to keep your library. Sign in again and leave that box ticked.",
+  "f": "mobile/src/js/drive.js"
+ },
+ {
+  "id": "76c6ab28",
+  "k": "Your Google connection needs renewing: tap Reconnect.",
+  "f": "mobile/src/js/drive.js"
+ },
+ {
   "id": "1492a513",
   "k": "Google sign-in works in the installed app.",
   "f": "mobile/src/js/drive.js"
@@ -11830,6 +13195,56 @@
   "f": "mobile/src/js/drive.js"
  },
  {
+  "id": "2a66b8ea",
+  "k": "Sign in with Google first (Settings → Google account).",
+  "f": "mobile/src/js/googletasks.js"
+ },
+ {
+  "id": "5c2a23a4",
+  "k": "Google Tasks wasn't allowed, so the task couldn't be added.",
+  "f": "mobile/src/js/googletasks.js"
+ },
+ {
+  "id": "f8575a96",
+  "k": "Google's window was closed before allowing Google Tasks.",
+  "f": "mobile/src/js/googletasks.js"
+ },
+ {
+  "id": "5e475346",
+  "k": "Sending to Google Tasks works on Android, the computer and the web app. Choose Onyx in Settings, or use one of those.",
+  "f": "mobile/src/js/googletasks.js"
+ },
+ {
+  "id": "25d9c3cc",
+  "k": "The task needs a day.",
+  "f": "mobile/src/js/googletasks.js"
+ },
+ {
+  "id": "bbdefd6e",
+  "k": "Tamkeen review",
+  "f": "mobile/src/js/googletasks.js"
+ },
+ {
+  "id": "3d81cff6",
+  "k": "Couldn't reach Google Tasks. Check your connection.",
+  "f": "mobile/src/js/googletasks.js"
+ },
+ {
+  "id": "8548a469",
+  "k": "Google Tasks isn't switched on for Tamkeen's Google project yet.",
+  "f": "mobile/src/js/googletasks.js"
+ },
+ {
+  "id": "a846f437",
+  "k": "Google Tasks answered with an error ({0}).",
+  "f": "mobile/src/js/googletasks.js"
+ },
+ {
+  "id": "214ae7a1",
+  "k": "That isn't an Onyx link.",
+  "f": "mobile/src/js/googletasks.js"
+ },
+ {
   "id": "979354ab",
   "k": "not a collection",
   "f": "mobile/src/js/instagram-phone.js"
@@ -11850,8 +13265,38 @@
   "f": "mobile/src/js/lexicon-store.js"
  },
  {
+  "id": "16b02880",
+  "k": "Tamkeen on the web",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "14f62c3c",
+  "k": "This works like the app, with a few things that need the Tamkeen app on your phone or computer: reels from your Instagram saves and random reels, reels with a song from Instagram's music library, the built-in web browser (Import Page and Find in a video), AnkiDroid sync, and the number on the app icon. What you add in the app shows up here after a sync.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "f3534216",
+  "k": "Get the app",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
   "id": "5c90bb93",
   "k": "AnkiDroid (optional)",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "91e5fbb9",
+  "k": "on the web",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "99e0c004",
+  "k": "for iPhone",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "0c3c76a9",
+  "k": "for Android",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -11880,8 +13325,8 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "f4c2b5ca",
-  "k": "Tamkeen for Android · <0>Privacy policy</0>",
+  "id": "a74ff4ca",
+  "k": "Tamkeen {0} · <0>Privacy policy</0>",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -11910,13 +13355,23 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
+  "id": "79f78eb5",
+  "k": "in your browser",
+  "f": "mobile/src/js/pages/welcome.js"
+ },
+ {
+  "id": "c2e8b4c9",
+  "k": "on your phone",
+  "f": "mobile/src/js/pages/welcome.js"
+ },
+ {
   "id": "7ff90624",
   "k": "Preview mode: sign-in works in the installed app.",
   "f": "mobile/src/js/pages/welcome.js"
  },
  {
-  "id": "10e45b5e",
-  "k": "Your podcasts, transcripts and vocab, on your phone.",
+  "id": "b71b7dd2",
+  "k": "Your podcasts, transcripts and vocab, {0}.",
   "f": "mobile/src/js/pages/welcome.js"
  },
  {
@@ -11967,6 +13422,16 @@
  {
   "id": "d5ee628a",
   "k": "Instagram didn't answer in time.",
+  "f": "mobile/src/js/reels-phone.js"
+ },
+ {
+  "id": "54e60766",
+  "k": "Instagram doesn't show this reel publicly.",
+  "f": "mobile/src/js/reels-phone.js"
+ },
+ {
+  "id": "1edda8bd",
+  "k": "That needs the Tamkeen app (it reads Instagram while you're signed in there).",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
@@ -12200,6 +13665,11 @@
   "f": "mobile/src/js/sqlite-file.js"
  },
  {
+  "id": "0225752e",
+  "k": "Maayong buntag kaninyong tanan. Karon, atong hisgotan ang atong kinabuhi diri sa Sugbo ug sa Mindanao.",
+  "f": "mobile/src/js/transcribe-service.js"
+ },
+ {
   "id": "02650201",
   "k": "Couldn't read the audio.",
   "f": "mobile/src/js/transcribe-service.js"
@@ -12283,6 +13753,231 @@
   "id": "aad63d75",
   "k": "That file is too large to send from the phone, so your computer will transcribe it.",
   "f": "mobile/src/js/transcribe-service.js"
+ },
+ {
+  "id": "a11dbc0f",
+  "k": "(display-mode: standalone)",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "e165040b",
+  "k": "at the top of the screen",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "55ccdc03",
+  "k": "at the bottom of the screen",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "41a15e18",
+  "k": "Tap the <0>Share</0> button {0} {1}.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "cbc7ba0a",
+  "k": "Scroll down the list and tap <0>Add to Home Screen</0>.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "bf13c2df",
+  "k": "Tap <0>Add</0> (top right). Tamkeen is now on your home screen.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "96914e14",
+  "k": "(top right)",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "b32ca313",
+  "k": "Tap the <0>Share</0> button {0} in the address bar{1}.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "87deb031",
+  "k": "Tap <0>Add to Home Screen</0> (scroll down if you don't see it).",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "785f548a",
+  "k": "Tap <0>Add</0>. If it isn't there, open this page in Safari and add it from there.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "ae260712",
+  "k": "Tap the menu <0>≡</0> at the bottom right.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "1b5b232c",
+  "k": "Tap <0>Add page to</0>, then <1>Home screen</1>.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "ca117803",
+  "k": "Tap <0>Add</0>.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "2b256040",
+  "k": "Tap the menu",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "bb5798ce",
+  "k": "Tap <0>Install</0> (or <1>Add to Home screen</1>).",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "2f614469",
+  "k": "Tap the menu <0>⋮</0> at the top right.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "022e6668",
+  "k": "Tap <0>Add to Home screen</0> (it may say <1>Install app</1>).",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "1034fc99",
+  "k": "Tap <0>Install</0> or <1>Add</1>. Tamkeen then opens like an app, without the browser around it.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "887b182d",
+  "k": "Or open the menu <0>⋮</0>, then <1>Cast, save and share</1> → <2>Install page as app</2>.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "b85d0d03",
+  "k": "Click <0>Install</0>.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "06d74687",
+  "k": "Open the menu <0>…</0>, then <1>Apps</1> → <2>Install this site as an app</2>.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "8829f1b7",
+  "k": "On a Mac, in the menu bar choose <0>File</0> → <1>Add to Dock</1>.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "7487434a",
+  "k": "Click <0>Add</0>.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "95b40a2a",
+  "k": "Android phone",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "d992aac8",
+  "k": "Install Tamkeen",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "1a96de2a",
+  "k": "Add Tamkeen to your home screen",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "8607e4ba",
+  "k": "Install now",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "26e74130",
+  "k": "Tamkeen then opens from its own icon, full screen, like an app. On this {0}:",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "def8615b",
+  "k": "Couldn't reach Instagram. Check your connection.",
+  "f": "mobile/src/js/web-reels.js"
+ },
+ {
+  "id": "fcb5223a",
+  "k": "Instagram answered with an error ({0}). Try again in a minute.",
+  "f": "mobile/src/js/web-reels.js"
+ },
+ {
+  "id": "797a2936",
+  "k": "Easier ·",
+  "f": "mobile/src/js/web-sites.js"
+ },
+ {
+  "id": "4c449da1",
+  "k": "Open a site (it opens in a new tab), find an article, copy its address, then come back and paste it here.",
+  "f": "mobile/src/js/web-sites.js"
+ },
+ {
+  "id": "db59af69",
+  "k": "Paste an article's address",
+  "f": "mobile/src/js/web-sites.js"
+ },
+ {
+  "id": "cbc27e21",
+  "k": "Article address",
+  "f": "mobile/src/js/web-sites.js"
+ },
+ {
+  "id": "db248300",
+  "k": "Paste",
+  "f": "mobile/src/js/web-sites.js"
+ },
+ {
+  "id": "263fcf38",
+  "k": "Your browser didn't allow pasting from here. Long-press the box and choose Paste.",
+  "f": "mobile/src/js/web-sites.js"
+ },
+ {
+  "id": "d3478410",
+  "k": "Couldn't import that page.",
+  "f": "mobile/src/js/web-sites.js"
+ },
+ {
+  "id": "effc9a4e",
+  "k": "YouTube answered with an error ({0}). Try again in a minute.",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
+  "id": "ecc87af7",
+  "k": "YouTube's page couldn't be read. Try again in a minute.",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
+  "id": "6f77246b",
+  "k": "This channel's videos.",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
+  "id": "82f79ac4",
+  "k": "Popular this week.",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
+  "id": "e17e232a",
+  "k": "Search YouTube",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
+  "id": "bd7d0814",
+  "k": "{0} Tap a video to watch it with its captions as words you can tap. It needs captions.",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
+  "id": "7724494e",
+  "k": "Loading videos…",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
+  "id": "f64fc328",
+  "k": "No videos found.",
+  "f": "mobile/src/js/web-youtube.js"
  },
  {
   "id": "0ab8077d",
@@ -12465,6 +14160,21 @@
   "f": "app/api/system.py"
  },
  {
+  "id": "a385bf96",
+  "k": "Wiktionary via Wiktextract: word meanings for No AI (optional download)",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "81e74ccd",
+  "k": "The free book shelf: Project Gutenberg, Wikisource, Aozora Bunko (optional download)",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "8db0aa84",
+  "k": "Public domain",
+  "f": "app/api/system.py"
+ },
+ {
   "id": "7ba12057",
   "k": "NVIDIA cuBLAS / cuDNN (optional download)",
   "f": "app/api/system.py"
@@ -12553,6 +14263,11 @@
   "id": "8e11cc63",
   "k": "The backup's database is damaged.",
   "f": "app/backup.py"
+ },
+ {
+  "id": "d1198df0",
+  "k": "Books to read a page at a time with clickable words.",
+  "f": "app/books.py"
  },
  {
   "id": "d29882bc",
@@ -12688,6 +14403,31 @@
   "id": "f5b576f8",
   "k": "Couldn't reach the feed: {0}: {1}",
   "f": "app/feeds.py"
+ },
+ {
+  "id": "7141db00",
+  "k": "Sign in with Google first (Settings → Sync with Google Drive).",
+  "f": "app/googletasks.py"
+ },
+ {
+  "id": "819dc7ab",
+  "k": "Couldn't reach Google Tasks ({0}). Check your connection.",
+  "f": "app/googletasks.py"
+ },
+ {
+  "id": "43d1089a",
+  "k": "has not been used",
+  "f": "app/googletasks.py"
+ },
+ {
+  "id": "80e1cb7a",
+  "k": "Google Tasks refused the task ({0}).",
+  "f": "app/googletasks.py"
+ },
+ {
+  "id": "6c8a35f3",
+  "k": "Onyx doesn't seem to be installed on this computer.",
+  "f": "app/googletasks.py"
  },
  {
   "id": "215c16a3",
@@ -12837,6 +14577,26 @@
  {
   "id": "334a85f1",
   "k": "Dutch",
+  "f": "app/reels.py"
+ },
+ {
+  "id": "08f0c0cf",
+  "k": "Malay",
+  "f": "app/reels.py"
+ },
+ {
+  "id": "4d3bb51e",
+  "k": "Javanese",
+  "f": "app/reels.py"
+ },
+ {
+  "id": "1d6b8a69",
+  "k": "Vietnamese",
+  "f": "app/reels.py"
+ },
+ {
+  "id": "c1439807",
+  "k": "Lao",
   "f": "app/reels.py"
  },
  {

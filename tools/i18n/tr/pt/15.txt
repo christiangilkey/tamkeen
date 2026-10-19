@@ -1,0 +1,200 @@
+294611a1 Dê um nome à pasta.
+08f351d2 Pasta não encontrada.
+f1124044 Não encontrado.
+4fdd6fdd Não há nenhuma frase para salvar.
+95b85b31 Isso não é uma resposta.
+6d483033 Esse dicionário não foi baixado.
+84c8cb59 Não disponível no celular: {0} {1}
+78539b41 Não foi possível acessar o Google. Verifique sua conexão.
+661015cd {0} openid email
+b7592d30 A janela do Google foi fechada antes de você entrar.
+66ec6394 O Tamkeen precisa da pasta privada dele no Drive para guardar sua biblioteca. Entre de novo e deixe essa caixa marcada.
+76c6ab28 Sua conexão com o Google precisa ser renovada: toque em Reconectar.
+1492a513 O login com o Google funciona no app instalado.
+59af74d7 Não conectado.
+6e07f63f Seu login do Google precisa ser renovado. Abra as Configurações e entre de novo.
+b7ac2dcb Erro do Google Drive {0}: {1}
+402eaf0a O Google Drive não iniciou o envio.
+977db692 O envio para o Google Drive falhou ({0}).
+5cf59ec6 Envio interrompido. Verifique sua conexão e tente de novo.
+2a66b8ea Primeiro entre com o Google (Configurações → Conta do Google).
+5c2a23a4 O Google Tasks não foi permitido, então a tarefa não pôde ser adicionada.
+f8575a96 A janela do Google foi fechada antes de permitir o Google Tasks.
+5e475346 Enviar para o Google Tasks funciona no Android, no computador e no app web. Escolha Onyx nas Configurações ou use um desses.
+25d9c3cc A tarefa precisa de um dia.
+bbdefd6e Revisão do Tamkeen
+3d81cff6 Não foi possível acessar o Google Tasks. Verifique sua conexão.
+8548a469 O Google Tasks ainda não está ativado no projeto do Google do Tamkeen.
+a846f437 O Google Tasks respondeu com um erro ({0}).
+214ae7a1 Isso não é um link do Onyx.
+979354ab não é uma coleção
+4742fc3e Não foi possível baixar os dicionários. Verifique sua conexão e tente de novo.
+16f085e3 O dicionário de {0:lower} ainda não foi publicado.
+a09450db Um dicionário chegou danificado. Tente de novo.
+16b02880 Tamkeen na web
+14f62c3c Funciona como o app, com algumas coisas que precisam do app Tamkeen no seu celular ou computador: reels dos seus salvos do Instagram e reels aleatórios, reels com uma música da biblioteca musical do Instagram, o navegador embutido (Importar página e Encontrar em um vídeo), a sincronização com o AnkiDroid e o número no ícone do app. O que você adicionar no app aparece aqui depois de uma sincronização.
+f3534216 Baixar o app
+5c90bb93 AnkiDroid (opcional)
+91e5fbb9 na web
+99e0c004 para iPhone
+0c3c76a9 para Android
+e90c933b Usado para as páginas da web que você importa aqui, para as explicações de palavras e para tudo o que for transcrito deste celular. Configure o mesmo no seu computador. O que você já transcreveu mantém o idioma em que foi feito.
+2b7da079 Seus podcasts, transcrições e vocabulário são compartilhados com seu computador por meio de uma pasta privada do app no seu próprio Google Drive. A menos que um provedor na nuvem esteja escolhido acima, a transcrição acontece no seu computador: toque em "Transcrever" aqui e ele fará isso na próxima sincronização.
+10899135 Vibrar de leve quando eu tocar ou salvar uma palavra
+b0cc938b Texto de podcasts e vídeos: <0/> <1>{0}px</1>
+283086ed Texto de páginas da web: <0/> <1>{0}px</1>
+a74ff4ca Tamkeen {0} · <0>Política de privacidade</0>
+485bef4c Entrar funciona no app instalado.
+ecc1d2f5 Conectado como {0}
+3addceb3 A sincronização falhou: {0}
+33b60a49 Sair do Google? Sua biblioteca continua neste celular; ela só para de sincronizar.
+ba28f9f2 A versão {0} está disponível: toque em Atualizar agora na caixa que acabou de abrir.
+79f78eb5 no seu navegador
+c2e8b4c9 no seu celular
+7ff90624 Modo de prévia: entrar funciona no app instalado.
+b71b7dd2 Seus podcasts, transcrições e vocabulário, {0}.
+d0ddef8f <0>Transcreva no seu computador.</0> O app para computador faz as transcrições palavra por palavra.
+f0adf6f0 <0>Entre com a mesma conta do Google</0> aqui e no seu computador. Tudo é sincronizado por uma pasta privada do app no seu próprio Google Drive.
+a6b63644 <0>Toque em qualquer palavra</0> para ouvi-la e ver o que significa no contexto. Toque e segure para mais opções.
+eb2732b0 Conectado como {0}. Trazendo sua biblioteca…
+84ab641a não pode ser mostrado fora do Instagram
+8fcc7be3 Parado.
+48a80f34 levou mais de {0} minutos
+d6993df4 {0} adicionados, {1} pulados
+61151245 O Instagram não abriu. Verifique sua conexão e tente de novo.
+d5ee628a O Instagram não respondeu a tempo.
+54e60766 O Instagram não mostra este reel publicamente.
+1edda8bd Isso precisa do app Tamkeen (ele lê o Instagram enquanto você está conectado lá).
+c6ff8ff1 Já está ocupado com o Instagram. Tente de novo quando terminar.
+ff8747f0 Primeiro ative a transcrição na nuvem nas Configurações: é ela que permite a este celular ouvir os reels.
+2798b2f0 Abrindo o Instagram…
+352cdb34 Primeiro entre no Instagram: toque em “Entrar no Instagram” e entre lá. Essa janela fecha sozinha e o Tamkeen continua.
+752ead87 {0} coleção(ões)
+3d4f9a7c Parado. {0} encontradas até agora.
+f351926a Procurando nos seus salvos do Instagram… {0} até agora. (Parar mantém as que foram encontradas.)
+42c1b8ad Procurando suas coleções nos seus salvos do Instagram…
+902f4134 {0} coleção(ões) salva(s) encontrada(s). Escolha uma na lista.
+7271c886 Nenhuma coleção encontrada nos seus salvos do Instagram. Você ainda pode escolher “Tudo o que salvei”.
+a904dcc2 Essa coleção não está na lista. Toque em “Encontrar minhas coleções” de novo.
+96d3280d Lendo essa coleção no Instagram…
+c2182d2c Obtendo as imagens…
+5c716b95 {0} post(s) salvo(s) encontrado(s). Marque os que você quer.
+c4dbbbdc não pôde ser lido
+4c93a121 não é um vídeo
+360993c3 o vídeo demorou demais para baixar
+856eba9f não foi possível baixar o vídeo{0}
+923accb8 o vídeo veio vazio do Instagram
+f1d247f4 grande demais para enviar do celular
+b5adf68f nada é dito nele
+3bb1a5b6 em {0:lower}, não em {1:lower}
+8a1414e3 quase não há fala nele
+ed162d4b , em {0:lower}
+c14398dc (toca quando você está conectado ao Instagram)
+26dda5ef {0} palavras{1}{2}
+d7ddc937 Primeiro marque os reels que você quer.
+3727f60b Reel {0} dos {1} que você marcou: ouvindo… ({2} até agora)
+f239c335 A lista abaixo diz por que cada um foi pulado.
+72ef9385 Os reels aleatórios ainda não estão configurados para este idioma.
+4c93d4b8 Parado. {0}.
+0b85ce49 Procurando reels em {0:lower} ({1})…
+403ebed9 Obtendo {0} reels em {1:lower}: {2} até agora; ouvindo o próximo…
+3d0a21ac {0}: {1} reel(s) aleatório(s) em {2:lower} pronto(s) para assistir.
+ceda21f2 {0}: desta vez nenhum reel em {1:lower} pôde ser mantido. Tente de novo: as palavras de busca mudam a cada vez.
+72012544 Essa coleção não está na lista.
+7f8b10c7 O Tamkeen já foi redefinido. Entre ou termine as primeiras telas para trazer sua biblioteca de volta.
+020ed627 Não foi possível guardar sua biblioteca à parte com segurança, então nada foi redefinido.
+18cf0eb4 Isto não parece um feed RSS de podcast.
+ea3bb7b5 Podcast sem título
+4d02a4af Episódio sem título
+70440046 Notas
+a40a4e6b Início (s)
+731a0d43 Fim (s)
+83423c19 Nota:
+5969dbe4 Tabelas demais para uma página só.
+0225752e Maayong buntag kaninyong tanan. Karon, atong hisgotan ang atong kinabuhi diri sa Sugbo ug sa Mindanao.
+02650201 Não foi possível ler o áudio.
+cfb37b58 O endereço do áudio ficava mandando o app para outro lugar.
+3fa8487e O download foi recusado (erro {0}).
+606d8615 {0} devolveu algo que não é uma transcrição.
+5a4f2a6b {0} pede para esperar {1}…
+253b5798 {0} está com problemas (erro {1}). Tente de novo daqui a pouco.
+cb8c9ee7 {0} não respondeu.
+dc8e1cb0 Provedor desconhecido.
+d9f8661c Primeiro cole uma chave de API.
+55059cb2 Não foi possível baixar o áudio (o servidor respondeu {0}).
+d80623c2 O download parou no meio (o servidor respondeu {0}).
+d580b524 Este áudio não pôde ser lido como MP3.
+b37be079 O áudio deste episódio não é MP3 e tem {0}: mais do que {1} aceita de uma vez (25 MB). Transcreva-o no seu computador ou use o Groq como provedor.
+802c66c5 O áudio deste episódio não é MP3 e é grande demais para enviar de uma vez. Transcreva-o no seu computador.
+b9a6cf4a O arquivo não está mais no seu Google Drive.
+673f3233 A transcrição na nuvem está desativada. Ative-a nas Configurações.
+aad63d75 Esse arquivo é grande demais para enviar do celular, então seu computador vai transcrevê-lo.
+a11dbc0f (display-mode: standalone)
+e165040b no alto da tela
+55ccdc03 na parte de baixo da tela
+41a15e18 Toque no botão <0>Compartilhar</0> {0} {1}.
+cbc7ba0a Role a lista para baixo e toque em <0>Adicionar à Tela de Início</0>.
+bf13c2df Toque em <0>Adicionar</0> (no canto superior direito). O Tamkeen agora está na sua tela de início.
+96914e14 (no canto superior direito)
+b32ca313 Toque no botão <0>Compartilhar</0> {0} na barra de endereço{1}.
+87deb031 Toque em <0>Adicionar à Tela de Início</0> (role para baixo se não aparecer).
+785f548a Toque em <0>Adicionar</0>. Se não aparecer, abra esta página no Safari e adicione por lá.
+ae260712 Toque no menu <0>≡</0> no canto inferior direito.
+1b5b232c Toque em <0>Adicionar página a</0> e depois em <1>Tela inicial</1>.
+ca117803 Toque em <0>Adicionar</0>.
+2b256040 Toque no menu
+bb5798ce Toque em <0>Instalar</0> (ou <1>Adicionar à tela inicial</1>).
+2f614469 Toque no menu <0>⋮</0> no canto superior direito.
+022e6668 Toque em <0>Adicionar à tela inicial</0> (pode aparecer como <1>Instalar app</1>).
+1034fc99 Toque em <0>Instalar</0> ou <1>Adicionar</1>. O Tamkeen passa a abrir como um app, sem o navegador em volta.
+887b182d Ou abra o menu <0>⋮</0> e depois <1>Transmitir, salvar e compartilhar</1> → <2>Instalar página como app</2>.
+b85d0d03 Clique em <0>Instalar</0>.
+06d74687 Abra o menu <0>…</0> e depois <1>Aplicativos</1> → <2>Instalar este site como um aplicativo</2>.
+8829f1b7 No Mac, na barra de menus, escolha <0>Arquivo</0> → <1>Adicionar ao Dock</1>.
+7487434a Clique em <0>Adicionar</0>.
+95b40a2a celular Android
+d992aac8 Instalar o Tamkeen
+1a96de2a Adicione o Tamkeen à sua tela de início
+8607e4ba Instalar agora
+26e74130 Assim o Tamkeen abre pelo próprio ícone, em tela cheia, como um app. Neste {0}:
+def8615b Não foi possível acessar o Instagram. Verifique sua conexão.
+fcb5223a O Instagram respondeu com um erro ({0}). Tente de novo daqui a um minuto.
+797a2936 Mais fácil ·
+4c449da1 Abra um site (ele abre numa nova aba), encontre um artigo, copie o endereço dele e depois volte e cole aqui.
+db59af69 Cole o endereço de um artigo
+cbc27e21 Endereço do artigo
+db248300 Colar
+263fcf38 Seu navegador não permitiu colar daqui. Toque e segure na caixa e escolha Colar.
+d3478410 Não foi possível importar essa página.
+effc9a4e O YouTube respondeu com um erro ({0}). Tente de novo daqui a um minuto.
+ecc87af7 Não foi possível ler a página do YouTube. Tente de novo daqui a um minuto.
+6f77246b Os vídeos deste canal.
+82f79ac4 Populares esta semana.
+e17e232a Pesquisar no YouTube
+bd7d0814 {0} Toque em um vídeo para assistir com as legendas como palavras que você pode tocar. Ele precisa ter legendas.
+7724494e Carregando vídeos…
+f64fc328 Nenhum vídeo encontrado.
+0ab8077d Token do complemento incorreto. Baixe o complemento de novo nas configurações do Tamkeen.
+42ea3675 Dias demais em um só relatório.
+36edb03f Arquivo inexistente.
+f1e86935 Só os provedores de IA compatíveis podem ser chamados.
+795b8b49 Erro de rede: {0}: {1}
+d5f6613b O vídeo não está no seu Google Drive.
+399e0f29 Não foi possível transmitir do Google Drive: {0}
+c602022a Este vídeo toca do YouTube; o app não guarda nenhuma cópia do som dele.
+c2c60ae0 Este vídeo ainda não terminou de ser enviado do outro dispositivo.
+0b0ce373 Este episódio ainda não tem transcrição.
+23eebf4d O formato precisa ser txt, srt ou vtt.
+d88f9041 Não permitido.
+5591ee57 Isso não é um link tamkeen://watch?v=….
+1da00bdb Isso não é um endereço da web.
+7200d5dc Não é uma imagem do Instagram.
+812b0382 Não foi possível obter a imagem.
+f0cbe469 Sem imagem.
+a52aaab5 Login cancelado
+ef3fbb3e O login do Google foi cancelado ou negado.
+41d8fe44 O login falhou
+0f824e05 Sincronizando como {0}.
+2f18d2c1 Primeiro entre com o Google.
+c4f7c260 Tamanho de modelo desconhecido.
+066f2c8e Idioma desconhecido.

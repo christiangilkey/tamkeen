@@ -1,0 +1,200 @@
+63987d76 Natangtang ang key, o gisirado ang account
+1588d496 Susiha kung nalista pa ba ang key sa key page. Kung wala na, paghimo og bag-o.
+c96b7484 Walay credit o billing nga na-set up
+0ad9708a Pagdugang og payment card ug gamay nga credit sa Billing page sa provider.
+e1e28b30 Naabot na ang limit sa paggasto
+18251e5e Pasakaa ang binulan nga limit sa billing settings sa provider, o hulata ang sunod bulan.
+f6cdf0dd Nahurot na ang libre nga alawans sa pagkakaron
+11671580 Hulata hangtod ugma, o pagdugang og billing aron mawala ang limit.
+84d0d9ac Daghan ra kaayo nga hangyo sa mubo nga panahon
+d42b2d76 Paghulat og usa ka minuto, dayon sulayi pag-usab.
+4c4f1f6e Ang libre nga mga account makapadala ra og limitado matag oras ug matag adlaw
+7675faf6 Paghulat og kadiyot, o pagdugang og billing aron mosaka ang limit.
+084837dc Kini nga device dili online
+d2a2dab5 Ablihi ang bisan unsang website aron masusi, dayon sulayi pag-usab.
+963deb8a Naay VPN o proxy nga nakababag
+19c37976 Palonga ang VPN o proxy ug sulayi pag-usab.
+55a21539 Gibabagan kini sa firewall, o sa network sa trabahoan o eskwelahan
+587e5785 Sulayi ang laing network, sama sa mobile data sa imong phone.
+562f6211 Down ang provider
+ea828f0c Susiha ang status page niini, dayon sulayi pag-usab unya.
+5b1b4424 Sayop ang petsa ug oras niini nga device
+05d71e52 I-set ang orasan nga awtomatikong mo-update: mapakyas ang mga secure nga koneksyon kung sayop kini.
+cc2c0140 Ang provider dili moserbisyo sa imong nasod o rehiyon
+a0d0b371 Pili og laing provider sa Settings.
+c47e8828 Ang VPN mopakita nga daw naa ka sa laing lugar
+e5984aea Palonga ang VPN, o i-set kini sa imong kaugalingong nasod.
+47ab6e8d Kana nga model dili magamit sa imong key
+2f6cf7e5 Ibalik ang Model sa girekomenda sa Settings.
+9f9d4258 Giilisan og ngalan o giretiro na ang model
+3e1adb41 Pili og model gikan sa listahan imbes nga mo-type og ngalan.
+0e77e507 Ang bag-o o libre nga mga account dili makagamit sa matag model
+9de897f2 Gamita ang girekomenda nga model, o pagdugang og billing sa account.
+fd6e38d8 Naay problema ang provider o busy kaayo kini
+4154fe68 Susiha ang status page niini ug sulayi pag-usab human sa pipila ka minuto.
+5a4f728f Gisalikway sa provider ang key
+25b375a4 Walay credit ang account o naabot na ang limit
+5720edd4 Gihangyo sa provider nga mohinay ang app
+6ac5f256 Dili maabot ang provider
+2cba2077 Dili magamit ang provider kung asa ka
+2121e96e Wala mailhi sa provider ang model
+d2b04c49 Naay problema ang provider
+04f3c5cd Naay sayop nga nahitabo sa provider
+ec853b07 Ang key para sa kahulogan sa pulong, dili para sa transcript
+26d88d64 Ang transcript nanginahanglan og kaugalingong key: ang Groq key nagsugod sa gsk_. Ang OpenAI key mogana sa duha.
+b2918a21 Gi-download… {0}% ({1} sa {2} MB)
+a15a5851 Gi-download… {0} MB
+fe01cea2 Gi-install. Ang Tamkeen mosira ug moabli pag-usab sa kaugalingon.
+4265eb9a Napakyas ang update.
+829e6b86 Unsay bag-o ↗
+c4cbac00 I-update karon
+531355b2 (naa kay {0})
+91b691d1 Naa nay Tamkeen {0}{1}
+d42870c3 Ma-install kini dinhi, ug magpabilin ang imong library sama sa karon.
+3d611376 I-download kini gikan sa release page.
+3ab0d731 Gi-update…
+b7219bda Ehiptohanon
+475410e2 Levantine
+81298f3a Gulf
+64202d79 usa ka diyalekto
+0757a38e Banabana ra ang mga bokal dinhi: daw {0} nga Arabiko kini, ug ang vowel model nakakat-on sa Sumbanan nga Arabiko.
+01738e86 Walay bokal dinhi: daw {0} nga Arabiko kini, ug ang vowel model kahibalo ra sa Sumbanan nga Arabiko. Mapakita kini sa Settings isip banabana.
+ebf17aa6 Dugangan og mga bokal ang Arabiko?
+f6ca8deb Ang Arabiko gisulat nga walay mubo nga mga bokal. Madugangan kini sa Tamkeen sa imong mga transcript, page ug reel sa Arabiko, aron makita nimo kung giunsa paglitok ang matag pulong. Kinahanglan niini ang vowel model, usa ka higayon nga download nga {0} MB nga gitipigan niini nga computer. Makuha sa imong phone ang mga bokal gikan dinhi kung mo-sync kini.
+79151896 Nakakat-on kini sa Sumbanan nga Arabiko: sa Arabiko nga estilo sa balita, mga 4 sa 5 ka pulong ang hingpit nga sakto. Dili kini kahibalo sa sinultihan sa Ehipto, Levantine o Gulf, busa kana ibilin nga walay bokal gawas kung mangayo ka og banabana.
+3a719e9b I-download ({0} MB)
+ec1c7366 Gi-download ang vowel model. Mogawas ang mga bokal kung mahuman na.
+955dc8cb Ipakita o itago ang mga marka sa bokal (V)
+deee2838 Ipakita ang mga bokal (حَرَكات) sa mga transcript, page ug reel
+451a444b Apil usab ang sinultihan sa Ehipto, Levantine ug Gulf (banabana, kasagaran sayop)
+59e8699c Ang Tamkeen sa imong computer ang modugang sa mga bokal (i-download ang vowel model sa Settings niini); moabot kini dinhi kung mo-sync ka.
+10d9f8dc Gidugangan og mga bokal…
+e549162d ✓ Ang vowel model naa na niini nga computer ({0} MB).{1}
+b281359a Gi-download ang vowel model… {0}%
+2820e9e6 Ang mga marka sa bokal sa Arabiko nanginahanglan og vowel model ({0} MB, Sumbanan nga Arabiko).{1}
+3c467cf7 ✓ Gi-follow
+d1541dd9 + Follow
+90145b11 Gi-follow nimo kini nga channel sa Tamkeen. Pindota aron mohunong sa pag-follow.
+e80a9596 I-follow kini nga channel sa Tamkeen: makita kini sa imong Library ubos sa YouTube
+8c9967c9 Mihunong na sa pag-follow
+5a674f33 Dili ma-follow kini nga channel.
+ce8c60f6 I-tap ang video aron tan-awon kini sa Tamkeen
+5caa7f81 Lebanon
+674027e1 Jordan
+d115b8d5 United Arab Emirates
+bd6acc86 Algeria
+1aed9ecc Iraq
+93295b0c Kuwait
+55949d4c Libya
+c14c36df Oman
+83ef3e6c Qatar
+edf404d0 Tunisia
+3ae11c72 Bahrain
+ac33d641 Yemen
+349507e4 Chile
+768685ca Estados Unidos
+9d4ac43d Venezuela
+09f199d2 Ecuador
+11760e1a Guatemala
+8a4bf12e Dominican Republic
+a001af75 Bolivia
+1bf429f9 Costa Rica
+66b98924 Uruguay
+71a45296 Paraguay
+1e36b31e Panama
+5aa58871 Honduras
+259a6e93 El Salvador
+4812648c Nicaragua
+fe23c52d Puerto Rico
+d8973b8e Senegal
+2f488ffc Hong Kong
+20c0b7bd Singapore
+ff3ea3be Malaysia
+2f36b6bb Kazakhstan
+027a12c2 Belarus
+c951ec00 Ukraine
+8067364d Pilipinas
+a495190b Portugal
+a42522a0 Angola
+a40a9be0 Mozambique
+9d3bd1fb Andorra
+9769121f United Kingdom
+eb2131ec Ireland
+a2238e91 New Zealand
+967ce367 India
+9742d008 Nigeria
+35fda17f South Africa
+bc288dca Daw dili kana YouTube video.
+37e8b90a Kini nga video wala mosulti kung asa nga channel gikan.
+bf32bc87 Dili maabot ang YouTube. Susiha ang imong koneksyon.
+873fbc5a Dili ipakita sa YouTube kini nga video dinhi: {0}
+47b4cecf Wala motubag ang YouTube bahin niini nga video. Sulayi pag-usab human sa usa ka minuto.
+bb0ea382 Walay caption nga magamit para niini nga video.
+a66bb5c6 Walay caption sa {0} nga magamit para niini nga video.
+6f502e0d Dili ma-load ang YouTube player. Susiha ang imong koneksyon.
+e4b5c056 Ang tag-iya niini nga video dili motugot nga i-play kini sulod sa ubang mga app.
+b2b518b0 Kini nga video natangtang o gihimong pribado.
+269fa6c0 nag-load pa ang YouTube player
+68e1c493 Ang sync sa AnkiDroid mogana sa na-install nga app.
+5ce90e69 Wala ma-install ang AnkiDroid niini nga phone.
+d7e2aef9 Wala pa mailhi sa Android ang permission sa AnkiDroid. Ablihi una ang AnkiDroid kausa, dayon sulayi pag-usab; kung dili kana makatabang, i-install pag-usab ang Tamkeen (ang Android motanyag ra sa permission sa mga app nga na-install human sa AnkiDroid).
+c175063b Wala pa tugoti ang Tamkeen nga mogamit sa mga card sa AnkiDroid. I-tap ang I-sync karon ug pilia ang Allow, o tugoti kini sa settings sa Android para sa Tamkeen (Permissions).
+5eed15f4 Wala pa tugoti ang Tamkeen nga mogamit sa mga card sa AnkiDroid.
+6167031d Mihunong ang sync sa AnkiDroid: {0}
+2fd01022 Wala mailhi nga pili.
+64cd269c Nagdagan ang sync sa AnkiDroid. Sulayi pag-usab sa makadiyot.
+8d4dbd4e Ang duha ka pinulongan dili makapaambit sa deck nga “{0}”.
+3ad4b928 Ang “{0}” ug “{1}” nagsulod sa usag usa: hatagi ang matag pinulongan og kaugalingong deck.
+d18f8d89 Preview: mangayo og sign-in ang Instagram dinhi ({0})
+0c7cd35b Preview: ang {0} mag-play dinhi
+a27c2834 ‹ Miagi
+51802ba8 Sunod ›
+011ae46a Gi-load ang audio…
+5a1d72f4 Dili ma-load ang na-sync nga audio, gi-stream na lang ang orihinal. ({0})
+4c6de3cb Ang pag-connect mogana sa na-install nga app.
+db79573c {0} Mag-sign in gamit ang Google
+c46d4f59 Gikansela ang pag-sign in.
+71abc87d Wala ka ma-sign in sa Google.
+e21573ca Kana nga sign-in mibalik nga wala gihangyo dinhi. Sulayi pag-usab.
+6ed09657 Naka-sign in na sa Friends.
+46729ba2 Dili maka-sign in sa Friends.
+e129fbc7 Ang audio niini nga pulong wala pa niini nga phone. I-sync ug sulayi pag-usab.
+01dae1d6 Dili maabot kana nga site. Susiha ang address ug ang imong koneksyon.
+2bbb4134 Mitubag ang site og sayop ({0}).
+bb397028 Ang pag-import og mga page mogana sa na-install nga Android app.
+29245f84 Mitubag ang site og sayop ({0}). Sulayi ang “Ablihi ang Web Browser” ug gamita didto ang I-import ang Page.
+29161415 Ang mga hangyo ra sa podcast directory sa Apple ang gitugotan dinhi.
+0eec41ce Dili maabot ang podcast directory sa Apple. Susiha ang imong koneksyon.
+bac91013 Ang pagdugang og YouTube video mogana sa na-install nga Android app.
+9c6c80e5 Dili maablihan kini nga video dinhi.
+9ec8a2aa {0} Ablihan na lang kini sa YouTube.
+a0db0eba Na-import ang “{0}” ({1} ka pulong). Naa kini sa Akong mga webpage.
+7b230e38 Gi-follow ang {0}. Naa kini sa imong Library ubos sa YouTube.
+116e96c0 Mihunong na sa pag-follow sa {0}.
+2023ac63 Na-save sa imong start page.
+9ae12679 Ang mga reel mag-play sa na-install nga app.
+b794b57c Mag-sign in gamit ang Google (Settings) aron matan-aw ang mga video nga gitipigan sa imong Drive.
+83cbe2cb Gi-upload pa kini nga video gikan sa imong computer.
+afe5afc2 Wala na ang video sa imong Google Drive.
+be990723 Gi-load ang video…
+37eb8e15 Ang mga video mag-play sa na-install nga app.
+e916be2e Mag-sign in una gamit ang Google (Settings): ang imong mga file gitipigan sa imong Drive.
+97aca1c7 Pili og video file (MP4, MOV, WebM, MKV, AVI, 3GP) o audio file (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).
+2a4b391c I-transcribe kini sa imong computer sa sunod nga pag-sync niini.
+cfb6ce14 Wala mailhi nga export.
+a4a37122 Mitubag ang GitHub og {0}.
+df0aa924 Dili maabot ang GitHub. Susiha ang imong koneksyon sa internet.
+b2c43554 Tugoti ang "Install unknown apps" para sa Tamkeen, balik dinhi, ug i-tap ang Sulayi pag-usab.
+8daa5363 I-tap ang Update sa installer sa Android. Magpabilin ang imong library sama sa karon.
+fde42b27 Kinahanglan i-renew ang imong koneksyon sa Google.
+d3b174d2 I-connect pag-usab ang Google
+2c534112 Nakonektar pag-usab sa Google.
+f9ab4ef2 Dili makonektar pag-usab sa Google.
+f1cd4b29 Dili maablihan kana nga YouTube page.
+e599c6b1 Andam na ang transcript: {0}
+abc6efcd Dili ma-transcribe ang “{0}”: {1}
+dbb00f48 Bag-ong transcript: {0}
+737fe002 {0} ka bag-ong transcript
+84db0dcd 1 ka bag-ong episode sa podcast
+b2510650 {0} ka bag-ong episode sa podcast
+ec5bfe65 Walay mabasa nga teksto nga nakit-an niana nga page.

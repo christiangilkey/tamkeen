@@ -1,0 +1,200 @@
+5a19606e Ang audio sa imong gi-transcript moadto sa provider nga imong pilion ({0}), ug wala na sa lain. Walay lain nga ipadala bahin nimo o sa imong library. Ang imong key gitipigan sa {1} ug, kung mogamit ka og Google Drive sync, sa pribado nga folder sa app sa imong kaugalingong Google Drive, aron maanaa usab kini sa imong ubang mga device. Dili gyud kini mahiapil sa data export.
+c579b050 Kinsa ang mosulat sa mga transcript
+a1d0104d Usa ka cloud provider
+574970e9 Ang bayad sumala sa gitas-on sa audio, dili sa kadugayon sa trabaho: ang usa ka oras nga episode mokantidad sa presyo matag oras, ang usa ka minuto nga reel usa sa kan-uman niini. Ang mga presyo gikan sa listahan sa presyo sa matag provider.
+87bdb7fb Sulayi ang key
+4e78d0fc Audio nga gipadala karon gikan sa {0}: <0>0 min</0> <1></1>
+f7798f2d ✓ Gigamit
+965e5018 Kinahanglan og key
+0c6c4102 Opsyonal
+2ed411fd Gigamit ang imong OpenAI key gikan sa Kahulogan sa pulong (o i-paste ang lain)
+d53b60f1 Laing model… <0>i-type ang ngalan niini (kinahanglan maghatag kini og oras sa matag pulong)</0>
+7949d689 Usa kana ka {0} key, busa ang provider karon kay {1}. Na-save: pindota ang “Sulayi ang key” aron susihon kini.
+4fbb2df0 Kana nga key para sa kahulogan sa pulong (ang card sa ibabaw), dili para sa transcript. Ang mga Groq key nagsugod sa gsk_.
+1a3342f6 Na-save. Pindota ang “Sulayi ang key” aron susihon kini.
+74f1f89a Gigamit ang imong OpenAI key gikan sa Kahulogan sa pulong.
+0c54c107 mopadala og audio sa transcription service, nga mosulat sa gisulti
+001e5d7f Gipadala ang usa ka segundo nga kahilom…
+a32f2cd6 Ang “I-transcribe” niini nga phone magsugod na dayon karon.
+0ed9fa3f Ang bag-ong mga transcript isulat sa
+b2a1a8a4 ✓ Mogana (mitubag ang {0} sulod sa {1} s). {2}
+3261da26 🎧 Podcast
+3bb91229 ▶ YouTube
+5c45e761 🎞 Instagram reel
+d7738f4e 📄 Web page
+a9c69e4f ♫ Spotify
+3861aa42 ♪ Apple Music
+1e4ac39a 🎬 IMDb
+b11a1339 ▶ Paminawa
+76befb17 ▶ Tan-awa
+a1f4b512 Kini nga card wala mosulti kung asa nga podcast gikan ang episode.
+1e703a56 kini nga podcast
+6a6e6ffd Idugang ang “{0}” sa imong library ug ablihan kini nga episode?
+e1d1d3bc Gidugang ang {0}. Maanaa dinhi ang episode kung moabot na ang listahan sa mga episode niini.
+418da3d9 Ang “{0}” wala na sa listahan sa mga episode sa {1}.
+5c710506 Dili kana link sa reel.
+57667d74 Dili masulod kining reel sa reel player: {0}
+f04b3d68 Ablihi sa Instagram
+d5bb49b0 Giandam kining reel: maablihan kini sa reel player gikan sa Reels page kung mahuman na.
+06e6cd2c Dili kana web link.
+4f7127fe Walay player ang Tamkeen para niini nga klase.
+5a572593 ▶ I-play
+ada1ad51 Music player
+bf5d9ce2 ✕ Sirad-i
+f30f6d12 Ablihi sa YouTube
+2e100cab Ablihi ang link
+7968361b Ablihi sa Tamkeen: {0}
+7c116b3c Ablihi ↗
+4c9933ea Imong gitun-an
+5a60098c Gitun-an
+bbefe019 Pagdugang hangtod {0} ka butang. Kung walay sulod ang bar, dili kini ipakita.
+295fe8e3 ⓘ Unsay akong ma-paste?
+005c0d1a Mga link nga mogana dinhi
+fcdb3486 I-paste ang link sa bar ug mogawas ang titulo ug hulagway niini. Walay lain nga basahon gikan sa link.
+24a9a8bc Imong note (opsyonal)
+2ea31105 pananglitan: Gitun-an nako ang pagpaminaw sa Levantine karong bulana
+22222442 Imong mga higala ra ang makakita niini, sa ilang Friends tab.
+f12682cf Tangtanga kini
+4e729297 I-paste ang link: YouTube, reel, web page, Spotify, Apple Music, IMDb
+61cc55aa Idugang
+b7f0ff52 Pagpili og episode sa podcast gikan sa imong library
+835326ed Pangitaa ang imong mga episode pinaagi sa titulo…
+d9c2d84e Walay episode nga nakit-an.
+403d3c13 Na-save. Makita kini sa imong mga higala sa ilang Friends tab.
+e9940534 Ang review karon isip to-do
+7e3312af Ang button sa Review tab mopadala sa nahabilin sa review karon, uban sa oras nga gikinahanglan niini, ngadto sa:
+9cea74c5 Google Tasks <0>(mangayo og pagtugot ang Google sa unang higayon)</0>
+c001f24c Onyx <0>(moabli sa Onyx, nga mohaom niini sa imong adlaw)</0>
+7a1e17bc Troubleshoot
+9e3456c2 Ubang komon nga hinungdan
+c0a6a091 Status page sa {0} ↗
+f82142b3 Labing lagmit
+4b4de4e9 Key page sa {0} ↗
+40ee915a Padayon sa pag-play human sa pulong nga gi-tap
+fdf4b1ff Human ma-play ang pulong nga gi-tap, mohunong kini. I-switch aron magpadayon sa pag-play.
+fd838ae4 Human ma-play ang pulong nga gi-tap, magpadayon kini sa pag-play. I-switch aron mohunong.
+dc76e9f0 gamut
+b90bc82b Lagmit sayop ang pagkadungog sa transcript niini nga pulong, busa gibutang sa AI ang pulong nga gisulti puli niini sa transcript.
+48625603 Lagmit sayop ang pagkadungog sa transcript niini nga pulong. Gipakita sa AI ang pulong nga gisulti, apan dili mausab ang transcript dinhi.
+c432d63e I-undo: ibalik ang giingon sa transcript
+3d6eef62 I-undo ang pagtul-id
+a27b99cf Nganong lahi kini nga pulong?
+27d9ea3d Gipangita…
+418a3e20 Gipangita sa konteksto…
+ff94d192 Tan-awa kung unsa ang kahulogan niini nga pulong niini nga sentence: pagdugang og key sa AI provider sa Settings.
+d61d7fe2 I-set up ang mga kahulogan
+3386ce50 Off ang AI, busa ang mga pulong gipatin-aw sa built-in nga diksyonaryo sa {0}. Wala pa kini niini nga device: i-download kini kausa ug mogana kini bisan offline.
+395b22e4 I-download ang diksyonaryo
+8b926874 Porma sa diksyonaryo
+80446347 Porma
+630df194 Usab
+445b99b1 Hubad sa sentence
+86efdc55 Ipakita ang tibuok pagpatin-aw niini nga pulong
+4bab2d8f Dugang pa
+859533fe I-play pag-usab kini nga pulong
+44363ccb Pulong
+d331076e I-play ang tibuok sentence
+1bb1f30e Sentence
+ccfcc710 Ipadayon ang pag-play gikan dinhi
+2e026239 Ipadayon
+499dc627 ✓ Na-save
+d8dba702 ★ I-save
+a8a5b895 I-save kini nga pulong ug pangitaa ang YouTube video diin kini gisulti
+9089cae1 Pangitaa sa video
+3f094ed6 Pangutana pag-usab
+58c330e9 Dili kana ma-undo.
+a13e07aa Off ang AI (Settings → Kahulogan sa pulong → Walay AI), busa dili kini magamit.
+3de9e752 Claude (Anthropic)
+f60dab43 Claude
+c572ccc8 Gemini (Google)
+ddba2c92 Gemini
+538dbdd6 pinakabarato sa kasamtangang mga model; naay libre nga alawans
+2051afa5 mas daan nga model, pinakabarato sa tanan
+8f60529a ChatGPT (OpenAI)
+b3a3b36d Grok (xAI)
+3096a55a Grok
+81970e30 pinakabarato sa kinatibuk-ang mga model
+e3de5ab0 Off
+a124947c Ubos
+d404968e Tunga-tunga
+b1a5954a Taas
+44cc4b12 Kini nga model kanunay maghunahuna og gamay: ang Off nagpasabot nga gamay ra kaayo kutob sa mahimo.
+77a71a4f Wala mailhi nga provider: {0}
+22df2c35 Midumili ang model sa paghatag og kahulogan niini nga pulong.
+49be65b2 Naputol ang tubag.
+221ce687 Walay sulod ang tubag.
+a37ce5d8 Walay tubag ({0}).
+45940469 Ang {0} dili magamit sa imong nasod o rehiyon.
+eff674e3 Dili maabot ang {0}. Susiha ang imong koneksyon sa internet.
+7ca4cbae Gisalikway sa {0} ang API key. Lagmit na-expire na kini, busa basin kinahanglan ka og bag-o.
+51596be7 Wala mailhi sa {0} kana nga ngalan sa model. Susiha kini sa Settings.{1}
+a7141cb1 Naabot na ang rate limit o quota sa {0}. Sulayi pag-usab sa makadiyot, o susiha ang imong billing.
+ad279b44 Matod sa {0}, walay credit ang account. Pagdugang sa Billing page niini.
+246000e0 Naay problema ang {0} karon (HTTP {1}). Sulayi pag-usab.
+eaf5c51f Sayop sa {0} (HTTP {1}){2}
+ef420a27 Ang provider mibalik og tubag nga dili mabasa.
+bbb59df3 Ang tubag dili balido nga JSON. Sulayi pag-usab, o pili og laing model.
+bfb83732 Walay API key. Pagdugang sa Settings → Kahulogan sa pulong.
+6eb49351 ✓ Naablihan sa Tamkeen
+84f89653 I-tap ang link sa resulta ngadto sa YouTube aron maablihan kana nga higayon sa Tamkeen
+3575edb8 Gipangita ang pulong sa labing taas nga video…
+fe2cb66b Gikuha ang mga resulta…
+dfebdc6c ✓ Na-save sa Tamkeen
+adb1dce3 Dili magamit kining mga resulta. I-tap ang usa aron sulayan kini.
+ece4c60d Dili magamit kining mga resulta.
+58103f1e Gipakita ang mga video nga naay caption sa pinulongan nga imong gitun-an…
+42a0c143 Ikaw ang motubag sa pagsusi sa Filmot. Dayon kuhaon na sa Tamkeen ang labing taas nga video.
+f3f91e1e Portuges (Brazil)
+80559b82 gi-type sa kamot
+0c88254c Unang nakit-an sa: {0}{1}
+3d7fa970 Na-save kining video ug ang sentence niini uban sa “{0}”.
+4d91deca Pindota una ang “Pangitaa sa video” sa usa ka pulong.
+24ed8380 Walay video nga nakit-an ang Filmot para sa “{0}”.
+441d5e0d Ang “{0}” wala sa mga caption sa {1} ka labing taas nga video. I-tap ang laing resulta aron sulayan kini.
+a3fb746b Ang “{0}” wala sa mga caption niini nga video, busa walay na-save uban niini. Sulayi ang laing resulta.
+3d1f5290 Wala ma-save kining video uban sa “{0}”: {1}
+2e1adabb Mga sangka
+0dca7b14 Gi-load ang imong mga pulong…
+51954ab8 <0>Maablihan ang mga sangka kung naa ka nay {0} ka gi-save nga pulong.</0> Naa kay {1}.
+7ec3a887 Ang sangka kay review sa imong kaugalingong vocab: ang matag lihok nimo gipaandar sa pangutana bahin sa usa sa imong gi-save nga mga pulong, ug ang imong kaatbang motubag gikan sa iya. Mga {0} ka pulong ang gikinahanglan aron magpabilin nga bag-o ang mga pangutana. I-save ang mga pulong gamit ang ★ samtang naminaw ug nagbasa ka.
+685356fd Naa kay {0} ka gi-save nga pulong, apan {1} ra ang naay nasulat nga kahulogan. Ang mga pangutana nanginahanglan og kahulogan: ablihi ang Vocab ug pun-i ang pipila, o i-save ang mga pulong gikan sa popup sa kahulogan (kini ang mopuno sa kahulogan para nimo).
+4e3989a7 Wala pa mapusa ang imong itlog. Abta ang tumong karon aron mapusa kini, dayon balik aron makig-sangka.
+5d1b6d21 {0}% sakto bag-o lang
+3400a4a4 {0} ka pulong ang angay na i-review
+025cfea0 {0} ang kabalo na kaayo
+d1e6e466 Skill {0}
+967af30c Ang matag linalang moaway sa samang lebel. Modaog ka pinaagi sa pagkahibalo sa imong mga pulong: tubaga og sakto ug moigo ang lihok, tubaga sulod sa {0} ka segundo ug motubo ang combo (×1.2, ×1.5, ×2).
+b03b44a5 Ihalas nga engkwentro
+0f5c66fe Imong kaugalingong mga linalang batok sa mga ihalas. Ang ilang edad maghatag sa imo og gamay nga bentaha dinhi ra.
+81b0d13f Duelo sa hinulaman
+5a55675f Pili og tulo sa unom ka gipaambit nga linalang karong semanaha; ang imong kaatbang makakuha sa nahabilin. Maihap kini sa imong skill rating.
+c7218f9d Aron hagiton ang team sa higala, ablihi ang <0>Mga higala</0> sa menu sa dula. Ang lagda karong semanaha para sa mga sangka sa higala: <1>{0}</1>. {1}
+04e2e05f Maablihan ang mga sangka kung naa ka nay {0} ka gi-save nga pulong. Naa kay {1}.
+f7c24281 Kinahanglan naay kahulogan ang imong mga pulong sa dili pa kini ipangutana. Pun-i ang pipila sa Vocab page.
+6781a054 Walay usa sa imong mga linalang ang mohaom sa lagda karong semanaha ({0}).
+914efb3d Walay linalang si {0} nga mohaom sa lagda karong semanaha ({1}).
+57b02151 Pili og tulo. Ang imong kaatbang moaway gamit ang laing tulo.
+d7fb7f72 Sugdi ang duelo
+dca34e30 Kaatbang
+e4fe0fce Nakuha ang badge: {0}
+3184f22c Biyai ang sangka
+905cb326 Ikaw
+c4433e3c Ihalas
+5e6db161 {0} sa {1} ang nagbarog pa
+3bb10c38 {0} KUSOG ×{1}
+0d36b10d Imong linalang
+1e2a3716 Ang ihalas nga linalang
+09503c9a Linalang ni {0}
+9fbc3550 Linalang sa imong kaatbang
+afc012c1 Hapyod lang nga igo.
+535531a9 Kusog kaayo nga igo!
+aab84209 Kusgan kini batok niana nga elemento!
+0e909374 Huyang kini batok niana nga elemento.
+eb95e537 Nanalipod.
+b8bb00f9 {0} migamit og {1}.{2}{3}{4}
+936d5b0e {0} misulay og {1}, apan wala nay nahabilin nga pang-ayo.
+934b913d +{0} HP.
+cd86b7ea {0} migamit og {1}.{2}
+53849ba1 {0} natumba na.
+565d06e6 {0} misulod.
+b9286298 Kusog {0}

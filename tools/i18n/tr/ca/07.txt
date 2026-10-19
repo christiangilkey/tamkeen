@@ -1,0 +1,200 @@
+45260878 Brill: el fan els teus edificis
+4ac9dac4 {0} de brill
+ec8782a8 Brill per hora ara mateix
+6a6e9e27 {0} per hora
+cba40f6f Gemmes: es guanyen amb insígnies, incursions, pujant de lliga i amb la plena floració
+626f7b1c Pols d'estels: cada unitat ho fa tot un {0} % més ràpid, per sempre
+f7370cf7 {0} Ara el brill es recull tot sol.
+7a211303 Arriba a la teva meta diària {0} vegades i el brill es recollirà tot sol ({1} fins ara).
+ddd7a154 Els edificis fan brill mentre no hi ets: t'espera l'equivalent de fins a {0} hores. Cada tipus rendeix més amb un hàbit d'estudi diferent, i arribar a la meta d'avui els accelera tots a la meitat i t'envia dues hores de brill de cop.
+cf6b269f <0>Plena floració.</0> Cada parcel·la té un edifici del tot crescut. El jardí és complet; si alliberes una criatura, en comença un de nou, més ràpid.
+39a1c2dc Recull {0} de brill
+eabc714b Parcel·la {0}: tancada
+467b84dc {0} S'obre quan: {1}
+1c6e99ed Fes servir una clau ({0})
+7cf40990 Parcel·la {0}: buida
+144a397b Tria què vols construir aquí.
+7e08478b {0} {1} · {2} per hora
+0595972e {0} · nivell {1}
+d020fbd3 · li agrada {0} {1}
+9078100c {0} de brill per hora{1} · {2} esperant
+04aac4c0 Recull
+53b630e7 Fes créixer ·
+6d6426d9 Puja'l de nivell: fa bastant més brill
+50645793 Del tot crescut
+4dd3fed6 Allibera una criatura adulta
+95b0eef2 Una criatura adulta es pot alliberar. Deixa el teu grup i se la recorda aquí. Els teus edificis i el teu brill tornen a començar de zero, i et quedes <0/>: cada unitat fa que tots els edificis siguin un {0} % més ràpids per sempre, així que el jardí següent creix molt més de pressa que l'anterior. Com més edificis del tot crescuts tinguis en aquell moment, més pols d'estels.
+7005fc6d pols d'estels
+5fb6a7b7 Encara no tens cap criatura adulta.
+21e10852 aquesta criatura
+edfb0cc4 Vols alliberar {0}? Se n'anirà per sempre, i els teus edificis i el teu brill tornaran a començar de zero. Conserves la pols d'estels, les altres criatures i tot el que tens.
+d2001733 Alliberada. Has guanyat {0} de pols d'estels.
+28a4bacf Alliberades fins ara: {0}.
+912d81bb Primer fes que el teu ou s'obri; després el podràs alimentar.
+55427966 {0} {1} · alimentada {2} de {3} vegades avui. El seu menjar preferit compta el doble. Els cors fan els seus edificis una mica més ràpids i no canvien res a les batalles.
+35b25929 Menjar
+9d041fa1 {0} el seu preferit
+779fc473 A {0} criatures els encanta
+77690ee2 · en tens {0}
+ff1928e5 Dona-li menjar
+c266a25e Li encanta!
+df139e6c Mmm.
+db09cbc4 Compra'n un per {0} de brill
+14e351e1 Provisions
+0e90e484 Les gemmes només surten del que fas: cada insígnia (2), una incursió guanyada (3), pujar de lliga (2), plena floració (10). No es ven res per diners.
+11a9a29c Hi ha un ou nou amb les teves criatures.
+c505c639 Afegeix-hi 20 minuts més
+36690a36 Fes-lo servir ara
+476c3b07 L'XP es duplica durant {0} minuts. A estudiar!
+0a854dda actiu {0} min més
+427a838f Escalfa un ou
+e00a97a2 Necessites un ou de sobres que no sigui a l'hàbitat
+bdd2a3a3 L'ou s'està escalfant: creix alhora que la teva criatura.
+6a6002af s'està escalfant un ou
+678552eb Fes-la servir a la pàgina Jardí.
+265753d6 Es fa servir tot sol quan una batalla pagaria menys.
+6028b76d Fes-la servir durant una batalla salvatge.
+993750ae L'hàbitat de la teva criatura
+d3f4cb89 Canvia el nom
+29cdd5c4 El teu nivell: toca per veure com funciona l'XP
+1aa6e8ca Nv
+eaeec02c XP fins al nivell següent
+18e480f2 Toca per veure com funciona l'XP
+890541c0 Canvia la teva meta diària
+e54c864d Toca per veure com evoluciona la teva criatura
+0b8ca8e4 Dies seguits: toca per saber-ne més
+ce1213a4 Monedes, per a la botiga: toca per saber-ne més
+c3b0236d Un protector de ratxa cobreix un dia perdut: toca per saber-ne més
+5894f7c3 Brill dels teus edificis: toca per saber-ne més
+b1e9fef7 Gemmes, per a provisions: toca per saber-ne més
+dd8fd086 Cors: toca per saber-ne més
+b2d3bd7f Porta la teva criatura a un altre hàbitat
+f5552713 Batalla
+48f77eb7 Criatures
+55de8870 Botiga
+714d913b Jardí
+3f5aa796 Meta diària assolida
+ad69cbf5 Avui: {0} / {1} min
+79bcdbf3 Meta: {0} min
+669ac373 Ou de {0}
+0e5f028b · a punt d'evolucionar: toca-la
+72ce9e1e · {0} % cap a: {1}
+4246502f {0} d
+223e900f El teu ou
+63b41493 Posa'm nom
+98303fea Meta diària: els teus edificis han enviat {0} de brill de cop.
+72e1269a Has guanyat gemmes: {0}.
+61fe2211 Plena floració: cada parcel·la té un edifici del tot crescut.
+673e4951 Posa nom a la teva criatura
+a8a47536 encara no hi ha paraules desades :(
+0a5a8112 +{0} de brill
+e3b0b563 La teva criatura està a punt d'evolucionar. Toca-la quan vulguis.
+b2facb1b Aquesta parcel·la encara no està oberta.
+fcc4027b Ja hi ha alguna cosa construïda aquí.
+bf998c98 Aquest edifici no existeix.
+d482d7e0 Encara no: {0}.
+710d27b3 Et falten {0} de brill.
+efcf13a6 Aquí no hi ha res construït.
+2a8a3386 Ja està del tot crescut.
+579f1557 Totes les parcel·les ja estan obertes.
+9af0e879 No tens cap clau.
+5b31b02f Només es pot alliberar una criatura crescuda (adulta).
+934d6b63 Això no està en venda.
+36602b9e El teu grup és ple.
+26de9a27 Et falten gemmes: {0}.
+6c27e5e8 No en tens cap.
+6156ebc8 Els ous no mengen. Primer fes que s'obri.
+a66174fd Ja està tipa per avui.
+bdbaa592 No tens cap impuls d'XP.
+4f42a703 No tens cap incubadora.
+e0e5bba3 Tria un ou que no sigui a l'hàbitat.
+eacac3ef Aquest ou ja és a la incubadora.
+73ed2987 Tens {0} XP i ets al nivell {1}. El nivell següent és a {2} XP.
+6a75c080 Desar una paraula al teu vocabulari: 20.
+80e25376 Escoltar o llegir: un degoteig lent mentre estudies, que s'esgota força després de la teva meta diària.
+aa1ab833 Arribar a la teva meta diària: {0}. Això és el més important, i paga el mateix tant si la teva meta és de 5 minuts com de 20.
+e3435b6f Batalles: 3 per cada resposta correcta, 15 més quan una paraula passa a ser ben sabuda, 40 per guanyar i 15 per perdre (complets a les tres primeres batalles del dia).
+da45a83d Repàs de vocabulari: cada targeta que respons paga una quarta part del que paga buscar una paraula (normalment d'1 a 4, de vegades de 8 a 12, de tant en tant de 25 a 50), igual si te'n recordaves com si no, així que no es guanya res fent trampa.
+355d88a3 Acaba una batalla i completa les teves targetes el mateix dia: {0} més, un cop al dia.
+1a385136 Fer el mateix moltes vegades en un dia paga cada cop menys, així que una mica cada dia és millor que una sessió llarga.
+5d4196b1 Fa créixer la criatura del teu hàbitat: surt de l'ou, creix i queda a punt d'evolucionar.
+4e3ef7b7 L'XP no es gasta mai. Només puja.
+27bb53b6 No es gasta en res: funciona tota sola.
+9b7db3ae Com funciona l'evolució
+ac4792cf Ratxa
+ae506790 Ratxa: {0}. La teva millor: {1}.
+31fb81dc Amb el complement d'Anki, completar tot el que tens pendent a Anki també compta com a meta del dia.
+3e2a59d1 Si et saltes un dia, un protector de ratxa el cobreix si en tens un. Sense, la ratxa torna a començar de zero. No es perd res més.
+488e945a Arribar a 7 dies obre coses noves a la botiga per sempre ({0}) i el moviment de batalla Cor Ferm.
+347792fa Una ratxa de 5 dies obre una parcel·la per construir al jardí.
+f7922bac Insígnies als 7, 30 i 100 dies, i cada insígnia dona 2 gemmes.
+d15f40ca Mira les teves insígnies
+2bef474e Monedes
+647952d2 En tens {0}.
+ec4161d7 Desar una paraula al teu vocabulari: 1 cadascuna.
+20b4c331 Pujar de nivell: 5.
+e469d2bf Guanyar una batalla: 4 per cadascuna de les tres primeres victòries del dia, menys després.
+3c1e6885 Una paraula passa a ser ben sabuda gràcies a les batalles: 1.
+dc4529b3 Encertar 8 de cada 10 respostes de batalla durant una setmana (30 respostes o més): 5.
+d5d064cb El teu gremi derrota el cap de la incursió setmanal: 20.
+64eea943 Acaba una batalla i completa les teves targetes el mateix dia: {0}, un cop al dia. Les targetes soles donen brill, no monedes.
+54bb5f6d Tot el que es compra amb monedes és estètic. Res no fa més forta una criatura.
+fede851e La Botiga. Ofereix {0} coses cada dia, triades per a la teva criatura, i canvia cada dia.
+4906011f Obre la botiga
+02b8de87 De tant en tant en cau un per sorpresa quan busques una paraula.
+4b6bd7b6 Vas començar amb un.
+a66c8544 Es fa servir tot sol la propera vegada que obres l'app després d'un dia perdut. Dos dies perduts en necessiten dos.
+d5545dea Brill
+3647f30f , i te n'esperen {0} més als teus edificis
+6319cd67 Tens {0} de brill{1}. Els teus edificis en fan {2} per hora.
+5aafc95b Toca un edifici amb una llum que hi suri a sobre per recollir-ne el brill. Després de {0} metes diàries, es recull tot sol.
+5ab759f1 Arriba a la teva meta diària: cada edifici fa la meitat més durant la resta del dia, i arriben dues hores de brill de cop.
+fb3a6104 Completa les targetes del dia al repàs de vocabulari ({0} targetes o més, sense cap de pendent): una hora del brill del teu jardí de cop, i mai menys de {1}. Les batalles donen monedes en lloc d'això.
+5881fc72 Cada tipus d'edifici fa més amb un hàbit d'estudi, i cada cor de la teva criatura hi afegeix una mica.
+99abeba6 Menjar per a la teva criatura ({0} de brill cadascun), que li omple els cors.
+dfc8c596 Pocions ({0} de brill) per a les batalles salvatges.
+38ccf266 Els edificis són a la pàgina Jardí. El menjar i les pocions, a la pàgina Provisions.
+37de88de Obre el jardí
+3e321c9f Obre les provisions
+02904156 Gemmes
+4254141b El teu gremi derrota el cap de la incursió setmanal: 3.
+a1d5eec6 Pujar de lliga (arribar a la teva meta diària 5 dies d'una setmana): 2.
+18bf14cc Plena floració, quan cada parcel·la del jardí té un edifici del tot crescut: 10.
+03611593 Les gemmes només surten del que fas. No es venen mai per diners.
+89803371 La pàgina Provisions.
+99f9bf69 Cors
+7b0609ca {0} té {1} de 5 cors.
+3be3ea7c : per a una criatura {0} que és {1}
+80e48f19 Dos àpats omplen un cor. El seu menjar preferit compta el doble{0}.
+746e8201 Els cors són de cada criatura i no baixen mai.
+27cffa5f Els cors no canvien res a les batalles.
+feeaea73 Dona-li menjar a la pàgina Provisions.
+f110690b Com s'aconsegueix
+ca032b58 Per a què serveix
+525f61b6 On
+dc353487 Escolta
+7ac0138b el temps escoltant pòdcasts, àudios i vídeos
+cffa2af0 Lectura
+7f6efe83 Col·lecció
+ab60d3ea desar paraules, respostes correctes a les batalles, targetes del repàs de vocabulari, repassos d'Anki
+1a0bff19 Curiositat
+7224fd42 Brasa per a la curiositat, Marea per a l'escolta, Bosquet per a la col·lecció, Pedra per a la lectura, Espurna per a les matinades i Capvespre per a les nits
+80b6476b Com evoluciona la teva criatura
+00d04503 {0} és una {1}. En què es converteix depèn de com estudies, tu tries el moment i res del que triïs no és definitiu.
+b89502e9 {0} XP
+80083e78 estigui a punt d'evolucionar
+02a71b4e sigui {0}
+729f33b1 Falten {0} XP perquè {1}.
+a105f0d4 Està a punt d'evolucionar: toca-la a l'hàbitat.
+f16b2c73 1. Créixer
+d4915a51 {0} Tota l'XP que guanyes va a la criatura que és a l'hàbitat. Les altres esperen, així que triar qui hi poses és la teva primera decisió.
+c5a69900 2. Els teus quatre hàbits
+9e19cb58 Cada criatura guarda un registre de com has estudiat mentre era a fora. Un hàbit puja quan guanyes XP d'aquella manera i els altres baixen una mica, així que les barres segueixen el que has fet darrerament. Unes {0} XP d'un tipus omplen una barra. La curiositat en necessita {1}, perquè buscar paraules dona molta més XP.
+174c7e2f Oberta: el teu hàbit més fort fins ara
+28088622 Oberta: aquest hàbit passa del 25 %
+94fae88c · porta el moviment de batalla {0}
+968f60ab 3. La seva forma adulta
+ffd15c0d Quan ha crescut prou, s'espera com a jove i fa espurnes. Toca-la i tries la seva forma adulta. La forma del teu hàbit més fort sempre és oberta, i se n'obre una altra quan el seu hàbit passa del 25 %. Després d'evolucionar, si puges un altre hàbit al 50 %, també es desbloqueja aquella forma, i pots canviar entre les formes desbloquejades sempre que vulguis. Evolucionar també et deixa un ou nou. La curiositat no té forma pròpia: es nota en els teus ous, la botiga i el jardí.
+93d943d8 {0} Aconseguida
+db795d86 4. Formes especials
+7c62f35b Es porten a sobre d'una forma adulta. Depenen de quan estudies, al costat de qui creix i del que aconsegueixes a les batalles. Canvien colors i trets, mai la força.

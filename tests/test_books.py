@@ -58,7 +58,7 @@ def test_the_free_shelf_matches_its_index():
 
     folder = Path(__file__).resolve().parent.parent / "docs" / "books"
     index = json.loads((folder / "index.json").read_text(encoding="utf-8"))
-    for lang in ("ar", "es", "fr", "it", "ru", "en", "tl", "ja", "zh"):
+    for lang in ("ar", "es", "fr", "it", "ru", "en", "tl", "ja", "zh", "pt", "ca", "th", "ceb"):
         shelf = index["books"][lang]
         assert len(shelf) >= 5, lang
         for row in shelf:
@@ -67,3 +67,32 @@ def test_the_free_shelf_matches_its_index():
             data = json.loads(gzip.decompress(blob))
             assert data["format"] == 1 and data["lang"] == lang and data["blocks"]
             assert all(b["kind"] in books.KINDS for b in data["blocks"])
+            # Nothing of the source's own wrapping is left in the text: its licence, its transcriber's notes.
+            text = "\n".join(b["text"] for b in data["blocks"])
+            assert "Project Gutenberg" not in text and "gutenberg.org" not in text, row["file"]
+
+
+def test_the_shelf_builder_tidies_a_book():
+    """tools/build_books.py: a heading said twice becomes one, a chapter number takes the name on the
+    line after it, and what comes after "FIN" (the publisher's list of books) and the end notes go."""
+    import sys
+    from pathlib import Path
+
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+    import build_books as bb
+
+    prose = "Era una noche oscura y tormentosa, y el viento soplaba entre los árboles del camino viejo. " * 3
+    blocks = [{"kind": "h2", "text": "Capitolo I"}, {"kind": "p", "text": "CAPITOLO I."}, {"kind": "p", "text": prose},
+              {"kind": "h2", "text": "-II-"}, {"kind": "p", "text": "Perdido"}, {"kind": "p", "text": prose},
+              {"kind": "p", "text": "―4―"}, {"kind": "p", "text": "หน้า:Book.pdf/12"},
+              {"kind": "h2", "text": "นิทานที่ 3"}, {"kind": "h2", "text": "นิทานที่ ๓ เรื่อง หนู"}, {"kind": "p", "text": prose},
+              {"kind": "p", "text": "FIN"}, {"kind": "p", "text": "Madrid.--Enero de 1878."},
+              {"kind": "p", "text": "OBRAS DEL AUTOR"}, {"kind": "p", "text": "La barraca, 3 pesetas."}]
+    out = bb.clean(blocks)
+    heads = [b["text"] for b in out if b["kind"] == "h2"]
+    assert heads == ["CAPITOLO I.", "-II- Perdido", "นิทานที่ ๓ เรื่อง หนู"]
+    assert out[-1]["text"] == "Madrid.--Enero de 1878." and not any("pdf" in b["text"] or "―" in b["text"] for b in out)
+    # A book's own cuts: from its first page, to its notes, without the printer's notices.
+    cut = bb.trim([{"kind": "p", "text": t} for t in ("Imprenta X", "TITLE", "Text one", "Notice", "TITLE", "Text two", "NOTES", "n")],
+                  {"from": [r"^TITLE$", 1], "to": r"^NOTES$", "drop": r"^Notice$"})
+    assert [b["text"] for b in cut] == ["TITLE", "Text one", "TITLE", "Text two"]

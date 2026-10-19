@@ -1,0 +1,200 @@
+0fccecc9 Uma palavra que você excluiu aqui ainda tem
+7e7ed3d8 {0} palavras que você excluiu aqui ainda têm
+a2fd882c o cartão
+0c12e651 os cartões
+a5554878 a palavra
+cde1fdb5 as palavras
+8d3900e9 <0>{0} um cartão no {1}:</0> {2}. Remover um cartão do {3} também apaga o histórico de revisão dele lá. <1>Isso não pode ser desfeito.</1> Se você concordar, as próximas exclusões vão remover os cartões sem perguntar de novo.
+d0ca7688 Remover {0} do {1}
+3ee6dc97 Manter {0} e trazer {1} de volta
+458bd73a Um cartão saiu
+2449d2e2 {0} cartões saíram
+4768f74c O AnkiDroid não informa a outros apps o que foi excluído
+97b8cabc O Anki não tem registro de que você as excluiu aqui (elas podem ter sido excluídas em outro dispositivo, ou a coleção foi restaurada)
+9ab802d4 esta palavra
+9fe0220f <0>{0} do baralho:</0> {1}. {2}, então o Tamkeen não removeu nada. O que fazer com {3}?
+ef8f7e8a Criar de novo
+bbba862c Excluir {0} aqui também
+78948622 Os cartões de {0} das suas palavras agora estão em outro baralho: eles ficam onde você os colocou e não são mais sincronizados.
+c1aa0b00 {0} cartões extras de palavras que já tinham um foram marcados com a etiqueta “tamkeen-duplicate” e deixados para você conferir.
+dfab2962 {0} notas do baralho foram deixadas de fora (sem os campos Front e Back, sem nada escrito ou com algum cartão em outro baralho).
+4b701821 {0} alterações não puderam ser feitas da última vez e serão tentadas de novo.
+e8a0694a Os cartões que estão no baralho de outro idioma vão para o baralho deles na próxima sincronização do Anki.
+ba95bad5 {0} cartões foram movidos para o baralho do idioma deles ({1}).
+21b4c80d Esta versão do AnkiDroid não informa a outros apps o progresso de revisão. Atualize o AnkiDroid para a versão 2.24 ou mais recente para vê-lo aqui.
+221ca630 Sincronizando…
+2b7d938e Sincronizar agora
+11d3ef7f Também sincroniza quando você abre o app e a cada poucos minutos enquanto ele está aberto.
+26b0b25f O Anki sincroniza com o Tamkeen quando você o abre, a cada 10 minutos enquanto ele está aberto, depois da sincronização do próprio Anki e sempre que você escolhe <0>Tools → Sync Tamkeen now</0> no Anki. O Tamkeen também precisa estar aberto.
+27139ab8 ainda não estudado
+c9114940 atrasado desde {0}
+71ef9cbd vence {0}
+87e1ef1d em revisão
+b2647e88 a cada {0} dia(s)
+fb38ecb6 {0} acertos, {1} erros
+3db1270b Suas últimas respostas no Anki, da mais antiga para a mais recente
+5c4b4117 Lido do Anki em {0}. O Tamkeen só mostra isto; nunca muda a programação do Anki.
+c3c7e5f4 Anki: {0}{1}
+f57186fa Excluir “{0}” do seu vocabulário?
+3eb0e9ae Excluir “{0}” do seu vocabulário? O cartão dela no {1}, com o histórico de revisão, também será removido.
+890a143b O cartão dela no {0}, com o histórico de revisão, também será removido.
+ce01cb8a Isso também exclui o cartão do {0}
+8c9dbb61 “<0>{0}</0>” tem um cartão no seu baralho {1} no {2}. Excluir a palavra aqui remove esse cartão na próxima sincronização, <1>junto com o histórico de revisão dele no {3}. Isso não pode ser desfeito.</1>
+ad439574 Se você continuar, a partir de agora excluir uma palavra vai remover o cartão dela sem esta pergunta.
+77dfd213 Cancelar
+0a98dcd0 Excluir a palavra e o cartão
+e93d02ca Mover os cartões do Anki para o baralho do idioma deles
+9ce3bd42 OK
+09701b49 Movendo…
+0c443a1e 1 cartão foi movido para o baralho do idioma dele.
+077b3afc {0} cartões foram movidos para o baralho do idioma deles.
+10e5fda8 1 não pôde ser movido (por exemplo, um cartão emprestado a um baralho filtrado) e ficou onde estava.
+5e56ad8c {0} não puderam ser movidos (por exemplo, um cartão emprestado a um baralho filtrado) e ficaram onde estavam.
+721a5cd2 Os cartões vão ser movidos na próxima vez que o Anki sincronizar com o Tamkeen: abra o Anki ou escolha <0>Tools → Sync Tamkeen now</0> nele. As Configurações mostram quando terminar.
+a8e5a756 Isto funciona com a sincronização do Anki. Primeiro ative “Manter minhas palavras salvas e meus baralhos do {0} sincronizados” nas Configurações.
+134635e9 Abrir Configurações
+acba4224 O Tamkeen ainda não sincronizou com o {0}, então não sabe onde estão os cartões. Sincronize primeiro e tente de novo.
+722b3443 Isto já está aguardando a próxima sincronização do Anki com o Tamkeen.
+7d8c0147 Todos os cartões já estão no baralho do idioma deles. Não há nada para mover.
+f7f0f25b Um cartão está no baralho de outro idioma. Ele será movido:
+577a01f9 {0} cartões estão no baralho de outro idioma. Eles serão movidos:
+f0b872b4 Cada cartão mantém o histórico de revisão. Nada mais muda no {0}, e seus outros baralhos não são tocados.
+e78a8a82 Mover o cartão
+247c9a70 Mover {0} cartões
+c3e839df Online
+e01fa717 Offline
+5896cb72 Recursos de jogo
+985a5239 A criatura, o XP e as recompensas, e os sons quando você estuda
+afed91e0 Desativado: estudar funciona do mesmo jeito, sem nada do jogo. Suas metas e barras de progresso continuam, e sua criatura também, caso você ative de novo.
+7fab27b4 o Claude Console
+881ac247 Toque no botão abaixo. Ele abre console.anthropic.com no seu navegador. Este é um site diferente do app de chat do Claude.
+495b9813 Use seu e-mail ou “Continuar com o Google”. Uma assinatura do chat Claude Pro ou Max não cobre isto: as chaves são pagas à parte.
+7403c4f9 Abra <0>Settings → Billing</0>, adicione um cartão de pagamento e compre um pouco de crédito. As chaves só funcionam quando a conta tem crédito.
+71b4b60f Abra <0>Settings → API keys</0> e toque em <1>Create Key</1>. Dê um nome que você reconheça, como “Tamkeen”.
+e04e0bbd A chave é uma linha longa de letras que começa com <0/>. Ela só aparece uma vez, então toque em <1>Copy</1> antes de fechar a caixa.
+48b74851 Volte aqui, cole-a na caixa <0>Chave de API</0> das Configurações e toque em <1>Testar com um exemplo</1>.
+0e9e2f65 Google AI Studio
+5de77d58 O Gemini tem uma cota gratuita, então você pode começar sem cartão de pagamento. Na cota gratuita, o Google pode usar o que é enviado para melhorar os produtos dele; adicionar o faturamento no AI Studio desativa isso.
+2628ac25 Toque no botão abaixo. Ele abre aistudio.google.com no seu navegador.
+f6541135 Qualquer conta do Google (Gmail) serve. Aceite os termos se for pedido.
+84e51948 Toque em <0>Create API key</0>. Se perguntar qual projeto usar, deixe que ele crie um novo.
+8d7a2586 É uma linha longa de letras que começa com <0/>. Toque no botão de copiar ao lado. Você pode voltar a esta página e copiá-la de novo depois.
+162ab3e6 a plataforma da OpenAI
+faa55261 Toque no botão abaixo. Ele abre platform.openai.com no seu navegador. Este é um site diferente do ChatGPT.
+0ba16577 Seu login do ChatGPT também funciona aqui, mas uma assinatura do ChatGPT Plus não cobre isto: as chaves são pagas à parte. Pode ser que peçam para você confirmar um número de telefone.
+a6860394 Abra <0>Settings</0> (a engrenagem) <1>→ Billing</1>, adicione um cartão de pagamento e compre um pouco de crédito. As chaves só funcionam quando a conta tem crédito.
+83803874 Abra <0>API keys</0> e toque em <1>Create new secret key</1>. Dê um nome que você reconheça, como “Tamkeen”.
+ebf2eda5 o xAI Console
+e76446c0 Toque no botão abaixo. Ele abre console.x.ai no seu navegador.
+e3f3d119 Use sua conta do X, do Google ou um e-mail. Uma assinatura do X Premium ou do SuperGrok não cobre isto: as chaves são pagas à parte.
+d88dbb88 Abra <0>Billing</0>, adicione um cartão de pagamento e compre um pouco de crédito. As chaves só funcionam quando a conta tem crédito.
+f6ce8b31 Abra <0>API Keys</0> e toque em <1>Create API key</1>. Dê um nome que você reconheça, como “Tamkeen”.
+6547e629 A chave é uma linha longa de letras que começa com <0/>. Copie-a antes de fechar a caixa.
+58d7704c O mais provável é que a chave tenha expirado ou sido desativada, então você provavelmente precisa de uma nova: crie-a com os passos acima e cole-a. Se a chave for novinha, copie-a de novo e cole outra vez (uma letra faltando no final faz ela não funcionar).
+f443dc0b A conta ainda não tem crédito, ou o crédito ainda não caiu. Adicione crédito na página Billing do provedor e tente de novo em alguns minutos.
+43b82a8b Volte o <0>Modelo</0> nas Configurações para o que está marcado como “recomendado”.
+995ff549 Crie uma chave nova do mesmo jeito e exclua a antiga da lista do provedor.
+6b020b42 Trate-a como uma senha: não a compartilhe nem a publique em lugar nenhum. O Tamkeen a guarda só neste dispositivo e a envia só para o provedor que você escolheu.
+e1e3cd22 pedir a um serviço de IA que explique palavras para você
+fb891cde Como obter uma chave de API
+15803e0d Uma chave de API é uma espécie de senha que permite ao Tamkeen {0}. Você a obtém no site do próprio serviço; leva alguns minutos.
+d76fd621 Abrir {0} ↗
+26aacc31 Algo deu errado?
+ddb60451 Idioma para aprender
+cac6d44c Seu idioma
+efaf5f1d Adicionar um idioma para aprender
+f23ad26a Os podcasts, vídeos, palavras e revisões dele ficam separados dos seus outros idiomas. Alterne entre eles pela barra superior.
+8a4ed579 O idioma que você está aprendendo agora
+75bd5fbb Aprendendo {0:lower}. Mudar de idioma
+b69e98b2 ＋ Adicionar um idioma…
+fa47f84b Aprendendo agora
+a70803bd Consulta rápida
+2c497d03 Consulta rápida: uma palavra tocada mostra só o significado
+c8bed749 Consulta detalhada
+4ba6d768 Consulta detalhada: uma palavra tocada mostra a explicação completa
+581f8c00 Quanto uma palavra tocada mostra
+7d0cd0d6 {0}. Toque para mudar para {1}.
+6ae84e4a Fechar (Esc)
+bbfa773e Fechar
+f0fbfe6e O mais rápido. Bom para fala clara; mais erros com dialetos, sotaques e fala rápida.
+19c91326 Equilíbrio entre precisão e velocidade.
+d661998f O mais preciso em todos os idiomas. Melhor com uma GPU.
+ec890ad6 · baixado
+18e42f19 · baixado em parte
+0b1d6c0b Preparando…
+7388d667 {0} de {1}
+1763761d Usar {0}
+781961bc Pausar
+f6fdbe48 Excluir
+58ff0825 Excluir o modelo {0} ({1} MB)? Você pode baixá-lo de novo depois.
+b5ed1ec0 Retomar download
+a479c9c3 Baixar
+b9868e76 Usando o modelo {0} para as novas transcrições.
+a80186d6 O modelo {0} está pronto.
+d70807ed Sua <0>{0}</0> pode transcrever muitas vezes mais rápido que a CPU. Para isso, são necessárias as bibliotecas CUDA da NVIDIA (cerca de 1,2 GB), que não vêm no instalador para mantê-lo pequeno.
+c3d90933 A aceleração por GPU está ativa
+198413b8 Remover as bibliotecas de GPU
+6c044a0d Remover as bibliotecas CUDA? A transcrição vai usar a CPU.
+42a1ffa7 Elas serão removidas quando você reiniciar o app.
+aca57ff9 Removidas.
+7bb4405c Instalado
+71d04aed Reinicie o app para começar a usar a GPU.
+97e292a8 Descompactando…
+0a7b809e Instalar a aceleração por GPU (~1,2 GB)
+2503a349 Baixa os pacotes oficiais cuBLAS e cuDNN da NVIDIA de pypi.org e verifica as somas de verificação.
+f4cfa873 Aceleração por GPU instalada.
+82f06f5b Não foi possível mudar o idioma.
+defca688 Passo {0} de 4
+2f04eb15 Próximo →
+03c88b2a Que idioma você está aprendendo?
+05d17f2b Isto define o que o app escuta, como as palavras são explicadas e em que direção o texto corre. Você pode mudar isso depois nas Configurações.
+c32ae9f4 ← Voltar
+352fd3bb Você já começou a aprender {0:lower}?
+49a817fa Sou totalmente iniciante
+959a39d2 Todas as palavras são novas para mim.
+9aed0e9c Já comecei
+a6d6fac2 Contar as {0} palavras mais comuns em {1:lower} como palavras que já conheço, para que o app não as trate como novas.
+871384d2 Uma coisa para configurar: uma chave de API
+af91b49e Toque em qualquer palavra e o Tamkeen diz o que ela significa <0>naquela frase</0>. Essas explicações são escritas por um serviço de IA, então <1>para o app funcionar você precisa dar a ele uma chave de API de um provedor de IA à sua escolha</1>: {0} ou {1}.
+c3016d5f Uma chave de API é uma espécie de senha que você obtém no site do provedor. Você paga direto ao provedor: uma consulta custa uma fração de centavo, e o Gemini tem uma cota gratuita.
+9ab59592 Configure-a, ou mude-a depois, em <0>Configurações → Definições de palavras (IA)</0>. Lá você também pode escolher <1>Sem IA</1>: um dicionário embutido gratuito que mostra os significados comuns de uma palavra, mas não o da frase dela (a IA é altamente recomendada).
+feb628ae Como consigo uma chave?
+5b8027fa Entendi
+74026a93 Redefinir o Tamkeen
+ae41208a Comece de novo como se o Tamkeen fosse novo: você sai da conta e vê as primeiras telas outra vez. Nada é excluído. Sua biblioteca, suas palavras e suas configurações voltam quando você entra.
+61837f5f Redefinir o Tamkeen?
+7c7d3232 O Tamkeen vai começar de novo como no primeiro uso:
+785b510e sair do Google, da sua conta de Amigos e do Instagram e do YouTube no navegador do app
+62d1d509 suas chaves de IA e de transcrição removidas deste dispositivo
+6e772256 as telas de boas-vindas e as perguntas sobre idioma mostradas de novo
+90f5271b <0>Nada é excluído.</0> Seus podcasts, vídeos, palavras, revisões e configurações ficam guardados à parte e voltam assim que você entra no Google, ou quando termina as primeiras telas.
+6d27dcf1 Redefinindo…
+6c461cb8 Não foi possível redefinir o Tamkeen. Nada foi alterado.
+94331dff Vídeo do YouTube
+6c186598 Reel do Instagram
+78f78ba4 Episódio de podcast
+b41edaea Isto não pode ser enviado a um amigo.
+00ac93bc Isto não pode ser enviado: seus próprios arquivos de áudio e vídeo ficam nos seus dispositivos.
+004f3577 Primeiro conecte-se e escolha um nome de usuário.
+c7f73bb5 Configurações
+926fb281 Primeiro adicione um amigo.
+c11d5e1d Amigos
+d7485673 Enviar “{0}” para…
+cf765512 Enviando…
+5b7d7944 , com as palavras
+7305bd49 Enviado para {0}{1}.
+d2104ca3 Abrir chat
+9bc2575c Enviar
+39a2069e Enviar para um amigo
+095ba688 Meu computador
+4ccce6f4 Este computador
+8177b1f0 Normalmente o seu computador escreve as transcrições, e elas chegam aqui pela sincronização. Um provedor na nuvem pode escrevê-las no lugar dele, direto deste celular, sem esperar pelo computador.
+667900ba Escrever uma transcrição exige um computador potente, principalmente para o árabe. Se o seu for lento, um provedor na nuvem pode escrever as transcrições.
+08f8b99e o arquivo do episódio, ou o vídeo de um reel
+d78ea32b só as partes que têm fala
+c6286624 Grátis. As transcrições chegam na próxima sincronização.
+2c713dbf Grátis. Usa o modelo escolhido abaixo.
+82e6ea14 Começa na hora, neste celular. Alguns centavos por hora.
+51e5460e Não precisa de computador potente. Alguns centavos por hora.
+0781166f Transcrição na nuvem
+3287b173 {0} Você usa sua própria chave e paga direto a eles, alguns centavos por hora de áudio.

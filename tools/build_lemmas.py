@@ -1,4 +1,4 @@
-"""Build the Spanish, French, Italian and English word tables: each word form and its dictionary form.
+"""Build the Spanish, French, Italian, Portuguese, Catalan and English word tables: each word form and its dictionary form.
 
 The app uses them to treat hablas, hablaste and hablemos as one word, hablar (see
 web/js/lexicon/romance.js). They come from two open data sets:
@@ -10,10 +10,16 @@ web/js/lexicon/romance.js). They come from two open data sets:
     (ligas: liga "league" or ligar "to tie"?) by how common each is.
 
     pip install wordfreq
-    python tools/build_lemmas.py es=path/to/lemmatization-es.txt fr=... it=... en=... cmu=path/to/cmudict.dict
+    python tools/build_lemmas.py es=path/to/lemmatization-es.txt fr=... it=... pt=... ca=... en=... cmu=path/to/cmudict.dict
 
 Tagalog has no list of forms: its table is just wordfreq's Filipino word list, most common first,
 which web/js/lexicon/tagalog.js checks the roots it finds against (`tl=wordfreq`).
+
+Bisaya (Cebuano) is the same, but wordfreq has no Cebuano: its list is counted from the Cebuano web
+text in OPUS's NLLB collection (https://opus.nlpl.eu/NLLB, ODC-By 1.0), lines that read as Tagalog
+or English left out (`ceb=path/to/ceb_freq.tsv`, word <tab> count, most common first; made by
+counting the words of https://object.pouta.csc.fi/OPUS-NLLB/v1/mono/ceb.txt.gz). Its roots are
+found by web/js/lexicon/cebuano.js.
 
 English also gets US pronunciations (IPA) from the CMU Pronouncing Dictionary
 (https://github.com/cmusphinx/cmudict, BSD-style licence, see licenses/cmudict.txt), for the
@@ -38,13 +44,16 @@ from wordfreq import top_n_list, zipf_frequency
 OUT = Path(__file__).resolve().parent.parent / "docs" / "lexicon"
 FORMAT = 1
 KEEP = 250_000  # forms beyond this many of the language's commonest words are left out
-TITLES = {"es": "Spanish", "fr": "French", "it": "Italian", "en": "English", "tl": "Tagalog"}
+TITLES = {"es": "Spanish", "fr": "French", "it": "Italian", "en": "English", "tl": "Tagalog", "pt": "Portuguese",
+          "ca": "Catalan", "ceb": "Bisaya (Cebuano)"}
+ROOT_LISTS = {"tl": "tl-roots.json.gz", "ceb": "ceb-roots.json.gz"}  # word lists, not tables of forms
 IPA_WORDS = 60_000  # English words that get a pronunciation
 WORD = re.compile(r"^[\w'’-]+$")
 # Common words the lists get wrong or leave out (checked by hand): form -> dictionary form.
 EXTRA = {
     "it": {"uomini": "uomo", "begli": "bello", "bei": "bello", "bel": "bello", "bella": "bello", "belle": "bello",
            "po'": "poco"},
+    "ca": {"dones": "dona"},
 }
 
 
@@ -109,6 +118,19 @@ def tagalog_words() -> dict:
             "license": "CC-BY-SA-4.0", "lemmas": words, "forms": {}}
 
 
+def cebuano_words(path: Path) -> dict:
+    """The commonest 60,000 words of the Cebuano count, letters only, most common first."""
+    words = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        w, _, n = line.partition("\t")
+        if re.fullmatch(r"[a-zñ'-]+", w) and len(w) > 1 and int(n or 0) >= 5:
+            words.append(w)
+        if len(words) == 60_000:
+            break
+    return {"format": FORMAT, "kind": "lemmas", "name": "ceb", "lang": "ceb", "title": "Bisaya (Cebuano)",
+            "license": "ODC-BY-1.0", "lemmas": words, "forms": {}}
+
+
 def convert(lang: str, path: Path) -> dict:
     common = set(top_n_list(lang, KEEP, wordlist="large"))
     readings: dict[str, set[str]] = {}
@@ -161,16 +183,17 @@ def main(args: list[str]) -> None:
             continue
         if lang not in TITLES or not src:
             raise SystemExit(f"Expected lang=path with lang one of {', '.join(TITLES)}; got {arg!r}")
-        data = tagalog_words() if lang == "tl" else convert(lang, Path(src))
+        data = tagalog_words() if lang == "tl" else cebuano_words(Path(src)) if lang == "ceb" else convert(lang, Path(src))
         if lang == "en" and cmu:
             data["ipa"] = pronunciations(Path(cmu))
             data["ipa_source"] = "CMU Pronouncing Dictionary"
         blob = gzip.compress(json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode("utf-8"), mtime=0)
-        file = "tl-roots.json.gz" if lang == "tl" else f"{lang}-lemmas.json.gz"
+        file = ROOT_LISTS.get(lang, f"{lang}-lemmas.json.gz")
         (OUT / file).write_bytes(blob)
+        db = {"tl": "wordfreq (fil)", "ceb": "OPUS NLLB Cebuano text"}.get(lang, "lemmatization-lists + wordfreq")
         index["files"][lang] = {"file": file, "bytes": len(blob), "sha256": hashlib.sha256(blob).hexdigest(),
-                                "title": "Tagalog word list" if lang == "tl" else f"{TITLES[lang]} word forms",
-                                "db": "wordfreq (fil)" if lang == "tl" else "lemmatization-lists + wordfreq",
+                                "title": f"{TITLES[lang]} word list" if lang in ROOT_LISTS else f"{TITLES[lang]} word forms",
+                                "db": db,
                                 "license": data["license"], "forms": len(data["forms"]), "lexemes": len(data["lemmas"])}
         print(f"{file}: {len(blob) / 1e6:.2f} MB, {len(data['forms']):,} forms, {len(data['lemmas']):,} dictionary forms")
     index["files"] = dict(sorted(index["files"].items()))

@@ -47,3 +47,7 @@ test("without the table: by spelling, contractions still undone", () => {
   assert.deepEqual(lexemesFor(["mice"], "en", [real]).map((x) => x.key), ["en|mouse|x"]);
   assert.deepEqual(lexemesFor(["mice", "2024"], "en", null).map((x) => x && x.key), ["en|mice|x", null]);
 });
+
+test("a regular form of a word the table knows, when the table lacks the form", () => {
+  assert.deepEqual(lemmas("texting binged ghosting zoomed memes"), ["text", "binge", "ghost", "zoom", "meme"]);
+});

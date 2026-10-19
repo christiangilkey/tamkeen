@@ -1,0 +1,200 @@
+0fccecc9 Una paraula que has esborrat aquí encara té
+7e7ed3d8 {0} paraules que has esborrat aquí encara tenen
+a2fd882c la targeta
+0c12e651 les targetes
+a5554878 la paraula
+cde1fdb5 les paraules
+8d3900e9 <0>{0} una targeta a {1}:</0> {2}. Si treus una targeta d'{3}, també se n'esborra l'historial de repàs. <1>No es pot desfer.</1> Si hi estàs d'acord, a partir d'ara les eliminacions trauran les seves targetes sense tornar a preguntar.
+d0ca7688 Treu {0} d'{1}
+3ee6dc97 Conserva {0} i recupera {1}
+458bd73a Una targeta ha
+2449d2e2 {0} targetes han
+4768f74c AnkiDroid no informa les altres apps del que s'ha esborrat
+97b8cabc Anki no té constància que les hagis esborrat aquí (pot ser que s'hagin esborrat en un altre dispositiu o que s'hagi restaurat la col·lecció)
+9ab802d4 aquesta paraula
+9fe0220f <0>{0} desaparegut de la baralla:</0> {1}. {2}, així que Tamkeen no ha tret res. Què ha de passar amb {3}?
+ef8f7e8a Torna a crear les targetes que falten
+bbba862c Esborra també aquí {0}
+78948622 {0} targetes de les teves paraules ara són en una altra baralla: es queden on les has posat i ja no se sincronitzen.
+c1aa0b00 {0} targetes de més de paraules que ja en tenien una s'han etiquetat com a «tamkeen-duplicate» i s'han deixat perquè les revisis.
+dfab2962 S'han deixat de banda {0} notes de la baralla (sense camps Front i Back, sense res escrit o amb alguna targeta en una altra baralla).
+4b701821 {0} canvis no s'han pogut fer l'última vegada i es tornaran a provar.
+e8a0694a Les targetes que són a la baralla d'una altra llengua passaran a la seva a la propera sincronització d'Anki.
+ba95bad5 S'han mogut {0} targetes a la baralla de la seva llengua ({1}).
+21b4c80d Aquesta versió d'AnkiDroid no informa les altres apps del progrés de repàs. Actualitza AnkiDroid a la 2.24 o posterior per veure'l aquí.
+221ca630 Sincronitzant…
+2b7d938e Sincronitza ara
+11d3ef7f També se sincronitza quan obres l'app i cada pocs minuts mentre és oberta.
+26b0b25f Anki se sincronitza amb Tamkeen quan l'obres, cada 10 minuts mentre és obert, després de la sincronització pròpia d'Anki i sempre que triïs <0>Eines → Sync Tamkeen now</0> a Anki. Tamkeen també ha d'estar obert.
+27139ab8 encara no estudiada
+c9114940 endarrerida des de {0}
+71ef9cbd venç {0}
+87e1ef1d en repàs
+b2647e88 cada {0} {1}
+fb38ecb6 {0} bé, {1} malament
+3db1270b Les teves últimes respostes a Anki, de la més antiga a la més recent
+5c4b4117 Llegit d'Anki el {0}. Tamkeen només ho mostra; mai no canvia la programació d'Anki.
+c3c7e5f4 Anki: {0}{1}
+f57186fa Vols esborrar «{0}» del teu vocabulari?
+3eb0e9ae Vols esborrar «{0}» del teu vocabulari? També se n'eliminarà la targeta a {1}, amb el seu historial de repàs.
+890a143b També se n'eliminarà la targeta a {0}, amb el seu historial de repàs.
+ce01cb8a Això també esborra la targeta d'{0}
+8c9dbb61 «<0>{0}</0>» té una targeta a la teva baralla {1} d'{2}. Si esborres la paraula aquí, aquesta targeta es treu a la propera sincronització, <1>juntament amb el seu historial de repàs a {3}. No es pot desfer.</1>
+ad439574 Si continues, a partir d'ara, quan esborris una paraula se'n traurà la targeta sense aquesta pregunta.
+77dfd213 Cancel·la
+0a98dcd0 Esborra la paraula i la seva targeta
+e93d02ca Mou les targetes d'Anki a la baralla de la seva llengua
+9ce3bd42 D'acord
+09701b49 Movent…
+0c443a1e S'ha mogut 1 targeta a la baralla de la seva llengua.
+077b3afc S'han mogut {0} targetes a la baralla de la seva llengua.
+10e5fda8 1 no s'ha pogut moure (per exemple, una targeta prestada a una baralla filtrada) i s'ha quedat on era.
+5e56ad8c {0} no s'han pogut moure (per exemple, una targeta prestada a una baralla filtrada) i s'han quedat on eren.
+721a5cd2 Les targetes es mouran la propera vegada que Anki se sincronitzi amb Tamkeen: obre Anki o tria-hi <0>Eines → Sync Tamkeen now</0>. La configuració mostrarà quan s'hagi acabat.
+a8e5a756 Això funciona amb la sincronització d'Anki. Primer activa «Mantén sincronitzades les meves paraules desades i les meves baralles d'{0}» a Configuració.
+134635e9 Obre Configuració
+acba4224 Tamkeen encara no s'ha sincronitzat amb {0}, així que no sap on són les targetes. Sincronitza primer i torna-ho a provar.
+722b3443 Això ja està esperant la propera sincronització d'Anki amb Tamkeen.
+7d8c0147 Totes les targetes ja són a la baralla de la seva llengua. No hi ha res per moure.
+f7f0f25b Una targeta és a la baralla d'una altra llengua. Es mourà:
+577a01f9 {0} targetes són a la baralla d'una altra llengua. Es mouran:
+f0b872b4 Cada targeta conserva el seu historial de repàs. No canvia res més a {0}, i les altres baralles no es toquen.
+e78a8a82 Mou la targeta
+247c9a70 Mou {0} targetes
+c3e839df En línia
+e01fa717 Sense connexió
+5896cb72 Funcions de joc
+985a5239 La criatura, l'XP i les recompenses, i els sons quan estudies
+afed91e0 Desactivat: estudiar funciona igual, sense res del joc. Les teves metes i barres de progrés es queden, i també la teva criatura, per si el tornes a activar.
+7fab27b4 la Consola de Claude
+881ac247 Prem el botó de sota. Obre console.anthropic.com al navegador web. És un lloc diferent de l'app de xat de Claude.
+495b9813 Fes servir la teva adreça electrònica o «Continue with Google». Una subscripció de xat Claude Pro o Max no cobreix això: les claus es paguen a part.
+7403c4f9 Obre <0>Settings → Billing</0>, afegeix una targeta de pagament i compra una mica de saldo. Les claus no funcionen fins que el compte té saldo.
+71b4b60f Obre <0>Settings → API keys</0> i prem <1>Create Key</1>. Posa-li un nom que reconeguis, com ara «Tamkeen».
+e04e0bbd La clau és una línia llarga de lletres que comença per <0/>. Només es mostra una vegada, així que prem <1>Copy</1> abans de tancar el quadre.
+48b74851 Torna aquí, enganxa-la al quadre <0>Clau d'API</0> de Configuració i prem <1>Prova amb un exemple</1>.
+0e9e2f65 Google AI Studio
+5de77d58 Gemini té una quota gratuïta, així que pots començar sense targeta de pagament. Amb la quota gratuïta, Google pot fer servir el que s'envia per millorar els seus productes; si afegeixes la facturació a AI Studio, això es desactiva.
+2628ac25 Prem el botó de sota. Obre aistudio.google.com al navegador web.
+f6541135 Serveix qualsevol compte de Google (Gmail). Accepta les condicions si t'ho demana.
+84e51948 Prem <0>Create API key</0>. Si et pregunta quin projecte vols fer servir, deixa que en creï un de nou.
+8d7a2586 És una línia llarga de lletres que comença per <0/>. Prem el botó de copiar que hi ha al costat. Pots tornar a aquesta pàgina i copiar-la de nou més tard.
+162ab3e6 la plataforma d'OpenAI
+faa55261 Prem el botó de sota. Obre platform.openai.com al navegador web. És un lloc diferent de ChatGPT.
+0ba16577 El teu inici de sessió de ChatGPT també funciona aquí, però una subscripció a ChatGPT Plus no cobreix això: les claus es paguen a part. Pot ser que et demani confirmar un número de telèfon.
+a6860394 Obre <0>Settings</0> (la roda dentada) <1>→ Billing</1>, afegeix una targeta de pagament i compra una mica de saldo. Les claus no funcionen fins que el compte té saldo.
+83803874 Obre <0>API keys</0> i prem <1>Create new secret key</1>. Posa-li un nom que reconeguis, com ara «Tamkeen».
+ebf2eda5 la Consola d'xAI
+e76446c0 Prem el botó de sota. Obre console.x.ai al navegador web.
+e3f3d119 Fes servir el teu compte d'X, Google o una adreça electrònica. Una subscripció a X Premium o SuperGrok no cobreix això: les claus es paguen a part.
+d88dbb88 Obre <0>Billing</0>, afegeix una targeta de pagament i compra una mica de saldo. Les claus no funcionen fins que el compte té saldo.
+f6ce8b31 Obre <0>API Keys</0> i prem <1>Create API key</1>. Posa-li un nom que reconeguis, com ara «Tamkeen».
+6547e629 La clau és una línia llarga de lletres que comença per <0/>. Copia-la abans de tancar el quadre.
+58d7704c El més probable és que la clau hagi caducat o s'hagi desactivat, així que segurament en necessites una de nova: crea-la amb els passos de dalt i enganxa-la. Si la clau és nova de trinca, torna-la a copiar i enganxa-la de nou (si falta una lletra al final, no funciona).
+f443dc0b El compte encara no té saldo, o el saldo encara no ha arribat. Afegeix saldo a la pàgina Billing del proveïdor i torna-ho a provar d'aquí a uns minuts.
+43b82a8b Torna a posar el <0>Model</0> de Configuració al que diu «recomanat».
+995ff549 Crea una clau nova de la mateixa manera i esborra l'antiga de la llista del proveïdor.
+6b020b42 Tracta-la com una contrasenya: no la comparteixis ni la publiquis enlloc. Tamkeen només la guarda en aquest dispositiu i només l'envia al proveïdor que has triat.
+e1e3cd22 demani a un servei d'IA que t'expliqui paraules
+fb891cde Com obtenir una clau d'API
+15803e0d Una clau d'API és una mena de contrasenya que permet que Tamkeen {0}. L'obtens al web del mateix servei; es tarda uns minuts.
+d76fd621 Obre {0} ↗
+26aacc31 Alguna cosa ha anat malament?
+ddb60451 Llengua que vols aprendre
+cac6d44c La teva llengua
+efaf5f1d Afegeix una llengua per aprendre
+f23ad26a Els seus pòdcasts, vídeos, paraules i repassos es guarden a part de les teves altres llengües. Canvia d'una a l'altra des de la barra superior.
+8a4ed579 La llengua que aprens ara
+75bd5fbb Aprens {0:lower}. Canvia de llengua
+b69e98b2 ＋ Afegeix una llengua…
+fa47f84b L'aprens ara
+a70803bd Consulta ràpida
+2c497d03 Consulta ràpida: una paraula tocada només en mostra el significat
+c8bed749 Consulta detallada
+4ba6d768 Consulta detallada: una paraula tocada en mostra l'explicació completa
+581f8c00 Quant mostra una paraula tocada
+7d0cd0d6 {0}. Toca per canviar a {1:lower}.
+6ae84e4a Tanca (Esc)
+bbfa773e Tanca
+f0fbfe6e El més ràpid. Bo per a una parla clara; fa més errors amb dialectes, accents i parla ràpida.
+19c91326 Equilibri entre precisió i velocitat.
+d661998f El més precís en totes les llengües. Millor amb una GPU.
+ec890ad6 · baixat
+18e42f19 · baixat en part
+0b1d6c0b Preparant…
+7388d667 {0} de {1}
+1763761d Fes servir {0}
+781961bc Pausa
+f6fdbe48 Esborra
+58ff0825 Vols esborrar el model {0} ({1} MB)? El pots tornar a baixar més tard.
+b5ed1ec0 Reprèn la baixada
+a479c9c3 Baixa
+b9868e76 S'està fent servir el model {0} per a les noves transcripcions.
+a80186d6 El model {0} està a punt.
+d70807ed La teva <0>{0}</0> pot transcriure moltes vegades més de pressa que la CPU. Per a això calen les biblioteques CUDA de NVIDIA (uns 1,2 GB), que no s'inclouen a l'instal·lador perquè sigui petit.
+c3d90933 L'acceleració per GPU està activa
+198413b8 Treu les biblioteques de GPU
+6c044a0d Vols treure les biblioteques CUDA? La transcripció farà servir la CPU.
+42a1ffa7 Es trauran quan reiniciïs l'app.
+aca57ff9 Tretes.
+7bb4405c Instal·lat
+71d04aed Reinicia l'app per començar a fer servir la GPU.
+97e292a8 Descomprimint…
+0a7b809e Instal·la l'acceleració per GPU (~1,2 GB)
+2503a349 Baixa de pypi.org els paquets oficials cuBLAS i cuDNN de NVIDIA i en verifica les sumes de comprovació.
+f4cfa873 S'ha instal·lat l'acceleració per GPU.
+82f06f5b No s'ha pogut canviar la llengua.
+defca688 Pas {0} de 4
+2f04eb15 Següent →
+03c88b2a Quina llengua aprens?
+05d17f2b Això determina què escolta l'app, com s'expliquen les paraules i en quina direcció va el text. Ho pots canviar més tard a Configuració.
+c32ae9f4 ← Enrere
+352fd3bb Ja has començat a aprendre {0:lower}?
+49a817fa Soc principiant del tot
+959a39d2 Totes les paraules són noves per a mi.
+9aed0e9c Ja he començat
+a6d6fac2 Compta les {0} paraules més comunes en {1:lower} com a paraules que ja conec, perquè l'app no les tracti com a noves.
+871384d2 Una cosa per configurar: una clau d'API
+af91b49e Toca qualsevol paraula i Tamkeen et diu què vol dir <0>en aquella frase</0>. Aquestes explicacions les escriu un servei d'IA, així que <1>perquè l'app funcioni li has de donar una clau d'API d'un proveïdor d'IA que triïs</1>: {0} o {1}.
+c3016d5f Una clau d'API és una mena de contrasenya que obtens al web del proveïdor. Pagues directament al proveïdor: una consulta costa una fracció de cèntim, i Gemini té una quota gratuïta.
+9ab59592 Configura-la, o canvia-la més tard, a <0>Configuració → Definicions de paraules (IA)</0>. Allà també pots triar <1>Sense IA</1>: un diccionari integrat gratuït que mostra els significats habituals d'una paraula, però no el que té en la seva frase (la IA és molt recomanable).
+feb628ae Com obtinc una clau?
+5b8027fa Entesos
+74026a93 Restableix Tamkeen
+ae41208a Torna a començar com si Tamkeen fos nou: es tanca la sessió i tornes a veure les primeres pantalles. No s'esborra res. La teva biblioteca, les teves paraules i la configuració tornen quan inicies la sessió.
+61837f5f Vols restablir Tamkeen?
+7c7d3232 Tamkeen tornarà a començar com el primer cop:
+785b510e es tanca la sessió de Google, del teu compte d'Amics i d'Instagram i YouTube al navegador de l'app
+62d1d509 es treuen d'aquest dispositiu les teves claus d'IA i de transcripció
+6e772256 es tornen a mostrar les pantalles de benvinguda i les preguntes sobre la llengua
+90f5271b <0>No s'esborra res.</0> Els teus pòdcasts, vídeos, paraules, repassos i configuració es guarden a part i tornen tan bon punt inicies la sessió a Google, o quan acabes les primeres pantalles.
+6d27dcf1 Restablint…
+6c461cb8 No s'ha pogut restablir Tamkeen. No s'ha canviat res.
+94331dff Vídeo de YouTube
+6c186598 Reel d'Instagram
+78f78ba4 Episodi de pòdcast
+b41edaea Això no es pot enviar a un amic.
+00ac93bc Això no es pot enviar: els teus propis fitxers d'àudio i vídeo es queden als teus dispositius.
+004f3577 Primer connecta't i tria un nom d'usuari.
+c7f73bb5 Configuració
+926fb281 Primer afegeix un amic.
+c11d5e1d Amics
+d7485673 Envia «{0}» a…
+cf765512 Enviant…
+5b7d7944 , amb les seves paraules
+7305bd49 S'ha enviat a {0}{1}.
+d2104ca3 Obre el xat
+9bc2575c Envia
+39a2069e Envia a un amic
+095ba688 El meu ordinador
+4ccce6f4 Aquest ordinador
+8177b1f0 Normalment el teu ordinador escriu les transcripcions i arriben aquí per sincronització. En lloc d'això, un proveïdor al núvol les pot escriure directament des d'aquest telèfon, sense haver d'esperar l'ordinador.
+667900ba Escriure una transcripció demana un ordinador potent, sobretot per a l'àrab. Si el teu és lent, un proveïdor al núvol pot escriure les transcripcions.
+08f8b99e el fitxer de l'episodi, o el vídeo d'un reel
+d78ea32b només les parts on es parla
+c6286624 Gratuït. Les transcripcions arriben a la propera sincronització.
+2c713dbf Gratuït. Fa servir el model triat a sota.
+82e6ea14 Comença de seguida, en aquest telèfon. Uns cèntims per hora.
+51e5460e No cal un ordinador potent. Uns cèntims per hora.
+0781166f Transcripció al núvol
+3287b173 {0} Fas servir la teva pròpia clau i els pagues directament, uns cèntims per hora d'àudio.

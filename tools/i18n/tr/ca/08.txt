@@ -1,0 +1,200 @@
+13878fb7 L'element de cada ou nou tendeix cap a la teva manera d'estudiar: {0}.
+02b6bd4d La botiga ofereix més coses que van amb els teus hàbits, com ara auriculars per a qui escolta i llibres per a qui llegeix.
+2eaf9a2e Cada edifici del jardí fa més brill amb un hàbit.
+976f4c1c Les batalles entre persones no tenen en compte res d'això: totes les criatures lluiten al mateix nivell, i guanyes si saps les teves paraules.
+8b0adc94 Què més canvien els teus hàbits
+0c20f982 Tria'n la forma ara
+3b7ab43a Obre les teves criatures
+124ba4b6 Cal dedicar més temps a {0}
+cb437e4f Encara no està a punt d'evolucionar.
+a6e6f750 Aquesta forma encara no està oberta per a ella.
+81b52bd2 Aquesta forma especial encara no s'ha aconseguit.
+5eb43479 No s'ha pogut obrir el regal.
+2890293f Ja tens {0}, així que s'ha convertit en {1} monedes.
+67705e9c Has rebut {0}. És a Les meves coses.
+c054815c El teu grup és ple, així que l'ou s'ha convertit en 20 monedes.
+b49d2e5c Has rebut un ou de {0}. És amb les teves criatures.
+e4d969a9 Aquest objecte no existeix.
+2b338829 Ja el tens.
+60e6b077 Et falten monedes: {0}.
+77e01fe2 Botiga i armari
+0ee5c43c Les meves coses
+2c578dc8 Insígnies
+2db87a01 Decoració
+9519fbe9 {0} és teu
+4f3e6209 Desa
+26fcf76c Col·loca
+1c99c72c Treu
+94433a7e Posa-li
+5d632f2d Regala això a un amic
+fbefae1e Regala
+1cfad2d7 {0} monedes
+a8e4db25 La selecció d'avui, triada per a la teva criatura. Canvia cada dia. Les monedes es guanyen arribant a la meta diària (10), desant paraules (1 cadascuna) i pujant de nivell (5).
+7c0a7817 Ja tens tot el que hi ha en venda.
+db13058c Apareixen més objectes ({0}) quan hagis aconseguit:
+1a2cdd14 Encara res. Les coses que compris a la botiga es guarden aquí.
+d0673c80 Col·lecció {0}
+080c79ed Aquest diccionari de xinès és d'una altra versió de l'app.
+8079905a Aquest diccionari de japonès és d'una altra versió de l'app.
+f5285e5c Diccionari de cebuà visaia de Wolff
+b016324b les bases de dades d'àrab de CAMeL
+382f42b1 Viccionari
+bbc70fda , en anglès
+bf672d07 Del diccionari integrat ({0}{1}): els significats habituals de la paraula. No pot saber quin encaixa amb aquesta frase.
+cd8a2a7e Mostra el furigana (kana petits sobre els kanji)
+48f745cc Mostra el pinyin sobre els caràcters, amb colors segons el to
+fcfd569a Caràcters xinesos
+c17ef03e Tal com estan escrits
+6a018382 Simplificats (简体)
+6c401cdd Tradicionals (繁體)
+cb91bc89 Funcionen quan el diccionari de l'idioma {0:lower} és en aquest dispositiu.
+1fa955a7 Aquesta taula de paraules és d'una altra versió de l'app.
+41867351 No s'ha pogut marcar aquesta paraula com a vista: {0}
+84d8d02d Mostra l'accent tònic (ла́дно)
+82c3ca6e ✓ Els diccionaris de l'idioma {0:lower} són en aquest dispositiu ({1} MB). Les paraules que no has tocat mai es veuen en <0>lila</0>.
+71da2431 Els diccionaris de l'idioma {0:lower} no són en aquest dispositiu, així que les paraules noves no es poden mostrar en <0>lila</0>.
+f5eab3f0 Els diccionaris de l'idioma {0:lower} no són en aquest dispositiu, així que cada forma d'una paraula compta com una paraula diferent.
+7443fea8 Els diccionaris de l'idioma {0:lower} estan a punt.
+058c38b0 falo, falamos, fale-me
+2dfade8e parlo, parlem, digues-m'ho
+69f76f1b mokaon, mikaon, gikaon
+1eccdd79 Per al japonès cal un diccionari: divideix el text japonès en paraules reals, de manera que en tocar s'agafa la paraula sencera, dona la forma de diccionari de cada paraula i mostra el furigana (kana petits sobre els kanji). És IPADIC, de l'Institut de Ciència i Tecnologia de Nara
+dae622d1 Per al xinès cal un diccionari: divideix el text xinès en paraules reals, de manera que en tocar s'agafa la paraula sencera, mostra el pinyin sobre els caràcters amb colors segons el to i tracta els caràcters simplificats i els tradicionals com la mateixa paraula. És CC-CEDICT, amb freqüències de paraules de wordfreq
+cadfed16 la llista de paraules de wordfreq per al filipí, amb què l'app comprova les arrels que troba (kumain, kakain, kinain: kain)
+51444687 una llista de les paraules bisaies més comunes, comptades a partir de text web en bisaia de la col·lecció OPUS NLLB, amb què l'app comprova les arrels que troba (mokaon, mikaon, gikaon: kaon)
+74da1e87 llistes de paraules obertes (la llista de lematització de Michal Měchura i els recomptes de paraules de wordfreq) i el CMU Pronouncing Dictionary, que dona la pronunciació dels Estats Units que es veu a la finestra de la paraula
+84ee7564 el diccionari d'OpenRussian.org, que també dona l'accent tònic de cada paraula, perquè el text rus el pugui mostrar (ла́дно)
+359544fb llistes de paraules obertes (les llistes de lematització de Michal Měchura i els recomptes de paraules de wordfreq)
+04d17f22 desconegut
+4af2e1ae {0}: una <0>baixada única d'uns {1} MB</0>. Es queda en aquest dispositiu i no s'envia res sobre tu enlloc.
+6280fb05 Per a l'idioma {0:lower} calen diccionaris: una <0>baixada única d'uns {1} MB</0>, fets pel CAMeL Lab de la Universitat de Nova York a Abu Dhabi (àrab estàndard, egipci, llevantí i del Golf). Es queden en aquest dispositiu i no s'envia res sobre tu enlloc.
+f9657a45 Per a l'idioma {0:lower} cal una taula de formes de paraules: una <0>baixada única d'uns {1} MB</0>, feta a partir de {2}. Es queda en aquest dispositiu i no s'envia res sobre tu enlloc. Sense aquesta taula, cada forma d'una paraula compta com una paraula diferent.
+aaa46e0d Diccionaris de l'idioma {0:lower}
+c33c9385 Tamkeen pot mostrar quines paraules són <0>noves per a tu</0>: una paraula que no has tocat mai es veu en lila, i quan en toques una, totes les formes d'aquella paraula compten com a vistes (<1/>).
+b7c33926 Ho pots fer més tard des de Configuració.
+e4571490 Ara no
+6813189a Això tarda uns segons.
+286b0dcd Els diccionaris de l'idioma {0:lower} estan a punt. Ara les paraules noves es veuen en lila.
+3e13e40a ✓ Marca com a vista
+30320764 ↺ Marca com a nova
+8c6c358b Aquesta paraula no és al diccionari integrat. Pot ser un nom, argot o una forma que no coneix.
+3f629623 No s'ha trobat text llegible en aquesta pàgina. Prova «Obre el navegador web» i fes servir «Importa la pàgina» allà.
+4b0a3f2d Versió {0}
+2cf6a510 Una app per aprendre una llengua amb material real: subscriu-te a pòdcasts, afegeix els teus propis vídeos i pàgines web, transcriu localment amb Whisper, llegeix mentre es ressalta cada paraula i crea una llista de vocabulari.
+9421c021 Carpeta de dades
+22a35fbe Codi font
+e630fb0f github.com/{0}
+c4740e4c Entorn d'execució
+06403f3b Python {0}
+736b9062 Cerca actualitzacions
+30dced67 Llicències de codi obert
+48e55e8f Aquesta app es basa en aquests projectes. Fes clic en un per llegir-ne la llicència.
+3aceec04 Hi ha disponible la versió {0}.
+68680fa2 Tens l'última versió.
+8e3df45a Copiat
+40137935 Torna a Els meus llibres
+a8ea9e30 Text més petit
+118f9b2b Text més gran
+81f54719 Pàgina anterior
+fb06270f Pàgina
+4bfc194b Pàgina següent
+51d15ed7 ✓ Desada al vocabulari
+7031bbea ★ Desa al vocabulari
+b32f1eb3 📖 Defineix
+010f9005 ⧉ Copia
+48a704f7 {0} aC
+e1e3700f {0} dC
+a5188242 Afegint «{0}»…
+d2936330 S'ha afegit «{0}» a Els meus llibres.
+6c5e33b0 No s'ha pogut llegir aquest fitxer.
+3af45b33 Torna a la biblioteca
+5f94aeb4 Llibres en {0:lower}
+f689db93 Llibres famosos, gratuïts perquè són de domini públic. Afegeix-ne un i llegeix-lo pàgina a pàgina, amb totes les paraules clicables. O afegeix un llibre teu.
+70ebead0 El teu propi llibre
+c25f48d6 EPUB, PDF, TXT, Kindle AZW3 o Word, sense DRM. Es llegeix en aquest dispositiu i s'afegeix a Els meus llibres.
+195e97d3 Afegeix un fitxer
+d9fffb0d Carregant el prestatge…
+53633ec9 Encara no hi ha llibres gratuïts en {0:lower}.
+49102c78 {0} kB
+0122668f {0} · uns {1} de lectura · {2}
+f40382cc 👻 Els missatges desapareixen després de veure'ls · les notes de veu, després d'escoltar-les
+5e5bb045 Grava una nota de veu (fins a 2 minuts)
+68f4145f Missatge
+72f9eb46 Gravant…
+0e04dbc9 Envia la nota de veu
+2394299d Amic
+fd6be475 ▶ Nota de veu · {0}
+c79a9284 ❚❚ Reproduint…
+08acc9f5 No s'ha pogut reproduir la nota de veu. {0}
+46e2032a Una cosa que aquesta versió de l'app no pot obrir
+f92f6701 Actualitza l'app per obrir-ho.
+05da9368 amb les seves paraules
+ebefd2aa Enviat{0}
+bb54db51 Accepta
+70afe9ef Descarta
+a30d2444 ✓ Acceptat
+d7e5d622 📁 {0} · paraules: {1}
+a5dbb7a2 ★ paraules: {0}
+aaf0f881 per a {0}
+7b347cb7 · 🔊 àudio{0}
+35f49dcf Enviat
+03f7e506 Afegeix al meu vocabulari
+81506135 ✓ Afegit al teu vocabulari
+fd4130f9 a la carpeta «{0}»
+ee02aae1 Paraules afegides{2}: {0}.
+69bd4ef9 Mostra
+2777c993 Anul·la l'enviament: esborra aquest missatge per a tots dos
+32fedd8c Vols anul·lar l'enviament d'aquest missatge? S'esborrarà per a tots dos.
+93536c19 Encara no hi ha missatges. Digues {0} 👋
+7aad9d60 Les notes de veu no funcionen en aquest dispositiu.
+f5985fff L'app necessita permís per fer servir el micròfon per a les notes de veu.
+dad9f44a Ha estat massa curta per enviar-la.
+2b73aff6 Enviant la nota de veu…
+f4c667a4 {0} i {1}
+e79e9cf5 No hi ha cap pòdcast en {0:lower} a les llistes d'èxits, així que aquests són els més ben valorats a Spotify i Apple Podcasts.
+4ea062ed Els pòdcasts més escoltats ara mateix ({0}).
+5e7709de Valoracions de <0>Spotify</0> i <1>Apple Podcasts</1>.
+edaa4f9c Llistes d'èxits d'<0>Apple Podcasts</0>.
+b389210d {0} Prem <0>+ Afegeix</0> per posar-ne un a la teva biblioteca.
+5585dc7f Torna a carregar la llista
+c4e76a79 ⟳ Actualitza
+e17054bf Carregant els pòdcasts en tendència…
+55461d2c ✓ Afegit
+109b936a + Afegeix
+c2510071 S'ha afegit «{0}» a la teva biblioteca.
+0455d100 No s'ha pogut afegir «{0}»: {1}
+6a720856 Tot
+c96f6acd Mostra'ls tots: {1} ({0})
+d6cc1316 Ara mateix no hi ha res en tendència en {0:lower}
+75a6baf2 Ara mateix les llistes d'èxits no tenien pòdcasts en aquesta llengua. Torna-ho a provar més tard, o enganxa l'adreça RSS d'un pòdcast a la Biblioteca.
+57a11040 No s'han pogut carregar els pòdcasts en tendència
+bb386fdb Gremis
+78978743 Encara no s'ha connectat
+12608b67 Última connexió: fa {0} min
+ff6c3395 Última connexió: fa {0} h
+961ad11f Última connexió: fa {0} d
+ccc9a7d2 Última connexió: fa més d'un mes
+969aa741 Seccions d'Amics
+7534bf92 {0} ({1} noves)
+a0ffb6d7 Apreneu junts
+cba998b6 Afegeix amics pel nom d'usuari, forma gremis, envieu-vos missatges (amb notes de veu), envia paraules i carpetes, i mira què estudia tothom. Inicia la sessió amb el teu compte de Google per començar.
+b5531a88 Sessió iniciada. Ara tria un nom d'usuari.
+4a0b7281 Inicia la sessió amb Google
+c66b2adc Iniciant la sessió…
+49421c8e Primer tria un nom d'usuari, perquè els amics et puguin trobar.
+81d5a343 Tria un nom d'usuari
+c8f5eda8 Treu la foto
+240a677f Canvia la foto de perfil
+7fe92d97 Toca la foto per canviar-la
+c32658e7 Edita el que estic estudiant
+cfd93f3f Mostra el meu perfil
+986ce024 Amaga el meu perfil
+7b634db9 Això és el que veuen els teus amics al costat del teu nom
+cf2f49f6 S'ha tret la foto.
+9d62374f Mostra als teus amics amb què aprens: un episodi de pòdcast, un vídeo de YouTube, una cançó, una pel·lícula. Afegeix-hi també una nota curta.
+29f6fa46 Què estudia cadascú
+2acf9a78 Encara ningú no ha compartit què està estudiant.
+2c153dc0 Afegeix amics o uneix-te a un gremi per veure aquí què estudien.
+cdfe806f Sol·licituds d'amistat
+61cd9dee Ara {0} i tu sou amics.
+b59cf9ed Rebutja

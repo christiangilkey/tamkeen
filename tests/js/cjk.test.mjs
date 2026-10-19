@@ -41,6 +41,17 @@ test("a verb or adjective and its endings are one Japanese word, known by its di
   assert.deepEqual(words("日本人の田中さんはお茶が好き").map((w) => w.text), ["日本人", "の", "田中さん", "は", "お茶", "が", "好き"]);
 });
 
+test("drawn-out Japanese speech is still the word: すごーい is すごい", () => {
+  const found = (text) => words(text).map((w) => [w.text, w.lemma]);
+  assert.deepEqual(found("すごーい"), [["すごーい", "すごい"]]);
+  assert.deepEqual(found("そうだねー"), [["そう", "そう"], ["だ", "だ"], ["ねー", "ね"]]);
+  assert.deepEqual(found("寒ーい日"), [["寒ーい", "寒い"], ["日", "日"]]);
+  assert.deepEqual(found("ラーメンを食べたーい"), [["ラーメン", "ラーメン"], ["を", "を"], ["食べたーい", "食べる"]], "katakana keeps its ー");
+  const text = "かわいいーー！ねー、見て";
+  for (const w of japaneseWords(ja, text)) assert.equal(text.slice(w.index, w.index + w.text.length), w.text);
+  assert.equal(japaneseWords(ja, text).map((w) => w.text).join(""), text);
+});
+
 test("Japanese seen words: every form counts as the dictionary form", () => {
   const key = (w) => japaneseLexeme(w, ja).key;
   assert.equal(key("食べた"), "ja|食べる|x");
@@ -87,6 +98,23 @@ test("simplified and traditional characters are the same Chinese word, shown eit
   assert.equal(zh.display("咖啡豆", "traditional"), "咖啡豆", "not a rare variant");
   assert.equal(zh.display("學習", "traditional"), "學習");
   assert.equal(zh.display("學習", ""), "學習", "as written");
+});
+
+test("characters that are both traditional and simplified (么, 著, 份) are read the likelier way", () => {
+  // CC-CEDICT lists 么 as an old form of 幺, 著 of 着, 份 of 分: in simplified text they are as written.
+  assert.deepEqual(cut("你在说什么？这么多，那么复杂"), ["你", "在", "说", "什么", "这么", "多", "那么", "复杂"]);
+  assert.deepEqual(cut("他是著名的作家，买了一份报纸"), ["他", "是", "著名", "的", "作家", "买", "了", "一", "份", "报纸"]);
+  assert.deepEqual(cut("我宁可住在南宁"), ["我", "宁可", "住", "在", "南宁"]);
+  assert.equal(chineseLexeme("什么", zh).key, "zh|什么|x");
+  assert.equal(zh.display("那么", "traditional"), "那麼");
+  assert.equal(zh.display("那麼", "simplified"), "那么");
+  // In traditional text they are taken as traditional where that makes the word.
+  const lemmas = (text) => chineseWords(zh, text).filter((w) => w.lemma).map((w) => w.lemma);
+  assert.deepEqual(lemmas("他看著我說：「什麼？」"), ["他", "看", "着", "我", "说", "什么"]);
+  assert.deepEqual(lemmas("這座城市買了一份報紙"), ["这", "座", "城市", "买", "了", "一", "份", "报纸"]);
+  assert.deepEqual(lemmas("衣服乾了，房間很乾淨"), ["衣服", "干", "了", "房间", "很", "干净"]);
+  assert.deepEqual(lemmas("於是我瞭解了"), ["于是", "我", "了解", "了"], "even with no other traditional character around");
+  assert.deepEqual(lemmas("乾隆皇帝"), ["乾隆", "皇帝"]);
 });
 
 test("pinyin with tone marks", () => {

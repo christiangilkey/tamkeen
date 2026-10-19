@@ -1,0 +1,200 @@
+eb32d375 La teva biblioteca, les transcripcions, el vocabulari, els models i la configuració es guarden a:
+b26720e4 Obre la carpeta de dades
+146d9a4b Exporta les meves dades
+65cf972d inclou l'àudio baixat
+aa4fb3d2 Importa dades…
+2916184c Substitueix la teva biblioteca actual per una còpia de seguretat (.zip).
+c76d1807 Actualitzacions
+d4bbbea7 La sincronització no està disponible en aquesta versió (no hi ha cap inici de sessió de Google configurat).
+f0dd6b0d Obre el navegador web per iniciar la sessió.
+64b8b874 Esperant Google…
+07030d82 Compte de Google
+4541689d L'última sincronització ha fallat: {0}
+0a5d4651 Última sincronització {0}
+be8f16b4 · transcripcions pujades: {0}, baixades: {1}, àudios pujats: {2}
+1b6c524f Sessió iniciada
+dc1649a1 Tanca la sessió
+cc4c05b0 Puja còpies d'àudio comprimides (uns 12 MB per hora)<0/><1>Permet que el teu telèfon i altres ordinadors reprodueixin exactament l'àudio que es va transcriure, perquè el ressaltat continuï sincronitzat fins i tot en pòdcasts que insereixen anuncis diferents a cada baixada. Fa servir l'espai del teu Google Drive.</1>
+777e4004 Vols tancar la sessió de Google? La teva biblioteca es queda en aquest ordinador; només deixa de sincronitzar-se.
+d578af85 Ara aprens {0:lower}
+b868b1b6 Ara no es fa servir: {0} escriu les transcripcions (Transcripció al núvol, a dalt). Aquí no cal baixar res.
+4d889f27 Encara no hi ha informes.
+f29bbb6a Últimes notícies d'Anki: {0}
+696d2cc7 · avui: {0} repassades, {1} madurades, {2} encara pendents
+9293dd01 Còpia de seguretat a punt ({0})
+3b151b74 Vols importar «{0}»? Això SUBSTITUEIX la teva biblioteca, les transcripcions i el vocabulari actuals pel contingut de la còpia de seguretat.
+deaefe6d S'han restaurat {0} fitxers d'àudio.
+7427e5f6 Importat. {0}
+b901ec82 Tens l'última versió ({0}).
+d7854118 Qualsevol data
+24345a14 Avui
+df833fe8 Últims 7 dies
+6b329852 Últims 30 dies
+0245d916 Últims 12 mesos
+9efe99b9 Entre dates…
+ed434d6b Marca <0>Import any learning progress</0> per conservar el punt on és cada paraula als teus repassos de Tamkeen. Deixa-ho sense marcar per començar cada targeta com a nova.
+574c12ec Cal tenir l'app Anki instal·lada en aquest ordinador.
+be71b755 A Anki, fes clic a <0>Import File</0> i tria'l.
+e445c6a9 Assegura't que la teva baralla té el format amb què vols que apareguin les targetes a Anki.
+0a23b23f Cal tenir l'app AnkiMobile instal·lada en aquest iPhone.
+9d03110d Tria <0>AnkiMobile</0> a la fila d'apps. Si no hi és, toca <1>Més</1>.
+0bbf1f69 A AnkiMobile, assegura't que la teva baralla té el format amb què vols que apareguin les targetes.
+59e916d5 Cal tenir l'app AnkiDroid instal·lada en aquest telèfon.
+e3b8af2a Tria la bombolla <0>Anki</0> a la fila de baix. Si no hi és, toca <1>Més</1>.
+0ea5d1ae Toca la finestra emergent que diu <0>AnkiDroid</0>.
+5eeb9580 A AnkiDroid, assegura't que la teva baralla té el format amb què vols que apareguin les targetes.
+097027a5 Enviar les teves paraules a Anki
+7c7da884 Entesos, exporta
+12b2bdbf En qualsevol transcripció, fes clic amb el botó dret (o mantén premuda) una paraula o una frase seleccionada i tria «Desa al vocabulari». Afegeix una paraula a mà, o exporta les teves paraules per a Anki, des del menú ⋯.
+239c2f13 Vocabulari
+7fc0dbd9 Més: afegeix una paraula, exporta, configuració d'Anki
+2fa9797f Cerca al vocabulari… {0}
+adc4e96a Ordena
+b2a08c42 Mostra les paraules
+172415f0 afegides
+37c6c57b modificades
+3f66052a Des de
+4374aaee a
+ae79ea1e Fins a
+bfad960e Afegeix a una carpeta
+24d51d52 Treu de la carpeta
+6f99aa21 📨 Envia a un amic
+247fd631 Esborra la selecció
+35c2eb2c Afegeix una paraula
+863892c6 No s'ha pogut carregar l'àudio d'aquesta paraula.
+6d19e3ba Nom de la carpeta nova:
+7e6e65f7 Totes les paraules
+889ab689 Sense carpeta
+4ad414d8 ＋ Carpeta nova
+e2324f01 Canvia el nom de la carpeta:
+5ee46641 Esborra la carpeta
+63e908b6 Vols esborrar la carpeta «{0}»? Les paraules que conté es conserven.
+e4ae0eaf 📨 Envia la carpeta a un amic
+b44edd40 ＋ Carpeta nova…
+5b000a6e Aquestes paraules no són a cap carpeta.
+afb8631c {0} paraules
+08c2177a No hi ha paraules per enviar.
+93ccaaea la carpeta «{0}» ({1} paraules)
+128751ac paraules: {0}
+e0e017af Envia {0} a…
+8106e86e Preparant l'àudio de les paraules ({0})…
+0e770154 amb àudio
+8db1d803 ({0} amb àudio)
+151df9be S'ha enviat {0}{1} a {2}.
+9afb285b · modificada {0}
+29eb5c50 Busca un vídeo de YouTube on es digui aquesta paraula
+a5420424 Selecciona la paraula
+8e3f51e2 {0} · afegida {1}{2}
+dd5422ef Notes de gramàtica (arrel, gramàtica, ús…)
+d5b39987 Notes personals (una mnemotècnia, on la vas sentir…)
+19adc47b Carpetes
+15a53568 Repassa «{0}»
+952f3754 Comença
+30cdf73e pendents
+c2a6b03f noves
+bb866ab5 Les paraules que tenen significat apareixen aquí com a targetes.
+b568b4b7 · tornen paraules ({0}) {2}{3}
+29a80ea8 Tot al dia{0}
+e5084bff Seleccionades: {0}
+85cce1e1 Desmarca-ho tot
+b2034f7e Selecciona-les totes ({0})
+1ef4fd36 Desmarca totes les paraules de la llista
+80e145aa Marca totes les paraules de la llista, per arxivar-les o enviar-les juntes
+f1423624 de {0}
+294ccd52 {0}{1} elements
+71d86079 Cap paraula no coincideix amb aquests filtres.
+0be6a257 Cap resultat.
+78e66aba Encara no hi ha paraules desades.
+d6206ee4 Creant la baralla d'Anki amb àudio…
+5755f9ac Exporta en CSV
+3e28846b Exporta per a Anki
+dc289056 Et donem la benvinguda a Tamkeen
+1c1ca506 Aprèn una llengua amb pòdcasts, vídeos i pàgines web reals, paraula per paraula.
+1dd6a17c Com funciona
+58c2a9b6 <0>Afegeix un pòdcast amb l'URL del seu canal RSS.</0> La majoria de pòdcasts en publiquen un. Busca «RSS» al web del pòdcast, o cerca a internet «<1>nom del pòdcast</1> RSS feed». Els enllaços d'Apple Podcasts no funcionen directament, però llocs com castos.com/tools/find-podcast-rss-feed els poden convertir en una URL RSS.
+668bb8e3 <0>Transcriu episodis.</0> Fes clic a «Transcriu» en qualsevol episodi. Tot funciona al teu ordinador. No es puja res enlloc.
+264a32cd <0>Escolta i llegeix alhora.</0> La paraula actual es ressalta. Fes clic en qualsevol paraula per saltar-hi, alentir l'àudio o repetir una frase.
+fde41bd9 <0>Crea el teu vocabulari.</0> Fes clic amb el botó dret (o mantén premuda) una paraula o una expressió per desar-la amb la seva frase. Exporta a Anki quan vulguis.
+c7ea5765 L'app torna a comprovar els teus pòdcasts cada vegada que s'obre, així que els episodis nous apareixen automàticament.
+8b5f192e Següent: configura la transcripció →
+5b53855d Apple Silicon (Metal)
+f60315a5 No hi ha cap GPU compatible. Es farà servir la CPU.
+462b6606 Acceleració per GPU (opcional)
+2efa49cc Configura la transcripció
+7feeb161 La transcripció fa servir Whisper, el model de reconeixement de veu d'OpenAI, que funciona completament al teu ordinador. El model es baixa un cop. Tria'n una mida a sota. Pots baixar-ne d'altres o esborrar-los més tard a Configuració.
+bc26ec8d El teu ordinador
+1ddc3d58 {0} · {1} · {2} GB de RAM
+a6a63185 GPU
+8cdc1fa4 Recomanació: {0}.
+fefb3326 Tria un model
+27aa7d41 El meu ordinador és massa lent per a això
+16efb9b4 Deixa que un proveïdor al núvol escrigui les transcripcions (uns cèntims per hora d'àudio)
+9ff4b446 Baixa un model per continuar, o configura un proveïdor al núvol a dalt. Pots continuar fent servir l'app mentre es baixa un model.
+9713faa5 Comença a fer servir l'app →
+fd23eda9 Unsa’y Cheka Sa Parlor
+f9a11c2f Lyle Go and Shaneee | TAGM Marketing Solutions Inc.
+66f216cc UCSP, abreviatura d'Unsa y Cheka Sa Parlor?, és un pòdcast inspirat en una expressió popular de l'argot gai bisaia, que es parla sobretot a les regions de les Visayas i Mindanao, a les Filipines. Presentat per Lyle Go i Shaneee, l'expressió vol dir més o menys «Quina és la xafarderia?».
+c9476ace Crosseyed
+416e5e3c Gary Monton | Bisaya Podcast
+b7f0771c Crosseyed Podcast: entrevistes a persones inspiradores de la ciutat de Cagayan de Oro. Crosseyed Convos: converses divertides sobre qualsevol tema que als meus amics i a mi ens sembli interessant i entretingut.
+572329d1 Dili Ni Advice - A Bisaya Podcast
+6c8793d1 Darling and Kringkay The Pod Network Entertainment
+e6feaa11 Barok and Takya Bisaya Podcast
+30e343f4 Barok & Takya
+83f1bce5 Barok and Takya Bisaya Podcast és un pòdcast filipí en cebuà. Parlen de tot el que hi ha sota el sol, com la família, la tradició, la societat i la cultura filipines, en bisaia. A què esperes? Baixa ara el pòdcast pinoy en cebuà: Barok and Takya Bisaya Podcast.
+f6112f30 Cge Storya Ta: A Bisaya Couple Podcast
+8c29ec7d Yin + Nol
+65d7024f Benvinguts a Cge, Storya Ta: el pòdcast d'una parella bisaia! Pengem un episodi nou cada setmana. Agafa la cadira més còmoda, treu-te les sabates i prepara't per entrar a la bombolla de la Yin i en Nol. Una muntanya russa de rialles, lliçons de vida i alguna decisió qüestionable; en resum, de tot i més sota el sol, sense guió i sense filtres. Així que corda't el cinturó, perquè en aquest pòdcast pot passar de tot, i probablement passarà!
+49bc6e59 Brighter Bisaya
+3534296f Brighter Bisaya és una xarxa de mitjans en línia per a tota la família que vol informar, educar i inspirar els bisaies i cebuans de totes les edats amb programes de conversa intel·ligents i creatius. L'empresa es dedica amb passió a publicar vlogs i pòdcasts propers i senzills sobre art, educació, filosofia, ciència, tecnologia, inspiració i entreteniment en cebuà, binisaya, tagal, anglès i filipí.
+e59b5c99 Kasikas: Bisaya Podcast
+2f359fd1 Ace Vincent Sevilla
+b819d08f Kapoy explain man. Per a publicitat, comentaris o propostes de temes, escriu-nos a sevillaacevincent@gmail.com.
+a4b3025e Lectures de la missa del diumenge en cebuà
+41126fc0 Ben
+cc4289fa Lectures de la missa del diumenge en cebuà | Mga pagbasa sa Santos nga Misa sa Binisaya. Els episodis nous surten el dilluns abans de la missa. Envia els teus comentaris a sundaymassreadings@gmail.com. Gràcies especialment al P. Alvin, la Lorena, la Celine, l'Aimee, la Belinda, la Ivy, la Praxi, el P. Gerry, en Belton, l'Agnes i el diaca Roman.
+2a59645c Storytelling with Ziwi (Bisaya Podcast)
+35a7384d Ziwi Tea
+ee681aee Un pòdcast d'històries variades. La Ziwi parla de les seves experiències personals i lliçons de vida. #Bisaya #Storytelling #Philippines #ChikaMinute #Chikahan
+c0da64f1 Wanbats Ra Besh | Bisaya Society & Culture
+c65ee463 Jna and Ju
+5561133e La Jeana i la Justein són amigues íntimes de la província assolellada de Cebu. Ara, a prop dels trenta, aquestes amigues de l'institut parlen de com orientar-se en la vida adulta, d'aprendre i desaprendre idees i de posar prioritats. Si vols sentir aquella escalfor familiar per dins, com la que et deixa una conversa sincera amb una amistat de tota la vida, acompanya-les en aquest pòdcast nou. Episodis nous els divendres! x Convida'ns a un cafè a ko-fi.com/wanbatsrabesh ☕️ La música no és nostra i és d'Audionautix.com.
+51f2914b Bisaya Jokes!
+78a5056a DJ Bisdak
+a6bc3cb4 Podcast para pakatawa sa mga bisdak!
+5f38602a NAYSJUAN SESSIONS | Binisaya Podcast
+cd567294 JUAN MARCUZ TIMAY
+16a70550 Ang naysjuan paminawon nga Binisaya o Bisaya podcast 20 minutes before sa atoang naysjuan nga pagkatulog. Busa, kon Bisaya ta o kasabot tag Binisaya nga pinulongan ug kon trip nato adunay makat-onan, paminawa na tawon nato ning podcast ni Juan. Diri gastorya tag mga estoryahanan nga praktikal ug mapuslanon nga makatabang sa tanan, mapabata man o mapatiguwang, aron mas mapasayon ang pagkinabuhi. ➖➖➖➖➖ JUST BUY ME A COFFEE: buymeacoffee.com/JUANMARCUZTIMAY
+5ee1603d Purok Pabula Ph
+155acb68 p b Purok Pabula PH /b mao ni ang lugar sa tinuod nga istorya—walay script, walay arte, diretso ra. /p p /p p Dinhi, lain-lain mi ug panan-aw—naa’y abogado, naa’y pilosopo, naa’y engineer, ug naa pud mi’y mga kasinatian sa kinabuhi nga among gidala sa lamesa. Kada episode, among hisgutan ang mga butang nga atong madunggan adlaw-adlaw—fake news, politika, kultura, ug mga tinuohan nga atong gidak-an. /p p /p p Dili ni perpekto. br / Dili ni pina-polished. br / Pero tinuod ni. /p p /p p Murag istorya ra sa purok—pero naay unod. /p p /p p Kay usahay, dili klaro ang kamatuoran. br / Ug usahay, ang
+6606f08e Kinabuhing Kristohanon: a Wali Bisaya Preaching
+42bb34c3 Barok and Takya
+88b9b348 Welcome sa Kinabuhing Kristohanon, usa ka Wali Bisaya Preaching nga magdala kanimo sa panaw sa pagtuo, espiritwalidad, ug komunidad. Ang among pasundayag kay usa ka talagsaon nga pagsagol sa mga tinuohan, ang Pulong sa Dios Bible, ug mga kasinatian nga makatandog sa kasingkasing sa mga Pilipinong Kristiyano. Ang matag episode nagsusi sa atong pagtuo, magsuhid sa lawom nga epekto sa Kristiyanismo sa atong adlaw-adlaw nga kinabuhi. Atong hisgotan ang kamahinungdanon sa pagsimba, ang esensya sa serbisyo sa komunidad, ug ang makapabag-o nga gahum sa espirituhanong mga buhat. Ang atong mga panagsul
+2d2313a6 Bisaya In America
+9c57b087 Genie H
+a2a821cf Unsa Man Jud
+42054007 DD & Friends
+2f32eaa3 Unsa Man Jud Podcast és un pòdcast bisaia, un programa de conversa en cebuà que parla de coses binutbot i binuang. De vegades també parlem de coses sineryoso, però qui vol escoltar això, oi? Així que parlem de coses divertides. En fi, si entens la llengua, uneix-te a nosaltres!
+a8f21295 Bisaya Thoughts
+aa746ddb Phil Andrew
+e1e3cd8e Aquests són els meus pensaments en bisaia sobre qualsevol cosa: la vida, la família, l'amor, la feina o fins i tot el que passa ara a les Filipines. Però, bàsicament, m'agrada molt xerrar (ganahan ra jud ko mag-yaw2x). Sobretot perquè m'agrada treure fora el que sento i el que he après a la vida, ara que gairebé tinc 40 anys. Ho faig servir com a vàlvula d'escapament i forma part del meu camí per ser una millor versió de mi mateix. Si vols fer aquest camí amb mi, espero que t'ajudi. Escriu-me si vols xerrar, si tens preguntes o si vols consells d'un desconegut com jo: philampong@gmail.com IG: instagram.com/philandrew23 FB: facebook.com/phile
+026bb096 Coffee Break with Juppe
+9708095f Jupiter Baguioso
+ad54f954 Coffee Break with Juppe és la teva pausa de 5 minuts enmig del caos del dia. Pensaments a l'atzar, històries breus i reflexions sinceres, servits curts i senzills, i millor amb un cafè. Prem el play per a la teva dosi diària de converses lleugeres i bon rotllo.
+5d5efc1a NAYSJUAN DAILY,
+aa91b142 Bisaya Podcasts PH
+c4ff21cc Hola! Benvinguts a Bisaya Podcasts PH! Costa molt trobar pòdcasts en bisaia. I encara costa més trobar públic, sobretot si fas un pòdcast en bisaia. Aquest pòdcast vol unir els pòdcasts en bisaia de tot el món perquè puguem buscar i connectar fàcilment amb altres podcasters i oients. Sé que costa trobar públic, sobretot amb la nostra llengua materna. Però junts podem fer més gran la nostra plataforma.
+58610005 Ptr. Stanley Pilapil
+29f7f4bc Pasturar el poble de Déu amb la predicació i l'ensenyament eficaços de la Paraula de Déu, per preparar-lo per conèixer, estimar, servir i proclamar Jesús.
+94e606a0 Bisaya Vibes by Team Conato PH
+7e5120d9 Converses i reaccions amb bon rotllo sobre temes d'actualitat, la família, les relacions i l'humor bisaia.
+b37cc66f BANHA | Istorya Ug Uban Pa - Bisaya Podcast
+eb990eab Danrev Tipdas
+8807c90a BANHA | Istorya Ug Uban Pa PODCAST is a Bisaya Podcast Kamo naa moy mga sugilanon. Mga istorya nga basin dili lang pud diay ikaw ang naka-agi. Kami naa pud mi amua nga mga sugilanon.TARA! Tabi ta! Let’s Banha. Let Our Stories Make the Noise. Wa ta kabalo sa atuang pag share we find hope and healing in our stories. Maminaw mi, no judgment here. Share lang gud, bisan unsa pa na imuhang sugilanon sa kinabuhi andam mi maminaw. Know that ikaw ug ang imuhang sugilanon it matters. TARA! BANHA NATA! ISTORYA UG UBAN PA!
+93347587 Bisaya Espesyal
+e785744b Mr. Wazzquiin
+8d6c5728 Aquest pòdcast parla de relacions, estil de vida i més coses dels bisaies. Si ets bisaia, ets especial! (Kung Bisaya ka, Espesyal ka!) M'alegra ser amb tu; queda't amb mi perquè sigui encara més espectacular! Descobrirem el món que ens envolta, així que agafa't fort i no te'n vagis. Soc Mr. Wazzquiin, el vostre presentador guapo!
+ef9504fa TTB Cebuano Pagtuon sa Bibliya (Cebuano)
+97e8c475 THRU the BIBLE
+75e6f3b4 Hibaloi ang tibuok Pulong sa Dios pinaagi sa kasaligan nga pagtulon-an sa Biblia sa THRU the BIBLE sa Cebuano. Ang matag yugto naghatag og tin-aw ug praktikal nga pagtulon-an aron matabangan kang masabtan ang Kasulatan ug magamit kini sa adlaw-adlaw nga kinabuhi. Panaw sa tibuok Biblia, usa ka leksiyon matag higayon, uban sa mga tigpaminaw sa tibuok kalibotan. Pagkat-on pa sa TTB.BIBLE
+5223eb1f Balaan nga Bibliya - Cebuano (Cebuano)

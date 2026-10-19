@@ -1,0 +1,200 @@
+35b90dfb International Scripture Ministries
+861fa74e Paminawa ang Balaang Bibliya sa Cebuano nga pinulongan sa klaro, buhi, ug bisan kanus-a, bisan asa. Gihatag sa International Scripture Ministries (ISM), kining Audio Bible nagdala sa Pulong sa Dios ngadto sa kinabuhi pinaagi sa gamhanang pagbasa, musika, ug maayong disenyo sa tingog, aron masinati nimo ang Kasulatan sa pinulongan sa imong kasingkasing. Bisan kung bag-o pa ka nagtuon sa Bibliya o nagtinguha kang motubo sa imong pagtuo, kining podcast makatabang kanimo sa pagpaminaw sa tibuok Bibliya, kapitulo matag kapitulo. Niining Audio Bible, imong makit-an: • Ang Balaang Bibliya sa Cebuano
+e1cc70f2 Ang Santos nga Ebanghelyo sa Matag Adlaw
+c7f849a8 Roger W.
+41739ec2 Ang balaang pulong sa tanang panahon
+bb6ed1ae Teacher D
+4cf306d2 Daisy Lynn Robin
+2473e96b Introducció
+9c355e53 Sugboanon (Cebuano) nga Bibliya
+0171127e Maria Chona Gabotero Labrador
+4195c313 Per oferir accés en àudio a la Bíblia en cebuà.
+ffd1e2bb Cebuano / Bisaya: Pagkatinon-an sa Biblia
+01eb8066 Paul J. Bucknell
+4b92fc32 Mga pagtulon-an sa pagkatinon-an sa Biblia sa Cebuano/Bisaya gikan sa Biblical Foundations for Freedom. Ang D1 Ang Agos nagpatin-aw sa tulo ka ang-ang sa espirituhanong pagtubo ug unsaon pagtabang sa uban nga motubo. Ang D2 Mahimong Usa ka Magbubuntog nagtudlo unsaon pag-atubang sa kabalaka, garbo, kailibgon, kasuko, kasub-anan, ug uban pang pagsulay pinaagi sa kamatuoran ug grasya sa Dios.
+75d7f598 Bored Bisayas
+75891209 Hola! Som en Luke i la Mona, una parella de bisaies. Ai, espera. Buset. Resulta que parlem en anglès, essent bisaies. Bé. Doncs som bisaies i, com que ens avorrim, xerrem de coses: coses del món de què ens ve de gust parlar. Els temes són qualsevol cosa sota el sol. Com que a la Mona li falta alçada i a en Luke li sobra pes... en algun moment. Bàsicament, un altre pòdcast bisaia. O, ja ho saps... un lloc on en Luke i la Mona parlen en privat i alhora en públic. Ens pots escriure a boredbisayas@gmail.com o seguir els nostres altres comptes de xarxes socials.
+fe9979fa Mga Balak Sugbuanon
+7f8b3682 Jesson Morata
+883032a0 Tipiganan sa mga Balak Sugbuanon
+bb8c2d74 Unang Sugilanon gikan sa Librong 'Larawan': Si Amboy, ang Palahubog, de Vicente Rama (1887 - 1956)
+59e8c6a1 Sugilanon nga gisuwat ni Senador Vicente Rama bahin kang Amboy nga palahubog, ug ang iyang pamahala nga kinabuhi tungod sa iyang pagkapalahubog. Kini ay una nga istorya sa daghan nga nahabutang na istorya sa librong 'Larawan'. (Resum d'April Gonzales)
+d47f0ec5 Hisgutanan: Bisaya nga Podcast ni Lewey Jimoya
+8f03afd2 Lewey Jimoya
+6b4e3b92 Usa ka Bisaya nga sibya kung aha maghisgot-hisgot mi sa nagkalain-laing mga butang! Presentat per Lewey Jimoya
+e450b3f0 Binisaya nga tulumanon
+920927d6 Bai Maloy
+8c1c3ec7 Maka hatag ug inspirasyon ug kalingawan sa mga kaigsoonan nga naa sa lagyu nga dapit ug maka hupay sa ilang kamingaw.
+d9cc6b1c {0} % llegit
+e078f34f en queden {0} h {1} min
+a99cdd56 en queden {0} min
+15710324 Han
+ba1d0a64 Hiragana
+6842e5a7 Katakana
+1cb09555 Ciríl·lic
+348d0069 Hebreu
+59d5f5b1 Grec
+bd7d4b95 Hangul
+c3376a97 Devanagari
+536c16bd {0} dies
+2985a39c {0} setmanes
+682728dc {0} mesos
+67e282ba {0} any{1}
+2c4f87a8 menys d'un minut
+a5d14ec2 uns {0}
+95a4caee {0}–{1} min
+a8bf7da8 mesurat en aquest dispositiu
+60446ee5 segons les teves respostes anteriors
+ca5a6508 una primera estimació fins que n'hagis repassat unes quantes més
+6403f2b7 Noves
+b83c4cda Repassos
+901df5e4 Meta d'avui
+35c77c57 (una primera estimació)
+f922fb4c En queden {0} avui{1}
+2081c97d Tot fet per avui
+b422c28b Avui no hi ha res pendent
+88da3d5b Envia a {0}
+4ac22389 Afegeix «{0}» a {1} per a avui (tria on a Configuració)
+f4896ede Avui: paraules noves {0} de {1}, repassos {2} de {3}. {4}. Canvia les paraules noves al dia
+031683ab Només hi ha paraules noves en espera: {0}.
+aa175635 {0}Els repassos són simplement les paraules pendents d'avui. A la llarga, compta amb uns 10 al dia per cada paraula nova (manual d'Anki): {1} noves al dia ≈ {2} repassos al dia.
+4ee48926 Temps per paraula, comptant les vegades que torna una paraula no recordada: uns {0} per a una de nova, {1} per a un repàs ({2}).
+a0b74487 No s'ha pogut enviar la tasca.
+d4928a6e No ha arribat cap paraula semblant. Torna-ho a provar.
+3997732f Digues-la
+4fc6e7f7 Nadiu
+fb8207e8 Practica com es diu (P): digues-la i després escolta la frase i a tu mateix. El teu intent no es desa.
+a679d9ee Tamkeen necessita permís per fer servir el micròfon per sentir-te dir la paraula.
+a970acc5 No t'he sentit. Torna-ho a provar, una mica més a prop del micròfon.
+7bea803a Ara mateix no s'ha pogut fer servir el micròfon.
+c9c6fe67 Google Tasks
+67e5c742 Onyx
+e79101e5 Enviat a Onyx: {0}.
+0e90681b Permet que Tamkeen afegeixi tasques a la finestra del navegador que s'ha obert i després torna a prémer Envia.
+6b514385 S'ha actualitzat la tasca de repàs d'avui a Google Tasks: {0}.
+4d263331 Afegit a Google Tasks: {0}.
+d8803f2b Repàs de Tamkeen ({0} min)
+37db2048 Les teves targetes
+d567fe70 En queden {0} avui: uns {1}, segons el càlcul de Tamkeen.
+4e81fbf0 De 3 a 20 lletres, números, punts o guions baixos.
+c9c9d7d4 No s'han pogut carregar les funcions en línia.
+1d7a1d2e No s'ha pogut connectar amb el servei en línia. Comprova la connexió a internet.
+79ec683f Els noms d'usuari han de tenir: {0}
+ad5eb13f Primer connecta't.
+5fc4af92 «{0}» ja està agafat. Prova'n un altre.
+d3e6897a (encara sense nom d'usuari)
+ed88ebe6 Escriu el nom d'usuari del teu amic.
+42f88043 Primer connecta't (Configuració → Amics i compartir).
+76ece8da Primer tria el teu nom d'usuari (Configuració → Amics i compartir).
+4e2bf6f2 Ningú no es diu «{0}». Els noms d'usuari han de ser exactes (però no distingeixen majúscules de minúscules).
+967a7678 Ets tu!
+0d09c4f7 {0} i tu ja sou amics.
+993bd149 Ja has enviat una sol·licitud a {0}.
+ff44a73d {0} i tu ja teniu una sol·licitud pendent.
+58f90a69 un vídeo o una cançó de YouTube Music
+97d30338 una cançó, un àlbum, una llista o un episodi de pòdcast (Comparteix → Copia l'enllaç)
+d23e8c8c una cançó, un àlbum o una llista (Comparteix → Copia l'enllaç)
+937e2007 la pàgina d'una pel·lícula, una sèrie o una persona
+e016aab6 un reel (Comparteix → Copia l'enllaç). Els teus amics l'obren al reproductor de reels de Tamkeen
+ca2da724 qualsevol article o pàgina. Els teus amics l'obren al lector de Tamkeen
+bdfd8662 qualsevol episodi de la teva biblioteca: fes servir el botó 🎧 de la barra
+52c54389 Apple Music
+094b763b no s'ha trobat
+6c7af22a Aquest enllaç d'Instagram no és un reel. Fes servir Comparteix → Copia l'enllaç al mateix reel.
+0449c7b9 No s'ha pogut obrir aquesta pàgina. Revisa l'enllaç.
+9c5f935e No s'ha trobat a {0}. Revisa l'enllaç.
+2a0cb6b4 Spotify
+effea02d Només pots enviar missatges a persones de la teva llista d'amics.
+3a18cb8c Primer escriu un missatge.
+79b09ca3 No s'ha pogut enviar la nota de veu: {0}
+394821e7 No hi ha res per compartir.
+81058adf És massa gran per enviar-ho en un sol missatge.
+9c6fefee Aquest fitxer no és una imatge que l'app pugui llegir. Prova amb un JPG o un PNG.
+c1004cfe No s'ha pogut preparar aquesta imatge.
+9c4b6c33 No s'ha pogut pujar la imatge: {0}
+c3441e47 De 2 a 5 lletres o números, sense espais.
+f70d9377 Ja hi ha un gremi amb aquest nom. Prova'n un altre.
+7b6a557e Els noms de gremi tenen de 2 a 40 caràcters; les etiquetes: {0}
+abf7ad6f Només pots convidar els teus amics, i a un gremi on siguis.
+99113664 Un amic
+0669df82 Ja l'han convidat a aquest gremi.
+853b17b9 No s'ha pogut enviar aquest regal (deu regals al dia com a màxim, i només a amics o companys de gremi).
+d034eb8e Groq
+4de3bd6f Episodis de més de 24 MB que no són MP3: el telèfon no els pot tallar a trossos, així que a Groq se li dona l'adreça web del fitxer i el baixa ell mateix. (Els MP3 de qualsevol durada van bé: gairebé tots els pòdcasts ho són.)
+4472c560 el model gran complet: el millor per a l'àrab i els dialectes
+3d954bc8 el cost més baix; una mica menys precís
+bd77aa8a Els episodis de més de 24 MB que no són MP3 no es poden transcriure des d'aquest telèfon amb OpenAI: es mostra un error. OpenAI accepta com a màxim 25 MB de cop, i el telèfon només pot tallar a trossos els MP3. Transcriu-los al teu ordinador, o tria Groq, que baixa ell mateix aquest tipus de fitxer. (Els MP3 de qualsevol durada van bé: gairebé tots els pòdcasts ho són.)
+eba3014e funciona amb la mateixa clau que les definicions de paraules de ChatGPT
+0ffe7a83 la Consola de Groq
+2e074132 Groq té una quota gratuïta (unes quantes hores d'àudio al dia) que no necessita targeta de pagament. Si afegeixes una targeta, una hora d'àudio costa entre 4 i 11 cèntims.
+953a5f79 Prem el botó de sota. Obre console.groq.com al navegador web. (Groq és una empresa diferent de Grok.)
+e619a44c Fes servir la teva adreça electrònica o «Continue with Google». Registrar-s'hi és gratuït.
+63239333 Obre <0>API Keys</0> i prem <1>Create API Key</1>. Posa-li un nom que reconeguis, com ara «Tamkeen».
+cb2680e6 Torna aquí, enganxa-la al quadre <0>Clau d'API</0> de Transcripció al núvol i prem <1>Prova la clau</1>.
+09604855 Una hora d'àudio costa uns 36 cèntims. Si ja fas servir una clau d'OpenAI per a les definicions de paraules, la mateixa clau funciona aquí: deixa aquest quadre buit.
+1bd3e72b El teu inici de sessió de ChatGPT també funciona aquí, però una subscripció a ChatGPT Plus no cobreix això: les claus es paguen a part.
+944fc80e El proveïdor
+a85ddf87 (demana esperar {0})
+8b0ebde4 {0} diu que el teu compte ha arribat al límit de moment{1}. Els comptes gratuïts només poden enviar una certa quantitat d'àudio per hora i per dia.
+a6fcec4d Aquest àudio és massa gran perquè {0} l'accepti d'una sola vegada.
+964037f2 {0} no reconeix el model triat. Torna a posar el recomanat a Configuració.{1}
+e1e8503b {0} diu que el compte no té saldo. Afegeix-ne una mica a la seva pàgina Billing.{1}
+d31e3b99 {0} no ha pogut transcriure això (error {1}){2}
+30785373 No s'ha pogut connectar amb {0}. Comprova la connexió a internet.{1}
+ad40a6bc Aquest telèfon s'ha quedat sense memòria preparant l'àudio per a {0}. Prova'n un de més curt.
+31bc4b92 el telèfon no n'ha donat cap motiu
+9f2d7d5a No s'ha pogut enviar l'àudio a {0}: {1}.
+55d8f8bc {0} segons
+24a671e0 {0} minuts
+6c204c8f {0} hores
+f5071960 {0} ¢ per hora d'àudio
+a6a5c3dc menys de 0,1 ¢
+8d52756d 0 min
+656cedad Avui encara no s'ha enviat res.
+75b73b14 , uns {0}
+675fee00 Fragments enviats: {0}{2}
+0118d341 Avui encara no hi ha consultes.
+e5016995 Consultes: {0}{2}
+6f49c311 Aràbia Saudita
+1c39abf6 Egipte
+cf5a0fa0 els Emirats Àrabs Units
+32e087f0 el Marroc
+fcf29f6c Japó
+d2eaf2aa Xina
+094d515b Taiwan
+6754fe3c Rússia
+ad79ef0f Itàlia
+eb607d09 les Filipines
+d9ab8240 els Estats Units
+5c04a992 el Regne Unit
+ceafb51e Austràlia
+37497aa5 el Brasil
+a2b7c120 Tailàndia
+d6663dda Negocis
+11381a19 Comèdia
+aaf87fe5 Educació
+0d23bd8c Ficció
+5c9cb498 Govern
+89fc9192 Salut i forma física
+90ccd649 Història
+cccd8e9f Infants i família
+540c98ab Lleure
+131260cb Música
+34c808d0 Notícies
+f31acc39 Religió i espiritualitat
+d2d06637 Ciència
+4a6df903 Societat i cultura
+2fec45a4 Esports
+d9f273ca Cinema i televisió
+d018b082 Tecnologia
+7a3f06d3 Crims reals
+04975199 Primer tria una llengua per estudiar (Configuració).
+38de31ed No s'ha pogut connectar amb les llistes de pòdcasts d'Apple. Comprova la connexió i torna-ho a provar.
+7eceb7a9 No s'ha pogut connectar amb el directori de pòdcasts d'Apple. Comprova la connexió i torna-ho a provar.
+6e6a6f20 Altres
+796297bd La clau ha caducat o s'ha desactivat
+a8676c27 Crea una clau nova a la pàgina de claus del proveïdor i enganxa-la.
+64587d6e Falta un tros de la clau, o s'hi ha colat un espai
+3d171562 Torna a copiar la clau sencera i enganxa-la de nou.
+27522397 La clau és d'un altre proveïdor
+92ca2b98 Tria el proveïdor el web del qual t'ha donat la clau.

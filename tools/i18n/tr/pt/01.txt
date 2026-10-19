@@ -1,0 +1,200 @@
+8df7f1b3 Espanhol
+42b5f38b Forma padrão
+0bb18642 Uso
+af4f4762 Árabe
+e96857c5 Raiz
+3132844d Em árabe padrão
+93949a50 Dialeto
+23239c1b A busca ignora os diacríticos (tashkeel) e as variantes de alef (أ إ آ ا), taa marbuta/haa (ة ه) e alef maqsura/yaa (ى ي).
+44389f6a Francês
+9239c22d Japonês
+b6f59f08 Caracteres
+15dc1886 Chinês
+74ad93cb Russo
+485b57ad Italiano
+68ddd91d Tagalo
+8782d9fe Português (Brasil)
+2c5e77fc Catalão
+b46e924a Bisaya (cebuano)
+c32767e0 Tailandês
+649df08a Inglês
+2db9d9c8 ouvir
+227f38db ler
+28cd39db salvar palavras
+419e5a77 eclodir
+8736920d filhote
+6839db6f jovem
+82aef589 adulta
+b245f581 {1:upper} de {0}
+6f442204 A conexão com o servidor local do app caiu.
+59025e2d A solicitação falhou ({0})
+21a0c7a3 {0} h {1} min
+e802d434 {0} min
+f921c967 0 MB
+9a27e458 {0} GB
+b53a8982 {0} MB
+c18f8f25 Notificação
+f8f74deb Transcrição concluída: {0}
+cf9b7706 Abrir
+3f651190 Transcrição concluída
+0fedb149 A transcrição falhou: {0}. {1}
+377e306b A transcrição falhou
+63616e1e Não foi possível salvar o áudio dessa palavra.
+b887bd52 Copie o link do vídeo que você quer e cole em “Adicionar uma página da web”.
+46c3ccdd Escolha primeiro o idioma que você está aprendendo e depois abra o vídeo de novo.
+90350195 Obtendo legendas…
+d10fa6cb Não foi possível abrir este vídeo.
+6f9d8f3f Copie o endereço da página que você quer e cole em “Adicionar uma página da web”.
+72af5edb O envio falhou ({0}).
+ccc2b8e0 O envio falhou: o servidor do app não respondeu.
+136c4303 Salvo em {0}
+8d886c0b Algo deu errado
+752be6ae Esse arquivo é grande demais (mais de 200 MB).
+1b9728ae Esse arquivo está danificado (não é um arquivo ZIP/EPUB/DOCX completo).
+6ef6b413 Esse arquivo usa um tipo de compressão que o Tamkeen não consegue ler.
+6a0b6c0f Este livro é protegido (DRM), então o texto não pode ser lido. Só é possível adicionar livros sem DRM.
+c13b66dd Esse EPUB está danificado (não tem sumário).
+6256156a Esse arquivo do Word está danificado.
+fb5d490e Esse não é um arquivo .doc do Word. Tente salvá-lo como .docx.
+39b183eb Esse arquivo do Word não tem texto.
+5ec26261 Este arquivo do Word é protegido por senha, então o texto não pode ser lido.
+a693bbf2 Nenhum texto foi encontrado nesse arquivo do Word. Tente salvá-lo como .docx.
+a351250c Este livro do Kindle é protegido (DRM), então o texto não pode ser lido. Só é possível adicionar livros sem DRM.
+fadca512 Este arquivo do Kindle é compactado de um jeito que o Tamkeen não consegue ler. Converta-o para EPUB (por exemplo, com o app gratuito Calibre) e adicione esse arquivo.
+f259da8d Este PDF é protegido por senha, então o texto não pode ser lido.
+1b90296b Não foi possível abrir esse PDF.
+912836e3 Lendo a página {0} de {1}…
+6d3042c8 Não foi possível acessar a estante de livros do Tamkeen. Verifique sua conexão e tente de novo.
+deb3baad O livro chegou danificado. Tente de novo.
+451b9cbc Lendo o arquivo…
+245d2a43 Nenhum texto foi encontrado nesse arquivo. Um livro escaneado (fotos das páginas) não tem texto para ler.
+56a2285c Salvando…
+3330dab0 Al Jazeera
+0a3a33ca BBC em árabe
+036338ff Al Arabiya
+ff61c5fd Sky News Arabia
+001f43b5 Asharq Al-Awsat
+103608b8 CNN em árabe
+9f4ff5e2 France 24
+a6fd6e9c Deutsche Welle
+eb602841 Asharq News
+70bd98b5 Independent Arabia
+81667ae6 Al-Quds Al-Arabi
+3d6e75cf Al-Ahram, Egito
+367c7f69 Youm7, Egito
+21612f28 Euronews
+7a924fa6 Hespress, Marrocos
+8091b468 An-Nahar, Líbano
+20a8df9b Espanha
+7f68cca5 BBC em espanhol
+5bfed743 A TV pública da Espanha
+26ee2701 As Américas
+354bf989 Argentina
+41937b20 México
+2f737399 Colômbia
+36c57243 Peru
+ac92bda0 Em espanhol
+a95f1614 Mais fácil: notícias para estudantes
+e3772ac4 França
+022e7a37 A TV pública da França
+f5074266 Notícias do mundo
+cd6a7b87 Canadá
+5cb4c9d8 Bélgica
+77dcd849 Suíça
+7fd73ef4 Mais fácil: notícias da NHK em japonês simples
+20cf7d0e NHK, TV pública
+863f0927 Yahoo! Notícias Japão
+bce35235 Asahi Shimbun
+e8faae07 Yomiuri Shimbun
+8d6de353 Mainichi Shimbun
+55708085 Nikkei
+7c3cb127 Sankei Shimbun
+144e3ab3 Tokyo Shimbun
+073ad8e8 Jiji Press
+86e150a1 Kyodo News
+86dd6e9b Telejornal da TBS
+6ee232e9 Telejornal da Nippon TV
+7f22332e BBC em japonês
+8201ad33 Toyo Keizai
+12fc9530 Notícias de tecnologia
+85da6b7f BBC em chinês
+1950c50c The New York Times
+72b431fc Lianhe Zaobao, Singapura
+16048e43 Xinhua, China
+323a3e4c Diário do Povo, China
+b3d6fa9f The Paper, China
+081ceae5 Caixin, China
+1b9f1261 Sina News, China
+5c0fde35 Tencent News, China
+9231d52d Jiemian, China
+7073d6a9 Financial Times
+1bea7de2 CNA, Taiwan (caracteres tradicionais)
+79da1ae8 UDN, Taiwan (caracteres tradicionais)
+7c820dda HK01, Hong Kong (caracteres tradicionais)
+b36012a4 BBC em russo
+98678be4 Meduza
+3bad3245 Kommersant
+c789d95b Interfax
+321e9515 TASS, agência de notícias estatal
+2b6cb4c7 RIA Novosti, agência de notícias estatal
+02f9372c Vedomosti
+7095fe00 Rádio Liberdade
+179a6338 Novaya Gazeta Europa
+c51e7e5c Em russo
+be550421 Current Time
+08c6ecb7 Rai, TV pública
+c90d19b1 ANSA, agência de notícias
+1d24e371 Corriere della Sera
+a3f333fa la Repubblica
+30f19411 La Stampa
+a71b2dc8 Notícias de economia
+5dc5bec4 Il Post
+e62a924b Sky TG24
+b63e0d40 Notícias do mundo em italiano
+37e9fc15 Em italiano
+1855c2e3 Esportes
+8bf87e8c Wikipédia em italiano
+d477dcd6 Abante, em tagalo
+7033c2e2 Bombo Radyo
+5a063600 O jornal em tagalo do Philstar
+42e1ab8b Notícias em tagalo do Manila Bulletin
+2a086357 O jornal em tagalo do Inquirer
+fec623de GMA News (boa parte em inglês)
+96c7193d ABS-CBN News (boa parte em inglês)
+6419d26a Remate, em tagalo
+72df35d6 Pilipino Mirror, em tagalo
+ec8ddbd3 Radiojornal da DZRH
+13771236 Radyo Pilipinas, rádio pública
+1b78aa35 PTV, TV pública
+7d7b8fe2 Wikipédia em tagalo
+7014f38a O site de notícias da Globo
+6e0b993a Folha de S.Paulo
+81596add O Estado de S. Paulo
+e0f6253e O Globo, Rio de Janeiro
+1c42950d BBC, em português do Brasil
+d9c6b1fb Agência Brasil, agência de notícias pública
+12c8c2cd CNN Brasil
+ecae6445 Nexo, conteúdos explicativos
+6e5c2fcb Política
+3df709c2 Ciência e curiosidades
+e82e2b93 Deutsche Welle, em português do Brasil
+c0fe72d8 Wikipédia em português
+02df8597 3Cat, emissora pública catalã
+b07bcee1 Ara
+509d117d El Periódico, edição em catalão
+033e952f La Vanguardia, edição em catalão
+953219fd El Punt Avui
+bdcd5a6a Nació Digital
+a79fdf63 El Nacional
+ff6dd1ba Rádio RAC1
+d46049a6 A emissora municipal de Barcelona
+abe62d2b A emissora pública valenciana
+f72932a0 A emissora pública das Ilhas Baleares
+ee6ba5de Revista semanal de notícias
+017db5d6 Wikipédia em catalão
+5bd2b489 O jornal em bisaya do SunStar, Cebu
+097174e3 O jornal em bisaya do SunStar, Davao
+c236bde4 O jornal em bisaya do SunStar, Cagayan de Oro
+99dad9d9 O jornal em bisaya do The Freeman, Cebu
+04eddcb9 Radiojornal da RMN, Cebu
+1f87a792 Bombo Radyo, Cebu

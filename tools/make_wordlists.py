@@ -2,13 +2,20 @@
 who says they have already started (web/js/commonwords.js).
 
     pip install wordfreq
-    python tools/make_wordlists.py
+    python tools/make_wordlists.py                       (every language wordfreq has)
+    python tools/make_wordlists.py th=path/to/tnc_freq.txt ceb=path/to/ceb_freq.tsv
 
 Writes web/js/wordlists/<code>.js (one per language the app teaches), most common word first.
 
 The counts come from the wordfreq project (https://github.com/rspeer/wordfreq), which combines
 subtitles, Wikipedia, news, books and the web. Its data is licensed CC BY-SA 4.0, so the lists
-written here are too: see web/js/wordlists/README.md. What is left out of the raw ranking:
+written here are too: see web/js/wordlists/README.md. wordfreq has neither Thai nor Bisaya:
+  - Thai comes from the Thai National Corpus word counts as PyThaiNLP publishes them (tnc_freq.txt,
+    https://github.com/PyThaiNLP/pythainlp, CC0: word <tab> count);
+  - Bisaya from counting the Cebuano web text of OPUS's NLLB collection (ODC-By 1.0), the same count
+    as its word list for the root finder (tools/build_lemmas.py: word <tab> count); English words
+    that crept in are left out unless a Bisaya dictionary knows them too (man, may, bag).
+What is left out of the raw ranking:
 numbers and symbols, stray single letters, words in another alphabet (English in an Arabic list),
 and spellings that differ only in ways the app treats as the same word (Arabic alef forms, Russian
 ё/е). Japanese also drops the pieces of conjugated verbs the counting splits off (なっ, まし).
@@ -42,9 +49,16 @@ ONE_LETTER = {
     "en": {"a", "i"},
     "it": set("aeèoi"),
     "tl": {"o"},
+    "pt": set("aoeéà"),
+    "ca": set("aioe"),
+    "ceb": {"o"},
 }
 # wordfreq's own name for a language, where it differs from the app's (Tagalog is "fil", Filipino).
 WORDFREQ_CODE = {"tl": "fil"}
+# Bisaya web text: names and brands that rank high but aren't words to learn.
+CEB_NOT_WORDS = {"jesus", "cristo", "juan", "maria", "israel", "china", "google", "facebook", "youtube", "apple", "samsung",
+                 "casino", "online", "website", "email", "app", "software", "mobile", "video", "post", "file", "network", "city",
+                 "media", "text", "social", "free", "start", "new", "machine", "hehe", "hehehe", "dur"}
 # French writes these glued to the next word with an apostrophe (l'eau, j'ai, qu'il).
 FRENCH_ELIDED = {"l", "d", "c", "j", "n", "s", "t", "m", "qu"}
 
@@ -62,7 +76,13 @@ SCRIPT = {
     "en": re.compile(r"[a-z]+(?:'[a-z]+)*"),
     "it": re.compile(r"[a-zàèéìíîòóùú]+"),
     "tl": re.compile(r"[a-zñ]+(?:-[a-zñ]+)*"),
+    "pt": re.compile(r"[a-záàâãéêíóôõúüç]+(?:-[a-záàâãéêíóôõúüç]+)*"),
+    "ca": re.compile(r"[a-zàèéíïòóúüç]+(?:(?:·|'|-)[a-zàèéíïòóúüç]+)*'?"),
+    "ceb": re.compile(r"[a-zñ]+(?:-[a-zñ]+)*"),
+    "th": re.compile(r"[\u0E01-\u0E4E]+"),
 }
+# Where a language's counts come from when wordfreq has none: "lang=path" on the command line.
+FROM_FILE = {"th", "ceb"}
 
 _AR_MAP = str.maketrans({"آ": "ا", "أ": "ا", "إ": "ا", "ٱ": "ا", "ة": "ه", "ى": "ي", "ؤ": "و", "ئ": "ي", "ـ": None})
 
@@ -80,8 +100,12 @@ def same_word_key(word: str, code: str) -> str:
 def keep(word: str, code: str) -> bool:
     if not SCRIPT[code].fullmatch(word):
         return False
-    if code in ("es", "fr", "it", "tl") and word in ENGLISH - {"a", "y", "on", "est", "me", "in", "i", "it", "to"}:
+    if code in ("es", "fr", "it", "tl", "pt", "ca", "ceb") and word in ENGLISH - {"a", "y", "on", "est", "me", "in", "i", "it", "to"}:
         return False
+    if code == "ceb" and (word in CEB_NOT_WORDS or word in ENGLISH_COMMON and word not in CEB_KNOWN):
+        return False
+    if code == "th" and (len(word) == 1 and word not in TH_ONE or word[0] in "ะาำิีึืุู็่้๊๋์ั"):
+        return False  # a lone letter, or a piece that starts with a vowel sign or tone mark
     if code == "es" and word in {"in", "to"}:
         return False
     if len(word) == 1 and code in ONE_LETTER:
@@ -94,10 +118,28 @@ def keep(word: str, code: str) -> bool:
     return True
 
 
-def build(code: str) -> list[str]:
+# Thai one-letter words.
+TH_ONE = {"ณ", "ก", "ธ"}
+ENGLISH_COMMON: set[str] = set()
+CEB_KNOWN: set[str] = set()
+
+
+def counted(path: str, n: int) -> list[str]:
+    """The first `n` words of a "word <tab> count" file, most common first."""
+    out = []
+    for line in Path(path).read_text(encoding="utf-8-sig").splitlines():
+        word = line.split("\t")[0].strip().lower()
+        if word:
+            out.append(word)
+        if len(out) == n:
+            break
+    return out
+
+
+def build(code: str, source: str = "") -> list[str]:
     out: list[str] = []
     seen: set[str] = set()
-    for word in top_n_list(WORDFREQ_CODE.get(code, code), 4000):
+    for word in (counted(source, 8000) if source else top_n_list(WORDFREQ_CODE.get(code, code), 4000)):
         if not keep(word, code):
             continue
         key = same_word_key(word, code)
@@ -110,16 +152,30 @@ def build(code: str) -> list[str]:
     raise SystemExit(f"{code}: only {len(out)} words survived the filters")
 
 
+SOURCE_NOTE = {"th": "the Thai National Corpus word counts (PyThaiNLP, CC0)",
+               "ceb": "Bisaya web text in OPUS NLLB (ODC-By 1.0)"}
+
+
 def main() -> None:
     version = importlib.metadata.version("wordfreq")
     OUT.mkdir(parents=True, exist_ok=True)
-    for code in sys.argv[1:] or SCRIPT:  # e.g. "python tools/make_wordlists.py en" for one language
-        words = build(code)
+    wanted = [a.partition("=") for a in sys.argv[1:]] or [(c, "", "") for c in SCRIPT if c not in FROM_FILE]
+    if any(c == "ceb" for c, _, _ in wanted):
+        global ENGLISH_COMMON, CEB_KNOWN
+        ENGLISH_COMMON = set(top_n_list("en", 5000))
+        import gzip
+        lexicon = Path(__file__).resolve().parent.parent / "docs" / "lexicon"
+        for name in ("ceb-meanings.json.gz", "ceb-wolff-meanings.json.gz"):
+            CEB_KNOWN |= set(json.loads(gzip.decompress((lexicon / name).read_bytes()))["words"])
+    for code, _, source in wanted:  # e.g. "python tools/make_wordlists.py en" for one language
+        if code in FROM_FILE and not source:
+            raise SystemExit(f"{code}: give its counts file, {code}=path")
+        words = build(code, source)
         body = ",\n".join("  " + ", ".join(json.dumps(w, ensure_ascii=False) for w in words[i:i + 12])
                           for i in range(0, len(words), 12))
         (OUT / f"{code}.js").write_text(
             f"// The {SIZE} most common words in this language, most common first.\n"
-            f"// Made by tools/make_wordlists.py from wordfreq {version} (CC BY-SA 4.0): see README.md here.\n"
+            f"// Made by tools/make_wordlists.py from {SOURCE_NOTE.get(code, f'wordfreq {version} (CC BY-SA 4.0)')}: see README.md here.\n"
             f"export default [\n{body},\n];\n", encoding="utf-8", newline="\n")
         print(f"{code}: {len(words)} words, e.g. {' '.join(words[:12])}", file=sys.stderr)
 

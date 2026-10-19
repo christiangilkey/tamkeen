@@ -117,9 +117,36 @@ test("real Spanish table: conjugations, subjunctive, pronouns, plurals and gende
   assert.notEqual(lemmas("es", "está")[0], lemmas("es", "esta")[0]);
 });
 
+test("real Portuguese and Catalan tables: conjugations, and pronouns joined with hyphens and apostrophes", () => {
+  assert.deepEqual(lemmas("pt", "falei falamos estou fiz vou tinha casas meninas"),
+    ["falar", "falar", "estar", "fazer", "ir", "ter", "casa", "menino"]);
+  assert.deepEqual(lemmas("pt", "fazê-lo chamá-la pô-lo parti-lo dá-me deu-lhe sentar-se dir-lhe-ei far-se-á"),
+    ["fazer", "chamar", "pôr", "partir", "dar", "dar", "sentar", "dizer", "fazer"]);
+  assert.deepEqual(lemmas("ca", "vaig parlem tinc fem feia llibres gats dones l'home d'aquí s'ha"),
+    ["anar", "parlar", "tenir", "fer", "fer", "llibre", "gat", "dona", "home", "aquí", "haver"]);
+  assert.deepEqual(lemmas("ca", "dona-m'ho digues-m'ho agafa'l menjar-se-la anar-se'n fes-ho"),
+    ["donar", "dir", "agafar", "menjar", "anar", "fer"]);
+});
+
 test("real French and Italian tables", () => {
   assert.deepEqual(lemmas("fr", "suis était été allée beaux yeux j'ai c'est donne-moi mangeons chevaux aujourd'hui"),
     ["être", "être", "être", "aller", "beau", "oeil", "avoir", "être", "donner", "manger", "cheval", "aujourd'hui"]);
   assert.deepEqual(lemmas("it", "sono stata belle begli mangiarlo dimmi dammelo andiamo uomini dell'anno po' amiche"),
     ["essere", "essere", "bello", "bello", "mangiare", "dire", "dare", "andare", "uomo", "anno", "poco", "amico"]);
+});
+
+test("real tables: each person's pronoun is its own word, and contractions are their preposition", () => {
+  assert.deepEqual(lemmas("fr", "je me moi nous vous elle leur mes du aux quelqu'un"),
+    ["je", "je", "je", "nous", "vous", "elle", "leur", "mon", "de", "à", "quelqu'un"], "nous is not le, quelqu'un is not un");
+  assert.deepEqual(lemmas("es", "nos os ustedes del al"), ["nosotros", "vosotros", "usted", "de", "a"], "nos is not no");
+  assert.deepEqual(lemmas("pt", "nós nos do na pelo tô"), ["nós", "nós", "de", "em", "por", "estar"], "nós is not nó, pelo is not pelar");
+  assert.deepEqual(lemmas("ca", "ens nosaltres us vosaltres soc del pels"),
+    ["nosaltres", "nosaltres", "vosaltres", "vosaltres", "ser", "de", "per"], "nosaltres is not jo, soc is not societat");
+  assert.deepEqual(lemmas("it", "della nel dalla sugli col"), ["di", "in", "da", "su", "con"]);
+});
+
+test("real tables: a command that is also a noun, and the superlative", () => {
+  assert.deepEqual(lemmas("es", "cuéntamelo pregúntale cuenta buenísimo"), ["contar", "preguntar", "cuenta", "bueno"]);
+  assert.deepEqual(lemmas("it", "domandami buonissime"), ["domandare", "buono"]);
+  assert.deepEqual(lemmas("pt", "lindíssima"), ["lindo"]);
 });

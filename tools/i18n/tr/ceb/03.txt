@@ -1,0 +1,200 @@
+0fccecc9 Ang pulong nga imong gitangtang dinhi naa pay
+7e7ed3d8 Ang {0} ka pulong nga imong gitangtang dinhi naa pay
+a2fd882c card
+0c12e651 mga card
+a5554878 pulong
+cde1fdb5 mga pulong
+8d3900e9 <0>{0} card sa {1}:</0> {2}. Ang pagtangtang og card sa {3} motangtang usab sa kasaysayan sa review niini didto. <1>Dili na kini mabawi.</1> Kung mouyon ka, ang sunod nga mga pagtangtang motangtang na sa ilang mga card nga dili na mangutana pag-usab.
+d0ca7688 Tangtanga ang {0} sa {1}
+3ee6dc97 Ipabilin ang {0} ug ibalik ang {1}
+458bd73a Usa ka card ang
+2449d2e2 {0} ka card ang
+4768f74c Ang AnkiDroid dili mosulti sa ubang mga app kung unsa ang natangtang
+97b8cabc Walay rekord ang Anki nga imo kining gitangtang dinhi (basin natangtang kini sa laing device, o gi-restore ang collection)
+9ab802d4 maong pulong
+9fe0220f <0>{0} nawala sa deck:</0> {1}. {2}, busa walay gitangtang ang Tamkeen. Unsay buhaton sa {3}?
+ef8f7e8a Himoa pag-usab ang {0}
+bbba862c Tangtanga usab dinhi ang {0}
+78948622 {0} sa mga card sa imong mga pulong naa na sa laing deck karon: gibilin kini kung asa nimo gibutang ug dili na i-sync.
+c1aa0b00 {0} ka dugang nga card sa mga pulong nga naa nay usa gimarkahan og “tamkeen-duplicate” ug gibilin aron imong tan-awon.
+dfab2962 {0} ka note sa deck ang wala iapil (walay Front ug Back nga field, walay sulod, o ang usa sa ilang mga card naa sa laing deck).
+4b701821 {0} ka kausaban ang wala mahimo sa miaging higayon ug sulayan pag-usab.
+e8a0694a Ang mga card nga naa sa deck sa laing pinulongan mobalhin sa ilang kaugalingong deck sa sunod nga sync sa Anki.
+ba95bad5 {0} ka card ang gibalhin sa deck sa ilang pinulongan ({1}).
+21b4c80d Kini nga bersyon sa AnkiDroid dili mosulti sa ubang mga app bahin sa progreso sa review. I-update ang AnkiDroid ngadto sa 2.24 o mas bag-o aron makita kini dinhi.
+221ca630 Nag-sync…
+2b7d938e I-sync karon
+11d3ef7f Mo-sync usab kung ablihan nimo ang app ug matag pipila ka minuto samtang abli kini.
+26b0b25f Mo-sync ang Anki sa Tamkeen kung ablihan nimo kini, matag 10 minuto samtang abli kini, human sa kaugalingong sync sa Anki, ug kung pilion nimo ang <0>Tools → Sync Tamkeen now</0> sa Anki. Kinahanglan abli usab ang Tamkeen.
+27139ab8 wala pa matun-i
+c9114940 lapas na sa takdang adlaw sukad {0}
+71ef9cbd takdang adlaw {0}
+87e1ef1d gi-review
+b2647e88 matag {0} {1}
+fb38ecb6 {0} sakto, {1} sayop
+3db1270b Imong kataposang mga tubag sa Anki, ang pinakadaan una
+5c4b4117 Gibasa gikan sa Anki niadtong {0}. Gipakita ra kini sa Tamkeen; dili gyud niini usbon ang iskedyul sa Anki.
+c3c7e5f4 Anki: {0}{1}
+f57186fa Tangtangon ang “{0}” sa imong vocab?
+3eb0e9ae Tangtangon ang “{0}” sa imong vocab? Ang card niini sa {1}, uban sa kasaysayan sa review sa maong card, matangtang usab.
+890a143b Ang card niini sa {0}, uban sa kasaysayan sa review sa maong card, matangtang usab.
+ce01cb8a Matangtang usab niini ang card sa {0}
+8c9dbb61 Ang “<0>{0}</0>” naay card sa imong {1} nga deck sa {2}. Kung tangtangon nimo ang pulong dinhi, matangtang ang maong card sa sunod nga sync, <1>uban sa kasaysayan sa review sa card sa {3}. Dili na kana mabawi.</1>
+ad439574 Kung ipadayon nimo, ang pagtangtang og pulong motangtang na sa card niini sukad karon nga dili na kini pangutan-on.
+77dfd213 Kanselaha
+0a98dcd0 Tangtanga ang pulong ug ang card niini
+e93d02ca Ibalhin ang mga Anki card sa deck sa ilang pinulongan
+9ce3bd42 OK
+09701b49 Gibalhin…
+0c443a1e Gibalhin ang 1 ka card sa deck sa iyang pinulongan.
+077b3afc Gibalhin ang {0} ka card sa deck sa ilang pinulongan.
+10e5fda8 1 ang dili mabalhin (pananglitan, card nga gipahulam sa filtered deck) ug nagpabilin kung asa kini.
+5e56ad8c {0} ang dili mabalhin (pananglitan, card nga gipahulam sa filtered deck) ug nagpabilin kung asa sila.
+721a5cd2 Mobalhin ang mga card sa sunod nga pag-sync sa Anki sa Tamkeen: ablihi ang Anki, o pilia ang <0>Tools → Sync Tamkeen now</0> didto. Ipakita sa Settings kung nahuman na.
+a8e5a756 Mogana kini uban sa Anki sync. I-on una ang “Ipadayon nga parehas ang akong gi-save nga mga pulong ug ang akong mga deck sa {0}” sa Settings.
+134635e9 Ablihi ang Settings
+acba4224 Wala pa maka-sync ang Tamkeen sa {0}, busa wala kini kahibalo kung asa ang mga card. I-sync una, dayon sulayi pag-usab.
+722b3443 Naghulat na kini sa sunod nga sync sa Anki sa Tamkeen.
+7d8c0147 Ang matag card naa na sa deck sa iyang pinulongan. Walay ibalhin.
+f7f0f25b Usa ka card ang naa sa deck sa laing pinulongan. Mobalhin kini:
+577a01f9 {0} ka card ang naa sa deck sa laing pinulongan. Mobalhin sila:
+f0b872b4 Ang matag card magpabilin ang kasaysayan sa review niini. Walay lain nga mausab sa {0}, ug ang imong ubang mga deck dili hilabtan.
+e78a8a82 Ibalhin ang card
+247c9a70 Ibalhin ang {0} ka card
+c3e839df Online
+e01fa717 Offline
+5896cb72 Mga feature sa dula
+985a5239 Ang linalang, XP ug mga ganti, ug ang mga tingog sa kampanilya samtang nagtuon ka
+afed91e0 Off: parehas ra ang pagtuon, apan walay bisan unsa sa dula. Magpabilin ang imong mga tumong ug progress bar, ug ang imong linalang usab, kung i-on nimo kini pag-usab.
+7fab27b4 ang Claude Console
+881ac247 Pindota ang button sa ubos. Maablihan niini ang console.anthropic.com sa imong web browser. Lahi kini nga site sa Claude chat app.
+495b9813 Gamita ang imong email address o ang “Continue with Google”. Ang Claude Pro o Max nga chat subscription dili mosakop niini: lahi ang bayad sa mga key.
+7403c4f9 Ablihi ang <0>Settings → Billing</0>, pagdugang og payment card ug palit og gamay nga credit. Dili mogana ang mga key hangtod naay credit ang account.
+71b4b60f Ablihi ang <0>Settings → API keys</0> ug pindota ang <1>Create Key</1>. Hatagi kini og ngalan nga imong mailhan, sama sa “Tamkeen”.
+e04e0bbd Ang key kay taas nga linya sa mga letra nga nagsugod sa <0/>. Kausa ra kini ipakita, busa pindota ang <1>Copy</1> sa dili pa sirad-an ang box.
+48b74851 Balik dinhi, i-paste kini sa <0>API key</0> nga box sa Settings, ug pindota ang <1>Sulayi gamit ang pananglitan</1>.
+0e9e2f65 Google AI Studio
+5de77d58 Ang Gemini naay libre nga alawans, busa makasugod ka bisan walay payment card. Sa libre nga alawans, basin gamiton sa Google ang gipadala aron mapaayo ang ilang mga produkto; kung mopuno ka og billing sa AI Studio, mapalong kana.
+2628ac25 Pindota ang button sa ubos. Maablihan niini ang aistudio.google.com sa imong web browser.
+f6541135 Mogana ang bisan unsa nga Google (Gmail) account. Uyoni ang mga termino kung mangutana kini.
+84e51948 Pindota ang <0>Create API key</0>. Kung mangutana kini kung unsang project ang gamiton, tugoti kini nga mohimo og bag-o.
+8d7a2586 Taas kini nga linya sa mga letra nga nagsugod sa <0/>. Pindota ang copy button tapad niini. Makabalik ka niini nga page ug makopya kini pag-usab unya.
+162ab3e6 ang OpenAI platform
+faa55261 Pindota ang button sa ubos. Maablihan niini ang platform.openai.com sa imong web browser. Lahi kini nga site sa ChatGPT.
+0ba16577 Mogana usab dinhi ang imong ChatGPT login, apan ang ChatGPT Plus nga subscription dili mosakop niini: lahi ang bayad sa mga key. Basin pangayoon kini nga imong kumpirmahon ang numero sa phone.
+a6860394 Ablihi ang <0>Settings</0> (ang ligid) <1>→ Billing</1>, pagdugang og payment card ug palit og gamay nga credit. Dili mogana ang mga key hangtod naay credit ang account.
+83803874 Ablihi ang <0>API keys</0> ug pindota ang <1>Create new secret key</1>. Hatagi kini og ngalan nga imong mailhan, sama sa “Tamkeen”.
+ebf2eda5 ang xAI Console
+e76446c0 Pindota ang button sa ubos. Maablihan niini ang console.x.ai sa imong web browser.
+e3f3d119 Gamita ang imong X account, Google, o email address. Ang X Premium o SuperGrok nga subscription dili mosakop niini: lahi ang bayad sa mga key.
+d88dbb88 Ablihi ang <0>Billing</0>, pagdugang og payment card ug palit og gamay nga credit. Dili mogana ang mga key hangtod naay credit ang account.
+f6ce8b31 Ablihi ang <0>API Keys</0> ug pindota ang <1>Create API key</1>. Hatagi kini og ngalan nga imong mailhan, sama sa “Tamkeen”.
+6547e629 Ang key kay taas nga linya sa mga letra nga nagsugod sa <0/>. Kopyaha kini sa dili pa sirad-an ang box.
+58d7704c Lagmit na-expire na ang key o gipalong, busa basin kinahanglan ka og bag-o: himoa kini gamit ang mga lakang sa ibabaw ug i-paste. Kung bag-o pa gyud ang key, kopyaha kini pag-usab ug i-paste og bag-o (ang kulang nga letra sa kataposan makapahunong niini).
+f443dc0b Wala pay credit ang account, o wala pa moabot ang credit. Pagdugang og credit sa Billing page sa provider ug sulayi pag-usab human sa pipila ka minuto.
+43b82a8b Ibalik ang <0>Model</0> sa Settings ngadto sa gimarkahan og “girekomenda”.
+995ff549 Paghimo og bag-ong key sa samang paagi, ug tangtanga ang daan sa listahan sa provider.
+6b020b42 Isipa kini sama sa password: ayaw kini ipaambit o i-post bisan asa. Gitipigan ra kini sa Tamkeen niini nga device ug ipadala ra sa provider nga imong gipili.
+e1e3cd22 mangayo sa AI service nga ipatin-aw ang mga pulong para nimo
+fb891cde Unsaon pagkuha og API key
+15803e0d Ang API key kay klase sa password nga motugot sa Tamkeen nga {0}. Makuha nimo kini sa kaugalingong website sa service; pipila ra ka minuto.
+d76fd621 Ablihi ang {0} ↗
+26aacc31 Naay sayop?
+ddb60451 Pinulongan nga tun-an
+cac6d44c Imong pinulongan
+efaf5f1d Pagdugang og pinulongan nga tun-an
+f23ad26a Ang mga podcast, video, pulong ug review niini gilain sa imong ubang mga pinulongan. Pagbalhin-balhin tali kanila gikan sa bar sa ibabaw.
+8a4ed579 Ang pinulongan nga imong gitun-an karon
+75bd5fbb Nagtuon og {0}. Usba ang pinulongan
+b69e98b2 ＋ Pagdugang og pinulongan…
+fa47f84b Gitun-an karon
+a70803bd Dali nga pagpangita
+2c497d03 Dali nga pagpangita: ang pulong nga i-tap mopakita ra sa kahulogan niini
+c8bed749 Detalyado nga pagpangita
+4ba6d768 Detalyado nga pagpangita: ang pulong nga i-tap mopakita sa tibuok pagpatin-aw
+581f8c00 Unsa kadaghan ang ipakita sa pulong nga i-tap
+7d0cd0d6 {0}. I-tap aron mausab ngadto sa {1}.
+6ae84e4a Sirad-i (Esc)
+bbfa773e Sirad-i
+f0fbfe6e Labing paspas. Maayo para sa klaro nga sinultihan; mas daghang sayop sa mga diyalekto, accent ug paspas nga pagsulti.
+19c91326 Balanse nga katukma ug kapaspas.
+d661998f Labing tukma sa matag pinulongan. Labing maayo kung naay GPU.
+ec890ad6 · na-download
+18e42f19 · tunga ra ang na-download
+0b1d6c0b Nag-andam…
+7388d667 {0} sa {1}
+1763761d Gamita ang {0}
+781961bc I-pause
+f6fdbe48 Tangtanga
+58ff0825 Tangtangon ang model nga {0} ({1} MB)? Ma-download nimo kini pag-usab unya.
+b5ed1ec0 Ipadayon ang pag-download
+a479c9c3 I-download
+b9868e76 Gamiton ang model nga {0} para sa bag-ong mga transcript.
+a80186d6 Andam na ang model nga {0}.
+d70807ed Ang imong <0>{0}</0> makahimo og transcript nga daghang beses nga mas paspas kaysa CPU. Kinahanglan niini ang CUDA libraries sa NVIDIA (mga 1.2 GB), nga wala iapil sa installer aron magpabilin kini nga gamay.
+c3d90933 Aktibo ang GPU acceleration
+198413b8 Tangtanga ang GPU libraries
+6c044a0d Tangtangon ang CUDA libraries? CPU na ang gamiton sa transcript.
+42a1ffa7 Matangtang kini kung i-restart nimo ang app.
+aca57ff9 Natangtang.
+7bb4405c Na-install
+71d04aed I-restart ang app aron magsugod og gamit sa GPU.
+97e292a8 Gi-unpack…
+0a7b809e I-install ang GPU acceleration (~1.2 GB)
+2503a349 Gi-download ang opisyal nga cuBLAS ug cuDNN nga mga package sa NVIDIA gikan sa pypi.org ug gisusi ang ilang mga checksum.
+f4cfa873 Na-install ang GPU acceleration.
+82f06f5b Dili mausab ang pinulongan.
+defca688 Lakang {0} sa 4
+2f04eb15 Sunod →
+03c88b2a Unsang pinulongan ang imong gitun-an?
+05d17f2b Kini ang motino kung unsa ang paminawon sa app, unsaon pagpatin-aw sa mga pulong, ug asa nga direksyon modagan ang teksto. Mausab nimo kini unya sa Settings.
+c32ae9f4 ← Balik
+352fd3bb Nakasugod ka na ba og tuon sa {0}?
+49a817fa Bag-o pa gyud ko
+959a39d2 Bag-o kanako ang matag pulong.
+9aed0e9c Nakasugod na ko
+a6d6fac2 Isipa ang {0} ka labing komon nga mga pulong sa {1} nga mga pulong nga kabalo na ko, aron dili kini isipon sa app nga bag-o.
+871384d2 Usa ka butang nga i-set up: API key
+af91b49e I-tap ang bisan unsang pulong ug isulti sa Tamkeen kung unsa ang kahulogan niini <0>niana nga sentence</0>. Ang mga pagpatin-aw gisulat sa usa ka AI service, busa <1>aron mogana ang app, kinahanglan nimo kining hatagan og API key gikan sa AI provider nga imong gusto</1>: {0} o {1}.
+c3016d5f Ang API key kay klase sa password nga makuha nimo sa website sa provider. Direkta ka nga mobayad sa provider: gamay ra kaayo ang matag pagpangita, ug ang Gemini naay libre nga alawans.
+9ab59592 I-set kini, o usba unya, sa <0>Settings → Kahulogan sa pulong (AI)</0>. Didto, mapili usab nimo ang <1>Walay AI</1>: libre nga built-in nga diksyonaryo nga mopakita sa komon nga mga kahulogan sa pulong, apan dili ang kahulogan niini sa sentence (kusganong girekomenda ang AI).
+feb628ae Unsaon pagkuha og key?
+5b8027fa Sige
+74026a93 I-reset ang Tamkeen
+ae41208a Sugdi pag-usab nga daw bag-o pa ang Tamkeen: ma-sign out ka ug makita nimo pag-usab ang unang mga screen. Walay matangtang. Mobalik ang imong library, mga pulong ug settings kung mo-sign in ka.
+61837f5f I-reset ang Tamkeen?
+7c7d3232 Magsugod pag-usab ang Tamkeen sama sa unang paggamit:
+785b510e ma-sign out sa Google, sa imong Friends account, ug sa Instagram ug YouTube sa browser sa app
+62d1d509 matangtang ang imong mga key sa AI ug transcript niini nga device
+6e772256 ipakita pag-usab ang mga welcome screen ug mga pangutana bahin sa pinulongan
+90f5271b <0>Walay matangtang.</0> Ang imong mga podcast, video, pulong, review ug settings igahin ug mobalik dayon kung mo-sign in ka sa Google, o kung mahuman nimo ang unang mga screen.
+6d27dcf1 Gi-reset…
+6c461cb8 Dili ma-reset ang Tamkeen. Walay giusab.
+94331dff YouTube video
+6c186598 Instagram reel
+78f78ba4 Episode sa podcast
+b41edaea Dili kini mapadala sa higala.
+00ac93bc Dili kini mapadala: ang imong kaugalingong audio ug video nga mga file magpabilin sa imong mga device.
+004f3577 Mag-connect ug pili una og username.
+c7f73bb5 Settings
+926fb281 Pagdugang una og higala.
+c11d5e1d Mga higala
+d7485673 Ipadala ang “{0}” kang…
+cf765512 Gipadala…
+5b7d7944 , uban sa mga pulong niini
+7305bd49 Gipadala kang {0}{1}.
+d2104ca3 Ablihi ang chat
+9bc2575c Ipadala
+39a2069e Ipadala sa higala
+095ba688 Akong computer
+4ccce6f4 Kini nga computer
+8177b1f0 Kasagaran, ang imong computer ang mosulat sa mga transcript ug moabot kini dinhi pinaagi sa sync. Ang cloud provider puwede nga mosulat niini, direkta gikan niini nga phone, aron walay maghulat sa computer.
+667900ba Ang pagsulat og transcript nanginahanglan og kusgan nga computer, labi na sa Arabiko. Kung hinay ang imo, ang cloud provider na lang ang mosulat sa mga transcript.
+08f8b99e ang file sa episode, o ang video sa reel
+d78ea32b ang mga bahin ra nga naay sinultihan
+c6286624 Libre. Moabot ang mga transcript sa sunod nga sync niini.
+2c713dbf Libre. Gamiton ang model nga gipili sa ubos.
+82e6ea14 Magsugod dayon, niini nga phone. Pipila ka sentimo matag oras.
+51e5460e Dili kinahanglan og kusgan nga computer. Pipila ka sentimo matag oras.
+0781166f Cloud nga transcript
+3287b173 {0} Imong kaugalingong key ang gamiton ug direkta ka nga mobayad kanila, pipila ka sentimo matag oras sa audio.

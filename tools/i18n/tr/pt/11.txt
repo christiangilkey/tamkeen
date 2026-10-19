@@ -1,0 +1,167 @@
+eb32d375 Sua biblioteca, transcrições, vocabulário, modelos e configurações ficam guardados em:
+b26720e4 Abrir a pasta de dados
+146d9a4b Exportar meus dados
+65cf972d incluir o áudio baixado
+aa4fb3d2 Importar dados…
+2916184c Substitui sua biblioteca atual por um backup (.zip).
+c76d1807 Atualizações
+d4bbbea7 A sincronização não está disponível nesta versão (não há login do Google configurado).
+f0dd6b0d Abre seu navegador para você entrar.
+64b8b874 Aguardando o Google…
+07030d82 Conta do Google
+4541689d A última sincronização falhou: {0}
+0a5d4651 Última sincronização {0}
+be8f16b4 · {0} transcrição(ões) enviada(s), {1} recebida(s), {2} áudio(s) enviado(s)
+1b6c524f Conectado
+dc1649a1 Sair
+cc4c05b0 Enviar cópias de áudio compactadas (cerca de 12 MB por hora)<0/><1>Permite que seu celular e outros computadores toquem exatamente o áudio que foi transcrito, para que o destaque continue sincronizado mesmo em podcasts que inserem anúncios diferentes a cada download. Usa o espaço do seu Google Drive.</1>
+777e4004 Sair do Google? Sua biblioteca continua neste computador; ela só para de sincronizar.
+d578af85 Agora aprendendo {0:lower}
+b868b1b6 Não está em uso agora: {0} escreve as transcrições (Transcrição na nuvem, acima). Não é preciso baixar nada aqui.
+4d889f27 Nenhum relatório ainda.
+f29bbb6a Último contato do Anki {0}
+696d2cc7 · hoje: {0} revisados, {1} amadureceram, {2} ainda pendentes
+9293dd01 Backup pronto ({0})
+3b151b74 Importar “{0}”? Isso SUBSTITUI sua biblioteca, suas transcrições e seu vocabulário atuais pelo conteúdo do backup.
+deaefe6d {0} arquivos de áudio restaurados.
+7427e5f6 Importado. {0}
+b901ec82 Você está com a versão mais recente ({0}).
+d7854118 Qualquer data
+24345a14 Hoje
+df833fe8 Últimos 7 dias
+6b329852 Últimos 30 dias
+0245d916 Últimos 12 meses
+9efe99b9 Entre datas…
+ed434d6b Marque <0>Import any learning progress</0> para manter o ponto em que cada palavra está nas suas revisões do Tamkeen. Deixe desmarcado para começar todos os cartões como novos.
+574c12ec Você precisa ter o app Anki instalado neste computador.
+be71b755 No Anki, clique em <0>Import File</0> e escolha o arquivo.
+e445c6a9 Verifique se o seu baralho está formatado do jeito que você quer que os cartões apareçam no Anki.
+0a23b23f Você precisa ter o app AnkiMobile instalado neste iPhone.
+9d03110d Escolha <0>AnkiMobile</0> na fileira de apps. Se ele não estiver lá, toque em <1>Mais</1>.
+0bbf1f69 No AnkiMobile, verifique se o seu baralho está formatado do jeito que você quer que os cartões apareçam.
+59e916d5 Você precisa ter o app AnkiDroid instalado neste celular.
+e3b8af2a Escolha a bolinha <0>Anki</0> na fileira de baixo. Se ela não estiver lá, toque em <1>Mais</1>.
+0ea5d1ae Toque na janela chamada <0>AnkiDroid</0>.
+5eeb9580 No AnkiDroid, verifique se o seu baralho está formatado do jeito que você quer que os cartões apareçam.
+097027a5 Enviando suas palavras para o Anki
+7c7da884 Entendi, exportar
+12b2bdbf Em qualquer transcrição, clique com o botão direito (ou toque e segure) em uma palavra ou numa expressão selecionada e escolha “Salvar no vocabulário”. Adicione uma palavra à mão ou exporte suas palavras para o Anki pelo menu ⋯.
+239c2f13 Vocabulário
+7fc0dbd9 Mais: adicionar uma palavra, exportar, configurações do Anki
+2fa9797f Pesquisar no vocabulário… {0}
+adc4e96a Ordenar
+b2a08c42 Mostrar palavras
+172415f0 adicionadas
+37c6c57b alteradas
+3f66052a De
+4374aaee a
+ae79ea1e Até
+bfad960e Adicionar a uma pasta
+24d51d52 Remover da pasta
+6f99aa21 📨 Enviar para um amigo
+247fd631 Limpar a seleção
+35c2eb2c Adicionar uma palavra
+863892c6 Não foi possível carregar o áudio desta palavra.
+6d19e3ba Nome da nova pasta:
+7e6e65f7 Todas as palavras
+889ab689 Fora de pastas
+4ad414d8 ＋ Nova pasta
+e2324f01 Renomear a pasta:
+5ee46641 Excluir a pasta
+63e908b6 Excluir a pasta “{0}”? As palavras dentro dela são mantidas.
+e4ae0eaf 📨 Enviar a pasta para um amigo
+b44edd40 ＋ Nova pasta…
+5b000a6e Estas palavras não estão em nenhuma pasta.
+afb8631c {0} palavras
+08c2177a Não há palavras para enviar.
+93ccaaea a pasta “{0}” ({1} palavras)
+128751ac {0} palavra(s)
+e0e017af Enviar {0} para…
+8106e86e Preparando o áudio de {0} palavra(s)…
+0e770154 com áudio
+8db1d803 ({0} com áudio)
+151df9be {0}{1} enviado(s) para {2}.
+9afb285b · alterada {0}
+29eb5c50 Procurar um vídeo do YouTube em que esta palavra é dita
+a5420424 Selecionar palavra
+8e3f51e2 {0} · adicionada {1}{2}
+dd5422ef Notas gramaticais (raiz, gramática, uso…)
+d5b39987 Notas pessoais (um truque para lembrar, onde você ouviu…)
+19adc47b Pastas
+15a53568 Revisar “{0}”
+952f3754 Começar
+30cdf73e pendentes
+c2a6b03f novas
+bb866ab5 As palavras que têm significado aparecem aqui como cartões.
+b568b4b7 · {0} palavra(s) volta(m) {2}{3}
+29a80ea8 Tudo em dia{0}
+e5084bff {0} selecionadas
+85cce1e1 Desmarcar tudo
+b2034f7e Selecionar todas as {0}
+1ef4fd36 Desmarcar todas as palavras da lista abaixo
+80e145aa Marcar todas as palavras da lista abaixo, para organizá-las ou enviá-las juntas
+f1423624 de {0}
+294ccd52 {0}{1} item(ns)
+71d86079 Nenhuma palavra corresponde a estes filtros.
+0be6a257 Nenhum resultado.
+78e66aba Nenhuma palavra salva ainda.
+d6206ee4 Montando o baralho do Anki com áudio…
+5755f9ac Exportar CSV
+3e28846b Exportar para o Anki
+dc289056 Boas-vindas ao Tamkeen
+1c1ca506 Aprenda um idioma com podcasts, vídeos e páginas da web de verdade, palavra por palavra.
+1dd6a17c Como funciona
+58c2a9b6 <0>Adicione um podcast pela URL do feed RSS dele.</0> A maioria dos podcasts publica uma. Procure “RSS” no site do podcast ou pesquise na internet “<1>nome do podcast</1> RSS feed”. Links do Apple Podcasts não funcionam diretamente, mas sites como castos.com/tools/find-podcast-rss-feed conseguem transformá-los numa URL RSS.
+668bb8e3 <0>Transcreva episódios.</0> Clique em “Transcrever” em qualquer episódio. Tudo roda no seu computador. Nada é enviado para lugar nenhum.
+264a32cd <0>Ouça e leia ao mesmo tempo.</0> A palavra atual fica destacada. Clique em qualquer palavra para pular até ela, deixe o áudio mais lento ou repita uma frase.
+fde41bd9 <0>Monte seu vocabulário.</0> Clique com o botão direito (ou toque e segure) em uma palavra ou expressão para salvá-la com a frase dela. Exporte para o Anki quando quiser.
+c7ea5765 O app verifica seus podcasts de novo toda vez que abre, então os episódios novos aparecem sozinhos.
+8b5f192e Próximo: configurar a transcrição →
+5b53855d Apple Silicon (Metal)
+f60315a5 Nenhuma GPU compatível. A CPU será usada.
+462b6606 Aceleração por GPU (opcional)
+2efa49cc Configurar a transcrição
+7feeb161 A transcrição usa o modelo de reconhecimento de fala Whisper, da OpenAI, rodando inteiramente no seu computador. O modelo é baixado uma vez. Escolha um tamanho abaixo. Você pode baixar outros ou excluí-los depois nas Configurações.
+bc26ec8d Seu computador
+1ddc3d58 {0} · {1} · {2} GB de RAM
+a6a63185 GPU
+8cdc1fa4 Recomendação: {0}.
+fefb3326 Escolha um modelo
+27aa7d41 Meu computador é lento demais para isto
+16efb9b4 Deixar um provedor na nuvem escrever as transcrições (alguns centavos por hora de áudio)
+9ff4b446 Baixe um modelo para continuar ou configure um provedor na nuvem acima. Você pode continuar usando o app enquanto um modelo é baixado.
+9713faa5 Começar a usar o app →
+fd23eda9 Unsa’y Cheka Sa Parlor
+f9a11c2f Lyle Go and Shaneee | TAGM Marketing Solutions Inc.
+66f216cc UCSP, abreviação de Unsa y Cheka Sa Parlor?, é um podcast inspirado numa expressão popular da gíria gay bisaya, muito falada nas regiões de Visayas e Mindanao, nas Filipinas. Apresentado por Lyle Go e Shaneee, a expressão equivale mais ou menos a “Qual é a fofoca?”.
+c9476ace Crosseyed
+416e5e3c Gary Monton | Bisaya Podcast
+b7f0771c Crosseyed Podcast: entrevistas com pessoas inspiradoras de Cagayan de Oro. Crosseyed Convos: conversas divertidas sobre qualquer assunto que eu e meus amigos achamos interessante e divertido.
+572329d1 Dili Ni Advice - A Bisaya Podcast
+6c8793d1 Darling and Kringkay The Pod Network Entertainment
+e6feaa11 Barok and Takya Bisaya Podcast
+30e343f4 Barok & Takya
+83f1bce5 Barok and Takya Bisaya Podcast é um podcast filipino em cebuano. Eles falam de tudo um pouco, como família, tradição, sociedade e cultura filipinas, em bisaya. Está esperando o quê? Baixe agora o podcast pinoy em cebuano: Barok and Takya Bisaya Podcast.
+f6112f30 Cge Storya Ta: A Bisaya Couple Podcast
+8c29ec7d Yin + Nol
+65d7024f Boas-vindas ao Cge, Storya Ta: A Bisaya Couple Podcast! Publicamos um episódio novo toda semana. Pegue sua cadeira mais confortável, tire os sapatos e prepare-se para entrar na bolha de Yin e Nol. Uma montanha-russa de risadas, lições de vida e uma ou outra decisão duvidosa, ou seja, de tudo um pouco, sem roteiro e sem filtro. Então aperte o cinto, porque este é o podcast em que qualquer coisa pode acontecer, e provavelmente vai!
+49bc6e59 Brighter Bisaya
+3534296f Brighter Bisaya é uma rede de mídia online para toda a família que quer informar, educar e inspirar bisayas e cebuanos de todas as idades com programas de conversa inteligentes e criativos. A empresa está apaixonadamente determinada a publicar vlogs e podcasts simples e próximos do público sobre arte, educação, filosofia, ciência, tecnologia, inspiração e entretenimento em cebuano, binisaya, tagalo, inglês e filipino.
+e59b5c99 Kasikas: Bisaya Podcast
+2f359fd1 Ace Vincent Sevilla
+b819d08f Kapoy explain man. Para anúncios, comentários ou sugestões de temas, fale com a gente pelo e-mail sevillaacevincent@gmail.com.
+a4b3025e Sunday Mass Readings in Cebuano
+41126fc0 Ben
+cc4289fa Leituras da missa de domingo em cebuano | Mga pagbasa sa Santos nga Misa sa Binisaya. Os episódios novos saem na segunda-feira antes da missa. Envie seus comentários para sundaymassreadings@gmail.com. Um agradecimento especial ao padre Alvin, Lorena, Celine, Aimee, Belinda, Ivy, Praxi, padre Gerry, Belton, Agnes e ao diácono Roman.
+2a59645c Storytelling with Ziwi (Bisaya Podcast)
+35a7384d Ziwi Tea
+ee681aee Um podcast de histórias aleatórias. Ziwi fala das suas experiências pessoais e lições de vida. #Bisaya #Storytelling #Philippines #ChikaMinute #Chikahan
+c0da64f1 Wanbats Ra Besh | Bisaya Society & Culture
+c65ee463 Jna and Ju
+5561133e Jeana e Justein são melhores amigas da ensolarada província de Cebu. Agora perto dos trinta, essas amigas do ensino médio falam sobre como lidar com a vida adulta, aprender e desaprender conceitos e definir prioridades. Se você quer sentir aquele calorzinho gostoso por dentro, como numa conversa sincera com uma amiga de longa data, junte-se a elas neste podcast novinho. Episódios novos às sextas! x Pague um café para nós em ko-fi.com/wanbatsrabesh ☕️ As músicas não são nossas e vêm de Audionautix.com.
+51f2914b Bisaya Jokes!
+78a5056a DJ Bisdak
+a6bc3cb4 Podcast para pakatawa sa mga bisdak!
+5f38602a NAYSJUAN SESSIONS | Binisaya Podcast
+cd567294 JUAN MARCUZ TIMAY
+5ee1603d Purok Pabula Ph

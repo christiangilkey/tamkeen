@@ -32,7 +32,7 @@ import numpy as np
 
 from .. import db, events
 from ..audio import SAMPLE_RATE
-from ..languages import INITIAL_PROMPTS
+from ..languages import INITIAL_PROMPTS, whisper_code
 from .base import Segment, TranscriptionCancelled, Word
 
 log = logging.getLogger(__name__)
@@ -184,7 +184,8 @@ def encode_mp3(samples: np.ndarray, bitrate: int = MP3_BITRATE) -> bytes:
 _LANGUAGE_CODES = {"arabic": "ar", "spanish": "es", "french": "fr", "japanese": "ja", "chinese": "zh", "mandarin": "zh",
                    "russian": "ru", "english": "en", "turkish": "tr", "persian": "fa", "urdu": "ur", "hindi": "hi",
                    "german": "de", "italian": "it", "portuguese": "pt", "korean": "ko", "hebrew": "he",
-                   "indonesian": "id", "dutch": "nl", "tagalog": "tl", "filipino": "tl"}
+                   "indonesian": "id", "dutch": "nl", "tagalog": "tl", "filipino": "tl", "catalan": "ca",
+                   "valencian": "ca", "thai": "th", "cebuano": "ceb", "bisaya": "ceb"}
 
 
 def language_code(name: Any) -> str | None:
@@ -285,7 +286,7 @@ def send(provider: str, key: str, model: str, audio: bytes, language: str | None
     fields: dict[str, Any] = {"model": model, "response_format": "verbose_json",
                               "timestamp_granularities[]": ["word", "segment"], "temperature": "0"}
     if language:
-        fields["language"] = language
+        fields["language"] = whisper_code(language)
         if INITIAL_PROMPTS.get(language):
             fields["prompt"] = INITIAL_PROMPTS[language]
     name = PROVIDERS[provider]["label"]

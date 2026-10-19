@@ -1,0 +1,200 @@
+8df7f1b3 Espanyol
+42b5f38b Sumbanan nga porma
+0bb18642 Gamit
+af4f4762 Arabiko
+e96857c5 Gamut
+3132844d Sa sumbanan nga Arabiko (MSA)
+93949a50 Diyalekto
+23239c1b Ang pagpangita dili motagad sa mga marka sa bokal (tashkeel) ug sa lain-laing baybay sa alef (أ إ آ ا), taa marbuta/haa (ة ه) ug alef maqsura/yaa (ى ي).
+44389f6a Pranses
+9239c22d Hinapon
+b6f59f08 Mga karakter
+15dc1886 Insik
+74ad93cb Ruso
+485b57ad Italyano
+68ddd91d Tagalog
+8782d9fe Portuges (Brazil)
+2c5e77fc Katalan
+b46e924a Bisaya (Cebuano)
+c32767e0 Thai
+649df08a Iningles
+2db9d9c8 pagpaminaw
+227f38db pagbasa
+28cd39db pagtigom og mga pulong
+419e5a77 mga pagpusa
+8736920d bag-ong napusa
+6839db6f batan-on
+82aef589 hamtong
+b245f581 {0} {1}
+6f442204 Naputol ang koneksyon sa lokal nga server sa app.
+59025e2d Wala molampos ang hangyo ({0})
+21a0c7a3 {0} ka oras {1} min
+e802d434 {0} min
+f921c967 0 MB
+9a27e458 {0} GB
+b53a8982 {0} MB
+c18f8f25 Pahibalo
+f8f74deb Nahuman na ang transcript: {0}
+cf9b7706 Ablihi
+3f651190 Nahuman na ang transcript
+0fedb149 Napakyas ang transcript: {0}. {1}
+377e306b Napakyas ang transcript
+63616e1e Wala ma-save ang audio sa maong pulong.
+b887bd52 Kopyaha ang link sa video nga gusto nimo ug i-paste kini ubos sa “Pagdugang og webpage”.
+46c3ccdd Pilia una ang pinulongan nga imong gitun-an, dayon ablihi pag-usab ang video.
+90350195 Gikuha ang mga caption…
+d10fa6cb Dili maablihan kining video.
+6f9d8f3f Kopyaha ang address sa page nga gusto nimo ug i-paste kini ubos sa “Pagdugang og webpage”.
+72af5edb Napakyas ang pag-upload ({0}).
+ccc2b8e0 Napakyas ang pag-upload: wala motubag ang server sa app.
+136c4303 Na-save sa {0}
+8d886c0b Naay sayop nga nahitabo
+752be6ae Dako ra kaayo kana nga file (labaw sa 200 MB).
+1b9728ae Guba kana nga file (dili kompleto nga ZIP/EPUB/DOCX nga file).
+6ef6b413 Kana nga file naggamit og klase sa compression nga dili mabasa sa Tamkeen.
+6a0b6c0f Protektado (DRM) kining libroha, busa dili mabasa ang teksto niini. Ang mga libro ra nga walay DRM ang madugang.
+c13b66dd Guba kana nga EPUB (walay table of contents).
+6256156a Guba kana nga Word file.
+fb5d490e Dili kana Word .doc nga file. Sulayi kini og save isip .docx.
+39b183eb Walay teksto kana nga Word file.
+5ec26261 Naay password kining Word file, busa dili mabasa ang teksto niini.
+a693bbf2 Walay teksto nga nakit-an sa maong Word file. Sulayi kini og save isip .docx.
+a351250c Protektado (DRM) kining Kindle nga libro, busa dili mabasa ang teksto niini. Ang mga libro ra nga walay DRM ang madugang.
+fadca512 Kining Kindle file na-compress sa paagi nga dili mabasa sa Tamkeen. I-convert kini ngadto sa EPUB (pananglitan gamit ang libre nga app nga Calibre) ug kana ang idugang.
+f259da8d Naay password kining PDF, busa dili mabasa ang teksto niini.
+1b90296b Dili maablihan ang maong PDF.
+912836e3 Gibasa ang page {0} sa {1}…
+6d3042c8 Dili maabot ang estante sa libro sa Tamkeen. Susiha ang imong koneksyon ug sulayi pag-usab.
+deb3baad Guba ang libro pag-abot. Sulayi pag-usab.
+451b9cbc Gibasa ang file…
+245d2a43 Walay teksto nga nakit-an sa maong file. Ang na-scan nga libro (mga hulagway sa mga page) walay teksto nga mabasa.
+56a2285c Gi-save…
+3330dab0 Al Jazeera
+0a3a33ca BBC sa Arabiko
+036338ff Al Arabiya
+ff61c5fd Sky News Arabia
+001f43b5 Asharq Al-Awsat
+103608b8 CNN sa Arabiko
+9f4ff5e2 France 24
+a6fd6e9c Deutsche Welle
+eb602841 Asharq News
+70bd98b5 Independent Arabia
+81667ae6 Al-Quds Al-Arabi
+3d6e75cf Al-Ahram, Ehipto
+367c7f69 Youm7, Ehipto
+21612f28 Euronews
+7a924fa6 Hespress, Morocco
+8091b468 An-Nahar, Lebanon
+20a8df9b Espanya
+7f68cca5 BBC sa Espanyol
+5bfed743 Publikong brodkaster sa Espanya
+26ee2701 Amerika
+354bf989 Argentina
+41937b20 Mexico
+2f737399 Colombia
+36c57243 Peru
+ac92bda0 Sa Espanyol
+a95f1614 Mas sayon: balita para sa mga nagtuon
+e3772ac4 Pransiya
+022e7a37 Publikong brodkaster sa Pransiya
+f5074266 Balita sa kalibotan
+cd6a7b87 Canada
+5cb4c9d8 Belgium
+77dcd849 Switzerland
+7fd73ef4 Mas sayon: balita sa NHK sa simple nga Hinapon
+20cf7d0e NHK, publikong brodkaster
+863f0927 Yahoo! News Japan
+bce35235 Asahi Shimbun
+e8faae07 Yomiuri Shimbun
+8d6de353 Mainichi Shimbun
+55708085 Nikkei
+7c3cb127 Sankei Shimbun
+144e3ab3 Tokyo Shimbun
+073ad8e8 Jiji Press
+86e150a1 Kyodo News
+86dd6e9b Balita sa telebisyon sa TBS
+6ee232e9 Balita sa Nippon TV
+7f22332e BBC sa Hinapon
+8201ad33 Toyo Keizai
+12fc9530 Balita sa teknolohiya
+85da6b7f BBC sa Insik
+1950c50c The New York Times
+72b431fc Lianhe Zaobao, Singapore
+16048e43 Xinhua, China
+323a3e4c People's Daily, China
+b3d6fa9f The Paper, China
+081ceae5 Caixin, China
+1b9f1261 Sina News, China
+5c0fde35 Tencent News, China
+9231d52d Jiemian, China
+7073d6a9 Financial Times
+1bea7de2 CNA, Taiwan (tradisyonal nga mga karakter)
+79da1ae8 UDN, Taiwan (tradisyonal nga mga karakter)
+7c820dda HK01, Hong Kong (tradisyonal nga mga karakter)
+b36012a4 BBC sa Ruso
+98678be4 Meduza
+3bad3245 Kommersant
+c789d95b Interfax
+321e9515 TASS, ahensya sa balita sa estado
+2b6cb4c7 RIA Novosti, ahensya sa balita sa estado
+02f9372c Vedomosti
+7095fe00 Radio Liberty
+179a6338 Novaya Gazeta Europe
+c51e7e5c Sa Ruso
+be550421 Current Time
+08c6ecb7 Rai, publikong brodkaster
+c90d19b1 ANSA, ahensya sa balita
+1d24e371 Corriere della Sera
+a3f333fa la Repubblica
+30f19411 La Stampa
+a71b2dc8 Balita sa negosyo
+5dc5bec4 Il Post
+e62a924b Sky TG24
+b63e0d40 Balita sa kalibotan sa Italyano
+37e9fc15 Sa Italyano
+1855c2e3 Sports
+8bf87e8c Wikipedia sa Italyano
+d477dcd6 Abante, sa Tagalog
+7033c2e2 Bombo Radyo
+5a063600 Mantalaan sa Tagalog sa Philstar
+42e1ab8b Balita sa Tagalog sa Manila Bulletin
+2a086357 Mantalaan sa Tagalog sa Inquirer
+fec623de GMA News (kadaghanan sa Iningles)
+96c7193d ABS-CBN News (kadaghanan sa Iningles)
+6419d26a Remate, sa Tagalog
+72df35d6 Pilipino Mirror, sa Tagalog
+ec8ddbd3 Balita sa radyo sa DZRH
+13771236 Radyo Pilipinas, publikong radyo
+1b78aa35 PTV, publikong telebisyon
+7d7b8fe2 Wikipedia sa Tagalog
+7014f38a News site sa Globo
+6e0b993a Folha de S.Paulo
+81596add O Estado de S. Paulo
+e0f6253e O Globo, Rio de Janeiro
+1c42950d BBC, sa Portuges (Brazil)
+d9c6b1fb Agência Brasil, publikong ahensya sa balita
+12c8c2cd CNN Brasil
+ecae6445 Nexo, mga pagpatin-aw
+6e5c2fcb Politika
+3df709c2 Siyensya ug mga kakuryoso
+e82e2b93 Deutsche Welle, sa Portuges (Brazil)
+c0fe72d8 Wikipedia sa Portuges
+02df8597 3Cat, publikong brodkaster sa Catalonia
+b07bcee1 Ara
+509d117d El Periódico, edisyon sa Katalan
+033e952f La Vanguardia, edisyon sa Katalan
+953219fd El Punt Avui
+bdcd5a6a Nació Digital
+a79fdf63 El Nacional
+ff6dd1ba Radyo RAC1
+d46049a6 Brodkaster sa siyudad sa Barcelona
+abe62d2b Publikong brodkaster sa Valencia
+f72932a0 Publikong brodkaster sa Balearic
+ee6ba5de Senemanang magasin sa balita
+017db5d6 Wikipedia sa Katalan
+5bd2b489 Mantalaan sa Bisaya sa SunStar, Cebu
+097174e3 Mantalaan sa Bisaya sa SunStar, Davao
+c236bde4 Mantalaan sa Bisaya sa SunStar, Cagayan de Oro
+99dad9d9 Mantalaan sa Bisaya sa The Freeman, Cebu
+04eddcb9 Balita sa radyo sa RMN, Cebu
+1f87a792 Bombo Radyo, Cebu

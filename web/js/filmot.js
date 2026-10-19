@@ -26,9 +26,11 @@ const HARAKAT = /[ؐ-ًؚ-ٰٟۖ-ۭـ]/g;
 
 // Filmot names languages by YouTube's caption codes, older ones included (its own lists use "iw" for
 // Hebrew); where those differ from the app's, the caption code comes first and the app's after it.
-const FILMOT_CODES = { tl: ["fil", "tl"], zh: ["zh", "zh-Hans", "zh-CN", "zh-Hant", "zh-TW"], he: ["iw", "he"] };
+const FILMOT_CODES = { tl: ["fil", "tl"], zh: ["zh", "zh-Hans", "zh-CN", "zh-Hant", "zh-TW"], he: ["iw", "he"],
+                       pt: ["pt", "pt-BR", "pt-PT"] };
 // Other English names a language may go by in Filmot's list.
-const OTHER_NAMES = { tl: ["Filipino"], zh: ["Chinese (Simplified)", "Chinese (Traditional)"] };
+const OTHER_NAMES = { tl: ["Filipino"], zh: ["Chinese (Simplified)", "Chinese (Traditional)"],
+                      pt: ["Portuguese", "Portuguese (Brazil)"], ceb: ["Cebuano"] };
 
 /** The language code Filmot is asked for: the caption code for the app's language `lang`. */
 export function filmotLang(lang) {

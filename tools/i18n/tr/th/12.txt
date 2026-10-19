@@ -1,0 +1,200 @@
+35b90dfb International Scripture Ministries
+861fa74e Paminawa ang Balaang Bibliya sa Cebuano nga pinulongan sa klaro, buhi, ug bisan kanus-a, bisan asa. Gihatag sa International Scripture Ministries (ISM), kining Audio Bible nagdala sa Pulong sa Dios ngadto sa kinabuhi pinaagi sa gamhanang pagbasa, musika, ug maayong disenyo sa tingog, aron masinati nimo ang Kasulatan sa pinulongan sa imong kasingkasing. Bisan kung bag-o pa ka nagtuon sa Bibliya o nagtinguha kang motubo sa imong pagtuo, kining podcast makatabang kanimo sa pagpaminaw sa tibuok Bibliya, kapitulo matag kapitulo. Niining Audio Bible, imong makit-an: • Ang Balaang Bibliya sa Cebuano
+e1cc70f2 Ang Santos nga Ebanghelyo sa Matag Adlaw
+c7f849a8 Roger W.
+41739ec2 Ang balaang pulong sa tanang panahon
+bb6ed1ae Teacher D
+4cf306d2 Daisy Lynn Robin
+2473e96b บทนำ
+9c355e53 Sugboanon (Cebuano) nga Bibliya
+0171127e Maria Chona Gabotero Labrador
+4195c313 เพื่อให้เข้าถึงพระคัมภีร์ภาษาเซบัวโนในรูปแบบเสียง
+ffd1e2bb Cebuano / Bisaya: Pagkatinon-an sa Biblia
+01eb8066 Paul J. Bucknell
+4b92fc32 Mga pagtulon-an sa pagkatinon-an sa Biblia sa Cebuano/Bisaya gikan sa Biblical Foundations for Freedom. Ang D1 Ang Agos nagpatin-aw sa tulo ka ang-ang sa espirituhanong pagtubo ug unsaon pagtabang sa uban nga motubo. Ang D2 Mahimong Usa ka Magbubuntog nagtudlo unsaon pag-atubang sa kabalaka, garbo, kailibgon, kasuko, kasub-anan, ug uban pang pagsulay pinaagi sa kamatuoran ug grasya sa Dios.
+75d7f598 Bored Bisayas
+75891209 Hello there! We re Luke and Mona. We re a couple of Bisayas. AY teka. Buset. Ga-Iningles na man hinuon mi nga Bisaya gani. Aw. So, bale mga Bisaya mi unya kay bored man mi so magstorya mi about stuff. Mga butang-butang sa kalibutan nga gusto namo storyahan. Topics are anything under the sun. Like how kulang sa height si Mona ug sobra sa weight si Luke... at one point in time. Basically, just another Bisaya podcast. Or you know... a place where Luke and Mona talk in private and are public at the same time. You can email us at boredbisayas@gmail.com or follow our other soc med accounts.
+fe9979fa Mga Balak Sugbuanon
+7f8b3682 Jesson Morata
+883032a0 Tipiganan sa mga Balak Sugbuanon
+bb8c2d74 Unang Sugilanon gikan sa Librong 'Larawan': Si Amboy, ang Palahubog by Vicente Rama (1887 - 1956)
+59e8c6a1 Sugilanon nga gisuwat ni Senador Vicente Rama bahin kang Amboy nga palahubog, ug ang iyang pamahala nga kinabuhi tungod sa iyang pagkapalahubog. Kini ay una nga istorya sa daghan nga nahabutang na istorya sa librong 'Larawan'. (Summary by April Gonzales)
+d47f0ec5 Hisgutanan: Bisaya nga Podcast ni Lewey Jimoya
+8f03afd2 Lewey Jimoya
+6b4e3b92 Usa ka Bisaya nga sibya kung aha maghisgot-hisgot mi sa nagkalain-laing mga butang! Hosted by Lewey Jimoya
+e450b3f0 Binisaya nga tulumanon
+920927d6 Bai Maloy
+8c1c3ec7 Maka hatag ug inspirasyon ug kalingawan sa mga kaigsoonan nga naa sa lagyu nga dapit ug maka hupay sa ilang kamingaw.
+d9cc6b1c อ่านแล้ว {0}%
+e078f34f เหลืออีก {0} ชม. {1} นาที
+a99cdd56 เหลืออีก {0} นาที
+15710324 ฮั่น
+ba1d0a64 ฮิรางานะ
+6842e5a7 คาตาคานะ
+1cb09555 ซีริลลิก
+348d0069 ฮีบรู
+59d5f5b1 กรีก
+bd7d4b95 ฮันกึล
+c3376a97 เทวนาครี
+536c16bd {0} วัน
+2985a39c {0} สัปดาห์
+682728dc {0} เดือน
+67e282ba {0} ปี
+2c4f87a8 ไม่ถึงหนึ่งนาที
+a5d14ec2 ประมาณ {0}
+95a4caee {0}–{1} นาที
+a8bf7da8 วัดจากอุปกรณ์นี้
+60446ee5 จากคำตอบที่ผ่านมาของคุณ
+ca5a6508 ค่าประมาณเบื้องต้นจนกว่าคุณจะทบทวนเพิ่มอีกสักหน่อย
+6403f2b7 ใหม่
+b83c4cda การทบทวน
+901df5e4 เป้าหมายของวันนี้
+35c77c57 (ค่าประมาณเบื้องต้น)
+f922fb4c เหลืออีก {0} ในวันนี้{1}
+2081c97d เสร็จหมดแล้วสำหรับวันนี้
+b422c28b วันนี้ไม่มีบัตรครบกำหนด
+88da3d5b ส่งไปยัง {0}
+4ac22389 เพิ่ม “{0}” ลงใน {1} สำหรับวันนี้ (เลือกที่หมายได้ในการตั้งค่า)
+f4896ede วันนี้: คำใหม่ {0} จาก {1} ทบทวน {2} จาก {3} {4} เปลี่ยนจำนวนคำใหม่ต่อวัน
+031683ab มีคำใหม่รออยู่เพียง {0} คำ
+aa175635 {0}การทบทวนก็คือคำที่ครบกำหนดในวันนี้ ในระยะยาวคาดว่าจะมีประมาณ 10 ครั้งต่อวันต่อคำใหม่หนึ่งคำ (ตามคู่มือของ Anki): คำใหม่ {1} คำต่อวัน ≈ ทบทวน {2} ครั้งต่อวัน
+4ee48926 เวลาต่อคำ รวมครั้งที่คำที่ตอบผิดกลับมาอีก: ประมาณ {0} สำหรับคำใหม่ {1} สำหรับการทบทวน ({2})
+a0b74487 ส่งงานไม่ได้
+d4928a6e ไม่ได้คำที่ออกเสียงคล้ายกันกลับมา ลองอีกครั้ง
+3997732f พูดออกเสียง
+4fc6e7f7 เจ้าของภาษา
+fb8207e8 ฝึกออกเสียง (P): พูดคำนั้น แล้วฟังประโยคและเสียงของตัวเอง เสียงที่คุณพูดจะไม่ถูกบันทึก
+a679d9ee Tamkeen ต้องได้รับอนุญาตให้ใช้ไมโครโฟนเพื่อฟังคุณพูดคำนั้น
+a970acc5 ไม่ได้ยินเสียงของคุณ ลองอีกครั้งโดยอยู่ใกล้ไมโครโฟนขึ้นอีกนิด
+7bea803a ใช้ไมโครโฟนไม่ได้ในขณะนี้
+c9c6fe67 Google Tasks
+67e5c742 Onyx
+e79101e5 ส่งไปยัง Onyx แล้ว: {0}
+0e90681b อนุญาตให้ Tamkeen เพิ่มงานในหน้าต่างเบราว์เซอร์ที่เปิดขึ้น แล้วกดส่งอีกครั้ง
+6b514385 อัปเดตงานทบทวนของวันนี้ใน Google Tasks แล้ว: {0}
+4d263331 เพิ่มลงใน Google Tasks แล้ว: {0}
+d8803f2b ทบทวน Tamkeen ({0} นาที)
+37db2048 บัตรของคุณ
+d567fe70 เหลืออีก {0} ในวันนี้: ประมาณ {1} ตามการประมาณของ Tamkeen
+4e81fbf0 ตัวอักษร ตัวเลข จุด หรือขีดล่าง 3–20 ตัว
+c9c9d7d4 โหลดฟีเจอร์ออนไลน์ไม่ได้
+1d7a1d2e เชื่อมต่อบริการออนไลน์ไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต
+79ec683f ชื่อผู้ใช้ต้องเป็น{0}
+ad5eb13f เชื่อมต่อก่อน
+5fc4af92 “{0}” มีผู้ใช้แล้ว ลองชื่ออื่น
+d3e6897a (ยังไม่มีชื่อผู้ใช้)
+ed88ebe6 พิมพ์ชื่อผู้ใช้ของเพื่อน
+42f88043 เชื่อมต่อก่อน (การตั้งค่า → เพื่อนและการแชร์)
+76ece8da เลือกชื่อผู้ใช้ของคุณเองก่อน (การตั้งค่า → เพื่อนและการแชร์)
+4e2bf6f2 ไม่มีใครชื่อ “{0}” ชื่อผู้ใช้ต้องตรงทุกตัว (แต่ไม่สนใจตัวพิมพ์ใหญ่เล็ก)
+967a7678 นั่นคือคุณเอง!
+0d09c4f7 คุณกับ {0} เป็นเพื่อนกันอยู่แล้ว
+993bd149 คุณส่งคำขอถึง {0} ไปแล้ว
+ff44a73d คุณกับ {0} มีคำขอที่รอดำเนินการอยู่แล้ว
+58f90a69 วิดีโอหรือเพลงใน YouTube Music
+97d30338 เพลง อัลบั้ม เพลย์ลิสต์ หรือตอนพอดแคสต์ (แชร์ → คัดลอกลิงก์)
+d23e8c8c เพลง อัลบั้ม หรือเพลย์ลิสต์ (แชร์ → คัดลอกลิงก์)
+937e2007 หน้าภาพยนตร์ ซีรีส์ หรือบุคคล
+e016aab6 Reel (แชร์ → คัดลอกลิงก์) เพื่อนจะเปิดในเครื่องเล่น Reel ของ Tamkeen
+ca2da724 บทความหรือหน้าใดก็ได้ เพื่อนจะเปิดในตัวอ่านของ Tamkeen
+bdfd8662 ตอนใดก็ได้จากคลังของคุณเอง: ใช้ปุ่ม 🎧 บนแถบ
+52c54389 Apple Music
+094b763b ไม่พบ
+6c7af22a ลิงก์ Instagram นั้นไม่ใช่ Reel ใช้ แชร์ → คัดลอกลิงก์ ที่ตัว Reel เอง
+0449c7b9 เปิดหน้านั้นไม่ได้ ตรวจสอบลิงก์
+9c5f935e ไม่พบสิ่งนั้นใน {0} ตรวจสอบลิงก์
+2a0cb6b4 Spotify
+effea02d คุณส่งข้อความได้เฉพาะคนที่อยู่ในรายชื่อเพื่อนเท่านั้น
+3a18cb8c พิมพ์ข้อความก่อน
+79b09ca3 ส่งข้อความเสียงไม่ได้: {0}
+394821e7 ไม่มีอะไรให้แชร์
+81058adf ใหญ่เกินกว่าจะส่งในข้อความเดียว
+9c6fefee ไฟล์นั้นไม่ใช่รูปภาพที่แอปอ่านได้ ลองใช้ JPG หรือ PNG
+c1004cfe เตรียมรูปภาพนั้นไม่ได้
+9c4b6c33 อัปโหลดรูปภาพไม่ได้: {0}
+c3441e47 ตัวอักษรหรือตัวเลข 2–5 ตัว ไม่มีช่องว่าง
+f70d9377 มีกิลด์ชื่อนี้อยู่แล้ว ลองชื่ออื่น
+7b6a557e ชื่อกิลด์ต้องมี 2–40 ตัวอักษร ส่วนแท็กต้องเป็น{0}
+abf7ad6f คุณชวนได้เฉพาะเพื่อนของคุณเอง เข้ากิลด์ที่คุณอยู่
+99113664 เพื่อนคนหนึ่ง
+0669df82 เพื่อนคนนี้ได้รับคำเชิญเข้ากิลด์นี้แล้ว
+853b17b9 ส่งของขวัญนั้นไม่ได้ (ส่งได้ไม่เกินสิบชิ้นต่อวัน และเฉพาะเพื่อนหรือสมาชิกกิลด์เดียวกัน)
+d034eb8e Groq
+4de3bd6f ตอนที่ใหญ่กว่า 24 MB และไม่ใช่ไฟล์ MP3: โทรศัพท์ตัดไฟล์เหล่านี้เป็นชิ้นไม่ได้ จึงส่งที่อยู่เว็บของไฟล์ให้ Groq ไปดึงเอง (MP3 ยาวเท่าไรก็ได้ พอดแคสต์เกือบทั้งหมดเป็น MP3)
+4472c560 โมเดลขนาดใหญ่เต็มรูปแบบ: ดีที่สุดสำหรับภาษาอาหรับและภาษาถิ่น
+3d954bc8 ราคาต่ำที่สุด แม่นยำน้อยกว่าเล็กน้อย
+bd77aa8a ตอนที่ใหญ่กว่า 24 MB และไม่ใช่ไฟล์ MP3 ถอดเสียงจากโทรศัพท์นี้ด้วย OpenAI ไม่ได้: จะแสดงข้อผิดพลาดแทน OpenAI รับได้ครั้งละไม่เกิน 25 MB และโทรศัพท์ตัดเป็นชิ้นได้เฉพาะ MP3 ให้ถอดเสียงตอนเหล่านั้นบนคอมพิวเตอร์ หรือเลือก Groq ซึ่งดึงไฟล์แบบนั้นเองได้ (MP3 ยาวเท่าไรก็ได้ พอดแคสต์เกือบทั้งหมดเป็น MP3)
+eba3014e ใช้คีย์เดียวกับความหมายของคำของ ChatGPT ได้
+0ffe7a83 Groq Console
+2e074132 Groq มีโควตาฟรี (เสียงไม่กี่ชั่วโมงต่อวัน) โดยไม่ต้องใช้บัตรชำระเงิน เมื่อเพิ่มบัตรแล้ว เสียงหนึ่งชั่วโมงมีค่าใช้จ่าย 4 ถึง 11 เซนต์
+953a5f79 กดปุ่มด้านล่าง ระบบจะเปิด console.groq.com ในเว็บเบราว์เซอร์ (Groq เป็นคนละบริษัทกับ Grok)
+e619a44c ใช้ที่อยู่อีเมล หรือ “Continue with Google” สมัครได้ฟรี
+63239333 เปิด <0>API Keys</0> แล้วกด <1>Create API Key</1> ตั้งชื่อที่คุณจำได้ เช่น “Tamkeen”
+cb2680e6 กลับมาที่นี่ วางคีย์ในช่อง <0>คีย์ API</0> ใต้การถอดเสียงบนคลาวด์ แล้วกด <1>ทดสอบคีย์</1>
+09604855 เสียงหนึ่งชั่วโมงมีค่าใช้จ่ายประมาณ 36 เซนต์ หากคุณใช้คีย์ OpenAI สำหรับความหมายของคำอยู่แล้ว คีย์เดียวกันใช้ที่นี่ได้: เว้นช่องนี้ว่างไว้
+1bd3e72b ใช้บัญชี ChatGPT เข้าสู่ระบบที่นี่ได้ แต่การสมัคร ChatGPT Plus ไม่ครอบคลุมส่วนนี้: ต้องจ่ายค่าคีย์แยกต่างหาก
+944fc80e ผู้ให้บริการ
+a85ddf87 (ขอให้รอ {0})
+8b0ebde4 {0} แจ้งว่าบัญชีของคุณถึงขีดจำกัดแล้วในขณะนี้ {1} บัญชีฟรีส่งเสียงได้จำกัดต่อชั่วโมงและต่อวัน
+a6fcec4d เสียงนั้นใหญ่เกินกว่าที่ {0} จะรับได้ในครั้งเดียว
+964037f2 {0} ไม่รู้จักโมเดลที่เลือก ตั้งกลับเป็นโมเดลที่แนะนำในการตั้งค่า{1}
+e1e8503b {0} แจ้งว่าบัญชีไม่มีเครดิต เพิ่มเครดิตในหน้า Billing{1}
+d31e3b99 {0} ถอดเสียงนี้ไม่ได้ (ข้อผิดพลาด {1}){2}
+30785373 เชื่อมต่อ {0} ไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต{1}
+ad40a6bc หน่วยความจำของโทรศัพท์นี้ไม่พอขณะเตรียมเสียงสำหรับ {0} ลองไฟล์ที่สั้นกว่านี้
+31bc4b92 โทรศัพท์ไม่ได้ให้เหตุผล
+9f2d7d5a ส่งเสียงไปยัง {0} ไม่ได้: {1}
+55d8f8bc {0} วินาที
+24a671e0 {0} นาที
+6c204c8f {0} ชั่วโมง
+f5071960 {0}¢ ต่อชั่วโมงเสียง
+a6a5c3dc น้อยกว่า 0.1¢
+8d52756d 0 นาที
+656cedad วันนี้ยังไม่ได้ส่งอะไร
+75b73b14 (ประมาณ {0})
+675fee00 ส่งแล้ว {0} ชิ้น {2}
+0118d341 วันนี้ยังไม่มีการค้นหา
+e5016995 ค้นหา {0} ครั้ง {2}
+6f49c311 ซาอุดีอาระเบีย
+1c39abf6 อียิปต์
+cf5a0fa0 สหรัฐอาหรับเอมิเรตส์
+32e087f0 โมร็อกโก
+fcf29f6c ญี่ปุ่น
+d2eaf2aa จีน
+094d515b ไต้หวัน
+6754fe3c รัสเซีย
+ad79ef0f อิตาลี
+eb607d09 ฟิลิปปินส์
+d9ab8240 สหรัฐอเมริกา
+5c04a992 สหราชอาณาจักร
+ceafb51e ออสเตรเลีย
+37497aa5 บราซิล
+a2b7c120 ประเทศไทย
+d6663dda ธุรกิจ
+11381a19 ตลก
+aaf87fe5 การศึกษา
+0d23bd8c นิยาย
+5c9cb498 รัฐบาล
+89fc9192 สุขภาพและฟิตเนส
+90ccd649 ประวัติศาสตร์
+cccd8e9f เด็กและครอบครัว
+540c98ab งานอดิเรก
+131260cb ดนตรี
+34c808d0 ข่าว
+f31acc39 ศาสนาและจิตวิญญาณ
+d2d06637 วิทยาศาสตร์
+4a6df903 สังคมและวัฒนธรรม
+2fec45a4 กีฬา
+d9f273ca ทีวีและภาพยนตร์
+d018b082 เทคโนโลยี
+7a3f06d3 อาชญากรรมจริง
+04975199 เลือกภาษาที่จะเรียนก่อน (การตั้งค่า)
+38de31ed เชื่อมต่อชาร์ตพอดแคสต์ของ Apple ไม่ได้ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง
+7eceb7a9 เชื่อมต่อไดเรกทอรีพอดแคสต์ของ Apple ไม่ได้ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง
+6e6a6f20 อื่น ๆ
+796297bd คีย์หมดอายุหรือถูกปิดใช้งาน
+a8676c27 สร้างคีย์ใหม่ในหน้าคีย์ของผู้ให้บริการแล้ววางลงไป
+64587d6e คีย์ขาดไปบางส่วน หรือมีช่องว่างติดมาด้วย
+3d171562 คัดลอกคีย์ทั้งหมดอีกครั้งแล้ววางใหม่
+27522397 คีย์มาจากผู้ให้บริการรายอื่น
+92ca2b98 เลือกผู้ให้บริการที่เว็บไซต์ให้คีย์นี้แก่คุณ

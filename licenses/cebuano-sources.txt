@@ -1,0 +1,21 @@
+Bisaya (Cebuano) word list and dictionary (optional downloads)
+
+1. Bisaya meanings for "No AI", second file (docs/lexicon/ceb-wolff-meanings.json.gz)
+
+   From John U. Wolff, A Dictionary of Cebuano Visayan (Cornell University Southeast Asia Program
+   and the Linguistic Society of the Philippines, 1972), as transcribed for Project Gutenberg
+   (ebook 40074, https://www.gutenberg.org/ebooks/40074) by Jeroen Hellingman, Scott Robertson
+   and the Online Distributed Proofreading Team. Project Gutenberg marks it "Public domain in the
+   USA". Tamkeen keeps each entry's meanings (not its example sentences) and shows the words in
+   today's spelling; tools/build_cebuano_glosses.py says exactly how.
+
+2. Bisaya word list for finding roots, and the 1000 most common Bisaya words
+   (docs/lexicon/ceb-roots.json.gz, web/js/wordlists/ceb.js)
+
+   Counted from the Cebuano monolingual text of the NLLB collection as distributed by OPUS
+   (https://opus.nlpl.eu/NLLB, https://object.pouta.csc.fi/OPUS-NLLB/v1/mono/ceb.txt.gz), released
+   under the Open Data Commons Attribution License (ODC-By 1.0,
+   https://opendatacommons.org/licenses/by/1-0/). Only word counts are kept, never the text.
+
+   J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of LREC 2012.
+   NLLB Team et al., 2022, No Language Left Behind: Scaling Human-Centered Machine Translation.

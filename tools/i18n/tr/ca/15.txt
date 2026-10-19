@@ -1,0 +1,212 @@
+795b8b49 Error de xarxa: {0}: {1}
+d5f6613b El vídeo no és al teu Google Drive.
+399e0f29 No s'ha pogut reproduir en línia des de Google Drive: {0}
+c602022a Aquest vídeo es reprodueix des de YouTube; l'app no en guarda cap còpia del so.
+c2c60ae0 Aquest vídeo encara no s'ha acabat de pujar des de l'altre dispositiu.
+0b0ce373 Aquest episodi encara no té transcripció.
+23eebf4d El format ha de ser txt, srt o vtt.
+d88f9041 No es permet.
+5591ee57 Això no és un enllaç tamkeen://watch?v=….
+1da00bdb Això no és una adreça web.
+7200d5dc No és una imatge d'Instagram.
+812b0382 No s'ha pogut obtenir la imatge.
+f0cbe469 No hi ha imatge.
+a52aaab5 S'ha cancel·lat l'inici de sessió
+ef3fbb3e L'inici de sessió de Google s'ha cancel·lat o s'ha denegat.
+41d8fe44 L'inici de sessió ha fallat
+0f824e05 Sincronitzant com a {0}.
+2f18d2c1 Primer inicia la sessió amb Google.
+c4f7c260 Mida de model desconeguda.
+066f2c8e Llengua desconeguda.
+8b90ee48 No s'ha pogut obrir la carpeta: {0}
+cf2c5c85 No s'ha trobat la còpia de seguretat.
+3a3aadb1 La importació ha fallat: {0}
+6aeffa09 Tipus de lletra Noto Naskh Arabic
+6f289ed9 Llistes de paraules comunes (de wordfreq)
+3ee00536 Mètode de l'analitzador de CAMeL Tools; diccionaris d'àrab (baixada opcional)
+cb9ed3a8 Model de vocals àrabs CATT, d'Abjad AI (baixada opcional)
+2d7a6fa1 Taules de paraules de castellà, francès, italià i anglès (baixada opcional)
+026482d9 CMU Pronouncing Dictionary: pronunciacions dels Estats Units a la taula de paraules de l'anglès
+08a5e4bd Taula de paraules del rus amb accent tònic, d'OpenRussian.org (baixada opcional)
+f88f293f El diccionari IPADIC i kuromoji: paraules japoneses i furigana (baixada opcional)
+a3451771 CC-CEDICT i wordfreq: paraules xineses i pinyin (baixada opcional)
+a385bf96 Viccionari via Wiktextract: significats de paraules per a Sense IA (baixada opcional)
+81e74ccd El prestatge de llibres gratuïts: Projecte Gutenberg, Viquitexts, Aozora Bunko (baixada opcional)
+8db0aa84 Domini públic
+7ba12057 NVIDIA cuBLAS / cuDNN (baixada opcional)
+7d090ad8 No s'ha trobat la llicència.
+7c1e44a9 Aquesta paraula no té àudio.
+faecd643 L'àudio d'aquesta paraula no és en aquest ordinador.
+2ccc65dd Aquest fragment d'àudio és buit o massa gran.
+3e4be3a5 L'àudio d'aquesta paraula no està disponible.
+a901ac03 El format ha de ser csv, anki o apkg.
+7b61342e {0} targetes per repassar avui
+857dc2df El fitxer no conté cap pista d'àudio.
+818903cb No s'ha pogut llegir el fitxer d'àudio: {0}
+23230497 No s'ha pogut descodificar l'àudio: {0}
+7f269f16 El fitxer d'àudio és buit o no s'ha pogut descodificar.
+fe34abe1 No s'ha pogut crear la còpia d'àudio comprimida: {0}
+07431d75 Aquesta part de l'àudio no s'ha pogut llegir.
+1fb3bc7b No s'ha pogut tallar el fragment d'àudio: {0}
+5d9b4909 Les biblioteques d'àudio (FFmpeg via PyAV) no s'han pogut carregar: {0} Torna a instal·lar l'app. Si l'executes des del codi font, executa: pip install av
+f1e6281f Aquest fitxer no és una còpia de seguretat de Tamkeen.
+8e11cc63 La base de dades de la còpia de seguretat està malmesa.
+d1198df0 Llibres per llegir pàgina a pàgina amb paraules clicables.
+d29882bc No s'ha pogut connectar amb el directori de pòdcasts d'Apple ({0}).
+cac34089 El directori de pòdcasts d'Apple ha respost amb un error ({0}).
+91243238 El directori de pòdcasts d'Apple ha enviat una resposta que l'app no ha pogut llegir.
+b8d1317b Els teus totals diaris es guarden aquí entre sessions d'Anki.
+23b6910c El servidor local no s'ha pogut iniciar. Consulta el registre a la carpeta de dades.
+aad067b1 S'ha esgotat el temps en iniciar el servidor local.
+d6d720ba Només ho pot fer una cerca oberta amb «Busca-la en un vídeo».
+a6f9a4d1 No s'han pogut fer servir aquests resultats ({0}).
+6a992b4f Els vídeos només es poden obrir des de youtube.com.
+6848287a No s'ha pogut obrir aquest vídeo ({0}).
+58551d59 Els canals només es poden seguir des de youtube.com.
+dbe38de1 No s'ha pogut saber de quin canal es tracta.
+ab907e3e No s'ha pogut seguir aquest canal ({0}).
+9a10260e Aquesta pàgina no es pot desar.
+47744266 No s'ha pogut desar aquest lloc ({0}).
+97f9e893 Aquesta pàgina no s'ha pogut llegir.
+23fb4202 No s'ha pogut importar aquesta pàgina ({0}).
+3a1427ae Navegador web
+48dbcf04 No s'ha pogut obrir la finestra del navegador ({0}).
+1d82f236 No s'ha pogut obrir la finestra de YouTube ({0}).
+d70a665c La baixada ha fallat: HTTP {0} des de {1}.
+c4aaa62e S'ha cancel·lat la baixada.
+d607cd9a Error de xarxa durant la baixada: {0}: {1}
+c829479b Baixada incompleta ({0} de {1} bytes). Torna-ho a provar per reprendre-la.
+f3ba8566 La suma de comprovació no coincideix: el fitxer baixat està malmès. Torna-ho a provar.
+990411fc Això no sembla un canal RSS de pòdcast
+f5b576f8 No s'ha pogut connectar amb el canal: {0}: {1}
+7141db00 Primer inicia la sessió amb Google (Configuració → Sincronització amb Google Drive).
+819dc7ab No s'ha pogut connectar amb Google Tasks ({0}). Comprova la connexió.
+43d1089a no s'ha fet servir
+80e1cb7a Google Tasks ha rebutjat la tasca ({0}).
+6c8a35f3 Sembla que Onyx no està instal·lat en aquest ordinador.
+215c16a3 No hi ha cap versió {0} de {1} {2} a PyPI.
+ba15ae5b La baixada ha acabat, però falten algunes biblioteques CUDA.
+f376de83 Les baixades d'acceleració per GPU només estan disponibles a Windows i Linux (x86-64).
+3ad92dba GPU NVIDIA
+1f4b65b6 S'ha detectat Apple Silicon. {0} funciona a la GPU del Mac amb MLX.
+09fa7089 S'ha detectat {0}{1}.
+a800bf13 {0} {1} funciona ràpid a la GPU.
+1be9657b {0} Instal·la l'acceleració per GPU (a sota) i {1} funcionarà moltes vegades més de pressa que a la CPU.
+be2def2e No s'ha trobat cap GPU compatible, així que la transcripció es fa a la CPU. {0} equilibra precisió i velocitat.
+6bf5c220 sense memòria
+fbaa5c49 S'ha esgotat la memòria. Prova un model més petit a Configuració.
+dc1a529b El vídeo encara s'està pujant des de l'altre dispositiu. Torna-ho a provar d'aquí a poc.
+2e99c4f9 No s'han pogut baixar els diccionaris ({0}). Comprova la connexió i torna-ho a provar.
+e3ec8c21 No es permeten sol·licituds d'altres orígens.
+4c3a7b2d Error inesperat: {0}
+a6e3c8a8 La suma de comprovació de {0} no coincideix. Torna-ho a provar.
+63eb3e5f Mida de model desconeguda: {0}
+82e7395c Ja s'està baixant el model {0}.
+906cd6be Aquesta adreça no és una pàgina web (sembla un fitxer).
+5f6cc878 No s'ha pogut connectar amb aquest lloc ({0}).
+a764c39c Pàgines web que has importat per llegir-les amb paraules clicables.
+ab650a1a Turc
+1ab65965 Persa
+412e3190 Urdú
+c9e6b253 Hindi
+da91388c Alemany
+23882c57 Portuguès
+dec66c5b Coreà
+2339b8ad Indonesi
+334a85f1 Neerlandès
+08f0c0cf Malai
+4d3bb51e Javanès
+1d6b8a69 Vietnamita
+c1439807 Laosià
+0726b71e una altra llengua ({0})
+28cd3560 Això no sembla un nom d'usuari d'Instagram.
+36473f9c parlat en {0:lower}, no en {1:lower}
+697db47b gairebé no s'hi parla (música o silenci)
+ea4a5ce6 no és en {0:lower}
+03f8025a Reels d'Instagram trobats per a tu. Es reprodueixen des d'Instagram; les paraules les ha escrit el teu ordinador.
+39bc1b6f Aconseguir reels funciona a l'app instal·lada a l'ordinador (necessita la seva pròpia finestra d'Instagram).
+b09c2b91 Ja s'estan aconseguint reels.
+7e4f80e0 Llegir el que has desat funciona a l'app instal·lada a l'ordinador (necessita la seva pròpia finestra d'Instagram).
+c937ec62 Ocupat aconseguint reels. Torna-ho a provar quan acabi.
+a74514e5 S'ha tancat la finestra d'Instagram.
+a502191a Instagram · {0}
+5fedaebb Inicia la sessió a Instagram a la finestra que s'acaba d'obrir. Només cal fer-ho un cop.
+e77c6717 Ningú no ha iniciat la sessió a Instagram, així que {0}.
+8599b104 Sessió iniciada a Facebook. Passant-la a Instagram…
+a5272ae2 Aquest compte de Facebook no té cap compte d'Instagram vinculat. Inicia la sessió a la finestra amb un nom d'usuari i una contrasenya d'Instagram.
+1094228d No s'ha pogut saber quin compte d'Instagram té la sessió iniciada. Torna-ho a provar.
+dd259648 Instagram no ha volgut lliurar el vídeo ({0}).
+2a2f389b sense so
+f6abd17f (es reprodueix amb la sessió d'Instagram iniciada al telèfon)
+005d8b21 Revisant el que has desat a Instagram… col·leccions fins ara: {0}. (Atura conserva les que s'han trobat.)
+5b6e17ab no s'ha pogut llegir el que has desat
+d859b103 Mirant les teves col·leccions desades…
+d8c25947 No s'ha pogut llegir el que has desat ({0}: {1}).
+5207e708 Llegint les teves publicacions desades ({0} de {1})…
+b3cd2701 No s'ha pogut llegir aquesta col·lecció ({0}: {1}).
+e0022c0d no s'ha aconseguit cap reel
+cbf2cd0c Escoltant el reel {0} (conservats {1} de {2})…
+d38405ee {0} reel{2} a l'atzar en {1:lower} a punt ({3} revisats).
+a8aa31cd Aquesta vegada no s'ha pogut conservar cap reel en {0:lower} ({1} revisats). Torna-ho a provar: les paraules de cerca canvien cada vegada.
+dc90c318 Se sincronitzen amb el teu telèfon juntament amb tota la resta.
+44244e4a No s'han pogut aconseguir reels ({0}: {1}).
+dd51e085 Escoltant el reel {0} de {1}…
+251eda10 {0} de {1} a punt per al teu telèfon.
+32ece972 {0} no s'han pogut fer servir (vegeu a sota).
+42e17d02 No s'han pogut aconseguir aquests reels ({0}: {1}).
+37c936a3 Llegint les teves publicacions desades…
+1e756cd5 No s'hi ha trobat cap publicació desada. Primer desa alguns reels a Instagram, o tria una altra col·lecció.
+bec2e4e2 Mirant què és popular en {0:lower} ({1})…
+13bad01a Llegint els reels de @{0}…
+234d7e5e No s'han trobat reels nous. Afegeix creadors, o tria «Populars» o «Una barreja».
+52a16bfd No hi ha res de nou: ja s'han provat tots els vídeos d'aquestes publicacions desades.
+d7b1a9ec Aquesta vegada no s'han trobat reels nous. Torna-ho a provar més tard.
+8f45b7fa {0} reel{1} a punt ({2} revisats). Se sincronitzen amb el teu telèfon juntament amb tota la resta.
+a804202f Tamkeen ja s'ha restablert. Inicia la sessió o acaba les pantalles inicials per recuperar la teva biblioteca.
+81e5939e Encara s'està transcrivint alguna cosa. Espera que acabi, o atura-la, i després restableix.
+b8603b5b No s'ha pogut desar primer la teva biblioteca a Google Drive, així que no s'ha restablert res ({0}).
+d61a7932 Google Drive ha rebutjat l'inici de sessió.
+a669d081 La baixada de Google Drive ha fallat ({0}).
+537a418e La pujada a Google Drive ha fallat ({0}): {1}
+ca818b14 L'inici de sessió de Google no està configurat en aquesta versió.
+a3edee6d Aquest enllaç d'inici de sessió ha caducat o ja s'ha fet servir. Torna-ho a provar des de l'app.
+00ace5cc L'inici de sessió de Google ha fallat: {0}
+dd003c52 Google no ha retornat cap testimoni d'actualització. Treu l'accés de l'app a myaccount.google.com/permissions i torna a iniciar la sessió.
+5ef0ec78 No s'ha concedit l'accés a Drive. Torna a iniciar la sessió i permet que l'app hi guardi les seves dades.
+946a2345 No has iniciat la sessió a Google.
+1009b96e La teva sessió de Google ha caducat. Torna a iniciar la sessió.
+e0d7a3c0 Primer inicia la sessió amb Google a «Sincronització amb Google Drive».
+bd3033ca La teva sessió de Google ha caducat. Tanca la sessió i torna a iniciar-la a «Sincronització amb Google Drive».
+9c8459c0 Google no ha confirmat la teva identitat. Tanca la sessió i torna a iniciar-la a «Sincronització amb Google Drive».
+fed131ce Inicia la sessió amb Google (Configuració) per veure els vídeos guardats a Drive.
+06ac7931 Aquest vídeo està guardat a Google Drive: inicia la sessió amb Google a Configuració per transcriure'l.
+2d689417 No s'ha pogut baixar el model de vocals ({0}). Comprova la connexió i torna-ho a provar.
+da48fac9 El model de vocals no està baixat.
+f61d414a {0} ha rebutjat la clau d'API. El més probable és que hagi caducat, així que segurament en necessites una de nova (Configuració → Transcripció al núvol).
+3666049b {0} no reconeix el model triat. Torna a posar el recomanat a Configuració.
+97c0918a {0} no ha pogut transcriure això (error {1})
+53ab1f8a No s'ha pogut connectar amb {0} ({1}). Comprova la connexió a internet.
+a1ceea0b {0} diu que el teu compte ha arribat al límit de moment (demana esperar uns {1} minuts). Els comptes gratuïts només poden enviar una certa quantitat d'àudio per hora i per dia. Prem «Torna-ho a provar» més tard.
+93cf51f7 {0} no parava de demanar a l'app que anés més a poc a poc.
+a6fc4045 Transcriptor
+c37da7ca Encara no has triat cap model de transcripció. Obre Configuració → Model per baixar-ne un, o activa-hi la transcripció al núvol.
+59c4123b El model {0} encara no s'ha baixat. Obre Configuració → Model per baixar-lo.
+6bc27ac6 No s'ha pogut connectar amb GitHub: {0}
+d6d5bb0f Encara no s'ha publicat cap versió.
+57a18645 GitHub ha retornat HTTP {0}.
+88b0d44f Aquesta còpia de Tamkeen no es pot actualitzar sola. Baixa la versió nova des de GitHub.
+84393929 Ja tens la versió més recent ({0}).
+ae41addd Aquesta versió no té instal·lador per a aquest ordinador.
+b953469f La baixada no coincidia amb el fitxer de la versió. Torna-ho a provar.
+c41c8edb {0}: fitxers que has afegit tu. Es guarden al teu Google Drive.
+6d8e34b4 El fitxer és buit.
+914295b3 Aquest fitxer no té so llegible ({0}).
+94492d5d Aquí només es permeten sol·licituds a youtube.com.
+16ca44eb Sol·licitud no admesa.
+5c5d0d47 No s'ha pogut connectar amb YouTube ({0}). Comprova la connexió.
+470a97a7 Vídeos de YouTube que has afegit. Es reprodueixen des de YouTube; els seus subtítols són la transcripció.
+22377066 {0} no ha respost. Encara té oberta la finestra principal?
+b8100f5b Biblioteca
+6b21fb79 Quant a
+a689b0be Cerca a totes les transcripcions…
+7ff5a6da Seccions

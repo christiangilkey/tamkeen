@@ -16,7 +16,7 @@ from pathlib import Path
 import numpy as np
 
 from .base import Segment, TranscriptionCancelled, Word
-from ..languages import INITIAL_PROMPTS
+from ..languages import INITIAL_PROMPTS, whisper_code
 
 log = logging.getLogger(__name__)
 
@@ -79,7 +79,7 @@ class MlxTranscriber:
             result = mlx_whisper.transcribe(
                 speech,
                 path_or_hf_repo=self.model_path,
-                language=language,
+                language=whisper_code(language),
                 initial_prompt=INITIAL_PROMPTS.get(language),
                 task="transcribe",
                 word_timestamps=True,

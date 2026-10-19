@@ -1,0 +1,200 @@
+ada2e9e9 Mag-sign in
+3a1f994d Popular sa {0} karon
+5b59e6e1 Comedy una. Gitan-aw sa app kung unsa ang maayo og dagan sa Instagram matag higayon, busa mausab kini nga listahan.
+80c15bea Akong mga creator ra
+667e1e2d Ang mga creator ra nga imong gi-tsek sa ubos.
+bc6fef4b Sagol sa duha
+dc9dcf7a Imong mga creator una, dugangan og mga popular.
+75c864af Gikan sa akong mga save sa Instagram
+315194ad Mga reel nga ikaw mismo ang nag-save sa Instagram: usa sa imong mga collection, o tanan nga imong gi-save.
+5e405fb8 Mugbo nga mga Instagram video sa pinulongan nga imong gitun-an, nga ang matag pulong ma-click. Mag-play kini gikan mismo sa Instagram; ang mga pulong ra ang gitipigan.
+17a23503 Imong mga reel
+219d2911 ▶ Tan-awa pag-usab gikan sa sinugdanan
+65ec8d5b ▶ Ipadayon ang pagtan-aw
+f98f3020 Wala pay reel. I-paste ang link sa reel sa ibabaw, o pagdugang og mga reel sa Tamkeen app: moabot kini dinhi human sa sync.
+b2e08e21 Wala pay reel. Pindota ang “Pagkuha og random nga mga reel” sa ibabaw, o pili og usa sa imong mga Instagram collection ug i-tsek ang mga reel nga gusto nimo.
+e2f3a685 Wala pay reel. Makit-an kini sa imong computer: ablihi ang Tamkeen didto, adto sa Library → Reels ug pindota ang “Kuhaa ang 10 ka reel”. Moabot kini dinhi sa sunod nga pag-sync sa duha.
+78706e7f Wala pay reel. Pilia sa ibabaw kung unsang mga reel ang gusto nimo ug pindota ang “Kuhaa ang mga reel”, o pindota ang “Pagkuha og random nga mga reel”.
+36fc5604 · natan-aw na
+76a74c58 · mag-play kung naka-sign in sa Instagram
+9ddd647f Ang bag-ong mga reel pangitaon ug i-transcribe sa Tamkeen sa imong computer, dayon i-sync niini nga phone. Aron makapili og mga reel gikan sa imong mga save sa Instagram dinhi mismo, i-on ang <0>Cloud nga transcript sa Settings</0>.
+14c3f907 Ang pagkuha og mga reel mogana sa na-install nga Tamkeen app sa imong computer (kinahanglan niini ang kaugalingong Instagram window).
+d032a9c7 Unsang mga reel?
+2e78f26e Mga reel gikan sa akong mga save sa Instagram
+52b26d3d {0} sa {1} ang napili
+b93e9b2b Pili una og model sa transcript (Settings → Model): kini ang gamiton sa pagpaminaw sa mga reel.
+e51052d8 Akong mga creator
+d204d5d4 Username sa Instagram, pananglitan: @creator
+2fbcfcfd Popular sa {0} karon (pindota ang + aron i-follow ang usa):
+15dcfe7b 1. Pili og collection
+a6a2fd45 Pila?
+c18657e6 Usa ka kulang
+2fe07a5f Pila ka reel ang kuhaon
+8c87ebbd Usa pa
+b2272a97 Mga reel sa {0} bahin sa tanang klase sa adlaw-adlaw nga topiko, nakit-an pinaagi sa pagpangita sa Instagram gamit ang pipila ka pulong nga gipili og random. Lahi matag higayon.
+9e253470 Hunonga
+9648ea78 Mag-sign in sa Instagram
+1b8fb836 Tangtanga sa akong mga creator
+d70b1d33 Pagdugang dinhi og mga creator nga ganahan nimo, o pindota ang + sa usa ka popular sa ubos.
+29086cd7 Idugang si @{0} sa akong mga creator
+e287a6e3 Gikuha ang mga reel…
+497fe891 Kuhaa ang {0} ka reel
+c3f837df Pagkuha og {0} ka random nga reel sa {1}
+4b5b4888 I-on una ang <0>Cloud nga transcript sa Settings</0>: kini ang mopaminaw sa reel ug mosulat sa mga pulong niini.
+c5c47401 Pagdugang og reel
+4bb4efb6 I-paste ang link sa Instagram reel
+0dfb37d0 Link sa Instagram reel
+0c2f86c7 Sa web, matan-aw nimo ang imong mga reel ug makadugang og mga publiko gikan sa ilang link. Ang pagpili og mga reel gikan sa imong mga save sa Instagram, random nga mga reel, ug mga reel nga naay kanta gikan sa music library sa Instagram nanginahanglan sa Tamkeen app sa imong phone o computer. Ang mga reel nga gidugang didto makita dinhi human sa sync.
+5fec38ec Pili og collection…
+c3b69e66 Pili…
+bfd3da0c Imong mga Instagram collection
+203932c8 ↻ Tan-awa pag-usab
+2149c492 Pangitaa ang akong mga collection
+352c41bd Tan-awa ang imong mga save sa Instagram{0} para sa imong mga collection
+aa91c71a tanan nga imong gi-save
+3c8b4a44 Pili og usa sa imong mga collection gikan sa listahan sa ibabaw.
+7f839429 Pindota ang “Pangitaa ang akong mga collection” aron mapuno ang listahan sa mga ngalan sa imong mga Instagram collection, dayon pili og usa.
+1ab4d204 {0} Basahon kini sa Tamkeen sa Instagram ug ilista ang mga reel niini dinhi, aron imong i-tsek ang gusto nimo.
+33354de6 Kuhaa ang mga reel nga gi-tsek
+71af94b7 Ipadala sa akong phone ang mga reel nga gi-tsek
+4be1d403 2. I-tsek ang mga reel nga gusto nimo
+d2e33965 sa “{0}” ({1})
+64e93d4f {0} ka reel
+13b7bfca Gibuhat…
+630b0a7c Kuhaa ang {0}
+828b49fa Ipadala ang {0} sa akong phone
+4ad6fa58 Naa na sa imong mga reel
+5e0330cb Dili video
+ae455286 Dili magamit: {0}
+22bb6297 Wala pay na-save didto.
+3345dadd Ang video sa matag reel ipadala kausa sa imong cloud transcription provider, nga mosulat sa mga pulong niini; gamay ra kaayo matag reel.
+deca26e7 Ang imong kaugalingong mga save dili gyud laktawan tungod sa ilang pinulongan, busa ang mga reel nga nagsagol og {0} ug Iningles gitipigan usab. Ang reel ibilin ra kung wala gyud kini mga pulong; ang listahan sa ubos mosulti kung hain. Ang ubang mga reel (kasagaran ang naay kanta gikan sa music library sa Instagram) mag-play ra sa mga tawo nga naka-sign in sa Instagram: gitipigan usab kini, ug mag-play sa imong phone kung naka-sign in ka na sa Instagram didto.{1}
+b70ce367 Balik sa listahan
+d659e007 Miaging reel
+e9aa01dc Sunod nga reel
+ca3b15db I-tap ang pulong aron makita ang kahulogan niini.
+27c57ad8 Asa sa reel
+de6afdb5 Balik 5 segundo
+8cfc8cf6 Play / pause
+2c23a430 Abante 5 segundo
+5721bbef Instagram
+8fe4352c Gi-load ang mga pulong…
+6f95e311 Ang mga pulong niini nga reel wala pa niini nga device. I-sync ug sulayi pag-usab.
+2fc1ecf6 Ang mga reel mag-play sa imong phone, sa Tamkeen app.
+881d280e Dinhi mabasa nimo ang mga pulong niini nga reel ug mapangita kini.
+c3b3a0e0 Ablihi kini nga reel sa Instagram ↗
+a7fc9779 Dili na i-play sa Instagram kana nga reel (natangtang, pribado o naay age restriction). Laktawan kini.
+f4f2fa9d Dili i-play sa Instagram ang bisan usa niini nga mga reel karon.
+34d035e1 Dili na i-play sa Instagram kini nga reel: basin natangtang na kini, gihimong pribado o naay age restriction.
+7d146544 I-review ang imong vocab
+7585f238 Progreso sa sesyon
+92197443 Bawia ang kataposang tubag (Z)
+6cb73375 I-undo ang kataposang tubag
+ddcdbf32 Settings sa reviewer
+910308a6 Bag-ong mga pulong matag adlaw
+d12c5186 Isulti ang pulong kung moliko ang card
+1f434d3d <0>Space</0> iliko ang card, dayon nahinumdoman · <1>1</1> o <2>←</2> wala mahinumdomi · <3>2</3> o <4>→</4> nahinumdoman · <5>Z</5> i-undo · <6>W</6> pulong · <7>S</7> sentence · <8>P</8> praktisa ang paglitok · <9>N</9> personal nga mga note · <10>Del</10> tangtanga ang pulong
+4d3ebfca Nahinumdoman
+fcd76105 Usab
+001884b8 {0} ang nahabilin
+b0bc2ae4 Bag-ong pulong
+b7d5d81b Usa pa ka higayon
+e29a79fe Review
+742e0358 Isulti ang pulong sa imong kaugalingon, dayon iliko ang card
+66179621 Ipakita ang pulong <0>Space</0>
+be0bf6d1 Dili mabasa ang clipboard dinhi. Pindota ug kupti sulod sa box ug pilia ang Paste.
+2b382bdb Walay nakopya nga ma-paste.
+af74f7c5 Kopyaha
+13289035 Dili kana makopya dinhi.
+d878e2e3 Paghimo og 5 pa
+4d8637fa {0} ka pulong nga parehas og tingog: kopyaha ang usa ngadto sa Personal nga mga note ug hunahunaa kini uban sa kahulogan.
+7893f7ae Ang Mnemonic maker naggamit sa imong AI key. Pagdugang og usa sa Settings → Kahulogan sa pulong.
+9ae914fa Wala kana mogana. Sulayi pag-usab.
+751a4b16 {0} Pulong
+b142c204 {0} Sentence
+8669aa56 Episode
+47b1023a Gidugang sa kamot
+19cd7d18 Kahulogan
+57e2a7ce Unsay kahulogan niini
+c420e532 Mga note sa grammar
+d956b856 Gamut, grammar, gamit…
+3e8c21da Personal nga mga note
+7a625323 I-paste ang imong nakopya sa Personal nga mga note
+ecef5b19 {0} I-paste
+887fed4a Usa ka mnemonic, hulagway, asa nimo kini nadungog…
+3250d8de {0} · gidugang {1}
+c0ae8f6e Na-save
+e1e86d29 Tangtanga kini nga pulong (Del)
+200b5172 Tangtanga kini nga pulong
+983a1927 {0} Wala mahinumdomi
+9dd3addc mobalik sa makadiyot
+164d054f {0} Nahinumdoman
+292bb5d7 makita kini {0}{1}
+f0d4b821 Wala ma-save kana nga tubag: {0}
+5ebeb223 Tangtangon kini nga pulong?
+0e347caf Matangtang kini sa imong vocab sa tanan nimong mga device, uban sa progreso sa review niini.
+d9f36924 Ipabilin
+a6e51c31 Ang card niini sa imong {0} nga deck sa {1} matangtang usab sa sunod nga sync, <0>uban sa kasaysayan sa review sa maong card sa {2}. Dili na kana mabawi.</0>
+54b886ee Sukad karon, ang pagtangtang og pulong motangtang na sa card niini nga dili na mangutana bahin niini.
+720f5ef8 Wala matangtang ang pulong: {0}
+ed068c06 {0} nga sunod-sunod!
+0126ed40 Nahuman na ang mga card karon! +{0} sanag
+be9065f3 Nahuman na ang mga card karon!
+2c13c6b7 Sangka ug mga card, parehong nahuman karon: +{0} XP, +{1} ka coin
+bd57d978 Jackpot nga card!
+5e816849 Swerte nga card!
+85b57d0f {0}+{1} XP
+c037d3c7 Ugma
+91e3dd9f tsansa nga mahinumdoman ang natun-an nga pulong
+4efea6e1 Nahuman ang sesyon
+47cbaf0c Nahuman na ang tanan
+7890ad9f {0} ka card sulod sa mga {2} ka minuto{4}.
+c9ead0bf Walay takdang i-review, ug nahuman na ang bag-ong mga pulong karon.
+96e9c05a Walay takdang i-review karon. Nagpahulay ang imong mga pulong.
+581d31c2 I-save ang pipila ka pulong nga naay kahulogan ug mogawas kini dinhi.
+d7d2a049 nahibaloan sulod sa 3 ka semana +
+85df11fd mga pulong nga gi-review
+7ec16612 Pagtuon og {0} pa ka bag-ong pulong
+dce4bd3c Mobalik kanimo
+b54a6754 Ang pagpangita dili motagad sa dagkong letra.
+e8082793 Pangitaa sa tanang transcript… {0}
+62ce0e88 Pangitaa sa tanang transcript
+79bd4f18 {0} Ang mga transcript kanunay ipakita eksakto sama sa pagka-transcribe.
+a568e936 Pangitaa sa matag transcript, video ug web page nga imong gidugang.
+95a44659 Walay tugma para sa “{0}”.
+54f3e4b2 (gipakita ang {0})
+679fb77f {0} ka tugma{2}
+5eb73faa mlx-whisper sa Apple GPU (Metal)
+8538d459 faster-whisper sa NVIDIA GPU (CUDA, float16)
+de8877df faster-whisper sa CPU (int8)
+88519b93 ({0} GB)
+9433c5fb GPU acceleration
+fd17e405 Pinulongan nga akong gisulti
+0d6a65aa Ang mga button ug mensahe sa app ipakita niini nga pinulongan, ug ang mga pulong ipatin-aw niini.
+1d1fdf5f Pinulongan nga akong gitun-an
+a553ac64 Gamiton para sa bag-ong mga transcript, gi-import nga mga web page ug pagpatin-aw sa mga pulong. Ang mga na-transcribe na magpabilin sa pinulongan nga gigamit sa paghimo niini.
+099be6af Model sa transcript
+c1f65ddb Engine
+b76ab659 Hardware
+d067f1cc {0} · {1} ka thread · {2} GB RAM{3}
+17c698af {0} Ang pag-usab sa model makaapekto ra sa bag-ong mga transcript; i-transcribe pag-usab ang episode gikan sa library aron magamit kini didto.
+2162db4e I-sync sa Google Drive
+3721a5dd Ipadayon nga parehas ang imong mga podcast, transcript ug vocab tali niini nga computer, ubang mga computer ug sa Android app. Ang tanan gitipigan sa pribado nga folder sa app sa <0>imong kaugalingong</0> Google Drive nga kini ra nga app ang makakita. Ang sync dili gyud moagi sa bisan unsang laing server.
+0ca0b563 Anki (opsyonal)
+3c270194 Ang Anki add-on
+22fffbc8 Kung nagtuon ka gamit ang Anki niini nga computer, usa ka gamay nga add-on ang mokonektar niini sa Tamkeen. Isulti niini sa Tamkeen kung unsa ang dagan sa imong mga review, aron maihap kini para sa imong linalang: ang paghuman sa tanan nga takdang i-review mao ang tumong sa adlaw (bisan pila pa ang card), ug ang mga card nga mahamtong makakuha og bonus. Para niana, mga numero ra ang ipadala. Kung naka-on ang switch sa ibabaw, ipadayon usab niini nga parehas ang maong deck ug ang imong gi-save nga mga pulong. Ang tanan magpabilin niini nga computer. Kung imong gi-install ang add-on sa wala pa ang sync, i-download ug i-install kini pag-usab.
+177dd240 Pindota ang button sa ubos ug i-save ang file.
+e78fa755 I-double-click ang na-save nga file. Maablihan ang Anki ug mangutana kung i-install kini; ingna og oo, dayon i-restart ang Anki.
+047825e8 Pag-review sama sa naandan samtang abli ang Tamkeen. Sa Anki, ang <0>Tools → Tamkeen companion…</0> mopakita kung konektado ba kini, ug ang <1>Tools → Sync Tamkeen now</1> mo-sync dayon sa deck.
+9cf66eeb I-download ang Anki add-on
+fb0c95bf Tipiganan sa audio
+746fcf10 Tangtanga ang na-download nga audio human sa transcript<0/><1>Makadaginot sa espasyo sa disk. Ang player mag-stream na sa audio gikan sa server sa podcast.</1>
+ddb48157 Kanunay mag-stream gikan sa orihinal nga URL<0/><1>Ang audio i-download ra sa makadiyot para sa transcript ug dili gyud tipigan. Ang pag-play nanginahanglan og koneksyon sa internet.</1>
+41def7a0 Hitsura
+0485a026 Tema:
+bc0792d8 System
+a36ef8ab Hayag
+ae1ef014 Ngitngit
+1970d1e8 Gidak-on sa teksto sa podcast ug video: <0/> <1>{0}px</1>
+ce52a4a4 Gidak-on sa teksto sa web page: <0/> <1>{0}px</1>
+48cd18da Imong data

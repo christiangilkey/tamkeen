@@ -5,7 +5,7 @@ import { api, appleJson, esc, h, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { t, uiLanguage } from "../i18n.js";
 import { langInfo, studyLanguage } from "../languages.js";
-import { COUNTRY_NAMES, STOREFRONTS, feedKey, fetchTrending, groupByCategory } from "../trending.js";
+import { COUNTRY_NAMES, STOREFRONTS, feedKey, fetchTrending, groupByCategory, hasPicks } from "../trending.js";
 
 const PREVIEW = 6; // podcasts shown per category until one category is chosen
 const KEEP_MS = 60 * 60 * 1000; // the charts change about once a day: don't ask again within the hour
@@ -16,7 +16,7 @@ function countryList(lang) {
   const names = (STOREFRONTS[lang] || []).map((c) => (COUNTRY_NAMES[c] ? t(COUNTRY_NAMES[c]) : c.toUpperCase()));
   if (names.length < 2) return names[0] || "";
   // joined the way the language the app is shown in does it ("A, B y C", "A、B和C")
-  const ui = { en: "en-GB", tl: "fil" }[uiLanguage()] || uiLanguage();
+  const ui = { en: "en-GB", tl: "fil", pt: "pt-BR" }[uiLanguage()] || uiLanguage();
   try { return new Intl.ListFormat(ui, { type: "conjunction" }).format(names); }
   catch { return `${names.slice(0, -1).join(", ")} and ${names.at(-1)}`; }
 }
@@ -30,13 +30,15 @@ export async function render(view, { query }) {
         <a class="btn ghost" href="#/library" title="Back to the library">←</a>
         <div class="meta">
           <h1>${icon("trending", 26)} Trending in ${esc(name)}</h1>
-          <div class="small muted">The most listened-to podcasts right now in ${esc(countryList(lang))}. Press <strong>+ Add</strong> to put one in your library.</div>
+          <div class="small muted">${hasPicks(lang)
+            ? `No podcast in ${esc(name)} is in the charts, so these are the most-rated ones on Spotify and Apple Podcasts.`
+            : `The most listened-to podcasts right now in ${esc(countryList(lang))}.`} Press <strong>+ Add</strong> to put one in your library.</div>
         </div>
         <button type="button" class="ghost" id="disc-refresh" title="Load the list again">⟳ Refresh</button>
       </div>
       <div class="tabs disc-cats" id="disc-cats"></div>
       <div id="disc-body"><div class="empty"><span class="spinner"></span> Loading trending podcasts…</div></div>
-      <p class="small muted disc-credit">Charts from <strong>Apple Podcasts</strong>.</p>
+      <p class="small muted disc-credit">${hasPicks(lang) ? "Ratings from <strong>Spotify</strong> and <strong>Apple Podcasts</strong>." : "Charts from <strong>Apple Podcasts</strong>."}</p>
     </div>`));
   const $ = (sel) => view.querySelector(sel);
   const body = $("#disc-body");

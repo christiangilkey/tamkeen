@@ -1,0 +1,200 @@
+09dd50fd Wala mailhi nga libro.
+fca43b82 Walay mabasa nga teksto nga nakit-an niana nga libro.
+fba1a5a5 Akong mga libro
+a2a96aa1 Mogawas ang mga episode human i-sync sa imong computer kini nga feed.
+37b12633 Ang server sa feed mibalik og HTTP {0}.
+3155edfa Gipadala-padala sa feed ang app sa laing lugar.
+48b36ff0 Wala ma-download ang transcript: {0}
+d6be1437 I-paste ang URL sa RSS feed.
+91ad3544 Naka-subscribe na ka niini nga feed.
+690e2ff2 Wala makit-i ang feed.
+39eb0435 Tangtanga ang mga butang niini usa-usa; kining built-in nga listahan dili matangtang.
+bf2ba910 Mag-sign in gamit ang Google (Settings) aron makuha ang imong library gikan sa imong computer.
+8b5a0e5e I-transcribe kini sa imong computer sa sunod nga pag-sync niini.
+c7d6726a Wala makit-i ang episode.
+e198d09b Kana nga kausaban dili mohaom sa transcript.
+69511d5f Nausab ang transcript sukad gipangita ang pulong. I-tap kini pag-usab.
+1bd35f3f Daw dili kana reel.
+a78d3b8f Walay gisulti niini nga reel.
+1d6b4183 Kana nga video wala pa sa library.
+96d03b0f Walay i-save.
+294611a1 Hatagi og ngalan ang folder.
+08f351d2 Wala makit-i ang folder.
+f1124044 Wala makit-i.
+4fdd6fdd Walay sentence nga i-save.
+95b85b31 Dili kana tubag.
+6d483033 Kana nga diksyonaryo wala pa ma-download.
+84c8cb59 Dili magamit sa phone: {0} {1}
+78539b41 Dili maabot ang Google. Susiha ang imong koneksyon.
+661015cd {0} openid email
+b7592d30 Gisirado ang Google window sa wala pa maka-sign in.
+66ec6394 Kinahanglan sa Tamkeen ang pribado nga Drive folder niini aron matipigan ang imong library. Mag-sign in pag-usab ug ipabilin nga naka-tsek kana nga box.
+76c6ab28 Kinahanglan i-renew ang imong koneksyon sa Google: i-tap ang I-connect pag-usab.
+1492a513 Ang Google sign-in mogana sa na-install nga app.
+59af74d7 Wala naka-sign in.
+6e07f63f Kinahanglan i-renew ang imong Google sign-in. Ablihi ang Settings ug mag-sign in pag-usab.
+b7ac2dcb Sayop sa Google Drive {0}: {1}
+402eaf0a Wala sugdi sa Google Drive ang pag-upload.
+977db692 Napakyas ang pag-upload sa Google Drive ({0}).
+5cf59ec6 Naputol ang pag-upload. Susiha ang imong koneksyon ug sulayi pag-usab.
+2a66b8ea Mag-sign in una gamit ang Google (Settings → Google account).
+5c2a23a4 Wala tugoti ang Google Tasks, busa wala madugang ang task.
+f8575a96 Gisirado ang window sa Google sa wala pa matugoti ang Google Tasks.
+5e475346 Ang pagpadala sa Google Tasks mogana sa Android, sa computer ug sa web app. Pilia ang Onyx sa Settings, o gamita ang usa niana.
+25d9c3cc Kinahanglan og adlaw ang task.
+bbdefd6e Review sa Tamkeen
+3d81cff6 Dili maabot ang Google Tasks. Susiha ang imong koneksyon.
+8548a469 Ang Google Tasks wala pa ma-on para sa Google project sa Tamkeen.
+a846f437 Mitubag ang Google Tasks og sayop ({0}).
+214ae7a1 Dili kana Onyx link.
+979354ab dili collection
+4742fc3e Wala ma-download ang mga diksyonaryo. Susiha ang imong koneksyon ug sulayi pag-usab.
+16f085e3 Ang diksyonaryo sa {0} wala pa mapatik.
+a09450db Usa ka diksyonaryo ang guba pag-abot. Sulayi pag-usab.
+16b02880 Tamkeen sa web
+14f62c3c Mogana kini sama sa app, gawas sa pipila ka butang nga nanginahanglan sa Tamkeen app sa imong phone o computer: mga reel gikan sa imong mga save sa Instagram ug random nga mga reel, mga reel nga naay kanta gikan sa music library sa Instagram, ang built-in nga web browser (I-import ang Page ug Pangitaa sa video), AnkiDroid sync, ug ang numero sa icon sa app. Ang imong idugang sa app makita dinhi human sa sync.
+f3534216 Kuhaa ang app
+5c90bb93 AnkiDroid (opsyonal)
+91e5fbb9 sa web
+99e0c004 para sa iPhone
+0c3c76a9 para sa Android
+e90c933b Gamiton para sa mga web page nga imong i-import dinhi, para sa pagpatin-aw sa mga pulong ug para sa bisan unsa nga gi-transcribe gikan niini nga phone. I-set ang parehas sa imong computer. Ang mga na-transcribe na magpabilin sa pinulongan nga gigamit sa paghimo niini.
+2b7da079 Ang imong mga podcast, transcript ug vocab gipaambit sa imong computer pinaagi sa pribado nga folder sa app sa imong kaugalingong Google Drive. Gawas kung gipili ang cloud provider sa ibabaw, ang transcript himoon sa imong computer: i-tap ang "I-transcribe" dinhi ug buhaton kini niini sa sunod nga sync.
+10899135 Mo-vibrate og hinay kung mo-tap ko og pulong o mo-save og usa
+b0cc938b Teksto sa podcast ug video: <0/> <1>{0}px</1>
+283086ed Teksto sa web page: <0/> <1>{0}px</1>
+a74ff4ca Tamkeen {0} · <0>Privacy policy</0>
+485bef4c Ang pag-sign in mogana sa na-install nga app.
+ecc1d2f5 Naka-sign in isip {0}
+3addceb3 Napakyas ang sync: {0}
+33b60a49 Mag-sign out sa Google? Magpabilin ang imong library niini nga phone; mohunong ra kini sa pag-sync.
+ba28f9f2 Naa nay bersyon {0}: i-tap ang I-update karon sa box nga bag-o lang naablihan.
+79f78eb5 sa imong browser
+c2e8b4c9 sa imong phone
+7ff90624 Preview mode: ang pag-sign in mogana sa na-install nga app.
+b71b7dd2 Imong mga podcast, transcript ug vocab, {0}.
+d0ddef8f <0>I-transcribe sa imong computer.</0> Ang desktop app ang mohimo sa mga transcript pulong por pulong.
+f0adf6f0 <0>Mag-sign in gamit ang samang Google account</0> dinhi ug sa imong computer. Ang tanan mo-sync pinaagi sa pribado nga folder sa app sa imong kaugalingong Google Drive.
+a6b63644 <0>I-tap ang bisan unsang pulong</0> aron madungog kini ug makita ang kahulogan niini sa konteksto. Pindota og dugay para sa dugang nga mga opsyon.
+eb2732b0 Naka-sign in isip {0}. Gidala ang imong library…
+84ab641a dili maipakita gawas sa Instagram
+8fcc7be3 Mihunong.
+48a80f34 milapas og {0} ka minuto
+d6993df4 {0} ang gidugang, {1} ang gilaktawan
+61151245 Wala maablihi ang Instagram. Susiha ang imong koneksyon ug sulayi pag-usab.
+d5ee628a Wala motubag ang Instagram sa husto nga oras.
+54e60766 Dili ipakita sa Instagram kini nga reel sa publiko.
+1edda8bd Kinahanglan niana ang Tamkeen app (basahon niini ang Instagram samtang naka-sign in ka didto).
+c6ff8ff1 Busy na sa Instagram. Sulayi pag-usab kung nahuman na kana.
+ff8747f0 I-on una ang cloud nga transcript sa Settings: kini ang motugot niini nga phone nga makapaminaw sa mga reel.
+2798b2f0 Giablihan ang Instagram…
+352cdb34 Mag-sign in una sa Instagram: pindota ang “Mag-sign in sa Instagram” ug mag-sign in didto. Kana nga window mosira sa kaugalingon ug magpadayon ang Tamkeen.
+752ead87 {0} ka collection
+3d4f9a7c Mihunong. {0} ang nakit-an hangtod karon.
+f351926a Gitan-aw ang imong mga save sa Instagram… {0} na hangtod karon. (Ang Hunonga motipig sa mga nakit-an na.)
+42c1b8ad Gipangita ang imong mga collection sa imong mga save sa Instagram…
+902f4134 {0} ka gi-save nga collection ang nakit-an. Pili og usa gikan sa listahan.
+7271c886 Walay collection nga nakit-an sa imong mga save sa Instagram. Mapili gihapon nimo ang “Tanan nga akong gi-save”.
+a904dcc2 Kana nga collection wala sa listahan. Pindota pag-usab ang “Pangitaa ang akong mga collection”.
+96d3280d Gibasa kana nga collection sa Instagram…
+c2182d2c Gikuha ang mga hulagway…
+5c716b95 {0} ka gi-save nga post ang nakit-an. I-tsek ang gusto nimo.
+c4dbbbdc dili mabasa
+4c93a121 dili video
+360993c3 dugay kaayo ang pag-download sa video
+856eba9f wala ma-download ang video{0}
+923accb8 walay sulod ang video nga mibalik gikan sa Instagram
+f1d247f4 dako ra kaayo aron ipadala gikan sa phone
+b5adf68f walay gisulti niini
+3bb1a5b6 sa {0}, dili sa {1}
+8a1414e3 halos walay sinultihan niini
+ed162d4b , sa {0}
+c14398dc (mag-play kung naka-sign in sa Instagram)
+26dda5ef {0} ka pulong{1}{2}
+d7ddc937 I-tsek una ang mga reel nga gusto nimo.
+3727f60b Reel {0} sa {1} nga imong gi-tsek: gipaminawan… ({2} na hangtod karon)
+f239c335 Ang listahan sa ubos mosulti kung nganong gilaktawan ang matag usa.
+72ef9385 Ang random nga mga reel wala pa ma-set up para niini nga pinulongan.
+4c93d4b8 Mihunong. {0}.
+0b85ce49 Gipangita ang {0} ka reel ({1})…
+403ebed9 Gikuha ang {0} ka reel sa {1}: {2} na hangtod karon; gipaminawan ang sunod…
+3d0a21ac {0}: {1} ka random nga reel sa {2} ang andam na tan-awon.
+ceda21f2 {0}: walay reel sa {1} nga natipigan karon. Sulayi pag-usab: mausab ang mga pulong sa pagpangita matag higayon.
+72012544 Kana nga collection wala sa listahan.
+7f8b10c7 Na-reset na ang Tamkeen. Mag-sign in o humana ang unang mga screen aron mobalik ang imong library.
+020ed627 Dili luwas nga maigahin ang imong library, busa walay gi-reset.
+18cf0eb4 Daw dili kini RSS feed sa podcast.
+ea3bb7b5 Podcast nga walay titulo
+4d02a4af Episode nga walay titulo
+70440046 Mga note
+a40a4e6b Sugod (s)
+731a0d43 Katapusan (s)
+83423c19 Note:
+5969dbe4 Daghan ra kaayo nga table para sa usa ka page.
+0225752e Maayong buntag kaninyong tanan. Karon, atong hisgotan ang atong kinabuhi diri sa Sugbo ug sa Mindanao.
+02650201 Dili mabasa ang audio.
+cfb37b58 Ang address sa audio nagpadala-padala sa app sa laing lugar.
+3fa8487e Gibalibaran ang pag-download (sayop {0}).
+606d8615 Ang {0} mibalik og butang nga dili transcript.
+5a4f2a6b Ang {0} nangayo nga maghulat og {1}…
+253b5798 Naay problema ang {0} (sayop {1}). Sulayi pag-usab sa makadiyot.
+cb8c9ee7 Wala motubag ang {0}.
+dc8e1cb0 Wala mailhi nga provider.
+d9f8661c I-paste una ang API key.
+55059cb2 Wala ma-download ang audio (mitubag ang server og {0}).
+d80623c2 Mihunong ang pag-download sa tunga (mitubag ang server og {0}).
+d580b524 Kini nga audio dili mabasa isip MP3.
+b37be079 Ang audio niini nga episode dili MP3 ug {0}: labaw sa madawat sa {1} sa usa ka piraso (25 MB). I-transcribe kini sa imong computer, o gamita ang Groq isip provider.
+802c66c5 Ang audio niini nga episode dili MP3 ug dako ra kaayo aron ipadala sa usa ka piraso. I-transcribe kini sa imong computer.
+b9a6cf4a Wala na ang file sa imong Google Drive.
+673f3233 Gipalong ang cloud nga transcript. I-on kini sa Settings.
+aad63d75 Dako ra kaayo kana nga file aron ipadala gikan sa phone, busa ang imong computer ang mo-transcribe niini.
+a11dbc0f (display-mode: standalone)
+e165040b sa ibabaw sa screen
+55ccdc03 sa ubos sa screen
+41a15e18 I-tap ang <0>Share</0> nga button {0} {1}.
+cbc7ba0a I-scroll paubos ang listahan ug i-tap ang <0>Add to Home Screen</0>.
+bf13c2df I-tap ang <0>Add</0> (sa tuo nga ibabaw). Naa na ang Tamkeen sa imong home screen.
+96914e14 (sa tuo nga ibabaw)
+b32ca313 I-tap ang <0>Share</0> nga button {0} sa address bar{1}.
+87deb031 I-tap ang <0>Add to Home Screen</0> (i-scroll paubos kung dili nimo kini makita).
+785f548a I-tap ang <0>Add</0>. Kung wala kini didto, ablihi kini nga page sa Safari ug idugang kini gikan didto.
+ae260712 I-tap ang menu <0>≡</0> sa tuo nga ubos.
+1b5b232c I-tap ang <0>Add page to</0>, dayon ang <1>Home screen</1>.
+ca117803 I-tap ang <0>Add</0>.
+2b256040 I-tap ang menu
+bb5798ce I-tap ang <0>Install</0> (o <1>Add to Home screen</1>).
+2f614469 I-tap ang menu <0>⋮</0> sa tuo nga ibabaw.
+022e6668 I-tap ang <0>Add to Home screen</0> (basin <1>Install app</1> ang nakasulat).
+1034fc99 I-tap ang <0>Install</0> o <1>Add</1>. Maablihan na ang Tamkeen sama sa app, nga walay browser sa palibot niini.
+887b182d O ablihi ang menu <0>⋮</0>, dayon <1>Cast, save and share</1> → <2>Install page as app</2>.
+b85d0d03 I-click ang <0>Install</0>.
+06d74687 Ablihi ang menu <0>…</0>, dayon <1>Apps</1> → <2>Install this site as an app</2>.
+8829f1b7 Sa Mac, sa menu bar pilia ang <0>File</0> → <1>Add to Dock</1>.
+7487434a I-click ang <0>Add</0>.
+95b40a2a Android phone
+d992aac8 I-install ang Tamkeen
+1a96de2a Idugang ang Tamkeen sa imong home screen
+8607e4ba I-install karon
+26e74130 Maablihan na ang Tamkeen gikan sa kaugalingong icon niini, full screen, sama sa app. Niini nga {0}:
+def8615b Dili maabot ang Instagram. Susiha ang imong koneksyon.
+fcb5223a Mitubag ang Instagram og sayop ({0}). Sulayi pag-usab human sa usa ka minuto.
+797a2936 Mas sayon ·
+4c449da1 Ablihi ang usa ka site (maablihan kini sa bag-ong tab), pangitaa ang artikulo, kopyaha ang address niini, dayon balik dinhi ug i-paste kini.
+db59af69 I-paste ang address sa artikulo
+cbc27e21 Address sa artikulo
+db248300 I-paste
+263fcf38 Wala motugot ang imong browser sa pag-paste gikan dinhi. Pindota og dugay ang box ug pilia ang Paste.
+d3478410 Wala ma-import kana nga page.
+effc9a4e Mitubag ang YouTube og sayop ({0}). Sulayi pag-usab human sa usa ka minuto.
+ecc87af7 Dili mabasa ang page sa YouTube. Sulayi pag-usab human sa usa ka minuto.
+6f77246b Mga video niini nga channel.
+82f79ac4 Popular karong semanaha.
+e17e232a Pangita sa YouTube
+bd7d0814 {0} I-tap ang video aron tan-awon kini nga ang mga caption niini mahimong mga pulong nga ma-tap. Kinahanglan kini og caption.
+7724494e Gi-load ang mga video…
+f64fc328 Walay video nga nakit-an.
+0ab8077d Sayop ang companion token. I-download pag-usab ang add-on gikan sa settings sa Tamkeen.
+42ea3675 Daghan ra kaayo nga adlaw sa usa ka report.
+36edb03f Walay ingon ana nga file.
+f1e86935 Ang suportado ra nga mga AI provider ang matawag.

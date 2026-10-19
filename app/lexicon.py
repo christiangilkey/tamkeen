@@ -30,16 +30,18 @@ BASE_URL = "https://christiangilkey.github.io/tamkeen/lexicon/"
 # has one with stress marks too (tools/build_russian.py). Japanese and Chinese have a dictionary that
 # also splits their text into words (tools/build_cjk.py; the Japanese one is binary).
 LANGUAGES = {"ar": ("msa", "egy", "lev", "glf"), "es": ("es",), "fr": ("fr",), "it": ("it",), "ru": ("ru",), "en": ("en",), "tl": ("tl",),
-             "ja": ("ja",), "zh": ("zh",)}
+             "ja": ("ja",), "zh": ("zh",), "pt": ("pt",), "ca": ("ca",), "ceb": ("ceb",), "th": ()}
 FILES = {"msa": "ar-msa.json.gz", "egy": "ar-egy.json.gz", "lev": "ar-lev.json.gz", "glf": "ar-glf.json.gz",
          "es": "es-lemmas.json.gz", "fr": "fr-lemmas.json.gz", "it": "it-lemmas.json.gz", "ru": "ru-lemmas.json.gz",
-         "en": "en-lemmas.json.gz", "tl": "tl-roots.json.gz", "ja": "ja-ipadic.bin.gz", "zh": "zh-cedict.json.gz"}
+         "en": "en-lemmas.json.gz", "tl": "tl-roots.json.gz", "ja": "ja-ipadic.bin.gz", "zh": "zh-cedict.json.gz",
+         "pt": "pt-lemmas.json.gz", "ca": "ca-lemmas.json.gz", "ceb": "ceb-roots.json.gz"}
 # Word meanings for "No AI" in Settings (tools/build_meanings.py, from Wiktionary): one file a language,
 # downloaded only when that is chosen. `kind="meanings"` below.
-# Arabic has a second file, asked when Wiktionary lacks a word: the CAMeL databases' glosses
-# (tools/build_arabic_glosses.py).
-MEANINGS = {lang: (f"mean-{lang}",) for lang in LANGUAGES} | {"ar": ("mean-ar", "mean-arc")}
-FILES.update({f"mean-{lang}": f"{lang}-meanings.json.gz" for lang in LANGUAGES} | {"mean-arc": "ar-camel-meanings.json.gz"})
+# Arabic and Bisaya have a second file, asked when Wiktionary lacks a word: the CAMeL databases' glosses
+# (tools/build_arabic_glosses.py), and John Wolff's Dictionary of Cebuano Visayan (tools/build_cebuano_glosses.py).
+MEANINGS = {lang: (f"mean-{lang}",) for lang in LANGUAGES} | {"ar": ("mean-ar", "mean-arc"), "ceb": ("mean-ceb", "mean-cebw")}
+FILES.update({f"mean-{lang}": f"{lang}-meanings.json.gz" for lang in LANGUAGES}
+             | {"mean-arc": "ar-camel-meanings.json.gz", "mean-cebw": "ceb-wolff-meanings.json.gz"})
 KINDS = {"words": LANGUAGES, "meanings": MEANINGS}
 
 _lock = threading.Lock()

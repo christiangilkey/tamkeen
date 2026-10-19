@@ -1,0 +1,200 @@
+eb32d375 คลัง บทถอดเสียง คำศัพท์ โมเดล และการตั้งค่าของคุณเก็บไว้ใน:
+b26720e4 เปิดโฟลเดอร์ข้อมูล
+146d9a4b ส่งออกข้อมูลของฉัน
+65cf972d รวมไฟล์เสียงที่ดาวน์โหลดไว้
+aa4fb3d2 นำเข้าข้อมูล…
+2916184c แทนที่คลังปัจจุบันของคุณด้วยข้อมูลสำรอง (.zip)
+c76d1807 อัปเดต
+d4bbbea7 บิลด์นี้ใช้การซิงค์ไม่ได้ (ไม่ได้ตั้งค่าการลงชื่อเข้าใช้ Google)
+f0dd6b0d เปิดเว็บเบราว์เซอร์เพื่อลงชื่อเข้าใช้
+64b8b874 กำลังรอ Google…
+07030d82 บัญชี Google
+4541689d การซิงค์ครั้งล่าสุดล้มเหลว: {0}
+0a5d4651 ซิงค์ล่าสุด {0}
+be8f16b4 · อัปโหลดบทถอดเสียง {0} รายการ ดาวน์โหลด {1} อัปโหลดเสียง {2}
+1b6c524f ลงชื่อเข้าใช้แล้ว
+dc1649a1 ออกจากระบบ
+cc4c05b0 อัปโหลดสำเนาเสียงแบบบีบอัด (ประมาณ 12 MB ต่อชั่วโมง)<0/><1>ทำให้โทรศัพท์และคอมพิวเตอร์เครื่องอื่นเล่นเสียงเดียวกับที่ถอดเสียงไว้ทุกประการ ไฮไลต์จึงตรงกันเสมอ แม้ในพอดแคสต์ที่แทรกโฆษณาต่างกันในการดาวน์โหลดแต่ละครั้ง ใช้พื้นที่ Google Drive ของคุณ</1>
+777e4004 ออกจากระบบ Google ใช่ไหม คลังของคุณยังอยู่ในคอมพิวเตอร์เครื่องนี้ แค่หยุดซิงค์
+d578af85 ตอนนี้กำลังเรียนภาษา{0:lower}
+b868b1b6 ไม่ได้ใช้ในขณะนี้: {0} เป็นผู้เขียนบทถอดเสียง (การถอดเสียงบนคลาวด์ ด้านบน) ไม่ต้องดาวน์โหลดอะไรที่นี่
+4d889f27 ยังไม่มีรายงาน
+f29bbb6a ได้รับข้อมูลจาก Anki ล่าสุด {0}
+696d2cc7 · วันนี้: ทบทวน {0} เจนจัด {1} ยังครบกำหนดอยู่ {2}
+9293dd01 ข้อมูลสำรองพร้อมแล้ว ({0})
+3b151b74 นำเข้า “{0}” ใช่ไหม การนำเข้านี้จะแทนที่คลัง บทถอดเสียง และคำศัพท์ปัจจุบันของคุณด้วยเนื้อหาในข้อมูลสำรอง
+deaefe6d กู้คืนไฟล์เสียง {0} ไฟล์แล้ว
+7427e5f6 นำเข้าแล้ว {0}
+b901ec82 คุณใช้เวอร์ชันล่าสุดแล้ว ({0})
+d7854118 ทุกเวลา
+24345a14 วันนี้
+df833fe8 7 วันที่ผ่านมา
+6b329852 30 วันที่ผ่านมา
+0245d916 12 เดือนที่ผ่านมา
+9efe99b9 ระหว่างวันที่…
+ed434d6b ติ๊ก <0>Import any learning progress</0> เพื่อเก็บสถานะของแต่ละคำจากการทบทวนใน Tamkeen ไว้ หากไม่ติ๊ก บัตรทุกใบจะเริ่มเป็นบัตรใหม่
+574c12ec คุณต้องติดตั้งแอป Anki บนคอมพิวเตอร์เครื่องนี้
+be71b755 ใน Anki คลิก <0>Import File</0> แล้วเลือกไฟล์นั้น
+e445c6a9 ตรวจสอบให้แน่ใจว่าเด็คของคุณจัดรูปแบบตามที่ต้องการให้บัตรแสดงใน Anki
+0a23b23f คุณต้องติดตั้งแอป AnkiMobile บน iPhone เครื่องนี้
+9d03110d เลือก <0>AnkiMobile</0> ในแถวของแอป หากไม่มี ให้แตะ <1>เพิ่มเติม</1>
+0bbf1f69 ใน AnkiMobile ตรวจสอบให้แน่ใจว่าเด็คของคุณจัดรูปแบบตามที่ต้องการให้บัตรแสดง
+59e916d5 คุณต้องติดตั้งแอป AnkiDroid บนโทรศัพท์เครื่องนี้
+e3b8af2a เลือกไอคอน <0>Anki</0> ในแถวด้านล่าง หากไม่มี ให้แตะ <1>เพิ่มเติม</1>
+0ea5d1ae แตะป๊อปอัปที่มีป้าย <0>AnkiDroid</0>
+5eeb9580 ใน AnkiDroid ตรวจสอบให้แน่ใจว่าเด็คของคุณจัดรูปแบบตามที่ต้องการให้บัตรแสดง
+097027a5 การส่งคำของคุณไปยัง Anki
+7c7da884 เข้าใจแล้ว ส่งออก
+12b2bdbf ในบทถอดเสียงใดก็ได้ คลิกขวา (หรือกดค้าง) ที่คำหรือวลีที่เลือก แล้วเลือก “บันทึกลงในคำศัพท์” เพิ่มคำด้วยตนเองหรือส่งออกคำสำหรับ Anki ได้จากเมนู ⋯
+239c2f13 คำศัพท์
+7fc0dbd9 เพิ่มเติม: เพิ่มคำ ส่งออก การตั้งค่า Anki
+2fa9797f ค้นหาคำศัพท์… {0}
+adc4e96a เรียงลำดับ
+b2a08c42 แสดงคำ
+172415f0 ที่เพิ่ม
+37c6c57b ที่เปลี่ยน
+3f66052a ตั้งแต่
+4374aaee ถึง
+ae79ea1e ถึง
+bfad960e เพิ่มลงในโฟลเดอร์
+24d51d52 ลบออกจากโฟลเดอร์
+6f99aa21 📨 ส่งให้เพื่อน
+247fd631 ล้างการเลือก
+35c2eb2c เพิ่มคำ
+863892c6 โหลดเสียงของคำนี้ไม่ได้
+6d19e3ba ชื่อของโฟลเดอร์ใหม่:
+7e6e65f7 คำทั้งหมด
+889ab689 ไม่อยู่ในโฟลเดอร์
+4ad414d8 ＋ โฟลเดอร์ใหม่
+e2324f01 เปลี่ยนชื่อโฟลเดอร์:
+5ee46641 ลบโฟลเดอร์
+63e908b6 ลบโฟลเดอร์ “{0}” ใช่ไหม คำในโฟลเดอร์จะยังอยู่
+e4ae0eaf 📨 ส่งโฟลเดอร์ให้เพื่อน
+b44edd40 ＋ โฟลเดอร์ใหม่…
+5b000a6e คำเหล่านี้ไม่อยู่ในโฟลเดอร์ใด
+afb8631c {0} คำ
+08c2177a ไม่มีคำให้ส่ง
+93ccaaea โฟลเดอร์ “{0}” ({1} คำ)
+128751ac {0} คำ
+e0e017af ส่ง {0} ให้…
+8106e86e กำลังเตรียมเสียงสำหรับ {0} คำ…
+0e770154 พร้อมเสียง
+8db1d803 ({0} คำมีเสียง)
+151df9be ส่ง {0} {1} ให้ {2} แล้ว
+9afb285b · เปลี่ยนเมื่อ {0}
+29eb5c50 หาวิดีโอ YouTube ที่มีคนพูดคำนี้
+a5420424 เลือกคำ
+8e3f51e2 {0} · เพิ่มเมื่อ {1}{2}
+dd5422ef โน้ตไวยากรณ์ (รากศัพท์ ไวยากรณ์ การใช้งาน…)
+d5b39987 โน้ตส่วนตัว (ตัวช่วยจำ ที่ที่คุณได้ยินคำนี้…)
+19adc47b โฟลเดอร์
+15a53568 ทบทวน “{0}”
+952f3754 เริ่ม
+30cdf73e ครบกำหนด
+c2a6b03f ใหม่
+bb866ab5 คำที่มีความหมายจะมาปรากฏที่นี่เป็นบัตรคำ
+b568b4b7 · {0} คำจะกลับมา {2}{3}
+29f7f4bc เพื่อเลี้ยงดูประชากรของพระเจ้าผ่านการเทศนาและการสอนพระวจนะของพระเจ้าอย่างมีประสิทธิภาพ เพื่อเตรียมพวกเขาให้รู้จัก รัก รับใช้ และประกาศพระเยซู
+29a80ea8 ตามทันหมดแล้ว{0}
+e5084bff เลือกแล้ว {0}
+85cce1e1 ยกเลิกการเลือกทั้งหมด
+b2034f7e เลือกทั้งหมด {0}
+1ef4fd36 ยกเลิกการติ๊กทุกคำในรายการด้านล่าง
+80e145aa ติ๊กทุกคำในรายการด้านล่าง เพื่อจัดเก็บหรือส่งพร้อมกัน
+f1423624 จาก {0}
+294ccd52 {0} {1} รายการ
+71d86079 ไม่มีคำที่ตรงกับตัวกรองเหล่านี้
+0be6a257 ไม่พบผลลัพธ์
+78e66aba ยังไม่มีคำที่บันทึกไว้
+d6206ee4 กำลังสร้างเด็ค Anki พร้อมเสียง…
+5755f9ac ส่งออก CSV
+3e28846b ส่งออกสำหรับ Anki
+dc289056 ยินดีต้อนรับสู่ Tamkeen
+1c1ca506 เรียนภาษาจากพอดแคสต์ วิดีโอ และหน้าเว็บจริง ทีละคำ
+1dd6a17c วิธีการทำงาน
+58c2a9b6 <0>เพิ่มพอดแคสต์ด้วย URL ของฟีด RSS</0> พอดแคสต์ส่วนใหญ่มีฟีดนี้ ดูคำว่า “RSS” ในเว็บไซต์ของพอดแคสต์ หรือค้นเว็บด้วยคำว่า “<1>ชื่อพอดแคสต์</1> RSS feed” ลิงก์ Apple Podcasts ใช้โดยตรงไม่ได้ แต่เว็บไซต์อย่าง castos.com/tools/find-podcast-rss-feed แปลงเป็น URL ของ RSS ได้
+668bb8e3 <0>ถอดเสียงตอนต่าง ๆ</0> คลิก “ถอดเสียง” ที่ตอนใดก็ได้ ทุกอย่างทำงานบนคอมพิวเตอร์ของคุณ ไม่มีอะไรถูกอัปโหลดไปที่ไหน
+264a32cd <0>ฟังและอ่านตาม</0> คำปัจจุบันจะถูกไฮไลต์ คลิกคำใดก็ได้เพื่อข้ามไปที่คำนั้น ลดความเร็วเสียง หรือเล่นประโยคซ้ำ
+fde41bd9 <0>สร้างคลังคำศัพท์</0> คลิกขวา (หรือกดค้าง) ที่คำหรือวลีเพื่อบันทึกพร้อมประโยค ส่งออกไปยัง Anki เมื่อพร้อม
+c7ea5765 แอปจะตรวจพอดแคสต์ของคุณใหม่ทุกครั้งที่เปิด ตอนใหม่จึงปรากฏโดยอัตโนมัติ
+8b5f192e ถัดไป: ตั้งค่าการถอดเสียง →
+5b53855d Apple Silicon (Metal)
+f60315a5 ไม่มี GPU ที่รองรับ จะใช้ CPU
+462b6606 การเร่งความเร็วด้วย GPU (ไม่บังคับ)
+2efa49cc ตั้งค่าการถอดเสียง
+7feeb161 การถอดเสียงใช้โมเดลรู้จำเสียงพูด Whisper ของ OpenAI ที่ทำงานบนคอมพิวเตอร์ของคุณทั้งหมด ดาวน์โหลดโมเดลครั้งเดียว เลือกขนาดด้านล่าง คุณดาวน์โหลดขนาดอื่นหรือลบภายหลังได้ในการตั้งค่า
+bc26ec8d คอมพิวเตอร์ของคุณ
+1ddc3d58 {0} · {1} · RAM {2} GB
+a6a63185 GPU
+8cdc1fa4 คำแนะนำ: {0}
+fefb3326 เลือกโมเดล
+27aa7d41 คอมพิวเตอร์ของฉันช้าเกินไปสำหรับสิ่งนี้
+16efb9b4 ให้ผู้ให้บริการคลาวด์เขียนบทถอดเสียงแทน (ไม่กี่เซนต์ต่อชั่วโมงเสียง)
+9ff4b446 ดาวน์โหลดโมเดลเพื่อดำเนินการต่อ หรือตั้งค่าผู้ให้บริการคลาวด์ด้านบน คุณใช้แอปต่อได้ขณะที่โมเดลกำลังดาวน์โหลด
+9713faa5 เริ่มใช้แอป →
+fd23eda9 Unsa’y Cheka Sa Parlor
+f9a11c2f Lyle Go and Shaneee | TAGM Marketing Solutions Inc.
+66f216cc UCSP ย่อมาจาก Unsa y Cheka Sa Parlor? เป็นพอดแคสต์ที่ได้แรงบันดาลใจจากวลียอดนิยมในภาษาสแลงเกย์ภาษาบิซายา ซึ่งพูดกันทั่วไปในภูมิภาควิซายัสและมินดาเนาของฟิลิปปินส์ ดำเนินรายการโดย Lyle Go และ Shaneee วลีนี้แปลได้ใกล้เคียงกับ “What's the tea?” ในภาษาอังกฤษ (มีเรื่องอะไรน่าเม้าท์บ้าง)
+c9476ace Crosseyed
+416e5e3c Gary Monton | Bisaya Podcast
+b7f0771c Crosseyed Podcast - บทสัมภาษณ์ผู้คนที่สร้างแรงบันดาลใจในเมืองคากายันเดโอโร Crosseyed Convos - วงคุยสนุก ๆ ในหัวข้อใดก็ได้ที่ฉันกับเพื่อน ๆ เห็นว่าน่าสนใจและสนุก
+572329d1 Dili Ni Advice - A Bisaya Podcast
+6c8793d1 Darling and Kringkay The Pod Network Entertainment
+e6feaa11 Barok and Takya Bisaya Podcast
+30e343f4 Barok & Takya
+83f1bce5 Barok and Takya Bisaya Podcast เป็นพอดแคสต์ฟิลิปปินส์ภาษาเซบัวโน คุยกันทุกเรื่องใต้ดวงอาทิตย์ เช่น ครอบครัว ประเพณี สังคมและวัฒนธรรมฟิลิปปินส์ เป็นภาษาบิซายา รออะไรอยู่ ดาวน์โหลดพอดแคสต์ปินอยภาษาเซบัวโนกันเลย – Barok and Takya Bisaya Podcast
+f6112f30 Cge Storya Ta: A Bisaya Couple Podcast
+8c29ec7d Yin + Nol
+65d7024f ยินดีต้อนรับสู่ Cge, Storya Ta: A Bisaya Couple Podcast! เราอัปโหลดตอนใหม่ทุกสัปดาห์ หาเก้าอี้ตัวที่นั่งสบายที่สุด ถอดรองเท้า แล้วเตรียมดำดิ่งสู่โลกของ Yin และ Nol รถไฟเหาะแห่งเสียงหัวเราะ บทเรียนชีวิต และการตัดสินใจแปลก ๆ บ้างเป็นครั้งคราว พูดง่าย ๆ คือทุกเรื่องใต้ดวงอาทิตย์ ไม่มีสคริปต์และไม่มีการกรอง รัดเข็มขัดให้แน่น เพราะนี่คือพอดแคสต์ที่อะไรก็เกิดขึ้นได้ และน่าจะเกิดขึ้นจริง!
+49bc6e59 Brighter Bisaya
+3534296f Brighter Bisaya เป็นเครือข่ายสื่อออนไลน์สำหรับทุกคนในครอบครัว มุ่งให้ข้อมูล ให้ความรู้ และสร้างแรงบันดาลใจแก่ชาวบิซายา/เซบัวโนทุกวัย ผ่านรายการสนทนาที่ชาญฉลาดและสร้างสรรค์ บริษัทตั้งใจอย่างแรงกล้าที่จะเผยแพร่วล็อกและพอดแคสต์ที่เข้าใจง่ายและเข้าถึงได้ เกี่ยวกับศิลปะ การศึกษา ปรัชญา วิทยาศาสตร์ เทคโนโลยี แรงบันดาลใจ และความบันเทิง เป็นภาษาเซบัวโน บินิซายา ตากาล็อก อังกฤษ และฟิลิปีโน
+e59b5c99 Kasikas: Bisaya Podcast
+2f359fd1 Ace Vincent Sevilla
+b819d08f Kapoy explain man. สำหรับการติดต่อโฆษณา ความคิดเห็น หรือการเสนอหัวข้อ โปรดติดต่อเราทาง sevillaacevincent@gmail.com
+a4b3025e บทอ่านพิธีมิสซาวันอาทิตย์ภาษาเซบัวโน
+41126fc0 Ben
+cc4289fa บทอ่านพิธีมิสซาวันอาทิตย์ภาษาเซบัวโน | Mga pagbasa sa Santos nga Misa sa Binisaya ตอนใหม่เผยแพร่ทุกวันจันทร์ก่อนพิธีมิสซา ส่งความคิดเห็นทั้งหมดมาที่ sundaymassreadings@gmail.com ขอขอบคุณเป็นพิเศษแด่ Fr. Alvin, Lorena, Celine, Aimee, Belinda, Ivy, Praxi, Fr. Gerry, Belton, Agnes และ Deacon Roman
+2a59645c Storytelling with Ziwi (Bisaya Podcast)
+35a7384d Ziwi Tea
+ee681aee พอดแคสต์เกี่ยวกับเรื่องเล่าทั่วไป Ziwi เล่าถึงประสบการณ์ส่วนตัวและบทเรียนชีวิตของเธอ #Bisaya #Storytelling #Philippines #ChikaMinute #Chikahan
+c0da64f1 Wanbats Ra Besh | Bisaya Society & Culture
+c65ee463 Jna and Ju
+5561133e Jeana และ Justein เป็นเพื่อนรักจากจังหวัดเซบูที่มีแดดสดใส ตอนนี้ทั้งคู่อายุปลายยี่สิบ เพื่อนสมัยมัธยมคู่นี้คุยกันเรื่องการใช้ชีวิตวัยผู้ใหญ่ การเรียนรู้และการละทิ้งความคิดเดิม ๆ และการจัดลำดับความสำคัญ หากคุณอยากสัมผัสความรู้สึกอบอุ่นคุ้นเคย เหมือนตอนได้คุยจากใจกับเพื่อนเก่า มาร่วมฟังพอดแคสต์ใหม่นี้กับพวกเธอ ตอนใหม่ทุกวันศุกร์! x เลี้ยงกาแฟเราได้ที่ ko-fi.com/wanbatsrabesh ☕️ เพลงทั้งหมดไม่ใช่ของเรา มาจาก Audionautix.com
+51f2914b Bisaya Jokes!
+78a5056a DJ Bisdak
+a6bc3cb4 Podcast para pakatawa sa mga bisdak!
+5f38602a NAYSJUAN SESSIONS | Binisaya Podcast
+cd567294 JUAN MARCUZ TIMAY
+16a70550 Ang naysjuan paminawon nga Binisaya o Bisaya podcast 20 minutes before sa atoang naysjuan nga pagkatulog. Busa, kon Bisaya ta o kasabot tag Binisaya nga pinulongan ug kon trip nato adunay makat-onan, paminawa na tawon nato ning podcast ni Juan. Diri gastorya tag mga estoryahanan nga praktikal ug mapuslanon nga makatabang sa tanan, mapabata man o mapatiguwang, aron mas mapasayon ang pagkinabuhi. ➖➖➖➖➖ JUST BUY ME A COFFEE: buymeacoffee.com/JUANMARCUZTIMAY
+5ee1603d Purok Pabula Ph
+155acb68 p b Purok Pabula PH /b mao ni ang lugar sa tinuod nga istorya—walay script, walay arte, diretso ra. /p p /p p Dinhi, lain-lain mi ug panan-aw—naa’y abogado, naa’y pilosopo, naa’y engineer, ug naa pud mi’y mga kasinatian sa kinabuhi nga among gidala sa lamesa. Kada episode, among hisgutan ang mga butang nga atong madunggan adlaw-adlaw—fake news, politika, kultura, ug mga tinuohan nga atong gidak-an. /p p /p p Dili ni perpekto. br / Dili ni pina-polished. br / Pero tinuod ni. /p p /p p Murag istorya ra sa purok—pero naay unod. /p p /p p Kay usahay, dili klaro ang kamatuoran. br / Ug usahay, ang
+6606f08e Kinabuhing Kristohanon: a Wali Bisaya Preaching
+42bb34c3 Barok and Takya
+88b9b348 Welcome sa Kinabuhing Kristohanon, usa ka Wali Bisaya Preaching nga magdala kanimo sa panaw sa pagtuo, espiritwalidad, ug komunidad. Ang among pasundayag kay usa ka talagsaon nga pagsagol sa mga tinuohan, ang Pulong sa Dios Bible, ug mga kasinatian nga makatandog sa kasingkasing sa mga Pilipinong Kristiyano. Ang matag episode nagsusi sa atong pagtuo, magsuhid sa lawom nga epekto sa Kristiyanismo sa atong adlaw-adlaw nga kinabuhi. Atong hisgotan ang kamahinungdanon sa pagsimba, ang esensya sa serbisyo sa komunidad, ug ang makapabag-o nga gahum sa espirituhanong mga buhat. Ang atong mga panagsul
+2d2313a6 Bisaya In America
+9c57b087 Genie H
+a2a821cf Unsa Man Jud
+42054007 DD & Friends
+2f32eaa3 Unsa Man Jud Podcast เป็นพอดแคสต์ภาษาบิซายาหรือทอล์กโชว์ที่พูดเป็นภาษาเซบัวโน คุยเรื่องไร้สาระและเรื่องบ้า ๆ บางครั้งก็คุยเรื่องจริงจังด้วย แต่ใครอยากฟังเรื่องแบบนั้นล่ะ จริงไหม เราเลยคุยแต่เรื่องสนุก ๆ แทน ยังไงก็ตาม ถ้าคุณเข้าใจภาษานี้ มาร่วมฟังกับเราสิ!
+a8f21295 Bisaya Thoughts
+aa746ddb Phil Andrew
+e1e3cd8e These are my Bisaya thoughts about anything random sa life, family, love, work, or even sa mga nahitabo ron sa Pilipinas. But basically, ganahan ra jud ko mag-yaw2x. Mainly because ganahan ko ipagawas akong mga gibati ug mga na learn sa life given nga hapit nako mag 40. I m using this as an outlet ug part ni siya sa akong journey to be a better version of myself. If ganahan mo mu-journey with me, hope makatabang ni ninyo. Reach out if ganahan mo makig-chika or naa mo questions or magpa advice mo ug stranger like me: philampong@gmail.com IG: instagram.com/philandrew23 FB: facebook.com/phile
+026bb096 Coffee Break with Juppe
+9708095f Jupiter Baguioso
+ad54f954 Coffee Break with Juppe คือช่วงพักห้านาทีจากความวุ่นวายของวัน ความคิดสุ่ม ๆ เรื่องเล่าสั้น ๆ และการทบทวนตัวเองอย่างจริงใจ เสิร์ฟแบบสั้น ง่าย และอร่อยที่สุดเมื่อคู่กับกาแฟ กดเล่นเพื่อรับบทสนทนาเบา ๆ และบรรยากาศดี ๆ ประจำวัน
+5d5efc1a NAYSJUAN DAILY,
+aa91b142 Bisaya Podcasts PH
+c4ff21cc สวัสดี! ยินดีต้อนรับสู่ Bisaya Podcasts PH! การหาพอดแคสต์ภาษาบิซายานั้นยากมาก การหาผู้ฟังยิ่งยากกว่า โดยเฉพาะถ้าคุณเป็นพอดแคสต์ภาษาบิซายา พอดแคสต์นี้มุ่งรวมพอดแคสต์ภาษาบิซายาทั่วโลกเข้าด้วยกัน เพื่อให้ค้นหาและเชื่อมต่อกับเพื่อนผู้จัดพอดแคสต์และผู้ฟังได้ง่าย ๆ ฉันรู้ว่าการหาผู้ฟังนั้นยาก โดยเฉพาะในภาษาแม่ของเรา แต่ถ้าร่วมมือกัน เราจะทำให้แพลตฟอร์มของเราใหญ่ขึ้นได้
+58610005 Ptr. Stanley Pilapil
+94e606a0 Bisaya Vibes by Team Conato PH
+7e5120d9 พูดคุยและแสดงความเห็นแบบอารมณ์ดีเกี่ยวกับประเด็นปัจจุบัน ครอบครัว ความสัมพันธ์ และอารมณ์ขันแบบบิซายา
+b37cc66f BANHA | Istorya Ug Uban Pa - Bisaya Podcast
+eb990eab Danrev Tipdas
+8807c90a BANHA | Istorya Ug Uban Pa PODCAST is a Bisaya Podcast Kamo naa moy mga sugilanon. Mga istorya nga basin dili lang pud diay ikaw ang naka-agi. Kami naa pud mi amua nga mga sugilanon.TARA! Tabi ta! Let’s Banha. Let Our Stories Make the Noise. Wa ta kabalo sa atuang pag share we find hope and healing in our stories. Maminaw mi, no judgment here. Share lang gud, bisan unsa pa na imuhang sugilanon sa kinabuhi andam mi maminaw. Know that ikaw ug ang imuhang sugilanon it matters. TARA! BANHA NATA! ISTORYA UG UBAN PA!
+93347587 Bisaya Espesyal
+e785744b Mr. Wazzquiin
+8d6c5728 This podcast talks about relationships, lifestyle and more about Bisaya. Kung Bisaya ka, Espesyal ka! I am happy to bear with you and please be with me Para Mas bongga! We are about discover the world around us Kaya kapit Lang kapatid at h wag Kang aalis. This is Mr. Wazzquiin ang inyung gwapo nga host!
+ef9504fa TTB Cebuano Pagtuon sa Bibliya (Cebuano)
+97e8c475 THRU the BIBLE
+75e6f3b4 Hibaloi ang tibuok Pulong sa Dios pinaagi sa kasaligan nga pagtulon-an sa Biblia sa THRU the BIBLE sa Cebuano. Ang matag yugto naghatag og tin-aw ug praktikal nga pagtulon-an aron matabangan kang masabtan ang Kasulatan ug magamit kini sa adlaw-adlaw nga kinabuhi. Panaw sa tibuok Biblia, usa ka leksiyon matag higayon, uban sa mga tigpaminaw sa tibuok kalibotan. Pagkat-on pa sa TTB.BIBLE
+5223eb1f Balaan nga Bibliya - Cebuano (Cebuano)

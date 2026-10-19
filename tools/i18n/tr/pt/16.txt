@@ -1,0 +1,192 @@
+8b90ee48 Não foi possível abrir a pasta: {0}
+cf2c5c85 Backup não encontrado.
+3a3aadb1 A importação falhou: {0}
+6aeffa09 Fonte Noto Naskh Arabic
+6f289ed9 Listas de palavras comuns (do wordfreq)
+3ee00536 Método do analisador do CAMeL Tools; dicionários de árabe (download opcional)
+cb9ed3a8 Modelo de vogais do árabe CATT, da Abjad AI (download opcional)
+2d7a6fa1 Tabelas de palavras de espanhol, francês, italiano e inglês (download opcional)
+026482d9 CMU Pronouncing Dictionary: pronúncias americanas na tabela de palavras do inglês
+08a5e4bd Tabela de palavras do russo com a sílaba tônica, do OpenRussian.org (download opcional)
+f88f293f O dicionário IPADIC e o kuromoji: palavras japonesas e furigana (download opcional)
+a3451771 CC-CEDICT e wordfreq: palavras chinesas e pinyin (download opcional)
+a385bf96 Wiktionary via Wiktextract: significados de palavras para o modo Sem IA (download opcional)
+81e74ccd A estante de livros gratuitos: Project Gutenberg, Wikisource, Aozora Bunko (download opcional)
+8db0aa84 Domínio público
+7ba12057 NVIDIA cuBLAS / cuDNN (download opcional)
+7d090ad8 Licença não encontrada.
+7c1e44a9 Esta palavra não tem áudio.
+faecd643 O áudio desta palavra não está neste computador.
+2ccc65dd Esse trecho de áudio está vazio ou é grande demais.
+3e4be3a5 O áudio desta palavra não está disponível.
+a901ac03 O formato precisa ser csv, anki ou apkg.
+7b61342e {0} cartões para revisar hoje
+857dc2df O arquivo não contém nenhuma faixa de áudio.
+818903cb Não foi possível ler o arquivo de áudio: {0}
+23230497 Não foi possível decodificar o áudio: {0}
+7f269f16 O arquivo de áudio está vazio ou não pôde ser decodificado.
+fe34abe1 Não foi possível criar a cópia compactada do áudio: {0}
+07431d75 Essa parte do áudio não pôde ser lida.
+1fb3bc7b Não foi possível cortar o trecho de áudio: {0}
+5d9b4909 As bibliotecas de áudio (FFmpeg via PyAV) não carregaram: {0} Reinstale o app. Se você estiver rodando a partir do código-fonte, execute: pip install av
+f1e6281f Este arquivo não é um backup do Tamkeen.
+8e11cc63 O banco de dados do backup está danificado.
+d1198df0 Livros para ler uma página por vez, com palavras clicáveis.
+d29882bc Não foi possível acessar o diretório de podcasts da Apple ({0}).
+cac34089 O diretório de podcasts da Apple respondeu com um erro ({0}).
+91243238 O diretório de podcasts da Apple mandou uma resposta que o app não conseguiu ler.
+b8d1317b Seus totais diários ficam guardados aqui entre as sessões do Anki.
+23b6910c O servidor local não conseguiu iniciar. Veja o log na pasta de dados.
+aad067b1 O tempo esgotou ao iniciar o servidor local.
+d6d720ba Só uma busca aberta por “Encontrar em um vídeo” pode fazer isso.
+a6f9a4d1 Não foi possível usar estes resultados ({0}).
+6a992b4f Os vídeos só podem ser abertos a partir do youtube.com.
+6848287a Não foi possível abrir este vídeo ({0}).
+58551d59 Os canais só podem ser seguidos a partir do youtube.com.
+dbe38de1 Não foi possível identificar qual canal é este.
+ab907e3e Não foi possível seguir este canal ({0}).
+9a10260e Esta página não pode ser salva.
+47744266 Não foi possível salvar este site ({0}).
+97f9e893 Esta página não pôde ser lida.
+23fb4202 Não foi possível importar esta página ({0}).
+3a1427ae Navegador
+48dbcf04 Não foi possível abrir a janela do navegador ({0}).
+1d82f236 Não foi possível abrir a janela do YouTube ({0}).
+d70a665c O download falhou: HTTP {0} de {1}.
+c4aaa62e Download cancelado.
+d607cd9a Erro de rede durante o download: {0}: {1}
+c829479b Download incompleto ({0} de {1} bytes). Tente de novo para retomar.
+f3ba8566 A soma de verificação não confere: o arquivo baixado está corrompido. Tente de novo.
+990411fc Isto não parece um feed RSS de podcast
+f5b576f8 Não foi possível acessar o feed: {0}: {1}
+7141db00 Primeiro entre com o Google (Configurações → Sincronizar com o Google Drive).
+819dc7ab Não foi possível acessar o Google Tasks ({0}). Verifique sua conexão.
+43d1089a has not been used
+80e1cb7a O Google Tasks recusou a tarefa ({0}).
+6c8a35f3 O Onyx não parece estar instalado neste computador.
+215c16a3 Não há versão {0} de {1} {2} no PyPI.
+ba15ae5b O download terminou, mas faltam algumas bibliotecas CUDA.
+f376de83 Os downloads de aceleração por GPU só estão disponíveis no Windows e no Linux (x86-64).
+3ad92dba GPU NVIDIA
+1f4b65b6 Apple Silicon detectado. O {0} roda na GPU do Mac com MLX.
+09fa7089 {0}{1} detectada.
+a800bf13 {0} {1} roda rápido na GPU.
+1be9657b {0} Instale a aceleração por GPU (abaixo) e o {1} vai rodar muitas vezes mais rápido que na CPU.
+be2def2e Nenhuma GPU compatível foi encontrada, então a transcrição roda na CPU. O {0} equilibra precisão e velocidade.
+6bf5c220 sem memória
+fbaa5c49 A memória acabou. Tente um modelo menor nas Configurações.
+dc1a529b O vídeo ainda está sendo enviado do outro dispositivo. Tente de novo daqui a pouco.
+2e99c4f9 Não foi possível baixar os dicionários ({0}). Verifique sua conexão e tente de novo.
+e3ec8c21 Pedidos de outras origens não são permitidos.
+4c3a7b2d Erro inesperado: {0}
+a6e3c8a8 A soma de verificação de {0} não confere. Tente de novo.
+63eb3e5f Tamanho de modelo desconhecido: {0}
+82e7395c O modelo {0} já está sendo baixado.
+906cd6be Esse endereço não é uma página da web (parece um arquivo).
+5f6cc878 Não foi possível acessar esse site ({0}).
+a764c39c Páginas da web que você importou para ler com palavras clicáveis.
+ab650a1a Turco
+1ab65965 Persa
+412e3190 Urdu
+c9e6b253 Híndi
+da91388c Alemão
+23882c57 Português
+dec66c5b Coreano
+2339b8ad Indonésio
+334a85f1 Holandês
+08f0c0cf Malaio
+4d3bb51e Javanês
+1d6b8a69 Vietnamita
+c1439807 Laosiano
+0726b71e outro idioma ({0})
+28cd3560 Isso não parece um nome de usuário do Instagram.
+36473f9c falado em {0:lower}, não em {1:lower}
+697db47b quase não há fala (música ou silêncio)
+ea4a5ce6 não está em {0:lower}
+03f8025a Reels do Instagram encontrados para você. Eles tocam do Instagram; as palavras foram escritas pelo seu computador.
+39bc1b6f Obter reels funciona no app instalado no computador (ele precisa da própria janela do Instagram).
+b09c2b91 Já está obtendo reels.
+7e4f80e0 Ler seus salvos funciona no app instalado no computador (ele precisa da própria janela do Instagram).
+c937ec62 Ocupado obtendo reels. Tente de novo quando terminar.
+a74514e5 A janela do Instagram foi fechada.
+a502191a Instagram · {0}
+5fedaebb Entre no Instagram na janela que acabou de abrir. Só é preciso fazer isso uma vez.
+e77c6717 Ninguém entrou no Instagram, então {0}.
+8599b104 Conectado ao Facebook. Levando isso para o Instagram…
+a5272ae2 Essa conta do Facebook não tem nenhuma conta do Instagram vinculada. Em vez disso, entre com um nome de usuário e uma senha do Instagram na janela.
+1094228d Não foi possível saber qual conta do Instagram está conectada. Tente de novo.
+dd259648 O Instagram não quis entregar o vídeo ({0}).
+2a2f389b sem som
+f6abd17f (toca quando você está conectado ao Instagram no celular)
+005d8b21 Procurando nos seus salvos do Instagram… {0} coleção(ões) até agora. (Parar mantém as que foram encontradas.)
+5b6e17ab não foi possível ler seus salvos
+d859b103 Olhando suas coleções salvas…
+d8c25947 A leitura dos seus salvos falhou ({0}: {1}).
+5207e708 Lendo seus posts salvos ({0} de {1})…
+b3cd2701 A leitura dessa coleção falhou ({0}: {1}).
+e0022c0d nenhum reel foi obtido
+cbf2cd0c Ouvindo o reel {0} (mantidos {1} de {2})…
+d38405ee {0} reel(s) aleatório(s) em {1:lower} pronto(s) ({3} verificados).
+a8aa31cd Desta vez nenhum reel em {0:lower} pôde ser mantido ({1} verificados). Tente de novo: as palavras de busca mudam a cada vez.
+dc90c318 Eles são sincronizados com seu celular junto com todo o resto.
+44244e4a A obtenção de reels falhou ({0}: {1}).
+dd51e085 Ouvindo o reel {0} de {1}…
+251eda10 {0} de {1} prontos para o seu celular.
+32ece972 {0} não puderam ser usados (veja abaixo).
+42e17d02 A obtenção desses reels falhou ({0}: {1}).
+37c936a3 Lendo seus posts salvos…
+1e756cd5 Nenhum post salvo foi encontrado aí. Salve alguns reels no Instagram primeiro ou escolha outra coleção.
+bec2e4e2 Vendo o que está popular em {0:lower} ({1})…
+13bad01a Lendo os reels de @{0}…
+234d7e5e Nenhum reel novo foi encontrado. Adicione criadores ou escolha “Populares” ou “Uma mistura”.
+52a16bfd Nada de novo aí: todos os vídeos desses salvos já foram testados.
+d7b1a9ec Nenhum reel novo foi encontrado desta vez. Tente de novo mais tarde.
+8f45b7fa {0} reel(s) pronto(s) ({2} verificados). Eles são sincronizados com seu celular junto com todo o resto.
+a804202f O Tamkeen já foi redefinido. Entre ou termine as telas iniciais para trazer sua biblioteca de volta.
+81e5939e Algo ainda está sendo transcrito. Espere terminar, ou pare, e depois redefina.
+b8603b5b Não foi possível salvar sua biblioteca no Google Drive antes, então nada foi redefinido ({0}).
+d61a7932 O Google Drive recusou o login.
+a669d081 O download do Google Drive falhou ({0}).
+537a418e O envio para o Google Drive falhou ({0}): {1}
+ca818b14 O login do Google não está configurado nesta versão.
+a3edee6d Este link de login expirou ou já foi usado. Tente de novo pelo app.
+00ace5cc O login do Google falhou: {0}
+dd003c52 O Google não devolveu um token de atualização. Remova o acesso do app em myaccount.google.com/permissions e entre de novo.
+5ef0ec78 O acesso ao Drive não foi concedido. Entre de novo e permita que o app guarde os dados dele.
+946a2345 Não conectado ao Google.
+1009b96e Seu login do Google expirou. Entre de novo.
+e0d7a3c0 Primeiro entre com o Google em “Sincronizar com o Google Drive”.
+bd3033ca Seu login do Google expirou. Saia e entre de novo em “Sincronizar com o Google Drive”.
+9c8459c0 O Google não confirmou sua identidade. Saia e entre de novo em “Sincronizar com o Google Drive”.
+fed131ce Entre com o Google (Configurações) para assistir aos vídeos guardados no Drive.
+06ac7931 Este vídeo está guardado no Google Drive: entre com o Google nas Configurações para transcrevê-lo.
+2d689417 Não foi possível baixar o modelo de vogais ({0}). Verifique sua conexão e tente de novo.
+da48fac9 O modelo de vogais não foi baixado.
+f61d414a {0} recusou a chave de API. Ela provavelmente expirou, então você deve precisar de uma nova (Configurações → Transcrição na nuvem).
+3666049b {0} não reconhece o modelo escolhido. Volte para o recomendado nas Configurações.
+97c0918a {0} não conseguiu transcrever isto (erro {1})
+53ab1f8a Não foi possível acessar {0} ({1}). Verifique sua conexão com a internet.
+a1ceea0b {0} diz que sua conta atingiu o limite por enquanto (ele pede para esperar cerca de {1} minutos). Contas gratuitas só podem enviar uma certa quantidade de áudio por hora e por dia. Toque em Tentar de novo mais tarde.
+93cf51f7 {0} ficou pedindo para o app ir mais devagar.
+a6fc4045 Transcritor
+c37da7ca Nenhum modelo de transcrição escolhido ainda. Abra Configurações → Modelo para baixar um ou ative lá a transcrição na nuvem.
+59c4123b O modelo {0} ainda não foi baixado. Abra Configurações → Modelo para baixá-lo.
+6bc27ac6 Não foi possível acessar o GitHub: {0}
+d6d5bb0f Nenhuma versão publicada ainda.
+57a18645 O GitHub devolveu HTTP {0}.
+88b0d44f Esta cópia do Tamkeen não consegue se atualizar sozinha. Baixe a versão nova no GitHub.
+84393929 Você já tem a versão mais recente ({0}).
+ae41addd Esta versão não tem instalador para este computador.
+b953469f O download não bateu com o arquivo da versão. Tente de novo.
+c41c8edb Arquivos de {0:lower} que você mesmo adicionou. Eles ficam guardados no seu Google Drive.
+6d8e34b4 O arquivo está vazio.
+914295b3 Este arquivo não tem som legível ({0}).
+94492d5d Aqui só são permitidos pedidos ao youtube.com.
+16ca44eb Pedido não suportado.
+5c5d0d47 Não foi possível acessar o YouTube ({0}). Verifique sua conexão.
+470a97a7 Vídeos do YouTube que você adicionou. Eles tocam do YouTube; as legendas são a transcrição.
+22377066 {0} não respondeu. A janela principal dele ainda está aberta?
+b8100f5b Biblioteca
+6b21fb79 Sobre
+a689b0be Pesquisar em todas as transcrições…
+7ff5a6da Seções

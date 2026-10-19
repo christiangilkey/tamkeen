@@ -1,6 +1,6 @@
-Spanish, French, Italian and English word tables (optional download)
+Spanish, French, Italian, Portuguese, Catalan and English word tables (optional download)
 
-People learning Spanish, French, Italian or English can download a table of word forms and their
+People learning Spanish, French, Italian, Portuguese, Catalan or English can download a table of word forms and their
 dictionary forms (hablas -> hablar), so every form of a word counts as the same word. The tables
 are not part of this program; the app downloads them only when the learner agrees.
 

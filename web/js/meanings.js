@@ -10,7 +10,7 @@
 import { api } from "./app.js";
 import { DefinerError } from "./definer.js";
 import { EDGE_PUNCT } from "./wordlookup.js";
-import { answerFrom, arabicVariants, findIn, matchKey } from "./lexicon/meaningdata.js";
+import { answerFrom, findIn, matchKey, ordinary, wordKeys } from "./lexicon/meaningdata.js";
 import { dictionaries } from "./lexicon/seen.js";
 import { lexemeOf } from "./lexicon/words.js";
 
@@ -59,15 +59,11 @@ export async function removeMeanings(lang) {
 // ---------- finding a word ----------
 /** Keys to try for a word, best first. */
 async function candidates(word, lang) {
-  const bare = String(word || "").replace(EDGE_PUNCT, "").trim();
-  const keys = [matchKey(bare, lang)];
-  if (lang !== "ja" && lang !== "zh" && bare.includes(" ")) return keys; // a phrase: as a whole only
-  try { // the dictionary form found by the language's own word tables
-    const lex = lexemeOf(bare, lang, await dictionaries(lang));
-    if (lex && lex.lemma) keys.push(matchKey(lex.lemma, lang));
-  } catch { /* no tables: spelling only */ }
-  if (lang === "ar") keys.push(...arabicVariants(keys[0]));
-  return [...new Set(keys.filter(Boolean))];
+  let tables = null;
+  try { tables = await dictionaries(lang); } catch { /* no tables: spelling only */ }
+  // the dictionary form found by the language's own word tables
+  const lemmaOf = (form) => { try { const lex = lexemeOf(form, lang, tables); return lex && lex.lemma; } catch { return null; } };
+  return wordKeys(word, lang, lemmaOf);
 }
 
 /** The popup's answer for ctx ({word, lang, ...}) from the built-in dictionary. */
@@ -75,16 +71,18 @@ export async function dictionaryDefine(ctx, { quick = false, language = "English
   const lang = ctx.lang || "ar";
   const files = await load(lang);
   if (!files) throw new DefinerError(NO_MEANINGS);
-  // Wiktionary first; for Arabic, the CAMeL glosses when Wiktionary lacks the word (or has it only as a name).
+  // Wiktionary first; for Arabic the CAMeL glosses, for Bisaya Wolff's dictionary, when Wiktionary lacks
+  // the word (or has it only as a name).
   const keys = await candidates(ctx.word, lang);
   let found = null;
+  let source = "";
   for (const data of files) {
     const hit = data && findIn(data, keys);
-    if (hit && hit.groups.some((g) => g[1] !== "name")) { found = hit; break; }
-    found = found || hit;
+    if (hit && hit.groups.some(ordinary)) { found = hit; source = data.source; break; }
+    if (!found && hit) { found = hit; source = data.source; }
   }
   if (!found || !found.groups.length) {
     throw new DefinerError("This word isn't in the built-in dictionary. It may be a name, slang, or a form it doesn't know.");
   }
-  return answerFrom(found, ctx.word, lang, { quick, language });
+  return answerFrom(found, ctx.word, lang, { quick, language, source });
 }

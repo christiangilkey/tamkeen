@@ -44,6 +44,10 @@ COMEDY_WORDS = {
     "ru": ["юмор", "приколы", "смешно", "комедия"],
     "it": ["comicità", "divertente", "scherzi", "battute"],
     "tl": ["katatawanan", "nakakatawa", "biruan", "banat"],
+    "pt": ["humor", "comédia", "engraçado", "zoeira"],
+    "ca": ["humor", "comèdia", "divertit", "acudits"],
+    "ceb": ["katawa", "kataw-anan", "bisaya comedy", "binuang"],
+    "th": ["ตลก", "ขำขัน", "แกล้ง", "มุกตลก"],
     "en": ["comedy", "funny", "pranks", "standup"],
 }
 
@@ -67,6 +71,14 @@ RANDOM_WORDS = {
            "esperienza", "curiosità", "spiegazione", "cucina", "sport", "notizie", "podcast", "routine", "famiglia", "caffè"],
     "tl": ["vlog", "luto", "kwento", "payo", "katatawanan", "biruan", "tanong", "hamon", "panayam", "biyahe", "pagkain", "karanasan",
            "kaalaman", "paliwanag", "ulam", "palaro", "balita", "podcast", "araw-araw", "pamilya", "kape", "hugot"],
+    "pt": ["vlog", "receita", "história", "dica", "humor", "comédia", "pergunta", "desafio", "entrevista", "viagem", "comida", "resenha",
+           "experiência", "curiosidades", "explicação", "culinária", "futebol", "notícias", "podcast", "rotina", "família", "café"],
+    "ca": ["vlog", "recepta", "història", "consell", "humor", "comèdia", "pregunta", "repte", "entrevista", "viatge", "menjar", "anècdota",
+           "experiència", "curiositats", "explicació", "cuina", "esport", "notícies", "pòdcast", "rutina", "família", "cafè"],
+    "ceb": ["vlog", "luto", "istorya", "tambag", "katawa", "binuang", "pangutana", "hagit", "interbyu", "biyahe", "pagkaon", "sugilanon",
+            "kasinatian", "kahibalo", "pagpasabot", "sud-an", "dula", "balita", "podcast", "adlaw-adlaw", "pamilya", "kape", "bisaya"],
+    "th": ["vlog", "สูตรอาหาร", "เรื่องเล่า", "คำแนะนำ", "ตลก", "ขำขัน", "คำถาม", "ชาเลนจ์", "สัมภาษณ์", "เที่ยว", "อาหาร", "ประสบการณ์",
+           "เกร็ดความรู้", "อธิบาย", "ทำอาหาร", "กีฬา", "ข่าว", "พอดแคสต์", "กิจวัตร", "ครอบครัว", "กาแฟ", "รีวิว"],
     "en": ["vlog", "recipe", "storytime", "advice", "comedy", "sketch", "question", "challenge", "interview", "travel", "food", "story",
            "experience", "funfacts", "explained", "cooking", "sports", "news", "podcast", "routine", "family", "coffee"],
 }
@@ -87,7 +99,8 @@ SKIPPED_KEPT = 800
 
 # Names for languages a reel may turn out to be in (the ones the app teaches come from languages.py).
 _OTHER_LANGUAGES = {"en": "English", "tr": "Turkish", "fa": "Persian", "ur": "Urdu", "hi": "Hindi", "de": "German",
-                    "it": "Italian", "pt": "Portuguese", "ko": "Korean", "he": "Hebrew", "id": "Indonesian", "nl": "Dutch"}
+                    "it": "Italian", "pt": "Portuguese", "ko": "Korean", "he": "Hebrew", "id": "Indonesian", "nl": "Dutch",
+                    "ms": "Malay", "jw": "Javanese", "vi": "Vietnamese", "lo": "Lao"}
 
 
 def language_name(code: str) -> str:
@@ -557,14 +570,18 @@ def spoken_language(engine: Any, samples: Any, study: str = "") -> tuple[str | N
         return None, 0.0, 0.0
     try:
         lang, prob, every = model.detect_language(samples[: 30 * 16000], vad_filter=True)
-        share = next((float(p) for code, p in every or [] if code == study), 0.0)
-        return str(lang), float(prob), float(prob) if lang == study else share
+        heard = languages.whisper_code(study)  # Bisaya is heard as Tagalog, Whisper's nearest language
+        share = next((float(p) for code, p in every or [] if code == heard), 0.0)
+        lang = study if lang == heard else str(lang)
+        return lang, float(prob), float(prob) if lang == study else share
     except Exception:  # an engine or version without it: fall back to the letters
         return None, 0.0, 0.0
 
 
 def other_language(study: str, detected: str | None, confidence: float, study_share: float) -> bool:
     """True when Whisper is sure the reel is NOT in the language being studied."""
+    if detected and detected == languages.whisper_code(study):
+        return False  # Bisaya, heard as Tagalog
     return bool(detected) and detected != study and confidence >= MIN_LANGUAGE_CONFIDENCE and study_share < CLOSE_SECOND
 
 

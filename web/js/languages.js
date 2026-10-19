@@ -3,7 +3,9 @@
 // Shared by the desktop app and the Android app. (app/languages.py holds the same list of codes
 // for the server side: which language Whisper listens for.)
 
-const LTR = { dir: "ltr", unspaced: false, reading: "below", root: "", standard: "Standard form", note: "Usage" };
+import THAI_COMMON from "./wordlists/th.js";
+
+const LTR ={ dir: "ltr", unspaced: false, reading: "below", root: "", standard: "Standard form", note: "Usage" };
 
 export const LANGUAGES = {
   es: {
@@ -72,6 +74,38 @@ export const LANGUAGES = {
     pageSample: "Ang kape ay inuming gawa sa mga binusang buto ng halamang kape, at isa ito sa pinakasikat na inumin sa buong mundo.",
     test: { word: "kasi", marked: "Hindi ako nakapunta ⟦kasi⟧ umulan.", podcast: "Totoong Tagalog" },
   },
+  pt: {
+    ...LTR, name: "Brazilian Portuguese", native: "Português (Brasil)",
+    hello: "Bem-vindo!", hi: "oi", search: "buscar", word: "a palavra",
+    greet: ["Bom dia", "Boa tarde", "Boa noite"],
+    sample: "Bem-vindos a mais um episódio do podcast.",
+    pageSample: "O café é uma bebida feita a partir dos grãos torrados do cafeeiro, e é uma das mais populares do mundo.",
+    test: { word: "beleza", marked: "Tá tudo ⟦beleza⟧, a gente se vê amanhã.", podcast: "Português de verdade" },
+  },
+  ca: {
+    ...LTR, name: "Catalan", native: "Català",
+    hello: "Benvingut!", hi: "hola", search: "cercar", word: "la paraula",
+    greet: ["Bon dia", "Bona tarda", "Bona nit"],
+    sample: "Benvinguts a un nou episodi del pòdcast.",
+    pageSample: "El cafè és una beguda que s'obté de les llavors torrades de la planta del cafè, i és una de les més populars del món.",
+    test: { word: "doncs", marked: "I ara què fem, ⟦doncs⟧?", podcast: "Català de veritat" },
+  },
+  ceb: {
+    ...LTR, name: "Bisaya (Cebuano)", native: "Binisaya", root: "Root",
+    hello: "Maayong pag-abot!", hi: "kumusta", search: "pangita", word: "ang pulong",
+    greet: ["Maayong buntag", "Maayong hapon", "Maayong gabii"],
+    sample: "Maayong pag-abot sa bag-ong episode sa podcast.",
+    pageSample: "Ang kape usa ka ilimnon nga hinimo gikan sa sinanlag nga liso sa tanom nga kape, ug usa kini sa labing sikat nga ilimnon sa tibuok kalibotan.",
+    test: { word: "lagi", marked: "Mao ⟦lagi⟧ na, sakto ka.", podcast: "Tinuod nga Bisaya" },
+  },
+  th: {
+    ...LTR, unspaced: true, name: "Thai", native: "ไทย",
+    hello: "ยินดีต้อนรับ", hi: "สวัสดี", search: "ค้นหา", word: "คำ",
+    greet: ["สวัสดีตอนเช้า", "สวัสดีตอนบ่าย", "สวัสดีตอนเย็น"],
+    sample: "ยินดีต้อนรับสู่พอดแคสต์ตอนใหม่",
+    pageSample: "กาแฟเป็นเครื่องดื่มที่ทำจากเมล็ดกาแฟคั่ว และเป็นหนึ่งในเครื่องดื่มที่ได้รับความนิยมมากที่สุดในโลก",
+    test: { word: "เดี๋ยว", marked: "⟦เดี๋ยว⟧โทรกลับนะ", podcast: "ภาษาไทยจริง" },
+  },
   en: {
     ...LTR, name: "English", native: "English",
     hello: "Welcome!", hi: "hi", search: "search", word: "the word",
@@ -113,12 +147,13 @@ const SCRIPTS = [
   ["kana", /[぀-ヿ]/g],
   ["han", /[㐀-䶿一-鿿]/g],
   ["ru", /[Ѐ-ӿ]/g],
+  ["th", /[\u0E00-\u0E7F]/g],
   ["latin", /[A-Za-zÀ-ɏ]/g],
 ];
 
 /** The taught languages written in Latin letters: text in Latin letters is one of these when it is
  * the language being studied (the letters alone can't tell them apart, or from English). */
-export const LATIN_LANGUAGES = ["es", "fr", "it", "tl", "en"];
+export const LATIN_LANGUAGES = ["es", "fr", "it", "tl", "pt", "ca", "ceb", "en"];
 
 /** Which language a piece of text is written in, judged by its letters. Used where nothing
  * recorded the language (saved words, search results, things friends send). Text in Latin
@@ -133,7 +168,7 @@ export function detectLanguage(text, hint = studyLanguage()) {
   }
   if (count.kana && (top === "han" || top === "kana")) return "ja";
   if (top === "han") return hint === "ja" ? "ja" : "zh";
-  if (top === "ar" || top === "ru") return top;
+  if (top === "ar" || top === "ru" || top === "th") return top;
   if (top === "latin") return LATIN_LANGUAGES.includes(hint) ? hint : "en";
   return hint;
 }
@@ -216,10 +251,39 @@ export function setWordSplitter(code, splitter) {
 const OPENERS = /^[「『（《〈【〔［｛“‘(\[{«¿¡]+$/u;
 const LETTERS = /[\p{L}\p{N}]/u;
 
+// Thai: the device's word breaker cuts some everyday words in two or three (โรงพยาบาล "hospital" ->
+// โรง + พยาบาล, ผลกระทบ "impact" -> ผลก + ระ + ทบ). Neighbouring pieces that together spell one of
+// Thai's 1000 commonest words are joined back into it. A few of those are left apart: in running text
+// they are more often two words (ที่อยู่ "who is at" more than "address", วันที่ "the day that").
+const THAI_APART = new Set(["วันที่", "ก็คือ", "หรือไม่", "แล้วก็", "ที่อยู่", "ที่สำคัญ", "ที่ผ่านมา", "อันเป็น", "ไม่ว่า"]);
+const THAI_WORDS = new Set(THAI_COMMON.filter((w) => !THAI_APART.has(w)));
+const THAI_JOIN = 4; // pieces at most
+
+/** Thai word-breaker segments ([{segment, index}, ...] in order) with the cut common words joined. */
+export function joinThai(segments) {
+  const parts = [...segments];
+  const out = [];
+  for (let i = 0; i < parts.length;) {
+    let take = 1;
+    for (let k = Math.min(THAI_JOIN, parts.length - i); k > 1; k--) {
+      if (THAI_WORDS.has(parts.slice(i, i + k).map((p) => p.segment).join(""))) { take = k; break; }
+    }
+    out.push(take === 1 ? parts[i] : { index: parts[i].index, segment: parts.slice(i, i + take).map((p) => p.segment).join("") });
+    i += take;
+  }
+  return out;
+}
+
+/** The device's word breaker for a language (for Thai, with the cut common words joined). */
+function deviceBreaker(code) {
+  const seg = new Intl.Segmenter(code, { granularity: "word" });
+  return code === "th" ? { segment: (text) => joinThai(seg.segment(text)) } : seg;
+}
+
 /**
- * Japanese and Chinese only: turn the pieces a transcript or page was stored as into real words.
+ * Japanese, Chinese and Thai: turn the pieces a transcript or page was stored as into real words.
  *
- * Speech recognition returns these languages one or two characters at a time, and an imported
+ * Speech recognition returns these languages a few characters at a time, and an imported
  * page arrives as whole unbroken sentences. A dictionary (setWordSplitter above), or until it is
  * loaded the device's built-in word breaker (Intl.Segmenter), finds the word boundaries; each
  * word's time is worked out from the pieces it covers, so the highlight and "play this word" still line up. Punctuation stays attached to its word, as in
@@ -233,7 +297,7 @@ export function regroupWords(W, code, across = true, segText = null) {
   const custom = splitters.get(code);
   if (!langInfo(code).unspaced || !W.text.length) return W;
   if (!custom && (typeof Intl === "undefined" || !Intl.Segmenter)) return W;
-  const breaker = custom ? { segment: (text) => custom.split(text) } : new Intl.Segmenter(code, { granularity: "word" });
+  const breaker = custom ? { segment: (text) => custom.split(text) } : deviceBreaker(code);
   const show = (custom && custom.show) || ((word) => word);
   const out = { start: [], end: [], seg: [], text: [] };
   const n = W.text.length;

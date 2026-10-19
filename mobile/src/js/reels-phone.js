@@ -17,7 +17,7 @@
 import { GoogleDriveAuth, isNative, isWeb } from "./native.js";
 import { LANGUAGES, isLanguage } from "./languages.js";
 import { episodeUid, feedUid } from "./shared-logic.js";
-import { parseTranscription, sttConfig, sttModelLabel, MAX_UPLOAD_BYTES } from "./stt.js";
+import { heardAs, parseTranscription, sttConfig, sttModelLabel, MAX_UPLOAD_BYTES } from "./stt.js";
 import { kv, lib, now, saveSettingsPatch, settings } from "./store.js";
 import { requestSync } from "./sync.js";
 import { ALL_SAVED, chooseCollection, cleanCollections, foundCollections } from "./igcollections.js";
@@ -55,6 +55,14 @@ export const RANDOM_WORDS = {
        "esperienza", "curiosità", "spiegazione", "cucina", "sport", "notizie", "podcast", "routine", "famiglia", "caffè"],
   tl: ["vlog", "luto", "kwento", "payo", "katatawanan", "biruan", "tanong", "hamon", "panayam", "biyahe", "pagkain", "karanasan",
        "kaalaman", "paliwanag", "ulam", "palaro", "balita", "podcast", "araw-araw", "pamilya", "kape", "hugot"],
+  pt: ["vlog", "receita", "história", "dica", "humor", "comédia", "pergunta", "desafio", "entrevista", "viagem", "comida", "resenha",
+       "experiência", "curiosidades", "explicação", "culinária", "futebol", "notícias", "podcast", "rotina", "família", "café"],
+  ca: ["vlog", "recepta", "història", "consell", "humor", "comèdia", "pregunta", "repte", "entrevista", "viatge", "menjar", "anècdota",
+       "experiència", "curiositats", "explicació", "cuina", "esport", "notícies", "pòdcast", "rutina", "família", "cafè"],
+  ceb: ["vlog", "luto", "istorya", "tambag", "katawa", "binuang", "pangutana", "hagit", "interbyu", "biyahe", "pagkaon", "sugilanon",
+        "kasinatian", "kahibalo", "pagpasabot", "sud-an", "dula", "balita", "podcast", "adlaw-adlaw", "pamilya", "kape", "bisaya"],
+  th: ["vlog", "สูตรอาหาร", "เรื่องเล่า", "คำแนะนำ", "ตลก", "ขำขัน", "คำถาม", "ชาเลนจ์", "สัมภาษณ์", "เที่ยว", "อาหาร", "ประสบการณ์",
+       "เกร็ดความรู้", "อธิบาย", "ทำอาหาร", "กีฬา", "ข่าว", "พอดแคสต์", "กิจวัตร", "ครอบครัว", "กาแฟ", "รีวิว"],
   en: ["vlog", "recipe", "storytime", "advice", "comedy", "sketch", "question", "challenge", "interview", "travel", "food", "story",
        "experience", "funfacts", "explained", "cooking", "sports", "news", "podcast", "routine", "family", "coffee"],
 };
@@ -438,6 +446,7 @@ async function tryReel(ig, cfg, known, { random = false } = {}) {
   const words = heard.segments.reduce((n, s) => n + (s.words.length || s.text.split(/\s+/).filter(Boolean).length), 0);
   if (!words) return [false, "nothing is said in it"];
   const study = settings.study_language || "ar";
+  heard.language = heardAs(heard.language, study); // Bisaya is heard as Tagalog (stt.js)
   if (random) {
     const seconds = p.seconds || heard.duration || 0;
     if (heard.language && heard.language !== study) return [false, `in ${(LANGUAGES[heard.language] || {}).name || heard.language}, not ${LANGUAGES[study].name}`];

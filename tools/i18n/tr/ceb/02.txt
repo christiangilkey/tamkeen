@@ -1,0 +1,200 @@
+b8757fe8 Bombo Radyo, Davao
+d62cbb14 Bombo Radyo, Butuan
+4d81a0a3 Diksyonaryo nga Bisaya–Iningles
+73ea03bd Wikipedia sa Bisaya (daghang mugbo nga awtomatikong artikulo)
+3c45c568 Thai PBS, publikong brodkaster
+1b8b97d3 Thairath
+08d6fedf Khaosod
+2b67ce16 Matichon
+7f1ca720 BBC Thai
+84725fb8 The Standard
+3ac72d15 Prachatai
+4a4d5d52 Sanook News
+90e5530a PPTV HD 36
+7d180266 Workpoint Today
+89514a21 Bangkok Biz News, negosyo
+d5429913 MCOT, publikong brodkaster
+0b56148b Siamsport, sports
+a1817b50 Wikipedia sa Thai
+291625d9 Mas sayon: ang balita sa tulo ka lebel sa Iningles
+83372869 Mas sayon: balita sa hinay ug simple nga Iningles
+f2d9c77f BBC, publikong brodkaster sa Britanya
+a1aa118a The Guardian
+558f6997 NPR, publikong radyo sa Amerika
+3d209294 AP, ahensya sa balita
+b1741f08 Reuters, ahensya sa balita
+3a367e23 ABC, publikong brodkaster sa Australia
+a07fa4fa CBC, publikong brodkaster sa Canada
+494a3b5b Mas sayon: Simple English Wikipedia
+1ceda86d Tangtanga kining site sa start page
+4b2d7cb9 Mas sayon
+2f47d946 Basaha ang web sa {0}
+bd3fb75c Pangita sa Google
+bce06414 Pangita
+297a093f Imong mga gi-save nga site
+ade0111a Mga site nga imong gitipigan gamit ang bituon. Pindota ang × aron tangtangon ang usa.
+33edab97 Balita sa {0}
+d23485df Ablihi ang usa ka site, pangitaa ang artikulo, dayon pindota ang <0>I-import ang Page</0> aron basahon kini nga ang matag pulong ma-click.
+3af88e50 Naay lain nga gipangita? Pangita sa ibabaw, o i-type ang web address sa address box. Aron magpabilin ang usa ka site niini nga page, ablihi kini ug pindota ang bituon (☆) sa bar sa browser.
+7e58a747 Browser sa Tamkeen
+0292c83e I-import ang Page
+b52b36b7 Balik
+ba4e7226 Sunod
+cce71553 I-reload
+d5088cc9 I-save kining page sa Tamkeen, aron basahon nga ma-click ang mga pulong
+06a6f0bf Pangita o i-type ang web address
+abf66062 Naa sa imong start page. Pindota aron tangtangon.
+d6823a88 Ipabilin kining site sa start page sa browser
+b74fd5e9 Nag-load pa… sulayi pag-usab sa makadiyot.
+f1ea7bfe ★ Na-save sa imong start page.
+28067e68 Natangtang sa imong start page.
+7317f63f Wala ma-save kining site.
+820599da Gi-import…
+41701b8a Wala ma-import kining page.
+96bb84ec Kahibalo na ko sa mga sukaranan: isipa nga nakita na ang {0} ka labing komon nga mga pulong sa {1}
+b00c7e97 Naghulat sa mga diksyonaryo sa {0}: maisip kini kung ma-download na kana.
+ffb2e628 Gidugang…
+7528191c Wala kini ma-save karon. Sulayi pag-usab.
+b80ffddd Maisip kini kung ma-download na ang mga diksyonaryo sa {0}.
+96d9775a Nahuman: {0} ka pulong ang naisip na karon nga nakita na.
+28650781 Naisip na kini nga nakita na.
+db849af4 Mga higala ug pagpaambit (online)
+17b2a7cb Opsyonal. Mag-connect aron makadugang og mga higala pinaagi sa username, makapaambit og mga pulong ug folder, makapadayon nga parehas ang mga folder uban sa mga higala, ug makadula og live vocab quiz nga dungan. Naggamit kini sa parehas nga Google account sa Drive sync. Ang imong username, listahan sa higala ug bisan unsa nga imong gipaambit gitipigan sa online service sa app (Supabase); ang tanan nga uban nagpabilin sa imong kaugalingong Google Drive.
+820d6004 Gisusi…
+042c862e Sulayi pag-usab
+fdf71228 Mag-connect gamit ang Google
+f709df27 Mopili ka og username sunod.
+fd3e7969 Nag-connect…
+f7aba881 Konektado na. Karon pilia ang username.
+64fbd995 Usba
+efc007a3 I-save
+c2f9b7b4 Konektado
+ed28e068 I-disconnect
+84c29015 Username
+977867c9 pananglitan: layla_learns
+5ff78b85 Kini nga ngalan ang gamiton sa imong mga higala sa pagpangita nimo. {0} Mausab nimo kini bisan kanus-a; magpabilin nga konektado ang imong mga higala ug mga gipaambit.
+aeed20b3 ✓ Bakante
+c66c12b9 Naa nay nagamit
+791b5d6c Ang imong username karon kay {0}.
+fa61d32f I-disconnect sa mga higala ug pagpaambit niini nga device? Ang imong username ug mga higala magpabilin online.
+bafb6ef2 Podcast
+cfe04561 I-paste ang address sa feed, o pili gikan sa mga trending
+09d837be Pangitaa ang video ug tan-awa kini nga ma-click ang mga caption
+154cf598 Web page
+f922c9f6 Pag-import og artikulo aron basahon nga ma-click ang mga pulong
+f69f2330 Libro
+564aebf5 Usa ka libre nga klasiko, o imong kaugalingong EPUB, PDF, TXT, Kindle o Word nga file
+61e340e9 Reels
+83d2bc34 Mugbo nga mga video sa Instagram nga tan-awon sa imong phone
+61ca215b Video file
+9e717b9a Imong kaugalingong video, gikan niini nga device
+fb1e17a0 Audio file
+0e8a7c1c Imong kaugalingong recording, gikan niini nga device
+206ad75e Idugang sa imong library
+350fdaeb ‹ Tanang paagi sa pagdugang
+73b04161 I-paste ang address sa RSS feed sa podcast
+825aa64b Address sa RSS feed sa podcast
+24ba4ecf Idugang ang podcast
+1758356d o
+382c6e00 Mga podcast nga popular karon sa pinulongan nga imong gitun-an, gihan-ay sumala sa topiko
+da089e19 Trending sa {0}
+688659c1 Nag-subscribe sa {0}
+4c8aacce Ablihi ang YouTube
+a2a04642 Ang Ablihi ang YouTube magsugod sa mga video nga labing gitan-aw karong semanaha gikan niini nga nasod
+981a7d86 Popular sa
+e69ef3fc I-tap ang video didto ug maablihan kini dinhi, nga ang mga caption niini mahimong mga pulong nga ma-click. Kinahanglan naay caption ang video.
+01bc0d6b Libre nga mga klasiko
+217c2a25 Bantogang mga libro sa pinulongan nga imong gitun-an, libre kay naa na sa public domain.
+4e20f045 Idugang ang imong kaugalingong libro
+d993cd1c EPUB, PDF, TXT, Kindle AZW3 o Word, walay DRM.
+0bc298a1 I-paste ang address sa website
+ba46c1f5 Address sa website
+d6fbc9d2 I-import
+169dd244 Popular nga mga website
+b8e51206 Mga news site sa pinulongan nga imong gitun-an. Ablihi ang usa, kopyaha ang address sa artikulo, ug i-paste kini sa ibabaw.
+71091d5d Ablihi ang Web Browser
+5d382182 Mag-browse sulod sa app ug pindota ang I-import ang Page sa bisan unsa nga gusto nimong basahon.
+e9acf940 Awtomatikong mga caption sa YouTube
+b165ef2c Gidugang ang “{0}” gamit ang {1}.
+72f89e9c Na-import ang “{0}”.
+852b438f Basaha
+495d921f {0}¢ matag milyon ka token
+eb7ed7c4 kini nga computer
+a1cac7d8 kini nga browser
+1cfceb0b kini nga phone
+8eff88d5 Kahulogan sa pulong (AI)
+99b34726 I-tap ang pulong aron makita kung unsa ang kahulogan niini <0>niana nga sentence</0>. Usa ka AI provider ang mosulat sa pagpatin-aw, gamit ang imong kaugalingong key; direkta ka nga mobayad kanila, gamay ra kaayo matag pulong.
+b6db182b Unsay ipadala, ug asa gitipigan ang akong key?
+097ae941 Ang pulong, ang sentence niini ug ang mga sentence sa duha ka kilid moadto sa provider nga imong pilion, ug wala na sa lain. Ang imong key gitipigan sa {0} ug, kung mogamit ka og Google Drive sync, sa pribado nga folder sa app sa imong kaugalingong Google Drive, aron maanaa usab kini sa imong ubang mga device. Dili gyud kini mahiapil sa data export.
+fa8bf630 Unsaon pagpatin-aw sa mga pulong
+cf7318e9 Kusganong girekomenda
+796a0595 Mga pagpatin-aw sa AI
+0ca1aaeb Kung unsa ang kahulogan sa pulong <0>niini</0> nga sentence, ang grammar niini, hubad sa sentence, pagtul-id sa mga pulong nga sayop og pagkadungog, ug ang Mnemonic maker. Kinahanglan og API key: gamay ra kaayo matag pulong (ang Gemini naay libre nga alawans).
+49eec3e6 Walay AI: built-in nga diksyonaryo
+9c434872 Libre, ug mogana bisan offline kung ma-download na. Gipakita ang komon nga mga kahulogan sa pulong gikan sa Wiktionary, sa Iningles, apan dili kung hain ang mohaom sa sentence. Walay hubad sa sentence, pagtul-id o mnemonic.
+a70179e6 <0>Kusganong girekomenda ang mga pagpatin-aw sa AI.</0> Ang tinuod nga sinultihan puno sa mga pulong nga ang kahulogan nagdepende sa sentence, slang ug diyalekto nga wala sa diksyonaryo, ug mga sayop sa transcript. Sa Walay AI, makakita ka og listahan sa posibleng mga kahulogan ug kinahanglan nimong tag-anon kung hain ang gipasabot.
+7544ab30 Gamita ang mga pagpatin-aw sa AI
+7ceee3f3 Provider
+68c2cc7f Model
+61131aac 1 milyon ka token ≈ {0} ka kahulogan
+51823153 Ang mga token kay mga piraso sa pulong nga gibasa ug gisulat sa AI. Ang mga presyo kay banabana para sa sagol nga gigamit sa usa ka kahulogan, gikan sa listahan sa presyo sa matag provider.
+525f7051 Ngalan sa model, eksakto sama sa pagsulat sa provider
+cf678cab API key
+d608fce7 I-paste ang imong API key dinhi
+d97d1ee3 Ipakita
+d959e754 Na-stuck ko
+63752a4b Ipatin-aw sa
+3b3ec110 Sulayi gamit ang pananglitan
+9bd4649b Mga token nga nagamit karon sa {0}:
+86fa0600 Mnemonic maker
+fa76400f Ang mga pulong nga parehas og tingog sa likod sa review card. Parehas nga key ang gamiton niini; kung mubo ang paghunahuna, mas dali ang tubag.
+d08d8da0 Paghunahuna
+7ddd66b6 Sulayi
+0f1aa62d Walay AI
+70da8a0a ✓ Ang diksyonaryo sa {0} naa na sa {1} ({2} MB).
+e963907d Tangtanga
+808117a6 Ang diksyonaryo sa {0} wala pa sa {1}, busa dili mapatin-aw ang mga pulong nga i-tap.
+c2232964 I-download (mga {0} MB)
+c177e4b0 Gi-download…
+27a7d318 ✓ Na-set up na
+eed6bfb4 Kinahanglan
+31ba9246 Pagkuha og bag-ong key ↗
+c3639477 Kuhaa ang imong {0} API key ↗
+9ef93755 Girekomenda
+b729da8b Laing model
+883f8daa Laing model… <0>i-type ang ngalan niini</0>
+c16dec45 {0} (labing paspas, girekomenda)
+fd63eaaf Parehas sa kahulogan sa pulong
+9693b227 Kini nga model dili modawat og setting sa paghunahuna.
+a60d9c9c Naghunahuna…
+de0599b0 Idugang una ang imong API key sa ibabaw.
+e4f6bb0f Usa kana ka {0} key, busa ang provider karon kay {1}. Na-save: pindota ang “Sulayi gamit ang pananglitan” aron susihon kini.
+1bb58f41 Na-save. Pindota ang “Sulayi gamit ang pananglitan” aron susihon kini.
+19686f61 Natangtang ang key.
+b2731cb4 Wala ma-save ang key: {0}
+34d8b60f Itago
+b18ce81d Nangutana…
+ce61ce37 ✓ Mogana ({0} s): {1} = “{2}”
+b68a4efa Dili mogana ang key
+622cb8b8 Anki
+8558a88a Settings sa {0}
+b9e7312c {0} min ang milabay
+002a7fdc {0} ang gidugang, {1} ang giusab, {2} ang gitangtang
+616f33b4 {0} ug {1} pa
+d634d7a1 Ipadayon nga parehas ang akong gi-save nga mga pulong ug ang akong mga deck sa {0}, sa duha ka direksyon
+1f4549dd Ang matag pinulongan nga imong gitun-an naay kaugalingong deck, nga nakangalan sa ubos. Kana ra nga mga deck ang basahon o usbon: ang imong ubang mga deck, note ug card dili gyud hilabtan. Ang bag-ong mga pulong, mga pag-edit ug mga pagtangtang moagi sa duha ka direksyon. Ang card nga imong himoon sa kamot sa usa niini mahimong pulong dinhi, sa pinulongan sa maong deck. Ang progreso sa review sa matag card makita sa Vocab page; ang Tamkeen dili gyud mousab sa iskedyul sa {0}, sa hulagway sa card, o sa layout sa card.
+ad997b8b I-save ang mga ngalan sa deck
+cf16536f Hatagi og ngalan ang matag deck.
+01f61b61 Na-save ang mga ngalan sa deck.
+168e4932 Deck
+3e4aaec6 Aron ma-on kini, kinahanglan nga naka-install sa Anki ang add-on sa ubos (bersyon 2 o mas bag-o).
+2e547a18 {0} Walay ma-sync hangtod nga lain-lain na ang mga ngalan.
+6f68523d · {0} ka pulong ang naay card sa mga deck
+343a67e4 Kataposang sync nga naay giusab ({0}): gipadala {1}; nadawat {2}
+ea83b3ba Kataposang na-sync {0}{1} <0/>Gipadala sa {2}: {3}<1/>Nadawat gikan sa {4}: {5}
+8ab853ab (profile “{0}”)
+311e6a3f <0>Ang {0} naay laing collection nga abli</0>{1} kaysa sa gi-link sa Tamkeen{2}. Walay gibasa o gisulat niini.
+aa48c6a5 Kini na lang nga collection ang i-sync
+e172d1bd Usa ka card
+4b2e608f {0} ka card
+af6cd201 Ang {0} ({1}) matangtang sa {2} sa sunod nga sync.

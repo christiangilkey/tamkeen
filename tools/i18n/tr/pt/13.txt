@@ -1,0 +1,202 @@
+2f32eaa3 Unsa Man Jud Podcast é um podcast bisaya, ou um programa de conversa em cebuano, que fala de coisas binutbot e binuang. Às vezes também falamos de coisas sineryoso, mas quem quer ouvir isso, né? Então falamos de coisas divertidas. Enfim, se você entende o idioma, venha com a gente!
+ad54f954 Coffee Break with Juppe é a sua pausa de 5 minutos no meio do caos do dia. Pensamentos soltos, histórias rápidas e reflexões sinceras, servidos curtos e simples, e melhor ainda com um café. Dê o play para sua dose diária de papo leve e boas vibrações.
+c4ff21cc Olá! Boas-vindas ao Bisaya Podcasts PH! É muito difícil encontrar podcasts em bisaya. E é ainda mais difícil encontrar público, principalmente se você é um podcast bisaya. Este podcast quer unir os podcasts bisaya do mundo todo, para que podcasters e ouvintes possam se encontrar e se conectar com facilidade. Eu sei que é difícil encontrar público, ainda mais na nossa língua materna. Mas juntos podemos fazer nossa plataforma crescer.
+29f7f4bc Pastorear o povo de Deus por meio da pregação e do ensino eficazes da Palavra de Deus, para prepará-lo para conhecer, amar, servir e proclamar Jesus.
+7e5120d9 Conversas e reações de boa sobre assuntos atuais, família, relacionamentos e o humor bisaya.
+2473e96b Introdução
+4195c313 Para oferecer acesso em áudio à Bíblia em cebuano.
+6b4e3b92 Usa ka Bisaya nga sibya kung aha maghisgot-hisgot mi sa nagkalain-laing mga butang! Apresentado por Lewey Jimoya
+59e8c6a1 Sugilanon nga gisuwat ni Senador Vicente Rama bahin kang Amboy nga palahubog, ug ang iyang pamahala nga kinabuhi tungod sa iyang pagkapalahubog. Kini ay una nga istorya sa daghan nga nahabutang na istorya sa librong 'Larawan'. (Resumo de April Gonzales)
+d9cc6b1c {0}% lido
+e078f34f faltam {0} h {1} min
+a99cdd56 faltam {0} min
+15710324 Han
+ba1d0a64 Hiragana
+6842e5a7 Katakana
+1cb09555 Cirílico
+348d0069 Hebraico
+59d5f5b1 Grego
+bd7d4b95 Hangul
+c3376a97 Devanágari
+536c16bd {0} dias
+2985a39c {0} semanas
+682728dc {0} meses
+67e282ba {0} ano(s)
+2c4f87a8 menos de um minuto
+a5d14ec2 cerca de {0}
+95a4caee {0}–{1} min
+a8bf7da8 medido neste dispositivo
+60446ee5 com base nas suas respostas anteriores
+ca5a6508 uma primeira estimativa até você revisar mais algumas
+6403f2b7 Novas
+b83c4cda Revisões
+901df5e4 Meta de hoje
+35c77c57 (uma primeira estimativa)
+f922fb4c Faltam {0} hoje{1}
+2081c97d Tudo feito por hoje
+b422c28b Nada pendente hoje
+88da3d5b Enviar para {0}
+4ac22389 Adicionar “{0}” ao {1} para hoje (escolha onde nas Configurações)
+f4896ede Hoje: palavras novas {0} de {1}, revisões {2} de {3}. {4}. Mudar as palavras novas por dia
+031683ab Só {0} palavra(s) nova(s) esperando.
+aa175635 {0}As revisões são simplesmente as palavras pendentes hoje. A longo prazo, conte com cerca de 10 por dia para cada palavra nova (manual do Anki): {1} novas por dia ≈ {2} revisões por dia.
+4ee48926 Tempo por palavra, contando as vezes em que uma palavra esquecida volta: cerca de {0} para uma nova, {1} para uma revisão ({2}).
+a0b74487 Não foi possível enviar a tarefa.
+d4928a6e Nenhuma palavra parecida voltou. Tente de novo.
+3997732f Diga
+4fc6e7f7 Nativo
+fb8207e8 Pratique a pronúncia (P): diga a palavra e depois ouça a frase e a si mesmo. Sua tentativa não é salva.
+a679d9ee O Tamkeen precisa de permissão para usar o microfone e ouvir você dizer a palavra.
+a970acc5 Não consegui ouvir você. Tente de novo, um pouco mais perto do microfone.
+7bea803a Não foi possível usar o microfone agora.
+c9c6fe67 Google Tasks
+67e5c742 Onyx
+e79101e5 Enviado para o Onyx: {0}.
+0e90681b Permita que o Tamkeen adicione tarefas na janela do navegador que abriu e depois toque em Enviar de novo.
+6b514385 A tarefa da revisão de hoje no Google Tasks foi atualizada: {0}.
+4d263331 Adicionado ao Google Tasks: {0}.
+d8803f2b Revisão do Tamkeen ({0} min)
+37db2048 Seus cartões
+d567fe70 Faltam hoje: {0}; cerca de {1}, pela estimativa do Tamkeen.
+4e81fbf0 De 3 a 20 letras, números, pontos ou sublinhados.
+c9c9d7d4 Não foi possível carregar os recursos online.
+1d7a1d2e Não foi possível acessar o serviço online. Verifique sua conexão com a internet.
+79ec683f Os nomes de usuário têm {0}
+ad5eb13f Conecte-se primeiro.
+5fc4af92 “{0}” já está em uso. Tente outro.
+d3e6897a (ainda sem nome de usuário)
+ed88ebe6 Digite o nome de usuário do seu amigo.
+42f88043 Conecte-se primeiro (Configurações → Amigos e compartilhamento).
+76ece8da Primeiro escolha seu próprio nome de usuário (Configurações → Amigos e compartilhamento).
+4e2bf6f2 Ninguém se chama “{0}”. O nome de usuário tem que ser exato (mas não diferencia maiúsculas de minúsculas).
+967a7678 É você!
+0d09c4f7 Você e {0} já são amigos.
+993bd149 Você já enviou um pedido para {0}.
+ff44a73d Você e {0} já têm um pedido pendente.
+58f90a69 um vídeo ou uma música do YouTube Music
+97d30338 uma música, um álbum, uma playlist ou um episódio de podcast (Compartilhar → Copiar link)
+d23e8c8c uma música, um álbum ou uma playlist (Compartilhar → Copiar link)
+937e2007 a página de um filme, uma série ou uma pessoa
+e016aab6 um reel (Compartilhar → Copiar link). Seus amigos o abrem no player de reels do Tamkeen
+ca2da724 qualquer artigo ou página. Seus amigos o abrem no leitor do Tamkeen
+bdfd8662 qualquer episódio da sua biblioteca: use o botão 🎧 da barra
+52c54389 Apple Music
+094b763b não encontrado
+6c7af22a Esse link do Instagram não é de um reel. Use Compartilhar → Copiar link no próprio reel.
+0449c7b9 Não foi possível abrir essa página. Confira o link.
+9c5f935e Não foi possível encontrar isso em {0}. Confira o link.
+2a0cb6b4 Spotify
+effea02d Você só pode mandar mensagens para pessoas da sua lista de amigos.
+3a18cb8c Primeiro digite uma mensagem.
+79b09ca3 Não foi possível enviar a mensagem de voz: {0}
+394821e7 Não há nada para compartilhar.
+81058adf Isso é grande demais para enviar numa mensagem.
+9c6fefee Esse arquivo não é uma imagem que o app consiga ler. Tente um JPG ou PNG.
+c1004cfe Não foi possível preparar essa imagem.
+9c4b6c33 Não foi possível enviar a imagem: {0}
+c3441e47 De 2 a 5 letras ou números, sem espaços.
+f70d9377 Já existe uma guilda com esse nome. Tente outro nome.
+7b6a557e Os nomes de guilda têm de 2 a 40 caracteres; as tags têm {0}
+abf7ad6f Você só pode convidar seus próprios amigos para uma guilda da qual você faz parte.
+99113664 Um amigo
+0669df82 Essa pessoa já foi convidada para esta guilda.
+853b17b9 Não foi possível enviar esse presente (no máximo dez presentes por dia, e só para amigos ou colegas de guilda).
+d034eb8e Groq
+4de3bd6f Episódios com mais de 24 MB que não são MP3: o celular não consegue cortá-los em partes, então o Groq recebe o endereço do arquivo na web e o baixa sozinho. (MP3 de qualquer duração funciona: quase todo podcast é MP3.)
+4472c560 o modelo grande completo: o melhor para o árabe e os dialetos
+3d954bc8 o menor custo; um pouco menos preciso
+bd77aa8a Episódios com mais de 24 MB que não são MP3 não podem ser transcritos deste celular com a OpenAI: aparece um erro. A OpenAI aceita no máximo 25 MB por vez, e o celular só consegue cortar MP3 em partes. Transcreva esses no seu computador ou escolha o Groq, que baixa esse tipo de arquivo sozinho. (MP3 de qualquer duração funciona: quase todo podcast é MP3.)
+eba3014e funciona com a mesma chave das definições de palavras do ChatGPT
+0ffe7a83 o Groq Console
+2e074132 O Groq tem uma cota gratuita (algumas horas de áudio por dia) que não exige cartão de pagamento. Com um cartão adicionado, uma hora de áudio custa entre 4 e 11 centavos de dólar.
+953a5f79 Toque no botão abaixo. Ele abre console.groq.com no seu navegador. (O Groq é uma empresa diferente do Grok.)
+e619a44c Use seu e-mail ou “Continuar com o Google”. O cadastro é gratuito.
+63239333 Abra <0>API Keys</0> e toque em <1>Create API Key</1>. Dê um nome que você reconheça, como “Tamkeen”.
+cb2680e6 Volte aqui, cole-a na caixa <0>Chave de API</0> em Transcrição na nuvem e toque em <1>Testar a chave</1>.
+09604855 Uma hora de áudio custa cerca de 36 centavos de dólar. Se você já usa uma chave da OpenAI para as definições de palavras, a mesma chave funciona aqui: deixe esta caixa vazia.
+1bd3e72b Seu login do ChatGPT também funciona aqui, mas uma assinatura do ChatGPT Plus não cobre isto: as chaves são pagas à parte.
+944fc80e O provedor
+a85ddf87 (ele pede para esperar {0})
+8b0ebde4 {0} diz que sua conta atingiu o limite por enquanto{1}. Contas gratuitas só podem enviar uma certa quantidade de áudio por hora e por dia.
+a6fcec4d Esse áudio é grande demais para {0} aceitar de uma vez.
+964037f2 {0} não reconhece o modelo escolhido. Volte para o recomendado nas Configurações.{1}
+e1e8503b {0} diz que a conta não tem crédito. Adicione um pouco na página Billing dele.{1}
+d31e3b99 {0} não conseguiu transcrever isto (erro {1}){2}
+30785373 Não foi possível acessar {0}. Verifique sua conexão com a internet.{1}
+ad40a6bc Este celular ficou sem memória ao preparar o áudio para {0}. Tente um mais curto.
+31bc4b92 o celular não deu nenhum motivo
+9f2d7d5a Não foi possível enviar o áudio para {0}: {1}.
+55d8f8bc {0} segundos
+24a671e0 {0} minutos
+6c204c8f {0} horas
+f5071960 {0}¢ por hora de áudio
+a6a5c3dc menos de 0,1¢
+8d52756d 0 min
+656cedad Nada enviado ainda hoje.
+75b73b14 , cerca de {0}
+675fee00 {0} parte(s) enviada(s){2}
+0118d341 Nenhuma consulta ainda hoje.
+e5016995 {0} consulta(s){2}
+6f49c311 Arábia Saudita
+1c39abf6 Egito
+cf5a0fa0 os Emirados Árabes Unidos
+32e087f0 Marrocos
+fcf29f6c Japão
+d2eaf2aa China
+094d515b Taiwan
+6754fe3c Rússia
+ad79ef0f Itália
+eb607d09 as Filipinas
+d9ab8240 os Estados Unidos
+5c04a992 o Reino Unido
+ceafb51e Austrália
+37497aa5 Brasil
+a2b7c120 Tailândia
+d6663dda Negócios
+11381a19 Comédia
+aaf87fe5 Educação
+0d23bd8c Ficção
+5c9cb498 Governo
+89fc9192 Saúde e boa forma
+90ccd649 História
+cccd8e9f Crianças e família
+540c98ab Lazer
+131260cb Música
+34c808d0 Notícias
+f31acc39 Religião e espiritualidade
+d2d06637 Ciência
+4a6df903 Sociedade e cultura
+2fec45a4 Esportes
+d9f273ca TV e cinema
+d018b082 Tecnologia
+7a3f06d3 Crimes reais
+04975199 Primeiro escolha um idioma para estudar (Configurações).
+38de31ed Não foi possível acessar as paradas de podcasts da Apple. Verifique sua conexão e tente de novo.
+7eceb7a9 Não foi possível acessar o diretório de podcasts da Apple. Verifique sua conexão e tente de novo.
+6e6a6f20 Outros
+796297bd A chave expirou ou foi desativada
+a8676c27 Crie uma chave nova na página de chaves do provedor e cole-a.
+64587d6e Falta um pedaço da chave, ou veio um espaço junto
+3d171562 Copie a chave inteira de novo e cole outra vez.
+27522397 A chave é de outro provedor
+92ca2b98 Escolha o provedor cujo site deu a chave para você.
+63987d76 A chave foi excluída, ou a conta foi encerrada
+1588d496 Confira se a chave ainda aparece na página de chaves. Se não aparecer, crie uma nova.
+c96b7484 Não há crédito nem faturamento configurado
+0ad9708a Adicione um cartão de pagamento e um pouco de crédito na página Billing do provedor.
+e1e28b30 Um limite de gastos foi atingido
+18251e5e Aumente o limite mensal nas configurações de faturamento do provedor ou espere o mês que vem.
+f6cdf0dd A cota gratuita acabou por enquanto
+11671580 Espere até amanhã ou adicione faturamento para tirar o limite.
+84d0d9ac Pedidos demais em pouco tempo
+d42b2d76 Espere um minuto e tente de novo.
+4c4f1f6e Contas gratuitas só podem enviar uma certa quantidade por hora e por dia
+7675faf6 Espere um pouco ou adicione faturamento para aumentar o limite.
+084837dc Este dispositivo não está online
+d2a2dab5 Abra qualquer site para conferir e tente de novo.
+963deb8a Uma VPN ou um proxy está atrapalhando
+19c37976 Desative a VPN ou o proxy e tente de novo.
+55a21539 Um firewall, ou uma rede do trabalho ou da escola, está bloqueando
+587e5785 Tente outra rede, como os dados móveis do seu celular.
+562f6211 O provedor está fora do ar
+ea828f0c Veja a página de status dele e tente de novo mais tarde.

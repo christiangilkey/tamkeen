@@ -43,3 +43,13 @@ test("cleaning and plumbing", () => {
   assert.equal(usesDictionaries("tl"), true);
   assert.deepEqual(lexemesFor(["kinain", "kumain"], "tl", [list]).map((x) => x.key), ["tl|kain|x", "tl|kain|x"]);
 });
+
+test("common words that only look built from a smaller one", () => {
+  assert.deepEqual(roots("naman upang noong lamang bayan lalaki kahapon kailangan kinakailangan"),
+    ["naman", "upang", "noon", "lamang", "bayan", "lalaki", "kahapon", "kailangan", "kailangan"]);
+  assert.deepEqual(roots("aking namang mayroong ngayong mahabang"), ["akin", "naman", "mayroon", "ngayon", "haba"],
+    "the linker is -g after n and -ng after a vowel: the commoner word");
+  assert.deepEqual(roots("dumating tumulong tinanong namatay malaman"), ["dating", "tulong", "tanong", "patay", "alam"],
+    "dumating is not dati, tumulong not tulo");
+  assert.equal(tagalogWord("Ano'ng"), "ano", "a clipped 'ng comes off");
+});

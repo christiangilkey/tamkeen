@@ -1,0 +1,200 @@
+ada2e9e9 Inicia la sessió
+3a1f994d Popular en {0:lower} ara mateix
+5b59e6e1 Primer, comèdia. L'app mira cada vegada què funciona bé a Instagram, així que aquesta llista canvia.
+80c15bea Només els meus creadors
+667e1e2d Només els creadors que has marcat a sota.
+bc6fef4b Una barreja de tots dos
+dc9dcf7a Primer els teus creadors, completats amb altres de populars.
+75c864af Del que he desat a Instagram
+315194ad Reels que has desat tu mateix a Instagram: una de les teves col·leccions o tot el que has desat.
+5e405fb8 Vídeos curts d'Instagram en la llengua que estudies, amb totes les paraules clicables. Es reprodueixen des del mateix Instagram; només se'n guarden les paraules.
+17a23503 Els teus reels
+219d2911 ▶ Torna a mirar des del principi
+65ec8d5b ▶ Continua mirant
+f98f3020 Encara no hi ha reels. Enganxa l'enllaç d'un reel a dalt, o afegeix reels a l'app Tamkeen: arriben aquí després d'una sincronització.
+b2e08e21 Encara no hi ha reels. Prem «Aconsegueix reels a l'atzar» a dalt, o tria una de les teves col·leccions d'Instagram i marca els reels que vulguis.
+e2f3a685 Encara no hi ha reels. Es busquen al teu ordinador: obre-hi Tamkeen, ves a Biblioteca → Reels i prem «Aconsegueix 10 reels». Arribaran aquí la propera vegada que tots dos se sincronitzin.
+78706e7f Encara no hi ha reels. Tria a dalt quins reels vols i prem «Aconsegueix reels», o prem «Aconsegueix reels a l'atzar».
+36fc5604 · vist
+76a74c58 · es reprodueix amb la sessió d'Instagram iniciada
+9ddd647f Tamkeen busca i transcriu els reels nous al teu ordinador, i després se sincronitzen amb aquest telèfon. Per triar aquí mateix reels del que has desat a Instagram, activa la <0>Transcripció al núvol a Configuració</0>.
+14c3f907 Aconseguir reels funciona a l'app Tamkeen instal·lada al teu ordinador (necessita la seva pròpia finestra d'Instagram).
+d032a9c7 Quins reels?
+2e78f26e Reels del que he desat a Instagram
+52b26d3d {0} de {1} triats
+b93e9b2b Primer tria un model de transcripció (Configuració → Model): els reels s'escolten amb aquest model.
+e51052d8 Els meus creadors
+d204d5d4 Nom d'usuari d'Instagram, p. ex. @creador
+2fbcfcfd Populars en {0:lower} ara mateix (prem + per seguir-ne un):
+15dcfe7b 1. Tria una col·lecció
+a6a2fd45 Quants?
+c18657e6 Un menys
+2fe07a5f Quants reels vols aconseguir
+8c87ebbd Un més
+b2272a97 Reels en {0:lower} sobre tota mena de temes quotidians, trobats cercant a Instagram unes quantes paraules triades a l'atzar. Diferents cada vegada.
+9e253470 Atura
+9648ea78 Inicia la sessió a Instagram
+1b8fb836 Treu dels meus creadors
+d70b1d33 Afegeix aquí els creadors que t'agradin, o prem + en un dels populars de sota.
+29086cd7 Afegeix @{0} als meus creadors
+e287a6e3 Aconseguint reels…
+497fe891 Aconsegueix {0} reel{1}
+c3f837df Aconsegueix {0} reel{2} a l'atzar en {1:lower}
+4b5b4888 Primer activa la <0>Transcripció al núvol a Configuració</0>: és el que escolta el reel i n'escriu les paraules.
+c5c47401 Afegeix un reel
+4bb4efb6 Enganxa l'enllaç d'un reel d'Instagram
+0dfb37d0 Enllaç del reel d'Instagram
+0c2f86c7 Al web pots mirar els teus reels i afegir-ne de públics des del seu enllaç. Per triar reels del que has desat a Instagram, reels a l'atzar i reels amb una cançó de la biblioteca musical d'Instagram cal l'app Tamkeen al telèfon o a l'ordinador. Els reels que hi afegeixis apareixen aquí després d'una sincronització.
+5fec38ec Tria una col·lecció…
+c3b69e66 Tria…
+bfd3da0c Les teves col·leccions d'Instagram
+203932c8 ↻ Torna a buscar
+2149c492 Busca les meves col·leccions
+352c41bd Revisa el que has desat a Instagram{0} per trobar-hi les teves col·leccions
+aa91c71a tot el que has desat
+3c8b4a44 Tria una de les teves col·leccions de la llista de dalt.
+7f839429 Prem «Busca les meves col·leccions» per omplir la llista amb els noms de les teves col·leccions d'Instagram i després tria'n una.
+1ab4d204 {0} Tamkeen la llegeix a Instagram i n'enumera aquí els reels, perquè marquis els que vulguis.
+33354de6 Aconsegueix els reels marcats
+71af94b7 Envia els reels marcats al meu telèfon
+4be1d403 2. Marca els reels que vulguis
+d2e33965 a «{0}» ({1})
+64e93d4f {0} reel{1}
+13b7bfca Treballant…
+630b0a7c Aconsegueix {0}
+828b49fa Envia {0} al meu telèfon
+4ad6fa58 Ja és als teus reels
+5e0330cb No és un vídeo
+ae455286 No es pot fer servir: {0}
+22bb6297 Encara no hi ha res desat aquí.
+3345dadd El vídeo de cada reel s'envia un cop al teu proveïdor de transcripció al núvol, que n'escriu les paraules; costa una fracció de cèntim per reel.
+deca26e7 El que deses tu no es descarta mai per la llengua, així que també es conserven els reels que barregen {0:lower} amb anglès. Un reel només es deixa fora si no té cap paraula; la llista de sota diu quins. Alguns reels (sobretot els que porten una cançó de la biblioteca musical d'Instagram) només es reprodueixen per a qui ha iniciat la sessió a Instagram: també es conserven, i es reprodueixen al teu telèfon quan hi hagis iniciat la sessió a Instagram.{1}
+b70ce367 Torna a la llista
+d659e007 Reel anterior
+e9aa01dc Reel següent
+ca3b15db Toca una paraula per veure què vol dir.
+27c57ad8 En quin punt del reel
+de6afdb5 Enrere 5 segons
+8cfc8cf6 Reprodueix / pausa
+2c23a430 Endavant 5 segons
+5721bbef Instagram
+8fe4352c Carregant les paraules…
+6f95e311 Les paraules d'aquest reel encara no són en aquest dispositiu. Sincronitza i torna-ho a provar.
+2fc1ecf6 Els reels es reprodueixen al telèfon, a l'app Tamkeen.
+881d280e Aquí pots llegir les paraules d'aquest reel i buscar-les.
+c3b3a0e0 Obre aquest reel a Instagram ↗
+a7fc9779 Instagram ja no reprodueix aquest reel (eliminat, privat o amb restricció d'edat). Se salta.
+f4f2fa9d Instagram no reprodueix cap d'aquests reels ara mateix.
+34d035e1 Instagram ja no reprodueix aquest reel: pot ser que s'hagi eliminat, que sigui privat o que tingui restricció d'edat.
+7d146544 Repassa el teu vocabulari
+7585f238 Progrés de la sessió
+92197443 Desfés l'última resposta (Z)
+6cb73375 Desfés l'última resposta
+ddcdbf32 Configuració del repàs
+910308a6 Paraules noves al dia
+d12c5186 Pronuncia la paraula quan es gira la targeta
+1f434d3d <0>Espai</0> gira la targeta i després recordada · <1>1</1> o <2>←</2> no recordada · <3>2</3> o <4>→</4> recordada · <5>Z</5> desfés · <6>W</6> paraula · <7>S</7> frase · <8>P</8> practica com es diu · <9>N</9> notes personals · <10>Supr</10> esborra la paraula
+4d3ebfca Recordada
+fcd76105 Un altre cop
+001884b8 En queden {0}
+b0bc2ae4 Paraula nova
+b7d5d81b Un cop més
+e29a79fe Repàs
+742e0358 Digues la paraula mentalment i després gira la targeta
+66179621 Mostra la paraula <0>Espai</0>
+be0bf6d1 Aquí no s'ha pogut llegir el porta-retalls. Mantén premut el quadre i tria Enganxa.
+2b382bdb No hi ha res copiat per enganxar.
+af74f7c5 Copia
+13289035 Aquí no s'ha pogut copiar.
+d878e2e3 Fes-ne 5 més
+4d8637fa Paraules en {0:lower} que sonen semblant: copia'n una a Notes personals i imagina-la amb el significat.
+7893f7ae El Creador de mnemotècnies fa servir la teva clau d'IA. Afegeix-ne una a Configuració → Definicions de paraules.
+9ae914fa No ha funcionat. Torna-ho a provar.
+751a4b16 {0} Paraula
+b142c204 {0} Frase
+8669aa56 Episodi
+47b1023a Afegida a mà
+19cd7d18 Significat
+57e2a7ce Què vol dir
+c420e532 Notes de gramàtica
+d956b856 Arrel, gramàtica, ús…
+3e8c21da Notes personals
+7a625323 Enganxa el que has copiat a Notes personals
+ecef5b19 {0} Enganxa
+887fed4a Una mnemotècnia, una imatge, on la vas sentir…
+3250d8de {0} · afegida {1}
+c0ae8f6e Desat
+e1e86d29 Esborra aquesta paraula (Supr)
+200b5172 Esborra aquesta paraula
+983a1927 {0} No recordada
+9dd3addc torna d'aquí a un moment
+164d054f {0} Recordada
+292bb5d7 la tornaràs a veure {0}{1}
+f0d4b821 No s'ha desat aquesta resposta: {0}
+5ebeb223 Vols esborrar aquesta paraula?
+0e347caf Es traurà del teu vocabulari en tots els teus dispositius, juntament amb el seu progrés de repàs.
+d9f36924 Conserva-la
+a6e51c31 La seva targeta a la teva baralla {0} d'{1} també es treu a la propera sincronització, <0>amb l'historial de repàs d'aquesta targeta a {2}. No es pot desfer.</0>
+54b886ee A partir d'ara, quan esborris una paraula se'n traurà la targeta sense tornar-t'ho a preguntar.
+720f5ef8 No s'ha esborrat la paraula: {0}
+ed068c06 {0} seguides!
+0126ed40 Targetes d'avui completades! +{0} de brill
+be9065f3 Targetes d'avui completades!
+2c13c6b7 Batalla i targetes fetes avui: +{0} XP, +{1} monedes
+bd57d978 Targeta de premi gros!
+5e816849 Targeta de la sort!
+85b57d0f {0}+{1} XP
+c037d3c7 Demà
+91e3dd9f probabilitat de recordar una paraula apresa
+4efea6e1 Sessió completada
+47cbaf0c Tot al dia
+7890ad9f Targetes: {0}, uns {2} min{4}.
+c9ead0bf No hi ha res pendent, i les paraules noves d'avui ja estan fetes.
+96e9c05a Ara mateix no hi ha res pendent. Les teves paraules reposen.
+581d31c2 Desa algunes paraules amb un significat i apareixeran aquí.
+d7d2a049 conegudes des de fa 3 setmanes o més
+85df11fd paraules en repàs
+7ec16612 Aprèn més paraules noves ({0})
+dce4bd3c Tornen a tu
+b54a6754 La cerca no distingeix majúscules de minúscules.
+e8082793 Cerca a totes les transcripcions… {0}
+62ce0e88 Cerca a totes les transcripcions
+79bd4f18 {0} Les transcripcions es mostren sempre exactament com es van transcriure.
+a568e936 Cerca a totes les transcripcions, vídeos i pàgines web que has afegit.
+95a44659 No hi ha resultats per a «{0}».
+54f3e4b2 (se'n mostren {0})
+679fb77f Resultats: {0}{2}
+5eb73faa mlx-whisper a la GPU d'Apple (Metal)
+8538d459 faster-whisper a la GPU de NVIDIA (CUDA, float16)
+de8877df faster-whisper a la CPU (int8)
+88519b93 ({0} GB)
+9433c5fb Acceleració per GPU
+fd17e405 Llengua que parlo
+0d6a65aa Els botons i els missatges de l'app es mostren en aquesta llengua, i les paraules s'hi expliquen.
+1d1fdf5f Llengua que aprenc
+a553ac64 Es fa servir per a les noves transcripcions, les pàgines web importades i les explicacions de paraules. El que ja has transcrit conserva la llengua amb què es va fer.
+099be6af Model de transcripció
+c1f65ddb Motor
+b76ab659 Maquinari
+d067f1cc {0} · {1} fils · {2} GB de RAM{3}
+17c698af {0} Canviar el model només afecta les noves transcripcions; torna a transcriure un episodi des de la biblioteca per fer-lo servir.
+2162db4e Sincronització amb Google Drive
+3721a5dd Mantén sincronitzats els teus pòdcasts, transcripcions i vocabulari entre aquest ordinador, altres ordinadors i l'app d'Android. Tot es guarda en una carpeta privada de l'app al <0>teu propi</0> Google Drive que només aquesta app pot veure. La sincronització no passa mai per cap altre servidor.
+0ca0b563 Anki (opcional)
+3c270194 El complement d'Anki
+22fffbc8 Si estudies amb Anki en aquest ordinador, un petit complement el connecta amb Tamkeen. Explica a Tamkeen com van els teus repassos perquè comptin per a la teva criatura: completar el que tens pendent és la meta del dia (sigui quin sigui el nombre de targetes), i les targetes que maduren donen una bonificació. Per a això només s'envien números. Amb l'interruptor de dalt activat, també manté sincronitzades aquella baralla i les teves paraules desades. Tot es queda en aquest ordinador. Si vas instal·lar el complement abans que existís la sincronització, torna'l a baixar i instal·la'l de nou.
+177dd240 Prem el botó de sota i desa el fitxer.
+e78fa755 Fes doble clic al fitxer desat. Anki s'obre i et demana si el vols instal·lar; digues que sí i després reinicia Anki.
+047825e8 Repassa com sempre amb Tamkeen obert. A Anki, <0>Eines → Tamkeen companion…</0> mostra si està connectat, i <1>Eines → Sync Tamkeen now</1> sincronitza la baralla de seguida.
+9cf66eeb Baixa el complement d'Anki
+fb0c95bf Emmagatzematge d'àudio
+746fcf10 Esborra l'àudio baixat després de transcriure'l<0/><1>Estalvia espai al disc. Després, el reproductor reprodueix l'àudio en línia des del servidor del pòdcast.</1>
+ddb48157 Reprodueix sempre en línia des de l'URL original<0/><1>L'àudio només es baixa temporalment per transcriure'l i no es guarda mai. La reproducció necessita connexió a internet.</1>
+41def7a0 Aparença
+0485a026 Tema:
+bc0792d8 Sistema
+a36ef8ab Clar
+ae1ef014 Fosc
+1970d1e8 Mida del text de pòdcasts i vídeos: <0/> <1>{0}px</1>
+ce52a4a4 Mida del text de pàgines web: <0/> <1>{0}px</1>
+48cd18da Les teves dades

@@ -1,0 +1,200 @@
+f1d382dd Pagdugang og higala
+7ddd5e45 Ilang username
+a89d6417 Ipadala ang hangyo
+9a4506a3 Gipadala ang hangyo kang {0}.
+d2b3ee8a Imong mga higala
+cd229e08 {0} · {1} online
+e630733e Wala pay higala. Ipaambit ang imong username, <0>@{0}</0>, o pagdugang og usa sa ibabaw.
+b16fc7ff Tangtanga ang higala
+1ada4056 Tangtangon si {0}?
+ee7e971c Si {0} dili na mapabilin sa imong listahan sa mga higala. Makadugang mo pag-usab sa usag usa unya.
+904e125d Pangitaa ang higala
+b06dc642 Walay higala nga ginganlan og “{0}”.
+4f9c0764 Naghulat nga modawat sila
+84837a21 Kanselaha ang hangyo
+124a0ba3 Mga imbitasyon sa guild
+e0d73143 Apil
+8343796d Miapil ka sa {0}.
+b9cc0468 Imong mga guild
+e1c85cdb Bag-ong guild
+6e157c5d Himoa
+8978ccfe Ngalan sa guild
+41ea8208 TAG
+c2947194 Ang tag makita tapad sa mga ngalan sa mga miyembro. {0}
+7d96fc5d Nahimo na ang guild nga “{0}”. Imbitaha ang imong mga higala!
+6fc866d1 Ang guild kay grupo sa mga higala nga naay kaugalingong ngalan ug tag. Ang tanan nga sakop niini magkita sa usag usa dinhi, uban sa ilang gitun-an, ug makapadala og mensahe sa usag usa. Paghimo og usa, o paghulat og imbitasyon.
+3ee4fbee Imbitaha ang higala
+7bd335d2 Ang tanan nimong mga higala naa na niini nga guild.
+326d1c75 Pagdugang una og higala, dayon imbitaha sila.
+67e9cb4d Imbitaha sa {0}
+f318af38 Gi-imbitar si {0} sa {1}.
+49293437 Biyai ang guild
+d2839170 Biyaan ang {0}?
+8d39828d Ikaw ra ang miyembro, busa sirad-an ang guild.
+c7d54e1c Ang miyembro nga labing dugay na mahimong founder niini.
+2bdc67b8 Makaapil ka pag-usab kung naay moimbitar kanimo.
+7e3520a9 Biyai
+20c74057 Naghulat ang hangyo
+e0a731d8 Idugang isip higala
+8f65200d Tangtanga sa {0}
+c8e8a875 Si {0} dili na sakop sa {1}.
+7a978838 Founder · {0}
+f0599be1 Ikaw ra sa pagkakaron. Imbitaha ang higala aron magsugod kini.
+781f394f · {0} online
+612a1349 · ikaw ang nagtukod niini
+7ff5271b Itago ang mga miyembro
+075b3d2a Ipakita ang mga miyembro
+abe096ed Gi-upload ang imong litrato…
+3d7ef010 Na-update ang profile photo.
+bb72b60d Padayon sa pagpaminaw
+8fca30f7 Padayon sa pagtan-aw
+4f4840a8 Padayon sa pagbasa
+6a4f54ef Maayong gabii
+0f768926 Maayong buntag
+13fd0a3e Maayong hapon
+4e34d263 Gisugdan usab
+65a724ff Nahuman na nimo ang tanan
+1c3b619c Walay nahabilin nga wala mahuman. Pili og bag-o bisan kanus-a nimo gusto.
+e32ed3b5 Ablihi ang imong library
+ae2245c8 Mga podcast, video ug web page
+ea399154 Tan-awa ang imong vocab
+d6a7fd46 Ang mga pulong nga imong gi-save
+46f72e49 Tan-awa kung unsa ang gitun-an sa mga higala
+7d84d91b Mga mensahe ug gipaambit nga mga pulong
+afaa0fed {0} ka pulong ang na-save karon
+d27bd152 {0} sa imong vocab
+db2c45d5 Wala pa masugdi
+6a599877 Naa sa pila
+b6bd42e4 Gibuhat pa
+09fef5d8 Napakyas
+fd52b45d Mga podcast
+1581574d Wala pay YouTube video. Pindota ang + ug pilia ang YouTube.
+43e751cf Akong mga webpage
+f2c11421 Wala pay webpage. Pindota ang + ug pilia ang Web page.
+4a7fdd8c Mga libro
+71381287 Wala pay libro. Pili og libre nga klasiko sa pinulongan nga imong gitun-an, o pagdugang sa imong kaugalingong libro.
+4a3365aa Wala pay reel. Pindota ang + ug pilia ang Reels.
+44473bdb Akong mga video
+bc4aba2d Wala pa kay kaugalingong video. Pindota ang + ug pilia ang Video file.
+c467d30b Akong audio
+34d32c26 Wala pa kay kaugalingong audio. Pindota ang + ug pilia ang Audio file.
+00d12e01 Gi-download {0}%
+08f7cc23 Gi-transcribe {0}%
+cddfd770 Susiha ang mga feed kung naay bag-ong episode ug i-sync sa Google Drive (makuha ang bisan unsa nga gipila sa imong phone)
+8860c417 ⟳ I-refresh ug i-sync
+d699a922 Susiha kung naay bag-ong episode ug i-sync sa Google Drive
+4e925fda I-refresh ug i-sync
+585efa75 I-filter pinaagi sa titulo
+913afff1 Pilia ang tanan
+ffed8c0f I-transcribe ang gipili
+54971873 Tangtanga hangtod sa hangtod ang mga episode nga gi-tsek sa imong Library, sa matag device
+8516a714 Tangtanga ang gipili
+18915bbf Tan-awa kining mga reel
+dfe60ca9 Pag-load og dugang
+de23e71b Bag-o lang gitan-aw
+d7cc3213 Ang mga channel nga imong gi-follow makita dinhi. Pindota ang Follow ubos sa video.
+10c927f2 Tanang episode
+ba7dd347 {0}/{1} ang na-transcribe{2}
+3f52d1ce Wala pay podcast. Pagdugang og usa sa ibabaw, o tan-awa sa Trending.
+0d4800a7 Mga web page nga imong gi-import. Ablihi ang usa aron basahon kini nga ang matag pulong ma-click. Pindota ang + aron makadugang pa.
+8933cc20 Mga libro nga imong gibasa, matag page nga ang matag pulong ma-click.
+8bf58c5b Imong mga Instagram reel, ang pinakabag-o una. Mag-play kini gikan sa Instagram sa imong phone, sunod-sunod, uban sa mga pulong sa ubos. I-tsek ang pipila aron kana ra ang tan-awon.
+b1fa4fab I-play ang matag reel, sunod-sunod
+3b8796cc ▶ Tan-awa ang tanan
+e3a6fe56 I-unfollow
+9905eae6 Mga video nga imong gitan-aw gikan niini nga channel, ang pinakabag-o una.
+47763f28 Ablihi kini nga channel sa YouTube sulod sa app. I-tap ang video didto ug maablihan kini sa player sa Tamkeen
+8eb9918e Dugang pa gikan niini nga channel
+6aa45ce0 Wala na mag-follow sa {0}. Ang mga video niini magpabilin ubos sa Bag-o lang gitan-aw.
+acdac205 Audio
+bc17c1f0 Video
+2e1a712a Mga {0} file nga ikaw mismo ang nagdugang. Gi-transcribe kini sa imong computer ug gitipigan sa imong Google Drive, aron ma-play kini sa matag device. Pindota ang + aron makadugang pa.
+fb55bc86 ⚠ Napakyas ang kataposang refresh: {0}
+814c21ac Gisusi {0}
+1f370d70 Awtomatikong ipila ang bag-ong mga episode para sa transcript kung mogawas kini
+6079af61 Awtomatikong i-transcribe ang bag-ong mga episode
+33ec2170 Tangtanga ang podcast
+a1dcfc3e Ang bag-ong mga episode awtomatikong i-transcribe.
+2125ead2 Gipalong ang awtomatikong transcript.
+952950e4 Tangtangon ang “{0}”? Matangtang ang mga transcript ug na-download nga audio niini. Magpabilin ang gi-save nga vocab.
+2b8200f3 Pilia ang episode
+d91ebf58 Tan-awa
+9f5cd8a2 Sulayi pag-usab
+5a635355 I-transcribe
+7ddf9ded Tangtangon ang “{0}” sa imong mga webpage? Magpabilin ang gi-save nga vocab.
+33fb4593 Tangtangon ang “{0}” sa imong mga YouTube video? Magpabilin ang gi-save nga vocab.
+e65bc198 Tangtangon ang “{0}” sa imong mga reel? Magpabilin ang gi-save nga vocab.
+3c6ef288 Tangtangon ang “{0}”? Ang {1} ug ang transcript niini matangtang niini nga device ug sa imong Google Drive. Magpabilin ang gi-save nga vocab.
+4d04c64d Kana nga mga episode naa na sa pila o gibuhat na.
+22e136e9 Gipila ang {0} ka episode para sa transcript.
+50adc292 I-transcribe ang gipili ({0})
+c35bd621 Tangtanga ang gipili ({0})
+0cd3f428 ▶ Tan-awa kini nga reel
+fd92e5e4 ▶ Tan-awa kining {0} ka reel
+eefe1c78 Walay episode nga mohaom niini nga filter.
+954481cf Pindota ang + aron makadugang og podcast, video o web page.
+96141178 Gi-refresh…
+65a23a10 {0} ka bag-ong episode.
+0959b8b6 Walay bag-ong episode.
+74ba81d4 Gi-refresh na…
+3beca727 {0} Na-sync sa Google Drive.
+0ba6e5e4 kining episode
+00aba819 kining {0} ka episode
+fd142815 Tangtangon {0}? Matangtang {1} sa imong Library sa matag device, uban sa audio ug transcript. Ang natangtang nga episode sa podcast dili na mobalik kung i-refresh ang podcast. Magpabilin ang gi-save nga vocab. Dili na kini mabawi.
+4c92d153 Tangtangon {0}?
+ab6b534e Matangtang {0} sa imong Library sa matag device, uban sa audio ug transcript. Ang natangtang nga episode sa podcast dili na mobalik kung i-refresh ang podcast. Magpabilin ang gi-save nga vocab.
+fe63a123 Dili na kini mabawi.
+e7f0d454 Natangtang ang 1 ka episode.
+028c52e6 Natangtang ang {0} ka episode.
+8d8f6306 Gi-transcribe na kini karon.
+69e00218 Gidugang ang “{0}”. {1}
+f0926a5a Balik sa library
+b1718fc3 Ang mga caption niini nga video wala pa niini nga device. Moabot kini sa sunod nga sync, o makuha nimo kini pag-usab karon.
+4ce6ed15 Matan-aw na nimo kini karon; ang mga caption ug transcript mogawas kung ma-transcribe na kini.
+084d851b Kuhaa ang mga caption
+692d2197 Naghulat sa mga caption
+0b386a9a ↓ Balik sa karon
+66587a7a Follow
+90eeb100 Gi-follow
+4601bfc8 Ipakita o itago ang tibuok transcript (T)
+5bcd6022 Transcript
+10dc1f7d Ipakita o itago ang mga caption nga ma-click (C)
+c5a976de CC
+f1b59b0b Full screen (F)
+d4fcdcaf Gidak-on sa teksto, full screen ug pag-save sa transcript
+9c3ebd2a {0} · {1} ka pulong
+7475c2bd TXT
+a81b934c SRT
+fc630e27 VTT
+1ad08a39 Ibalhin ang posisyon
+857f1b10 ⟲ Gisubli ang sentence
+a4130b72 Hunonga ang pagsubli
+5c934b0d Balik 5 segundo (←)
+651b60e1 Play/Pause (Space)
+addc5a24 Abante 5 segundo (→)
+6ff42b75 Kapaspas sa pag-play
+af85b75e Dili ma-play sa YouTube kini nga video.
+b66fc2d7 Dili ma-load ang video. Nag-stream kini gikan sa imong Google Drive: susiha ang imong koneksyon ug kung naka-sign in ka.
+6a9b0c2f Dili ma-load ang audio. Kung nag-stream kini gikan sa server sa podcast, susiha ang imong koneksyon.
+70f8bb9a Home
+a2bb9d34 End
+9c127d35 Napakyas ang pag-play: {0}
+fa150e0d Gi-follow nimo ang {0}. Pindota aron mohunong sa pag-follow.
+bf020dbf I-follow ang {0}: makita kini sa imong Library ubos sa YouTube
+3d861abc ▶ I-play gikan dinhi
+bd22e0c7 ⟲ Subli-a kini nga sentence
+3a68bd5d Itago ang transcript (T)
+def5960f Ipakita ang transcript (T)
+fa4029ea Dili magamit ang full screen dinhi ({0}).
+a8cf995c A+ Mas dako nga teksto
+14225504 A− Mas gamay nga teksto
+401b6b54 ⛶ Full screen
+79fc7388 I-save ang transcript isip TXT
+17da46e2 I-save ang subtitle isip SRT
+8d79c7fd I-save ang subtitle isip VTT
+e792120b Ablihi ang orihinal nga page
+aa139f94 Orihinal ↗
+1e5080c8 Wala makit-i kini nga pulong sa imong vocab.
+3da47453 Laktawi
+63d2b95b Mag-sign in sa Instagram aron matan-aw kini nga reel.
+8c94fa16 Ipakita ra sa Instagram kini sa mga tawo nga naka-sign in (kay naggamit kini og kanta gikan sa music library sa Instagram, o kay naay age restriction). Mag-sign in kausa, sa kaugalingong browser sa Tamkeen: kini ra ang mosira kung naka-sign in na ka, ug magsugod ang reel. Kung naka-sign in ka kaniadto, basin gi-sign out ka sa Instagram.

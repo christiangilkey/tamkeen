@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { Mp3Splitter, STT_PROVIDERS, addAudioUse, audioCents, cleanSttKey, describeAudioUse, hoursPerDollar, languageCode, looksLikeMp3,
          mp3Frame, parseTranscription, perHourText, sendFailure, silentWav, sttConfig, sttFailure, sttKeyProvider, sttModelLabel, tidyBase64,
-         toTranscript, transcriptionFields } from "../../web/js/stt.js";
+         toTranscript, transcriptionFields, whisperCode, heardAs } from "../../web/js/stt.js";
 import { STT_KEY_GUIDES } from "../../web/js/stt.js";
 
 const answer = (words, segments, language = "arabic") => ({
@@ -45,6 +45,21 @@ test("every provider has a recommended model, a price and a walkthrough", () => 
     assert.equal(STT_KEY_GUIDES[name].starts, p.starts);
     assert.match(p.phoneLimit, /over 24 MB that aren't MP3/, `${name} says what the phone does with a big non-MP3 episode`);
   }
+});
+
+test("Bisaya is asked for as Whisper's nearest language, Tagalog, and what comes back as Tagalog is Bisaya", () => {
+  assert.equal(whisperCode("ceb"), "tl");
+  assert.equal(whisperCode("ca"), "ca");
+  assert.equal(whisperCode("th"), "th");
+  assert.deepEqual(transcriptionFields({ model: "m", language: "ceb", prompt: "Maayong buntag" }).slice(-2),
+    [["language", "tl"], ["prompt", "Maayong buntag"]]);
+  assert.equal(heardAs("tl", "ceb"), "ceb");
+  assert.equal(heardAs("tl", "tl"), "tl");
+  assert.equal(heardAs("en", "ceb"), "en");
+  assert.equal(heardAs("", "ceb"), "");
+  assert.equal(languageCode("Catalan"), "ca");
+  assert.equal(languageCode("thai"), "th");
+  assert.equal(languageCode("cebuano"), "ceb");
 });
 
 test("the request asks for a time for every word; the language is left out to have it detected", () => {

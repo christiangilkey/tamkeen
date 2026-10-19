@@ -1,0 +1,200 @@
+b8757fe8 Bombo Radyo, Davao
+d62cbb14 Bombo Radyo, Butuan
+4d81a0a3 Dicionário bisaya–inglês
+73ea03bd Wikipédia em bisaya (muitos artigos curtos automáticos)
+3c45c568 Thai PBS, emissora pública
+1b8b97d3 Thairath
+08d6fedf Khaosod
+2b67ce16 Matichon
+7f1ca720 BBC Thai
+84725fb8 The Standard
+3ac72d15 Prachatai
+4a4d5d52 Sanook News
+90e5530a PPTV HD 36
+7d180266 Workpoint Today
+89514a21 Bangkok Biz News, economia
+d5429913 MCOT, emissora pública
+0b56148b Siamsport, esportes
+a1817b50 Wikipédia em tailandês
+291625d9 Mais fácil: as notícias em três níveis de inglês
+83372869 Mais fácil: notícias em inglês simples e devagar
+f2d9c77f BBC, emissora pública britânica
+a1aa118a The Guardian
+558f6997 NPR, rádio pública americana
+3d209294 AP, agência de notícias
+b1741f08 Reuters, agência de notícias
+3a367e23 ABC, emissora pública australiana
+a07fa4fa CBC, emissora pública canadense
+494a3b5b Mais fácil: Wikipédia em inglês simples
+1ceda86d Tirar este site da página inicial
+4b2d7cb9 Mais fácil
+2f47d946 Leia a web em {0:lower}
+bd3fb75c Pesquisar no Google
+bce06414 Pesquisar
+297a093f Seus sites salvos
+ade0111a Os sites que você salvou com a estrela. Toque em × para tirar um.
+33edab97 Notícias em {0:lower}
+d23485df Abra um site, encontre um artigo e toque em <0>Importar página</0> para lê-lo com todas as palavras clicáveis.
+3af88e50 Procurando outra coisa? Pesquise acima ou digite um endereço da web na barra de endereço. Para manter um site nesta página, abra-o e toque na estrela (☆) na barra do navegador.
+7e58a747 Navegador do Tamkeen
+0292c83e Importar página
+b52b36b7 Voltar
+ba4e7226 Avançar
+cce71553 Recarregar
+d5088cc9 Salve esta página no Tamkeen para ler com palavras clicáveis
+06a6f0bf Pesquise ou digite um endereço da web
+abf66062 Está na sua página inicial. Toque para tirar.
+d6823a88 Manter este site na página inicial do navegador
+b74fd5e9 Ainda carregando… tente de novo daqui a pouco.
+f1ea7bfe ★ Salvo na sua página inicial.
+28067e68 Tirado da sua página inicial.
+7317f63f Não foi possível salvar este site.
+820599da Importando…
+41701b8a Não foi possível importar esta página.
+96bb84ec Já sei o básico: contar as {0} palavras mais comuns em {1:lower} como vistas
+b00c7e97 Aguardando os dicionários de {0:lower}: as palavras serão contadas assim que eles forem baixados.
+ffb2e628 Adicionando…
+7528191c Não foi possível salvar agora. Tente de novo.
+b80ffddd Elas serão contadas assim que os dicionários de {0:lower} forem baixados.
+96d9775a Pronto: {0} palavras agora contam como vistas.
+28650781 Elas já contam como vistas.
+db849af4 Amigos e compartilhamento (online)
+17b2a7cb Opcional. Conecte-se para adicionar amigos pelo nome de usuário, compartilhar palavras e pastas, manter pastas sincronizadas com amigos e jogar quizzes de vocabulário ao vivo juntos. Usa a mesma conta do Google da sincronização com o Drive. Seu nome de usuário, sua lista de amigos e tudo o que você compartilhar ficam guardados no serviço online do app (Supabase); todo o resto fica no seu próprio Google Drive.
+820d6004 Verificando…
+042c862e Tentar de novo
+fdf71228 Conectar com o Google
+f709df27 Em seguida, você vai escolher um nome de usuário.
+fd3e7969 Conectando…
+f7aba881 Conectado. Agora escolha um nome de usuário.
+64fbd995 Alterar
+efc007a3 Salvar
+c2f9b7b4 Conectado
+ed28e068 Desconectar
+84c29015 Nome de usuário
+977867c9 ex.: layla_aprende
+5ff78b85 Seus amigos encontram você por este nome. {0} Você pode mudá-lo quando quiser; seus amigos e compartilhamentos continuam conectados.
+aeed20b3 ✓ Disponível
+c66c12b9 Já está em uso
+791b5d6c Seu nome de usuário agora é {0}.
+fa61d32f Desconectar de amigos e compartilhamento neste dispositivo? Seu nome de usuário e seus amigos continuam guardados online.
+bafb6ef2 Podcast
+cfe04561 Cole o endereço de um feed ou escolha entre os mais populares
+09d837be Encontre um vídeo e assista com legendas clicáveis
+154cf598 Página da web
+f922c9f6 Importe um artigo para ler com palavras clicáveis
+f69f2330 Livro
+564aebf5 Um clássico gratuito ou seu próprio arquivo EPUB, PDF, TXT, Kindle ou Word
+61e340e9 Reels
+83d2bc34 Vídeos curtos do Instagram para assistir no celular
+61ca215b Arquivo de vídeo
+9e717b9a Um vídeo seu, deste dispositivo
+fb1e17a0 Arquivo de áudio
+0e8a7c1c Uma gravação sua, deste dispositivo
+206ad75e Adicionar à sua biblioteca
+350fdaeb ‹ Todas as formas de adicionar
+73b04161 Cole o endereço do feed RSS de um podcast
+825aa64b Endereço do feed RSS do podcast
+24ba4ecf Adicionar podcast
+1758356d ou
+382c6e00 Podcasts populares agora no idioma que você estuda, organizados por tema
+da089e19 Em alta em {0:lower}
+688659c1 Inscrito em {0}
+4c8aacce Abrir o YouTube
+a2a04642 Abrir o YouTube começa pelos vídeos mais vistos da semana neste país
+981a7d86 Popular em
+e69ef3fc Toque em um vídeo lá e ele abre aqui, com as legendas como palavras clicáveis. O vídeo precisa ter legendas.
+01bc0d6b Clássicos gratuitos
+217c2a25 Livros famosos no idioma que você está aprendendo, gratuitos porque estão em domínio público.
+4e20f045 Adicionar um livro seu
+d993cd1c EPUB, PDF, TXT, Kindle AZW3 ou Word, sem DRM.
+0bc298a1 Cole o endereço de um site
+ba46c1f5 Endereço do site
+d6fbc9d2 Importar
+169dd244 Sites populares
+b8e51206 Sites de notícias no idioma que você está aprendendo. Abra um, copie o endereço de um artigo e cole acima.
+71091d5d Abrir o navegador
+5d382182 Navegue dentro do app e toque em Importar página no que você quiser ler.
+e9acf940 as legendas automáticas do YouTube
+b165ef2c “{0}” adicionado com {1}.
+72f89e9c “{0}” importado.
+852b438f Ler
+495d921f {0}¢ por milhão de tokens
+eb7ed7c4 este computador
+a1cac7d8 este navegador
+1cfceb0b este celular
+8eff88d5 Definições de palavras (IA)
+99b34726 Toque em uma palavra para ver o que ela significa <0>naquela frase</0>. Um provedor de IA escreve a explicação usando a sua própria chave; você paga direto a ele, uma fração de centavo por palavra.
+b6db182b O que é enviado e onde fica a minha chave?
+097ae941 A palavra, a frase dela e as frases ao redor vão para o provedor que você escolher, e para nenhum outro lugar. Sua chave fica guardada em {0} e, se você usa a sincronização com o Google Drive, na pasta privada do app no seu próprio Google Drive, para que seus outros dispositivos também a tenham. Ela nunca faz parte de uma exportação de dados.
+fa8bf630 Como as palavras são explicadas
+cf7318e9 Altamente recomendado
+796a0595 Explicações com IA
+0ca1aaeb O que a palavra significa <0>nesta</0> frase, a gramática dela, uma tradução da frase, palavras mal ouvidas corrigidas e o Criador de mnemônicos. Precisa de uma chave de API: uma fração de centavo por palavra (o Gemini tem uma cota gratuita).
+49eec3e6 Sem IA: dicionário embutido
+9c434872 Gratuito e funciona offline depois de baixado. Mostra os significados comuns de uma palavra a partir do Wiktionary, em inglês, mas não qual deles se encaixa na frase. Sem traduções de frases, correções nem mnemônicos.
+a70179e6 <0>As explicações com IA são altamente recomendadas.</0> A fala real está cheia de palavras cujo significado depende da frase, de gírias e dialetos que um dicionário não tem, e de erros de transcrição. Sem IA, você vê uma lista de significados possíveis e precisa adivinhar qual é o certo.
+7544ab30 Usar explicações com IA
+7ceee3f3 Provedor
+68c2cc7f Modelo
+61131aac 1 milhão de tokens ≈ {0} definições
+51823153 Tokens são os pedaços de palavra que uma IA lê e escreve. Os preços são estimativas para o que uma definição usa, com base na tabela de preços de cada provedor.
+525f7051 Nome do modelo, exatamente como o provedor escreve
+cf678cab Chave de API
+d608fce7 Cole sua chave de API aqui
+d97d1ee3 Mostrar
+d959e754 Estou travado
+63752a4b Explicar em
+3b3ec110 Testar com um exemplo
+9bd4649b Tokens usados hoje em {0}:
+86fa0600 Criador de mnemônicos
+fa76400f As palavras de som parecido no verso de um cartão de revisão. Usa a mesma chave; pensar menos responde mais rápido.
+d08d8da0 Raciocínio
+7ddd66b6 Experimentar
+0f1aa62d Sem IA
+70da8a0a ✓ O dicionário de {0:lower} está em {1} ({2} MB).
+e963907d Remover
+808117a6 O dicionário de {0:lower} ainda não está em {1}, então as palavras tocadas não podem ser explicadas.
+c2232964 Baixar (cerca de {0} MB)
+c177e4b0 Baixando…
+27a7d318 ✓ Configurado
+eed6bfb4 Obrigatório
+31ba9246 Obter uma chave nova ↗
+c3639477 Obtenha sua chave de API de {0} ↗
+9ef93755 Recomendado
+b729da8b Outro modelo
+883f8daa Outro modelo… <0>digite o nome</0>
+c16dec45 {0} (o mais rápido, recomendado)
+fd63eaaf Igual às definições de palavras
+9693b227 Este modelo não aceita ajuste de raciocínio.
+a60d9c9c Pensando…
+de0599b0 Primeiro adicione sua chave de API acima.
+e4f6bb0f Essa é uma chave de {0}, então o provedor agora é {1}. Salva: toque em “Testar com um exemplo” para verificar.
+1bb58f41 Salva. Toque em “Testar com um exemplo” para verificar.
+19686f61 Chave removida.
+b2731cb4 Não foi possível salvar a chave: {0}
+34d8b60f Ocultar
+b18ce81d Perguntando…
+ce61ce37 ✓ Funciona ({0} s): {1} = “{2}”
+b68a4efa A chave não funciona
+622cb8b8 Anki
+8558a88a Configurações do {0}
+b9e7312c há {0} min
+002a7fdc {0} adicionadas, {1} alteradas, {2} removidas
+616f33b4 {0} e mais {1}
+d634d7a1 Manter minhas palavras salvas e meus baralhos do {0} sincronizados, nos dois sentidos
+1f4549dd Cada idioma que você aprende tem seu próprio baralho, com o nome abaixo. Só esses baralhos são lidos ou alterados: seus outros baralhos, notas e cartões nunca são tocados. Palavras novas, edições e exclusões vão nos dois sentidos. Um cartão que você criar à mão em um deles vira uma palavra aqui, no idioma desse baralho. O progresso de revisão de cada cartão aparece na página Vocabulário; o Tamkeen nunca muda a programação do {0}, a imagem de um cartão nem o layout dos cartões.
+ad997b8b Salvar os nomes dos baralhos
+cf16536f Dê um nome a cada baralho.
+01f61b61 Nomes dos baralhos salvos.
+168e4932 Baralho
+3e4aaec6 Para ativar isto, é preciso ter o complemento abaixo (versão 2 ou mais recente) instalado no Anki.
+2e547a18 {0} Nada é sincronizado até que os nomes sejam diferentes.
+6f68523d · {0} palavras têm um cartão nos baralhos
+343a67e4 Última sincronização com mudanças ({0}): enviadas {1}; recebidas {2}
+ea83b3ba Última sincronização {0}{1} <0/>Enviado para {2}: {3}<1/>Recebido de {4}: {5}
+8ab853ab (perfil “{0}”)
+311e6a3f <0>O {0} está com outra coleção aberta</0>{1}, diferente da que está vinculada ao Tamkeen{2}. Nada foi lido nem gravado nela.
+aa48c6a5 Sincronizar com esta coleção
+e172d1bd Um cartão
+4b2e608f {0} cartões
+af6cd201 {0} ({1}) será removido do {2} na próxima sincronização.

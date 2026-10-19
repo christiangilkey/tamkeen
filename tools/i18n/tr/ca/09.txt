@@ -1,0 +1,200 @@
+f1d382dd Afegeix un amic
+7ddd5e45 El seu nom d'usuari
+a89d6417 Envia la sol·licitud
+9a4506a3 S'ha enviat la sol·licitud a {0}.
+d2b3ee8a Els teus amics
+cd229e08 {0} · {1} en línia
+e630733e Encara no tens amics. Comparteix el teu nom d'usuari, <0>@{0}</0>, o afegeix algú a dalt.
+b16fc7ff Elimina l'amic
+1ada4056 Vols eliminar {0}?
+ee7e971c {0} ja no serà a la teva llista d'amics. Us podeu tornar a afegir més endavant.
+904e125d Busca un amic
+b06dc642 No hi ha cap amic que es digui «{0}».
+4f9c0764 Esperant que accepti
+84837a21 Cancel·la la sol·licitud
+124a0ba3 Invitacions a gremis
+e0d73143 Uneix-t'hi
+8343796d T'has unit a {0}.
+b9cc0468 Els teus gremis
+e1c85cdb Gremi nou
+6e157c5d Crea
+8978ccfe Nom del gremi
+41ea8208 ETIQ
+c2947194 L'etiqueta apareix al costat del nom dels membres. {0}
+7d96fc5d S'ha creat el gremi «{0}». Convida els teus amics!
+6fc866d1 Un gremi és un grup d'amics amb nom i etiqueta propis. Tots els membres es veuen aquí, amb el que estudien, i es poden enviar missatges. Crea'n un o espera una invitació.
+3ee4fbee Convida un amic
+7bd335d2 Tots els teus amics ja són en aquest gremi.
+326d1c75 Primer afegeix un amic i després convida'l.
+67e9cb4d Convida a {0}
+f318af38 Has convidat {0} a {1}.
+49293437 Surt del gremi
+d2839170 Vols sortir del gremi {0}?
+8d39828d Ets l'únic membre, així que el gremi es tancarà.
+c7d54e1c El membre més antic en passa a ser el fundador.
+2bdc67b8 Hi pots tornar a entrar si algú et convida.
+7e3520a9 Surt
+20c74057 Sol·licitud pendent
+e0a731d8 Afegeix com a amic
+8f65200d Treu del gremi {0}
+c8e8a875 {0} ja no serà a {1}.
+7a978838 Fundador · {0}
+f0599be1 De moment només hi ets tu. Convida un amic per posar-ho en marxa.
+781f394f · {0} en línia
+612a1349 · l'has fundat tu
+7ff5271b Amaga els membres
+075b3d2a Mostra els membres
+abe096ed Pujant la teva foto…
+3d7ef010 S'ha actualitzat la foto de perfil.
+bb72b60d Continua escoltant
+8fca30f7 Continua mirant
+4f4840a8 Continua llegint
+6a4f54ef Bon vespre
+0f768926 Bon dia
+13fd0a3e Bona tarda
+4e34d263 També en curs
+65a724ff Ho tens tot al dia
+1c3b619c No queda res a mitges. Tria alguna cosa nova quan vulguis.
+e32ed3b5 Obre la teva biblioteca
+ae2245c8 Pòdcasts, vídeos i pàgines web
+ea399154 Repassa el teu vocabulari
+d6a7fd46 Les paraules que has desat
+46f72e49 Mira què estudien els teus amics
+7d84d91b Missatges i paraules compartides
+afaa0fed Paraules desades avui: {0}
+d27bd152 {0} al teu vocabulari
+db2c45d5 Sense començar
+6a599877 A la cua
+b6bd42e4 En curs
+09fef5d8 Ha fallat
+fd52b45d Pòdcasts
+1581574d Encara no hi ha vídeos de YouTube. Prem + i tria YouTube.
+43e751cf Les meves pàgines web
+f2c11421 Encara no hi ha pàgines web. Prem + i tria Pàgina web.
+4a7fdd8c Llibres
+71381287 Encara no hi ha llibres. Tria un clàssic gratuït en la llengua que aprens, o afegeix un llibre teu.
+4a3365aa Encara no hi ha reels. Prem + i tria Reels.
+44473bdb Els meus vídeos
+bc4aba2d Encara no tens vídeos propis. Prem + i tria Fitxer de vídeo.
+c467d30b El meu àudio
+34d32c26 Encara no tens àudio propi. Prem + i tria Fitxer d'àudio.
+00d12e01 Baixant {0} %
+08f7cc23 Transcrivint {0} %
+cddfd770 Busca episodis nous als canals i sincronitza amb Google Drive (recull el que hi hagi a la cua al teu telèfon)
+8860c417 ⟳ Actualitza i sincronitza
+d699a922 Busca episodis nous i sincronitza amb Google Drive
+4e925fda Actualitza i sincronitza
+585efa75 Filtra pel títol
+913afff1 Selecciona-ho tot
+ffed8c0f Transcriu els seleccionats
+54971873 Elimina per sempre de la teva Biblioteca els episodis marcats, en tots els dispositius
+8516a714 Elimina els seleccionats
+18915bbf Mira aquests reels
+dfe60ca9 Carrega'n més
+de23e71b Vistos recentment
+d7cc3213 Aquí apareixen els canals que segueixes. Prem Segueix a sota d'un vídeo.
+10c927f2 Tots els episodis
+ba7dd347 {0}/{1} transcrits{2}
+3f52d1ce Encara no hi ha pòdcasts. Afegeix-ne un a dalt o mira a Tendències.
+0d4800a7 Pàgines web que has importat. Obre'n una per llegir-la amb totes les paraules clicables. Prem + per afegir-ne més.
+8933cc20 Llibres que estàs llegint, pàgina a pàgina, amb totes les paraules clicables.
+8bf58c5b Els teus reels d'Instagram, els més nous primer. Es reprodueixen des d'Instagram al teu telèfon, l'un rere l'altre, amb les paraules a sota. Marca'n alguns per veure només aquests.
+b1fa4fab Reprodueix tots els reels, l'un rere l'altre
+3b8796cc ▶ Mira'ls tots
+e3a6fe56 Deixa de seguir
+9905eae6 Vídeos que has vist d'aquest canal, els més recents primer.
+47763f28 Obre aquest canal a YouTube dins l'app. Toca-hi un vídeo i s'obrirà al reproductor de Tamkeen
+8eb9918e Més d'aquest canal
+6aa45ce0 Has deixat de seguir {0}. Els seus vídeos continuen a Vistos recentment.
+acdac205 Àudio
+bc17c1f0 Vídeo
+2e1a712a {0}: fitxers que has afegit tu. Es transcriuen al teu ordinador i es guarden al teu Google Drive, perquè tots els dispositius els puguin reproduir. Prem + per afegir-ne més.
+fb55bc86 ⚠ L'última actualització ha fallat: {0}
+814c21ac Comprovat {0}
+1f370d70 Posa a la cua els episodis nous per transcriure'ls automàticament quan apareguin
+6079af61 Transcriu automàticament els episodis nous
+33ec2170 Treu el pòdcast
+a1dcfc3e Els episodis nous es transcriuran automàticament.
+2125ead2 S'ha desactivat la transcripció automàtica.
+952950e4 Vols treure «{0}»? S'esborraran les seves transcripcions i l'àudio baixat. El vocabulari desat es conserva.
+2b8200f3 Selecciona l'episodi
+d91ebf58 Mira
+9f5cd8a2 Torna-ho a provar
+5a635355 Transcriu
+7ddf9ded Vols esborrar «{0}» de les teves pàgines web? El vocabulari desat es conserva.
+33fb4593 Vols treure «{0}» dels teus vídeos de YouTube? El vocabulari desat es conserva.
+e65bc198 Vols treure «{0}» dels teus reels? El vocabulari desat es conserva.
+3c6ef288 Vols esborrar «{0}»? El fitxer i la seva transcripció s'eliminen d'aquest dispositiu i del teu Google Drive. El vocabulari desat es conserva.
+4d04c64d Aquests episodis ja són a la cua o en curs.
+22e136e9 Episodis posats a la cua per transcriure: {0}.
+50adc292 Transcriu els seleccionats ({0})
+c35bd621 Elimina els seleccionats ({0})
+0cd3f428 ▶ Mira aquest reel
+fd92e5e4 ▶ Mira aquests {0} reels
+eefe1c78 Cap episodi no coincideix amb aquest filtre.
+954481cf Prem + per afegir un pòdcast, un vídeo o una pàgina web.
+96141178 Actualitzant…
+65a23a10 Episodis nous: {0}.
+0959b8b6 No hi ha episodis nous.
+74ba81d4 Ja s'està actualitzant…
+3beca727 {0} Sincronitzat amb Google Drive.
+0ba6e5e4 aquest episodi
+00aba819 aquests {0} episodis
+fd142815 Vols eliminar {0}? Això treu {1} de la teva Biblioteca en tots els dispositius, juntament amb l'àudio i la transcripció. Un episodi de pòdcast eliminat no torna quan s'actualitza el pòdcast. El vocabulari desat es conserva. No es pot desfer.
+4c92d153 Vols eliminar {0}?
+ab6b534e Això treu {0} de la teva Biblioteca en tots els dispositius, juntament amb l'àudio i la transcripció. Un episodi de pòdcast eliminat no torna quan s'actualitza el pòdcast. El vocabulari desat es conserva.
+fe63a123 No es pot desfer.
+e7f0d454 S'ha eliminat 1 episodi.
+028c52e6 S'han eliminat {0} episodis.
+8d8f6306 Ara s'està transcrivint.
+69e00218 S'ha afegit «{0}». {1}
+f0926a5a Torna a la biblioteca
+b1718fc3 Els subtítols d'aquest vídeo encara no són en aquest dispositiu. Arribaran amb la propera sincronització, o els pots tornar a obtenir ara.
+4ce6ed15 Ja el pots mirar; els subtítols i la transcripció apareixeran quan s'hagi transcrit.
+084d851b Obtén els subtítols
+692d2197 Esperant els subtítols
+0b386a9a ↓ Torna a la posició actual
+66587a7a Segueix
+90eeb100 Seguint
+4601bfc8 Mostra o amaga la transcripció completa (T)
+5bcd6022 Transcripció
+10dc1f7d Mostra o amaga els subtítols clicables (C)
+c5a976de CC
+f1b59b0b Pantalla completa (F)
+d4fcdcaf Mida del text, pantalla completa i desar la transcripció
+9c3ebd2a {0} · {1} paraules
+7475c2bd TXT
+a81b934c SRT
+fc630e27 VTT
+1ad08a39 Posició
+857f1b10 ⟲ Repetint la frase
+a4130b72 Deixa de repetir
+5c934b0d Enrere 5 segons (←)
+651b60e1 Reprodueix/Pausa (Espai)
+addc5a24 Endavant 5 segons (→)
+6ff42b75 Velocitat de reproducció
+af85b75e YouTube no ha pogut reproduir aquest vídeo.
+b66fc2d7 No s'ha pogut carregar el vídeo. Es reprodueix des del teu Google Drive: comprova la connexió i que hagis iniciat la sessió.
+6a9b0c2f No s'ha pogut carregar l'àudio. Si es reprodueix des del servidor del pòdcast, comprova la connexió.
+70f8bb9a Inici
+a2bb9d34 Fi
+9c127d35 La reproducció ha fallat: {0}
+fa150e0d Segueixes {0}. Prem per deixar de seguir-lo.
+bf020dbf Segueix {0}: apareixerà a la teva Biblioteca, a YouTube
+3d861abc ▶ Reprodueix des d'aquí
+bd22e0c7 ⟲ Repeteix aquesta frase
+3a68bd5d Amaga la transcripció (T)
+def5960f Mostra la transcripció (T)
+fa4029ea La pantalla completa no està disponible aquí ({0}).
+a8cf995c A+ Text més gran
+14225504 A− Text més petit
+401b6b54 ⛶ Pantalla completa
+79fc7388 Desa la transcripció com a TXT
+17da46e2 Desa els subtítols com a SRT
+8d79c7fd Desa els subtítols com a VTT
+e792120b Obre la pàgina original
+aa139f94 Original ↗
+1e5080c8 No s'ha trobat aquesta paraula al teu vocabulari.
+3da47453 Omet
+63d2b95b Inicia la sessió a Instagram per veure aquest reel.
+8c94fa16 Instagram només reprodueix aquest reel a qui ha iniciat la sessió (perquè fa servir una cançó de la biblioteca musical d'Instagram o perquè té restricció d'edat). Inicia la sessió un cop, al navegador propi de Tamkeen: es tanca tot sol quan has iniciat la sessió, i el reel comença. Si ja havies iniciat la sessió, pot ser que Instagram te l'hagi tancat.

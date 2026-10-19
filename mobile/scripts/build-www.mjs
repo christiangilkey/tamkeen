@@ -83,6 +83,7 @@ const SHARED = [
   "js/browser-home.js",
   "js/browser-sites.js",
   "js/trending.js",
+  "js/podcast-picks.js",
   "js/pages/discover.js",
   "js/components/studycard.js",
   "js/components/sendmedia.js",

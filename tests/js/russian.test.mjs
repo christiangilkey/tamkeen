@@ -42,6 +42,31 @@ test("stress marks: shown where the dictionary is sure, keeping case and punctua
   assert.equal(stressed("Google", real), "Google");
 });
 
+test("one spelling, two words: the commoner one; pronouns and numbers have their forms", () => {
+  // tools/build_russian.py chooses the commoner word (it took the first alphabetically before: быль, сталь).
+  for (const [w, l] of [["были", "быть"], ["будет", "быть"], ["стали", "становиться"], ["минут", "минута"], ["лет", "год"],
+    ["дела", "дело"], ["нашей", "наш"], ["готов", "готовый"], ["две", "два"], ["трём", "три"], ["летом", "летом"], ["дороги", "дорога"],
+    ["основном", "основной"], ["начало", "начало"], ["начал", "начинать"], ["чем", "чем"]]) assert.equal(lemma(w), l, w);
+  for (const [w, l] of [["стояла", "стоять"], ["стоял", "стоять"], ["горела", "гореть"], ["жил", "жить"], ["жила", "жить"], ["мыла", "мыть"],
+    ["почернел", "чернеть"], ["весла", "весло"], ["правила", "правило"]]) assert.equal(lemma(w), l, w);
+  for (const w of ["после", "нет", "хорошо", "уже"]) assert.equal(lemma(w), w, `${w} stays a word of its own`);
+  for (const [w, l] of [["ней", "она"], ["него", "он"], ["нам", "мы"], ["тебе", "ты"], ["кого", "кто"], ["одной", "один"]]) assert.equal(lemma(w), l, w);
+  assert.equal(russianLexeme("неё", real).lemma, "она");
+  assert.equal(stressed("него", real), "него́", "with their stress");
+  assert.equal(lemma("Санкт-Петербурге"), "санкт-петербург", "a hyphenated name by its last part");
+});
+
+test("a table downloaded before the fix is put right as it is read", () => {
+  // As the old tables had it: alphabetical choices, no pronoun or future forms.
+  const old = new LemmaTable({ format: 1, kind: "lemmas", name: "ru", lemmas: ["быль", "стоялый", "стоять", "метить", "мел"],
+    forms: { были: 0, стояла: 1, стоял: 1, стоит: 2, стою: 2, меть: 3, метит: 3, мела: 4 } });
+  assert.equal(lemma("были", old), "быть");
+  assert.equal(lemma("будет", old), "быть");
+  assert.equal(lemma("ней", old), "она");
+  assert.equal(lemma("стояла", old), "стоять", "a past form goes to its verb ...");
+  assert.equal(lemma("мела", old), "мел", "... not to a verb whose imperative only looks like an infinitive (меть)");
+});
+
 test("plumbing", () => {
   assert.equal(usesDictionaries("ru"), true);
   assert.deepEqual(lexemesFor(["Говорила", "ещё"], "ru", [real]).map((x) => x.key), ["ru|говорить|x", "ru|еще|x"]);

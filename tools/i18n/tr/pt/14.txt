@@ -1,0 +1,200 @@
+5b1b4424 A data e a hora deste dispositivo estão erradas
+05d71e52 Ajuste o relógio para atualizar automaticamente: as conexões seguras falham quando ele está errado.
+cc2c0140 O provedor não atende o seu país ou região
+a0d0b371 Escolha outro provedor nas Configurações.
+c47e8828 Uma VPN faz parecer que você está em outro lugar
+e5984aea Desative a VPN ou configure-a para o seu próprio país.
+47ab6e8d Esse modelo não está disponível para a sua chave
+2f6cf7e5 Volte o Modelo para o recomendado nas Configurações.
+9f9d4258 O modelo mudou de nome ou foi descontinuado
+3e1adb41 Escolha um modelo da lista em vez de digitar um nome.
+0e77e507 Contas novas ou gratuitas não podem usar todos os modelos
+9de897f2 Use o modelo recomendado ou adicione faturamento à conta.
+fd6e38d8 O provedor está com problemas ou muito sobrecarregado
+4154fe68 Veja a página de status dele e tente de novo em alguns minutos.
+5a4f728f O provedor recusou a chave
+25b375a4 A conta não tem crédito ou atingiu um limite
+5720edd4 O provedor pediu para o app ir mais devagar
+6ac5f256 Não foi possível acessar o provedor
+2cba2077 O provedor não está disponível onde você está
+2121e96e O provedor não reconhece o modelo
+d2b04c49 O provedor está com problemas
+04f3c5cd Algo deu errado com o provedor
+ec853b07 A chave é para as definições de palavras, não para a transcrição
+26d88d64 A transcrição precisa da própria chave: uma chave do Groq começa com gsk_. Uma chave da OpenAI funciona para as duas coisas.
+b2918a21 Baixando… {0}% ({1} de {2} MB)
+a15a5851 Baixando… {0} MB
+fe01cea2 Instalando. O Tamkeen vai fechar e abrir de novo sozinho.
+4265eb9a A atualização falhou.
+829e6b86 Novidades ↗
+c4cbac00 Atualizar agora
+531355b2 (você tem a {0})
+91b691d1 O Tamkeen {0} está disponível{1}
+d42870c3 Ele é instalado aqui mesmo, e sua biblioteca continua como está.
+3d611376 Baixe na página de versões.
+3ab0d731 Atualizando…
+b7219bda Árabe egípcio
+475410e2 Árabe levantino
+81298f3a Árabe do Golfo
+64202d79 um dialeto árabe
+0757a38e Aqui as vogais são um palpite: isto parece {0:lower}, e o modelo de vogais aprendeu o árabe padrão.
+01738e86 Sem vogais aqui: isto parece {0:lower}, e o modelo de vogais só conhece o árabe padrão. As Configurações podem mostrá-las como palpite.
+ebf17aa6 Adicionar vogais ao árabe?
+f6ca8deb O árabe é escrito sem as vogais curtas. O Tamkeen pode adicioná-las às suas transcrições, páginas e reels em árabe, para você ver como cada palavra é dita. Para isso é preciso um modelo de vogais, um download único de {0} MB guardado neste computador. Seu celular recebe as vogais daqui quando sincroniza.
+79151896 Ele aprendeu o árabe padrão: em árabe de estilo jornalístico, cerca de 4 em cada 5 palavras saem totalmente certas. Ele não conhece a fala egípcia, levantina nem do Golfo, então essas ficam sem vogais, a menos que você peça um palpite.
+3a719e9b Baixar ({0} MB)
+ec1c7366 Baixando o modelo de vogais. As vogais aparecem quando terminar.
+955dc8cb Mostrar ou ocultar as vogais (V)
+deee2838 Mostrar as vogais (حَرَكات) em transcrições, páginas e reels
+451a444b Também na fala egípcia, levantina e do Golfo (um palpite, muitas vezes errado)
+59e8699c O Tamkeen no seu computador adiciona as vogais (baixe o modelo de vogais nas Configurações dele); elas chegam aqui quando você sincroniza.
+10d9f8dc Adicionando vogais…
+e549162d ✓ O modelo de vogais está neste computador ({0} MB).{1}
+b281359a Baixando o modelo de vogais… {0}%
+2820e9e6 As vogais do árabe precisam de um modelo de vogais ({0} MB, árabe padrão).{1}
+3c467cf7 ✓ Seguindo
+d1541dd9 + Seguir
+90145b11 Você segue este canal no Tamkeen. Toque para deixar de seguir.
+e80a9596 Siga este canal no Tamkeen: ele aparece na sua Biblioteca, em YouTube
+8c9967c9 Você deixou de seguir
+5a674f33 Não foi possível seguir este canal.
+ce8c60f6 Toque em um vídeo para assistir no Tamkeen
+5caa7f81 Líbano
+674027e1 Jordânia
+d115b8d5 Emirados Árabes Unidos
+bd6acc86 Argélia
+1aed9ecc Iraque
+93295b0c Kuwait
+55949d4c Líbia
+c14c36df Omã
+83ef3e6c Catar
+edf404d0 Tunísia
+3ae11c72 Bahrein
+ac33d641 Iêmen
+349507e4 Chile
+768685ca Estados Unidos
+9d4ac43d Venezuela
+09f199d2 Equador
+11760e1a Guatemala
+8a4bf12e República Dominicana
+a001af75 Bolívia
+1bf429f9 Costa Rica
+66b98924 Uruguai
+71a45296 Paraguai
+1e36b31e Panamá
+5aa58871 Honduras
+259a6e93 El Salvador
+4812648c Nicarágua
+fe23c52d Porto Rico
+d8973b8e Senegal
+2f488ffc Hong Kong
+20c0b7bd Singapura
+ff3ea3be Malásia
+2f36b6bb Cazaquistão
+027a12c2 Belarus
+c951ec00 Ucrânia
+8067364d Filipinas
+a495190b Portugal
+a42522a0 Angola
+a40a9be0 Moçambique
+9d3bd1fb Andorra
+9769121f Reino Unido
+eb2131ec Irlanda
+a2238e91 Nova Zelândia
+967ce367 Índia
+9742d008 Nigéria
+35fda17f África do Sul
+bc288dca Isso não parece um vídeo do YouTube.
+37e8b90a Este vídeo não diz de qual canal é.
+bf32bc87 Não foi possível acessar o YouTube. Verifique sua conexão.
+873fbc5a O YouTube não vai mostrar este vídeo aqui: {0}
+47b4cecf O YouTube não respondeu sobre este vídeo. Tente de novo daqui a um minuto.
+bb0ea382 Não há legendas disponíveis para este vídeo.
+a66bb5c6 Não há legendas em {0:lower} disponíveis para este vídeo.
+6f502e0d Não foi possível carregar o player do YouTube. Verifique sua conexão.
+e4b5c056 O dono deste vídeo não permite que ele seja reproduzido dentro de outros apps.
+b2b518b0 Este vídeo foi removido ou ficou privado.
+269fa6c0 o player do YouTube ainda está carregando
+68e1c493 A sincronização com o AnkiDroid funciona no app instalado.
+5ce90e69 O AnkiDroid não está instalado neste celular.
+d7e2aef9 O Android ainda não conhece a permissão do AnkiDroid. Abra o AnkiDroid uma vez e tente de novo; se não resolver, instale o Tamkeen de novo (o Android só oferece a permissão para apps instalados depois do AnkiDroid).
+c175063b O Tamkeen não tem permissão para usar os cartões do AnkiDroid. Toque em Sincronizar agora e escolha Permitir, ou permita nas configurações do Android para o Tamkeen (Permissões).
+5eed15f4 O Tamkeen não tem permissão para usar os cartões do AnkiDroid.
+6167031d A sincronização com o AnkiDroid parou: {0}
+2fd01022 Opção desconhecida.
+64cd269c Uma sincronização com o AnkiDroid está em andamento. Tente de novo daqui a pouco.
+8d4dbd4e Dois idiomas não podem compartilhar o baralho “{0}”.
+3ad4b928 “{0}” e “{1}” estão um dentro do outro: dê a cada idioma um baralho próprio.
+d18f8d89 Prévia: aqui o Instagram pediria para você entrar ({0})
+0c7cd35b Prévia: {0} tocaria aqui
+a27c2834 ‹ Anterior
+51802ba8 Próximo ›
+011ae46a Carregando o áudio…
+5a1d72f4 Não foi possível carregar o áudio sincronizado; tocando o original. ({0})
+4c6de3cb Conectar funciona no app instalado.
+db79573c {0} Entrar com o Google
+c46d4f59 O login foi cancelado.
+71abc87d O Google não conectou você.
+e21573ca Esse login voltou sem ter sido pedido daqui. Tente de novo.
+6ed09657 Conectado aos Amigos.
+46729ba2 Não foi possível entrar nos Amigos.
+e129fbc7 O áudio desta palavra ainda não está neste celular. Sincronize e tente de novo.
+01dae1d6 Não foi possível acessar esse site. Confira o endereço e sua conexão.
+2bbb4134 O site respondeu com um erro ({0}).
+bb397028 Importar páginas funciona no app para Android instalado.
+29245f84 O site respondeu com um erro ({0}). Tente “Abrir o navegador” e use Importar página lá.
+29161415 Aqui só são permitidos pedidos ao diretório de podcasts da Apple.
+0eec41ce Não foi possível acessar o diretório de podcasts da Apple. Verifique sua conexão.
+bac91013 Adicionar vídeos do YouTube funciona no app para Android instalado.
+9c6c80e5 Não foi possível abrir este vídeo aqui.
+9ec8a2aa {0} Abrindo no YouTube.
+a0db0eba “{0}” importado ({1} palavras). Está em Minhas páginas da web.
+7b230e38 Seguindo {0}. Está na sua Biblioteca, em YouTube.
+116e96c0 Você deixou de seguir {0}.
+2023ac63 Salvo na sua página inicial.
+9ae12679 Os reels tocam no app instalado.
+b794b57c Entre com o Google (Configurações) para assistir aos vídeos guardados no seu Drive.
+83cbe2cb Este vídeo ainda está sendo enviado do seu computador.
+afe5afc2 O vídeo não está mais no seu Google Drive.
+be990723 Carregando o vídeo…
+37eb8e15 Os vídeos tocam no app instalado.
+e916be2e Primeiro entre com o Google (Configurações): seus arquivos ficam guardados no seu Drive.
+97aca1c7 Escolha um arquivo de vídeo (MP4, MOV, WebM, MKV, AVI, 3GP) ou de áudio (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).
+2a4b391c Seu computador vai transcrevê-lo na próxima vez que sincronizar.
+cfb6ce14 Exportação desconhecida.
+a4a37122 O GitHub respondeu {0}.
+df0aa924 Não foi possível acessar o GitHub. Verifique sua conexão com a internet.
+b2c43554 Permita “Instalar apps desconhecidos” para o Tamkeen, volte e toque em Tentar de novo.
+8daa5363 Toque em Atualizar no instalador do Android. Sua biblioteca continua como está.
+fde42b27 Sua conexão com o Google precisa ser renovada.
+d3b174d2 Reconectar o Google
+2c534112 Reconectado ao Google.
+f9ab4ef2 Não foi possível reconectar ao Google.
+f1cd4b29 Não foi possível abrir essa página do YouTube.
+e599c6b1 Transcrição pronta: {0}
+abc6efcd Não foi possível transcrever “{0}”: {1}
+dbb00f48 Nova transcrição: {0}
+737fe002 {0} transcrições novas
+84db0dcd 1 episódio de podcast novo
+b2510650 {0} episódios de podcast novos
+ec5bfe65 Nenhum texto legível foi encontrado nessa página.
+09dd50fd Livro desconhecido.
+fca43b82 Nenhum texto legível foi encontrado nesse livro.
+fba1a5a5 Meus livros
+a2a96aa1 Os episódios aparecem depois que seu computador sincronizar este feed.
+37b12633 O servidor do feed devolveu HTTP {0}.
+3155edfa O feed ficava mandando o app para outro lugar.
+48b36ff0 Não foi possível baixar a transcrição: {0}
+d6be1437 Cole a URL de um feed RSS.
+91ad3544 Você já está inscrito neste feed.
+690e2ff2 Feed não encontrado.
+39eb0435 Exclua os itens dela um por um; esta lista embutida não pode ser removida.
+bf2ba910 Entre com o Google (Configurações) para trazer sua biblioteca do computador.
+8b5a0e5e Seu computador vai transcrevê-los na próxima vez que sincronizar.
+c7d6726a Episódio não encontrado.
+e198d09b Essa alteração não se encaixa na transcrição.
+69511d5f A transcrição mudou desde que a palavra foi consultada. Toque nela de novo.
+1bd35f3f Isso não parece um reel.
+a78d3b8f Nada foi dito neste reel.
+1d6b4183 Esse vídeo ainda não está na biblioteca.
+96d03b0f Nada para salvar.

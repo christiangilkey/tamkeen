@@ -1,0 +1,200 @@
+eb32d375 Ang imong library, mga transcript, vocab, model ug settings gitipigan sa:
+b26720e4 Ablihi ang folder sa data
+146d9a4b I-export ang akong data
+65cf972d iapil ang na-download nga audio
+aa4fb3d2 I-import ang data…
+2916184c Ilisan ang imong kasamtangang library og backup (.zip).
+c76d1807 Mga update
+d4bbbea7 Dili magamit ang sync niini nga build (walay Google sign-in nga na-configure).
+f0dd6b0d Maablihan ang imong web browser aron mag-sign in.
+64b8b874 Naghulat sa Google…
+07030d82 Google account
+4541689d Napakyas ang kataposang sync: {0}
+0a5d4651 Kataposang na-sync {0}
+be8f16b4 · {0} ka transcript ang gi-upload, {1} ang gi-download, {2} ka audio ang gi-upload
+1b6c524f Naka-sign in
+dc1649a1 Mag-sign out
+cc4c05b0 I-upload ang mga compressed nga kopya sa audio (mga 12 MB matag oras)<0/><1>Aron ang imong phone ug ubang mga computer maka-play sa eksakto nga audio nga gi-transcribe, aron magpabilin nga sakto ang highlight bisan sa mga podcast nga magsulod og lain-laing ad matag download. Mogamit kini sa storage sa imong Google Drive.</1>
+777e4004 Mag-sign out sa Google? Magpabilin ang imong library niini nga computer; mohunong ra kini sa pag-sync.
+d578af85 Nagtuon na karon og {0}
+b868b1b6 Dili gigamit karon: ang {0} ang mosulat sa mga transcript (Cloud nga transcript, sa ibabaw). Walay kinahanglan i-download dinhi.
+4d889f27 Wala pay report.
+f29bbb6a Kataposang balita gikan sa Anki {0}
+696d2cc7 · karon: {0} ang na-review, {1} ang nahamtong, {2} ang takdang i-review pa
+9293dd01 Andam na ang backup ({0})
+3b151b74 I-import ang “{0}”? ILISAN niini ang imong kasamtangang library, mga transcript ug vocab sa sulod sa backup.
+deaefe6d {0} ka audio file ang na-restore.
+7427e5f6 Na-import. {0}
+b901ec82 Bag-o na ang imong bersyon ({0}).
+d7854118 Bisan kanus-a
+24345a14 Karon
+df833fe8 Kataposang 7 ka adlaw
+6b329852 Kataposang 30 ka adlaw
+0245d916 Kataposang 12 ka bulan
+9efe99b9 Tali sa mga petsa…
+ed434d6b I-tsek ang <0>Import any learning progress</0> aron mapabilin ang kahimtang sa matag pulong sa imong mga review sa Tamkeen. Ayaw kini i-tsek aron ang matag card magsugod nga bag-o.
+574c12ec Kinahanglan nga naka-install ang Anki app niini nga computer.
+be71b755 Sa Anki, i-click ang <0>Import File</0> ug pilia kini.
+e445c6a9 Siguroha nga ang imong deck naka-format sumala sa gusto nimong hitsura sa mga card sa Anki.
+0a23b23f Kinahanglan nga naka-install ang AnkiMobile app niini nga iPhone.
+9d03110d Pilia ang <0>AnkiMobile</0> sa laray sa mga app. Kung wala kini didto, i-tap ang <1>More</1>.
+0bbf1f69 Sa AnkiMobile, siguroha nga ang imong deck naka-format sumala sa gusto nimong hitsura sa mga card.
+59e916d5 Kinahanglan nga naka-install ang AnkiDroid app niini nga phone.
+e3b8af2a Pilia ang <0>Anki</0> nga bubble sa laray sa ubos. Kung wala kini didto, i-tap ang <1>More</1>.
+0ea5d1ae I-tap ang popup nga naay label nga <0>AnkiDroid</0>.
+5eeb9580 Sa AnkiDroid, siguroha nga ang imong deck naka-format sumala sa gusto nimong hitsura sa mga card.
+097027a5 Gipadala ang imong mga pulong sa Anki
+7c7da884 Sige, i-export
+12b2bdbf Sa bisan unsang transcript, i-right-click (o pindota og dugay) ang pulong o gipili nga phrase ug pilia ang “I-save sa vocab”. Pagdugang og pulong sa kamot, o i-export ang imong mga pulong para sa Anki, gikan sa ⋯ nga menu.
+239c2f13 Vocab
+7fc0dbd9 Dugang pa: pagdugang og pulong, i-export, settings sa Anki
+2fa9797f Pangitaa sa vocab… {0}
+adc4e96a Han-aya
+b2a08c42 Ipakita ang mga pulong
+172415f0 gidugang
+37c6c57b giusab
+3f66052a Gikan
+4374aaee hangtod
+ae79ea1e Hangtod
+bfad960e Idugang sa folder
+24d51d52 Tangtanga sa folder
+6f99aa21 📨 Ipadala sa higala
+247fd631 Kuhaa ang pagpili
+35c2eb2c Pagdugang og pulong
+863892c6 Dili ma-load ang audio niini nga pulong.
+6d19e3ba Ngalan sa bag-ong folder:
+7e6e65f7 Tanang pulong
+889ab689 Wala sa folder
+4ad414d8 ＋ Bag-ong folder
+e2324f01 Ilisi ang ngalan sa folder:
+5ee46641 Tangtanga ang folder
+63e908b6 Tangtangon ang folder nga “{0}”? Magpabilin ang mga pulong sulod niini.
+e4ae0eaf 📨 Ipadala ang folder sa higala
+b44edd40 ＋ Bag-ong folder…
+5b000a6e Kining mga pulong wala sa bisan unsang folder.
+afb8631c {0} ka pulong
+08c2177a Walay pulong nga ipadala.
+93ccaaea ang folder nga “{0}” ({1} ka pulong)
+128751ac {0} ka pulong
+e0e017af Ipadala ang {0} kang…
+8106e86e Giandam ang audio para sa {0} ka pulong…
+0e770154 uban sa audio
+8db1d803 ({0} uban sa audio)
+151df9be Gipadala ang {0}{1} kang {2}.
+9afb285b · giusab {0}
+29eb5c50 Pangitaa ang YouTube video diin gisulti kini nga pulong
+a5420424 Pilia ang pulong
+8e3f51e2 {0} · gidugang {1}{2}
+dd5422ef Mga note sa grammar (gamut, grammar, gamit…)
+d5b39987 Personal nga mga note (mnemonic, asa nimo kini nadungog…)
+19adc47b Mga folder
+15a53568 I-review ang “{0}”
+952f3754 Sugdi
+30cdf73e takdang i-review
+c2a6b03f bag-o
+bb866ab5 Ang mga pulong nga naay kahulogan mogawas dinhi isip mga flashcard.
+b568b4b7 · {0} ka pulong ang mobalik {2}{3}
+29a80ea8 Nahuman na ang tanan{0}
+e5084bff {0} ang gipili
+85cce1e1 Kuhaa ang tanang pagpili
+b2034f7e Pilia ang tanang {0}
+1ef4fd36 Kuhaa ang tsek sa matag pulong nga nalista sa ubos
+80e145aa I-tsek ang matag pulong nga nalista sa ubos, aron i-file o ipadala kini nga dungan
+f1423624 sa {0}
+294ccd52 {0}{1} ka butang
+71d86079 Walay pulong nga mohaom niining mga filter.
+0be6a257 Walay tugma.
+78e66aba Wala pay gi-save nga pulong.
+d6206ee4 Gihimo ang Anki deck uban sa audio…
+5755f9ac I-export ang CSV
+3e28846b I-export para sa Anki
+dc289056 Welcome sa Tamkeen
+1c1ca506 Tun-i ang pinulongan gikan sa tinuod nga mga podcast, video ug web page, pulong por pulong.
+1dd6a17c Giunsa kini paglihok
+58c2a9b6 <0>Pagdugang og podcast pinaagi sa URL sa RSS feed niini.</0> Kadaghanan sa mga podcast naay usa. Pangitaa ang “RSS” sa website sa podcast, o pangitaa sa web ang “<1>ngalan sa podcast</1> RSS feed”. Ang mga link sa Apple Podcasts dili direkta nga mogana, apan ang mga site sama sa castos.com/tools/find-podcast-rss-feed makahimo niini nga RSS URL.
+668bb8e3 <0>I-transcribe ang mga episode.</0> I-click ang “I-transcribe” sa bisan unsang episode. Ang tanan modagan sa imong computer. Walay i-upload bisan asa.
+264a32cd <0>Paminaw ug basa nga dungan.</0> Naka-highlight ang kasamtangang pulong. I-click ang bisan unsang pulong aron molukso niini, pahinayon ang audio, o subli-on ang usa ka sentence.
+fde41bd9 <0>Paghimo og imong vocab.</0> I-right-click (o pindota og dugay) ang pulong o phrase aron i-save kini uban sa sentence niini. I-export sa Anki kung andam na ka.
+c7ea5765 Susihon pag-usab sa app ang imong mga podcast matag sugod niini, busa awtomatikong mogawas ang bag-ong mga episode.
+8b5f192e Sunod: i-set up ang transcript →
+5b53855d Apple Silicon (Metal)
+f60315a5 Walay suportado nga GPU. CPU ang gamiton.
+462b6606 GPU acceleration (opsyonal)
+2efa49cc I-set up ang transcript
+7feeb161 Ang transcript naggamit sa Whisper nga speech-recognition model sa OpenAI, nga modagan sa imong computer ra. Kausa ra i-download ang model. Pili og gidak-on sa ubos. Maka-download ka og uban o matangtang kini unya sa Settings.
+bc26ec8d Imong computer
+1ddc3d58 {0} · {1} · {2} GB RAM
+a6a63185 GPU
+8cdc1fa4 Rekomendasyon: {0}.
+fefb3326 Pili og model
+27aa7d41 Hinay ra kaayo ang akong computer para niini
+16efb9b4 Ang cloud provider na lang ang mosulat sa mga transcript (pipila ka sentimo matag oras sa audio)
+9ff4b446 Pag-download og model aron makapadayon, o i-set up ang cloud provider sa ibabaw. Magamit nimo ang app samtang gi-download ang model.
+9713faa5 Sugdi ang paggamit sa app →
+66f216cc Ang UCSP, mubo sa Unsa y Cheka Sa Parlor?, usa ka podcast nga gibase sa popular nga hugpong sa pulong sa Bisaya gay lingo, nga kasagarang gisulti sa Visayas ug Mindanao sa Pilipinas. Gi-host ni Lyle Go ug Shaneee; ang hugpong sa pulong halos parehas sa What's the tea? sa Iningles.
+b7f0771c Crosseyed Podcast - Interbyu sa mga tawo nga makadasig sa Cagayan de Oro City. Crosseyed Convos - Lingaw nga panaghisgot bahin sa bisan unsang topiko nga makapainteres ug makalingaw kanako ug sa akong mga higala.
+83f1bce5 Ang Barok and Takya Bisaya Podcast usa ka Filipino nga podcast sa pinulongang Cebuano. Gihisgotan nila ang bisan unsa sama sa Pamilya, Tradisyon, Katilingban ug Kultura sa Pilipino sa pinulongang Bisaya. Unsay imong gihulat, i-download na karon ang Pinoy Podcast sa pinulongan o diyalekto nga Cebuano – Barok and Takya Bisaya Podcast.
+65d7024f Welcome sa Cge, Storya Ta: A Bisaya Couple Podcast! Nag-upload mi og bag-ong episode matag semana. Kuhaa ang imong labing komportable nga lingkuranan, huboa ang imong sapatos, ug andam na sa pagsulod sa kalibotan ni Yin ug Nol. Rollercoaster sa katawa, leksyon sa kinabuhi, ug usahay mga desisyon nga kuwestiyonable, bisan unsa ug tanan ilalom sa adlaw - walay script ug walay filter. Busa, higti ang seatbelt, kay kini ang podcast diin bisan unsa mahimong mahitabo, ug lagmit mahitabo gyud!
+3534296f Ang Brighter Bisaya usa ka family-friendly nga online media network nga nagtumong sa paghatag og impormasyon, edukasyon, ug inspirasyon sa mga Bisaya/Cebuano sa tanang edad pinaagi sa maalamon ug mamugnaon nga mga show nga panaghisgot. Determinado ang kompanya sa pagpatik og sayon sabton nga mga vlog ug podcast bahin sa arte, edukasyon, pilosopiya, siyensya, teknolohiya, inspirasyon, ug kalingawan sa Cebuano, Binisaya, Tagalog, Iningles, ug Filipino.
+b819d08f Kapoy explain man. Para sa mga pangutana bahin sa ad, komento, o sugyot sa topiko, kontaka mi sa sevillaacevincent@gmail.com.
+cc4289fa Mga pagbasa sa Misa sa Domingo sa Cebuano | Mga pagbasa sa Santos nga Misa sa Binisaya. Ang bag-ong mga episode gipagawas sa Lunes sa dili pa ang Misa. Ipadala ang tanang feedback sa sundaymassreadings@gmail.com. Espesyal nga pasalamat kang Fr. Alvin, Lorena, Celine, Aimee, Belinda, Ivy, Praxi, Fr. Gerry, Belton, Agnes ug Deacon Roman.
+ee681aee Podcast bahin sa random nga mga istorya. Gisulti ni Ziwi ang iyang personal nga mga kasinatian ug mga leksyon sa kinabuhi. #Bisaya #Storytelling #Philippines #ChikaMinute #Chikahan
+5561133e Si Jeana ug Justein labing suod nga managhigala gikan sa init nga probinsya sa Cebu. Karon nga naa na sila sa ulahing bahin sa ilang baynte, kining managhigala sukad high school naghisgot bahin sa pagsagubang sa pagkahamtong, pagkat-on ug pagkalimot sa mga ideya, ug paghimo og mga prayoridad. Kung gusto nimo mabati kanang pamilyar nga init nga pagbati sa sulod - sama sa mabati nimo sa sinsero nga istoryahanay uban sa dugay na nimong higala, apil kanila niining bag-ong podcast. Bag-ong mga episode matag Biyernes! x Paliti mi og kape sa ko-fi.com/wanbatsrabesh ☕️ Ang tanang musika dili amoa ug gikan sa Audionautix.com.
+2f32eaa3 Ang Unsa Man Jud Podcast usa ka Bisaya Podcast o talk show sa pinulongang Cebuano nga naghisgot og binutbot ug binuang nga mga butang. Usahay maghisgot usab mi og sineryoso nga mga butang apan kinsa man ang gustong maminaw ana, di ba? Busa lingaw nga mga butang na lang among hisgotan. Bisan pa, kung kasabot ka sa pinulongan, apil na!
+ad54f954 Ang Coffee Break with Juppe mao ang imong 5 ka minuto nga pahulay gikan sa kagubot sa adlaw. Random nga mga hunahuna, mubo nga mga istorya, ug matinud-anon nga mga pamalandong—mubo, simple, ug labing lami uban sa kape. Pindota ang play para sa imong adlaw-adlaw nga dosis sa gaan nga istorya ug tinuod nga vibes.
+c4ff21cc Hello! Welcome sa Bisaya Podcasts PH! Lisod kaayo mangita og Bisaya nga mga podcast. Mas lisod pa gani mangita og mamiminaw labi na kung Bisaya podcast ka. Kini nga podcast nagtumong sa paghiusa sa mga Bisaya Podcast sa tibuok kalibotan aron dali ta makapangita ug makakonektar sa uban nga mga podcaster ug mamiminaw. Kahibalo ko nga lisod mangita og mamiminaw, labi na sa atong lumad nga pinulongan. Apan kung magkahiusa ta, mapadako nato ang atong plataporma.
+29f7f4bc Aron magiyahan ang katawhan sa Dios pinaagi sa epektibo nga pagwali ug pagtudlo sa Pulong sa Dios aron sila maandam sa pag-ila, paghigugma, pag-alagad ug pagmantala kang Jesus.
+7e5120d9 Panaghisgot nga good vibes ug reaksyon sa kasamtangang mga isyu, pamilya, relasyon ug Bisaya nga komedya.
+8d6c5728 Kini nga podcast naghisgot bahin sa mga relasyon, lifestyle ug dugang pa bahin sa Bisaya. Kung Bisaya ka, Espesyal ka! Malipayon ko nga makauban ka ug palihug pabilin uban nako aron mas bongga! Atong diskobrehon ang kalibotan sa atong palibot busa kapit lang, higala, ug ayaw biya. Kini si Mr. Wazzquiin ang inyong gwapo nga host!
+fd23eda9 Unsa’y Cheka Sa Parlor
+f9a11c2f Lyle Go and Shaneee | TAGM Marketing Solutions Inc.
+c9476ace Crosseyed
+416e5e3c Gary Monton | Bisaya Podcast
+572329d1 Dili Ni Advice - A Bisaya Podcast
+6c8793d1 Darling and Kringkay The Pod Network Entertainment
+e6feaa11 Barok and Takya Bisaya Podcast
+30e343f4 Barok & Takya
+f6112f30 Cge Storya Ta: A Bisaya Couple Podcast
+8c29ec7d Yin + Nol
+49bc6e59 Brighter Bisaya
+e59b5c99 Kasikas: Bisaya Podcast
+2f359fd1 Ace Vincent Sevilla
+a4b3025e Sunday Mass Readings in Cebuano
+41126fc0 Ben
+2a59645c Storytelling with Ziwi (Bisaya Podcast)
+35a7384d Ziwi Tea
+c0da64f1 Wanbats Ra Besh | Bisaya Society & Culture
+c65ee463 Jna and Ju
+51f2914b Bisaya Jokes!
+78a5056a DJ Bisdak
+a6bc3cb4 Podcast para pakatawa sa mga bisdak!
+5f38602a NAYSJUAN SESSIONS | Binisaya Podcast
+cd567294 JUAN MARCUZ TIMAY
+16a70550 Ang naysjuan paminawon nga Binisaya o Bisaya podcast 20 minutes before sa atoang naysjuan nga pagkatulog. Busa, kon Bisaya ta o kasabot tag Binisaya nga pinulongan ug kon trip nato adunay makat-onan, paminawa na tawon nato ning podcast ni Juan. Diri gastorya tag mga estoryahanan nga praktikal ug mapuslanon nga makatabang sa tanan, mapabata man o mapatiguwang, aron mas mapasayon ang pagkinabuhi. ➖➖➖➖➖ JUST BUY ME A COFFEE: buymeacoffee.com/JUANMARCUZTIMAY
+5ee1603d Purok Pabula Ph
+155acb68 p b Purok Pabula PH /b mao ni ang lugar sa tinuod nga istorya—walay script, walay arte, diretso ra. /p p /p p Dinhi, lain-lain mi ug panan-aw—naa’y abogado, naa’y pilosopo, naa’y engineer, ug naa pud mi’y mga kasinatian sa kinabuhi nga among gidala sa lamesa. Kada episode, among hisgutan ang mga butang nga atong madunggan adlaw-adlaw—fake news, politika, kultura, ug mga tinuohan nga atong gidak-an. /p p /p p Dili ni perpekto. br / Dili ni pina-polished. br / Pero tinuod ni. /p p /p p Murag istorya ra sa purok—pero naay unod. /p p /p p Kay usahay, dili klaro ang kamatuoran. br / Ug usahay, ang
+6606f08e Kinabuhing Kristohanon: a Wali Bisaya Preaching
+42bb34c3 Barok and Takya
+88b9b348 Welcome sa Kinabuhing Kristohanon, usa ka Wali Bisaya Preaching nga magdala kanimo sa panaw sa pagtuo, espiritwalidad, ug komunidad. Ang among pasundayag kay usa ka talagsaon nga pagsagol sa mga tinuohan, ang Pulong sa Dios Bible, ug mga kasinatian nga makatandog sa kasingkasing sa mga Pilipinong Kristiyano. Ang matag episode nagsusi sa atong pagtuo, magsuhid sa lawom nga epekto sa Kristiyanismo sa atong adlaw-adlaw nga kinabuhi. Atong hisgotan ang kamahinungdanon sa pagsimba, ang esensya sa serbisyo sa komunidad, ug ang makapabag-o nga gahum sa espirituhanong mga buhat. Ang atong mga panagsul
+2d2313a6 Bisaya In America
+9c57b087 Genie H
+a2a821cf Unsa Man Jud
+42054007 DD & Friends
+a8f21295 Bisaya Thoughts
+aa746ddb Phil Andrew
+e1e3cd8e These are my Bisaya thoughts about anything random sa life, family, love, work, or even sa mga nahitabo ron sa Pilipinas. But basically, ganahan ra jud ko mag-yaw2x. Mainly because ganahan ko ipagawas akong mga gibati ug mga na learn sa life given nga hapit nako mag 40. I m using this as an outlet ug part ni siya sa akong journey to be a better version of myself. If ganahan mo mu-journey with me, hope makatabang ni ninyo. Reach out if ganahan mo makig-chika or naa mo questions or magpa advice mo ug stranger like me: philampong@gmail.com IG: instagram.com/philandrew23 FB: facebook.com/phile
+026bb096 Coffee Break with Juppe
+9708095f Jupiter Baguioso
+5d5efc1a NAYSJUAN DAILY,
+aa91b142 Bisaya Podcasts PH
+58610005 Ptr. Stanley Pilapil
+94e606a0 Bisaya Vibes by Team Conato PH
+b37cc66f BANHA | Istorya Ug Uban Pa - Bisaya Podcast
+eb990eab Danrev Tipdas
+8807c90a BANHA | Istorya Ug Uban Pa PODCAST is a Bisaya Podcast Kamo naa moy mga sugilanon. Mga istorya nga basin dili lang pud diay ikaw ang naka-agi. Kami naa pud mi amua nga mga sugilanon.TARA! Tabi ta! Let’s Banha. Let Our Stories Make the Noise. Wa ta kabalo sa atuang pag share we find hope and healing in our stories. Maminaw mi, no judgment here. Share lang gud, bisan unsa pa na imuhang sugilanon sa kinabuhi andam mi maminaw. Know that ikaw ug ang imuhang sugilanon it matters. TARA! BANHA NATA! ISTORYA UG UBAN PA!
+93347587 Bisaya Espesyal
+e785744b Mr. Wazzquiin
+ef9504fa TTB Cebuano Pagtuon sa Bibliya (Cebuano)
+97e8c475 THRU the BIBLE
+75e6f3b4 Hibaloi ang tibuok Pulong sa Dios pinaagi sa kasaligan nga pagtulon-an sa Biblia sa THRU the BIBLE sa Cebuano. Ang matag yugto naghatag og tin-aw ug praktikal nga pagtulon-an aron matabangan kang masabtan ang Kasulatan ug magamit kini sa adlaw-adlaw nga kinabuhi. Panaw sa tibuok Biblia, usa ka leksiyon matag higayon, uban sa mga tigpaminaw sa tibuok kalibotan. Pagkat-on pa sa TTB.BIBLE
+5223eb1f Balaan nga Bibliya - Cebuano (Cebuano)

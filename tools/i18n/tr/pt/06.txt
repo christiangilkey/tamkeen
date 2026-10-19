@@ -1,0 +1,200 @@
+c462f354 Capim alto
+2115a9fc Lanterninha
+bdc1fd5d Concha
+89f36136 Placa de sinalização
+a36ef413 Arbusto
+c6928281 Rochedo
+b14de689 Ninho
+1a706e23 Cama
+337b7955 Tigela de comida
+8d1cb4ea Bolinha de brinquedo
+0d88689c Estante
+b11bf19e Rádio
+64f5d600 Lago
+f80ba508 Fogueira
+eae12d19 Barraca
+370793de Poste de luz
+dc94e91a Árvore frutífera
+a187c328 Fonte
+f96ddf32 Arco
+237d114f Estátua
+7a115bb8 Coruja: estudou depois das 10 da noite
+7bcd9fab Madrugador: estudou antes das 7 da manhã
+ba785471 Sete dias seguidos
+15441302 Impecável: venceu uma batalha sem nenhuma resposta errada
+b2c51034 Virada: venceu uma batalha por um triz
+6f45a48a Gêmea
+86b7531d Crie-a junto com uma criatura já nascida de outro elemento
+9ba079f8 assume as cores da companheira
+75a2b75a Noturna
+05b5bd96 Estude depois das 10 da noite
+40e4dece uma forma noturna com um brilho de luar
+7881bf71 Campeã
+bba9c7c9 Vença uma batalha por um triz ou sem nenhuma resposta errada
+ecc4d7d2 com crista e marcas douradas
+13b10e8c Investida
+6e665685 Guarda
+de2f330f Fagulha
+fc24ae3b Incêndio
+0e1275fa Chicote de Vinha
+7c390204 Matagal
+789c7773 Arremesso de Pedrinha
+e6277766 Deslizamento
+d735dc4a Choque
+9ab63902 Trovão
+76ce312e Borrifo
+2bfd4000 Correnteza
+97389d1a Sombra
+25ab466c Anoitecer
+157f2572 Volta por Cima
+fe7f55b8 Foco
+d4e1aee4 Carga
+d9d7e3d0 Vento a Favor
+15727c13 Ressonância
+1ed1264f Perspicácia
+2d4c3f4e Acúmulo
+e0070ea6 Golpe Noturno
+69b8c2a5 Raio da Aurora
+7b6625f5 Coração Firme
+ee19d60c Segundo Fôlego
+b5c15f07 Forma Perfeita
+4869ac12 Semana livre
+8d82fb8f Qualquer criatura, qualquer golpe.
+ed7aebae Só iniciantes
+9ab28c8b Só filhotes e jovens podem lutar (os adultos ficam de fora esta semana).
+a135954e Sem cura
+ae188585 Golpes de cura não são permitidos.
+18d1cb31 Brasa, Faísca e Pedra
+8c9c8aee Só criaturas de Brasa, Faísca e Pedra.
+a9202974 Maré, Bosque e Crepúsculo
+fe2417f4 Só criaturas de Maré, Bosque e Crepúsculo.
+17bff5b7 Um contra um
+49663788 Times de um.
+e33e1fd3 Broto de Palavras
+9b3a9266 Uma planta que faz brotar letras brilhantes. Rende mais para os curiosos: consultar palavras.
+0a0dcf0b Concha do Eco
+7c5e9fe1 Uma concha que murmura o que ouviu. Rende mais para quem escuta.
+58e0fe3c Alcance sua meta diária duas vezes
+8a51e70b Lanterna de Páginas
+edbcf4d7 Uma lanterna dobrada com páginas. Rende mais para quem lê.
+d8e79134 Consulte 30 palavras
+aa0ef1d3 Tinteiro
+b5f0b120 Um pequeno poço de tinta. Rende mais para colecionadores de palavras.
+82e39370 Salve 50 palavras
+fc274353 Pedra da Memória
+9b2d1f8b Uma pedra entalhada que guarda o que você sabe. Rende mais para colecionadores.
+c2ee073b Conheça bem 5 palavras (pelas batalhas)
+1b5d4cf8 Tear de Estrelas
+e351da07 Um tear que tece luz das estrelas. Estável para todos.
+b41d02f3 Liberte uma criatura adulta uma vez
+423e6206 Faça sua primeira criatura nascer
+ea9f375d Alcance sua meta diária 3 vezes
+d852f95e Salve 30 palavras
+a80ee76d Mantenha uma sequência de 5 dias
+ad99a14e Conheça bem 10 palavras (pelas batalhas)
+790456c6 Fruta silvestre
+3030e8ec Peixe
+00fe42c2 Folha
+17541de7 Bala faísca
+781aae20 Açúcar-cande
+ceb44980 Bolo da lua
+5f4632af Poção
+1c1b6779 Numa batalha selvagem, recupera uma vez metade da saúde de uma criatura.
+ec7d6643 Bônus de XP
+fb54130d Dobra o XP por consultar, salvar e revisar palavras durante 20 minutos.
+2b8f2201 Ingresso de batalha
+05dc8601 Mais uma batalha hoje rende a recompensa completa, depois das três primeiras.
+7d10b37f Chocadeira
+658d01ff Aquece um ovo para que ele cresça junto com a criatura do seu habitat.
+6953faf6 Chave de terreno
+7661862b Abre o próximo terreno para construir sem esperar pela meta dele.
+5afab055 Ovo misterioso
+379ee5cf Um ovo novo para o seu grupo. O elemento dele tende para o seu jeito de estudar.
+3d02ef52 O Resmungão
+7bd136e6 Uma névoa de fala embaralhada.
+511e4954 A Página em Branco
+8720a6ee Ela encara você de volta.
+af92969a Estática
+2cebb5b5 Ruído onde deveriam estar as palavras.
+47e17523 O Esquecimento
+53267fa2 Apaga tudo o que você não revisita.
+8697f432 Prata
+c57604db Ouro
+b3850e04 Diamante
+37399d70 Primeira palavra
+c0203c34 Consulte uma palavra
+c007882f Primeira eclosão
+f51af387 Faça um ovo eclodir
+e387d81f Dez metas
+d5913b18 Alcance sua meta diária 10 vezes
+ce70ac02 Uma semana
+6da30a55 Uma sequência de 7 dias
+892a61a4 Um mês
+90f6c76b Uma sequência de 30 dias
+d4e2f065 Cem dias
+8ad928d9 Uma sequência de 100 dias
+26ad9c0c 100 palavras
+cd7e4e5a Salve 100 palavras
+a2cb707e 1000 palavras
+8a81401d Salve 1000 palavras
+37ea46b5 Ouvinte
+a535d7ff Complete o hábito de ouvir
+ac5bbe82 Leitor
+479b0d0b Complete o hábito de ler
+e3199d24 Colecionador
+f7254f15 Complete o hábito de colecionar
+9b83b0ca Crie um Eco adulto
+b132f8c5 Crie um Sábio adulto
+28cfd944 Crie um Guardião adulto
+0fbbf940 Rival amigável
+de125314 Termine uma batalha com um amigo
+be66989a Raide
+b231ceba Ajude a derrotar um chefe semanal
+90b952f5 Parque da cidade
+73d5f55c Oásis
+bcce2166 Floresta noturna
+0b7eaa70 Litoral
+f347e8f3 Aprendendo {0:lower}
+25640d1c Liga {0}
+8f75ec47 XP ganho hoje
+2dd2bed7 hoje
+75050d57 A criatura favorita
+9d9aab10 Primeiro conecte-se com o Google (Configurações → Amigos e compartilhamento).
+33f400a7 Primeiro adicione um amigo, na aba Amigos.
+98961386 Dar este ovo para…
+458e9f84 Dar isto para…
+d19372ac Enviado para {0}.
+33ce4174 Carregando…
+fe0337e8 Não foi possível acessar o serviço online. Verifique sua conexão.
+ab898d21 Batalhar com amigos, a liga, os raides da guilda e os presentes precisam dos recursos online.
+260bcda8 Escolha <0>Conectar com o Google</0> em Configurações → Amigos e compartilhamento. Suas palavras e seu material de estudo nunca são enviados: só o seu time de criaturas, a sua precisão nas respostas e os totais desta semana.
+0908d881 Os dados online do jogo ainda não estão disponíveis ({0}).
+e235e19c Esperando por você
+de946983 Um ovo
+2dcb4068 Um presente
+359aac0c {0} de
+86834099 desafiou seu time e {0}.
+032d7174 Revanche
+75a9d140 Classificação pela proporção de dias desta semana em que cada um alcançou a própria meta diária, seja qual for o tamanho dela. Cinco dias ou mais numa semana fazem você subir de liga; um ou nenhum, descer.
+561c39e9 Regra de batalha desta semana:
+bb9d653f Desafiar
+6fb4e940 Ainda sem time
+f45f3479 Ainda não abriu o jogo online
+60bab8eb Adicione amigos na aba Amigos para encher a liga e desafiar os times deles.
+17f11ae4 Derrotado!
+ce9deb48 Restam {0} de {1}
+fd2b49ec Raide de {0}: {1}
+1a39a266 {0} Cada resposta certa numa batalha desta semana, de qualquer membro da guilda, tira um.
+4145d94b Resgatar a recompensa
+3ef23a47 Raide vencido: +{0} XP e {1} moedas.
+5954ea17 Recompensa resgatada. Um chefe novo chega na segunda-feira.
+a2df9bd2 Entre em uma guilda ou crie uma (aba Amigos) para enfrentar juntos o chefe do raide semanal. Esta semana: {0}.
+6b8ca9a3 Meta diária! +{0} XP
+6caf860b Anki: cartões que amadureceram: {0} · +{2} XP
+b72da5f2 Protetor de sequência
+dce47891 Carta de dica
+29877f37 +{0} XP
+53af6389 XP
+b666a4ab {0} · próximo {1}
+df2457aa próximo {0}
+830ead14 {0} de 5 corações: alimente-a para aumentá-los

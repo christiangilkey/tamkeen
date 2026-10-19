@@ -1,0 +1,200 @@
+f1d382dd Adicionar um amigo
+7ddd5e45 O nome de usuário da pessoa
+a89d6417 Enviar pedido
+9a4506a3 Pedido enviado para {0}.
+d2b3ee8a Seus amigos
+cd229e08 {0} · {1} online
+e630733e Nenhum amigo ainda. Compartilhe seu nome de usuário, <0>@{0}</0>, ou adicione alguém acima.
+b16fc7ff Remover amigo
+1ada4056 Remover {0}?
+ee7e971c {0} não vai mais estar na sua lista de amigos. Vocês podem se adicionar de novo depois.
+904e125d Encontrar um amigo
+b06dc642 Nenhum amigo chamado “{0}”.
+4f9c0764 Esperando a pessoa aceitar
+84837a21 Cancelar pedido
+124a0ba3 Convites para guildas
+e0d73143 Entrar
+8343796d Você entrou em {0}.
+b9cc0468 Suas guildas
+e1c85cdb Nova guilda
+6e157c5d Criar
+8978ccfe Nome da guilda
+41ea8208 TAG
+c2947194 A tag aparece ao lado do nome dos membros. {0}
+7d96fc5d Guilda “{0}” criada. Convide seus amigos!
+6fc866d1 Uma guilda é um grupo de amigos com nome e tag próprios. Todos os membros se veem aqui, com o que estão estudando, e podem trocar mensagens. Crie uma ou espere um convite.
+3ee4fbee Convidar um amigo
+7bd335d2 Todos os seus amigos já estão nesta guilda.
+326d1c75 Primeiro adicione um amigo e depois convide-o.
+67e9cb4d Convidar para {0}
+f318af38 Você convidou {0} para {1}.
+49293437 Sair da guilda
+d2839170 Sair de {0}?
+8d39828d Você é o único membro, então a guilda será encerrada.
+c7d54e1c O membro mais antigo passa a ser o fundador.
+2bdc67b8 Você pode entrar de novo se alguém convidar você.
+7e3520a9 Sair
+20c74057 Pedido pendente
+e0a731d8 Adicionar amigo
+8f65200d Remover de {0}
+c8e8a875 {0} não vai mais estar em {1}.
+7a978838 Fundador · {0}
+f0599be1 Por enquanto só você. Convide um amigo para começar.
+781f394f · {0} online
+612a1349 · fundada por você
+7ff5271b Ocultar membros
+075b3d2a Mostrar membros
+abe096ed Enviando sua foto…
+3d7ef010 Foto de perfil atualizada.
+bb72b60d Continuar ouvindo
+8fca30f7 Continuar assistindo
+4f4840a8 Continuar lendo
+6a4f54ef Boa noite
+0f768926 Bom dia
+13fd0a3e Boa tarde
+4e34d263 Também em andamento
+65a724ff Você está em dia
+1c3b619c Nada ficou pela metade. Escolha algo novo quando quiser.
+e32ed3b5 Abrir sua biblioteca
+ae2245c8 Podcasts, vídeos e páginas da web
+ea399154 Revisar seu vocabulário
+d6a7fd46 As palavras que você salvou
+46f72e49 Ver o que seus amigos estão estudando
+7d84d91b Mensagens e palavras compartilhadas
+afaa0fed {0} palavra(s) salva(s) hoje
+d27bd152 {0} no seu vocabulário
+db2c45d5 Não iniciado
+6a599877 Na fila
+b6bd42e4 Em andamento
+09fef5d8 Falhou
+fd52b45d Podcasts
+1581574d Nenhum vídeo do YouTube ainda. Toque em + e escolha YouTube.
+43e751cf Minhas páginas da web
+f2c11421 Nenhuma página da web ainda. Toque em + e escolha Página da web.
+4a7fdd8c Livros
+71381287 Nenhum livro ainda. Escolha um clássico gratuito no idioma que você está aprendendo ou adicione um livro seu.
+4a3365aa Nenhum reel ainda. Toque em + e escolha Reels.
+44473bdb Meus vídeos
+bc4aba2d Nenhum vídeo seu ainda. Toque em + e escolha Arquivo de vídeo.
+c467d30b Meus áudios
+34d32c26 Nenhum áudio seu ainda. Toque em + e escolha Arquivo de áudio.
+00d12e01 Baixando {0}%
+08f7cc23 Transcrevendo {0}%
+cddfd770 Procurar episódios novos nos feeds e sincronizar com o Google Drive (pega o que estiver na fila no seu celular)
+8860c417 ⟳ Atualizar e sincronizar
+d699a922 Procurar episódios novos e sincronizar com o Google Drive
+4e925fda Atualizar e sincronizar
+585efa75 Filtrar por título
+913afff1 Selecionar tudo
+ffed8c0f Transcrever selecionados
+54971873 Remover da sua Biblioteca os episódios marcados, para sempre, em todos os dispositivos
+8516a714 Excluir selecionados
+18915bbf Assistir a estes reels
+dfe60ca9 Carregar mais
+de23e71b Vistos recentemente
+d7cc3213 Os canais que você segue aparecem aqui. Toque em Seguir embaixo de um vídeo.
+10c927f2 Todos os episódios
+ba7dd347 {0}/{1} transcritos{2}
+3f52d1ce Nenhum podcast ainda. Adicione um acima ou veja em Em alta.
+0d4800a7 Páginas da web que você importou. Abra uma para ler com todas as palavras clicáveis. Toque em + para adicionar mais.
+8933cc20 Livros que você está lendo, uma página por vez, com todas as palavras clicáveis.
+8bf58c5b Seus reels do Instagram, os mais novos primeiro. Eles tocam do Instagram no seu celular, um depois do outro, com as palavras embaixo. Marque alguns para assistir só a esses.
+b1fa4fab Tocar todos os reels, um depois do outro
+3b8796cc ▶ Assistir a todos
+e3a6fe56 Deixar de seguir
+9905eae6 Vídeos que você assistiu deste canal, os mais recentes primeiro.
+47763f28 Abrir este canal no YouTube dentro do app. Toque em um vídeo lá e ele abre no player do Tamkeen
+8eb9918e Mais deste canal
+6aa45ce0 Você deixou de seguir {0}. Os vídeos dele continuam em Vistos recentemente.
+acdac205 Áudio
+bc17c1f0 Vídeo
+2e1a712a Arquivos de {0:lower} que você mesmo adicionou. Eles são transcritos no seu computador e guardados no seu Google Drive, para que todos os dispositivos possam tocá-los. Toque em + para adicionar mais.
+fb55bc86 ⚠ A última atualização falhou: {0}
+814c21ac Verificado {0}
+1f370d70 Colocar os episódios novos na fila de transcrição automaticamente quando aparecerem
+6079af61 Transcrever episódios novos automaticamente
+33ec2170 Remover podcast
+a1dcfc3e Os episódios novos serão transcritos automaticamente.
+2125ead2 Transcrição automática desativada.
+952950e4 Remover “{0}”? As transcrições e o áudio baixado dele serão excluídos. O vocabulário salvo é mantido.
+2b8200f3 Selecionar episódio
+d91ebf58 Assistir
+9f5cd8a2 Tentar de novo
+5a635355 Transcrever
+7ddf9ded Excluir “{0}” das suas páginas da web? O vocabulário salvo é mantido.
+33fb4593 Remover “{0}” dos seus vídeos do YouTube? O vocabulário salvo é mantido.
+e65bc198 Remover “{0}” dos seus reels? O vocabulário salvo é mantido.
+3c6ef288 Excluir “{0}”? O arquivo e a transcrição dele são removidos deste dispositivo e do seu Google Drive. O vocabulário salvo é mantido.
+4d04c64d Esses episódios já estão na fila ou em andamento.
+22e136e9 {0} episódio(s) na fila de transcrição.
+50adc292 Transcrever selecionados ({0})
+c35bd621 Excluir selecionados ({0})
+0cd3f428 ▶ Assistir a este reel
+fd92e5e4 ▶ Assistir a estes {0} reels
+eefe1c78 Nenhum episódio corresponde a este filtro.
+954481cf Toque em + para adicionar um podcast, um vídeo ou uma página da web.
+96141178 Atualizando…
+65a23a10 {0} episódio(s) novo(s).
+0959b8b6 Nenhum episódio novo.
+74ba81d4 Já está atualizando…
+3beca727 {0} Sincronizado com o Google Drive.
+0ba6e5e4 este episódio
+00aba819 estes {0} episódios
+fd142815 Excluir {0}? Isso remove {1} da sua Biblioteca em todos os dispositivos, junto com o áudio e a transcrição. Um episódio de podcast excluído não volta quando o podcast é atualizado. O vocabulário salvo é mantido. Isso não pode ser desfeito.
+4c92d153 Excluir {0}?
+ab6b534e Isso remove {0} da sua Biblioteca em todos os dispositivos, junto com o áudio e a transcrição. Um episódio de podcast excluído não volta quando o podcast é atualizado. O vocabulário salvo é mantido.
+fe63a123 Isso não pode ser desfeito.
+e7f0d454 1 episódio excluído.
+028c52e6 {0} episódios excluídos.
+8d8f6306 Ele está sendo transcrito agora.
+69e00218 “{0}” adicionado. {1}
+f0926a5a Voltar para a biblioteca
+b1718fc3 As legendas deste vídeo ainda não estão neste dispositivo. Elas chegam na próxima sincronização, ou você pode buscá-las de novo agora.
+4ce6ed15 Você já pode assistir; as legendas e a transcrição aparecem quando ele for transcrito.
+084d851b Obter legendas
+692d2197 Aguardando as legendas
+0b386a9a ↓ Voltar à posição atual
+66587a7a Seguir
+90eeb100 Seguindo
+4601bfc8 Mostrar ou ocultar a transcrição completa (T)
+5bcd6022 Transcrição
+10dc1f7d Mostrar ou ocultar as legendas clicáveis (C)
+c5a976de CC
+f1b59b0b Tela cheia (F)
+d4fcdcaf Tamanho do texto, tela cheia e salvar a transcrição
+9c3ebd2a {0} · {1} palavras
+7475c2bd TXT
+a81b934c SRT
+fc630e27 VTT
+1ad08a39 Posição
+857f1b10 ⟲ Repetindo a frase
+a4130b72 Parar de repetir
+5c934b0d Voltar 5 segundos (←)
+651b60e1 Reproduzir/Pausar (Espaço)
+addc5a24 Avançar 5 segundos (→)
+6ff42b75 Velocidade de reprodução
+af85b75e O YouTube não conseguiu reproduzir este vídeo.
+b66fc2d7 Não foi possível carregar o vídeo. Ele é transmitido do seu Google Drive: verifique sua conexão e se você está conectado.
+6a9b0c2f Não foi possível carregar o áudio. Se ele é transmitido do servidor do podcast, verifique sua conexão.
+70f8bb9a Início
+a2bb9d34 Fim
+9c127d35 A reprodução falhou: {0}
+fa150e0d Você segue {0}. Toque para deixar de seguir.
+bf020dbf Seguir {0}: ele aparece na sua Biblioteca, em YouTube
+3d861abc ▶ Tocar a partir daqui
+bd22e0c7 ⟲ Repetir esta frase
+3a68bd5d Ocultar a transcrição (T)
+def5960f Mostrar a transcrição (T)
+fa4029ea A tela cheia não está disponível aqui ({0}).
+a8cf995c A+ Texto maior
+14225504 A− Texto menor
+401b6b54 ⛶ Tela cheia
+79fc7388 Salvar a transcrição como TXT
+17da46e2 Salvar as legendas como SRT
+8d79c7fd Salvar as legendas como VTT
+e792120b Abrir a página original
+aa139f94 Original ↗
+1e5080c8 Não foi possível encontrar esta palavra no seu vocabulário.
+3da47453 Pular
+63d2b95b Entre no Instagram para assistir a este reel.
+8c94fa16 O Instagram só mostra este reel para quem está conectado (porque ele usa uma música da biblioteca musical do Instagram ou porque tem restrição de idade). Entre uma vez, no navegador do próprio Tamkeen: ele fecha sozinho quando você estiver conectado, e o reel começa. Se você já estava conectado, o Instagram pode ter desconectado você.

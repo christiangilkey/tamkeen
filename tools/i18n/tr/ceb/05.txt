@@ -1,0 +1,200 @@
+2de11318 Babagan ang sunod nga igo
+d923a217 Mas kusog nga mga igo sulod sa pipila ka higayon
+66c1c04a Mag-ayo ({0} ang nahabilin)
+da3e3967 Gamita ang tambal ({0}): mobalik ang katunga sa kusog niini, kausa matag sangka
+a3972f01 Pili og lihok. Ang pangutana bahin sa usa sa imong mga pulong ang motino kung unsa kaayo kini moigo.
+bfd6bf51 Hain sa imong mga pulong ang nagpasabot niini?
+5fb65141 Unsay kahulogan niini?
+37035270 Gamita ang hint card ({0})
+63d63141 Kabalo na kaayo ka niana nga pulong karon. +15 XP
+18a80fec Tukma sa tibuok semana: +60 XP ug 5 ka coin
+19bb2852 Sakto, ug paspas!
+fbc63d40 Sakto.
+c04b920c Nahutdan sa oras.
+e8849508 Dili pa gyud: gimarkahan ang sakto nga tubag.
+0639028d Wala masultihi si {0}: {1}
+8d36cc07 · {0} {1} ka coin
+c94a5549 · {0} ka pulong ang kabalo na kaayo karon
+13f349e7 {0} sakto, {1} sayop{2}
+fd1125a9 {0} Skill {1}{2} {3} {4}
+8e9fb44f Walay bisan usa ka sayop nga tubag: maablihan na ang porma nga Kampeon ug ang lihok nga Perpekto nga Porma.
+872a8bbd Midaog gikan sa ngilit: maablihan na ang porma nga Kampeon ug ang lihok nga Ikaduhang Ginhawa.
+21526016 Gibiyaan ka og itlog sa ihalas nga linalang.
+6a569f25 Tungod sa battle ticket, hingpit ang bayad niini.
+eda121a1 {0} Sangka ug ang imong mga flashcard, parehong nahuman karon: +{1} XP · {2} {3} ka coin
+e3a4b01e Midaog ka!
+241517f8 Napildi ka niini
+8f651398 Pakig-sangka pag-usab
+e9b450d1 Nahuman
+b9da5b2a Maayo ang imong pakig-away.
+ac63d5ec Ang matag tubag naihap gihapon para sa imong mga pulong.
+a0d275ae Biyaan kini nga sangka? Maihap gihapon ang imong mga tubag hangtod karon.
+32c9bcb1 Itlog
+9c0c49c5 Bag-ong napusa
+0d67c71d Batan-on
+17748728 Hamtong
+3703cd21 Kusog sa lawas
+1b81f28b Atake
+af4b8454 Depensa
+2d2cb022 Kapaspas
+498c3f86 Naporma sa pagpaminaw
+0a72a97b Naporma sa pagbasa
+fd0127b7 Naporma sa pag-save og mga pulong
+59bcab48 Naporma sa pagpangita og mga pulong
+23907bfa Ang linalang sa habitat mao ang motubo samtang nagtuon ka. Ikaw ang mopili sa pag-evolve ug mausab kini unya: walay mawala kung mosulay ka og laing porma, o kung ipabilin nimo ang mas batan-on nga hitsura.
+b9f2cfaa Naa sa habitat
+d7ddc5a1 Pagawsa
+c68f8125 · binhi {0}
+7fcf6bea Gipakita sa mga higala
+b28c55c0 Ipakita sa mga higala
+6c5a6923 Makita sa mga higala kini nga linalang tapad sa imong ngalan
+3eaf4dc6 Andam na mo-evolve
+a097aeab Ang hamtong nga porma niini nagsunod sa paagi sa imong pagtuon. Pili og usa:
+bfe934c2 Espesyal nga porma, kung naa kay nakuha:
+0056d527 I-evolve
+6eef6648 Wala
+003d086a Nag-evolve kini ngadto sa {0} nga porma niini, ug gibiyaan ka og itlog.
+b8db515e Hitsura
+e5895e75 Hamtong nga porma
+212631b6 Maablihan kung mas daghan pa ang imong {0}
+0742949a Espesyal nga porma
+824147ae Mga lihok sa sangka (pili hangtod upat sa {0})
+b08be03b , kusog {0}
+8d474b73 Ipabilin bisan usa ka lihok nga pang-atake.
+1f38a263 Pagawsa kini ug pagtuon aron mapusa kini.
+50275e1d Ihatag kini nga itlog sa higala
+25e40553 Imo na hangtod sa hangtod ang mga badge: <0/> sa {0} ang nakuha.
+20632bc3 Baga
+48591bc0 Balud
+ac587f3b Kalasangan
+85f5955f Aligato
+029690b0 Bato
+4db13aa0 Kilumkilom
+c24315eb Humok
+57d0c9cd Duha-ka-tiil
+52b712a1 Upat-ka-tiil
+506f5f12 Molutaw
+e738c7d8 Lanog
+c3bd776c Maalamon
+940966d9 Magbalantay
+9d3045a4 Kalo
+203bc66d Nawong
+2369e339 Sa liog
+87807a0b Gunitan
+514b6d92 Sinina
+b38fd978 Cap
+8d2d0494 Beanie
+5b8d667e Kalo nga uhot
+0200e574 Korona nga bulak
+a1794223 Laso sa buhok
+453cce21 Headphones
+a73f2e84 Kalo sa salamangkero
+410494f2 Korona
+8a6c4f48 Taas nga kalo
+2dad5490 Kalo sa party
+fea217c8 Beret
+5856ecee Kalo sa kusinero
+4acabbde Kalo sa koboy
+392c6646 Helmet sa eksplorador
+53e6537e Kalo sa pirata
+3f77bde0 Kalo sa gradwasyon
+d2f9a663 Sun visor
+e8bf6dcb Kalo nga naay elisi
+f3681d8b Halo
+f0aeb7b3 Korona nga dahon
+216d0c24 Sungay sa usa
+f81ef643 Tiara
+9a21f3aa Bucket hat
+3187598c Pantabon sa dalunggan
+0062340f Kalo nga uhong
+ceecea26 Helmet sa Viking
+68c1942a Helmet sa astronaut
+28391e32 Dalunggan sa koneho
+4a6b7158 Dalunggan sa iring
+b9f4aa95 Kalo sa jester
+7e533442 Kalo sa pagkatulog
+6b70d2cc Lingin nga antipara
+904017f8 Shades
+c1feb92c Monocle
+745c59f0 Antipara nga bituon
+8aadf165 Maskara
+6741f119 Antipara nga kasingkasing
+0b34f86f Goggles
+bba42049 Tabon sa mata
+fbd954ab 3D nga antipara
+58d80900 Antipara sa pagbasa
+34a75a40 Snorkel mask
+f18b06a1 Ilong sa payaso
+f6c4e7b6 Bigote
+6e26326c Pink nga aping
+07e6b11b Tabon sa mata sa pagkatulog
+462035a5 Pixel nga shades
+5575bbff Bungot sa iring
+a81134de Bendahe
+83dfe3a2 Scarf
+5a1a0c91 Bow tie
+d4198662 Lingganay
+5d6614cb Kwintas nga bulawan
+2fdb1722 Kwelyo nga naay tunok
+903467a9 Medalya
+8841f81b Kurbata
+b3e12140 Kwintas nga perlas
+14465646 Locket
+ec81fbb3 Kwintas nga bulak
+2466135f Bandana
+45b27206 Kwelyo nga ruffle
+e76c5bf1 Pito
+fe3b767b Kwintas nga yawe
+c8c21a81 Kwintas nga kinhason
+997e21c2 Boa nga balhibo
+ae48c34a Ribbon
+5a9a6cd7 Name tag
+59b3f863 Anting-anting
+9d5c8e51 Kompas
+93e720cf Parol
+a774409a Bandila
+64f241f5 Lobo
+24280537 Mikropono
+ff45e635 Pluma nga balhibo
+483fed9c Payong
+0c691a9a Kahoy nga espada
+2af4fc97 Baston sa salamangka
+be638732 Pumpon sa bulak
+1242a215 Ice cream
+63d27f89 Tasa sa kape
+fb46a738 Tasa sa tsa
+5136ae1b Lapis
+28d512c4 Brotsa
+72d4d28e Bingwit
+40a60bfb Pampadako nga lente
+917904ac Sulo
+0a26857b Tabanog
+08271419 Taming
+78ede2e9 Teddy bear
+1075c086 Tropeo
+266a0fb1 Pula nga kapa
+66d178d7 Kapa nga bituon
+0ccf90eb Backpack
+c4b1ad5f Bag sa abaga
+a8bbfe7e Pako nga balhibo
+3c7c880b Pako sa kabog
+573b9116 Pako sa alibangbang
+4b7e2696 Jetpack
+5d62dc5c Kabhang sa pawikan
+7a41f42a Sudlanan sa pana
+110bb280 Pumpon sa lobo
+03744d8c Kapa nga dahon
+06f3045f Sinina nga gilis-gilis
+dd4fd5df Yano nga sinina
+4dfbc033 Sinina nga tuldok-tuldok
+515bcf68 Sinina nga kuwadros
+d6a2305b Sinina nga bituon
+f1bab294 Sinina nga kasingkasing
+816d3505 Zigzag nga sweater
+11a5ebab Bulaklakon nga sinina
+9c10e5aa Sinina nga galaksiya
+cc58986a Argyle nga sweater
+db9a99bf Pula nga mga bulak
+b09f1254 Asul nga mga bulak
+aa146572 Uhong
+36ca0758 Gamay nga bato

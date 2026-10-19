@@ -1,0 +1,200 @@
+2de11318 Bloqueja el proper cop
+d923a217 Cops més forts durant una estona
+66c1c04a Cura (en queden {0})
+da3e3967 Fes servir una poció ({0}): recupera la meitat de la salut, un cop per batalla
+a3972f01 Tria un moviment. Una pregunta sobre una de les teves paraules decideix com d'efectiu és.
+bfd6bf51 Quina de les teves paraules vol dir això?
+5fb65141 Què vol dir això?
+37035270 Fes servir una carta de pista ({0})
+63d63141 Ara aquesta paraula te la saps bé. +15 XP
+18a80fec Precís tota la setmana: +60 XP i 5 monedes
+19bb2852 Correcte, i ràpid!
+fbc63d40 Correcte.
+c04b920c S'ha acabat el temps.
+e8849508 No del tot: la resposta correcta està marcada.
+0639028d No s'ha pogut avisar {0}: {1}
+8d36cc07 · {0} {1} monedes
+c94a5549 · paraules que ara saps bé: {0}
+13f349e7 {0} bé, {1} malament{2}
+fd1125a9 {0} Habilitat {1}{2} {3} {4}
+8e9fb44f Ni una resposta incorrecta: ja tens disponibles la forma Campió i el moviment Forma Perfecta.
+872a8bbd Guanyada in extremis: ja tens disponibles la forma Campió i el moviment Segon Alè.
+21526016 La criatura salvatge t'ha deixat un ou.
+6a569f25 Un tiquet de batalla ha fet que aquesta pagués del tot.
+eda121a1 {0} Una batalla i les teves targetes, totes dues fetes avui: +{1} XP · {2} {3} monedes
+e3a4b01e Has guanyat!
+241517f8 Aquesta l'has perduda
+8f651398 Torna a combatre
+e9b450d1 Fet
+b9da5b2a Bon combat.
+ac63d5ec Totes les respostes han comptat igualment per a les teves paraules.
+a0d275ae Vols sortir d'aquesta batalla? Les respostes que has donat fins ara continuen comptant.
+32c9bcb1 Ou
+9c0c49c5 Cria
+0d67c71d Jove
+17748728 Adulta
+3703cd21 Salut
+1b81f28b Atac
+af4b8454 Defensa
+2d2cb022 Velocitat
+498c3f86 Formada per l'escolta
+0a72a97b Formada per la lectura
+fd0127b7 Formada per desar paraules
+59bcab48 Formada per buscar paraules
+23907bfa La criatura de l'hàbitat és la que creix mentre estudies. Evolucionar és decisió teva i es pot canviar després: no es perd res per provar una altra forma o per mantenir un aspecte més jove.
+b9f2cfaa A l'hàbitat
+d7ddc5a1 Porta a l'hàbitat
+c68f8125 · llavor {0}
+7fcf6bea Visible per als amics
+b28c55c0 Mostra als amics
+6c5a6923 Els teus amics veuen aquesta criatura al costat del teu nom
+3eaf4dc6 A punt d'evolucionar
+a097aeab La seva forma adulta segueix la teva manera d'estudiar. Tria'n una:
+bfe934c2 Una forma especial, si te n'has guanyat una:
+0056d527 Evoluciona
+6eef6648 Cap
+003d086a Ha evolucionat a la seva forma {0} i t'ha deixat un ou.
+b8db515e Aspecte
+e5895e75 Forma adulta
+212631b6 S'obre si dediques més temps a {0}
+0742949a Forma especial
+824147ae Moviments de batalla (tria'n fins a quatre de {0})
+b08be03b , poder {0}
+8d474b73 Conserva com a mínim un moviment d'atac.
+1f38a263 Treu-lo i estudia perquè s'obri.
+50275e1d Regala aquest ou a un amic
+25e40553 Les insígnies són teves per sempre: <0/> de {0} aconseguides.
+20632bc3 Brasa
+48591bc0 Marea
+ac587f3b Bosquet
+85f5955f Espurna
+029690b0 Pedra
+4db13aa0 Capvespre
+c24315eb Gelatina
+57d0c9cd Bípede
+52b712a1 Quadrúpede
+506f5f12 Flotant
+e738c7d8 Eco
+c3bd776c Savi
+940966d9 Guardià
+9d3045a4 Barrets
+203bc66d Cara
+2369e339 Coll
+87807a0b A la mà
+514b6d92 Samarretes
+b38fd978 Gorra
+8d2d0494 Gorro de llana
+5b8d667e Barret de palla
+0200e574 Corona de flors
+a1794223 Llaç
+453cce21 Auriculars
+a73f2e84 Barret de mag
+410494f2 Corona
+8a6c4f48 Barret de copa
+2dad5490 Barret de festa
+fea217c8 Boina
+5856ecee Barret de cuiner
+4acabbde Barret de vaquer
+392c6646 Casc d'explorador
+53e6537e Barret de pirata
+3f77bde0 Birret de graduació
+d2f9a663 Visera
+e8bf6dcb Gorra amb hèlice
+f3681d8b Aurèola
+f0aeb7b3 Corona de fulles
+216d0c24 Banyes de cérvol
+f81ef643 Diadema
+9a21f3aa Barret de pescador
+3187598c Orelleres
+0062340f Barret de bolet
+ceecea26 Casc víking
+68c1942a Casc espacial
+28391e32 Orelles de conill
+4a6b7158 Orelles de gat
+b9f4aa95 Barret de bufó
+7e533442 Gorro de dormir
+6b70d2cc Ulleres rodones
+904017f8 Ulleres de sol
+c1feb92c Monocle
+745c59f0 Ulleres d'estrella
+8aadf165 Antifaç
+6741f119 Ulleres de cor
+0b34f86f Ulleres protectores
+bba42049 Pegat a l'ull
+fbd954ab Ulleres 3D
+58d80900 Ulleres de llegir
+34a75a40 Ulleres de busseig
+f18b06a1 Nas de pallasso
+f6c4e7b6 Bigoti
+6e26326c Galtes vermelles
+07e6b11b Antifaç per dormir
+462035a5 Ulleres pixelades
+5575bbff Bigotis de gat
+a81134de Tireta
+83dfe3a2 Bufanda
+5a1a0c91 Corbatí
+d4198662 Picarol
+5d6614cb Cadena d'or
+2fdb1722 Collar de punxes
+903467a9 Medalla
+8841f81b Corbata
+b3e12140 Collaret de perles
+14465646 Medalló
+ec81fbb3 Collaret de flors
+2466135f Mocador de coll
+45b27206 Gorgera
+e76c5bf1 Xiulet
+fe3b767b Collaret amb clau
+c8c21a81 Collaret de petxines
+997e21c2 Boa de plomes
+ae48c34a Cinta
+5a9a6cd7 Etiqueta amb el nom
+59b3f863 Amulet
+9d5c8e51 Brúixola
+93e720cf Fanal
+a774409a Bandera
+64f241f5 Globus
+24280537 Micròfon
+ff45e635 Ploma d'escriure
+483fed9c Paraigua
+0c691a9a Espasa de fusta
+2af4fc97 Vareta màgica
+be638732 Ram de flors
+1242a215 Gelat
+63d27f89 Tassa de cafè
+fb46a738 Tassa de te
+5136ae1b Llapis
+28d512c4 Pinzell
+72d4d28e Canya de pescar
+40a60bfb Lupa
+917904ac Torxa
+0a26857b Estel
+08271419 Escut
+78ede2e9 Osset de peluix
+1075c086 Trofeu
+266a0fb1 Capa vermella
+66d178d7 Capa d'estrelles
+0ccf90eb Motxilla
+c4b1ad5f Cartera
+a8bbfe7e Ales de plomes
+3c7c880b Ales de ratpenat
+573b9116 Ales de papallona
+4b7e2696 Motxilla propulsora
+5d62dc5c Closca de tortuga
+7a41f42a Buirac
+110bb280 Raïm de globus
+03744d8c Capa de fulles
+06f3045f Samarreta de ratlles
+dd4fd5df Samarreta llisa
+4dfbc033 Samarreta de punts
+515bcf68 Camisa de quadres
+d6a2305b Samarreta d'estrelles
+f1bab294 Samarreta de cors
+816d3505 Jersei de ziga-zaga
+11a5ebab Camisa de flors
+9c10e5aa Samarreta galàctica
+cc58986a Jersei de rombes
+db9a99bf Flors vermelles
+b09f1254 Flors blaves
+aa146572 Bolet
+36ca0758 Pedra petita

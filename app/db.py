@@ -403,7 +403,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "font_size": 26,                # transcript font size in px (podcasts and videos)
     "page_font_size": 17,           # text size for imported web pages (set separately; smaller by default)
     "welcome_seen": False,
-    "study_language": "",           # the language being learned (ar, es, fr, ja, zh, ru, it, tl, en); chosen on first run
+    "study_language": "",           # the language being learned (ar, es, fr, ja, zh, ru, it, tl, pt, ca, ceb, th, en); chosen on first run
     "learning_languages": [],       # every language being learned (the top bar's switch); study_language is the one now
     "ui_language": "",              # the language the user speaks: the app's own words are shown in it (web/js/i18n.js)
     # The first-run questions (web/js/components/onboarding.js): answered yet, and "beginner" or "started".

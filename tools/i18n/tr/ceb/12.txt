@@ -1,0 +1,200 @@
+2473e96b Pasiuna
+4195c313 Aron mahatagan og audio ang Cebuano nga Bibliya.
+d9cc6b1c {0}% ang nabasa
+e078f34f {0} ka oras {1} min ang nahabilin
+a99cdd56 {0} min ang nahabilin
+15710324 Han
+ba1d0a64 Hiragana
+6842e5a7 Katakana
+1cb09555 Cyrillic
+348d0069 Hebreo
+59d5f5b1 Griyego
+bd7d4b95 Hangul
+c3376a97 Devanagari
+536c16bd {0} ka adlaw
+2985a39c {0} ka semana
+682728dc {0} ka bulan
+67e282ba {0} ka tuig
+2c4f87a8 ubos sa usa ka minuto
+a5d14ec2 mga {0}
+95a4caee {0}–{1} min
+a8bf7da8 gisukod niini nga device
+60446ee5 gikan sa imong mga tubag kaniadto
+ca5a6508 unang banabana hangtod nga maka-review ka og pipila pa
+6403f2b7 Bag-o
+b83c4cda Mga review
+901df5e4 Tumong karon
+35c77c57 (unang banabana)
+f922fb4c {0} ang nahabilin karon{1}
+2081c97d Nahuman na ang tanan karon
+b422c28b Walay takdang i-review karon
+88da3d5b Ipadala sa {0}
+4ac22389 Idugang ang “{0}” sa {1} para karon (pilia kung asa sa Settings)
+f4896ede Karon: bag-ong mga pulong {0} sa {1}, mga review {2} sa {3}. {4}. Usba ang bag-ong mga pulong matag adlaw
+031683ab {0} ra ka bag-ong pulong ang naghulat.
+aa175635 {0}Ang mga review kay ang mga pulong nga takdang i-review karon. Sa dugay nga panahon, paabot og mga 10 matag adlaw matag bag-ong pulong (manual sa Anki): {1} ka bag-o matag adlaw ≈ {2} ka review matag adlaw.
+4ee48926 Oras matag pulong, lakip ang mga higayon nga mobalik ang pulong nga nasayop: mga {0} sa bag-o, {1} sa review ({2}).
+a0b74487 Wala mapadala ang task.
+d4928a6e Walay mibalik nga parehas og tingog. Sulayi pag-usab.
+3997732f Isulti
+4fc6e7f7 Lumad
+fb8207e8 Praktisa ang paglitok (P): isulti kini, dayon paminaw sa sentence ug sa imong kaugalingon. Dili ma-save ang imong pagsulay.
+a679d9ee Kinahanglan sa Tamkeen ang pagtugot nga mogamit sa mikropono aron madungog ka nga mosulti sa pulong.
+a970acc5 Wala ka nako madungog. Sulayi pag-usab, mas duol gamay sa mikropono.
+7bea803a Dili magamit ang mikropono karon.
+c9c6fe67 Google Tasks
+67e5c742 Onyx
+e79101e5 Gipadala sa Onyx: {0}.
+0e90681b Tugoti ang Tamkeen nga makadugang og mga task sa browser window nga naablihan, dayon pindota pag-usab ang Ipadala.
+6b514385 Na-update ang review task karon sa Google Tasks: {0}.
+4d263331 Gidugang sa Google Tasks: {0}.
+d8803f2b Review sa Tamkeen ({0} min)
+37db2048 Imong mga card
+d567fe70 {0} ang nahabilin karon: mga {1}, sumala sa banabana sa Tamkeen.
+4e81fbf0 3–20 ka letra, numero, tuldok o underscore.
+c9c9d7d4 Dili ma-load ang mga online feature.
+1d7a1d2e Dili maabot ang online service. Susiha ang imong koneksyon sa internet.
+79ec683f Ang mga username kay {0}
+ad5eb13f Mag-connect una.
+5fc4af92 Naa nay nagamit sa “{0}”. Sulayi ang lain.
+d3e6897a (wala pay username)
+ed88ebe6 I-type ang username sa imong higala.
+42f88043 Mag-connect una (Settings → Mga higala ug pagpaambit).
+76ece8da Pili una sa imong kaugalingong username (Settings → Mga higala ug pagpaambit).
+4e2bf6f2 Walay ginganlan og “{0}”. Kinahanglan eksakto ang username (apan dili importante ang dagko o gagmay nga letra).
+967a7678 Ikaw na!
+0d09c4f7 Magkahigala na mo ni {0}.
+993bd149 Nakapadala na ka og hangyo kang {0}.
+ff44a73d Naa na moy naghulat nga hangyo ni {0}.
+58f90a69 video o kanta sa YouTube Music
+97d30338 kanta, album, playlist o episode sa podcast (Share → Copy link)
+d23e8c8c kanta, album o playlist (Share → Copy Link)
+937e2007 page sa salida, serye o tawo
+e016aab6 reel (Share → Copy link). Ablihan kini sa mga higala sa reel player sa Tamkeen
+ca2da724 bisan unsang artikulo o page. Ablihan kini sa mga higala sa reader sa Tamkeen
+bdfd8662 bisan unsang episode gikan sa imong kaugalingong library: gamita ang 🎧 nga button sa bar
+52c54389 Apple Music
+094b763b wala makit-i
+6c7af22a Kana nga Instagram link dili reel. Gamita ang Share → Copy link sa reel mismo.
+0449c7b9 Dili maablihan kana nga page. Susiha ang link.
+9c5f935e Wala kana makit-i sa {0}. Susiha ang link.
+2a0cb6b4 Spotify
+effea02d Makapadala ka ra og mensahe sa mga tawo nga naa sa imong listahan sa mga higala.
+3a18cb8c I-type una ang mensahe.
+79b09ca3 Wala mapadala ang voice note: {0}
+394821e7 Walay ipaambit.
+81058adf Dako ra kaayo kana aron ipadala sa usa ka mensahe.
+9c6fefee Kana nga file dili hulagway nga mabasa sa app. Sulayi ang JPG o PNG.
+c1004cfe Dili maandam kana nga hulagway.
+9c4b6c33 Wala ma-upload ang hulagway: {0}
+c3441e47 2–5 ka letra o numero, walay espasyo.
+f70d9377 Naa nay guild nga ingon ana og ngalan. Sulayi ang laing ngalan.
+7b6a557e Ang mga ngalan sa guild kay 2–40 ka karakter; ang mga tag kay {0}
+abf7ad6f Imong kaugalingong mga higala ra ang imong maimbitar, sa guild nga imong gisakpan.
+99113664 Usa ka higala
+0669df82 Naimbitar na sila niini nga guild.
+853b17b9 Wala mapadala kana nga regalo (napulo ka regalo matag adlaw ang labing daghan, ug sa mga higala o kauban sa guild ra).
+d034eb8e Groq
+4de3bd6f Mga episode nga labaw sa 24 MB nga dili MP3: dili kini maputol-putol sa phone, busa ihatag sa Groq ang web address sa file ug kini ang mokuha niini. (Okay ra ang mga MP3 bisan unsa pa kataas: halos tanang podcast MP3.)
+4472c560 ang tibuok dako nga model: labing maayo para sa Arabiko ug mga diyalekto
+3d954bc8 pinakabarato; gamay nga kulang sa katukma
+bd77aa8a Ang mga episode nga labaw sa 24 MB nga dili MP3 dili ma-transcribe gikan niini nga phone gamit ang OpenAI: sayop ang ipakita niini. Ang OpenAI modawat ra og 25 MB matag higayon, ug ang phone makaputol-putol ra sa mga MP3. I-transcribe kana sa imong computer, o pilia ang Groq, nga mokuha mismo sa ingon ana nga file. (Okay ra ang mga MP3 bisan unsa pa kataas: halos tanang podcast MP3.)
+eba3014e mogana gamit ang samang key sa ChatGPT nga kahulogan sa pulong
+0ffe7a83 ang Groq Console
+2e074132 Ang Groq naay libre nga alawans (pipila ka oras sa audio matag adlaw) nga dili kinahanglan og payment card. Kung naay card, ang usa ka oras sa audio mokantidad og 4 hangtod 11 ka sentimo.
+953a5f79 Pindota ang button sa ubos. Maablihan niini ang console.groq.com sa imong web browser. (Lahi nga kompanya ang Groq sa Grok.)
+e619a44c Gamita ang imong email address, o ang “Continue with Google”. Libre ang pag-apil.
+63239333 Ablihi ang <0>API Keys</0> ug pindota ang <1>Create API Key</1>. Hatagi kini og ngalan nga imong mailhan, sama sa “Tamkeen”.
+cb2680e6 Balik dinhi, i-paste kini sa <0>API key</0> nga box ubos sa Cloud nga transcript, ug pindota ang <1>Sulayi ang key</1>.
+09604855 Ang usa ka oras sa audio mokantidad og mga 36 ka sentimo. Kung naggamit ka na og OpenAI key para sa kahulogan sa pulong, mogana usab dinhi ang samang key: biyai nga walay sulod kini nga box.
+1bd3e72b Mogana usab dinhi ang imong ChatGPT login, apan ang ChatGPT Plus nga subscription dili mosakop niini: lahi ang bayad sa mga key.
+944fc80e Ang provider
+a85ddf87 (gipahulat og {0})
+8b0ebde4 Matod sa {0}, naabot na sa imong account ang limit niini sa pagkakaron{1}. Ang libre nga mga account makapadala ra og limitado nga audio matag oras ug matag adlaw.
+a6fcec4d Dako ra kaayo kana nga audio aron dawaton sa {0} sa usa ka piraso.
+964037f2 Wala mailhi sa {0} ang gipili nga model. Ibalik kini sa girekomenda sa Settings.{1}
+e1e8503b Matod sa {0}, walay credit ang account. Pagdugang sa Billing page niini.{1}
+d31e3b99 Dili kini ma-transcribe sa {0} (sayop {1}){2}
+30785373 Dili maabot ang {0}. Susiha ang imong koneksyon sa internet.{1}
+ad40a6bc Nahutdan og memorya kining phone samtang giandam ang audio para sa {0}. Sulayi ang mas mubo.
+31bc4b92 walay rason nga gihatag ang phone
+9f2d7d5a Dili mapadala ang audio sa {0}: {1}.
+55d8f8bc {0} ka segundo
+24a671e0 {0} ka minuto
+6c204c8f {0} ka oras
+f5071960 {0}¢ matag oras sa audio
+a6a5c3dc ubos sa 0.1¢
+8d52756d 0 min
+656cedad Wala pay gipadala karon.
+75b73b14 , mga {0}
+675fee00 {0} ka piraso ang gipadala{2}
+0118d341 Wala pay pagpangita karon.
+e5016995 {0} ka pagpangita{2}
+6f49c311 Saudi Arabia
+1c39abf6 Ehipto
+cf5a0fa0 UAE
+32e087f0 Morocco
+fcf29f6c Japan
+d2eaf2aa China
+094d515b Taiwan
+6754fe3c Rusya
+ad79ef0f Italya
+eb607d09 Pilipinas
+d9ab8240 Estados Unidos
+5c04a992 United Kingdom
+ceafb51e Australia
+37497aa5 Brazil
+a2b7c120 Thailand
+d6663dda Negosyo
+11381a19 Komedya
+aaf87fe5 Edukasyon
+0d23bd8c Piksyon
+5c9cb498 Gobyerno
+89fc9192 Panglawas ug Fitness
+90ccd649 Kasaysayan
+cccd8e9f Bata ug Pamilya
+540c98ab Paglingaw-lingaw
+131260cb Musika
+34c808d0 Balita
+f31acc39 Relihiyon ug Espiritwalidad
+d2d06637 Siyensya
+4a6df903 Katilingban ug Kultura
+2fec45a4 Sports
+d9f273ca TV ug Salida
+d018b082 Teknolohiya
+7a3f06d3 True Crime
+04975199 Pili una og pinulongan nga tun-an (Settings).
+38de31ed Dili maabot ang mga podcast chart sa Apple. Susiha ang imong koneksyon ug sulayi pag-usab.
+7eceb7a9 Dili maabot ang podcast directory sa Apple. Susiha ang imong koneksyon ug sulayi pag-usab.
+6e6a6f20 Uban pa
+796297bd Na-expire na ang key o gipalong
+a8676c27 Paghimo og bag-ong key sa key page sa provider ug i-paste kini.
+64587d6e Kulang ang bahin sa key, o naay espasyo nga nauban
+3d171562 Kopyaha pag-usab ang tibuok key ug i-paste og bag-o.
+27522397 Ang key gikan sa laing provider
+92ca2b98 Pilia ang provider nga ang website naghatag kanimo sa key.
+35b90dfb International Scripture Ministries
+861fa74e Paminawa ang Balaang Bibliya sa Cebuano nga pinulongan sa klaro, buhi, ug bisan kanus-a, bisan asa. Gihatag sa International Scripture Ministries (ISM), kining Audio Bible nagdala sa Pulong sa Dios ngadto sa kinabuhi pinaagi sa gamhanang pagbasa, musika, ug maayong disenyo sa tingog, aron masinati nimo ang Kasulatan sa pinulongan sa imong kasingkasing. Bisan kung bag-o pa ka nagtuon sa Bibliya o nagtinguha kang motubo sa imong pagtuo, kining podcast makatabang kanimo sa pagpaminaw sa tibuok Bibliya, kapitulo matag kapitulo. Niining Audio Bible, imong makit-an: • Ang Balaang Bibliya sa Cebuano
+e1cc70f2 Ang Santos nga Ebanghelyo sa Matag Adlaw
+c7f849a8 Roger W.
+41739ec2 Ang balaang pulong sa tanang panahon
+bb6ed1ae Teacher D
+4cf306d2 Daisy Lynn Robin
+9c355e53 Sugboanon (Cebuano) nga Bibliya
+0171127e Maria Chona Gabotero Labrador
+ffd1e2bb Cebuano / Bisaya: Pagkatinon-an sa Biblia
+01eb8066 Paul J. Bucknell
+4b92fc32 Mga pagtulon-an sa pagkatinon-an sa Biblia sa Cebuano/Bisaya gikan sa Biblical Foundations for Freedom. Ang D1 Ang Agos nagpatin-aw sa tulo ka ang-ang sa espirituhanong pagtubo ug unsaon pagtabang sa uban nga motubo. Ang D2 Mahimong Usa ka Magbubuntog nagtudlo unsaon pag-atubang sa kabalaka, garbo, kailibgon, kasuko, kasub-anan, ug uban pang pagsulay pinaagi sa kamatuoran ug grasya sa Dios.
+75d7f598 Bored Bisayas
+75891209 Hello there! We re Luke and Mona. We re a couple of Bisayas. AY teka. Buset. Ga-Iningles na man hinuon mi nga Bisaya gani. Aw. So, bale mga Bisaya mi unya kay bored man mi so magstorya mi about stuff. Mga butang-butang sa kalibutan nga gusto namo storyahan. Topics are anything under the sun. Like how kulang sa height si Mona ug sobra sa weight si Luke... at one point in time. Basically, just another Bisaya podcast. Or you know... a place where Luke and Mona talk in private and are public at the same time. You can email us at boredbisayas@gmail.com or follow our other soc med accounts.
+fe9979fa Mga Balak Sugbuanon
+7f8b3682 Jesson Morata
+883032a0 Tipiganan sa mga Balak Sugbuanon
+bb8c2d74 Unang Sugilanon gikan sa Librong 'Larawan': Si Amboy, ang Palahubog by Vicente Rama (1887 - 1956)
+59e8c6a1 Sugilanon nga gisuwat ni Senador Vicente Rama bahin kang Amboy nga palahubog, ug ang iyang pamahala nga kinabuhi tungod sa iyang pagkapalahubog. Kini ay una nga istorya sa daghan nga nahabutang na istorya sa librong 'Larawan'. (Summary by April Gonzales)
+d47f0ec5 Hisgutanan: Bisaya nga Podcast ni Lewey Jimoya
+8f03afd2 Lewey Jimoya
+6b4e3b92 Usa ka Bisaya nga sibya kung aha maghisgot-hisgot mi sa nagkalain-laing mga butang! Hosted by Lewey Jimoya
+e450b3f0 Binisaya nga tulumanon
+920927d6 Bai Maloy
+8c1c3ec7 Maka hatag ug inspirasyon ug kalingawan sa mga kaigsoonan nga naa sa lagyu nga dapit ug maka hupay sa ilang kamingaw.

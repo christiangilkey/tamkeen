@@ -10,8 +10,8 @@ import {
 import { cacheKey, define, markWord, schemaFor, systemPrompt, SCHEMA } from "../../web/js/definer.js";
 import { endsSentence, EDGE_PUNCT } from "../../web/js/wordlookup.js";
 
-test("nine languages, each with everything the screens need", () => {
-  assert.deepEqual(LANGUAGE_CODES, ["es", "ar", "fr", "ja", "zh", "ru", "it", "tl", "en"]);
+test("thirteen languages, each with everything the screens need", () => {
+  assert.deepEqual(LANGUAGE_CODES, ["es", "ar", "fr", "ja", "zh", "ru", "it", "tl", "pt", "ca", "ceb", "th", "en"]);
   for (const code of LANGUAGE_CODES) {
     const L = LANGUAGES[code];
     for (const key of ["name", "native", "hello", "hi", "search", "word", "sample", "pageSample", "standard", "note"]) {
@@ -181,6 +181,44 @@ test("Italian and Tagalog: Latin letters count as the language being studied", (
     assert.match(prompt, code === "it" ? /Italian/ : /Tagalog/);
     assert.ok(schemaFor(code), `${code} has an answer shape`);
   }
+});
+
+test("Brazilian Portuguese, Catalan and Bisaya: Latin letters count as the language being studied", () => {
+  assert.equal(detectLanguage("Beleza, a gente se vê amanhã.", "pt"), "pt");
+  assert.equal(detectLanguage("Doncs no ho sé, la veritat.", "ca"), "ca");
+  assert.equal(detectLanguage("Ambot lang, basin ugma pa siya moabot.", "ceb"), "ceb");
+  assert.equal(detectLanguage("Ambot lang, basin ugma pa siya moabot.", "th"), "en", "Latin text while studying Thai is not Bisaya");
+  for (const [code, name] of [["pt", /Brazilian Portuguese/], ["ca", /Catalan/], ["ceb", /Cebuano \(Bisaya\)/], ["th", /Thai/]]) {
+    assert.match(systemPrompt("en", code), name);
+    assert.ok(schemaFor(code), `${code} has an answer shape`);
+  }
+});
+
+test("Thai: told by its letters, written without spaces, and split into words by the device", () => {
+  assert.equal(detectLanguage("เดี๋ยวโทรกลับนะ", "es"), "th");
+  assert.equal(detectLanguage("เดี๋ยวโทรกลับนะ"), "th");
+  assert.equal(LANGUAGES.th.unspaced, true);
+  assert.equal(gap("เดี๋ยว", "โทร", "th"), "");
+  assert.equal(joinWords(["ภาษา", "ไทย", "Tamkeen", "app"], "th"), "ภาษาไทยTamkeen app");
+  // Speech recognition hands Thai over a few letters at a time: they become real words.
+  const W = { start: [0, 0.2, 0.4, 0.6], end: [0.2, 0.4, 0.6, 0.8], seg: [0, 0, 0, 0], text: ["สวัส", "ดี", "ครั", "บ"] };
+  const out = regroupWords(W, "th");
+  assert.equal(out.text.join(""), "สวัสดีครับ");
+  assert.ok(out.text.length < 4, `regrouped: ${out.text.join("|")}`);
+});
+
+test("Thai: everyday words the device's word breaker cuts in pieces are joined back", () => {
+  const page = (text) => regroupWords({ start: [0], end: [1], seg: [0], text: [text] }, "th", false).text;
+  // โรงพยาบาล (hospital) is โรง + พยาบาล to the breaker, ผลกระทบ (impact) ผลก + ระ + ทบ.
+  assert.deepEqual(page("แม่ไปโรงพยาบาล ผลกระทบยังคงอยู่"), ["แม่", "ไป", "โรงพยาบาล", "ผลกระทบ", "ยังคง", "อยู่"]);
+  assert.deepEqual(page("ผู้หญิงตัดสินใจเดินทางไปต่างประเทศ"), ["ผู้หญิง", "ตัดสินใจ", "เดินทาง", "ไป", "ต่างประเทศ"]);
+  // Usually two words in running text, so not joined: "the person who is in the house".
+  assert.deepEqual(page("คนที่อยู่ในบ้าน"), ["คน", "ที่", "อยู่", "ใน", "บ้าน"]);
+  // A transcript's few-letter pieces, cut in the middle of a word and of a vowel sign.
+  const p = ["นา", "ยกร", "ั", "ฐมนต", "รี", "เด", "ินท", "า", "งไป"];
+  const out = regroupWords({ start: p.map((_, i) => i), end: p.map((_, i) => i + 1), seg: p.map(() => 0), text: p }, "th");
+  assert.deepEqual(out.text, ["นายกรัฐมนตรี", "เดินทาง", "ไป"]);
+  assert.equal(out.start[1], 5, "a joined word starts where its first piece does");
 });
 
 test("English can be learned too: Latin letters count as English, and the AI teacher knows it", () => {

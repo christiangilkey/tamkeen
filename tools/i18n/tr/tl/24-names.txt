@@ -1,0 +1,102 @@
+# Kept as they are in every language: names, podcast titles and hosts, Bisaya-language podcast blurbs, and code text.
+6e0b993a	Folha de S.Paulo
+81596add	O Estado de S. Paulo
+12c8c2cd	CNN Brasil
+b07bcee1	Ara
+953219fd	El Punt Avui
+bdcd5a6a	Nació Digital
+a79fdf63	El Nacional
+1b8b97d3	Thairath
+08d6fedf	Khaosod
+2b67ce16	Matichon
+7f1ca720	BBC Thai
+84725fb8	The Standard
+3ac72d15	Prachatai
+4a4d5d52	Sanook News
+90e5530a	PPTV HD 36
+7d180266	Workpoint Today
+058c38b0	falo, falamos, fale-me
+2dfade8e	parlo, parlem, digues-m'ho
+69f76f1b	mokaon, mikaon, gikaon
+fd23eda9	Unsa’y Cheka Sa Parlor
+f9a11c2f	Lyle Go and Shaneee | TAGM Marketing Solutions Inc.
+c9476ace	Crosseyed
+416e5e3c	Gary Monton | Bisaya Podcast
+572329d1	Dili Ni Advice - A Bisaya Podcast
+6c8793d1	Darling and Kringkay The Pod Network Entertainment
+e6feaa11	Barok and Takya Bisaya Podcast
+30e343f4	Barok & Takya
+f6112f30	Cge Storya Ta: A Bisaya Couple Podcast
+8c29ec7d	Yin + Nol
+49bc6e59	Brighter Bisaya
+e59b5c99	Kasikas: Bisaya Podcast
+2f359fd1	Ace Vincent Sevilla
+a4b3025e	Sunday Mass Readings in Cebuano
+41126fc0	Ben
+2a59645c	Storytelling with Ziwi (Bisaya Podcast)
+35a7384d	Ziwi Tea
+c0da64f1	Wanbats Ra Besh | Bisaya Society & Culture
+c65ee463	Jna and Ju
+51f2914b	Bisaya Jokes!
+78a5056a	DJ Bisdak
+a6bc3cb4	Podcast para pakatawa sa mga bisdak!
+5f38602a	NAYSJUAN SESSIONS | Binisaya Podcast
+cd567294	JUAN MARCUZ TIMAY
+16a70550	Ang naysjuan paminawon nga Binisaya o Bisaya podcast 20 minutes before sa atoang naysjuan nga pagkatulog. Busa, kon Bisaya ta o kasabot tag Binisaya nga pinulongan ug kon trip nato adunay makat-onan, paminawa na tawon nato ning podcast ni Juan. Diri gastorya tag mga estoryahanan nga praktikal ug mapuslanon nga makatabang sa tanan, mapabata man o mapatiguwang, aron mas mapasayon ang pagkinabuhi. ➖➖➖➖➖ JUST BUY ME A COFFEE: buymeacoffee.com/JUANMARCUZTIMAY
+5ee1603d	Purok Pabula Ph
+155acb68	p b Purok Pabula PH /b mao ni ang lugar sa tinuod nga istorya—walay script, walay arte, diretso ra. /p p /p p Dinhi, lain-lain mi ug panan-aw—naa’y abogado, naa’y pilosopo, naa’y engineer, ug naa pud mi’y mga kasinatian sa kinabuhi nga among gidala sa lamesa. Kada episode, among hisgutan ang mga butang nga atong madunggan adlaw-adlaw—fake news, politika, kultura, ug mga tinuohan nga atong gidak-an. /p p /p p Dili ni perpekto. br / Dili ni pina-polished. br / Pero tinuod ni. /p p /p p Murag istorya ra sa purok—pero naay unod. /p p /p p Kay usahay, dili klaro ang kamatuoran. br / Ug usahay, ang
+6606f08e	Kinabuhing Kristohanon: a Wali Bisaya Preaching
+42bb34c3	Barok and Takya
+88b9b348	Welcome sa Kinabuhing Kristohanon, usa ka Wali Bisaya Preaching nga magdala kanimo sa panaw sa pagtuo, espiritwalidad, ug komunidad. Ang among pasundayag kay usa ka talagsaon nga pagsagol sa mga tinuohan, ang Pulong sa Dios Bible, ug mga kasinatian nga makatandog sa kasingkasing sa mga Pilipinong Kristiyano. Ang matag episode nagsusi sa atong pagtuo, magsuhid sa lawom nga epekto sa Kristiyanismo sa atong adlaw-adlaw nga kinabuhi. Atong hisgotan ang kamahinungdanon sa pagsimba, ang esensya sa serbisyo sa komunidad, ug ang makapabag-o nga gahum sa espirituhanong mga buhat. Ang atong mga panagsul
+2d2313a6	Bisaya In America
+9c57b087	Genie H
+a2a821cf	Unsa Man Jud
+42054007	DD & Friends
+a8f21295	Bisaya Thoughts
+aa746ddb	Phil Andrew
+e1e3cd8e	These are my Bisaya thoughts about anything random sa life, family, love, work, or even sa mga nahitabo ron sa Pilipinas. But basically, ganahan ra jud ko mag-yaw2x. Mainly because ganahan ko ipagawas akong mga gibati ug mga na learn sa life given nga hapit nako mag 40. I m using this as an outlet ug part ni siya sa akong journey to be a better version of myself. If ganahan mo mu-journey with me, hope makatabang ni ninyo. Reach out if ganahan mo makig-chika or naa mo questions or magpa advice mo ug stranger like me: philampong@gmail.com IG: instagram.com/philandrew23 FB: facebook.com/phile
+026bb096	Coffee Break with Juppe
+9708095f	Jupiter Baguioso
+5d5efc1a	NAYSJUAN DAILY,
+aa91b142	Bisaya Podcasts PH
+58610005	Ptr. Stanley Pilapil
+94e606a0	Bisaya Vibes by Team Conato PH
+b37cc66f	BANHA | Istorya Ug Uban Pa - Bisaya Podcast
+eb990eab	Danrev Tipdas
+8807c90a	BANHA | Istorya Ug Uban Pa PODCAST is a Bisaya Podcast Kamo naa moy mga sugilanon. Mga istorya nga basin dili lang pud diay ikaw ang naka-agi. Kami naa pud mi amua nga mga sugilanon.TARA! Tabi ta! Let’s Banha. Let Our Stories Make the Noise. Wa ta kabalo sa atuang pag share we find hope and healing in our stories. Maminaw mi, no judgment here. Share lang gud, bisan unsa pa na imuhang sugilanon sa kinabuhi andam mi maminaw. Know that ikaw ug ang imuhang sugilanon it matters. TARA! BANHA NATA! ISTORYA UG UBAN PA!
+93347587	Bisaya Espesyal
+e785744b	Mr. Wazzquiin
+8d6c5728	This podcast talks about relationships, lifestyle and more about Bisaya. Kung Bisaya ka, Espesyal ka! I am happy to bear with you and please be with me Para Mas bongga! We are about discover the world around us Kaya kapit Lang kapatid at h wag Kang aalis. This is Mr. Wazzquiin ang inyung gwapo nga host!
+ef9504fa	TTB Cebuano Pagtuon sa Bibliya (Cebuano)
+97e8c475	THRU the BIBLE
+75e6f3b4	Hibaloi ang tibuok Pulong sa Dios pinaagi sa kasaligan nga pagtulon-an sa Biblia sa THRU the BIBLE sa Cebuano. Ang matag yugto naghatag og tin-aw ug praktikal nga pagtulon-an aron matabangan kang masabtan ang Kasulatan ug magamit kini sa adlaw-adlaw nga kinabuhi. Panaw sa tibuok Biblia, usa ka leksiyon matag higayon, uban sa mga tigpaminaw sa tibuok kalibotan. Pagkat-on pa sa TTB.BIBLE
+5223eb1f	Balaan nga Bibliya - Cebuano (Cebuano)
+35b90dfb	International Scripture Ministries
+861fa74e	Paminawa ang Balaang Bibliya sa Cebuano nga pinulongan sa klaro, buhi, ug bisan kanus-a, bisan asa. Gihatag sa International Scripture Ministries (ISM), kining Audio Bible nagdala sa Pulong sa Dios ngadto sa kinabuhi pinaagi sa gamhanang pagbasa, musika, ug maayong disenyo sa tingog, aron masinati nimo ang Kasulatan sa pinulongan sa imong kasingkasing. Bisan kung bag-o pa ka nagtuon sa Bibliya o nagtinguha kang motubo sa imong pagtuo, kining podcast makatabang kanimo sa pagpaminaw sa tibuok Bibliya, kapitulo matag kapitulo. Niining Audio Bible, imong makit-an: • Ang Balaang Bibliya sa Cebuano
+e1cc70f2	Ang Santos nga Ebanghelyo sa Matag Adlaw
+c7f849a8	Roger W.
+41739ec2	Ang balaang pulong sa tanang panahon
+bb6ed1ae	Teacher D
+4cf306d2	Daisy Lynn Robin
+9c355e53	Sugboanon (Cebuano) nga Bibliya
+0171127e	Maria Chona Gabotero Labrador
+ffd1e2bb	Cebuano / Bisaya: Pagkatinon-an sa Biblia
+01eb8066	Paul J. Bucknell
+4b92fc32	Mga pagtulon-an sa pagkatinon-an sa Biblia sa Cebuano/Bisaya gikan sa Biblical Foundations for Freedom. Ang D1 Ang Agos nagpatin-aw sa tulo ka ang-ang sa espirituhanong pagtubo ug unsaon pagtabang sa uban nga motubo. Ang D2 Mahimong Usa ka Magbubuntog nagtudlo unsaon pag-atubang sa kabalaka, garbo, kailibgon, kasuko, kasub-anan, ug uban pang pagsulay pinaagi sa kamatuoran ug grasya sa Dios.
+75d7f598	Bored Bisayas
+75891209	Hello there! We re Luke and Mona. We re a couple of Bisayas. AY teka. Buset. Ga-Iningles na man hinuon mi nga Bisaya gani. Aw. So, bale mga Bisaya mi unya kay bored man mi so magstorya mi about stuff. Mga butang-butang sa kalibutan nga gusto namo storyahan. Topics are anything under the sun. Like how kulang sa height si Mona ug sobra sa weight si Luke... at one point in time. Basically, just another Bisaya podcast. Or you know... a place where Luke and Mona talk in private and are public at the same time. You can email us at boredbisayas@gmail.com or follow our other soc med accounts.
+fe9979fa	Mga Balak Sugbuanon
+7f8b3682	Jesson Morata
+883032a0	Tipiganan sa mga Balak Sugbuanon
+bb8c2d74	Unang Sugilanon gikan sa Librong 'Larawan': Si Amboy, ang Palahubog by Vicente Rama (1887 - 1956)
+d47f0ec5	Hisgutanan: Bisaya nga Podcast ni Lewey Jimoya
+8f03afd2	Lewey Jimoya
+e450b3f0	Binisaya nga tulumanon
+920927d6	Bai Maloy
+8c1c3ec7	Maka hatag ug inspirasyon ug kalingawan sa mga kaigsoonan nga naa sa lagyu nga dapit ug maka hupay sa ilang kamingaw.
+c9c6fe67	Google Tasks
+67e5c742	Onyx
+661015cd	{0} openid email
+0225752e	Maayong buntag kaninyong tanan. Karon, atong hisgotan ang atong kinabuhi diri sa Sugbo ug sa Mindanao.
+a11dbc0f	(display-mode: standalone)
+43d1089a	has not been used
