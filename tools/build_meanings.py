@@ -232,6 +232,7 @@ def build(lang: str, source: str) -> dict:
     if lang == "zh":
         simplified_spellings(words, forms)
         everyday_reading_first(words)
+        everyday_sense_first(words, forms)
     add_other_spellings(lang, words, forms)
     if lang == "ja":
         modern_entries_first(words)
@@ -349,6 +350,42 @@ def note_readings(e: dict, k: str) -> None:
     said = {str(s.get("zh_pron", "")).split("(")[0].replace(" ", "").lower()
             for s in e.get("sounds") or [] if {"Mandarin", "Pinyin"} <= set(s.get("tags") or [])}
     ZH_READINGS.setdefault(k, []).append(said)
+
+
+# The commonest single characters whose meaning shown first, after the ordering by CC-CEDICT, is still not
+# the one they are used in every day: mostly grammar words that CC-CEDICT itself lists after a noun or
+# an old sense (被 "quilt" before the passive "by", 跟 "heel" before "with", 才 "ability" before "only
+# then"), and a few with a name or a rare sense first (听 "laughing", 心 an asterism, 马 a zodiac sign).
+# Checked by hand on the 300 commonest single characters of web/js/wordlists/zh.js (2026-10-19): each
+# names, as a regular expression, the start of the Wiktionary meaning to show first. The build says so
+# if one no longer matches anything (Wiktionary reworded it).
+EVERYDAY_ZH = {
+    "被": r"^Used before a verb to indicate passive voice", "跟": r"^with \(together\)", "才": r"^only after; only then",
+    "里": r"^in; inside", "在": r"^to be at; to be in", "不": r"^not; un-", "以": r"^by; with; by means of",
+    "由": r"^by; through; via", "因": r"^because; since", "便": r"^then$", "让": r"^to allow; to let", "给": r"^to give",
+    "别": r"^had better not; do not", "应": r"^should; ought to", "太": r"^too; so", "约": r"^about; approximately",
+    "个": r"^Generic classifier", "次": r"^Classifier for times", "种": r"^kind; sort; type", "哪": r"^which; what",
+    "您": r"^you \(usually singular", "叫": r"^to be called", "话": r"^words; talk", "老": r"^old; aged",
+    "听": r"^to listen; to hear", "心": r"^heart", "马": r"^horse", "狗": r"^dog", "关": r"^to close; to shut",
+    "跑": r"^to run$", "打": r"^to hit; to strike", "点": r"^dot; spot", "称": r"^to call; to name", "干": r"^to do$",
+    "经": r"^to go through; to experience", "道": r"^a path or course", "令": r"^to make \(someone", "元": r"^first; initial",
+}
+
+
+def everyday_sense_first(words: dict, forms: dict) -> None:
+    """Put the meaning named in EVERYDAY_ZH first: its entry first, and that meaning first in it. A
+    character with no entries of its own (only "form of" links) has it done in the entries it points to."""
+    for ch, start in EVERYDAY_ZH.items():
+        key = ch if ch in words else next((t for t, _ in forms.get(ch, []) if t in words), None)
+        groups = words.get(key) or []
+        hit = next(((g, i) for g in groups for i, m in enumerate(g[2]) if re.search(start, m)), None)
+        if not hit:
+            print(f"  zh: EVERYDAY_ZH {ch}: no meaning starts like {start!r} any more", flush=True)
+            continue
+        group, i = hit
+        group[2].insert(0, group[2].pop(i))
+        groups.remove(group)
+        groups.insert(0, group)
 
 
 def everyday_reading_first(words: dict) -> None:

@@ -355,7 +355,11 @@ export function regroupWords(W, code, across = true, segText = null) {
       let l = last;
       while (owner[f] === null) f++;
       while (owner[l] === null) l--;
-      out.text.push(show(run.slice(f, l + 1)));
+      // Thai writes a space between phrases (where English has a comma or full stop): it stays with
+      // the word before it, so the text still reads in phrases. (Lookups take spaces off a word's ends.)
+      const pieceEnd = !across && last === run.length - 1 && b + 1 < n && W.seg[b + 1] === W.seg[a]; // (a page's pieces are its spaced parts)
+      const phraseEnd = code === "th" && (/\s/.test(run[last + 1] || "") || pieceEnd);
+      out.text.push(show(run.slice(f, l + 1)) + (phraseEnd ? " " : ""));
       out.start.push(timeAt(f, 0));
       out.end.push(timeAt(l, 1));
       out.seg.push(W.seg[a]);

@@ -31,7 +31,9 @@ export const STT_EVENT = "tamkeen:stt"; // fired on `window` when the day's tota
 // Bisaya (which Whisper is asked to hear as its nearest language, Tagalog: stt.js whisperCode).
 const PROMPTS = {
   zh: "以下是普通话的句子。",
-  ceb: "Maayong buntag kaninyong tanan. Karon, atong hisgotan ang atong kinabuhi diri sa Sugbo ug sa Mindanao.",
+  ceb: "Maayong buntag kaninyong tanan! Unsa man ang atong istorya karon? Dili gyud ko kasabot, pero nindot kaayo. " +
+       "Kumusta na ka? Ayaw kabalaka, okay ra ta. Unsay imong gibuhat ganina? Wala koy kwarta, mao nga nagtrabaho ko. " +
+       "Ingon niya nga mouli siya ugma sa among balay. Nindot kaayo ang panahon diri sa Sugbo ug sa Davao.",
 };
 
 export const cloudOn = () => sttConfig(settings).on;

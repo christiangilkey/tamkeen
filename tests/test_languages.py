@@ -176,3 +176,19 @@ def test_creature_game_state_syncs_and_an_unplayed_egg_never_wins(world):
     assert engine.game_wins({"xp": 5, "updated_at": 1}, {"xp": 0, "updated_at": 9})
     assert not engine.game_wins({"xp": 0, "updated_at": 9}, {"xp": 5, "updated_at": 1})
     assert not engine.game_wins({"xp": 5, "updated_at": 1}, {"xp": 5, "updated_at": 1})
+
+
+def test_bisaya_is_heard_as_tagalog_with_the_same_bisaya_prompt_on_phone_and_computer():
+    """Whisper has no Bisaya: it is asked for Tagalog, with a long opening in everyday Bisaya. The phone
+    (mobile/src/js/transcribe-service.js) sends the same opening as the computer, word for word."""
+    import re
+    from pathlib import Path
+
+    assert languages.whisper_code("ceb") == "tl"
+    prompt = languages.INITIAL_PROMPTS["ceb"]
+    for word in ("gyud", "kaayo", "dili", "unsa", "karon", "imong"):
+        assert re.search(rf"\b{word}\b", prompt, re.I), word
+    assert not re.search(r"\b(hindi|ito|yung|ng)\b", prompt)  # nothing Tagalog in it
+    phone = (Path(__file__).resolve().parent.parent / "mobile" / "src" / "js" / "transcribe-service.js").read_text(encoding="utf-8")
+    block = re.search(r'ceb: ((?:"[^"]*"\s*\+?\s*)+),', phone).group(1)
+    assert "".join(re.findall(r'"([^"]*)"', block)) == prompt

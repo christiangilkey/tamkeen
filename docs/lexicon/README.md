@@ -54,6 +54,14 @@ words and gives each word's reading, for furigana and pinyin (`web/js/lexicon/ja
 
 Both are rebuilt with `tools/build_cjk.py` (see the top of that file).
 
+Thai has a table of how each word is said, shown over Thai text (`web/js/lexicon/thai.js`, `readings.js`):
+
+| File | Made from | Licence |
+|---|---|---|
+| `th-readings.json.gz` | English Wiktionary's Thai entries as extracted by [Wiktextract](https://kaikki.org) (Tatu Ylonen): each word's Paiboon-style romanization with tone marks, and which words come from Pali or Sanskrit (from the etymologies) | Creative Commons Attribution-ShareAlike 4.0: `LICENSE-CC-BY-SA-4.0.txt` |
+
+It is rebuilt with `tools/build_thai_readings.py`.
+
 What was changed in the Arabic files: only the fields the lookup needs were kept (word pieces, their categories and
 which go together, lemma, part of speech, root, corpus frequency, spelling); glosses,
 tokenizations and phonetics were dropped, and the result was written as gzipped JSON.

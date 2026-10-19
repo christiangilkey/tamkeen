@@ -114,11 +114,12 @@ export const DEFAULTS = {
   anki_deck: "Tamkeen",  // the single deck there was before each language had its own
   anki_decks: null,      // language -> deck name (anki-droid.js deckNames); null until first used
   anki_delete_ok: false,
-  // Japanese and Chinese reading aids (web/js/lexicon/readings.js): furigana, pinyin, and the characters
-  // Chinese is shown in ("" as written, "simplified", "traditional").
+  // Japanese, Chinese and Thai reading aids (web/js/lexicon/readings.js): furigana, pinyin, the characters
+  // Chinese is shown in ("" as written, "simplified", "traditional"), and how Thai words are said.
   furigana: true,
   pinyin: true,
   zh_script: "",
+  thai_readings: true,
 };
 export const settings = { ...DEFAULTS };
 

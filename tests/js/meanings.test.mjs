@@ -181,6 +181,12 @@ test("Chinese single characters have their everyday meaning first; Japanese spel
     ["月", /^moon/], ["但", /^but/], ["从", /^from/], ["快", /fast|quick/], ["等", /wait/], ["了", /perfective|completion/]]) {
     assert.match(look(zh, w, "zh").meaning, sense, w);
   }
+  // Grammar words and others whose everyday sense CC-CEDICT itself lists late (EVERYDAY_ZH in build_meanings.py).
+  for (const [w, sense] of [["被", /passive/], ["跟", /^with/], ["才", /^only after; only then/], ["里", /^in; inside/],
+    ["不", /^not/], ["以", /^by; with/], ["让", /let/], ["给", /^to give/], ["别", /don't/], ["太", /^too/],
+    ["听", /^to listen/], ["心", /^heart/], ["马", /^horse/], ["您", /^you/], ["话", /^words/]]) {
+    assert.match(look(zh, w, "zh").meaning, sense, w);
+  }
   // Words of two or more characters keep Wiktionary's order, their usual meaning first.
   assert.match(look(zh, "告诉", "zh", ["告訴"]).meaning, /tell/);
   assert.match(look(zh, "一起", "zh", ["一起"]).meaning, /together/);

@@ -181,3 +181,5 @@ e380557d
 e1d3c5ec
 a8d7d358
 f4fa70b0
+# Not interface: the Bisaya opening prompt given to Whisper (web/js/stt.js / transcribe-service.js).
+0a11edf2

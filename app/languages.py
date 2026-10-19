@@ -22,10 +22,18 @@ DEFAULT = "ar"  # the app's first language; anything stored before languages exi
 WHISPER_CODES = {"ceb": "tl"}
 
 # Opening lines that steer Whisper, by the app's language code: Chinese in simplified characters, and
-# Bisaya words and spelling for Bisaya.
+# Bisaya words and spelling for Bisaya. (The phone's copy: mobile/src/js/transcribe-service.js PROMPTS.)
+# The Bisaya one was picked on real Bisaya podcasts (a talk show, Mass readings, Bisaya-English chat,
+# storytelling; 2026-10-18): this longer everyday talk kept 97% of the speech against 84% for a shorter
+# prompt (on the Mass readings Whisper skipped half the text) with more Bisaya and no more Tagalog
+# spellings. It has no food or place talk worth copying: Whisper took "pagkaon" from an earlier try into
+# the text. Asking for Indonesian or Malay instead gave Bisaya-looking spellings but lost a quarter of
+# the speech and wrote Indonesian ("aku", "terima kasih").
 INITIAL_PROMPTS = {
     "zh": "以下是普通话的句子。",
-    "ceb": "Maayong buntag kaninyong tanan. Karon, atong hisgotan ang atong kinabuhi diri sa Sugbo ug sa Mindanao.",
+    "ceb": ("Maayong buntag kaninyong tanan! Unsa man ang atong istorya karon? Dili gyud ko kasabot, pero nindot kaayo. "
+            "Kumusta na ka? Ayaw kabalaka, okay ra ta. Unsay imong gibuhat ganina? Wala koy kwarta, mao nga nagtrabaho ko. "
+            "Ingon niya nga mouli siya ugma sa among balay. Nindot kaayo ang panahon diri sa Sugbo ug sa Davao."),
 }
 
 

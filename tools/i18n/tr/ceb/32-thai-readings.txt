@@ -1,0 +1,8 @@
+5745c353 Unsaon kini paglitok (romanisasyon nga Paiboon, gikan sa Wiktionary)
+95f0cf4c Paglitok sa US (CMU Pronouncing Dictionary)
+27ac4b17 Ipakita ibabaw sa mga pulong nga Thai kon unsaon kini paglitok (sà-wàt-dii)
+50ca913f ✓ Ania na sa kini nga device ang talaan sa paglitok sa Thai ({0} KB). Gikan sa Wiktionary ang mga paglitok, sa romanisasyon nga Paiboon nga adunay mga marka sa tono; ang pulong nga wala niini mahibaloi walay paglitok.
+36588778 Kinahanglan niini ang talaan sa paglitok sa Thai: usa ka higayon nga pag-download nga mga {0} KB, gihimo gikan sa Wiktionary. Magpabilin kini sa kini nga device.
+ca76c3bf I-download (mga {0} KB)
+bbd1baad Andam na ang talaan sa paglitok sa Thai.
+112eab9b Kini nga talaan sa paglitok sa Thai gikan sa laing bersyon sa app.

@@ -3022,3 +3022,34 @@ for the user without feeling overwhelming."
   and light, Arabic right-to-left; every section, search, deep links, back. 472 JS tests and 379 pytest pass.
   Pictures: `..\settings-redesign-shots\` (outside the repo). **Not checked**: a real phone, signed-in states
   with a real account.
+
+## Thai readings over Thai words (2026-10-19)
+
+How each Thai word is said, drawn small over it like pinyin: Latin letters with tone marks in the Paiboon
+style (สวัสดี: sà-wàt-dii). The Royal Thai General System was not used because it writes no tones.
+- **Data**: `docs/lexicon/th-readings.json.gz` (186 KB, 17,221 words, CC BY-SA 4.0), made by
+  `tools/build_thai_readings.py` from kaikki.org's Thai Wiktionary file (Paiboon readings from each entry's
+  "sounds"). It is Thai's word-table download (`app/lexicon.py` and `mobile/src/js/lexicon-store.js`: `th: ["th"]`).
+  A word said two ways keeps both, Wiktionary's first is shown.
+- **Code**: `web/js/lexicon/thai.js` (new: `ThaiReadings`) and `readings.js` (Thai in READING_LANGUAGES; its
+  own loader, because Thai isn't one of seen.js's "seen words" dictionaries; `thaiHtml`; the Settings row
+  with the switch and the table's Download/Remove). `wordface.js` passes Thai through. The word popup shows the
+  reading beside the headword through `seen.js` `pronounceWord` (the spot English IPA uses; title text in
+  `wordbubble.js`). Setting `thai_readings` (on by default, like pinyin) is declared in `app/db.py`
+  DEFAULT_SETTINGS and `mobile/src/js/store.js` (the desktop drops unknown keys).
+- **Words the table lacks** (Intl.Segmenter keeps cutting Thai, so these are compounds and names): read from
+  the table's words that spell them exactly, fewest pieces, or no reading. Two lists in the file keep that
+  honest: `short` (two-letter pieces only when among the 1000 commonest: กรอก is not กร + อก) and `nojoin`
+  (no join after a Pali/Sanskrit word, from Wiktionary's etymology: กรรมการ is gam-má-gaan). Checked against
+  the table's own compounds: 95% the same as Wiktionary, most of the rest a spelling of the same sound.
+- **Coverage**: 966 of the 1000 commonest words are in the table, 999 with joins (only โน้ต has none); 95% of
+  the Thai words on a Thai Wikipedia article and BBC Thai's front page.
+- **Looks**: each Thai word sits in its own inline box (`.thw`) under its reading. Without it Chromium spread
+  a short word's letters under a longer reading and vowels came loose (ชู drawn as ช ู). Thai text gets
+  line-height 2.8 only while readings are shown (`:has(rt.th)`).
+- **Checked**: computer preview on a fresh signed-out data folder (launch config `tamkeen-thai-readings`, port
+  8925): a Thai Wikipedia page at desktop and 375 px, the popup, the switch both ways, Download. Pictures:
+  `..\thai-readings-shots\` (outside the repo). Tests: `tests/js/thai-readings.test.mjs`, `tests/test_lexicon.py`
+  `test_thai_reading_table`. Translations: `tools/i18n/tr/<code>/32-thai-readings.txt`.
+- **Not checked**: a real phone or the phone build (`mobile/www` not rebuilt), the review card's readings on
+  screen (same code as the reader, `addReadings`), and ๆ (repeat the previous word), which gets no reading yet.

@@ -1,0 +1,8 @@
+5745c353 Come si dice (romanizzazione Paiboon, da Wikizionario)
+95f0cf4c Pronuncia americana (CMU Pronouncing Dictionary)
+27ac4b17 Mostra come si dicono le parole thai, sopra le parole (sà-wàt-dii)
+50ca913f ✓ La tabella di lettura del thai è su questo dispositivo ({0} KB). Le letture vengono da Wikizionario, in romanizzazione Paiboon con i segni di tono; una parola che non conosce resta senza lettura.
+36588778 Serve la tabella di lettura del thai: un download unico di circa {0} KB, fatto da Wikizionario. Resta su questo dispositivo.
+ca76c3bf Scarica (circa {0} KB)
+bbd1baad La tabella di lettura del thai è pronta.
+112eab9b Questa tabella di lettura del thai è di un'altra versione dell'app.

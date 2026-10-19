@@ -91,6 +91,14 @@ test("shows in the other languages of a country's chart are left out", () => {
   assert.ok(inLanguage(item("Dear LOVE", "Ang mga istoryang kukurot, kikiliti, at magpapakilig sa natutulog mong puso!"), "tl"));
   // Neighbours that share letters: Portuguese "você", Catalan "Barça".
   assert.ok(inLanguage(item("BBC Lê", "A equipe da BBC lê para você algumas de suas melhores reportagens.", "BBC Brasil"), "pt"));
+  // A Spanish show in Brazil's chart with nothing only Portuguese uses isn't Portuguese; short Portuguese ones are.
+  const spanishTikTok = item("TikTok", "TikTok: cinco opiniones diferentes de chicas que usan esta app.");
+  assert.ok(!inLanguage(spanishTikTok, "pt") && inLanguage(spanishTikTok, "es"));
+  for (const [title, description] of [["Coração De Gelo", "Trap Br"], ["Dj Gão", "Feliz por todos que escutam meu som"],
+    ["PodPeople", "Bem-vindos ao nosso Podcast! PodPeople é pra quem gosta de gente"], ["Modus Operandi", "Podcast de true crime feito por Carol Moreira e Mabê Bonafé."]]) {
+    assert.ok(inLanguage(item(title, description), "pt", true), title);
+  }
+  assert.ok(inLanguage(item("Frame Fatale", "Un podcast de películas no canónicas."), "es"), "a short Spanish show stays Spanish");
   assert.ok(inLanguage(item("Lo que hay que saber", "Las noticias de la jornada, condensadas en dos minutos, dos veces al día."), "es"));
   assert.ok(inLanguage(item("El Barça juga a RAC1", "Podcasts del programa El Barça juga a RAC1 - L'hora a hora", "RAC1"), "ca"));
 });

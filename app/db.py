@@ -447,11 +447,13 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "anki_decks": None,              # language -> deck name (app/anki_bridge.py deck_names); None until first used
     "anki_delete_ok": False,
     "anki_sync_state": None,
-    # Japanese and Chinese reading aids (web/js/lexicon/readings.js): furigana over kanji, pinyin over
-    # Chinese characters, and which characters Chinese is shown in ("" as written, "simplified", "traditional").
+    # Japanese, Chinese and Thai reading aids (web/js/lexicon/readings.js): furigana over kanji, pinyin over
+    # Chinese characters, which characters Chinese is shown in ("" as written, "simplified", "traditional"),
+    # and how Thai words are said, over them.
     "furigana": True,
     "pinyin": True,
     "zh_script": "",
+    "thai_readings": True,
     # AI word definitions (users bring their own API key).
     "definer_provider": "claude",
     "definer_language": "English",

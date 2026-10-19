@@ -3680,6 +3680,16 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
+  "id": "5745c353",
+  "k": "How it is said (Paiboon romanization, from Wiktionary)",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "95f0cf4c",
+  "k": "US pronunciation (CMU Pronouncing Dictionary)",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
   "id": "86efdc55",
   "k": "Show the full explanation of this word",
   "f": "web/js/components/wordbubble.js"
@@ -7480,6 +7490,31 @@
   "f": "web/js/lexicon/readings.js"
  },
  {
+  "id": "27ac4b17",
+  "k": "Show how Thai words are said, over the words (sà-wàt-dii)",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "50ca913f",
+  "k": "✓ The Thai reading table is on this device ({0} KB). Readings come from Wiktionary, in Paiboon romanization with tone marks; a word it doesn't know gets none.",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "36588778",
+  "k": "This needs the Thai reading table: a one-time download of about {0} KB, made from Wiktionary. It stays on this device.",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "ca76c3bf",
+  "k": "Download (about {0} KB)",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "bbd1baad",
+  "k": "The Thai reading table is ready.",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
   "id": "1fa955a7",
   "k": "This word table is from a different version of the app.",
   "f": "web/js/lexicon/romance.js"
@@ -7623,6 +7658,11 @@
   "id": "30320764",
   "k": "↺ Mark as new",
   "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "112eab9b",
+  "k": "This Thai reading table is from a different version of the app.",
+  "f": "web/js/lexicon/thai.js"
  },
  {
   "id": "8c6c358b",
@@ -14028,11 +14068,6 @@
   "id": "5969dbe4",
   "k": "Too many tables for one page.",
   "f": "mobile/src/js/sqlite-file.js"
- },
- {
-  "id": "0225752e",
-  "k": "Maayong buntag kaninyong tanan. Karon, atong hisgotan ang atong kinabuhi diri sa Sugbo ug sa Mindanao.",
-  "f": "mobile/src/js/transcribe-service.js"
  },
  {
   "id": "02650201",

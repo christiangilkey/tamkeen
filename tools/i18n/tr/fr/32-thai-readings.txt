@@ -1,0 +1,8 @@
+5745c353 Comment ça se dit (romanisation Paiboon, d'après le Wiktionnaire)
+95f0cf4c Prononciation américaine (CMU Pronouncing Dictionary)
+27ac4b17 Afficher comment se disent les mots thaïs, au-dessus des mots (sà-wàt-dii)
+50ca913f ✓ La table de lecture du thaï est sur cet appareil ({0} Ko). Les lectures viennent du Wiktionnaire, en romanisation Paiboon avec les marques de ton ; un mot qu'elle ne connaît pas n'en a pas.
+36588778 Il faut pour cela la table de lecture du thaï : un téléchargement unique d'environ {0} Ko, fait à partir du Wiktionnaire. Elle reste sur cet appareil.
+ca76c3bf Télécharger (environ {0} Ko)
+bbd1baad La table de lecture du thaï est prête.
+112eab9b Cette table de lecture du thaï vient d'une autre version de l'application.

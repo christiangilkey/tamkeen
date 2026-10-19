@@ -1,0 +1,8 @@
+5745c353 Cómo se dice (romanización Paiboon, de Wiktionary)
+95f0cf4c Pronunciación de EE. UU. (CMU Pronouncing Dictionary)
+27ac4b17 Mostrar cómo se dicen las palabras en tailandés, encima de ellas (sà-wàt-dii)
+50ca913f ✓ La tabla de lectura del tailandés está en este dispositivo ({0} KB). Las lecturas vienen de Wiktionary, en romanización Paiboon con marcas de tono; una palabra que no conoce se queda sin lectura.
+36588778 Para esto hace falta la tabla de lectura del tailandés: una descarga única de unos {0} KB, hecha a partir de Wiktionary. Se queda en este dispositivo.
+ca76c3bf Descargar (unos {0} KB)
+bbd1baad La tabla de lectura del tailandés está lista.
+112eab9b Esta tabla de lectura del tailandés es de otra versión de la app.

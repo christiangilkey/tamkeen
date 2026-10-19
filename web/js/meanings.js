@@ -66,16 +66,37 @@ async function candidates(word, lang) {
   return wordKeys(word, lang, lemmaOf);
 }
 
+// The prefixes and infixes that make a Tagalog or Bisaya verb (mo-/mi-/nag-/mag-/gi-/ni-/naka-…, -um-/-in-).
+const VERB_AFFIX = /^(?:mo|mu|mi|ni|gi|nag|mag|naga|maga|naka|maka|nagpa|magpa|gipa|gina|ipa|pinag|ipinag|nakipag|makipag)[a-z]{3,}|^[^aeiou](?:um|in)[aeiou]/i;
+const verbAffixed = (word) => VERB_AFFIX.test(String(word || "").replace(EDGE_PUNCT, "").toLowerCase());
+
 /** The popup's answer for ctx ({word, lang, ...}) from the built-in dictionary. */
 export async function dictionaryDefine(ctx, { quick = false, language = "English" } = {}) {
   const lang = ctx.lang || "ar";
-  const files = await load(lang);
+  let files = await load(lang);
   if (!files) throw new DefinerError(NO_MEANINGS);
+  // Bisaya: Wolff's dictionary, made from how Bisaya is spoken, is asked first; Wiktionary's Bisaya
+  // entries are fewer and lean on English loans (baton "conduct an orchestra" before "have, possess"),
+  // and it fills in the newer words Wolff lacks.
+  if (lang === "ceb") files = [...files].reverse();
   // Wiktionary first; for Arabic the CAMeL glosses, for Bisaya Wolff's dictionary, when Wiktionary lacks
   // the word (or has it only as a name).
   const keys = await candidates(ctx.word, lang);
+  // A Tagalog or Bisaya word with a verb's affixes on it (nagbaton, kumain) is a verb: a dictionary
+  // that knows its root as a verb wins over one that has only a noun of the same spelling (Wiktionary's
+  // loanword "baton", where Wolff has báton "have, possess").
+  const verbForm = (lang === "ceb" || lang === "tl") && keys.length > 1 && verbAffixed(ctx.word);
   let found = null;
   let source = "";
+  if (verbForm) {
+    for (const data of files) {
+      const hit = data && findIn(data, keys.slice(1));
+      if (hit && hit.groups.some((g) => g[1] === "verb" && ordinary(g))) {
+        const verbsFirst = [...hit.groups.filter((g) => g[1] === "verb"), ...hit.groups.filter((g) => g[1] !== "verb")];
+        return answerFrom({ ...hit, groups: verbsFirst }, ctx.word, lang, { quick, language, source: data.source });
+      }
+    }
+  }
   for (const data of files) {
     const hit = data && findIn(data, keys);
     if (hit && hit.groups.some(ordinary)) { found = hit; source = data.source; break; }

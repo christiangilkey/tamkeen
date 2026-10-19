@@ -107,8 +107,10 @@ async function readDictionaries(lang) {
 export const lexiconStatus = (lang) => api(`/lexicon/status?lang=${lang}`);
 
 /** A word's pronunciation from the language's downloaded table (English: US IPA from the CMU
- * Pronouncing Dictionary), or "" when there is none. Never asks to download anything. */
+ * Pronouncing Dictionary; Thai: Paiboon romanization, ./readings.js), or "" when there is none.
+ * Never asks to download anything. */
 export async function pronounceWord(word, lang) {
+  if (lang === "th") return import("./readings.js").then((m) => m.thaiReading(word));
   if (lang !== "en") return "";
   const dicts = await dictionaries(lang);
   const table = (dicts || []).find((d) => d instanceof LemmaTable);

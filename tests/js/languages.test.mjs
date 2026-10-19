@@ -210,7 +210,9 @@ test("Thai: told by its letters, written without spaces, and split into words by
 test("Thai: everyday words the device's word breaker cuts in pieces are joined back", () => {
   const page = (text) => regroupWords({ start: [0], end: [1], seg: [0], text: [text] }, "th", false).text;
   // โรงพยาบาล (hospital) is โรง + พยาบาล to the breaker, ผลกระทบ (impact) ผลก + ระ + ทบ.
-  assert.deepEqual(page("แม่ไปโรงพยาบาล ผลกระทบยังคงอยู่"), ["แม่", "ไป", "โรงพยาบาล", "ผลกระทบ", "ยังคง", "อยู่"]);
+  // (The space between the two phrases stays with the word before it, so the page still reads in phrases.)
+  assert.deepEqual(page("แม่ไปโรงพยาบาล ผลกระทบยังคงอยู่"), ["แม่", "ไป", "โรงพยาบาล ", "ผลกระทบ", "ยังคง", "อยู่"]);
+  assert.equal(joinWords(page("แม่ไปโรงพยาบาล ผลกระทบยังคงอยู่"), "th"), "แม่ไปโรงพยาบาล ผลกระทบยังคงอยู่");
   assert.deepEqual(page("ผู้หญิงตัดสินใจเดินทางไปต่างประเทศ"), ["ผู้หญิง", "ตัดสินใจ", "เดินทาง", "ไป", "ต่างประเทศ"]);
   // Usually two words in running text, so not joined: "the person who is in the house".
   assert.deepEqual(page("คนที่อยู่ในบ้าน"), ["คน", "ที่", "อยู่", "ใน", "บ้าน"]);

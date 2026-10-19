@@ -242,8 +242,8 @@
   },
   "mean-zh": {
    "file": "zh-meanings.json.gz",
-   "bytes": 6905192,
-   "sha256": "bf9430e5fd625007c0d880edf9cf461652ecd0fc4a7e14689080b55638b855b2",
+   "bytes": 6905171,
+   "sha256": "7ed577c886c11fb91f0a408d81fdbc87cdab7e988cd79bf3ee46d4af70a26858",
    "title": "Chinese meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
@@ -280,6 +280,15 @@
    "forms": 311607,
    "lexemes": 53583,
    "stressed": 332032
+  },
+  "th": {
+   "file": "th-readings.json.gz",
+   "bytes": 186199,
+   "sha256": "2f9b0a8e68d55b79ea274c7c620e7af8e5fe3f1b7d82f4b2c91aa2c3b16a1b39",
+   "title": "Thai reading table",
+   "db": "English Wiktionary (Wiktextract, kaikki.org): Paiboon romanization",
+   "license": "CC-BY-SA-4.0",
+   "words": 17221
   },
   "tl": {
    "file": "tl-roots.json.gz",

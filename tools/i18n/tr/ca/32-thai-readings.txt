@@ -1,0 +1,8 @@
+5745c353 Com es diu (romanització Paiboon, del Viccionari)
+95f0cf4c Pronunciació dels EUA (CMU Pronouncing Dictionary)
+27ac4b17 Mostra com es diuen les paraules en tai, damunt les paraules (sà-wàt-dii)
+50ca913f ✓ La taula de lectura del tai és en aquest dispositiu ({0} KB). Les lectures vénen del Viccionari, en romanització Paiboon amb marques de to; una paraula que no coneix es queda sense lectura.
+36588778 Per a això cal la taula de lectura del tai: una baixada única d'uns {0} KB, feta a partir del Viccionari. Es queda en aquest dispositiu.
+ca76c3bf Baixa (uns {0} KB)
+bbd1baad La taula de lectura del tai està a punt.
+112eab9b Aquesta taula de lectura del tai és d'una altra versió de l'app.

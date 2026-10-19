@@ -157,6 +157,10 @@ const familyOf = (lang) => FAMILIES.find((f) => f.includes(lang)) || [lang];
 // than of each neighbour (and at least two signs of it); for the others a tie is enough. (Catalan's
 // accents are shared with French, whose shows turn up in Spain's category charts.)
 const STRICT = new Set(["ca", "ceb"]);
+// Neighbours whose shows turn up in a language's charts and read alike when short: Brazil's chart holds
+// Spanish shows from the rest of Latin America. (Not the other way round: a short Spanish show often has
+// no word only Spanish uses, and Spain's and Mexico's charts hold few Portuguese ones.)
+const LOOKALIKES = { pt: ["es"] };
 // Languages whose first country's chart is mostly in them: there, a show with nothing to judge it by
 // (a name of a few words and no description) is taken to be in the language.
 const HOME_CHART = new Set(["es", "fr", "it", "pt", "en"]);
@@ -194,6 +198,10 @@ export function inLanguage(item, lang, home = false) {
   const strict = STRICT.has(lang);
   const signs = ownCount(lower, words, lang);
   if (strict && signs < 2) return false;
+  // Nothing only this language uses, and its little words fit a lookalike neighbour whose shows sit in the
+  // same charts just as well ("cinco opiniones de chicas que usan esta app" has Portuguese's "de" and "que",
+  // but it is Spanish): not shown as this one.
+  if (!signs && (LOOKALIKES[lang] || []).some((other) => count(words, LITTLE_WORDS[other]) >= mine)) return false;
   return neighbours.every((other) => (strict ? signs > ownCount(lower, words, other) : signs >= ownCount(lower, words, other)));
 }
 

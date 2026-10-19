@@ -165,6 +165,16 @@ def test_japanese_and_chinese_dictionaries(client):
     assert data["kind"] == "zh" and data["words"]["学习"][0] == "xue2 xi2" and data["t2s"]["學"] == "学"
 
 
+def test_thai_reading_table(client):
+    """Thai downloads one small table of how its words are said (tools/build_thai_readings.py)."""
+    st = client.get("/api/lexicon/status?lang=th").json()
+    assert st["needed"] and st["names"] == ["th"] and not st["installed"] and 50_000 < st["bytes"] < 1_000_000
+    assert client.post("/api/lexicon/download", json={"lang": "th"}).json()["installed"]
+    data = client.get("/api/lexicon/data/th").json()
+    assert data["kind"] == "th" and data["words"]["สวัสดี"] == "sà-wàt-dii" and "ประวัติ" in data["nojoin"]
+    assert not client.post("/api/lexicon/remove", json={"lang": "th"}).json()["installed"]
+
+
 def test_word_meanings_for_no_ai_are_a_separate_download(client):
     """No AI (Settings): each language's meanings file is downloaded on its own (kind=meanings)."""
     st = client.get("/api/lexicon/status?lang=es&kind=meanings").json()

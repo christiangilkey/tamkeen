@@ -1,0 +1,8 @@
+5745c353 Paano ito binibigkas (romanisasyong Paiboon, mula sa Wiktionary)
+95f0cf4c Bigkas sa US (CMU Pronouncing Dictionary)
+27ac4b17 Ipakita sa itaas ng mga salitang Thai kung paano binibigkas ang mga ito (sà-wàt-dii)
+50ca913f ✓ Nasa device na ito ang talaan ng bigkas ng Thai ({0} KB). Galing sa Wiktionary ang mga bigkas, sa romanisasyong Paiboon na may mga marka ng tono; walang bigkas ang salitang hindi nito alam.
+36588778 Kailangan dito ang talaan ng bigkas ng Thai: isang beses na pag-download na mga {0} KB, ginawa mula sa Wiktionary. Mananatili ito sa device na ito.
+ca76c3bf I-download (mga {0} KB)
+bbd1baad Handa na ang talaan ng bigkas ng Thai.
+112eab9b Galing sa ibang bersyon ng app ang talaan ng bigkas ng Thai na ito.
