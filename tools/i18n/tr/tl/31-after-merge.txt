@@ -1,0 +1,14 @@
+1d37efac NetEase News, Tsina
+292b7519 GMA News sa Tagalog
+2825c408 Bulgar, sa Tagalog
+f28ea2bf Hataw, sa Tagalog
+455c0efa Pinoy Weekly
+0ff2da19 Bombo Radyo, General Santos
+8047e0a2 Site ng mga Saksi ni Jehova, sa Bisaya
+19920864 Manager Online
+20f6f8b1 Salitang Tagalog
+84051a55 Mga talaan ng salita sa Espanyol, Pranses, Italyano, Portuges, Catalan at Ingles (opsiyonal na i-download)
+602655dd Listahan ng salitang Bisaya (OPUS NLLB) at ang Dictionary of Cebuano Visayan ni Wolff (opsiyonal na i-download)
+c319d658 ODC-By 1.0; pampublikong domain
+5730d3ec Listahan ng karaniwang salitang Thai, mula sa bilang ng Thai National Corpus ng PyThaiNLP
+550cf31d CC0 1.0

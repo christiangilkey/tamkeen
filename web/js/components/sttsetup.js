@@ -1,9 +1,12 @@
-// The "Cloud transcription" card in Settings, on the computer and the phone: who writes the
-// transcripts (this computer, or a cloud provider with the user's own key), which provider and
+// The "Cloud transcription" card in Settings (Listening & transcripts), on the computer and the
+// phone: who writes the transcripts (this computer, or a cloud provider with the user's own key), which provider and
 // model, what that costs per hour of audio, the key itself, a test, and how much was sent today.
-// It is laid out like the "Word definitions (AI)" card above it (aisetup.js) and shares its styles.
+// It is laid out like the "How words are explained" card (aisetup.js) and shares its styles; the
+// model and today's use wait under "More options".
 
 import { esc, platform, state, saveSettings } from "../app.js";
+import { icon } from "../icons.js";
+import "./settingsui.js"; // (the looks of the "More options" fold, which holds the model and today's use)
 import { STT_KEY_GUIDES, STT_PROVIDERS, cleanSttKey, describeAudioUse, hoursPerDollar, perHourText, sttConfig, sttKeyProvider } from "../stt.js";
 import { showKeyHelp } from "./keyhelp.js";
 import { troubleshootButton } from "./troubleshoot.js";
@@ -34,15 +37,28 @@ export function sttSetup(section, { test, usage, onUsage, changed = () => {} }) 
       <details><summary>What is sent, and where is my key kept?</summary>The audio of what you transcribe goes to the provider you choose
         (${phone ? "the episode's file, or a reel's video" : "only the parts with speech in them"}), and nowhere else. Nothing else about you or your library is sent.
         Your key is kept on ${here} and, if you use Google Drive sync, in the app's private folder in your own Google Drive, so your other devices have it too. It is never part of a data export.</details></div>
-    <div class="stt-who" role="radiogroup" aria-label="Who writes the transcripts">
+    <div class="stt-who" role="radiogroup" aria-label="Who writes the transcripts" data-find="who">
       <label class="stt-choice"><input type="radio" name="stt-mode" value="local">
         <span><strong>${local}</strong><span class="small muted">${phone ? "Free. Transcripts arrive when it next syncs." : "Free. Uses the model chosen below."}</span></span></label>
       <label class="stt-choice"><input type="radio" name="stt-mode" value="cloud">
         <span><strong>A cloud provider</strong><span class="small muted">${phone ? "Starts at once, on this phone. A few cents an hour." : "No strong computer needed. A few cents an hour."}</span></span></label>
     </div>
     <div class="ai-setup" id="stt-fields">
-      <div class="ai-field"><label for="stt-provider">Provider</label>
+      <div class="ai-field ai-wide" data-find="sttkey"><label for="stt-provider">Provider</label>
         <select id="stt-provider">${Object.entries(STT_PROVIDERS).map(([k, p]) => `<option value="${k}">${esc(p.label)}</option>`).join("")}</select></div>
+      <div class="ai-field ai-wide"><label for="stt-key">API key</label>
+        <div class="ai-key" id="stt-keyrow">
+          <input type="password" id="stt-key" autocomplete="off" spellcheck="false" placeholder="Paste your API key here">
+          <button type="button" class="ghost" id="stt-show">Show</button>
+          <a class="btn key-get" id="stt-get" target="_blank" rel="noopener"></a>
+          <button type="button" id="stt-stuck">I'm stuck</button>
+        </div>
+        <span class="small" id="stt-key-note" role="status"></span></div>
+      <div class="ai-wide small stt-limit" id="stt-limit" role="note" hidden></div>
+      <div class="ai-field ai-test ai-wide"><button type="button" id="stt-test">Test the key</button></div>
+      <div class="ai-wide small" id="stt-test-result" role="status"></div>
+      <details class="set-more ai-wide"><summary>${icon("chevron", 16)}<span>More options</span></summary>
+      <div class="set-more-body ai-more">
       <div class="ai-field"><span class="ai-label" id="stt-model-label">Model</span>
         <div class="model-pick">
           <button type="button" class="model-btn" id="stt-model" aria-haspopup="listbox" aria-expanded="false"></button>
@@ -54,19 +70,9 @@ export function sttSetup(section, { test, usage, onUsage, changed = () => {} }) 
           </div>
         </div>
         <input type="text" id="stt-model-other" spellcheck="false" autocomplete="off" placeholder="Model name, exactly as the provider writes it" hidden></div>
-      <div class="ai-field ai-wide"><label for="stt-key">API key</label>
-        <div class="ai-key" id="stt-keyrow">
-          <input type="password" id="stt-key" autocomplete="off" spellcheck="false" placeholder="Paste your API key here">
-          <button type="button" class="ghost" id="stt-show">Show</button>
-          <a class="btn key-get" id="stt-get" target="_blank" rel="noopener"></a>
-          <button type="button" id="stt-stuck">I'm stuck</button>
-        </div>
-        <span class="small" id="stt-key-note" role="status"></span></div>
-      <div class="ai-wide small stt-limit" id="stt-limit" role="note" hidden></div>
-      <div class="ai-field ai-test"><button type="button" id="stt-test">Test the key</button></div>
-      <div class="ai-wide small" id="stt-test-result" role="status"></div>
-      <div class="ai-wide ai-use small muted">Audio sent today from ${here}: <strong id="stt-use">0 min</strong>
+      <div class="ai-use small muted">Audio sent today from ${here}: <strong id="stt-use">0 min</strong>
         <span id="stt-use-detail"></span></div>
+      </div></details>
     </div>`;
   const $ = (q) => section.querySelector(q);
   const prov = () => $("#stt-provider").value;
@@ -192,7 +198,7 @@ export function sttSetup(section, { test, usage, onUsage, changed = () => {} }) 
         paintProvider();
         note.textContent = `That is a ${STT_PROVIDERS[owner].short} key, so the provider is now ${STT_PROVIDERS[owner].label}. Saved: press “Test the key” to check it.`;
       } else if (key.startsWith("sk-ant-") || key.startsWith("xai-") || key.startsWith("AIza")) {
-        note.textContent = "That key is for word definitions (the card above), not for transcription. Groq keys start with gsk_.";
+        note.textContent = "That key is for Word definitions, not for transcription. Groq keys start with gsk_.";
         note.style.color = "var(--danger)";
         return;
       } else {

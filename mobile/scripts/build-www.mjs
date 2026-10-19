@@ -94,6 +94,7 @@ const SHARED = [
   "js/components/addsheet.js",
   "js/components/keyhelp.js",
   "js/components/aisetup.js",
+  "js/components/settingsui.js",
   "js/tokenuse.js",
   "js/stt.js",
   "js/components/sttsetup.js",

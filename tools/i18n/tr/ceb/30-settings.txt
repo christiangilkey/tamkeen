@@ -1,0 +1,92 @@
+719d0ef2	Mga higala ug pagpaambit
+53124438	Opsyonal. Pagdugang og mga higala pinaagi sa username, ipaambit ang mga pulong ug folder, ipadayon nga parehas ang mga folder uban sa mga higala, ug pagdula og live vocab quiz nga dungan.
+34622eeb	Unsa ang gitipigan online?
+51715bc4	Naggamit kini sa parehas nga Google account sa Drive sync. Ang imong username, listahan sa higala ug bisan unsa nga imong gipaambit gitipigan sa online service sa app (Supabase); ang tanan nga uban nagpabilin sa imong kaugalingong Google Drive.
+8c4f2844	I-disconnect sa mga higala ug pagpaambit?
+0f14a44f	Dili na gamiton niini nga device ang Mga higala. Ang imong username ug mga higala magpabilin online.
+3adbad50	Mga pagpatin-aw sa AI <0>Girekomenda</0>
+7aa94634	Ang kahulogan <0>niini</0> nga sentence, ang grammar niini ug usa ka hubad. Kinahanglan og API key: gamay ra kaayo matag pulong (ang Gemini naay libre nga alawans).
+50d514a9	Libre, ug mogana bisan offline. Ang komon nga mga kahulogan sa pulong, apan dili kung hain ang mohaom sa sentence.
+86c0a35e	Dugang mga opsyon
+0829312b	Unsaon pagtrabaho sa sync
+796b8e0e	I-delete ang {0} nga model?
+db07be18	Mga pinulongan
+b7764d5b	Ang pinulongan nga imong gisulti ug ang imong gitun-an.
+06dfc421	Kahulogan sa pulong
+ab8f190a	Ang imong makita kung i-tap nimo ang usa ka pulong.
+2b541ab0	Pagpaminaw ug mga transcript
+e2e7cdc0	Kinsa ang mosulat sa gisulti sa mga podcast, video ug reel.
+aaaa4873	Hitsura ug pamati
+483df961	Tema, gidak-on sa teksto ug ang dula.
+9fdce180	Account ug sync
+b4727310	Google Drive sync, ug Mga higala.
+8bae644d	Mga app ug koneksyon
+feecbb61	Ubang mga app nga mogana uban sa Tamkeen.
+923a6ba3	Data ug mga update
+dca7d5e7	Mga backup, update ug pagsugod pag-usab.
+942aa9b5	Ihapon ang komon nga mga pulong isip nakita na
+bfd6240b	Mga diksyonaryo sa pulong
+080a7931	Mga marka sa bokal
+d4c5ba0c	Furigana
+b8ede630	Pinyin ug mga karakter
+836829ac	Pagpatin-aw sa AI o built-in nga diksyonaryo
+b0ca7e02	AI provider ug API key
+6572e8b8	AI model
+8a49e27a	Pinulongan nga gigamit sa pagpatin-aw sa mga pulong
+320fc87b	Mga token nga nagamit karon
+5e1ffa82	Transcription provider ug key
+a797e309	Tema
+3cc6e124	Gidak-on sa teksto
+39b345e7	Vibration
+86a5e01f	Google Drive sync
+7ceacdca	Palisiya sa privacy
+9a6f37a7	Pangita sa settings
+86b0c277	Walay nakit-an. Sulayi ang laing pulong.
+6e670402	Kana nga key para sa Kahulogan sa pulong, dili para sa transcript. Ang mga Groq key nagsugod sa gsk_.
+29211387	Tema sa system
+9e5ba0f0	Hayag nga tema
+d51c5960	Ngitngit nga tema
+2dbd3af2	Pinulongan sa app: {0}
+f330c509	Pagpatin-aw sa AI gamit ang {0}
+8f59bae0	Kinahanglan og API key
+248639f7	{0} ang mosulat sa mga transcript
+13e5ef57	Ang cloud transcription nanginahanglan og key
+4de3810b	Kini nga computer ang mosulat sa mga transcript
+91634dad	Pag-download og transcription model
+5a76cc44	Naka-on ang mga feature sa dula
+f0650323	Naka-off ang mga feature sa dula
+b541e85d	Google Drive: wala nakakonektar
+d1c26a42	Napakyas ang katapusang sync
+8db4b22b	Google Drive: {0}
+f34d4b91	Google Drive: nakakonektar
+b1124ecc	Review isip to-do: {0}
+8e5aa09b	Naka-on ang Anki sync
+55a68b9d	Mga dugang nga tabang sa pagbasa og {0}.
+fd3f000c	Tabang sa pagbasa
+8423f899	Para sa pinulongan nga imong gitun-an. Ang pananglitan nagpakita kung unsa kini kadako.
+2a5b54a0	Mga podcast ug video
+c573c285	Mga web page
+01ef9525	Ipadayon nga parehas ang imong mga podcast, transcript ug vocab niini nga computer, sa ubang mga computer ug sa imong phone.
+22b684a7	Ang tanan gitipigan sa pribado nga folder sa app sa <0>imong kaugalingong</0> Google Drive nga kini ra nga app ang makakita. Ang sync dili gyud moagi sa bisan unsang laing server.
+31be6197	Asa kini gitipigan?
+848d80ca	Wala naka-sign in
+af70c2ba	Mag-sign out sa Google?
+5dfc94fd	Magpabilin ang imong library niini nga computer; mohunong ra kini sa pag-sync.
+31061d48	Para sa mga nagtuon usab gamit ang Anki niini nga computer.
+346217cc	Unsa ang buhaton sa add-on
+cccca32e	Isulti niini sa Tamkeen kung unsa ang dagan sa imong mga review, aron maihap kini para sa imong linalang: ang paghuman sa tanan nga takdang i-review mao ang tumong sa adlaw (bisan pila pa ang card), ug ang mga card nga mahamtong makakuha og bonus. Para niana, mga numero ra ang ipadala. Kung naka-on ang switch sa ibabaw, ipadayon usab niini nga parehas ang maong deck ug ang imong gi-save nga mga pulong. Ang tanan magpabilin niini nga computer. Kung imong gi-install ang add-on sa wala pa ang sync, i-download ug i-install kini pag-usab.
+e3a1377f	I-import ang data?
+dc170e1d	Google Tasks, Onyx, ug ang Tamkeen app.
+1ceebe39	AnkiDroid, Google Tasks ug Onyx.
+ee622c1c	Google Tasks ug Onyx.
+7c53db40	Pagsugod pag-usab, ug ang palisiya sa privacy.
+e774c246	Mga update, pagsugod pag-usab, ug ang palisiya sa privacy.
+985f8a33	Ang imong computer ang mosulat sa mga transcript
+e2d909d2	Naka-on ang AnkiDroid sync
+585c71c0	Ang imong mga podcast, transcript ug vocab gipaambit sa imong computer pinaagi sa pribado nga folder sa app sa imong kaugalingong Google Drive.
+0b252362	Kinsa ang mo-transcribe sa akong idugang dinhi?
+6a5f967d	Gawas kung gipili ang cloud provider sa Pagpaminaw ug mga transcript, ang transcript himoon sa imong computer: i-tap ang "I-transcribe" dinhi ug buhaton kini niini sa sunod nga sync.
+4520d4e1	Magpabilin ang imong library niini nga phone; mohunong ra kini sa pag-sync.
+5cbc70fe	Mogana kini sama sa app, gawas sa pipila ka butang nga nanginahanglan sa Tamkeen app sa imong phone o computer.
+1b5e130c	Unsa ang nanginahanglan sa app?
+3ec02d90	Mga reel gikan sa imong mga save sa Instagram ug random nga mga reel, mga reel nga naay kanta gikan sa music library sa Instagram, ang built-in nga web browser (I-import ang Page ug Pangitaa sa video), AnkiDroid sync, ug ang numero sa icon sa app. Ang imong idugang sa app makita dinhi human sa sync.

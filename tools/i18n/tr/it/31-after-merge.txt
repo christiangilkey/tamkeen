@@ -1,0 +1,14 @@
+1d37efac NetEase News, Cina
+292b7519 GMA News in tagalog
+2825c408 Bulgar, in tagalog
+f28ea2bf Hataw, in tagalog
+455c0efa Pinoy Weekly
+0ff2da19 Bombo Radyo, General Santos
+8047e0a2 Sito dei Testimoni di Geova, in bisaya
+19920864 Manager Online
+20f6f8b1 Parola tagalog
+84051a55 Tabelle di parole in spagnolo, francese, italiano, portoghese, catalano e inglese (download facoltativo)
+602655dd Elenco di parole bisaya (OPUS NLLB) e il Dictionary of Cebuano Visayan di Wolff (download facoltativo)
+c319d658 ODC-By 1.0; pubblico dominio
+5730d3ec Elenco delle parole thailandesi più comuni, dai conteggi del Thai National Corpus di PyThaiNLP
+550cf31d CC0 1.0

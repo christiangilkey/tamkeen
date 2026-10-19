@@ -180,7 +180,7 @@ export async function render(view, { id, data, query }) {
     noAudio: true,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onPlayWord: () => {}, onPlaySentence: () => {}, onPlayFrom: () => {},
-    onSettings: () => (location.hash = "#/settings"),
+    onSettings: () => (location.hash = "#/settings?s=words"),
     onSave: async (def) => {
       try { await saveWord(target, def); } catch (e) { toast(e.message, { error: true }); throw e; }
     },

@@ -1,17 +1,19 @@
 // Settings section for the online features: connect with Google, choose/change a username.
-// Shared by the desktop and Android settings pages.
+// Shared by the desktop and phone settings pages (Settings → Account & sync).
 
 import { esc, h, toast } from "../app.js";
 import * as social from "../social.js";
+import { confirmBox } from "./settingsui.js";
 
 export function accountSection() {
-  const el = h(`<section class="card stack" id="social">
-    <h2>Friends &amp; sharing (online)</h2>
-    <p class="small muted">Optional. Connect to add friends by username, share words and folders, keep folders in
-      sync with friends, and play live vocab quizzes together. This uses the same Google account as Drive sync.
-      Your username, friend list and anything you share are stored on the app's online service (Supabase);
-      everything else stays in your own Google Drive.</p>
+  const el = h(`<section class="card stack" id="social" data-find="friends">
+    <h2>Friends &amp; sharing</h2>
+    <p class="set-hint">Optional. Add friends by username, share words and folders, keep folders in sync with friends,
+      and play live vocab quizzes together.</p>
     <div id="social-panel"><p class="small muted">Checking…</p></div>
+    <details class="set-info"><summary>What is stored online?</summary>This uses the same Google account as Drive sync.
+      Your username, friend list and anything you share are stored on the app's online service (Supabase);
+      everything else stays in your own Google Drive.</details>
   </section>`);
   const panel = el.querySelector("#social-panel");
 
@@ -45,7 +47,7 @@ export function accountSection() {
       return;
     }
     panel.innerHTML = `
-      <div class="row"><span class="pill done">Connected</span> <strong>${esc(profile.email)}</strong>
+      <div class="set-state"><span class="pill done">Connected</span> <strong>${esc(profile.email)}</strong>
         <span class="spacer"></span><button type="button" class="ghost danger" id="acc-disconnect">Disconnect</button></div>
       <form class="row" id="acc-form">
         <label for="acc-username">Username</label>
@@ -92,7 +94,8 @@ export function accountSection() {
       }
     };
     panel.querySelector("#acc-disconnect").onclick = async () => {
-      if (!confirm("Disconnect from friends & sharing on this device? Your username and friends are kept online.")) return;
+      if (!(await confirmBox("Disconnect from friends & sharing?", "This device stops using Friends. Your username and friends are kept online.",
+                             { ok: "Disconnect", danger: true }))) return;
       await social.disconnect();
       paint();
     };

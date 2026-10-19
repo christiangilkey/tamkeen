@@ -1,6 +1,7 @@
 // Model and GPU-pack management widgets, shared by Settings and first-run Setup.
 
 import { api, esc, h, on, toast, fmtBytes, saveSettings, loadStatus } from "../app.js";
+import { confirmBox } from "./settingsui.js";
 
 const INFO = {
   small: "Fastest. Good for clear speech; more mistakes on dialects, accents and fast talk.",
@@ -43,7 +44,7 @@ export function modelManager(el, { hardware, onChange } = {}) {
       } else if (m.installed) {
         const b = h(`<button type="button" class="ghost danger">Delete</button>`);
         b.onclick = async () => {
-          if (!confirm(`Delete the ${m.size} model (${m.disk_mb} MB)? You can download it again later.`)) return;
+          if (!(await confirmBox(`Delete the ${m.size} model?`, `Delete the ${m.size} model (${m.disk_mb} MB)? You can download it again later.`, { ok: "Delete", danger: true }))) return;
           await api(`/models/${m.size}`, { method: "DELETE" });
           if (data.selected === m.size) await saveSettings({ model_size: null }).catch(() => {});
           load();
@@ -110,7 +111,7 @@ export function gpuPanel(el, hardware) {
       st.append(h(`<p><span class="pill done">GPU acceleration is active</span></p>`));
       const b = h(`<button type="button" class="ghost danger">Remove GPU libraries</button>`);
       b.onclick = async () => {
-        if (!confirm("Remove the CUDA libraries? Transcription will use the CPU.")) return;
+        if (!(await confirmBox("Remove GPU libraries", "Remove the CUDA libraries? Transcription will use the CPU.", { ok: "Remove", danger: true }))) return;
         const r = await api("/gpu", { method: "DELETE" });
         toast(r.restart_required ? "They'll be removed when you restart the app." : "Removed.");
       };

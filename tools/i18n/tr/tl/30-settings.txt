@@ -1,0 +1,92 @@
+719d0ef2	Mga kaibigan at pagbabahagi
+53124438	Opsyonal. Magdagdag ng kaibigan gamit ang username, magbahagi ng mga salita at folder, panatilihing naka-sync ang mga folder sa mga kaibigan, at maglaro nang sabay ng live na vocab quiz.
+34622eeb	Ano ang naka-store online?
+51715bc4	Ginagamit nito ang parehong Google account na ginagamit sa Drive sync. Ang username mo, listahan ng kaibigan at mga ibinabahagi mo ay naka-store sa online service ng app (Supabase); lahat ng iba pa ay nananatili sa sarili mong Google Drive.
+8c4f2844	Idiskonekta ang mga kaibigan at pagbabahagi?
+0f14a44f	Hindi na gagamitin ng device na ito ang Mga Kaibigan. Mananatili online ang username at mga kaibigan mo.
+3adbad50	Paliwanag ng AI <0>Inirerekomenda</0>
+7aa94634	Ang kahulugan sa <0>pangungusap na ito</0>, ang grammar nito at isang salin. Kailangan ng API key: bahagi lang ng isang sentimo bawat salita (may libreng allowance ang Gemini).
+50d514a9	Libre, at gumagana offline. Ang karaniwang kahulugan ng salita, pero hindi kung alin ang bagay sa pangungusap.
+86c0a35e	Iba pang opsyon
+0829312b	Paano gumagana ang sync
+796b8e0e	Burahin ang {0} model?
+db07be18	Mga wika
+b7764d5b	Ang wikang sinasalita mo at ang wikang pinag-aaralan mo.
+06dfc421	Kahulugan ng mga salita
+ab8f190a	Ang nakikita mo kapag pinindot mo ang isang salita.
+2b541ab0	Pakikinig at mga transcript
+e2e7cdc0	Kung sino ang nagsusulat ng sinasabi sa mga podcast, video at reels.
+aaaa4873	Itsura at pakiramdam
+483df961	Tema, laki ng teksto at ang laro.
+9fdce180	Account at sync
+b4727310	Google Drive sync, at Mga Kaibigan.
+8bae644d	Mga app at koneksyon
+feecbb61	Iba pang app na gumagana kasama ng Tamkeen.
+923a6ba3	Data at mga update
+dca7d5e7	Mga backup, update at pagsisimula ulit.
+942aa9b5	Bilangin ang mga karaniwang salita bilang nakita na
+bfd6240b	Mga diksyunaryo ng salita
+080a7931	Mga marka ng patinig
+d4c5ba0c	Furigana
+b8ede630	Pinyin at mga character
+836829ac	Paliwanag ng AI o built-in na diksyunaryo
+b0ca7e02	AI provider at API key
+6572e8b8	AI model
+8a49e27a	Wikang ginagamit sa pagpapaliwanag ng mga salita
+320fc87b	Mga token na nagamit ngayong araw
+5e1ffa82	Transcription provider at key
+a797e309	Tema
+3cc6e124	Laki ng teksto
+39b345e7	Vibration
+86a5e01f	Google Drive sync
+7ceacdca	Patakaran sa privacy
+9a6f37a7	Maghanap sa settings
+86b0c277	Walang nahanap. Subukan ang ibang salita.
+6e670402	Para sa Kahulugan ng mga salita ang key na iyan, hindi para sa transcription. Nagsisimula sa gsk_ ang mga Groq key.
+29211387	Tema ng system
+9e5ba0f0	Maliwanag na tema
+d51c5960	Madilim na tema
+2dbd3af2	Wika ng app: {0}
+f330c509	Paliwanag ng AI gamit ang {0}
+8f59bae0	Kailangan ng API key
+248639f7	{0} ang gumagawa ng mga transcript
+13e5ef57	Kailangan ng key ang cloud transcription
+4de3810b	Ang computer na ito ang gumagawa ng mga transcript
+91634dad	Mag-download ng transcription model
+5a76cc44	Naka-on ang mga feature ng laro
+f0650323	Naka-off ang mga feature ng laro
+b541e85d	Google Drive: hindi nakakonekta
+d1c26a42	Pumalya ang huling sync
+8db4b22b	Google Drive: {0}
+f34d4b91	Google Drive: nakakonekta
+b1124ecc	Review bilang to-do: {0}
+8e5aa09b	Naka-on ang Anki sync
+55a68b9d	Mga dagdag na tulong sa pagbasa ng {0}.
+fd3f000c	Tulong sa pagbasa
+8423f899	Para sa wikang pinag-aaralan mo. Ipinapakita ng halimbawa kung gaano ito kalaki.
+2a5b54a0	Mga podcast at video
+c573c285	Mga web page
+01ef9525	Pinapanatiling pareho ang mga podcast, transcript at vocab mo sa computer na ito, sa ibang computer at sa phone mo.
+22b684a7	Lahat ay naka-store sa pribadong folder ng app sa <0>sarili mong</0> Google Drive na ang app lang na ito ang nakakakita. Hindi kailanman dumadaan sa ibang server ang sync.
+31be6197	Saan ito naka-store?
+848d80ca	Hindi naka-sign in
+af70c2ba	Mag-sign out sa Google?
+5dfc94fd	Mananatili ang library mo sa computer na ito; titigil lang ito sa pag-sync.
+31061d48	Para sa mga nag-aaral din gamit ang Anki sa computer na ito.
+346217cc	Ano ang ginagawa ng add-on
+cccca32e	Sinasabi nito sa Tamkeen kung kumusta ang mga review mo, para mabilang sila para sa nilalang mo: ang pagtapos sa mga dapat i-review ang layunin sa araw (gaano man karami ang card), at may bonus ang mga card na nag-mature. Para dito, mga numero lang ang ipinapadala. Kapag naka-on ang switch sa itaas, pinapanatili rin nitong magkatugma ang deck na iyon at ang mga naka-save mong salita. Lahat ay nananatili sa computer na ito. Kung na-install mo ang add-on bago nagkaroon ng sync, i-download at i-install ulit ito.
+e3a1377f	I-import ang data?
+dc170e1d	Google Tasks, Onyx, at ang Tamkeen app.
+1ceebe39	AnkiDroid, Google Tasks at Onyx.
+ee622c1c	Google Tasks at Onyx.
+7c53db40	Pagsisimula ulit, at ang patakaran sa privacy.
+e774c246	Mga update, pagsisimula ulit, at ang patakaran sa privacy.
+985f8a33	Ang computer mo ang gumagawa ng mga transcript
+e2d909d2	Naka-on ang AnkiDroid sync
+585c71c0	Ibinabahagi sa computer mo ang mga podcast, transcript at vocab mo sa pamamagitan ng pribadong folder ng app sa sarili mong Google Drive.
+0b252362	Sino ang nagta-transcribe ng idinadagdag ko rito?
+6a5f967d	Maliban kung may napiling cloud provider sa Pakikinig at mga transcript, sa computer mo ginagawa ang transcription: pindutin ang "I-transcribe" dito at gagawin nito iyon sa susunod nitong sync.
+4520d4e1	Mananatili ang library mo sa phone na ito; titigil lang ito sa pag-sync.
+5cbc70fe	Gumagana ito tulad ng app, maliban sa ilang bagay na kailangan ang Tamkeen app sa phone o computer mo.
+1b5e130c	Ano ang kailangan ng app?
+3ec02d90	Reels mula sa mga na-save mo sa Instagram at random na reels, reels na may kanta mula sa music library ng Instagram, ang built-in na web browser (I-import ang Page at Hanapin sa video), AnkiDroid sync, at ang numero sa icon ng app. Lalabas dito ang idinagdag mo sa app pagkatapos mag-sync.

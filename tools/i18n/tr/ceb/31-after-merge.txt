@@ -1,0 +1,14 @@
+1d37efac NetEase News, China
+292b7519 GMA News sa Tagalog
+2825c408 Bulgar, sa Tagalog
+f28ea2bf Hataw, sa Tagalog
+455c0efa Pinoy Weekly
+0ff2da19 Bombo Radyo, General Santos
+8047e0a2 Site sa mga Saksi ni Jehova, sa Bisaya
+19920864 Manager Online
+20f6f8b1 Pulong nga Tagalog
+84051a55 Mga talaan sa pulong sa Espanyol, Pranses, Italyano, Portuges, Catalan ug Iningles (opsyonal nga i-download)
+602655dd Listahan sa mga pulong nga Bisaya (OPUS NLLB) ug ang Dictionary of Cebuano Visayan ni Wolff (opsyonal nga i-download)
+c319d658 ODC-By 1.0; publikong domain
+5730d3ec Listahan sa kasagarang mga pulong nga Thai, gikan sa ihap sa Thai National Corpus sa PyThaiNLP
+550cf31d CC0 1.0

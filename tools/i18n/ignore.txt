@@ -159,3 +159,25 @@ c16a6e7e  # parle, parlons, parlez-moi
 2b8c44b4  # run, ran, running
 a16c86fc  # kumain, kakain, kinain
 58848303  # ODbL 1.0 (licence name)
+75208e29  # {0}px (a text size in Settings, Look & feel)
+# Not interface: word lists inside the Russian and Tagalog parsers (web/js/lexicon/russian.js, tagalog.js).
+5c5fd7fa
+cc6cb8b5
+fd8e5ca8
+406729ee
+8500315d
+48345428
+f20fc203
+8ec028ae
+144600ad
+51791e88
+d004286e
+aa76a22d
+56df99e8
+e380557d
+4f200438
+129e2975
+780d9a4d
+e1d3c5ec
+a8d7d358
+f4fa70b0

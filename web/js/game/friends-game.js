@@ -86,7 +86,7 @@ export async function friendsPanel(body, game, changed, challenge) {
     body.append(h(`<div class="stack"><p>Battling friends, the league, guild raids and gifts need the online features.</p>
       <p class="small muted">Choose <strong>Connect with Google</strong> under Settings → Friends &amp; sharing. Your words and
       study material are never sent: only your team of creatures, how accurately you answer, and this week's totals.</p>
-      <a class="btn primary" href="#/settings" data-close>Open Settings</a></div>`));
+      <a class="btn primary" href="#/settings?s=account&show=friends" data-close>Open Settings</a></div>`));
     return;
   }
   await publishNow(true);
