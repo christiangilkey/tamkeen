@@ -24,12 +24,29 @@ const SUFFIXES = ["han", "hin", "nan", "nin", "an", "in"];
 // Little words that look like roots inside longer words but never are their root (kinain is not kina).
 const NOT_ROOTS = new Set(["kina", "sina", "nina", "kanila", "sila", "sana", "kaya", "para", "pala", "nila", "kami", "tayo",
   "kayo", "siya", "nito", "niya", "lang", "naman", "pero", "kung", "nang", "ngayon"]);
+// Common words that only look built from a smaller one, never taken apart: naman is not nami + -an,
+// upang not upa + -ng, noon not noo ("forehead"), lalaki ("man") not laki ("size"), bayan not bayo.
+// (The first line are little words: a longer word is never built on one of them, mahabang is mahaba + -ng.)
+const LITTLE = new Set(`naman namin natin amin atin akin inyo kanila ninyo sakin parin rin din nalang lamang upang
+  hanggang habang noon ngayon minsan kailan kasing malamang`.trim().split(/\s+/));
+const KEEP = new Set(`${[...LITTLE].join(" ")} kailangan kahapon kaibigan katawan kapatid pamilya kapamilya tagalog
+  manila numero bayan laban hangin tahanan kasalanan karapatan tiyan larangan nakaraan pamahalaan pamamaraan
+  mamamayan kamatayan maliban panaginip maging naging magiging nagiging pagiging galing magaling tanong tulong
+  tingin maaari mayroon pangalan lalaki lalake panahon pagkakataon ikalawa layunin laman
+  paraan ilalim ibabaw paniwala kapangyarihan`.trim().split(/\s+/));
+// Forms whose root the rules can't tell from a likelier-looking one (namatay: patay, not batay "basis").
+const ROOT_OF = { namatay: "patay", mamatay: "patay", pumatay: "patay", pinatay: "patay", naninirahan: "tira",
+  nanirahan: "tira", manirahan: "tira", tingnan: "tingin", tignan: "tingin", palitan: "palit", malaman: "alam",
+  nalaman: "alam", malalaki: "laki", bigyan: "bigay", binigyan: "bigay", naniniwala: "paniwala", maniwala: "paniwala",
+  naniwala: "paniwala", paniniwala: "paniwala" };
+// Tagalog words end in a vowel or in one consonant after a vowel (ng counts as one): mins is no word.
+const SHAPE = /(?:[aeiou]|[aeiou'-][^aeiou'-]|ng)$/;
 
 /** Every way of taking one piece off `s`. */
 function stripOnce(s) {
   const out = [];
-  // the linker: magandang -> maganda (only after a vowel)
-  if (/[aeiou]ng$/.test(s)) out.push(s.slice(0, -2));
+  // (The linker -ng only ends a whole word: findRoot takes it off first. Inside the search it
+  // would turn dating into dati and tulong into tulo.)
   for (const suf of SUFFIXES) {
     if (s.length - suf.length < 3 || !s.endsWith(suf)) continue;
     const root = s.slice(0, -suf.length);
@@ -68,7 +85,7 @@ function stripOnce(s) {
 /** The word as the list knows it: lower case, punctuation off the ends, a clipped 't / 'y off. */
 export function tagalogWord(token) {
   return String(token || "").normalize("NFC").toLowerCase().replace(/[’ʼ`´]/g, "'").replace(EDGE_PUNCT, "")
-    .replace(/'[ty]$/, "");
+    .replace(/'(?:[ty]|ng)$/, ""); // ako't, ano'ng
 }
 
 const ranks = new WeakMap();
@@ -90,12 +107,23 @@ export function tagalogRoot(word, table) {
 }
 
 function findRoot(word, table) {
+  if (ROOT_OF[word]) return ROOT_OF[word];
+  if (KEEP.has(word)) return word;
   const rank = rankOf(table);
+  // One piece off and it is a word never taken apart (tumulong: tulong, before tumulo + -ng; tinanong: tanong).
+  const kept = stripOnce(word).find((c) => KEEP.has(c) && !LITTLE.has(c));
+  if (kept) return kept;
   // A prefix joined with a hyphen (nag-aaral, pinag-usapan, mag-aral): the word is what follows.
   const dash = word.match(/^([a-z]+)-(.{3,})$/);
   if (dash && (PREFIXES.includes(dash[1]) || /^[mnp]a[gn]+$/.test(dash[1]))) return tagalogRoot(dash[2], table);
-  // The linker on a word the list knows (walang -> wala, isang -> isa): taken off before anything else.
-  if (/[aeiou]ng$/.test(word) && word.length > 4 && rank.has(word.slice(0, -2))) return tagalogRoot(word.slice(0, -2), table);
+  // The linker on a word the list knows, taken off before anything else: -ng after a vowel (walang ->
+  // wala, isang -> isa), -g after n (noong -> noon, aking -> akin). Of the two, the commoner word; and
+  // only a word about as common as the linked one (upang is a word, not upa "rent" + -ng).
+  if (/[aeiou]ng$/.test(word) && word.length > 4) {
+    const base = [word.slice(0, -2), word.slice(0, -1)].filter((b) => rank.has(b))
+      .sort((a, b) => rank.get(a) - rank.get(b))[0];
+    if (base && (!rank.has(word) || rank.get(base) < 12 * rank.get(word) + 100)) return tagalogRoot(base, table);
+  }
   const valid = new Map(); // a real word reached -> whether it can be taken further to another real word
   const seen = new Set([word]);
   let frontier = [word];
@@ -103,11 +131,11 @@ function findRoot(word, table) {
     const next = [];
     for (const s of frontier) {
       for (const c of stripOnce(s)) {
-        const real = c.length >= MIN_ROOT && rank.has(c) && !NOT_ROOTS.has(c) && !PREFIXES.includes(c);
+        const real = c.length >= MIN_ROOT && SHAPE.test(c) && rank.has(c) && !NOT_ROOTS.has(c) && !PREFIXES.includes(c);
         if (real && valid.has(s)) valid.set(s, true); // s leads on to a smaller real word
         if (seen.has(c)) continue;
         seen.add(c);
-        next.push(c);
+        if (!(real && KEEP.has(c))) next.push(c); // a word that is never taken apart ends the search here
         if (real) valid.set(c, false);
       }
     }
@@ -115,8 +143,10 @@ function findRoot(word, table) {
   }
   // Of the real words that can't be taken further (kumakain -> kakain -> kain: kain), the commonest
   // wins (maganda: ganda, not mag + anda).
+  // A word never taken apart wins over the others (kinakailangan: kailangan, not ilang).
   let best = null;
-  for (const [c, further] of valid) if (!further && (!best || rank.get(c) < rank.get(best))) best = c;
+  const better = (c) => !best || (KEEP.has(c) !== KEEP.has(best) ? KEEP.has(c) : rank.get(c) < rank.get(best));
+  for (const [c, further] of valid) if (!further && better(c)) best = c;
   return best || word;
 }
 

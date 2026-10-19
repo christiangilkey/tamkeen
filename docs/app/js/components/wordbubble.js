@@ -77,7 +77,7 @@ export function createWordBubble(host, actions) {
   let anchor = null;
   let ctx = null;
   let def = null;
-  let ipa = ""; // English: US pronunciation from the downloaded word table (lexicon/seen.js)
+  let ipa = ""; // English: US pronunciation from the downloaded word table (lexicon/seen.js); Thai: how it is said
   let token = 0;
   let saved = false;
   // Quick lookup (see lookupmode.js): this popup shows only the meaning, with "More" to open
@@ -194,7 +194,7 @@ export function createWordBubble(host, actions) {
       <div class="wb-head">
         ${actions.onPauseMode && !actions.noAudio ? modeSwitch() : ""}
         <div class="wb-word ar" ${attrs()}>${esc(shown)}</div>
-        ${ipa ? `<span class="wb-ipa" translate="no" title="US pronunciation (CMU Pronouncing Dictionary)">${esc(ipa)}</span>` : ""}
+        ${ipa ? `<span class="wb-ipa" translate="no" title="${ctx.lang === "th" ? "How it is said (Paiboon romanization, from Wiktionary)" : "US pronunciation (CMU Pronouncing Dictionary)"}">${esc(ipa)}</span>` : ""}
         <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>
       ${fix ? fixPill() : ""}

@@ -218,6 +218,24 @@ const PRONOUNS = new Map(Object.entries({
   "انتوا": "أَنْتُو", "هو": "هُوَ", "هي": "هِيَ", "هم": "هُم", "هما": "هُما", "هن": "هُنَّ", "هوه": "هُوَ", "هيه": "هِيَ",
 }));
 
+// Everyday words whose usual reading the counts rank too low: the counts are of lemmas, not of
+// spellings, so كل comes out as أَكَل (eat), لكن as لِ, قبل as قَبِل (accepted), أكثر as كَثُر.
+// A reading with one of these lemmas, as that kind of word (noun-like "n", function word "fw",
+// verb "v"), gets a bonus; a word that clearly wants a verb before it (قد، لم ...) can still turn
+// it into one. Some are only in the Egyptian dictionary (قَبْل, كُلّ, لَيْسَ): they are every
+// dialect's words, so there its count is taken as it is, for the word without a pronoun on it.
+const nfc = (s) => String(s || "").normalize("NFC"); // the files don't all put shadda and fatha in one order
+const EVERYDAY = new Map([["كُلّ", "n"], ["لٰكِن", "fw"], ["لٰكِنَّ", "fw"], ["قَبْل", "n"], ["مِثْل", "n"], ["حَوْل", "n"],
+  ["نَحْو", "n"], ["ضِمْن", "n"], ["دُون", "n"], ["أَلْف", "n"], ["أَكْثَر", "n"], ["أَكْبَر", "n"], ["أَفْضَل", "n"],
+  ["شُكْراً", "n"], ["لَيْسَ", "v"], ["كَلّا", "fw"], ["بِن", "n"]].map(([lemma, cls]) => [nfc(lemma), cls]));
+const EVERYDAY_BONUS = 2.5;
+const EGY_AS_OWN = 5.5; // the difference baseScore makes between Egyptian text and other text
+
+function everydayBonus(r, cls, active) {
+  if (EVERYDAY.get(nfc(r.lemma)) !== cls) return 0;
+  return EVERYDAY_BONUS + (r.dict === "egy" && active !== "egy" && r.cost < UNSEEN && !r.suf ? EGY_AS_OWN : 0);
+}
+
 const PROCLITICS = /^([وف])?(بال|كال|لل|ال)?/;
 const ENCLITICS = /(ها|هم|هن|كم|نا)$/;
 
@@ -250,9 +268,12 @@ export function analyzeArabic(tokens, dicts) {
   for (let i = 0; i < tokens.length; i++) {
     const form = forms[i];
     if (!form) { out.push(null); prev = null; continue; }
-    if (PRONOUNS.has(form)) {
-      out.push({ key: `ar|${form}|fw`, lemma: PRONOUNS.get(form), pos: "pron", root: "" });
+    // وأنا: "and I" (not فهم, "understood": the two-letter ones are left to the dictionaries).
+    const pronoun = PRONOUNS.has(form) ? form : /^[وف]/.test(form) && form.length > 3 && PRONOUNS.has(form.slice(1)) ? form.slice(1) : "";
+    if (pronoun) {
+      out.push({ key: `ar|${pronoun}|fw`, lemma: PRONOUNS.get(pronoun), pos: "pron", root: "" });
       prev = { form, cls: "fw", pos: "pron", bare: true };
+      if (ENDS_CLAUSE.test(String(tokens[i]))) prev = null;
       continue;
     }
     // Readings that are the same lexeme stand together: the best of them speaks for it.
@@ -260,7 +281,7 @@ export function analyzeArabic(tokens, dicts) {
     for (const r of readingsOf(form, dicts, cache)) {
       const cls = posClass(r.pos);
       const key = lexemeKey(r.lemma, cls);
-      const score = baseScore(r, cores[i], active) + contextScore(cls, prev, r);
+      const score = baseScore(r, cores[i], active) + contextScore(cls, prev, r) + everydayBonus(r, cls, active);
       const have = byKey.get(key);
       if (!have || score > have.score) byKey.set(key, { key, score, cls, r });
     }

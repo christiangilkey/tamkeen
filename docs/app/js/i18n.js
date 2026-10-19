@@ -26,6 +26,10 @@ export const UI_LANGUAGES = {
   ru: { native: "Русский", name: "Russian", dir: "ltr" },
   it: { native: "Italiano", name: "Italian", dir: "ltr" },
   tl: { native: "Tagalog", name: "Tagalog", dir: "ltr" },
+  pt: { native: "Português (Brasil)", name: "Brazilian Portuguese", dir: "ltr" },
+  ca: { native: "Català", name: "Catalan", dir: "ltr" },
+  ceb: { native: "Binisaya", name: "Bisaya (Cebuano)", dir: "ltr" },
+  th: { native: "ไทย", name: "Thai", dir: "ltr" },
 };
 export const UI_LANGUAGE_CODES = Object.keys(UI_LANGUAGES);
 export const isUiLanguage = (code) => Object.prototype.hasOwnProperty.call(UI_LANGUAGES, code);
@@ -42,6 +46,10 @@ export const SPEAK_QUESTION = {
   ru: "На каком языке вы говорите?",
   it: "Che lingua parli?",
   tl: "Anong wika ang sinasalita mo?",
+  pt: "Que idioma você fala?",
+  ca: "Quina llengua parles?",
+  ceb: "Unsang pinulongan ang imong ginasulti?",
+  th: "คุณพูดภาษาอะไร",
 };
 
 // ---------- the rules (pure: also run by the extractor on its own small copy of the page) ----------

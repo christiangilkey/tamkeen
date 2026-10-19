@@ -27,7 +27,14 @@ const ATTEMPTS = 4;
 const LONGEST_WAIT = 20 * 60;       // seconds a "slow down" from the provider is waited out before giving up
 const USE_KEY = "sttUse";
 export const STT_EVENT = "tamkeen:stt"; // fired on `window` when the day's total of audio sent changes
-const PROMPTS = { zh: "以下是普通话的句子。" }; // as on the computer (app/languages.py): simplified characters for Chinese
+// As on the computer (app/languages.py): simplified characters for Chinese, and Bisaya spelling for
+// Bisaya (which Whisper is asked to hear as its nearest language, Tagalog: stt.js whisperCode).
+const PROMPTS = {
+  zh: "以下是普通话的句子。",
+  ceb: "Maayong buntag kaninyong tanan! Unsa man ang atong istorya karon? Dili gyud ko kasabot, pero nindot kaayo. " +
+       "Kumusta na ka? Ayaw kabalaka, okay ra ta. Unsay imong gibuhat ganina? Wala koy kwarta, mao nga nagtrabaho ko. " +
+       "Ingon niya nga mouli siya ugma sa among balay. Nindot kaayo ang panahon diri sa Sugbo ug sa Davao.",
+};
 
 export const cloudOn = () => sttConfig(settings).on;
 

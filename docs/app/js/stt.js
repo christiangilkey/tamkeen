@@ -111,7 +111,7 @@ export const sttModelLabel = (cfg) => `cloud:${cfg.model}:${cfg.provider}`;
 export function transcriptionFields({ model, language = "", prompt = "" }) {
   const fields = [["model", model], ["response_format", "verbose_json"],
                   ["timestamp_granularities[]", "word"], ["timestamp_granularities[]", "segment"], ["temperature", "0"]];
-  if (language) fields.push(["language", language]);
+  if (language) fields.push(["language", whisperCode(language)]);
   if (prompt) fields.push(["prompt", prompt]);
   return fields;
 }
@@ -190,7 +190,18 @@ export function waitText(seconds) {
 const LANGUAGE_CODES = { arabic: "ar", spanish: "es", french: "fr", japanese: "ja", chinese: "zh", mandarin: "zh", russian: "ru",
                          english: "en", turkish: "tr", persian: "fa", urdu: "ur", hindi: "hi", german: "de", italian: "it",
                          portuguese: "pt", korean: "ko", hebrew: "he", indonesian: "id", dutch: "nl",
-                         tagalog: "tl", filipino: "tl" };
+                         tagalog: "tl", filipino: "tl", catalan: "ca", valencian: "ca", thai: "th", cebuano: "ceb",
+                         bisaya: "ceb" };
+
+// Whisper doesn't know Bisaya (Cebuano): it is asked for its closest relative, Tagalog, and the
+// opening prompt (PROMPTS in mobile/src/js/transcribe-service.js, INITIAL_PROMPTS in app/languages.py)
+// keeps it writing Bisaya. Every other language is asked for by its own code.
+const WHISPER_CODES = { ceb: "tl" };
+/** The code Whisper is asked to listen for when the app's language is `code`. */
+export const whisperCode = (code) => WHISPER_CODES[code] || code;
+/** The app's language for what a provider says it heard, while `study` is being learned: Bisaya
+ * comes back as Tagalog (Whisper's nearest language), which then means Bisaya. */
+export const heardAs = (heard, study) => (heard && heard === whisperCode(study) ? study : heard);
 
 /** "Arabic" / "arabic" / "ar" -> "ar"; "" when the answer doesn't say. */
 export function languageCode(name) {

@@ -4,7 +4,11 @@ One file per language Tamkeen teaches: the 1000 most common words, most common f
 counts them as already seen for a learner who says they have already started (see
 `../commonwords.js`).
 
-They are made by `tools/make_wordlists.py` from **wordfreq** by Robyn Speer
+Thai and Bisaya are not in wordfreq: Thai's list is the Thai National Corpus counts as PyThaiNLP
+publishes them (CC0 1.0), and Bisaya's is counted from the Cebuano web text of OPUS's NLLB
+collection (ODC-By 1.0); see licenses/pythainlp.txt and licenses/cebuano-sources.txt.
+
+The others are made by `tools/make_wordlists.py` from **wordfreq** by Robyn Speer
 (https://github.com/rspeer/wordfreq), which counts words in subtitles, Wikipedia, news, books and
 the web. The script leaves out numbers, symbols, stray single letters and words in another
 alphabet; nothing else is changed, and nothing is added by hand.

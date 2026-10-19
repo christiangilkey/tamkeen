@@ -76,6 +76,14 @@ const PATHS = {
     <path d="M15.2 4.8a2 2 0 0 1 2.8 0l1.2 1.2a2 2 0 0 1 0 2.8L9 19l-4.5 1 1-4.5z"/><path d="M13.5 6.5l4 4"/>`,
   leave: `<path d="M10 4.5H6.5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2H10"/><path d="M14.5 8l4 4-4 4"/><path d="M18.5 12H9.5"/>`,
   add: `<path d="M12 5.5v13M5.5 12h13"/>`,
+  // The Settings sections (components/settingsui.js): look & feel, account & sync, apps, your data.
+  sun: `<circle class="fill" cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="4"/>
+    <path d="M12 3.5v1.8M12 18.7v1.8M3.5 12h1.8M18.7 12h1.8M6 6l1.3 1.3M16.7 16.7 18 18M6 18l1.3-1.3M16.7 7.3 18 6"/>`,
+  cloud: `<path class="fill" d="M7 18.5h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7.1 9.1 4.7 4.7 0 0 0 7 18.5z"/>
+    <path d="M7 18.5h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7.1 9.1 4.7 4.7 0 0 0 7 18.5z"/>`,
+  link: `<path d="M10.2 13.8a4 4 0 0 0 5.6 0l3-3a4 4 0 0 0-5.6-5.6l-1.1 1.1"/><path d="M13.8 10.2a4 4 0 0 0-5.6 0l-3 3a4 4 0 0 0 5.6 5.6l1.1-1.1"/>`,
+  data: `<ellipse class="fill" cx="12" cy="6.5" rx="7" ry="2.8"/><ellipse cx="12" cy="6.5" rx="7" ry="2.8"/>
+    <path d="M5 6.5v11c0 1.55 3.13 2.8 7 2.8s7-1.25 7-2.8v-11"/><path d="M5 12c0 1.55 3.13 2.8 7 2.8s7-1.25 7-2.8"/>`,
 };
 
 export const ICON_NAMES = Object.keys(PATHS);

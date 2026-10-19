@@ -110,8 +110,9 @@ p { margin: 0 0 .75em; }
 :lang(ar) { --ar-font: "Noto Naskh Arabic", "Geeza Pro", "Arabic Typesetting", "Traditional Arabic", "Segoe UI", "Noto Sans Arabic", "DejaVu Sans", serif; }
 :lang(ja) { --ar-font: "Hiragino Sans", "Yu Gothic UI", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", sans-serif; }
 :lang(zh) { --ar-font: "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif; }
+:lang(th) { --ar-font: "Leelawadee UI", "Thonburi", "Noto Sans Thai", "Noto Sans Thai UI", "Tahoma", sans-serif; }
 /* (back to the default inside study text in these, when the whole page is in Japanese, say: i18n.js) */
-:lang(es), :lang(fr), :lang(it), :lang(tl), :lang(ru), :lang(en) {
+:lang(es), :lang(fr), :lang(it), :lang(tl), :lang(pt), :lang(ca), :lang(ceb), :lang(ru), :lang(en) {
   --ar-font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", "Noto Sans", Roboto, Arial, sans-serif;
 }
 .ar { font-family: var(--ar-font); unicode-bidi: plaintext; }

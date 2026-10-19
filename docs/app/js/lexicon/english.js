@@ -49,7 +49,19 @@ wake up|warm up|wash up|watch out|wear off|wear out|work out|wrap up|write down|
 // A short object can sit between the verb and its particle: "give it up", "look them up".
 const BETWEEN = new Set(["it", "them", "him", "her", "me", "us", "you", "this", "that", "these", "those"]);
 
-const lemmaOf = (word, table) => (table && table.lookup(word)) || word;
+// A word the table doesn't know as it is may be a regular form of one it does (texting -> text,
+// binged -> binge, selfies -> selfie): the ending comes off only when what is left is in the table.
+const ENDINGS = [[/ies$/, "y"], [/ied$/, "y"], [/(\w)\1(ing|ed)$/, "$1"], [/(ing|ed)$/, "e"], [/(ing|ed)$/, ""],
+  [/(?<=[sxz]|ch|sh)es$/, ""], [/s$/, ""]];
+function regularForm(word, table) {
+  for (const [end, put] of ENDINGS) {
+    if (!end.test(word)) continue;
+    const base = word.replace(end, put);
+    if (base.length >= 3 && table.isLemma.has(base)) return base;
+  }
+  return null;
+}
+const lemmaOf = (word, table) => (table && (table.lookup(word) || regularForm(word, table))) || word;
 
 /**
  * The lexemes of a run of English text: {key, lemma, pos, root} per token, or null for something

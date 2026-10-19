@@ -194,7 +194,7 @@ export async function render(view) {
     if (!st.me.username) {
       segBar.hidden = true;
       body.append(h(`<div class="card stack"><p>Pick a username first, so friends can find you.</p>
-        <div><a class="btn primary" href="#/settings">Choose a username</a></div></div>`));
+        <div><a class="btn primary" href="#/settings?s=account&show=friends">Choose a username</a></div></div>`));
       return;
     }
 

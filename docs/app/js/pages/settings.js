@@ -1,28 +1,44 @@
-// Phone settings: Google account & sync, AI definitions, appearance.
+// Phone settings (Android, iPhone and the web app). The home screen lists the sections, each with
+// what it is set to now; each section is its own screen (#/settings?s=<id>) with the things most
+// people change in view and the rest under "More options". components/settingsui.js has the frame,
+// the search and the looks; the computer's page (web/js/pages/settings.js) has the same sections.
 
 import { taskTargetCard } from "../components/tasktarget.js";
-import { checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js";
+import { api, checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js";
 import { aiSetup } from "../components/aisetup.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { STT_EVENT, testKey, usageToday } from "../transcribe-service.js";
+import { STT_PROVIDERS, sttConfig } from "../stt.js";
+import { PROVIDERS } from "../definer.js";
 import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { ankiSyncPanel } from "../components/ankisync.js";
-import { gameSwitch } from "../components/gameswitch.js";
+import { gameOn, gameSwitch } from "../components/gameswitch.js";
 import { resetSection } from "../components/resetapp.js";
 import { parkAll } from "../reset.js";
 import { languagePicker, speakPicker } from "../components/langpicker.js";
 import { chooseUiLanguage } from "../components/onboarding.js";
-import { isUiLanguage } from "../i18n.js";
+import { UI_LANGUAGES, isUiLanguage } from "../i18n.js";
 import { dictionariesRow } from "../lexicon/seen.js";
 import { vowelsRow } from "../vowels.js";
 import { readingsRow } from "../lexicon/readings.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
+import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
 import { transport } from "../define-service.js";
 import { signIn, signOut } from "../drive.js";
 import { isIOS, isNative, isWeb } from "../native.js";
 import { settings } from "../store.js";
 import { syncNow, syncState } from "../sync.js";
+import { SECTIONS, confirmBox, findsFor, moreOptions, revealFind, sectionOfFind, sectionPage, settingsHome } from "../components/settingsui.js";
+
+const android = !isIOS && !isWeb; // AnkiDroid and the vibration are Android things
+const THEMES = { system: "System", light: "Light", dark: "Dark" };
+const THEME_LINE = { system: "System theme", light: "Light theme", dark: "Dark theme" };
+// On the phone some sections hold other things than on the computer.
+const ABOUTS = {
+  apps: isWeb ? "Google Tasks, Onyx, and the Tamkeen app." : android ? "AnkiDroid, Google Tasks and Onyx." : "Google Tasks and Onyx.",
+  data: isWeb ? "Starting again, and the privacy policy." : "Updates, starting again, and the privacy policy.",
+};
 
 function ago(ts) {
   if (!ts) return "never";
@@ -32,85 +48,180 @@ function ago(ts) {
   return new Date(ts * 1000).toLocaleString();
 }
 
-export async function render(view) {
+export async function render(view, { query } = {}) {
+  const show = (query && query.get("show")) || "";
+  const id = (query && query.get("s")) || sectionOfFind(show);
+  if (!SECTIONS.some((x) => x.id === id)) { home(view); return; }
+  const { body } = sectionPage(view, id, { about: ABOUTS[id] });
+  const cleanups = (await BUILD[id](body)) || [];
+  revealFind(view, show);
+  return () => cleanups.forEach((f) => f());
+}
+
+// ---------- the home screen: the sections, and what each is set to now ----------
+
+function home(view) {
   const s = settings;
-  view.append(h(`<div class="page settings">
-    <h1>Settings</h1>
-    <section class="card" id="definer"></section>
+  const ui = isUiLanguage(s.ui_language) ? s.ui_language : "en";
+  settingsHome(view, {
+    abouts: ABOUTS,
+    finds: findsFor({ phone: true, android, ios: isIOS, web: isWeb }, studyLanguage()),
+    summaries: {
+      languages: () => [{ text: `Learning ${langInfo(studyLanguage()).name}` }, { text: `App in ${UI_LANGUAGES[ui].native}` }],
+      words: () => {
+        if (s.definer_mode === "dictionary") return { text: "No AI: built-in dictionary" };
+        const p = PROVIDERS[s.definer_provider] ? s.definer_provider : "claude";
+        return s[`llm_key_${p}`] ? { text: `AI explanations with ${PROVIDERS[p].short}` } : { text: "Needs an API key", warn: true };
+      },
+      listening: () => {
+        const cfg = sttConfig(s);
+        if (cfg.on) return { text: `${STT_PROVIDERS[cfg.provider].label} writes the transcripts` };
+        if (cfg.mode === "cloud") return { text: "Cloud transcription needs a key", warn: true };
+        return { text: "Your computer writes the transcripts" };
+      },
+      look: () => [{ text: THEME_LINE[s.theme] || THEME_LINE.system }, { text: gameOn() ? "Game features on" : "Game features off" }],
+      account: () => {
+        if (!s.signed_in) return { text: "Google Drive: not connected" };
+        if (syncState.state === "error") return { text: "Last sync failed", warn: true };
+        return { text: s.google_email ? `Google Drive: ${s.google_email}` : "Google Drive: connected" };
+      },
+      apps: async () => {
+        const parts = [{ text: `Review to-do: ${TARGET_NAMES[taskTarget()]}` }];
+        const st = android ? await api("/anki/sync/status").catch(() => null) : null;
+        if (st && st.enabled) parts.unshift({ text: "AnkiDroid sync on" });
+        return parts;
+      },
+      data: async () => {
+        if (isWeb) return null;
+        const { APP_VERSION } = await import("../version.js");
+        return { text: `Version ${APP_VERSION}` };
+      },
+    },
+  });
+}
 
-    <section class="card stack">
+// ---------- the sections ----------
+
+const BUILD = { languages, words, listening, look, account, apps, data };
+
+function languages(body) {
+  const s = settings;
+  const lang = studyLanguage();
+  body.append(h(`<div>
+    <section class="card set-card" data-find="speak">
       <h2>Language I speak</h2>
+      <p class="set-hint">The app's buttons and messages are shown in this language, and words are explained in it.</p>
       <div id="ui-lang"></div>
-      <p class="small muted">The app's buttons and messages are shown in this language, and words are explained in it.</p>
     </section>
-
-    <section class="card stack">
+    <section class="card set-card" data-find="learn">
       <h2>Language I'm learning</h2>
-      <div id="study-lang"></div>
-      <p class="small muted">Used for web pages you import here, for word explanations and for anything transcribed from this phone. Set the same one on your computer.
+      <p class="set-hint">Used for web pages you import here, for word explanations and for anything transcribed from this phone. Set the same one on your computer.
         Things you already transcribed keep the language they were made in.</p>
+      <div id="study-lang"></div>
+      ${moreOptions(`<div id="basics" data-find="basics"></div>`)}
     </section>
-
-    <section class="card" id="stt"></section>
-
-    <section class="card stack">
-      <h2>Google account</h2>
-      <p class="small muted">Your podcasts, transcripts and vocab are shared with your computer through a private app folder
-        in your own Google Drive. Unless a cloud provider is chosen above, transcription happens on your computer: tap "Transcribe"
-        here and it will do it on its next sync.</p>
-      <div id="account"></div>
+    <section class="card set-card" id="reading-card" data-find="reading">
+      <h2>Reading help</h2>
+      <p class="set-hint">${esc(`Extras for reading ${langInfo(lang).name}.`)}</p>
+      <div id="reading"></div>
     </section>
+  </div>`));
+  const $ = (q) => body.querySelector(q);
+  $("#ui-lang").append(speakPicker(isUiLanguage(s.ui_language) ? s.ui_language : "en", async (code) => {
+    // redrawn either way: the languages to learn leave this one out, and a failed change shows the old one
+    try { await chooseUiLanguage(code); } finally { window.dispatchEvent(new HashChangeEvent("hashchange")); }
+  }));
+  $("#study-lang").append(languagePicker(s.study_language, async (code) => {
+    await saveSettings({ study_language: code });
+    toast(`Now learning ${LANGUAGES[code].name}`);
+    window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
+  }, { speaks: isUiLanguage(s.ui_language) ? s.ui_language : "en" }));
+  $("#basics").append(commonWordsButton(lang));
+  // word dictionaries, Arabic vowels, Japanese and Chinese readings: each shows itself where it applies
+  const rows = [dictionariesRow(lang), vowelsRow(lang), readingsRow(lang)];
+  $("#reading").append(...rows);
+  const paintCard = () => { $("#reading-card").hidden = rows.every((r) => r.hidden); };
+  paintCard();
+  const watch = new MutationObserver(paintCard);
+  rows.forEach((r) => watch.observe(r, { attributes: true, attributeFilter: ["hidden"] }));
+  return [() => watch.disconnect()];
+}
 
-    ${isWeb ? `<section class="card stack">
-      <h2>Tamkeen on the web</h2>
-      <p class="small muted">This works like the app, with a few things that need the Tamkeen app on your phone or computer:
-        reels from your Instagram saves and random reels, reels with a song from Instagram's music library, the built-in web
-        browser (Import Page and Find in a video), AnkiDroid sync, and the number on the app icon. What you add in the app
-        shows up here after a sync.</p>
-      <a class="btn ghost" href="https://github.com/christiangilkey/tamkeen/releases/latest" target="_blank" rel="noopener">Get the app</a>
-    </section>` : ""}
+function words(body) {
+  body.append(h(`<section class="card" id="definer"></section>`));
+  return [aiSetup(body.querySelector("#definer"), { transport })];
+}
 
-    ${isIOS || isWeb ? "" : `<section class="card stack">
-      <h2>AnkiDroid (optional)</h2>
-      <div id="anki-sync" class="stack"></div>
-    </section>`}
+function listening(body) {
+  body.append(h(`<section class="card" id="stt"></section>`));
+  return [sttSetup(body.querySelector("#stt"), {
+    test: testKey,
+    usage: () => usageToday(),
+    onUsage: (fn) => {
+      const hear = () => fn(usageToday());
+      window.addEventListener(STT_EVENT, hear);
+      return () => window.removeEventListener(STT_EVENT, hear);
+    },
+  })];
+}
 
-    <section class="card stack">
-      <h2>Appearance</h2>
-      <div class="row">Theme:
-        ${["system", "light", "dark"].map((t) => `<label class="switch"><input type="radio" name="theme" value="${t}" ${s.theme === t ? "checked" : ""}> ${t[0].toUpperCase() + t.slice(1)}</label>`).join("")}
+function look(body) {
+  const s = settings;
+  const lang = studyLanguage();
+  body.append(h(`<div>
+    <section class="card set-card" data-find="theme">
+      <h2>Theme</h2>
+      <div class="set-seg" role="radiogroup" aria-label="Theme">${Object.entries(THEMES).map(([v, name]) => `
+        <label><input type="radio" name="theme" value="${v}" ${(s.theme || "system") === v ? "checked" : ""}><span>${name}</span></label>`).join("")}
       </div>
+    </section>
+    <section class="card set-card" data-find="textsize">
+      <h2>Text size</h2>
+      <p class="set-hint">For the language you're learning. The example shows how big it will be.</p>
+      <div class="set-slider"><label for="font">Podcasts &amp; videos</label>
+        <input type="range" id="font" min="16" max="48" value="${s.font_size}"><output id="font-val">${s.font_size}px</output></div>
+      <div class="set-sample ar" ${langAttrs(lang)} style="font-size:var(--ar-size);line-height:2">${esc(langInfo(lang).sample)}</div>
+      <div class="set-slider"><label for="page-font">Web pages</label>
+        <input type="range" id="page-font" min="12" max="40" value="${s.page_font_size || 17}"><output id="page-font-val">${s.page_font_size || 17}px</output></div>
+      <div class="set-sample ar" ${langAttrs(lang)} style="font-size:var(--page-size);line-height:2">${esc(langInfo(lang).pageSample)}</div>
+    </section>
+    <section class="card set-card" data-find="haptics">
+      <h2>Vibration</h2>
       <label class="check"><input type="checkbox" id="haptics" ${s.haptics !== false ? "checked" : ""}>
         <span>Vibrate lightly when I tap a word or save one</span></label>
-      <div class="row">Podcast &amp; video text: <input type="range" id="font" min="16" max="48" value="${s.font_size}" style="flex:1"> <span id="font-val">${s.font_size}px</span></div>
-      <div class="ar" ${langAttrs(studyLanguage())} style="font-size:var(--ar-size);line-height:2">${esc(langInfo(studyLanguage()).sample)}</div>
-      <div class="row">Web page text: <input type="range" id="page-font" min="12" max="40" value="${s.page_font_size || 17}" style="flex:1"> <span id="page-font-val">${s.page_font_size || 17}px</span></div>
-      <div class="ar" ${langAttrs(studyLanguage())} style="font-size:var(--page-size);line-height:2">${esc(langInfo(studyLanguage()).pageSample)}</div>
     </section>
-
-    <section class="card" id="game-switch"></section>
-
-    <section class="card" id="task-target"></section>
-
-    <section class="card stack" ${isWeb ? "hidden" : ""}>
-      <h2>Updates</h2>
-      <div class="row"><span id="app-version"></span><span class="spacer"></span>
-        <button type="button" id="check-updates">Check for updates</button></div>
-      <div class="small muted" id="update-result"></div>
-    </section>
-
-    <section class="card" id="reset-app"></section>
-
-    <section class="card small muted">Tamkeen ${isWeb ? "on the web" : isIOS ? "for iPhone" : "for Android"} · <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a></section>
+    <section class="card" id="game-switch" data-find="game"></section>
   </div>`));
-  const $ = (q) => view.querySelector(q);
+  const $ = (q) => body.querySelector(q);
   $("#haptics").onchange = (e) => saveSettings({ haptics: e.target.checked });
-  $("#account").closest("section").after(accountSection());
+  body.querySelectorAll("input[name=theme]").forEach((r) => (r.onchange = () => saveSettings({ theme: r.value })));
+  $("#font").oninput = (e) => {
+    $("#font-val").textContent = `${e.target.value}px`;
+    saveSettings({ font_size: Number(e.target.value) });
+  };
+  $("#page-font").oninput = (e) => {
+    $("#page-font-val").textContent = `${e.target.value}px`;
+    saveSettings({ page_font_size: Number(e.target.value) });
+  };
+  gameSwitch($("#game-switch"));
+  return [];
+}
 
+function account(body) {
+  body.append(h(`<section class="card set-card stack" data-find="drive">
+    <h2>Google account</h2>
+    <p class="set-hint">Your podcasts, transcripts and vocab are shared with your computer through a private app folder
+      in your own Google Drive.</p>
+    <div id="account"></div>
+    <details class="set-info"><summary>Who transcribes what I add here?</summary>Unless a cloud provider is chosen in
+      Listening &amp; transcripts, transcription happens on your computer: tap "Transcribe" here and it will do it on its next sync.</details>
+  </section>`));
+  body.append(accountSection());
+  const box = body.querySelector("#account");
   function paintAccount(st = syncState) {
-    const box = $("#account");
     if (!settings.signed_in) {
-      box.innerHTML = `<button type="button" class="primary" id="login">Sign in with Google</button>
+      box.innerHTML = `<div class="set-state"><span class="pill">Not signed in</span>
+        <button type="button" class="primary" id="login">Sign in with Google</button></div>
         ${isNative || isWeb ? "" : `<p class="small muted">Sign-in works in the installed app.</p>`}`;
       box.querySelector("#login").onclick = async (e) => {
         e.target.disabled = true;
@@ -127,57 +238,55 @@ export async function render(view) {
       return;
     }
     const busy = st.state === "syncing";
-    box.innerHTML = `<div class="row"><span class="pill done">Signed in</span> <strong>${esc(settings.google_email)}</strong></div>
-      <div class="small ${st.state === "error" ? "" : "muted"}" style="${st.state === "error" ? "color:var(--danger)" : ""}">
+    box.innerHTML = `<div class="set-state"><span class="pill done">Signed in</span> <strong>${esc(settings.google_email)}</strong></div>
+      <div class="small ${st.state === "error" ? "" : "muted"}" style="margin-top:8px;${st.state === "error" ? "color:var(--danger)" : ""}">
         ${st.state === "error" ? `Sync failed: ${esc(st.error)}` : busy ? "Syncing…" : `Last synced ${ago(st.last_sync)}`}</div>
-      <div class="row"><button type="button" id="sync-now" ${busy ? "disabled" : ""}>Sync now</button>
+      <div class="set-actions"><button type="button" id="sync-now" ${busy ? "disabled" : ""}>Sync now</button>
         <button type="button" class="ghost danger" id="logout">Sign out</button></div>`;
     box.querySelector("#sync-now").onclick = () => syncNow();
     box.querySelector("#logout").onclick = async () => {
-      if (!confirm("Sign out of Google? Your library stays on this phone; it just stops syncing.")) return;
+      if (!(await confirmBox("Sign out of Google?", "Your library stays on this phone; it just stops syncing.",
+                             { ok: "Sign out", danger: true }))) return;
       await signOut();
       paintAccount();
     };
   }
   paintAccount();
-  const off = on("sync", paintAccount);
+  return [on("sync", paintAccount)];
+}
 
-  // AI definitions
-  const offAi = aiSetup($("#definer"), { transport });
-  // Cloud transcription
-  const offStt = sttSetup($("#stt"), {
-    test: testKey,
-    usage: () => usageToday(),
-    onUsage: (fn) => {
-      const hear = () => fn(usageToday());
-      window.addEventListener(STT_EVENT, hear);
-      return () => window.removeEventListener(STT_EVENT, hear);
-    },
-  });
-  $("#ui-lang").append(speakPicker(isUiLanguage(s.ui_language) ? s.ui_language : "en", async (code) => {
-    // redrawn either way: the languages to learn leave this one out, and a failed change shows the old one
-    try { await chooseUiLanguage(code); } finally { window.dispatchEvent(new HashChangeEvent("hashchange")); }
-  }));
-  $("#study-lang").append(languagePicker(s.study_language, async (code) => {
-    await saveSettings({ study_language: code });
-    toast(`Now learning ${LANGUAGES[code].name}`);
-    window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
-  }, { speaks: isUiLanguage(s.ui_language) ? s.ui_language : "en" }), commonWordsButton(studyLanguage()), dictionariesRow(studyLanguage()), vowelsRow(studyLanguage()));
-  $("#study-lang").append(readingsRow(studyLanguage())); // Japanese and Chinese: furigana, pinyin, characters
+function apps(body) {
+  body.append(h(`<div>
+    ${android ? `<section class="card set-card stack" data-find="anki">
+      <h2>AnkiDroid (optional)</h2>
+      <div id="anki-sync" class="stack"></div>
+    </section>` : ""}
+    <section class="card" id="task-target" data-find="tasks"></section>
+    ${isWeb ? `<section class="card set-card stack" data-find="getapp">
+      <h2>Tamkeen on the web</h2>
+      <p class="set-hint">This works like the app, with a few things that need the Tamkeen app on your phone or computer.</p>
+      <details class="set-info"><summary>What needs the app?</summary>Reels from your Instagram saves and random reels, reels with
+        a song from Instagram's music library, the built-in web browser (Import Page and Find in a video), AnkiDroid sync, and the
+        number on the app icon. What you add in the app shows up here after a sync.</details>
+      <div><a class="btn primary" href="https://github.com/christiangilkey/tamkeen/releases/latest" target="_blank" rel="noopener">Get the app</a></div>
+    </section>` : ""}
+  </div>`));
+  taskTargetCard(body.querySelector("#task-target"));
+  return android ? [ankiSyncPanel(body.querySelector("#anki-sync"))] : [];
+}
 
-  // Appearance
-  view.querySelectorAll("input[name=theme]").forEach((r) => (r.onchange = () => saveSettings({ theme: r.value })));
-  $("#font").oninput = (e) => {
-    $("#font-val").textContent = `${e.target.value}px`;
-    saveSettings({ font_size: Number(e.target.value) });
-  };
-  $("#page-font").oninput = (e) => {
-    $("#page-font-val").textContent = `${e.target.value}px`;
-    saveSettings({ page_font_size: Number(e.target.value) });
-  };
-  const offAnki = isIOS || isWeb ? () => {} : ankiSyncPanel($("#anki-sync")); // AnkiDroid is an Android app
-  gameSwitch($("#game-switch"));
-  taskTargetCard($("#task-target"));
+function data(body) {
+  body.append(h(`<div>
+    <section class="card set-card stack" data-find="updates" ${isWeb ? "hidden" : ""}>
+      <h2>Updates</h2>
+      <div class="row"><span id="app-version"></span><span class="spacer"></span>
+        <button type="button" id="check-updates">Check for updates</button></div>
+      <div class="small muted" id="update-result"></div>
+    </section>
+    <section class="card" id="reset-app" data-find="reset"></section>
+    <section class="card small muted" data-find="privacy">Tamkeen ${isWeb ? "on the web" : isIOS ? "for iPhone" : "for Android"} · <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a></section>
+  </div>`));
+  const $ = (q) => body.querySelector(q);
   resetSection($("#reset-app"), parkAll);
   import("../version.js").then(({ APP_VERSION }) => { $("#app-version").textContent = `Version ${APP_VERSION}`; }).catch(() => {});
   $("#check-updates").onclick = async () => {
@@ -190,5 +299,5 @@ export async function render(view) {
       : r.available ? `Version ${r.latest} is available: tap Update now in the box that just opened.`
       : `You're up to date (${r.current}).`;
   };
-  return () => { off(); offAi(); offStt(); offAnki(); };
+  return [];
 }
