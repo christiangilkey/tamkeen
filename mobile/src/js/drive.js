@@ -1,7 +1,7 @@
-// Google sign-in (native on Android and iPhone; Google's own sign-in script in the web app) and a
+// Google sign-in (native on Android and iPhone; Google's own sign-in page in the web app) and a
 // minimal Drive client for the hidden app folder.
 
-import { GOOGLE_WEB_CLIENT_ID, GoogleDriveAuth, isIOS, isNative, isWeb } from "./native.js";
+import { GoogleDriveAuth, isIOS, isNative, isWeb } from "./native.js";
 import { saveSettingsPatch, settings } from "./store.js";
 
 const API = "https://www.googleapis.com/drive/v3";
@@ -13,52 +13,16 @@ let tokenExpires = 0;
 
 export class AuthError extends Error {}
 
-// ---------- the web app: Google Identity Services ----------
-// A browser gets an hour-long Drive pass from Google's sign-in window. It is kept for that hour
-// (so reloading the page doesn't ask again); after it, the next tap that needs Drive asks Google
-// for a new one, which happens without questions once the learner has agreed.
+// ---------- the web app: an hour-long Drive pass from Google's sign-in page ----------
+// The web app gets an hour-long Drive pass each time it goes to Google's sign-in page and back
+// (app.js goToGoogleSignIn / finishWebSignIn). It is kept for that hour (so reloading the page doesn't
+// ask again); after it, the app hops to Google and straight back by itself for a new one (app.js
+// renewQuietly), which needs nothing from the learner once they have agreed. (Google's small sign-in
+// window used to renew it, but in the web app on a phone's home screen that window opened as a blank
+// Google page that never closed.)
 export const DRIVE_SCOPE = "https://www.googleapis.com/auth/drive.appdata";
+export const TASKS_SCOPE = "https://www.googleapis.com/auth/tasks"; // "Send to Google Tasks" (googletasks.js), asked for when first used
 const WEB_TOKEN_KEY = "tk_web_drive_token";
-let gis = null;
-
-/** Google's sign-in script, loaded the first time it is needed. */
-export function googleScript() {
-  if (!gis) {
-    gis = new Promise((resolve, reject) => {
-      const s = document.createElement("script");
-      s.src = "https://accounts.google.com/gsi/client";
-      s.async = true;
-      s.onload = () => resolve(window.google);
-      s.onerror = () => { gis = null; reject(new AuthError("Couldn't reach Google. Check your connection.")); };
-      document.head.append(s);
-    });
-  }
-  return gis;
-}
-
-async function webToken(interactive) {
-  const google = await googleScript();
-  const r = await new Promise((resolve, reject) => {
-    const client = google.accounts.oauth2.initTokenClient({
-      client_id: GOOGLE_WEB_CLIENT_ID,
-      scope: `${DRIVE_SCOPE} openid email`,
-      login_hint: settings.google_email || undefined,
-      prompt: interactive ? "" : "none",
-      callback: (resp) => (resp && resp.access_token ? resolve(resp) : reject(new AuthError(resp?.error_description || "Google didn't sign you in."))),
-      error_callback: (err) => reject(new AuthError(err?.type === "popup_closed" ? "The Google window was closed before signing in."
-        : err?.type === "popup_failed_to_open" ? "Your browser blocked Google's sign-in window. Allow pop-ups for this site and try again."
-        : "Google didn't sign you in.")),
-    });
-    client.requestAccessToken();
-  });
-  if (!google.accounts.oauth2.hasGrantedAllScopes(r, DRIVE_SCOPE)) {
-    throw new AuthError("Tamkeen needs its private Drive folder to keep your library. Sign in again and leave that box ticked.");
-  }
-  token = r.access_token;
-  tokenExpires = Date.now() + Math.max(60, (Number(r.expires_in) || 3600) - 300) * 1000;
-  try { localStorage.setItem(WEB_TOKEN_KEY, JSON.stringify({ token, tokenExpires })); } catch { /* storage off */ }
-  return token;
-}
 
 function savedWebToken() {
   try {
@@ -67,20 +31,32 @@ function savedWebToken() {
   } catch { /* storage off */ }
 }
 
-// The web app: when its hour-long Drive pass has run out and renewing it needs a tap.
+// The web app: its Drive pass has run out and a hop to Google is needed (app.js makes it, or shows a
+// "Reconnect Google" button when now isn't a good moment).
 export const RECONNECT_EVENT = "tamkeen:reconnect";
 export const RECONNECT_TEXT = "Your Google connection needs renewing: tap Reconnect.";
 
-/** The web app: keep a Drive pass that came back from Google's sign-in page (app.js finishWebSignIn). */
-export function useWebToken(accessToken, expiresIn) {
+/** The web app: keep a Drive pass that came back from Google's sign-in page (app.js finishWebSignIn),
+ *  with the permissions it carries (`scope`: Google Tasks too, once that has been allowed). */
+export function useWebToken(accessToken, expiresIn, scope = "") {
   token = accessToken;
   tokenExpires = Date.now() + Math.max(60, (Number(expiresIn) || 3600) - 300) * 1000;
-  try { localStorage.setItem(WEB_TOKEN_KEY, JSON.stringify({ token, tokenExpires })); } catch { /* storage off */ }
+  try { localStorage.setItem(WEB_TOKEN_KEY, JSON.stringify({ token, tokenExpires, scope: String(scope || "") })); } catch { /* storage off */ }
 }
 
-/** The web app's "Reconnect Google" (must be called from a tap): a fresh Drive pass. */
-export async function reconnect() {
-  return webToken(false);
+/** The web app: how long the Drive pass has left, in milliseconds (0 once it has run out). */
+export function webPassLeft() {
+  if (!token || Date.now() >= tokenExpires) savedWebToken();
+  return token ? Math.max(0, tokenExpires - Date.now()) : 0;
+}
+
+/** The web app: the Drive pass, while it is good for another minute and also covers `scope`. */
+export function webPassFor(scope) {
+  try {
+    const saved = JSON.parse(localStorage.getItem(WEB_TOKEN_KEY) || "null");
+    if (saved && saved.token && Date.now() < saved.tokenExpires - 60 * 1000 && String(saved.scope || "").split(" ").includes(scope)) return saved.token;
+  } catch { /* storage off */ }
+  return null;
 }
 
 /** Interactive sign-in: shows Google's account picker / consent the first time. */
@@ -108,16 +84,15 @@ export async function accessToken(forceRefresh = false) {
   if (isWeb && !token) savedWebToken();
   if (!forceRefresh && token && Date.now() < tokenExpires) return token;
   if (isWeb) {
-    // Renewing opens Google's small window, which a browser (and an app on the home screen) only
-    // allows straight after a tap; otherwise it asks "Allow this site to open?". So without a tap
-    // just now, nothing is opened: the app shows a "Reconnect Google" button instead (app.js).
-    if (!(navigator.userActivation && navigator.userActivation.isActive)) {
-      window.dispatchEvent(new Event(RECONNECT_EVENT));
-      throw new AuthError(RECONNECT_TEXT);
+    if (forceRefresh) { // Google turned the pass down: it is no good, whatever its hour says
+      token = null;
+      tokenExpires = 0;
+      try { localStorage.removeItem(WEB_TOKEN_KEY); } catch { /* storage off */ }
     }
-    try { return await webToken(false); } catch (e) {
-      throw new AuthError("Your Google sign-in needs renewing. Open Settings and sign in again.");
-    }
+    // Run out: a new one means a hop to Google's page and back, which the app makes by itself at a
+    // quiet moment, or the "Reconnect Google" button does (app.js renewQuietly). Syncing waits till then.
+    window.dispatchEvent(new Event(RECONNECT_EVENT));
+    throw new AuthError(RECONNECT_TEXT);
   }
   try {
     // "force" matters on the iPhone, which keeps the token itself and would hand the same one back.

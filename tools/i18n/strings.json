@@ -14130,8 +14130,18 @@
   "f": "mobile/src/js/app.js"
  },
  {
+  "id": "2c534112",
+  "k": "Reconnected to Google.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
   "id": "c16765d3",
   "k": "Syncing needs Tamkeen's private Drive folder: sign in again and leave that box ticked.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "5c2a23a4",
+  "k": "Google Tasks wasn't allowed, so the task couldn't be added.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -14290,6 +14300,11 @@
   "f": "mobile/src/js/app.js"
  },
  {
+  "id": "f3a9fee0",
+  "k": "Reconnecting to Google…",
+  "f": "mobile/src/js/app.js"
+ },
+ {
   "id": "d3b174d2",
   "k": "Reconnect Google",
   "f": "mobile/src/js/app.js"
@@ -14297,16 +14312,6 @@
  {
   "id": "c649a3e6",
   "k": "Google gives the web app an hour at a time: tap to renew it, then syncing carries on",
-  "f": "mobile/src/js/app.js"
- },
- {
-  "id": "2c534112",
-  "k": "Reconnected to Google.",
-  "f": "mobile/src/js/app.js"
- },
- {
-  "id": "f9ab4ef2",
-  "k": "Couldn't reconnect to Google.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -14505,26 +14510,6 @@
   "f": "mobile/src/js/backend.js"
  },
  {
-  "id": "78539b41",
-  "k": "Couldn't reach Google. Check your connection.",
-  "f": "mobile/src/js/drive.js"
- },
- {
-  "id": "661015cd",
-  "k": "{0} openid email",
-  "f": "mobile/src/js/drive.js"
- },
- {
-  "id": "b7592d30",
-  "k": "The Google window was closed before signing in.",
-  "f": "mobile/src/js/drive.js"
- },
- {
-  "id": "66ec6394",
-  "k": "Tamkeen needs its private Drive folder to keep your library. Sign in again and leave that box ticked.",
-  "f": "mobile/src/js/drive.js"
- },
- {
   "id": "76c6ab28",
   "k": "Your Google connection needs renewing: tap Reconnect.",
   "f": "mobile/src/js/drive.js"
@@ -14567,16 +14552,6 @@
  {
   "id": "2a66b8ea",
   "k": "Sign in with Google first (Settings → Google account).",
-  "f": "mobile/src/js/googletasks.js"
- },
- {
-  "id": "5c2a23a4",
-  "k": "Google Tasks wasn't allowed, so the task couldn't be added.",
-  "f": "mobile/src/js/googletasks.js"
- },
- {
-  "id": "f8575a96",
-  "k": "Google's window was closed before allowing Google Tasks.",
   "f": "mobile/src/js/googletasks.js"
  },
  {

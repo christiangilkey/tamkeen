@@ -4033,3 +4033,38 @@ touch-action: none; overscroll-behavior: none` and its video `position: absolute
 Checked with a made-up 540 x 960 video at 375 x 812 (280 x 498 shown, ends at the words) and 1280 x 800 (276 x 490).
 The phone apps' native reel window was already placed exactly over `.reel-stage` with the video `contain`ed
 (reel-page.js / reel-embed.js), so they were unchanged.
+
+## Web app: the hourly Google renewal happens by itself, no more pop-up / white page (2026-10-20; committed)
+Owner: "Tamkeen keeps asking me to sign into Google nearly every time I use it. It also gets stuck on a white page
+after I do, this should automatically close" (screenshot: the installed web app on Android, a blank "Sign In - Google
+Accounts" Custom Tab). Cause: the web app's Drive pass lasts an hour, and renewing it used Google's GIS token pop-up
+(drive.js webToken; the "Reconnect Google" button, or any tap that synced after the hour). In an installed web app the
+pop-up opens as a Custom Tab with no window to report back to, so it ends on Google's blank page and never closes.
+Google Tasks' first "allow" (googletasks.js) used the same pop-up.
+- No pop-ups left in the web app (drive.js googleScript/webToken/reconnect removed). Every renewal is the same trip to
+  Google's page and back as signing in (app.js goToGoogleSignIn, now with options `quiet`, `renew`, `tasks`, `then`).
+- `renewQuietly()` (app.js): once the pass has under 2 minutes left, hop with `prompt=none` + login_hint (nothing on
+  screen; Google answers at once). When: at start-up (before the first page is drawn: "Reconnecting to Google…"),
+  on coming back to the screen after 30 s away, and when syncing finds the pass run out (drive.js accessToken fires
+  RECONNECT_EVENT) — then, if now isn't a good moment, at the next page change. Never while busy (busyNow: player,
+  chat, welcome, reels/play, sound or video playing, a text box focused, any role=dialog / .modal-back / .tour
+  showing), offline, or when www.google.com/generate_204 doesn't answer within 3 s (so a poor connection doesn't end
+  on the browser's "no internet" page).
+- Loop guards (localStorage): `tk_web_quiet_try` — never two quiet hops within 10 minutes; `tk_web_quiet_fail` —
+  when Google answered a quiet hop with an error (login_required etc.: signed out of Google in that browser), no more
+  quiet hops for 6 hours, and the top-bar "Reconnect Google" button shows with the toast once per visit. Storage off:
+  never hops by itself.
+- finishWebSignIn: a quiet answer shows nothing (no "Signed in as"); a quiet error just records the failure. The
+  Reconnect button (`renew`) says "Reconnected to Google." Renewals don't touch Friends (Supabase keeps and renews its
+  own session); only "Sign in" signs in to Friends. The pass is stored with its granted `scope` (useWebToken).
+- Google Tasks on the web: tasksToken uses a pass that covers Tasks (drive.js webPassFor — every pass does once Tasks
+  has been allowed, thanks to include_granted_scopes) or goes to Google's page with the Tasks scope, keeping the task in
+  `then.tasks`; on the way back finishWebSignIn hands the pass over (googletasks.js useTasksToken) and sends the task
+  through review/sendtask.js (its usual toast). Not allowed → "Google Tasks wasn't allowed…".
+- `back` defaults to "#/" now (was "#/friends") when the trip started on Home.
+- Checked in the web-docs preview: an expired pass at start-up made the real hop to Google and back (the preview isn't
+  signed in to Google, so Google said a tap is needed → the button + one toast, no second hop); a faked quiet answer
+  went back to the page, no toasts, failure mark cleared, and when Drive refused the fake pass the 10-minute guard held
+  (button, no hop); a faked Tasks answer sent the task (Google refused the fake pass with 401, as expected); the button
+  goes to Google's page (login_hint, no prompt, no pop-up). Not checked: a real renewal on the owner's phone.
+- Only the web app had this: the computer and the phone apps keep a refresh token and renew without anything showing.
