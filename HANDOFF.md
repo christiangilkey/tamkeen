@@ -3197,3 +3197,8 @@ So the gain comes from the two sources already in the app, used far more fully:
   form of pula; mibangon → "get up from a lying position" (Wolff), both "isn't in the built-in dictionary" before.
   Launch config `cebuano-dict-webapp` (port 8813) serves this branch's docs/ (open /app/, set localStorage
   lexicon_base and books_base to http://localhost:8813/lexicon/ and /books/).
+- **All versions** (no new files, same two dictionary names, so no build list to change: build-www.mjs copies all
+  of js/lexicon and js/meanings.js): desktop checked with a fresh data folder (download through /api/lexicon, then
+  meanings.js dictionaryDefine in the desktop page: namulá, mibangon, moagi, panimalay…); web app = the phone build,
+  checked in the browser (above); Android and iPhone run the same phone build but weren't run on a device. Installed
+  phone/web apps fetch the files from GitHub Pages, so they get the new data once docs/lexicon is pushed.
