@@ -2776,6 +2776,8 @@
 "Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).":"Pili og video file (MP4, MOV, WebM, MKV, AVI, 3GP) o audio file (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).",
 "Your computer transcribes it the next time it syncs.":"I-transcribe kini sa imong computer sa sunod nga pag-sync niini.",
 "Unknown export.":"Wala mailhi nga export.",
+"What's new":"Unsay bag-o",
+"Updated to version {0}":"Na-update sa bersyon {0}",
 "GitHub answered {0}.":"Mitubag ang GitHub og {0}.",
 "Download the iPhone file (Tamkeen-…-iPhone.ipa) from the release page, then open it with AltStore. Your library stays as it is.":"I-download ang iPhone file (Tamkeen-…-iPhone.ipa) gikan sa release page, unya ablihi kini gamit ang AltStore. Magpabilin ang imong library.",
 "Couldn't reach GitHub. Check your internet connection.":"Dili maabot ang GitHub. Susiha ang imong koneksyon sa internet.",

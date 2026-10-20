@@ -2776,6 +2776,8 @@
 "Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).":"Выберите видеофайл (MP4, MOV, WebM, MKV, AVI, 3GP) или аудиофайл (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).",
 "Your computer transcribes it the next time it syncs.":"Компьютер расшифрует его при следующей синхронизации.",
 "Unknown export.":"Неизвестный экспорт.",
+"What's new":"Что нового",
+"Updated to version {0}":"Обновлено до версии {0}",
 "GitHub answered {0}.":"GitHub ответил {0}.",
 "Download the iPhone file (Tamkeen-…-iPhone.ipa) from the release page, then open it with AltStore. Your library stays as it is.":"Скачайте файл для iPhone (Tamkeen-…-iPhone.ipa) со страницы выпуска и откройте его в AltStore. Ваша библиотека останется как есть.",
 "Couldn't reach GitHub. Check your internet connection.":"Не удалось связаться с GitHub. Проверьте подключение к интернету.",

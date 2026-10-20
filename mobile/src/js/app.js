@@ -908,6 +908,32 @@ async function route() {
   }
 }
 
+// ---------- the web app's "Updated to version …" ----------
+/** The web app is updated by simply being opened. The first time this browser opens a new version, a
+ *  small banner at the top left says which, for a few seconds, with a link to what's new. Not on the
+ *  very first visit (nothing was updated), nor for test builds. */
+export async function versionBanner() {
+  const { APP_VERSION } = await import("./version.js");
+  if (!APP_VERSION || APP_VERSION.startsWith("0.0.0") || /-/.test(APP_VERSION)) return; // a test build
+  let last = null;
+  try {
+    last = localStorage.getItem("tamkeenWebVersion");
+    localStorage.setItem("tamkeenWebVersion", APP_VERSION);
+  } catch { return; } // storage off: no way to tell what is new
+  if (!last || last === APP_VERSION) return;
+  const bar = document.querySelector(".topbar");
+  const el = h(`<div class="version-banner" role="status"><span></span>
+    <a target="_blank" rel="noopener">What's new</a>
+    <button type="button" class="version-banner-close" aria-label="Close">${icon("close", 14)}</button></div>`);
+  el.querySelector("span").textContent = `Updated to version ${APP_VERSION}`;
+  el.querySelector("a").href = `https://github.com/christiangilkey/tamkeen/releases/tag/v${encodeURIComponent(APP_VERSION)}`;
+  el.style.top = `${(bar ? bar.getBoundingClientRect().bottom : 0) + 8}px`;
+  const go = () => { el.classList.add("leaving"); setTimeout(() => el.remove(), 400); };
+  el.querySelector("button").onclick = go;
+  document.body.append(el);
+  setTimeout(go, 7000);
+}
+
 // ---------- chat notifications ----------
 /** A friend's message while Tamkeen isn't on screen (web/js/chatnotify.js decides): on the phones
  *  their own notification (AppBadge plugin; tapping it opens the chat), in the web app the browser's,
@@ -1058,6 +1084,7 @@ async function boot() {
   route();
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   mountInstallButton(document.querySelector(".topbar")); // the web app: how to add it to the home screen
+  if (isWeb) versionBanner(); // the web app updates itself: say so, once per new version
   if (isWeb) { // the web app's Drive pass ran out while nobody was tapping: one tap renews it (drive.js)
     // Google gives the web app an hour at a time, and renewing needs a tap. The owner found a bar
     // popping up over the player again and again (each sync that found the pass expired): now the

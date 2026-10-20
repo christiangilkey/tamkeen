@@ -3681,3 +3681,11 @@ Owner: "Set lookup with dictionary and use ai when definition isnt available as 
   default. The phone/web app keeps every setting, defaults included, so a one-time move in store.js loadSettings
   (`definer_default_moved`, device-only, not synced) turns a stored "ai" into "dictionary_first" only when no AI key is
   set (AI couldn't work for them anyway). Anyone with a key keeps AI until they change it.
+
+## Web app: "Updated to version …" banner (2026-10-20; committed, not pushed)
+Owner: a small temporary banner at the top left of the web app whenever it is opened on a new version.
+- mobile/src/js/app.js `versionBanner()` (web app only, from boot): localStorage `tamkeenWebVersion` keeps the last
+  version this browser opened. A different one → a brand-teal pill under the top bar at the left, "Updated to version
+  X" + "What's new" (the GitHub release page for vX) + close; it leaves after 7 s. Nothing on the first visit, the
+  same version, test builds (0.0.0…/with "-"), or with storage off. Styles in mobile/src/css/mobile.css
+  `.version-banner`. The installed apps keep their own update popup instead (they are updated by installing).

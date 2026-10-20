@@ -1,0 +1,2 @@
+4d8dc5fe Novetats
+02a6891f Actualitzat a la versió {0}

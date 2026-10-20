@@ -2776,6 +2776,8 @@
 "Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).":"เลือกไฟล์วิดีโอ (MP4, MOV, WebM, MKV, AVI, 3GP) หรือไฟล์เสียง (MP3, M4A, WAV, OGG, Opus, FLAC, AAC)",
 "Your computer transcribes it the next time it syncs.":"คอมพิวเตอร์ของคุณจะถอดเสียงเมื่อซิงค์ครั้งถัดไป",
 "Unknown export.":"การส่งออกที่ไม่รู้จัก",
+"What's new":"มีอะไรใหม่",
+"Updated to version {0}":"อัปเดตเป็นเวอร์ชัน {0} แล้ว",
 "GitHub answered {0}.":"GitHub ตอบกลับ {0}",
 "Download the iPhone file (Tamkeen-…-iPhone.ipa) from the release page, then open it with AltStore. Your library stays as it is.":"ดาวน์โหลดไฟล์สำหรับ iPhone (Tamkeen-…-iPhone.ipa) จากหน้ารุ่นนี้ แล้วเปิดด้วย AltStore คลังของคุณจะยังอยู่เหมือนเดิม",
 "Couldn't reach GitHub. Check your internet connection.":"เชื่อมต่อ GitHub ไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต",

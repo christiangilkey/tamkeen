@@ -128,3 +128,14 @@ button, .btn { min-height: 38px; }
 .top-install + .top-reconnect { margin-inline-start: 4px; }
 .top-reconnect:not([hidden]) + .top-search { margin-inline-start: 4px; }
 @media (max-width: 420px) { .top-reconnect span { display: none; } .top-reconnect { padding: 7px; } }
+
+/* The web app's "Updated to version …" (app.js versionBanner): a small brand-teal pill at the top left, for a few seconds. */
+.version-banner { position: fixed; left: 12px; z-index: 75; display: flex; align-items: center; gap: 10px; max-width: calc(100vw - 24px);
+  padding: 6px 6px 6px 14px; border-radius: 99px; background: #0b8693; color: #fff; font-size: 13px; font-weight: 600;
+  animation: version-in .3s ease-out both; }
+.version-banner a { color: #fff; text-decoration: underline; font-weight: 500; white-space: nowrap; }
+.version-banner-close { background: transparent; border: 0; color: #fff; padding: 4px; min-height: 0; border-radius: 50%; display: grid; place-items: center; }
+.version-banner-close:hover:not(:disabled) { background: rgba(255, 255, 255, .18); }
+.version-banner.leaving { opacity: 0; transform: translateY(-6px); transition: opacity .35s, transform .35s; }
+@keyframes version-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .version-banner { animation: none; } .version-banner.leaving { transition: none; } }

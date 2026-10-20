@@ -1,0 +1,2 @@
+4d8dc5fe Novedades
+02a6891f Actualizado a la versión {0}

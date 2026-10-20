@@ -1,0 +1,2 @@
+4d8dc5fe Unsay bag-o
+02a6891f Na-update sa bersyon {0}

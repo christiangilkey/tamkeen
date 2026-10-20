@@ -13890,6 +13890,16 @@
   "f": "mobile/src/js/app.js"
  },
  {
+  "id": "4d8dc5fe",
+  "k": "What's new",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "02a6891f",
+  "k": "Updated to version {0}",
+  "f": "mobile/src/js/app.js"
+ },
+ {
   "id": "a4a37122",
   "k": "GitHub answered {0}.",
   "f": "mobile/src/js/app.js"
