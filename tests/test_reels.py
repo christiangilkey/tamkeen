@@ -295,6 +295,17 @@ def test_reels_api(client, monkeypatch):
     assert client.post("/api/reels/cancel").json()["running"] is False
 
 
+def test_the_episode_list_says_each_reels_language(client):
+    # The reel player on the computer draws the words in this language (direction, dictionaries,
+    # lookups); without it every reel was taken for Arabic.
+    from app import db
+    db.set_settings({"study_language": "es"})
+    reels.save_reel("DdWrMMkitIL", "creator", "", SPEECH, "es", "m")
+    feed = next(f for f in client.get("/api/feeds").json() if f["url"] == reels.LOCAL_FEED_URL)
+    items = client.get(f"/api/episodes?feed_id={feed['id']}").json()["items"]
+    assert [e["language"] for e in items] == ["es"]
+
+
 # ----- reels from the user's own Instagram saves -----
 
 SAVED_LINKS = [

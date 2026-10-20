@@ -3815,13 +3815,8 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "499dc627",
-  "k": "✓ Saved",
-  "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "d8dba702",
-  "k": "★ Save",
+  "id": "c0ae8f6e",
+  "k": "Saved",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -10162,11 +10157,6 @@
  {
   "id": "3250d8de",
   "k": "{0} · added {1}",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "c0ae8f6e",
-  "k": "Saved",
   "f": "web/js/pages/review.js"
  },
  {

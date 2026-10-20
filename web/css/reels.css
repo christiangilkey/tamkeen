@@ -114,9 +114,17 @@
 .reelplay:not(.no-video) .reel-words .seg + .seg { margin-inline-start: .9em; }
 .reelplay:not(.no-video) .reel-words > p.muted { white-space: normal; margin: 4px 0; }
 .reelplay:not(.no-video) .reel-pop { flex: 1 1 auto; border-left: 0; }
-/* The game's XP readout: in the reel player it sits in the top line, clear of the arrows and the send
-   button (lower down, the reel window would cover it). */
-body:has(.reelplay) #game-chip { top: 3px; right: 120px; max-width: calc(100vw - 180px); }
+/* The game's XP readout: in the reel player it sits wholly inside the top line (the reel window
+   lies over everything below it on the phone and would cut it off), with no glow spilling out of
+   it. While it shows it takes the title's place, so the creator's name is not half covered; the
+   back button, the send button and the arrows stay clear. */
+body:has(.reelplay) #game-chip { top: 4px; left: 50px; right: auto; height: 30px; box-sizing: border-box; max-width: calc(100vw - 50px - 125px);
+  padding: 0 10px; border-width: 1.5px; box-shadow: none; font-size: 12px; white-space: nowrap; }
+body:has(.reelplay) #game-chip.hot { box-shadow: none; }
+body:has(.reelplay) #game-chip.max { animation: none; }
+body:has(.reelplay) #game-chip .chip-combo { overflow: hidden; text-overflow: ellipsis; }
+.reel-title { transition: opacity .2s; }
+body:has(#game-chip.show) .reelplay .reel-title { opacity: 0; }
 .reel-pop .word-bubble > .wb-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch; padding: 0 10px 8px; }
 /* The popup's buttons row (Word, Sentence, Continue, Save) does not scroll away. While a popup is

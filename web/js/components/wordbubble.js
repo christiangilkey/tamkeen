@@ -204,9 +204,9 @@ export function createWordBubble(host, actions) {
         ${actions.noAudio || quick ? "" : `<button type="button" data-act="word" title="Play this word again">${icon("sound", 15)} Word</button>
         <button type="button" data-act="sentence" title="Play the whole sentence">${icon("sound", 15)} Sentence</button>
         <button type="button" data-act="from" title="Continue playing from here">${icon("play", 15)} Continue</button>`}
-        <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${saved ? "✓ Saved" : "★ Save"}</button>
+        <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${icon(saved ? "check" : "star", 15)} ${saved ? "Saved" : "Save"}</button>
         ${actions.onFindVideo && !quick ? `<button type="button" data-act="findvideo" title="Save this word and find a YouTube video where it is said">${icon("video", 15)} Find in a video</button>` : ""}
-        ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again">↻</button>` : ""}
+        ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again" aria-label="Ask again">${icon("refresh", 15)}</button>` : ""}
       </div>`;
     paintSwitch(el.querySelector(".wb-mode"));
     requestAnimationFrame(position);

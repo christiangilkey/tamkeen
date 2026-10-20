@@ -75,7 +75,8 @@ def list_episodes(feed_id: int | None = None, status: str | None = None, q: str 
         rows = conn.execute(
             f"""SELECT e.id, e.feed_id, e.title, e.published, e.duration, e.image, e.status, e.progress,
                        e.error, e.audio_path IS NOT NULL AS has_audio, e.audio_type, e.guid, e.audio_url,
-                       substr(e.description, 1, 200) AS description, f.url AS feed_url,
+                       substr(e.description, 1, 200) AS description, COALESCE(e.language, f.language) AS language,
+                       f.url AS feed_url,
                        f.title AS feed_title, f.image AS feed_image
                 FROM episodes e JOIN feeds f ON f.id = e.feed_id {clause}
                 ORDER BY COALESCE(e.published, e.created_at) DESC, e.id DESC LIMIT ? OFFSET ?""",

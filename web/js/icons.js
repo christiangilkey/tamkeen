@@ -34,6 +34,8 @@ const PATHS = {
   trending: `<path d="M3.5 17l5.6-5.6 3.8 3.8L20.5 7.6"/><path d="M15 7.5h5.5V13"/>`,
   plus: `<path d="M12 5v14M5 12h14"/>`,
   refresh: `<path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4h-4"/>`,
+  // A five-pointed star: save a word to the vocab list.
+  star: `<path class="fill" d="M12 3.8l2.5 5.1 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6.9-5.6-4-3.9 5.6-.8z"/><path d="M12 3.8l2.5 5.1 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6.9-5.6-4-3.9 5.6-.8z"/>`,
   // Quick lookup: a lightning bolt. Detailed lookup: a target with an arrow in its centre.
   bolt: `<path class="fill" d="M13.2 3 5.5 13.6h5.3L9.9 21l7.6-10.6h-5.2z"/><path d="M13.2 3 5.5 13.6h5.3L9.9 21l7.6-10.6h-5.2z"/>`,
   target: `<circle class="fill" cx="10.5" cy="13.5" r="7.5"/><path d="M14.6 7.2a7.5 7.5 0 1 0 2.2 2.2"/><path d="M12.3 10.4a3.6 3.6 0 1 0 1.3 1.3"/>
