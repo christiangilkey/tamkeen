@@ -467,6 +467,10 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .wb-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
 .wb-chip { font-size: 12px; padding: 1px 8px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }
 .wb-chip .ar { font-size: 14px; }
+/* where the meaning came from (Wiktionary, AI · model): one small muted line at the end of the popup */
+.wb-source { margin-top: 6px; }
+.wb-src { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top;
+  font-size: 11px; line-height: 16px; padding: 0 7px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }
 .wb-row { margin: 3px 0; }
 .wb-row .ar { font-family: var(--ar-font); font-size: 18px; }
 .wb-label { display: inline-block; min-width: 108px; font-size: 12px; color: var(--muted); }
@@ -859,7 +863,8 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 /* ---------- "which language are you learning?" picker ---------- */
 .lang-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .lang-opt { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 8px; border-radius: 14px;
-  border: 2px solid var(--border); background: var(--surface); min-height: 76px; }
+  border: 2px solid var(--border); background: var(--surface); min-height: 76px; min-width: 0;
+  white-space: normal; text-align: center; overflow-wrap: anywhere; } /* long names ("Português (Brasil)") wrap, not clip */
 .lang-opt:hover:not(:disabled) { border-color: var(--accent); }
 .lang-opt[aria-checked="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); }
 .lang-native { font-family: var(--ar-font); font-size: 22px; line-height: 1.4; font-weight: 600; }
@@ -891,7 +896,7 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .fx-p.fx-surprise { color: #d59bff; }
 @keyframes fx-fly { from { transform: translate(-50%, -50%) scale(.4); opacity: 1; } 70% { opacity: 1; } to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1); opacity: 0; } }
 .fx-label { position: absolute; transform: translate(-50%, -100%); font-weight: 800; font-size: 15px; color: #fff; white-space: nowrap;
-  background: var(--accent); padding: 2px 10px; border-radius: 99px; box-shadow: 0 4px 12px rgba(0, 0, 0, .3); animation: fx-rise 1.4s ease-out both; }
+  background: var(--accent); padding: 2px 10px; border-radius: 99px; box-shadow: 0 4px 12px rgba(0, 0, 0, .3); animation: fx-rise .65s ease-out both; } /* (game.js fountain sets each one's length) */
 .fx-label small { margin-inline-start: 8px; font-size: .78em; font-weight: 700; opacity: .85; } /* the working: "12 ×2" */
 .fx-label.fx-lucky { background: #1596a6; font-size: 17px; }
 .fx-label.fx-jackpot { background: linear-gradient(90deg, #f0a500, #ff6b3d); font-size: 21px; }
@@ -1147,7 +1152,7 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .btn.primary:hover { background: var(--accent); filter: brightness(1.08); }
 
 .lang-grid + .row { margin-top: 10px; }
-.lang-grid + .row button { white-space: normal; text-align: start; height: auto; }
+.lang-grid + .row button, #basics button { white-space: normal; text-align: start; height: auto; } /* long labels wrap */
 
 /* the three first-run boxes (components/onboarding.js) */
 .ob-nav { margin-top: 4px; }
@@ -1223,6 +1228,8 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .stt-choice { display: flex; align-items: flex-start; gap: 8px; padding: 9px 12px; border: 1px solid var(--border); border-radius: 14px; cursor: pointer; }
 .stt-choice:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
 .stt-choice input { margin-top: 3px; }
+.stt-choice:has(input:disabled) { opacity: .5; cursor: default; }
+.stt-blocked { margin: 0 0 10px; padding: 10px 12px; border-radius: 12px; background: var(--surface-2); line-height: 1.45; }
 .stt-choice strong, .stt-choice .small { display: block; }
 #stt-model-other { margin-top: 4px; }
 .stt-limit { padding: 8px 12px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--brand-gold) 55%, var(--border)); background: color-mix(in srgb, var(--brand-gold) 10%, var(--surface)); }
@@ -1266,6 +1273,7 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .def-warn { padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--accent); background: var(--surface); line-height: 1.45; }
 .def-warn button { display: block; margin-top: 10px; }
 .def-dict { display: grid; gap: 10px; }
+.def-dict:not([hidden]) + .ai-setup { margin-top: 16px; } /* dictionary first: the download row, then the key */
 .def-dict-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .transcript .w.new, .reader-text .w.new { color: var(--new-word); }
 .captions .w.new { color: #eaa6e4; } /* over a video the text is always on dark */
@@ -1389,3 +1397,14 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .trouble-links .btn:only-child { grid-column: 1 / -1; }
 .lex-stress { display: inline-flex; align-items: center; gap: 6px; flex-basis: 100%; }
 .wb-ipa { font-size: 14px; color: var(--muted, #8a8494); margin-inline-start: 8px; white-space: nowrap; } /* English: US pronunciation */
+
+/* ---------- first-visit guide (components/tour.js): the page dims, one button outlined, a card says what it does ---------- */
+.tour { position: fixed; inset: 0; z-index: 85; }
+.tour-hole { position: fixed; border-radius: 14px; border: 2px solid var(--accent); pointer-events: none;
+  box-shadow: 0 0 0 200vmax rgba(0, 0, 0, .62); }
+.tour-card { position: fixed; background: var(--surface); color: var(--text); border: 1px solid var(--border);
+  border-radius: 16px; padding: 14px 16px 12px; }
+.tour-count { margin-bottom: 2px; }
+.tour-title { margin: 0 0 4px; font-size: 17px; line-height: 1.3; }
+.tour-text { margin: 0 0 12px; line-height: 1.45; }
+.tour-buttons { display: flex; align-items: center; gap: 6px; }

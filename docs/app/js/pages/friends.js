@@ -15,11 +15,12 @@ import { icon } from "../icons.js";
 import { gameBar } from "../game/friend-bar.js";
 import { gameOn } from "../components/gameswitch.js";
 import { publishNow } from "../game/friends-game.js";
+import { firstVisitTour } from "../components/tour.js";
 
 // Remembered between sessions, per device: which part is showing, and whether my profile is folded.
 const SEGMENT = "friends:segment";
 const ME_COLLAPSED = "friends:me-collapsed";
-const SEGMENTS = [["feed", "Feed"], ["friends", "Friends"], ["guilds", "Guilds"]];
+const SEGMENTS = [["feed", "Activity"], ["friends", "Friends"], ["guilds", "Guilds"]];  // ("Activity", not "Feed": that word is the game's feeding a creature, and shares its translations)
 const remembered = (key, fallback) => { try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; } };
 const remember = (key, value) => { try { localStorage.setItem(key, value); } catch { /* storage unavailable: it still works for now */ } };
 
@@ -238,6 +239,18 @@ export async function render(view) {
     out = panes.guilds;
     drawGuilds();
     showSegment();
+    firstVisitTour("friends", view.querySelector(".friends-page"), [
+      { target: '.seg-btn[data-seg="feed"]', title: "Activity", text: "What your friends and guild-mates are studying right now, newest first." },
+      { target: '.seg-btn[data-seg="friends"]', title: "Friends",
+        text: "Add a friend by their username, answer friend requests, and message friends, with voice notes too." },
+      { target: '.seg-btn[data-seg="guilds"]', title: "Guilds", text: "Study groups: make one or join one, and chat with everyone in it." },
+      { target: ".me-photo", title: "Your picture", text: "Tap it to change the photo your friends see." },
+      { target: ".me-card .game-bar", title: "Your game level", text: "Friends see this next to your name: your level and your favourite creature." },
+      { target: "#edit-card", title: "What I'm studying",
+        text: "Show friends what you're learning from: a podcast episode, a video, a song or a film, with a short note." },
+      { target: "#me-toggle", title: "Fold your profile", text: "Shrink your profile to one line, or open it again." },
+      { target: ".row-act", title: "Message", text: "Opens a chat with that person. A number on it means new messages." },
+    ]);
 
     // ======================================================== Feed
     function drawFeed() {

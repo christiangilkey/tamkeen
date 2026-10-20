@@ -170,6 +170,11 @@ async function renderList(view) {
     box.innerHTML = "";
     if (!info) return;
     if (info.web) { drawWeb(box); return; }
+    if (info.computer_only) {
+      box.append(h(`<p class="card small" role="note"></p>`));
+      box.lastChild.textContent = info.computer_only;
+      return;
+    }
     if (!info.available) {
       box.append(h(`<p class="card small muted">${phone
         ? `New reels are found and transcribed by Tamkeen on your computer, then sync to this phone. To pick reels from your Instagram
@@ -296,7 +301,8 @@ async function renderList(view) {
         <input type="url" inputmode="url" placeholder="Paste an Instagram reel link" aria-label="Instagram reel link" style="flex:1" ${busy || !info.available ? "disabled" : ""}>
         <button class="primary" type="submit" ${busy || !info.available ? "disabled" : ""}>${busy ? "Adding…" : "Add"}</button>
       </form>
-      ${info.available ? "" : `<p class="small">Turn on <a href="#/settings?s=listening&show=who">Cloud transcription in Settings</a> first: it is what listens to the reel and writes its words.</p>`}
+      ${info.computer_only ? `<p class="small">${esc(info.computer_only)}</p>`
+        : info.available ? "" : `<p class="small">Turn on <a href="#/settings?s=listening&show=who">Cloud transcription in Settings</a> first: it is what listens to the reel and writes its words.</p>`}
       <div class="small muted" id="reel-status"></div>
       <div id="reel-log"></div>
       <p class="small muted">On the web you can watch your reels and add public ones from their link. Picking reels from your

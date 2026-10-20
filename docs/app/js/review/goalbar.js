@@ -65,7 +65,7 @@ export function goalBar(root) {
 
     const left = estimate(t, m);
     const time = $(".goal-time");
-    time.textContent = left.ms ? `${cap(timeText(left))} left today${left.guess ? " (a first guess)" : ""}`
+    time.textContent = left.ms ? `${timeText(left, true)} left today${left.guess ? " (a first guess)" : ""}`
       : t.newDone + t.revDone ? "All done for today" : "Nothing due today";
     plan = left.ms ? reviewTask(t, left) : null;
     const send = $(".goal-send");
@@ -117,4 +117,3 @@ export function goalBar(root) {
   };
 }
 
-const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);

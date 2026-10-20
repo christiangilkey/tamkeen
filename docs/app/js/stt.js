@@ -91,14 +91,22 @@ export function sttKeyProvider(key) {
 /** What the settings say: {on, mode, provider, key, model, borrowed}. `on` is true when
  * transcripts are to be written by the cloud provider (chosen, and a key to use it with).
  * `borrowed`: the OpenAI key comes from the word-definitions card, none was entered here. */
+// Languages written only by a speech model of their own (app/models_manager.py LANGUAGE_MODELS), each
+// with the language cloud providers write instead: they don't know it, so they fail or write that. Cloud
+// transcription is off while one is studied (the choice stays saved for other languages).
+export const OWN_MODEL_LANGUAGES = { ceb: "Tagalog" };
+/** Whether cloud transcription is off for language `code` (see OWN_MODEL_LANGUAGES). */
+export const cloudBlocked = (code) => Object.hasOwn(OWN_MODEL_LANGUAGES, code || "");
+
 export function sttConfig(settings) {
   const s = settings || {};
   const provider = STT_PROVIDERS[s.stt_provider] ? s.stt_provider : "groq";
   const own = s[`stt_key_${provider}`] || "";
   const key = own || (provider === "openai" ? s.llm_key_openai || "" : "");
   const model = s[`stt_model_${provider}`] || STT_PROVIDERS[provider].defaultModel;
-  const mode = s.stt_mode === "cloud" ? "cloud" : "local";
-  return { on: mode === "cloud" && !!key, mode, provider, key, model, borrowed: !own && !!key };
+  const blocked = cloudBlocked(s.study_language);
+  const mode = s.stt_mode === "cloud" && !blocked ? "cloud" : "local";
+  return { on: mode === "cloud" && !!key, mode, provider, key, model, borrowed: !own && !!key, blocked };
 }
 
 /** The label a transcript carries for how it was made, e.g. "cloud:whisper-large-v3:groq". */

@@ -120,3 +120,11 @@ button, .btn { min-height: 38px; }
 .top-install + .top-search { margin-inline-start: 4px; }
 .install-steps { margin: 0; padding-inline-start: 22px; display: grid; gap: 10px; line-height: 1.5; }
 
+
+/* The web app's "Reconnect Google" (app.js boot): a small pill in the top bar while Google's hour-long pass has run out. */
+.top-reconnect { margin-inline-start: auto; display: inline-flex; align-items: center; gap: 6px; padding: 6px 11px; min-height: 0;
+  border: 0; border-radius: 99px; background: #8f1d84; color: #fff; font-size: 13px; } /* (the brand purple, as on new words) */
+.top-reconnect[hidden] { display: none; }
+.top-install + .top-reconnect { margin-inline-start: 4px; }
+.top-reconnect:not([hidden]) + .top-search { margin-inline-start: 4px; }
+@media (max-width: 420px) { .top-reconnect span { display: none; } .top-reconnect { padding: 7px; } }

@@ -3,7 +3,7 @@
 // a word was added or last changed.
 
 import { api, esc, h, toast, download, fmtDate, audioUrl, showMenu, shareClip, clipUrl, platform } from "../app.js";
-import { ANKI_SETTINGS, MOVE_LABEL, ankiProgressLine, ankiSettingsLabel, confirmDelete, loadAnkiProgress, moveToLanguageDecks } from "../components/ankisync.js";
+import { ANKI_SETTINGS, MOVE_LABEL, ankiProgressLine, ankiSettingsLabel, ankiSyncHere, confirmDelete, loadAnkiProgress, moveToLanguageDecks } from "../components/ankisync.js";
 import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
@@ -13,6 +13,7 @@ import { cardSentence, findWord } from "../cardtext.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
+import { firstVisitTour } from "../components/tour.js";
 
 const DAY = 86400;
 const SORTS = {
@@ -40,6 +41,12 @@ function ankiSteps() {
     ? { need: "You need the Anki app installed on this computer.", steps: [
       "Save the file from Tamkeen.",
       "In Anki, click <strong>Import File</strong> and choose it.",
+      progress,
+      "Make sure your deck is formatted the way you want the cards to appear in Anki."] }
+    : window.TAMKEEN_WEB === true // the web app: the deck is downloaded as a file, for whichever Anki is at hand
+    ? { need: "You need Anki: Anki on a computer, AnkiDroid on Android or AnkiMobile on an iPhone.", steps: [
+      "Save the file from Tamkeen.",
+      "Open the saved file with Anki. On a computer, click <strong>Import File</strong> in Anki and choose it.",
       progress,
       "Make sure your deck is formatted the way you want the cards to appear in Anki."] }
     : window.Capacitor?.getPlatform?.() === "ios" // the iPhone app: Anki there is AnkiMobile
@@ -508,8 +515,21 @@ export async function render(view) {
 
   function renderReview() {
     const banner = $("#review");
-    banner.hidden = Boolean(st.q) || !all.length;
-    if (banner.hidden) { goal.close(); $("#goal").hidden = true; return; }
+    banner.hidden = Boolean(st.q);
+    // No words yet (or none in the open folder): the box stays where it always is, with nothing to start.
+    const none = !reviewWords().length;
+    banner.disabled = none;
+    if (banner.hidden || none) {
+      goal.close(); $("#goal").hidden = true;
+      if (banner.hidden) return;
+      banner.classList.add("idle");
+      banner.querySelector("strong").textContent = "Review";
+      banner.querySelector(".rb-go").textContent = "";
+      banner.querySelector(".rb-sub").innerHTML = `<span class="rb-run"></span>`;
+      banner.querySelector(".rb-run").textContent = "No cards to study";
+      fitReview();
+      return;
+    }
     const o = overview(reviewWords(), log);
     $("#goal").hidden = !o.askable;
     goal.update(all, log);  // the whole day's goal, whichever folder is open
@@ -650,8 +670,10 @@ export async function render(view) {
       { label: "Add a word", icon: icon("vocab", 16), run: openAdd },
       { label: "Export CSV", icon: icon("page", 16), run: () => download(exportUrl("csv"), "tamkeen-vocab.csv") },
       { label: "Export for Anki", icon: icon("send", 16), run: exportAnki },
-      { label: ankiSettingsLabel(), icon: icon("settings", 16), run: () => { location.hash = ANKI_SETTINGS; } },  // Settings, at its Anki part
-      { label: MOVE_LABEL, icon: icon("folder", 16), run: moveToLanguageDecks },
+      ...(ankiSyncHere() ? [ // (no Anki sync on the iPhone or in the web app: only the export)
+        { label: ankiSettingsLabel(), icon: icon("settings", 16), run: () => { location.hash = ANKI_SETTINGS; } },  // Settings, at its Anki part
+        { label: MOVE_LABEL, icon: icon("folder", 16), run: moveToLanguageDecks },
+      ] : []),
     ]);
   };
   $("#add-cancel").onclick = () => { $("#add").reset(); $("#add").hidden = true; };
@@ -669,5 +691,17 @@ export async function render(view) {
   };
 
   await load();
+  firstVisitTour("vocab", view.querySelector(".vocab-page"), [
+    { target: "#review", title: "Review",
+      text: "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start." },
+    { target: "#goal", title: "Daily goal", text: "How many new words you want to learn each day. Change it here." },
+    { target: "#q", title: "Search", text: "Find a saved word by the word itself or by its meaning." },
+    { target: "#folders", title: "Folders",
+      text: "Tap a folder to see only its words; Review then covers just those. New folder makes one." },
+    { target: ".vocab-filters", title: "Sort and dates", text: "Change the order of the list, or show only words added or changed in a time you choose." },
+    { target: "#list .vocab-item", title: "A saved word",
+      text: "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several." },
+    { target: "#more", title: "More", text: "Add a word by hand, export your words for Anki or as a spreadsheet, and Anki's settings." },
+  ]);
   return () => { audio.pause(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
 }

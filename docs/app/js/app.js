@@ -25,7 +25,7 @@ import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./lang
 import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating, translateHtml } from "./i18n.js";
 import { isSaved, savedSites, setSite } from "./browser-sites.js";
-import { addUploadedVideo, checkFeeds, fillLanguages, handle } from "./backend.js";
+import { addUploadedVideo, checkFeeds, fillLanguages, handle, wordLang } from "./backend.js";
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
@@ -726,9 +726,11 @@ async function exportText(url) {
   throw new Error("Unknown export.");
 }
 
-/** The words an export covers: all of them, or exactly the ones shown on the vocab screen, in that order. */
+/** The words an export covers: all of them in the language being learned (as the Vocab page and the
+ *  computer's export count them), or exactly the ones shown on the vocab screen, in that order. */
 function vocabToExport(ids) {
-  const items = lib.vocab.filter((v) => !v.deleted).sort((a, b) => b.created_at - a.created_at);
+  const study = studyLanguage();
+  const items = lib.vocab.filter((v) => !v.deleted && wordLang(v) === study).sort((a, b) => b.created_at - a.created_at);
   if (ids === undefined) return items;
   return decodeURIComponent(ids).split(",").map((uid) => items.find((v) => v.uid === uid)).filter(Boolean);
 }
@@ -802,7 +804,9 @@ export const state = { status: { settings } };
 
 export function applySettings(s) {
   const root = document.documentElement;
-  if (s.theme === "light" || s.theme === "dark") root.dataset.theme = s.theme;
+  // The web app is always dark (the owner's choice); the installed apps follow Settings → Theme.
+  if (isWeb) root.dataset.theme = "dark";
+  else if (s.theme === "light" || s.theme === "dark") root.dataset.theme = s.theme;
   else delete root.dataset.theme;
   root.style.setProperty("--ar-size", `${s.font_size || 26}px`);
   root.style.setProperty("--page-size", `${s.page_font_size || 17}px`);
@@ -921,8 +925,11 @@ export async function checkForUpdate({ manual = false } = {}) {
     const apk = (data.assets || []).find((a) => /^Tamkeen-.*-Android\.apk$/.test(a.name || "")
       && String(a.browser_download_url || "").startsWith(APK_FROM));
     document.getElementById("update-notice")?.remove();
+    // The iPhone app is installed by AltStore (no App Store): say which file and how.
+    const iphone = isIOS && (data.assets || []).some((a) => /^Tamkeen-.*-iPhone\.ipa$/.test(a.name || ""));
     showUpdateNotice({ latest, current: APP_VERSION, url: data.html_url,
-                       install: AppUpdater && apk ? (report) => installApk(apk, report) : null });
+                       install: !isIOS && AppUpdater && apk ? (report) => installApk(apk, report) : null,
+                       note: iphone ? "Download the iPhone file (Tamkeen-…-iPhone.ipa) from the release page, then open it with AltStore. Your library stays as it is." : "" });
     return { current: APP_VERSION, latest, available: true };
   } catch {
     // offline, or GitHub unreachable: try again next time the app opens
@@ -953,18 +960,26 @@ async function installApk(apk, report) {
 }
 
 // ---------- cards left today, outside the app ----------
-/** Hands Android the number of cards left to review today and on the next days (for midnight),
- *  for the app icon's number (a silent notification) and the home-screen widget. On opening,
- *  after each answer, after a sync, and on coming back to the app. The first time, Android 13+
- *  asks whether Tamkeen may show notifications (the number needs one). */
+/** Hands the phone the number of cards left to review today and on the next days (for midnight),
+ *  for the app icon's number (Android: a silent notification, and the home-screen widget; iPhone:
+ *  the icon's number). On opening, after each answer, after a sync, and on coming back to the app.
+ *  The first time, the phone asks whether Tamkeen may show notifications (the number needs that).
+ *  The web app, once added to the home screen or installed, puts today's number on its icon where
+ *  the browser can (Chrome, Edge; Safari once notifications are allowed); it never asks. */
 function startAppBadge() {
-  if (!AppBadge) return;
+  const web = isWeb && typeof navigator.setAppBadge === "function";
+  if (!AppBadge && !web) return;
   let timer = 0;
   const refresh = () => {
     clearTimeout(timer);
     timer = setTimeout(async () => {
       try {
         const { reviewsLeft } = await import("./pages/review.js");
+        if (web) {
+          const { counts } = await reviewsLeft(1);
+          await (counts[0] > 0 ? navigator.setAppBadge(counts[0]) : navigator.clearAppBadge());
+          return;
+        }
         const { day, counts } = await reviewsLeft(7);
         await AppBadge.setCounts({ day, counts });
         let asked = false;
@@ -978,7 +993,11 @@ function startAppBadge() {
   };
   window.addEventListener("tamkeen:reviewed", refresh);
   on("sync", (s) => { if (s && s.state === "idle") refresh(); });
-  App.addListener("resume", refresh);
+  if (App) App.addListener("resume", refresh);
+  else {
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) refresh(); });
+    setInterval(refresh, 10 * 60 * 1000); // the web page left open past midnight
+  }
   refresh();
 }
 
@@ -1002,15 +1021,24 @@ async function boot() {
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   mountInstallButton(document.querySelector(".topbar")); // the web app: how to add it to the home screen
   if (isWeb) { // the web app's Drive pass ran out while nobody was tapping: one tap renews it (drive.js)
-    let asking = false;
+    // Google gives the web app an hour at a time, and renewing needs a tap. The owner found a bar
+    // popping up over the player again and again (each sync that found the pass expired): now the
+    // bar shows once per visit, briefly, and a small button stays in the top bar until it is tapped.
+    const chip = h(`<button type="button" class="top-reconnect" aria-label="Reconnect Google" hidden>${icon("refresh", 15)}<span>Reconnect Google</span></button>`);
+    chip.title = "Google gives the web app an hour at a time: tap to renew it, then syncing carries on";
+    const search = document.querySelector(".topbar .top-search");
+    if (search) search.before(chip); else document.querySelector(".topbar").append(chip);
+    const renew = async () => {
+      try { await reconnect(); chip.hidden = true; syncNow(); toast("Reconnected to Google."); }
+      catch (e) { toast(e.message || "Couldn't reconnect to Google.", { error: true }); }
+    };
+    chip.onclick = renew;
+    let told = false;
     window.addEventListener(RECONNECT_EVENT, () => {
-      if (asking) return;
-      asking = true;
-      toast("Your Google connection needs renewing.", { timeout: 60000, action: { label: "Reconnect Google", run: async () => {
-        try { await reconnect(); asking = false; syncNow(); toast("Reconnected to Google."); }
-        catch (e) { asking = false; toast(e.message || "Couldn't reconnect to Google.", { error: true }); }
-      } } });
-      setTimeout(() => { asking = false; }, 60000);
+      chip.hidden = false;
+      if (told) return;
+      told = true;
+      toast("Your Google connection needs renewing.", { timeout: 8000, action: { label: "Reconnect Google", run: renew } });
     });
   }
   startBadge();

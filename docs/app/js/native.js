@@ -46,8 +46,8 @@ export const AnkiDroid = isNative && !isIOS ? registerPlugin("AnkiDroid") : null
 export const TamkeenClipboard = isNative && !isIOS ? registerPlugin("TamkeenClipboard") : null;
 /** Installs a new release's APK from inside the app (android/.../AppUpdaterPlugin.java). Android only. */
 export const AppUpdater = isNative && Capacitor.getPlatform() === "android" ? registerPlugin("AppUpdater") : null;
-/** Cards left to review today on the app icon (a silent notification) and the home-screen widget
- *  (android/.../AppBadgePlugin.java). Android only. */
-export const AppBadge = isNative && Capacitor.getPlatform() === "android" ? registerPlugin("AppBadge") : null;
-/** Reset Tamkeen: clears the cookies of the app's browser windows (android/.../AppResetPlugin.java). */
-export const AppReset = isNative && Capacitor.getPlatform() === "android" ? registerPlugin("AppReset") : null;
+/** Cards left to review today on the app icon: on Android a silent notification and the home-screen
+ *  widget (android/.../AppBadgePlugin.java), on the iPhone the icon's number (native-ios/.../AppBadgePlugin.swift). */
+export const AppBadge = isNative ? registerPlugin("AppBadge") : null;
+/** Reset Tamkeen: clears the cookies of the app's browser windows (AppResetPlugin.java / AppResetPlugin.swift). */
+export const AppReset = isNative ? registerPlugin("AppReset") : null;

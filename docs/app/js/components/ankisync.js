@@ -12,6 +12,10 @@ import { openModal } from "./modal.js";
 
 const phone = () => platform === "android";
 const anki = () => (phone() ? "AnkiDroid" : "Anki");
+/** Whether this device has the sync at all: the computer (the Anki add-on) and Android (AnkiDroid).
+ *  The iPhone's AnkiMobile and the web app can't be reached by another app: only the export there. */
+export const ankiSyncHere = () => platform === "desktop"
+  || (window.TAMKEEN_WEB !== true && window.Capacitor?.getPlatform?.() !== "ios");
 
 /** The address that opens Settings at its Anki part (the Vocab page's small settings button). Both
  * app shells ignore what follows the "?" when choosing the page; the panel below looks for it. */

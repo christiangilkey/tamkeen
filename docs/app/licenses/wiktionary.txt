@@ -1,0 +1,22 @@
+Word meanings for "No AI": Wiktionary, through Wiktextract (optional download)
+
+People who choose "No AI" in Settings -> Word definitions can download a dictionary of word
+meanings for the language they are learning. It is not part of this program; the app downloads it
+only when the learner asks (docs/lexicon/<language>-meanings.json.gz, made by tools/build_meanings.py).
+
+The meanings come from the English Wiktionary (https://en.wiktionary.org), written by the
+Wiktionary contributors, as extracted by Wiktextract (Tatu Ylonen, https://github.com/tatuylonen/wiktextract;
+data from https://kaikki.org). Tatu Ylonen: Wiktextract: Wiktionary as Machine-Readable Structured
+Data, Proceedings of the 13th Conference on Language Resources and Evaluation (LREC), pp. 1317-1325,
+Marseille, 20-25 June 2022.
+
+Wiktionary's text is available under the Creative Commons Attribution-ShareAlike 4.0 International
+License (https://creativecommons.org/licenses/by-sa/4.0/) and the GNU Free Documentation License.
+The dictionary files made from it are shared under the same CC BY-SA 4.0 license. They keep each
+word's part of speech, its definitions (shortened to the first few, each at most 180 characters),
+how it is written in full, its reading or root, and which word a form belongs to; everything else
+(examples, etymologies, translations, pronunciations) is left out, except that the Bisaya (Cebuano) file
+also takes the Bisaya words given in English entries' translation tables (the English word and the
+sense it is a translation of) for words that have no Bisaya entry of their own. The English file keeps only
+common words and phrases made of them; Chinese spellings are linked to their simplified forms using
+CC-CEDICT's character table (CC BY-SA 4.0).

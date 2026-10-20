@@ -185,8 +185,12 @@ export function fountain(x, y, result) {
   }
   label.style.left = `${x}px`;
   label.style.top = `${y}px`;
+  // A quick flash (the owner: "show very briefly, disappears much quicker"): a moment longer only for
+  // the rarer, wordier ones, so they can still be read.
+  const ms = result.goalDone || result.item || result.type === "anki" ? 1100 : tier === "jackpot" ? 1000 : tier === "common" ? 650 : 800;
+  label.style.animationDuration = `${ms}ms`;
   fx.append(label);
-  setTimeout(() => label.remove(), 1500);
+  setTimeout(() => label.remove(), ms + 50);
   if (tier === "jackpot") {
     document.body.classList.add("fx-shake");
     setTimeout(() => document.body.classList.remove("fx-shake"), 420);

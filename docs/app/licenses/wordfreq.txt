@@ -1,0 +1,30 @@
+Common-word lists (the 1000 most common words of each language Tamkeen teaches)
+
+These lists are taken from wordfreq by Robyn Speer (https://github.com/rspeer/wordfreq), version
+3.1.1. Tamkeen keeps the 1000 most common words of each language and leaves out numbers, symbols,
+stray single letters and words in another alphabet; nothing else is changed.
+
+    Robyn Speer. (2022). rspeer/wordfreq: v3.0 (v3.0.2). Zenodo.
+    https://doi.org/10.5281/zenodo.7199437
+
+wordfreq's data, and therefore these lists, are licensed under the Creative Commons
+Attribution-ShareAlike 4.0 International License:
+
+    https://creativecommons.org/licenses/by-sa/4.0/
+
+In short: you may copy and adapt the lists, including commercially, as long as you give credit as
+above, say what you changed, and share your version under the same licence. The full legal text is
+at https://creativecommons.org/licenses/by-sa/4.0/legalcode. This licence covers the word lists
+only (web/js/wordlists/), not the rest of Tamkeen.
+
+wordfreq is compiled from, and credits, these sources:
+
+  - OpenSubtitles (http://www.opensubtitles.org/), through the OPUS collection and the
+    SUBTLEX word lists (Brysbaert, New, Keuleers and colleagues)
+  - Wikipedia, the free encyclopedia (https://www.wikipedia.org/)
+  - The Leeds Internet Corpus (University of Leeds Centre for Translation Studies)
+  - Google Books Ngrams and Google Books Syntactic Ngrams
+  - Jieba's word list for Chinese (https://github.com/fxsjy/jieba)
+  - News, web text and social media collected by the wordfreq project ("Exquisite Corpus")
+
+See wordfreq's own README for the full list and each source's terms.

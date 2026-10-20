@@ -48,7 +48,7 @@ export function progressText(s) {
  * `install(report)`: present when this app can update itself. It downloads and installs, calling
  * `report({stage, done, total, message})` as it goes, and rejects with an Error if it fails.
  */
-export function showUpdateNotice({ latest, current, url, install }) {
+export function showUpdateNotice({ latest, current, url, install, note = "" }) {
   const link = releaseUrl(url);
   if (!latest || (!link && !install) || document.getElementById("update-notice")) return null;
   const el = h(`<div class="update-notice" id="update-notice" role="status">
@@ -72,7 +72,7 @@ export function showUpdateNotice({ latest, current, url, install }) {
   if (install) {
     sub.textContent = "It installs here, and your library stays as it is.";
   } else {
-    sub.textContent = "Download it from the release page.";
+    sub.textContent = note || "Download it from the release page.";
     now.textContent = "Download";
     now.onclick = () => { window.open(link, "_blank", "noopener"); el.remove(); };
   }

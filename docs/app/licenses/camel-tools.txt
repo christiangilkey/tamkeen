@@ -1,0 +1,46 @@
+CAMeL Tools (https://github.com/CAMeL-Lab/camel_tools)
+
+Tamkeen finds the dictionary form of Arabic words with the table-lookup method of the CAMeL Tools
+morphological analyzer, rewritten in JavaScript (web/js/lexicon/arabic.js). CAMeL Tools is:
+
+MIT License
+
+Copyright 2018-2026 New York University Abu Dhabi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+----------------------------------------------------------------------------
+
+The Arabic word dictionaries (downloaded separately, only by people learning Arabic; they are
+not part of this program) are cut-down copies of the CAMeL Lab's morphology databases:
+
+  calima-msa-r13 (Modern Standard Arabic) and calima-egy-r13 (Egyptian Arabic):
+      GNU General Public License version 2. Derived from Aramorph 1.2.1 (the Buckwalter Arabic
+      Morphological Analyzer; portions (c) 2002 QAMUS LLC and the Trustees of the University of
+      Pennsylvania).
+  calima-glf-01 (Gulf Arabic) and calima-lev-01 (Levantine Arabic):
+      Creative Commons Attribution 4.0 International.
+
+The files, their full licence texts, what was changed and how to rebuild them:
+https://github.com/christiangilkey/tamkeen/tree/main/docs/lexicon
+
+The same Standard Arabic and Egyptian databases also give the English glosses of the No AI word
+meanings for Arabic (docs/lexicon/ar-camel-meanings.json.gz, made by tools/build_arabic_glosses.py),
+asked when Wiktionary doesn't have a word. That file is under the GNU GPL v2, like the databases.
+

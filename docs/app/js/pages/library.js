@@ -7,7 +7,22 @@ import { allProgress } from "../progress.js";
 import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
 import { openAddSheet } from "../components/addsheet.js";
+import { openModal } from "../components/modal.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
+import { firstVisitTour } from "../components/tour.js";
+
+/** The phone (or web app) asked to transcribe Bisaya: only the computer can, with its Bisaya model
+ *  (no cloud provider knows the language). The episodes are queued for the computer; this says so. */
+export function computerOnlyNotice() {
+  const box = openModal({ title: "Bisaya is transcribed on your computer" });
+  box.body.append(h(`<div class="stack">
+    <p>A phone can't write Bisaya transcripts: the online speech services don't know Bisaya, so they fail or write Tagalog.</p>
+    <p>Open Tamkeen on your computer and download the <strong>Bisaya</strong> model there (Settings → Listening &amp; transcripts → Transcription model).
+      Your computer then transcribes these episodes, and they show up here with their transcripts the next time both sync.</p>
+    <p class="small muted">They're waiting in the queue for your computer now.</p>
+    <div><button type="button" class="primary">OK</button></div></div>`));
+  box.body.querySelector("button").onclick = box.close;
+}
 
 const FILTERS = [
   ["", "All"],
@@ -62,7 +77,8 @@ export function statusInfo(ep) {
     case "transcribing": return { cls: "active", label: `Transcribing ${p}%`, bar: p };
     case "done": return { cls: "done", label: "Done" };
     case "failed": return { cls: "failed", label: "Failed" };
-    default: return { cls: "", label: "Not started" };
+    // Asked for on the phone, for the computer to transcribe when it next syncs.
+    default: return ep.transcribe_requested_at ? { cls: "queued", label: "Waiting for your computer" } : { cls: "", label: "Not started" };
   }
 }
 
@@ -433,6 +449,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     requestNotifications();
     try {
       const r = await api("/episodes/transcribe", { method: "POST", body: { ids } });
+      if (r.computer_only) { computerOnlyNotice(); return; }
       if (!r.queued.length) toast("Those episodes are already queued or in progress.");
       else toast(`Queued ${r.queued.length} episode${r.queued.length > 1 ? "s" : ""} for transcription.`);
     } catch (e) {
@@ -625,6 +642,21 @@ export async function render(view, { feedId: routeFeed, query }) {
     view.scrollTop = keepScroll;
     keepScroll = null;
   }
+  firstVisitTour("library", root, [
+    { target: "#feed-list", title: "What to show",
+      text: "Switch between podcasts, YouTube videos, webpages, books, reels and your own videos." },
+    { target: "#podcast-list", title: "Your podcasts and channels", text: "Tap one to see only its episodes or videos." },
+    { target: "#tabs", title: "Filter by progress",
+      text: "Show everything, or only what's not started, waiting, being transcribed, done or failed. The numbers count each." },
+    { target: "#title-filter", title: "Find by title", text: "Type part of a title to find an episode." },
+    { target: "#episodes .ep", title: "An episode",
+      text: "Transcribe writes down its words so you can read along and tap any word. Once done, Open plays it with its transcript." },
+    { target: ".toolbar .switch", title: "Several at once", text: "Tick episodes (or Select all), then transcribe them all with one press." },
+    { target: "#refresh", title: "Refresh and sync",
+      text: "Checks for new episodes, and brings your library up to date with your other devices through Google Drive." },
+    { target: "#add-fab", title: "Add",
+      text: "Add something to learn from: a podcast, a YouTube video, a webpage, a book, reels, or a video or audio file of your own." },
+  ]);
 
   return () => { offEp(); offFeeds(); offRe(); clearTimeout(reloadTimer); clearTimeout(countsTimer); };
 }

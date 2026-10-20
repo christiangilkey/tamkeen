@@ -1,0 +1,6 @@
+The 1000 most common Thai words (web/js/wordlists/th.js)
+
+Taken from the Thai National Corpus word counts as published by the PyThaiNLP project
+(pythainlp/corpus/tnc_freq.txt, https://github.com/PyThaiNLP/pythainlp). PyThaiNLP releases its
+word lists under the Creative Commons Zero 1.0 Universal Public Domain Dedication (CC0 1.0,
+https://creativecommons.org/publicdomain/zero/1.0/).
