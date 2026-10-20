@@ -1,0 +1,10 @@
+daef2c17	Lingue che sto imparando
+e3b82040	Ora
+f521b553	In studio: {0:lower} e altre {1}
+8fd3ad33	Lascia spuntata almeno una lingua.
+6c0130cb	Ora impari: {0:lower}. I tuoi podcast e le tue parole di {1:lower} restano salvati.
+ff4dec22	In studio ora
+dae6ef70	Togliere la spunta a una lingua la toglie solo dal selettore. I suoi podcast, video, parole e ripassi restano salvati e tornano quando la spunti di nuovo.
+4422b618	Ora impari: {0:lower}. Su un altro dispositivo è stata tolta la spunta a {1:lower}. I suoi podcast e le sue parole restano salvati.
+a220de07	Spunta ogni lingua che stai imparando: il selettore in cima allo schermo le mostra, qui e sugli altri tuoi dispositivi. Quella che studi ora serve per le nuove trascrizioni, le pagine web importate e le spiegazioni delle parole.
+6dd88449	Spunta ogni lingua che stai imparando: il selettore in cima allo schermo le mostra, qui e sugli altri tuoi dispositivi. Quella che studi ora serve per le pagine web che importi qui, per le spiegazioni delle parole e per tutto ciò che viene trascritto da questo telefono.

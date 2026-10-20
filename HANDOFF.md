@@ -3743,3 +3743,48 @@ automatically get selected for the learning language and if it is available so s
   `tools/i18n/tr/<code>/44-youtube-auto-captions.txt`.
 - Possible later: Tamkeen's own translation of the captions with the user's AI key when YouTube refuses; on Android,
   catching the timedtext address YouTube's player itself asks for (it carries the token) to read its translation.
+
+## Several languages ticked in Settings = the top bar's switch (2026-10-20; branch `multi-learning`, NOT merged, NOT pushed)
+Owner: "Multiple languages should be selectable here and they should automatically update which languages show in
+the language switching tab up on top bar."
+- **Settings → Languages → "Languages I'm learning"** (both Settings pages): every language is a tile; **tap = tick
+  or untick** (check circle top-right, teal outline). The language studied now says **"NOW"** on its tile, and under
+  the grid **"Studying now"** has one round button per ticked language (tap = study it now). Chosen over "tap =
+  make current + a separate tick" because one tap doing one thing is simplest, and nesting a "Study now" button
+  inside a tile isn't allowed in HTML and would be cramped at phone width.
+- **One list, both ways**: the ticked tiles ARE `learning_languages`, the list the top bar's switch shows. Ticking or
+  unticking updates the switch's menu at once; "+ Add a language…" in the switch puts the new language on the list
+  (ticked in Settings) and now offers only languages not already being learned. At least one stays ticked
+  ("Keep at least one language ticked."). Unticking the language studied now moves to the first one left, with a
+  note ("Now learning Spanish. Your Arabic podcasts and words are kept."). Unticking deletes nothing: the server and
+  backend.js still filter by `study_language`, so the language's podcasts, words and reviews just aren't shown
+  until it is ticked and studied again; a line under the grid says so.
+- **Synced** (it wasn't before: the list lived on each device only). New setting `learning_times` {code: ms} = when
+  each language was last ticked or unticked. The library file gets `learning: {list (sorted), times}`. Merge,
+  per language: the device that changed it last decides; no change on either side = ticked wins (so a fresh install
+  that picked Spanish and an old one learning Arabic end up with both). If the language studied on this device was
+  unticked elsewhere, the first one left becomes current and a note says it was unticked on another device.
+  `study_language` itself is NOT synced (each device can be studying a different one of the list).
+  - Rules: `web/js/learnlist.js` (phone + pages) and its twin `app/learning.py` (computer). Shared cases in
+    `tests/fixtures/learning_cases.json` run against both (`tests/js/learnlist.test.mjs`, `tests/test_learning_list.py`).
+  - Computer: `app/api/system.py` PATCH /settings re-stamps the times with its own clock (drops page-sent
+    `learning_times`) and asks for a sync when the set changed; `app/sync/engine.py` snapshot/_content/merge.
+  - Phone: `withLearningList` (langswitch.js, used by saveSettings) stamps; `mobile/src/js/sync.js`
+    snapshot/content/merge, then sets the study language and fires `tamkeen:learning` {before, after};
+    `mobile/src/js/app.js` saveSettings asks for a sync when `learning_times` changed (2 lines).
+  - Pages repaint after a sync: langswitch.js listens to `tamkeen:learning` (phone) and `on("sync")` → GET
+    /api/settings (computer). No edits to web/js/app.js.
+- **First-run screen unchanged** (still pick one; it goes on the list). `languagePicker` gained a `hide` option.
+- Files: web/js/{learnlist.js (new), components/langswitch.js, components/langpicker.js, components/settingsui.js
+  (search label), pages/settings.js}, web/css/app.css (.lang-ticks/.lang-check/.lang-now/.learn-now*),
+  mobile/src/js/{app.js, sync.js, store.js, pages/settings.js}, mobile/scripts/build-www.mjs (copies learnlist.js),
+  app/{learning.py (new), db.py, api/system.py, sync/engine.py}.
+- Translations: tools/i18n/tr/<code>/44-learning-list.txt (12 languages, 10 strings). Merging: strings.json and
+  web/i18n/*.json will conflict; take main's, then `node tools/i18n/extract.mjs` and `node tools/i18n/build.mjs`.
+- Checked: desktop server (Python + the desktop pages) and the phone/web build at 375 px, both on fresh signed-out
+  data; a pretend library file from another device run through the phone's real merge. Not checked: two real
+  devices through Google Drive (the computer's merge is covered by tests/test_learning_list.py), the pywebview
+  window itself (same pages), Android/iPhone hardware (no native code changed). Pictures:
+  `C:\Users\chris\Documents\arabic-tts\multilang-shots\`. Launch configs `multilang-desktop` (8994) and
+  `multilang-phone` (8995) in ..\.claude\launch.json point at the worktree `..\tamkeen-multilang`; delete with it.
+- Tests: 561 JS, 439 pytest (2 skipped).

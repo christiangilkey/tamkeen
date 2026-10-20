@@ -1,0 +1,10 @@
+daef2c17	Idiomas que estou aprendendo
+e3b82040	Agora
+f521b553	Aprendendo {0:lower} e mais {1}
+8fd3ad33	Deixe pelo menos um idioma marcado.
+6c0130cb	Agora aprendendo {0:lower}. Seus podcasts e palavras de {1:lower} ficam guardados.
+ff4dec22	Estudando agora
+dae6ef70	Desmarcar um idioma só o tira do seletor. Os podcasts, vídeos, palavras e revisões dele ficam guardados e voltam quando você marcá-lo de novo.
+4422b618	Agora aprendendo {0:lower}: {1:lower} foi desmarcado em outro dispositivo. Os podcasts e palavras dele ficam guardados.
+a220de07	Marque cada idioma que você está aprendendo: o seletor no topo da tela mostra todos eles, aqui e nos seus outros dispositivos. O que você estuda agora é usado para novas transcrições, páginas da web importadas e explicações de palavras.
+6dd88449	Marque cada idioma que você está aprendendo: o seletor no topo da tela mostra todos eles, aqui e nos seus outros dispositivos. O que você estuda agora é usado para as páginas da web que você importa aqui, para as explicações de palavras e para tudo o que for transcrito neste celular.

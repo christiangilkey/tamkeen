@@ -870,6 +870,22 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .lang-native { font-family: var(--ar-font); font-size: 22px; line-height: 1.4; font-weight: 600; }
 .lang-name { font-size: 13px; color: var(--muted); }
 @media (max-width: 420px) { .lang-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Settings → Languages I'm learning: tiles ticked or not, the one studied now says "Now", and
+   "Studying now" under them (components/langswitch.js learningSettings). */
+.lang-ticks .lang-opt { position: relative; padding-top: 22px; }
+.lang-check { position: absolute; top: 8px; inset-inline-end: 8px; width: 20px; height: 20px; border-radius: 50%;
+  border: 1.5px solid var(--border); display: grid; place-items: center; color: transparent; }
+.lang-ticks .lang-opt[aria-checked="true"] .lang-check { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.lang-now { position: absolute; top: 9px; inset-inline-start: 10px; font-size: 11px; font-weight: 700; line-height: 1;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+.learn-now { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin-top: 16px; }
+.learn-now-label { font-size: 14px; font-weight: 600; }
+.learn-now-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.learn-now-opt { border-radius: 99px; padding: 4px 16px; min-height: 36px; border: 1.5px solid var(--border); background: var(--surface); }
+.learn-now-opt span { font-family: var(--ar-font); font-size: 16px; }
+.learn-now-opt[aria-checked="true"], .learn-now-opt[aria-checked="true"]:hover:not(:disabled) {
+  background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.learn-keep { margin: 12px 0 0; }
 
 /* ---------- creature game: habitat on Home ---------- */
 .habitat { padding: 0; overflow: hidden; }

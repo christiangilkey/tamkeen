@@ -1,0 +1,10 @@
+daef2c17	Langues que j'apprends
+e3b82040	En cours
+f521b553	Apprentissage : {0:lower} et {1} de plus
+8fd3ad33	Gardez au moins une langue cochée.
+6c0130cb	Vous apprenez maintenant : {0:lower}. Vos podcasts et mots en {1:lower} sont conservés.
+ff4dec22	En cours d'étude
+dae6ef70	Décocher une langue la retire seulement du sélecteur. Ses podcasts, vidéos, mots et révisions sont conservés et reviennent quand vous la cochez de nouveau.
+4422b618	Vous apprenez maintenant : {0:lower}. La langue {1:lower} a été décochée sur un autre appareil. Ses podcasts et mots sont conservés.
+a220de07	Cochez chaque langue que vous apprenez : le sélecteur en haut de l'écran les affiche, ici et sur vos autres appareils. Celle que vous étudiez maintenant sert aux nouvelles transcriptions, aux pages web importées et aux explications de mots.
+6dd88449	Cochez chaque langue que vous apprenez : le sélecteur en haut de l'écran les affiche, ici et sur vos autres appareils. Celle que vous étudiez maintenant sert aux pages web que vous importez ici, aux explications de mots et à tout ce qui est transcrit depuis ce téléphone.

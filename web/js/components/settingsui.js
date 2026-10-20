@@ -32,7 +32,7 @@ export const sectionInfo = (id) => SECTIONS.find((x) => x.id === id) || null;
  */
 export const FINDS = [
   { s: "languages", id: "speak", label: "Language I speak", words: "interface translation english menus" },
-  { s: "languages", id: "learn", label: "Language I'm learning", words: "study target change switch" },
+  { s: "languages", id: "learn", label: "Languages I'm learning", words: "study target change switch several multiple tick add remove" },
   { s: "languages", id: "basics", label: "Count common words as seen", words: "beginner basics already know frequent" },
   { s: "languages", id: "reading", label: "Word dictionaries", words: "purple seen words stress marks download" },
   { s: "languages", id: "reading", label: "Vowel marks", words: "harakat tashkeel diacritics", langs: ["ar"] },

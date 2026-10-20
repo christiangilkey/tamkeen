@@ -1,0 +1,10 @@
+daef2c17	Llengües que aprenc
+e3b82040	Ara
+f521b553	Aprens {0:lower} i {1} més
+8fd3ad33	Deixa com a mínim una llengua marcada.
+6c0130cb	Ara aprens {0:lower}. Els teus pòdcasts i paraules de {1:lower} es conserven.
+ff4dec22	Ara estudies
+dae6ef70	Desmarcar una llengua només la treu del selector. Els seus pòdcasts, vídeos, paraules i repassos es conserven i tornen quan la tornes a marcar.
+4422b618	Ara aprens {0:lower}: {1:lower} s'ha desmarcat en un altre dispositiu. Els seus pòdcasts i paraules es conserven.
+a220de07	Marca cada llengua que aprens: el selector de la part superior de la pantalla les mostra, aquí i als teus altres dispositius. La que estudies ara s'utilitza per a les transcripcions noves, les pàgines web importades i les explicacions de paraules.
+6dd88449	Marca cada llengua que aprens: el selector de la part superior de la pantalla les mostra, aquí i als teus altres dispositius. La que estudies ara s'utilitza per a les pàgines web que importis aquí, per a les explicacions de paraules i per a tot el que es transcrigui des d'aquest telèfon.

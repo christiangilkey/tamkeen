@@ -17,13 +17,14 @@ import { gameOn, gameSwitch } from "../components/gameswitch.js";
 import { resetSection } from "../components/resetapp.js";
 import { licensesFold } from "../components/licenses.js";
 import { parkAll } from "../reset.js";
-import { languagePicker, speakPicker } from "../components/langpicker.js";
+import { speakPicker } from "../components/langpicker.js";
+import { learningList, learningSettings, learningSummary } from "../components/langswitch.js";
 import { chooseUiLanguage } from "../components/onboarding.js";
 import { UI_LANGUAGES, isUiLanguage } from "../i18n.js";
 import { dictionariesRow } from "../lexicon/seen.js";
 import { vowelsRow } from "../vowels.js";
 import { readingsRow } from "../lexicon/readings.js";
-import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
+import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
 import { transport } from "../define-service.js";
 import { signIn, signOut } from "../drive.js";
@@ -72,7 +73,7 @@ function home(view) {
     abouts: ABOUTS,
     finds: findsFor({ phone: true, android, ios: isIOS, web: isWeb, vibrates }, studyLanguage()),
     summaries: {
-      languages: () => [{ text: `Learning ${langInfo(studyLanguage()).name}` }, { text: `App in ${UI_LANGUAGES[ui].native}` }],
+      languages: () => [{ text: learningSummary(learningList(s)) }, { text: `App in ${UI_LANGUAGES[ui].native}` }],
       words: () => {
         const how = definerModeOf(s);
         if (how === "dictionary") return { text: "No AI: built-in dictionary" };
@@ -123,9 +124,9 @@ function languages(body) {
       <div id="ui-lang"></div>
     </section>
     <section class="card set-card" data-find="learn">
-      <h2>Language I'm learning</h2>
-      <p class="set-hint">Used for web pages you import here, for word explanations and for anything transcribed from this phone. Set the same one on your computer.
-        Things you already transcribed keep the language they were made in.</p>
+      <h2>Languages I'm learning</h2>
+      <p class="set-hint">Tick each language you're learning: the switch at the top of the screen lists them, here and on your other devices.
+        The one you're studying now is used for web pages you import here, for word explanations and for anything transcribed from this phone.</p>
       <div id="study-lang"></div>
       ${moreOptions(`<div id="basics" data-find="basics"></div>`)}
     </section>
@@ -140,11 +141,8 @@ function languages(body) {
     // redrawn either way: the languages to learn leave this one out, and a failed change shows the old one
     try { await chooseUiLanguage(code); } finally { window.dispatchEvent(new HashChangeEvent("hashchange")); }
   }));
-  $("#study-lang").append(languagePicker(s.study_language, async (code) => {
-    await saveSettings({ study_language: code });
-    toast(`Now learning ${LANGUAGES[code].name}`);
-    window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
-  }, { speaks: isUiLanguage(s.ui_language) ? s.ui_language : "en" }));
+  // Tap a tile to tick or untick it; "Studying now" under them picks the current one (langswitch.js).
+  $("#study-lang").append(learningSettings({ speaks: isUiLanguage(s.ui_language) ? s.ui_language : "en" }));
   $("#basics").append(commonWordsButton(lang));
   // word dictionaries, Arabic vowels, Japanese and Chinese readings: each shows itself where it applies
   const rows = [dictionariesRow(lang), vowelsRow(lang), readingsRow(lang)];
