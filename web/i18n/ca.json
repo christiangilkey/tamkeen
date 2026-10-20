@@ -3028,6 +3028,7 @@
 "{0} Tap a video to watch it with its captions as words you can tap. It needs captions.":"{0} Toca un vídeo per mirar-lo amb els subtítols com a paraules que pots tocar. Ha de tenir subtítols.",
 "Loading videos…":"Carregant vídeos…",
 "No videos found.":"No s'ha trobat cap vídeo.",
+"YouTube blocks the web app for this video (it often does for music). It opens in the Tamkeen app on your phone or computer, which asks YouTube from your own connection.":"YouTube bloqueja l'aplicació web per a aquest vídeo (sovint ho fa amb la música). S'obre a l'aplicació Tamkeen del mòbil o l'ordinador, que ho demana a YouTube des de la teva connexió.",
 "Wrong companion token. Download the add-on again from Tamkeen's settings.":"El testimoni del complement és incorrecte. Torna a baixar el complement des de la configuració de Tamkeen.",
 "Too many days in one report.":"Massa dies en un sol informe.",
 "No such file.":"Aquest fitxer no existeix.",

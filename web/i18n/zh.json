@@ -3028,6 +3028,7 @@
 "{0} Tap a video to watch it with its captions as words you can tap. It needs captions.":"{0} 点按一个视频即可观看，字幕会变成可点按的单词。视频需要有字幕。",
 "Loading videos…":"正在加载视频…",
 "No videos found.":"没有找到视频。",
+"YouTube blocks the web app for this video (it often does for music). It opens in the Tamkeen app on your phone or computer, which asks YouTube from your own connection.":"YouTube 在这个视频上屏蔽了网页版（音乐视频经常如此）。在你手机或电脑上的 Tamkeen 应用里可以打开，因为它用你自己的网络连接向 YouTube 请求。",
 "Wrong companion token. Download the add-on again from Tamkeen's settings.":"伴侣令牌错误。请从 Tamkeen 的设置中重新下载插件。",
 "Too many days in one report.":"一份报告中的天数太多。",
 "No such file.":"没有这个文件。",

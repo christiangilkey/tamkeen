@@ -3028,6 +3028,7 @@
 "{0} Tap a video to watch it with its captions as words you can tap. It needs captions.":"{0} Нажмите на видео, чтобы смотреть его с субтитрами из слов, на которые можно нажимать. Нужны субтитры.",
 "Loading videos…":"Загрузка видео…",
 "No videos found.":"Видео не найдены.",
+"YouTube blocks the web app for this video (it often does for music). It opens in the Tamkeen app on your phone or computer, which asks YouTube from your own connection.":"YouTube блокирует веб-приложение для этого видео (с музыкой так бывает часто). Оно откроется в приложении Tamkeen на телефоне или компьютере: оно обращается к YouTube через ваше собственное подключение.",
 "Wrong companion token. Download the add-on again from Tamkeen's settings.":"Неверный токен компаньона. Скачайте дополнение заново в настройках Tamkeen.",
 "Too many days in one report.":"Слишком много дней в одном отчёте.",
 "No such file.":"Такого файла нет.",

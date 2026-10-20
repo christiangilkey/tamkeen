@@ -1,0 +1,1 @@
+fbe347b9 O YouTube bloqueia o app da web para este vídeo (costuma fazer isso com música). Ele abre no app Tamkeen do seu celular ou computador, que pede ao YouTube pela sua própria conexão.

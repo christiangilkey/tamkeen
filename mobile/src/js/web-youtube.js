@@ -127,7 +127,12 @@ export async function render(view, { query }) {
         const { watchVideo } = await import("./youtube.js");
         await watchVideo(v.id);
       } catch (e) {
-        toast(e.message || "Couldn't open this video.", { error: true });
+        if (e && e.code === "blocked") {
+          // YouTube refuses requests from the web app's go-between server (a data centre) for some
+          // videos, music above all, whatever is asked; from the user's own connection they work.
+          toast("YouTube blocks the web app for this video (it often does for music). It opens in the Tamkeen app on your phone or computer, which asks YouTube from your own connection.",
+                { error: true, timeout: 12000, action: { label: "Get the app", run: () => (location.hash = "#/settings?s=apps&show=getapp") } });
+        } else toast(e.message || "Couldn't open this video.", { error: true });
         card.disabled = false;
       }
     };

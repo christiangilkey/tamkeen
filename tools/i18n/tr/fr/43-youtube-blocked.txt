@@ -1,0 +1,1 @@
+fbe347b9 YouTube bloque l'application web pour cette vidéo (c'est souvent le cas pour la musique). Elle s'ouvre dans l'application Tamkeen sur votre téléphone ou ordinateur, qui interroge YouTube depuis votre propre connexion.

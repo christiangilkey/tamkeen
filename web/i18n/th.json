@@ -3028,6 +3028,7 @@
 "{0} Tap a video to watch it with its captions as words you can tap. It needs captions.":"{0} แตะวิดีโอเพื่อดูพร้อมคำบรรยายเป็นคำที่แตะได้ วิดีโอต้องมีคำบรรยาย",
 "Loading videos…":"กำลังโหลดวิดีโอ…",
 "No videos found.":"ไม่พบวิดีโอ",
+"YouTube blocks the web app for this video (it often does for music). It opens in the Tamkeen app on your phone or computer, which asks YouTube from your own connection.":"YouTube บล็อกเว็บแอปสำหรับวิดีโอนี้ (มักเกิดกับเพลง) เปิดได้ในแอป Tamkeen บนโทรศัพท์หรือคอมพิวเตอร์ ซึ่งขอข้อมูลจาก YouTube ผ่านการเชื่อมต่อของคุณเอง",
 "Wrong companion token. Download the add-on again from Tamkeen's settings.":"โทเค็นของส่วนเสริมไม่ถูกต้อง ดาวน์โหลดส่วนเสริมใหม่จากการตั้งค่าของ Tamkeen",
 "Too many days in one report.":"มีจำนวนวันในรายงานเดียวมากเกินไป",
 "No such file.":"ไม่มีไฟล์นี้",

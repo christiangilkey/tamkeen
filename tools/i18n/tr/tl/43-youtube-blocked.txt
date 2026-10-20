@@ -1,0 +1,1 @@
+fbe347b9 Bina-block ng YouTube ang web app para sa video na ito (madalas sa musika). Bubukas ito sa Tamkeen app sa telepono o computer mo, na humihingi sa YouTube gamit ang sarili mong koneksyon.

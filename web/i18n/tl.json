@@ -3028,6 +3028,7 @@
 "{0} Tap a video to watch it with its captions as words you can tap. It needs captions.":"{0} Pindutin ang isang video para panoorin ito na ang captions ay mga salitang puwedeng pindutin. Kailangan nito ng captions.",
 "Loading videos…":"Nilo-load ang mga video…",
 "No videos found.":"Walang nakitang video.",
+"YouTube blocks the web app for this video (it often does for music). It opens in the Tamkeen app on your phone or computer, which asks YouTube from your own connection.":"Bina-block ng YouTube ang web app para sa video na ito (madalas sa musika). Bubukas ito sa Tamkeen app sa telepono o computer mo, na humihingi sa YouTube gamit ang sarili mong koneksyon.",
 "Wrong companion token. Download the add-on again from Tamkeen's settings.":"Maling companion token. I-download ulit ang add-on mula sa settings ng Tamkeen.",
 "Too many days in one report.":"Masyadong maraming araw sa isang report.",
 "No such file.":"Walang ganyang file.",

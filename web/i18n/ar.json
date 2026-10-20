@@ -3028,6 +3028,7 @@
 "{0} Tap a video to watch it with its captions as words you can tap. It needs captions.":"{0} اضغط على فيديو لمشاهدته مع ترجمته المصاحبة كلماتٍ يمكنك الضغط عليها. يجب أن تكون للفيديو ترجمة مصاحبة.",
 "Loading videos…":"جارٍ تحميل الفيديوهات…",
 "No videos found.":"لم يُعثر على فيديوهات.",
+"YouTube blocks the web app for this video (it often does for music). It opens in the Tamkeen app on your phone or computer, which asks YouTube from your own connection.":"يحظر يوتيوب تطبيق الويب لهذا الفيديو (كثيرًا ما يفعل ذلك مع الموسيقى). يفتح في تطبيق تمكين على هاتفك أو حاسوبك، فهو يطلب من يوتيوب عبر اتصالك أنت.",
 "Wrong companion token. Download the add-on again from Tamkeen's settings.":"رمز الرفيق غير صحيح. نزّل الإضافة مرة أخرى من إعدادات تمكين.",
 "Too many days in one report.":"أيام كثيرة جدًا في تقرير واحد.",
 "No such file.":"لا يوجد ملف كهذا.",
