@@ -3201,6 +3201,12 @@ What changed (runtime only; the word tables are unchanged, so it reaches devices
   Jiménez, No AI. Tapping creyéndolos gave creer, "gerund of creer combined with los", and "creí" further on
   turned white; como showed "as"; sugiriéndome gave sugerir. The app's own modules gave the table's answers
   above with the downloaded table.
+- All versions: the code is only in web/js/lexicon/ (romance.js, meaningdata.js), which the desktop serves and
+  mobile/scripts/build-www.mjs copies whole ("js/lexicon") into the phone build, which the web app is made from;
+  no new files. The Python side only stores the keys (`known_lexemes`) and serves the tables, no word logic.
+  Desktop checked too (own copy, `spanish-desktop` in ../.claude/launch.json, port 8984, empty APS_DATA_DIR in
+  scratch): creyéndolos -> creer popup, `known_lexemes` got `es|creer|x`, the same word answers as the web app.
+  Android/iPhone not run (no device here); their files are byte-for-byte the web/js ones.
 - Not done: rebuilding es-lemmas (tools/build_lemmas.py) to fix como/para/pasa at the source needs Měchura's
   Spanish list and wordfreq (not installed here); the runtime list covers old downloads anyway. ven stays venir
   (also "they see"), salte stays saltar (also sal + te), consigo stays conseguir. The same ending fallback could
