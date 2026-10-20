@@ -7,7 +7,9 @@ Bisaya (Cebuano) word list and dictionary (optional downloads)
    (ebook 40074, https://www.gutenberg.org/ebooks/40074) by Jeroen Hellingman, Scott Robertson
    and the Online Distributed Proofreading Team. Project Gutenberg marks it "Public domain in the
    USA". Tamkeen keeps each entry's meanings (not its example sentences) and shows the words in
-   today's spelling; tools/build_cebuano_glosses.py says exactly how.
+   today's spelling; the words an entry lists only by their affix (under balay, "paniN- household")
+   are spelled out by the rules of Wolff's introduction (panimalay) and kept when that spelling is in
+   the word list below; tools/build_cebuano_glosses.py says exactly how.
 
 2. Bisaya word list for finding roots, and the 1000 most common Bisaya words
    (docs/lexicon/ceb-roots.json.gz, web/js/wordlists/ceb.js)

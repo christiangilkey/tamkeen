@@ -15,6 +15,8 @@ License (https://creativecommons.org/licenses/by-sa/4.0/) and the GNU Free Docum
 The dictionary files made from it are shared under the same CC BY-SA 4.0 license. They keep each
 word's part of speech, its definitions (shortened to the first few, each at most 180 characters),
 how it is written in full, its reading or root, and which word a form belongs to; everything else
-(examples, etymologies, translations, pronunciations) is left out. The English file keeps only
+(examples, etymologies, translations, pronunciations) is left out, except that the Bisaya (Cebuano) file
+also takes the Bisaya words given in English entries' translation tables (the English word and the
+sense it is a translation of) for words that have no Bisaya entry of their own. The English file keeps only
 common words and phrases made of them; Chinese spellings are linked to their simplified forms using
 CC-CEDICT's character table (CC BY-SA 4.0).

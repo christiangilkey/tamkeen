@@ -3312,3 +3312,59 @@ What changed (runtime only; the word tables are unchanged, so it reaches devices
   (also "they see"), salte stays saltar (also sal + te), consigo stays conseguir. The same ending fallback could
   help Portuguese, Italian, French, Catalan (38–46% of their Wiktionary verb forms aren't in their tables).
 - Tests: tests/js/romance.test.mjs (6 new real-table tests), tests/js/meanings.test.mjs (popup test).
+
+## Fuller Bisaya dictionaries for No AI (2026-10-19; branch `cebuano-dict`, committed, NOT pushed)
+Owner's note: "Get more comprehensive dictionaries (Cebuano)". Measured first, on what learners tap: the 1000/3000/10000
+commonest Bisaya words (docs/lexicon/ceb-roots), 7 two-minute Bisaya podcast clips transcribed with the Bisaya model
+(1,723 words: talk shows, Mass, storytelling) and the 5 free Bisaya books (75,000 words), with the popup's own lookup.
+"Bisaya meaning" = a meaning of the word itself (not a borrowed English/Tagalog one, not a name):
+
+| | Bisaya meaning before → after | no meaning at all before → after |
+|---|---|---|
+| 1,000 commonest words | 86.5% → 87.1% | 34 → 21 |
+| 3,000 commonest words | 75.2% → 77.5% | 228 → 131 |
+| 10,000 commonest words | 60.6% → 65.0% | 1,416 → 866 |
+| podcast clips (1,723 words) | 73.4% → 75.6% | 11.9% → 7.8% of words |
+| the 5 books (75,000 words) | 78.9% → 83.4% | 17.1% → 12.9% of words |
+
+What is left is mostly English and Tagalog words in Bisaya speech (which get the English/Tagalog meaning, marked),
+names, misheard words, and the 1904 Bible's old spelling.
+**Sources looked at**: no new open dictionary exists. Binisaya.com is "ALL RIGHTS RESERVED"; Wikidata has 4 Cebuano
+lexemes; OPUS has no Cebuano–English NLLB dictionary (only a Bible one); Hall's 1911 and Allin's 1909 Visayan
+dictionaries are Hiligaynon/Kinaray-a; Yap 1971 and Cabonce are copyrighted; Kaikki's Cebuano file is the one already used.
+So the gain comes from the two sources already in the app, used far more fully:
+- **Wolff's derived words** (`tools/build_cebuano_glosses.py` `affix_forms`/`spelled_out`): under a root Wolff lists
+  words only by their affix ("paniN- household" under balay). These are spelled out by his rules (N assimilation,
+  dropped vowel + consonant swap only for nm/ld, d→r, -in-, r = repeated syllable, a verb's tense forms) and kept only
+  if the spelling is in the 60,000-word Bisaya list, not in Tagalog's file (manuod = manood) and not a tense prefix on a
+  word Wolff has (nasakit): 1,290 words (panimalay, kabalayan, mapasalamaton…), shown in the list's spelling with the root.
+  Also: "meanings" that were only another Bisaya spelling (= gus-ab, abughù, "short forms: sab and sad") are dropped.
+- **English Wiktionary's translation tables** (`build_meanings.py --translations ceb`, streams kaikki's English
+  file, 520 MB, nothing kept): 301 Bisaya words that have no entry of their own (kalahian "difference (quality of
+  being different)", kahigawad "disappointment"). Same licence (CC BY-SA), licenses/wiktionary.txt says so.
+- **English loanwords** (`fill_gaps`): an English spelling gets the English meaning when it is the commonest spelling of
+  its key (the, game, one, online…; before, a rarer typing slip like "thi" sharing the key blocked it): +351.
+- **The popup's lookup** (`web/js/lexicon/meaningdata.js` `lookUp`, now shared by meanings.js, tests and the
+  measuring): when no dictionary has the word, `cebuanoStems` takes its affixes off (one prefix incl. paN- forms, one
+  suffix with the dropped vowel put back, one infix/repeated syllable; the linker first) and takes the longest root a
+  dictionary has, ties going to the commoner word in the Bisaya list (`commonness`): moagi → agi "go by", naila → ila,
+  halayo → layo "far", bayran → bayad, gipugngan → pugong. Roots of 4 letters only one affix away, 3-letter ones
+  only if vowel-first verbs/adjectives (agi, ila, una), never pronouns/particles, never Spanish -syon/-rya words.
+  A verb form shows the root's verb meanings first. Shown as "form of X". Also Bisaya prefix + English verb
+  (mopost, gireply, magtry → the English verb, "mo- + post"). Spot-checked: about 5 in 6 of these recovered meanings
+  are right; most misses are roots with two unrelated meanings (abot "harvest" for nahiabut).
+- **Rebuild order**: `build_meanings.py ceb` (Wiktionary + gaps), `build_cebuano_glosses.py pg40074.txt`,
+  `build_meanings.py --fill ceb`, `build_meanings.py --translations ceb`. Files: mean-ceb 2.7 MB, mean-cebw 0.9 MB.
+- **Already-downloaded dictionaries are not replaced** by a newer published file (app/lexicon.py and the phone only
+  fetch missing files): someone who downloaded the Bisaya meanings before gets the new data after Remove + Download.
+  The lookup improvements work with the old files too. (Bisaya isn't released yet, so this matters little now.)
+- Tests: tests/js/meanings.test.mjs (two Bisaya tests), tests/test_cebuano_glosses.py. No new interface text.
+- Checked in the web app (local build, dictionaries served from this branch): Larawan p. 8, namulá → "red (color)",
+  form of pula; mibangon → "get up from a lying position" (Wolff), both "isn't in the built-in dictionary" before.
+  Launch config `cebuano-dict-webapp` (port 8813) serves this branch's docs/ (open /app/, set localStorage
+  lexicon_base and books_base to http://localhost:8813/lexicon/ and /books/).
+- **All versions** (no new files, same two dictionary names, so no build list to change: build-www.mjs copies all
+  of js/lexicon and js/meanings.js): desktop checked with a fresh data folder (download through /api/lexicon, then
+  meanings.js dictionaryDefine in the desktop page: namulá, mibangon, moagi, panimalay…); web app = the phone build,
+  checked in the browser (above); Android and iPhone run the same phone build but weren't run on a device. Installed
+  phone/web apps fetch the files from GitHub Pages, so they get the new data once docs/lexicon is pushed.
