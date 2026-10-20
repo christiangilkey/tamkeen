@@ -1,6 +1,9 @@
 # Builds the iPhone app (.ipa).
-# - Runs on pushes to the "ios" branch that change the phone app or the shared screens (test
-#   builds, downloadable from the run's "Artifacts"), and by hand from the Actions tab.
+# - Runs on pushes to main (and the old "ios" branch) that change the phone app or the shared
+#   screens (test builds, downloadable from the run's "Artifacts"), and by hand from the Actions tab.
+# - The Release workflow calls it for tagged releases and attaches the .ipa to the release, so the
+#   iPhone gets every release like the other versions (until 2026-10-20 it was built only from the
+#   "ios" branch, which stopped on 14 Oct: the iPhone app missed every release after that).
 # - The app is NOT signed here: it is installed by sideloading (AltStore), which signs it on the
 #   owner's own computer with their Apple ID. So no Apple account or secret is needed to build.
 
@@ -8,7 +11,7 @@ name: iOS
 
 on:
   push:
-    branches: [ios]
+    branches: [main, ios]
     paths: ["mobile/**", "web/**", ".github/workflows/ios.yml"]
   workflow_dispatch:
   workflow_call:

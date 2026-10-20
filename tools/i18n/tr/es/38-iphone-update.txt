@@ -1,0 +1,1 @@
+ba6d9e8b Descarga el archivo para iPhone (Tamkeen-…-iPhone.ipa) desde la página de la versión y ábrelo con AltStore. Tu biblioteca se queda como está.

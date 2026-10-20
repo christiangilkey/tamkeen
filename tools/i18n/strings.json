@@ -255,6 +255,21 @@
   "f": "web/js/app.js"
  },
  {
+  "id": "3699e160",
+  "k": "Tamkeen isn't answering.",
+  "f": "web/js/app.js"
+ },
+ {
+  "id": "04599dcf",
+  "k": "That isn't a YouTube video.",
+  "f": "web/js/app.js"
+ },
+ {
+  "id": "b4f38601",
+  "k": "Open Tamkeen once and choose the language you're learning, then try again.",
+  "f": "web/js/app.js"
+ },
+ {
   "id": "752be6ae",
   "k": "That file is too big (over 200 MB).",
   "f": "web/js/bookfiles.js"
@@ -13577,6 +13592,11 @@
  {
   "id": "a4a37122",
   "k": "GitHub answered {0}.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "ba6d9e8b",
+  "k": "Download the iPhone file (Tamkeen-…-iPhone.ipa) from the release page, then open it with AltStore. Your library stays as it is.",
   "f": "mobile/src/js/app.js"
  },
  {

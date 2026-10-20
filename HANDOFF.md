@@ -2027,8 +2027,8 @@ want it. The owner's iPhone runs the newest iOS.
   `Tamkeen-<version>-iPhone.ipa` on GitHub's Mac on every push to `ios` (artifact `installer-ios`; about a minute;
   Xcode 26.3). First build passed on the first push. Results are read without signing in through the public API:
   the run's annotations carry a notice with the file's size, or the compiler's errors packed into one annotation.
-  The release workflow does NOT build it yet (add an `ios` job to `release.yml` once it has run on a phone, or a
-  failed iPhone build would block a whole release).
+  Since 2026-10-20 it also runs on every push to main, and `release.yml` builds it for every release (a failed
+  iPhone build leaves out only the .ipa). See "Every version gets every release" below.
 - **`mobile/ios/`** = the Xcode project (Capacitor 8, Swift Package Manager, made by `npx cap add ios` on Windows).
   Edited by hand: `AppDelegate.swift` (holds `TamkeenViewController`, named in `Main.storyboard`: registers the
   Drive video streamer, edge-swipe goes back, no rubber-band), `Info.plist` (microphone/camera wording, background
@@ -3196,3 +3196,24 @@ contract (README, "Showing Tamkeen's player inside another app"); first release 
   throwaway library**: `--background` answered in 2 s with the window hidden; a second `--background` exited 0 in
   0.8 s; a plain launch exited 0 in 0.7 s and the hidden window appeared with the app; a tamkeen:// link then
   opened in it. **NOT tested**: the packaged exe, Onyx's real panel, the 10-minute idle close in a real run.
+
+## Every version gets every release, iPhone included (2026-10-20; committed, not pushed)
+Owner: "It seems like a lot of features are not implemented between versions, Ensure that we are implementing
+everything into all versions."
+- **Found:** the iPhone app was built only from the `ios` branch, which stopped on 14 Oct (98 commits behind main;
+  main already contains all of it, mobile/ios + mobile/native-ios). Releases built Windows/Mac/Linux, Android and
+  the web app, never the iPhone, so the iPhone app missed every release since v0.2x.
+- **Fixed:** `.github/workflows/ios.yml` now also runs on pushes to main (like android.yml), and `release.yml`
+  has an `ios` job (calls ios.yml) whose `Tamkeen-<version>-iPhone.ipa` is attached to the release. The release
+  job needs build + android to succeed; a failed iPhone build leaves out only the .ipa (the app has still never
+  run on a phone). The `ios` branch is no longer needed: work on main.
+- **Update popup on the iPhone** (mobile/src/js/app.js checkForUpdate → web/js/updatenotice.js `note`): says to
+  download the `-iPhone.ipa` from the release page and open it with AltStore, instead of offering the Android
+  installer path.
+- **Process from now on:** every feature goes into all four versions: desktop (web/js + Python app/), Android
+  and iPhone (mobile/src + web/js), web app (docs/app from the phone build). Watch the phone-only copies:
+  mobile/src/js/pages/settings.js (separate from web/js/pages/settings.js), mobile/src/js/backend.js (the phone's
+  stand-in for the Python API), and mobile/scripts/build-www.mjs's file list. A "parity-audit" session is
+  auditing what already differs and adding tests that catch drift.
+- Also: three embed-player messages from e63a6a3 translated (tools/i18n/tr/<code>/39-embed-player.txt), its blank
+  background page added to tools/i18n/ignore.txt; iPhone update line in 38-iphone-update.txt.

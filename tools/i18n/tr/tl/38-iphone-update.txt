@@ -1,0 +1,1 @@
+ba6d9e8b I-download ang iPhone file (Tamkeen-…-iPhone.ipa) mula sa release page, saka buksan ito gamit ang AltStore. Mananatili ang library mo.

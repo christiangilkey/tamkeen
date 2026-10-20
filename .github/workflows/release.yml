@@ -168,9 +168,17 @@ jobs:
     uses: ./.github/workflows/android.yml
     secrets: inherit
 
+  # The iPhone app (unsigned; AltStore signs it on the owner's computer). Every release carries it,
+  # so the iPhone never falls behind the other versions again.
+  ios:
+    needs: test
+    uses: ./.github/workflows/ios.yml
+
   release:
-    needs: [build, android]
-    if: startsWith(github.ref, 'refs/tags/v')
+    # A failed iPhone build leaves out only the .ipa: the computer and Android installers still ship
+    # (the iPhone app has not been tried on a phone yet, so its build must not hold up a release).
+    needs: [build, android, ios]
+    if: ${{ !cancelled() && startsWith(github.ref, 'refs/tags/v') && needs.build.result == 'success' && needs.android.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4

@@ -1,0 +1,1 @@
+ba6d9e8b 从版本页面下载 iPhone 文件（Tamkeen-…-iPhone.ipa），然后用 AltStore 打开。你的资料库保持不变。

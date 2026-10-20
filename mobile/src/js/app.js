@@ -923,8 +923,11 @@ export async function checkForUpdate({ manual = false } = {}) {
     const apk = (data.assets || []).find((a) => /^Tamkeen-.*-Android\.apk$/.test(a.name || "")
       && String(a.browser_download_url || "").startsWith(APK_FROM));
     document.getElementById("update-notice")?.remove();
+    // The iPhone app is installed by AltStore (no App Store): say which file and how.
+    const iphone = isIOS && (data.assets || []).some((a) => /^Tamkeen-.*-iPhone\.ipa$/.test(a.name || ""));
     showUpdateNotice({ latest, current: APP_VERSION, url: data.html_url,
-                       install: AppUpdater && apk ? (report) => installApk(apk, report) : null });
+                       install: !isIOS && AppUpdater && apk ? (report) => installApk(apk, report) : null,
+                       note: iphone ? "Download the iPhone file (Tamkeen-…-iPhone.ipa) from the release page, then open it with AltStore. Your library stays as it is." : "" });
     return { current: APP_VERSION, latest, available: true };
   } catch {
     // offline, or GitHub unreachable: try again next time the app opens
