@@ -7,7 +7,7 @@ import { extractArticle } from "./extract.js";
 /** Store an already-extracted article ({url, title, blocks, ...}). Resolves to the new episode. */
 export async function saveArticle(article) {
   if (!article || !article.blocks || !article.blocks.length) {
-    throw new Error("No readable text was found on that page. Try “Open Web Browser” and use Import Page there.");
+    throw new Error("No readable text was found on that page. Try “Open Web Browser” and press the round teal button there.");
   }
   return api("/pages", { method: "POST", body: {
     url: article.url, title: article.title, blocks: article.blocks, image: article.image || null, site: article.site || null,

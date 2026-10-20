@@ -1,6 +1,6 @@
 // Injected by the desktop app into every page shown in its "Web Browser" window (see
 // app/desktop.py): a slim bar along the bottom with back / forward / reload, the address, and
-// the "Import Page" button at the bottom right.
+// above it at the bottom right, a small round teal button that imports the page into Tamkeen.
 //
 // It runs inside other people's websites, so it is deliberately defensive: plain script (not
 // a module), no innerHTML (some sites forbid it), styles applied through the style object
@@ -32,13 +32,41 @@
   var input = el("input", FONT + "box-sizing:border-box;flex:1;min-width:80px;height:32px;padding:0 10px;border:1px solid #3a3a38;" +
     "border-radius:8px;background:#141413;color:#f2f1ec;outline:none;");
   var status = el("span", FONT + "max-width:38%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#b8b6ad;");
-  var imp = el("button", BTN + "background:#2dd4bf;border-color:#2dd4bf;color:#062a26;font-weight:600;padding:0 14px;", "Import Page");
+  // Import to Tamkeen: a round teal button (the brand teal, no shadow) floating just above the bar at
+  // the bottom right, with the app's line "import" icon (icons.js), drawn here without innerHTML.
+  var TEAL = "#0b8693";
+  var imp = el("button", "all:initial;box-sizing:border-box;position:fixed;right:16px;bottom:" + (H + 14) + "px;width:52px;height:52px;" +
+    "border-radius:50%;border:none;background:" + TEAL + ";color:#fff;cursor:pointer;display:flex;align-items:center;" +
+    "justify-content:center;");
+  var SVG = "http://www.w3.org/2000/svg";
+  /** The button's picture: "import" (arrow into a tray), "busy" (a turning arc) or "done" (a tick). */
+  function drawIcon(kind) {
+    while (imp.firstChild) imp.removeChild(imp.firstChild);
+    var svg = document.createElementNS(SVG, "svg");
+    [["viewBox", "0 0 24 24"], ["width", "26"], ["height", "26"], ["fill", "none"], ["stroke", "currentColor"],
+      ["stroke-width", "2"], ["stroke-linecap", "round"], ["stroke-linejoin", "round"], ["aria-hidden", "true"]]
+      .forEach(function (a) { svg.setAttribute(a[0], a[1]); });
+    var lines = kind === "busy" ? ["M12 4a8 8 0 0 1 8 8"] : kind === "done" ? ["M5 12.5l4.5 4.5L19 7.5"]
+      : ["M12 3.5v11", "M7.5 10 12 14.5 16.5 10", "M4.5 14.5V18a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-3.5"];
+    lines.forEach(function (d) {
+      var path = document.createElementNS(SVG, "path");
+      path.setAttribute("d", d);
+      svg.appendChild(path);
+    });
+    imp.appendChild(svg);
+    // Turning while it works (an animation from script is allowed even where sites forbid styles).
+    if (kind === "busy" && svg.animate) svg.animate([{ transform: "rotate(0deg)" }, { transform: "rotate(360deg)" }], { duration: 800, iterations: Infinity });
+  }
+  drawIcon("import");
+  imp.onmouseenter = function () { imp.style.background = "#0a7580"; };
+  imp.onmouseleave = function () { imp.style.background = TEAL; };
   // The star keeps the site being shown on the browser's start page (a hollow star until it is).
   var star = el("button", BTN + "font-size:18px;line-height:1;padding:0 9px;", "☆");
   back.title = "Back";
   fwd.title = "Forward";
   reload.title = "Reload";
-  imp.title = "Save this page to Tamkeen, to read with clickable words";
+  imp.title = "Import to Tamkeen: read this page with every word clickable";
+  imp.setAttribute("aria-label", "Import to Tamkeen");
   input.type = "text";
   input.spellcheck = false;
   input.placeholder = "Search or type a web address";
@@ -108,16 +136,19 @@
     var api = window.pywebview && window.pywebview.api;
     if (!api || !api.import_page) { say("Still loading… try again in a moment.", false); return; }
     busy = true;
-    imp.textContent = "Importing…";
-    say("");
+    drawIcon("busy");
+    say("Importing…");
+    var done = false;
     api.import_page().then(function (r) {
-      if (r && r.ok) say("✓ Imported “" + r.title + "” (" + r.words + " words). It's in My webpages.", true);
+      done = !!(r && r.ok);
+      if (done) say("✓ Imported “" + r.title + "” (" + r.words + " words). It's in My webpages.", true);
       else say((r && r.error) || "Couldn't import this page.", false);
     }).catch(function (e) {
       say("Couldn't import this page. " + (e && e.message ? e.message : ""), false);
     }).then(function () {
       busy = false;
-      imp.textContent = "Import Page";
+      drawIcon(done ? "done" : "import");
+      if (done) setTimeout(function () { if (!busy) drawIcon("import"); }, 2500);
     });
   };
 
@@ -130,7 +161,7 @@
   // in a video; app/desktop.py says which) has nothing to import or keep on the start page.
   if (!window.__tamkeenNoImport) {
     bar.appendChild(star);
-    bar.appendChild(imp);
+    root.appendChild(imp);
   }
   root.appendChild(bar);
 

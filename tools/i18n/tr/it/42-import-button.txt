@@ -1,0 +1,14 @@
+9883dc1b Apri un sito, trova un articolo, poi premi il <0>pulsante rotondo verde acqua</0> in basso a destra per leggerlo con ogni parola cliccabile.
+66861bc1 Importa in Tamkeen: leggi questa pagina con ogni parola cliccabile
+ae19f0e4 Importa in Tamkeen
+5492bd97 Naviga dentro l'app e premi il pulsante rotondo verde acqua su tutto ciò che vuoi leggere.
+a4cbde7a Su quella pagina non è stato trovato testo leggibile. Prova «Apri il browser web» e lì premi il pulsante rotondo verde acqua.
+ee1025a7 Impossibile aprire il browser.
+8533d5c3 Il sito ha risposto con un errore ({0}). Prova «Apri il browser web» e lì premi il pulsante rotondo verde acqua.
+c79f28f8 Importazione della pagina…
+9f496fb9 Ciò che è stato condiviso non contiene un indirizzo web, quindi non c'è niente da importare.
+5cfa7a01 Scegli prima la lingua che stai imparando, poi condividi di nuovo la pagina con Tamkeen.
+a87f6706 Importa in Tamkeen: l'indirizzo dell'articolo che hai copiato
+c4b42e1e Copia l'indirizzo dell'articolo nell'altra scheda (o condividilo con Tamkeen da lì), poi premi di nuovo questo pulsante.
+732ac1f0 Con Tamkeen nella schermata Home puoi anche condividere l'articolo direttamente con Tamkeen: in Chrome tocca ⋮, poi Condividi, poi Tamkeen.
+3d26aa46 Apri un sito (si apre in una nuova scheda), trova un articolo e copia il suo indirizzo, poi torna qui e premi il pulsante rotondo verde acqua.

@@ -1,0 +1,14 @@
+9883dc1b Abra um site, encontre um artigo e toque no <0>botão redondo verde-azulado</0> no canto inferior direito para ler com cada palavra clicável.
+66861bc1 Importar para o Tamkeen: leia esta página com cada palavra clicável
+ae19f0e4 Importar para o Tamkeen
+5492bd97 Navegue dentro do app e toque no botão redondo verde-azulado em tudo o que quiser ler.
+a4cbde7a Não foi encontrado texto legível nessa página. Tente “Abrir o navegador” e toque lá no botão redondo verde-azulado.
+ee1025a7 Não foi possível abrir o navegador.
+8533d5c3 O site respondeu com um erro ({0}). Tente “Abrir o navegador” e toque lá no botão redondo verde-azulado.
+c79f28f8 Importando a página…
+9f496fb9 O que foi compartilhado não tem nenhum endereço da web, então não há nada para importar.
+5cfa7a01 Escolha primeiro o idioma que você está aprendendo e depois compartilhe a página com o Tamkeen de novo.
+a87f6706 Importar para o Tamkeen: o endereço do artigo que você copiou
+c4b42e1e Copie o endereço do artigo na outra aba (ou compartilhe com o Tamkeen de lá) e toque neste botão de novo.
+732ac1f0 Com o Tamkeen na tela inicial, você também pode compartilhar o artigo direto com o Tamkeen: no Chrome, toque em ⋮, depois em Compartilhar e depois em Tamkeen.
+3d26aa46 Abra um site (ele abre em uma nova aba), encontre um artigo e copie o endereço dele; depois volte e toque no botão redondo verde-azulado.

@@ -1,0 +1,14 @@
+9883dc1b Abre un sitio, busca un artículo y pulsa el <0>botón redondo verde azulado</0> de abajo a la derecha para leerlo con cada palabra pulsable.
+66861bc1 Importar a Tamkeen: lee esta página con cada palabra pulsable
+ae19f0e4 Importar a Tamkeen
+5492bd97 Navega dentro de la app y pulsa el botón redondo verde azulado en todo lo que quieras leer.
+a4cbde7a No se encontró texto legible en esa página. Prueba «Abrir navegador web» y pulsa allí el botón redondo verde azulado.
+ee1025a7 No se pudo abrir el navegador.
+8533d5c3 El sitio respondió con un error ({0}). Prueba «Abrir navegador web» y pulsa allí el botón redondo verde azulado.
+c79f28f8 Importando la página…
+9f496fb9 Lo que se compartió no contiene ninguna dirección web, así que no hay nada que importar.
+5cfa7a01 Elige primero el idioma que estás aprendiendo y luego vuelve a compartir la página con Tamkeen.
+a87f6706 Importar a Tamkeen: la dirección del artículo que copiaste
+c4b42e1e Copia la dirección del artículo en la otra pestaña (o compártelo con Tamkeen desde allí) y vuelve a pulsar este botón.
+732ac1f0 Con Tamkeen en tu pantalla de inicio también puedes compartir el artículo directamente con Tamkeen: en Chrome pulsa ⋮, luego Compartir y luego Tamkeen.
+3d26aa46 Abre un sitio (se abre en una pestaña nueva), busca un artículo y copia su dirección; luego vuelve y pulsa el botón redondo verde azulado.

@@ -1,7 +1,7 @@
 // Reader for imported web pages: the page's text with every word clickable, the same
 // definition popup as the player, and "Save to vocab". (No audio: a page has no recording.)
 
-import { api, esc, h, toast, showMenu, hideMenu, saveSettings, state, buzz } from "../app.js";
+import { api, esc, h, toast, showMenu, hideMenu, saveSettings, state, buzz, openBrowser } from "../app.js";
 import { saveProgress } from "../progress.js";
 import { sentenceBounds, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
@@ -84,7 +84,21 @@ export async function render(view, { id, data, query }) {
       </div>
     </div>`));
   const $ = (sel) => view.querySelector(sel);
-  if (source) $("#original").href = source;
+  if (source) {
+    const original = $("#original");
+    original.href = source;
+    // In the apps the original opens in Tamkeen's own browser (a second window on the computer, a
+    // full screen on the phone), which has the round teal import button, instead of leaving the
+    // app for Chrome or Safari. The web app has no browser of its own: there it opens a new tab.
+    const inApp = !!(window.pywebview && window.pywebview.api && window.pywebview.api.open_browser)
+      || !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+    if (inApp) {
+      original.onclick = (e) => {
+        e.preventDefault();
+        openBrowser(source).catch((err) => toast(err.message || "Couldn't open the browser.", { error: true }));
+      };
+    }
+  }
   $("#font-down").before(lookupToggle()); // quick or detailed lookup
   // Send this page to a friend (its address travels; their copy is read from the page itself).
   if (source) $("#font-up").after(sendButton(() => mediaFromEpisode(ep)));

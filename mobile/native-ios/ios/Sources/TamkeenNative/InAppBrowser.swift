@@ -2,9 +2,9 @@ import UIKit
 import WebKit
 
 /// The app's own small web browser: an address bar with back / forward / close on top, the page
-/// below, and an "Import Page" button floating at the bottom right.
+/// below, and a small round teal "Import to Tamkeen" button floating at the bottom right.
 ///
-/// Pressing Import Page runs the app's text extractor (web/js/extract.js, passed in as source)
+/// Pressing that button runs the app's text extractor (web/js/extract.js, passed in as source)
 /// inside the page being viewed and hands the result to the listener. The page itself is given
 /// no access to the app: this web view has no bridge to the app's code.
 ///
@@ -46,6 +46,8 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
     private var web: WKWebView!
     private let address = UITextField()
     private let star = UIButton(type: .system)
+    /// Import to Tamkeen: a plain teal circle (no shadow) with the app's white line "import" icon.
+    private let importButton = UIButton(type: .custom)
     private let progress = UIProgressView(progressViewStyle: .bar)
     private var watching: [NSKeyValueObservation] = []
     private var signInTimer: Timer?
@@ -173,7 +175,7 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
         progress.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(progress)
 
-        // ----- page + floating Import Page button -----
+        // ----- page + floating round import button -----
         let setup = WKWebViewConfiguration()
         setup.allowsInlineMediaPlayback = true
         setup.applicationNameForUserAgent = Self.browserName
@@ -184,16 +186,11 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
         web.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(web)
 
-        let importButton = UIButton(type: .system)
-        importButton.setTitle("Import Page", for: .normal)
-        importButton.setTitleColor(Screen.color("#062a26"), for: .normal)
-        importButton.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        importButton.backgroundColor = Screen.color("#2dd4bf")
-        importButton.layer.cornerRadius = 22
-        importButton.layer.shadowColor = UIColor.black.cgColor
-        importButton.layer.shadowOpacity = 0.35
-        importButton.layer.shadowRadius = 6
-        importButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        // It replaced the "Import Page" pill (as on Android, InAppBrowser.java).
+        importButton.backgroundColor = Screen.color("#0b8693") // the brand teal (--brand-teal in web/css/app.css)
+        importButton.layer.cornerRadius = 28
+        importButton.layer.addSublayer(Self.importIcon(button: 56))
+        importButton.accessibilityLabel = "Import to Tamkeen"
         importButton.addTarget(self, action: #selector(importTapped), for: .touchUpInside)
         importButton.translatesAutoresizingMaskIntoConstraints = false
         importButton.isHidden = !forReading
@@ -213,10 +210,10 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
             web.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             web.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             web.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            importButton.trailingAnchor.constraint(equalTo: safe.trailingAnchor, constant: -16),
+            importButton.rightAnchor.constraint(equalTo: safe.rightAnchor, constant: -16), // right, also in right-to-left languages
             importButton.bottomAnchor.constraint(equalTo: safe.bottomAnchor, constant: -20),
-            importButton.heightAnchor.constraint(equalToConstant: 44),
-            importButton.widthAnchor.constraint(equalToConstant: 132)
+            importButton.heightAnchor.constraint(equalToConstant: 56),
+            importButton.widthAnchor.constraint(equalToConstant: 56)
         ])
 
         watching = [
@@ -339,11 +336,41 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
     }
 
     @objc private func importTapped() {
+        guard importButton.isEnabled else { return }
+        importButton.isEnabled = false // one import at a time; dimmed while it reads the page
+        importButton.alpha = 0.6
+        Toast.show("Importing page…")
         let script = "(function(){" + extractor + "\nreturn JSON.stringify(extractArticle(document, location.href));})()"
         web.evaluateJavaScript(script) { [weak self] value, _ in
-            Toast.show("Importing page…")
-            self?.onImport(Screen.jsonText(value as? String))
+            guard let self = self else { return }
+            self.importButton.isEnabled = true
+            self.importButton.alpha = 1
+            self.onImport(Screen.jsonText(value as? String))
         }
+    }
+
+    /// The "import" icon of web/js/icons.js (an arrow going down into a tray), as white lines
+    /// 26 points wide in the middle of a round button `button` points across.
+    private static func importIcon(button: CGFloat) -> CAShapeLayer {
+        let size: CGFloat = 26
+        let scale = size / 24, inset = (button - size) / 2
+        func at(_ x: CGFloat, _ y: CGFloat) -> CGPoint { CGPoint(x: inset + x * scale, y: inset + y * scale) }
+        let path = UIBezierPath()
+        path.move(to: at(12, 3.5)); path.addLine(to: at(12, 14.5))
+        path.move(to: at(7.5, 10)); path.addLine(to: at(12, 14.5)); path.addLine(to: at(16.5, 10))
+        path.move(to: at(4.5, 14.5)); path.addLine(to: at(4.5, 18))
+        path.addQuadCurve(to: at(6.5, 20), controlPoint: at(4.5, 20))
+        path.addLine(to: at(17.5, 20))
+        path.addQuadCurve(to: at(19.5, 18), controlPoint: at(19.5, 20))
+        path.addLine(to: at(19.5, 14.5))
+        let shape = CAShapeLayer()
+        shape.path = path.cgPath
+        shape.fillColor = nil
+        shape.strokeColor = UIColor.white.cgColor
+        shape.lineWidth = 2 * scale
+        shape.lineCap = .round
+        shape.lineJoin = .round
+        return shape
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

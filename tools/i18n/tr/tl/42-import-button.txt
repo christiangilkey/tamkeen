@@ -1,0 +1,14 @@
+9883dc1b Magbukas ng site, maghanap ng artikulo, saka pindutin ang <0>bilog na teal na button</0> sa kanang ibaba para basahin ito nang napipindot ang bawat salita.
+66861bc1 I-import sa Tamkeen: basahin ang page na ito nang napipindot ang bawat salita
+ae19f0e4 I-import sa Tamkeen
+5492bd97 Mag-browse sa loob ng app at pindutin ang bilog na teal na button sa anumang gusto mong basahin.
+a4cbde7a Walang nabasang teksto sa page na iyon. Subukan ang “Buksan ang Web Browser” at pindutin doon ang bilog na teal na button.
+ee1025a7 Hindi mabuksan ang browser.
+8533d5c3 Sumagot ang site ng error ({0}). Subukan ang “Buksan ang Web Browser” at pindutin doon ang bilog na teal na button.
+c79f28f8 Ini-import ang page…
+9f496fb9 Walang web address sa ibinahagi, kaya walang ma-import.
+5cfa7a01 Piliin muna ang wikang pinag-aaralan mo, saka ibahagi ulit ang page sa Tamkeen.
+a87f6706 I-import sa Tamkeen: ang address ng artikulong kinopya mo
+c4b42e1e Kopyahin ang address ng artikulo sa kabilang tab (o ibahagi ito sa Tamkeen mula roon), saka pindutin ulit ang button na ito.
+732ac1f0 Kapag nasa home screen mo ang Tamkeen, puwede mo ring ibahagi nang direkta ang artikulo sa Tamkeen: sa Chrome, i-tap ang ⋮, saka ang Share, saka ang Tamkeen.
+3d26aa46 Magbukas ng site (bubukas ito sa bagong tab), maghanap ng artikulo at kopyahin ang address nito, saka bumalik at pindutin ang bilog na teal na button.

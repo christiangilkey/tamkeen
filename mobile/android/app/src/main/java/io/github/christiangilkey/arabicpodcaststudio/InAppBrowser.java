@@ -3,7 +3,6 @@ package io.github.christiangilkey.arabicpodcaststudio;
 import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.os.Looper;
@@ -25,16 +24,18 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.net.URLEncoder;
 
 /**
  * The app's own small web browser: an address bar with back / forward / close on top, the page
- * below, and an "Import Page" button floating at the bottom right.
+ * below, and a small round teal "Import to Tamkeen" button floating at the bottom right.
  *
- * Pressing Import Page runs the app's text extractor (web/js/extract.js, passed in as source)
+ * Pressing that button runs the app's text extractor (web/js/extract.js, passed in as source)
  * inside the page being viewed and hands the result to the listener. The page itself is given
  * no access to the app: this WebView has no bridge to the app's code.
  *
@@ -132,7 +133,7 @@ final class InAppBrowser {
      * the language being studied, built by web/js/browser-home.js). It is shown when `url` is
      * empty; without it the browser starts on Google as before. `forReading` false: opened for
      * something other than reading pages (signing in, YouTube, finding a word in a video), so
-     * there is no "Import Page" button and no star.
+     * there is no import button and no star.
      */
     static void open(Activity activity, String url, String extractor, String youtubeScript, String home,
                      boolean forReading, Listener listener, VideoListener videos, Runnable signedIn) {
@@ -140,7 +141,7 @@ final class InAppBrowser {
         int pad = Math.round(6 * dp);
         int dark = Color.parseColor("#1c1c1a");
         int ink = Color.parseColor("#f2f1ec");
-        int accent = Color.parseColor("#2dd4bf");
+        int teal = Color.parseColor("#0b8693"); // the brand teal (--brand-teal in web/css/app.css)
 
         Dialog dialog = new Dialog(activity, android.R.style.Theme_DeviceDefault_NoActionBar);
         LinearLayout root = new LinearLayout(activity);
@@ -195,7 +196,7 @@ final class InAppBrowser {
         progress.setMax(100);
         root.addView(progress, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Math.round(3 * dp)));
 
-        // ----- page + floating Import Page button -----
+        // ----- page + floating round import button -----
         FrameLayout frame = new FrameLayout(activity);
         WebView web = new WebView(activity);
         web.getSettings().setJavaScriptEnabled(true);
@@ -251,20 +252,21 @@ final class InAppBrowser {
         });
         frame.addView(web, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
-        Button importButton = new Button(activity);
-        importButton.setText("Import Page");
-        importButton.setAllCaps(false);
-        importButton.setTextColor(Color.parseColor("#062a26"));
-        importButton.setTypeface(Typeface.DEFAULT_BOLD);
-        importButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
-        GradientDrawable pill = new GradientDrawable();
-        pill.setColor(accent);
-        pill.setCornerRadius(24 * dp);
-        importButton.setBackground(pill);
-        importButton.setPadding(Math.round(18 * dp), Math.round(10 * dp), Math.round(18 * dp), Math.round(10 * dp));
-        importButton.setElevation(6 * dp);
-        FrameLayout.LayoutParams corner = new FrameLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM | Gravity.END);
+        // A plain teal circle (no shadow) with the app's white line "import" icon, an arrow going
+        // down into a tray (res/drawable/ic_tamkeen_import.xml). It replaced the "Import Page" pill.
+        ImageButton importButton = new ImageButton(activity);
+        importButton.setImageResource(R.drawable.ic_tamkeen_import);
+        importButton.setScaleType(android.widget.ImageView.ScaleType.CENTER);
+        GradientDrawable circle = new GradientDrawable();
+        circle.setShape(GradientDrawable.OVAL);
+        circle.setColor(teal);
+        importButton.setBackground(circle);
+        importButton.setElevation(0);
+        importButton.setStateListAnimator(null); // stays flat when pressed, too
+        importButton.setContentDescription("Import to Tamkeen");
+        if (android.os.Build.VERSION.SDK_INT >= 26) importButton.setTooltipText("Import to Tamkeen");
+        int round = Math.round(56 * dp);
+        FrameLayout.LayoutParams corner = new FrameLayout.LayoutParams(round, round, Gravity.BOTTOM | Gravity.RIGHT); // right, also in right-to-left languages
         corner.setMargins(0, 0, Math.round(16 * dp), Math.round(20 * dp));
         frame.addView(importButton, corner);
         if (!forReading) importButton.setVisibility(View.GONE);
@@ -294,9 +296,17 @@ final class InAppBrowser {
             return true;
         });
         importButton.setOnClickListener(v -> {
+            if (!importButton.isEnabled()) return;
+            importButton.setEnabled(false); // one import at a time; dimmed while it reads the page
+            importButton.setAlpha(0.6f);
+            Toast.makeText(activity, "Importing page…", Toast.LENGTH_SHORT).show();
             String script = "(function(){" + extractor
                 + "\nreturn JSON.stringify(extractArticle(document, location.href));})()";
-            web.evaluateJavascript(script, listener::onImport);
+            web.evaluateJavascript(script, json -> {
+                importButton.setEnabled(true);
+                importButton.setAlpha(1f);
+                listener.onImport(json);
+            });
         });
         dialog.setOnKeyListener((d, keyCode, event) -> {
             if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP && web.canGoBack()) {

@@ -1,13 +1,16 @@
 // The web app's "Popular websites" page, in place of the apps' built-in web browser (a web page
 // can't hold other sites with an Import Page button). The same sites as the browser's start page
-// (browser-home.js), opened in a new tab; the learner copies an article's address there and pastes
-// it here to import it.
+// (browser-home.js), opened in a new tab; the learner copies an article's address there and comes
+// back to the round teal import button (or pastes it in the box), or shares the article to Tamkeen
+// from Chrome's menu when the web app is installed on an Android phone (web-import.js).
 
 import { esc, toast } from "./app.js";
 import { newsFor } from "./browser-home.js";
 import { savedSites } from "./browser-sites.js";
 import { langInfo } from "./languages.js";
 import { importUrl } from "./pageimport.js";
+import { importButton } from "./web-import.js";
+import { device } from "./web-install.js";
 import { settings } from "./store.js";
 
 const host = (url) => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; } };
@@ -33,7 +36,8 @@ export async function render(view) {
     <div class="disc-head">
       <a class="btn ghost" href="#/library" title="Back to the library">←</a>
       <div class="meta"><h1>Read the web in ${esc(name)}</h1>
-        <div class="small muted">Open a site (it opens in a new tab), find an article, copy its address, then come back and paste it here.</div></div>
+        <div class="small muted">Open a site (it opens in a new tab), find an article and copy its address, then come back and tap the round teal button.</div>
+        ${device().os === "android" ? `<div class="small muted">With Tamkeen added to your home screen you can also share the article straight to Tamkeen: in Chrome tap ⋮, then Share, then Tamkeen.</div>` : ""}</div>
     </div>
     <form class="card row web-import" style="gap:8px">
       <input type="url" inputmode="url" placeholder="Paste an article's address" aria-label="Article address" style="flex:1;min-width:0" required>
@@ -51,6 +55,9 @@ export async function render(view) {
   </div>`;
   const form = view.querySelector(".web-import");
   const input = form.querySelector("input");
+  const page = view.querySelector(".page");
+  page.append(importButton(input)); // bottom right, like the browsers' import button
+  page.style.paddingBottom = "96px"; // the last sites never sit under it
   view.querySelector(".web-paste").onclick = async () => {
     try { input.value = (await navigator.clipboard.readText()).trim(); input.focus(); }
     catch { toast("Your browser didn't allow pasting from here. Long-press the box and choose Paste.", { error: true }); }

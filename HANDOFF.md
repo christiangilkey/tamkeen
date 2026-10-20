@@ -3836,3 +3836,48 @@ downloaded library, this selection should be remembered and auto saved on switch
   it, a reload keeps it), the dictionary downloads in the popup in 2-3 s; Spanish interface translates the menu.
   docs/app was built for testing and put back (not committed). Not tried on a real phone; the reel popup was not
   opened (needs Instagram), it is the same popup.
+
+## Round teal "Import to Tamkeen" button; Share → Tamkeen on the web app (2026-10-20; branch `import-button`, NOT merged, NOT pushed)
+The owner asked for "a little teal button in the bottom right to import it to Tamkeen" when browsing a site, in the
+web app and the app. Their screenshot (Android) was a **Chrome Custom Tab**: the installed web app's "Read the web"
+page (`#/sites`, mobile/src/js/web-sites.js) opens sites in a new tab, which Android shows as a Custom Tab over the
+web app. Tamkeen itself never opens Custom Tabs (no CustomTabsIntent / androidx.browser anywhere), so there is no
+Custom Tab action button to add.
+- **Tamkeen's own browsers** (Android InAppBrowser.java, iPhone InAppBrowser.swift, desktop web/js/browser-toolbar.js):
+  the "Import Page" pill/bar button is **replaced** (not kept beside it, so there aren't two) by a 52-56 px round
+  button in the brand teal #0b8693 (`--brand-teal`), no shadow, white line icon = the new `import` icon in
+  web/js/icons.js (arrow into a tray; Android draws it from res/drawable/ic_tamkeen_import.xml, iPhone with a
+  CAShapeLayer, desktop with createElementNS inside the toolbar's closed shadow root). Fixed bottom-RIGHT also in
+  right-to-left languages (Gravity.RIGHT / rightAnchor). Desktop: floats just above the bottom bar; the status
+  ("✓ Imported …") still shows in the bar; the icon turns into a turning arc while importing and a tick when done.
+  Phones: dimmed while the page is read, "Importing page…" toast, same pageImport event as before. Label for screen
+  readers / tooltip "Import to Tamkeen". Hidden as before when the browser wasn't opened for reading.
+  youtube-browser.js moves its desktop Follow button left (right: 84px) when the import button is there.
+- **Links that left the app**: the reader's "Original ↗" (web/js/pages/reader.js) now opens Tamkeen's own browser
+  in the desktop app and the phone apps (it went to Chrome / Safari / the default browser before, with no button).
+  Other outside links (API-key pages, privacy policy, GitHub) still go to the real browser on purpose: Google sign-in
+  is refused inside app web views.
+- **Web app** (a web page can't draw on another site's tab, so no button can appear on bbc.com itself):
+  (a) **Share → Tamkeen**: the manifest (webapp/build-web.mjs) has `share_target` (GET, `./?share_title&share_text&
+  share_url`). Once the web app is installed on an Android phone, Chrome's Share menu (also the ⋮ menu of that Custom
+  Tab) lists Tamkeen; boot() in mobile/src/js/app.js calls `importShared` (mobile/src/js/web-import.js), which takes
+  the first web address (mobile/src/js/share-target.js: Chrome often puts it in the text), removes the query,
+  imports and opens the page. iPhone Safari and desktop browsers don't offer web apps in the Share menu. The service
+  worker doesn't cache those shared addresses. (b) the "Read the web" page has the same round teal button (class
+  `add-fab`, like the Library's +) bottom right: it reads the clipboard and imports the article address copied in
+  the other tab; with nothing copied it focuses the address box and says what to do. It can't know which article
+  the other tab is on (only the site's front page that was opened), so it doesn't guess. On Android the page also
+  explains Share → Tamkeen.
+- Help texts that said "press Import Page" now say "the round teal button" (browser-home.js, addsheet.js,
+  pageimport.js, mobile app.js, app/pages.py). **Not changed** (Settings is another chat's area):
+  mobile/src/js/pages/settings.js "the built-in web browser (Import Page and Find in a video)".
+- Checked: real desktop window by script (fresh data folder, not signed in): button bottom-right above the bar, a
+  DevTools-protocol mouse click on it imported ar.wikipedia.org/wiki/القاهرة (10,486 words, "✓ Imported" in the bar).
+  Web app at phone width in the browser pane: the button, its "copy first" message, and a shared address being
+  picked up, cleaned from the URL and imported (the import itself then failed only because the go-between server
+  accepts just github.io and localhost:8791, which another chat was using). Android: InAppBrowser.java compiled
+  with javac against android-36's android.jar and the icon checked with aapt2 (a full Gradle build needs Java 21,
+  not installed here). **Not checked: the iPhone code (can't compile here; mirrors Android), the phones on a real
+  device, and Share → Tamkeen on a real installed web app** (needs the github.io build: rebuild docs/app at release).
+- Tests: tests/js/share-target.test.mjs (address picking, manifest names, every browser has the round button and no
+  "Import Page"). Translations: tools/i18n/tr/<code>/42-import-button.txt.

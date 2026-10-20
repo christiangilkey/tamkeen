@@ -1,0 +1,14 @@
+9883dc1b Ablihi ang usa ka site, pangitaa ang usa ka artikulo, dayon pindota ang <0>lingin nga teal nga button</0> sa tuo sa ubos aron basahon kini nga mapindot ang matag pulong.
+66861bc1 I-import sa Tamkeen: basaha kini nga page nga mapindot ang matag pulong
+ae19f0e4 I-import sa Tamkeen
+5492bd97 Pag-browse sulod sa app ug pindota ang lingin nga teal nga button sa bisan unsang gusto nimong basahon.
+a4cbde7a Walay mabasang teksto nga nakit-an sa maong page. Sulayi ang “Ablihi ang Web Browser” ug pindota didto ang lingin nga teal nga button.
+ee1025a7 Dili maablihan ang browser.
+8533d5c3 Mitubag ang site og error ({0}). Sulayi ang “Ablihi ang Web Browser” ug pindota didto ang lingin nga teal nga button.
+c79f28f8 Gi-import ang page…
+9f496fb9 Walay web address sa gipaambit, busa walay ma-import.
+5cfa7a01 Pilia una ang pinulongan nga imong gitun-an, dayon ipaambit pag-usab ang page sa Tamkeen.
+a87f6706 I-import sa Tamkeen: ang address sa artikulo nga imong gikopya
+c4b42e1e Kopyaha ang address sa artikulo sa pikas tab (o ipaambit kini sa Tamkeen gikan didto), dayon pindota pag-usab kini nga button.
+732ac1f0 Kung naa sa imong home screen ang Tamkeen, mahimo usab nimong ipaambit direkta ang artikulo sa Tamkeen: sa Chrome, i-tap ang ⋮, dayon ang Share, dayon ang Tamkeen.
+3d26aa46 Ablihi ang usa ka site (maabli kini sa bag-ong tab), pangitaa ang usa ka artikulo ug kopyaha ang address niini, dayon balik ug pindota ang lingin nga teal nga button.

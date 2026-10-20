@@ -1,0 +1,14 @@
+9883dc1b Ouvrez un site, trouvez un article, puis appuyez sur le <0>bouton rond bleu-vert</0> en bas à droite pour le lire avec chaque mot cliquable.
+66861bc1 Importer dans Tamkeen : lire cette page avec chaque mot cliquable
+ae19f0e4 Importer dans Tamkeen
+5492bd97 Naviguez dans l'app et appuyez sur le bouton rond bleu-vert sur tout ce que vous voulez lire.
+a4cbde7a Aucun texte lisible n'a été trouvé sur cette page. Essayez « Ouvrir le navigateur web » et appuyez-y sur le bouton rond bleu-vert.
+ee1025a7 Impossible d'ouvrir le navigateur.
+8533d5c3 Le site a répondu par une erreur ({0}). Essayez « Ouvrir le navigateur web » et appuyez-y sur le bouton rond bleu-vert.
+c79f28f8 Importation de la page…
+9f496fb9 Ce qui a été partagé ne contient aucune adresse web : il n'y a rien à importer.
+5cfa7a01 Choisissez d'abord la langue que vous apprenez, puis partagez de nouveau la page avec Tamkeen.
+a87f6706 Importer dans Tamkeen : l'adresse de l'article que vous avez copiée
+c4b42e1e Copiez l'adresse de l'article dans l'autre onglet (ou partagez-le avec Tamkeen depuis cet onglet), puis appuyez de nouveau sur ce bouton.
+732ac1f0 Avec Tamkeen sur votre écran d'accueil, vous pouvez aussi partager l'article directement avec Tamkeen : dans Chrome, appuyez sur ⋮, puis Partager, puis Tamkeen.
+3d26aa46 Ouvrez un site (il s'ouvre dans un nouvel onglet), trouvez un article et copiez son adresse, puis revenez et appuyez sur le bouton rond bleu-vert.

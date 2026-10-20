@@ -1300,8 +1300,8 @@
   "f": "web/js/browser-home.js"
  },
  {
-  "id": "d23485df",
-  "k": "Open a site, find an article, then press <0>Import Page</0> to read it with every word clickable.",
+  "id": "9883dc1b",
+  "k": "Open a site, find an article, then press the <0>round teal button</0> at the bottom right to read it with every word clickable.",
   "f": "web/js/browser-home.js"
  },
  {
@@ -1313,11 +1313,6 @@
   "id": "7e58a747",
   "k": "Tamkeen browser",
   "f": "web/js/browser-home.js"
- },
- {
-  "id": "0292c83e",
-  "k": "Import Page",
-  "f": "web/js/browser-toolbar.js"
  },
  {
   "id": "b52b36b7",
@@ -1335,8 +1330,13 @@
   "f": "web/js/browser-toolbar.js"
  },
  {
-  "id": "d5088cc9",
-  "k": "Save this page to Tamkeen, to read with clickable words",
+  "id": "66861bc1",
+  "k": "Import to Tamkeen: read this page with every word clickable",
+  "f": "web/js/browser-toolbar.js"
+ },
+ {
+  "id": "ae19f0e4",
+  "k": "Import to Tamkeen",
   "f": "web/js/browser-toolbar.js"
  },
  {
@@ -1790,8 +1790,8 @@
   "f": "web/js/components/addsheet.js"
  },
  {
-  "id": "5d382182",
-  "k": "Browse inside the app and press Import Page on anything you want to read.",
+  "id": "5492bd97",
+  "k": "Browse inside the app and press the round teal button on anything you want to read.",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -8105,8 +8105,8 @@
   "f": "web/js/meanings.js"
  },
  {
-  "id": "3f629623",
-  "k": "No readable text was found on that page. Try “Open Web Browser” and use Import Page there.",
+  "id": "a4cbde7a",
+  "k": "No readable text was found on that page. Try “Open Web Browser” and press the round teal button there.",
   "f": "web/js/pageimport.js"
  },
  {
@@ -9877,6 +9877,11 @@
  {
   "id": "aa139f94",
   "k": "Original ↗",
+  "f": "web/js/pages/reader.js"
+ },
+ {
+  "id": "ee1025a7",
+  "k": "Couldn't open the browser.",
   "f": "web/js/pages/reader.js"
  },
  {
@@ -13945,8 +13950,8 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "29245f84",
-  "k": "The site answered with an error ({0}). Try “Open Web Browser” and use Import Page there.",
+  "id": "8533d5c3",
+  "k": "The site answered with an error ({0}). Try “Open Web Browser” and press the round teal button there.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -14940,6 +14945,36 @@
   "f": "mobile/src/js/transcribe-service.js"
  },
  {
+  "id": "c79f28f8",
+  "k": "Importing the page…",
+  "f": "mobile/src/js/web-import.js"
+ },
+ {
+  "id": "d3478410",
+  "k": "Couldn't import that page.",
+  "f": "mobile/src/js/web-import.js"
+ },
+ {
+  "id": "9f496fb9",
+  "k": "What was shared has no web address in it, so there is nothing to import.",
+  "f": "mobile/src/js/web-import.js"
+ },
+ {
+  "id": "5cfa7a01",
+  "k": "Choose the language you're learning first, then share the page to Tamkeen again.",
+  "f": "mobile/src/js/web-import.js"
+ },
+ {
+  "id": "a87f6706",
+  "k": "Import to Tamkeen: the article address you copied",
+  "f": "mobile/src/js/web-import.js"
+ },
+ {
+  "id": "c4b42e1e",
+  "k": "Copy the article's address in the other tab (or share it to Tamkeen from there), then tap this button again.",
+  "f": "mobile/src/js/web-import.js"
+ },
+ {
   "id": "a11dbc0f",
   "k": "(display-mode: standalone)",
   "f": "mobile/src/js/web-install.js"
@@ -15095,8 +15130,13 @@
   "f": "mobile/src/js/web-sites.js"
  },
  {
-  "id": "4c449da1",
-  "k": "Open a site (it opens in a new tab), find an article, copy its address, then come back and paste it here.",
+  "id": "732ac1f0",
+  "k": "With Tamkeen added to your home screen you can also share the article straight to Tamkeen: in Chrome tap ⋮, then Share, then Tamkeen.",
+  "f": "mobile/src/js/web-sites.js"
+ },
+ {
+  "id": "3d26aa46",
+  "k": "Open a site (it opens in a new tab), find an article and copy its address, then come back and tap the round teal button.",
   "f": "mobile/src/js/web-sites.js"
  },
  {
@@ -15117,11 +15157,6 @@
  {
   "id": "263fcf38",
   "k": "Your browser didn't allow pasting from here. Long-press the box and choose Paste.",
-  "f": "mobile/src/js/web-sites.js"
- },
- {
-  "id": "d3478410",
-  "k": "Couldn't import that page.",
   "f": "mobile/src/js/web-sites.js"
  },
  {

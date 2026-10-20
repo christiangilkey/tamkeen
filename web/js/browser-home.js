@@ -376,7 +376,7 @@ export function homeBody(code) {
       <div class="grid" id="saved-grid"></div>
     </section>
     <h2>News in ${esc(name)}</h2>
-    <p class="sub">Open a site, find an article, then press <strong>Import Page</strong> to read it with every word clickable.</p>
+    <p class="sub">Open a site, find an article, then press the <strong>round teal button</strong> at the bottom right to read it with every word clickable.</p>
     <div class="grid">${sites}</div>
     <p class="tip">Looking for something else? Search above, or type a web address in the address box.
     To keep a site on this page, open it and press the star (☆) in the browser's bar.</p>

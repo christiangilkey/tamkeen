@@ -61,6 +61,10 @@ writeFileSync(join(out, "manifest.webmanifest"), JSON.stringify({
   background_color: "#111318",
   theme_color: "#111318",
   icons: (icons.length ? icons : ["icon-64.png"]).map((f) => ({ src: `icons/${f}`, sizes: f.match(/(\d+)/)[1] + "x" + f.match(/(\d+)/)[1], type: "image/png" })),
+  // "Share → Tamkeen": once installed (Android, Chrome), the web app is in the phone's Share menu.
+  // Sharing a page opens ./?share_url=…&share_text=…&share_title=…, which mobile/src/js/web-import.js
+  // imports. (iPhones and computers don't offer web apps in their Share menus.)
+  share_target: { action: "./", method: "GET", params: { title: "share_title", text: "share_text", url: "share_url" } },
 }, null, 2));
 
 // 4. The service worker: the page's own files come from the network when it is reachable
@@ -92,7 +96,7 @@ self.addEventListener("fetch", (e) => {
     const cache = await caches.open(CACHE);
     try {
       const res = await fetch(e.request);
-      if (res.ok) cache.put(e.request, res.clone());
+      if (res.ok && !url.searchParams.has("share_url") && !url.searchParams.has("share_text")) cache.put(e.request, res.clone()); // not each shared page's address
       return res;
     } catch (err) {
       const saved = await cache.match(e.request, { ignoreSearch: true });
