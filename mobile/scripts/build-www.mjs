@@ -34,6 +34,7 @@ const SHARED = [
   "game-art",
   "js/components/langpicker.js",
   "js/definer.js",
+  "js/defsource.js",
   "js/meanings.js",
   "js/components/wordbubble.js",
   "js/components/lookupmode.js",

@@ -1,0 +1,16 @@
+bfb11482	Baixar, {0}
+53b61a2e	Explicar as palavras com
+d0ac5c40	Para todos os idiomas que você estuda. Também em Configurações → Definições de palavras.
+a4e14198	De onde vem este significado. Toque para usar outra fonte
+e07fd6e5	Usar o dicionário (download de {0})
+17306316	Usar o dicionário
+32d8a606	O dicionário embutido explica as palavras que tem; a IA, só o resto
+8a351555	Baixando o dicionário…
+715db231	Adicione uma chave de API nas Configurações
+b12adb12	Dicionário embutido
+54514309	Ainda não há para este idioma
+ccd8641e	Grátis, funciona offline
+99b4ddfa	O significado do dicionário quando ele tem a palavra; {0} para o resto
+33a08a0b	Adicione uma chave de API nas Configurações para as palavras que ele não tem
+f093a8da	Primeiro o dicionário
+1287cc0a	Ainda não há dicionário para este idioma, então {0} explica todas as palavras

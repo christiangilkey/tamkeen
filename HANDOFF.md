@@ -3788,3 +3788,51 @@ the language switching tab up on top bar."
   `C:\Users\chris\Documents\arabic-tts\multilang-shots\`. Launch configs `multilang-desktop` (8994) and
   `multilang-phone` (8995) in ..\.claude\launch.json point at the worktree `..\tamkeen-multilang`; delete with it.
 - Tests: 561 JS, 439 pytest (2 skipped).
+
+## Word popup: the source tag switches the source; "Use the dictionary instead" (2026-10-20; branch `def-source`, NOT merged, NOT pushed)
+Owner (Android YouTube player, "Couldn't reach Claude" on a tapped word): "There should be a source tag on the popup for
+what was used to get the word definition and it should be clickable and switchable to another source such as the
+downloaded library, this selection should be remembered and auto saved on switch."
+- **The tag is always there** (web/js/components/wordbubble.js, all four popups: player incl. video and YouTube,
+  reader/web pages, books, reels): with an answer it names its source as before (`answerSource`); while looking up,
+  after an error, with no key or no dictionary it names the source the setting uses ("AI · Claude Haiku 5.5",
+  "Built-in dictionary", "Dictionary first"). It is now a small button with a chevron.
+- **Tapping it opens a short menu inside the popup** (no browser menu), "Explain words with": one row per AI provider
+  that has a key (its model under it); with no key at all one "AI explanations / Add an API key in Settings" row that
+  opens Settings; "Built-in dictionary" (its dictionaries under it: "Wiktionary", "Wiktionary + CAMeL Arabic", "Wolff's
+  dictionary + Wiktionary"); "Dictionary first, AI when it has nothing" (only with a key, or while it is the setting).
+  A dictionary not on this device shows a purple "Download, 7 MB" pill; choosing it downloads it right there (as
+  choosing it in Settings does) and then switches. Footer: "For every language you study. Also in Settings → Word
+  definitions."
+- **Choosing saves at once** (no Save button; "✓ Saved" beside the tag for 2 s) into the same settings Settings →
+  Word definitions uses: `definer_mode` ("ai" / "dictionary" / "dictionary_first") and, for an AI row,
+  `definer_provider`. The word is looked up again with the new source; switching to a different AI than the one
+  whose answer is shown asks afresh (kept answers aren't kept per AI).
+- **"Use the dictionary instead"** next to Try again after an AI failure, and next to "Set up definitions" with no key,
+  only while the setting is AI alone (with Dictionary first the dictionary was already asked). It saves **Dictionary
+  first**, not No AI, so a key that works again still covers the words the dictionary lacks and the Mnemonic maker
+  stays on; it shows "(7 MB download)" when the dictionary isn't here and downloads it first.
+- **Per language**: the setting is one for all study languages (as in Settings); only "is this language's dictionary
+  here" is per language (asked with `meaningsStatus(lang)` when the menu opens or an error shows). All 13 languages
+  have a dictionary; a language without one would show only AI rows (the dictionary rows marked "None for this
+  language yet" if one is the setting).
+- **Not synced between devices**: Tamkeen's settings are per device (only AI keys, the creature, followed channels,
+  saved sites and reel collections travel by Drive sync), so this choice is remembered on the device where it is made,
+  like Settings → Word definitions itself. Syncing definer_mode would be a change to both sync engines.
+- Code: new `web/js/defsource.js` (pure: `sourceChoices`, `settingsFor`, `switchSource`, `askAfresh`, `tagLabel`,
+  `offerDictionary`, `dictionaryNames`; added to build-www.mjs SHARED); wordbubble.js (tag, menu, `choose`); styles
+  `.wb-src`, `.wb-srcmenu`, `.wb-srcopt*`, `.wb-saved` in web/css/app.css. No Python change (PATCH /api/settings
+  already takes the three modes and the provider). Tests: tests/js/defsource.test.mjs (13). Translations:
+  tools/i18n/tr/<code>/45-source-menu.txt (12 languages).
+- **After main made Dictionary first the default** (merged in): the menu reads the mode through definerModeOf, so an
+  unset setting shows Dictionary first ticked; that row carries the same "Recommended" badge as Settings; in a
+  language without a dictionary it says the AI explains every word. "Use the dictionary instead" now shows only for
+  people who chose AI.
+- Tested with a made-up key and the AI's failure faked inside the page (no request reached a provider), at
+  "Mañana"/"playa" in an imported Spanish page: the desktop server (launch config `defsource-desktop`, fresh data
+  folder, never signed in), the phone build (`defsource-phone`, mobile/www at 375 px) and the web app build
+  (`defsource-webapp`, docs/app copy at 375 px, direct-to-provider header present): error shows the tag and "Use the
+  dictionary instead"; the menu lists Claude / Built-in dictionary / Dictionary first; switching saves (Settings shows
+  it, a reload keeps it), the dictionary downloads in the popup in 2-3 s; Spanish interface translates the menu.
+  docs/app was built for testing and put back (not committed). Not tried on a real phone; the reel popup was not
+  opened (needs Instagram), it is the same popup.
