@@ -14115,13 +14115,23 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "6ed09657",
-  "k": "Signed in to Friends.",
+  "id": "46729ba2",
+  "k": "Couldn't sign in to Friends.",
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "46729ba2",
-  "k": "Couldn't sign in to Friends.",
+  "id": "ecc1d2f5",
+  "k": "Signed in as {0}",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "aeca5e33",
+  "k": "Signed in.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "c16765d3",
+  "k": "Syncing needs Tamkeen's private Drive folder: sign in again and leave that box ticked.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -14687,11 +14697,6 @@
  {
   "id": "485bef4c",
   "k": "Sign-in works in the installed app.",
-  "f": "mobile/src/js/pages/settings.js"
- },
- {
-  "id": "ecc1d2f5",
-  "k": "Signed in as {0}",
   "f": "mobile/src/js/pages/settings.js"
  },
  {

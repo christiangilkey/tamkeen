@@ -1,0 +1,2 @@
+aeca5e33 Accesso effettuato.
+c16765d3 La sincronizzazione ha bisogno della cartella privata di Tamkeen su Drive: accedi di nuovo e lascia spuntata quella casella.

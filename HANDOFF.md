@@ -4005,3 +4005,20 @@ badge, XP today, now the flame, and the favourite creature.
   New York / Manila / across a clock change, `streakNow` across zones). JS 566 pass, pytest 415 pass (2 skipped).
 - Translations: `tools/i18n/tr/<code>/43-flame-streak.txt` (36 strings, 12 languages); ignore.txt has the select
   string `{0}, streak, streak_until`.
+
+## Web app: one Google sign-in for Drive sync and Friends (2026-10-20; committed, not pushed)
+Owner: "when I sign in on one part of the webapp it doesn't carry over to the other sign ins ... My users should
+only need to sign in one time". The web app had three Google sign-ins: Drive (a GIS token pop-up, Settings →
+Google account), Friends (a trip to Google's page for an ID token → Supabase) and Google Tasks (a pop-up, on use).
+The computer (POST /sync/id-token) and the phones (GoogleDriveAuth.getIdToken) already reuse their one sign-in.
+- Now both web buttons (Settings → "Sign in with Google" = drive.js signIn on the web; Friends / Settings' Friends
+  card = social.connect → webIdToken) go to Google's page once with `response_type=id_token token`, scope
+  `openid email drive.appdata`, include_granted_scopes (mobile/src/js/app.js goToGoogleSignIn). With a known
+  address it passes login_hint and no account picker (a quick hop for someone signed in to one of them already).
+- On the way back finishWebSignIn keeps the Drive pass (drive.js useWebToken; only if the Drive box was left ticked:
+  `scope` in the answer), sets signed_in/google_email (from the ID token, idTokenEmail), starts a sync, and signs in
+  to Friends with the ID token. One "Signed in as …".
+- Unchanged: the hourly Drive renewal (Reconnect pop-up), and Google Tasks' one-time "allow" when first used.
+- Checked: a faked answer from Google in the web app (Drive pass kept, address read, back to the page it came from;
+  Supabase rightly refused the fake ID token), and Google's page accepts the combined request for the web client
+  and the live redirect address. Not checked: a real sign-in (needs the owner's account).

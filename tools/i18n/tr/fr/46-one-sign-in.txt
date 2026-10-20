@@ -1,0 +1,2 @@
+aeca5e33 Connecté.
+c16765d3 La synchronisation a besoin du dossier Drive privé de Tamkeen : reconnectez-vous et laissez cette case cochée.

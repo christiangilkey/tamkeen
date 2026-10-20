@@ -1,0 +1,2 @@
+aeca5e33 Naka-sign in na.
+c16765d3 Kailangan ng sync ang pribadong Drive folder ng Tamkeen: mag-sign in ulit at iwanang naka-tsek ang kahong iyon.

@@ -203,3 +203,5 @@ b748c6fc
 497852e2
 4cd98fc8
 abe53f56  # {0}, streak, streak_until  (database columns)
+# Not interface: the Google sign-in scope list (mobile/src/js/app.js goToGoogleSignIn).
+2d159cc9

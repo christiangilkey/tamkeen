@@ -1,0 +1,2 @@
+aeca5e33 Sessão iniciada.
+c16765d3 A sincronização precisa da pasta privada do Tamkeen no Drive: entre de novo e deixe essa caixa marcada.
