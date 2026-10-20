@@ -3201,9 +3201,15 @@ what really followed, plus how much the number moves per answer beyond the time 
   and goal chips apply to the card on the table at once and are saved; the clock and the bar stop while the page
   is hidden (simulated `visibilitychange`), a card shown 6.2 s with 5 s hidden was logged as 1.2 s; end screen;
   Arabic interface (RTL bar, translated settings and tooltip); no console errors. 519 JS tests, 388 pytest pass.
+- **All versions**: one shared reviewer (web/js/pages/review.js, review/*.js, web/css/review.css) used by the desktop,
+  Android, iPhone and web app; no phone-only copy is involved (mobile/src settings.js, backend.js, app.js and
+  mobile.css have no reviewer code; the /reviews routes are unchanged). Also checked on the desktop server from the
+  worktree (launch config `timers-desktop`, port 8979, fresh data folder in that chat's scratchpad, never signed in):
+  timers, settings, and a card shown 6.2 s with 5 s hidden saved to /api/reviews as 1.1 s. iPhone not run (no device
+  here; nothing iPhone-specific in the code).
 - NOT checked: the real desktop window (whether WebView2 reports a minimised window as hidden), a real phone,
   a screen reader. The chips "10 s"… keep the English "s" (no letters to translate).
-- `docs/app` was NOT rebuilt in the commit (rebuild at release). Launch configs `timers-phone` (8977) and
+- `docs/app` was NOT rebuilt in the commit (rebuild at release). Launch configs `timers-desktop` (8979), `timers-phone` (8977) and
   `timers-webapp` (8978) in the parent `.claude/launch.json` point at the worktree: delete them with it. The
   worktree needed `mobile/node_modules` to build; a junction to the main checkout's was used and removed again.
 - Translations: `tools/i18n/tr/<code>/37-review-timers.txt` (11 strings); `ignore.txt` + the bar's CSS animation.
