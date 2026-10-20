@@ -3925,8 +3925,48 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "95157fd3",
-  "k": "Where this meaning comes from",
+  "id": "c0ae8f6e",
+  "k": "Saved",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "bfb11482",
+  "k": "Download, {0}",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "53b61a2e",
+  "k": "Explain words with",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "d0ac5c40",
+  "k": "For every language you study. Also in Settings → Word definitions.",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "a4e14198",
+  "k": "Where this meaning comes from. Tap to use another source",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "e07fd6e5",
+  "k": "Use the dictionary instead ({0} download)",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "17306316",
+  "k": "Use the dictionary instead",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "32d8a606",
+  "k": "The built-in dictionary explains the words it has; the AI only the rest",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "8a351555",
+  "k": "Downloading the dictionary…",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -4027,11 +4067,6 @@
  {
   "id": "2e026239",
   "k": "Continue",
-  "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "c0ae8f6e",
-  "k": "Saved",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -4233,6 +4268,46 @@
   "id": "bfb83732",
   "k": "No API key set. Add one in Settings → Word definitions.",
   "f": "web/js/definer.js"
+ },
+ {
+  "id": "796a0595",
+  "k": "AI explanations",
+  "f": "web/js/defsource.js"
+ },
+ {
+  "id": "715db231",
+  "k": "Add an API key in Settings",
+  "f": "web/js/defsource.js"
+ },
+ {
+  "id": "b12adb12",
+  "k": "Built-in dictionary",
+  "f": "web/js/defsource.js"
+ },
+ {
+  "id": "54514309",
+  "k": "None for this language yet",
+  "f": "web/js/defsource.js"
+ },
+ {
+  "id": "ccd8641e",
+  "k": "Free, works offline",
+  "f": "web/js/defsource.js"
+ },
+ {
+  "id": "99b4ddfa",
+  "k": "The dictionary's meaning when it has the word, {0} for the rest",
+  "f": "web/js/defsource.js"
+ },
+ {
+  "id": "33a08a0b",
+  "k": "Add an API key in Settings for the words it doesn't have",
+  "f": "web/js/defsource.js"
+ },
+ {
+  "id": "f093a8da",
+  "k": "Dictionary first",
+  "f": "web/js/defsource.js"
  },
  {
   "id": "6eb49351",

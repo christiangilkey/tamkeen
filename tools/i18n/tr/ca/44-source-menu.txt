@@ -1,0 +1,15 @@
+bfb11482	Baixa, {0}
+53b61a2e	Explica les paraules amb
+d0ac5c40	Per a tots els idiomes que estudies. També a Configuració → Definicions de paraules.
+a4e14198	D'on ve aquest significat. Toca per fer servir una altra font
+e07fd6e5	Fes servir el diccionari (baixada de {0})
+17306316	Fes servir el diccionari
+32d8a606	El diccionari integrat explica les paraules que té; la IA, només la resta
+8a351555	S'està baixant el diccionari…
+715db231	Afegeix una clau d'API a Configuració
+b12adb12	Diccionari integrat
+54514309	Encara no n'hi ha per a aquest idioma
+ccd8641e	Gratuït, funciona sense connexió
+99b4ddfa	El significat del diccionari quan té la paraula; {0} per a la resta
+33a08a0b	Afegeix una clau d'API a Configuració per a les paraules que no té
+f093a8da	Primer el diccionari

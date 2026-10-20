@@ -468,9 +468,29 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .wb-chip { font-size: 12px; padding: 1px 8px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }
 .wb-chip .ar { font-size: 14px; }
 /* where the meaning came from (Wiktionary, AI · model): one small muted line at the end of the popup */
-.wb-source { margin-top: 6px; }
-.wb-src { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top;
-  font-size: 11px; line-height: 16px; padding: 0 7px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }
+.wb-source { margin-top: 6px; display: flex; align-items: center; gap: 8px; min-width: 0; }
+/* the tag is a button: it opens the menu of sources (defsource.js) */
+button.wb-src { display: inline-flex; align-items: center; gap: 3px; max-width: 100%; min-width: 0; min-height: 0; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap; font-size: 11px; line-height: 18px; padding: 0 6px 0 8px; border-radius: 99px;
+  border: 1px solid var(--border); background: var(--surface-2); color: var(--muted); cursor: pointer; }
+button.wb-src:hover:not(:disabled) { background: var(--surface-2); color: var(--text); border-color: var(--accent); }
+button.wb-src .ic { flex: none; transform: rotate(90deg); transition: transform .12s; }
+button.wb-src[aria-expanded="true"] { color: var(--accent); border-color: var(--accent); }
+button.wb-src[aria-expanded="true"] .ic { transform: rotate(-90deg); }
+.wb-saved { display: inline-flex; align-items: center; gap: 3px; font-size: 12px; font-weight: 600; color: var(--accent); }
+.wb-srcmenu { margin-top: 6px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); padding: 4px; overflow: hidden; }
+.wb-srcmenu-title { font-size: 12px; font-weight: 600; color: var(--muted); padding: 4px 8px 2px; }
+button.wb-srcopt { display: flex; width: 100%; min-width: 0; align-items: center; gap: 8px; text-align: start; justify-content: flex-start;
+  padding: 7px 8px; border: 0; border-radius: 8px; background: transparent; white-space: normal; overflow-wrap: anywhere; }
+button.wb-srcopt.on { background: var(--accent-soft); }
+button.wb-srcopt.on:hover:not(:disabled) { background: var(--accent-soft); }
+.wb-srcopt-mark { flex: none; width: 16px; height: 16px; display: grid; place-items: center; color: var(--accent); }
+.wb-srcopt-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.wb-srcopt-name { font-size: 14px; font-weight: 600; line-height: 1.3; }
+.wb-srcopt-detail { font-size: 12px; color: var(--muted); line-height: 1.35; }
+.wb-srcopt-dl { flex: none; font-size: 12px; font-weight: 600; color: var(--new-word); padding: 1px 8px; border-radius: 99px; border: 1px solid currentColor; }
+.reelplay .wb-srcopt-dl { color: #eaa6e4; } /* the reel player is always dark */
+.wb-srcmenu-foot { font-size: 11px; color: var(--muted); padding: 4px 8px 4px; border-top: 1px solid var(--border); margin-top: 4px; }
 .wb-row { margin: 3px 0; }
 .wb-row .ar { font-family: var(--ar-font); font-size: 18px; }
 .wb-label { display: inline-block; min-width: 108px; font-size: 12px; color: var(--muted); }

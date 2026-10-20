@@ -1,0 +1,15 @@
+bfb11482	Scarica, {0}
+53b61a2e	Spiega le parole con
+d0ac5c40	Per tutte le lingue che studi. Anche in Impostazioni → Definizioni delle parole.
+a4e14198	Da dove viene questo significato. Tocca per usare un'altra fonte
+e07fd6e5	Usa il dizionario (download di {0})
+17306316	Usa il dizionario
+32d8a606	Il dizionario integrato spiega le parole che ha; l'IA solo il resto
+8a351555	Download del dizionario…
+715db231	Aggiungi una chiave API in Impostazioni
+b12adb12	Dizionario integrato
+54514309	Non ancora per questa lingua
+ccd8641e	Gratis, funziona offline
+99b4ddfa	Il significato del dizionario quando ha la parola, {0} per il resto
+33a08a0b	Aggiungi una chiave API in Impostazioni per le parole che non ha
+f093a8da	Prima il dizionario

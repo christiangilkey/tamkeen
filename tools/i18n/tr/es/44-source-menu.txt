@@ -1,0 +1,15 @@
+bfb11482	Descargar, {0}
+53b61a2e	Explicar las palabras con
+d0ac5c40	Para todos los idiomas que estudias. También en Ajustes → Definiciones de palabras.
+a4e14198	De dónde viene este significado. Toca para usar otra fuente
+e07fd6e5	Usar el diccionario (descarga de {0})
+17306316	Usar el diccionario
+32d8a606	El diccionario integrado explica las palabras que tiene; la IA, solo el resto
+8a351555	Descargando el diccionario…
+715db231	Añade una clave de API en Ajustes
+b12adb12	Diccionario integrado
+54514309	Aún no hay para este idioma
+ccd8641e	Gratis, funciona sin conexión
+99b4ddfa	El significado del diccionario cuando tiene la palabra; {0} para el resto
+33a08a0b	Añade una clave de API en Ajustes para las palabras que no tiene
+f093a8da	Primero el diccionario

@@ -1,0 +1,15 @@
+bfb11482	Télécharger, {0}
+53b61a2e	Expliquer les mots avec
+d0ac5c40	Pour toutes les langues que vous étudiez. Aussi dans Réglages → Définitions des mots.
+a4e14198	D'où vient ce sens. Touchez pour utiliser une autre source
+e07fd6e5	Utiliser le dictionnaire (téléchargement de {0})
+17306316	Utiliser le dictionnaire
+32d8a606	Le dictionnaire intégré explique les mots qu'il connaît ; l'IA seulement le reste
+8a351555	Téléchargement du dictionnaire…
+715db231	Ajoutez une clé d'API dans Réglages
+b12adb12	Dictionnaire intégré
+54514309	Pas encore pour cette langue
+ccd8641e	Gratuit, fonctionne hors ligne
+99b4ddfa	Le sens du dictionnaire quand il a le mot, {0} pour le reste
+33a08a0b	Ajoutez une clé d'API dans Réglages pour les mots qu'il n'a pas
+f093a8da	D'abord le dictionnaire

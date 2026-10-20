@@ -1,0 +1,15 @@
+bfb11482	I-download, {0}
+53b61a2e	Ipasabot ang mga pulong gamit ang
+d0ac5c40	Para sa tanang pinulongan nga imong gitun-an. Anaa usab sa Settings → Kahulogan sa pulong.
+a4e14198	Diin gikan kining kahulogan. I-tap aron mogamit og laing source
+e07fd6e5	Gamita na lang ang diksyonaryo (i-download ang {0})
+17306316	Gamita na lang ang diksyonaryo
+32d8a606	Ang built-in nga diksyonaryo ang mopasabot sa mga pulong nga anaa niini; ang AI, ang uban lang
+8a351555	Gi-download ang diksyonaryo…
+715db231	Pagdugang og API key sa Settings
+b12adb12	Built-in nga diksyonaryo
+54514309	Wala pa para niining pinulongan
+ccd8641e	Libre, mogana bisan offline
+99b4ddfa	Ang kahulogan sa diksyonaryo kung anaa niini ang pulong, {0} para sa uban
+33a08a0b	Pagdugang og API key sa Settings para sa mga pulong nga wala niini
+f093a8da	Diksyonaryo una

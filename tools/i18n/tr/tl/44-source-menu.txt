@@ -1,0 +1,15 @@
+bfb11482	I-download, {0}
+53b61a2e	Ipaliwanag ang mga salita gamit ang
+d0ac5c40	Para sa lahat ng wikang pinag-aaralan mo. Nasa Settings → Kahulugan ng mga salita din.
+a4e14198	Kung saan galing ang kahulugang ito. I-tap para gumamit ng ibang source
+e07fd6e5	Gamitin na lang ang diksyunaryo (i-download ang {0})
+17306316	Gamitin na lang ang diksyunaryo
+32d8a606	Ang built-in na diksyunaryo ang nagpapaliwanag ng mga salitang mayroon ito; ang AI, ang iba lang
+8a351555	Dina-download ang diksyunaryo…
+715db231	Magdagdag ng API key sa Settings
+b12adb12	Built-in na diksyunaryo
+54514309	Wala pa para sa wikang ito
+ccd8641e	Libre, gumagana kahit offline
+99b4ddfa	Ang kahulugan ng diksyunaryo kapag nasa kanya ang salita, {0} para sa iba
+33a08a0b	Magdagdag ng API key sa Settings para sa mga salitang wala rito
+f093a8da	Diksyunaryo muna
