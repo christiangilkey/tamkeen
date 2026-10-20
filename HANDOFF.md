@@ -3159,3 +3159,40 @@ transcription option in settings and explain why." Today that is Bisaya (ceb).
 - The rest of the notes went to five parallel sessions on their own branches: review timers + time estimate
   (review-timers), dictionary-first + source tags (dict-first), Bisaya dictionaries (cebuano-dicts), Spanish
   word forms (spanish-forms), reel player + correction pill + Word/Sentence icons (reel-player-pill).
+
+### Tamkeen's player inside Onyx Calendar: /embed, --background, one Tamkeen at a time (2026-10-19, the tamkeen:// side chat of the Onyx Calendar chat; committed locally, NOT pushed, NOT released)
+The owner, for Onyx's News panel with its Tamkeen switch on: "When Tamkeen is enabled I would like just this section of
+the app to be shown in the panel instead of opening in tamkeen. it should only open here, only when the tamkeen button is
+enabled". "This section" = the YouTube player with the clickable captions under it. Onyx builds its side against this
+contract (README, "Showing Tamkeen's player inside another app"); first release after v0.32.0.
+- **`GET /embed?v=<id>&t=<s>`** (main.py) serves index.html; `bootEmbed` in web/js/app.js (`EMBED` = path is `/embed`)
+  puts class `embed` on `<html>`, loads `web/css/embed.css`, checks the id and that the first run is done, says
+  "Getting captions…", `getVideo` (library copy or added, as Open YouTube), then routes to the player. Only
+  `#/episode/<n>` routes render in embed mode. Errors show as a centred message ("No captions available for this
+  video.", "That isn't a YouTube video.", "Open Tamkeen once and choose the language…"). Framed, it posts
+  `{source: "tamkeen", event: "ready"|"error", title|error}` to its parent. The embed page ignores
+  `youtube_watch`, `youtube_find`, `app_link` and finished-transcription toasts (they belong to the app's window).
+- **Layout (embed.css)**: no top bar, banner, player head or transcript panel; video 16:9 at the top, captions
+  under it, play controls at the bottom; a tapped word's popup docks between captions and controls (player.js:
+  `phone` is false in embed mode, so the popup is "docked" in `.yt-col`, not put in the hidden transcript panel).
+  `offerDictionaries` (lexicon/seen.js) never shows in embed mode. Not handled: "Set up definitions" in the popup
+  (no AI key) leads nowhere there, since Settings isn't shown.
+- **`GET /api/app/info`** → `{"app": "Tamkeen", "version", "embed": 1}` (no secret; read-only).
+- **`--background`** (run.py → `desktop.run(background=True)`): the window is created hidden with an empty page;
+  `show_main` (the `applink.on_link` callback) loads the app's page the first time it is asked for, then
+  `bring_forward`. `_quit_when_unused`: while never shown, it closes the app after `BACKGROUND_IDLE` (600 s) with
+  no `/api/events` client (= no /embed page, since the hidden window has no page). With a link, background is off.
+- **One Tamkeen at a time**: a plain launch (not `--server`, `--browser`, `--port` or `--smoke-test`) now calls
+  `applink.hand_off("", show=...)`: POST /api/app/open-link `{url: "", show}` with the secret brings the running
+  window forward (or, `show` false for `--background`, only confirms it runs) and the new process exits 0.
+  Before, a second launch opened a second copy on the same library. Stale instance.json = start normally;
+  `remove_instance` now runs first on exit, so a launch during shutdown doesn't hand over to a closing app.
+  The updater waits for the old pid to exit before starting the new exe, so it isn't affected.
+- **Tested**: tests/test_applink.py (51, 9 new: plain/background hand-off, server/browser runs never hand off,
+  `/api/app/info`, `/embed`, the idle close and staying while an embed is open or once shown). 403 pytest, 514 JS
+  pass. Preview (`tamkeen-embed` launch config, 380x720): embed layout, word popup docked, start at `t`, the
+  no-captions and bad-id messages, postMessage ready/error from an iframe, playback inside an iframe (duration
+  and captions advanced; the pane can't screenshot YouTube inside a frame). **Real desktop window from source,
+  throwaway library**: `--background` answered in 2 s with the window hidden; a second `--background` exited 0 in
+  0.8 s; a plain launch exited 0 in 0.7 s and the hidden window appeared with the app; a tamkeen:// link then
+  opened in it. **NOT tested**: the packaged exe, Onyx's real panel, the 10-minute idle close in a real run.

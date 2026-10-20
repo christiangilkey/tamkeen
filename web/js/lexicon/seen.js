@@ -217,6 +217,8 @@ let offerShown = null; // {lang, close} while the offer is on screen
  */
 export async function offerDictionaries(lang, force = false) {
   if (!usesDictionaries(lang) || offering || (!force && declined(lang))) return;
+  if (document.documentElement.classList.contains("embed")) return; // the player shown inside another app
+
   let st;
   try { st = await lexiconStatus(lang); } catch { return; }
   if (st.installed || offering) return;

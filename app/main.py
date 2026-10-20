@@ -97,6 +97,12 @@ def create_app(start_worker: bool = True) -> FastAPI:
     def index() -> FileResponse:
         return FileResponse(web / "index.html", headers={"Cache-Control": "no-cache"})
 
+    @app.get("/embed", include_in_schema=False)
+    def embed() -> FileResponse:
+        """Only the player for one video, for another app to show (/embed?v=<id>&t=<s>; the page
+        sees the address and leaves out everything else, web/js/app.js). See app/applink.py."""
+        return FileResponse(web / "index.html", headers={"Cache-Control": "no-cache"})
+
     app.mount("/", NoCacheStaticFiles(directory=web), name="web")
     return app
 

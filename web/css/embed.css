@@ -1,0 +1,35 @@
+/* /embed: only one video's player and its clickable captions, inside another app's narrow panel
+   (Onyx Calendar's News panel, about 380 px wide). Loaded by bootEmbed in web/js/app.js, which
+   also puts the class "embed" on <html>. The video keeps its 16:9 shape at the top, the captions
+   sit under it, then the play controls; the rest of the app is not shown. */
+html.embed .topbar,
+html.embed #banner,
+html.embed .player-head,
+html.embed .player .transcript-wrap,
+html.embed .player .panel-handle,
+html.embed .lex-offer-back { display: none !important; }
+
+html.embed body { background: #000; }
+html.embed #view { overflow: hidden; }
+html.embed .player { height: 100%; background: #000; }
+html.embed .player.yt .stage { flex-direction: column; justify-content: flex-start; }
+html.embed .player.yt .yt-col { flex: none; }
+html.embed .player.yt .screen { flex: 0 1 auto; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; }
+/* The captions right under the video; a tapped word's popup opens in the black space below them
+   (player.js docks it between the captions and the play controls, as on a phone). */
+html.embed .player.yt .captions {
+  flex: none;
+  font-size: clamp(18px, calc(var(--ar-size) * .85), 30px);
+  padding: .5em .8em;
+}
+html.embed .player.yt .stage { flex: 1 1 auto; min-height: 0; background: #000; }
+html.embed .player .controls { background: var(--surface); }
+
+/* "Getting captions…", "No captions available for this video." and the like. */
+html.embed .embed-note {
+  height: 100%; display: flex; align-items: center; justify-content: center;
+  padding: 24px; box-sizing: border-box; text-align: center;
+  color: #e8e8e8; font-size: 15px; line-height: 1.5;
+}
+html.embed .embed-note.error p { color: #ffb4a8; }
+html.embed #toasts { left: 8px; right: 8px; bottom: 8px; }

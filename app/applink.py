@@ -156,15 +156,16 @@ def _allow_foreground(pid: int) -> None:
         pass
 
 
-def hand_off(url: str, timeout: float = HAND_OFF_TIMEOUT) -> bool:
+def hand_off(url: str, timeout: float = HAND_OFF_TIMEOUT, show: bool = True) -> bool:
     """Give the link to the Tamkeen that is already running. True if it took it (this process
-    can then exit); False if none is running (start normally)."""
+    can then exit); False if none is running (start normally). With no link (`url` ""), it only
+    brings that Tamkeen's window forward, or with `show` False just checks it is running."""
     info = read_instance()
     if info is None:
         return False
     _allow_foreground(info["pid"])
     try:
-        resp = httpx.post(f"http://127.0.0.1:{info['port']}/api/app/open-link", json={"url": url},
+        resp = httpx.post(f"http://127.0.0.1:{info['port']}/api/app/open-link", json={"url": url, "show": show},
                           headers={TOKEN_HEADER: info["token"]}, timeout=timeout)
     except httpx.HTTPError as exc:
         log.info("No running %s answered (%s); starting normally.", APP_NAME, exc.__class__.__name__)

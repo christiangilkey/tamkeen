@@ -5,6 +5,9 @@
     python run.py --server --port 8790   # server only (development)
     python run.py --smoke-test # headless self-test (used by CI on packaged builds)
     python run.py "tamkeen://watch?v=<id>"   # open a YouTube video (how other apps ask; see app/applink.py)
+    python run.py --background # start with the window hidden (for apps showing the player from /embed)
+
+Only one Tamkeen runs at a time: a second launch hands over to the one already running.
 """
 
 from __future__ import annotations
@@ -22,17 +25,23 @@ def main() -> int:
     parser.add_argument("--port", type=int, default=None, help="fixed port (default: a free one)")
     parser.add_argument("--smoke-test", action="store_true", help="run a headless self-test and exit")
     parser.add_argument("--smoke-audio", default=None, help="audio file for the smoke test")
+    parser.add_argument("--background", action="store_true",
+                        help="start with the window hidden (another app shows the player from /embed)")
     parser.add_argument("link", nargs="?", default=None, help="a tamkeen://watch?v=<id> link to open")
     args = parser.parse_args()
 
     link = None
-    if args.link:
+    # The usual app window (not a server, browser or test run): only one runs at a time.
+    single = not (args.server or args.browser or args.port or args.smoke_test)
+    if args.link or single:
         from app import applink
 
-        if applink.is_link(args.link):  # anything else is ignored: the app just starts
+        if args.link and applink.is_link(args.link):  # anything else is ignored: the app just starts
             link = args.link
             if applink.hand_off(link):
                 return 0  # Tamkeen was already running and has the link: no second window
+        elif single and applink.hand_off("", show=not args.background):
+            return 0  # already running: its window came forward (or, --background, nothing to do)
 
     if args.smoke_test:
         from app.smoke import run_smoke_test
@@ -51,7 +60,7 @@ def main() -> int:
 
     from app.desktop import run
 
-    run(browser=args.browser, port=args.port, headless=args.server, link=link)
+    run(browser=args.browser, port=args.port, headless=args.server, link=link, background=args.background)
     return 0
 
 

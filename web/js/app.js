@@ -124,7 +124,13 @@ function notify(title, body, url) {
   } catch { /* unsupported in this webview */ }
 }
 
+/** Showing only the player for one video, inside another app (/embed?v=<id>&t=<s>: Onyx Calendar's
+ * News panel; see bootEmbed and app/applink.py). Nothing else of the app is shown, and messages
+ * meant for the app's own window (finished transcriptions, links, the YouTube window) are left to it. */
+export const EMBED = location.pathname === "/embed";
+
 on("episode", (e) => {
+  if (EMBED) return;
   if (e.status === "done" && e.title) {
     toast(`Transcription finished: ${e.title}`, { action: { label: "Open", run: () => (location.hash = `#/episode/${e.id}`) } });
     notify("Transcription finished", e.title, `#/episode/${e.id}`);
@@ -223,6 +229,7 @@ export async function openYouTube(address = "") {
 // A video was tapped in the YouTube window: add it, show it, and tell the window how it went
 // (it is waiting, to say "No captions available" or to step aside).
 on("youtube_watch", async ({ token, video_id, at }) => {
+  if (EMBED) return;
   let result;
   try {
     // `at`: the moment that came with the video (a caption search result's; see filmot.js).
@@ -238,6 +245,7 @@ on("youtube_watch", async ({ token, video_id, at }) => {
 // "Find in a video": the Filmot results page in the browser window listed these videos, top first;
 // keep the first whose captions say the word (see filmot.js), and tell the window how it went.
 on("youtube_find", async ({ token, candidates }) => {
+  if (EMBED) return;
   let result;
   try {
     const { findFromResults } = await import("./filmot.js");
@@ -252,7 +260,7 @@ on("youtube_find", async ({ token, candidates }) => {
 // server keeps them until this page asks, once it has loaded and whenever "app_link" says one came.
 let openingLinks = false;
 async function openLinks() {
-  if (openingLinks) return;
+  if (openingLinks || EMBED) return;
   openingLinks = true;
   try {
     const { links } = await api("/app/pending-links", { method: "POST" });
@@ -398,6 +406,7 @@ function parseHash() {
 
 async function route() {
   const { path, query } = parseHash();
+  if (EMBED && !/^episode\/\d+$/.test(path)) return; // only the player, never the rest of the app
   if (cleanup) { try { cleanup(); } catch (e) { console.error(e); } cleanup = null; }
   hideMenu();
   const view = document.getElementById("view");
@@ -478,8 +487,58 @@ document.getElementById("global-search").addEventListener("submit", (e) => {
   if (q) location.hash = `#/search?q=${encodeURIComponent(q)}`;
 });
 
+/** /embed?v=<11-character id>[&t=<seconds>]: just this video's player and clickable captions, for
+ * another app to show (embed.css lays it out for a narrow panel). The video is opened the way
+ * "Open YouTube" opens one (the library's copy, or added). The host page is told how it went:
+ * postMessage({source: "tamkeen", event: "ready" | "error", title | error}), when it is framed. */
+async function bootEmbed() {
+  const root = document.documentElement;
+  root.classList.add("embed");
+  const css = document.createElement("link");
+  css.rel = "stylesheet";
+  css.href = "/css/embed.css";
+  document.head.append(css);
+  const view = document.getElementById("view");
+  const tell = (event, extra) => {
+    try { if (window.parent !== window) window.parent.postMessage({ source: "tamkeen", event, ...extra }, "*"); } catch { /* not framed */ }
+  };
+  const say = (message, error = false) => {
+    view.innerHTML = `<div class="embed-note${error ? " error" : ""}"><p></p></div>`;
+    view.querySelector("p").textContent = message;
+    if (error) tell("error", { error: message });
+  };
+  const q = new URLSearchParams(location.search);
+  const id = q.get("v") || "";
+  const t = (q.get("t") || "").trim();
+  const at = /^[0-9]+(\.[0-9]+)?$/.test(t) && Number(t) < 1e6 ? Number(t) : 0;
+  let s;
+  try {
+    s = await loadStatus();
+    await startTranslating(s.settings.ui_language);
+  } catch (e) {
+    return say(e.message || "Tamkeen isn't answering.", true);
+  }
+  if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return say("That isn't a YouTube video.", true);
+  if (!s.settings.welcome_seen || !s.settings.study_language) {
+    return say("Open Tamkeen once and choose the language you're learning, then try again.", true);
+  }
+  say("Getting captions…");
+  let ep;
+  try {
+    const { getVideo } = await import("./youtube.js");
+    ep = await getVideo(id);
+  } catch (e) {
+    return say(e.message || "Couldn't open this video.", true); // e.g. "No captions available for this video."
+  }
+  history.replaceState(null, "", `${location.pathname}${location.search}#/episode/${ep.id}${at > 0 ? `?t=${at}` : ""}`);
+  window.addEventListener("hashchange", route);
+  await route();
+  tell("ready", { title: ep.title || "" });
+}
+
 async function boot() {
   connectEvents();
+  if (EMBED) return bootEmbed();
   try {
     const s = await loadStatus();
     await startTranslating(s.settings.ui_language); // the app's own words in the user's language

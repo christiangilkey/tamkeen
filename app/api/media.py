@@ -8,7 +8,7 @@ from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
 
 from .. import applink, charts, db, events, pages, sync, youtube
-from ..version import APP_NAME
+from ..version import APP_NAME, __version__
 
 router = APIRouter(tags=["media"])
 
@@ -89,6 +89,7 @@ def watch_result(body: WatchResult) -> dict[str, bool]:
 
 class LinkIn(BaseModel):
     url: str = ""
+    show: bool = True  # with no url: bring the window forward (a plain second launch), or not (--background)
 
 
 @router.post("/app/open-link")
@@ -97,12 +98,23 @@ def open_link(body: LinkIn, x_tamkeen_token: str | None = Header(default=None)) 
     to this one. Only with this run's secret, in the X-Tamkeen-Token header."""
     if not applink.token_ok(x_tamkeen_token):
         raise HTTPException(403, "Not allowed.")
+    if not body.url:  # a second launch without a link: this one carries on instead
+        if body.show:
+            applink.show()
+        return {"ok": True, "app": APP_NAME}
     link = applink.parse(body.url)
     if link is None:
         applink.show()
         return {"ok": False, "app": APP_NAME, "error": "That isn't a tamkeen://watch?v=… link."}
     applink.push(link)
     return {"ok": True, "app": APP_NAME}
+
+
+@router.get("/app/info")
+def app_info() -> dict[str, Any]:
+    """Which app and version answers on this port, and what it offers other apps (Onyx Calendar
+    reads it before showing the player from /embed in its News panel; see app/applink.py)."""
+    return {"app": APP_NAME, "version": __version__, "embed": 1}
 
 
 @router.post("/app/pending-links")

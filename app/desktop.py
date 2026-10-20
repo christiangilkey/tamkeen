@@ -365,9 +365,30 @@ def _browser_mode(server: Server) -> None:
         pass
 
 
-def run(browser: bool = False, port: int | None = None, headless: bool = False, link: str | None = None) -> None:
+# --background: started by another app (Onyx Calendar) only to show the player from /embed. The
+# window stays hidden, and empty, until something asks for it (a launch from the Start menu, a
+# tamkeen:// link); with no window shown and no /embed page open for this long, the app closes.
+BACKGROUND_IDLE = 600.0
+
+
+def _quit_when_unused(window: Any, shown: threading.Event, idle: float = BACKGROUND_IDLE, poll: float = 5.0) -> None:
+    last_used = time.monotonic()
+    while not shown.wait(poll):
+        if events.client_count() > 0:  # an /embed page (the hidden window has no page in it)
+            last_used = time.monotonic()
+        elif time.monotonic() - last_used > idle:
+            log.info("Started in the background and unused for %d minutes: closing.", idle // 60)
+            try:
+                window.destroy()
+            except Exception:
+                log.exception("Couldn't close the hidden window")
+            return
+
+
+def run(browser: bool = False, port: int | None = None, headless: bool = False, link: str | None = None,
+        background: bool = False) -> None:
     """`link`: a tamkeen://watch link this run was started with (see applink.py); its video opens
-    once the page has loaded."""
+    once the page has loaded. `background`: start with the window hidden (see BACKGROUND_IDLE)."""
     setup_logging()
     os.environ["APS_DESKTOP"] = "0" if browser or headless else "1"
     server = Server(port or free_port())
@@ -408,10 +429,27 @@ def run(browser: bool = False, port: int | None = None, headless: bool = False, 
             _browser_mode(server)
             return
         api = JsApi(server)
-        window = webview.create_window(APP_NAME, server.url, js_api=api, width=1280, height=860,
-                                       min_size=(820, 560), text_select=True)
+        background = background and not link
+        window = webview.create_window(APP_NAME, None if background else server.url,
+                                       html="<!doctype html><title>Tamkeen</title>" if background else "",
+                                       js_api=api, width=1280, height=860, min_size=(820, 560),
+                                       text_select=True, hidden=background)
         api._window = window
-        applink.on_link(lambda: bring_forward(window))
+        shown = threading.Event()
+        if not background:
+            shown.set()
+
+        def show_main() -> None:
+            if not shown.is_set():  # started in the background: the app's page goes in now
+                shown.set()
+                window.load_url(server.url)
+            bring_forward(window)
+
+        applink.on_link(show_main)
+        if background:
+            log.info("Started in the background (window hidden)")
+            threading.Thread(target=_quit_when_unused, args=(window, shown), name="background-idle",
+                             daemon=True).start()
         try:
             webview.start(private_mode=False, storage_path=str(paths.data_dir() / "webview"))
         except Exception as exc:
@@ -419,6 +457,6 @@ def run(browser: bool = False, port: int | None = None, headless: bool = False, 
             os.environ["APS_DESKTOP"] = "0"
             _browser_mode(server)
     finally:
+        applink.remove_instance()  # first, so a new launch doesn't hand its link to this closing one
         applink.on_link(None)
-        applink.remove_instance()
         server.stop()

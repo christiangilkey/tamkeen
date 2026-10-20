@@ -742,7 +742,8 @@ export async function render(view, { id, query }) {
     playWords(i, j);
     // The popup belongs to the transcript the word was tapped in: the captions under the video
     // or the transcript panel beside it.
-    const phone = window.matchMedia("(max-width: 640px)").matches;
+    // (Shown inside another app's narrow panel, /embed, there is no transcript panel: always docked.)
+    const phone = window.matchMedia("(max-width: 640px)").matches && !document.documentElement.classList.contains("embed");
     bubbleInPanel = !(anchor && capEl && capEl.contains(anchor));
     const opts = { saved: savedHere.has(savedKey(i, j)) };
     if (yt && !bubbleInPanel && !phone) {

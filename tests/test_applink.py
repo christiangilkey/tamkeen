@@ -190,7 +190,7 @@ def test_run_py_exits_without_a_window_when_the_running_app_took_the_link(monkey
     from app import desktop
 
     handed = []
-    monkeypatch.setattr(applink, "hand_off", lambda url: handed.append(url) or True)
+    monkeypatch.setattr(applink, "hand_off", lambda url, show=True: handed.append(url) or True)
     monkeypatch.setattr(desktop, "run", lambda **kw: pytest.fail("a second window was opened"))
     monkeypatch.setattr(sys, "argv", ["ArabicPodcastStudio.exe", f"tamkeen://watch?v={VIDEO}"])
     assert run.main() == 0
@@ -203,7 +203,7 @@ def test_run_py_starts_with_the_link_when_nothing_is_running(monkeypatch):
     from app import audio, desktop
 
     started = []
-    monkeypatch.setattr(applink, "hand_off", lambda url: False)
+    monkeypatch.setattr(applink, "hand_off", lambda url, show=True: False)
     monkeypatch.setattr(audio, "check_ffmpeg", lambda: (True, ""))
     monkeypatch.setattr(desktop, "run", lambda **kw: started.append(kw))
     monkeypatch.setattr(sys, "argv", ["ArabicPodcastStudio.exe", f"tamkeen://watch?v={VIDEO}"])
@@ -213,3 +213,127 @@ def test_run_py_starts_with_the_link_when_nothing_is_running(monkeypatch):
     monkeypatch.setattr(sys, "argv", ["ArabicPodcastStudio.exe", "C:\\some\\file.txt"])
     assert run.main() == 0
     assert started[1]["link"] is None
+
+
+# ---------------------------------------------------------------- one Tamkeen at a time, /embed
+
+def test_run_py_without_a_link_brings_the_running_app_forward(monkeypatch):
+    import run
+
+    from app import desktop
+
+    calls = []
+    monkeypatch.setattr(applink, "hand_off", lambda url, show=True: calls.append((url, show)) or True)
+    monkeypatch.setattr(desktop, "run", lambda **kw: pytest.fail("a second window was opened"))
+    monkeypatch.setattr(sys, "argv", ["ArabicPodcastStudio.exe"])
+    assert run.main() == 0
+    monkeypatch.setattr(sys, "argv", ["ArabicPodcastStudio.exe", "--background"])
+    assert run.main() == 0
+    assert calls == [("", True), ("", False)]  # --background: only checks it is running
+
+
+def test_run_py_background_starts_hidden_when_nothing_is_running(monkeypatch):
+    import run
+
+    from app import audio, desktop
+
+    started = []
+    monkeypatch.setattr(applink, "hand_off", lambda url, show=True: False)
+    monkeypatch.setattr(audio, "check_ffmpeg", lambda: (True, ""))
+    monkeypatch.setattr(desktop, "run", lambda **kw: started.append(kw))
+    monkeypatch.setattr(sys, "argv", ["ArabicPodcastStudio.exe", "--background"])
+    assert run.main() == 0
+    assert started[0]["background"] is True and started[0]["link"] is None
+
+
+def test_server_and_browser_runs_never_hand_over(monkeypatch):
+    import run
+
+    from app import audio, desktop
+
+    started = []
+    monkeypatch.setattr(applink, "hand_off", lambda url, show=True: pytest.fail("handed over"))
+    monkeypatch.setattr(audio, "check_ffmpeg", lambda: (True, ""))
+    monkeypatch.setattr(desktop, "run", lambda **kw: started.append(kw))
+    for argv in (["--server", "--port", "8790"], ["--browser"], ["--port", "8791"]):
+        monkeypatch.setattr(sys, "argv", ["run.py", *argv])
+        assert run.main() == 0
+    assert len(started) == 3
+
+
+def test_a_second_plain_launch_brings_the_window_forward_without_a_link(client):
+    applink.write_instance(51234)
+    token = applink.read_instance()["token"]
+    shown = []
+    applink.on_link(lambda: shown.append(True))
+    headers = {applink.TOKEN_HEADER: token}
+    assert client.post("/api/app/open-link", json={"url": ""}, headers=headers).json() == {"ok": True, "app": "Tamkeen"}
+    assert shown == [True]
+    # --background: only asks whether Tamkeen is running; nothing comes forward.
+    assert client.post("/api/app/open-link", json={"url": "", "show": False}, headers=headers).json()["ok"] is True
+    assert shown == [True]
+    assert client.post("/api/app/pending-links").json() == {"links": []}
+    assert client.post("/api/app/open-link", json={"url": ""}).status_code == 403  # still needs the secret
+
+
+def test_hand_off_without_a_link_reaches_the_running_app(running_app):
+    shown = []
+    applink.on_link(lambda: shown.append(True))
+    assert applink.hand_off("", show=False) is True and shown == []
+    assert applink.hand_off("") is True and shown == [True]
+    assert applink.take() == []
+
+
+def test_info_says_which_app_answers_and_that_it_has_embed(client):
+    from app.version import __version__
+
+    assert client.get("/api/app/info").json() == {"app": "Tamkeen", "version": __version__, "embed": 1}
+
+
+def test_embed_serves_the_app_page(client):
+    r = client.get(f"/embed?v={VIDEO}&t=30&from=onyx")
+    assert r.status_code == 200 and "text/html" in r.headers["content-type"]
+    assert '<script type="module" src="/js/app.js">' in r.text  # absolute paths: they work from /embed too
+    assert r.headers.get("cache-control") == "no-cache"
+    css = client.get("/css/embed.css")
+    assert css.status_code == 200 and "html.embed" in css.text
+
+
+def test_a_background_start_closes_when_nothing_uses_it(monkeypatch):
+    from app import desktop, events
+
+    class Window:
+        destroyed = False
+
+        def destroy(self):
+            Window.destroyed = True
+
+    clients = {"n": 0}
+    monkeypatch.setattr(events, "client_count", lambda: clients["n"])
+    shown = threading.Event()
+    window = Window()
+    # Never used: closes after `idle` seconds.
+    t = threading.Thread(target=desktop._quit_when_unused, args=(window, shown, 0.2, 0.02))
+    t.start()
+    t.join(5)
+    assert Window.destroyed
+
+
+def test_a_background_start_stays_while_an_embed_is_open_or_once_shown(monkeypatch):
+    from app import desktop, events
+
+    class Window:
+        destroyed = False
+
+        def destroy(self):
+            Window.destroyed = True
+
+    monkeypatch.setattr(events, "client_count", lambda: 1)  # an /embed page is open
+    shown = threading.Event()
+    t = threading.Thread(target=desktop._quit_when_unused, args=(Window(), shown, 0.2, 0.02), daemon=True)
+    t.start()
+    time.sleep(0.6)
+    assert not Window.destroyed
+    shown.set()  # the window was asked for: the user is using it, it stays
+    t.join(2)
+    assert not t.is_alive() and not Window.destroyed
