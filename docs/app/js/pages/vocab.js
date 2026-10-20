@@ -698,7 +698,6 @@ export async function render(view) {
     { target: "#q", title: "Search", text: "Find a saved word by the word itself or by its meaning." },
     { target: "#folders", title: "Folders",
       text: "Tap a folder to see only its words; Review then covers just those. New folder makes one." },
-    { target: ".vocab-filters", title: "Sort and dates", text: "Change the order of the list, or show only words added or changed in a time you choose." },
     { target: "#list .vocab-item", title: "A saved word",
       text: "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several." },
     { target: "#more", title: "More", text: "Add a word by hand, export your words for Anki or as a spreadsheet, and Anki's settings." },

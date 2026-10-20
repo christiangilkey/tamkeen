@@ -201,7 +201,7 @@ function look(body) {
     <section class="card" id="game-switch" data-find="game"></section>
     <section class="card set-card" data-find="guides">
       <h2>Page guides</h2>
-      <p class="set-hint">The first time you open the Library, Vocab and Friends, a short guide shows what each button does.</p>
+      <p class="set-hint">The first time you open Home, the Library, Vocab and Friends, a short guide shows what each button does.</p>
       <div class="row"><button type="button" id="guides-again">Show the guides again</button><span class="small muted" id="guides-done"></span></div>
     </section>
   </div>`));
