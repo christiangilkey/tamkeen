@@ -3173,8 +3173,12 @@ source of each popup with a small tag".
 - Tested in the desktop app (launch config `dictfirst-desktop`, scratch data) and the web app (`dictfirst-webapp`,
   port 8971, after the two builds), with a made-up key and the AI's reply faked inside the page: known word →
   dictionary + "Wiktionary", unknown name → AI + "AI · Gemini 3.1 Flash-Lite"/"AI · Claude Haiku 5.5", no key →
-  "isn't in the built-in dictionary", Ask again → AI, quick lookups, phone-size sheet, Spanish interface. The reel
-  popup was not opened (needs Instagram); it is the same popup.
+  "isn't in the built-in dictionary", Ask again → AI, quick lookups, phone-size sheet, Spanish interface. Also the
+  phone build itself (`dictfirst-phone`, port 8972, mobile/www in a browser at phone width, running as "android"):
+  the same Settings card (the phone's Settings page uses the shared aisetup.js) and popup tags through the phone's
+  own define-service.js. The iPhone app is built from the same mobile/src + web/js (the `ios` branch is already in
+  main); no new app files, so build-www.mjs's copy list needed nothing. Not tried on a real phone. The reel popup
+  was not opened (needs Instagram); it is the same popup.
 - Tests: `tests/js/dictionaryfirst.test.mjs` (9), `tests/test_languages.py::test_settings_take_the_three_ways_of_explaining_words`.
   Translations: `tools/i18n/tr/<code>/37-dictionary-first.txt` (12 languages). `web/i18n/*.json` and
   `tools/i18n/strings.json` are generated: after merging, re-run `node tools/i18n/extract.mjs` and

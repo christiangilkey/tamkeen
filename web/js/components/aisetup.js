@@ -130,8 +130,10 @@ export function aiSetup(section, { transport }) {
   }
   // The built-in dictionary of the language being learned: here, or a button to download it.
   async function paintDict() {
-    $("#def-tag").className = "pill";
-    $("#def-tag").textContent = "No AI";
+    if (mode() === "dictionary") { // (with Dictionary first, the tag is the key's: see paintKey)
+      $("#def-tag").className = "pill";
+      $("#def-tag").textContent = "No AI";
+    }
     const lang = studyLanguage();
     const name = langInfo(lang).name || lang;
     const row = $("#def-dict-row");
@@ -179,7 +181,7 @@ export function aiSetup(section, { transport }) {
     const has = !!cur()[`llm_key_${prov()}`];
     // Dictionary first works without a key: it is the dictionary alone until one is added.
     const first = mode() === "dictionary_first";
-    if (first) paintDict(); // its download row (and, before the tag below, the tag)
+    if (first) paintDict(); // its download row
     $("#def-tag").className = has ? "pill done" : first ? "pill" : "req-tag";
     $("#def-tag").textContent = has ? "✓ Set up" : first ? "Dictionary only" : "Required";
     $("#def-keyrow").classList.toggle("need", !has);
