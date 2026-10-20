@@ -56,6 +56,109 @@ export function cebuanoVariants(k) {
   return out;
 }
 
+// ---------- Bisaya: a word the dictionaries have only under its root ----------
+// The app's root finder (./cebuano.js) checks a root against the Bisaya word list and wants it 4 letters or
+// more, so moagi (agi), naila (ila), nauna (una), halayo (layo), nasayran (sayod) or gipugngan (pugong) find
+// nothing. When no dictionary has the word itself, its affixes are taken off here in every way Bisaya puts
+// them on (at most one prefix, one suffix and one infix or repeated syllable), and a root counts only when
+// the dictionary has it and looks like a Bisaya root: 4 letters or more, or 3 beginning with a vowel (agi,
+// ila, una; not bay, tun). The longest such root wins (makapaikag: paikag before ikag). Works on matching
+// keys (matchKey: o is u, e is i).
+const CEB_PREFIXES = ["nagpaka", "magpaka", "nakapa", "makapa", "nakig", "makig", "pakig", "nagka", "magka", "pagka", "nagpa",
+  "magpa", "nahi", "mahi", "pahi", "gipa", "mupa", "mipa", "nipa", "ipa", "naka", "maka", "naki", "maki", "paki",
+  "naga", "maga", "paga", "gina", "kina", "taga", "nag", "mag", "pag", "tig", "mu", "mi", "ni", "gi", "na", "ma", "ka", "pa",
+  "ga", "hi", "ha", "i"];
+// paN- and its forms swallow the root's first consonant: pangita = paN- + kita, mamalit = maN- + palit, nanukad = naN- + sukad.
+const CEB_NASAL = [["gipang", "ng"], ["gipam", "m"], ["gipan", "n"], ["nagpang", "ng"], ["pang", "ng"], ["nang", "ng"],
+  ["mang", "ng"], ["ning", "ng"], ["ming", "ng"], ["pam", "m"], ["nam", "m"], ["mam", "m"], ["pan", "n"], ["nan", "n"], ["man", "n"]];
+const CEB_SUFFIXES = ["anan", "unun", "han", "hun", "an", "un", "ay", "a", "i"];
+const VOWELS = ["u", "a", "i"]; // (u first: a dropped vowel is most often o: huptan is hupot, masayran sayod)
+
+/** The root as it was before a suffix came off: sudl(an) -> sulud, imn(un) -> inum, hibal-(an) -> hibalu,
+ * bayr(an) -> bayad, hangtur(an) -> hangtud, basah(un) -> basa. */
+function beforeSuffix(stem) {
+  const out = [stem];
+  if (stem.endsWith("-")) return VOWELS.map((v) => stem.slice(0, -1) + v);
+  // (not after y or w, which follow a consonant in Spanish words: lokasyon, kategorya are no Bisaya root + suffix)
+  const m = stem.match(/^(.*?)([^aiu'-])(ng|[^aiu'yw-])$/); // (ng is one sound: pugng(an) -> pugung)
+  if (m) {
+    const [, base, c1, c2] = m;
+    for (const v of VOWELS) {
+      out.push(base + c1 + v + c2);
+      if (c2 === "r") out.push(`${base}${c1}${v}d`);
+      if (c1 + c2 === "mn" || c1 + c2 === "dl") out.push(base + c2 + v + c1);
+    }
+  }
+  if (/[aiu]r$/.test(stem)) out.push(`${stem.slice(0, -1)}d`);
+  if (/[aiu]h$/.test(stem)) out.push(stem.slice(0, -1));
+  return out;
+}
+
+// One affix off s: [what is left, "pre" | "suf" | "mid"].
+function stripOnce(s) {
+  const out = [];
+  const add = (c, kind) => { if (c.length >= 3) out.push([c.replace(/^-/, ""), kind]); };
+  for (const p of CEB_PREFIXES) if (s.startsWith(p)) add(s.slice(p.length), "pre");
+  for (const [p, n] of CEB_NASAL) {
+    if (!s.startsWith(p)) continue;
+    const rest = s.slice(p.length);
+    if (n === "ng") { add(rest, "pre"); if (/^[aiu]/.test(rest)) add(`k${rest}`, "pre"); }
+    if (n === "m" && /^[aiu]/.test(rest)) { add(`p${rest}`, "pre"); add(`b${rest}`, "pre"); }
+    if (n === "n") { add(rest, "pre"); if (/^[aiu]/.test(rest)) for (const c of "tds") add(c + rest, "pre"); }
+  }
+  for (const x of CEB_SUFFIXES) {
+    if (s.endsWith(x) && s.length - x.length >= 2) for (const c of beforeSuffix(s.slice(0, -x.length))) add(c, "suf");
+  }
+  const inf = s.match(/^([^aiu])(?:in|um)([aiu].+)$/); // sinulat -> sulat
+  if (inf) add(inf[1] + inf[2], "mid");
+  if (/^in[aiu]/.test(s)) add(s.slice(2), "mid");
+  const redup = s.match(/^([^aiu]?[aiu])(\1.+)$/); // tutudlu -> tudlu
+  if (redup) add(redup[2], "mid");
+  const twice = s.match(/^([a-z]+)-\1$/); // lain-lain -> lain
+  if (twice) add(twice[1], "mid");
+  return out;
+}
+
+// A short root only one affix away (pagsumite is no pag- + -um- + siti, "seven").
+const rootShape = (c, depth) => c.length >= 5 || (depth === 1 && (c.length === 4 || /^[aiu][^aiu][aiu]$/.test(c)));
+
+/** The roots of Bisaya word key `k` that `has` knows, best first: [{key, steps}]. Of two roots as long,
+ * the commoner in Bisaya text (`rank`, lower is commoner) wins: bayran is bayad "pay", not bayod "bruised";
+ * mamalit palit "buy", not malit "mallet". */
+export function cebuanoStems(k, has, rank = () => Infinity) {
+  const found = new Map();
+  k = k.replace(/([a-z]{3,})-\1$/, "$1"); // a word said twice is the word once: nagkalain-lain -> nagkalain
+  let frontier = [[k, ""]]; // (what is left, the kinds of affix taken off so far)
+  const seen = new Set([k]);
+  for (let depth = 1; depth <= 3 && frontier.length; depth++) {
+    const next = [];
+    for (const [s, used] of frontier) {
+      for (const [c, kind] of stripOnce(s)) {
+        if (used.includes(kind) || seen.has(c)) continue;
+        seen.add(c);
+        next.push([c, used + kind]);
+        if (rootShape(c, depth) && has(c)) found.set(c, depth);
+      }
+    }
+    frontier = next;
+  }
+  return [...found].map(([key, steps]) => ({ key, steps, rank: rank(key) }))
+    .sort((a, b) => b.key.length - a.key.length || a.rank - b.rank || a.steps - b.steps);
+}
+
+const ranks = new WeakMap();
+/** How common each Bisaya word key is, from the word list (docs/lexicon/ceb-roots: commonest first). */
+export function commonness(lemmas) {
+  if (!lemmas) return () => Infinity;
+  let r = ranks.get(lemmas);
+  if (!r) {
+    r = new Map();
+    lemmas.forEach((w, i) => { const k = matchKey(w, "ceb"); if (!r.has(k)) r.set(k, i); });
+    ranks.set(lemmas, r);
+  }
+  return (k) => (r.has(k) ? r.get(k) : Infinity);
+}
+
 /** The keys to try for a word, best first: as written, then the dictionary form `lemmaOf` (the
  * language's word tables) finds, then the little words it may carry joined on. */
 export function wordKeys(word, lang, lemmaOf = null) {
@@ -136,6 +239,79 @@ export function findIn(data, keys) {
     if (!names || (!names.groups.some((g) => g[1] !== "name") && groups.some((g) => g[1] !== "name"))) names = found;
   }
   return names;
+}
+
+// The prefixes and infixes that make a Tagalog or Bisaya verb (mo-/mi-/nag-/mag-/gi-/ni-/naka-…, -um-/-in-).
+const VERB_AFFIX = /^(?:mo|mu|mi|ni|gi|nag|mag|naga|maga|naka|maka|nagpa|magpa|gipa|gina|ipa|pinag|ipinag|nakipag|makipag)[a-z]{3,}|^[^aeiou](?:um|in)[aeiou]/i;
+const BORROWED_FROM_TAGALOG = (g) => String(g[3] || "").split("|")[2] === "Tagalog word";
+// (not i-, mi-, ni-: imac, milan, nephi are no Bisaya verbs)
+const TAGLISH = /^(mo|mu|gi|nag|mag|naga|maga|ga|gina|maka|naka)-?([a-z]{4,})$/;
+
+/** What a language's meanings files (`files`, the one to ask first first) have for `word`, tried by `keys`
+ * (wordKeys): {...findIn's answer, source} or null. The word popup's lookup (../meanings.js). */
+export function lookUp(files, keys, word, lang, { rank } = {}) {
+  // A Tagalog or Bisaya word with a verb's affixes on it (nagbaton, kumain) is a verb: a dictionary
+  // that knows its root as a verb wins over one that has only a noun of the same spelling (Wiktionary's
+  // loanword "baton", where Wolff has báton "have, possess").
+  const bare = String(word || "").replace(EDGE_PUNCT, "").toLowerCase();
+  if ((lang === "ceb" || lang === "tl") && keys.length > 1 && VERB_AFFIX.test(bare)) {
+    for (const data of files) {
+      const hit = data && findIn(data, keys.slice(1));
+      if (hit && hit.groups.some((g) => g[1] === "verb" && ordinary(g))) {
+        const verbsFirst = [...hit.groups.filter((g) => g[1] === "verb"), ...hit.groups.filter((g) => g[1] !== "verb")];
+        return { ...hit, groups: verbsFirst, source: data.source };
+      }
+    }
+  }
+  let found = null;
+  for (const data of files) {
+    const hit = data && findIn(data, keys);
+    if (hit && hit.groups.some(ordinary)) return { ...hit, source: data.source };
+    if (!found && hit) found = { ...hit, source: data.source };
+  }
+  // Bisaya: nothing of its own, only a name or the Tagalog word of that spelling (nahabilin, pagbantay), or an
+  // English word reached only through the root finder's guess (mapalong -> along): the root the dictionaries
+  // have, with its affixes taken off (cebuanoStems).
+  const weak = (g) => g[1] === "name" || BORROWED_FROM_TAGALOG(g) || (found.key !== keys[0] && !ordinary(g));
+  if (lang === "ceb" && keys[0] && (!found || found.groups.every(weak))) {
+    // (a root is no little word, inila is ila "know", not nila "their"; a 3-letter one a verb or adjective)
+    const rootish = (k) => (g) => ordinary(g) && !LITTLE.has(g[1]) && (k.length > 3 || g[1] === "verb" || g[1] === "adj");
+    const has = (k) => files.some((data) => data && (data.words[k] || []).some(rootish(k)));
+    // (the word, then the word without the linker it may carry: nagkalain-laing)
+    const stem = [keys[0], ...cebuanoVariants(keys[0])].map((k) => cebuanoStems(k, has, rank)[0]).filter(Boolean)
+      .sort((a, b) => b.key.length - a.key.length || a.rank - b.rank)[0];
+    if (stem) {
+      // Which dictionary's entry: for a verb form (moagi), the one with the root as a verb (agi "pass", not
+      // Wolff's first agi, "oh my!"), verbs first; else Wiktionary's if it has the root as more than a little
+      // word (Wolff lists a root's rare senses first as often as not: halayo is layo "far", not layo "broil
+      // corn"; naila is ila "know", not ila "theirs"), else Wolff's. Little words last.
+      // (nagka-/magka- make "becoming, various" of any word: nagkalain-laing is lain "different")
+      const verb = VERB_AFFIX.test(keys[0]) && !/^[nm]agka/.test(keys[0]); // (keys[0]: without stress marks, miabút)
+      const entries = files.filter(Boolean).map((data) => ({ data, groups: (data.words[stem.key] || []).filter(ordinary) }))
+        .filter((e) => e.groups.length);
+      const big = (e) => e.groups.some((g) => !LITTLE.has(g[1]));
+      const pick = (verb && entries.find((e) => e.groups.some((g) => g[1] === "verb")))
+        || entries.find((e) => !/Wolff/.test(e.data.source || "") && big(e)) || entries.find(big) || entries[0];
+      // (a meaning Wolff gives only with another affix, "(pa-) change the subject", after the plain ones)
+      const order = (g) => (verb && g[1] === "verb" ? 0 : LITTLE.has(g[1]) ? 2 : 1) + (/^\(/.test(g[2][0]) ? 0.5 : 0);
+      const groups = [...pick.groups].sort((a, b) => order(a) - order(b));
+      return { key: stem.key, groups, formOf: `form of ${groups[0][0]}`, source: pick.data.source, stripped: true };
+    }
+    // A Bisaya verb prefix on an English word, as people talk (mopost, gireply, mag-try): the English word.
+    const taglish = !found && bare.match(TAGLISH);
+    if (taglish) {
+      const k = matchKey(taglish[2], lang);
+      for (const data of files) {
+        const groups = data && (data.words[k] || []).filter((g) => String(g[3] || "").split("|")[2] === "English word"
+          && g[0].toLowerCase() === taglish[2]);
+        if (groups && groups.length) {
+          const verbsFirst = [...groups.filter((g) => g[1] === "verb"), ...groups.filter((g) => g[1] !== "verb")];
+          return { key: k, groups: verbsFirst, formOf: `${taglish[1]}- + ${taglish[2]}`, source: data.source, stripped: true };
+        }
+      }
+    }
+  }
+  return found;
 }
 
 /** The popup's answer (the shape definer.js gives) for what findIn found for `word`. */

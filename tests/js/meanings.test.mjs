@@ -4,7 +4,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
-import { answerFrom, arabicVariants, cebuanoVariants, findIn, matchKey, ordinary, wordKeys } from "../../web/js/lexicon/meaningdata.js";
+import { answerFrom, arabicVariants, cebuanoStems, cebuanoVariants, commonness, findIn, lookUp, matchKey, ordinary, wordKeys } from "../../web/js/lexicon/meaningdata.js";
 
 const file = (lang) => JSON.parse(gunzipSync(readFileSync(new URL(`../../docs/lexicon/${lang}-meanings.json.gz`, import.meta.url))).toString("utf8"));
 const look = (data, word, lang, extra = []) => {
@@ -201,4 +201,53 @@ test("Chinese single characters have their everyday meaning first; Japanese spel
   assert.equal(look(ja, "お", "ja"), null, "a single kana points nowhere");
   assert.match(look(ja, "生き", "ja").meaning, /living|alive/, "生き: the いき entries written 生き, not 息 'breath'");
   assert.match(look(ja, "口", "ja").meaning, /mouth/, "a topic label (Buddhism) is not an old sense");
+});
+
+// The popup's lookup for Bisaya, as web/js/meanings.js runs it: Wolff's dictionary first, then Wiktionary.
+const bisaya = () => {
+  const files = [file("ceb-wolff"), file("ceb")];
+  const list = JSON.parse(gunzipSync(readFileSync(new URL("../../docs/lexicon/ceb-roots.json.gz", import.meta.url))).toString("utf8"));
+  const rank = commonness(list.lemmas);
+  return (word) => lookUp(files, wordKeys(word, "ceb"), word, "ceb", { rank });
+};
+
+test("Bisaya: a root the dictionaries have, with the affixes off, when they lack the word itself", () => {
+  const k = (w) => matchKey(w, "ceb");
+  const has = (...roots) => (x) => roots.map(k).includes(x);
+  assert.equal(cebuanoStems(k("moagi"), has("agi"))[0].key, k("agi"), "a 3-letter root beginning with a vowel");
+  assert.equal(cebuanoStems(k("gipugngan"), has("pugong"))[0].key, k("pugong"), "ng is one sound");
+  assert.equal(cebuanoStems(k("sudlan"), has("sulod"))[0].key, k("sulod"), "the dropped vowel back, the consonants swapped");
+  assert.equal(cebuanoStems(k("mamalit"), has("palit"))[0].key, k("palit"), "maN- swallows the p");
+  assert.equal(cebuanoStems(k("magtutudlo"), has("tudlo"))[0].key, k("tudlo"), "the repeated syllable");
+  assert.deepEqual(cebuanoStems(k("bayan"), has("bay")), [], "no 3-letter root beginning with a consonant");
+  assert.deepEqual(cebuanoStems(k("lokasyon"), has("lukas")), [], "a Spanish word is no root + suffix");
+  assert.deepEqual(cebuanoStems(k("pagsumite"), has("siti")), [], "a short root only one affix away");
+  const rank = (x) => ({ [k("bayad")]: 10, [k("bayod")]: 900 })[x] ?? Infinity;
+  assert.equal(cebuanoStems(k("bayran"), has("bayad", "bayod"), rank)[0].key, k("bayad"), "of two roots as long, the commoner");
+
+  const look = bisaya();
+  const moagi = look("moagi");
+  assert.equal(moagi.key, k("agi"));
+  assert.match(moagi.groups[0][2][0], /go by|pass/, "a verb form: the root's verb meaning, not Wolff's first agi, 'oh my!'");
+  assert.match(moagi.formOf, /^form of /);
+  assert.match(look("naila").groups[0][2][0], /identify|recogni|know/, "ila the verb, not ila 'theirs'");
+  assert.match(look("halayo").groups[0][2][0], /far|distant/);
+  assert.match(look("mamalit").groups[0][2][0], /buy/);
+  assert.match(look("bayran").groups[0][2][0], /pay/);
+  assert.match(look("nagkalain-laing").groups[0][2][0], /other|different/, "the linker off first");
+  assert.equal(look("kaon").formOf, "", "a word the dictionary has is found as before");
+});
+
+test("Bisaya: Wolff's words listed by their affix, translation tables, English words (tools/build_*.py)", () => {
+  const look = bisaya();
+  const household = look("panimalay");
+  assert.match(household.groups[0][2][0], /household/, "paniN- under balay, spelled out");
+  assert.equal(String(household.groups[0][3]).split("|")[0], "balay", "with its root");
+  assert.match(look("kalahian").groups[0][2][0], /difference/, "from the English entry's translation table");
+  const the = look("the");
+  assert.equal(String(the.groups[0][3]).split("|")[2], "English word", "an English word whose key a rarer typing slip shares");
+  const post = look("mopost");
+  assert.equal(post.formOf, "mo- + post", "a Bisaya prefix on an English verb");
+  assert.equal(post.groups[0][1], "verb");
+  assert.equal(look("milan"), null, "not mi- + LAN");
 });

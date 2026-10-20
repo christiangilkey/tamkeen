@@ -11,6 +11,8 @@ forms of a word ("hablo", "كتبت"), which word they are a form of. Read by we
     python tools/build_meanings.py ar=<a saved kaikki .jsonl.gz>   (from a file instead)
     python tools/build_meanings.py --numbers es fr ...   (only add the number words to the files there)
     python tools/build_meanings.py --fill tl ceb         (only fill the gaps of the Tagalog and Bisaya files there)
+    python tools/build_meanings.py --translations ceb    (add the Bisaya words that English entries' translation
+                                                          tables give and the Bisaya entries lack; reads English)
 
 Each language is read straight from kaikki.org (a .jsonl.gz of 15-400 MB) and never stored.
 Writes the files and adds them to docs/lexicon/index.json. Chinese also reads CC-CEDICT (about 4 MB,
@@ -689,11 +691,12 @@ def fill_gaps(lang: str, data: dict) -> None:
         return d is not None and (k in d["words"] or k in d["forms"])
 
     spelled = {w: (full, what) for w, full, what in SPELLINGS.get(lang, [])}
-    # Bisaya keys are written with three vowels (see key()), so an English word may share its key with
-    # another word of the list (English bae with Bisaya bai, "friend"): then it is not borrowed.
-    spellings: dict[str, set] = {}
+        # The commonest spelling of each key: an English word whose key a commoner Bisaya spelling shares is
+    # that Bisaya word (bai, not English bae); one that is itself the commonest spelling is the English word,
+    # whatever rarer spellings share its key (the, not the typing slip thi; game, not gami).
+    commonest: dict[str, str] = {}
     for w in words_list:
-        spellings.setdefault(key(w, lang), set()).add(w.lower())
+        commonest.setdefault(key(w, lang), w.lower())
     counts = {"prefix": 0, "spelling": 0, "Tagalog": 0, "English": 0}
     for w in words_list:
         k = key(w, lang)
@@ -717,7 +720,7 @@ def fill_gaps(lang: str, data: dict) -> None:
         # An English spelling in Filipino text is the English word (said, days), not a Tagalog lookalike;
         # a word without a vowel is an abbreviation (pvc, kg).
         elif (english and w.isascii() and w.isalpha() and re.search("[aeiouy]", w) and w.lower() not in NOT_ENGLISH
-              and k not in NOT_ENGLISH and len(spellings[k]) == 1
+              and k not in NOT_ENGLISH and commonest[k] == w.lower()
               and (groups := _donor(english, w.lower(), "English word"))):
             data["words"][k] = groups
             counts["English"] += 1
@@ -725,6 +728,67 @@ def fill_gaps(lang: str, data: dict) -> None:
             data["words"][k] = groups
             counts["Tagalog"] += 1
     print(f"  {lang}: gaps filled: " + ", ".join(f"{n} {v}" for v, n in counts.items()), flush=True)
+
+
+# ---------- Bisaya words found only in English entries' translation tables ----------
+# Many English Wiktionary entries list a word's Bisaya translation ("difference: kalahian") where the Bisaya
+# word has no entry of its own. Those words get the English word as their meaning, with the sense the
+# translation is for: kalahian "difference (quality of being different)". Only for words the Bisaya entries
+# don't have (or have only as a name or a borrowed meaning). Same source and licence as the rest of the file.
+TRANSLATION_POS = {"noun": "noun", "verb": "verb", "adj": "adj", "adv": "adv", "name": "name", "pron": "pron",
+                   "num": "num", "intj": "intj", "phrase": "phrase", "prep": "prep", "conj": "conj"}
+
+
+def english_translations(lang: str, source: str):
+    """(word, English word, part of speech, sense) for each translation into `lang` in the English entries."""
+    for line in read_lines(source):
+        if f'"{lang}"' not in line:
+            continue
+        e = json.loads(line)
+        if e.get("lang_code") != "en":
+            continue
+        tables = [(None, e.get("translations") or [])] + [(sn, sn.get("translations") or []) for sn in e.get("senses") or []]
+        for sense, rows in tables:
+            for t in rows:
+                if t.get("lang_code") != lang or not t.get("word"):
+                    continue
+                gloss = t.get("sense") or ((sense or {}).get("glosses") or [""])[0]
+                for word in re.split(r",\s*", t["word"]):
+                    yield word.strip(), e.get("word", ""), e.get("pos", ""), gloss
+
+
+def add_translations(lang: str, source: str) -> None:
+    path = OUT / f"{lang}-meanings.json.gz"
+    data = json.loads(gzip.decompress(path.read_bytes()))
+    wolff = json.loads(gzip.decompress((OUT / "ceb-wolff-meanings.json.gz").read_bytes())) if lang == "ceb" else None
+
+    def has_own(d, k):
+        if d is None:
+            return False
+        if k in d["forms"]:
+            return True
+        return any(g[1] != "name" and (g[3].split("|") + ["", "", ""])[2] not in BORROWED for g in d["words"].get(k, []))
+
+    new: dict[str, list] = {}
+    for word, en, pos, sense in english_translations(lang, source):
+        k = key(word, lang)
+        if not k or " " in word or not re.search(r"[a-zA-Z]", word) or has_own(data, k) or has_own(wolff, k):
+            continue
+        p = TRANSLATION_POS.get(pos, "")
+        if p == "name" and k in data["words"]:
+            continue  # (a name the file has already)
+        gloss = clean(en if not sense or sense.lower() == en.lower() else f"{en} ({sense})")
+        groups = new.setdefault(k, [])
+        group = next((g for g in groups if g[1] == p and g[0] == word), None)
+        if group is None:
+            groups.append([word, p, [], ""])
+            group = groups[-1]
+        if gloss not in group[2] and len(group[2]) < MAX_SENSES:
+            group[2].append(gloss)
+    for k, groups in new.items():
+        data["words"][k] = groups[:3]
+    print(f"  {lang}: {len(new)} words added from English entries' translation tables", flush=True)
+    write(lang, data)
 
 
 def fill(lang: str) -> None:
@@ -778,6 +842,11 @@ def main(args: list[str]) -> None:
     if args and args[0] == "--fill":
         for lang in args[1:] or list(WORD_LISTS):
             fill(lang)
+        return
+    if args and args[0] == "--translations":
+        for arg in args[1:] or list(WORD_LISTS):
+            lang, _, source = arg.partition("=")
+            add_translations(lang, source or url(NAMES["en"]))
         return
     if args and args[0] == "--numbers":
         for lang in args[1:] or list(NAMES):

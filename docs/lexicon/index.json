@@ -132,23 +132,23 @@
   },
   "mean-ceb": {
    "file": "ceb-meanings.json.gz",
-   "bytes": 2590153,
-   "sha256": "e692387312f5199cce44debc3cdfa0f0d31bc56817b931c5969b5084724c363c",
+   "bytes": 2659311,
+   "sha256": "5e3e120c40f2b9bef29dcf96eabf40d3bec934a73261654ea88ff6496bc8e08b",
    "title": "Cebuano meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
-   "words": 29306,
+   "words": 29943,
    "forms": 1067
   },
   "mean-cebw": {
    "file": "ceb-wolff-meanings.json.gz",
-   "bytes": 860622,
-   "sha256": "80c25ece21acfe25db863a6cdf46a50cb4c6d07c99b4f958a9e9fc03a29bea53",
+   "bytes": 884208,
+   "sha256": "e6479bbecc08bf3fbf3ac5cd1ed9032ab8105d006147e7fc80bf0071d199ce37",
    "title": "Bisaya meanings (Wolff's dictionary)",
    "db": "Wolff, A Dictionary of Cebuano Visayan (Project Gutenberg)",
    "license": "public-domain-us",
-   "words": 17111,
-   "forms": 2785
+   "words": 18314,
+   "forms": 2788
   },
   "mean-en": {
    "file": "en-meanings.json.gz",

@@ -9,8 +9,7 @@
 
 import { api } from "./app.js";
 import { DefinerError } from "./definer.js";
-import { EDGE_PUNCT } from "./wordlookup.js";
-import { answerFrom, findIn, matchKey, ordinary, wordKeys } from "./lexicon/meaningdata.js";
+import { answerFrom, commonness, lookUp, matchKey, wordKeys } from "./lexicon/meaningdata.js";
 import { dictionaries } from "./lexicon/seen.js";
 import { lexemeOf } from "./lexicon/words.js";
 
@@ -57,18 +56,15 @@ export async function removeMeanings(lang) {
 }
 
 // ---------- finding a word ----------
-/** Keys to try for a word, best first. */
+/** Keys to try for a word, best first, and how common each word of the language's word list is (Bisaya). */
 async function candidates(word, lang) {
   let tables = null;
   try { tables = await dictionaries(lang); } catch { /* no tables: spelling only */ }
   // the dictionary form found by the language's own word tables
   const lemmaOf = (form) => { try { const lex = lexemeOf(form, lang, tables); return lex && lex.lemma; } catch { return null; } };
-  return wordKeys(word, lang, lemmaOf);
+  const list = lang === "ceb" && (tables || []).find((t) => Array.isArray(t && t.lemmas));
+  return { keys: wordKeys(word, lang, lemmaOf), rank: commonness(list ? list.lemmas : null) };
 }
-
-// The prefixes and infixes that make a Tagalog or Bisaya verb (mo-/mi-/nag-/mag-/gi-/ni-/naka-…, -um-/-in-).
-const VERB_AFFIX = /^(?:mo|mu|mi|ni|gi|nag|mag|naga|maga|naka|maka|nagpa|magpa|gipa|gina|ipa|pinag|ipinag|nakipag|makipag)[a-z]{3,}|^[^aeiou](?:um|in)[aeiou]/i;
-const verbAffixed = (word) => VERB_AFFIX.test(String(word || "").replace(EDGE_PUNCT, "").toLowerCase());
 
 /** The popup's answer for ctx ({word, lang, ...}) from the built-in dictionary. */
 export async function dictionaryDefine(ctx, { quick = false, language = "English" } = {}) {
@@ -80,30 +76,11 @@ export async function dictionaryDefine(ctx, { quick = false, language = "English
   // and it fills in the newer words Wolff lacks.
   if (lang === "ceb") files = [...files].reverse();
   // Wiktionary first; for Arabic the CAMeL glosses, for Bisaya Wolff's dictionary, when Wiktionary lacks
-  // the word (or has it only as a name).
-  const keys = await candidates(ctx.word, lang);
-  // A Tagalog or Bisaya word with a verb's affixes on it (nagbaton, kumain) is a verb: a dictionary
-  // that knows its root as a verb wins over one that has only a noun of the same spelling (Wiktionary's
-  // loanword "baton", where Wolff has báton "have, possess").
-  const verbForm = (lang === "ceb" || lang === "tl") && keys.length > 1 && verbAffixed(ctx.word);
-  let found = null;
-  let source = "";
-  if (verbForm) {
-    for (const data of files) {
-      const hit = data && findIn(data, keys.slice(1));
-      if (hit && hit.groups.some((g) => g[1] === "verb" && ordinary(g))) {
-        const verbsFirst = [...hit.groups.filter((g) => g[1] === "verb"), ...hit.groups.filter((g) => g[1] !== "verb")];
-        return answerFrom({ ...hit, groups: verbsFirst }, ctx.word, lang, { quick, language, source: data.source });
-      }
-    }
-  }
-  for (const data of files) {
-    const hit = data && findIn(data, keys);
-    if (hit && hit.groups.some(ordinary)) { found = hit; source = data.source; break; }
-    if (!found && hit) { found = hit; source = data.source; }
-  }
+  // the word (or has it only as a name). (lookUp in ./lexicon/meaningdata.js)
+  const { keys, rank } = await candidates(ctx.word, lang);
+  const found = lookUp(files, keys, ctx.word, lang, { rank });
   if (!found || !found.groups.length) {
     throw new DefinerError("This word isn't in the built-in dictionary. It may be a name, slang, or a form it doesn't know.");
   }
-  return answerFrom(found, ctx.word, lang, { quick, language, source });
+  return answerFrom(found, ctx.word, lang, { quick, language, source: found.source });
 }
