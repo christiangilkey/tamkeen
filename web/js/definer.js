@@ -621,6 +621,45 @@ function reportUsage(use) {
  * (the provider refused the key itself). */
 export class DefinerError extends Error {}
 
+// ---------- AI, the built-in dictionary, or the dictionary first ----------
+/** How tapped words are explained (setting `definer_mode`, Settings → Word definitions): "ai" (the
+ * default), "dictionary" (No AI: the built-in dictionary alone, see meanings.js) or "dictionary_first"
+ * (the dictionary's meaning when it has the word, the AI's when it has nothing). Anything else, such
+ * as a choice a newer version made, counts as "ai". */
+export const DEFINER_MODES = ["ai", "dictionary", "dictionary_first"];
+export const definerModeOf = (settings) =>
+  (DEFINER_MODES.includes(settings && settings.definer_mode) ? settings.definer_mode : "ai");
+
+/** "Dictionary first": `dictionary()` answers when it can; when it can't (the word isn't in it, or
+ * the language's dictionary isn't on this device) and there is a key, `ai()` does. Without a key it
+ * is the dictionary alone, its failure included (so the popup offers the download, or says the word
+ * isn't there). `refresh` ("Ask again" in the popup) with a key goes to the AI: the dictionary would
+ * only say the same again. */
+export async function dictionaryFirst({ dictionary, ai, hasKey, refresh = false }) {
+  if (refresh && hasKey) return ai();
+  try {
+    return await dictionary();
+  } catch (e) {
+    if (!hasKey) throw e;
+    return ai();
+  }
+}
+
+/** The few words on the word popup's tag saying where a meaning came from: the dictionary's short
+ * name (answers from meanings.js carry its long one as `model`), or "AI · " and the model. */
+export function answerSource(d) {
+  if (!d) return "";
+  if (d.provider === "dictionary") {
+    if (/Wolff/.test(d.model || "")) return "Wolff's dictionary";
+    if (/CAMeL/.test(d.model || "")) return "CAMeL Arabic";
+    return "Wiktionary";
+  }
+  const p = PROVIDERS[d.provider];
+  if (!p) return "AI";
+  const m = p.models.find((x) => x.id === d.model);
+  return `AI · ${m ? m.name : d.model ? `${p.short} ${d.model}` : p.short}`;
+}
+
 /** Send one request. A transport that throws (no connection on the phone) answers status 0, as the
  * computer's relay does, so both are reported the same way. */
 async function send(transport, req) {

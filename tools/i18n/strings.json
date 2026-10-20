@@ -1695,6 +1695,16 @@
   "f": "web/js/components/aisetup.js"
  },
  {
+  "id": "07668fbc",
+  "k": "Dictionary first, AI when it has nothing",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "302856dd",
+  "k": "The built-in dictionary explains the words it has, free; your AI key is used only for the rest.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
   "id": "49eec3e6",
   "k": "No AI: built-in dictionary",
   "f": "web/js/components/aisetup.js"
@@ -1815,13 +1825,18 @@
   "f": "web/js/components/aisetup.js"
  },
  {
-  "id": "808117a6",
-  "k": "The {0} dictionary isn't on {1} yet, so tapped words can't be explained.",
+  "id": "61750c22",
+  "k": "The {0} dictionary isn't on {1} yet, so every word goes to the AI.",
   "f": "web/js/components/aisetup.js"
  },
  {
   "id": "c2232964",
   "k": "Download (about {0} MB)",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "808117a6",
+  "k": "The {0} dictionary isn't on {1} yet, so tapped words can't be explained.",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -1832,6 +1847,11 @@
  {
   "id": "27a7d318",
   "k": "✓ Set up",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "15a558ba",
+  "k": "Dictionary only",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -3715,6 +3735,11 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
+  "id": "95157fd3",
+  "k": "Where this meaning comes from",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
   "id": "27d9ea3d",
   "k": "Looking up…",
   "f": "web/js/components/wordbubble.js"
@@ -3942,6 +3967,26 @@
  {
   "id": "a37ce5d8",
   "k": "No answer ({0}).",
+  "f": "web/js/definer.js"
+ },
+ {
+  "id": "6a034bb6",
+  "k": "Wolff's dictionary",
+  "f": "web/js/definer.js"
+ },
+ {
+  "id": "f745fc22",
+  "k": "CAMeL Arabic",
+  "f": "web/js/definer.js"
+ },
+ {
+  "id": "382f42b1",
+  "k": "Wiktionary",
+  "f": "web/js/definer.js"
+ },
+ {
+  "id": "094b4c7f",
+  "k": "AI · {0}",
   "f": "web/js/definer.js"
  },
  {
@@ -7510,11 +7555,6 @@
   "f": "web/js/lexicon/meaningdata.js"
  },
  {
-  "id": "382f42b1",
-  "k": "Wiktionary",
-  "f": "web/js/lexicon/meaningdata.js"
- },
- {
   "id": "20f6f8b1",
   "k": "Tagalog word",
   "f": "web/js/lexicon/meaningdata.js"
@@ -10437,6 +10477,16 @@
  {
   "id": "2dbd3af2",
   "k": "App in {0}",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "35daceae",
+  "k": "Dictionary first, then {0}",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "a9576376",
+  "k": "Built-in dictionary (no AI key yet)",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -14897,6 +14947,11 @@
  {
   "id": "066f2c8e",
   "k": "Unknown language.",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "ae1dee3a",
+  "k": "Unknown way of explaining words.",
   "f": "app/api/system.py"
  },
  {

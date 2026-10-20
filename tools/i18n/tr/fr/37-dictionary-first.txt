@@ -1,0 +1,11 @@
+07668fbc	D'abord le dictionnaire, l'IA s'il n'a rien
+302856dd	Le dictionnaire intégré explique gratuitement les mots qu'il connaît ; votre clé d'IA ne sert que pour les autres.
+61750c22	Le dictionnaire de {0:lower} n'est pas encore sur {1} : tous les mots vont donc à l'IA.
+15a558ba	Dictionnaire seul
+95157fd3	D'où vient ce sens
+6a034bb6	Dictionnaire de Wolff
+f745fc22	CAMeL (arabe)
+094b4c7f	IA · {0}
+35daceae	D'abord le dictionnaire, puis {0}
+a9576376	Dictionnaire intégré (pas encore de clé d'IA)
+ae1dee3a	Façon d'expliquer les mots inconnue.

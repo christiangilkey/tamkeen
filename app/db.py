@@ -415,7 +415,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     # Seen words (see web/js/lexicon/seen.js): "no thanks" to the Arabic dictionaries download, and
     # whether words tapped or saved before seen words were kept have been counted on this device.
     "lexicon_declined": False,
-    "definer_mode": "ai",
+    "definer_mode": "ai",  # "ai", "dictionary" (No AI) or "dictionary_first" (the AI only for words the dictionary lacks; web/js/definer.js)
     "review_task_target": "google",  # the Review tab's button sends the day's review to "google" (Tasks) or "onyx"
     "google_scopes": "",  # what the Google sign-in allows (space-separated), e.g. whether Google Tasks is allowed
     "review_task": {},  # {"day", "id"}: today's review task in Google Tasks, updated rather than added again  # "ai", or "dictionary": No AI, the built-in dictionary (web/js/meanings.js)

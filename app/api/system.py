@@ -63,6 +63,9 @@ def patch_settings(values: dict[str, Any]) -> dict[str, Any]:
         raise HTTPException(400, "Unknown model size.")
     if "study_language" in clean and not languages.valid(clean["study_language"]):
         raise HTTPException(400, "Unknown language.")
+    # How tapped words are explained (web/js/definer.js DEFINER_MODES).
+    if "definer_mode" in clean and clean["definer_mode"] not in ("ai", "dictionary", "dictionary_first"):
+        raise HTTPException(400, "Unknown way of explaining words.")
     if "youtube_follows" in clean:
         from .. import youtube
 

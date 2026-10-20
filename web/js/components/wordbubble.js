@@ -2,6 +2,7 @@
 // supplies the definition fetcher and the audio/vocab actions.
 
 import { NO_MEANINGS, downloadMeanings } from "../meanings.js";
+import { answerSource } from "../definer.js";
 import { esc, buzz, toast } from "../app.js";
 import { langAttrs, langInfo } from "../languages.js";
 import { icon } from "../icons.js";
@@ -150,6 +151,9 @@ export function createWordBubble(host, actions) {
       ${fixInfo ? `<p class="wb-fix-why">${why}</p>` : ""}`;
   }
 
+  // Where the meaning came from (Wiktionary, Wolff's dictionary, AI · the model): a small tag at the end.
+  const sourceTag = (d) => (answerSource(d) ? `<div class="wb-source"><span class="wb-src" title="Where this meaning comes from">${esc(answerSource(d))}</span></div>` : "");
+
   function render(state, message = "") {
     current = { state, message };
     const word = fix ? fix.to : ctx.word;
@@ -169,7 +173,7 @@ export function createWordBubble(host, actions) {
               ${kindOf(lastError) ? `<button type="button" data-act="trouble">Troubleshoot</button>` : ""}
               <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
     } else if (quick) {
-      body = `<div class="wb-meaning">${esc(def.meaning)}</div>`;
+      body = `<div class="wb-meaning">${esc(def.meaning)}</div>${sourceTag(def)}`;
     } else {
       const d = def;
       // How the word is read (kana, pinyin, IPA) goes under the meaning; where the reading is the
@@ -186,7 +190,8 @@ export function createWordBubble(host, actions) {
         ${d.other_meanings.length ? `<div class="wb-row"><span class="wb-label">Also</span> ${d.other_meanings.map(esc).join("; ")}</div>` : ""}
         ${d.msa_equivalent ? `<div class="wb-row"><span class="wb-label">${esc(L().standard)}</span> <span class="ar" ${attrs()}>${esc(d.msa_equivalent)}</span></div>` : ""}
         ${d.dialect_note ? `<div class="wb-row"><span class="wb-label">${esc(L().note)}</span> ${esc(d.dialect_note)}</div>` : ""}
-        ${d.sentence_translation ? `<details class="wb-trans"><summary>Sentence translation</summary>${esc(d.sentence_translation)}</details>` : ""}`;
+        ${d.sentence_translation ? `<details class="wb-trans"><summary>Sentence translation</summary>${esc(d.sentence_translation)}</details>` : ""}
+        ${sourceTag(d)}`;
     }
     const shown = def && state === "ready" && def.vocalized && L().reading === "replace" ? def.vocalized : word;
     el.classList.toggle("quick", quick);

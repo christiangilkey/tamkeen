@@ -1,0 +1,11 @@
+07668fbc	Primer el diccionari, IA quan no hi té res
+302856dd	El diccionari integrat explica gratis les paraules que té; la teva clau d'IA només s'usa per a la resta.
+61750c22	El diccionari de l'idioma {0:lower} encara no és a {1}, així que totes les paraules van a la IA.
+15a558ba	Només diccionari
+95157fd3	D'on ve aquest significat
+6a034bb6	Diccionari de Wolff
+f745fc22	CAMeL (àrab)
+094b4c7f	IA · {0}
+35daceae	Primer el diccionari, després {0}
+a9576376	Diccionari integrat (encara sense clau d'IA)
+ae1dee3a	Manera desconeguda d'explicar les paraules.

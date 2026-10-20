@@ -1,0 +1,11 @@
+07668fbc	Diksyunaryo muna, AI kapag wala itong sagot
+302856dd	Libreng ipinapaliwanag ng built-in na diksyunaryo ang mga salitang mayroon ito; ang AI key mo ay para lang sa iba.
+61750c22	Wala pa sa {1} ang diksyunaryo ng {0}, kaya sa AI napupunta ang bawat salita.
+15a558ba	Diksyunaryo lang
+95157fd3	Kung saan galing ang kahulugang ito
+6a034bb6	Diksyunaryo ni Wolff
+f745fc22	CAMeL (Arabic)
+094b4c7f	AI · {0}
+35daceae	Diksyunaryo muna, saka {0}
+a9576376	Built-in na diksyunaryo (wala pang AI key)
+ae1dee3a	Hindi kilalang paraan ng pagpapaliwanag ng mga salita.
