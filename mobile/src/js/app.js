@@ -485,7 +485,9 @@ export async function openYouTubeLink(url) {
  */
 let openingLink = false;
 async function openTamkeenLink(url) {
-  const { parseTamkeenLink } = await import("./applink.js");
+  const { parseChatLink, parseTamkeenLink } = await import("./applink.js");
+  const friend = parseChatLink(url); // a chat notification tapped (Android; see startChatNotices)
+  if (friend) { location.hash = `#/chat/${friend}`; return; }
   const link = parseTamkeenLink(url);
   if (!link || openingLink) return;
   if (!settings.welcome_seen || !settings.study_language) {
@@ -906,6 +908,42 @@ async function route() {
   }
 }
 
+// ---------- chat notifications ----------
+/** A friend's message while Tamkeen isn't on screen (web/js/chatnotify.js decides): on the phones
+ *  their own notification (AppBadge plugin; tapping it opens the chat), in the web app the browser's,
+ *  shown through the offline helper (sw.js) where a phone's browser allows no other kind. */
+function startChatNotices() {
+  const chatOf = (hash) => (/^#\/chat\/([\w-]+)/.exec(hash || "") || [])[1] || "";
+  const webShow = async ({ friend, title, text }) => {
+    if (!("Notification" in window) || Notification.permission !== "granted") return;
+    const opts = { body: text, icon: "icons/icon-256.png", tag: `chat-${friend}`, data: { hash: `#/chat/${friend}` } };
+    const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration().catch(() => null);
+    if (reg) return reg.showNotification(title, opts);
+    const n = new Notification(title, opts);
+    n.onclick = () => { window.focus(); location.hash = opts.data.hash; };
+  };
+  import("./chatnotify.js").then(({ startChatNotifications }) => startChatNotifications({
+    system: (m) => (AppBadge ? AppBadge.notifyMessage(m) : webShow(m)),
+    ask: async () => {
+      if (AppBadge) await AppBadge.allowNotification();
+      else if ("Notification" in window && Notification.permission === "default") await Notification.requestPermission();
+    },
+  })).catch(() => {});
+  if (AppBadge) {
+    // iPhone: a tapped notification arrives as an event (Android: as a tamkeen://chat link, above).
+    AppBadge.addListener("messageTapped", ({ friend }) => { if (friend) location.hash = `#/chat/${friend}`; }).catch(() => {});
+    // That chat open: its notification goes.
+    window.addEventListener("hashchange", () => {
+      const friend = chatOf(location.hash);
+      if (friend) AppBadge.clearMessage({ friend }).catch(() => {});
+    });
+  } else if (navigator.serviceWorker) {
+    navigator.serviceWorker.addEventListener("message", (e) => {
+      if (e.data && e.data.tamkeen === "open" && chatOf(e.data.hash)) location.hash = e.data.hash;
+    });
+  }
+}
+
 // ---------- updates ----------
 const RELEASES = "https://api.github.com/repos/christiangilkey/tamkeen/releases/latest";
 
@@ -1042,6 +1080,7 @@ async function boot() {
     });
   }
   startBadge();
+  startChatNotices();
   setTimeout(() => checkForUpdate(), 3000);
   startAppBadge();
   // YouTube links tapped inside the app stay in the app (see openYouTubeLink).

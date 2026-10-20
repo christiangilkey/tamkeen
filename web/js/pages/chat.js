@@ -10,6 +10,7 @@ import * as social from "../social.js";
 import { avatar } from "../components/avatar.js";
 import { MEDIA_KINDS, acceptMedia, normalizeMedia, openMedia } from "../components/sendmedia.js";
 import { detectLanguage, langInfo, setLang, studyLanguage } from "../languages.js";
+import { askChatNotifications } from "../chatnotify.js";
 
 const fmtClock = (iso) => new Date(iso).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
 const fmtDay = (iso) => new Date(iso).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
@@ -36,6 +37,7 @@ async function addShared(payload) {
 }
 
 export async function render(view, { friendId }) {
+  askChatNotifications(); // once: may Tamkeen show friends' messages as notifications? (chatnotify.js)
   view.append(h(`<div class="chat">
     <div class="chat-head"><a class="btn ghost" href="#/friends" title="Back">←</a>
       <span id="chat-avatar"></span><strong id="chat-name">…</strong><span class="small muted" id="chat-online"></span></div>

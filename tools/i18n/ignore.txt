@@ -197,3 +197,8 @@ bf48b11a
 d9aa93a3
 84dbe3d5
 947e2da7
+# Not interface: the Windows toast and Mac notification scripts (app/notify.py).
+b748c6fc
+88c2890f
+497852e2
+4cd98fc8

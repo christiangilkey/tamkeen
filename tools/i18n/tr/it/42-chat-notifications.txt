@@ -1,0 +1,12 @@
+97f0699d Ti ha inviato un episodio di podcast: {0}
+173ce326 Ti ha inviato un video: {0}
+034c3487 Ti ha inviato una pagina web: {0}
+1de9eae1 Ti ha inviato un reel
+f4e85d12 Ti ha inviato un messaggio vocale
+b3319faf Ti ha inviato: {0}
+72efcc89 Ti ha inviato qualcosa da studiare
+0a361a7a Ti ha inviato una cartella: {0} ({1})
+c7f932d8 1 parola
+524fbeba Ti ha inviato una parola: {0}
+f0a84e7a Ti ha inviato {0} parole
+0497857d Ti ha inviato un messaggio

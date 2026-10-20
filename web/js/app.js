@@ -115,6 +115,13 @@ export function requestNotifications() {
   } catch { /* unsupported */ }
 }
 
+/** A browser notification for a chat message (the desktop server opened in a browser). */
+function webNotification({ friend, title, text }) {
+  if (!("Notification" in window) || Notification.permission !== "granted") return;
+  const n = new Notification(title, { body: text, icon: "/icons/icon-256.png", tag: `chat-${friend}` });
+  n.onclick = () => { window.focus(); location.hash = `#/chat/${friend}`; };
+}
+
 function notify(title, body, url) {
   try {
     if ("Notification" in window && Notification.permission === "granted") {
@@ -266,6 +273,7 @@ async function openLinks() {
     const { links } = await api("/app/pending-links", { method: "POST" });
     const link = links && links[links.length - 1]; // several at once: the newest one
     if (!link) return;
+    if (link.chat) { location.hash = `#/chat/${link.chat}`; return; } // a chat notification clicked (app/notify.py)
     const s = state.status && state.status.settings;
     if (!s || !s.welcome_seen || !s.study_language) {
       toast("Choose the language you're learning first, then open the video again.", { error: true });
@@ -554,6 +562,13 @@ async function boot() {
   initScrollHints(); // rows that scroll sideways show that they do
   route();
   openLinks(); // a link this run was started with (or that came while the page was loading)
+  // A friend's message while this window isn't on screen: the system's notification (chatnotify.js).
+  import("./chatnotify.js").then(({ startChatNotifications }) => startChatNotifications({
+    system: ({ friend, title, text }) => (window.pywebview
+      ? api("/notify", { method: "POST", body: { friend, title, text } }) // the app's window: the server shows it
+      : webNotification({ friend, title, text })),                          // opened in a browser
+    ask: async () => { if (!window.pywebview) requestNotifications(); },
+  })).catch(() => {});
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   startBadge();
   // After each sync, pass on the creature game's state in case another device saved a newer one.

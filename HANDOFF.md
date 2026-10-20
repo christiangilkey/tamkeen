@@ -3631,3 +3631,29 @@ tr/*/33-thai-model.txt). After merging, run `node tools/i18n/extract.mjs` and `n
 - **Home tab mistranslated**: the key "Home" is shared with a keyboard-key list in player.js, so fr/ja/zh/ru/ar/it/tl
   said "Beginning" (Début, 先頭, 开头, Начало…). Now the home-screen word (Accueil, ホーム, 首页, Главная,
   الرئيسية, Home). Translations: tools/i18n/tr/<code>/41-home-guide.txt.
+
+## Chat notifications on every version (2026-10-20; committed, not pushed)
+Owner: "Let Tamkeen give notifications for chat messages ... That includes media sent such as podcast, websites".
+- **Shared** `web/js/chatnotify.js`: listens to new messages to me (social.onMessage, Supabase realtime) and
+  `howToTell`: in that chat on screen → nothing; Tamkeen on screen elsewhere → banner (toast with Open);
+  not on screen (hidden, minimised or not focused) → the system's notification, title = friend's username,
+  line = `messageLine` (text; voice; shared word(s)/folder; podcast episode / video / web page / reel / other
+  media from the share button), translated with t(). Tap → `#/chat/<friend id>`. Opening a chat asks once for
+  permission (`askChatNotifications`, chat.js).
+- **Desktop** (web/js/app.js): POST /api/notify → `app/notify.py`: Windows toast via PowerShell's built-in WinRT
+  (no new dependency; clicking launches tamkeen://chat/<id>, handed to the running app like Onyx's watch links:
+  applink.parse_chat/parse_any, openLinks opens the chat), Mac `osascript` (click opens nothing), Linux
+  `notify-send`. Installed app: process AppUserModelID `io.github.christiangilkey.Tamkeen` (notify.set_app_id) and
+  the installer's shortcuts carry the same ID, so toasts say "Tamkeen"; a copy run from code borrows PowerShell's.
+  Opened in a browser instead of its window: the browser's Notification.
+- **Android**: `ChatNotifications.java` via AppBadge.notifyMessage/clearMessage: channel "Chat messages" (high
+  importance, sound), one per friend, tap = explicit ACTION_VIEW tamkeen://chat/<id> to MainActivity →
+  appUrlOpen → openTamkeenLink. Permission = the same POST_NOTIFICATIONS as the review count.
+- **iPhone**: AppBadgePlugin.swift notifyMessage/clearMessage; allowNotification now also asks alert+sound; the
+  plugin is the notification-centre delegate (foreground: none, the page shows its banner; tap → event
+  "messageTapped", retained until the page listens). Not run on a phone yet.
+- **Web app**: through the service worker's showNotification (Android browsers allow no other kind); the
+  generated sw.js handles `notificationclick` (focus + postMessage, or open a window).
+- **Limit:** only while Tamkeen is running (also in the background, until the phone suspends it). Messages that
+  arrive while it's closed would need a push service (Firebase/APNs/Web Push + a Supabase function): not built.
+- Tests: tests/js/chatnotify.test.mjs, tests/test_notify.py. Translations: tools/i18n/tr/<code>/42-chat-notifications.txt.

@@ -1,0 +1,12 @@
+97f0699d Nagpadala kanimo og episode sa podcast: {0}
+173ce326 Nagpadala kanimo og video: {0}
+034c3487 Nagpadala kanimo og webpage: {0}
+1de9eae1 Nagpadala kanimo og reel
+f4e85d12 Nagpadala kanimo og voice message
+b3319faf Nagpadala kanimo: {0}
+72efcc89 Nagpadala kanimo og tun-anan
+0a361a7a Nagpadala kanimo og folder: {0} ({1})
+c7f932d8 1 ka pulong
+524fbeba Nagpadala kanimo og pulong: {0}
+f0a84e7a Nagpadala kanimo og {0} ka pulong
+0497857d Nagpadala kanimo og mensahe

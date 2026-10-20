@@ -1,0 +1,12 @@
+97f0699d Vous a envoyé un épisode de podcast : {0}
+173ce326 Vous a envoyé une vidéo : {0}
+034c3487 Vous a envoyé une page web : {0}
+1de9eae1 Vous a envoyé un reel
+f4e85d12 Vous a envoyé un message vocal
+b3319faf Vous a envoyé : {0}
+72efcc89 Vous a envoyé quelque chose à étudier
+0a361a7a Vous a envoyé un dossier : {0} ({1})
+c7f932d8 1 mot
+524fbeba Vous a envoyé un mot : {0}
+f0a84e7a Vous a envoyé {0} mots
+0497857d Vous a envoyé un message

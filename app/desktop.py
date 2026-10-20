@@ -391,6 +391,9 @@ def run(browser: bool = False, port: int | None = None, headless: bool = False, 
     once the page has loaded. `background`: start with the window hidden (see BACKGROUND_IDLE)."""
     setup_logging()
     os.environ["APS_DESKTOP"] = "0" if browser or headless else "1"
+    from . import notify
+
+    notify.set_app_id()  # Windows: notifications and the taskbar button belong to Tamkeen
     server = Server(port or free_port())
     server.start()
     log.info("Server listening on %s", server.url)
@@ -398,7 +401,7 @@ def run(browser: bool = False, port: int | None = None, headless: bool = False, 
         applink.write_instance(server.port)  # so a second launch hands its link to this one
     except Exception:  # never let it stop the app from opening
         log.exception("Couldn't write the instance file")
-    parsed = applink.parse(link)
+    parsed = applink.parse_any(link)
     if parsed:
         applink.push(parsed)
     elif link:

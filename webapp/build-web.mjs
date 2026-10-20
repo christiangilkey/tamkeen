@@ -73,6 +73,18 @@ self.addEventListener("activate", (e) => e.waitUntil((async () => {
   for (const key of await caches.keys()) if (key !== CACHE) await caches.delete(key);
   await self.clients.claim();
 })()));
+// A chat notification tapped (web/js/chatnotify.js via mobile/src/js/app.js): open that chat in the
+// app's window, or a new one.
+self.addEventListener("notificationclick", (e) => {
+  e.notification.close();
+  const hash = (e.notification.data && e.notification.data.hash) || "#/";
+  e.waitUntil((async () => {
+    const wins = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+    const win = wins.find((w) => new URL(w.url).pathname.startsWith(new URL("./", location).pathname));
+    if (win) { await win.focus(); win.postMessage({ tamkeen: "open", hash }); return; }
+    await self.clients.openWindow(new URL("./" + hash, location).href);
+  })());
+});
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== "GET" || url.origin !== location.origin || !url.pathname.startsWith(new URL("./", location).pathname)) return;

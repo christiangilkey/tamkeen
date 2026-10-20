@@ -91,6 +91,7 @@ const SHARED = [
   "js/components/modal.js",
   "js/components/troubleshoot.js",
   "js/components/tour.js",
+  "js/chatnotify.js",
   "js/trouble.js",
   "js/components/addsheet.js",
   "js/components/keyhelp.js",

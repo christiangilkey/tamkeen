@@ -1,0 +1,12 @@
+97f0699d T'ha enviat un episodi de pòdcast: {0}
+173ce326 T'ha enviat un vídeo: {0}
+034c3487 T'ha enviat una pàgina web: {0}
+1de9eae1 T'ha enviat un reel
+f4e85d12 T'ha enviat un missatge de veu
+b3319faf T'ha enviat: {0}
+72efcc89 T'ha enviat alguna cosa per estudiar
+0a361a7a T'ha enviat una carpeta: {0} ({1})
+c7f932d8 1 paraula
+524fbeba T'ha enviat una paraula: {0}
+f0a84e7a T'ha enviat {0} paraules
+0497857d T'ha enviat un missatge

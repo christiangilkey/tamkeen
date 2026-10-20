@@ -4,6 +4,18 @@
 
 const MAX_START = 1_000_000; // seconds
 
+/** The friend's id in a tamkeen://chat/<id> link (a chat notification tapped, see chatnotify.js), else
+ * null. The computer reads them the same way (app/applink.py parse_chat). */
+export function parseChatLink(url) {
+  let u;
+  try { u = new URL(String(url || "").trim()); } catch { return null; }
+  if (u.protocol.toLowerCase() !== "tamkeen:") return null;
+  // ("tamkeen://chat/<id>": some browsers read "chat" as the host, others as the start of the path.)
+  const rest = `${u.hostname}${u.pathname}`.replace(/^\/+/, "");
+  const m = /^chat\/([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})\/?$/i.exec(rest);
+  return m ? m[1].toLowerCase() : null;
+}
+
 /** {videoId, at, source} for a valid tamkeen://watch link, else null. `at`: the second to start at
  * (null when not given); `source`: its `from` part ("" when not given). Anything else is ignored. */
 export function parseTamkeenLink(url) {

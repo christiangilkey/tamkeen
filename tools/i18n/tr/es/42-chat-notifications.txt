@@ -1,0 +1,12 @@
+97f0699d Te envió un episodio de pódcast: {0}
+173ce326 Te envió un vídeo: {0}
+034c3487 Te envió una página web: {0}
+1de9eae1 Te envió un reel
+f4e85d12 Te envió un mensaje de voz
+b3319faf Te envió: {0}
+72efcc89 Te envió algo para estudiar
+0a361a7a Te envió una carpeta: {0} ({1})
+c7f932d8 1 palabra
+524fbeba Te envió una palabra: {0}
+f0a84e7a Te envió {0} palabras
+0497857d Te envió un mensaje

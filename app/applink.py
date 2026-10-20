@@ -43,7 +43,8 @@ TOKEN_HEADER = "X-Tamkeen-Token"
 HAND_OFF_TIMEOUT = 3.0
 MAX_START = 1_000_000  # seconds; the same limit as a caption search's moment
 _VIDEO_ID = re.compile(r"[A-Za-z0-9_-]{11}")
-_SECONDS = re.compile(r"[0-9]+(\.[0-9]+)?")  # not \d: in Python that takes other scripts' digits too
+_SECONDS = re.compile(r"[0-9]+(\.[0-9]+)?")
+_FRIEND_ID = re.compile(r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}")  # not \d: in Python that takes other scripts' digits too
 
 _pending: list[dict[str, Any]] = []
 _lock = threading.Lock()
@@ -73,6 +74,27 @@ def parse(url: str | None) -> dict[str, Any] | None:
     at = float(t) if _SECONDS.fullmatch(t) and float(t) < MAX_START else None  # else: from the beginning
     source = re.sub(r"[^A-Za-z0-9_.-]", "", (query.get("from") or [""])[0])[:40]
     return {"video_id": video_id, "at": at, "source": source}
+
+
+def parse_chat(url: str | None) -> str | None:
+    """The friend's id in a tamkeen://chat/<id> link (a chat notification clicked, notify.py), else None.
+    The phone reads them the same way (web/js/applink.js parseChatLink)."""
+    try:
+        parts = urlsplit((url or "").strip())
+    except ValueError:
+        return None
+    if parts.scheme.lower() != SCHEME or (parts.hostname or "").lower() != "chat":
+        return None
+    friend = parts.path.strip("/")
+    return friend.lower() if _FRIEND_ID.fullmatch(friend) else None
+
+
+def parse_any(url: str | None) -> dict[str, Any] | None:
+    """A watch link's {"video_id", ...}, or a chat link's {"chat": friend id}, else None."""
+    if (link := parse(url)) is not None:
+        return link
+    friend = parse_chat(url)
+    return {"chat": friend} if friend else None
 
 
 # ---------------------------------------------------------------- the running app's side

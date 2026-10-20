@@ -1385,6 +1385,76 @@
   "f": "web/js/browser-toolbar.js"
  },
  {
+  "id": "97f0699d",
+  "k": "Sent you a podcast episode: {0}",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "173ce326",
+  "k": "Sent you a video: {0}",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "034c3487",
+  "k": "Sent you a web page: {0}",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "1de9eae1",
+  "k": "Sent you a reel",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "f4e85d12",
+  "k": "Sent you a voice message",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "b3319faf",
+  "k": "Sent you: {0}",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "72efcc89",
+  "k": "Sent you something to study",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "0a361a7a",
+  "k": "Sent you a folder: {0} ({1})",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "c7f932d8",
+  "k": "1 word",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "afb8631c",
+  "k": "{0} words",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "524fbeba",
+  "k": "Sent you a word: {0}",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "f0a84e7a",
+  "k": "Sent you {0} words",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "0497857d",
+  "k": "Sent you a message",
+  "f": "web/js/chatnotify.js"
+ },
+ {
+  "id": "99113664",
+  "k": "A friend",
+  "f": "web/js/chatnotify.js"
+ },
+ {
   "id": "96bb84ec",
   "k": "I already know the basics: count the {0} most common {1} words as seen",
   "f": "web/js/commonwords.js"
@@ -11230,11 +11300,6 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "afb8631c",
-  "k": "{0} words",
-  "f": "web/js/pages/vocab.js"
- },
- {
   "id": "08c2177a",
   "k": "There are no words to send.",
   "f": "web/js/pages/vocab.js"
@@ -12497,11 +12562,6 @@
  {
   "id": "abf7ad6f",
   "k": "You can only invite your own friends, to a guild you're in.",
-  "f": "web/js/social.js"
- },
- {
-  "id": "99113664",
-  "k": "A friend",
   "f": "web/js/social.js"
  },
  {

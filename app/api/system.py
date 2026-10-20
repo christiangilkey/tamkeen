@@ -14,7 +14,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse
 from pydantic import BaseModel
 
-from .. import aikeys, audio, backup, db, events, gpu_libs, hardware, languages, models_manager, paths, sync, transcriber, updates
+from .. import aikeys, applink, audio, backup, db, events, gpu_libs, hardware, languages, models_manager, notify, paths, sync, transcriber, updates
 from ..version import APP_NAME, GITHUB_REPO, __version__
 
 router = APIRouter(tags=["system"])
@@ -50,6 +50,20 @@ def status() -> dict[str, Any]:
         "data_dir": str(paths.data_dir()),
         "desktop": os.environ.get("APS_DESKTOP") == "1",
     }
+
+
+class NotifyIn(BaseModel):
+    title: str = ""
+    text: str = ""
+    friend: str = ""  # a chat message's sender: clicking the notification opens that chat
+
+
+@router.post("/notify")
+def show_notification(body: NotifyIn) -> dict[str, Any]:
+    """The system's notification for a friend's chat message (web/js/chatnotify.js asks while the
+    window isn't on screen; app/notify.py shows it)."""
+    link = f"tamkeen://chat/{body.friend}" if applink.parse_chat(f"tamkeen://chat/{body.friend}") else ""
+    return {"shown": notify.show(body.title, body.text, link)}
 
 
 @router.get("/settings")

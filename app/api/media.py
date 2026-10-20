@@ -102,7 +102,7 @@ def open_link(body: LinkIn, x_tamkeen_token: str | None = Header(default=None)) 
         if body.show:
             applink.show()
         return {"ok": True, "app": APP_NAME}
-    link = applink.parse(body.url)
+    link = applink.parse_any(body.url)  # a video to watch, or a chat to open (a clicked notification)
     if link is None:
         applink.show()
         return {"ok": False, "app": APP_NAME, "error": "That isn't a tamkeen://watch?v=… link."}

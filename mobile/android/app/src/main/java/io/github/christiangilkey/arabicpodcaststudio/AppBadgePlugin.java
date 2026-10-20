@@ -19,7 +19,8 @@ import com.getcapacitor.annotation.PermissionCallback;
 /**
  * The number of review cards left today, shown outside the app (ReviewBadge): setCounts hands over
  * {day, counts: [today, tomorrow, ...]}; allowNotification asks Android (13 and later) once for the
- * permission the silent notification needs.
+ * permission the silent notification needs. notifyMessage / clearMessage: a friend's chat message
+ * (ChatNotifications), which needs the same permission.
  */
 @CapacitorPlugin(name = "AppBadge",
     permissions = @Permission(alias = "notifications", strings = { Manifest.permission.POST_NOTIFICATIONS }))
@@ -45,6 +46,22 @@ public class AppBadgePlugin extends Plugin {
         } else {
             requestPermissionForAlias("notifications", call, "permissionAnswered");
         }
+    }
+
+    /** A friend's chat message as a notification: {friend, title, text}. Resolves {shown}. */
+    @PluginMethod
+    public void notifyMessage(PluginCall call) {
+        JSObject out = new JSObject();
+        out.put("shown", ChatNotifications.show(getContext(), call.getString("friend", ""),
+            call.getString("title", "Tamkeen"), call.getString("text", "")));
+        call.resolve(out);
+    }
+
+    /** Take away a friend's message notification (their chat is open): {friend}. */
+    @PluginMethod
+    public void clearMessage(PluginCall call) {
+        ChatNotifications.clear(getContext(), call.getString("friend", ""));
+        call.resolve();
     }
 
     @PermissionCallback

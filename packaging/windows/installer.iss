@@ -49,8 +49,10 @@ Type: files; Name: "{autodesktop}\{#OldAppName}.lnk"
 Type: dirifempty; Name: "{autoprograms}\{#OldAppName}"
 
 [Icons]
-Name: "{group}\{#AppName}"; Filename: "{app}\{#AppExe}"
-Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppExe}"; Tasks: desktopicon
+; AppUserModelID: the same ID the app gives itself (app/notify.py APP_ID), so Windows shows its chat
+; notifications as Tamkeen's and groups its taskbar button with this shortcut.
+Name: "{group}\{#AppName}"; Filename: "{app}\{#AppExe}"; AppUserModelID: "io.github.christiangilkey.Tamkeen"
+Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppExe}"; Tasks: desktopicon; AppUserModelID: "io.github.christiangilkey.Tamkeen"
 
 ; tamkeen:// links (tamkeen://watch?v=<YouTube id>, used by Onyx Calendar) open in Tamkeen: Windows
 ; starts the exe with the link as its argument (see app/applink.py). For this user only, so no admin
