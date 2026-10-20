@@ -259,9 +259,39 @@ const THAI_APART = new Set(["วันที่", "ก็คือ", "หรื�
 const THAI_WORDS = new Set(THAI_COMMON.filter((w) => !THAI_APART.has(w)));
 const THAI_JOIN = 4; // pieces at most
 
+// Spoken Thai: the device's word breaker knows few of the little words of talk, and around two of them
+// it puts one letter on the wrong side: เนี่ย ("this, you know") before a word comes out เนี่ | ยมัน, and
+// งี้ ("like this") after one comes out บอ | กงี้ or อย่า | งงี้. That letter is moved back.
+const THAI_PARTICLE_END = /(?:เนี่|เนี้)$/;
+const THAI_NGI = /^[ก-ฮ]งี้/;
+
+function mendThai(parts) {
+  // เนี่ย glued onto the end of a piece (คนิคเนี่ย, of เทคนิค): cut off, so the piece can find its word
+  for (let i = 0; i < parts.length; i++) {
+    const m = /^(.+?)(เนี่ย|เนี้ย)$/.exec(parts[i].segment);
+    if (m) parts.splice(i, 1, { index: parts[i].index, segment: m[1] }, { index: parts[i].index + m[1].length, segment: m[2] });
+  }
+  for (let i = 0; i + 1 < parts.length; i++) {
+    const a = parts[i], b = parts[i + 1];
+    if (b.segment.length < 2) continue;
+    if (THAI_PARTICLE_END.test(a.segment) && b.segment[0] === "ย") {
+      parts[i] = { index: a.index, segment: a.segment + "ย" };
+      parts[i + 1] = { index: b.index + 1, segment: b.segment.slice(1) };
+    } else if (THAI_NGI.test(b.segment) && /[฀-๿]$/.test(a.segment)) {
+      parts[i] = { index: a.index, segment: a.segment + b.segment[0] };
+      parts[i + 1] = { index: b.index + 1, segment: b.segment.slice(1) };
+    }
+  }
+  return parts;
+}
+
+/** Thai written the way the word breaker and the dictionaries expect: Whisper writes ำ as two characters
+ * (ํ + า: ตํารวจ), which looks the same but cuts the word in two. */
+export const thaiLetters = (text) => String(text ?? "").replace(/ํา/g, "ำ");
+
 /** Thai word-breaker segments ([{segment, index}, ...] in order) with the cut common words joined. */
 export function joinThai(segments) {
-  const parts = [...segments];
+  const parts = mendThai([...segments]);
   const out = [];
   for (let i = 0; i < parts.length;) {
     let take = 1;
@@ -296,6 +326,10 @@ function deviceBreaker(code) {
 export function regroupWords(W, code, across = true, segText = null) {
   const custom = splitters.get(code);
   if (!langInfo(code).unspaced || !W.text.length) return W;
+  if (code === "th") { // transcripts made before the computer wrote ำ as one letter, and the phone's
+    W = { ...W, text: W.text.map(thaiLetters) };
+    if (segText) { const line = segText; segText = (seg) => thaiLetters(line(seg)); }
+  }
   if (!custom && (typeof Intl === "undefined" || !Intl.Segmenter)) return W;
   const breaker = custom ? { segment: (text) => custom.split(text) } : deviceBreaker(code);
   const show = (custom && custom.show) || ((word) => word);

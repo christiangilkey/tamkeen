@@ -54,6 +54,17 @@ LANGUAGE_MODELS: dict[str, dict[str, Any]] = {
                "files": {"config.json", "generation_config.json", "tokenizer.json", "preprocessor_config.json",
                          "model.safetensors"},
                "engines": {"faster-whisper"}, "approx_mb": 3090, "prompt": False},
+    # Typhoon Whisper Turbo, Whisper large-v3 turbo retrained on ~11,000 hours of Thai by SCB 10X (MIT
+    # licence). On Thai TV talk shows joined into 14 minutes of podcast-like audio (2026-10-19) it got
+    # 12.6% of characters wrong against large-v3's 27.1%, left out far less of what was said, and ran
+    # 2.6 times faster. Its weights are bfloat16 (convert.py turns them into float16). On a short clip
+    # ending in silence it can invent words after the speech; those come with no length, piled at the end,
+    # and `trim` has faster.py drop them (and runs of one phrase said over and over).
+    "typhoon": {"language": "th", "repo": "typhoon-ai/typhoon-whisper-turbo", "revision": "3c03fa84c26f172944422ceb8a4e88a2dbc08b10",
+                "files": {"config.json", "generation_config.json", "tokenizer.json", "preprocessor_config.json",
+                          "model.safetensors"},
+                # cloud providers know Thai (only less well): it keeps cloud transcription, the phone's only way
+                "engines": {"faster-whisper"}, "approx_mb": 1550, "prompt": False, "trim": True, "cloud_ok": True},
 }
 APPROX_MB.update({name: m["approx_mb"] for name, m in LANGUAGE_MODELS.items()})
 

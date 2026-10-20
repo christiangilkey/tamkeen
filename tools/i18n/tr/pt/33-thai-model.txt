@@ -1,0 +1,2 @@
+03b9e92f Typhoon Whisper Turbo, retreinado em tailandês pela SCB 10X: cerca de metade dos erros do large-v3 no tailandês falado do dia a dia, e mais rápido. Depois de baixado, ele escreve todas as transcrições em tailandês deste computador, seja qual for o modelo escolhido acima. Melhor com uma GPU.
+9b953082 Tailandês (Typhoon)

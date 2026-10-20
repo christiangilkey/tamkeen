@@ -1,0 +1,2 @@
+03b9e92f Typhoon Whisper Turbo, réentraîné sur le thaï par SCB 10X : environ moitié moins d'erreurs que large-v3 sur le thaï parlé de tous les jours, et plus rapide. Une fois téléchargé, il écrit toutes les transcriptions en thaï de cet ordinateur, quel que soit le modèle choisi ci-dessus. Idéal avec un GPU.
+9b953082 Thaï (Typhoon)

@@ -8,9 +8,10 @@ const INFO = {
   medium: "Balanced accuracy and speed.",
   "large-v3": "Most accurate in every language. Best with a GPU.",
   bisaya: "Whisper large-v3 retrained on Bisaya (Cebuano) by BuzzASR: far fewer mistakes in Bisaya. Once downloaded it writes every Bisaya transcript on this computer, whichever model is picked above. Best with a GPU.",
+  typhoon: "Typhoon Whisper Turbo, retrained on Thai by SCB 10X: about half the mistakes of large-v3 on everyday Thai talk, and faster. Once downloaded it writes every Thai transcript on this computer, whichever model is picked above. Best with a GPU.",
 };
 // Models made for one language (app/models_manager.py LANGUAGE_MODELS): not picked, used for their language.
-const NAME = { bisaya: "Bisaya" };
+const NAME = { bisaya: "Bisaya", typhoon: "Thai (Typhoon)" };
 const BUSY = ["preparing", "downloading", "converting"];
 const name = (size) => NAME[size] || size;
 
@@ -30,7 +31,9 @@ export function modelManager(el, { hardware, onChange } = {}) {
       const busy = dl.size === m.size && BUSY.includes(dl.state);
       // A language's own model is offered to people learning that language (and kept listed once downloaded).
       if (m.language && m.language !== data.study_language && !m.installed && !m.partial && !busy) continue;
-      const recommended = hardware && hardware.recommended === m.size;
+      // The language being learned has a model of its own (Thai, Bisaya): that is the one to get.
+      const own = data.models.some((o) => o.language && o.language === data.study_language);
+      const recommended = own ? m.language === data.study_language : hardware && hardware.recommended === m.size;
       const row = h(`<div class="model-row">
         ${m.language ? `<input type="radio" disabled tabindex="-1" aria-hidden="true" style="visibility:hidden">` : `<input type="radio" name="model" value="${m.size}" ${data.selected === m.size ? "checked" : ""} ${m.installed ? "" : "disabled"} aria-label="Use ${m.size}">`}
         <div>

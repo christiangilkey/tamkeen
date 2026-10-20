@@ -1,0 +1,2 @@
+03b9e92f Typhoon Whisper Turbo, reentrenat en tai per SCB 10X: aproximadament la meitat d'errors que large-v3 en el tai parlat de cada dia, i més ràpid. Un cop baixat, escriu totes les transcripcions en tai d'aquest ordinador, sigui quin sigui el model triat a dalt. Millor amb una GPU.
+9b953082 Tai (Typhoon)

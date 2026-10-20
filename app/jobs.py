@@ -197,7 +197,21 @@ def _ensure_audio(ep: dict[str, Any], cancel: threading.Event) -> tuple[Path, bo
     return dest, stream_only
 
 
+# Whisper writes Thai ำ as two characters (ํ + า: ตํารวจ); it looks the same but breaks words for the word
+# breaker, search and lookups, so it is written as the one letter.
+_THAI_AM = ("ํา", "ำ")
+
+
+def _thai_letters(segments: list[Segment]) -> None:
+    for seg in segments:
+        seg.text = seg.text.replace(*_THAI_AM)
+        for w in seg.words or []:
+            w.text = w.text.replace(*_THAI_AM)
+
+
 def _store(episode_id: int, segments: list[Segment], model: str, language: str = languages.DEFAULT) -> int:
+    if language == "th":
+        _thai_letters(segments)
     with db.session() as conn:
         _clear_transcript(conn, episode_id)
         widx = 0

@@ -14,11 +14,18 @@ from pathlib import Path
 
 import numpy as np
 
-_DTYPES = {"F16": np.float16, "F32": np.float32, "BF16": None}
+_DTYPES = {"F16": np.float16, "F32": np.float32, "BF16": np.uint16}
+
+
+def _bf16(raw: np.ndarray) -> np.ndarray:
+    """bfloat16 weights (the Thai model's) as float16: a bfloat16 is the top half of a float32, so it is
+    widened exactly and then rounded to float16 (what the model is saved as anyway)."""
+    return (raw.astype(np.uint32) << 16).view(np.float32).astype(np.float16)
 
 
 def _tensors(path: Path) -> dict[str, np.ndarray]:
-    """The weights in a .safetensors file, read in place (nothing is copied until it is used)."""
+    """The weights in a .safetensors file, read in place (nothing is copied until it is used; bfloat16 ones
+    are turned into float16 as they are read)."""
     with open(path, "rb") as f:
         size = struct.unpack("<Q", f.read(8))[0]
         header = json.loads(f.read(size))
@@ -30,7 +37,8 @@ def _tensors(path: Path) -> dict[str, np.ndarray]:
         if dtype is None:
             raise ValueError(f"Unsupported weight type {info['dtype']} in {path.name}")
         start, end = info["data_offsets"]
-        out[name] = data[start:end].view(dtype).reshape(info["shape"])
+        tensor = data[start:end].view(dtype).reshape(info["shape"])
+        out[name] = _bf16(tensor) if info["dtype"] == "BF16" else tensor
     return out
 
 

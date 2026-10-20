@@ -3147,6 +3147,35 @@ transcription option in settings and explain why." Today that is Bisaya (ceb).
   still worded for Bisaya only: generalise them if another such language is added.
 - Tests: tests/test_language_models.py, tests/js/stt.test.mjs. Translations: `tools/i18n/tr/<code>/36-cloud-off.txt`.
 
+## Thai speech model: Typhoon (2026-10-19)
+
+Thai has a speech model of its own, like Bisaya: `models_manager.LANGUAGE_MODELS["typhoon"]`, Typhoon Whisper Turbo
+(typhoon-ai/typhoon-whisper-turbo, SCB 10X, MIT licence, pinned revision). It is downloaded from Typhoon's own page and
+converted in the app (`transcriber/convert.py`, which now reads bfloat16 weights; the result is byte for byte what
+CTranslate2's own converter makes). Settings → Listening shows it, marked Recommended, to Thai learners; once
+downloaded it writes every Thai transcript on the computer. `"cloud_ok": True`: cloud providers know Thai, so unlike
+Bisaya Thai keeps cloud transcription (the phone's only way); a downloaded Typhoon still wins on the computer.
+- **Why**: measured on this PC (scripts and data outside the repo, in `%TEMP%\tasr`), with the app's transcription
+  settings, against official transcripts: Thai TV talk shows (Typhoon's TVSpeech set) joined into 14 minutes of
+  podcast-like audio: large-v3 27.1% of characters wrong and about a fifth of the speech left out, Typhoon turbo
+  12.6% and 2.6x faster; Typhoon large-v3 16.3%. 90 half-minute clips: 20.5% against 9.4% (with the guard below).
+  Read sentences (FLEURS): large-v3 still a little better (7.7% against 12.6%), partly because Typhoon writes numbers
+  as words and English names in Latin letters. Also tried: Thonburian (biodatlab) and Pathumma (NECTEC), both worse.
+- **Made-up words** (`faster.py` `trim_invented`, for models marked `"trim"`): after a clip ending in silence
+  Typhoon can finish the sentence and go on inventing; those pieces have next to no length and pile up at the end of
+  a line far faster than speech (> 40 letters a second), and are cut, with a Latin word that leads them in. A phrase
+  said over and over is kept once (a phrase of three letters or fewer, like ใช่, only after five times). The line's text
+  is cut in step with its words, so `regroup` still matches them. Whisper's output is left exactly as it was.
+- **ำ**: Whisper writes Thai ำ as two characters (ํ + า); it breaks words. `jobs._store` writes it as one letter for
+  Thai, and `languages.js` `regroupWords` does the same for older transcripts and the phone's (`thaiLetters`).
+- **Word splitting** (`languages.js` `joinThai` → `mendThai`): measured against hand-split Thai (PyThaiNLP
+  wisesight-1000) the device's word breaker does as well as PyThaiNLP's newmm (word-boundary F1 89% against 88%), and
+  97% of the pieces of spoken Thai are real words. What was left: spoken particles cut in the wrong place
+  (เนี่ | ยมัน → เนี่ย | มัน, บอ | กงี้ → บอก | งี้), mended; a bigger dictionary for rejoining did not help.
+- **Not done**: a Mac (MLX) version of Typhoon (none checked; Mac Thai learners keep large-v3), and a cloud service
+  better at Thai than Whisper (ElevenLabs Scribe would need a test with a key). Tests: `tests/test_thai_model.py`,
+  `tests/js/thai-words.test.mjs`. Translations: `tools/i18n/tr/<code>/33-thai-model.txt`.
+
 ## Small fixes from the owner's Notion notes (2026-10-20; committed, not pushed)
 - **"Your Google connection needs renewing" bar kept popping up** (web app): Google gives the web app an hour-long
   Drive pass, renewing it needs a tap, and every sync after the hour re-showed a 60-second bar over the player.

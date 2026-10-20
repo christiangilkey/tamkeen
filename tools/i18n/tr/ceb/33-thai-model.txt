@@ -1,0 +1,2 @@
+03b9e92f Ang Typhoon Whisper Turbo nga gibansay pag-usab sa Thai sa SCB 10X: mga katunga ra sa sayop sa large-v3 sa adlaw-adlaw nga sinultihan nga Thai, ug mas paspas. Kung ma-download na, kini ang mosulat sa tanang transcript nga Thai niining kompyuter, bisan unsa pa ang modelo nga gipili sa ibabaw. Labing maayo kung naay GPU.
+9b953082 Thai (Typhoon)
