@@ -98,6 +98,10 @@ final class ReelSurface: NSObject, WKNavigationDelegate {
         web.backgroundColor = .black
         web.scrollView.backgroundColor = .black
         web.scrollView.contentInsetAdjustmentBehavior = .never
+        // The reel stays put: no sliding or rubber-band bounce of Instagram's page under a finger
+        // (reel-page.js also stops the page scrolling; Android's window has no bounce to stop).
+        web.scrollView.isScrollEnabled = false
+        web.scrollView.bounces = false
         web.autoresizingMask = [.flexibleWidth]
     }
 

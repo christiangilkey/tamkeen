@@ -3182,3 +3182,16 @@ release since v0.26.0) but had no HANDOFF section, so here it is, with what this
 - Launch configs `reelfix-desktop` (8960), `reelfix-phone` (8961), `reelfix-webapp` (8962) in
   `arabic-tts/.claude/launch.json` point at this worktree; delete them with it. `mobile/node_modules` in the
   worktree is a link to the main checkout's.
+- **Checked in all four versions (same day, at the main chat's request):**
+  - *iPhone*: `ReelSurface.swift` is handed the same two scripts as Android (`reelScript` in `mobile/src/js/app.js`:
+    reel-page.js + reel-embed.js) and runs them when the page finishes loading, exactly like `ReelSurface.java`,
+    so the hiding, the locked video and everything in the app's own screen (one-line words, pill, icons, XP
+    readout) are the same there. Added: the reel window's own scrolling and rubber-band bounce are switched off
+    (`scrollView.isScrollEnabled = false`, `bounces = false`), which Android has no equivalent of. Not compiled
+    here (needs the Mac build on GitHub).
+  - *Web app*: plays the reel's bare video file in its own `<video>` (`web-reels.js`), so there is no Instagram
+    page to tidy; the one-line words, pill, icons and XP readout are the shared code (checked at 375 px).
+  - *Computer*: no reel window by design (words and popup in two halves). Found and fixed: the episode list
+    (`GET /api/episodes`, `app/api/episodes.py`) did not say each episode's language, so the computer's reel
+    screen took every reel for Arabic (right-to-left, Arabic dictionaries offered, lookups as Arabic). It now
+    returns `language` (the episode's, else its feed's); test `test_the_episode_list_says_each_reels_language`.
