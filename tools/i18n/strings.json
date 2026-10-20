@@ -6485,13 +6485,88 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "c559bda3",
+  "k": "Learning {0}: tap for more",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "220af606",
+  "k": "You are learning {0}. Friends see it next to your name.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "6f977b08",
+  "k": "{0} is learning {1}.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "eda670b7",
+  "k": "Change it with the language switch on Home. The other numbers here are for the language you are learning now.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "91b32dbf",
+  "k": "It is the language they chose on their own Home page.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "23ed8b04",
+  "k": "{0} league: tap for more",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
   "id": "25640d1c",
   "k": "{0} league",
   "f": "web/js/game/friend-bar.js"
  },
  {
-  "id": "8f75ec47",
-  "k": "XP earned today",
+  "id": "173ead1d",
+  "k": "Your league in the creature game. There are four: Bronze, Silver, Gold and Diamond.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "12bd54d1",
+  "k": "Their league in the creature game. There are four: Bronze, Silver, Gold and Diamond.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "3044e70a",
+  "k": "Reaching the daily goal (minutes of listening or reading) on 5 days or more of a week moves a player up a league the week after. 1 day or none moves them down.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "ed598046",
+  "k": "This week so far: {0} day{1} with the goal reached.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "d046ea38",
+  "k": "XP earned today: tap for more",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "d7e150e6",
+  "k": "{0} XP today",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "63e3416a",
+  "k": "The XP you have earned today in the creature game.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "68b386be",
+  "k": "The XP {0} has earned today in the creature game.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "3b9ccfbc",
+  "k": "XP comes from looking words up, saving words, listening and reading, flashcards and battles. It grows the creature and the player's level.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "4dc01acb",
+  "k": "It starts again from 0 at midnight (each person's own).",
   "f": "web/js/game/friend-bar.js"
  },
  {
@@ -6500,8 +6575,78 @@
   "f": "web/js/game/friend-bar.js"
  },
  {
-  "id": "75050d57",
-  "k": "Their favourite creature",
+  "id": "7ff9f314",
+  "k": "Flashcard streak: tap for more",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "6359509d",
+  "k": "Today's flashcards are done.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "365fad6a",
+  "k": "Nothing to study today: the streak carries on tomorrow.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "67d97750",
+  "k": "To keep it going today: {0} new word{1} and {2} review{3} left.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "a36cb15c",
+  "k": "{0}-day flashcard streak",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "adf7aac6",
+  "k": "No flashcard streak yet",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "9f2abd28",
+  "k": "Days in a row you finished your flashcards: the day's new words and every review that was due.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "613f1c83",
+  "k": "Days in a row {0} finished their flashcards: the day's new words and every review that was due.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "80e20f73",
+  "k": "A day with nothing to study doesn't break it. It lasts until the end of the next day, so there is all of today to keep it going.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "f2144fb0",
+  "k": "The goal streak in the creature game is a different one: days of listening or reading.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "c594fad4",
+  "k": "Review now",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "2c0d7021",
+  "k": "Your favourite creature: tap for more",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "68d6e138",
+  "k": "Their favourite creature: tap for more",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "69a7f582",
+  "k": "Your favourite creature: the one friends see next to your name. Choose another on the Creatures page with Show to friends.",
+  "f": "web/js/game/friend-bar.js"
+ },
+ {
+  "id": "ace1e19d",
+  "k": "{0}'s favourite creature, chosen to show to friends.",
   "f": "web/js/game/friend-bar.js"
  },
  {
@@ -7010,8 +7155,8 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "0b8ca8e4",
-  "k": "Days in a row: tap for more",
+  "id": "6d5546f2",
+  "k": "Days in a row you reached your daily goal: tap for more",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -7305,8 +7450,8 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "ac4792cf",
-  "k": "Streak",
+  "id": "a301c97f",
+  "k": "Goal streak",
   "f": "web/js/game/info.js"
  },
  {
@@ -7322,6 +7467,11 @@
  {
   "id": "3e2a59d1",
   "k": "Miss a day and a streak freeze covers it if you have one. Without one the streak starts again from zero. Nothing else is lost.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "c57ee3a3",
+  "k": "The flame next to your name on the Friends tab is a different streak: days in a row you finished your flashcards.",
   "f": "web/js/game/info.js"
  },
  {
@@ -8685,13 +8835,13 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "1e22c8da",
-  "k": "Your game level",
+  "id": "699dd745",
+  "k": "What friends see",
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "62634184",
-  "k": "Friends see this next to your name: your level and your favourite creature.",
+  "id": "f56a7b41",
+  "k": "Friends see this next to your name: your language, league, XP today, flashcard streak and favourite creature. Tap any part to see what it is.",
   "f": "web/js/pages/friends.js"
  },
  {

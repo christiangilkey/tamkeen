@@ -1,0 +1,37 @@
+# The friends-list bar: every part explains itself; the flashcard streak (the flame).
+c559bda3 Aprendiendo {0:lower}: toca para saber más
+220af606 Estás aprendiendo {0:lower}. Tus amigos lo ven junto a tu nombre.
+6f977b08 {0} está aprendiendo {1:lower}.
+eda670b7 Cámbialo con el selector de idioma en Inicio. Los demás números de aquí son del idioma que estás aprendiendo ahora.
+91b32dbf Es el idioma que eligió en su propia página de Inicio.
+23ed8b04 Liga {0}: toca para saber más
+173ead1d Tu liga en el juego de criaturas. Hay cuatro: Bronce, Plata, Oro y Diamante.
+12bd54d1 Su liga en el juego de criaturas. Hay cuatro: Bronce, Plata, Oro y Diamante.
+3044e70a Cumplir la meta diaria (minutos escuchando o leyendo) 5 días o más en una semana sube al jugador una liga la semana siguiente. 1 día o ninguno lo baja.
+ed598046 Esta semana, hasta ahora: {0} día{1} con la meta cumplida.
+d046ea38 XP ganados hoy: toca para saber más
+d7e150e6 {0} XP hoy
+63e3416a Los XP que has ganado hoy en el juego de criaturas.
+68b386be Los XP que {0} ha ganado hoy en el juego de criaturas.
+3b9ccfbc Los XP se ganan buscando palabras, guardando palabras, escuchando y leyendo, con las tarjetas y en las batallas. Hacen crecer a la criatura y suben el nivel del jugador.
+4dc01acb Vuelve a empezar desde 0 a medianoche (la de cada persona).
+7ff9f314 Racha de tarjetas: toca para saber más
+6359509d Las tarjetas de hoy están hechas.
+365fad6a Hoy no hay nada que estudiar: la racha sigue mañana.
+67d97750 Para mantenerla hoy: faltan {0} palabra{1} nueva{1} y {2} repaso{3}.
+a36cb15c Racha de tarjetas de {0} días
+adf7aac6 Todavía no hay racha de tarjetas
+9f2abd28 Días seguidos en los que terminaste tus tarjetas: las palabras nuevas del día y todos los repasos pendientes.
+613f1c83 Días seguidos en los que {0} terminó sus tarjetas: las palabras nuevas del día y todos los repasos pendientes.
+80e20f73 Un día sin nada que estudiar no la rompe. Dura hasta el final del día siguiente, así que tienes todo el día de hoy para mantenerla.
+f2144fb0 La racha de metas del juego de criaturas es otra: días escuchando o leyendo.
+c594fad4 Repasar ahora
+2c0d7021 Tu criatura favorita: toca para saber más
+68d6e138 Su criatura favorita: toca para saber más
+69a7f582 Tu criatura favorita: la que tus amigos ven junto a tu nombre. Elige otra en la página Criaturas con Mostrar a amigos.
+ace1e19d La criatura favorita de {0}, elegida para mostrarla a sus amigos.
+6d5546f2 Días seguidos en los que cumpliste tu meta diaria: toca para saber más
+a301c97f Racha de metas
+c57ee3a3 La llama junto a tu nombre en la pestaña Amigos es otra racha: días seguidos en los que terminaste tus tarjetas.
+699dd745 Lo que ven tus amigos
+f56a7b41 Tus amigos ven esto junto a tu nombre: tu idioma, tu liga, los XP de hoy, tu racha de tarjetas y tu criatura favorita. Toca cualquier parte para ver qué es.

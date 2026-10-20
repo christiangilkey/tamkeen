@@ -842,9 +842,12 @@ export async function publishGame(row) {
   if (!user) return false;
   const c = await sb();
   let { error } = await c.from("game_profiles").upsert({ user_id: user.id, ...row });
+  // The online database may be older than this app: without the flashcard streak's columns
+  // (schema v7), or without any of the friends-list bar's (v6). Send what it has room for.
+  const { streak, streak_until, ...v6 } = row;
+  if (error && error.code === "PGRST204") ({ error } = await c.from("game_profiles").upsert({ user_id: user.id, ...v6 }));
   if (error && error.code === "PGRST204") {
-    // The online database is older than this app (no columns for the friends-list bar yet).
-    const { language, xp_day, xp_today, showcase, ...old } = row;
+    const { language, xp_day, xp_today, showcase, ...old } = v6;
     ({ error } = await c.from("game_profiles").upsert({ user_id: user.id, ...old }));
   }
   if (error) throw new Error(friendly(error));
@@ -857,8 +860,11 @@ export async function gameProfiles(userIds) {
   if (!userIds.length) return out;
   const c = await sb();
   const base = "user_id, team, form, rating, league, week, goal_days, reviews, updated_at";
-  let { data, error } = await c.from("game_profiles").select(`${base}, language, xp_day, xp_today, showcase`).in("user_id", userIds);
-  if (error && error.code === "42703") ({ data, error } = await c.from("game_profiles").select(base).in("user_id", userIds)); // older database
+  const v6 = `${base}, language, xp_day, xp_today, showcase`;
+  let { data, error } = await c.from("game_profiles").select(`${v6}, streak, streak_until`).in("user_id", userIds);
+  // Older databases: without the flashcard streak (v7), or without the bar's columns (v6).
+  if (error && error.code === "42703") ({ data, error } = await c.from("game_profiles").select(v6).in("user_id", userIds));
+  if (error && error.code === "42703") ({ data, error } = await c.from("game_profiles").select(base).in("user_id", userIds));
   if (error) throw new Error(friendly(error));
   for (const r of data) out.set(r.user_id, r);
   return out;

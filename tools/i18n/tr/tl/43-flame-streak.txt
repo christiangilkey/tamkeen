@@ -1,0 +1,37 @@
+# The friends-list bar: every part explains itself; the flashcard streak (the flame).
+c559bda3 Nag-aaral ng {0}: i-tap para sa higit pa
+220af606 Nag-aaral ka ng {0}. Nakikita ito ng mga kaibigan mo sa tabi ng pangalan mo.
+6f977b08 Nag-aaral si {0} ng {1}.
+eda670b7 Palitan ito gamit ang language switch sa Home. Ang ibang mga numero rito ay para sa wikang pinag-aaralan mo ngayon.
+91b32dbf Ito ang wikang pinili nila sa sarili nilang Home.
+23ed8b04 {0} liga: i-tap para sa higit pa
+173ead1d Ang liga mo sa creature game. Apat ang mga ito: Bronze, Silver, Gold at Diamond.
+12bd54d1 Ang liga nila sa creature game. Apat ang mga ito: Bronze, Silver, Gold at Diamond.
+3044e70a Kapag naabot ang daily goal (mga minuto ng pakikinig o pagbabasa) nang 5 araw o higit pa sa isang linggo, aakyat ng isang liga ang player sa susunod na linggo. Kapag 1 araw o wala, bababa sila.
+ed598046 Ngayong linggo sa ngayon: {0} araw na naabot ang goal.
+d046ea38 XP na nakuha ngayong araw: i-tap para sa higit pa
+d7e150e6 {0} XP ngayon
+63e3416a Ang XP na nakuha mo ngayong araw sa creature game.
+68b386be Ang XP na nakuha ni {0} ngayong araw sa creature game.
+3b9ccfbc Nakukuha ang XP sa paghahanap ng mga salita, pag-save ng mga salita, pakikinig at pagbabasa, mga flashcard at mga laban. Pinapalaki nito ang creature at pinapataas ang level ng player.
+4dc01acb Bumabalik ito sa 0 pagsapit ng hatinggabi (sa oras ng bawat isa).
+7ff9f314 Flashcard streak: i-tap para sa higit pa
+6359509d Tapos na ang mga flashcard ngayong araw.
+365fad6a Walang pag-aaralan ngayon: tuloy ang streak bukas.
+67d97750 Para mapanatili ito ngayon: {0} bagong salita at {2} review pa ang natitira.
+a36cb15c {0}-araw na flashcard streak
+adf7aac6 Wala pang flashcard streak
+9f2abd28 Mga sunod-sunod na araw na natapos mo ang mga flashcard mo: ang mga bagong salita ng araw at lahat ng review na due.
+613f1c83 Mga sunod-sunod na araw na natapos ni {0} ang mga flashcard niya: ang mga bagong salita ng araw at lahat ng review na due.
+80e20f73 Hindi ito napuputol ng araw na walang pag-aaralan. Tumatagal ito hanggang matapos ang susunod na araw, kaya nasa iyo ang buong araw ngayon para mapanatili ito.
+f2144fb0 Iba ang goal streak sa creature game: mga araw ng pakikinig o pagbabasa.
+c594fad4 Mag-review ngayon
+2c0d7021 Ang paborito mong creature: i-tap para sa higit pa
+68d6e138 Ang paborito nilang creature: i-tap para sa higit pa
+69a7f582 Ang paborito mong creature: ang nakikita ng mga kaibigan mo sa tabi ng pangalan mo. Pumili ng iba sa page na Mga nilalang gamit ang Ipakita sa mga kaibigan.
+ace1e19d Ang paboritong creature ni {0}, pinili para ipakita sa mga kaibigan.
+6d5546f2 Mga sunod-sunod na araw na naabot mo ang daily goal mo: i-tap para sa higit pa
+a301c97f Goal streak
+c57ee3a3 Ibang streak ang apoy sa tabi ng pangalan mo sa tab na Mga Kaibigan: mga sunod-sunod na araw na natapos mo ang mga flashcard mo.
+699dd745 Ang nakikita ng mga kaibigan
+f56a7b41 Ito ang nakikita ng mga kaibigan mo sa tabi ng pangalan mo: ang wika mo, liga, XP ngayong araw, flashcard streak at paboritong creature. I-tap ang kahit anong bahagi para makita kung ano ito.

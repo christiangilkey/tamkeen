@@ -1,0 +1,37 @@
+# The friends-list bar: every part explains itself; the flashcard streak (the flame).
+c559bda3 Studia {0:lower}: tocca per saperne di più
+220af606 Stai imparando {0:lower}. I tuoi amici lo vedono accanto al tuo nome.
+6f977b08 {0} sta imparando {1:lower}.
+eda670b7 Cambiala con il selettore della lingua nella Home. Gli altri numeri qui riguardano la lingua che stai imparando ora.
+91b32dbf È la lingua scelta sulla sua pagina Home.
+23ed8b04 Lega {0}: tocca per saperne di più
+173ead1d La tua lega nel gioco delle creature. Ce ne sono quattro: Bronzo, Argento, Oro e Diamante.
+12bd54d1 La sua lega nel gioco delle creature. Ce ne sono quattro: Bronzo, Argento, Oro e Diamante.
+3044e70a Raggiungere l'obiettivo del giorno (minuti di ascolto o lettura) in 5 o più giorni della settimana fa salire il giocatore di una lega la settimana dopo. 1 giorno o nessuno lo fa scendere.
+ed598046 Questa settimana finora: {0} giorni con l'obiettivo raggiunto.
+d046ea38 XP guadagnati oggi: tocca per saperne di più
+d7e150e6 {0} XP oggi
+63e3416a Gli XP che hai guadagnato oggi nel gioco delle creature.
+68b386be Gli XP che {0} ha guadagnato oggi nel gioco delle creature.
+3b9ccfbc Gli XP arrivano cercando parole, salvando parole, ascoltando e leggendo, dalle carte e dalle battaglie. Fanno crescere la creatura e il livello del giocatore.
+4dc01acb Ripartono da 0 a mezzanotte (quella di ognuno).
+7ff9f314 Serie di carte: tocca per saperne di più
+6359509d Le carte di oggi sono fatte.
+365fad6a Oggi non c'è niente da studiare: la serie continua domani.
+67d97750 Per tenerla viva oggi: mancano {0} parole nuove e {2} ripassi.
+a36cb15c Serie di carte di {0} giorni
+adf7aac6 Ancora nessuna serie di carte
+9f2abd28 Giorni di fila in cui hai finito le tue carte: le parole nuove del giorno e tutti i ripassi in scadenza.
+613f1c83 Giorni di fila in cui {0} ha finito le sue carte: le parole nuove del giorno e tutti i ripassi in scadenza.
+80e20f73 Un giorno senza niente da studiare non la interrompe. Dura fino alla fine del giorno dopo, quindi hai tutto oggi per tenerla viva.
+f2144fb0 La serie di obiettivi del gioco delle creature è un'altra: giorni di ascolto o lettura.
+c594fad4 Ripassa ora
+2c0d7021 La tua creatura preferita: tocca per saperne di più
+68d6e138 La sua creatura preferita: tocca per saperne di più
+69a7f582 La tua creatura preferita: quella che gli amici vedono accanto al tuo nome. Scegline un'altra nella pagina Creature con Mostra agli amici.
+ace1e19d La creatura preferita di {0}, scelta da mostrare agli amici.
+6d5546f2 Giorni di fila in cui hai raggiunto l'obiettivo del giorno: tocca per saperne di più
+a301c97f Serie di obiettivi
+c57ee3a3 La fiamma accanto al tuo nome nella scheda Amici è un'altra serie: i giorni di fila in cui hai finito le tue carte.
+699dd745 Cosa vedono gli amici
+f56a7b41 Gli amici vedono questo accanto al tuo nome: la tua lingua, la lega, gli XP di oggi, la serie di carte e la creatura preferita. Tocca una parte qualsiasi per vedere cos'è.
