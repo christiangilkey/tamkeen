@@ -17,7 +17,7 @@ export class AuthError extends Error {}
 // A browser gets an hour-long Drive pass from Google's sign-in window. It is kept for that hour
 // (so reloading the page doesn't ask again); after it, the next tap that needs Drive asks Google
 // for a new one, which happens without questions once the learner has agreed.
-const DRIVE_SCOPE = "https://www.googleapis.com/auth/drive.appdata";
+export const DRIVE_SCOPE = "https://www.googleapis.com/auth/drive.appdata";
 const WEB_TOKEN_KEY = "tk_web_drive_token";
 let gis = null;
 
@@ -71,6 +71,13 @@ function savedWebToken() {
 export const RECONNECT_EVENT = "tamkeen:reconnect";
 export const RECONNECT_TEXT = "Your Google connection needs renewing: tap Reconnect.";
 
+/** The web app: keep a Drive pass that came back from Google's sign-in page (app.js finishWebSignIn). */
+export function useWebToken(accessToken, expiresIn) {
+  token = accessToken;
+  tokenExpires = Date.now() + Math.max(60, (Number(expiresIn) || 3600) - 300) * 1000;
+  try { localStorage.setItem(WEB_TOKEN_KEY, JSON.stringify({ token, tokenExpires })); } catch { /* storage off */ }
+}
+
 /** The web app's "Reconnect Google" (must be called from a tap): a fresh Drive pass. */
 export async function reconnect() {
   return webToken(false);
@@ -79,10 +86,12 @@ export async function reconnect() {
 /** Interactive sign-in: shows Google's account picker / consent the first time. */
 export async function signIn() {
   if (isWeb) {
-    await webToken(true);
-    const email = await fetchEmail();
-    await saveSettingsPatch({ signed_in: true, google_email: email });
-    return email;
+    // One sign-in for everything (the owner: "My users should only need to sign in one time"): Google's
+    // page gives Drive and Friends together, and the app finishes both when it comes back
+    // (app.js finishWebSignIn). The page leaves for Google, so this never resolves.
+    const { goToGoogleSignIn } = await import("./app.js");
+    await goToGoogleSignIn();
+    return new Promise(() => {});
   }
   if (!isNative) throw new AuthError("Google sign-in works in the installed app.");
   const r = await GoogleDriveAuth.authorize({ interactive: true });

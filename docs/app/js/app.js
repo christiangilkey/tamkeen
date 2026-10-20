@@ -29,7 +29,7 @@ import { addUploadedVideo, checkFeeds, fillLanguages, handle, wordLang } from ".
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
-import { RECONNECT_EVENT, accessToken, drive, reconnect } from "./drive.js";
+import { DRIVE_SCOPE, RECONNECT_EVENT, accessToken, drive, reconnect, useWebToken } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
 import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, webFetch } from "./native.js";
@@ -225,28 +225,32 @@ export async function googleIdToken({ host = null } = {}) {
   return { token: r.idToken, nonce };
 }
 
-// ---------- the web app's sign-in for Friends: Google's own page, and back ----------
+// ---------- the web app's one sign-in: Google's own page, and back ----------
 // Google's pop-up button is unreliable in an app opened from the home screen (pop-ups are blocked
 // or lost), so the web app goes to Google's sign-in page itself and Google sends it straight back
-// to this address with the sign-in (an ID token) after the "#". Needs this page's address among the
-// Web client's "Authorized redirect URIs" in Google Cloud.
+// to this address after the "#" with both: an ID token (Friends, through Supabase) and an hour-long
+// Drive pass (sync). So signing in from Settings or from Friends signs in to both: once. Needs this
+// page's address among the Web client's "Authorized redirect URIs" in Google Cloud.
 const WEB_SIGNIN_KEY = "tk_web_signin";
 
 function randomHex(n) {
   return Array.from(crypto.getRandomValues(new Uint8Array(n)), (b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-async function goToGoogleSignIn() {
+export async function goToGoogleSignIn() {
   const nonce = randomHex(16);
   const state = randomHex(16);
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(nonce));
   const hashed = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
   try { sessionStorage.setItem(WEB_SIGNIN_KEY, JSON.stringify({ nonce, state, back: location.hash || "#/friends" })); } catch { /* storage off */ }
   const q = new URLSearchParams({
-    client_id: GOOGLE_WEB_CLIENT_ID, response_type: "id_token", scope: "openid email",
-    redirect_uri: location.origin + location.pathname, nonce: hashed, state, prompt: "select_account",
+    client_id: GOOGLE_WEB_CLIENT_ID, response_type: "id_token token", scope: `openid email ${DRIVE_SCOPE}`,
+    include_granted_scopes: "true", redirect_uri: location.origin + location.pathname, nonce: hashed, state,
   });
+  // Already signed in to one of them: the same account again, without choosing (a quick hop to Google
+  // and back once it has been allowed). Otherwise Google asks which account.
   if (settings.google_email) q.set("login_hint", settings.google_email);
+  else q.set("prompt", "select_account");
   location.href = `https://accounts.google.com/o/oauth2/v2/auth?${q}`;
 }
 
@@ -263,8 +267,17 @@ function webIdToken(host = null) {
 
 const GOOGLE_G = `<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true" style="vertical-align:-3px;background:#fff;border-radius:50%;padding:2px"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.8 6C12.3 13.6 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.4 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C.9 16.6 0 20.2 0 24s.9 7.4 2.6 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.2-8.4 2.2-6.4 0-11.7-4.1-13.6-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>`;
 
-/** Back from Google's sign-in page (the address ends "#id_token=…" or "#error=…"): put the screen
- *  the learner was on back, and finish signing in to Friends with what Google sent. */
+/** The email address inside a Google ID token (its middle part is plain JSON), "" when it can't be read. */
+export function idTokenEmail(idToken) {
+  try {
+    const part = String(idToken || "").split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+    const json = new TextDecoder().decode(Uint8Array.from(atob(part.padEnd(Math.ceil(part.length / 4) * 4, "=")), (c) => c.charCodeAt(0)));
+    return String(JSON.parse(json).email || "");
+  } catch { return ""; }
+}
+
+/** Back from Google's sign-in page (the address ends "#id_token=…&access_token=…" or "#error=…"): put
+ *  the screen the learner was on back, keep the Drive pass and sync, and sign in to Friends. */
 async function finishWebSignIn() {
   const answer = new URLSearchParams(location.hash.slice(1));
   let kept = null;
@@ -272,15 +285,26 @@ async function finishWebSignIn() {
   history.replaceState(null, "", location.pathname + location.search + ((kept && kept.back) || "#/friends"));
   if (answer.get("error")) { toast(answer.get("error") === "access_denied" ? "Sign-in was cancelled." : "Google didn't sign you in.", { error: true }); return; }
   if (!kept || answer.get("state") !== kept.state) { toast("That sign-in came back without being asked for here. Try again.", { error: true }); return; }
+  const email = idTokenEmail(answer.get("id_token"));
+  // Drive (sync): only when its box was left ticked on Google's page.
+  const driveOk = !!answer.get("access_token") && (answer.get("scope") || "").split(" ").includes(DRIVE_SCOPE);
+  if (driveOk) {
+    useWebToken(answer.get("access_token"), answer.get("expires_in"));
+    await saveSettingsPatch({ signed_in: true, google_email: email || settings.google_email || "" });
+    syncNow();
+  }
+  let friendsOk = false;
   try {
     const social = await import("./social.js");
     await social.connectWithIdToken({ token: answer.get("id_token"), nonce: kept.nonce });
-    toast("Signed in to Friends.");
-    emit("feeds", { refreshed: true });
-    window.dispatchEvent(new HashChangeEvent("hashchange"));
+    friendsOk = true;
   } catch (e) {
     toast(e.message || "Couldn't sign in to Friends.", { error: true });
   }
+  if (driveOk || friendsOk) toast(email ? `Signed in as ${email}` : "Signed in.");
+  if (!driveOk) toast("Syncing needs Tamkeen's private Drive folder: sign in again and leave that box ticked.", { error: true });
+  emit("feeds", { refreshed: true });
+  window.dispatchEvent(new HashChangeEvent("hashchange"));
 }
 
 // ---------- audio clips of shared words ----------
