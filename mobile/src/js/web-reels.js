@@ -94,7 +94,8 @@ export function webReelSurface() {
       video = document.createElement("video");
       video.playsInline = true;
       video.preload = "auto";
-      video.style.cssText = "width:100%;height:100%;object-fit:contain;background:#000;display:block";
+      // Held inside the space above the words, whole (reels.css .reel-stage > video).
+      video.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;display:block";
       video.addEventListener("ended", () => { ends++; tell(); });
       for (const ev of ["timeupdate", "play", "pause", "loadedmetadata", "seeked"]) video.addEventListener(ev, tell);
       video.addEventListener("error", () => { if (video.getAttribute("src")) { error = "novideo"; tell(); } });

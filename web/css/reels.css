@@ -71,7 +71,13 @@
 .reel-title { flex: 1; min-width: 0; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .reel-title .muted { color: #aaa8a0; }
 /* The Instagram window sits exactly over this box (the phone puts it there; see app.js). */
-.reel-stage { flex: 1 1 auto; min-height: 120px; background: #000; display: grid; place-items: center; }
+.reel-stage { flex: 1 1 auto; min-height: 120px; background: #000; display: grid; place-items: center;
+  position: relative; overflow: hidden; overscroll-behavior: none; touch-action: none; }
+/* The web app's reel (web-reels.js) is held inside the space above the words: the whole video, as big
+   as fits, black at the sides or top and bottom if need be, never wider than the space and never under
+   the words (the owner: show as much of the video as possible, locked in place, not scrollable). Without
+   this a tall video took its own height, filled the width and slid its bottom under the words. */
+.reel-stage > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 /* The bar: words on the left, a line down the middle, the popup on the right. */
 .reel-bar { flex: none; height: 34%; min-height: 150px; max-height: 300px; display: grid; grid-template-columns: 1fr 1fr;
   background: #111; border-top: 1px solid #2c2c2c;

@@ -4022,3 +4022,14 @@ The computer (POST /sync/id-token) and the phones (GoogleDriveAuth.getIdToken) a
 - Checked: a faked answer from Google in the web app (Drive pass kept, address read, back to the page it came from;
   Supabase rightly refused the fake ID token), and Google's page accepts the combined request for the web client
   and the live redirect address. Not checked: a real sign-in (needs the owner's account).
+
+## Reels in the web app: the whole video above the words, locked (2026-10-20; committed)
+Owner: don't fill the reel left and right; show as much of the video as possible in the space above the transcript,
+none of Instagram's UI, locked in place, not scrollable; phone and desktop. The web app's reel (`web-reels.js`, its
+own <video> in `.reel-stage`) took its own height (a 9:16 video 667 px tall in a 498 px space at 375 x 812), filled the
+width and slid its bottom 169 px under the words. Now `.reel-stage` is `position: relative; overflow: hidden;
+touch-action: none; overscroll-behavior: none` and its video `position: absolute; inset: 0; object-fit: contain`
+(reels.css, and the same inline style in web-reels.js): the whole picture, as big as fits, centred on black.
+Checked with a made-up 540 x 960 video at 375 x 812 (280 x 498 shown, ends at the words) and 1280 x 800 (276 x 490).
+The phone apps' native reel window was already placed exactly over `.reel-stage` with the video `contain`ed
+(reel-page.js / reel-embed.js), so they were unchanged.
