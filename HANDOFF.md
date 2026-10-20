@@ -3146,3 +3146,39 @@ transcription option in settings and explain why." Today that is Bisaya (ceb).
 - Phone messages for Bisaya episodes/reels (library.js `computerOnlyNotice`, reels-phone.js `BISAYA_REELS`) are
   still worded for Bisaya only: generalise them if another such language is added.
 - Tests: tests/test_language_models.py, tests/js/stt.test.mjs. Translations: `tools/i18n/tr/<code>/36-cloud-off.txt`.
+
+## Reel player and word popup: owner's Notion notes checked (2026-10-19, "reel player fixes" chat; branch `reel-player-fixes`, not pushed)
+The owner's notes (screenshots `notion-notes/reel-player-33913.jpg`, `correction-33914.jpg`) were taken on an
+older version. Most of what they ask was already built on 2026-10-17 (commits 7c4205e and 19c3bed, in every
+release since v0.26.0) but had no HANDOFF section, so here it is, with what this chat added.
+- **Already done (7c4205e)**: on a reel's ordinary Instagram page (`web/js/reel-page.js`) everything except the
+  reel's video and our Previous / Next is `visibility: hidden` (Instagram's header with its back arrow over our
+  Previous, "Use the app", the bottom bar of buttons), the boxes round the video are kept from shrinking it, and
+  the page can't be scrolled, so the video fills the reel window. The embed page (`reel-embed.js`) already put
+  the video fixed over the whole window. On the phone the words are ONE line across the top of the bar
+  (`.reelplay:not(.no-video) .reel-words` in `reels.css`) that slides so the current word stays in the middle
+  (`setActive` in `reels.js`); the popup gets the whole width and height under it.
+- **Already done (19c3bed)**: a misheard word is one purple pill (`fixPill()` in `components/wordbubble.js`,
+  styles `.wb-pill` in `media.css`): "~~what the transcript said~~ → the word", ✕ on the right undoes it, a tap
+  on the pill shows one line saying the transcription most likely misheard it. Same popup in the podcast,
+  video, YouTube, web-page and reel players. Word / Sentence / Continue / close use the line icons.
+- **Added now**:
+  - The XP readout (`#game-chip`) in the reel player: it hung 3 px (plus its glow) below the 38 px top line,
+    where the phone's reel window lies on top and cuts it off, and it half-covered "1 / 1 @creator". It now sits
+    wholly inside the top line (4..34 px, no shadow, no glow animation), from just right of the back button to
+    just left of the send button, and the title fades out while it shows (`reels.css`, after the words line rules).
+  - Save and Ask again in the popup were still the text signs ★ / ✓ / ↻: now the line icons `star` (new in
+    `icons.js`), `check` and `refresh`, same size as Word / Sentence (15 px). No new text to translate
+    ("Save", "Saved", "Ask again" were already translated). `extract.mjs` also dropped two Thai (Typhoon) strings
+    whose code is gone, which had made `tests/js/i18n.test.mjs` fail.
+- **Checked**: phone build at 375 x 812 with the stand-in reel window and a pretend AI answer (made up in the
+  page, nothing sent anywhere): words line, pill, ✕ puts the word back, tapping the pill explains, line icons,
+  XP readout at 4..34 px ending before the send button (258 px) with the title hidden. Desktop app (fresh test
+  folder, not signed in) podcast player at 800 x 600 and 375 x 812: same pill and icons. Pictures:
+  `..\reel-player-shots\`. Tests: 512 JS pass; 388 pytest pass (2 skipped).
+- **Only a real phone can confirm**: that Instagram's ordinary page really shows nothing but the video in the
+  native reel window (Instagram changes its page often; the hiding is by CSS on everything, so a new banner
+  should be hidden too), and how the XP readout looks next to the real reel window.
+- Launch configs `reelfix-desktop` (8960), `reelfix-phone` (8961), `reelfix-webapp` (8962) in
+  `arabic-tts/.claude/launch.json` point at this worktree; delete them with it. `mobile/node_modules` in the
+  worktree is a link to the main checkout's.
