@@ -188,3 +188,6 @@ f4fa70b0
 
 # Not interface: the CSS animation the reviewer's time bar runs (web/js/pages/review.js).
 7784fc45
+
+# Not interface: a CSS media query (mobile/src/js/pages/settings.js, whether the screen is touched).
+37598f6b

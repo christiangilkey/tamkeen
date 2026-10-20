@@ -2,7 +2,7 @@
 //   node scripts/build-www.mjs
 // Shared files are copied (not linked) so the Android build has a self-contained web bundle.
 
-import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -96,6 +96,7 @@ const SHARED = [
   "js/components/keyhelp.js",
   "js/components/aisetup.js",
   "js/components/settingsui.js",
+  "js/components/licenses.js",
   "js/tokenuse.js",
   "js/stt.js",
   "js/components/sttsetup.js",
@@ -113,6 +114,14 @@ for (const rel of SHARED) {
   if (!existsSync(src)) throw new Error(`Missing shared file: ${src}`);
   cpSync(src, join(out, rel), { recursive: true });
 }
+// The open-source licences the phone and web app are built on (Settings → Data & updates → About):
+// licenses/index.json, the list the computer's About page reads too, and each one's text.
+const licenses = join(mobile, "..", "licenses");
+const licenseList = JSON.parse(readFileSync(join(licenses, "index.json"), "utf8"))
+  .filter((l) => !l.on || l.on.includes("phone"));
+mkdirSync(join(out, "licenses"), { recursive: true });
+writeFileSync(join(out, "licenses", "index.json"), JSON.stringify(licenseList, null, 1));
+for (const l of licenseList) cpSync(join(licenses, l.file), join(out, "licenses", l.file));
 // Capacitor's core library (a single self-contained module) so plain <script type="module">
 // code can reach native plugins without a bundler.
 cpSync(join(mobile, "node_modules", "@capacitor", "core", "dist", "index.js"), join(out, "js", "vendor", "capacitor-core.js"));

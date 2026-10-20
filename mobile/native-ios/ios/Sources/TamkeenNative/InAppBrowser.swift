@@ -38,6 +38,7 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
     private let extractor: String
     private let youtubeScript: String
     private let homeHtml: String
+    private let forReading: Bool
     private let onImport: (String) -> Void
     private let onVideo: (String) -> Void
     private let onSignedIn: (() -> Void)?
@@ -79,12 +80,14 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
 
     /// `home` is the app's start page as one finished HTML page (a search box and news sites in
     /// the language being studied, built by web/js/browser-home.js). It is shown when `url` is
-    /// empty; without it the browser starts on Google.
+    /// empty; without it the browser starts on Google. `forReading` false: opened for something
+    /// other than reading pages (signing in, YouTube, finding a word in a video), so there is no
+    /// "Import Page" button and no star.
     static func open(from presenter: UIViewController, url: String, extractor: String, youtubeScript: String,
-                     home: String, onImport: @escaping (String) -> Void, onVideo: @escaping (String) -> Void,
-                     onSignedIn: (() -> Void)?) {
+                     home: String, forReading: Bool, onImport: @escaping (String) -> Void,
+                     onVideo: @escaping (String) -> Void, onSignedIn: (() -> Void)?) {
         let browser = InAppBrowser(url: url, extractor: extractor, youtubeScript: youtubeScript, home: home,
-                                   onImport: onImport, onVideo: onVideo, onSignedIn: onSignedIn)
+                                   forReading: forReading, onImport: onImport, onVideo: onVideo, onSignedIn: onSignedIn)
         browser.modalPresentationStyle = .fullScreen
         let present = {
             showing = browser
@@ -99,13 +102,14 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
 
     // MARK: - setting up
 
-    private init(url: String, extractor: String, youtubeScript: String, home: String,
+    private init(url: String, extractor: String, youtubeScript: String, home: String, forReading: Bool,
                  onImport: @escaping (String) -> Void, onVideo: @escaping (String) -> Void,
                  onSignedIn: (() -> Void)?) {
         self.startUrl = url
         self.extractor = extractor
         self.youtubeScript = youtubeScript
         self.homeHtml = home
+        self.forReading = forReading
         self.onImport = onImport
         self.onVideo = onVideo
         self.onSignedIn = onSignedIn
@@ -192,6 +196,7 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
         importButton.layer.shadowOffset = CGSize(width: 0, height: 3)
         importButton.addTarget(self, action: #selector(importTapped), for: .touchUpInside)
         importButton.translatesAutoresizingMaskIntoConstraints = false
+        importButton.isHidden = !forReading
         view.addSubview(importButton)
 
         let safe = view.safeAreaLayoutGuide
@@ -304,7 +309,7 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
         let on = site && Self.savedUrls.contains(Self.siteKey(shown))
         star.setTitle(on ? "★" : "☆", for: .normal)
         star.setTitleColor(on ? Screen.color("#f1cf7b") : ink, for: .normal)
-        star.isHidden = !site
+        star.isHidden = !site || !forReading
     }
 
     // MARK: - buttons
@@ -404,7 +409,8 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
     private func videoAddress(_ url: URL) {
         let host = url.host ?? ""
         // The Follow button on a channel's page, or a saved site taken off on the start page.
-        if host == "follow" || host == "site" {
+        // Also "find": the videos a "Find in a video" search listed (web/js/filmot-browser.js).
+        if host == "follow" || host == "site" || host == "find" {
             onVideo(url.absoluteString)
             return
         }

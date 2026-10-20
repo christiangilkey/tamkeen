@@ -8,7 +8,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
 
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = CAPBridgeViewController()
+        // Tamkeen's own screen (AppDelegate.swift), not Capacitor's plain one: it streams the user's
+        // Drive videos (tkdrive://) and lets a swipe from the left edge go back.
+        window?.rootViewController = TamkeenViewController()
         window?.makeKeyAndVisible()
 
         SceneDelegateProxy.shared.scene(scene, willConnectTo: session, options: connectionOptions)

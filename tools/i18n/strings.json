@@ -140,6 +140,106 @@
   "f": "tools/i18n/extra.txt"
  },
  {
+  "id": "6aeffa09",
+  "k": "Noto Naskh Arabic font",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "6f289ed9",
+  "k": "Common-word lists (from wordfreq)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "3ee00536",
+  "k": "CAMeL Tools analyzer method; Arabic dictionaries (optional download)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "cb9ed3a8",
+  "k": "CATT Arabic vowel model, Abjad AI (optional download)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "84051a55",
+  "k": "Spanish, French, Italian, Portuguese, Catalan and English word tables (optional download)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "602655dd",
+  "k": "Bisaya word list (OPUS NLLB) and Wolff's Dictionary of Cebuano Visayan (optional download)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "c319d658",
+  "k": "ODC-By 1.0; public domain",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "5730d3ec",
+  "k": "Thai common-word list, from PyThaiNLP's Thai National Corpus counts",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "550cf31d",
+  "k": "CC0 1.0",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "026482d9",
+  "k": "CMU Pronouncing Dictionary: US pronunciations in the English word table",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "08a5e4bd",
+  "k": "Russian word table with stress, from OpenRussian.org (optional download)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "f88f293f",
+  "k": "The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "a3451771",
+  "k": "CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "a385bf96",
+  "k": "Wiktionary via Wiktextract: word meanings for No AI (optional download)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "44cefc08",
+  "k": "PDF.js (Mozilla): reading PDF books you add",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "81e74ccd",
+  "k": "The free book shelf: Project Gutenberg, Wikisource, Aozora Bunko (optional download)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "8db0aa84",
+  "k": "Public domain",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "7ba12057",
+  "k": "NVIDIA cuBLAS / cuDNN (optional download)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "9e93ea8d",
+  "k": "Supabase JS client: Friends, chat and sharing",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "b329cbef",
+  "k": "Capacitor: the phone apps' frame around Tamkeen's screens",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
   "id": "6f442204",
   "k": "Lost connection to the app's local server.",
   "f": "web/js/app.js"
@@ -2615,6 +2715,21 @@
   "f": "web/js/components/langswitch.js"
  },
  {
+  "id": "30dced67",
+  "k": "Open-source licenses",
+  "f": "web/js/components/licenses.js"
+ },
+ {
+  "id": "33ce4174",
+  "k": "Loading…",
+  "f": "web/js/components/licenses.js"
+ },
+ {
+  "id": "7611c839",
+  "k": "Couldn't load the list. Try again later.",
+  "f": "web/js/components/licenses.js"
+ },
+ {
   "id": "a70803bd",
   "k": "Quick lookup",
   "f": "web/js/components/lookupmode.js"
@@ -3237,6 +3352,11 @@
  {
   "id": "7ceacdca",
   "k": "Privacy policy",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "8b84a68a",
+  "k": "About and open-source licenses",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -6185,11 +6305,6 @@
   "f": "web/js/game/friends-game.js"
  },
  {
-  "id": "33ce4174",
-  "k": "Loading…",
-  "f": "web/js/game/friends-game.js"
- },
- {
   "id": "fe0337e8",
   "k": "Couldn't reach the online service. Check your connection.",
   "f": "web/js/game/friends-game.js"
@@ -7862,11 +7977,6 @@
  {
   "id": "736b9062",
   "k": "Check for updates",
-  "f": "web/js/pages/about.js"
- },
- {
-  "id": "30dced67",
-  "k": "Open-source licenses",
   "f": "web/js/pages/about.js"
  },
  {
@@ -10845,6 +10955,16 @@
   "f": "web/js/pages/settings.js"
  },
  {
+  "id": "65137875",
+  "k": "About Tamkeen",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "c41ff0c3",
+  "k": "Tamkeen for your computer · <0>Privacy policy</0> · <1>Source code</1> · <2>About</2>",
+  "f": "web/js/pages/settings.js"
+ },
+ {
   "id": "9293dd01",
   "k": "Backup ready ({0})",
   "f": "web/js/pages/settings.js"
@@ -10922,6 +11042,16 @@
  {
   "id": "e445c6a9",
   "k": "Make sure your deck is formatted the way you want the cards to appear in Anki.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "97cc7702",
+  "k": "You need Anki: Anki on a computer, AnkiDroid on Android or AnkiMobile on an iPhone.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "c4ae4119",
+  "k": "Open the saved file with Anki. On a computer, click <0>Import File</0> in Anki and choose it.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -14020,8 +14150,8 @@
   "f": "mobile/src/js/googletasks.js"
  },
  {
-  "id": "5e475346",
-  "k": "Sending to Google Tasks works on Android, the computer and the web app. Choose Onyx in Settings, or use one of those.",
+  "id": "79642d7d",
+  "k": "Sending to Google Tasks works in the installed app, on the computer and in the web app.",
   "f": "mobile/src/js/googletasks.js"
  },
  {
@@ -14090,13 +14220,13 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "7c53db40",
-  "k": "Starting again, and the privacy policy.",
+  "id": "906abf49",
+  "k": "Starting again, the privacy policy and licenses.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "e774c246",
-  "k": "Updates, starting again, and the privacy policy.",
+  "id": "0ec69c1c",
+  "k": "Updates, starting again, the privacy policy and licenses.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -14195,8 +14325,8 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "a74ff4ca",
-  "k": "Tamkeen {0} · <0>Privacy policy</0>",
+  "id": "5b931348",
+  "k": "Tamkeen {0} · <0>Privacy policy</0> · <1>Source code</1>",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -14967,91 +15097,6 @@
  {
   "id": "3a3aadb1",
   "k": "Import failed: {0}",
-  "f": "app/api/system.py"
- },
- {
-  "id": "6aeffa09",
-  "k": "Noto Naskh Arabic font",
-  "f": "app/api/system.py"
- },
- {
-  "id": "6f289ed9",
-  "k": "Common-word lists (from wordfreq)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "3ee00536",
-  "k": "CAMeL Tools analyzer method; Arabic dictionaries (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "cb9ed3a8",
-  "k": "CATT Arabic vowel model, Abjad AI (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "84051a55",
-  "k": "Spanish, French, Italian, Portuguese, Catalan and English word tables (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "602655dd",
-  "k": "Bisaya word list (OPUS NLLB) and Wolff's Dictionary of Cebuano Visayan (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "c319d658",
-  "k": "ODC-By 1.0; public domain",
-  "f": "app/api/system.py"
- },
- {
-  "id": "5730d3ec",
-  "k": "Thai common-word list, from PyThaiNLP's Thai National Corpus counts",
-  "f": "app/api/system.py"
- },
- {
-  "id": "550cf31d",
-  "k": "CC0 1.0",
-  "f": "app/api/system.py"
- },
- {
-  "id": "026482d9",
-  "k": "CMU Pronouncing Dictionary: US pronunciations in the English word table",
-  "f": "app/api/system.py"
- },
- {
-  "id": "08a5e4bd",
-  "k": "Russian word table with stress, from OpenRussian.org (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "f88f293f",
-  "k": "The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "a3451771",
-  "k": "CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "a385bf96",
-  "k": "Wiktionary via Wiktextract: word meanings for No AI (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "81e74ccd",
-  "k": "The free book shelf: Project Gutenberg, Wikisource, Aozora Bunko (optional download)",
-  "f": "app/api/system.py"
- },
- {
-  "id": "8db0aa84",
-  "k": "Public domain",
-  "f": "app/api/system.py"
- },
- {
-  "id": "7ba12057",
-  "k": "NVIDIA cuBLAS / cuDNN (optional download)",
   "f": "app/api/system.py"
  },
  {

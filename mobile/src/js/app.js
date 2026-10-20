@@ -25,7 +25,7 @@ import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./lang
 import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating, translateHtml } from "./i18n.js";
 import { isSaved, savedSites, setSite } from "./browser-sites.js";
-import { addUploadedVideo, checkFeeds, fillLanguages, handle } from "./backend.js";
+import { addUploadedVideo, checkFeeds, fillLanguages, handle, wordLang } from "./backend.js";
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
@@ -726,9 +726,11 @@ async function exportText(url) {
   throw new Error("Unknown export.");
 }
 
-/** The words an export covers: all of them, or exactly the ones shown on the vocab screen, in that order. */
+/** The words an export covers: all of them in the language being learned (as the Vocab page and the
+ *  computer's export count them), or exactly the ones shown on the vocab screen, in that order. */
 function vocabToExport(ids) {
-  const items = lib.vocab.filter((v) => !v.deleted).sort((a, b) => b.created_at - a.created_at);
+  const study = studyLanguage();
+  const items = lib.vocab.filter((v) => !v.deleted && wordLang(v) === study).sort((a, b) => b.created_at - a.created_at);
   if (ids === undefined) return items;
   return decodeURIComponent(ids).split(",").map((uid) => items.find((v) => v.uid === uid)).filter(Boolean);
 }
@@ -958,18 +960,26 @@ async function installApk(apk, report) {
 }
 
 // ---------- cards left today, outside the app ----------
-/** Hands Android the number of cards left to review today and on the next days (for midnight),
- *  for the app icon's number (a silent notification) and the home-screen widget. On opening,
- *  after each answer, after a sync, and on coming back to the app. The first time, Android 13+
- *  asks whether Tamkeen may show notifications (the number needs one). */
+/** Hands the phone the number of cards left to review today and on the next days (for midnight),
+ *  for the app icon's number (Android: a silent notification, and the home-screen widget; iPhone:
+ *  the icon's number). On opening, after each answer, after a sync, and on coming back to the app.
+ *  The first time, the phone asks whether Tamkeen may show notifications (the number needs that).
+ *  The web app, once added to the home screen or installed, puts today's number on its icon where
+ *  the browser can (Chrome, Edge; Safari once notifications are allowed); it never asks. */
 function startAppBadge() {
-  if (!AppBadge) return;
+  const web = isWeb && typeof navigator.setAppBadge === "function";
+  if (!AppBadge && !web) return;
   let timer = 0;
   const refresh = () => {
     clearTimeout(timer);
     timer = setTimeout(async () => {
       try {
         const { reviewsLeft } = await import("./pages/review.js");
+        if (web) {
+          const { counts } = await reviewsLeft(1);
+          await (counts[0] > 0 ? navigator.setAppBadge(counts[0]) : navigator.clearAppBadge());
+          return;
+        }
         const { day, counts } = await reviewsLeft(7);
         await AppBadge.setCounts({ day, counts });
         let asked = false;
@@ -983,7 +993,11 @@ function startAppBadge() {
   };
   window.addEventListener("tamkeen:reviewed", refresh);
   on("sync", (s) => { if (s && s.state === "idle") refresh(); });
-  App.addListener("resume", refresh);
+  if (App) App.addListener("resume", refresh);
+  else {
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) refresh(); });
+    setInterval(refresh, 10 * 60 * 1000); // the web page left open past midnight
+  }
   refresh();
 }
 

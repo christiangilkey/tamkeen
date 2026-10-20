@@ -3,7 +3,7 @@
 // a word was added or last changed.
 
 import { api, esc, h, toast, download, fmtDate, audioUrl, showMenu, shareClip, clipUrl, platform } from "../app.js";
-import { ANKI_SETTINGS, MOVE_LABEL, ankiProgressLine, ankiSettingsLabel, confirmDelete, loadAnkiProgress, moveToLanguageDecks } from "../components/ankisync.js";
+import { ANKI_SETTINGS, MOVE_LABEL, ankiProgressLine, ankiSettingsLabel, ankiSyncHere, confirmDelete, loadAnkiProgress, moveToLanguageDecks } from "../components/ankisync.js";
 import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
@@ -41,6 +41,12 @@ function ankiSteps() {
     ? { need: "You need the Anki app installed on this computer.", steps: [
       "Save the file from Tamkeen.",
       "In Anki, click <strong>Import File</strong> and choose it.",
+      progress,
+      "Make sure your deck is formatted the way you want the cards to appear in Anki."] }
+    : window.TAMKEEN_WEB === true // the web app: the deck is downloaded as a file, for whichever Anki is at hand
+    ? { need: "You need Anki: Anki on a computer, AnkiDroid on Android or AnkiMobile on an iPhone.", steps: [
+      "Save the file from Tamkeen.",
+      "Open the saved file with Anki. On a computer, click <strong>Import File</strong> in Anki and choose it.",
       progress,
       "Make sure your deck is formatted the way you want the cards to appear in Anki."] }
     : window.Capacitor?.getPlatform?.() === "ios" // the iPhone app: Anki there is AnkiMobile
@@ -664,8 +670,10 @@ export async function render(view) {
       { label: "Add a word", icon: icon("vocab", 16), run: openAdd },
       { label: "Export CSV", icon: icon("page", 16), run: () => download(exportUrl("csv"), "tamkeen-vocab.csv") },
       { label: "Export for Anki", icon: icon("send", 16), run: exportAnki },
-      { label: ankiSettingsLabel(), icon: icon("settings", 16), run: () => { location.hash = ANKI_SETTINGS; } },  // Settings, at its Anki part
-      { label: MOVE_LABEL, icon: icon("folder", 16), run: moveToLanguageDecks },
+      ...(ankiSyncHere() ? [ // (no Anki sync on the iPhone or in the web app: only the export)
+        { label: ankiSettingsLabel(), icon: icon("settings", 16), run: () => { location.hash = ANKI_SETTINGS; } },  // Settings, at its Anki part
+        { label: MOVE_LABEL, icon: icon("folder", 16), run: moveToLanguageDecks },
+      ] : []),
     ]);
   };
   $("#add-cancel").onclick = () => { $("#add").reset(); $("#add").hidden = true; };

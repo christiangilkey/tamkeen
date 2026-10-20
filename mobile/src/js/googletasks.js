@@ -3,7 +3,7 @@
 // (sending again the same day updates it, setting `review_task` = {day, id}); and "Send to Onyx",
 // which opens Onyx Calendar with an onyx:// link instead.
 
-import { GOOGLE_WEB_CLIENT_ID, GoogleDriveAuth, isIOS, isNative, isWeb } from "./native.js";
+import { GOOGLE_WEB_CLIENT_ID, GoogleDriveAuth, isNative, isWeb } from "./native.js";
 import { AuthError, googleScript } from "./drive.js";
 import { saveSettingsPatch, settings } from "./store.js";
 
@@ -26,7 +26,8 @@ async function tasksToken() {
       client.requestAccessToken();
     });
   }
-  if (isIOS || !isNative) throw new AuthError("Sending to Google Tasks works on Android, the computer and the web app. Choose Onyx in Settings, or use one of those.");
+  if (!isNative) throw new AuthError("Sending to Google Tasks works in the installed app, on the computer and in the web app.");
+  // (Android and iPhone alike: each one's sign-in asks Google for Tasks too, the first time.)
   const r = await GoogleDriveAuth.authorize({ interactive: true, tasks: true });
   if (r.scopes && !r.scopes.includes(TASKS_SCOPE)) throw new AuthError("Google Tasks wasn't allowed, so the task couldn't be added.");
   return r.accessToken;

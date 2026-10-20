@@ -21,6 +21,7 @@ import { dictionariesRow } from "../lexicon/seen.js";
 import { vowelsRow } from "../vowels.js";
 import { readingsRow } from "../lexicon/readings.js";
 import { resetSection } from "../components/resetapp.js";
+import { licensesFold } from "../components/licenses.js";
 import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
 import { resetTours } from "../components/tour.js";
@@ -369,8 +370,19 @@ function data(body, status) {
       <div id="update-result" class="small"></div>
     </section>
     <section class="card" id="reset-app" data-find="reset"></section>
+    <section class="card set-card stack" data-find="about privacy">
+      <h2>About Tamkeen</h2>
+      <p class="set-hint">Tamkeen for your computer ·
+        <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a> ·
+        <a href="https://github.com/christiangilkey/tamkeen" target="_blank" rel="noopener">Source code</a> ·
+        <a href="#/about">About</a></p>
+    </section>
   </div>`));
   const $ = (q) => body.querySelector(q);
+  body.querySelector('[data-find~="about"]').append(licensesFold({
+    list: async () => (await api("/about")).licenses,
+    text: (file) => api(`/licenses/${encodeURIComponent(file)}`),
+  }));
   $("#data-dir").textContent = status.data_dir;
   resetSection($("#reset-app"), async () => {
     const r = await api("/reset", { method: "POST" });

@@ -27,7 +27,8 @@ export const sectionInfo = (id) => SECTIONS.find((x) => x.id === id) || null;
  * What the search box finds: each setting's section, its place on that screen (an element with
  * data-find="<id>"), its name, and other words people may type (lower case, English).
  * `on` limits one to some devices: "desktop", "phone" (Android, iPhone and the web app),
- * "android", "web"; `langs` to some languages being learned.
+ * "android", "ios", "web", "vibrates" (a phone that can vibrate); `langs` to some languages being learned.
+ * tests/js/parity.test.mjs checks each one against the Settings pages of the devices it names.
  */
 export const FINDS = [
   { s: "languages", id: "speak", label: "Language I speak", words: "interface translation english menus" },
@@ -50,7 +51,7 @@ export const FINDS = [
   { s: "listening", id: "storage", label: "Audio storage", words: "delete stream disk space downloaded", on: ["desktop"] },
   { s: "look", id: "theme", label: "Theme", words: "dark light night colours", on: ["desktop", "android", "ios"] }, // (the web app is always dark)
   { s: "look", id: "textsize", label: "Text size", words: "font bigger smaller larger" },
-  { s: "look", id: "haptics", label: "Vibration", words: "haptics buzz vibrate", on: ["phone"] },
+  { s: "look", id: "haptics", label: "Vibration", words: "haptics buzz vibrate", on: ["vibrates"] }, // (no iPhone or computer can)
   { s: "look", id: "game", label: "Game features", words: "creature rewards chimes sounds" },
   { s: "look", id: "guides", label: "Page guides", words: "help tour tips explain buttons tutorial" },
   { s: "account", id: "drive", label: "Google Drive sync", words: "google sign account backup devices phone computer" },
@@ -62,7 +63,8 @@ export const FINDS = [
   { s: "data", id: "backup", label: "Your data", words: "export import backup folder zip", on: ["desktop"] },
   { s: "data", id: "updates", label: "Updates", words: "version update latest", on: ["desktop", "android", "ios"] },
   { s: "data", id: "reset", label: "Reset Tamkeen", words: "start again sign out first" },
-  { s: "data", id: "privacy", label: "Privacy policy", words: "privacy data", on: ["phone"] },
+  { s: "data", id: "privacy", label: "Privacy policy", words: "privacy data" },
+  { s: "data", id: "about", label: "About and open-source licenses", words: "licenses licences credits version source code" },
 ];
 
 /** The search entries for this device (`where`: { desktop, phone, android, ios, web }) and study language. */

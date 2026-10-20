@@ -10,3 +10,25 @@ juvenile
 adult
 # game/habitat.js: the creature line on Home, "{0} {1}" = element and kind ("Ember blob")
 {0} {1}
+# Settings → Data & updates → About and the computer's About page: the open-source parts' names and
+# licences (licenses/index.json, which the extractor doesn't read).
+Noto Naskh Arabic font
+Common-word lists (from wordfreq)
+CAMeL Tools analyzer method; Arabic dictionaries (optional download)
+CATT Arabic vowel model, Abjad AI (optional download)
+Spanish, French, Italian, Portuguese, Catalan and English word tables (optional download)
+Bisaya word list (OPUS NLLB) and Wolff's Dictionary of Cebuano Visayan (optional download)
+ODC-By 1.0; public domain
+Thai common-word list, from PyThaiNLP's Thai National Corpus counts
+CC0 1.0
+CMU Pronouncing Dictionary: US pronunciations in the English word table
+Russian word table with stress, from OpenRussian.org (optional download)
+The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)
+CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)
+Wiktionary via Wiktextract: word meanings for No AI (optional download)
+PDF.js (Mozilla): reading PDF books you add
+The free book shelf: Project Gutenberg, Wikisource, Aozora Bunko (optional download)
+Public domain
+NVIDIA cuBLAS / cuDNN (optional download)
+Supabase JS client: Friends, chat and sharing
+Capacitor: the phone apps' frame around Tamkeen's screens
