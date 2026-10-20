@@ -1,0 +1,11 @@
+c614ba7c Auto
+70892d66 Oras sa session na ito
+841cd03a Mga timer
+df4f8226 Isang time bar sa bawat card
+52a952b3 Isang orasan para sa buong session
+73916e84 Target na oras sa bawat card
+f174983c Okay lang lumampas: nagiging mas kalmadong kulay lang ang bar, at wala nang ibang mangyayari.
+14813a59 Target na oras para sa card na ito: {0} s
+55794870 Sinusundan ng Auto ang sarili mong bilis: mga {0} s sa isang review, {1} s sa bagong salita.
+45bb7a2d Wala pang isang minuto
+42a17b06 Mga {0}

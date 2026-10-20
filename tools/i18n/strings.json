@@ -9975,6 +9975,11 @@
   "f": "web/js/pages/reels.js"
  },
  {
+  "id": "c614ba7c",
+  "k": "Auto",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "7d146544",
   "k": "Review your vocab",
   "f": "web/js/pages/review.js"
@@ -9982,6 +9987,11 @@
  {
   "id": "7585f238",
   "k": "Session progress",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "70892d66",
+  "k": "Time in this session",
   "f": "web/js/pages/review.js"
  },
  {
@@ -10010,6 +10020,31 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "841cd03a",
+  "k": "Timers",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "df4f8226",
+  "k": "A time bar on each card",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "52a952b3",
+  "k": "A clock for the whole session",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "73916e84",
+  "k": "Time goal for each card",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "f174983c",
+  "k": "Going over is fine: the bar just turns a calmer colour, and nothing else happens.",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "1f434d3d",
   "k": "<0>Space</0> turn the card, then remembered · <1>1</1> or <2>←</2> not remembered · <3>2</3> or <4>→</4> remembered · <5>Z</5> undo · <6>W</6> word · <7>S</7> sentence · <8>P</8> practise saying it · <9>N</9> personal notes · <10>Del</10> delete the word",
   "f": "web/js/pages/review.js"
@@ -10027,6 +10062,11 @@
  {
   "id": "001884b8",
   "k": "{0} left",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "14813a59",
+  "k": "Time goal for this card: {0} s",
   "f": "web/js/pages/review.js"
  },
  {
@@ -10317,6 +10357,11 @@
  {
   "id": "dce4bd3c",
   "k": "Coming back to you",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "55794870",
+  "k": "Auto follows your own pace: about {0} s for a review, {1} s for a new word.",
   "f": "web/js/pages/review.js"
  },
  {
@@ -11905,8 +11950,18 @@
   "f": "web/js/review/deck.js"
  },
  {
+  "id": "45bb7a2d",
+  "k": "Under a minute",
+  "f": "web/js/review/goal.js"
+ },
+ {
   "id": "2c4f87a8",
   "k": "under a minute",
+  "f": "web/js/review/goal.js"
+ },
+ {
+  "id": "42a17b06",
+  "k": "About {0}",
   "f": "web/js/review/goal.js"
  },
  {

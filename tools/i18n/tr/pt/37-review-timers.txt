@@ -1,0 +1,11 @@
+c614ba7c Automático
+70892d66 Tempo nesta sessão
+841cd03a Cronômetros
+df4f8226 Uma barra de tempo em cada cartão
+52a952b3 Um relógio para a sessão inteira
+73916e84 Meta de tempo por cartão
+f174983c Passar do tempo não tem problema: a barra só muda para uma cor mais calma, e nada mais acontece.
+14813a59 Meta de tempo para este cartão: {0} s
+55794870 O automático segue o seu próprio ritmo: cerca de {0} s por revisão e {1} s por palavra nova.
+45bb7a2d Menos de um minuto
+42a17b06 Cerca de {0}

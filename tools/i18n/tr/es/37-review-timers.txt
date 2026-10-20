@@ -1,0 +1,11 @@
+c614ba7c Automático
+70892d66 Tiempo en esta sesión
+841cd03a Temporizadores
+df4f8226 Una barra de tiempo en cada tarjeta
+52a952b3 Un reloj para toda la sesión
+73916e84 Meta de tiempo por tarjeta
+f174983c Pasarse está bien: la barra solo cambia a un color más tranquilo y no pasa nada más.
+14813a59 Meta de tiempo para esta tarjeta: {0} s
+55794870 El modo automático sigue tu propio ritmo: unos {0} s por repaso y {1} s por palabra nueva.
+45bb7a2d Menos de un minuto
+42a17b06 Unos {0}

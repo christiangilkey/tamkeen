@@ -5,7 +5,9 @@
 // and its audio), and under a clear gap everything else about the word: meaning, grammar notes and
 // "Personal notes", the learner's own box for a mnemonic. There are two answers,
 // "Remembered" and "Not remembered": buttons, a swipe of the card, or the keyboard. A missed
-// word comes back a few cards later until it has been remembered once.
+// word comes back a few cards later until it has been remembered once. A slim bar on the card
+// fills toward a time goal for it and a clock in the top bar counts the session (both can be
+// switched off in the reviewer's settings; review/cardtimer.js).
 //
 // It opens as a layer over the page, not as a page of its own, so closing it lands on the Vocab
 // list exactly as it was. Every answer is sent to /reviews as it is given.
@@ -24,7 +26,8 @@ import { soundAlikes } from "../review/mnemonic.js";
 import { askMnemonic } from "../define-service.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
-import { forgetAnswer, noteAnswer } from "../review/goal.js";
+import { cardGoal, deviceTimes, forgetAnswer, model, noteAnswer } from "../review/goal.js";
+import { GOAL_CHOICES, clockText, goalSeconds, setTimer, stopwatch, timerSettings } from "../review/cardtimer.js";
 
 const MORE_NEW = 10;      // "Learn 10 more new words" at the end of a session
 const KEY_GUARD_MS = 250; // a key held down while the card turns must not answer it too
@@ -116,6 +119,7 @@ const ICON = {
   bulb: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg>`,
   trash: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M9.5 7V4.8h5V7M6.5 7l.8 11.2a1.5 1.5 0 0 0 1.5 1.3h6.4a1.5 1.5 0 0 0 1.5-1.3L17.5 7M10 10.8v5.2M14 10.8v5.2"/></svg>`,
   sound: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>`,
+  clock: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M10 2.5h4"/></svg>`,
 };
 /** The banner's icon: two cards, one behind the other. */
 export const CARDS_ICON = `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="7.5" y="3.5" width="12" height="15" rx="2.5" transform="rotate(8 13.5 11)"/><rect x="4.5" y="5.5" width="12" height="15" rx="2.5" fill="currentColor" fill-opacity=".22"/></svg>`;
@@ -152,12 +156,15 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   let perDay = newPerDay();
   let bonus = 0;                       // extra new words asked for at the end of a session
   let autoplay = pref("reviewAutoplay", true);
+  let timers = timerSettings();        // the time bar on each card, the session clock, a card's time goal
+  const pace = model(log, deviceTimes());  // how long this learner takes, for the "Auto" time goal
 
   const el = h(`<div class="rv" role="dialog" aria-modal="true" aria-label="Review your vocab">
     <div class="rv-bg"></div><div class="rv-glow"></div>
     <header class="rv-top">
       <button type="button" class="rv-x" title="Close (Esc)" aria-label="Close">${ICON.close}</button>
       <div class="rv-progress" role="progressbar" aria-label="Session progress"><i></i></div>
+      <span class="rv-clock" role="timer" title="Time in this session" aria-label="Time in this session" hidden>${ICON.clock}<span>0:00</span></span>
       <span class="rv-left"></span>
       <span class="rv-streak" hidden></span>
       <button type="button" class="rv-undo" title="Take back the last answer (Z)" aria-label="Undo the last answer" disabled>${ICON.undo}</button>
@@ -169,11 +176,23 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <div class="rv-chips">${NEW_CHOICES.map((n) => `<button type="button" data-n="${n}">${n}</button>`).join("")}</div>
       </div>
       <label class="rv-check"><input type="checkbox" class="rv-auto"> Say the word when the card turns</label>
+      <div class="rv-timers">
+        <h3>Timers</h3>
+        <label class="rv-check"><input type="checkbox" class="rv-bar-on"> A time bar on each card</label>
+        <label class="rv-check"><input type="checkbox" class="rv-clock-on"> A clock for the whole session</label>
+      </div>
+      <div class="rv-goal">
+        <h3>Time goal for each card</h3>
+        <div class="rv-chips">${GOAL_CHOICES.map((c) => `<button type="button" data-goal="${c}">${c === "auto" ? "Auto" : `${c} s`}</button>`).join("")}</div>
+        <p class="rv-note rv-goal-auto"></p>
+        <p class="rv-note">Going over is fine: the bar just turns a calmer colour, and nothing else happens.</p>
+      </div>
       <p class="rv-keys"><kbd>Space</kbd> turn the card, then remembered · <kbd>1</kbd> or <kbd>←</kbd> not remembered · <kbd>2</kbd> or <kbd>→</kbd> remembered · <kbd>Z</kbd> undo · <kbd>W</kbd> word · <kbd>S</kbd> sentence · <kbd>P</kbd> practise saying it · <kbd>N</kbd> personal notes · <kbd>Del</kbd> delete the word</p>
     </div>
     <main class="rv-stage">
       <div class="rv-wrap">
         <div class="rv-card">
+          <div class="rv-timer" aria-hidden="true" hidden><i></i></div>
           <div class="rv-scroll"></div>
           <span class="rv-stamp yes">Remembered</span><span class="rv-stamp no">Again</span>
         </div>
@@ -190,13 +209,17 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   let todo = [];            // words still to answer, in order; todo[0] is the card on the table
   let flipped = false;      // the back is showing
   let busy = false;         // an animation is running: answers wait
-  let shownAt = 0, flippedAt = 0;
+  let flippedAt = 0;
   const session = { answered: 0, firstTry: 0, started: 0, finished: 0, streak: 0, best: 0, xp: 0 };
   const tried = new Set();  // words answered at least once this session
   const undo = [];
-  const began = Date.now();
+  // Time with the reviewer in front (review/cardtimer.js): the card on the table, and the session.
+  const cardWatch = stopwatch(), sessionWatch = stopwatch();
+  let cardKind = "review";  // the card on the table: "new", "review" or "again" (for its time goal)
 
   function begin() {
+    sessionWatch.go();
+    tick();
     const p = plan(words, cards, dayNumber(), perDay + bonus);
     todo = queue(p.due, p.fresh);
     if (todo.length) show(); else finish();
@@ -220,6 +243,39 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     streak.textContent = `🔥 ${session.streak}`;
     $(".rv-undo").disabled = !undo.length;
   }
+
+  // ----- the timers: a bar on the card filling toward its time goal, a clock for the session -----
+  const bar = $(".rv-timer");
+  /** The card on the table's time goal, in seconds. */
+  const goalNow = () => goalSeconds(timers.goal, cardGoal(pace, cardKind));
+  /** Start the bar for the card on the table, as far along as the card's time already is. */
+  function startBar() {
+    const fill = bar.firstElementChild;
+    bar.hidden = !timers.bar || $(".rv-wrap").hidden;
+    bar.classList.remove("over");
+    fill.style.animation = "none";
+    if (bar.hidden) return;
+    const seconds = goalNow();
+    bar.title = `Time goal for this card: ${seconds} s`;
+    void fill.offsetWidth;  // so the animation starts again from the beginning
+    fill.style.animation = `rv-time ${seconds}s linear ${-cardWatch.ms() / 1000}s forwards`;
+  }
+  bar.firstElementChild.addEventListener("animationend", () => bar.classList.add("over"));
+  /** The session clock's number (and whether it shows at all). */
+  function tick() {
+    const clock = $(".rv-clock");
+    clock.hidden = !timers.clock || (!session.answered && !panel.hidden);  // not on "All caught up"
+    if (!clock.hidden) clock.lastElementChild.textContent = clockText(sessionWatch.ms());
+  }
+  const ticker = setInterval(() => { if (!document.hidden) tick(); }, 1000);
+  // The app hidden (another window in front, the phone showing another app): every clock stops.
+  const onVisible = () => {
+    const away = document.hidden;
+    for (const w of [cardWatch, sessionWatch]) away ? w.pause() : w.resume();
+    el.classList.toggle("away", away);
+    if (!away) tick();
+  };
+  document.addEventListener("visibilitychange", onVisible);
 
   // ----- drawing a card -----
   function front(v) {
@@ -430,8 +486,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     lean(0);
     flipped = showBack;
     (showBack ? back : front)(todo[0]);
-    shownAt = Date.now();
-    flippedAt = showBack ? shownAt : 0;
+    const state = cards.get(uidOf(todo[0]));
+    cardKind = !state ? "new" : state.learning && state.day === dayNumber() ? "again" : "review";
+    cardWatch.start();
+    flippedAt = showBack ? Date.now() : 0;
+    startBar();
     header();
     play(card, [{ transform: "translateY(20px) scale(.93)", opacity: 0 }, { transform: "none", opacity: 1 }],
          { duration: 280, easing: "cubic-bezier(.2, 1.35, .4, 1)" });
@@ -484,7 +543,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const word = todo[0], uid = uidOf(word), t = Date.now();
     const before = cards.get(uid) || null;
     const day = before ? Math.max(dayNumber(), before.day) : dayNumber();
-    const entry = [t, rating, day, Math.min(60000, t - shownAt)];
+    cardWatch.stop();  // the time the card was looked at, without any time the app was hidden
+    const entry = [t, rating, day, Math.min(60000, Math.round(cardWatch.ms()))];
     undo.push({ word, entry, before, todo: [...todo], session: { ...session }, firstTime: !tried.has(uid) });
     (log[uid] = log[uid] || []).push(entry);
     cards.set(uid, answer(before, rating, day));
@@ -686,7 +746,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const mem = strength(words, cards, today);
     const studied = session.answered > 0;
     const share = studied ? session.firstTry / Math.max(1, tried.size) : mem.memory;
-    const minutes = Math.max(1, Math.round((Date.now() - began) / 60000));
+    sessionWatch.stop();
+    cardWatch.stop();
+    tick();
+    const minutes = Math.max(1, Math.round(sessionWatch.ms() / 60000));
     const dayName = (n) => (n === 1 ? "Tmrw" : new Date(Date.now() + n * 86400000).toLocaleDateString(undefined, { weekday: "short" }));
     const more = Math.min(MORE_NEW, p.waiting);
     $(".rv-wrap").hidden = true;
@@ -795,12 +858,24 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const drawSettings = () => {
     for (const b of settings.querySelectorAll("[data-n]")) b.classList.toggle("on", Number(b.dataset.n) === perDay);
     $(".rv-auto").checked = autoplay;
+    $(".rv-bar-on").checked = timers.bar;
+    $(".rv-clock-on").checked = timers.clock;
+    $(".rv-goal").hidden = !timers.bar;
+    for (const b of settings.querySelectorAll("[data-goal]")) b.classList.toggle("on", b.dataset.goal === String(timers.goal));
+    $(".rv-goal-auto").textContent = `Auto follows your own pace: about ${cardGoal(pace, "review")} s for a review, ${cardGoal(pace, "new")} s for a new word.`;
   };
   $(".rv-gear").onclick = () => { settings.hidden = !settings.hidden; drawSettings(); };
   for (const b of settings.querySelectorAll("[data-n]")) {
     b.onclick = () => { perDay = Number(b.dataset.n); setNewPerDay(perDay); bonus = 0; drawSettings(); replan(); };
   }
   $(".rv-auto").onchange = (e) => { autoplay = e.target.checked; setPref("reviewAutoplay", autoplay); };
+  // The timers' settings take effect on the card on the table at once.
+  const changeTimer = (name, value) => { setTimer(name, value); timers = timerSettings(); drawSettings(); startBar(); tick(); };
+  $(".rv-bar-on").onchange = (e) => changeTimer("bar", e.target.checked);
+  $(".rv-clock-on").onchange = (e) => changeTimer("clock", e.target.checked);
+  for (const b of settings.querySelectorAll("[data-goal]")) {
+    b.onclick = () => changeTimer("goal", b.dataset.goal === "auto" ? "auto" : Number(b.dataset.goal));
+  }
   el.addEventListener("pointerdown", (e) => { if (!settings.hidden && !e.target.closest(".rv-settings, .rv-gear")) settings.hidden = true; });
 
   // ----- keys -----
@@ -850,6 +925,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     closed = true;
     flushEdits();
     stopStudy();
+    clearInterval(ticker);
+    document.removeEventListener("visibilitychange", onVisible);
     document.removeEventListener("keydown", onKey);
     window.removeEventListener("popstate", onPop);
     window.removeEventListener("hashchange", onPop);

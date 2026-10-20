@@ -3417,3 +3417,70 @@ release since v0.26.0) but had no HANDOFF section, so here it is, with what this
     (`GET /api/episodes`, `app/api/episodes.py`) did not say each episode's language, so the computer's reel
     screen took every reel for Arabic (right-to-left, Arabic dictionaries offered, lookups as Arabic). It now
     returns `language` (the episode's, else its feed's); test `test_the_episode_list_says_each_reels_language`.
+
+## Review timers (ADHD-friendly) and a steadier "time left" (2026-10-19; branch `review-timers`, NOT merged, NOT pushed)
+Owner (Notion dev notes): "Add ADHD friendly features like a timer bar on each card, A time goal for each card,
+Add a timer for total session." and "Make time estimated better". Worktree `C:\Users\chris\Documents\arabic-tts\tamkeen-timers`.
+- **Time bar on each card**: a 4 px line along the top of the card (inside it, under the edge), teal, filling
+  toward the card's time goal; when it gets there it slowly turns a soft lavender (the card's purple at half
+  strength) and stays full. No flashing, no sound, no vibration, nothing is timed out. Restarts on every card
+  (also after Undo). RTL: it grows from the right. Tooltip "Time goal for this card: 15 s".
+- **Time goal for each card**: reviewer settings (the gear) → "Time goal for each card": Auto · 10 s · 20 s ·
+  30 s · 60 s. Auto = goal.js `cardGoal(model, kind)`: 1.2 x this learner's usual time to remember a card of that
+  kind (new / review / again today), rounded up to 5 s, 5–60 s (a first guess gives 15 s new, 10 s review). The
+  settings say the current Auto values and "Going over is fine: the bar just turns a calmer colour".
+- **Session clock**: in the reviewer's top bar, a line clock icon + "4:12" beside "12 left", tabular numbers,
+  78% opacity. Stops at the end screen (whose "N cards in about M minutes" now uses it); hidden on "All caught up".
+- **On/off**: reviewer settings → "Timers": "A time bar on each card", "A clock for the whole session" (both on
+  at first; the goal choices hide when the bar is off). This device only, localStorage `reviewCardTimer`,
+  `reviewSessionTimer`, `reviewCardGoal` ("auto" or seconds), like the reviewer's other settings. Settings pages
+  were NOT touched (review options all live in the reviewer's gear; settings-redesign rewrote settings.js).
+- **No clock runs while the app is hidden** (another window in front, the phone showing another app):
+  `visibilitychange` pauses both stopwatches and the bar's animation. The **answer log's time** (`ms` in each
+  answer, also what the Anki export writes) is now counted the same way, so a card left open while away no
+  longer reads as a 60 s answer. (13% of the answers on this computer's log sit at the 60 s cap.)
+- **Files**: new `web/js/review/cardtimer.js` (stopwatch, clockText, settings), `tests/js/cardtimer.test.mjs`;
+  `web/js/pages/review.js` (bar, clock, settings rows, `cardWatch` for the logged time); `web/css/review.css`
+  (`.rv-clock`, `.rv-timer`, `.rv-note`, the settings box scrolls if taller than the screen). The phone/web get it
+  through build-www (js/review is copied as a folder).
+
+### "Make time estimated better" (goal.js; shown under the Vocab Review banner and sent in the to-do)
+The 2026-10-17 rework had already fixed the big bias. Measured again (scripts in the shared notes folder
+`review-timers/`): a new within-day replay estimates the rest of the day after every answer and compares it with
+what really followed, plus how much the number moves per answer beyond the time just spent.
+- **What changed**: (1) a kind's time is no longer a switch (guess until 10 looks, then measured; this device's
+  own only from 10 looks) but a weighted mean: the guess counts as 8 looks, the answers on record count as 20
+  looks against this device's own. Before, 9 reviews at 18 s each still showed 2.8 min for 20 reviews, then the
+  10th jumped it to 6.6 min; now it climbs 3.1 → 4.5 → 5.2 → 5.5 → 5.8 → 6.1 min. Same for a phone user's first
+  answers on the computer (old: flat, then a jump at 10; new: gradual). (2) The slowest and fastest twentieth are
+  pulled in to the edge of the rest instead of dropped (dropping the slow end cut real time). (3) The moment
+  between cards is measured from the log (0.3 s here) instead of a fixed 0.6 s. (4) The range ("8–12 min") narrows
+  smoothly with the number of looks and is weighted by each part's share of the time, so a few return looks with
+  little measured no longer turn a firm estimate into a range; one number from about 35 looks.
+  (5) Hidden time is no longer logged (above), which matters most on the real data.
+- **Results**: simulated learners: start-of-day error 16.7% → 16.1% (σ .45), first 12 days 25.1% → 22.3%;
+  the rest is day-to-day speed nobody can predict; jumps per answer unchanged (they are the cards themselves).
+  This computer's real log (90 answers, 5 days, owner's tests): bias −21.5% → −4%, but with 4 days the error per
+  day is noise (one day was twice as fast as the ones before). Not measured on the phone's log.
+- **Also**: the goal line said "Under a minute"/"About 9 min" in English inside translated sentences (the capital
+  stopped the match). `timeText(x, true)` writes the capitalised forms out, translated in all 12 languages.
+- Tests: `tests/js/goal.test.mjs` (14; new: no jump at any count, device takeover, measured gap, cardGoal).
+
+### Checked / not checked
+- Checked in the browser pane (phone build `mobile/www` with made-up words via `?seed`, never signed in; and the
+  web app build `docs/app`): 375 x 812 and 1280 x 800; bar fills and turns lavender at the goal; settings switches
+  and goal chips apply to the card on the table at once and are saved; the clock and the bar stop while the page
+  is hidden (simulated `visibilitychange`), a card shown 6.2 s with 5 s hidden was logged as 1.2 s; end screen;
+  Arabic interface (RTL bar, translated settings and tooltip); no console errors. 519 JS tests, 388 pytest pass.
+- **All versions**: one shared reviewer (web/js/pages/review.js, review/*.js, web/css/review.css) used by the desktop,
+  Android, iPhone and web app; no phone-only copy is involved (mobile/src settings.js, backend.js, app.js and
+  mobile.css have no reviewer code; the /reviews routes are unchanged). Also checked on the desktop server from the
+  worktree (launch config `timers-desktop`, port 8979, fresh data folder in that chat's scratchpad, never signed in):
+  timers, settings, and a card shown 6.2 s with 5 s hidden saved to /api/reviews as 1.1 s. iPhone not run (no device
+  here; nothing iPhone-specific in the code).
+- NOT checked: the real desktop window (whether WebView2 reports a minimised window as hidden), a real phone,
+  a screen reader. The chips "10 s"… keep the English "s" (no letters to translate).
+- `docs/app` was NOT rebuilt in the commit (rebuild at release). Launch configs `timers-desktop` (8979), `timers-phone` (8977) and
+  `timers-webapp` (8978) in the parent `.claude/launch.json` point at the worktree: delete them with it. The
+  worktree needed `mobile/node_modules` to build; a junction to the main checkout's was used and removed again.
+- Translations: `tools/i18n/tr/<code>/37-review-timers.txt` (11 strings); `ignore.txt` + the bar's CSS animation.
