@@ -1,0 +1,17 @@
+# Send any Library item to a friend, with its transcript (web/js/components/sendmedia.js, sharetext.js, app/api/shared.py)
+2c26e4b5 Transcript sa usa ka recording
+747f6277 I-transcribe una: ang mga pulong ra ang ipadala, ang file magpabilin sa imong mga device.
+269e1ba2 Taas ra kaayo ang transcript aron ipadala.
+5c5339a2 Napadala kang {0}, uban ang teksto.
+df15ba7f Napadala kang {0}, uban ang mga pulong.
+35e8f150 Napadala kang {0}, walay mga pulong: taas ra kaayo aron ipadala.
+c7e60ed5 Dili makuha ang mga pulong, busa kinahanglan nimo kining i-transcribe.
+7bdfaa76 Na-transcribe na nimo kini, busa ang imong kaugalingong transcript ang gitipigan.
+eec7a905 Naa kini sa {0}, busa makita kini sa imong Library samtang nagtuon ka og {1}.
+4e0443a6 Miabot kining libro nga walay teksto, busa dili kini madugang.
+e3a62ea0 Wala miabot ang mga pulong, busa walay madugang.
+8b34acaa Dili madugang kining matang sa butang.
+9e9c770d Wala kini moingon kung asang podcast gikan ang episode.
+2cdec149 Wala kini moingon kung unsang episode kini.
+1ba21c1e Wala na kini nga episode sa listahan sa mga episode sa podcast.
+2e9a26f5 Dili madugang ang podcast: {0}

@@ -3155,13 +3155,23 @@
   "f": "web/js/components/sendmedia.js"
  },
  {
+  "id": "2c26e4b5",
+  "k": "Transcript of a recording",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
   "id": "b41edaea",
   "k": "This can't be sent to a friend.",
   "f": "web/js/components/sendmedia.js"
  },
  {
-  "id": "00ac93bc",
-  "k": "This can't be sent: your own audio and video files stay on your devices.",
+  "id": "747f6277",
+  "k": "Transcribe it first: only its words are sent, the file itself stays on your devices.",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
+  "id": "269e1ba2",
+  "k": "Its transcript is too long to send.",
   "f": "web/js/components/sendmedia.js"
  },
  {
@@ -3195,13 +3205,23 @@
   "f": "web/js/components/sendmedia.js"
  },
  {
-  "id": "5b7d7944",
-  "k": ", with its words",
+  "id": "5c5339a2",
+  "k": "Sent to {0}, with its text.",
   "f": "web/js/components/sendmedia.js"
  },
  {
-  "id": "7305bd49",
-  "k": "Sent to {0}{1}.",
+  "id": "df15ba7f",
+  "k": "Sent to {0}, with its words.",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
+  "id": "35e8f150",
+  "k": "Sent to {0}, without its words: they are too long to send.",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
+  "id": "d19372ac",
+  "k": "Sent to {0}.",
   "f": "web/js/components/sendmedia.js"
  },
  {
@@ -3217,6 +3237,21 @@
  {
   "id": "39a2069e",
   "k": "Send to a friend",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
+  "id": "c7e60ed5",
+  "k": "Its words couldn't be fetched, so it will need transcribing on your side.",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
+  "id": "7bdfaa76",
+  "k": "You had already transcribed it, so your own transcript is kept.",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
+  "id": "eec7a905",
+  "k": "It's in {0}, so it shows in your Library while you're learning {1}.",
   "f": "web/js/components/sendmedia.js"
  },
  {
@@ -6367,11 +6402,6 @@
  {
   "id": "458e9f84",
   "k": "Give this to…",
-  "f": "web/js/game/friends-game.js"
- },
- {
-  "id": "d19372ac",
-  "k": "Sent to {0}.",
   "f": "web/js/game/friends-game.js"
  },
  {
@@ -12365,6 +12395,21 @@
   "f": "web/js/review/tasktext.js"
  },
  {
+  "id": "4e0443a6",
+  "k": "This book came without its text, so it can't be added.",
+  "f": "web/js/sharetext.js"
+ },
+ {
+  "id": "e3a62ea0",
+  "k": "Its words didn't arrive, so there is nothing to add.",
+  "f": "web/js/sharetext.js"
+ },
+ {
+  "id": "8b34acaa",
+  "k": "This kind of thing can't be added.",
+  "f": "web/js/sharetext.js"
+ },
+ {
   "id": "4e81fbf0",
   "k": "3–20 letters, numbers, dots or underscores.",
   "f": "web/js/social.js"
@@ -14070,6 +14115,21 @@
   "f": "mobile/src/js/backend.js"
  },
  {
+  "id": "9e9c770d",
+  "k": "This doesn't say which podcast the episode is from.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
+  "id": "2cdec149",
+  "k": "This doesn't say which episode it is.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
+  "id": "1ba21c1e",
+  "k": "This episode isn't in the podcast's episode list any more.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
   "id": "1d6b4183",
   "k": "That video isn't in the library yet.",
   "f": "mobile/src/js/backend.js"
@@ -15088,6 +15148,11 @@
   "id": "f0cbe469",
   "k": "No picture.",
   "f": "app/api/reels.py"
+ },
+ {
+  "id": "2e9a26f5",
+  "k": "Couldn't add the podcast: {0}",
+  "f": "app/api/shared.py"
  },
  {
   "id": "a52aaab5",

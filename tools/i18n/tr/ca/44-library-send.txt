@@ -1,0 +1,17 @@
+# Send any Library item to a friend, with its transcript (web/js/components/sendmedia.js, sharetext.js, app/api/shared.py)
+2c26e4b5 Transcripció d’una gravació
+747f6277 Primer transcriu-lo: només s’envien les paraules; el fitxer es queda als teus dispositius.
+269e1ba2 La transcripció és massa llarga per enviar-la.
+5c5339a2 Enviat a {0}, amb el seu text.
+df15ba7f Enviat a {0}, amb les seves paraules.
+35e8f150 Enviat a {0}, sense les paraules: són massa llargues per enviar-les.
+c7e60ed5 No s’han pogut obtenir les paraules, així que l’hauràs de transcriure tu.
+7bdfaa76 Ja l’havies transcrit, així que es conserva la teva transcripció.
+eec7a905 És en {0:lower}, així que apareix a la teva Biblioteca mentre aprens {1:lower}.
+4e0443a6 Aquest llibre ha arribat sense el text, així que no es pot afegir.
+e3a62ea0 Les paraules no han arribat, així que no hi ha res per afegir.
+8b34acaa Aquesta mena de cosa no es pot afegir.
+9e9c770d No diu de quin pòdcast és l’episodi.
+2cdec149 No diu quin episodi és.
+1ba21c1e Aquest episodi ja no és a la llista d’episodis del pòdcast.
+2e9a26f5 No s’ha pogut afegir el pòdcast: {0}

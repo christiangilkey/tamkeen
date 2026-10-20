@@ -1,0 +1,17 @@
+# Send any Library item to a friend, with its transcript (web/js/components/sendmedia.js, sharetext.js, app/api/shared.py)
+2c26e4b5 Transcript ng isang recording
+747f6277 I-transcribe muna: mga salita lang ang ipinapadala, nananatili ang file sa mga device mo.
+269e1ba2 Masyadong mahaba ang transcript para ipadala.
+5c5339a2 Naipadala kay {0}, kasama ang teksto.
+df15ba7f Naipadala kay {0}, kasama ang mga salita.
+35e8f150 Naipadala kay {0}, nang walang mga salita: masyadong mahaba para ipadala.
+c7e60ed5 Hindi makuha ang mga salita, kaya kailangan mo itong i-transcribe.
+7bdfaa76 Na-transcribe mo na ito, kaya sarili mong transcript ang itinatabi.
+eec7a905 Nasa {0} ito, kaya lalabas ito sa Library mo habang nag-aaral ka ng {1}.
+4e0443a6 Dumating ang librong ito nang walang teksto, kaya hindi ito maidaragdag.
+e3a62ea0 Hindi dumating ang mga salita, kaya walang maidaragdag.
+8b34acaa Hindi maidaragdag ang ganitong uri.
+9e9c770d Hindi nito sinasabi kung saang podcast galing ang episode.
+2cdec149 Hindi nito sinasabi kung aling episode ito.
+1ba21c1e Wala na ang episode na ito sa listahan ng mga episode ng podcast.
+2e9a26f5 Hindi maidagdag ang podcast: {0}

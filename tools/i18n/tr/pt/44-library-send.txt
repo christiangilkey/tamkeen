@@ -1,0 +1,17 @@
+# Send any Library item to a friend, with its transcript (web/js/components/sendmedia.js, sharetext.js, app/api/shared.py)
+2c26e4b5 Transcrição de uma gravação
+747f6277 Transcreva primeiro: só as palavras são enviadas, o arquivo fica nos seus aparelhos.
+269e1ba2 A transcrição é longa demais para enviar.
+5c5339a2 Enviado para {0}, com o texto.
+df15ba7f Enviado para {0}, com as palavras.
+35e8f150 Enviado para {0}, sem as palavras: são longas demais para enviar.
+c7e60ed5 Não foi possível baixar as palavras, então você vai precisar transcrever.
+7bdfaa76 Você já tinha transcrito, então a sua transcrição foi mantida.
+eec7a905 Está em {0:lower}, então aparece na sua Biblioteca enquanto você aprende {1:lower}.
+4e0443a6 Este livro chegou sem o texto, então não pode ser adicionado.
+e3a62ea0 As palavras não chegaram, então não há nada para adicionar.
+8b34acaa Esse tipo de coisa não pode ser adicionado.
+9e9c770d Não diz de qual podcast é o episódio.
+2cdec149 Não diz qual é o episódio.
+1ba21c1e Este episódio não está mais na lista de episódios do podcast.
+2e9a26f5 Não foi possível adicionar o podcast: {0}

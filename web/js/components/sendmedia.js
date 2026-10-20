@@ -1,33 +1,42 @@
-// "Send to a friend": the paper-airplane button every player puts on its toolbar, and what
-// happens to the thing that was sent.
+// "Send to a friend": the paper-airplane button on every player's toolbar and every Library row,
+// and what happens to the thing that was sent.
 //
 //   import { sendButton, mediaFromEpisode } from "../components/sendmedia.js";
 //   toolbar.append(sendButton(() => mediaFromEpisode(ep)));     // a getter: read when pressed
 //   toolbar.append(sendButton({ kind: "youtube", url, title, episode_id: ep.id }));  // or a fixed item
 //
-// A media item is {kind: "youtube" | "reel" | "podcast" | "page", url, title, subtitle, image}
-// plus, when known: episode_id (the sender's own copy: its words travel with a YouTube video
-// or a reel, and it is never sent itself), language, duration, at (seconds to start from), and for
-// a podcast feed_url, guid and audio_url. The player chats' own field names are understood too
-// (video_id, channel, creator, lang).
+// A media item is {kind: "youtube" | "reel" | "podcast" | "page" | "book" | "text", url, title,
+// subtitle, image} plus, when known: episode_id (the sender's own copy: its transcript travels
+// with it, and the id itself is never sent), language, duration, at (seconds to start from), for
+// a podcast feed_url, guid and audio_url, and for a book guid and source. The player chats' own
+// field names are understood too (video_id, channel, creator, lang).
 //
+// "text" is one of the sender's own video or audio files: the file stays on their devices (it
+// lives in their private Drive folder), so only its title and transcript are sent, and the
+// friend gets it as something to read in "My books".
+//
+// The transcript (or a page's or book's text) is packed by sharetext.js, gzipped and uploaded
+// to the online storage beside voice notes; the message carries its path (transcript_path).
 // The friend first sees only the title and the kind, with an Accept button (see mediaCard in
-// pages/chat.js). Accepting adds it to their library, with its words when they came along, and
-// from then on it opens in the player for its kind, exactly like an item on a study card.
+// pages/chat.js). Accepting adds it to their library with its words already there, so it opens
+// at once in the player or reader for its kind; accepting or dismissing deletes the uploaded file.
 
 import { api, h, showMenu, toast } from "../app.js";
 import { icon } from "../icons.js";
+import { isLanguage, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
+import { MAX_FILE_BYTES, MAX_INLINE_CHARS, TEXT_KINDS, acceptInto, gunzipText, gzipText, packTranscript, unpackTranscript } from "../sharetext.js";
 import { openItem } from "./studycard.js";
 
-export const MEDIA_KINDS = { youtube: "YouTube video", reel: "Instagram reel", podcast: "Podcast episode", page: "Web page" };
-const MAX_TRANSCRIPT_CHARS = 600000; // the message as a whole must stay under the service's 1 MB
+export const MEDIA_KINDS = { youtube: "YouTube video", reel: "Instagram reel", podcast: "Podcast episode", page: "Web page",
+                             book: "Book", text: "Transcript of a recording" };
 
 const text = (x, n) => String(x ?? "").replace(/\s+/g, " ").trim().slice(0, n);
 const http = (x) => (/^https?:\/\//i.test(String(x || "")) ? String(x) : "");
+const OWN_FILES = new Set(["local:videos", "local:audio"]);
 
-/** What is playing, as a media item, from one of the app's own episodes. Null for things that
- * can't be sent: the user's own audio and video files exist only on their devices. */
+/** What is playing (or a Library row), as a media item, from one of the app's own episodes.
+ * Null for things that can't be sent at all. */
 export function mediaFromEpisode(ep, { at = 0 } = {}) {
   if (!ep) return null;
   const type = ep.audio_type || "";
@@ -39,6 +48,14 @@ export function mediaFromEpisode(ep, { at = 0 } = {}) {
              signin: String(ep.audio_url || "").endsWith("#signin") };
   }
   if (type === "text/html") return { ...base, kind: "page", url: http(ep.audio_url), subtitle: text(ep.description, 120) };
+  if (type === "text/book") {
+    return { ...base, kind: "book", url: "", subtitle: text(ep.description, 120), guid: text(ep.guid, 300),
+             source: text(ep.audio_url, 300), duration: null, at: 0 };
+  }
+  if (OWN_FILES.has(ep.feed_url || "")) {
+    // Only the words go: the file itself stays private. Nothing to send until it is transcribed.
+    return { ...base, kind: "text", url: "", subtitle: "", image: "", at: 0, ready: ep.status === "done" };
+  }
   if (http(ep.feed_url)) {
     return { ...base, kind: "podcast", url: "", subtitle: text(ep.feed_title, 120), feed_url: http(ep.feed_url),
              guid: text(ep.guid, 200), audio_url: http(ep.audio_url).length <= 300 ? http(ep.audio_url) : "" };
@@ -65,41 +82,56 @@ export function normalizeMedia(m) {
   if (m.kind === "podcast") {
     Object.assign(item, { feed_url: http(m.feed_url), guid: text(m.guid, 200), audio_url: http(m.audio_url).length <= 300 ? http(m.audio_url) : "" });
     if (!item.feed_url) return null;
+  } else if (m.kind === "book") {
+    Object.assign(item, { url: "", guid: text(m.guid, 300), source: text(m.source, 300) });
+    if (!/^(book|file):/.test(item.guid)) return null;
+  } else if (m.kind === "text") {
+    Object.assign(item, { url: "", image: "", ready: m.ready !== false });
   } else if (!item.url) {
     return null;
   }
   return item;
 }
 
-/** The words of the sender's own copy, when they are worth sending along: a YouTube video and a
- * reel are the same recording for everyone, so their words fit the friend's copy exactly. (A
- * podcast's sound can differ per listener because of inserted adverts, and a page is read again
- * from the page itself.) Null when there are none or they are too long for one message. */
-export async function wordsFor(item) {
-  if (!item.episode_id || (item.kind !== "youtube" && item.kind !== "reel")) return null;
+/** The transcript of the sender's own copy, packed for sending (sharetext.js), or null when there
+ * is none. A podcast's goes too: adverts inserted per listener can shift its timing a little on the
+ * friend's copy; they can transcribe it again if the words drift. A book from Tamkeen's free shelf
+ * needs none: the friend's app takes it from the shelf, complete. */
+export async function textFor(item) {
+  if (!item.episode_id) return null;
+  if (item.kind === "book" && String(item.guid || "").startsWith("book:")) return null;
   let t;
   try { t = await api(`/episodes/${item.episode_id}/transcript`); } catch { return null; }
-  const W = t && t.words;
-  if (!W || !W.text || !W.text.length) return null;
-  const r = (x) => Math.round(Number(x) * 1000) / 1000;
-  const segments = t.segments.map((s) => ({ start: r(s.start), end: r(s.end), text: String(s.text || ""), words: [] }));
-  const at = new Map(t.segments.map((s, i) => [s.idx, i]));
-  for (let i = 0; i < W.text.length; i++) {
-    const seg = segments[at.get(W.seg[i])];
-    if (seg) seg.words.push([r(W.start[i]), r(W.end[i]), String(W.text[i])]);
-  }
-  const out = { model: text(t.episode && t.episode.model, 80), segments: segments.filter((s) => s.text.trim() || s.words.length) };
-  return out.segments.length && JSON.stringify(out).length <= MAX_TRANSCRIPT_CHARS ? out : null;
+  if (!t) return null;
+  return packTranscript(t, { asText: TEXT_KINDS.has(item.kind) });
 }
 
-/** Send `media` to one friend. Resolves to {withWords}. */
+/** Send `media` to one friend. Resolves to {withWords, tooLarge}. */
 export async function sendMedia(friendId, media) {
   const item = normalizeMedia(media);
   if (!item) throw new Error("This can't be sent to a friend.");
-  const words = await wordsFor(item);
-  const { episode_id: _mine, ...shared } = item; // my own copy's id means nothing on a friend's device
-  await social.sendMediaMessage(friendId, { ...shared, ...(words ? { transcript: words } : {}) });
-  return { withWords: !!words };
+  const packed = await textFor(item);
+  if (item.kind === "text" && !packed) throw new Error("Transcribe it first: only its words are sent, the file itself stays on your devices.");
+  const extra = {};
+  if (packed) {
+    // The words go as a file in the online storage, and only its address in the message.
+    const file = await gzipText(packed);
+    if (file.size <= MAX_FILE_BYTES) {
+      try { extra.transcript_path = await social.uploadText(friendId, file); } catch (e) { console.warn("Couldn't upload the transcript", e); }
+    }
+    // Couldn't (an online storage not set up for it yet): a small one rides inside the message.
+    if (!extra.transcript_path && JSON.stringify(packed).length <= MAX_INLINE_CHARS) extra.transcript = packed;
+  }
+  const withWords = !!(extra.transcript_path || extra.transcript);
+  if (item.kind === "text" && !withWords) throw new Error("Its transcript is too long to send.");
+  const { episode_id: _mine, ready: _ready, ...shared } = item; // my own copy's id means nothing on a friend's device
+  try {
+    await social.sendMediaMessage(friendId, { ...shared, ...extra });
+  } catch (e) {
+    if (extra.transcript_path) social.removeShareClips({ media: extra }).catch(() => {});
+    throw e;
+  }
+  return { withWords, tooLarge: !!packed && !withWords };
 }
 
 /** Ask which friend, then send.
@@ -109,7 +141,8 @@ export async function sendMedia(friendId, media) {
  * how the list is shown and that has to change with it. */
 async function pickAndSend(x, y, media) {
   const item = normalizeMedia(media);
-  if (!item) { toast("This can't be sent: your own audio and video files stay on your devices."); return; }
+  if (!item) { toast("This can't be sent to a friend."); return; }
+  if (item.kind === "text" && !item.ready) { toast("Transcribe it first: only its words are sent, the file itself stays on your devices."); return; }
   let st;
   try { st = await social.friendsState(); } catch (e) { toast(e.message, { error: true }); return; }
   if (!st || !st.me.username) {
@@ -126,7 +159,8 @@ async function pickAndSend(x, y, media) {
       try {
         toast("Sending…", { timeout: 1500 });
         const r = await sendMedia(f.user.id, media);
-        toast(`Sent to ${f.user.username}${r.withWords ? ", with its words" : ""}.`,
+        toast(r.withWords ? (TEXT_KINDS.has(item.kind) ? `Sent to ${f.user.username}, with its text.` : `Sent to ${f.user.username}, with its words.`)
+                : r.tooLarge ? `Sent to ${f.user.username}, without its words: they are too long to send.` : `Sent to ${f.user.username}.`,
               { action: { label: "Open chat", run: () => (location.hash = `#/chat/${f.user.id}`) } });
       } catch (e) {
         toast(e.message, { error: true });
@@ -147,31 +181,49 @@ export function sendButton(media, { label = false } = {}) {
   return b;
 }
 
-/** A friend accepted: put the item in this device's library (with its words when they came),
- * so it opens at once. Resolves to a hash to open it with, or "" when opening is left to the
- * ordinary route (openItem). */
-export async function acceptMedia(m) {
-  const t = m.transcript && Array.isArray(m.transcript.segments) ? m.transcript : null;
-  if (t && m.kind === "reel") {
-    const ep = await api("/shared/reel", { method: "POST", body: {
-      code: social.reelCode(m.url), creator: m.subtitle || "", title: m.title || "", language: m.language || null,
-      seconds: m.duration || null, signin: !!m.signin, model: t.model || "", segments: t.segments,
-    } });
-    return `#/reels/play?at=${ep.id}`;
+/** The words that came with a sent item: inside the message (older apps, or small ones when the
+ * upload couldn't be made) or as a file in the online storage. {text, lost}: `lost` means words
+ * were sent but couldn't be fetched or read here (the file has gone, say). */
+export async function receivedText(raw) {
+  if (!raw) return { text: null, lost: false };
+  if (raw.transcript) {
+    const text = unpackTranscript(raw.transcript);
+    return { text, lost: !text };
   }
-  if (t && m.kind === "youtube") {
-    const { videoId } = await import("../youtube.js");
-    const id = videoId(m.url);
-    if (id) {
-      const lines = t.segments.map((s) => ({ start: s.start, end: s.end, text: s.text, words: s.words }));
-      const ep = await api("/youtube", { method: "POST", body: {
-        video_id: id, title: m.title, channel: m.subtitle || "", duration: m.duration || null, language: m.language || null,
-        auto: /auto/.test(t.model || ""), lines,
-      } });
-      return `#/episode/${ep.id}${m.at ? `?t=${m.at}` : ""}`;
-    }
+  const path = social.sharedTextPath(raw.transcript_path);
+  if (!path) return { text: null, lost: !!raw.transcript_path };
+  try {
+    return { text: unpackTranscript(await gunzipText(await social.downloadClip(path))), lost: false };
+  } catch (e) {
+    console.warn("Couldn't fetch the transcript that came with it", e);
+    return { text: null, lost: true };
   }
-  return "";
+}
+
+/** A friend accepted: put the item in this device's library, with its words when they came, so
+ * it opens at once. `raw` is the message's media (with transcript_path or transcript). Says in a
+ * message what didn't go as planned. Resolves to a hash to open it with, or "" when opening is left
+ * to the ordinary route (openItem). */
+export async function acceptMedia(item, raw = item) {
+  const { text, lost } = await receivedText(raw);
+  const books = TEXT_KINDS.has(item.kind) ? await import("../books.js") : null;
+  const { videoId } = item.kind === "youtube" ? await import("../youtube.js") : { videoId: undefined };
+  const r = await acceptInto(api, item, text, {
+    shelf: books && books.shelfFor, fromShelf: books && books.addFromShelf, reelCode: social.reelCode,
+    ...(videoId ? { videoId } : {}),
+  });
+  const notes = [];
+  if (lost && !r.withText) notes.push("Its words couldn't be fetched, so it will need transcribing on your side.");
+  if (r.keptOwn) notes.push("You had already transcribed it, so your own transcript is kept.");
+  const lang = (r.episode && r.episode.language) || item.language;
+  if (isLanguage(lang) && lang !== studyLanguage()) {
+    const name = langInfo(lang).name;
+    notes.push(`It's in ${name}, so it shows in your Library while you're learning ${name}.`);
+  }
+  if (notes.length) toast(notes.join(" "), { timeout: 9000 });
+  // Kept on this device now (or turned down): the file online is no longer needed.
+  social.removeShareClips({ media: raw }).catch(() => {});
+  return r.hash;
 }
 
 /** Open an accepted item in its player. */

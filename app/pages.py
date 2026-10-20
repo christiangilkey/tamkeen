@@ -144,8 +144,10 @@ def clean_blocks(blocks: list[dict[str, Any]]) -> list[tuple[str, str]]:
 
 
 def save_page(url: str, title: str, blocks: list[dict[str, Any]], image: str | None = None,
-              site: str | None = None) -> dict[str, Any]:
-    """Create (or refresh) the page's episode and store its text. Returns the episode row."""
+              site: str | None = None, language_hint: str | None = None) -> dict[str, Any]:
+    """Create (or refresh) the page's episode and store its text. Returns the episode row.
+    `language_hint`: the language to take Latin letters as (a page a friend sent carries the one it
+    had for them); otherwise the one being learned."""
     url = clean_url(url)
     items = clean_blocks(blocks)
     if not items:
@@ -153,7 +155,7 @@ def save_page(url: str, title: str, blocks: list[dict[str, Any]], image: str | N
     title = " ".join((title or "").split())[:300] or urlsplit(url).hostname or "Web page"
     image = image if image and image.startswith("https://") else None
     host = site or (urlsplit(url).hostname or "").removeprefix("www.")
-    language = languages.detect(" ".join(text for _kind, text in items[:60]))
+    language = languages.detect(" ".join(text for _kind, text in items[:60]), language_hint)
     now = time.time()
     with db.session() as conn:
         feed_id = ensure_feed(conn)
