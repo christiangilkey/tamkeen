@@ -534,9 +534,32 @@ export async function downloadClip(path) {
   return data;
 }
 
-/** Delete the clips of a share from online storage (once added, dismissed or unsent). */
+/** Upload the packed transcript or text that travels with something sent from the Library or a
+ * player (sharetext.js; gzipped JSON). Lives beside the voice notes, so the same rules apply: only
+ * the two friends can read it, and it goes when the item is accepted, dismissed or unsent.
+ * Needs supabase/v7-shared-text.sql (the storage must accept "application/gzip").
+ * Resolves to its storage path. */
+export async function uploadText(friendId, blob) {
+  const c = await sb();
+  const user = await currentUser();
+  if (!user) throw new Error("Connect first.");
+  const path = `${conversationFolder(user.id, friendId)}/text-${crypto.randomUUID()}.json.gz`;
+  const { error } = await c.storage.from("voice").upload(path, blob, { contentType: "application/gzip" });
+  if (error) throw new Error(friendly(error));
+  return path;
+}
+
+/** Delete the files of a share from online storage (once added, dismissed or unsent): the clips
+ * of shared words, and the transcript of something sent from the Library or a player. */
 export function removeShareClips(payload) {
-  return removeVoiceFiles(((payload && payload.words) || []).map((w) => w.clip));
+  const media = (payload && payload.media) || {};
+  return removeVoiceFiles([...((payload && payload.words) || []).map((w) => w.clip), sharedTextPath(media.transcript_path)]);
+}
+
+/** A transcript file's path as uploadText makes it ("" for anything else, so a message can't
+ * point the clean-up at a voice note). */
+export function sharedTextPath(path) {
+  return /^[0-9a-f-]{36}_[0-9a-f-]{36}\/text-[0-9a-f-]{36}\.json\.gz$/.test(String(path || "")) ? String(path) : "";
 }
 
 /** Send copies of vocab words (optionally as a named folder) to a friend. A word may carry

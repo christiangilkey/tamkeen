@@ -13,6 +13,7 @@ import { NativeHttp, isNative, webFetch } from "./native.js";
 import { newEpisodeRecords, parseFeed } from "./rss.js";
 import * as cloud from "./transcribe-service.js";
 import { replaceInText } from "./correction.js";
+import { unpackTranscript } from "./sharetext.js";
 import * as phoneReels from "./reels-phone.js";
 import { anki, requestAnkiSync } from "./anki-phone.js";
 
@@ -79,7 +80,10 @@ async function savePage(body) {
   const uid = await episodeUid(fuid, url);
   const title = String(body.title || "").replace(/\s+/g, " ").trim().slice(0, 300) || host || "Web page";
   const image = typeof body.image === "string" && body.image.startsWith("https://") ? body.image : null;
-  const language = detectLanguage(segments.slice(0, 60).map((s) => s[2]).join(" "), settings.study_language || "ar");
+  // Latin letters could be several languages: the one being learned is the guess, unless the page
+  // says (a page a friend sent carries the language it had for them).
+  const hint = isLanguage(body.language) ? body.language : settings.study_language || "ar";
+  const language = detectLanguage(segments.slice(0, 60).map((s) => s[2]).join(" "), hint);
   const fields = { title, description: String(body.site || host).slice(0, 200), image, audio_url: url, audio_type: "text/html",
                    language: isLanguage(language) ? language : settings.study_language || "ar",
                    transcript_rev: t, model: "webpage", deleted: 0, updated_at: t };
@@ -407,39 +411,43 @@ async function loadTranscript(uid) {
   return t;
 }
 
+/** Follow a podcast: POST /feeds, and a podcast episode a friend sent (POST /shared/podcast).
+ * `language`: the one the podcast is filed under (normally the one being learned). */
+async function addFeed(body, language = studyLanguage()) {
+  const url = normalizeUrl(body.url || "");
+  if (!body.url || !body.url.trim()) throw new ApiError("Paste an RSS feed URL.");
+  const uid = await feedUid(url);
+  const existing = feedOf(uid);
+  if (existing && !existing.deleted) throw new ApiError("You're already subscribed to this feed.");
+  const t = now();
+  const host = (() => { try { return new URL(url).hostname; } catch { return url; } })();
+  // Added from Trending, the podcast's name and picture are already known; otherwise the
+  // computer fills them in when it first reads the feed.
+  const image = typeof body.image === "string" && body.image.startsWith("https://") ? body.image : null;
+  const feed = existing
+    ? Object.assign(existing, { deleted: 0, updated_at: t, language })
+    : { uid, url, title: String(body.title || "").trim().slice(0, 300) || host,
+        description: FEED_WAITING, image, language,  // subscribed while learning this
+        link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
+  if (!existing) lib.feeds.push(feed);
+  // Get the episodes now. If the feed can't be reached from the phone, the podcast is still
+  // added and the computer fills it in on its next sync.
+  try {
+    const checks = (await kv.get("feed_checks")) || {};
+    const seen = (checks[feed.uid] = {});
+    await readFeed(feed, seen);
+    seen.at = now(); // just read: the automatic look for new episodes can leave it for an hour
+    await kv.set("feed_checks", checks);
+  } catch (e) { console.warn("Couldn't read the feed on the phone", feed.url, e); }
+  changed();
+  return feedOut(feed);
+}
+
 const routes = [
   // ----- feeds -----
   ["GET", /^\/feeds$/, () => lib.feeds.filter((f) => !f.deleted && podcastShown(f)).map(feedOut)
     .sort((a, b) => a.title.localeCompare(b.title))],
-  ["POST", /^\/feeds$/, async (m, q, body) => {
-    const url = normalizeUrl(body.url || "");
-    if (!body.url || !body.url.trim()) throw new ApiError("Paste an RSS feed URL.");
-    const uid = await feedUid(url);
-    const existing = feedOf(uid);
-    if (existing && !existing.deleted) throw new ApiError("You're already subscribed to this feed.");
-    const t = now();
-    const host = (() => { try { return new URL(url).hostname; } catch { return url; } })();
-    // Added from Trending, the podcast's name and picture are already known; otherwise the
-    // computer fills them in when it first reads the feed.
-    const image = typeof body.image === "string" && body.image.startsWith("https://") ? body.image : null;
-    const feed = existing
-      ? Object.assign(existing, { deleted: 0, updated_at: t, language: studyLanguage() })
-      : { uid, url, title: String(body.title || "").trim().slice(0, 300) || host,
-          description: FEED_WAITING, image, language: studyLanguage(),  // subscribed while learning this
-          link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
-    if (!existing) lib.feeds.push(feed);
-    // Get the episodes now. If the feed can't be reached from the phone, the podcast is still
-    // added and the computer fills it in on its next sync.
-    try {
-      const checks = (await kv.get("feed_checks")) || {};
-      const seen = (checks[feed.uid] = {});
-      await readFeed(feed, seen);
-      seen.at = now(); // just read: the automatic look for new episodes can leave it for an hour
-      await kv.set("feed_checks", checks);
-    } catch (e) { console.warn("Couldn't read the feed on the phone", feed.url, e); }
-    changed();
-    return feedOut(feed);
-  }],
+  ["POST", /^\/feeds$/, (m, q, body) => addFeed(body)],
   ["PATCH", /^\/feeds\/([\w]+)$/, (m, q, body) => {
     const f = feedOf(m[1]);
     if (!f) throw new ApiError("Feed not found.");
@@ -619,6 +627,51 @@ const routes = [
     const ep = lib.episodes.find((e) => e.guid === code && e.audio_type === "video/instagram");
     changed();
     return episodeOut(ep);
+  }],
+  // A podcast episode a friend sent, accepted in the chat, with their transcript (the twin of
+  // app/api/shared.py accept_podcast): its podcast is followed if it isn't, the episode found (or
+  // kept from what was sent, when the feed no longer lists it), and the words stored. A transcript
+  // made here already is kept.
+  ["POST", /^\/shared\/podcast$/, async (m, q, body) => {
+    const raw = String(body.feed_url || "").trim();
+    if (!/^https?:\/\//i.test(raw)) throw new ApiError("This doesn't say which podcast the episode is from.");
+    const lang = isLanguage(body.language) ? body.language : null;
+    let feed = feedOf(await feedUid(normalizeUrl(raw)));
+    let added = false;
+    if (!feed || feed.deleted || builtIn(feed)) {
+      feed = feedOf((await addFeed({ url: raw }, lang || studyLanguage())).id);
+      added = true;
+    }
+    const audioUrl = /^https?:\/\//i.test(String(body.audio_url || "").trim()) ? String(body.audio_url).trim().slice(0, 1000) : "";
+    const guid = String(body.guid || "").replace(/\s+/g, " ").trim().slice(0, 500) || audioUrl;
+    if (!guid) throw new ApiError("This doesn't say which episode it is.");
+    const uid = await episodeUid(feed.uid, guid);
+    const t = now();
+    let e = lib.episodes.find((x) => x.feed_uid === feed.uid && !x.deleted && (x.uid === uid || (audioUrl && x.audio_url === audioUrl)))
+      || lib.episodes.find((x) => x.uid === uid);
+    if (!e) {
+      if (!audioUrl) throw new ApiError("This episode isn't in the podcast's episode list any more.");
+      e = { uid, feed_uid: feed.uid, guid, title: String(body.title || "").replace(/\s+/g, " ").trim().slice(0, 500) || "Episode",
+            description: "", published: t, duration: Number(body.duration) > 0 ? Number(body.duration) : null,
+            image: String(body.image || "").startsWith("https://") ? body.image : null, audio_url: audioUrl, audio_type: null,
+            language: lang, transcript_rev: null, model: null, transcribe_requested_at: null, remote_audio: 0, deleted: 0,
+            created_at: t, updated_at: t };
+      lib.episodes.push(e);
+    } else if (e.deleted) {
+      Object.assign(e, { deleted: 0, transcript_rev: null, updated_at: t });
+    }
+    const words = unpackTranscript({ segments: Array.isArray(body.segments) ? body.segments : [] });
+    const segments = words && words.segments ? words.segments.map((s) => ({
+      start: s.start, end: s.end, text: s.text, words: s.words.map(([start, end, text]) => ({ start, end, text })) })) : [];
+    let transcribed = false;
+    const keptOwn = !!(segments.length && e.transcript_rev);
+    if (segments.length && !keptOwn) {
+      cloud.cancel(e.uid); // queued here meanwhile: the friend's words make that unnecessary
+      await cloud.storeTranscript(e.uid, segments, String(body.model || "shared").slice(0, 80), { language: lang || episodeLang(e) });
+      transcribed = true;
+    }
+    changed();
+    return { episode: episodeOut(episodeOf(e.uid) || e), transcribed, kept_own: keptOwn, added_feed: added };
   }],
   ["GET", /^\/youtube\/([\w-]{11})$/, async (m) => { // a video already here with its captions
     const fuid = await feedUid(YOUTUBE_FEED_URL);

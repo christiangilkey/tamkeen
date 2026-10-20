@@ -89,6 +89,7 @@ const SHARED = [
   "js/pages/discover.js",
   "js/components/studycard.js",
   "js/components/sendmedia.js",
+  "js/sharetext.js",
   "js/components/avatar.js",
   "js/components/modal.js",
   "js/components/troubleshoot.js",

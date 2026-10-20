@@ -8,6 +8,7 @@ import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
 import { openAddSheet } from "../components/addsheet.js";
 import { openModal } from "../components/modal.js";
+import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { firstVisitTour } from "../components/tour.js";
 
@@ -412,6 +413,9 @@ export async function render(view, { feedId: routeFeed, query }) {
         btn("Transcribe", "", () => transcribe([ep.id]));
     }
     if (isVideo(ep) && ep.status !== "done") btn("Watch", "ghost", () => (location.hash = `#/episode/${ep.id}`));
+    // Send to a friend: every kind. The user's own files go as their words only, so once transcribed.
+    const media = mediaFromEpisode(ep);
+    if (media && (media.kind !== "text" || media.ready)) line.append(sendButton(() => mediaFromEpisode(row._ep)));
     if (isLocalFeed(ep.feed_url)) {
       btn("Delete", "ghost danger", async () => {
         if (!confirm(isPage(ep) ? `Delete “${ep.title}” from your webpages? Saved vocab is kept.`

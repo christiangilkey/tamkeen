@@ -3881,3 +3881,61 @@ Custom Tab action button to add.
   device, and Share → Tamkeen on a real installed web app** (needs the github.io build: rebuild docs/app at release).
 - Tests: tests/js/share-target.test.mjs (address picking, manifest names, every browser has the round button and no
   "Import Page"). Translations: tools/i18n/tr/<code>/42-import-button.txt.
+
+## Send any Library item to a friend, with its transcript (2026-10-20; branch `library-send`, worktree `../tamkeen-library-send`; NOT merged, NOT pushed)
+Owner: "All items from the library should have a send button that allows you to send it to your friends. They can
+accept it if they'd like and it will include the full transcript (if the sending user already had it transcribed)."
+- **Library rows** (web/js/pages/library.js `renderStatus`): the paper-plane button (`sendButton` from
+  components/sendmedia.js) after Open/Read/Watch, before Delete, on every kind: podcasts, YouTube, web pages, books,
+  reels, own videos and audio. The players already had it; the book reader (pages/book.js) still has none.
+- **Own video/audio files** (feeds local:videos / local:audio): the file itself is never sent (it lives in the
+  owner's private Drive folder), so they go as **kind "text"**: title + transcript, and the friend gets something to
+  read in **My books** (POST /books, guid `file:shared:<title>:<word count>`, so accepting twice refreshes one copy).
+  The button shows only once the file is transcribed (nothing to send before); in the player it says "Transcribe it
+  first…". **Books**: kind "book"; a free classic (guid `book:<lang>/<id>`) sends no text, the friend's app takes it
+  from the shelf (books.js addFromShelf); an uploaded book sends its text.
+- **What travels** (web/js/sharetext.js, shared by all versions, no screen code): the sender's
+  GET /episodes/<id>/transcript (the same shape from app/api/episodes.py and backend.js) is packed as
+  `{format: "tamkeen-transcript", v: 1, model, language, segments: [{start, end, text, words: [[s, e, w]]}]}` (podcast,
+  YouTube, reel) or `blocks: [{kind, text}]` (page, book, recording), gzipped (CompressionStream, which the phone
+  already uses for Drive) and uploaded with `social.uploadText` to the private **voice** storage at
+  `<userA>_<userB>/text-<uuid>.json.gz`; the message carries only `payload.media.transcript_path`. An hour of speech is
+  ~10× smaller than the 3 MB file limit. `segments` is exactly what POST /youtube and POST /shared/reel already take,
+  so older apps still accept a YouTube video or reel whose words came inline.
+- **Fallback until the SQL below is run**: the storage refuses `application/gzip`; sendMedia then puts the packed
+  words inside the message (the old way) when under 600 KB, else sends without words and the toast says so.
+- **Accepting** (chat card, unchanged look; `acceptMedia(item, rawMedia)` → `sharetext.acceptInto(api, …)`):
+  YouTube → POST /youtube, reel → POST /shared/reel, page → POST /pages (now with `language`: the sender's language
+  is the hint for Latin letters, so a Spanish page sent to someone learning Arabic isn't filed as English), book /
+  recording → POST /books, podcast → **new POST /shared/podcast** (app/api/shared.py `accept_podcast` + twin in
+  backend.js): follows the podcast if needed (filed under the episode's language), finds the episode by guid or audio
+  address or adds it from what was sent (same uid the feed gives it, so no duplicate later), revives a deleted one,
+  stores the words (`jobs._store` / `cloud.storeTranscript`) unless this device already transcribed it (`kept_own`).
+  Notes shown after accepting: another language ("It's in Spanish, so it shows in your Library while you're learning
+  Spanish."), words that couldn't be fetched, own transcript kept. Accept or Dismiss deletes the uploaded file
+  (`removeShareClips` now also takes `media.transcript_path`, checked by `sharedTextPath` so a message can't point the
+  clean-up at a voice note); unsending does too.
+- **Podcast timing caveat**: podcast transcripts now travel too (before, they didn't, because adverts inserted per
+  listener can shift the timing). If the words drift on the friend's copy, they can transcribe it themselves.
+- **Supabase: `supabase/v7-shared-text.sql` must be run once in the SQL editor (owner's OK needed; NOT run).** It adds
+  `application/gzip` to the voice bucket's allowed types and makes `dismiss_message` / `purge_old_messages` also return
+  a share's transcript file and word clips for deletion (word clips of never-opened shares were left behind before).
+  No new table, bucket or access rule.
+- **chat.js** (also edited by the chat-notifications work): three one-line edits only: `acceptMedia(item,
+  m.payload.media)`, "Sent with its words" also for `transcript_path`, Dismiss calls `removeShareClips` first.
+  chatnotify.js's `messageLine` shows the new kinds book/text as "other media" (not changed here).
+- **Tests**: tests/js/sharetext.test.mjs (13: packing, gzip round trip, junk/limits, older apps' format, accepting
+  each kind, sender→file→friend word for word); tests/test_shared_media.py (+7: /shared/podcast found, kept own,
+  gone from feed, follow in its language, refusals, recording as a book, page language hint). 566 JS, 422 pytest.
+  Translations: tools/i18n/tr/<code>/44-library-send.txt (16 strings, 12 languages).
+- **Checked** with a stand-in for social.js (scratchpad only: uploads/messages kept in the browser): phone build at
+  375 px: the button on every kind, the friend list, all six kinds sent (each a 150–290 byte file + a ~300-character
+  message), the library emptied, all six accepted from the chat cards (each file fetched then deleted, items back as
+  "done" with their words, the podcast re-followed after its feed was removed, opened in the player and the book
+  reader); Dismiss deletes the file; storage refusal → words inline → accepted; Spanish page note. Web-app build
+  (TAMKEEN_WEB, built to scratch, docs/app untouched): same round trip. Desktop (fresh signed-out data folder): the
+  button on rows incl. own videos (not on an untranscribed one), "Connect and choose a username first" without an
+  account, and pack → zip → delete → accept through the real Python routes for all six kinds, word for word.
+- **Only two real signed-in accounts can confirm**: the upload/download against the real storage after v7 is run
+  (and the refusal before it), Supabase's own size/type checks, the files really being deleted on Accept/Dismiss and
+  by the 30-day clear-up, and the chat card arriving live on the friend's device (realtime). Not tried on a real phone.

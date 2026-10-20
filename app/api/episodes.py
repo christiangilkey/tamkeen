@@ -122,6 +122,7 @@ class PageIn(BaseModel):
     blocks: list[dict[str, Any]]
     image: str | None = None
     site: str | None = None
+    language: str | None = None  # a page a friend sent: the language it had for them
 
 
 @router.get("/web/fetch")
@@ -136,7 +137,7 @@ def fetch_page(url: str) -> dict[str, str]:
 @router.post("/pages")
 def import_page(body: PageIn) -> dict[str, Any]:
     try:
-        ep = pages.save_page(body.url, body.title, body.blocks, body.image, body.site)
+        ep = pages.save_page(body.url, body.title, body.blocks, body.image, body.site, body.language)
     except pages.PageError as exc:
         raise HTTPException(400, str(exc)) from exc
     events.publish("feeds", {"refreshed": True})
