@@ -84,7 +84,7 @@ export const DEFAULTS = {
   study_level: "",    // "beginner" or "started"
   common_words_pending: [], // languages whose common words wait for dictionaries before counting as seen (commonwords.js)
   definer_provider: "claude",
-  definer_mode: "ai", // "ai", or "dictionary": No AI, words explained by the built-in dictionary (meanings.js)
+  definer_mode: "ai", // "ai"; "dictionary": No AI, words explained by the built-in dictionary (meanings.js); "dictionary_first": the dictionary, and the AI for words it lacks
   review_task_target: "google", // the Review tab's button sends the day's review to "google" (Tasks) or "onyx"
   review_task: {}, // {day, id}: today's review task in Google Tasks, updated rather than added again
   definer_language: "English",

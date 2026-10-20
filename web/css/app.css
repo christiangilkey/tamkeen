@@ -467,6 +467,10 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .wb-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
 .wb-chip { font-size: 12px; padding: 1px 8px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }
 .wb-chip .ar { font-size: 14px; }
+/* where the meaning came from (Wiktionary, AI · model): one small muted line at the end of the popup */
+.wb-source { margin-top: 6px; }
+.wb-src { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top;
+  font-size: 11px; line-height: 16px; padding: 0 7px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }
 .wb-row { margin: 3px 0; }
 .wb-row .ar { font-family: var(--ar-font); font-size: 18px; }
 .wb-label { display: inline-block; min-width: 108px; font-size: 12px; color: var(--muted); }
@@ -1269,6 +1273,7 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .def-warn { padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--accent); background: var(--surface); line-height: 1.45; }
 .def-warn button { display: block; margin-top: 10px; }
 .def-dict { display: grid; gap: 10px; }
+.def-dict:not([hidden]) + .ai-setup { margin-top: 16px; } /* dictionary first: the download row, then the key */
 .def-dict-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .transcript .w.new, .reader-text .w.new { color: var(--new-word); }
 .captions .w.new { color: #eaa6e4; } /* over a video the text is always on dark */

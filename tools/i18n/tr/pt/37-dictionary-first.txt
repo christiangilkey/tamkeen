@@ -1,0 +1,11 @@
+07668fbc	Primeiro o dicionário, IA quando ele não tem nada
+302856dd	O dicionário embutido explica de graça as palavras que tem; sua chave de IA é usada só para o resto.
+61750c22	O dicionário de {0:lower} ainda não está em {1}, então todas as palavras vão para a IA.
+15a558ba	Só dicionário
+95157fd3	De onde vem este significado
+6a034bb6	Dicionário de Wolff
+f745fc22	CAMeL (árabe)
+094b4c7f	IA · {0}
+35daceae	Primeiro o dicionário, depois {0}
+a9576376	Dicionário embutido (ainda sem chave de IA)
+ae1dee3a	Forma desconhecida de explicar as palavras.

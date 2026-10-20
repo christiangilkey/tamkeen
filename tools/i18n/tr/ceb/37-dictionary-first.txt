@@ -1,0 +1,11 @@
+07668fbc	Diksyonaryo una, AI kung wala kini
+302856dd	Libre nga gipatin-aw sa built-in nga diksyonaryo ang mga pulong nga anaa niini; ang imong AI key gamiton ra sa uban.
+61750c22	Ang diksyonaryo sa {0} wala pa sa {1}, busa ang matag pulong moadto sa AI.
+15a558ba	Diksyonaryo ra
+95157fd3	Asa gikan kining kahulogan
+6a034bb6	Diksyonaryo ni Wolff
+f745fc22	CAMeL (Arabic)
+094b4c7f	AI · {0}
+35daceae	Diksyonaryo una, dayon {0}
+a9576376	Built-in nga diksyonaryo (wala pay AI key)
+ae1dee3a	Wala mailhi nga paagi sa pagpatin-aw sa mga pulong.

@@ -3146,3 +3146,36 @@ transcription option in settings and explain why." Today that is Bisaya (ceb).
 - Phone messages for Bisaya episodes/reels (library.js `computerOnlyNotice`, reels-phone.js `BISAYA_REELS`) are
   still worded for Bisaya only: generalise them if another such language is added.
 - Tests: tests/test_language_models.py, tests/js/stt.test.mjs. Translations: `tools/i18n/tr/<code>/36-cloud-off.txt`.
+
+## "Dictionary first, AI when it has nothing", and where a meaning came from (2026-10-19; branch `dict-fallback`, NOT merged, NOT pushed)
+Owner (Notion dev notes): "make an option to default to dictionary but use AI when nothing is available., Give the
+source of each popup with a small tag".
+- **Setting** `definer_mode` now has three values: "ai" (default), "dictionary" (No AI) and **"dictionary_first"**.
+  `web/js/definer.js`: `DEFINER_MODES`, `definerModeOf(settings)` (an unknown value counts as "ai", so an older app
+  that syncs the new value just uses AI), and `dictionaryFirst({dictionary, ai, hasKey, refresh})`, the rule: the
+  built-in dictionary answers when it can; when it can't (word not in it, or the language's dictionary not on this
+  device) and there is a key, the AI answers; with no key it is exactly dictionary-only (download offer / "isn't in
+  the built-in dictionary"). "↻ Ask again" on a dictionary meaning asks the AI when there is a key. An AI failure
+  after the dictionary had nothing shows the AI's error (with Troubleshoot). Both `define-service.js` files use it;
+  `noAi()` stays "dictionary" only, so the Mnemonic maker and other AI features work in the new mode.
+- **Settings** (`web/js/components/aisetup.js`): a third card between AI and No AI, "Dictionary first, AI when it
+  has nothing", one plain line under it. It shows the dictionary download row AND the key settings (no "strongly
+  recommended" warning); choosing it downloads the dictionary at once, like No AI. Tag at the top: "✓ Set up" with
+  a key, "Dictionary only" without. Settings list summary (both settings.js pages): "Dictionary first, then Claude"
+  or "Built-in dictionary (no AI key yet)". The computer's PATCH /api/settings refuses any other `definer_mode`.
+- **Popup tag** (`web/js/components/wordbubble.js`, used by the player, reader, book and reel popups): a small
+  muted pill at the end of the popup's body, in quick and full lookups: `definer.answerSource(answer)` =
+  "Wiktionary", "Wolff's dictionary" (Bisaya), "CAMeL Arabic" (Arabic's second file), or "AI · <model name>" (e.g.
+  "AI · Claude Haiku 5.5"; a typed-in model shows as "AI · OpenAI my-model"; an old kept answer without its
+  provider shows "AI"). Style `.wb-source/.wb-src` in web/css/app.css. Chinese meanings are Wiktionary's
+  glosses (CC-CEDICT only orders readings and senses at build time), so Chinese shows "Wiktionary".
+  The tag is the only change to the popup (another chat is redesigning its correction line and buttons).
+- Tested in the desktop app (launch config `dictfirst-desktop`, scratch data) and the web app (`dictfirst-webapp`,
+  port 8971, after the two builds), with a made-up key and the AI's reply faked inside the page: known word →
+  dictionary + "Wiktionary", unknown name → AI + "AI · Gemini 3.1 Flash-Lite"/"AI · Claude Haiku 5.5", no key →
+  "isn't in the built-in dictionary", Ask again → AI, quick lookups, phone-size sheet, Spanish interface. The reel
+  popup was not opened (needs Instagram); it is the same popup.
+- Tests: `tests/js/dictionaryfirst.test.mjs` (9), `tests/test_languages.py::test_settings_take_the_three_ways_of_explaining_words`.
+  Translations: `tools/i18n/tr/<code>/37-dictionary-first.txt` (12 languages). `web/i18n/*.json` and
+  `tools/i18n/strings.json` are generated: after merging, re-run `node tools/i18n/extract.mjs` and
+  `node tools/i18n/build.mjs`.

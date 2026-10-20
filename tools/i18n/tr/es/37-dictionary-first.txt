@@ -1,0 +1,11 @@
+07668fbc	Primero el diccionario, IA cuando no tiene nada
+302856dd	El diccionario integrado explica las palabras que tiene, gratis; tu clave de IA se usa solo para el resto.
+61750c22	El diccionario de {0:lower} aún no está en {1}, así que todas las palabras van a la IA.
+15a558ba	Solo diccionario
+95157fd3	De dónde viene este significado
+6a034bb6	Diccionario de Wolff
+f745fc22	CAMeL (árabe)
+094b4c7f	IA · {0}
+35daceae	Primero el diccionario, luego {0}
+a9576376	Diccionario integrado (aún sin clave de IA)
+ae1dee3a	Forma desconocida de explicar las palabras.

@@ -4,13 +4,14 @@
 // AI or No AI, the provider, the key and a test. Under "More options" (most people never change
 // them): the model, the language words are explained in, today's tokens, and the review card's
 // Mnemonic maker with its own model and thinking level (it uses the same key).
-// Above it all, the choice between AI (strongly recommended) and No AI: the built-in dictionary
+// Above it all, three choices: AI (strongly recommended); No AI: the built-in dictionary
 // (meanings.js), downloaded per language, which gives a word's usual meanings but not the one in
-// its sentence.
+// its sentence; and between them the dictionary first, with the AI for the words it doesn't have
+// (definer.dictionaryFirst), which shows both the download row and the key settings.
 
 import { esc, h, platform, state, saveSettings } from "../app.js";
-import { LOOKUPS_PER_MILLION, PROVIDERS, SAME_MODEL, THINKING, askJson, centsPerMillion, cleanKey, define, keyProvider,
-  mnemonicConfig, modelFor, thinkingFor } from "../definer.js";
+import { LOOKUPS_PER_MILLION, PROVIDERS, SAME_MODEL, THINKING, askJson, centsPerMillion, cleanKey, define, definerModeOf,
+  keyProvider, mnemonicConfig, modelFor, thinkingFor } from "../definer.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { downloadMeanings, meaningsStatus, removeMeanings } from "../meanings.js";
 import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
@@ -42,6 +43,11 @@ export function aiSetup(section, { transport }) {
           <span><strong>AI explanations <span class="badge">Recommended</span></strong>
           <span class="small muted">The meaning in <em>this</em> sentence, its grammar and a translation. Needs an API key:
             a fraction of a cent a word (Gemini has a free allowance).</span></span></span>
+      </label>
+      <label class="def-mode def-mode-first">
+        <span class="def-mode-row"><input type="radio" name="def-mode" value="dictionary_first">
+          <span><strong>Dictionary first, AI when it has nothing</strong>
+          <span class="small muted">The built-in dictionary explains the words it has, free; your AI key is used only for the rest.</span></span></span>
       </label>
       <label class="def-mode def-mode-dict">
         <span class="def-mode-row"><input type="radio" name="def-mode" value="dictionary">
@@ -109,13 +115,16 @@ export function aiSetup(section, { transport }) {
   let model = ""; // the chosen model's name, or OTHER while one is being typed in
 
   // ----- AI or No AI -----
-  const mode = () => (cur().definer_mode === "dictionary" ? "dictionary" : "ai");
+  const mode = () => definerModeOf(cur());
   function paintMode() {
     const dict = mode() === "dictionary";
+    const first = mode() === "dictionary_first";
     for (const r of section.querySelectorAll("input[name=def-mode]")) r.checked = r.value === mode();
-    section.querySelector(".def-mode-ai").classList.toggle("on", !dict);
+    section.querySelector(".def-mode-ai").classList.toggle("on", mode() === "ai");
+    section.querySelector(".def-mode-first").classList.toggle("on", first);
     section.querySelector(".def-mode-dict").classList.toggle("on", dict);
-    $(".def-dict").hidden = !dict;
+    $(".def-dict").hidden = !dict && !first;
+    $(".def-warn").hidden = first;
     $(".ai-setup").hidden = dict;
     if (dict) paintDict(); else paintKey();
   }
@@ -131,6 +140,8 @@ export function aiSetup(section, { transport }) {
     const mb = Math.max(1, Math.round((st.bytes || 0) / 1e6));
     row.innerHTML = st.installed
       ? `<span>✓ The ${esc(name)} dictionary is on ${here} (${mb} MB).</span> <button type="button" class="ghost" data-act="remove">Remove</button>`
+      : mode() === "dictionary_first" && cur()[`llm_key_${prov()}`] ? `<span>The ${esc(name)} dictionary isn't on ${here} yet, so every word goes to the AI.</span>
+         <button type="button" class="primary" data-act="get">Download (about ${mb} MB)</button>`
       : `<span>The ${esc(name)} dictionary isn't on ${here} yet, so tapped words can't be explained.</span>
          <button type="button" class="primary" data-act="get">Download (about ${mb} MB)</button>`;
   }
@@ -153,7 +164,7 @@ export function aiSetup(section, { transport }) {
     r.onchange = async () => {
       await saveSettings({ definer_mode: r.value });
       paintMode();
-      if (r.value === "dictionary") { // straight away, so the next tapped word has its meaning
+      if (r.value !== "ai") { // straight away, so the next tapped word has its meaning
         const st = await meaningsStatus(studyLanguage()).catch(() => null);
         if (st && !st.installed) $("#def-dict-row button[data-act=get]")?.click();
       }
@@ -166,8 +177,11 @@ export function aiSetup(section, { transport }) {
     if (mode() === "dictionary") return;
     const info = PROVIDERS[prov()];
     const has = !!cur()[`llm_key_${prov()}`];
-    $("#def-tag").className = has ? "pill done" : "req-tag";
-    $("#def-tag").textContent = has ? "✓ Set up" : "Required";
+    // Dictionary first works without a key: it is the dictionary alone until one is added.
+    const first = mode() === "dictionary_first";
+    if (first) paintDict(); // its download row (and, before the tag below, the tag)
+    $("#def-tag").className = has ? "pill done" : first ? "pill" : "req-tag";
+    $("#def-tag").textContent = has ? "✓ Set up" : first ? "Dictionary only" : "Required";
     $("#def-keyrow").classList.toggle("need", !has);
     $("#def-get").textContent = has ? "Get a new key ↗" : `Get your ${info.short} API key ↗`;
     $("#def-get").href = info.keyUrl;

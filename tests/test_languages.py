@@ -67,6 +67,18 @@ def test_settings_reject_unknown_languages(fresh_db):
     assert db.get_setting("study_language") == "fr"
 
 
+def test_settings_take_the_three_ways_of_explaining_words(fresh_db):
+    from app.main import create_app
+
+    client = TestClient(create_app(start_worker=False))
+    assert db.get_setting("definer_mode") == "ai"
+    for mode in ("dictionary_first", "dictionary", "ai"):
+        assert client.patch("/api/settings", json={"definer_mode": mode}).json()["definer_mode"] == mode
+    assert client.patch("/api/settings", json={"definer_mode": "dictionary_first"}).status_code == 200
+    assert client.patch("/api/settings", json={"definer_mode": "magic"}).status_code == 400
+    assert db.get_setting("definer_mode") == "dictionary_first"
+
+
 @pytest.mark.parametrize("text, hint, expected", [
     ("القهوة مشروب يُحضر من بذور البن", "es", "ar"),
     ("Кофе — это напиток", "ar", "ru"),

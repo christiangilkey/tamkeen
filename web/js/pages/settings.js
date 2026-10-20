@@ -52,6 +52,9 @@ function home(view, status) {
       words: () => {
         if (s.definer_mode === "dictionary") return { text: "No AI: built-in dictionary" };
         const p = PROVIDERS[s.definer_provider] ? s.definer_provider : "claude";
+        if (s.definer_mode === "dictionary_first") {
+          return { text: s[`llm_key_${p}`] ? `Dictionary first, then ${PROVIDERS[p].short}` : "Built-in dictionary (no AI key yet)" };
+        }
         return s[`llm_key_${p}`] ? { text: `AI explanations with ${PROVIDERS[p].short}` } : { text: "Needs an API key", warn: true };
       },
       listening: () => {

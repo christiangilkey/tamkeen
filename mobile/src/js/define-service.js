@@ -1,7 +1,7 @@
 // Phone glue for the shared definer: settings, the synced answer cache, and native HTTPS.
 
 import { api } from "./app.js";
-import { DefinerError, askJson, lookup, mnemonicConfig, rememberAnswer, PROVIDERS } from "./definer.js";
+import { DefinerError, askJson, definerModeOf, dictionaryFirst, lookup, mnemonicConfig, rememberAnswer, PROVIDERS } from "./definer.js";
 import { dictionaryDefine } from "./meanings.js";
 import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 import { settings } from "./store.js";
@@ -20,7 +20,7 @@ export function definerConfig() {
   };
 }
 
-const definerMode = () => settings.definer_mode || "ai";
+const definerMode = () => definerModeOf(settings);
 /** "No AI" chosen in Settings: words are explained by the built-in dictionary (meanings.js), and
  *  nothing is sent to an AI provider (the Mnemonic maker says it is off). */
 export const noAi = () => definerMode() === "dictionary";
@@ -48,8 +48,13 @@ export const askMnemonic = (prompt) => (noAi() ? aiOff() : askJson(mnemonicConfi
 /** `opts.quick` = only the meaning is wanted (see components/lookupmode.js): a full answer already
  * kept is used as it is, otherwise a short, cheaper request is made. */
 export async function getDefinition(ctx, refresh = false, { quick = false } = {}) {
-  if (noAi()) return dictionaryDefine(ctx, { quick, language: definerConfig().language });
-  return lookup(definerConfig(), ctx, { refresh, quick, transport, load: loadAnswer, save: saveAnswer });
+  const cfg = definerConfig();
+  const dictionary = () => dictionaryDefine(ctx, { quick, language: cfg.language });
+  const ai = () => lookup(cfg, ctx, { refresh, quick, transport, load: loadAnswer, save: saveAnswer });
+  if (noAi()) return dictionary();
+  // Dictionary first: the AI only for the words the dictionary doesn't have (see definer.dictionaryFirst).
+  if (definerMode() === "dictionary_first") return dictionaryFirst({ dictionary, ai, hasKey: !!cfg.key, refresh });
+  return ai();
 }
 
 /** Keep an answer for this word and sentence without asking (see definer.rememberAnswer). */
