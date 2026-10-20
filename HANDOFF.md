@@ -3657,3 +3657,69 @@ Owner: "Let Tamkeen give notifications for chat messages ... That includes media
 - **Limit:** only while Tamkeen is running (also in the background, until the phone suspends it). Messages that
   arrive while it's closed would need a push service (Firebase/APNs/Web Push + a Supabase function): not built.
 - Tests: tests/js/chatnotify.test.mjs, tests/test_notify.py. Translations: tools/i18n/tr/<code>/42-chat-notifications.txt.
+
+## Flashcard streak (the flame) in the friends bar; every part of the bar explains itself (2026-10-20; branch `flame-streak`, NOT merged, NOT pushed)
+Owner: "I want every day a user meets their flashcard new and review goal to add to their streak (a flame icon)
+which is on their profile and visible to all their friends ... each part of it should be clickable and describe what it is."
+The "circled section" = the pill under a name on the Friends tab (`web/js/game/friend-bar.js`): language, league
+badge, XP today, now the flame, and the favourite creature.
+- **Which days count** (`web/js/review/streak.js`, pure, tested in `tests/js/streak.test.mjs`): the same "done" as
+  the goal bar under the Review banner (`goal.js today`). A day is **met** when something was answered that day and
+  nothing was left: every new word the day's allowance let in (newPerDay minus words started that day, counted over
+  the whole log like `deck.plan`) answered and, if missed, remembered; every word that was due remembered. **Rest**:
+  nothing due, no new words waiting (or "0 new words a day") and nothing answered: neither adds nor breaks. Anything
+  else is **missed**. Today is never missed while it lasts ("open"): the streak then ends yesterday. A day's answers
+  belong to the day number written into them (local time when answered), so 23:59 / 00:01 and time-zone trips can't
+  move them; flying west after answering "tomorrow" makes that the latest day.
+- **From the log, not a counter**: worked out from /vocab (the language being learned) + /reviews, both synced, so a
+  reinstall or a new device gets the same streak. One extra: localStorage `flameDays:<lang>` remembers past days
+  already counted on this device, so raising "new words a day" doesn't take back days done under the old goal
+  (lost with the app's data: then everything is judged again with today's goal). The goal is per device
+  (`reviewNewPerDay`), so two devices with different goals can work out different streaks; whichever sent last wins.
+- **Why not the game's streak**: the habitat's `#g-streak` counts days of the game's daily goal (minutes of listening
+  or reading, or clearing Anki), has freezes, rewards (freeze every 7th day, streak_7 shop items, a garden plot) and
+  is a stored counter. Redefining it would have broken those for people who only listen. So the flame is a
+  separate streak, and to avoid two flames the game's one is now **"Goal streak"** with the game's target icon
+  (`goal.png`) instead of its pixel flame (habitat.js chip + info.js sheet; the sheet says the flame is another
+  streak). Its rules are unchanged.
+- **Shared with friends**: `game_profiles.streak` (days) and `streak_until` (when it runs out: the sender's own
+  midnight at the end of the day after the last day counted, `streakUntil`). Friends show the number until then
+  (`streakNow`), wherever they are, so no time zone is sent. Sent by `friends-game.publishNow` (with the other bar
+  fields) and **sent at once whenever the streak changed**, even inside the 5-minute throttle. My own bar shows the
+  streak worked out here just now (`review/flame.js lastStreak`), not what was last stored.
+- **Database: `supabase/v7-flame-streak.sql` must be run once in the Supabase SQL editor** (two columns + reload).
+  Until then `social.publishGame`/`gameProfiles` fall back (PGRST204 / 42703, as for v6) and friends see no flame;
+  my own flame still shows. An app older than this branch shows no flame for anyone; a friend with an older app
+  gets no flame (no `streak` field); after v7 a row from an older app has streak 0 (a dim 0 flame).
+- **Every part is a button** (stops the row's own click) opening the game's sheet (`info.js sheet`, now exported;
+  `pic` may be ready markup): language (who is learning what; for me: change it on Home), league (the four leagues,
+  5+ goal days up / 1 or none down, this week's goal days), XP today (what earns it, resets at each person's
+  midnight), flame (what counts, rest days, lasts until the end of tomorrow; for me also today's state: done / "N new
+  words and M reviews left" with **Review now** → #/vocab / nothing to study), creature (big portrait, type · stage,
+  chosen with Show to friends; replaces the old inline `.gb-showcase` card). Explanations say "you" on my bar and
+  "@name" on a friend's.
+- **Game switched off**: the bar now still shows the language and the flame (not game things); league, XP and the
+  creature are hidden as before. Settings' wording ("no game badges next to friends' names") stays true.
+- **Look**: line flame `flame` in icons.js (outer flame + small inner one), amber (`--warn`) when alive, muted at
+  55% when 0. Bar parts are plain text buttons with a round hover. Phone width: the bar's double indent (row 52px +
+  old friend-head 44px) is gone, so five parts fit at 375 px; under 360 px the bar starts under the picture and
+  drops the word "today".
+- Page guide step on the Friends tab: "What friends see" (was "Your game level").
+- **All versions**: everything is in shared files (web/js/game, web/js/review, web/js/pages/friends.js, social.js,
+  icons.js, app.css), all on build-www's copy list (js/review and js/game are copied as folders); no phone-only copy,
+  no Python change (/vocab and /reviews already exist on both sides). `tests/js/parity.test.mjs` passes.
+- **Checked** in the browser pane with a stand-in for the online service (made-up friends: one alive at 12, one run
+  out, one on an older app; a `?old` switch for a database without v7; no accounts, nothing sent anywhere) on fresh,
+  never-signed-in data: phone build at 375 x 812 (dark, light, Arabic RTL, game off, old database, finishing today
+  6 → 7 and re-sent at once), web app build (TAMKEEN_WEB), desktop server from the worktree at 1280 x 800. Every bar
+  part opened its popup. Screenshots: `C:\Users\chris\Documents\arabic-tts\flame-streak-shots\` (outside the repo;
+  `05-phone-tap-league.jpg` still shows a "(100% of the days)" that was taken out afterwards). How: a copy of the
+  build whose index.html maps `js/social.js` to a stand-in module (import map) that re-exports the real one and
+  answers friendsState/gameProfiles/publishGame with made-up data. **Not checked**: two real accounts, a real phone,
+  the pywebview window itself (same WebView2 engine as the pane), a day rolling over with the page open (the bar
+  redraws when the Friends tab loads).
+- Tests: `tests/js/streak.test.mjs` (13: goal met / not met, missed new word, reviews left, gaps, rest days,
+  goal 0, words saved later, deleted words, raised goal, 23:59 vs 00:01 in Manila, flown west, `streakUntil` in
+  New York / Manila / across a clock change, `streakNow` across zones). JS 566 pass, pytest 415 pass (2 skipped).
+- Translations: `tools/i18n/tr/<code>/43-flame-streak.txt` (36 strings, 12 languages); ignore.txt has the select
+  string `{0}, streak, streak_until`.

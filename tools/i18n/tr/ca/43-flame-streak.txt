@@ -1,0 +1,37 @@
+# The friends-list bar: every part explains itself; the flashcard streak (the flame).
+c559bda3 Aprèn {0:lower}: toca per saber-ne més
+220af606 Estàs aprenent {0:lower}. Els teus amics ho veuen al costat del teu nom.
+6f977b08 {0} està aprenent {1:lower}.
+eda670b7 Canvia-la amb el selector de llengua a l'Inici. Els altres números d'aquí són de la llengua que aprens ara.
+91b32dbf És la llengua que ha triat a la seva pàgina d'Inici.
+23ed8b04 Lliga {0}: toca per saber-ne més
+173ead1d La teva lliga al joc de les criatures. N'hi ha quatre: Bronze, Plata, Or i Diamant.
+12bd54d1 La seva lliga al joc de les criatures. N'hi ha quatre: Bronze, Plata, Or i Diamant.
+3044e70a Arribar a l'objectiu del dia (minuts escoltant o llegint) 5 dies o més en una setmana fa pujar el jugador una lliga la setmana següent. 1 dia o cap el fa baixar.
+ed598046 Aquesta setmana, de moment: {0} dies amb l'objectiu assolit.
+d046ea38 XP guanyats avui: toca per saber-ne més
+d7e150e6 {0} XP avui
+63e3416a Els XP que has guanyat avui al joc de les criatures.
+68b386be Els XP que {0} ha guanyat avui al joc de les criatures.
+3b9ccfbc Els XP s'obtenen buscant paraules, desant paraules, escoltant i llegint, amb les targetes i a les batalles. Fan créixer la criatura i pujar el nivell del jugador.
+4dc01acb Torna a començar de 0 a mitjanit (la de cadascú).
+7ff9f314 Ratxa de targetes: toca per saber-ne més
+6359509d Les targetes d'avui estan fetes.
+365fad6a Avui no hi ha res per estudiar: la ratxa continua demà.
+67d97750 Per mantenir-la avui: falten {0} paraules noves i {2} repassos.
+a36cb15c Ratxa de targetes de {0} dies
+adf7aac6 Encara no hi ha ratxa de targetes
+9f2abd28 Dies seguits en què has acabat les teves targetes: les paraules noves del dia i tots els repassos pendents.
+613f1c83 Dies seguits en què {0} ha acabat les seves targetes: les paraules noves del dia i tots els repassos pendents.
+80e20f73 Un dia sense res per estudiar no la trenca. Dura fins al final de l'endemà, així que tens tot el dia d'avui per mantenir-la.
+f2144fb0 La ratxa d'objectius del joc de les criatures és una altra: dies escoltant o llegint.
+c594fad4 Repassa ara
+2c0d7021 La teva criatura preferida: toca per saber-ne més
+68d6e138 La seva criatura preferida: toca per saber-ne més
+69a7f582 La teva criatura preferida: la que els amics veuen al costat del teu nom. Tria'n una altra a la pàgina Criatures amb Mostra als amics.
+ace1e19d La criatura preferida de {0}, triada per mostrar-la als amics.
+6d5546f2 Dies seguits en què has arribat al teu objectiu del dia: toca per saber-ne més
+a301c97f Ratxa d'objectius
+c57ee3a3 La flama al costat del teu nom a la pestanya Amics és una altra ratxa: els dies seguits en què has acabat les teves targetes.
+699dd745 El que veuen els amics
+f56a7b41 Els amics veuen això al costat del teu nom: la teva llengua, la lliga, els XP d'avui, la ratxa de targetes i la criatura preferida. Toca qualsevol part per veure què és.

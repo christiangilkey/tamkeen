@@ -1,0 +1,37 @@
+# The friends-list bar: every part explains itself; the flashcard streak (the flame).
+c559bda3 Apprend {0:lower} : touchez pour en savoir plus
+220af606 Vous apprenez {0:lower}. Vos amis le voient à côté de votre nom.
+6f977b08 {0} apprend {1:lower}.
+eda670b7 Changez-la avec le choix de langue sur l'Accueil. Les autres chiffres ici concernent la langue que vous apprenez en ce moment.
+91b32dbf C'est la langue choisie sur sa propre page d'Accueil.
+23ed8b04 Ligue {0} : touchez pour en savoir plus
+173ead1d Votre ligue dans le jeu des créatures. Il y en a quatre : Bronze, Argent, Or et Diamant.
+12bd54d1 Sa ligue dans le jeu des créatures. Il y en a quatre : Bronze, Argent, Or et Diamant.
+3044e70a Atteindre l'objectif du jour (des minutes d'écoute ou de lecture) 5 jours ou plus dans la semaine fait monter le joueur d'une ligue la semaine suivante. 1 jour ou aucun le fait descendre.
+ed598046 Cette semaine pour l'instant : {0} jour{1} avec l'objectif atteint.
+d046ea38 XP gagnés aujourd'hui : touchez pour en savoir plus
+d7e150e6 {0} XP aujourd'hui
+63e3416a Les XP que vous avez gagnés aujourd'hui dans le jeu des créatures.
+68b386be Les XP que {0} a gagnés aujourd'hui dans le jeu des créatures.
+3b9ccfbc Les XP viennent des mots cherchés, des mots enregistrés, de l'écoute et de la lecture, des cartes et des combats. Ils font grandir la créature et monter le niveau du joueur.
+4dc01acb Ils repartent de 0 à minuit (celui de chacun).
+7ff9f314 Série de cartes : touchez pour en savoir plus
+6359509d Les cartes du jour sont faites.
+365fad6a Rien à étudier aujourd'hui : la série continue demain.
+67d97750 Pour la garder aujourd'hui : encore {0} nouveaux mots et {2} révisions.
+a36cb15c Série de cartes de {0} jours
+adf7aac6 Pas encore de série de cartes
+9f2abd28 Jours d'affilée où vous avez fini vos cartes : les nouveaux mots du jour et toutes les révisions prévues.
+613f1c83 Jours d'affilée où {0} a fini ses cartes : les nouveaux mots du jour et toutes les révisions prévues.
+80e20f73 Un jour sans rien à étudier ne la casse pas. Elle dure jusqu'à la fin du lendemain : vous avez donc toute la journée pour la garder.
+f2144fb0 La série d'objectifs du jeu des créatures en est une autre : des jours d'écoute ou de lecture.
+c594fad4 Réviser maintenant
+2c0d7021 Votre créature préférée : touchez pour en savoir plus
+68d6e138 Sa créature préférée : touchez pour en savoir plus
+69a7f582 Votre créature préférée : celle que vos amis voient à côté de votre nom. Choisissez-en une autre sur la page Créatures avec Montrer aux amis.
+ace1e19d La créature préférée de {0}, choisie pour la montrer à ses amis.
+6d5546f2 Jours d'affilée où vous avez atteint votre objectif du jour : touchez pour en savoir plus
+a301c97f Série d'objectifs
+c57ee3a3 La flamme à côté de votre nom dans l'onglet Amis est une autre série : les jours d'affilée où vous avez fini vos cartes.
+699dd745 Ce que voient vos amis
+f56a7b41 Vos amis voient ceci à côté de votre nom : votre langue, votre ligue, les XP du jour, votre série de cartes et votre créature préférée. Touchez une partie pour savoir ce que c'est.

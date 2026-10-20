@@ -202,3 +202,4 @@ b748c6fc
 88c2890f
 497852e2
 4cd98fc8
+abe53f56  # {0}, streak, streak_until  (database columns)

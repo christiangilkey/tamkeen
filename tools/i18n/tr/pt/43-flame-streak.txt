@@ -1,0 +1,37 @@
+# The friends-list bar: every part explains itself; the flashcard streak (the flame).
+c559bda3 Aprendendo {0:lower}: toque para saber mais
+220af606 Você está aprendendo {0:lower}. Seus amigos veem isso ao lado do seu nome.
+6f977b08 {0} está aprendendo {1:lower}.
+eda670b7 Troque com o seletor de idioma no Início. Os outros números aqui são do idioma que você está aprendendo agora.
+91b32dbf É o idioma que a pessoa escolheu na própria página Início.
+23ed8b04 Liga {0}: toque para saber mais
+173ead1d Sua liga no jogo das criaturas. São quatro: Bronze, Prata, Ouro e Diamante.
+12bd54d1 A liga dessa pessoa no jogo das criaturas. São quatro: Bronze, Prata, Ouro e Diamante.
+3044e70a Cumprir a meta diária (minutos ouvindo ou lendo) em 5 dias ou mais de uma semana faz o jogador subir uma liga na semana seguinte. 1 dia ou nenhum faz descer.
+ed598046 Nesta semana até agora: {0} dia{1} com a meta cumprida.
+d046ea38 XP ganhos hoje: toque para saber mais
+d7e150e6 {0} XP hoje
+63e3416a Os XP que você ganhou hoje no jogo das criaturas.
+68b386be Os XP que {0} ganhou hoje no jogo das criaturas.
+3b9ccfbc Os XP vêm de procurar palavras, salvar palavras, ouvir e ler, dos cartões e das batalhas. Eles fazem a criatura crescer e o nível do jogador subir.
+4dc01acb Volta a 0 à meia-noite (a de cada pessoa).
+7ff9f314 Sequência de cartões: toque para saber mais
+6359509d Os cartões de hoje estão feitos.
+365fad6a Nada para estudar hoje: a sequência continua amanhã.
+67d97750 Para manter hoje: faltam {0} palavras novas e {2} revisões.
+a36cb15c Sequência de cartões de {0} dias
+adf7aac6 Ainda sem sequência de cartões
+9f2abd28 Dias seguidos em que você terminou seus cartões: as palavras novas do dia e todas as revisões pendentes.
+613f1c83 Dias seguidos em que {0} terminou os cartões: as palavras novas do dia e todas as revisões pendentes.
+80e20f73 Um dia sem nada para estudar não a interrompe. Ela dura até o fim do dia seguinte, então você tem o dia de hoje inteiro para mantê-la.
+f2144fb0 A sequência de metas do jogo das criaturas é outra: dias ouvindo ou lendo.
+c594fad4 Revisar agora
+2c0d7021 Sua criatura favorita: toque para saber mais
+68d6e138 A criatura favorita dessa pessoa: toque para saber mais
+69a7f582 Sua criatura favorita: a que seus amigos veem ao lado do seu nome. Escolha outra na página Criaturas com Mostrar aos amigos.
+ace1e19d A criatura favorita de {0}, escolhida para mostrar aos amigos.
+6d5546f2 Dias seguidos em que você cumpriu sua meta diária: toque para saber mais
+a301c97f Sequência de metas
+c57ee3a3 A chama ao lado do seu nome na aba Amigos é outra sequência: dias seguidos em que você terminou seus cartões.
+699dd745 O que seus amigos veem
+f56a7b41 Seus amigos veem isto ao lado do seu nome: seu idioma, sua liga, os XP de hoje, sua sequência de cartões e sua criatura favorita. Toque em qualquer parte para ver o que é.

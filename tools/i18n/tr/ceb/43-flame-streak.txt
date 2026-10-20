@@ -1,0 +1,37 @@
+# The friends-list bar: every part explains itself; the flashcard streak (the flame).
+c559bda3 Nagtuon og {0}: i-tap para sa dugang
+220af606 Nagtuon ka og {0}. Makita kini sa imong mga higala tupad sa imong ngalan.
+6f977b08 Nagtuon si {0} og {1}.
+eda670b7 Ilisi kini gamit ang pagpili og pinulongan sa Home. Ang ubang mga numero dinhi para sa pinulongan nga imong gitun-an karon.
+91b32dbf Kini ang pinulongan nga ilang gipili sa ilang kaugalingong Home.
+23ed8b04 Liga {0}: i-tap para sa dugang
+173ead1d Ang imong liga sa duwa sa mga linalang. Upat kini: Bronze, Silver, Gold ug Diamond.
+12bd54d1 Ang ilang liga sa duwa sa mga linalang. Upat kini: Bronze, Silver, Gold ug Diamond.
+3044e70a Kung maabot ang adlaw-adlaw nga tumong (mga minuto sa pagpaminaw o pagbasa) sulod sa 5 ka adlaw o labaw sa usa ka semana, mosaka og usa ka liga ang magdudula sa sunod nga semana. Kung 1 ka adlaw o wala, manaog sila.
+ed598046 Karong semanaha hangtod karon: {0} ka adlaw nga naabot ang tumong.
+d046ea38 XP nga nakuha karong adlawa: i-tap para sa dugang
+d7e150e6 {0} XP karon
+63e3416a Ang XP nga imong nakuha karong adlawa sa duwa sa mga linalang.
+68b386be Ang XP nga nakuha ni {0} karong adlawa sa duwa sa mga linalang.
+3b9ccfbc Makuha ang XP sa pagpangita og mga pulong, pag-save og mga pulong, pagpaminaw ug pagbasa, mga flashcard ug mga sangka. Mopadako kini sa linalang ug mopataas sa level sa magdudula.
+4dc01acb Mobalik kini sa 0 inig tungang gabii (sa oras sa matag usa).
+7ff9f314 Streak sa flashcard: i-tap para sa dugang
+6359509d Nahuman na ang mga flashcard karong adlawa.
+365fad6a Walay tun-an karon: magpadayon ang streak ugma.
+67d97750 Aron mapadayon kini karon: {0} ka bag-ong pulong ug {2} ka review pa ang nahabilin.
+a36cb15c {0} ka adlaw nga streak sa flashcard
+adf7aac6 Wala pay streak sa flashcard
+9f2abd28 Mga sunodsunod nga adlaw nga imong nahuman ang imong mga flashcard: ang mga bag-ong pulong sa adlaw ug ang tanang review nga takna na.
+613f1c83 Mga sunodsunod nga adlaw nga nahuman ni {0} ang iyang mga flashcard: ang mga bag-ong pulong sa adlaw ug ang tanang review nga takna na.
+80e20f73 Ang adlaw nga walay tun-an dili makaputol niini. Molungtad kini hangtod sa katapusan sa sunod nga adlaw, busa naa nimo ang tibuok adlaw karon aron mapadayon kini.
+f2144fb0 Lahi ang streak sa tumong sa duwa sa mga linalang: mga adlaw sa pagpaminaw o pagbasa.
+c594fad4 Mag-review karon
+2c0d7021 Ang imong paboritong linalang: i-tap para sa dugang
+68d6e138 Ang ilang paboritong linalang: i-tap para sa dugang
+69a7f582 Ang imong paboritong linalang: ang makita sa imong mga higala tupad sa imong ngalan. Pili og lain sa panid nga Mga linalang gamit ang Ipakita sa mga higala.
+ace1e19d Ang paboritong linalang ni {0}, gipili aron ipakita sa mga higala.
+6d5546f2 Mga sunodsunod nga adlaw nga imong naabot ang imong adlaw-adlaw nga tumong: i-tap para sa dugang
+a301c97f Streak sa tumong
+c57ee3a3 Lahi nga streak ang kalayo tupad sa imong ngalan sa tab nga Mga higala: mga sunodsunod nga adlaw nga imong nahuman ang imong mga flashcard.
+699dd745 Ang makita sa mga higala
+f56a7b41 Makita kini sa imong mga higala tupad sa imong ngalan: ang imong pinulongan, liga, XP karong adlawa, streak sa flashcard ug paboritong linalang. I-tap ang bisan unsang bahin aron makita kung unsa kini.

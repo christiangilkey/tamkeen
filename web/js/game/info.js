@@ -13,11 +13,12 @@ const fmt = (n) => Math.floor(n).toLocaleString();
 const plural = (n, word) => `${fmt(n)} ${word}${n === 1 ? "" : "s"}`;
 const list = (items) => `<ul class="info-list">${items.map((t) => `<li>${t}</li>`).join("")}</ul>`;
 
-/** A small sheet over the page with a title and a close button. Returns {body, close}. */
-function sheet(title, pic) {
+/** A small sheet over the page with a title and a close button. Returns {body, close}. `pic` is a
+ * game icon's name, or ready markup (a line icon, a portrait). Also used by the friends-list bar. */
+export function sheet(title, pic) {
   document.querySelector(".game-sheet-wrap")?.remove();
   const wrap = h(`<div class="game-sheet-wrap"><div class="game-sheet info-sheet" role="dialog">
-    <div class="game-sheet-head"><strong class="info-title">${icon(pic, 32)} <span></span></strong><span class="spacer"></span>
+    <div class="game-sheet-head"><strong class="info-title">${pic.startsWith("<") ? pic : icon(pic, 32)} <span></span></strong><span class="spacer"></span>
       <button type="button" class="ghost icon" data-close title="Close">${icon("close")}</button></div>
     <div class="game-sheet-body stack"></div>
   </div></div>`);
@@ -74,12 +75,13 @@ const EARNED = {
   streak(game) {
     const prizes = CATALOG.filter((it) => (it.requires || []).includes("streak_7")).map((it) => it.name);
     return {
-      title: "Streak", pic: "streak",
+      title: "Goal streak", pic: "goal",
       now: `${plural(game.streak, "day")} in a row. Your best is ${plural(game.best_streak, "day")}.`,
       get: [
         `Reach your daily goal (${game.goal} minutes of listening or reading). Each day you do adds one.`,
         "With the Anki companion, clearing everything due in Anki also counts as the day's goal.",
         "Miss a day and a streak freeze covers it if you have one. Without one the streak starts again from zero. Nothing else is lost.",
+        "The flame next to your name on the Friends tab is a different streak: days in a row you finished your flashcards.",
       ],
       use: [
         "Every 7th day in a row earns a streak freeze.",

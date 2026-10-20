@@ -41,7 +41,7 @@ export function habitat() {
       </div>
       <div class="hud-chips">
         <button type="button" class="today-chip" id="g-stage" title="Tap to see how your creature evolves"></button>
-        <button type="button" class="today-chip" id="g-streak" data-info="streak" title="Days in a row: tap for more">${icon("streak")} <span></span></button>
+        <button type="button" class="today-chip" id="g-streak" data-info="streak" title="Days in a row you reached your daily goal: tap for more">${icon("goal")} <span></span></button>
         <button type="button" class="today-chip" id="g-coins" data-info="coin" title="Coins, for the shop: tap for more">${icon("coin")} <span></span></button>
         <button type="button" class="today-chip" id="g-freeze" data-info="freeze" title="A streak freeze covers a missed day: tap for more">${icon("freeze")} <span></span></button>
         <button type="button" class="today-chip" id="g-glow" data-info="glow" title="Glow from your buildings: tap for more">${icon("glow")} <span></span></button>
