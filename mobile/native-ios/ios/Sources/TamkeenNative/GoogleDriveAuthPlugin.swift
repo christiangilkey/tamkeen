@@ -47,12 +47,14 @@ public class GoogleDriveAuthPlugin: CAPPlugin, CAPBridgedPlugin {
 
     /// An access token for the app's own Drive folder: {accessToken, scopes}. With
     /// `interactive: false` nothing is ever shown ("NEEDS_INTERACTION" when the user must sign in).
+    /// `tasks`: Google Tasks too (the Review tab's "Send to Google Tasks"), asked the first time it is used.
     @objc func authorize(_ call: CAPPluginCall) {
         let interactive = call.getBool("interactive", true)
         let force = call.getBool("force", false)
+        let tasks = call.getBool("tasks", false)
         DispatchQueue.main.async {
             GoogleAuth.shared.anchor = self.bridge?.webView?.window
-            GoogleAuth.shared.tokens(interactive: interactive, force: force) { result in
+            GoogleAuth.shared.tokens(interactive: interactive, force: force, tasks: tasks) { result in
                 switch result {
                 case .success(let tokens):
                     call.resolve(["accessToken": tokens.accessToken, "scopes": tokens.scopes])
@@ -113,6 +115,9 @@ public class GoogleDriveAuthPlugin: CAPPlugin, CAPBridgedPlugin {
         let home = call.getString("home", "") // the start page, shown when no address is given
         // Opened for signing in to Instagram: the browser closes itself once signed in (see InAppBrowser).
         let forSignIn = call.getBool("closeOnInstagramSignIn", false)
+        // Opened to read web pages (the ordinary browser), or for something else such as signing
+        // in, YouTube or finding a word in a video: then it has no "Import Page" button.
+        let forReading = !forSignIn && call.getBool("forReading", true)
         DispatchQueue.main.async {
             guard let presenter = self.bridge?.viewController else {
                 call.reject("Couldn't open the browser.")
@@ -126,6 +131,7 @@ public class GoogleDriveAuthPlugin: CAPPlugin, CAPBridgedPlugin {
                 }
             }
             InAppBrowser.open(from: presenter, url: url, extractor: extractor, youtubeScript: youtube, home: home,
+                              forReading: forReading,
                               onImport: { [weak self] json in
                                   self?.notifyListeners("pageImport", data: ["result": json])
                               },
@@ -137,11 +143,17 @@ public class GoogleDriveAuthPlugin: CAPPlugin, CAPBridgedPlugin {
         }
     }
 
-    /// What the browser passes on: a tapped YouTube video, the Follow button, or the star.
+    /// What the browser passes on: a tapped YouTube video, the Follow button, the star, or the
+    /// videos a "Find in a video" search listed.
     private func browserSaid(_ id: String) {
         if id.hasPrefix("tamkeen-video://site") {
             // The star in the bar, or a site taken off on the start page: JavaScript keeps the list.
             notifyListeners("browserSite", data: ["url": id])
+            return
+        }
+        if id.hasPrefix("tamkeen-video://find") {
+            // "Find in a video": the videos Filmot's results page listed, top first.
+            notifyListeners("youtubeFind", data: ["url": id])
             return
         }
         if id.hasPrefix("tamkeen-video:") {

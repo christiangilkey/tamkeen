@@ -1,0 +1,14 @@
+# Feature parity across versions: About and licences in every Settings, Anki and Google Tasks wording (2026-10-19).
+44cefc08	PDF.js (Mozilla) : lire les livres PDF que vous ajoutez
+9e93ea8d	Client JS Supabase : Amis, discussion et partage
+b329cbef	Capacitor : le cadre des applications mobiles autour des écrans de Tamkeen
+7611c839	Impossible de charger la liste. Réessayez plus tard.
+8b84a68a	À propos et licences open source
+65137875	À propos de Tamkeen
+c41ff0c3	Tamkeen pour votre ordinateur · <0>Politique de confidentialité</0> · <1>Code source</1> · <2>À propos</2>
+97cc7702	Il vous faut Anki : Anki sur un ordinateur, AnkiDroid sur Android ou AnkiMobile sur un iPhone.
+c4ae4119	Ouvrez le fichier enregistré avec Anki. Sur un ordinateur, cliquez sur <0>Import File</0> dans Anki et choisissez-le.
+79642d7d	L'envoi vers Google Tasks fonctionne dans l'application installée, sur l'ordinateur et dans l'application web.
+906abf49	Nouveau départ, politique de confidentialité et licences.
+0ec69c1c	Mises à jour, nouveau départ, politique de confidentialité et licences.
+5b931348	Tamkeen {0} · <0>Politique de confidentialité</0> · <1>Code source</1>

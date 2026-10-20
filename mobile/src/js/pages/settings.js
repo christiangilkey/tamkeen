@@ -15,6 +15,7 @@ import { accountSection } from "../components/account.js";
 import { ankiSyncPanel } from "../components/ankisync.js";
 import { gameOn, gameSwitch } from "../components/gameswitch.js";
 import { resetSection } from "../components/resetapp.js";
+import { licensesFold } from "../components/licenses.js";
 import { parkAll } from "../reset.js";
 import { languagePicker, speakPicker } from "../components/langpicker.js";
 import { chooseUiLanguage } from "../components/onboarding.js";
@@ -32,13 +33,16 @@ import { syncNow, syncState } from "../sync.js";
 import { resetTours } from "../components/tour.js";
 import { SECTIONS, confirmBox, findsFor, moreOptions, revealFind, sectionOfFind, sectionPage, settingsHome } from "../components/settingsui.js";
 
-const android = !isIOS && !isWeb; // AnkiDroid and the vibration are Android things
+const android = !isIOS && !isWeb; // AnkiDroid is an Android thing
+// Vibration: Android, and the web app on a phone whose browser can (an iPhone's can't, nor a computer).
+const vibrates = !isIOS && typeof navigator !== "undefined" && typeof navigator.vibrate === "function"
+  && (!isWeb || (typeof matchMedia === "function" && matchMedia("(pointer: coarse)").matches));
 const THEMES = { system: "System", light: "Light", dark: "Dark" };
 const THEME_LINE = { system: "System theme", light: "Light theme", dark: "Dark theme" };
 // On the phone some sections hold other things than on the computer.
 const ABOUTS = {
   apps: isWeb ? "Google Tasks, Onyx, and the Tamkeen app." : android ? "AnkiDroid, Google Tasks and Onyx." : "Google Tasks and Onyx.",
-  data: isWeb ? "Starting again, and the privacy policy." : "Updates, starting again, and the privacy policy.",
+  data: isWeb ? "Starting again, the privacy policy and licenses." : "Updates, starting again, the privacy policy and licenses.",
 };
 
 function ago(ts) {
@@ -66,7 +70,7 @@ function home(view) {
   const ui = isUiLanguage(s.ui_language) ? s.ui_language : "en";
   settingsHome(view, {
     abouts: ABOUTS,
-    finds: findsFor({ phone: true, android, ios: isIOS, web: isWeb }, studyLanguage()),
+    finds: findsFor({ phone: true, android, ios: isIOS, web: isWeb, vibrates }, studyLanguage()),
     summaries: {
       languages: () => [{ text: `Learning ${langInfo(studyLanguage()).name}` }, { text: `App in ${UI_LANGUAGES[ui].native}` }],
       words: () => {
@@ -180,17 +184,17 @@ function look(body) {
       <h2>Text size</h2>
       <p class="set-hint">For the language you're learning. The example shows how big it will be.</p>
       <div class="set-slider"><label for="font">Podcasts &amp; videos</label>
-        <input type="range" id="font" min="16" max="48" value="${s.font_size}"><output id="font-val">${s.font_size}px</output></div>
+        <input type="range" id="font" min="16" max="56" value="${s.font_size}"><output id="font-val">${s.font_size}px</output></div>
       <div class="set-sample ar" ${langAttrs(lang)} style="font-size:var(--ar-size);line-height:2">${esc(langInfo(lang).sample)}</div>
       <div class="set-slider"><label for="page-font">Web pages</label>
         <input type="range" id="page-font" min="12" max="40" value="${s.page_font_size || 17}"><output id="page-font-val">${s.page_font_size || 17}px</output></div>
       <div class="set-sample ar" ${langAttrs(lang)} style="font-size:var(--page-size);line-height:2">${esc(langInfo(lang).pageSample)}</div>
     </section>
-    <section class="card set-card" data-find="haptics">
+    ${vibrates ? `<section class="card set-card" data-find="haptics">
       <h2>Vibration</h2>
       <label class="check"><input type="checkbox" id="haptics" ${s.haptics !== false ? "checked" : ""}>
         <span>Vibrate lightly when I tap a word or save one</span></label>
-    </section>
+    </section>` : ""}
     <section class="card" id="game-switch" data-find="game"></section>
     <section class="card set-card" data-find="guides">
       <h2>Page guides</h2>
@@ -200,7 +204,7 @@ function look(body) {
   </div>`));
   const $ = (q) => body.querySelector(q);
   $("#guides-again").onclick = () => { resetTours(); $("#guides-done").textContent = "They'll show the next time you open each page."; };
-  $("#haptics").onchange = (e) => saveSettings({ haptics: e.target.checked });
+  if ($("#haptics")) $("#haptics").onchange = (e) => saveSettings({ haptics: e.target.checked });
   body.querySelectorAll("input[name=theme]").forEach((r) => (r.onchange = () => saveSettings({ theme: r.value })));
   $("#font").oninput = (e) => {
     $("#font-val").textContent = `${e.target.value}px`;
@@ -291,9 +295,24 @@ function data(body) {
       <div class="small muted" id="update-result"></div>
     </section>
     <section class="card" id="reset-app" data-find="reset"></section>
-    <section class="card small muted" data-find="privacy">Tamkeen ${isWeb ? "on the web" : isIOS ? "for iPhone" : "for Android"} · <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a></section>
+    <section class="card set-card stack" data-find="about privacy">
+      <h2>About Tamkeen</h2>
+      <p class="set-hint">Tamkeen ${isWeb ? "on the web" : isIOS ? "for iPhone" : "for Android"} ·
+        <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a> ·
+        <a href="https://github.com/christiangilkey/tamkeen" target="_blank" rel="noopener">Source code</a></p>
+    </section>
   </div>`));
   const $ = (q) => body.querySelector(q);
+  // The open-source licences, read from the copies this build carries (build-www.mjs).
+  const read = async (path, as) => {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error(String(res.status));
+    return as === "json" ? res.json() : res.text();
+  };
+  body.querySelector('[data-find~="about"]').append(licensesFold({
+    list: () => read("licenses/index.json", "json"),
+    text: (file) => read(`licenses/${encodeURIComponent(file)}`, "text"),
+  }));
   resetSection($("#reset-app"), parkAll);
   import("../version.js").then(({ APP_VERSION }) => { $("#app-version").textContent = `Version ${APP_VERSION}`; }).catch(() => {});
   $("#check-updates").onclick = async () => {

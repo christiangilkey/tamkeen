@@ -742,7 +742,9 @@ const routes = [
     const v = lib.vocab.find((x) => x.uid === m[1]);
     if (!v) throw new ApiError("Not found.");
     if (Array.isArray(body.folders)) v.folders = [...new Set(body.folders)].sort();
-    for (const k of ["meaning", "notes", "memo", "text"]) if (body[k] !== undefined && body[k] !== null) v[k] = body[k];
+    for (const k of ["meaning", "notes", "memo"]) if (body[k] !== undefined && body[k] !== null) v[k] = body[k];
+    // The word itself only when something is left of it (as on the computer, app/api/vocab.py).
+    if (typeof body.text === "string" && body.text.trim()) v.text = body.text.trim();
     v.updated_at = now();
     changed();
     return vocabOut(v);

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import os
 import subprocess
 import sys
@@ -257,35 +258,15 @@ def app_badge(body: dict[str, Any]) -> dict[str, Any]:
     return {"ok": appbadge.set_count(count)}
 
 
-LICENSES = [
-    ("Tamkeen", "MIT", "app.txt"),
-    ("OpenAI Whisper (model weights & architecture)", "MIT", "whisper.txt"),
-    ("faster-whisper", "MIT", "faster-whisper.txt"),
-    ("CTranslate2", "MIT", "ctranslate2.txt"),
-    ("mlx-whisper / MLX (Apple Silicon builds)", "MIT", "mlx-whisper.txt"),
-    ("FFmpeg (via PyAV)", "LGPL v2.1 or later", "ffmpeg.txt"),
-    ("PyAV", "BSD 3-Clause", "pyav.txt"),
-    ("Silero VAD", "MIT", "silero-vad.txt"),
-    ("Noto Naskh Arabic font", "SIL Open Font License 1.1", "noto-naskh-arabic.txt"),
-    ("Common-word lists (from wordfreq)", "CC BY-SA 4.0", "wordfreq.txt"),
-    ("CAMeL Tools analyzer method; Arabic dictionaries (optional download)", "MIT; GPL v2 / CC BY 4.0", "camel-tools.txt"),
-    ("CATT Arabic vowel model, Abjad AI (optional download)", "Apache 2.0", "catt.txt"),
-    ("Spanish, French, Italian, Portuguese, Catalan and English word tables (optional download)", "ODbL 1.0", "lemmatization-lists.txt"),
-    ("Bisaya word list (OPUS NLLB) and Wolff's Dictionary of Cebuano Visayan (optional download)", "ODC-By 1.0; public domain", "cebuano-sources.txt"),
-    ("Thai common-word list, from PyThaiNLP's Thai National Corpus counts", "CC0 1.0", "pythainlp.txt"),
-    ("CMU Pronouncing Dictionary: US pronunciations in the English word table", "BSD-style", "cmudict.txt"),
-    ("Russian word table with stress, from OpenRussian.org (optional download)", "CC BY-SA 4.0", "openrussian.txt"),
-    ("The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)", "Apache 2.0 / MIT / NAIST", "kuromoji.txt"),
-    ("CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)", "CC BY-SA 4.0", "cc-cedict.txt"),
-    ("Wiktionary via Wiktextract: word meanings for No AI (optional download)", "CC BY-SA 4.0", "wiktionary.txt"),
-    ("PDF.js (Mozilla): reading PDF books you add", "Apache 2.0", "pdfjs.txt"),
-    ("The free book shelf: Project Gutenberg, Wikisource, Aozora Bunko (optional download)", "Public domain", "free-books.txt"),
-    ("pywebview", "BSD 3-Clause", "pywebview.txt"),
-    ("FastAPI / Starlette / Uvicorn", "MIT / BSD 3-Clause", "fastapi.txt"),
-    ("feedparser", "BSD 2-Clause", "feedparser.txt"),
-    ("httpx", "BSD 3-Clause", "httpx.txt"),
-    ("NVIDIA cuBLAS / cuDNN (optional download)", "NVIDIA Software License", "nvidia.txt"),
-]
+def licenses() -> list[dict[str, str]]:
+    """The open-source parts this app is built on: licenses/index.json, the list the phone and web
+    app show too (`on`: only some devices, "desktop" or "phone"; none = every one)."""
+    try:
+        items = json.loads((paths.licenses_dir() / "index.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+    return [{"name": x["name"], "license": x["license"], "file": x["file"]} for x in items
+            if "desktop" in x.get("on", ["desktop"]) and (paths.licenses_dir() / x["file"]).exists()]
 
 
 @router.get("/about")
@@ -296,8 +277,7 @@ def about() -> dict[str, Any]:
         "repo": GITHUB_REPO,
         "python": sys.version.split()[0],
         "data_dir": str(paths.data_dir()),
-        "licenses": [{"name": n, "license": lic, "file": f} for n, lic, f in LICENSES
-                     if (paths.licenses_dir() / f).exists()],
+        "licenses": licenses(),
     }
 
 

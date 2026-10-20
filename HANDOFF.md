@@ -3196,3 +3196,103 @@ contract (README, "Showing Tamkeen's player inside another app"); first release 
   throwaway library**: `--background` answered in 2 s with the window hidden; a second `--background` exited 0 in
   0.8 s; a plain launch exited 0 in 0.7 s and the hidden window appeared with the app; a tamkeen:// link then
   opened in it. **NOT tested**: the packaged exe, Onyx's real panel, the 10-minute idle close in a real run.
+
+## Feature parity across versions (2026-10-19; branch `feature-parity`, worktree `../tamkeen-parity`; NOT merged, NOT pushed)
+The owner: "It seems like a lot of features are not implemented between versions. Ensure that we are implementing
+everything into all versions." Tamkeen is four versions: the **computer** app (web/js + the Python server in app/),
+the **Android** app and the **iPhone** app (the same screens answered by mobile/src/js/backend.js; native code in
+mobile/android and mobile/native-ios + mobile/ios), and the **web app** (the phone build in docs/app; `isWeb`).
+`platform` is "android" on the iPhone and the web app too; `isIOS` / `isWeb` (native.js) mark where they differ.
+
+**How it was audited**: every `api("/…")` call in the shared screens against app/api/*.py and backend.js; the two
+Settings pages card by card; every `platform` / `isWeb` / `isIOS` / `isNative` switch and FINDS `on:`; the phone
+build's copy list against every import; the Android Java against the iPhone Swift, plugin by plugin; the settings
+each side stores (app/db.py vs store.js); the HANDOFF sections of the last two weeks.
+
+Legend: ✓ has it · **fixed** = was missing or different there, done on this branch · — = can't exist there (why
+in the last column) · ✗ = missing, not done (why in the last column).
+
+| Feature | Computer | Android | iPhone | Web app | Notes |
+|---|---|---|---|---|---|
+| Podcasts: subscribe, new episodes, Trending, Bisaya picks | ✓ | ✓ | ✓ | ✓ | phones read feeds themselves; web through the go-between server |
+| YouTube: open, add with captions, "handmade subtitles" box, follow channels | ✓ | ✓ | ✓ | ✓ | web: its own #/youtube page |
+| Import a web page | ✓ | ✓ | ✓ | ✓ | web: paste an address (#/sites lists popular sites) |
+| In-app web browser (start page, ★ saved sites, Import Page) | ✓ | ✓ | ✓ **fixed** | — | iPhone showed Import Page and ★ when opened for sign-in, YouTube or Find in a video (Android hides them). A web page can't host a browser |
+| Books: free shelf, add EPUB/PDF/TXT/DOC/AZW3 | ✓ | ✓ | ✓ | ✓ | |
+| Own video/audio files (stored in Drive) | ✓ | ✓ | **fixed** | ✓ | iPhone: SceneDelegate made Capacitor's plain screen, so Tamkeen's (tkdrive:// streaming, swipe back) was never used |
+| Reels | ✓ | ✓ | ✓ | partly | web: a public reel by its link; saves/collections/random need the app (owner's choice, Settings says so) |
+| Transcription on this device (Whisper models, GPU, audio storage) | ✓ | — | — | — | Python/CUDA model; phones send to the computer or a cloud provider |
+| Cloud transcription with the user's key | ✓ | ✓ | ✓ | ✓ | off for Bisaya on every version (only its own model knows it) |
+| Arabic vowel marks | makes them | shows | shows | shows | the vowel model runs in the computer's Python; phones get vowels in synced transcripts |
+| Word popup: AI, No-AI dictionary, corrections, seen words, readings | ✓ | ✓ | ✓ | ✓ | |
+| Find in a video (Filmot) | ✓ | ✓ | **fixed** | — | iPhone dropped the results (no "find" in InAppBrowser.swift, no `youtubeFind` event). Web: needs the in-app browser |
+| Friends, chat, sharing | ✓ | ✓ | ✓ | ✓ | |
+| Vocab, folders, CSV export | ✓ | **fixed** | **fixed** | **fixed** | phones exported every language's words for "all"; the computer only the language being learned |
+| Export for Anki (.apkg) | ✓ | ✓ | ✓ | **fixed** | web: the steps talked about Android's share sheet; it downloads a file |
+| Two-way Anki sync | ✓ add-on | ✓ AnkiDroid | — | — | AnkiMobile has no way in for other apps; a web page can't reach apps. Vocab ⋯ offered "AnkiDroid settings"/"Move Anki cards" on iPhone and web: **fixed** (hidden there) |
+| Anki reviews feed the creature game | ✓ | ✗ | — | — | AnkiDroid's review counts aren't read (follow-up) |
+| Reviewer, daily goal, Say it, Mnemonic maker | ✓ | ✓ | ✓ | ✓ | shared screens (not changed here: another session owns them) |
+| Today's review to Google Tasks | ✓ | ✓ | **fixed** | ✓ | iPhone refused it; its sign-in now asks for Tasks the first time (GoogleAuth.swift) |
+| Today's review to Onyx | ✓ | ✓ | ✓ | ✓ | |
+| Cards left today on the app icon | ✓ taskbar/Dock | ✓ + widget | **fixed** (no widget) | **fixed** | iPhone: AppBadgePlugin.swift (number now, next days' numbers at midnight). Web: `navigator.setAppBadge` when added to the home screen/installed. An iPhone widget needs a WidgetKit target (follow-up) |
+| tamkeen://watch links (Onyx) | ✓ | ✓ | **fixed** | — | iPhone had no URL scheme in Info.plist. A web page can't own a link type |
+| /embed player and --background (Onyx desktop) | ✓ | — | — | — | made for Onyx's desktop panel; on phones the link opens the app |
+| Settings: sections, search, deep links | ✓ | ✓ | ✓ | ✓ | |
+| Languages (speak / learn / basics / reading help) | ✓ | ✓ | ✓ | ✓ | |
+| Theme | ✓ | ✓ | ✓ | dark only | owner's choice for the web app |
+| Text size | ✓ 16–56 | **fixed** | **fixed** | **fixed** | phones stopped at 48 |
+| Vibration | — | ✓ | **fixed** (hidden) | phones only | the iPhone's web view can't vibrate; the switch did nothing there. Web: shown where the browser can (Android) |
+| Game features, page guides | ✓ | ✓ | ✓ | ✓ | |
+| Google Drive sync, AI keys sync | ✓ | ✓ | ✓ | ✓ | web: an hour-long Drive pass, Reconnect button |
+| Backups (export/import a .zip, open data folder) | ✓ | ✗ | ✗ | ✗ | follow-up: the phones' library lives in Drive sync; a zip there would need the computer's database format |
+| Updates | ✓ in place | ✓ APK | — | — | iPhone: AltStore installs and refreshes it; the web app is always the latest |
+| Reset Tamkeen | ✓ | ✓ | **fixed** | ✓ | iPhone kept the in-app browser's sign-ins (Instagram, YouTube); now cookies are cleared like Android (AppResetPlugin.swift; cookies only, so the app's library is untouched) |
+| About and open-source licences | ✓ | **fixed** | **fixed** | **fixed** | phones had no licence list at all; now Settings → Data & updates → About Tamkeen on every version |
+| Privacy policy link | **fixed** | ✓ | ✓ | ✓ | |
+| Paste into Personal notes | ✓ | ✓ plugin | ✓ | ✓ | iPhone's web view reads the clipboard itself (unverified on a phone) |
+
+**Requests**: the shared screens make ~70 different requests. All are answered by both the computer and the phone,
+except five the computer alone answers, each guarded in the screen: `GET /anki/days` (Anki add-on), `GET /settings`
+(youtube.js, computer only), `POST /reels/batch` (the computer's Instagram window), `POST /vowels/download|remove`
+(the vowel model). `POST /anki/sync/run` is the phone's own (AnkiDroid). Two behaviour differences in backend.js
+were fixed: "all words" exports (above) and PATCH /vocab/<id> accepting an empty word (the computer ignores it).
+**Phone build list** (build-www.mjs): nothing the screens load was missing.
+
+**What changed** (all on branch `feature-parity`):
+- iPhone: `mobile/ios/App/App/SceneDelegate.swift` (TamkeenViewController), `Info.plist` (`tamkeen` URL scheme),
+  `native-ios/.../InAppBrowser.swift` (`forReading`, host "find"), `GoogleDriveAuthPlugin.swift` (`forReading`,
+  `youtubeFind`, `tasks`), `GoogleAuth.swift` (Tasks scope + include_granted_scopes), new `AppBadgePlugin.swift` and
+  `AppResetPlugin.swift` (jsName AppBadge / AppReset, the Java plugins' twins). `mobile/src/js/native.js` registers
+  AppBadge and AppReset on both phones; `googletasks.js` no longer refuses the iPhone.
+- **NOT compiled** (no Mac here): the next iPhone build on GitHub's Mac is the first check. Things to try on the
+  phone: a Drive video plays; swipe from the left edge goes back; Onyx's Tamkeen button opens the app; Find in a
+  video keeps the top result; Send to Google Tasks asks for Tasks once; the icon shows the number after allowing
+  notifications; Reset signs the in-app browser out of Instagram.
+- Licences: `licenses/index.json` is now the one list (name, licence, file, `on`: "desktop" or "phone"). The
+  computer's About (`app/api/system.py licenses()`) and the new fold (`web/js/components/licenses.js`, both Settings
+  pages) read it; build-www.mjs copies the phone part into `www/licenses/`. Added Supabase JS (used everywhere, was
+  missing) and Capacitor (phones). Licence names are translated through `tools/i18n/extra.txt`.
+- Settings: About card (both pages), Privacy on the computer, Vibration only where it works (FINDS `on: ["vibrates"]`),
+  phone text size to 56. Vocab: `ankiSyncHere()` (ankisync.js), web Anki steps. Web app badge in `startAppBadge`.
+
+**The guard: `tests/js/parity.test.mjs`** fails when versions drift: (1) a shared screen's request with no phone or
+computer route, (1b) a phone route the computer lacks, (2) a file a screen loads that build-www.mjs doesn't copy,
+(3) an imported name the source file doesn't export (computer and phone layouts), (4) a Settings search entry missing
+from a device's page, (4b) a card on one Settings page only without an `on` list saying so, (5) an Android plugin
+method or event the iPhone lacks, and native.js registering a plugin on the wrong phones, (5b/5c) the iPhone's
+URL scheme and screen, (6) a setting stored on one side only, (7) the licence list vs the files. Each allowed
+difference is listed in the test with its reason (COMPUTER_ONLY_REQUESTS, PHONE_ONLY_REQUESTS,
+ANDROID_ONLY_PLUGINS, COMPUTER_ONLY_SETTINGS, PHONE_ONLY_SETTINGS); a stale entry fails too. Each check was
+proven by breaking the thing it watches. Also `tests/test_licenses.py`.
+
+**Checked**: 523 JS and 398 pytest pass (2 skipped). Computer preview (fresh signed-out data folder, `parity-desktop`, 8964) at
+390 px: About card, all 28 licences open, search finds "licen"/"privacy". Phone build (`parity-phone`, 8965) and a
+web-app copy (`parity-web`, 8966, made from mobile/www in the scratchpad so docs/app is untouched) at 375 px: About
+with 16 licences (Capacitor in, desktop-only ones out), Spanish translations, web: no Theme, Vibration on a touch
+phone, no Anki-sync items in Vocab ⋯, the web Anki steps. **Not checked**: anything on a real phone; the iPhone build.
+
+**Translations**: `tools/i18n/tr/<code>/38-parity.txt` (13 strings, 12 languages). strings.json here = this
+branch's code: it leaves out 4 strings from the /embed and --background work (no translations yet: "Tamkeen isn't
+answering.", "That isn't a YouTube video.", "Open Tamkeen once and choose…", "<!doctype html>…" (that one should go
+in ignore.txt)) and the 2 Typhoon strings whose code isn't committed on main (the Thai-model work has them in
+tr/*/33-thai-model.txt). After merging, run `node tools/i18n/extract.mjs` and `node tools/i18n/build.mjs`.

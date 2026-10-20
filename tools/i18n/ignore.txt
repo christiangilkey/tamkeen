@@ -183,3 +183,5 @@ a8d7d358
 f4fa70b0
 # Not interface: the Bisaya opening prompt given to Whisper (web/js/stt.js / transcribe-service.js).
 0a11edf2
+# Not interface: a CSS media query (mobile/src/js/pages/settings.js, whether the screen is touched).
+37598f6b
