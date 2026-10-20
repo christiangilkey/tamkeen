@@ -9380,16 +9380,6 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "5a1ee6c6",
-  "k": "Find by title",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "f605024e",
-  "k": "Type part of a title to find an episode.",
-  "f": "web/js/pages/library.js"
- },
- {
   "id": "752270a2",
   "k": "An episode",
   "f": "web/js/pages/library.js"
@@ -9397,21 +9387,6 @@
  {
   "id": "2a562854",
   "k": "Transcribe writes down its words so you can read along and tap any word. Once done, Open plays it with its transcript.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "75a35244",
-  "k": "Several at once",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "71ed35a2",
-  "k": "Tick episodes (or Select all), then transcribe them all with one press.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "bc4f1c4a",
-  "k": "Checks for new episodes, and brings your library up to date with your other devices through Google Drive.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -11417,16 +11392,6 @@
  {
   "id": "b34e55f5",
   "k": "Tap a folder to see only its words; Review then covers just those. New folder makes one.",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "db8e8df7",
-  "k": "Sort and dates",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "82348697",
-  "k": "Change the order of the list, or show only words added or changed in a time you choose.",
   "f": "web/js/pages/vocab.js"
  },
  {

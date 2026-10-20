@@ -648,12 +648,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     { target: "#podcast-list", title: "Your podcasts and channels", text: "Tap one to see only its episodes or videos." },
     { target: "#tabs", title: "Filter by progress",
       text: "Show everything, or only what's not started, waiting, being transcribed, done or failed. The numbers count each." },
-    { target: "#title-filter", title: "Find by title", text: "Type part of a title to find an episode." },
     { target: "#episodes .ep", title: "An episode",
       text: "Transcribe writes down its words so you can read along and tap any word. Once done, Open plays it with its transcript." },
-    { target: ".toolbar .switch", title: "Several at once", text: "Tick episodes (or Select all), then transcribe them all with one press." },
-    { target: "#refresh", title: "Refresh and sync",
-      text: "Checks for new episodes, and brings your library up to date with your other devices through Google Drive." },
     { target: "#add-fab", title: "Add",
       text: "Add something to learn from: a podcast, a YouTube video, a webpage, a book, reels, or a video or audio file of your own." },
   ]);
