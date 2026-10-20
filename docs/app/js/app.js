@@ -29,7 +29,7 @@ import { addUploadedVideo, checkFeeds, fillLanguages, handle, wordLang } from ".
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
-import { DRIVE_SCOPE, RECONNECT_EVENT, accessToken, drive, reconnect, useWebToken } from "./drive.js";
+import { DRIVE_SCOPE, RECONNECT_EVENT, TASKS_SCOPE, accessToken, drive, useWebToken, webPassLeft } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
 import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, webFetch } from "./native.js";
@@ -230,28 +230,81 @@ export async function googleIdToken({ host = null } = {}) {
 // or lost), so the web app goes to Google's sign-in page itself and Google sends it straight back
 // to this address after the "#" with both: an ID token (Friends, through Supabase) and an hour-long
 // Drive pass (sync). So signing in from Settings or from Friends signs in to both: once. Needs this
-// page's address among the Web client's "Authorized redirect URIs" in Google Cloud.
+// page's address among the Web client's "Authorized redirect URIs" in Google Cloud. The Drive pass
+// lasts an hour; after it the app makes the same trip by itself, quietly (renewQuietly).
 const WEB_SIGNIN_KEY = "tk_web_signin";
+const QUIET_TRY_KEY = "tk_web_quiet_try";   // when the app last hopped to Google by itself
+const QUIET_FAIL_KEY = "tk_web_quiet_fail"; // when Google last said that hop needs a tap
 
 function randomHex(n) {
   return Array.from(crypto.getRandomValues(new Uint8Array(n)), (b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-export async function goToGoogleSignIn() {
+/** Go to Google's sign-in page, which sends the learner straight back here (finishWebSignIn).
+ *  `quiet`: a renewal that shows nothing (Google answers at once, or says it needs a tap); `renew`: the
+ *  "Reconnect Google" button; `tasks`: Google Tasks too, then sending `then.tasks`. Resolves false
+ *  when a quiet one didn't go (storage switched off: the way back couldn't be checked). */
+export async function goToGoogleSignIn({ quiet = false, renew = false, tasks = false, then = null } = {}) {
   const nonce = randomHex(16);
   const state = randomHex(16);
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(nonce));
   const hashed = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
-  try { sessionStorage.setItem(WEB_SIGNIN_KEY, JSON.stringify({ nonce, state, back: location.hash || "#/friends" })); } catch { /* storage off */ }
+  try {
+    sessionStorage.setItem(WEB_SIGNIN_KEY, JSON.stringify({ nonce, state, back: location.hash || "#/", quiet, renew: renew || tasks, then }));
+    if (quiet) localStorage.setItem(QUIET_TRY_KEY, String(Date.now()));
+  } catch { if (quiet) return false; }
   const q = new URLSearchParams({
-    client_id: GOOGLE_WEB_CLIENT_ID, response_type: "id_token token", scope: `openid email ${DRIVE_SCOPE}`,
+    client_id: GOOGLE_WEB_CLIENT_ID, response_type: "id_token token", scope: `openid email ${DRIVE_SCOPE}${tasks ? ` ${TASKS_SCOPE}` : ""}`,
     include_granted_scopes: "true", redirect_uri: location.origin + location.pathname, nonce: hashed, state,
   });
-  // Already signed in to one of them: the same account again, without choosing (a quick hop to Google
-  // and back once it has been allowed). Otherwise Google asks which account.
+  // Already signed in: the same account again, without choosing (a quick hop to Google and back once
+  // it has been allowed). Otherwise Google asks which account.
   if (settings.google_email) q.set("login_hint", settings.google_email);
-  else q.set("prompt", "select_account");
+  if (quiet) q.set("prompt", "none"); // nothing on screen: Google answers at once, or says a tap is needed
+  else if (!settings.google_email) q.set("prompt", "select_account");
   location.href = `https://accounts.google.com/o/oauth2/v2/auth?${q}`;
+  return true;
+}
+
+/** Something the learner would lose if the page reloaded now: a player, a chat or the first-run
+ *  questions, sound or video playing, a box open (a review, the game, a question), or typing. */
+function busyNow() {
+  if (/^#\/(episode|chat|welcome|reels\/play)/.test(location.hash) || document.body.classList.contains("in-player")) return true;
+  if ([...document.querySelectorAll("audio, video")].some((m) => !m.paused && !m.ended)) return true;
+  const f = document.activeElement;
+  if (f && f !== document.body && f.matches("input, textarea, select, [contenteditable]")) return true;
+  return [...document.querySelectorAll('[role="dialog"], [role="alertdialog"], .modal-back, .tour')].some((el) => el.getClientRects().length > 0);
+}
+
+/** Google said lately that the quiet hop needs a tap (signed out of Google in this browser, say). */
+function quietFailedLately() {
+  try { return Date.now() - (Number(localStorage.getItem(QUIET_FAIL_KEY)) || 0) < 6 * 60 * 60 * 1000; } catch { return false; }
+}
+
+function quietFailed() {
+  try { localStorage.setItem(QUIET_FAIL_KEY, String(Date.now())); } catch { /* storage off */ }
+  window.dispatchEvent(new Event(RECONNECT_EVENT)); // the "Reconnect Google" button
+}
+
+let hopping = null;
+/** The web app: once the Drive pass has run out (or nearly), hop to Google's page and straight back
+ *  for a new one, with nothing to tap or see, if this is a quiet moment (busyNow) and Google hasn't
+ *  lately said it needs a tap. Never twice in ten minutes (a pass lasts an hour, so a second trip that
+ *  soon means something is wrong), so it can't go round in circles. Resolves
+ *  true when it went (the page is leaving). */
+function renewQuietly() {
+  if (!hopping) hopping = (async () => {
+    if (!isWeb || !settings.signed_in || !settings.google_email || webPassLeft() > 2 * 60 * 1000) return false;
+    if (!navigator.onLine || document.visibilityState !== "visible" || busyNow() || quietFailedLately()) return false;
+    try { if (Date.now() - (Number(localStorage.getItem(QUIET_TRY_KEY)) || 0) < 10 * 60 * 1000) return false; } catch { return false; }
+    // Google reachable? (On a poor connection the trip would end on the browser's "no internet" page.)
+    const stop = new AbortController();
+    const timer = setTimeout(() => stop.abort(), 3000);
+    try { await fetch("https://www.google.com/generate_204", { mode: "no-cors", cache: "no-store", signal: stop.signal }); } catch { return false; } finally { clearTimeout(timer); }
+    if (busyNow()) return false; // (something started meanwhile)
+    return goToGoogleSignIn({ quiet: true });
+  })().then((went) => { if (!went) hopping = null; return went; }, () => { hopping = null; return false; });
+  return hopping;
 }
 
 /** The web app: sign in to Friends. With `host`, a "Sign in with Google" button is put there and
@@ -277,34 +330,55 @@ export function idTokenEmail(idToken) {
 }
 
 /** Back from Google's sign-in page (the address ends "#id_token=…&access_token=…" or "#error=…"): put
- *  the screen the learner was on back, keep the Drive pass and sync, and sign in to Friends. */
+ *  the screen the learner was on back, keep the Drive pass and sync, and sign in to Friends. A quiet
+ *  renewal (renewQuietly) says nothing: syncing just carries on, or the "Reconnect Google" button shows. */
 async function finishWebSignIn() {
   const answer = new URLSearchParams(location.hash.slice(1));
   let kept = null;
   try { kept = JSON.parse(sessionStorage.getItem(WEB_SIGNIN_KEY) || "null"); sessionStorage.removeItem(WEB_SIGNIN_KEY); } catch { /* storage off */ }
-  history.replaceState(null, "", location.pathname + location.search + ((kept && kept.back) || "#/friends"));
+  history.replaceState(null, "", location.pathname + location.search + ((kept && kept.back) || "#/"));
+  const quiet = !!(kept && kept.quiet);
+  if (quiet && (answer.get("error") || answer.get("state") !== kept.state)) { quietFailed(); return; } // Google wants a tap
   if (answer.get("error")) { toast(answer.get("error") === "access_denied" ? "Sign-in was cancelled." : "Google didn't sign you in.", { error: true }); return; }
   if (!kept || answer.get("state") !== kept.state) { toast("That sign-in came back without being asked for here. Try again.", { error: true }); return; }
+  const renewing = quiet || !!kept.renew; // renewing the Drive pass (or allowing Google Tasks), not "Sign in"
   const email = idTokenEmail(answer.get("id_token"));
+  const granted = (answer.get("scope") || "").split(" ");
   // Drive (sync): only when its box was left ticked on Google's page.
-  const driveOk = !!answer.get("access_token") && (answer.get("scope") || "").split(" ").includes(DRIVE_SCOPE);
+  const driveOk = !!answer.get("access_token") && granted.includes(DRIVE_SCOPE);
   if (driveOk) {
-    useWebToken(answer.get("access_token"), answer.get("expires_in"));
+    useWebToken(answer.get("access_token"), answer.get("expires_in"), answer.get("scope"));
+    try { localStorage.removeItem(QUIET_FAIL_KEY); } catch { /* storage off */ }
     await saveSettingsPatch({ signed_in: true, google_email: email || settings.google_email || "" });
     syncNow();
+  } else if (quiet) quietFailed();
+  if (!renewing) {
+    // Friends keeps its own sign-in, which renews itself: so only "Sign in" signs in to it.
+    let friendsOk = false;
+    try {
+      const social = await import("./social.js");
+      await social.connectWithIdToken({ token: answer.get("id_token"), nonce: kept.nonce });
+      friendsOk = true;
+    } catch (e) {
+      toast(e.message || "Couldn't sign in to Friends.", { error: true });
+    }
+    if (driveOk || friendsOk) toast(email ? `Signed in as ${email}` : "Signed in.");
+  } else if (kept.renew && driveOk && !(kept.then && kept.then.tasks)) toast("Reconnected to Google.");
+  if (!driveOk && !quiet) toast("Syncing needs Tamkeen's private Drive folder: sign in again and leave that box ticked.", { error: true });
+  if (kept.then && kept.then.tasks) {
+    // "Send to Google Tasks", sent now that Google has allowed it (googletasks.js).
+    if (!answer.get("access_token") || !granted.includes(TASKS_SCOPE)) {
+      toast("Google Tasks wasn't allowed, so the task couldn't be added.", { error: true });
+    } else {
+      (await import("./googletasks.js")).useTasksToken(answer.get("access_token"), answer.get("expires_in"));
+      import("./review/sendtask.js").then((m) => m.sendReviewTask(kept.then.tasks))
+        .catch((e) => toast(e.message || "Couldn't send the task.", { error: true }));
+    }
   }
-  let friendsOk = false;
-  try {
-    const social = await import("./social.js");
-    await social.connectWithIdToken({ token: answer.get("id_token"), nonce: kept.nonce });
-    friendsOk = true;
-  } catch (e) {
-    toast(e.message || "Couldn't sign in to Friends.", { error: true });
+  if (!renewing) {
+    emit("feeds", { refreshed: true });
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
   }
-  if (driveOk || friendsOk) toast(email ? `Signed in as ${email}` : "Signed in.");
-  if (!driveOk) toast("Syncing needs Tamkeen's private Drive folder: sign in again and leave that box ticked.", { error: true });
-  emit("feeds", { refreshed: true });
-  window.dispatchEvent(new HashChangeEvent("hashchange"));
 }
 
 // ---------- audio clips of shared words ----------
@@ -1099,9 +1173,16 @@ async function boot() {
   applySettings(settings);
   fillLanguages(); // every podcast and word knows its language (only the one being learned is shown)
   await startTranslating(settings.ui_language); // the app's own words in the user's language
-  // The web app, back from Google's sign-in page for Friends (see finishWebSignIn).
-  if (isWeb && /(^|[#&])(id_token|error)=/.test(location.hash)) finishWebSignIn();
+  // The web app, back from Google's sign-in page (see finishWebSignIn).
+  const cameBack = isWeb && /(^|[#&])(id_token|error)=/.test(location.hash);
+  if (cameBack) finishWebSignIn();
   if (!settings.welcome_seen || !settings.study_language) location.hash = "#/welcome"; // first run: choose a language
+  // The web app's hour-long Drive pass ran out since last time: a quick hop to Google and straight
+  // back first, with nothing to tap (renewQuietly), instead of asking to reconnect.
+  if (isWeb && !cameBack && (await renewQuietly())) {
+    document.getElementById("view").innerHTML = `<div class="page"><p class="muted" style="text-align:center;margin-top:30vh">Reconnecting to Google…</p></div>`;
+    return;
+  }
   // The app's own line icons in the tab bar and the search button (see icons.js).
   for (const el of document.querySelectorAll("[data-icon]")) el.innerHTML = icon(el.dataset.icon, Number(el.dataset.size) || 22);
   window.addEventListener("hashchange", route);
@@ -1113,25 +1194,35 @@ async function boot() {
   if (isWeb) versionBanner(); // the web app updates itself: say so, once per new version
   // The web app opened by "Share → Tamkeen" from another app (Android, once installed): import that page.
   if (isWeb) import("./web-import.js").then((m) => m.importShared(!!(settings.welcome_seen && settings.study_language))).catch(() => {});
-  if (isWeb) { // the web app's Drive pass ran out while nobody was tapping: one tap renews it (drive.js)
-    // Google gives the web app an hour at a time, and renewing needs a tap. The owner found a bar
-    // popping up over the player again and again (each sync that found the pass expired): now the
-    // bar shows once per visit, briefly, and a small button stays in the top bar until it is tapped.
+  if (isWeb) { // the web app's hour-long Drive pass: renewed by itself at a quiet moment, or with one tap
+    // Google gives the web app an hour at a time. Renewing it used to open Google's small window, which
+    // in the web app on a phone's home screen opened as a blank Google page that never closed (the
+    // owner: "Tamkeen keeps asking me to sign into Google ... It also gets stuck on a white page"). Now
+    // the app hops to Google's page and straight back by itself (renewQuietly): when it opens, when it
+    // comes back to the screen, or at the next page change once syncing has found the pass run out.
+    // Only while that can't happen (a review or video under way, or Google wants a tap because this
+    // browser was signed out of Google) does a small button wait in the top bar; tapping it makes the
+    // same trip, with no window.
     const chip = h(`<button type="button" class="top-reconnect" aria-label="Reconnect Google" hidden>${icon("refresh", 15)}<span>Reconnect Google</span></button>`);
     chip.title = "Google gives the web app an hour at a time: tap to renew it, then syncing carries on";
     const search = document.querySelector(".topbar .top-search");
     if (search) search.before(chip); else document.querySelector(".topbar").append(chip);
-    const renew = async () => {
-      try { await reconnect(); chip.hidden = true; syncNow(); toast("Reconnected to Google."); }
-      catch (e) { toast(e.message || "Couldn't reconnect to Google.", { error: true }); }
-    };
-    chip.onclick = renew;
+    chip.onclick = () => { chip.disabled = true; goToGoogleSignIn({ renew: true }); };
     let told = false;
     window.addEventListener(RECONNECT_EVENT, () => {
-      chip.hidden = false;
-      if (told) return;
-      told = true;
-      toast("Your Google connection needs renewing.", { timeout: 8000, action: { label: "Reconnect Google", run: renew } });
+      renewQuietly().then((went) => {
+        if (went) return;
+        chip.hidden = false;
+        if (told || !quietFailedLately()) return; // the app will hop by itself soon: nothing to say
+        told = true; // Google wants a tap: say so once per visit
+        toast("Your Google connection needs renewing.", { timeout: 8000, action: { label: "Reconnect Google", run: () => chip.click() } });
+      });
+    });
+    window.addEventListener("hashchange", () => { if (!chip.hidden) setTimeout(renewQuietly, 400); });
+    let hiddenAt = 0;
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) { hiddenAt = Date.now(); return; }
+      if (hiddenAt && Date.now() - hiddenAt > 30 * 1000) renewQuietly();
     });
   }
   startBadge();
