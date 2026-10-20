@@ -3146,3 +3146,16 @@ transcription option in settings and explain why." Today that is Bisaya (ceb).
 - Phone messages for Bisaya episodes/reels (library.js `computerOnlyNotice`, reels-phone.js `BISAYA_REELS`) are
   still worded for Bisaya only: generalise them if another such language is added.
 - Tests: tests/test_language_models.py, tests/js/stt.test.mjs. Translations: `tools/i18n/tr/<code>/36-cloud-off.txt`.
+
+## Small fixes from the owner's Notion notes (2026-10-20; committed, not pushed)
+- **"Your Google connection needs renewing" bar kept popping up** (web app): Google gives the web app an hour-long
+  Drive pass, renewing it needs a tap, and every sync after the hour re-showed a 60-second bar over the player.
+  Now (mobile/src/js/app.js boot) the bar shows once per visit for 8 s, and a small purple "Reconnect Google"
+  pill (`.top-reconnect`, mobile.css; icon only under 420 px) stays in the top bar until tapped.
+- **XP bubble**: flashes ~0.65 s (was 1.5 s); 0.8–1.1 s for rarer/wordier ones (web/js/game/game.js fountain).
+- **The web app is always dark** (owner's choice): applySettings forces `data-theme="dark"` when isWeb,
+  webapp/build-web.mjs sets it before the page draws and `color-scheme: dark`; Settings hides the Theme card on
+  the web (settingsui.js FINDS `theme` is desktop/android/ios only). The installed apps keep the Theme setting.
+- The rest of the notes went to five parallel sessions on their own branches: review timers + time estimate
+  (review-timers), dictionary-first + source tags (dict-first), Bisaya dictionaries (cebuano-dicts), Spanish
+  word forms (spanish-forms), reel player + correction pill + Word/Sentence icons (reel-player-pill).

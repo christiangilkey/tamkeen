@@ -48,7 +48,7 @@ export const FINDS = [
   { s: "listening", id: "whisper", label: "Transcription model", words: "whisper small medium large download", on: ["desktop"] },
   { s: "listening", id: "gpu", label: "GPU acceleration", words: "nvidia cuda graphics faster", on: ["desktop"] },
   { s: "listening", id: "storage", label: "Audio storage", words: "delete stream disk space downloaded", on: ["desktop"] },
-  { s: "look", id: "theme", label: "Theme", words: "dark light night colours" },
+  { s: "look", id: "theme", label: "Theme", words: "dark light night colours", on: ["desktop", "android", "ios"] }, // (the web app is always dark)
   { s: "look", id: "textsize", label: "Text size", words: "font bigger smaller larger" },
   { s: "look", id: "haptics", label: "Vibration", words: "haptics buzz vibrate", on: ["phone"] },
   { s: "look", id: "game", label: "Game features", words: "creature rewards chimes sounds" },

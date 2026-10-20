@@ -13595,13 +13595,13 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "fde42b27",
-  "k": "Your Google connection needs renewing.",
+  "id": "d3b174d2",
+  "k": "Reconnect Google",
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "d3b174d2",
-  "k": "Reconnect Google",
+  "id": "c649a3e6",
+  "k": "Google gives the web app an hour at a time: tap to renew it, then syncing carries on",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -13612,6 +13612,11 @@
  {
   "id": "f9ab4ef2",
   "k": "Couldn't reconnect to Google.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "fde42b27",
+  "k": "Your Google connection needs renewing.",
   "f": "mobile/src/js/app.js"
  },
  {

@@ -1,0 +1,1 @@
+c649a3e6 Google donne une heure à la fois à l'application web : touchez pour la renouveler, et la synchronisation reprend

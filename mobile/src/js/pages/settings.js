@@ -80,7 +80,7 @@ function home(view) {
         if (cfg.mode === "cloud") return { text: "Cloud transcription needs a key", warn: true };
         return { text: "Your computer writes the transcripts" };
       },
-      look: () => [{ text: THEME_LINE[s.theme] || THEME_LINE.system }, { text: gameOn() ? "Game features on" : "Game features off" }],
+      look: () => [{ text: isWeb ? THEME_LINE.dark : THEME_LINE[s.theme] || THEME_LINE.system }, { text: gameOn() ? "Game features on" : "Game features off" }],
       account: () => {
         if (!s.signed_in) return { text: "Google Drive: not connected" };
         if (syncState.state === "error") return { text: "Last sync failed", warn: true };
@@ -170,12 +170,12 @@ function look(body) {
   const s = settings;
   const lang = studyLanguage();
   body.append(h(`<div>
-    <section class="card set-card" data-find="theme">
+    ${isWeb ? "" : `<section class="card set-card" data-find="theme">
       <h2>Theme</h2>
       <div class="set-seg" role="radiogroup" aria-label="Theme">${Object.entries(THEMES).map(([v, name]) => `
         <label><input type="radio" name="theme" value="${v}" ${(s.theme || "system") === v ? "checked" : ""}><span>${name}</span></label>`).join("")}
       </div>
-    </section>
+    </section>`}
     <section class="card set-card" data-find="textsize">
       <h2>Text size</h2>
       <p class="set-hint">For the language you're learning. The example shows how big it will be.</p>

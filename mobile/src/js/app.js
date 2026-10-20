@@ -802,7 +802,9 @@ export const state = { status: { settings } };
 
 export function applySettings(s) {
   const root = document.documentElement;
-  if (s.theme === "light" || s.theme === "dark") root.dataset.theme = s.theme;
+  // The web app is always dark (the owner's choice); the installed apps follow Settings → Theme.
+  if (isWeb) root.dataset.theme = "dark";
+  else if (s.theme === "light" || s.theme === "dark") root.dataset.theme = s.theme;
   else delete root.dataset.theme;
   root.style.setProperty("--ar-size", `${s.font_size || 26}px`);
   root.style.setProperty("--page-size", `${s.page_font_size || 17}px`);
@@ -1002,15 +1004,24 @@ async function boot() {
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   mountInstallButton(document.querySelector(".topbar")); // the web app: how to add it to the home screen
   if (isWeb) { // the web app's Drive pass ran out while nobody was tapping: one tap renews it (drive.js)
-    let asking = false;
+    // Google gives the web app an hour at a time, and renewing needs a tap. The owner found a bar
+    // popping up over the player again and again (each sync that found the pass expired): now the
+    // bar shows once per visit, briefly, and a small button stays in the top bar until it is tapped.
+    const chip = h(`<button type="button" class="top-reconnect" aria-label="Reconnect Google" hidden>${icon("refresh", 15)}<span>Reconnect Google</span></button>`);
+    chip.title = "Google gives the web app an hour at a time: tap to renew it, then syncing carries on";
+    const search = document.querySelector(".topbar .top-search");
+    if (search) search.before(chip); else document.querySelector(".topbar").append(chip);
+    const renew = async () => {
+      try { await reconnect(); chip.hidden = true; syncNow(); toast("Reconnected to Google."); }
+      catch (e) { toast(e.message || "Couldn't reconnect to Google.", { error: true }); }
+    };
+    chip.onclick = renew;
+    let told = false;
     window.addEventListener(RECONNECT_EVENT, () => {
-      if (asking) return;
-      asking = true;
-      toast("Your Google connection needs renewing.", { timeout: 60000, action: { label: "Reconnect Google", run: async () => {
-        try { await reconnect(); asking = false; syncNow(); toast("Reconnected to Google."); }
-        catch (e) { asking = false; toast(e.message || "Couldn't reconnect to Google.", { error: true }); }
-      } } });
-      setTimeout(() => { asking = false; }, 60000);
+      chip.hidden = false;
+      if (told) return;
+      told = true;
+      toast("Your Google connection needs renewing.", { timeout: 8000, action: { label: "Reconnect Google", run: renew } });
     });
   }
   startBadge();

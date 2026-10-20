@@ -38,7 +38,7 @@ cpSync(www, out, { recursive: true, filter: (src) => !/dev-reel-\d+\.mp4$|dev-se
 const index = join(out, "index.html");
 let html = readFileSync(index, "utf8");
 const head = `
-  <script>window.TAMKEEN_WEB = true; window.TAMKEEN_PROXY = ${JSON.stringify(proxy)};</script>
+  <script>window.TAMKEEN_WEB = true; window.TAMKEEN_PROXY = ${JSON.stringify(proxy)}; document.documentElement.dataset.theme = "dark";</script>
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#111318">
   <link rel="apple-touch-icon" href="icons/icon-256.png">
@@ -46,6 +46,8 @@ const head = `
 `;
 if (!html.includes("</head>")) throw new Error("index.html has no </head>");
 html = html.replace("</head>", `${head}</head>`);
+// The web app is always dark (the owner's choice; app.js applySettings): the browser's own parts too.
+html = html.replace('<meta name="color-scheme" content="light dark">', '<meta name="color-scheme" content="dark">');
 writeFileSync(index, html);
 
 const icons = ["icon-256.png", "icon-64.png"].filter((f) => existsSync(join(out, "icons", f)));
