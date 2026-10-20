@@ -337,6 +337,9 @@ export function answerFrom(found, word, lang, { quick = false, language = "Engli
   for (const [, pos, list] of found.groups) for (const g of list) if (!glosses.some((x) => x.g === g)) glosses.push({ pos, g });
   const meaning = glosses[0].g;
   const same = matchKey(first[0], lang) === matchKey(String(word).replace(EDGE_PUNCT, ""), lang);
+  // (Worked out here, not inside the sentence below: a pattern in the middle of it kept the
+  // translation scanner, tools/i18n/extract.mjs, from reading the sentence whole, so it was never translated.)
+  const inEnglish = /^english$/i.test(language) ? "" : ", in English";
   const answer = {
     word: word,
     // Arabic with its vowels and Russian with its stress replace the word as shown, only when it is that very word.
@@ -346,7 +349,7 @@ export function answerFrom(found, word, lang, { quick = false, language = "Engli
     pos: first[1] || "",
     morphology: found.formOf || "",
     meaning,
-    explanation: quick ? "" : `From the built-in dictionary (${dict}${/^english$/i.test(language) ? "" : ", in English"}): the word's usual meanings. It can't tell which one fits this sentence.`,
+    explanation: quick ? "" : `From the built-in dictionary (${dict}${inEnglish}): the word's usual meanings. It can't tell which one fits this sentence.`,
     other_meanings: quick ? [] : glosses.slice(1, 10).map((x) => (x.pos && x.pos !== first[1] ? `${x.g} (${x.pos})` : x.g)),
     dialect, dialect_note: "", msa_equivalent: "",
     sentence_translation: "", translation_marked: "", correction: "",

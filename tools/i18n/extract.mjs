@@ -77,6 +77,7 @@ function lex(src) {
       if (src[i] === "$" && src[i + 1] === "{") {
         i += 2;
         const from = i;
+        prev = "op"; // a ${...} starts afresh: `${/ of /.test(x) ? ...}` opens with a regex, not a division
         code(true);
         exprs.push(src.slice(from, i - 1));
         s += `\u0001${exprs.length - 1}\u0001`;

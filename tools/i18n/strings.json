@@ -7675,13 +7675,18 @@
   "f": "web/js/lexicon/meaningdata.js"
  },
  {
-  "id": "897e854b",
-  "k": ", the one to ask first first) have for",
+  "id": "f1423624",
+  "k": "of {0}",
   "f": "web/js/lexicon/meaningdata.js"
  },
  {
-  "id": "1902d655",
-  "k": ", tried by",
+  "id": "22efa054",
+  "k": "also {0}{1}",
+  "f": "web/js/lexicon/meaningdata.js"
+ },
+ {
+  "id": "21a9fffe",
+  "k": "form of {0}",
   "f": "web/js/lexicon/meaningdata.js"
  },
  {
@@ -7690,8 +7695,8 @@
   "f": "web/js/lexicon/meaningdata.js"
  },
  {
-  "id": "bd9c4475",
-  "k": "s usual meanings. It can",
+  "id": "bf672d07",
+  "k": "From the built-in dictionary ({0}{1}): the word's usual meanings. It can't tell which one fits this sentence.",
   "f": "web/js/lexicon/meaningdata.js"
  },
  {
@@ -7757,31 +7762,6 @@
  {
   "id": "1fa955a7",
   "k": "This word table is from a different version of the app.",
-  "f": "web/js/lexicon/romance.js"
- },
- {
-  "id": "bf48b11a",
-  "k": "o as a amos áis an é aste ó asteis aron aba abas ábamos abais aban aré arás ará aremos aréis arán aría arías aríamos aríais arían e es és emos éis en ara aras áramos arais aran ase ases ásemos aseis asen are ares áremos areis aren ando ado ada ados adas ad ás á ar",
-  "f": "web/js/lexicon/romance.js"
- },
- {
-  "id": "8a82beda",
-  "k": "o es e en í iste ió isteis ieron ía ías íamos íais ían a as ás amos áis an iera ieras iéramos ierais ieran iese ieses iésemos ieseis iesen iere ieres iéremos iereis ieren iendo ido ida idos idas yó yeron yera yeras yéramos yerais yeran yese yeses yésemos yeseis yesen yere yendo",
-  "f": "web/js/lexicon/romance.js"
- },
- {
-  "id": "d9aa93a3",
-  "k": "emos éis eré erás erá eremos eréis erán ería erías eríamos eríais erían ed és é er",
-  "f": "web/js/lexicon/romance.js"
- },
- {
-  "id": "84dbe3d5",
-  "k": "imos ís iré irás irá iremos iréis irán iría irías iríamos iríais irían id ir",
-  "f": "web/js/lexicon/romance.js"
- },
- {
-  "id": "947e2da7",
-  "k": "ayer lugar mar mujer hogar collar altar azar bar militar familiar particular popular similar escolar polar lunar dólar pilar taller menester cráter alfiler éter láser nadir elixir faquir emir visir sir",
   "f": "web/js/lexicon/romance.js"
  },
  {
@@ -11377,11 +11357,6 @@
  {
   "id": "80e145aa",
   "k": "Tick every word listed below, to file or send them together",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "f1423624",
-  "k": "of {0}",
   "f": "web/js/pages/vocab.js"
  },
  {

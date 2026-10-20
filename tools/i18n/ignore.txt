@@ -191,3 +191,9 @@ f4fa70b0
 
 # Not interface: a CSS media query (mobile/src/js/pages/settings.js, whether the screen is touched).
 37598f6b
+# Not interface: Spanish verb endings and word lists the word parser uses (web/js/lexicon/romance.js).
+bf48b11a
+8a82beda
+d9aa93a3
+84dbe3d5
+947e2da7
