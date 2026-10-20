@@ -92,6 +92,8 @@ export const ordinary = (g) => g[1] !== "name" && !borrowed(g);
 // language's word table says that is what it is: pongo is "I put" (poner) before "orangutan", Catalan
 // faig "I do" (fer) before "beech", sóc "I am" (ser) before "stump". (como, a little word, and gracias, an exclamation, keep their own.)
 const RARE_OWN = new Set(["noun", "adj", "name"]);
+const SAID = new Set(["intj", "particle", "phrase"]);
+const ROMANCE_LANGS = new Set(["es", "fr", "it", "pt", "ca"]);
 // Little words: a Tagalog or Bisaya root reached by taking affixes off (nakita -> kita) is the verb or
 // noun, not the pronoun or particle spelled the same ("to see" before "we").
 const LITTLE = new Set(["pron", "det", "article", "conj", "prep", "particle", "postp", "contraction"]);
@@ -118,7 +120,15 @@ export function findIn(data, keys) {
       }
     }
     const rival = [...own, ...between];
-    const formFirst = agreed && rival.length && rival.every((g) => RARE_OWN.has(g[1]));
+    // Spanish: an exclamation that is a verb's form gives way to the verb too (digo "I mean" is decir's
+    // "I say", vaya "wow!" is ir's "may go", sepa "dunno"); it stays among the meanings.
+    // (Not one with pronouns on it: cállate "shut up!" says more than callar's "to be quiet".)
+    const verbForm = agreed && data.lang === "es" && !/combined with/.test(agreed[1])
+      && (data.words[agreed[0]] || []).some((g) => g[1] === "verb");
+    const rare = (g) => RARE_OWN.has(g[1]) || (verbForm && SAID.has(g[1]));
+    // (A Spanish, French, Italian, Portuguese or Catalan word with no entry of its own shows first the
+    // word the word table counts it as: podés is poder, not podar; idos is ir, not idus.)
+    const formFirst = agreed && (rival.length ? rival.every(rare) : ROMANCE_LANGS.has(data.lang));
     const formRows = formFirst ? [agreed, ...forms.filter((f) => f[0] !== agreed[0])] : forms;
     const lemmas = formRows.flatMap(([lemmaKey]) => data.words[lemmaKey] || []);
     let all = formFirst ? [...lemmas, ...own] : [...own, ...lemmas];
@@ -130,7 +140,11 @@ export function findIn(data, keys) {
     const groups = [...all.filter(ordinary), ...all.filter((g) => !ordinary(g) && g[1] !== "name"), ...all.filter((g) => g[1] === "name")];
     // "What form it is" only when the meanings shown first are those of the word it is a form of.
     const ownFirst = !formFirst && own.some(ordinary);
-    const found = { key: k, groups, formOf: forms.length && !ownFirst ? formRows[0][1] : "" };
+    let formOf = forms.length && !ownFirst ? formRows[0][1] : "";
+    // A word whose own meanings come first but which the word table counts as another word's form says
+    // so: fuera "outside", also ser's "were"; dicho "said, saying", also decir's past participle.
+    if (ownFirst && agreed && ROMANCE_LANGS.has(data.lang)) formOf = `also ${agreed[1]}${/ of /.test(agreed[1]) ? "" : ` of ${agreed[0]}`}`;
+    const found = { key: k, groups, formOf };
     if (groups.some(ordinary)) return found;
     // Nothing ordinary: a borrowed meaning beats a name, the first one found beats later ones.
     if (!names || (!names.groups.some((g) => g[1] !== "name") && groups.some((g) => g[1] !== "name"))) names = found;

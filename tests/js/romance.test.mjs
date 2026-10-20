@@ -43,7 +43,8 @@ test("Spanish pronouns joined to a verb come off: dámelo is dar", () => {
   assert.equal(key("sentaos", "es", es), "es|sentar|x", "sentad loses its -d before os");
   assert.equal(key("sentémonos", "es", es), "es|sentar|x");
   assert.equal(key("pelo", "es", es), "es|pelo|x", "a word the table knows is never cut up (pe + lo)");
-  assert.equal(key("pidiéndoles", "es", es), "es|pidiéndoles|x", "only taken off when what is left is a known verb form");
+  assert.equal(key("pidiéndoles", "es", es), "es|pedir|x", "a gerund the table lacks is found by its ending");
+  assert.equal(key("Marcela", "es", es), "es|marcela|x", "only taken off when what is left can be a verb");
 });
 
 test("French: elided words and pronouns after a command", () => {
@@ -115,6 +116,72 @@ test("real Spanish table: conjugations, subjunctive, pronouns, plurals and gende
     ["bonito", "bonito", "niño", "niño", "perro", "grande", "mejor"]);
   assert.deepEqual(lemmas("es", "casa casas caso"), ["casa", "casa", "caso"], "a common word is never swallowed by a rarer verb");
   assert.notEqual(lemmas("es", "está")[0], lemmas("es", "esta")[0]);
+});
+
+// The forms the owner asked about ("subjunctive, conjugations, words with attached pronouns"), checked
+// one tense at a time; HANDOFF.md has the before/after table.
+const each = (lang, pairs, note = "") => {
+  const t = real(lang);
+  for (const pair of pairs.trim().split(/\s+/)) {
+    const [form, want] = pair.split("=");
+    assert.equal(romanceLexeme(form, lang, t).lemma, want, note ? `${form}: ${note}` : form);
+  }
+};
+
+test("real Spanish table: every tense, regular, stem-changing and irregular", () => {
+  each("es", `hablo=hablar comes=comer vivimos=vivir tengo=tener digo=decir conozco=conocer duermo=dormir pido=pedir
+    juegan=jugar vuelvo=volver salgo=salir oigo=oír sigo=seguir cojo=coger construyo=construir
+    hablé=hablar comió=comer hizo=hacer tuvo=tener estuvo=estar dijo=decir trajo=traer pidió=pedir durmió=dormir
+    sintió=sentir pude=poder puso=poner supe=saber quiso=querer anduvo=andar condujo=conducir leyó=leer cayó=caer
+    busqué=buscar llegué=llegar empecé=empezar construyeron=construir
+    hablaba=hablar comíamos=comer iba=ir era=ser veía=ver
+    hablaré=hablar tendré=tener saldrá=salir habrá=haber diré=decir haremos=hacer querrán=querer cabré=caber
+    hablaría=hablar tendría=tener haría=hacer diría=decir podríamos=poder saldrían=salir
+    hablando=hablar durmiendo=dormir pidiendo=pedir diciendo=decir yendo=ir leyendo=leer oyendo=oír
+    hablado=hablar dicho=decir visto=ver puesto=poner vuelto=volver abierto=abrir roto=romper`);
+});
+
+test("real Spanish table: present and imperfect subjunctive, -ra and -se, and the old future subjunctive", () => {
+  each("es", `hable=hablar coma=comer viva=vivir tenga=tener haga=hacer diga=decir vaya=ir sea=ser esté=estar sepa=saber
+    quepa=caber duerma=dormir pida=pedir juegue=jugar busque=buscar llegue=llegar empiece=empezar conozca=conocer
+    oiga=oír quiera=querer pueda=poder haya=haber dé=dar vuelva=volver
+    hablara=hablar hablase=hablar comiera=comer comiese=comer tuviera=tener tuviese=tener fuera=ser fuéramos=ser
+    hiciera=hacer dijera=decir pudiera=poder quisiera=querer supiera=saber estuviera=estar durmiera=dormir
+    pidiera=pedir viniera=venir trajera=traer hubiera=haber hubiese=haber hubiere=haber`);
+});
+
+test("real Spanish table: commands, and pronouns joined on (one, two or three, with the accent they add)", () => {
+  each("es", `habla=hablar hablad=hablar ven=venir pon=poner sal=salir ten=tener haz=hacer di=decir id=ir hagan=hacer
+    dámelo=dar dímelo=decir díselo=decir diciéndole=decir acomodarnos=acomodar vámonos=ir dáselo=dar hazlo=hacer
+    ponte=poner levántate=levantar cállate=callar dime=decir dame=dar tráemelo=traer cómpralo=comprar
+    explícamelo=explicar decírselo=decir dárselas=dar haciéndolo=hacer preguntándose=preguntar mirándonos=mirar
+    quedaos=quedar idos=ir sentaos=sentar irse=ir irnos=ir hacerlo=hacer verte=ver verla=ver conocerla=conocer
+    despertarme=despertar durmiéndose=dormir póntelo=poner quítatelo=quitar acuérdate=acordar déjame=dejar
+    escúchame=escuchar ayúdanos=ayudar mírala=mirar llámame=llamar cuéntaselo=contar dígame=decir hágalo=hacer
+    digámoselo=decir sírvase=servir mándenmelo=mandar dénselo=dar váyanse=ir fíjate=fijar divirtiéndonos=divertir
+    vistiéndose=vestir riéndose=reír oírte=oír reírse=reír pidiéndoles=pedir sentémonos=sentar duérmete=dormir
+    hazme=hacer tenlo=tener ponlo=poner vente=venir cómetelo=comer tráigamelo=traer ríete=reír pónganselo=poner`);
+});
+
+test("real Spanish table: the pronouns tell tú, usted and ustedes apart (siéntate is sentar, not sentir)", () => {
+  // te goes with tú's command (-a for -ar verbs), se alone with usted's (-e for -ar verbs)
+  each("es", `siéntate=sentar siéntese=sentar siéntense=sentar siéntase=sentir vístete=vestir vístanse=vestir
+    pídeselo=pedir escúcheme=escuchar cállense=callar véngase=venir vete=ir`);
+  each("es", "cómetelo=comer díjole=decir", "the written accent marks the verb's own stress: come-te-lo, not comete-lo");
+});
+
+test("real Spanish table: Argentine vos forms, and rarer verbs the table has no forms of", () => {
+  each("es", `tenés=tener sabés=saber querés=querer podés=poder decís=decir sos=ser decime=decir contame=contar
+    vení=venir mirá=mirar fijate=fijar andá=andar comé=comer
+    prorrumpió=prorrumpir desperezándose=desperezar tamborileó=tamborilear contoneándose=contonear holgaba=holgar`);
+});
+
+test("real Spanish table: little words stay themselves, common verb forms are verbs, ordinals are words", () => {
+  each("es", `como=como para=para entre=entre menos=menos apenas=apenas durante=durante abajo=abajo encima=encima
+    que=que algo=algo cinco=cinco siete=siete cien=cien jamás=jamás ojalá=ojalá maese=maese marte=marte
+    pasa=pasar debe=deber debes=deber queda=quedar basta=bastar sé=saber
+    primera=primero primer=primero primeros=primero tercer=tercero segundas=segundo cuarto=cuarto
+    la=el las=el lo=el`);
 });
 
 test("real Portuguese and Catalan tables: conjugations, and pronouns joined with hyphens and apostrophes", () => {

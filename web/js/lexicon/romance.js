@@ -84,24 +84,35 @@ const PT_ENDINGS = new Set(["ei", "ás", "á", "emos", "eis", "ão", "ia", "ias"
 const CA_PRONOUNS = new Set(["em", "et", "es", "ens", "us", "el", "la", "els", "les", "li", "ho", "hi", "en", "ne", "me",
   "te", "se", "nos", "vos", "m", "t", "s", "n", "l", "ls", "lo", "los", "ns"]);
 
+/** Spanish: the ways a form can be a verb with pronouns joined on, fewest pronouns first:
+ * [{stem, raw, pronouns}], `raw` as written, `pronouns` in order (díselo: di + [se, lo]). */
+function spanishSplits(form) {
+  const out = [];
+  // Up to three: díselo = di + se + lo; comiéndoselo = comiendo + se + lo.
+  let stem = form;
+  const stripped = [];
+  for (let k = 0; k < 3; k++) {
+    const m = stem.match(ES_CLITIC);
+    if (!m || stem.length - m[0].length < 2) break;
+    stripped.unshift(m[0]);
+    stem = stem.slice(0, -m[0].length);
+    const pronouns = [...stripped];
+    const raw = stem;
+    let base = unaccent(stem); // the written accent was only there because of the added syllables
+    // vámonos, sentémonos, digámoselo: the -s of -mos drops before nos and se
+    if ((stripped[0] === "nos" || stripped[0] === "se") && /mo$/.test(base)) base += "s";
+    if (stripped[0] === "os" && /[aei]$/.test(base)) out.push({ stem: `${base}d`, raw: `${raw}d`, pronouns }); // sentaos = sentad + os
+    out.push({ stem: base, raw: base.endsWith("s") && !raw.endsWith("s") ? `${raw}s` : raw, pronouns });
+    if (base !== stem) out.push({ stem, raw, pronouns });
+  }
+  return out;
+}
+
 /** What a form could be once pronouns joined to its end are taken off, best guess first. */
 export function withoutPronouns(form, lang) {
   const out = [];
   if (lang === "es") {
-    // Up to three: díselo = di + se + lo; comiéndoselo = comiendo + se + lo.
-    let stem = form;
-    const stripped = [];
-    for (let k = 0; k < 3; k++) {
-      const m = stem.match(ES_CLITIC);
-      if (!m || stem.length - m[0].length < 2) break;
-      stripped.unshift(m[0]);
-      stem = stem.slice(0, -m[0].length);
-      let base = unaccent(stem); // the written accent was only there because of the added syllables
-      if (stripped[0] === "nos" && /mo$/.test(base)) base += "s"; // vámonos, sentémonos: the -s drops before nos
-      if (stripped[0] === "os" && /[aei]$/.test(base)) out.push(`${base}d`); // sentaos = sentad + os
-      out.push(base);
-      if (base !== stem) out.push(stem);
-    }
+    out.push(...spanishSplits(form).map((s) => s.stem));
   } else if (lang === "it") {
     // dimmi, dammelo, fallo: after da', di', fa', sta', va' the pronoun's first letter is doubled.
     const doubled = form.match(/^(da|di|fa|sta|va)(mm|tt|ll|cc|ss|gl|vv|nn)/);
@@ -160,8 +171,16 @@ const VERB = { es: /(ar|er|ir|ír)$/, it: /(are|ere|ire|rre)$/, fr: /(er|ir|re|o
 // tu): each person's pronoun is its own word here. A preposition joined with the article (della, nel,
 // du, do, pelo, del, pels) is the preposition, which the tables leave out or confuse (pelo -> pelar).
 // And some everyday spellings: Catalan soc (the spelling since 2017) is ser, Brazilian tô and tá are estar.
+// Spanish also has little words the table reads as a verb's form (como -> comer "to eat", para -> parar,
+// entre -> entrar, menos -> me + nos), and common verb forms it reads as another word (pasa -> paso,
+// debe -> debe "debit", queda -> queda "curfew", sé -> ser, vete -> vetar, ven -> ver "they see").
 const OWN = {
-  es: { nos: "nosotros", os: "vosotros", usted: "usted", ustedes: "usted", del: "de", al: "a" },
+  es: { nos: "nosotros", os: "vosotros", usted: "usted", ustedes: "usted", del: "de", al: "a", las: "el",
+    como: "como", para: "para", entre: "entre", menos: "menos", durante: "durante", apenas: "apenas", adelante: "adelante",
+    encima: "encima", abajo: "abajo", arriba: "arriba", afuera: "afuera", adentro: "adentro", enfrente: "enfrente",
+    acerca: "acerca", salvo: "salvo",
+    pasa: "pasar", debe: "deber", debes: "deber", queda: "quedar", resulta: "resultar", basta: "bastar", miras: "mirar",
+    sé: "saber", ven: "venir", vete: "ir", des: "dar", sos: "ser", reir: "reír", jamás: "jamás" },
   fr: { je: "je", me: "je", moi: "je", tu: "tu", te: "tu", toi: "tu", elle: "elle", elles: "elle", nous: "nous",
     vous: "vous", leur: "leur", mes: "mon", tes: "ton", des: "des", du: "de", au: "à", aux: "à" },
   it: { col: "con", coi: "con", coll: "con" },
@@ -169,7 +188,7 @@ const OWN = {
     nas: "em", num: "em", numa: "em", nuns: "em", numas: "em", ao: "a", aos: "a", à: "a", às: "a", pelo: "por",
     pela: "por", pelos: "por", pelas: "por", tô: "estar", tá: "estar", tava: "estar" },
   ca: { ens: "nosaltres", nosaltres: "nosaltres", us: "vosaltres", vosaltres: "vosaltres", vostè: "vostè",
-    vostès: "vostè", soc: "ser", del: "de", dels: "de", al: "a", als: "a", pel: "per", pels: "per" },
+    vostès: "vostè", soc: "ser", del: "de", dels: "de", al: "a", als: "a", pel: "per", pels: "per", "pe'l": "per", "pe'ls": "per" },
 };
 // Italian: di, a, da, in, su joined with the article (della, nei, dall', sugli).
 for (const [pre, stem] of [["di", "de"], ["a", "a"], ["da", "da"], ["in", "ne"], ["su", "su"]]) {
@@ -181,26 +200,166 @@ for (const [pre, stem] of [["di", "de"], ["a", "a"], ["da", "da"], ["in", "ne"],
 const INFINITIVES = { es: { a: ["ar"], e: ["er", "ir"] }, it: { a: ["are"], i: ["ire", "ere"], e: ["ere", "ire"] },
   pt: { a: ["ar"], e: ["er", "ir"] }, ca: { a: ["ar"], e: ["er", "re", "ir"] }, fr: {} };
 // The stem's vowel as it is in the infinitive: cuenta -> contar, cierra -> cerrar, pide -> pedir, suona -> sonare.
-const UNDIPHTHONG = { es: [["ue", "o"], ["ie", "e"], ["i", "e"]], it: [["uo", "o"], ["ie", "e"]], pt: [], ca: [], fr: [] };
-function infinitivesOf(stem, lang) {
-  const ends = INFINITIVES[lang][stem.slice(-1)];
-  if (!ends) return [];
+// (Spanish i -> e only in -ir verbs: pide is pedir, but dije is not dejar.)
+const UNDIPHTHONG = { es: [["ue", "o"], ["ie", "e"], ["i", "e", "ir"]], it: [["uo", "o"], ["ie", "e"]], pt: [], ca: [], fr: [] };
+function infinitivesOf(stem, lang, ends = INFINITIVES[lang][stem.slice(-1)]) {
   const base = stem.slice(0, -1);
-  const bases = [base];
-  for (const [from, to] of UNDIPHTHONG[lang]) {
+  if (!ends || base.length < 2) return []; // (me + nos is not the verb mir)
+  const out = ends.map((e) => base + e);
+  for (const [from, to, only] of UNDIPHTHONG[lang]) {
     const i = base.lastIndexOf(from);
-    if (i > 0) bases.push(base.slice(0, i) + to + base.slice(i + from.length));
+    if (i > 0) for (const e of ends) if (!only || e === only) out.push(base.slice(0, i) + to + base.slice(i + from.length) + e);
   }
-  return bases.flatMap((b) => ends.map((e) => b + e));
+  return out;
 }
 
 // The absolute superlative: buenísimo -> bueno, buonissime -> buono, lindíssima -> lindo, moltíssim -> molt.
 const SUPERLATIVE = { es: /ísim[oa]s?$/, it: /issim[oaie]$/, pt: /íssim[oa]s?$/, ca: /íssim(?:a|es|s)?$/, fr: null };
 
+// ---------- Spanish verbs the table has no form of ----------
+// The table keeps the forms people meet most; a rarer verb's forms (prorrumpió, tamborileaban,
+// desperezándose), Argentine "vos" forms (tenés, sabés, vení, decime) and the old future subjunctive
+// (hubiere) are found from the verb's regular endings instead: what is left plus -ar, -er or -ir must be
+// a verb the table knows. Short endings that nouns and little words have too (-o, -a, -e, -as, -es,
+// -an, -en: algo, cinco, que, lucas) are not used on their own; "vos" endings are checked against the
+// vosotros form (tenés: tenéis), which the table has for every common verb (jamás: no jamáis).
+const ES_AR = "o as a amos áis an é aste ó asteis aron aba abas ábamos abais aban aré arás ará aremos aréis arán aría arías aríamos aríais arían e es és emos éis en ara aras áramos arais aran ase ases ásemos aseis asen are ares áremos areis aren ando ado ada ados adas ad ás á ar";
+const ES_ER_IR = "o es e en í iste ió isteis ieron ía ías íamos íais ían a as ás amos áis an iera ieras iéramos ierais ieran iese ieses iésemos ieseis iesen iere ieres iéremos iereis ieren iendo ido ida idos idas yó yeron yera yeras yéramos yerais yeran yese yeses yésemos yeseis yesen yere yendo";
+const ES_ER = "emos éis eré erás erá eremos eréis erán ería erías eríamos eríais erían ed és é er";
+const ES_IR = "imos ís iré irás irá iremos iréis irán iría irías iríamos iríais irían id ir";
+const ES_ENDINGS = new Map();
+for (const [list, infs] of [[ES_AR, ["ar"]], [ES_ER_IR, ["er", "ir"]], [ES_ER, ["er"]], [ES_IR, ["ir"]]]) {
+  for (const e of list.split(" ")) ES_ENDINGS.set(e, [...new Set([...(ES_ENDINGS.get(e) || []), ...infs])]);
+}
+const ES_ENDINGS_LONGEST = [...ES_ENDINGS.keys()].sort((a, b) => b.length - a.length);
+const ES_SHORT = new Set(["o", "a", "e", "as", "es", "an", "en", "ar", "er", "ir"]); // not on their own
+// "vos": the vosotros form that must be known for the ending to count (tenés: tenéis, vení: venid).
+const ES_VOS = { ás: "áis", és: "éis", ís: "imos", á: "ad" };
+// After pronouns only an infinitive, a gerund or a command can be left (decir-le, diciendo-le, di-le,
+// diga-le, digamos-le, digan-le).
+const ES_HOST = new Set(["ar", "er", "ir", "ando", "iendo", "yendo", "a", "e", "emos", "amos", "en", "an"]);
+
+/** The stem as it is in the infinitive, with the infinitive endings it can take (null: any):
+ * busqu-é busc-ar, empec-é empez-ar, coj-o cog-er, sig-o segu-ir, conozc-o conoc-er, construy-o
+ * constru-ir; and its vowel: duerm-o dorm-ir, pid-o ped-ir, jueg-o jug-ar, quier-o quer-er. */
+function spanishStems(stem, ending) {
+  const out = [[stem, null]];
+  const swap = (from, to) => { if (stem.endsWith(from)) out.push([stem.slice(0, -from.length) + to, null]); };
+  if (/^[eé]/.test(ending)) { swap("qu", "c"); swap("gu", "g"); swap("gü", "gu"); swap("c", "z"); }
+  if (/^[aáoó]/.test(ending)) { swap("zc", "c"); swap("z", "c"); swap("j", "g"); swap("g", "gu"); }
+  swap("uy", "u");
+  for (const [s] of [...out]) {
+    for (const [from, to, only] of [["ue", "o"], ["ie", "e"], ["ue", "u", "ar"], ["ie", "i", "ir"], ["i", "e", "ir"], ["u", "o", "ir"]]) {
+      const i = s.lastIndexOf(from);
+      if (i > 0) out.push([s.slice(0, i) + to + s.slice(i + from.length), only]);
+    }
+  }
+  return out.filter(([s]) => s.length >= 2);
+}
+
+// How many forms of each dictionary form the table keeps: the more, the commoner the word
+// (pide: pedir "to ask for", not peder, an old word for "to fart").
+const formCounts = new WeakMap();
+function commonest(verbs, table) {
+  if (verbs.length < 2) return verbs[0] || null;
+  if (!formCounts.has(table)) {
+    const n = new Map();
+    for (const i of Object.values(table.forms)) n.set(i, (n.get(i) || 0) + 1);
+    formCounts.set(table, new Map(table.lemmas.map((l, i) => [l, n.get(i) || 0])));
+  }
+  const counts = formCounts.get(table);
+  return verbs.reduce((best, v) => ((counts.get(v) || 0) > (counts.get(best) || 0) ? v : best));
+}
+
+// Dictionary forms that end like a verb but aren't one (ayala is not a command of ayer, Lugo not lugar).
+const ES_NOT_VERBS = new Set(("ayer lugar mar mujer hogar collar altar azar bar militar familiar particular popular similar " +
+  "escolar polar lunar dólar pilar taller menester cráter alfiler éter láser nadir elixir faquir emir visir sir").split(" "));
+const isSpanishVerb = (v, table) => table.isLemma.has(v) && !ES_NOT_VERBS.has(v);
+
+/** The infinitive a Spanish verb form the table doesn't know comes from, by its ending, or null.
+ * `endings`: only these (after pronouns); otherwise any but the short ones. */
+function spanishVerb(form, table, endings = null) {
+  for (const ending of ES_ENDINGS_LONGEST) {
+    if (!form.endsWith(ending) || (endings ? !endings.has(ending) : ES_SHORT.has(ending))) continue;
+    const stem = form.slice(0, -ending.length);
+    // (one-letter endings need a longer stem: encabroné, prorrumpí; not olé, aló)
+    if (stem.length < (ending.length === 1 ? 3 : 2)) continue;
+    const found = spanishStems(stem, ending)
+      .flatMap(([s, only]) => ES_ENDINGS.get(ending).filter((inf) => !only || inf === only).map((inf) => s + inf))
+      .filter((v) => isSpanishVerb(v, table))
+      .filter((v) => !ES_VOS[ending] || endings || table.lookup(stem + ES_VOS[ending]) === v);
+    if (found.length) return commonest(found, table);
+  }
+  return null;
+}
+
+// A command before pronouns: te goes with tú (siéntate: sienta, of sentar; vístete: viste, of vestir),
+// se on its own with usted (siéntese: siente, sentar's subjunctive), and others with either (dígame,
+// dime). tú's command ends in -a for an -ar verb, usted's in -e; for -er and -ir verbs the other way round.
+const TU = { a: ["ar"], e: ["er", "ir"] };
+const USTED = { a: ["er", "ir"], e: ["ar"] };
+
+// A written accent marks the verb's own stressed syllable, which pronouns don't move: cómetelo is
+// come + te + lo (CO-me), not comete (co-ME-te, of cometer) + lo. So the verb part must be stressed
+// there: on its last syllable if it ends in a consonant other than n or s (decír-selo) or has one
+// syllable (dá-melo), else on the one before (siénta-te, sentí-a-se, vámo(s)-nos). Without an accent
+// the pronouns must not have pushed the stress back that far: the verb part has one syllable or ends
+// in -r or -d (dime, decirle, sentaos), or is an Argentine command, stressed on its end (decime).
+// (An accented í or ú is a syllable of its own, sen-tí-a, and so is each of two of a, e, o: ma-e.)
+const syllables = (s) => (s.match(/[íú]|[aeiouáéóü]+/g) || []).length + (s.match(/[aeoáéó](?=[aeoáéó])/g) || []).length;
+function stressFits(raw, accent) {
+  const penult = /[aeiouáéíóúns]$/.test(raw) && syllables(raw) > 1;
+  if (accent < 0) return !penult;
+  if (accent >= raw.length) return false;
+  return syllables(raw.slice(accent)) - 1 === (penult ? 1 : 0);
+}
+
+/** The verb a Spanish form with pronouns joined on belongs to, or null. */
+function spanishWithPronouns(word, table) {
+  const accent = word.search(/[áéíóú]/);
+  for (const { stem, raw, pronouns } of spanishSplits(word)) {
+    // Argentine vos commands, stressed on their last syllable: decime (decí + me), contame, decímelo
+    const lastSyllable = accent < 0 || syllables(raw.slice(accent)) === 1;
+    if (/[aei]$/.test(stem) && lastSyllable && isSpanishVerb(`${stem}r`, table) && table.lookup(`${stem}d`) === `${stem}r`) return `${stem}r`;
+    // A verb form with its own accent on its end keeps it (old writing: llegóse, preguntóle, díjole).
+    const own = accent >= 0 && lastSyllable && syllables(raw) > 1 && table.lookup(raw);
+    if (own && VERB.es.test(own)) return own;
+    if (!stressFits(raw, accent)) continue;
+    if (COMMANDS.es[stem]) return COMMANDS.es[stem];
+    const base = table.lookup(stem);
+    const isVerb = base && VERB.es.test(base) && !ES_NOT_VERBS.has(base);
+    // (the table's own reading wins among the verbs a command could be of: pide is pedir)
+    const pick = (verbs) => (verbs.includes(base) ? base : commonest(verbs, table));
+    const last = stem.slice(-1);
+    if (/^[ae]$/.test(last)) {
+      const readings = pronouns[0] === "te" ? [TU] : pronouns.length === 1 && pronouns[0] === "se" ? [USTED, TU] : [TU, USTED];
+      for (const r of readings) {
+        const verb = pick(infinitivesOf(stem, "es", r[last]).filter((v) => isSpanishVerb(v, table)));
+        if (verb) return verb;
+        // usted's irregular commands are the table's: véngase is venir (venga), not vengar; dígame, hágalo
+        if (r === USTED && isVerb) return base;
+      }
+    }
+    // ustedes: siéntense (sienten: sentar's subjunctive, not sentir's present), váyanse, dénselo
+    if (/[ae]n$/.test(stem) && pronouns[0] === "se") {
+      const verb = pick(infinitivesOf(stem.slice(0, -1), "es", USTED[stem.slice(-2, -1)]).filter((v) => isSpanishVerb(v, table)));
+      if (verb) return verb;
+    }
+    if (isVerb) return base;
+    const guess = spanishVerb(stem, table, ES_HOST);
+    if (guess) return guess;
+  }
+  return null;
+}
+
 /** The dictionary form of a word the table doesn't know as it is, or null. */
 function unknownForm(word, lang, table) {
+  if (lang === "es") {
+    const verb = spanishWithPronouns(word, table) || spanishVerb(word, table);
+    if (verb) return verb;
+  }
   // Only a verb takes pronouns on its end, so what is left must look up as a verb.
-  for (const stem of withoutPronouns(word, lang)) {
+  for (const stem of lang === "es" ? [] : withoutPronouns(word, lang)) {
     const base = COMMANDS[lang][stem] || table.lookup(stem);
     if (base && VERB[lang].test(base)) return base;
     const verb = infinitivesOf(stem, lang).find((v) => table.isLemma.has(v) && VERB[lang].test(v));
@@ -223,5 +382,7 @@ export function romanceLexeme(token, lang, table = null) {
   if (table && OWN[lang][word]) lemma = OWN[lang][word];
   else if (table && whole !== word && table.lookup(whole)) lemma = table.lookup(whole);
   else if (table) lemma = table.lookup(word) || unknownForm(word, lang, table) || word;
+  // The Spanish table gives ordinals as numbers (primera -> 1): the word is the ordinal itself, primero.
+  if (/^\d+$/.test(lemma) && /\p{L}/u.test(word)) lemma = word.replace(/s$/, "").replace(/a$/, "o").replace(/^(prim|terc)er$/, "$1ero");
   return { key: `${lang}|${lemma}|x`, lemma, pos: "", root: "" };
 }

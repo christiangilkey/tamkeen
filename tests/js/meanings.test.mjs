@@ -134,6 +134,27 @@ test("a verb form before a rare noun spelled the same, when the word table says 
   assert.match(findIn(ca, ["sóc", "ser"]).groups[0][2][0], /\bbe\b/, "sóc -> soc -> ser: through the other spelling");
 });
 
+test("Spanish: the popup agrees with the word table, and says what form a word also is", () => {
+  const es = file("es");
+  const first = (keys) => findIn(es, keys).groups[0][0];
+  const digo = findIn(es, ["digo", "decir"]);
+  assert.equal(digo.groups[0][0], "decir", "digo is decir's 'I say' before the exclamation 'I mean'");
+  assert.match(digo.formOf, /first-person singular present/);
+  assert.ok(digo.groups.some((g) => /I mean/.test(g[2][0])), "the exclamation is still there");
+  assert.equal(first(["vaya", "ir"]), "ir");
+  assert.equal(first(["sepa", "saber"]), "saber");
+  assert.match(findIn(es, ["cállate", "callar"]).groups[0][2][0], /shut up/, "a command with its pronoun keeps its own meaning");
+  assert.equal(first(["podés", "poder"]), "poder", "no entry of its own: the word table's verb first, not podar");
+  assert.equal(first(["idos", "ir"]), "ir", "not idus");
+  const fuera = findIn(es, ["fuera", "ser"]);
+  assert.match(fuera.groups[0][2][0], /outside/, "a word with ordinary meanings of its own keeps them first");
+  assert.match(fuera.formOf, /^also .*imperfect subjunctive of ser/, "and says what form it also is");
+  assert.match(findIn(es, ["pasa", "pasar"]).formOf, /^third-person singular present indicative$/);
+  const answer = answerFrom(findIn(es, ["digo", "decir"]), "digo", "es");
+  assert.equal(answer.lemma, "decir");
+  assert.match(answer.morphology, /present indicative of decir/);
+});
+
 test("a Tagalog or Bisaya root found by taking affixes off: the verb before the pronoun", () => {
   const ceb = file("ceb");
   assert.match(findIn(ceb, [matchKey("nakita", "ceb"), matchKey("kita", "ceb")]).groups[0][2][0], /see/);
