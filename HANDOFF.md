@@ -3657,3 +3657,17 @@ Owner: "Let Tamkeen give notifications for chat messages ... That includes media
 - **Limit:** only while Tamkeen is running (also in the background, until the phone suspends it). Messages that
   arrive while it's closed would need a push service (Firebase/APNs/Web Push + a Supabase function): not built.
 - Tests: tests/js/chatnotify.test.mjs, tests/test_notify.py. Translations: tools/i18n/tr/<code>/42-chat-notifications.txt.
+
+## Web app YouTube "not a bot" refusals; Library Queued count (2026-10-20; committed, not pushed)
+- **YouTube in the web app**: the web app asks YouTube through the Cloudflare Worker (a data centre). Tested
+  2026-10-20 through the live Worker: for music videos (Tupac x Fairuz search) YouTube answers
+  LOGIN_REQUIRED "Sign in to confirm you're not a bot" for every client (ANDROID, IOS, ANDROID_VR, WEB, TV,
+  embedded), the watch page carries no caption list, and the old /api/timedtext address returns nothing; for
+  others ANDROID still works. The installed apps ask from the user's own connection and aren't affected. No fix
+  is possible from a data centre without a signed-in YouTube account or proof-of-origin tokens, so: ytcaptions.js
+  gives that refusal the code "blocked", and the web app's YouTube page (mobile/src/js/web-youtube.js) says so
+  plainly with a "Get the app" button. Possible later: save the video as "waiting for captions" so the phone or
+  computer fetches them on its next sync (the player already has "Get captions"; nothing fetches them by itself).
+- **Queued count**: tapping Transcribe now marks the rows "Queued" and refreshes the status tabs at once
+  (library.js transcribe). The computer's server reported each queued episode; the phone, queueing them for the
+  computer, sent nothing, so the counts stayed at 0 until a reload. Also for Bisaya (computer-only).

@@ -449,6 +449,15 @@ export async function render(view, { feedId: routeFeed, query }) {
     requestNotifications();
     try {
       const r = await api("/episodes/transcribe", { method: "POST", body: { ids } });
+      // Show it at once: the rows say Queued and the tabs' numbers move. (The computer's server also
+      // reports each one; the phone, leaving them for the computer, has nothing that would.)
+      const queued = new Set(r.queued || []);
+      for (const row of listEl.querySelectorAll(".ep")) {
+        if (!row._ep || !queued.has(row._ep.id) || ["downloading", "transcribing", "done"].includes(row._ep.status)) continue;
+        row._ep.status = "queued";
+        renderStatus(row);
+      }
+      scheduleCounts();
       if (r.computer_only) { computerOnlyNotice(); return; }
       if (!r.queued.length) toast("Those episodes are already queued or in progress.");
       else toast(`Queued ${r.queued.length} episode${r.queued.length > 1 ? "s" : ""} for transcription.`);

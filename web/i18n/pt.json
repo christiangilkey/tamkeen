@@ -2998,6 +2998,7 @@
 "{0} Tap a video to watch it with its captions as words you can tap. It needs captions.":"{0} Toque em um vídeo para assistir com as legendas como palavras que você pode tocar. Ele precisa ter legendas.",
 "Loading videos…":"Carregando vídeos…",
 "No videos found.":"Nenhum vídeo encontrado.",
+"YouTube blocks the web app for this video (it often does for music). It opens in the Tamkeen app on your phone or computer, which asks YouTube from your own connection.":"O YouTube bloqueia o app da web para este vídeo (costuma fazer isso com música). Ele abre no app Tamkeen do seu celular ou computador, que pede ao YouTube pela sua própria conexão.",
 "Wrong companion token. Download the add-on again from Tamkeen's settings.":"Token do complemento incorreto. Baixe o complemento de novo nas configurações do Tamkeen.",
 "Too many days in one report.":"Dias demais em um só relatório.",
 "No such file.":"Arquivo inexistente.",

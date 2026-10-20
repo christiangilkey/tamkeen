@@ -15000,6 +15000,11 @@
   "f": "mobile/src/js/web-youtube.js"
  },
  {
+  "id": "fbe347b9",
+  "k": "YouTube blocks the web app for this video (it often does for music). It opens in the Tamkeen app on your phone or computer, which asks YouTube from your own connection.",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
   "id": "0ab8077d",
   "k": "Wrong companion token. Download the add-on again from Tamkeen's settings.",
   "f": "app/api/anki.py"

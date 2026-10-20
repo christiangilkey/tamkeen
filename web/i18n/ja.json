@@ -2998,6 +2998,7 @@
 "{0} Tap a video to watch it with its captions as words you can tap. It needs captions.":"{0} 動画をタップすると、字幕をタップできる単語にして視聴できます。字幕が必要です。",
 "Loading videos…":"動画を読み込み中…",
 "No videos found.":"動画が見つかりませんでした。",
+"YouTube blocks the web app for this video (it often does for music). It opens in the Tamkeen app on your phone or computer, which asks YouTube from your own connection.":"この動画では YouTube がウェブアプリをブロックしています（音楽ではよくあります）。スマホやパソコンの Tamkeen アプリなら、あなた自身の回線で YouTube に問い合わせるので開けます。",
 "Wrong companion token. Download the add-on again from Tamkeen's settings.":"コンパニオンのトークンが正しくありません。Tamkeenの設定からアドオンをダウンロードし直してください。",
 "Too many days in one report.":"1回の報告に含まれる日数が多すぎます。",
 "No such file.":"そのファイルはありません。",

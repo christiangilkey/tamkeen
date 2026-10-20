@@ -17,7 +17,8 @@ const CLIENTS = [
 const MAX_LAST_WORD = 1.2; // seconds the last word of an auto-caption line may last
 
 export class CaptionError extends Error {
-  /** `code`: "no_captions" | "no_language" | "unavailable" | "network". */
+  /** `code`: "no_captions" | "no_language" | "unavailable" | "blocked" (YouTube's "confirm you're not
+   * a bot": it refuses where the request comes from, e.g. the web app's go-between server) | "network". */
   constructor(message, code) { super(message); this.code = code; }
 }
 
@@ -164,6 +165,7 @@ function parse(text) {
 export async function fetchCaptions(id, { language, languageName, taught = [], request }) {
   let info = null;
   let refusal = "";
+  let blocked = false;
   for (const client of CLIENTS) {
     let res;
     try {
@@ -179,12 +181,14 @@ export async function fetchCaptions(id, { language, languageName, taught = [], r
     if (!data) continue;
     const status = data.playabilityStatus || {};
     if (status.status && status.status !== "OK") refusal = refusal || status.reason || "";
+    if (status.status === "LOGIN_REQUIRED" && /bot/i.test(status.reason || "")) blocked = true;
     const tracks = (((data.captions || {}).playerCaptionsTracklistRenderer || {}).captionTracks) || [];
     if (data.videoDetails && (!info || tracks.length)) info = { details: data.videoDetails, tracks };
     if (tracks.length) break;
   }
   if (!info) {
-    throw new CaptionError(refusal ? `YouTube won't show this video here: ${refusal}` : "YouTube didn't answer about this video. Try again in a minute.", "unavailable");
+    throw new CaptionError(refusal ? `YouTube won't show this video here: ${refusal}` : "YouTube didn't answer about this video. Try again in a minute.",
+                           blocked ? "blocked" : "unavailable");
   }
   if (!info.tracks.length) throw new CaptionError("No captions available for this video.", "no_captions");
   const pick = pickTrack(info.tracks, language, taught);
