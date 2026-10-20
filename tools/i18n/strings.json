@@ -1855,8 +1855,8 @@
   "f": "web/js/components/aisetup.js"
  },
  {
-  "id": "3adbad50",
-  "k": "AI explanations <0>Recommended</0>",
+  "id": "796a0595",
+  "k": "AI explanations",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -1865,8 +1865,8 @@
   "f": "web/js/components/aisetup.js"
  },
  {
-  "id": "07668fbc",
-  "k": "Dictionary first, AI when it has nothing",
+  "id": "1e0393d5",
+  "k": "Dictionary first, AI when it has nothing <0>Recommended</0>",
   "f": "web/js/components/aisetup.js"
  },
  {

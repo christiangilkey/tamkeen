@@ -3671,3 +3671,13 @@ Owner: "Let Tamkeen give notifications for chat messages ... That includes media
 - **Queued count**: tapping Transcribe now marks the rows "Queued" and refreshes the status tabs at once
   (library.js transcribe). The computer's server reported each queued episode; the phone, queueing them for the
   computer, sent nothing, so the counts stayed at 0 until a reload. Also for Bisaya (computer-only).
+
+## "Dictionary first, AI when it has nothing" is the default (2026-10-20; committed, not pushed)
+Owner: "Set lookup with dictionary and use ai when definition isnt available as default".
+- `definer_mode` default `"dictionary_first"`: web/js/definer.js (`DEFAULT_DEFINER_MODE`, definerModeOf's fallback),
+  mobile/src/js/store.js DEFAULTS, app/db.py defaults. Settings → Word definitions shows "Recommended" on it; the
+  Settings home summaries read the mode through definerModeOf (an unset setting = the default).
+- Existing installs: the desktop stores only settings that were changed, so anyone who never chose gets the new
+  default. The phone/web app keeps every setting, defaults included, so a one-time move in store.js loadSettings
+  (`definer_default_moved`, device-only, not synced) turns a stored "ai" into "dictionary_first" only when no AI key is
+  set (AI couldn't work for them anyway). Anyone with a key keeps AI until they change it.
