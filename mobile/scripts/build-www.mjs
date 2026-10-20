@@ -77,6 +77,7 @@ const SHARED = [
   "js/ytfollow.js",
   "js/igcollections.js",
   "js/aikeys.js",
+  "js/learnlist.js",
   "js/pages/reels.js",
   "js/reel-embed.js",
   "js/reel-page.js",

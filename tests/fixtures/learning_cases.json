@@ -1,0 +1,134 @@
+{
+  "_about": "The languages being learned: the same cases for web/js/learnlist.js (tests/js/learnlist.test.mjs) and app/learning.py (tests/test_learning_list.py).",
+  "merge": [
+    {
+      "why": "a fresh device that chose Spanish joins an older one learning Arabic and French: all three",
+      "mine": {"list": ["ar", "fr"], "times": {}},
+      "theirs": {"list": ["es"], "times": {"es": 500}},
+      "out": {"list": ["ar", "fr", "es"], "times": {"es": 500}}
+    },
+    {
+      "why": "the same, seen from the fresh device: its own first",
+      "mine": {"list": ["es"], "times": {"es": 500}},
+      "theirs": {"list": ["ar", "fr"], "times": {}},
+      "out": {"list": ["es", "ar", "fr"], "times": {"es": 500}}
+    },
+    {
+      "why": "unticked there later than it was ticked here: off",
+      "mine": {"list": ["ar", "es"], "times": {"es": 100}},
+      "theirs": {"list": ["es"], "times": {"es": 100, "ar": 200}},
+      "out": {"list": ["es"], "times": {"es": 100, "ar": 200}}
+    },
+    {
+      "why": "ticked here after it was unticked there: on",
+      "mine": {"list": ["es", "ar"], "times": {"ar": 300}},
+      "theirs": {"list": ["es"], "times": {"ar": 200}},
+      "out": {"list": ["es", "ar"], "times": {"ar": 300}}
+    },
+    {
+      "why": "two different changes at once both survive: French ticked there, Arabic unticked here",
+      "mine": {"list": ["es"], "times": {"ar": 400}},
+      "theirs": {"list": ["ar", "es", "fr"], "times": {"fr": 410}},
+      "out": {"list": ["es", "fr"], "times": {"ar": 400, "fr": 410}}
+    },
+    {
+      "why": "a device from before this sends nothing: nothing changes",
+      "mine": {"list": ["ar", "es"], "times": {"es": 5}},
+      "theirs": {},
+      "out": {"list": ["ar", "es"], "times": {"es": 5}}
+    },
+    {
+      "why": "unknown codes and bad times are dropped",
+      "mine": {"list": ["ar", "xx", "ar"], "times": {"xx": 9, "ar": "abc"}},
+      "theirs": {"list": ["zz", "ja"], "times": {"ja": -4}},
+      "out": {"list": ["ar", "ja"], "times": {}}
+    },
+    {
+      "why": "each unticked the other's last language at once: the one changed last stays, on both",
+      "mine": {"list": ["es"], "times": {"ar": 700}},
+      "theirs": {"list": ["ar"], "times": {"es": 800}},
+      "out": {"list": ["es"], "times": {"ar": 700, "es": 800}}
+    },
+    {
+      "why": "...and the other device comes to the same answer",
+      "mine": {"list": ["ar"], "times": {"es": 800}},
+      "theirs": {"list": ["es"], "times": {"ar": 700}},
+      "out": {"list": ["es"], "times": {"es": 800, "ar": 700}}
+    }
+  ],
+  "take": [
+    {
+      "why": "the language studied here was unticked on the other device: the first one left takes over",
+      "settings": {"study_language": "ar", "learning_languages": ["ar", "es"], "learning_times": {}},
+      "remote": {"list": ["es"], "times": {"ar": 900}},
+      "out": {"learning_languages": ["es"], "learning_times": {"ar": 900}, "study_language": "es"}
+    },
+    {
+      "why": "a language ticked there shows up here; the one studied here stays",
+      "settings": {"study_language": "ar", "learning_languages": ["ar"], "learning_times": {}},
+      "remote": {"list": ["ar", "ja"], "times": {"ja": 50}},
+      "out": {"learning_languages": ["ar", "ja"], "learning_times": {"ja": 50}}
+    },
+    {
+      "why": "an older install keeps only study_language: it counts as the list",
+      "settings": {"study_language": "fr", "learning_languages": [], "learning_times": {}},
+      "remote": {"list": ["it"], "times": {"it": 10}},
+      "out": {"learning_languages": ["fr", "it"], "learning_times": {"it": 10}}
+    },
+    {
+      "why": "nothing new: no change",
+      "settings": {"study_language": "es", "learning_languages": ["es", "ar"], "learning_times": {"ar": 3}},
+      "remote": {"list": ["ar", "es"], "times": {"ar": 3}},
+      "out": {}
+    },
+    {
+      "why": "no language chosen here yet (first-run screen still to come): left alone",
+      "settings": {"study_language": "", "learning_languages": [], "learning_times": {}},
+      "remote": {"list": ["ar"], "times": {"ar": 1}},
+      "out": {}
+    },
+    {
+      "why": "not a list: ignored",
+      "settings": {"study_language": "es", "learning_languages": ["es"], "learning_times": {}},
+      "remote": {"list": "ar"},
+      "out": {}
+    }
+  ],
+  "with": [
+    {
+      "why": "switching to a new language puts it on the list and notes when",
+      "values": {"study_language": "ja"},
+      "settings": {"study_language": "ar", "learning_languages": ["ar"], "learning_times": {}},
+      "now": 1000,
+      "out": {"study_language": "ja", "learning_languages": ["ar", "ja"], "learning_times": {"ja": 1000}}
+    },
+    {
+      "why": "switching to one already on the list changes no times",
+      "values": {"study_language": "ar"},
+      "settings": {"study_language": "es", "learning_languages": ["ar", "es"], "learning_times": {"es": 5}},
+      "now": 1000,
+      "out": {"study_language": "ar", "learning_languages": ["ar", "es"], "learning_times": {"es": 5}}
+    },
+    {
+      "why": "a new list: the ones that went on or off are stamped",
+      "values": {"learning_languages": ["es", "fr"]},
+      "settings": {"study_language": "es", "learning_languages": ["ar", "es"], "learning_times": {"es": 5}},
+      "now": 2000,
+      "out": {"learning_languages": ["es", "fr"], "learning_times": {"es": 5, "ar": 2000, "fr": 2000}}
+    },
+    {
+      "why": "a list without the language studied now gets it back",
+      "values": {"learning_languages": ["fr"]},
+      "settings": {"study_language": "es", "learning_languages": ["es"], "learning_times": {}},
+      "now": 3000,
+      "out": {"learning_languages": ["fr", "es"], "learning_times": {"fr": 3000}}
+    },
+    {
+      "why": "nothing about languages: untouched",
+      "values": {"theme": "dark"},
+      "settings": {"study_language": "es", "learning_languages": ["es"], "learning_times": {}},
+      "now": 3000,
+      "out": {"theme": "dark"}
+    }
+  ]
+}

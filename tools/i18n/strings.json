@@ -2750,9 +2750,39 @@
   "f": "web/js/components/langpicker.js"
  },
  {
+  "id": "daef2c17",
+  "k": "Languages I'm learning",
+  "f": "web/js/components/langpicker.js"
+ },
+ {
+  "id": "e3b82040",
+  "k": "Now",
+  "f": "web/js/components/langpicker.js"
+ },
+ {
   "id": "cac6d44c",
   "k": "Your language",
   "f": "web/js/components/langpicker.js"
+ },
+ {
+  "id": "f521b553",
+  "k": "Learning {0} and {1} more",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "f347e8f3",
+  "k": "Learning {0}",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "8fd3ad33",
+  "k": "Keep at least one language ticked.",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "6c0130cb",
+  "k": "Now learning {0}. Your {1} podcasts and words are kept.",
+  "f": "web/js/components/langswitch.js"
  },
  {
   "id": "efaf5f1d",
@@ -2762,6 +2792,26 @@
  {
   "id": "f23ad26a",
   "k": "Its podcasts, videos, words and reviews are kept apart from your other languages. Switch between them from the top bar.",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "ff4dec22",
+  "k": "Studying now",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "dae6ef70",
+  "k": "Unticking a language only takes it out of the switch. Its podcasts, videos, words and reviews are kept, and come back when you tick it again.",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "d578af85",
+  "k": "Now learning {0}",
+  "f": "web/js/components/langswitch.js"
+ },
+ {
+  "id": "4422b618",
+  "k": "Now learning {0}: {1} was unticked on another device. Its podcasts and words are kept.",
   "f": "web/js/components/langswitch.js"
  },
  {
@@ -3292,11 +3342,6 @@
  {
   "id": "fd17e405",
   "k": "Language I speak",
-  "f": "web/js/components/settingsui.js"
- },
- {
-  "id": "1d1fdf5f",
-  "k": "Language I'm learning",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -6323,11 +6368,6 @@
   "id": "0b7eaa70",
   "k": "Shore",
   "f": "web/js/game/data.js"
- },
- {
-  "id": "f347e8f3",
-  "k": "Learning {0}",
-  "f": "web/js/game/friend-bar.js"
  },
  {
   "id": "25640d1c",
@@ -10745,18 +10785,13 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "a553ac64",
-  "k": "Used for new transcriptions, imported web pages and word explanations. Things you already transcribed keep the language they were made in.",
+  "id": "a220de07",
+  "k": "Tick each language you're learning: the switch at the top of the screen lists them, here and on your other devices. The one you're studying now is used for new transcriptions, imported web pages and word explanations.",
   "f": "web/js/pages/settings.js"
  },
  {
   "id": "fd3f000c",
   "k": "Reading help",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "d578af85",
-  "k": "Now learning {0}",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -14280,8 +14315,8 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "e90c933b",
-  "k": "Used for web pages you import here, for word explanations and for anything transcribed from this phone. Set the same one on your computer. Things you already transcribed keep the language they were made in.",
+  "id": "6dd88449",
+  "k": "Tick each language you're learning: the switch at the top of the screen lists them, here and on your other devices. The one you're studying now is used for web pages you import here, for word explanations and for anything transcribed from this phone.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {

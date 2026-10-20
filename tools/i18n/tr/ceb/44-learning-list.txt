@@ -1,0 +1,10 @@
+daef2c17	Mga pinulongan nga akong gitun-an
+e3b82040	Karon
+f521b553	Nagtuon og {0} ug {1} pa
+8fd3ad33	Pagbilin og bisan usa ka pinulongan nga naka-check.
+6c0130cb	Nagtuon na karon og {0}. Gitipigan ang imong mga podcast ug pulong sa {1}.
+ff4dec22	Gitun-an karon
+dae6ef70	Ang pag-uncheck sa usa ka pinulongan magtangtang lang niini sa switch. Gitipigan ang mga podcast, video, pulong ug review niini, ug mobalik kini kon i-check nimo pag-usab.
+4422b618	Nagtuon na karon og {0}: na-uncheck ang {1} sa laing device. Gitipigan ang mga podcast ug pulong niini.
+a220de07	I-check ang matag pinulongan nga imong gitun-an: ipakita kini sa switch sa ibabaw sa screen, dinhi ug sa imong ubang mga device. Ang pinulongan nga imong gitun-an karon gamiton para sa bag-ong mga transcription, mga web page nga gi-import ug mga pasabot sa pulong.
+6dd88449	I-check ang matag pinulongan nga imong gitun-an: ipakita kini sa switch sa ibabaw sa screen, dinhi ug sa imong ubang mga device. Ang pinulongan nga imong gitun-an karon gamiton para sa mga web page nga imong i-import dinhi, para sa mga pasabot sa pulong ug para sa bisan unsang ma-transcribe gikan niining telepono.

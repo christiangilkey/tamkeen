@@ -405,6 +405,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "welcome_seen": False,
     "study_language": "",           # the language being learned (ar, es, fr, ja, zh, ru, it, tl, pt, ca, ceb, th, en); chosen on first run
     "learning_languages": [],       # every language being learned (the top bar's switch); study_language is the one now
+    "learning_times": {},           # {code: ms} when each was last ticked or unticked; synced (app/learning.py)
     "ui_language": "",              # the language the user speaks: the app's own words are shown in it (web/js/i18n.js)
     # The first-run questions (web/js/components/onboarding.js): answered yet, and "beginner" or "started".
     "onboarded": False,

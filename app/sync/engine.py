@@ -20,7 +20,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .. import aikeys, arabic, audio, db, events, languages, pages, paths, reels, tashkeel, videos, youtube
+from .. import aikeys, arabic, audio, db, events, languages, learning, pages, paths, reels, tashkeel, videos, youtube
 from .drive import Drive
 
 log = logging.getLogger(__name__)
@@ -119,7 +119,8 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "channels": youtube.clean_follows(db.get_setting("youtube_follows")),
             "sites": pages.clean_sites(db.get_setting("browser_sites")),
             "ig_collections": reels.synced_collections(),
-            "keys": aikeys.from_settings(db.get_settings())}
+            "keys": aikeys.from_settings(db.get_settings()),
+            "learning": learning.payload(db.get_settings())}
 
 
 def _folder_list(raw: Any) -> list[str]:
@@ -139,6 +140,7 @@ def _content(lib: dict[str, Any]) -> str:
     content["sites"] = lib.get("sites") or []  # nor one from before sites could be saved to the browser's start page
     content["ig_collections"] = reels.clean_synced_collections(lib.get("ig_collections"))  # nor one from before collections were shared
     content["keys"] = aikeys.clean(lib.get("keys"))  # nor one from before AI keys were shared
+    content["learning"] = learning.clean_payload(lib.get("learning"))  # nor one from before the languages being learned were
     return json.dumps(content, ensure_ascii=False, sort_keys=True)
 
 
@@ -349,6 +351,13 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
         if changes:
             db.set_settings(changes)
             result.merged["keys"] = len(changes) - 1
+
+    # The languages being learned: for each language, the device that ticked or unticked it last wins
+    # (app/learning.py). If the one studied here was unticked there, the first one left takes over.
+    changes = learning.take(db.get_settings(), remote.get("learning"))
+    if changes:
+        db.set_settings(changes)
+        result.merged["learning"] = 1
     return downloads
 
 

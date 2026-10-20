@@ -14,7 +14,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse
 from pydantic import BaseModel
 
-from .. import aikeys, applink, audio, backup, db, events, gpu_libs, hardware, languages, models_manager, notify, paths, sync, transcriber, updates
+from .. import aikeys, applink, audio, backup, db, events, gpu_libs, hardware, languages, learning, models_manager, notify, paths, sync, transcriber, updates
 from ..version import APP_NAME, GITHUB_REPO, __version__
 
 router = APIRouter(tags=["system"])
@@ -89,6 +89,11 @@ def patch_settings(values: dict[str, Any]) -> dict[str, Any]:
         from .. import pages
 
         clean["browser_sites"] = pages.clean_sites(clean["browser_sites"])
+    # The languages being learned: when each was ticked or unticked, by this computer's clock
+    # (app/learning.py), so the newer change wins on the user's other devices.
+    clean.pop("learning_times", None)
+    learning_before = learning.effective_list(db.get_settings())
+    clean = learning.with_learning(clean, db.get_settings(), int(time.time() * 1000))
     # A changed AI key notes when, so it wins over older copies on the user's other devices.
     clean = aikeys.stamp(db.get_settings(), clean, time.time())
     result = db.set_settings(clean)
@@ -96,6 +101,8 @@ def patch_settings(values: dict[str, Any]) -> dict[str, Any]:
         sync.request(5)  # the key reaches the user's other devices
     if "youtube_follows" in clean or "browser_sites" in clean:
         sync.request(30)  # followed channels and saved sites reach the user's other devices
+    if "learning_languages" in clean and sorted(clean["learning_languages"]) != sorted(learning_before):
+        sync.request(30)  # a language ticked or unticked reaches the user's other devices
     if "game_state" in clean:
         sync.request(90)  # the creature reaches the user's other devices once they stop studying
     if "model_size" in clean or "beam_size" in clean or any(k.startswith("stt_") for k in clean):

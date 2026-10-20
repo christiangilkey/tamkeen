@@ -14,7 +14,8 @@ import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { ankiSyncPanel } from "../components/ankisync.js";
 import { gameOn, gameSwitch } from "../components/gameswitch.js";
-import { languagePicker, speakPicker } from "../components/langpicker.js";
+import { speakPicker } from "../components/langpicker.js";
+import { learningList, learningSettings, learningSummary } from "../components/langswitch.js";
 import { chooseUiLanguage } from "../components/onboarding.js";
 import { UI_LANGUAGES, isUiLanguage } from "../i18n.js";
 import { dictionariesRow } from "../lexicon/seen.js";
@@ -22,7 +23,7 @@ import { vowelsRow } from "../vowels.js";
 import { readingsRow } from "../lexicon/readings.js";
 import { resetSection } from "../components/resetapp.js";
 import { licensesFold } from "../components/licenses.js";
-import { LANGUAGES, langAttrs, langInfo, studyLanguage } from "../languages.js";
+import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
 import { resetTours } from "../components/tour.js";
 import { SECTIONS, confirmBox, findsFor, moreOptions, revealFind, sectionOfFind, sectionPage, settingsHome } from "../components/settingsui.js";
@@ -49,7 +50,7 @@ function home(view, status) {
   settingsHome(view, {
     finds: findsFor({ desktop: true }, studyLanguage()),
     summaries: {
-      languages: () => [{ text: `Learning ${langInfo(studyLanguage()).name}` }, { text: `App in ${UI_LANGUAGES[ui].native}` }],
+      languages: () => [{ text: learningSummary(learningList(s)) }, { text: `App in ${UI_LANGUAGES[ui].native}` }],
       words: () => {
         if (s.definer_mode === "dictionary") return { text: "No AI: built-in dictionary" };
         const p = PROVIDERS[s.definer_provider] ? s.definer_provider : "claude";
@@ -97,9 +98,9 @@ function languages(body, status) {
       <div id="ui-lang"></div>
     </section>
     <section class="card set-card" data-find="learn">
-      <h2>Language I'm learning</h2>
-      <p class="set-hint">Used for new transcriptions, imported web pages and word explanations.
-        Things you already transcribed keep the language they were made in.</p>
+      <h2>Languages I'm learning</h2>
+      <p class="set-hint">Tick each language you're learning: the switch at the top of the screen lists them, here and on your other devices.
+        The one you're studying now is used for new transcriptions, imported web pages and word explanations.</p>
       <div id="study-lang"></div>
       ${moreOptions(`<div id="basics" data-find="basics"></div>`)}
     </section>
@@ -114,11 +115,8 @@ function languages(body, status) {
     // redrawn either way: the languages to learn leave this one out, and a failed change shows the old one
     try { await chooseUiLanguage(code); } finally { window.dispatchEvent(new HashChangeEvent("hashchange")); }
   }));
-  $("#study-lang").append(languagePicker(s.study_language, async (code) => {
-    await saveSettings({ study_language: code });
-    toast(`Now learning ${LANGUAGES[code].name}`);
-    window.dispatchEvent(new HashChangeEvent("hashchange")); // redraw the examples on this page
-  }, { speaks: isUiLanguage(s.ui_language) ? s.ui_language : "en" }));
+  // Tap a tile to tick or untick it; "Studying now" under them picks the current one (langswitch.js).
+  $("#study-lang").append(learningSettings({ speaks: isUiLanguage(s.ui_language) ? s.ui_language : "en" }));
   $("#basics").append(commonWordsButton(lang));
   // word dictionaries, Arabic vowels, Japanese and Chinese readings: each shows itself where it applies
   const rows = [dictionariesRow(lang), vowelsRow(lang), readingsRow(lang)];

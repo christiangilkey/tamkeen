@@ -817,6 +817,7 @@ export function applySettings(s) {
 export async function saveSettings(values) {
   values = withLearningList(values); // a language switched to stays on the list of languages being learned
   const keyTimes = JSON.stringify(settings.key_times || {});
+  const learningTimes = JSON.stringify(settings.learning_times || {});
   const s = await saveSettingsPatch(values);
   // After Reset Tamkeen: signing in, or finishing the first screens, brings the library back.
   if (parked() && await maybeRestore(s)) { location.reload(); return s; }
@@ -825,6 +826,7 @@ export async function saveSettings(values) {
   if ("game_state" in values) requestSync(90000); // the creature reaches the other devices after studying
   if ("youtube_follows" in values) requestSync(30000); // so do followed channels
   if ("browser_sites" in values) requestSync(30000); // and sites saved to the browser's start page
+  if (JSON.stringify(s.learning_times || {}) !== learningTimes) requestSync(30000); // and languages ticked or unticked
   return s;
 }
 export async function loadStatus() {
