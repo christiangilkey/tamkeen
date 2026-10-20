@@ -1,0 +1,11 @@
+c614ba7c Automàtic
+70892d66 Temps en aquesta sessió
+841cd03a Temporitzadors
+df4f8226 Una barra de temps a cada targeta
+52a952b3 Un rellotge per a tota la sessió
+73916e84 Objectiu de temps per targeta
+f174983c Passar-se no és cap problema: la barra només canvia a un color més tranquil i no passa res més.
+14813a59 Objectiu de temps per a aquesta targeta: {0} s
+55794870 L'automàtic segueix el teu ritme: uns {0} s per repàs i {1} s per paraula nova.
+45bb7a2d Menys d'un minut
+42a17b06 Uns {0}

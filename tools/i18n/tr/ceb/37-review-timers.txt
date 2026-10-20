@@ -1,0 +1,11 @@
+c614ba7c Auto
+70892d66 Oras niining session
+841cd03a Mga timer
+df4f8226 Usa ka time bar sa matag card
+52a952b3 Usa ka orasan para sa tibuok session
+73916e84 Target nga oras sa matag card
+f174983c Okay ra kung molapas: mahimo lang nga mas kalmado nga kolor ang bar, ug wala nay laing mahitabo.
+14813a59 Target nga oras para niining card: {0} s
+55794870 Ang Auto mosunod sa imong kaugalingong kakusog: mga {0} s sa usa ka review, {1} s sa bag-ong pulong.
+45bb7a2d Ubos sa usa ka minuto
+42a17b06 Mga {0}

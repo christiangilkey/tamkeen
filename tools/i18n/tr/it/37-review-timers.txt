@@ -1,0 +1,11 @@
+c614ba7c Auto
+70892d66 Tempo in questa sessione
+841cd03a Timer
+df4f8226 Una barra del tempo su ogni carta
+52a952b3 Un orologio per tutta la sessione
+73916e84 Obiettivo di tempo per carta
+f174983c Andare oltre va bene: la barra prende solo un colore più calmo, e non succede nient'altro.
+14813a59 Obiettivo di tempo per questa carta: {0} s
+55794870 Auto segue il tuo ritmo: circa {0} s per un ripasso, {1} s per una parola nuova.
+45bb7a2d Meno di un minuto
+42a17b06 Circa {0}

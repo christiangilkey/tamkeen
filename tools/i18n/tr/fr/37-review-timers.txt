@@ -1,0 +1,11 @@
+c614ba7c Auto
+70892d66 Temps passé dans cette séance
+841cd03a Minuteurs
+df4f8226 Une barre de temps sur chaque carte
+52a952b3 Une horloge pour toute la séance
+73916e84 Objectif de temps par carte
+f174983c Dépasser n'est pas grave : la barre prend simplement une couleur plus calme, et rien d'autre ne se passe.
+14813a59 Objectif de temps pour cette carte : {0} s
+55794870 Le mode auto suit votre propre rythme : environ {0} s par révision, {1} s par nouveau mot.
+45bb7a2d Moins d'une minute
+42a17b06 Environ {0}
