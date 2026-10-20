@@ -1,0 +1,14 @@
+9883dc1b Obre un lloc, troba un article i prem el <0>botó rodó verd blavós</0> de baix a la dreta per llegir-lo amb cada paraula clicable.
+66861bc1 Importa a Tamkeen: llegeix aquesta pàgina amb cada paraula clicable
+ae19f0e4 Importa a Tamkeen
+5492bd97 Navega dins l'app i prem el botó rodó verd blavós en tot el que vulguis llegir.
+a4cbde7a No s'ha trobat text llegible en aquesta pàgina. Prova «Obre el navegador web» i prem-hi el botó rodó verd blavós.
+ee1025a7 No s'ha pogut obrir el navegador.
+8533d5c3 El lloc ha respost amb un error ({0}). Prova «Obre el navegador web» i prem-hi el botó rodó verd blavós.
+c79f28f8 S'està important la pàgina…
+9f496fb9 El que s'ha compartit no conté cap adreça web, així que no hi ha res per importar.
+5cfa7a01 Tria primer la llengua que aprens i després torna a compartir la pàgina amb Tamkeen.
+a87f6706 Importa a Tamkeen: l'adreça de l'article que has copiat
+c4b42e1e Copia l'adreça de l'article a l'altra pestanya (o comparteix-lo amb Tamkeen des d'allà) i torna a prémer aquest botó.
+732ac1f0 Amb Tamkeen a la pantalla d'inici també pots compartir l'article directament amb Tamkeen: a Chrome toca ⋮, després Comparteix i després Tamkeen.
+3d26aa46 Obre un lloc (s'obre en una pestanya nova), troba un article i copia'n l'adreça; després torna i prem el botó rodó verd blavós.

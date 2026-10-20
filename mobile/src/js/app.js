@@ -371,7 +371,7 @@ export async function fetchPage(url) {
   } catch (e) {
     throw new Error("Couldn't reach that site. Check the address and your connection.");
   }
-  if (res.status >= 400) throw new Error(`The site answered with an error (${res.status}). Try “Open Web Browser” and use Import Page there.`);
+  if (res.status >= 400) throw new Error(`The site answered with an error (${res.status}). Try “Open Web Browser” and press the round teal button there.`);
   return { url: res.url || address, html: typeof res.data === "string" ? res.data : String(res.data || "") };
 }
 
@@ -1058,6 +1058,8 @@ async function boot() {
   route();
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   mountInstallButton(document.querySelector(".topbar")); // the web app: how to add it to the home screen
+  // The web app opened by "Share → Tamkeen" from another app (Android, once installed): import that page.
+  if (isWeb) import("./web-import.js").then((m) => m.importShared(!!(settings.welcome_seen && settings.study_language))).catch(() => {});
   if (isWeb) { // the web app's Drive pass ran out while nobody was tapping: one tap renews it (drive.js)
     // Google gives the web app an hour at a time, and renewing needs a tap. The owner found a bar
     // popping up over the player again and again (each sync that found the pass expired): now the

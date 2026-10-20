@@ -88,7 +88,7 @@ def fetch_html(url: str) -> dict[str, str]:
             with client.stream("GET", url) as resp:
                 if resp.status_code >= 400:
                     raise PageError(f"The site answered with an error ({resp.status_code}). "
-                                    "Try “Open Web Browser” and use Import Page there.")
+                                    "Try “Open Web Browser” and press the round teal button there.")
                 kind = resp.headers.get("content-type", "")
                 if kind and "html" not in kind and "text/plain" not in kind:
                     raise PageError("That address isn't a web page (it looks like a file).")
