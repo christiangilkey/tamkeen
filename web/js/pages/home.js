@@ -8,6 +8,7 @@ import { episodeLanguage, langAttrs, langInfo, studyLanguage } from "../language
 import { habitat } from "../game/habitat.js";
 import { gameOn } from "../components/gameswitch.js";
 import { icon } from "../icons.js";
+import { firstVisitTour } from "../components/tour.js";
 
 // The app's own white line icons (icons.js), the same as the tab bar's.
 const KIND_ICON = { audio: "podcast", video: "video", page: "page" };
@@ -99,6 +100,18 @@ export async function render(view) {
         <span class="small muted">Messages and shared words</span></span></a>
     </div>`));
   }
+
+  firstVisitTour("home", view.querySelector(".home"), [
+    { target: ".lang-switch", anywhere: true, title: "The language you're learning",
+      text: "Switch to another language you're learning, or add one. Each keeps its own library, words and reviews." },
+    { target: ".continue-btn", title: "Carry on",
+      text: "Picks up your latest episode, video or page where you stopped." },
+    { target: ".habitat-scene", title: "Your creature", text: "It grows with the XP you earn while studying." },
+    { target: ".hud-actions", title: "Play",
+      text: "Battle, trade with friends, collect creatures, and spend what you earn in the shop and garden." },
+    { target: ".top-search", anywhere: true, title: "Search",
+      text: "Find a word in everything you've read or listened to." },
+  ]);
 
   // A small, honest summary of today: no streak pressure, nothing to lose.
   try {

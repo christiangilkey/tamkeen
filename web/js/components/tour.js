@@ -30,7 +30,8 @@ let open = null; // the guide showing now (one at a time)
  * Show `page`'s guide if this device hasn't shown it yet.
  * @param {string} page "library" | "vocab" | "friends"
  * @param {HTMLElement} root the page, where the steps' targets are looked up
- * @param {{target: string, title: string, text: string}[]} steps target = a CSS selector
+ * @param {{target: string, title: string, text: string, anywhere?: boolean}[]} steps target = a CSS
+ *   selector, looked up in `root`, or in the whole window with `anywhere` (the top bar's buttons)
  */
 export function firstVisitTour(page, root, steps) {
   if (seen()[page] || open) return;
@@ -39,7 +40,7 @@ export function firstVisitTour(page, root, steps) {
     if (seen()[page] || open || !root.isConnected) return; // (left the page already)
     // Not over another popup or the first-run screens: next visit instead.
     if (document.querySelector(".modal-back")) return;
-    const list = steps.filter((s) => find(root, s.target));
+    const list = steps.filter((s) => find(s.anywhere ? document : root, s.target));
     if (!list.length) return;
     markSeen(page);
     show(root, list);
@@ -49,7 +50,7 @@ export function firstVisitTour(page, root, steps) {
 function show(root, list) {
   let at = 0;
   // Looked up again each time: a page that redraws (Friends, on live updates) replaces its buttons.
-  const target = () => find(root, list[at].target);
+  const target = () => find(list[at].anywhere ? document : root, list[at].target);
   const layer = h(`<div class="tour" role="dialog" aria-modal="true" aria-labelledby="tour-title">
     <div class="tour-hole"></div>
     <div class="tour-card">

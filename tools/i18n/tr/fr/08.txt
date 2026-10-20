@@ -59,7 +59,7 @@ addc5a24 Avancer de 5 secondes (→)
 af85b75e YouTube n'a pas pu lire cette vidéo.
 b66fc2d7 Impossible de charger la vidéo. Elle est lue depuis votre Google Drive : vérifiez votre connexion et que vous êtes connecté.
 6a9b0c2f Impossible de charger l'audio. S'il est lu depuis le serveur du podcast, vérifiez votre connexion.
-70f8bb9a Début
+70f8bb9a Accueil
 a2bb9d34 Fin
 9c127d35 Échec de la lecture : {0}
 fa150e0d Vous suivez {0}. Appuyez pour ne plus suivre.

@@ -8890,6 +8890,46 @@
   "f": "web/js/pages/home.js"
  },
  {
+  "id": "990a126c",
+  "k": "The language you're learning",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "afc68c61",
+  "k": "Switch to another language you're learning, or add one. Each keeps its own library, words and reviews.",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "89a58a1b",
+  "k": "Carry on",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "f4a94b40",
+  "k": "Picks up your latest episode, video or page where you stopped.",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "1862828e",
+  "k": "It grows with the XP you earn while studying.",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "5d12bd53",
+  "k": "Play",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "d8de77c3",
+  "k": "Battle, trade with friends, collect creatures, and spend what you earn in the shop and garden.",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "f1574425",
+  "k": "Find a word in everything you've read or listened to.",
+  "f": "web/js/pages/home.js"
+ },
+ {
   "id": "afaa0fed",
   "k": "{0} word{1} saved today",
   "f": "web/js/pages/home.js"
@@ -10720,8 +10760,8 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "19f8b411",
-  "k": "The first time you open the Library, Vocab and Friends, a short guide shows what each button does.",
+  "id": "a513c836",
+  "k": "The first time you open Home, the Library, Vocab and Friends, a short guide shows what each button does.",
   "f": "web/js/pages/settings.js"
  },
  {

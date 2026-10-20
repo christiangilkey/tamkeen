@@ -1,0 +1,9 @@
+990a126c El idioma que aprendes
+afc68c61 Cambia a otro idioma que estés aprendiendo, o añade uno. Cada uno tiene su propia biblioteca, palabras y repasos.
+89a58a1b Continuar
+f4a94b40 Retoma tu último episodio, vídeo o página donde lo dejaste.
+1862828e Crece con la XP que ganas mientras estudias.
+5d12bd53 Jugar
+d8de77c3 Lucha, intercambia con amigos, colecciona criaturas y gasta lo que ganas en la tienda y el jardín.
+f1574425 Busca una palabra en todo lo que has leído o escuchado.
+a513c836 La primera vez que abres Inicio, la Biblioteca, Vocabulario y Amigos, una guía breve muestra para qué sirve cada botón.

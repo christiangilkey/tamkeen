@@ -1,0 +1,9 @@
+990a126c La langue que vous apprenez
+afc68c61 Passez à une autre langue que vous apprenez, ou ajoutez-en une. Chacune a sa bibliothèque, ses mots et ses révisions.
+89a58a1b Continuer
+f4a94b40 Reprend votre dernier épisode, vidéo ou page là où vous vous êtes arrêté.
+1862828e Elle grandit avec l'XP que vous gagnez en étudiant.
+5d12bd53 Jouer
+d8de77c3 Combattez, échangez avec vos amis, collectionnez des créatures et dépensez vos gains à la boutique et au jardin.
+f1574425 Trouvez un mot dans tout ce que vous avez lu ou écouté.
+a513c836 La première fois que vous ouvrez l'Accueil, la Bibliothèque, le Vocabulaire et les Amis, un court guide montre à quoi sert chaque bouton.

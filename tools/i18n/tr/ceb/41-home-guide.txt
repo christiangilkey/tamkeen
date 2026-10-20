@@ -1,0 +1,9 @@
+990a126c Ang pinulongan nga imong gitun-an
+afc68c61 Balhin sa laing pinulongan nga imong gitun-an, o pagdugang og usa. Matag usa adunay kaugalingong library, mga pulong ug mga review.
+89a58a1b Padayon
+f4a94b40 Ipadayon ang imong kataposang episode, video o panid gikan sa imong gihunongan.
+1862828e Motubo kini sa XP nga imong makuha samtang nagtuon.
+5d12bd53 Dula
+d8de77c3 Pakig-away, pakigbaylo sa mga higala, pagkolekta og mga linalang, ug gastuha ang imong nakuha sa shop ug garden.
+f1574425 Pangitaa ang usa ka pulong sa tanan nimong nabasa o napaminawan.
+a513c836 Sa unang higayon nga ablihan nimo ang Home, Library, Vocab ug Mga higala, usa ka mubo nga giya magpakita kung unsay buhaton sa matag button.

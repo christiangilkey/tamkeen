@@ -3621,3 +3621,13 @@ branch's code: it leaves out 4 strings from the /embed and --background work (no
 answering.", "That isn't a YouTube video.", "Open Tamkeen once and choose…", "<!doctype html>…" (that one should go
 in ignore.txt)) and the 2 Typhoon strings whose code isn't committed on main (the Thai-model work has them in
 tr/*/33-thai-model.txt). After merging, run `node tools/i18n/extract.mjs` and `node tools/i18n/build.mjs`.
+
+## Page guides: Home added, obvious steps dropped (2026-10-20; committed, not pushed)
+- Owner removed obvious steps: Library "Find by title", "Several at once", "Refresh and sync"; Vocab "Sort and dates".
+- **Home** guide (web/js/pages/home.js, end of render): the language switch, "Carry on" (only when something is in
+  progress), your creature and the game buttons (only with the game on), Search. Steps can now point outside the
+  page with `anywhere: true` (components/tour.js), for the top bar's buttons. Settings → Page guides wording now
+  names Home too (both Settings pages).
+- **Home tab mistranslated**: the key "Home" is shared with a keyboard-key list in player.js, so fr/ja/zh/ru/ar/it/tl
+  said "Beginning" (Début, 先頭, 开头, Начало…). Now the home-screen word (Accueil, ホーム, 首页, Главная,
+  الرئيسية, Home). Translations: tools/i18n/tr/<code>/41-home-guide.txt.

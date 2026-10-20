@@ -1,0 +1,9 @@
+990a126c Ang wikang pinag-aaralan mo
+afc68c61 Lumipat sa ibang wikang pinag-aaralan mo, o magdagdag ng isa. May sariling library, mga salita at review ang bawat isa.
+89a58a1b Ituloy
+f4a94b40 Itinutuloy ang huli mong episode, video o page mula sa huminto ka.
+1862828e Lumalaki ito sa XP na nakukuha mo habang nag-aaral.
+5d12bd53 Maglaro
+d8de77c3 Makipaglaban, makipagpalitan sa mga kaibigan, mangolekta ng mga nilalang, at gastusin ang kinita mo sa shop at garden.
+f1574425 Maghanap ng salita sa lahat ng nabasa o napakinggan mo.
+a513c836 Sa unang beses na buksan mo ang Home, Library, Vocab at Mga Kaibigan, may maikling gabay na nagpapakita kung ano ang ginagawa ng bawat button.

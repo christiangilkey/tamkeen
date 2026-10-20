@@ -59,7 +59,7 @@ addc5a24 Sumulong nang 5 segundo (→)
 af85b75e Hindi ma-play ng YouTube ang video na ito.
 b66fc2d7 Hindi ma-load ang video. Nag-i-stream ito mula sa Google Drive mo: suriin ang koneksyon mo at kung naka-sign in ka.
 6a9b0c2f Hindi ma-load ang audio. Kung nag-i-stream ito mula sa server ng podcast, suriin ang koneksyon mo.
-70f8bb9a Simula
+70f8bb9a Home
 a2bb9d34 Dulo
 9c127d35 Hindi na-play: {0}
 fa150e0d Sinusundan mo ang {0}. Pindutin para itigil ang pagsunod.

@@ -59,7 +59,7 @@ addc5a24 Avanti di 5 secondi (→)
 af85b75e YouTube non è riuscito a riprodurre questo video.
 b66fc2d7 Impossibile caricare il video. Viene riprodotto dal tuo Google Drive: controlla la connessione e di aver effettuato l'accesso.
 6a9b0c2f Impossibile caricare l'audio. Se viene riprodotto dal server del podcast, controlla la connessione.
-70f8bb9a Inizio
+70f8bb9a Home
 a2bb9d34 Fine
 9c127d35 Riproduzione non riuscita: {0}
 fa150e0d Segui {0}. Premi per smettere di seguirlo.
