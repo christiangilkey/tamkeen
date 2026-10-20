@@ -3689,3 +3689,57 @@ Owner: a small temporary banner at the top left of the web app whenever it is op
   X" + "What's new" (the GitHub release page for vX) + close; it leaves after 7 s. Nothing on the first visit, the
   same version, test builds (0.0.0…/with "-"), or with storage off. Styles in mobile/src/css/mobile.css
   `.version-banner`. The installed apps keep their own update popup instead (they are updated by installing).
+
+## YouTube: automatic captions, YouTube's translation, the learning language in YouTube's player (2026-10-20, branch `yt-auto-captions`; not pushed)
+Owner: "When a video is selected that doesn't have target language subtitles, then YouTube's autocaptions should
+automatically get selected for the learning language and if it is available so should the audio track." Their case:
+"2Pac - Ya Hawa feat. Fairuz" (lpxORICKA9w) learning Arabic, Tamkeen's caption bar black, YouTube's CC set to Arabic by hand.
+- **Why it was empty**: that video has ONE caption track, YouTube's automatic **English** one (2Pac raps in English);
+  YouTube's "Arabic" was its on-the-fly translation. Tamkeen fell back to the spoken language, saved the video as an
+  English video, and its 25 English scraps ("foreign", "thank you") left the bar empty most of the song, unexplained.
+- **Track choice** (`web/js/ytcaptions.js` `captionChoices`, `pickTrack` = its first): a person's track in the learning
+  language → YouTube's automatic one in it (asr) → YouTube's translation into it (`tlang` on the track's baseUrl) of the
+  best other track (a person's track in the spoken language, then the spoken language's asr, then any; never one with
+  `isTranslatable: false`; the code is the one in `translationLanguages`, else `youTubeLanguage()`: tl→fil, zh→zh-Hans)
+  → last, the old fallback (the spoken language if taught). `fetchCaptions` downloads them in that order until one has
+  lines and returns `kind` ("manual"|"auto"|"translated"), `from`, `translationRefused`, `audio`. A translation is
+  spread over its lines like a person's captions (no word times).
+- **YouTube refuses its translations to anyone but its own player** (HTTP 429 "automated queries", every client,
+  even Rick Astley, checked 2026-10-20 from this PC and through the web app's Cloudflare server; known: yt-dlp issue
+  13831). So in practice the translated step is usually refused and the old fallback is what is saved. Not worked
+  around (it would need YouTube's proof-of-origin tokens). The step stays in case YouTube lets it through again.
+- **YouTube's own captions** (`web/js/ytmedia.js`): `cc_lang_pref` = the learning language, always. When the saved
+  captions are NOT in the learning language (episode language ≠ study language), YouTube's captions are switched on
+  (`cc_load_policy: 1`) and set with `player.setOption("captions", "track", {...track, translationLanguage})` to its own
+  track in that language or its translation: the IFrame player IS allowed its translations. Checked in the browser: the
+  2Pac video showed وأنتم تحبونني يا over the picture by itself. Otherwise YouTube's captions stay unloaded as before.
+- **Saying which captions these are** (`player.js` `showCaptionNote`, `.yt-note` in media.css: small grey lines under
+  the caption bar): "YouTube's automatic captions: they can have mistakes." / "Translated by YouTube: it may not match
+  what is said." / "No Arabic captions for this video, so these are its English ones. YouTube's Arabic translation is
+  shown in the video. [Try again]" (Try again re-reads the captions and keeps them only if they are now in the
+  learning language). Stored as the episode's `model`: new value **"youtube-translated"** (app/youtube.py
+  `caption_model`, backend.js, POST /youtube takes `kind`; older pages still send only `auto`). sendmedia.js passes it on.
+- **"Only videos with handmade subtitles"** (localStorage `ytHandmadeCaptions`) now also decides the track: a person's
+  track in the learning language or nothing (CaptionError code **"no_handmade"**, telling where to turn it off).
+  "Find in a video" (filmot.js) ignores it and never takes a translation (`readVideo(id, {translate:false, handmade:false})`).
+- **Dubbed audio** ("multi-language audio", `streamingData.adaptiveFormats[].audioTrack` {id "ar.3", displayName,
+  audioIsDefault}): `dubbedAudio()` / `audioInLanguage()`. **No version can choose it**: the IFrame API has no audio
+  method (its `apiInterface` lists only captions options), `hl=ar` doesn't change it (YouTube picks the dub from the
+  viewer's account/system language), the embed URL has no parameter. YouTube's own ⚙ menu in the embed does have
+  "Audio track", so the player says "This video can be heard in Arabic too: choose it under ⚙ → Audio track in the
+  video." (one player question per opened video; silent when it fails, e.g. web app blocked).
+- **Nothing usable**: clearer errors, shown where they were before (phone: toast, then YouTube's page in the in-app
+  browser; computer: the YouTube window's message; web app: toast): "This video has no captions at all, so Tamkeen
+  can't show its words. Try another video." / "No Arabic captions for this video, and YouTube wouldn't translate its
+  captions for Tamkeen. Try another video." / the handmade one. The web app's "blocked" case is unchanged.
+- **Checked** (desktop server + browser pane; the phone screens as the web app at 375 px, through a local stand-in
+  for the go-between server; the live go-between called from a script): lpxORICKA9w (English fallback + note +
+  YouTube's Arabic translation on; Try again → "YouTube still won't give…"), plN7JMbadRg MrBeast (Arabic captions by a
+  person + the audio-track note), Hgm3vatPXCM (Arabic asr only → automatic, note), kT2NVr9gZVI (no captions → message),
+  handmade-only on (asr-only refused with the message; الدحيح lo3KyF50IGE taken). Spanish interface: notes translated.
+  **Not checked on a real Android phone or iPhone** (same JavaScript and the same embedded player in their web views).
+- Tests: `tests/js/youtube.test.mjs` (recorded player answers in `tests/js/fixtures/youtube-players.json`, trimmed;
+  re-record with any script asking youtubei/v1/player as ANDROID), `tests/test_media.py`. Translations:
+  `tools/i18n/tr/<code>/44-youtube-auto-captions.txt`.
+- Possible later: Tamkeen's own translation of the captions with the user's AI key when YouTube refuses; on Android,
+  catching the timedtext address YouTube's player itself asks for (it carries the token) to read its translation.

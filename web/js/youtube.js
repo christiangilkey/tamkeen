@@ -4,7 +4,8 @@
 
 import { api, platform, saveSettings, state, ytRequest } from "./app.js";
 import { LANGUAGE_CODES, langInfo, studyLanguage } from "./languages.js";
-import { fetchCaptions, fetchChannel, videoId } from "./ytcaptions.js";
+import { audioInLanguage, fetchCaptions, fetchChannel, videoId } from "./ytcaptions.js";
+import { handmadeOnly } from "./youtube-home.js";
 import { cleanFollows, fillChannel, isFollowed, markWatched, setFollow } from "./ytfollow.js";
 
 export { videoId };
@@ -39,19 +40,34 @@ export async function importVideo(link) {
 }
 
 /** A video's captions in the language being studied, read from this device and not yet kept:
- * {videoId, title, channel, duration, language, auto, lines}. Throws when it has none. */
-export async function readVideo(id) {
+ * {videoId, title, channel, duration, language, auto, kind, lines, ...} (see ytcaptions.js
+ * fetchCaptions). Throws when it has none. `handmade`: "Only videos with handmade subtitles";
+ * `translate` false never takes YouTube's translation ("Find in a video" wants what is said). */
+export async function readVideo(id, { translate = true, handmade = handmadeOnly() } = {}) {
   return fetchCaptions(id, {
     language: studyLanguage(), languageName: langInfo(studyLanguage()).name, taught: LANGUAGE_CODES, request: ytRequest,
+    handmadeOnly: handmade, translate,
   });
 }
 
 /** Keep a video read by readVideo in the library. Resolves to its episode. */
 export async function saveVideo(v) {
   const ep = await api("/youtube", { method: "POST", body: {
-    video_id: v.videoId, title: v.title, channel: v.channel, duration: v.duration, language: v.language, auto: v.auto, lines: v.lines,
+    video_id: v.videoId, title: v.title, channel: v.channel, duration: v.duration, language: v.language, auto: v.auto,
+    kind: v.kind || (v.auto ? "auto" : "manual"), lines: v.lines,
   } });
   return { ...ep, auto: v.auto };
+}
+
+/** How a video's captions were made, from its episode: "manual", "auto" or "translated". */
+export function captionKind(ep) {
+  const model = String((ep && ep.model) || "");
+  return model === "youtube-auto" ? "auto" : model === "youtube-translated" ? "translated" : "manual";
+}
+
+/** Whether the video has its sound in the study language too (a dubbed audio track): {id, name} or null. */
+export async function dubbedTrack(ep) {
+  return audioInLanguage(videoId(ep.audio_url) || ep.guid, studyLanguage(), ytRequest);
 }
 
 // ---------- followed channels (the list and its rules are in ytfollow.js) ----------

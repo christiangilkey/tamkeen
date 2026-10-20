@@ -45,6 +45,7 @@ class YouTubeIn(BaseModel):
     duration: float | None = None
     language: str | None = None
     auto: bool = False
+    kind: str | None = None  # "manual" | "auto" | "translated" (YouTube's translation); older pages send only `auto`
     lines: list[dict[str, Any]]
 
 
@@ -52,7 +53,7 @@ class YouTubeIn(BaseModel):
 def add_youtube(body: YouTubeIn) -> dict[str, Any]:
     try:
         ep = youtube.save_video(body.video_id, body.title, body.lines, body.channel, body.duration,
-                                body.language, body.auto)
+                                body.language, body.auto, body.kind)
     except youtube.YouTubeError as exc:
         raise HTTPException(400, str(exc)) from exc
     events.publish("feeds", {"refreshed": True})

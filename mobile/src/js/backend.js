@@ -183,7 +183,9 @@ async function saveYouTube(body) {
     Object.assign(feed, { deleted: 0, updated_at: t });
   }
   const uid = await episodeUid(fuid, id);
-  const model = body.auto ? "youtube-auto" : "youtube-captions";
+  // As app/youtube.py caption_model: YouTube's translation, its automatic captions, or a person's.
+  const model = body.kind === "translated" ? "youtube-translated"
+    : body.kind === "auto" || (body.kind == null && body.auto) ? "youtube-auto" : "youtube-captions";
   const language = isLanguage(body.language) ? body.language
     : detectLanguage(segments.slice(0, 60).map((s) => s[2]).join(" "), settings.study_language || "ar");
   const fields = { title: String(body.title || "").replace(/\s+/g, " ").trim().slice(0, 300) || "YouTube video",

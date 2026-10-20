@@ -4,6 +4,15 @@
 //
 // YouTube only reports the playing position a few times a second, so between reports the
 // position is estimated from the clock; that keeps the word highlight smooth.
+//
+// YouTube's own captions: off, since the app shows its own under the video, except when the app's
+// aren't in the language being learned (YouTube wouldn't hand over its translation). Then YouTube's
+// are switched on in that language, translated by YouTube when it has none of its own: YouTube's
+// player is allowed to show its translations (`setOption("captions", "track", ...)`). Either way
+// `cc_lang_pref` makes the language being learned YouTube's first choice. The audio track (a dubbed
+// version) can't be chosen from outside YouTube's player: its ⚙ menu has "Audio track".
+
+import { baseLanguage, youTubeLanguage } from "./ytcaptions.js";
 
 const POLL_MS = 150;        // how often YouTube is asked where it is
 const MAX_AHEAD = 0.6;      // seconds the estimate may run ahead of YouTube's last report
@@ -35,9 +44,11 @@ function errorText(code) {
 /**
  * @param {HTMLElement} mount element the player replaces
  * @param {string} videoId
- * @param {{start?: number, duration?: number}} opts where to begin, and the length already known
+ * @param {{start?: number, duration?: number, captions?: {lang: string, show?: boolean}}} opts where
+ *   to begin, the length already known, and YouTube's own captions: `lang` the language being learned,
+ *   `show` to switch them on in it (when the app's own captions are in another language)
  */
-export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0 } = {}) {
+export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, captions = null } = {}) {
   const media = new EventTarget();
   const fire = (name) => media.dispatchEvent(new Event(name));
   let player = null;
@@ -54,6 +65,9 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0 } =
   let pendingStart = start > 0 ? start : null; // where the first play should begin
   let playAsked = 0;       // when play() was last called (to ignore a stale "paused" report)
   let timer = 0;
+  const ccLang = (captions && captions.lang) || "";
+  const showOwn = !!(captions && captions.show && ccLang);
+  let ownShown = false;    // YouTube's captions are on in the language being learned
 
   const now = () => performance.now();
   const reported = () => { try { return player.getCurrentTime() || 0; } catch { return base; } };
@@ -102,7 +116,8 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0 } =
       lastGiven = base;
       playAsked = 0;
       setPaused(false);
-      captionsOff();
+      if (showOwn) captionsInLanguage();
+      else captionsOff();
     } else if (state === 3) {
       playAsked = 0;
       if (started) setPaused(false);
@@ -121,6 +136,33 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0 } =
   /** The app shows its own clickable captions; keep YouTube's own off so there aren't two sets. */
   function captionsOff() {
     try { player.unloadModule("captions"); player.unloadModule("cc"); } catch { /* not offered by this player */ }
+  }
+
+  /** YouTube's captions in the language being learned: its own track in it, else its translation
+   * of the track it shows. Waits (returns) until the captions part of the player has loaded. */
+  function captionsInLanguage() {
+    if (ownShown || disposed) return;
+    let list = [];
+    let current = null;
+    let languages = [];
+    try {
+      list = player.getOption("captions", "tracklist") || [];
+      current = player.getOption("captions", "track");
+      languages = player.getOption("captions", "translationLanguages") || [];
+    } catch { return; }
+    const own = list.find((t) => t && baseLanguage(t.languageCode) === ccLang);
+    try {
+      if (own) {
+        player.setOption("captions", "track", own);
+        ownShown = true;
+        return;
+      }
+      const source = current && current.languageCode ? current : list.find((t) => t && t.kind === "asr") || list[0];
+      const code = languages.find((l) => l.languageCode === youTubeLanguage(ccLang)) || languages.find((l) => baseLanguage(l.languageCode) === ccLang);
+      if (!source || !code) return;
+      player.setOption("captions", "track", { ...source, translationLanguage: { languageCode: code.languageCode, languageName: code.languageName } });
+      ownShown = true;
+    } catch { /* not offered by this player */ }
   }
 
   function jump(t) {
@@ -196,7 +238,8 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0 } =
       width: "100%",
       height: "100%",
       playerVars: {
-        cc_load_policy: 0,   // YouTube's own captions off (the app shows its own below the video)
+        cc_load_policy: showOwn ? 1 : 0, // YouTube's own captions: see the top of this file
+        cc_lang_pref: ccLang ? youTubeLanguage(ccLang) : undefined,
         playsinline: 1,      // on phones, play in the page rather than jumping to full screen
         rel: 0,              // at the end, only suggest videos from the same channel
         start: Math.floor(start) || undefined,
@@ -211,6 +254,7 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0 } =
           fire("loadedmetadata");
         },
         onStateChange: onState,
+        onApiChange: () => { if (showOwn && !disposed) captionsInLanguage(); }, // the captions part has loaded
         onPlaybackRateChange: (e) => { base = position(); baseAt = now(); rate = e.data || rate; },
         onError: (e) => { media.errorMessage = errorText(e.data); fire("error"); },
       },

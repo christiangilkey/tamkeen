@@ -6,7 +6,8 @@ and Drive sync all work unchanged. What marks it out:
     audio_url    the video's address (https://www.youtube.com/watch?v=<id>)
     audio_type   "video/youtube": the player embeds YouTube instead of playing a file
     guid         the 11-character video id
-    model        "youtube-captions" (written by a person) or "youtube-auto" (made by YouTube)
+    model        "youtube-captions" (written by a person), "youtube-auto" (YouTube's automatic captions)
+                 or "youtube-translated" (YouTube's machine translation of another track)
     status       "done" from the start (there is nothing to transcribe)
 
 The captions are fetched and parsed by web/js/youtube.js (one implementation for the computer
@@ -133,8 +134,16 @@ def clean_lines(lines: list[dict[str, Any]]) -> list[tuple[float, float, str, li
     return out
 
 
+def caption_model(kind: str | None, auto: bool = False) -> str:
+    """The episode's `model` for captions of this kind (see the top of this file)."""
+    if kind == "translated":
+        return "youtube-translated"
+    return "youtube-auto" if kind == "auto" or (kind is None and auto) else "youtube-captions"
+
+
 def save_video(video_id: str, title: str, lines: list[dict[str, Any]], channel: str | None = None,
-               duration: float | None = None, language: str | None = None, auto: bool = False) -> dict[str, Any]:
+               duration: float | None = None, language: str | None = None, auto: bool = False,
+               kind: str | None = None) -> dict[str, Any]:
     """Create (or refresh) the video's episode and store its captions. Returns the episode row."""
     video_id = clean_id(video_id)
     items = clean_lines(lines)
@@ -145,7 +154,7 @@ def save_video(video_id: str, title: str, lines: list[dict[str, Any]], channel: 
     image = f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg"
     if not languages.valid(language):
         language = languages.detect(" ".join(text for _s, _e, text, _w in items[:60]))
-    model = "youtube-auto" if auto else "youtube-captions"
+    model = caption_model(kind, auto)
     length = _num(duration) or items[-1][1]
     now = time.time()
     with db.session() as conn:

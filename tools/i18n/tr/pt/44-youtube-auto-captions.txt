@@ -1,0 +1,8 @@
+535852be	Este vídeo não tem legendas em {0:lower}, então estas são as dele em {1:lower}. A tradução do YouTube para {2:lower} aparece no vídeo.
+1a7c0521	Legendas automáticas do YouTube: podem ter erros.
+61f9b499	Traduzido pelo YouTube: pode não corresponder ao que é dito.
+8307fe58	Este vídeo também pode ser ouvido em {0:lower}: escolha em ⚙ → Faixa de áudio, no vídeo.
+5124719f	O YouTube ainda não dá ao Tamkeen legendas em {0:lower} para este vídeo.
+9d5a5e3a	Este vídeo não tem nenhuma legenda, então o Tamkeen não consegue mostrar as palavras dele. Tente outro vídeo.
+04467cb1	Este vídeo não tem legendas em {0:lower} escritas por uma pessoa. Para usar as automáticas do YouTube, desligue “Só vídeos com legendas feitas à mão” em Abrir o YouTube.
+0ad4709a	Este vídeo não tem legendas em {0:lower}, e o YouTube não quis traduzir as legendas dele para o Tamkeen. Tente outro vídeo.

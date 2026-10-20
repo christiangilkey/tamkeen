@@ -1,0 +1,2099 @@
+{
+ "lpxORICKA9w": {
+  "playabilityStatus": {
+   "status": "OK"
+  },
+  "videoDetails": {
+   "videoId": "lpxORICKA9w",
+   "title": "2Pac - Ya Hawa feat. Fairuz | فيروز و توباك",
+   "author": "Abu Zeid",
+   "lengthSeconds": "205",
+   "channelId": "UCeSWct8XOG6dEeZ9jT5RlYg"
+  },
+  "captions": {
+   "playerCaptionsTracklistRenderer": {
+    "captionTracks": [
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=lpxORICKA9w&kind=asr&lang=en",
+      "name": {
+       "runs": [
+        {
+         "text": "English (auto-generated)"
+        }
+       ]
+      },
+      "vssId": "a.en",
+      "languageCode": "en",
+      "kind": "asr",
+      "isTranslatable": true,
+      "trackName": ""
+     }
+    ],
+    "translationLanguages": [
+     {
+      "languageCode": "ar",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Arabic"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "zh-Hant",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Chinese (Traditional)"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "nl",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Dutch"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "fr",
+      "languageName": {
+       "runs": [
+        {
+         "text": "French"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "de",
+      "languageName": {
+       "runs": [
+        {
+         "text": "German"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "hi",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Hindi"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "id",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Indonesian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "it",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Italian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "ja",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Japanese"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "ko",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Korean"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "pt",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Portuguese"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "ru",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Russian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "es",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Spanish"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "th",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Thai"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "uk",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Ukrainian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "vi",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Vietnamese"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "streamingData": {
+   "adaptiveFormats": [
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\""
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\""
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    }
+   ]
+  }
+ },
+ "plN7JMbadRg": {
+  "playabilityStatus": {
+   "status": "OK"
+  },
+  "videoDetails": {
+   "videoId": "plN7JMbadRg",
+   "title": "Eat Everything In A Grocery Store, Win $1,000,000",
+   "author": "MrBeast",
+   "lengthSeconds": "3479",
+   "channelId": "UCX6OQ3DkcsbYNE6H8uQQuVA"
+  },
+  "captions": {
+   "playerCaptionsTracklistRenderer": {
+    "captionTracks": [
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=ar",
+      "name": {
+       "runs": [
+        {
+         "text": "Arabic"
+        }
+       ]
+      },
+      "vssId": ".ar",
+      "languageCode": "ar",
+      "rtl": true,
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=bn",
+      "name": {
+       "runs": [
+        {
+         "text": "Bangla"
+        }
+       ]
+      },
+      "vssId": ".bn",
+      "languageCode": "bn",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=zh-Hans",
+      "name": {
+       "runs": [
+        {
+         "text": "Chinese (Simplified)"
+        }
+       ]
+      },
+      "vssId": ".zh-Hans",
+      "languageCode": "zh-Hans",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=zh-Hant",
+      "name": {
+       "runs": [
+        {
+         "text": "Chinese (Traditional)"
+        }
+       ]
+      },
+      "vssId": ".zh-Hant",
+      "languageCode": "zh-Hant",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=en",
+      "name": {
+       "runs": [
+        {
+         "text": "English"
+        }
+       ]
+      },
+      "vssId": ".en",
+      "languageCode": "en",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&kind=asr&lang=en",
+      "name": {
+       "runs": [
+        {
+         "text": "English (auto-generated)"
+        }
+       ]
+      },
+      "vssId": "a.en",
+      "languageCode": "en",
+      "kind": "asr",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=en-CA",
+      "name": {
+       "runs": [
+        {
+         "text": "English (Canada)"
+        }
+       ]
+      },
+      "vssId": ".en-CA",
+      "languageCode": "en-CA",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=en-GB",
+      "name": {
+       "runs": [
+        {
+         "text": "English (United Kingdom)"
+        }
+       ]
+      },
+      "vssId": ".en-GB",
+      "languageCode": "en-GB",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=fr",
+      "name": {
+       "runs": [
+        {
+         "text": "French"
+        }
+       ]
+      },
+      "vssId": ".fr",
+      "languageCode": "fr",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=de",
+      "name": {
+       "runs": [
+        {
+         "text": "German"
+        }
+       ]
+      },
+      "vssId": ".de",
+      "languageCode": "de",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=hi",
+      "name": {
+       "runs": [
+        {
+         "text": "Hindi"
+        }
+       ]
+      },
+      "vssId": ".hi",
+      "languageCode": "hi",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=id",
+      "name": {
+       "runs": [
+        {
+         "text": "Indonesian"
+        }
+       ]
+      },
+      "vssId": ".id",
+      "languageCode": "id",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=it",
+      "name": {
+       "runs": [
+        {
+         "text": "Italian"
+        }
+       ]
+      },
+      "vssId": ".it",
+      "languageCode": "it",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=ja",
+      "name": {
+       "runs": [
+        {
+         "text": "Japanese"
+        }
+       ]
+      },
+      "vssId": ".ja",
+      "languageCode": "ja",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=ko",
+      "name": {
+       "runs": [
+        {
+         "text": "Korean"
+        }
+       ]
+      },
+      "vssId": ".ko",
+      "languageCode": "ko",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=ml",
+      "name": {
+       "runs": [
+        {
+         "text": "Malayalam"
+        }
+       ]
+      },
+      "vssId": ".ml",
+      "languageCode": "ml",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=mr",
+      "name": {
+       "runs": [
+        {
+         "text": "Marathi"
+        }
+       ]
+      },
+      "vssId": ".mr",
+      "languageCode": "mr",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=fa",
+      "name": {
+       "runs": [
+        {
+         "text": "Persian"
+        }
+       ]
+      },
+      "vssId": ".fa",
+      "languageCode": "fa",
+      "rtl": true,
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=pl",
+      "name": {
+       "runs": [
+        {
+         "text": "Polish"
+        }
+       ]
+      },
+      "vssId": ".pl",
+      "languageCode": "pl",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=pt",
+      "name": {
+       "runs": [
+        {
+         "text": "Portuguese"
+        }
+       ]
+      },
+      "vssId": ".pt",
+      "languageCode": "pt",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=pt-BR",
+      "name": {
+       "runs": [
+        {
+         "text": "Portuguese (Brazil)"
+        }
+       ]
+      },
+      "vssId": ".pt-BR",
+      "languageCode": "pt-BR",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=pa",
+      "name": {
+       "runs": [
+        {
+         "text": "Punjabi"
+        }
+       ]
+      },
+      "vssId": ".pa",
+      "languageCode": "pa",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=ru",
+      "name": {
+       "runs": [
+        {
+         "text": "Russian"
+        }
+       ]
+      },
+      "vssId": ".ru",
+      "languageCode": "ru",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=es",
+      "name": {
+       "runs": [
+        {
+         "text": "Spanish"
+        }
+       ]
+      },
+      "vssId": ".es",
+      "languageCode": "es",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=ta",
+      "name": {
+       "runs": [
+        {
+         "text": "Tamil"
+        }
+       ]
+      },
+      "vssId": ".ta",
+      "languageCode": "ta",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=te",
+      "name": {
+       "runs": [
+        {
+         "text": "Telugu"
+        }
+       ]
+      },
+      "vssId": ".te",
+      "languageCode": "te",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=th",
+      "name": {
+       "runs": [
+        {
+         "text": "Thai"
+        }
+       ]
+      },
+      "vssId": ".th",
+      "languageCode": "th",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=tr",
+      "name": {
+       "runs": [
+        {
+         "text": "Turkish"
+        }
+       ]
+      },
+      "vssId": ".tr",
+      "languageCode": "tr",
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=plN7JMbadRg&lang=vi",
+      "name": {
+       "runs": [
+        {
+         "text": "Vietnamese"
+        }
+       ]
+      },
+      "vssId": ".vi",
+      "languageCode": "vi",
+      "isTranslatable": true,
+      "trackName": ""
+     }
+    ],
+    "translationLanguages": [
+     {
+      "languageCode": "ar",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Arabic"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "zh-Hant",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Chinese (Traditional)"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "nl",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Dutch"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "en",
+      "languageName": {
+       "runs": [
+        {
+         "text": "English"
+        }
+       ]
+      },
+      "translationSourceTrackIndices": [
+       0
+      ]
+     },
+     {
+      "languageCode": "fr",
+      "languageName": {
+       "runs": [
+        {
+         "text": "French"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "de",
+      "languageName": {
+       "runs": [
+        {
+         "text": "German"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "hi",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Hindi"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "id",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Indonesian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "it",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Italian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "ja",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Japanese"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "ko",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Korean"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "pt",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Portuguese"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "ru",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Russian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "es",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Spanish"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "th",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Thai"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "tr",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Turkish"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "uk",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Ukrainian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "vi",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Vietnamese"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "streamingData": {
+   "adaptiveFormats": [
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Arabic",
+      "id": "ar.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Bangla",
+      "id": "bn.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "German",
+      "id": "de.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Spanish",
+      "id": "es.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "French",
+      "id": "fr.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Hindi",
+      "id": "hi.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Indonesian",
+      "id": "id.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Italian",
+      "id": "it.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Japanese",
+      "id": "ja.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Korean",
+      "id": "ko.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Malayalam",
+      "id": "ml.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Polish",
+      "id": "pl.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Portuguese",
+      "id": "pt.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Portuguese (BR)",
+      "id": "pt-BR.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Russian",
+      "id": "ru.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Tamil",
+      "id": "ta.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Telugu",
+      "id": "te.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Thai",
+      "id": "th.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Turkish",
+      "id": "tr.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Vietnamese",
+      "id": "vi.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Chinese (Simplified)",
+      "id": "zh-Hans.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "Chinese (Traditional)",
+      "id": "zh-Hant.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "English original",
+      "id": "en.4",
+      "audioIsDefault": true
+     }
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\"",
+     "audioTrack": {
+      "displayName": "English original",
+      "id": "en.4",
+      "audioIsDefault": true
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Arabic",
+      "id": "ar.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Bangla",
+      "id": "bn.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "German",
+      "id": "de.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Spanish",
+      "id": "es.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "French",
+      "id": "fr.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Hindi",
+      "id": "hi.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Indonesian",
+      "id": "id.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Italian",
+      "id": "it.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Japanese",
+      "id": "ja.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Korean",
+      "id": "ko.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Malayalam",
+      "id": "ml.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Polish",
+      "id": "pl.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Portuguese",
+      "id": "pt.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Portuguese (BR)",
+      "id": "pt-BR.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Russian",
+      "id": "ru.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Tamil",
+      "id": "ta.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Telugu",
+      "id": "te.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Thai",
+      "id": "th.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Turkish",
+      "id": "tr.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Vietnamese",
+      "id": "vi.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Chinese (Simplified)",
+      "id": "zh-Hans.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "Chinese (Traditional)",
+      "id": "zh-Hant.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "English original",
+      "id": "en.4",
+      "audioIsDefault": true
+     }
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+     "audioTrack": {
+      "displayName": "English original",
+      "id": "en.4",
+      "audioIsDefault": true
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Arabic",
+      "id": "ar.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Bangla",
+      "id": "bn.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "German",
+      "id": "de.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Spanish",
+      "id": "es.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "French",
+      "id": "fr.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Hindi",
+      "id": "hi.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Indonesian",
+      "id": "id.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Italian",
+      "id": "it.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Japanese",
+      "id": "ja.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Korean",
+      "id": "ko.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Malayalam",
+      "id": "ml.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Polish",
+      "id": "pl.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Portuguese",
+      "id": "pt.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Portuguese (BR)",
+      "id": "pt-BR.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Russian",
+      "id": "ru.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Tamil",
+      "id": "ta.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Telugu",
+      "id": "te.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Thai",
+      "id": "th.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Turkish",
+      "id": "tr.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Vietnamese",
+      "id": "vi.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Chinese (Simplified)",
+      "id": "zh-Hans.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Chinese (Traditional)",
+      "id": "zh-Hant.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "English original",
+      "id": "en.4",
+      "audioIsDefault": true
+     }
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "English original",
+      "id": "en.4",
+      "audioIsDefault": true
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Arabic",
+      "id": "ar.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Bangla",
+      "id": "bn.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "German",
+      "id": "de.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Spanish",
+      "id": "es.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "French",
+      "id": "fr.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Hindi",
+      "id": "hi.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Indonesian",
+      "id": "id.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Italian",
+      "id": "it.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Japanese",
+      "id": "ja.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Korean",
+      "id": "ko.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Malayalam",
+      "id": "ml.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Polish",
+      "id": "pl.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Portuguese",
+      "id": "pt.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Portuguese (BR)",
+      "id": "pt-BR.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Russian",
+      "id": "ru.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Tamil",
+      "id": "ta.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Telugu",
+      "id": "te.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Thai",
+      "id": "th.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Turkish",
+      "id": "tr.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Vietnamese",
+      "id": "vi.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Chinese (Simplified)",
+      "id": "zh-Hans.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "Chinese (Traditional)",
+      "id": "zh-Hant.3",
+      "audioIsDefault": false
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "English original",
+      "id": "en.4",
+      "audioIsDefault": true
+     }
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\"",
+     "audioTrack": {
+      "displayName": "English original",
+      "id": "en.4",
+      "audioIsDefault": true
+     }
+    }
+   ]
+  }
+ },
+ "lo3KyF50IGE": {
+  "playabilityStatus": {
+   "status": "OK"
+  },
+  "videoDetails": {
+   "videoId": "lo3KyF50IGE",
+   "title": "الدحيح | لماذا ما زالت كلاب الشوارع موجودة؟",
+   "author": "AJ+ كبريت",
+   "lengthSeconds": "2037",
+   "channelId": "UC-4KnPMmZzwAzW7SbVATUZQ"
+  },
+  "captions": {
+   "playerCaptionsTracklistRenderer": {
+    "captionTracks": [
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=lo3KyF50IGE&lang=ar",
+      "name": {
+       "runs": [
+        {
+         "text": "Arabic"
+        }
+       ]
+      },
+      "vssId": ".ar",
+      "languageCode": "ar",
+      "rtl": true,
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=lo3KyF50IGE&kind=asr&lang=ar",
+      "name": {
+       "runs": [
+        {
+         "text": "Arabic (auto-generated)"
+        }
+       ]
+      },
+      "vssId": "a.ar",
+      "languageCode": "ar",
+      "kind": "asr",
+      "rtl": true,
+      "isTranslatable": true,
+      "trackName": ""
+     },
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=lo3KyF50IGE&lang=en",
+      "name": {
+       "runs": [
+        {
+         "text": "English"
+        }
+       ]
+      },
+      "vssId": ".en",
+      "languageCode": "en",
+      "isTranslatable": true,
+      "trackName": ""
+     }
+    ],
+    "translationLanguages": [
+     {
+      "languageCode": "ar",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Arabic"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "zh-Hant",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Chinese (Traditional)"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "nl",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Dutch"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "en",
+      "languageName": {
+       "runs": [
+        {
+         "text": "English"
+        }
+       ]
+      },
+      "translationSourceTrackIndices": [
+       0
+      ]
+     },
+     {
+      "languageCode": "fr",
+      "languageName": {
+       "runs": [
+        {
+         "text": "French"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "de",
+      "languageName": {
+       "runs": [
+        {
+         "text": "German"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "hi",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Hindi"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "id",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Indonesian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "it",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Italian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "ja",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Japanese"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "ko",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Korean"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "pt",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Portuguese"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "ru",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Russian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "es",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Spanish"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "th",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Thai"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "tr",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Turkish"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "uk",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Ukrainian"
+        }
+       ]
+      }
+     },
+     {
+      "languageCode": "vi",
+      "languageName": {
+       "runs": [
+        {
+         "text": "Vietnamese"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "streamingData": {
+   "adaptiveFormats": [
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\""
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\""
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\""
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\""
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    }
+   ]
+  }
+ },
+ "Hgm3vatPXCM": {
+  "playabilityStatus": {
+   "status": "OK"
+  },
+  "videoDetails": {
+   "videoId": "Hgm3vatPXCM",
+   "title": "Spending the day with SouSou (You Won't Believe What Happened)",
+   "author": "Youmi",
+   "lengthSeconds": "2119",
+   "channelId": "UC4_J7LTe0OUmLGiuKsffIOA"
+  },
+  "captions": {
+   "playerCaptionsTracklistRenderer": {
+    "captionTracks": [
+     {
+      "baseUrl": "https://www.youtube.com/api/timedtext?v=Hgm3vatPXCM&kind=asr&lang=ar",
+      "name": {
+       "runs": [
+        {
+         "text": "Arabic (auto-generated)"
+        }
+       ]
+      },
+      "vssId": "a.ar",
+      "languageCode": "ar",
+      "kind": "asr",
+      "rtl": true,
+      "isTranslatable": true,
+      "trackName": ""
+     }
+    ]
+   }
+  },
+  "streamingData": {
+   "adaptiveFormats": [
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\""
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\""
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\""
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\""
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    }
+   ]
+  }
+ },
+ "kT2NVr9gZVI": {
+  "playabilityStatus": {
+   "status": "OK"
+  },
+  "videoDetails": {
+   "videoId": "kT2NVr9gZVI",
+   "title": "فلوق يومي 📝🍵🪄 تجهزوا معي للمدرسه **grwm • study with me  • my routine ✨",
+   "author": "Sara",
+   "lengthSeconds": "810",
+   "channelId": "UCdiS0FKFPC8O5afJk1_Yfaw"
+  },
+  "streamingData": {
+   "adaptiveFormats": [
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\""
+    },
+    {
+     "itag": 139,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.5\""
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\""
+    },
+    {
+     "itag": 140,
+     "mimeType": "audio/mp4; codecs=\"mp4a.40.2\""
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    },
+    {
+     "itag": 249,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    },
+    {
+     "itag": 251,
+     "mimeType": "audio/webm; codecs=\"opus\""
+    }
+   ]
+  }
+ }
+}
