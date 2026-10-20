@@ -13,3 +13,4 @@ ccd8641e	Gratuït, funciona sense connexió
 99b4ddfa	El significat del diccionari quan té la paraula; {0} per a la resta
 33a08a0b	Afegeix una clau d'API a Configuració per a les paraules que no té
 f093a8da	Primer el diccionari
+1287cc0a	Encara no hi ha diccionari per a aquest idioma, així que {0} explica totes les paraules

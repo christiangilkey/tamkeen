@@ -13,3 +13,4 @@ ccd8641e	Libre, mogana bisan offline
 99b4ddfa	Ang kahulogan sa diksyonaryo kung anaa niini ang pulong, {0} para sa uban
 33a08a0b	Pagdugang og API key sa Settings para sa mga pulong nga wala niini
 f093a8da	Diksyonaryo una
+1287cc0a	Wala pay diksyonaryo para niining pinulongan, mao nga {0} ang mopasabot sa tanang pulong

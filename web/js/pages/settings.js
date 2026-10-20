@@ -9,7 +9,7 @@ import { modelManager, gpuPanel } from "../components/models.js";
 import { aiSetup } from "../components/aisetup.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { STT_PROVIDERS, sttConfig } from "../stt.js";
-import { PROVIDERS } from "../definer.js";
+import { PROVIDERS, definerModeOf } from "../definer.js";
 import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { ankiSyncPanel } from "../components/ankisync.js";
@@ -51,9 +51,10 @@ function home(view, status) {
     summaries: {
       languages: () => [{ text: `Learning ${langInfo(studyLanguage()).name}` }, { text: `App in ${UI_LANGUAGES[ui].native}` }],
       words: () => {
-        if (s.definer_mode === "dictionary") return { text: "No AI: built-in dictionary" };
+        const how = definerModeOf(s);
+        if (how === "dictionary") return { text: "No AI: built-in dictionary" };
         const p = PROVIDERS[s.definer_provider] ? s.definer_provider : "claude";
-        if (s.definer_mode === "dictionary_first") {
+        if (how === "dictionary_first") {
           return { text: s[`llm_key_${p}`] ? `Dictionary first, then ${PROVIDERS[p].short}` : "Built-in dictionary (no AI key yet)" };
         }
         return s[`llm_key_${p}`] ? { text: `AI explanations with ${PROVIDERS[p].short}` } : { text: "Needs an API key", warn: true };

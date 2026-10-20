@@ -3672,6 +3672,16 @@ Owner: "Let Tamkeen give notifications for chat messages ... That includes media
   (library.js transcribe). The computer's server reported each queued episode; the phone, queueing them for the
   computer, sent nothing, so the counts stayed at 0 until a reload. Also for Bisaya (computer-only).
 
+## "Dictionary first, AI when it has nothing" is the default (2026-10-20; committed, not pushed)
+Owner: "Set lookup with dictionary and use ai when definition isnt available as default".
+- `definer_mode` default `"dictionary_first"`: web/js/definer.js (`DEFAULT_DEFINER_MODE`, definerModeOf's fallback),
+  mobile/src/js/store.js DEFAULTS, app/db.py defaults. Settings → Word definitions shows "Recommended" on it; the
+  Settings home summaries read the mode through definerModeOf (an unset setting = the default).
+- Existing installs: the desktop stores only settings that were changed, so anyone who never chose gets the new
+  default. The phone/web app keeps every setting, defaults included, so a one-time move in store.js loadSettings
+  (`definer_default_moved`, device-only, not synced) turns a stored "ai" into "dictionary_first" only when no AI key is
+  set (AI couldn't work for them anyway). Anyone with a key keeps AI until they change it.
+
 ## Word popup: the source tag switches the source; "Use the dictionary instead" (2026-10-20; branch `def-source`, NOT merged, NOT pushed)
 Owner (Android YouTube player, "Couldn't reach Claude" on a tapped word): "There should be a source tag on the popup for
 what was used to get the word definition and it should be clickable and switchable to another source such as the
@@ -3705,8 +3715,12 @@ downloaded library, this selection should be remembered and auto saved on switch
 - Code: new `web/js/defsource.js` (pure: `sourceChoices`, `settingsFor`, `switchSource`, `askAfresh`, `tagLabel`,
   `offerDictionary`, `dictionaryNames`; added to build-www.mjs SHARED); wordbubble.js (tag, menu, `choose`); styles
   `.wb-src`, `.wb-srcmenu`, `.wb-srcopt*`, `.wb-saved` in web/css/app.css. No Python change (PATCH /api/settings
-  already takes the three modes and the provider). Tests: tests/js/defsource.test.mjs (12). Translations:
-  tools/i18n/tr/<code>/44-source-menu.txt (12 languages).
+  already takes the three modes and the provider). Tests: tests/js/defsource.test.mjs (13). Translations:
+  tools/i18n/tr/<code>/45-source-menu.txt (12 languages).
+- **After main made Dictionary first the default** (merged in): the menu reads the mode through definerModeOf, so an
+  unset setting shows Dictionary first ticked; that row carries the same "Recommended" badge as Settings; in a
+  language without a dictionary it says the AI explains every word. "Use the dictionary instead" now shows only for
+  people who chose AI.
 - Tested with a made-up key and the AI's failure faked inside the page (no request reached a provider), at
   "Mañana"/"playa" in an imported Spanish page: the desktop server (launch config `defsource-desktop`, fresh data
   folder, never signed in), the phone build (`defsource-phone`, mobile/www at 375 px) and the web app build

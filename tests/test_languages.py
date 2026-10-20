@@ -71,7 +71,7 @@ def test_settings_take_the_three_ways_of_explaining_words(fresh_db):
     from app.main import create_app
 
     client = TestClient(create_app(start_worker=False))
-    assert db.get_setting("definer_mode") == "ai"
+    assert db.get_setting("definer_mode") == "dictionary_first", "the default: dictionary first, AI for the rest"
     for mode in ("dictionary_first", "dictionary", "ai"):
         assert client.patch("/api/settings", json={"definer_mode": mode}).json()["definer_mode"] == mode
     assert client.patch("/api/settings", json={"definer_mode": "dictionary_first"}).status_code == 200

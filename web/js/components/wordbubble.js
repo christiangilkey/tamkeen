@@ -185,7 +185,7 @@ export function createWordBubble(host, actions) {
         ${choices.map((c) => `<button type="button" role="menuitemradio" aria-checked="${c.on}" class="wb-srcopt${c.on ? " on" : ""}"
             data-act="pick" data-id="${c.id}" ${c.unavailable ? "disabled" : ""}>
             <span class="wb-srcopt-mark">${c.on ? icon("check", 15) : ""}</span>
-            <span class="wb-srcopt-text"><span class="wb-srcopt-name">${esc(c.label)}</span><span class="wb-srcopt-detail">${esc(c.detail)}</span></span>
+            <span class="wb-srcopt-text"><span class="wb-srcopt-name">${esc(c.label)}${c.recommended ? ` <span class="badge">Recommended</span>` : ""}</span><span class="wb-srcopt-detail">${esc(c.detail)}</span></span>
             ${c.download != null ? `<span class="wb-srcopt-dl">${c.download ? `Download, ${mb(c.download)}` : "Download"}</span>` : ""}
           </button>`).join("")}
         <div class="wb-srcmenu-foot">For every language you study. Also in Settings → Word definitions.</div>

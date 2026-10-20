@@ -7,7 +7,7 @@
 // Shared by the desktop app, the phone and the web app. No screen code here (tested in
 // tests/js/defsource.test.mjs).
 
-import { PROVIDERS, answerSource, definerModeOf, modelFor } from "./definer.js";
+import { DEFAULT_DEFINER_MODE, PROVIDERS, answerSource, definerModeOf, modelFor } from "./definer.js";
 
 /** The AI provider chosen in Settings (Claude when none is). */
 export const chosenProvider = (settings) => (PROVIDERS[settings && settings.definer_provider] ? settings.definer_provider : "claude");
@@ -34,8 +34,8 @@ export function dictionaryNames(lang, names) {
  * `dict` is that language's dictionary status here (meanings.js meaningsStatus: {needed, installed,
  * bytes, names}), or null while it isn't known yet.
  * Each choice: {id, kind ("ai" | "setup" | "dictionary" | "dictionary_first"), label, detail, on (the
- * current setting), provider (AI), download (bytes to fetch first, or null), unavailable (no
- * dictionary for this language)}.
+ * current setting; an unset setting is the default, see definerModeOf), provider (AI), download (bytes
+ * to fetch first, or null), unavailable (no dictionary for this language), recommended (the default)}.
  *  - one AI choice for each provider with a key; with no key at all, one "AI explanations" that
  *    opens Settings to add one;
  *  - the built-in dictionary (with its size when it isn't on this device yet);
@@ -65,7 +65,9 @@ export function sourceChoices(settings, dict = null) {
   if ((keyed.length && !none) || mode === "dictionary_first") {
     const ai = PROVIDERS[keyed.includes(current) ? current : keyed[0] || current].short;
     out.push({ id: "dictionary_first", kind: "dictionary_first", label: "Dictionary first, AI when it has nothing", unavailable: none,
-      detail: keyed.length ? `The dictionary's meaning when it has the word, ${ai} for the rest` : "Add an API key in Settings for the words it doesn't have",
+      recommended: DEFAULT_DEFINER_MODE === "dictionary_first", // as in Settings → Word definitions
+      detail: none ? (keyed.length ? `No dictionary for this language yet, so ${ai} explains every word` : "None for this language yet")
+        : keyed.length ? `The dictionary's meaning when it has the word, ${ai} for the rest` : "Add an API key in Settings for the words it doesn't have",
       on: mode === "dictionary_first", download });
   }
   return out;

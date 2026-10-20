@@ -27,9 +27,18 @@ test("one AI choice for each provider with a key, the dictionary, and Dictionary
 test("a typed-in model and a key with spaces only", () => {
   const s = { llm_key_openai: "sk-x", definer_provider: "openai", definer_model_openai: "my-model", llm_key_grok: "   " };
   assert.deepEqual(keyedProviders(s), ["openai"]);
-  const [ai] = sourceChoices(s, null);
+  const [ai] = sourceChoices({ ...s, definer_mode: "ai" }, null);
   assert.equal(ai.detail, "my-model");
-  assert.equal(ai.on, true); // no definer_mode yet counts as AI
+  assert.equal(ai.on, true);
+});
+
+test("an unset setting is the default, Dictionary first, which is marked Recommended as in Settings", () => {
+  const list = sourceChoices({ llm_key_claude: "k" }, here("es", ["mean-es"]));
+  assert.deepEqual(on(list), ["dictionary_first"]);
+  assert.deepEqual(list.filter((c) => c.recommended).map((c) => c.id), ["dictionary_first"]);
+  // A new user with no key: the default is the dictionary alone in effect, and still shows as chosen.
+  assert.deepEqual(on(sourceChoices({}, here("es", ["mean-es"]))), ["dictionary_first"]);
+  assert.equal(tagLabel({}), "Dictionary first");
 });
 
 test("no key at all: one AI choice that leads to Settings, and no Dictionary first", () => {
@@ -65,7 +74,11 @@ test("each language names its own dictionaries, in the order they are asked", ()
 
 test("a language without a dictionary offers only AI, unless a dictionary setting must still show", () => {
   const none = { lang: "xx", needed: false, installed: false, bytes: 0, names: [] };
-  assert.deepEqual(ids(sourceChoices({ llm_key_claude: "k" }, none)), ["ai:claude"]);
+  assert.deepEqual(ids(sourceChoices({ definer_mode: "ai", llm_key_claude: "k" }, none)), ["ai:claude"]);
+  // The default (Dictionary first) still shows as chosen there: the AI explains every word.
+  const first = sourceChoices({ llm_key_claude: "k" }, none);
+  assert.deepEqual(ids(first), ["ai:claude", "dictionary_first"]);
+  assert.match(first[1].detail, /Claude explains every word/);
   const list = sourceChoices({ definer_mode: "dictionary", llm_key_claude: "k" }, none);
   assert.deepEqual(ids(list), ["ai:claude", "dictionary"]);
   assert.equal(list[1].unavailable, true);
@@ -129,7 +142,7 @@ test("the tag: the shown answer's source, or before one, the source the setting 
 
 test("'Use the dictionary instead' is offered when AI alone is the setting", () => {
   assert.equal(offerDictionary({ definer_mode: "ai" }), true);
-  assert.equal(offerDictionary({}), true);
+  assert.equal(offerDictionary({}), false); // unset = Dictionary first (the default)
   assert.equal(offerDictionary({ definer_mode: "dictionary_first" }), false); // the dictionary was asked already
   assert.equal(offerDictionary({ definer_mode: "dictionary" }), false);
   assert.equal(FALLBACK.kind, "dictionary_first"); // a key that works again still covers the words it lacks

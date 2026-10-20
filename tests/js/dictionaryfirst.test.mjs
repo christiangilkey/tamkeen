@@ -63,13 +63,13 @@ test("an AI failure after the dictionary had nothing is the AI's (so Troubleshoo
   await assert.rejects(dictionaryFirst({ ...s, hasKey: true }), /refused the key/);
 });
 
-test("the setting: three ways, anything else is AI", () => {
+test("the setting: three ways; unset (or anything else) is the default, dictionary first", () => {
   assert.equal(definerModeOf({ definer_mode: "dictionary_first" }), "dictionary_first");
   assert.equal(definerModeOf({ definer_mode: "dictionary" }), "dictionary");
   assert.equal(definerModeOf({ definer_mode: "ai" }), "ai");
-  assert.equal(definerModeOf({ definer_mode: "something newer" }), "ai");
-  assert.equal(definerModeOf({}), "ai");
-  assert.equal(definerModeOf(null), "ai");
+  assert.equal(definerModeOf({ definer_mode: "something newer" }), "dictionary_first");
+  assert.equal(definerModeOf({}), "dictionary_first");
+  assert.equal(definerModeOf(null), "dictionary_first");
 });
 
 test("the popup's tag names the dictionary a meaning came from", () => {

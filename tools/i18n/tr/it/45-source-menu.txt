@@ -13,3 +13,4 @@ ccd8641e	Gratis, funziona offline
 99b4ddfa	Il significato del dizionario quando ha la parola, {0} per il resto
 33a08a0b	Aggiungi una chiave API in Impostazioni per le parole che non ha
 f093a8da	Prima il dizionario
+1287cc0a	Ancora nessun dizionario per questa lingua, quindi {0} spiega tutte le parole
