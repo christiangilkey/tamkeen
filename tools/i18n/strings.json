@@ -9670,6 +9670,31 @@
   "f": "web/js/pages/player.js"
  },
  {
+  "id": "535852be",
+  "k": "No {0} captions for this video, so these are its {1} ones. YouTube's {2} translation is shown in the video.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "1a7c0521",
+  "k": "YouTube's automatic captions: they can have mistakes.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "61f9b499",
+  "k": "Translated by YouTube: it may not match what is said.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "8307fe58",
+  "k": "This video can be heard in {0} too: choose it under ⚙ → Audio track in the video.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "5124719f",
+  "k": "YouTube still won't give Tamkeen {0} captions for this video.",
+  "f": "web/js/pages/player.js"
+ },
+ {
   "id": "3d861abc",
   "k": "▶ Play from here",
   "f": "web/js/pages/player.js"
@@ -13625,13 +13650,28 @@
   "f": "web/js/ytcaptions.js"
  },
  {
-  "id": "bb0ea382",
-  "k": "No captions available for this video.",
+  "id": "9d5a5e3a",
+  "k": "This video has no captions at all, so Tamkeen can't show its words. Try another video.",
+  "f": "web/js/ytcaptions.js"
+ },
+ {
+  "id": "04467cb1",
+  "k": "This video has no {0} subtitles written by a person. To use YouTube's automatic ones, turn off “Only videos with handmade subtitles” under Open YouTube.",
   "f": "web/js/ytcaptions.js"
  },
  {
   "id": "a66bb5c6",
   "k": "No {0} captions available for this video.",
+  "f": "web/js/ytcaptions.js"
+ },
+ {
+  "id": "0ad4709a",
+  "k": "No {0} captions for this video, and YouTube wouldn't translate its captions for Tamkeen. Try another video.",
+  "f": "web/js/ytcaptions.js"
+ },
+ {
+  "id": "bb0ea382",
+  "k": "No captions available for this video.",
   "f": "web/js/ytcaptions.js"
  },
  {

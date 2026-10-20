@@ -52,6 +52,18 @@ def test_auto_captions_are_marked_and_language_is_worked_out(world):
         assert ep["duration"] == 5.0, "without a length, the last caption's end stands in"
 
 
+def test_caption_kind_is_kept_as_the_model(world):
+    """YouTube's translation into the language being learned is marked apart (the player says so)."""
+    _, a, _ = world
+    with a:
+        assert youtube.save_video(VIDEO, "", LINES, language="ar", kind="translated")["model"] == "youtube-translated"
+        assert youtube.save_video(VIDEO, "", LINES, language="ar", kind="auto")["model"] == "youtube-auto"
+        assert youtube.save_video(VIDEO, "", LINES, language="ar", kind="manual", auto=True)["model"] == "youtube-captions"
+    # Older pages send only `auto`.
+    assert [youtube.caption_model(None, True), youtube.caption_model(None, False)] == ["youtube-auto", "youtube-captions"]
+    assert youtube.caption_model("nonsense") == "youtube-captions"
+
+
 def test_adding_a_video_again_replaces_it(world):
     _, a, _ = world
     with a:

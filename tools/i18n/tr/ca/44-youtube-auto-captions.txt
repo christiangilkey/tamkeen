@@ -1,0 +1,8 @@
+535852be	Aquest vídeo no té subtítols en {0:lower}, així que aquests són els seus en {1:lower}. La traducció de YouTube al {2:lower} es mostra al vídeo.
+1a7c0521	Subtítols automàtics de YouTube: poden tenir errors.
+61f9b499	Traduït per YouTube: pot no coincidir amb el que es diu.
+8307fe58	Aquest vídeo també es pot escoltar en {0:lower}: tria'l a ⚙ → Pista d'àudio, al vídeo.
+5124719f	YouTube encara no dona a Tamkeen subtítols en {0:lower} per a aquest vídeo.
+9d5a5e3a	Aquest vídeo no té cap subtítol, així que Tamkeen no en pot mostrar les paraules. Prova un altre vídeo.
+04467cb1	Aquest vídeo no té subtítols en {0:lower} escrits per una persona. Per fer servir els automàtics de YouTube, desactiva «Només vídeos amb subtítols fets a mà» a Obre YouTube.
+0ad4709a	Aquest vídeo no té subtítols en {0:lower}, i YouTube no n'ha volgut traduir els subtítols per a Tamkeen. Prova un altre vídeo.

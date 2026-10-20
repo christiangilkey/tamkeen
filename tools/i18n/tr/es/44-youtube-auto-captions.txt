@@ -1,0 +1,8 @@
+535852be	Este vídeo no tiene subtítulos en {0:lower}, así que estos son los suyos en {1:lower}. La traducción de YouTube al {2:lower} se muestra en el vídeo.
+1a7c0521	Subtítulos automáticos de YouTube: pueden tener errores.
+61f9b499	Traducido por YouTube: puede no coincidir con lo que se dice.
+8307fe58	Este vídeo también se puede escuchar en {0:lower}: elígelo en ⚙ → Pista de audio, en el vídeo.
+5124719f	YouTube sigue sin darle a Tamkeen subtítulos en {0:lower} para este vídeo.
+9d5a5e3a	Este vídeo no tiene ningún subtítulo, así que Tamkeen no puede mostrar sus palabras. Prueba con otro vídeo.
+04467cb1	Este vídeo no tiene subtítulos en {0:lower} escritos por una persona. Para usar los automáticos de YouTube, desactiva «Solo vídeos con subtítulos hechos a mano» en Abrir YouTube.
+0ad4709a	Este vídeo no tiene subtítulos en {0:lower}, y YouTube no quiso traducir sus subtítulos para Tamkeen. Prueba con otro vídeo.

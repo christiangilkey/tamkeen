@@ -116,6 +116,12 @@ body:has(.add-fab) .toasts { bottom: 100px; }
   min-height: calc(1.75em * 2 + .7em); /* room for two lines, so the video doesn't jump as lines change */
 }
 .player.yt .captions:empty { display: block; }
+/* Which captions these are (YouTube's automatic ones, its translation, another language) and a
+   dubbed audio track: one or two small lines on the same black bar, under the captions. */
+.player.yt .yt-note { background: #111; color: #a8a8a8; font-size: 12px; line-height: 1.4; padding: 0 .8em .4em; }
+.player.yt .yt-note[hidden] { display: none; }
+.player.yt .yt-note p { margin: 0; }
+.player.yt .yt-note button { background: none; border: 0; min-height: 0; padding: 0; color: #fff; font: inherit; text-decoration: underline; cursor: pointer; }
 .player.yt.cc-off .captions { display: none; }
 .player.yt #more { display: none; }
 @media (max-width: 760px) {

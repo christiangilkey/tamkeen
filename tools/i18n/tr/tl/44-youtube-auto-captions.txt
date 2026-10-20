@@ -1,0 +1,8 @@
+535852be	Walang {0} na captions ang video na ito, kaya ang mga {1} na captions nito ang nakikita. Ang salin ng YouTube sa {2} ay ipinapakita sa video.
+1a7c0521	Mga awtomatikong captions ng YouTube: maaaring may mga mali.
+61f9b499	Isinalin ng YouTube: maaaring hindi tugma sa sinasabi.
+8307fe58	Puwede ring pakinggan sa {0} ang video na ito: piliin ito sa ⚙ → Audio track sa video.
+5124719f	Hindi pa rin binibigyan ng YouTube ang Tamkeen ng {0} na captions para sa video na ito.
+9d5a5e3a	Walang kahit anong captions ang video na ito, kaya hindi maipakita ng Tamkeen ang mga salita nito. Sumubok ng ibang video.
+04467cb1	Walang {0} na subtitle na gawa ng tao ang video na ito. Para magamit ang mga awtomatiko ng YouTube, i-off ang “Mga video lang na may subtitle na gawa ng tao” sa ilalim ng Buksan ang YouTube.
+0ad4709a	Walang {0} na captions ang video na ito, at ayaw isalin ng YouTube ang mga captions nito para sa Tamkeen. Sumubok ng ibang video.

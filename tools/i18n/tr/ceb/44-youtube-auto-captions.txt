@@ -1,0 +1,8 @@
+535852be	Walay caption sa {0} kini nga video, mao nga ang iyang mga caption sa {1} ang makita. Ang hubad sa YouTube ngadto sa {2} gipakita sa video.
+1a7c0521	Mga awtomatikong caption sa YouTube: mahimong adunay mga sayop.
+61f9b499	Gihubad sa YouTube: mahimong dili motakdo sa giingon.
+8307fe58	Mapaminaw usab kini nga video sa {0}: pilia kini sa ⚙ → Audio track sa video.
+5124719f	Wala gihapon gihatagi sa YouTube ang Tamkeen og caption sa {0} para niini nga video.
+9d5a5e3a	Walay bisan unsang caption kini nga video, mao nga dili maipakita sa Tamkeen ang mga pulong niini. Sulayi ang laing video.
+04467cb1	Walay subtitle sa {0} nga hinimo sa tawo kini nga video. Aron magamit ang mga awtomatiko sa YouTube, i-off ang “Mga video lang nga adunay subtitle nga hinimo sa tawo” ubos sa Ablihi ang YouTube.
+0ad4709a	Walay caption sa {0} kini nga video, ug dili mohubad ang YouTube sa mga caption niini para sa Tamkeen. Sulayi ang laing video.

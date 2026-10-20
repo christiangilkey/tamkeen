@@ -166,7 +166,7 @@ export async function acceptMedia(m) {
       const lines = t.segments.map((s) => ({ start: s.start, end: s.end, text: s.text, words: s.words }));
       const ep = await api("/youtube", { method: "POST", body: {
         video_id: id, title: m.title, channel: m.subtitle || "", duration: m.duration || null, language: m.language || null,
-        auto: /auto/.test(t.model || ""), lines,
+        auto: /auto/.test(t.model || ""), kind: t.model === "youtube-translated" ? "translated" : undefined, lines,
       } });
       return `#/episode/${ep.id}${m.at ? `?t=${m.at}` : ""}`;
     }
