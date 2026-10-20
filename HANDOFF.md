@@ -3246,3 +3246,69 @@ everything into all versions."
   auditing what already differs and adding tests that catch drift.
 - Also: three embed-player messages from e63a6a3 translated (tools/i18n/tr/<code>/39-embed-player.txt), its blank
   background page added to tools/i18n/ignore.txt; iPhone update line in 38-iphone-update.txt.
+
+## Spanish word parser: subjunctive, conjugations, attached pronouns (2026-10-19; branch `spanish-parser`, NOT merged, NOT pushed)
+Owner's Notion note: "Ensure spanish parser senses word changes like subjunctive, conjugations, words with attached
+pronouns" (with "check whether this is already done"). Most of it was (see "Seen words for Spanish, French and
+Italian by dictionary form" above). Checked 246 real forms against the real tables: counted as the right word
+213 -> 245, No-AI popup right 228 -> 246. Full table: side-session notes `spanish-parser-table.md`; it is
+also tests/js/romance.test.mjs (one test per tense / kind). Whole-text checks: every word of the 10 Spanish free
+books and Wiktionary's 500k Spanish verb forms (the es-meanings file's `forms`) as an answer key.
+
+| Form | Before | After |
+|---|---|---|
+| como, para, entre, menos, apenas, durante, abajo, encima, arriba | comer, parar, entrar, "mir", apenar, durar... (5,000+ times a book shelf) | themselves |
+| pasa, debe/debes, queda, basta | paso, debe "debit", queda "curfew", basto | pasar, deber, quedar, bastar |
+| sé, ven, vete | ser, ver, vetar | saber, venir, ir |
+| siéntate, siéntese, siéntense, vístete | sentir, sentir, sentir, ver | sentar, sentar, sentar, vestir (siéntase stays sentir) |
+| cómetelo, digámoselo | cometer, not found | comer, decir |
+| tenés, sabés, podés, sos, decime, vení, mirá | not found (Argentine vos) | tener, saber, poder, ser, decir, venir, mirar |
+| prorrumpió, tamborileó, desperezándose, holgaba | not found (verbs the table has no forms of) | prorrumpir, tamborilear, desperezar, holgar |
+| primera, primer, tercer | "1", "1", "3" | primero, primero, tercero |
+| popup: digo, diga, vaya, sepa, oiga, vamos, di | the exclamation ("I mean", "hello", "wow!") | the verb + its Form line; the exclamation stays under Also |
+| popup: podés, idos, viva | podar, idus, vivo | poder, ir, vivir (the word the counting uses) |
+| popup: fuera, dicho, nos | own meaning, no Form line | own meaning + "Form: also ... of ser / decir / nosotros" |
+
+What changed (runtime only; the word tables are unchanged, so it reaches devices that already have them):
+- `web/js/lexicon/romance.js`, Spanish only:
+  - `OWN.es`: the little words and verb forms above (the table folds them wrongly); ordinals the table gives as
+    numbers become the ordinal (primera -> primero).
+  - Pronouns: `spanishSplits` + `spanishWithPronouns`. Which command it is follows the pronoun: te = tú (sienta-te:
+    -a is an -ar verb's), se alone = usted (siente-se: -e is an -ar verb's), -n + se = ustedes; nos/se after -mo put
+    back the -s (digámoselo). The written accent must sit on the verb part's own stress (`stressFits`), which
+    stops come-te-lo being read as comete-lo (cometer); an unaccented word may only have a one-syllable verb part
+    or one ending in -r/-d (dime, decirle, sentaos) or an Argentine command (decime: checked by decid -> decir).
+    Old enclitics on a stressed ending are read too (llegóse, díjole). Ties between verbs go to the table's own
+    reading, else the verb with more forms in the table (pide: pedir, not peder).
+  - `spanishVerb`: a form the table doesn't know is matched by its regular ending (all tenses, the -ra/-se and
+    old future subjunctive, gerunds, participles, vos), with the stem's spelling and vowel changes (busqu-é,
+    conozc-o, duerm-o, pid-o). Endings nouns have too (-o -a -e -as -es -an -en) are never used alone, vos
+    endings need the vosotros form in the table (tenés: tenéis), `ES_NOT_VERBS` (ayer, lugar, mar...). On
+    Wiktionary's non-verb words the table lacks, 0.4% get turned into a verb (mostly -ante adjectives:
+    chorreante -> chorrear). Wiktionary verb forms read wrong: subjunctive 51% -> 30%, other 51% -> 28%, with
+    pronouns 25% -> 15%, commands 74% -> 37% (the rest are verbs the table has no entry for at all).
+  - `infinitivesOf`: needs a 2-letter stem (menos is not me + nos -> "mir"); i -> e only for -ir verbs.
+    Side effect in Italian/Catalan: nonsense readings went (bici -> bere, Catalan pronoun pairs se'n/me'n/te'n ->
+    ser/mer/tir, 570 words in the Catalan books); the old spelling pe'l/pe'ls is now in `OWN.ca` (it had reached
+    per by accident). French and Portuguese unchanged (checked word by word over their books and Wiktionary forms).
+- `web/js/lexicon/meaningdata.js` `findIn` (No-AI popup): Romance languages: a word with no entry of its own
+  shows first the form the word table agrees on; one with its own ordinary meanings gets "also <form>" as its
+  Form line. Spanish: an exclamation/particle/phrase that is a verb's form gives way to the verb (not one with
+  pronouns: cállate keeps "shut up!"; not one whose table word isn't a verb: gracias).
+- Seen-word keys of the fixed words change (a "como" tapped before was saved as `es|comer|x`): such a word shows
+  as new once more. No re-keying step was added (seen.js is being edited on main).
+- Checked in the web-app preview (own copy, `spanish-webapp` in ../.claude/launch.json, port 8983): Pepita
+  Jiménez, No AI. Tapping creyéndolos gave creer, "gerund of creer combined with los", and "creí" further on
+  turned white; como showed "as"; sugiriéndome gave sugerir. The app's own modules gave the table's answers
+  above with the downloaded table.
+- All versions: the code is only in web/js/lexicon/ (romance.js, meaningdata.js), which the desktop serves and
+  mobile/scripts/build-www.mjs copies whole ("js/lexicon") into the phone build, which the web app is made from;
+  no new files. The Python side only stores the keys (`known_lexemes`) and serves the tables, no word logic.
+  Desktop checked too (own copy, `spanish-desktop` in ../.claude/launch.json, port 8984, empty APS_DATA_DIR in
+  scratch): creyéndolos -> creer popup, `known_lexemes` got `es|creer|x`, the same word answers as the web app.
+  Android/iPhone not run (no device here); their files are byte-for-byte the web/js ones.
+- Not done: rebuilding es-lemmas (tools/build_lemmas.py) to fix como/para/pasa at the source needs Měchura's
+  Spanish list and wordfreq (not installed here); the runtime list covers old downloads anyway. ven stays venir
+  (also "they see"), salte stays saltar (also sal + te), consigo stays conseguir. The same ending fallback could
+  help Portuguese, Italian, French, Catalan (38–46% of their Wiktionary verb forms aren't in their tables).
+- Tests: tests/js/romance.test.mjs (6 new real-table tests), tests/js/meanings.test.mjs (popup test).
