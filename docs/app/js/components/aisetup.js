@@ -40,13 +40,13 @@ export function aiSetup(section, { transport }) {
     <div class="def-modes" role="radiogroup" aria-label="How words are explained" data-find="mode">
       <label class="def-mode def-mode-ai">
         <span class="def-mode-row"><input type="radio" name="def-mode" value="ai">
-          <span><strong>AI explanations <span class="badge">Recommended</span></strong>
+          <span><strong>AI explanations</strong>
           <span class="small muted">The meaning in <em>this</em> sentence, its grammar and a translation. Needs an API key:
             a fraction of a cent a word (Gemini has a free allowance).</span></span></span>
       </label>
       <label class="def-mode def-mode-first">
         <span class="def-mode-row"><input type="radio" name="def-mode" value="dictionary_first">
-          <span><strong>Dictionary first, AI when it has nothing</strong>
+          <span><strong>Dictionary first, AI when it has nothing <span class="badge">Recommended</span></strong>
           <span class="small muted">The built-in dictionary explains the words it has, free; your AI key is used only for the rest.</span></span></span>
       </label>
       <label class="def-mode def-mode-dict">

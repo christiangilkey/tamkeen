@@ -86,6 +86,13 @@ const PATHS = {
   link: `<path d="M10.2 13.8a4 4 0 0 0 5.6 0l3-3a4 4 0 0 0-5.6-5.6l-1.1 1.1"/><path d="M13.8 10.2a4 4 0 0 0-5.6 0l-3 3a4 4 0 0 0 5.6 5.6l1.1-1.1"/>`,
   data: `<ellipse class="fill" cx="12" cy="6.5" rx="7" ry="2.8"/><ellipse cx="12" cy="6.5" rx="7" ry="2.8"/>
     <path d="M5 6.5v11c0 1.55 3.13 2.8 7 2.8s7-1.25 7-2.8v-11"/><path d="M5 12c0 1.55 3.13 2.8 7 2.8s7-1.25 7-2.8"/>`,
+  // "Import to Tamkeen": an arrow going down into a tray. The browsers' round teal button draws the
+  // same three lines (browser-toolbar.js, InAppBrowser.java's ic_tamkeen_import.xml).
+  import: `<path d="M12 3.5v11"/><path d="M7.5 10 12 14.5 16.5 10"/><path d="M4.5 14.5V18a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-3.5"/>`,
+  // The flashcard streak (the friends list's bar): a flame with a small one inside.
+  flame: `<path class="fill" d="M12 3.2c.5 2.7 2.3 4.4 3.9 6.2 1.4 1.6 2.3 3.3 2.3 5.2a6.2 6.2 0 0 1-12.4 0c0-2.3 1.1-4.1 2.5-5.4.3 1.5 1 2.5 2.1 3-.5-3.1.3-6.3 1.6-9z"/>
+    <path d="M12 3.2c.5 2.7 2.3 4.4 3.9 6.2 1.4 1.6 2.3 3.3 2.3 5.2a6.2 6.2 0 0 1-12.4 0c0-2.3 1.1-4.1 2.5-5.4.3 1.5 1 2.5 2.1 3-.5-3.1.3-6.3 1.6-9z"/>
+    <path d="M12 20.8a2.5 2.5 0 0 1-2.5-2.5c0-1.5 1.2-2.5 2.5-4 1.3 1.5 2.5 2.5 2.5 4a2.5 2.5 0 0 1-2.5 2.5z"/>`,
 };
 
 export const ICON_NAMES = Object.keys(PATHS);

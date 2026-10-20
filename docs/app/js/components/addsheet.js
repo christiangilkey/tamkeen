@@ -164,7 +164,7 @@ export function openAddSheet({ pickFile }) {
       ? [h(`<button type="button" class="aw-wide">${icon("page", 18)} Popular websites</button>`),
          h(`<p class="small muted aw-note">News sites in the language you're learning. Open one, copy an article's address, and paste it above.</p>`)]
       : [h(`<button type="button" class="aw-wide">${icon("page", 18)} Open Web Browser</button>`),
-         h(`<p class="small muted aw-note">Browse inside the app and press Import Page on anything you want to read.</p>`)]));
+         h(`<p class="small muted aw-note">Browse inside the app and press the round teal button on anything you want to read.</p>`)]));
     const form = box.querySelector("form");
     const input = form.querySelector("input");
     form.onsubmit = (e) => {

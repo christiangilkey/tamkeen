@@ -15,6 +15,7 @@ import { icon } from "../icons.js";
 import { gameBar } from "../game/friend-bar.js";
 import { gameOn } from "../components/gameswitch.js";
 import { publishNow } from "../game/friends-game.js";
+import { lastStreak } from "../review/flame.js";
 import { firstVisitTour } from "../components/tour.js";
 
 // Remembered between sessions, per device: which part is showing, and whether my profile is folded.
@@ -96,7 +97,7 @@ export async function render(view) {
     const st = row.querySelector(".item-status");
     st.textContent = status;
     st.classList.toggle("on", statusOn);
-    const bar = game && gameOn() ? gameBar(game) : null;
+    const bar = game ? gameBar(game, { game: gameOn(), name }) : null;
     if (bar) row.querySelector(".item-game").append(bar);
     else row.querySelector(".item-game").remove();
     row.querySelector(".item-actions").append(...actions);
@@ -245,7 +246,7 @@ export async function render(view) {
         text: "Add a friend by their username, answer friend requests, and message friends, with voice notes too." },
       { target: '.seg-btn[data-seg="guilds"]', title: "Guilds", text: "Study groups: make one or join one, and chat with everyone in it." },
       { target: ".me-photo", title: "Your picture", text: "Tap it to change the photo your friends see." },
-      { target: ".me-card .game-bar", title: "Your game level", text: "Friends see this next to your name: your level and your favourite creature." },
+      { target: ".me-card .game-bar", title: "What friends see", text: "Friends see this next to your name: your language, league, XP today, flashcard streak and favourite creature. Tap any part to see what it is." },
       { target: "#edit-card", title: "What I'm studying",
         text: "Show friends what you're learning from: a podcast episode, a video, a song or a film, with a short note." },
       { target: "#me-toggle", title: "Fold your profile", text: "Shrink your profile to one line, or open it again." },
@@ -279,7 +280,11 @@ export async function render(view) {
       me.querySelector(".me-photo").append(avatar(st.me, { online: true, large: true }));
       me.querySelector(".me-name").textContent = `@${st.me.username}`;
       if ((tags.get(st.me.id) || []).length) me.querySelector(".me-name").append(" ", tagChips(tags.get(st.me.id)));
-      const myBar = gameOn() ? gameBar(games.get(st.me.id)) : null;
+      // My own streak as worked out here just now (what was sent may be a few minutes old, or not
+      // stored at all by an online database older than the flame).
+      const flame = lastStreak();
+      const myGame = games.get(st.me.id);
+      const myBar = myGame ? gameBar(flame ? { ...myGame, ...flame.row } : myGame, { game: gameOn(), me: true, today: flame && flame.result }) : null;
       if (myBar) {
         // What friends see next to my name. The favourite creature is chosen on the Creatures page of the game.
         myBar.title = "This is what friends see next to your name";

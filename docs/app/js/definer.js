@@ -622,13 +622,15 @@ function reportUsage(use) {
 export class DefinerError extends Error {}
 
 // ---------- AI, the built-in dictionary, or the dictionary first ----------
-/** How tapped words are explained (setting `definer_mode`, Settings → Word definitions): "ai" (the
- * default), "dictionary" (No AI: the built-in dictionary alone, see meanings.js) or "dictionary_first"
- * (the dictionary's meaning when it has the word, the AI's when it has nothing). Anything else, such
- * as a choice a newer version made, counts as "ai". */
+/** How tapped words are explained (setting `definer_mode`, Settings → Word definitions): "ai",
+ * "dictionary" (No AI: the built-in dictionary alone, see meanings.js) or "dictionary_first" (the
+ * dictionary's meaning when it has the word, the AI's when it has nothing). "dictionary_first" is the
+ * default (the owner's choice, 2026-10-20); anything else, such as a choice a newer version made,
+ * counts as that too. */
 export const DEFINER_MODES = ["ai", "dictionary", "dictionary_first"];
+export const DEFAULT_DEFINER_MODE = "dictionary_first";
 export const definerModeOf = (settings) =>
-  (DEFINER_MODES.includes(settings && settings.definer_mode) ? settings.definer_mode : "ai");
+  (DEFINER_MODES.includes(settings && settings.definer_mode) ? settings.definer_mode : DEFAULT_DEFINER_MODE);
 
 /** "Dictionary first": `dictionary()` answers when it can; when it can't (the word isn't in it, or
  * the language's dictionary isn't on this device) and there is a key, `ai()` does. Without a key it

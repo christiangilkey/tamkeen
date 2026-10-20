@@ -11,7 +11,7 @@
 import { api, esc, h, on, toast, showMenu, hideMenu, download, saveSettings, state, requestNotifications, audioUrl, buzz } from "../app.js";
 import { saveProgress } from "../progress.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
-import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
+import { episodeLanguage, gap, joinWords, langAttrs, langInfo, regroupWords, studyLanguage, vocabFromDefinition } from "../languages.js";
 import { computerOnlyNotice, statusInfo, isVideo } from "./library.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
@@ -20,7 +20,8 @@ import { lookupToggle } from "../components/lookupmode.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
 import { isBook } from "../books.js";
-import { channelOf, followChannel, importVideo, isFollowing, isYouTube, noteWatched, videoId as youTubeId } from "../youtube.js";
+import { captionKind, channelOf, dubbedTrack, followChannel, importVideo, isFollowing, isYouTube, noteWatched, readVideo, saveVideo,
+  videoId as youTubeId } from "../youtube.js";
 import { createYouTubeMedia } from "../ytmedia.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { reward, trackStudy } from "../game/game.js";
@@ -184,6 +185,7 @@ export async function render(view, { id, query }) {
         <div class="yt-col">
           <div class="screen" id="screen"><div id="yt-frame"></div></div>
           <div class="captions" id="captions" ${langAttrs(lang)}></div>
+          <div class="yt-note" id="yt-note" hidden></div>
         </div>
         ${handleHtml}${transcriptHtml}
       </div>` : vid ? `<div class="stage" id="stage">
@@ -236,7 +238,11 @@ export async function render(view, { id, query }) {
   const startAt = query.get("t") !== null ? Number(query.get("t")) : lsGet(posKey, 0);
   let duration = ep.duration || 0;
   // A YouTube video is driven through an object that behaves like an <audio> element.
-  const audio = yt ? createYouTubeMedia($("#yt-frame"), youTubeId(ep.audio_url) || ep.guid, { start: startAt, duration })
+  // YouTube's own captions prefer the language being learned; when these captions are in another
+  // language, YouTube's are switched on in it (translated by YouTube; see ytmedia.js).
+  const study = studyLanguage();
+  const audio = yt ? createYouTubeMedia($("#yt-frame"), youTubeId(ep.audio_url) || ep.guid,
+    { start: startAt, duration, captions: { lang: study, show: lang !== study } })
     : vid ? $("#video") : new Audio();
   if (!yt) {
     audio.preload = "auto";
@@ -467,6 +473,60 @@ export async function render(view, { id, query }) {
         toast(e.message, { error: true });
       }
     };
+  }
+
+  // ---------- YouTube: say which captions these are, and whether the video can be heard in the language ----------
+  if (yt) showCaptionNote();
+  function showCaptionNote() {
+    const note = $("#yt-note");
+    const studyName = langInfo(study).name;
+    const lines = [];
+    let retry = false;
+    if (lang !== study) {
+      // YouTube had none in the language being learned and wouldn't hand over its translation.
+      lines.push(`No ${studyName} captions for this video, so these are its ${langInfo(lang).name} ones. YouTube's ${studyName} translation is shown in the video.`);
+      retry = true;
+    } else if (captionKind(ep) === "auto") {
+      lines.push("YouTube's automatic captions: they can have mistakes.");
+    } else if (captionKind(ep) === "translated") {
+      lines.push("Translated by YouTube: it may not match what is said.");
+    }
+    const paint = () => {
+      note.innerHTML = lines.map(() => "<p></p>").join("");
+      note.querySelectorAll("p").forEach((el, i) => { el.textContent = lines[i]; });
+      if (retry) {
+        const again = h(`<button type="button" class="link">Try again</button>`);
+        again.onclick = () => tryCaptionsAgain(again);
+        note.querySelector("p").append(" ", again);
+      }
+      note.hidden = !lines.length;
+      if (bubble) fitBubble(); // the phone's popup hangs just below this
+    };
+    paint();
+    // A dubbed version in the language being learned (YouTube's "multi-language audio"). Tamkeen
+    // can't choose it from outside YouTube's player, so the way to it is shown.
+    dubbedTrack(ep).then((track) => {
+      if (!track || disposed) return;
+      lines.push(`This video can be heard in ${studyName} too: choose it under ⚙ → Audio track in the video.`);
+      paint();
+    }).catch(() => {});
+  }
+  /** Ask YouTube again for captions in the language being learned (its translation may come now). */
+  async function tryCaptionsAgain(btn) {
+    btn.disabled = true;
+    try {
+      const v = await readVideo(youTubeId(ep.audio_url) || ep.guid);
+      if (v.language !== study) {
+        toast(`YouTube still won't give Tamkeen ${langInfo(study).name} captions for this video.`);
+        btn.disabled = false;
+        return;
+      }
+      await saveVideo(v);
+      window.dispatchEvent(new HashChangeEvent("hashchange"));
+    } catch (e) {
+      toast(e.message, { error: true });
+      if (!disposed) btn.disabled = false;
+    }
   }
 
   // ---------- clips: play one word or one sentence, then pause ----------

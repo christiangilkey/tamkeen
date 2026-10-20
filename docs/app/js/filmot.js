@@ -195,7 +195,9 @@ export async function findFromResults(candidates) {
       if (ep) {
         hit = findSpoken(await api(`/episodes/${ep.id}/transcript`), h.text, at, episodeLanguage(ep));
       } else {
-        v = await yt.readVideo(c.id); // throws when it has no captions in the language being studied
+        // Throws when it has no captions in the language being studied. Never YouTube's translation
+        // (the word must be said in the video), and automatic captions count whatever the YouTube setting.
+        v = await yt.readVideo(c.id, { translate: false, handmade: false });
         hit = findSpoken(linesTranscript(v.lines), h.text, at, v.language || studyLanguage());
       }
       if (!hit) continue;

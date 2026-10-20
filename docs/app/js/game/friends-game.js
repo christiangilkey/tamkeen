@@ -10,21 +10,29 @@ import { publicProfile } from "./battle.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
 import { hasStudyLanguage, studyLanguage } from "../languages.js";
+import { myStreak } from "../review/flame.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 let lastPublish = 0;
+let lastFlame = null; // the flashcard streak as last sent (JSON)
 
 /** Everything friends may see of my game: team, league, week numbers, today's XP, favourite
  * creature and the language I'm learning. Never words. */
 export const myPublicRow = () => ({ ...publicProfile(getGame(), weeklyRule()), language: hasStudyLanguage() ? studyLanguage() : null });
 
-/** Share my team and this week's numbers with friends (at most every few minutes unless forced). */
+/** Share my team, this week's numbers and my flashcard streak with friends (at most every few
+ * minutes unless forced, or the streak has changed since it was last sent). */
 export async function publishNow(force = false) {
-  if (!force && Date.now() - lastPublish < 5 * 60000) return false;
   try {
     if (!(await social.currentUser())) return false;
+    let flame = null;
+    try { flame = (await myStreak()).row; } catch { /* no words or log to read: sent without it */ }
+    const changed = flame && JSON.stringify(flame) !== lastFlame;
+    if (!force && !changed && Date.now() - lastPublish < 5 * 60000) return false;
     lastPublish = Date.now();
-    return await social.publishGame(myPublicRow());
+    const ok = await social.publishGame({ ...myPublicRow(), ...(flame || {}) });
+    if (flame) lastFlame = JSON.stringify(flame);
+    return ok;
   } catch {
     return false; // offline, or the online service isn't set up for the game yet
   }

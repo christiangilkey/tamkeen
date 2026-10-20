@@ -79,12 +79,13 @@ export const DEFAULTS = {
   welcome_seen: false,
   study_language: "", // the language being learned (ar, es, fr, ja, zh, ru, it, tl, pt, ca, ceb, th, en); chosen on first run
   learning_languages: [], // every language being learned (the top bar's switch); study_language is the one now
+  learning_times: {},     // {code: ms} when each was last ticked or unticked; synced (web/js/learnlist.js)
   ui_language: "",    // the language the user speaks: the app's own words are shown in it (i18n.js)
   onboarded: false,   // the first-run questions have been answered (components/onboarding.js)
   study_level: "",    // "beginner" or "started"
   common_words_pending: [], // languages whose common words wait for dictionaries before counting as seen (commonwords.js)
   definer_provider: "claude",
-  definer_mode: "ai", // "ai"; "dictionary": No AI, words explained by the built-in dictionary (meanings.js); "dictionary_first": the dictionary, and the AI for words it lacks
+  definer_mode: "dictionary_first", // the default; "ai"; "dictionary": No AI, words explained by the built-in dictionary (meanings.js); "dictionary_first": the dictionary, and the AI for words it lacks
   review_task_target: "google", // the Review tab's button sends the day's review to "google" (Tasks) or "onyx"
   review_task: {}, // {day, id}: today's review task in Google Tasks, updated rather than added again
   definer_language: "English",
@@ -127,6 +128,14 @@ export async function loadSettings() {
   Object.assign(settings, DEFAULTS, (await kv.get("settings")) || {});
   // A phone set up before the app taught other languages was learning Arabic.
   if (settings.welcome_seen && !settings.study_language) settings.study_language = "ar";
+  // "Dictionary first" became the default (2026-10-20). This copy keeps every setting, defaults included,
+  // so an older "ai" may never have been chosen: without any AI key it can't work, so it moves on, once.
+  if (!settings.definer_default_moved) {
+    const anyKey = ["claude", "gemini", "openai", "grok"].some((p) => settings[`llm_key_${p}`]);
+    if (settings.definer_mode === "ai" && !anyKey) settings.definer_mode = "dictionary_first";
+    settings.definer_default_moved = true;
+    await kv.set("settings", { ...settings });
+  }
   return settings;
 }
 

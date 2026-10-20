@@ -1,9 +1,9 @@
 // Definition bubble shown when a word is clicked/tapped. Platform-independent: the caller
 // supplies the definition fetcher and the audio/vocab actions.
 
-import { NO_MEANINGS, downloadMeanings } from "../meanings.js";
-import { answerSource } from "../definer.js";
-import { esc, buzz, toast } from "../app.js";
+import { NO_MEANINGS, downloadMeanings, meaningsStatus } from "../meanings.js";
+import { FALLBACK, offerDictionary, sourceChoices, switchSource, tagLabel } from "../defsource.js";
+import { esc, buzz, toast, saveSettings, state } from "../app.js";
 import { langAttrs, langInfo } from "../languages.js";
 import { icon } from "../icons.js";
 import { LOOKUP_EVENT, lookupMode } from "./lookupmode.js";
@@ -151,27 +151,110 @@ export function createWordBubble(host, actions) {
       ${fixInfo ? `<p class="wb-fix-why">${why}</p>` : ""}`;
   }
 
-  // Where the meaning came from (Wiktionary, Wolff's dictionary, AI · the model): a small tag at the end.
-  const sourceTag = (d) => (answerSource(d) ? `<div class="wb-source"><span class="wb-src" title="Where this meaning comes from">${esc(answerSource(d))}</span></div>` : "");
+  // Where the meaning came from (Wiktionary, Wolff's dictionary, AI · the model): a small tag at the
+  // end, always there (before an answer, and after an error, it names the source the setting uses).
+  // Tapping it opens a short menu of the other sources (../defsource.js); a choice is saved as the
+  // Word definitions setting at once and the word is looked up again with it.
+  let menuOpen = false;
+  let savedUntil = 0; // "✓ Saved" shows beside the tag until then
+  let dict = null;    // {lang, st}: this word's language's dictionary here (meaningsStatus), once asked
+  const settings = () => (state.status && state.status.settings) || {};
+  const lang = () => (ctx && ctx.lang) || "ar";
+  const dictHere = () => (dict && dict.lang === lang() ? dict.st : null);
+  function askDict() {
+    const l = lang();
+    if (dict && dict.lang === l) return;
+    dict = { lang: l, st: null };
+    meaningsStatus(l).then((st) => {
+      if (!dict || dict.lang !== l) return;
+      dict.st = st;
+      if (!el.hidden && (menuOpen || current.state === "error" || current.state === "nokey")) render(current.state, current.message);
+    }).catch(() => {});
+  }
+  const mb = (bytes) => `${Math.max(1, Math.round((bytes || 0) / 1e6))} MB`;
+  function sourceTag(d) {
+    const saved = Date.now() < savedUntil;
+    const choices = menuOpen ? sourceChoices(settings(), dictHere()) : [];
+    return `<div class="wb-source">
+        <button type="button" class="wb-src" data-act="source" aria-haspopup="menu" aria-expanded="${menuOpen}"
+          title="Where this meaning comes from. Tap to use another source">${esc(tagLabel(settings(), d))}${icon("chevron", 11)}</button>
+        ${saved ? `<span class="wb-saved" role="status">${icon("check", 12)} Saved</span>` : ""}
+      </div>
+      ${menuOpen ? `<div class="wb-srcmenu" role="menu" aria-label="Explain words with">
+        <div class="wb-srcmenu-title">Explain words with</div>
+        ${choices.map((c) => `<button type="button" role="menuitemradio" aria-checked="${c.on}" class="wb-srcopt${c.on ? " on" : ""}"
+            data-act="pick" data-id="${c.id}" ${c.unavailable ? "disabled" : ""}>
+            <span class="wb-srcopt-mark">${c.on ? icon("check", 15) : ""}</span>
+            <span class="wb-srcopt-text"><span class="wb-srcopt-name">${esc(c.label)}${c.recommended ? ` <span class="badge">Recommended</span>` : ""}</span><span class="wb-srcopt-detail">${esc(c.detail)}</span></span>
+            ${c.download != null ? `<span class="wb-srcopt-dl">${c.download ? `Download, ${mb(c.download)}` : "Download"}</span>` : ""}
+          </button>`).join("")}
+        <div class="wb-srcmenu-foot">For every language you study. Also in Settings → Word definitions.</div>
+      </div>` : ""}`;
+  }
+  // "Use the dictionary instead", beside Try again when the AI failed (and when there is no key).
+  function fallbackButton() {
+    if (!offerDictionary(settings(), dictHere())) return "";
+    const st = dictHere();
+    const label = st && !st.installed && st.bytes ? `Use the dictionary instead (${mb(st.bytes)} download)` : "Use the dictionary instead";
+    return `<button type="button" data-act="usedict" title="The built-in dictionary explains the words it has; the AI only the rest">${label}</button>`;
+  }
+  /** Switch to a source (a choice from sourceChoices, or FALLBACK): its dictionary downloaded first
+   * when it isn't here, the setting saved, the word looked up again. */
+  async function choose(choice, b) {
+    if (!choice) return;
+    if (choice.kind === "setup") { actions.onSettings(); return; }
+    if (choice.on) { // already the source: close the menu (and after a failure, try it again)
+      menuOpen = false;
+      if (current.state === "error") load(); else render(current.state, current.message);
+      return;
+    }
+    const l = lang();
+    if (b) b.disabled = true;
+    let again = false;
+    try {
+      ({ again } = await switchSource(choice, {
+        settings: settings(), shown: def,
+        status: async () => dictHere() || meaningsStatus(l).catch(() => null),
+        download: async () => { await downloadMeanings(l); dict = null; },
+        downloading: () => {
+          if (!b) return;
+          if (b.dataset.act === "usedict") b.textContent = "Downloading the dictionary…";
+          else b.querySelector(".wb-srcopt-dl")?.replaceChildren("Downloading…");
+        },
+        save: saveSettings,
+      }));
+    } catch (err) {
+      if (b) b.disabled = false;
+      toast(err && err.message ? err.message : String(err), { error: true });
+      return;
+    }
+    menuOpen = false;
+    savedUntil = Date.now() + 2200;
+    setTimeout(() => el.querySelector(".wb-saved")?.remove(), 2300);
+    def = null;
+    load(again);
+  }
 
   function render(state, message = "") {
     current = { state, message };
     const word = fix ? fix.to : ctx.word;
     let body = "";
     if (state === "loading") {
-      body = `<div class="wb-loading"><span class="spinner"></span> ${quick ? "Looking up…" : "Looking up in context…"}</div>`;
+      body = `<div class="wb-loading"><span class="spinner"></span> ${quick ? "Looking up…" : "Looking up in context…"}</div>${sourceTag(null)}`;
     } else if (state === "nokey") {
       body = `<p class="wb-muted">See what this word means in this sentence: add an AI provider key in Settings.</p>
-              <button type="button" class="primary" data-act="settings">Set up definitions</button>`;
+              <div class="row"><button type="button" class="primary" data-act="settings">Set up definitions</button>
+              ${fallbackButton()}</div>${sourceTag(null)}`;
     } else if (state === "nomeanings") {
       body = `<p class="wb-muted">AI is off, so words are explained by the built-in ${esc(L().name || "")} dictionary. It isn't on this device yet: download it once and it works offline.</p>
               <div class="row"><button type="button" class="primary" data-act="getmeanings">Download the dictionary</button>
-              <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
+              <button type="button" class="ghost" data-act="settings">Settings</button></div>${sourceTag(null)}`;
     } else if (state === "error") {
       body = `<p class="wb-error">${esc(message)}</p>
               <div class="row"><button type="button" data-act="retry">Try again</button>
+              ${fallbackButton()}
               ${kindOf(lastError) ? `<button type="button" data-act="trouble">Troubleshoot</button>` : ""}
-              <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
+              <button type="button" class="ghost" data-act="settings">Settings</button></div>${sourceTag(null)}`;
     } else if (quick) {
       body = `<div class="wb-meaning">${esc(def.meaning)}</div>${sourceTag(def)}`;
     } else {
@@ -240,9 +323,9 @@ export function createWordBubble(host, actions) {
       render("ready");
     } catch (e) {
       if (my !== token) return;
-      if (e && e.message === "NO_KEY") render("nokey");
+      if (e && e.message === "NO_KEY") { askDict(); render("nokey"); }
       else if (e && e.message === NO_MEANINGS) render("nomeanings"); // No AI, and this language's dictionary isn't here
-      else { lastError = e; render("error", e && e.message ? e.message : String(e)); }
+      else { lastError = e; askDict(); render("error", e && e.message ? e.message : String(e)); }
     }
   }
 
@@ -270,6 +353,18 @@ export function createWordBubble(host, actions) {
         catch (err) { b.disabled = false; b.textContent = "Try again"; toast(err && err.message ? err.message : String(err), { error: true }); }
         break;
       case "trouble": showTroubleshoot(lastError); break;
+      case "source":
+        menuOpen = !menuOpen;
+        if (menuOpen) askDict();
+        render(current.state, current.message);
+        if (menuOpen) requestAnimationFrame(() => { // the menu in view, scrolling only the popup's own text
+          const m = el.querySelector(".wb-srcmenu");
+          const box = m && [m.closest(".wb-body"), el].find((x) => x.scrollHeight > x.clientHeight);
+          if (box) box.scrollTop += Math.max(0, m.getBoundingClientRect().bottom - box.getBoundingClientRect().bottom + 4);
+        });
+        break;
+      case "pick": await choose(sourceChoices(settings(), dictHere()).find((c) => c.id === b.dataset.id), b); break;
+      case "usedict": await choose(FALLBACK, b); break;
       case "more": quick = false; def = null; load(); break;
       case "refresh": def = null; load(true); break;
       case "fixinfo": fixInfo = !fixInfo; render(current.state, current.message); break;
@@ -332,6 +427,7 @@ export function createWordBubble(host, actions) {
     def = null;
     fix = null;
     fixInfo = false;
+    menuOpen = false;
     saved = !!opts.saved;
     quick = lookupMode() === "quick";
     el.hidden = false;

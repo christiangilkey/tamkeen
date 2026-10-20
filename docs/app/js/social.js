@@ -534,9 +534,32 @@ export async function downloadClip(path) {
   return data;
 }
 
-/** Delete the clips of a share from online storage (once added, dismissed or unsent). */
+/** Upload the packed transcript or text that travels with something sent from the Library or a
+ * player (sharetext.js; gzipped JSON). Lives beside the voice notes, so the same rules apply: only
+ * the two friends can read it, and it goes when the item is accepted, dismissed or unsent.
+ * Needs supabase/v7-shared-text.sql (the storage must accept "application/gzip").
+ * Resolves to its storage path. */
+export async function uploadText(friendId, blob) {
+  const c = await sb();
+  const user = await currentUser();
+  if (!user) throw new Error("Connect first.");
+  const path = `${conversationFolder(user.id, friendId)}/text-${crypto.randomUUID()}.json.gz`;
+  const { error } = await c.storage.from("voice").upload(path, blob, { contentType: "application/gzip" });
+  if (error) throw new Error(friendly(error));
+  return path;
+}
+
+/** Delete the files of a share from online storage (once added, dismissed or unsent): the clips
+ * of shared words, and the transcript of something sent from the Library or a player. */
 export function removeShareClips(payload) {
-  return removeVoiceFiles(((payload && payload.words) || []).map((w) => w.clip));
+  const media = (payload && payload.media) || {};
+  return removeVoiceFiles([...((payload && payload.words) || []).map((w) => w.clip), sharedTextPath(media.transcript_path)]);
+}
+
+/** A transcript file's path as uploadText makes it ("" for anything else, so a message can't
+ * point the clean-up at a voice note). */
+export function sharedTextPath(path) {
+  return /^[0-9a-f-]{36}_[0-9a-f-]{36}\/text-[0-9a-f-]{36}\.json\.gz$/.test(String(path || "")) ? String(path) : "";
 }
 
 /** Send copies of vocab words (optionally as a named folder) to a friend. A word may carry
@@ -819,9 +842,12 @@ export async function publishGame(row) {
   if (!user) return false;
   const c = await sb();
   let { error } = await c.from("game_profiles").upsert({ user_id: user.id, ...row });
+  // The online database may be older than this app: without the flashcard streak's columns
+  // (schema v7), or without any of the friends-list bar's (v6). Send what it has room for.
+  const { streak, streak_until, ...v6 } = row;
+  if (error && error.code === "PGRST204") ({ error } = await c.from("game_profiles").upsert({ user_id: user.id, ...v6 }));
   if (error && error.code === "PGRST204") {
-    // The online database is older than this app (no columns for the friends-list bar yet).
-    const { language, xp_day, xp_today, showcase, ...old } = row;
+    const { language, xp_day, xp_today, showcase, ...old } = v6;
     ({ error } = await c.from("game_profiles").upsert({ user_id: user.id, ...old }));
   }
   if (error) throw new Error(friendly(error));
@@ -834,8 +860,11 @@ export async function gameProfiles(userIds) {
   if (!userIds.length) return out;
   const c = await sb();
   const base = "user_id, team, form, rating, league, week, goal_days, reviews, updated_at";
-  let { data, error } = await c.from("game_profiles").select(`${base}, language, xp_day, xp_today, showcase`).in("user_id", userIds);
-  if (error && error.code === "42703") ({ data, error } = await c.from("game_profiles").select(base).in("user_id", userIds)); // older database
+  const v6 = `${base}, language, xp_day, xp_today, showcase`;
+  let { data, error } = await c.from("game_profiles").select(`${v6}, streak, streak_until`).in("user_id", userIds);
+  // Older databases: without the flashcard streak (v7), or without the bar's columns (v6).
+  if (error && error.code === "42703") ({ data, error } = await c.from("game_profiles").select(v6).in("user_id", userIds));
+  if (error && error.code === "42703") ({ data, error } = await c.from("game_profiles").select(base).in("user_id", userIds));
   if (error) throw new Error(friendly(error));
   for (const r of data) out.set(r.user_id, r);
   return out;

@@ -13,6 +13,8 @@ import { cleanFollows, mergeFollows } from "./ytfollow.js";
 import { cleanSites, mergeSites } from "./browser-sites.js";
 import { cleanCollections, mergeCollections } from "./igcollections.js";
 import { cleanKeys, keysFromSettings, takeKeys } from "./aikeys.js";
+import { cleanPayload, learningPayload, takeLearning } from "./learnlist.js";
+import { setStudyLanguage } from "./languages.js";
 
 const LIBRARY = "library.json.gz";
 const listeners = new Set();
@@ -162,6 +164,19 @@ export function merge(remote) {
       changed++;
     }
   }
+
+  // The languages being learned: for each language, the device that ticked or unticked it last wins
+  // (learnlist.js). If the one studied here was unticked there, the first one left takes over.
+  const learning = takeLearning(settings, remote.learning);
+  if (Object.keys(learning).length) {
+    const before = { ...settings };
+    Object.assign(settings, learning);
+    kv.set("settings", { ...settings }).catch(console.error);
+    if (learning.study_language) setStudyLanguage(learning.study_language);
+    // The top bar's switch and Settings repaint, and say so if the language studied here changed.
+    window.dispatchEvent(new CustomEvent("tamkeen:learning", { detail: { before, after: { ...settings } } }));
+    changed++;
+  }
   return changed;
 }
 
@@ -184,6 +199,7 @@ export function snapshot() {
     sites: cleanSites(settings.browser_sites),
     ig_collections: cleanCollections(settings.ig_collections),
     keys: keysFromSettings(settings),
+    learning: learningPayload(settings),
   };
 }
 
@@ -197,7 +213,7 @@ function canonical(value) {
 const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
                                    definitions: l.definitions, lexemes: l.lexemes || [], reviews: l.reviews || {}, game: l.game || null,
                                    channels: l.channels || [], sites: l.sites || [], ig_collections: cleanCollections(l.ig_collections),
-                                   keys: cleanKeys(l.keys) });
+                                   keys: cleanKeys(l.keys), learning: cleanPayload(l.learning) });
 
 // ---------- run ----------
 let running = null;

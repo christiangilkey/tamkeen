@@ -181,9 +181,10 @@
     channel = info;
     if (!followHost) {
       followHost = document.createElement("div");
-      // Bottom right on the computer (above the browser's bar); bottom left on the phone, where
-      // the bottom right corner belongs to the Import Page button.
-      followHost.style.cssText = "all:initial;position:fixed;z-index:2147483647;" + (phone ? "left:14px;bottom:18px;" : "right:18px;bottom:62px;");
+      // Bottom right on the computer (above the browser's bar, beside the round import button when
+      // the window has one); bottom left on the phone, where the bottom right corner belongs to it.
+      followHost.style.cssText = "all:initial;position:fixed;z-index:2147483647;" +
+        (phone ? "left:14px;bottom:18px;" : "right:" + (window.__tamkeenNoImport ? 18 : 84) + "px;bottom:62px;");
       followHost.setAttribute("data-tamkeen", "follow");
       followBtn = document.createElement("button");
       followBtn.onclick = toggleFollow;

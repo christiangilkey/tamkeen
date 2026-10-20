@@ -371,7 +371,7 @@ export async function fetchPage(url) {
   } catch (e) {
     throw new Error("Couldn't reach that site. Check the address and your connection.");
   }
-  if (res.status >= 400) throw new Error(`The site answered with an error (${res.status}). Try “Open Web Browser” and use Import Page there.`);
+  if (res.status >= 400) throw new Error(`The site answered with an error (${res.status}). Try “Open Web Browser” and press the round teal button there.`);
   return { url: res.url || address, html: typeof res.data === "string" ? res.data : String(res.data || "") };
 }
 
@@ -485,7 +485,9 @@ export async function openYouTubeLink(url) {
  */
 let openingLink = false;
 async function openTamkeenLink(url) {
-  const { parseTamkeenLink } = await import("./applink.js");
+  const { parseChatLink, parseTamkeenLink } = await import("./applink.js");
+  const friend = parseChatLink(url); // a chat notification tapped (Android; see startChatNotices)
+  if (friend) { location.hash = `#/chat/${friend}`; return; }
   const link = parseTamkeenLink(url);
   if (!link || openingLink) return;
   if (!settings.welcome_seen || !settings.study_language) {
@@ -815,6 +817,7 @@ export function applySettings(s) {
 export async function saveSettings(values) {
   values = withLearningList(values); // a language switched to stays on the list of languages being learned
   const keyTimes = JSON.stringify(settings.key_times || {});
+  const learningTimes = JSON.stringify(settings.learning_times || {});
   const s = await saveSettingsPatch(values);
   // After Reset Tamkeen: signing in, or finishing the first screens, brings the library back.
   if (parked() && await maybeRestore(s)) { location.reload(); return s; }
@@ -823,6 +826,7 @@ export async function saveSettings(values) {
   if ("game_state" in values) requestSync(90000); // the creature reaches the other devices after studying
   if ("youtube_follows" in values) requestSync(30000); // so do followed channels
   if ("browser_sites" in values) requestSync(30000); // and sites saved to the browser's start page
+  if (JSON.stringify(s.learning_times || {}) !== learningTimes) requestSync(30000); // and languages ticked or unticked
   return s;
 }
 export async function loadStatus() {
@@ -903,6 +907,68 @@ async function route() {
     if (turn !== routeTurn) return; // a page that was already left: its failure isn't this page's
     view.innerHTML = `<div class="page"><div class="card"><h2>Something went wrong</h2><p class="muted"></p></div></div>`;
     view.querySelector("p").textContent = e.message;
+  }
+}
+
+// ---------- the web app's "Updated to version …" ----------
+/** The web app is updated by simply being opened. The first time this browser opens a new version, a
+ *  small banner at the top left says which, for a few seconds, with a link to what's new. Not on the
+ *  very first visit (nothing was updated), nor for test builds. */
+export async function versionBanner() {
+  const { APP_VERSION } = await import("./version.js");
+  if (!APP_VERSION || APP_VERSION.startsWith("0.0.0") || /-/.test(APP_VERSION)) return; // a test build
+  let last = null;
+  try {
+    last = localStorage.getItem("tamkeenWebVersion");
+    localStorage.setItem("tamkeenWebVersion", APP_VERSION);
+  } catch { return; } // storage off: no way to tell what is new
+  if (!last || last === APP_VERSION) return;
+  const bar = document.querySelector(".topbar");
+  const el = h(`<div class="version-banner" role="status"><span></span>
+    <a target="_blank" rel="noopener">What's new</a>
+    <button type="button" class="version-banner-close" aria-label="Close">${icon("close", 14)}</button></div>`);
+  el.querySelector("span").textContent = `Updated to version ${APP_VERSION}`;
+  el.querySelector("a").href = `https://github.com/christiangilkey/tamkeen/releases/tag/v${encodeURIComponent(APP_VERSION)}`;
+  el.style.top = `${(bar ? bar.getBoundingClientRect().bottom : 0) + 8}px`;
+  const go = () => { el.classList.add("leaving"); setTimeout(() => el.remove(), 400); };
+  el.querySelector("button").onclick = go;
+  document.body.append(el);
+  setTimeout(go, 7000);
+}
+
+// ---------- chat notifications ----------
+/** A friend's message while Tamkeen isn't on screen (web/js/chatnotify.js decides): on the phones
+ *  their own notification (AppBadge plugin; tapping it opens the chat), in the web app the browser's,
+ *  shown through the offline helper (sw.js) where a phone's browser allows no other kind. */
+function startChatNotices() {
+  const chatOf = (hash) => (/^#\/chat\/([\w-]+)/.exec(hash || "") || [])[1] || "";
+  const webShow = async ({ friend, title, text }) => {
+    if (!("Notification" in window) || Notification.permission !== "granted") return;
+    const opts = { body: text, icon: "icons/icon-256.png", tag: `chat-${friend}`, data: { hash: `#/chat/${friend}` } };
+    const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration().catch(() => null);
+    if (reg) return reg.showNotification(title, opts);
+    const n = new Notification(title, opts);
+    n.onclick = () => { window.focus(); location.hash = opts.data.hash; };
+  };
+  import("./chatnotify.js").then(({ startChatNotifications }) => startChatNotifications({
+    system: (m) => (AppBadge ? AppBadge.notifyMessage(m) : webShow(m)),
+    ask: async () => {
+      if (AppBadge) await AppBadge.allowNotification();
+      else if ("Notification" in window && Notification.permission === "default") await Notification.requestPermission();
+    },
+  })).catch(() => {});
+  if (AppBadge) {
+    // iPhone: a tapped notification arrives as an event (Android: as a tamkeen://chat link, above).
+    AppBadge.addListener("messageTapped", ({ friend }) => { if (friend) location.hash = `#/chat/${friend}`; }).catch(() => {});
+    // That chat open: its notification goes.
+    window.addEventListener("hashchange", () => {
+      const friend = chatOf(location.hash);
+      if (friend) AppBadge.clearMessage({ friend }).catch(() => {});
+    });
+  } else if (navigator.serviceWorker) {
+    navigator.serviceWorker.addEventListener("message", (e) => {
+      if (e.data && e.data.tamkeen === "open" && chatOf(e.data.hash)) location.hash = e.data.hash;
+    });
   }
 }
 
@@ -1020,6 +1086,9 @@ async function boot() {
   route();
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   mountInstallButton(document.querySelector(".topbar")); // the web app: how to add it to the home screen
+  if (isWeb) versionBanner(); // the web app updates itself: say so, once per new version
+  // The web app opened by "Share → Tamkeen" from another app (Android, once installed): import that page.
+  if (isWeb) import("./web-import.js").then((m) => m.importShared(!!(settings.welcome_seen && settings.study_language))).catch(() => {});
   if (isWeb) { // the web app's Drive pass ran out while nobody was tapping: one tap renews it (drive.js)
     // Google gives the web app an hour at a time, and renewing needs a tap. The owner found a bar
     // popping up over the player again and again (each sync that found the pass expired): now the
@@ -1042,6 +1111,7 @@ async function boot() {
     });
   }
   startBadge();
+  startChatNotices();
   setTimeout(() => checkForUpdate(), 3000);
   startAppBadge();
   // YouTube links tapped inside the app stay in the app (see openYouTubeLink).

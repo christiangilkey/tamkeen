@@ -10,6 +10,7 @@ import * as social from "../social.js";
 import { avatar } from "../components/avatar.js";
 import { MEDIA_KINDS, acceptMedia, normalizeMedia, openMedia } from "../components/sendmedia.js";
 import { detectLanguage, langInfo, setLang, studyLanguage } from "../languages.js";
+import { askChatNotifications } from "../chatnotify.js";
 
 const fmtClock = (iso) => new Date(iso).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
 const fmtDay = (iso) => new Date(iso).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
@@ -36,6 +37,7 @@ async function addShared(payload) {
 }
 
 export async function render(view, { friendId }) {
+  askChatNotifications(); // once: may Tamkeen show friends' messages as notifications? (chatnotify.js)
   view.append(h(`<div class="chat">
     <div class="chat-head"><a class="btn ghost" href="#/friends" title="Back">←</a>
       <span id="chat-avatar"></span><strong id="chat-name">…</strong><span class="small muted" id="chat-online"></span></div>
@@ -131,7 +133,7 @@ export async function render(view, { friendId }) {
       if (!item) {
         action.append(h(`<span class="small muted">Update the app to open this.</span>`));
       } else if (mine) {
-        action.append(h(`<span class="small muted">Sent${m.payload.media.transcript ? " with its words" : ""}</span>`));
+        action.append(h(`<span class="small muted">Sent${m.payload.media.transcript || m.payload.media.transcript_path ? " with its words" : ""}</span>`));
       } else {
         const accept = h(`<button type="button" class="primary accept">Accept</button>`);
         const dismiss = h(`<button type="button" class="ghost">Dismiss</button>`);
@@ -139,7 +141,7 @@ export async function render(view, { friendId }) {
           accept.disabled = dismiss.disabled = true;
           accept.textContent = "Adding…";
           try {
-            const hash = await acceptMedia({ ...item, transcript: m.payload.media.transcript });
+            const hash = await acceptMedia(item, m.payload.media);
             action.replaceChildren(h(`<span class="small muted">✓ Accepted</span>`), opener(hash));
             // Kept on this device now: the copy online (and any words in it) is no longer needed.
             social.dismissMessage(m.id).catch(() => {});
@@ -150,7 +152,7 @@ export async function render(view, { friendId }) {
           }
         };
         dismiss.onclick = async () => {
-          try { await social.dismissMessage(m.id); el.remove(); } catch (e) { toast(e.message, { error: true }); }
+          try { await social.removeShareClips(m.payload).catch(() => {}); await social.dismissMessage(m.id); el.remove(); } catch (e) { toast(e.message, { error: true }); }
         };
         action.append(accept, dismiss);
       }
