@@ -1,0 +1,12 @@
+5fa126ea Tria un tema i mira'l amb subtítols clicables
+a2e22daa Popular ara
+42f2a9e5 Menjar i cuina
+22fb76e4 Viatges
+2f8a2678 Ciència i tecnologia
+c0ecc0d2 Videojocs
+3e3258ce Infants i dibuixos animats
+2dffcb87 Vlogs i vida diària
+0a62c1c5 Pòdcasts i entrevistes
+884466c4 Aprendre {0:lower}
+4302678b El més vist aquest any.
+e5d38465 El més vist aquest mes.

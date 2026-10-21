@@ -4,9 +4,11 @@
 // Tapping a video opens it with its captions as words, like on the phone.
 
 import { esc, toast } from "./app.js";
+import { icon } from "./icons.js";
+import { langInfo } from "./languages.js";
 import { webFetch } from "./native.js";
 import { settings } from "./store.js";
-import { chosenCountry, handmadeOnly, searchFilterCode, setHandmadeOnly, youtubeHome } from "./youtube-home.js";
+import { THIS_YEAR, TOPICS, TOPIC_WITHIN, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "./youtube-home.js";
 
 
 /** The data YouTube puts in its pages ("ytInitialData"): a JSON object on the computer site,
@@ -71,26 +73,36 @@ async function fetchVideos(address) {
 
 const SITE = "https://m.youtube.com";
 
-/** The page: `#/youtube` (popular videos for the language), `?q=` a search, `?u=` a YouTube address. */
+/** The page: `#/youtube` (popular videos for the language), `?topic=` one of youtube-home.js's
+ *  TOPICS (the Library's YouTube menu opens here), `?q=` a search, `?u=` a YouTube address. */
 export async function render(view, { query }) {
   const lang = settings.study_language || "";
   const q = query.get("q") || "";
   const given = query.get("u") || "";
+  const topic = !q && !given ? TOPICS.find((t) => t.key === (query.get("topic") || "popular")) || TOPICS[0] : null;
   const handmade = handmadeOnly();
-  const sp = searchFilterCode(handmade);
-  const address = q ? `${SITE}/results?search_query=${encodeURIComponent(q)}${sp ? `&sp=${encodeURIComponent(sp)}` : ""}`
+  const where = { mobile: true, country: chosenCountry(lang), handmade };
+  const address = q ? searchAddress(lang, q, where)
     : /^https:\/\/(www\.|m\.)?youtube\.com\//.test(given) ? given.replace(/^https:\/\/(www\.)?youtube\.com/, SITE)
-    : youtubeHome(lang, { mobile: true, country: chosenCountry(lang), handmade });
+    : topicAddress(lang, topic.key, where);
+  const name = langInfo(lang).name || "";
   view.innerHTML = `<div class="page stack">
     <form class="row web-yt-search" style="gap:8px">
       <input type="search" placeholder="Search YouTube" aria-label="Search YouTube" style="flex:1" value="${esc(q)}">
       <button class="primary" type="submit">Search</button>
     </form>
+    ${topic ? `<div class="tabs web-yt-topics" style="flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0">${topicsFor(lang).map((t) =>
+      `<button type="button" data-topic="${t.key}" class="${t.key === topic.key ? "active" : ""}" style="flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px">${icon(t.icon, 16)}<span>${esc(t.label.replace("{0}", name))}</span></button>`).join("")}</div>` : ""}
     <label class="row small" style="gap:8px;align-items:center;margin:0"${given ? " hidden" : ""}>
       <input type="checkbox" class="web-yt-handmade"${handmade ? " checked" : ""}> Only videos with handmade subtitles</label>
-    <p class="small muted" style="margin:0">${q ? "" : given ? "This channel's videos." : "Popular this week."} Tap a video to watch it with its captions as words you can tap. It needs captions.</p>
+    <p class="small muted" style="margin:0">${q ? "" : given ? "This channel's videos." : topic.key === "popular" ? "Popular this week."
+      : (topic.within || TOPIC_WITHIN[lang]) === THIS_YEAR ? "Most watched this year." : "Most watched this month."} Tap a video to watch it with its captions as words you can tap. It needs captions.</p>
     <div class="web-yt-list stack"><p class="muted">Loading videos…</p></div>
   </div>`;
+  view.querySelectorAll(".web-yt-topics button").forEach((b) => {
+    b.onclick = () => { location.hash = b.dataset.topic === "popular" ? "#/youtube" : `#/youtube?topic=${b.dataset.topic}`; };
+  });
+  view.querySelector(".web-yt-topics button.active")?.scrollIntoView({ block: "nearest", inline: "center" });
   const form = view.querySelector("form");
   form.onsubmit = (e) => {
     e.preventDefault();

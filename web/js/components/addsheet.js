@@ -6,15 +6,15 @@
 // saved sites and news sites, all on one screen), a video or audio file of your own, and Instagram
 // reels.
 
-import { api, esc, h, toast, openYouTube } from "../app.js";
+import { api, esc, h, platform, toast, openYouTube } from "../app.js";
 import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
-import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, setHandmadeOnly } from "../youtube-home.js";
+import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "../youtube-home.js";
 import { openModal } from "./modal.js";
 
 const WAYS = [
   { key: "podcast", label: "Podcast", icon: "podcast", text: "Paste a feed address, or choose from what's trending", step: true },
-  { key: "youtube", label: "YouTube", icon: "video", text: "Find a video and watch it with clickable captions", step: true },
+  { key: "youtube", label: "YouTube", icon: "video", text: "Pick a topic and watch with clickable captions", step: true },
   { key: "page", label: "Web page", icon: "page", text: "Import an article to read with clickable words", step: true },
   { key: "book", label: "Book", icon: "book", text: "A free classic, or your own EPUB, PDF, TXT, Kindle or Word file", step: true },
   { key: "reels", label: "Reels", icon: "reel", text: "Short Instagram videos to watch on your phone" },
@@ -114,8 +114,25 @@ export function openAddSheet({ pickFile }) {
     };
   }
 
+  /** YouTube: a menu of topics (youtube-home.js TOPICS), each opening YouTube on the most-watched
+   * videos about it in the language being learned; then the options every topic follows, and a
+   * search for anything else. */
   function youtubeStep(box) {
-    box.append(h(`<button type="button" class="primary aw-wide" id="aw-open-youtube">${icon("video", 18)} Open YouTube</button>`));
+    const web = window.TAMKEEN_WEB === true; // the web app lists YouTube's videos on its own page (#/youtube)
+    const where = () => ({ mobile: platform !== "desktop", country: chosenCountry(lang), handmade: handmadeOnly() });
+    const open = (address, hash) => {
+      sheet.close();
+      if (web) location.hash = hash;
+      else openYouTube(address).catch((err) => toast(err.message, { error: true }));
+    };
+    const grid = h(`<div class="yt-topics"></div>`);
+    for (const t of topicsFor(lang)) {
+      const b = h(`<button type="button" class="yt-topic" data-topic="${t.key}">${icon(t.icon, 22)}<span></span></button>`);
+      b.querySelector("span").textContent = t.label.replace("{0}", langName);
+      b.onclick = () => open(topicAddress(lang, t.key, where()), t.key === "popular" ? "#/youtube" : `#/youtube?topic=${t.key}`);
+      grid.append(b);
+    }
+    box.append(grid);
     const countries = COUNTRIES[lang] || [];
     if (countries.length > 1) {
       const row = h(`<label class="aw-country" title="Open YouTube starts on this week's most-watched videos from this country">
@@ -132,11 +149,18 @@ export function openAddSheet({ pickFile }) {
     tick.checked = handmadeOnly();
     tick.onchange = () => setHandmadeOnly(tick.checked);
     box.append(handmade);
-    box.append(h(`<p class="small muted aw-note">Tap a video there and it opens here, with its captions as words you can click. The video needs captions.</p>`));
-    box.querySelector("#aw-open-youtube").onclick = () => {
-      sheet.close();
-      openYouTube().catch((err) => toast(err.message, { error: true }));
+    // Anything else: YouTube's own search (with nothing typed, YouTube itself).
+    const search = h(`<form class="aw-form" role="search">
+        <input type="search" placeholder="Search YouTube" aria-label="Search YouTube" dir="auto" autocomplete="off">
+        <button type="submit">${icon("search", 18)} Search</button>
+      </form>`);
+    search.onsubmit = (e) => {
+      e.preventDefault();
+      const words = search.querySelector("input").value.trim();
+      open(searchAddress(lang, words, where()), words ? `#/youtube?q=${encodeURIComponent(words)}` : "#/youtube");
     };
+    box.append(search);
+    box.append(h(`<p class="small muted aw-note">Tap a video there and it opens here, with its captions as words you can click. The video needs captions.</p>`));
   }
 
   function bookStep(box) {

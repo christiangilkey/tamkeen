@@ -32,6 +32,31 @@ const PATHS = {
   page: `<circle class="fill" cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="8.5"/>
     <path d="M3.5 12h17M12 3.5c2.7 2.5 2.7 14.5 0 17M12 3.5c-2.7 2.5-2.7 14.5 0 17"/>`,
   trending: `<path d="M3.5 17l5.6-5.6 3.8 3.8L20.5 7.6"/><path d="M15 7.5h5.5V13"/>`,
+  // YouTube topics (youtube-home.js TOPICS): news, music, comedy, food, travel, sport, science,
+  // gaming, kids, vlogs, learning. (Popular now is "trending", podcasts "podcast".)
+  news: `<rect class="fill" x="3.5" y="4.5" width="13.5" height="15" rx="2"/><rect x="3.5" y="4.5" width="13.5" height="15" rx="2"/>
+    <path d="M17 8.5h1.5a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-13"/><path d="M7 8.5h6.5M7 12h6.5M7 15.5h4.5"/>`,
+  music: `<path d="M9 17.5V6l10.5-2v11.5"/><circle class="fill" cx="6.5" cy="17.5" r="2.5"/><circle class="fill" cx="17" cy="15.5" r="2.5"/>
+    <circle cx="6.5" cy="17.5" r="2.5"/><circle cx="17" cy="15.5" r="2.5"/><path d="M9 9.5l10.5-2"/>`,
+  smile: `<circle class="fill" cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="8.5"/><path d="M8.3 13.8a4.3 4.3 0 0 0 7.4 0"/><path d="M9.2 9.4v.6M14.8 9.4v.6"/>`,
+  food: `<path class="fill" d="M4.5 11.5h15v5a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3z"/><path d="M4.5 11.5h15v5a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3z"/>
+    <path d="M3 11.5h18"/><path d="M9.5 8.3c-.7-.8-.7-1.7 0-2.5s.7-1.7 0-2.5M14.5 8.3c-.7-.8-.7-1.7 0-2.5s.7-1.7 0-2.5"/>`,
+  travel: `<rect class="fill" x="4" y="7.5" width="16" height="12" rx="2.2"/><rect x="4" y="7.5" width="16" height="12" rx="2.2"/>
+    <path d="M9 7.5V5.8a1.3 1.3 0 0 1 1.3-1.3h3.4A1.3 1.3 0 0 1 15 5.8v1.7"/><path d="M8.5 7.5v12M15.5 7.5v12"/>`,
+  sport: `<circle class="fill" cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5v17"/>
+    <path d="M6.2 5.8a8.5 8.5 0 0 1 0 12.4M17.8 5.8a8.5 8.5 0 0 0 0 12.4"/>`,
+  science: `<path class="fill" d="M10.5 3.5v5.2L5 18a1.6 1.6 0 0 0 1.4 2.5h11.2A1.6 1.6 0 0 0 19 18l-5.5-9.3V3.5z"/>
+    <path d="M9.5 3.5h5M10.5 3.5v5.2L5 18a1.6 1.6 0 0 0 1.4 2.5h11.2A1.6 1.6 0 0 0 19 18l-5.5-9.3V3.5"/><path d="M7.4 14.5h9.2"/>`,
+  game: `<path class="fill" d="M7 8h10a4 4 0 0 1 3.9 4.9l-.9 4a2.4 2.4 0 0 1-4.1 1L14 16h-4l-1.9 1.9a2.4 2.4 0 0 1-4.1-1l-.9-4A4 4 0 0 1 7 8z"/>
+    <path d="M7 8h10a4 4 0 0 1 3.9 4.9l-.9 4a2.4 2.4 0 0 1-4.1 1L14 16h-4l-1.9 1.9a2.4 2.4 0 0 1-4.1-1l-.9-4A4 4 0 0 1 7 8z"/>
+    <path d="M8 10.8v3.4M6.3 12.5h3.4"/><path d="M15.5 11.8h.01M17.5 13.6h.01"/>`,
+  kids: `<path class="fill" d="M12 3.5a5.5 5.5 0 0 1 5.5 5.5c0 3.4-2.9 6.5-5.5 6.5S6.5 12.4 6.5 9A5.5 5.5 0 0 1 12 3.5z"/>
+    <path d="M12 3.5a5.5 5.5 0 0 1 5.5 5.5c0 3.4-2.9 6.5-5.5 6.5S6.5 12.4 6.5 9A5.5 5.5 0 0 1 12 3.5z"/><path d="M12 15.5l-1 1.6h2z"/>
+    <path d="M12 17.1c0 1.5-1.5 1.9-1.5 3.4"/>`,
+  vlog: `<rect class="fill" x="3" y="7" width="13" height="10.5" rx="2.4"/><rect x="3" y="7" width="13" height="10.5" rx="2.4"/>
+    <path d="M16 11l5-3v8.5l-5-3"/>`,
+  learn: `<path class="fill" d="M2.5 9.5 12 5l9.5 4.5L12 14z"/><path d="M2.5 9.5 12 5l9.5 4.5L12 14z"/>
+    <path d="M6.5 11.5v4.3c0 1.4 2.5 2.7 5.5 2.7s5.5-1.3 5.5-2.7v-4.3"/><path d="M21.5 9.5v5"/>`,
   plus: `<path d="M12 5v14M5 12h14"/>`,
   refresh: `<path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4h-4"/>`,
   // A five-pointed star: save a word to the vocab list.

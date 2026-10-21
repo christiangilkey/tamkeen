@@ -76,6 +76,91 @@ test("a country with a word of its own gets its own list; the others keep the la
   assert.equal(word("es", "AR"), "el");
 });
 
+// ----- topics: the YouTube menu in the Library's add sheet and on the web app's YouTube page -----
+
+test("every taught language offers Popular now and every topic, each with its own line icon", async () => {
+  const { TOPICS, TOPIC_WORDS, topicsFor } = await import("../../web/js/youtube-home.js");
+  const { ICON_NAMES } = await import("../../web/js/icons.js");
+  assert.equal(TOPICS[0].key, "popular", "Popular now comes first");
+  assert.ok(TOPICS.length >= 11, "roughly ten topics besides Popular now");
+  assert.equal(new Set(TOPICS.map((t) => t.key)).size, TOPICS.length);
+  assert.equal(new Set(TOPICS.map((t) => t.label)).size, TOPICS.length);
+  for (const t of TOPICS) assert.ok(ICON_NAMES.includes(t.icon), `${t.key}: icon ${t.icon}`);
+  assert.equal(TOPICS.find((t) => t.key === "learn").label, "Learn {0}", "the language's name goes in");
+  // Bisaya leaves out the topics whose searches came back in Tagalog or English; every other language has them all.
+  const without = { ceb: ["travel", "sport", "science", "gaming"] };
+  for (const code of LANGUAGE_CODES) {
+    assert.deepEqual(topicsFor(code).map((t) => t.key), TOPICS.map((t) => t.key).filter((k) => !(without[code] || []).includes(k)),
+                     `${code} has words for every topic it offers`);
+    assert.ok(topicsFor(code).length >= 9, `${code}: a real menu`);
+    for (const [key, words] of Object.entries(TOPIC_WORDS[code])) {
+      assert.ok(TOPICS.some((t) => t.key === key), `${code}: ${key} is a topic`);
+      assert.ok(words.trim() && words.length <= 60, `${code} ${key}`);
+    }
+  }
+  assert.deepEqual(topicsFor("xx"), [], "an unknown language has no menu");
+});
+
+test("a topic's words are written in the language being learned", async () => {
+  const { TOPIC_WORDS } = await import("../../web/js/youtube-home.js");
+  const scripts = { ar: /\p{Script=Arabic}/u, ja: /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u, zh: /\p{Script=Han}/u,
+                    ru: /\p{Script=Cyrillic}/u, th: /\p{Script=Thai}/u };
+  for (const [code, script] of Object.entries(scripts)) {
+    for (const [key, words] of Object.entries(TOPIC_WORDS[code])) assert.match(words, script, `${code} ${key}: ${words}`);
+  }
+  assert.equal(TOPIC_WORDS.es.news, "noticias");
+  assert.equal(TOPIC_WORDS.ar.food, "طبخ");
+});
+
+test("a topic opens YouTube's most-watched videos about it this month, with the language's hints", async () => {
+  const { THIS_MONTH, THIS_YEAR, TOPIC_WITHIN, TOPIC_WORDS, topicAddress } = await import("../../web/js/youtube-home.js");
+  assert.equal(filterCode(0, { within: THIS_MONTH }), "CAMSBAgEEAE=", "the code YouTube's Filters menu uses for This month, by view count");
+  assert.equal(filterCode(0, { within: THIS_YEAR }), "CAMSBAgFEAE=");
+  for (const code of LANGUAGE_CODES) {
+    assert.equal(topicAddress(code, "popular"), youtubeHome(code), "Popular now is the start search itself");
+    const u = new URL(topicAddress(code, "news"));
+    assert.equal(u.origin + u.pathname, "https://www.youtube.com/results");
+    assert.equal(u.searchParams.get("search_query"), TOPIC_WORDS[code].news);
+    assert.equal(u.searchParams.get("sp"), filterCode(START[code][3], { within: TOPIC_WITHIN[code] || THIS_MONTH }));
+    assert.equal(u.searchParams.get("gl"), START[code][1]);
+    assert.equal(u.searchParams.get("hl"), START[code][2]);
+  }
+  const learn = new URL(topicAddress("ar", "learn", { mobile: true, country: "EG", handmade: true }));
+  assert.equal(learn.origin, "https://m.youtube.com", "the phones use YouTube's phone site");
+  assert.equal(learn.searchParams.get("sp"), filterCode(0, { within: THIS_YEAR, handmade: true }), "lessons: this year; handmade subtitles apply to every topic");
+  assert.equal(learn.searchParams.get("gl"), "EG", "so does the country chosen under Popular in");
+  assert.equal(learn.searchParams.get("search_query"), TOPIC_WORDS.ar.learn, "a topic keeps its own words whatever the country");
+  assert.equal(new URL(topicAddress("ceb", "music")).searchParams.get("sp"), filterCode(0, { within: THIS_YEAR }),
+               "Bisaya, with few videos, looks back a year");
+  assert.equal(topicAddress("ceb", "sport"), youtubeHome("ceb"), "a topic a language leaves out falls back to Popular now");
+  assert.equal(topicAddress("es", "nonsense"), youtubeHome("es"), "an unknown topic falls back to Popular now");
+  assert.equal(topicAddress("xx", "news"), "https://www.youtube.com/");
+});
+
+test("Search YouTube: what was typed, with the same hints; nothing typed opens YouTube itself", async () => {
+  const { searchAddress } = await import("../../web/js/youtube-home.js");
+  const u = new URL(searchAddress("fr", "  chat mignon ", { country: "CA" }));
+  assert.deepEqual([u.searchParams.get("search_query"), u.searchParams.get("gl"), u.searchParams.get("hl"), u.searchParams.get("sp")],
+                   ["chat mignon", "CA", "fr", null], "most relevant first");
+  assert.equal(new URL(searchAddress("fr", "x", { handmade: true })).searchParams.get("sp"), "EgIoAQ==");
+  assert.equal(searchAddress("fr", ""), "https://www.youtube.com/");
+  assert.equal(searchAddress("fr", "", { mobile: true }), "https://m.youtube.com/");
+});
+
+test("the Library's YouTube choice is a menu of topics, on every version", async () => {
+  const { readFileSync } = await import("node:fs");
+  const read = (rel) => readFileSync(new URL(`../../${rel}`, import.meta.url), "utf8");
+  const sheet = read("web/js/components/addsheet.js");
+  assert.doesNotMatch(sheet, /Open YouTube</, "no single Open YouTube button");
+  assert.match(sheet, /topicsFor\(lang\)/);
+  assert.match(sheet, /openYouTube\(address\)/, "computer and phones: their own YouTube browser, on the topic");
+  assert.match(sheet, /#\/youtube\?topic=/, "web app: its own YouTube page, on the topic");
+  assert.match(sheet, /Popular in/);
+  assert.match(sheet, /Only videos with handmade subtitles/);
+  assert.match(sheet, /Search YouTube/);
+  assert.match(read("mobile/src/js/web-youtube.js"), /query\.get\("topic"\)/);
+});
+
 test("the choice is remembered per language on the device", async () => {
   const { chooseCountry, chosenCountry } = await import("../../web/js/youtube-home.js");
   assert.equal(chosenCountry("es"), "MX", "no storage at all: the usual one");

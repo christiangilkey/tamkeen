@@ -1,0 +1,12 @@
+5fa126ea Pili og topiko ug tan-awa nga ma-click ang mga caption
+a2e22daa Popular karon
+42f2a9e5 Pagkaon ug pagluto
+22fb76e4 Pagbiyahe
+2f8a2678 Siyensya ug teknolohiya
+c0ecc0d2 Gaming
+3e3258ce Pambata ug cartoons
+2dffcb87 Vlogs ug adlaw-adlaw nga kinabuhi
+0a62c1c5 Podcast ug interbyu
+884466c4 Tun-i ang {0}
+4302678b Labing gitan-aw karong tuiga.
+e5d38465 Labing gitan-aw karong bulana.

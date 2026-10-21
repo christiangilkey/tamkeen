@@ -209,3 +209,41 @@ be46cefe
 19049290  # example.com/news
 11a89127  # target="_blank" rel="noopener noreferrer"
 1727b381  # dir="ltr" translate="no"
+# Not interface: YouTube topics' search words in each study language (web/js/youtube-home.js TOPIC_WORDS).
+8bf92041  # علوم وتقنية
+d9aabd7d  # ألعاب فيديو
+892c1c5b  # كرتون أطفال
+904b0619  # تعلم العربية لغير الناطقين بها
+53832329  # ciencia y tecnología
+5050a412  # vlog en español
+58f6420e  # podcast en español
+3fea0a25  # español para extranjeros
+39d04c2a  # jeux vidéo
+ad18fc73  # dessin animé
+cd163a84  # vlog en français
+35e97d4f  # podcast en français
+a681b0ae  # français langue étrangère
+53c19a03  # 科学 テクノロジー
+a38fd8c5  # 日常 vlog
+db2122d7  # vlog 日常
+83cee4cd  # наука и технологии
+6335c1be  # прохождение игры
+1dff2f14  # русский язык для иностранцев
+e86d6edc  # vlog in italiano
+e3b49e16  # OPM kanta
+2922cc51  # aralin sa Filipino
+06f3fa39  # ciência e tecnologia
+e0593fbb  # português para estrangeiros
+b9b6f166  # música en català
+18477522  # humor en català
+635abbd3  # futbol en català
+3daa02a8  # ciència i tecnologia
+77e220f0  # vlog en català
+71b56230  # podcast en català
+417f15f4  # curs de català
+6ca7b8ae  # วิทยาศาสตร์ เทคโนโลยี
+6a94a156  # vlog ชีวิตประจำวัน
+68bdce91  # ภาษาไทย สำหรับชาวต่างชาติ
+28eb8491  # science and technology
+80d72d7f  # cartoons for kids
+1f5ffb7f  # English listening practice

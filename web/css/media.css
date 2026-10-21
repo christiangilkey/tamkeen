@@ -64,6 +64,16 @@ body:has(.add-fab) .toasts { bottom: 100px; }
 .aw-note { margin: 0; text-align: center; }
 .aw-country { display: flex; align-items: center; gap: 8px; }
 .aw-country select { flex: 1; min-width: 0; }
+/* YouTube's topics (youtube-home.js TOPICS): plain tiles like the ways above, two or three across. */
+.yt-topics { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.yt-topic {
+  display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 8px 12px; min-width: 0;
+  text-align: start; white-space: normal; line-height: 1.25; font-weight: 600; font-size: 14px;
+  border-radius: 14px; background: var(--surface-2); border: 1px solid transparent; color: var(--text);
+}
+.yt-topic:hover:not(:disabled) { border-color: var(--accent); background: var(--surface-2); }
+.yt-topic span { min-width: 0; overflow-wrap: anywhere; }
+.yt-topic[data-topic="popular"] { grid-column: 1 / -1; justify-content: center; } /* the usual start, across the top; twelve topics fill the rows under it */
 
 /* The Web page screen (pages/websites.js, #/sites): paste an address, your saved sites, news. One
    plain surface per tile, no shadows; the column is centred. */

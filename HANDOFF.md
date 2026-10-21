@@ -4109,3 +4109,40 @@ add the ability to add any webpage I want to this screen for quick access".
   /api/browser/sites, a site saved elsewhere appears on window focus, tile → openBrowser, failed import → Open), and
   the phone build mobile/www at 375 px. **Not checked**: the real desktop window's browser and a real phone (the
   in-app browser opening from a tile; nothing native changed).
+
+## Library → + → YouTube: a menu of topics instead of one "Open YouTube" button (2026-10-21; same branch, own commit, NOT merged, NOT pushed)
+Owner: "When the user clicks the YouTube button on this page, there should be a menu instead of an open YouTube button
+it should show a selection of trending topics which the user can click on the topic and it will bring up YouTube videos
+in that topic".
+- **The sheet's YouTube step** (web/js/components/addsheet.js `youtubeStep`): a grid of plain tiles, line icon + name:
+  **Popular now** across the top (today's start search, unchanged), then News, Music, Comedy, Food & cooking, Travel,
+  Sport, Science & tech, Gaming, Kids & cartoons, Vlogs & daily life, Podcasts & interviews, **Learn <language>**
+  (two across on a phone, three on the computer). Under them, as before, **Popular in** (country) and **Only videos
+  with handmade subtitles**, which every topic follows, then a **Search YouTube** row (anything else; with nothing
+  typed it opens YouTube's own front page). The way's subtitle is now "Pick a topic and watch with clickable captions".
+- **What a topic opens** (web/js/youtube-home.js, pure): `TOPICS` (key, English label, icon), `TOPIC_WORDS` (each
+  topic's search words written IN each study language: search data, listed in tools/i18n/ignore.txt where the extractor
+  picked them up), `topicsFor(lang)`, `topicAddress(lang, key, {mobile, country, handmade})` and
+  `searchAddress(lang, words, …)`. A topic is a YouTube search for its words, **most watched first, uploaded this
+  month** (Learn: this year; Bisaya: everything this year, `TOPIC_WITHIN`), with the same `gl`/`hl` hints as Popular
+  now (a country's dialect word only applies to Popular now). `filterCode` gained `within` (THIS_WEEK/MONTH/YEAR).
+- **Words were checked against YouTube's real results on 2026-10-21** (scratch script, read-only): most topics come back
+  in the language; replaced the ones that didn't (fr "humour" → "humoriste", it "comico" → "comici italiani", tl
+  "basketbol" → "balitang sports", pt "podcast entrevista" (Spanish results) → "podcast brasileiro", pt gaming →
+  "jogando"). **Bisaya leaves out Travel, Sport, Science & tech and Gaming** (their searches came back in Tagalog or
+  English); its menu has 9 tiles. Known limit, as with Popular now: sorting by views lets big dubbed channels in (e.g.
+  MrBeast's Spanish/Thai channels), and YouTube may show other videos' titles translated into the language.
+- **Every version**: computer → `openYouTube(address)` → the YouTube window (`app/desktop.py open_youtube`, which
+  already takes any youtube.com start and reloads an open window on a new topic; unchanged); phones → their in-app
+  YouTube browser on m.youtube.com (mobile app.js `openYouTube`, unchanged); web app → its own page
+  **#/youtube?topic=<key>** (mobile/src/js/web-youtube.js: a row of topic pills to switch, "Most watched this
+  month/year.", searches now carry the language hints too).
+- New line icons in web/js/icons.js: news, music, smile, food, travel, sport, science, game, kids, vlog, learn.
+- Tests: tests/js/youtube-home.test.mjs (+5: every language's menu and icons, words in the language's own script,
+  addresses and filters, Search YouTube, the sheet/web page wiring). 623 JS, 450 pytest. Translations:
+  tools/i18n/tr/<code>/49-youtube-topics.txt (12 languages; the Spanish interface shows "Aprender árabe").
+- Checked in the browser pane: the computer's server (fresh data folder): menu, each choice's address (topic, country
+  EG + handmade on Learn, search, Popular now), Spanish interface; web app build at 375 px: menu, a topic opens
+  #/youtube?topic=food with its pill lit and asks YouTube for the right search (the list itself can't load from a test
+  address: the go-between server only answers github.io and localhost:8791); phone build: m.youtube.com address.
+  **Not checked**: the real desktop YouTube window and a real phone.

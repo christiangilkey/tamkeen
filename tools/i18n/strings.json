@@ -1610,8 +1610,8 @@
   "f": "web/js/components/addsheet.js"
  },
  {
-  "id": "09d837be",
-  "k": "Find a video and watch it with clickable captions",
+  "id": "5fa126ea",
+  "k": "Pick a topic and watch with clickable captions",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -1710,11 +1710,6 @@
   "f": "web/js/components/addsheet.js"
  },
  {
-  "id": "4c8aacce",
-  "k": "Open YouTube",
-  "f": "web/js/components/addsheet.js"
- },
- {
   "id": "a2a04642",
   "k": "Open YouTube starts on this week's most-watched videos from this country",
   "f": "web/js/components/addsheet.js"
@@ -1732,6 +1727,11 @@
  {
   "id": "28543490",
   "k": "Only videos with handmade subtitles",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "e17e232a",
+  "k": "Search YouTube",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -13980,6 +13980,51 @@
   "f": "web/js/youtube-home.js"
  },
  {
+  "id": "a2e22daa",
+  "k": "Popular now",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "42f2a9e5",
+  "k": "Food & cooking",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "22fb76e4",
+  "k": "Travel",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "2f8a2678",
+  "k": "Science & tech",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "c0ecc0d2",
+  "k": "Gaming",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "3e3258ce",
+  "k": "Kids & cartoons",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "2dffcb87",
+  "k": "Vlogs & daily life",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "0a62c1c5",
+  "k": "Podcasts & interviews",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "884466c4",
+  "k": "Learn {0}",
+  "f": "web/js/youtube-home.js"
+ },
+ {
   "id": "bc288dca",
   "k": "That doesn't look like a YouTube video.",
   "f": "web/js/youtube.js"
@@ -15390,8 +15435,13 @@
   "f": "mobile/src/js/web-youtube.js"
  },
  {
-  "id": "e17e232a",
-  "k": "Search YouTube",
+  "id": "4302678b",
+  "k": "Most watched this year.",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
+  "id": "e5d38465",
+  "k": "Most watched this month.",
   "f": "mobile/src/js/web-youtube.js"
  },
  {

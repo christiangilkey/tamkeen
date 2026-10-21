@@ -1,0 +1,12 @@
+5fa126ea Escolha um tema e assista com legendas clicáveis
+a2e22daa Populares agora
+42f2a9e5 Comida e culinária
+22fb76e4 Viagem
+2f8a2678 Ciência e tecnologia
+c0ecc0d2 Games
+3e3258ce Infantil e desenhos animados
+2dffcb87 Vlogs e dia a dia
+0a62c1c5 Podcasts e entrevistas
+884466c4 Aprender {0:lower}
+4302678b Os mais vistos este ano.
+e5d38465 Os mais vistos este mês.
