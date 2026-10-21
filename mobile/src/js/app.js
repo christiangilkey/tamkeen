@@ -469,7 +469,7 @@ export async function fetchPage(url) {
   } catch (e) {
     throw new Error("Couldn't reach that site. Check the address and your connection.");
   }
-  if (res.status >= 400) throw new Error(`The site answered with an error (${res.status}). Try “Open Web Browser” and press the round teal button there.`);
+  if (res.status >= 400) throw new Error(`The site answered with an error (${res.status}). Try opening it in the app's browser and pressing the round teal button there.`);
   return { url: res.url || address, html: typeof res.data === "string" ? res.data : String(res.data || "") };
 }
 
@@ -612,7 +612,7 @@ let browserListening = false;
  * opened for something other than reading pages (YouTube), so without that button; a sign-in or
  * "Find in a video" browser never has it either. */
 export async function openBrowser(url = "", { instagramSignIn = false, find = false, reading = true } = {}) {
-  if (isWeb && reading && !instagramSignIn && !find && !/^https?:/i.test(url)) { // the popular websites page instead
+  if (isWeb && reading && !instagramSignIn && !find && !/^https?:/i.test(url)) { // the Web page screen instead (no browser here)
     location.hash = "#/sites";
     return;
   }
@@ -709,6 +709,7 @@ export async function openBrowser(url = "", { instagramSignIn = false, find = fa
         await saveSettings({ browser_sites: setSite(settings.browser_sites, { url: address, title: q.get("t") || "" },
                                                     on, Math.floor(Date.now() / 1000)) });
         await GoogleDriveAuth.browserSites({ sites: JSON.stringify(savedSites(settings.browser_sites)) });
+        emit("browser_sites", {}); // the Library's Web page screen, if it is open behind the browser, redraws its list
         if (!removing) GoogleDriveAuth.browserToast({ text: on ? "Saved to your start page." : "Taken off your start page." }).catch(() => {});
       } catch (e) {
         GoogleDriveAuth.browserToast({ text: e.message || "Couldn't save this site." }).catch(() => {});
@@ -966,7 +967,7 @@ const routes = [
   [/^reels\/play$/, reels, () => ({ play: true })],
   [/^books$/, books, () => ({})],
   [/^youtube$/, webYouTube, () => ({})], // the web app's YouTube page (the apps use their own browser)
-  [/^sites$/, webSites, () => ({})], // the web app's popular websites (the apps use their own browser)
+  [/^sites$/, webSites, () => ({})], // the Library's Web page screen (paste an address, saved sites, news), every version
   [/^episode\/(\w+)$/, player, (m) => ({ id: m[1] })],
   [/^vocab$/, vocab, () => ({})],
   [/^search$/, search, () => ({})],

@@ -124,7 +124,8 @@ def pending_links() -> dict[str, Any]:
     return {"links": applink.take()}
 
 
-# ----- sites saved to the in-app browser's start page -----
+# ----- sites saved for quick access (the browser's start page, the Library's Web page screen) -----
+# The phone's twin of these two routes is in mobile/src/js/backend.js.
 
 class SiteIn(BaseModel):
     url: str
@@ -134,18 +135,19 @@ class SiteIn(BaseModel):
 
 @router.get("/browser/sites")
 def browser_sites() -> dict[str, Any]:
-    """The sites on the start page, in the order they were saved: [{url, title}]."""
+    """The saved sites, in the order they were saved: [{url, title}]."""
     return {"sites": pages.saved_sites(db.get_setting("browser_sites"))}
 
 
 @router.post("/browser/sites")
 def set_browser_site(body: SiteIn) -> dict[str, Any]:
-    """Put one site on the start page, or (on = false) take it off."""
-    if not pages.site_key(body.url):
+    """Save one site (an address as typed under "Add a site" is fine), or (on = false) take it off."""
+    site = pages.typed_site(body.url, body.title)
+    if not site:
         raise HTTPException(400, "That isn't a web address.")
     import time
 
-    sites = pages.set_site(db.get_setting("browser_sites"), body.url, body.title, body.on, time.time())
+    sites = pages.set_site(db.get_setting("browser_sites"), site["url"], site["title"], body.on, time.time())
     db.set_settings({"browser_sites": sites})
     sync.request(30)  # so the user's other devices get it
     return {"sites": pages.saved_sites(sites)}

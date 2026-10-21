@@ -1,0 +1,12 @@
+100892d9 No se encontró texto legible en esa página. Prueba a abrirla en el navegador de la app y pulsa allí el botón redondo verde azulado.
+a9f02c9e El sitio respondió con un error ({0}). Prueba a abrirlo en el navegador de la app y pulsa allí el botón redondo verde azulado.
+6609c693 Añadir un sitio
+9f482b38 Aún no has guardado nada. Añade cualquier página que quieras para abrirla con un toque.
+d9832d9a Quitar este sitio de tus sitios guardados
+944c5b44 Quitar {0} de tus sitios guardados
+68bbc4d9 Se quitó «{0}» de tus sitios guardados.
+20518fac No se pudieron cambiar tus sitios guardados.
+d70f93df Dirección
+9c9f03a8 Nombre (opcional)
+eb4734af Esa no es una dirección web. Escribe una como example.com/news
+19363453 Se añadió «{0}» a tus sitios guardados.

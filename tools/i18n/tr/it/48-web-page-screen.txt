@@ -1,0 +1,12 @@
+100892d9 Su quella pagina non è stato trovato testo leggibile. Prova ad aprirla nel browser dell'app e lì premi il pulsante rotondo verde acqua.
+a9f02c9e Il sito ha risposto con un errore ({0}). Prova ad aprirlo nel browser dell'app e lì premi il pulsante rotondo verde acqua.
+6609c693 Aggiungi un sito
+9f482b38 Non hai ancora salvato niente. Aggiungi qualsiasi pagina ti piaccia, per aprirla con un tocco.
+d9832d9a Togli questo sito dai tuoi siti salvati
+944c5b44 Togli {0} dai tuoi siti salvati
+68bbc4d9 «{0}» tolto dai tuoi siti salvati.
+20518fac Impossibile modificare i tuoi siti salvati.
+d70f93df Indirizzo
+9c9f03a8 Nome (facoltativo)
+eb4734af Questo non è un indirizzo web. Scrivine uno come example.com/news
+19363453 «{0}» aggiunto ai tuoi siti salvati.

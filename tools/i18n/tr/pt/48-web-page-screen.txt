@@ -1,0 +1,13 @@
+100892d9 Não foi encontrado texto legível nessa página. Tente abri-la no navegador do app e toque lá no botão redondo verde-azulado.
+a9f02c9e O site respondeu com um erro ({0}). Tente abri-lo no navegador do app e toque lá no botão redondo verde-azulado.
+6609c693 Adicionar um site
+9f482b38 Nada salvo ainda. Adicione qualquer página que quiser, para abri-la com um toque.
+d9832d9a Tirar este site dos seus sites salvos
+944c5b44 Tirar {0} dos seus sites salvos
+68bbc4d9 “{0}” foi tirado dos seus sites salvos.
+20518fac Não foi possível alterar seus sites salvos.
+d70f93df Endereço
+9c9f03a8 Nome (opcional)
+eb4734af Isso não é um endereço da web. Digite um como example.com/news
+19363453 “{0}” foi adicionado aos seus sites salvos.
+39fc7212 Desfazer

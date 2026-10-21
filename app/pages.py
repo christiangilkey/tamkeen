@@ -88,7 +88,7 @@ def fetch_html(url: str) -> dict[str, str]:
             with client.stream("GET", url) as resp:
                 if resp.status_code >= 400:
                     raise PageError(f"The site answered with an error ({resp.status_code}). "
-                                    "Try “Open Web Browser” and press the round teal button there.")
+                                    "Try opening it in the app's browser and pressing the round teal button there.")
                 kind = resp.headers.get("content-type", "")
                 if kind and "html" not in kind and "text/plain" not in kind:
                     raise PageError("That address isn't a web page (it looks like a file).")
@@ -196,8 +196,9 @@ def save_page(url: str, title: str, blocks: list[dict[str, Any]], image: str | N
 
 
 # ---------------------------------------------------------------------------------------------
-# Sites saved to the browser's start page (the setting `browser_sites`). web/js/browser-sites.js
-# is the phone's copy of everything below and explains the records; keep the two alike.
+# Sites saved for quick access (the setting `browser_sites`): with the star in the browser's bar, or
+# under "Add a site" on the Library's Web page screen. web/js/browser-sites.js is the phone's copy of
+# everything below and explains the records; keep the two alike.
 
 MAX_SITE_RECORDS = 300
 
@@ -280,3 +281,24 @@ def saved_sites(sites: Any) -> list[dict[str, str]]:
 def merge_sites(mine: Any, theirs: Any) -> list[dict[str, Any]]:
     """Two devices' lists as one: for each address, the copy that changed last wins."""
     return clean_sites(clean_sites(mine) + clean_sites(theirs))
+
+
+def typed_site(address: Any, name: Any = "") -> dict[str, str] | None:
+    """What the user typed under "Add a site" (the Library's Web page screen) as {url, title}, or
+    None when it isn't a web address. "bbc.com/arabic" gets https:// in front; other kinds of
+    address (javascript:, mailto:, file:, ftp://) are refused; a bare word ("hello", "localhost")
+    is not a site, so without http(s):// in front the name must have a dot in it."""
+    typed = str(address if address is not None else "").strip()
+    if not typed or re.search(r"\s", typed):
+        return None
+    full = bool(re.match(r"(?i)^[a-z][a-z0-9+.-]*://", typed))
+    if not full:
+        if re.match(r"(?i)^[a-z][a-z0-9+.-]*:(?!\d)", typed):  # javascript:, mailto: (but "example.com:8080" is fine)
+            return None
+        typed = "https://" + typed.lstrip("/")
+    url = site_key(typed)
+    if not url:
+        return None
+    if not full and not re.fullmatch(r"[^.]+(\.[^.]+)+", urlsplit(url).hostname or ""):
+        return None
+    return {"url": url, "title": _site_title(name)}

@@ -5,7 +5,8 @@
 import { audio, kv, lib, now, saveLibrary, transcripts } from "./store.js";
 import { fetchTranscript, requestSync, syncNow, syncState } from "./sync.js";
 import { episodeUid, feedUid, findSpans, newUid, normalize, normalizeUrl } from "./shared-logic.js";
-import { settings } from "./store.js";
+import { saveSettingsPatch, settings } from "./store.js";
+import { savedSites, setSite, typedSite } from "./browser-sites.js";
 import { detectLanguage, isLanguage, studyLanguage } from "./languages.js";
 import { MAX_UPLOAD_BYTES } from "./stt.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
@@ -587,6 +588,16 @@ const routes = [
     return { sentence, guess };
   }],
   ["POST", /^\/pages$/, (m, q, body) => savePage(body)],
+  // Sites saved for quick access (the Library's Web page screen, pages/websites.js; the browser's
+  // star): kept in settings, and they travel by Drive sync. The computer's twin is app/api/media.py.
+  ["GET", /^\/browser\/sites$/, () => ({ sites: savedSites(settings.browser_sites) })],
+  ["POST", /^\/browser\/sites$/, async (m, q, body) => {
+    const site = typedSite(body.url, body.title);
+    if (!site) throw new ApiError("That isn't a web address.");
+    await saveSettingsPatch({ browser_sites: setSite(settings.browser_sites, site, body.on !== false, Math.floor(now())) });
+    requestSync(30000); // so the user's other devices get it
+    return { sites: savedSites(settings.browser_sites) };
+  }],
   ["POST", /^\/books$/, (m, q, body) => saveBook(body)],
   // The Review tab's "Send to Google Tasks" / "Send to Onyx" (googletasks.js; the computer's is app/googletasks.py).
   ["POST", /^\/tasks\/review$/, async (m, q, body) => {

@@ -205,3 +205,7 @@ b748c6fc
 abe53f56  # {0}, streak, streak_until  (database columns)
 # Not interface: the Google sign-in scope list (mobile/src/js/app.js goToGoogleSignIn).
 be46cefe
+# Not interface: the Web page screen's example address and two pieces of its HTML (web/js/pages/websites.js).
+19049290  # example.com/news
+11a89127  # target="_blank" rel="noopener noreferrer"
+1727b381  # dir="ltr" translate="no"

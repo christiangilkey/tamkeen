@@ -11,6 +11,7 @@ import * as welcome from "./pages/welcome.js";
 import * as friends from "./pages/friends.js";
 import * as chat from "./pages/chat.js";
 import * as discover from "./pages/discover.js";
+import * as websites from "./pages/websites.js";
 import * as reels from "./pages/reels.js";
 import * as books from "./pages/books.js";
 import { startBadge } from "./social.js";
@@ -389,6 +390,7 @@ const routes = [
   [/^library$/, library, () => ({})],
   [/^feed\/(\d+)$/, library, (m) => ({ feedId: Number(m[1]) })],
   [/^discover$/, discover, () => ({})],
+  [/^sites$/, websites, () => ({})], // the Library's Web page screen (paste an address, saved sites, news)
   [/^reels$/, reels, () => ({})],
   [/^reels\/play$/, reels, () => ({ play: true })],
   [/^books$/, books, () => ({})],
@@ -434,7 +436,7 @@ async function route() {
     view.innerHTML = "";
     view.scrollTop = 0;
   }
-  const navKey = mod === home ? "home" : mod === library || mod === discover || mod === reels || mod === books ? "library" : mod === vocab ? "vocab" : mod === settings ? "settings"
+  const navKey = mod === home ? "home" : mod === library || mod === discover || mod === websites || mod === reels || mod === books ? "library" : mod === vocab ? "vocab" : mod === settings ? "settings"
     : mod === about ? "about" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === navKey));
   const turn = ++routeTurn;

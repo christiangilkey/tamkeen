@@ -1,0 +1,13 @@
+100892d9 Walay mabasang teksto nga nakit-an sa maong page. Sulayi kini pag-abli sa browser sa app ug pindota didto ang lingin nga teal nga button.
+a9f02c9e Mitubag ang site og error ({0}). Sulayi kini pag-abli sa browser sa app ug pindota didto ang lingin nga teal nga button.
+6609c693 Pagdugang og site
+9f482b38 Wala pay na-save. Idugang ang bisan unsang page nga gusto nimo aron maabli kini sa usa ka tap.
+d9832d9a Tangtanga kini nga site sa imong mga gi-save nga site
+944c5b44 Tangtanga ang {0} sa imong mga gi-save nga site
+68bbc4d9 Natangtang ang “{0}” sa imong mga gi-save nga site.
+20518fac Dili mausab ang imong mga gi-save nga site.
+d70f93df Address
+9c9f03a8 Ngalan (opsyonal)
+eb4734af Dili kana web address. Pag-type og sama sa example.com/news
+19363453 Nadugang ang “{0}” sa imong mga gi-save nga site.
+39fc7212 I-undo

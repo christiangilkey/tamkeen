@@ -1760,61 +1760,6 @@
   "f": "web/js/components/addsheet.js"
  },
  {
-  "id": "0bc298a1",
-  "k": "Paste a website address",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "ba46c1f5",
-  "k": "Website address",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "d6fbc9d2",
-  "k": "Import",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "169dd244",
-  "k": "Popular websites",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "b8e51206",
-  "k": "News sites in the language you're learning. Open one, copy an article's address, and paste it above.",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "71091d5d",
-  "k": "Open Web Browser",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "5492bd97",
-  "k": "Browse inside the app and press the round teal button on anything you want to read.",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "e9acf940",
-  "k": "YouTube's automatic captions",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "b165ef2c",
-  "k": "Added “{0}” with {1}.",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "72f89e9c",
-  "k": "Imported “{0}”.",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "852b438f",
-  "k": "Read",
-  "f": "web/js/components/addsheet.js"
- },
- {
   "id": "495d921f",
   "k": "{0}¢ per million tokens",
   "f": "web/js/components/aisetup.js"
@@ -3732,6 +3677,11 @@
  {
   "id": "76befb17",
   "k": "▶ Watch",
+  "f": "web/js/components/studycard.js"
+ },
+ {
+  "id": "852b438f",
+  "k": "Read",
   "f": "web/js/components/studycard.js"
  },
  {
@@ -8285,8 +8235,8 @@
   "f": "web/js/meanings.js"
  },
  {
-  "id": "a4cbde7a",
-  "k": "No readable text was found on that page. Try “Open Web Browser” and press the round teal button there.",
+  "id": "100892d9",
+  "k": "No readable text was found on that page. Try opening it in the app's browser and pressing the round teal button there.",
   "f": "web/js/pageimport.js"
  },
  {
@@ -11370,6 +11320,11 @@
   "f": "web/js/pages/settings.js"
  },
  {
+  "id": "d6fbc9d2",
+  "k": "Import",
+  "f": "web/js/pages/settings.js"
+ },
+ {
   "id": "deaefe6d",
   "k": "{0} audio files restored.",
   "f": "web/js/pages/settings.js"
@@ -11838,6 +11793,91 @@
   "id": "f59d91ac",
   "k": "Add a word by hand, export your words for Anki or as a spreadsheet, and Anki's settings.",
   "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "0bc298a1",
+  "k": "Paste a website address",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "ba46c1f5",
+  "k": "Website address",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "6609c693",
+  "k": "Add a site",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "9f482b38",
+  "k": "Nothing saved yet. Add any page you like, to open it in one tap.",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "d9832d9a",
+  "k": "Take this site off your saved sites",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "944c5b44",
+  "k": "Take {0} off your saved sites",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "68bbc4d9",
+  "k": "Took “{0}” off your saved sites.",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "39fc7212",
+  "k": "Undo",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "20518fac",
+  "k": "Couldn't change your saved sites.",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "d70f93df",
+  "k": "Address",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "9c9f03a8",
+  "k": "Name (optional)",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "eb4734af",
+  "k": "That isn't a web address. Type one like example.com/news",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "19363453",
+  "k": "Added “{0}” to your saved sites.",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "e9acf940",
+  "k": "YouTube's automatic captions",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "b165ef2c",
+  "k": "Added “{0}” with {1}.",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "72f89e9c",
+  "k": "Imported “{0}”.",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "d3478410",
+  "k": "Couldn't import that page.",
+  "f": "web/js/pages/websites.js"
  },
  {
   "id": "dc289056",
@@ -14165,8 +14205,8 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "8533d5c3",
-  "k": "The site answered with an error ({0}). Try “Open Web Browser” and press the round teal button there.",
+  "id": "a9f02c9e",
+  "k": "The site answered with an error ({0}). Try opening it in the app's browser and pressing the round teal button there.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -14437,6 +14477,11 @@
  {
   "id": "69511d5f",
   "k": "The transcript has changed since the word was looked up. Tap it again.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
+  "id": "1da00bdb",
+  "k": "That isn't a web address.",
   "f": "mobile/src/js/backend.js"
  },
  {
@@ -15140,11 +15185,6 @@
   "f": "mobile/src/js/web-import.js"
  },
  {
-  "id": "d3478410",
-  "k": "Couldn't import that page.",
-  "f": "mobile/src/js/web-import.js"
- },
- {
   "id": "9f496fb9",
   "k": "What was shared has no web address in it, so there is nothing to import.",
   "f": "mobile/src/js/web-import.js"
@@ -15315,28 +15355,8 @@
   "f": "mobile/src/js/web-reels.js"
  },
  {
-  "id": "797a2936",
-  "k": "Easier ·",
-  "f": "mobile/src/js/web-sites.js"
- },
- {
   "id": "732ac1f0",
   "k": "With Tamkeen added to your home screen you can also share the article straight to Tamkeen: in Chrome tap ⋮, then Share, then Tamkeen.",
-  "f": "mobile/src/js/web-sites.js"
- },
- {
-  "id": "3d26aa46",
-  "k": "Open a site (it opens in a new tab), find an article and copy its address, then come back and tap the round teal button.",
-  "f": "mobile/src/js/web-sites.js"
- },
- {
-  "id": "db59af69",
-  "k": "Paste an article's address",
-  "f": "mobile/src/js/web-sites.js"
- },
- {
-  "id": "cbc27e21",
-  "k": "Article address",
   "f": "mobile/src/js/web-sites.js"
  },
  {
@@ -15457,11 +15477,6 @@
  {
   "id": "5591ee57",
   "k": "That isn't a tamkeen://watch?v=… link.",
-  "f": "app/api/media.py"
- },
- {
-  "id": "1da00bdb",
-  "k": "That isn't a web address.",
   "f": "app/api/media.py"
  },
  {

@@ -1,5 +1,6 @@
-"""Sites saved to the in-app browser's start page: the list's rules (the same cases as the phone's
-copy in tests/js/browser-sites.test.mjs), the API the start page uses, the star's bridge, and sync."""
+"""Sites saved for quick access (the in-app browser's start page and star, and "Add a site" on the
+Library's Web page screen): the list's rules (the same cases as the phone's copy in
+tests/js/browser-sites.test.mjs), the API both screens use, the star's bridge, and sync."""
 
 from __future__ import annotations
 
@@ -83,6 +84,42 @@ def test_two_devices_lists_merge_the_same_way_whichever_does_the_merging():
     assert pages.merge_sites(MERGED, MERGED) == MERGED
 
 
+# ----- "Add a site" on the Library's Web page screen (the same cases as tests/js/browser-sites.test.mjs) -----
+
+def test_address_typed_under_add_a_site_gets_https_and_an_optional_name():
+    assert pages.typed_site("bbc.com/arabic") == {"url": "https://bbc.com/arabic", "title": ""}
+    assert pages.typed_site("  https://www.aljazeera.net/news#top ", "  الجزيرة   نت ") == {
+        "url": "https://www.aljazeera.net/news", "title": "الجزيرة نت"}
+    assert pages.typed_site("HTTP://Example.COM") == {"url": "http://example.com/", "title": ""}
+    assert pages.typed_site("//elpais.com") == {"url": "https://elpais.com/", "title": ""}
+    assert pages.typed_site("example.com:8080/x?y=1") == {"url": "https://example.com:8080/x?y=1", "title": ""}
+    assert pages.typed_site("www.lemonde.fr/", "t" * 300) == {"url": "https://www.lemonde.fr/", "title": "t" * 120}
+    assert pages.typed_site("https://localhost/") == {"url": "https://localhost/", "title": ""}, "a whole address is taken as typed"
+
+
+def test_add_a_site_refuses_what_is_not_a_web_address():
+    for bad in ("", "   ", "hello", "hello world", "bbc .com", "javascript:alert(1)", "mailto:me@example.com",
+                "data:text/html,hi", "file:///c:/x", "ftp://example.com/", "localhost:3000", ".com", "example.",
+                "a..b", None, "a" * 600 + ".com"):
+        assert pages.typed_site(bad, "name") is None, bad
+
+
+def test_adding_a_typed_site_and_taking_it_off_follow_the_lists_rules():
+    def add(sites, typed, name, on, now):
+        site = pages.typed_site(typed, name)
+        return pages.set_site(sites, site["url"], site["title"], on, now)
+
+    sites = add([], "bbc.com/arabic", "BBC عربي", True, 100)
+    sites = add(sites, "elpais.com", "", True, 100)
+    assert pages.saved_sites(sites) == [{"url": "https://bbc.com/arabic", "title": "BBC عربي"},
+                                        {"url": "https://elpais.com/", "title": ""}]
+    sites = add(sites, "https://bbc.com/arabic#live", "", True, 120)
+    assert [s["title"] for s in pages.saved_sites(sites)] == ["", "BBC عربي"], "added again: keeps its name, moves to the end"
+    sites = pages.set_site(sites, "https://elpais.com/", "", False, 130)
+    assert pages.saved_sites(sites) == [{"url": "https://bbc.com/arabic", "title": "BBC عربي"}]
+    assert len(sites) == 2, "the removal is kept, so it reaches the other devices"
+
+
 def test_list_cannot_grow_without_end():
     many = [{"url": f"https://s{i}.example/", "title": "", "on": 1 if i < 20 else 0, "updated_at": i} for i in range(400)]
     sites = pages.clean_sites(many)
@@ -109,6 +146,12 @@ def test_start_page_api_lists_adds_and_takes_off(client):
     assert [s["title"] for s in client.get("/api/browser/sites").json()["sites"]] == ["الجزيرة", "El País"]
     assert client.post("/api/browser/sites", json={"url": "javascript:alert(1)"}).status_code == 400
     r = client.post("/api/browser/sites", json={"url": "https://www.aljazeera.net/news", "on": False})
+    assert [s["title"] for s in r.json()["sites"]] == ["El País"]
+    # "Add a site" on the Web page screen: an address as typed, with or without a name.
+    r = client.post("/api/browser/sites", json={"url": "lemonde.fr", "title": "Le Monde"})
+    assert r.status_code == 200 and r.json()["sites"][-1] == {"url": "https://lemonde.fr/", "title": "Le Monde"}
+    assert client.post("/api/browser/sites", json={"url": "hello"}).status_code == 400
+    r = client.post("/api/browser/sites", json={"url": "https://lemonde.fr/", "on": False})
     assert [s["title"] for s in r.json()["sites"]] == ["El País"]
     # The whole list also passes through Settings (the phone keeps it there); it is tidied on the way in.
     s = client.patch("/api/settings", json={"browser_sites": [{"url": "nope"}, {"url": "https://x.example", "on": 1, "updated_at": 3}]}).json()

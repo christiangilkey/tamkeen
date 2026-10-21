@@ -2,14 +2,13 @@
 // Library itself only shows what is already there. Shared by the desktop app and the phone.
 //
 // Each way opens the flow it always had: a podcast's feed address (or Trending), YouTube in the
-// app's own browser, a web page's address (or the Web Browser), a video or audio file of your own,
-// and Instagram reels.
+// app's own browser, the Web page screen (pages/websites.js, route #/sites: paste an address, your
+// saved sites and news sites, all on one screen), a video or audio file of your own, and Instagram
+// reels.
 
-import { api, esc, h, toast, openBrowser, openYouTube } from "../app.js";
+import { api, esc, h, toast, openYouTube } from "../app.js";
 import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
-import { importUrl } from "../pageimport.js";
-import { importVideo, videoId as youTubeId } from "../youtube.js";
 import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, setHandmadeOnly } from "../youtube-home.js";
 import { openModal } from "./modal.js";
 
@@ -55,9 +54,9 @@ export function openAddSheet({ pickFile }) {
       pickFile(key); // still inside the tap, so the phone lets the file chooser open
       return;
     }
-    if (key === "reels") {
+    if (key === "reels" || key === "page") { // a screen of its own: no step in between
       sheet.close();
-      location.hash = "#/reels";
+      location.hash = key === "page" ? "#/sites" : "#/reels";
       return;
     }
     step(key);
@@ -75,8 +74,7 @@ export function openAddSheet({ pickFile }) {
     body.append(box);
     if (key === "podcast") podcastStep(box);
     else if (key === "youtube") youtubeStep(box);
-    else if (key === "book") bookStep(box);
-    else pageStep(box);
+    else bookStep(box);
     box.querySelector("input")?.focus();
   }
 
@@ -151,40 +149,6 @@ export function openAddSheet({ pickFile }) {
     box.querySelector("button.aw-wide").onclick = async () => {
       sheet.close();
       (await import("../pages/books.js")).uploadBook();
-    };
-  }
-
-  function pageStep(box) {
-    box.append(h(`<form class="aw-form">
-        <input type="text" inputmode="url" placeholder="Paste a website address" required autocomplete="off" aria-label="Website address">
-        <button class="primary" type="submit">Import</button>
-      </form>`),
-    h(`<div class="aw-or">or</div>`),
-    ...(window.TAMKEEN_WEB === true // the web app has no browser of its own: popular sites to copy addresses from
-      ? [h(`<button type="button" class="aw-wide">${icon("page", 18)} Popular websites</button>`),
-         h(`<p class="small muted aw-note">News sites in the language you're learning. Open one, copy an article's address, and paste it above.</p>`)]
-      : [h(`<button type="button" class="aw-wide">${icon("page", 18)} Open Web Browser</button>`),
-         h(`<p class="small muted aw-note">Browse inside the app and press the round teal button on anything you want to read.</p>`)]));
-    const form = box.querySelector("form");
-    const input = form.querySelector("input");
-    form.onsubmit = (e) => {
-      e.preventDefault();
-      run(form.querySelector("button"), "Importing…", async () => {
-        if (youTubeId(input.value)) { // a YouTube link: add it as a video and open it
-          const ep = await importVideo(input.value);
-          toast(`Added “${ep.title}” with ${ep.auto ? "YouTube's automatic captions" : "its captions"}.`);
-          location.hash = `#/episode/${ep.id}`;
-          return;
-        }
-        const ep = await importUrl(input.value);
-        toast(`Imported “${ep.title}”.`, { action: { label: "Read", run: () => (location.hash = `#/episode/${ep.id}`) } });
-        location.hash = `#/feed/${ep.feed_id}`;
-      });
-    };
-    box.querySelector("button.aw-wide").onclick = () => {
-      const typed = window.TAMKEEN_WEB === true ? "" : input.value.trim();
-      sheet.close();
-      openBrowser(typed).catch((err) => toast(err.message, { error: true }));
     };
   }
 

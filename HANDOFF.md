@@ -4068,3 +4068,44 @@ Google Tasks' first "allow" (googletasks.js) used the same pop-up.
   (button, no hop); a faked Tasks answer sent the task (Google refused the fake pass with 401, as expected); the button
   goes to Google's page (login_hint, no prompt, no pop-up). Not checked: a real renewal on the owner's phone.
 - Only the web app had this: the computer and the phone apps keep a refresh token and renew without anything showing.
+
+## Library → + → Web page: one screen (paste an address, saved sites with "Add a site", news) (2026-10-21; branch `worktree-agent-ade8e1df7f7c53b52`, NOT merged, NOT pushed)
+Owner: "When this button is clicked it should show one consolidated screen, the page that would normally popup should be
+combined with this one, add the web address import button to the screen with all of the recommended news sites. Also
+add the ability to add any webpage I want to this screen for quick access".
+- **Before**: Web page in the add sheet opened a small step (paste box + Import, then "Open Web Browser" / on the web
+  app "Popular websites"), and only then the news sites (the browser's start page, or the web app's #/sites page).
+- **Now**: Web page closes the sheet and goes straight to route **#/sites** on every version, one screen, top to bottom:
+  "Read the web in <language>" with a back arrow; the **paste box + Import** (a YouTube link is added as a video, as the
+  sheet did; an article opens in the reader at once); a "Search Google" row (opens Google in the app's browser, a new
+  tab on the web app; it keeps the old "Open Web Browser" reach, which is gone); **Your saved sites** with
+  **+ Add a site** (a box: Address, Name (optional), Cancel / Add, the pair equal width; "bbc.com/arabic" is fine, a
+  wrong one says so inside the box) and **×** on each saved tile (toast "Took … off" with **Undo**); **News in
+  <language>** (browser-home.js `newsFor`, unchanged). Plain tiles (one surface, 1 px border, no shadow), 2 columns at
+  phone width; a tile shows the name and, under it, the short address (saved) or the note (news, "Easier" pill).
+- **Tapping a site**: the app's own browser on the computer and the phones (`openBrowser(url)`, the round teal button
+  there imports the article on screen); on the web app the tile is a link to a new tab. A failed import offers
+  **Open** in its toast (computer/phones): it opens that address in the app's browser.
+- **Code**: the shared screen is `web/js/pages/websites.js` (`render`, `renderSites(view, {web})`), added to
+  build-www.mjs SHARED. Desktop route in web/js/app.js (`#/sites`, Library tab lit). Phones and web app:
+  `mobile/src/js/web-sites.js` now only wraps it (phones: as it is; web app: its own two lines under the heading, the
+  Paste button and the round import button `importButton`). addsheet.js lost its page step.
+- **Saved sites are the browser's star list** (`browser_sites`, synced by Drive like before). Both screens ask
+  `GET/POST /browser/sites`: the computer's app/api/media.py (POST now takes a typed address through
+  `pages.typed_site`), and NEW twin routes in mobile/src/js/backend.js (settings + requestSync(30 s)). New pure rules:
+  `typedSite` / `typed_site` (adds https://, refuses javascript:/mailto:/file:/ftp:, a bare word or "localhost:3000"
+  without http(s):// isn't a site, name ≤ 120 chars) and `shortAddress` (display only). The screen re-reads the list
+  when the window comes back to the front (the computer's browser is its own window), on "sync", and on the phone's
+  new `browser_sites` event (emitted by app.js when the browser's star changes the list).
+- The browser's own start page is unchanged and still lists the same saved sites (so sites added on the new screen show
+  there too). Error texts that pointed at the removed "Open Web Browser" button now say "Try opening it in the app's
+  browser and pressing the round teal button there." (pageimport.js, mobile app.js fetchPage, app/pages.py).
+- Tests: tests/js/browser-sites.test.mjs (+5: typed addresses, refusals, add/remove through the list's rules, short
+  address, every version routes Web page to the one screen), tests/test_browser_sites.py (+3, the same cases for
+  app/pages.py, and the API taking "lemonde.fr"). 450 pytest, 618 JS. Translations:
+  tools/i18n/tr/<code>/48-web-page-screen.txt (12 languages; also "Undo" for pt/ca/ceb/th), ignore.txt has the example
+  address. Checked in the browser pane: web app (docs/app build, 375x812 and ~800 px wide: add, wrong address, remove,
+  Undo, reload keeps them, + sheet → screen), the computer's server on a fresh never-signed-in data folder (add through
+  /api/browser/sites, a site saved elsewhere appears on window focus, tile → openBrowser, failed import → Open), and
+  the phone build mobile/www at 375 px. **Not checked**: the real desktop window's browser and a real phone (the
+  in-app browser opening from a tile; nothing native changed).

@@ -4,8 +4,11 @@
 // start page that draws them.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { cleanSites, isSaved, mergeSites, savedSites, setSite, siteKey } from "../../web/js/browser-sites.js";
+import { readFileSync } from "node:fs";
+import { cleanSites, isSaved, mergeSites, savedSites, setSite, shortAddress, siteKey, typedSite } from "../../web/js/browser-sites.js";
 import { homeBody, homeHtml, paintSaved } from "../../web/js/browser-home.js";
+
+const read = (rel) => readFileSync(new URL(`../../${rel}`, import.meta.url), "utf8");
 
 test("an address is kept without its #part, and only web addresses count", () => {
   assert.equal(siteKey("https://www.aljazeera.net/news/2026/1#top"), "https://www.aljazeera.net/news/2026/1");
@@ -75,6 +78,59 @@ test("two devices' lists merge the same way whichever does the merging", () => {
   assert.deepEqual(mergeSites(phone, computer), expected);
   assert.deepEqual(mergeSites(computer, phone), expected, "the same answer on both devices, ties included");
   assert.deepEqual(mergeSites(expected, expected), expected);
+});
+
+// ----- "Add a site" on the Library's Web page screen (pages/websites.js) -----
+// The same cases as tests/test_browser_sites.py (app/pages.py typed_site).
+
+test("an address typed under Add a site: https:// is added, the name is optional", () => {
+  assert.deepEqual(typedSite("bbc.com/arabic"), { url: "https://bbc.com/arabic", title: "" });
+  assert.deepEqual(typedSite("  https://www.aljazeera.net/news#top ", "  الجزيرة   نت "), { url: "https://www.aljazeera.net/news", title: "الجزيرة نت" });
+  assert.deepEqual(typedSite("HTTP://Example.COM"), { url: "http://example.com/", title: "" });
+  assert.deepEqual(typedSite("//elpais.com"), { url: "https://elpais.com/", title: "" });
+  assert.deepEqual(typedSite("example.com:8080/x?y=1"), { url: "https://example.com:8080/x?y=1", title: "" });
+  assert.deepEqual(typedSite("www.lemonde.fr/", "t".repeat(300)), { url: "https://www.lemonde.fr/", title: "t".repeat(120) });
+  assert.deepEqual(typedSite("https://localhost/"), { url: "https://localhost/", title: "" }, "a whole address is taken as typed");
+});
+
+test("Add a site refuses what isn't a web address", () => {
+  for (const bad of ["", "   ", "hello", "hello world", "bbc .com", "javascript:alert(1)", "mailto:me@example.com",
+                     "data:text/html,hi", "file:///c:/x", "ftp://example.com/", "localhost:3000", ".com", "example.",
+                     "a..b", null, undefined, `${"a".repeat(600)}.com`]) {
+    assert.equal(typedSite(bad, "name"), null, String(bad).slice(0, 30));
+  }
+});
+
+test("adding a typed site, and taking it off, follow the list's rules", () => {
+  let list = setSite([], typedSite("bbc.com/arabic", "BBC عربي"), true, 100);
+  list = setSite(list, typedSite("elpais.com"), true, 100);
+  assert.deepEqual(savedSites(list), [{ url: "https://bbc.com/arabic", title: "BBC عربي" }, { url: "https://elpais.com/", title: "" }]);
+  list = setSite(list, typedSite("https://bbc.com/arabic#live", ""), true, 120);
+  assert.deepEqual(savedSites(list).map((s) => s.title), ["", "BBC عربي"], "added again: keeps its name, moves to the end");
+  list = setSite(list, { url: "https://elpais.com/" }, false, 130);
+  assert.deepEqual(savedSites(list), [{ url: "https://bbc.com/arabic", title: "BBC عربي" }]);
+  assert.equal(list.length, 2, "the removal is kept, so it reaches the other devices");
+});
+
+test("a saved site's address is shown the short way", () => {
+  assert.equal(shortAddress("https://www.bbc.com/arabic/"), "bbc.com/arabic");
+  assert.equal(shortAddress("https://elpais.com/"), "elpais.com");
+  assert.equal(shortAddress("http://example.com:8080/a/b?c=1"), "example.com:8080/a/b?c=1");
+  assert.equal(shortAddress("not an address"), "not an address");
+});
+
+test("the Library's Web page button opens the one screen on every version", () => {
+  const sheet = read("web/js/components/addsheet.js");
+  assert.match(sheet, /key === "page" \? "#\/sites"/, "straight to the screen, no small sheet in between");
+  assert.doesNotMatch(sheet, /Open Web Browser|Popular websites|pageStep/);
+  assert.match(read("web/js/app.js"), /\[\/\^sites\$\/, websites,/, "the computer has the screen");
+  assert.match(read("mobile/src/js/app.js"), /\[\/\^sites\$\/, webSites,/, "the phones and the web app have it");
+  assert.match(read("mobile/src/js/web-sites.js"), /renderSites\(view\)/, "the phones show the shared screen as it is");
+  const screen = read("web/js/pages/websites.js");
+  const at = (s) => { const i = screen.indexOf(s); assert.ok(i > 0, s); return i; };
+  assert.ok(at("Paste a website address") < at("Your saved sites") && at("Your saved sites") < at("News in "), "import box, saved sites, news");
+  assert.match(screen, /Add a site/);
+  assert.match(screen, /api\("\/browser\/sites", \{ method: "POST"/, "saved through the same list as the browser's star");
 });
 
 test("the list cannot grow without end", () => {

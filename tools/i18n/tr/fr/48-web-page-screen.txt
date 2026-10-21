@@ -1,0 +1,12 @@
+100892d9 Aucun texte lisible n'a été trouvé sur cette page. Essayez de l'ouvrir dans le navigateur de l'app et appuyez-y sur le bouton rond bleu-vert.
+a9f02c9e Le site a répondu par une erreur ({0}). Essayez de l'ouvrir dans le navigateur de l'app et appuyez-y sur le bouton rond bleu-vert.
+6609c693 Ajouter un site
+9f482b38 Rien d'enregistré pour l'instant. Ajoutez n'importe quelle page pour l'ouvrir d'un simple toucher.
+d9832d9a Retirer ce site de vos sites enregistrés
+944c5b44 Retirer {0} de vos sites enregistrés
+68bbc4d9 « {0} » a été retiré de vos sites enregistrés.
+20518fac Impossible de modifier vos sites enregistrés.
+d70f93df Adresse
+9c9f03a8 Nom (facultatif)
+eb4734af Ce n'est pas une adresse web. Tapez-en une comme example.com/news
+19363453 « {0} » a été ajouté à vos sites enregistrés.

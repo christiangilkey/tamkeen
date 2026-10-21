@@ -1,0 +1,12 @@
+100892d9 Walang nabasang teksto sa page na iyon. Subukang buksan ito sa browser ng app at pindutin doon ang bilog na teal na button.
+a9f02c9e Sumagot ang site ng error ({0}). Subukang buksan ito sa browser ng app at pindutin doon ang bilog na teal na button.
+6609c693 Magdagdag ng site
+9f482b38 Wala pang naka-save. Idagdag ang anumang page na gusto mo para mabuksan ito sa isang tap.
+d9832d9a Alisin ang site na ito sa mga naka-save mong site
+944c5b44 Alisin ang {0} sa mga naka-save mong site
+68bbc4d9 Inalis ang “{0}” sa mga naka-save mong site.
+20518fac Hindi mabago ang mga naka-save mong site.
+d70f93df Address
+9c9f03a8 Pangalan (opsyonal)
+eb4734af Hindi iyan web address. Mag-type ng tulad ng example.com/news
+19363453 Naidagdag ang “{0}” sa mga naka-save mong site.

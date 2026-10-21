@@ -1,8 +1,9 @@
-// Sites the user saved to the in-app browser's start page: the list itself and the rules for
-// changing and merging it. Pure (no page, no imports from the app), so it is unit-tested
-// (tests/js/browser-sites.test.mjs) and the phone's sync uses the very same merge. app/pages.py
-// holds the computer's copy (site_key, clean_sites, set_site, merge_sites, saved_sites); keep
-// the two alike.
+// Sites the user saved for quick access: kept with the star in the in-app browser's bar, or added
+// under "Add a site" on the Library's Web page screen (pages/websites.js); both the browser's start
+// page and that screen show them. The list itself and the rules for changing and merging it. Pure
+// (no page, no imports from the app), so it is unit-tested (tests/js/browser-sites.test.mjs) and
+// the phone's sync uses the very same merge. app/pages.py holds the computer's copy (site_key,
+// clean_sites, set_site, merge_sites, saved_sites, typed_site); keep the two alike.
 //
 // One record per address, kept even after it is taken off the start page so that the removal
 // reaches the user's other devices:
@@ -80,4 +81,32 @@ export function savedSites(list) {
 /** Two devices' lists → one: for each address the copy that changed last wins. */
 export function mergeSites(mine, theirs) {
   return cleanSites([...cleanSites(mine), ...cleanSites(theirs)]);
+}
+
+/**
+ * What the user typed under "Add a site" (the Library's Web page screen) → {url, title} ready for
+ * setSite, or null when it isn't a web address. "bbc.com/arabic" gets https:// in front; other kinds
+ * of address (javascript:, mailto:, file:, ftp://) are refused; a bare word ("hello", "localhost")
+ * is not a site, so without http(s):// in front the name must have a dot in it. The name is optional.
+ */
+export function typedSite(address, name = "") {
+  let typed = String(address == null ? "" : address).trim();
+  if (!typed || /\s/.test(typed)) return null;
+  const full = /^[a-z][a-z0-9+.-]*:\/\//i.test(typed);
+  if (!full) {
+    if (/^[a-z][a-z0-9+.-]*:(?!\d)/i.test(typed)) return null; // javascript:, mailto: (but "example.com:8080" is fine)
+    typed = "https://" + typed.replace(/^\/+/, "");
+  }
+  const url = siteKey(typed);
+  if (!url) return null;
+  if (!full && !/^[^.]+(\.[^.]+)+$/.test(new URL(url).hostname)) return null;
+  return { url, title: text(name, 120) };
+}
+
+/** An address as people write it, for showing under a site's name: no https://, no www., no "/"
+ * at the end ("https://www.bbc.com/arabic/" → "bbc.com/arabic"). Only for the screen. */
+export function shortAddress(url) {
+  let u;
+  try { u = new URL(String(url || "")); } catch { return String(url || ""); }
+  return u.hostname.replace(/^www\./, "") + (u.port ? `:${u.port}` : "") + u.pathname.replace(/\/+$/, "") + u.search;
 }

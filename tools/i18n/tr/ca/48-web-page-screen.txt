@@ -1,0 +1,13 @@
+100892d9 No s'ha trobat text llegible en aquesta pàgina. Prova d'obrir-la al navegador de l'app i prem-hi el botó rodó verd blavós.
+a9f02c9e El lloc ha respost amb un error ({0}). Prova d'obrir-lo al navegador de l'app i prem-hi el botó rodó verd blavós.
+6609c693 Afegeix un lloc
+9f482b38 Encara no has desat res. Afegeix qualsevol pàgina que vulguis per obrir-la amb un toc.
+d9832d9a Treu aquest lloc dels teus llocs desats
+944c5b44 Treu {0} dels teus llocs desats
+68bbc4d9 S'ha tret «{0}» dels teus llocs desats.
+20518fac No s'han pogut canviar els teus llocs desats.
+d70f93df Adreça
+9c9f03a8 Nom (opcional)
+eb4734af Això no és una adreça web. Escriu-ne una com example.com/news
+19363453 S'ha afegit «{0}» als teus llocs desats.
+39fc7212 Desfés
