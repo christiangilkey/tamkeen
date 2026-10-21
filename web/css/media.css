@@ -36,6 +36,19 @@
 }
 .add-fab:hover:not(:disabled) { filter: brightness(1.08); background: var(--accent); }
 .add-fab .ic { stroke-width: 2.2; }
+/* Swiping between sections on a phone (mobile/src/js/swipe.js): hidden while the page slides, then
+   it fades in rolling from the left once the new page has settled (or just fades back if the swipe
+   springs back). A 58 px circle travelling 120 px turns about 240 degrees, so it looks like rolling. */
+.page-swiping .add-fab { opacity: 0; transition: opacity .12s; pointer-events: none; }
+.add-fab.roll-in { animation: fab-roll-in .6s cubic-bezier(.33, 1, .68, 1) both; }
+.add-fab.fade-in { animation: fab-fade-in .2s ease-out both; }
+@keyframes fab-roll-in {
+  from { opacity: 0; transform: translateX(-120px) rotate(-240deg); }
+  55% { opacity: 1; }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fab-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .add-fab.roll-in { animation: fab-fade-in .3s ease-out both; } }
 /* The computer's list of kinds: the chosen one's icon stays the text colour too (its row is highlighted). */
 .library.desk #feed-list .feed-item.active .ph.all { color: var(--text); }
 /* Messages pop up just above the + button instead of over it. */

@@ -60,6 +60,21 @@ function blocked(target) {
   return scrollsSideways(target);
 }
 
+/** The round buttons (Library's +, the web app's teal import button) come back after a swipe.
+ *  While the page slides they are hidden (`page-swiping`, media.css): a sliding page becomes their
+ *  reference point, so they would ride one tab-bar too high and then jump into place (the owner
+ *  saw this). On a new page they fade in rolling from the left; on the same page they just fade back. */
+function showFabs(roll) {
+  document.body.classList.remove("page-swiping");
+  const name = roll ? "roll-in" : "fade-in";
+  for (const b of document.querySelectorAll(".add-fab")) {
+    b.classList.remove("roll-in", "fade-in");
+    void b.offsetWidth; // restart the animation if it was already running
+    b.classList.add(name);
+    b.addEventListener("animationend", () => b.classList.remove(name), { once: true });
+  }
+}
+
 export function initSwipe() {
   view = document.getElementById("view");
   bar = document.querySelector(".tabbar");
@@ -97,6 +112,7 @@ export function initSwipe() {
       if (Math.abs(my) > 12 && Math.abs(my) > Math.abs(mx)) { start = null; return; } // it's a vertical scroll
       if (Math.abs(mx) < 14 || Math.abs(mx) < Math.abs(my) * 1.6) return;
       swiping = true;
+      document.body.classList.add("page-swiping");
       view.style.transition = "none";
       view.style.willChange = "transform";
     }
@@ -121,7 +137,7 @@ export function initSwipe() {
     if (!commit) {
       view.style.transform = "translateX(0)";
       placeBlob(s.index, 0, true);
-      setTimeout(() => { view.style.transition = view.style.transform = view.style.willChange = ""; }, SLIDE_MS);
+      setTimeout(() => { view.style.transition = view.style.transform = view.style.willChange = ""; showFabs(false); }, SLIDE_MS);
       return;
     }
     busy = true;
@@ -148,6 +164,8 @@ export function initSwipe() {
           setTimeout(() => {
             view.style.transition = view.style.transform = view.style.willChange = view.style.opacity = "";
             busy = false;
+            showFabs(true); // the page has settled: now the round button rolls in
+
           }, SLIDE_MS);
         }, 16);
       };

@@ -4146,3 +4146,14 @@ in that topic".
   #/youtube?topic=food with its pill lit and asks YouTube for the right search (the list itself can't load from a test
   address: the go-between server only answers github.io and localhost:8791); phone build: m.youtube.com address.
   **Not checked**: the real desktop YouTube window and a real phone.
+
+## Phone/web app: the round + button rolls in after a swipe instead of jumping (2026-10-21; committed)
+Owner: on the web app, swiping to Library the blue + button "starts higher then snaps to its normal spot"; wanted "a
+smooth fade in and roll from the left animation when swiping to the page". Cause: swipe.js slides `#view` with a CSS
+transform, and a transformed parent becomes the reference box for `position: fixed` children, so `.add-fab` (inside the
+page) sat relative to the view (about one tab-bar too high) until the transform was cleared. Now swipe.js puts
+`page-swiping` on <body> as soon as a swipe starts (media.css hides every `.add-fab`, incl. the web app's teal import
+button), and when the new page has settled `showFabs(true)` adds `.roll-in`: 0.6 s, from 120 px left, turned -240°
+(about the turn a 58 px circle makes rolling that far), fading in. A swipe that springs back just fades it back
+(`.fade-in`). Reduced-motion: a plain fade. Checked at 375x812 with simulated touches (hidden during the slide, frames
+stepped through by hand because the hidden preview pane pauses animations; ends exactly at its usual place).
