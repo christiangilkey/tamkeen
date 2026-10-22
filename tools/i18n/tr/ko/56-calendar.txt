@@ -1,0 +1,25 @@
+4dfe887c Google Calendar <0>(고른 시간에, 예상 시간만큼)</0>
+e24f9b04 Google Tasks <0>(오늘 목록에, 시간 없이)</0>
+ccf228d6 Onyx <0>(Onyx에 시간 없는 할 일로)</0>
+653ebdd3 Calendar나 Tasks를 처음 쓸 때 Google이 허용을 요청해요.
+b5072f7e Google Calendar에 추가
+6eca6893 오늘 시작 시간
+4ddcc583 오늘 {0}에 이미 캘린더에 있어요. 다시 추가하면 시간이 옮겨져요.
+b2608cde 열린 브라우저 창에서 Tamkeen이 Google Calendar를 사용하도록 허용한 다음 다시 추가를 누르세요.
+4cb980b9 복습을 Google Calendar에 추가하지 못했어요.
+f65fa130 시간을 고르세요.
+a6e73aae Tamkeen의 Google 프로젝트에서 Google Calendar API가 아직 켜져 있지 않아요.
+4c0e0bee Google Calendar가 허용되지 않아서 복습을 추가하지 못했어요.
+803bdd09 Google Calendar가 오류로 응답했어요({0}).
+e69ddd1f 오늘 “{0}”을(를) 고른 시간에 Google Calendar에 추가(어디로 보낼지는 설정에서 고르세요)
+570374e4 Google Calendar
+644d1004 Google Calendar에서 {0}(으)로 바꿨어요: {1}.
+ec7fb5fa Google Calendar에 {0}(으)로 추가했어요: {1}.
+93c20883 Google Calendar로 보내기는 설치된 앱, 컴퓨터, 웹 앱에서 돼요.
+5bfa460d Google Calendar에 연결하지 못했어요. 연결을 확인하세요.
+c03af73d Google Calendar에 연결하지 못했어요({0}). 연결을 확인하세요.
+5e492841 Google Calendar가 일정을 받지 않았어요({0}).
+aebe40c4 약 {0}분
+23989160 Google Calendar, Google Tasks, Onyx, Tamkeen 앱.
+59636398 AnkiDroid, Google Calendar, Google Tasks, Onyx.
+38c02660 Google Calendar, Google Tasks, Onyx.

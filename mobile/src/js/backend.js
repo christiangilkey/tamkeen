@@ -663,6 +663,11 @@ const routes = [
     const { sendReviewTask } = await import("./googletasks.js");
     try { return await sendReviewTask(body || {}); } catch (e) { throw new ApiError(e.message); }
   }],
+  // "Send to Google Calendar", at the time chosen (googlecalendar.js; the computer's is app/googlecalendar.py).
+  ["POST", /^\/calendar\/review$/, async (m, q, body) => {
+    const { sendReviewEvent } = await import("./googlecalendar.js");
+    try { return await sendReviewEvent(body || {}); } catch (e) { throw new ApiError(e.message); }
+  }],
   ["POST", /^\/open-onyx$/, async (m, q, body) => {
     const { openOnyx } = await import("./googletasks.js");
     try { return openOnyx((body || {}).url); } catch (e) { throw new ApiError(e.message); }

@@ -1,0 +1,24 @@
+4dfe887c Google Calendar <0>（在你选的时间，按估计的时长）</0>
+e24f9b04 Google Tasks <0>（放进今天的清单，不定时间）</0>
+ccf228d6 Onyx <0>（作为 Onyx 里未排时间的任务）</0>
+653ebdd3 第一次使用 Calendar 或 Tasks 时，Google 会请你授权。
+b5072f7e 添加到 Google Calendar
+6eca6893 今天的时间
+4ddcc583 今天 {0} 已在你的日历里。再次添加会把它移过去。
+b2608cde 请在打开的浏览器窗口中允许 Tamkeen 使用 Google Calendar，然后再按一次“添加”。
+4cb980b9 无法把复习添加到 Google Calendar。
+f65fa130 请选择一个时间。
+a6e73aae Tamkeen 的 Google 项目还没有启用 Google Calendar API。
+4c0e0bee 没有允许 Google Calendar，所以无法添加复习。
+803bdd09 Google Calendar 返回了错误（{0}）。
+e69ddd1f 把“{0}”添加到今天的 Google Calendar，时间由你选（在设置中选择发送到哪里）
+570374e4 Google Calendar
+644d1004 已在 Google Calendar 中改到 {0}：{1}。
+ec7fb5fa 已添加到 Google Calendar，时间 {0}：{1}。
+93c20883 发送到 Google Calendar 可在安装的应用、电脑和网页版中使用。
+5bfa460d 无法连接 Google Calendar。请检查网络连接。
+c03af73d 无法连接 Google Calendar（{0}）。请检查网络连接。
+5e492841 Google Calendar 拒绝了这个日程（{0}）。
+23989160 Google Calendar、Google Tasks、Onyx 和 Tamkeen 应用。
+59636398 AnkiDroid、Google Calendar、Google Tasks 和 Onyx。
+38c02660 Google Calendar、Google Tasks 和 Onyx。

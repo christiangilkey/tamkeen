@@ -4652,3 +4652,56 @@ Netflix refuses web playback (tested). Chrome and Edge; Firefox where cheap.
   full screen (the bar moves into Netflix's full-screen box); next-episode switching (the bar starts afresh per title id);
   Netflix's real "Browse by Languages" menu (shared with the desktop's open question). Known: Vocab's Word/Sentence play
   buttons on a Netflix (or YouTube) word have no audio to play (as before, on every version).
+
+## Today's review to Google Calendar, at a chosen time (2026-10-22; branch `worktree-agent-aaa09ab3722184041`, NOT merged, NOT pushed)
+Owner: "When you press on it for you to be able to choose what time it is set to, the duration is already determined by
+the estimated length in the bar above." Google Tasks can't keep a time (its API stores only the date), and the owner
+chose "calendar event works". Onyx stays exactly as it was (owner: items sent to Onyx are unscheduled tasks; Onyx's
+own chat is restructuring that), and so does Google Tasks.
+- **Owner's one-time setup (needed before it works anywhere):** in Google Cloud project **Meridian**, (1) APIs &
+  Services → Library → enable **"Google Calendar API"**; (2) OAuth consent screen → Data access / Scopes → add
+  **`https://www.googleapis.com/auth/calendar.events`** (it is a "sensitive" scope; while the app is in testing, test
+  users can allow it after the "Google hasn't verified this app" note). Without (1) the app says "The Google Calendar
+  API isn't switched on for Tamkeen's Google project yet."
+- **Settings → Apps & connections → "Today's review as a to-do"** (`components/tasktarget.js`): Google Calendar (at a
+  time you pick, for the estimated length), Google Tasks (on today's list, no time), Onyx (as an unscheduled task in
+  Onyx). Setting `review_task_target`: "calendar" (new default) | "google" (Tasks) | "onyx". Nobody's explicit choice is
+  changed: the computer stores only a choice made in Settings, so a stored "google" stays Google Tasks and unset means
+  Calendar (db.py default). The phones/web app keep a copy of every setting, defaults included, so a stored "google"
+  there may just be the old default: store.js loadSettings moves it to "calendar" once (`task_target_default_moved`)
+  **unless Google Tasks was actually used** (`review_task` has an id), which keeps Google Tasks. So the owner, who has
+  used Google Tasks, still gets Google Tasks until he picks Google Calendar in Settings once.
+- **The button** (`review/goalbar.js`): "Send to Google Calendar" opens a small centred box (`review/calpopup.js`, an
+  openModal with class `cal-back`: centred on phones too, no shadow; CSS at the end of `web/css/review.css`): "Today at"
+  + a big time box (`<input type=time>`), "about N min" (reviewTask().minutes, the estimate in the bar), Cancel / "Add
+  to Google Calendar". The time offered (`review/eventtime.js` defaultTime): the one chosen last time on this device if
+  still ahead today, else the next quarter hour (never past 23:45). Remembered per device in localStorage `tk_review_cal`
+  {time, sent, sentAt}; once added today the box says "Already in your calendar today at 7:30 pm. Adding it again moves it."
+- **The event** (`review/eventtime.js` eventBody; Python twin `app/googlecalendar.py` event_body): primary calendar,
+  today at that time for those minutes, `timeZone` = the device's (Intl), the same title/notes as the task, and
+  `extendedProperties.private.tamkeen` = the task id. Calendar API v3: POST `calendars/primary/events`; a resend the same
+  day PATCHes the event in setting **`review_event`** {day, id} (eventAction). If Google says it is gone (404/410) or it
+  was deleted in Calendar (PATCH answers `status: "cancelled"`, patchKept), a new one is added. Toasts: "Added to Google
+  Calendar at 7:30 pm: Tamkeen review (6 min)." / "Updated in Google Calendar to 8:00 pm: …". Errors (calendarError):
+  not allowed, the API not switched on (403 "has not been used / disabled"), offline ("Couldn't reach Google Calendar.").
+- **Permission** (scope `calendar.events`, asked only when first used, on top of what was allowed: include_granted_scopes):
+  - computer: POST /api/calendar/review (`app/api/episodes.py`) → `googlecalendar.send_review`; not allowed yet → opens
+    the browser sign-in with `oauth.begin(..., calendar=True)` and returns needs_permission; the box stays open and says
+    "Allow Tamkeen to use Google Calendar in the browser window that opened, then press Add again." Sign-out clears
+    `review_event`.
+  - Android: `GoogleDriveAuthPlugin.authorize({interactive, calendar: true})` (compiles with JDK 21).
+  - iPhone: `GoogleDriveAuthPlugin.swift` passes `calendar` to `GoogleAuth.tokens(…, calendar:)`, which asks Google's
+    page for the missing extra scopes (Tasks and/or Calendar) once. Not compiled here (no Mac).
+  - web app: `mobile/src/js/googlecalendar.js` uses the Drive pass if it covers Calendar (drive.js `webPassFor`
+    CALENDAR_SCOPE), else `goToGoogleSignIn({calendar: true, then: {calendar: {task, time}}})`; on the way back
+    finishWebSignIn hands the pass over (useCalendarToken) and adds the event at the time chosen before leaving.
+- Phone route: backend.js POST /calendar/review. Translations: tools/i18n/tr/<code>/56-calendar.txt (16 languages).
+- Tests: tests/js/eventtime.test.mjs (time offered, event body, update-or-new, refusals, clock text),
+  tests/test_googlecalendar.py (event body, one event a day moved, deleted → new, refusals, permission URL).
+- Checked: the web-app build (docs/app copy served from the scratchpad, docs/app put back) in headless Chrome at 375 x 812
+  and 1280 x 800 with faked Google answers: first add (POST, 19:30→19:33 in the device's zone), resend (PATCH, "Updated…
+  8:00 pm"), deleted in Calendar (PATCH cancelled → POST), API off and offline messages, Settings card; and the web round
+  trip: no pass → Google's page asked for `… drive.appdata … calendar.events` with include_granted_scopes and login_hint
+  (the request was stopped before Google loaded), then a faked answer came back and the event was sent at 6:45 pm.
+  **Not checked:** a real Google account (needs the setup above), the computer's browser permission flow end to end, the
+  iPhone build, a real Android phone.

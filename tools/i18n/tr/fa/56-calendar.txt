@@ -1,0 +1,25 @@
+4dfe887c Google Calendar <0>(در ساعتی که انتخاب می‌کنید، به اندازهٔ زمان تخمینی)</0>
+e24f9b04 Google Tasks <0>(در فهرست امروز، بدون ساعت)</0>
+ccf228d6 Onyx <0>(به‌صورت کاری بدون زمان‌بندی در Onyx)</0>
+653ebdd3 Google بار اول برای Calendar یا Tasks از شما اجازه می‌خواهد.
+b5072f7e افزودن به Google Calendar
+6eca6893 امروز ساعت
+4ddcc583 امروز ساعت {0} در تقویم شما هست. افزودن دوباره آن را جابه‌جا می‌کند.
+b2608cde در پنجرهٔ مرورگری که باز شد به تمکین اجازهٔ استفاده از Google Calendar بدهید، بعد دوباره «افزودن» را بزنید.
+4cb980b9 مرور به Google Calendar اضافه نشد.
+f65fa130 یک ساعت انتخاب کنید.
+a6e73aae Google Calendar API هنوز در پروژهٔ Google تمکین روشن نشده است.
+4c0e0bee به Google Calendar اجازه داده نشد، پس مرور اضافه نشد.
+803bdd09 Google Calendar با خطا پاسخ داد ({0}).
+e69ddd1f افزودن «{0}» به Google Calendar برای امروز، در ساعتی که انتخاب می‌کنید (جایش را در تنظیمات انتخاب کنید)
+570374e4 Google Calendar
+644d1004 در Google Calendar به ساعت {0} تغییر کرد: {1}.
+ec7fb5fa به Google Calendar در ساعت {0} اضافه شد: {1}.
+93c20883 فرستادن به Google Calendar در برنامهٔ نصب‌شده، روی رایانه و در برنامهٔ وب کار می‌کند.
+5bfa460d به Google Calendar دسترسی پیدا نشد. اتصال خود را بررسی کنید.
+c03af73d به Google Calendar دسترسی پیدا نشد ({0}). اتصال خود را بررسی کنید.
+5e492841 Google Calendar رویداد را نپذیرفت ({0}).
+aebe40c4 حدود {0} دقیقه
+23989160 Google Calendar، Google Tasks، Onyx و برنامهٔ تمکین.
+59636398 AnkiDroid، Google Calendar، Google Tasks و Onyx.
+38c02660 Google Calendar، Google Tasks و Onyx.

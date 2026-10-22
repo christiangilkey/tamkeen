@@ -11,7 +11,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, RedirectResponse, Response, StreamingResponse
 from pydantic import BaseModel
 
-from .. import books, googletasks, corrections, db, events, exporters, jobs, languages, pages, sync, tashkeel, videos, youtube
+from .. import books, googlecalendar, googletasks, corrections, db, events, exporters, jobs, languages, pages, sync, tashkeel, videos, youtube
 
 router = APIRouter(tags=["episodes"])
 
@@ -170,6 +170,33 @@ def review_task(body: ReviewTaskIn, request: Request) -> dict[str, Any]:
         webbrowser.open(url)
         return {"needs_permission": True}
     except googletasks.TaskError as exc:
+        raise HTTPException(400, str(exc)) from exc
+
+
+class ReviewEventIn(ReviewTaskIn):
+    id: str = ""
+    time: str  # "HH:MM" on the computer's clock
+    time_zone: str = ""
+
+
+@router.post("/calendar/review")
+def review_event(body: ReviewEventIn, request: Request) -> dict[str, Any]:
+    """The Review tab's "Send to Google Calendar", at the time chosen in its popup. The first time,
+    Google is asked for permission in the browser ({"needs_permission": true}); press Add again then."""
+    from ..sync import oauth
+
+    try:
+        return googlecalendar.send_review(body.model_dump())
+    except googlecalendar.NeedsPermission:
+        import webbrowser
+
+        try:
+            url = oauth.begin(f"http://127.0.0.1:{request.url.port}/api/sync/callback", calendar=True)
+        except oauth.AuthError as exc:
+            raise HTTPException(400, str(exc)) from exc
+        webbrowser.open(url)
+        return {"needs_permission": True}
+    except (googlecalendar.CalendarError, oauth.AuthError) as exc:  # (AuthError: the Google sign-in ran out)
         raise HTTPException(400, str(exc)) from exc
 
 

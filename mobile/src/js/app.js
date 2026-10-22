@@ -29,7 +29,7 @@ import { addUploadedVideo, checkFeeds, fillLanguages, handle, wordLang } from ".
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
-import { DRIVE_SCOPE, RECONNECT_EVENT, TASKS_SCOPE, accessToken, drive, useWebToken, webPassLeft } from "./drive.js";
+import { CALENDAR_SCOPE, DRIVE_SCOPE, RECONNECT_EVENT, TASKS_SCOPE, accessToken, drive, useWebToken, webPassLeft } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
 import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, webFetch } from "./native.js";
@@ -243,19 +243,21 @@ function randomHex(n) {
 
 /** Go to Google's sign-in page, which sends the learner straight back here (finishWebSignIn).
  *  `quiet`: a renewal that shows nothing (Google answers at once, or says it needs a tap); `renew`: the
- *  "Reconnect Google" button; `tasks`: Google Tasks too, then sending `then.tasks`. Resolves false
- *  when a quiet one didn't go (storage switched off: the way back couldn't be checked). */
-export async function goToGoogleSignIn({ quiet = false, renew = false, tasks = false, then = null } = {}) {
+ *  "Reconnect Google" button; `tasks`: Google Tasks too, then sending `then.tasks`; `calendar`: Google
+ *  Calendar too, then adding `then.calendar` ({task, time}). Resolves false when a quiet one didn't go
+ *  (storage switched off: the way back couldn't be checked). */
+export async function goToGoogleSignIn({ quiet = false, renew = false, tasks = false, calendar = false, then = null } = {}) {
   const nonce = randomHex(16);
   const state = randomHex(16);
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(nonce));
   const hashed = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
   try {
-    sessionStorage.setItem(WEB_SIGNIN_KEY, JSON.stringify({ nonce, state, back: location.hash || "#/", quiet, renew: renew || tasks, then }));
+    sessionStorage.setItem(WEB_SIGNIN_KEY, JSON.stringify({ nonce, state, back: location.hash || "#/", quiet, renew: renew || tasks || calendar, then }));
     if (quiet) localStorage.setItem(QUIET_TRY_KEY, String(Date.now()));
   } catch { if (quiet) return false; }
   const q = new URLSearchParams({
-    client_id: GOOGLE_WEB_CLIENT_ID, response_type: "id_token token", scope: `openid email ${DRIVE_SCOPE}${tasks ? ` ${TASKS_SCOPE}` : ""}`,
+    client_id: GOOGLE_WEB_CLIENT_ID, response_type: "id_token token",
+    scope: `openid email ${DRIVE_SCOPE}${tasks ? ` ${TASKS_SCOPE}` : ""}${calendar ? ` ${CALENDAR_SCOPE}` : ""}`,
     include_granted_scopes: "true", redirect_uri: location.origin + location.pathname, nonce: hashed, state,
   });
   // Already signed in: the same account again, without choosing (a quick hop to Google and back once
@@ -364,7 +366,7 @@ async function finishWebSignIn() {
       toast(e.message || "Couldn't sign in to Friends.", { error: true });
     }
     if (driveOk || friendsOk) toast(email ? `Signed in as ${email}` : "Signed in.");
-  } else if (kept.renew && driveOk && !(kept.then && kept.then.tasks)) toast("Reconnected to Google.");
+  } else if (kept.renew && driveOk && !(kept.then && (kept.then.tasks || kept.then.calendar))) toast("Reconnected to Google.");
   if (!driveOk && !quiet) toast("Syncing needs Tamkeen's private Drive folder: sign in again and leave that box ticked.", { error: true });
   if (kept.then && kept.then.tasks) {
     // "Send to Google Tasks", sent now that Google has allowed it (googletasks.js).
@@ -374,6 +376,17 @@ async function finishWebSignIn() {
       (await import("./googletasks.js")).useTasksToken(answer.get("access_token"), answer.get("expires_in"));
       import("./review/sendtask.js").then((m) => m.sendReviewTask(kept.then.tasks))
         .catch((e) => toast(e.message || "Couldn't send the task.", { error: true }));
+    }
+  }
+  if (kept.then && kept.then.calendar) {
+    // "Send to Google Calendar", added now that Google has allowed it, at the time chosen before leaving.
+    const { task, time } = kept.then.calendar;
+    if (!answer.get("access_token") || !granted.includes(CALENDAR_SCOPE)) {
+      toast("Google Calendar wasn't allowed, so the review couldn't be added.", { error: true });
+    } else {
+      (await import("./googlecalendar.js")).useCalendarToken(answer.get("access_token"), answer.get("expires_in"));
+      import("./review/sendtask.js").then((m) => m.sendReviewEvent(task, time))
+        .catch((e) => toast(e.message || "Couldn't add the review to Google Calendar.", { error: true }));
     }
   }
   if (!renewing) {

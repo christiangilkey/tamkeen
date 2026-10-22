@@ -86,8 +86,9 @@ export const DEFAULTS = {
   common_words_pending: [], // languages whose common words wait for dictionaries before counting as seen (commonwords.js)
   definer_provider: "claude",
   definer_mode: "dictionary_first", // the default; "ai"; "dictionary": No AI, words explained by the built-in dictionary (meanings.js); "dictionary_first": the dictionary, and the AI for words it lacks
-  review_task_target: "google", // the Review tab's button sends the day's review to "google" (Tasks) or "onyx"
+  review_task_target: "calendar", // the Review tab's button sends the day's review to "calendar" (Google Calendar, at a time), "google" (Google Tasks) or "onyx"
   review_task: {}, // {day, id}: today's review task in Google Tasks, updated rather than added again
+  review_event: {}, // {day, id}: today's review event in Google Calendar, moved rather than added again
   definer_language: "English",
   definer_model_claude: "", definer_model_gemini: "", definer_model_openai: "", definer_model_grok: "",
   // The review card's Mnemonic maker: its own model ("" = fastest, "same" = the lookups') and thinking (definer.mnemonicConfig).
@@ -136,6 +137,14 @@ export async function loadSettings() {
     const anyKey = ["claude", "gemini", "openai", "grok"].some((p) => settings[`llm_key_${p}`]);
     if (settings.definer_mode === "ai" && !anyKey) settings.definer_mode = "dictionary_first";
     settings.definer_default_moved = true;
+    await kv.set("settings", { ...settings });
+  }
+  // Google Calendar became the review to-do's default (2026-10-22). For the same reason an older
+  // "google" (Google Tasks) may only be the old default: it moves on, once, unless Google Tasks was
+  // actually used (a task was sent: review_task has its id), which keeps it.
+  if (!settings.task_target_default_moved) {
+    if (settings.review_task_target === "google" && !(settings.review_task && settings.review_task.id)) settings.review_task_target = "calendar";
+    settings.task_target_default_moved = true;
     await kv.set("settings", { ...settings });
   }
   return settings;

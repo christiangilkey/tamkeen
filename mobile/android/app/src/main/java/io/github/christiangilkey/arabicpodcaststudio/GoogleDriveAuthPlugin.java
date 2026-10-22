@@ -52,13 +52,15 @@ public class GoogleDriveAuthPlugin extends Plugin {
             new ActivityResultContracts.StartIntentSenderForResult(), this::onConsentResult);
     }
 
-    /** `tasks`: Google Tasks too (the Review tab's "Send to Google Tasks"), asked the first time it is used. */
-    private AuthorizationRequest request(boolean tasks) {
+    /** `tasks`: Google Tasks too (the Review tab's "Send to Google Tasks"); `calendar`: Google Calendar
+     *  events too ("Send to Google Calendar"). Each is asked for the first time it is used. */
+    private AuthorizationRequest request(boolean tasks, boolean calendar) {
         java.util.List<Scope> scopes = new java.util.ArrayList<>(Arrays.asList(
             new Scope("https://www.googleapis.com/auth/drive.appdata"),
             new Scope("email"),
             new Scope("openid")));
         if (tasks) scopes.add(new Scope("https://www.googleapis.com/auth/tasks"));
+        if (calendar) scopes.add(new Scope("https://www.googleapis.com/auth/calendar.events"));
         return AuthorizationRequest.builder().setRequestedScopes(scopes).build();
     }
 
@@ -66,7 +68,8 @@ public class GoogleDriveAuthPlugin extends Plugin {
     public void authorize(PluginCall call) {
         boolean interactive = Boolean.TRUE.equals(call.getBoolean("interactive", true));
         boolean tasks = Boolean.TRUE.equals(call.getBoolean("tasks", false));
-        Identity.getAuthorizationClient(getActivity()).authorize(request(tasks))
+        boolean calendar = Boolean.TRUE.equals(call.getBoolean("calendar", false));
+        Identity.getAuthorizationClient(getActivity()).authorize(request(tasks, calendar))
             .addOnSuccessListener(result -> {
                 if (!result.hasResolution()) {
                     resolveWith(call, result);

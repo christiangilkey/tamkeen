@@ -4130,13 +4130,23 @@
   "f": "web/js/components/tasktarget.js"
  },
  {
-  "id": "9cea74c5",
-  "k": "Google Tasks <0>(Google asks you to allow it the first time)</0>",
+  "id": "4dfe887c",
+  "k": "Google Calendar <0>(at a time you pick, for the estimated length)</0>",
   "f": "web/js/components/tasktarget.js"
  },
  {
-  "id": "c001f24c",
-  "k": "Onyx <0>(opens Onyx, which fits it into your day)</0>",
+  "id": "e24f9b04",
+  "k": "Google Tasks <0>(on today's list, no time)</0>",
+  "f": "web/js/components/tasktarget.js"
+ },
+ {
+  "id": "ccf228d6",
+  "k": "Onyx <0>(as an unscheduled task in Onyx)</0>",
+  "f": "web/js/components/tasktarget.js"
+ },
+ {
+  "id": "653ebdd3",
+  "k": "Google asks you to allow Calendar or Tasks the first time you use it.",
   "f": "web/js/components/tasktarget.js"
  },
  {
@@ -13010,6 +13020,36 @@
   "f": "web/js/progress.js"
  },
  {
+  "id": "b5072f7e",
+  "k": "Add to Google Calendar",
+  "f": "web/js/review/calpopup.js"
+ },
+ {
+  "id": "6eca6893",
+  "k": "Today at",
+  "f": "web/js/review/calpopup.js"
+ },
+ {
+  "id": "aebe40c4",
+  "k": "about {0} min",
+  "f": "web/js/review/calpopup.js"
+ },
+ {
+  "id": "4ddcc583",
+  "k": "Already in your calendar today at {0}. Adding it again moves it.",
+  "f": "web/js/review/calpopup.js"
+ },
+ {
+  "id": "b2608cde",
+  "k": "Allow Tamkeen to use Google Calendar in the browser window that opened, then press Add again.",
+  "f": "web/js/review/calpopup.js"
+ },
+ {
+  "id": "4cb980b9",
+  "k": "Couldn't add the review to Google Calendar.",
+  "f": "web/js/review/calpopup.js"
+ },
+ {
   "id": "15710324",
   "k": "Han",
   "f": "web/js/review/deck.js"
@@ -13068,6 +13108,36 @@
   "id": "67e282ba",
   "k": "{0} year{1}",
   "f": "web/js/review/deck.js"
+ },
+ {
+  "id": "25d9c3cc",
+  "k": "The task needs a day.",
+  "f": "web/js/review/eventtime.js"
+ },
+ {
+  "id": "f65fa130",
+  "k": "Choose a time.",
+  "f": "web/js/review/eventtime.js"
+ },
+ {
+  "id": "bbdefd6e",
+  "k": "Tamkeen review",
+  "f": "web/js/review/eventtime.js"
+ },
+ {
+  "id": "a6e73aae",
+  "k": "The Google Calendar API isn't switched on for Tamkeen's Google project yet.",
+  "f": "web/js/review/eventtime.js"
+ },
+ {
+  "id": "4c0e0bee",
+  "k": "Google Calendar wasn't allowed, so the review couldn't be added.",
+  "f": "web/js/review/eventtime.js"
+ },
+ {
+  "id": "803bdd09",
+  "k": "Google Calendar answered with an error ({0}).",
+  "f": "web/js/review/eventtime.js"
  },
  {
   "id": "45bb7a2d",
@@ -13150,6 +13220,11 @@
   "f": "web/js/review/goalbar.js"
  },
  {
+  "id": "e69ddd1f",
+  "k": "Add “{0}” to Google Calendar today, at a time you choose (choose where in Settings)",
+  "f": "web/js/review/goalbar.js"
+ },
+ {
   "id": "4ac22389",
   "k": "Add “{0}” to {1} for today (choose where in Settings)",
   "f": "web/js/review/goalbar.js"
@@ -13215,6 +13290,11 @@
   "f": "web/js/review/pronounce.js"
  },
  {
+  "id": "570374e4",
+  "k": "Google Calendar",
+  "f": "web/js/review/sendtask.js"
+ },
+ {
   "id": "c9c6fe67",
   "k": "Google Tasks",
   "f": "web/js/review/sendtask.js"
@@ -13242,6 +13322,16 @@
  {
   "id": "4d263331",
   "k": "Added to Google Tasks: {0}.",
+  "f": "web/js/review/sendtask.js"
+ },
+ {
+  "id": "644d1004",
+  "k": "Updated in Google Calendar to {0}: {1}.",
+  "f": "web/js/review/sendtask.js"
+ },
+ {
+  "id": "ec7fb5fa",
+  "k": "Added to Google Calendar at {0}: {1}.",
   "f": "web/js/review/sendtask.js"
  },
  {
@@ -15202,21 +15292,21 @@
  {
   "id": "2a66b8ea",
   "k": "Sign in with Google first (Settings → Google account).",
-  "f": "mobile/src/js/googletasks.js"
+  "f": "mobile/src/js/googlecalendar.js"
+ },
+ {
+  "id": "93c20883",
+  "k": "Sending to Google Calendar works in the installed app, on the computer and in the web app.",
+  "f": "mobile/src/js/googlecalendar.js"
+ },
+ {
+  "id": "5bfa460d",
+  "k": "Couldn't reach Google Calendar. Check your connection.",
+  "f": "mobile/src/js/googlecalendar.js"
  },
  {
   "id": "79642d7d",
   "k": "Sending to Google Tasks works in the installed app, on the computer and in the web app.",
-  "f": "mobile/src/js/googletasks.js"
- },
- {
-  "id": "25d9c3cc",
-  "k": "The task needs a day.",
-  "f": "mobile/src/js/googletasks.js"
- },
- {
-  "id": "bbdefd6e",
-  "k": "Tamkeen review",
   "f": "mobile/src/js/googletasks.js"
  },
  {
@@ -15260,18 +15350,18 @@
   "f": "mobile/src/js/lexicon-store.js"
  },
  {
-  "id": "dc170e1d",
-  "k": "Google Tasks, Onyx, and the Tamkeen app.",
+  "id": "23989160",
+  "k": "Google Calendar, Google Tasks, Onyx, and the Tamkeen app.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "1ceebe39",
-  "k": "AnkiDroid, Google Tasks and Onyx.",
+  "id": "59636398",
+  "k": "AnkiDroid, Google Calendar, Google Tasks and Onyx.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "ee622c1c",
-  "k": "Google Tasks and Onyx.",
+  "id": "38c02660",
+  "k": "Google Calendar, Google Tasks and Onyx.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -16437,7 +16527,17 @@
  {
   "id": "7141db00",
   "k": "Sign in with Google first (Settings → Sync with Google Drive).",
-  "f": "app/googletasks.py"
+  "f": "app/googlecalendar.py"
+ },
+ {
+  "id": "c03af73d",
+  "k": "Couldn't reach Google Calendar ({0}). Check your connection.",
+  "f": "app/googlecalendar.py"
+ },
+ {
+  "id": "5e492841",
+  "k": "Google Calendar refused the event ({0}).",
+  "f": "app/googlecalendar.py"
  },
  {
   "id": "819dc7ab",

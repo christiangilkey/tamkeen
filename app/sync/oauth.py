@@ -2,7 +2,8 @@
 
 Only the `drive.appdata` scope is requested: the app sees its own hidden folder in the
 user's Drive and nothing else. Google Tasks (the Review tab's "Send to Google Tasks", see
-app/googletasks.py) is asked for separately, the first time it is used.
+app/googletasks.py) and Google Calendar ("Send to Google Calendar", app/googlecalendar.py) are asked
+for separately, the first time each is used.
 """
 
 from __future__ import annotations
@@ -27,6 +28,7 @@ TOKEN_URL = "https://oauth2.googleapis.com/token"
 REVOKE_URL = "https://oauth2.googleapis.com/revoke"
 SCOPES = "https://www.googleapis.com/auth/drive.appdata openid email"
 TASKS_SCOPE = "https://www.googleapis.com/auth/tasks"
+CALENDAR_SCOPE = "https://www.googleapis.com/auth/calendar.events"
 
 
 class AuthError(RuntimeError):
@@ -59,9 +61,9 @@ def _b64(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).rstrip(b"=").decode("ascii")
 
 
-def begin(redirect_uri: str, tasks: bool = False) -> str:
+def begin(redirect_uri: str, tasks: bool = False, calendar: bool = False) -> str:
     """Start sign-in. Returns the Google URL to open in the system browser. `tasks`: also ask
-    for Google Tasks (on top of what was granted before)."""
+    for Google Tasks, `calendar`: for Google Calendar events (on top of what was granted before)."""
     cfg = client_config()
     if cfg is None:
         raise AuthError("Google sign-in isn't configured in this build.")
@@ -76,7 +78,7 @@ def begin(redirect_uri: str, tasks: bool = False) -> str:
         "client_id": cfg[0],
         "redirect_uri": redirect_uri,
         "response_type": "code",
-        "scope": f"{SCOPES} {TASKS_SCOPE}" if tasks else SCOPES,
+        "scope": " ".join([SCOPES] + ([TASKS_SCOPE] if tasks else []) + ([CALENDAR_SCOPE] if calendar else [])),
         "include_granted_scopes": "true",
         "state": state,
         "code_challenge": _b64(hashlib.sha256(verifier.encode("ascii")).digest()),
@@ -182,6 +184,6 @@ def sign_out() -> None:
             httpx.post(REVOKE_URL, params={"token": refresh}, timeout=15)
         except httpx.HTTPError:
             pass
-    db.set_settings({"google_refresh_token": "", "google_email": "", "google_scopes": "", "review_task": {}})
+    db.set_settings({"google_refresh_token": "", "google_email": "", "google_scopes": "", "review_task": {}, "review_event": {}})
     with _lock:
         _access.update(token=None, expires=0.0)

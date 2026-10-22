@@ -22,6 +22,7 @@ export class AuthError extends Error {}
 // Google page that never closed.)
 export const DRIVE_SCOPE = "https://www.googleapis.com/auth/drive.appdata";
 export const TASKS_SCOPE = "https://www.googleapis.com/auth/tasks"; // "Send to Google Tasks" (googletasks.js), asked for when first used
+export const CALENDAR_SCOPE = "https://www.googleapis.com/auth/calendar.events"; // "Send to Google Calendar" (googlecalendar.js), the same
 const WEB_TOKEN_KEY = "tk_web_drive_token";
 
 function savedWebToken() {

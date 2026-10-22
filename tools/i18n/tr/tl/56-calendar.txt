@@ -1,0 +1,24 @@
+4dfe887c Google Calendar <0>(sa oras na pipiliin mo, sa tantiyang haba)</0>
+e24f9b04 Google Tasks <0>(sa listahan ngayong araw, walang oras)</0>
+ccf228d6 Onyx <0>(bilang task na walang iskedyul sa Onyx)</0>
+653ebdd3 Hihingi ng pahintulot ang Google para sa Calendar o Tasks sa unang beses na gamitin mo ito.
+b5072f7e Idagdag sa Google Calendar
+6eca6893 Ngayong araw nang
+4ddcc583 Nasa calendar mo na ngayong araw nang {0}. Kapag idinagdag ulit, maililipat ito.
+b2608cde Payagan ang Tamkeen na gamitin ang Google Calendar sa bumukas na browser window, saka pindutin ulit ang Idagdag.
+4cb980b9 Hindi naidagdag ang review sa Google Calendar.
+f65fa130 Pumili ng oras.
+a6e73aae Hindi pa naka-on ang Google Calendar API sa Google project ng Tamkeen.
+4c0e0bee Hindi pinayagan ang Google Calendar, kaya hindi naidagdag ang review.
+803bdd09 Sumagot ang Google Calendar ng error ({0}).
+e69ddd1f Idagdag ang “{0}” sa Google Calendar ngayong araw, sa oras na pipiliin mo (piliin kung saan sa Settings)
+570374e4 Google Calendar
+644d1004 Na-update sa Google Calendar sa {0}: {1}.
+ec7fb5fa Naidagdag sa Google Calendar nang {0}: {1}.
+93c20883 Gumagana ang pagpapadala sa Google Calendar sa naka-install na app, sa computer at sa web app.
+5bfa460d Hindi maabot ang Google Calendar. Suriin ang koneksyon mo.
+c03af73d Hindi maabot ang Google Calendar ({0}). Suriin ang koneksyon mo.
+5e492841 Tinanggihan ng Google Calendar ang event ({0}).
+23989160 Google Calendar, Google Tasks, Onyx, at ang Tamkeen app.
+59636398 AnkiDroid, Google Calendar, Google Tasks at Onyx.
+38c02660 Google Calendar, Google Tasks at Onyx.

@@ -47,14 +47,16 @@ public class GoogleDriveAuthPlugin: CAPPlugin, CAPBridgedPlugin {
 
     /// An access token for the app's own Drive folder: {accessToken, scopes}. With
     /// `interactive: false` nothing is ever shown ("NEEDS_INTERACTION" when the user must sign in).
-    /// `tasks`: Google Tasks too (the Review tab's "Send to Google Tasks"), asked the first time it is used.
+    /// `tasks`: Google Tasks too (the Review tab's "Send to Google Tasks"); `calendar`: Google Calendar
+    /// events too ("Send to Google Calendar"). Each is asked for the first time it is used.
     @objc func authorize(_ call: CAPPluginCall) {
         let interactive = call.getBool("interactive", true)
         let force = call.getBool("force", false)
         let tasks = call.getBool("tasks", false)
+        let calendar = call.getBool("calendar", false)
         DispatchQueue.main.async {
             GoogleAuth.shared.anchor = self.bridge?.webView?.window
-            GoogleAuth.shared.tokens(interactive: interactive, force: force, tasks: tasks) { result in
+            GoogleAuth.shared.tokens(interactive: interactive, force: force, tasks: tasks, calendar: calendar) { result in
                 switch result {
                 case .success(let tokens):
                     call.resolve(["accessToken": tokens.accessToken, "scopes": tokens.scopes])

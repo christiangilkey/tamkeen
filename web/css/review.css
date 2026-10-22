@@ -360,3 +360,20 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .goal-chips button.on, .goal-chips button.on:hover:not(:disabled) { background: #22c7d6; border-color: #22c7d6; color: #022a2f; }
 .goal-help, .goal-pace { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
 @media (prefers-reduced-motion: reduce) { .goal-part, .goal-part i { transition: none; } }
+
+/* "Send to Google Calendar": the box that asks when (web/js/review/calpopup.js). Centred on every
+   screen, one plain surface, no shadow; the time is the big thing. */
+.modal-back.cal-back { place-items: center; padding: 16px; }
+.cal-back .modal-box, .cal-back .modal-box.wide { width: min(380px, 100%); border-radius: 20px; box-shadow: none; padding-bottom: 0; }
+.cal-back .modal-head h2 { text-align: center; padding-inline-start: 36px; }
+.cal-body { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.cal-label { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; color: var(--muted); }
+.cal-body .cal-time {
+  width: min(240px, 100%); min-height: 64px; padding: 8px 14px; border-radius: 16px; text-align: center;
+  font-family: inherit; font-size: 34px; font-weight: 700; font-variant-numeric: tabular-nums;
+}
+.cal-length { font-size: 16px; font-weight: 600; }
+.cal-note { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
+.cal-note[hidden] { display: none; }
+.cal-body .confirm-buttons { align-self: stretch; margin-top: 8px; }
+.cal-body .confirm-buttons button { flex: 1 1 0; min-width: 0; white-space: normal; line-height: 1.25; padding-inline: 10px; } /* the same width, side by side */

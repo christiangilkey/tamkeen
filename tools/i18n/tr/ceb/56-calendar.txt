@@ -1,0 +1,25 @@
+4dfe887c Google Calendar <0>(sa oras nga imong pilion, sa gibanabanang gitas-on)</0>
+e24f9b04 Google Tasks <0>(sa lista karong adlawa, walay oras)</0>
+ccf228d6 Onyx <0>(isip task nga walay iskedyul sa Onyx)</0>
+653ebdd3 Mangayo og pagtugot ang Google para sa Calendar o Tasks sa unang higayon nga gamiton nimo kini.
+b5072f7e Idugang sa Google Calendar
+6eca6893 Karong adlawa sa
+4ddcc583 Anaa na sa imong calendar karong adlawa sa {0}. Kon idugang pag-usab, mabalhin kini.
+b2608cde Tugoti ang Tamkeen nga mogamit sa Google Calendar sa browser window nga naablihan, dayon pindota pag-usab ang Idugang.
+4cb980b9 Wala madugang ang review sa Google Calendar.
+f65fa130 Pagpili og oras.
+a6e73aae Wala pa ma-on ang Google Calendar API sa Google project sa Tamkeen.
+4c0e0bee Wala tugoti ang Google Calendar, busa wala madugang ang review.
+803bdd09 Mitubag ang Google Calendar og error ({0}).
+e69ddd1f Idugang ang “{0}” sa Google Calendar karong adlawa, sa oras nga imong pilion (pilia kung asa sa Settings)
+570374e4 Google Calendar
+644d1004 Na-update sa Google Calendar ngadto sa {0}: {1}.
+ec7fb5fa Nadugang sa Google Calendar sa {0}: {1}.
+93c20883 Ang pagpadala sa Google Calendar molihok sa na-install nga app, sa computer ug sa web app.
+5bfa460d Dili maabot ang Google Calendar. Susiha ang imong koneksyon.
+c03af73d Dili maabot ang Google Calendar ({0}). Susiha ang imong koneksyon.
+5e492841 Gibalibaran sa Google Calendar ang event ({0}).
+aebe40c4 mga {0} min
+23989160 Google Calendar, Google Tasks, Onyx, ug ang Tamkeen app.
+59636398 AnkiDroid, Google Calendar, Google Tasks ug Onyx.
+38c02660 Google Calendar, Google Tasks ug Onyx.

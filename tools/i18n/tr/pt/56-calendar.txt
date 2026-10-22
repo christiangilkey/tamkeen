@@ -1,0 +1,25 @@
+4dfe887c Google Calendar <0>(no horário que você escolher, pela duração estimada)</0>
+e24f9b04 Google Tasks <0>(na lista de hoje, sem horário)</0>
+ccf228d6 Onyx <0>(como tarefa sem horário no Onyx)</0>
+653ebdd3 O Google pede sua permissão para o Calendar ou o Tasks na primeira vez que você usa.
+b5072f7e Adicionar ao Google Calendar
+6eca6893 Hoje às
+4ddcc583 Já está na sua agenda hoje às {0}. Adicionar de novo muda o horário.
+b2608cde Permita que o Tamkeen use o Google Calendar na janela do navegador que abriu e depois toque em Adicionar de novo.
+4cb980b9 Não foi possível adicionar a revisão ao Google Calendar.
+f65fa130 Escolha um horário.
+a6e73aae A API do Google Calendar ainda não está ativada no projeto do Google do Tamkeen.
+4c0e0bee O Google Calendar não foi permitido, então a revisão não pôde ser adicionada.
+803bdd09 O Google Calendar respondeu com um erro ({0}).
+e69ddd1f Adicionar “{0}” ao Google Calendar hoje, no horário que você escolher (escolha onde nas Configurações)
+570374e4 Google Calendar
+644d1004 Atualizado no Google Calendar para {0}: {1}.
+ec7fb5fa Adicionado ao Google Calendar às {0}: {1}.
+93c20883 Enviar para o Google Calendar funciona no app instalado, no computador e no app web.
+5bfa460d Não foi possível acessar o Google Calendar. Verifique sua conexão.
+c03af73d Não foi possível acessar o Google Calendar ({0}). Verifique sua conexão.
+5e492841 O Google Calendar recusou o evento ({0}).
+aebe40c4 cerca de {0} min
+23989160 Google Calendar, Google Tasks, Onyx e o app Tamkeen.
+59636398 AnkiDroid, Google Calendar, Google Tasks e Onyx.
+38c02660 Google Calendar, Google Tasks e Onyx.

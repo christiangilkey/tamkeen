@@ -1,0 +1,24 @@
+4dfe887c Google Calendar <0>(в выбранное время, на расчётную длительность)</0>
+e24f9b04 Google Tasks <0>(в список на сегодня, без времени)</0>
+ccf228d6 Onyx <0>(как задача без времени в Onyx)</0>
+653ebdd3 В первый раз Google попросит разрешение для Calendar или Tasks.
+b5072f7e Добавить в Google Calendar
+6eca6893 Сегодня в
+4ddcc583 Уже в вашем календаре сегодня в {0}. Если добавить снова, событие переместится.
+b2608cde Разрешите Tamkeen пользоваться Google Calendar в открывшемся окне браузера, затем снова нажмите «Добавить».
+4cb980b9 Не удалось добавить повторение в Google Calendar.
+f65fa130 Выберите время.
+a6e73aae Google Calendar API ещё не включён в проекте Google для Tamkeen.
+4c0e0bee Доступ к Google Calendar не разрешён, поэтому повторение не удалось добавить.
+803bdd09 Google Calendar ответил ошибкой ({0}).
+e69ddd1f Добавить «{0}» в Google Calendar на сегодня, в выбранное время (место выбирается в настройках)
+570374e4 Google Calendar
+644d1004 В Google Calendar перенесено на {0}: {1}.
+ec7fb5fa Добавлено в Google Calendar на {0}: {1}.
+93c20883 Отправка в Google Calendar работает в установленном приложении, на компьютере и в веб-приложении.
+5bfa460d Не удалось связаться с Google Calendar. Проверьте подключение.
+c03af73d Не удалось связаться с Google Calendar ({0}). Проверьте подключение.
+5e492841 Google Calendar отклонил событие ({0}).
+23989160 Google Calendar, Google Tasks, Onyx и приложение Tamkeen.
+59636398 AnkiDroid, Google Calendar, Google Tasks и Onyx.
+38c02660 Google Calendar, Google Tasks и Onyx.

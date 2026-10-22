@@ -1,0 +1,24 @@
+4dfe887c Google Calendar <0>(في الوقت الذي تختاره، وللمدة المقدّرة)</0>
+e24f9b04 Google Tasks <0>(في قائمة اليوم، بلا وقت)</0>
+ccf228d6 Onyx <0>(مهمة بلا موعد في Onyx)</0>
+653ebdd3 تطلب Google إذنك لـCalendar أو Tasks في أول مرة تستخدمه فيها.
+b5072f7e إضافة إلى Google Calendar
+6eca6893 اليوم في الساعة
+4ddcc583 موجودة في تقويمك اليوم في الساعة {0}. إضافتها مرة أخرى تنقلها.
+b2608cde اسمح لتمكين باستخدام Google Calendar في نافذة المتصفح التي فُتحت، ثم اضغط «إضافة» مرة أخرى.
+4cb980b9 تعذّرت إضافة المراجعة إلى Google Calendar.
+f65fa130 اختر وقتًا.
+a6e73aae واجهة Google Calendar API غير مفعّلة بعد في مشروع Google الخاص بتمكين.
+4c0e0bee لم يُسمح بـGoogle Calendar، لذا تعذّرت إضافة المراجعة.
+803bdd09 ردّ Google Calendar بخطأ ({0}).
+e69ddd1f إضافة «{0}» إلى Google Calendar اليوم، في وقت تختاره (اختر الوجهة من الإعدادات)
+570374e4 Google Calendar
+644d1004 حُدّثت في Google Calendar إلى الساعة {0}: {1}.
+ec7fb5fa أُضيفت إلى Google Calendar في الساعة {0}: {1}.
+93c20883 الإرسال إلى Google Calendar يعمل في التطبيق المثبّت وعلى الكمبيوتر وفي تطبيق الويب.
+5bfa460d تعذّر الوصول إلى Google Calendar. تحقّق من اتصالك.
+c03af73d تعذّر الوصول إلى Google Calendar ({0}). تحقّق من اتصالك.
+5e492841 رفض Google Calendar الحدث ({0}).
+23989160 Google Calendar وGoogle Tasks وOnyx وتطبيق تمكين.
+59636398 AnkiDroid وGoogle Calendar وGoogle Tasks وOnyx.
+38c02660 Google Calendar وGoogle Tasks وOnyx.

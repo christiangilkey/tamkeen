@@ -1,0 +1,25 @@
+4dfe887c Google Calendar <0>(a l'hora que triïs, durant el temps estimat)</0>
+e24f9b04 Google Tasks <0>(a la llista d'avui, sense hora)</0>
+ccf228d6 Onyx <0>(com a tasca sense hora a Onyx)</0>
+653ebdd3 Google et demana permís per a Calendar o Tasks la primera vegada que l'utilitzes.
+b5072f7e Afegeix a Google Calendar
+6eca6893 Avui a les
+4ddcc583 Ja és al teu calendari avui a les {0}. Si l'afegeixes un altre cop, es mou.
+b2608cde Permet que Tamkeen utilitzi Google Calendar a la finestra del navegador que s'ha obert i després torna a prémer Afegeix.
+4cb980b9 No s'ha pogut afegir el repàs a Google Calendar.
+f65fa130 Tria una hora.
+a6e73aae L'API de Google Calendar encara no està activada al projecte de Google de Tamkeen.
+4c0e0bee No s'ha donat permís a Google Calendar, així que no s'ha pogut afegir el repàs.
+803bdd09 Google Calendar ha respost amb un error ({0}).
+e69ddd1f Afegeix «{0}» a Google Calendar avui, a l'hora que triïs (tria on a Configuració)
+570374e4 Google Calendar
+644d1004 Actualitzat a Google Calendar a les {0}: {1}.
+ec7fb5fa Afegit a Google Calendar a les {0}: {1}.
+93c20883 Enviar a Google Calendar funciona a l'app instal·lada, a l'ordinador i a l'app web.
+5bfa460d No s'ha pogut connectar amb Google Calendar. Comprova la connexió.
+c03af73d No s'ha pogut connectar amb Google Calendar ({0}). Comprova la connexió.
+5e492841 Google Calendar ha rebutjat l'esdeveniment ({0}).
+aebe40c4 uns {0} min
+23989160 Google Calendar, Google Tasks, Onyx i l'app de Tamkeen.
+59636398 AnkiDroid, Google Calendar, Google Tasks i Onyx.
+38c02660 Google Calendar, Google Tasks i Onyx.

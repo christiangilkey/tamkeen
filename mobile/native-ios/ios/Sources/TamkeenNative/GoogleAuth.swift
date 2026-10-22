@@ -38,6 +38,8 @@ final class GoogleAuth: NSObject, ASWebAuthenticationPresentationContextProvidin
     private static let scopes = [driveScope, "email", "openid"]
     /// Google Tasks (the Review tab's "Send to Google Tasks"): asked for only the first time it is used.
     private static let tasksScope = "https://www.googleapis.com/auth/tasks"
+    /// Google Calendar events (the Review tab's "Send to Google Calendar"): the same, asked for when first used.
+    private static let calendarScope = "https://www.googleapis.com/auth/calendar.events"
     private static let tokenAddress = "https://oauth2.googleapis.com/token"
     private static let keychainService = "tamkeen-google"
     private static let keychainAccount = "refresh-token"
@@ -59,17 +61,18 @@ final class GoogleAuth: NSObject, ASWebAuthenticationPresentationContextProvidin
     /// when `interactive` is true and there is no other way.
     /// `force` asks Google for a new access token even if the one held looks fresh.
     /// `wantId` also makes sure the ID token is fresh (they last an hour).
-    /// `tasks` also needs Google Tasks allowed; Google's page asks for it once, keeping what was allowed before.
-    func tokens(interactive: Bool, force: Bool, wantId: Bool = false, tasks: Bool = false,
+    /// `tasks` also needs Google Tasks allowed, `calendar` Google Calendar events; Google's page asks for
+    /// each once, keeping what was allowed before.
+    func tokens(interactive: Bool, force: Bool, wantId: Bool = false, tasks: Bool = false, calendar: Bool = false,
                 completion: @escaping Completion) {
         guard !clientId.isEmpty else {
             completion(.failure(.notSetUp))
             return
         }
-        let extra = tasks ? [Self.tasksScope] : []
+        let extra = (tasks ? [Self.tasksScope] : []) + (calendar ? [Self.calendarScope] : [])
         let idFresh = idToken != nil && idTokenAt.timeIntervalSinceNow > -45 * 60
-        let hasTasks = !tasks || granted.contains(Self.tasksScope)
-        if !force, hasTasks, let token = accessToken, accessExpires.timeIntervalSinceNow > 300, !wantId || idFresh {
+        let hasExtra = extra.allSatisfy { granted.contains($0) }
+        if !force, hasExtra, let token = accessToken, accessExpires.timeIntervalSinceNow > 300, !wantId || idFresh {
             completion(.success(Tokens(accessToken: token, idToken: idToken, scopes: granted)))
             return
         }
@@ -81,8 +84,8 @@ final class GoogleAuth: NSObject, ASWebAuthenticationPresentationContextProvidin
             switch result {
             case .success(let json):
                 let fresh = self.adopt(json)
-                if tasks && !fresh.scopes.contains(Self.tasksScope) {
-                    // Signed in, but Google Tasks isn't allowed yet: Google's page asks for it alone.
+                if !extra.allSatisfy({ fresh.scopes.contains($0) }) {
+                    // Signed in, but Google Tasks / Calendar isn't allowed yet: Google's page asks for it alone.
                     if interactive { self.signIn(extra: extra, completion) } else { completion(.failure(.needsInteraction)) }
                 } else {
                     completion(.success(fresh))
@@ -104,7 +107,7 @@ final class GoogleAuth: NSObject, ASWebAuthenticationPresentationContextProvidin
 
     // MARK: - the sign-in page
 
-    /// `extra`: scopes asked for on top of the usual ones (Google Tasks). Google keeps what was
+    /// `extra`: scopes asked for on top of the usual ones (Google Tasks, Calendar). Google keeps what was
     /// allowed before as well (include_granted_scopes), so the Drive sync goes on as it was.
     private func signIn(extra: [String] = [], _ completion: @escaping Completion) {
         let verifier = Self.randomText(bytes: 32)

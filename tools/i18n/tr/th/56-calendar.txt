@@ -1,0 +1,25 @@
+4dfe887c Google Calendar <0>(ตามเวลาที่คุณเลือก นานเท่าเวลาที่ประมาณไว้)</0>
+e24f9b04 Google Tasks <0>(ในรายการของวันนี้ ไม่ระบุเวลา)</0>
+ccf228d6 Onyx <0>(เป็นงานที่ยังไม่กำหนดเวลาใน Onyx)</0>
+653ebdd3 Google จะขออนุญาตสำหรับ Calendar หรือ Tasks ในครั้งแรกที่คุณใช้
+b5072f7e เพิ่มลงใน Google Calendar
+6eca6893 วันนี้ เวลา
+4ddcc583 อยู่ในปฏิทินของคุณแล้ววันนี้เวลา {0} ถ้าเพิ่มอีกครั้งจะย้ายเวลาให้
+b2608cde อนุญาตให้ Tamkeen ใช้ Google Calendar ในหน้าต่างเบราว์เซอร์ที่เปิดขึ้น แล้วกดเพิ่มอีกครั้ง
+4cb980b9 เพิ่มการทบทวนลงใน Google Calendar ไม่ได้
+f65fa130 เลือกเวลา
+a6e73aae ยังไม่ได้เปิด Google Calendar API ในโปรเจกต์ Google ของ Tamkeen
+4c0e0bee ไม่ได้รับอนุญาตให้ใช้ Google Calendar จึงเพิ่มการทบทวนไม่ได้
+803bdd09 Google Calendar ตอบกลับมาว่ามีข้อผิดพลาด ({0})
+e69ddd1f เพิ่ม “{0}” ลงใน Google Calendar วันนี้ ตามเวลาที่คุณเลือก (เลือกที่หมายได้ในการตั้งค่า)
+570374e4 Google Calendar
+644d1004 อัปเดตใน Google Calendar เป็นเวลา {0}: {1}
+ec7fb5fa เพิ่มลงใน Google Calendar เวลา {0}: {1}
+93c20883 การส่งไปยัง Google Calendar ใช้ได้ในแอปที่ติดตั้ง บนคอมพิวเตอร์ และในเว็บแอป
+5bfa460d เชื่อมต่อ Google Calendar ไม่ได้ ตรวจสอบการเชื่อมต่อ
+c03af73d เชื่อมต่อ Google Calendar ไม่ได้ ({0}) ตรวจสอบการเชื่อมต่อ
+5e492841 Google Calendar ปฏิเสธกิจกรรมนี้ ({0})
+aebe40c4 ประมาณ {0} นาที
+23989160 Google Calendar, Google Tasks, Onyx และแอป Tamkeen
+59636398 AnkiDroid, Google Calendar, Google Tasks และ Onyx
+38c02660 Google Calendar, Google Tasks และ Onyx

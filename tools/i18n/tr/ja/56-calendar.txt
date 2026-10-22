@@ -1,0 +1,24 @@
+4dfe887c Google Calendar <0>（選んだ時刻に、見積もった長さで）</0>
+e24f9b04 Google Tasks <0>（今日のリストに、時刻なし）</0>
+ccf228d6 Onyx <0>（Onyxに時刻未定のタスクとして）</0>
+653ebdd3 CalendarやTasksを初めて使うときは、Googleが許可を求めます。
+b5072f7e Google Calendarに追加
+6eca6893 今日の開始時刻
+4ddcc583 今日の{0}にすでにカレンダーに入っています。もう一度追加すると時刻が移ります。
+b2608cde 開いたブラウザのウィンドウでTamkeenにGoogle Calendarの使用を許可してから、もう一度「追加」を押してください。
+4cb980b9 復習をGoogle Calendarに追加できませんでした。
+f65fa130 時刻を選んでください。
+a6e73aae TamkeenのGoogleプロジェクトでGoogle Calendar APIがまだ有効になっていません。
+4c0e0bee Google Calendarが許可されなかったため、復習を追加できませんでした。
+803bdd09 Google Calendarがエラーを返しました（{0}）。
+e69ddd1f 「{0}」を今日、選んだ時刻にGoogle Calendarに追加（送り先は設定で選べます）
+570374e4 Google Calendar
+644d1004 Google Calendarで{0}に更新しました：{1}。
+ec7fb5fa Google Calendarの{0}に追加しました：{1}。
+93c20883 Google Calendarへの送信は、インストールしたアプリ、パソコン、ウェブアプリで使えます。
+5bfa460d Google Calendarにつながりません。接続を確認してください。
+c03af73d Google Calendarにつながりません（{0}）。接続を確認してください。
+5e492841 Google Calendarが予定を受け付けませんでした（{0}）。
+23989160 Google Calendar、Google Tasks、Onyx、Tamkeenアプリ。
+59636398 AnkiDroid、Google Calendar、Google Tasks、Onyx。
+38c02660 Google Calendar、Google Tasks、Onyx。

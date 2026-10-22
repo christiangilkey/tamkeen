@@ -1,0 +1,24 @@
+4dfe887c Google Calendar <0>(all'ora che scegli, per la durata stimata)</0>
+e24f9b04 Google Tasks <0>(nell'elenco di oggi, senza ora)</0>
+ccf228d6 Onyx <0>(come attività non programmata in Onyx)</0>
+653ebdd3 Google ti chiede il permesso per Calendar o Tasks la prima volta che lo usi.
+b5072f7e Aggiungi a Google Calendar
+6eca6893 Oggi alle
+4ddcc583 È già nel tuo calendario oggi alle {0}. Aggiungerlo di nuovo lo sposta.
+b2608cde Consenti a Tamkeen di usare Google Calendar nella finestra del browser che si è aperta, poi premi di nuovo Aggiungi.
+4cb980b9 Impossibile aggiungere il ripasso a Google Calendar.
+f65fa130 Scegli un orario.
+a6e73aae L'API di Google Calendar non è ancora attiva nel progetto Google di Tamkeen.
+4c0e0bee Google Calendar non è stato autorizzato, quindi non è stato possibile aggiungere il ripasso.
+803bdd09 Google Calendar ha risposto con un errore ({0}).
+e69ddd1f Aggiungi «{0}» a Google Calendar oggi, all'ora che scegli (scegli dove nelle Impostazioni)
+570374e4 Google Calendar
+644d1004 Aggiornato in Google Calendar alle {0}: {1}.
+ec7fb5fa Aggiunto a Google Calendar alle {0}: {1}.
+93c20883 L'invio a Google Calendar funziona nell'app installata, sul computer e nell'app web.
+5bfa460d Impossibile raggiungere Google Calendar. Controlla la connessione.
+c03af73d Impossibile raggiungere Google Calendar ({0}). Controlla la connessione.
+5e492841 Google Calendar ha rifiutato l'evento ({0}).
+23989160 Google Calendar, Google Tasks, Onyx e l'app Tamkeen.
+59636398 AnkiDroid, Google Calendar, Google Tasks e Onyx.
+38c02660 Google Calendar, Google Tasks e Onyx.
