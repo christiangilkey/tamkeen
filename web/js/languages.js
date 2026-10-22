@@ -132,6 +132,14 @@ export const LANGUAGES = {
     pageSample: "कॉफ़ी भुने हुए कॉफ़ी के बीजों से बनने वाला एक पेय है, और यह दुनिया के सबसे लोकप्रिय पेयों में से एक है।",
     test: { word: "यार", marked: "⟦यार⟧, आज बहुत गर्मी है।", podcast: "असली हिन्दी" },
   },
+  ko: {
+    ...LTR, name: "Korean", native: "한국어", root: "Hanja",
+    hello: "환영합니다!", hi: "안녕하세요", search: "검색", word: "단어",
+    greet: ["좋은 아침이에요", "안녕하세요", "좋은 저녁이에요"],
+    sample: "팟캐스트 새 에피소드에 오신 것을 환영합니다.",
+    pageSample: "커피는 볶은 커피콩으로 만든 음료로, 세계에서 가장 인기 있는 음료 중 하나입니다.",
+    test: { word: "대박", marked: "와, 이 노래 진짜 ⟦대박⟧!", podcast: "진짜 한국어" },
+  },
   en: {
     ...LTR, name: "English", native: "English",
     hello: "Welcome!", hi: "hi", search: "search", word: "the word",
@@ -176,6 +184,7 @@ const SCRIPTS = [
   ["th", /[\u0E00-\u0E7F]/g],
   ["latin", /[A-Za-zÀ-ɏ]/g],
   ["hi", /[\u{900}-\u{97F}]/gu], // Devanagari (Marathi and Nepali are written in it too; the app teaches only Hindi)
+  ["ko", /[ᄀ-ᇿ㄰-㆏가-힯]/g],
 ];
 
 /** The taught languages written in Latin letters: text in Latin letters is one of these when it is
@@ -211,7 +220,7 @@ export function detectLanguage(text, hint = studyLanguage()) {
   if (count.kana && (top === "han" || top === "kana")) return "ja";
   if (top === "han") return hint === "ja" ? "ja" : "zh";
   if (top === "ar") return looksPersian(s, hint) ? "fa" : "ar";
-  if (top === "ru" || top === "th" || top === "hi") return top;
+  if (top === "ru" || top === "th" || top === "hi" || top === "ko") return top;
   if (top === "latin") return LATIN_LANGUAGES.includes(hint) ? hint : "en";
   return hint;
 }

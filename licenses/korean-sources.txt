@@ -1,0 +1,32 @@
+Korean word list, its counts, and the 1000 most common Korean words (optional download)
+
+1. The words (docs/lexicon/ko-words.json.gz)
+
+   The Korean entries of the English Wiktionary (https://en.wiktionary.org), as extracted by
+   Wiktextract (https://kaikki.org, Tatu Ylonen, "Wiktextract: Wiktionary as Machine-Readable Structured
+   Data", LREC 2022): each one-word Korean entry, its part of speech, and for verbs and adjectives the
+   two stems their endings go on, taken from the entry's conjugation table. Wiktionary's text is licensed
+   under the Creative Commons Attribution-ShareAlike 4.0 International License
+   (https://creativecommons.org/licenses/by-sa/4.0/) and the GNU Free Documentation License.
+
+2. How common each word is (the order of the list above, and web/js/wordlists/ko.js)
+
+   Counted from the Korean film and TV subtitles of OpenSubtitles 2018 (http://www.opensubtitles.org/,
+   through OPUS: P. Lison and J. Tiedemann, 2016, "OpenSubtitles2016: Extracting Large Parallel Corpora
+   from Movie and TV Subtitles", LREC 2016), as counted by Hermit Dave's FrequencyWords
+   (https://github.com/hermitdave/FrequencyWords, ko_full.txt), whose word counts are licensed CC BY-SA
+   4.0. Tamkeen reads each counted word with its own rules (web/js/lexicon/korean.js) and adds its count
+   to the dictionary word it is a form of (먹었어요 counts for 먹다); tools/build_korean_words.mjs says
+   exactly how. A few common nouns Wiktionary lacks are added from the counts. Only counts are kept,
+   never any subtitle text. The 1000 most common words keep only words Wiktionary has.
+
+The word list and the common-word list are shared under the same licence, CC BY-SA 4.0, with credit
+as above. This covers these lists only, not the rest of Tamkeen.
+
+3. How Korean words are said (shown over Korean text and in the word popup)
+
+   Worked out by the app from the letters, following the Revised Romanization of Korean (Ministry of
+   Culture and Tourism, Republic of Korea, 2000), an official public standard. No data is downloaded
+   for it.
+
+4. Korean meanings for "No AI" (docs/lexicon/ko-meanings.json.gz): see wiktionary.txt.

@@ -1,0 +1,25 @@
+# Korean added as a language (2026-10-21)
+c1aedd41 Hanja
+1a9e576e Mas sayon: balita sa Dong-A Ilbo alang sa mga bata
+ba790a60 Mas sayon: balita sa Chosun Ilbo alang sa mga bata
+a5071d7e KBS, publikong brodkaster
+f8f1cc9a MBC, brodkaster
+a9307fe8 SBS, brodkaster
+26d7b81a YTN, 24 oras nga news channel
+5954c4e7 Yonhap, ahensiya sa balita
+1be94a15 JTBC, brodkaster
+8ac71be4 Chosun Ilbo
+840f2ac1 JoongAng Ilbo
+192c794f Dong-A Ilbo
+de2f33f2 Hankyoreh
+2bfc4eea Kyunghyang Shinmun
+6db5724b BBC, sa Korean
+40f42ad0 Sports Seoul, isports
+09020dee Korean nga Wikipedia
+7dfbd052 Pagbasa sa Korean
+0c99ad18 Unsaon kini paglitok (Revised Romanization sa Korean)
+aed4b5cc Kining listahan sa mga pulong nga Korean gikan sa laing bersyon sa app.
+27754574 Ipakita kung unsaon paglitok ang mga pulong nga Korean, ibabaw sa mga pulong (annyeonghaseyo)
+a23d63ca Sa Revised Romanization, ang opisyal nga paagi sa pagsulat sa Korean sa letrang Latin, nga gihimo sa app.
+28edd404 ang mga pulong nga Korean sa Wiktionary uban ang gamut sa mga berbo, giihap sa mga subtitle sa mga salida ug palabas sa TV nga Korean, nga diin gisusi sa app ang mga porma sa diksiyonaryo nga makit-an niini (먹었어요: 먹다, 학교에서: 학교)
+04653e65 South Korea

@@ -14,7 +14,7 @@ from . import db
 # code -> English name. The codes are also Whisper's language codes, except Bisaya's (WHISPER_CODES).
 LANGUAGES = {"es": "Spanish", "ar": "Arabic", "fr": "French", "ja": "Japanese", "zh": "Chinese", "ru": "Russian",
              "it": "Italian", "tl": "Tagalog", "pt": "Brazilian Portuguese", "ca": "Catalan", "ceb": "Bisaya (Cebuano)",
-             "th": "Thai", "fa": "Persian", "hi": "Hindi", "en": "English", "de": "German"}
+             "th": "Thai", "fa": "Persian", "hi": "Hindi", "ko": "Korean", "en": "English", "de": "German"}
 DEFAULT = "ar"  # the app's first language; anything stored before languages existed is Arabic
 
 # Whisper doesn't know Bisaya (Cebuano): it is asked for its closest relative, Tagalog, and the opening
@@ -62,6 +62,7 @@ _SCRIPTS = {
     "latin": re.compile("[A-Za-zÀ-ɏ]"),
     # Devanagari (U+0900-097F): Hindi, as far as the app is concerned (Marathi and Nepali use it too)
     "hi": re.compile("[{}-{}]".format(chr(0x900), chr(0x97F))),
+    "ko": re.compile("[ᄀ-ᇿ㄰-㆏가-힯]"),
 }
 
 
@@ -113,6 +114,6 @@ def detect(text: str, hint: str | None = None) -> str:
         return "ja" if hint == "ja" else "zh"
     if top == "ar":
         return "fa" if looks_persian(sample, hint) else "ar"
-    if top in ("ru", "th", "hi"):
+    if top in ("ru", "th", "hi", "ko"):
         return top
     return hint

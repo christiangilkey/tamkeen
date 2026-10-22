@@ -1,0 +1,25 @@
+# Korean added as a language (2026-10-21)
+c1aedd41 Hanja
+1a9e576e Più facile: le notizie del Dong-A Ilbo per bambini
+ba790a60 Più facile: le notizie del Chosun Ilbo per bambini
+a5071d7e KBS, televisione pubblica
+f8f1cc9a MBC, emittente televisiva
+a9307fe8 SBS, emittente televisiva
+26d7b81a YTN, canale all news 24 ore su 24
+5954c4e7 Yonhap, agenzia di stampa
+1be94a15 JTBC, emittente televisiva
+8ac71be4 Chosun Ilbo
+840f2ac1 JoongAng Ilbo
+192c794f Dong-A Ilbo
+de2f33f2 Hankyoreh
+2bfc4eea Kyunghyang Shinmun
+6db5724b La BBC, in coreano
+40f42ad0 Sports Seoul, sport
+09020dee Wikipedia in coreano
+7dfbd052 Lettura del coreano
+0c99ad18 Come si pronuncia (romanizzazione riveduta del coreano)
+aed4b5cc Questa tabella di parole coreane è di un'altra versione dell'app.
+27754574 Mostra come si pronunciano le parole coreane, sopra le parole (annyeonghaseyo)
+a23d63ca Nella romanizzazione riveduta, il modo ufficiale di scrivere il coreano in lettere latine, calcolata dall'app.
+28edd404 le parole coreane del Wikizionario con le radici dei verbi, contate nei sottotitoli di film e serie coreani, con cui l'app verifica le forme di dizionario che trova (먹었어요: 먹다, 학교에서: 학교)
+04653e65 Corea del Sud

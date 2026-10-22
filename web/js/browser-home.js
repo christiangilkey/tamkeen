@@ -232,6 +232,25 @@ export const NEWS = {
     ["हिंदी समय", "https://www.hindisamay.com/", "Hindi Samay, stories and literature"],
     ["विकिपीडिया", "https://hi.wikipedia.org/", "Hindi Wikipedia"],
   ],
+  ko: [
+    // (checked live 2026-10-21; the two children's papers retell the day's news in plain Korean)
+    ["어린이동아", "https://kids.donga.com/", "Easier: Dong-A Ilbo's news for children"],
+    ["어린이조선일보", "https://kid.chosun.com/", "Easier: Chosun Ilbo's news for children"],
+    ["KBS 뉴스", "https://news.kbs.co.kr/", "KBS, public broadcaster"],
+    ["MBC 뉴스", "https://imnews.imbc.com/", "MBC, broadcaster"],
+    ["SBS 뉴스", "https://news.sbs.co.kr/", "SBS, broadcaster"],
+    ["YTN", "https://www.ytn.co.kr/", "YTN, 24-hour news channel"],
+    ["연합뉴스", "https://www.yna.co.kr/", "Yonhap, news agency"],
+    ["JTBC 뉴스", "https://news.jtbc.co.kr/", "JTBC, broadcaster"],
+    ["조선일보", "https://www.chosun.com/", "Chosun Ilbo"],
+    ["중앙일보", "https://www.joongang.co.kr/", "JoongAng Ilbo"],
+    ["동아일보", "https://www.donga.com/", "Dong-A Ilbo"],
+    ["한겨레", "https://www.hani.co.kr/", "Hankyoreh"],
+    ["경향신문", "https://www.khan.co.kr/", "Kyunghyang Shinmun"],
+    ["BBC 코리아", "https://www.bbc.com/korean", "BBC, in Korean"],
+    ["스포츠서울", "https://www.sportsseoul.com/", "Sports Seoul, sport"],
+    ["위키백과", "https://ko.wikipedia.org/", "Korean Wikipedia"],
+  ],
   en: [
     ["News in Levels", "https://www.newsinlevels.com/", "Easier: the news at three levels of English"],
     ["VOA Learning English", "https://learningenglish.voanews.com/", "Easier: news in slow, simple English"],
@@ -291,7 +310,7 @@ export const NEWS = {
 // Language names and the few words on the page, for the languages taught (the page itself is in
 // English, like the rest of the app; only the heading greets in the language).
 const NAMES = { ar: "Arabic", es: "Spanish", fr: "French", ja: "Japanese", zh: "Chinese", ru: "Russian", it: "Italian",
-                tl: "Tagalog", pt: "Brazilian Portuguese", ca: "Catalan", ceb: "Bisaya (Cebuano)", th: "Thai", hi: "Hindi", en: "English",
+                tl: "Tagalog", pt: "Brazilian Portuguese", ca: "Catalan", ceb: "Bisaya (Cebuano)", th: "Thai", hi: "Hindi", ko: "Korean", en: "English",
                 de: "German", fa: "Persian" };
 const RTL = { ar: true, fa: true };
 

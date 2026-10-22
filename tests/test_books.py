@@ -1,6 +1,7 @@
 """Books (app/books.py): stored like a web page, in "My books", read a page at a time."""
 
 import json
+import re
 
 import pytest
 
@@ -58,7 +59,7 @@ def test_the_free_shelf_matches_its_index():
 
     folder = Path(__file__).resolve().parent.parent / "docs" / "books"
     index = json.loads((folder / "index.json").read_text(encoding="utf-8"))
-    for lang in ("ar", "es", "fr", "it", "ru", "en", "tl", "ja", "zh", "pt", "ca", "th", "ceb", "de", "hi"):
+    for lang in ("ar", "es", "fr", "it", "ru", "en", "tl", "ja", "zh", "pt", "ca", "th", "ceb", "de", "hi", "ko"):
         shelf = index["books"][lang]
         assert len(shelf) >= 5, lang
         for row in shelf:
@@ -70,6 +71,9 @@ def test_the_free_shelf_matches_its_index():
             # Nothing of the source's own wrapping is left in the text: its licence, its transcriber's notes.
             text = "\n".join(b["text"] for b in data["blocks"])
             assert "Project Gutenberg" not in text and "gutenberg.org" not in text, row["file"]
+            # (Korean Wikisource: its licence box, and the poems' first printing in letters no longer used)
+            assert "퍼블릭 도메인" not in text and "Public domain" not in text, row["file"]
+            assert not re.search("[ᄀ-ᇿꥠ-꥿ힰ-퟿]", text), row["file"]
 
 
 def test_the_shelf_builder_tidies_a_book():

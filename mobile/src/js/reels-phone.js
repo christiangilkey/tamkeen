@@ -65,6 +65,8 @@ export const RANDOM_WORDS = {
        "เกร็ดความรู้", "อธิบาย", "ทำอาหาร", "กีฬา", "ข่าว", "พอดแคสต์", "กิจวัตร", "ครอบครัว", "กาแฟ", "รีวิว"],
   hi: ["vlog", "रेसिपी", "कहानी", "सलाह", "कॉमेडी", "मज़ाक", "सवाल", "चैलेंज", "इंटरव्यू", "यात्रा", "खाना", "अनुभव",
        "जानकारी", "हिंदी", "रसोई", "क्रिकेट", "समाचार", "पॉडकास्ट", "दिनचर्या", "परिवार", "चाय", "देसी"],
+  ko: ["브이로그", "레시피", "썰", "꿀팁", "개그", "웃긴영상", "질문", "챌린지", "인터뷰", "여행", "먹방", "경험", "상식", "설명",
+       "요리", "스포츠", "뉴스", "팟캐스트", "일상", "가족", "카페", "리뷰"],
   en: ["vlog", "recipe", "storytime", "advice", "comedy", "sketch", "question", "challenge", "interview", "travel", "food", "story",
        "experience", "funfacts", "explained", "cooking", "sports", "news", "podcast", "routine", "family", "coffee"],
   de: ["vlog", "rezept", "geschichte", "tipp", "humor", "witzig", "frage", "challenge", "interview", "reise", "essen", "anekdote",

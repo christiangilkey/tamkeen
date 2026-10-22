@@ -1,0 +1,25 @@
+# Korean added as a language (2026-10-21)
+c1aedd41 Hanja
+1a9e576e Més fàcil: les notícies del Dong-A Ilbo per a infants
+ba790a60 Més fàcil: les notícies del Chosun Ilbo per a infants
+a5071d7e KBS, televisió pública
+f8f1cc9a MBC, cadena de televisió
+a9307fe8 SBS, cadena de televisió
+26d7b81a YTN, canal de notícies 24 hores
+5954c4e7 Yonhap, agència de notícies
+1be94a15 JTBC, cadena de televisió
+8ac71be4 Chosun Ilbo
+840f2ac1 JoongAng Ilbo
+192c794f Dong-A Ilbo
+de2f33f2 Hankyoreh
+2bfc4eea Kyunghyang Shinmun
+6db5724b La BBC, en coreà
+40f42ad0 Sports Seoul, esports
+09020dee Viquipèdia en coreà
+7dfbd052 Lectura del coreà
+0c99ad18 Com es pronuncia (romanització revisada del coreà)
+aed4b5cc Aquesta taula de paraules coreanes és d'una altra versió de l'app.
+27754574 Mostra com es pronuncien les paraules coreanes, damunt de les paraules (annyeonghaseyo)
+a23d63ca En romanització revisada, la manera oficial d'escriure el coreà amb lletres llatines, calculada per l'app.
+28edd404 les paraules coreanes del Viccionari amb les arrels dels verbs, comptades en subtítols de pel·lícules i sèries coreanes, amb les quals l'app comprova les formes de diccionari que troba (먹었어요: 먹다, 학교에서: 학교)
+04653e65 Corea del Sud

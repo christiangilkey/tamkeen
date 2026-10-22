@@ -17,6 +17,8 @@
 //   Thai     Thailand's overall chart gives about 90 Thai shows; with its category charts about 300.
 //   Hindi    India's overall chart is nearly all English: 13 Hindi shows of 200; with its category charts
 //            239 (checked 2026-10-21). See inHindi below for how a Hindi show is told from the rest.
+//   Korean   South Korea's overall chart is about half Korean (112 of 200; the rest mostly English-learning
+//            shows); with its category charts over 700 (checked 2026-10-21).
 //   Bisaya   no Bisaya podcast reaches Apple's or Spotify's charts in the Philippines (checked
 //            2026-10-18: Apple's top 200 and all 19 category charts, Spotify's top 100). Its list is
 //            the Bisaya podcasts with a public feed, most-rated first on Spotify and Apple together
@@ -43,12 +45,13 @@ export const STOREFRONTS = {
   ceb: ["ph"],
   th: ["th"],
   hi: ["in"],
+  ko: ["kr"],
   en: ["us", "gb", "au", "ca"],
   de: ["de", "at", "ch"],
   fa: ["af", "tj"],
 };
 /** Languages whose countries' 19 category charts are read as well as the overall chart. */
-export const CATEGORY_CHARTS = new Set(["ca", "tl", "th", "fa", "hi"]);
+export const CATEGORY_CHARTS = new Set(["ca", "tl", "th", "fa", "hi", "ko"]);
 /** Apple's ids for its 19 main podcast headings (the category charts). */
 export const CATEGORY_IDS = [1301, 1321, 1303, 1304, 1483, 1511, 1512, 1487, 1305, 1502, 1310, 1489, 1314, 1533, 1324,
   1545, 1309, 1318, 1488];
@@ -62,6 +65,7 @@ export const COUNTRY_NAMES = {
   de: "Germany", at: "Austria",
   af: "Afghanistan", tj: "Tajikistan",
   in: "India",
+  kr: "South Korea",
 };
 /** Apple's main podcast headings. */
 export const MAIN_CATEGORIES = ["Arts", "Business", "Comedy", "Education", "Fiction", "Government", "Health & Fitness",
@@ -101,7 +105,7 @@ export function parseChart(data) {
   return out;
 }
 
-const SCRIPTS = { ar: /[؀-ۿ]/, ru: /[Ѐ-ӿ]/, ja: /[぀-ヿ一-鿿]/, zh: /[一-鿿]/, th: /[\u0E00-\u0E7F]/ };
+const SCRIPTS = { ar: /[؀-ۿ]/, ru: /[Ѐ-ӿ]/, ja: /[぀-ヿ一-鿿]/, zh: /[一-鿿]/, th: /[\u0E00-\u0E7F]/, ko: /[가-힯]/ };
 // Letters of scripts other than the Latin one: a show written mostly in them isn't Spanish or Tagalog
 // (the Philippines' and Spain's charts hold Chinese and Japanese shows too).
 const NOT_LATIN = /[Ͱ-ϿЀ-ӿ֐-׿؀-ۿ฀-๿぀-ヿ㐀-鿿가-힯]/g;

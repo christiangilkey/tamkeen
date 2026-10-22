@@ -55,6 +55,9 @@ test("only podcasts in the language being studied are kept", () => {
   assert.ok(inLanguage(item("Живой Гвоздь"), "ru") && !inLanguage(item("The Daily"), "ru"));
   assert.ok(inLanguage(item("安住紳一郎の日曜天国"), "ja") && inLanguage(item("凹凸电波"), "zh"));
   assert.ok(!inLanguage(item("Global News Podcast"), "zh"));
+  // Korean: by its letters (South Korea's chart is half English-learning shows).
+  assert.ok(inLanguage(item("손에 잡히는 경제", "", "MBC"), "ko"));
+  assert.ok(!inLanguage(item("6 Minute English", "Learn English with the BBC"), "ko"));
   // Spanish and French share letters with English: told by their little words.
   assert.ok(inLanguage(item("Un Libro Una Hora", "Un programa para conocer los grandes libros de la literatura."), "es"));
   assert.ok(!inLanguage(item("The Joe Rogan Experience", "The official podcast of comedian Joe Rogan, with the best of his talks."), "es"));
@@ -169,7 +172,7 @@ test("a show Apple lists twice (in two countries' stores, or under two ids) appe
 });
 
 test("languages thin in their countries' overall charts read the 19 category charts too", () => {
-  assert.deepEqual([...CATEGORY_CHARTS].sort(), ["ca", "fa", "hi", "th", "tl"]);
+  assert.deepEqual([...CATEGORY_CHARTS].sort(), ["ca", "fa", "hi", "ko", "th", "tl"]);
   assert.equal(CATEGORY_IDS.length, MAIN_CATEGORIES.length, "one id per main heading, in the same order");
 });
 

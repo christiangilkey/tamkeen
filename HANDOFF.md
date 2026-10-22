@@ -4286,7 +4286,7 @@ now knows both "de" and "fa"; build_books' TABLE_POEMS/UNCASED from Persian and 
 wikisource "pages" step runs before the Gutenberg volumes step), docs/books/index.json merged as data. Each language
 added interface strings the other lacked: tr/de/51-persian.txt (16) and tr/fa/51-german.txt (11). After a merge:
 `node tools/i18n/extract.mjs`, `node tools/i18n/build.mjs --check`, the tests, `node mobile/scripts/build-www.mjs`.
-Hindi followed (54 clashes in 30 files, same kinds; build_books.py needed a hand fix: the Hindi shelf had landed below the constants after BOOKS, and Hindi's NO_SPACES/CAPS_HEADINGS lines were dropped for main's with TABLE_POEMS/UNCASED; "hi" is not in UNCASED, as its books were built without it). Translations: tr/de/52-hindi.txt, tr/fa/52-hindi.txt (7 each), tr/hi/52-german-persian.txt (27). Korean still to come.
+Hindi followed (54 clashes in 30 files, same kinds; build_books.py needed a hand fix: the Hindi shelf had landed below the constants after BOOKS, and Hindi's NO_SPACES/CAPS_HEADINGS lines were dropped for main's with TABLE_POEMS/UNCASED; "hi" is not in UNCASED, as its books were built without it). Translations: tr/de/52-hindi.txt, tr/fa/52-hindi.txt (7 each), tr/hi/52-german-persian.txt (27). Korean last (70 clashes in 32 files: also web/js/lexicon/readings.js and wordface.js, where Hindi and Korean both added readings over words; both switches, settings rows and styles kept). Translations: tr/{de,fa,hi}/53-korean.txt (24 each), tr/ko/53-german-persian-hindi.txt (34). Checked after: 668 JS + 477 pytest pass, 17 languages complete, web app boots learning Korean, ko and hi readings both work.
 
 ## Hindi (hi): a language to learn and a language for the app (2026-10-21; merged into main, not pushed)
 Asked for: Hindi "with the same depth" as pt/ca/ceb/th, in all four versions. Everything a language has, Hindi has;
@@ -4366,3 +4366,61 @@ the list in "Four more languages…" above was the checklist. Code `hi` everywhe
   podcast charts page live. Seen but not Hindi's: the Web page screen's first line ("Open a site…") is English in every
   interface language (mobile/src/js/web-sites.js isn't extracted); book cards say "8 h" in every language.
 - Data files (docs/lexicon/hi-*, docs/books/hi/) must be pushed before installed apps can download them.
+
+## Korean (ko): a language to learn and an interface language (2026-10-21; merged into main, not pushed)
+Owner: "I want to add to my languages in the app, Farsi, Korean, Hindi, and German" (one chat per language; this
+is Korean). Same depth as pt/ca/ceb/th. The branch starts at 8cb6ad0; main has since merged Hindi (45302d2), so
+expect conflicts in the shared lists (every addition here is at the end of its list) and in generated files.
+- **Core**: web/js/languages.js `ko` (한국어, root "Hanja", greetings, test word 대박; told by Hangul letters),
+  app/languages.py, definer.js TEACH ko (Revised Romanization + IPA, dictionary form ending in -다 for verbs and
+  adjectives, nouns without particles, Hanja as the root, speech levels), i18n.js UI_LANGUAGES + SPEAK_QUESTION,
+  app.css Korean fonts (system Malgun Gothic / Apple SD Gothic Neo, Noto Sans KR on Android; for study text and for the
+  whole interface when it is in Korean). Whisper knows Korean: no prompt or code mapping needed (stt.js already had
+  "korean").
+- **Tapped words → dictionary form**: **web/js/lexicon/korean.js** (new, runs in the browser and phones). Hangul is
+  taken apart into letters (NFD) to strip particles (은/는, 이/가, 을/를, 에서, 한테, 까지, 도, 만 … each with the
+  sound it follows) and verb/adjective endings back to the -다 form, through past -었-, future -겠-, honorific -시-,
+  the copula 이다 after nouns, helper verbs (먹고 싶다, 해 보다, 가야 하다), noun + 하다/되다, and the irregulars (ㅂ ㄷ ㅅ
+  르 ㅡ ㅎ ㄹ), whose stems come from Wiktionary's conjugation tables rather than rules. Every candidate is checked
+  against the word table and the commonest wins; weak readings (a lone particle split off a noun, 나+라) only win
+  when nothing else fits. Hanja in brackets (학교(學校)에) is left out; a bracket inside a word (문안에(거기도) gives the
+  first word. **Word table** docs/lexicon/ko-words.json.gz (227 KB, 32,124 words, 5,073 verbs and adjectives),
+  made by **tools/build_korean_words.mjs** from kaikki.org's Korean Wiktionary file + FrequencyWords' OpenSubtitles
+  2018 Korean counts (ranked by bootstrapping: the counts are read with the analyzer itself, 4 rounds). It reads
+  90.5% of the 6.3 million subtitle words. Older spellings like 내리었다 (= 내렸다) work; 지어 stays 짓다's, not 지다's.
+- **Readings over words**: Revised Romanization with the sound changes (liaison, nasalization, ㄹ, ㅎ, palatalization:
+  감사합니다 gamsahamnida, 같이 gachi), in readings.js like Thai's, switch "Korean readings" (`korean_readings`, on,
+  app/db.py + mobile store.js), and in the word popup (seen.js pronounceWord). Hanja: shown in the popup from
+  Wiktionary ("Hanja 雲水"); Hanja-only text gets no reading.
+- **No AI meanings**: docs/lexicon/ko-meanings.json.gz (1.4 MB, 33,321 words + 11,535 forms; tools/build_meanings.py
+  `ko=<kaikki file>`), keys from koreanKeys (top readings + the noun of a 하다 verb); `EVERYDAY_KO` puts the everyday
+  sense first where Wiktionary lists a rarer homonym first (운수 "luck" not "cloud and water", 당장 "at once").
+  98.7% of the uses of the 3,000 commonest subtitle words find a meaning.
+- **Media**: podcasts Apple's Korea (kr) store + its category charts (CATEGORY_CHARTS: 112 Korean shows in the top
+  200, about 720 with the categories); YouTube START "이" KR + COUNTRIES KR + the topic menu's Korean search words;
+  16 news sites (어린이동아 and 어린이조선일보 marked Easier, KBS, MBC, SBS, YTN, 연합뉴스, JTBC, 조선, 중앙, 동아, 한겨레,
+  경향, BBC 코리아, 스포츠서울, 위키백과); reel search words (app/reels.py, reels-phone.js); 1,000 common words
+  (web/js/wordlists/ko.js, from the table's counts, make_wordlists.py `ko=<counts>`).
+- **Books**: 19 public-domain classics from ko.wikisource in modern spelling (tools/build_books.py `korean_modern`
+  drops the 원문 originals, old-Hangul blocks and licence boxes): 운수 좋은 날, 빈처, 술 권하는 사회, B사감과 러브레터,
+  감자, 배따라기, 봄봄, 동백꽃, 금 따는 콩밭, 날개, 메밀꽃 필 무렵, 물레방아, 탈출기, 레디메이드 인생, 치숙, 진달래꽃,
+  님의 침묵, 하늘과 바람과 별과 시, 무정.
+- **Interface**: all 3,322 strings in tools/i18n/tr/ko/ (01–17.txt, 13-names.txt); the 24 strings this work added are
+  in tools/i18n/tr/<code>/50-korean.txt for the 12 other interface languages. **After merging** with fa/hi/de: run
+  `node tools/i18n/extract.mjs` and `node tools/i18n/build.mjs --todo`; their new strings need Korean and these 24
+  need Farsi, Hindi and German.
+- Licences: licenses/korean-sources.txt (Wiktionary CC BY-SA, FrequencyWords CC BY-SA 4.0, Wikisource public domain),
+  licenses/index.json, free-books.txt. Source data kept outside the repo in `..\korean-data\` (kaikki file,
+  FrequencyWords, the counts, a Wikisource cache).
+- **Checked**: 634 JS tests (tests/js/korean.test.mjs, 11) and 453 pytest; `node mobile/scripts/build-www.mjs`; the
+  web app at 375×812 on fresh data, no sign-in: the welcome in Korean, Korean interface screens (Home, Settings,
+  Library, word popup), then learning Korean with an English interface: the table and meanings downloaded (from a local
+  copy of docs/), a book with readings over every word, purple new words, taps on 운수 and 내리었다 (→ 내리다).
+  Found and fixed there: the tab "Home" was untranslated, Hanja repeated in readings, 내리었다 not found.
+- **Not done / not checked**: the desktop window and a real phone; Korean audio through Whisper; the in-app browser's
+  news page (its HTML checked). Korean can't be the interface and the study language at once (the pickers leave out
+  the language you speak, as for every language). The switch menu's "Learning now" title shows in English in every
+  interface language (it is drawn as study text: `class="label ar"` in showMenu). Analyzer limits: a few homographs
+  (전 "before" vs 저+ㄴ), names it doesn't know (데이지가), proper nouns without meanings. As for every language, a device keeps the
+  table it downloaded until Remove + Download in Settings (nothing checks for a newer one). The data files must be
+  pushed (docs/lexicon, docs/books) before installed apps can download them.

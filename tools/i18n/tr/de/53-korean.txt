@@ -1,0 +1,24 @@
+c1aedd41 Hanja
+1a9e576e Einfacher: Nachrichten der Dong-A Ilbo für Kinder
+ba790a60 Einfacher: Nachrichten der Chosun Ilbo für Kinder
+a5071d7e KBS, öffentlicher Rundfunk
+f8f1cc9a MBC, Sender
+a9307fe8 SBS, Sender
+26d7b81a YTN, 24-Stunden-Nachrichtensender
+5954c4e7 Yonhap, Nachrichtenagentur
+1be94a15 JTBC, Sender
+8ac71be4 Chosun Ilbo
+840f2ac1 JoongAng Ilbo
+192c794f Dong-A Ilbo
+de2f33f2 Hankyoreh
+2bfc4eea Kyunghyang Shinmun
+6db5724b BBC, auf Koreanisch
+40f42ad0 Sports Seoul, Sport
+09020dee Koreanische Wikipedia
+7dfbd052 Koreanische Aussprache
+0c99ad18 Aussprache (Revidierte Romanisierung des Koreanischen)
+aed4b5cc Diese koreanische Worttabelle stammt aus einer anderen Version der App.
+27754574 Zeigen, wie koreanische Wörter ausgesprochen werden, über den Wörtern (annyeonghaseyo)
+a23d63ca In Revidierter Romanisierung, der offiziellen Schreibweise des Koreanischen in lateinischen Buchstaben, von der App erzeugt.
+28edd404 die koreanischen Wörter aus Wiktionary mit ihren Verbstämmen, gezählt in koreanischen Film- und Fernsehuntertiteln; die App prüft die gefundenen Grundformen daran (먹었어요: 먹다, 학교에서: 학교)
+04653e65 Südkorea

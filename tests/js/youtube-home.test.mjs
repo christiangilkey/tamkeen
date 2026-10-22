@@ -104,7 +104,7 @@ test("every taught language offers Popular now and every topic, each with its ow
 test("a topic's words are written in the language being learned", async () => {
   const { TOPIC_WORDS } = await import("../../web/js/youtube-home.js");
   const scripts = { ar: /\p{Script=Arabic}/u, ja: /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u, zh: /\p{Script=Han}/u,
-                    ru: /\p{Script=Cyrillic}/u, th: /\p{Script=Thai}/u, hi: /\p{Script=Devanagari}/u };
+                    ru: /\p{Script=Cyrillic}/u, th: /\p{Script=Thai}/u, hi: /\p{Script=Devanagari}/u, ko: /\p{Script=Hangul}/u };
   for (const [code, script] of Object.entries(scripts)) {
     for (const [key, words] of Object.entries(TOPIC_WORDS[code])) assert.match(words, script, `${code} ${key}: ${words}`);
   }

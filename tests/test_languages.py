@@ -91,6 +91,8 @@ def test_settings_take_the_three_ways_of_explaining_words(fresh_db):
     ("", "ru", "ru"),
     ("Kaffee ist ein Getränk aus gerösteten Bohnen", "de", "de"),
     ("कॉफ़ी एक पेय है", "es", "hi"),
+    ("커피는 볶은 커피콩으로 만든 음료입니다", "es", "ko"),
+    ("BTS 신곡 너무 좋아요", "en", "ko"),   # Korean with a few Latin letters is still Korean
 ])
 def test_detect(fresh_db, text, hint, expected):
     assert languages.detect(text, hint) == expected

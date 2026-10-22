@@ -37,6 +37,7 @@ export const START = {
   ceb: ["kaayo", "PH", "fil", 0],  // (YouTube has no Bisaya interface: Filipino is the nearest)
   th: ["ที่", "TH", "th", 0],
   hi: ["है", "IN", "hi", 0], // ("is": every one of the top 20 titles in Devanagari, checked 2026-10-21)
+  ko: ["이", "KR", "ko", 0],  // ("this", and a very common particle: checked 2026-10-21, 20 of 20 in Korean)
   en: ["the", "US", "en", 0],
   de: ["und", "DE", "de", 0],
   fa: ["است", "IR", "fa", 0],
@@ -64,6 +65,7 @@ export const COUNTRIES = {
   ceb: [["PH", "Philippines"]],
   th: [["TH", "Thailand"]],
   hi: [["IN", "India"]],
+  ko: [["KR", "South Korea"]],
   en: [["US", "United States"], ["GB", "United Kingdom"], ["CA", "Canada"], ["AU", "Australia"], ["IE", "Ireland"],
        ["NZ", "New Zealand"], ["IN", "India"], ["NG", "Nigeria"], ["ZA", "South Africa"], ["PH", "Philippines"]],
   de: [["DE", "Germany"], ["AT", "Austria"], ["CH", "Switzerland"]],
@@ -213,6 +215,11 @@ export const TOPIC_WORDS = {
   hi: { news: "हिंदी समाचार", music: "हिंदी गाने", comedy: "कॉमेडी वीडियो", food: "खाना बनाने की विधि", travel: "घूमने की जगह",
         sport: "क्रिकेट", science: "विज्ञान", gaming: "गेमिंग", kids: "बच्चों की कहानियाँ", vlog: "daily vlog हिंदी",
         podcast: "हिंदी पॉडकास्ट", learn: "हिंदी सीखें" },
+  // (checked 2026-10-21: 15-20 of 20 titles in Korean each; "토크쇼" (talk show) rather than "팟캐스트", whose
+  // results mixed in English shows; the music titles not in Hangul are K-pop videos named in English)
+  ko: { news: "뉴스", music: "노래", comedy: "개그", food: "요리", travel: "여행", sport: "스포츠",
+        science: "과학 기술", gaming: "게임 플레이", kids: "어린이 만화", vlog: "브이로그", podcast: "토크쇼",
+        learn: "한국어 배우기" },
   en: { news: "news", music: "music", comedy: "comedy", food: "cooking", travel: "travel", sport: "sports",
         science: "science and technology", gaming: "gaming", kids: "cartoons for kids", vlog: "vlog", podcast: "podcast",
         learn: "English listening practice" },

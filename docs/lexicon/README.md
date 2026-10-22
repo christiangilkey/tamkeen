@@ -90,6 +90,16 @@ table's readings for the words its rule gets wrong:
 
 It is rebuilt with `tools/build_hindi.py`.
 
+Korean has a list of dictionary words, read by `web/js/lexicon/korean.js`, which takes particles and verb
+endings off a word (학교에서 → 학교, 먹었어요 → 먹다) and keeps a result only when it is a word of the list:
+
+| File | Made from | Licence |
+|---|---|---|
+| `ko-words.json.gz` | English Wiktionary's Korean entries as extracted by [Wiktextract](https://kaikki.org) (Tatu Ylonen): each word, its part of speech, and each verb's and adjective's stems from its conjugation table; ranked by how often each word is used in Korean film and TV subtitles (OpenSubtitles 2018, as counted by [FrequencyWords](https://github.com/hermitdave/FrequencyWords), CC BY-SA 4.0), each counted form given to its dictionary word | Creative Commons Attribution-ShareAlike 4.0: `LICENSE-CC-BY-SA-4.0.txt` |
+
+It is rebuilt with `tools/build_korean_words.mjs` (see the top of that file). Korean's readings over the
+text (Revised Romanization) need no file: the app works them out from the letters.
+
 What was changed in the Arabic files: only the fields the lookup needs were kept (word pieces, their categories and
 which go together, lemma, part of speech, root, corpus frequency, spelling); glosses,
 tokenizations and phonetics were dropped, and the result was written as gzipped JSON.
@@ -111,7 +121,7 @@ downloaded only then.
 
 | File | Made from | Licence |
 |---|---|---|
-| `<lang>-meanings.json.gz` (ar, es, fr, it, ru, en, tl, ja, zh) | The English [Wiktionary](https://en.wiktionary.org) as extracted by [Wiktextract](https://github.com/tatuylonen/wiktextract) ([kaikki.org](https://kaikki.org)): each word's part of speech, its first few definitions, its full spelling (Arabic vowels, Russian stress), reading (kana, pinyin) or Arabic root, and which word each form belongs to. Arabic includes Wiktionary's Egyptian, Levantine, Gulf, Hijazi, Moroccan and Tunisian words; English keeps only common words and phrases made of them | Creative Commons Attribution-ShareAlike 4.0: `LICENSE-CC-BY-SA-4.0.txt` |
+| `<lang>-meanings.json.gz` (ar, es, fr, it, ru, en, tl, ja, zh, pt, ca, ceb, th, ko) | The English [Wiktionary](https://en.wiktionary.org) as extracted by [Wiktextract](https://github.com/tatuylonen/wiktextract) ([kaikki.org](https://kaikki.org)): each word's part of speech, its first few definitions, its full spelling (Arabic vowels, Russian stress), reading (kana, pinyin), Arabic root or Korean Hanja, and which word each form belongs to. Arabic includes Wiktionary's Egyptian, Levantine, Gulf, Hijazi, Moroccan and Tunisian words; English keeps only common words and phrases made of them | Creative Commons Attribution-ShareAlike 4.0: `LICENSE-CC-BY-SA-4.0.txt` |
 
 Rebuilt with `tools/build_meanings.py` (see the top of that file). The later languages (pt, ca, ceb, th, de)
 are made the same way; German's keys write ß as ss, so today's spelling, the one from before 1996 and

@@ -312,6 +312,18 @@ const TEACH = {
     dialect_note: "Register, politeness or regional usage note (who says it, to whom, how formal it is); empty if none.",
     msa_equivalent: "The neutral standard Hindi equivalent if the word is slang, regional, very formal Sanskrit or an English loan; empty otherwise.",
   },
+  ko: {
+    name: "Korean",
+    variety: "which may be standard Seoul Korean or a regional dialect (Gyeongsang, Jeolla, Chungcheong, Jeju), in any speech level from casual banmal to formal",
+    why: "Korean attaches particles and endings to words (책을, 학교에서, 먹었어요, 갔는데), conjugates verbs and adjectives for tense, speech level and honorifics, has irregular stems (듣다 → 들어요, 덥다 → 더워요), and often drops the subject",
+    vocalized: "The word in Revised Romanization of Korean, written as it is pronounced (sound changes applied), followed by IPA in parentheses, e.g. 'daebak (/tɛ.bak̚/)'.",
+    lemma: "Dictionary form: verbs and adjectives in their -다 form (먹다 for 먹었어요), nouns and pronouns without their particles (학교 for 학교에서).",
+    root: "For Sino-Korean words: the Hanja with each character's meaning, e.g. '學 study + 校 school'; empty for native Korean words and loanwords.",
+    morphology: "Short analysis: the stem and each particle or ending taken apart (먹 + 었 past + 어요 polite), tense, speech level (해요체, 합쇼체, 반말), honorific -시-, connective or determiner endings; irregular stem changes.",
+    dialect: "Standard, or the register or region if notable: polite (해요체), formal (합쇼체), casual (반말), honorific, slang, internet, Gyeongsang, Jeolla, Jeju, North Korean, etc.",
+    dialect_note: "Speech-level, honorific or regional usage note (who says it, to whom, how formal it is); empty if none.",
+    msa_equivalent: "The neutral standard Korean equivalent if the word is slang, dialect or very informal; empty otherwise.",
+  },
   en: {
     name: "English",
     variety: "which may be American, British, Australian or any other variety, formal or colloquial",
