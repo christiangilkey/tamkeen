@@ -26,7 +26,7 @@ test("every language the app teaches has a list of 1000 different words", () => 
 
 test("the lists are in the right writing: no English in the Arabic list, and so on", () => {
   const expected = { es: "es", fr: "fr", ar: "ar", ru: "ru", zh: "zh", ja: "ja", en: "en", it: "it", tl: "tl", pt: "pt", ca: "ca",
-                     ceb: "ceb", th: "th", de: "de", fa: "fa" };
+                     ceb: "ceb", th: "th", de: "de", fa: "fa", hi: "hi" };
   for (const code of WITH_LISTS) {
     assert.equal(detectLanguage(lists[code].join(" "), code), expected[code], code);
   }
@@ -42,11 +42,12 @@ test("the lists are in the right writing: no English in the Arabic list, and so 
   assert.ok(lists.fa.every((w) => /^[ء-غفقل-وپچژکگی‌]+$/.test(w)),
     "Persian letters only (ک ی, not the Arabic ك ي)");
   assert.ok(!["ها", "های", "می"].some((w) => lists.fa.includes(w)), "no pieces of words in the Persian list");
+  assert.ok(lists.hi.every((w) => /^\p{Script=Devanagari}+$/u.test(w) && !/[।॥०-९]/u.test(w)), "Devanagari words only");
 });
 
 test("the very common words are there", () => {
   for (const [code, word] of [["es", "que"], ["fr", "est"], ["ar", "في"], ["ru", "что"], ["zh", "我们"], ["ja", "です"], ["en", "the"],
-    ["pt", "não"], ["ca", "amb"], ["ceb", "dili"], ["th", "ไม่"], ["fa", "است"]]) {
+    ["pt", "não"], ["ca", "amb"], ["ceb", "dili"], ["th", "ไม่"], ["fa", "است"], ["hi", "नहीं"]]) {
     assert.ok(lists[code].slice(0, 100).includes(word), `${code}: ${word}`);
   }
 });

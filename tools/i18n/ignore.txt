@@ -278,3 +278,25 @@ ca3cc7c2  # گیم پلی فارسی
 6d71e130  # پادکست فارسی
 f13e85d0  # آموزش فارسی به غیر فارسی زبانان
 51a91ad4  # می‌خواهم، خواستم، نمی‌خواهید
+
+# Not interface: Hindi's YouTube topic words (web/js/youtube-home.js), its word-form example (lexicon/seen.js EXAMPLES),
+# and the names of Hindi news sites kept as they are (web/js/browser-home.js NEWS).
+b312af0d  # हिंदी समाचार
+06f27429  # खाना बनाने की विधि
+bf24326e  # घूमने की जगह
+353c76e7  # बच्चों की कहानियाँ
+7f41a814  # daily vlog हिंदी
+3551e3aa  # हिंदी पॉडकास्ट
+78c3dbb1  # करता, किया, करूँगा
+f62e1075  # Dainik Bhaskar
+1ca088a9  # Dainik Jagran
+53a2b32d  # Amar Ujala
+e170ae85  # Aaj Tak
+274c9e79  # NDTV India
+d373fab5  # Navbharat Times
+58833b49  # Hindustan
+dc6e0867  # The Lallantop
+f4b2376d  # News18 Hindi
+6791bdc7  # ABP News
+973614c6  # The Wire Hindi
+c2147fbf  # Webdunia

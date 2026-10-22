@@ -46,8 +46,8 @@ export function findWord(text, word) {
 }
 
 // A clause ends after one of these, where a space follows.
-const CLAUSE_END = /[،,;؛:.!?؟…\n]/u;
-const SENTENCE_END = /[.!?؟…]$/u;
+const CLAUSE_END = /[،,;؛:.!?؟…।॥\n]/u; // (। ॥: Hindi's full stops)
+const SENTENCE_END = /[.!?؟…।॥]$/u;
 
 /**
  * `text` cut down to at most `limit` characters around [from, to): whole clauses when they fit,

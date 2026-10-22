@@ -1,0 +1,8 @@
+# Hindi as a language to learn (news sites, readings, word table)
+daf2a254	BBC en hindi
+c95a8c71	Deutsche Welle en hindi
+48c12aee	Hindi Samay, contes i literatura
+24dafe8b	Viquipèdia en hindi
+5f62fc67	Mostra com es diuen les paraules en hindi, a sobre de les paraules (namaste)
+832dd30e	Es dedueix de l'escriptura. Amb la taula de paraules en hindi en aquest aparell, s'usa la lectura del Viccionari per a les paraules en què la regla s'equivoca.
+3e4d6595	les taules de flexió de les paraules en hindi del Wiktionary anglès i els recomptes de paraules de wordfreq (करता, किया, करूँगा: करना), amb la lectura del Viccionari de les paraules en què la regla de lectura de l'app s'equivoca

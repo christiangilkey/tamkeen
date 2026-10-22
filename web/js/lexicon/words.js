@@ -2,8 +2,8 @@
 //
 // A lexeme is a dictionary entry, not a spelling. Arabic (./arabic.js), Spanish, French, Italian,
 // Portuguese and Catalan (./romance.js), Russian (./russian.js), English (./english.js), Tagalog
-// (./tagalog.js), Bisaya (./cebuano.js), German (./german.js, with separable verbs and compound words) and Persian (./persian.js)
-// are analyzed, so one known form covers every form of the
+// (./tagalog.js), Bisaya (./cebuano.js), German (./german.js, with separable verbs and compound words), Persian (./persian.js)
+// and Hindi (./hindi.js) are analyzed, so one known form covers every form of the
 // word. Thai words don't change form: a Thai word is known by its spelling, as in any language without
 // an analyzer.
 // Japanese (./japanese.js) is known by its dictionary form (食べました -> 食べる) and Chinese
@@ -17,6 +17,7 @@ import { analyzeEnglish } from "./english.js";
 import { tagalogLexeme } from "./tagalog.js";
 import { cebuanoLexeme } from "./cebuano.js";
 import { germanLexemes } from "./german.js";
+import { hindiLexeme } from "./hindi.js";
 import { JapaneseDictionary } from "./kuromoji.js";
 import { japaneseLexeme } from "./japanese.js";
 import { ChineseDictionary, chineseLexeme } from "./chinese.js";
@@ -27,7 +28,7 @@ import { EDGE_PUNCT } from "../wordlookup.js";
 export const needsDictionaries = (lang) => lang === "ar";
 /** Languages that have dictionaries to download: needed (Arabic), or making the analysis better
  * (Spanish, French, Italian: without them a word is known by its spelling). */
-export const usesDictionaries = (lang) => ["ar", "ru", "en", "ja", "zh", "tl", "ceb", "de", "fa"].includes(lang) || ROMANCE.has(lang);
+export const usesDictionaries = (lang) => ["ar", "ru", "en", "ja", "zh", "tl", "ceb", "de", "fa", "hi"].includes(lang) || ROMANCE.has(lang);
 
 /** A word identified by how it is written (languages without an analyzer). */
 export function surfaceLexeme(token, lang) {
@@ -50,6 +51,7 @@ export function lexemesFor(tokens, lang, dicts = null) {
   if (lang === "ceb") return tokens.map((t) => cebuanoLexeme(t, table));
   if (lang === "de") return germanLexemes(tokens, table);
   if (lang === "fa") return tokens.map((t) => persianLexeme(t, table));
+  if (lang === "hi") return tokens.map((t) => hindiLexeme(t, table));
   if (lang === "ja" || lang === "zh") {
     const dict = (dicts || []).find((d) => d instanceof JapaneseDictionary || d instanceof ChineseDictionary);
     if (dict) return tokens.map((t) => (lang === "ja" ? japaneseLexeme(t, dict) : chineseLexeme(t, dict)));

@@ -58,7 +58,7 @@ def test_the_free_shelf_matches_its_index():
 
     folder = Path(__file__).resolve().parent.parent / "docs" / "books"
     index = json.loads((folder / "index.json").read_text(encoding="utf-8"))
-    for lang in ("ar", "es", "fr", "it", "ru", "en", "tl", "ja", "zh", "pt", "ca", "th", "ceb", "de"):
+    for lang in ("ar", "es", "fr", "it", "ru", "en", "tl", "ja", "zh", "pt", "ca", "th", "ceb", "de", "hi"):
         shelf = index["books"][lang]
         assert len(shelf) >= 5, lang
         for row in shelf:

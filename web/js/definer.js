@@ -300,6 +300,18 @@ const TEACH = {
     dialect_note: "Register or regional usage note (whether it is written or spoken Persian, how formal it is, where it is said); empty if none.",
     msa_equivalent: "The written (standard) Persian form if the word is colloquial or a spoken shortening (e.g. 'می‌گوید' for 'میگه'), or the Iranian word for a Dari one; empty otherwise.",
   },
+  hi: {
+    name: "Hindi",
+    variety: "which may be standard Hindi, everyday spoken Hindi or Hinglish (mixed with English), Bollywood or regional (Bombay, Bihari, Rajasthani), formal Sanskrit-based or Urdu-flavoured",
+    why: "Hindi words change form with gender, number and case (लड़का, लड़के, लड़कों; करता, करती, करते), verbs are often a noun or adjective plus करना or होना, postpositions such as का/की/के, ने, को and के लिए come after the word, and the same idea may be said with a Sanskrit, Persian/Urdu or English word",
+    vocalized: "The word in simple romanization with long vowels marked (ā ī ū), retroflex sounds dotted (ṭ ḍ ṇ ṛ) and nasal vowels with a tilde, as pronounced (silent final and medial a left out), followed by IPA in parentheses, e.g. 'yār (/jɑːr/)'.",
+    lemma: "Dictionary form in Devanagari (infinitive in -ना for verbs, masculine direct singular for nouns and adjectives), e.g. 'करना' for 'किया'.",
+    root: "For compounds and words built from a stem: the parts with their meanings, e.g. 'विद्या knowledge + आलय abode'; for a conjunct verb, the noun or adjective + its verb, e.g. 'इंतज़ार wait + करना do'; empty otherwise.",
+    morphology: "Short analysis: gender, number and case (direct, oblique, vocative) for nouns and adjectives; for verbs the form (habitual, perfective, progressive, future, subjunctive, imperative, infinitive, conjunctive -कर), with gender, number and person; postposition or auxiliary attached in meaning.",
+    dialect: "Standard, or the register or origin if notable: formal (Sanskrit-based), Urdu/Persian word, English loan (Hinglish), colloquial, slang, Bollywood, regional (Bombay, Bihari, Haryanvi…), respectful (आप forms), intimate (तू forms), etc.",
+    dialect_note: "Register, politeness or regional usage note (who says it, to whom, how formal it is); empty if none.",
+    msa_equivalent: "The neutral standard Hindi equivalent if the word is slang, regional, very formal Sanskrit or an English loan; empty otherwise.",
+  },
   en: {
     name: "English",
     variety: "which may be American, British, Australian or any other variety, formal or colloquial",

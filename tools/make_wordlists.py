@@ -58,6 +58,7 @@ ONE_LETTER = {
     "ceb": {"o"},
     "de": set(),
     "fa": {"و"},
+    "hi": {"न", "व", "ओ", "ए"},  # not, and, oh, hey
 }
 # wordfreq's own name for a language, where it differs from the app's (Tagalog is "fil", Filipino).
 WORDFREQ_CODE = {"tl": "fil"}
@@ -89,6 +90,8 @@ SCRIPT = {
     "de": re.compile(r"[a-z\u00E4\u00F6\u00FC]+(?:-[a-z\u00E4\u00F6\u00FC]+)*"),  # (as wordfreq writes it: small letters, \u00DF as ss)
     # Persian letters, a word's pieces joined by the half space (ZWNJ: \u0645\u06CC\u200C\u062E\u0648\u0627\u0647\u0645)
     "fa": re.compile("[\u0621-\u063A\u0641-\u064A\u067E\u0686\u0698\u06A9\u06AF\u06CC]+(?:\u200C[\u0621-\u063A\u0641-\u064A\u067E\u0686\u0698\u06A9\u06AF\u06CC]+)*"),
+    # Devanagari letters and signs, U+0900-0963 (not the full stops, digits or the abbreviation mark after them)
+    "hi": re.compile("[{}-{}]+".format(chr(0x900), chr(0x963))),
 }
 # German as wordfreq counts it -> as German writes it (main() fills it in from "de=list,wiktionary").
 GERMAN: dict[str, str] = {}
@@ -102,7 +105,11 @@ _AR_MAP = str.maketrans({"آ": "ا", "أ": "ا", "إ": "ا", "ٱ": "ا", "ة": "
 
 
 def same_word_key(word: str, code: str) -> str:
-    """Spellings that are one word written two ways (Arabic alef and hamza forms, Russian ё/е)."""
+    """Spellings that are one word written two ways (Arabic alef and hamza forms, Russian ё/е, Hindi with
+    or without nukta or chandrabindu: ज़रूर / जरूर, हूँ / हूं)."""
+    if code == "hi":
+        from build_meanings import hindi_key  # (tools/build_meanings.py, the same folding as the app's)
+        return hindi_key(word)
     w = unicodedata.normalize("NFC", word).lower()
     if code == "ar":
         w = w.translate(_AR_MAP)

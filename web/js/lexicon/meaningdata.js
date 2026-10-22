@@ -6,6 +6,7 @@ import { EDGE_PUNCT } from "../wordlookup.js";
 import { compoundLemma, compoundParts, germanLemma, rankOf, separableAt, startsSentence, tableVerb } from "./german.js";
 import { markedTokens } from "./words.js";
 import { persianKey } from "./persian.js";
+import { hindiCandidates, hindiKey } from "./hindi.js";
 
 const AR_MARKS = /[ؐ-ًؚ-ٰٟۖ-ۭـ]/g;
 
@@ -24,6 +25,8 @@ export function matchKey(word, lang) {
   // German: ß as ss, so today's spelling, the one from before 1996 and Switzerland's are one key (dass, daß;
   // Straße, Strasse). The entries keep their own spelling and capitals (lookUp puts the matching ones first).
   if (lang === "de") return w.toLowerCase().replace(/ß/g, "ss");
+  // Hindi: with or without nukta, chandrabindu or anusvara, गये or गए (as build_meanings.py hindi_key)
+  if (lang === "hi") return hindiKey(w);
   return w.toLowerCase();
 }
 
@@ -181,7 +184,14 @@ export function wordKeys(word, lang, lemmaOf = null) {
   if (kept) keys.push(matchKey(bare, lang));
   if (lang === "ar") keys.push(...arabicVariants(keys[0]));
   if (lang === "ceb") keys.push(...cebuanoVariants(keys[0]));
-  return [...new Set(keys.filter(Boolean))];
+  const sure = [...new Set(keys.filter(Boolean))];
+  if (lang !== "hi") return sure;
+  // Hindi: a form the files don't list, with its ending taken off (समझाते: समझाना), after everything else.
+  // These are guesses (`guessed`: where they start): findIn never takes one as the word this is a form of
+  // (पानी is "water", whatever पाना's forms say).
+  const out = [...new Set([...sure, ...hindiCandidates(bare).map((c) => matchKey(c, lang)).filter(Boolean)])];
+  out.guessed = sure.length;
+  return out;
 }
 
 /** The short name of the dictionary a meanings file comes from (its `source`), for the popup. */
@@ -214,13 +224,14 @@ export function findIn(data, keys) {
   // A spelling found only as a proper name ("الكتاب", the Quran) gives way to the next way of
   // reading the word that finds an ordinary one ("كتاب", book); the name is the last resort.
   let names = null;
+  const sure = keys.guessed == null ? keys : keys.slice(0, keys.guessed); // (wordKeys: not the Hindi guesses)
   for (const k of keys) {
     const own = data.words[k] || [];
     const forms = data.forms[k] || [];
     if (!own.length && !forms.length) continue;
     // The word's own entries, then the words it is a form of; proper names last ("went": go, not the river Went).
     // (The form may point to the word table's dictionary form through another spelling: sóc -> soc -> ser.)
-    const agreeing = ([lemmaKey]) => lemmaKey !== k && keys.includes(lemmaKey) && data.words[lemmaKey];
+    const agreeing = ([lemmaKey]) => lemmaKey !== k && sure.includes(lemmaKey) && data.words[lemmaKey];
     let agreed = forms.find(agreeing);
     let between = []; // the meanings of that other spelling (soc: "stump")
     if (!agreed) {
@@ -236,9 +247,10 @@ export function findIn(data, keys) {
     const verbForm = agreed && data.lang === "es" && !/combined with/.test(agreed[1])
       && (data.words[agreed[0]] || []).some((g) => g[1] === "verb");
     const rare = (g) => RARE_OWN.has(g[1]) || (verbForm && SAID.has(g[1]));
-    // (A Spanish, French, Italian, Portuguese or Catalan word with no entry of its own shows first the
-    // word the word table counts it as: podés is poder, not podar; idos is ir, not idus.)
-    const formFirst = agreed && (rival.length ? rival.every(rare) : ROMANCE_LANGS.has(data.lang) || data.lang === "de");
+    // (A Spanish, French, Italian, Portuguese, Catalan or Hindi word with no entry of its own shows first the
+    // word the word table counts it as: podés is poder, not podar; idos is ir, not idus; लगा is लगना "it
+    // stuck", not the stem of लगाना.)
+    const formFirst = agreed && (rival.length ? rival.every(rare) : ROMANCE_LANGS.has(data.lang) || data.lang === "de" || data.lang === "hi");
     const formRows = formFirst ? [agreed, ...forms.filter((f) => f[0] !== agreed[0])] : forms;
     const lemmas = formRows.flatMap(([lemmaKey]) => data.words[lemmaKey] || []);
     let all = formFirst ? [...lemmas, ...own] : [...own, ...lemmas];

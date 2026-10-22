@@ -169,7 +169,7 @@ test("a show Apple lists twice (in two countries' stores, or under two ids) appe
 });
 
 test("languages thin in their countries' overall charts read the 19 category charts too", () => {
-  assert.deepEqual([...CATEGORY_CHARTS].sort(), ["ca", "fa", "th", "tl"]);
+  assert.deepEqual([...CATEGORY_CHARTS].sort(), ["ca", "fa", "hi", "th", "tl"]);
   assert.equal(CATEGORY_IDS.length, MAIN_CATEGORIES.length, "one id per main heading, in the same order");
 });
 
@@ -267,4 +267,22 @@ test("podcasts are sorted into categories, the fullest first", () => {
     [["News", ["a", "b"]], ["Arts", ["e"]], ["Politics", ["a"]], [OTHER, ["c", "d"]]]);
   assert.deepEqual(groupByCategory([]), []);
   assert.deepEqual(groupByCategory(null), []);
+});
+
+test("Hindi is told from Marathi and Nepali (the same letters), from India's other languages and from English", () => {
+  const item = (title, description = "", author = "") => ({ title, description, author });
+  // Devanagari Hindi, Hindi typed in Latin letters, and a show that says it is in Hindi
+  assert.ok(inLanguage(item("असली हिन्दी", "हर हफ़्ते नई कहानियाँ, आपके लिए"), "hi"));
+  assert.ok(inLanguage(item("Kahani Suno", "Main aapko ek kahani sunata hoon, jo aapke dil ko chhoo legi aur yaad rahegi"), "hi"));
+  assert.ok(inLanguage(item("Horror Stories in Hindi", "Scary stories every week"), "hi"));
+  assert.ok(inLanguage(item("भगवद गीता"), "hi"), "a Devanagari name with nothing else: Hindi, India's chart's Devanagari");
+  // Marathi and Nepali: the same letters, their own little words
+  assert.ok(!inLanguage(item("गोष्टी", "आपण आणि मराठी गोष्ट आहे, ऐका दर आठवड्याला"), "hi"));
+  assert.ok(!inLanguage(item("नेपाली कथा", "यो पनि नेपाली कथा हो, हामी हरेक हप्ता सुनाउँछौं र तपाईं सुन्नुहुन्छ"), "hi"));
+  // India's other languages, written in their own letters or named in Latin ones
+  assert.ok(!inLanguage(item("தமிழ் கதைகள்", "ஒவ்வொரு வாரமும் புதிய கதைகள்"), "hi"));
+  assert.ok(!inLanguage(item("Baalgatha Telugu", "Kids stories ki duniya, aur bhi bahut kuch"), "hi"));
+  // English, and German "KI" (artificial intelligence), are no Hindi "ki"
+  assert.ok(!inLanguage(item("The Ranveer Show", "India's biggest podcast about life, success and spirituality"), "hi"));
+  assert.ok(!inLanguage(item("KI verstehen", "Ein Podcast über KI und die Welt, ob wir KI brauchen und wie KI die Arbeit ändert"), "hi"));
 });

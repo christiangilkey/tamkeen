@@ -4286,4 +4286,83 @@ now knows both "de" and "fa"; build_books' TABLE_POEMS/UNCASED from Persian and 
 wikisource "pages" step runs before the Gutenberg volumes step), docs/books/index.json merged as data. Each language
 added interface strings the other lacked: tr/de/51-persian.txt (16) and tr/fa/51-german.txt (11). After a merge:
 `node tools/i18n/extract.mjs`, `node tools/i18n/build.mjs --check`, the tests, `node mobile/scripts/build-www.mjs`.
-Korean and Hindi still to come the same way.
+Hindi followed (54 clashes in 30 files, same kinds; build_books.py needed a hand fix: the Hindi shelf had landed below the constants after BOOKS, and Hindi's NO_SPACES/CAPS_HEADINGS lines were dropped for main's with TABLE_POEMS/UNCASED; "hi" is not in UNCASED, as its books were built without it). Translations: tr/de/52-hindi.txt, tr/fa/52-hindi.txt (7 each), tr/hi/52-german-persian.txt (27). Korean still to come.
+
+## Hindi (hi): a language to learn and a language for the app (2026-10-21; merged into main, not pushed)
+Asked for: Hindi "with the same depth" as pt/ca/ceb/th, in all four versions. Everything a language has, Hindi has;
+the list in "Four more languages…" above was the checklist. Code `hi` everywhere; new entries sit after `th` (before
+`en` where `en` is last).
+- **Core**: web/js/languages.js (name Hindi, native हिन्दी, greetings, test sentence; Devanagari U+0900–097F tells
+  Hindi text apart, `detectLanguage` → hi), app/languages.py (same, `_SCRIPTS["hi"]`), i18n.js UI_LANGUAGES +
+  SPEAK_QUESTION ("आप कौन-सी भाषा बोलते हैं?"), definer.js TEACH (romanization + IPA, the dictionary form of a form),
+  app.css Devanagari fonts (`:lang(hi)`: Nirmala UI on Windows, Kohinoor/Devanagari Sangam on Apple, Noto Sans
+  Devanagari on Android). Whisper's code is `hi`. **Hindi heard as Urdu**: spoken Hindi and Urdu are one language
+  to Whisper's ear, so `SPOKEN_ALIKE = {hi: ["ur"]}` (app/languages.py `heard_as_study`, web/js/stt.js `heardAs`):
+  reels Whisper calls Urdu are kept as Hindi (app/reels.py `spoken_language`/`other_language`, reels-phone.js).
+  The full stop । and ॥ end sentences (wordlookup.js TERMINAL, cardtext.js).
+- **Words stay whole**: Devanagari vowel signs, virama, nukta and anusvara are Unicode marks, never cut off (EDGE_PUNCT
+  only takes punctuation); Hindi is spaced, so no word breaker. Search (app/arabic.py `normalize`/`find_spans`,
+  mobile shared-logic.js `normalize`/`findSpans`, parity cases in tests/fixtures/parity.json) ignores the nukta
+  (ज़रूर = जरूर) and reads chandrabindu as anusvara (हूँ = हूं).
+- **web/js/lexicon/hindi.js** (new, no screen code): `romanize` (the readings: textbook style, ā ī ū, ṭ ḍ ṇ ṛ,
+  ch/chh, sh, nasal vowels with a tilde: हैं haĩ; Hindi's unsaid "a" dropped at the end and in V C _ C V, worked from
+  the end: कमरा kamrā, समझना samajhnā; anusvara before a stop = that stop's nasal: हिंदी hindī). Agrees with
+  Wiktionary's romanization for 98.8% of the 1000 commonest words, 90.4% of the 30,000 commonest; the word table
+  carries Wiktionary's reading for the 9,612 spellings the rule gets wrong (`HindiReadings`). `hindiKey` folds
+  spellings people write two ways: nukta, chandrabindu/anusvara, a nasal with virama before a stop (हिन्दी =
+  हिंदी, सम्बन्ध = संबंध: the old books use the first), ये/यी after a letter (गये = गए); Python twin `hindi_key` in
+  tools/build_meanings.py (checked equal on all 74k spellings). `hindiLemma`: the table's dictionary form, else
+  endings taken off (`hindiCandidates`: -ों -ें -ता -ती -ते -ना -कर -ूँगा -या…) and the commonest result the table
+  knows; a few irregular verbs (गया/गए → जाना, किया → करना, है/था → होना…) work without the table.
+- **Readings over Hindi text** like Thai's (web/js/lexicon/readings.js: ruby `rt.hi`; setting `hindi_readings`, on by
+  default; Settings → Languages → Reading help "Show how Hindi words are said"), and in the word popup.
+- **Word table** `docs/lexicon/hi-lemmas.json.gz` (0.40 MB: 18,984 dictionary words, 55,889 forms, 9,612 readings),
+  made by **tools/build_hindi.py** (+ tools/hindi_romanize.mjs) from kaikki.org's Hindi Wiktionary file + wordfreq
+  (run with a Python that has wordfreq). Every inflection-table cell and "form of" entry; one spelling that is a
+  form of two words goes to: a common verb's everyday form (दिया → देना, not "lamp"; लगा → लगना), else the bare stem
+  of a common verb unless the spelling is far commoner (मिल → मिलना, but भाग "part", जल "water", सर "head" stay),
+  else the commoner word; a noun's other gender is never a form (पिता ≠ माता, लड़की ≠ लड़का); the spoken "-के"
+  conjunctive doesn't take a noun's plural (लड़के → लड़का); hand-checked OVERRIDES (की/के → का, लिए stays, सही,
+  धरती, जोड़ी, सीता stay, सी → सा, सभी → सब). Download: app/lexicon.py + mobile lexicon-store.js `hi: ["hi"]`.
+- **No AI meanings** `hi-meanings.json.gz` (1.4 MB: 21,148 words, 51,009 forms) from the same file
+  (`build_meanings.py hi=<kaikki file>`): each table's forms ("oblique plural of लड़का"), Hindi's 52 postpositions of
+  more than one word under their last word (लिए: "के लिए: for"), "nuqtaless form of" meanings dropped (the key
+  folds the nukta), EVERYDAY_HI puts the everyday entry first for 12 words (और "and", अगर "if", समय "time"…).
+  meaningdata.js: Hindi keys by `hindiKey`, then the ending guesses (marked `guessed`, so पानी stays "water", not
+  पाना's form); a Hindi word with no entry of its own shows the table's word first (as for Romance languages).
+- **Common words**: web/js/wordlists/hi.js (1000, wordfreq 3.1.1; make_wordlists.py folds by `hindi_key`).
+- **Podcasts** (web/js/trending.js): Apple India (`in`) + its 19 category charts (CATEGORY_CHARTS): India's top
+  200 holds 13 Hindi shows, with the category charts 239 (2026-10-21). `inHindi` keeps Devanagari shows unless
+  Marathi's or Nepali's own little words (आहे, आणि; छ, पनि…) outnumber Hindi's, Hindi typed in Latin letters
+  ("Main aapko ek kahani…") when its little words beat every other language's (German "KI" isn't "ki"), and any
+  show that says "Hindi"; a show named for another Indian language or written in another Indian script is left out.
+- **YouTube**: START `है`, country IN, hl hi; the 12 topics' Hindi search words (हिंदी समाचार, हिंदी गाने, कॉमेडी
+  वीडियो, खाना बनाने की विधि, घूमने की जगह, क्रिकेट, विज्ञान, गेमिंग, बच्चों की कहानियाँ, daily vlog हिंदी, हिंदी
+  पॉडकास्ट, हिंदी सीखें), checked against real results. Reels: 22 Hindi search words + 4 comedy words
+  (app/reels.py and reels-phone.js; one word each, no spaces).
+- **News sites** (web/js/browser-home.js, Web page screen): 16, checked live 2026-10-21: BBC News हिंदी, दैनिक
+  भास्कर, दैनिक जागरण, अमर उजाला, आज तक, NDTV इंडिया, नवभारत टाइम्स, हिन्दुस्तान, द लल्लनटॉप, DW हिंदी, News18
+  हिंदी, ABP न्यूज़, द वायर हिंदी, वेबदुनिया, हिंदी समय, हिंदी विकिपीडिया (NDTV and News18 refuse scripts but
+  open in a browser).
+- **Books** (tools/build_books.py, from hi.wikisource): 11 — Premchand's निर्मला, सेवासदन, सप्तसरोज, नव-निधि,
+  प्रेम-द्वादशी, प्रेमाश्रम, कायाकल्प; Bharatendu's अंधेर नगरी; Prasad's आकाश-दीप, स्कंदगुप्त, कामना (all published
+  by 1929: public domain in India and the US). Chandrakanta was left out (its Wikisource text is unproofread OCR).
+  Builder: Hindi headings (अध्याय, दृश्य, अंक, Devanagari numbers), a chapter that sits alone on its page is
+  followed, a bare number is no heading of its own, longer waits when Wikisource says "too many requests".
+- **Interface**: all 3305 strings in tools/i18n/tr/hi/01–15.txt (`node tools/i18n/build.mjs --check`: 3305/3305 for
+  every language); the 7 new strings this added are in tools/i18n/tr/<code>/50-hindi.txt for the 12 other languages;
+  Hindi search/site words are in tools/i18n/ignore.txt.
+- Licences: licenses/hindi-sources.txt (new, in licenses/index.json after Thai), wiktionary.txt; docs/lexicon/README.md.
+- **Tests**: tests/js/hindi.test.mjs (new: words whole, readings, the table's readings, folding, forms with and
+  without the table, seen-word keys, the popup's meanings), trending (Hindi vs Marathi/Nepali/Tamil/English/German),
+  languages/wordlists updated; pytest: test_lexicon (Hindi table download), test_reels (Urdu heard = Hindi),
+  test_languages (detect), test_arabic (nukta, chandrabindu), test_books (Hindi shelf). 633 JS and 455 pytest pass.
+- **Checked** in the browser pane, web app at 375×812, fresh test origin (no sign-in): the welcome screen in Hindi,
+  Hindi as the language to learn (with English app) then the app in Hindi; the word table and meanings downloaded
+  (from the local docs/ via the `lexicon_base`/`books_base` test overrides, since they aren't published yet); a
+  Premchand book with readings over every word and new words in purple; the popup (समय: samay, "time", noun);
+  the Web page screen's 16 Hindi news sites; YouTube's topic pills (the list can't load from a test address).
+  **Not checked**: real Hindi audio through Whisper (podcasts, reels), the desktop app window, a real phone, the
+  podcast charts page live. Seen but not Hindi's: the Web page screen's first line ("Open a site…") is English in every
+  interface language (mobile/src/js/web-sites.js isn't extracted); book cards say "8 h" in every language.
+- Data files (docs/lexicon/hi-*, docs/books/hi/) must be pushed before installed apps can download them.

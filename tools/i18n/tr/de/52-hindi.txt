@@ -1,0 +1,7 @@
+daf2a254 BBC Hindi
+c95a8c71 Deutsche Welle Hindi
+48c12aee Hindi Samay, Geschichten und Literatur
+24dafe8b Hindi-Wikipedia
+5f62fc67 Zeigen, wie Hindi-Wörter ausgesprochen werden, über den Wörtern (namaste)
+832dd30e Aus der Schreibung abgeleitet. Mit der Hindi-Worttabelle auf diesem Gerät wird für die Wörter, bei denen die Regel danebenliegt, die Aussprache aus Wiktionary verwendet.
+3e4d6595 die Flexionstabellen der Hindi-Wörter im englischen Wiktionary und die Worthäufigkeiten von wordfreq (करता, किया, करूँगा: करना), mit der Aussprache aus Wiktionary für die Wörter, bei denen die eigene Ausspracheregel der App danebenliegt

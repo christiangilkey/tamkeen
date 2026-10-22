@@ -33,7 +33,7 @@ export function activeWordIndex(starts, ends, t, gap = 1.0) {
   return t <= ends[i] + gap ? i : -1;
 }
 
-const TERMINAL = /[.!?؟؛…。！？．]["'»”’)\]」』）】]*$/u;
+const TERMINAL = /[.!?؟؛…。！？．।॥]["'»”’)\]」』）】]*$/u; // (। ॥: Hindi's full stops)
 
 /** Punctuation and spaces at either edge of a word ("«hola," → "hola"), in any script. */
 export const EDGE_PUNCT = /^[\s\p{P}]+|[\s\p{P}]+$/gu;

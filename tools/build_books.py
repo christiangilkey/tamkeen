@@ -288,6 +288,35 @@ BOOKS: dict[str, list[tuple]] = {
         ("parvin-qasaid", "قصاید پروین اعتصامی", "پروین اعتصامی", 1935, "Parvin E'tesami's poems on justice, the poor and the soul.",
          ("wikisource", "fa", "پروین اعتصامی (قصائد)")),
     ],
+    # Hindi, from the Hindi Wikisource. Public domain in India (authors dead more than 60 years) and in the US:
+    # only works first published by 1930 (a foreign work's US term, restored in 1996, runs 95 years from
+    # publication), so not Premchand's Godan (1936), Gaban (1931) or Idgah (1933), nor Prasad's Kamayani (1936).
+    "hi": [
+        ("nirmala", "निर्मला", "प्रेमचंद", 1927, "A girl married off to a widower twice her age: Premchand's novel of dowry and a family's ruin.",
+         ("wikisource", "hi", "निर्मला")),
+        ("sevasadan", "सेवासदन", "प्रेमचंद", 1919, "Suman leaves a cold marriage in Banaras and is drawn into the city's courtesan quarter.",
+         ("wikisource", "hi", "सेवासदन")),
+        ("saptasaroj", "सप्तसरोज", "प्रेमचंद", 1917, "Seven stories, among them 'Bade Ghar ki Beti', 'Panch Parmeshwar' and 'Namak ka Daroga'.",
+         ("wikisource", "hi", "सप्तसरोज", {"drop": r"^[—–-]+o[—–-]+$"})),
+        ("nav-nidhi", "नव-निधि", "प्रेमचंद", 1917, "Nine stories, several of them tales of Rajput honour such as 'Raja Hardaul'.",
+         ("wikisource", "hi", "नव-निधि")),
+        ("prem-dwadashi", "प्रेम-द्वादशी", "प्रेमचंद", 1926, "Twelve stories, with 'Shatranj ke Khiladi' (The Chess Players) and 'Atmaram'.",
+         ("wikisource", "hi", "प्रेम-द्वादशी")),
+        ("premashram", "प्रेमाश्रम", "प्रेमचंद", 1922, "Landlords and peasants in a village near Banaras: Premchand's novel of the countryside.",
+         ("wikisource", "hi", "प्रेमाश्रम")),
+        ("kayakalp", "कायाकल्प", "प्रेमचंद", 1926, "Love, rebirth and politics in a princely state and the streets of Agra.",
+         ("wikisource", "hi", "कायाकल्प")),
+        ("andher-nagari", "अंधेर नगरी", "भारतेन्दु हरिश्चंद्र", 1881, "A farce about a city where everything costs the same and the king's justice is upside down.",
+         ("wikisource", "hi", "भारतेन्दु समग्र/अंधेर नगरी चौपट्ट राजा")),
+        ("akashdeep", "आकाश-दीप", "जयशंकर प्रसाद", 1929, "Nineteen stories by the great poet of Chhayavad, among them 'Akashdeep' and 'Mamta'.",
+         ("wikisource", "hi", "आकाश-दीप")),
+        ("skandagupta", "स्कंदगुप्त", "जयशंकर प्रसाद", 1928, "A historical play: the Gupta emperor who held back the Huns.",
+         ("wikisource", "hi", "स्कंदगुप्त")),
+        ("kamna", "कामना", "जयशंकर प्रसाद", 1927, "An allegorical play about a peaceful island spoiled by gold and desire.",
+         ("wikisource", "hi", "कामना")),
+        # (Not Devaki Nandan Khatri's Chandrakanta Santati: only its first chapter is typed up; the rest of its scan
+        # is unchecked machine reading, श्रौर for और.)
+    ],
 }
 
 NO_SPACES = {"ja", "zh", "th"}  # lines of a paragraph join without a space
@@ -303,7 +332,7 @@ def get(url: str, retries: int = 3) -> bytes:
     cached = Path(cache) / hashlib.sha256(url.encode()).hexdigest()[:32] if cache else None
     if cached and cached.exists():
         return cached.read_bytes()
-    for attempt in range(retries):
+    for attempt in range(retries + 3):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=120) as r:
                 data = r.read()
@@ -311,10 +340,12 @@ def get(url: str, retries: int = 3) -> bytes:
                     cached.parent.mkdir(parents=True, exist_ok=True)
                     cached.write_bytes(data)
                 return data
-        except Exception:  # noqa: BLE001 (any network failure: wait and try again)
-            if attempt == retries - 1:
+        except Exception as e:  # noqa: BLE001 (any network failure: wait and try again)
+            # ("Too many requests", which Wikisource answers to a long book's chapters: wait longer, a few more times)
+            busy = getattr(e, "code", 0) == 429
+            if attempt >= (retries + 3 if busy else retries) - 1:
                 raise
-            time.sleep(3 * (attempt + 1))
+            time.sleep(15 * (attempt + 1) if busy else 3 * (attempt + 1))
     raise RuntimeError("unreachable")
 
 
@@ -331,13 +362,18 @@ HEADING = re.compile(
     r"kapitel|aufzug|auftritt|szene|vorrede|vorwort|einleitung|zueignung|vorspiel|prolog|epilog|nachwort)\b"
     r"|^[IVXLC]+\.?$|^(?![LCDM]\.\s|[IVXLC]+\.\s[A-Z]\.)[IVXLC]+\.\s.{0,60}$|^-[IVXLC]+-$|^\w+\s+(partie|parte|part|livre|libro|livro)\.?$|^[IVXLC]+\s*[—–-]\s.{0,60}$"
     r"|^\w+\s+(kapitel|teil|buch|aufzug|akt|auftritt|szene|scene|abschnitt|gesang|streich|brief)\.?$"
-    r"|^第[一二三四五六七八九十百零〇\d]+[回章篇卷]|^卷[一二三四五六七八九十百零〇\d]+$|^\S{1,6}第[一二三四五六七八九十百]+$|^(ตอนที่|บทที่|นิทานที่|เรื่องที่)\s", re.I)
+    r"|^第[一二三四五六七八九十百零〇\d]+[回章篇卷]|^卷[一二三四五六七八九十百零〇\d]+$|^\S{1,6}第[一二三四五六七八九十百]+$|^(ตอนที่|บทที่|นิทานที่|เรื่องที่)\s"
+    # Hindi: अध्याय (chapter), परिच्छेद, प्रकरण, भाग (part), खंड, अंक (act), दृश्य (scene), सर्ग (canto), the
+    # preface and the end words; a chapter number in Devanagari digits on its own; "प्रथम अंक" (first act)
+    r"|^(अध्याय|परिच्छेद|प्रकरण|भाग|खंड|खण्ड|अंक|दृश्य|सर्ग|प्रस्तावना|भूमिका|उपसंहार)(\s|$)|^[०-९]+\s*[.।]?$"
+    r"|^\S+\s+(अंक|दृश्य|भाग|अध्याय|खंड|खण्ड|परिच्छेद)$", re.I)
 # A heading that starts with one of these words may run to two or three lines ("Capítulo primero. Que
 # trata de la condición y ejercicio del famoso hidalgo / don Quijote de la Mancha").
 HEADING_WORD = re.compile(r"^(chapter|capítulo|capitulo|chapitre|capitolo|capítol|kabanata|kapitulo|stave|cant|canto|tratado|kapitel)\b", re.I)
 CONTENTS = re.compile(r"^(contents|table of contents|índice|indice|índex|table des matières|table|sommario|indice generale|"
                       r"talaan ng nilalaman|mga sulod|sumário|índice geral|taula|índex|index|目次|目錄|目录|สารบัญ|فهرس|оглавление|содержание|"
-                      r"inhalt|inhaltsverzeichnis|inhalts-verzeichnis|verzeichnis)\.?$", re.I)
+                      r"inhalt|inhaltsverzeichnis|inhalts-verzeichnis|verzeichnis|"
+                      r"विषय-सूची|विषय सूची|अनुक्रमणिका|सूची)\.?$", re.I)
 NOTE_TITLE = re.compile(r"^\[?\s*(transcriber'?s? notes?|notes? of the transcriber|nota del transcriptor|nota de transcripción|"
                         r"notas? del? transcripción|note del trascrittore|nota del trascrittore|note de transcription|"
                         r"nota do transcritor|notas? d[eoa] transcri\w*|notes? del transcriptor|nota de la transcripció|"
@@ -352,11 +388,11 @@ FRONT_JUNK = re.compile(r"\bcopyright\b|all rights reserved|derechos reservados|
 # The last line of a book ("FIN", "THE END"): what comes after it is the publisher's (a list of the
 # author's other books, advertisements), apart from a place and date line.
 THE_END = re.compile(r"^(fin|fin de .{1,60}|the end|fine|fim|fi|katapusan|catapusan|wak[aá]s|wac[aá]s|wak[aá]s .{1,40}|wac[aá]s .{1,40}|"
-                     r"конец|終|完|จบ|انتهى|تمت|ende)[.!]?$", re.I)
+                     r"конец|終|完|จบ|انتهى|تمت|ende|समाप्त|॥\s*समाप्त\s*॥|इति)[.!।]?$", re.I)
 FOOTNOTE = re.compile(r"^\[(\d+|\*|[a-z]|[ivx]+)(\]|:)", re.I)
 
 
-DIGITS = str.maketrans("๐๑๒๓๔๕๖๗๘๙٠١٢٣٤٥٦٧٨٩", "01234567890123456789")
+DIGITS = str.maketrans("๐๑๒๓๔๕๖๗๘๙٠١٢٣٤٥٦٧٨٩०१२३४५६७८९", "012345678901234567890123456789")  # (Thai, Arabic, Devanagari)
 
 
 def _key(text: str) -> str:
@@ -685,6 +721,16 @@ def wiki_links(lang: str, title: str, pattern: str) -> list[str]:
 EDITION = re.compile(r"/(\d{4}|ПСС|СС|ДО|СО)\b|\((ДО|СО)\)\s*$")
 
 
+def _own_heading(blocks: list[dict]) -> bool:
+    """Has a chapter's page a heading of its own at its start? Then its page name isn't added as one
+    (Hindi "कामना/1.3" starts with "तीसरा दृश्य"). The page's first block is one; so is a heading-like line
+    among its first three, but not a bare number ("२"), which clean() takes for a printed page number."""
+    if blocks and blocks[0]["kind"].startswith("h"):
+        return True
+    return any(len(b["text"]) <= 80 and HEADING.search(b["text"]) and not re.fullmatch(r"[\W_]*\d{1,3}[\W_]*", b["text"])
+               for b in blocks[:3])
+
+
 def wikisource(lang: str, title: str, depth: int = 0, chain: bool = True) -> list[dict]:
     blocks, subs, nxt = wiki_page(lang, title)
     words = sum(len(b["text"].split()) for b in blocks)
@@ -699,10 +745,12 @@ def wikisource(lang: str, title: str, depth: int = 0, chain: bool = True) -> lis
             # A chapter inside a part also listed here is read with its part, not twice.
             if any(sub.startswith(other + "/") for other in subs if other != sub):
                 continue
-            part = wikisource(lang, sub, depth + 1, chain=False)
+            # (A page that links only to its first chapter has the chapters chained from there, each
+            # header pointing to the next: निर्मला -> निर्मला/१ -> निर्मला/२ ... on the Hindi Wikisource.)
+            part = wikisource(lang, sub, depth + 1, chain=len(subs) == 1)
             if part:
                 name = sub[len(title) + 1:] if sub.startswith(title + "/") else sub.rsplit("/", 1)[-1]
-                if not part[0]["kind"].startswith("h"):
+                if not _own_heading(part):
                     out.append({"kind": "h2", "text": tidy(name)})
                 out.extend(part)
             time.sleep(0.2)
@@ -714,7 +762,7 @@ def wikisource(lang: str, title: str, depth: int = 0, chain: bool = True) -> lis
         seen.add(nxt)
         more, _subs, after = wiki_page(lang, nxt)
         name = nxt[len(parent) + 1:]
-        if more and not more[0]["kind"].startswith("h"):
+        if more and not _own_heading(more):
             blocks.append({"kind": "h2", "text": tidy(name)})
         blocks.extend(more)
         nxt = after
@@ -748,11 +796,12 @@ def aozora(author: str, card: str) -> list[dict]:
 # ------------------------------------------------------------------------------------------ build
 
 SEE_ALSO = re.compile(r"^(see also|voir aussi|vedi anche|véase también|vegeu també|veja também|см\. также|ดูเพิ่ม|انظر أيضا|関連項目)$", re.I)
-NOTES = re.compile(r"^(Примечания( редакторов Викитеки)?|Notes?|Notas?|Note|ملاحظات|هوامش|↑|脚注|注釈|Mga tala|หมายเหตุ|เชิงอรรถ)\.?$", re.I)
+NOTES = re.compile(r"^(Примечания( редакторов Викитеки)?|Notes?|Notas?|Note|ملاحظات|هوامش|↑|脚注|注釈|Mga tala|หมายเหตุ|เชิงอรรถ|"
+                   r"टिप्पणी|टिप्पणियाँ|टिप्पणियां|पाद-टिप्पणी)\.?$", re.I)
 
 
-NUMBER = re.compile(r"^((chapter|capítulo|capitulo|chapitre|capitolo|capítol|kabanata|kapitulo|глава|part|parte|livro|libro|book)\s+\S+"
-                    r"|-?[IVXLC]+-?\.?|\d+\.?)$", re.I)
+NUMBER = re.compile(r"^((chapter|capítulo|capitulo|chapitre|capitolo|capítol|kabanata|kapitulo|глава|part|parte|livro|libro|book|अध्याय|परिच्छेद)\s+\S+"
+                    r"|-?[IVXLC]+-?\.?|\d+\.?|[०-९]+\s*[.।]?)$", re.I)
 
 
 HEAD_WORD = re.compile(r"^(chapter|capítulo|capitulo|chapitre|capitolo|capítol|kabanata|kapitulo|глава|libro|livre|livro|book|part|parte|partie)\s+", re.I)
@@ -930,6 +979,11 @@ def build_one(lang: str, entry: tuple, again: bool) -> dict | None:
         else:
             blocks = aozora(source[1], source[2])
             credit = f"Aozora Bunko 青空文庫 (https://www.aozora.gr.jp/cards/{source[1]}/card{source[2]}.html)"
+        if lang == "hi":
+            # The Hindi Wikisource prints the book's title at the top of every chapter (after the chapter's
+            # heading); and a scan's typing has | where the printed page has the full stop । (or "!").
+            blocks = [{**b, "text": b["text"].replace("|", "।")} for i, b in enumerate(blocks)
+                      if not (i and b["kind"] == "p" and tidy(b["text"]) == title and blocks[i - 1]["kind"] == "h2")]
         blocks = clean(trim(blocks, opts), lang)
         words, kept = 0, []
         for b in blocks:

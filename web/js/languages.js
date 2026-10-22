@@ -124,6 +124,14 @@ export const LANGUAGES = {
     test: { word: "دیگه", marked: "⟦دیگه⟧ دیر شده، بریم.", podcast: "فارسی واقعی" },
     searchNote: "Matches ignore short-vowel marks, the half space inside words (ZWNJ) and Arabic spellings of k and y (ك ي for ک ی).",
   },
+  hi: {
+    ...LTR, name: "Hindi", native: "हिन्दी",
+    hello: "स्वागत है!", hi: "नमस्ते", search: "खोजें", word: "शब्द",
+    greet: ["सुप्रभात", "नमस्ते", "शुभ संध्या"],
+    sample: "पॉडकास्ट के नए एपिसोड में आपका स्वागत है।",
+    pageSample: "कॉफ़ी भुने हुए कॉफ़ी के बीजों से बनने वाला एक पेय है, और यह दुनिया के सबसे लोकप्रिय पेयों में से एक है।",
+    test: { word: "यार", marked: "⟦यार⟧, आज बहुत गर्मी है।", podcast: "असली हिन्दी" },
+  },
   en: {
     ...LTR, name: "English", native: "English",
     hello: "Welcome!", hi: "hi", search: "search", word: "the word",
@@ -167,6 +175,7 @@ const SCRIPTS = [
   ["ru", /[Ѐ-ӿ]/g],
   ["th", /[\u0E00-\u0E7F]/g],
   ["latin", /[A-Za-zÀ-ɏ]/g],
+  ["hi", /[\u{900}-\u{97F}]/gu], // Devanagari (Marathi and Nepali are written in it too; the app teaches only Hindi)
 ];
 
 /** The taught languages written in Latin letters: text in Latin letters is one of these when it is
@@ -202,7 +211,7 @@ export function detectLanguage(text, hint = studyLanguage()) {
   if (count.kana && (top === "han" || top === "kana")) return "ja";
   if (top === "han") return hint === "ja" ? "ja" : "zh";
   if (top === "ar") return looksPersian(s, hint) ? "fa" : "ar";
-  if (top === "ru" || top === "th") return top;
+  if (top === "ru" || top === "th" || top === "hi") return top;
   if (top === "latin") return LATIN_LANGUAGES.includes(hint) ? hint : "en";
   return hint;
 }

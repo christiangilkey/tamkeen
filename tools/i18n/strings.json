@@ -110,6 +110,11 @@
   "f": "web/js/languages.js"
  },
  {
+  "id": "c9e6b253",
+  "k": "Hindi",
+  "f": "web/js/languages.js"
+ },
+ {
   "id": "649df08a",
   "k": "English",
   "f": "web/js/languages.js"
@@ -1232,6 +1237,26 @@
  {
   "id": "a1817b50",
   "k": "Thai Wikipedia",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "daf2a254",
+  "k": "BBC Hindi",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "c95a8c71",
+  "k": "Deutsche Welle Hindi",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "48c12aee",
+  "k": "Hindi Samay, stories and literature",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "24dafe8b",
+  "k": "Hindi Wikipedia",
   "f": "web/js/browser-home.js"
  },
  {
@@ -8200,6 +8225,16 @@
   "f": "web/js/lexicon/readings.js"
  },
  {
+  "id": "5f62fc67",
+  "k": "Show how Hindi words are said, over the words (namaste)",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "832dd30e",
+  "k": "Worked out from the spelling. With the Hindi word table on this device, Wiktionary's reading is used for the words the rule gets wrong.",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
   "id": "1fa955a7",
   "k": "This word table is from a different version of the app.",
   "f": "web/js/lexicon/romance.js"
@@ -8282,6 +8317,11 @@
  {
   "id": "b0af5088",
   "k": "Wiktionary's Persian words and verb tables, with the wordfreq word counts",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "3e4d6595",
+  "k": "the inflection tables of English Wiktionary's Hindi words and the wordfreq word counts (करता, किया, करूँगा: करना), with Wiktionary's reading of the words the app's own reading rule gets wrong",
   "f": "web/js/lexicon/seen.js"
  },
  {
@@ -13350,6 +13390,11 @@
   "f": "web/js/trending.js"
  },
  {
+  "id": "967ce367",
+  "k": "India",
+  "f": "web/js/trending.js"
+ },
+ {
   "id": "d6663dda",
   "k": "Business",
   "f": "web/js/trending.js"
@@ -14102,11 +14147,6 @@
  {
   "id": "a2238e91",
   "k": "New Zealand",
-  "f": "web/js/youtube-home.js"
- },
- {
-  "id": "967ce367",
-  "k": "India",
   "f": "web/js/youtube-home.js"
  },
  {
@@ -16112,11 +16152,6 @@
  {
   "id": "412e3190",
   "k": "Urdu",
-  "f": "app/reels.py"
- },
- {
-  "id": "c9e6b253",
-  "k": "Hindi",
   "f": "app/reels.py"
  },
  {

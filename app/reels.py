@@ -48,6 +48,7 @@ COMEDY_WORDS = {
     "ca": ["humor", "comèdia", "divertit", "acudits"],
     "ceb": ["katawa", "kataw-anan", "bisaya comedy", "binuang"],
     "th": ["ตลก", "ขำขัน", "แกล้ง", "มุกตลก"],
+    "hi": ["कॉमेडी", "मज़ेदार", "हिंदी कॉमेडी", "hindi comedy"],
     "en": ["comedy", "funny", "pranks", "standup"],
     "de": ["deutsche comedy", "witze", "lustig", "witzig"],
     "fa": ["طنز", "کمدی", "خنده", "سوتی"],
@@ -81,6 +82,8 @@ RANDOM_WORDS = {
             "kasinatian", "kahibalo", "pagpasabot", "sud-an", "dula", "balita", "podcast", "adlaw-adlaw", "pamilya", "kape", "bisaya"],
     "th": ["vlog", "สูตรอาหาร", "เรื่องเล่า", "คำแนะนำ", "ตลก", "ขำขัน", "คำถาม", "ชาเลนจ์", "สัมภาษณ์", "เที่ยว", "อาหาร", "ประสบการณ์",
            "เกร็ดความรู้", "อธิบาย", "ทำอาหาร", "กีฬา", "ข่าว", "พอดแคสต์", "กิจวัตร", "ครอบครัว", "กาแฟ", "รีวิว"],
+    "hi": ["vlog", "रेसिपी", "कहानी", "सलाह", "कॉमेडी", "मज़ाक", "सवाल", "चैलेंज", "इंटरव्यू", "यात्रा", "खाना", "अनुभव",
+           "जानकारी", "हिंदी", "रसोई", "क्रिकेट", "समाचार", "पॉडकास्ट", "दिनचर्या", "परिवार", "चाय", "देसी"],
     "en": ["vlog", "recipe", "storytime", "advice", "comedy", "sketch", "question", "challenge", "interview", "travel", "food", "story",
            "experience", "funfacts", "explained", "cooking", "sports", "news", "podcast", "routine", "family", "coffee"],
     "de": ["vlog", "rezept", "geschichte", "tipp", "humor", "witzig", "frage", "challenge", "interview", "reise", "essen", "anekdote",
@@ -576,9 +579,9 @@ def spoken_language(engine: Any, samples: Any, study: str = "") -> tuple[str | N
         return None, 0.0, 0.0
     try:
         lang, prob, every = model.detect_language(samples[: 30 * 16000], vad_filter=True)
-        heard = languages.whisper_code(study)  # Bisaya is heard as Tagalog, Whisper's nearest language
-        share = next((float(p) for code, p in every or [] if code == heard), 0.0)
-        lang = study if lang == heard else str(lang)
+        # Bisaya is heard as Tagalog, Whisper's nearest language; Hindi often as Urdu, which sounds the same
+        share = sum(float(p) for code, p in every or [] if languages.heard_as_study(code, study)) if study else 0.0
+        lang = study if study and languages.heard_as_study(lang, study) else str(lang)
         return lang, float(prob), float(prob) if lang == study else share
     except Exception:  # an engine or version without it: fall back to the letters
         return None, 0.0, 0.0
@@ -586,8 +589,8 @@ def spoken_language(engine: Any, samples: Any, study: str = "") -> tuple[str | N
 
 def other_language(study: str, detected: str | None, confidence: float, study_share: float) -> bool:
     """True when Whisper is sure the reel is NOT in the language being studied."""
-    if detected and detected == languages.whisper_code(study):
-        return False  # Bisaya, heard as Tagalog
+    if languages.heard_as_study(detected, study):
+        return False  # Bisaya, heard as Tagalog; Hindi, heard as Urdu
     return bool(detected) and detected != study and confidence >= MIN_LANGUAGE_CONFIDENCE and study_share < CLOSE_SECOND
 
 

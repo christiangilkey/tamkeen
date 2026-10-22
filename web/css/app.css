@@ -124,6 +124,12 @@ p { margin: 0 0 .75em; }
 /* The app shown in Persian: its own words in Vazirmatn too (Latin letters keep the usual font). */
 :root:lang(fa) { --ui-font: "Vazirmatn", ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", system-ui,
   -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif; }
+/* Hindi (Devanagari): Windows, Apple, Android/Linux fonts. With the interface in Hindi, its text uses them too. */
+:lang(hi) { --ar-font: "Nirmala UI", "Kohinoor Devanagari", "Devanagari Sangam MN", "Noto Sans Devanagari", "Mangal", sans-serif; }
+:root:lang(hi) {
+  --ui-font: ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", "Nirmala UI", "Kohinoor Devanagari",
+    "Noto Sans Devanagari", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
 /* (back to the default inside study text in these, when the whole page is in Japanese, say: i18n.js) */
 :lang(es), :lang(fr), :lang(it), :lang(tl), :lang(pt), :lang(ca), :lang(ceb), :lang(ru), :lang(en), :lang(de) {
   --ar-font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", "Noto Sans", Roboto, Arial, sans-serif;

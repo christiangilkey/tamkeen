@@ -1,0 +1,8 @@
+# Hindi as a language to learn (news sites, readings, word table)
+daf2a254	BBC 印地语
+c95a8c71	德国之声印地语
+48c12aee	Hindi Samay（小说与文学）
+24dafe8b	印地语维基百科
+5f62fc67	在印地语单词上方显示读音（namaste）
+832dd30e	根据拼写推算。若此设备上有印地语词表，规则读错的词会改用维基词典的读音。
+3e4d6595	英文维基词典中印地语单词的屈折变化表和 wordfreq 的词频（करता、किया、करूँगा：करना），以及应用自带读音规则读错的词在维基词典中的读音

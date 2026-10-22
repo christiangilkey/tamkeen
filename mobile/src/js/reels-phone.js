@@ -15,7 +15,7 @@
 // window to browse search pages and profiles, which the computer's window can and this one can't.
 
 import { GoogleDriveAuth, isNative, isWeb } from "./native.js";
-import { LANGUAGES, isLanguage } from "./languages.js";
+import { LANGUAGES, detectLanguage, isLanguage } from "./languages.js";
 import { episodeUid, feedUid } from "./shared-logic.js";
 import { heardAs, parseTranscription, sttConfig, sttModelLabel, MAX_UPLOAD_BYTES } from "./stt.js";
 import { kv, lib, now, saveSettingsPatch, settings } from "./store.js";
@@ -63,6 +63,8 @@ export const RANDOM_WORDS = {
         "kasinatian", "kahibalo", "pagpasabot", "sud-an", "dula", "balita", "podcast", "adlaw-adlaw", "pamilya", "kape", "bisaya"],
   th: ["vlog", "สูตรอาหาร", "เรื่องเล่า", "คำแนะนำ", "ตลก", "ขำขัน", "คำถาม", "ชาเลนจ์", "สัมภาษณ์", "เที่ยว", "อาหาร", "ประสบการณ์",
        "เกร็ดความรู้", "อธิบาย", "ทำอาหาร", "กีฬา", "ข่าว", "พอดแคสต์", "กิจวัตร", "ครอบครัว", "กาแฟ", "รีวิว"],
+  hi: ["vlog", "रेसिपी", "कहानी", "सलाह", "कॉमेडी", "मज़ाक", "सवाल", "चैलेंज", "इंटरव्यू", "यात्रा", "खाना", "अनुभव",
+       "जानकारी", "हिंदी", "रसोई", "क्रिकेट", "समाचार", "पॉडकास्ट", "दिनचर्या", "परिवार", "चाय", "देसी"],
   en: ["vlog", "recipe", "storytime", "advice", "comedy", "sketch", "question", "challenge", "interview", "travel", "food", "story",
        "experience", "funfacts", "explained", "cooking", "sports", "news", "podcast", "routine", "family", "coffee"],
   de: ["vlog", "rezept", "geschichte", "tipp", "humor", "witzig", "frage", "challenge", "interview", "reise", "essen", "anekdote",
@@ -456,7 +458,9 @@ async function tryReel(ig, cfg, known, { random = false } = {}) {
   const words = heard.segments.reduce((n, s) => n + (s.words.length || s.text.split(/\s+/).filter(Boolean).length), 0);
   if (!words) return [false, "nothing is said in it"];
   const study = settings.study_language || "ar";
-  heard.language = heardAs(heard.language, study); // Bisaya is heard as Tagalog (stt.js)
+  heard.language = heardAs(heard.language, study); // Bisaya is heard as Tagalog, Hindi as Urdu (stt.js)
+  // (Hindi heard as Urdu is only Hindi to a learner when it came back in Devanagari, not in Urdu's Arabic letters.)
+  if (study === "hi" && heard.language === "hi" && detectLanguage(heard.segments.map((s) => s.text).join(" "), "hi") !== "hi") heard.language = "ur";
   if (random) {
     const seconds = p.seconds || heard.duration || 0;
     if (heard.language && heard.language !== study) return [false, `in ${(LANGUAGES[heard.language] || {}).name || heard.language}, not ${LANGUAGES[study].name}`];

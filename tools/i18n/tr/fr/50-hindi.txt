@@ -1,0 +1,8 @@
+# Hindi as a language to learn (news sites, readings, word table)
+daf2a254	BBC en hindi
+c95a8c71	Deutsche Welle en hindi
+48c12aee	Hindi Samay, nouvelles et littérature
+24dafe8b	Wikipédia en hindi
+5f62fc67	Montrer la prononciation des mots hindis, au-dessus des mots (namaste)
+832dd30e	Déduite de l'écriture. Avec la table de mots hindis sur cet appareil, la lecture du Wiktionnaire est utilisée pour les mots où la règle se trompe.
+3e4d6595	les tableaux de flexion des mots hindis du Wiktionary anglais et les fréquences de mots de wordfreq (करता, किया, करूँगा : करना), avec la lecture du Wiktionnaire pour les mots où la règle de lecture de l'appli se trompe
