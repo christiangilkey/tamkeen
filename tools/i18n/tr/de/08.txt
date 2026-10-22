@@ -1,0 +1,170 @@
+fe7f55b8 Fokus
+d4e1aee4 Aufladen
+d9d7e3d0 Rückenwind
+15727c13 Resonanz
+1ed1264f Einsicht
+2d4c3f4e Hort
+e0070ea6 Nachtschlag
+69b8c2a5 Morgenstrahl
+7b6625f5 Ruhiges Herz
+ee19d60c Zweiter Atem
+b5c15f07 Perfekte Form
+4869ac12 Offene Woche
+8d82fb8f Alle Wesen, alle Züge.
+ed7aebae Nur Neulinge
+9ab28c8b Nur Schlüpflinge und Jungtiere dürfen kämpfen (Ausgewachsene setzen diese Woche aus).
+a135954e Keine Heilung
+ae188585 Heilzüge sind nicht erlaubt.
+18d1cb31 Glut, Funke und Stein
+8c9c8aee Nur Wesen der Elemente Glut, Funke und Stein.
+a9202974 Flut, Hain und Dämmer
+fe2417f4 Nur Wesen der Elemente Flut, Hain und Dämmer.
+17bff5b7 Eins gegen eins
+49663788 Teams aus einem Wesen.
+e33e1fd3 Wortspross
+9b3a9266 Eine Pflanze, der leuchtende Buchstaben wachsen. Gedeiht am besten bei Neugierigen: Wörter nachschlagen.
+0a0dcf0b Echomuschel
+7c5e9fe1 Eine Muschel, die summt von dem, was sie gehört hat. Gedeiht am besten bei Zuhörern.
+58e0fe3c Erreiche dein Tagesziel zweimal
+8a51e70b Seitenlaterne
+edbcf4d7 Eine aus Seiten gefaltete Laterne. Gedeiht am besten bei Lesern.
+d8e79134 Schlag 30 Wörter nach
+aa0ef1d3 Tintenfass
+b5f0b120 Ein kleiner Brunnen voll Tinte. Gedeiht am besten bei Wortsammlern.
+82e39370 Speichere 50 Wörter
+fc274353 Gedächtnisstein
+9b2d1f8b Ein gemeißelter Stein, der bewahrt, was du weißt. Gedeiht am besten bei Sammlern.
+c2ee073b Kenne 5 Wörter gut (durch Kämpfe)
+1b5d4cf8 Sternenwebstuhl
+e351da07 Ein Webstuhl, der Sternenlicht webt. Gleichmäßig für alle.
+b41d02f3 Lass einmal ein ausgewachsenes Wesen frei
+423e6206 Lass dein erstes Wesen schlüpfen
+ea9f375d Erreiche dein Tagesziel dreimal
+d852f95e Speichere 30 Wörter
+a80ee76d Halte eine Serie von 5 Tagen
+ad99a14e Kenne 10 Wörter gut (durch Kämpfe)
+790456c6 Beere
+3030e8ec Fisch
+00fe42c2 Blatt
+17541de7 Funkenbonbon
+781aae20 Kandiszucker
+ceb44980 Mondkuchen
+5f4632af Trank
+1c1b6779 Stellt in einem wilden Kampf einmal die Hälfte der Gesundheit eines Wesens wieder her.
+ec7d6643 EP-Boost
+fb54130d Verdoppelt 20 Minuten lang die EP fürs Nachschlagen, Speichern und Wiederholen von Wörtern.
+2b8f2201 Kampfticket
+05dc8601 Ein weiterer Kampf heute zahlt nach den ersten dreien voll aus.
+7d10b37f Brutkasten
+658d01ff Wärmt ein Ei, damit es neben dem Wesen in deinem Lebensraum wächst.
+6953faf6 Grundstücksschlüssel
+7661862b Öffnet das nächste Baugrundstück, ohne auf seinen Meilenstein zu warten.
+5afab055 Überraschungsei
+379ee5cf Ein neues Ei für deine Sammlung. Sein Element neigt zu deiner Art zu lernen.
+3d02ef52 Das Genuschel
+7bd136e6 Ein Nebel aus verworrener Sprache.
+511e4954 Die leere Seite
+8720a6ee Sie starrt dich an.
+af92969a Rauschen
+2cebb5b5 Lärm, wo die Wörter sein sollten.
+47e17523 Das Vergessen
+53267fa2 Es lässt verblassen, was du nicht wieder ansiehst.
+8697f432 Silber
+c57604db Gold
+b3850e04 Diamant
+37399d70 Erstes Wort
+c0203c34 Schlag ein Wort nach
+c007882f Erstes Schlüpfen
+f51af387 Lass ein Ei schlüpfen
+e387d81f Zehn Ziele
+d5913b18 Erreiche dein Tagesziel 10-mal
+ce70ac02 Eine Woche
+6da30a55 Eine Serie von 7 Tagen
+892a61a4 Ein Monat
+90f6c76b Eine Serie von 30 Tagen
+d4e2f065 Hundert Tage
+8ad928d9 Eine Serie von 100 Tagen
+26ad9c0c 100 Wörter
+cd7e4e5a Speichere 100 Wörter
+a2cb707e 1000 Wörter
+8a81401d Speichere 1000 Wörter
+37ea46b5 Zuhörer
+a535d7ff Füll die Gewohnheit „Hören“
+ac5bbe82 Leser
+479b0d0b Füll die Gewohnheit „Lesen“
+e3199d24 Sammler
+f7254f15 Füll die Gewohnheit „Sammeln“
+9b83b0ca Zieh ein ausgewachsenes Echo auf
+b132f8c5 Zieh einen ausgewachsenen Weisen auf
+28cfd944 Zieh einen ausgewachsenen Hüter auf
+0fbbf940 Freundlicher Gegner
+de125314 Beende einen Kampf mit einem Freund
+be66989a Raid
+b231ceba Hilf mit, einen wöchentlichen Boss zu besiegen
+90b952f5 Stadtpark
+73d5f55c Oase
+bcce2166 Nachtwald
+0b7eaa70 Küste
+c559bda3 Lernt {0}: tippen für mehr
+220af606 Du lernst {0}. Freunde sehen das neben deinem Namen.
+6f977b08 {0} lernt {1}.
+eda670b7 Ändere es mit dem Sprachumschalter auf der Startseite. Die anderen Zahlen hier gelten für die Sprache, die du gerade lernst.
+91b32dbf Das ist die Sprache, die die Person auf ihrer eigenen Startseite gewählt hat.
+23ed8b04 {0}-Liga: tippen für mehr
+25640d1c {0}-Liga
+173ead1d Deine Liga im Wesen-Spiel. Es gibt vier: Bronze, Silber, Gold und Diamant.
+12bd54d1 Ihre Liga im Wesen-Spiel. Es gibt vier: Bronze, Silber, Gold und Diamant.
+3044e70a Wer an 5 oder mehr Tagen einer Woche das Tagesziel (Minuten Hören oder Lesen) erreicht, steigt in der Woche darauf eine Liga auf. Bei 1 Tag oder keinem geht es eine Liga abwärts.
+ed598046 Diese Woche bisher: {0} Tag(e) mit erreichtem Ziel.
+d046ea38 Heute verdiente EP: tippen für mehr
+d7e150e6 {0} EP heute
+63e3416a Die EP, die du heute im Wesen-Spiel verdient hast.
+68b386be Die EP, die {0} heute im Wesen-Spiel verdient hat.
+3b9ccfbc EP gibt es fürs Nachschlagen und Speichern von Wörtern, fürs Hören und Lesen, für Karteikarten und Kämpfe. Sie lassen das Wesen wachsen und erhöhen das Level des Spielers.
+4dc01acb Sie beginnen um Mitternacht wieder bei 0 (jeweils zur eigenen Uhrzeit).
+2dd2bed7 heute
+7ff9f314 Karteikarten-Serie: tippen für mehr
+6359509d Die heutigen Karteikarten sind erledigt.
+365fad6a Heute gibt es nichts zu lernen: Die Serie geht morgen weiter.
+67d97750 Damit sie heute weitergeht, fehlen noch – neue Wörter: {0}, Wiederholungen: {2}.
+a36cb15c Karteikarten-Serie: {0} Tage
+adf7aac6 Noch keine Karteikarten-Serie
+9f2abd28 Tage in Folge, an denen du deine Karteikarten geschafft hast: die neuen Wörter des Tages und jede fällige Wiederholung.
+613f1c83 Tage in Folge, an denen {0} die Karteikarten geschafft hat: die neuen Wörter des Tages und jede fällige Wiederholung.
+80e20f73 Ein Tag, an dem es nichts zu lernen gibt, unterbricht sie nicht. Sie hält bis zum Ende des nächsten Tages, du hast also den ganzen heutigen Tag, um sie fortzusetzen.
+f2144fb0 Die Ziel-Serie im Wesen-Spiel ist eine andere: Tage mit Hören oder Lesen.
+c594fad4 Jetzt wiederholen
+2c0d7021 Dein Lieblingswesen: tippen für mehr
+68d6e138 Ihr Lieblingswesen: tippen für mehr
+69a7f582 Dein Lieblingswesen: das, das Freunde neben deinem Namen sehen. Wähle auf der Seite „Wesen“ mit „Freunden zeigen“ ein anderes.
+ace1e19d Das Lieblingswesen von {0}, ausgewählt, um es Freunden zu zeigen.
+9d9aab10 Verbinde dich zuerst mit Google (Einstellungen → Freunde & Teilen).
+33f400a7 Füge zuerst auf dem Tab „Freunde“ einen Freund hinzu.
+98961386 Dieses Ei schenken an …
+458e9f84 Das schenken an …
+fe0337e8 Der Onlinedienst ist nicht erreichbar. Prüfe deine Verbindung.
+ab898d21 Kämpfe mit Freunden, die Liga, Gilden-Raids und Geschenke brauchen die Online-Funktionen.
+260bcda8 Wähle <0>Mit Google verbinden</0> unter Einstellungen → Freunde & Teilen. Deine Wörter und Lernmaterialien werden nie gesendet: nur dein Team aus Wesen, wie genau du antwortest, und die Summen dieser Woche.
+0908d881 Die Online-Daten des Spiels sind noch nicht verfügbar ({0}).
+e235e19c Wartet auf dich
+de946983 Ein Ei
+2dcb4068 Ein Geschenk
+359aac0c {0} von
+86834099 hat dein Team herausgefordert und {0}.
+032d7174 Revanche
+75a9d140 Die Rangfolge richtet sich danach, an welchem Anteil der Tage dieser Woche jeder von euch sein eigenes Tagesziel erreicht hat, egal wie groß es ist. Fünf oder mehr Tage in einer Woche bringen dich eine Liga höher; einer oder keiner eine Liga tiefer.
+561c39e9 Die Kampfregel dieser Woche:
+bb9d653f Herausfordern
+6fb4e940 Noch kein Team
+f45f3479 Hat das Spiel noch nicht online geöffnet
+60bab8eb Füge auf dem Tab „Freunde“ Freunde hinzu, um die Liga zu füllen und ihre Teams herauszufordern.
+17f11ae4 Besiegt!
+ce9deb48 {0} von {1} übrig
+fd2b49ec Raid gegen {0}: {1}
+1a39a266 {0} Jede richtige Antwort in einem Kampf diese Woche, von irgendwem in der Gilde, zieht eins ab.
+4145d94b Die Belohnung abholen
+3ef23a47 Raid gewonnen: +{0} EP und {1} Münzen.
+5954ea17 Belohnung abgeholt. Am Montag kommt ein neuer Boss.
+a2df9bd2 Tritt einer Gilde bei oder gründe eine (Tab „Freunde“), um gemeinsam den wöchentlichen Raid-Boss anzugehen. Diese Woche: {0}.
+6b8ca9a3 Tagesziel! +{0} EP
+6caf860b Anki: {0} Karte(n) gereift · +{2} EP

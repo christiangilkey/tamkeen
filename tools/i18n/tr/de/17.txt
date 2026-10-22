@@ -1,0 +1,170 @@
+2cba2077 Der Anbieter ist dort, wo du bist, nicht verfügbar
+2121e96e Der Anbieter kennt das Modell nicht
+d2b04c49 Der Anbieter hat Probleme
+04f3c5cd Beim Anbieter ist etwas schiefgelaufen
+ec853b07 Der Schlüssel ist für Worterklärungen, nicht für Transkription
+26d88d64 Die Transkription braucht ihren eigenen Schlüssel: Ein Groq-Schlüssel beginnt mit gsk_. Ein OpenAI-Schlüssel funktioniert für beides.
+b2918a21 Wird heruntergeladen … {0} % ({1} von {2} MB)
+a15a5851 Wird heruntergeladen … {0} MB
+fe01cea2 Wird installiert. Tamkeen schließt sich und öffnet sich dann von selbst wieder.
+4265eb9a Das Update ist fehlgeschlagen.
+829e6b86 Was ist neu ↗
+c4cbac00 Jetzt aktualisieren
+531355b2 (du hast {0})
+91b691d1 Tamkeen {0} ist verfügbar{1}
+d42870c3 Es wird hier installiert, und deine Bibliothek bleibt, wie sie ist.
+3d611376 Lade es von der Release-Seite herunter.
+3ab0d731 Wird aktualisiert …
+b7219bda Ägyptisch
+475410e2 Levantinisch
+81298f3a Golf
+64202d79 Dialekt
+0757a38e Die Vokale sind hier nur geraten: Das klingt nach Arabisch ({0}), und das Vokalmodell hat Hocharabisch gelernt.
+01738e86 Hier gibt es keine Vokale: Das klingt nach Arabisch ({0}), und das Vokalmodell kennt nur Hocharabisch. In den Einstellungen kannst du sie als Vermutung anzeigen lassen.
+ebf17aa6 Vokale zum Arabischen hinzufügen?
+f6ca8deb Arabisch wird ohne seine kurzen Vokale geschrieben. Tamkeen kann sie zu deinen arabischen Transkripten, Seiten und Reels hinzufügen, damit du siehst, wie jedes Wort ausgesprochen wird. Dafür braucht es ein Vokalmodell, einen einmaligen Download von {0} MB, der auf diesem Computer bleibt. Dein Handy bekommt die Vokale von hier, wenn es synchronisiert.
+79151896 Es hat Hocharabisch gelernt: Bei Arabisch im Nachrichtenstil sind etwa 4 von 5 Wörtern ganz richtig. Ägyptisch, Levantinisch und Golfarabisch kennt es nicht, daher bleiben die ohne Vokale, außer du bittest um eine Vermutung.
+3a719e9b Herunterladen ({0} MB)
+ec1c7366 Das Vokalmodell wird heruntergeladen. Die Vokale erscheinen, wenn es fertig ist.
+955dc8cb Vokalzeichen zeigen oder verbergen (V)
+deee2838 Vokale (حَرَكات) in Transkripten, Seiten und Reels zeigen
+451a444b Auch bei ägyptischer, levantinischer und Golf-Sprache (eine Vermutung, oft falsch)
+59e8699c Tamkeen auf deinem Computer fügt die Vokale hinzu (lade dort in den Einstellungen das Vokalmodell herunter); sie kommen hierher, wenn du synchronisierst.
+10d9f8dc Vokale werden hinzugefügt …
+e549162d ✓ Das Vokalmodell ist auf diesem Computer ({0} MB).{1}
+b281359a Das Vokalmodell wird heruntergeladen … {0} %
+2820e9e6 Arabische Vokalzeichen brauchen ein Vokalmodell ({0} MB, Hocharabisch).{1}
+3c467cf7 ✓ Folgst du
+d1541dd9 + Folgen
+90145b11 Du folgst diesem Kanal in Tamkeen. Tippe, um nicht mehr zu folgen.
+e80a9596 Diesem Kanal in Tamkeen folgen: Er erscheint in deiner Bibliothek unter YouTube
+8c9967c9 Folgst du nicht mehr
+5a674f33 Diesem Kanal konnte nicht gefolgt werden.
+ce8c60f6 Tippe auf ein Video, um es in Tamkeen anzusehen
+5caa7f81 Libanon
+674027e1 Jordanien
+d115b8d5 Vereinigte Arabische Emirate
+bd6acc86 Algerien
+1aed9ecc Irak
+93295b0c Kuwait
+55949d4c Libyen
+c14c36df Oman
+83ef3e6c Katar
+edf404d0 Tunesien
+3ae11c72 Bahrain
+ac33d641 Jemen
+349507e4 Chile
+768685ca Vereinigte Staaten
+9d4ac43d Venezuela
+09f199d2 Ecuador
+11760e1a Guatemala
+8a4bf12e Dominikanische Republik
+a001af75 Bolivien
+1bf429f9 Costa Rica
+66b98924 Uruguay
+71a45296 Paraguay
+1e36b31e Panama
+5aa58871 Honduras
+259a6e93 El Salvador
+4812648c Nicaragua
+fe23c52d Puerto Rico
+d8973b8e Senegal
+2f488ffc Hongkong
+20c0b7bd Singapur
+ff3ea3be Malaysia
+2f36b6bb Kasachstan
+027a12c2 Belarus
+c951ec00 Ukraine
+8067364d Philippinen
+a495190b Portugal
+a42522a0 Angola
+a40a9be0 Mosambik
+9d3bd1fb Andorra
+9769121f Vereinigtes Königreich
+eb2131ec Irland
+a2238e91 Neuseeland
+967ce367 Indien
+9742d008 Nigeria
+35fda17f Südafrika
+a2e22daa Gerade beliebt
+42f2a9e5 Essen & Kochen
+22fb76e4 Reisen
+2f8a2678 Wissenschaft & Technik
+c0ecc0d2 Gaming
+3e3258ce Kinder & Zeichentrick
+2dffcb87 Vlogs & Alltag
+0a62c1c5 Podcasts & Interviews
+884466c4 {0} lernen
+bc288dca Das sieht nicht nach einem YouTube-Video aus.
+37e8b90a Dieses Video sagt nicht, von welchem Kanal es stammt.
+bf32bc87 YouTube ist nicht erreichbar. Prüfe deine Verbindung.
+873fbc5a YouTube zeigt dieses Video hier nicht: {0}
+47b4cecf YouTube hat zu diesem Video nicht geantwortet. Versuch es in einer Minute noch einmal.
+9d5a5e3a Dieses Video hat überhaupt keine Untertitel, daher kann Tamkeen seine Wörter nicht zeigen. Versuch ein anderes Video.
+04467cb1 Dieses Video hat keine von einem Menschen geschriebenen Untertitel auf {0}. Um die automatischen von YouTube zu nutzen, schalte unter „YouTube öffnen“ die Option „Nur Videos mit von Menschen erstellten Untertiteln“ aus.
+a66bb5c6 Für dieses Video gibt es keine Untertitel auf {0}.
+0ad4709a Für dieses Video gibt es keine Untertitel auf {0}, und YouTube wollte seine Untertitel für Tamkeen nicht übersetzen. Versuch ein anderes Video.
+bb0ea382 Für dieses Video gibt es keine Untertitel.
+6f502e0d Der YouTube-Player konnte nicht geladen werden. Prüfe deine Verbindung.
+e4b5c056 Der Besitzer dieses Videos erlaubt nicht, dass es in anderen Apps abgespielt wird.
+b2b518b0 Dieses Video wurde entfernt oder auf privat gestellt.
+269fa6c0 der YouTube-Player lädt noch
+68e1c493 Die Synchronisierung mit AnkiDroid funktioniert in der installierten App.
+5ce90e69 AnkiDroid ist auf diesem Handy nicht installiert.
+d7e2aef9 Android kennt die Berechtigung von AnkiDroid noch nicht. Öffne AnkiDroid einmal und versuch es dann noch einmal; wenn das nicht hilft, installiere Tamkeen neu (Android bietet die Berechtigung nur Apps an, die nach AnkiDroid installiert wurden).
+c175063b Tamkeen darf die Karten von AnkiDroid noch nicht nutzen. Tippe auf „Jetzt synchronisieren“ und wähle „Zulassen“, oder erlaube es in den Android-Einstellungen für Tamkeen (Berechtigungen).
+5eed15f4 Tamkeen darf die Karten von AnkiDroid noch nicht nutzen.
+6167031d Die Synchronisierung mit AnkiDroid wurde abgebrochen: {0}
+2fd01022 Unbekannte Auswahl.
+64cd269c Eine Synchronisierung mit AnkiDroid läuft. Versuch es gleich noch einmal.
+8d4dbd4e Zwei Sprachen können sich den Stapel „{0}“ nicht teilen.
+3ad4b928 „{0}“ und „{1}“ liegen ineinander: Gib jeder Sprache einen eigenen Stapel.
+d18f8d89 Vorschau: Instagram würde hier nach einer Anmeldung fragen ({0})
+0c7cd35b Vorschau: {0} würde hier laufen
+a27c2834 ‹ Zurück
+51802ba8 Weiter ›
+011ae46a Ton wird geladen …
+5a1d72f4 Der synchronisierte Ton konnte nicht geladen werden, stattdessen wird das Original gestreamt. ({0})
+4c6de3cb Verbinden funktioniert in der installierten App.
+db79573c {0} Mit Google anmelden
+c46d4f59 Die Anmeldung wurde abgebrochen.
+71abc87d Google hat dich nicht angemeldet.
+e21573ca Diese Anmeldung kam zurück, ohne dass hier danach gefragt wurde. Versuch es noch einmal.
+46729ba2 Die Anmeldung bei „Freunde“ hat nicht geklappt.
+ecc1d2f5 Angemeldet als {0}
+aeca5e33 Angemeldet.
+2c534112 Wieder mit Google verbunden.
+c16765d3 Die Synchronisierung braucht den privaten Drive-Ordner von Tamkeen: Melde dich noch einmal an und lass dieses Kästchen angehakt.
+5c2a23a4 Google Tasks wurde nicht erlaubt, daher konnte die Aufgabe nicht hinzugefügt werden.
+e129fbc7 Der Ton dieses Wortes ist noch nicht auf diesem Handy. Synchronisiere und versuch es noch einmal.
+01dae1d6 Diese Seite ist nicht erreichbar. Prüfe die Adresse und deine Verbindung.
+2bbb4134 Die Seite hat mit einem Fehler geantwortet ({0}).
+bb397028 Seiten importieren funktioniert in der installierten Android-App.
+a9f02c9e Die Seite hat mit einem Fehler geantwortet ({0}). Versuch, sie im Browser der App zu öffnen und dort auf den runden blaugrünen Knopf zu tippen.
+29161415 Hier sind nur Anfragen an das Podcast-Verzeichnis von Apple erlaubt.
+0eec41ce Das Podcast-Verzeichnis von Apple ist nicht erreichbar. Prüfe deine Verbindung.
+bac91013 YouTube-Videos hinzufügen funktioniert in der installierten Android-App.
+9c6c80e5 Dieses Video konnte hier nicht geöffnet werden.
+9ec8a2aa {0} Es wird stattdessen auf YouTube geöffnet.
+a0db0eba „{0}“ importiert ({1} Wörter). Es ist unter „Meine Webseiten“.
+7b230e38 Du folgst {0}. Es ist in deiner Bibliothek unter YouTube.
+116e96c0 Du folgst {0} nicht mehr.
+2023ac63 Auf deiner Startseite gespeichert.
+9ae12679 Reels laufen in der installierten App.
+b794b57c Melde dich mit Google an (Einstellungen), um Videos aus deinem Drive anzusehen.
+83cbe2cb Dieses Video wird noch von deinem Computer hochgeladen.
+afe5afc2 Das Video ist nicht mehr in deinem Google Drive.
+be990723 Video wird geladen …
+37eb8e15 Videos laufen in der installierten App.
+e916be2e Melde dich zuerst mit Google an (Einstellungen): Deine Dateien werden in deinem Drive gespeichert.
+97aca1c7 Wähle eine Videodatei (MP4, MOV, WebM, MKV, AVI, 3GP) oder eine Audiodatei (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).
+2a4b391c Dein Computer transkribiert sie bei der nächsten Synchronisierung.
+cfb6ce14 Unbekannter Export.
+4d8dc5fe Was ist neu
+02a6891f Auf Version {0} aktualisiert
+a4a37122 GitHub hat mit {0} geantwortet.
+ba6d9e8b Lade die iPhone-Datei (Tamkeen-…-iPhone.ipa) von der Release-Seite herunter und öffne sie dann mit AltStore. Deine Bibliothek bleibt, wie sie ist.
+df0aa924 GitHub ist nicht erreichbar. Prüfe deine Internetverbindung.
+b2c43554 Erlaube „Unbekannte Apps installieren“ für Tamkeen, komm zurück und tippe auf „Noch einmal versuchen“.
+8daa5363 Tippe im Android-Installationsprogramm auf „Aktualisieren“. Deine Bibliothek bleibt, wie sie ist.
+f3a9fee0 Erneute Verbindung mit Google …

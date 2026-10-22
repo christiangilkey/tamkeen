@@ -1,0 +1,170 @@
+03611593 Edelsteine gibt es nur für Dinge, die du tust. Sie werden nie für Geld verkauft.
+89803371 Die Seite „Vorräte“.
+99f9bf69 Herzen
+7b0609ca {0} hat {1} von 5 Herzen.
+3be3ea7c : für ein {0}-Wesen, das {1} ist
+80e48f19 Zwei Fütterungen füllen ein Herz. Sein Lieblingsessen zählt doppelt{0}.
+746e8201 Herzen gehören jedem Wesen einzeln, und sie werden nie weniger.
+27cffa5f Herzen ändern nichts an Kämpfen.
+feeaea73 Füttere es auf der Seite „Vorräte“.
+f110690b Wie du es bekommst
+ca032b58 Was es bewirkt
+525f61b6 Wo
+dc353487 Hören
+7ac0138b Zeit, die du mit Podcasts, Audio und Videos verbringst
+cffa2af0 Lesen
+7f6efe83 Sammeln
+ab60d3ea Wörter speichern, richtige Antworten in Kämpfen, Karten im Vokabeltrainer, Wiederholungen in Anki
+1a0bff19 Neugier
+7224fd42 Glut für Neugier, Flut fürs Hören, Hain fürs Sammeln, Stein fürs Lesen, Funke für frühe Morgen und Dämmer für späte Abende
+80b6476b So entwickelt sich dein Wesen
+00d04503 {0} ist ein {1}. Was daraus wird, folgt deiner Art zu lernen, den Zeitpunkt wählst du, und nichts davon ist endgültig.
+b89502e9 {0} EP
+80083e78 bereit zur Entwicklung ist
+02a71b4e die nächste Stufe erreicht
+729f33b1 Noch {0} EP, bis es {1}.
+a105f0d4 Es ist bereit zur Entwicklung: Tippe im Lebensraum darauf.
+f16b2c73 1. Groß werden
+d4915a51 {0} Alle EP, die du verdienst, gehen an das Wesen, das im Lebensraum ist. Die anderen warten, also ist die Wahl, wen du hervorholst, deine erste Entscheidung.
+c5a69900 2. Deine vier Gewohnheiten
+9e19cb58 Jedes Wesen merkt sich, wie du gelernt hast, während es draußen war. Eine Gewohnheit steigt, wenn du auf diese Weise EP verdienst, und die anderen verblassen ein wenig, sodass die Balken dem folgen, was du zuletzt gemacht hast. Etwa {0} EP einer Art füllen einen Balken. Neugier braucht {1}, weil Nachschlagen so viel mehr EP bringt.
+174c7e2f Offen: deine bisher stärkste Gewohnheit
+28088622 Offen: diese Gewohnheit liegt über 25 %
+94fae88c · bringt den Kampfzug {0}
+968f60ab 3. Seine ausgewachsene Form
+ffd15c0d Sobald es groß genug ist, wartet es als Jungtier und funkelt. Tippe darauf, und du wählst seine ausgewachsene Form. Die Form deiner stärksten Gewohnheit ist immer offen, und eine weitere öffnet sich, sobald ihre Gewohnheit 25 % übersteigt. Nach der Entwicklung schaltet eine weitere Gewohnheit bei 50 % auch diese Form frei, und du kannst jederzeit zwischen freigeschalteten Formen wechseln. Die Entwicklung hinterlässt dir außerdem ein neues Ei. Neugier hat keine eigene Form: Sie zeigt sich in deinen Eiern, im Laden und im Garten.
+93d943d8 {0} Verdient
+db795d86 4. Besondere Formen
+7c62f35b Werden über einer ausgewachsenen Form getragen. Sie entstehen daraus, wann du lernst, neben wem es aufwächst und was du im Kampf schaffst. Sie ändern Farben und Merkmale, nie die Stärke.
+13878fb7 Das Element jedes neuen Eis neigt zu deiner Art zu lernen: {0}.
+02b6bd4d Der Laden bietet mehr von dem an, was zu deinen Gewohnheiten passt, etwa Kopfhörer für Zuhörer und Bücher für Leser.
+2eaf9a2e Jedes Gartengebäude erzeugt mehr Glimmer für eine Gewohnheit.
+976f4c1c Kämpfe zwischen Menschen ignorieren all das: Jedes Wesen kämpft auf derselben Stufe, und du gewinnst, indem du deine Wörter kennst.
+8b0adc94 Was deine Gewohnheiten sonst noch ändern
+0c20f982 Jetzt seine Form wählen
+3b7ab43a Deine Wesen öffnen
+124ba4b6 Braucht mehr {0}
+cb437e4f Es ist noch nicht bereit zur Entwicklung.
+a6e6f750 Diese Form ist für es noch nicht offen.
+81b52bd2 Diese besondere Form wurde noch nicht verdient.
+5eb43479 Das Geschenk konnte nicht geöffnet werden.
+2890293f Du hast {0} schon, daher wurde es zu {1} Münzen.
+67705e9c Du hast {0} bekommen. Es ist unter „Meine Sachen“.
+c054815c Deine Sammlung ist voll, daher wurde das Ei zu 20 Münzen.
+b49d2e5c Du hast ein {0}-Ei bekommen. Es ist bei deinen Wesen.
+e4d969a9 Diesen Gegenstand gibt es nicht.
+2b338829 Das hast du schon.
+60e6b077 Dir fehlen noch {0} Münze(n).
+77e01fe2 Laden und Kleiderschrank
+0ee5c43c Meine Sachen
+2c578dc8 Abzeichen
+2db87a01 Dekoration
+9519fbe9 {0} gehört dir
+4f3e6209 Wegräumen
+26fcf76c Aufstellen
+1c99c72c Ablegen
+94433a7e Tragen
+5d632f2d Das einem Freund schenken
+fbefae1e Schenken
+1cfad2d7 {0} Münzen
+a8e4db25 Die heutige Auswahl, für dein Wesen ausgesucht. Sie wechselt jeden Tag. Münzen gibt es fürs Erreichen deines Tagesziels (10), fürs Speichern von Wörtern (je 1) und für Level-Aufstiege (5).
+7c0a7817 Dir gehört alles, was angeboten wird.
+db13058c {0} weitere Gegenstände erscheinen, sobald du verdient hast:
+1a2cdd14 Noch nichts. Dinge, die du im Laden kaufst, werden hier aufbewahrt.
+d0673c80 Sammlung {0}
+080c79ed Dieses chinesische Wörterbuch stammt aus einer anderen Version der App.
+8079905a Dieses japanische Wörterbuch stammt aus einer anderen Version der App.
+f5285e5c Wolffs Dictionary of Cebuano Visayan
+b016324b die arabischen CAMeL-Datenbanken
+20f6f8b1 Tagalog-Wort
+f1423624 von {0}
+22efa054 auch {0}{1}
+21a9fffe Form von {0}
+bbc70fda , auf Englisch
+bf672d07 Aus dem eingebauten Wörterbuch ({0}{1}): die üblichen Bedeutungen des Wortes. Es kann nicht sagen, welche zu diesem Satz passt.
+aab575ea Aus dem eingebauten Wörterbuch ({0}{1}): Es hat keinen Eintrag für dieses zusammengesetzte Wort, daher stehen hier die Bedeutungen seiner Teile.
+cd8a2a7e Furigana anzeigen (kleine Kana über Kanji)
+48f745cc Pinyin über den Schriftzeichen anzeigen, nach Ton eingefärbt
+fcfd569a Chinesische Schriftzeichen
+c17ef03e Wie geschrieben
+6a018382 Vereinfacht (简体)
+6c401cdd Traditionell (繁體)
+cb91bc89 Das funktioniert, sobald das Wörterbuch für {0} auf diesem Gerät ist.
+27ac4b17 Über thailändischen Wörtern zeigen, wie sie ausgesprochen werden (sà-wàt-dii)
+50ca913f ✓ Die thailändische Aussprachetabelle ist auf diesem Gerät ({0} KB). Die Aussprachen stammen aus Wiktionary, in Paiboon-Umschrift mit Tonzeichen; ein Wort, das sie nicht kennt, bekommt keine.
+36588778 Dafür braucht es die thailändische Aussprachetabelle: ein einmaliger Download von etwa {0} KB, aus Wiktionary erstellt. Sie bleibt auf diesem Gerät.
+ca76c3bf Herunterladen (etwa {0} KB)
+bbd1baad Die thailändische Aussprachetabelle ist bereit.
+1fa955a7 Diese Worttabelle stammt aus einer anderen Version der App.
+41867351 Dieses Wort konnte nicht als gesehen gespeichert werden: {0}
+84d8d02d Betonungszeichen anzeigen (ла́дно)
+82c3ca6e ✓ Die Wörterbücher für {0} sind auf diesem Gerät ({1} MB). Wörter, die du noch nie angetippt hast, erscheinen in <0>Lila</0>.
+71da2431 Die Wörterbücher für {0} sind nicht auf diesem Gerät, daher können neue Wörter nicht in <0>Lila</0> angezeigt werden.
+f5eab3f0 Die Wörterbücher für {0} sind nicht auf diesem Gerät, daher zählt jede Schreibweise eines Wortes als eigenes Wort.
+7443fea8 Die Wörterbücher für {0} sind bereit.
+058c38b0 falo, falamos, fale-me
+2dfade8e parlo, parlem, digues-m'ho
+69f76f1b mokaon, mikaon, gikaon
+1eccdd79 Japanisch braucht dafür ein Wörterbuch: Es teilt japanischen Text in echte Wörter, sodass ein Tippen das ganze Wort trifft, gibt die Grundform jedes Wortes an und zeigt Furigana (kleine Kana über Kanji). Es ist IPADIC vom Nara Institute of Science and Technology
+dae622d1 Chinesisch braucht dafür ein Wörterbuch: Es teilt chinesischen Text in echte Wörter, sodass ein Tippen das ganze Wort trifft, zeigt Pinyin über den Schriftzeichen nach Ton eingefärbt und behandelt vereinfachte und traditionelle Schriftzeichen als dasselbe Wort. Es ist CC-CEDICT mit Worthäufigkeiten aus wordfreq
+cadfed16 die wordfreq-Wortliste für Filipino, mit der die App die gefundenen Wurzeln abgleicht (kumain, kakain, kinain: kain)
+51444687 einer Liste der häufigsten Bisaya-Wörter, gezählt aus Bisaya-Webtext der OPUS-NLLB-Sammlung, mit der die App die gefundenen Wurzeln abgleicht (mokaon, mikaon, gikaon: kaon)
+74da1e87 offenen Wortlisten (der Lemmatisierungsliste von Michal Měchura und den Worthäufigkeiten von wordfreq) und dem CMU Pronouncing Dictionary, das die im Wortfenster gezeigte US-Aussprache liefert
+84ee7564 dem Wörterbuch von OpenRussian.org, das auch die Betonung jedes Wortes angibt, sodass russischer Text sie zeigen kann (ла́дно)
+359544fb offenen Wortlisten (den Lemmatisierungslisten von Michal Měchura und den Worthäufigkeiten von wordfreq)
+04d17f22 diese Sprache
+4af2e1ae {0}: ein <0>einmaliger Download von etwa {1} MB</0>. Er bleibt auf diesem Gerät, und nichts über dich wird irgendwohin gesendet.
+6280fb05 {0} braucht dafür Wörterbücher: ein <0>einmaliger Download von etwa {1} MB</0>, erstellt vom CAMeL Lab der New York University Abu Dhabi (Hocharabisch, Ägyptisch, Levantinisch und Golfarabisch). Sie bleiben auf diesem Gerät, und nichts über dich wird irgendwohin gesendet.
+f9657a45 {0} braucht dafür eine Tabelle der Wortformen: ein <0>einmaliger Download von etwa {1} MB</0>, erstellt aus {2}. Sie bleibt auf diesem Gerät, und nichts über dich wird irgendwohin gesendet. Ohne sie zählt jede Schreibweise eines Wortes als eigenes Wort.
+aaa46e0d Wörterbücher für {0}
+c33c9385 Tamkeen kann zeigen, welche Wörter <0>neu für dich</0> sind: Ein Wort, das du noch nie angetippt hast, erscheint in Lila, und sobald du eins antippst, zählt jede Form dieses Wortes als gesehen (<1/>).
+b7c33926 Du kannst das später in den Einstellungen tun.
+e4571490 Nicht jetzt
+6813189a Das dauert ein paar Sekunden.
+286b0dcd Die Wörterbücher für {0} sind bereit. Neue Wörter erscheinen jetzt in Lila.
+3e13e40a ✓ Als gesehen markieren
+30320764 ↺ Als neu markieren
+112eab9b Diese thailändische Aussprachetabelle stammt aus einer anderen Version der App.
+8c6c358b Dieses Wort ist nicht im eingebauten Wörterbuch. Vielleicht ist es ein Name, Slang oder eine Form, die es nicht kennt.
+100892d9 Auf dieser Seite wurde kein lesbarer Text gefunden. Versuch, sie im Browser der App zu öffnen und dort auf den runden blaugrünen Knopf zu tippen.
+4b0a3f2d Version {0}
+2cf6a510 Eine App, um eine Sprache mit echtem Material zu lernen: Podcasts abonnieren, eigene Videos und Webseiten hinzufügen, lokal mit Whisper transkribieren, mit Hervorhebung Wort für Wort mitlesen und eine Vokabelliste aufbauen.
+9421c021 Datenordner
+22a35fbe Quellcode
+e630fb0f github.com/{0}
+c4740e4c Laufzeitumgebung
+06403f3b Python {0}
+736b9062 Nach Updates suchen
+48e55e8f Diese App baut auf diesen Projekten auf. Klicke auf eines, um seine Lizenz zu lesen.
+3aceec04 Version {0} ist verfügbar.
+68680fa2 Du bist auf dem neuesten Stand.
+8e3df45a Kopiert
+40137935 Zurück zu „Meine Bücher“
+a8ea9e30 Kleinerer Text
+118f9b2b Größerer Text
+81f54719 Vorherige Seite
+fb06270f Seite
+4bfc194b Nächste Seite
+51d15ed7 ✓ In den Vokabeln gespeichert
+7031bbea ★ In den Vokabeln speichern
+b32f1eb3 📖 Erklären
+010f9005 ⧉ Kopieren
+48a704f7 {0} v. Chr.
+e1e3700f {0} n. Chr.
+a5188242 „{0}“ wird hinzugefügt …
+d2936330 „{0}“ zu „Meine Bücher“ hinzugefügt.
+6c5e33b0 Diese Datei konnte nicht gelesen werden.
+3af45b33 Zurück zur Bibliothek
+5f94aeb4 Bücher auf {0}
+f689db93 Berühmte Bücher, kostenlos, weil sie gemeinfrei sind. Füge eins hinzu und lies es Seite für Seite, mit anklickbaren Wörtern. Oder füge ein eigenes Buch hinzu.
+70ebead0 Dein eigenes Buch
+c25f48d6 EPUB, PDF, TXT, Kindle AZW3 oder Word, ohne DRM. Es wird auf diesem Gerät gelesen und zu „Meine Bücher“ hinzugefügt.
+195e97d3 Eine Datei hinzufügen
+d9fffb0d Das Regal wird geladen …
+53633ec9 Noch keine kostenlosen Bücher auf {0}.
+49102c78 {0} KB
+0122668f {0} · etwa {1} Lesezeit · {2}
+f40382cc 👻 Nachrichten verschwinden, nachdem sie gesehen wurden · Sprachnachrichten, nachdem sie abgespielt wurden
+5e5bb045 Eine Sprachnachricht aufnehmen (bis zu 2 Minuten)
+68f4145f Nachricht
+72f9eb46 Wird aufgenommen …

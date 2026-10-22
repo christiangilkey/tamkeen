@@ -1,0 +1,170 @@
+77a71a4f Unbekannter Anbieter: {0}
+22df2c35 Das Modell hat es abgelehnt, dieses Wort zu erklären.
+49be65b2 Die Antwort wurde abgeschnitten.
+221ce687 Leere Antwort.
+a37ce5d8 Keine Antwort ({0}).
+6a034bb6 Wolffs Wörterbuch
+f745fc22 CAMeL Arabic
+382f42b1 Wiktionary
+094b4c7f KI · {0}
+45940469 {0} ist in deinem Land oder deiner Region nicht verfügbar.
+eff674e3 {0} ist nicht erreichbar. Prüfe deine Internetverbindung.
+7ca4cbae {0} hat den API-Schlüssel abgelehnt. Er ist höchstwahrscheinlich abgelaufen, du brauchst also vermutlich einen neuen.
+51596be7 {0} kennt diesen Modellnamen nicht. Prüfe ihn in den Einstellungen.{1}
+a7141cb1 Anfragelimit oder Kontingent bei {0} erreicht. Versuch es gleich noch einmal oder prüfe deine Abrechnung.
+ad279b44 {0} sagt, dass das Konto kein Guthaben hat. Füge auf der Abrechnungsseite etwas hinzu.
+246000e0 {0} hat gerade Probleme (HTTP {1}). Versuch es noch einmal.
+eaf5c51f Fehler bei {0} (HTTP {1}){2}
+ef420a27 Der Anbieter hat eine unlesbare Antwort geliefert.
+bbb59df3 Die Antwort war kein gültiges JSON. Versuch es noch einmal oder wähle ein anderes Modell.
+bfb83732 Kein API-Schlüssel eingerichtet. Füge einen unter Einstellungen → Worterklärungen hinzu.
+715db231 Einen API-Schlüssel in den Einstellungen hinzufügen
+b12adb12 Eingebautes Wörterbuch
+54514309 Für diese Sprache noch keins
+ccd8641e Kostenlos, funktioniert offline
+07668fbc Zuerst das Wörterbuch, KI nur wenn es nichts hat
+1287cc0a Für diese Sprache gibt es noch kein Wörterbuch, daher erklärt {0} jedes Wort
+99b4ddfa Die Bedeutung aus dem Wörterbuch, wenn es das Wort hat, {0} für den Rest
+33a08a0b Füge in den Einstellungen einen API-Schlüssel hinzu, für die Wörter, die es nicht hat
+f093a8da Zuerst das Wörterbuch
+6eb49351 ✓ In Tamkeen geöffnet
+84f89653 Tippe bei einem Ergebnis auf den Link zu YouTube, um diesen Moment in Tamkeen zu öffnen
+3575edb8 Das Wort wird im obersten Video gesucht …
+fe2cb66b Die Ergebnisse werden geladen …
+dfebdc6c ✓ In Tamkeen gespeichert
+adb1dce3 Diese Ergebnisse konnten nicht verwendet werden. Tippe auf eines, um es zu versuchen.
+ece4c60d Diese Ergebnisse konnten nicht verwendet werden.
+58103f1e Videos mit Untertiteln in deiner Lernsprache werden angezeigt …
+42a0c143 Beantworte die Prüfung von Filmot selbst. Tamkeen nimmt dann von allein das oberste Video.
+f3f91e1e Portugiesisch (Brasilien)
+80559b82 von Hand eingegeben
+0c88254c Zuerst gefunden in: {0}{1}
+3d7fa970 Dieses Video und sein Satz wurden mit „{0}“ gespeichert.
+4d91deca Tippe zuerst bei einem Wort auf „In einem Video finden“.
+24ed8380 Filmot hat keine Videos für „{0}“ gefunden.
+441d5e0d „{0}“ steht nicht in den Untertiteln der obersten Treffer ({1}). Tippe auf ein anderes Ergebnis, um es zu versuchen.
+a3fb746b „{0}“ steht nicht in den Untertiteln dieses Videos, daher wurde nichts damit gespeichert. Versuch ein anderes Ergebnis.
+3d1f5290 Dieses Video konnte nicht mit „{0}“ gespeichert werden: {1}
+2e1adabb Kämpfe
+0dca7b14 Deine Wörter werden geladen …
+51954ab8 <0>Kämpfe werden ab {0} gespeicherten Wörtern freigeschaltet.</0> Du hast {1}.
+7ec3a887 Ein Kampf ist eine Wiederholung deiner eigenen Vokabeln: Jeder deiner Züge wird durch eine Frage zu einem deiner gespeicherten Wörter angetrieben, und dein Gegner antwortet aus seinen. Es braucht etwa {0} Wörter, damit die Fragen frisch bleiben. Speichere beim Hören und Lesen Wörter mit ★.
+685356fd Du hast {0} Wörter gespeichert, aber nur bei {1} ist eine Bedeutung eingetragen. Fragen brauchen Bedeutungen: Öffne „Vokabeln“ und trag welche ein, oder speichere Wörter aus dem Erklärungsfenster (das trägt die Bedeutung für dich ein).
+4e3989a7 Dein Ei ist noch nicht geschlüpft. Erreiche das heutige Ziel, damit es schlüpft, und komm dann zum Kämpfen zurück.
+5d1b6d21 Zuletzt {0} % richtig
+3400a4a4 Fällig: {0}
+025cfea0 {0} gut bekannt
+d1e6e466 Können {0}
+967af30c Jedes Wesen kämpft auf derselben Stufe. Du gewinnst, indem du deine Wörter kennst: Antworte richtig, und der Zug trifft; antworte innerhalb von {0} Sekunden, und eine Kombo baut sich auf (×1,2, ×1,5, ×2).
+b03b44a5 Wilde Begegnung
+0f5c66fe Deine eigenen Wesen gegen wilde. Ihr Alter gibt deinen nur hier einen kleinen Vorteil.
+81b0d13f Leih-Duell
+5a55675f Wähle drei der sechs gemeinsamen Wesen dieser Woche; dein Gegner bekommt den Rest. Zählt für deine Könnenswertung.
+c7218f9d Um das Team eines Freundes herauszufordern, öffne im Spielmenü <0>Freunde</0>. Die Regel dieser Woche für Kämpfe unter Freunden: <1>{0}</1>. {1}
+04e2e05f Kämpfe werden ab {0} gespeicherten Wörtern freigeschaltet. Du hast {1}.
+f7c24281 Deine Wörter brauchen Bedeutungen, bevor danach gefragt werden kann. Trag auf der Seite „Vokabeln“ welche ein.
+6781a054 Keins deiner Wesen passt zur Regel dieser Woche ({0}).
+914efb3d {0} hat keine Wesen, die zur Regel dieser Woche passen ({1}).
+57b02151 Wähle drei. Dein Gegner kämpft mit den anderen drei.
+d7fb7f72 Das Duell beginnen
+dca34e30 Gegner
+e4fe0fce Abzeichen verdient: {0}
+3184f22c Den Kampf verlassen
+905cb326 Du
+c4433e3c Wild
+5e6db161 {0} von {1} stehen noch
+3bb10c38 {0} SCHUB ×{1}
+0d36b10d Dein Wesen
+1e2a3716 Das wilde Wesen
+09503c9a Das Wesen von {0}
+9fbc3550 Das Wesen deines Gegners
+afc012c1 Ein Streifschlag.
+535531a9 Ein mächtiger Treffer!
+aab84209 Es ist stark gegen dieses Element!
+0e909374 Es ist schwach gegen dieses Element.
+eb95e537 Abgewehrt.
+b8bb00f9 {0} setzte {1} ein.{2}{3}{4}
+936d5b0e {0} versuchte {1}, hat aber keine Heilung mehr.
+934b913d +{0} KP.
+cd86b7ea {0} setzte {1} ein.{2}
+53849ba1 {0} ist raus.
+565d06e6 {0} springt ein.
+b9286298 Stärke {0}
+2de11318 Blockt den nächsten Treffer
+d923a217 Eine Weile stärkere Treffer
+66c1c04a Heilt (noch {0})
+da3e3967 Einen Trank nutzen ({0}): die Hälfte der Gesundheit zurück, einmal pro Kampf
+a3972f01 Wähle einen Zug. Eine Frage zu einem deiner Wörter entscheidet, wie gut er trifft.
+bfd6bf51 Welches deiner Wörter bedeutet das?
+5fb65141 Was bedeutet das?
+37035270 Eine Tippkarte nutzen ({0})
+63d63141 Dieses Wort ist jetzt gut bekannt. +15 EP
+18a80fec Die ganze Woche genau: +60 EP und 5 Münzen
+19bb2852 Richtig, und schnell!
+fbc63d40 Richtig.
+c04b920c Die Zeit ist um.
+e8849508 Nicht ganz: Die richtige Antwort ist markiert.
+0639028d {0} konnte nicht mitgeteilt werden: {1}
+8d36cc07 · {0} {1} Münzen
+c94a5549 · jetzt gut bekannt: {0}
+13f349e7 {0} richtig, {1} falsch{2}
+fd1125a9 {0} Können {1}{2} {3} {4}
+8e9fb44f Keine einzige falsche Antwort: Die Champion-Form und der Zug „Perfekte Form“ sind jetzt freigeschaltet.
+872a8bbd Am Abgrund noch gewonnen: Die Champion-Form und der Zug „Zweiter Atem“ sind jetzt freigeschaltet.
+21526016 Das wilde Wesen hat dir ein Ei hinterlassen.
+6a569f25 Ein Kampfticket hat diesen voll auszahlen lassen.
+eda121a1 {0} Ein Kampf und deine Karteikarten, beides heute erledigt: +{1} EP · {2} {3} Münzen
+e3a4b01e Du hast gewonnen!
+241517f8 Diesen hast du verloren
+8f651398 Noch einmal kämpfen
+b9da5b2a Gut gekämpft.
+ac63d5ec Jede Antwort hat trotzdem für deine Wörter gezählt.
+a0d275ae Diesen Kampf verlassen? Deine bisherigen Antworten zählen trotzdem.
+32c9bcb1 Ei
+9c0c49c5 Schlüpfling
+0d67c71d Jungtier
+17748728 Ausgewachsen
+3703cd21 Gesundheit
+1b81f28b Angriff
+af4b8454 Verteidigung
+2d2cb022 Tempo
+498c3f86 Geprägt vom Hören
+0a72a97b Geprägt vom Lesen
+fd0127b7 Geprägt vom Speichern von Wörtern
+59bcab48 Geprägt vom Nachschlagen von Wörtern
+23907bfa Das Wesen im Lebensraum ist das, das wächst, während du lernst. Ob es sich entwickelt, entscheidest du, und du kannst es später ändern: Es geht nichts verloren, wenn du eine andere Form ausprobierst oder ein jüngeres Aussehen behältst.
+b9f2cfaa Im Lebensraum
+d7ddc5a1 Hervorholen
+c68f8125 · Samen {0}
+7fcf6bea Freunden gezeigt
+b28c55c0 Freunden zeigen
+6c5a6923 Freunde sehen dieses Wesen neben deinem Namen
+3eaf4dc6 Bereit zur Entwicklung
+a097aeab Seine ausgewachsene Form folgt deiner Art zu lernen. Wähle eine:
+bfe934c2 Eine besondere Form, falls du eine verdient hast:
+0056d527 Entwickeln
+6eef6648 Keine
+003d086a Es hat sich in seine Form {0} entwickelt und dir ein Ei hinterlassen.
+b8db515e Aussehen
+e5895e75 Ausgewachsene Form
+212631b6 Öffnet sich mit mehr {0}
+0742949a Besondere Form
+824147ae Kampfzüge (wähle bis zu vier von {0})
+b08be03b , Stärke {0}
+8d474b73 Behalte mindestens einen Angriffszug.
+1f38a263 Hol es hervor und lerne, damit es schlüpft.
+50275e1d Dieses Ei einem Freund schenken
+25e40553 Abzeichen gehören dir für immer: <0/> von {0} verdient.
+20632bc3 Glut
+48591bc0 Flut
+ac587f3b Hain
+85f5955f Funke
+029690b0 Stein
+4db13aa0 Dämmer
+c24315eb Klecks
+57d0c9cd Zweibeiner
+52b712a1 Vierbeiner
+506f5f12 Schweber
+e738c7d8 Echo
+c3bd776c Weiser
+940966d9 Hüter

@@ -1,0 +1,170 @@
+e79101e5 An Onyx gesendet: {0}.
+0e90681b Erlaube Tamkeen in dem Browserfenster, das sich geöffnet hat, Aufgaben hinzuzufügen, und tippe dann noch einmal auf Senden.
+6b514385 Die heutige Wiederholungsaufgabe in Google Tasks wurde aktualisiert: {0}.
+4d263331 Zu Google Tasks hinzugefügt: {0}.
+d8803f2b Tamkeen-Wiederholung ({0} Min.)
+37db2048 Deine Karten
+d567fe70 Heute noch {0}: etwa {1}, nach Tamkeens Schätzung.
+4e0443a6 Dieses Buch kam ohne seinen Text an, daher kann es nicht hinzugefügt werden.
+e3a62ea0 Seine Wörter sind nicht angekommen, daher gibt es nichts hinzuzufügen.
+8b34acaa So etwas kann nicht hinzugefügt werden.
+4e81fbf0 3–20 Buchstaben, Ziffern, Punkte oder Unterstriche.
+c9c9d7d4 Die Online-Funktionen konnten nicht geladen werden.
+1d7a1d2e Der Onlinedienst ist nicht erreichbar. Prüfe deine Internetverbindung.
+79ec683f Benutzernamen bestehen aus: {0}
+ad5eb13f Verbinde dich zuerst.
+5fc4af92 „{0}“ ist vergeben. Versuch einen anderen.
+d3e6897a (noch kein Benutzername)
+ed88ebe6 Gib den Benutzernamen deines Freundes ein.
+42f88043 Verbinde dich zuerst (Einstellungen → Freunde & Teilen).
+76ece8da Wähle zuerst deinen eigenen Benutzernamen (Einstellungen → Freunde & Teilen).
+4e2bf6f2 Niemand heißt „{0}“. Benutzernamen müssen genau stimmen (Groß- und Kleinschreibung egal).
+967a7678 Das bist du!
+0d09c4f7 Du und {0} seid schon befreundet.
+993bd149 Du hast {0} schon eine Anfrage geschickt.
+ff44a73d Zwischen dir und {0} gibt es schon eine offene Anfrage.
+58f90a69 ein Video oder ein Lied von YouTube Music
+97d30338 ein Lied, ein Album, eine Playlist oder eine Podcastfolge (Teilen → Link kopieren)
+d23e8c8c ein Lied, ein Album oder eine Playlist (Teilen → Link kopieren)
+937e2007 eine Seite zu einem Film, einer Serie oder einer Person
+e016aab6 ein Reel (Teilen → Link kopieren). Freunde öffnen es im Reel-Player von Tamkeen
+ca2da724 jeder Artikel und jede Seite. Freunde öffnen sie im Lesemodus von Tamkeen
+bdfd8662 jede Folge aus deiner eigenen Bibliothek: Nutze den Knopf 🎧 in der Leiste
+52c54389 Apple Music
+094b763b nicht gefunden
+6c7af22a Dieser Instagram-Link ist kein Reel. Nutze beim Reel selbst Teilen → Link kopieren.
+0449c7b9 Diese Seite konnte nicht geöffnet werden. Prüfe den Link.
+9c5f935e Das wurde auf {0} nicht gefunden. Prüfe den Link.
+2a0cb6b4 Spotify
+effea02d Du kannst nur Personen auf deiner Freundesliste Nachrichten schreiben.
+3a18cb8c Schreib zuerst eine Nachricht.
+79b09ca3 Die Sprachnachricht konnte nicht gesendet werden: {0}
+394821e7 Es gibt nichts zu teilen.
+81058adf Das ist zu groß, um es in einer Nachricht zu senden.
+9c6fefee Diese Datei ist kein Bild, das die App lesen kann. Versuch es mit JPG oder PNG.
+c1004cfe Dieses Bild konnte nicht vorbereitet werden.
+9c4b6c33 Das Bild konnte nicht hochgeladen werden: {0}
+c3441e47 2–5 Buchstaben oder Ziffern, keine Leerzeichen.
+f70d9377 Eine Gilde mit diesem Namen gibt es schon. Versuch einen anderen Namen.
+7b6a557e Gildennamen haben 2–40 Zeichen; Kürzel {0}
+abf7ad6f Du kannst nur deine eigenen Freunde einladen, und zwar in eine Gilde, in der du bist.
+0669df82 Sie wurden schon in diese Gilde eingeladen.
+853b17b9 Dieses Geschenk konnte nicht gesendet werden (höchstens zehn Geschenke am Tag und nur an Freunde oder Gildenmitglieder).
+d034eb8e Groq
+4de3bd6f Folgen über 24 MB, die keine MP3-Dateien sind: Das Handy kann sie nicht in Stücke schneiden, daher bekommt Groq die Webadresse der Datei und holt sie selbst. (MP3s jeder Länge sind kein Problem: Fast jeder Podcast ist eine.)
+4472c560 das volle große Modell: am besten für Arabisch und Dialekte
+3d954bc8 am günstigsten; etwas weniger genau
+bd77aa8a Folgen über 24 MB, die keine MP3-Dateien sind, können auf diesem Handy nicht mit OpenAI transkribiert werden: Stattdessen erscheint ein Fehler. OpenAI nimmt höchstens 25 MB auf einmal, und das Handy kann nur MP3s in Stücke schneiden. Transkribiere diese auf deinem Computer oder wähle Groq, das eine solche Datei selbst holt. (MP3s jeder Länge sind kein Problem: Fast jeder Podcast ist eine.)
+eba3014e funktioniert mit demselben Schlüssel wie die Worterklärungen mit ChatGPT
+0ffe7a83 die Groq Console
+2e074132 Groq hat ein kostenloses Kontingent (ein paar Stunden Audio pro Tag), das keine Zahlungskarte braucht. Mit hinterlegter Karte kostet eine Stunde Audio zwischen 4 und 11 Cent.
+953a5f79 Tippe auf den Knopf unten. Er öffnet console.groq.com in deinem Webbrowser. (Groq ist eine andere Firma als Grok.)
+e619a44c Nutze deine E-Mail-Adresse oder „Mit Google fortfahren“. Die Anmeldung ist kostenlos.
+63239333 Öffne <0>API Keys</0> und tippe auf <1>Create API Key</1>. Gib ihm einen Namen, den du wiedererkennst, zum Beispiel „Tamkeen“.
+cb2680e6 Komm hierher zurück, füge ihn unter „Cloud-Transkription“ in das Feld <0>API-Schlüssel</0> ein und tippe auf <1>Schlüssel testen</1>.
+09604855 Eine Stunde Audio kostet etwa 36 Cent. Wenn du schon einen OpenAI-Schlüssel für die Worterklärungen nutzt, funktioniert derselbe Schlüssel hier: Lass dieses Feld leer.
+1bd3e72b Deine ChatGPT-Anmeldung funktioniert auch hier, aber ein ChatGPT-Plus-Abo deckt das nicht ab: Schlüssel werden separat bezahlt.
+944fc80e Der Anbieter
+a85ddf87 (es bittet, {0} zu warten)
+8b0ebde4 {0} sagt, dass dein Konto sein Limit vorerst erreicht hat{1}. Kostenlose Konten dürfen pro Stunde und pro Tag nur eine bestimmte Menge Audio senden.
+a6fcec4d Dieser Ton ist zu groß, als dass {0} ihn in einem Stück annehmen könnte.
+964037f2 {0} kennt das gewählte Modell nicht. Stell es in den Einstellungen wieder auf das empfohlene.{1}
+e1e8503b {0} sagt, dass das Konto kein Guthaben hat. Füge auf der Abrechnungsseite etwas hinzu.{1}
+d31e3b99 {0} konnte das nicht transkribieren (Fehler {1}){2}
+30785373 {0} ist nicht erreichbar. Prüfe deine Internetverbindung.{1}
+ad40a6bc Diesem Handy ist beim Vorbereiten des Tons für {0} der Speicher ausgegangen. Versuch es mit einem kürzeren.
+31bc4b92 das Handy hat keinen Grund genannt
+9f2d7d5a Der Ton konnte nicht an {0} gesendet werden: {1}.
+55d8f8bc {0} Sekunden
+24a671e0 {0} Minuten
+6c204c8f {0} Stunden
+f5071960 {0} ¢ pro Stunde Audio
+a6a5c3dc weniger als 0,1 ¢
+8d52756d 0 Min.
+656cedad Heute noch nichts gesendet.
+75b73b14 , etwa {0}
+675fee00 {0} Teil(e) gesendet{2}
+0118d341 Heute noch keine Abfragen.
+e5016995 {0} Abfrage(n){2}
+6f49c311 Saudi-Arabien
+1c39abf6 Ägypten
+cf5a0fa0 den VAE
+32e087f0 Marokko
+fcf29f6c Japan
+d2eaf2aa China
+094d515b Taiwan
+6754fe3c Russland
+ad79ef0f Italien
+eb607d09 den Philippinen
+d9ab8240 den USA
+5c04a992 dem Vereinigten Königreich
+ceafb51e Australien
+37497aa5 Brasilien
+a2b7c120 Thailand
+17d53e0e Deutschland
+d6663dda Wirtschaft
+11381a19 Comedy
+aaf87fe5 Bildung
+0d23bd8c Fiktion
+5c9cb498 Regierung
+89fc9192 Gesundheit und Fitness
+90ccd649 Geschichte
+cccd8e9f Kinder und Familie
+540c98ab Freizeit
+131260cb Musik
+34c808d0 Nachrichten
+f31acc39 Religion und Spiritualität
+d2d06637 Wissenschaft
+4a6df903 Gesellschaft und Kultur
+2fec45a4 Sport
+d9f273ca TV und Film
+d018b082 Technologie
+7a3f06d3 True Crime
+04975199 Wähle zuerst eine Sprache zum Lernen (Einstellungen).
+38de31ed Die Podcast-Charts von Apple sind nicht erreichbar. Prüfe deine Verbindung und versuch es noch einmal.
+7eceb7a9 Das Podcast-Verzeichnis von Apple ist nicht erreichbar. Prüfe deine Verbindung und versuch es noch einmal.
+6e6a6f20 Sonstiges
+796297bd Der Schlüssel ist abgelaufen oder wurde deaktiviert
+a8676c27 Erstelle auf der Schlüsselseite des Anbieters einen neuen Schlüssel und füge ihn ein.
+64587d6e Ein Teil des Schlüssels fehlt, oder ein Leerzeichen ist mitgekommen
+3d171562 Kopiere den ganzen Schlüssel noch einmal und füge ihn frisch ein.
+27522397 Der Schlüssel ist von einem anderen Anbieter
+92ca2b98 Wähle den Anbieter, auf dessen Website du den Schlüssel bekommen hast.
+63987d76 Der Schlüssel wurde gelöscht, oder das Konto wurde geschlossen
+1588d496 Prüfe, ob der Schlüssel noch auf der Schlüsselseite steht. Wenn nicht, erstelle einen neuen.
+c96b7484 Es sind kein Guthaben und keine Abrechnung eingerichtet
+0ad9708a Füge auf der Abrechnungsseite des Anbieters eine Zahlungskarte und etwas Guthaben hinzu.
+e1e28b30 Ein Ausgabenlimit wurde erreicht
+18251e5e Erhöhe das Monatslimit in den Abrechnungseinstellungen des Anbieters oder warte bis zum nächsten Monat.
+f6cdf0dd Das kostenlose Kontingent ist vorerst aufgebraucht
+11671580 Warte bis morgen oder richte eine Abrechnung ein, um das Limit aufzuheben.
+84d0d9ac Zu viele Anfragen in kurzer Zeit
+d42b2d76 Warte eine Minute und versuch es dann noch einmal.
+4c4f1f6e Kostenlose Konten dürfen pro Stunde und pro Tag nur eine bestimmte Menge senden
+7675faf6 Warte eine Weile oder richte eine Abrechnung ein, um das Limit zu erhöhen.
+084837dc Dieses Gerät ist nicht online
+d2a2dab5 Öffne zur Prüfung eine beliebige Website und versuch es dann noch einmal.
+963deb8a Ein VPN oder Proxy steht im Weg
+19c37976 Schalte das VPN oder den Proxy aus und versuch es noch einmal.
+55a21539 Eine Firewall oder ein Arbeits- oder Schulnetz blockiert es
+587e5785 Versuch ein anderes Netz, zum Beispiel die mobilen Daten deines Handys.
+562f6211 Der Anbieter ist ausgefallen
+ea828f0c Schau auf seiner Statusseite nach und versuch es später noch einmal.
+5b1b4424 Datum und Uhrzeit auf diesem Gerät sind falsch
+05d71e52 Stell die Uhr auf automatische Aktualisierung: Sichere Verbindungen schlagen fehl, wenn sie aus ist.
+cc2c0140 Der Anbieter bedient dein Land oder deine Region nicht
+a0d0b371 Wähle in den Einstellungen einen anderen Anbieter.
+c47e8828 Ein VPN lässt es so aussehen, als wärst du woanders
+e5984aea Schalte das VPN aus oder stell es auf dein eigenes Land.
+47ab6e8d Dieses Modell ist für deinen Schlüssel nicht verfügbar
+2f6cf7e5 Stell in den Einstellungen das Modell wieder auf das empfohlene.
+9f9d4258 Das Modell wurde umbenannt oder eingestellt
+3e1adb41 Wähle ein Modell aus der Liste, statt einen Namen einzutippen.
+0e77e507 Neue oder kostenlose Konten können nicht jedes Modell nutzen
+9de897f2 Nutze das empfohlene Modell oder richte für das Konto eine Abrechnung ein.
+fd6e38d8 Der Anbieter hat Probleme oder ist sehr ausgelastet
+4154fe68 Schau auf seiner Statusseite nach und versuch es in ein paar Minuten noch einmal.
+5a4f728f Der Anbieter hat den Schlüssel abgelehnt
+25b375a4 Das Konto hat kein Guthaben oder hat ein Limit erreicht
+5720edd4 Der Anbieter hat die App gebeten, langsamer zu machen
+6ac5f256 Der Anbieter war nicht erreichbar

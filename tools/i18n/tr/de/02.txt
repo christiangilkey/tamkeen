@@ -1,0 +1,170 @@
+c90d19b1 ANSA, Nachrichtenagentur
+1d24e371 Corriere della Sera
+a3f333fa la Repubblica
+30f19411 La Stampa
+a71b2dc8 Wirtschaftsnachrichten
+5dc5bec4 Il Post
+e62a924b Sky TG24
+b63e0d40 Weltnachrichten auf Italienisch
+37e9fc15 Auf Italienisch
+1855c2e3 Sport
+8bf87e8c Italienische Wikipedia
+d477dcd6 Abante, auf Tagalog
+7033c2e2 Bombo Radyo
+5a063600 Die Tagalog-Zeitung von Philstar
+42e1ab8b Tagalog-Nachrichten von Manila Bulletin
+2a086357 Die Tagalog-Zeitung des Inquirer
+292b7519 GMA News auf Tagalog
+2825c408 Bulgar, auf Tagalog
+6419d26a Remate, auf Tagalog
+72df35d6 Pilipino Mirror, auf Tagalog
+f28ea2bf Hataw, auf Tagalog
+13771236 Radyo Pilipinas, öffentliches Radio
+455c0efa Pinoy Weekly
+7d7b8fe2 Tagalog-Wikipedia
+7014f38a Die Nachrichtenseite von Globo
+6e0b993a Folha de S.Paulo
+81596add O Estado de S. Paulo
+e0f6253e O Globo, Rio de Janeiro
+1c42950d BBC, auf brasilianischem Portugiesisch
+d9c6b1fb Agência Brasil, öffentliche Nachrichtenagentur
+12c8c2cd CNN Brasil
+ecae6445 Nexo, Erklärstücke
+6e5c2fcb Politik
+3df709c2 Wissenschaft und Kurioses
+e82e2b93 Deutsche Welle, auf brasilianischem Portugiesisch
+c0fe72d8 Portugiesische Wikipedia
+02df8597 3Cat, katalanischer öffentlich-rechtlicher Rundfunk
+b07bcee1 Ara
+509d117d El Periódico, katalanische Ausgabe
+033e952f La Vanguardia, katalanische Ausgabe
+bdcd5a6a Nació Digital
+a79fdf63 El Nacional
+ff6dd1ba Radio RAC1
+d46049a6 Der Stadtsender von Barcelona
+abe62d2b Valencianischer öffentlich-rechtlicher Rundfunk
+f72932a0 Öffentlich-rechtlicher Rundfunk der Balearen
+ee6ba5de Wöchentliches Nachrichtenmagazin
+017db5d6 Katalanische Wikipedia
+5bd2b489 Die Bisaya-Zeitung von SunStar, Cebu
+097174e3 Die Bisaya-Zeitung von SunStar, Davao
+c236bde4 Die Bisaya-Zeitung von SunStar, Cagayan de Oro
+99dad9d9 Die Bisaya-Zeitung von The Freeman, Cebu
+04eddcb9 RMN-Radionachrichten, Cebu
+1f87a792 Bombo Radyo, Cebu
+b8757fe8 Bombo Radyo, Davao
+d62cbb14 Bombo Radyo, Butuan
+0ff2da19 Bombo Radyo, General Santos
+4d81a0a3 Wörterbuch Bisaya–Englisch
+8047e0a2 Website der Zeugen Jehovas, auf Bisaya
+73ea03bd Bisaya-Wikipedia (viele kurze, automatisch erstellte Artikel)
+3c45c568 Thai PBS, öffentlich-rechtlicher Rundfunk
+1b8b97d3 Thairath
+08d6fedf Khaosod
+2b67ce16 Matichon
+7f1ca720 BBC Thai
+84725fb8 The Standard
+3ac72d15 Prachatai
+4a4d5d52 Sanook News
+90e5530a PPTV HD 36
+7d180266 Workpoint Today
+89514a21 Bangkok Biz News, Wirtschaft
+19920864 Manager Online
+0b56148b Siamsport, Sport
+a1817b50 Thailändische Wikipedia
+291625d9 Einfacher: die Nachrichten in drei Englisch-Stufen
+83372869 Einfacher: Nachrichten in langsamem, einfachem Englisch
+f2d9c77f BBC, britischer öffentlich-rechtlicher Rundfunk
+a1aa118a The Guardian
+558f6997 NPR, amerikanisches öffentliches Radio
+3d209294 AP, Nachrichtenagentur
+b1741f08 Reuters, Nachrichtenagentur
+3a367e23 ABC, australischer öffentlich-rechtlicher Rundfunk
+a07fa4fa CBC, kanadischer öffentlich-rechtlicher Rundfunk
+494a3b5b Einfacher: Wikipedia in einfachem Englisch
+f13ba6e2 Einfacher: Nachrichten für Kinder
+6004ae57 Der öffentlich-rechtliche Rundfunk Deutschlands
+76af65cb Wochenzeitung
+4bb73f48 München
+56ab9d28 Der öffentlich-rechtliche Rundfunk Österreichs
+593905b3 Österreich
+c8fac8a8 Der öffentlich-rechtliche Rundfunk der Schweiz
+d2a4fb95 Deutsche Wikipedia
+1ceda86d Diese Seite von der Startseite entfernen
+4b2d7cb9 Einfacher
+2f47d946 Das Web auf {0} lesen
+bd3fb75c Mit Google suchen
+bce06414 Suchen
+297a093f Deine gespeicherten Seiten
+ade0111a Seiten, die du mit dem Stern gemerkt hast. Tippe auf ×, um eine zu entfernen.
+33edab97 Nachrichten auf {0}
+9883dc1b Öffne eine Seite, such dir einen Artikel aus und tippe dann unten rechts auf den <0>runden blaugrünen Knopf</0>, um ihn mit anklickbaren Wörtern zu lesen.
+3af88e50 Suchst du etwas anderes? Such oben oder gib eine Webadresse in die Adresszeile ein. Um eine Seite auf dieser Seite zu behalten, öffne sie und tippe in der Leiste des Browsers auf den Stern (☆).
+7e58a747 Tamkeen-Browser
+b52b36b7 Zurück
+ba4e7226 Vorwärts
+cce71553 Neu laden
+66861bc1 In Tamkeen importieren: diese Seite mit anklickbaren Wörtern lesen
+ae19f0e4 In Tamkeen importieren
+06a6f0bf Suchen oder Webadresse eingeben
+abf66062 Auf deiner Startseite. Tippe, um sie zu entfernen.
+d6823a88 Diese Seite auf der Startseite des Browsers behalten
+b74fd5e9 Lädt noch … versuch es gleich noch einmal.
+f1ea7bfe ★ Auf deiner Startseite gespeichert.
+28067e68 Von deiner Startseite entfernt.
+7317f63f Diese Seite konnte nicht gespeichert werden.
+820599da Wird importiert …
+41701b8a Diese Seite konnte nicht importiert werden.
+97f0699d Hat dir eine Podcastfolge geschickt: {0}
+173ce326 Hat dir ein Video geschickt: {0}
+034c3487 Hat dir eine Webseite geschickt: {0}
+1de9eae1 Hat dir ein Reel geschickt
+f4e85d12 Hat dir eine Sprachnachricht geschickt
+b3319faf Hat dir geschickt: {0}
+72efcc89 Hat dir etwas zum Lernen geschickt
+0a361a7a Hat dir einen Ordner geschickt: {0} ({1})
+c7f932d8 1 Wort
+afb8631c {0} Wörter
+524fbeba Hat dir ein Wort geschickt: {0}
+f0a84e7a Hat dir {0} Wörter geschickt
+0497857d Hat dir eine Nachricht geschickt
+99113664 Ein Freund
+96bb84ec Ich kenne die Grundlagen schon: die {0} häufigsten Wörter auf {1} als gesehen zählen
+b00c7e97 Warte auf die Wörterbücher für {0}: Die Wörter werden gezählt, sobald sie heruntergeladen sind.
+ffb2e628 Wird hinzugefügt …
+7528191c Das konnte gerade nicht gespeichert werden. Versuch es noch einmal.
+b80ffddd Sie werden gezählt, sobald die Wörterbücher für {0} heruntergeladen sind.
+96d9775a Fertig: {0} Wörter zählen jetzt als gesehen.
+28650781 Sie zählen schon als gesehen.
+719d0ef2 Freunde & Teilen
+53124438 Optional. Füge Freunde über ihren Benutzernamen hinzu, teile Wörter und Ordner, halte Ordner mit Freunden synchron und spielt gemeinsam Live-Vokabelquiz.
+820d6004 Wird geprüft …
+34622eeb Was wird online gespeichert?
+51715bc4 Dafür wird dasselbe Google-Konto wie für die Drive-Synchronisierung verwendet. Dein Benutzername, deine Freundesliste und alles, was du teilst, werden beim Onlinedienst der App (Supabase) gespeichert; alles andere bleibt in deinem eigenen Google Drive.
+042c862e Noch einmal versuchen
+fdf71228 Mit Google verbinden
+f709df27 Als Nächstes wählst du einen Benutzernamen.
+fd3e7969 Wird verbunden …
+f7aba881 Verbunden. Wähle jetzt einen Benutzernamen.
+64fbd995 Ändern
+efc007a3 Speichern
+c2f9b7b4 Verbunden
+ed28e068 Trennen
+84c29015 Benutzername
+977867c9 z. B. layla_lernt
+5ff78b85 Freunde finden dich unter diesem Namen. {0} Du kannst ihn jederzeit ändern; deine Freunde und geteilten Inhalte bleiben verbunden.
+aeed20b3 ✓ Verfügbar
+c66c12b9 Vergeben
+791b5d6c Dein Benutzername ist jetzt {0}.
+8c4f2844 Von „Freunde & Teilen“ trennen?
+0f14a44f Dieses Gerät nutzt „Freunde“ dann nicht mehr. Dein Benutzername und deine Freunde bleiben online gespeichert.
+bafb6ef2 Podcast
+cfe04561 Füge eine Feed-Adresse ein oder wähle aus den Trends
+5fa126ea Wähle ein Thema und schau mit anklickbaren Untertiteln
+154cf598 Webseite
+f922c9f6 Importiere einen Artikel, um ihn mit anklickbaren Wörtern zu lesen
+f69f2330 Buch
+564aebf5 Ein kostenloser Klassiker oder deine eigene EPUB-, PDF-, TXT-, Kindle- oder Word-Datei
+61e340e9 Reels
+83d2bc34 Kurze Instagram-Videos zum Anschauen auf dem Handy
+61ca215b Videodatei

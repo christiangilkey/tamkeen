@@ -1,0 +1,170 @@
+09fef5d8 Fehlgeschlagen
+fd52b45d Podcasts
+1581574d Noch keine YouTube-Videos. Tippe auf + und wähle YouTube.
+43e751cf Meine Webseiten
+f2c11421 Noch keine Webseiten. Tippe auf + und wähle Webseite.
+4a7fdd8c Bücher
+71381287 Noch keine Bücher. Wähle einen kostenlosen Klassiker in der Sprache, die du lernst, oder füge ein eigenes Buch hinzu.
+4a3365aa Noch keine Reels. Tippe auf + und wähle Reels.
+44473bdb Meine Videos
+bc4aba2d Noch keine eigenen Videos. Tippe auf + und wähle Videodatei.
+c467d30b Mein Audio
+34d32c26 Noch kein eigenes Audio. Tippe auf + und wähle Audiodatei.
+00d12e01 Wird heruntergeladen {0} %
+08f7cc23 Wird transkribiert {0} %
+c3ae49bb Wartet auf deinen Computer
+cddfd770 Feeds auf neue Folgen prüfen und mit Google Drive synchronisieren (übernimmt alles, was auf deinem Handy eingereiht wurde)
+8860c417 ⟳ Aktualisieren & synchronisieren
+d699a922 Nach neuen Folgen suchen und mit Google Drive synchronisieren
+4e925fda Aktualisieren und synchronisieren
+585efa75 Nach Titel filtern
+913afff1 Alle auswählen
+ffed8c0f Ausgewählte transkribieren
+54971873 Die angehakten Folgen endgültig aus deiner Bibliothek entfernen, auf jedem Gerät
+8516a714 Ausgewählte löschen
+18915bbf Diese Reels ansehen
+dfe60ca9 Mehr laden
+de23e71b Zuletzt angesehen
+d7cc3213 Kanäle, denen du folgst, erscheinen hier. Tippe unter einem Video auf „Folgen“.
+10c927f2 Alle Folgen
+ba7dd347 {0}/{1} transkribiert{2}
+3f52d1ce Noch keine Podcasts. Füge oben einen hinzu oder schau unter „Im Trend“.
+0d4800a7 Webseiten, die du importiert hast. Öffne eine, um sie mit anklickbaren Wörtern zu lesen. Tippe auf +, um weitere hinzuzufügen.
+8933cc20 Bücher, die du liest, Seite für Seite mit anklickbaren Wörtern.
+8bf58c5b Deine Instagram-Reels, die neuesten zuerst. Sie laufen auf deinem Handy von Instagram, eins nach dem anderen, mit den Wörtern darunter. Hake einige an, um nur diese anzusehen.
+b1fa4fab Jedes Reel abspielen, eins nach dem anderen
+3b8796cc ▶ Alle ansehen
+e3a6fe56 Nicht mehr folgen
+9905eae6 Videos dieses Kanals, die du angesehen hast, die neuesten zuerst.
+47763f28 Diesen Kanal in der App auf YouTube öffnen. Tippe dort auf ein Video, und es öffnet sich im Player von Tamkeen
+8eb9918e Mehr von diesem Kanal
+6aa45ce0 Du folgst {0} nicht mehr. Seine Videos bleiben unter „Zuletzt angesehen“.
+acdac205 Audio
+bc17c1f0 Video
+2e1a712a {0}-Dateien, die du selbst hinzugefügt hast. Sie werden auf deinem Computer transkribiert und in deinem Google Drive gespeichert, sodass jedes Gerät sie abspielen kann. Tippe auf +, um weitere hinzuzufügen.
+fb55bc86 ⚠ Letzte Aktualisierung fehlgeschlagen: {0}
+814c21ac Geprüft {0}
+1f370d70 Neue Folgen automatisch zur Transkription einreihen, sobald sie erscheinen
+6079af61 Neue Folgen automatisch transkribieren
+33ec2170 Podcast entfernen
+a1dcfc3e Neue Folgen werden automatisch transkribiert.
+2125ead2 Automatisches Transkribieren ausgeschaltet.
+952950e4 „{0}“ entfernen? Seine Transkripte und der heruntergeladene Ton werden gelöscht. Gespeicherte Vokabeln bleiben erhalten.
+2b8200f3 Folge auswählen
+d91ebf58 Ansehen
+9f5cd8a2 Erneut versuchen
+5a635355 Transkribieren
+7ddf9ded „{0}“ aus deinen Webseiten löschen? Gespeicherte Vokabeln bleiben erhalten.
+33fb4593 „{0}“ aus deinen YouTube-Videos entfernen? Gespeicherte Vokabeln bleiben erhalten.
+e65bc198 „{0}“ aus deinen Reels entfernen? Gespeicherte Vokabeln bleiben erhalten.
+3c6ef288 „{0}“ löschen? Die Datei und ihr Transkript werden von diesem Gerät und aus deinem Google Drive entfernt. Gespeicherte Vokabeln bleiben erhalten.
+4d04c64d Diese Folgen sind schon eingereiht oder in Arbeit.
+22e136e9 {0} Folge(n) zur Transkription eingereiht.
+50adc292 Ausgewählte transkribieren ({0})
+c35bd621 Ausgewählte löschen ({0})
+0cd3f428 ▶ Dieses Reel ansehen
+fd92e5e4 ▶ Diese {0} Reels ansehen
+eefe1c78 Keine Folgen passen zu diesem Filter.
+954481cf Tippe auf +, um einen Podcast, ein Video oder eine Webseite hinzuzufügen.
+96141178 Wird aktualisiert …
+65a23a10 {0} neue Folge(n).
+0959b8b6 Keine neuen Folgen.
+74ba81d4 Wird schon aktualisiert …
+3beca727 {0} Mit Google Drive synchronisiert.
+0ba6e5e4 diese Folge
+00aba819 diese {0} Folgen
+fd142815 {0} löschen? Das entfernt {1} auf jedem Gerät aus deiner Bibliothek, zusammen mit Ton und Transkript. Eine gelöschte Podcastfolge kommt nicht zurück, wenn der Podcast aktualisiert wird. Gespeicherte Vokabeln bleiben erhalten. Das lässt sich nicht rückgängig machen.
+4c92d153 {0} löschen?
+ab6b534e Das entfernt {0} auf jedem Gerät aus deiner Bibliothek, zusammen mit Ton und Transkript. Eine gelöschte Podcastfolge kommt nicht zurück, wenn der Podcast aktualisiert wird. Gespeicherte Vokabeln bleiben erhalten.
+fe63a123 Das lässt sich nicht rückgängig machen.
+e7f0d454 1 Folge gelöscht.
+028c52e6 {0} Folgen gelöscht.
+8d8f6306 Sie wird gerade transkribiert.
+69e00218 „{0}“ hinzugefügt. {1}
+f5b39567 Was angezeigt wird
+356d37c4 Wechsle zwischen Podcasts, YouTube-Videos, Webseiten, Büchern, Reels und deinen eigenen Videos.
+263d8153 Deine Podcasts und Kanäle
+cb0e0ae2 Tippe auf einen, um nur seine Folgen oder Videos zu sehen.
+83926c81 Nach Fortschritt filtern
+caa0a42a Zeig alles oder nur, was nicht begonnen, wartend, in Transkription, fertig oder fehlgeschlagen ist. Die Zahlen zählen jeweils mit.
+752270a2 Eine Folge
+2a562854 „Transkribieren“ schreibt ihre Wörter auf, damit du mitlesen und auf jedes Wort tippen kannst. Danach spielt „Öffnen“ sie mit ihrem Transkript ab.
+d091dd51 Füge etwas zum Lernen hinzu: einen Podcast, ein YouTube-Video, eine Webseite, ein Buch, Reels oder eine eigene Video- oder Audiodatei.
+f0926a5a Zurück zur Bibliothek
+b1718fc3 Die Untertitel dieses Videos sind noch nicht auf diesem Gerät. Sie kommen mit der nächsten Synchronisierung, oder du kannst sie jetzt neu abrufen.
+4ce6ed15 Du kannst es jetzt ansehen; Untertitel und Transkript erscheinen, sobald es transkribiert ist.
+084d851b Untertitel holen
+692d2197 Wartet auf Untertitel
+0b386a9a ↓ Zurück zur aktuellen Stelle
+66587a7a Folgen
+90eeb100 Folgst du
+4601bfc8 Das ganze Transkript zeigen oder verbergen (T)
+5bcd6022 Transkript
+10dc1f7d Die anklickbaren Untertitel zeigen oder verbergen (C)
+c5a976de UT
+f1b59b0b Vollbild (F)
+d4fcdcaf Textgröße, Vollbild und Speichern des Transkripts
+9c3ebd2a {0} · {1} Wörter
+7475c2bd TXT
+a81b934c SRT
+fc630e27 VTT
+1ad08a39 Spulen
+857f1b10 ⟲ Satz in Schleife
+a4130b72 Schleife beenden
+5c934b0d 5 Sekunden zurück (←)
+651b60e1 Abspielen/Pause (Leertaste)
+addc5a24 5 Sekunden vor (→)
+6ff42b75 Abspielgeschwindigkeit
+af85b75e YouTube konnte dieses Video nicht abspielen.
+b66fc2d7 Das Video konnte nicht geladen werden. Es wird aus deinem Google Drive gestreamt: Prüfe deine Verbindung und ob du angemeldet bist.
+6a9b0c2f Der Ton konnte nicht geladen werden. Wenn er vom Server des Podcasts gestreamt wird, prüfe deine Verbindung.
+70f8bb9a Pos1
+a2bb9d34 Ende
+9c127d35 Wiedergabe fehlgeschlagen: {0}
+fa150e0d Du folgst {0}. Tippe, um nicht mehr zu folgen.
+bf020dbf {0} folgen: erscheint in deiner Bibliothek unter YouTube
+535852be Für dieses Video gibt es keine Untertitel auf {0}, daher sind das die auf {1}. Im Video wird die Übersetzung von YouTube auf {2} gezeigt.
+1a7c0521 Automatische Untertitel von YouTube: Sie können Fehler enthalten.
+61f9b499 Von YouTube übersetzt: passt vielleicht nicht zu dem, was gesagt wird.
+8307fe58 Dieses Video gibt es auch auf {0} zu hören: Wähle es im Video unter ⚙ → Audiospur.
+5124719f YouTube gibt Tamkeen für dieses Video immer noch keine Untertitel auf {0}.
+3d861abc ▶ Ab hier abspielen
+bd22e0c7 ⟲ Diesen Satz in Schleife
+3a68bd5d Das Transkript verbergen (T)
+def5960f Das Transkript zeigen (T)
+fa4029ea Vollbild ist hier nicht verfügbar ({0}).
+a8cf995c A+ Größerer Text
+14225504 A− Kleinerer Text
+401b6b54 ⛶ Vollbild
+79fc7388 Transkript als TXT speichern
+17da46e2 Untertitel als SRT speichern
+8d79c7fd Untertitel als VTT speichern
+e792120b Die Originalseite öffnen
+aa139f94 Original ↗
+ee1025a7 Der Browser konnte nicht geöffnet werden.
+1e5080c8 Dieses Wort wurde in deinen Vokabeln nicht gefunden.
+63d2b95b Melde dich bei Instagram an, um dieses Reel anzusehen.
+8c94fa16 Instagram spielt dieses Reel nur angemeldeten Personen ab (weil es ein Lied aus der Musikbibliothek von Instagram nutzt oder weil es altersbeschränkt ist). Melde dich einmal im eigenen Browser von Tamkeen an: Er schließt sich von selbst, sobald du angemeldet bist, und das Reel startet. Wenn du vorher angemeldet warst, hat Instagram dich vielleicht abgemeldet.
+ada2e9e9 Anmelden
+3a1f994d Gerade beliebt auf {0}
+5b59e6e1 Comedy zuerst. Die App schaut jedes Mal, was auf Instagram gut läuft, daher ändert sich diese Liste.
+80c15bea Nur meine Creator
+667e1e2d Nur die Creator, die du unten angehakt hast.
+bc6fef4b Eine Mischung aus beidem
+dc9dcf7a Zuerst deine Creator, aufgefüllt mit beliebten.
+75c864af Aus meinen Instagram-Speicherungen
+315194ad Reels, die du selbst auf Instagram gespeichert hast: eine deiner Sammlungen oder alles, was du gespeichert hast.
+5e405fb8 Kurze Instagram-Videos in der Sprache, die du lernst, mit anklickbaren Wörtern. Sie laufen direkt von Instagram; nur die Wörter werden behalten.
+17a23503 Deine Reels
+219d2911 ▶ Noch einmal von vorn ansehen
+65ec8d5b ▶ Weiterschauen
+f98f3020 Noch keine Reels. Füge oben den Link eines Reels ein oder füge in der Tamkeen-App Reels hinzu: Sie kommen nach einer Synchronisierung hierher.
+b2e08e21 Noch keine Reels. Tippe oben auf „Zufällige Reels holen“ oder wähle eine deiner Instagram-Sammlungen und hake die Reels an, die du willst.
+e2f3a685 Noch keine Reels. Sie werden auf deinem Computer gesucht: Öffne dort Tamkeen, geh zu Bibliothek → Reels und tippe auf „10 Reels holen“. Sie kommen hierher, sobald beide das nächste Mal synchronisieren.
+78706e7f Noch keine Reels. Wähle oben, welche Reels du willst, und tippe auf „Reels holen“, oder tippe auf „Zufällige Reels holen“.
+36fc5604 · angesehen
+76a74c58 · läuft, wenn du bei Instagram angemeldet bist
+9ddd647f Neue Reels werden von Tamkeen auf deinem Computer gesucht und transkribiert und dann mit diesem Handy synchronisiert. Um Reels direkt hier aus deinen Instagram-Speicherungen auszuwählen, schalte <0>Cloud-Transkription in den Einstellungen</0> ein.
+14c3f907 Reels holen funktioniert in der installierten Tamkeen-App auf deinem Computer (sie braucht ihr eigenes Instagram-Fenster).
+d032a9c7 Welche Reels?
+2e78f26e Reels aus meinen Instagram-Speicherungen

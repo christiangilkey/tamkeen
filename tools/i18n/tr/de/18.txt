@@ -1,0 +1,170 @@
+d3b174d2 Google neu verbinden
+c649a3e6 Google gibt der Web-App immer nur eine Stunde: Tippe, um sie zu verlängern, dann geht die Synchronisierung weiter
+fde42b27 Deine Google-Verbindung muss erneuert werden.
+f1cd4b29 Diese YouTube-Seite konnte nicht geöffnet werden.
+e599c6b1 Transkript fertig: {0}
+abc6efcd „{0}“ konnte nicht transkribiert werden: {1}
+dbb00f48 Neues Transkript: {0}
+737fe002 {0} neue Transkripte
+84db0dcd 1 neue Podcastfolge
+b2510650 {0} neue Podcastfolgen
+ec5bfe65 Auf dieser Seite wurde kein lesbarer Text gefunden.
+09dd50fd Unbekanntes Buch.
+fca43b82 In diesem Buch wurde kein lesbarer Text gefunden.
+fba1a5a5 Meine Bücher
+a2a96aa1 Folgen erscheinen, nachdem dein Computer diesen Feed synchronisiert hat.
+37b12633 Der Feed-Server hat HTTP {0} geantwortet.
+3155edfa Der Feed hat die App immer wieder woandershin geschickt.
+48b36ff0 Das Transkript konnte nicht heruntergeladen werden: {0}
+d6be1437 Füge eine RSS-Feed-URL ein.
+91ad3544 Du hast diesen Feed schon abonniert.
+690e2ff2 Feed nicht gefunden.
+39eb0435 Lösch die Einträge einzeln; diese eingebaute Liste kann nicht entfernt werden.
+bf2ba910 Melde dich mit Google an (Einstellungen), um deine Bibliothek von deinem Computer zu holen.
+8b5a0e5e Dein Computer transkribiert diese bei der nächsten Synchronisierung.
+c7d6726a Folge nicht gefunden.
+e198d09b Diese Änderung passt nicht zum Transkript.
+69511d5f Das Transkript hat sich geändert, seit das Wort nachgeschlagen wurde. Tippe noch einmal darauf.
+1da00bdb Das ist keine Webadresse.
+1bd35f3f Das sieht nicht nach einem Reel aus.
+a78d3b8f In diesem Reel wird nichts gesagt.
+9e9c770d Hier steht nicht, aus welchem Podcast die Folge stammt.
+2cdec149 Hier steht nicht, welche Folge es ist.
+1ba21c1e Diese Folge ist nicht mehr in der Folgenliste des Podcasts.
+1d6b4183 Dieses Video ist noch nicht in der Bibliothek.
+96d03b0f Nichts zu speichern.
+294611a1 Gib dem Ordner einen Namen.
+08f351d2 Ordner nicht gefunden.
+f1124044 Nicht gefunden.
+4fdd6fdd Es gibt keinen Satz zum Speichern.
+95b85b31 Das ist keine Antwort.
+6d483033 Dieses Wörterbuch wurde nicht heruntergeladen.
+84c8cb59 Auf dem Handy nicht verfügbar: {0} {1}
+76c6ab28 Deine Google-Verbindung muss erneuert werden: Tippe auf „Google neu verbinden“.
+1492a513 Die Google-Anmeldung funktioniert in der installierten App.
+59af74d7 Nicht angemeldet.
+6e07f63f Deine Google-Anmeldung muss erneuert werden. Öffne die Einstellungen und melde dich noch einmal an.
+b7ac2dcb Google-Drive-Fehler {0}: {1}
+402eaf0a Google Drive hat das Hochladen nicht gestartet.
+977db692 Hochladen zu Google Drive fehlgeschlagen ({0}).
+5cf59ec6 Hochladen unterbrochen. Prüfe deine Verbindung und versuch es noch einmal.
+2a66b8ea Melde dich zuerst mit Google an (Einstellungen → Google-Konto).
+79642d7d Senden an Google Tasks funktioniert in der installierten App, auf dem Computer und in der Web-App.
+25d9c3cc Die Aufgabe braucht einen Tag.
+bbdefd6e Tamkeen-Wiederholung
+3d81cff6 Google Tasks ist nicht erreichbar. Prüfe deine Verbindung.
+8548a469 Google Tasks ist für das Google-Projekt von Tamkeen noch nicht eingeschaltet.
+a846f437 Google Tasks hat mit einem Fehler geantwortet ({0}).
+214ae7a1 Das ist kein Onyx-Link.
+979354ab keine Sammlung
+4742fc3e Die Wörterbücher konnten nicht heruntergeladen werden. Prüfe deine Verbindung und versuch es noch einmal.
+16f085e3 Das Wörterbuch für {0} ist noch nicht veröffentlicht.
+a09450db Ein Wörterbuch ist beschädigt angekommen. Versuch es noch einmal.
+dc170e1d Google Tasks, Onyx und die Tamkeen-App.
+1ceebe39 AnkiDroid, Google Tasks und Onyx.
+ee622c1c Google Tasks und Onyx.
+906abf49 Neu anfangen, Datenschutzerklärung und Lizenzen.
+0ec69c1c Updates, neu anfangen, Datenschutzerklärung und Lizenzen.
+985f8a33 Dein Computer schreibt die Transkripte
+e2d909d2 AnkiDroid-Synchronisierung an
+6dd88449 Hake jede Sprache an, die du lernst: Der Umschalter oben auf dem Bildschirm listet sie auf, hier und auf deinen anderen Geräten. Die Sprache, die du gerade lernst, wird für Webseiten, die du hier importierst, für Worterklärungen und für alles, was auf diesem Handy transkribiert wird, verwendet.
+10899135 Leicht vibrieren, wenn ich auf ein Wort tippe oder eins speichere
+585c71c0 Deine Podcasts, Transkripte und Vokabeln werden über einen privaten App-Ordner in deinem eigenen Google Drive mit deinem Computer geteilt.
+0b252362 Wer transkribiert, was ich hier hinzufüge?
+6a5f967d Wenn unter „Hören & Transkripte“ kein Cloud-Anbieter gewählt ist, wird auf deinem Computer transkribiert: Tippe hier auf „Transkribieren“, und er erledigt es bei der nächsten Synchronisierung.
+485bef4c Die Anmeldung funktioniert in der installierten App.
+3addceb3 Synchronisierung fehlgeschlagen: {0}
+4520d4e1 Deine Bibliothek bleibt auf diesem Handy; sie wird nur nicht mehr synchronisiert.
+5c90bb93 AnkiDroid (optional)
+16b02880 Tamkeen im Web
+5cbc70fe Das funktioniert wie die App, mit ein paar Dingen, die die Tamkeen-App auf deinem Handy oder Computer brauchen.
+1b5e130c Was braucht die App?
+3ec02d90 Reels aus deinen Instagram-Speicherungen und zufällige Reels, Reels mit einem Lied aus der Musikbibliothek von Instagram, der eingebaute Webbrowser (Seite importieren und „In einem Video finden“), die AnkiDroid-Synchronisierung und die Zahl auf dem App-Symbol. Was du in der App hinzufügst, erscheint hier nach einer Synchronisierung.
+91e5fbb9 im Web
+99e0c004 für iPhone
+0c3c76a9 für Android
+5b931348 Tamkeen {0} · <0>Datenschutzerklärung</0> · <1>Quellcode</1>
+ba28f9f2 Version {0} ist verfügbar: Tippe im gerade geöffneten Fenster auf „Jetzt aktualisieren“.
+79f78eb5 in deinem Browser
+c2e8b4c9 auf deinem Handy
+7ff90624 Vorschaumodus: Die Anmeldung funktioniert in der installierten App.
+b71b7dd2 Deine Podcasts, Transkripte und Vokabeln, {0}.
+d0ddef8f <0>Transkribiere auf deinem Computer.</0> Die Desktop-App erstellt die Transkripte Wort für Wort.
+f0adf6f0 <0>Melde dich mit demselben Google-Konto an</0>, hier und auf deinem Computer. Alles wird über einen privaten App-Ordner in deinem eigenen Google Drive synchronisiert.
+a6b63644 <0>Tippe auf ein beliebiges Wort</0>, um es zu hören und zu sehen, was es im Zusammenhang bedeutet. Lang drücken für weitere Optionen.
+eb2732b0 Angemeldet als {0}. Deine Bibliothek wird geholt …
+84ab641a kann außerhalb von Instagram nicht gezeigt werden
+8fcc7be3 Angehalten.
+48a80f34 hat über {0} Minuten gedauert
+d6993df4 {0} hinzugefügt, {1} übersprungen
+61151245 Instagram hat sich nicht geöffnet. Prüfe deine Verbindung und versuch es noch einmal.
+d5ee628a Instagram hat nicht rechtzeitig geantwortet.
+54e60766 Instagram zeigt dieses Reel nicht öffentlich.
+1edda8bd Dafür braucht es die Tamkeen-App (sie liest Instagram, während du dort angemeldet bist).
+28d0566e Bisaya-Reels können nicht auf einem Handy transkribiert werden. Hol sie in Tamkeen auf deinem Computer (Bibliothek → Reels), mit dem dort heruntergeladenen Bisaya-Transkriptionsmodell (Einstellungen → Hören & Transkripte). Sie erscheinen hier, sobald beide das nächste Mal synchronisieren.
+c6ff8ff1 Schon mit Instagram beschäftigt. Versuch es noch einmal, wenn das fertig ist.
+ff8747f0 Schalte zuerst in den Einstellungen die Cloud-Transkription ein: Damit kann dieses Handy Reels anhören.
+2798b2f0 Instagram wird geöffnet …
+352cdb34 Melde dich zuerst bei Instagram an: Tippe auf „Bei Instagram anmelden“ und melde dich dort an. Das Fenster schließt sich von selbst, und Tamkeen macht weiter.
+752ead87 {0} Sammlung(en)
+3d4f9a7c Angehalten. Bisher {0} gefunden.
+f351926a Deine Instagram-Speicherungen werden durchsucht … bisher {0}. (Stopp behält die gefundenen.)
+42c1b8ad Deine Instagram-Speicherungen werden nach deinen Sammlungen durchsucht …
+902f4134 {0} gespeicherte Sammlung(en) gefunden. Wähle eine aus der Liste.
+7271c886 In deinen Instagram-Speicherungen wurden keine Sammlungen gefunden. Du kannst trotzdem „Alles, was ich gespeichert habe“ wählen.
+a904dcc2 Diese Sammlung ist nicht in der Liste. Tippe noch einmal auf „Meine Sammlungen finden“.
+96d3280d Diese Sammlung wird auf Instagram gelesen …
+c2182d2c Die Bilder werden geholt …
+5c716b95 Gespeicherte Beiträge gefunden: {0}. Hake die an, die du willst.
+c4dbbbdc konnte nicht gelesen werden
+4c93a121 kein Video
+360993c3 das Herunterladen des Videos hat zu lange gedauert
+856eba9f das Video konnte nicht heruntergeladen werden{0}
+923accb8 das Video kam leer von Instagram zurück
+f1d247f4 zu groß zum Senden vom Handy
+b5adf68f darin wird nichts gesagt
+3bb1a5b6 auf {0}, nicht auf {1}
+8a1414e3 kaum Sprache darin
+ed162d4b , auf {0}
+c14398dc (läuft, wenn du bei Instagram angemeldet bist)
+26dda5ef {0} Wörter{1}{2}
+d7ddc937 Hake zuerst die Reels an, die du willst.
+3727f60b Reel {0} von {1} angehakten: wird angehört … (bisher {2})
+f239c335 Die Liste unten sagt, warum jedes übersprungen wurde.
+72ef9385 Zufällige Reels sind für diese Sprache noch nicht eingerichtet.
+4c93d4b8 Angehalten. {0}.
+0b85ce49 Reels auf {0} werden gesucht ({1}) …
+403ebed9 {0} Reels auf {1} werden geholt: bisher {2}; das nächste wird angehört …
+3d0a21ac {0}: zufällige Reels auf {2} bereit zum Ansehen: {1}.
+ceda21f2 {0}: Diesmal konnten keine Reels auf {1} behalten werden. Versuch es noch einmal: Die Suchwörter ändern sich jedes Mal.
+72012544 Diese Sammlung ist nicht in der Liste.
+7f8b10c7 Tamkeen wurde schon zurückgesetzt. Melde dich an oder schließ die ersten Bildschirme ab, um deine Bibliothek zurückzuholen.
+020ed627 Deine Bibliothek konnte nicht sicher beiseitegelegt werden, daher wurde nichts zurückgesetzt.
+18cf0eb4 Das sieht nicht nach einem Podcast-RSS-Feed aus.
+ea3bb7b5 Podcast ohne Titel
+4d02a4af Folge ohne Titel
+70440046 Notizen
+a40a4e6b Start (s)
+731a0d43 Ende (s)
+83423c19 Hinweis:
+5969dbe4 Zu viele Tabellen für eine Seite.
+02650201 Der Ton konnte nicht gelesen werden.
+cfb37b58 Die Adresse des Tons hat die App immer wieder woandershin geschickt.
+3fa8487e Der Download wurde abgelehnt (Fehler {0}).
+606d8615 {0} hat etwas zurückgeschickt, das kein Transkript ist.
+5a4f2a6b {0} bittet, {1} zu warten …
+253b5798 {0} hat Probleme (Fehler {1}). Versuch es in einer Weile noch einmal.
+cb8c9ee7 {0} hat nicht geantwortet.
+dc8e1cb0 Unbekannter Anbieter.
+d9f8661c Füge zuerst einen API-Schlüssel ein.
+55059cb2 Der Ton konnte nicht heruntergeladen werden (der Server hat {0} geantwortet).
+d80623c2 Der Download ist mittendrin abgebrochen (der Server hat {0} geantwortet).
+d580b524 Dieser Ton konnte nicht als MP3 gelesen werden.
+b37be079 Der Ton dieser Folge ist keine MP3 und {0} groß: mehr, als {1} in einem Stück annimmt (25 MB). Transkribiere ihn auf deinem Computer oder nutze Groq als Anbieter.
+802c66c5 Der Ton dieser Folge ist keine MP3 und zu groß, um ihn in einem Stück zu senden. Transkribiere ihn auf deinem Computer.
+b9a6cf4a Die Datei ist nicht mehr in deinem Google Drive.
+673f3233 Die Cloud-Transkription ist ausgeschaltet. Schalte sie in den Einstellungen ein.
+aad63d75 Diese Datei ist zu groß zum Senden vom Handy, daher transkribiert dein Computer sie.
+c79f28f8 Die Seite wird importiert …
+9f496fb9 Was geteilt wurde, enthält keine Webadresse, daher gibt es nichts zu importieren.
+5cfa7a01 Wähle zuerst die Sprache, die du lernst, und teile die Seite dann noch einmal mit Tamkeen.

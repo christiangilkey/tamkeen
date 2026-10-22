@@ -1,0 +1,170 @@
+9e717b9a Ein eigenes Video von diesem Gerät
+fb1e17a0 Audiodatei
+0e8a7c1c Eine eigene Aufnahme von diesem Gerät
+206ad75e Zu deiner Bibliothek hinzufügen
+350fdaeb ‹ Alle Möglichkeiten zum Hinzufügen
+73b04161 Füge die RSS-Feed-Adresse eines Podcasts ein
+825aa64b RSS-Feed-Adresse des Podcasts
+24ba4ecf Podcast hinzufügen
+1758356d oder
+382c6e00 Podcasts, die gerade in deiner Lernsprache beliebt sind, nach Thema sortiert
+da089e19 Im Trend: {0}
+688659c1 {0} abonniert
+a2a04642 „YouTube öffnen“ zeigt zuerst die meistgesehenen Videos dieser Woche aus diesem Land
+981a7d86 Beliebt in
+e897fcca Lässt Videos weg, die nur die automatischen Untertitel von YouTube haben – die sind oft falsch und ohne Satzzeichen
+28543490 Nur Videos mit von Menschen erstellten Untertiteln
+e17e232a Auf YouTube suchen
+e69ef3fc Tippe dort auf ein Video, und es öffnet sich hier, mit seinen Untertiteln als anklickbare Wörter. Das Video braucht Untertitel.
+01bc0d6b Kostenlose Klassiker
+217c2a25 Berühmte Bücher in der Sprache, die du lernst – kostenlos, weil sie gemeinfrei sind.
+4e20f045 Ein eigenes Buch hinzufügen
+d993cd1c EPUB, PDF, TXT, Kindle AZW3 oder Word, ohne DRM.
+495d921f {0} ¢ pro Million Tokens
+eb7ed7c4 diesem Computer
+a1cac7d8 diesem Browser
+1cfceb0b diesem Handy
+fa8bf630 Wie Wörter erklärt werden
+99b34726 Tippe auf ein Wort, um zu sehen, was es <0>in diesem Satz</0> bedeutet. Ein KI-Anbieter schreibt die Erklärung mit deinem eigenen Schlüssel; du bezahlst ihn direkt, einen Bruchteil eines Cents pro Wort.
+b6db182b Was wird gesendet, und wo wird mein Schlüssel aufbewahrt?
+097ae941 Das Wort, sein Satz und die Sätze davor und danach gehen an den Anbieter, den du wählst, und nirgendwo sonst hin. Dein Schlüssel wird auf {0} gespeichert und, wenn du die Google-Drive-Synchronisierung nutzt, im privaten Ordner der App in deinem eigenen Google Drive, damit auch deine anderen Geräte ihn haben. Er ist nie Teil eines Datenexports.
+796a0595 KI-Erklärungen
+7aa94634 Die Bedeutung in <0>diesem</0> Satz, die Grammatik und eine Übersetzung. Braucht einen API-Schlüssel: ein Bruchteil eines Cents pro Wort (Gemini hat ein kostenloses Kontingent).
+1e0393d5 Zuerst das Wörterbuch, KI nur wenn es nichts hat <0>Empfohlen</0>
+302856dd Das eingebaute Wörterbuch erklärt die Wörter, die es kennt, kostenlos; dein KI-Schlüssel wird nur für den Rest verwendet.
+49eec3e6 Ohne KI: eingebautes Wörterbuch
+50d514a9 Kostenlos und funktioniert offline. Die üblichen Bedeutungen eines Wortes, aber nicht, welche zum Satz passt.
+a70179e6 <0>KI-Erklärungen werden dringend empfohlen.</0> Echte Sprache ist voller Wörter, deren Bedeutung vom Satz abhängt, voller Slang und Dialekt, die kein Wörterbuch kennt, und voller Transkriptionsfehler. Ohne KI siehst du eine Liste möglicher Bedeutungen und musst raten, welche gemeint ist.
+7544ab30 KI-Erklärungen verwenden
+7ceee3f3 Anbieter
+cf678cab API-Schlüssel
+d608fce7 Füge deinen API-Schlüssel hier ein
+d97d1ee3 Anzeigen
+d959e754 Ich komme nicht weiter
+3b3ec110 Mit einem Beispiel testen
+86c0a35e Weitere Optionen
+68c2cc7f Modell
+61131aac 1 Million Tokens ≈ {0} Erklärungen
+51823153 Tokens sind die Wortstücke, die eine KI liest und schreibt. Die Preise sind Schätzungen für die Mischung, die eine Erklärung braucht, nach der Preisliste des jeweiligen Anbieters.
+525f7051 Name des Modells, genau so, wie der Anbieter ihn schreibt
+63752a4b Erklären auf
+9bd4649b Heute auf {0} verbrauchte Tokens:
+86fa0600 Eselsbrücken-Macher
+fa76400f Die ähnlich klingenden Wörter auf der Rückseite einer Wiederholungskarte. Er nutzt denselben Schlüssel; weniger Nachdenken antwortet schneller.
+d08d8da0 Nachdenken
+7ddd66b6 Ausprobieren
+0f1aa62d Ohne KI
+70da8a0a ✓ Das Wörterbuch für {0} ist auf {1} ({2} MB).
+e963907d Entfernen
+61750c22 Das Wörterbuch für {0} ist noch nicht auf {1}, daher geht jedes Wort an die KI.
+c2232964 Herunterladen (etwa {0} MB)
+808117a6 Das Wörterbuch für {0} ist noch nicht auf {1}, daher können angetippte Wörter nicht erklärt werden.
+c177e4b0 Wird heruntergeladen …
+27a7d318 ✓ Eingerichtet
+15a558ba Nur Wörterbuch
+eed6bfb4 Erforderlich
+31ba9246 Neuen Schlüssel holen ↗
+c3639477 Hol dir deinen API-Schlüssel für {0} ↗
+9ef93755 Empfohlen
+b729da8b Ein anderes Modell
+883f8daa Ein anderes Modell … <0>gib seinen Namen ein</0>
+c16dec45 {0} (am schnellsten, empfohlen)
+fd63eaaf Wie bei den Worterklärungen
+9693b227 Dieses Modell hat keine Einstellung fürs Nachdenken.
+a60d9c9c Denkt nach …
+de0599b0 Füge zuerst oben deinen API-Schlüssel ein.
+e4f6bb0f Das ist ein Schlüssel von {0}, daher ist der Anbieter jetzt {1}. Gespeichert: Tippe auf „Mit einem Beispiel testen“, um ihn zu prüfen.
+1bb58f41 Gespeichert. Tippe auf „Mit einem Beispiel testen“, um ihn zu prüfen.
+19686f61 Schlüssel entfernt.
+b2731cb4 Der Schlüssel konnte nicht gespeichert werden: {0}
+34d8b60f Verbergen
+b18ce81d Frage nach …
+ce61ce37 ✓ Funktioniert ({0} s): {1} = „{2}“
+b68a4efa Schlüssel funktioniert nicht
+622cb8b8 Anki
+8558a88a Einstellungen für {0}
+b9e7312c vor {0} Min.
+002a7fdc {0} hinzugefügt, {1} geändert, {2} entfernt
+616f33b4 {0} und {1} weitere
+d634d7a1 Meine gespeicherten Wörter und meine {0}-Stapel in beide Richtungen abgleichen
+0829312b So funktioniert die Synchronisierung
+1f4549dd Jede Sprache, die du lernst, hat ihren eigenen Stapel, unten benannt. Nur diese Stapel werden je gelesen oder geändert: deine anderen Stapel, Notizen und Karten werden nie angerührt. Neue Wörter, Änderungen und Löschungen gehen in beide Richtungen. Eine Karte, die du in einem davon von Hand anlegst, wird hier zu einem Wort in der Sprache dieses Stapels. Der Lernfortschritt jeder Karte wird auf der Seite „Vokabeln“ angezeigt; Tamkeen ändert nie den Zeitplan von {0}, das Bild einer Karte oder das Kartenlayout.
+ad997b8b Stapelnamen speichern
+cf16536f Gib jedem Stapel einen Namen.
+01f61b61 Stapelnamen gespeichert.
+168e4932 Stapel
+3e4aaec6 Zum Einschalten muss das Add-on unten (Version 2 oder neuer) in Anki installiert sein.
+2e547a18 {0} Es wird nichts synchronisiert, bis die Namen unterschiedlich sind.
+6f68523d · {0} Wörter haben eine Karte in den Stapeln
+343a67e4 Letzte Synchronisierung mit Änderungen ({0}): gesendet {1}; empfangen {2}
+ea83b3ba Zuletzt synchronisiert {0}{1} <0/>An {2} gesendet: {3}<1/>Von {4} empfangen: {5}
+8ab853ab (Profil „{0}“)
+311e6a3f <0>In {0} ist eine andere Sammlung geöffnet</0>{1} als die, mit der Tamkeen verbunden ist{2}. Aus ihr wurde nichts gelesen und nichts in sie geschrieben.
+aa48c6a5 Stattdessen mit dieser Sammlung synchronisieren
+e172d1bd Eine Karte
+4b2e608f {0} Karten
+af6cd201 {0} ({1}) wird bei der nächsten Synchronisierung aus {2} entfernt.
+0fccecc9 Ein Wort, das du hier gelöscht hast, hat noch
+7e7ed3d8 {0} Wörter, die du hier gelöscht hast, haben noch
+a2fd882c die Karte
+0c12e651 die Karten
+a5554878 das Wort
+cde1fdb5 die Wörter
+8d3900e9 <0>{0} eine Karte in {1}:</0> {2}. Wenn du eine Karte aus {3} entfernst, wird dort auch ihr Lernverlauf entfernt. <1>Das lässt sich nicht rückgängig machen.</1> Wenn du zustimmst, entfernen spätere Löschungen ihre Karten ohne erneute Nachfrage.
+d0ca7688 {0} aus {1} entfernen
+3ee6dc97 {0} behalten und {1} zurückholen
+458bd73a Eine Karte ist
+2449d2e2 {0} Karten sind
+4768f74c AnkiDroid teilt anderen Apps nicht mit, was gelöscht wurde
+97b8cabc Anki hat keinen Eintrag darüber, dass du sie hier gelöscht hast (vielleicht wurden sie auf einem anderen Gerät gelöscht, oder die Sammlung wurde wiederhergestellt)
+9ab802d4 dieses Wort
+9fe0220f <0>{0} aus dem Stapel verschwunden:</0> {1}. {2}, daher hat Tamkeen nichts entfernt. Was soll damit geschehen?
+ef8f7e8a Neu erstellen
+bbba862c {0} auch hier löschen
+78948622 {0} Karten deiner Wörter liegen jetzt in einem anderen Stapel: Sie bleiben dort, wo du sie hingelegt hast, und werden nicht mehr synchronisiert.
+c1aa0b00 {0} zusätzliche Karten von Wörtern, die schon eine haben, wurden mit „tamkeen-duplicate“ markiert und für dich zum Ansehen liegen gelassen.
+dfab2962 {0} Notizen im Stapel wurden ausgelassen (keine Felder „Front“ und „Back“, nichts darauf geschrieben, oder eine ihrer Karten liegt in einem anderen Stapel).
+4b701821 {0} Änderungen konnten beim letzten Mal nicht vorgenommen werden und werden erneut versucht.
+e8a0694a Karten im Stapel einer anderen Sprache werden bei der nächsten Synchronisierung von Anki in ihren eigenen verschoben.
+ba95bad5 {0} Karten wurden in den Stapel ihrer Sprache verschoben ({1}).
+21b4c80d Diese Version von AnkiDroid teilt anderen Apps den Lernfortschritt nicht mit. Aktualisiere AnkiDroid auf 2.24 oder neuer, um ihn hier zu sehen.
+221ca630 Wird synchronisiert …
+2b7d938e Jetzt synchronisieren
+11d3ef7f Synchronisiert auch beim Öffnen der App und alle paar Minuten, solange sie geöffnet ist.
+26b0b25f Anki synchronisiert sich mit Tamkeen, wenn du Anki öffnest, alle 10 Minuten, solange es geöffnet ist, nach Ankis eigener Synchronisierung und immer dann, wenn du in Anki <0>Extras → Tamkeen jetzt synchronisieren</0> wählst. Tamkeen muss dabei auch geöffnet sein.
+27139ab8 noch nicht gelernt
+c9114940 überfällig seit {0}
+71ef9cbd fällig {0}
+87e1ef1d in Wiederholung
+b2647e88 alle {0} {1}
+fb38ecb6 {0} richtig, {1} falsch
+3db1270b Deine letzten Antworten in Anki, älteste zuerst
+5c4b4117 Am {0} aus Anki gelesen. Tamkeen zeigt das nur an; es ändert nie den Zeitplan von Anki.
+c3c7e5f4 Anki: {0}{1}
+f57186fa „{0}“ aus deinen Vokabeln löschen?
+3eb0e9ae „{0}“ aus deinen Vokabeln löschen? Seine Karte in {1} wird mitsamt ihrem Lernverlauf ebenfalls entfernt.
+890a143b Seine Karte in {0} wird mitsamt ihrem Lernverlauf ebenfalls entfernt.
+ce01cb8a Damit wird auch die Karte in {0} gelöscht
+8c9dbb61 „<0>{0}</0>“ hat eine Karte in deinem Stapel {1} in {2}. Wenn du das Wort hier löschst, wird diese Karte bei der nächsten Synchronisierung entfernt, <1>zusammen mit dem Lernverlauf der Karte in {3}. Das lässt sich nicht rückgängig machen.</1>
+ad439574 Wenn du fortfährst, entfernt das Löschen eines Wortes ab jetzt seine Karte ohne diese Frage.
+77dfd213 Abbrechen
+0a98dcd0 Wort und Karte löschen
+e93d02ca Anki-Karten in den Stapel ihrer Sprache verschieben
+9ce3bd42 OK
+09701b49 Wird verschoben …
+0c443a1e 1 Karte in den Stapel ihrer Sprache verschoben.
+077b3afc {0} Karten in den Stapel ihrer Sprache verschoben.
+10e5fda8 1 Karte konnte nicht verschoben werden (zum Beispiel, weil sie an einen gefilterten Stapel ausgeliehen ist) und blieb, wo sie war.
+5e56ad8c {0} Karten konnten nicht verschoben werden (zum Beispiel, weil sie an einen gefilterten Stapel ausgeliehen sind) und blieben, wo sie waren.
+721a5cd2 Die Karten werden verschoben, wenn Anki sich das nächste Mal mit Tamkeen synchronisiert: Öffne Anki oder wähle dort <0>Extras → Tamkeen jetzt synchronisieren</0>. Die Einstellungen zeigen an, wenn es erledigt ist.
+a8e5a756 Das funktioniert mit der Anki-Synchronisierung. Schalte zuerst in den Einstellungen „Meine gespeicherten Wörter und meine {0}-Stapel abgleichen“ ein.
+134635e9 Einstellungen öffnen
+acba4224 Tamkeen hat sich noch nicht mit {0} synchronisiert und weiß daher nicht, wo die Karten sind. Synchronisiere zuerst und versuch es dann noch einmal.
+722b3443 Das wartet schon auf die nächste Synchronisierung von Anki mit Tamkeen.
+7d8c0147 Jede Karte liegt schon im Stapel ihrer Sprache. Es gibt nichts zu verschieben.
+f7f0f25b Eine Karte liegt im Stapel einer anderen Sprache. Sie wird verschoben:
+577a01f9 {0} Karten liegen im Stapel einer anderen Sprache. Sie werden verschoben:
+f0b872b4 Jede Karte behält ihren Lernverlauf. Sonst ändert sich nichts in {0}, und deine anderen Stapel werden nicht angerührt.
+e78a8a82 Die Karte verschieben
+247c9a70 {0} Karten verschieben
+c3e839df Online

@@ -1,0 +1,170 @@
+b72da5f2 Serienschutz
+dce47891 Tippkarte
+29877f37 +{0} EP
+53af6389 EP
+b666a4ab {0} · nächstes {1}
+df2457aa nächstes {0}
+830ead14 {0} von 5 Herzen: füttere es, um sie zu füllen
+45260878 Glimmer: von deinen Gebäuden erzeugt
+4ac9dac4 {0} Glimmer
+ec8782a8 Glimmer pro Stunde gerade
+6a6e9e27 {0} pro Stunde
+cba40f6f Edelsteine: verdient durch Abzeichen, Raids, Liga-Aufstiege und volle Blüte
+626f7b1c Sternenstaub: Jedes Körnchen macht alles {0} % schneller, für immer
+f7370cf7 {0} Glimmer sammelt sich jetzt von selbst.
+7a211303 Erreiche dein Tagesziel {0}-mal, dann sammelt sich der Glimmer von selbst (bisher {1}).
+ddd7a154 Gebäude erzeugen Glimmer, während du weg bist: Bis zu {0} Stunden davon warten auf dich. Jede Art gedeiht am besten bei einer anderen Lerngewohnheit, und wenn du das heutige Ziel erreichst, werden alle um die Hälfte schneller und schicken sofort zwei Stunden Glimmer.
+cf6b269f <0>Volle Blüte.</0> Auf jedem Grundstück steht ein ausgewachsenes Gebäude. Der Garten ist vollständig; wenn du ein Wesen freilässt, beginnt ein neuer, schnellerer.
+39a1c2dc {0} Glimmer einsammeln
+eabc714b Grundstück {0}: geschlossen
+467b84dc {0} Öffnet sich, wenn du: {1}
+1c6e99ed Einen Schlüssel nutzen ({0})
+7cf40990 Grundstück {0}: leer
+144a397b Wähle etwas, das du hier bauen willst.
+7e08478b {0} {1} · {2} pro Stunde
+0595972e {0} · Stufe {1}
+d020fbd3 · mag {0} {1}
+9078100c {0} Glimmer pro Stunde{1} · {2} warten
+04aac4c0 Einsammeln
+53b630e7 Wachsen ·
+6d6426d9 Heb es eine Stufe an: Es erzeugt deutlich mehr Glimmer
+50645793 Ausgewachsen
+4dd3fed6 Ein ausgewachsenes Wesen freilassen
+95b0eef2 Ein ausgewachsenes Wesen kann freigelassen werden. Es verlässt deine Sammlung und bleibt hier in Erinnerung. Deine Gebäude und dein Glimmer beginnen von vorn, und du behältst <0/>: Jedes Körnchen macht jedes Gebäude für immer {0} % schneller, sodass der nächste Garten viel schneller wächst als der letzte. Je mehr ausgewachsene Gebäude du zu dem Zeitpunkt hast, desto mehr Sternenstaub.
+7005fc6d Sternenstaub
+5fb6a7b7 Du hast noch kein ausgewachsenes Wesen.
+21e10852 dieses Wesen
+edfb0cc4 {0} freilassen? Es geht für immer, und deine Gebäude und dein Glimmer beginnen von vorn. Du behältst den Sternenstaub, deine anderen Wesen und alles, was dir gehört.
+d2001733 Freigelassen. Du hast {0} Sternenstaub bekommen.
+28a4bacf Bisher freigelassen: {0}.
+912d81bb Lass dein Ei zuerst schlüpfen; dann kann es gefüttert werden.
+55427966 {0} {1} · heute {2} von {3} Mal gefüttert. Sein Lieblingsessen zählt doppelt. Herzen machen seine Gebäude etwas schneller und ändern nichts an Kämpfen.
+35b25929 Futter
+9d041fa1 {0} sein Liebling
+779fc473 {0} Wesen lieben es
+77690ee2 · du hast {0}
+ff1928e5 Füttern
+c266a25e Das liebt es!
+df139e6c Lecker.
+db09cbc4 Eins für {0} Glimmer kaufen
+14e351e1 Vorräte
+0e90e484 Edelsteine gibt es nur für Dinge, die du tust: jedes Abzeichen (2), ein gewonnener Raid (3), ein Liga-Aufstieg (2), volle Blüte (10). Nichts wird für Geld verkauft.
+11a9a29c Ein neues Ei ist bei deinen Wesen.
+c505c639 20 Minuten mehr
+36690a36 Jetzt nutzen
+476c3b07 Die EP sind für {0} Minuten verdoppelt. Los, lernen!
+0a854dda läuft noch {0} Min.
+427a838f Ein Ei wärmen
+e00a97a2 Du brauchst ein übriges Ei, das nicht im Lebensraum ist
+bdd2a3a3 Das Ei wird gewärmt: Es wächst, während dein Wesen wächst.
+6a6002af ein Ei wird gewärmt
+678552eb Nutze es auf der Seite „Garten“.
+265753d6 Wird von selbst genutzt, wenn ein Kampf weniger auszahlen würde.
+6028b76d Nutze es während eines wilden Kampfes.
+993750ae Der Lebensraum deines Wesens
+d3f4cb89 Umbenennen
+29cdd5c4 Dein Level: tippen, um zu sehen, wie EP funktionieren
+1aa6e8ca Lv
+eaeec02c EP bis zum nächsten Level
+18e480f2 Tippen, um zu sehen, wie EP funktionieren
+890541c0 Dein Tagesziel ändern
+e54c864d Tippen, um zu sehen, wie sich dein Wesen entwickelt
+6d5546f2 Tage in Folge, an denen du dein Tagesziel erreicht hast: tippen für mehr
+ce1213a4 Münzen für den Laden: tippen für mehr
+c3b0236d Ein Serienschutz deckt einen verpassten Tag ab: tippen für mehr
+5894f7c3 Glimmer von deinen Gebäuden: tippen für mehr
+b1e9fef7 Edelsteine für Vorräte: tippen für mehr
+dd8fd086 Herzen: tippen für mehr
+b2d3bd7f Dein Wesen in einen anderen Lebensraum bringen
+f5552713 Kampf
+48f77eb7 Wesen
+55de8870 Laden
+714d913b Garten
+3f5aa796 Tagesziel erreicht
+ad69cbf5 Heute: {0} / {1} Min.
+79bcdbf3 Ziel: {0} Min.
+669ac373 {0}-Ei
+0e5f028b · bereit zur Entwicklung: tippe darauf
+72ce9e1e · {0} % bis {1}
+4246502f {0} Tag(e)
+223e900f Dein Ei
+63b41493 Gib mir einen Namen
+98303fea Tagesziel: Deine Gebäude haben sofort {0} Glimmer geschickt.
+72e1269a Du hast {0} Edelstein(e) verdient.
+61fe2211 Volle Blüte: Auf jedem Grundstück steht ein ausgewachsenes Gebäude.
+673e4951 Gib deinem Wesen einen Namen
+a8a47536 noch keine Wörter gespeichert :(
+0a5a8112 +{0} Glimmer
+e3b0b563 Dein Wesen ist bereit zur Entwicklung. Tippe darauf, wann du willst.
+b2facb1b Dieses Grundstück ist noch nicht offen.
+fcc4027b Dort ist schon etwas gebaut.
+bf998c98 Dieses Gebäude gibt es nicht.
+d482d7e0 Noch nicht: {0}.
+710d27b3 Dir fehlen noch {0} Glimmer.
+efcf13a6 Dort ist nichts gebaut.
+2a8a3386 Es ist ausgewachsen.
+579f1557 Jedes Grundstück ist schon offen.
+9af0e879 Du hast keinen Schlüssel.
+5b31b02f Nur ein ausgewachsenes Wesen kann freigelassen werden.
+934d6b63 Das steht nicht zum Verkauf.
+36602b9e Deine Sammlung ist voll.
+26de9a27 Dir fehlen noch {0} Edelstein(e).
+6c27e5e8 Davon hast du nichts.
+6156ebc8 Eier fressen nicht. Lass es zuerst schlüpfen.
+a66174fd Für heute ist es satt.
+bdbaa592 Du hast keinen EP-Boost.
+4f42a703 Du hast keinen Brutkasten.
+e0e5bba3 Wähle ein Ei, das nicht im Lebensraum ist.
+eacac3ef Dieses Ei ist schon im Brutkasten.
+73ed2987 Du hast {0} EP und bist auf Level {1}. Bis zum nächsten Level fehlen {2} EP.
+6a75c080 Ein Wort in deinen Vokabeln speichern: 20.
+80e25376 Hören oder lesen: ein langsames Rinnsal, während du lernst, das weit nach deinem Tagesziel versiegt.
+aa1ab833 Dein Tagesziel erreichen: {0}. Das ist das Große, und es zahlt gleich viel, ob dein Ziel 5 oder 20 Minuten ist.
+e3435b6f Kämpfe: 3 für jede richtige Antwort, 15 mehr, wenn ein Wort gut bekannt wird, 40 für einen Sieg und 15 für eine Niederlage (voll für die ersten drei Kämpfe des Tages).
+da45a83d Vokabeltrainer: Jede beantwortete Karte zahlt ein Viertel dessen, was das Nachschlagen eines Wortes zahlt (meist 1 bis 4, manchmal 8 bis 12, ab und zu 25 bis 50), egal ob du es wusstest oder nicht, schummeln bringt also nichts.
+355d88a3 Am selben Tag einen Kampf beenden und deine Karteikarten schaffen: {0} mehr, einmal am Tag.
+1a385136 Dasselbe viele Male an einem Tag zu tun, zahlt immer weniger, also ist jeden Tag ein bisschen besser als eine lange Sitzung.
+5d4196b1 Sie lassen das Wesen in deinem Lebensraum wachsen: Es schlüpft, wird groß und ist dann bereit zur Entwicklung.
+4e3ef7b7 EP werden nie ausgegeben. Sie steigen nur.
+27bb53b6 Man kann sie nirgends ausgeben: Sie wirken von selbst.
+9b7db3ae So funktioniert die Entwicklung
+a301c97f Ziel-Serie
+ae506790 {0} in Folge. Dein Rekord ist {1}.
+31fb81dc Mit dem Anki-Begleiter zählt es auch als Tagesziel, alles Fällige in Anki zu schaffen.
+3e2a59d1 Verpasst du einen Tag, deckt ihn ein Serienschutz ab, wenn du einen hast. Ohne beginnt die Serie wieder bei null. Sonst geht nichts verloren.
+c57ee3a3 Die Flamme neben deinem Namen auf dem Tab „Freunde“ ist eine andere Serie: Tage in Folge, an denen du deine Karteikarten geschafft hast.
+488e945a Bei 7 Tagen öffnen sich für immer neue Dinge im Laden ({0}) und der Kampfzug „Ruhiges Herz“.
+347792fa Eine Serie von 5 Tagen öffnet ein Baugrundstück im Garten.
+f7922bac Abzeichen bei 7, 30 und 100 Tagen, und jedes Abzeichen zahlt 2 Edelsteine.
+d15f40ca Deine Abzeichen ansehen
+2bef474e Münzen
+647952d2 Du hast {0}.
+ec4161d7 Ein Wort in deinen Vokabeln speichern: je 1.
+20b4c331 Ein Level aufsteigen: 5.
+e469d2bf Einen Kampf gewinnen: 4 für jeden der ersten drei Siege des Tages, danach weniger.
+3c1e6885 Ein Wort wird durch Kämpfe gut bekannt: 1.
+dc4529b3 Eine Woche lang 8 von 10 Kampfantworten richtig (30 Antworten oder mehr): 5.
+d5d064cb Deine Gilde besiegt den wöchentlichen Raid-Boss: 20.
+64eea943 Am selben Tag einen Kampf beenden und deine Karteikarten schaffen: {0}, einmal am Tag. Karteikarten allein zahlen Glimmer, keine Münzen.
+54bb5f6d Alles, was du mit Münzen kaufst, ist nur fürs Aussehen. Nichts macht ein Wesen stärker.
+fede851e Der Laden. Er bietet jeden Tag {0} Dinge an, für dein Wesen ausgewählt, und wechselt täglich.
+4906011f Den Laden öffnen
+02b8de87 Ab und zu fällt einer als Überraschung ab, wenn du ein Wort nachschlägst.
+4b6bd7b6 Du hast mit einem angefangen.
+a66c8544 Er wird von selbst genutzt, wenn du die App nach einem verpassten Tag das nächste Mal öffnest. Zwei verpasste Tage brauchen zwei.
+d5545dea Glimmer
+3647f30f , und {0} weitere warten in deinen Gebäuden
+6319cd67 Du hast {0} Glimmer{1}. Deine Gebäude erzeugen {2} pro Stunde.
+5aafc95b Tippe auf ein Gebäude, über dem ein Licht schwebt, um seinen Glimmer einzusammeln. Nach {0} Tageszielen sammelt er sich von selbst.
+5ab759f1 Dein Tagesziel erreichen: Jedes Gebäude erzeugt für den Rest des Tages die Hälfte mehr, und zwei Stunden Glimmer kommen sofort an.
+fb3a6104 Die Karteikarten des Tages im Vokabeltrainer schaffen ({0} Karten oder mehr, keine mehr fällig): sofort eine Stunde Glimmer deines Gartens, und nie weniger als {1}. Kämpfe zahlen stattdessen Münzen.
+5881fc72 Jede Art von Gebäude erzeugt mehr für eine Lerngewohnheit, und jedes Herz deines Wesens fügt etwas hinzu.
+99abeba6 Futter für dein Wesen ({0} Glimmer pro Stück), das seine Herzen füllt.
+dfc8c596 Tränke ({0} Glimmer) für wilde Kämpfe.
+38ccf266 Gebäude sind auf der Seite „Garten“. Futter und Tränke sind auf der Seite „Vorräte“.
+37de88de Den Garten öffnen
+3e321c9f Die Vorräte öffnen
+02904156 Edelsteine
+4254141b Deine Gilde besiegt den wöchentlichen Raid-Boss: 3.
+a1d5eec6 Eine Liga aufsteigen (an 5 Tagen einer Woche dein Tagesziel erreichen): 2.
+18bf14cc Volle Blüte, wenn auf jedem Grundstück im Garten ein ausgewachsenes Gebäude steht: 10.

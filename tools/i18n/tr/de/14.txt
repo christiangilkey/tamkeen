@@ -1,0 +1,170 @@
+8db4b22b Google Drive: {0}
+f34d4b91 Google Drive: verbunden
+b1124ecc Wiederholung als Aufgabe: {0}
+8e5aa09b Anki-Synchronisierung an
+55a68b9d Lesehilfen für {0}.
+0d6a65aa Die Knöpfe und Meldungen der App werden in dieser Sprache angezeigt, und Wörter werden in ihr erklärt.
+a220de07 Hake jede Sprache an, die du lernst: Der Umschalter oben auf dem Bildschirm listet sie auf, hier und auf deinen anderen Geräten. Die Sprache, die du gerade lernst, wird für neue Transkriptionen, importierte Webseiten und Worterklärungen verwendet.
+fd3f000c Lesehilfe
+5eb73faa mlx-whisper auf der Apple-GPU (Metal)
+8538d459 faster-whisper auf der NVIDIA-GPU (CUDA, float16)
+de8877df faster-whisper auf der CPU (int8)
+88519b93 ({0} GB)
+c1f65ddb Engine
+b76ab659 Hardware
+d067f1cc {0} · {1} Threads · {2} GB RAM{3}
+746fcf10 Heruntergeladenen Ton nach der Transkription löschen<0/><1>Spart Speicherplatz. Der Player streamt den Ton dann vom Server des Podcasts.</1>
+ddb48157 Immer von der Original-URL streamen<0/><1>Der Ton wird nur vorübergehend für die Transkription heruntergeladen und nie behalten. Die Wiedergabe braucht eine Internetverbindung.</1>
+17c698af {0} Ein Modellwechsel betrifft nur neue Transkriptionen; transkribiere eine Folge in der Bibliothek neu, um es dort zu nutzen.
+b868b1b6 Gerade nicht in Gebrauch: {0} schreibt die Transkripte (Cloud-Transkription, oben). Hier muss nichts heruntergeladen werden.
+8423f899 Für die Sprache, die du lernst. Das Beispiel zeigt, wie groß es wird.
+2a5b54a0 Podcasts & Videos
+c573c285 Webseiten
+a513c836 Wenn du die Startseite, die Bibliothek, die Vokabeln und „Freunde“ zum ersten Mal öffnest, zeigt eine kurze Hilfe, was jeder Knopf macht.
+8a35efc2 Die Hilfen wieder zeigen
+a2f143a8 Sie erscheinen, wenn du die jeweilige Seite das nächste Mal öffnest.
+2162db4e Mit Google Drive synchronisieren
+01ef9525 Hält deine Podcasts, Transkripte und Vokabeln auf diesem Computer, anderen Computern und deinem Handy gleich.
+22b684a7 Alles wird in einem privaten App-Ordner in <0>deinem eigenen</0> Google Drive gespeichert, den nur diese App sehen kann. Die Synchronisierung läuft nie über einen anderen Server.
+31be6197 Wo wird es gespeichert?
+d4bbbea7 Die Synchronisierung ist in diesem Build nicht verfügbar (keine Google-Anmeldung eingerichtet).
+848d80ca Nicht angemeldet
+f0dd6b0d Öffnet deinen Webbrowser zur Anmeldung.
+64b8b874 Warte auf Google …
+07030d82 Google-Konto
+4541689d Letzte Synchronisierung fehlgeschlagen: {0}
+0a5d4651 Zuletzt synchronisiert {0}
+be8f16b4 · {0} Transkript(e) hoch, {1} herunter, {2} Ton hoch
+cc4c05b0 Komprimierte Tonkopien hochladen (etwa 12 MB pro Stunde)<0/><1>So spielen dein Handy und andere Computer genau den Ton ab, der transkribiert wurde, und die Hervorhebung bleibt synchron, auch bei Podcasts, die bei jedem Download andere Werbung einfügen. Nutzt deinen Google-Drive-Speicher.</1>
+1b6c524f Angemeldet
+dc1649a1 Abmelden
+af70c2ba Von Google abmelden?
+5dfc94fd Deine Bibliothek bleibt auf diesem Computer; sie wird nur nicht mehr synchronisiert.
+0ca0b563 Anki (optional)
+31061d48 Für alle, die auf diesem Computer auch mit Anki lernen.
+3c270194 Das Anki-Add-on
+177dd240 Tippe auf den Knopf unten und speichere die Datei.
+e78fa755 Doppelklicke auf die gespeicherte Datei. Anki öffnet sich und fragt, ob es installiert werden soll; sag Ja und starte Anki dann neu.
+047825e8 Wiederhole wie gewohnt, während Tamkeen geöffnet ist. In Anki zeigt <0>Extras → Tamkeen-Begleiter …</0>, ob es verbunden ist, und <1>Extras → Tamkeen jetzt synchronisieren</1> synchronisiert den Stapel sofort.
+9cf66eeb Das Anki-Add-on herunterladen
+346217cc Was das Add-on macht
+cccca32e Es teilt Tamkeen mit, wie deine Wiederholungen laufen, damit sie für dein Wesen zählen: Alles Fällige zu schaffen ist das Tagesziel (egal wie viele Karten), und Karten, die reifen, bringen einen Bonus. Dafür werden nur Zahlen gesendet. Mit dem Schalter oben hält es außerdem diesen einen Stapel und deine gespeicherten Wörter abgeglichen. Alles bleibt auf diesem Computer. Wenn du das Add-on installiert hast, bevor es die Synchronisierung gab, lade es herunter und installiere es erneut.
+4d889f27 Noch keine Meldungen.
+f29bbb6a Zuletzt von Anki gehört {0}
+696d2cc7 · heute: {0} wiederholt, {1} gereift, {2} noch fällig
+eb32d375 Deine Bibliothek, Transkripte, Vokabeln, Modelle und Einstellungen werden gespeichert in:
+b26720e4 Datenordner öffnen
+146d9a4b Meine Daten exportieren
+65cf972d heruntergeladenen Ton einschließen
+aa4fb3d2 Daten importieren …
+2916184c Ersetzt deine aktuelle Bibliothek durch eine Sicherung (.zip).
+65137875 Über Tamkeen
+c41ff0c3 Tamkeen für deinen Computer · <0>Datenschutzerklärung</0> · <1>Quellcode</1> · <2>Über</2>
+9293dd01 Sicherung fertig ({0})
+e3a1377f Daten importieren?
+3b151b74 „{0}“ importieren? Das ERSETZT deine aktuelle Bibliothek, Transkripte und Vokabeln durch den Inhalt der Sicherung.
+d6fbc9d2 Importieren
+deaefe6d {0} Tondateien wiederhergestellt.
+7427e5f6 Importiert. {0}
+b901ec82 Du bist auf dem neuesten Stand ({0}).
+d7854118 Jederzeit
+24345a14 Heute
+df833fe8 Letzte 7 Tage
+6b329852 Letzte 30 Tage
+0245d916 Letzte 12 Monate
+9efe99b9 Zwischen zwei Daten …
+ed434d6b Hake <0>Import any learning progress</0> an, um den Stand jedes Wortes in deinen Tamkeen-Wiederholungen zu behalten. Lass es leer, damit jede Karte als neu beginnt.
+574c12ec Du brauchst die Anki-App auf diesem Computer.
+be71b755 Klicke in Anki auf <0>Importieren</0> und wähle sie aus.
+e445c6a9 Achte darauf, dass dein Stapel so formatiert ist, wie die Karten in Anki aussehen sollen.
+97cc7702 Du brauchst Anki: Anki auf einem Computer, AnkiDroid auf Android oder AnkiMobile auf einem iPhone.
+c4ae4119 Öffne die gespeicherte Datei mit Anki. Klicke auf einem Computer in Anki auf <0>Importieren</0> und wähle sie aus.
+0a23b23f Du brauchst die App AnkiMobile auf diesem iPhone.
+9d03110d Wähle in der Reihe der Apps <0>AnkiMobile</0>. Wenn sie nicht da ist, tippe auf <1>Mehr</1>.
+0bbf1f69 Achte in AnkiMobile darauf, dass dein Stapel so formatiert ist, wie die Karten aussehen sollen.
+59e916d5 Du brauchst die App AnkiDroid auf diesem Handy.
+e3b8af2a Wähle in der Reihe unten die Blase <0>Anki</0>. Wenn sie nicht da ist, tippe auf <1>Mehr</1>.
+0ea5d1ae Tippe auf das Fenster mit der Aufschrift <0>AnkiDroid</0>.
+5eeb9580 Achte in AnkiDroid darauf, dass dein Stapel so formatiert ist, wie die Karten aussehen sollen.
+097027a5 Deine Wörter an Anki senden
+7c7da884 Verstanden, exportieren
+12b2bdbf Klicke in einem beliebigen Transkript mit der rechten Maustaste auf ein Wort oder eine markierte Wortgruppe (oder halte sie gedrückt) und wähle „In den Vokabeln speichern“. Über das Menü ⋯ kannst du ein Wort von Hand hinzufügen oder deine Wörter für Anki exportieren.
+239c2f13 Vokabeln
+7fc0dbd9 Mehr: Wort hinzufügen, exportieren, Anki-Einstellungen
+2fa9797f Vokabeln durchsuchen … {0}
+adc4e96a Sortieren
+b2a08c42 Wörter anzeigen
+172415f0 hinzugefügt
+37c6c57b geändert
+3f66052a Von
+4374aaee bis
+ae79ea1e Bis
+bfad960e Zu Ordner hinzufügen
+24d51d52 Aus dem Ordner entfernen
+6f99aa21 📨 An einen Freund senden
+247fd631 Auswahl aufheben
+35c2eb2c Ein Wort hinzufügen
+863892c6 Der Ton dieses Wortes konnte nicht geladen werden.
+6d19e3ba Name für den neuen Ordner:
+7e6e65f7 Alle Wörter
+889ab689 In keinem Ordner
+4ad414d8 ＋ Neuer Ordner
+e2324f01 Ordner umbenennen:
+5ee46641 Ordner löschen
+63e908b6 Den Ordner „{0}“ löschen? Die Wörter darin bleiben erhalten.
+e4ae0eaf 📨 Ordner an einen Freund senden
+b44edd40 ＋ Neuer Ordner …
+5b000a6e Diese Wörter sind in keinem Ordner.
+08c2177a Es gibt keine Wörter zum Senden.
+93ccaaea den Ordner „{0}“ ({1} Wörter)
+128751ac {0} Wörter
+e0e017af {0} senden an …
+8106e86e Ton für {0} Wörter wird vorbereitet …
+0e770154 mit Ton
+8db1d803 ({0} mit Ton)
+151df9be {0}{1} an {2} gesendet.
+9afb285b · geändert {0}
+29eb5c50 Ein YouTube-Video suchen, in dem dieses Wort gesagt wird
+a5420424 Wort auswählen
+8e3f51e2 {0} · hinzugefügt {1}{2}
+dd5422ef Grammatiknotizen (Wurzel, Grammatik, Gebrauch …)
+d5b39987 Persönliche Notizen (eine Eselsbrücke, wo du es gehört hast …)
+19adc47b Ordner
+1b8fae9a Keine Karten zum Lernen
+15a53568 „{0}“ wiederholen
+952f3754 Start
+30cdf73e fällig
+c2a6b03f neu
+bb866ab5 Wörter mit einer Bedeutung erscheinen hier als Karteikarten.
+b568b4b7 · {0} Wörter wieder da {2}{3}
+29a80ea8 Alles erledigt{0}
+e5084bff {0} ausgewählt
+85cce1e1 Auswahl aufheben
+b2034f7e Alle {0} auswählen
+1ef4fd36 Bei jedem unten aufgelisteten Wort den Haken entfernen
+80e145aa Jedes unten aufgelistete Wort anhaken, um sie gemeinsam abzulegen oder zu senden
+294ccd52 {0}{1} Einträge
+71d86079 Keine Wörter passen zu diesen Filtern.
+0be6a257 Keine Treffer.
+78e66aba Noch keine gespeicherten Wörter.
+d6206ee4 Der Anki-Stapel mit Ton wird erstellt …
+5755f9ac CSV exportieren
+3e28846b Für Anki exportieren
+3c3a1272 Deine gespeicherten Wörter als Karteikarten. Es zeigt, wie viele heute fällig und wie viele neu sind: Tippe darauf, um zu beginnen.
+55da47da Tagesziel
+6e419c58 Wie viele neue Wörter du jeden Tag lernen willst. Ändere es hier.
+dc02b791 Finde ein gespeichertes Wort über das Wort selbst oder seine Bedeutung.
+b34e55f5 Tippe auf einen Ordner, um nur seine Wörter zu sehen; „Wiederholen“ umfasst dann nur diese. „Neuer Ordner“ legt einen an.
+c61252a9 Ein gespeichertes Wort
+a4284878 Tippe auf ein Wort, um es zu öffnen: seine Bedeutung, der Satz, aus dem es stammt, und seine Aufnahme. Hake das Kästchen an, um mehrere auszuwählen.
+f59d91ac Ein Wort von Hand hinzufügen, deine Wörter für Anki oder als Tabelle exportieren, und die Anki-Einstellungen.
+0bc298a1 Füge eine Website-Adresse ein
+ba46c1f5 Website-Adresse
+6609c693 Eine Seite hinzufügen
+9f482b38 Noch nichts gespeichert. Füge eine beliebige Seite hinzu, um sie mit einem Tippen zu öffnen.
+d9832d9a Diese Seite aus deinen gespeicherten Seiten entfernen
+944c5b44 {0} aus deinen gespeicherten Seiten entfernen
+68bbc4d9 „{0}“ aus deinen gespeicherten Seiten entfernt.
+39fc7212 Rückgängig
+20518fac Deine gespeicherten Seiten konnten nicht geändert werden.
+d70f93df Adresse
