@@ -37,6 +37,7 @@ export const START = {
   ceb: ["kaayo", "PH", "fil", 0],  // (YouTube has no Bisaya interface: Filipino is the nearest)
   th: ["ที่", "TH", "th", 0],
   en: ["the", "US", "en", 0],
+  fa: ["است", "IR", "fa", 0],
 };
 
 /** Countries offered for each language: [YouTube's country code, name, a search word of its own
@@ -62,6 +63,7 @@ export const COUNTRIES = {
   th: [["TH", "Thailand"]],
   en: [["US", "United States"], ["GB", "United Kingdom"], ["CA", "Canada"], ["AU", "Australia"], ["IE", "Ireland"],
        ["NZ", "New Zealand"], ["IN", "India"], ["NG", "Nigeria"], ["ZA", "South Africa"], ["PH", "Philippines"]],
+  fa: [["IR", "Iran"], ["AF", "Afghanistan"]],
 };
 
 /** The country to use: the chosen one if it is on the language's list, else the usual one. */
@@ -203,6 +205,11 @@ export const TOPIC_WORDS = {
   en: { news: "news", music: "music", comedy: "comedy", food: "cooking", travel: "travel", sport: "sports",
         science: "science and technology", gaming: "gaming", kids: "cartoons for kids", vlog: "vlog", podcast: "podcast",
         learn: "English listening practice" },
+  // Persian: words Arabic doesn't use, as Arabic shares the script (checked 2026-10-21: "اخبار" alone and "سفر" alone
+  // came back in Arabic, "علم و فناوری" found one video this month).
+  fa: { news: "اخبار امروز", music: "آهنگ جدید", comedy: "طنز", food: "آشپزی", travel: "ولاگ سفر", sport: "فوتبال",
+        science: "فناوری", gaming: "گیم پلی فارسی", kids: "کارتون فارسی", vlog: "ولاگ روزمره", podcast: "پادکست فارسی",
+        learn: "آموزش فارسی به غیر فارسی زبانان" },
 };
 
 /** How far back a language's topics look when it has few videos (otherwise this month). */

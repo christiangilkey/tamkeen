@@ -1,0 +1,16 @@
+9093211c Police Vazirmatn (persan)
+d356a6d9 BBC en persan
+72e254b5 Iran International
+3f48fe62 Voix de l'Amérique
+11a88834 Hamshahri, Téhéran
+aae993aa Khabar Online
+f59e30d5 Asr Iran
+a279abfa Shargh
+5286f70d Etilaatroz, Afghanistan
+180e505b Radio Azadi, Afghanistan
+e5b9046d Wikipédia en persan
+b0af5088 les mots persans et les tables de conjugaison du Wiktionnaire, avec les fréquences de mots de wordfreq
+c6915368 Afghanistan
+279c771a Tadjikistan
+889224e3 Iran
+df443b7e La recherche ignore les signes de voyelles brèves, la demi-espace à l'intérieur des mots (ZWNJ) et les graphies arabes de k et y (ك ي pour ک ی).

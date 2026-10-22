@@ -43,7 +43,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "lexicon"
 NAMES = {"ar": "Arabic", "es": "Spanish", "fr": "French", "it": "Italian", "ru": "Russian", "en": "English",
          "tl": "Tagalog", "ja": "Japanese", "zh": "Chinese", "pt": "Portuguese", "ca": "Catalan", "ceb": "Cebuano",
-         "th": "Thai"}
+         "th": "Thai", "fa": "Persian"}
 URL = "https://kaikki.org/dictionary/{0}/kaikki.org-dictionary-{1}.jsonl.gz"
 # Arabic as spoken: Wiktionary's dialect words go in the Arabic file too, marked with their dialect.
 DIALECTS = {"arz": "Egyptian Arabic", "ajp": "South Levantine Arabic", "apc": "North Levantine Arabic",
@@ -74,9 +74,18 @@ NOT_MANDARIN = {"Cantonese", "Hokkien", "Teochew", "Hakka", "Wu", "Shanghainese"
 AR_MARKS = re.compile("[ؐ-ًؚ-ٰٟۖ-ۭـ]")
 
 
+# Persian: as persianKey in web/js/lexicon/persian.js (and tools/build_persian.py): Persian letters, no
+# short-vowel marks, no half space (ZWNJ), so می‌خواهم and میخواهم, كتاب and کتاب are one word.
+FA_MARKS = re.compile("[ً-ٰٟـ]")
+FA_INVISIBLE = re.compile("[​-‏­⁠﻿]")
+FA_LETTERS = str.maketrans({"ي": "ی", "ى": "ی", "ك": "ک", "ۀ": "ه", "ة": "ه"})
+
+
 def key(word: str, lang: str) -> str:
     """The form a word is matched in. Must agree with matchKey() in web/js/meanings.js."""
     w = unicodedata.normalize("NFC", word.strip())
+    if lang == "fa":
+        return FA_INVISIBLE.sub("", FA_MARKS.sub("", w.translate(FA_LETTERS)))
     if lang == "ar":
         w = AR_MARKS.sub("", w).replace("ٱ", "ا")
         return re.sub("[آأإ]", "ا", w).replace("ى", "ي").replace("ة", "ه")
@@ -126,6 +135,11 @@ def reading(entry: dict, lang: str) -> str:
         for f in entry.get("forms") or []:
             if "romanization" in (f.get("tags") or []) and f.get("form"):
                 return f["form"]
+    if lang == "fa":
+        # Wiktionary gives the Classical (and Dari) reading first and the Iranian one after it (kitāb, ketâb):
+        # the Iranian one, as the learner hears it.
+        said = [f["form"] for f in entry.get("forms") or [] if "romanization" in (f.get("tags") or []) and f.get("form")]
+        return said[-1] if said else ""
     return ""
 
 

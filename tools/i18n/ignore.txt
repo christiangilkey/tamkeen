@@ -247,3 +247,14 @@ b9b6f166  # música en català
 28eb8491  # science and technology
 80d72d7f  # cartoons for kids
 1f5ffb7f  # English listening practice
+# Not interface: Persian's YouTube search words (web/js/youtube-home.js TOPIC_WORDS.fa) and the dictionary offer's
+# Persian example words (web/js/lexicon/seen.js EXAMPLES.fa, shown as Persian).
+54b88533  # اخبار امروز
+fdeaaa1a  # آهنگ جدید
+7fc7c7d6  # ولاگ سفر
+ca3cc7c2  # گیم پلی فارسی
+821e6036  # کارتون فارسی
+7f4f4435  # ولاگ روزمره
+6d71e130  # پادکست فارسی
+f13e85d0  # آموزش فارسی به غیر فارسی زبانان
+51a91ad4  # می‌خواهم، خواستم، نمی‌خواهید

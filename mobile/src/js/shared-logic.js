@@ -32,8 +32,10 @@ const DIACRITICS = /[ؐ-ًؚ-ٰٟۖ-ۜ۟-۪ۨ-ۭ࣓-ࣿ]/g;
 const MAP = {
   "آ": "ا", "أ": "ا", "إ": "ا", "ٱ": "ا", "ٲ": "ا", "ٳ": "ا",
   "ة": "ه", "ى": "ي", "ؤ": "و", "ئ": "ي", "ـ": "",
+  // Persian (as app/arabic.py): ی ک match ي ك, ۀ matches ه, and the half space inside a word (ZWNJ) is ignored.
+  "ی": "ي", "ک": "ك", "ۀ": "ه", "‌": "",
 };
-const mapChars = (s) => s.replace(/[آأإٱٲٳةىؤئـ]/g, (c) => MAP[c]);
+const mapChars = (s) => s.replace(/[آأإٱٲٳةىؤئـیکۀ‌]/g, (c) => MAP[c]);
 
 export function normalize(text) {
   return mapChars(String(text || "").replace(DIACRITICS, "")).replace(/\s+/g, " ").trim().toLowerCase();

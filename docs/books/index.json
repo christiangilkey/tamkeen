@@ -1781,6 +1781,138 @@
     "chapters": 15,
     "source": "Wikisource (https://th.wikisource.org/wiki/%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B8%81%E0%B9%8A%E0%B8%81/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1_1/%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88_1)"
    }
+  ],
+  "fa": [
+   {
+    "id": "golestan",
+    "title": "گلستان",
+    "author": "سعدی",
+    "year": 1258,
+    "blurb": "Saadi's Rose Garden: short tales of kings, dervishes and lovers, in rhymed prose and verse.",
+    "file": "fa/golestan.json.gz",
+    "bytes": 92056,
+    "sha256": "a1974615a0382a9021641c623abb1c62ca4f6a71195847ee2bf9aef584f9a3ef",
+    "chars": 164641,
+    "chapters": 13,
+    "source": "Wikisource (https://fa.wikisource.org/wiki/%DA%A9%D9%84%DB%8C%D8%A7%D8%AA_%D8%B3%D8%B9%D8%AF%DB%8C/%DA%AF%D9%84%D8%B3%D8%AA%D8%A7%D9%86/%D8%AF%DB%8C%D8%A8%D8%A7%DA%86%D9%87)"
+   },
+   {
+    "id": "bustan",
+    "title": "بوستان",
+    "author": "سعدی",
+    "year": 1257,
+    "blurb": "Saadi's Orchard: stories and advice in verse, on justice, love and modesty.",
+    "file": "fa/bustan.json.gz",
+    "bytes": 119674,
+    "sha256": "00589fdc1fda0513d9ca52c5187968efa95b6c43645c5fcf438f3d4a3aaeecf1",
+    "chars": 211616,
+    "chapters": 222,
+    "source": "Wikisource (https://fa.wikisource.org/wiki/%DA%A9%D9%84%DB%8C%D8%A7%D8%AA_%D8%B3%D8%B9%D8%AF%DB%8C/%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86)"
+   },
+   {
+    "id": "divan-hafez",
+    "title": "دیوان حافظ",
+    "author": "حافظ",
+    "year": 1390,
+    "blurb": "The ghazals of Hafez, Persian's best-loved poet: wine, love and the hidden meaning of things.",
+    "file": "fa/divan-hafez.json.gz",
+    "bytes": 152824,
+    "sha256": "bde5709e23b4a210ee290b26e9fcaa7fb95155baef03d1ab6961881a9e218d97",
+    "chars": 277863,
+    "chapters": 494,
+    "source": "Wikisource (https://fa.wikisource.org/wiki/%D8%AF%DB%8C%D9%88%D8%A7%D9%86_%D8%AD%D8%A7%D9%81%D8%B8)"
+   },
+   {
+    "id": "robaiyat-khayyam",
+    "title": "رباعیات خیام",
+    "author": "عمر خیام",
+    "year": 1120,
+    "blurb": "Omar Khayyam's quatrains on wine, fate and the shortness of life, with the editors' notes on them.",
+    "file": "fa/robaiyat-khayyam.json.gz",
+    "bytes": 23991,
+    "sha256": "9d1d2c8be66420bb9f5e6983436c24194797c46660ebc42af61fcceb4e1463b0",
+    "chars": 45319,
+    "chapters": 178,
+    "source": "Wikisource (https://fa.wikisource.org/wiki/%D8%B1%D8%A8%D8%A7%D8%B9%DB%8C%D8%A7%D8%AA_%D8%AE%DB%8C%D8%A7%D9%85_%28%D8%AA%D8%B5%D8%AD%DB%8C%D8%AD_%D9%81%D8%B1%D9%88%D8%BA%DB%8C_%D9%88_%D8%BA%D9%86%DB%8C%29/%D8%A8%D8%B1%D8%AE%DB%8C%D8%B2_%D8%A8%D8%AA%D8%A7_%D8%A8%DB%8C%D8%A7%D8%B1_%D8%A8%D9%87%D8%B1_%D8%AF%D9%84_%D9%85%D8%A7)"
+   },
+   {
+    "id": "masnavi-1",
+    "title": "مثنوی معنوی، دفتر اول",
+    "author": "مولوی",
+    "year": 1260,
+    "blurb": "The first book of Rumi's Masnavi, from the song of the reed onwards: stories with a lesson.",
+    "file": "fa/masnavi-1.json.gz",
+    "bytes": 124910,
+    "sha256": "c0cbe1ad3c9bc942e2b6e6b479ea192734f9a9ae98a19b4d51e2208470326586",
+    "chars": 219829,
+    "chapters": 173,
+    "source": "Wikisource (https://fa.wikisource.org/wiki/%D9%85%D8%AB%D9%86%D9%88%DB%8C_%D9%85%D8%B9%D9%86%D9%88%DB%8C/%D9%86%DB%8C%E2%80%8C%D9%86%D8%A7%D9%85%D9%87)"
+   },
+   {
+    "id": "shahnameh-1",
+    "title": "شاهنامه، جلد اول",
+    "author": "فردوسی",
+    "year": 1010,
+    "blurb": "Ferdowsi's Book of Kings, the first volume: the first kings, Zahhak, Fereydun, Zal and the young Rostam.",
+    "file": "fa/shahnameh-1.json.gz",
+    "bytes": 169272,
+    "sha256": "6db462ee88fc9d0f72a6988ebc46373c9dece1071e9abde8b1ef26a13d868396",
+    "chars": 328303,
+    "chapters": 129,
+    "source": "Wikisource (https://fa.wikisource.org/wiki/%D8%B4%D8%A7%D9%87%D9%86%D8%A7%D9%85%D9%87_%28%D8%AA%D8%B5%D8%AD%DB%8C%D8%AD_%DA%98%D9%88%D9%84_%D9%85%D9%84%29/%D8%A2%D8%BA%D8%A7%D8%B2_%DA%A9%D8%AA%D8%A7%D8%A8)"
+   },
+   {
+    "id": "kalila-dimna",
+    "title": "کلیله و دمنه",
+    "author": "نصرالله منشی",
+    "year": 1144,
+    "blurb": "Animal fables of wisdom and politics, in Persian's classic prose version.",
+    "file": "fa/kalila-dimna.json.gz",
+    "bytes": 200794,
+    "sha256": "b7e90125dfb826859d71b00340fe996cae507ec341bed2046373abc623324962",
+    "chars": 393983,
+    "chapters": 20,
+    "source": "Wikisource (https://fa.wikisource.org/wiki/%DA%A9%D9%84%DB%8C%D9%84%D9%87_%D9%88_%D8%AF%D9%85%D9%86%D9%87)"
+   },
+   {
+    "id": "charand-parand",
+    "title": "چرند و پرند",
+    "author": "علی‌اکبر دهخدا",
+    "year": 1907,
+    "blurb": "Dehkhoda's funny newspaper columns from the Constitutional Revolution, written as people talked.",
+    "file": "fa/charand-parand.json.gz",
+    "bytes": 87736,
+    "sha256": "5239d5c9c35a6f76a9bfabaeb54d2da6776e3c7c8f410554090099671ff0b9f2",
+    "chars": 170342,
+    "chapters": 30,
+    "source": "Wikisource (https://fa.wikisource.org/wiki/%DA%86%D8%B1%D9%86%D8%AF_%D9%88_%D9%BE%D8%B1%D9%86%D8%AF)"
+   },
+   {
+    "id": "se-qatre-khun",
+    "title": "سه قطره خون",
+    "author": "صادق هدایت",
+    "year": 1932,
+    "blurb": "Sadegh Hedayat's short stories: an asylum, a family in Tehran, a mirror that breaks.",
+    "file": "fa/se-qatre-khun.json.gz",
+    "bytes": 81759,
+    "sha256": "c926921d08f82cc17ef7d303cdac34c1001279d21b3892b822eec716e2994b98",
+    "chars": 160673,
+    "chapters": 11,
+    "source": "Wikisource (https://fa.wikisource.org/wiki/%D8%B3%D9%87_%D9%82%D8%B7%D8%B1%D9%87_%D8%AE%D9%88%D9%86)"
+   },
+   {
+    "id": "parvin-qasaid",
+    "title": "قصاید پروین اعتصامی",
+    "author": "پروین اعتصامی",
+    "year": 1935,
+    "blurb": "Parvin E'tesami's poems on justice, the poor and the soul.",
+    "file": "fa/parvin-qasaid.json.gz",
+    "bytes": 44592,
+    "sha256": "696f96eb5339010e311a0656f3462b398b6b6a4c232295e5a286720d51f2f14b",
+    "chars": 79251,
+    "chapters": 42,
+    "source": "Wikisource (https://fa.wikisource.org/wiki/%D9%BE%D8%B1%D9%88%DB%8C%D9%86_%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C_%28%D9%82%D8%B5%D8%A7%D8%A6%D8%AF%29)"
+   }
   ]
  }
 }

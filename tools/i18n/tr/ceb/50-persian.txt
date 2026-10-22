@@ -1,0 +1,16 @@
+9093211c Font nga Vazirmatn (Persiano)
+d356a6d9 BBC sa Persiano
+72e254b5 Iran International
+3f48fe62 Voice of America
+11a88834 Hamshahri, Tehran
+aae993aa Khabar Online
+f59e30d5 Asr Iran
+a279abfa Shargh
+5286f70d Etilaatroz, Afghanistan
+180e505b Radio Azadi, Afghanistan
+e5b9046d Wikipedia sa Persiano
+b0af5088 ang mga pulong sa Persiano ug mga talaan sa berbo sa Wiktionary, uban ang ihap sa mga pulong sa wordfreq
+c6915368 Afghanistan
+279c771a Tajikistan
+889224e3 Iran
+df443b7e Dili tagdon sa pagpangita ang mga marka sa mubong bokal, ang tunga nga espasyo sulod sa mga pulong (ZWNJ) ug ang Arabikong pagsulat sa k ug y (ك ي imbes ک ی).

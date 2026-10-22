@@ -1,0 +1,16 @@
+9093211c Fuente Vazirmatn (persa)
+d356a6d9 BBC en persa
+72e254b5 Iran International
+3f48fe62 Voz de América
+11a88834 Hamshahri, Teherán
+aae993aa Khabar Online
+f59e30d5 Asr Iran
+a279abfa Shargh
+5286f70d Etilaatroz, Afganistán
+180e505b Radio Azadi, Afganistán
+e5b9046d Wikipedia en persa
+b0af5088 las palabras persas y las tablas de verbos de Wiktionary, con los recuentos de palabras de wordfreq
+c6915368 Afganistán
+279c771a Tayikistán
+889224e3 Irán
+df443b7e La búsqueda no tiene en cuenta las marcas de vocales breves, el medio espacio dentro de las palabras (ZWNJ) ni las grafías árabes de k e y (ك ي por ک ی).

@@ -10,8 +10,8 @@ import {
 import { cacheKey, define, markWord, schemaFor, systemPrompt, SCHEMA } from "../../web/js/definer.js";
 import { endsSentence, EDGE_PUNCT } from "../../web/js/wordlookup.js";
 
-test("thirteen languages, each with everything the screens need", () => {
-  assert.deepEqual(LANGUAGE_CODES, ["es", "ar", "fr", "ja", "zh", "ru", "it", "tl", "pt", "ca", "ceb", "th", "en"]);
+test("fourteen languages, each with everything the screens need", () => {
+  assert.deepEqual(LANGUAGE_CODES, ["es", "ar", "fr", "ja", "zh", "ru", "it", "tl", "pt", "ca", "ceb", "th", "fa", "en"]);
   for (const code of LANGUAGE_CODES) {
     const L = LANGUAGES[code];
     for (const key of ["name", "native", "hello", "hi", "search", "word", "sample", "pageSample", "standard", "note"]) {
@@ -19,7 +19,7 @@ test("thirteen languages, each with everything the screens need", () => {
     }
     assert.equal(L.greet.length, 3);
     assert.ok(L.test.marked.includes(`⟦${L.test.word}⟧`), `${code} test sentence marks its word`);
-    assert.equal(L.dir, code === "ar" ? "rtl" : "ltr");
+    assert.equal(L.dir, code === "ar" || code === "fa" ? "rtl" : "ltr");
   }
   assert.equal(langAttrs("ar"), 'lang="ar" dir="rtl"');
   assert.equal(langAttrs("ja"), 'lang="ja" dir="ltr"');

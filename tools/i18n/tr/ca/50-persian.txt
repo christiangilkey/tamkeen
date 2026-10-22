@@ -1,0 +1,16 @@
+9093211c Tipus de lletra Vazirmatn (persa)
+d356a6d9 BBC en persa
+72e254b5 Iran International
+3f48fe62 Veu d'Amèrica
+11a88834 Hamshahri, Teheran
+aae993aa Khabar Online
+f59e30d5 Asr Iran
+a279abfa Shargh
+5286f70d Etilaatroz, Afganistan
+180e505b Ràdio Azadi, Afganistan
+e5b9046d Viquipèdia en persa
+b0af5088 les paraules perses i les taules de verbs del Viccionari, amb els recomptes de paraules de wordfreq
+c6915368 Afganistan
+279c771a Tadjikistan
+889224e3 Iran
+df443b7e La cerca no té en compte els signes de vocals breus, el mig espai dins de les paraules (ZWNJ) ni les grafies àrabs de k i y (ك ي per ک ی).

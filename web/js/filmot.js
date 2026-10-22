@@ -30,7 +30,7 @@ const FILMOT_CODES = { tl: ["fil", "tl"], zh: ["zh", "zh-Hans", "zh-CN", "zh-Han
                        pt: ["pt", "pt-BR", "pt-PT"] };
 // Other English names a language may go by in Filmot's list.
 const OTHER_NAMES = { tl: ["Filipino"], zh: ["Chinese (Simplified)", "Chinese (Traditional)"],
-                      pt: ["Portuguese", "Portuguese (Brazil)"], ceb: ["Cebuano"] };
+                      pt: ["Portuguese", "Portuguese (Brazil)"], ceb: ["Cebuano"], fa: ["Farsi"] };
 
 /** The language code Filmot is asked for: the caption code for the app's language `lang`. */
 export function filmotLang(lang) {

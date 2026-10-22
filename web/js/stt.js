@@ -199,7 +199,7 @@ const LANGUAGE_CODES = { arabic: "ar", spanish: "es", french: "fr", japanese: "j
                          english: "en", turkish: "tr", persian: "fa", urdu: "ur", hindi: "hi", german: "de", italian: "it",
                          portuguese: "pt", korean: "ko", hebrew: "he", indonesian: "id", dutch: "nl",
                          tagalog: "tl", filipino: "tl", catalan: "ca", valencian: "ca", thai: "th", cebuano: "ceb",
-                         bisaya: "ceb" };
+                         bisaya: "ceb", farsi: "fa" };
 
 // Whisper doesn't know Bisaya (Cebuano): it is asked for its closest relative, Tagalog, and the
 // opening prompt (PROMPTS in mobile/src/js/transcribe-service.js, INITIAL_PROMPTS in app/languages.py)

@@ -1,0 +1,200 @@
+462b6606 شتاب‌دهی GPU (اختیاری)
+2efa49cc تنظیم پیاده‌سازی متن
+7feeb161 پیاده‌سازی متن از مدل تشخیص گفتار Whisper شرکت OpenAI استفاده می‌کند که کاملاً روی رایانهٔ شما اجرا می‌شود. مدل یک بار دانلود می‌شود. یک اندازه را پایین انتخاب کنید. بعداً در تنظیمات می‌توانید مدل‌های دیگر را دانلود یا حذف کنید.
+bc26ec8d رایانهٔ شما
+1ddc3d58 {0} · {1} · {2} گیگابایت رم
+a6a63185 GPU
+8cdc1fa4 پیشنهاد: {0}.
+fefb3326 یک مدل انتخاب کنید
+27aa7d41 رایانهٔ من برای این کار خیلی کند است
+16efb9b4 بگذارید یک ارائه‌دهندهٔ ابری به جایش متن‌ها را بنویسد (چند سنت برای هر ساعت صدا)
+9ff4b446 برای ادامه یک مدل دانلود کنید، یا بالا یک ارائه‌دهندهٔ ابری تنظیم کنید. هنگام دانلود مدل می‌توانید از برنامه استفاده کنید.
+9713faa5 شروع استفاده از برنامه ←
+fd23eda9 Unsa’y Cheka Sa Parlor
+f9a11c2f Lyle Go and Shaneee | TAGM Marketing Solutions Inc.
+66f216cc UCSP، کوتاه‌شدهٔ Unsa y Cheka Sa Parlor?، پادکستی است که از عبارتی محبوب در زبان عامیانهٔ همجنس‌گرایان بیسایا الهام گرفته، که در مناطق ویسایاس و میندانائو فیلیپین رایج است. میزبانانش لایل گو و شانی هستند و این عبارت در انگلیسی تقریباً یعنی «What s the tea?» (چه خبر؟).
+c9476ace Crosseyed
+416e5e3c Gary Monton | Bisaya Podcast
+b7f0771c Crosseyed Podcast - گفتگو با آدم‌های الهام‌بخش در شهر کاگایان د اورو. Crosseyed Convos - گپی سرگرم‌کننده دربارهٔ هر موضوعی که من و دوستانم جالب و سرگرم‌کننده می‌دانیم.
+572329d1 Dili Ni Advice - A Bisaya Podcast
+6c8793d1 Darling and Kringkay The Pod Network Entertainment
+e6feaa11 Barok and Takya Bisaya Podcast
+30e343f4 Barok & Takya
+83f1bce5 Barok and Takya Bisaya Podcast یک پادکست فیلیپینی به زبان سبوانو است. دربارهٔ همه چیز حرف می‌زنند، از خانواده و سنت تا جامعه و فرهنگ فیلیپین، به زبان بیسایا. منتظر چه هستید؟ همین حالا پادکست فیلیپینی به زبان یا گویش سبوانو را دانلود کنید: Barok and Takya Bisaya Podcast.
+f6112f30 Cge Storya Ta: A Bisaya Couple Podcast
+8c29ec7d Yin + Nol
+65d7024f به Cge, Storya Ta: A Bisaya Couple Podcast خوش آمدید! هر هفته یک قسمت تازه می‌گذاریم. راحت‌ترین صندلی‌تان را بردارید، کفش‌هایتان را دربیاورید و آماده شوید وارد دنیای کوچک یین و نول شوید. ترن هوایی‌ای از خنده، درس‌های زندگی و تصمیم‌های گاه‌به‌گاه عجیب، در واقع هر چیزی زیر آسمان، همه بی‌متن و بی‌سانسور. پس کمربندها را ببندید، چون این پادکستی است که هر چیزی ممکن است در آن پیش بیاید، و احتمالاً پیش می‌آید!
+49bc6e59 Brighter Bisaya
+3534296f Brighter Bisaya یک شبکهٔ رسانه‌ای آنلاین مناسب خانواده است که می‌خواهد با برنامه‌های گفتگومحور هوشمند و خلاق، بیسایاها و سبوانوها را در همهٔ سنین آگاه کند، آموزش دهد و الهام ببخشد. این شرکت با شور و جدیت ولاگ‌ها و پادکست‌های ساده و ملموسی دربارهٔ هنر، آموزش، فلسفه، علم، فناوری، الهام و سرگرمی به زبان‌های سبوانو، بیسایا، تاگالوگ، انگلیسی و فیلیپینی منتشر می‌کند.
+e59b5c99 Kasikas: Bisaya Podcast
+2f359fd1 Ace Vincent Sevilla
+b819d08f Kapoy explain man. برای سفارش تبلیغ، نظرها یا پیشنهاد موضوع، از راه sevillaacevincent@gmail.com با ما تماس بگیرید.
+a4b3025e Sunday Mass Readings in Cebuano
+41126fc0 Ben
+cc4289fa خوانش‌های مراسم یکشنبه به سبوانو | Mga pagbasa sa Santos nga Misa sa Binisaya. قسمت‌های تازه دوشنبهٔ پیش از مراسم منتشر می‌شوند. نظرهایتان را به sundaymassreadings@gmail.com بفرستید. سپاس ویژه از Fr. Alvin، Lorena، Celine، Aimee، Belinda، Ivy، Praxi، Fr. Gerry، Belton، Agnes و Deacon Roman.
+2a59645c Storytelling with Ziwi (Bisaya Podcast)
+35a7384d Ziwi Tea
+ee681aee پادکستی دربارهٔ داستان‌های گوناگون. زیوی از تجربه‌های شخصی و درس‌های زندگی‌اش می‌گوید. #Bisaya #Storytelling #Philippines #ChikaMinute #Chikahan
+c0da64f1 Wanbats Ra Besh | Bisaya Society & Culture
+c65ee463 Jna and Ju
+5561133e جینا و جاستین دوستان صمیمی‌ای از استان آفتابی سبو هستند. این دو دوست دوران دبیرستان که حالا اواخر بیست‌سالگی‌اند، دربارهٔ از پس بزرگسالی برآمدن، یاد گرفتن و کنار گذاشتن مفهوم‌ها و اولویت‌بندی حرف می‌زنند. اگر می‌خواهید همان حس گرم و آشنایی را تجربه کنید که گفتگوی صمیمانه با یک دوست قدیمی می‌دهد، در این پادکست تازه همراهشان شوید. قسمت‌های تازه جمعه‌ها! x برایمان قهوه بخرید در ko-fi.com/wanbatsrabesh ☕️ هیچ‌کدام از موسیقی‌ها مال ما نیست و از Audionautix.com است.
+51f2914b Bisaya Jokes!
+78a5056a DJ Bisdak
+a6bc3cb4 Podcast para pakatawa sa mga bisdak!
+5f38602a NAYSJUAN SESSIONS | Binisaya Podcast
+cd567294 JUAN MARCUZ TIMAY
+16a70550 Ang naysjuan paminawon nga Binisaya o Bisaya podcast 20 minutes before sa atoang naysjuan nga pagkatulog. Busa, kon Bisaya ta o kasabot tag Binisaya nga pinulongan ug kon trip nato adunay makat-onan, paminawa na tawon nato ning podcast ni Juan. Diri gastorya tag mga estoryahanan nga praktikal ug mapuslanon nga makatabang sa tanan, mapabata man o mapatiguwang, aron mas mapasayon ang pagkinabuhi. ➖➖➖➖➖ JUST BUY ME A COFFEE: buymeacoffee.com/JUANMARCUZTIMAY
+5ee1603d Purok Pabula Ph
+155acb68 p b Purok Pabula PH /b mao ni ang lugar sa tinuod nga istorya—walay script, walay arte, diretso ra. /p p /p p Dinhi, lain-lain mi ug panan-aw—naa’y abogado, naa’y pilosopo, naa’y engineer, ug naa pud mi’y mga kasinatian sa kinabuhi nga among gidala sa lamesa. Kada episode, among hisgutan ang mga butang nga atong madunggan adlaw-adlaw—fake news, politika, kultura, ug mga tinuohan nga atong gidak-an. /p p /p p Dili ni perpekto. br / Dili ni pina-polished. br / Pero tinuod ni. /p p /p p Murag istorya ra sa purok—pero naay unod. /p p /p p Kay usahay, dili klaro ang kamatuoran. br / Ug usahay, ang
+6606f08e Kinabuhing Kristohanon: a Wali Bisaya Preaching
+42bb34c3 Barok and Takya
+88b9b348 Welcome sa Kinabuhing Kristohanon, usa ka Wali Bisaya Preaching nga magdala kanimo sa panaw sa pagtuo, espiritwalidad, ug komunidad. Ang among pasundayag kay usa ka talagsaon nga pagsagol sa mga tinuohan, ang Pulong sa Dios Bible, ug mga kasinatian nga makatandog sa kasingkasing sa mga Pilipinong Kristiyano. Ang matag episode nagsusi sa atong pagtuo, magsuhid sa lawom nga epekto sa Kristiyanismo sa atong adlaw-adlaw nga kinabuhi. Atong hisgotan ang kamahinungdanon sa pagsimba, ang esensya sa serbisyo sa komunidad, ug ang makapabag-o nga gahum sa espirituhanong mga buhat. Ang atong mga panagsul
+2d2313a6 Bisaya In America
+9c57b087 Genie H
+a2a821cf Unsa Man Jud
+42054007 DD & Friends
+2f32eaa3 Unsa Man Jud Podcast یک پادکست بیسایا یا برنامهٔ گفتگو به زبان سبوانو است دربارهٔ چیزهای binutbot و binuang. گاهی دربارهٔ چیزهای sineryoso هم حرف می‌زنیم، ولی کی دوست دارد به آن گوش کند؟ پس به جایش از چیزهای سرگرم‌کننده می‌گوییم. خلاصه، اگر این زبان را می‌فهمید، به ما بپیوندید!
+a8f21295 Bisaya Thoughts
+aa746ddb Phil Andrew
+e1e3cd8e These are my Bisaya thoughts about anything random sa life, family, love, work, or even sa mga nahitabo ron sa Pilipinas. But basically, ganahan ra jud ko mag-yaw2x. Mainly because ganahan ko ipagawas akong mga gibati ug mga na learn sa life given nga hapit nako mag 40. I m using this as an outlet ug part ni siya sa akong journey to be a better version of myself. If ganahan mo mu-journey with me, hope makatabang ni ninyo. Reach out if ganahan mo makig-chika or naa mo questions or magpa advice mo ug stranger like me: philampong@gmail.com IG: instagram.com/philandrew23 FB: facebook.com/phile
+026bb096 Coffee Break with Juppe
+9708095f Jupiter Baguioso
+ad54f954 Coffee Break with Juppe مکث پنج‌دقیقه‌ای شما از شلوغی روز است. فکرهای گوناگون، داستان‌های کوتاه و تأمل‌های صادقانه، کوتاه و ساده، و با قهوه بهتر. برای سهم روزانهٔ گپ سبک و حال‌وهوای واقعی، پخش را بزنید.
+5d5efc1a NAYSJUAN DAILY,
+aa91b142 Bisaya Podcasts PH
+c4ff21cc سلام! به Bisaya Podcasts PH خوش آمدید! پیدا کردن پادکست بیسایا خیلی سخت است. پیدا کردن شنونده از آن هم سخت‌تر است، به‌ویژه اگر پادکست بیسایا باشید. این پادکست می‌خواهد پادکست‌های بیسایای سراسر دنیا را کنار هم بیاورد تا بتوانیم به‌راحتی با پادکسترها و شنونده‌های دیگر آشنا و مرتبط شویم. می‌دانم پیدا کردن شنونده سخت است، به‌ویژه با زبان مادری‌مان. ولی با هم می‌توانیم سکوی‌مان را بزرگ‌تر کنیم.
+58610005 Ptr. Stanley Pilapil
+29f7f4bc شبانی مردم خدا با موعظه و آموزش مؤثر کلام خدا، تا برای شناختن، دوست داشتن، خدمت کردن و اعلام عیسی آماده شوند.
+94e606a0 Bisaya Vibes by Team Conato PH
+7e5120d9 گفتگو و واکنش با حال خوب دربارهٔ مسائل روز، خانواده، رابطه‌ها و شوخ‌طبعی بیسایا.
+b37cc66f BANHA | Istorya Ug Uban Pa - Bisaya Podcast
+eb990eab Danrev Tipdas
+8807c90a BANHA | Istorya Ug Uban Pa PODCAST is a Bisaya Podcast Kamo naa moy mga sugilanon. Mga istorya nga basin dili lang pud diay ikaw ang naka-agi. Kami naa pud mi amua nga mga sugilanon.TARA! Tabi ta! Let’s Banha. Let Our Stories Make the Noise. Wa ta kabalo sa atuang pag share we find hope and healing in our stories. Maminaw mi, no judgment here. Share lang gud, bisan unsa pa na imuhang sugilanon sa kinabuhi andam mi maminaw. Know that ikaw ug ang imuhang sugilanon it matters. TARA! BANHA NATA! ISTORYA UG UBAN PA!
+93347587 Bisaya Espesyal
+e785744b Mr. Wazzquiin
+8d6c5728 This podcast talks about relationships, lifestyle and more about Bisaya. Kung Bisaya ka, Espesyal ka! I am happy to bear with you and please be with me Para Mas bongga! We are about discover the world around us Kaya kapit Lang kapatid at h wag Kang aalis. This is Mr. Wazzquiin ang inyung gwapo nga host!
+ef9504fa TTB Cebuano Pagtuon sa Bibliya (Cebuano)
+97e8c475 THRU the BIBLE
+75e6f3b4 Hibaloi ang tibuok Pulong sa Dios pinaagi sa kasaligan nga pagtulon-an sa Biblia sa THRU the BIBLE sa Cebuano. Ang matag yugto naghatag og tin-aw ug praktikal nga pagtulon-an aron matabangan kang masabtan ang Kasulatan ug magamit kini sa adlaw-adlaw nga kinabuhi. Panaw sa tibuok Biblia, usa ka leksiyon matag higayon, uban sa mga tigpaminaw sa tibuok kalibotan. Pagkat-on pa sa TTB.BIBLE
+5223eb1f Balaan nga Bibliya - Cebuano (Cebuano)
+35b90dfb International Scripture Ministries
+861fa74e Paminawa ang Balaang Bibliya sa Cebuano nga pinulongan sa klaro, buhi, ug bisan kanus-a, bisan asa. Gihatag sa International Scripture Ministries (ISM), kining Audio Bible nagdala sa Pulong sa Dios ngadto sa kinabuhi pinaagi sa gamhanang pagbasa, musika, ug maayong disenyo sa tingog, aron masinati nimo ang Kasulatan sa pinulongan sa imong kasingkasing. Bisan kung bag-o pa ka nagtuon sa Bibliya o nagtinguha kang motubo sa imong pagtuo, kining podcast makatabang kanimo sa pagpaminaw sa tibuok Bibliya, kapitulo matag kapitulo. Niining Audio Bible, imong makit-an: • Ang Balaang Bibliya sa Cebuano
+e1cc70f2 Ang Santos nga Ebanghelyo sa Matag Adlaw
+c7f849a8 Roger W.
+41739ec2 Ang balaang pulong sa tanang panahon
+bb6ed1ae Teacher D
+4cf306d2 Daisy Lynn Robin
+2473e96b مقدمه
+9c355e53 Sugboanon (Cebuano) nga Bibliya
+0171127e Maria Chona Gabotero Labrador
+4195c313 برای دسترسی صوتی به کتاب مقدس سبوانو.
+ffd1e2bb Cebuano / Bisaya: Pagkatinon-an sa Biblia
+01eb8066 Paul J. Bucknell
+4b92fc32 Mga pagtulon-an sa pagkatinon-an sa Biblia sa Cebuano/Bisaya gikan sa Biblical Foundations for Freedom. Ang D1 Ang Agos nagpatin-aw sa tulo ka ang-ang sa espirituhanong pagtubo ug unsaon pagtabang sa uban nga motubo. Ang D2 Mahimong Usa ka Magbubuntog nagtudlo unsaon pag-atubang sa kabalaka, garbo, kailibgon, kasuko, kasub-anan, ug uban pang pagsulay pinaagi sa kamatuoran ug grasya sa Dios.
+75d7f598 Bored Bisayas
+75891209 Hello there! We re Luke and Mona. We re a couple of Bisayas. AY teka. Buset. Ga-Iningles na man hinuon mi nga Bisaya gani. Aw. So, bale mga Bisaya mi unya kay bored man mi so magstorya mi about stuff. Mga butang-butang sa kalibutan nga gusto namo storyahan. Topics are anything under the sun. Like how kulang sa height si Mona ug sobra sa weight si Luke... at one point in time. Basically, just another Bisaya podcast. Or you know... a place where Luke and Mona talk in private and are public at the same time. You can email us at boredbisayas@gmail.com or follow our other soc med accounts.
+fe9979fa Mga Balak Sugbuanon
+7f8b3682 Jesson Morata
+883032a0 Tipiganan sa mga Balak Sugbuanon
+bb8c2d74 Unang Sugilanon gikan sa Librong 'Larawan': Si Amboy, ang Palahubog by Vicente Rama (1887 - 1956)
+59e8c6a1 Sugilanon nga gisuwat ni Senador Vicente Rama bahin kang Amboy nga palahubog, ug ang iyang pamahala nga kinabuhi tungod sa iyang pagkapalahubog. Kini ay una nga istorya sa daghan nga nahabutang na istorya sa librong 'Larawan'. (Summary by April Gonzales)
+d47f0ec5 Hisgutanan: Bisaya nga Podcast ni Lewey Jimoya
+8f03afd2 Lewey Jimoya
+6b4e3b92 Usa ka Bisaya nga sibya kung aha maghisgot-hisgot mi sa nagkalain-laing mga butang! Hosted by Lewey Jimoya
+e450b3f0 Binisaya nga tulumanon
+920927d6 Bai Maloy
+8c1c3ec7 Maka hatag ug inspirasyon ug kalingawan sa mga kaigsoonan nga naa sa lagyu nga dapit ug maka hupay sa ilang kamingaw.
+d9cc6b1c {0}٪ خوانده‌شده
+e078f34f {0} ساعت {1} دقیقه مانده
+a99cdd56 {0} دقیقه مانده
+15710324 حروف چینی (هان)
+ba1d0a64 هیراگانا
+6842e5a7 کاتاکانا
+1cb09555 سیریلیک
+348d0069 عبری
+59d5f5b1 یونانی
+bd7d4b95 هانگول
+c3376a97 دوناگری
+536c16bd {0} روز
+2985a39c {0} هفته
+682728dc {0} ماه
+67e282ba {0} سال
+45bb7a2d کمتر از یک دقیقه
+2c4f87a8 کمتر از یک دقیقه
+42a17b06 حدود {0}
+a5d14ec2 حدود {0}
+95a4caee {0}–{1} دقیقه
+a8bf7da8 اندازه‌گیری‌شده روی این دستگاه
+60446ee5 از پاسخ‌های گذشتهٔ شما
+ca5a6508 یک حدس اولیه تا وقتی چند تای دیگر را مرور کنید
+6403f2b7 تازه
+b83c4cda مرورها
+901df5e4 هدف امروز
+35c77c57 (یک حدس اولیه)
+f922fb4c {0} مانده برای امروز{1}
+2081c97d امروز همه تمام شد
+b422c28b امروز چیزی موعدش نرسیده
+88da3d5b فرستادن به {0}
+4ac22389 افزودن «{0}» به {1} برای امروز (جایش را در تنظیمات انتخاب کنید)
+f4896ede امروز: کلمه‌های تازه {0} از {1}، مرورها {2} از {3}. {4}. تغییر تعداد کلمه‌های تازه در روز
+031683ab فقط {0} کلمهٔ تازه منتظر است.
+aa175635 {0}مرورها همان کلمه‌هایی هستند که امروز موعدشان رسیده. در درازمدت برای هر کلمهٔ تازه حدود ۱۰ مرور در روز انتظار داشته باشید (راهنمای انکی): {1} کلمهٔ تازه در روز ≈ {2} مرور در روز.
+4ee48926 زمان هر کلمه، با حساب دفعه‌هایی که کلمهٔ فراموش‌شده برمی‌گردد: حدود {0} برای یک کلمهٔ تازه، {1} برای یک مرور ({2}).
+a0b74487 کار فرستاده نشد.
+d4928a6e هیچ کلمهٔ هم‌آوایی برنگشت. دوباره امتحان کنید.
+3997732f بگویید
+4fc6e7f7 گویندهٔ بومی
+fb8207e8 تمرین گفتن آن (P): بگوییدش، بعد جمله و صدای خودتان را بشنوید. تلاش شما ذخیره نمی‌شود.
+a679d9ee تمکین برای شنیدن صدای شما هنگام گفتن کلمه اجازهٔ استفاده از میکروفون لازم دارد.
+a970acc5 صدایتان را نشنیدم. دوباره امتحان کنید، کمی نزدیک‌تر به میکروفون.
+7bea803a الان نشد از میکروفون استفاده کرد.
+c9c6fe67 Google Tasks
+67e5c742 Onyx
+e79101e5 به Onyx فرستاده شد: {0}.
+0e90681b در پنجرهٔ مرورگری که باز شد به تمکین اجازهٔ افزودن کار بدهید، بعد دوباره «فرستادن» را بزنید.
+6b514385 کار مرور امروز در Google Tasks به‌روز شد: {0}.
+4d263331 به Google Tasks اضافه شد: {0}.
+d8803f2b مرور تمکین ({0} دقیقه)
+37db2048 کارت‌های شما
+d567fe70 {0} مانده برای امروز: حدود {1}، به برآورد تمکین.
+4e0443a6 این کتاب بدون متنش رسید، پس اضافه نمی‌شود.
+e3a62ea0 کلمه‌هایش نرسید، پس چیزی برای افزودن نیست.
+8b34acaa این نوع چیز را نمی‌شود اضافه کرد.
+4e81fbf0 ۳ تا ۲۰ حرف، عدد، نقطه یا خط زیر.
+c9c9d7d4 بخش‌های آنلاین بارگذاری نشدند.
+1d7a1d2e به سرویس آنلاین دسترسی پیدا نشد. اتصال اینترنت را بررسی کنید.
+79ec683f نام‌های کاربری {0}
+ad5eb13f اول وصل شوید.
+5fc4af92 «{0}» گرفته شده. یکی دیگر امتحان کنید.
+d3e6897a (هنوز نام کاربری ندارد)
+ed88ebe6 نام کاربری دوستتان را بنویسید.
+42f88043 اول وصل شوید (تنظیمات ← دوستان و اشتراک‌گذاری).
+76ece8da اول نام کاربری خودتان را انتخاب کنید (تنظیمات ← دوستان و اشتراک‌گذاری).
+4e2bf6f2 کسی به نام «{0}» نیست. نام‌های کاربری باید دقیق باشند (ولی حروف بزرگ و کوچک فرقی ندارد).
+967a7678 این خود شمایید!
+0d09c4f7 شما و {0} از قبل دوست هستید.
+993bd149 از قبل برای {0} درخواست فرستاده‌اید.
+ff44a73d شما و {0} از قبل درخواستی در انتظار دارید.
+58f90a69 یک ویدیو یا آهنگی از YouTube Music
+97d30338 یک آهنگ، آلبوم، فهرست پخش یا قسمت پادکست (Share ← Copy link)
+d23e8c8c یک آهنگ، آلبوم یا فهرست پخش (Share ← Copy Link)
+937e2007 صفحهٔ یک فیلم، سریال یا شخص
+e016aab6 یک ریل (Share ← Copy link). دوستان آن را در پخش‌کنندهٔ ریلز تمکین باز می‌کنند
+ca2da724 هر مطلب یا صفحه‌ای. دوستان آن را در خوانندهٔ تمکین باز می‌کنند
+bdfd8662 هر قسمتی از کتابخانهٔ خودتان: از دکمهٔ 🎧 روی نوار استفاده کنید
+52c54389 اپل موزیک
+094b763b پیدا نشد
+6c7af22a آن پیوند اینستاگرام یک ریل نیست. روی خود ریل از Share ← Copy link استفاده کنید.
+0449c7b9 آن صفحه باز نشد. پیوند را بررسی کنید.
+9c5f935e آن را در {0} پیدا نکردیم. پیوند را بررسی کنید.
+2a0cb6b4 اسپاتیفای
+effea02d فقط به کسانی که در فهرست دوستانتان هستند می‌توانید پیام بدهید.
+3a18cb8c اول پیامی بنویسید.
+79b09ca3 پیام صوتی فرستاده نشد: {0}
+394821e7 چیزی برای اشتراک‌گذاری نیست.
+81058adf برای فرستادن در یک پیام خیلی بزرگ است.
+9c6fefee آن فایل تصویری نیست که برنامه بتواند بخواند. JPG یا PNG را امتحان کنید.
+c1004cfe آن تصویر آماده نشد.
+9c4b6c33 تصویر بارگذاری نشد: {0}
+c3441e47 ۲ تا ۵ حرف یا عدد، بدون فاصله.
+f70d9377 انجمنی با آن نام از قبل هست. نام دیگری امتحان کنید.

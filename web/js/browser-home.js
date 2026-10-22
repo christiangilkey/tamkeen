@@ -227,13 +227,34 @@ export const NEWS = {
     ["The Verge", "https://www.theverge.com/", "Technology news"],
     ["Wikipedia", "https://simple.wikipedia.org/", "Easier: Simple English Wikipedia"],
   ],
+  // (all checked live 2026-10-21: in Persian and answering from outside Iran; ISNA and IRNA answered with an
+  // empty page, Tolo News and IranWire with a robot check, so they are left out)
+  fa: [
+    ["بی‌بی‌سی فارسی", "https://www.bbc.com/persian", "BBC Persian"],
+    ["یورونیوز", "https://parsi.euronews.com/", "Euronews"],
+    ["دویچه وله فارسی", "https://www.dw.com/fa-ir/", "Deutsche Welle"],
+    ["رادیو فردا", "https://www.radiofarda.com/", "Radio Liberty"],
+    ["ایران اینترنشنال", "https://www.iranintl.com/", "Iran International"],
+    ["صدای آمریکا", "https://ir.voanews.com/", "Voice of America"],
+    ["همشهری آنلاین", "https://www.hamshahrionline.ir/", "Hamshahri, Tehran"],
+    ["خبرآنلاین", "https://www.khabaronline.ir/", "Khabar Online"],
+    ["عصر ایران", "https://www.asriran.com/", "Asr Iran"],
+    ["شرق", "https://www.sharghdaily.com/", "Shargh"],
+    ["دنیای اقتصاد", "https://donya-e-eqtesad.com/", "Business news"],
+    ["زومیت", "https://www.zoomit.ir/", "Technology news"],
+    ["ورزش سه", "https://www.varzesh3.com/", "Sport"],
+    ["اطلاعات روز", "https://www.etilaatroz.com/", "Etilaatroz, Afghanistan"],
+    ["رادیو آزادی", "https://da.azadiradio.com/", "Radio Azadi, Afghanistan"],
+    ["ویکی‌پدیا", "https://fa.wikipedia.org/", "Persian Wikipedia"],
+  ],
 };
 
 // Language names and the few words on the page, for the languages taught (the page itself is in
 // English, like the rest of the app; only the heading greets in the language).
 const NAMES = { ar: "Arabic", es: "Spanish", fr: "French", ja: "Japanese", zh: "Chinese", ru: "Russian", it: "Italian",
-                tl: "Tagalog", pt: "Brazilian Portuguese", ca: "Catalan", ceb: "Bisaya (Cebuano)", th: "Thai", en: "English" };
-const RTL = { ar: true };
+                tl: "Tagalog", pt: "Brazilian Portuguese", ca: "Catalan", ceb: "Bisaya (Cebuano)", th: "Thai", en: "English",
+                fa: "Persian" };
+const RTL = { ar: true, fa: true };
 
 export const hasNews = (code) => Object.prototype.hasOwnProperty.call(NEWS, code);
 

@@ -1,0 +1,16 @@
+9093211c Carattere Vazirmatn (persiano)
+d356a6d9 BBC in persiano
+72e254b5 Iran International
+3f48fe62 Voice of America
+11a88834 Hamshahri, Teheran
+aae993aa Khabar Online
+f59e30d5 Asr Iran
+a279abfa Shargh
+5286f70d Etilaatroz, Afghanistan
+180e505b Radio Azadi, Afghanistan
+e5b9046d Wikipedia in persiano
+b0af5088 le parole persiane e le tabelle dei verbi del Wikizionario, con i conteggi delle parole di wordfreq
+c6915368 Afghanistan
+279c771a Tagikistan
+889224e3 Iran
+df443b7e La ricerca ignora i segni delle vocali brevi, il mezzo spazio dentro le parole (ZWNJ) e le grafie arabe di k e y (ك ي al posto di ک ی).

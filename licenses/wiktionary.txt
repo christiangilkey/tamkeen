@@ -20,3 +20,8 @@ also takes the Bisaya words given in English entries' translation tables (the En
 sense it is a translation of) for words that have no Bisaya entry of their own. The English file keeps only
 common words and phrases made of them; Chinese spellings are linked to their simplified forms using
 CC-CEDICT's character table (CC BY-SA 4.0).
+
+The Persian word table (docs/lexicon/fa-lemmas.json.gz, made by tools/build_persian.py, also an optional
+download) is made from the same Wiktionary data: the Persian headwords, the forms in their conjugation and
+declension tables (which verb, noun or adjective each form belongs to) and each verb's present and past stem,
+with wordfreq's word counts (CC BY-SA 4.0) choosing which forms to keep. It is shared under CC BY-SA 4.0 too.

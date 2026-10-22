@@ -32,3 +32,4 @@ Public domain
 NVIDIA cuBLAS / cuDNN (optional download)
 Supabase JS client: Friends, chat and sharing
 Capacitor: the phone apps' frame around Tamkeen's screens
+Vazirmatn font (Persian)

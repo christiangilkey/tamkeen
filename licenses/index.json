@@ -27,5 +27,6 @@
   {"name": "FastAPI / Starlette / Uvicorn", "license": "MIT / BSD 3-Clause", "file": "fastapi.txt", "on": ["desktop"]},
   {"name": "feedparser", "license": "BSD 2-Clause", "file": "feedparser.txt", "on": ["desktop"]},
   {"name": "httpx", "license": "BSD 3-Clause", "file": "httpx.txt", "on": ["desktop"]},
-  {"name": "NVIDIA cuBLAS / cuDNN (optional download)", "license": "NVIDIA Software License", "file": "nvidia.txt", "on": ["desktop"]}
+  {"name": "NVIDIA cuBLAS / cuDNN (optional download)", "license": "NVIDIA Software License", "file": "nvidia.txt", "on": ["desktop"]},
+  {"name": "Vazirmatn font (Persian)", "license": "SIL Open Font License 1.1", "file": "vazirmatn.txt"}
 ]

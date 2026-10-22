@@ -65,6 +65,8 @@ export const RANDOM_WORDS = {
        "เกร็ดความรู้", "อธิบาย", "ทำอาหาร", "กีฬา", "ข่าว", "พอดแคสต์", "กิจวัตร", "ครอบครัว", "กาแฟ", "รีวิว"],
   en: ["vlog", "recipe", "storytime", "advice", "comedy", "sketch", "question", "challenge", "interview", "travel", "food", "story",
        "experience", "funfacts", "explained", "cooking", "sports", "news", "podcast", "routine", "family", "coffee"],
+  fa: ["ولاگ", "آشپزی", "داستان", "توصیه", "طنز", "کمدی", "سوال", "چالش", "مصاحبه", "سفرنامه", "غذا", "خاطره",
+       "تجربه", "دانستنی", "توضیح", "شیرینی", "ورزش", "خبر", "پادکست", "روزمرگی", "خانواده", "قهوه"],
 };
 
 const CODE = /^[A-Za-z0-9_-]{5,40}$/;

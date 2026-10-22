@@ -1,0 +1,16 @@
+9093211c Vazirmatn 字体（波斯语）
+d356a6d9 BBC 波斯语
+72e254b5 伊朗国际
+3f48fe62 美国之音
+11a88834 Hamshahri，德黑兰
+aae993aa Khabar Online
+f59e30d5 Asr Iran
+a279abfa Shargh
+5286f70d Etilaatroz，阿富汗
+180e505b 自由电台阿扎迪频道，阿富汗
+e5b9046d 波斯语维基百科
+b0af5088 维基词典的波斯语词汇和动词变位表，以及 wordfreq 的词频统计
+c6915368 阿富汗
+279c771a 塔吉克斯坦
+889224e3 伊朗
+df443b7e 搜索时忽略短元音符号、词内的半空格（ZWNJ）以及 k 和 y 的阿拉伯文写法（用 ك ي 代替 ک ی）。

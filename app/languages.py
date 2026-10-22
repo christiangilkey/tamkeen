@@ -14,7 +14,7 @@ from . import db
 # code -> English name. The codes are also Whisper's language codes, except Bisaya's (WHISPER_CODES).
 LANGUAGES = {"es": "Spanish", "ar": "Arabic", "fr": "French", "ja": "Japanese", "zh": "Chinese", "ru": "Russian",
              "it": "Italian", "tl": "Tagalog", "pt": "Brazilian Portuguese", "ca": "Catalan", "ceb": "Bisaya (Cebuano)",
-             "th": "Thai", "en": "English"}
+             "th": "Thai", "fa": "Persian", "en": "English"}
 DEFAULT = "ar"  # the app's first language; anything stored before languages existed is Arabic
 
 # Whisper doesn't know Bisaya (Cebuano): it is asked for its closest relative, Tagalog, and the opening
@@ -51,6 +51,28 @@ _SCRIPTS = {
 }
 
 
+# Persian is written in Arabic letters, with four of its own (پ چ ژ گ), its own k and y (ک ی where Arabic has
+# ك ي) and ZWNJ, the half space inside words (می‌خواهم); Arabic has ة ى ي ك and tanween. (As web/js/languages.js.)
+_PERSIAN_SIGNS = re.compile("[پچژگکی‌]")
+_ARABIC_SIGNS = re.compile("[ةىيكًٌٍ]")
+
+
+def looks_persian(text: str, hint: str | None = None) -> bool:
+    """Is this Arabic-script text Persian rather than Arabic? A tie counts for the language being studied."""
+    sample = (text or "")[:4000]
+    fa, ar = len(_PERSIAN_SIGNS.findall(sample)), len(_ARABIC_SIGNS.findall(sample))
+    return hint == "fa" if fa == ar else fa > ar
+
+
+# Persian letters for what speech recognition and Arabic keyboards write (ي ى ك), as persianLetters in
+# web/js/languages.js: the Arabic ones look different at the end of a word and miss the dictionaries.
+_PERSIAN_LETTERS = str.maketrans({"ي": "ی", "ى": "ی", "ك": "ک"})
+
+
+def persian_letters(text: str) -> str:
+    return (text or "").translate(_PERSIAN_LETTERS)
+
+
 def valid(code: object) -> bool:
     return isinstance(code, str) and code in LANGUAGES
 
@@ -75,6 +97,8 @@ def detect(text: str, hint: str | None = None) -> str:
         return "ja"
     if top == "han":
         return "ja" if hint == "ja" else "zh"
-    if top in ("ar", "ru", "th"):
+    if top == "ar":
+        return "fa" if looks_persian(sample, hint) else "ar"
+    if top in ("ru", "th"):
         return top
     return hint

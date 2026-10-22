@@ -52,6 +52,7 @@ ONE_LETTER = {
     "pt": set("aoeéà"),
     "ca": set("aioe"),
     "ceb": {"o"},
+    "fa": {"و"},
 }
 # wordfreq's own name for a language, where it differs from the app's (Tagalog is "fil", Filipino).
 WORDFREQ_CODE = {"tl": "fil"}
@@ -80,7 +81,12 @@ SCRIPT = {
     "ca": re.compile(r"[a-zàèéíïòóúüç]+(?:(?:·|'|-)[a-zàèéíïòóúüç]+)*'?"),
     "ceb": re.compile(r"[a-zñ]+(?:-[a-zñ]+)*"),
     "th": re.compile(r"[\u0E01-\u0E4E]+"),
+    # Persian letters, a word's pieces joined by the half space (ZWNJ: \u0645\u06CC\u200C\u062E\u0648\u0627\u0647\u0645)
+    "fa": re.compile("[\u0621-\u063A\u0641-\u064A\u067E\u0686\u0698\u06A9\u06AF\u06CC]+(?:\u200C[\u0621-\u063A\u0641-\u064A\u067E\u0686\u0698\u06A9\u06AF\u06CC]+)*"),
 }
+# Persian: pieces of words the counting found apart, as text that put a space where the half space goes
+# ("\u06A9\u062A\u0627\u0628 \u0647\u0627", "\u0645\u06CC \u062E\u0648\u0627\u0647\u0645") gives; the app joins them back onto their word (languages.js persianJoins).
+FA_PIECES = {"\u0647\u0627", "\u0647\u0627\u06CC", "\u0647\u0627\u06CC\u06CC", "\u0645\u06CC", "\u0646\u0645\u06CC", "\u0627\u06CC", "\u0627\u0645", "\u0627\u0634", "\u0627\u062A", "\u0627\u0646\u062F", "\u0627\u06CC\u062F", "\u0627\u06CC\u0645", "\u062A\u0631\u06CC\u0646"}
 # Where a language's counts come from when wordfreq has none: "lang=path" on the command line.
 FROM_FILE = {"th", "ceb"}
 
@@ -94,6 +100,8 @@ def same_word_key(word: str, code: str) -> str:
         w = w.translate(_AR_MAP)
     if code == "ru":
         w = w.replace("ё", "е")
+    if code == "fa":  # (with and without the half space: می‌خواهم, میخواهم)
+        w = w.replace("‌", "")
     return w
 
 
@@ -108,6 +116,8 @@ def keep(word: str, code: str) -> bool:
         return False  # a lone letter, or a piece that starts with a vowel sign or tone mark
     if code == "es" and word in {"in", "to"}:
         return False
+    if code == "fa" and (word in FA_PIECES or re.search("[يكىة]", word)):
+        return False  # a piece of a word, or Arabic spelling (كه for که: the Persian spelling comes too)
     if len(word) == 1 and code in ONE_LETTER:
         return word in ONE_LETTER[code] or (code == "fr" and word in FRENCH_ELIDED)
     if code == "ja":
