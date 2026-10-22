@@ -89,6 +89,7 @@ def test_settings_take_the_three_ways_of_explaining_words(fresh_db):
     ("Le café est une boisson", "fr", "fr"),
     ("Coffee is a drink", "ar", "ar"),   # a page in an untaught language: the study language
     ("", "ru", "ru"),
+    ("Kaffee ist ein Getränk aus gerösteten Bohnen", "de", "de"),
 ])
 def test_detect(fresh_db, text, hint, expected):
     assert languages.detect(text, hint) == expected
@@ -188,6 +189,12 @@ def test_creature_game_state_syncs_and_an_unplayed_egg_never_wins(world):
     assert engine.game_wins({"xp": 5, "updated_at": 1}, {"xp": 0, "updated_at": 9})
     assert not engine.game_wins({"xp": 0, "updated_at": 9}, {"xp": 5, "updated_at": 1})
     assert not engine.game_wins({"xp": 5, "updated_at": 1}, {"xp": 5, "updated_at": 1})
+
+
+def test_german_is_taught_and_whisper_hears_it_as_german():
+    assert languages.valid("de") and languages.LANGUAGES["de"] == "German"
+    assert languages.whisper_code("de") == "de", "Whisper knows German: asked for by its own code"
+    assert "de" not in languages.INITIAL_PROMPTS
 
 
 def test_bisaya_is_heard_as_tagalog_with_the_same_bisaya_prompt_on_phone_and_computer():

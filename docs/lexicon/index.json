@@ -21,6 +21,16 @@
    "forms": 0,
    "lexemes": 60000
   },
+  "de": {
+   "file": "de-lemmas.json.gz",
+   "bytes": 1036129,
+   "sha256": "3d2b975b58f67582bf0554b179f202d845793703f1b5a9dc081926f77a2914d5",
+   "title": "German word forms",
+   "db": "lemmatization-lists + wordfreq + Wiktionary spellings",
+   "license": "ODbL-1.0",
+   "forms": 189855,
+   "lexemes": 87580
+  },
   "egy": {
    "file": "ar-egy.json.gz",
    "bytes": 2022018,
@@ -149,6 +159,16 @@
    "license": "public-domain-us",
    "words": 18314,
    "forms": 2788
+  },
+  "mean-de": {
+   "file": "de-meanings.json.gz",
+   "bytes": 4722955,
+   "sha256": "499c9f364f4415d13cf3dd91939c36f35017972cf4fbb32f5cdce51120a88eb1",
+   "title": "German meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 88857,
+   "forms": 246872
   },
   "mean-en": {
    "file": "en-meanings.json.gz",

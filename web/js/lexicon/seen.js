@@ -194,7 +194,8 @@ function setDeclined(lang, on) {
 // What the offer shows for each language: forms of one word, and who made the files.
 const EXAMPLES = { ar: "كتب، يكتبون، سأكتبها", es: "hablo, hablaste, háblame", fr: "parle, parlons, parlez-moi", it: "parlo, parliamo, parlami",
   ru: "говорю, сказала, скажи", en: "run, ran, running", tl: "kumain, kakain, kinain", ja: "食べる、食べました、食べている", zh: "学习、學習",
-  pt: "falo, falamos, fale-me", ca: "parlo, parlem, digues-m'ho", ceb: "mokaon, mikaon, gikaon" };
+  pt: "falo, falamos, fale-me", ca: "parlo, parlem, digues-m'ho", ceb: "mokaon, mikaon, gikaon",
+  de: "spreche, sprach, fängt … an" };
 // Japanese and Chinese: a dictionary that does more than the other languages' tables.
 const READERS = {
   ja: "For Japanese that needs a dictionary: it splits Japanese text into real words, so a tap lands on the whole word, gives each word's dictionary form, and shows furigana (small kana over kanji). It is IPADIC, from the Nara Institute of Science and Technology",
@@ -301,7 +302,7 @@ function onceReady(lang, dicts) {
 
 // Russian is converted twice: once for е/ё and stress marks (no table needed), once for its table.
 const UPGRADES = { es: "es:lemmas1", fr: "fr:lemmas1", it: "it:lemmas1", ru: "ru:lemmas1", en: "en:lemmas1", tl: "tl:lemmas1", ja: "ja:lemmas1", zh: "zh:lemmas1",
-  pt: "pt:lemmas1", ca: "ca:lemmas1", ceb: "ceb:lemmas1" };
+  pt: "pt:lemmas1", ca: "ca:lemmas1", ceb: "ceb:lemmas1", de: "de:lemmas1" };
 const upgradeMark = (lang, dicts) => (lang === "ru" && !dicts.length ? "ru:yo1" : dicts.length ? UPGRADES[lang] : null);
 const upgrading = new Set();
 /** Seen words kept before a language had its word table were kept by spelling (es|hablas|x).

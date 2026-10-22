@@ -58,7 +58,7 @@ def test_the_free_shelf_matches_its_index():
 
     folder = Path(__file__).resolve().parent.parent / "docs" / "books"
     index = json.loads((folder / "index.json").read_text(encoding="utf-8"))
-    for lang in ("ar", "es", "fr", "it", "ru", "en", "tl", "ja", "zh", "pt", "ca", "th", "ceb"):
+    for lang in ("ar", "es", "fr", "it", "ru", "en", "tl", "ja", "zh", "pt", "ca", "th", "ceb", "de"):
         shelf = index["books"][lang]
         assert len(shelf) >= 5, lang
         for row in shelf:
@@ -96,3 +96,12 @@ def test_the_shelf_builder_tidies_a_book():
     cut = bb.trim([{"kind": "p", "text": t} for t in ("Imprenta X", "TITLE", "Text one", "Notice", "TITLE", "Text two", "NOTES", "n")],
                   {"from": [r"^TITLE$", 1], "to": r"^NOTES$", "drop": r"^Notice$"})
     assert [b["text"] for b in cut] == ["TITLE", "Text one", "TITLE", "Text two"]
+    # German: chapters, acts and scenes are headings ("Erstes Kapitel", "Zweiter Aufzug.", "Erste Scene."); a list
+    # of titles with page or chapter numbers is a contents list; a book may name its own other headings.
+    assert all(bb.HEADING.search(t) for t in ("Erstes Kapitel", "Zweiter Aufzug.", "Erste Scene.", "Letzter Streich.", "Vorrede"))
+    assert not bb.HEADING.search("Der Herausgeber an den Leser") and not bb.HEADING.search("Kapitelweise las er weiter.")
+    assert bb._listing(["Aschenputtel                94", "Rapunzel             30", "Marienkind               1"])
+    assert bb._listing(["1  Zum Alm-Öhi hinauf", "2  Beim Großvater", "3  Auf der Weide"])
+    assert not bb._listing(["Es war einmal ein König,", "der hatte drei Töchter,", "die waren alle schön."])
+    marked = bb.trim([{"kind": "p", "text": "Der Herausgeber an den Leser"}], {"headings": r"^Der Herausgeber an den Leser$"})
+    assert marked[0]["kind"] == "h2"

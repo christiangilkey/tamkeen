@@ -9,7 +9,7 @@ const BASE_URL = "https://christiangilkey.github.io/tamkeen/lexicon/";
 // Standard Arabic first: it is the one tried first. Spanish, French and Italian have one table each;
 // Thai's is how each word is said (web/js/lexicon/thai.js).
 const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"], es: ["es"], fr: ["fr"], it: ["it"], ru: ["ru"], en: ["en"], tl: ["tl"], ja: ["ja"], zh: ["zh"],
-  pt: ["pt"], ca: ["ca"], ceb: ["ceb"], th: ["th"] };
+  pt: ["pt"], ca: ["ca"], ceb: ["ceb"], th: ["th"], de: ["de"] };
 // Word meanings for "No AI" (web/js/meanings.js): one file a language, only when that is chosen.
 // Arabic and Bisaya have a second file, asked when Wiktionary lacks a word (the CAMeL databases' glosses;
 // Wolff's Dictionary of Cebuano Visayan).

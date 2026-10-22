@@ -4,6 +4,7 @@ who says they have already started (web/js/commonwords.js).
     pip install wordfreq
     python tools/make_wordlists.py                       (every language wordfreq has)
     python tools/make_wordlists.py th=path/to/tnc_freq.txt ceb=path/to/ceb_freq.tsv
+    python tools/make_wordlists.py de=path/to/lemmatization-de.txt,path/to/kaikki.org-dictionary-German.jsonl.gz
 
 Writes web/js/wordlists/<code>.js (one per language the app teaches), most common word first.
 
@@ -15,6 +16,9 @@ written here are too: see web/js/wordlists/README.md. wordfreq has neither Thai 
   - Bisaya from counting the Cebuano web text of OPUS's NLLB collection (ODC-By 1.0), the same count
     as its word list for the root finder (tools/build_lemmas.py: word <tab> count); English words
     that crept in are left out unless a Bisaya dictionary knows them too (man, may, bag).
+German is counted by wordfreq too, but wordfreq writes every word in small letters and ß as ss (zeit,
+weiss, strasse): each word is put back the way German writes it (Zeit, weiß, Straße) from the same word
+list and Wiktionary entries as the German word table (tools/build_lemmas.py german_spellings).
 What is left out of the raw ranking:
 numbers and symbols, stray single letters, words in another alphabet (English in an Arabic list),
 and spellings that differ only in ways the app treats as the same word (Arabic alef forms, Russian
@@ -52,6 +56,7 @@ ONE_LETTER = {
     "pt": set("aoeéà"),
     "ca": set("aioe"),
     "ceb": {"o"},
+    "de": set(),
 }
 # wordfreq's own name for a language, where it differs from the app's (Tagalog is "fil", Filipino).
 WORDFREQ_CODE = {"tl": "fil"}
@@ -80,7 +85,10 @@ SCRIPT = {
     "ca": re.compile(r"[a-zàèéíïòóúüç]+(?:(?:·|'|-)[a-zàèéíïòóúüç]+)*'?"),
     "ceb": re.compile(r"[a-zñ]+(?:-[a-zñ]+)*"),
     "th": re.compile(r"[\u0E01-\u0E4E]+"),
+    "de": re.compile(r"[a-z\u00E4\u00F6\u00FC]+(?:-[a-z\u00E4\u00F6\u00FC]+)*"),  # (as wordfreq writes it: small letters, \u00DF as ss)
 }
+# German as wordfreq counts it -> as German writes it (main() fills it in from "de=list,wiktionary").
+GERMAN: dict[str, str] = {}
 # Where a language's counts come from when wordfreq has none: "lang=path" on the command line.
 FROM_FILE = {"th", "ceb"}
 
@@ -101,6 +109,8 @@ def keep(word: str, code: str) -> bool:
     if not SCRIPT[code].fullmatch(word):
         return False
     if code in ("es", "fr", "it", "tl", "pt", "ca", "ceb") and word in ENGLISH - {"a", "y", "on", "est", "me", "in", "i", "it", "to"}:
+        return False
+    if code == "de" and word in ENGLISH - {"in", "was", "will", "mr", "dr", "st"}:
         return False
     if code == "ceb" and (word in CEB_NOT_WORDS or word in ENGLISH_COMMON and word not in CEB_KNOWN):
         return False
@@ -139,13 +149,15 @@ def counted(path: str, n: int) -> list[str]:
 def build(code: str, source: str = "") -> list[str]:
     out: list[str] = []
     seen: set[str] = set()
-    for word in (counted(source, 8000) if source else top_n_list(WORDFREQ_CODE.get(code, code), 4000)):
+    for word in (counted(source, 8000) if source and code != "de" else top_n_list(WORDFREQ_CODE.get(code, code), 4000)):
         if not keep(word, code):
             continue
         key = same_word_key(word, code)
         if key in seen:
             continue
         seen.add(key)
+        if code == "de":
+            word = GERMAN.get(word, word)
         out.append(f"{word}'" if code == "fr" and word in FRENCH_ELIDED else word)
         if len(out) == SIZE:
             return out
@@ -170,6 +182,12 @@ def main() -> None:
     for code, _, source in wanted:  # e.g. "python tools/make_wordlists.py en" for one language
         if code in FROM_FILE and not source:
             raise SystemExit(f"{code}: give its counts file, {code}=path")
+        if code == "de":
+            listed, _, wiktionary = source.partition(",")
+            if not wiktionary:
+                raise SystemExit("de: give the German word list and Wiktionary file, de=lemmatization-de.txt,kaikki....jsonl.gz")
+            from build_lemmas import german_spellings  # (tools/ is this script's folder)
+            GERMAN.update(german_spellings(Path(listed), Path(wiktionary)))
         words = build(code, source)
         body = ",\n".join("  " + ", ".join(json.dumps(w, ensure_ascii=False) for w in words[i:i + 12])
                           for i in range(0, len(words), 12))

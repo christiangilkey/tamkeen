@@ -227,12 +227,33 @@ export const NEWS = {
     ["The Verge", "https://www.theverge.com/", "Technology news"],
     ["Wikipedia", "https://simple.wikipedia.org/", "Easier: Simple English Wikipedia"],
   ],
+  // (checked 2026-10-21: all answer; Die Zeit and kicker refuse automated checks with 403 but are live)
+  de: [
+    ["nachrichtenleicht", "https://www.nachrichtenleicht.de/", "Easier: news for learners"],
+    ["DW Kurz und leicht", "https://learngerman.dw.com/de/kurz-und-leicht/s-69137519", "Easier: news for learners"],
+    ["logo!", "https://www.logo.de/", "Easier: news for children"],
+    ["tagesschau", "https://www.tagesschau.de/", "Germany's public broadcaster"],
+    ["ZDFheute", "https://www.zdfheute.de/", "Germany's public broadcaster"],
+    ["Deutsche Welle", "https://www.dw.com/de/", "World news"],
+    ["Der Spiegel", "https://www.spiegel.de/", "Weekly news magazine"],
+    ["Die Zeit", "https://www.zeit.de/", "Weekly newspaper"],
+    ["Süddeutsche Zeitung", "https://www.sueddeutsche.de/", "Munich"],
+    ["ORF", "https://orf.at/", "Austria's public broadcaster"],
+    ["Der Standard", "https://www.derstandard.at/", "Austria"],
+    ["SRF News", "https://www.srf.ch/news", "Switzerland's public broadcaster"],
+    ["NZZ", "https://www.nzz.ch/", "Switzerland"],
+    ["heise online", "https://www.heise.de/", "Technology news"],
+    ["Handelsblatt", "https://www.handelsblatt.com/", "Business news"],
+    ["kicker", "https://www.kicker.de/", "Sport"],
+    ["Wikipedia", "https://de.wikipedia.org/", "German Wikipedia"],
+  ],
 };
 
 // Language names and the few words on the page, for the languages taught (the page itself is in
 // English, like the rest of the app; only the heading greets in the language).
 const NAMES = { ar: "Arabic", es: "Spanish", fr: "French", ja: "Japanese", zh: "Chinese", ru: "Russian", it: "Italian",
-                tl: "Tagalog", pt: "Brazilian Portuguese", ca: "Catalan", ceb: "Bisaya (Cebuano)", th: "Thai", en: "English" };
+                tl: "Tagalog", pt: "Brazilian Portuguese", ca: "Catalan", ceb: "Bisaya (Cebuano)", th: "Thai", en: "English",
+                de: "German" };
 const RTL = { ar: true };
 
 export const hasNews = (code) => Object.prototype.hasOwnProperty.call(NEWS, code);

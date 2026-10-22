@@ -106,6 +106,14 @@ export const LANGUAGES = {
     pageSample: "กาแฟเป็นเครื่องดื่มที่ทำจากเมล็ดกาแฟคั่ว และเป็นหนึ่งในเครื่องดื่มที่ได้รับความนิยมมากที่สุดในโลก",
     test: { word: "เดี๋ยว", marked: "⟦เดี๋ยว⟧โทรกลับนะ", podcast: "ภาษาไทยจริง" },
   },
+  de: {
+    ...LTR, name: "German", native: "Deutsch",
+    hello: "Willkommen!", hi: "hallo", search: "suchen", word: "das Wort",
+    greet: ["Guten Morgen", "Guten Tag", "Guten Abend"],
+    sample: "Willkommen zu einer neuen Folge des Podcasts.",
+    pageSample: "Kaffee ist ein Getränk aus den gerösteten Samen der Kaffeepflanze und eines der beliebtesten Getränke der Welt.",
+    test: { word: "eigentlich", marked: "Was machst du ⟦eigentlich⟧ heute Abend?", podcast: "Echtes Deutsch" },
+  },
   en: {
     ...LTR, name: "English", native: "English",
     hello: "Welcome!", hi: "hi", search: "search", word: "the word",
@@ -153,7 +161,7 @@ const SCRIPTS = [
 
 /** The taught languages written in Latin letters: text in Latin letters is one of these when it is
  * the language being studied (the letters alone can't tell them apart, or from English). */
-export const LATIN_LANGUAGES = ["es", "fr", "it", "tl", "pt", "ca", "ceb", "en"];
+export const LATIN_LANGUAGES = ["es", "fr", "it", "tl", "pt", "ca", "ceb", "en", "de"];
 
 /** Which language a piece of text is written in, judged by its letters. Used where nothing
  * recorded the language (saved words, search results, things friends send). Text in Latin

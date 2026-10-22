@@ -3,6 +3,8 @@
 // popup's answer. No screen or network code here.
 
 import { EDGE_PUNCT } from "../wordlookup.js";
+import { compoundLemma, compoundParts, germanLemma, rankOf, separableAt, startsSentence, tableVerb } from "./german.js";
+import { markedTokens } from "./words.js";
 
 const AR_MARKS = /[ؐ-ًؚ-ٰٟۖ-ۭـ]/g;
 
@@ -17,6 +19,9 @@ export function matchKey(word, lang) {
   if (lang === "ja" || lang === "zh" || lang === "th") return w;
   // Bisaya: o/u and e/i are one sound each (kaayo, Wolff's kaáyu); stress marks left off (as build_meanings.py).
   if (lang === "ceb") return w.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "").replace(/o/g, "u").replace(/e/g, "i");
+  // German: ß as ss, so today's spelling, the one from before 1996 and Switzerland's are one key (dass, daß;
+  // Straße, Strasse). The entries keep their own spelling and capitals (lookUp puts the matching ones first).
+  if (lang === "de") return w.toLowerCase().replace(/ß/g, "ss");
   return w.toLowerCase();
 }
 
@@ -231,7 +236,7 @@ export function findIn(data, keys) {
     const rare = (g) => RARE_OWN.has(g[1]) || (verbForm && SAID.has(g[1]));
     // (A Spanish, French, Italian, Portuguese or Catalan word with no entry of its own shows first the
     // word the word table counts it as: podés is poder, not podar; idos is ir, not idus.)
-    const formFirst = agreed && (rival.length ? rival.every(rare) : ROMANCE_LANGS.has(data.lang));
+    const formFirst = agreed && (rival.length ? rival.every(rare) : ROMANCE_LANGS.has(data.lang) || data.lang === "de");
     const formRows = formFirst ? [agreed, ...forms.filter((f) => f[0] !== agreed[0])] : forms;
     const lemmas = formRows.flatMap(([lemmaKey]) => data.words[lemmaKey] || []);
     let all = formFirst ? [...lemmas, ...own] : [...own, ...lemmas];
@@ -261,9 +266,123 @@ const BORROWED_FROM_TAGALOG = (g) => String(g[3] || "").split("|")[2] === "Tagal
 // (not i-, mi-, ni-: imac, milan, nephi are no Bisaya verbs)
 const TAGLISH = /^(mo|mu|gi|nag|mag|naga|maga|ga|gina|maka|naka)-?([a-z]{4,})$/;
 
+/** German: the entries that match how the word is written first. Capitals tell a noun (das Essen "food",
+ * der Weg "way") from another word (essen "to eat", weg "away"), except at the start of a sentence
+ * (`initial`); and ß from ss where both are words (Maße "measures", Masse "mass"). Proper names stay last. */
+export function germanOrder(groups, word, initial = true) {
+  const w = String(word || "").replace(EDGE_PUNCT, "");
+  const capital = /^\p{Lu}/u.test(w);
+  const cls = (g) => (ordinary(g) ? 0 : g[1] === "name" ? 2 : 1);
+  const caseOff = (g) => (initial ? 0 : /^\p{Lu}/u.test(g[0]) === capital ? 0 : 1);
+  // (only when the word is written with ß: Strasse is Switzerland's Straße, not Strass "rhinestone")
+  const sharpOff = (g) => (w.includes("ß") && !String(g[0]).includes("ß") ? 1 : 0);
+  return groups.map((g, i) => [g, i]).sort(([a, i], [b, j]) => cls(a) - cls(b) || caseOff(a) - caseOff(b)
+    || sharpOff(a) - sharpOff(b) || i - j).map(([g]) => g);
+}
+
+// ---------- German compounds the dictionary has no entry for ----------
+
+const upper1 = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+/** The entries a meanings file has for one way of writing a piece of a word (capitalised or not), or the
+ * entries of the word it is a form of: [shown spelling, groups] or null. */
+function entriesFor(files, piece, capital) {
+  const k = matchKey(piece, "de");
+  const fits = (g) => ordinary(g) && /^\p{Lu}/u.test(g[0]) === capital;
+  for (const data of files) {
+    if (!data) continue;
+    const own = (data.words[k] || []).filter(fits);
+    if (own.length) return [own[0][0], own];
+    for (const [lemmaKey] of data.forms[k] || []) {
+      const lemma = (data.words[lemmaKey] || []).filter(fits);
+      if (lemma.length) return [lemma[0][0], lemma];
+    }
+  }
+  return null;
+}
+
+/**
+ * A German compound the meanings files have no entry for, taken apart (Handschuhfabriken: Handschuh +
+ * Fabrik): {key, groups: the last part's, formOf, parts: [{text, lemma, groups}], source}, or null.
+ * `split(word, known)` is compoundParts from ./german.js; `lemmaOf(piece, capital)` the word table's
+ * dictionary form of a piece written that way, when the table is here.
+ */
+export function germanCompound(files, word, split, { lemmaOf = null, rank, join = null } = {}) {
+  const found = new Map(); // dictionary form -> groups
+  const known = (piece, capital) => {
+    const written = capital ? upper1(piece.toLowerCase()) : piece.toLowerCase();
+    const viaTable = lemmaOf && lemmaOf(written, capital);
+    const hit = (viaTable && entriesFor(files, viaTable, /^\p{Lu}/u.test(viaTable))) || entriesFor(files, written, capital);
+    if (!hit) return null;
+    found.set(hit[0], hit[1]);
+    return hit[0];
+  };
+  const bare = String(word || "").replace(EDGE_PUNCT, "");
+  const parts = split(bare, known, rank);
+  if (!parts) return null;
+  const withMeanings = parts.map((p) => ({ ...p, groups: found.get(p.lemma) || entriesFor(files, p.lemma, /^\p{Lu}/u.test(p.lemma))?.[1] || [] }));
+  if (withMeanings.some((p) => !p.groups.length)) return null;
+  const head = withMeanings[withMeanings.length - 1];
+  const source = (files.find((d) => d && d.words[matchKey(head.lemma, "de")]) || files.find(Boolean) || {}).source || "";
+  return { key: matchKey(bare, "de"), groups: head.groups, formOf: "compound word", parts: withMeanings, source,
+    lemma: join ? join(withMeanings, bare) : "" };
+}
+
+/**
+ * The German word popup's lookup (../meanings.js): what the meanings files have for `word` in the sentence
+ * `marked` (the word in ⟦ ⟧), with the word table `table` when it is here: {...findIn's answer, source} or null.
+ *   - a separable verb whose prefix stands later in the sentence is that verb (fängt in "Der Film fängt um acht
+ *     an": anfangen, "third-person singular present of anfangen"); tapping the prefix gives it too;
+ *   - capitals: a noun's entries first in the middle of a sentence (germanOrder);
+ *   - a compound with no entry of its own is shown by its parts (germanCompound).
+ */
+export function germanLookUp(files, word, marked = "", { table = null } = {}) {
+  const bare = String(word || "").replace(EDGE_PUNCT, "").trim();
+  const { tokens, marked: at } = markedTokens(marked);
+  const index = at.length === 1 ? at[0] : -1;
+  const initial = index < 0 || startsSentence(tokens, index);
+  const has = (k) => files.some((d) => d && (d.words[k] || []).some(ordinary));
+  // A form's dictionary form: from the word table, or else the meanings file's own list of forms.
+  const lemmaOf = (form, first) => {
+    if (table) return germanLemma(form, table, first);
+    const k = matchKey(form, "de");
+    if (has(k)) return form.toLowerCase();
+    for (const d of files) { const row = d && (d.forms[k] || [])[0]; if (row) return row[0]; }
+    return null;
+  };
+  const keys = wordKeys(bare, "de", (f) => lemmaOf(f, initial));
+  if (!bare.includes(" ") && bare) {
+    // (the word table knows which verbs are common; without it, any verb the dictionary has)
+    const isVerb = table ? tableVerb(table) : (v) => files.some((d) => d && (d.words[matchKey(v, "de")] || []).some((g) => g[1] === "verb"));
+    const sep = index >= 0 ? separableAt(tokens, index, lemmaOf, isVerb) : null;
+    if (sep) {
+      const k = matchKey(sep.lemma, "de");
+      const hit = lookUp(files, [k], sep.lemma, "de", { initial: false });
+      if (hit && hit.key === k) {
+        const base = matchKey(sep.lemma.slice(sep.particle.length), "de"); // fangen
+        const row = files.flatMap((d) => (d && d.forms[matchKey(sep.verb, "de")]) || []).find(([lk]) => lk === base);
+        const what = row && row[1] ? `: ${row[1].replace(/ of \S+$/, "")} of ${sep.lemma}` : " (separable verb)";
+        const verbsFirst = [...hit.groups.filter((g) => g[1] === "verb"), ...hit.groups.filter((g) => g[1] !== "verb")];
+        return { ...hit, groups: verbsFirst, formOf: `${sep.verb} … ${sep.particle}${what}`, separable: sep };
+      }
+    }
+  }
+  const found = lookUp(files, keys, bare, "de", { initial });
+  if (found) return found;
+  return germanCompound(files, bare, compoundParts, { lemmaOf: table ? (p) => table.lookup(p) : null,
+    rank: table ? rankOf(table) : () => 0, join: compoundLemma });
+}
+
 /** What a language's meanings files (`files`, the one to ask first first) have for `word`, tried by `keys`
- * (wordKeys): {...findIn's answer, source} or null. The word popup's lookup (../meanings.js). */
-export function lookUp(files, keys, word, lang, { rank } = {}) {
+ * (wordKeys): {...findIn's answer, source} or null. The word popup's lookup (../meanings.js).
+ * German: `initial` says the word starts its sentence (see germanOrder). */
+export function lookUp(files, keys, word, lang, { rank, initial = true } = {}) {
+  if (lang === "de") {
+    for (const data of files) {
+      const hit = data && findIn(data, keys);
+      if (hit) return { ...hit, groups: germanOrder(hit.groups, word, initial), source: data.source };
+    }
+    return null;
+  }
   // A Tagalog or Bisaya word with a verb's affixes on it (nagbaton, kumain) is a verb: a dictionary
   // that knows its root as a verb wins over one that has only a noun of the same spelling (Wiktionary's
   // loanword "baton", where Wolff has báton "have, possess").
@@ -330,6 +449,7 @@ export function lookUp(files, keys, word, lang, { rank } = {}) {
 
 /** The popup's answer (the shape definer.js gives) for what findIn found for `word`. */
 export function answerFrom(found, word, lang, { quick = false, language = "English", source = "" } = {}) {
+  if (found.parts) return compoundAnswer(found, word, { quick, language, source });
   const dict = dictionaryName(source);
   const first = found.groups[0];
   const [root = "", reading = "", dialect = ""] = String(first[3] || "").split("|");
@@ -340,11 +460,14 @@ export function answerFrom(found, word, lang, { quick = false, language = "Engli
   // (Worked out here, not inside the sentence below: a pattern in the middle of it kept the
   // translation scanner, tools/i18n/extract.mjs, from reading the sentence whole, so it was never translated.)
   const inEnglish = /^english$/i.test(language) ? "" : ", in English";
+  // German: the dictionary's spelling is shown when it differs from the word's other than by a capital
+  // (Strasse: Straße, Häuser: Haus), and never replaces the word.
+  const germanLemma = lang === "de" && first[0].toLowerCase() !== String(word).replace(EDGE_PUNCT, "").toLowerCase() ? first[0] : "";
   const answer = {
     word: word,
     // Arabic with its vowels and Russian with its stress replace the word as shown, only when it is that very word.
-    vocalized: lang === "ja" || lang === "zh" ? reading : same && first[0] !== word ? first[0] : "",
-    lemma: same ? "" : first[0],
+    vocalized: lang === "ja" || lang === "zh" ? reading : same && first[0] !== word && lang !== "de" ? first[0] : "",
+    lemma: lang === "de" ? germanLemma : same ? "" : first[0],
     root,
     pos: first[1] || "",
     morphology: found.formOf || "",
@@ -352,6 +475,33 @@ export function answerFrom(found, word, lang, { quick = false, language = "Engli
     explanation: quick ? "" : `From the built-in dictionary (${dict}${inEnglish}): the word's usual meanings. It can't tell which one fits this sentence.`,
     other_meanings: quick ? [] : glosses.slice(1, 10).map((x) => (x.pos && x.pos !== first[1] ? `${x.g} (${x.pos})` : x.g)),
     dialect, dialect_note: "", msa_equivalent: "",
+    sentence_translation: "", translation_marked: "", correction: "",
+    provider: "dictionary", model: dict,
+  };
+  if (quick) answer.quick = true;
+  return answer;
+}
+
+/** The popup's answer for a German compound with no entry of its own (germanCompound): the meaning is its
+ * parts' first meanings joined (Handschuhfabrik: "glove + factory"), and each part's meanings follow. */
+function compoundAnswer(found, word, { quick = false, language = "English", source = "" } = {}) {
+  const dict = dictionaryName(source);
+  const firstGloss = (p) => p.groups[0][2][0];
+  const shown = found.parts.map((p) => p.groups[0][0]);
+  const head = found.parts[found.parts.length - 1];
+  const inEnglish = /^english$/i.test(language) ? "" : ", in English";
+  const lemma = found.lemma && found.lemma !== String(word).replace(EDGE_PUNCT, "") ? found.lemma : "";
+  const answer = {
+    word,
+    vocalized: "",
+    lemma,
+    root: shown.join(" + "),
+    pos: head.groups[0][1] || "",
+    morphology: found.formOf || "",
+    meaning: found.parts.map(firstGloss).join(" + "),
+    explanation: quick ? "" : `From the built-in dictionary (${dict}${inEnglish}): it has no entry for this compound word, so these are the meanings of its parts.`,
+    other_meanings: quick ? [] : found.parts.map((p, i) => `${shown[i]}: ${p.groups.flatMap((g) => g[2]).slice(0, 3).join("; ")}`),
+    dialect: "", dialect_note: "", msa_equivalent: "",
     sentence_translation: "", translation_marked: "", correction: "",
     provider: "dictionary", model: dict,
   };

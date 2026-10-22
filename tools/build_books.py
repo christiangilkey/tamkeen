@@ -235,10 +235,29 @@ BOOKS: dict[str, list[tuple]] = {
           + ["นิทานเวตาล/ปลายเรื่อง"])),
         ("samkok", "สามก๊ก เล่ม ๑", "เจ้าพระยาพระคลัง (หน)", 1805, "The Romance of the Three Kingdoms in its classic Thai version: the first volume.", ("wikisource", "th", ['สามก๊ก/เล่ม 1/ตอนที่ 1', 'สามก๊ก/ตอนที่ ๒', 'สามก๊ก/ตอนที่ ๓', 'สามก๊ก/ตอนที่ ๔', 'สามก๊ก/ตอนที่ ๕', 'สามก๊ก/ตอนที่ ๖', 'สามก๊ก/ตอนที่ ๗', 'สามก๊ก/ตอนที่ ๘'])),
     ],
+    # (Gutenberg ids checked against pg_catalog.csv, 2026-10-21. Thomas Mann died in 1955, so his work is in the
+    # public domain in Germany since 2026; Der Tod in Venedig, 1912, is in the United States too. Der Prozess stops
+    # before Max Brod's afterword: Brod died in 1968, so his own words aren't free in Germany yet.)
+    "de": [
+        ("verwandlung", "Die Verwandlung", "Franz Kafka", 1915, "Gregor Samsa wakes up one morning changed into a giant insect.", ("gutenberg", 22367, {"from": r"^I\.$"})),
+        ("prozess", "Der Prozess", "Franz Kafka", 1925, "Josef K. is arrested one morning and never learns what for.", ("gutenberg", 69327, {"from": r"^ERSTES KAPITEL", "to": r"^NACHWORT$"})),
+        ("werther", "Die Leiden des jungen Werther", "Johann Wolfgang von Goethe", 1774, "A young man's letters about his hopeless love for Lotte.",
+         ("gutenberg", [2407, 2408], {"from": r"^Erstes Buch$", "drop": r"^Ver\.\d|^Die Leiden des jungen Werther|^Hamburger Ausgabe", "headings": r"^Der Herausgeber an den Leser$"})),
+        ("faust", "Faust: Der Tragödie erster Teil", "Johann Wolfgang von Goethe", 1808, "A scholar sells his soul to the devil Mephisto.", ("gutenberg", 2229, {"from": r"^Zueignung$"})),
+        ("grimm", "Deutsche Märchen", "Brüder Grimm", 1812, "The Brothers Grimm's fairy tales: Hansel and Gretel, Snow White, Rumpelstiltskin…", ("gutenberg", 77905, {"from": r"^Marienkind$"})),
+        ("wilhelm-tell", "Wilhelm Tell", "Friedrich Schiller", 1804, "The Swiss archer who shot the apple from his son's head rises against a tyrant.", ("gutenberg", 77182, {"from": r"^Personen\.$"})),
+        ("effi-briest", "Effi Briest", "Theodor Fontane", 1895, "A girl married young to an older man, and one old secret.", ("gutenberg", 5323, {"from": r"^Erstes Kapitel$"})),
+        ("schimmelreiter", "Der Schimmelreiter", "Theodor Storm", 1888, "A dike-builder on the North Sea coast and his ghostly white horse.", ("gutenberg", 74008, {"from": r"^Was ich zu berichten"})),
+        ("immensee", "Immensee", "Theodor Storm", 1849, "An old man remembers the girl he loved as a boy.", ("gutenberg", 6651, {"from": r"^DER ALTE$"})),
+        ("heidi", "Heidis Lehr- und Wanderjahre", "Johanna Spyri", 1880, "An orphan girl lives with her grandfather high in the Swiss Alps.", ("gutenberg", 7500, {"from": r"^Zum Alm-Öhi hinauf$"})),
+        ("taugenichts", "Aus dem Leben eines Taugenichts", "Joseph von Eichendorff", 1826, "A miller's carefree son wanders off with his fiddle.", ("gutenberg", 35312, {"from": r"^Erstes Kapitel$", "to": r"^Druck von Breitkopf"})),
+        ("tod-in-venedig", "Der Tod in Venedig", "Thomas Mann", 1912, "A famous writer travels to Venice, as cholera spreads.", ("gutenberg", 12108, {"from": r"^Erstes Kapitel$"})),
+        ("max-und-moritz", "Max und Moritz", "Wilhelm Busch", 1865, "Two naughty boys and their seven pranks, in rhyme.", ("gutenberg", 17161, {"from": r"^VORWORT\.?$"})),
+    ],
 }
 
 NO_SPACES = {"ja", "zh", "th"}  # lines of a paragraph join without a space
-CAPS_HEADINGS = {"ca", "ceb", "pt", "tl"}  # Gutenberg books whose chapter titles are lines in capitals
+CAPS_HEADINGS = {"ca", "ceb", "pt", "tl", "de"}  # Gutenberg books whose chapter titles are lines in capitals
 
 
 def get(url: str, retries: int = 3) -> bytes:
@@ -272,28 +291,32 @@ def tidy(text: str) -> str:
 HEADING = re.compile(
     r"^(chapter|capítulo|capitulo|chapitre|capitolo|capítol|kabanata|kapitulo|libro|livre|tome|part|parte|partie|book|cant|"
     r"stave|act|acte|acto|atto|scene|scène|escena|canto|tratado|prólogo|prologo|prologue|épilogue|epilogue|"
-    r"introduction|introducción|introduzione|introdução|introducció|preface|préface|prefazione|глава|часть|ночь|باب|الفصل|الجزء)\b"
+    r"introduction|introducción|introduzione|introdução|introducció|preface|préface|prefazione|глава|часть|ночь|باب|الفصل|الجزء|"
+    r"kapitel|aufzug|auftritt|szene|vorrede|vorwort|einleitung|zueignung|vorspiel|prolog|epilog|nachwort)\b"
     r"|^[IVXLC]+\.?$|^(?![LCDM]\.\s|[IVXLC]+\.\s[A-Z]\.)[IVXLC]+\.\s.{0,60}$|^-[IVXLC]+-$|^\w+\s+(partie|parte|part|livre|libro|livro)\.?$|^[IVXLC]+\s*[—–-]\s.{0,60}$"
+    r"|^\w+\s+(kapitel|teil|buch|aufzug|akt|auftritt|szene|scene|abschnitt|gesang|streich|brief)\.?$"
     r"|^第[一二三四五六七八九十百零〇\d]+[回章篇卷]|^卷[一二三四五六七八九十百零〇\d]+$|^\S{1,6}第[一二三四五六七八九十百]+$|^(ตอนที่|บทที่|นิทานที่|เรื่องที่)\s", re.I)
 # A heading that starts with one of these words may run to two or three lines ("Capítulo primero. Que
 # trata de la condición y ejercicio del famoso hidalgo / don Quijote de la Mancha").
-HEADING_WORD = re.compile(r"^(chapter|capítulo|capitulo|chapitre|capitolo|capítol|kabanata|kapitulo|stave|cant|canto|tratado)\b", re.I)
+HEADING_WORD = re.compile(r"^(chapter|capítulo|capitulo|chapitre|capitolo|capítol|kabanata|kapitulo|stave|cant|canto|tratado|kapitel)\b", re.I)
 CONTENTS = re.compile(r"^(contents|table of contents|índice|indice|índex|table des matières|table|sommario|indice generale|"
-                      r"talaan ng nilalaman|mga sulod|sumário|índice geral|taula|índex|index|目次|目錄|目录|สารบัญ|فهرس|оглавление|содержание)\.?$", re.I)
-NOTE_TITLE = re.compile(r"^\[?(transcriber'?s? notes?|notes? of the transcriber|nota del transcriptor|nota de transcripción|"
+                      r"talaan ng nilalaman|mga sulod|sumário|índice geral|taula|índex|index|目次|目錄|目录|สารบัญ|فهرس|оглавление|содержание|"
+                      r"inhalt|inhaltsverzeichnis|inhalts-verzeichnis|verzeichnis)\.?$", re.I)
+NOTE_TITLE = re.compile(r"^\[?\s*(transcriber'?s? notes?|notes? of the transcriber|nota del transcriptor|nota de transcripción|"
                         r"notas? del? transcripción|note del trascrittore|nota del trascrittore|note de transcription|"
-                        r"nota do transcritor|notas? d[eoa] transcri\w*|notes? del transcriptor|nota de la transcripció)\b", re.I)
+                        r"nota do transcritor|notas? d[eoa] transcri\w*|notes? del transcriptor|nota de la transcripció|"
+                        r"anmerkungen? (zur|des|der) (transkription|bearbeit\w*|transkribierenden|digitalisierung)|hinweise? zur transkription)\b", re.I)
 META = re.compile(r"^(author|title|remark|language|release date|posting date|character set( encoding)?|credits|"
                   r"most recently updated|original publication|illustrator|translator|editor|subtitle)\s*:"
                   r"|^(produced by|e-?text prepared by|this e-?text|we thank|updated editions will|a millennium fulcrum edition|"
                   r"the millennium fulcrum edition|this e-?book (was|is) produced|nous remercions|encoding\s*:)", re.I)
 # (searched for in the short paragraphs before the text: a publisher's notice)
 FRONT_JUNK = re.compile(r"\bcopyright\b|all rights reserved|derechos reservados|reservados todos los derechos|^es propiedad\b|"
-                        r"tous droits|diritti riservati|proprietà letteraria|todos os direitos", re.I)
+                        r"tous droits|diritti riservati|proprietà letteraria|todos os direitos|alle rechte vorbehalten|nachdruck verboten", re.I)
 # The last line of a book ("FIN", "THE END"): what comes after it is the publisher's (a list of the
 # author's other books, advertisements), apart from a place and date line.
 THE_END = re.compile(r"^(fin|fin de .{1,60}|the end|fine|fim|fi|katapusan|catapusan|wak[aá]s|wac[aá]s|wak[aá]s .{1,40}|wac[aá]s .{1,40}|"
-                     r"конец|終|完|จบ|انتهى|تمت)[.!]?$", re.I)
+                     r"конец|終|完|จบ|انتهى|تمت|ende)[.!]?$", re.I)
 FOOTNOTE = re.compile(r"^\[(\d+|\*|[a-z]|[ivx]+)(\]|:)", re.I)
 
 
@@ -317,6 +340,13 @@ def _prose(lines: list[str]) -> bool:
     if len(lines) >= 3 and sum(map(len, lines)) / len(lines) < 48:
         return False
     return len(text) > 160 and bool(re.search(r"[a-zà-ÿа-я][,;.!?]", text)) and len(re.findall(r"\b[IVXLC]+\.", text)) < 3
+
+
+def _listing(lines: list[str]) -> bool:
+    """A list of titles with page or chapter numbers ("Aschenputtel ...... 94", "1  Zum Alm-Öhi hinauf"):
+    a contents list, however long its lines are."""
+    numbered = sum(1 for ln in lines if re.search(r"\s\d{1,4}$", ln) or re.match(r"\d{1,3}\.?\s+\S", ln))
+    return len(lines) >= 3 and numbered >= 0.6 * len(lines)
 
 
 def _caption(m: re.Match) -> str:
@@ -346,16 +376,20 @@ def gutenberg(book_id: int, lang: str) -> list[dict]:
     small = list(re.finditer(r"^.*SMALL PRINT.*\*END\*.*$|^\*END\*THE SMALL PRINT.*$", text, re.M))
     if small and small[-1].start() < len(text) // 3:
         text = text[small[-1].end():]
-    old_end = re.search(r"^\s*(End of (the |this )?(is )?(COPYRIGHTED )?Project Gutenberg|End of Project Gutenberg)", text, re.M | re.I)
+    old_end = re.search(r"^\s*(End of (the |this )?(is )?(COPYRIGHTED )?Project Gutenberg|End of Project Gutenberg|Ende dieses Projekt Gutenberg)", text, re.M | re.I)
     if old_end and old_end.start() > len(text) // 2:
         text = text[:old_end.start()]
     # A picture's caption goes, except a chapter heading printed in it ("[Illustration: ... Chapter I.]").
-    text = re.sub(r"\[(Illustration|Ilustración|Illustrazione|Ilustração|Ilustració|Larawan|Patalastas)[^\]]*\]", _caption, text, flags=re.I)
+    text = re.sub(r"\[(Illustration|Ilustración|Illustrazione|Ilustração|Ilustració|Larawan|Patalastas|Abbildung|Bild)[^\]]*\]", _caption, text, flags=re.I)
     text = re.sub(r"^([#=])([^#=\n]{1,100})\1$", r"\2", text, flags=re.M)  # "#TITLE#", "=I.=": headings in some old files
     text = re.sub(r"\[(Transcriber'?s? note|Nota del transcriptor|Paalala ng nagsalin|Paliwanag ng Tagapagsalin|Tal[aâ] ng Tagapagsalin)"
                   r"[^\]]*\]", "", text, flags=re.I | re.S)
     text = re.sub(r"(?<!\w)_((?:(?!\n\s*\n)[^_]){1,300}?)_(?!\w)", r"\1", text)  # _italics_ (over a line break too)
     text = re.sub(r"(?<=\w)~(?=\w)", "", text)  # old Tagalog g with a tilde, typed "n~g" ("M~ga"): "ng", "Mga"
+    if lang == "de":
+        # German files mark letter-spaced (gesperrt) and bold print with ~…~, +…+ or =…=: the words stay, the marks go.
+        text = re.sub(r"(?<![\w~+=])([~+=])(?=[^\s~+=])((?:(?!\n\s*\n)[^~+=]){1,300}?)(?<=\S)\1(?![\w~+=])", r"\2", text)
+        text = re.sub(r"(?<=\w)·(?=\w)", " ", text)  # (a spacing dot left between words: "Der·treue·Johannes")
     joiner = "" if lang in NO_SPACES else " "
     paras = []
     for para in re.split(r"\n\s*\n", text):
@@ -392,7 +426,8 @@ def gutenberg(book_id: int, lang: str) -> list[dict]:
         if NOTE_TITLE.match(one):
             head.append(("note", lines))
             continue
-        if head and head[-1][0] == "note" and (re.match(r"^[-*•—–]", one) or re.search(r"(?i)trascri|transcri|ortograf|spelling|errore|error|corrig|corrett|correct|cursiv|corsiv|italic", one)):
+        if head and head[-1][0] == "note" and (re.match(r"^[-*•—–]", one) or re.search(r"(?i)trascri|transcri|ortograf|spelling|errore|error|corrig|corrett|correct|cursiv|corsiv|italic|"
+                                                                                 r"korrig|druckfehler|schreibweise|gekennzeichnet|gesperrt|fraktur|antiqua|markiert", one)):
             continue  # the rest of the note
         head.append(("text", lines))
     paras = [lines for kind, lines in head if kind == "text"] + paras[40:]
@@ -416,7 +451,8 @@ def gutenberg(book_id: int, lang: str) -> list[dict]:
             if entries and k > t + 1 and _short(paras[k]) and len(here) >= 4 and any(
                     here.startswith(_key(e)) or _key(e).startswith(here) for e in entries[:2] if len(_key(e)) >= 4):
                 break
-            entries.extend(re.sub(r"[\s.·…]+\d+$", "", ln).strip() for ln in paras[k])
+            # (a page number after an entry, or a chapter number before it: "1  Zum Alm-Öhi hinauf")
+            entries.extend(re.sub(r"^\d{1,3}\.?\s+(?=\D)", "", re.sub(r"[\s.·…]+\d+$", "", ln)).strip() for ln in paras[k])
             k += 1
         if prose:
             # The text began without its first entry coming round (a part's title, then "I", then the
@@ -427,10 +463,16 @@ def gutenberg(book_id: int, lang: str) -> list[dict]:
             if back:
                 k = back[0]
         paras = paras[:t] + paras[k:]
+    elif lang == "de":
+        # A numbered list of the chapters with no "Inhalt" over it ("1  Zum Alm-Öhi hinauf"): the same.
+        t = next((k for k, lines in enumerate(paras[:40]) if _listing(lines) and all(re.match(r"\d", ln) for ln in lines)), None)
+        if t is not None:
+            entries.extend(re.sub(r"^\d{1,3}\.?\s+", "", ln).strip() for ln in paras[t])
+            paras = paras[:t] + paras[t + 1:]
     # A contents list (or index) at the end, after the last chapter.
     tail = next((k for k in range(len(paras) - 1, max(0, len(paras) * 3 // 4), -1)
                  if len(paras[k]) == 1 and CONTENTS.match(paras[k][0].strip("#* "))), None)
-    if tail is not None and not any(_prose(p) for p in paras[tail + 1:]):
+    if tail is not None and not any(_prose(p) and not _listing(p) for p in paras[tail + 1:]):
         for p in paras[tail + 1:]:
             entries.extend(re.sub(r"[\s.·…]+\d+$", "", ln).strip() for ln in p)
         paras = paras[:tail]
@@ -758,7 +800,8 @@ def clean(blocks: list[dict]) -> list[dict]:
 
 def trim(blocks: list[dict], opts: dict) -> list[dict]:
     """A book's own cuts, where the general cleaning can't see them: "from" (the first block of the
-    book itself, a regular expression), "to" (the first block after its end), "drop" (blocks to leave out)."""
+    book itself, a regular expression), "to" (the first block after its end), "drop" (blocks to leave out),
+    "headings" (blocks that are headings)."""
     if opts.get("from"):
         # ("from" may be [pattern, n]: the n-th block that matches, where a title page comes twice.)
         pattern, nth = (opts["from"], 1) if isinstance(opts["from"], str) else opts["from"]
@@ -773,6 +816,9 @@ def trim(blocks: list[dict], opts: dict) -> list[dict]:
         blocks = blocks[:k]
     if opts.get("drop"):
         blocks = [b for b in blocks if not re.search(opts["drop"], b["text"])]
+    if opts.get("headings"):  # lines that are headings although nothing marks them so ("Der Herausgeber an den Leser")
+        blocks = [{"kind": "h2", "text": b["text"]} if len(b["text"]) <= 120 and re.search(opts["headings"], b["text"]) else b
+                  for b in blocks]
     if opts.get("join_lines"):
         # A scan proofread a printed line to a paragraph: a line that doesn't end a sentence, followed
         # by one that starts in small letters, is one paragraph.
@@ -797,7 +843,10 @@ def build_one(lang: str, entry: tuple, again: bool) -> dict | None:
         data = json.loads(gzip.decompress(path.read_bytes()))
     else:
         kind = source[0]
-        if kind == "gutenberg":
+        if kind == "gutenberg" and isinstance(source[1], list):  # a book Gutenberg has in volumes, one after the other
+            blocks = [b for volume in source[1] for b in gutenberg(volume, lang)]
+            credit = "Project Gutenberg " + ", ".join(f"#{v} (https://www.gutenberg.org/ebooks/{v})" for v in source[1])
+        elif kind == "gutenberg":
             blocks = gutenberg(source[1], lang)
             credit = f"Project Gutenberg #{source[1]} (https://www.gutenberg.org/ebooks/{source[1]})"
         elif kind == "wikisource" and isinstance(source[2], list):

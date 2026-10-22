@@ -1,0 +1,12 @@
+# German as a language to learn (2026-10-21): country names, German news sites, the compound-word explanation, a licence.
+7b5203f5 Talaan sa mga pulong nga Aleman ug listahan sa komon nga mga pulong: karon nga espeling ug dagkong letra, gikan sa Wiktionary (opsyonal nga i-download)
+f13ba6e2 Mas sayon: balita para sa mga bata
+6004ae57 Publikong brodkaster sa Germany
+76af65cb Senemanang mantalaan
+4bb73f48 Munich
+56ab9d28 Publikong brodkaster sa Austria
+593905b3 Austria
+c8fac8a8 Publikong brodkaster sa Switzerland
+d2a4fb95 Wikipedia sa Aleman
+aab575ea Gikan sa built-in nga diksyonaryo ({0}{1}): walay entry niini nga tambalang pulong, mao nga kini ang mga kahulogan sa mga bahin niini.
+17d53e0e Germany

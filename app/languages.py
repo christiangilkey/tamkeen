@@ -14,7 +14,7 @@ from . import db
 # code -> English name. The codes are also Whisper's language codes, except Bisaya's (WHISPER_CODES).
 LANGUAGES = {"es": "Spanish", "ar": "Arabic", "fr": "French", "ja": "Japanese", "zh": "Chinese", "ru": "Russian",
              "it": "Italian", "tl": "Tagalog", "pt": "Brazilian Portuguese", "ca": "Catalan", "ceb": "Bisaya (Cebuano)",
-             "th": "Thai", "en": "English"}
+             "th": "Thai", "en": "English", "de": "German"}
 DEFAULT = "ar"  # the app's first language; anything stored before languages existed is Arabic
 
 # Whisper doesn't know Bisaya (Cebuano): it is asked for its closest relative, Tagalog, and the opening
@@ -63,7 +63,7 @@ def study() -> str:
 
 def detect(text: str, hint: str | None = None) -> str:
     """Which taught language a text is written in, judged by its letters. Text in Latin letters
-    (which could be Spanish, French, Italian, Tagalog, Portuguese, Catalan, Bisaya or something else)
+    (which could be Spanish, French, Italian, Tagalog, Portuguese, Catalan, Bisaya, German or something else)
     counts as the language being studied."""
     hint = hint if valid(hint) else study()
     sample = (text or "")[:4000]

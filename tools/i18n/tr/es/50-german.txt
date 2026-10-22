@@ -1,0 +1,12 @@
+# German as a language to learn (2026-10-21): country names, German news sites, the compound-word explanation, a licence.
+7b5203f5 Tabla de palabras en alemán y lista de palabras comunes: ortografía actual y mayúsculas, de Wikcionario (descarga opcional)
+f13ba6e2 Más fácil: noticias para niños
+6004ae57 La televisión pública de Alemania
+76af65cb Semanario
+4bb73f48 Múnich
+56ab9d28 La televisión pública de Austria
+593905b3 Austria
+c8fac8a8 La televisión pública de Suiza
+d2a4fb95 Wikipedia en alemán
+aab575ea Del diccionario integrado ({0}{1}): no tiene esta palabra compuesta, así que estos son los significados de sus partes.
+17d53e0e Alemania

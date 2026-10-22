@@ -1,0 +1,12 @@
+# German as a language to learn (2026-10-21): country names, German news sites, the compound-word explanation, a licence.
+7b5203f5 德语词形表和常用词表：现行拼写和大写，来自维基词典（可选下载）
+f13ba6e2 更简单：面向儿童的新闻
+6004ae57 德国公共广播电视台
+76af65cb 周报
+4bb73f48 慕尼黑
+56ab9d28 奥地利公共广播电视台
+593905b3 奥地利
+c8fac8a8 瑞士公共广播电视台
+d2a4fb95 德语维基百科
+aab575ea 来自内置词典（{0}{1}）：词典里没有这个复合词，所以这里是它各个组成部分的意思。
+17d53e0e 德国

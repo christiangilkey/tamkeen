@@ -175,6 +175,23 @@ def test_thai_reading_table(client):
     assert not client.post("/api/lexicon/remove", json={"lang": "th"}).json()["installed"]
 
 
+def test_german_word_table_and_meanings(client):
+    """German downloads a table of forms that keeps capitals and today's spelling (tools/build_lemmas.py),
+    and a meanings file keyed with ß as ss (tools/build_meanings.py)."""
+    st = client.get("/api/lexicon/status?lang=de").json()
+    assert st["needed"] and st["names"] == ["de"] and not st["installed"] and 500_000 < st["bytes"] < 3_000_000
+    assert client.post("/api/lexicon/download", json={"lang": "de"}).json()["installed"]
+    data = client.get("/api/lexicon/data/de").json()
+    lemma = lambda form: data["lemmas"][data["forms"][form]]  # noqa: E731
+    assert data["kind"] == "lemmas" and data["ranked"] and "zeit" in data["caps_first"]
+    assert lemma("Häuser") == "Haus" and lemma("musste") == "müssen" and lemma("mußte") == "müssen"
+    assert lemma("Strasse") == "Straße" and lemma("daß") == "dass" and "anfangen" in data["lemmas"]
+    st = client.post("/api/lexicon/download", json={"lang": "de", "kind": "meanings"}).json()
+    assert st["installed"] and st["names"] == ["mean-de"]
+    meanings = client.get("/api/lexicon/data/mean-de").json()
+    assert {"strasse", "dass", "anfangen"} <= set(meanings["words"]) and "straße" not in meanings["words"]
+
+
 def test_word_meanings_for_no_ai_are_a_separate_download(client):
     """No AI (Settings): each language's meanings file is downloaded on its own (kind=meanings)."""
     st = client.get("/api/lexicon/status?lang=es&kind=meanings").json()

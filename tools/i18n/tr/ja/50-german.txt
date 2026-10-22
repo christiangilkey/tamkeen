@@ -1,0 +1,12 @@
+# German as a language to learn (2026-10-21): country names, German news sites, the compound-word explanation, a licence.
+7b5203f5 ドイツ語の単語表とよく使う単語のリスト：現在のつづりと大文字、ウィクショナリーより（任意のダウンロード）
+f13ba6e2 やさしい：子ども向けニュース
+6004ae57 ドイツの公共放送
+76af65cb 週刊新聞
+4bb73f48 ミュンヘン
+56ab9d28 オーストリアの公共放送
+593905b3 オーストリア
+c8fac8a8 スイスの公共放送
+d2a4fb95 ドイツ語版ウィキペディア
+aab575ea 内蔵辞書（{0}{1}）より：この複合語の項目はないため、それを構成する語の意味を示します。
+17d53e0e ドイツ

@@ -95,6 +95,11 @@
   "f": "web/js/languages.js"
  },
  {
+  "id": "da91388c",
+  "k": "German",
+  "f": "web/js/languages.js"
+ },
+ {
   "id": "649df08a",
   "k": "English",
   "f": "web/js/languages.js"
@@ -237,6 +242,11 @@
  {
   "id": "b329cbef",
   "k": "Capacitor: the phone apps' frame around Tamkeen's screens",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "7b5203f5",
+  "k": "German word table and common-word list: today's spelling and capitals, from Wiktionary (optional download)",
   "f": "tools/i18n/extra.txt"
  },
  {
@@ -1257,6 +1267,46 @@
  {
   "id": "494a3b5b",
   "k": "Easier: Simple English Wikipedia",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "f13ba6e2",
+  "k": "Easier: news for children",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "6004ae57",
+  "k": "Germany's public broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "76af65cb",
+  "k": "Weekly newspaper",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "4bb73f48",
+  "k": "Munich",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "56ab9d28",
+  "k": "Austria's public broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "593905b3",
+  "k": "Austria",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "c8fac8a8",
+  "k": "Switzerland's public broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "d2a4fb95",
+  "k": "German Wikipedia",
   "f": "web/js/browser-home.js"
  },
  {
@@ -8020,6 +8070,11 @@
   "f": "web/js/lexicon/meaningdata.js"
  },
  {
+  "id": "aab575ea",
+  "k": "From the built-in dictionary ({0}{1}): it has no entry for this compound word, so these are the meanings of its parts.",
+  "f": "web/js/lexicon/meaningdata.js"
+ },
+ {
   "id": "cd8a2a7e",
   "k": "Show furigana (small kana over kanji)",
   "f": "web/js/lexicon/readings.js"
@@ -13210,6 +13265,11 @@
   "f": "web/js/trending.js"
  },
  {
+  "id": "17d53e0e",
+  "k": "Germany",
+  "f": "web/js/trending.js"
+ },
+ {
   "id": "d6663dda",
   "k": "Business",
   "f": "web/js/trending.js"
@@ -15977,11 +16037,6 @@
  {
   "id": "c9e6b253",
   "k": "Hindi",
-  "f": "app/reels.py"
- },
- {
-  "id": "da91388c",
-  "k": "German",
   "f": "app/reels.py"
  },
  {
