@@ -6,7 +6,7 @@ import { saveSettingsPatch, settings } from "./store.js";
 
 const API = "https://www.googleapis.com/drive/v3";
 const UPLOAD = "https://www.googleapis.com/upload/drive/v3";
-const FIELDS = "id,name,size,modifiedTime";
+const FIELDS = "id,name,size,modifiedTime,md5Checksum"; // (md5Checksum: sync.js tells one library version from another)
 
 let token = null;
 let tokenExpires = 0;
@@ -152,7 +152,9 @@ export const drive = {
   async downloadBlob(id) {
     return (await request(`${API}/files/${id}?alt=media`)).blob();
   },
-  async upload(name, bytes, mime, id = null) {
+  /** `keepalive`: the page is being put away; a small upload (browsers allow 64 KB) then carries on
+   *  even if the page is closed. */
+  async upload(name, bytes, mime, id = null, { keepalive = false } = {}) {
     const meta = id ? { name } : { name, parents: ["appDataFolder"] };
     const boundary = "aps-boundary-7f3c";
     const body = new Blob([
@@ -160,7 +162,7 @@ export const drive = {
       `--${boundary}\r\nContent-Type: ${mime}\r\n\r\n`, bytes, `\r\n--${boundary}--`,
     ]);
     const url = `${UPLOAD}/files${id ? `/${id}` : ""}?uploadType=multipart&fields=${FIELDS}`;
-    return (await request(url, { method: id ? "PATCH" : "POST", body,
+    return (await request(url, { method: id ? "PATCH" : "POST", body, ...(keepalive && body.size < 60 * 1024 ? { keepalive: true } : {}),
       headers: { "Content-Type": `multipart/related; boundary=${boundary}` } })).json();
   },
   /** Upload a big file (a video) with progress. Uses XHR because fetch can't report upload progress. */

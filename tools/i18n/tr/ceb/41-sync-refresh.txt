@@ -1,0 +1,5 @@
+c64c401c Pag-sign in gamit ang Google aron parehas ang imong library sa tanan nimong device.
+6271a4fa Dili ma-sync.
+82fb1d51 Bag-o na tanan
+ac41569a Naay 1 ka kausaban nga miabot gikan sa imong ubang device
+f7a589f3 Naay {0} ka kausaban nga miabot gikan sa imong ubang device

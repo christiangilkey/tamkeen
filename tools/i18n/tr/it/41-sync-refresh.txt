@@ -1,0 +1,5 @@
+c64c401c Accedi con Google per avere la stessa libreria su tutti i tuoi dispositivi.
+6271a4fa Impossibile sincronizzare.
+82fb1d51 Tutto aggiornato
+ac41569a Arrivata 1 modifica dagli altri tuoi dispositivi
+f7a589f3 Arrivate {0} modifiche dagli altri tuoi dispositivi

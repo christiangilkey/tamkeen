@@ -29,12 +29,15 @@ import { addUploadedVideo, checkFeeds, fillLanguages, handle, wordLang } from ".
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
-import { CALENDAR_SCOPE, DRIVE_SCOPE, RECONNECT_EVENT, TASKS_SCOPE, accessToken, drive, useWebToken, webPassLeft } from "./drive.js";
+import { CALENDAR_SCOPE, DRIVE_SCOPE, RECONNECT_EVENT, TASKS_SCOPE, accessToken, drive, signIn, useWebToken, webPassLeft } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
 import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, webFetch } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
-import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js";
+import { audioCopy, driveFileId, flushSync, onSync, requestSync, syncFresh, syncNow } from "./sync.js";
+import { checkEvery, checkOnReturn, refreshMessage, shouldRedraw } from "./syncpace.js";
+import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
+import { refreshButton } from "./components/refreshbutton.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
 import { vocabDeck } from "./anki-export.js";
 import { ankiCard } from "./review/fsrs.js";
@@ -269,6 +272,37 @@ export async function goToGoogleSignIn({ quiet = false, renew = false, tasks = f
   return true;
 }
 
+// ---------- the refresh button (components/refreshbutton.js) ----------
+let refreshing = false; // a sync the refresh button asked for: the page on screen is drawn again after it
+
+/** Sync now, for the refresh button: the number of changes that came, or null when it offered to
+ *  sign in instead, or left for Google's page to renew the web app's hour-long pass first (it
+ *  syncs and says how it went when it comes back: finishWebSignIn). */
+async function refreshNow() {
+  if (!settings.signed_in) {
+    toast("Sign in with Google to keep your library the same on all your devices.", { timeout: 8000, action: { label: "Sign in", run: async () => {
+      try {
+        const email = await signIn(); // (the web app leaves for Google's page here)
+        toast(`Signed in as ${email}`);
+        syncNow();
+      } catch (e) { toast(e.message, { error: true }); }
+    } } });
+    return null;
+  }
+  if (isWeb && webPassLeft() < 60 * 1000) {
+    await goToGoogleSignIn({ renew: true, then: { refresh: true } }); // a tap: Google's page and straight back
+    return null;
+  }
+  refreshing = true;
+  try {
+    const s = await syncFresh();
+    if (s.state === "error") throw new Error(s.error);
+    return s.received;
+  } finally {
+    refreshing = false;
+  }
+}
+
 /** Something the learner would lose if the page reloaded now: a player, a chat or the first-run
  *  questions, sound or video playing, a box open (a review, the game, a question), or typing. */
 function busyNow() {
@@ -353,7 +387,9 @@ async function finishWebSignIn() {
     useWebToken(answer.get("access_token"), answer.get("expires_in"), answer.get("scope"));
     try { localStorage.removeItem(QUIET_FAIL_KEY); } catch { /* storage off */ }
     await saveSettingsPatch({ signed_in: true, google_email: email || settings.google_email || "" });
-    syncNow();
+    const synced = syncNow({ changed: true });
+    // The refresh button found the pass run out and came here first: now say how the sync went.
+    if (kept.then && kept.then.refresh) synced.then((s) => toast(s.state === "error" ? s.error : refreshMessage(s.received), { error: s.state === "error" }));
   } else if (quiet) quietFailed();
   if (!renewing) {
     // Friends keeps its own sign-in, which renews itself: so only "Sign in" signs in to it.
@@ -1278,7 +1314,15 @@ async function boot() {
       if (document.hidden) { hiddenAt = Date.now(); return; }
       if (hiddenAt && Date.now() - hiddenAt > 30 * 1000) renewQuietly();
     });
+    // Closing the reviewer is a quiet moment: renew then, if the pass ran out during the session (the
+    // answers wait here and go with the sync that follows the renewal).
+    window.addEventListener("tamkeen:review-closed", () => { if (!chip.hidden || webPassLeft() < 2 * 60 * 1000) setTimeout(renewQuietly, 400); });
   }
+  // The refresh button (components/refreshbutton.js), just before Search. In the web app it hides
+  // while "Reconnect Google" shows (that button does the same, and the bar is narrow).
+  const topSearch = document.querySelector(".topbar .top-search");
+  const refresh = refreshButton(refreshNow);
+  if (topSearch) topSearch.before(refresh); else document.querySelector(".topbar").append(refresh);
   startBadge();
   startChatNotices();
   setTimeout(() => checkForUpdate(), 3000);
@@ -1305,11 +1349,36 @@ async function boot() {
   // The computer's saved Instagram collections arrived with the sync (sync.js): an open Reels page shows them.
   window.addEventListener("tamkeen:ig-collections", () => emit("reels_collections", {}));
 
-  // Sync on start, when returning to the app, and every 5 minutes while open.
+  // Sync on start, on coming back to the app, every minute while it is on screen (syncpace.js:
+  // a check that finds nothing new is one small Drive request), at once when another of the
+  // learner's devices nudges (syncnudge.js), and send a waiting change when the app is put away.
+  let lastCheck = 0;
+  let checkTimer = 0;
+  const check = () => { lastCheck = Date.now(); return syncNow(); };
+  const planChecks = () => {
+    clearTimeout(checkTimer);
+    const every = checkEvery({ visible: document.visibilityState !== "hidden", web: isWeb });
+    if (every) checkTimer = setTimeout(() => { check(); planChecks(); }, Math.max(1000, every - (Date.now() - lastCheck)));
+  };
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") flushSync();
+    else if (checkOnReturn(lastCheck, Date.now())) check();
+    planChecks();
+  });
+  window.addEventListener("pagehide", () => { flushSync(); });
+  window.addEventListener("tamkeen:review-closed", () => { flushSync(); }); // a review session ended: send it now
+  startNudges(() => check());
   let lastDone = new Set(lib.episodes.filter((e) => e.transcript_rev).map((e) => e.uid));
   onSync((s) => {
     emit("sync", s);
     if (s.state !== "idle") return;
+    lastCheck = Math.max(lastCheck, Date.now() - 1000);
+    planChecks();
+    setNudgeKey(s.nudge_key);
+    if (s.uploaded) sendNudge(); // the learner's other open devices fetch it now
+    // Something arrived: Home and Vocab show it (their counts) when nothing on them would be lost.
+    // (After the refresh button, any page that is safe to draw again.)
+    if (shouldRedraw({ received: s.received, hash: location.hash, busy: busyNow() || document.body.classList.contains("rv-open"), manual: refreshing })) route();
     emit("feeds", { synced: true });
     requestAnkiSync(4000);  // words that just arrived from the computer get their AnkiDroid cards
     const done = lib.episodes.filter((e) => e.transcript_rev);
@@ -1324,8 +1393,8 @@ async function boot() {
     toast(n === 1 ? "1 new podcast episode" : `${n} new podcast episodes`);
     emit("feeds", { refreshed: true });
   }).catch((e) => console.warn(e));
-  syncNow().then(lookForEpisodes, lookForEpisodes);
-  setInterval(() => syncNow(), 5 * 60 * 1000);
+  check().then(lookForEpisodes, lookForEpisodes);
+  planChecks();
   // The two-way sync with the Tamkeen deck in AnkiDroid (off until switched on in Settings):
   // on start, on return to the app, and every 10 minutes while open.
   onAnki((data) => emit("anki", data));
@@ -1344,7 +1413,8 @@ async function boot() {
       sessionStorage.setItem("launchLinkOpened", url);
       openTamkeenLink(url);
     }).catch(() => {});
-    App.addListener("resume", () => { syncNow().then(lookForEpisodes, lookForEpisodes); requestAnkiSync(3000); });
+    App.addListener("resume", () => { check().then(lookForEpisodes, lookForEpisodes); planChecks(); requestAnkiSync(3000); });
+    App.addListener("pause", () => { flushSync(); }); // put away: send a waiting change now
     App.addListener("backButton", () => {
       if (location.hash && location.hash !== "#/") history.back();
       else App.exitApp();

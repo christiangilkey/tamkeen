@@ -14,8 +14,10 @@ they propagate instead of being resurrected by another device.
 from __future__ import annotations
 
 import gzip
+import hashlib
 import json
 import logging
+import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -56,6 +58,17 @@ class Result:
     library_uploaded: bool = False
     requested_transcriptions: list[int] = field(default_factory=list)
     new_feeds: list[int] = field(default_factory=list)  # added on another device; need an RSS fetch here
+    skipped: bool = False  # a quick check that found nothing new (run's `quick`)
+
+    @property
+    def received(self) -> int:
+        """Changes that came from the other devices: records merged and transcripts fetched."""
+        return self.downloaded_transcripts + sum(self.merged.values())
+
+    @property
+    def uploaded(self) -> bool:
+        """Did this sync put something new in Drive that the other devices would want now?"""
+        return self.library_uploaded or self.uploaded_transcripts > 0 or self.uploaded_videos > 0
 
     def summary(self) -> dict[str, Any]:
         return {"uploaded_transcripts": self.uploaded_transcripts,
@@ -63,7 +76,8 @@ class Result:
                 "uploaded_audio": self.uploaded_audio, "uploaded_videos": self.uploaded_videos,
                 "merged": self.merged,
                 "library_uploaded": self.library_uploaded,
-                "requested_transcriptions": len(self.requested_transcriptions)}
+                "requested_transcriptions": len(self.requested_transcriptions),
+                "received": self.received, "uploaded": self.uploaded, "skipped": self.skipped}
 
 
 def _gz(obj: Any) -> bytes:
@@ -422,9 +436,51 @@ def store_transcript(episode_id: int, payload: dict[str, Any]) -> None:
 
 # ---------------------------------------------------------------------------------- run
 
-def run(drive: Drive, device_id: str, sync_audio: bool, can_transcribe: bool) -> Result:
+FULL_EVERY = 15 * 60  # seconds: read the whole library at least this often, even when nothing seems new
+
+
+def fingerprint(meta: dict[str, Any] | None) -> str:
+    """What identifies one version of the library file in Drive (web/js/syncpace.js does the same)."""
+    if not meta or not meta.get("id"):
+        return ""
+    return "|".join(str(meta.get(k) or "") for k in ("id", "modifiedTime", "size", "md5Checksum"))
+
+
+def _digest(content: str) -> str:
+    return hashlib.sha256(content.encode("utf-8")).hexdigest()
+
+
+def _transcript_waiting() -> bool:
+    """A transcript finished here that isn't in Drive yet."""
+    with db.session() as conn:
+        return conn.execute(
+            "SELECT 1 FROM episodes WHERE status = 'done' AND transcribed_at IS NOT NULL "
+            "AND (synced_rev IS NULL OR synced_rev < transcribed_at) LIMIT 1").fetchone() is not None
+
+
+def quick_check(memo: dict[str, Any] | None, files: dict[str, dict[str, Any]], device_id: str) -> bool:
+    """Can this sync stop after listing the folder? Only when the library file in Drive is exactly
+    the one the last sync ended with, that sync finished everything, the library here is unchanged
+    since (same content), no transcript is waiting to go up, and the whole library was read lately."""
+    fp = fingerprint(files.get(LIBRARY))
+    return bool(memo and memo.get("complete") and fp and memo.get("fp") == fp
+                and time.time() - memo.get("full_at", 0) < FULL_EVERY
+                and memo.get("hash") == _digest(_content(snapshot(device_id)))
+                and not _transcript_waiting())
+
+
+def run(drive: Drive, device_id: str, sync_audio: bool, can_transcribe: bool,
+        memo: dict[str, Any] | None = None, quick: bool = False) -> Result:
+    """One sync. `memo` (optional, kept by the caller between syncs) remembers what the last one
+    ended with; it is brought up to date at the end of every full sync. With `quick` (a check, not a
+    change made here) a sync that finds nothing new, here or in Drive, is one small Drive request:
+    the folder's list (quick_check)."""
     result = Result()
     files = {f["name"]: f for f in drive.list()}
+    if quick and memo is not None and quick_check(memo, files, device_id):
+        result.skipped = True
+        return result
+    incomplete = False
 
     # 1. Publish transcripts finished on this device (before the library refers to them).
     with db.session() as conn:
@@ -454,14 +510,18 @@ def run(drive: Drive, device_id: str, sync_audio: bool, can_transcribe: bool) ->
         for local_id, uid, rev in downloads:
             meta = files.get(transcript_name(uid))
             if meta is None:
+                incomplete = True
                 continue  # library ahead of the transcript upload; next sync picks it up
             payload = _ungz(drive.download(meta["id"]))
             if abs((payload.get("rev") or 0) - rev) < 1e-3 or (payload.get("rev") or 0) > rev:
                 store_transcript(local_id, payload)
                 result.downloaded_transcripts += 1
+            else:
+                incomplete = True
 
         local = snapshot(device_id)
-        if remote is not None and _content(remote) == _content(local):
+        local_content = _content(local)
+        if remote is not None and _content(remote) == local_content:
             break
         if lib_meta is not None:
             # Someone else may have written the library while we merged: re-check before overwriting.
@@ -472,6 +532,8 @@ def run(drive: Drive, device_id: str, sync_audio: bool, can_transcribe: bool) ->
         files[LIBRARY] = drive.upload(LIBRARY, _gz(local), "application/gzip", lib_meta["id"] if lib_meta else None)
         result.library_uploaded = True
         break
+    else:
+        incomplete = True  # Drive kept changing under us: the next sync tries again in full
 
     # 6. Free Drive space used by deleted videos (any device may do this; it's idempotent).
     remove_deleted_media(drive, files)
@@ -479,6 +541,12 @@ def run(drive: Drive, device_id: str, sync_audio: bool, can_transcribe: bool) ->
     # 7. Transcription requests from other devices (e.g. the phone).
     if can_transcribe:
         result.requested_transcriptions = requested_transcriptions()
+
+    if memo is not None:
+        lib_meta = files.get(LIBRARY)
+        memo.clear()
+        memo.update({"fp": fingerprint(lib_meta), "hash": _digest(_content(snapshot(device_id))),
+                     "complete": not incomplete, "full_at": time.time(), "library_id": (lib_meta or {}).get("id", "")})
     return result
 
 

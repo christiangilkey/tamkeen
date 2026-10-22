@@ -4705,3 +4705,69 @@ own chat is restructuring that), and so does Google Tasks.
   (the request was stopped before Google loaded), then a faked answer came back and the event was sent at 6:45 pm.
   **Not checked:** a real Google account (needs the setup above), the computer's browser permission flow end to end, the
   iPhone build, a real Android phone.
+
+## Changes reach the other devices within seconds; a refresh button on every version (2026-10-22; branch of worktree agent-a3d82a9562f4993ec, NOT merged, NOT pushed)
+Owner: "once I've reviewed on my computer webapp, it didn't update on my phone app until like 10 minutes later", then
+"there should be a refresh button on every app".
+- **Why it was slow.** Sending: a review answer asked for a sync in 20 s, but each reward saved the game, which asked for
+  one in 90 s, and the phone/web `requestSync` *replaced* the waiting timer, so the upload slid to 90 s after the last
+  answer (longer in a background tab, whose timers browsers slow down; and if the web app's hour-long Drive pass ran out
+  mid-session, nothing went until the next page change). Receiving: an open app only looked at Drive every 5 minutes.
+- **Timings, a review on one device until it shows on another:**
+  | | before | after (typical) | after (worst case) |
+  |---|---|---|---|
+  | sending | 20–90 s after the last answer (more in a background tab) | at once when the reviewer closes, the tab/app is put away or the window loses focus | 20 s after an answer, mid-session |
+  | receiving, other device open | up to 5 min | 1–3 s (nudge, signed in to Friends) | 60 s (no Friends sign-in) |
+  | receiving, other device opened/brought back | on resume (phones) | at once on coming back (all versions) | at once |
+  | total | typically 5–6 min, up to ~10 | **about 2–5 s** | ~80 s (open on both, no Friends, mid-session) |
+- **Pure rules** in `web/js/syncpace.js` (shared; tests `tests/js/syncpace.test.mjs`): `SyncTimer` (a later, longer request
+  never pushes back a sooner one; `flush()` sends now), `checkEvery` (60 s on screen; put away: 5 min in the apps, none
+  from a web page), `checkOnReturn` (not twice within 10 s), `canSkip` + `libraryFingerprint` + `hashText` (the cheap
+  check), nudge channel/payload rules, `refreshMessage`, `shouldRedraw`. The computer's numbers are the same
+  (`app/sync/__init__.py`: PERIOD_VISIBLE 60, PERIOD 300, RETURN_GAP 10).
+- **The cheap check.** A sync starts by listing the Drive folder (as before). If the library file there is exactly the
+  one the last sync ended with (id + modifiedTime + size + md5Checksum; drive.js now asks for md5Checksum too), the
+  library here hasn't changed since (hash of its content), nothing is waiting to go up and the whole library was read in
+  the last 15 minutes, it stops there: **one small request per minute** while on screen. Otherwise the full sync runs as
+  before. Computer: `engine.quick_check`, used only for checks (`Manager.check`, the periodic timer), never for a sync a
+  change here asked for (`request(change=True)`, the default), since a finished video/audio copy isn't in the hash. Phone/
+  web: `sync.js doSync` (the hash covers every change; waiting transcripts/clips are checked). A check that finds nothing
+  tells no page (no repaint every minute).
+- **Sending sooner.** Phone/web `sync.js`: `requestSync` uses SyncTimer; `flushSync()` on `visibilitychange` hidden,
+  `pagehide`, Capacitor App `pause`, and the new `tamkeen:review-closed` event (review.js close()); a library upload
+  during a flush uses `fetch keepalive` when under 60 KB; a change arriving while a sync runs makes it run once more.
+  Computer: the page tells the server its window state (`POST /api/sync/presence {visible, focused}` on visibilitychange/
+  focus/blur): leaving the window sends a waiting change, coming back checks at once; `POST /api/sync/flush` when the
+  reviewer closes (and a beacon on pagehide); closing the window runs `Manager.flush_on_exit` (up to 20 s) in desktop.py.
+- **Web app, pass ran out mid-review**: closing the reviewer counts as a quiet moment for `renewQuietly`, and the boot
+  after the hop syncs (the answers were kept locally, so they go then).
+- **The nudge** (`web/js/syncnudge.js`): after a sync that put something in Drive (`uploaded`), a Supabase realtime
+  *broadcast* `{d: <random id of this run>}` on channel `sync:<Friends user id>:<key>`; the user's other open devices
+  (not hidden; not the sender) sync 1.2 s later (computer: `POST /api/sync/check`). The key = first 32 hex of
+  SHA-256("tamkeen-nudge:" + the Drive id of library.json.gz) (`syncpace.nudgeKey` = `app.sync.nudge_key`, same test
+  value on both sides), so only the learner's own devices know the channel; the payload is a random id, nothing else.
+  **No Supabase change needed** (an ordinary broadcast channel; nothing stored). Without a Friends sign-in it does
+  nothing and the 60 s checks still apply.
+- **Refresh button** (`web/js/components/refreshbutton.js`, the `refresh` line icon; desktop: right of the search box;
+  phones/web: just before Search, hidden while the web app's "Reconnect Google" pill shows): syncs now (computer:
+  `POST /api/sync/now?wait=true` → `Manager.wait_and_sync`; phone/web: `syncFresh`), the icon turns meanwhile (still
+  under prefers-reduced-motion, just dimmed), then a toast "Up to date" / "Got N changes from your other devices"
+  (merged records + transcripts fetched; `Result.received`). The page on screen is drawn again when something came and
+  nothing would be lost (not in a player/chat/reel/first-run page, the reviewer, a box or a text field). After an
+  automatic sync only Home and Vocab redraw (their counts). Not signed in: a toast with "Sign in". Web app with the pass
+  run out: the Reconnect trip (`then: {refresh: true}`), then the sync and its toast. On a narrow phone with the web
+  app's install button, Search shows as its icon only and the bar's gaps are 8 px (it already overflowed by ~3 px at
+  375 px before).
+- New strings (5) translated in all 12 other languages (`tools/i18n/tr/<code>/41-sync-refresh.txt`).
+- **Checked:** 456 pytest (new `tests/test_sync_pace.py`: one request when nothing changed, a change on either side is
+  never skipped, waiting transcript / old read force a full sync, earliest request wins, presence flush/check/period,
+  flush on close, nudge key parity), 624 JS tests, `build-www` and `webapp/build-web.mjs` (docs/app put back). In the
+  built web app at 375 x 812 with Google Drive faked inside the page: the bar fits; not signed in → "Sign in" toast;
+  first tap uploaded the library, second tap = one list request and "Up to date"; a word written to the fake Drive by
+  "another device" → "Got 1 change…" and Home redrawn ("2 in your vocab"); a review answer + game save sent nothing for
+  1 s, closing the reviewer sent it at once (keepalive). Desktop server (throwaway data folder): button right of the
+  search box; presence/flush/check endpoints answer.
+- **Not checked:** real Google Drive or Supabase (never signed in); the nudge going through Supabase's realtime server
+  (needs two signed-in devices; if the project ever switches Realtime to "private channels only", nudges stop silently
+  and the 60 s checks remain); Capacitor `pause` timing on a real phone; pywebview's focus/blur/visibility events in the
+  real window (the logic was checked with the browser page and unit tests).

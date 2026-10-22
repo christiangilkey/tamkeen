@@ -1,0 +1,5 @@
+c64c401c Mag-sign in gamit ang Google para pare-pareho ang library mo sa lahat ng device mo.
+6271a4fa Hindi ma-sync.
+82fb1d51 Updated na ang lahat
+ac41569a May 1 pagbabagong dumating mula sa iba mong device
+f7a589f3 May {0} pagbabagong dumating mula sa iba mong device

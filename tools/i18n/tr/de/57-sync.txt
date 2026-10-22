@@ -1,0 +1,5 @@
+c64c401c Melde dich mit Google an, damit deine Bibliothek auf all deinen Geräten gleich bleibt.
+6271a4fa Synchronisieren fehlgeschlagen.
+82fb1d51 Auf dem neuesten Stand
+ac41569a 1 Änderung von deinen anderen Geräten erhalten
+f7a589f3 {0} Änderungen von deinen anderen Geräten erhalten
