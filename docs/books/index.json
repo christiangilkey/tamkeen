@@ -1781,6 +1781,151 @@
     "chapters": 15,
     "source": "Wikisource (https://th.wikisource.org/wiki/%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B8%81%E0%B9%8A%E0%B8%81/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1_1/%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88_1)"
    }
+  ],
+  "hi": [
+   {
+    "id": "nirmala",
+    "title": "निर्मला",
+    "author": "प्रेमचंद",
+    "year": 1927,
+    "blurb": "A girl married off to a widower twice her age: Premchand's novel of dowry and a family's ruin.",
+    "file": "hi/nirmala.json.gz",
+    "bytes": 152203,
+    "sha256": "f27f8f8432412ba9a0a5a9c9bcf1a27f697c9d3baaa60142a23fc52011c0968b",
+    "chars": 289836,
+    "chapters": 25,
+    "source": "Wikisource (https://hi.wikisource.org/wiki/%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%AE%E0%A4%B2%E0%A4%BE)"
+   },
+   {
+    "id": "sevasadan",
+    "title": "सेवासदन",
+    "author": "प्रेमचंद",
+    "year": 1919,
+    "blurb": "Suman leaves a cold marriage in Banaras and is drawn into the city's courtesan quarter.",
+    "file": "hi/sevasadan.json.gz",
+    "bytes": 521204,
+    "sha256": "8d8834e6d1c1d8df21c54250706cccd03d1c741b6c87e30c059c0c2fc0b7f167",
+    "chars": 1107558,
+    "chapters": 58,
+    "source": "Wikisource (https://hi.wikisource.org/wiki/%E0%A4%B8%E0%A5%87%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A4%A6%E0%A4%A8)"
+   },
+   {
+    "id": "saptasaroj",
+    "title": "सप्तसरोज",
+    "author": "प्रेमचंद",
+    "year": 1917,
+    "blurb": "Seven stories, among them 'Bade Ghar ki Beti', 'Panch Parmeshwar' and 'Namak ka Daroga'.",
+    "file": "hi/saptasaroj.json.gz",
+    "bytes": 61415,
+    "sha256": "81087b727d4ceb2b50677b495e2d9e24d0aa7b8b0ca1edf19a5462401e66dd30",
+    "chars": 117418,
+    "chapters": 7,
+    "source": "Wikisource (https://hi.wikisource.org/wiki/%E0%A4%B8%E0%A4%AA%E0%A5%8D%E0%A4%A4%E0%A4%B8%E0%A4%B0%E0%A5%8B%E0%A4%9C)"
+   },
+   {
+    "id": "nav-nidhi",
+    "title": "नव-निधि",
+    "author": "प्रेमचंद",
+    "year": 1917,
+    "blurb": "Nine stories, several of them tales of Rajput honour such as 'Raja Hardaul'.",
+    "file": "hi/nav-nidhi.json.gz",
+    "bytes": 102290,
+    "sha256": "9cd39282d6301cf991e69a271e48024e1c598e55511d76ede85f57614ffb9fc1",
+    "chars": 190679,
+    "chapters": 9,
+    "source": "Wikisource (https://hi.wikisource.org/wiki/%E0%A4%A8%E0%A4%B5-%E0%A4%A8%E0%A4%BF%E0%A4%A7%E0%A4%BF)"
+   },
+   {
+    "id": "prem-dwadashi",
+    "title": "प्रेम-द्वादशी",
+    "author": "प्रेमचंद",
+    "year": 1926,
+    "blurb": "Twelve stories, with 'Shatranj ke Khiladi' (The Chess Players) and 'Atmaram'.",
+    "file": "hi/prem-dwadashi.json.gz",
+    "bytes": 139558,
+    "sha256": "1356010bf45577a7f9c40032f0f1d5ace4dc5010b8e3b805e5296fb3ba2386ea",
+    "chars": 256517,
+    "chapters": 12,
+    "source": "Wikisource (https://hi.wikisource.org/wiki/%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%AE-%E0%A4%A6%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%A6%E0%A4%B6%E0%A5%80)"
+   },
+   {
+    "id": "premashram",
+    "title": "प्रेमाश्रम",
+    "author": "प्रेमचंद",
+    "year": 1922,
+    "blurb": "Landlords and peasants in a village near Banaras: Premchand's novel of the countryside.",
+    "file": "hi/premashram.json.gz",
+    "bytes": 484974,
+    "sha256": "5e557f3a42665f75dfdab13dba31f2f9cdb20007101c10fcb2bd8c9e6c116c0a",
+    "chars": 900043,
+    "chapters": 67,
+    "source": "Wikisource (https://hi.wikisource.org/wiki/%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%AE%E0%A4%BE%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A4%AE)"
+   },
+   {
+    "id": "kayakalp",
+    "title": "कायाकल्प",
+    "author": "प्रेमचंद",
+    "year": 1926,
+    "blurb": "Love, rebirth and politics in a princely state and the streets of Agra.",
+    "file": "hi/kayakalp.json.gz",
+    "bytes": 386397,
+    "sha256": "ab40038fce37a32ba2ab531e9db6553379b480c031b9873bf73c80510c2d64e6",
+    "chars": 733291,
+    "chapters": 58,
+    "source": "Wikisource (https://hi.wikisource.org/wiki/%E0%A4%95%E0%A4%BE%E0%A4%AF%E0%A4%BE%E0%A4%95%E0%A4%B2%E0%A5%8D%E0%A4%AA)"
+   },
+   {
+    "id": "andher-nagari",
+    "title": "अंधेर नगरी",
+    "author": "भारतेन्दु हरिश्चंद्र",
+    "year": 1881,
+    "blurb": "A farce about a city where everything costs the same and the king's justice is upside down.",
+    "file": "hi/andher-nagari.json.gz",
+    "bytes": 10561,
+    "sha256": "15472798e3dc171a7c937e578bc66651d55d782db0c0d886fb828aaded17b50d",
+    "chars": 17827,
+    "chapters": 6,
+    "source": "Wikisource (https://hi.wikisource.org/wiki/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4%E0%A5%87%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A5%81_%E0%A4%B8%E0%A4%AE%E0%A4%97%E0%A5%8D%E0%A4%B0/%E0%A4%85%E0%A4%82%E0%A4%A7%E0%A5%87%E0%A4%B0_%E0%A4%A8%E0%A4%97%E0%A4%B0%E0%A5%80_%E0%A4%9A%E0%A5%8C%E0%A4%AA%E0%A4%9F%E0%A5%8D%E0%A4%9F_%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%BE)"
+   },
+   {
+    "id": "akashdeep",
+    "title": "आकाश-दीप",
+    "author": "जयशंकर प्रसाद",
+    "year": 1929,
+    "blurb": "Nineteen stories by the great poet of Chhayavad, among them 'Akashdeep' and 'Mamta'.",
+    "file": "hi/akashdeep.json.gz",
+    "bytes": 80892,
+    "sha256": "f2cde835ba4f44198e6c06dafe94d531cc5a83a9c34f0ed23333bd965a3c4d10",
+    "chars": 147130,
+    "chapters": 18,
+    "source": "Wikisource (https://hi.wikisource.org/wiki/%E0%A4%86%E0%A4%95%E0%A4%BE%E0%A4%B6-%E0%A4%A6%E0%A5%80%E0%A4%AA)"
+   },
+   {
+    "id": "skandagupta",
+    "title": "स्कंदगुप्त",
+    "author": "जयशंकर प्रसाद",
+    "year": 1928,
+    "blurb": "A historical play: the Gupta emperor who held back the Huns.",
+    "file": "hi/skandagupta.json.gz",
+    "bytes": 81110,
+    "sha256": "dba42bf2c93547f6ecf3bbff407de3db407dd1780898d8c82bdb3d8cdba625be",
+    "chars": 148315,
+    "chapters": 5,
+    "source": "Wikisource (https://hi.wikisource.org/wiki/%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%82%E0%A4%A6%E0%A4%97%E0%A5%81%E0%A4%AA%E0%A5%8D%E0%A4%A4)"
+   },
+   {
+    "id": "kamna",
+    "title": "कामना",
+    "author": "जयशंकर प्रसाद",
+    "year": 1927,
+    "blurb": "An allegorical play about a peaceful island spoiled by gold and desire.",
+    "file": "hi/kamna.json.gz",
+    "bytes": 62075,
+    "sha256": "f5e9faca516095ab0f75682a29c40ef15a5af1b54e1bb6af539022d9be6134e0",
+    "chars": 112049,
+    "chapters": 26,
+    "source": "Wikisource (https://hi.wikisource.org/wiki/%E0%A4%95%E0%A4%BE%E0%A4%AE%E0%A4%A8%E0%A4%BE)"
+   }
   ]
  }
 }

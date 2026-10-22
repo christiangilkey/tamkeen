@@ -20,6 +20,8 @@ from app import arabic
         ("قـــال", "قال"),                        # tatweel
         ("  كلمة\n\tأخرى  ", "كلمه اخري"),        # whitespace collapsed
         ("Hello World", "hello world"),
+        ("ज़रूर", "जरूर"),                         # Hindi: with or without the nukta
+        ("हूँ", "हूं"),                            # Hindi: chandrabindu as anusvara
     ],
 )
 def test_normalize(text, expected):

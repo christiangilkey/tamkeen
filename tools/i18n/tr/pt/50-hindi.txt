@@ -1,0 +1,8 @@
+# Hindi as a language to learn (news sites, readings, word table)
+daf2a254	BBC em híndi
+c95a8c71	Deutsche Welle em híndi
+48c12aee	Hindi Samay, contos e literatura
+24dafe8b	Wikipédia em híndi
+5f62fc67	Mostrar como se falam as palavras em híndi, em cima delas (namaste)
+832dd30e	Deduzida da escrita. Com a tabela de palavras em híndi neste aparelho, a leitura do Wikcionário é usada nas palavras em que a regra erra.
+3e4d6595	as tabelas de flexão das palavras em híndi do Wiktionary em inglês e as contagens de palavras do wordfreq (करता, किया, करूँगा: करना), com a leitura do Wikcionário das palavras em que a regra de leitura do app erra

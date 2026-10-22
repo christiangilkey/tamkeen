@@ -1,0 +1,8 @@
+# Hindi as a language to learn (news sites, readings, word table)
+daf2a254	BBC sa Hindi
+c95a8c71	Deutsche Welle sa Hindi
+48c12aee	Hindi Samay, mga kuwento at panitikan
+24dafe8b	Wikipedia sa Hindi
+5f62fc67	Ipakita kung paano binibigkas ang mga salitang Hindi, sa ibabaw ng mga salita (namaste)
+832dd30e	Hinuhulaan mula sa pagsulat. Kapag nasa device na ito ang talaan ng mga salitang Hindi, ginagamit ang bigkas ng Wiktionary sa mga salitang mali ang patakaran.
+3e4d6595	ang mga talaan ng anyo ng mga salitang Hindi sa English Wiktionary at ang bilang ng mga salita ng wordfreq (करता, किया, करूँगा: करना), kasama ang bigkas ng Wiktionary sa mga salitang mali ang sariling patakaran ng app sa pagbasa

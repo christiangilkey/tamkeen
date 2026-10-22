@@ -33,10 +33,12 @@ const MAP = {
   "آ": "ا", "أ": "ا", "إ": "ا", "ٱ": "ا", "ٲ": "ا", "ٳ": "ا",
   "ة": "ه", "ى": "ي", "ؤ": "و", "ئ": "ي", "ـ": "",
 };
-const mapChars = (s) => s.replace(/[آأإٱٲٳةىؤئـ]/g, (c) => MAP[c]);
+const mapChars = (s) => s.replace(/[آأإٱٲٳةىؤئـ]/g, (c) => MAP[c]).replace(/\u{901}/gu, "\u{902}"); // (Hindi हूँ / हूं)
+// Hindi: the nukta (ज़ / ज) is left off too, as people often write without it (app/arabic.py does the same).
+const SEARCH_MARKS = new RegExp(`${DIACRITICS.source.slice(0, -1)}\u{93C}]`, "g");
 
 export function normalize(text) {
-  return mapChars(String(text || "").replace(DIACRITICS, "")).replace(/\s+/g, " ").trim().toLowerCase();
+  return mapChars(String(text || "").replace(SEARCH_MARKS, "")).replace(/\s+/g, " ").trim().toLowerCase();
 }
 
 /** [start, end] offsets of `query` in the original (diacritized) text, using normalized matching. */
@@ -53,7 +55,7 @@ export function findSpans(original, query) {
       prevSpace = true;
       continue;
     }
-    const mapped = mapChars(ch.replace(DIACRITICS, "")).toLowerCase();
+    const mapped = mapChars(ch.replace(SEARCH_MARKS, "")).toLowerCase();
     for (const m of mapped) { chars.push(m); index.push(i); }
     if (mapped) prevSpace = false;
   }
@@ -63,7 +65,7 @@ export function findSpans(original, query) {
   while (pos !== -1) {
     const start = index[pos];
     let end = index[pos + q.length - 1] + 1;
-    while (end < original.length && !original[end].replace(DIACRITICS, "") && !/\s/.test(original[end])) end++;
+    while (end < original.length && !original[end].replace(SEARCH_MARKS, "") && !/\s/.test(original[end])) end++;
     spans.push([start, end]);
     pos = norm.indexOf(q, pos + q.length);
   }

@@ -36,6 +36,7 @@ export const START = {
   ca: ["amb", "ES", "ca", 0],
   ceb: ["kaayo", "PH", "fil", 0],  // (YouTube has no Bisaya interface: Filipino is the nearest)
   th: ["ที่", "TH", "th", 0],
+  hi: ["है", "IN", "hi", 0], // ("is": every one of the top 20 titles in Devanagari, checked 2026-10-21)
   en: ["the", "US", "en", 0],
 };
 
@@ -60,6 +61,7 @@ export const COUNTRIES = {
   ca: [["ES", "Spain"], ["AD", "Andorra"], ["FR", "France"]],
   ceb: [["PH", "Philippines"]],
   th: [["TH", "Thailand"]],
+  hi: [["IN", "India"]],
   en: [["US", "United States"], ["GB", "United Kingdom"], ["CA", "Canada"], ["AU", "Australia"], ["IE", "Ireland"],
        ["NZ", "New Zealand"], ["IN", "India"], ["NG", "Nigeria"], ["ZA", "South Africa"], ["PH", "Philippines"]],
 };
@@ -200,6 +202,13 @@ export const TOPIC_WORDS = {
   th: { news: "ข่าว", music: "เพลง", comedy: "ตลก", food: "ทำอาหาร", travel: "เที่ยว", sport: "กีฬา",
         science: "วิทยาศาสตร์ เทคโนโลยี", gaming: "เล่นเกม", kids: "การ์ตูน", vlog: "vlog ชีวิตประจำวัน", podcast: "พอดแคสต์",
         learn: "ภาษาไทย สำหรับชาวต่างชาติ" },
+  // Hindi (checked against YouTube's results on 2026-10-21, by the channels as well as the titles: with the hl
+  // hint YouTube translates other videos' titles into Hindi, so "व्लॉग" alone brought PewDiePie and Kylie Jenner,
+  // "खेल समाचार" NBC's Premier League, "हास्य" Marathi and Maithili shows; Bollywood songs are titled in Latin
+  // letters, so "हिंदी गाने" finds Hindi songs with few Devanagari titles; the lessons are mostly for Indian children)
+  hi: { news: "हिंदी समाचार", music: "हिंदी गाने", comedy: "कॉमेडी वीडियो", food: "खाना बनाने की विधि", travel: "घूमने की जगह",
+        sport: "क्रिकेट", science: "विज्ञान", gaming: "गेमिंग", kids: "बच्चों की कहानियाँ", vlog: "daily vlog हिंदी",
+        podcast: "हिंदी पॉडकास्ट", learn: "हिंदी सीखें" },
   en: { news: "news", music: "music", comedy: "comedy", food: "cooking", travel: "travel", sport: "sports",
         science: "science and technology", gaming: "gaming", kids: "cartoons for kids", vlog: "vlog", podcast: "podcast",
         learn: "English listening practice" },

@@ -183,6 +183,26 @@ def test_your_own_saves_are_kept_in_any_language_the_app_teaches():
     assert reels.language_to_use("ar", None, 0.0, True, 0.0) == "ar"
 
 
+def test_hindi_heard_as_urdu_is_hindi():
+    """Spoken Hindi and Urdu sound the same (only their writing differs): Whisper's "Urdu" is Hindi when
+    Hindi is being studied, and is listened to as Hindi (in Devanagari)."""
+    from app import languages
+
+    assert languages.heard_as_study("ur", "hi") and languages.heard_as_study("hi", "hi")
+    assert not languages.heard_as_study("ur", "ar") and not languages.heard_as_study("en", "hi")
+    assert not reels.other_language("hi", "ur", 0.95, 0.02)
+    assert reels.other_language("hi", "en", 0.95, 0.02)
+
+    class Engine:
+        class model:
+            @staticmethod
+            def detect_language(audio, vad_filter=False):
+                return "ur", 0.7, [("ur", 0.7), ("hi", 0.2), ("en", 0.05)]
+
+    assert reels.spoken_language(Engine(), [0.0], "hi") == ("hi", 0.7, 0.7)
+    assert reels.spoken_language(Engine(), [0.0], "ar") == ("ur", 0.7, 0.0)
+
+
 # ----- storing and syncing -----
 
 def test_a_reel_is_stored_as_its_address_and_its_words(world):

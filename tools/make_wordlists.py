@@ -52,6 +52,7 @@ ONE_LETTER = {
     "pt": set("aoeéà"),
     "ca": set("aioe"),
     "ceb": {"o"},
+    "hi": {"न", "व", "ओ", "ए"},  # not, and, oh, hey
 }
 # wordfreq's own name for a language, where it differs from the app's (Tagalog is "fil", Filipino).
 WORDFREQ_CODE = {"tl": "fil"}
@@ -80,6 +81,8 @@ SCRIPT = {
     "ca": re.compile(r"[a-zàèéíïòóúüç]+(?:(?:·|'|-)[a-zàèéíïòóúüç]+)*'?"),
     "ceb": re.compile(r"[a-zñ]+(?:-[a-zñ]+)*"),
     "th": re.compile(r"[\u0E01-\u0E4E]+"),
+    # Devanagari letters and signs, U+0900-0963 (not the full stops, digits or the abbreviation mark after them)
+    "hi": re.compile("[{}-{}]+".format(chr(0x900), chr(0x963))),
 }
 # Where a language's counts come from when wordfreq has none: "lang=path" on the command line.
 FROM_FILE = {"th", "ceb"}
@@ -88,7 +91,11 @@ _AR_MAP = str.maketrans({"آ": "ا", "أ": "ا", "إ": "ا", "ٱ": "ا", "ة": "
 
 
 def same_word_key(word: str, code: str) -> str:
-    """Spellings that are one word written two ways (Arabic alef and hamza forms, Russian ё/е)."""
+    """Spellings that are one word written two ways (Arabic alef and hamza forms, Russian ё/е, Hindi with
+    or without nukta or chandrabindu: ज़रूर / जरूर, हूँ / हूं)."""
+    if code == "hi":
+        from build_meanings import hindi_key  # (tools/build_meanings.py, the same folding as the app's)
+        return hindi_key(word)
     w = unicodedata.normalize("NFC", word).lower()
     if code == "ar":
         w = w.translate(_AR_MAP)

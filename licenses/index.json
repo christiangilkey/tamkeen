@@ -14,6 +14,7 @@
   {"name": "Spanish, French, Italian, Portuguese, Catalan and English word tables (optional download)", "license": "ODbL 1.0", "file": "lemmatization-lists.txt"},
   {"name": "Bisaya word list (OPUS NLLB) and Wolff's Dictionary of Cebuano Visayan (optional download)", "license": "ODC-By 1.0; public domain", "file": "cebuano-sources.txt"},
   {"name": "Thai common-word list, from PyThaiNLP's Thai National Corpus counts", "license": "CC0 1.0", "file": "pythainlp.txt"},
+  {"name": "Hindi word table, meanings and readings, from Wiktionary and wordfreq (optional download)", "license": "CC BY-SA 4.0", "file": "hindi-sources.txt"},
   {"name": "CMU Pronouncing Dictionary: US pronunciations in the English word table", "license": "BSD-style", "file": "cmudict.txt"},
   {"name": "Russian word table with stress, from OpenRussian.org (optional download)", "license": "CC BY-SA 4.0", "file": "openrussian.txt"},
   {"name": "The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)", "license": "Apache 2.0 / MIT / NAIST", "file": "kuromoji.txt"},

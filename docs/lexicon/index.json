@@ -71,6 +71,16 @@
    "stems": 11073,
    "lexemes": 6300
   },
+  "hi": {
+   "file": "hi-lemmas.json.gz",
+   "bytes": 402421,
+   "sha256": "35aa7f6afba082e1473a645ef6b56e2f7d834a7d3715ce8666e5ef19e59bdacc",
+   "title": "Hindi word forms",
+   "db": "English Wiktionary (Wiktextract) + wordfreq",
+   "license": "CC-BY-SA-4.0",
+   "forms": 55889,
+   "lexemes": 18984
+  },
   "it": {
    "file": "it-lemmas.json.gz",
    "bytes": 705916,
@@ -179,6 +189,16 @@
    "license": "CC-BY-SA-4.0",
    "words": 90781,
    "forms": 277040
+  },
+  "mean-hi": {
+   "file": "hi-meanings.json.gz",
+   "bytes": 1355751,
+   "sha256": "f2661c3ea9ebcb98977155ecaeee9cfc9a5d720aad8b7d696e74b96245f19456",
+   "title": "Hindi meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 21148,
+   "forms": 51009
   },
   "mean-it": {
    "file": "it-meanings.json.gz",

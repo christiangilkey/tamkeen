@@ -207,9 +207,14 @@ const LANGUAGE_CODES = { arabic: "ar", spanish: "es", french: "fr", japanese: "j
 const WHISPER_CODES = { ceb: "tl" };
 /** The code Whisper is asked to listen for when the app's language is `code`. */
 export const whisperCode = (code) => WHISPER_CODES[code] || code;
+// Spoken Hindi and Urdu are nearly the same language (they differ mostly in how they are written), so
+// Whisper often says it heard Urdu in Hindi speech: while Hindi is studied, that counts as Hindi.
+// (The computer's copy: SPOKEN_ALIKE in app/languages.py.)
+const SPOKEN_ALIKE = { hi: ["ur"] };
 /** The app's language for what a provider says it heard, while `study` is being learned: Bisaya
- * comes back as Tagalog (Whisper's nearest language), which then means Bisaya. */
-export const heardAs = (heard, study) => (heard && heard === whisperCode(study) ? study : heard);
+ * comes back as Tagalog (Whisper's nearest language), which then means Bisaya; Hindi may come back as Urdu. */
+export const heardAs = (heard, study) =>
+  (heard && (heard === whisperCode(study) || (SPOKEN_ALIKE[study] || []).includes(heard)) ? study : heard);
 
 /** "Arabic" / "arabic" / "ar" -> "ar"; "" when the answer doesn't say. */
 export function languageCode(name) {

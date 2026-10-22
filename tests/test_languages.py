@@ -89,6 +89,7 @@ def test_settings_take_the_three_ways_of_explaining_words(fresh_db):
     ("Le café est une boisson", "fr", "fr"),
     ("Coffee is a drink", "ar", "ar"),   # a page in an untaught language: the study language
     ("", "ru", "ru"),
+    ("कॉफ़ी एक पेय है", "es", "hi"),
 ])
 def test_detect(fresh_db, text, hint, expected):
     assert languages.detect(text, hint) == expected

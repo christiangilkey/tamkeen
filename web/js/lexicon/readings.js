@@ -1,4 +1,4 @@
-// Reading aids for Japanese, Chinese and Thai on screen: real words, furigana, pinyin and Thai readings.
+// Reading aids for Japanese, Chinese, Thai and Hindi on screen: real words, furigana, pinyin, Thai and Hindi readings.
 //
 // Once someone learning Japanese or Chinese has downloaded that language's dictionary (the same
 // offer as the other languages' word tables, ./seen.js), it is loaded here and:
@@ -11,6 +11,10 @@
 // Thai keeps the device's word breaker (Intl.Segmenter); its download is a table of how each word is
 // said (./thai.js), drawn over the word in Latin letters with tone marks (สวัสดี: sà-wàt-dii), with its
 // own switch, and given in the word popup too (./seen.js pronounceWord).
+//
+// Hindi is spaced like English; how each word is said (namaste) is worked out from its spelling by
+// ./hindi.js with nothing to download, and once the Hindi word table is on the device (the "seen words"
+// download) Wiktionary's reading of the words the rule gets wrong is used instead. Its own switch too.
 //
 // The readings are drawn without adding text to the page: <rt data-r="た"> with the reading put
 // on screen by CSS (::before). So a word's element still has only the word as its text, for
@@ -25,14 +29,18 @@ import { furigana, japaneseWords } from "./japanese.js";
 import { JapaneseDictionary } from "./kuromoji.js";
 import { dictionaries, downloadDictionaries, lexiconStatus, removeDictionaries } from "./seen.js";
 import { ThaiReadings } from "./thai.js";
+import { HindiReadings } from "./hindi.js";
+import { LemmaTable } from "./romance.js";
 
-export const READING_LANGUAGES = new Set(["ja", "zh", "th"]);
+export const READING_LANGUAGES = new Set(["ja", "zh", "th", "hi"]);
 
 const settings = () => (state.status && state.status.settings) || {};
 export const showFurigana = () => settings().furigana !== false;
 export const showPinyin = () => settings().pinyin !== false;
 export const showThaiReadings = () => settings().thai_readings !== false;
-const switchedOn = (lang) => (lang === "ja" ? showFurigana() : lang === "zh" ? showPinyin() : lang === "th" ? showThaiReadings() : false);
+export const showHindiReadings = () => settings().hindi_readings !== false;
+const switchedOn = (lang) => (lang === "ja" ? showFurigana() : lang === "zh" ? showPinyin() : lang === "th" ? showThaiReadings()
+  : lang === "hi" ? showHindiReadings() : false);
 /** "" (as written), "simplified" or "traditional". */
 export const chineseScript = () => settings().zh_script || "";
 
@@ -42,7 +50,7 @@ const loading = new Map();
 function install(lang, dict) {
   ready.set(lang, dict);
   markup.clear();
-  if (lang === "th") return; // Thai keeps the device's word breaker
+  if (lang === "th" || lang === "hi") return; // Thai keeps the device's word breaker; Hindi is spaced
   if (lang === "ja") {
     setWordSplitter("ja", { split: (text) => japaneseWords(dict, text).map((w) => ({ index: w.index, segment: w.text })) });
   } else {
@@ -68,6 +76,12 @@ async function thaiTable() {
   return st && st.installed ? new ThaiReadings(await api("/lexicon/data/th")) : null;
 }
 
+// Hindi's readings need nothing downloaded: the word table, when it is here, only corrects them.
+async function hindiTable() {
+  const dicts = await dictionaries("hi").catch(() => null);
+  return new HindiReadings((dicts || []).find((d) => d instanceof LemmaTable) || null);
+}
+
 /**
  * Load Japanese, Chinese or Thai, if its dictionary is on this device, before a text in it is split into
  * words. Resolves to the dictionary, or null (another language, not downloaded, or too slow: then
@@ -77,7 +91,7 @@ export function readingsReady(lang, wait = 15000) {
   if (!READING_LANGUAGES.has(lang)) return Promise.resolve(null);
   if (ready.has(lang)) return Promise.resolve(ready.get(lang));
   if (!loading.has(lang)) {
-    const load = lang === "th" ? thaiTable() : dictionaries(lang).then((dicts) =>
+    const load = lang === "th" ? thaiTable() : lang === "hi" ? hindiTable() : dictionaries(lang).then((dicts) =>
       (dicts || []).find((d) => d instanceof JapaneseDictionary || d instanceof ChineseDictionary) || null);
     loading.set(lang, load.then((dict) => {
       if (dict && loading.has(lang)) install(lang, dict);
@@ -94,7 +108,7 @@ if (typeof window !== "undefined") {
   window.addEventListener("tamkeen:dictionaries", (e) => {
     const { lang, installed } = e.detail || {};
     if (!READING_LANGUAGES.has(lang)) return;
-    if (!installed) dropReadings(lang);
+    if (!installed || lang === "hi") dropReadings(lang); // (Hindi: read again with the table, or without it)
     (installed ? readingsReady(lang) : Promise.resolve())
       .then(() => window.dispatchEvent(new HashChangeEvent("hashchange")));
   });
@@ -144,6 +158,23 @@ export async function thaiReading(word) {
   return dict ? dict.reading(String(word ?? "").trim()) : "";
 }
 
+// Hindi: each word gets its reading over it, in its own box like Thai (a reading wider than the word
+// would otherwise make the browser spread the word's letters, and its vowel signs would come loose).
+// Punctuation (the full stop ।, commas) stays in the box with the word, outside the reading.
+function hindiHtml(dict, text) {
+  return String(text).split(/(\s+)/).map((part) => {
+    const r = /\S/.test(part) ? dict.word(part) : "";
+    return r ? `<ruby><span class="hiw">${esc(part)}</span><rt class="hi" data-r="${esc(r)}"></rt></ruby>` : esc(part);
+  }).join("");
+}
+
+/** How a Hindi word or phrase is said (namaste), for the word popup, whether or not the readings over
+ * the text are switched on: by rule, or the word table's reading when it has one. */
+export async function hindiReading(word) {
+  const dict = (await readingsReady("hi", 5000)) || new HindiReadings();
+  return dict.reading(String(word ?? "").trim());
+}
+
 /** The HTML for a word or text of `lang` on screen: furigana / pinyin / Thai readings when they are
  * switched on and the dictionary is loaded (see readingsReady), else just the text. Synchronous. */
 export function readingHtml(text, lang) {
@@ -153,7 +184,10 @@ export function readingHtml(text, lang) {
   const key = `${lang}|${text}`;
   let html = markup.get(key);
   if (html === undefined) {
-    try { html = lang === "ja" ? japaneseHtml(dict, text) : lang === "th" ? thaiHtml(dict, text) : chineseHtml(dict, text); } catch { html = esc(text); }
+    try {
+      html = lang === "ja" ? japaneseHtml(dict, text) : lang === "th" ? thaiHtml(dict, text)
+        : lang === "hi" ? hindiHtml(dict, text) : chineseHtml(dict, text);
+    } catch { html = esc(text); }
     if (markup.size > 30000) markup.clear();
     markup.set(key, html);
   }
@@ -194,6 +228,7 @@ export function readingsRow(lang) {
   const el = h(`<div class="lex-row small readings-row" hidden></div>`);
   if (!READING_LANGUAGES.has(lang)) return el;
   if (lang === "th") return thaiRow(el);
+  if (lang === "hi") return hindiRow(el);
   const s = settings();
   el.hidden = false;
   el.innerHTML = lang === "ja"
@@ -248,6 +283,20 @@ function thaiRow(el) {
   return el;
 }
 
+// Hindi: the switch. Nothing to download for it (the word table, in the dictionaries row, only corrects it).
+function hindiRow(el) {
+  el.hidden = false;
+  el.innerHTML = `<label><input type="checkbox" data-set="hindi_readings" ${showHindiReadings() ? "checked" : ""}> <span>Show how Hindi words are said, over the words (namaste)</span></label>
+    <span class="muted">Worked out from the spelling. With the Hindi word table on this device, Wiktionary's reading is used for the words the rule gets wrong.</span>`;
+  el.addEventListener("change", async (e) => {
+    if (e.target.dataset.set !== "hindi_readings") return;
+    await saveSettings({ hindi_readings: e.target.checked }).catch((err) => toast(err.message, { error: true }));
+    markup.clear();
+    window.dispatchEvent(new HashChangeEvent("hashchange")); // draw what is on screen again
+  });
+  return el;
+}
+
 // ---------- looks ----------
 // The readings' own styles, added once (rather than in app.css, so they come and go with this file).
 // Tone colours: the usual teaching colours (1 red, 2 orange, 3 green, 4 blue, neutral grey),
@@ -262,11 +311,15 @@ if (typeof document !== "undefined" && !document.getElementById("readings-css"))
     :lang(zh) ruby > rt { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: max(0.45em, 9px); }
     rt.th { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: max(0.5em, 10px); white-space: nowrap; }
     ruby > .thw { display: inline-block; line-height: 1.6; }
+    rt.hi { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: max(0.5em, 10px); white-space: nowrap; }
+    ruby > .hiw { display: inline-block; line-height: 1.5; }
     rt.tone1 { color: #e0464e; } rt.tone2 { color: #e8901c; } rt.tone3 { color: #2fa84f; } rt.tone4 { color: #3b7ddd; } rt.tone5 { color: var(--muted, #888); }
     .readings-row { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
     .transcript:lang(ja), .transcript:lang(zh), .captions:lang(ja), .captions:lang(zh) { line-height: 2.1; }
     /* Thai stacks vowels and tone marks above its letters: the line needs room for those and the reading. */
     :is(.transcript, .captions, .reader-text):lang(th):has(rt.th) { line-height: 2.8; }
+    /* Hindi: vowel signs above and below its letters, and the reading over them. */
+    :is(.transcript, .captions, .reader-text):lang(hi):has(rt.hi) { line-height: 2.6; }
   `;
   document.head.append(style);
 }

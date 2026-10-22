@@ -1,4 +1,4 @@
-"""Arabic text normalization for search matching.
+"""Arabic text normalization for search matching (and Hindi's nukta and chandrabindu, written or not).
 
 Normalization is only ever applied to *copies* used for matching. Displayed text keeps
 Whisper's output exactly, diacritics included.
@@ -12,6 +12,8 @@ import re
 _DIACRITICS = re.compile(
     "[ؐ-ًؚ-ٰٟۖ-ۜ۟-۪ۨ-ۭ࣓-ࣿ]"
 )
+# Hindi: the nukta (ज़ / ज) is left off too, as people often write without it.
+_DIACRITICS = re.compile(_DIACRITICS.pattern[:-1] + "\N{DEVANAGARI SIGN NUKTA}]")
 _TATWEEL = "ـ"
 
 _CHAR_MAP = str.maketrans(
@@ -27,6 +29,7 @@ _CHAR_MAP = str.maketrans(
         "ؤ": "و",  # ؤ -> و
         "ئ": "ي",  # ئ -> ي
         _TATWEEL: None,
+        "\N{DEVANAGARI SIGN CANDRABINDU}": "\N{DEVANAGARI SIGN ANUSVARA}",  # Hindi हूँ / हूं: one way of writing
     }
 )
 

@@ -62,6 +62,16 @@ Thai has a table of how each word is said, shown over Thai text (`web/js/lexicon
 
 It is rebuilt with `tools/build_thai_readings.py`.
 
+Hindi has a table of word forms and their dictionary forms (लड़कों → लड़का, किया → करना), read by
+`web/js/lexicon/hindi.js`, which also works out how each word is said (shown over Hindi text) and uses the
+table's readings for the words its rule gets wrong:
+
+| File | Made from | Licence |
+|---|---|---|
+| `hi-lemmas.json.gz` | English Wiktionary's Hindi entries as extracted by [Wiktextract](https://kaikki.org) (Tatu Ylonen): every word of its own, the forms in its inflection table and the "form of" entries, and Wiktionary's romanization where it differs from the app's rule; word counts from [wordfreq](https://github.com/rspeer/wordfreq) to order the words and to choose between two dictionary forms for one spelling | Creative Commons Attribution-ShareAlike 4.0: `LICENSE-CC-BY-SA-4.0.txt` |
+
+It is rebuilt with `tools/build_hindi.py`.
+
 What was changed in the Arabic files: only the fields the lookup needs were kept (word pieces, their categories and
 which go together, lemma, part of speech, root, corpus frequency, spelling); glosses,
 tokenizations and phonetics were dropped, and the result was written as gzipped JSON.

@@ -175,6 +175,21 @@ def test_thai_reading_table(client):
     assert not client.post("/api/lexicon/remove", json={"lang": "th"}).json()["installed"]
 
 
+def test_hindi_word_table_and_meanings(client):
+    """Hindi downloads one table of word forms, with Wiktionary's readings where the app's rule differs
+    (tools/build_hindi.py), and its meanings on their own (tools/build_meanings.py)."""
+    st = client.get("/api/lexicon/status?lang=hi").json()
+    assert st["needed"] and st["names"] == ["hi"] and not st["installed"] and 100_000 < st["bytes"] < 2_000_000
+    assert client.post("/api/lexicon/download", json={"lang": "hi"}).json()["installed"]
+    data = client.get("/api/lexicon/data/hi").json()
+    assert data["kind"] == "lemmas" and data["lang"] == "hi" and len(data["lemmas"]) > 15_000
+    assert data["lemmas"][data["forms"]["लड़कों"]] == "लड़का" and data["lemmas"][data["forms"]["किया"]] == "करना"
+    assert "पानी" not in data["forms"] and "पिता" not in data["forms"], "words of their own stay themselves"
+    assert len(data["readings"]) > 5000
+    st = client.get("/api/lexicon/status?lang=hi&kind=meanings").json()
+    assert st["names"] == ["mean-hi"] and not st["installed"]
+
+
 def test_word_meanings_for_no_ai_are_a_separate_download(client):
     """No AI (Settings): each language's meanings file is downloaded on its own (kind=meanings)."""
     st = client.get("/api/lexicon/status?lang=es&kind=meanings").json()

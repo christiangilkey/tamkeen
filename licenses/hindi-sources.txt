@@ -1,0 +1,27 @@
+Hindi word table, meanings and readings (optional downloads)
+
+1. Hindi word table (docs/lexicon/hi-lemmas.json.gz, made by tools/build_hindi.py)
+
+   Every Hindi word of its own in the English Wiktionary (https://en.wiktionary.org), the forms in
+   its inflection table (nouns: plural and oblique; adjectives: feminine and plural; verbs: their
+   participles, future, subjunctive, imperative and infinitive forms), the entries that are forms or
+   other spellings of another word, and Wiktionary's romanization of the spellings whose reading the
+   app's own rule (web/js/lexicon/hindi.js) gets wrong. Written by the Wiktionary contributors and
+   extracted by Wiktextract (Tatu Ylonen, https://github.com/tatuylonen/wiktextract; data from
+   https://kaikki.org). Wiktionary's text is available under the Creative Commons
+   Attribution-ShareAlike 4.0 International License (https://creativecommons.org/licenses/by-sa/4.0/)
+   and the GNU Free Documentation License; the table is shared under the same CC BY-SA 4.0 license.
+
+   The words are put in order, and a spelling that is a form of two words is given to the likelier
+   one, by the word counts of wordfreq (Robyn Speer, https://github.com/rspeer/wordfreq), whose data
+   is licensed CC BY-SA 4.0 too.
+
+2. Hindi meanings for "No AI" (docs/lexicon/hi-meanings.json.gz, made by tools/build_meanings.py)
+
+   The same English Wiktionary data (see wiktionary.txt): each word's meanings, part of speech and
+   reading, the forms of its inflection table, and Hindi's postpositions of more than one word
+   (के लिए "for", के बाद "after") under their main word.
+
+3. The 1000 most common Hindi words (web/js/wordlists/hi.js)
+
+   From wordfreq's Hindi word counts (CC BY-SA 4.0; see wordfreq.txt).

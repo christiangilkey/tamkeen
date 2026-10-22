@@ -1,0 +1,8 @@
+# Hindi as a language to learn (news sites, readings, word table)
+daf2a254	BBC in hindi
+c95a8c71	Deutsche Welle in hindi
+48c12aee	Hindi Samay, racconti e letteratura
+24dafe8b	Wikipedia in hindi
+5f62fc67	Mostra come si pronunciano le parole hindi, sopra le parole (namaste)
+832dd30e	Ricavata dalla grafia. Con la tabella delle parole hindi su questo dispositivo, si usa la lettura di Wikizionario per le parole in cui la regola sbaglia.
+3e4d6595	le tabelle di flessione delle parole hindi del Wiktionary inglese e i conteggi di parole di wordfreq (करता, किया, करूँगा: करना), con la lettura di Wiktionary delle parole in cui la regola di lettura dell'app sbaglia

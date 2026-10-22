@@ -7,7 +7,7 @@ of speech, its meanings (the English glosses), how it is written in full (Arabic
 Russian with its stress), its reading (Japanese kana, Chinese pinyin), its Arabic root, and, for
 forms of a word ("hablo", "كتبت"), which word they are a form of. Read by web/js/meanings.js.
 
-    python tools/build_meanings.py ar es fr ...      (any of: ar es fr it ru en tl ja zh pt ca ceb th)
+    python tools/build_meanings.py ar es fr ...      (any of: ar es fr it ru en tl ja zh pt ca ceb th hi)
     python tools/build_meanings.py ar=<a saved kaikki .jsonl.gz>   (from a file instead)
     python tools/build_meanings.py --numbers es fr ...   (only add the number words to the files there)
     python tools/build_meanings.py --fill tl ceb         (only fill the gaps of the Tagalog and Bisaya files there)
@@ -43,7 +43,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "lexicon"
 NAMES = {"ar": "Arabic", "es": "Spanish", "fr": "French", "it": "Italian", "ru": "Russian", "en": "English",
          "tl": "Tagalog", "ja": "Japanese", "zh": "Chinese", "pt": "Portuguese", "ca": "Catalan", "ceb": "Cebuano",
-         "th": "Thai"}
+         "th": "Thai", "hi": "Hindi"}
 URL = "https://kaikki.org/dictionary/{0}/kaikki.org-dictionary-{1}.jsonl.gz"
 # Arabic as spoken: Wiktionary's dialect words go in the Arabic file too, marked with their dialect.
 DIALECTS = {"arz": "Egyptian Arabic", "ajp": "South Levantine Arabic", "apc": "North Levantine Arabic",
@@ -90,7 +90,42 @@ def key(word: str, lang: str) -> str:
         # Wolff's kaáyu); stress and glottal-stop marks (á, à) are left off.
         w = "".join(c for c in unicodedata.normalize("NFD", w.lower()) if not unicodedata.combining(c))
         return w.replace("o", "u").replace("e", "i")
+    if lang == "hi":
+        return hindi_key(w)
     return w.lower()
+
+
+def hindi_key(word: str) -> str:
+    """A Hindi spelling with its everyday variants folded together: with or without nukta (ज़रूर / जरूर),
+    chandrabindu or anusvara (हूँ / हूं), a nasal with a virama before a stop or anusvara (हिन्दी / हिंदी),
+    ये / यी after a letter or vowel sign written as ए / ई (गये / गए).
+    Must agree with hindiKey() in web/js/lexicon/hindi.js."""
+    w = unicodedata.normalize("NFC", word.strip()).replace("\N{ZERO WIDTH NON-JOINER}", "").replace("\N{ZERO WIDTH JOINER}", "")
+    w = w.lower().replace("\N{DEVANAGARI SIGN NUKTA}", "").replace("\N{DEVANAGARI SIGN CANDRABINDU}", "\N{DEVANAGARI SIGN ANUSVARA}")
+    nasal = "[\N{DEVANAGARI LETTER NGA}\N{DEVANAGARI LETTER NYA}\N{DEVANAGARI LETTER NNA}\N{DEVANAGARI LETTER NA}\N{DEVANAGARI LETTER MA}]"
+    stop = ("(?=[\N{DEVANAGARI LETTER KA}-\N{DEVANAGARI LETTER GHA}\N{DEVANAGARI LETTER CA}-\N{DEVANAGARI LETTER JHA}"
+            "\N{DEVANAGARI LETTER TTA}-\N{DEVANAGARI LETTER DDHA}\N{DEVANAGARI LETTER TA}-\N{DEVANAGARI LETTER DHA}"
+            "\N{DEVANAGARI LETTER PA}-\N{DEVANAGARI LETTER BHA}])")
+    w = re.sub(nasal + "\N{DEVANAGARI SIGN VIRAMA}" + stop, "\N{DEVANAGARI SIGN ANUSVARA}", w)
+    after = "(?<=[क-ह\N{DEVANAGARI VOWEL SIGN AA}-\N{DEVANAGARI VOWEL SIGN AU}])"  # a letter or a vowel sign
+    w = re.sub(after + "य\N{DEVANAGARI VOWEL SIGN E}", "ए", w)
+    return re.sub(after + "य\N{DEVANAGARI VOWEL SIGN II}", "ई", w)
+
+
+def hindi_style(roman: str) -> str:
+    """Wiktionary's romanization of a Hindi word written the way the app writes readings (web/js/lexicon/hindi.js):
+    ch and chh for c and ch, sh for ś and ṣ, ri for ŕ, kh and gh for x and ġ, ô and ê for ŏ and ĕ, gy for jñ,
+    n for ṃ, and a nasal ai / au with the tilde on its second letter (haĩ)."""
+    tilde, double = "\N{COMBINING TILDE}", "\N{COMBINING DOUBLE TILDE}"
+    s = unicodedata.normalize("NFD", roman.strip())
+    s = s.replace("a" + double + "i", "ai" + tilde).replace("a" + double + "u", "au" + tilde)  # (Wiktionary writes a͠i)
+    s = s.replace("ch", "\N{START OF HEADING}").replace("c", "ch").replace("\N{START OF HEADING}", "chh")
+    for a, b in (("s\N{COMBINING ACUTE ACCENT}", "sh"), ("s\N{COMBINING DOT BELOW}", "sh"), ("r\N{COMBINING ACUTE ACCENT}", "ri"),
+                 ("o\N{COMBINING BREVE}", "o\N{COMBINING CIRCUMFLEX ACCENT}"), ("e\N{COMBINING BREVE}", "e\N{COMBINING CIRCUMFLEX ACCENT}"),
+                 ("x", "kh"), ("g\N{COMBINING DOT ABOVE}", "gh"), ("m\N{COMBINING DOT BELOW}", "n"), ("y\N{COMBINING DOT ABOVE}", "y")):
+        s = s.replace(a, b)  # (ś ṣ ŕ ŏ ĕ ġ ṃ ẏ, as NFD takes them apart)
+    s = unicodedata.normalize("NFC", s)
+    return s.replace("jñ", "gy").replace("ñsh", "nsh")
 
 
 def clean(text: str) -> str:
@@ -126,6 +161,10 @@ def reading(entry: dict, lang: str) -> str:
         for f in entry.get("forms") or []:
             if "romanization" in (f.get("tags") or []) and f.get("form"):
                 return f["form"]
+    if lang == "hi":  # how it is said, in the app's style of romanization (kitāb, haĩ)
+        for f in entry.get("forms") or []:
+            if "romanization" in (f.get("tags") or []) and f.get("form"):
+                return hindi_style(f["form"])
     return ""
 
 
@@ -231,6 +270,9 @@ def build(lang: str, source: str) -> dict:
         read(lang, src, words, forms)
     if lang == "en":
         words, forms = common_english(words, forms)
+    if lang == "hi":
+        hindi_postpositions(words)
+        hindi_everyday_first(words)
     if lang == "zh":
         simplified_spellings(words, forms)
         everyday_reading_first(words)
@@ -586,7 +628,97 @@ def read(lang: str, source: str, words: dict, forms: dict) -> None:
                 row = forms.setdefault(k, [])
                 if len(row) < 4 and all(r[0] != lk for r in row):
                     row.append([lk, what])
+        if lang == "hi" and glosses:
+            hindi_table_forms(e, k, forms)
     print(f"  {lang}: read {n} entries from {source.rsplit('/', 1)[-1]}", flush=True)
+
+
+# Hindi: Wiktionary has a page of its own for only some of a word's forms; the inflection table on the
+# word's page has them all (किताबें, किताबों; बड़ी, बड़े; करता, किया, करूँगा, करके). Each becomes a form of
+# the word, described by its table's labels ("oblique plural", "habitual masculine singular").
+HINDI_TAG_ORDER = ["stem", "infinitive", "conjunctive", "perfective", "habitual", "progressive", "future", "subjunctive",
+                   "imperative", "perfect", "contrafactual", "presumptive", "direct", "oblique", "first-person",
+                   "second-person", "third-person", "masculine", "feminine", "singular", "plural", "formal", "intimate"]
+
+
+# One Devanagari word: letters, signs and digits, U+0900-0963 and 0966-097F (not the danda । ॥).
+HINDI_WORD = re.compile("[{}-{}{}-{}]+".format(*map(chr, (0x900, 0x963, 0x966, 0x97F))))
+
+
+def hindi_table_forms(entry: dict, k: str, forms: dict) -> None:
+    for f in entry.get("forms") or []:
+        tags = set(f.get("tags") or [])
+        form = unicodedata.normalize("NFC", f.get("form", ""))
+        if (tags & {"romanization", "Urdu", "table-tags", "inflection-template", "class", "canonical", "vocative",
+                    "agentive", "adjectival"} or not HINDI_WORD.fullmatch(form)):
+            continue
+        if tags and tags <= {"masculine", "feminine"} and entry.get("pos") != "adj":
+            continue  # a noun's other gender is another word (पिता "father" is no form of माता "mother")
+        fk = key(form, "hi")
+        if not fk or fk == k:
+            continue
+        what = " ".join(t for t in HINDI_TAG_ORDER if t in tags)
+        row = forms.setdefault(fk, [])
+        if len(row) < 4 and all(r[0] != k for r in row):
+            row.append([k, f"{what} of {entry['word']}" if what else f"form of {entry['word']}"])
+
+
+# Hindi's postpositions of more than one word (के लिए "for", के बाद "after", की तरह "like") are what a learner
+# taps the last part of: the phrase's meaning goes with that word (लिए, बाद, तरह), first when the word has
+# no ordinary meaning of its own (लिए: Wiktionary has it only as लेना's "took").
+HINDI_LITTLE = {"के", "की", "का", "से", "में", "को", "पर"}
+
+
+def hindi_postpositions(words: dict) -> None:
+    added = 0
+    for k, groups in list(words.items()):
+        parts = k.split()
+        if len(parts) < 2 or parts[0] not in HINDI_LITTLE:
+            continue
+        main = [p for p in parts if p not in HINDI_LITTLE]
+        if len(main) != 1:
+            continue
+        for shown, pos, glosses, extra in groups:
+            if pos != "postp":
+                continue
+            group = [shown, pos, glosses, extra]
+            have = words.setdefault(key(main[0], "hi"), [])
+            if group in have:
+                continue
+            if any(g[1] not in ("name", "verb") for g in have):
+                have.append(group)
+            else:
+                have.insert(0, group)
+            added += 1
+    print(f"  hi: {added} postpositions of more than one word added to their main word", flush=True)
+
+
+# Checked by hand against the 1000 commonest Hindi words: the entry Wiktionary lists first is a rarer use
+# (और "other" before "and", अगर "agarwood" before "if", समय "when" before "time", दौरान "revolving" before
+# "during"). The entry of this part of speech goes first.
+EVERYDAY_HI = {"और": "conj", "अगर": "conj", "समय": "noun", "बहुत": "adv", "साथ": "postp", "दौरान": "postp",
+               "अनुसार": "postp", "आदि": "adv", "हमेशा": "adv", "प्रति": "postp", "वाह": "intj", "गुरु": "noun"}
+
+
+def hindi_everyday_first(words: dict) -> None:
+    """EVERYDAY_HI's entries first; and no "nuqtaless form of ख़ाली" meaning where the word with its nukta is
+    there under the same key (hindi_key folds the nukta, so it is: its meanings are the ones to show)."""
+    for k, groups in words.items():
+        kept = []
+        for shown, pos, glosses, extra in groups:
+            rest = [g for g in glosses if not g.startswith("nuqtaless form of ")]
+            if rest:
+                kept.append([shown, pos, rest, extra])
+        if kept:
+            groups[:] = kept
+    for word, pos in EVERYDAY_HI.items():
+        groups = words.get(key(word, "hi")) or []
+        first = next((g for g in groups if g[1] == pos), None)
+        if not first:
+            print(f"  hi: EVERYDAY_HI {word}: no {pos} entry any more", flush=True)
+            continue
+        groups.remove(first)
+        groups.insert(0, first)
 
 
 def write(lang: str, data: dict) -> None:

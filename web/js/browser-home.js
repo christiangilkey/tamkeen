@@ -213,6 +213,25 @@ export const NEWS = {
     ["สยามกีฬา", "https://www.siamsport.co.th/", "Siamsport, sport"],
     ["วิกิพีเดีย", "https://th.wikipedia.org/", "Thai Wikipedia"],
   ],
+  // (checked 2026-10-21; NDTV India and News18 Hindi refuse automated checks with 403 but are live)
+  hi: [
+    ["BBC News हिंदी", "https://www.bbc.com/hindi", "BBC Hindi"],
+    ["दैनिक भास्कर", "https://www.bhaskar.com/", "Dainik Bhaskar"],
+    ["दैनिक जागरण", "https://www.jagran.com/", "Dainik Jagran"],
+    ["अमर उजाला", "https://www.amarujala.com/", "Amar Ujala"],
+    ["आज तक", "https://www.aajtak.in/", "Aaj Tak"],
+    ["NDTV इंडिया", "https://ndtv.in/", "NDTV India"],
+    ["नवभारत टाइम्स", "https://navbharattimes.indiatimes.com/", "Navbharat Times"],
+    ["हिन्दुस्तान", "https://www.livehindustan.com/", "Hindustan"],
+    ["द लल्लनटॉप", "https://www.thelallantop.com/", "The Lallantop"],
+    ["DW हिंदी", "https://www.dw.com/hi/", "Deutsche Welle Hindi"],
+    ["News18 हिंदी", "https://hindi.news18.com/", "News18 Hindi"],
+    ["ABP न्यूज़", "https://www.abplive.com/", "ABP News"],
+    ["द वायर हिंदी", "https://thewirehindi.com/", "The Wire Hindi"],
+    ["वेबदुनिया", "https://hindi.webdunia.com/", "Webdunia"],
+    ["हिंदी समय", "https://www.hindisamay.com/", "Hindi Samay, stories and literature"],
+    ["विकिपीडिया", "https://hi.wikipedia.org/", "Hindi Wikipedia"],
+  ],
   en: [
     ["News in Levels", "https://www.newsinlevels.com/", "Easier: the news at three levels of English"],
     ["VOA Learning English", "https://learningenglish.voanews.com/", "Easier: news in slow, simple English"],
@@ -232,7 +251,8 @@ export const NEWS = {
 // Language names and the few words on the page, for the languages taught (the page itself is in
 // English, like the rest of the app; only the heading greets in the language).
 const NAMES = { ar: "Arabic", es: "Spanish", fr: "French", ja: "Japanese", zh: "Chinese", ru: "Russian", it: "Italian",
-                tl: "Tagalog", pt: "Brazilian Portuguese", ca: "Catalan", ceb: "Bisaya (Cebuano)", th: "Thai", en: "English" };
+                tl: "Tagalog", pt: "Brazilian Portuguese", ca: "Catalan", ceb: "Bisaya (Cebuano)", th: "Thai", hi: "Hindi",
+                en: "English" };
 const RTL = { ar: true };
 
 export const hasNews = (code) => Object.prototype.hasOwnProperty.call(NEWS, code);

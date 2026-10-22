@@ -111,6 +111,12 @@ p { margin: 0 0 .75em; }
 :lang(ja) { --ar-font: "Hiragino Sans", "Yu Gothic UI", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", sans-serif; }
 :lang(zh) { --ar-font: "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif; }
 :lang(th) { --ar-font: "Leelawadee UI", "Thonburi", "Noto Sans Thai", "Noto Sans Thai UI", "Tahoma", sans-serif; }
+/* Hindi (Devanagari): Windows, Apple, Android/Linux fonts. With the interface in Hindi, its text uses them too. */
+:lang(hi) { --ar-font: "Nirmala UI", "Kohinoor Devanagari", "Devanagari Sangam MN", "Noto Sans Devanagari", "Mangal", sans-serif; }
+:root:lang(hi) {
+  --ui-font: ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", "Nirmala UI", "Kohinoor Devanagari",
+    "Noto Sans Devanagari", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
 /* (back to the default inside study text in these, when the whole page is in Japanese, say: i18n.js) */
 :lang(es), :lang(fr), :lang(it), :lang(tl), :lang(pt), :lang(ca), :lang(ceb), :lang(ru), :lang(en) {
   --ar-font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", "Noto Sans", Roboto, Arial, sans-serif;

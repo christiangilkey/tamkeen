@@ -1,0 +1,8 @@
+# Hindi as a language to learn (news sites, readings, word table)
+daf2a254	BBC sa Hindi
+c95a8c71	Deutsche Welle sa Hindi
+48c12aee	Hindi Samay, mga sugilanon ug literatura
+24dafe8b	Wikipedia sa Hindi
+5f62fc67	Ipakita kung giunsa paglitok ang mga pulong sa Hindi, ibabaw sa mga pulong (namaste)
+832dd30e	Gikuha gikan sa pagsulat. Kung naa niining device ang talaan sa mga pulong sa Hindi, ang paglitok sa Wiktionary ang gamiton sa mga pulong nga sayop ang lagda.
+3e4d6595	ang mga talaan sa porma sa mga pulong sa Hindi sa English Wiktionary ug ang ihap sa mga pulong sa wordfreq (करता, किया, करूँगा: करना), uban ang paglitok sa Wiktionary sa mga pulong nga sayop ang kaugalingong lagda sa app sa pagbasa

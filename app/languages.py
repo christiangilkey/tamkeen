@@ -14,7 +14,7 @@ from . import db
 # code -> English name. The codes are also Whisper's language codes, except Bisaya's (WHISPER_CODES).
 LANGUAGES = {"es": "Spanish", "ar": "Arabic", "fr": "French", "ja": "Japanese", "zh": "Chinese", "ru": "Russian",
              "it": "Italian", "tl": "Tagalog", "pt": "Brazilian Portuguese", "ca": "Catalan", "ceb": "Bisaya (Cebuano)",
-             "th": "Thai", "en": "English"}
+             "th": "Thai", "hi": "Hindi", "en": "English"}
 DEFAULT = "ar"  # the app's first language; anything stored before languages existed is Arabic
 
 # Whisper doesn't know Bisaya (Cebuano): it is asked for its closest relative, Tagalog, and the opening
@@ -41,6 +41,18 @@ def whisper_code(code: str | None) -> str | None:
     """The code Whisper is asked to listen for when the app's language is `code`."""
     return WHISPER_CODES.get(code, code) if code else code
 
+
+# Spoken Hindi and Urdu are nearly the same language (they differ mostly in writing: Devanagari and Arabic
+# letters, and in some learned words), so Whisper's language guess often says Urdu for Hindi speech. While
+# Hindi is studied, speech heard as Urdu counts as Hindi; it is still written down in Devanagari, as Whisper
+# is told the language. (The phone's copy: web/js/stt.js SPOKEN_ALIKE.)
+SPOKEN_ALIKE = {"hi": ("ur",)}
+
+
+def heard_as_study(heard: str | None, study: str) -> bool:
+    """Is a language Whisper says it heard the one being studied (or one it can't tell apart from it)?"""
+    return bool(heard) and (heard == whisper_code(study) or heard in SPOKEN_ALIKE.get(study, ()))
+
 _SCRIPTS = {
     "ar": re.compile("[؀-ۿݐ-ݿࢠ-ࣿ]"),
     "kana": re.compile("[぀-ヿ]"),
@@ -48,6 +60,8 @@ _SCRIPTS = {
     "ru": re.compile("[Ѐ-ӿ]"),
     "th": re.compile("[\u0E00-\u0E7F]"),
     "latin": re.compile("[A-Za-zÀ-ɏ]"),
+    # Devanagari (U+0900-097F): Hindi, as far as the app is concerned (Marathi and Nepali use it too)
+    "hi": re.compile("[{}-{}]".format(chr(0x900), chr(0x97F))),
 }
 
 
@@ -75,6 +89,6 @@ def detect(text: str, hint: str | None = None) -> str:
         return "ja"
     if top == "han":
         return "ja" if hint == "ja" else "zh"
-    if top in ("ar", "ru", "th"):
+    if top in ("ar", "ru", "th", "hi"):
         return top
     return hint
