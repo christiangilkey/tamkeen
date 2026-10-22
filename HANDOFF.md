@@ -4069,7 +4069,7 @@ Google Tasks' first "allow" (googletasks.js) used the same pop-up.
   goes to Google's page (login_hint, no prompt, no pop-up). Not checked: a real renewal on the owner's phone.
 - Only the web app had this: the computer and the phone apps keep a refresh token and renew without anything showing.
 
-## Library → + → Web page: one screen (paste an address, saved sites with "Add a site", news) (2026-10-21; branch `worktree-agent-ade8e1df7f7c53b52`, NOT merged, NOT pushed)
+## Library → + → Web page: one screen (paste an address, saved sites with "Add a site", news) (2026-10-21; merged into main, not pushed)
 Owner: "When this button is clicked it should show one consolidated screen, the page that would normally popup should be
 combined with this one, add the web address import button to the screen with all of the recommended news sites. Also
 add the ability to add any webpage I want to this screen for quick access".
@@ -4110,7 +4110,7 @@ add the ability to add any webpage I want to this screen for quick access".
   the phone build mobile/www at 375 px. **Not checked**: the real desktop window's browser and a real phone (the
   in-app browser opening from a tile; nothing native changed).
 
-## Library → + → YouTube: a menu of topics instead of one "Open YouTube" button (2026-10-21; same branch, own commit, NOT merged, NOT pushed)
+## Library → + → YouTube: a menu of topics instead of one "Open YouTube" button (2026-10-21; merged into main, not pushed)
 Owner: "When the user clicks the YouTube button on this page, there should be a menu instead of an open YouTube button
 it should show a selection of trending topics which the user can click on the topic and it will bring up YouTube videos
 in that topic".
@@ -4158,7 +4158,7 @@ button), and when the new page has settled `showFabs(true)` adds `.roll-in`: 0.6
 (`.fade-in`). Reduced-motion: a plain fade. Checked at 375x812 with simulated touches (hidden during the slide, frames
 stepped through by hand because the hidden preview pane pauses animations; ends exactly at its usual place).
 
-## German (de): a language to learn and an interface language (2026-10-21; branch `worktree-agent-a0914379b70d7f43c`, NOT merged, NOT pushed)
+## German (de): a language to learn and an interface language (2026-10-21; merged into main, not pushed)
 Owner: "I want to add to my languages in the app, Farsi, Korean, Hindi, and German". This is German; the other three
 were done at the same time on their own branches, so expect small clashes in the shared lists (add both sides' entries;
 for strings.json and web/i18n/*.json re-run `node tools/i18n/extract.mjs` and `node tools/i18n/build.mjs`). The branch
