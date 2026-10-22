@@ -1,0 +1,12 @@
+# German as a language to learn (2026-10-21): country names, German news sites, the compound-word explanation, a licence.
+7b5203f5 Talaan ng salitang Aleman at listahan ng mga karaniwang salita: kasalukuyang baybay at malalaking titik, mula sa Wiktionary (opsiyonal na i-download)
+f13ba6e2 Mas madali: balita para sa mga bata
+6004ae57 Pampublikong brodkaster ng Germany
+76af65cb Lingguhang pahayagan
+4bb73f48 Munich
+56ab9d28 Pampublikong brodkaster ng Austria
+593905b3 Austria
+c8fac8a8 Pampublikong brodkaster ng Switzerland
+d2a4fb95 Wikipedia sa Aleman
+aab575ea Mula sa built-in na diksyunaryo ({0}{1}): wala itong entry para sa tambalang salitang ito, kaya ito ang mga kahulugan ng mga bahagi nito.
+17d53e0e Germany

@@ -247,3 +247,22 @@ b9b6f166  # música en català
 28eb8491  # science and technology
 80d72d7f  # cartoons for kids
 1f5ffb7f  # English listening practice
+# Not interface: German. Its YouTube topics' search words (web/js/youtube-home.js TOPIC_WORDS), its word-table
+# example (seen.js EXAMPLES, drawn as content), the separable prefixes german.js knows, and two pieces of
+# the No AI popup's "Form" line, which is dictionary text in English like Wiktionary's own (meaningdata.js).
+8941290d  # Nachrichten aus Deutschland
+73155d42  # neue deutsche Songs
+b0552066  # Comedy deutsch
+7d1778b2  # Rezept
+e1094abb  # Reise
+a7d25692  # Fußball
+19c4aeaa  # Wissenschaft Doku
+383efbc2  # Let's Play deutsch
+d5fa1d97  # Kinderserie
+35c691c4  # Vlog deutsch
+bc2696bc  # Podcast deutsch
+d38e64e9  # Deutsch als Fremdsprache
+b4705d0f  # spreche, sprach, fängt … an
+f372a354  # ab an auf aus bei dar … (german.js PARTICLES)
+d318d587  # : {0} of {1}
+657c6469  # (separable verb)

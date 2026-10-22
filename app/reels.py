@@ -49,6 +49,7 @@ COMEDY_WORDS = {
     "ceb": ["katawa", "kataw-anan", "bisaya comedy", "binuang"],
     "th": ["ตลก", "ขำขัน", "แกล้ง", "มุกตลก"],
     "en": ["comedy", "funny", "pranks", "standup"],
+    "de": ["deutsche comedy", "witze", "lustig", "witzig"],
 }
 
 # "Random reels": everyday words searched for, a few picked at random each time, so a batch is a
@@ -81,6 +82,8 @@ RANDOM_WORDS = {
            "เกร็ดความรู้", "อธิบาย", "ทำอาหาร", "กีฬา", "ข่าว", "พอดแคสต์", "กิจวัตร", "ครอบครัว", "กาแฟ", "รีวิว"],
     "en": ["vlog", "recipe", "storytime", "advice", "comedy", "sketch", "question", "challenge", "interview", "travel", "food", "story",
            "experience", "funfacts", "explained", "cooking", "sports", "news", "podcast", "routine", "family", "coffee"],
+    "de": ["vlog", "rezept", "geschichte", "tipp", "humor", "witzig", "frage", "challenge", "interview", "reise", "essen", "anekdote",
+           "erfahrung", "wissenswertes", "erklärt", "kochen", "fußball", "nachrichten", "podcast", "alltag", "familie", "kaffee"],
 }
 RANDOM_SEARCHES = 8          # at most this many words are searched for in one batch
 

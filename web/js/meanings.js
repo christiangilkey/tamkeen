@@ -9,8 +9,9 @@
 
 import { api } from "./app.js";
 import { DefinerError } from "./definer.js";
-import { answerFrom, commonness, lookUp, matchKey, wordKeys } from "./lexicon/meaningdata.js";
+import { answerFrom, commonness, germanLookUp, lookUp, matchKey, wordKeys } from "./lexicon/meaningdata.js";
 import { dictionaries } from "./lexicon/seen.js";
+import { LemmaTable } from "./lexicon/romance.js";
 import { lexemeOf } from "./lexicon/words.js";
 
 export const NO_MEANINGS = "NO_MEANINGS";
@@ -77,8 +78,17 @@ export async function dictionaryDefine(ctx, { quick = false, language = "English
   if (lang === "ceb") files = [...files].reverse();
   // Wiktionary first; for Arabic the CAMeL glosses, for Bisaya Wolff's dictionary, when Wiktionary lacks
   // the word (or has it only as a name). (lookUp in ./lexicon/meaningdata.js)
-  const { keys, rank } = await candidates(ctx.word, lang);
-  const found = lookUp(files, keys, ctx.word, lang, { rank });
+  // German reads the sentence too (separable verbs: fängt … an is anfangen) and takes compounds apart.
+  let found;
+  if (lang === "de") {
+    let tables = null;
+    try { tables = await dictionaries(lang); } catch { /* no table: the meanings file's own forms */ }
+    const table = (tables || []).find((t) => t instanceof LemmaTable) || null;
+    found = germanLookUp(files, ctx.word, ctx.marked || "", { table });
+  } else {
+    const { keys, rank } = await candidates(ctx.word, lang);
+    found = lookUp(files, keys, ctx.word, lang, { rank });
+  }
   if (!found || !found.groups.length) {
     throw new DefinerError("This word isn't in the built-in dictionary. It may be a name, slang, or a form it doesn't know.");
   }

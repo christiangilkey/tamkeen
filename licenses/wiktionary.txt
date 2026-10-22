@@ -20,3 +20,8 @@ also takes the Bisaya words given in English entries' translation tables (the En
 sense it is a translation of) for words that have no Bisaya entry of their own. The English file keeps only
 common words and phrases made of them; Chinese spellings are linked to their simplified forms using
 CC-CEDICT's character table (CC BY-SA 4.0).
+
+The German word table and common-word list also take a few facts from the German entries: which spellings
+the 1996 reform replaced, which are Switzerland's, and how often each word is written with a capital in the
+entries' example sentences (see german-sources.txt). The German meanings file keys ß as ss, so today's
+spelling, the old one and Switzerland's find the same entries.

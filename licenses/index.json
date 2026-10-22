@@ -27,5 +27,6 @@
   {"name": "FastAPI / Starlette / Uvicorn", "license": "MIT / BSD 3-Clause", "file": "fastapi.txt", "on": ["desktop"]},
   {"name": "feedparser", "license": "BSD 2-Clause", "file": "feedparser.txt", "on": ["desktop"]},
   {"name": "httpx", "license": "BSD 3-Clause", "file": "httpx.txt", "on": ["desktop"]},
-  {"name": "NVIDIA cuBLAS / cuDNN (optional download)", "license": "NVIDIA Software License", "file": "nvidia.txt", "on": ["desktop"]}
+  {"name": "NVIDIA cuBLAS / cuDNN (optional download)", "license": "NVIDIA Software License", "file": "nvidia.txt", "on": ["desktop"]},
+  {"name": "German word table and common-word list: today's spelling and capitals, from Wiktionary (optional download)", "license": "ODbL 1.0; CC BY-SA 4.0", "file": "german-sources.txt"}
 ]

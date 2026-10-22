@@ -11,7 +11,9 @@ collection (ODC-By 1.0); see licenses/pythainlp.txt and licenses/cebuano-sources
 The others are made by `tools/make_wordlists.py` from **wordfreq** by Robyn Speer
 (https://github.com/rspeer/wordfreq), which counts words in subtitles, Wikipedia, news, books and
 the web. The script leaves out numbers, symbols, stray single letters and words in another
-alphabet; nothing else is changed, and nothing is added by hand.
+alphabet; nothing else is changed, and nothing is added by hand. (German: wordfreq writes every word in
+small letters and ß as ss; each is put back the way German writes it, Zeit, Straße, weiß, from the same
+word list and Wiktionary facts as the German word table: see licenses/german-sources.txt.)
 
 ## Licence
 

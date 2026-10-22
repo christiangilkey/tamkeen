@@ -1,0 +1,12 @@
+# German as a language to learn (2026-10-21): country names, German news sites, the compound-word explanation, a licence.
+7b5203f5 Tabella di parole tedesche ed elenco di parole comuni: ortografia attuale e maiuscole, dal Wikizionario (download facoltativo)
+f13ba6e2 Più facile: notizie per bambini
+6004ae57 La radiotelevisione pubblica tedesca
+76af65cb Settimanale
+4bb73f48 Monaco di Baviera
+56ab9d28 La radiotelevisione pubblica austriaca
+593905b3 Austria
+c8fac8a8 La radiotelevisione pubblica svizzera
+d2a4fb95 Wikipedia in tedesco
+aab575ea Dal dizionario integrato ({0}{1}): non ha una voce per questa parola composta, quindi ecco i significati delle sue parti.
+17d53e0e Germania

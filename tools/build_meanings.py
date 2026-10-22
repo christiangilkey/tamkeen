@@ -7,7 +7,7 @@ of speech, its meanings (the English glosses), how it is written in full (Arabic
 Russian with its stress), its reading (Japanese kana, Chinese pinyin), its Arabic root, and, for
 forms of a word ("hablo", "كتبت"), which word they are a form of. Read by web/js/meanings.js.
 
-    python tools/build_meanings.py ar es fr ...      (any of: ar es fr it ru en tl ja zh pt ca ceb th)
+    python tools/build_meanings.py ar es fr ...      (any of: ar es fr it ru en tl ja zh pt ca ceb th de)
     python tools/build_meanings.py ar=<a saved kaikki .jsonl.gz>   (from a file instead)
     python tools/build_meanings.py --numbers es fr ...   (only add the number words to the files there)
     python tools/build_meanings.py --fill tl ceb         (only fill the gaps of the Tagalog and Bisaya files there)
@@ -43,7 +43,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "lexicon"
 NAMES = {"ar": "Arabic", "es": "Spanish", "fr": "French", "it": "Italian", "ru": "Russian", "en": "English",
          "tl": "Tagalog", "ja": "Japanese", "zh": "Chinese", "pt": "Portuguese", "ca": "Catalan", "ceb": "Cebuano",
-         "th": "Thai"}
+         "th": "Thai", "de": "German"}
 URL = "https://kaikki.org/dictionary/{0}/kaikki.org-dictionary-{1}.jsonl.gz"
 # Arabic as spoken: Wiktionary's dialect words go in the Arabic file too, marked with their dialect.
 DIALECTS = {"arz": "Egyptian Arabic", "ajp": "South Levantine Arabic", "apc": "North Levantine Arabic",
@@ -90,6 +90,10 @@ def key(word: str, lang: str) -> str:
         # Wolff's kaáyu); stress and glottal-stop marks (á, à) are left off.
         w = "".join(c for c in unicodedata.normalize("NFD", w.lower()) if not unicodedata.combining(c))
         return w.replace("o", "u").replace("e", "i")
+    if lang == "de":
+        # ß as ss: today's spelling (dass, Fluss), the one from before 1996 (daß, Fluß) and Switzerland's
+        # (Strasse for Straße) are one key; capitals are off, as for every language (Essen and essen together).
+        return w.lower().replace("ß", "ss")
     return w.lower()
 
 
@@ -181,7 +185,10 @@ def senses(entry: dict, lang: str):
             continue
         target = (s.get("form_of") or s.get("alt_of") or [])
         if target and target[0].get("word"):
-            form_of.append((target[0]["word"], clean(g[-1])))
+            lemma = target[0]["word"]
+            if lang == "de":  # "Formerly standard spelling of rau which was deprecated in the spelling reform"
+                lemma = re.sub(r" which was deprecated.*$", "", lemma)
+            form_of.append((lemma, clean(g[-1])))
             continue
         for level in g:  # a sense's glosses go from general to specific: "to write", then "to draw (figures)"
             gloss = clean(level)

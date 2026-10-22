@@ -1,0 +1,170 @@
+8df7f1b3 Spanisch
+42b5f38b Standardform
+0bb18642 Gebrauch
+af4f4762 Arabisch
+e96857c5 Wurzel
+3132844d Im Hocharabischen
+93949a50 Dialekt
+23239c1b Die Suche ignoriert Vokalzeichen (Taschkil) und Schreibvarianten von Alif (أ إ آ ا), Ta marbuta/Ha (ة ه) und Alif maqsura/Ya (ى ي).
+44389f6a Französisch
+9239c22d Japanisch
+b6f59f08 Schriftzeichen
+15dc1886 Chinesisch
+74ad93cb Russisch
+485b57ad Italienisch
+68ddd91d Tagalog
+8782d9fe Brasilianisches Portugiesisch
+2c5e77fc Katalanisch
+b46e924a Bisaya (Cebuano)
+c32767e0 Thai
+da91388c Deutsch
+649df08a Englisch
+2db9d9c8 Hören
+227f38db Lesen
+28cd39db Wörtersammeln
+419e5a77 schlüpft
+8736920d Schlüpfling
+6839db6f Jungtier
+82aef589 ausgewachsen
+b245f581 {0} {1}
+6aeffa09 Schriftart Noto Naskh Arabic
+6f289ed9 Listen häufiger Wörter (aus wordfreq)
+3ee00536 Analyseverfahren von CAMeL Tools; arabische Wörterbücher (optionaler Download)
+cb9ed3a8 CATT-Vokalisierungsmodell für Arabisch, Abjad AI (optionaler Download)
+84051a55 Worttabellen für Spanisch, Französisch, Italienisch, Portugiesisch, Katalanisch und Englisch (optionaler Download)
+602655dd Bisaya-Wortliste (OPUS NLLB) und Wolffs Dictionary of Cebuano Visayan (optionaler Download)
+c319d658 ODC-By 1.0; gemeinfrei
+5730d3ec Thailändische Liste häufiger Wörter, nach den Zählungen des Thai National Corpus von PyThaiNLP
+550cf31d CC0 1.0
+026482d9 CMU Pronouncing Dictionary: US-Aussprachen in der englischen Worttabelle
+08a5e4bd Russische Worttabelle mit Betonung, von OpenRussian.org (optionaler Download)
+f88f293f Das IPADIC-Wörterbuch und kuromoji: japanische Wörter und Furigana (optionaler Download)
+a3451771 CC-CEDICT und wordfreq: chinesische Wörter und Pinyin (optionaler Download)
+a385bf96 Wiktionary über Wiktextract: Wortbedeutungen für „Ohne KI“ (optionaler Download)
+44cefc08 PDF.js (Mozilla): zum Lesen von PDF-Büchern, die du hinzufügst
+81e74ccd Das kostenlose Bücherregal: Project Gutenberg, Wikisource, Aozora Bunko (optionaler Download)
+8db0aa84 Gemeinfrei
+7ba12057 NVIDIA cuBLAS / cuDNN (optionaler Download)
+9e93ea8d Supabase-JS-Client: Freunde, Chat und Teilen
+b329cbef Capacitor: der Rahmen der Handy-Apps um die Bildschirme von Tamkeen
+7b5203f5 Deutsche Worttabelle und Liste häufiger Wörter: heutige Rechtschreibung und Großschreibung, aus Wiktionary (optionaler Download)
+6f442204 Die Verbindung zum lokalen Server der App ist abgebrochen.
+59025e2d Anfrage fehlgeschlagen ({0})
+21a0c7a3 {0} Std. {1} Min.
+e802d434 {0} Min.
+f921c967 0 MB
+9a27e458 {0} GB
+b53a8982 {0} MB
+c18f8f25 Benachrichtigung
+f8f74deb Transkription fertig: {0}
+cf9b7706 Öffnen
+3f651190 Transkription fertig
+0fedb149 Transkription fehlgeschlagen: {0}. {1}
+377e306b Transkription fehlgeschlagen
+63616e1e Der Ton für dieses Wort konnte nicht gespeichert werden.
+b887bd52 Kopiere den Link des gewünschten Videos und füge ihn unter „Webseite hinzufügen“ ein.
+46c3ccdd Wähle zuerst die Sprache, die du lernst, und öffne das Video dann noch einmal.
+90350195 Untertitel werden geladen …
+d10fa6cb Dieses Video konnte nicht geöffnet werden.
+6f9d8f3f Kopiere die Adresse der gewünschten Seite und füge sie unter „Webseite hinzufügen“ ein.
+72af5edb Hochladen fehlgeschlagen ({0}).
+ccc2b8e0 Hochladen fehlgeschlagen: Der Server der App hat nicht geantwortet.
+136c4303 Gespeichert in {0}
+8d886c0b Etwas ist schiefgelaufen
+3699e160 Tamkeen antwortet nicht.
+04599dcf Das ist kein YouTube-Video.
+b4f38601 Öffne Tamkeen einmal und wähle die Sprache, die du lernst, und versuch es dann noch einmal.
+752be6ae Diese Datei ist zu groß (über 200 MB).
+1b9728ae Diese Datei ist beschädigt (keine vollständige ZIP-, EPUB- oder DOCX-Datei).
+6ef6b413 Diese Datei ist auf eine Art komprimiert, die Tamkeen nicht lesen kann.
+6a0b6c0f Dieses Buch ist geschützt (DRM), daher kann sein Text nicht gelesen werden. Nur Bücher ohne DRM können hinzugefügt werden.
+c13b66dd Dieses EPUB ist beschädigt (kein Inhaltsverzeichnis).
+6256156a Diese Word-Datei ist beschädigt.
+fb5d490e Das ist keine Word-Datei im .doc-Format. Versuch, sie als .docx zu speichern.
+39b183eb Diese Word-Datei enthält keinen Text.
+5ec26261 Diese Word-Datei ist passwortgeschützt, daher kann ihr Text nicht gelesen werden.
+a693bbf2 In dieser Word-Datei wurde kein Text gefunden. Versuch, sie als .docx zu speichern.
+a351250c Dieses Kindle-Buch ist geschützt (DRM), daher kann sein Text nicht gelesen werden. Nur Bücher ohne DRM können hinzugefügt werden.
+fadca512 Diese Kindle-Datei ist auf eine Art komprimiert, die Tamkeen nicht lesen kann. Wandle sie in EPUB um (zum Beispiel mit der kostenlosen App Calibre) und füge diese hinzu.
+f259da8d Dieses PDF ist passwortgeschützt, daher kann sein Text nicht gelesen werden.
+1b90296b Dieses PDF konnte nicht geöffnet werden.
+912836e3 Seite {0} von {1} wird gelesen …
+6d3042c8 Das Bücherregal von Tamkeen ist nicht erreichbar. Prüfe deine Verbindung und versuch es noch einmal.
+deb3baad Das Buch ist beschädigt angekommen. Versuch es noch einmal.
+451b9cbc Datei wird gelesen …
+245d2a43 In dieser Datei wurde kein Text gefunden. Ein gescanntes Buch (Bilder von Seiten) enthält keinen lesbaren Text.
+56a2285c Wird gespeichert …
+3330dab0 Al Jazeera
+0a3a33ca BBC Arabic
+036338ff Al Arabiya
+ff61c5fd Sky News Arabia
+001f43b5 Asharq Al-Awsat
+103608b8 CNN Arabic
+9f4ff5e2 France 24
+a6fd6e9c Deutsche Welle
+eb602841 Asharq News
+70bd98b5 Independent Arabia
+81667ae6 Al-Quds Al-Arabi
+3d6e75cf Al-Ahram, Ägypten
+367c7f69 Youm7, Ägypten
+21612f28 Euronews
+7a924fa6 Hespress, Marokko
+8091b468 An-Nahar, Libanon
+20a8df9b Spanien
+7f68cca5 BBC auf Spanisch
+5bfed743 Der öffentlich-rechtliche Rundfunk Spaniens
+26ee2701 Amerika
+354bf989 Argentinien
+41937b20 Mexiko
+2f737399 Kolumbien
+36c57243 Peru
+ac92bda0 Auf Spanisch
+a95f1614 Einfacher: Nachrichten für Lernende
+e3772ac4 Frankreich
+022e7a37 Der öffentlich-rechtliche Rundfunk Frankreichs
+f5074266 Weltnachrichten
+cd6a7b87 Kanada
+5cb4c9d8 Belgien
+77dcd849 Schweiz
+7fd73ef4 Einfacher: NHK-Nachrichten in einfachem Japanisch
+20cf7d0e NHK, öffentlich-rechtlicher Rundfunk
+863f0927 Yahoo! News Japan
+bce35235 Asahi Shimbun
+e8faae07 Yomiuri Shimbun
+8d6de353 Mainichi Shimbun
+55708085 Nikkei
+7c3cb127 Sankei Shimbun
+144e3ab3 Tokyo Shimbun
+073ad8e8 Jiji Press
+86e150a1 Kyodo News
+86dd6e9b Fernsehnachrichten von TBS
+6ee232e9 Fernsehnachrichten von Nippon TV
+7f22332e BBC auf Japanisch
+8201ad33 Toyo Keizai
+12fc9530 Technik-Nachrichten
+85da6b7f BBC auf Chinesisch
+1950c50c The New York Times
+72b431fc Lianhe Zaobao, Singapur
+16048e43 Xinhua, China
+323a3e4c Volkszeitung (People's Daily), China
+1d37efac NetEase News, China
+081ceae5 Caixin, China
+1b9f1261 Sina News, China
+5c0fde35 Tencent News, China
+9231d52d Jiemian, China
+7073d6a9 Financial Times
+1bea7de2 CNA, Taiwan (Langzeichen)
+79da1ae8 UDN, Taiwan (Langzeichen)
+7c820dda HK01, Hongkong (Langzeichen)
+b36012a4 BBC auf Russisch
+98678be4 Meduza
+3bad3245 Kommersant
+c789d95b Interfax
+321e9515 TASS, staatliche Nachrichtenagentur
+2b6cb4c7 RIA Nowosti, staatliche Nachrichtenagentur
+02f9372c Wedomosti
+7095fe00 Radio Liberty
+179a6338 Nowaja Gaseta Europa
+c51e7e5c Auf Russisch
+be550421 Current Time
+08c6ecb7 Rai, öffentlich-rechtlicher Rundfunk

@@ -276,6 +276,18 @@ const TEACH = {
     dialect_note: "Politeness, register or regional usage note (who says it, to whom); empty if none.",
     msa_equivalent: "The neutral standard Thai equivalent if the word is slang, regional or very informal; empty otherwise.",
   },
+  de: {
+    name: "German",
+    variety: "which may be from Germany, Austria or Switzerland, standard or regional, formal or colloquial",
+    why: "German words change meaning with context (four cases that change articles and endings, separable verbs whose prefix goes to the end of the clause such as fängt … an, long compound nouns, the verb at the end of subordinate clauses, regional words and colloquial contractions such as gibt's and hab')",
+    vocalized: "Pronunciation in IPA as said in standard German, with the stressed syllable marked, e.g. '/aɪ̯ˈɡn̩tlɪç/'.",
+    lemma: "Dictionary form (infinitive for verbs, with the separable prefix joined back on when it stands later in the sentence, e.g. 'anfangen' for 'fängt … an'; nominative singular with its article for nouns, e.g. 'das Haus'; the plain form for adjectives).",
+    root: "For compound words: each part with its meaning, e.g. 'Hand hand + Schuh shoe'; for a separable verb, the prefix and the verb, e.g. 'an + fangen'; empty otherwise.",
+    morphology: "Short analysis: tense, mood, person and number for verbs (separable prefix noted); case, gender and number for nouns, adjectives and articles; contractions spelled out (im = in dem, gibt's = gibt es).",
+    dialect: "Standard, or the region or register if notable: Austrian, Swiss, Bavarian, Northern, Berlin, colloquial, youth slang, formal, literary, etc.",
+    dialect_note: "Regional or register usage note (where it is said, how formal it is, whether Austria or Switzerland say it differently); empty if none.",
+    msa_equivalent: "The neutral standard German (Hochdeutsch) equivalent if the word is regional, Austrian, Swiss, slang or very informal; empty otherwise.",
+  },
   en: {
     name: "English",
     variety: "which may be American, British, Australian or any other variety, formal or colloquial",

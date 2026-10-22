@@ -41,6 +41,7 @@ export const STOREFRONTS = {
   ceb: ["ph"],
   th: ["th"],
   en: ["us", "gb", "au", "ca"],
+  de: ["de", "at", "ch"],
 };
 /** Languages whose countries' 19 category charts are read as well as the overall chart. */
 export const CATEGORY_CHARTS = new Set(["ca", "tl", "th"]);
@@ -54,6 +55,7 @@ export const COUNTRY_NAMES = {
   fr: "France", be: "Belgium", jp: "Japan", cn: "China", tw: "Taiwan", ru: "Russia", it: "Italy", ch: "Switzerland",
   ph: "the Philippines", us: "the United States", gb: "the United Kingdom", au: "Australia", ca: "Canada",
   br: "Brazil", th: "Thailand",
+  de: "Germany", at: "Austria",
 };
 /** Apple's main podcast headings. */
 export const MAIN_CATEGORIES = ["Arts", "Business", "Comedy", "Education", "Fiction", "Government", "Health & Fitness",
@@ -114,6 +116,9 @@ const LITTLE_WORDS = {
   ceb: ["ang", "sa", "nga", "ug", "og", "mga", "kay", "dili", "kini", "ni", "usa", "naa", "wala", "man", "pud", "sab", "kaayo",
         "nato", "bisaya", "binisaya"],
   en: ["the", "and", "of", "to", "with", "is", "for", "in", "on", "your", "from", "that", "this", "you", "about", "we"],
+  // (not "was", "in", "an", "so" or "man": English words too)
+  de: ["der", "die", "das", "und", "ist", "mit", "von", "nicht", "ein", "eine", "auf", "für", "ich", "wir", "sie", "zu", "über",
+       "den", "dem", "im", "auch", "wie", "sich", "oder", "aber", "nach", "bei", "mehr", "du", "uns", "zum", "zur", "geht", "als"],
 };
 // Languages that share most of their little words with a neighbour (Catalan, Spanish, Portuguese, French
 // and Italian; Bisaya and Tagalog) are told apart by words and letters only one of them uses.
@@ -134,12 +139,18 @@ const OWN = {
                 "kasi", "paano", "bakit"], letters: null },
   fr: { words: ["le", "et", "des", "du", "une", "est", "pour", "avec", "dans", "sur", "vous", "qui", "au", "aux", "ses", "ce",
                 "cette", "pas", "plus", "très", "où"], letters: /[œêâîûëù]/g },
+  // German and Dutch: Switzerland's and Austria's charts are mostly German, and Dutch shows, which share
+  // "die", "wie", "was" and "in" with German, turn up in Germany's. (ij is Dutch's own letter pair.)
+  de: { words: ["der", "das", "und", "ist", "nicht", "ich", "auch", "sich", "wir", "mit", "für", "über", "auf", "eine", "einen",
+                "dem", "den", "zum", "zur", "im", "von", "bei", "noch", "nach", "aber", "oder", "du", "uns", "mehr", "sind", "jetzt"],
+        letters: /[äöüß]/g },
+  nl: { words: ["het", "een", "van", "en", "is", "met", "op", "voor", "niet", "dat", "zijn", "wij", "je", "ik", "naar", "ook",
+                "elke", "wat", "bij", "nog", "deze", "maar", "de", "onze", "jullie", "hoe", "uit", "zo", "te", "wordt"], letters: /ij/g },
 };
 // The charts of Belgium and Switzerland, and Spain's category charts, mix in shows from all over Europe;
 // these are told apart too.
 const OTHER_LITTLE_WORDS = {
-  de: ["der", "die", "das", "und", "ist", "mit", "von", "nicht", "ein", "eine", "auf", "für", "ich", "wir", "sie", "zu", "über",
-       "den", "dem", "im", "auch", "wie"],
+  // (German is taught: its little words are LITTLE_WORDS.de)
   nl: ["het", "een", "van", "is", "met", "op", "voor", "niet", "dat", "zijn", "wij", "je", "ik", "naar", "over", "ook", "elke",
        "wat", "bij", "nog", "deze", "maar"],
   // (and the Philippines' category charts, shows from India, Vietnam and the Czech Republic)
@@ -151,7 +162,7 @@ const OTHER_LITTLE_WORDS = {
 };
 const ALL_LITTLE_WORDS = { ...LITTLE_WORDS, ...OTHER_LITTLE_WORDS };
 // Close neighbours, told apart by OWN rather than by the little words they share.
-const FAMILIES = [["es", "pt", "ca", "fr", "it"], ["tl", "ceb"]];
+const FAMILIES = [["es", "pt", "ca", "fr", "it"], ["tl", "ceb"], ["de", "nl"]];
 const familyOf = (lang) => FAMILIES.find((f) => f.includes(lang)) || [lang];
 // Languages that are the smaller one in their countries' charts: a podcast must show more of the language
 // than of each neighbour (and at least two signs of it); for the others a tie is enough. (Catalan's
@@ -163,7 +174,7 @@ const STRICT = new Set(["ca", "ceb"]);
 const LOOKALIKES = { pt: ["es"] };
 // Languages whose first country's chart is mostly in them: there, a show with nothing to judge it by
 // (a name of a few words and no description) is taken to be in the language.
-const HOME_CHART = new Set(["es", "fr", "it", "pt", "en"]);
+const HOME_CHART = new Set(["es", "fr", "it", "pt", "en", "de"]);
 const count = (words, list) => words.reduce((n, w) => n + (list.includes(w) ? 1 : 0), 0);
 const ownCount = (text, words, lang) => count(words, OWN[lang].words) + (OWN[lang].letters ? (text.match(OWN[lang].letters) || []).length : 0);
 

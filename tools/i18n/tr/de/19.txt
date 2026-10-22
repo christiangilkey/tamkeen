@@ -1,0 +1,140 @@
+a87f6706 In Tamkeen importieren: die kopierte Artikeladresse
+c4b42e1e Kopiere die Adresse des Artikels im anderen Tab (oder teile ihn von dort mit Tamkeen) und tippe dann noch einmal auf diesen Knopf.
+a11dbc0f (display-mode: standalone)
+e165040b oben auf dem Bildschirm
+55ccdc03 unten auf dem Bildschirm
+41a15e18 Tippe {1} auf den Knopf <0>Teilen</0> {0}.
+cbc7ba0a Scroll in der Liste nach unten und tippe auf <0>Zum Home-Bildschirm</0>.
+bf13c2df Tippe auf <0>Hinzufügen</0> (oben rechts). Tamkeen ist jetzt auf deinem Home-Bildschirm.
+96914e14 (oben rechts)
+b32ca313 Tippe in der Adressleiste{1} auf den Knopf <0>Teilen</0> {0}.
+87deb031 Tippe auf <0>Zum Home-Bildschirm</0> (scroll nach unten, wenn du es nicht siehst).
+785f548a Tippe auf <0>Hinzufügen</0>. Wenn es nicht da ist, öffne diese Seite in Safari und füge sie dort hinzu.
+ae260712 Tippe unten rechts auf das Menü <0>≡</0>.
+1b5b232c Tippe auf <0>Seite hinzufügen zu</0> und dann auf <1>Startbildschirm</1>.
+ca117803 Tippe auf <0>Hinzufügen</0>.
+2b256040 Tippe auf das Menü
+bb5798ce Tippe auf <0>Installieren</0> (oder <1>Zum Startbildschirm hinzufügen</1>).
+2f614469 Tippe oben rechts auf das Menü <0>⋮</0>.
+022e6668 Tippe auf <0>Zum Startbildschirm hinzufügen</0> (vielleicht steht dort <1>App installieren</1>).
+1034fc99 Tippe auf <0>Installieren</0> oder <1>Hinzufügen</1>. Tamkeen öffnet sich dann wie eine App, ohne den Browser drumherum.
+887b182d Oder öffne das Menü <0>⋮</0> und dann <1>Streamen, speichern und teilen</1> → <2>Seite als App installieren</2>.
+b85d0d03 Klicke auf <0>Installieren</0>.
+06d74687 Öffne das Menü <0>…</0> und dann <1>Apps</1> → <2>Diese Website als App installieren</2>.
+8829f1b7 Wähle auf einem Mac in der Menüleiste <0>Ablage</0> → <1>Zum Dock hinzufügen</1>.
+7487434a Klicke auf <0>Hinzufügen</0>.
+95b40a2a Android-Handy
+d992aac8 Tamkeen installieren
+1a96de2a Tamkeen zu deinem Startbildschirm hinzufügen
+8607e4ba Jetzt installieren
+26e74130 Tamkeen öffnet sich dann über sein eigenes Symbol, im Vollbild, wie eine App. Auf diesem {0}:
+def8615b Instagram ist nicht erreichbar. Prüfe deine Verbindung.
+fcb5223a Instagram hat mit einem Fehler geantwortet ({0}). Versuch es in einer Minute noch einmal.
+732ac1f0 Wenn Tamkeen auf deinem Startbildschirm ist, kannst du den Artikel auch direkt mit Tamkeen teilen: Tippe in Chrome auf ⋮, dann auf Teilen und dann auf Tamkeen.
+db248300 Einfügen
+263fcf38 Dein Browser hat das Einfügen von hier nicht erlaubt. Halte das Feld gedrückt und wähle Einfügen.
+effc9a4e YouTube hat mit einem Fehler geantwortet ({0}). Versuch es in einer Minute noch einmal.
+ecc87af7 Die YouTube-Seite konnte nicht gelesen werden. Versuch es in einer Minute noch einmal.
+6f77246b Die Videos dieses Kanals.
+82f79ac4 Beliebt diese Woche.
+4302678b Am meisten gesehen dieses Jahr.
+e5d38465 Am meisten gesehen diesen Monat.
+bd7d0814 {0} Tippe auf ein Video, um es mit seinen Untertiteln als antippbare Wörter anzusehen. Es braucht Untertitel.
+7724494e Videos werden geladen …
+f64fc328 Keine Videos gefunden.
+fbe347b9 YouTube sperrt die Web-App für dieses Video (das passiert oft bei Musik). Es öffnet sich in der Tamkeen-App auf deinem Handy oder Computer, die YouTube über deine eigene Verbindung fragt.
+0ab8077d Falscher Begleiter-Token. Lade das Add-on in den Einstellungen von Tamkeen erneut herunter.
+42ea3675 Zu viele Tage in einer Meldung.
+36edb03f Keine solche Datei.
+f1e86935 Nur die unterstützten KI-Anbieter können aufgerufen werden.
+795b8b49 Netzwerkfehler: {0}: {1}
+d5f6613b Das Video ist nicht in deinem Google Drive.
+399e0f29 Streamen aus Google Drive nicht möglich: {0}
+c602022a Dieses Video läuft von YouTube; die App behält keine Kopie seines Tons.
+c2c60ae0 Dieses Video ist vom anderen Gerät noch nicht fertig hochgeladen.
+0b0ce373 Diese Folge hat noch kein Transkript.
+23eebf4d Das Format muss txt, srt oder vtt sein.
+d88f9041 Nicht erlaubt.
+5591ee57 Das ist kein tamkeen://watch?v=…-Link.
+7200d5dc Kein Instagram-Bild.
+812b0382 Das Bild konnte nicht abgerufen werden.
+f0cbe469 Kein Bild.
+2e9a26f5 Der Podcast konnte nicht hinzugefügt werden: {0}
+a52aaab5 Anmeldung abgebrochen
+ef3fbb3e Die Google-Anmeldung wurde abgebrochen oder abgelehnt.
+41d8fe44 Anmeldung fehlgeschlagen
+0f824e05 Synchronisiert als {0}.
+2f18d2c1 Melde dich zuerst mit Google an.
+c4f7c260 Unbekannte Modellgröße.
+066f2c8e Unbekannte Sprache.
+ae1dee3a Unbekannte Art, Wörter zu erklären.
+8b90ee48 Der Ordner konnte nicht geöffnet werden: {0}
+cf2c5c85 Sicherung nicht gefunden.
+3a3aadb1 Import fehlgeschlagen: {0}
+7d090ad8 Lizenz nicht gefunden.
+7c1e44a9 Dieses Wort hat keinen Ton.
+faecd643 Der Ton für dieses Wort ist nicht auf diesem Computer.
+2ccc65dd Dieser Tonausschnitt ist leer oder zu groß.
+3e4be3a5 Der Ton dieses Wortes ist nicht verfügbar.
+a901ac03 Das Format muss csv, anki oder apkg sein.
+7b61342e {0} Karten heute zu wiederholen
+857dc2df Die Datei enthält keine Tonspur.
+818903cb Die Audiodatei konnte nicht gelesen werden: {0}
+23230497 Der Ton konnte nicht dekodiert werden: {0}
+7f269f16 Die Audiodatei ist leer oder konnte nicht dekodiert werden.
+fe34abe1 Die komprimierte Tonkopie konnte nicht erstellt werden: {0}
+07431d75 Dieser Teil des Tons konnte nicht gelesen werden.
+1fb3bc7b Der Tonausschnitt konnte nicht geschnitten werden: {0}
+5d9b4909 Die Audio-Bibliotheken (FFmpeg über PyAV) konnten nicht geladen werden: {0} Installiere die App neu. Wenn du sie aus dem Quellcode startest, führe aus: pip install av
+f1e6281f Diese Datei ist keine Tamkeen-Sicherung.
+8e11cc63 Die Datenbank der Sicherung ist beschädigt.
+d1198df0 Bücher zum Lesen Seite für Seite, mit anklickbaren Wörtern.
+d29882bc Das Podcast-Verzeichnis von Apple ist nicht erreichbar ({0}).
+cac34089 Das Podcast-Verzeichnis von Apple hat mit einem Fehler geantwortet ({0}).
+91243238 Das Podcast-Verzeichnis von Apple hat eine Antwort geschickt, die die App nicht lesen konnte.
+b8d1317b Deine Tagessummen werden hier zwischen Anki-Sitzungen aufbewahrt.
+23b6910c Der lokale Server konnte nicht starten. Sieh dir das Protokoll im Datenordner an.
+aad067b1 Zeitüberschreitung beim Starten des lokalen Servers.
+d6d720ba Das kann nur eine Suche, die mit „In einem Video finden“ geöffnet wurde.
+a6f9a4d1 Diese Ergebnisse konnten nicht verwendet werden ({0}).
+6a992b4f Videos können nur von youtube.com aus geöffnet werden.
+6848287a Dieses Video konnte nicht geöffnet werden ({0}).
+58551d59 Kanälen kann nur auf youtube.com gefolgt werden.
+dbe38de1 Es war nicht erkennbar, welcher Kanal das ist.
+ab907e3e Diesem Kanal konnte nicht gefolgt werden ({0}).
+9a10260e Diese Seite kann nicht gespeichert werden.
+47744266 Diese Seite konnte nicht gespeichert werden ({0}).
+97f9e893 Diese Seite konnte nicht gelesen werden.
+23fb4202 Diese Seite konnte nicht importiert werden ({0}).
+3a1427ae Webbrowser
+48dbcf04 Das Browserfenster konnte nicht geöffnet werden ({0}).
+1d82f236 Das YouTube-Fenster konnte nicht geöffnet werden ({0}).
+d70a665c Download fehlgeschlagen: HTTP {0} von {1}.
+c4aaa62e Download abgebrochen.
+d607cd9a Netzwerkfehler beim Herunterladen: {0}: {1}
+c829479b Download unvollständig ({0} von {1} Bytes). Versuch es noch einmal, um fortzusetzen.
+f3ba8566 Prüfsumme stimmt nicht: Die heruntergeladene Datei ist beschädigt. Bitte versuch es noch einmal.
+990411fc Das sieht nicht nach einem Podcast-RSS-Feed aus
+f5b576f8 Der Feed ist nicht erreichbar: {0}: {1}
+7141db00 Melde dich zuerst mit Google an (Einstellungen → Mit Google Drive synchronisieren).
+819dc7ab Google Tasks ist nicht erreichbar ({0}). Prüfe deine Verbindung.
+43d1089a wurde nicht verwendet
+80e1cb7a Google Tasks hat die Aufgabe abgelehnt ({0}).
+6c8a35f3 Onyx scheint auf diesem Computer nicht installiert zu sein.
+215c16a3 Kein {0}-Build von {1} {2} auf PyPI.
+ba15ae5b Der Download ist fertig, aber einige CUDA-Bibliotheken fehlen.
+f376de83 Downloads für GPU-Beschleunigung gibt es nur für Windows und Linux (x86-64).
+3ad92dba NVIDIA-GPU
+1f4b65b6 Apple Silicon erkannt. {0} läuft mit MLX auf der GPU des Mac.
+09fa7089 {0}{1} erkannt.
+a800bf13 {0} {1} läuft schnell auf der GPU.
+1be9657b {0} Installiere die GPU-Beschleunigung (unten), dann läuft {1} um ein Vielfaches schneller als auf der CPU.
+be2def2e Keine unterstützte GPU gefunden, daher läuft die Transkription auf der CPU. {0} hält Genauigkeit und Geschwindigkeit im Gleichgewicht.
+6bf5c220 Speicher voll
+fbaa5c49 Der Speicher ist ausgegangen. Versuch in den Einstellungen ein kleineres Modell.
+dc1a529b Das Video wird noch vom anderen Gerät hochgeladen. Versuch es gleich noch einmal.
+2e99c4f9 Die Wörterbücher konnten nicht heruntergeladen werden ({0}). Prüfe deine Verbindung und versuch es noch einmal.
+e3ec8c21 Ursprungsübergreifende Anfragen sind nicht erlaubt.
+4c3a7b2d Unerwarteter Fehler: {0}
+a6e3c8a8 Prüfsumme stimmt nicht für {0}. Bitte versuch es noch einmal.
+63eb3e5f Unbekannte Modellgröße: {0}

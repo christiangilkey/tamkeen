@@ -1,0 +1,12 @@
+# German as a language to learn (2026-10-21): country names, German news sites, the compound-word explanation, a licence.
+7b5203f5 Taula de paraules en alemany i llista de paraules comunes: ortografia actual i majúscules, del Viccionari (baixada opcional)
+f13ba6e2 Més fàcil: notícies per a infants
+6004ae57 La televisió pública d'Alemanya
+76af65cb Setmanari
+4bb73f48 Munic
+56ab9d28 La televisió pública d'Àustria
+593905b3 Àustria
+c8fac8a8 La televisió pública de Suïssa
+d2a4fb95 Viquipèdia en alemany
+aab575ea Del diccionari integrat ({0}{1}): no té aquesta paraula composta, així que aquests són els significats de les seves parts.
+17d53e0e Alemanya

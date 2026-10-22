@@ -1,0 +1,170 @@
+9c9f03a8 Name (optional)
+eb4734af Das ist keine Webadresse. Gib eine ein wie example.com/news
+19363453 „{0}“ zu deinen gespeicherten Seiten hinzugefügt.
+e9acf940 Automatische Untertitel von YouTube
+b165ef2c „{0}“ mit {1} hinzugefügt.
+72f89e9c „{0}“ importiert.
+d3478410 Diese Seite konnte nicht importiert werden.
+dc289056 Willkommen bei Tamkeen
+1c1ca506 Lerne eine Sprache mit echten Podcasts, Videos und Webseiten, Wort für Wort.
+1dd6a17c So funktioniert es
+58c2a9b6 <0>Füge einen Podcast über seine RSS-Feed-URL hinzu.</0> Die meisten Podcasts veröffentlichen eine. Such auf der Website des Podcasts nach „RSS“ oder such im Web nach „<1>Name des Podcasts</1> RSS feed“. Links von Apple Podcasts funktionieren nicht direkt, aber Seiten wie castos.com/tools/find-podcast-rss-feed können sie in eine RSS-URL umwandeln.
+668bb8e3 <0>Folgen transkribieren.</0> Klicke bei einer beliebigen Folge auf „Transkribieren“. Alles läuft auf deinem Computer. Nichts wird irgendwohin hochgeladen.
+264a32cd <0>Hören und mitlesen.</0> Das aktuelle Wort wird hervorgehoben. Klicke auf ein beliebiges Wort, um dorthin zu springen, verlangsame den Ton oder wiederhole einen Satz in Schleife.
+fde41bd9 <0>Bau deinen Wortschatz auf.</0> Klicke mit der rechten Maustaste auf ein Wort oder eine Wortgruppe (oder halte sie gedrückt), um sie mit ihrem Satz zu speichern. Exportiere nach Anki, wenn du so weit bist.
+c7ea5765 Die App prüft deine Podcasts bei jedem Start, sodass neue Folgen automatisch erscheinen.
+8b5f192e Weiter: Transkription einrichten →
+5b53855d Apple Silicon (Metal)
+f60315a5 Keine unterstützte GPU. Die CPU wird verwendet.
+462b6606 GPU-Beschleunigung (optional)
+2efa49cc Transkription einrichten
+7feeb161 Die Transkription nutzt das Spracherkennungsmodell Whisper von OpenAI, das vollständig auf deinem Computer läuft. Das Modell wird einmal heruntergeladen. Wähle unten eine Größe. Du kannst später in den Einstellungen andere herunterladen oder sie löschen.
+bc26ec8d Dein Computer
+1ddc3d58 {0} · {1} · {2} GB RAM
+a6a63185 GPU
+8cdc1fa4 Empfehlung: {0}.
+fefb3326 Wähle ein Modell
+27aa7d41 Mein Computer ist dafür zu langsam
+16efb9b4 Stattdessen einen Cloud-Anbieter die Transkripte schreiben lassen (ein paar Cent pro Stunde Audio)
+9ff4b446 Lade ein Modell herunter, um weiterzumachen, oder richte oben einen Cloud-Anbieter ein. Du kannst die App weiter nutzen, während ein Modell heruntergeladen wird.
+9713faa5 Die App nutzen →
+66f216cc UCSP, kurz für Unsa y Cheka Sa Parlor?, ist ein Podcast nach einem beliebten Ausdruck der Bisaya-Gay-Sprache, die in den Visayas und auf Mindanao auf den Philippinen viel gesprochen wird. Moderiert von Lyle Go und Shaneee; der Ausdruck bedeutet ungefähr „Was gibt’s Neues?“.
+b7f0771c Crosseyed Podcast: Interviews mit inspirierenden Menschen aus Cagayan de Oro. Crosseyed Convos: lustige Gespräche über alle Themen, die meine Freunde und ich interessant und unterhaltsam finden.
+83f1bce5 Barok and Takya Bisaya Podcast ist ein philippinischer Podcast auf Cebuano. Sie reden auf Bisaya über alles Mögliche, etwa Familie, Tradition und die philippinische Gesellschaft und Kultur. Worauf wartest du? Lad dir jetzt den Pinoy-Podcast auf Cebuano herunter – Barok and Takya Bisaya Podcast.
+65d7024f Willkommen bei Cge, Storya Ta: A Bisaya Couple Podcast! Wir laden jede Woche eine neue Folge hoch. Schnapp dir deinen bequemsten Stuhl, zieh die Schuhe aus und tauch ein in die Welt von Yin und Nol. Eine Achterbahn aus Lachen, Lebenslektionen und gelegentlich fragwürdigen Entscheidungen, im Grunde alles unter der Sonne – ohne Drehbuch und ungefiltert. Also anschnallen, denn in diesem Podcast kann alles passieren, und das wird es wahrscheinlich auch!
+3534296f Brighter Bisaya ist ein familienfreundliches Online-Mediennetzwerk, das Bisaya und Cebuanos jeden Alters mit klugen und kreativen Gesprächssendungen informieren, bilden und inspirieren will. Das Unternehmen veröffentlicht mit Leidenschaft nachvollziehbare, einfache Vlogs und Podcasts über Kunst, Bildung, Philosophie, Wissenschaft, Technik, Inspiration und Unterhaltung auf Cebuano, Binisaya, Tagalog, Englisch und Filipino.
+b819d08f Kapoy explain man. Für Werbeanfragen, Kommentare oder Themenvorschläge erreichst du uns über sevillaacevincent@gmail.com.
+cc4289fa Die Lesungen der Sonntagsmesse auf Cebuano | Mga pagbasa sa Santos nga Misa sa Binisaya. Neue Folgen erscheinen am Montag vor der Messe. Rückmeldungen bitte an sundaymassreadings@gmail.com. Besonderer Dank an Fr. Alvin, Lorena, Celine, Aimee, Belinda, Ivy, Praxi, Fr. Gerry, Belton, Agnes und Diakon Roman.
+ee681aee Ein Podcast mit zufälligen Geschichten. Ziwi erzählt von ihren persönlichen Erlebnissen und Lebenslektionen. #Bisaya #Storytelling #Philippines #ChikaMinute #Chikahan
+5561133e Jeana und Justein sind beste Freunde aus der sonnigen Provinz Cebu. Jetzt Ende zwanzig, reden die beiden Schulfreunde darüber, wie man sich im Erwachsenenleben zurechtfindet, Dinge lernt und wieder verlernt und Prioritäten setzt. Wenn du dieses vertraute, warme Gefühl erleben willst – wie bei herzlichen Gesprächen mit einer alten Freundin –, hör in diesen frischen Podcast rein. Neue Folgen freitags! x Spendier uns einen Kaffee auf ko-fi.com/wanbatsrabesh ☕️ Die Musik ist nicht von uns und stammt von Audionautix.com.
+2f32eaa3 Unsa Man Jud Podcast ist ein Bisaya-Podcast, eine Talkshow auf Cebuano über binutbot und binuang, also Quatsch und Albernheiten. Manchmal reden wir auch über sineryoso, ernste Dinge, aber wer will das schon hören? Also reden wir lieber über lustige Sachen. Wenn du die Sprache verstehst, mach mit!
+ad54f954 Coffee Break with Juppe ist deine 5-minütige Pause vom Chaos des Tages. Zufällige Gedanken, kurze Geschichten und ehrliche Überlegungen – kurz und einfach serviert, am besten mit Kaffee. Drück auf Play für deine tägliche Dosis lockeres Gerede und echte Stimmung.
+c4ff21cc Hallo! Willkommen bei Bisaya Podcasts PH! Es ist so schwer, Bisaya-Podcasts zu finden. Noch schwerer ist es, ein Publikum zu finden, vor allem als Bisaya-Podcast. Dieser Podcast will Bisaya-Podcasts auf der ganzen Welt verbinden, damit wir andere Podcaster und Hörer leicht finden und mit ihnen in Kontakt kommen. Ich weiß, wie schwer es ist, ein Publikum zu finden, besonders in unserer Muttersprache. Aber gemeinsam können wir unsere Plattform größer machen.
+29f7f4bc Gottes Volk durch wirksame Predigt und Lehre seines Wortes zu weiden, um es auszurüsten, Jesus zu kennen, zu lieben, ihm zu dienen und ihn zu verkünden.
+7e5120d9 Gesprächsrunden mit guter Laune und Reaktionen auf aktuelle Themen, Familie, Beziehungen und Bisaya-Humor.
+2473e96b Einführung
+4195c313 Damit soll die Bibel auf Cebuano zum Anhören zugänglich werden.
+d9cc6b1c {0} % gelesen
+e078f34f noch {0} Std. {1} Min.
+a99cdd56 noch {0} Min.
+15710324 Han
+ba1d0a64 Hiragana
+6842e5a7 Katakana
+1cb09555 Kyrillisch
+348d0069 Hebräisch
+59d5f5b1 Griechisch
+bd7d4b95 Hangul
+c3376a97 Devanagari
+536c16bd {0} Tage
+2985a39c {0} Wochen
+682728dc {0} Monate
+67e282ba {0} Jahr(e)
+45bb7a2d Unter einer Minute
+2c4f87a8 unter einer Minute
+42a17b06 Etwa {0}
+a5d14ec2 etwa {0}
+95a4caee {0}–{1} Min.
+a8bf7da8 auf diesem Gerät gemessen
+60446ee5 aus deinen bisherigen Antworten
+ca5a6508 eine erste Schätzung, bis du ein paar mehr wiederholt hast
+6403f2b7 Neu
+b83c4cda Wiederholungen
+901df5e4 Heutiges Ziel
+35c77c57 (eine erste Schätzung)
+f922fb4c heute noch {0}{1}
+2081c97d Für heute alles erledigt
+b422c28b Heute nichts fällig
+88da3d5b An {0} senden
+4ac22389 „{0}“ für heute zu {1} hinzufügen (wohin, wählst du in den Einstellungen)
+f4896ede Heute: neue Wörter {0} von {1}, Wiederholungen {2} von {3}. {4}. Neue Wörter pro Tag ändern
+031683ab Nur noch neue Wörter: {0}.
+aa175635 {0}Wiederholungen sind einfach die heute fälligen Wörter. Auf lange Sicht rechne mit etwa 10 pro Tag für jedes neue Wort (laut Anki-Handbuch): {1} neue pro Tag ≈ {2} Wiederholungen pro Tag.
+4ee48926 Zeit pro Wort, mitgezählt, wie oft ein nicht gewusstes Wort wiederkommt: etwa {0} für ein neues, {1} für eine Wiederholung ({2}).
+a0b74487 Die Aufgabe konnte nicht gesendet werden.
+d4928a6e Es kamen keine ähnlich klingenden Wörter zurück. Versuch es noch einmal.
+3997732f Aussprechen
+4fc6e7f7 Original
+fb8207e8 Aussprechen üben (P): Sag es, hör dir dann den Satz und dich selbst an. Dein Versuch wird nicht gespeichert.
+a679d9ee Tamkeen braucht die Erlaubnis, das Mikrofon zu nutzen, um zu hören, wie du das Wort sagst.
+a970acc5 Ich konnte dich nicht hören. Versuch es noch einmal, etwas näher am Mikrofon.
+7bea803a Das Mikrofon konnte gerade nicht verwendet werden.
+c9c6fe67 Google Tasks
+67e5c742 Onyx
+fd23eda9 Unsa’y Cheka Sa Parlor
+f9a11c2f Lyle Go and Shaneee | TAGM Marketing Solutions Inc.
+c9476ace Crosseyed
+416e5e3c Gary Monton | Bisaya Podcast
+572329d1 Dili Ni Advice - A Bisaya Podcast
+6c8793d1 Darling and Kringkay The Pod Network Entertainment
+e6feaa11 Barok and Takya Bisaya Podcast
+30e343f4 Barok & Takya
+f6112f30 Cge Storya Ta: A Bisaya Couple Podcast
+8c29ec7d Yin + Nol
+49bc6e59 Brighter Bisaya
+e59b5c99 Kasikas: Bisaya Podcast
+2f359fd1 Ace Vincent Sevilla
+a4b3025e Sunday Mass Readings in Cebuano
+41126fc0 Ben
+2a59645c Storytelling with Ziwi (Bisaya Podcast)
+35a7384d Ziwi Tea
+c0da64f1 Wanbats Ra Besh | Bisaya Society & Culture
+c65ee463 Jna and Ju
+51f2914b Bisaya Jokes!
+78a5056a DJ Bisdak
+a6bc3cb4 Podcast para pakatawa sa mga bisdak!
+5f38602a NAYSJUAN SESSIONS | Binisaya Podcast
+cd567294 JUAN MARCUZ TIMAY
+16a70550 Ang naysjuan paminawon nga Binisaya o Bisaya podcast 20 minutes before sa atoang naysjuan nga pagkatulog. Busa, kon Bisaya ta o kasabot tag Binisaya nga pinulongan ug kon trip nato adunay makat-onan, paminawa na tawon nato ning podcast ni Juan. Diri gastorya tag mga estoryahanan nga praktikal ug mapuslanon nga makatabang sa tanan, mapabata man o mapatiguwang, aron mas mapasayon ang pagkinabuhi. ➖➖➖➖➖ JUST BUY ME A COFFEE: buymeacoffee.com/JUANMARCUZTIMAY
+5ee1603d Purok Pabula Ph
+155acb68 p b Purok Pabula PH /b mao ni ang lugar sa tinuod nga istorya—walay script, walay arte, diretso ra. /p p /p p Dinhi, lain-lain mi ug panan-aw—naa’y abogado, naa’y pilosopo, naa’y engineer, ug naa pud mi’y mga kasinatian sa kinabuhi nga among gidala sa lamesa. Kada episode, among hisgutan ang mga butang nga atong madunggan adlaw-adlaw—fake news, politika, kultura, ug mga tinuohan nga atong gidak-an. /p p /p p Dili ni perpekto. br / Dili ni pina-polished. br / Pero tinuod ni. /p p /p p Murag istorya ra sa purok—pero naay unod. /p p /p p Kay usahay, dili klaro ang kamatuoran. br / Ug usahay, ang
+6606f08e Kinabuhing Kristohanon: a Wali Bisaya Preaching
+42bb34c3 Barok and Takya
+88b9b348 Welcome sa Kinabuhing Kristohanon, usa ka Wali Bisaya Preaching nga magdala kanimo sa panaw sa pagtuo, espiritwalidad, ug komunidad. Ang among pasundayag kay usa ka talagsaon nga pagsagol sa mga tinuohan, ang Pulong sa Dios Bible, ug mga kasinatian nga makatandog sa kasingkasing sa mga Pilipinong Kristiyano. Ang matag episode nagsusi sa atong pagtuo, magsuhid sa lawom nga epekto sa Kristiyanismo sa atong adlaw-adlaw nga kinabuhi. Atong hisgotan ang kamahinungdanon sa pagsimba, ang esensya sa serbisyo sa komunidad, ug ang makapabag-o nga gahum sa espirituhanong mga buhat. Ang atong mga panagsul
+2d2313a6 Bisaya In America
+9c57b087 Genie H
+a2a821cf Unsa Man Jud
+42054007 DD & Friends
+a8f21295 Bisaya Thoughts
+aa746ddb Phil Andrew
+e1e3cd8e These are my Bisaya thoughts about anything random sa life, family, love, work, or even sa mga nahitabo ron sa Pilipinas. But basically, ganahan ra jud ko mag-yaw2x. Mainly because ganahan ko ipagawas akong mga gibati ug mga na learn sa life given nga hapit nako mag 40. I m using this as an outlet ug part ni siya sa akong journey to be a better version of myself. If ganahan mo mu-journey with me, hope makatabang ni ninyo. Reach out if ganahan mo makig-chika or naa mo questions or magpa advice mo ug stranger like me: philampong@gmail.com IG: instagram.com/philandrew23 FB: facebook.com/phile
+026bb096 Coffee Break with Juppe
+9708095f Jupiter Baguioso
+5d5efc1a NAYSJUAN DAILY,
+aa91b142 Bisaya Podcasts PH
+58610005 Ptr. Stanley Pilapil
+94e606a0 Bisaya Vibes by Team Conato PH
+b37cc66f BANHA | Istorya Ug Uban Pa - Bisaya Podcast
+eb990eab Danrev Tipdas
+8807c90a BANHA | Istorya Ug Uban Pa PODCAST is a Bisaya Podcast Kamo naa moy mga sugilanon. Mga istorya nga basin dili lang pud diay ikaw ang naka-agi. Kami naa pud mi amua nga mga sugilanon.TARA! Tabi ta! Let’s Banha. Let Our Stories Make the Noise. Wa ta kabalo sa atuang pag share we find hope and healing in our stories. Maminaw mi, no judgment here. Share lang gud, bisan unsa pa na imuhang sugilanon sa kinabuhi andam mi maminaw. Know that ikaw ug ang imuhang sugilanon it matters. TARA! BANHA NATA! ISTORYA UG UBAN PA!
+93347587 Bisaya Espesyal
+e785744b Mr. Wazzquiin
+8d6c5728 This podcast talks about relationships, lifestyle and more about Bisaya. Kung Bisaya ka, Espesyal ka! I am happy to bear with you and please be with me Para Mas bongga! We are about discover the world around us Kaya kapit Lang kapatid at h wag Kang aalis. This is Mr. Wazzquiin ang inyung gwapo nga host!
+ef9504fa TTB Cebuano Pagtuon sa Bibliya (Cebuano)
+97e8c475 THRU the BIBLE
+75e6f3b4 Hibaloi ang tibuok Pulong sa Dios pinaagi sa kasaligan nga pagtulon-an sa Biblia sa THRU the BIBLE sa Cebuano. Ang matag yugto naghatag og tin-aw ug praktikal nga pagtulon-an aron matabangan kang masabtan ang Kasulatan ug magamit kini sa adlaw-adlaw nga kinabuhi. Panaw sa tibuok Biblia, usa ka leksiyon matag higayon, uban sa mga tigpaminaw sa tibuok kalibotan. Pagkat-on pa sa TTB.BIBLE
+5223eb1f Balaan nga Bibliya - Cebuano (Cebuano)
+35b90dfb International Scripture Ministries
+861fa74e Paminawa ang Balaang Bibliya sa Cebuano nga pinulongan sa klaro, buhi, ug bisan kanus-a, bisan asa. Gihatag sa International Scripture Ministries (ISM), kining Audio Bible nagdala sa Pulong sa Dios ngadto sa kinabuhi pinaagi sa gamhanang pagbasa, musika, ug maayong disenyo sa tingog, aron masinati nimo ang Kasulatan sa pinulongan sa imong kasingkasing. Bisan kung bag-o pa ka nagtuon sa Bibliya o nagtinguha kang motubo sa imong pagtuo, kining podcast makatabang kanimo sa pagpaminaw sa tibuok Bibliya, kapitulo matag kapitulo. Niining Audio Bible, imong makit-an: • Ang Balaang Bibliya sa Cebuano
+e1cc70f2 Ang Santos nga Ebanghelyo sa Matag Adlaw
+c7f849a8 Roger W.
+41739ec2 Ang balaang pulong sa tanang panahon
+bb6ed1ae Teacher D
+4cf306d2 Daisy Lynn Robin
+9c355e53 Sugboanon (Cebuano) nga Bibliya
+0171127e Maria Chona Gabotero Labrador
+ffd1e2bb Cebuano / Bisaya: Pagkatinon-an sa Biblia
+01eb8066 Paul J. Bucknell
+4b92fc32 Mga pagtulon-an sa pagkatinon-an sa Biblia sa Cebuano/Bisaya gikan sa Biblical Foundations for Freedom. Ang D1 Ang Agos nagpatin-aw sa tulo ka ang-ang sa espirituhanong pagtubo ug unsaon pagtabang sa uban nga motubo. Ang D2 Mahimong Usa ka Magbubuntog nagtudlo unsaon pag-atubang sa kabalaka, garbo, kailibgon, kasuko, kasub-anan, ug uban pang pagsulay pinaagi sa kamatuoran ug grasya sa Dios.
+75d7f598 Bored Bisayas
+75891209 Hello there! We re Luke and Mona. We re a couple of Bisayas. AY teka. Buset. Ga-Iningles na man hinuon mi nga Bisaya gani. Aw. So, bale mga Bisaya mi unya kay bored man mi so magstorya mi about stuff. Mga butang-butang sa kalibutan nga gusto namo storyahan. Topics are anything under the sun. Like how kulang sa height si Mona ug sobra sa weight si Luke... at one point in time. Basically, just another Bisaya podcast. Or you know... a place where Luke and Mona talk in private and are public at the same time. You can email us at boredbisayas@gmail.com or follow our other soc med accounts.
+fe9979fa Mga Balak Sugbuanon
+7f8b3682 Jesson Morata
+883032a0 Tipiganan sa mga Balak Sugbuanon
+bb8c2d74 Unang Sugilanon gikan sa Librong 'Larawan': Si Amboy, ang Palahubog by Vicente Rama (1887 - 1956)
+59e8c6a1 Sugilanon nga gisuwat ni Senador Vicente Rama bahin kang Amboy nga palahubog, ug ang iyang pamahala nga kinabuhi tungod sa iyang pagkapalahubog. Kini ay una nga istorya sa daghan nga nahabutang na istorya sa librong 'Larawan'. (Summary by April Gonzales)
+d47f0ec5 Hisgutanan: Bisaya nga Podcast ni Lewey Jimoya
+8f03afd2 Lewey Jimoya
+6b4e3b92 Usa ka Bisaya nga sibya kung aha maghisgot-hisgot mi sa nagkalain-laing mga butang! Hosted by Lewey Jimoya
+e450b3f0 Binisaya nga tulumanon
+920927d6 Bai Maloy
+8c1c3ec7 Maka hatag ug inspirasyon ug kalingawan sa mga kaigsoonan nga naa sa lagyu nga dapit ug maka hupay sa ilang kamingaw.

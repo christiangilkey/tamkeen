@@ -62,6 +62,15 @@ Thai has a table of how each word is said, shown over Thai text (`web/js/lexicon
 
 It is rebuilt with `tools/build_thai_readings.py`.
 
+German has a table of word forms like Spanish's, read by `web/js/lexicon/german.js` (which also joins a
+separable verb's prefix back on, "fängt … an" is anfangen, and takes unknown compound words apart):
+
+| File | Made from | Licence |
+|---|---|---|
+| `de-lemmas.json.gz` | [Lemmatization lists](https://github.com/michmech/lemmatization-lists) (`lemmatization-de.txt`) with wordfreq's counts, as above; keys keep their capitals (Essen "food", essen "to eat"); from the English Wiktionary's German entries (Wiktextract, CC BY-SA 4.0) only facts: which spellings the 1996 reform replaced (dictionary forms are in today's spelling, the old ones still find them), Switzerland's ss spellings, uninflected words the list leaves out (aber, dass), and `caps_first`, the words whose capitalised spelling is the commoner in the middle of a sentence in Wiktionary's example sentences (Zeit). Dictionary forms are listed commonest first (`ranked`) | Open Database License 1.0: `LICENSE-ODbL-1.0.txt` (the Wiktionary facts: CC BY-SA 4.0) |
+
+Rebuilt with `tools/build_lemmas.py de=<lemmatization-de.txt>,<kaikki.org German .jsonl.gz>`.
+
 What was changed in the Arabic files: only the fields the lookup needs were kept (word pieces, their categories and
 which go together, lemma, part of speech, root, corpus frequency, spelling); glosses,
 tokenizations and phonetics were dropped, and the result was written as gzipped JSON.
@@ -85,7 +94,9 @@ downloaded only then.
 |---|---|---|
 | `<lang>-meanings.json.gz` (ar, es, fr, it, ru, en, tl, ja, zh) | The English [Wiktionary](https://en.wiktionary.org) as extracted by [Wiktextract](https://github.com/tatuylonen/wiktextract) ([kaikki.org](https://kaikki.org)): each word's part of speech, its first few definitions, its full spelling (Arabic vowels, Russian stress), reading (kana, pinyin) or Arabic root, and which word each form belongs to. Arabic includes Wiktionary's Egyptian, Levantine, Gulf, Hijazi, Moroccan and Tunisian words; English keeps only common words and phrases made of them | Creative Commons Attribution-ShareAlike 4.0: `LICENSE-CC-BY-SA-4.0.txt` |
 
-Rebuilt with `tools/build_meanings.py` (see the top of that file).
+Rebuilt with `tools/build_meanings.py` (see the top of that file). The later languages (pt, ca, ceb, th, de)
+are made the same way; German's keys write ß as ss, so today's spelling, the one from before 1996 and
+Switzerland's (Straße, Strasse) find the same entries.
 
 Arabic has a second meanings file, asked when Wiktionary lacks a word (or has it only as a name):
 

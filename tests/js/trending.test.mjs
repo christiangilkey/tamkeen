@@ -201,6 +201,27 @@ test("Catalan is told from Spanish, and Bisaya from Tagalog, in the same countri
   assert.ok(inLanguage(item("People You May Know", "พอดแคสต์ที่ชวนคุยเรื่องคน"), "th") && !inLanguage(item("The Daily"), "th"));
 });
 
+test("German: Germany, Austria and Switzerland, told from Dutch, English and the Swiss chart's French", () => {
+  const item = (title, description = "", author = "") => ({ title, description, author });
+  assert.deepEqual(STOREFRONTS.de, ["de", "at", "ch"]);
+  assert.equal(COUNTRY_NAMES.at, "Austria");
+  // (from the real charts, 2026-10-21)
+  const german = [
+    item("Echo der Zeit", "«Echo der Zeit» ist die älteste politische Hintergrundsendung von Radio SRF."),
+    item("tagesschau", "Deutschlands erfolgreichste Nachrichtensendung als Video-Podcast.", "tagesschau"),
+    item("Jung & Naiv", "Politik für Desinteressierte: Interviews, Talks und Shows. Uns gibt es nur dank eurer finanziellen Unterstützung " +
+      "https://paypal.me/jungnaiv Auf Youtube als Video, hier als Podcast - DE/EN - www.jungundnaiv.de", "Tilo Jung"),
+    item("Ö1 Journale", "Die Journale von Ö1: Nachrichten und Hintergründe aus Österreich und der Welt.", "ORF Ö1"),
+  ];
+  for (const show of german) assert.ok(inLanguage(show, "de", true), show.title);
+  const dutch = item("De verrekijkers", "De verrekijkers is een wekelijkse afspraak met de wereld, waarin één buitenlands thema centraal staat.");
+  const swissFrench = item("Le Point J", "Le Point J: votre point info du jour. Du lundi au jeudi, nous répondons à une question.");
+  const english = item("The Rest Is Politics", "Alastair Campbell and Rory Stewart discuss the news of the week.");
+  for (const show of [dutch, swissFrench, english]) assert.ok(!inLanguage(show, "de"), show.title);
+  assert.ok(!inLanguage(german[2], "ca"), "German's als isn't Catalan's");
+  assert.ok(inLanguage(item("Mordlust"), "de", true), "a name alone, in Germany's own chart");
+});
+
 test("Catalan reads Spain's 19 category charts too; Bisaya adds its most-rated podcasts after any that chart", async () => {
   const apple = pretendApple({
     charts: { es: chart(entry(1, "Crims", { artist: "Catalunya Ràdio", summary: "Les històries de crims més famoses, amb Carles Porta." }),

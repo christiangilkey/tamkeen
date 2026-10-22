@@ -1,0 +1,170 @@
+e01fa717 Offline
+5896cb72 Spielfunktionen
+985a5239 Das Wesen, EP und Belohnungen und die Klänge beim Lernen
+afed91e0 Aus: Lernen funktioniert genauso, nur ohne das Spiel. Deine Ziele und Fortschrittsbalken bleiben, und auch dein Wesen, falls du es wieder einschaltest.
+7fab27b4 die Claude Console
+881ac247 Tippe auf den Knopf unten. Er öffnet console.anthropic.com in deinem Webbrowser. Das ist eine andere Seite als die Claude-Chat-App.
+495b9813 Nutze deine E-Mail-Adresse oder „Mit Google fortfahren“. Ein Claude-Pro- oder Max-Chat-Abo deckt das nicht ab: Schlüssel werden separat bezahlt.
+7403c4f9 Öffne <0>Settings → Billing</0>, füge eine Zahlungskarte hinzu und kauf ein kleines Guthaben. Schlüssel funktionieren erst, wenn das Konto Guthaben hat.
+71b4b60f Öffne <0>Settings → API keys</0> und tippe auf <1>Create Key</1>. Gib ihm einen Namen, den du wiedererkennst, zum Beispiel „Tamkeen“.
+e04e0bbd Der Schlüssel ist eine lange Reihe von Zeichen, die mit <0/> beginnt. Er wird nur einmal angezeigt, also tippe auf <1>Copy</1>, bevor du das Fenster schließt.
+48b74851 Komm hierher zurück, füge ihn in den Einstellungen in das Feld <0>API-Schlüssel</0> ein und tippe auf <1>Mit einem Beispiel testen</1>.
+0e9e2f65 Google AI Studio
+5de77d58 Gemini hat ein kostenloses Kontingent, du kannst also ohne Zahlungskarte anfangen. Beim kostenlosen Kontingent darf Google das Gesendete zur Verbesserung seiner Produkte nutzen; wenn du in AI Studio die Abrechnung einrichtest, wird das abgeschaltet.
+2628ac25 Tippe auf den Knopf unten. Er öffnet aistudio.google.com in deinem Webbrowser.
+f6541135 Jedes Google-Konto (Gmail) funktioniert. Stimm den Bedingungen zu, falls danach gefragt wird.
+84e51948 Tippe auf <0>Create API key</0>. Wenn gefragt wird, welches Projekt verwendet werden soll, lass ein neues anlegen.
+8d7a2586 Es ist eine lange Reihe von Zeichen, die mit <0/> beginnt. Tippe auf den Kopierknopf daneben. Du kannst später auf diese Seite zurückkommen und ihn erneut kopieren.
+162ab3e6 die OpenAI-Plattform
+faa55261 Tippe auf den Knopf unten. Er öffnet platform.openai.com in deinem Webbrowser. Das ist eine andere Seite als ChatGPT.
+0ba16577 Deine ChatGPT-Anmeldung funktioniert auch hier, aber ein ChatGPT-Plus-Abo deckt das nicht ab: Schlüssel werden separat bezahlt. Eventuell wirst du gebeten, eine Telefonnummer zu bestätigen.
+a6860394 Öffne <0>Settings</0> (das Zahnrad) <1>→ Billing</1>, füge eine Zahlungskarte hinzu und kauf ein kleines Guthaben. Schlüssel funktionieren erst, wenn das Konto Guthaben hat.
+83803874 Öffne <0>API keys</0> und tippe auf <1>Create new secret key</1>. Gib ihm einen Namen, den du wiedererkennst, zum Beispiel „Tamkeen“.
+ebf2eda5 die xAI Console
+e76446c0 Tippe auf den Knopf unten. Er öffnet console.x.ai in deinem Webbrowser.
+e3f3d119 Nutze dein X-Konto, Google oder eine E-Mail-Adresse. Ein X-Premium- oder SuperGrok-Abo deckt das nicht ab: Schlüssel werden separat bezahlt.
+d88dbb88 Öffne <0>Billing</0>, füge eine Zahlungskarte hinzu und kauf ein kleines Guthaben. Schlüssel funktionieren erst, wenn das Konto Guthaben hat.
+f6ce8b31 Öffne <0>API Keys</0> und tippe auf <1>Create API key</1>. Gib ihm einen Namen, den du wiedererkennst, zum Beispiel „Tamkeen“.
+6547e629 Der Schlüssel ist eine lange Reihe von Zeichen, die mit <0/> beginnt. Kopiere ihn, bevor du das Fenster schließt.
+58d7704c Der Schlüssel ist höchstwahrscheinlich abgelaufen oder deaktiviert worden, du brauchst also vermutlich einen neuen: Erstelle ihn mit den Schritten oben und füge ihn ein. Wenn der Schlüssel ganz neu ist, kopiere ihn noch einmal und füge ihn frisch ein (ein fehlendes Zeichen am Ende lässt ihn nicht funktionieren).
+f443dc0b Das Konto hat noch kein Guthaben, oder das Guthaben ist noch nicht angekommen. Füge auf der Abrechnungsseite des Anbieters Guthaben hinzu und versuch es in ein paar Minuten noch einmal.
+43b82a8b Stell in den Einstellungen das <0>Modell</0> wieder auf das als „empfohlen“ markierte.
+995ff549 Erstelle auf die gleiche Weise einen neuen Schlüssel und lösch den alten aus der Liste des Anbieters.
+6b020b42 Behandle ihn wie ein Passwort: Teile ihn nicht und veröffentliche ihn nirgends. Tamkeen speichert ihn nur auf diesem Gerät und sendet ihn nur an den Anbieter, den du gewählt hast.
+e1e3cd22 einen KI-Dienst bitten kann, dir Wörter zu erklären
+fb891cde So bekommst du einen API-Schlüssel
+15803e0d Ein API-Schlüssel ist eine Art Passwort, mit dem Tamkeen {0}. Du bekommst ihn auf der Website des Dienstes; das dauert ein paar Minuten.
+d76fd621 {0} öffnen ↗
+26aacc31 Etwas hat nicht geklappt?
+ddb60451 Sprache zum Lernen
+daef2c17 Sprachen, die ich lerne
+e3b82040 Jetzt
+cac6d44c Deine Sprache
+f521b553 Du lernst {0} und {1} weitere
+f347e8f3 Du lernst {0}
+8fd3ad33 Lass mindestens eine Sprache angehakt.
+6c0130cb Du lernst jetzt {0}. Deine Podcasts und Wörter auf {1} bleiben erhalten.
+efaf5f1d Eine Sprache zum Lernen hinzufügen
+f23ad26a Ihre Podcasts, Videos, Wörter und Wiederholungen bleiben getrennt von deinen anderen Sprachen. Du wechselst zwischen ihnen über die obere Leiste.
+ff4dec22 Lernst du gerade
+dae6ef70 Wenn du den Haken bei einer Sprache entfernst, verschwindet sie nur aus dem Umschalter. Ihre Podcasts, Videos, Wörter und Wiederholungen bleiben erhalten und kommen zurück, wenn du sie wieder anhakst.
+d578af85 Du lernst jetzt {0}
+4422b618 Du lernst jetzt {0}: {1} wurde auf einem anderen Gerät abgewählt. Seine Podcasts und Wörter bleiben erhalten.
+8a4ed579 Die Sprache, die du gerade lernst
+75bd5fbb Du lernst {0}. Sprache wechseln
+b69e98b2 ＋ Eine Sprache hinzufügen …
+fa47f84b Lernst du gerade
+30dced67 Open-Source-Lizenzen
+33ce4174 Wird geladen …
+7611c839 Die Liste konnte nicht geladen werden. Versuch es später noch einmal.
+a70803bd Schnelle Erklärung
+2c497d03 Schnelle Erklärung: Ein angetipptes Wort zeigt nur seine Bedeutung
+c8bed749 Ausführliche Erklärung
+4ba6d768 Ausführliche Erklärung: Ein angetipptes Wort zeigt die ganze Erklärung
+581f8c00 Wie viel ein angetipptes Wort zeigt
+7d0cd0d6 {0}. Tippen wechselt zu: {1}.
+6ae84e4a Schließen (Esc)
+bbfa773e Schließen
+f0fbfe6e Am schnellsten. Gut für deutliche Sprache; mehr Fehler bei Dialekten, Akzenten und schnellem Sprechen.
+19c91326 Ausgewogen zwischen Genauigkeit und Geschwindigkeit.
+d661998f In jeder Sprache am genauesten. Am besten mit einer GPU.
+58279c6f Whisper large-v3, von BuzzASR auf Bisaya (Cebuano) nachtrainiert: viel weniger Fehler im Bisaya. Einmal heruntergeladen, schreibt es jedes Bisaya-Transkript auf diesem Computer, egal welches Modell oben gewählt ist. Am besten mit einer GPU.
+03b9e92f Typhoon Whisper Turbo, von SCB 10X auf Thai nachtrainiert: etwa halb so viele Fehler wie large-v3 bei alltäglichem Thai, und schneller. Einmal heruntergeladen, schreibt es jedes Thai-Transkript auf diesem Computer, egal welches Modell oben gewählt ist. Am besten mit einer GPU.
+44514063 Bisaya
+9b953082 Thai (Typhoon)
+1763761d {0} verwenden
+ec890ad6 · heruntergeladen
+18e42f19 · teilweise heruntergeladen
+0b1d6c0b Wird vorbereitet …
+6f378422 Wird für Tamkeen vorbereitet (ein paar Minuten) …
+7388d667 {0} von {1}
+781961bc Pausieren
+f6fdbe48 Löschen
+796b8e0e Das Modell {0} löschen?
+58ff0825 Das Modell {0} ({1} MB) löschen? Du kannst es später wieder herunterladen.
+b5ed1ec0 Download fortsetzen
+a479c9c3 Herunterladen
+b9868e76 Für neue Transkriptionen wird das Modell {0} verwendet.
+a80186d6 Das Modell {0} ist bereit.
+d70807ed Deine <0>{0}</0> kann um ein Vielfaches schneller transkribieren als die CPU. Dafür braucht es die CUDA-Bibliotheken von NVIDIA (etwa 1,2 GB), die nicht im Installationsprogramm enthalten sind, damit es klein bleibt.
+c3d90933 GPU-Beschleunigung ist aktiv
+198413b8 GPU-Bibliotheken entfernen
+6c044a0d Die CUDA-Bibliotheken entfernen? Die Transkription nutzt dann die CPU.
+42a1ffa7 Sie werden entfernt, wenn du die App neu startest.
+aca57ff9 Entfernt.
+7bb4405c Installiert
+71d04aed Starte die App neu, um die GPU zu verwenden.
+97e292a8 Wird entpackt …
+0a7b809e GPU-Beschleunigung installieren (~1,2 GB)
+2503a349 Lädt die offiziellen cuBLAS- und cuDNN-Pakete von NVIDIA von pypi.org herunter und prüft ihre Prüfsummen.
+f4cfa873 GPU-Beschleunigung installiert.
+82f06f5b Die Sprache konnte nicht geändert werden.
+defca688 Schritt {0} von 4
+2f04eb15 Weiter →
+03c88b2a Welche Sprache lernst du?
+05d17f2b Davon hängt ab, worauf die App hört, wie Wörter erklärt werden und in welche Richtung der Text läuft. Du kannst es später in den Einstellungen ändern.
+c32ae9f4 ← Zurück
+352fd3bb Hast du schon angefangen, {0} zu lernen?
+49a817fa Ich bin absoluter Anfänger
+959a39d2 Jedes Wort ist neu für mich.
+9aed0e9c Ich habe schon angefangen
+a6d6fac2 Die {0} häufigsten Wörter auf {1} als bekannt zählen, damit die App sie nicht als neu behandelt.
+871384d2 Eine Sache zum Einrichten: ein API-Schlüssel
+af91b49e Tippe auf ein beliebiges Wort, und Tamkeen sagt dir, was es <0>in diesem Satz</0> bedeutet. Diese Erklärungen schreibt ein KI-Dienst, <1>damit die App funktioniert, brauchst du also einen API-Schlüssel von einem KI-Anbieter deiner Wahl</1>: {0} oder {1}.
+c3016d5f Ein API-Schlüssel ist eine Art Passwort, das du auf der Website des Anbieters bekommst. Du bezahlst den Anbieter direkt: Eine Abfrage kostet einen Bruchteil eines Cents, und Gemini hat ein kostenloses Kontingent.
+9ab59592 Richte ihn jetzt oder später ein, unter <0>Einstellungen → Worterklärungen (KI)</0>. Dort kannst du auch <1>Ohne KI</1> wählen: ein kostenloses eingebautes Wörterbuch, das die üblichen Bedeutungen eines Wortes zeigt, aber nicht die in seinem Satz (KI wird dringend empfohlen).
+feb628ae Wie bekomme ich einen Schlüssel?
+5b8027fa Verstanden
+74026a93 Tamkeen zurücksetzen
+ae41208a Neu anfangen, als wäre Tamkeen neu: Du wirst abgemeldet und siehst wieder die ersten Bildschirme. Nichts wird gelöscht. Deine Bibliothek, Wörter und Einstellungen kommen zurück, wenn du dich anmeldest.
+61837f5f Tamkeen zurücksetzen?
+7c7d3232 Tamkeen startet dann wie beim ersten Mal:
+785b510e abgemeldet von Google, deinem Freunde-Konto sowie Instagram und YouTube im Browser der App
+62d1d509 deine KI- und Transkriptionsschlüssel von diesem Gerät entfernt
+6e772256 die Willkommensbildschirme und Sprachfragen werden wieder gezeigt
+90f5271b <0>Nichts wird gelöscht.</0> Deine Podcasts, Videos, Wörter, Wiederholungen und Einstellungen werden beiseitegelegt und kommen zurück, sobald du dich bei Google anmeldest oder die ersten Bildschirme abschließt.
+6d27dcf1 Wird zurückgesetzt …
+6c461cb8 Tamkeen konnte nicht zurückgesetzt werden. Es wurde nichts geändert.
+94331dff YouTube-Video
+6c186598 Instagram-Reel
+78f78ba4 Podcastfolge
+2c26e4b5 Transkript einer Aufnahme
+b41edaea Das kann nicht an einen Freund geschickt werden.
+747f6277 Transkribiere es zuerst: Nur seine Wörter werden gesendet, die Datei selbst bleibt auf deinen Geräten.
+269e1ba2 Sein Transkript ist zu lang zum Senden.
+004f3577 Verbinde dich zuerst und wähle einen Benutzernamen.
+c7f73bb5 Einstellungen
+926fb281 Füge zuerst einen Freund hinzu.
+c11d5e1d Freunde
+d7485673 „{0}“ senden an …
+cf765512 Wird gesendet …
+5c5339a2 An {0} gesendet, mit seinem Text.
+df15ba7f An {0} gesendet, mit seinen Wörtern.
+35e8f150 An {0} gesendet, ohne seine Wörter: Sie sind zu lang zum Senden.
+d19372ac An {0} gesendet.
+d2104ca3 Chat öffnen
+9bc2575c Senden
+39a2069e An einen Freund senden
+c7e60ed5 Seine Wörter konnten nicht abgerufen werden, du musst es also bei dir transkribieren.
+7bdfaa76 Du hattest es schon transkribiert, daher bleibt dein eigenes Transkript erhalten.
+eec7a905 Es ist auf {0}, daher erscheint es in deiner Bibliothek, solange du {1} lernst.
+db07be18 Sprachen
+b7764d5b Die Sprache, die du sprichst, und die, die du lernst.
+06dfc421 Worterklärungen
+ab8f190a Was du siehst, wenn du auf ein Wort tippst.
+2b541ab0 Hören & Transkripte
+e2e7cdc0 Wer aufschreibt, was in Podcasts, Videos und Reels gesagt wird.
+aaaa4873 Aussehen
+483df961 Design, Textgröße und das Spiel.
+9fdce180 Konto & Synchronisierung
+b4727310 Google-Drive-Synchronisierung und Freunde.
+8bae644d Apps & Verbindungen
+feecbb61 Andere Apps, mit denen Tamkeen zusammenarbeitet.
+923a6ba3 Daten & Updates
+dca7d5e7 Sicherungen, Updates und Neustart.
+fd17e405 Sprache, die ich spreche
+942aa9b5 Häufige Wörter als gesehen zählen
+bfd6240b Wörterbücher
+080a7931 Vokalzeichen
+d4c5ba0c Furigana
+b8ede630 Pinyin und Schriftzeichen

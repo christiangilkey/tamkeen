@@ -1,0 +1,109 @@
+82e7395c Das Modell {0} wird schon heruntergeladen.
+906cd6be Diese Adresse ist keine Webseite (sie sieht nach einer Datei aus).
+5f6cc878 Diese Seite ist nicht erreichbar ({0}).
+a764c39c Webseiten, die du importiert hast, um sie mit anklickbaren Wörtern zu lesen.
+ab650a1a Türkisch
+1ab65965 Persisch
+412e3190 Urdu
+c9e6b253 Hindi
+23882c57 Portugiesisch
+dec66c5b Koreanisch
+2339b8ad Indonesisch
+334a85f1 Niederländisch
+08f0c0cf Malaiisch
+4d3bb51e Javanisch
+1d6b8a69 Vietnamesisch
+c1439807 Laotisch
+0726b71e eine andere Sprache ({0})
+28cd3560 Das sieht nicht nach einem Instagram-Benutzernamen aus.
+36473f9c auf {0} gesprochen, nicht auf {1}
+697db47b fast keine Sprache (Musik oder Stille)
+ea4a5ce6 nicht auf {0}
+03f8025a Instagram-Reels, die für dich gefunden wurden. Sie laufen von Instagram; die Wörter hat dein Computer aufgeschrieben.
+39bc1b6f Reels holen funktioniert in der installierten Computer-App (sie braucht ihr eigenes Instagram-Fenster).
+b09c2b91 Es werden schon Reels geholt.
+7e4f80e0 Deine Speicherungen lesen funktioniert in der installierten Computer-App (sie braucht ihr eigenes Instagram-Fenster).
+c937ec62 Es werden gerade Reels geholt. Versuch es noch einmal, wenn das fertig ist.
+a74514e5 Das Instagram-Fenster wurde geschlossen.
+a502191a Instagram · {0}
+5fedaebb Melde dich in dem Fenster, das sich gerade geöffnet hat, bei Instagram an. Das ist nur einmal nötig.
+e77c6717 Niemand hat sich bei Instagram angemeldet, daher {0}.
+8599b104 Bei Facebook angemeldet. Das wird auf Instagram übertragen …
+a5272ae2 Mit diesem Facebook-Konto ist kein Instagram-Konto verknüpft. Melde dich stattdessen im Fenster mit einem Instagram-Benutzernamen und Passwort an.
+1094228d Es war nicht erkennbar, welches Instagram-Konto angemeldet ist. Versuch es noch einmal.
+dd259648 Instagram wollte das Video nicht herausgeben ({0}).
+2a2f389b kein Ton
+f6abd17f (läuft, wenn du auf dem Handy bei Instagram angemeldet bist)
+005d8b21 Deine Instagram-Speicherungen werden durchsucht … bisher {0} Sammlung(en). (Stopp behält die gefundenen.)
+5b6e17ab konnten deine Speicherungen nicht gelesen werden
+d859b103 Deine gespeicherten Sammlungen werden angesehen …
+d8c25947 Das Lesen deiner Speicherungen ist fehlgeschlagen ({0}: {1}).
+5207e708 Deine gespeicherten Beiträge werden gelesen ({0} von {1}) …
+b3cd2701 Das Lesen dieser Sammlung ist fehlgeschlagen ({0}: {1}).
+e0022c0d wurden keine Reels geholt
+cbf2cd0c Reel {0} wird angehört (behalten: {1} von {2}) …
+d38405ee Zufällige Reels auf {1} bereit: {0} ({3} geprüft).
+a8aa31cd Diesmal konnten keine Reels auf {0} behalten werden ({1} geprüft). Versuch es noch einmal: Die Suchwörter ändern sich jedes Mal.
+dc90c318 Sie werden mit allem anderen mit deinem Handy synchronisiert.
+44244e4a Reels holen ist fehlgeschlagen ({0}: {1}).
+dd51e085 Reel {0} von {1} wird angehört …
+251eda10 {0} von {1} bereit für dein Handy.
+32ece972 {0} konnten nicht verwendet werden (siehe unten).
+42e17d02 Das Holen dieser Reels ist fehlgeschlagen ({0}: {1}).
+37c936a3 Deine gespeicherten Beiträge werden gelesen …
+1e756cd5 Dort wurden keine gespeicherten Beiträge gefunden. Speichere zuerst ein paar Reels auf Instagram oder wähle eine andere Sammlung.
+bec2e4e2 Es wird geschaut, was auf {0} gerade beliebt ist ({1}) …
+13bad01a Die Reels von @{0} werden gelesen …
+234d7e5e Es wurden keine neuen Reels gefunden. Füge Creator hinzu oder wähle „Beliebt“ oder „Eine Mischung“.
+52a16bfd Dort gibt es nichts Neues: Jedes Video in diesen Speicherungen wurde schon versucht.
+d7b1a9ec Diesmal wurden keine neuen Reels gefunden. Versuch es später noch einmal.
+8f45b7fa {0} Reel(s) bereit ({2} geprüft). Sie werden mit allem anderen mit deinem Handy synchronisiert.
+a804202f Tamkeen wurde schon zurückgesetzt. Melde dich an oder schließ die ersten Bildschirme ab, um deine Bibliothek zurückzuholen.
+81e5939e Es wird noch etwas transkribiert. Warte, bis es fertig ist, oder stopp es, und setz dann zurück.
+b8603b5b Deine Bibliothek konnte nicht zuerst in Google Drive gespeichert werden, daher wurde nichts zurückgesetzt ({0}).
+d61a7932 Google Drive hat die Anmeldung abgelehnt.
+a669d081 Download von Google Drive fehlgeschlagen ({0}).
+537a418e Hochladen zu Google Drive fehlgeschlagen ({0}): {1}
+ca818b14 Die Google-Anmeldung ist in diesem Build nicht eingerichtet.
+a3edee6d Dieser Anmeldelink ist abgelaufen oder wurde schon verwendet. Bitte versuch es noch einmal aus der App.
+00ace5cc Google-Anmeldung fehlgeschlagen: {0}
+dd003c52 Google hat kein Aktualisierungstoken zurückgegeben. Entferne den Zugriff der App unter myaccount.google.com/permissions und melde dich noch einmal an.
+5ef0ec78 Der Drive-Zugriff wurde nicht gewährt. Melde dich noch einmal an und erlaube der App, ihre Daten zu speichern.
+946a2345 Nicht bei Google angemeldet.
+1009b96e Deine Google-Anmeldung ist abgelaufen. Bitte melde dich noch einmal an.
+e0d7a3c0 Melde dich zuerst unter „Mit Google Drive synchronisieren“ mit Google an.
+bd3033ca Deine Google-Anmeldung ist abgelaufen. Melde dich unter „Mit Google Drive synchronisieren“ ab und wieder an.
+9c8459c0 Google hat deine Identität nicht bestätigt. Melde dich unter „Mit Google Drive synchronisieren“ ab und wieder an.
+fed131ce Melde dich mit Google an (Einstellungen), um Videos aus Drive anzusehen.
+06ac7931 Dieses Video ist in Google Drive gespeichert: Melde dich in den Einstellungen mit Google an, um es zu transkribieren.
+2d689417 Das Vokalmodell konnte nicht heruntergeladen werden ({0}). Prüfe deine Verbindung und versuch es noch einmal.
+da48fac9 Das Vokalmodell ist nicht heruntergeladen.
+f61d414a {0} hat den API-Schlüssel abgelehnt. Er ist höchstwahrscheinlich abgelaufen, du brauchst also vermutlich einen neuen (Einstellungen → Cloud-Transkription).
+3666049b {0} kennt das gewählte Modell nicht. Stell es in den Einstellungen wieder auf das empfohlene.
+97c0918a {0} konnte das nicht transkribieren (Fehler {1})
+53ab1f8a {0} ist nicht erreichbar ({1}). Prüfe deine Internetverbindung.
+a1ceea0b {0} sagt, dass dein Konto sein Limit vorerst erreicht hat (es bittet, etwa {1} Minuten zu warten). Kostenlose Konten dürfen pro Stunde und pro Tag nur eine bestimmte Menge Audio senden. Tippe später auf „Erneut versuchen“.
+93cf51f7 {0} hat die App immer wieder gebeten, langsamer zu machen.
+e0d3a0cd Nicht unterstützter Gewichtstyp {0} in {1}
+a6fc4045 Transkription
+c37da7ca Noch kein Transkriptionsmodell ausgewählt. Öffne Einstellungen → Modell, um eins herunterzuladen, oder schalte dort die Cloud-Transkription ein.
+59c4123b Das Modell {0} ist noch nicht heruntergeladen. Öffne Einstellungen → Modell, um es herunterzuladen.
+6bc27ac6 GitHub ist nicht erreichbar: {0}
+d6d5bb0f Noch keine Releases veröffentlicht.
+57a18645 GitHub hat HTTP {0} zurückgegeben.
+88b0d44f Diese Kopie von Tamkeen kann sich nicht selbst aktualisieren. Lade die neue Version von GitHub herunter.
+84393929 Du hast schon die neueste Version ({0}).
+ae41addd Dieses Release hat kein Installationsprogramm für diesen Computer.
+b953469f Der Download passte nicht zur Release-Datei. Bitte versuch es noch einmal.
+c41c8edb {0}-Dateien, die du selbst hinzugefügt hast. Sie werden in deinem Google Drive gespeichert.
+6d8e34b4 Die Datei ist leer.
+914295b3 Diese Datei hat keinen lesbaren Ton ({0}).
+94492d5d Hier sind nur Anfragen an youtube.com erlaubt.
+16ca44eb Nicht unterstützte Anfrage.
+5c5d0d47 YouTube ist nicht erreichbar ({0}). Prüfe deine Verbindung.
+470a97a7 YouTube-Videos, die du hinzugefügt hast. Sie laufen von YouTube; ihre Untertitel sind das Transkript.
+22377066 {0} hat nicht geantwortet. Ist sein Hauptfenster noch offen?
+b8100f5b Bibliothek
+6b21fb79 Über
+a689b0be Alle Transkripte durchsuchen …
+7ff5a6da Bereiche

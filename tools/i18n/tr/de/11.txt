@@ -1,0 +1,170 @@
+0e04dbc9 Sprachnachricht senden
+2394299d Freund
+fd6be475 ▶ Sprachnachricht · {0}
+c79a9284 ❚❚ Wird abgespielt …
+08acc9f5 Die Sprachnachricht konnte nicht abgespielt werden. {0}
+46e2032a Etwas, das diese Version der App nicht öffnen kann
+f92f6701 Aktualisiere die App, um das zu öffnen.
+05da9368 mit seinen Wörtern
+ebefd2aa Gesendet{0}
+bb54db51 Annehmen
+70afe9ef Verwerfen
+a30d2444 ✓ Angenommen
+d7e5d622 📁 {0} · Wörter: {1}
+a5dbb7a2 ★ Wörter: {0}
+aaf0f881 für {0}
+7b347cb7 · 🔊 Audio{0}
+35f49dcf Gesendet
+03f7e506 Zu meinen Vokabeln hinzufügen
+81506135 ✓ Zu deinen Vokabeln hinzugefügt
+fd4130f9 , in den Ordner „{0}“
+ee02aae1 Hinzugefügt: {0}{2}.
+69bd4ef9 Ansehen
+2777c993 Zurückziehen: diese Nachricht für euch beide löschen
+32fedd8c Diese Nachricht zurückziehen? Sie wird für euch beide gelöscht.
+93536c19 Noch keine Nachrichten. Sag {0} 👋
+7aad9d60 Sprachnachrichten werden auf diesem Gerät nicht unterstützt.
+f5985fff Die App braucht die Erlaubnis, das Mikrofon für Sprachnachrichten zu nutzen.
+dad9f44a Das war zu kurz zum Senden.
+2b73aff6 Sprachnachricht wird gesendet …
+f4c667a4 {0} und {1}
+e79e9cf5 Kein Podcast auf {0} ist in den Charts, daher sind das die am besten bewerteten auf Spotify und Apple Podcasts.
+4ea062ed Die gerade meistgehörten Podcasts in {0}.
+5e7709de Bewertungen von <0>Spotify</0> und <1>Apple Podcasts</1>.
+edaa4f9c Charts von <0>Apple Podcasts</0>.
+b389210d {0} Tippe auf <0>+ Hinzufügen</0>, um einen in deine Bibliothek aufzunehmen.
+5585dc7f Die Liste neu laden
+c4e76a79 ⟳ Aktualisieren
+e17054bf Angesagte Podcasts werden geladen …
+55461d2c ✓ Hinzugefügt
+109b936a + Hinzufügen
+c2510071 „{0}“ zu deiner Bibliothek hinzugefügt.
+0455d100 „{0}“ konnte nicht hinzugefügt werden: {1}
+6a720856 Alle
+c96f6acd Alle {0} in {1} anzeigen
+d6cc1316 Gerade nichts im Trend auf {0}
+75a6baf2 Die Charts hatten gerade keine Podcasts in dieser Sprache. Versuch es später noch einmal oder füge in der Bibliothek die RSS-Adresse eines Podcasts ein.
+57a11040 Angesagte Podcasts konnten nicht geladen werden
+81c0d915 Aktivität
+bb386fdb Gilden
+78978743 Noch nicht gesehen
+12608b67 Zuletzt gesehen vor {0} Min.
+ff6c3395 Zuletzt gesehen vor {0} Std.
+961ad11f Zuletzt gesehen vor {0} Tag(en)
+ccc9a7d2 Zuletzt gesehen vor über einem Monat
+969aa741 Bereiche von „Freunde“
+7534bf92 {0} ({1} neu)
+a0ffb6d7 Gemeinsam lernen
+cba998b6 Füge Freunde über ihren Benutzernamen hinzu, gründe Gilden, schreibt euch Nachrichten (auch Sprachnachrichten), schick Wörter und Ordner und sieh, was alle gerade lernen. Melde dich mit deinem Google-Konto an, um loszulegen.
+b5531a88 Angemeldet. Wähle jetzt einen Benutzernamen.
+4a0b7281 Mit Google anmelden
+c66b2adc Wird angemeldet …
+49421c8e Wähle zuerst einen Benutzernamen, damit Freunde dich finden können.
+81d5a343 Wähle einen Benutzernamen
+0d40a9b2 Was deine Freunde und Gildenmitglieder gerade lernen, das Neueste zuerst.
+00d1229b Füge einen Freund über seinen Benutzernamen hinzu, beantworte Freundschaftsanfragen und schreib Freunden Nachrichten, auch Sprachnachrichten.
+78c698e3 Lerngruppen: Gründe eine oder tritt einer bei und chatte mit allen darin.
+b7871841 Dein Bild
+4abe3311 Tippe darauf, um das Foto zu ändern, das deine Freunde sehen.
+699dd745 Was Freunde sehen
+f56a7b41 Freunde sehen das neben deinem Namen: deine Sprache, deine Liga, die EP von heute, deine Karteikarten-Serie und dein Lieblingswesen. Tippe auf einen Teil, um zu sehen, was er bedeutet.
+5ad3f1a6 Was ich gerade lerne
+00b5118b Zeig Freunden, womit du lernst: eine Podcastfolge, ein Video, ein Lied oder ein Film, mit einer kurzen Notiz.
+d982cb02 Dein Profil einklappen
+3513786b Verkleinere dein Profil auf eine Zeile oder öffne es wieder.
+72078d27 Öffnet einen Chat mit dieser Person. Eine Zahl darauf bedeutet neue Nachrichten.
+c8f5eda8 Foto entfernen
+240a677f Dein Profilfoto ändern
+7fe92d97 Tippe auf dein Bild, um es zu ändern
+c32658e7 Bearbeiten, was ich gerade lerne
+cfd93f3f Mein Profil zeigen
+986ce024 Mein Profil verbergen
+7b634db9 Das sehen Freunde neben deinem Namen
+cf2f49f6 Foto entfernt.
+9d62374f Zeig deinen Freunden, womit du lernst: eine Podcastfolge, ein YouTube-Video, ein Lied, einen Film. Füg auch eine kurze Notiz hinzu.
+29f6fa46 Was alle gerade lernen
+2acf9a78 Noch niemand hat geteilt, was er gerade lernt.
+2c153dc0 Füge Freunde hinzu oder tritt einer Gilde bei, um hier zu sehen, was sie lernen.
+cdfe806f Freundschaftsanfragen
+61cd9dee Du und {0} seid jetzt befreundet.
+b59cf9ed Ablehnen
+f1d382dd Einen Freund hinzufügen
+7ddd5e45 Sein Benutzername
+a89d6417 Anfrage senden
+9a4506a3 Anfrage an {0} gesendet.
+d2b3ee8a Deine Freunde
+cd229e08 {0} · {1} online
+e630733e Noch keine Freunde. Teile deinen Benutzernamen <0>@{0}</0> oder füge oben jemanden hinzu.
+b16fc7ff Freund entfernen
+1ada4056 {0} entfernen?
+ee7e971c {0} steht dann nicht mehr auf deiner Freundesliste. Ihr könnt euch später wieder hinzufügen.
+904e125d Einen Freund finden
+b06dc642 Kein Freund namens „{0}“.
+4f9c0764 Wartet auf Annahme
+84837a21 Anfrage zurückziehen
+124a0ba3 Gildeneinladungen
+e0d73143 Beitreten
+8343796d Du bist {0} beigetreten.
+b9cc0468 Deine Gilden
+e1c85cdb Neue Gilde
+6e157c5d Erstellen
+8978ccfe Name der Gilde
+41ea8208 KÜRZEL
+c2947194 Das Kürzel erscheint neben den Namen der Mitglieder. {0}
+7d96fc5d Gilde „{0}“ erstellt. Lade deine Freunde ein!
+6fc866d1 Eine Gilde ist eine Gruppe von Freunden mit eigenem Namen und Kürzel. Alle darin sehen sich hier gegenseitig, mit dem, was sie lernen, und können sich Nachrichten schreiben. Gründe eine oder warte auf eine Einladung.
+3ee4fbee Einen Freund einladen
+7bd335d2 Alle deine Freunde sind schon in dieser Gilde.
+326d1c75 Füge zuerst einen Freund hinzu und lade ihn dann ein.
+67e9cb4d Zu {0} einladen
+f318af38 {0} zu {1} eingeladen.
+49293437 Gilde verlassen
+d2839170 {0} verlassen?
+8d39828d Du bist das einzige Mitglied, daher wird die Gilde aufgelöst.
+c7d54e1c Das Mitglied, das am längsten dabei ist, wird ihr Gründer.
+2bdc67b8 Du kannst wieder beitreten, wenn dich jemand einlädt.
+7e3520a9 Verlassen
+20c74057 Anfrage ausstehend
+e0a731d8 Freund hinzufügen
+8f65200d Aus {0} entfernen
+c8e8a875 {0} ist dann nicht mehr in {1}.
+7a978838 Gründer · {0}
+f0599be1 Bisher nur du. Lade einen Freund ein, damit es losgeht.
+781f394f · {0} online
+612a1349 · von dir gegründet
+7ff5271b Mitglieder verbergen
+075b3d2a Mitglieder zeigen
+abe096ed Dein Foto wird hochgeladen …
+3d7ef010 Profilfoto aktualisiert.
+bb72b60d Weiterhören
+8fca30f7 Weiterschauen
+4f4840a8 Weiterlesen
+6a4f54ef Guten Abend
+0f768926 Guten Morgen
+13fd0a3e Guten Tag
+4e34d263 Auch angefangen
+65a724ff Du bist auf dem neuesten Stand
+1c3b619c Nichts ist mehr unfertig. Such dir etwas Neues aus, wann immer du willst.
+e32ed3b5 Deine Bibliothek öffnen
+ae2245c8 Podcasts, Videos und Webseiten
+ea399154 Deine Vokabeln durchsehen
+d6a7fd46 Die Wörter, die du gespeichert hast
+46f72e49 Sehen, was Freunde lernen
+7d84d91b Nachrichten und geteilte Wörter
+990a126c Die Sprache, die du lernst
+afc68c61 Wechsle zu einer anderen Sprache, die du lernst, oder füge eine hinzu. Jede hat ihre eigene Bibliothek, eigene Wörter und Wiederholungen.
+89a58a1b Weitermachen
+f4a94b40 Setzt deine letzte Folge, dein letztes Video oder deine letzte Seite dort fort, wo du aufgehört hast.
+1862828e Es wächst mit den EP, die du beim Lernen verdienst.
+5d12bd53 Spielen
+d8de77c3 Kämpfe, tausche mit Freunden, sammle Wesen und gib, was du verdienst, im Laden und im Garten aus.
+f1574425 Finde ein Wort in allem, was du gelesen oder gehört hast.
+afaa0fed Heute gespeicherte Wörter: {0}
+d27bd152 {0} in deinen Vokabeln
+327d0ac7 Bisaya wird auf deinem Computer transkribiert
+98fda207 Ein Handy kann keine Bisaya-Transkripte schreiben: Die Online-Sprachdienste kennen Bisaya nicht, daher schlagen sie fehl oder schreiben Tagalog.
+ac9c1952 Öffne Tamkeen auf deinem Computer und lade dort das Modell <0>Bisaya</0> herunter (Einstellungen → Hören & Transkripte → Transkriptionsmodell). Dein Computer transkribiert diese Folgen dann, und sie erscheinen hier mit ihren Transkripten, sobald beide das nächste Mal synchronisieren.
+2457b3f7 Sie warten jetzt in der Warteschlange auf deinen Computer.
+db2c45d5 Nicht begonnen
+6a599877 In der Warteschlange
+b6bd42e4 In Arbeit

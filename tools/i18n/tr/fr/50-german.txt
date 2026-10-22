@@ -1,0 +1,12 @@
+# German as a language to learn (2026-10-21): country names, German news sites, the compound-word explanation, a licence.
+7b5203f5 Table de mots allemands et liste de mots courants : orthographe actuelle et majuscules, d'après le Wiktionnaire (téléchargement facultatif)
+f13ba6e2 Plus facile : l'actualité pour les enfants
+6004ae57 L'audiovisuel public allemand
+76af65cb Hebdomadaire
+4bb73f48 Munich
+56ab9d28 L'audiovisuel public autrichien
+593905b3 Autriche
+c8fac8a8 L'audiovisuel public suisse
+d2a4fb95 Wikipédia en allemand
+aab575ea D'après le dictionnaire intégré ({0}{1}) : il n'a pas d'entrée pour ce mot composé, voici donc le sens de ses parties.
+17d53e0e Allemagne

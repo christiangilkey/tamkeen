@@ -1,0 +1,170 @@
+9d3045a4 Hüte
+203bc66d Gesicht
+2369e339 Halsschmuck
+87807a0b In der Hand
+514b6d92 Shirts
+b38fd978 Kappe
+8d2d0494 Mütze
+5b8d667e Strohhut
+0200e574 Blumenkranz
+a1794223 Schleife
+453cce21 Kopfhörer
+a73f2e84 Zauberhut
+410494f2 Krone
+8a6c4f48 Zylinder
+2dad5490 Partyhut
+fea217c8 Baskenmütze
+5856ecee Kochmütze
+4acabbde Cowboyhut
+392c6646 Tropenhelm
+53e6537e Piratenhut
+3f77bde0 Doktorhut
+d2f9a663 Sonnenschild
+e8bf6dcb Propellermütze
+f3681d8b Heiligenschein
+f0aeb7b3 Blätterkrone
+216d0c24 Geweih
+f81ef643 Diadem
+9a21f3aa Fischerhut
+3187598c Ohrenschützer
+0062340f Pilzhut
+ceecea26 Wikingerhelm
+68c1942a Raumfahrerhelm
+28391e32 Hasenohren
+4a6b7158 Katzenohren
+b9f4aa95 Narrenkappe
+7e533442 Schlafmütze
+6b70d2cc Runde Brille
+904017f8 Sonnenbrille
+c1feb92c Monokel
+745c59f0 Sternenbrille
+8aadf165 Maske
+6741f119 Herzbrille
+0b34f86f Schutzbrille
+bba42049 Augenklappe
+fbd954ab 3D-Brille
+58d80900 Lesebrille
+34a75a40 Schnorchelmaske
+f18b06a1 Clownsnase
+f6c4e7b6 Schnurrbart
+6e26326c Rosige Wangen
+07e6b11b Schlafmaske
+462035a5 Pixel-Sonnenbrille
+5575bbff Schnurrhaare
+a81134de Pflaster
+83dfe3a2 Schal
+5a1a0c91 Fliege
+d4198662 Glöckchen
+5d6614cb Goldkette
+2fdb1722 Stachelhalsband
+903467a9 Medaille
+8841f81b Krawatte
+b3e12140 Perlenkette
+14465646 Medaillon
+ec81fbb3 Blumenkette
+2466135f Bandana
+45b27206 Halskrause
+e76c5bf1 Pfeife
+fe3b767b Schlüsselkette
+c8c21a81 Muschelkette
+997e21c2 Federboa
+ae48c34a Band
+5a9a6cd7 Namensschild
+59b3f863 Amulett
+9d5c8e51 Kompass
+93e720cf Laterne
+a774409a Fahne
+64f241f5 Luftballon
+24280537 Mikrofon
+ff45e635 Schreibfeder
+483fed9c Regenschirm
+0c691a9a Holzschwert
+2af4fc97 Zauberstab
+be638732 Blumenstrauß
+1242a215 Eis
+63d27f89 Kaffeebecher
+fb46a738 Teetasse
+5136ae1b Bleistift
+28d512c4 Pinsel
+72d4d28e Angelrute
+40a60bfb Lupe
+917904ac Fackel
+0a26857b Drachen
+08271419 Schild
+78ede2e9 Teddy
+1075c086 Pokal
+266a0fb1 Roter Umhang
+66d178d7 Sternenumhang
+0ccf90eb Rucksack
+c4b1ad5f Umhängetasche
+a8bbfe7e Federflügel
+3c7c880b Fledermausflügel
+573b9116 Schmetterlingsflügel
+4b7e2696 Jetpack
+5d62dc5c Schildkrötenpanzer
+7a41f42a Köcher
+110bb280 Luftballonstrauß
+03744d8c Blätterumhang
+06f3045f Gestreiftes Shirt
+dd4fd5df Einfarbiges Shirt
+4dfbc033 Gepunktetes Shirt
+515bcf68 Kariertes Hemd
+d6a2305b Sternen-Shirt
+f1bab294 Herzchen-Shirt
+816d3505 Zickzack-Pullover
+11a5ebab Geblümtes Hemd
+9c10e5aa Galaxie-Shirt
+cc58986a Rautenpullover
+db9a99bf Rote Blumen
+b09f1254 Blaue Blumen
+aa146572 Pilz
+36ca0758 Kleiner Stein
+c462f354 Hohes Gras
+2115a9fc Kleine Laterne
+bdc1fd5d Muschel
+89f36136 Wegweiser
+a36ef413 Busch
+c6928281 Felsbrocken
+b14de689 Nest
+1a706e23 Bett
+337b7955 Futternapf
+8d1cb4ea Spielball
+0d88689c Bücherregal
+b11bf19e Radio
+64f5d600 Teich
+f80ba508 Lagerfeuer
+eae12d19 Zelt
+370793de Laterne am Weg
+dc94e91a Obstbaum
+a187c328 Brunnen
+f96ddf32 Bogen
+237d114f Statue
+7a115bb8 Nachteule: nach 22 Uhr gelernt
+7bcd9fab Frühaufsteher: vor 7 Uhr morgens gelernt
+ba785471 Sieben Tage in Folge
+15441302 Makellos: einen Kampf ohne eine einzige falsche Antwort gewonnen
+b2c51034 Comeback: einen Kampf am Abgrund noch gewonnen
+6f45a48a Zwilling
+86b7531d Zieh es zusammen mit einem geschlüpften Wesen eines anderen Elements auf
+9ba079f8 nimmt die Farben seines Gefährten an
+75a2b75a Nokturne
+05b5bd96 Lerne nach 22 Uhr
+40e4dece eine Nachtform mit mondhellem Schimmer
+7881bf71 Champion
+bba9c7c9 Gewinne einen Kampf am Abgrund oder ohne eine einzige falsche Antwort
+ecc4d7d2 mit Kamm und goldenen Zeichnungen
+13b10e8c Rempler
+6e665685 Deckung
+de2f330f Glutasche
+fc24ae3b Lauffeuer
+0e1275fa Rankenhieb
+7c390204 Wucherung
+789c7773 Kieselwurf
+e6277766 Steinschlag
+d735dc4a Zisch
+9ab63902 Donnerschlag
+76ce312e Platscher
+2bfd4000 Sog
+97389d1a Schatten
+25ab466c Einbruch der Nacht
+157f2572 Zurückfedern

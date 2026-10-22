@@ -4157,3 +4157,71 @@ button), and when the new page has settled `showFabs(true)` adds `.roll-in`: 0.6
 (about the turn a 58 px circle makes rolling that far), fading in. A swipe that springs back just fades it back
 (`.fade-in`). Reduced-motion: a plain fade. Checked at 375x812 with simulated touches (hidden during the slide, frames
 stepped through by hand because the hidden preview pane pauses animations; ends exactly at its usual place).
+
+## German (de): a language to learn and an interface language (2026-10-21; branch `worktree-agent-a0914379b70d7f43c`, NOT merged, NOT pushed)
+Owner: "I want to add to my languages in the app, Farsi, Korean, Hindi, and German". This is German; the other three
+were done at the same time on their own branches, so expect small clashes in the shared lists (add both sides' entries;
+for strings.json and web/i18n/*.json re-run `node tools/i18n/extract.mjs` and `node tools/i18n/build.mjs`). The branch
+started from main at 8cb6ad0; main has moved on since (eb6e997), not merged in. Same depth as the "Four more languages"
+section above:
+- **Core**: web/js/languages.js (`de`: Deutsch, "Willkommen!", greetings, samples; in LATIN_LANGUAGES), app/languages.py,
+  i18n.js UI_LANGUAGES + SPEAK_QUESTION ("Welche Sprache sprichst du?"), definer.js TEACH.de (separable verbs given as
+  "anfangen (fängt … an)", compounds' parts as the root, case/gender, Austrian and Swiss words named as such), app.css
+  `:lang(de)`. Whisper knows German (`de`), so no Whisper changes; cloud transcription works as for any language.
+- **Podcasts** (web/js/trending.js): Apple's charts for Germany, Austria and Switzerland (STOREFRONTS, COUNTRY_NAMES,
+  HOME_CHART). German is now told from Dutch (FAMILIES ["de","nl"], OWN words and letters for both; Dutch used to be
+  checked against `OTHER_LITTLE_WORDS.de`, now German is a real rival). Checked live 2026-10-21: DE kept 193 of 200,
+  AT 187, CH 155 (the Swiss chart has French/Italian shows), **299 shows with feeds** after merging the three. Left
+  out on purpose: English/French/Dutch/Hungarian shows and "Easy German" (its feed describes itself in English).
+  "als" is in LITTLE_WORDS.de so a German show isn't taken for Catalan.
+- **YouTube** (web/js/youtube-home.js): START "und", COUNTRIES Germany/Austria/Switzerland, and the topic menu's words
+  in German (Nachrichten aus Deutschland, neue deutsche Songs, Comedy deutsch, Rezept, Reise, Fußball, Wissenschaft
+  Doku, Let's Play deutsch, Kinderserie, Vlog deutsch, Podcast deutsch, Deutsch als Fremdsprache), each checked against
+  YouTube's real results. Reels: COMEDY_WORDS/RANDOM_WORDS (app/reels.py, mobile/src/js/reels-phone.js).
+- **News for the Web page screen** (web/js/browser-home.js NEWS.de, 17, all opened live): nachrichtenleicht, DW Kurz
+  und leicht, logo! (easier ones first), tagesschau, ZDFheute, Deutsche Welle, Der Spiegel, Die Zeit, Süddeutsche
+  Zeitung, ORF, Der Standard, SRF News, NZZ, heise online, Handelsblatt, kicker, Wikipedia. (Zeit and kicker refuse
+  scripts with 403 but open in a browser; FAZ was dropped.)
+- **Word table** `docs/lexicon/de-lemmas.json.gz` (1.0 MB, 189,855 forms → 87,580 dictionary forms): lemmatization-lists
+  + wordfreq, plus facts from the English Wiktionary's German entries (tools/build_lemmas.py `de=<lemmatization-de.txt>,
+  <kaikki.org German .jsonl.gz>`). Keys keep capitals, because German nouns are capitalised (Essen "food" / essen "to
+  eat"); a sentence's first word is tried lowercase first unless it is in `caps_first` (831 words whose capital
+  spelling is commoner mid-sentence in Wiktionary's examples, e.g. Zeit). Dictionary forms are in today's spelling;
+  the pre-1996 ones (mußte, daß) and Swiss ss spellings (Strasse) find them, and so do ae/oe/ue for umlauts. Each
+  person is its own word (the list folds ihm, wir, sie into ich; here ihm is er) and im, zum, beim count as in, zu,
+  bei (german.js OWN). Two fields new to LemmaTable (romance.js): `ranked` and
+  `caps_first`; old tables don't have them and behave as before.
+- **web/js/lexicon/german.js** (new; used by words.js for seen words and meaningdata.js for the popup):
+  **separable verbs** are joined back across the clause, so in "Er fängt morgen mit der Arbeit an" both fängt and an
+  count as anfangen (the particle has to end the clause, the verb has to be a real, common verb in the table, at most
+  12 words apart); **compound words** the table lacks are taken apart (Handschuhfabriken → Handschuh + Fabrik, with
+  the linking s/es/n/en/er/e, hyphens kept).
+- **No AI meanings** `docs/lexicon/de-meanings.json.gz` (4.7 MB, 88,857 words + 246,872 forms; tools/build_meanings.py,
+  keys write ß as ss). The popup gives a separable verb as its whole verb ("fängt … an: third-person singular present
+  of anfangen") and a compound with no entry as its parts' meanings, saying so ("…it has no entry for this compound
+  word, so these are the meanings of its parts.").
+- **Common words** web/js/wordlists/de.js (1000, tools/make_wordlists.py `de=list,kaikki`): wordfreq folds ß and capitals,
+  so each word is written back the way German writes it (Straße, Zeit, ich). **Seen-word example** "spreche, sprach,
+  fängt … an" (seen.js).
+- **Books** (13, docs/books/de, tools/build_books.py BOOKS["de"], all Project Gutenberg): Kafka *Die Verwandlung* and
+  *Der Prozess* (Max Brod's afterword cut: he died 1968), Goethe *Werther* and *Faust I*, Grimm *Deutsche Märchen*,
+  Schiller *Wilhelm Tell*, Fontane *Effi Briest*, Storm *Der Schimmelreiter* and *Immensee*, Spyri *Heidi*, Eichendorff
+  *Taugenichts*, Thomas Mann *Der Tod in Venedig*, Busch *Max und Moritz*. The builder learned German chapter headings
+  (Erstes Kapitel, Zweiter Aufzug…), contents pages, Gutenberg's German notes, ~emphasis~ marks, and numbered contents.
+- **Interface in German** ("du", like the app's English): tools/i18n/tr/de/01.txt–20.txt, all 3309 strings; the 11
+  new German-only strings (country names, sites) in tr/<code>/50-german.txt for the other 12 languages. Country names
+  inside "The most listened-to podcasts right now in {0}" are in the dative ("in den USA").
+- Licences: licenses/german-sources.txt (new), index.json entry, notes in lemmatization-lists.txt and wiktionary.txt;
+  tools/i18n/extra.txt has the licence's name. docs/index.html and docs/lexicon/README.md mention German.
+- **Tests**: tests/js/german.test.mjs (new, 11, read the real data: forms, capitals, old/Swiss spellings, pronouns,
+  separable verbs in seen words and the popup, compounds) and German cases in languages/wordlists/trending JS tests and
+  test_languages/test_lexicon/test_books/test_reels. 635 JS pass, 453 pytest pass (2 skipped); i18n check 13 × 3309.
+  `node mobile/scripts/build-www.mjs` works.
+- **Checked in the browser pane**, web app build at 375x812 (docs/ served on localhost, data read from it through
+  `lexicon_base`/`books_base`, docs/app put back afterwards): German interface (welcome, language choice, onboarding,
+  Home "Guten Abend"); with English interface and German to learn: top bar "Deutsch", word table download, YouTube menu
+  ("Learn German", Popular in Germany/Austria/Switzerland), Web page "News in German", Trending (299, "Germany,
+  Austria and Switzerland"), Books in German, Die Verwandlung opened and words tapped with No AI: panzerartig
+  "armourlike", erwachte → erwachen "first/third-person singular preterite", Niedergleiten → nieder + gleiten.
+- **Not checked**: the real desktop window and a real phone, transcribing real German audio, the AI popup in German.
+  **The data files (docs/lexicon, docs/books) must be on GitHub Pages before installed apps can download them.**
