@@ -247,3 +247,13 @@ b9b6f166  # música en català
 28eb8491  # science and technology
 80d72d7f  # cartoons for kids
 1f5ffb7f  # English listening practice
+0e9a0716  # 과학 기술
+c47d0151  # 게임 플레이
+d72501e4  # 어린이 만화
+77b92748  # 한국어 배우기
+# Not interface: the Korean word finder's names for verb stems (web/js/lexicon/korean.js), and the Korean
+# example words in the dictionary offer (web/js/lexicon/seen.js EXAMPLES, shown as Korean).
+016bbf96  # Ud
+c9b2ef04  # Cn
+91bdaa2d  # Um
+bb45869a  # 먹어요, 먹었어요, 먹고 싶어요

@@ -6,7 +6,10 @@ counts them as already seen for a learner who says they have already started (se
 
 Thai and Bisaya are not in wordfreq: Thai's list is the Thai National Corpus counts as PyThaiNLP
 publishes them (CC0 1.0), and Bisaya's is counted from the Cebuano web text of OPUS's NLLB
-collection (ODC-By 1.0); see licenses/pythainlp.txt and licenses/cebuano-sources.txt.
+collection (ODC-By 1.0); see licenses/pythainlp.txt and licenses/cebuano-sources.txt. Korean's is
+counted by dictionary form (먹었어요 counts for 먹다) from Korean film and TV subtitles (OpenSubtitles,
+as counted by FrequencyWords, CC BY-SA 4.0), keeping only words Wiktionary has; see
+licenses/korean-sources.txt.
 
 The others are made by `tools/make_wordlists.py` from **wordfreq** by Robyn Speer
 (https://github.com/rspeer/wordfreq), which counts words in subtitles, Wikipedia, news, books and

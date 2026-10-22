@@ -12,6 +12,10 @@
 // said (./thai.js), drawn over the word in Latin letters with tone marks (สวัสดี: sà-wàt-dii), with its
 // own switch, and given in the word popup too (./seen.js pronounceWord).
 //
+// Korean is written with spaces and needs no table: each word's Revised Romanization is worked out from
+// its letters (./korean.js romanize: 안녕하세요 annyeonghaseyo), drawn over the word like Thai's, with its
+// own switch (on unless switched off).
+//
 // The readings are drawn without adding text to the page: <rt data-r="た"> with the reading put
 // on screen by CSS (::before). So a word's element still has only the word as its text, for
 // everything that reads it (lookups, copying, the misheard-word fix).
@@ -25,14 +29,19 @@ import { furigana, japaneseWords } from "./japanese.js";
 import { JapaneseDictionary } from "./kuromoji.js";
 import { dictionaries, downloadDictionaries, lexiconStatus, removeDictionaries } from "./seen.js";
 import { ThaiReadings } from "./thai.js";
+import { romanize } from "./korean.js";
 
-export const READING_LANGUAGES = new Set(["ja", "zh", "th"]);
+export const READING_LANGUAGES = new Set(["ja", "zh", "th", "ko"]);
 
 const settings = () => (state.status && state.status.settings) || {};
 export const showFurigana = () => settings().furigana !== false;
 export const showPinyin = () => settings().pinyin !== false;
 export const showThaiReadings = () => settings().thai_readings !== false;
-const switchedOn = (lang) => (lang === "ja" ? showFurigana() : lang === "zh" ? showPinyin() : lang === "th" ? showThaiReadings() : false);
+export const showKoreanReadings = () => settings().korean_readings !== false;
+const switchedOn = (lang) => (lang === "ja" ? showFurigana() : lang === "zh" ? showPinyin() : lang === "th" ? showThaiReadings()
+  : lang === "ko" ? showKoreanReadings() : false);
+// Korean's "dictionary": the rules of Revised Romanization, always here.
+const KOREAN = { name: "ko", reading: (word) => romanize(word) };
 /** "" (as written), "simplified" or "traditional". */
 export const chineseScript = () => settings().zh_script || "";
 
@@ -42,7 +51,7 @@ const loading = new Map();
 function install(lang, dict) {
   ready.set(lang, dict);
   markup.clear();
-  if (lang === "th") return; // Thai keeps the device's word breaker
+  if (lang === "th" || lang === "ko") return; // Thai keeps the device's word breaker; Korean has spaces
   if (lang === "ja") {
     setWordSplitter("ja", { split: (text) => japaneseWords(dict, text).map((w) => ({ index: w.index, segment: w.text })) });
   } else {
@@ -77,7 +86,7 @@ export function readingsReady(lang, wait = 15000) {
   if (!READING_LANGUAGES.has(lang)) return Promise.resolve(null);
   if (ready.has(lang)) return Promise.resolve(ready.get(lang));
   if (!loading.has(lang)) {
-    const load = lang === "th" ? thaiTable() : dictionaries(lang).then((dicts) =>
+    const load = lang === "th" ? thaiTable() : lang === "ko" ? Promise.resolve(KOREAN) : dictionaries(lang).then((dicts) =>
       (dicts || []).find((d) => d instanceof JapaneseDictionary || d instanceof ChineseDictionary) || null);
     loading.set(lang, load.then((dict) => {
       if (dict && loading.has(lang)) install(lang, dict);
@@ -137,6 +146,17 @@ function thaiHtml(dict, text) {
   return words.map((w) => { const r = dict.reading(w); return r ? `<ruby><span class="thw">${esc(w)}</span><rt class="th" data-r="${esc(r)}"></rt></ruby>` : esc(w); }).join("");
 }
 
+// Korean: each word of Hangul gets its romanization over it, the punctuation around it left outside, in a
+// box of its own as Thai's (a reading wider than the word would spread its letters apart).
+function koreanHtml(text) {
+  return String(text).split(/(\s+)/).map((piece) => {
+    const m = piece.match(/^([^가-힣]*)([가-힣](?:.*[가-힣])?)([^가-힣]*)$/s);
+    if (!m) return esc(piece);
+    const [, before, word, after] = m;
+    return `${esc(before)}<ruby><span class="kow">${esc(word)}</span><rt class="ko" data-r="${esc(romanize(word))}"></rt></ruby>${esc(after)}`;
+  }).join("");
+}
+
 /** How a Thai word is said, from the downloaded table ("" when it isn't here or has no reading).
  * For the word popup: given whether or not the readings over the text are switched on. */
 export async function thaiReading(word) {
@@ -153,7 +173,9 @@ export function readingHtml(text, lang) {
   const key = `${lang}|${text}`;
   let html = markup.get(key);
   if (html === undefined) {
-    try { html = lang === "ja" ? japaneseHtml(dict, text) : lang === "th" ? thaiHtml(dict, text) : chineseHtml(dict, text); } catch { html = esc(text); }
+    try {
+      html = lang === "ja" ? japaneseHtml(dict, text) : lang === "th" ? thaiHtml(dict, text) : lang === "ko" ? koreanHtml(text) : chineseHtml(dict, text);
+    } catch { html = esc(text); }
     if (markup.size > 30000) markup.clear();
     markup.set(key, html);
   }
@@ -194,6 +216,7 @@ export function readingsRow(lang) {
   const el = h(`<div class="lex-row small readings-row" hidden></div>`);
   if (!READING_LANGUAGES.has(lang)) return el;
   if (lang === "th") return thaiRow(el);
+  if (lang === "ko") return koreanRow(el);
   const s = settings();
   el.hidden = false;
   el.innerHTML = lang === "ja"
@@ -248,6 +271,20 @@ function thaiRow(el) {
   return el;
 }
 
+// Korean: just the switch (the romanization needs no download).
+function koreanRow(el) {
+  el.hidden = false;
+  el.innerHTML = `<label><input type="checkbox" data-set="korean_readings" ${showKoreanReadings() ? "checked" : ""}> <span>Show how Korean words are said, over the words (annyeonghaseyo)</span></label>
+    <span class="muted">In Revised Romanization, the official way of writing Korean in Latin letters, worked out by the app.</span>`;
+  el.addEventListener("change", async (e) => {
+    if (e.target.dataset.set !== "korean_readings") return;
+    await saveSettings({ korean_readings: e.target.checked }).catch((err) => toast(err.message, { error: true }));
+    markup.clear();
+    window.dispatchEvent(new HashChangeEvent("hashchange")); // draw what is on screen again
+  });
+  return el;
+}
+
 // ---------- looks ----------
 // The readings' own styles, added once (rather than in app.css, so they come and go with this file).
 // Tone colours: the usual teaching colours (1 red, 2 orange, 3 green, 4 blue, neutral grey),
@@ -262,11 +299,14 @@ if (typeof document !== "undefined" && !document.getElementById("readings-css"))
     :lang(zh) ruby > rt { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: max(0.45em, 9px); }
     rt.th { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: max(0.5em, 10px); white-space: nowrap; }
     ruby > .thw { display: inline-block; line-height: 1.6; }
+    rt.ko { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: max(0.42em, 9px); white-space: nowrap; }
+    ruby > .kow { display: inline-block; line-height: 1.5; }
     rt.tone1 { color: #e0464e; } rt.tone2 { color: #e8901c; } rt.tone3 { color: #2fa84f; } rt.tone4 { color: #3b7ddd; } rt.tone5 { color: var(--muted, #888); }
     .readings-row { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
     .transcript:lang(ja), .transcript:lang(zh), .captions:lang(ja), .captions:lang(zh) { line-height: 2.1; }
     /* Thai stacks vowels and tone marks above its letters: the line needs room for those and the reading. */
     :is(.transcript, .captions, .reader-text):lang(th):has(rt.th) { line-height: 2.8; }
+    :is(.transcript, .captions, .reader-text):lang(ko):has(rt.ko) { line-height: 2.3; }
   `;
   document.head.append(style);
 }

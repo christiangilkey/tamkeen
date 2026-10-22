@@ -77,7 +77,7 @@ export const DEFAULTS = {
   font_size: 26,
   page_font_size: 17,
   welcome_seen: false,
-  study_language: "", // the language being learned (ar, es, fr, ja, zh, ru, it, tl, pt, ca, ceb, th, en); chosen on first run
+  study_language: "", // the language being learned (ar, es, fr, ja, zh, ru, it, tl, pt, ca, ceb, th, ko, en); chosen on first run
   learning_languages: [], // every language being learned (the top bar's switch); study_language is the one now
   learning_times: {},     // {code: ms} when each was last ticked or unticked; synced (web/js/learnlist.js)
   ui_language: "",    // the language the user speaks: the app's own words are shown in it (i18n.js)
@@ -121,6 +121,7 @@ export const DEFAULTS = {
   pinyin: true,
   zh_script: "",
   thai_readings: true,
+  korean_readings: true, // Korean words' Revised Romanization, over them
 };
 export const settings = { ...DEFAULTS };
 

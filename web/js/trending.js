@@ -9,12 +9,14 @@
 // that language, and merge them. A chart does not say where a podcast's feed lives, so the feed
 // addresses come from a second request, Apple's "lookup".
 //
-// Four languages need more than a country's top 200:
+// Five languages need more than a country's top 200:
 //   Catalan  Spain's overall chart holds only a handful of Catalan podcasts, so its 19 category
 //            charts are read too (CATEGORY_CHARTS): still ranked by listeners, and 100+ Catalan shows.
 //   Tagalog  the Philippines' overall chart is mostly English (about 14 Tagalog shows); with its
 //            category charts about 40 (checked 2026-10-18).
 //   Thai     Thailand's overall chart gives about 90 Thai shows; with its category charts about 300.
+//   Korean   South Korea's overall chart is about half Korean (112 of 200; the rest mostly English-learning
+//            shows); with its category charts over 700 (checked 2026-10-21).
 //   Bisaya   no Bisaya podcast reaches Apple's or Spotify's charts in the Philippines (checked
 //            2026-10-18: Apple's top 200 and all 19 category charts, Spotify's top 100). Its list is
 //            the Bisaya podcasts with a public feed, most-rated first on Spotify and Apple together
@@ -40,10 +42,11 @@ export const STOREFRONTS = {
   ca: ["es"],
   ceb: ["ph"],
   th: ["th"],
+  ko: ["kr"],
   en: ["us", "gb", "au", "ca"],
 };
 /** Languages whose countries' 19 category charts are read as well as the overall chart. */
-export const CATEGORY_CHARTS = new Set(["ca", "tl", "th"]);
+export const CATEGORY_CHARTS = new Set(["ca", "tl", "th", "ko"]);
 /** Apple's ids for its 19 main podcast headings (the category charts). */
 export const CATEGORY_IDS = [1301, 1321, 1303, 1304, 1483, 1511, 1512, 1487, 1305, 1502, 1310, 1489, 1314, 1533, 1324,
   1545, 1309, 1318, 1488];
@@ -53,7 +56,7 @@ export const COUNTRY_NAMES = {
   sa: "Saudi Arabia", eg: "Egypt", ae: "the UAE", ma: "Morocco", es: "Spain", mx: "Mexico", ar: "Argentina", co: "Colombia",
   fr: "France", be: "Belgium", jp: "Japan", cn: "China", tw: "Taiwan", ru: "Russia", it: "Italy", ch: "Switzerland",
   ph: "the Philippines", us: "the United States", gb: "the United Kingdom", au: "Australia", ca: "Canada",
-  br: "Brazil", th: "Thailand",
+  br: "Brazil", th: "Thailand", kr: "South Korea",
 };
 /** Apple's main podcast headings. */
 export const MAIN_CATEGORIES = ["Arts", "Business", "Comedy", "Education", "Fiction", "Government", "Health & Fitness",
@@ -93,7 +96,7 @@ export function parseChart(data) {
   return out;
 }
 
-const SCRIPTS = { ar: /[؀-ۿ]/, ru: /[Ѐ-ӿ]/, ja: /[぀-ヿ一-鿿]/, zh: /[一-鿿]/, th: /[\u0E00-\u0E7F]/ };
+const SCRIPTS = { ar: /[؀-ۿ]/, ru: /[Ѐ-ӿ]/, ja: /[぀-ヿ一-鿿]/, zh: /[一-鿿]/, th: /[\u0E00-\u0E7F]/, ko: /[가-힯]/ };
 // Letters of scripts other than the Latin one: a show written mostly in them isn't Spanish or Tagalog
 // (the Philippines' and Spain's charts hold Chinese and Japanese shows too).
 const NOT_LATIN = /[Ͱ-ϿЀ-ӿ֐-׿؀-ۿ฀-๿぀-ヿ㐀-鿿가-힯]/g;

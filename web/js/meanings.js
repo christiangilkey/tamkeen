@@ -12,6 +12,7 @@ import { DefinerError } from "./definer.js";
 import { answerFrom, commonness, lookUp, matchKey, wordKeys } from "./lexicon/meaningdata.js";
 import { dictionaries } from "./lexicon/seen.js";
 import { lexemeOf } from "./lexicon/words.js";
+import { KoreanWords, koreanKeys } from "./lexicon/korean.js";
 
 export const NO_MEANINGS = "NO_MEANINGS";
 export { matchKey };
@@ -63,6 +64,12 @@ async function candidates(word, lang) {
   // the dictionary form found by the language's own word tables
   const lemmaOf = (form) => { try { const lex = lexemeOf(form, lang, tables); return lex && lex.lemma; } catch { return null; } };
   const list = lang === "ceb" && (tables || []).find((t) => Array.isArray(t && t.lemmas));
+  // Korean: the dictionary forms the word can be read as, likeliest first, before the word as written
+  // (가요 is first 가다 "go", then 가요 "song"); Wiktionary seldom has a form of a verb as an entry.
+  if (lang === "ko") {
+    const table = (tables || []).find((t) => t instanceof KoreanWords) || null;
+    return { keys: [...new Set(koreanKeys(word, table).map((k) => matchKey(k, lang)))], rank: () => Infinity };
+  }
   return { keys: wordKeys(word, lang, lemmaOf), rank: commonness(list ? list.lemmas : null) };
 }
 

@@ -403,7 +403,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "font_size": 26,                # transcript font size in px (podcasts and videos)
     "page_font_size": 17,           # text size for imported web pages (set separately; smaller by default)
     "welcome_seen": False,
-    "study_language": "",           # the language being learned (ar, es, fr, ja, zh, ru, it, tl, pt, ca, ceb, th, en); chosen on first run
+    "study_language": "",           # the language being learned (ar, es, fr, ja, zh, ru, it, tl, pt, ca, ceb, th, ko, en); chosen on first run
     "learning_languages": [],       # every language being learned (the top bar's switch); study_language is the one now
     "learning_times": {},           # {code: ms} when each was last ticked or unticked; synced (app/learning.py)
     "ui_language": "",              # the language the user speaks: the app's own words are shown in it (web/js/i18n.js)
@@ -455,6 +455,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "pinyin": True,
     "zh_script": "",
     "thai_readings": True,
+    "korean_readings": True,        # Korean words' Revised Romanization, over them
     # AI word definitions (users bring their own API key).
     "definer_provider": "claude",
     "definer_language": "English",

@@ -36,6 +36,7 @@ export const START = {
   ca: ["amb", "ES", "ca", 0],
   ceb: ["kaayo", "PH", "fil", 0],  // (YouTube has no Bisaya interface: Filipino is the nearest)
   th: ["ที่", "TH", "th", 0],
+  ko: ["이", "KR", "ko", 0],  // ("this", and a very common particle: checked 2026-10-21, 20 of 20 in Korean)
   en: ["the", "US", "en", 0],
 };
 
@@ -60,6 +61,7 @@ export const COUNTRIES = {
   ca: [["ES", "Spain"], ["AD", "Andorra"], ["FR", "France"]],
   ceb: [["PH", "Philippines"]],
   th: [["TH", "Thailand"]],
+  ko: [["KR", "South Korea"]],
   en: [["US", "United States"], ["GB", "United Kingdom"], ["CA", "Canada"], ["AU", "Australia"], ["IE", "Ireland"],
        ["NZ", "New Zealand"], ["IN", "India"], ["NG", "Nigeria"], ["ZA", "South Africa"], ["PH", "Philippines"]],
 };
@@ -200,6 +202,11 @@ export const TOPIC_WORDS = {
   th: { news: "ข่าว", music: "เพลง", comedy: "ตลก", food: "ทำอาหาร", travel: "เที่ยว", sport: "กีฬา",
         science: "วิทยาศาสตร์ เทคโนโลยี", gaming: "เล่นเกม", kids: "การ์ตูน", vlog: "vlog ชีวิตประจำวัน", podcast: "พอดแคสต์",
         learn: "ภาษาไทย สำหรับชาวต่างชาติ" },
+  // (checked 2026-10-21: 15-20 of 20 titles in Korean each; "토크쇼" (talk show) rather than "팟캐스트", whose
+  // results mixed in English shows; the music titles not in Hangul are K-pop videos named in English)
+  ko: { news: "뉴스", music: "노래", comedy: "개그", food: "요리", travel: "여행", sport: "스포츠",
+        science: "과학 기술", gaming: "게임 플레이", kids: "어린이 만화", vlog: "브이로그", podcast: "토크쇼",
+        learn: "한국어 배우기" },
   en: { news: "news", music: "music", comedy: "comedy", food: "cooking", travel: "travel", sport: "sports",
         science: "science and technology", gaming: "gaming", kids: "cartoons for kids", vlog: "vlog", podcast: "podcast",
         learn: "English listening practice" },

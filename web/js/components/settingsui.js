@@ -38,6 +38,7 @@ export const FINDS = [
   { s: "languages", id: "reading", label: "Vowel marks", words: "harakat tashkeel diacritics", langs: ["ar"] },
   { s: "languages", id: "reading", label: "Furigana", words: "kana kanji reading", langs: ["ja"] },
   { s: "languages", id: "reading", label: "Pinyin and characters", words: "tones simplified traditional", langs: ["zh"] },
+  { s: "languages", id: "reading", label: "Korean readings", words: "romanization romanisation pronunciation hangul", langs: ["ko"] },
   { s: "words", id: "mode", label: "AI explanations or built-in dictionary", words: "offline wiktionary free definitions meanings" },
   { s: "words", id: "key", label: "AI provider and API key", words: "claude gemini openai chatgpt grok key test" },
   { s: "words", id: "aimodel", label: "AI model", words: "price cost tokens cheaper faster" },

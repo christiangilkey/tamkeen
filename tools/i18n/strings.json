@@ -95,6 +95,16 @@
   "f": "web/js/languages.js"
  },
  {
+  "id": "dec66c5b",
+  "k": "Korean",
+  "f": "web/js/languages.js"
+ },
+ {
+  "id": "c1aedd41",
+  "k": "Hanja",
+  "f": "web/js/languages.js"
+ },
+ {
   "id": "649df08a",
   "k": "English",
   "f": "web/js/languages.js"
@@ -1207,6 +1217,86 @@
  {
   "id": "a1817b50",
   "k": "Thai Wikipedia",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "1a9e576e",
+  "k": "Easier: Dong-A Ilbo's news for children",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "ba790a60",
+  "k": "Easier: Chosun Ilbo's news for children",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "a5071d7e",
+  "k": "KBS, public broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "f8f1cc9a",
+  "k": "MBC, broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "a9307fe8",
+  "k": "SBS, broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "26d7b81a",
+  "k": "YTN, 24-hour news channel",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "5954c4e7",
+  "k": "Yonhap, news agency",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "1be94a15",
+  "k": "JTBC, broadcaster",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "8ac71be4",
+  "k": "Chosun Ilbo",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "840f2ac1",
+  "k": "JoongAng Ilbo",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "192c794f",
+  "k": "Dong-A Ilbo",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "de2f33f2",
+  "k": "Hankyoreh",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "2bfc4eea",
+  "k": "Kyunghyang Shinmun",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "6db5724b",
+  "k": "BBC, in Korean",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "40f42ad0",
+  "k": "Sports Seoul, sport",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "09020dee",
+  "k": "Korean Wikipedia",
   "f": "web/js/browser-home.js"
  },
  {
@@ -3350,6 +3440,11 @@
   "f": "web/js/components/settingsui.js"
  },
  {
+  "id": "7dfbd052",
+  "k": "Korean readings",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "836829ac",
   "k": "AI explanations or built-in dictionary",
   "f": "web/js/components/settingsui.js"
@@ -4052,6 +4147,11 @@
  {
   "id": "5745c353",
   "k": "How it is said (Paiboon romanization, from Wiktionary)",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "0c99ad18",
+  "k": "How it is said (Revised Romanization of Korean)",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -7975,6 +8075,11 @@
   "f": "web/js/lexicon/chinese.js"
  },
  {
+  "id": "aed4b5cc",
+  "k": "This Korean word table is from a different version of the app.",
+  "f": "web/js/lexicon/korean.js"
+ },
+ {
   "id": "8079905a",
   "k": "This Japanese dictionary is from a different version of the app.",
   "f": "web/js/lexicon/kuromoji.js"
@@ -8080,6 +8185,16 @@
   "f": "web/js/lexicon/readings.js"
  },
  {
+  "id": "27754574",
+  "k": "Show how Korean words are said, over the words (annyeonghaseyo)",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
+  "id": "a23d63ca",
+  "k": "In Revised Romanization, the official way of writing Korean in Latin letters, worked out by the app.",
+  "f": "web/js/lexicon/readings.js"
+ },
+ {
   "id": "1fa955a7",
   "k": "This word table is from a different version of the app.",
   "f": "web/js/lexicon/romance.js"
@@ -8157,6 +8272,11 @@
  {
   "id": "84ee7564",
   "k": "the OpenRussian.org dictionary, which also gives each word's stress, so Russian text can show it (ла́дно)",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "28edd404",
+  "k": "the Korean words of Wiktionary with their verb stems, counted in Korean film and TV subtitles, which the app checks the dictionary forms it finds against (먹었어요: 먹다, 학교에서: 학교)",
   "f": "web/js/lexicon/seen.js"
  },
  {
@@ -13210,6 +13330,11 @@
   "f": "web/js/trending.js"
  },
  {
+  "id": "04653e65",
+  "k": "South Korea",
+  "f": "web/js/trending.js"
+ },
+ {
   "id": "d6663dda",
   "k": "Business",
   "f": "web/js/trending.js"
@@ -15987,11 +16112,6 @@
  {
   "id": "23882c57",
   "k": "Portuguese",
-  "f": "app/reels.py"
- },
- {
-  "id": "dec66c5b",
-  "k": "Korean",
   "f": "app/reels.py"
  },
  {

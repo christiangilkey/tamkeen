@@ -90,6 +90,16 @@
    "license": "NAIST (IPADIC)",
    "entries": 392126
   },
+  "ko": {
+   "file": "ko-words.json.gz",
+   "bytes": 227084,
+   "sha256": "15b1be7eb635e576e82fa51b25068ab4bd8cbb5357522ddda48ba947b9317fb1",
+   "title": "Korean word list",
+   "db": "English Wiktionary (Wiktextract) + OpenSubtitles counts (FrequencyWords)",
+   "license": "CC-BY-SA-4.0",
+   "forms": 0,
+   "lexemes": 32124
+  },
   "lev": {
    "file": "ar-lev.json.gz",
    "bytes": 345050,
@@ -199,6 +209,16 @@
    "license": "CC-BY-SA-4.0",
    "words": 94318,
    "forms": 9642
+  },
+  "mean-ko": {
+   "file": "ko-meanings.json.gz",
+   "bytes": 1405932,
+   "sha256": "e61822a5a49833131bf1cd2e04ffbbf3f04b455f78b2d9832a1b8019b502fb84",
+   "title": "Korean meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 33321,
+   "forms": 11535
   },
   "mean-pt": {
    "file": "pt-meanings.json.gz",

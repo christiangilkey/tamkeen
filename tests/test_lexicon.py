@@ -175,6 +175,23 @@ def test_thai_reading_table(client):
     assert not client.post("/api/lexicon/remove", json={"lang": "th"}).json()["installed"]
 
 
+def test_korean_word_table_and_meanings(client):
+    """Korean downloads a list of dictionary words with their verb stems (tools/build_korean_words.mjs), and
+    for No AI its Wiktionary meanings, with each Sino-Korean word's Hanja."""
+    st = client.get("/api/lexicon/status?lang=ko").json()
+    assert st["needed"] and st["names"] == ["ko"] and not st["installed"] and 100_000 < st["bytes"] < 1_000_000
+    assert client.post("/api/lexicon/download", json={"lang": "ko"}).json()["installed"]
+    data = client.get("/api/lexicon/data/ko").json()
+    assert data["kind"] == "ko" and data["lemmas"][:2] == ["하다", "있다"] and data["preds"]["듣다"] == "들어|들으"
+    assert len(data["pos"]) == len(data["lemmas"])
+    meanings = client.get("/api/lexicon/status?lang=ko&kind=meanings").json()
+    assert meanings["names"] == ["mean-ko"]
+    assert client.post("/api/lexicon/download", json={"lang": "ko", "kind": "meanings"}).json()["installed"]
+    words = client.get("/api/lexicon/data/mean-ko").json()["words"]
+    assert "school" in words["학교"][0][2][0] and words["학교"][0][3].split("|")[0] == "學校"
+    assert words["우리"][0][2][0].startswith("we"), "the everyday meaning first"
+
+
 def test_word_meanings_for_no_ai_are_a_separate_download(client):
     """No AI (Settings): each language's meanings file is downloaded on its own (kind=meanings)."""
     st = client.get("/api/lexicon/status?lang=es&kind=meanings").json()

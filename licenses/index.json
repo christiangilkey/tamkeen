@@ -27,5 +27,6 @@
   {"name": "FastAPI / Starlette / Uvicorn", "license": "MIT / BSD 3-Clause", "file": "fastapi.txt", "on": ["desktop"]},
   {"name": "feedparser", "license": "BSD 2-Clause", "file": "feedparser.txt", "on": ["desktop"]},
   {"name": "httpx", "license": "BSD 3-Clause", "file": "httpx.txt", "on": ["desktop"]},
-  {"name": "NVIDIA cuBLAS / cuDNN (optional download)", "license": "NVIDIA Software License", "file": "nvidia.txt", "on": ["desktop"]}
+  {"name": "NVIDIA cuBLAS / cuDNN (optional download)", "license": "NVIDIA Software License", "file": "nvidia.txt", "on": ["desktop"]},
+  {"name": "Korean word list and common words, from Wiktionary and OpenSubtitles counts (optional download)", "license": "CC BY-SA 4.0", "file": "korean-sources.txt"}
 ]

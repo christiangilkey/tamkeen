@@ -111,6 +111,9 @@ p { margin: 0 0 .75em; }
 :lang(ja) { --ar-font: "Hiragino Sans", "Yu Gothic UI", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", sans-serif; }
 :lang(zh) { --ar-font: "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif; }
 :lang(th) { --ar-font: "Leelawadee UI", "Thonburi", "Noto Sans Thai", "Noto Sans Thai UI", "Tahoma", sans-serif; }
+:lang(ko) { --ar-font: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", "Noto Sans CJK KR", "Nanum Gothic", sans-serif; }
+/* The app shown in Korean: a Korean font for the interface too (Segoe UI and the rounded fonts have no Hangul). */
+html:lang(ko) { --ui-font: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", "Noto Sans CJK KR", system-ui, -apple-system, Roboto, sans-serif; }
 /* (back to the default inside study text in these, when the whole page is in Japanese, say: i18n.js) */
 :lang(es), :lang(fr), :lang(it), :lang(tl), :lang(pt), :lang(ca), :lang(ceb), :lang(ru), :lang(en) {
   --ar-font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", "Noto Sans", Roboto, Arial, sans-serif;

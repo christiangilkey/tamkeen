@@ -235,6 +235,30 @@ BOOKS: dict[str, list[tuple]] = {
           + ["นิทานเวตาล/ปลายเรื่อง"])),
         ("samkok", "สามก๊ก เล่ม ๑", "เจ้าพระยาพระคลัง (หน)", 1805, "The Romance of the Three Kingdoms in its classic Thai version: the first volume.", ("wikisource", "th", ['สามก๊ก/เล่ม 1/ตอนที่ 1', 'สามก๊ก/ตอนที่ ๒', 'สามก๊ก/ตอนที่ ๓', 'สามก๊ก/ตอนที่ ๔', 'สามก๊ก/ตอนที่ ๕', 'สามก๊ก/ตอนที่ ๖', 'สามก๊ก/ตอนที่ ๗', 'สามก๊ก/ตอนที่ ๘'])),
     ],
+    # Korean: the modern classics of the 1920s and 30s, in ko.wikisource's modern spelling. Every author died
+    # by 1950, so the works were free in Korea before 1996 (life + 30 years then) and are free in the US too.
+    # (Left out: 백치 아다다, whose author died in 1961; the old-orthography 홍길동전 and 흥부전.)
+    "ko": [
+        ("unsu-joeun-nal", "운수 좋은 날", "현진건", 1924, "A Seoul rickshaw man has his luckiest day in weeks, while his sick wife waits at home.", ("wikisource", "ko", "운수 좋은 날")),
+        ("binche", "빈처", "현진건", 1921, "A struggling young writer and the wife who stands by him in poverty.", ("wikisource", "ko", "빈처")),
+        ("sul-gwonhaneun-sahoe", "술 권하는 사회", "현진건", 1921, "An educated man drinks away his despair in colonial Seoul; his wife can't see why.", ("wikisource", "ko", "술 권하는 사회")),
+        ("b-sagam", "B사감과 러브레터", "현진건", 1925, "The strict matron of a girls' dormitory, who burns their love letters, has a secret.", ("wikisource", "ko", "B사감과 러브레터")),
+        ("gamja", "감자", "김동인", 1925, "Bok-nyeo, an honest farm girl, is ruined in a Pyongyang slum.", ("wikisource", "ko", "감자")),
+        ("baettaragi", "배따라기", "김동인", 1921, "A sailor's song, and the jealousy that cost him his wife and his brother.", ("wikisource", "ko", "배따라기")),
+        ("bombom", "봄봄", "김유정", 1935, "A farmhand works for years for his bride's father, who says she is still too small to marry.", ("wikisource", "ko", "봄봄")),
+        ("dongbaekkkot", "동백꽃", "김유정", 1936, "A shy farm boy and the girl who keeps setting her rooster on his.", ("wikisource", "ko", "동백꽃")),
+        ("geum-ttaneun-kongbat", "금 따는 콩밭", "김유정", 1935, "A poor farmer digs up his own bean field, sure there is gold under it.", ("wikisource", "ko", "금 따는 콩밭")),
+        ("nalgae", "날개", "이상", 1936, "A man who never leaves his room drifts through a strange marriage: Yi Sang's modernist classic.", ("wikisource", "ko", "날개")),
+        ("memilkkot", "메밀꽃 필 무렵", "이효석", 1936, "Travelling peddlers walk all night under the moon, through buckwheat fields in flower.", ("wikisource", "ko", "메밀꽃 필 무렵")),
+        ("mullebanga", "물레방아", "나도향", 1925, "Desire and betrayal by a village water mill.", ("wikisource", "ko", "물레방아")),
+        ("talchulgi", "탈출기", "최서해", 1925, "A letter telling why a poor man left his family in Manchuria to fight for independence.", ("wikisource", "ko", "탈출기")),
+        ("readymade", "레디메이드 인생", "채만식", 1934, "Educated and jobless in 1930s Seoul: a bitter satire.", ("wikisource", "ko", "레디메이드 인생")),
+        ("chisuk", "치숙", "채만식", 1938, "A young man mocks his 'useless' socialist uncle, and gives himself away.", ("wikisource", "ko", "치숙")),
+        ("jindallaekkot", "진달래꽃", "김소월", 1925, "Kim Sowol's poems, Korea's best loved: azaleas, parting and longing.", ("wikisource", "ko", "진달래꽃 (시집)")),
+        ("nimui-chimmuk", "님의 침묵", "한용운", 1926, "Han Yong-un's poems to the beloved who is gone: a lover, the Buddha, the lost nation.", ("wikisource", "ko", "님의 침묵")),
+        ("haneul-baram-byeol-si", "하늘과 바람과 별과 시", "윤동주", 1948, "Yun Dong-ju's poems, published after his death in a Japanese prison.", ("wikisource", "ko", "하늘과 바람과 별과 시 (1948년)")),
+        ("mujeong", "무정", "이광수", 1917, "Korea's first modern novel: a young English teacher between two women.", ("wikisource", "ko", ["무정/1장~20장", "무정/21장~40장", "무정/41장~60장", "무정/61장~80장", "무정/81장~100장", "무정/101장~120장", "무정/121장~126장"])),
+    ],
 }
 
 NO_SPACES = {"ja", "zh", "th"}  # lines of a paragraph join without a space
@@ -477,7 +501,8 @@ class _Text(HTMLParser):
     """The readable text of a Wikisource page: headings, paragraphs and poem lines, without the
     navigation boxes, notes and edit links around them."""
     SKIP_CLASS = re.compile(r"\b(ws-noexport|noprint|mw-editsection|reference|references|header_notes|ws-header|"
-                            r"navbox|metadata|toc|mw-references-wrap|wst-header|pagenum|ws-pagenum|plainlinks)\b")
+                            r"navbox|metadata|toc|mw-references-wrap|wst-header|pagenum|ws-pagenum|plainlinks|"
+                            r"licenseContainer|hatnote|dablink|jamocomposed_block)\b")  # (the last: old Korean letters)
     BLOCKS = {"p", "h1", "h2", "h3", "h4", "h5", "dd", "li", "blockquote", "div", "center"}
 
     def __init__(self, tables: bool = False):
@@ -788,6 +813,27 @@ def trim(blocks: list[dict], opts: dict) -> list[dict]:
     return blocks
 
 
+def korean_modern(blocks: list[dict]) -> list[dict]:
+    """Korean Wikisource sets an old poem out twice side by side, in today's spelling ("현대어") and as it
+    was printed ("원문", with letters Korean no longer uses): only today's is kept. Its pages also end with
+    a licence box under the heading 라이선스, which is left out."""
+    out, skipping = [], False
+    for b in blocks:
+        text = b["text"].strip()
+        if b["kind"].startswith("h") or text == "현대어":
+            skipping = False
+        if text == "원문" or (b["kind"].startswith("h") and text == "라이선스"):
+            skipping = True
+        # (and anything still written with letters Korean no longer uses, like a poem's title as printed in 1926)
+        if skipping or text == "현대어" or OLD_HANGUL.search(text):
+            continue
+        out.append(b)
+    return out
+
+
+OLD_HANGUL = re.compile("[ᄀ-ᇿꥠ-꥿ힰ-퟿]")
+
+
 def build_one(lang: str, entry: tuple, again: bool) -> dict | None:
     book_id, title, author, year, blurb, source = entry
     opts = source[-1] if isinstance(source[-1], dict) else {}
@@ -820,6 +866,8 @@ def build_one(lang: str, entry: tuple, again: bool) -> dict | None:
         else:
             blocks = aozora(source[1], source[2])
             credit = f"Aozora Bunko 青空文庫 (https://www.aozora.gr.jp/cards/{source[1]}/card{source[2]}.html)"
+        if lang == "ko":
+            blocks = korean_modern(blocks)
         blocks = clean(trim(blocks, opts))
         words, kept = 0, []
         for b in blocks:

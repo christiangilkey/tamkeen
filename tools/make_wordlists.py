@@ -3,7 +3,7 @@ who says they have already started (web/js/commonwords.js).
 
     pip install wordfreq
     python tools/make_wordlists.py                       (every language wordfreq has)
-    python tools/make_wordlists.py th=path/to/tnc_freq.txt ceb=path/to/ceb_freq.tsv
+    python tools/make_wordlists.py th=path/to/tnc_freq.txt ceb=path/to/ceb_freq.tsv ko=path/to/ko_lemma_counts.tsv
 
 Writes web/js/wordlists/<code>.js (one per language the app teaches), most common word first.
 
@@ -15,6 +15,10 @@ written here are too: see web/js/wordlists/README.md. wordfreq has neither Thai 
   - Bisaya from counting the Cebuano web text of OPUS's NLLB collection (ODC-By 1.0), the same count
     as its word list for the root finder (tools/build_lemmas.py: word <tab> count); English words
     that crept in are left out unless a Bisaya dictionary knows them too (man, may, bag).
+  - Korean (wordfreq counts Korean in the pieces a word-splitter makes) from Korean film and TV subtitles
+    counted under each word's dictionary form by tools/build_korean_words.mjs (먹었어요 counts for 먹다;
+    lemma <tab> count); only words Wiktionary has (docs/lexicon/ko-meanings.json.gz), so the names of
+    characters in the films and series are left out.
 What is left out of the raw ranking:
 numbers and symbols, stray single letters, words in another alphabet (English in an Arabic list),
 and spellings that differ only in ways the app treats as the same word (Arabic alef forms, Russian
@@ -30,9 +34,12 @@ import sys
 import unicodedata
 from pathlib import Path
 
-from wordfreq import top_n_list
-
 SIZE = 1000
+
+
+def top_n_list(code: str, n: int) -> list[str]:
+    from wordfreq import top_n_list as top  # pip install wordfreq (not needed for the languages counted from a file)
+    return top(code, n)
 OUT = Path(__file__).resolve().parent.parent / "web" / "js" / "wordlists"
 
 # English that turns up in other languages' counts (song titles, brand names, web addresses).
@@ -80,9 +87,10 @@ SCRIPT = {
     "ca": re.compile(r"[a-zàèéíïòóúüç]+(?:(?:·|'|-)[a-zàèéíïòóúüç]+)*'?"),
     "ceb": re.compile(r"[a-zñ]+(?:-[a-zñ]+)*"),
     "th": re.compile(r"[\u0E01-\u0E4E]+"),
+    "ko": re.compile(r"[\uAC00-\uD7A3]+"),
 }
 # Where a language's counts come from when wordfreq has none: "lang=path" on the command line.
-FROM_FILE = {"th", "ceb"}
+FROM_FILE = {"th", "ceb", "ko"}
 
 _AR_MAP = str.maketrans({"آ": "ا", "أ": "ا", "إ": "ا", "ٱ": "ا", "ة": "ه", "ى": "ي", "ؤ": "و", "ئ": "ي", "ـ": None})
 
@@ -104,6 +112,8 @@ def keep(word: str, code: str) -> bool:
         return False
     if code == "ceb" and (word in CEB_NOT_WORDS or word in ENGLISH_COMMON and word not in CEB_KNOWN):
         return False
+    if code == "ko" and (word not in KO_KNOWN or word in KO_NOT_WORDS):
+        return False
     if code == "th" and (len(word) == 1 and word not in TH_ONE or word[0] in "ะาำิีึืุู็่้๊๋์ั"):
         return False  # a lone letter, or a piece that starts with a vowel sign or tone mark
     if code == "es" and word in {"in", "to"}:
@@ -122,6 +132,11 @@ def keep(word: str, code: str) -> bool:
 TH_ONE = {"ณ", "ก", "ธ"}
 ENGLISH_COMMON: set[str] = set()
 CEB_KNOWN: set[str] = set()
+KO_KNOWN: set[str] = set()
+# Korean: particles the subtitles write apart now and then (they go on words, they aren't words to know),
+# and swearing, which film subtitles are full of.
+KO_NOT_WORDS = {"을", "를", "은", "는", "요", "의", "에", "로", "으로", "에서", "에게", "한테", "까지", "부터", "처럼", "랑",
+                "이랑", "하고", "씨발", "시발", "개새끼", "새끼", "병신", "좆", "젠장", "빌어먹을", "망할"}
 
 
 def counted(path: str, n: int) -> list[str]:
@@ -153,13 +168,19 @@ def build(code: str, source: str = "") -> list[str]:
 
 
 SOURCE_NOTE = {"th": "the Thai National Corpus word counts (PyThaiNLP, CC0)",
-               "ceb": "Bisaya web text in OPUS NLLB (ODC-By 1.0)"}
+               "ceb": "Bisaya web text in OPUS NLLB (ODC-By 1.0)",
+               "ko": "Korean film and TV subtitles (OpenSubtitles via FrequencyWords, CC BY-SA 4.0), counted by dictionary form"}
 
 
 def main() -> None:
-    version = importlib.metadata.version("wordfreq")
     OUT.mkdir(parents=True, exist_ok=True)
     wanted = [a.partition("=") for a in sys.argv[1:]] or [(c, "", "") for c in SCRIPT if c not in FROM_FILE]
+    version = "" if all(c in FROM_FILE for c, _, _ in wanted) else importlib.metadata.version("wordfreq")
+    if any(c == "ko" for c, _, _ in wanted):
+        global KO_KNOWN
+        import gzip
+        meanings = json.loads(gzip.decompress((Path(__file__).resolve().parent.parent / "docs" / "lexicon" / "ko-meanings.json.gz").read_bytes()))
+        KO_KNOWN = set(meanings["words"]) | set(meanings["forms"])
     if any(c == "ceb" for c, _, _ in wanted):
         global ENGLISH_COMMON, CEB_KNOWN
         ENGLISH_COMMON = set(top_n_list("en", 5000))

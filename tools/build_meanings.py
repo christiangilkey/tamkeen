@@ -4,10 +4,10 @@ One file per language taught, docs/lexicon/<lang>-meanings.json.gz, made from th
 Wiktionary as extracted by Wiktextract (https://kaikki.org, Tatu Ylonen; the text is Wiktionary's,
 CC BY-SA 4.0 and GFDL). Every word of the language that has a definition is kept, with its part
 of speech, its meanings (the English glosses), how it is written in full (Arabic with its vowels,
-Russian with its stress), its reading (Japanese kana, Chinese pinyin), its Arabic root, and, for
+Russian with its stress), its reading (Japanese kana, Chinese pinyin), its Arabic root or Korean Hanja, and, for
 forms of a word ("hablo", "كتبت"), which word they are a form of. Read by web/js/meanings.js.
 
-    python tools/build_meanings.py ar es fr ...      (any of: ar es fr it ru en tl ja zh pt ca ceb th)
+    python tools/build_meanings.py ar es fr ...      (any of: ar es fr it ru en tl ja zh pt ca ceb th ko)
     python tools/build_meanings.py ar=<a saved kaikki .jsonl.gz>   (from a file instead)
     python tools/build_meanings.py --numbers es fr ...   (only add the number words to the files there)
     python tools/build_meanings.py --fill tl ceb         (only fill the gaps of the Tagalog and Bisaya files there)
@@ -43,7 +43,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "lexicon"
 NAMES = {"ar": "Arabic", "es": "Spanish", "fr": "French", "it": "Italian", "ru": "Russian", "en": "English",
          "tl": "Tagalog", "ja": "Japanese", "zh": "Chinese", "pt": "Portuguese", "ca": "Catalan", "ceb": "Cebuano",
-         "th": "Thai"}
+         "th": "Thai", "ko": "Korean"}
 URL = "https://kaikki.org/dictionary/{0}/kaikki.org-dictionary-{1}.jsonl.gz"
 # Arabic as spoken: Wiktionary's dialect words go in the Arabic file too, marked with their dialect.
 DIALECTS = {"arz": "Egyptian Arabic", "ajp": "South Levantine Arabic", "apc": "North Levantine Arabic",
@@ -130,6 +130,11 @@ def reading(entry: dict, lang: str) -> str:
 
 
 def root(entry: dict, lang: str) -> str:
+    if lang == "ko":  # a Sino-Korean word's Hanja (학교: 學校), shown in the popup as "Hanja"
+        for f in entry.get("forms") or []:
+            if "hanja" in (f.get("tags") or []) and f.get("form") and re.search(r"[㐀-鿿]", f["form"]):
+                return f["form"]
+        return ""
     if lang != "ar":
         return ""
     for t in entry.get("etymology_templates") or []:
@@ -182,6 +187,13 @@ def senses(entry: dict, lang: str):
         target = (s.get("form_of") or s.get("alt_of") or [])
         if target and target[0].get("word"):
             form_of.append((target[0]["word"], clean(g[-1])))
+            # Korean: "contraction of 나의 (na-ui): my" says what the word means, and the word it shortens
+            # (나의 "of me") often has no entry: kept as a meaning, "my (contraction of 나의 (na-ui))".
+            m = lang == "ko" and KO_SHORTENED.match(g[-1])
+            if m:
+                gloss = clean(f"{m.group(3)} ({m.group(1)} {m.group(2)})")
+                if gloss not in glosses:
+                    glosses.append(gloss)
             continue
         for level in g:  # a sense's glosses go from general to specific: "to write", then "to draw (figures)"
             gloss = clean(level)
@@ -235,6 +247,8 @@ def build(lang: str, source: str) -> dict:
         simplified_spellings(words, forms)
         everyday_reading_first(words)
         everyday_sense_first(words, forms)
+    if lang == "ko":
+        everyday_sense_first(words, forms, EVERYDAY_KO, "ko")
     add_other_spellings(lang, words, forms)
     if lang == "ja":
         modern_entries_first(words)
@@ -374,15 +388,31 @@ EVERYDAY_ZH = {
 }
 
 
-def everyday_sense_first(words: dict, forms: dict) -> None:
-    """Put the meaning named in EVERYDAY_ZH first: its entry first, and that meaning first in it. A
-    character with no entries of its own (only "form of" links) has it done in the entries it points to."""
-    for ch, start in EVERYDAY_ZH.items():
+KO_SHORTENED = re.compile(r"^(contraction of|short for|clipping of) ([^:]+): (.+)$")
+
+# The same for Korean: the commonest words whose first Wiktionary entry is not what they mean in everyday
+# talk (우리 "cage" before "we", 안 "inside" before "not", 년 "bitch" before "year", 네 "four" before "yes").
+# Checked by hand on the 250 commonest words of docs/lexicon/ko-words.json.gz (2026-10-21).
+EVERYDAY_KO = {
+    "우리": r"^we, us", "내": r"^my \(contraction", "제": r"^my \(contraction", "안": r"^not$", "네": r"^yes$",
+    "저": r"^I, me; first-person singular polite", "다": r"^all, completely", "못": r"^cannot", "년": r"^year$",
+    "와": r"^wow", "씨": r"^sir or madam", "살": r"^years of age", "분": r"^minute$", "좀": r"^a little",
+    "그래": r"^yeah", "적": r"^time, occurrence", "중": r"^in the course of", "명": r"^Counter for people",
+    "있다": r"^to be \(in a place\); to exist", "안녕": r"^hello",
+    "운수": r"^fortune, luck", "당장": r"^At once", "직접": r"^directly", "결과": r"^result; outcome",
+    "고다": r"^to stew", "자신": r"^oneself",
+}
+
+
+def everyday_sense_first(words: dict, forms: dict, everyday: dict | None = None, lang: str = "zh") -> None:
+    """Put the meaning named in EVERYDAY_ZH (or `everyday`) first: its entry first, and that meaning first in
+    it. A character with no entries of its own (only "form of" links) has it done in the entries it points to."""
+    for ch, start in (EVERYDAY_ZH if everyday is None else everyday).items():
         key = ch if ch in words else next((t for t, _ in forms.get(ch, []) if t in words), None)
         groups = words.get(key) or []
         hit = next(((g, i) for g in groups for i, m in enumerate(g[2]) if re.search(start, m)), None)
         if not hit:
-            print(f"  zh: EVERYDAY_ZH {ch}: no meaning starts like {start!r} any more", flush=True)
+            print(f"  {lang}: everyday meaning of {ch}: no meaning starts like {start!r} any more", flush=True)
             continue
         group, i = hit
         group[2].insert(0, group[2].pop(i))

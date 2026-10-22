@@ -48,6 +48,7 @@ COMEDY_WORDS = {
     "ca": ["humor", "comèdia", "divertit", "acudits"],
     "ceb": ["katawa", "kataw-anan", "bisaya comedy", "binuang"],
     "th": ["ตลก", "ขำขัน", "แกล้ง", "มุกตลก"],
+    "ko": ["개그", "웃긴영상", "몰카", "웃음"],
     "en": ["comedy", "funny", "pranks", "standup"],
 }
 
@@ -79,6 +80,8 @@ RANDOM_WORDS = {
             "kasinatian", "kahibalo", "pagpasabot", "sud-an", "dula", "balita", "podcast", "adlaw-adlaw", "pamilya", "kape", "bisaya"],
     "th": ["vlog", "สูตรอาหาร", "เรื่องเล่า", "คำแนะนำ", "ตลก", "ขำขัน", "คำถาม", "ชาเลนจ์", "สัมภาษณ์", "เที่ยว", "อาหาร", "ประสบการณ์",
            "เกร็ดความรู้", "อธิบาย", "ทำอาหาร", "กีฬา", "ข่าว", "พอดแคสต์", "กิจวัตร", "ครอบครัว", "กาแฟ", "รีวิว"],
+    "ko": ["브이로그", "레시피", "썰", "꿀팁", "개그", "웃긴영상", "질문", "챌린지", "인터뷰", "여행", "먹방", "경험", "상식", "설명",
+           "요리", "스포츠", "뉴스", "팟캐스트", "일상", "가족", "카페", "리뷰"],
     "en": ["vlog", "recipe", "storytime", "advice", "comedy", "sketch", "question", "challenge", "interview", "travel", "food", "story",
            "experience", "funfacts", "explained", "cooking", "sports", "news", "podcast", "routine", "family", "coffee"],
 }
