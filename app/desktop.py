@@ -462,4 +462,10 @@ def run(browser: bool = False, port: int | None = None, headless: bool = False, 
     finally:
         applink.remove_instance()  # first, so a new launch doesn't hand its link to this closing one
         applink.on_link(None)
+        try:
+            from . import sync
+
+            sync.manager.flush_on_exit()  # a change still waiting (a review just done) goes to Drive first
+        except Exception:  # never let it stop the app from closing
+            log.exception("Couldn't send the last changes")
         server.stop()

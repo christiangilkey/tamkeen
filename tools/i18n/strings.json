@@ -370,6 +370,21 @@
   "f": "web/js/app.js"
  },
  {
+  "id": "d4bbbea7",
+  "k": "Sync isn't available in this build (no Google sign-in configured).",
+  "f": "web/js/app.js"
+ },
+ {
+  "id": "c64c401c",
+  "k": "Sign in with Google to keep your library the same on all your devices.",
+  "f": "web/js/app.js"
+ },
+ {
+  "id": "ada2e9e9",
+  "k": "Sign in",
+  "f": "web/js/app.js"
+ },
+ {
   "id": "752be6ae",
   "k": "That file is too big (over 200 MB).",
   "f": "web/js/bookfiles.js"
@@ -3138,6 +3153,11 @@
   "id": "5b8027fa",
   "k": "Got it",
   "f": "web/js/components/onboarding.js"
+ },
+ {
+  "id": "6271a4fa",
+  "k": "Couldn't sync.",
+  "f": "web/js/components/refreshbutton.js"
  },
  {
   "id": "74026a93",
@@ -10080,11 +10100,6 @@
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "ada2e9e9",
-  "k": "Sign in",
-  "f": "web/js/pages/reels.js"
- },
- {
   "id": "3a1f994d",
   "k": "Popular in {0} right now",
   "f": "web/js/pages/reels.js"
@@ -11187,11 +11202,6 @@
  {
   "id": "31be6197",
   "k": "Where is it stored?",
-  "f": "web/js/pages/settings.js"
- },
- {
-  "id": "d4bbbea7",
-  "k": "Sync isn't available in this build (no Google sign-in configured).",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -13085,6 +13095,21 @@
   "f": "web/js/stt.js"
  },
  {
+  "id": "82fb1d51",
+  "k": "Up to date",
+  "f": "web/js/syncpace.js"
+ },
+ {
+  "id": "ac41569a",
+  "k": "Got 1 change from your other devices",
+  "f": "web/js/syncpace.js"
+ },
+ {
+  "id": "f7a589f3",
+  "k": "Got {0} changes from your other devices",
+  "f": "web/js/syncpace.js"
+ },
+ {
   "id": "0118d341",
   "k": "No lookups yet today.",
   "f": "web/js/tokenuse.js"
@@ -14095,6 +14120,11 @@
   "f": "mobile/src/js/app.js"
  },
  {
+  "id": "ecc1d2f5",
+  "k": "Signed in as {0}",
+  "f": "mobile/src/js/app.js"
+ },
+ {
   "id": "db79573c",
   "k": "{0} Sign in with Google",
   "f": "mobile/src/js/app.js"
@@ -14117,11 +14147,6 @@
  {
   "id": "46729ba2",
   "k": "Couldn't sign in to Friends.",
-  "f": "mobile/src/js/app.js"
- },
- {
-  "id": "ecc1d2f5",
-  "k": "Signed in as {0}",
   "f": "mobile/src/js/app.js"
  },
  {

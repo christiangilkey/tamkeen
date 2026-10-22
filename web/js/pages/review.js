@@ -935,6 +935,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     el.remove();
     if (inHistory && !byHistory) history.back();
     onClose();
+    window.dispatchEvent(new Event("tamkeen:review-closed")); // the session's answers go to the other devices now (app.js)
   }
   $(".rv-x").onclick = () => close();
   $(".rv-undo").onclick = takeBack;

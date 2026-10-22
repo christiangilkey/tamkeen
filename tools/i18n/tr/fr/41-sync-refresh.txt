@@ -1,0 +1,5 @@
+c64c401c Connectez-vous avec Google pour garder la même bibliothèque sur tous vos appareils.
+6271a4fa Synchronisation impossible.
+82fb1d51 Tout est à jour
+ac41569a 1 modification reçue de vos autres appareils
+f7a589f3 {0} modifications reçues de vos autres appareils

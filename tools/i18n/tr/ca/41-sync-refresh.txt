@@ -1,0 +1,5 @@
+c64c401c Inicia la sessió amb Google per tenir la mateixa biblioteca a tots els teus dispositius.
+6271a4fa No s'ha pogut sincronitzar.
+82fb1d51 Tot al dia
+ac41569a Ha arribat 1 canvi dels teus altres dispositius
+f7a589f3 Han arribat {0} canvis dels teus altres dispositius

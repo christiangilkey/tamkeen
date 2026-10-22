@@ -1,0 +1,5 @@
+c64c401c Inicia sesión con Google para tener tu biblioteca igual en todos tus dispositivos.
+6271a4fa No se pudo sincronizar.
+82fb1d51 Todo al día
+ac41569a Llegó 1 cambio de tus otros dispositivos
+f7a589f3 Llegaron {0} cambios de tus otros dispositivos

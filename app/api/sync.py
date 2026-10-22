@@ -79,11 +79,38 @@ def google_id_token() -> dict[str, str]:
 
 
 @router.post("/now")
-def sync_now() -> dict[str, Any]:
+def sync_now(wait: bool = False) -> dict[str, Any]:
+    """Sync now. `wait`: the refresh button, which waits for it and says how it went."""
     if not oauth.signed_in():
         raise HTTPException(400, "Sign in with Google first.")
+    if wait:
+        return sync.manager.wait_and_sync()
     sync.manager.request(delay=0)
     return sync.status()
+
+
+@router.post("/check")
+def sync_check() -> dict[str, Any]:
+    """Another of the learner's devices nudged this one (web/js/syncnudge.js): look at Drive now."""
+    sync.manager.check()
+    return {"ok": True}
+
+
+@router.post("/flush")
+def sync_flush() -> dict[str, Any]:
+    """The reviewer closed: send its answers now if they are still waiting."""
+    return {"ok": True, "sent": sync.manager.flush()}
+
+
+class Presence(BaseModel):
+    visible: bool
+    focused: bool = True
+
+
+@router.post("/presence")
+def presence(body: Presence) -> dict[str, Any]:
+    """The app's page: is its window on screen, and in front? (Sets how often Drive is checked.)"""
+    return sync.manager.presence(body.visible, body.focused)
 
 
 class SyncSettings(BaseModel):

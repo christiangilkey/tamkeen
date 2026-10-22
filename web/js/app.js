@@ -20,6 +20,9 @@ import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./lang
 import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating } from "./i18n.js";
 import { initScrollHints } from "./scrollhint.js";
+import { shouldRedraw } from "./syncpace.js";
+import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
+import { refreshButton } from "./components/refreshbutton.js";
 
 // ---------- API ----------
 export async function api(path, { method = "GET", body, raw, bytes } = {}) {
@@ -571,6 +574,7 @@ async function boot() {
   })).catch(() => {});
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   startBadge();
+  startSyncPace();
   // After each sync, pass on the creature game's state in case another device saved a newer one.
   on("sync", () => api("/settings").then((s) => {
     window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: s.game_state }));
@@ -582,6 +586,64 @@ async function boot() {
       if (r && r.update_available) offerUpdate(r);
     }).catch(() => {});
   }, 2500);
+}
+
+// ---------- keeping the devices in step (web/js/syncpace.js; the timing itself is in app/sync) ----------
+
+/** Something on the page that would be lost if it were drawn again now: the reviewer, a box, typing. */
+function busyNow() {
+  if (document.body.classList.contains("rv-open")) return true;
+  const f = document.activeElement;
+  if (f && f !== document.body && f.matches("input, textarea, select, [contenteditable]")) return true;
+  return [...document.querySelectorAll('[role="dialog"], [role="alertdialog"], .modal-back, .tour')].some((el) => el.getClientRects().length > 0);
+}
+
+/** The refresh button: sync now and wait for it. The number of changes that came, or null when it
+ *  offered to sign in instead. */
+async function refreshNow() {
+  const st = await api("/sync/status");
+  if (!st.configured) throw new Error("Sync isn't available in this build (no Google sign-in configured).");
+  if (!st.signed_in) {
+    toast("Sign in with Google to keep your library the same on all your devices.", { timeout: 8000, action: { label: "Sign in",
+      run: () => api("/sync/login", { method: "POST" }).catch((e) => toast(e.message, { error: true })) } });
+    return null;
+  }
+  const r = await api("/sync/now?wait=true", { method: "POST" });
+  if (r.state === "error") throw new Error(r.error);
+  const received = (r.last_result && r.last_result.received) || 0;
+  // Home and Vocab are drawn again by the "sync" message; any other page that is safe to, here.
+  const at = { received, hash: location.hash, busy: busyNow() };
+  if (shouldRedraw({ ...at, manual: true }) && !shouldRedraw(at)) route();
+  return received;
+}
+
+/** Tell the app how its window is (on screen, in front: Drive is checked every minute while it is
+ *  on screen, and at once on coming back to it; a waiting change is sent when it is left), send a
+ *  review session's answers when the reviewer closes, nudge the learner's other open devices when
+ *  this one sent something, and sync when one of them nudges (syncnudge.js). */
+function startSyncPace() {
+  const tell = () => api("/sync/presence", { method: "POST",
+    body: { visible: document.visibilityState !== "hidden", focused: document.hasFocus() } }).catch(() => {});
+  document.addEventListener("visibilitychange", tell);
+  window.addEventListener("focus", tell);
+  window.addEventListener("blur", tell);
+  window.addEventListener("pagehide", () => { try { navigator.sendBeacon("/api/sync/flush"); } catch { /* closing anyway */ } });
+  window.addEventListener("tamkeen:review-closed", () => { api("/sync/flush", { method: "POST" }).catch(() => {}); });
+  tell();
+  startNudges(() => { api("/sync/check", { method: "POST" }).catch(() => {}); });
+  let last = null;
+  const after = (st) => {
+    if (!st) return;
+    setNudgeKey(st.nudge_key);
+    if (st.state !== "idle" || !st.last_result || st.last_sync === last) return;
+    last = st.last_sync;
+    if (st.last_result.uploaded) sendNudge();
+    if (shouldRedraw({ received: st.last_result.received, hash: location.hash, busy: busyNow() })) route();
+  };
+  on("sync", after);
+  api("/sync/status").then((st) => { setNudgeKey(st.nudge_key); last = st.last_sync; }).catch(() => {});
+  const refresh = refreshButton(refreshNow);
+  document.getElementById("global-search").after(refresh);
 }
 
 /** The number of cards left to review today on the taskbar button / Dock icon (app/appbadge.py):

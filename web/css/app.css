@@ -144,6 +144,15 @@ button.danger { color: var(--danger); }
   background: rgba(255, 255, 255, .14); color: #fff; border: 1px solid rgba(255, 255, 255, .22); font-weight: 600; flex: none; }
 .lang-switch:hover:not(:disabled) { background: rgba(255, 255, 255, .22); }
 .lang-switch-caret { font-size: .75em; opacity: .8; }
+/* The refresh button in the top bar (components/refreshbutton.js): a round line icon that turns while syncing. */
+.top-refresh { margin-inline-start: auto; flex: none; width: 34px; height: 34px; min-width: 0; min-height: 0; padding: 0;
+  display: inline-grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .14); color: #fff; }
+.top-refresh:hover:not(:disabled) { background: rgba(255, 255, 255, .22); }
+.top-refresh svg { display: block; }
+.top-refresh.spinning svg { animation: spin .9s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .top-refresh.spinning svg { animation: none; } .top-refresh.spinning { opacity: .6; } }
+.global-search ~ .top-refresh { margin-inline-start: -8px; } /* the computer: just after the search box */
+.top-refresh + .top-search { margin-inline-start: 6px; }
 /* Reset Tamkeen (components/resetapp.js): a plain solid red button. */
 button.danger-solid { background: #d92d20; color: #fff; border-color: #d92d20; font-weight: 700; }
 button.danger-solid:hover:not(:disabled) { background: #d92d20; filter: brightness(1.08); }

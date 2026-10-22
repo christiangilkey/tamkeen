@@ -1,0 +1,5 @@
+c64c401c Entre com o Google para ter a mesma biblioteca em todos os seus aparelhos.
+6271a4fa Não foi possível sincronizar.
+82fb1d51 Tudo em dia
+ac41569a Chegou 1 alteração dos seus outros aparelhos
+f7a589f3 Chegaram {0} alterações dos seus outros aparelhos
