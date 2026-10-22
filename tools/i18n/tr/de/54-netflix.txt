@@ -1,0 +1,52 @@
+# Netflix (2026-10-21)
+826600ed Netflix läuft im eigenen Fenster von Tamkeen auf einem Windows-Computer.
+4052b125 Serien und Filme schauen, mit den Untertiteln als anklickbaren Wörtern
+034fc8b3 Netflix öffnen
+d93fcbac Netflix öffnet sich bei seinen Titeln auf {0}. Melde dich dort mit deinem eigenen Netflix-Konto an und wähle etwas aus: Es läuft hier, mit den Untertiteln auf {1} als anklickbaren Wörtern.
+9db0dc47 Wird in Tamkeen geöffnet …
+a44a102a Dieser Titel konnte nicht geöffnet werden.
+1d37298b Netflix hat seine Titel nicht nach Sprache geöffnet. Nutze „Nach Sprachen durchsuchen“ im Menü von Netflix.
+7fadb4d2 Wähle im Sprachmenü von Netflix die Sprache, die du lernst.
+8ab30860 Melde dich hier bei Netflix an. Nur Netflix sieht dein Passwort.
+c4e3e9b1 Wähle einen Titel, um ihn in Tamkeen anzusehen
+6fedd6f1 Wähle {0} im Sprachmenü von Netflix.
+48f90157 Netflix funktioniert in Tamkeen auf einem Windows-Computer: Wähle dort Netflix, und seine Untertitel werden zu anklickbaren Wörtern, wie bei einem YouTube-Video. Was du dort ansiehst, erscheint hier in deiner Bibliothek.
+4682f31f Auf den meisten Handys lässt Netflix seine Videos nicht in anderen Apps abspielen, deshalb ist es noch nicht in der Handy-App von Tamkeen.
+0fdd1439 Auf einem iPhone lässt Netflix seine Videos nicht in anderen Apps abspielen, deshalb kann Tamkeen sie hier nicht zeigen.
+bf8e4c08 Netflix spielt seine Videos nicht im Browser eines Handys ab, deshalb kann die Web-App sie nicht zeigen.
+f1e7ac29 In einem Webbrowser bräuchte Tamkeen eine Browsererweiterung, um mit Netflix zu arbeiten, und die gibt es noch nicht.
+1ea1e991 Die Version von Tamkeen auf diesem Computer kann den Player von Netflix noch nicht steuern.
+6b4020fc Der eingebaute Webbetrachter dieses Computers kann die geschützten Videos von Netflix nicht abspielen.
+c9bc78e3 Netflix kann hier nicht abgespielt werden.
+44414c92 Netflix ist hier nicht verfügbar
+9028e103 Die Tonspur auf {0} von Netflix läuft.
+a3d8063f Netflix hat für diesen Titel keine Untertitel auf {0}, deshalb kann Tamkeen seine Wörter nicht zeigen. Das Video läuft trotzdem.
+f1d11dfc Netflix hat die Untertitel auf {0} für diesen Titel nur als Bilder, deshalb kann Tamkeen ihre Wörter nicht lesen.
+39837ace Netflix hat seine Untertitel nicht auf {0} umgestellt. Öffne den Titel noch einmal.
+f845c6b7 Die Untertitel auf {0} von Netflix werden geholt …
+9742fdb1 Netflix lädt noch
+41436aaf Der Player von Netflix konnte nicht geöffnet werden.
+e87695a8 Noch keine Netflix-Titel. Tippe auf einem Windows-Computer auf + und wähle Netflix.
+e619e59e Titel, die du bei Netflix angesehen hast, die neuesten zuerst. Sie laufen von Netflix in Tamkeen auf einem Windows-Computer; ihre Untertitel sind das Transkript.
+0fbeb7ce „{0}“ aus deinen Netflix-Titeln entfernen? Gespeicherte Vokabeln bleiben erhalten.
+bd33f09a Textgröße und Vollbild
+d5fe3b8f Netflix wird geöffnet …
+f8cb610e Die Untertitel auf {0} von Netflix erscheinen hier, sobald der Titel läuft.
+4275284b Netflix konnte diesen Titel nicht abspielen.
+1eec59cc Der Player von Netflix wurde geschlossen.
+4aa82c55 Melde dich zuerst bei Netflix an: Öffne Netflix, melde dich dort an und tippe dann auf „Noch einmal versuchen“.
+109469b8 Netflix fragt, wer zuschaut: Wähle dein Profil im Netflix-Fenster und tippe dann auf „Noch einmal versuchen“.
+5f0e0c5f Dieser Titel ist noch nicht in der Bibliothek.
+3c408dfa Titel können nur von Netflix aus geöffnet werden.
+a28d5b5f Dieser Titel konnte nicht geöffnet werden ({0}).
+c8a5caec Das Netflix-Fenster konnte nicht geöffnet werden ({0}).
+dc713ef1 Netflix-Titel laufen vorerst nur in Tamkeen für Windows.
+415b6bab Der Player von Netflix konnte nicht geöffnet werden ({0}).
+d6782664 Das sieht nicht nach einem Netflix-Titel aus.
+8100720c Diese Untertiteldatei ist zu groß.
+884d042c Diese Untertiteldatei kann nicht gelesen werden.
+25ab7cce Das ist keine Untertiteldatei.
+753a3aeb Hier können nur die Untertiteldateien von Netflix geholt werden.
+8795b369 Netflix-Titel, die du in Tamkeen angesehen hast. Sie laufen von Netflix; ihre Untertitel sind das Transkript.
+4a6b81c8 Netflix-Titel
+70152440 Diese Untertiteldatei enthält keine Wörter.

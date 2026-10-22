@@ -24,6 +24,8 @@ const PATHS = {
   search: `<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>`,
   video: `<rect class="fill" x="3" y="5.5" width="18" height="13" rx="3"/><rect x="3" y="5.5" width="18" height="13" rx="3"/>
     <path class="solid" d="M10.2 9.3v5.4l4.6-2.7z"/>`,
+  film: `<rect class="fill" x="3.5" y="4" width="17" height="16" rx="2.6"/><rect x="3.5" y="4" width="17" height="16" rx="2.6"/>
+    <path d="M7.5 4v16M16.5 4v16M3.5 9.3h4M3.5 14.7h4M16.5 9.3h4M16.5 14.7h4"/>`,
   videofile: `<path class="fill" d="M6.5 3.5H14l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H6.5A1.5 1.5 0 0 1 5 19V5a1.5 1.5 0 0 1 1.5-1.5z"/>
     <path d="M6.5 3.5H14l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H6.5A1.5 1.5 0 0 1 5 19V5a1.5 1.5 0 0 1 1.5-1.5z"/><path d="M14 3.5V8h4.5"/>
     <path class="solid" d="M10.2 11.8v4.6l3.9-2.3z"/>`,

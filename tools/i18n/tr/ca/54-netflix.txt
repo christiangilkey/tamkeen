@@ -1,0 +1,52 @@
+# Netflix (2026-10-21)
+826600ed Netflix funciona a la finestra pròpia de Tamkeen, en un ordinador amb Windows.
+4052b125 Mira sèries i pel·lícules amb els subtítols com a paraules clicables
+034fc8b3 Obre Netflix
+d93fcbac Netflix s'obre als seus títols en {0:lower}. Inicia-hi la sessió amb el teu compte de Netflix i tria alguna cosa per mirar: es reprodueix aquí, amb els subtítols en {1:lower} com a paraules clicables.
+9db0dc47 S'està obrint a Tamkeen…
+a44a102a No s'ha pogut obrir aquest títol.
+1d37298b Netflix no ha obert els seus títols per idioma. Fes servir «Explora per idiomes» al menú de Netflix.
+7fadb4d2 Tria l'idioma que aprens al menú d'idiomes de Netflix.
+8ab30860 Inicia la sessió a Netflix aquí. Només Netflix veu la teva contrasenya.
+c4e3e9b1 Tria un títol per mirar-lo a Tamkeen
+6fedd6f1 Tria {0:lower} al menú d'idiomes de Netflix.
+48f90157 Netflix funciona a Tamkeen en un ordinador amb Windows: tria-hi Netflix, i els seus subtítols es converteixen en paraules clicables, com els d'un vídeo de YouTube. El que hi mires apareix aquí, a la teva Biblioteca.
+4682f31f A la majoria de telèfons, Netflix no deixa que els seus vídeos es reprodueixin dins d'altres aplicacions, així que encara no és a l'aplicació de Tamkeen per al telèfon.
+0fdd1439 A l'iPhone, Netflix no deixa que els seus vídeos es reprodueixin dins d'altres aplicacions, així que Tamkeen no els pot mostrar aquí.
+bf8e4c08 Netflix no reprodueix els seus vídeos al navegador d'un telèfon, així que l'aplicació web no els pot mostrar.
+f1e7ac29 En un navegador web, Tamkeen necessitaria una extensió del navegador per funcionar amb Netflix, i encara no n'hi ha cap.
+1ea1e991 La versió de Tamkeen d'aquest ordinador encara no pot controlar el reproductor de Netflix.
+6b4020fc El visor web integrat d'aquest ordinador no pot reproduir els vídeos protegits de Netflix.
+c9bc78e3 Netflix no es pot reproduir aquí.
+44414c92 Netflix no està disponible aquí
+9028e103 S'està reproduint la pista d'àudio en {0:lower} de Netflix.
+a3d8063f Netflix no té subtítols en {0:lower} per a aquest títol, així que Tamkeen no en pot mostrar les paraules. El vídeo es reprodueix igualment.
+f1d11dfc Netflix només té els subtítols en {0:lower} d'aquest títol com a imatges, així que Tamkeen no en pot llegir les paraules.
+39837ace Netflix no ha canviat els subtítols a {0:lower}. Prova d'obrir el títol una altra vegada.
+f845c6b7 S'estan obtenint els subtítols en {0:lower} de Netflix…
+9742fdb1 Netflix encara s'està carregant
+41436aaf No s'ha pogut obrir el reproductor de Netflix.
+e87695a8 Encara no hi ha títols de Netflix. En un ordinador amb Windows, prem + i tria Netflix.
+e619e59e Títols que has mirat a Netflix, els més recents primer. Es reprodueixen des de Netflix a Tamkeen en un ordinador amb Windows; els seus subtítols són la transcripció.
+0fbeb7ce Vols treure «{0}» dels teus títols de Netflix? El vocabulari desat es conserva.
+bd33f09a Mida del text i pantalla completa
+d5fe3b8f S'està obrint Netflix…
+f8cb610e Els subtítols en {0:lower} de Netflix apareixen aquí quan el títol comença a reproduir-se.
+4275284b Netflix no ha pogut reproduir aquest títol.
+1eec59cc El reproductor de Netflix s'ha tancat.
+4aa82c55 Primer inicia la sessió a Netflix: obre Netflix, inicia-hi la sessió i després prem «Torna-ho a provar».
+109469b8 Netflix pregunta qui mira: tria el teu perfil a la finestra de Netflix i després prem «Torna-ho a provar».
+5f0e0c5f Aquest títol encara no és a la biblioteca.
+3c408dfa Els títols només es poden obrir des de Netflix.
+a28d5b5f No s'ha pogut obrir aquest títol ({0}).
+c8a5caec No s'ha pogut obrir la finestra de Netflix ({0}).
+dc713ef1 De moment, els títols de Netflix només es reprodueixen a Tamkeen per a Windows.
+415b6bab No s'ha pogut obrir el reproductor de Netflix ({0}).
+d6782664 Això no sembla un títol de Netflix.
+8100720c Aquest fitxer de subtítols és massa gran.
+884d042c Aquest fitxer de subtítols no es pot llegir.
+25ab7cce Això no és un fitxer de subtítols.
+753a3aeb Aquí només es poden baixar els fitxers de subtítols de Netflix.
+8795b369 Títols de Netflix que has mirat a Tamkeen. Es reprodueixen des de Netflix; els seus subtítols són la transcripció.
+4a6b81c8 Títol de Netflix
+70152440 Aquest fitxer de subtítols no té paraules.

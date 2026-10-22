@@ -6,15 +6,17 @@
 // saved sites and news sites, all on one screen), a video or audio file of your own, and Instagram
 // reels.
 
-import { api, esc, h, platform, toast, openYouTube } from "../app.js";
+import { api, esc, h, platform, toast, openNetflix, openYouTube, netflixSupport } from "../app.js";
 import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
+import { unavailableText } from "../netflix.js";
 import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "../youtube-home.js";
 import { openModal } from "./modal.js";
 
 const WAYS = [
   { key: "podcast", label: "Podcast", icon: "podcast", text: "Paste a feed address, or choose from what's trending", step: true },
   { key: "youtube", label: "YouTube", icon: "video", text: "Pick a topic and watch with clickable captions", step: true },
+  { key: "netflix", label: "Netflix", icon: "film", text: "Watch shows and films with their subtitles as words you can click", step: true },
   { key: "page", label: "Web page", icon: "page", text: "Import an article to read with clickable words", step: true },
   { key: "book", label: "Book", icon: "book", text: "A free classic, or your own EPUB, PDF, TXT, Kindle or Word file", step: true },
   { key: "reels", label: "Reels", icon: "reel", text: "Short Instagram videos to watch on your phone" },
@@ -74,6 +76,7 @@ export function openAddSheet({ pickFile }) {
     body.append(box);
     if (key === "podcast") podcastStep(box);
     else if (key === "youtube") youtubeStep(box);
+    else if (key === "netflix") netflixStep(box);
     else bookStep(box);
     box.querySelector("input")?.focus();
   }
@@ -161,6 +164,32 @@ export function openAddSheet({ pickFile }) {
     };
     box.append(search);
     box.append(h(`<p class="small muted aw-note">Tap a video there and it opens here, with its captions as words you can click. The video needs captions.</p>`));
+  }
+
+  /** Netflix: on a Windows computer, a button that opens Netflix on its titles in the language
+   * being learned (netflix.js); elsewhere, why it isn't there. */
+  function netflixStep(box) {
+    const wait = h(`<p class="small muted aw-note">Checking…</p>`);
+    box.append(wait);
+    netflixSupport().catch(() => ({ ok: false, reason: "" })).then(({ ok, reason }) => {
+      wait.remove();
+      if (ok) {
+        const open = h(`<button type="button" class="primary aw-wide">${icon("film", 18)} Open Netflix</button>`);
+        open.onclick = () => {
+          sheet.close();
+          openNetflix().catch((err) => toast(err.message, { error: true }));
+        };
+        box.append(open,
+          h(`<p class="small muted aw-note">Netflix opens on its titles in ${esc(langName)}. Sign in there with your own Netflix account, then pick something to watch: it plays here, with its ${esc(langName)} subtitles as words you can click.</p>`));
+        return;
+      }
+      const { title, lines } = unavailableText(reason);
+      const note = h(`<div class="aw-unavailable"><strong></strong><p></p><p class="small muted"></p></div>`);
+      note.querySelector("strong").textContent = title;
+      note.querySelectorAll("p")[0].textContent = lines[0];
+      note.querySelectorAll("p")[1].textContent = lines[1];
+      box.append(note);
+    });
   }
 
   function bookStep(box) {

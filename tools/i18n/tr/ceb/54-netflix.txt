@@ -1,0 +1,52 @@
+# Netflix (2026-10-21)
+826600ed Molihok ang Netflix sa kaugalingong window sa Tamkeen sa usa ka Windows nga computer.
+4052b125 Tan-awa ang mga salida ug pelikula nga ang mga subtitle mahimong mga pulong nga ma-click
+034fc8b3 Ablihi ang Netflix
+d93fcbac Maablihan ang Netflix sa mga salida niini sa {0}. Mag-sign in didto gamit ang imong kaugalingong Netflix account, dayon pili og tan-awon: dinhi kini mo-play, ug ang mga subtitle niini sa {1} mahimong mga pulong nga ma-click.
+9db0dc47 Gaabli sa Tamkeen…
+a44a102a Dili maablihan kini nga salida.
+1d37298b Wala giablihi sa Netflix ang mga salida niini sumala sa pinulongan. Gamita ang “Browse by Languages” sa menu sa Netflix.
+7fadb4d2 Pilia ang pinulongan nga imong gitun-an sa menu sa mga pinulongan sa Netflix.
+8ab30860 Mag-sign in sa Netflix dinhi. Ang Netflix lang ang makakita sa imong password.
+c4e3e9b1 Pili og salida aron tan-awon kini sa Tamkeen
+6fedd6f1 Pilia ang {0} sa menu sa mga pinulongan sa Netflix.
+48f90157 Molihok ang Netflix sa Tamkeen sa usa ka Windows nga computer: pilia didto ang Netflix, ug ang mga subtitle niini mahimong mga pulong nga ma-click, sama sa usa ka YouTube video. Ang imong gitan-aw didto makita dinhi sa imong Library.
+4682f31f Sa kadaghanan sa mga telepono, dili tugotan sa Netflix nga mo-play ang mga video niini sulod sa ubang app, mao nga wala pa kini sa phone app sa Tamkeen.
+0fdd1439 Sa iPhone, dili tugotan sa Netflix nga mo-play ang mga video niini sulod sa ubang app, mao nga dili kini mapakita sa Tamkeen dinhi.
+bf8e4c08 Dili i-play sa Netflix ang mga video niini sa web browser sa telepono, mao nga dili kini mapakita sa web app.
+f1e7ac29 Sa usa ka web browser, kinahanglan sa Tamkeen og browser extension aron molihok uban sa Netflix, ug wala pay ingon niana.
+1ea1e991 Dili pa makontrol sa bersyon sa Tamkeen niini nga computer ang player sa Netflix.
+6b4020fc Dili ma-play sa built-in nga web viewer niini nga computer ang mga protektadong video sa Netflix.
+c9bc78e3 Dili ma-play ang Netflix dinhi.
+44414c92 Dili available dinhi ang Netflix
+9028e103 Gi-play ang audio sa {0} sa Netflix.
+a3d8063f Walay subtitle sa {0} ang Netflix para niini nga salida, mao nga dili mapakita sa Tamkeen ang mga pulong niini. Mo-play gihapon ang video.
+f1d11dfc Mga hulagway lang ang mga subtitle sa {0} sa Netflix para niini nga salida, mao nga dili mabasa sa Tamkeen ang mga pulong niini.
+39837ace Wala gibalhin sa Netflix ang mga subtitle niini ngadto sa {0}. Sulayi pag-abli pag-usab ang salida.
+f845c6b7 Gikuha ang mga subtitle sa {0} sa Netflix…
+9742fdb1 Nag-load pa ang Netflix
+41436aaf Dili maablihan ang player sa Netflix.
+e87695a8 Wala pay salida gikan sa Netflix. Sa usa ka Windows nga computer, pindota ang + ug pilia ang Netflix.
+e619e59e Mga salida nga imong gitan-aw gikan sa Netflix, ang pinakabag-o una. Mo-play kini gikan sa Netflix sa Tamkeen sa usa ka Windows nga computer; ang ilang mga subtitle mao ang transcript.
+0fbeb7ce Tangtangon ang “{0}” sa imong mga salida sa Netflix? Magpabilin ang gi-save nga vocab.
+bd33f09a Gidak-on sa teksto ug full screen
+d5fe3b8f Gaabli sa Netflix…
+f8cb610e Makita dinhi ang mga subtitle sa {0} sa Netflix inig sugod sa salida.
+4275284b Dili ma-play sa Netflix kini nga salida.
+1eec59cc Nasirado ang player sa Netflix.
+4aa82c55 Mag-sign in una sa Netflix: ablihi ang Netflix, mag-sign in didto, dayon pindota ang “Sulayi pag-usab”.
+109469b8 Nangutana ang Netflix kinsa ang nagtan-aw: pilia ang imong profile sa window sa Netflix, dayon pindota ang “Sulayi pag-usab”.
+5f0e0c5f Wala pa sa library kana nga salida.
+3c408dfa Sa Netflix lang maablihan ang mga salida.
+a28d5b5f Dili maablihan kini nga salida ({0}).
+c8a5caec Dili maablihan ang window sa Netflix ({0}).
+dc713ef1 Sa pagkakaron, sa Tamkeen para sa Windows lang mo-play ang mga salida sa Netflix.
+415b6bab Dili maablihan ang player sa Netflix ({0}).
+d6782664 Morag dili kana salida sa Netflix.
+8100720c Dako ra kaayo kana nga subtitle file.
+884d042c Dili mabasa kana nga subtitle file.
+25ab7cce Dili kana subtitle file.
+753a3aeb Mga subtitle file lang sa Netflix ang makuha dinhi.
+8795b369 Mga salida sa Netflix nga imong gitan-aw sa Tamkeen. Mo-play kini gikan sa Netflix; ang ilang mga subtitle mao ang transcript.
+4a6b81c8 Salida sa Netflix
+70152440 Walay pulong kana nga subtitle file.

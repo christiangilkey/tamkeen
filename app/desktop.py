@@ -11,6 +11,7 @@ import re
 import logging
 import os
 import socket
+import sys
 import threading
 import time
 import webbrowser
@@ -83,6 +84,29 @@ def _find_language(find: Any) -> dict[str, Any]:
     return {"lang": lang if isinstance(lang, str) and ok.match(lang) else "", "values": words("values"), "names": words("names")}
 
 
+NETFLIX_TEXTS = ("tap", "opening", "opened", "signin", "choose", "nolang", "failed")
+
+
+def _netflix_config(cfg: Any) -> dict[str, Any]:
+    """What the Netflix window's script (web/js/netflix-browser.js) is told: the language being
+    learned, its names as Netflix's language menu may write them, which addresses list titles by
+    language, and its few messages in the user's language. Kept to short plain strings: it is
+    written into a script that runs inside Netflix's website."""
+    from . import netflix
+
+    raw = cfg if isinstance(cfg, dict) else {}
+    name_ok = lambda w: isinstance(w, str) and 0 < len(w) <= 40 and all(c.isalpha() or c in " ()'-." for c in w)  # noqa: E731
+    lang = raw.get("lang")
+    texts = raw.get("text") if isinstance(raw.get("text"), dict) else {}
+    return {
+        "lang": lang if isinstance(lang, str) and re.fullmatch(r"[a-z]{2,3}", lang) else "",
+        "names": [w for w in (raw.get("names") or [])[:12] if name_ok(w)],
+        "hosts": sorted(netflix.hosts()),
+        "browse": [netflix.base_url() + p for p in netflix.BROWSE_PATHS],
+        "text": {k: " ".join(str(v).split())[:200] for k, v in texts.items() if k in NETFLIX_TEXTS and isinstance(v, str)},
+    }
+
+
 class BrowserApi:
     """The only things exposed to pages shown in the Web Browser window: importing the page
     being viewed, keeping the site being viewed on the browser's start page, and handing a
@@ -143,6 +167,24 @@ class BrowserApi:
         if result.get("ok") and self._close_after_watch:
             # A moment's wait, so this answer still reaches the page before its window goes.
             threading.Timer(0.4, self._close).start()
+        return result
+
+    def watch_title(self, netflix_id: str = "", info: Any = None) -> dict[str, Any]:
+        """A title was picked on Netflix (web/js/netflix-browser.js): have the app add it and show it
+        in its own player, where Netflix's player plays it over the stage. Only from Netflix's site."""
+        from . import netflix
+
+        try:
+            if not netflix.on_netflix(self._window.get_current_url() or ""):
+                return {"ok": False, "error": "Titles can only be opened from Netflix."}
+            result = netflix.ask_app_to_watch(str(netflix_id), info if isinstance(info, dict) else {})
+        except Exception as exc:  # never let a website's oddities crash the bridge
+            log.exception("Opening a Netflix title from the browser window failed")
+            return {"ok": False, "error": f"Couldn't open this title ({exc.__class__.__name__})."}
+        if result.get("ok") and self._main is not None:
+            bring_forward(self._main)
+        if result.get("ok") and self._close_after_watch:
+            threading.Timer(0.4, self._close).start()  # its video plays in the app now, not here
         return result
 
     def _close(self) -> None:
@@ -258,21 +300,25 @@ class JsApi:
         self._window: Any = None
         self._youtube: Any = None  # the browser window opened by "Open YouTube", while it lives
         self._youtube_start = ""   # the address that window was last sent to
+        self._netflix: Any = None  # the browser window opened by "Open Netflix", while it lives
 
     def _browser_window(self, title: str, start: str, close_after_watch: bool = False, find: Any = False,
-                        reading: bool = True) -> Any:
+                        reading: bool = True, netflix: Any = None) -> Any:
         """A web browser window. Every page in it gets the bottom bar with "Import Page"
         (web/js/browser-toolbar.js) and, on youtube.com, tap-a-video-to-watch-it-in-the-app
         (web/js/youtube-browser.js); on filmot.com, the same for its caption search results
-        (web/js/filmot-browser.js). `close_after_watch`: the window closes itself once a video
-        tapped in it is showing in the app's player. `find`: opened by "Find in a video", so on
+        (web/js/filmot-browser.js); on Netflix, the same for its titles (web/js/netflix-browser.js,
+        told `netflix`: see _netflix_config). `close_after_watch`: the window closes itself once a
+        video tapped in it is showing in the app's player. `find`: opened by "Find in a video", so on
         Filmot's results the script takes the top video itself (web/js/filmot-browser.js).
         `reading`: opened to read web pages. A window opened for something else (signing in,
         YouTube, finding a word in a video) has no "Import Page" or save-to-start-page buttons."""
         import webview
 
         scripts = [(paths.web_dir() / "js" / name).read_text(encoding="utf-8")
-                   for name in ("browser-toolbar.js", "youtube-browser.js", "filmot-browser.js")]
+                   for name in ("browser-toolbar.js", "youtube-browser.js", "filmot-browser.js", "netflix-common.js",
+                                "netflix-browser.js")]
+        scripts.insert(0, f"window.__tamkeenNetflix = {json.dumps(_netflix_config(netflix))};")
         if find:
             scripts.insert(0, f"window.__tamkeenFind = {json.dumps(_find_language(find))};")
         if not reading:
@@ -332,6 +378,76 @@ class JsApi:
             log.exception("Couldn't open the YouTube window")
             return {"ok": False, "error": f"Couldn't open the YouTube window ({exc})."}
         return {"ok": True}
+
+    # ----- Netflix (app/netflix.py, app/netflix_overlay.py) -----
+
+    def netflix_support(self) -> dict[str, Any]:
+        """Can Netflix titles play in this app here? (The page also checks the web view's DRM.)"""
+        from . import netflix_overlay
+
+        return {"ok": netflix_overlay.supported(), "os": sys.platform}
+
+    def open_netflix(self, start: str = "", cfg: Any = None) -> dict[str, Any]:
+        """Open Netflix in a browser window, on its titles in the language being learned (or bring
+        back the one already open). Picking a title there opens it in the app's own player. The
+        user signs in to Netflix there himself; the sign-in stays in the app's browser storage."""
+        import webview
+
+        from . import netflix
+
+        try:
+            if self._netflix is not None and self._netflix in webview.windows:
+                bring_forward(self._netflix)
+            else:
+                self._netflix = self._browser_window("Netflix", netflix.start_address(start), close_after_watch=True,
+                                                     reading=False, netflix=cfg)
+        except Exception as exc:
+            log.exception("Couldn't open the Netflix window")
+            return {"ok": False, "error": f"Couldn't open the Netflix window ({exc})."}
+        return {"ok": True}
+
+    def _overlay(self) -> Any:
+        from . import netflix_overlay
+
+        if not netflix_overlay.supported():
+            raise RuntimeError("Netflix titles play only in Tamkeen for Windows for now.")
+        return netflix_overlay.get(self._window)
+
+    def netflix_open(self, netflix_id: str = "", lang: str = "", reload: bool = False) -> dict[str, Any]:
+        """Show this title in the video window over the player's stage (see app/netflix_overlay.py).
+        `reload`: load it afresh (after signing in to Netflix, say)."""
+        try:
+            return self._overlay().open(str(netflix_id), str(lang or ""), bool(reload))
+        except Exception as exc:
+            log.exception("Couldn't open the Netflix video window")
+            return {"ok": False, "error": f"Couldn't open Netflix's player ({exc})."}
+
+    def netflix_place(self, rect: Any = None) -> dict[str, Any]:
+        try:
+            return self._overlay().place(rect)
+        except Exception as exc:
+            log.debug("Couldn't place the Netflix video window: %s", exc)
+            return {"ok": False}
+
+    def netflix_do(self, command: str = "", value: Any = None) -> dict[str, Any]:
+        try:
+            return self._overlay().do(str(command), value)
+        except Exception as exc:
+            log.debug("Netflix command failed: %s", exc)
+            return {"ok": False, "error": str(exc)}
+
+    def netflix_state(self) -> dict[str, Any]:
+        try:
+            return self._overlay().state()
+        except Exception as exc:
+            log.debug("Couldn't read Netflix's player: %s", exc)
+            return {"ok": False, "error": str(exc)}
+
+    def netflix_release(self) -> dict[str, Any]:
+        try:
+            return self._overlay().release()
+        except Exception:
+            return {"ok": False}
 
     def save_file(self, url: str, filename: str) -> dict[str, Any]:
         import webview

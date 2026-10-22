@@ -134,6 +134,25 @@ def clean_lines(lines: list[dict[str, Any]]) -> list[tuple[float, float, str, li
     return out
 
 
+def write_lines(conn: Any, ep_id: int, items: list[tuple[float, float, str, list[tuple[float, float, str]]]]) -> int:
+    """Replace an episode's transcript with these lines (from clean_lines): its segments, their search
+    index and the words. Returns the number of words. (Netflix subtitles are stored the same way:
+    app/netflix.py.)"""
+    for table in ("words", "segments", "segments_fts"):
+        conn.execute(f"DELETE FROM {table} WHERE episode_id = ?", (ep_id,))
+    widx = 0
+    for sidx, (start, end, text, words) in enumerate(items):
+        norm = arabic.normalize(text)
+        conn.execute("INSERT INTO segments(episode_id, idx, start, end, text, norm) VALUES(?,?,?,?,?,?)",
+                     (ep_id, sidx, start, end, text, norm))
+        conn.execute("INSERT INTO segments_fts(norm, episode_id, seg_idx) VALUES(?,?,?)", (norm, ep_id, sidx))
+        conn.executemany(
+            "INSERT INTO words(episode_id, idx, seg_idx, start, end, text) VALUES(?,?,?,?,?,?)",
+            [(ep_id, widx + i, sidx, ws, we, wt) for i, (ws, we, wt) in enumerate(words)])
+        widx += len(words)
+    return widx
+
+
 def caption_model(kind: str | None, auto: bool = False) -> str:
     """The episode's `model` for captions of this kind (see the top of this file)."""
     if kind == "translated":
@@ -172,18 +191,7 @@ def save_video(video_id: str, title: str, lines: list[dict[str, Any]], channel: 
             ep_id = int(row["id"])
             conn.execute("UPDATE episodes SET title = ?, description = ?, image = ?, language = ?, deleted = 0 "
                          "WHERE id = ?", (title, (channel or "")[:200], image, language, ep_id))
-            for table in ("words", "segments", "segments_fts"):
-                conn.execute(f"DELETE FROM {table} WHERE episode_id = ?", (ep_id,))
-        widx = 0
-        for sidx, (start, end, text, words) in enumerate(items):
-            norm = arabic.normalize(text)
-            conn.execute("INSERT INTO segments(episode_id, idx, start, end, text, norm) VALUES(?,?,?,?,?,?)",
-                         (ep_id, sidx, start, end, text, norm))
-            conn.execute("INSERT INTO segments_fts(norm, episode_id, seg_idx) VALUES(?,?,?)", (norm, ep_id, sidx))
-            conn.executemany(
-                "INSERT INTO words(episode_id, idx, seg_idx, start, end, text) VALUES(?,?,?,?,?,?)",
-                [(ep_id, widx + i, sidx, ws, we, wt) for i, (ws, we, wt) in enumerate(words)])
-            widx += len(words)
+        widx = write_lines(conn, ep_id, items)
         # A fresh transcribed_at makes sync publish the captions to the user's other devices.
         conn.execute(
             "UPDATE episodes SET status = 'done', progress = 100, error = NULL, model = ?, transcribed_at = ?, "

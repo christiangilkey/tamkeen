@@ -355,6 +355,11 @@
   "f": "web/js/app.js"
  },
  {
+  "id": "826600ed",
+  "k": "Netflix works in Tamkeen's own window on a Windows computer.",
+  "f": "web/js/app.js"
+ },
+ {
   "id": "46c3ccdd",
   "k": "Choose the language you're learning first, then open the video again.",
   "f": "web/js/app.js"
@@ -1845,6 +1850,11 @@
   "f": "web/js/components/addsheet.js"
  },
  {
+  "id": "4052b125",
+  "k": "Watch shows and films with their subtitles as words you can click",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
   "id": "154cf598",
   "k": "Web page",
   "f": "web/js/components/addsheet.js"
@@ -1967,6 +1977,16 @@
  {
   "id": "e69ef3fc",
   "k": "Tap a video there and it opens here, with its captions as words you can click. The video needs captions.",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "034fc8b3",
+  "k": "Open Netflix",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "d93fcbac",
+  "k": "Netflix opens on its titles in {0}. Sign in there with your own Netflix account, then pick something to watch: it plays here, with its {1} subtitles as words you can click.",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -8520,6 +8540,121 @@
   "f": "web/js/meanings.js"
  },
  {
+  "id": "9db0dc47",
+  "k": "Opening in Tamkeen…",
+  "f": "web/js/netflix-browser.js"
+ },
+ {
+  "id": "a44a102a",
+  "k": "Couldn't open this title.",
+  "f": "web/js/netflix-browser.js"
+ },
+ {
+  "id": "1d37298b",
+  "k": "Netflix didn't open its titles by language. Use “Browse by Languages” in Netflix's menu.",
+  "f": "web/js/netflix-browser.js"
+ },
+ {
+  "id": "7fadb4d2",
+  "k": "Choose the language you're learning in Netflix's language menu.",
+  "f": "web/js/netflix-browser.js"
+ },
+ {
+  "id": "8ab30860",
+  "k": "Sign in to Netflix here. Only Netflix sees your password.",
+  "f": "web/js/netflix-browser.js"
+ },
+ {
+  "id": "c4e3e9b1",
+  "k": "Pick a title to watch it in Tamkeen",
+  "f": "web/js/netflix-browser.js"
+ },
+ {
+  "id": "6fedd6f1",
+  "k": "Choose {0} in Netflix's language menu.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "48f90157",
+  "k": "Netflix works in Tamkeen on a Windows computer: choose Netflix there, and its subtitles become words you can click, like a YouTube video's. What you watch there shows up here in your Library.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "4682f31f",
+  "k": "Netflix doesn't let its videos play inside other apps on most phones, so it isn't in Tamkeen's phone app yet.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "0fdd1439",
+  "k": "Netflix doesn't let its videos play inside other apps on an iPhone, so Tamkeen can't show them here.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "bf8e4c08",
+  "k": "Netflix doesn't play its videos in a phone's web browser, so the web app can't show them.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "f1e7ac29",
+  "k": "In a web browser, Tamkeen would need a browser extension to work with Netflix, and there isn't one yet.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "1ea1e991",
+  "k": "This computer's version of Tamkeen can't control Netflix's player yet.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "6b4020fc",
+  "k": "This computer's built-in web viewer can't play Netflix's protected videos.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "c9bc78e3",
+  "k": "Netflix can't play here.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "44414c92",
+  "k": "Netflix isn't available here",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "9028e103",
+  "k": "Playing Netflix's {0} soundtrack.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "a3d8063f",
+  "k": "Netflix has no {0} subtitles for this title, so Tamkeen can't show its words. The video still plays.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "f1d11dfc",
+  "k": "Netflix has {0} subtitles for this title only as pictures, so Tamkeen can't read their words.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "39837ace",
+  "k": "Netflix didn't switch its subtitles to {0}. Try opening the title again.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "f845c6b7",
+  "k": "Getting Netflix's {0} subtitles…",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "9742fdb1",
+  "k": "Netflix is still loading",
+  "f": "web/js/nfmedia.js"
+ },
+ {
+  "id": "41436aaf",
+  "k": "Couldn't open Netflix's player.",
+  "f": "web/js/nfmedia.js"
+ },
+ {
   "id": "100892d9",
   "k": "No readable text was found on that page. Try opening it in the app's browser and pressing the round teal button there.",
   "f": "web/js/pageimport.js"
@@ -9595,6 +9730,11 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "e87695a8",
+  "k": "No Netflix titles yet. On a Windows computer, press + and choose Netflix.",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "43e751cf",
   "k": "My webpages",
   "f": "web/js/pages/library.js"
@@ -9785,6 +9925,11 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "e619e59e",
+  "k": "Titles you watched from Netflix, newest first. They play from Netflix in Tamkeen on a Windows computer; their subtitles are the transcript.",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "acdac205",
   "k": "Audio",
   "f": "web/js/pages/library.js"
@@ -9847,6 +9992,11 @@
  {
   "id": "d91ebf58",
   "k": "Watch",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "0fbeb7ce",
+  "k": "Remove “{0}” from your Netflix titles? Saved vocab is kept.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -10105,13 +10255,13 @@
   "f": "web/js/pages/player.js"
  },
  {
-  "id": "d4fcdcaf",
-  "k": "Text size, full screen and saving the transcript",
+  "id": "bd33f09a",
+  "k": "Text size and full screen",
   "f": "web/js/pages/player.js"
  },
  {
-  "id": "9c3ebd2a",
-  "k": "{0} · {1} words",
+  "id": "d4fcdcaf",
+  "k": "Text size, full screen and saving the transcript",
   "f": "web/js/pages/player.js"
  },
  {
@@ -10127,6 +10277,16 @@
  {
   "id": "fc630e27",
   "k": "VTT",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "d5fe3b8f",
+  "k": "Opening Netflix…",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "9c3ebd2a",
+  "k": "{0} · {1} words",
   "f": "web/js/pages/player.js"
  },
  {
@@ -10165,8 +10325,18 @@
   "f": "web/js/pages/player.js"
  },
  {
+  "id": "f8cb610e",
+  "k": "Netflix's {0} subtitles appear here once the title starts playing.",
+  "f": "web/js/pages/player.js"
+ },
+ {
   "id": "af85b75e",
   "k": "YouTube couldn't play this video.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "4275284b",
+  "k": "Netflix couldn't play this title.",
   "f": "web/js/pages/player.js"
  },
  {
@@ -10227,6 +10397,21 @@
  {
   "id": "5124719f",
   "k": "YouTube still won't give Tamkeen {0} captions for this video.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "1eec59cc",
+  "k": "Netflix's player closed.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "4aa82c55",
+  "k": "Sign in to Netflix first: open Netflix, sign in there, then press Try again.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "109469b8",
+  "k": "Netflix asks who's watching: choose your profile in the Netflix window, then press Try again.",
   "f": "web/js/pages/player.js"
  },
  {
@@ -15845,6 +16030,11 @@
   "f": "app/api/media.py"
  },
  {
+  "id": "5f0e0c5f",
+  "k": "That title isn't in the library yet.",
+  "f": "app/api/netflix.py"
+ },
+ {
   "id": "7200d5dc",
   "k": "Not an Instagram picture.",
   "f": "app/api/reels.py"
@@ -16060,6 +16250,16 @@
   "f": "app/desktop.py"
  },
  {
+  "id": "3c408dfa",
+  "k": "Titles can only be opened from Netflix.",
+  "f": "app/desktop.py"
+ },
+ {
+  "id": "a28d5b5f",
+  "k": "Couldn't open this title ({0}).",
+  "f": "app/desktop.py"
+ },
+ {
   "id": "58551d59",
   "k": "Channels can only be followed from youtube.com.",
   "f": "app/desktop.py"
@@ -16107,6 +16307,21 @@
  {
   "id": "1d82f236",
   "k": "Couldn't open the YouTube window ({0}).",
+  "f": "app/desktop.py"
+ },
+ {
+  "id": "c8a5caec",
+  "k": "Couldn't open the Netflix window ({0}).",
+  "f": "app/desktop.py"
+ },
+ {
+  "id": "dc713ef1",
+  "k": "Netflix titles play only in Tamkeen for Windows for now.",
+  "f": "app/desktop.py"
+ },
+ {
+  "id": "415b6bab",
+  "k": "Couldn't open Netflix's player ({0}).",
   "f": "app/desktop.py"
  },
  {
@@ -16258,6 +16473,46 @@
   "id": "82e7395c",
   "k": "Already downloading the {0} model.",
   "f": "app/models_manager.py"
+ },
+ {
+  "id": "d6782664",
+  "k": "That doesn't look like a Netflix title.",
+  "f": "app/netflix.py"
+ },
+ {
+  "id": "8100720c",
+  "k": "That subtitle file is too big.",
+  "f": "app/netflix.py"
+ },
+ {
+  "id": "884d042c",
+  "k": "That subtitle file can't be read.",
+  "f": "app/netflix.py"
+ },
+ {
+  "id": "25ab7cce",
+  "k": "That isn't a subtitle file.",
+  "f": "app/netflix.py"
+ },
+ {
+  "id": "753a3aeb",
+  "k": "Only Netflix's subtitle files can be fetched here.",
+  "f": "app/netflix.py"
+ },
+ {
+  "id": "8795b369",
+  "k": "Netflix titles you watched in Tamkeen. They play from Netflix; their subtitles are the transcript.",
+  "f": "app/netflix.py"
+ },
+ {
+  "id": "4a6b81c8",
+  "k": "Netflix title",
+  "f": "app/netflix.py"
+ },
+ {
+  "id": "70152440",
+  "k": "That subtitle file has no words.",
+  "f": "app/netflix.py"
  },
  {
   "id": "906cd6be",

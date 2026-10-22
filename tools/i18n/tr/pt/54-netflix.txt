@@ -1,0 +1,52 @@
+# Netflix (2026-10-21)
+826600ed A Netflix funciona na própria janela do Tamkeen, em um computador com Windows.
+4052b125 Assista a séries e filmes com as legendas como palavras clicáveis
+034fc8b3 Abrir a Netflix
+d93fcbac A Netflix abre nos títulos em {0:lower}. Entre lá com a sua própria conta da Netflix e escolha algo para assistir: ele é reproduzido aqui, com as legendas em {1:lower} como palavras clicáveis.
+9db0dc47 Abrindo no Tamkeen…
+a44a102a Não foi possível abrir este título.
+1d37298b A Netflix não abriu os títulos por idioma. Use “Navegar por idiomas” no menu da Netflix.
+7fadb4d2 Escolha o idioma que você está aprendendo no menu de idiomas da Netflix.
+8ab30860 Entre na Netflix aqui. Só a Netflix vê a sua senha.
+c4e3e9b1 Escolha um título para assistir no Tamkeen
+6fedd6f1 Escolha {0:lower} no menu de idiomas da Netflix.
+48f90157 A Netflix funciona no Tamkeen em um computador com Windows: escolha a Netflix lá, e as legendas viram palavras clicáveis, como as de um vídeo do YouTube. O que você assiste lá aparece aqui, na sua Biblioteca.
+4682f31f Na maioria dos celulares, a Netflix não deixa os vídeos dela tocarem dentro de outros apps, por isso ela ainda não está no app do Tamkeen para celular.
+0fdd1439 No iPhone, a Netflix não deixa os vídeos dela tocarem dentro de outros apps, por isso o Tamkeen não pode mostrá-los aqui.
+bf8e4c08 A Netflix não reproduz os vídeos dela no navegador do celular, por isso o app web não pode mostrá-los.
+f1e7ac29 Em um navegador, o Tamkeen precisaria de uma extensão de navegador para funcionar com a Netflix, e ainda não existe uma.
+1ea1e991 A versão do Tamkeen deste computador ainda não consegue controlar o player da Netflix.
+6b4020fc O visualizador web embutido deste computador não consegue reproduzir os vídeos protegidos da Netflix.
+c9bc78e3 A Netflix não pode ser reproduzida aqui.
+44414c92 A Netflix não está disponível aqui
+9028e103 Tocando a faixa de áudio em {0:lower} da Netflix.
+a3d8063f A Netflix não tem legendas em {0:lower} para este título, então o Tamkeen não pode mostrar as palavras dele. O vídeo continua tocando.
+f1d11dfc A Netflix só tem as legendas em {0:lower} deste título como imagens, então o Tamkeen não consegue ler as palavras.
+39837ace A Netflix não trocou as legendas para {0:lower}. Tente abrir o título de novo.
+f845c6b7 Buscando as legendas em {0:lower} da Netflix…
+9742fdb1 A Netflix ainda está carregando
+41436aaf Não foi possível abrir o player da Netflix.
+e87695a8 Nenhum título da Netflix ainda. Em um computador com Windows, toque em + e escolha Netflix.
+e619e59e Títulos que você assistiu na Netflix, os mais novos primeiro. Eles tocam da Netflix no Tamkeen em um computador com Windows; as legendas são a transcrição.
+0fbeb7ce Remover “{0}” dos seus títulos da Netflix? O vocabulário salvo é mantido.
+bd33f09a Tamanho do texto e tela cheia
+d5fe3b8f Abrindo a Netflix…
+f8cb610e As legendas em {0:lower} da Netflix aparecem aqui assim que o título começar a tocar.
+4275284b A Netflix não conseguiu reproduzir este título.
+1eec59cc O player da Netflix fechou.
+4aa82c55 Entre na Netflix primeiro: abra a Netflix, entre lá e depois toque em “Tentar de novo”.
+109469b8 A Netflix pergunta quem está assistindo: escolha o seu perfil na janela da Netflix e depois toque em “Tentar de novo”.
+5f0e0c5f Esse título ainda não está na biblioteca.
+3c408dfa Os títulos só podem ser abertos pela Netflix.
+a28d5b5f Não foi possível abrir este título ({0}).
+c8a5caec Não foi possível abrir a janela da Netflix ({0}).
+dc713ef1 Por enquanto, os títulos da Netflix só tocam no Tamkeen para Windows.
+415b6bab Não foi possível abrir o player da Netflix ({0}).
+d6782664 Isso não parece um título da Netflix.
+8100720c Esse arquivo de legendas é grande demais.
+884d042c Não foi possível ler esse arquivo de legendas.
+25ab7cce Isso não é um arquivo de legendas.
+753a3aeb Aqui só podem ser baixados os arquivos de legendas da Netflix.
+8795b369 Títulos da Netflix que você assistiu no Tamkeen. Eles tocam da Netflix; as legendas são a transcrição.
+4a6b81c8 Título da Netflix
+70152440 Esse arquivo de legendas não tem palavras.

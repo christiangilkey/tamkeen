@@ -1,9 +1,10 @@
 // Library: feeds sidebar, episode list with live status, multi-select transcription.
 
-import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, openYouTube, platform } from "../app.js";
+import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, openYouTube, platform, netflixSupport, openNetflix } from "../app.js";
 import { icon } from "../icons.js";
 import { studyLanguage } from "../languages.js";
 import { allProgress } from "../progress.js";
+import { NETFLIX_FEED, isNetflix } from "../netflix.js";
 import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
 import { openAddSheet } from "../components/addsheet.js";
@@ -52,6 +53,8 @@ const KINDS = [
   { key: "podcasts", label: "Podcasts", icon: "podcast" },
   { key: "youtube", label: "YouTube", icon: "video", feed: YOUTUBE_FEED,
     empty: "No YouTube videos yet. Press + and choose YouTube." },
+  { key: "netflix", label: "Netflix", icon: "film", feed: NETFLIX_FEED,
+    empty: "No Netflix titles yet. On a Windows computer, press + and choose Netflix." },
   { key: "pages", label: "My webpages", icon: "page", feed: PAGES_FEED,
     empty: "No webpages yet. Press + and choose Web page." },
   { key: "books", label: "Books", icon: "book", feed: BOOKS_FEED,
@@ -68,7 +71,8 @@ const KINDS = [
 // Tapping something in a strip redraws the page; this carries how far down it was scrolled.
 let keepScroll = null;
 /** The picture for a built-in feed ("My webpages", "My audio", "My videos", "YouTube"). */
-const localIcon = (url, size) => icon(url === PAGES_FEED ? "page" : url === BOOKS_FEED ? "book" : url === AUDIO_FEED ? "audio" : "video", size);
+const localIcon = (url, size) => icon(url === PAGES_FEED ? "page" : url === BOOKS_FEED ? "book" : url === AUDIO_FEED ? "audio"
+  : url === NETFLIX_FEED ? "film" : "video", size);
 
 export function statusInfo(ep) {
   const p = Math.round(ep.progress || 0);
@@ -220,6 +224,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     : `<div class="ph all round">${esc([...c.name][0] || "?")}</div>`);
   const youtubeShowing = () => { const f = feeds.find((x) => x.id === feedId); return !!f && f.url === YOUTUBE_FEED; };
   const reelsShowing = () => { const f = feeds.find((x) => x.id === feedId); return !!f && f.url === REELS_FEED; };
+  const netflixShowing = () => { const f = feeds.find((x) => x.id === feedId); return !!f && f.url === NETFLIX_FEED; };
 
   /** "Free classics" (the shelf, pages/books.js) and "Add a file" (your own book). */
   function bookButtons() {
@@ -299,6 +304,19 @@ export async function render(view, { feedId: routeFeed, query }) {
         head.append(el);
       }
       // "Recently watched" has no heading of its own: the list of kinds already says it is YouTube.
+      return;
+    }
+    if (f.url === NETFLIX_FEED) {
+      const el = h(`<div class="lib-head"><div class="ph video-ph">${icon("film", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
+        <div class="desc small">Titles you watched from Netflix, newest first. They play from Netflix in Tamkeen on a Windows
+        computer; their subtitles are the transcript.</div></div></div>`);
+      head.append(el);
+      netflixSupport().then(({ ok }) => {
+        if (!ok || !el.isConnected) return;
+        const row = h(`<div class="row" style="margin-top:8px"><button type="button">${icon("film", 16)} Open Netflix</button></div>`);
+        row.querySelector("button").onclick = () => openNetflix().catch((err) => toast(err.message, { error: true }));
+        el.querySelector(".meta").append(row);
+      }).catch(() => {});
       return;
     }
     if (isLocalFeed(f.url)) {
@@ -397,6 +415,30 @@ export async function render(view, { feedId: routeFeed, query }) {
       b.onclick = fn;
       line.append(b);
     };
+    if (isNetflix(ep)) {
+      // Nothing to transcribe (its words are Netflix's subtitles) and never sent to a friend: they
+      // came from the user's own Netflix, for his own study.
+      line.querySelector(".pill").className = "pill done";
+      line.querySelector(".pill").textContent = "Netflix";
+      btn("Watch", "primary", () => (location.hash = `#/episode/${ep.id}`));
+      btn("Delete", "ghost danger", async () => {
+        if (!confirm(`Remove “${ep.title}” from your Netflix titles? Saved vocab is kept.`)) return;
+        try {
+          await api(`/episodes/${ep.id}`, { method: "DELETE" });
+          row.remove();
+          scheduleReload();
+        } catch (e) { toast(e.message, { error: true }); }
+      });
+      box.append(line);
+      const title = row.querySelector(".title");
+      if (!title.querySelector("a")) {
+        title.innerHTML = "";
+        const a = h(`<a href="#/episode/${ep.id}"></a>`);
+        a.textContent = ep.title;
+        title.append(a);
+      }
+      return;
+    }
     switch (ep.status) {
       case "done":
         btn(isVideo(ep) ? "Watch" : isPage(ep) ? "Read" : "Open", "primary", () => (location.hash = `#/episode/${ep.id}`));
@@ -480,7 +522,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     // Reels are never transcribed from here (they arrive with their words): ticking them is for
     // watching just those, so the button for that appears instead, once any are ticked.
     const reels = reelsShowing();
-    b.hidden = reels;
+    b.hidden = reels || netflixShowing(); // (Netflix titles come with their words too)
     const w = $("#watch-selected");
     w.hidden = !reels || selected.size === 0;
     w.textContent = selected.size === 1 ? "▶ Watch this reel" : `▶ Watch these ${selected.size} reels`;

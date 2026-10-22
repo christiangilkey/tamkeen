@@ -75,6 +75,9 @@ body:has(.add-fab) .toasts { bottom: 100px; }
 .aw-wide { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-weight: 600; }
 .aw-or { text-align: center; color: var(--muted); font-size: 13px; }
 .aw-note { margin: 0; text-align: center; }
+/* Netflix where it can't play (the phones, the web app): why, on one plain surface. */
+.aw-unavailable { padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); text-align: center; }
+.aw-unavailable p { margin: 8px 0 0; }
 .aw-country { display: flex; align-items: center; gap: 8px; }
 .aw-country select { flex: 1; min-width: 0; }
 /* YouTube's topics (youtube-home.js TOPICS): plain tiles like the ways above, two or three across. */
@@ -223,6 +226,19 @@ body:has(.add-fab) .toasts { bottom: 100px; }
   .player.yt .btnrow { margin-top: 0; }
   .player.yt .btnrow .play { width: 38px; height: 38px; font-size: 16px; }
 }
+/* Netflix: its player is a window of the app laid exactly over .screen (nfmedia.js); underneath,
+   the stage says what is happening while there is no picture (opening, a sign-in needed). */
+.player.nf .nf-frame {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; padding: 16px; text-align: center; color: #c9c8c2; background: #000;
+}
+.player.nf .nf-frame .nf-msg { margin: 0; max-width: 34em; font-size: 15px; line-height: 1.5; }
+.player.nf .nf-frame .nf-msg:empty { display: none; }
+.player.nf .nf-frame button { min-width: 10em; }
+.player.nf .transcript .nf-wait {
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--muted); text-align: center; margin: 2em 1em;
+}
+
 /* In the phone app the YouTube player has its own banner (with the way back), so the app's
    top bar steps aside and the video starts higher up. */
 body.in-player:has(.player.yt) .topbar { display: none; }

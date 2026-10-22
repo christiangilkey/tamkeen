@@ -1,0 +1,52 @@
+# Netflix (2026-10-21)
+826600ed Netflix fonctionne dans la fenêtre de Tamkeen elle-même, sur un ordinateur Windows.
+4052b125 Regardez des séries et des films avec leurs sous-titres en mots cliquables
+034fc8b3 Ouvrir Netflix
+d93fcbac Netflix s'ouvre sur ses titres en {0:lower}. Connectez-vous-y avec votre propre compte Netflix, puis choisissez quelque chose à regarder : la vidéo se lit ici, avec ses sous-titres en {1:lower} en mots cliquables.
+9db0dc47 Ouverture dans Tamkeen…
+a44a102a Impossible d'ouvrir ce titre.
+1d37298b Netflix n'a pas ouvert ses titres par langue. Utilisez « Explorer par langue » dans le menu de Netflix.
+7fadb4d2 Choisissez la langue que vous apprenez dans le menu des langues de Netflix.
+8ab30860 Connectez-vous à Netflix ici. Seul Netflix voit votre mot de passe.
+c4e3e9b1 Choisissez un titre pour le regarder dans Tamkeen
+6fedd6f1 Choisissez {0:lower} dans le menu des langues de Netflix.
+48f90157 Netflix fonctionne dans Tamkeen sur un ordinateur Windows : choisissez-y Netflix, et ses sous-titres deviennent des mots cliquables, comme ceux d'une vidéo YouTube. Ce que vous y regardez apparaît ici, dans votre Bibliothèque.
+4682f31f Sur la plupart des téléphones, Netflix ne laisse pas ses vidéos se lire dans d'autres applis, il n'est donc pas encore dans l'appli Tamkeen pour téléphone.
+0fdd1439 Sur iPhone, Netflix ne laisse pas ses vidéos se lire dans d'autres applis, Tamkeen ne peut donc pas les afficher ici.
+bf8e4c08 Netflix ne lit pas ses vidéos dans le navigateur d'un téléphone, l'appli web ne peut donc pas les afficher.
+f1e7ac29 Dans un navigateur web, Tamkeen aurait besoin d'une extension de navigateur pour fonctionner avec Netflix, et il n'en existe pas encore.
+1ea1e991 La version de Tamkeen de cet ordinateur ne peut pas encore piloter le lecteur de Netflix.
+6b4020fc L'afficheur web intégré de cet ordinateur ne peut pas lire les vidéos protégées de Netflix.
+c9bc78e3 Netflix ne peut pas être lu ici.
+44414c92 Netflix n'est pas disponible ici
+9028e103 Lecture de la piste audio en {0:lower} de Netflix.
+a3d8063f Netflix n'a pas de sous-titres en {0:lower} pour ce titre, donc Tamkeen ne peut pas afficher ses mots. La vidéo se lit quand même.
+f1d11dfc Netflix n'a les sous-titres en {0:lower} de ce titre que sous forme d'images, donc Tamkeen ne peut pas lire leurs mots.
+39837ace Netflix n'a pas passé ses sous-titres en {0:lower}. Essayez de rouvrir le titre.
+f845c6b7 Récupération des sous-titres en {0:lower} de Netflix…
+9742fdb1 Netflix est encore en cours de chargement
+41436aaf Impossible d'ouvrir le lecteur de Netflix.
+e87695a8 Pas encore de titres Netflix. Sur un ordinateur Windows, appuyez sur + et choisissez Netflix.
+e619e59e Les titres que vous avez regardés sur Netflix, les plus récents d'abord. Ils se lisent depuis Netflix dans Tamkeen sur un ordinateur Windows ; leurs sous-titres sont la transcription.
+0fbeb7ce Retirer « {0} » de vos titres Netflix ? Le vocabulaire enregistré est conservé.
+bd33f09a Taille du texte et plein écran
+d5fe3b8f Ouverture de Netflix…
+f8cb610e Les sous-titres en {0:lower} de Netflix apparaissent ici dès que le titre commence.
+4275284b Netflix n'a pas pu lire ce titre.
+1eec59cc Le lecteur de Netflix s'est fermé.
+4aa82c55 Connectez-vous d'abord à Netflix : ouvrez Netflix, connectez-vous-y, puis appuyez sur « Réessayer ».
+109469b8 Netflix demande qui regarde : choisissez votre profil dans la fenêtre de Netflix, puis appuyez sur « Réessayer ».
+5f0e0c5f Ce titre n'est pas encore dans la bibliothèque.
+3c408dfa Les titres ne peuvent être ouverts que depuis Netflix.
+a28d5b5f Impossible d'ouvrir ce titre ({0}).
+c8a5caec Impossible d'ouvrir la fenêtre de Netflix ({0}).
+dc713ef1 Pour l'instant, les titres Netflix ne se lisent que dans Tamkeen pour Windows.
+415b6bab Impossible d'ouvrir le lecteur de Netflix ({0}).
+d6782664 Cela ne ressemble pas à un titre Netflix.
+8100720c Ce fichier de sous-titres est trop gros.
+884d042c Ce fichier de sous-titres est illisible.
+25ab7cce Ce n'est pas un fichier de sous-titres.
+753a3aeb Seuls les fichiers de sous-titres de Netflix peuvent être récupérés ici.
+8795b369 Les titres Netflix que vous avez regardés dans Tamkeen. Ils se lisent depuis Netflix ; leurs sous-titres sont la transcription.
+4a6b81c8 Titre Netflix
+70152440 Ce fichier de sous-titres ne contient aucun mot.

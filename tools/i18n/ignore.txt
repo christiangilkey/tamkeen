@@ -311,3 +311,16 @@ d72501e4  # 어린이 만화
 c9b2ef04  # Cn
 91bdaa2d  # Um
 bb45869a  # 먹어요, 먹었어요, 먹고 싶어요
+# Netflix (web/js/netflix.js, nfmedia.js, app/netflix*.py): the brand's own name, the names matched in Netflix's
+# English language menu, media types asked of the web view, a browser's user agent, the video window's title and
+# answers only the code reads.
+ca024fd6  # Netflix
+b75dba35  # Cantonese  (matched in Netflix's menu, never shown)
+ef83abf2  # Farsi  (the same)
+140fb5eb  # video/mp4; codecs="avc1.42E01E"
+d4bea453  # audio/mp4; codecs="mp4a.40.2"
+dc3c38fd  # Mozilla/5.0 (Windows NT 10.0; …)  (a user agent)
+5d19412f  # Netflix player · {0}  (the title of a window with no title bar)
+da1acefe  # Unknown command.
+219eaf02  # Netflix is still loading.  (the page's own check, never shown)
+45da55c6  # Netflix didn't answer.  (the same)

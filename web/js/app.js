@@ -89,7 +89,8 @@ function emit(event, data) {
 }
 function connectEvents() {
   const es = new EventSource("/api/events");
-  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "youtube_find", "app_link", "reels", "reels_collections", "stt", "update", "vowels"]) {
+  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "youtube_find", "netflix_watch",
+    "netflix", "app_link", "reels", "reels_collections", "stt", "update", "vowels"]) {
     es.addEventListener(name, (e) => emit(name, JSON.parse(e.data)));
   }
   es.onopen = () => emit("reconnected", {});
@@ -243,6 +244,66 @@ on("youtube_watch", async ({ token, video_id, at }) => {
     // `at`: the moment that came with the video (a caption search result's; see filmot.js).
     const { watchFound } = await import("./filmot.js");
     const ep = await watchFound(video_id, at ?? null);
+    result = { ok: true, title: ep.title };
+  } catch (e) {
+    result = { ok: false, error: e.message };
+  }
+  api("/youtube/watch-result", { method: "POST", body: { token, ...result } }).catch(() => {});
+});
+
+// ---------- Netflix (netflix.js, nfmedia.js, app/netflix_overlay.py) ----------
+
+/** The video window Netflix plays in, laid over the player's stage (see nfmedia.js for its five
+ * calls), or null where there is none (running in an ordinary browser). */
+export function netflixBridge() {
+  const b = window.pywebview && window.pywebview.api;
+  if (!b || !b.netflix_open) return null;
+  return {
+    open: (id, lang, reload = false) => b.netflix_open(String(id), lang || "", !!reload),
+    place: (rect) => b.netflix_place(rect),
+    do: (command, value) => b.netflix_do(command, value ?? null),
+    state: () => b.netflix_state(),
+    release: () => b.netflix_release(),
+  };
+}
+
+/** Can Netflix titles play here? {ok, reason} (reason: see unavailableReason in netflix.js). Worked
+ * out once per run: neither the system nor its web view changes meanwhile. */
+let netflixSupported = null;
+export function netflixSupport() {
+  if (!netflixSupported) {
+    netflixSupported = (async () => {
+      const { drmAvailable, unavailableReason } = await import("./netflix.js");
+      const b = window.pywebview && window.pywebview.api;
+      // Running in an ordinary browser (development mode): no window of its own to play Netflix in.
+      if (!b || !b.netflix_support) return { ok: false, reason: "web-computer" };
+      const r = await b.netflix_support();
+      const reason = unavailableReason({ platform, overlay: !!(r && r.ok), drm: await drmAvailable() });
+      return { ok: !reason, reason };
+    })();
+    netflixSupported.catch(() => { netflixSupported = null; });
+  }
+  return netflixSupported;
+}
+
+/** Open Netflix in the app's own browser window, on its titles in the language being learned.
+ * Picking one there opens it in Tamkeen's player (the "netflix_watch" event, handled below). */
+export async function openNetflix() {
+  const { browseStart, browserTexts, languageNames } = await import("./netflix.js");
+  const b = window.pywebview && window.pywebview.api;
+  if (!b || !b.open_netflix) throw new Error("Netflix works in Tamkeen's own window on a Windows computer.");
+  const lang = studyLanguage();
+  const r = await b.open_netflix(browseStart(), { lang, names: languageNames(lang), text: browserTexts(lang) });
+  if (r && r.error) throw new Error(r.error);
+}
+
+// A title was picked in the Netflix window: add it, show it, and tell the window how it went.
+on("netflix_watch", async ({ token, netflix_id, info }) => {
+  if (EMBED) return;
+  let result;
+  try {
+    const { watchNetflix } = await import("./netflix.js");
+    const ep = await watchNetflix(netflix_id, info || {});
     result = { ok: true, title: ep.title };
   } catch (e) {
     result = { ok: false, error: e.message };

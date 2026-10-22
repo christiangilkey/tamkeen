@@ -1,0 +1,52 @@
+# Netflix (2026-10-21)
+826600ed Netflix 在 Windows 电脑上 Tamkeen 自己的窗口里使用。
+4052b125 观看剧集和电影，字幕变成可点击的词
+034fc8b3 打开 Netflix
+d93fcbac Netflix 会打开它的{0}作品页面。请在那里用你自己的 Netflix 账号登录，然后选一部来看：它会在这里播放，{1}字幕会变成可点击的词。
+9db0dc47 正在 Tamkeen 中打开…
+a44a102a 无法打开这部作品。
+1d37298b Netflix 没有打开按语言分类的作品页面。请使用 Netflix 菜单中的“按语言浏览”。
+7fadb4d2 请在 Netflix 的语言菜单里选择你正在学的语言。
+8ab30860 在这里登录 Netflix。只有 Netflix 能看到你的密码。
+c4e3e9b1 选一部作品，在 Tamkeen 里观看
+6fedd6f1 请在 Netflix 的语言菜单里选择{0}。
+48f90157 Netflix 可以在 Windows 电脑上的 Tamkeen 里使用：在那里选择 Netflix，它的字幕就会像 YouTube 视频那样变成可点击的词。你在那里看过的内容会出现在这里的资料库中。
+4682f31f 在大多数手机上，Netflix 不允许它的视频在其他应用里播放，所以 Tamkeen 手机应用里暂时还没有它。
+0fdd1439 在 iPhone 上，Netflix 不允许它的视频在其他应用里播放，所以 Tamkeen 无法在这里显示它们。
+bf8e4c08 Netflix 不在手机浏览器里播放它的视频，所以网页版应用无法显示它们。
+f1e7ac29 在网页浏览器里，Tamkeen 需要一个浏览器扩展才能配合 Netflix 使用，但目前还没有。
+1ea1e991 这台电脑上的 Tamkeen 版本暂时还无法控制 Netflix 的播放器。
+6b4020fc 这台电脑的内置网页查看器无法播放 Netflix 受保护的视频。
+c9bc78e3 这里无法播放 Netflix。
+44414c92 Netflix 在这里不可用
+9028e103 正在播放 Netflix 的{0}音轨。
+a3d8063f 这部作品在 Netflix 上没有{0}字幕，所以 Tamkeen 无法显示它的词。视频仍可播放。
+f1d11dfc 这部作品在 Netflix 上的{0}字幕只有图片形式，所以 Tamkeen 无法读取其中的词。
+39837ace Netflix 没有把字幕切换到{0}。请重新打开这部作品试试。
+f845c6b7 正在获取 Netflix 的{0}字幕…
+9742fdb1 Netflix 仍在加载
+41436aaf 无法打开 Netflix 的播放器。
+e87695a8 还没有 Netflix 作品。在 Windows 电脑上按 + 并选择 Netflix。
+e619e59e 你从 Netflix 看过的作品，最新的在前。它们在 Windows 电脑上的 Tamkeen 里从 Netflix 播放；字幕就是转写文本。
+0fbeb7ce 要从你的 Netflix 作品中移除“{0}”吗？已保存的词汇会保留。
+bd33f09a 文字大小和全屏
+d5fe3b8f 正在打开 Netflix…
+f8cb610e 作品开始播放后，Netflix 的{0}字幕会显示在这里。
+4275284b Netflix 无法播放这部作品。
+1eec59cc Netflix 的播放器已关闭。
+4aa82c55 请先登录 Netflix：打开 Netflix，在那里登录，然后按“重试”。
+109469b8 Netflix 在问谁在观看：请在 Netflix 窗口里选择你的个人资料，然后按“重试”。
+5f0e0c5f 这部作品还不在资料库里。
+3c408dfa 作品只能从 Netflix 打开。
+a28d5b5f 无法打开这部作品（{0}）。
+c8a5caec 无法打开 Netflix 窗口（{0}）。
+dc713ef1 目前 Netflix 作品只能在 Windows 版 Tamkeen 中播放。
+415b6bab 无法打开 Netflix 的播放器（{0}）。
+d6782664 这看起来不像 Netflix 作品。
+8100720c 这个字幕文件太大了。
+884d042c 无法读取这个字幕文件。
+25ab7cce 这不是字幕文件。
+753a3aeb 这里只能获取 Netflix 的字幕文件。
+8795b369 你在 Tamkeen 里看过的 Netflix 作品。它们从 Netflix 播放；字幕就是转写文本。
+4a6b81c8 Netflix 作品
+70152440 这个字幕文件里没有词。

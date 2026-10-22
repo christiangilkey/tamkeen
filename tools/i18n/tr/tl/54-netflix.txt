@@ -1,0 +1,52 @@
+# Netflix (2026-10-21)
+826600ed Gumagana ang Netflix sa sariling window ng Tamkeen sa isang Windows na computer.
+4052b125 Manood ng mga palabas at pelikula na ang subtitles ay mga salitang puwedeng i-click
+034fc8b3 Buksan ang Netflix
+d93fcbac Bubukas ang Netflix sa mga palabas nito sa {0}. Mag-sign in doon gamit ang sarili mong Netflix account, saka pumili ng papanoorin: dito ito magpe-play, at ang {1} na subtitles nito ay magiging mga salitang puwedeng i-click.
+9db0dc47 Binubuksan sa Tamkeen…
+a44a102a Hindi mabuksan ang palabas na ito.
+1d37298b Hindi binuksan ng Netflix ang mga palabas nito ayon sa wika. Gamitin ang “Browse by Languages” sa menu ng Netflix.
+7fadb4d2 Piliin ang wikang pinag-aaralan mo sa menu ng mga wika ng Netflix.
+8ab30860 Mag-sign in sa Netflix dito. Netflix lang ang nakakakita ng password mo.
+c4e3e9b1 Pumili ng palabas para panoorin ito sa Tamkeen
+6fedd6f1 Piliin ang {0} sa menu ng mga wika ng Netflix.
+48f90157 Gumagana ang Netflix sa Tamkeen sa isang Windows na computer: piliin doon ang Netflix, at ang subtitles nito ay magiging mga salitang puwedeng i-click, gaya ng sa isang YouTube video. Ang pinapanood mo roon ay lalabas dito sa Library mo.
+4682f31f Sa karamihan ng telepono, hindi pinapayagan ng Netflix na mag-play ang mga video nito sa loob ng ibang app, kaya wala pa ito sa phone app ng Tamkeen.
+0fdd1439 Sa iPhone, hindi pinapayagan ng Netflix na mag-play ang mga video nito sa loob ng ibang app, kaya hindi ito maipapakita ng Tamkeen dito.
+bf8e4c08 Hindi pine-play ng Netflix ang mga video nito sa web browser ng telepono, kaya hindi ito maipapakita ng web app.
+f1e7ac29 Sa isang web browser, kakailanganin ng Tamkeen ng browser extension para gumana sa Netflix, at wala pang ganoon.
+1ea1e991 Hindi pa kayang kontrolin ng bersyon ng Tamkeen sa computer na ito ang player ng Netflix.
+6b4020fc Hindi kayang i-play ng built-in na web viewer ng computer na ito ang mga protektadong video ng Netflix.
+c9bc78e3 Hindi mape-play ang Netflix dito.
+44414c92 Hindi available dito ang Netflix
+9028e103 Pine-play ang {0} na audio ng Netflix.
+a3d8063f Walang {0} na subtitles ang Netflix para sa palabas na ito, kaya hindi maipakita ng Tamkeen ang mga salita nito. Nagpe-play pa rin ang video.
+f1d11dfc Mga larawan lang ang {0} na subtitles ng Netflix para sa palabas na ito, kaya hindi mabasa ng Tamkeen ang mga salita nito.
+39837ace Hindi inilipat ng Netflix ang subtitles nito sa {0}. Subukang buksan ulit ang palabas.
+f845c6b7 Kinukuha ang {0} na subtitles ng Netflix…
+9742fdb1 Naglo-load pa ang Netflix
+41436aaf Hindi mabuksan ang player ng Netflix.
+e87695a8 Wala pang palabas mula sa Netflix. Sa isang Windows na computer, pindutin ang + at piliin ang Netflix.
+e619e59e Mga palabas na pinanood mo mula sa Netflix, pinakabago muna. Nagpe-play ang mga ito mula sa Netflix sa Tamkeen sa isang Windows na computer; ang subtitles nila ang transcript.
+0fbeb7ce Alisin ang “{0}” sa mga Netflix na palabas mo? Mananatili ang na-save na vocab.
+bd33f09a Laki ng teksto at full screen
+d5fe3b8f Binubuksan ang Netflix…
+f8cb610e Lalabas dito ang {0} na subtitles ng Netflix pagsimula ng palabas.
+4275284b Hindi ma-play ng Netflix ang palabas na ito.
+1eec59cc Nagsara ang player ng Netflix.
+4aa82c55 Mag-sign in muna sa Netflix: buksan ang Netflix, mag-sign in doon, saka pindutin ang “Subukan ulit”.
+109469b8 Nagtatanong ang Netflix kung sino ang nanonood: piliin ang profile mo sa window ng Netflix, saka pindutin ang “Subukan ulit”.
+5f0e0c5f Wala pa sa library ang palabas na iyon.
+3c408dfa Sa Netflix lang puwedeng buksan ang mga palabas.
+a28d5b5f Hindi mabuksan ang palabas na ito ({0}).
+c8a5caec Hindi mabuksan ang window ng Netflix ({0}).
+dc713ef1 Sa ngayon, sa Tamkeen para sa Windows lang nagpe-play ang mga palabas ng Netflix.
+415b6bab Hindi mabuksan ang player ng Netflix ({0}).
+d6782664 Mukhang hindi iyan palabas ng Netflix.
+8100720c Masyadong malaki ang subtitle file na iyan.
+884d042c Hindi mabasa ang subtitle file na iyan.
+25ab7cce Hindi iyan subtitle file.
+753a3aeb Mga subtitle file lang ng Netflix ang puwedeng kunin dito.
+8795b369 Mga palabas ng Netflix na pinanood mo sa Tamkeen. Nagpe-play ang mga ito mula sa Netflix; ang subtitles nila ang transcript.
+4a6b81c8 Palabas ng Netflix
+70152440 Walang salita ang subtitle file na iyan.

@@ -106,9 +106,11 @@ def enqueue(episode_ids: Iterable[int]) -> list[int]:
     now = time.time()
     with db.session() as conn:
         for ep in episode_ids:
-            row = conn.execute("SELECT status, deleted FROM episodes WHERE id = ?", (ep,)).fetchone()
+            row = conn.execute("SELECT status, deleted, audio_type FROM episodes WHERE id = ?", (ep,)).fetchone()
             if row is None or row["deleted"] or row["status"] in ACTIVE_STATUSES:
                 continue
+            if (row["audio_type"] or "") == "video/netflix":
+                continue  # Netflix's video can't be downloaded: its words are Netflix's subtitles (app/netflix.py)
             conn.execute("INSERT INTO jobs(episode_id, state, created_at) VALUES(?, 'queued', ?)", (ep, now))
             _set_episode(conn, ep, status="queued", progress=0, error=None)
             queued.append(ep)

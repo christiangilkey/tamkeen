@@ -517,6 +517,31 @@ export async function ytRequest({ url, method = "GET", headers = {}, body }) {
   return { status: res.status, text: typeof res.data === "string" ? res.data : JSON.stringify(res.data ?? "") };
 }
 
+// ---------- Netflix ----------
+// Netflix's videos are copy-protected and Netflix only plays them in its own player: on a Windows
+// computer Tamkeen lays that player over its stage (web/js/nfmedia.js). Here there is no such
+// window yet, so Netflix explains itself instead (netflix.js unavailableText). Titles watched on
+// the computer still arrive in the Library with their subtitles. (A phone's native video window,
+// like the reels' ReelSurface, could later be handed to createNetflixMedia as its bridge.)
+
+/** The window Netflix plays in: none on the phones or the web app (see web/js/app.js). */
+export function netflixBridge() {
+  return null;
+}
+
+/** Can Netflix titles play here? {ok, reason}: never, for now (reason: see netflix.js). */
+export async function netflixSupport() {
+  const { unavailableReason } = await import("./netflix.js");
+  const phone = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || "") || window.matchMedia("(pointer: coarse)").matches;
+  return { ok: false, reason: unavailableReason({ platform: "android", web: isWeb, ios: isIOS, phone }) };
+}
+
+/** Netflix can't open here: the reason, as an error to show. */
+export async function openNetflix() {
+  const { unavailableText } = await import("./netflix.js");
+  throw new Error(unavailableText((await netflixSupport()).reason).lines[0]);
+}
+
 /** Open YouTube in the in-app browser, on what is popular this week in the language being
  * studied (see youtube-home.js). Tapping a video there opens it in Tamkeen's player. */
 export async function openYouTube(address = "") {

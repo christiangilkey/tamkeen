@@ -4,11 +4,14 @@
 // transcript in a panel beside it (desktop) or below it (phone), toggled by a button.
 // YouTube videos play in YouTube's own embedded player (ytmedia.js); their tappable captions
 // sit BELOW the video, because nothing may be drawn over YouTube's player.
+// Netflix titles are laid out exactly like YouTube videos ("embed"): Netflix's player plays in a
+// window of its own over the stage (nfmedia.js), so nothing may be drawn over the video there either.
 //
 // Performance: words are rendered once as <span>s. Each animation frame we binary-search
 // the sorted start times (O(log n)) and only touch the DOM when the active word changes.
 
-import { api, esc, h, on, toast, showMenu, hideMenu, download, saveSettings, state, requestNotifications, audioUrl, buzz } from "../app.js";
+import { api, esc, h, on, toast, showMenu, hideMenu, download, saveSettings, state, requestNotifications, audioUrl, buzz,
+  netflixBridge, netflixSupport, openNetflix } from "../app.js";
 import { saveProgress } from "../progress.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, langInfo, regroupWords, studyLanguage, vocabFromDefinition } from "../languages.js";
@@ -23,6 +26,9 @@ import { isBook } from "../books.js";
 import { captionKind, channelOf, dubbedTrack, followChannel, importVideo, isFollowing, isYouTube, noteWatched, readVideo, saveVideo,
   videoId as youTubeId } from "../youtube.js";
 import { createYouTubeMedia } from "../ytmedia.js";
+import { addNetflix, isNetflix, languageName, subtitleNote, unavailableText } from "../netflix.js";
+import { createNetflixMedia } from "../nfmedia.js";
+import { t } from "../i18n.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
@@ -120,6 +126,26 @@ function renderPending(view, ep) {
   });
 }
 
+/** A Netflix title on a device where Netflix can't play (the phones, the web app): why. */
+async function renderNetflixElsewhere(view, ep) {
+  const { reason } = await netflixSupport().catch(() => ({ reason: "" }));
+  const { title, lines } = unavailableText(reason);
+  const panel = h(`<div class="page"><div class="card status-panel stack">
+      <h1 dir="auto"></h1>
+      <p><strong></strong></p>
+      <p></p>
+      <p class="small muted"></p>
+      <div class="row" style="justify-content:center"><a class="btn" href="#/library">Back to library</a></div>
+    </div></div>`);
+  panel.querySelector("h1").textContent = ep.title;
+  panel.querySelector("strong").textContent = title;
+  const [, why, where] = panel.querySelectorAll("p");
+  why.textContent = lines[0];
+  where.textContent = lines[1];
+  view.append(panel);
+  return undefined;
+}
+
 export async function render(view, { id, query }) {
   const data = await api(`/episodes/${id}/transcript`);
   const ep = data.episode;
@@ -127,9 +153,13 @@ export async function render(view, { id, query }) {
     location.replace(`#/reels/play?at=${id}`);
     return undefined;
   }
+  // Netflix: only where its player can be laid over the stage (Tamkeen for Windows).
+  const nf = isNetflix(ep);
+  if (nf && (!netflixBridge() || !(await netflixSupport().catch(() => ({ ok: false }))).ok)) return renderNetflixElsewhere(view, ep);
   if (reader.isPage(ep) && data.words.text.length) return reader.render(view, { id, data, query });
   if (isBook(ep) && data.words.text.length) return (await import("./book.js")).render(view, { id, data, query });
-  if (ep.status !== "done" || !data.words.start.length) return renderPending(view, ep);
+  // (A Netflix title plays at once: its subtitles arrive once Netflix's player has started.)
+  if (!nf && (ep.status !== "done" || !data.words.start.length)) return renderPending(view, ep);
 
   const lang = episodeLanguage(ep);
   const segTexts = new Map(data.segments.map((s) => [s.idx, s.text]));
@@ -148,8 +178,12 @@ export async function render(view, { id, query }) {
   const img = ep.image || ep.feed_image;
   const vid = isVideo(ep);
   const yt = isYouTube(ep);
-  // Captions written by a person are timed per line, not per word (see ytcaptions.js).
-  const lineTimed = yt && ep.model !== "youtube-auto";
+  // Played by another company's player that nothing may be drawn over (YouTube's, Netflix's): the
+  // clickable captions go under the video and the word popup into the transcript.
+  const embed = yt || nf;
+  // Captions written by a person are timed per line, not per word (see ytcaptions.js); so are
+  // Netflix's subtitles.
+  const lineTimed = nf || (yt && ep.model !== "youtube-auto");
   const transcriptHtml = `<div class="transcript-wrap">
         <div class="transcript ar" id="transcript" ${langAttrs(lang)} tabindex="0"></div>
         <button type="button" class="back-to-current primary" id="back" hidden>↓ Back to current</button>
@@ -157,7 +191,7 @@ export async function render(view, { id, query }) {
   // Videos (computer): a slim handle on the transcript panel's edge folds the panel away and back.
   const handleHtml = `<button type="button" class="panel-handle" id="panel-handle">${icon("chevron", 18)}</button>`;
   view.append(h(`
-    <div class="player${vid ? " video" : ""}${yt ? " yt" : ""}">
+    <div class="player${vid ? " video" : ""}${embed ? " yt" : ""}${nf ? " nf" : ""}">
       <div class="player-head">
         <a class="btn ghost" href="#/feed/${ep.feed_id}" title="Back">←</a>
         ${img ? `<img src="${esc(img)}" alt="" referrerpolicy="no-referrer">` : ""}
@@ -173,17 +207,17 @@ export async function render(view, { id, query }) {
           ${vid ? `<button type="button" id="toggle-panel" title="Show or hide the full transcript (T)" aria-label="Transcript">${icon("transcript", 16)}<span class="lbl">Transcript</span></button>
           <button type="button" class="ghost" id="toggle-cc" title="Show or hide the clickable captions (C)">CC</button>
           <button type="button" class="ghost" id="fullscreen" title="Full screen (F)">⛶</button>` : ""}
-          ${yt ? `<button type="button" class="ghost" id="more" title="Text size, full screen and saving the transcript">⋯</button>` : ""}
+          ${embed ? `<button type="button" class="ghost" id="more" title="${nf ? "Text size and full screen" : "Text size, full screen and saving the transcript"}">⋯</button>` : ""}
           <button type="button" class="ghost" id="font-down" title="Smaller text">A−</button>
           <button type="button" class="ghost" id="font-up" title="Larger text">A+</button>
-          <button type="button" id="exp-txt">TXT</button>
+          ${nf ? "" : `<button type="button" id="exp-txt">TXT</button>
           <button type="button" id="exp-srt">SRT</button>
-          <button type="button" id="exp-vtt">VTT</button>
+          <button type="button" id="exp-vtt">VTT</button>`}
         </div>
       </div>
-      ${yt ? `<div class="stage" id="stage">
+      ${embed ? `<div class="stage" id="stage">
         <div class="yt-col">
-          <div class="screen" id="screen"><div id="yt-frame"></div></div>
+          <div class="screen" id="screen">${nf ? `<div class="nf-frame" id="nf-frame"><p class="nf-msg">Opening Netflix…</p></div>` : `<div id="yt-frame"></div>`}</div>
           <div class="captions" id="captions" ${langAttrs(lang)}></div>
           <div class="yt-note" id="yt-note" hidden></div>
         </div>
@@ -229,6 +263,13 @@ export async function render(view, { id, query }) {
     parts.push("</p>");
   }
   tr.innerHTML = parts.join("");
+  // A Netflix title's subtitles come from Netflix once it plays; the page is drawn afresh then.
+  // (t(): the transcript is in the language being learned, which the page's translation leaves alone.)
+  const nfWaiting = nf ? t("Netflix's {0} subtitles appear here once the title starts playing.", languageName(ep.language || studyLanguage())) : "";
+  if (nf && !n) {
+    tr.innerHTML = `<p class="nf-wait" dir="auto"></p>`;
+    tr.firstChild.textContent = nfWaiting;
+  }
   const wordEls = tr.querySelectorAll(".w");
   // Words never tapped before are drawn in purple; a tap makes every form of the word "seen".
   const seen = seenWords({ tokens: texts, lang, els: wordEls });
@@ -241,10 +282,14 @@ export async function render(view, { id, query }) {
   // YouTube's own captions prefer the language being learned; when these captions are in another
   // language, YouTube's are switched on in it (translated by YouTube; see ytmedia.js).
   const study = studyLanguage();
+  // A Netflix title plays in Netflix's own player, in a window laid over the stage (nfmedia.js);
+  // its subtitles and soundtrack are switched to the language the title was added in.
   const audio = yt ? createYouTubeMedia($("#yt-frame"), youTubeId(ep.audio_url) || ep.guid,
     { start: startAt, duration, captions: { lang: study, show: lang !== study } })
+    : nf ? createNetflixMedia($("#screen"), ep.guid, { bridge: netflixBridge(), lang: ep.language || study, duration,
+      onState: (s) => netflixState(s) })
     : vid ? $("#video") : new Audio();
-  if (!yt) {
+  if (!embed) {
     audio.preload = "auto";
     audio.src = await audioUrl(id);
   }
@@ -264,6 +309,7 @@ export async function render(view, { id, query }) {
   audio.addEventListener("error", () => {
     if (disposed) return;
     toast(yt ? audio.errorMessage || "YouTube couldn't play this video."
+      : nf ? audio.errorMessage || "Netflix couldn't play this title."
       : vid ? "Couldn't load the video. It streams from your Google Drive: check your connection and that you're signed in."
       : "Couldn't load the audio. If it streams from the podcast's server, check your connection.", { error: true });
   });
@@ -296,7 +342,7 @@ export async function render(view, { id, query }) {
   function showCaption(idx) {
     // Keep the tapped word in place while its popup is open. (Not on YouTube when the choice is
     // to keep playing: there the popup hangs below the captions, so they can carry on.)
-    if (!capEl || (bubble && bubble.open && !(yt && !pauseAfterWord()))) return;
+    if (!capEl || (bubble && bubble.open && !(embed && !pauseAfterWord()))) return;
     let start = -1;
     let end = -1;
     if (idx >= 0) {
@@ -428,7 +474,8 @@ export async function render(view, { id, query }) {
   // First in the banner's row of buttons, for every kind of thing this player plays. It sends
   // what is playing and the moment it has reached; the user's own files can't be sent, and the
   // button says so.
-  $(".player-head > .row").prepend(sendButton(() => mediaFromEpisode(ep, { at: audio.currentTime || 0 })));
+  // (Not a Netflix title: its words are Netflix's subtitles, from the user's own Netflix, for his own study.)
+  if (!nf) $(".player-head > .row").prepend(sendButton(() => mediaFromEpisode(ep, { at: audio.currentTime || 0 })));
 
   // ---------- follow this video's channel (YouTube) ----------
   // An outline while not followed, filled once followed; a small "Following" bubble shows for a
@@ -528,6 +575,79 @@ export async function render(view, { id, query }) {
       if (!disposed) btn.disabled = false;
     }
   }
+
+  // ---------- Netflix: what its player says (nfmedia.js hands on each answer) ----------
+  // On the stage, under the video window: what is happening while there is no picture (opening,
+  // a sign-in needed, Netflix's own error). Under the captions: which subtitles and soundtrack.
+  let nfMsg = "";
+  let nfNote = "";
+  let nfMoving = false;
+  function netflixState(s) {
+    if (disposed || !s) return;
+    let text = "";
+    let action = "";
+    if (s.gone) { text = "Netflix's player closed."; action = "again"; }
+    else if (s.page === "login") { text = "Sign in to Netflix first: open Netflix, sign in there, then press Try again."; action = "signin"; }
+    else if (s.page === "profiles") { text = "Netflix asks who's watching: choose your profile in the Netflix window, then press Try again."; action = "signin"; }
+    else if (s.error) { text = s.error; action = "again"; }
+    else if (s.loading || !s.video) text = "Opening Netflix…";
+    const key = `${text}|${action}`;
+    if (key !== nfMsg) {
+      nfMsg = key;
+      const frame = $("#nf-frame");
+      frame.innerHTML = `<p class="nf-msg"></p>`;
+      frame.firstChild.textContent = text;
+      if (action === "signin") {
+        const open = h(`<button type="button">${icon("film", 16)} Open Netflix</button>`);
+        open.onclick = () => openNetflix().catch((e) => toast(e.message, { error: true }));
+        frame.append(open);
+      }
+      if (action) {
+        const again = h(`<button type="button" class="primary">Try again</button>`);
+        again.onclick = () => audio.reload();
+        frame.append(again);
+      }
+    }
+    // While there are no words yet, what is happening to the subtitles is said where the words will
+    // be (the transcript panel); once there are, any note goes under the captions, as for YouTube.
+    const said = subtitleNote(s, { words: n, lang: ep.language || study });
+    const lines = [said.sound, n ? said.subs : ""].filter(Boolean);
+    if (`${lines.join("\n")}|${said.subs}` !== nfNote) {
+      nfNote = `${lines.join("\n")}|${said.subs}`;
+      const note = $("#yt-note");
+      note.innerHTML = lines.map(() => "<p></p>").join("");
+      note.querySelectorAll("p").forEach((el, i) => { el.textContent = lines[i]; });
+      note.hidden = !lines.length;
+      const wait = tr.querySelector(".nf-wait");
+      if (wait) wait.textContent = said.subs || nfWaiting;
+      if (bubble) fitBubble();
+    }
+    // Netflix went on to another title: the series' episode it chose (this one was opened by the
+    // series' own number, so it never got subtitles), or the next episode at the end of one.
+    if (s.id && /^\d+$/.test(s.id) && s.id !== ep.guid && !nfMoving) followNetflix(s);
+  }
+  async function followNetflix(s) {
+    const pending = !n;
+    const episode = !!(ep.description || (s.info && s.info.episode > 0));
+    if (!pending && !episode) { audio.pause(); return; } // a film moving on to something else: stay with this one
+    nfMoving = true;
+    const info = s.info && (s.info.title || s.info.show) ? s.info : { title: ep.title, show: ep.description || "", image: ep.image || "" };
+    try {
+      const next = await addNetflix(s.id, info, pending ? ep.guid : null);
+      if (disposed) return;
+      audio.keepShowing = true; // the same video carries on: only the page around it changes
+      location.replace(`#/episode/${next.id}`);
+    } catch (e) {
+      nfMoving = false;
+      toast(e.message, { error: true });
+    }
+  }
+  // Its subtitles arrived (app/netflix.py): the page is drawn afresh with them, the video carrying on.
+  const offNetflix = nf ? on("netflix", (e) => {
+    if (disposed || !e || e.kind !== "subtitles" || e.episode !== id) return;
+    audio.keepShowing = true;
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+  }) : null;
 
   // ---------- clips: play one word or one sentence, then pause ----------
   // (or keep playing from there, if that is what the switch in the word popup says)
@@ -752,7 +872,7 @@ export async function render(view, { id, query }) {
       if (seen.analyze) seen.analyze(); // the changed words may be new to the learner, or not
     },
   });
-  bubble = createWordBubble(vid && !yt ? $("#stage") : $(".transcript-wrap"), {
+  bubble = createWordBubble(vid && !embed ? $("#stage") : $(".transcript-wrap"), {
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onCorrect: async (def) => {
       const t = bubbleTarget;
@@ -806,11 +926,11 @@ export async function render(view, { id, query }) {
     const phone = window.matchMedia("(max-width: 640px)").matches && !document.documentElement.classList.contains("embed");
     bubbleInPanel = !(anchor && capEl && capEl.contains(anchor));
     const opts = { saved: savedHere.has(savedKey(i, j)) };
-    if (yt && !bubbleInPanel && !phone) {
+    if (embed && !bubbleInPanel && !phone) {
       // Tapped in the captions: the popup joins the black bar right under them (it may not cover
-      // YouTube's player, so the video gets shorter while it is open). The panel stays as it is.
+      // YouTube's or Netflix's player, so the video gets shorter while it is open). The panel stays as it is.
       Object.assign(opts, { host: $(".yt-col"), docked: true });
-    } else if (yt) {
+    } else if (embed) {
       // Beside the word in the transcript panel (a phone shows the popup as a sheet at the
       // bottom instead, so the panel can stay as it is).
       anchor = wordEls[i];
@@ -841,9 +961,9 @@ export async function render(view, { id, query }) {
       e.preventDefault();
       openMenu(e.clientX, e.clientY, wEl);
     });
-    // Tapping the picture plays/pauses (and closes an open definition). YouTube's player
-    // handles its own taps.
-    if (!yt) $("#screen").addEventListener("click", (e) => {
+    // Tapping the picture plays/pauses (and closes an open definition). YouTube's and Netflix's
+    // players handle their own taps.
+    if (!embed) $("#screen").addEventListener("click", (e) => {
       if (e.target.closest(".captions")) return;
       if (bubble.open) { bubble.hide(); return; }
       clipEnd = null;
@@ -859,7 +979,7 @@ export async function render(view, { id, query }) {
     const el = bubble.el;
     const controlsTop = $(".controls").getBoundingClientRect().top;
     el.style.setProperty("--dock-bottom", `${Math.max(0, Math.round(window.innerHeight - controlsTop))}px`);
-    if (!yt) return;
+    if (!embed) return;
     const top = Math.ceil($(".yt-col").getBoundingClientRect().bottom);
     el.style.setProperty("--dock-top", `${top}px`);
     // If something above shifts where "fixed" positions are measured from, correct for it.
@@ -912,8 +1032,11 @@ export async function render(view, { id, query }) {
 
   // ---------- header actions ----------
   const safe = ep.title.replace(/[\\/:*?"<>|]+/g, " ").trim().slice(0, 120) || "transcript";
-  for (const fmt of ["txt", "srt", "vtt"]) {
-    $(`#exp-${fmt}`).onclick = () => download(`/api/episodes/${id}/export/${fmt}`, `${safe}.${fmt}`);
+  // (Netflix's subtitles are not saved out of the app: they are the user's own study, inside it.)
+  if (!nf) {
+    for (const fmt of ["txt", "srt", "vtt"]) {
+      $(`#exp-${fmt}`).onclick = () => download(`/api/episodes/${id}/export/${fmt}`, `${safe}.${fmt}`);
+    }
   }
   let fontTimer;
   const changeFont = (d) => {
@@ -928,7 +1051,7 @@ export async function render(view, { id, query }) {
   $("#font-down").onclick = () => changeFont(-2);
   $("#font-up").onclick = () => changeFont(2);
   // YouTube's slim banner keeps the less-used buttons in a "more" menu on narrow screens.
-  if (yt) {
+  if (embed) {
     $("#more").onclick = (e) => {
       const r = e.currentTarget.getBoundingClientRect();
       const press = (sel) => () => $(sel).click();
@@ -936,9 +1059,11 @@ export async function render(view, { id, query }) {
         { label: "A+  Larger text", run: press("#font-up") },
         { label: "A−  Smaller text", run: press("#font-down") },
         ...($("#fullscreen").hidden ? [] : [{ label: "⛶  Full screen", run: press("#fullscreen") }]),
-        { label: "Save transcript as TXT", run: press("#exp-txt") },
-        { label: "Save subtitles as SRT", run: press("#exp-srt") },
-        { label: "Save subtitles as VTT", run: press("#exp-vtt") },
+        ...(nf ? [] : [
+          { label: "Save transcript as TXT", run: press("#exp-txt") },
+          { label: "Save subtitles as SRT", run: press("#exp-srt") },
+          { label: "Save subtitles as VTT", run: press("#exp-vtt") },
+        ]),
       ]);
     };
   }
@@ -959,7 +1084,7 @@ export async function render(view, { id, query }) {
   document.addEventListener("keydown", onKey);
 
   // ---------- media keys ----------
-  if ("mediaSession" in navigator && !yt) {
+  if ("mediaSession" in navigator && !embed) {
     try {
       navigator.mediaSession.metadata = new MediaMetadata({ title: ep.title, artist: ep.feed_title,
         artwork: img ? [{ src: img }] : [] });
@@ -971,7 +1096,7 @@ export async function render(view, { id, query }) {
   }
 
   // Jumped here from search: flash the matching word.
-  if (query.get("t") !== null) {
+  if (query.get("t") !== null && n) {
     const idx = Math.max(0, activeWordIndex(starts, ends, startAt + 0.01, 1e9));
     requestAnimationFrame(() => {
       ensureVisible(wordEls[idx], true);
@@ -994,10 +1119,11 @@ export async function render(view, { id, query }) {
     document.removeEventListener("pointerdown", onOutside);
     lsSet(posKey, audio.currentTime);
     remember();
-    audio.pause();
+    if (offNetflix) offNetflix();
+    if (!(nf && audio.keepShowing)) audio.pause(); // (a Netflix title drawn afresh plays on)
     delete window.__apsAudio;
     clearTimeout(followPopTimer);
-    if (yt) audio.dispose();
+    if (embed) audio.dispose();
     else {
       audio.removeAttribute("src");
       audio.load();

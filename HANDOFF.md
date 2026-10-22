@@ -4424,3 +4424,100 @@ expect conflicts in the shared lists (every addition here is at the end of its l
   (전 "before" vs 저+ㄴ), names it doesn't know (데이지가), proper nouns without meanings. As for every language, a device keeps the
   table it downloaded until Remove + Download in Settings (nothing checks for a newer one). The data files must be
   pushed (docs/lexicon, docs/books) before installed apps can download them.
+
+## Netflix: watch Netflix with its subtitles as clickable words, like Language Reactor (2026-10-21; branch `worktree-agent-a91747a398acbb68e`, NOT merged, NOT pushed)
+Owner: "add a new section that allows me to use Netflix in the way that language reactor does, it should automatically
+browse by the language I have selected and when I open a stream it should pull up in my player." Look: "Model it exactly
+like the mobile and desktop versions of my YouTube player." Versions: "Webapp, mobile app and desktop app".
+- **What is possible where.** Netflix's video is copy-protected (Widevine/PlayReady), so it only plays in Netflix's own web
+  player, which Tamkeen drives from outside. **Computer (Windows): built.** Android: unknown (Netflix generally refuses to
+  play in phone web views; to test on the owner's phone). iPhone and the web app on a phone: impossible. Web app on a
+  computer: would need a browser extension (later). Those versions explain this, translated (netflix.js
+  `unavailableReason` / `unavailableText`), in the + sheet's Netflix entry and on a Netflix title's player page (titles
+  watched on the computer still arrive in their Library with the subtitles). Mac/Linux desktop: the video window is
+  Windows-only (WinForms ownership), so they explain too; the page also checks the web view's DRM
+  (`drmAvailable`: Widevine / PlayReady / FairPlay through `requestMediaKeySystemAccess`).
+- **Flow (computer)**: Library → + → **Netflix** (film-strip line icon `film`) → **Open Netflix** → a browser window
+  (`JsApi.open_netflix`, reused while open, closes after a hand-over) at `https://www.netflix.com/browse/original-audio`.
+  `web/js/netflix-browser.js` (after `netflix-common.js`) chooses the learning language in Netflix's language menu
+  (looks for a link/menu entry named "Arabic"/"العربية"…, `languageNames`; opens menus one by one if their lists are
+  built on opening; remembers the address it ended on in netflix.com's localStorage; if Netflix sends the window to
+  /browse instead it tries /browse/audio, then /browse/subtitles, then says to use Netflix's own "Browse by Languages").
+  Picking a title (a link to /watch/<id>, or a watch page reached by Netflix's own buttons) is caught before it plays
+  there; Netflix's metadata (`/nq/website/memberapi/release/metadata?movieid=`, best effort, 3 s) gives the name and,
+  for a series, the episode it would play → `BrowserApi.watch_title` (Netflix's site only) → `netflix.ask_app_to_watch`
+  (YouTube's hand-over: event `netflix_watch`, answer on /api/youtube/watch-result) → the page's `watchNetflix` →
+  `POST /api/netflix` → `#/episode/<id>`.
+- **A title** = an episode of the built-in feed `local:netflix` (app/netflix.py explains the fields): `audio_type
+  "video/netflix"`, `guid` Netflix's number (an episode's for a series), `audio_url` the watch address, description = the
+  series' name, title "Series · S1:E3 · Episode", status `done` from the start with model `netflix-pending` and no words
+  until the subtitles arrive (then `netflix-subtitles`, `transcribed_at` set, synced like YouTube captions through the
+  user's private Drive folder only). Never queued for transcription (jobs.enqueue), no audio, **never offered in "send to
+  a friend"** (sendmedia.js) and **no TXT/SRT/VTT export** in the player (the subtitles stay the user's own study,
+  inside the app). Library: kind **Netflix** (after YouTube), rows with Watch + Delete only, a heading with Open Netflix.
+- **The player** (`player.js`): a Netflix title uses the YouTube layout exactly (`embed` = yt || nf; classes `yt nf`):
+  video in the stage, clickable captions below it, the word popup docked under the captions or in the transcript panel,
+  never over the video. `web/js/nfmedia.js` `createNetflixMedia(mount, id, {bridge, lang, onState})` behaves like an
+  <audio> (as ytmedia.js; position estimated between answers, a jump held until Netflix gets there, a reopen mid-title
+  doesn't jump back). The **bridge** has five calls (open/place/do/state/release; desktop: `netflixBridge()` in web/js/app.js
+  → `JsApi.netflix_*`), so a phone's native video window (ReelSurface) could later back the same player. While there are
+  no words, the transcript panel says what is happening ("Getting Netflix's Arabic subtitles…", or that Netflix has none /
+  only as pictures); the stage says "Opening Netflix…", or "Sign in to Netflix first…" / "Netflix asks who's watching…"
+  with **Open Netflix** and **Try again** (reload). When the subtitles arrive (event `netflix`) the page is drawn afresh
+  while the video carries on (`audio.keepShowing`). When Netflix moves on to another title (a series opened by its own
+  number → its episode; the end of an episode → the next one), the player follows: `addNetflix(newId, info, replaces)`;
+  a series entry that never got words is removed. A film moving on to something else just pauses.
+- **The video window** (`app/netflix_overlay.py`, one per run): frameless pywebview window (`focus=False`), title
+  "Netflix player · Tamkeen", **owned by the main window** (`form.Owner = main.native` on the UI thread via
+  `owner.Invoke`), WS_EX_TOOLWINDOW (no taskbar/Alt+Tab), WS_EX_NOACTIVATE (never takes the keyboard: Space, arrows and
+  the popup stay in Tamkeen), square corners. Placement: the page reports `#screen`'s box in CSS pixels + the page size
+  (ResizeObserver, resize, scroll, a MutationObserver for boxes, a 1 s safety net); Python maps it with the ratio of the
+  main window's client area (GetClientRect/ClientToScreen) to the page size (covers display scaling and page zoom),
+  SetWindowPos, and SetWindowRgn clips any part outside the page (`screen_box`, tested). It follows the main window's
+  moved/resized/restored/maximized events; minimising hides it with its owner. Hidden while `.modal-back`,
+  `[role=dialog]`, `#ctxmenu`, `.tour` etc. cover the stage, while Netflix's page has no video, and as soon as the player
+  page closes; paused 0.8 s after the page lets go (unless it takes it back) and closed 30 s later.
+- **Inside Netflix's page** (`web/js/netflix-player.js` after `netflix-common.js`): CSS hides `.player-timedtext` always
+  and, while a title plays, everything but the <video> (`visibility`), except when Netflix asks something ("Are you still
+  watching?") or shows an error. Per player session: the soundtrack is switched to the learning language if Netflix has
+  one (`chooseAudioTrack`: never audio description; the original before a dub), then the subtitles (`chooseTextTrack`:
+  never "Off" — the owner's real track list showed "Off" as an ar-LB PRIMARY track **not** marked isNoneTrack, so it is
+  also recognised by name in 20 interface languages — or forced lines; text before image-based; the dialect heard
+  (ar-LB) first; PRIMARY before ASSISTIVE; zh-Hans, pt-BR). Player API: `netflix.appContext.state.playerApp.getAPI()
+  .videoPlayer`, times in ms, seek through `p.seek` only. `state()`/`cmd()` are what Python's evaluate_js calls.
+- **Subtitles**: Netflix downloads the chosen track's TTML from `*.nflxvideo.net` (text/xml); the video window's
+  `response_received` notices it (`is_subtitle_download`), credits it to the title in the window's address at that
+  moment, fetches it again (`netflix.download`, no cookies) and parses it (`parse_ttml`: ticks, clock and frame times,
+  offsets, `dur`, nested `begin`, <br/> and spans, bidi marks, [sound labels], speakers' dashes; refuses DOCTYPE
+  entities and > 10 MB). `SubtitleCatcher` keeps, per title, files in the learning language seen within 2 minutes of its
+  start, preferring the variant chosen, then the most lines (so Netflix's forced lines and other languages' files lose);
+  2.5 s after the last file, `flush` saves it as line-timed captions (`youtube.write_lines`, now shared) — only if the page
+  reported a chosen learning-language track, only once the title is in the library (POST /api/netflix flushes), never
+  redone for a re-watch.
+- **Tests**: tests/test_netflix.py (20: TTML parsing, times, addresses, the catcher, items, the series hand-over, flush
+  rules, the API, sync, `screen_box`, the window's config), tests/js/netflix.test.mjs (21: browse addresses and language
+  names, where it can play, notes, DRM check, track choice on the owner's real track list, title descriptions, both page
+  scripts against pretend pages, the media object, placement). Totals: 689 JS, 497 pytest. parity.test.mjs lists POST
+  /netflix as computer-only. Translations: tools/i18n/tr/<16 codes>/54-netflix.txt (51 strings); ignore.txt has the brand
+  name, Netflix's own English menu names, codec strings, a user agent and code-only answers. `t()` puts values in as
+  given, so language names go through `languageName()` (= t(name)) before entering a sentence.
+- **Checked with the real desktop app** on a fresh data folder signed in to nothing, against a local stand-in for Netflix
+  (`TAMKEEN_NETFLIX_BASE=http://127.0.0.1:8931`, `TAMKEEN_NETFLIX_SUBS=^localhost$`; scripts kept outside the repo in the
+  "Netflix" chat's scratchpad `netflix-fake/`: `fake_netflix.py` imitates the browse page, the metadata address, the watch
+  page's player API around a plain <video> with Netflix-like controls/subtitles to hide, text/audio tracks, a show →
+  episode redirect, the next episode, a title without Arabic, a signed-out redirect, and a subtitle host serving TTML;
+  `drive_app.py` drives it): 46/46 checks — + sheet → Open Netflix → Arabic chosen in the menu → title → player; window
+  exactly over the stage, owned, never activated; Netflix UI hidden; Arabic soundtrack + PRIMARY subtitles chosen; the
+  TTML became the transcript (forced/English files ignored); play/pause/seek from Tamkeen; caption popup shrinks the video
+  with the stage; follows moves/resizes; boxes and menus hide it; minimise/restore; leaving hides and pauses it, closes
+  after 30 s; series → episode (with and without Netflix's description) and next episode; no-Arabic note; signed-out
+  message; Spanish interface. Screenshots by PrintWindow (the desktop was locked, so the screen itself couldn't be
+  grabbed); the phone build checked at 375 px (strip, + sheet, row, player explanation).
+- **Needs the owner's real Netflix account** (the main chat): the real "Browse by Languages" address and how its language
+  menu is built (`/browse/original-audio` is a guess from Netflix's help pages: /browse/audio and /browse/subtitles are
+  documented); how titles are named on browse pages (aria-label / img alt / `.fallback-text`); the metadata address and
+  `videoMetadata` in the player's state (both optional); that playback starts in the hidden-then-shown window without a
+  click (autoplay), that WS_EX_NOACTIVATE doesn't upset Netflix's player, `getDuration` (falls back to the <video>'s);
+  the real TTML capture in the app (proven in the spike window, not yet in Tamkeen's overlay); "Are you still watching?"
+  and error selectors; that Netflix allows the overlay plus the closed browse window as one screen. Side effect to know:
+  choosing Arabic subtitles in Netflix's player is remembered by Netflix for that profile (other devices too).
