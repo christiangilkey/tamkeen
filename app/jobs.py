@@ -209,9 +209,19 @@ def _thai_letters(segments: list[Segment]) -> None:
             w.text = w.text.replace(*_THAI_AM)
 
 
+def _persian_letters(segments: list[Segment]) -> None:
+    """Persian ک and ی where Whisper wrote the Arabic ك and ي (languages.persian_letters)."""
+    for seg in segments:
+        seg.text = languages.persian_letters(seg.text)
+        for w in seg.words or []:
+            w.text = languages.persian_letters(w.text)
+
+
 def _store(episode_id: int, segments: list[Segment], model: str, language: str = languages.DEFAULT) -> int:
     if language == "th":
         _thai_letters(segments)
+    if language == "fa":
+        _persian_letters(segments)
     with db.session() as conn:
         _clear_transcript(conn, episode_id)
         widx = 0

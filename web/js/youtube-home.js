@@ -38,6 +38,7 @@ export const START = {
   th: ["ที่", "TH", "th", 0],
   en: ["the", "US", "en", 0],
   de: ["und", "DE", "de", 0],
+  fa: ["است", "IR", "fa", 0],
 };
 
 /** Countries offered for each language: [YouTube's country code, name, a search word of its own
@@ -64,6 +65,7 @@ export const COUNTRIES = {
   en: [["US", "United States"], ["GB", "United Kingdom"], ["CA", "Canada"], ["AU", "Australia"], ["IE", "Ireland"],
        ["NZ", "New Zealand"], ["IN", "India"], ["NG", "Nigeria"], ["ZA", "South Africa"], ["PH", "Philippines"]],
   de: [["DE", "Germany"], ["AT", "Austria"], ["CH", "Switzerland"]],
+  fa: [["IR", "Iran"], ["AF", "Afghanistan"]],
 };
 
 /** The country to use: the chosen one if it is on the language's list, else the usual one. */
@@ -210,6 +212,11 @@ export const TOPIC_WORDS = {
   de: { news: "Nachrichten aus Deutschland", music: "neue deutsche Songs", comedy: "Comedy deutsch", food: "Rezept",
         travel: "Reise", sport: "Fußball", science: "Wissenschaft Doku", gaming: "Let's Play deutsch", kids: "Kinderserie",
         vlog: "Vlog deutsch", podcast: "Podcast deutsch", learn: "Deutsch als Fremdsprache" },
+  // Persian: words Arabic doesn't use, as Arabic shares the script (checked 2026-10-21: "اخبار" alone and "سفر" alone
+  // came back in Arabic, "علم و فناوری" found one video this month).
+  fa: { news: "اخبار امروز", music: "آهنگ جدید", comedy: "طنز", food: "آشپزی", travel: "ولاگ سفر", sport: "فوتبال",
+        science: "فناوری", gaming: "گیم پلی فارسی", kids: "کارتون فارسی", vlog: "ولاگ روزمره", podcast: "پادکست فارسی",
+        learn: "آموزش فارسی به غیر فارسی زبانان" },
 };
 
 /** How far back a language's topics look when it has few videos (otherwise this month). */

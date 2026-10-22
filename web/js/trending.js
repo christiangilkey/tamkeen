@@ -42,9 +42,10 @@ export const STOREFRONTS = {
   th: ["th"],
   en: ["us", "gb", "au", "ca"],
   de: ["de", "at", "ch"],
+  fa: ["af", "tj"],
 };
 /** Languages whose countries' 19 category charts are read as well as the overall chart. */
-export const CATEGORY_CHARTS = new Set(["ca", "tl", "th"]);
+export const CATEGORY_CHARTS = new Set(["ca", "tl", "th", "fa"]);
 /** Apple's ids for its 19 main podcast headings (the category charts). */
 export const CATEGORY_IDS = [1301, 1321, 1303, 1304, 1483, 1511, 1512, 1487, 1305, 1502, 1310, 1489, 1314, 1533, 1324,
   1545, 1309, 1318, 1488];
@@ -56,6 +57,7 @@ export const COUNTRY_NAMES = {
   ph: "the Philippines", us: "the United States", gb: "the United Kingdom", au: "Australia", ca: "Canada",
   br: "Brazil", th: "Thailand",
   de: "Germany", at: "Austria",
+  af: "Afghanistan", tj: "Tajikistan",
 };
 /** Apple's main podcast headings. */
 export const MAIN_CATEGORIES = ["Arts", "Business", "Comedy", "Education", "Fiction", "Government", "Health & Fitness",
@@ -104,6 +106,14 @@ const LATIN = /[A-Za-zÀ-ɏ]/g;
 // Arabic doesn't (پ چ ژ گ) and little words of its own.
 const PERSIAN = { letters: /[پچژگ]/g, words: ["این", "که", "را", "است", "می", "های", "برای", "از", "با", "یک", "پادکست", "شما"] };
 const ARABIC_WORDS = ["في", "من", "على", "إلى", "عن", "مع", "هذا", "هذه", "التي", "الذي", "كل", "هو", "هي", "بودكاست", "لا", "و", "أن"];
+// Persian's own k and y (Arabic writes ك ي) and the half space inside its words (ZWNJ: پادکست‌های).
+const PERSIAN_KY = /[کی‌]/g;
+// Urdu, Pashto and Kurdish are written in Arabic letters too, and their shows turn up in Afghanistan's charts
+// (SBS Urdu, SBS Pashto): letters Persian never uses, and the languages' names.
+const NOT_PERSIAN = /[ٹڈڑںےۂھہټډړږښځڅڼېۍګەێۆڵڕ]/g;
+const OTHER_ARABIC_SCRIPT = ["اردو", "پښتو", "پشتو", "کوردی", "کردی", "سورانی", "ایک"];
+// (و "and" and من "I" are Persian words too)
+const ARABIC_NOT_PERSIAN = ARABIC_WORDS.filter((w) => w !== "و" && w !== "من");
 // A few of the commonest little words, enough to tell Spanish or French from English.
 const LITTLE_WORDS = {
   es: ["el", "la", "los", "las", "de", "del", "que", "y", "en", "un", "una", "con", "por", "para", "más", "tu", "sobre"],
@@ -183,6 +193,7 @@ const ownCount = (text, words, lang) => count(words, OWN[lang].words) + (OWN[lan
  * from the chart of the language's own main country, where a show with nothing to judge it by is kept. */
 export function inLanguage(item, lang, home = false) {
   const text = `${item.title} ${item.author} ${item.description}`;
+  if (lang === "fa") return inPersian(text);
   if (SCRIPTS[lang]) {
     if (!SCRIPTS[lang].test(text)) return false;
     if (lang !== "ar") return true;
@@ -214,6 +225,20 @@ export function inLanguage(item, lang, home = false) {
   // but it is Spanish): not shown as this one.
   if (!signs && (LOOKALIKES[lang] || []).some((other) => count(words, LITTLE_WORDS[other]) >= mine)) return false;
   return neighbours.every((other) => (strict ? signs > ownCount(lower, words, other) : signs >= ownCount(lower, words, other)));
+}
+
+/** Persian, not Arabic, Urdu, Pashto or Kurdish: more signs of Persian (its little words, its four letters, its
+ * own k and y, the half space) than of Arabic (its little words, ة, and a little for ي ك, which a Persian typing
+ * on an Arabic keyboard writes too), and none of the letters or words only the others use (one letter in fifty
+ * is let through: a name). Persian shows from Afghanistan's and Tajikistan's charts. */
+function inPersian(text) {
+  const letters = (text.match(/[؀-ۿ]/g) || []).length;
+  if (!letters) return false;
+  const words = text.split(/[^\p{L}\p{M}‌]+/u);
+  if (count(words, OTHER_ARABIC_SCRIPT) || (text.match(NOT_PERSIAN) || []).length * 50 > letters) return false;
+  const persian = count(words, PERSIAN.words) + (text.match(PERSIAN.letters) || []).length + (text.match(PERSIAN_KY) || []).length;
+  const arabic = count(words, ARABIC_NOT_PERSIAN) + (text.match(/ة/g) || []).length + (text.match(/[يك]/g) || []).length / 4;
+  return persian > arabic;
 }
 
 /** Several countries' charts ([[country, items], ...]) → one list, the most popular overall first.

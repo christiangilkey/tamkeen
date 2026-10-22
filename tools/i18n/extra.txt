@@ -33,3 +33,4 @@ NVIDIA cuBLAS / cuDNN (optional download)
 Supabase JS client: Friends, chat and sharing
 Capacitor: the phone apps' frame around Tamkeen's screens
 German word table and common-word list: today's spelling and capitals, from Wiktionary (optional download)
+Vazirmatn font (Persian)

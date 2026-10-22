@@ -169,7 +169,7 @@ test("a show Apple lists twice (in two countries' stores, or under two ids) appe
 });
 
 test("languages thin in their countries' overall charts read the 19 category charts too", () => {
-  assert.deepEqual([...CATEGORY_CHARTS].sort(), ["ca", "th", "tl"]);
+  assert.deepEqual([...CATEGORY_CHARTS].sort(), ["ca", "fa", "th", "tl"]);
   assert.equal(CATEGORY_IDS.length, MAIN_CATEGORIES.length, "one id per main heading, in the same order");
 });
 

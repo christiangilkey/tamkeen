@@ -254,9 +254,45 @@ BOOKS: dict[str, list[tuple]] = {
         ("tod-in-venedig", "Der Tod in Venedig", "Thomas Mann", 1912, "A famous writer travels to Venice, as cholera spreads.", ("gutenberg", 12108, {"from": r"^Erstes Kapitel$"})),
         ("max-und-moritz", "Max und Moritz", "Wilhelm Busch", 1865, "Two naughty boys and their seven pranks, in rhyme.", ("gutenberg", 17161, {"from": r"^VORWORT\.?$"})),
     ],
+    # Persian, all from fa.wikisource, in the editions it has: Foroughi's Saadi (Tehran 1937), Qazvini and Ghani's
+    # Hafez (1941), Foroughi and Ghani's Khayyam, Nicholson's Masnavi (book one, 1925), Mohl's Shahnameh (volume one,
+    # 1838), and two modern writers who died long enough ago: Dehkhoda (1956) and Hedayat (1951). Public domain in
+    # Iran (the author's life and 50 years), and in the United States, which has no copyright relations with Iran
+    # (Wikisource's own notice on these books); Nicholson's 1925 volume is over 95 years old. Hedayat's Buf-e kur is
+    # left out: it was first printed in Bombay (1937), so it may still be under copyright in the United States.
+    "fa": [
+        ("golestan", "گلستان", "سعدی", 1258, "Saadi's Rose Garden: short tales of kings, dervishes and lovers, in rhymed prose and verse.",
+         ("wikisource", "fa", ["کلیات سعدی/گلستان/دیباچه"] + [f"کلیات سعدی/گلستان/باب {n}" for n in
+                              ("اول", "دوم", "سوم", "چهارم", "پنجم", "ششم", "هفتم", "هشتم")])),
+        # (Foroughi's preface first and his glossary and contents at the end are left out)
+        ("bustan", "بوستان", "سعدی", 1257, "Saadi's Orchard: stories and advice in verse, on justice, love and modesty.",
+         ("wikisource", "fa", "کلیات سعدی/بوستان", {"from": r"^بنام خداوند جان آفرین حکیم", "to": r"^لغات سخت$"})),
+        # (the contents page lists every ghazal's first line before the ghazals themselves)
+        ("divan-hafez", "دیوان حافظ", "حافظ", 1390, "The ghazals of Hafez, Persian's best-loved poet: wine, love and the hidden meaning of things.",
+         ("wikisource", "fa", "دیوان حافظ", {"from": [r"^الا یا ایّ?ها الساقی", 2]})),
+        # (the quatrains, each a page the contents page links to; the editors' introduction and errata are left out)
+        ("robaiyat-khayyam", "رباعیات خیام", "عمر خیام", 1120, "Omar Khayyam's quatrains on wine, fate and the shortness of life, with the editors' notes on them.",
+         ("wikisource", "fa", "رباعیات خیام (تصحیح فروغی و غنی)/فهرست رباعیات",
+          {"pages": r"^رباعیات خیام \(تصحیح فروغی و غنی\)/(?!روش تصحیح|غلطنامه|مقدمه|فهرست)"})),
+        # (the stories, from the song of the reed; Rumi's Arabic preface and the publisher's are left out)
+        ("masnavi-1", "مثنوی معنوی، دفتر اول", "مولوی", 1260, "The first book of Rumi's Masnavi, from the song of the reed onwards: stories with a lesson.",
+         ("wikisource", "fa", "مثنوی معنوی/دفتر اول", {"pages": r"^مثنوی معنوی/(?!مقدمه|دفتر)"})),
+        ("shahnameh-1", "شاهنامه، جلد اول", "فردوسی", 1010, "Ferdowsi's Book of Kings, the first volume: the first kings, Zahhak, Fereydun, Zal and the young Rostam.",
+         ("wikisource", "fa", "شاهنامه (تصحیح ژول مل)/فهرست جلد اول", {"pages": r"^شاهنامه \(تصحیح ژول مل\)/(?!فهرست)"})),
+        ("kalila-dimna", "کلیله و دمنه", "نصرالله منشی", 1144, "Animal fables of wisdom and politics, in Persian's classic prose version.",
+         ("wikisource", "fa", "کلیله و دمنه")),
+        ("charand-parand", "چرند و پرند", "علی‌اکبر دهخدا", 1907, "Dehkhoda's funny newspaper columns from the Constitutional Revolution, written as people talked.",
+         ("wikisource", "fa", "چرند و پرند")),
+        ("se-qatre-khun", "سه قطره خون", "صادق هدایت", 1932, "Sadegh Hedayat's short stories: an asylum, a family in Tehran, a mirror that breaks.",
+         ("wikisource", "fa", "سه قطره خون")),
+        ("parvin-qasaid", "قصاید پروین اعتصامی", "پروین اعتصامی", 1935, "Parvin E'tesami's poems on justice, the poor and the soul.",
+         ("wikisource", "fa", "پروین اعتصامی (قصائد)")),
+    ],
 }
 
 NO_SPACES = {"ja", "zh", "th"}  # lines of a paragraph join without a space
+TABLE_POEMS = {"th", "fa"}  # Wikisources that lay poems out as plain tables, a line of verse a row
+UNCASED = {"fa"}  # scripts with no capital letters, where the title-page rules about capitals don't apply (see clean)
 CAPS_HEADINGS = {"ca", "ceb", "pt", "tl", "de"}  # Gutenberg books whose chapter titles are lines in capitals
 
 
@@ -533,6 +569,7 @@ class _Text(HTMLParser):
         self.skip = 0
         self.stack: list[tuple[str, bool]] = []
         self.poem = 0
+        self.cell = 0  # where the table cell being read began in buf
 
     def flush(self):
         text = tidy("".join(self.buf))
@@ -558,6 +595,8 @@ class _Text(HTMLParser):
             return
         if "poem" in (a.get("class", "") or ""):
             self.poem += 1
+        if tag == "td":
+            self.cell = len(self.buf)
         if not self.skip and tag in self.BLOCKS:
             self.flush()
             if tag in ("h2", "h3", "h4", "h5"):
@@ -578,6 +617,9 @@ class _Text(HTMLParser):
         if not self.skip and (tag in self.BLOCKS or tag == "tr" and self.tables):
             self.flush()
         elif not self.skip and tag == "td" and self.tables:
+            # (a cell holding only a number is the line's number in the margin: Persian poems number their lines)
+            if re.fullmatch(r"[\s\d۰-۹٠-٩]*", "".join(self.buf[self.cell:])):
+                del self.buf[self.cell:]
             self.buf.append(" ")  # between the two halves of a line of verse
 
     def handle_data(self, data):
@@ -602,7 +644,7 @@ def wiki_scan(lang: str, index: str, first: int, last: int) -> list[dict]:
         b = min(last, a + 19)
         d = wiki_api(lang, action="parse", text=f'<pages index="{index}" from={a} to={b} />', contentmodel="wikitext",
                      title="Tamkeen", prop="text", disablelimitreport=1)
-        parser = _Text(tables=lang == "th")
+        parser = _Text(tables=lang in TABLE_POEMS)
         parser.feed(d["parse"]["text"])
         parser.flush()
         blocks.extend(parser.blocks)
@@ -615,7 +657,7 @@ def wiki_page(lang: str, title: str) -> tuple[list[dict], list[str], str]:
     its header calls the next one: chapters are often chained that way instead of listed)."""
     d = wiki_api(lang, action="parse", page=title, prop="text", redirects=1, disableeditsection=1)
     page_html = d["parse"]["text"]
-    parser = _Text(tables=lang == "th")
+    parser = _Text(tables=lang in TABLE_POEMS)
     parser.feed(page_html)
     parser.flush()
     real = d["parse"]["title"]
@@ -627,6 +669,17 @@ def wiki_page(lang: str, title: str) -> tuple[list[dict], list[str], str]:
     nxt = re.search(r'id="headernext"[^>]*>.*?href="/wiki/([^"#?]+)"', page_html, re.S)
     nxt_title = urllib.parse.unquote(nxt.group(1)).replace("_", " ") if nxt else ""
     return parser.blocks, subs, nxt_title
+
+
+def wiki_links(lang: str, title: str, pattern: str) -> list[str]:
+    """The pages a page links to whose names match `pattern`, in the order the page shows them, each once."""
+    page_html = wiki_api(lang, action="parse", page=title, prop="text", redirects=1)["parse"]["text"]
+    out: list[str] = []
+    for href in re.findall(r'href="/wiki/([^"#?]+)"', page_html):
+        t = urllib.parse.unquote(href).replace("_", " ")
+        if t != title and re.search(pattern, t) and t not in out:
+            out.append(t)
+    return out
 
 
 EDITION = re.compile(r"/(\d{4}|ПСС|СС|ДО|СО)\b|\((ДО|СО)\)\s*$")
@@ -715,7 +768,7 @@ def _same_heading(a: str, b: str) -> bool:
     return _key(HEAD_WORD.sub("", a)) == _key(HEAD_WORD.sub("", b)) and bool(re.fullmatch(r"[ivxlc\d]+", _key(HEAD_WORD.sub("", b))))
 
 
-def clean(blocks: list[dict]) -> list[dict]:
+def clean(blocks: list[dict], lang: str = "") -> list[dict]:
     """Drop lines with no letters (*** and the like), a heading repeated straight after itself, and
     the "Notes" headings left once the notes themselves are gone; join a chapter number to the title
     on the line after it ("CAPÍTULO I" + "O TREM": "CAPÍTULO I. O TREM")."""
@@ -733,7 +786,10 @@ def clean(blocks: list[dict]) -> list[dict]:
             text = re.sub(r"^=+|=+(?=\.?$)", "", text).strip() or text  # what is left of "=I.=" bold marks
         if kind == "p" and len(text) <= 60 and HEADING.search(text):  # "I", "Глава первая", "第一回" on a line of their own
             kind = "h2"
-        if out and out[-1]["kind"] == "h2" and len(text) <= 120 and _same_heading(out[-1]["text"], text):
+        # (Not a line of text much longer than the heading: a poem named by its first line, as Persian
+        # ghazals and quatrains are, starts with that line in full: "الا یا ایها الساقی…" + "… که عشق آسان نمود اوّل".)
+        if out and out[-1]["kind"] == "h2" and len(text) <= 120 and _same_heading(out[-1]["text"], text) \
+                and not (kind == "p" and len(_key(text)) > 1.5 * len(_key(out[-1]["text"]))):
             # The same heading twice ("Capitolo I" from the page's name, then "CAPITOLO I." or "I." in
             # it; "Il Reverendo", then "IL REVERENDO"): the fuller one is kept, as the heading.
             if len(text) > len(out[-1]["text"]) and kind == "h2":
@@ -749,7 +805,8 @@ def clean(blocks: list[dict]) -> list[dict]:
                 continue
         out.append({"kind": kind, "text": text})
     # Three or more headings in a row near the start are a title page's lines in capitals, not headings.
-    i = 0
+    # (Not in Persian, which has no capitals: a Wikisource page's poems are named by their first lines.)
+    i = 0 if lang not in UNCASED else len(out)
     while i < min(len(out), 80):
         j = i
         while j < len(out) and out[j]["kind"] == "h2":
@@ -762,7 +819,7 @@ def clean(blocks: list[dict]) -> list[dict]:
         i = j + 1
     # Lines in capitals on the title page (the author, the title, the town) aren't headings either: a
     # heading near the start is one with text after it.
-    for i in range(min(len(out), 60)):
+    for i in range(min(len(out), 60) if lang not in UNCASED else 0):
         b = out[i]
         if b["kind"] == "h2" and not (NUMBER.match(b["text"]) or HEADING.search(b["text"])) \
                 and not any(x["kind"] == "p" and len(x["text"]) > 150 for x in out[i + 1:i + 3]):
@@ -843,6 +900,10 @@ def build_one(lang: str, entry: tuple, again: bool) -> dict | None:
         data = json.loads(gzip.decompress(path.read_bytes()))
     else:
         kind = source[0]
+        if kind == "wikisource" and opts.get("pages"):
+            # A contents page whose chapters are its siblings, not its subpages (شاهنامه (تصحیح ژول مل)/فهرست جلد اول
+            # lists شاهنامه (تصحیح ژول مل)/پادشاهی کیومرث…): the pages it links to whose names match, in its order.
+            source = (kind, source[1], wiki_links(source[1], source[2], opts["pages"]))
         if kind == "gutenberg" and isinstance(source[1], list):  # a book Gutenberg has in volumes, one after the other
             blocks = [b for volume in source[1] for b in gutenberg(volume, lang)]
             credit = "Project Gutenberg " + ", ".join(f"#{v} (https://www.gutenberg.org/ebooks/{v})" for v in source[1])
@@ -869,7 +930,7 @@ def build_one(lang: str, entry: tuple, again: bool) -> dict | None:
         else:
             blocks = aozora(source[1], source[2])
             credit = f"Aozora Bunko 青空文庫 (https://www.aozora.gr.jp/cards/{source[1]}/card{source[2]}.html)"
-        blocks = clean(trim(blocks, opts))
+        blocks = clean(trim(blocks, opts), lang)
         words, kept = 0, []
         for b in blocks:
             n = len(b["text"].split()) if lang not in NO_SPACES else max(1, len(b["text"]) // 2)

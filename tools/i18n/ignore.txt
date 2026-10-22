@@ -266,3 +266,15 @@ b4705d0f  # spreche, sprach, fängt … an
 f372a354  # ab an auf aus bei dar … (german.js PARTICLES)
 d318d587  # : {0} of {1}
 657c6469  # (separable verb)
+
+# Not interface: Persian's YouTube search words (web/js/youtube-home.js TOPIC_WORDS.fa) and the dictionary offer's
+# Persian example words (web/js/lexicon/seen.js EXAMPLES.fa, shown as Persian).
+54b88533  # اخبار امروز
+fdeaaa1a  # آهنگ جدید
+7fc7c7d6  # ولاگ سفر
+ca3cc7c2  # گیم پلی فارسی
+821e6036  # کارتون فارسی
+7f4f4435  # ولاگ روزمره
+6d71e130  # پادکست فارسی
+f13e85d0  # آموزش فارسی به غیر فارسی زبانان
+51a91ad4  # می‌خواهم، خواستم، نمی‌خواهید

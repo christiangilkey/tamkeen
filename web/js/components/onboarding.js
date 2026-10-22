@@ -120,7 +120,9 @@ function ask() {
             <button type="button" class="primary big" id="ob-next" ${level ? "" : "disabled"}>Next →</button></div>
         </div>`);
         commonWords(lang).then((words) => {
-          if (words.length) box.querySelector(".ob-sample").textContent = `${words.slice(0, 8).join(LANGUAGES[lang].unspaced ? "、" : ", ")}…`;
+          // (a right-to-left language's own comma: و، به، در)
+          const comma = LANGUAGES[lang].unspaced ? "、" : LANGUAGES[lang].dir === "rtl" ? "، " : ", ";
+          if (words.length) box.querySelector(".ob-sample").textContent = `${words.slice(0, 8).join(comma)}…`;
         });
         for (const b of box.querySelectorAll(".ob-choice")) {
           b.onclick = () => {

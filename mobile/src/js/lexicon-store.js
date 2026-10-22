@@ -9,7 +9,7 @@ const BASE_URL = "https://christiangilkey.github.io/tamkeen/lexicon/";
 // Standard Arabic first: it is the one tried first. Spanish, French and Italian have one table each;
 // Thai's is how each word is said (web/js/lexicon/thai.js).
 const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"], es: ["es"], fr: ["fr"], it: ["it"], ru: ["ru"], en: ["en"], tl: ["tl"], ja: ["ja"], zh: ["zh"],
-  pt: ["pt"], ca: ["ca"], ceb: ["ceb"], th: ["th"], de: ["de"] };
+  pt: ["pt"], ca: ["ca"], ceb: ["ceb"], th: ["th"], de: ["de"], fa: ["fa"] };
 // Word meanings for "No AI" (web/js/meanings.js): one file a language, only when that is chosen.
 // Arabic and Bisaya have a second file, asked when Wiktionary lacks a word (the CAMeL databases' glosses;
 // Wolff's Dictionary of Cebuano Visayan).
@@ -17,10 +17,10 @@ const MEANINGS = { ...Object.fromEntries(Object.keys(LANGUAGES).map((l) => [l, [
   ceb: ["mean-ceb", "mean-cebw"] };
 const KINDS = { words: LANGUAGES, meanings: MEANINGS };
 const MEANING_ESTIMATE = { ar: 3000000, es: 7300000, fr: 4500000, it: 6300000, ru: 6000000, en: 20000000, tl: 950000, ja: 3300000, zh: 6000000,
-  pt: 4900000, ca: 2000000, ceb: 3600000, th: 650000 };
+  pt: 4900000, ca: 2000000, ceb: 3600000, th: 650000, fa: 560000 };
 // Sizes to show before anything has been fetched (the real ones come with the file list).
 const ESTIMATE = { ar: 3300000, es: 1000000, fr: 700000, it: 700000, ru: 2400000, en: 600000, tl: 120000, ja: 11400000, zh: 1900000,
-  pt: 1100000, ca: 900000, ceb: 260000, th: 190000 };
+  pt: 1100000, ca: 900000, ceb: 260000, th: 190000, fa: 110000 };
 
 // (A different address can be set for testing a build before the files are published.)
 function base() {

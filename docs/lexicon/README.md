@@ -71,6 +71,15 @@ separable verb's prefix back on, "fängt … an" is anfangen, and takes unknown 
 
 Rebuilt with `tools/build_lemmas.py de=<lemmatization-de.txt>,<kaikki.org German .jsonl.gz>`.
 
+Persian has a table of word forms (`web/js/lexicon/persian.js`), which also takes apart the forms it doesn't list
+(the verbs' prefixes and person endings, the plural, ezafe and pronoun endings on nouns):
+
+| File | Made from | Licence |
+|---|---|---|
+| `fa-lemmas.json.gz` | English Wiktionary's Persian entries as extracted by [Wiktextract](https://kaikki.org) (Tatu Ylonen): every headword, the forms in its conjugation and declension tables and which word each belongs to, and each verb's present and past stem; word counts from wordfreq (CC BY-SA 4.0) to keep the forms people meet | Creative Commons Attribution-ShareAlike 4.0: `LICENSE-CC-BY-SA-4.0.txt` |
+
+It is rebuilt with `tools/build_persian.py`; `fa-meanings.json.gz` (below) with `tools/build_meanings.py fa`.
+
 What was changed in the Arabic files: only the fields the lookup needs were kept (word pieces, their categories and
 which go together, lemma, part of speech, root, corpus frequency, spelling); glosses,
 tokenizations and phonetics were dropped, and the result was written as gzipped JSON.

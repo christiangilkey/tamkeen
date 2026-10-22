@@ -31,6 +31,7 @@ export const UI_LANGUAGES = {
   ceb: { native: "Binisaya", name: "Bisaya (Cebuano)", dir: "ltr" },
   th: { native: "ไทย", name: "Thai", dir: "ltr" },
   de: { native: "Deutsch", name: "German", dir: "ltr" },
+  fa: { native: "فارسی", name: "Persian", dir: "rtl" },
 };
 export const UI_LANGUAGE_CODES = Object.keys(UI_LANGUAGES);
 export const isUiLanguage = (code) => Object.prototype.hasOwnProperty.call(UI_LANGUAGES, code);
@@ -52,6 +53,7 @@ export const SPEAK_QUESTION = {
   ceb: "Unsang pinulongan ang imong ginasulti?",
   th: "คุณพูดภาษาอะไร",
   de: "Welche Sprache sprichst du?",
+  fa: "به چه زبانی صحبت می‌کنید؟",
 };
 
 // ---------- the rules (pure: also run by the extractor on its own small copy of the page) ----------

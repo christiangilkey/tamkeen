@@ -50,6 +50,7 @@ COMEDY_WORDS = {
     "th": ["ตลก", "ขำขัน", "แกล้ง", "มุกตลก"],
     "en": ["comedy", "funny", "pranks", "standup"],
     "de": ["deutsche comedy", "witze", "lustig", "witzig"],
+    "fa": ["طنز", "کمدی", "خنده", "سوتی"],
 }
 
 # "Random reels": everyday words searched for, a few picked at random each time, so a batch is a
@@ -84,6 +85,8 @@ RANDOM_WORDS = {
            "experience", "funfacts", "explained", "cooking", "sports", "news", "podcast", "routine", "family", "coffee"],
     "de": ["vlog", "rezept", "geschichte", "tipp", "humor", "witzig", "frage", "challenge", "interview", "reise", "essen", "anekdote",
            "erfahrung", "wissenswertes", "erklärt", "kochen", "fußball", "nachrichten", "podcast", "alltag", "familie", "kaffee"],
+    "fa": ["ولاگ", "آشپزی", "داستان", "توصیه", "طنز", "کمدی", "سوال", "چالش", "مصاحبه", "سفرنامه", "غذا", "خاطره",
+           "تجربه", "دانستنی", "توضیح", "شیرینی", "ورزش", "خبر", "پادکست", "روزمرگی", "خانواده", "قهوه"],
 }
 RANDOM_SEARCHES = 8          # at most this many words are searched for in one batch
 

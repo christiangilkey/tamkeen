@@ -288,6 +288,18 @@ const TEACH = {
     dialect_note: "Regional or register usage note (where it is said, how formal it is, whether Austria or Switzerland say it differently); empty if none.",
     msa_equivalent: "The neutral standard German (Hochdeutsch) equivalent if the word is regional, Austrian, Swiss, slang or very informal; empty otherwise.",
   },
+  fa: {
+    name: "Persian",
+    variety: "which may be written (formal) Persian or everyday spoken Persian, usually as spoken in Iran (Tehran), but possibly Dari (Afghanistan) or Tajik",
+    why: "Persian is written in Arabic letters mostly without its short vowels, joins little words and endings onto a word (the present-tense prefix mi-, the plural -hâ, the ezafe -e, pronoun endings such as -am and -eš, often after a half space), builds many verbs from a noun plus kardan or šodan, and spoken Persian shortens words (mige for miguyad, xune for xâne)",
+    vocalized: "How the word is said in Iranian Persian, in the usual Latin transcription (â for the long a, x for خ, š for ش, ž for ژ, q for ق and غ, ' for the glottal stop), e.g. 'mixâham'; for a word Arabic also has, the Persian pronunciation.",
+    lemma: "Dictionary form, in Persian script: the infinitive for verbs (e.g. 'خواستن' for 'می‌خواهم'), the singular without endings for nouns, the plain form for adjectives; for a compound verb, the whole verb (e.g. 'کار کردن').",
+    root: "For compounds and words with a prefix or suffix: each part with its meaning, e.g. 'دانش knowledge + گاه place'; for a compound verb, the noun and the light verb; empty for simple words.",
+    morphology: "Short analysis: for verbs, tense, person and number (and the present stem); attached endings and little words spelled out (the plural -hâ, ezafe, pronoun endings, را); colloquial shortenings spelled out.",
+    dialect: "Standard written Persian, or the register or variety if notable: colloquial (Tehrani), formal/literary, poetic, slang, Dari, Tajik, Arabic loanword, etc.",
+    dialect_note: "Register or regional usage note (whether it is written or spoken Persian, how formal it is, where it is said); empty if none.",
+    msa_equivalent: "The written (standard) Persian form if the word is colloquial or a spoken shortening (e.g. 'می‌گوید' for 'میگه'), or the Iranian word for a Dari one; empty otherwise.",
+  },
   en: {
     name: "English",
     variety: "which may be American, British, Australian or any other variety, formal or colloquial",

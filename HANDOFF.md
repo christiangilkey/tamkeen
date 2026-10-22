@@ -4225,3 +4225,65 @@ section above:
   "armourlike", erwachte → erwachen "first/third-person singular preterite", Niedergleiten → nieder + gleiten.
 - **Not checked**: the real desktop window and a real phone, transcribing real German audio, the AI popup in German.
   **The data files (docs/lexicon, docs/books) must be on GitHub Pages before installed apps can download them.**
+
+## Persian / Farsi (fa): a learnable language and an interface language (2026-10-21; merged into main, not pushed)
+Asked for at the same depth as pt/ca/ceb/th (one of four parallel language chats: Korean, Hindi, German, Persian).
+Persian is written in Arabic letters, right to left, but is a different language: it reuses Arabic's RTL handling and
+search folding, NOT the Arabic word tables / CAMeL / root logic.
+- **Core**: web/js/languages.js (`fa` "Persian", native فارسی, dir rtl; greetings, samples, a search note),
+  app/languages.py, i18n.js UI_LANGUAGES + SPEAK_QUESTION, definer.js TEACH (Iranian Latin transcription, infinitive as
+  the dictionary form of verbs, colloquial → written form in msa_equivalent), Whisper `fa` (+ "farsi" alias in stt.js and
+  cloud.py). **Telling Persian from Arabic** (detectLanguage / `looksPersian` / `looks_persian`): Persian-only letters
+  پ چ ژ گ and Persian ک ی and the half space (ZWNJ, U+200C) against Arabic-only ة ى ي ك and tanwin. app/jobs.py
+  `_persian_letters` turns Arabic ي ك into Persian ی ک in Persian transcripts (Whisper sometimes writes them).
+- **Whole words with the half space**: `persianWords` in languages.js (used by `regroupWords`) joins a word with its
+  half-space pieces (می‌خواهم, کتاب‌ها, بزرگ‌ترین, خانه‌ای) so a tap gets the whole word, also when Whisper split them
+  with a space (نمی always, می before a verb only in speech). It hands back the same object when nothing changes, so
+  fixing a misheard word still works.
+- **Search** (app/arabic.py, mobile shared-logic.js, cardtext.js): ی/ي, ک/ك, ۀ/ه match each other and the half space
+  is ignored, so Arabic-keyboard spellings find Persian text.
+- **Font**: Vazirmatn 33.0.3 (OFL; web/fonts/Vazirmatn.woff2, cut to the Arabic-script letters with fontTools, 44 KB),
+  used for Persian text (`:lang(fa)`) and for the whole interface when it is in Persian. licenses/vazirmatn.txt.
+- **Podcast charts**: Apple has no Iran store (asked: HTTP 400), so web/js/trending.js uses **Afghanistan + Tajikistan**
+  (overall + the 19 category charts, ~278 Persian shows with feeds; Dari is Persian), so no picks list was needed.
+  `inPersian` keeps Persian titles and drops Arabic, Urdu, Pashto and Kurdish ones (their own letters and words).
+- **YouTube**: START "است" IR, countries Iran + Afghanistan, all 12 topic words (checked live: اخبار امروز, آهنگ جدید,
+  طنز, آشپزی…, Learn = "آموزش فارسی به غیر فارسی زبانان"); Filmot "Farsi". **News** (Web page screen): 16 sites, all
+  opened live (BBC Persian, Euronews, DW, Radio Farda, Iran International, VOA, Hamshahri, Khabar Online, Asr Iran,
+  Shargh, Donya-e-Eqtesad, Zoomit, Varzesh3, Etilaatroz, Radio Azadi, Wikipedia; ISNA/IRNA came back empty and
+  Tolo/IranWire show a robot check, so left out). **Reels**: 4 comedy + 22 single search words (app/reels.py, reels-phone.js).
+- **Word table** (tools/build_persian.py → docs/lexicon/fa-lemmas.json.gz, 13,006 dictionary forms, 13,883 forms,
+  667 verb stems; from kaikki.org's Persian Wiktionary + wordfreq): **web/js/lexicon/persian.js** looks a word up, and
+  takes apart what isn't listed: verb prefixes ن/می/همی/ب, person endings, the perfect (رفته‌ام), and on nouns ها/های,
+  ان/گان, ی, the pronoun endings (کتابم, کتابشان) and تر/ترین. Wiktionary's own mistakes are steered by plainness
+  tiers + a hand list (روی ≠ رفتن, مردم ≠ مردن, کند → کردن).
+- **No AI meanings**: fa-meanings.json.gz (Wiktionary: 14,424 words + 3,102 forms; shows the romanization as the
+  reading). Keys ignore short vowels, the half space and ي/ك spellings (build_meanings.key / meaningdata.matchKey).
+- **Common words**: web/js/wordlists/fa.js (wordfreq, 1000, no stray half-words like "می" or Arabic letters).
+- **Books** (tools/build_books.py, fa.wikisource, 10): Saadi's Golestan and Bustan, Divan of Hafez, Khayyam's quatrains,
+  Masnavi book 1, Shahnameh vol 1, Kalila va Dimna, Dehkhoda's Charand-o-Parand, Hedayat's Se Qatre Khun, Parvin
+  E'tesami's qasidas. New builder bits: "pages" (a list of sibling pages), poems in tables read line by line, a fix so a
+  poem's first line isn't dropped as a repeated heading. Book titles in RTL languages now run right to left (books.js).
+- **Interface**: 3314 strings in tools/i18n/tr/fa/01–16.txt (all), and the 16 new strings (font name, news names,
+  countries, the search note) in tools/i18n/tr/<every other language>/50-persian.txt. Onboarding's sample words use
+  "، " between words for RTL languages.
+- **Tests**: new tests/js/persian.test.mjs and tests/test_persian.py (detection vs Arabic/Urdu, half-space joining,
+  word-table lookups, verb/noun endings, search folding, charts filter); languages/trending/wordlists tests updated.
+- **Checked** in the browser pane, web app build at 375x812 (fresh browser storage, no sign-in): Persian interface right
+  to left in Vazirmatn, Persian as the learning language, common words, dictionaries download, Golestan opens and tapping
+  طاعتش gives "worship, act of obedience to God" with dictionary form طاعت, Web page news list, YouTube topics.
+  **Not checked**: real Persian audio through Whisper, the desktop window and a real phone. The data files (docs/lexicon
+  fa-*, docs/books/fa) must be pushed before installed apps can download them.
+- Found, not fixed (all languages): the web app's note "Open a site (it opens in a new tab)…" in
+  mobile/src/js/web-sites.js is inside an array, so the i18n extractor misses it and it stays in English.
+
+## Merging the new languages: German + Persian (2026-10-21)
+The language branches all add their entries at the end of the same lists, so merging them clashes on single lines
+(`"th": ..., "de": ...}` against `"th": ..., "fa": ...}`) and on whole blocks appended at the same place. German went in
+first; Persian's 42 clashes in 27 files were settled by hand: both entries kept (order de, fa, then en), closing
+brackets added between two appended blocks, combined lines where both edited the same one (meaningdata's `vocalized`
+now knows both "de" and "fa"; build_books' TABLE_POEMS/UNCASED from Persian and CAPS_HEADINGS with "de"; its
+wikisource "pages" step runs before the Gutenberg volumes step), docs/books/index.json merged as data. Each language
+added interface strings the other lacked: tr/de/51-persian.txt (16) and tr/fa/51-german.txt (11). After a merge:
+`node tools/i18n/extract.mjs`, `node tools/i18n/build.mjs --check`, the tests, `node mobile/scripts/build-www.mjs`.
+Korean and Hindi still to come the same way.

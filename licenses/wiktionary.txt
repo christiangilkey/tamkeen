@@ -25,3 +25,8 @@ The German word table and common-word list also take a few facts from the German
 the 1996 reform replaced, which are Switzerland's, and how often each word is written with a capital in the
 entries' example sentences (see german-sources.txt). The German meanings file keys ß as ss, so today's
 spelling, the old one and Switzerland's find the same entries.
+
+The Persian word table (docs/lexicon/fa-lemmas.json.gz, made by tools/build_persian.py, also an optional
+download) is made from the same Wiktionary data: the Persian headwords, the forms in their conjugation and
+declension tables (which verb, noun or adjective each form belongs to) and each verb's present and past stem,
+with wordfreq's word counts (CC BY-SA 4.0) choosing which forms to keep. It is shared under CC BY-SA 4.0 too.

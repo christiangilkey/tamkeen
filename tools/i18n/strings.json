@@ -100,6 +100,16 @@
   "f": "web/js/languages.js"
  },
  {
+  "id": "1ab65965",
+  "k": "Persian",
+  "f": "web/js/languages.js"
+ },
+ {
+  "id": "df443b7e",
+  "k": "Matches ignore short-vowel marks, the half space inside words (ZWNJ) and Arabic spellings of k and y (ك ي for ک ی).",
+  "f": "web/js/languages.js"
+ },
+ {
   "id": "649df08a",
   "k": "English",
   "f": "web/js/languages.js"
@@ -247,6 +257,11 @@
  {
   "id": "7b5203f5",
   "k": "German word table and common-word list: today's spelling and capitals, from Wiktionary (optional download)",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "9093211c",
+  "k": "Vazirmatn font (Persian)",
   "f": "tools/i18n/extra.txt"
  },
  {
@@ -1307,6 +1322,56 @@
  {
   "id": "d2a4fb95",
   "k": "German Wikipedia",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "d356a6d9",
+  "k": "BBC Persian",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "72e254b5",
+  "k": "Iran International",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "3f48fe62",
+  "k": "Voice of America",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "11a88834",
+  "k": "Hamshahri, Tehran",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "aae993aa",
+  "k": "Khabar Online",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "f59e30d5",
+  "k": "Asr Iran",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "a279abfa",
+  "k": "Shargh",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "5286f70d",
+  "k": "Etilaatroz, Afghanistan",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "180e505b",
+  "k": "Radio Azadi, Afghanistan",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "e5b9046d",
+  "k": "Persian Wikipedia",
   "f": "web/js/browser-home.js"
  },
  {
@@ -8215,6 +8280,11 @@
   "f": "web/js/lexicon/seen.js"
  },
  {
+  "id": "b0af5088",
+  "k": "Wiktionary's Persian words and verb tables, with the wordfreq word counts",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
   "id": "359544fb",
   "k": "open word lists (Michal Měchura's lemmatization lists and the wordfreq word counts)",
   "f": "web/js/lexicon/seen.js"
@@ -13270,6 +13340,16 @@
   "f": "web/js/trending.js"
  },
  {
+  "id": "c6915368",
+  "k": "Afghanistan",
+  "f": "web/js/trending.js"
+ },
+ {
+  "id": "279c771a",
+  "k": "Tajikistan",
+  "f": "web/js/trending.js"
+ },
+ {
   "id": "d6663dda",
   "k": "Business",
   "f": "web/js/trending.js"
@@ -14037,6 +14117,11 @@
  {
   "id": "35fda17f",
   "k": "South Africa",
+  "f": "web/js/youtube-home.js"
+ },
+ {
+  "id": "889224e3",
+  "k": "Iran",
   "f": "web/js/youtube-home.js"
  },
  {
@@ -16022,11 +16107,6 @@
  {
   "id": "ab650a1a",
   "k": "Turkish",
-  "f": "app/reels.py"
- },
- {
-  "id": "1ab65965",
-  "k": "Persian",
   "f": "app/reels.py"
  },
  {

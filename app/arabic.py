@@ -27,6 +27,12 @@ _CHAR_MAP = str.maketrans(
         "ؤ": "و",  # ؤ -> و
         "ئ": "ي",  # ئ -> ي
         _TATWEEL: None,
+        # Persian: its own y and k (ی ک) match the Arabic ones, ۀ matches ه, and the half space inside a
+        # word (ZWNJ: می‌خواهم) is ignored, so a word typed with or without it is found either way.
+        "ی": "ي",  # ی -> ي
+        "ک": "ك",  # ک -> ك
+        "ۀ": "ه",  # ۀ -> ه
+        "‌": None,
     }
 )
 

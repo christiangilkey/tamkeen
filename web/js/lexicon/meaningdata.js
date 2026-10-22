@@ -5,11 +5,13 @@
 import { EDGE_PUNCT } from "../wordlookup.js";
 import { compoundLemma, compoundParts, germanLemma, rankOf, separableAt, startsSentence, tableVerb } from "./german.js";
 import { markedTokens } from "./words.js";
+import { persianKey } from "./persian.js";
 
 const AR_MARKS = /[ؐ-ًؚ-ٰٟۖ-ۭـ]/g;
 
 /** The form a word is matched in. Must agree with key() in tools/build_meanings.py. */
 export function matchKey(word, lang) {
+  if (lang === "fa") return persianKey(word); // (Persian letters, no vowel marks, no half space)
   let w = String(word || "").trim().normalize("NFC");
   if (lang === "ar") {
     w = w.replace(AR_MARKS, "").replace(/ٱ/g, "ا");
@@ -466,7 +468,8 @@ export function answerFrom(found, word, lang, { quick = false, language = "Engli
   const answer = {
     word: word,
     // Arabic with its vowels and Russian with its stress replace the word as shown, only when it is that very word.
-    vocalized: lang === "ja" || lang === "zh" ? reading : same && first[0] !== word && lang !== "de" ? first[0] : "",
+    // (Persian: how it is said, in Latin letters: ketâb.)
+    vocalized: lang === "ja" || lang === "zh" || lang === "fa" ? reading : same && first[0] !== word && lang !== "de" ? first[0] : "",
     lemma: lang === "de" ? germanLemma : same ? "" : first[0],
     root,
     pos: first[1] || "",

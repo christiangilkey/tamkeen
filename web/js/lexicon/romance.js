@@ -36,6 +36,7 @@ export class LemmaTable {
     this.ipa = data.ipa || null;       // English: US pronunciations (see english.js)
     this.ranked = !!data.ranked;       // German: dictionary forms listed commonest first (see german.js)
     this.capsFirst = data.caps_first ? new Set(data.caps_first) : null; // German: Zeit before zeit at a sentence's start
+    this.stems = data.stems || null;   // Persian: each verb's present and past stem (see persian.js)
   }
 
   /** The dictionary form of a word form the table knows, or null. */
