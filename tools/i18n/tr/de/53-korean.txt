@@ -22,3 +22,4 @@ aed4b5cc Diese koreanische Worttabelle stammt aus einer anderen Version der App.
 a23d63ca In Revidierter Romanisierung, der offiziellen Schreibweise des Koreanischen in lateinischen Buchstaben, von der App erzeugt.
 28edd404 die koreanischen Wörter aus Wiktionary mit ihren Verbstämmen, gezählt in koreanischen Film- und Fernsehuntertiteln; die App prüft die gefundenen Grundformen daran (먹었어요: 먹다, 학교에서: 학교)
 04653e65 Südkorea
+3d26aa46 Öffne eine Website (sie öffnet sich in einem neuen Tab), such dir einen Artikel aus und kopiere seine Adresse, komm dann zurück und tippe auf den runden türkisen Knopf.

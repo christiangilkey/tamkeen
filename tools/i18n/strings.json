@@ -15710,6 +15710,11 @@
   "f": "mobile/src/js/web-reels.js"
  },
  {
+  "id": "3d26aa46",
+  "k": "Open a site (it opens in a new tab), find an article and copy its address, then come back and tap the round teal button.",
+  "f": "mobile/src/js/web-sites.js"
+ },
+ {
   "id": "732ac1f0",
   "k": "With Tamkeen added to your home screen you can also share the article straight to Tamkeen: in Chrome tap ⋮, then Share, then Tamkeen.",
   "f": "mobile/src/js/web-sites.js"

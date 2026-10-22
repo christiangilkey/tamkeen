@@ -16,7 +16,10 @@ import { device } from "./web-install.js";
 
 export function render(view) {
   if (!isWeb) return renderSites(view);
-  const notes = ["Open a site (it opens in a new tab), find an article and copy its address, then come back and tap the round teal button."];
+  // (Added with push, not written inside [ ]: the translation collector, tools/i18n/extract.mjs, reads text
+  // straight after a "[" as a lookup key and leaves it out, so this stayed in English.)
+  const notes = [];
+  notes.push("Open a site (it opens in a new tab), find an article and copy its address, then come back and tap the round teal button.");
   if (device().os === "android") {
     notes.push("With Tamkeen added to your home screen you can also share the article straight to Tamkeen: in Chrome tap ⋮, then Share, then Tamkeen.");
   }
