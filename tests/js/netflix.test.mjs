@@ -7,7 +7,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
-import { browseAddresses, browseStart, drmAvailable, languageNames, subtitleNote, unavailableReason, unavailableText } from "../../web/js/netflix.js";
+import { EXTENSION_PAGE, EXTENSION_STORES, browseAddresses, browseStart, browserTexts, drmAvailable, extensionBrowserTexts, extensionHere,
+  extensionLink, languageNames, subtitleNote, unavailableReason, unavailableText } from "../../web/js/netflix.js";
 import { coveredBy, createNetflixMedia, watchPlacement } from "../../web/js/nfmedia.js";
 
 const read = (name) => readFileSync(new URL(`../../web/js/${name}`, import.meta.url), "utf8");
@@ -65,12 +66,57 @@ test("where Netflix can play, and what is said elsewhere", () => {
   assert.equal(unavailableReason({ platform: "android", web: true, phone: true }), "web-phone");
   assert.equal(unavailableReason({ platform: "android", web: true, ios: true }), "web-phone");
   assert.equal(unavailableReason({ platform: "android", web: true }), "web-computer");
-  for (const reason of ["android", "iphone", "web-phone", "web-computer", "desktop-os", "no-drm", "?"]) {
+  assert.equal(unavailableReason({ platform: "android", web: true, extension: true }), "", "the web app on a computer, with the extension");
+  assert.equal(unavailableReason({ platform: "android", web: true, phone: true, extension: true }), "web-phone", "never on a phone");
+  assert.equal(unavailableReason({ platform: "android", extension: true }), "android");
+  for (const reason of ["android", "iphone", "web-phone", "desktop-os", "no-drm", "?"]) {
     const { title, lines } = unavailableText(reason);
     assert.ok(title && lines.length === 2 && lines.every((l) => l.length > 20), reason);
     assert.match(lines[1], /Windows computer/);
   }
+  const web = unavailableText("web-computer");
+  assert.match(web.title, /extension/);
+  assert.match(web.lines[0], /browser extension/);
   assert.notEqual(unavailableText("android").lines[0], unavailableText("iphone").lines[0]);
+});
+
+test("the extension: where to get it, and whether it is here", () => {
+  const chrome = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36";
+  assert.equal(extensionLink(chrome), EXTENSION_PAGE, "not in a store yet: the install page");
+  assert.equal(extensionLink(chrome, "es"), `${EXTENSION_PAGE}?lang=es`, "in the user's language");
+  assert.equal(extensionLink(`${chrome} Edg/141.0`, "en"), EXTENSION_PAGE);
+  assert.equal(extensionLink(chrome, "<x>"), EXTENSION_PAGE);
+  assert.ok(Object.values(EXTENSION_STORES).every((v) => v === "" || /^https:\/\//.test(v)));
+  assert.equal(extensionHere({ documentElement: { dataset: { tamkeenExtension: "0.34.2" } } }), true);
+  assert.equal(extensionHere({ documentElement: { dataset: {} } }), false);
+  assert.equal(extensionHere(null), false);
+  const texts = extensionBrowserTexts("ar");
+  assert.match(texts.tap, /subtitle bar/);
+  assert.equal(texts.signin, browserTexts("ar").signin);
+});
+
+test("in Netflix's page: the language can arrive after the page script starts (the extension)", () => {
+  const page = watchPage("https://www.netflix.com/watch/81946364", { lang: "" });
+  page.tick();
+  assert.deepEqual(page.log, [], "nothing chosen without a language");
+  page.win.__tamkeenNetflixCfg.lang = "ar";
+  page.tick(); // the soundtrack (already Arabic)
+  page.tick();
+  assert.deepEqual(page.log, ["text T2"], "then the subtitles in it");
+});
+
+test("the extension's Netflix tab: the language menu only, titles left to Netflix", () => {
+  const page = browsePage("https://www.netflix.com/browse/original-audio", { later: true,
+    links: [["English", "/browse/original-audio/en"], ["Arabic", "/browse/original-audio/ar"]] });
+  assert.equal(page.active, false, "waits for its settings");
+  assert.equal(typeof page.win.__tamkeenNetflixStart, "function");
+  page.win.__tamkeenNetflixStart({ lang: "ar", names: ["Arabic"], hosts: ["www.netflix.com"], browse: [], text: {}, handOver: false });
+  assert.deepEqual(page.clicked, ["Arabic"], "the language chosen as on the computer");
+  const e = page.click({ tagName: "A", href: "https://www.netflix.com/watch/80001001", getAttribute: () => null, querySelector: () => null, closest: () => null });
+  assert.ok(!e.prevented, "a title picked plays right there, in Netflix's player");
+  const watch = browsePage("https://www.netflix.com/watch/81946364", { later: true });
+  watch.win.__tamkeenNetflixStart({ lang: "ar", names: ["Arabic"], hosts: ["www.netflix.com"], browse: [], text: {}, handOver: false });
+  assert.deepEqual([watch.watched, watch.went], [[], []], "a watch page stays as it is");
 });
 
 test("the notes say what happened to the subtitles and the soundtrack", () => {
@@ -152,7 +198,7 @@ test("a title's description: a film, an episode, a series opened by its own numb
 
 // ---------- netflix-player.js (inside Netflix's watch page, in the video window) ----------
 
-function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false } = {}) {
+function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false, lang = "ar" } = {}) {
   let now = 1000;
   const log = [];
   const timers = [];
@@ -181,7 +227,7 @@ function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false } 
   const win = {
     URL, document: doc, location: { href: url.href, hostname: url.hostname, pathname: url.pathname },
     setInterval: (fn) => { timers.push(fn); return 0; }, Date: { now: () => now }, isFinite, Math, Number, String,
-    __tamkeenNetflixCfg: { lang: "ar", hosts: ["www.netflix.com", "netflix.com"] },
+    __tamkeenNetflixCfg: { lang, hosts: ["www.netflix.com", "netflix.com"] },
     netflix: { appContext: { state: { playerApp: {
       getAPI: () => ({ videoPlayer: { getAllPlayerSessionIds: () => ["s1"], getVideoPlayerBySessionId: () => p } }),
       getState: () => ({ videoPlayer: { videoMetadata: { 81946364: { _metadata: { video: { type: "movie", title: "Film", runtime: 1500 } } } } } }),
@@ -238,7 +284,7 @@ test("in Netflix's page: no subtitles in the language, a question from Netflix, 
 
 // ---------- netflix-browser.js (the Netflix window) ----------
 
-function browsePage(href, { metadata = {}, links = [], toggles = [], session = {}, local = {} } = {}) {
+function browsePage(href, { metadata = {}, links = [], toggles = [], session = {}, local = {}, later = false } = {}) {
   const listeners = {};
   const timers = [];
   const went = [];
@@ -272,6 +318,7 @@ function browsePage(href, { metadata = {}, links = [], toggles = [], session = {
       browse: ["https://www.netflix.com/browse/original-audio", "https://www.netflix.com/browse/audio", "https://www.netflix.com/browse/subtitles"],
       text: {} },
   };
+  if (later) delete win.__tamkeenNetflix; // the extension: its settings come a moment later
   win.window = win;
   win.top = win;
   vm.runInNewContext(COMMON, win);

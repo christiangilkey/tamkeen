@@ -22,7 +22,11 @@
   var hosts = cfg.hosts || ["www.netflix.com", "netflix.com"];
   var lib = window.__tamkeenNetflixLib;
   if (hosts.indexOf(location.hostname) < 0 || !lib) return;
-  var LANG = String(cfg.lang || "");
+  // The language being learned. Read each time: the browser extension (extension/) tells the page
+  // only once it has read its settings, a moment after this script starts.
+  var LANG = "";
+  function readLang() { LANG = String((window.__tamkeenNetflixCfg || cfg).lang || ""); return LANG; }
+  readLang();
 
   var style = document.createElement("style");
   // Netflix's subtitles never show (Tamkeen shows its own); while a title plays, nothing but the
@@ -92,7 +96,7 @@
       textAt = 0;
       textTries = 0;
     }
-    if (!LANG) return;
+    if (!readLang()) return;
     if (sound.status === "waiting") {
       var list = call(p, "getAudioTrackList");
       if (!list) return;

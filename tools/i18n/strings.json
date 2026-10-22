@@ -1985,8 +1985,23 @@
   "f": "web/js/components/addsheet.js"
  },
  {
+  "id": "4ab5cb23",
+  "k": "Netflix opens in a new tab, on its titles in {0}. Sign in there with your own Netflix account and pick something to watch: Tamkeen's subtitle bar shows its {1} subtitles as words you can click. Words you save there come back here.",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
   "id": "d93fcbac",
   "k": "Netflix opens on its titles in {0}. Sign in there with your own Netflix account, then pick something to watch: it plays here, with its {1} subtitles as words you can click.",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "cc64fd13",
+  "k": "Get the Tamkeen extension",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "4189cc27",
+  "k": "Once it is added, reload this page and choose Netflix again.",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -8570,8 +8585,48 @@
   "f": "web/js/netflix-browser.js"
  },
  {
+  "id": "884d042c",
+  "k": "That subtitle file can't be read.",
+  "f": "web/js/netflix-ttml.js"
+ },
+ {
+  "id": "8100720c",
+  "k": "That subtitle file is too big.",
+  "f": "web/js/netflix-ttml.js"
+ },
+ {
+  "id": "25ab7cce",
+  "k": "That isn't a subtitle file.",
+  "f": "web/js/netflix-ttml.js"
+ },
+ {
+  "id": "4a6b81c8",
+  "k": "Netflix title",
+  "f": "web/js/netflix-ttml.js"
+ },
+ {
   "id": "6fedd6f1",
   "k": "Choose {0} in Netflix's language menu.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "a44becaa",
+  "k": "Pick a title: it plays here with Tamkeen's subtitle bar.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "1d3cfbd0",
+  "k": "Netflix needs the Tamkeen extension",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "abf9df24",
+  "k": "Netflix only lets a browser extension add Tamkeen to its player. With the Tamkeen extension in Chrome or Edge, Netflix plays in its own tab with Tamkeen's subtitle bar, and its subtitles become words you can click.",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "570bcf28",
+  "k": "The titles you watch and the words you save there come back here, to your Library and Vocab.",
   "f": "web/js/netflix.js"
  },
  {
@@ -8592,11 +8647,6 @@
  {
   "id": "bf8e4c08",
   "k": "Netflix doesn't play its videos in a phone's web browser, so the web app can't show them.",
-  "f": "web/js/netflix.js"
- },
- {
-  "id": "f1e7ac29",
-  "k": "In a web browser, Tamkeen would need a browser extension to work with Netflix, and there isn't one yet.",
   "f": "web/js/netflix.js"
  },
  {
@@ -9730,8 +9780,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "e87695a8",
-  "k": "No Netflix titles yet. On a Windows computer, press + and choose Netflix.",
+  "id": "35ae636e",
+  "k": "No Netflix titles yet. On a computer, press + and choose Netflix.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -9925,8 +9975,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "e619e59e",
-  "k": "Titles you watched from Netflix, newest first. They play from Netflix in Tamkeen on a Windows computer; their subtitles are the transcript.",
+  "id": "7e79f562",
+  "k": "Titles you watched from Netflix, newest first. They play from Netflix, in Tamkeen on a Windows computer or in a web browser with the Tamkeen extension; their subtitles are the transcript.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -10212,6 +10262,16 @@
  {
   "id": "692d2197",
   "k": "Waiting for captions",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "64d589aa",
+  "k": "This title plays on Netflix, in a new tab, with Tamkeen's subtitle bar over Netflix's player. Words you save there come back to your Vocab.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "2a71d38c",
+  "k": "Watch on Netflix",
   "f": "web/js/pages/player.js"
  },
  {
@@ -14955,6 +15015,11 @@
   "f": "mobile/src/js/backend.js"
  },
  {
+  "id": "d6782664",
+  "k": "That doesn't look like a Netflix title.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
   "id": "a2a96aa1",
   "k": "Episodes appear after your computer syncs this feed.",
   "f": "mobile/src/js/backend.js"
@@ -15720,6 +15785,16 @@
   "f": "mobile/src/js/transcribe-service.js"
  },
  {
+  "id": "08af60d8",
+  "k": "1 word you saved in Netflix is now in your Vocab",
+  "f": "mobile/src/js/web-extension.js"
+ },
+ {
+  "id": "6f1bf2a1",
+  "k": "{0} words you saved in Netflix are now in your Vocab",
+  "f": "mobile/src/js/web-extension.js"
+ },
+ {
   "id": "c79f28f8",
   "k": "Importing the page…",
   "f": "mobile/src/js/web-import.js"
@@ -16475,26 +16550,6 @@
   "f": "app/models_manager.py"
  },
  {
-  "id": "d6782664",
-  "k": "That doesn't look like a Netflix title.",
-  "f": "app/netflix.py"
- },
- {
-  "id": "8100720c",
-  "k": "That subtitle file is too big.",
-  "f": "app/netflix.py"
- },
- {
-  "id": "884d042c",
-  "k": "That subtitle file can't be read.",
-  "f": "app/netflix.py"
- },
- {
-  "id": "25ab7cce",
-  "k": "That isn't a subtitle file.",
-  "f": "app/netflix.py"
- },
- {
   "id": "753a3aeb",
   "k": "Only Netflix's subtitle files can be fetched here.",
   "f": "app/netflix.py"
@@ -16502,11 +16557,6 @@
  {
   "id": "8795b369",
   "k": "Netflix titles you watched in Tamkeen. They play from Netflix; their subtitles are the transcript.",
-  "f": "app/netflix.py"
- },
- {
-  "id": "4a6b81c8",
-  "k": "Netflix title",
   "f": "app/netflix.py"
  },
  {
@@ -17038,5 +17088,145 @@
   "id": "7ff5a6da",
   "k": "Sections",
   "f": "mobile/src/index.html"
+ },
+ {
+  "id": "c78355ac",
+  "k": "Hide the transcript",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "7dc4ee01",
+  "k": "Show the transcript",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "f7697583",
+  "k": "Show or hide the transcript (T)",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "d15f886d",
+  "k": "Full screen",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "eb5b679c",
+  "k": "Back to Netflix's titles",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "45fb6254",
+  "k": "Couldn't save this word.",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "bef07e2f",
+  "k": "Tamkeen switched Netflix's subtitles to {0}. Netflix remembers this for your profile, so they may show on your other devices too; you can change them there in Netflix's subtitle menu.",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "ebef897a",
+  "k": "Open Tamkeen once, so the extension knows the language you're learning and how you look words up.",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "63220b89",
+  "k": "Waiting for Netflix's player…",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "8818e9bd",
+  "k": "Netflix says: {0}",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "bd48582c",
+  "k": "Netflix is asking something. Answer it on Netflix's page.",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "65d0abd1",
+  "k": "Open Tamkeen",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "495b4d56",
+  "k": "1 saved word goes to your Vocab when you open Tamkeen.",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "6feae092",
+  "k": "{0} saved words go to your Vocab when you open Tamkeen.",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "2374f9ce",
+  "k": "A browser extension for Chrome and Edge on a computer. On Netflix it adds Tamkeen's subtitle bar: the subtitles in the language you're learning become words you can click, with the whole transcript beside the video.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "80242a6c",
+  "k": "Download the extension",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "0c9053a0",
+  "k": "Add it to Chrome or Edge",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "d88a4413",
+  "k": "It isn't in the browsers' extension stores yet, so it is added by hand, once.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "a8489a7e",
+  "k": "Unzip the file you downloaded (right-click it, then Extract All). Keep the folder somewhere it can stay, such as Documents.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "79e94725",
+  "k": "Open the extensions page: type <0/> in Chrome's address bar, or <1/> in Edge's.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "0de9725f",
+  "k": "Turn on Developer mode.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "4d565df5",
+  "k": "Click Load unpacked and choose the unzipped folder (the one with manifest.json in it).",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "aeafa95e",
+  "k": "Tamkeen opens in a new tab: that hands the extension the language you're learning and your settings. Then choose Netflix in Tamkeen, or click the extension's button in the toolbar.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "e6ab499c",
+  "k": "Open <0/>, choose This Firefox, then Load Temporary Add-on, and pick manifest.json in the unzipped folder. Firefox removes it again when it closes, until the extension is in Firefox's add-on store.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "63fe5e69",
+  "k": "Updating it",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "ce37f441",
+  "k": "Download it again, unzip it over the old folder, then click the round arrow on Tamkeen for Netflix on the extensions page.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "8a2b35a2",
+  "k": "Your accounts stay yours",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "363e30f5",
+  "k": "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.",
+  "f": "extension/install.html"
  }
 ]

@@ -9,7 +9,8 @@
 import { api, esc, h, platform, toast, openNetflix, openYouTube, netflixSupport } from "../app.js";
 import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
-import { unavailableText } from "../netflix.js";
+import { extensionLink, unavailableText } from "../netflix.js";
+import { uiLanguage } from "../i18n.js";
 import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "../youtube-home.js";
 import { openModal } from "./modal.js";
 
@@ -167,11 +168,12 @@ export function openAddSheet({ pickFile }) {
   }
 
   /** Netflix: on a Windows computer, a button that opens Netflix on its titles in the language
-   * being learned (netflix.js); elsewhere, why it isn't there. */
+   * being learned (netflix.js); in the web app on a computer the same once the browser extension is
+   * there (Netflix opens in a new tab), and before that where to get it; elsewhere, why it isn't there. */
   function netflixStep(box) {
     const wait = h(`<p class="small muted aw-note">Checking…</p>`);
     box.append(wait);
-    netflixSupport().catch(() => ({ ok: false, reason: "" })).then(({ ok, reason }) => {
+    netflixSupport().catch(() => ({ ok: false, reason: "" })).then(({ ok, reason, extension }) => {
       wait.remove();
       if (ok) {
         const open = h(`<button type="button" class="primary aw-wide">${icon("film", 18)} Open Netflix</button>`);
@@ -179,8 +181,20 @@ export function openAddSheet({ pickFile }) {
           sheet.close();
           openNetflix().catch((err) => toast(err.message, { error: true }));
         };
-        box.append(open,
-          h(`<p class="small muted aw-note">Netflix opens on its titles in ${esc(langName)}. Sign in there with your own Netflix account, then pick something to watch: it plays here, with its ${esc(langName)} subtitles as words you can click.</p>`));
+        box.append(open, extension
+          ? h(`<p class="small muted aw-note">Netflix opens in a new tab, on its titles in ${esc(langName)}. Sign in there with your own Netflix account and pick something to watch: Tamkeen's subtitle bar shows its ${esc(langName)} subtitles as words you can click. Words you save there come back here.</p>`)
+          : h(`<p class="small muted aw-note">Netflix opens on its titles in ${esc(langName)}. Sign in there with your own Netflix account, then pick something to watch: it plays here, with its ${esc(langName)} subtitles as words you can click.</p>`));
+        return;
+      }
+      if (reason === "web-computer") { // the web app on a computer: the extension is all it takes
+        const { title, lines } = unavailableText(reason);
+        const note = h(`<div class="aw-unavailable"><strong></strong><p></p><p class="small muted"></p></div>`);
+        note.querySelector("strong").textContent = title;
+        note.querySelectorAll("p")[0].textContent = lines[0];
+        note.querySelectorAll("p")[1].textContent = lines[1];
+        const get = h(`<a class="btn primary aw-wide" target="_blank" rel="noopener">${icon("puzzle", 18)} Get the Tamkeen extension</a>`);
+        get.href = extensionLink(navigator.userAgent, uiLanguage());
+        box.append(note, get, h(`<p class="small muted aw-note">Once it is added, reload this page and choose Netflix again.</p>`));
         return;
       }
       const { title, lines } = unavailableText(reason);

@@ -126,9 +126,25 @@ function renderPending(view, ep) {
   });
 }
 
-/** A Netflix title on a device where Netflix can't play (the phones, the web app): why. */
+/** A Netflix title on a device where Netflix can't play in this page (the phones, the web app): why;
+ * or, in the web app with the browser extension, a button that plays it in Netflix's own tab, with
+ * Tamkeen's subtitle bar there. */
 async function renderNetflixElsewhere(view, ep) {
-  const { reason } = await netflixSupport().catch(() => ({ reason: "" }));
+  const { reason, extension } = await netflixSupport().catch(() => ({ reason: "" }));
+  if (extension && /^\d{3,12}$/.test(String(ep.guid || ""))) {
+    const panel = h(`<div class="page"><div class="card status-panel stack">
+        <h1 dir="auto"></h1>
+        <p>This title plays on Netflix, in a new tab, with Tamkeen's subtitle bar over Netflix's player. Words you save there come back to your Vocab.</p>
+        <div class="row" style="justify-content:center">
+          <a class="btn primary" target="_blank" rel="noopener">${icon("film", 16)} Watch on Netflix</a>
+          <a class="btn" href="#/library">Back to library</a>
+        </div>
+      </div></div>`);
+    panel.querySelector("h1").textContent = ep.title;
+    panel.querySelector("a.primary").href = `https://www.netflix.com/watch/${ep.guid}`;
+    view.append(panel);
+    return undefined;
+  }
   const { title, lines } = unavailableText(reason);
   const panel = h(`<div class="page"><div class="card status-panel stack">
       <h1 dir="auto"></h1>

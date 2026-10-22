@@ -1,0 +1,42 @@
+# Netflix in the web app: the browser extension "Tamkeen for Netflix" (2026-10-22)
+4ab5cb23 Maablihan ang Netflix sa bag-ong tab, sa mga salida niini sa {0}. Mag-sign in didto gamit ang imong kaugalingong Netflix account ug pili og tan-awon: ang subtitle bar sa Tamkeen magpakita sa mga subtitle niini sa {1} isip mga pulong nga ma-click. Ang mga pulong nga imong i-save didto mobalik dinhi.
+cc64fd13 Kuhaa ang Tamkeen extension
+4189cc27 Kon nadugang na, i-reload kining page ug pilia pag-usab ang Netflix.
+a44becaa Pili og salida: dinhi kini mo-play, uban ang subtitle bar sa Tamkeen.
+1d3cfbd0 Kinahanglan sa Netflix ang Tamkeen extension
+abf9df24 Usa ra ka browser extension ang gitugotan sa Netflix nga modugang og Tamkeen sa player niini. Uban ang Tamkeen extension sa Chrome o Edge, mo-play ang Netflix sa kaugalingon niining tab uban ang subtitle bar sa Tamkeen, ug ang mga subtitle niini mahimong mga pulong nga ma-click.
+570bcf28 Ang mga salida nga imong tan-awon ug ang mga pulong nga imong i-save didto mobalik dinhi, sa imong Library ug Vocab.
+35ae636e Wala pay salida gikan sa Netflix. Sa usa ka computer, pindota ang + ug pilia ang Netflix.
+7e79f562 Mga salida nga imong gitan-aw sa Netflix, ang pinakabag-o una. Mo-play kini gikan sa Netflix, sa Tamkeen sa usa ka Windows nga computer o sa web browser nga adunay Tamkeen extension; ang ilang mga subtitle mao ang transcript.
+64d589aa Kini nga salida mo-play sa Netflix, sa bag-ong tab, uban ang subtitle bar sa Tamkeen ibabaw sa player sa Netflix. Ang mga pulong nga imong i-save didto mobalik sa imong Vocab.
+2a71d38c Tan-awa sa Netflix
+08af60d8 Ang 1 ka pulong nga imong gi-save sa Netflix anaa na sa imong Vocab
+6f1bf2a1 Ang {0} ka pulong nga imong gi-save sa Netflix anaa na sa imong Vocab
+c78355ac Itago ang transcript
+7dc4ee01 Ipakita ang transcript
+f7697583 Ipakita o itago ang transcript (T)
+d15f886d Full screen
+eb5b679c Balik sa mga salida sa Netflix
+45fb6254 Dili ma-save kini nga pulong.
+bef07e2f Giilisan sa Tamkeen ang mga subtitle sa Netflix ngadto sa {0}. Hinumdoman kini sa Netflix para sa imong profile, busa mahimong mogawas usab kini sa imong ubang mga device; mausab nimo kini didto sa subtitle menu sa Netflix.
+ebef897a Ablihi ang Tamkeen kausa, aron mahibal-an sa extension ang pinulongan nga imong gitun-an ug kon unsaon nimo pagpangita sa mga pulong.
+63220b89 Naghulat sa player sa Netflix…
+8818e9bd Ingon ang Netflix: {0}
+bd48582c Adunay gipangutana ang Netflix. Tubaga kini sa page sa Netflix.
+65d0abd1 Ablihi ang Tamkeen
+495b4d56 Ang 1 ka na-save nga pulong moadto sa imong Vocab kon ablihan nimo ang Tamkeen.
+6feae092 Ang {0} ka na-save nga pulong moadto sa imong Vocab kon ablihan nimo ang Tamkeen.
+2374f9ce Usa ka browser extension para sa Chrome ug Edge sa computer. Sa Netflix, modugang kini og subtitle bar sa Tamkeen: ang mga subtitle sa pinulongan nga imong gitun-an mahimong mga pulong nga ma-click, uban ang tibuok transcript tupad sa video.
+80242a6c I-download ang extension
+0c9053a0 Idugang kini sa Chrome o Edge
+d88a4413 Wala pa kini sa mga extension store sa mga browser, busa idugang kini nga mano-mano, kausa ra.
+a8489a7e I-unzip ang file nga imong gi-download (i-right-click kini, dayon Extract All). Ibutang ang folder sa dapit nga mahimo kining magpabilin, sama sa Documents.
+79e94725 Ablihi ang page sa mga extension: i-type ang <0/> sa address bar sa Chrome, o ang <1/> sa Edge.
+0de9725f I-on ang Developer mode.
+4d565df5 I-click ang Load unpacked ug pilia ang na-unzip nga folder (ang naay manifest.json sa sulod).
+aeafa95e Maablihan ang Tamkeen sa bag-ong tab: didto niini ihatag sa extension ang pinulongan nga imong gitun-an ug ang imong settings. Dayon pilia ang Netflix sa Tamkeen, o i-click ang button sa extension sa toolbar.
+e6ab499c Ablihi ang <0/>, pilia ang This Firefox, dayon ang Load Temporary Add-on, ug pilia ang manifest.json sa na-unzip nga folder. Tangtangon kini pag-usab sa Firefox kon isira kini, hangtod nga ang extension anaa na sa add-on store sa Firefox.
+63fe5e69 Pag-update niini
+ce37f441 I-download kini pag-usab, i-unzip ibabaw sa daang folder, dayon i-click ang lingin nga arrow sa Tamkeen for Netflix sa page sa mga extension.
+8a2b35a2 Imo gihapon ang imong mga account
+363e30f5 Sa mismong site sa Netflix ka mag-sign in sa Netflix: dili gyud makita sa extension ang imong password. Ang mga subtitle sa Netflix ug ang mga pulong nga imong i-save magpabilin sa imong kaugalingong Tamkeen library, ug dili gyud ipaambit.

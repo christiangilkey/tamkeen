@@ -1,8 +1,11 @@
 // Netflix titles: watched in Netflix's own web player, studied through Netflix's subtitles.
 // Shared by every version of the app (the computer, the phones, the web app), but only the computer
 // can play them: Netflix's videos are copy-protected and Netflix only plays them in its own player,
-// which on Windows Tamkeen lays over its player's stage (app/netflix_overlay.py, nfmedia.js). The
-// phones and the web app explain why Netflix isn't there (unavailableReason, unavailableText).
+// which on Windows Tamkeen lays over its player's stage (app/netflix_overlay.py, nfmedia.js). In a
+// computer's web browser the web app works with Netflix through the Tamkeen browser extension
+// (extension/), which adds Tamkeen's subtitle bar to Netflix's own tab. The phones explain why
+// Netflix isn't there, and the web app without the extension where to get it (unavailableReason,
+// unavailableText).
 //
 // A title is an episode of the built-in "Netflix" feed (app/netflix.py explains its fields). It is
 // added when a title is picked in the Netflix window, and its subtitles arrive once it plays.
@@ -66,6 +69,37 @@ export function browserTexts(lang = studyLanguage()) {
   };
 }
 
+/** The same messages for the browser extension, on Netflix's own pages: there a title picked plays
+ * right there, in Netflix's player, with Tamkeen's subtitle bar (extension/). */
+export function extensionBrowserTexts(lang = studyLanguage()) {
+  return { ...browserTexts(lang), tap: t("Pick a title: it plays here with Tamkeen's subtitle bar.") };
+}
+
+// ---------- the browser extension (the web app on a computer) ----------
+// Netflix's site can't be shown inside another website, and one website can't read or control
+// another, so in a web browser only an extension can bring Tamkeen into Netflix's player:
+// extension/ ("Tamkeen for Netflix", for Chrome and Edge; Firefox where it can). Its part on the web
+// app's own pages marks the page (data-tamkeen-extension on <html>) and passes settings and saved
+// words back and forth (mobile/src/js/web-extension.js).
+
+/** The page that explains how to install the extension (docs/extension/index.html, built by
+ * extension/scripts/build.mjs). */
+export const EXTENSION_PAGE = "https://christiangilkey.github.io/tamkeen/extension/";
+/** The extension's pages in the browsers' add-on stores, once it is published there; until then ""
+ * and the install page is used (HANDOFF.md says how to publish it). */
+export const EXTENSION_STORES = { chrome: "", edge: "", firefox: "" };
+
+/** Where "Get the Tamkeen extension" leads in this browser: its store page once it is in that
+ * browser's store, else the install page (in the user's language, `ui`). */
+export function extensionLink(ua = typeof navigator !== "undefined" ? navigator.userAgent : "", ui = "") {
+  const browser = /Edg\//.test(ua) ? "edge" : /Firefox\//.test(ua) ? "firefox" : "chrome";
+  return EXTENSION_STORES[browser] || (/^[a-z]{2,3}$/.test(ui) && ui !== "en" ? `${EXTENSION_PAGE}?lang=${ui}` : EXTENSION_PAGE);
+}
+
+/** Is the extension in this browser? Its part on the web app's pages marks the page. */
+export const extensionHere = (doc = typeof document !== "undefined" ? document : null) =>
+  !!(doc && doc.documentElement && doc.documentElement.dataset && doc.documentElement.dataset.tamkeenExtension);
+
 // ---------- where Netflix can play ----------
 
 /**
@@ -73,24 +107,32 @@ export function browserTexts(lang = studyLanguage()) {
  *   "android"       the Android app: Netflix generally refuses to play inside other apps' web views
  *   "iphone"        the iPhone app (Netflix doesn't play its website on phones)
  *   "web-phone"     the web app on a phone (the same)
- *   "web-computer"  the web app on a computer (it would need a browser extension)
+ *   "web-computer"  the web app on a computer without the browser extension (`extension`: it is there)
  *   "desktop-os"    the computer app on a system where its video window isn't built (Mac, Linux)
  *   "no-drm"        the computer app, but its web view can't play protected video
  */
-export function unavailableReason({ platform, web = false, ios = false, phone = false, overlay = false, drm = true } = {}) {
+export function unavailableReason({ platform, web = false, ios = false, phone = false, overlay = false, drm = true, extension = false } = {}) {
   if (platform === "desktop") return !overlay ? "desktop-os" : drm === false ? "no-drm" : "";
-  if (web) return phone || ios ? "web-phone" : "web-computer";
+  if (web) return phone || ios ? "web-phone" : extension ? "" : "web-computer";
   return ios ? "iphone" : "android";
 }
 
 /** What to say when Netflix can't play here: {title, lines}. */
 export function unavailableText(reason) {
+  if (reason === "web-computer") {
+    return {
+      title: t("Netflix needs the Tamkeen extension"),
+      lines: [
+        t("Netflix only lets a browser extension add Tamkeen to its player. With the Tamkeen extension in Chrome or Edge, Netflix plays in its own tab with Tamkeen's subtitle bar, and its subtitles become words you can click."),
+        t("The titles you watch and the words you save there come back here, to your Library and Vocab."),
+      ],
+    };
+  }
   const elsewhere = t("Netflix works in Tamkeen on a Windows computer: choose Netflix there, and its subtitles become words you can click, like a YouTube video's. What you watch there shows up here in your Library.");
   const why = {
     android: t("Netflix doesn't let its videos play inside other apps on most phones, so it isn't in Tamkeen's phone app yet."),
     iphone: t("Netflix doesn't let its videos play inside other apps on an iPhone, so Tamkeen can't show them here."),
     "web-phone": t("Netflix doesn't play its videos in a phone's web browser, so the web app can't show them."),
-    "web-computer": t("In a web browser, Tamkeen would need a browser extension to work with Netflix, and there isn't one yet."),
     "desktop-os": t("This computer's version of Tamkeen can't control Netflix's player yet."),
     "no-drm": t("This computer's built-in web viewer can't play Netflix's protected videos."),
   }[reason] || t("Netflix can't play here.");

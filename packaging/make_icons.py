@@ -19,6 +19,7 @@ WEB = ROOT / "web" / "icons"
 ANDROID = ROOT / "mobile" / "android" / "app" / "src" / "main" / "res"
 IOS = ROOT / "mobile" / "ios" / "App" / "App" / "Assets.xcassets"
 DOCS = ROOT / "docs"
+EXTENSION = ROOT / "extension" / "icons"
 
 PLUM, MID, TEAL = (54, 0, 50), (27, 82, 109), (11, 134, 147)
 GOLD = (241, 207, 123)
@@ -88,6 +89,10 @@ def main() -> None:
     icon.resize((256, 256), Image.LANCZOS).save(WEB / "icon-256.png")
     icon.resize((64, 64), Image.LANCZOS).save(WEB / "icon-64.png")
     icon.resize((256, 256), Image.LANCZOS).save(DOCS / "icon.png")
+    # The browser extension "Tamkeen for Netflix" (extension/): the sizes Chrome, Edge and Firefox ask for.
+    EXTENSION.mkdir(parents=True, exist_ok=True)
+    for n in (16, 32, 48, 128):
+        icon.resize((n, n), Image.LANCZOS).save(EXTENSION / f"icon-{n}.png")
     icon.save(OUT / "icon.ico", sizes=[(16, 16), (24, 24), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])
     icon.save(OUT / "icon.icns", sizes=[(16, 16), (32, 32), (64, 64), (128, 128), (256, 256), (512, 512), (1024, 1024)])
 

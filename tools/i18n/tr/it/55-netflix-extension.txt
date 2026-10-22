@@ -1,0 +1,42 @@
+# Netflix in the web app: the browser extension "Tamkeen for Netflix" (2026-10-22)
+4ab5cb23 Netflix si apre in una nuova scheda, sui suoi titoli in {0:lower}. Accedi lì con il tuo account Netflix e scegli qualcosa da guardare: la barra dei sottotitoli di Tamkeen mostra i sottotitoli in {1:lower} come parole cliccabili. Le parole che salvi lì tornano qui.
+cc64fd13 Scarica l'estensione di Tamkeen
+4189cc27 Una volta aggiunta, ricarica questa pagina e scegli di nuovo Netflix.
+a44becaa Scegli un titolo: viene riprodotto qui con la barra dei sottotitoli di Tamkeen.
+1d3cfbd0 Netflix ha bisogno dell'estensione di Tamkeen
+abf9df24 Netflix permette solo a un'estensione del browser di aggiungere Tamkeen al suo player. Con l'estensione di Tamkeen in Chrome o Edge, Netflix viene riprodotto nella sua scheda con la barra dei sottotitoli di Tamkeen, e i suoi sottotitoli diventano parole cliccabili.
+570bcf28 I titoli che guardi e le parole che salvi lì tornano qui, nella tua Libreria e nel tuo Vocabolario.
+35ae636e Ancora nessun titolo di Netflix. Su un computer, premi + e scegli Netflix.
+7e79f562 I titoli che hai guardato su Netflix, i più recenti prima. Vengono riprodotti da Netflix, in Tamkeen su un computer Windows o in un browser web con l'estensione di Tamkeen; i loro sottotitoli sono la trascrizione.
+64d589aa Questo titolo viene riprodotto su Netflix, in una nuova scheda, con la barra dei sottotitoli di Tamkeen sopra il player di Netflix. Le parole che salvi lì tornano nel tuo Vocabolario.
+2a71d38c Guarda su Netflix
+08af60d8 1 parola che hai salvato su Netflix ora è nel tuo Vocabolario
+6f1bf2a1 {0} parole che hai salvato su Netflix ora sono nel tuo Vocabolario
+c78355ac Nascondi la trascrizione
+7dc4ee01 Mostra la trascrizione
+f7697583 Mostra o nascondi la trascrizione (T)
+d15f886d Schermo intero
+eb5b679c Torna ai titoli di Netflix
+45fb6254 Impossibile salvare questa parola.
+bef07e2f Tamkeen ha impostato i sottotitoli di Netflix in {0:lower}. Netflix lo ricorda per il tuo profilo, quindi potrebbero comparire anche sui tuoi altri dispositivi; puoi cambiarli lì dal menu dei sottotitoli di Netflix.
+ebef897a Apri Tamkeen una volta, così l'estensione sa quale lingua stai imparando e come cerchi le parole.
+63220b89 In attesa del player di Netflix…
+8818e9bd Netflix dice: {0}
+bd48582c Netflix sta chiedendo qualcosa. Rispondi sulla pagina di Netflix.
+65d0abd1 Apri Tamkeen
+495b4d56 1 parola salvata andrà nel tuo Vocabolario quando apri Tamkeen.
+6feae092 {0} parole salvate andranno nel tuo Vocabolario quando apri Tamkeen.
+2374f9ce Un'estensione del browser per Chrome ed Edge su computer. Su Netflix aggiunge la barra dei sottotitoli di Tamkeen: i sottotitoli nella lingua che stai imparando diventano parole cliccabili, con tutta la trascrizione accanto al video.
+80242a6c Scarica l'estensione
+0c9053a0 Aggiungila a Chrome o Edge
+d88a4413 Non è ancora negli store di estensioni dei browser, quindi si aggiunge a mano, una volta sola.
+a8489a7e Estrai il file scaricato (clic destro su di esso, poi Estrai tutto). Tieni la cartella in un posto dove possa restare, per esempio Documenti.
+79e94725 Apri la pagina delle estensioni: scrivi <0/> nella barra degli indirizzi di Chrome, oppure <1/> in quella di Edge.
+0de9725f Attiva la Modalità sviluppatore.
+4d565df5 Fai clic su Carica estensione non pacchettizzata e scegli la cartella estratta (quella che contiene manifest.json).
+aeafa95e Tamkeen si apre in una nuova scheda: così passa all'estensione la lingua che stai imparando e le tue impostazioni. Poi scegli Netflix in Tamkeen, oppure fai clic sul pulsante dell'estensione nella barra degli strumenti.
+e6ab499c Apri <0/>, scegli Questo Firefox, poi Carica componente aggiuntivo temporaneo, e seleziona manifest.json nella cartella estratta. Firefox la rimuove quando si chiude, finché l'estensione non sarà nello store dei componenti aggiuntivi di Firefox.
+63fe5e69 Aggiornarla
+ce37f441 Scaricala di nuovo, estraila sopra la vecchia cartella, poi fai clic sulla freccia circolare di Tamkeen for Netflix nella pagina delle estensioni.
+8a2b35a2 I tuoi account restano tuoi
+363e30f5 Accedi a Netflix sul sito di Netflix stesso: l'estensione non vede mai la tua password. I sottotitoli di Netflix e le parole che salvi restano nella tua libreria di Tamkeen e non vengono mai condivisi.

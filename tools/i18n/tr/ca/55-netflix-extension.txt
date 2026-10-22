@@ -1,0 +1,42 @@
+# Netflix in the web app: the browser extension "Tamkeen for Netflix" (2026-10-22)
+4ab5cb23 Netflix s'obre en una pestanya nova, als seus títols en {0:lower}. Inicia-hi la sessió amb el teu compte de Netflix i tria alguna cosa per mirar: la barra de subtítols de Tamkeen mostra els subtítols en {1:lower} com a paraules clicables. Les paraules que hi desis tornen aquí.
+cc64fd13 Aconsegueix l'extensió de Tamkeen
+4189cc27 Un cop l'hagis afegit, torna a carregar aquesta pàgina i tria Netflix una altra vegada.
+a44becaa Tria un títol: es reprodueix aquí amb la barra de subtítols de Tamkeen.
+1d3cfbd0 Netflix necessita l'extensió de Tamkeen
+abf9df24 Netflix només deixa que una extensió del navegador afegeixi Tamkeen al seu reproductor. Amb l'extensió de Tamkeen a Chrome o Edge, Netflix es reprodueix a la seva pròpia pestanya amb la barra de subtítols de Tamkeen, i els seus subtítols es converteixen en paraules clicables.
+570bcf28 Els títols que hi miris i les paraules que hi desis tornen aquí, a la teva Biblioteca i al teu Vocabulari.
+35ae636e Encara no hi ha títols de Netflix. En un ordinador, prem + i tria Netflix.
+7e79f562 Títols que has mirat a Netflix, els més recents primer. Es reprodueixen des de Netflix, a Tamkeen en un ordinador amb Windows o en un navegador web amb l'extensió de Tamkeen; els seus subtítols són la transcripció.
+64d589aa Aquest títol es reprodueix a Netflix, en una pestanya nova, amb la barra de subtítols de Tamkeen sobre el reproductor de Netflix. Les paraules que hi desis tornen al teu Vocabulari.
+2a71d38c Mira-ho a Netflix
+08af60d8 1 paraula que vas desar a Netflix ja és al teu Vocabulari
+6f1bf2a1 {0} paraules que vas desar a Netflix ja són al teu Vocabulari
+c78355ac Amaga la transcripció
+7dc4ee01 Mostra la transcripció
+f7697583 Mostra o amaga la transcripció (T)
+d15f886d Pantalla completa
+eb5b679c Torna als títols de Netflix
+45fb6254 No s'ha pogut desar aquesta paraula.
+bef07e2f Tamkeen ha canviat els subtítols de Netflix a {0:lower}. Netflix ho recorda per al teu perfil, així que també poden aparèixer als teus altres dispositius; allà els pots canviar al menú de subtítols de Netflix.
+ebef897a Obre Tamkeen un cop, perquè l'extensió sàpiga quina llengua aprens i com busques les paraules.
+63220b89 Esperant el reproductor de Netflix…
+8818e9bd Netflix diu: {0}
+bd48582c Netflix està preguntant alguna cosa. Respon-ho a la pàgina de Netflix.
+65d0abd1 Obre Tamkeen
+495b4d56 1 paraula desada passarà al teu Vocabulari quan obris Tamkeen.
+6feae092 {0} paraules desades passaran al teu Vocabulari quan obris Tamkeen.
+2374f9ce Una extensió del navegador per a Chrome i Edge en un ordinador. A Netflix hi afegeix la barra de subtítols de Tamkeen: els subtítols en la llengua que aprens es converteixen en paraules clicables, amb tota la transcripció al costat del vídeo.
+80242a6c Baixa l'extensió
+0c9053a0 Afegeix-la a Chrome o Edge
+d88a4413 Encara no és a les botigues d'extensions dels navegadors, així que s'afegeix a mà, un sol cop.
+a8489a7e Descomprimeix el fitxer que has baixat (fes-hi clic amb el botó dret i després Extreu-ho tot). Desa la carpeta en un lloc on es pugui quedar, com ara Documents.
+79e94725 Obre la pàgina d'extensions: escriu <0/> a la barra d'adreces de Chrome, o <1/> a la d'Edge.
+0de9725f Activa el Mode de desenvolupador.
+4d565df5 Fes clic a Carrega l'extensió desempaquetada i tria la carpeta descomprimida (la que conté manifest.json).
+aeafa95e Tamkeen s'obre en una pestanya nova: així passa a l'extensió la llengua que aprens i la teva configuració. Després tria Netflix a Tamkeen, o fes clic al botó de l'extensió a la barra d'eines.
+e6ab499c Obre <0/>, tria Aquest Firefox, després Carrega un complement temporal, i selecciona manifest.json a la carpeta descomprimida. Firefox la treu quan es tanca, fins que l'extensió sigui a la botiga de complements de Firefox.
+63fe5e69 Per actualitzar-la
+ce37f441 Torna-la a baixar, descomprimeix-la sobre la carpeta antiga i fes clic a la fletxa circular de Tamkeen for Netflix a la pàgina d'extensions.
+8a2b35a2 Els teus comptes continuen sent teus
+363e30f5 Inicies la sessió a Netflix al mateix lloc web de Netflix: l'extensió no veu mai la teva contrasenya. Els subtítols de Netflix i les paraules que deses es queden a la teva pròpia biblioteca de Tamkeen i no es comparteixen mai.

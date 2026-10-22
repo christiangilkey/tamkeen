@@ -1,0 +1,42 @@
+# Netflix in the web app: the browser extension "Tamkeen for Netflix" (2026-10-22)
+4ab5cb23 A Netflix abre em uma nova guia, nos títulos em {0:lower}. Entre lá com a sua própria conta da Netflix e escolha algo para assistir: a barra de legendas do Tamkeen mostra as legendas em {1:lower} como palavras clicáveis. As palavras que você salvar lá voltam para cá.
+cc64fd13 Obter a extensão do Tamkeen
+4189cc27 Depois de adicioná-la, recarregue esta página e escolha a Netflix de novo.
+a44becaa Escolha um título: ele é reproduzido aqui com a barra de legendas do Tamkeen.
+1d3cfbd0 A Netflix precisa da extensão do Tamkeen
+abf9df24 A Netflix só deixa uma extensão de navegador adicionar o Tamkeen ao seu player. Com a extensão do Tamkeen no Chrome ou no Edge, a Netflix é reproduzida na própria guia com a barra de legendas do Tamkeen, e as legendas viram palavras clicáveis.
+570bcf28 Os títulos que você assiste e as palavras que você salva lá voltam para cá, para a sua Biblioteca e o seu Vocabulário.
+35ae636e Ainda não há títulos da Netflix. Em um computador, toque em + e escolha Netflix.
+7e79f562 Títulos que você assistiu na Netflix, os mais recentes primeiro. Eles são reproduzidos pela Netflix, no Tamkeen em um computador com Windows ou em um navegador com a extensão do Tamkeen; as legendas são a transcrição.
+64d589aa Este título é reproduzido na Netflix, em uma nova guia, com a barra de legendas do Tamkeen sobre o player da Netflix. As palavras que você salvar lá voltam para o seu Vocabulário.
+2a71d38c Assistir na Netflix
+08af60d8 1 palavra que você salvou na Netflix já está no seu Vocabulário
+6f1bf2a1 {0} palavras que você salvou na Netflix já estão no seu Vocabulário
+c78355ac Ocultar a transcrição
+7dc4ee01 Mostrar a transcrição
+f7697583 Mostrar ou ocultar a transcrição (T)
+d15f886d Tela cheia
+eb5b679c Voltar aos títulos da Netflix
+45fb6254 Não foi possível salvar esta palavra.
+bef07e2f O Tamkeen mudou as legendas da Netflix para {0:lower}. A Netflix guarda isso no seu perfil, então elas também podem aparecer nos seus outros dispositivos; você pode mudá-las lá no menu de legendas da Netflix.
+ebef897a Abra o Tamkeen uma vez, para que a extensão saiba qual idioma você está aprendendo e como você consulta as palavras.
+63220b89 Esperando o player da Netflix…
+8818e9bd A Netflix diz: {0}
+bd48582c A Netflix está perguntando algo. Responda na página da Netflix.
+65d0abd1 Abrir o Tamkeen
+495b4d56 1 palavra salva vai para o seu Vocabulário quando você abrir o Tamkeen.
+6feae092 {0} palavras salvas vão para o seu Vocabulário quando você abrir o Tamkeen.
+2374f9ce Uma extensão de navegador para Chrome e Edge no computador. Na Netflix, ela adiciona a barra de legendas do Tamkeen: as legendas no idioma que você está aprendendo viram palavras clicáveis, com a transcrição completa ao lado do vídeo.
+80242a6c Baixar a extensão
+0c9053a0 Adicionar ao Chrome ou ao Edge
+d88a4413 Ela ainda não está nas lojas de extensões dos navegadores, então é adicionada à mão, uma única vez.
+a8489a7e Descompacte o arquivo baixado (clique com o botão direito nele e depois em Extrair Tudo). Guarde a pasta em um lugar onde ela possa ficar, como Documentos.
+79e94725 Abra a página de extensões: digite <0/> na barra de endereço do Chrome, ou <1/> na do Edge.
+0de9725f Ative o Modo do desenvolvedor.
+4d565df5 Clique em Carregar sem compactação e escolha a pasta descompactada (a que tem o manifest.json).
+aeafa95e O Tamkeen abre em uma nova guia: é assim que ele passa para a extensão o idioma que você está aprendendo e as suas configurações. Depois escolha Netflix no Tamkeen, ou clique no botão da extensão na barra de ferramentas.
+e6ab499c Abra <0/>, escolha Este Firefox, depois Carregar extensão temporária, e selecione o manifest.json na pasta descompactada. O Firefox a remove de novo quando fecha, até a extensão estar na loja de extensões do Firefox.
+63fe5e69 Para atualizá-la
+ce37f441 Baixe de novo, descompacte por cima da pasta antiga e clique na seta circular do Tamkeen for Netflix na página de extensões.
+8a2b35a2 Suas contas continuam suas
+363e30f5 Você entra na Netflix no próprio site da Netflix: a extensão nunca vê a sua senha. As legendas da Netflix e as palavras que você salva ficam na sua própria biblioteca do Tamkeen e nunca são compartilhadas.

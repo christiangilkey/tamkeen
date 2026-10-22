@@ -15,7 +15,10 @@ import { units, norm, hasWords, UI_LANGUAGE_CODES } from "../../web/js/i18n.js";
 import { LANGUAGES } from "../../web/js/languages.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const SOURCES = ["web/js", "mobile/src/js", "app", "web/index.html", "mobile/src/index.html", "web/browser-home.html"];
+// (extension/: the browser extension "Tamkeen for Netflix", its pages and its install page, which
+// use the same dictionaries.)
+const SOURCES = ["web/js", "mobile/src/js", "app", "web/index.html", "mobile/src/index.html", "web/browser-home.html",
+  "extension/src", "extension/install.html"];
 // Not interface: other people's code, word lists, and the instructions sent to the AI.
 const EXCLUDE = [/\/vendor\//, /\/wordlists\//, /lexicon\/arabic\.js$/, /web\/js\/i18n\.js$/, /dev-seed\.js$/,
   /instagram-worker\.js$/, /web\/js\/languages\.js$/, /__pycache__/, /app\/smoke\.py$/];

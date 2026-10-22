@@ -1,9 +1,12 @@
 // The rules both Netflix scripts share (web/js/netflix-browser.js in the Netflix window,
 // web/js/netflix-player.js in the video window over the player's stage). Plain script, injected
 // first into those windows (app/desktop.py, app/netflix_overlay.py); everything is pure and on
-// window.__tamkeenNetflixLib (tests: tests/js/netflix.test.mjs).
+// window.__tamkeenNetflixLib (tests: tests/js/netflix.test.mjs). The browser extension (extension/)
+// runs it in Netflix's pages too, and its other parts import it (web/js/netflix-ttml.js), also where
+// there is no window (its service worker): there it is on globalThis.
 (function () {
-  if (window.__tamkeenNetflixLib) return;
+  var root = typeof window !== "undefined" ? window : globalThis;
+  if (root.__tamkeenNetflixLib) return;
 
   var FOLD = { fil: "tl", cmn: "zh", yue: "zh", iw: "he", nb: "no", nn: "no", "in": "id", per: "fa", fas: "fa" };
   /** "ar-LB" -> "ar", "zh-Hans" -> "zh", "fil" (Netflix's Filipino) -> "tl". */
@@ -118,6 +121,6 @@
     return m ? m[1] : "";
   }
 
-  window.__tamkeenNetflixLib = { base: base, isOff: isOff, chooseTextTrack: chooseTextTrack, chooseAudioTrack: chooseAudioTrack,
+  root.__tamkeenNetflixLib = { base: base, isOff: isOff, chooseTextTrack: chooseTextTrack, chooseAudioTrack: chooseAudioTrack,
     titleInfo: titleInfo, watchId: watchId };
 })();

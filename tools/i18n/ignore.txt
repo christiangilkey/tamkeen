@@ -324,3 +324,13 @@ dc3c38fd  # Mozilla/5.0 (Windows NT 10.0; …)  (a user agent)
 da1acefe  # Unknown command.
 219eaf02  # Netflix is still loading.  (the page's own check, never shown)
 45da55c6  # Netflix didn't answer.  (the same)
+# The browser extension "Tamkeen for Netflix" (extension/): its name and Firefox's (brands), the pieces of a CSS
+# clip-path the extractor reads as text, and answers only the code reads.
+dd15cd96  # Tamkeen for Netflix  (the extension's name)
+b4ee6522  # Firefox
+b64d9015  # polygon(calc(100% -  (CSS)
+4c99a5fd  # px) 0, 100% 0, ...  (CSS)
+b74002b9  # px), calc(100% -  (CSS)
+eab8b1db  # px) calc(100% -  (CSS)
+849551b4  # Not available in the extension: {0} {1}  (a request no screen of the extension makes)
+28f3bc79  # not saved  (an error only the code reads)

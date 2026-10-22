@@ -39,6 +39,7 @@ import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic
 import { vocabDeck } from "./anki-export.js";
 import { ankiCard } from "./review/fsrs.js";
 import { initScrollHints } from "./scrollhint.js";
+import { sendSettings, startExtensionBridge } from "./web-extension.js";
 
 export const platform = "android";
 
@@ -523,23 +524,34 @@ export async function ytRequest({ url, method = "GET", headers = {}, body }) {
 // window yet, so Netflix explains itself instead (netflix.js unavailableText). Titles watched on
 // the computer still arrive in the Library with their subtitles. (A phone's native video window,
 // like the reels' ReelSurface, could later be handed to createNetflixMedia as its bridge.)
+// The web app on a computer works with Netflix through the Tamkeen browser extension (extension/):
+// Netflix plays in its own tab with Tamkeen's subtitle bar, and titles and saved words come back
+// here (web-extension.js). Without the extension it says where to get it.
 
 /** The window Netflix plays in: none on the phones or the web app (see web/js/app.js). */
 export function netflixBridge() {
   return null;
 }
 
-/** Can Netflix titles play here? {ok, reason}: never, for now (reason: see netflix.js). */
+/** Can Netflix titles play here? {ok, reason, extension}: in the web app on a computer once the
+ * browser extension is there (`extension`: Netflix then plays in its own tab); else never, for now
+ * (reason: see netflix.js). */
 export async function netflixSupport() {
-  const { unavailableReason } = await import("./netflix.js");
+  const { extensionHere, unavailableReason } = await import("./netflix.js");
   const phone = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || "") || window.matchMedia("(pointer: coarse)").matches;
-  return { ok: false, reason: unavailableReason({ platform: "android", web: isWeb, ios: isIOS, phone }) };
+  const extension = isWeb && !phone && !isIOS && extensionHere();
+  const reason = unavailableReason({ platform: "android", web: isWeb, ios: isIOS, phone, extension });
+  return { ok: !reason, reason, extension };
 }
 
-/** Netflix can't open here: the reason, as an error to show. */
+/** Open Netflix on its titles in the language being learned, in a new tab (the web app with the
+ * browser extension; its part there chooses the language). Elsewhere: the reason, as an error. */
 export async function openNetflix() {
-  const { unavailableText } = await import("./netflix.js");
-  throw new Error(unavailableText((await netflixSupport()).reason).lines[0]);
+  const { browseStart, unavailableText } = await import("./netflix.js");
+  const { ok, reason } = await netflixSupport();
+  if (!ok) throw new Error(unavailableText(reason).lines[0]);
+  sendSettings(); // the language to choose there is the one being learned now
+  window.open(browseStart(), "_blank", "noopener");
 }
 
 /** Open YouTube in the in-app browser, on what is popular this week in the language being
@@ -951,6 +963,7 @@ export async function saveSettings(values) {
   if ("youtube_follows" in values) requestSync(30000); // so do followed channels
   if ("browser_sites" in values) requestSync(30000); // and sites saved to the browser's start page
   if (JSON.stringify(s.learning_times || {}) !== learningTimes) requestSync(30000); // and languages ticked or unticked
+  if (isWeb) sendSettings(); // the browser extension, when it is there, follows (web-extension.js)
   return s;
 }
 export async function loadStatus() {
@@ -1218,6 +1231,8 @@ async function boot() {
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   mountInstallButton(document.querySelector(".topbar")); // the web app: how to add it to the home screen
   if (isWeb) versionBanner(); // the web app updates itself: say so, once per new version
+  // The Tamkeen browser extension (a computer): its settings, and the words and titles from Netflix.
+  if (isWeb) startExtensionBridge({ api, toast, refresh: () => emit("feeds", { refreshed: true }) });
   // The web app opened by "Share → Tamkeen" from another app (Android, once installed): import that page.
   if (isWeb) import("./web-import.js").then((m) => m.importShared(!!(settings.welcome_seen && settings.study_language))).catch(() => {});
   if (isWeb) { // the web app's hour-long Drive pass: renewed by itself at a quiet moment, or with one tap

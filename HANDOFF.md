@@ -4521,3 +4521,134 @@ like the mobile and desktop versions of my YouTube player." Versions: "Webapp, m
   the real TTML capture in the app (proven in the spike window, not yet in Tamkeen's overlay); "Are you still watching?"
   and error selectors; that Netflix allows the overlay plus the closed browse window as one screen. Side effect to know:
   choosing Arabic subtitles in Netflix's player is remembered by Netflix for that profile (other devices too).
+
+## Netflix in the web app: the browser extension "Tamkeen for Netflix" (2026-10-22; branch `worktree-agent-a7a741bff7e4322a9`, NOT merged, NOT pushed, NOT in any store)
+Owner: "Web app on computer, let's do that, when you go to the Netflix section have it explain that you need the
+extension and provide a link to get it. Then of course create the extension." Experience wanted: Netflix's own player
+in a box, Tamkeen's subtitle bar at the bottom, the expanding sidebar over the window, "model it exactly like my YouTube
+player". Computers only: Netflix sends `X-Frame-Options: DENY`, one website can't read or drive another, and on phones
+Netflix refuses web playback (tested). Chrome and Edge; Firefox where cheap.
+- **The web app** (computer browsers only; phones and the desktop app unchanged). Library -> + -> Netflix:
+  - without the extension: "Netflix needs the Tamkeen extension" + why, and a teal **Get the Tamkeen extension** button
+    -> `netflix.js extensionLink()`: the store page for this browser once `EXTENSION_STORES` has one, else the install
+    page `https://christiangilkey.github.io/tamkeen/extension/?lang=<ui language>`;
+  - with it (its content script marks `<html data-tamkeen-extension="0.34.2">`; `netflix.js extensionHere()`):
+    **Open Netflix** -> a new tab on Netflix's "Browse by Languages" page (`browseStart()`), where the extension
+    chooses the learning language (the same `netflix-browser.js` as the desktop, with `handOver: false`).
+  - `netflixSupport()` (mobile/src/js/app.js) now returns `{ok, reason, extension}`; `unavailableReason({..., extension})`
+    gives "" for the web app on a computer with it. The Library's Netflix heading gets Open Netflix the same way; a
+    Netflix title's page shows **Watch on Netflix** (new tab, `netflix.com/watch/<id>`) instead of "not available".
+- **Design: the extension bundles the screens it needs; a bridge carries data to and from the web app.** Why: an iframe
+  of the github.io web app inside netflix.com would be a third-party frame whose storage Chrome and Firefox partition by
+  top-level site (it would not see the library), and Google sign-in can't happen in a frame. So:
+  1. The bar and sidebar are an extension page (`panel.html`, in a frame over Netflix's page) built from the web app's
+     own modules: the word popup (`wordbubble.js`), definer + dictionaries (`definer.js`, `meanings.js`, `lexicon/*`,
+     the phone's `lexicon-store.js`, downloading from github.io/tamkeen/lexicon like the web app), `i18n.js` + the 16
+     dictionaries, `icons.js`, `languages.js` (word regrouping for ja/zh/th, Persian), `wordlookup.js`. The build
+     follows the imports from the entry points and copies only those, layered extension/src over mobile/src over web
+     (like build-www). The extension's own stand-ins: `extension/src/js/app.js` (api/esc/h/toast/state/saveSettings/buzz;
+     `api()` answers /lexicon/*, /definitions/* (cache in the extension's IndexedDB), and empty /lexemes, /vocab),
+     `store.js` (kv + the settings the web app gave, chrome.storage), `drive.js` (gunzip only), `define-service.js`
+     (fetch from the extension page with the learner's key; Anthropic's direct-browser header).
+  2. **The bridge** (`web/js/extbridge.js`, pure, shared): the extension's content script on the web app's pages
+     (`extension/src/content/webapp.js`) and `mobile/src/js/web-extension.js` talk with window.postMessage on that page:
+     ext "hello"{nonce} -> app "hello"{same nonce} -> app "settings"{settings, device} -> ext "pending"{words, titles} ->
+     app "ack"{words, titles}. Accepted only from this very window (`event.source`) and the web app's own origin, with the
+     visit's random nonce, known types only; everything cleaned (`cleanSettings` allows only languages, definer
+     provider/mode/model/keys/language and font size: never Google tokens, emails or transcription keys; `cleanWord`,
+     `cleanTitle`, size limits). Settings go over on every web app visit and on every saveSettings (and lookup-mode change).
+  3. **Saved words and watched titles** wait in `chrome.storage.local` as one entry each (`w:<uid>`, `t:<netflix id>`,
+     so the bar adding and the web app taking never overwrite each other) until the web app has them: it creates the
+     title with **POST /netflix** (new in backend.js for the web: the same `local:netflix` feed and uid as the computer's,
+     `video/netflix`, model `netflix-subtitles`, the subtitles as a line-timed transcript, pending upload to Drive like
+     YouTube captions), then **POST /vocab** with `episode_id` = that title and the times of the word and sentence, then
+     "ack"; the extension forgets exactly those (a title only if it didn't change after sending). A word imported twice
+     is skipped (`tk_ext_imported` in localStorage). Toast: "N words you saved in Netflix are now in your Vocab".
+     Netflix subtitles are never public: no sending to friends (sendmedia.js already refuses video/netflix).
+- **In Netflix's tab** (`extension/src/content/netflix.js`, isolated world; `content/netflix-main.js` in the page's own
+  "main" world after `content/config.js` + `netflix-common.js` + `netflix-player.js`, the desktop's scripts):
+  - `netflix-player.js` hides Netflix's subtitles and, while a title plays, everything but the `<video>`; chooses the
+    learning-language soundtrack (never audio description) and subtitles (never "Off"/forced); its `state()`/`cmd()` are
+    passed as page events (`tamkeen:nf-state` 4x a second, `tamkeen:nf-cmd`, `tamkeen:nf-config` for the language, which
+    it now reads lazily).
+  - The panel frame covers the window inside a closed shadow root; its `clip-path` is an L (sidebar + bar), so clicks on
+    the picture go to Netflix. The page's `<video>` is fixed into the "video box" left of the sidebar and above the bar
+    (CSS vars `--tk-side`, `--tk-bar` from the panel's sizes). A word popup docks above the bar (the bar grows, the video
+    gets shorter, never covered) or in the sidebar. The frame and the content script talk over a MessageChannel handed
+    over with a one-time token in the frame's address (the page can't read it).
+  - **Subtitles**: background.js `webRequest.onCompleted` on `*.nflxvideo.net` (text/xml, not /range/, not svg) ->
+    fetches the file again without cookies -> `netflix-ttml.js parseTtml` (a JS twin of Python's parse_ttml, no DOM: the
+    service worker has no DOMParser) -> files in the learning language go to that tab's panel (kept in
+    `chrome.storage.session` while the worker sleeps). The panel keeps the best (`bestSubtitles`: the chosen variant, then
+    most cues) once the page reports a chosen learning-language track, files tagged with the title they arrived under and
+    no later than 2 minutes after it began (Netflix prefetches the next episode); caches the lines per title (IndexedDB)
+    so a re-watch shows words at once; saves the title for the web app; says ONCE (chrome.storage `told_subtitles`) that
+    Netflix remembers the subtitle language for the profile.
+  - Bar: the current line as tappable words, the seek row, back 5 s / play / forward 5 s, speed, quick/detailed switch;
+    right: transcript, full screen, back to Netflix's titles. Keys: Space, arrows, T, F, Esc. Sidebar: title (Netflix's
+    metadata, else the page's title box), notes ("Getting Netflix's Arabic subtitles…", "no Arabic subtitles for this
+    title", Netflix asking something, "Open Tamkeen once…" while it has no settings), the lines (current highlighted and
+    kept in view; tap a line = jump there), "N saved words go to your Vocab when you open Tamkeen" + Open Tamkeen. Folds
+    to a 26 px tab. Pause-on-word and quick/detailed follow the web app's (device) choices.
+  - Toolbar button: Netflix's browse-by-language page, or the web app while the extension has no settings. On install
+    it opens the web app once (that hands over the settings).
+- **Files**: `extension/` (manifest.json template, `src/` background.js, panel.html, css/ext.css, content/*.js, js/app.js,
+  store.js, drive.js, define-service.js, js/ext/panel.js; `install.html`; `icons/` (from the logo; make_icons.py now also
+  writes them); `scripts/build.mjs`; `test/fake-netflix.mjs`, `test/e2e.mjs`). Shared: new `web/js/netflix-ttml.js`,
+  `web/js/extbridge.js`; changed `netflix.js` (extension texts/links), `netflix-common.js` (globalThis when no window),
+  `netflix-player.js` (lazy language), `netflix-browser.js` (starts later; `handOver`), `ytcaptions.js` (exports
+  `spread`), `icons.js` (pause, back, ahead, fullscreen, puzzle), `addsheet.js`, `player.js`, `library.js`;
+  `mobile/src/js/web-extension.js` (new), `app.js`, `backend.js` (POST /netflix, `captionTranscript` shared with
+  YouTube); `build-www.mjs` SHARED (+3); `webapp/build-web.mjs` step 5; `tools/i18n/extract.mjs` reads `extension/src`
+  and `extension/install.html`; `tools/i18n/tr/<16>/55-netflix-extension.txt` (41 strings), ignore.txt (brand, CSS bits).
+- **Build and release**: `node webapp/build-web.mjs` also runs `extension/scripts/build.mjs --version <tag> --zip
+  docs/extension/tamkeen-netflix.zip --page docs/extension` -> **commit `docs/extension/` with `docs/app` at every
+  release** (Pages serves the zip and the install page from there; this branch commits a 0.34.2 build of it). The zip is
+  deterministic (fixed dates; own small zip writer, no npm package). `node extension/scripts/build.mjs` alone ->
+  `extension/build/` (git-ignored) to load unpacked while developing. Test hosts only with `--test-netflix/--test-subs/
+  --test-webapp` (local addresses only; such a build is never zipped and says "(test build)" in its name).
+- **Install for now** (docs/extension/index.html, Tamkeen's look, translated with the web app's dictionaries): download
+  the zip, unzip, `chrome://extensions` (Edge: `edge://extensions`) -> Developer mode -> Load unpacked -> the folder;
+  Firefox: about:debugging -> This Firefox -> Load Temporary Add-on -> manifest.json (gone when Firefox closes). Updating:
+  unzip over the folder, press the reload arrow. (Edge may suggest turning off "developer mode" extensions at start;
+  that's normal for an extension added by hand: keep it.)
+- **Publishing (the owner, later)**: fill `EXTENSION_STORES` in `web/js/netflix.js` with each store link once live, then
+  the web app's button goes straight there.
+  - Chrome Web Store: the owner's Google account -> https://chrome.google.com/webstore/devconsole -> pay the one-time $5
+    developer fee -> New item -> upload `docs/extension/tamkeen-netflix.zip` -> listing (description, 1280x800
+    screenshots, the 128 px icon, category Education), privacy tab: single purpose "subtitles of the language being learned
+    as clickable words on Netflix"; justify `webRequest` (to notice Netflix's subtitle file), host permissions
+    (netflix.com, nflxvideo.net), `storage`/`unlimitedStorage` (dictionaries, saved words); data use: none sold/shared,
+    the AI key is the user's own and goes only to the provider the user chose; privacy policy link =
+    https://christiangilkey.github.io/tamkeen/privacy.html (this branch adds its "Tamkeen for Netflix" section; it goes
+    live with the next push). Review takes days.
+  - Microsoft Edge Add-ons: https://partner.microsoft.com/dashboard/microsoftedge (free developer account) -> same zip.
+  - Firefox AMO: the owner's Firefox account -> https://addons.mozilla.org/developers/ -> Submit a New Add-on -> same zip
+    (the manifest has `browser_specific_settings.gecko.id` = tamkeen-netflix@christiangilkey.github.io, min Firefox 128
+    for "world: MAIN"); AMO asks for the source (this repo) since files are built; never tested in Firefox here.
+- **Tests**: tests/js/netflix-ttml.test.mjs (9: the Python reader's cases in JS, downloads, file choice, names),
+  tests/js/extbridge.test.mjs (6: message checks from other windows/origins/nonces, settings allowlist, words, titles,
+  the pending queue and what is forgotten, the build never ships local hosts), netflix.test.mjs (+4: the extension's
+  availability, links, lazy language, the browse script without hand-over), parity.test.mjs (POST /netflix now answered
+  by the phone/web). 707 JS, 497 pytest. **End to end in a real Microsoft Edge 155** (`node extension/test/e2e.mjs
+  [--video sample.webm] [--headed] [--shots DIR]`, headless, a fresh temp profile, no account; needs docs/ built):
+  a local stand-in for Netflix (`extension/test/fake-netflix.mjs`: browse page with a language menu, a watch page whose
+  `netflix.appContext...videoPlayer` imitates Netflix's around a plain `<video>`, Netflix-like controls and subtitles to
+  hide, the metadata address, an "nflxvideo" host serving the full Arabic TTML, forced lines and English) and the web app
+  from docs/ on localhost. 32/32: installed -> opens the web app -> settings handed over (no Google data) -> Netflix
+  section with and without the extension -> Arabic chosen on browse -> watch page: the full Arabic file (not forced/English)
+  becomes 20 lines, Netflix's subtitles/controls hidden, ar-LB chosen never "Off", picture fills the box, clicks on the
+  picture reach Netflix, tap a word = pause + popup + meaning (real Arabic dictionary downloaded from github.io), the
+  popup shortens the picture, Save -> the web app's Vocab has it with its title (20-line transcript, Watch on Netflix)
+  and the extension forgets it, sidebar word popup, line tap seeks to 41 s, highlight, back 5 s, pause, fold/unfold,
+  leaving removes the bar, a title with no Arabic subtitles says so, the install page in Spanish with a working zip.
+  Found and fixed by it: the empty toast area swallowed clicks on the sidebar's top; a word saved while a title was being
+  imported could be dropped.
+- **Needs the owner (real Netflix)**: load the extension in Chrome or Edge, open Tamkeen once, then Netflix. To check:
+  that `webRequest` sees the TTML (type xmlhttprequest/other) on `*.oca.nflxvideo.net` at "/"; that fixing the `<video>`
+  into the box works with Netflix's real page (if a parent has a transform the picture may stay full size under the bar:
+  the fix is in content/netflix.js VIDEO_BOX); the title name (`videoMetadata`, the metadata address, or
+  `[data-uia='video-title']`); "Are you still watching?" (Netflix's own UI shows; answer it on the page); Netflix's own
+  full screen (the bar moves into Netflix's full-screen box); next-episode switching (the bar starts afresh per title id);
+  Netflix's real "Browse by Languages" menu (shared with the desktop's open question). Known: Vocab's Word/Sentence play
+  buttons on a Netflix (or YouTube) word have no audio to play (as before, on every version).

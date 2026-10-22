@@ -9,15 +9,25 @@
 // The window is told (window.__tamkeenNetflix) the language, its names, the addresses that list
 // titles by language and its messages in the user's language: see _netflix_config in app/desktop.py.
 //
+// The browser extension (extension/) runs it in Netflix's own tab too, with `handOver: false`: there
+// a title picked plays right there, in Netflix's player, with Tamkeen's subtitle bar over it, so
+// only the language choice and the messages are used. It reads its settings a moment after the page
+// starts, so then this waits for window.__tamkeenNetflixStart(config).
+//
 // Like the other scripts that run inside someone else's website it is plain script, uses no
 // innerHTML, and keeps what it shows in a closed shadow root.
-(function () {
+(function run() {
   if (window.top !== window || window.__tamkeenNetflixBrowser) return;
+  if (!window.__tamkeenNetflix) {
+    window.__tamkeenNetflixStart = function (config) { window.__tamkeenNetflix = config || {}; run(); };
+    return;
+  }
   var cfg = window.__tamkeenNetflix || {};
   var hosts = cfg.hosts || ["www.netflix.com", "netflix.com"];
   var lib = window.__tamkeenNetflixLib;
   if (hosts.indexOf(location.hostname) < 0 || !lib) return;
   window.__tamkeenNetflixBrowser = true;
+  var handOver = cfg.handOver !== false; // the computer's window hands titles to the app
   var text = cfg.text || {};
   var T = function (key, english) { return text[key] || english; };
 
@@ -109,7 +119,7 @@
 
   // Picking a title to watch (a play button, an episode): take it before Netflix does.
   window.addEventListener("click", function (e) {
-    if (e.button || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+    if (!handOver || e.button || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
     var path = e.composedPath ? e.composedPath() : [];
     var link = null;
     for (var i = 0; i < path.length && !link; i++) {
@@ -226,7 +236,7 @@
 
   var greeted = "";
   function tick() {
-    checkPage();
+    if (handOver) checkPage();
     try { pickLanguage(); } catch (e) { /* Netflix's page changed: the user can choose by hand */ }
     var where = signInPage() ? "signin" : /^\/browse/.test(location.pathname) ? "browse" : "";
     if (where && where !== greeted) {

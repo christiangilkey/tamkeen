@@ -120,6 +120,14 @@ const PATHS = {
   flame: `<path class="fill" d="M12 3.2c.5 2.7 2.3 4.4 3.9 6.2 1.4 1.6 2.3 3.3 2.3 5.2a6.2 6.2 0 0 1-12.4 0c0-2.3 1.1-4.1 2.5-5.4.3 1.5 1 2.5 2.1 3-.5-3.1.3-6.3 1.6-9z"/>
     <path d="M12 3.2c.5 2.7 2.3 4.4 3.9 6.2 1.4 1.6 2.3 3.3 2.3 5.2a6.2 6.2 0 0 1-12.4 0c0-2.3 1.1-4.1 2.5-5.4.3 1.5 1 2.5 2.1 3-.5-3.1.3-6.3 1.6-9z"/>
     <path d="M12 20.8a2.5 2.5 0 0 1-2.5-2.5c0-1.5 1.2-2.5 2.5-4 1.3 1.5 2.5 2.5 2.5 4a2.5 2.5 0 0 1-2.5 2.5z"/>`,
+  // The Netflix extension's player controls (extension/): pause, a few seconds back / ahead (an
+  // arrow going round, with the number beside it), full screen, and the extension itself (a puzzle piece).
+  pause: `<rect class="fill" x="6.5" y="5" width="3.6" height="14" rx="1.2"/><rect class="fill" x="13.9" y="5" width="3.6" height="14" rx="1.2"/>
+    <rect x="6.5" y="5" width="3.6" height="14" rx="1.2"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2"/>`,
+  back: `<path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.8 3.8v3.6h3.6"/>`,
+  ahead: `<path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.2 3.8v3.6h-3.6"/>`,
+  fullscreen: `<path d="M4.5 9V5.5a1 1 0 0 1 1-1H9M15 4.5h3.5a1 1 0 0 1 1 1V9M19.5 15v3.5a1 1 0 0 1-1 1H15M9 19.5H5.5a1 1 0 0 1-1-1V15"/>`,
+  puzzle: `<path class="fill" d="M4.5 8h4.1a2 2 0 1 1 3.8 0H16v3.6a2 2 0 1 1 0 3.8v4.1H4.5z"/><path d="M4.5 8h4.1a2 2 0 1 1 3.8 0H16v3.6a2 2 0 1 1 0 3.8v4.1H4.5z"/>`,
 };
 
 export const ICON_NAMES = Object.keys(PATHS);

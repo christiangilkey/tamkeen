@@ -17,6 +17,7 @@ import { replaceInText } from "./correction.js";
 import { unpackTranscript } from "./sharetext.js";
 import * as phoneReels from "./reels-phone.js";
 import { anki, requestAnkiSync } from "./anki-phone.js";
+import { cleanInfo, cleanTitleId, displayTitle } from "./netflix-ttml.js";
 
 export class ApiError extends Error {}
 
@@ -37,6 +38,7 @@ const BOOK_KINDS = ["h2", "p"];
 const MAX_BOOK_WORDS = 500000;
 const YOUTUBE_FEED_URL = "local:youtube";
 const MAX_YOUTUBE_WORDS = 60000;
+const NETFLIX_FEED_URL = "local:netflix";
 
 function cleanPageUrl(text) {
   let url = String(text || "").trim();
@@ -160,21 +162,7 @@ async function saveYouTube(body) {
   const id = String(body.video_id || "").trim();
   if (!/^[\w-]{11}$/.test(id)) throw new ApiError("That doesn't look like a YouTube video.");
   const num = (x) => Math.max(0, Number(x) || 0);
-  const segments = [];
-  const words = { start: [], end: [], text: [], seg: [] };
-  for (const line of [...(body.lines || [])].sort((a, b) => num(a.start) - num(b.start))) {
-    let list = (line.words || []).filter((w) => Array.isArray(w) && String(w[2] ?? "").trim());
-    if (words.text.length + list.length > MAX_YOUTUBE_WORDS) list = list.slice(0, MAX_YOUTUBE_WORDS - words.text.length);
-    if (!list.length) continue;
-    for (const [start, end, text] of list) {
-      words.start.push(num(start));
-      words.end.push(Math.max(num(start), num(end)));
-      words.text.push(String(text).replace(/\s+/g, "").slice(0, 120));
-      words.seg.push(segments.length);
-    }
-    const text = String(line.text || "").replace(/\s+/g, " ").trim() || list.map((w) => w[2]).join(" ");
-    segments.push([line.start == null ? num(list[0][0]) : num(line.start), Math.max(num(line.end), num(list.at(-1)[1])), text.slice(0, 2000)]);
-  }
+  const { segments, words } = captionTranscript(body.lines);
   if (!segments.length) throw new ApiError("No captions available for this video.");
   const t = now();
   const fuid = await feedUid(YOUTUBE_FEED_URL);
@@ -210,6 +198,77 @@ async function saveYouTube(body) {
   await kv.set("pending_transcripts", [...pending]);
   changed();
   return { ...episodeOut(ep), words: words.text.length };
+}
+
+/** Caption lines ([{start, end, text, words: [[start, end, word]]}], as YouTube's captions and
+ * Netflix's subtitles arrive) -> a transcript's segments and words. */
+function captionTranscript(lines, max = MAX_YOUTUBE_WORDS) {
+  const num = (x) => Math.max(0, Number(x) || 0);
+  const segments = [];
+  const words = { start: [], end: [], text: [], seg: [] };
+  for (const line of [...(lines || [])].sort((a, b) => num(a.start) - num(b.start))) {
+    let list = (line.words || []).filter((w) => Array.isArray(w) && String(w[2] ?? "").trim());
+    if (words.text.length + list.length > max) list = list.slice(0, max - words.text.length);
+    if (!list.length) continue;
+    for (const [start, end, text] of list) {
+      words.start.push(num(start));
+      words.end.push(Math.max(num(start), num(end)));
+      words.text.push(String(text).replace(/\s+/g, "").slice(0, 120));
+      words.seg.push(segments.length);
+    }
+    const text = String(line.text || "").replace(/\s+/g, " ").trim() || list.map((w) => w[2]).join(" ");
+    segments.push([line.start == null ? num(list[0][0]) : num(line.start), Math.max(num(line.end), num(list.at(-1)[1])), text.slice(0, 2000)]);
+  }
+  return { segments, words };
+}
+
+/** A Netflix title watched with the browser extension (the web app on a computer; see
+ * web-extension.js), with its subtitles as `lines` when they arrived: the same episode of the built-in
+ * "Netflix" list as the computer's (app/netflix.py save_title, save_subtitles), so the two agree.
+ * Netflix's subtitles stay in the user's own library: never sent to a friend (sendmedia.js). */
+async function saveNetflix(body) {
+  const id = cleanTitleId(body.id);
+  if (!id) throw new ApiError("That doesn't look like a Netflix title.");
+  const info = cleanInfo(body.info);
+  const { segments, words } = captionTranscript(body.lines);
+  const t = now();
+  const fuid = await feedUid(NETFLIX_FEED_URL);
+  let feed = feedOf(fuid);
+  if (!feed) {
+    feed = { uid: fuid, url: NETFLIX_FEED_URL, title: "Netflix",
+             description: "Netflix titles you watched in Tamkeen. They play from Netflix; their subtitles are the transcript.",
+             image: null, link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
+    lib.feeds.push(feed);
+  } else if (feed.deleted) {
+    Object.assign(feed, { deleted: 0, updated_at: t });
+  }
+  const uid = await episodeUid(fuid, id);
+  let ep = lib.episodes.find((e) => e.uid === uid);
+  const named = !!(info.title || info.show);
+  const language = isLanguage(body.language) ? body.language : (ep && ep.language) || studyLanguage();
+  const fields = { title: named || !ep ? displayTitle(info) : ep.title, description: info.show || (ep && ep.description) || "",
+                   image: info.image || (ep && ep.image) || null, audio_url: `https://www.netflix.com/watch/${id}`,
+                   audio_type: "video/netflix", language, deleted: 0, updated_at: t };
+  if (info.duration) fields.duration = info.duration;
+  // Its subtitles, unless the ones kept already have as many lines (watched again).
+  const old = ep && ep.transcript_rev ? await transcripts.get(uid) : null;
+  const better = segments.length && !(old && old.segments && old.segments.length >= segments.length);
+  if (better) Object.assign(fields, { model: "netflix-subtitles", transcript_rev: t, duration: fields.duration || (ep && ep.duration) || segments.at(-1)[1] });
+  if (ep) Object.assign(ep, fields);
+  else {
+    ep = { uid, feed_uid: fuid, guid: id, published: t, transcribe_requested_at: null, remote_audio: 0, created_at: t,
+           model: "netflix-pending", duration: null, ...fields };
+    lib.episodes.push(ep);
+  }
+  if (better) {
+    await transcripts.put(uid, { format: 1, rev: t, model: "netflix-subtitles", segments, words });
+    // The subtitles reach the user's other devices through his own Drive, like a YouTube video's captions.
+    const pending = new Set((await kv.get("pending_transcripts")) || []);
+    pending.add(uid);
+    await kv.set("pending_transcripts", [...pending]);
+  }
+  changed();
+  return { ...episodeOut(ep), words: better ? words.text.length : (old && old.words ? old.words.text.length : 0) };
 }
 
 const FEED_WAITING = "Episodes appear after your computer syncs this feed.";
@@ -609,6 +668,8 @@ const routes = [
     try { return openOnyx((body || {}).url); } catch (e) { throw new ApiError(e.message); }
   }],
   ["POST", /^\/youtube$/, (m, q, body) => saveYouTube(body)],
+  // A Netflix title watched with the browser extension (the web app on a computer; web-extension.js).
+  ["POST", /^\/netflix$/, (m, q, body) => saveNetflix(body)],
   // Reels are normally found and transcribed on the computer and only watched here. With cloud
   // transcription on, the phone can pick reels from the user's own Instagram saves (reels-phone.js).
   ["GET", /^\/reels$/, () => phoneReels.reelsView()],

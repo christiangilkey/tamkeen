@@ -107,3 +107,11 @@ self.addEventListener("fetch", (e) => {
 });
 `);
 console.log(`Built the web app in ${out} (version ${version}, go-between server ${proxy || "NOT SET YET"})`);
+
+// 5. The browser extension "Tamkeen for Netflix" (extension/), which the web app's Netflix section links
+//    to on a computer: its zip and the page that explains how to add it, in docs/extension (served at
+//    https://christiangilkey.github.io/tamkeen/extension/). Commit them with docs/app at each release.
+const extensionDocs = join(root, "docs", "extension");
+rmSync(extensionDocs, { recursive: true, force: true });
+execFileSync(process.execPath, [join(root, "extension", "scripts", "build.mjs"), "--version", version,
+  "--zip", join(extensionDocs, "tamkeen-netflix.zip"), "--page", extensionDocs], { stdio: "inherit" });

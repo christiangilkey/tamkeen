@@ -1,0 +1,42 @@
+# Netflix in the web app: the browser extension "Tamkeen for Netflix" (2026-10-22)
+4ab5cb23 Netflix 会在新标签页中打开它的{0}作品页面。请在那里用你自己的 Netflix 账号登录，然后选一部来看：Tamkeen 的字幕栏会把它的{1}字幕显示成可点击的词。你在那里保存的词会回到这里。
+cc64fd13 获取 Tamkeen 扩展
+4189cc27 添加之后，请重新加载这个页面，再选一次 Netflix。
+a44becaa 选一部作品：它会在这里播放，带着 Tamkeen 的字幕栏。
+1d3cfbd0 Netflix 需要 Tamkeen 扩展
+abf9df24 Netflix 只允许浏览器扩展把 Tamkeen 加到它的播放器里。在 Chrome 或 Edge 中装上 Tamkeen 扩展后，Netflix 会在它自己的标签页里播放，并带有 Tamkeen 的字幕栏，字幕会变成可点击的词。
+570bcf28 你在那里看过的作品和保存的词会回到这里，进入你的资料库和词汇。
+35ae636e 还没有 Netflix 作品。请在电脑上按 + 并选择 Netflix。
+7e79f562 你在 Netflix 上看过的作品，最新的在前。它们从 Netflix 播放：在 Windows 电脑上的 Tamkeen 里，或在装了 Tamkeen 扩展的网页浏览器里；它们的字幕就是转写。
+64d589aa 这部作品在 Netflix 的新标签页中播放，Netflix 播放器上带有 Tamkeen 的字幕栏。你在那里保存的词会回到你的词汇。
+2a71d38c 在 Netflix 上观看
+08af60d8 你在 Netflix 中保存的 1 个词已进入你的词汇
+6f1bf2a1 你在 Netflix 中保存的 {0} 个词已进入你的词汇
+c78355ac 隐藏转写
+7dc4ee01 显示转写
+f7697583 显示或隐藏转写（T）
+d15f886d 全屏
+eb5b679c 返回 Netflix 的作品
+45fb6254 无法保存这个词。
+bef07e2f Tamkeen 已把 Netflix 的字幕切换为{0}。Netflix 会为你的个人资料记住这一点，所以你的其他设备上也可能显示这种字幕；你可以在那里的 Netflix 字幕菜单中更改。
+ebef897a 请先打开一次 Tamkeen，好让扩展知道你在学的语言和你查词的方式。
+63220b89 正在等待 Netflix 的播放器…
+8818e9bd Netflix 提示：{0}
+bd48582c Netflix 在问你一个问题。请在 Netflix 的页面上回答。
+65d0abd1 打开 Tamkeen
+495b4d56 打开 Tamkeen 时，1 个已保存的词会进入你的词汇。
+6feae092 打开 Tamkeen 时，{0} 个已保存的词会进入你的词汇。
+2374f9ce 一个用于电脑上 Chrome 和 Edge 的浏览器扩展。它在 Netflix 上加入 Tamkeen 的字幕栏：你在学的语言的字幕变成可点击的词，视频旁边还有完整的转写。
+80242a6c 下载扩展
+0c9053a0 添加到 Chrome 或 Edge
+d88a4413 它还没有上架浏览器的扩展商店，所以需要手动添加一次。
+a8489a7e 解压下载的文件（右键点击它，然后选择“全部解压缩”）。把文件夹放在可以一直保留的地方，比如“文档”。
+79e94725 打开扩展页面：在 Chrome 的地址栏中输入 <0/>，或在 Edge 中输入 <1/>。
+0de9725f 打开“开发者模式”。
+4d565df5 点击“加载已解压的扩展程序”，然后选择解压后的文件夹（里面有 manifest.json 的那个）。
+aeafa95e Tamkeen 会在新标签页中打开：这样就把你在学的语言和你的设置交给了扩展。然后在 Tamkeen 中选择 Netflix，或点击工具栏上的扩展按钮。
+e6ab499c 打开 <0/>，选择“此 Firefox”，然后选择“临时载入附加组件”，再选中解压后文件夹里的 manifest.json。在这个扩展上架 Firefox 附加组件商店之前，Firefox 关闭时会把它移除。
+63fe5e69 更新它
+ce37f441 重新下载，解压覆盖旧文件夹，然后在扩展页面上点击 Tamkeen for Netflix 的圆形箭头。
+8a2b35a2 你的账号仍然属于你
+363e30f5 你在 Netflix 自己的网站上登录 Netflix：扩展永远看不到你的密码。Netflix 的字幕和你保存的词都留在你自己的 Tamkeen 资料库里，永远不会被分享。

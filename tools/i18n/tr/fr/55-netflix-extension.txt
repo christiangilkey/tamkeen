@@ -1,0 +1,42 @@
+# Netflix in the web app: the browser extension "Tamkeen for Netflix" (2026-10-22)
+4ab5cb23 Netflix s'ouvre dans un nouvel onglet, sur ses titres en {0:lower}. Connectez-vous-y avec votre propre compte Netflix et choisissez quelque chose à regarder : la barre de sous-titres de Tamkeen affiche ses sous-titres en {1:lower} en mots cliquables. Les mots que vous y enregistrez reviennent ici.
+cc64fd13 Obtenir l'extension Tamkeen
+4189cc27 Une fois qu'elle est ajoutée, rechargez cette page et choisissez de nouveau Netflix.
+a44becaa Choisissez un titre : il se lit ici avec la barre de sous-titres de Tamkeen.
+1d3cfbd0 Netflix a besoin de l'extension Tamkeen
+abf9df24 Netflix ne laisse qu'une extension de navigateur ajouter Tamkeen à son lecteur. Avec l'extension Tamkeen dans Chrome ou Edge, Netflix se lit dans son propre onglet avec la barre de sous-titres de Tamkeen, et ses sous-titres deviennent des mots cliquables.
+570bcf28 Les titres que vous y regardez et les mots que vous y enregistrez reviennent ici, dans votre Bibliothèque et votre Vocabulaire.
+35ae636e Aucun titre Netflix pour l'instant. Sur un ordinateur, appuyez sur + et choisissez Netflix.
+7e79f562 Les titres que vous avez regardés sur Netflix, les plus récents d'abord. Ils se lisent depuis Netflix, dans Tamkeen sur un ordinateur Windows ou dans un navigateur web avec l'extension Tamkeen ; leurs sous-titres sont la transcription.
+64d589aa Ce titre se lit sur Netflix, dans un nouvel onglet, avec la barre de sous-titres de Tamkeen sur le lecteur de Netflix. Les mots que vous y enregistrez reviennent dans votre Vocabulaire.
+2a71d38c Regarder sur Netflix
+08af60d8 1 mot enregistré dans Netflix est maintenant dans votre Vocabulaire
+6f1bf2a1 {0} mots enregistrés dans Netflix sont maintenant dans votre Vocabulaire
+c78355ac Masquer la transcription
+7dc4ee01 Afficher la transcription
+f7697583 Afficher ou masquer la transcription (T)
+d15f886d Plein écran
+eb5b679c Retour aux titres de Netflix
+45fb6254 Impossible d'enregistrer ce mot.
+bef07e2f Tamkeen a passé les sous-titres de Netflix en {0:lower}. Netflix s'en souvient pour votre profil, ils peuvent donc aussi s'afficher sur vos autres appareils ; vous pouvez les changer là-bas dans le menu des sous-titres de Netflix.
+ebef897a Ouvrez Tamkeen une fois, pour que l'extension sache quelle langue vous apprenez et comment vous cherchez les mots.
+63220b89 En attente du lecteur de Netflix…
+8818e9bd Netflix dit : {0}
+bd48582c Netflix demande quelque chose. Répondez sur la page de Netflix.
+65d0abd1 Ouvrir Tamkeen
+495b4d56 1 mot enregistré ira dans votre Vocabulaire quand vous ouvrirez Tamkeen.
+6feae092 {0} mots enregistrés iront dans votre Vocabulaire quand vous ouvrirez Tamkeen.
+2374f9ce Une extension de navigateur pour Chrome et Edge sur ordinateur. Sur Netflix, elle ajoute la barre de sous-titres de Tamkeen : les sous-titres dans la langue que vous apprenez deviennent des mots cliquables, avec toute la transcription à côté de la vidéo.
+80242a6c Télécharger l'extension
+0c9053a0 L'ajouter à Chrome ou Edge
+d88a4413 Elle n'est pas encore dans les boutiques d'extensions des navigateurs : elle s'ajoute donc à la main, une seule fois.
+a8489a7e Décompressez le fichier téléchargé (clic droit dessus, puis Extraire tout). Gardez le dossier à un endroit où il peut rester, comme Documents.
+79e94725 Ouvrez la page des extensions : tapez <0/> dans la barre d'adresse de Chrome, ou <1/> dans celle d'Edge.
+0de9725f Activez le Mode développeur.
+4d565df5 Cliquez sur Charger l'extension non empaquetée et choisissez le dossier décompressé (celui qui contient manifest.json).
+aeafa95e Tamkeen s'ouvre dans un nouvel onglet : c'est ainsi qu'il transmet à l'extension la langue que vous apprenez et vos réglages. Ensuite, choisissez Netflix dans Tamkeen, ou cliquez sur le bouton de l'extension dans la barre d'outils.
+e6ab499c Ouvrez <0/>, choisissez Ce Firefox, puis Charger un module complémentaire temporaire, et sélectionnez manifest.json dans le dossier décompressé. Firefox la retire quand il se ferme, jusqu'à ce que l'extension soit dans la boutique de modules de Firefox.
+63fe5e69 La mettre à jour
+ce37f441 Téléchargez-la de nouveau, décompressez-la par-dessus l'ancien dossier, puis cliquez sur la flèche ronde de Tamkeen for Netflix dans la page des extensions.
+8a2b35a2 Vos comptes restent les vôtres
+363e30f5 Vous vous connectez à Netflix sur le site de Netflix lui-même : l'extension ne voit jamais votre mot de passe. Les sous-titres de Netflix et les mots que vous enregistrez restent dans votre propre bibliothèque Tamkeen et ne sont jamais partagés.

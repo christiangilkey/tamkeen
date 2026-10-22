@@ -54,7 +54,7 @@ const KINDS = [
   { key: "youtube", label: "YouTube", icon: "video", feed: YOUTUBE_FEED,
     empty: "No YouTube videos yet. Press + and choose YouTube." },
   { key: "netflix", label: "Netflix", icon: "film", feed: NETFLIX_FEED,
-    empty: "No Netflix titles yet. On a Windows computer, press + and choose Netflix." },
+    empty: "No Netflix titles yet. On a computer, press + and choose Netflix." },
   { key: "pages", label: "My webpages", icon: "page", feed: PAGES_FEED,
     empty: "No webpages yet. Press + and choose Web page." },
   { key: "books", label: "Books", icon: "book", feed: BOOKS_FEED,
@@ -308,8 +308,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
     if (f.url === NETFLIX_FEED) {
       const el = h(`<div class="lib-head"><div class="ph video-ph">${icon("film", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
-        <div class="desc small">Titles you watched from Netflix, newest first. They play from Netflix in Tamkeen on a Windows
-        computer; their subtitles are the transcript.</div></div></div>`);
+        <div class="desc small">Titles you watched from Netflix, newest first. They play from Netflix, in Tamkeen on a Windows
+        computer or in a web browser with the Tamkeen extension; their subtitles are the transcript.</div></div></div>`);
       head.append(el);
       netflixSupport().then(({ ok }) => {
         if (!ok || !el.isConnected) return;

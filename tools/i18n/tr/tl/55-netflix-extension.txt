@@ -1,0 +1,42 @@
+# Netflix in the web app: the browser extension "Tamkeen for Netflix" (2026-10-22)
+4ab5cb23 Bubukas ang Netflix sa isang bagong tab, sa mga palabas nito sa {0}. Mag-sign in doon gamit ang sarili mong Netflix account at pumili ng papanoorin: ipapakita ng subtitle bar ng Tamkeen ang {1} na subtitles nito bilang mga salitang puwedeng i-click. Babalik dito ang mga salitang ise-save mo roon.
+cc64fd13 Kunin ang Tamkeen extension
+4189cc27 Kapag naidagdag na, i-reload ang page na ito at piliin ulit ang Netflix.
+a44becaa Pumili ng palabas: dito ito magpe-play, kasama ang subtitle bar ng Tamkeen.
+1d3cfbd0 Kailangan ng Netflix ang Tamkeen extension
+abf9df24 Isang browser extension lang ang pinapayagan ng Netflix na magdagdag ng Tamkeen sa player nito. Kapag may Tamkeen extension sa Chrome o Edge, magpe-play ang Netflix sa sarili nitong tab kasama ang subtitle bar ng Tamkeen, at magiging mga salitang puwedeng i-click ang subtitles nito.
+570bcf28 Ang mga palabas na pinanood mo at ang mga salitang ise-save mo roon ay babalik dito, sa Library at Vocab mo.
+35ae636e Wala pang palabas mula sa Netflix. Sa isang computer, pindutin ang + at piliin ang Netflix.
+7e79f562 Mga palabas na pinanood mo sa Netflix, pinakabago muna. Nagpe-play ang mga ito mula sa Netflix, sa Tamkeen sa isang Windows na computer o sa isang web browser na may Tamkeen extension; ang subtitles nila ang transcript.
+64d589aa Sa Netflix magpe-play ang palabas na ito, sa isang bagong tab, kasama ang subtitle bar ng Tamkeen sa ibabaw ng player ng Netflix. Babalik sa Vocab mo ang mga salitang ise-save mo roon.
+2a71d38c Panoorin sa Netflix
+08af60d8 Nasa Vocab mo na ang 1 salitang na-save mo sa Netflix
+6f1bf2a1 Nasa Vocab mo na ang {0} salitang na-save mo sa Netflix
+c78355ac Itago ang transcript
+7dc4ee01 Ipakita ang transcript
+f7697583 Ipakita o itago ang transcript (T)
+d15f886d Full screen
+eb5b679c Bumalik sa mga palabas ng Netflix
+45fb6254 Hindi ma-save ang salitang ito.
+bef07e2f Pinalitan ng Tamkeen ang subtitles ng Netflix sa {0}. Tinatandaan ito ng Netflix para sa profile mo, kaya puwede rin itong lumabas sa iba mo pang device; mababago mo ito roon sa subtitle menu ng Netflix.
+ebef897a Buksan ang Tamkeen nang isang beses, para malaman ng extension ang wikang pinag-aaralan mo at kung paano mo hinahanap ang mga salita.
+63220b89 Hinihintay ang player ng Netflix…
+8818e9bd Sabi ng Netflix: {0}
+bd48582c May itinatanong ang Netflix. Sagutin ito sa page ng Netflix.
+65d0abd1 Buksan ang Tamkeen
+495b4d56 Mapupunta sa Vocab mo ang 1 na-save na salita kapag binuksan mo ang Tamkeen.
+6feae092 Mapupunta sa Vocab mo ang {0} na-save na salita kapag binuksan mo ang Tamkeen.
+2374f9ce Isang browser extension para sa Chrome at Edge sa computer. Sa Netflix, nagdadagdag ito ng subtitle bar ng Tamkeen: nagiging mga salitang puwedeng i-click ang subtitles sa wikang pinag-aaralan mo, kasama ang buong transcript sa tabi ng video.
+80242a6c I-download ang extension
+0c9053a0 Idagdag ito sa Chrome o Edge
+d88a4413 Wala pa ito sa mga extension store ng mga browser, kaya mano-mano itong idinadagdag, isang beses lang.
+a8489a7e I-unzip ang file na na-download mo (i-right-click ito, saka Extract All). Ilagay ang folder sa lugar na puwede itong manatili, gaya ng Documents.
+79e94725 Buksan ang page ng mga extension: i-type ang <0/> sa address bar ng Chrome, o ang <1/> sa Edge.
+0de9725f I-on ang Developer mode.
+4d565df5 I-click ang Load unpacked at piliin ang na-unzip na folder (ang may manifest.json sa loob).
+aeafa95e Bubukas ang Tamkeen sa isang bagong tab: doon nito ibinibigay sa extension ang wikang pinag-aaralan mo at ang settings mo. Pagkatapos, piliin ang Netflix sa Tamkeen, o i-click ang button ng extension sa toolbar.
+e6ab499c Buksan ang <0/>, piliin ang This Firefox, saka ang Load Temporary Add-on, at piliin ang manifest.json sa na-unzip na folder. Tinatanggal ito ulit ng Firefox kapag isinara ito, hanggang mapasama ang extension sa add-on store ng Firefox.
+63fe5e69 Pag-update nito
+ce37f441 I-download ulit ito, i-unzip sa ibabaw ng lumang folder, saka i-click ang paikot na arrow sa Tamkeen for Netflix sa page ng mga extension.
+8a2b35a2 Sa iyo pa rin ang mga account mo
+363e30f5 Sa mismong site ng Netflix ka nagsa-sign in sa Netflix: hindi kailanman nakikita ng extension ang password mo. Ang subtitles ng Netflix at ang mga salitang sine-save mo ay nananatili sa sarili mong Tamkeen library, at hindi kailanman ibinabahagi.
