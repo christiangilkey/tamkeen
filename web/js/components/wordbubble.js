@@ -196,6 +196,11 @@ export function createWordBubble(host, actions) {
         <div class="wb-srcmenu-foot">For every language you study. Also in Settings → Word definitions.</div>
       </div>` : ""}`;
   }
+  // Dictionary first, while this language's dictionary is still downloading: the AI answered this one.
+  function downloadingNote() {
+    if (!def || !def.dictionary_downloading) return "";
+    return `<p class="wb-muted wb-dlnote">The ${esc(L().name || "")} dictionary is downloading. Until it's on this device, the AI answers.</p>`;
+  }
   // "Use the dictionary instead", beside Try again when the AI failed (and when there is no key).
   function fallbackButton() {
     if (!offerDictionary(settings(), dictHere())) return "";
@@ -245,7 +250,9 @@ export function createWordBubble(host, actions) {
     const word = fix ? fix.to : ctx.word;
     let body = "";
     if (state === "loading") {
-      body = `<div class="wb-loading"><span class="spinner"></span> ${quick ? "Looking up…" : "Looking up in context…"}</div>`;
+      // (Only the AI reads the sentence: the dictionary modes just say "Looking up".)
+      const aiOnly = (settings().definer_mode || "dictionary_first") === "ai";
+      body = `<div class="wb-loading"><span class="spinner"></span> ${quick || !aiOnly ? "Looking up…" : "Looking up in context…"}</div>`;
     } else if (state === "nokey") {
       body = `<p class="wb-muted">See what this word means in this sentence: add an AI provider key in Settings.</p>
               <div class="row"><button type="button" class="primary" data-act="settings">Set up definitions</button>
@@ -261,7 +268,7 @@ export function createWordBubble(host, actions) {
               ${kindOf(lastError) ? `<button type="button" data-act="trouble">Troubleshoot</button>` : ""}
               <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
     } else if (quick) {
-      body = `<div class="wb-meaning">${esc(def.meaning)}</div>`;
+      body = `<div class="wb-meaning">${esc(def.meaning)}</div>${downloadingNote()}`;
     } else {
       const d = def;
       // How the word is read (kana, pinyin, IPA) goes under the meaning; where the reading is the
@@ -278,7 +285,8 @@ export function createWordBubble(host, actions) {
         ${d.other_meanings.length ? `<div class="wb-row"><span class="wb-label">Also</span> ${d.other_meanings.map(esc).join("; ")}</div>` : ""}
         ${d.msa_equivalent ? `<div class="wb-row"><span class="wb-label">${esc(L().standard)}</span> <span class="ar" ${attrs()}>${esc(d.msa_equivalent)}</span></div>` : ""}
         ${d.dialect_note ? `<div class="wb-row"><span class="wb-label">${esc(L().note)}</span> ${esc(d.dialect_note)}</div>` : ""}
-        ${d.sentence_translation ? `<details class="wb-trans"><summary>Sentence translation</summary>${esc(d.sentence_translation)}</details>` : ""}`;
+        ${d.sentence_translation ? `<details class="wb-trans"><summary>Sentence translation</summary>${esc(d.sentence_translation)}</details>` : ""}
+        ${downloadingNote()}`;
     }
     const shown = def && state === "ready" && def.vocalized && L().reading === "replace" ? def.vocalized : word;
     el.classList.toggle("quick", quick);

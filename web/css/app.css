@@ -502,6 +502,7 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 /* in the popup's top row, at the end (right, or left in right-to-left text), before the close button */
 .wb-head > .wb-source { flex: 0 1 auto; margin: 6px 0 0; margin-inline-start: auto; max-width: 48%; flex-direction: column; align-items: flex-end; gap: 2px; }
 .wb-source { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.wb-dlnote { font-size: 12px; margin: 6px 0 0; }
 .wb-head > .wb-srcmenu, .word-bubble > .wb-srcmenu { margin: 4px 0 8px; }
 /* the tag is a button: it opens the menu of sources (defsource.js) */
 button.wb-src { display: inline-flex; align-items: center; gap: 3px; max-width: 100%; min-width: 0; min-height: 0; overflow: hidden;

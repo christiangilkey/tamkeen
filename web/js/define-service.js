@@ -3,7 +3,7 @@
 
 import { api, state } from "./app.js";
 import { DefinerError, askJson, definerModeOf, dictionaryFirst, lookup, mnemonicConfig, rememberAnswer, PROVIDERS } from "./definer.js";
-import { dictionaryDefine } from "./meanings.js";
+import { dictionaryDefine, downloadMeanings } from "./meanings.js";
 import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 
 export function definerConfig() {
@@ -46,7 +46,10 @@ export async function getDefinition(ctx, refresh = false, { quick = false } = {}
   const ai = () => lookup(cfg, ctx, { refresh, quick, transport: relay, load: loadAnswer, save: saveAnswer });
   if (noAi()) return dictionary();
   // Dictionary first: the AI only for the words the dictionary doesn't have (see definer.dictionaryFirst).
-  if (definerMode() === "dictionary_first") return dictionaryFirst({ dictionary, ai, hasKey: !!cfg.key, refresh });
+  if (definerMode() === "dictionary_first") {
+    const lang = ctx.lang || "ar";
+    return dictionaryFirst({ dictionary, ai, hasKey: !!cfg.key, refresh, lang, getDictionary: () => downloadMeanings(lang) });
+  }
   return ai();
 }
 

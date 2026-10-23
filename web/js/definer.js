@@ -685,13 +685,24 @@ export const definerModeOf = (settings) =>
  * is the dictionary alone, its failure included (so the popup offers the download, or says the word
  * isn't there). `refresh` ("Ask again" in the popup) with a key goes to the AI: the dictionary would
  * only say the same again. */
-export async function dictionaryFirst({ dictionary, ai, hasKey, refresh = false }) {
+const fetchingDictionary = new Set(); // languages whose dictionary is downloading (dictionaryFirst)
+/** `getDictionary` (optional) downloads this language's dictionary. When the dictionary isn't on the
+ * device yet, it is fetched in the background (the owner found "Dictionary first" silently asking the
+ * AI for every word because the dictionary had never been downloaded); meanwhile the AI answers, marked
+ * `dictionary_downloading` so the popup can say why. */
+export async function dictionaryFirst({ dictionary, ai, hasKey, refresh = false, getDictionary = null, lang = "" }) {
   if (refresh && hasKey) return ai();
   try {
     return await dictionary();
   } catch (e) {
+    const missing = !!(e && e.message === "NO_MEANINGS");
+    if (missing && getDictionary && !fetchingDictionary.has(lang)) {
+      fetchingDictionary.add(lang);
+      Promise.resolve().then(getDictionary).catch(() => {}).finally(() => fetchingDictionary.delete(lang));
+    }
     if (!hasKey) throw e;
-    return ai();
+    const d = await ai();
+    return missing && d && typeof d === "object" ? { ...d, dictionary_downloading: true } : d;
   }
 }
 

@@ -4295,6 +4295,11 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
+  "id": "a4e14198",
+  "k": "Where this meaning comes from. Tap to use another source",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
   "id": "bfb11482",
   "k": "Download, {0}",
   "f": "web/js/components/wordbubble.js"
@@ -4310,8 +4315,8 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "a4e14198",
-  "k": "Where this meaning comes from. Tap to use another source",
+  "id": "cfd4faaf",
+  "k": "The {0} dictionary is downloading. Until it's on this device, the AI answers.",
   "f": "web/js/components/wordbubble.js"
  },
  {

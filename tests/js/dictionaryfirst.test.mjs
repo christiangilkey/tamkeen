@@ -88,3 +88,20 @@ test("the popup's tag names the AI and its model", () => {
   assert.equal(answerSource({ meaning: "kept from long ago" }), "AI"); // an old kept answer without its provider
   assert.equal(answerSource(null), "");
 });
+
+test("a dictionary not on the device yet is downloaded in the background, and the AI answers meanwhile, saying so", async () => {
+  const s = sources({ dictionary: "missing" });
+  let downloads = 0;
+  const getDictionary = async () => { downloads++; };
+  const d = await dictionaryFirst({ ...s, hasKey: true, lang: "es", getDictionary });
+  assert.equal(d.provider, "gemini");
+  assert.equal(d.dictionary_downloading, true, "the popup says the dictionary is on its way");
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(downloads, 1);
+  // A word the dictionary simply lacks is not a reason to download anything.
+  const s2 = sources({ dictionary: "notfound" });
+  const d2 = await dictionaryFirst({ ...s2, hasKey: true, lang: "es", getDictionary });
+  assert.equal(d2.dictionary_downloading, undefined);
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(downloads, 1);
+});
