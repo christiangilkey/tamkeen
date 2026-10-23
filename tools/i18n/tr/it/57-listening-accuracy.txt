@@ -1,0 +1,24 @@
+894e4e98 Whisper large-v3 (il modello di Groq)
+06846f58 Caratteri sbagliati: meno sono, meglio è
+89ab733c Come è stato misurato
+617a7e8e Modello di ascolto per il thailandese: Typhoon
+b530e156 Modello di ascolto per il bisaya
+b9ce4cad Come funzionano i prezzi
+5eb93a7e Con {0}, un dollaro basta per circa {1} ore di audio.
+a406458e Typhoon, sul tuo computer
+5f137e4e Il thailandese si trascrive meglio sul tuo computer
+87252d70 Typhoon Whisper Turbo è il modello di ascolto proprio del thailandese: Whisper riaddestrato da SCB 10X su circa 11.000 ore di thailandese. Nel parlato di tutti i giorni sbaglia circa la metà dei caratteri rispetto a Whisper large-v3, il modello usato da Groq.
+6e9c5e87 Parlato quotidiano: 14 minuti di talk show della TV thailandese
+104537cc 90 spezzoni da mezzo minuto di parlato thailandese
+add41fda Frasi lette ad alta voce (FLEURS)
+b5137d68 Nei talk show Whisper large-v3 ha anche tralasciato circa un quinto di quello che è stato detto, e Typhoon è stato 2,6 volte più veloce.
+e0f73cfc Con le frasi lette ad alta voce Whisper large-v3 va un po' meglio, in parte perché Typhoon scrive i numeri in lettere e i nomi inglesi in caratteri latini.
+390a4486 Whisper di OpenAI (whisper-1) e Whisper Large v3 Turbo di Groq: non misurati.
+9020c7fa Misurato da Tamkeen su un computer, con le impostazioni di trascrizione dell'app, rispetto alle trascrizioni ufficiali: talk show della TV thailandese (il set TVSpeech di Typhoon) uniti in 14 minuti di audio simile a un podcast, 90 spezzoni da mezzo minuto e FLEURS, un insieme pubblico di frasi lette ad alta voce. La seconda barra è Whisper large-v3 eseguito allo stesso modo: il modello usato da Groq.
+8c2cc4ff Per usarlo, scarica Typhoon sul tuo computer (Impostazioni → Ascolto e trascrizioni → Modello di trascrizione) e scegli Il mio computer qui sopra. Un servizio cloud funziona comunque per il thailandese, direttamente da questo telefono, quando preferisci non aspettare il computer.
+10905243 Scarica Typhoon in Modello di trascrizione, qui sotto. Una volta scaricato, scrive ogni trascrizione in thailandese su questo computer, anche se hai scelto un servizio cloud.
+bfe8bcc5 Typhoon è scaricato: scrive ogni trascrizione in thailandese su questo computer, anche se hai scelto un servizio cloud.
+52da72ee Modello bisaya, sul tuo computer
+d149deb2 BuzzASR Cebuano è il modello di ascolto proprio del bisaya: Whisper large-v3 riaddestrato da BuzzASR sul bisaya (cebuano). Sbaglia meno della metà dei caratteri rispetto al semplice Whisper large-v3, il modello usato da Groq.
+d30cb45e Nei podcast in bisaya ha anche scritto il doppio delle parole bisaya rispetto a Whisper large-v3 (10% di tutte le parole contro 5%) e molte meno parole tagalog (1,1% contro 3,8%).
+9e7f7b73 I dati FLEURS (un insieme pubblico di frasi lette ad alta voce) sono stati pubblicati insieme al modello. I dati sui podcast li ha misurati Tamkeen su sette spezzoni di due minuti di podcast in bisaya (un talk show, letture della messa, una chiacchierata in bisaya e inglese e racconti), rispetto a Whisper large-v3 con il prompt per il bisaya dell'app.

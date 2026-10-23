@@ -1,0 +1,24 @@
+894e4e98 Whisper large-v3 (ang model sa Groq)
+06846f58 Sayop nga letra: mas gamay, mas maayo
+89ab733c Giunsa kini pagsukod
+617a7e8e Listening model alang sa Thai: Typhoon
+b530e156 Listening model alang sa Bisaya
+b9ce4cad Giunsa ang presyo
+5eb93a7e Sa {0}, ang usa ka dolyar igo na sa mga {1} ka oras nga audio.
+a406458e Typhoon, sa imong computer
+5f137e4e Mas maayo i-transcribe ang Thai sa imong computer
+87252d70 Ang Typhoon Whisper Turbo mao ang kaugalingong listening model sa Thai: Whisper nga gibansay pag-usab sa SCB 10X sa mga 11,000 ka oras nga Thai. Sa adlaw-adlaw nga sulti, mga katunga ra ang sayop nga letra niini kon itandi sa Whisper large-v3, ang model nga gigamit sa Groq.
+6e9c5e87 Adlaw-adlaw nga sulti: 14 ka minuto sa mga talk show sa Thai TV
+104537cc 90 ka clip sa sultihang Thai nga tag-tunga sa minuto
+add41fda Mga sentence nga gibasa og kusog (FLEURS)
+b5137d68 Sa mga talk show, nalaktawan usab sa Whisper large-v3 ang mga ikalima sa giingon, ug 2.6 ka pilo nga mas paspas ang Typhoon.
+e0f73cfc Sa mga sentence nga gibasa og kusog, mas maayo gamay ang Whisper large-v3, tungod sa bahin kay gisulat sa Typhoon ang mga numero isip pulong ug ang mga ngalan nga Iningles sa letrang Latin.
+390a4486 Whisper sa OpenAI (whisper-1) ug Whisper Large v3 Turbo sa Groq: wala masukod.
+9020c7fa Gisukod sa Tamkeen sa usa ka computer, gamit ang kaugalingong transcription settings sa app, batok sa mga opisyal nga transcript: mga talk show sa Thai TV (ang TVSpeech set sa Typhoon) nga gidugtong ngadto sa 14 ka minuto nga audio nga sama sa podcast, 90 ka clip nga tag-tunga sa minuto, ug FLEURS, usa ka publikong set sa mga sentence nga gibasa og kusog. Ang ikaduhang bar mao ang Whisper large-v3 nga gipadagan sa samang paagi: ang model nga gigamit sa Groq.
+8c2cc4ff Aron magamit kini, i-download ang Typhoon sa imong computer (Settings → Pagpaminaw ug mga transcript → Model sa transcript) ug pilia ang Akong computer sa ibabaw. Molihok gihapon ang cloud provider alang sa Thai, diretso gikan niining phone, kon dili ka gusto maghulat sa imong computer.
+10905243 I-download ang Typhoon sa Model sa transcript, sa ubos ra. Kon ma-download na, isulat niini ang matag Thai nga transcript niining computer, bisan pa og may napili nga cloud provider.
+bfe8bcc5 Na-download na ang Typhoon: isulat niini ang matag Thai nga transcript niining computer, bisan pa og may napili nga cloud provider.
+52da72ee Bisaya model, sa imong computer
+d149deb2 Ang BuzzASR Cebuano mao ang kaugalingong listening model sa Bisaya: Whisper large-v3 nga gibansay pag-usab sa BuzzASR sa Bisaya (Cebuano). Wala pay katunga ang sayop nga letra niini kon itandi sa ordinaryong Whisper large-v3, ang model nga gigamit sa Groq.
+d30cb45e Sa mga Bisaya nga podcast, doble usab ang Bisaya nga pulong nga nasulat niini kon itandi sa Whisper large-v3 (10% sa tanang pulong batok sa 5%) ug mas gamay kaayo ang Tagalog (1.1% batok sa 3.8%).
+9e7f7b73 Ang mga numero sa FLEURS (usa ka publikong set sa mga sentence nga gibasa og kusog) gipatik uban sa model. Ang mga numero sa podcast gisukod sa Tamkeen sa pito ka tag-duha ka minuto nga clip sa Bisaya nga podcast (usa ka talk show, mga pagbasa sa Misa, istoryahanay nga Bisaya-Iningles ug pagsugilon), batok sa Whisper large-v3 nga may Bisaya prompt sa app.

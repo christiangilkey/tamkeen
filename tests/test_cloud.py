@@ -93,6 +93,32 @@ def test_the_mp3_made_for_upload_is_real_audio(tmp_path):
     assert float(np.abs(back).max()) > 0.1
 
 
+def test_a_hand_typed_model_name_goes_back_to_the_recommended_model(fresh_db):
+    # Settings no longer offers "Another model…": a name typed in there before means the recommended model,
+    # and is forgotten for good.
+    db.set_settings({"stt_mode": "cloud", "stt_key_groq": "gsk_test", "stt_model_groq": "distil-whisper-large-v3-en"})
+    assert cloud.config()["model"] == "whisper-large-v3"
+    assert db.get_setting("stt_model_groq") == ""
+    db.set_settings({"stt_provider": "openai", "stt_key_openai": "sk-test", "stt_model_openai": "gpt-4o-transcribe"})
+    assert cloud.config()["model"] == "whisper-1"
+    assert db.get_setting("stt_model_openai") == ""
+    # A model Settings does offer is kept.
+    db.set_settings({"stt_provider": "groq", "stt_model_groq": "whisper-large-v3-turbo"})
+    assert cloud.config()["model"] == "whisper-large-v3-turbo"
+    assert cloud.known_model("openai", None) == "whisper-1"
+
+
+def test_settings_and_the_computer_offer_the_same_cloud_models():
+    import re
+    from pathlib import Path
+
+    src = (Path(__file__).resolve().parent.parent / "web" / "js" / "stt.js").read_text(encoding="utf-8")
+    for provider, p in cloud.PROVIDERS.items():
+        block = re.search(rf"\n  {provider}: \{{(.*?)\n  \}},", src, re.S).group(1)
+        assert re.search(r'defaultModel: "([^"]+)"', block).group(1) == p["default"]
+        assert tuple(re.findall(r'\{ id: "([^"]+)"', block)) == p["models"]
+
+
 def test_cloud_is_used_only_when_chosen_and_a_key_is_there(fresh_db):
     assert cloud.config() is None
     db.set_settings({"stt_mode": "cloud"})

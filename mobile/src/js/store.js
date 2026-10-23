@@ -4,6 +4,7 @@
 // a record-by-record merge with no translation layer.
 
 import { stampKeys } from "./aikeys.js";
+import { forgetUnknownSttModels } from "./stt.js";
 
 const DB_NAME = "aps";
 const DB_VERSION = 1;
@@ -145,6 +146,13 @@ export async function loadSettings() {
   if (!settings.task_target_default_moved) {
     if (settings.review_task_target === "google" && !(settings.review_task && settings.review_task.id)) settings.review_task_target = "calendar";
     settings.task_target_default_moved = true;
+    await kv.set("settings", { ...settings });
+  }
+  // Settings no longer offers "Another model…" for cloud transcription (2026-10-22): a model name typed
+  // in by hand goes back to the provider's recommended one ("" = recommended; stt.js knownSttModel).
+  const unknownModels = forgetUnknownSttModels(settings);
+  if (unknownModels) {
+    Object.assign(settings, unknownModels);
     await kv.set("settings", { ...settings });
   }
   return settings;

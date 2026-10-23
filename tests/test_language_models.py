@@ -147,6 +147,23 @@ def test_cloud_transcription_is_off_while_bisaya_is_studied(local):
     assert cloud.config() is not None
 
 
+def test_settings_explains_every_language_model():
+    """Settings → Listening & transcripts shows a panel (accuracy, advice) for each language with a model of
+    its own: web/js/stt.js LANGUAGE_MODEL_INFO must list exactly the languages of LANGUAGE_MODELS, with the
+    same model, and keep the cloud exactly where models_manager does (cloud_ok)."""
+    import re
+    from pathlib import Path
+
+    src = (Path(__file__).resolve().parent.parent / "web" / "js" / "stt.js").read_text(encoding="utf-8")
+    block = re.search(r"export const LANGUAGE_MODEL_INFO = \{(.*?)\n\};", src, re.S).group(1)
+    panels = {code: (model, cloud == "true") for code, model, cloud in
+              re.findall(r'\n  (\w+): \{\n    model: "(\w+)",\n    cloud: (true|false),', block)}
+    want = {m["language"]: (name, bool(m.get("cloud_ok"))) for name, m in models_manager.LANGUAGE_MODELS.items()}
+    assert panels == want
+    for code, (_, cloud_ok) in want.items():
+        assert models_manager.needs_own_model(code) == (not cloud_ok)
+
+
 def test_the_bisaya_model_is_offered_but_cannot_be_picked(local):
     from app.main import create_app
 

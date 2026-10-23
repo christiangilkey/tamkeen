@@ -113,6 +113,7 @@ const SHARED = [
   "js/tokenuse.js",
   "js/stt.js",
   "js/components/sttsetup.js",
+  "js/components/ownmodel.js",
   "js/components/onboarding.js",
   "js/commonwords.js",
   "js/wordlists",

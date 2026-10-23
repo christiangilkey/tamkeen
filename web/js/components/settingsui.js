@@ -46,6 +46,8 @@ export const FINDS = [
   { s: "words", id: "usage", label: "Tokens used today", words: "usage cost spend" },
   { s: "words", id: "mnemonic", label: "Mnemonic maker", words: "sound-alike memory review thinking" },
   { s: "listening", id: "who", label: "Who writes the transcripts", words: "cloud transcription whisper groq openai speech" },
+  { s: "listening", id: "ownmodel", label: "Thai listening model: Typhoon", words: "accuracy mistakes compare groq openai local", langs: ["th"] },
+  { s: "listening", id: "ownmodel", label: "Bisaya listening model", words: "buzzasr cebuano accuracy mistakes compare groq openai local", langs: ["ceb"] },
   { s: "listening", id: "sttkey", label: "Transcription provider and key", words: "cloud groq openai deepgram key test" },
   { s: "listening", id: "whisper", label: "Transcription model", words: "whisper small medium large download", on: ["desktop"] },
   { s: "listening", id: "gpu", label: "GPU acceleration", words: "nvidia cuda graphics faster", on: ["desktop"] },

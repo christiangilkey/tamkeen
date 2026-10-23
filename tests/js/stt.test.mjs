@@ -261,3 +261,61 @@ test("cloud transcription is off while a language with a model of its own (Bisay
   assert.equal(cloudBlocked("th"), false, "Thai has a better model of its own, but providers know Thai: it keeps the cloud");
   assert.equal(cloudBlocked(""), false);
 });
+
+test("a model name typed in by hand (the old \"Another model…\") means the provider's recommended model", async () => {
+  const { forgetUnknownSttModels, knownSttModel } = await import("../../web/js/stt.js");
+  assert.equal(knownSttModel("groq", "whisper-large-v3-turbo"), "whisper-large-v3-turbo");
+  assert.equal(knownSttModel("groq", "distil-whisper-large-v3-en"), "whisper-large-v3");
+  assert.equal(knownSttModel("openai", "gpt-4o-transcribe"), "whisper-1");
+  assert.equal(knownSttModel("openai", ""), "whisper-1");
+  const cfg = sttConfig({ stt_mode: "cloud", stt_key_groq: "gsk_x", stt_model_groq: "my-own-model" });
+  assert.equal(cfg.model, "whisper-large-v3", "what is sent is the recommended model");
+  assert.deepEqual(forgetUnknownSttModels({ stt_model_groq: "my-own-model", stt_model_openai: "whisper-1" }), { stt_model_groq: "" });
+  assert.deepEqual(forgetUnknownSttModels({ stt_model_openai: "gpt-4o-transcribe" }), { stt_model_openai: "" });
+  assert.equal(forgetUnknownSttModels({ stt_model_groq: "whisper-large-v3-turbo", stt_model_openai: "" }), null, "nothing to change");
+  assert.equal(forgetUnknownSttModels({}), null);
+  // Settings offers only the providers' own models: no "Another model…" and no typed-name box.
+  const card = readFileSync(new URL("../../web/js/components/sttsetup.js", import.meta.url), "utf8");
+  assert.doesNotMatch(card, /Another model…<|stt-model-other|__other__/);
+  assert.doesNotMatch(card, /model-banner/, "the price per dollar is a quiet line, not a banner");
+});
+
+test("which listening-model panel shows for which language", async () => {
+  const { LANGUAGE_MODEL_INFO, OWN_MODEL_LANGUAGES, languageModelInfo } = await import("../../web/js/stt.js");
+  const { ownModelPanel } = await import("../../web/js/components/ownmodel.js");
+  // Thai: Typhoon, the cloud stays available, with the advice beside it.
+  assert.equal(languageModelInfo("th").model, "typhoon");
+  assert.equal(languageModelInfo("th").cloud, true);
+  const th = ownModelPanel("th", { phone: true });
+  assert.match(th, /data-model="typhoon"/);
+  for (const n of ["12.6%", "27.1%", "9.4%", "20.5%", "7.7%"]) assert.ok(th.includes(n), n);
+  assert.match(th, /Characters wrong, lower is better/);
+  assert.match(th, /whisper-1\) and Groq&#39;s Whisper Large v3 Turbo: not measured/, "OpenAI: not measured, not guessed");
+  assert.ok(th.includes("Whisper large-v3 (Groq&#39;s model)"));
+  assert.match(th, /choose My computer above/, "the phone says to transcribe on the computer");
+  assert.match(ownModelPanel("th"), /Download Typhoon under Transcription model, just below/, "the computer, model not downloaded");
+  assert.match(ownModelPanel("th", { ready: true }), /Typhoon is downloaded/, "the computer, model downloaded");
+  // Read sentences: large-v3's bar is the shorter one, shown as measured.
+  const fleurs = LANGUAGE_MODEL_INFO.th.tests.find((x) => /FLEURS/.test(x.label));
+  assert.ok(fleurs.cloud < fleurs.own);
+  // Bisaya: the cloud is off; the panel carries the reason, once.
+  assert.equal(languageModelInfo("ceb").cloud, false);
+  const ceb = ownModelPanel("ceb", { blockedText: "Not for Bisaya (Cebuano): …" });
+  assert.match(ceb, /data-model="bisaya"/);
+  assert.ok(ceb.includes("5.9%") && ceb.includes("15.4%"));
+  assert.equal(ceb.split("Not for Bisaya").length, 2);
+  // Languages without a model of their own: no panel.
+  for (const code of ["ar", "es", "ja", "", undefined, "toString"]) {
+    assert.equal(languageModelInfo(code), null, String(code));
+    assert.equal(ownModelPanel(code), "", String(code));
+  }
+  // The cloud is off exactly for the languages whose model is the only one that knows them.
+  assert.deepEqual(Object.keys(LANGUAGE_MODEL_INFO).filter((c) => !LANGUAGE_MODEL_INFO[c].cloud).sort(), Object.keys(OWN_MODEL_LANGUAGES).sort());
+  // Every bar is a measured number, all of one language's on one scale (none longer than its room).
+  for (const [code, info] of Object.entries(LANGUAGE_MODEL_INFO)) {
+    for (const x of info.tests) for (const v of [x.own, x.cloud]) assert.ok(v > 0 && v < 100, `${info.model} ${x.label}`);
+    const widths = [...ownModelPanel(code).matchAll(/--w:([\d.]+)/g)].map((m) => Number(m[1]));
+    assert.equal(widths.length, info.tests.length * 2);
+    assert.ok(widths.every((w) => w > 0 && w <= 1));
+  }
+});

@@ -1,0 +1,24 @@
+894e4e98 Whisper large-v3（Groq 的模型）
+06846f58 错误字符，越少越好
+89ab733c 测量方法
+617a7e8e 泰语听写模型：Typhoon
+b530e156 比萨亚语听写模型
+b9ce4cad 价格怎么算
+5eb93a7e 使用 {0} 时，一美元大约可以转写 {1} 小时的音频。
+a406458e Typhoon，在你的电脑上
+5f137e4e 泰语最好在你的电脑上转写
+87252d70 Typhoon Whisper Turbo 是泰语专用的听写模型：由 SCB 10X 用约 11,000 小时的泰语对 Whisper 重新训练而成。在日常对话中，它的错误字符大约只有 Whisper large-v3（Groq 使用的模型）的一半。
+6e9c5e87 日常对话：14 分钟的泰国电视访谈节目
+104537cc 90 段各半分钟的泰语对话
+add41fda 朗读的句子（FLEURS）
+b5137d68 在访谈节目中，Whisper large-v3 还漏掉了大约五分之一的内容，而 Typhoon 快 2.6 倍。
+e0f73cfc 在朗读的句子上，Whisper large-v3 稍好一些，部分原因是 Typhoon 把数字写成文字，把英文名字写成拉丁字母。
+390a4486 OpenAI 的 Whisper（whisper-1）和 Groq 的 Whisper Large v3 Turbo：未测量。
+9020c7fa 由 Tamkeen 在一台电脑上、使用应用自己的转写设置测量，并与官方文字稿对比：把泰国电视访谈节目（Typhoon 的 TVSpeech 数据集）连成 14 分钟类似播客的音频、90 段各半分钟的片段，以及 FLEURS（一个公开的朗读句子数据集）。第二条是以同样方式运行的 Whisper large-v3，也就是 Groq 使用的模型。
+8c2cc4ff 要使用它，请在你的电脑上下载 Typhoon（设置 → 听力与转写 → 转写模型），并在上方选择“我的电脑”。如果你不想等电脑，泰语仍然可以直接在这部手机上使用云服务转写。
+10905243 在下方的“转写模型”中下载 Typhoon。下载后，即使选择了云服务，这台电脑上的所有泰语转写也都由它完成。
+bfe8bcc5 Typhoon 已下载：即使选择了云服务，这台电脑上的所有泰语转写也都由它完成。
+52da72ee 比萨亚语模型，在你的电脑上
+d149deb2 BuzzASR Cebuano 是比萨亚语专用的听写模型：由 BuzzASR 用比萨亚语（宿务语）对 Whisper large-v3 重新训练而成。它的错误字符不到普通 Whisper large-v3（Groq 使用的模型）的一半。
+d30cb45e 在比萨亚语播客中，它写出的比萨亚语词是 Whisper large-v3 的两倍（占全部词语的 10% 对 5%），他加禄语词则少得多（1.1% 对 3.8%）。
+9e7f7b73 FLEURS（一个公开的朗读句子数据集）的数字随模型一起发布。播客的数字由 Tamkeen 在七段各两分钟的比萨亚语播客片段上测量（一档访谈节目、弥撒读经、一段比萨亚语夹英语的闲聊和讲故事），对比的是加上应用的比萨亚语提示的 Whisper large-v3。

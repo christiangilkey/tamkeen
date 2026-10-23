@@ -4782,3 +4782,48 @@ chip (game.js showChip) has no fuse/countdown any more, shows for 5 s, and the f
 is alive. info.js's "How to get XP" line says so. Battle combos (answering right within 5 s) are unchanged (owner).
 Note: the game info sheet's lists (info.js `get: [...]`) are not picked up by tools/i18n/extract.mjs (text right
 after "[" is skipped as a lookup key), so that sheet is English in every language: a known gap.
+
+## Listening & transcripts redesigned; accuracy of Thai's and Bisaya's own models; no "Another model…" (2026-10-22; branch of worktree agent-a40c43f385eda864b, NOT merged, NOT pushed)
+Owner (phone screenshot of Settings → Listening & transcripts): "For languages with a custom listening model add info
+regarding that model's accuracy and that it is better to run that one on your local machine than to use the Groq or
+OpenAI transcription key, include the accuracy information comparison. … make this look really nice and clean without
+losing any information." And, about More options → Model → "Another model…": "What is the purpose …? It seems unusable."
+- **The card** (`web/js/components/sttsetup.js`, all versions; also the computer's first-run #/setup): title "Who writes
+  the transcripts" + status tag (Optional / ✓ In use / Needs a key / Key not working / Off for this language); the choice
+  as two big centred tiles with a line icon (new `computer` icon in icons.js; `cloud`) and the old one-line consequences;
+  then the language's own-model panel (below); then, only while the cloud is chosen, "Cloud transcription": provider,
+  key + Show, a row Test the key / Get a key ↗ / I'm stuck, the test result, the phone's big-file note (now a plain grey
+  box, no gold border), and "More options" with the model list and today's audio; at the foot two folds: "How it works"
+  (the old intro paragraph + "You use your own key and pay them directly…") and "What is sent, and where is my key kept?"
+  (unchanged text). Old Bisaya `#stt-blocked` note is gone: its text is inside the panel. CSS: the `.stt-*` block in
+  web/css/app.css (no shadows, gradients or coloured bars; logical properties for RTL).
+- **Own-model panel** (`web/js/components/ownmodel.js` `ownModelPanel(lang, {phone, ready, blockedText})`, HTML only,
+  in build-www's list; data `web/js/stt.js` `LANGUAGE_MODEL_INFO` / `languageModelInfo`): headline ("Thai is best
+  transcribed on your computer" / "Bisaya is transcribed on your computer"), what the model is, a two-bar-per-test chart
+  "Characters wrong, lower is better" (teal = the model on the computer, grey = Whisper large-v3, Groq's model; one scale
+  per language, numbers at the bar ends; on phones each name sits over its bar), notes, what to do (phone: download it on
+  the computer and choose My computer, the cloud still works for Thai; computer: download under Transcription model just
+  below / "Typhoon is downloaded: it writes every Thai transcript here even with a cloud provider chosen" — true, see
+  transcriber.get; the computer passes `ownReady`/`onOwnChange` from /api/models and model_download events), and a
+  "How this was measured" fold. Numbers, all from this file's Typhoon/Bisaya sections: Thai podcast-like talk shows
+  12.6% vs 27.1% (+ large-v3 left out about a fifth, Typhoon 2.6x faster), 90 half-minute clips 9.4% vs 20.5%, FLEURS
+  read sentences 12.6% vs 7.7% (large-v3 better; numbers-as-words reason given); Bisaya FLEURS 5.9% vs 15.4% (published
+  with the model) + podcast clips 10% vs 5% Bisaya-only words, 1.1% vs 3.8% Tagalog-only. OpenAI whisper-1 and Groq's
+  Turbo: "not measured". Every language in models_manager.LANGUAGE_MODELS needs an entry (pytest checks the two lists,
+  and that `cloud` matches `cloud_ok`); `OWN_MODEL_LANGUAGES` is still the blocked list (JS test: same as `cloud: false`).
+  Settings search: FINDS `ownmodel` (langs th / ceb).
+- **"Another model…" removed** (cloud transcription only; Word definitions' own picker is untouched): the model list is
+  now a radio list of the provider's models with notes, prices and the Recommended tag; "$1 ≈ N hours" banner →
+  quiet line "With <model>, one dollar buys about N hours of audio."; the pay-for-length paragraph → "How pricing works"
+  fold. Migration: `stt.js knownSttModel` / `forgetUnknownSttModels` (sttConfig sends the recommended model for an unknown
+  name; the phone's `store.js loadSettings` and opening the card save "" for it); computer: `cloud.PROVIDERS[...]["models"]`
+  + `known_model`, `config()` falls back and clears the stored name, `test()` too. pytest checks stt.js and cloud.py
+  offer the same models.
+- Translations `tools/i18n/tr/<code>/57-listening-accuracy.txt` (25 strings × 16). Note for the extractor: a string right
+  after `[` is skipped as an object key, so the notes are an object, not a list.
+- **Checked**: web app build (375×812 / tall, dark, forced light, Thai / Bisaya / Arabic learners, Arabic UI RTL) and the
+  computer on a fresh signed-out `APS_DATA_DIR` (1280 px, dark and light, Thai local + cloud, Bisaya, Arabic UI RTL,
+  #/setup). Pictures (before/after) in the session scratchpad `shots\listening\`. 725 JS tests, 515 pytest pass,
+  `build.mjs --check` passes, build-www works. **Not checked**: a real phone/iPhone, a real key test, the panel's "ready"
+  state with Typhoon really downloaded (unit-tested only), the web app's forced light theme shows "Test the key" with a
+  dark native button (the web app is always dark, so not reachable there).

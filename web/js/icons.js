@@ -131,6 +131,9 @@ const PATHS = {
   back: `<path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.8 3.8v3.6h3.6"/>`,
   ahead: `<path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.2 3.8v3.6h-3.6"/>`,
   fullscreen: `<path d="M4.5 9V5.5a1 1 0 0 1 1-1H9M15 4.5h3.5a1 1 0 0 1 1 1V9M19.5 15v3.5a1 1 0 0 1-1 1H15M9 19.5H5.5a1 1 0 0 1-1-1V15"/>`,
+  // A computer screen on its stand (Settings → Listening & transcripts: "This computer" / "My computer").
+  computer: `<rect class="fill" x="3.5" y="4.5" width="17" height="11.5" rx="2"/><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"/>
+    <path d="M12 16v3.5"/><path d="M8.5 19.5h7"/>`,
   puzzle: `<path class="fill" d="M4.5 8h4.1a2 2 0 1 1 3.8 0H16v3.6a2 2 0 1 1 0 3.8v4.1H4.5z"/><path d="M4.5 8h4.1a2 2 0 1 1 3.8 0H16v3.6a2 2 0 1 1 0 3.8v4.1H4.5z"/>`,
 };
 

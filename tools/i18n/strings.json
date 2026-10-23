@@ -3365,6 +3365,21 @@
   "f": "web/js/components/onboarding.js"
  },
  {
+  "id": "894e4e98",
+  "k": "Whisper large-v3 (Groq's model)",
+  "f": "web/js/components/ownmodel.js"
+ },
+ {
+  "id": "06846f58",
+  "k": "Characters wrong, lower is better",
+  "f": "web/js/components/ownmodel.js"
+ },
+ {
+  "id": "89ab733c",
+  "k": "How this was measured",
+  "f": "web/js/components/ownmodel.js"
+ },
+ {
   "id": "6271a4fa",
   "k": "Couldn't sync.",
   "f": "web/js/components/refreshbutton.js"
@@ -3670,6 +3685,16 @@
   "f": "web/js/components/settingsui.js"
  },
  {
+  "id": "617a7e8e",
+  "k": "Thai listening model: Typhoon",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "b530e156",
+  "k": "Bisaya listening model",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "5e1ffa82",
   "k": "Transcription provider and key",
   "f": "web/js/components/settingsui.js"
@@ -3765,26 +3790,6 @@
   "f": "web/js/components/sttsetup.js"
  },
  {
-  "id": "8177b1f0",
-  "k": "Normally your computer writes the transcripts and they arrive here by sync. A cloud provider can write them instead, straight from this phone, so nothing waits for the computer.",
-  "f": "web/js/components/sttsetup.js"
- },
- {
-  "id": "667900ba",
-  "k": "Writing a transcript needs a strong computer, most of all for Arabic. If yours is slow, a cloud provider can write the transcripts instead.",
-  "f": "web/js/components/sttsetup.js"
- },
- {
-  "id": "08f8b99e",
-  "k": "the episode's file, or a reel's video",
-  "f": "web/js/components/sttsetup.js"
- },
- {
-  "id": "d78ea32b",
-  "k": "only the parts with speech in them",
-  "f": "web/js/components/sttsetup.js"
- },
- {
   "id": "c6286624",
   "k": "Free. Transcripts arrive when it next syncs.",
   "f": "web/js/components/sttsetup.js"
@@ -3805,18 +3810,23 @@
   "f": "web/js/components/sttsetup.js"
  },
  {
-  "id": "0781166f",
-  "k": "Cloud transcription",
+  "id": "8177b1f0",
+  "k": "Normally your computer writes the transcripts and they arrive here by sync. A cloud provider can write them instead, straight from this phone, so nothing waits for the computer.",
   "f": "web/js/components/sttsetup.js"
  },
  {
-  "id": "3287b173",
-  "k": "{0} You use your own key and pay them directly, a few cents per hour of audio.",
+  "id": "667900ba",
+  "k": "Writing a transcript needs a strong computer, most of all for Arabic. If yours is slow, a cloud provider can write the transcripts instead.",
   "f": "web/js/components/sttsetup.js"
  },
  {
-  "id": "5a19606e",
-  "k": "The audio of what you transcribe goes to the provider you choose ({0}), and nowhere else. Nothing else about you or your library is sent. Your key is kept on {1} and, if you use Google Drive sync, in the app's private folder in your own Google Drive, so your other devices have it too. It is never part of a data export.",
+  "id": "08f8b99e",
+  "k": "the episode's file, or a reel's video",
+  "f": "web/js/components/sttsetup.js"
+ },
+ {
+  "id": "d78ea32b",
+  "k": "only the parts with speech in them",
   "f": "web/js/components/sttsetup.js"
  },
  {
@@ -3825,8 +3835,18 @@
   "f": "web/js/components/sttsetup.js"
  },
  {
+  "id": "0781166f",
+  "k": "Cloud transcription",
+  "f": "web/js/components/sttsetup.js"
+ },
+ {
   "id": "87bdb7fb",
   "k": "Test the key",
+  "f": "web/js/components/sttsetup.js"
+ },
+ {
+  "id": "b9ce4cad",
+  "k": "How pricing works",
   "f": "web/js/components/sttsetup.js"
  },
  {
@@ -3837,6 +3857,21 @@
  {
   "id": "4e78d0fc",
   "k": "Audio sent today from {0}: <0>0 min</0> <1></1>",
+  "f": "web/js/components/sttsetup.js"
+ },
+ {
+  "id": "1dd6a17c",
+  "k": "How it works",
+  "f": "web/js/components/sttsetup.js"
+ },
+ {
+  "id": "3287b173",
+  "k": "{0} You use your own key and pay them directly, a few cents per hour of audio.",
+  "f": "web/js/components/sttsetup.js"
+ },
+ {
+  "id": "5a19606e",
+  "k": "The audio of what you transcribe goes to the provider you choose ({0}), and nowhere else. Nothing else about you or your library is sent. Your key is kept on {1} and, if you use Google Drive sync, in the app's private folder in your own Google Drive, so your other devices have it too. It is never part of a data export.",
   "f": "web/js/components/sttsetup.js"
  },
  {
@@ -3875,8 +3910,8 @@
   "f": "web/js/components/sttsetup.js"
  },
  {
-  "id": "d53b60f1",
-  "k": "Another model… <0>type its name (it must give a time for every word)</0>",
+  "id": "5eb93a7e",
+  "k": "With {0}, one dollar buys about {1} hours of audio.",
   "f": "web/js/components/sttsetup.js"
  },
  {
@@ -12435,11 +12470,6 @@
   "f": "web/js/pages/welcome.js"
  },
  {
-  "id": "1dd6a17c",
-  "k": "How it works",
-  "f": "web/js/pages/welcome.js"
- },
- {
   "id": "58c2a9b6",
   "k": "<0>Add a podcast by its RSS feed URL.</0> Most podcasts publish one. Look for “RSS” on the podcast's website, or search the web for “<1>podcast name</1> RSS feed”. Apple Podcasts links won't work directly, but sites like castos.com/tools/find-podcast-rss-feed can turn them into an RSS URL.",
   "f": "web/js/pages/welcome.js"
@@ -13647,6 +13677,91 @@
  {
   "id": "1bd3e72b",
   "k": "Your ChatGPT login works here too, but a ChatGPT Plus subscription does not cover this: keys are paid for separately.",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "a406458e",
+  "k": "Typhoon, on your computer",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "5f137e4e",
+  "k": "Thai is best transcribed on your computer",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "87252d70",
+  "k": "Typhoon Whisper Turbo is Thai's own listening model: Whisper retrained on about 11,000 hours of Thai by SCB 10X. On everyday talk it gets about half as many characters wrong as Whisper large-v3, the model Groq runs.",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "6e9c5e87",
+  "k": "Everyday talk: 14 minutes of Thai TV talk shows",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "104537cc",
+  "k": "90 half-minute clips of Thai talk",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "add41fda",
+  "k": "Sentences read aloud (FLEURS)",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "b5137d68",
+  "k": "On the talk shows Whisper large-v3 also left out about a fifth of what was said, and Typhoon was 2.6 times faster.",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "e0f73cfc",
+  "k": "On sentences read aloud Whisper large-v3 does a little better, partly because Typhoon writes numbers as words and English names in Latin letters.",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "390a4486",
+  "k": "OpenAI's Whisper (whisper-1) and Groq's Whisper Large v3 Turbo: not measured.",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "9020c7fa",
+  "k": "Measured by Tamkeen on a computer, with the app's own transcription settings, against the official transcripts: Thai TV talk shows (Typhoon's TVSpeech set) joined into 14 minutes of podcast-like audio, 90 half-minute clips, and FLEURS, a public set of sentences read aloud. The second bar is Whisper large-v3 run the same way: the model Groq runs.",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "8c2cc4ff",
+  "k": "To use it, download Typhoon on your computer (Settings → Listening & transcripts → Transcription model) and choose My computer above. A cloud provider still works for Thai, straight from this phone, when you'd rather not wait for your computer.",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "10905243",
+  "k": "Download Typhoon under Transcription model, just below. Once it is downloaded it writes every Thai transcript on this computer, even with a cloud provider chosen.",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "bfe8bcc5",
+  "k": "Typhoon is downloaded: it writes every Thai transcript on this computer, even with a cloud provider chosen.",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "52da72ee",
+  "k": "Bisaya model, on your computer",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "d149deb2",
+  "k": "BuzzASR Cebuano is Bisaya's own listening model: Whisper large-v3 retrained on Bisaya (Cebuano) by BuzzASR. It gets fewer than half as many characters wrong as plain Whisper large-v3, the model Groq runs.",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "d30cb45e",
+  "k": "On Bisaya podcasts it also wrote twice as many Bisaya words as Whisper large-v3 (10% of all words against 5%) and far fewer Tagalog ones (1.1% against 3.8%).",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "9e7f7b73",
+  "k": "The FLEURS figures (a public set of sentences read aloud) were published with the model. The podcast figures were measured by Tamkeen on seven two-minute Bisaya podcast clips (a talk show, Mass readings, a Bisaya-English chat and storytelling), against Whisper large-v3 with the app's Bisaya prompt.",
   "f": "web/js/stt.js"
  },
  {
