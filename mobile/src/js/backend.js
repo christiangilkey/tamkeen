@@ -15,6 +15,7 @@ import { newEpisodeRecords, parseFeed } from "./rss.js";
 import * as cloud from "./transcribe-service.js";
 import { replaceInText } from "./correction.js";
 import { unpackTranscript } from "./sharetext.js";
+import { blockKind } from "./blockmarks.js";
 import * as phoneReels from "./reels-phone.js";
 import { anki, requestAnkiSync } from "./anki-phone.js";
 import { cleanInfo, cleanTitleId, displayTitle } from "./netflix-ttml.js";
@@ -29,12 +30,10 @@ const liveEpisodes = () => lib.episodes.filter((e) => !e.deleted);
 export const LOCAL_FEED_URL = "local:videos";
 const AUDIO_FEED_URL = "local:audio";
 const PAGES_FEED_URL = "local:pages";
-const PAGE_KINDS = ["h1", "h2", "h3", "p", "li", "q"];
 const MAX_PAGE_WORDS = 30000;
 // Books (same layout as the desktop's app/books.py): a free classic or an uploaded file, already
 // split into headings and paragraphs by web/js/books.js; read a page at a time (pages/book.js).
 const BOOKS_FEED_URL = "local:books";
-const BOOK_KINDS = ["h2", "p"];
 const MAX_BOOK_WORDS = 500000;
 const YOUTUBE_FEED_URL = "local:youtube";
 const MAX_YOUTUBE_WORDS = 60000;
@@ -66,7 +65,7 @@ async function savePage(body) {
     const first = words.text.length;
     tokens.forEach((t, i) => { words.start.push(first + i); words.end.push(first + i + 1); words.text.push(t); words.seg.push(segments.length); });
     segments.push([first, first + tokens.length, tokens.join(" ")]);
-    kinds.push(PAGE_KINDS.includes(b.kind) ? b.kind : "p");
+    kinds.push(blockKind(b, tokens.length)); // its kind, with its bold and italic words (blockmarks.js)
   }
   if (!segments.length) throw new ApiError("No readable text was found on that page.");
   const t = now();
@@ -120,7 +119,7 @@ async function saveBook(body) {
     const first = words.text.length;
     tokens.forEach((t, i) => { words.start.push(first + i); words.end.push(first + i + 1); words.text.push(t); words.seg.push(segments.length); });
     segments.push([first, first + tokens.length, tokens.join(" ")]);
-    kinds.push(BOOK_KINDS.includes(b.kind) ? b.kind : "p");
+    kinds.push(blockKind(b, tokens.length)); // its kind, with its bold and italic words (blockmarks.js)
   }
   if (!segments.length) throw new ApiError("No readable text was found in that book.");
   const t = now();

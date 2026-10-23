@@ -20,6 +20,7 @@ import { showUpdateNotice } from "./updatenotice.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
 import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating } from "./i18n.js";
+import { applyPageSize, isAbsurdPageSize, PAGE_SIZE_DEFAULT } from "./textsize.js";
 import { initScrollHints } from "./scrollhint.js";
 import { shouldRedraw } from "./syncpace.js";
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
@@ -436,10 +437,16 @@ export function applySettings(s) {
   if (s.theme === "light" || s.theme === "dark") root.dataset.theme = s.theme;
   else delete root.dataset.theme;
   root.style.setProperty("--ar-size", `${s.font_size || 26}px`);
-  root.style.setProperty("--page-size", `${s.page_font_size || 17}px`);
+  applyPageSize(s.page_font_size);
   setStudyLanguage(s.study_language);
   if (state.status) state.status.settings = s;
+  // A page text size from before the standard sizes (up to 40 px could be chosen) goes back to the standard, once.
+  if (isAbsurdPageSize(s.page_font_size) && !resettingPageSize) {
+    resettingPageSize = true;
+    saveSettings({ page_font_size: PAGE_SIZE_DEFAULT }).catch(() => {}).finally(() => { resettingPageSize = false; });
+  }
 }
+let resettingPageSize = false;
 
 export async function saveSettings(values) {
   values = withLearningList(values); // a language switched to stays on the list of languages being learned

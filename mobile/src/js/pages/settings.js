@@ -25,6 +25,7 @@ import { dictionariesRow } from "../lexicon/seen.js";
 import { vowelsRow } from "../vowels.js";
 import { readingsRow } from "../lexicon/readings.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
+import { pageSize, pageSizeLabel, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
 import { transport } from "../define-service.js";
 import { signIn, signOut } from "../drive.js";
@@ -188,9 +189,9 @@ function look(body) {
       <div class="set-slider"><label for="font">Podcasts &amp; videos</label>
         <input type="range" id="font" min="16" max="56" value="${s.font_size}"><output id="font-val">${s.font_size}px</output></div>
       <div class="set-sample ar" ${langAttrs(lang)} style="font-size:var(--ar-size);line-height:2">${esc(langInfo(lang).sample)}</div>
-      <div class="set-slider"><label for="page-font">Web pages</label>
-        <input type="range" id="page-font" min="12" max="40" value="${s.page_font_size || 17}"><output id="page-font-val">${s.page_font_size || 17}px</output></div>
-      <div class="set-sample ar" ${langAttrs(lang)} style="font-size:var(--page-size);line-height:2">${esc(langInfo(lang).pageSample)}</div>
+      <div class="set-slider"><label for="page-font">Pages &amp; books</label>
+        <input type="range" id="page-font" min="${PAGE_SIZE_MIN}" max="${PAGE_SIZE_MAX}" value="${pageSize(s.page_font_size)}"><output id="page-font-val">${pageSizeLabel(s.page_font_size)}</output></div>
+      <div class="set-sample ar reader-sample" ${langAttrs(lang)}>${esc(langInfo(lang).pageSample)}</div>
     </section>
     ${vibrates ? `<section class="card set-card" data-find="haptics">
       <h2>Vibration</h2>
@@ -213,8 +214,9 @@ function look(body) {
     saveSettings({ font_size: Number(e.target.value) });
   };
   $("#page-font").oninput = (e) => {
-    $("#page-font-val").textContent = `${e.target.value}px`;
-    saveSettings({ page_font_size: Number(e.target.value) });
+    const v = pageSize(e.target.value);
+    $("#page-font-val").textContent = pageSizeLabel(v);
+    saveSettings({ page_font_size: v });
   };
   gameSwitch($("#game-switch"));
   return [];

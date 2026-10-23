@@ -36,7 +36,6 @@
   --shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 4px 16px rgba(0, 0, 0, .06);
   --radius: 14px;
   --ar-size: 26px;
-  --page-size: 17px;
   --ui-font: ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system,
     Roboto, "Helvetica Neue", Arial, sans-serif;
   /* Tamkeen's identity, taken from the logo: plum-to-teal gradient, gold wordmark. */
@@ -731,31 +730,66 @@ button.wb-srcopt.on:hover:not(:disabled) { background: var(--accent-soft); }
 .browser-btn .ico { font-size: 22px; line-height: 1; }
 .browser-btn:hover { border-color: var(--accent); }
 
-/* ---------- reader (imported web pages) ---------- */
-.reader-text { position: absolute; inset: 0; overflow-y: auto; padding: 24px max(24px, calc((100% - 820px) / 2)) 40vh; font-family: var(--ar-font); font-size: var(--page-size); line-height: 2; overscroll-behavior: contain; }
+/* ---------- reader (imported web pages and books) ----------
+   One standard look for everything read in the readers, whatever site, file or language it came
+   from (the blocks' kinds are worked out in readerlayout.js):
+   - body text at a comfortable reading size: 19 px on a phone up to 21 px on a computer for Latin
+     and Cyrillic letters (--read-base), a little larger with more room between lines for Arabic and
+     Persian, more room between lines for Thai and Hindi (marks above and below the letters) and for
+     Chinese, Japanese and Korean (--rs, --rlh below);
+   - A− / A+ (the setting page_font_size, textsize.js) scale all of it together (--page-scale);
+   - never wider than a comfortable line (--measure, about 65-70 letters), centred on wide screens;
+   - headings at three modest steps (1.5x, 1.3x, 1.15x the text), all bold. */
+:root { --read-base: clamp(19px, calc(17px + .35vw), 21px); --page-scale: 1; }
+.reader-text {
+  --rs: 1; --rlh: 1.65; --measure: 34em;
+  position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain;
+  padding: 24px max(24px, calc((100% - var(--measure)) / 2)) 40vh;
+  font-family: var(--ar-font); font-weight: 400;
+  font-size: min(calc(var(--read-base) * var(--rs) * var(--page-scale)), calc(5.4vw + 7px));
+  line-height: var(--rlh); overflow-wrap: break-word;
+}
+/* (Settings → Text size shows a sample at the same size.) */
+.reader-sample { --rs: 1; --rlh: 1.65; font-size: min(calc(var(--read-base) * var(--rs) * var(--page-scale)), calc(5.4vw + 7px)); line-height: var(--rlh); }
+:is(.reader-text, .reader-sample):is(:lang(ar), :lang(fa)) { --rs: 1.12; --rlh: 1.95; }
+:is(.reader-text, .reader-sample):is(:lang(th), :lang(hi)) { --rs: 1.05; --rlh: 1.85; }
+:is(.reader-text, .reader-sample):is(:lang(ja), :lang(zh)) { --rlh: 1.8; }
+:is(.reader-text, .reader-sample):lang(ko) { --rlh: 1.75; }
+@media (max-width: 640px) { .reader-text { padding: 16px 16px 40vh; } }
+.reader-text p, .reader-text li, .reader-text blockquote { margin: 0 0 .8em; text-align: start; text-indent: 0; }
+.reader-text ul { margin: 0 0 .8em; padding-inline-start: 1.3em; }
+.reader-text li { margin-bottom: .4em; }
+.reader-text li::marker { color: var(--muted); }
+.reader-text blockquote { padding-inline-start: 1.1em; color: var(--muted); }
+/* Headings: the page's own title (web pages) and three levels below it. */
+.reader-text .reader-title, .reader-text .rh { font-weight: 700; line-height: calc(var(--rlh) * .8); text-wrap: balance; overflow-wrap: anywhere; }
+.reader-text .reader-title, .reader-text .rh1 { font-size: 1.5em; margin: 0 0 .6em; }
+.reader-text .rh2 { font-size: 1.3em; margin: 1.3em 0 .45em; }
+.reader-text .rh3 { font-size: 1.15em; margin: 1.1em 0 .35em; }
+.reader-text .rh1:not(:first-child) { margin-top: 1.4em; }
+/* Bold and italic carried over from the page or book (blockmarks.js). Scripts without italics keep upright letters. */
+.reader-text .wb { font-weight: 700; }
+.reader-text .wi { font-style: italic; }
+.reader-text:is(:lang(ar), :lang(fa), :lang(th), :lang(hi), :lang(ja), :lang(zh), :lang(ko)) .wi { font-style: normal; }
+/* A book's title page: one small centred block, the title large and the rest in small grey lines. */
+.reader-text .front-block { text-align: center; margin: 1.2em 0 2em; }
+.reader-text .front-block .seg { text-align: center; }
+.reader-text .front-block p.front { font-size: .8em; line-height: 1.5; color: var(--muted); margin: 0 0 .45em; }
+.reader-text .front-block .front-title { font-size: 1.6em; margin: .5em 0 .35em; }
+.reader-text .front-block .front-sub { font-size: 1em; margin: 0 0 1.4em; }
 /* Books (pages/book.js): one page at a time, turned with the bar at the bottom */
 .book-reader .book-page { padding-bottom: 16px; overflow-y: auto; scrollbar-width: none; }
-.book-reader .book-page p { text-indent: 1.2em; }
-.book-reader .book-page p.cont { text-indent: 0; }
-.book-reader .book-page h2 { text-align: center; margin-top: .4em; }
+.book-reader .book-page .rh { text-align: center; }
+.book-reader .book-page .rh:first-child { margin-top: .3em; }
 .book-foot { display: flex; align-items: center; gap: 10px; padding: 8px 16px calc(8px + env(safe-area-inset-bottom)); border-top: 1px solid var(--border); background: var(--surface); flex: none; }
 .book-foot input[type=range] { flex: 1; min-width: 0; accent-color: var(--accent); }
 .book-foot #prev svg { transform: scaleX(-1); }
 .book-foot #page-n { min-width: 4.5em; text-align: center; font-variant-numeric: tabular-nums; }
-.reader-text .reader-title { font-size: 1.35em; line-height: 1.5; margin: 0 0 .6em; }
-.reader-text h2, .reader-text h3, .reader-text h4 { line-height: 1.6; margin: 1em 0 .3em; }
-.reader-text h2 { font-size: 1.2em; }
-.reader-text h3 { font-size: 1.1em; }
-.reader-text h4 { font-size: 1em; }
-.reader-text p, .reader-text li, .reader-text blockquote { margin: 0 0 .6em; text-align: start; }
-.reader-text ul { margin: 0 0 .6em; padding-inline-start: 1.2em; }
-.reader-text blockquote { padding-inline-start: .8em; border-inline-start: 3px solid var(--border); color: var(--muted); }
 .reader-text .w { border-radius: 5px; cursor: pointer; padding: 0 .04em; transition: background-color .08s; }
 .reader-text .w:hover { background: var(--surface-2); }
 .reader-text .w.cur { background: var(--hl); color: var(--hl-ink); }
 /* In a right-to-left page, passages in another (left-to-right) language are set a little smaller. */
-.reader-text[dir=rtl] [dir=auto]:not(:dir(rtl)) { font-family: var(--ui-font); font-size: .94em; line-height: 1.7; }
-@media (max-width: 640px) { .reader-text { padding: 16px 16px 40vh; } }
+.reader-text[dir=rtl] p[dir=auto]:not(:dir(rtl)), .reader-text[dir=rtl] li[dir=auto]:not(:dir(rtl)) { font-family: var(--ui-font); font-size: .94em; line-height: 1.7; }
 
 /* ================================================================ Tamkeen identity
    A calm neutral base; teal (the owned colour) for actions; gold for highlights and rewards;

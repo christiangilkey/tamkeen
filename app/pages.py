@@ -6,7 +6,7 @@ search and Drive sync all work unchanged. What marks it out:
     audio_type   "text/html"
     status       "done" from the start (there is nothing to transcribe)
 Each block of the page (heading, paragraph, list item, quote) is one segment; `segments.kind`
-holds the block type. Words have no real timings: their "time" is simply their position.
+holds the block type, with its bold and italic words after a "|" (see blockmarks.py). Words have no real timings: their "time" is simply their position.
 """
 
 from __future__ import annotations
@@ -19,6 +19,7 @@ from urllib.parse import urlsplit
 import httpx
 
 from . import arabic, db, ids, languages
+from .blockmarks import block_kind
 
 LOCAL_FEED_URL = "local:pages"
 LOCAL_FEED_TITLE = "My webpages"
@@ -131,7 +132,6 @@ def clean_blocks(blocks: list[dict[str, Any]]) -> list[tuple[str, str]]:
         text = " ".join(str(b.get("text") or "").split())
         if not text:
             continue
-        kind = b.get("kind") if b.get("kind") in KINDS else "p"
         tokens = text.split(" ")
         if words + len(tokens) > MAX_WORDS:
             tokens = tokens[:MAX_WORDS - words]
@@ -139,7 +139,8 @@ def clean_blocks(blocks: list[dict[str, Any]]) -> list[tuple[str, str]]:
         if not tokens:
             break
         words += len(tokens)
-        out.append((kind, text))
+        # The block's kind, with its bold and italic words (blockmarks.py) when it has any.
+        out.append((block_kind(b, len(tokens)), text))
     return out
 
 

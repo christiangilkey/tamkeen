@@ -38,6 +38,16 @@ def test_a_book_is_stored_with_its_headings_and_paragraphs(client):
     assert again["id"] == ep["id"] and again["words"] == 2
 
 
+def test_a_book_keeps_heading_levels_lists_quotes_and_bold(client):
+    blocks = [{"kind": "h1", "text": "Parte primera"}, {"kind": "h3", "text": "1"},
+              {"kind": "p", "text": "Una frase con palabras importantes.", "marks": [[3, 4, 1]]},
+              {"kind": "li", "text": "Un punto"}, {"kind": "q", "text": "Una cita", "marks": [[0, 1, 2]]}]
+    ep = client.post("/api/books", json={"guid": "file:libro.docx:123", "title": "Libro", "lang": "es", "blocks": blocks}).json()
+    with db.session() as conn:
+        kinds = [row["kind"] for row in conn.execute("SELECT kind FROM segments WHERE episode_id = ? ORDER BY idx", (ep["id"],))]
+    assert kinds == ["h1", "h3", "p|b3-4", "li", "q|i0-1"]
+
+
 def test_an_uploaded_book_finds_its_language_and_odd_requests_are_refused(client):
     # Without a language, a book in Latin letters counts as the language being studied; Cyrillic is Russian.
     client.patch("/api/settings", json={"study_language": "fr"})
