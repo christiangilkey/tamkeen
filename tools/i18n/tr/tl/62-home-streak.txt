@@ -1,0 +1,4 @@
+0fa8d4c3 Sunod-sunod na araw: 1 araw
+5bc0fd9c Sunod-sunod na araw: {0} araw
+44126f74 Hindi pa tapos ang mga card ngayong araw.
+4dd40cd0 {0}. Bawat araw na naaabot mo ang layunin sa mga card, bagong salita at review, ay dagdag na isang araw.{1}

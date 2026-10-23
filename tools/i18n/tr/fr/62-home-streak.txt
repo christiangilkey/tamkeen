@@ -1,0 +1,4 @@
+0fa8d4c3 Série quotidienne : 1 jour
+5bc0fd9c Série quotidienne : {0} jours
+44126f74 Les cartes du jour restent à faire.
+4dd40cd0 {0}. Chaque jour où tu atteins ton objectif de cartes, mots nouveaux et révisions, ajoute un jour.{1}

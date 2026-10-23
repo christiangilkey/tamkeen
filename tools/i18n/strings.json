@@ -10100,6 +10100,26 @@
   "f": "web/js/pages/home.js"
  },
  {
+  "id": "0fa8d4c3",
+  "k": "Daily streak: 1 day",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "5bc0fd9c",
+  "k": "Daily streak: {0} days",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "44126f74",
+  "k": "Today's cards are still to do.",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "4dd40cd0",
+  "k": "{0}. Each day you meet your flashcard goal, new words and reviews, adds a day.{1}",
+  "f": "web/js/pages/home.js"
+ },
+ {
   "id": "4e34d263",
   "k": "Also in progress",
   "f": "web/js/pages/home.js"

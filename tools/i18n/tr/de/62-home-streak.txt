@@ -1,0 +1,4 @@
+0fa8d4c3 Tagesserie: 1 Tag
+5bc0fd9c Tagesserie: {0} Tage
+44126f74 Die Karten von heute stehen noch aus.
+4dd40cd0 {0}. Jeder Tag, an dem du dein Kartenziel erreichst, neue Wörter und Wiederholungen, zählt einen Tag dazu.{1}

@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** Home shows your daily streak, a gold flame and the number of days in a row you met your flashcard goal, beside the greeting.
 - **New:** Card voices. Flashcards without a recording of their own (typed in, or saved from a web page, a book, YouTube, Netflix or a reel) are read out: by your device's own voice (free), by natural Azure voices with your own Azure key (Arabic by country; each card's voice is made once and kept), or by voices made on your computer, which reach your phone when it syncs. Settings → Card voices.
 - **Fixed:** Word and Sentence on words saved from a video no longer show "Couldn't load this word's audio" again and again; the card's voice says them instead.
 - **Removed:** The Filmot "Find in a video" button, now that every card has a voice.

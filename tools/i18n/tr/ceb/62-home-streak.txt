@@ -1,0 +1,4 @@
+0fa8d4c3 Sunod-sunod nga adlaw: 1 ka adlaw
+5bc0fd9c Sunod-sunod nga adlaw: {0} ka adlaw
+44126f74 Wala pa nahuman ang mga card karong adlawa.
+4dd40cd0 {0}. Matag adlaw nga maabot nimo ang tumong sa mga card, bag-ong pulong ug review, dugang usa ka adlaw.{1}

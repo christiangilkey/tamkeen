@@ -1,0 +1,4 @@
+0fa8d4c3 Ratxa diària: 1 dia
+5bc0fd9c Ratxa diària: {0} dies
+44126f74 Les targetes d'avui encara estan per fer.
+4dd40cd0 {0}. Cada dia que compleixes l'objectiu de targetes, paraules noves i repassos, suma un dia.{1}

@@ -1,0 +1,4 @@
+0fa8d4c3 Racha diaria: 1 día
+5bc0fd9c Racha diaria: {0} días
+44126f74 Las tarjetas de hoy aún están por hacer.
+4dd40cd0 {0}. Cada día que cumples tu meta de tarjetas, palabras nuevas y repasos, suma un día.{1}

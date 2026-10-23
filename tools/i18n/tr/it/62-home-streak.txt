@@ -1,0 +1,4 @@
+0fa8d4c3 Serie giornaliera: 1 giorno
+5bc0fd9c Serie giornaliera: {0} giorni
+44126f74 Le schede di oggi sono ancora da fare.
+4dd40cd0 {0}. Ogni giorno in cui raggiungi l'obiettivo delle schede, parole nuove e ripassi, aggiunge un giorno.{1}

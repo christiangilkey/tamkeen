@@ -841,6 +841,14 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .home { max-width: 760px; margin: 0 auto; padding: 20px 16px 32px; display: flex; flex-direction: column; gap: 16px; min-height: 100%; }
 .hero { background: var(--brand-grad); color: #fff; border-radius: 24px; padding: 22px 20px 20px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 10px 30px rgba(27, 20, 60, .28); }
 .hero-top { display: flex; align-items: center; gap: 14px; }
+/* The daily streak at the right of the greeting (pages/home.js): the greeting's gold, a flame icon. */
+.hero-streak { margin-inline-start: auto; display: inline-flex; align-items: center; gap: 4px; color: var(--brand-gold);
+  font-size: 30px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.hero-streak .ic { flex: none; }
+.hero-streak .ic .fill { fill: currentColor; fill-opacity: .25; }
+.hero-streak.cold { opacity: .45; }
+.hero-streak.open .ic { opacity: .6; } /* today's cards still to do: the flame isn't lit yet */
+.hero-streak[hidden] { display: none; }
 .hero-logo { border-radius: 14px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .18); }
 .hero-ar { font-family: var(--ar-font); font-size: 30px; line-height: 1.4; color: var(--brand-gold); }
 .hero-en { opacity: .85; }
