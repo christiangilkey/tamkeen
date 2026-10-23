@@ -544,6 +544,7 @@ export async function render(view, { id, query }) {
     const note = $("#yt-note");
     const studyName = langInfo(study).name;
     const lines = [];
+    let temp = ""; // a note shown for a few seconds only (the dubbed soundtrack: the owner wanted it temporary)
     let retry = false;
     if (lang !== study) {
       // YouTube had none in the language being learned and wouldn't hand over its translation.
@@ -555,14 +556,14 @@ export async function render(view, { id, query }) {
       lines.push("Translated by YouTube: it may not match what is said.");
     }
     const paint = () => {
-      note.innerHTML = lines.map(() => "<p></p>").join("");
-      note.querySelectorAll("p").forEach((el, i) => { el.textContent = lines[i]; });
+      note.innerHTML = lines.map(() => "<p></p>").join("") + (temp ? `<p class="yt-note-temp"></p>` : "");
+      note.querySelectorAll("p").forEach((el, i) => { el.textContent = i < lines.length ? lines[i] : temp; });
       if (retry) {
         const again = h(`<button type="button" class="link">Try again</button>`);
         again.onclick = () => tryCaptionsAgain(again);
         note.querySelector("p").append(" ", again);
       }
-      note.hidden = !lines.length;
+      note.hidden = !lines.length && !temp;
       if (bubble) fitBubble(); // the phone's popup hangs just below this
     };
     paint();
@@ -570,8 +571,10 @@ export async function render(view, { id, query }) {
     // can't choose it from outside YouTube's player, so the way to it is shown.
     dubbedTrack(ep).then((track) => {
       if (!track || disposed) return;
-      lines.push(`This video can be heard in ${studyName} too: choose it under ⚙ → Audio track in the video.`);
+      temp = `This video can be heard in ${studyName} too: choose it under ⚙ → Audio track in the video.`;
       paint();
+      // Shown for 12 seconds, fading out over the last one (media.css .yt-note-temp), then gone.
+      setTimeout(() => { if (disposed) return; temp = ""; paint(); }, 12000);
     }).catch(() => {});
   }
   /** Ask YouTube again for captions in the language being learned (its translation may come now). */
