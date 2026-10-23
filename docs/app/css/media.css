@@ -36,6 +36,19 @@
 }
 .add-fab:hover:not(:disabled) { filter: brightness(1.08); background: var(--accent); }
 .add-fab .ic { stroke-width: 2.2; }
+/* Swiping between sections on a phone (mobile/src/js/swipe.js): hidden while the page slides, then
+   it fades in rolling from the left once the new page has settled (or just fades back if the swipe
+   springs back). A 58 px circle travelling 120 px turns about 240 degrees, so it looks like rolling. */
+.page-swiping .add-fab { opacity: 0; transition: opacity .12s; pointer-events: none; }
+.add-fab.roll-in { animation: fab-roll-in .6s cubic-bezier(.33, 1, .68, 1) both; }
+.add-fab.fade-in { animation: fab-fade-in .2s ease-out both; }
+@keyframes fab-roll-in {
+  from { opacity: 0; transform: translateX(-120px) rotate(-240deg); }
+  55% { opacity: 1; }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fab-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .add-fab.roll-in { animation: fab-fade-in .3s ease-out both; } }
 /* The computer's list of kinds: the chosen one's icon stays the text colour too (its row is highlighted). */
 .library.desk #feed-list .feed-item.active .ph.all { color: var(--text); }
 /* Messages pop up just above the + button instead of over it. */
@@ -62,8 +75,76 @@ body:has(.add-fab) .toasts { bottom: 100px; }
 .aw-wide { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-weight: 600; }
 .aw-or { text-align: center; color: var(--muted); font-size: 13px; }
 .aw-note { margin: 0; text-align: center; }
+/* Netflix where it can't play (the phones, the web app): why, on one plain surface. */
+.aw-unavailable { padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); text-align: center; }
+.aw-unavailable p { margin: 8px 0 0; }
 .aw-country { display: flex; align-items: center; gap: 8px; }
 .aw-country select { flex: 1; min-width: 0; }
+/* YouTube's topics (youtube-home.js TOPICS): plain tiles like the ways above, two or three across. */
+.yt-topics { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.yt-topic {
+  display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 8px 12px; min-width: 0;
+  text-align: start; white-space: normal; line-height: 1.25; font-weight: 600; font-size: 14px;
+  border-radius: 14px; background: var(--surface-2); border: 1px solid transparent; color: var(--text);
+}
+.yt-topic:hover:not(:disabled) { border-color: var(--accent); background: var(--surface-2); }
+.yt-topic span { min-width: 0; overflow-wrap: anywhere; }
+.yt-topic[data-topic="popular"] { grid-column: 1 / -1; justify-content: center; } /* the usual start, across the top; twelve topics fill the rows under it */
+
+/* The Web page screen (pages/websites.js, #/sites): paste an address, your saved sites, news. One
+   plain surface per tile, no shadows; the column is centred. */
+.sites-page { max-width: 1040px; }
+.sites-page.with-fab { padding-bottom: 104px; } /* the web app's round import button never covers the last sites */
+.sites-import { display: flex; gap: 8px; padding: 12px; margin: 8px 0 10px; }
+.sites-import input, .sites-search input { flex: 1; min-width: 0; }
+.sites-search { display: flex; gap: 8px; }
+.sites-search button { display: inline-flex; align-items: center; gap: 6px; }
+.sites-sec { margin-top: 22px; }
+.sites-sec-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; min-height: 40px; }
+.sites-sec-head h2 { margin: 0; font-size: 18px; }
+.sites-add { display: inline-flex; align-items: center; gap: 6px; flex: none; }
+.sites-empty { margin: 0; }
+.sites-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.sites-grid:empty { display: none; }
+.site-tile { position: relative; min-width: 0; }
+.site-tile a {
+  display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 64px; padding: 12px;
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: inherit; text-decoration: none;
+}
+.site-tile a:hover, .site-tile a:focus-visible { border-color: var(--accent); outline: none; }
+.site-tile a:active { transform: scale(.98); }
+.site-tile.saved a { padding-inline-end: 50px; }
+.site-ico {
+  position: relative; width: 40px; height: 40px; flex: none; border-radius: 10px; overflow: hidden;
+  display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 18px;
+}
+.site-ico img { position: absolute; inset: 0; width: 100%; height: 100%; padding: 6px; background: var(--surface); opacity: 0; transition: opacity .2s; }
+.site-ico img.on { opacity: 1; }
+.site-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.site-name, .site-note { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.site-name { font-weight: 600; font-size: 16px; line-height: 1.3; }
+.site-note { color: var(--muted); font-size: 13px; }
+.site-easy { display: inline-block; margin-inline-end: 4px; padding: 0 7px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); font-size: 11px; font-weight: 700; }
+.site-rm {
+  position: absolute; top: 50%; inset-inline-end: 8px; transform: translateY(-50%);
+  width: 36px; height: 36px; min-height: 0; padding: 0; border-radius: 50%; display: grid; place-items: center; color: var(--muted);
+}
+.site-rm:hover:not(:disabled) { color: var(--text); }
+.sites-add-form { display: flex; flex-direction: column; gap: 14px; }
+.sites-add-form label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
+.sites-add-form input { font-weight: 400; }
+.sites-add-error { margin: 0; color: var(--danger); }
+.sites-add-form .confirm-buttons { margin-top: 4px; }
+.sites-add-form .confirm-buttons button { flex: 1 1 0; min-width: 0; padding-left: 12px; padding-right: 12px; } /* the pair exactly as wide */
+@media (max-width: 520px) {
+  .sites-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .site-tile a { gap: 8px; padding: 10px; min-height: 58px; }
+  .site-tile.saved a { padding-inline-end: 40px; }
+  .site-ico { width: 32px; height: 32px; font-size: 15px; }
+  .site-ico img { padding: 4px; }
+  .site-name { font-size: 15px; }
+  .site-rm { width: 32px; height: 32px; inset-inline-end: 4px; }
+}
 /* Followed YouTube channels: round pictures in the phone's bar, chips on the computer. */
 .feed-item img.round, .feed-item .ph.round, .lib-head .channel-pic { border-radius: 50%; }
 .feed-item .ph.round, .lib-head .ph.channel-pic { display: grid; place-items: center; font-weight: 700; font-size: 20px; color: var(--accent); background: var(--accent-soft); }
@@ -145,6 +226,19 @@ body:has(.add-fab) .toasts { bottom: 100px; }
   .player.yt .btnrow { margin-top: 0; }
   .player.yt .btnrow .play { width: 38px; height: 38px; font-size: 16px; }
 }
+/* Netflix: its player is a window of the app laid exactly over .screen (nfmedia.js); underneath,
+   the stage says what is happening while there is no picture (opening, a sign-in needed). */
+.player.nf .nf-frame {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; padding: 16px; text-align: center; color: #c9c8c2; background: #000;
+}
+.player.nf .nf-frame .nf-msg { margin: 0; max-width: 34em; font-size: 15px; line-height: 1.5; }
+.player.nf .nf-frame .nf-msg:empty { display: none; }
+.player.nf .nf-frame button { min-width: 10em; }
+.player.nf .transcript .nf-wait {
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--muted); text-align: center; margin: 2em 1em;
+}
+
 /* In the phone app the YouTube player has its own banner (with the way back), so the app's
    top bar steps aside and the video starts higher up. */
 body.in-player:has(.player.yt) .topbar { display: none; }

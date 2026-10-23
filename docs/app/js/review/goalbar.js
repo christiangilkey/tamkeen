@@ -3,8 +3,9 @@
 // those due today, the counts under it and about how long the rest will take. Tapping it opens a
 // small popup to change "new words a day", the same setting as the reviewer's own (one setting,
 // localStorage `reviewNewPerDay`). The numbers are worked out in review/goal.js. Under it, "Send to
-// Google Tasks" (or "Send to Onyx", as Settings says) puts the rest of today's review in the learner's
-// to-do list with its estimated time (review/sendtask.js).
+// Google Calendar" (or "Send to Google Tasks" / "Send to Onyx", as Settings says) puts the rest of
+// today's review in the learner's calendar or to-do list with its estimated time (review/sendtask.js;
+// Google Calendar first asks for a time, review/calpopup.js).
 
 import { toast } from "../app.js";
 import { icon } from "../icons.js";
@@ -13,6 +14,7 @@ import { NEW_CHOICES, states } from "./deck.js";
 import { deviceTimes, estimate, expectedReviews, model, secondsText, timeText, today, wordCost } from "./goal.js";
 import { newPerDay, setNewPerDay } from "../pages/review.js";
 import { TARGET_NAMES, reviewTask, sendReviewTask, taskTarget } from "./sendtask.js";
+import { openCalendarPopup } from "./calpopup.js";
 
 const MIN_SHARE = 0.15;  // the smaller part of the bar is never thinner than this, so it can be seen
 
@@ -71,7 +73,9 @@ export function goalBar(root) {
     const send = $(".goal-send");
     send.hidden = !plan;
     send.querySelector("span").textContent = `Send to ${TARGET_NAMES[taskTarget()]}`;
-    send.title = plan ? `Add “${plan.title}” to ${TARGET_NAMES[taskTarget()]} for today (choose where in Settings)` : "";
+    send.title = !plan ? "" : taskTarget() === "calendar"
+      ? `Add “${plan.title}” to Google Calendar today, at a time you choose (choose where in Settings)`
+      : `Add “${plan.title}” to ${TARGET_NAMES[taskTarget()]} for today (choose where in Settings)`;
     button.setAttribute("aria-label", `Today: new words ${t.newDone} of ${t.newTarget}, reviews ${t.revDone} of ${t.revTarget}. ${time.textContent}. Change the new words a day`);
 
     for (const b of pop.querySelectorAll(".goal-chips button")) b.classList.toggle("on", Number(b.dataset.n) === goal);
@@ -102,6 +106,7 @@ export function goalBar(root) {
   button.onclick = () => (pop.hidden ? open() : close());
   $(".goal-send").onclick = async (e) => {
     if (!plan) return;
+    if (taskTarget() === "calendar") { openCalendarPopup(plan); return; }
     const b = e.currentTarget;
     b.disabled = true;
     try { await sendReviewTask(plan); } catch (err) { toast(err.message || "Couldn't send the task.", { error: true }); }

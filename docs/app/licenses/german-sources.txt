@@ -1,0 +1,31 @@
+German word table and common-word list: today's spelling and capitals, from Wiktionary (optional download)
+
+People learning German can download a table of German word forms and their dictionary forms
+(Häuser -> Haus, fängt -> fangen, musste -> müssen), so every form of a word counts as the same word.
+The table is not part of this program; the app downloads it only when the learner agrees
+(docs/lexicon/de-lemmas.json.gz, made by tools/build_lemmas.py).
+
+It is made from:
+
+  Lemmatization Lists by Michal Měchura, https://github.com/michmech/lemmatization-lists
+  (lemmatization-de.txt), available under the Open Database License (ODbL) 1.0:
+  https://opendatacommons.org/licenses/odbl/1-0/
+
+  wordfreq by Robyn Speer, https://github.com/rspeer/wordfreq (CC BY-SA 4.0): its word counts
+  decide which forms are kept and in which order the dictionary forms are listed.
+
+  The English Wiktionary's German entries (https://en.wiktionary.org, by the Wiktionary contributors),
+  as extracted by Wiktextract (Tatu Ylonen, https://kaikki.org), CC BY-SA 4.0: which spellings the
+  1996 spelling reform replaced (mußte -> musste, Fluß -> Fluss) and which are Switzerland's (Strasse),
+  the words that never change form which the list leaves out (aber, dass, sehr), and how often each
+  word is written with a capital letter in the middle of a sentence in the entries' example sentences
+  (Zeit "time" is written so far more than the preposition zeit). Only these facts are taken, not
+  Wiktionary's text.
+
+The list of the 1000 commonest German words (web/js/wordlists/de.js, part of the app) is wordfreq's
+ranking (CC BY-SA 4.0, see wordfreq.txt), with each word written as German writes it (Zeit, Straße,
+weiß) using the same word list and Wiktionary facts.
+
+The table is a derived database and is distributed under the Open Database License 1.0; the facts
+taken from Wiktionary keep their CC BY-SA 4.0 licence. The files, the full licence texts and how to
+rebuild them: https://github.com/christiangilkey/tamkeen/tree/main/docs/lexicon

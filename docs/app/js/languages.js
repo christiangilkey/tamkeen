@@ -106,6 +106,40 @@ export const LANGUAGES = {
     pageSample: "กาแฟเป็นเครื่องดื่มที่ทำจากเมล็ดกาแฟคั่ว และเป็นหนึ่งในเครื่องดื่มที่ได้รับความนิยมมากที่สุดในโลก",
     test: { word: "เดี๋ยว", marked: "⟦เดี๋ยว⟧โทรกลับนะ", podcast: "ภาษาไทยจริง" },
   },
+  de: {
+    ...LTR, name: "German", native: "Deutsch",
+    hello: "Willkommen!", hi: "hallo", search: "suchen", word: "das Wort",
+    greet: ["Guten Morgen", "Guten Tag", "Guten Abend"],
+    sample: "Willkommen zu einer neuen Folge des Podcasts.",
+    pageSample: "Kaffee ist ein Getränk aus den gerösteten Samen der Kaffeepflanze und eines der beliebtesten Getränke der Welt.",
+    test: { word: "eigentlich", marked: "Was machst du ⟦eigentlich⟧ heute Abend?", podcast: "Echtes Deutsch" },
+  },
+  fa: {
+    dir: "rtl", unspaced: false, name: "Persian", native: "فارسی",
+    reading: "below", root: "", standard: "Standard form", note: "Usage",
+    hello: "خوش آمدید!", hi: "سلام", search: "جستجو", word: "واژه",
+    greet: ["صبح بخیر", "روز بخیر", "عصر بخیر"],
+    sample: "به قسمت تازه‌ای از پادکست خوش آمدید.",
+    pageSample: "قهوه نوشیدنی‌ای است که از دانه‌های برشته‌شدهٔ گیاه قهوه به دست می‌آید و یکی از محبوب‌ترین نوشیدنی‌های جهان است.",
+    test: { word: "دیگه", marked: "⟦دیگه⟧ دیر شده، بریم.", podcast: "فارسی واقعی" },
+    searchNote: "Matches ignore short-vowel marks, the half space inside words (ZWNJ) and Arabic spellings of k and y (ك ي for ک ی).",
+  },
+  hi: {
+    ...LTR, name: "Hindi", native: "हिन्दी",
+    hello: "स्वागत है!", hi: "नमस्ते", search: "खोजें", word: "शब्द",
+    greet: ["सुप्रभात", "नमस्ते", "शुभ संध्या"],
+    sample: "पॉडकास्ट के नए एपिसोड में आपका स्वागत है।",
+    pageSample: "कॉफ़ी भुने हुए कॉफ़ी के बीजों से बनने वाला एक पेय है, और यह दुनिया के सबसे लोकप्रिय पेयों में से एक है।",
+    test: { word: "यार", marked: "⟦यार⟧, आज बहुत गर्मी है।", podcast: "असली हिन्दी" },
+  },
+  ko: {
+    ...LTR, name: "Korean", native: "한국어", root: "Hanja",
+    hello: "환영합니다!", hi: "안녕하세요", search: "검색", word: "단어",
+    greet: ["좋은 아침이에요", "안녕하세요", "좋은 저녁이에요"],
+    sample: "팟캐스트 새 에피소드에 오신 것을 환영합니다.",
+    pageSample: "커피는 볶은 커피콩으로 만든 음료로, 세계에서 가장 인기 있는 음료 중 하나입니다.",
+    test: { word: "대박", marked: "와, 이 노래 진짜 ⟦대박⟧!", podcast: "진짜 한국어" },
+  },
   en: {
     ...LTR, name: "English", native: "English",
     hello: "Welcome!", hi: "hi", search: "search", word: "the word",
@@ -149,11 +183,28 @@ const SCRIPTS = [
   ["ru", /[Ѐ-ӿ]/g],
   ["th", /[\u0E00-\u0E7F]/g],
   ["latin", /[A-Za-zÀ-ɏ]/g],
+  ["hi", /[\u{900}-\u{97F}]/gu], // Devanagari (Marathi and Nepali are written in it too; the app teaches only Hindi)
+  ["ko", /[ᄀ-ᇿ㄰-㆏가-힯]/g],
 ];
 
 /** The taught languages written in Latin letters: text in Latin letters is one of these when it is
  * the language being studied (the letters alone can't tell them apart, or from English). */
-export const LATIN_LANGUAGES = ["es", "fr", "it", "tl", "pt", "ca", "ceb", "en"];
+export const LATIN_LANGUAGES = ["es", "fr", "it", "tl", "pt", "ca", "ceb", "en", "de"];
+
+// Persian is written in Arabic letters, with four of its own (پ چ ژ گ), its own forms of k and y
+// (ک ی where Arabic writes ك ي), and ZWNJ, the "half space" inside words (می‌خواهم). Arabic has ة, ى, ي, ك and
+// tanween. Each counts as a sign of its language (ی is Urdu's y too; Urdu's own letters are not Persian).
+const PERSIAN_SIGNS = /[پچژگکی‌]/g;
+const ARABIC_SIGNS = /[ةىيكًٌٍ]/g;
+
+/** Is this Arabic-script text Persian rather than Arabic? With no sign either way (a short word with
+ * no telling letter), it counts as the language being studied when that is one of the two. */
+export function looksPersian(text, hint = studyLanguage()) {
+  const s = String(text || "").slice(0, 2000);
+  const fa = (s.match(PERSIAN_SIGNS) || []).length;
+  const ar = (s.match(ARABIC_SIGNS) || []).length;
+  return fa === ar ? hint === "fa" : fa > ar;
+}
 
 /** Which language a piece of text is written in, judged by its letters. Used where nothing
  * recorded the language (saved words, search results, things friends send). Text in Latin
@@ -168,7 +219,8 @@ export function detectLanguage(text, hint = studyLanguage()) {
   }
   if (count.kana && (top === "han" || top === "kana")) return "ja";
   if (top === "han") return hint === "ja" ? "ja" : "zh";
-  if (top === "ar" || top === "ru" || top === "th") return top;
+  if (top === "ar") return looksPersian(s, hint) ? "fa" : "ar";
+  if (top === "ru" || top === "th" || top === "hi" || top === "ko") return top;
   if (top === "latin") return LATIN_LANGUAGES.includes(hint) ? hint : "en";
   return hint;
 }
@@ -304,6 +356,63 @@ export function joinThai(segments) {
   return out;
 }
 
+// ---------- Persian: its own letters, and words written with a half space ----------
+// Persian writes ک and ی where Arabic writes ك and ي (and ى); speech recognition and some keyboards give the
+// Arabic ones, which look different at the end of a word (ي with two dots) and miss the dictionaries. And a
+// Persian word is often two pieces joined by ZWNJ, the zero-width non-joiner or "half space" (می‌خواهم "I want",
+// کتاب‌ها "books"): one word to tap. Text that put a plain space (or a zero-width space) there instead is joined back.
+const ZWNJ = "‌";
+const AR_LETTER = "[\\u0620-\\u064A\\u066E-\\u06D3\\u06D5\\u06EE\\u06EF\\u06FA-\\u06FC]";
+const LOOKALIKE_ZWNJ = new RegExp(`(${AR_LETTER}[\\u064B-\\u065F\\u0670]*)[\\u200b\\u00ac\\u200c]+(?=${AR_LETTER})`, "gu");
+
+/** Persian text with Persian letters (ک ی for ك ي ى) and one kind of half space between the pieces of a word. */
+export const persianLetters = (text) => String(text ?? "").replace(/[يى]/g, "ی").replace(/ك/g, "ک").replace(LOOKALIKE_ZWNJ, `$1${ZWNJ}`);
+
+const FA_MARKS = /[ً-ٰٟـ]/g; // short vowels and tatweel
+const faBare = (w) => String(w).replace(/^[\s\p{P}]+|[\s\p{P}]+$/gu, "").replace(FA_MARKS, "");
+const FA_END = new RegExp(`${AR_LETTER}[\\u064B-\\u065F\\u0670]*\\u200c?$`, "u"); // ends with a letter (no punctuation)
+const FA_START = new RegExp(`^${AR_LETTER}`, "u");
+// Pieces that are never a word on their own: the plural ها and its forms, the superlative ترین, and نمی "not -ing".
+const FA_SUFFIXES = new Set(["ها", "های", "هایی", "هایم", "هایت", "هایش", "هایمان", "هایتان", "هایشان", "ترین"]);
+// After a word ending in a silent ه (خانه، رفته), "a", "my", "his" and the endings of "I have / they have…": خانه‌ای, رفته‌اند.
+const FA_AFTER_H = new Set(["ای", "ام", "ات", "اش", "ایم", "اید", "اند"]);
+
+/** Should Persian piece `next` be joined onto `prev` with a half space? `speech`: a transcript, where the
+ * present-tense می ("is -ing") written apart joins its verb too (in written text می may also be "wine"). */
+export function persianJoins(prev, next, speech = true) {
+  if (!FA_END.test(prev) || !FA_START.test(next)) return false;
+  const a = faBare(prev).replace(/‌$/, "");
+  const b = faBare(next);
+  if (!a || !b) return false;
+  if (FA_SUFFIXES.has(b)) return true;
+  if (FA_AFTER_H.has(b) && a.endsWith("ه") && a.length > 1) return true;
+  return b.length > 1 && (a === "نمی" || (speech && a === "می"));
+}
+
+/** Persian words as stored (Whisper's pieces, a page's spaced parts) with Persian letters, and the pieces of one
+ * word that were written apart joined into it (times from the first piece's start to the last one's end).
+ * Words that need neither come back as the very same object (so a misheard word can still be put right in them). */
+export function persianWords(W, speech = true) {
+  const out = { start: [], end: [], seg: [], text: [] };
+  let changed = false;
+  for (let i = 0; i < W.text.length; i++) {
+    const text = persianLetters(W.text[i]);
+    if (text !== String(W.text[i])) changed = true;
+    const last = out.text.length - 1;
+    if (last >= 0 && out.seg[last] === W.seg[i] && persianJoins(out.text[last], text, speech)) {
+      out.text[last] = out.text[last].replace(/\s+$/, "").replace(/‌$/, "") + ZWNJ + text.trim();
+      out.end[last] = W.end[i];
+      changed = true;
+      continue;
+    }
+    out.text.push(text);
+    out.start.push(W.start[i]);
+    out.end.push(W.end[i]);
+    out.seg.push(W.seg[i]);
+  }
+  return changed ? out : W;
+}
+
 /** The device's word breaker for a language (for Thai, with the cut common words joined). */
 function deviceBreaker(code) {
   const seg = new Intl.Segmenter(code, { granularity: "word" });
@@ -324,6 +433,7 @@ function deviceBreaker(code) {
  * where the gaps between pieces are real spaces). `segText(seg)` may give a line's original text.
  */
 export function regroupWords(W, code, across = true, segText = null) {
+  if (code === "fa" && W.text.length) return persianWords(W, across); // (Persian is spaced: letters and half spaces)
   const custom = splitters.get(code);
   if (!langInfo(code).unspaced || !W.text.length) return W;
   if (code === "th") { // transcripts made before the computer wrote ำ as one letter, and the phone's

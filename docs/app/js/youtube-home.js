@@ -1,5 +1,6 @@
-// Where "Open YouTube" starts: a page full of what is popular right now in the language being
-// studied. Pure (no page, no imports from the app), so it is unit-tested and serves both apps.
+// Where YouTube opens: "Popular now", a page full of what is popular right now in the language
+// being studied, or one of the TOPICS further down (the menu in the Library's add sheet). Pure (no
+// page, no imports from the app), so it is unit-tested and serves every version.
 //
 // YouTube closed its own Trending page in 2025, and a signed-out YouTube home page is empty
 // ("Try searching to get started"). So the start page is a YouTube search set up to behave like
@@ -11,7 +12,7 @@
 // "length" is YouTube's length filter (1 short, 2 long, 3 medium) or 0 for any length; Japanese
 // uses medium because its weekly top is otherwise crowded with 15-second adverts.
 // The country in START is only the one used until the user picks another from COUNTRIES (the
-// "Popular in" list under the Open YouTube button); the choice is remembered on this device.
+// "Popular in" list under the topics); the choice is remembered on this device and used by every topic.
 //
 // What a country changes. A most-watched list is decided by the language, not the country:
 // measured on 2026-10-12, telling YouTube "Egypt" or "Morocco" instead of "Saudi Arabia" left 19
@@ -35,7 +36,11 @@ export const START = {
   ca: ["amb", "ES", "ca", 0],
   ceb: ["kaayo", "PH", "fil", 0],  // (YouTube has no Bisaya interface: Filipino is the nearest)
   th: ["ที่", "TH", "th", 0],
+  hi: ["है", "IN", "hi", 0], // ("is": every one of the top 20 titles in Devanagari, checked 2026-10-21)
+  ko: ["이", "KR", "ko", 0],  // ("this", and a very common particle: checked 2026-10-21, 20 of 20 in Korean)
   en: ["the", "US", "en", 0],
+  de: ["und", "DE", "de", 0],
+  fa: ["است", "IR", "fa", 0],
 };
 
 /** Countries offered for each language: [YouTube's country code, name, a search word of its own
@@ -59,8 +64,12 @@ export const COUNTRIES = {
   ca: [["ES", "Spain"], ["AD", "Andorra"], ["FR", "France"]],
   ceb: [["PH", "Philippines"]],
   th: [["TH", "Thailand"]],
+  hi: [["IN", "India"]],
+  ko: [["KR", "South Korea"]],
   en: [["US", "United States"], ["GB", "United Kingdom"], ["CA", "Canada"], ["AU", "Australia"], ["IE", "Ireland"],
        ["NZ", "New Zealand"], ["IN", "India"], ["NG", "Nigeria"], ["ZA", "South Africa"], ["PH", "Philippines"]],
+  de: [["DE", "Germany"], ["AT", "Austria"], ["CH", "Switzerland"]],
+  fa: [["IR", "Iran"], ["AF", "Afghanistan"]],
 };
 
 /** The country to use: the chosen one if it is on the language's list, else the usual one. */
@@ -92,15 +101,18 @@ export function setHandmadeOnly(on) {
 }
 
 const SORT_BY_VIEWS = 3;
-const THIS_WEEK = 3;
+// YouTube's "Upload date" filter: 3 this week, 4 this month, 5 this year.
+export const THIS_WEEK = 3;
+export const THIS_MONTH = 4;
+export const THIS_YEAR = 5;
 const VIDEOS_ONLY = 1;
 const SUBTITLES = 0x28; // the filters' field 5, "Subtitles/CC"
 
-/** YouTube's search-filter code (its "sp" value): most viewed, uploaded this week, videos only,
- * optionally a length, and optionally only videos with handmade subtitles. It is a few numbered
- * fields packed together and written in base64. */
-export function filterCode(length = 0, { handmade = false } = {}) {
-  const filters = [0x08, THIS_WEEK, 0x10, VIDEOS_ONLY, ...(length ? [0x18, length] : []), ...(handmade ? [SUBTITLES, 1] : [])];
+/** YouTube's search-filter code (its "sp" value): most viewed, uploaded this week (or `within`
+ * THIS_MONTH / THIS_YEAR), videos only, optionally a length, and optionally only videos with
+ * handmade subtitles. It is a few numbered fields packed together and written in base64. */
+export function filterCode(length = 0, { handmade = false, within = THIS_WEEK } = {}) {
+  const filters = [0x08, within, 0x10, VIDEOS_ONLY, ...(length ? [0x18, length] : []), ...(handmade ? [SUBTITLES, 1] : [])];
   const bytes = [0x08, SORT_BY_VIEWS, 0x12, filters.length, ...filters];
   return btoa(String.fromCharCode(...bytes));
 }
@@ -126,5 +138,140 @@ export function youtubeHome(lang, { mobile = false, country = "", handmade = fal
     search_query: (own && own[2]) || word, sp: filterCode(length, { handmade }),
     gl, hl: language, persist_gl: "1", persist_hl: "1", // remembered, so going back or reloading keeps them
   });
+  return `${site}/results?${q}`;
+}
+
+// ---------------------------------------------------------------------------------------------
+// Topics: the menu YouTube opens from in the Library's add sheet (components/addsheet.js) and on
+// the web app's YouTube page. "Popular now" is the start search above. Every other topic is the
+// same kind of search with the topic's words written IN the language being studied (TOPIC_WORDS):
+// most watched first, uploaded this month (lessons: this year, as there are fewer and they keep),
+// with the same country and language hints. Words in the language, not in English, so the videos
+// are in the language: YouTube matches the words in titles, and an English word ("vlog", "podcast")
+// is paired with one of the language's own where it is the word people actually use.
+//
+// To tune a topic for a language, change its words in TOPIC_WORDS; a language may leave a topic
+// out (it then isn't offered). `label` is interface text (translated like the rest of the app);
+// "Learn {0}" gets the language's name.
+
+export const TOPICS = [
+  { key: "popular", label: "Popular now", icon: "trending" },
+  { key: "news", label: "News", icon: "news" },
+  { key: "music", label: "Music", icon: "music" },
+  { key: "comedy", label: "Comedy", icon: "smile" },
+  { key: "food", label: "Food & cooking", icon: "food" },
+  { key: "travel", label: "Travel", icon: "travel" },
+  { key: "sport", label: "Sport", icon: "sport" },
+  { key: "science", label: "Science & tech", icon: "science" },
+  { key: "gaming", label: "Gaming", icon: "game" },
+  { key: "kids", label: "Kids & cartoons", icon: "kids" },
+  { key: "vlog", label: "Vlogs & daily life", icon: "vlog" },
+  { key: "podcast", label: "Podcasts & interviews", icon: "podcast" },
+  { key: "learn", label: "Learn {0}", icon: "learn", within: THIS_YEAR },
+];
+
+/** Each topic's search words in each study language (search data for YouTube, not interface text). */
+export const TOPIC_WORDS = {
+  ar: { news: "أخبار", music: "أغنية", comedy: "كوميدي", food: "طبخ", travel: "سفر", sport: "رياضة",
+        science: "علوم وتقنية", gaming: "ألعاب فيديو", kids: "كرتون أطفال", vlog: "فلوق", podcast: "بودكاست",
+        learn: "تعلم العربية لغير الناطقين بها" },
+  es: { news: "noticias", music: "música", comedy: "comedia", food: "recetas de cocina", travel: "viajes", sport: "deportes",
+        science: "ciencia y tecnología", gaming: "videojuegos", kids: "dibujos animados", vlog: "vlog en español",
+        podcast: "podcast en español", learn: "español para extranjeros" },
+  fr: { news: "actualités", music: "musique", comedy: "humoriste", food: "recette de cuisine", travel: "voyage", sport: "sport",
+        science: "science et technologie", gaming: "jeux vidéo", kids: "dessin animé", vlog: "vlog en français",
+        podcast: "podcast en français", learn: "français langue étrangère" },
+  ja: { news: "ニュース", music: "音楽", comedy: "お笑い", food: "料理", travel: "旅行", sport: "スポーツ",
+        science: "科学 テクノロジー", gaming: "ゲーム実況", kids: "子供向けアニメ", vlog: "日常 vlog", podcast: "ポッドキャスト",
+        learn: "やさしい日本語" },
+  zh: { news: "新闻", music: "音乐", comedy: "搞笑", food: "做菜", travel: "旅游", sport: "体育", science: "科技",
+        gaming: "游戏实况", kids: "儿童动画", vlog: "vlog 日常", podcast: "播客", learn: "慢速中文" },
+  ru: { news: "новости", music: "музыка", comedy: "юмор", food: "рецепты", travel: "путешествия", sport: "спорт",
+        science: "наука и технологии", gaming: "прохождение игры", kids: "мультфильмы", vlog: "влог", podcast: "подкаст",
+        learn: "русский язык для иностранцев" },
+  it: { news: "notizie", music: "musica", comedy: "comici italiani", food: "ricetta", travel: "viaggio", sport: "sport",
+        science: "scienza e tecnologia", gaming: "videogiochi", kids: "cartoni animati", vlog: "vlog in italiano",
+        podcast: "podcast italiano", learn: "italiano per stranieri" },
+  tl: { news: "balita", music: "OPM kanta", comedy: "nakakatawa", food: "lutong bahay", travel: "pasyalan", sport: "balitang sports",
+        science: "agham at teknolohiya", gaming: "gameplay tagalog", kids: "kwentong pambata", vlog: "vlog tagalog",
+        podcast: "podcast tagalog", learn: "aralin sa Filipino" },
+  pt: { news: "notícias", music: "música", comedy: "humor", food: "receita", travel: "viagem", sport: "esportes",
+        science: "ciência e tecnologia", gaming: "jogando", kids: "desenho animado", vlog: "vlog rotina",
+        podcast: "podcast brasileiro", learn: "português para estrangeiros" },
+  ca: { news: "notícies", music: "música en català", comedy: "humor en català", food: "receptes de cuina", travel: "viatge",
+        sport: "futbol en català", science: "ciència i tecnologia", gaming: "videojocs", kids: "dibuixos animats",
+        vlog: "vlog en català", podcast: "podcast en català", learn: "curs de català" },
+  // Bisaya has little on YouTube: searched over a year (TOPIC_WITHIN), and travel, sport, gaming and
+  // science are left out, as their searches came back in Tagalog or English (checked 2026-10-21).
+  ceb: { news: "balita karon", music: "kantang bisaya", comedy: "kataw-anan bisaya", food: "lutong bisaya",
+         kids: "kanta pambata bisaya", vlog: "bisaya vlog", podcast: "podcast bisaya", learn: "learn bisaya" },
+  th: { news: "ข่าว", music: "เพลง", comedy: "ตลก", food: "ทำอาหาร", travel: "เที่ยว", sport: "กีฬา",
+        science: "วิทยาศาสตร์ เทคโนโลยี", gaming: "เล่นเกม", kids: "การ์ตูน", vlog: "vlog ชีวิตประจำวัน", podcast: "พอดแคสต์",
+        learn: "ภาษาไทย สำหรับชาวต่างชาติ" },
+  // Hindi (checked against YouTube's results on 2026-10-21, by the channels as well as the titles: with the hl
+  // hint YouTube translates other videos' titles into Hindi, so "व्लॉग" alone brought PewDiePie and Kylie Jenner,
+  // "खेल समाचार" NBC's Premier League, "हास्य" Marathi and Maithili shows; Bollywood songs are titled in Latin
+  // letters, so "हिंदी गाने" finds Hindi songs with few Devanagari titles; the lessons are mostly for Indian children)
+  hi: { news: "हिंदी समाचार", music: "हिंदी गाने", comedy: "कॉमेडी वीडियो", food: "खाना बनाने की विधि", travel: "घूमने की जगह",
+        sport: "क्रिकेट", science: "विज्ञान", gaming: "गेमिंग", kids: "बच्चों की कहानियाँ", vlog: "daily vlog हिंदी",
+        podcast: "हिंदी पॉडकास्ट", learn: "हिंदी सीखें" },
+  // (checked 2026-10-21: 15-20 of 20 titles in Korean each; "토크쇼" (talk show) rather than "팟캐스트", whose
+  // results mixed in English shows; the music titles not in Hangul are K-pop videos named in English)
+  ko: { news: "뉴스", music: "노래", comedy: "개그", food: "요리", travel: "여행", sport: "스포츠",
+        science: "과학 기술", gaming: "게임 플레이", kids: "어린이 만화", vlog: "브이로그", podcast: "토크쇼",
+        learn: "한국어 배우기" },
+  en: { news: "news", music: "music", comedy: "comedy", food: "cooking", travel: "travel", sport: "sports",
+        science: "science and technology", gaming: "gaming", kids: "cartoons for kids", vlog: "vlog", podcast: "podcast",
+        learn: "English listening practice" },
+  // (checked 2026-10-21: plain "Nachrichten" brought Indian and American news with titles translated
+  // into German, "Wissenschaft und Technik" found nothing, "Tagesvlog" mostly other languages)
+  de: { news: "Nachrichten aus Deutschland", music: "neue deutsche Songs", comedy: "Comedy deutsch", food: "Rezept",
+        travel: "Reise", sport: "Fußball", science: "Wissenschaft Doku", gaming: "Let's Play deutsch", kids: "Kinderserie",
+        vlog: "Vlog deutsch", podcast: "Podcast deutsch", learn: "Deutsch als Fremdsprache" },
+  // Persian: words Arabic doesn't use, as Arabic shares the script (checked 2026-10-21: "اخبار" alone and "سفر" alone
+  // came back in Arabic, "علم و فناوری" found one video this month).
+  fa: { news: "اخبار امروز", music: "آهنگ جدید", comedy: "طنز", food: "آشپزی", travel: "ولاگ سفر", sport: "فوتبال",
+        science: "فناوری", gaming: "گیم پلی فارسی", kids: "کارتون فارسی", vlog: "ولاگ روزمره", podcast: "پادکست فارسی",
+        learn: "آموزش فارسی به غیر فارسی زبانان" },
+};
+
+/** How far back a language's topics look when it has few videos (otherwise this month). */
+export const TOPIC_WITHIN = { ceb: THIS_YEAR };
+
+/** The topics offered for a language: Popular now, then each topic it has words for. */
+export function topicsFor(lang) {
+  if (!START[lang]) return [];
+  const words = TOPIC_WORDS[lang] || {};
+  return TOPICS.filter((t) => t.key === "popular" || words[t.key]);
+}
+
+/**
+ * The address a topic opens on, for a study language (same options as youtubeHome). "popular",
+ * or a topic the language has no words for, is youtubeHome itself.
+ */
+export function topicAddress(lang, key, { mobile = false, country = "", handmade = false } = {}) {
+  const topic = TOPICS.find((t) => t.key === key);
+  const words = (TOPIC_WORDS[lang] || {})[key];
+  const start = START[lang];
+  if (!topic || key === "popular" || !words || !start) return youtubeHome(lang, { mobile, country, handmade });
+  const [, , language, length] = start;
+  const q = new URLSearchParams({
+    search_query: words, sp: filterCode(length, { handmade, within: topic.within || TOPIC_WITHIN[lang] || THIS_MONTH }),
+    gl: countryFor(lang, country), hl: language, persist_gl: "1", persist_hl: "1",
+  });
+  return `${mobile ? "https://m.youtube.com" : "https://www.youtube.com"}/results?${q}`;
+}
+
+/** YouTube's own search for what the user typed (most relevant first), with the same hints; with
+ * nothing typed, YouTube's front page. */
+export function searchAddress(lang, words, { mobile = false, country = "", handmade = false } = {}) {
+  const site = mobile ? "https://m.youtube.com" : "https://www.youtube.com";
+  const text = String(words || "").trim();
+  if (!text) return `${site}/`;
+  const q = new URLSearchParams({ search_query: text });
+  const sp = searchFilterCode(handmade);
+  if (sp) q.set("sp", sp);
+  const start = START[lang];
+  if (start) { q.set("gl", countryFor(lang, country)); q.set("hl", start[2]); }
   return `${site}/results?${q}`;
 }

@@ -84,7 +84,7 @@ export async function render(view) {
     const card = h(`<div class="card book-card">
       <div class="book-cover" aria-hidden="true">${icon("book", 28)}</div>
       <div class="book-info">
-        <div class="book-title" ${lang === "ar" ? 'dir="rtl"' : 'dir="auto"'}></div>
+        <div class="book-title" ${langInfo(lang).dir === "rtl" ? 'dir="rtl"' : 'dir="auto"'}></div>
         <div class="small" dir="auto"></div>
         <div class="small muted book-blurb"></div>
         <div class="small muted">${esc(yearText(row.year))} · about ${mins < 60 ? `${mins} min` : `${Math.round(mins / 60)} h`} of reading · ${size}</div>

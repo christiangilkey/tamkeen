@@ -282,7 +282,7 @@ export function createWordBubble(host, actions) {
       <div class="wb-head">
         ${actions.onPauseMode && !actions.noAudio ? modeSwitch() : ""}
         <div class="wb-word ar" ${attrs()}>${esc(shown)}</div>
-        ${ipa ? `<span class="wb-ipa" translate="no" title="${ctx.lang === "th" ? "How it is said (Paiboon romanization, from Wiktionary)" : "US pronunciation (CMU Pronouncing Dictionary)"}">${esc(ipa)}</span>` : ""}
+        ${ipa ? `<span class="wb-ipa" translate="no" title="${ctx.lang === "th" ? "How it is said (Paiboon romanization, from Wiktionary)" : ctx.lang === "ko" ? "How it is said (Revised Romanization of Korean)" : "US pronunciation (CMU Pronouncing Dictionary)"}">${esc(ipa)}</span>` : ""}
         <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>
       ${fix ? fixPill() : ""}

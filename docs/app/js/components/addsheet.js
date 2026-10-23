@@ -2,20 +2,22 @@
 // Library itself only shows what is already there. Shared by the desktop app and the phone.
 //
 // Each way opens the flow it always had: a podcast's feed address (or Trending), YouTube in the
-// app's own browser, a web page's address (or the Web Browser), a video or audio file of your own,
-// and Instagram reels.
+// app's own browser, the Web page screen (pages/websites.js, route #/sites: paste an address, your
+// saved sites and news sites, all on one screen), a video or audio file of your own, and Instagram
+// reels.
 
-import { api, esc, h, toast, openBrowser, openYouTube } from "../app.js";
+import { api, esc, h, platform, toast, openNetflix, openYouTube, netflixSupport } from "../app.js";
 import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
-import { importUrl } from "../pageimport.js";
-import { importVideo, videoId as youTubeId } from "../youtube.js";
-import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, setHandmadeOnly } from "../youtube-home.js";
+import { extensionLink, unavailableText } from "../netflix.js";
+import { uiLanguage } from "../i18n.js";
+import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "../youtube-home.js";
 import { openModal } from "./modal.js";
 
 const WAYS = [
   { key: "podcast", label: "Podcast", icon: "podcast", text: "Paste a feed address, or choose from what's trending", step: true },
-  { key: "youtube", label: "YouTube", icon: "video", text: "Find a video and watch it with clickable captions", step: true },
+  { key: "youtube", label: "YouTube", icon: "video", text: "Pick a topic and watch with clickable captions", step: true },
+  { key: "netflix", label: "Netflix", icon: "film", text: "Watch shows and films with their subtitles as words you can click", step: true },
   { key: "page", label: "Web page", icon: "page", text: "Import an article to read with clickable words", step: true },
   { key: "book", label: "Book", icon: "book", text: "A free classic, or your own EPUB, PDF, TXT, Kindle or Word file", step: true },
   { key: "reels", label: "Reels", icon: "reel", text: "Short Instagram videos to watch on your phone" },
@@ -55,9 +57,9 @@ export function openAddSheet({ pickFile }) {
       pickFile(key); // still inside the tap, so the phone lets the file chooser open
       return;
     }
-    if (key === "reels") {
+    if (key === "reels" || key === "page") { // a screen of its own: no step in between
       sheet.close();
-      location.hash = "#/reels";
+      location.hash = key === "page" ? "#/sites" : "#/reels";
       return;
     }
     step(key);
@@ -75,8 +77,8 @@ export function openAddSheet({ pickFile }) {
     body.append(box);
     if (key === "podcast") podcastStep(box);
     else if (key === "youtube") youtubeStep(box);
-    else if (key === "book") bookStep(box);
-    else pageStep(box);
+    else if (key === "netflix") netflixStep(box);
+    else bookStep(box);
     box.querySelector("input")?.focus();
   }
 
@@ -116,8 +118,25 @@ export function openAddSheet({ pickFile }) {
     };
   }
 
+  /** YouTube: a menu of topics (youtube-home.js TOPICS), each opening YouTube on the most-watched
+   * videos about it in the language being learned; then the options every topic follows, and a
+   * search for anything else. */
   function youtubeStep(box) {
-    box.append(h(`<button type="button" class="primary aw-wide" id="aw-open-youtube">${icon("video", 18)} Open YouTube</button>`));
+    const web = window.TAMKEEN_WEB === true; // the web app lists YouTube's videos on its own page (#/youtube)
+    const where = () => ({ mobile: platform !== "desktop", country: chosenCountry(lang), handmade: handmadeOnly() });
+    const open = (address, hash) => {
+      sheet.close();
+      if (web) location.hash = hash;
+      else openYouTube(address).catch((err) => toast(err.message, { error: true }));
+    };
+    const grid = h(`<div class="yt-topics"></div>`);
+    for (const t of topicsFor(lang)) {
+      const b = h(`<button type="button" class="yt-topic" data-topic="${t.key}">${icon(t.icon, 22)}<span></span></button>`);
+      b.querySelector("span").textContent = t.label.replace("{0}", langName);
+      b.onclick = () => open(topicAddress(lang, t.key, where()), t.key === "popular" ? "#/youtube" : `#/youtube?topic=${t.key}`);
+      grid.append(b);
+    }
+    box.append(grid);
     const countries = COUNTRIES[lang] || [];
     if (countries.length > 1) {
       const row = h(`<label class="aw-country" title="Open YouTube starts on this week's most-watched videos from this country">
@@ -134,11 +153,57 @@ export function openAddSheet({ pickFile }) {
     tick.checked = handmadeOnly();
     tick.onchange = () => setHandmadeOnly(tick.checked);
     box.append(handmade);
-    box.append(h(`<p class="small muted aw-note">Tap a video there and it opens here, with its captions as words you can click. The video needs captions.</p>`));
-    box.querySelector("#aw-open-youtube").onclick = () => {
-      sheet.close();
-      openYouTube().catch((err) => toast(err.message, { error: true }));
+    // Anything else: YouTube's own search (with nothing typed, YouTube itself).
+    const search = h(`<form class="aw-form" role="search">
+        <input type="search" placeholder="Search YouTube" aria-label="Search YouTube" dir="auto" autocomplete="off">
+        <button type="submit">${icon("search", 18)} Search</button>
+      </form>`);
+    search.onsubmit = (e) => {
+      e.preventDefault();
+      const words = search.querySelector("input").value.trim();
+      open(searchAddress(lang, words, where()), words ? `#/youtube?q=${encodeURIComponent(words)}` : "#/youtube");
     };
+    box.append(search);
+    box.append(h(`<p class="small muted aw-note">Tap a video there and it opens here, with its captions as words you can click. The video needs captions.</p>`));
+  }
+
+  /** Netflix: on a Windows computer, a button that opens Netflix on its titles in the language
+   * being learned (netflix.js); in the web app on a computer the same once the browser extension is
+   * there (Netflix opens in a new tab), and before that where to get it; elsewhere, why it isn't there. */
+  function netflixStep(box) {
+    const wait = h(`<p class="small muted aw-note">Checking…</p>`);
+    box.append(wait);
+    netflixSupport().catch(() => ({ ok: false, reason: "" })).then(({ ok, reason, extension }) => {
+      wait.remove();
+      if (ok) {
+        const open = h(`<button type="button" class="primary aw-wide">${icon("film", 18)} Open Netflix</button>`);
+        open.onclick = () => {
+          sheet.close();
+          openNetflix().catch((err) => toast(err.message, { error: true }));
+        };
+        box.append(open, extension
+          ? h(`<p class="small muted aw-note">Netflix opens in a new tab, on its titles in ${esc(langName)}. Sign in there with your own Netflix account and pick something to watch: Tamkeen's subtitle bar shows its ${esc(langName)} subtitles as words you can click. Words you save there come back here.</p>`)
+          : h(`<p class="small muted aw-note">Netflix opens on its titles in ${esc(langName)}. Sign in there with your own Netflix account, then pick something to watch: it plays here, with its ${esc(langName)} subtitles as words you can click.</p>`));
+        return;
+      }
+      if (reason === "web-computer") { // the web app on a computer: the extension is all it takes
+        const { title, lines } = unavailableText(reason);
+        const note = h(`<div class="aw-unavailable"><strong></strong><p></p><p class="small muted"></p></div>`);
+        note.querySelector("strong").textContent = title;
+        note.querySelectorAll("p")[0].textContent = lines[0];
+        note.querySelectorAll("p")[1].textContent = lines[1];
+        const get = h(`<a class="btn primary aw-wide" target="_blank" rel="noopener">${icon("puzzle", 18)} Get the Tamkeen extension</a>`);
+        get.href = extensionLink(navigator.userAgent, uiLanguage());
+        box.append(note, get, h(`<p class="small muted aw-note">Once it is added, reload this page and choose Netflix again.</p>`));
+        return;
+      }
+      const { title, lines } = unavailableText(reason);
+      const note = h(`<div class="aw-unavailable"><strong></strong><p></p><p class="small muted"></p></div>`);
+      note.querySelector("strong").textContent = title;
+      note.querySelectorAll("p")[0].textContent = lines[0];
+      note.querySelectorAll("p")[1].textContent = lines[1];
+      box.append(note);
+    });
   }
 
   function bookStep(box) {
@@ -151,40 +216,6 @@ export function openAddSheet({ pickFile }) {
     box.querySelector("button.aw-wide").onclick = async () => {
       sheet.close();
       (await import("../pages/books.js")).uploadBook();
-    };
-  }
-
-  function pageStep(box) {
-    box.append(h(`<form class="aw-form">
-        <input type="text" inputmode="url" placeholder="Paste a website address" required autocomplete="off" aria-label="Website address">
-        <button class="primary" type="submit">Import</button>
-      </form>`),
-    h(`<div class="aw-or">or</div>`),
-    ...(window.TAMKEEN_WEB === true // the web app has no browser of its own: popular sites to copy addresses from
-      ? [h(`<button type="button" class="aw-wide">${icon("page", 18)} Popular websites</button>`),
-         h(`<p class="small muted aw-note">News sites in the language you're learning. Open one, copy an article's address, and paste it above.</p>`)]
-      : [h(`<button type="button" class="aw-wide">${icon("page", 18)} Open Web Browser</button>`),
-         h(`<p class="small muted aw-note">Browse inside the app and press the round teal button on anything you want to read.</p>`)]));
-    const form = box.querySelector("form");
-    const input = form.querySelector("input");
-    form.onsubmit = (e) => {
-      e.preventDefault();
-      run(form.querySelector("button"), "Importing…", async () => {
-        if (youTubeId(input.value)) { // a YouTube link: add it as a video and open it
-          const ep = await importVideo(input.value);
-          toast(`Added “${ep.title}” with ${ep.auto ? "YouTube's automatic captions" : "its captions"}.`);
-          location.hash = `#/episode/${ep.id}`;
-          return;
-        }
-        const ep = await importUrl(input.value);
-        toast(`Imported “${ep.title}”.`, { action: { label: "Read", run: () => (location.hash = `#/episode/${ep.id}`) } });
-        location.hash = `#/feed/${ep.feed_id}`;
-      });
-    };
-    box.querySelector("button.aw-wide").onclick = () => {
-      const typed = window.TAMKEEN_WEB === true ? "" : input.value.trim();
-      sheet.close();
-      openBrowser(typed).catch((err) => toast(err.message, { error: true }));
     };
   }
 

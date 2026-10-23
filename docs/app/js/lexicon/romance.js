@@ -34,6 +34,10 @@ export class LemmaTable {
     this.stress = data.stress || null; // Russian: where each form's stress falls (see russian.js)
     this.shown = data.shown || null;   // Russian: dictionary forms written with ё
     this.ipa = data.ipa || null;       // English: US pronunciations (see english.js)
+    this.ranked = !!data.ranked;       // German: dictionary forms listed commonest first (see german.js)
+    this.capsFirst = data.caps_first ? new Set(data.caps_first) : null; // German: Zeit before zeit at a sentence's start
+    this.stems = data.stems || null;   // Persian: each verb's present and past stem (see persian.js)
+    this.readings = data.readings || null; // Hindi: Wiktionary's reading where the rule differs (see hindi.js)
   }
 
   /** The dictionary form of a word form the table knows, or null. */

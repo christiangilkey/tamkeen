@@ -12,12 +12,15 @@ export const CARD_SENTENCE_MAX = 110; // characters: about two lines on a phone,
 // Arabic vowel marks and the stretching line: left out when comparing, kept when showing.
 const HARAKAT = /[ؐ-ًؚ-ٰٟۖ-ۭـ]/;
 const HARAKAT_ALL = new RegExp(HARAKAT.source, "g");
-const LETTER = { "أ": "ا", "إ": "ا", "آ": "ا", "ٱ": "ا", "ى": "ي", "ة": "ه" };
+const LETTER = { "أ": "ا", "إ": "ا", "آ": "ا", "ٱ": "ا", "ى": "ي", "ة": "ه", "ی": "ي", "ک": "ك" };
+// Persian: the half space inside a word (ZWNJ) is left out when comparing, so می‌خواهم and میخواهم are one word.
+const ZWNJ = /‌/g;
+const isZwnj = (ch) => ch === "‌";
 
 /** Text as it is compared: no vowel marks or punctuation, one spelling for the Arabic letters
- * that are written several ways, lower case. */
+ * that are written several ways (and Persian's own y and k, ی ک), lower case. */
 export function fold(text) {
-  return String(text || "").normalize("NFC").replace(HARAKAT_ALL, "").replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه")
+  return String(text || "").normalize("NFC").replace(HARAKAT_ALL, "").replace(ZWNJ, "").replace(/[یک]/g, (c) => LETTER[c]).replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه")
     .replace(/[^\p{L}\p{N}\p{M}]+/gu, " ").trim().toLowerCase();
 }
 
@@ -28,11 +31,11 @@ export function findWord(text, word) {
   const at = []; // at[i] = where plain[i] is in `text`
   for (let i = 0; i < text.length; i++) {
     const ch = text[i];
-    if (HARAKAT.test(ch)) continue;
+    if (HARAKAT.test(ch) || isZwnj(ch)) continue;
     plain.push((LETTER[ch] || ch).toLowerCase());
     at.push(i);
   }
-  const want = [...String(word || "").replace(HARAKAT_ALL, "")].map((ch) => (LETTER[ch] || ch).toLowerCase()).join("").trim();
+  const want = [...String(word || "").replace(HARAKAT_ALL, "").replace(ZWNJ, "")].map((ch) => (LETTER[ch] || ch).toLowerCase()).join("").trim();
   if (!want) return null;
   const k = plain.join("").indexOf(want);
   if (k < 0) return null;
@@ -43,8 +46,8 @@ export function findWord(text, word) {
 }
 
 // A clause ends after one of these, where a space follows.
-const CLAUSE_END = /[،,;؛:.!?؟…\n]/u;
-const SENTENCE_END = /[.!?؟…]$/u;
+const CLAUSE_END = /[،,;؛:.!?؟…।॥\n]/u; // (। ॥: Hindi's full stops)
+const SENTENCE_END = /[.!?؟…।॥]$/u;
 
 /**
  * `text` cut down to at most `limit` characters around [from, to): whole clauses when they fit,

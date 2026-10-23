@@ -13,6 +13,9 @@ names where its text was taken from:
   Wikisource (https://wikisource.org): public-domain texts transcribed by Wikisource's volunteers.
   Some Bisaya books are taken from the proofread pages of their scans on the multilingual Wikisource
   (scans of the University of Michigan's Philippine collection, books printed in Cebu in 1904-1924).
+  The Korean books are Korean Wikisource's (https://ko.wikisource.org) modern-spelling texts of works of
+  1917-1948 whose authors all died by 1950; for the poems it also gives as first printed, only the
+  modern spelling is kept.
 
   Aozora Bunko 青空文庫 (https://www.aozora.gr.jp): Japanese works in the public domain, typed in and
   proofread by Aozora Bunko's volunteers; their furigana are left out (Tamkeen adds its own).

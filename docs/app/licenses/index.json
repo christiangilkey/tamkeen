@@ -35,6 +35,11 @@
   "file": "pythainlp.txt"
  },
  {
+  "name": "Hindi word table, meanings and readings, from Wiktionary and wordfreq (optional download)",
+  "license": "CC BY-SA 4.0",
+  "file": "hindi-sources.txt"
+ },
+ {
   "name": "CMU Pronouncing Dictionary: US pronunciations in the English word table",
   "license": "BSD-style",
   "file": "cmudict.txt"
@@ -81,5 +86,20 @@
   "on": [
    "phone"
   ]
+ },
+ {
+  "name": "German word table and common-word list: today's spelling and capitals, from Wiktionary (optional download)",
+  "license": "ODbL 1.0; CC BY-SA 4.0",
+  "file": "german-sources.txt"
+ },
+ {
+  "name": "Vazirmatn font (Persian)",
+  "license": "SIL Open Font License 1.1",
+  "file": "vazirmatn.txt"
+ },
+ {
+  "name": "Korean word list and common words, from Wiktionary and OpenSubtitles counts (optional download)",
+  "license": "CC BY-SA 4.0",
+  "file": "korean-sources.txt"
  }
 ]

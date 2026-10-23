@@ -9,9 +9,11 @@
 
 import { api } from "./app.js";
 import { DefinerError } from "./definer.js";
-import { answerFrom, commonness, lookUp, matchKey, wordKeys } from "./lexicon/meaningdata.js";
+import { answerFrom, commonness, germanLookUp, lookUp, matchKey, wordKeys } from "./lexicon/meaningdata.js";
 import { dictionaries } from "./lexicon/seen.js";
+import { LemmaTable } from "./lexicon/romance.js";
 import { lexemeOf } from "./lexicon/words.js";
+import { KoreanWords, koreanKeys } from "./lexicon/korean.js";
 
 export const NO_MEANINGS = "NO_MEANINGS";
 export { matchKey };
@@ -63,6 +65,12 @@ async function candidates(word, lang) {
   // the dictionary form found by the language's own word tables
   const lemmaOf = (form) => { try { const lex = lexemeOf(form, lang, tables); return lex && lex.lemma; } catch { return null; } };
   const list = lang === "ceb" && (tables || []).find((t) => Array.isArray(t && t.lemmas));
+  // Korean: the dictionary forms the word can be read as, likeliest first, before the word as written
+  // (가요 is first 가다 "go", then 가요 "song"); Wiktionary seldom has a form of a verb as an entry.
+  if (lang === "ko") {
+    const table = (tables || []).find((t) => t instanceof KoreanWords) || null;
+    return { keys: [...new Set(koreanKeys(word, table).map((k) => matchKey(k, lang)))], rank: () => Infinity };
+  }
   return { keys: wordKeys(word, lang, lemmaOf), rank: commonness(list ? list.lemmas : null) };
 }
 
@@ -77,8 +85,17 @@ export async function dictionaryDefine(ctx, { quick = false, language = "English
   if (lang === "ceb") files = [...files].reverse();
   // Wiktionary first; for Arabic the CAMeL glosses, for Bisaya Wolff's dictionary, when Wiktionary lacks
   // the word (or has it only as a name). (lookUp in ./lexicon/meaningdata.js)
-  const { keys, rank } = await candidates(ctx.word, lang);
-  const found = lookUp(files, keys, ctx.word, lang, { rank });
+  // German reads the sentence too (separable verbs: fängt … an is anfangen) and takes compounds apart.
+  let found;
+  if (lang === "de") {
+    let tables = null;
+    try { tables = await dictionaries(lang); } catch { /* no table: the meanings file's own forms */ }
+    const table = (tables || []).find((t) => t instanceof LemmaTable) || null;
+    found = germanLookUp(files, ctx.word, ctx.marked || "", { table });
+  } else {
+    const { keys, rank } = await candidates(ctx.word, lang);
+    found = lookUp(files, keys, ctx.word, lang, { rank });
+  }
   if (!found || !found.groups.length) {
     throw new DefinerError("This word isn't in the built-in dictionary. It may be a name, slang, or a form it doesn't know.");
   }

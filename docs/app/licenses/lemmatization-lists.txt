@@ -18,3 +18,6 @@ They are made from:
 The tables are derived databases and are distributed under the Open Database License 1.0. The
 files, the full licence text and how to rebuild them:
 https://github.com/christiangilkey/tamkeen/tree/main/docs/lexicon
+
+German has a table made the same way, with today's spellings and capitals taken from Wiktionary: see
+german-sources.txt.

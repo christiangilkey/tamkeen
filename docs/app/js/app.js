@@ -29,16 +29,20 @@ import { addUploadedVideo, checkFeeds, fillLanguages, handle, wordLang } from ".
 import { onJob } from "./transcribe-service.js";
 import { onReels } from "./reels-phone.js";
 import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
-import { DRIVE_SCOPE, RECONNECT_EVENT, TASKS_SCOPE, accessToken, drive, useWebToken, webPassLeft } from "./drive.js";
+import { CALENDAR_SCOPE, DRIVE_SCOPE, RECONNECT_EVENT, TASKS_SCOPE, accessToken, drive, signIn, useWebToken, webPassLeft } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
 import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, webFetch } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
-import { audioCopy, driveFileId, onSync, requestSync, syncNow } from "./sync.js";
+import { audioCopy, driveFileId, flushSync, onSync, requestSync, syncFresh, syncNow } from "./sync.js";
+import { checkEvery, checkOnReturn, refreshMessage, shouldRedraw } from "./syncpace.js";
+import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
+import { refreshButton } from "./components/refreshbutton.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
 import { vocabDeck } from "./anki-export.js";
 import { ankiCard } from "./review/fsrs.js";
 import { initScrollHints } from "./scrollhint.js";
+import { sendSettings, startExtensionBridge } from "./web-extension.js";
 
 export const platform = "android";
 
@@ -242,19 +246,21 @@ function randomHex(n) {
 
 /** Go to Google's sign-in page, which sends the learner straight back here (finishWebSignIn).
  *  `quiet`: a renewal that shows nothing (Google answers at once, or says it needs a tap); `renew`: the
- *  "Reconnect Google" button; `tasks`: Google Tasks too, then sending `then.tasks`. Resolves false
- *  when a quiet one didn't go (storage switched off: the way back couldn't be checked). */
-export async function goToGoogleSignIn({ quiet = false, renew = false, tasks = false, then = null } = {}) {
+ *  "Reconnect Google" button; `tasks`: Google Tasks too, then sending `then.tasks`; `calendar`: Google
+ *  Calendar too, then adding `then.calendar` ({task, time}). Resolves false when a quiet one didn't go
+ *  (storage switched off: the way back couldn't be checked). */
+export async function goToGoogleSignIn({ quiet = false, renew = false, tasks = false, calendar = false, then = null } = {}) {
   const nonce = randomHex(16);
   const state = randomHex(16);
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(nonce));
   const hashed = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
   try {
-    sessionStorage.setItem(WEB_SIGNIN_KEY, JSON.stringify({ nonce, state, back: location.hash || "#/", quiet, renew: renew || tasks, then }));
+    sessionStorage.setItem(WEB_SIGNIN_KEY, JSON.stringify({ nonce, state, back: location.hash || "#/", quiet, renew: renew || tasks || calendar, then }));
     if (quiet) localStorage.setItem(QUIET_TRY_KEY, String(Date.now()));
   } catch { if (quiet) return false; }
   const q = new URLSearchParams({
-    client_id: GOOGLE_WEB_CLIENT_ID, response_type: "id_token token", scope: `openid email ${DRIVE_SCOPE}${tasks ? ` ${TASKS_SCOPE}` : ""}`,
+    client_id: GOOGLE_WEB_CLIENT_ID, response_type: "id_token token",
+    scope: `openid email ${DRIVE_SCOPE}${tasks ? ` ${TASKS_SCOPE}` : ""}${calendar ? ` ${CALENDAR_SCOPE}` : ""}`,
     include_granted_scopes: "true", redirect_uri: location.origin + location.pathname, nonce: hashed, state,
   });
   // Already signed in: the same account again, without choosing (a quick hop to Google and back once
@@ -264,6 +270,37 @@ export async function goToGoogleSignIn({ quiet = false, renew = false, tasks = f
   else if (!settings.google_email) q.set("prompt", "select_account");
   location.href = `https://accounts.google.com/o/oauth2/v2/auth?${q}`;
   return true;
+}
+
+// ---------- the refresh button (components/refreshbutton.js) ----------
+let refreshing = false; // a sync the refresh button asked for: the page on screen is drawn again after it
+
+/** Sync now, for the refresh button: the number of changes that came, or null when it offered to
+ *  sign in instead, or left for Google's page to renew the web app's hour-long pass first (it
+ *  syncs and says how it went when it comes back: finishWebSignIn). */
+async function refreshNow() {
+  if (!settings.signed_in) {
+    toast("Sign in with Google to keep your library the same on all your devices.", { timeout: 8000, action: { label: "Sign in", run: async () => {
+      try {
+        const email = await signIn(); // (the web app leaves for Google's page here)
+        toast(`Signed in as ${email}`);
+        syncNow();
+      } catch (e) { toast(e.message, { error: true }); }
+    } } });
+    return null;
+  }
+  if (isWeb && webPassLeft() < 60 * 1000) {
+    await goToGoogleSignIn({ renew: true, then: { refresh: true } }); // a tap: Google's page and straight back
+    return null;
+  }
+  refreshing = true;
+  try {
+    const s = await syncFresh();
+    if (s.state === "error") throw new Error(s.error);
+    return s.received;
+  } finally {
+    refreshing = false;
+  }
 }
 
 /** Something the learner would lose if the page reloaded now: a player, a chat or the first-run
@@ -350,7 +387,9 @@ async function finishWebSignIn() {
     useWebToken(answer.get("access_token"), answer.get("expires_in"), answer.get("scope"));
     try { localStorage.removeItem(QUIET_FAIL_KEY); } catch { /* storage off */ }
     await saveSettingsPatch({ signed_in: true, google_email: email || settings.google_email || "" });
-    syncNow();
+    const synced = syncNow({ changed: true });
+    // The refresh button found the pass run out and came here first: now say how the sync went.
+    if (kept.then && kept.then.refresh) synced.then((s) => toast(s.state === "error" ? s.error : refreshMessage(s.received), { error: s.state === "error" }));
   } else if (quiet) quietFailed();
   if (!renewing) {
     // Friends keeps its own sign-in, which renews itself: so only "Sign in" signs in to it.
@@ -363,7 +402,7 @@ async function finishWebSignIn() {
       toast(e.message || "Couldn't sign in to Friends.", { error: true });
     }
     if (driveOk || friendsOk) toast(email ? `Signed in as ${email}` : "Signed in.");
-  } else if (kept.renew && driveOk && !(kept.then && kept.then.tasks)) toast("Reconnected to Google.");
+  } else if (kept.renew && driveOk && !(kept.then && (kept.then.tasks || kept.then.calendar))) toast("Reconnected to Google.");
   if (!driveOk && !quiet) toast("Syncing needs Tamkeen's private Drive folder: sign in again and leave that box ticked.", { error: true });
   if (kept.then && kept.then.tasks) {
     // "Send to Google Tasks", sent now that Google has allowed it (googletasks.js).
@@ -373,6 +412,17 @@ async function finishWebSignIn() {
       (await import("./googletasks.js")).useTasksToken(answer.get("access_token"), answer.get("expires_in"));
       import("./review/sendtask.js").then((m) => m.sendReviewTask(kept.then.tasks))
         .catch((e) => toast(e.message || "Couldn't send the task.", { error: true }));
+    }
+  }
+  if (kept.then && kept.then.calendar) {
+    // "Send to Google Calendar", added now that Google has allowed it, at the time chosen before leaving.
+    const { task, time } = kept.then.calendar;
+    if (!answer.get("access_token") || !granted.includes(CALENDAR_SCOPE)) {
+      toast("Google Calendar wasn't allowed, so the review couldn't be added.", { error: true });
+    } else {
+      (await import("./googlecalendar.js")).useCalendarToken(answer.get("access_token"), answer.get("expires_in"));
+      import("./review/sendtask.js").then((m) => m.sendReviewEvent(task, time))
+        .catch((e) => toast(e.message || "Couldn't add the review to Google Calendar.", { error: true }));
     }
   }
   if (!renewing) {
@@ -469,7 +519,7 @@ export async function fetchPage(url) {
   } catch (e) {
     throw new Error("Couldn't reach that site. Check the address and your connection.");
   }
-  if (res.status >= 400) throw new Error(`The site answered with an error (${res.status}). Try “Open Web Browser” and press the round teal button there.`);
+  if (res.status >= 400) throw new Error(`The site answered with an error (${res.status}). Try opening it in the app's browser and pressing the round teal button there.`);
   return { url: res.url || address, html: typeof res.data === "string" ? res.data : String(res.data || "") };
 }
 
@@ -515,6 +565,42 @@ export async function ytRequest({ url, method = "GET", headers = {}, body }) {
   }
   // Answers in JSON arrive already unpacked; the caller expects text.
   return { status: res.status, text: typeof res.data === "string" ? res.data : JSON.stringify(res.data ?? "") };
+}
+
+// ---------- Netflix ----------
+// Netflix's videos are copy-protected and Netflix only plays them in its own player: on a Windows
+// computer Tamkeen lays that player over its stage (web/js/nfmedia.js). Here there is no such
+// window yet, so Netflix explains itself instead (netflix.js unavailableText). Titles watched on
+// the computer still arrive in the Library with their subtitles. (A phone's native video window,
+// like the reels' ReelSurface, could later be handed to createNetflixMedia as its bridge.)
+// The web app on a computer works with Netflix through the Tamkeen browser extension (extension/):
+// Netflix plays in its own tab with Tamkeen's subtitle bar, and titles and saved words come back
+// here (web-extension.js). Without the extension it says where to get it.
+
+/** The window Netflix plays in: none on the phones or the web app (see web/js/app.js). */
+export function netflixBridge() {
+  return null;
+}
+
+/** Can Netflix titles play here? {ok, reason, extension}: in the web app on a computer once the
+ * browser extension is there (`extension`: Netflix then plays in its own tab); else never, for now
+ * (reason: see netflix.js). */
+export async function netflixSupport() {
+  const { extensionHere, unavailableReason } = await import("./netflix.js");
+  const phone = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || "") || window.matchMedia("(pointer: coarse)").matches;
+  const extension = isWeb && !phone && !isIOS && extensionHere();
+  const reason = unavailableReason({ platform: "android", web: isWeb, ios: isIOS, phone, extension });
+  return { ok: !reason, reason, extension };
+}
+
+/** Open Netflix on its titles in the language being learned, in a new tab (the web app with the
+ * browser extension; its part there chooses the language). Elsewhere: the reason, as an error. */
+export async function openNetflix() {
+  const { browseStart, unavailableText } = await import("./netflix.js");
+  const { ok, reason } = await netflixSupport();
+  if (!ok) throw new Error(unavailableText(reason).lines[0]);
+  sendSettings(); // the language to choose there is the one being learned now
+  window.open(browseStart(), "_blank", "noopener");
 }
 
 /** Open YouTube in the in-app browser, on what is popular this week in the language being
@@ -612,7 +698,7 @@ let browserListening = false;
  * opened for something other than reading pages (YouTube), so without that button; a sign-in or
  * "Find in a video" browser never has it either. */
 export async function openBrowser(url = "", { instagramSignIn = false, find = false, reading = true } = {}) {
-  if (isWeb && reading && !instagramSignIn && !find && !/^https?:/i.test(url)) { // the popular websites page instead
+  if (isWeb && reading && !instagramSignIn && !find && !/^https?:/i.test(url)) { // the Web page screen instead (no browser here)
     location.hash = "#/sites";
     return;
   }
@@ -709,6 +795,7 @@ export async function openBrowser(url = "", { instagramSignIn = false, find = fa
         await saveSettings({ browser_sites: setSite(settings.browser_sites, { url: address, title: q.get("t") || "" },
                                                     on, Math.floor(Date.now() / 1000)) });
         await GoogleDriveAuth.browserSites({ sites: JSON.stringify(savedSites(settings.browser_sites)) });
+        emit("browser_sites", {}); // the Library's Web page screen, if it is open behind the browser, redraws its list
         if (!removing) GoogleDriveAuth.browserToast({ text: on ? "Saved to your start page." : "Taken off your start page." }).catch(() => {});
       } catch (e) {
         GoogleDriveAuth.browserToast({ text: e.message || "Couldn't save this site." }).catch(() => {});
@@ -925,6 +1012,7 @@ export async function saveSettings(values) {
   if ("youtube_follows" in values) requestSync(30000); // so do followed channels
   if ("browser_sites" in values) requestSync(30000); // and sites saved to the browser's start page
   if (JSON.stringify(s.learning_times || {}) !== learningTimes) requestSync(30000); // and languages ticked or unticked
+  if (isWeb) sendSettings(); // the browser extension, when it is there, follows (web-extension.js)
   return s;
 }
 export async function loadStatus() {
@@ -966,7 +1054,7 @@ const routes = [
   [/^reels\/play$/, reels, () => ({ play: true })],
   [/^books$/, books, () => ({})],
   [/^youtube$/, webYouTube, () => ({})], // the web app's YouTube page (the apps use their own browser)
-  [/^sites$/, webSites, () => ({})], // the web app's popular websites (the apps use their own browser)
+  [/^sites$/, webSites, () => ({})], // the Library's Web page screen (paste an address, saved sites, news), every version
   [/^episode\/(\w+)$/, player, (m) => ({ id: m[1] })],
   [/^vocab$/, vocab, () => ({})],
   [/^search$/, search, () => ({})],
@@ -1192,6 +1280,8 @@ async function boot() {
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   mountInstallButton(document.querySelector(".topbar")); // the web app: how to add it to the home screen
   if (isWeb) versionBanner(); // the web app updates itself: say so, once per new version
+  // The Tamkeen browser extension (a computer): its settings, and the words and titles from Netflix.
+  if (isWeb) startExtensionBridge({ api, toast, refresh: () => emit("feeds", { refreshed: true }) });
   // The web app opened by "Share → Tamkeen" from another app (Android, once installed): import that page.
   if (isWeb) import("./web-import.js").then((m) => m.importShared(!!(settings.welcome_seen && settings.study_language))).catch(() => {});
   if (isWeb) { // the web app's hour-long Drive pass: renewed by itself at a quiet moment, or with one tap
@@ -1224,7 +1314,15 @@ async function boot() {
       if (document.hidden) { hiddenAt = Date.now(); return; }
       if (hiddenAt && Date.now() - hiddenAt > 30 * 1000) renewQuietly();
     });
+    // Closing the reviewer is a quiet moment: renew then, if the pass ran out during the session (the
+    // answers wait here and go with the sync that follows the renewal).
+    window.addEventListener("tamkeen:review-closed", () => { if (!chip.hidden || webPassLeft() < 2 * 60 * 1000) setTimeout(renewQuietly, 400); });
   }
+  // The refresh button (components/refreshbutton.js), just before Search. In the web app it hides
+  // while "Reconnect Google" shows (that button does the same, and the bar is narrow).
+  const topSearch = document.querySelector(".topbar .top-search");
+  const refresh = refreshButton(refreshNow);
+  if (topSearch) topSearch.before(refresh); else document.querySelector(".topbar").append(refresh);
   startBadge();
   startChatNotices();
   setTimeout(() => checkForUpdate(), 3000);
@@ -1251,11 +1349,36 @@ async function boot() {
   // The computer's saved Instagram collections arrived with the sync (sync.js): an open Reels page shows them.
   window.addEventListener("tamkeen:ig-collections", () => emit("reels_collections", {}));
 
-  // Sync on start, when returning to the app, and every 5 minutes while open.
+  // Sync on start, on coming back to the app, every minute while it is on screen (syncpace.js:
+  // a check that finds nothing new is one small Drive request), at once when another of the
+  // learner's devices nudges (syncnudge.js), and send a waiting change when the app is put away.
+  let lastCheck = 0;
+  let checkTimer = 0;
+  const check = () => { lastCheck = Date.now(); return syncNow(); };
+  const planChecks = () => {
+    clearTimeout(checkTimer);
+    const every = checkEvery({ visible: document.visibilityState !== "hidden", web: isWeb });
+    if (every) checkTimer = setTimeout(() => { check(); planChecks(); }, Math.max(1000, every - (Date.now() - lastCheck)));
+  };
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") flushSync();
+    else if (checkOnReturn(lastCheck, Date.now())) check();
+    planChecks();
+  });
+  window.addEventListener("pagehide", () => { flushSync(); });
+  window.addEventListener("tamkeen:review-closed", () => { flushSync(); }); // a review session ended: send it now
+  startNudges(() => check());
   let lastDone = new Set(lib.episodes.filter((e) => e.transcript_rev).map((e) => e.uid));
   onSync((s) => {
     emit("sync", s);
     if (s.state !== "idle") return;
+    lastCheck = Math.max(lastCheck, Date.now() - 1000);
+    planChecks();
+    setNudgeKey(s.nudge_key);
+    if (s.uploaded) sendNudge(); // the learner's other open devices fetch it now
+    // Something arrived: Home and Vocab show it (their counts) when nothing on them would be lost.
+    // (After the refresh button, any page that is safe to draw again.)
+    if (shouldRedraw({ received: s.received, hash: location.hash, busy: busyNow() || document.body.classList.contains("rv-open"), manual: refreshing })) route();
     emit("feeds", { synced: true });
     requestAnkiSync(4000);  // words that just arrived from the computer get their AnkiDroid cards
     const done = lib.episodes.filter((e) => e.transcript_rev);
@@ -1270,8 +1393,8 @@ async function boot() {
     toast(n === 1 ? "1 new podcast episode" : `${n} new podcast episodes`);
     emit("feeds", { refreshed: true });
   }).catch((e) => console.warn(e));
-  syncNow().then(lookForEpisodes, lookForEpisodes);
-  setInterval(() => syncNow(), 5 * 60 * 1000);
+  check().then(lookForEpisodes, lookForEpisodes);
+  planChecks();
   // The two-way sync with the Tamkeen deck in AnkiDroid (off until switched on in Settings):
   // on start, on return to the app, and every 10 minutes while open.
   onAnki((data) => emit("anki", data));
@@ -1290,7 +1413,8 @@ async function boot() {
       sessionStorage.setItem("launchLinkOpened", url);
       openTamkeenLink(url);
     }).catch(() => {});
-    App.addListener("resume", () => { syncNow().then(lookForEpisodes, lookForEpisodes); requestAnkiSync(3000); });
+    App.addListener("resume", () => { check().then(lookForEpisodes, lookForEpisodes); planChecks(); requestAnkiSync(3000); });
+    App.addListener("pause", () => { flushSync(); }); // put away: send a waiting change now
     App.addListener("backButton", () => {
       if (location.hash && location.hash !== "#/") history.back();
       else App.exitApp();

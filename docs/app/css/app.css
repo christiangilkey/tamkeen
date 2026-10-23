@@ -7,6 +7,15 @@
     U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB,
     U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EEFF;
 }
+/* Persian: Vazirmatn (SIL Open Font License, licenses/vazirmatn.txt), the usual font of Persian sites and apps,
+   cut down to its Arabic-script letters (Latin letters come from the fonts after it). Any weight 100-900. */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../fonts/Vazirmatn.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+200C-200F, U+2010-2011, U+FB50-FDFF, U+FE70-FEFC;
+}
 
 :root {
   --bg: #f6f4f1;
@@ -111,8 +120,21 @@ p { margin: 0 0 .75em; }
 :lang(ja) { --ar-font: "Hiragino Sans", "Yu Gothic UI", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", sans-serif; }
 :lang(zh) { --ar-font: "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif; }
 :lang(th) { --ar-font: "Leelawadee UI", "Thonburi", "Noto Sans Thai", "Noto Sans Thai UI", "Tahoma", sans-serif; }
+:lang(fa) { --ar-font: "Vazirmatn", "Segoe UI", "Noto Sans Arabic", "Noto Naskh Arabic", "Geeza Pro", Tahoma, sans-serif; }
+/* The app shown in Persian: its own words in Vazirmatn too (Latin letters keep the usual font). */
+:root:lang(fa) { --ui-font: "Vazirmatn", ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", system-ui,
+  -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif; }
+/* Hindi (Devanagari): Windows, Apple, Android/Linux fonts. With the interface in Hindi, its text uses them too. */
+:lang(hi) { --ar-font: "Nirmala UI", "Kohinoor Devanagari", "Devanagari Sangam MN", "Noto Sans Devanagari", "Mangal", sans-serif; }
+:root:lang(hi) {
+  --ui-font: ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", "Nirmala UI", "Kohinoor Devanagari",
+    "Noto Sans Devanagari", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+:lang(ko) { --ar-font: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", "Noto Sans CJK KR", "Nanum Gothic", sans-serif; }
+/* The app shown in Korean: a Korean font for the interface too (Segoe UI and the rounded fonts have no Hangul). */
+html:lang(ko) { --ui-font: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", "Noto Sans CJK KR", system-ui, -apple-system, Roboto, sans-serif; }
 /* (back to the default inside study text in these, when the whole page is in Japanese, say: i18n.js) */
-:lang(es), :lang(fr), :lang(it), :lang(tl), :lang(pt), :lang(ca), :lang(ceb), :lang(ru), :lang(en) {
+:lang(es), :lang(fr), :lang(it), :lang(tl), :lang(pt), :lang(ca), :lang(ceb), :lang(ru), :lang(en), :lang(de) {
   --ar-font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", "Noto Sans", Roboto, Arial, sans-serif;
 }
 .ar { font-family: var(--ar-font); unicode-bidi: plaintext; }
@@ -144,6 +166,15 @@ button.danger { color: var(--danger); }
   background: rgba(255, 255, 255, .14); color: #fff; border: 1px solid rgba(255, 255, 255, .22); font-weight: 600; flex: none; }
 .lang-switch:hover:not(:disabled) { background: rgba(255, 255, 255, .22); }
 .lang-switch-caret { font-size: .75em; opacity: .8; }
+/* The refresh button in the top bar (components/refreshbutton.js): a round line icon that turns while syncing. */
+.top-refresh { margin-inline-start: auto; flex: none; width: 34px; height: 34px; min-width: 0; min-height: 0; padding: 0;
+  display: inline-grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .14); color: #fff; }
+.top-refresh:hover:not(:disabled) { background: rgba(255, 255, 255, .22); }
+.top-refresh svg { display: block; }
+.top-refresh.spinning svg { animation: spin .9s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .top-refresh.spinning svg { animation: none; } .top-refresh.spinning { opacity: .6; } }
+.global-search ~ .top-refresh { margin-inline-start: -8px; } /* the computer: just after the search box */
+.top-refresh + .top-search { margin-inline-start: 6px; }
 /* Reset Tamkeen (components/resetapp.js): a plain solid red button. */
 button.danger-solid { background: #d92d20; color: #fff; border-color: #d92d20; font-weight: 700; }
 button.danger-solid:hover:not(:disabled) { background: #d92d20; filter: brightness(1.08); }

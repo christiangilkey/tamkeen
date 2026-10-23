@@ -141,8 +141,9 @@ function tidy(text) {
     .trim();
 }
 
-/** Split `text` into words spread over start..end in proportion to their length. */
-function spread(text, start, end) {
+/** Split `text` into words spread over start..end in proportion to their length. (Netflix's
+ * subtitles are timed per line too: netflix-ttml.js.) */
+export function spread(text, start, end) {
   const tokens = text.split(" ").filter(Boolean);
   const total = tokens.reduce((n, t) => n + t.length, 0) || 1;
   const out = [];

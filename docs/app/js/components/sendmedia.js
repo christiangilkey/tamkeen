@@ -40,6 +40,9 @@ const OWN_FILES = new Set(["local:videos", "local:audio"]);
 export function mediaFromEpisode(ep, { at = 0 } = {}) {
   if (!ep) return null;
   const type = ep.audio_type || "";
+  // A Netflix title is never sent: its words are Netflix's subtitles, from the user's own Netflix,
+  // for his own study (see app/netflix.py).
+  if (type === "video/netflix") return null;
   const base = { episode_id: ep.id, title: text(ep.title, 200), image: social.safeUrl(ep.image || ep.feed_image || ""),
                  language: ep.language || null, duration: ep.duration || null, at: Math.max(0, Math.floor(at || 0)) };
   if (type === "video/youtube") return { ...base, kind: "youtube", url: http(ep.audio_url), subtitle: text(ep.description, 120) };

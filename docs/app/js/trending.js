@@ -9,12 +9,16 @@
 // that language, and merge them. A chart does not say where a podcast's feed lives, so the feed
 // addresses come from a second request, Apple's "lookup".
 //
-// Four languages need more than a country's top 200:
+// Five languages need more than a country's top 200:
 //   Catalan  Spain's overall chart holds only a handful of Catalan podcasts, so its 19 category
 //            charts are read too (CATEGORY_CHARTS): still ranked by listeners, and 100+ Catalan shows.
 //   Tagalog  the Philippines' overall chart is mostly English (about 14 Tagalog shows); with its
 //            category charts about 40 (checked 2026-10-18).
 //   Thai     Thailand's overall chart gives about 90 Thai shows; with its category charts about 300.
+//   Hindi    India's overall chart is nearly all English: 13 Hindi shows of 200; with its category charts
+//            239 (checked 2026-10-21). See inHindi below for how a Hindi show is told from the rest.
+//   Korean   South Korea's overall chart is about half Korean (112 of 200; the rest mostly English-learning
+//            shows); with its category charts over 700 (checked 2026-10-21).
 //   Bisaya   no Bisaya podcast reaches Apple's or Spotify's charts in the Philippines (checked
 //            2026-10-18: Apple's top 200 and all 19 category charts, Spotify's top 100). Its list is
 //            the Bisaya podcasts with a public feed, most-rated first on Spotify and Apple together
@@ -40,10 +44,14 @@ export const STOREFRONTS = {
   ca: ["es"],
   ceb: ["ph"],
   th: ["th"],
+  hi: ["in"],
+  ko: ["kr"],
   en: ["us", "gb", "au", "ca"],
+  de: ["de", "at", "ch"],
+  fa: ["af", "tj"],
 };
 /** Languages whose countries' 19 category charts are read as well as the overall chart. */
-export const CATEGORY_CHARTS = new Set(["ca", "tl", "th"]);
+export const CATEGORY_CHARTS = new Set(["ca", "tl", "th", "fa", "hi", "ko"]);
 /** Apple's ids for its 19 main podcast headings (the category charts). */
 export const CATEGORY_IDS = [1301, 1321, 1303, 1304, 1483, 1511, 1512, 1487, 1305, 1502, 1310, 1489, 1314, 1533, 1324,
   1545, 1309, 1318, 1488];
@@ -54,6 +62,10 @@ export const COUNTRY_NAMES = {
   fr: "France", be: "Belgium", jp: "Japan", cn: "China", tw: "Taiwan", ru: "Russia", it: "Italy", ch: "Switzerland",
   ph: "the Philippines", us: "the United States", gb: "the United Kingdom", au: "Australia", ca: "Canada",
   br: "Brazil", th: "Thailand",
+  de: "Germany", at: "Austria",
+  af: "Afghanistan", tj: "Tajikistan",
+  in: "India",
+  kr: "South Korea",
 };
 /** Apple's main podcast headings. */
 export const MAIN_CATEGORIES = ["Arts", "Business", "Comedy", "Education", "Fiction", "Government", "Health & Fitness",
@@ -93,7 +105,7 @@ export function parseChart(data) {
   return out;
 }
 
-const SCRIPTS = { ar: /[؀-ۿ]/, ru: /[Ѐ-ӿ]/, ja: /[぀-ヿ一-鿿]/, zh: /[一-鿿]/, th: /[\u0E00-\u0E7F]/ };
+const SCRIPTS = { ar: /[؀-ۿ]/, ru: /[Ѐ-ӿ]/, ja: /[぀-ヿ一-鿿]/, zh: /[一-鿿]/, th: /[\u0E00-\u0E7F]/, ko: /[가-힯]/ };
 // Letters of scripts other than the Latin one: a show written mostly in them isn't Spanish or Tagalog
 // (the Philippines' and Spain's charts hold Chinese and Japanese shows too).
 const NOT_LATIN = /[Ͱ-ϿЀ-ӿ֐-׿؀-ۿ฀-๿぀-ヿ㐀-鿿가-힯]/g;
@@ -102,6 +114,14 @@ const LATIN = /[A-Za-zÀ-ɏ]/g;
 // Arabic doesn't (پ چ ژ گ) and little words of its own.
 const PERSIAN = { letters: /[پچژگ]/g, words: ["این", "که", "را", "است", "می", "های", "برای", "از", "با", "یک", "پادکست", "شما"] };
 const ARABIC_WORDS = ["في", "من", "على", "إلى", "عن", "مع", "هذا", "هذه", "التي", "الذي", "كل", "هو", "هي", "بودكاست", "لا", "و", "أن"];
+// Persian's own k and y (Arabic writes ك ي) and the half space inside its words (ZWNJ: پادکست‌های).
+const PERSIAN_KY = /[کی‌]/g;
+// Urdu, Pashto and Kurdish are written in Arabic letters too, and their shows turn up in Afghanistan's charts
+// (SBS Urdu, SBS Pashto): letters Persian never uses, and the languages' names.
+const NOT_PERSIAN = /[ٹڈڑںےۂھہټډړږښځڅڼېۍګەێۆڵڕ]/g;
+const OTHER_ARABIC_SCRIPT = ["اردو", "پښتو", "پشتو", "کوردی", "کردی", "سورانی", "ایک"];
+// (و "and" and من "I" are Persian words too)
+const ARABIC_NOT_PERSIAN = ARABIC_WORDS.filter((w) => w !== "و" && w !== "من");
 // A few of the commonest little words, enough to tell Spanish or French from English.
 const LITTLE_WORDS = {
   es: ["el", "la", "los", "las", "de", "del", "que", "y", "en", "un", "una", "con", "por", "para", "más", "tu", "sobre"],
@@ -114,6 +134,9 @@ const LITTLE_WORDS = {
   ceb: ["ang", "sa", "nga", "ug", "og", "mga", "kay", "dili", "kini", "ni", "usa", "naa", "wala", "man", "pud", "sab", "kaayo",
         "nato", "bisaya", "binisaya"],
   en: ["the", "and", "of", "to", "with", "is", "for", "in", "on", "your", "from", "that", "this", "you", "about", "we"],
+  // (not "was", "in", "an", "so" or "man": English words too)
+  de: ["der", "die", "das", "und", "ist", "mit", "von", "nicht", "ein", "eine", "auf", "für", "ich", "wir", "sie", "zu", "über",
+       "den", "dem", "im", "auch", "wie", "sich", "oder", "aber", "nach", "bei", "mehr", "du", "uns", "zum", "zur", "geht", "als"],
 };
 // Languages that share most of their little words with a neighbour (Catalan, Spanish, Portuguese, French
 // and Italian; Bisaya and Tagalog) are told apart by words and letters only one of them uses.
@@ -134,12 +157,18 @@ const OWN = {
                 "kasi", "paano", "bakit"], letters: null },
   fr: { words: ["le", "et", "des", "du", "une", "est", "pour", "avec", "dans", "sur", "vous", "qui", "au", "aux", "ses", "ce",
                 "cette", "pas", "plus", "très", "où"], letters: /[œêâîûëù]/g },
+  // German and Dutch: Switzerland's and Austria's charts are mostly German, and Dutch shows, which share
+  // "die", "wie", "was" and "in" with German, turn up in Germany's. (ij is Dutch's own letter pair.)
+  de: { words: ["der", "das", "und", "ist", "nicht", "ich", "auch", "sich", "wir", "mit", "für", "über", "auf", "eine", "einen",
+                "dem", "den", "zum", "zur", "im", "von", "bei", "noch", "nach", "aber", "oder", "du", "uns", "mehr", "sind", "jetzt"],
+        letters: /[äöüß]/g },
+  nl: { words: ["het", "een", "van", "en", "is", "met", "op", "voor", "niet", "dat", "zijn", "wij", "je", "ik", "naar", "ook",
+                "elke", "wat", "bij", "nog", "deze", "maar", "de", "onze", "jullie", "hoe", "uit", "zo", "te", "wordt"], letters: /ij/g },
 };
 // The charts of Belgium and Switzerland, and Spain's category charts, mix in shows from all over Europe;
 // these are told apart too.
 const OTHER_LITTLE_WORDS = {
-  de: ["der", "die", "das", "und", "ist", "mit", "von", "nicht", "ein", "eine", "auf", "für", "ich", "wir", "sie", "zu", "über",
-       "den", "dem", "im", "auch", "wie"],
+  // (German is taught: its little words are LITTLE_WORDS.de)
   nl: ["het", "een", "van", "is", "met", "op", "voor", "niet", "dat", "zijn", "wij", "je", "ik", "naar", "over", "ook", "elke",
        "wat", "bij", "nog", "deze", "maar"],
   // (and the Philippines' category charts, shows from India, Vietnam and the Czech Republic)
@@ -151,7 +180,7 @@ const OTHER_LITTLE_WORDS = {
 };
 const ALL_LITTLE_WORDS = { ...LITTLE_WORDS, ...OTHER_LITTLE_WORDS };
 // Close neighbours, told apart by OWN rather than by the little words they share.
-const FAMILIES = [["es", "pt", "ca", "fr", "it"], ["tl", "ceb"]];
+const FAMILIES = [["es", "pt", "ca", "fr", "it"], ["tl", "ceb"], ["de", "nl"]];
 const familyOf = (lang) => FAMILIES.find((f) => f.includes(lang)) || [lang];
 // Languages that are the smaller one in their countries' charts: a podcast must show more of the language
 // than of each neighbour (and at least two signs of it); for the others a tie is enough. (Catalan's
@@ -163,15 +192,63 @@ const STRICT = new Set(["ca", "ceb"]);
 const LOOKALIKES = { pt: ["es"] };
 // Languages whose first country's chart is mostly in them: there, a show with nothing to judge it by
 // (a name of a few words and no description) is taken to be in the language.
-const HOME_CHART = new Set(["es", "fr", "it", "pt", "en"]);
+const HOME_CHART = new Set(["es", "fr", "it", "pt", "en", "de"]);
 const count = (words, list) => words.reduce((n, w) => n + (list.includes(w) ? 1 : 0), 0);
 const ownCount = (text, words, lang) => count(words, OWN[lang].words) + (OWN[lang].letters ? (text.match(OWN[lang].letters) || []).length : 0);
+
+// Hindi: India's charts are mostly English, with shows in Tamil, Malayalam, Telugu, Marathi... A Hindi show
+// is written either in Devanagari, which Marathi and Nepali use too (told apart by their own little words, and
+// Marathi's letter ळ and its -च्या endings), or in Latin letters as Indians type Hindi online ("Main hoon Anant,
+// aur main koshish karunga..."), or it says it is in Hindi.
+const DEVANAGARI = /[\u{900}-\u{97F}]/gu;
+const OTHER_INDIAN = /[\u{980}-\u{DFF}]/gu; // Bengali, Gurmukhi, Gujarati, Odia, Tamil, Telugu, Kannada, Malayalam, Sinhala
+const DEVANAGARI_SIGNS = {
+  hi: ["है", "हैं", "में", "और", "नहीं", "क्या", "कैसे", "कि", "यह", "वह", "आप", "अपने", "लिए", "साथ", "बात", "हिंदी", "हिन्दी",
+       "हम", "भी", "की", "का", "के", "से", "पर", "कहानी", "कहानियाँ", "जो", "था", "थी", "सब", "बहुत", "लेकिन", "क्यों", "कौन",
+       "यहाँ", "वहाँ", "मैं", "मुझे", "तुम", "आपके", "आपका", "रहा", "रही", "रहे", "गया", "किया", "होता", "करते", "सुनिए"],
+  mr: ["आहे", "आहेत", "आणि", "मराठी", "नाही", "आपण", "काय", "मध्ये", "साठी", "आपल्या", "होती", "करा", "आता", "गोष्ट"],
+  ne: ["छ", "छन्", "नेपाली", "पनि", "लागि", "गर्ने", "भएको", "हुन्छ", "हुने", "गरेको", "तपाईं", "हामी", "थियो", "अनि", "र", "मा"],
+};
+// (Not the English-looking ones: "main" is also English.)
+const HINDI_LATIN = ["hai", "hain", "hoon", "hun", "mein", "aur", "ke", "ki", "ka", "ko", "se", "aap", "aapko", "aapke", "apne", "apni",
+  "kya", "nahi", "nahin", "bhi", "yeh", "woh", "kaise", "kyun", "kyon", "kahani", "kahaniyan", "baat", "baatein", "zindagi",
+  "duniya", "sunein", "suniye", "liye", "saath", "wale", "wali", "karte", "karna", "hota", "hoti", "tha", "thi", "hum", "mai"];
+
+// Other languages of India a show's name may say it is in ("Baalgatha Telugu", "Marathi Stories for Kids").
+const INDIAN_LANGUAGES = ["telugu", "tamil", "kannada", "malayalam", "marathi", "bengali", "bangla", "gujarati", "punjabi", "odia",
+  "oriya", "bhojpuri", "assamese", "nepali", "urdu", "sanskrit", "konkani"];
+
+function inHindi(title, text) {
+  const deva = (text.match(DEVANAGARI) || []).length;
+  if ((text.match(OTHER_INDIAN) || []).length > deva) return false;
+  const lower = text.toLowerCase();
+  const named = String(title).toLowerCase().split(/[^\p{L}]+/u);
+  if (!named.includes("hindi") && named.some((w) => INDIAN_LANGUAGES.includes(w))) return false;
+  if (deva) {
+    const words = text.split(/[^\p{L}\p{M}]+/u).filter(Boolean);
+    const signs = (code) => count(words, DEVANAGARI_SIGNS[code]);
+    const marathi = signs("mr") + (text.match(/ळ/g) || []).length + words.filter((w) => w.endsWith("च्या")).length;
+    // (and Hindi's future: जाएगा, करेंगे, करूँगी)
+    const hindi = signs("hi") + words.filter((w) => /(?:ेगा|ेगी|ेंगे|ेंगी|ूँगा|ूंगा|ूँगी|ूंगी|एगा|एगी|एंगे)$/u.test(w)).length;
+    if (hindi || marathi || signs("ne")) return hindi >= marathi && hindi >= signs("ne") && hindi > 0;
+    // Devanagari with none of the little words (a name, a title of a few words): taken as Hindi when it is
+    // the main writing; mostly English with a word of Devanagari in it, judged as Latin text below.
+    if (deva >= (lower.match(LATIN) || []).length) return true;
+  }
+  const words = lower.split(/[^\p{L}]+/u).filter(Boolean);
+  if (words.includes("hindi")) return true; // "Horror Stories in Hindi", "Bhagavad Gita (Hindi)"
+  const hindi = count(words, HINDI_LATIN);
+  // (more than of any other language's little words: German "KI" is no Hindi "ki")
+  return hindi >= 3 && Object.entries(ALL_LITTLE_WORDS).every(([code, list]) => code === "hi" || hindi > count(words, list));
+}
 
 /** Is this podcast (judged by its name, maker and description) in the language being studied?
  * Charts in the UAE or Belgium, say, hold plenty of podcasts in other languages. `home`: the podcast is
  * from the chart of the language's own main country, where a show with nothing to judge it by is kept. */
 export function inLanguage(item, lang, home = false) {
   const text = `${item.title} ${item.author} ${item.description}`;
+  if (lang === "fa") return inPersian(text);
+  if (lang === "hi") return inHindi(item.title, text);
   if (SCRIPTS[lang]) {
     if (!SCRIPTS[lang].test(text)) return false;
     if (lang !== "ar") return true;
@@ -203,6 +280,20 @@ export function inLanguage(item, lang, home = false) {
   // but it is Spanish): not shown as this one.
   if (!signs && (LOOKALIKES[lang] || []).some((other) => count(words, LITTLE_WORDS[other]) >= mine)) return false;
   return neighbours.every((other) => (strict ? signs > ownCount(lower, words, other) : signs >= ownCount(lower, words, other)));
+}
+
+/** Persian, not Arabic, Urdu, Pashto or Kurdish: more signs of Persian (its little words, its four letters, its
+ * own k and y, the half space) than of Arabic (its little words, ة, and a little for ي ك, which a Persian typing
+ * on an Arabic keyboard writes too), and none of the letters or words only the others use (one letter in fifty
+ * is let through: a name). Persian shows from Afghanistan's and Tajikistan's charts. */
+function inPersian(text) {
+  const letters = (text.match(/[؀-ۿ]/g) || []).length;
+  if (!letters) return false;
+  const words = text.split(/[^\p{L}\p{M}‌]+/u);
+  if (count(words, OTHER_ARABIC_SCRIPT) || (text.match(NOT_PERSIAN) || []).length * 50 > letters) return false;
+  const persian = count(words, PERSIAN.words) + (text.match(PERSIAN.letters) || []).length + (text.match(PERSIAN_KY) || []).length;
+  const arabic = count(words, ARABIC_NOT_PERSIAN) + (text.match(/ة/g) || []).length + (text.match(/[يك]/g) || []).length / 4;
+  return persian > arabic;
 }
 
 /** Several countries' charts ([[country, items], ...]) → one list, the most popular overall first.

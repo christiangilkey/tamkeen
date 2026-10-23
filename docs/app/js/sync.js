@@ -15,10 +15,13 @@ import { cleanCollections, mergeCollections } from "./igcollections.js";
 import { cleanKeys, keysFromSettings, takeKeys } from "./aikeys.js";
 import { cleanPayload, learningPayload, takeLearning } from "./learnlist.js";
 import { setStudyLanguage } from "./languages.js";
+import { SyncTimer, canSkip, hashText, libraryFingerprint, nudgeKey } from "./syncpace.js";
 
 const LIBRARY = "library.json.gz";
 const listeners = new Set();
-export const syncState = { state: "idle", last_sync: null, error: null, downloaded: 0 };
+// received: changes that came from the other devices in the last sync; uploaded: it sent something
+// (the other open devices get a nudge, syncnudge.js); nudge_key: that nudge's channel key.
+export const syncState = { state: "idle", last_sync: null, error: null, downloaded: 0, received: 0, uploaded: false, nudge_key: "" };
 
 export function onSync(fn) { listeners.add(fn); return () => listeners.delete(fn); }
 function publish(patch) {
@@ -217,48 +220,98 @@ const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: 
 
 // ---------- run ----------
 let running = null;
-let timer = 0;
+let again = false; // a change came in while a sync was running: run once more after it
+// What the last sync ended with, so a check that finds nothing new costs one small Drive request
+// (syncpace.js canSkip): {fp, hash, complete, fullAt}. Kept for this run of the app only.
+let memo = null;
+// The pending sync (syncpace.js): a later, longer request never pushes back a sooner one.
+const pending = new SyncTimer(() => { syncNow({ changed: true }).catch(() => {}); });
+let flushing = false; // the app is being put away: a small library upload uses fetch's keepalive
 
-/** Schedule a sync shortly (debounced), e.g. after a local edit. */
+/** Schedule a sync shortly, e.g. after a local edit (a sooner one already asked for stays sooner). */
 export function requestSync(delayMs = 3000) {
   if (!settings.signed_in || parked()) return;
-  clearTimeout(timer);
-  timer = setTimeout(() => syncNow().catch(() => {}), delayMs);
+  pending.request(delayMs);
 }
 
-export function syncNow() {
+/** The app is being put away, or the reviewer closed: send a waiting change now. True if there was one. */
+export function flushSync() {
+  if (!pending.pending) return false;
+  flushing = true;
+  pending.flush();
+  return true;
+}
+
+/** Sync now. `changed`: there is a change here to send, so if a sync is already running it runs
+ *  once more afterwards (that one may have read the library before the change). */
+export function syncNow({ changed = false } = {}) {
   // After Reset Tamkeen the library is set aside: never compare an empty one with Drive.
   if (!settings.signed_in || parked()) return Promise.resolve(syncState);
-  if (!running) running = doSync().finally(() => { running = null; });
+  if (running) {
+    if (changed) again = true;
+    return running;
+  }
+  pending.cancel(); // this sync takes any waiting change with it
+  running = doSync().finally(() => {
+    running = null;
+    flushing = false;
+    if (again) { again = false; syncNow().catch(() => {}); }
+  });
   return running;
 }
 
+/** The refresh button: a whole sync that starts now (after one already running, if any), so it
+ *  sends what is waiting here and then gets what is new. */
+export async function syncFresh() {
+  if (running) await running.catch(() => {});
+  return syncNow({ changed: true });
+}
+
 async function doSync() {
-  publish({ state: "syncing", error: null });
+  const was = syncState.state;
+  // A check that finds nothing new tells nobody (no page redraws every minute): "syncing" is only
+  // announced once there is something to do.
+  Object.assign(syncState, { state: "syncing", error: null });
   try {
     let files = Object.fromEntries((await drive.list()).map((f) => [f.name, f]));
-    await uploadPendingTranscripts(files);
+    const waiting = ((await kv.get("pending_transcripts")) || []).length + ((await kv.get("pending_clips")) || []).length;
+    const fp = libraryFingerprint(files[LIBRARY]);
+    if (!waiting && memo && memo.fp === fp && canSkip(memo, fp, hashText(content(snapshot())), Date.now())) {
+      // Nothing new in Drive and nothing new here: that was the whole check, one request.
+      await kv.set("drive_files", files);
+      const done = { state: "idle", last_sync: Date.now() / 1000, downloaded: 0, received: 0, uploaded: false };
+      if (was === "error") publish(done); else Object.assign(syncState, done);
+      return syncState;
+    }
+    publish({ state: "syncing", error: null });
+    let uploaded = (await uploadPendingTranscripts(files)) > 0;
     await uploadPendingClips(files);
+    let received = 0;
     for (let attempt = 0; attempt < 3; attempt++) {
       const meta = files[LIBRARY];
       const remote = meta ? await gunzipJson(await drive.download(meta.id)) : null;
-      if (remote) merge(remote);
+      if (remote) received += merge(remote);
       const local = snapshot();
       if (remote && content(remote) === content(local)) break;
       if (meta) {
         const current = await drive.get(meta.id);
         if (current.modifiedTime !== meta.modifiedTime) { files[LIBRARY] = current; continue; }
       }
-      files[LIBRARY] = await drive.upload(LIBRARY, await gzipJson(local), "application/gzip", meta ? meta.id : null);
+      files[LIBRARY] = await drive.upload(LIBRARY, await gzipJson(local), "application/gzip", meta ? meta.id : null,
+                                          { keepalive: flushing });
+      uploaded = true;
       break;
     }
     saveLibrary();
     await kv.set("drive_files", files);
     await forgetDeleted();
-    const downloaded = await prefetchTranscripts(files);
-    publish({ state: "idle", last_sync: Date.now() / 1000, downloaded });
+    const { n: downloaded, failed } = await prefetchTranscripts(files);
+    const left = ((await kv.get("pending_transcripts")) || []).length;
+    memo = { fp: libraryFingerprint(files[LIBRARY]), hash: hashText(content(snapshot())), complete: !failed && !left, fullAt: Date.now() };
+    const key = files[LIBRARY] ? await nudgeKey(files[LIBRARY].id).catch(() => "") : "";
+    publish({ state: "idle", last_sync: Date.now() / 1000, downloaded, received: received + downloaded, uploaded, nudge_key: key });
   } catch (e) {
-    publish({ state: "error", error: e.message || String(e) });
+    publish({ state: "error", error: e.message || String(e), uploaded: false, received: 0 });
   }
   return syncState;
 }
@@ -266,22 +319,25 @@ async function doSync() {
 /** Upload what this phone made itself (the text of imported web pages, captions, transcripts
  * written through a cloud provider), before the library mentions them. */
 async function uploadPendingTranscripts(files) {
-  const pending = (await kv.get("pending_transcripts")) || [];
-  if (!pending.length) return;
+  const waiting = (await kv.get("pending_transcripts")) || [];
+  if (!waiting.length) return 0;
   const left = [];
-  for (const uid of pending) {
+  let sent = 0;
+  for (const uid of waiting) {
     const payload = await transcripts.get(uid);
     const ep = lib.episodes.find((e) => e.uid === uid);
     if (!payload || !ep || ep.deleted) continue;
     const name = `t_${uid}.json.gz`;
     try {
       files[name] = await drive.upload(name, await gzipJson(payload), "application/gzip", files[name] ? files[name].id : null);
+      sent++;
     } catch (e) {
       console.warn("Page upload failed", uid, e);
       left.push(uid);
     }
   }
   await kv.set("pending_transcripts", left);
+  return sent;
 }
 
 /** Upload audio clips of words friends shared with this phone, so the computer gets them too. */
@@ -315,6 +371,7 @@ async function forgetDeleted() {
 
 async function prefetchTranscripts(files) {
   let n = 0;
+  let failed = 0;
   for (const ep of lib.episodes) {
     if (ep.deleted) continue;
     const rev = ep.transcript_rev;
@@ -327,9 +384,10 @@ async function prefetchTranscripts(files) {
       n++;
     } catch (e) {
       console.warn("Transcript download failed", ep.uid, e);
+      failed++;
     }
   }
-  return n;
+  return { n, failed };
 }
 
 /** Download a transcript now (e.g. when opening an episode before a sync finished). */

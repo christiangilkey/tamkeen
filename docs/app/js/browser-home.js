@@ -213,6 +213,44 @@ export const NEWS = {
     ["สยามกีฬา", "https://www.siamsport.co.th/", "Siamsport, sport"],
     ["วิกิพีเดีย", "https://th.wikipedia.org/", "Thai Wikipedia"],
   ],
+  // (checked 2026-10-21; NDTV India and News18 Hindi refuse automated checks with 403 but are live)
+  hi: [
+    ["BBC News हिंदी", "https://www.bbc.com/hindi", "BBC Hindi"],
+    ["दैनिक भास्कर", "https://www.bhaskar.com/", "Dainik Bhaskar"],
+    ["दैनिक जागरण", "https://www.jagran.com/", "Dainik Jagran"],
+    ["अमर उजाला", "https://www.amarujala.com/", "Amar Ujala"],
+    ["आज तक", "https://www.aajtak.in/", "Aaj Tak"],
+    ["NDTV इंडिया", "https://ndtv.in/", "NDTV India"],
+    ["नवभारत टाइम्स", "https://navbharattimes.indiatimes.com/", "Navbharat Times"],
+    ["हिन्दुस्तान", "https://www.livehindustan.com/", "Hindustan"],
+    ["द लल्लनटॉप", "https://www.thelallantop.com/", "The Lallantop"],
+    ["DW हिंदी", "https://www.dw.com/hi/", "Deutsche Welle Hindi"],
+    ["News18 हिंदी", "https://hindi.news18.com/", "News18 Hindi"],
+    ["ABP न्यूज़", "https://www.abplive.com/", "ABP News"],
+    ["द वायर हिंदी", "https://thewirehindi.com/", "The Wire Hindi"],
+    ["वेबदुनिया", "https://hindi.webdunia.com/", "Webdunia"],
+    ["हिंदी समय", "https://www.hindisamay.com/", "Hindi Samay, stories and literature"],
+    ["विकिपीडिया", "https://hi.wikipedia.org/", "Hindi Wikipedia"],
+  ],
+  ko: [
+    // (checked live 2026-10-21; the two children's papers retell the day's news in plain Korean)
+    ["어린이동아", "https://kids.donga.com/", "Easier: Dong-A Ilbo's news for children"],
+    ["어린이조선일보", "https://kid.chosun.com/", "Easier: Chosun Ilbo's news for children"],
+    ["KBS 뉴스", "https://news.kbs.co.kr/", "KBS, public broadcaster"],
+    ["MBC 뉴스", "https://imnews.imbc.com/", "MBC, broadcaster"],
+    ["SBS 뉴스", "https://news.sbs.co.kr/", "SBS, broadcaster"],
+    ["YTN", "https://www.ytn.co.kr/", "YTN, 24-hour news channel"],
+    ["연합뉴스", "https://www.yna.co.kr/", "Yonhap, news agency"],
+    ["JTBC 뉴스", "https://news.jtbc.co.kr/", "JTBC, broadcaster"],
+    ["조선일보", "https://www.chosun.com/", "Chosun Ilbo"],
+    ["중앙일보", "https://www.joongang.co.kr/", "JoongAng Ilbo"],
+    ["동아일보", "https://www.donga.com/", "Dong-A Ilbo"],
+    ["한겨레", "https://www.hani.co.kr/", "Hankyoreh"],
+    ["경향신문", "https://www.khan.co.kr/", "Kyunghyang Shinmun"],
+    ["BBC 코리아", "https://www.bbc.com/korean", "BBC, in Korean"],
+    ["스포츠서울", "https://www.sportsseoul.com/", "Sports Seoul, sport"],
+    ["위키백과", "https://ko.wikipedia.org/", "Korean Wikipedia"],
+  ],
   en: [
     ["News in Levels", "https://www.newsinlevels.com/", "Easier: the news at three levels of English"],
     ["VOA Learning English", "https://learningenglish.voanews.com/", "Easier: news in slow, simple English"],
@@ -227,13 +265,54 @@ export const NEWS = {
     ["The Verge", "https://www.theverge.com/", "Technology news"],
     ["Wikipedia", "https://simple.wikipedia.org/", "Easier: Simple English Wikipedia"],
   ],
+  // (checked 2026-10-21: all answer; Die Zeit and kicker refuse automated checks with 403 but are live)
+  de: [
+    ["nachrichtenleicht", "https://www.nachrichtenleicht.de/", "Easier: news for learners"],
+    ["DW Kurz und leicht", "https://learngerman.dw.com/de/kurz-und-leicht/s-69137519", "Easier: news for learners"],
+    ["logo!", "https://www.logo.de/", "Easier: news for children"],
+    ["tagesschau", "https://www.tagesschau.de/", "Germany's public broadcaster"],
+    ["ZDFheute", "https://www.zdfheute.de/", "Germany's public broadcaster"],
+    ["Deutsche Welle", "https://www.dw.com/de/", "World news"],
+    ["Der Spiegel", "https://www.spiegel.de/", "Weekly news magazine"],
+    ["Die Zeit", "https://www.zeit.de/", "Weekly newspaper"],
+    ["Süddeutsche Zeitung", "https://www.sueddeutsche.de/", "Munich"],
+    ["ORF", "https://orf.at/", "Austria's public broadcaster"],
+    ["Der Standard", "https://www.derstandard.at/", "Austria"],
+    ["SRF News", "https://www.srf.ch/news", "Switzerland's public broadcaster"],
+    ["NZZ", "https://www.nzz.ch/", "Switzerland"],
+    ["heise online", "https://www.heise.de/", "Technology news"],
+    ["Handelsblatt", "https://www.handelsblatt.com/", "Business news"],
+    ["kicker", "https://www.kicker.de/", "Sport"],
+    ["Wikipedia", "https://de.wikipedia.org/", "German Wikipedia"],
+  ],
+  // (all checked live 2026-10-21: in Persian and answering from outside Iran; ISNA and IRNA answered with an
+  // empty page, Tolo News and IranWire with a robot check, so they are left out)
+  fa: [
+    ["بی‌بی‌سی فارسی", "https://www.bbc.com/persian", "BBC Persian"],
+    ["یورونیوز", "https://parsi.euronews.com/", "Euronews"],
+    ["دویچه وله فارسی", "https://www.dw.com/fa-ir/", "Deutsche Welle"],
+    ["رادیو فردا", "https://www.radiofarda.com/", "Radio Liberty"],
+    ["ایران اینترنشنال", "https://www.iranintl.com/", "Iran International"],
+    ["صدای آمریکا", "https://ir.voanews.com/", "Voice of America"],
+    ["همشهری آنلاین", "https://www.hamshahrionline.ir/", "Hamshahri, Tehran"],
+    ["خبرآنلاین", "https://www.khabaronline.ir/", "Khabar Online"],
+    ["عصر ایران", "https://www.asriran.com/", "Asr Iran"],
+    ["شرق", "https://www.sharghdaily.com/", "Shargh"],
+    ["دنیای اقتصاد", "https://donya-e-eqtesad.com/", "Business news"],
+    ["زومیت", "https://www.zoomit.ir/", "Technology news"],
+    ["ورزش سه", "https://www.varzesh3.com/", "Sport"],
+    ["اطلاعات روز", "https://www.etilaatroz.com/", "Etilaatroz, Afghanistan"],
+    ["رادیو آزادی", "https://da.azadiradio.com/", "Radio Azadi, Afghanistan"],
+    ["ویکی‌پدیا", "https://fa.wikipedia.org/", "Persian Wikipedia"],
+  ],
 };
 
 // Language names and the few words on the page, for the languages taught (the page itself is in
 // English, like the rest of the app; only the heading greets in the language).
 const NAMES = { ar: "Arabic", es: "Spanish", fr: "French", ja: "Japanese", zh: "Chinese", ru: "Russian", it: "Italian",
-                tl: "Tagalog", pt: "Brazilian Portuguese", ca: "Catalan", ceb: "Bisaya (Cebuano)", th: "Thai", en: "English" };
-const RTL = { ar: true };
+                tl: "Tagalog", pt: "Brazilian Portuguese", ca: "Catalan", ceb: "Bisaya (Cebuano)", th: "Thai", hi: "Hindi", ko: "Korean", en: "English",
+                de: "German", fa: "Persian" };
+const RTL = { ar: true, fa: true };
 
 export const hasNews = (code) => Object.prototype.hasOwnProperty.call(NEWS, code);
 

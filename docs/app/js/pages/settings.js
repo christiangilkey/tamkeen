@@ -42,7 +42,7 @@ const THEMES = { system: "System", light: "Light", dark: "Dark" };
 const THEME_LINE = { system: "System theme", light: "Light theme", dark: "Dark theme" };
 // On the phone some sections hold other things than on the computer.
 const ABOUTS = {
-  apps: isWeb ? "Google Tasks, Onyx, and the Tamkeen app." : android ? "AnkiDroid, Google Tasks and Onyx." : "Google Tasks and Onyx.",
+  apps: isWeb ? "Google Calendar, Google Tasks, Onyx, and the Tamkeen app." : android ? "AnkiDroid, Google Calendar, Google Tasks and Onyx." : "Google Calendar, Google Tasks and Onyx.",
   data: isWeb ? "Starting again, the privacy policy and licenses." : "Updates, starting again, the privacy policy and licenses.",
 };
 
