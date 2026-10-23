@@ -139,7 +139,10 @@
   }
 
   function tick() {
-    var found = player();
+    // Only on a title's own page (/watch/...): Netflix's home and browse pages play trailers with a
+    // player of their own, and treating one as the title playing hid the whole page but the trailer
+    // (dark once scrolled past it) and changed the trailer's soundtrack.
+    var found = pageKind() === "watch" ? player() : null;
     document.documentElement.classList.toggle("tk-only-video", !!(found && video() && !prompt() && !errorText()));
     if (found) choose(found);
   }
