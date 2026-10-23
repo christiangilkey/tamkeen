@@ -2167,6 +2167,8 @@
 "Seek":"กรอ",
 "⟲ Looping sentence":"⟲ กำลังเล่นประโยคซ้ำ",
 "Stop looping":"หยุดเล่นซ้ำ",
+"Back to the start of the sentence (R)":"กลับไปต้นประโยค (R)",
+"Back to the start of the sentence":"กลับไปต้นประโยค",
 "Back 5 seconds (←)":"ย้อนกลับ 5 วินาที (←)",
 "Play/Pause (Space)":"เล่น/หยุดชั่วคราว (Space)",
 "Forward 5 seconds (→)":"ไปข้างหน้า 5 วินาที (→)",

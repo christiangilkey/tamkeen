@@ -2167,6 +2167,8 @@
 "Seek":"이동",
 "⟲ Looping sentence":"⟲ 문장 반복 중",
 "Stop looping":"반복 멈추기",
+"Back to the start of the sentence (R)":"문장 처음으로 돌아가기 (R)",
+"Back to the start of the sentence":"문장 처음으로 돌아가기",
 "Back 5 seconds (←)":"5초 뒤로(←)",
 "Play/Pause (Space)":"재생/일시정지(스페이스)",
 "Forward 5 seconds (→)":"5초 앞으로(→)",

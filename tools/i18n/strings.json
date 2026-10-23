@@ -10845,6 +10845,16 @@
   "f": "web/js/pages/player.js"
  },
  {
+  "id": "9973352b",
+  "k": "Back to the start of the sentence (R)",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "570eb463",
+  "k": "Back to the start of the sentence",
+  "f": "web/js/pages/player.js"
+ },
+ {
   "id": "5c934b0d",
   "k": "Back 5 seconds (←)",
   "f": "web/js/pages/player.js"

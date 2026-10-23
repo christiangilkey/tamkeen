@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** A "back to the start of the sentence" button beside "back 5 seconds", in the player and the Netflix extension (key R). Pressed again right away, it goes one sentence further back.
 - **Improved:** On a computer, the word popup's close button sits at the bottom right, beside Save.
 - **Improved:** Quick lookup's word popup keeps the Word and Sentence play buttons.
 - **New:** Each friend's daily streak shows as a gold flame beside their name in Friends, 0 days included.

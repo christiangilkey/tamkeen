@@ -16,6 +16,7 @@ import { esc, h, toast } from "../app.js";
 import { device, kv, known, loadSettings, settings } from "../store.js";
 import { startTranslating, t } from "../i18n.js";
 import { icon } from "../icons.js";
+import { sentenceStart } from "../sentencestart.js";
 import { gap, joinWords, regroupWords, setLang, setStudyLanguage } from "../languages.js";
 import { EDGE_PUNCT, activeWordIndex, formatTime, sentenceBounds } from "../wordlookup.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
@@ -85,6 +86,7 @@ root.innerHTML = `
     <div class="ctl">
       <div class="ctl-side"></div>
       <div class="ctl-main">
+        <button type="button" id="restart" title="Back to the start of the sentence (R)" aria-label="Back to the start of the sentence">${icon("sentence-start", 18)}</button>
         <button type="button" id="back" title="Back 5 seconds (←)" aria-label="Back 5 seconds">${icon("back", 18)}<span>5</span></button>
         <button type="button" id="play" class="play primary" title="Play/Pause (Space)" aria-label="Play">${icon("play", 20)}</button>
         <button type="button" id="ahead" title="Forward 5 seconds (→)" aria-label="Forward 5 seconds"><span>5</span>${icon("ahead", 18)}</button>
@@ -286,6 +288,7 @@ requestAnimationFrame(frame);
 // ---------- the controls ----------
 $("#play").onclick = () => { S.clipEnd = null; cmd(S.player && !S.player.paused ? "pause" : "play"); };
 $("#back").onclick = () => { S.clipEnd = null; seek(now() - 5); };
+$("#restart").onclick = () => { S.clipEnd = null; seek(sentenceStart(S.lines.map((l) => l.start), now())); };
 $("#ahead").onclick = () => { S.clipEnd = null; seek(now() + 5); };
 $("#speed").onchange = (e) => cmd("rate", Number(e.target.value) || 1);
 $("#fold").onclick = () => setSide(false);
@@ -314,6 +317,7 @@ addEventListener("keydown", (e) => {
   if (e.key === " ") { e.preventDefault(); $("#play").click(); }
   else if (e.key === "ArrowLeft") { e.preventDefault(); $("#back").click(); }
   else if (e.key === "ArrowRight") { e.preventDefault(); $("#ahead").click(); }
+  else if (e.key === "r" || e.key === "R") $("#restart").click();
   else if (e.key === "t" || e.key === "T") setSide(side.hidden);
   else if (e.key === "f" || e.key === "F") send({ type: "fullscreen" });
   else if (e.key === "Escape" && bubble.open) bubble.hide();

@@ -34,6 +34,7 @@ import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
+import { sentenceStart } from "../sentencestart.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
 import { wordClip } from "../wordclip.js";
@@ -254,6 +255,7 @@ export async function render(view, { id, query }) {
         </div>
         <div class="btnrow">
           <span id="loop-chip" class="chip" hidden>⟲ Looping sentence <button type="button" id="loop-off" title="Stop looping">✕</button></span>
+          <button type="button" id="restart" class="icon" title="Back to the start of the sentence (R)" aria-label="Back to the start of the sentence">${icon("sentence-start", 16)}</button>
           <button type="button" id="back5" title="Back 5 seconds (←)">⟲ 5s</button>
           <button type="button" id="play" class="play primary" title="Play/Pause (Space)">▶</button>
           <button type="button" id="fwd5" title="Forward 5 seconds (→)">5s ⟳</button>
@@ -477,6 +479,9 @@ export async function render(view, { id, query }) {
   };
   $("#play").onclick = () => { clipEnd = null; audio.paused ? play() : audio.pause(); };
   $("#back5").onclick = () => seekTo(audio.currentTime - 5, false);
+  // Back to the start of the line being heard (again within a second: the line before).
+  const lineStarts = Float64Array.from(data.segments.map((s) => s.start)).sort();
+  $("#restart").onclick = () => seekTo(sentenceStart(lineStarts, audio.currentTime), false);
   $("#fwd5").onclick = () => seekTo(audio.currentTime + 5, false);
   $("#speed").onchange = (e) => {
     speed = Number(e.target.value);
@@ -1096,6 +1101,7 @@ export async function render(view, { id, query }) {
     if (e.key === " " ) { e.preventDefault(); audio.paused ? play() : audio.pause(); }
     else if (e.key === "ArrowLeft") { e.preventDefault(); seekTo(audio.currentTime - 5, false); }
     else if (e.key === "ArrowRight") { e.preventDefault(); seekTo(audio.currentTime + 5, false); }
+    else if ((e.key === "r" || e.key === "R") && !e.ctrlKey && !e.metaKey) $("#restart").click();
     else if (e.key === "Escape") { if (bubble.open) bubble.hide(); else clearLoop(); }
     else if (vid && (e.key === "t" || e.key === "T")) setPanel(!playerEl.classList.contains("panel-open"));
     else if (vid && (e.key === "c" || e.key === "C")) setCaptions(playerEl.classList.contains("cc-off"));

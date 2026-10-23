@@ -2167,6 +2167,8 @@
 "Seek":"再生位置",
 "⟲ Looping sentence":"⟲ 文をくり返し中",
 "Stop looping":"くり返しを止める",
+"Back to the start of the sentence (R)":"文の最初に戻る (R)",
+"Back to the start of the sentence":"文の最初に戻る",
 "Back 5 seconds (←)":"5秒戻る（←）",
 "Play/Pause (Space)":"再生／一時停止（スペース）",
 "Forward 5 seconds (→)":"5秒進む（→）",

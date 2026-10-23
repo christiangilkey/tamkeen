@@ -2167,6 +2167,8 @@
 "Seek":"Position",
 "⟲ Looping sentence":"⟲ Phrase en boucle",
 "Stop looping":"Arrêter la boucle",
+"Back to the start of the sentence (R)":"Revenir au début de la phrase (R)",
+"Back to the start of the sentence":"Revenir au début de la phrase",
 "Back 5 seconds (←)":"Reculer de 5 secondes (←)",
 "Play/Pause (Space)":"Lecture/Pause (Espace)",
 "Forward 5 seconds (→)":"Avancer de 5 secondes (→)",

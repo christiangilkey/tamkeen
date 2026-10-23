@@ -1,0 +1,2 @@
+9973352b Torna al començament de la frase (R)
+570eb463 Torna al començament de la frase

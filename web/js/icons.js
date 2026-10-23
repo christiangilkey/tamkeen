@@ -129,6 +129,9 @@ const PATHS = {
   pause: `<rect class="fill" x="6.5" y="5" width="3.6" height="14" rx="1.2"/><rect class="fill" x="13.9" y="5" width="3.6" height="14" rx="1.2"/>
     <rect x="6.5" y="5" width="3.6" height="14" rx="1.2"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2"/>`,
   back: `<path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.8 3.8v3.6h3.6"/>`,
+  // Back to the start of the sentence: a bar with a triangle pointing at it (a "previous" button).
+  "sentence-start": `<path d="M6.5 5.5v13"/><path class="fill" d="M18 6.2v11.6a.8.8 0 0 1-1.25.66L9.6 12.66a.8.8 0 0 1 0-1.32l7.15-5.8A.8.8 0 0 1 18 6.2z"/>
+    <path d="M18 6.2v11.6a.8.8 0 0 1-1.25.66L9.6 12.66a.8.8 0 0 1 0-1.32l7.15-5.8A.8.8 0 0 1 18 6.2z"/>`,
   ahead: `<path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.2 3.8v3.6h-3.6"/>`,
   fullscreen: `<path d="M4.5 9V5.5a1 1 0 0 1 1-1H9M15 4.5h3.5a1 1 0 0 1 1 1V9M19.5 15v3.5a1 1 0 0 1-1 1H15M9 19.5H5.5a1 1 0 0 1-1-1V15"/>`,
   // A computer screen on its stand (Settings → Listening & transcripts: "This computer" / "My computer").

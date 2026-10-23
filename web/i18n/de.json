@@ -2167,6 +2167,8 @@
 "Seek":"Spulen",
 "⟲ Looping sentence":"⟲ Satz in Schleife",
 "Stop looping":"Schleife beenden",
+"Back to the start of the sentence (R)":"Zurück zum Satzanfang (R)",
+"Back to the start of the sentence":"Zurück zum Satzanfang",
 "Back 5 seconds (←)":"5 Sekunden zurück (←)",
 "Play/Pause (Space)":"Abspielen/Pause (Leertaste)",
 "Forward 5 seconds (→)":"5 Sekunden vor (→)",
