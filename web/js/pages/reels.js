@@ -499,7 +499,7 @@ async function renderPlayer(view, { query }) {
       <div class="reel-stage" id="reel-stage"></div>
       <div class="reel-bar">
         <div class="reel-words ar" id="reel-words" tabindex="0"></div>
-        <div class="reel-pop" id="reel-pop"><p class="small muted reel-hint" id="reel-hint">Tap a word to see what it means.</p></div>
+        <div class="reel-pop" id="reel-pop"></div>
       </div>
       <div class="reel-controls" id="reel-controls">
         <div class="rc-seekrow">
@@ -615,9 +615,8 @@ async function renderPlayer(view, { query }) {
     const item = mediaFromEpisode(reels[index]);
     return item && { ...item, language: episodeLanguage(reels[index]) };
   }));
-  // The popup lives in the right half of the bar; the hint shows whenever it is closed.
-  const hint = $("#reel-hint");
-  new MutationObserver(() => { hint.hidden = bubble.open; }).observe(bubble.el, { attributes: true, attributeFilter: ["hidden"] });
+  // (The popup lives in the right half of the bar. The owner had the "Tap a word to see what it means."
+  // hint that filled it while closed taken away.)
 
   const sentence = (a, b) => joinWords(cur.texts.slice(a, b + 1), cur.lang);
 
