@@ -1,0 +1,115 @@
+b488d46d Wala ma-save ang recording niini nga card.
+7ea6c018 Dili mabasa isip tingog kana nga file. Sulayi ang MP3, M4A, WAV o OGG nga file.
+cf446b72 Wala koy nadungog nga nagsulti. Sulayi pag-usab, mas duol sa mikropono.
+8d7b2518 Nanginahanglan ang Tamkeen og pagtugot sa paggamit sa mikropono. Tugoti kini, unya sulayi pag-usab.
+0c58fea6 Dili magamit ang mikropono karon. Sirad-i ang ubang app nga basin naggamit niini, unya sulayi pag-usab.
+93f49c5b Pun-a para nako
+9fe82b0d Ako ang mag-type
+1344e304 Pananglitan nga sentence
+ab3bf3d7 Pagsulat og usa para nako
+b02efb72 Walay sentence
+e7348962 Himoa para nako
+6bccbf11 Walay audio
+fb9342f3 Idugang nako ang akoa
+66f4e3b0 Himoa ang folder
+0215f9a3 Pagdugang og mga pulong
+c763b822 Unsaon pagbutang sa mga pulong
+469cea93 Usa-usa
+b4e62165 Mag-paste og lista
+f8c430d8 Laing pulong
+bfc0a1bd Hangtod 100 ka card lang ang madugang dungan.
+0b8b4231 Imong lista, usa ka card kada linya
+afab7c60 Usa ka card kada linya. Human sa pulong, madugang nimo ang kahulogan niini gamit ang dash, equals sign o semicolon (<0/>), o mag-paste og mga column gikan sa spreadsheet: pulong, kahulogan, sentence, hubad.
+4786ee9c Gamita kini
+9660be10 Para niining mga card
+d8ba3111 Pun-a karon ang mga kahulogan ug sentence, aron masusi una idugang
+d20fc7ca Pun-a
+3a045bb2 Idugang ang mga card
+30baa249 Folder
+a711999b Bag-ong folder
+cc5030b7 Ngalan sa bag-ong folder
+602b5b8d Walay folder
+fea7178e Bag-ong folder…
+a55c0ef6 I-download kini ({0} MB)
+0f8c4a48 I-download kini
+e0c508d9 Wala pa niini nga device ang built-in nga diksiyonaryo sa {0}.
+614a7991 Gikan sa built-in nga diksiyonaryo (gipalong ang AI).
+6d2e1fd1 Gikan sa built-in nga diksiyonaryo. <0>I-set up ang AI</0> para sa mga pulong nga wala niini.
+a23a2c48 Gikan sa built-in nga diksiyonaryo, ug sa AI para sa mga pulong nga wala niini.
+57c4b8d7 Gipun-an sa imong AI.
+c57060d6 Kinahanglan ang AI aron makasulat og mga sentence para nimo, apan gipalong kini. <0>Usba kini sa Settings</0>
+fd174aac Kinahanglan ang AI aron makasulat og mga sentence para nimo, apan wala pa kini ma-set up. <0>I-set up kini sa Settings</0>
+836ce4a2 Usa ka mubo ug natural nga sentence, gikan sa baguhan hangtod intermediate, uban ang hubad niini.
+44ac6fa5 Ang Azure ang mohimo sa tingog sa matag card inig dugang nimo niini: mga {0} ka character gikan sa imong allowance.
+7964450b Ang Azure ang mohimo sa tingog sa matag card inig dugang nimo niini.
+33dcc8be Kining computer ang mohimo sa tingog sa matag card, gamit ang mga tingog nga na-download sa Settings.
+bb7ff7f7 Ang imong computer ang mohimo sa tingog sa matag card sa sunod nga pag-sync niini. Hangtod niana, basahon kini sa tingog niini nga device.
+bf3ffbd0 Basahon kini sa tingog niini nga device. Ang Azure ang adunay labing natural nga tingog: <0>i-set up kini</0>.
+a2604175 I-record ang matag card, o pagpili og sound file, ilalom sa Audio sa card.
+b0626505 Pagpili og sound file para sa matag card, ilalom sa Audio sa card.
+7a628f6f Walay ma-save karon. Inig patokar nimo og card, basahon kini sa tingog sa Settings → Mga tingog sa card.
+00474429 Ania na niini nga device ang diksiyonaryo.
+0d612c12 auto
+49e64f52 Opsyonal: grammar, usa ka mnemonic, asa nimo kini nadungog
+4871fc4e Ipakita ang uban pa niini nga card
+79476a70 Kuhaa kini nga card
+6bb2cd6a Pun-an para nimo
+a523979a Ang kahulogan niini
+e341869c Isulat para nimo
+71d22455 Sentence nga naggamit niini
+5e2b28b9 Ang sentence sa imong pinulongan
+86066fb1 Idugang gihapon
+52bb6712 Naa na sa imong mga pulong.
+9a283ec1 Parehas nga pulong sa card {0}.
+7fd1975d Idugang ang {0} ka card
+e620d3a2 Gi-record ang pulong…
+dbcb4968 Gi-record ang sentence…
+ef3f043d Giandam…
+84dce980 Kuhaa ang audio sa pulong
+b26a0253 Kuhaa ang audio sa sentence
+c79957d0 Pagdugang og audio
+87249115 Pagpili og sound file
+e63dafbe Idugang ang sentence
+c3a8dd7b I-record ang pulong
+a2217424 I-record ang sentence
+b5905530 Ang unang {0} ka segundo lang ang ma-save.
+7ee47277 usa ka sentence
+c66610a8 Ang unang 100 lang ang gamiton: hangtod 100 ka card lang ang madugang dungan.
+328b29ac Na-save na
+054563bc Kaduha sa lista
+02b5a0b9 {0} lang ang masulod: hangtod 100 ka card lang ang madugang dungan.
+363eacb1 Gipun-an…
+f9536828 Wala pa niini nga device ang built-in nga diksiyonaryo: i-download kini ilalom sa Kahulogan, o i-type ang kahulogan.
+391cd7c1 Wala kini nga pulong sa built-in nga diksiyonaryo. I-type ang kahulogan niini.
+026abbb0 Walay nakit-ang kahulogan. I-type ang kahulogan niini.
+9bd24ffb Walay gibalik ang AI para niini nga pulong. Pinduta ang Pun-a aron sulayan pag-usab.
+afd39c81 Dili mapun-an ang bahin niini. I-type kini, o pinduta ang Pun-a aron sulayan pag-usab.
+829ddbe9 Mga card nga kinahanglang tan-awon: {0}. Tan-awa ang pula nga mga nota.
+c314ddb6 Napun-an na. Susiha kini, unya idugang.
+1d786947 Mga card nga kinahanglang tan-awon: {0} (ang pula nga mga nota). Pinduta pag-usab ang Idugang aron idugang kini sama sa naa.
+b68734c2 Nadugang
+7cb67f35 Gi-save ang ilang audio…
+da317251 Gi-save ang audio niini…
+9fd6430d Nadugang, uban ang imong audio
+f9cabf6f Nadugang, apan wala ma-save ang audio niini: {0}
+bdffcecb Gihimo ang tingog niini…
+6f02041c Nadugang, uban ang tingog niini
+cf1872a2 Nadugang, apan wala mahimo ang tingog niini: {0} Samtang, basahon kini sa tingog niini nga device.
+e1dc6b28 Nadugang ang {0} ka card. {2} ka gibalik-balik nga pulong ang wala iapil.
+e8de8a44 Nadugang ang {0} ka card.
+53fe7582 Mahimo nimo ang ilang mga tingog unya sa Settings → Mga tingog sa card → Himoa karon.
+df19a576 Nadugang ang {0} ka card. Wala ma-save o mahimo ang audio sa {2} niini:
+ddcee4df Mobiya nga dili magdugang?
+20d80651 Wala pa ma-save ang imong gi-type dinhi, ug mawala kini.
+6c2882bb Sa bisan unsang transcript, i-right-click (o pindota og dugay) ang pulong o gipili nga phrase ug pilia ang “I-save sa vocab”. O i-type ang imoha gamit ang Pagdugang og mga pulong, sa ibabaw: usa-usa o tibuok lista.
+90c6c5c7 Dugang pa: pagdugang og mga pulong, i-export, settings sa Anki
+e6a0568a Pag-type o pag-paste og bag-ong mga pulong: mapun-an sa Tamkeen ang ilang kahulogan, pananglitan nga sentence ug audio
+abd94e0c Pag-type o pag-paste og bag-ong mga pulong, usa o daghan dungan. Mapun-an sa Tamkeen ang ilang kahulogan, pananglitan nga sentence ug audio, o ikaw ang mobuhat.
+1d9f6beb Pagdugang og mga pulong, i-export ang imong mga pulong para sa Anki o isip spreadsheet, ug ang settings sa Anki.
+63947c8e Hangtod {0} ka card lang ang madugang dungan.
+b76caa8f Dili mohaum kana nga mga oras sa recording.
+24cf9ded Walay sulod o dako kaayo kana nga recording.
+0bca0cff Dili mabasa isip tingog kana nga recording.
+4290b140 Taas kaayo kana nga recording.
+066fc6be Dako kaayo kana nga recording.
+b1ef773a ang kahulogan niini

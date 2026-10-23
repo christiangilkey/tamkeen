@@ -1,0 +1,115 @@
+b488d46d No s'ha pogut desar l'enregistrament d'aquesta targeta.
+7ea6c018 Aquest fitxer no s'ha pogut llegir com a so. Prova un fitxer MP3, M4A, WAV o OGG.
+cf446b72 No he sentit ningú parlar. Torna-ho a provar, una mica més a prop del micròfon.
+8d7b2518 Tamkeen necessita permís per fer servir el micròfon. Permet-ho i torna-ho a provar.
+0c58fea6 Ara no s'ha pogut fer servir el micròfon. Tanca altres aplicacions que el puguin estar fent servir i torna-ho a provar.
+93f49c5b Omple-ho per mi
+9fe82b0d L'escric jo
+1344e304 Frase d'exemple
+ab3bf3d7 Escriu-ne una per mi
+b02efb72 Sense frase
+e7348962 Fes-ho per mi
+6bccbf11 Sense àudio
+fb9342f3 Afegeixo el meu
+66f4e3b0 Crea la carpeta
+0215f9a3 Afegeix paraules
+c763b822 Com escriure les paraules
+469cea93 Una per una
+b4e62165 Enganxa una llista
+f8c430d8 Una altra paraula
+bfc0a1bd Es poden afegir com a màxim 100 targetes alhora.
+0b8b4231 La teva llista, una targeta per línia
+afab7c60 Una targeta per línia. Després de la paraula pots afegir-ne el significat amb un guió, un signe d'igual o un punt i coma (<0/>), o enganxar columnes d'un full de càlcul: paraula, significat, frase, traducció.
+4786ee9c Fes servir aquestes
+9660be10 Per a aquestes targetes
+d8ba3111 Omple ara els significats i les frases, per revisar-los abans d'afegir
+d20fc7ca Omple
+3a045bb2 Afegeix targetes
+30baa249 Carpeta
+a711999b Carpeta nova
+cc5030b7 Nom de la carpeta nova
+602b5b8d Sense carpeta
+fea7178e Carpeta nova…
+a55c0ef6 Baixa'l ({0} MB)
+0f8c4a48 Baixa'l
+e0c508d9 El diccionari integrat de {0} encara no és en aquest dispositiu.
+614a7991 Del diccionari integrat (la IA està desactivada).
+6d2e1fd1 Del diccionari integrat. <0>Configura la IA</0> per a les paraules que no té.
+a23a2c48 Del diccionari integrat, i de la IA per a les paraules que no té.
+57c4b8d7 Els omple la teva IA.
+c57060d6 Per escriure't frases cal la IA, que està desactivada. <0>Canvia-ho a Configuració</0>
+fd174aac Per escriure't frases cal la IA, que encara no està configurada. <0>Configura-la a Configuració</0>
+836ce4a2 Una frase curta i natural, de nivell inicial a intermedi, amb la seva traducció.
+44ac6fa5 Azure fa la veu de cada targeta quan les afegeixes: uns {0} caràcters de la teva quota.
+7964450b Azure fa la veu de cada targeta quan les afegeixes.
+33dcc8be Aquest ordinador fa la veu de cada targeta, amb les veus baixades a Configuració.
+bb7ff7f7 El teu ordinador farà la veu de cada targeta la propera vegada que se sincronitzi. Fins aleshores les llegeix la veu d'aquest dispositiu.
+bf3ffbd0 Les llegeix la veu d'aquest dispositiu. Azure té la veu més natural: <0>configura'l</0>.
+a2604175 Enregistra cada targeta, o tria un fitxer de so, a Àudio dins la targeta.
+b0626505 Tria un fitxer de so per a cada targeta, a Àudio dins la targeta.
+7a628f6f Ara no es desa res. Quan reprodueixis una targeta, la llegirà la veu de Configuració → Veus de les targetes.
+00474429 El diccionari ja és en aquest dispositiu.
+0d612c12 auto
+49e64f52 Opcional: gramàtica, una mnemotècnia, on la vas sentir
+4871fc4e Mostra la resta d'aquesta targeta
+79476a70 Treu aquesta targeta
+6bb2cd6a S'omple per tu
+a523979a El seu significat
+e341869c S'escriu per tu
+71d22455 Una frase que la faci servir
+5e2b28b9 La frase en la teva llengua
+86066fb1 Afegeix-la igualment
+52bb6712 Ja és a les teves paraules.
+9a283ec1 La mateixa paraula que la targeta {0}.
+7fd1975d Afegeix targetes ({0})
+e620d3a2 S'està enregistrant la paraula…
+dbcb4968 S'està enregistrant la frase…
+ef3f043d S'està preparant…
+84dce980 Treu l'àudio de la paraula
+b26a0253 Treu l'àudio de la frase
+c79957d0 Afegeix àudio
+87249115 Tria un fitxer de so
+e63dafbe Afegeix la frase
+c3a8dd7b Enregistra la paraula
+a2217424 Enregistra la frase
+b5905530 Només es desen els primers {0} segons.
+7ee47277 una frase
+c66610a8 Només es fan servir les 100 primeres: es poden afegir com a màxim 100 targetes alhora.
+328b29ac Ja desada
+054563bc Dues vegades a la llista
+02b5a0b9 Només n'hi caben {0}: es poden afegir com a màxim 100 targetes alhora.
+363eacb1 S'està omplint…
+f9536828 El diccionari integrat encara no és en aquest dispositiu: baixa'l a Significat, o escriu el significat.
+391cd7c1 Aquesta paraula no és al diccionari integrat. Escriu-ne el significat.
+026abbb0 No s'ha trobat cap significat. Escriu-ne el significat.
+9bd24ffb La IA no ha retornat res per a aquesta paraula. Prem Omple per tornar-ho a provar.
+afd39c81 Una part no s'ha pogut omplir. Escriu-la, o prem Omple per tornar-ho a provar.
+829ddbe9 Targetes per revisar: {0}. Mira les notes en vermell.
+c314ddb6 Fet. Revisa-les i després afegeix-les.
+1d786947 Targetes per revisar: {0} (les notes en vermell). Torna a prémer Afegeix per afegir-les tal com estan.
+b68734c2 Afegida
+7cb67f35 S'està desant el seu àudio…
+da317251 S'està desant el seu àudio…
+9fd6430d Afegida, amb el teu àudio
+f9cabf6f Afegida, però no se n'ha pogut desar l'àudio: {0}
+bdffcecb S'està fent la seva veu…
+6f02041c Afegida, amb la seva veu
+cf1872a2 Afegida, però no se n'ha pogut fer la veu: {0} Mentrestant la llegeix la veu d'aquest dispositiu.
+e1dc6b28 Targetes afegides: {0}. Paraules repetides que s'han deixat fora: {2}.
+e8de8a44 Targetes afegides: {0}.
+53fe7582 Pots fer-ne les veus més tard a Configuració → Veus de les targetes → Fes-les ara.
+df19a576 Targetes afegides: {0}. No s'ha pogut desar ni fer l'àudio de {2}:
+ddcee4df Vols sortir sense afegir?
+20d80651 El que has escrit aquí encara no s'ha desat i es perdrà.
+6c2882bb En qualsevol transcripció, fes clic amb el botó dret (o mantén premuda) una paraula o una frase seleccionada i tria «Desa al vocabulari». O escriu les teves amb Afegeix paraules, a dalt: una per una o una llista sencera.
+90c6c5c7 Més: afegeix paraules, exporta, configuració d'Anki
+e6a0568a Escriu o enganxa paraules noves: Tamkeen pot omplir-ne els significats, frases d'exemple i àudio
+abd94e0c Escriu o enganxa paraules noves, una o moltes alhora. Tamkeen pot omplir-ne els significats, frases d'exemple i àudio, o ho pots fer tu.
+1d9f6beb Afegeix paraules, exporta les paraules per a Anki o com a full de càlcul, i la configuració d'Anki.
+63947c8e Es poden afegir com a màxim {0} targetes alhora.
+b76caa8f Aquests temps no encaixen amb l'enregistrament.
+24cf9ded Aquest enregistrament és buit o massa gran.
+0bca0cff Aquest enregistrament no s'ha pogut llegir com a so.
+4290b140 Aquest enregistrament és massa llarg.
+066fc6be Aquest enregistrament és massa gran.
+b1ef773a el seu significat

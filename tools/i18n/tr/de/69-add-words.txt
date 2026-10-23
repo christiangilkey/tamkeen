@@ -1,0 +1,115 @@
+b488d46d Die Aufnahme dieser Karte konnte nicht gespeichert werden.
+7ea6c018 Diese Datei konnte nicht als Ton gelesen werden. Versuche eine MP3-, M4A-, WAV- oder OGG-Datei.
+cf446b72 Ich habe niemanden sprechen gehört. Versuche es noch einmal, etwas näher am Mikrofon.
+8d7b2518 Tamkeen braucht die Erlaubnis, das Mikrofon zu benutzen. Erlaube es und versuche es dann noch einmal.
+0c58fea6 Das Mikrofon konnte gerade nicht benutzt werden. Schließe andere Apps, die es vielleicht benutzen, und versuche es noch einmal.
+93f49c5b Für mich ausfüllen
+9fe82b0d Ich tippe es
+1344e304 Beispielsatz
+ab3bf3d7 Für mich schreiben
+b02efb72 Kein Satz
+e7348962 Für mich erstellen
+6bccbf11 Kein Audio
+fb9342f3 Ich füge mein eigenes hinzu
+66f4e3b0 Ordner anlegen
+0215f9a3 Wörter hinzufügen
+c763b822 Wie die Wörter eingegeben werden
+469cea93 Einzeln
+b4e62165 Liste einfügen
+f8c430d8 Noch ein Wort
+bfc0a1bd Es können höchstens 100 Karten auf einmal hinzugefügt werden.
+0b8b4231 Deine Liste, eine Karte pro Zeile
+afab7c60 Eine Karte pro Zeile. Nach dem Wort kannst du seine Bedeutung mit einem Gedankenstrich, einem Gleichheitszeichen oder einem Semikolon anfügen (<0/>), oder Spalten aus einer Tabelle einfügen: Wort, Bedeutung, Satz, Übersetzung.
+4786ee9c Diese übernehmen
+9660be10 Für diese Karten
+d8ba3111 Bedeutungen und Sätze jetzt ausfüllen, um sie vor dem Hinzufügen durchzusehen
+d20fc7ca Ausfüllen
+3a045bb2 Karten hinzufügen
+30baa249 Ordner
+a711999b Neuer Ordner
+cc5030b7 Name für den neuen Ordner
+602b5b8d Kein Ordner
+fea7178e Neuer Ordner…
+a55c0ef6 Herunterladen ({0} MB)
+0f8c4a48 Herunterladen
+e0c508d9 Das eingebaute {0}-Wörterbuch ist noch nicht auf diesem Gerät.
+614a7991 Aus dem eingebauten Wörterbuch (KI ist aus).
+6d2e1fd1 Aus dem eingebauten Wörterbuch. <0>Richte KI ein</0> für die Wörter, die es nicht hat.
+a23a2c48 Aus dem eingebauten Wörterbuch, und KI für die Wörter, die es nicht hat.
+57c4b8d7 Deine KI füllt sie aus.
+c57060d6 Um Sätze für dich zu schreiben, braucht es KI, und die ist ausgeschaltet. <0>In den Einstellungen ändern</0>
+fd174aac Um Sätze für dich zu schreiben, braucht es KI, und die ist noch nicht eingerichtet. <0>In den Einstellungen einrichten</0>
+836ce4a2 Ein kurzer, natürlicher Satz auf Anfänger- bis Mittelstufenniveau, mit seiner Übersetzung.
+44ac6fa5 Azure erstellt die Stimme jeder Karte, wenn du sie hinzufügst: etwa {0} Zeichen deines Kontingents.
+7964450b Azure erstellt die Stimme jeder Karte, wenn du sie hinzufügst.
+33dcc8be Dieser Computer erstellt die Stimme jeder Karte, mit den in den Einstellungen heruntergeladenen Stimmen.
+bb7ff7f7 Dein Computer erstellt die Stimme jeder Karte bei der nächsten Synchronisierung. Bis dahin liest die Stimme dieses Geräts sie vor.
+bf3ffbd0 Die Stimme dieses Geräts liest sie vor. Azure hat die natürlichste Stimme: <0>einrichten</0>.
+a2604175 Nimm jede Karte auf oder wähle eine Tondatei, unter Audio auf der Karte.
+b0626505 Wähle für jede Karte eine Tondatei, unter Audio auf der Karte.
+7a628f6f Jetzt wird nichts gespeichert. Wenn du eine Karte abspielst, liest die Stimme aus Einstellungen → Kartenstimmen sie vor.
+00474429 Das Wörterbuch ist jetzt auf diesem Gerät.
+0d612c12 auto
+49e64f52 Optional: Grammatik, eine Eselsbrücke, wo du es gehört hast
+4871fc4e Den Rest dieser Karte zeigen
+79476a70 Diese Karte herausnehmen
+6bb2cd6a Wird für dich ausgefüllt
+a523979a Seine Bedeutung
+e341869c Wird für dich geschrieben
+71d22455 Ein Satz, der es verwendet
+5e2b28b9 Der Satz in deiner Sprache
+86066fb1 Trotzdem hinzufügen
+52bb6712 Schon in deinen Wörtern.
+9a283ec1 Dasselbe Wort wie Karte {0}.
+7fd1975d Karten hinzufügen ({0})
+e620d3a2 Das Wort wird aufgenommen…
+dbcb4968 Der Satz wird aufgenommen…
+ef3f043d Wird vorbereitet…
+84dce980 Audio des Worts entfernen
+b26a0253 Audio des Satzes entfernen
+c79957d0 Audio hinzufügen
+87249115 Tondatei wählen
+e63dafbe Satz hinzufügen
+c3a8dd7b Wort aufnehmen
+a2217424 Satz aufnehmen
+b5905530 Nur die ersten {0} Sekunden werden behalten.
+7ee47277 ein Satz
+c66610a8 Nur die ersten 100 werden verwendet: Es können höchstens 100 Karten auf einmal hinzugefügt werden.
+328b29ac Schon gespeichert
+054563bc Zweimal in der Liste
+02b5a0b9 Nur {0} davon passen: Es können höchstens 100 Karten auf einmal hinzugefügt werden.
+363eacb1 Wird ausgefüllt…
+f9536828 Das eingebaute Wörterbuch ist noch nicht auf diesem Gerät: Lade es unter Bedeutung herunter oder tippe die Bedeutung.
+391cd7c1 Dieses Wort ist nicht im eingebauten Wörterbuch. Tippe seine Bedeutung.
+026abbb0 Keine Bedeutung gefunden. Tippe seine Bedeutung.
+9bd24ffb Die KI hat für dieses Wort nichts zurückgegeben. Drück auf Ausfüllen, um es noch einmal zu versuchen.
+afd39c81 Ein Teil konnte nicht ausgefüllt werden. Tippe ihn oder drück auf Ausfüllen, um es noch einmal zu versuchen.
+829ddbe9 Karten zum Durchsehen: {0}. Siehe die roten Hinweise.
+c314ddb6 Ausgefüllt. Sieh sie durch und füge sie dann hinzu.
+1d786947 Karten zum Durchsehen: {0} (die roten Hinweise). Drück noch einmal auf Hinzufügen, um sie so hinzuzufügen.
+b68734c2 Hinzugefügt
+7cb67f35 Ihr Audio wird gespeichert…
+da317251 Das Audio wird gespeichert…
+9fd6430d Hinzugefügt, mit deinem Audio
+f9cabf6f Hinzugefügt, aber das Audio konnte nicht gespeichert werden: {0}
+bdffcecb Die Stimme wird erstellt…
+6f02041c Hinzugefügt, mit Stimme
+cf1872a2 Hinzugefügt, aber die Stimme konnte nicht erstellt werden: {0} Bis dahin liest die Stimme dieses Geräts sie vor.
+e1dc6b28 Hinzugefügte Karten: {0}. Ausgelassene doppelte Wörter: {2}.
+e8de8a44 Hinzugefügte Karten: {0}.
+53fe7582 Ihre Stimmen kannst du später unter Einstellungen → Kartenstimmen → Jetzt erstellen erstellen.
+df19a576 Hinzugefügte Karten: {0}. Das Audio von {2} davon konnte nicht gespeichert oder erstellt werden:
+ddcee4df Ohne Hinzufügen schließen?
+20d80651 Was du hier eingegeben hast, ist noch nicht gespeichert und geht verloren.
+6c2882bb Klicke in einem beliebigen Transkript mit der rechten Maustaste auf ein Wort oder eine markierte Wortgruppe (oder halte sie gedrückt) und wähle „In den Vokabeln speichern“. Oder tippe deine eigenen mit Wörter hinzufügen, oben: einzeln oder als ganze Liste.
+90c6c5c7 Mehr: Wörter hinzufügen, exportieren, Anki-Einstellungen
+e6a0568a Neue Wörter tippen oder einfügen: Tamkeen kann ihre Bedeutungen, Beispielsätze und Audio ausfüllen
+abd94e0c Neue Wörter tippen oder einfügen, einzeln oder viele auf einmal. Tamkeen kann ihre Bedeutungen, Beispielsätze und Audio ausfüllen – oder du machst es selbst.
+1d9f6beb Wörter hinzufügen, deine Wörter für Anki oder als Tabelle exportieren, und die Anki-Einstellungen.
+63947c8e Es können höchstens {0} Karten auf einmal hinzugefügt werden.
+b76caa8f Diese Zeiten passen nicht zur Aufnahme.
+24cf9ded Diese Aufnahme ist leer oder zu groß.
+0bca0cff Diese Aufnahme konnte nicht als Ton gelesen werden.
+4290b140 Diese Aufnahme ist zu lang.
+066fc6be Diese Aufnahme ist zu groß.
+b1ef773a seine Bedeutung

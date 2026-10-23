@@ -4,6 +4,7 @@
 
 import { ankiFields } from "./shared-logic.js";
 import { sqliteFile } from "./sqlite-file.js";
+import { clipKind } from "./ogg-clip.js";
 
 export const MODEL_ID = 1791700000001;
 export const DECK_ID = 1791700000002;
@@ -38,8 +39,11 @@ const DECK_OPTIONS = { 1: {
   rev: { bury: true, ease4: 1.3, fuzz: 0.05, ivlFct: 1, maxIvl: 36500, minSpace: 1, perDay: 100 },
 } };
 
-/** What a word's two audio files are called inside Anki (the phone's clips are Ogg Opus). */
-export const clipNames = (uid) => ({ word: `tk-${uid}-w.ogg`, sentence: `tk-${uid}-s.ogg` });
+/** What a word's two audio files are called inside Anki (the phone's clips are Ogg Opus; a card's own
+ * recording kept as a WAV file gives WAV clips, `ext` "wav"). */
+export const clipNames = (uid, ext = { word: "ogg", sentence: "ogg" }) => ({ word: `tk-${uid}-w.${ext.word}`, sentence: `tk-${uid}-s.${ext.sentence}` });
+/** The ending for a clip's bytes. */
+export const clipExt = (bytes) => clipKind(bytes);
 
 const deck = (id, name, now) => ({ id, name, mod: now, usn: -1, lrnToday: [0, 0], revToday: [0, 0], newToday: [0, 0],
   timeToday: [0, 0], collapsed: false, browserCollapsed: false, desc: "", dyn: 0, conf: 1, extendNew: 0, extendRev: 0 });
@@ -165,7 +169,8 @@ export async function buildDeck(items, clips, layout, font, now = Date.now() / 1
     return deckIds[name];
   };
   for (const [n, v] of items.entries()) {
-    const [front, back] = ankiFields(v), names = clipNames(v.uid), mine = clips[v.uid] || {};
+    const mine = clips[v.uid] || {};
+    const [front, back] = ankiFields(v), names = clipNames(v.uid, { word: clipExt(mine.word), sentence: clipExt(mine.sentence) });
     let sound = "";
     for (const part of ["word", "sentence"]) {
       if (!mine[part] || !mine[part].length) continue;

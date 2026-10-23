@@ -33,6 +33,24 @@ class VocabIn(BaseModel):
     translation: str = ""  # the sentence in the learner's language, ⟦ ⟧ around the word's part
 
 
+class BatchCard(BaseModel):
+    """One card typed in "Add words" (web/js/components/wordbuilder.js)."""
+
+    text: str
+    meaning: str = ""
+    sentence: str = ""
+    translation: str = ""  # may carry ⟦ ⟧ round the word's part, as a looked-up word's does
+    notes: str = ""
+    folders: list[str] = []
+
+
+class BatchIn(BaseModel):
+    cards: list[BatchCard]
+
+
+MAX_BATCH = 100  # the most cards "Add words" adds at a time (web/js/addwords.js MAX_ROWS)
+
+
 class VocabPatch(BaseModel):
     meaning: str | None = None
     notes: str | None = None
@@ -189,6 +207,40 @@ def add_vocab(body: VocabIn) -> dict[str, Any]:
     return _out(row)
 
 
+@router.post("/batch")
+def add_batch(body: BatchIn) -> dict[str, Any]:
+    """Several cards typed in at once (the Vocab page's "Add words"), with their folders. They come
+    back in the order given; the first is the newest, so the list (newest first) shows them in that
+    order at its top. A card's language is what its letters say, as for one word typed in."""
+    cards = [c for c in body.cards if c.text.strip()]
+    if not cards:
+        raise HTTPException(400, "Nothing to save.")
+    if len(cards) > MAX_BATCH:
+        raise HTTPException(400, f"At most {MAX_BATCH} cards can be added at a time.")
+    study = languages.study()
+    now = time.time()
+    made: list[int] = []
+    with db.session() as conn:
+        known = {r["uid"] for r in conn.execute("SELECT uid FROM vocab_folders WHERE deleted = 0").fetchall()}
+        for n, c in enumerate(cards):
+            text = c.text.strip()[:200]
+            folders = sorted({f for f in c.folders if f in known})
+            cur = conn.execute(
+                "INSERT INTO vocab(uid, text, norm, sentence, meaning, notes, translation, episode_title, created_at, "
+                "language, folders) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+                (ids.new_uid(), text, arabic.normalize(text), c.sentence.strip()[:1000], c.meaning.strip()[:500],
+                 c.notes.strip()[:2000], c.translation.strip()[:1000], "", now - n * 0.001,
+                 languages.detect(text, study), json.dumps(folders)),
+            )
+            made.append(int(cur.lastrowid))
+        rows = [conn.execute("SELECT * FROM vocab WHERE id = ?", (i,)).fetchone() for i in made]
+    sync.request()
+    from .. import voices
+
+    voices.worker.kick()  # with "My computer" chosen, the new cards get their voices made
+    return {"cards": [_out(r) for r in rows]}
+
+
 # ----- audio clips for shared words -----
 # A word sent to a friend carries a short clip of its sentence, so their "Word" and "Sentence"
 # buttons work without having the episode. A received word keeps that clip as clips/<uid>.ogg
@@ -294,12 +346,22 @@ async def save_clip(vocab_id: int, request: Request, start: float = 0, end: floa
     return _out(out)
 
 
+def _media_type(path: Path) -> str:
+    """What a card's own file is played as: an Ogg Opus file (a friend's clip, a card voice), or a WAV
+    file (a recording made on a phone that can't make Ogg Opus, web/js/cardaudio.js), whatever its name."""
+    with path.open("rb") as f:
+        head = f.read(12)
+    if head[:4] == b"RIFF" and head[8:12] == b"WAVE":
+        return "audio/wav"
+    return "audio/ogg"
+
+
 @router.get("/{vocab_id}/clip")
 def get_clip(vocab_id: int) -> Response:
     path = _own_clip(_vocab_row(vocab_id))
     if path is None:
         raise HTTPException(404, "This word's audio isn't available.")
-    return FileResponse(path, media_type="audio/ogg")
+    return FileResponse(path, media_type=_media_type(path))
 
 
 @router.put("/{vocab_id}/voice")
@@ -318,6 +380,59 @@ async def save_voice(vocab_id: int, request: Request, start: float, end: float,
     times = {"start": start, "end": end, "sent_start": sent_start, "sent_end": sent_end}
     with db.session() as conn:
         conn.execute("UPDATE vocab SET voice = ? WHERE id = ? AND voice = ''", (json.dumps(times), vocab_id))
+        out = conn.execute("SELECT * FROM vocab WHERE id = ?", (vocab_id,)).fetchone()
+    sync.request(20)
+    return _out(out)
+
+
+MAX_RECORDING_BYTES = 8 * 1024 * 1024  # what the page may send (a WAV file is big); what is kept is small
+MAX_RECORDING_SECONDS = 60.0
+RECORDING_RATE = 24000  # web/js/cardaudio.js RATE
+
+
+def _is_ogg_opus(data: bytes) -> bool:
+    return data[:4] == b"OggS" and b"OpusHead" in data[:80]
+
+
+@router.put("/{vocab_id}/recording")
+async def save_recording(vocab_id: int, request: Request, start: float, end: float,
+                         sent_start: float | None = None, sent_end: float | None = None) -> dict[str, Any]:
+    """The learner's own recording (or sound file) for a card typed in with "Add words": its word and,
+    if recorded, its sentence in one file (web/js/cardaudio.js; raw request body). It is kept as the
+    card's voice (the same file, times and road as one made by Azure: save_voice). Ogg Opus is kept as
+    it is; anything else (a WAV file, from a page that can't make Ogg Opus) is made into Ogg Opus here.
+    Once only, like a voice."""
+    row = _vocab_row(vocab_id)
+    if row["clip"] or voice_times(row) is not None:
+        return _out(row)
+    if not (0 <= start < end) or (sent_start is not None and (sent_end is None or not 0 <= sent_start < sent_end)):
+        raise HTTPException(400, "Those times don't fit the recording.")
+    data = await request.body()
+    if not data or len(data) > MAX_RECORDING_BYTES:
+        raise HTTPException(400, "That recording is empty or too large.")
+    if not _is_ogg_opus(data):
+        import numpy as np
+
+        tmp = paths.tmp_dir() / f"rec-{uuid.uuid4().hex}.audio"
+        try:
+            tmp.write_bytes(data)
+            pcm = audio.decode(tmp, RECORDING_RATE)
+        except audio.AudioError as exc:
+            raise HTTPException(400, "That recording couldn't be read as sound.") from exc
+        finally:
+            tmp.unlink(missing_ok=True)
+        if len(pcm) > MAX_RECORDING_SECONDS * RECORDING_RATE:
+            raise HTTPException(400, "That recording is too long.")
+        try:
+            data = audio.encode_pcm_opus((np.clip(pcm, -1.0, 1.0) * 32767).astype(np.int16), RECORDING_RATE)
+        except audio.AudioError as exc:
+            raise HTTPException(400, str(exc)) from exc
+    if len(data) > MAX_CLIP_BYTES:
+        raise HTTPException(400, "That recording is too large.")
+    engine.clip_path(row["uid"]).write_bytes(data)
+    times = {"start": start, "end": end, "sent_start": sent_start, "sent_end": sent_end}
+    with db.session() as conn:
+        conn.execute("UPDATE vocab SET voice = ? WHERE id = ? AND voice = '' AND clip = 0", (json.dumps(times), vocab_id))
         out = conn.execute("SELECT * FROM vocab WHERE id = ?", (vocab_id,)).fetchone()
     sync.request(20)
     return _out(out)

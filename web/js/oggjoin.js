@@ -94,6 +94,38 @@ function page(packets, granule, serial, sequence, flags) {
 }
 
 /**
+ * An Ogg Opus file from Opus packets (as an encoder gives them, cardaudio.js): `head` is the OpusHead
+ * packet, `samples` how much sound was put in (at 48,000 a second), so the encoder's padding at the end
+ * is not played. Null when there is nothing to write.
+ */
+export function oggOpusFile(head, packets, { samples = null } = {}) {
+  if (!head || head.length < 19 || ascii(head, 0, 8) !== "OpusHead" || !(packets || []).length) return null;
+  const serial = 0x7a6d6b33;
+  const tags = new Uint8Array([0x4f, 0x70, 0x75, 0x73, 0x54, 0x61, 0x67, 0x73, 7, 0, 0, 0, 0x74, 0x61, 0x6d, 0x6b, 0x65, 0x65, 0x6e, 0, 0, 0, 0]);  // "OpusTags", vendor "tamkeen"
+  const skip = head[10] | (head[11] << 8);
+  const pages = [page([head], 0, serial, 0, 2), page([tags], 0, serial, 1, 0)];
+  const total = packets.reduce((n, p) => n + packetSamples(p), 0);
+  const end = samples == null ? total : Math.min(total, skip + Math.max(0, Math.round(samples)));
+  let played = 0;
+  for (let i = 0; i < packets.length; i += PACKETS_PER_PAGE) {
+    const group = packets.slice(i, i + PACKETS_PER_PAGE), isLast = i + PACKETS_PER_PAGE >= packets.length;
+    for (const p of group) played += packetSamples(p);
+    pages.push(page(group, isLast ? end : played, serial, pages.length, isLast ? 4 : 0));
+  }
+  return concat(pages);
+}
+
+/** An OpusHead packet: one channel, `skip` samples (at 48,000 a second) the decoder drops at the start. */
+export function opusHead({ skip = 312, rate = 48000, channels = 1 } = {}) {
+  const head = new Uint8Array(19);
+  head.set([0x4f, 0x70, 0x75, 0x73, 0x48, 0x65, 0x61, 0x64, 1, channels]);  // "OpusHead", version 1
+  const view = new DataView(head.buffer);
+  view.setUint16(10, skip, true);
+  view.setUint32(12, rate, true);
+  return head;  // gain 0, channel mapping 0
+}
+
+/**
  * Join Ogg Opus files (Uint8Arrays) end to end into one: the later files' packets follow the first's in
  * a single stream. All must have the same number of channels (one, from the same speech service).
  * Gives {bytes, parts: [{start, seconds}]}: where each part starts in the joined file and how long it

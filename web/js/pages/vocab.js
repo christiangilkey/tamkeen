@@ -15,6 +15,7 @@ import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
 import { firstVisitTour } from "../components/tour.js";
+import { openWordBuilder } from "../components/wordbuilder.js";
 
 const DAY = 86400;
 const SORTS = {
@@ -120,7 +121,7 @@ export function rangeBounds(range, fromDate, toDate, now = Date.now() / 1000) {
 
 /** How words get here, for someone whose list is still empty. */
 const TIP = `In any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”.
-  Add a word by hand, or export your words for Anki, from the ⋯ menu.`;
+  Or type your own with Add words, above: one at a time or a whole list.`;
 
 export async function render(view) {
   const prefs = lsGet("vocabView", {});
@@ -144,7 +145,7 @@ export async function render(view) {
       <h1>Vocab</h1>
       <span class="muted" id="count"></span>
       <span class="spacer"></span>
-      <button type="button" class="icon vocab-more" id="more" title="More: add a word, export, Anki settings" aria-label="More" aria-haspopup="menu">${icon("more", 22)}</button>
+      <button type="button" class="icon vocab-more" id="more" title="More: add words, export, Anki settings" aria-label="More" aria-haspopup="menu">${icon("more", 22)}</button>
     </div>
     <section class="review-block">
       <button type="button" class="review-banner idle" id="review" hidden>
@@ -153,6 +154,10 @@ export async function render(view) {
         <span class="rb-go"></span>
       </button>
       <div id="goal" hidden></div>
+      <div class="vocab-actions">
+        <span class="va-send" id="send-slot"></span>
+        <button type="button" class="ghost va-add" id="add-words" title="Type or paste new words: Tamkeen can fill in their meanings, example sentences and audio">${icon("plus", 18)} Add words</button>
+      </div>
     </section>
     <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto">
     <div class="folder-bar" id="folders"></div>
@@ -176,13 +181,6 @@ export async function render(view) {
       <span class="spacer"></span>
       <button type="button" class="ghost" id="bulk-clear">Clear selection</button>
     </div>
-    <form id="add" class="card stack vocab-add" hidden>
-      <div class="row"><strong>Add a word</strong><span class="spacer"></span><button type="button" class="ghost" id="add-cancel">Cancel</button></div>
-      <input type="text" name="text" class="ar" placeholder="${esc(langInfo(studyLanguage()).word)}" required ${langAttrs(studyLanguage())} style="font-size:20px;width:100%">
-      <input type="text" name="meaning" placeholder="Meaning" style="width:100%">
-      <textarea name="sentence" class="ar" rows="2" placeholder="Example sentence (optional)" ${langAttrs(studyLanguage())}></textarea>
-      <div><button class="primary" type="submit">Add</button></div>
-    </form>
     <div class="vocab-list" id="list"></div>
   </div>`));
   const $ = (s) => view.querySelector(s);
@@ -193,6 +191,7 @@ export async function render(view) {
   let log = {};      // the reviewer's record: every answer by word uid (see pages/review.js)
   const selected = new Set();
   let shown = [];    // the words listed right now (the open folder, narrowed by the search box and the dates)
+  let justAdded = new Set();  // ids of the cards just added with "Add words": listed first, lit up a moment
   const folderName = (uid) => (folders.find((f) => f.uid === uid) || {}).name;
 
   // One shared audio element for snippet playback.
@@ -430,7 +429,7 @@ export async function render(view) {
     const changed = v.updated_at && v.updated_at - v.created_at > 60;
     const lang = langAttrs(detectLanguage(v.sentence || v.text));
     const translation = String(v.translation || "").replace(/[⟦⟧]/g, "").trim();
-    const el = h(`<div class="card vocab-item">
+    const el = h(`<div class="card vocab-item${justAdded.has(v.id) ? " vi-new" : ""}">
       <div class="vi-head" role="button" tabindex="0" aria-expanded="false">
         <input type="checkbox" class="pick" aria-label="Select word">
         <div class="vi-main">
@@ -563,7 +562,10 @@ export async function render(view) {
     const when = (v) => (st.dateField === "changed" ? v.updated_at || v.created_at : v.created_at);
     if (from !== null) items = items.filter((v) => when(v) >= from);
     if (to !== null) items = items.filter((v) => when(v) < to);
-    return [...items].sort(SORTS[st.sort][1]);
+    const sorted = [...items].sort(SORTS[st.sort][1]);
+    if (!justAdded.size) return sorted;
+    const fresh = sorted.filter((v) => justAdded.has(v.id)).sort((a, b) => b.created_at - a.created_at);  // in the order typed
+    return [...fresh, ...sorted.filter((v) => !justAdded.has(v.id))];
   }
 
   // ----- the reviewer -----
@@ -577,7 +579,7 @@ export async function render(view) {
     const none = !reviewWords().length;
     banner.disabled = none;
     if (banner.hidden || none) {
-      goal.close(); $("#goal").hidden = true;
+      goal.close(); $("#goal").hidden = true; $("#send-slot").hidden = true;
       if (banner.hidden) return;
       banner.classList.add("idle");
       banner.querySelector("strong").textContent = "Review";
@@ -589,6 +591,7 @@ export async function render(view) {
     }
     const o = overview(reviewWords(), log);
     $("#goal").hidden = !o.askable;
+    $("#send-slot").hidden = !o.askable;  // ("Send to …" goes with the goal; "Add words" beside it is always there)
     goal.update(all, log);  // the whole day's goal, whichever folder is open
     const scope = st.folder && st.folder !== "none" ? folderName(st.folder) : "";
     const ready = o.due + o.fresh > 0;
@@ -619,7 +622,8 @@ export async function render(view) {
   const reviewRoom = new ResizeObserver(fitReview);
   reviewRoom.observe($("#review"));
   // The day's goal under the banner; changing its new words a day changes the banner's "new" count too.
-  const goal = goalBar($("#goal"));
+  // Its "Send to …" link sits in the row under it, beside "Add words".
+  const goal = goalBar($("#goal"), { sendSlot: $("#send-slot") });
   $("#goal").addEventListener("goalchange", renderReview);
 
   function startReview() {
@@ -723,16 +727,29 @@ export async function render(view) {
     toast("Building the Anki deck with audio…", { timeout: 4000 });
     download(exportUrl("apkg"), "tamkeen-vocab.apkg");
   };
-  const openAdd = () => {
-    $("#add").hidden = false;
-    $("#add").scrollIntoView({ block: "nearest" });
-    $("#add").querySelector("[name=text]").focus();
-  };
+  // "Add words": the card builder (components/wordbuilder.js). The open folder's cards go into it; the
+  // new cards come first in the list, lit up for a moment, whatever it is sorted by.
+  const openAdd = () => openWordBuilder({
+    existing: () => all,
+    folders,
+    folder: st.folder && st.folder !== "none" ? st.folder : "",
+    onFolder: (f) => {  // a folder made in the builder shows among the folders at once
+      if (folders.some((x) => x.uid === f.uid)) return;
+      folders.push(f);
+      folders.sort((a, b) => a.name.localeCompare(b.name));
+      if (view.isConnected) renderFolders();
+    },
+    onAdded: (cards) => {
+      justAdded = new Set(cards.map((v) => v.id));
+      if (view.isConnected) load().then(() => list.firstElementChild && list.firstElementChild.scrollIntoView({ block: "nearest", behavior: "smooth" }), () => {});
+    },
+  });
+  $("#add-words").onclick = openAdd;
   // The ⋯ menu: the things used now and then.
   $("#more").onclick = (e) => {
     const r = e.currentTarget.getBoundingClientRect();
     showMenu(r.left, r.bottom + 6, "", [
-      { label: "Add a word", icon: icon("vocab", 16), run: openAdd },
+      { label: "Add words", icon: icon("plus", 16), run: openAdd },
       { label: "Export CSV", icon: icon("page", 16), run: () => download(exportUrl("csv"), "tamkeen-vocab.csv") },
       { label: "Export for Anki", icon: icon("send", 16), run: exportAnki },
       ...(ankiSyncHere() ? [ // (no Anki sync on the iPhone or in the web app: only the export)
@@ -741,31 +758,19 @@ export async function render(view) {
       ] : []),
     ]);
   };
-  $("#add-cancel").onclick = () => { $("#add").reset(); $("#add").hidden = true; };
-  $("#add").onsubmit = async (e) => {
-    e.preventDefault();
-    const f = new FormData(e.target);
-    const inFolder = st.folder && st.folder !== "none" ? [st.folder] : [];
-    try {
-      const v = await api("/vocab", { method: "POST", body: { text: f.get("text"), meaning: f.get("meaning"), sentence: f.get("sentence") } });
-      if (inFolder.length) await api(`/vocab/${v.id}`, { method: "PATCH", body: { folders: inFolder } });
-      e.target.reset();
-      e.target.hidden = true;
-      load();
-    } catch (err) { toast(err.message, { error: true }); }
-  };
-
   await load();
   firstVisitTour("vocab", view.querySelector(".vocab-page"), [
     { target: "#review", title: "Review",
       text: "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start." },
     { target: "#goal", title: "Daily goal", text: "How many new words you want to learn each day. Change it here." },
+    { target: "#add-words", title: "Add words",
+      text: "Type or paste new words, one or many at a time. Tamkeen can fill in their meanings, example sentences and audio, or you can." },
     { target: "#q", title: "Search", text: "Find a saved word by the word itself or by its meaning." },
     { target: "#folders", title: "Folders",
       text: "Tap a folder to see only its words; Review then covers just those. New folder makes one." },
     { target: "#list .vocab-item", title: "A saved word",
       text: "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several." },
-    { target: "#more", title: "More", text: "Add a word by hand, export your words for Anki or as a spreadsheet, and Anki's settings." },
+    { target: "#more", title: "More", text: "Add words, export your words for Anki or as a spreadsheet, and Anki's settings." },
   ]);
   return () => { audio.pause(); stopDevice(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
 }

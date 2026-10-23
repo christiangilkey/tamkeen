@@ -5118,3 +5118,79 @@ currently selected on tamkeen. The user should also be able to still change the 
   more lines wins. Browse pages don't re-pick the language live (the next Open Netflix does).
 - Tests: netflix.test.mjs (+6), netflix-ttml.test.mjs (+2), extbridge.test.mjs (gone). Checked the built panel in the
   browser with a stubbed chrome API and fake state (menus, Japanese, Polish, Off). **Not checked with real Netflix.**
+
+## "Add words": the Vocab page's card builder (2026-10-23; branch `worktree-agent-a903fede182fb561b`, NOT merged, NOT pushed)
+Owner (Android screenshot of the Vocab page, the space right of "Send to Google Tasks" circled): "build an add word button
+… full customization … sentence building and the audio generation could be done automatically using azure or … entered
+by hand … input multiple cards at the same time."
+- **Entry**: under the goal bar, one centred row: "Send to …" (goalbar.js `goalBar(root, {sendSlot})` now puts its link
+  there) and "+ Add words" (`#add-words`); with no goal shown, Add words alone, centred. The Send link's text ends in "…"
+  rather than wrapping on a phone. Also "Add words" in the ⋯ menu. The old hidden `#add` form ("Add a word") is gone.
+- **Builder** `web/js/components/wordbuilder.js` (`openWordBuilder`; class prefix `cb-`, since `wb-` is the word
+  bubble's): modal.js box, `cb-box` = 700 px on a computer, a full-height sheet on a phone (≤640 px; `.cb-back` is a flex
+  box so only the middle scrolls, the foot with "Fill in" / "Add N cards" stays). modal.js got `beforeClose` (✕, Esc, a
+  click beside it): with input it asks with settingsui.js `confirmBox` ("Leave without adding?").
+  - Segmented switch "One by one" / "Paste a list". Rows: big Word (study language `langAttrs`), Meaning, Example
+    sentence, Sentence translation, Notes, Audio, trash. Rows after the first start collapsed (word + meaning summary,
+    chevron). Enter in the last Word adds a row; at most `MAX_ROWS` = 100. Paste: live preview with count, repeats tagged,
+    "Use these" makes rows (typed = the learner's own).
+  - "For these cards" (remembered in localStorage `tk_addwords`; the open folder wins): Meaning Fill in for me / I'll type
+    it; Example sentence Write one for me / No sentence / I'll type it (Write is disabled without AI, one line + link to
+    `#/settings?s=words&show=key`, or `show=mode` when AI is off); Audio Make it for me / No audio / I'll add my own; Folder
+    select with "New folder…" (own small name box, no `prompt()`). One note line under each says where things come from;
+    a missing built-in dictionary is offered for download there (meanings.js `downloadMeanings`); Azure not set up: "This
+    device's voice reads them. Azure gives the most natural voice: set it up" (`#/settings?s=voices&show=azurekey`).
+  - **Typing always wins** (`web/js/addwords.js`, pure, tests/js/addwords.test.mjs): each field is `{value, auto}`;
+    `fillIn` only fills empty or app-filled fields; editing makes it the learner's. Auto values are lighter with an "auto"
+    pill (always on the right: physical `right`/`padding-right`, so it works in RTL text too).
+  - **Fill in** (and Add, for what is still missing): meanings from the built-in dictionary (`dictionaryDefine` quick)
+    when the lookup setting uses it (`definerModeOf`: dictionary / dictionary_first, or AI without a key), then ONE AI
+    request per `AI_CHUNK` = 20 words (2 requests at a time, `askAi` from each shell's define-service.js) asking only for
+    the missing fields: `batchPrompt` (strict JSON schema `BATCH_SCHEMA`, known meaning/sentence passed as context,
+    beginner–intermediate sentence, translation with ⟦ ⟧ round the word, which the review card lights up). `readBatch`
+    matches entries by `wordKey`, then by place; `jsonIn` finds the JSON whatever surrounds it. Per-row status/errors in
+    plain words (the provider's own error messages). The first Add with red notes stops and says so; a second Add adds
+    them as they are.
+  - **Repeats**: `wordKey` = the app's search normalisation (Arabic marks, alef/ya/ta marbuta, Persian ی ک and ZWNJ, Hindi
+    nukta/candrabindu; tested equal to shared-logic.js `normalize`) plus NFC, Russian stress marks and ё, edge
+    punctuation. "Already in your words." / "The same word as card N." with "Add anyway".
+  - **Adding**: `POST /vocab/batch` {cards: [{text, meaning, sentence, translation, notes, folders}]} on both servers
+    (app/api/vocab.py `add_batch`, max 100, folders checked, language by its letters, first row newest; kicks the
+    computer's voice worker. Phone twin in backend.js). Then audio, a few at a time, per-row status; all fine → closes,
+    toast "Added N cards." (+ repeats left out), the new cards first in the list and lit up a moment (vocab.js
+    `justAdded`, `.vi-new`). Some audio failed → a result screen listing them ("Make them now" later).
+- **Audio**: "Make it for me" + Azure ready → voiceplay.js `voiceMaker` (the existing card-voice road: made once, kept,
+  synced), 3 cards at a time. "My computer" → nothing extra (the desktop worker, kicked by the batch; phones wait as
+  before). Device voice → nothing kept.
+  - **Own audio** (`web/js/cardaudio.js`): per row "Add audio" → menu Record the word / Choose a sound file (only the
+    file when `canRecord()` is false); after the word, "Add the sentence". Recording: getUserMedia + MediaRecorder, stops
+    itself after the speaking ends (pronounce.js `listener`), 10 s word / 25 s sentence; level dot + timer + Stop. Any
+    recording or file is decoded at 24 kHz (OfflineAudioContext), silence cut (`speechBounds`), quiet ones turned up,
+    word + 0.7 s + sentence joined (`joinParts` → voice times). Saved as the card's **voice** (same file/times/sync as an
+    Azure voice): **Ogg Opus via WebCodecs `AudioEncoder`** where the device has it (Chrome/Edge/Android; Ogg written by
+    oggjoin.js `oggOpusFile` + `opusHead`; checked in Chromium: 3.49 s in → 3.49 s decoded, onset within 0.5 ms, ~3.6 KB/s),
+    else a **16-bit mono WAV** (older iPhones). Desktop: app.js `saveRecording` → `PUT /vocab/{id}/recording` (keeps Ogg
+    Opus as is, turns anything else into Ogg Opus with PyAV, once only). Phones/web: `saveRecording` = `saveVoice`.
+  - WAV clips everywhere: `GET /vocab/{id}/clip` now sends audio/wav for a WAV file; the phone's `clipUrl` retypes the
+    blob by its first bytes (Drive keeps every clip as audio/ogg); the phone's Anki export/AnkiDroid sync cut WAV clips
+    byte for byte (ogg-clip.js `cutWav`, `clipKind`) and name them `.wav` (anki-deck.js `clipNames(uid, ext)`, `clipExt`);
+    the computer's Anki export reads any format (PyAV) and makes MP3 as before.
+  - Microphone permission entries existed (RECORD_AUDIO, NSMicrophoneUsageDescription): texts now mention cards.
+    Privacy page: "Your own recordings on flashcards" paragraph.
+- New files in build-www SHARED: js/addwords.js, js/cardaudio.js, js/components/wordbuilder.js. Icons: mic, stop,
+  upload, trash, sparkle, list. Translations `tools/i18n/tr/<code>/69-add-words.txt` (115 × 16); ignore.txt has the AI
+  line "fill in: {0}"; extra.txt "its meaning". (A text box's placeholder isn't re-translated by i18n.js when it changes:
+  set with `t()`.)
+- **Checked**: 523 pytest pass (new tests/test_add_words.py, 5), 793 JS (new addwords.test.mjs 15, cardaudio.test.mjs 5),
+  `build.mjs --check`. In the browser (desktop server on a fresh scratch data folder, never signed in; and the phone
+  build served from mobile/www at 375×812): Arabic study language (RTL) on the computer with English and with Arabic UI,
+  Spanish (LTR) on the phone build; typing with Enter, repeats (vowelled كِتَابٌ = كتاب, Mesa = mesa), paste with every
+  separator and a turned-round line, Fill in (one request for all, a typed meaning kept and sent as context), Add (cards at
+  the top, ⟦ ⟧ translation lit up on the review card's front and back), folders incl. New folder…, the leave-without-adding
+  box, an AI key error shown per row, chosen sound files (Ogg Opus on the computer, WAV path on the phone build with
+  AudioEncoder switched off: stored, plays, Word/Sentence buttons), Azure with a pretend Azure (2 requests per card, 3
+  cards at a time, voices kept; a 429 shows the result screen), the Anki deck export with the new cards.
+- **NOT checked**: a real AI key or real Azure (both pretend, inside the page); the microphone itself (no microphone
+  in the test browser: recording is the same MediaRecorder road as "Say it", untested here); real phones (Android
+  WebView's AudioEncoder, iPhone WKWebView recording and WAV playback); a phone and computer syncing a WAV recording
+  through Drive.

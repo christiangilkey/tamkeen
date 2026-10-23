@@ -1,0 +1,115 @@
+b488d46d Impossibile salvare la registrazione di questa scheda.
+7ea6c018 Non è stato possibile leggere questo file come suono. Prova un file MP3, M4A, WAV o OGG.
+cf446b72 Non ho sentito nessuno parlare. Riprova, un po' più vicino al microfono.
+8d7b2518 Tamkeen ha bisogno del permesso per usare il microfono. Concedilo, poi riprova.
+0c58fea6 Al momento non è stato possibile usare il microfono. Chiudi le altre app che potrebbero usarlo, poi riprova.
+93f49c5b Compilalo tu
+9fe82b0d Lo scrivo io
+1344e304 Frase d'esempio
+ab3bf3d7 Scrivine una tu
+b02efb72 Nessuna frase
+e7348962 Crealo tu
+6bccbf11 Nessun audio
+fb9342f3 Aggiungo il mio
+66f4e3b0 Crea la cartella
+0215f9a3 Aggiungi parole
+c763b822 Come inserire le parole
+469cea93 Una alla volta
+b4e62165 Incolla un elenco
+f8c430d8 Un'altra parola
+bfc0a1bd Puoi aggiungere al massimo 100 schede alla volta.
+0b8b4231 Il tuo elenco, una scheda per riga
+afab7c60 Una scheda per riga. Dopo la parola puoi aggiungere il significato con un trattino, un segno di uguale o un punto e virgola (<0/>), oppure incollare colonne da un foglio di calcolo: parola, significato, frase, traduzione.
+4786ee9c Usa queste
+9660be10 Per queste schede
+d8ba3111 Compila ora i significati e le frasi, per controllarli prima di aggiungere
+d20fc7ca Compila
+3a045bb2 Aggiungi schede
+30baa249 Cartella
+a711999b Nuova cartella
+cc5030b7 Nome della nuova cartella
+602b5b8d Nessuna cartella
+fea7178e Nuova cartella…
+a55c0ef6 Scaricalo ({0} MB)
+0f8c4a48 Scaricalo
+e0c508d9 Il dizionario integrato di {0} non è ancora su questo dispositivo.
+614a7991 Dal dizionario integrato (l'IA è disattivata).
+6d2e1fd1 Dal dizionario integrato. <0>Configura l'IA</0> per le parole che non contiene.
+a23a2c48 Dal dizionario integrato, e dall'IA per le parole che non contiene.
+57c4b8d7 Compilati dalla tua IA.
+c57060d6 Per scrivere frasi al posto tuo serve l'IA, che è disattivata. <0>Cambialo nelle Impostazioni</0>
+fd174aac Per scrivere frasi al posto tuo serve l'IA, che non è ancora configurata. <0>Configurala nelle Impostazioni</0>
+836ce4a2 Una frase breve e naturale, di livello da principiante a intermedio, con la sua traduzione.
+44ac6fa5 Azure crea la voce di ogni scheda quando le aggiungi: circa {0} caratteri della tua quota.
+7964450b Azure crea la voce di ogni scheda quando le aggiungi.
+33dcc8be Questo computer crea la voce di ogni scheda, con le voci scaricate nelle Impostazioni.
+bb7ff7f7 Il tuo computer crea la voce di ogni scheda alla prossima sincronizzazione. Fino ad allora le legge la voce di questo dispositivo.
+bf3ffbd0 Le legge la voce di questo dispositivo. Azure offre la voce più naturale: <0>configuralo</0>.
+a2604175 Registra ogni scheda, o scegli un file audio, sotto Audio nella scheda.
+b0626505 Scegli un file audio per ogni scheda, sotto Audio nella scheda.
+7a628f6f Per ora non si salva nulla. Quando riproduci una scheda, la legge la voce di Impostazioni → Voci delle schede.
+00474429 Il dizionario ora è su questo dispositivo.
+0d612c12 auto
+49e64f52 Facoltativo: grammatica, una mnemotecnica, dove l'hai sentita
+4871fc4e Mostra il resto di questa scheda
+79476a70 Togli questa scheda
+6bb2cd6a Compilato per te
+a523979a Il suo significato
+e341869c Scritta per te
+71d22455 Una frase che la usa
+5e2b28b9 La frase nella tua lingua
+86066fb1 Aggiungi comunque
+52bb6712 È già tra le tue parole.
+9a283ec1 La stessa parola della scheda {0}.
+7fd1975d Aggiungi schede ({0})
+e620d3a2 Registrazione della parola…
+dbcb4968 Registrazione della frase…
+ef3f043d Preparazione…
+84dce980 Togli l'audio della parola
+b26a0253 Togli l'audio della frase
+c79957d0 Aggiungi audio
+87249115 Scegli un file audio
+e63dafbe Aggiungi la frase
+c3a8dd7b Registra la parola
+a2217424 Registra la frase
+b5905530 Si salvano solo i primi {0} secondi.
+7ee47277 una frase
+c66610a8 Si usano solo le prime 100: puoi aggiungere al massimo 100 schede alla volta.
+328b29ac Già salvata
+054563bc Due volte nell'elenco
+02b5a0b9 Ce ne stanno solo {0}: puoi aggiungere al massimo 100 schede alla volta.
+363eacb1 Compilazione…
+f9536828 Il dizionario integrato non è ancora su questo dispositivo: scaricalo sotto Significato, oppure scrivi il significato.
+391cd7c1 Questa parola non è nel dizionario integrato. Scrivi il suo significato.
+026abbb0 Nessun significato trovato. Scrivi il suo significato.
+9bd24ffb L'IA non ha restituito nulla per questa parola. Premi Compila per riprovare.
+afd39c81 Una parte non è stata compilata. Scrivila, oppure premi Compila per riprovare.
+829ddbe9 Schede da controllare: {0}. Guarda le note in rosso.
+c314ddb6 Compilate. Controllale, poi aggiungile.
+1d786947 Schede da controllare: {0} (le note in rosso). Premi di nuovo Aggiungi per aggiungerle così come sono.
+b68734c2 Aggiunta
+7cb67f35 Salvataggio del loro audio…
+da317251 Salvataggio del suo audio…
+9fd6430d Aggiunta, con il tuo audio
+f9cabf6f Aggiunta, ma non è stato possibile salvarne l'audio: {0}
+bdffcecb Creazione della sua voce…
+6f02041c Aggiunta, con la sua voce
+cf1872a2 Aggiunta, ma non è stato possibile crearne la voce: {0} Nel frattempo la legge la voce di questo dispositivo.
+e1dc6b28 Schede aggiunte: {0}. Parole ripetute lasciate fuori: {2}.
+e8de8a44 Schede aggiunte: {0}.
+53fe7582 Puoi crearne le voci più tardi in Impostazioni → Voci delle schede → Creale adesso.
+df19a576 Schede aggiunte: {0}. Non è stato possibile salvare o creare l'audio di {2}:
+ddcee4df Uscire senza aggiungere?
+20d80651 Quello che hai scritto qui non è ancora salvato e andrà perso.
+6c2882bb In qualsiasi trascrizione, fai clic destro (o tieni premuto) su una parola o una frase selezionata e scegli «Salva nel vocabolario». Oppure scrivi le tue con Aggiungi parole, qui sopra: una alla volta o un intero elenco.
+90c6c5c7 Altro: aggiungi parole, esporta, impostazioni di Anki
+e6a0568a Scrivi o incolla nuove parole: Tamkeen può compilare significati, frasi d'esempio e audio
+abd94e0c Scrivi o incolla nuove parole, una o molte alla volta. Tamkeen può compilare significati, frasi d'esempio e audio, oppure puoi farlo tu.
+1d9f6beb Aggiungi parole, esporta le parole per Anki o come foglio di calcolo, e le impostazioni di Anki.
+63947c8e Puoi aggiungere al massimo {0} schede alla volta.
+b76caa8f Quei tempi non corrispondono alla registrazione.
+24cf9ded Quella registrazione è vuota o troppo grande.
+0bca0cff Non è stato possibile leggere quella registrazione come suono.
+4290b140 Quella registrazione è troppo lunga.
+066fc6be Quella registrazione è troppo grande.
+b1ef773a il suo significato

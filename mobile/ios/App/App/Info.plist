@@ -55,7 +55,7 @@
     </dict>
 	</dict>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Tamkeen uses the microphone when you record a voice note for a friend or practise saying a word.</string>
+	<string>Tamkeen uses the microphone when you record a voice note for a friend, practise saying a word, or record your own audio for a flashcard.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Tamkeen uses the camera only if you choose to take a photo or video to add to the app.</string>
 	<key>UIBackgroundModes</key>

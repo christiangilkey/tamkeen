@@ -834,6 +834,28 @@ const routes = [
     changed();
     return vocabOut(v);
   }],
+  // Several cards typed in at once (the Vocab page's "Add words"; the computer's twin is app/api/vocab.py
+  // add_batch): in the order given, the first the newest, each in the language its letters say.
+  ["POST", /^\/vocab\/batch$/, (m, q, body) => {
+    const cards = (Array.isArray(body.cards) ? body.cards : []).filter((c) => c && String(c.text || "").trim());
+    if (!cards.length) throw new ApiError("Nothing to save.");
+    if (cards.length > 100) throw new ApiError("At most 100 cards can be added at a time.");
+    const study = studyLanguage(), t = now();
+    const known = new Set(liveFolders().map((f) => f.uid));
+    const s = (x, n) => String(x || "").trim().slice(0, n);
+    const made = cards.map((c, n) => {
+      const text = s(c.text, 200), found = detectLanguage(text, study);
+      const v = { uid: newUid(), episode_uid: null, text, sentence: s(c.sentence, 1000), start: null, end: null, sent_start: null,
+                  sent_end: null, meaning: s(c.meaning, 500), notes: s(c.notes, 2000), translation: s(c.translation, 1000),
+                  language: isLanguage(found) ? found : study, episode_title: "",
+                  folders: [...new Set((Array.isArray(c.folders) ? c.folders : []).filter((f) => known.has(f)))].sort(),
+                  deleted: 0, created_at: t - n * 0.001, updated_at: t };
+      lib.vocab.push(v);
+      return v;
+    });
+    changed();
+    return { cards: made.map(vocabOut) };
+  }],
   // ----- vocab folders (a word can be in several) -----
   ["GET", /^\/vocab\/folders$/, () => liveFolders().map(folderOut)],
   ["POST", /^\/vocab\/folders$/, (m, q, body) => {

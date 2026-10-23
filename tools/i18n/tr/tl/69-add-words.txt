@@ -1,0 +1,115 @@
+b488d46d Hindi ma-save ang recording ng card na ito.
+7ea6c018 Hindi mabasa bilang tunog ang file na iyan. Subukan ang MP3, M4A, WAV o OGG na file.
+cf446b72 Wala akong narinig na nagsasalita. Subukan ulit, nang mas malapit sa mikropono.
+8d7b2518 Kailangan ng Tamkeen ng pahintulot na gamitin ang mikropono. Payagan ito, saka subukan ulit.
+0c58fea6 Hindi magamit ang mikropono ngayon. Isara ang ibang app na maaaring gumagamit nito, saka subukan ulit.
+93f49c5b Punan para sa akin
+9fe82b0d Ako ang magta-type
+1344e304 Halimbawang pangungusap
+ab3bf3d7 Sumulat para sa akin
+b02efb72 Walang pangungusap
+e7348962 Gawin para sa akin
+6bccbf11 Walang audio
+fb9342f3 Idadagdag ko ang akin
+66f4e3b0 Gawin ang folder
+0215f9a3 Magdagdag ng mga salita
+c763b822 Paano ilalagay ang mga salita
+469cea93 Isa-isa
+b4e62165 Mag-paste ng listahan
+f8c430d8 Isa pang salita
+bfc0a1bd Hanggang 100 card lang ang maidaragdag nang sabay-sabay.
+0b8b4231 Ang listahan mo, isang card bawat linya
+afab7c60 Isang card bawat linya. Pagkatapos ng salita, maidaragdag mo ang kahulugan nito gamit ang gitling, equals sign o semicolon (<0/>), o mag-paste ng mga column mula sa spreadsheet: salita, kahulugan, pangungusap, salin.
+4786ee9c Gamitin ang mga ito
+9660be10 Para sa mga card na ito
+d8ba3111 Punan ngayon ang mga kahulugan at pangungusap, para masuri bago idagdag
+d20fc7ca Punan
+3a045bb2 Idagdag ang mga card
+30baa249 Folder
+a711999b Bagong folder
+cc5030b7 Pangalan ng bagong folder
+602b5b8d Walang folder
+fea7178e Bagong folder…
+a55c0ef6 I-download ito ({0} MB)
+0f8c4a48 I-download ito
+e0c508d9 Wala pa sa device na ito ang built-in na diksiyonaryo ng {0}.
+614a7991 Mula sa built-in na diksiyonaryo (naka-off ang AI).
+6d2e1fd1 Mula sa built-in na diksiyonaryo. <0>I-set up ang AI</0> para sa mga salitang wala rito.
+a23a2c48 Mula sa built-in na diksiyonaryo, at sa AI para sa mga salitang wala rito.
+57c4b8d7 Pinupunan ng AI mo.
+c57060d6 Kailangan ng AI para makasulat ng mga pangungusap para sa iyo, pero naka-off ito. <0>Baguhin sa Settings</0>
+fd174aac Kailangan ng AI para makasulat ng mga pangungusap para sa iyo, pero hindi pa ito naka-set up. <0>I-set up sa Settings</0>
+836ce4a2 Isang maikli at natural na pangungusap, pang-baguhan hanggang intermediate, kasama ang salin nito.
+44ac6fa5 Ginagawa ng Azure ang boses ng bawat card kapag idinagdag mo ang mga ito: mga {0} character mula sa allowance mo.
+7964450b Ginagawa ng Azure ang boses ng bawat card kapag idinagdag mo ang mga ito.
+33dcc8be Ginagawa ng computer na ito ang boses ng bawat card, gamit ang mga boses na na-download sa Settings.
+bb7ff7f7 Gagawin ng computer mo ang boses ng bawat card sa susunod nitong pag-sync. Hanggang doon, binabasa ang mga ito ng boses ng device na ito.
+bf3ffbd0 Binabasa ang mga ito ng boses ng device na ito. Ang Azure ang may pinakanatural na boses: <0>i-set up ito</0>.
+a2604175 I-record ang bawat card, o pumili ng sound file, sa ilalim ng Audio sa card.
+b0626505 Pumili ng sound file para sa bawat card, sa ilalim ng Audio sa card.
+7a628f6f Walang itinatago ngayon. Kapag pinatugtog mo ang isang card, babasahin ito ng boses sa Settings → Mga boses ng card.
+00474429 Nasa device na ito na ang diksiyonaryo.
+0d612c12 auto
+49e64f52 Opsyonal: grammar, mnemonic, kung saan mo ito narinig
+4871fc4e Ipakita ang iba pa sa card na ito
+79476a70 Alisin ang card na ito
+6bb2cd6a Pupunan para sa iyo
+a523979a Ang kahulugan nito
+e341869c Isusulat para sa iyo
+71d22455 Pangungusap na gumagamit nito
+5e2b28b9 Ang pangungusap sa wika mo
+86066fb1 Idagdag pa rin
+52bb6712 Nasa mga salita mo na.
+9a283ec1 Parehong salita ng card {0}.
+7fd1975d Idagdag ang {0} card
+e620d3a2 Nire-record ang salita…
+dbcb4968 Nire-record ang pangungusap…
+ef3f043d Inihahanda…
+84dce980 Alisin ang audio ng salita
+b26a0253 Alisin ang audio ng pangungusap
+c79957d0 Magdagdag ng audio
+87249115 Pumili ng sound file
+e63dafbe Idagdag ang pangungusap
+c3a8dd7b I-record ang salita
+a2217424 I-record ang pangungusap
+b5905530 Ang unang {0} segundo lang ang itinatago.
+7ee47277 isang pangungusap
+c66610a8 Ang unang 100 lang ang gagamitin: hanggang 100 card lang ang maidaragdag nang sabay-sabay.
+328b29ac Naka-save na
+054563bc Dalawang beses sa listahan
+02b5a0b9 {0} lang ang kasya: hanggang 100 card lang ang maidaragdag nang sabay-sabay.
+363eacb1 Pinupunan…
+f9536828 Wala pa sa device na ito ang built-in na diksiyonaryo: i-download ito sa ilalim ng Kahulugan, o i-type ang kahulugan.
+391cd7c1 Wala ang salitang ito sa built-in na diksiyonaryo. I-type ang kahulugan nito.
+026abbb0 Walang nakitang kahulugan. I-type ang kahulugan nito.
+9bd24ffb Walang ibinalik ang AI para sa salitang ito. Pindutin ang Punan para subukan ulit.
+afd39c81 Hindi napunan ang bahagi nito. I-type ito, o pindutin ang Punan para subukan ulit.
+829ddbe9 Mga card na kailangang tingnan: {0}. Tingnan ang mga pulang tala.
+c314ddb6 Napunan na. Suriin ang mga ito, saka idagdag.
+1d786947 Mga card na kailangang tingnan: {0} (ang mga pulang tala). Pindutin ulit ang Idagdag para idagdag ang mga ito nang ganoon.
+b68734c2 Naidagdag
+7cb67f35 Itinatago ang audio ng mga ito…
+da317251 Itinatago ang audio nito…
+9fd6430d Naidagdag, kasama ang audio mo
+f9cabf6f Naidagdag, pero hindi naitago ang audio nito: {0}
+bdffcecb Ginagawa ang boses nito…
+6f02041c Naidagdag, kasama ang boses nito
+cf1872a2 Naidagdag, pero hindi nagawa ang boses nito: {0} Habang hinihintay, binabasa ito ng boses ng device na ito.
+e1dc6b28 Naidagdag ang {0} card. {2} na umuulit na salita ang hindi isinama.
+e8de8a44 Naidagdag ang {0} card.
+53fe7582 Magagawa mo ang mga boses nito mamaya sa Settings → Mga boses ng card → Gawin na ngayon.
+df19a576 Naidagdag ang {0} card. Hindi naitago o nagawa ang audio ng {2} sa mga ito:
+ddcee4df Aalis nang hindi nagdaragdag?
+20d80651 Hindi pa naka-save ang na-type mo rito, at mawawala ito.
+6c2882bb Sa anumang transcript, i-right click (o pindutin nang matagal) ang isang salita o napiling parirala at piliin ang “I-save sa vocab”. O i-type ang sarili mo gamit ang Magdagdag ng mga salita, sa itaas: isa-isa o buong listahan.
+90c6c5c7 Iba pa: magdagdag ng mga salita, i-export, settings ng Anki
+e6a0568a Mag-type o mag-paste ng mga bagong salita: kayang punan ng Tamkeen ang mga kahulugan, halimbawang pangungusap at audio
+abd94e0c Mag-type o mag-paste ng mga bagong salita, isa o marami nang sabay. Kayang punan ng Tamkeen ang mga kahulugan, halimbawang pangungusap at audio, o ikaw ang gagawa.
+1d9f6beb Magdagdag ng mga salita, i-export ang mga salita mo para sa Anki o bilang spreadsheet, at ang settings ng Anki.
+63947c8e Hanggang {0} card lang ang maidaragdag nang sabay-sabay.
+b76caa8f Hindi tugma ang mga oras na iyan sa recording.
+24cf9ded Walang laman o masyadong malaki ang recording na iyan.
+0bca0cff Hindi mabasa bilang tunog ang recording na iyan.
+4290b140 Masyadong mahaba ang recording na iyan.
+066fc6be Masyadong malaki ang recording na iyan.
+b1ef773a ang kahulugan nito

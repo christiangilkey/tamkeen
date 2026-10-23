@@ -280,6 +280,11 @@
   "f": "tools/i18n/extra.txt"
  },
  {
+  "id": "b1ef773a",
+  "k": "its meaning",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
   "id": "6f442204",
   "k": "Lost connection to the app's local server.",
   "f": "web/js/app.js"
@@ -352,6 +357,11 @@
  {
   "id": "2619fa36",
   "k": "Couldn't keep this card's voice.",
+  "f": "web/js/app.js"
+ },
+ {
+  "id": "b488d46d",
+  "k": "Couldn't keep this card's recording.",
   "f": "web/js/app.js"
  },
  {
@@ -1638,6 +1648,26 @@
   "id": "41701b8a",
   "k": "Couldn't import this page.",
   "f": "web/js/browser-toolbar.js"
+ },
+ {
+  "id": "7ea6c018",
+  "k": "That file couldn't be read as sound. Try an MP3, M4A, WAV or OGG file.",
+  "f": "web/js/cardaudio.js"
+ },
+ {
+  "id": "cf446b72",
+  "k": "I couldn't hear anyone speaking in it. Try again, a little closer to the microphone.",
+  "f": "web/js/cardaudio.js"
+ },
+ {
+  "id": "8d7b2518",
+  "k": "Tamkeen needs permission to use the microphone. Allow it, then try again.",
+  "f": "web/js/cardaudio.js"
+ },
+ {
+  "id": "0c58fea6",
+  "k": "The microphone couldn't be used just now. Close other apps that may be using it, then try again.",
+  "f": "web/js/cardaudio.js"
  },
  {
   "id": "863892c6",
@@ -4963,6 +4993,516 @@
   "id": "58c330e9",
   "k": "Couldn't undo that.",
   "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "19cd7d18",
+  "k": "Meaning",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "93f49c5b",
+  "k": "Fill in for me",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "9fe82b0d",
+  "k": "I'll type it",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "1344e304",
+  "k": "Example sentence",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "ab3bf3d7",
+  "k": "Write one for me",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "b02efb72",
+  "k": "No sentence",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "acdac205",
+  "k": "Audio",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "e7348962",
+  "k": "Make it for me",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "6bccbf11",
+  "k": "No audio",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "fb9342f3",
+  "k": "I'll add my own",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "66f4e3b0",
+  "k": "Make the folder",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "0215f9a3",
+  "k": "Add words",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "c763b822",
+  "k": "How to enter the words",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "469cea93",
+  "k": "One by one",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "b4e62165",
+  "k": "Paste a list",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "f8c430d8",
+  "k": "Another word",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "bfc0a1bd",
+  "k": "At most 100 cards can be added at a time.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "0b8b4231",
+  "k": "Your list, one card per line",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "afab7c60",
+  "k": "One card per line. After the word you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "4786ee9c",
+  "k": "Use these",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "9660be10",
+  "k": "For these cards",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "d8ba3111",
+  "k": "Fill in the meanings and sentences now, to look them over before adding",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "d20fc7ca",
+  "k": "Fill in",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "3a045bb2",
+  "k": "Add cards",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "30baa249",
+  "k": "Folder",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "a711999b",
+  "k": "New folder",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "cc5030b7",
+  "k": "Name for the new folder",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "602b5b8d",
+  "k": "No folder",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "fea7178e",
+  "k": "New folder…",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "a55c0ef6",
+  "k": "Download it ({0} MB)",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "0f8c4a48",
+  "k": "Download it",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "e0c508d9",
+  "k": "The built-in {0} dictionary isn't on this device yet.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "614a7991",
+  "k": "From the built-in dictionary (AI is off).",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "6d2e1fd1",
+  "k": "From the built-in dictionary. <0>Set up AI</0> for the words it doesn't have.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "a23a2c48",
+  "k": "From the built-in dictionary, and AI for the words it doesn't have.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "57c4b8d7",
+  "k": "Filled in by your AI.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "c57060d6",
+  "k": "Writing sentences for you needs AI, which is turned off. <0>Change it in Settings</0>",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "fd174aac",
+  "k": "Writing sentences for you needs AI, which isn't set up yet. <0>Set it up in Settings</0>",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "836ce4a2",
+  "k": "A short, natural sentence at a beginner to intermediate level, with its translation.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "44ac6fa5",
+  "k": "Azure makes each card's voice when you add them: about {0} characters of your allowance.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "7964450b",
+  "k": "Azure makes each card's voice when you add them.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "33dcc8be",
+  "k": "This computer makes each card's voice, with the voices downloaded in Settings.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "bb7ff7f7",
+  "k": "Your computer makes each card's voice the next time it syncs. Until then this device's voice reads them.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "bf3ffbd0",
+  "k": "This device's voice reads them. Azure gives the most natural voice: <0>set it up</0>.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "a2604175",
+  "k": "Record each card, or choose a sound file, under Audio on the card.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "b0626505",
+  "k": "Choose a sound file for each card, under Audio on the card.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "7a628f6f",
+  "k": "Nothing is kept now. When you play a card, the voice in Settings → Card voices reads it.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "00474429",
+  "k": "The dictionary is on this device now.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "0d612c12",
+  "k": "auto",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "70440046",
+  "k": "Notes",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "49e64f52",
+  "k": "Optional: grammar, a mnemonic, where you heard it",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "4871fc4e",
+  "k": "Show the rest of this card",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "79476a70",
+  "k": "Take this card out",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "6bb2cd6a",
+  "k": "Filled in for you",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "a523979a",
+  "k": "Its meaning",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "e341869c",
+  "k": "Written for you",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "71d22455",
+  "k": "A sentence that uses it",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "5e2b28b9",
+  "k": "The sentence in your language",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "86066fb1",
+  "k": "Add anyway",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "52bb6712",
+  "k": "Already in your words.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "9a283ec1",
+  "k": "The same word as card {0}.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "7fd1975d",
+  "k": "Add {0} card{1}",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "e620d3a2",
+  "k": "Recording the word…",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "dbcb4968",
+  "k": "Recording the sentence…",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "ef3f043d",
+  "k": "Getting it ready…",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "84dce980",
+  "k": "Remove the word's audio",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "b26a0253",
+  "k": "Remove the sentence's audio",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "c79957d0",
+  "k": "Add audio",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "87249115",
+  "k": "Choose a sound file",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "e63dafbe",
+  "k": "Add the sentence",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "c3a8dd7b",
+  "k": "Record the word",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "a2217424",
+  "k": "Record the sentence",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "b5905530",
+  "k": "Only the first {0} seconds are kept.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "7ee47277",
+  "k": "a sentence",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "c66610a8",
+  "k": "Only the first 100 are used: at most 100 cards can be added at a time.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "328b29ac",
+  "k": "Already saved",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "054563bc",
+  "k": "Twice in the list",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "02b5a0b9",
+  "k": "Only {0} of them fit: at most 100 cards can be added at a time.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "363eacb1",
+  "k": "Filling in…",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "f9536828",
+  "k": "The built-in dictionary isn't on this device yet: download it under Meaning, or type the meaning.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "391cd7c1",
+  "k": "This word isn't in the built-in dictionary. Type its meaning.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "026abbb0",
+  "k": "No meaning was found. Type its meaning.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "9bd24ffb",
+  "k": "The AI sent nothing back for this word. Press Fill in to try again.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "afd39c81",
+  "k": "Part of it couldn't be filled in. Type it, or press Fill in to try again.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "829ddbe9",
+  "k": "{0} of the cards need a look: see the red notes.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "c314ddb6",
+  "k": "Filled in. Look them over, then add them.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "1d786947",
+  "k": "{0} of the cards need a look (the red notes). Press Add again to add them as they are.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "b68734c2",
+  "k": "Added",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "7cb67f35",
+  "k": "Keeping their audio…",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "da317251",
+  "k": "Keeping its audio…",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "9fd6430d",
+  "k": "Added, with your audio",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "f9cabf6f",
+  "k": "Added, but its audio couldn't be kept: {0}",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "bdffcecb",
+  "k": "Making its voice…",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "6f02041c",
+  "k": "Added, with its voice",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "cf1872a2",
+  "k": "Added, but its voice couldn't be made: {0} This device's voice reads it meanwhile.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "e1dc6b28",
+  "k": "Added {0} card{1}. {2} repeated word{3} left out.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "e8de8a44",
+  "k": "Added {0} card{1}.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "53fe7582",
+  "k": "You can make their voices later in Settings → Card voices → Make them now.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "df19a576",
+  "k": "Added {0} card{1}. The audio of {2} couldn't be kept or made:",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "ddcee4df",
+  "k": "Leave without adding?",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "20d80651",
+  "k": "What you typed here isn't saved yet, and will be lost.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "7e3520a9",
+  "k": "Leave",
+  "f": "web/js/components/wordbuilder.js"
  },
  {
   "id": "a13e07aa",
@@ -10055,11 +10595,6 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "7e3520a9",
-  "k": "Leave",
-  "f": "web/js/pages/friends.js"
- },
- {
   "id": "20c74057",
   "k": "Request pending",
   "f": "web/js/pages/friends.js"
@@ -10497,11 +11032,6 @@
  {
   "id": "7e79f562",
   "k": "Titles you watched from Netflix, newest first. They play from Netflix, in Tamkeen on a Windows computer or in a web browser with the Tamkeen extension; their subtitles are the transcript.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "acdac205",
-  "k": "Audio",
   "f": "web/js/pages/library.js"
  },
  {
@@ -11690,11 +12220,6 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "19cd7d18",
-  "k": "Meaning",
-  "f": "web/js/pages/review.js"
- },
- {
   "id": "57e2a7ce",
   "k": "What it means",
   "f": "web/js/pages/review.js"
@@ -12485,8 +13010,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "12b2bdbf",
-  "k": "In any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”. Add a word by hand, or export your words for Anki, from the ⋯ menu.",
+  "id": "6c2882bb",
+  "k": "In any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”. Or type your own with Add words, above: one at a time or a whole list.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -12495,8 +13020,13 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "7fc0dbd9",
-  "k": "More: add a word, export, Anki settings",
+  "id": "90c6c5c7",
+  "k": "More: add words, export, Anki settings",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "e6a0568a",
+  "k": "Type or paste new words: Tamkeen can fill in their meanings, example sentences and audio",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -12557,11 +13087,6 @@
  {
   "id": "247fd631",
   "k": "Clear selection",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "35c2eb2c",
-  "k": "Add a word",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -12800,6 +13325,11 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "abd94e0c",
+  "k": "Type or paste new words, one or many at a time. Tamkeen can fill in their meanings, example sentences and audio, or you can.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "dc02b791",
   "k": "Find a saved word by the word itself or by its meaning.",
   "f": "web/js/pages/vocab.js"
@@ -12820,8 +13350,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "f59d91ac",
-  "k": "Add a word by hand, export your words for Anki or as a spreadsheet, and Anki's settings.",
+  "id": "1d9f6beb",
+  "k": "Add words, export your words for Anki or as a spreadsheet, and Anki's settings.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -16415,11 +16945,6 @@
   "f": "mobile/src/js/rss.js"
  },
  {
-  "id": "70440046",
-  "k": "Notes",
-  "f": "mobile/src/js/shared-logic.js"
- },
- {
   "id": "a40a4e6b",
   "k": "Start (s)",
   "f": "mobile/src/js/shared-logic.js"
@@ -16940,6 +17465,11 @@
   "f": "app/api/system.py"
  },
  {
+  "id": "63947c8e",
+  "k": "At most {0} cards can be added at a time.",
+  "f": "app/api/vocab.py"
+ },
+ {
   "id": "7c1e44a9",
   "k": "This word has no audio.",
   "f": "app/api/vocab.py"
@@ -16957,6 +17487,31 @@
  {
   "id": "36e2543b",
   "k": "That audio is empty or too large.",
+  "f": "app/api/vocab.py"
+ },
+ {
+  "id": "b76caa8f",
+  "k": "Those times don't fit the recording.",
+  "f": "app/api/vocab.py"
+ },
+ {
+  "id": "24cf9ded",
+  "k": "That recording is empty or too large.",
+  "f": "app/api/vocab.py"
+ },
+ {
+  "id": "0bca0cff",
+  "k": "That recording couldn't be read as sound.",
+  "f": "app/api/vocab.py"
+ },
+ {
+  "id": "4290b140",
+  "k": "That recording is too long.",
+  "f": "app/api/vocab.py"
+ },
+ {
+  "id": "066fc6be",
+  "k": "That recording is too large.",
   "f": "app/api/vocab.py"
  },
  {

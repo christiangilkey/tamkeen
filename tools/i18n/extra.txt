@@ -34,3 +34,5 @@ Supabase JS client: Friends, chat and sharing
 Capacitor: the phone apps' frame around Tamkeen's screens
 German word table and common-word list: today's spelling and capitals, from Wiktionary (optional download)
 Vazirmatn font (Persian)
+# components/wordbuilder.js: the paste box's example lines ("<word> – its meaning")
+its meaning

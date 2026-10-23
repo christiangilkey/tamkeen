@@ -1,0 +1,115 @@
+b488d46d No se pudo guardar la grabación de esta tarjeta.
+7ea6c018 Ese archivo no se pudo leer como sonido. Prueba con un archivo MP3, M4A, WAV u OGG.
+cf446b72 No oí a nadie hablar. Inténtalo de nuevo, un poco más cerca del micrófono.
+8d7b2518 Tamkeen necesita permiso para usar el micrófono. Permítelo y vuelve a intentarlo.
+0c58fea6 Ahora no se pudo usar el micrófono. Cierra otras apps que puedan estar usándolo y vuelve a intentarlo.
+93f49c5b Rellénalo por mí
+9fe82b0d Lo escribo yo
+1344e304 Frase de ejemplo
+ab3bf3d7 Escríbela por mí
+b02efb72 Sin frase
+e7348962 Créalo por mí
+6bccbf11 Sin audio
+fb9342f3 Añado el mío
+66f4e3b0 Crear la carpeta
+0215f9a3 Añadir palabras
+c763b822 Cómo escribir las palabras
+469cea93 Una por una
+b4e62165 Pegar una lista
+f8c430d8 Otra palabra
+bfc0a1bd Se pueden añadir como máximo 100 tarjetas a la vez.
+0b8b4231 Tu lista, una tarjeta por línea
+afab7c60 Una tarjeta por línea. Después de la palabra puedes añadir su significado con un guion, un signo igual o un punto y coma (<0/>), o pegar columnas de una hoja de cálculo: palabra, significado, frase, traducción.
+4786ee9c Usar estas
+9660be10 Para estas tarjetas
+d8ba3111 Rellena ahora los significados y las frases, para revisarlos antes de añadirlas
+d20fc7ca Rellenar
+3a045bb2 Añadir tarjetas
+30baa249 Carpeta
+a711999b Carpeta nueva
+cc5030b7 Nombre de la carpeta nueva
+602b5b8d Sin carpeta
+fea7178e Carpeta nueva…
+a55c0ef6 Descargarlo ({0} MB)
+0f8c4a48 Descargarlo
+e0c508d9 El diccionario integrado de {0} aún no está en este dispositivo.
+614a7991 Del diccionario integrado (la IA está desactivada).
+6d2e1fd1 Del diccionario integrado. <0>Configura la IA</0> para las palabras que no tiene.
+a23a2c48 Del diccionario integrado, y la IA para las palabras que no tiene.
+57c4b8d7 Los rellena tu IA.
+c57060d6 Para escribirte frases hace falta la IA, que está desactivada. <0>Cámbialo en Ajustes</0>
+fd174aac Para escribirte frases hace falta la IA, que aún no está configurada. <0>Configúrala en Ajustes</0>
+836ce4a2 Una frase corta y natural, de nivel principiante a intermedio, con su traducción.
+44ac6fa5 Azure crea la voz de cada tarjeta al añadirlas: unos {0} caracteres de tu cuota.
+7964450b Azure crea la voz de cada tarjeta al añadirlas.
+33dcc8be Este ordenador crea la voz de cada tarjeta, con las voces descargadas en Ajustes.
+bb7ff7f7 Tu ordenador crea la voz de cada tarjeta la próxima vez que se sincronice. Hasta entonces las lee la voz de este dispositivo.
+bf3ffbd0 Las lee la voz de este dispositivo. Azure da la voz más natural: <0>configúralo</0>.
+a2604175 Graba cada tarjeta, o elige un archivo de sonido, en Audio dentro de la tarjeta.
+b0626505 Elige un archivo de sonido para cada tarjeta, en Audio dentro de la tarjeta.
+7a628f6f Ahora no se guarda nada. Cuando reproduzcas una tarjeta, la lee la voz de Ajustes → Voces de las tarjetas.
+00474429 El diccionario ya está en este dispositivo.
+0d612c12 auto
+49e64f52 Opcional: gramática, una mnemotecnia, dónde la oíste
+4871fc4e Mostrar el resto de esta tarjeta
+79476a70 Quitar esta tarjeta
+6bb2cd6a Se rellena por ti
+a523979a Su significado
+e341869c Se escribe por ti
+71d22455 Una frase que la use
+5e2b28b9 La frase en tu idioma
+86066fb1 Añadir igualmente
+52bb6712 Ya está en tus palabras.
+9a283ec1 La misma palabra que la tarjeta {0}.
+7fd1975d Añadir tarjetas ({0})
+e620d3a2 Grabando la palabra…
+dbcb4968 Grabando la frase…
+ef3f043d Preparándolo…
+84dce980 Quitar el audio de la palabra
+b26a0253 Quitar el audio de la frase
+c79957d0 Añadir audio
+87249115 Elegir un archivo de sonido
+e63dafbe Añadir la frase
+c3a8dd7b Grabar la palabra
+a2217424 Grabar la frase
+b5905530 Solo se guardan los primeros {0} segundos.
+7ee47277 una frase
+c66610a8 Solo se usan las 100 primeras: se pueden añadir como máximo 100 tarjetas a la vez.
+328b29ac Ya guardada
+054563bc Dos veces en la lista
+02b5a0b9 Solo caben {0}: se pueden añadir como máximo 100 tarjetas a la vez.
+363eacb1 Rellenando…
+f9536828 El diccionario integrado aún no está en este dispositivo: descárgalo en Significado, o escribe el significado.
+391cd7c1 Esta palabra no está en el diccionario integrado. Escribe su significado.
+026abbb0 No se encontró ningún significado. Escribe su significado.
+9bd24ffb La IA no devolvió nada para esta palabra. Pulsa Rellenar para intentarlo de nuevo.
+afd39c81 Una parte no se pudo rellenar. Escríbela, o pulsa Rellenar para intentarlo de nuevo.
+829ddbe9 Tarjetas que hay que revisar: {0}. Mira las notas en rojo.
+c314ddb6 Rellenadas. Revísalas y luego añádelas.
+1d786947 Tarjetas que hay que revisar: {0} (las notas en rojo). Pulsa Añadir otra vez para añadirlas tal como están.
+b68734c2 Añadida
+7cb67f35 Guardando su audio…
+da317251 Guardando su audio…
+9fd6430d Añadida, con tu audio
+f9cabf6f Añadida, pero su audio no se pudo guardar: {0}
+bdffcecb Creando su voz…
+6f02041c Añadida, con su voz
+cf1872a2 Añadida, pero su voz no se pudo crear: {0} Mientras tanto la lee la voz de este dispositivo.
+e1dc6b28 Tarjetas añadidas: {0}. Palabras repetidas que se dejaron fuera: {2}.
+e8de8a44 Tarjetas añadidas: {0}.
+53fe7582 Puedes crear sus voces más tarde en Ajustes → Voces de las tarjetas → Hacerlas ahora.
+df19a576 Tarjetas añadidas: {0}. El audio de {2} no se pudo guardar ni crear:
+ddcee4df ¿Salir sin añadir?
+20d80651 Lo que escribiste aquí aún no está guardado y se perderá.
+6c2882bb En cualquier transcripción, haz clic derecho (o mantén pulsada) una palabra o una frase seleccionada y elige «Guardar en vocabulario». O escribe las tuyas con Añadir palabras, arriba: una a una o una lista entera.
+90c6c5c7 Más: añadir palabras, exportar, ajustes de Anki
+e6a0568a Escribe o pega palabras nuevas: Tamkeen puede rellenar sus significados, frases de ejemplo y audio
+abd94e0c Escribe o pega palabras nuevas, una o muchas a la vez. Tamkeen puede rellenar sus significados, frases de ejemplo y audio, o puedes hacerlo tú.
+1d9f6beb Añade palabras, exporta tus palabras para Anki o como hoja de cálculo, y los ajustes de Anki.
+63947c8e Se pueden añadir como máximo {0} tarjetas a la vez.
+b76caa8f Esos tiempos no encajan con la grabación.
+24cf9ded Esa grabación está vacía o es demasiado grande.
+0bca0cff Esa grabación no se pudo leer como sonido.
+4290b140 Esa grabación es demasiado larga.
+066fc6be Esa grabación es demasiado grande.
+b1ef773a su significado
