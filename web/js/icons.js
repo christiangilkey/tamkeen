@@ -141,6 +141,19 @@ const PATHS = {
   computer: `<rect class="fill" x="3.5" y="4.5" width="17" height="11.5" rx="2"/><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"/>
     <path d="M12 16v3.5"/><path d="M8.5 19.5h7"/>`,
   puzzle: `<path class="fill" d="M4.5 8h4.1a2 2 0 1 1 3.8 0H16v3.6a2 2 0 1 1 0 3.8v4.1H4.5z"/><path d="M4.5 8h4.1a2 2 0 1 1 3.8 0H16v3.6a2 2 0 1 1 0 3.8v4.1H4.5z"/>`,
+  // "Add words" on the Vocab page (components/wordbuilder.js): record a card's audio, stop, a card's
+  // own sound file, take a card out, fill in for me, and a pasted list.
+  mic: `<rect class="fill" x="9" y="3.5" width="6" height="11" rx="3"/><rect x="9" y="3.5" width="6" height="11" rx="3"/>
+    <path d="M5.5 11.5a6.5 6.5 0 0 0 13 0"/><path d="M12 18v2.5"/>`,
+  stop: `<rect class="fill" x="6.5" y="6.5" width="11" height="11" rx="2.5"/><rect x="6.5" y="6.5" width="11" height="11" rx="2.5"/>`,
+  upload: `<path d="M12 15V4.5"/><path d="M7.5 9 12 4.5 16.5 9"/><path d="M4.5 14.5V18a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-3.5"/>`,
+  trash: `<path class="fill" d="M6.5 7.5l.85 11.2a1.6 1.6 0 0 0 1.6 1.5h6.1a1.6 1.6 0 0 0 1.6-1.5l.85-11.2z"/>
+    <path d="M4.5 7.5h15"/><path d="M9.5 7.5V5.4A1.4 1.4 0 0 1 10.9 4h2.2a1.4 1.4 0 0 1 1.4 1.4v2.1"/>
+    <path d="M6.5 7.5l.85 11.2a1.6 1.6 0 0 0 1.6 1.5h6.1a1.6 1.6 0 0 0 1.6-1.5l.85-11.2"/><path d="M10.3 11v5.5M13.7 11v5.5"/>`,
+  sparkle: `<path class="fill" d="M10 3.5l1.6 4.6 4.6 1.6-4.6 1.6L10 15.9l-1.6-4.6-4.6-1.6 4.6-1.6z"/>
+    <path d="M10 3.5l1.6 4.6 4.6 1.6-4.6 1.6L10 15.9l-1.6-4.6-4.6-1.6 4.6-1.6z"/><path d="M17.5 14.5v5.5M14.75 17.25h5.5"/>`,
+  list: `<path d="M9.5 7h10M9.5 12h10M9.5 17h10"/><circle class="solid" cx="5" cy="7" r="1.25"/><circle class="solid" cx="5" cy="12" r="1.25"/>
+    <circle class="solid" cx="5" cy="17" r="1.25"/>`,
 };
 
 export const ICON_NAMES = Object.keys(PATHS);

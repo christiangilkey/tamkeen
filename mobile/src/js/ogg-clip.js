@@ -157,3 +157,59 @@ export function oggOpusInfo(bytes) {
   }
   return { seconds: Math.max(0, granule - skip) / RATE, pages, intact: intact && pages > 2 && at === bytes.length, ended: (last & 4) === 4, skip };
 }
+
+// ---------------------------------------------------------------- WAV files
+// A card's own recording made on a device that can't make Ogg Opus is kept as a plain WAV file
+// (16-bit, mono: web/js/cardaudio.js). Its Anki clips are cut from it as WAV files, byte for byte.
+
+/** The 44 bytes in front of the sound: RIFF, a 16-byte fmt part, data. */
+function wavHeader(view, out, size, rate, channels, bits) {
+  const frame = channels * (bits / 8);
+  out.set([0x52, 0x49, 0x46, 0x46], 0); view.setUint32(4, 36 + size, true); out.set([0x57, 0x41, 0x56, 0x45], 8);  // RIFF … WAVE
+  out.set([0x66, 0x6d, 0x74, 0x20], 12); view.setUint32(16, 16, true); view.setUint16(20, 1, true);              // fmt, PCM
+  view.setUint16(22, channels, true); view.setUint32(24, rate, true); view.setUint32(28, rate * frame, true);
+  view.setUint16(32, frame, true); view.setUint16(34, bits, true);
+  out.set([0x64, 0x61, 0x74, 0x61], 36); view.setUint32(40, size, true);                                           // data
+}
+
+/** What a WAV file holds: {rate, channels, bits, offset, length, seconds} (where its sound is, in
+ * bytes), or null when the bytes are not a plain (PCM) WAV file. */
+export function wavInfo(bytes) {
+  if (!bytes || bytes.length < 44 || ascii(bytes, 0, 4) !== "RIFF" || ascii(bytes, 8, 4) !== "WAVE") return null;
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  let at = 12, fmt = null;
+  while (at + 8 <= bytes.length) {
+    const id = ascii(bytes, at, 4), size = view.getUint32(at + 4, true);
+    if (id === "fmt ") {
+      fmt = { format: view.getUint16(at + 8, true), channels: view.getUint16(at + 10, true), rate: view.getUint32(at + 12, true), bits: view.getUint16(at + 22, true) };
+    } else if (id === "data") {
+      if (!fmt || fmt.format !== 1 || !fmt.channels || !fmt.rate || !fmt.bits) return null;
+      const length = Math.min(size, bytes.length - at - 8);
+      const frame = fmt.channels * (fmt.bits / 8);
+      return { rate: fmt.rate, channels: fmt.channels, bits: fmt.bits, offset: at + 8, length, seconds: length / frame / fmt.rate };
+    }
+    at += 8 + size + (size % 2);
+  }
+  return null;
+}
+
+/** Cut parts out of a WAV file without changing them: one WAV file (Uint8Array) per [start, end]
+ * (seconds), or null where nothing could be cut (outside the sound, or not a plain WAV file). */
+export function cutWav(bytes, ranges) {
+  const info = wavInfo(bytes);
+  return (ranges || []).map(([start, end]) => {
+    if (!info) return null;
+    const frame = info.channels * (info.bits / 8), frames = Math.floor(info.length / frame);
+    const a = Math.max(0, Math.floor(Math.max(0, start) * info.rate)), b = Math.min(frames, Math.ceil(Math.max(0, end) * info.rate));
+    if (b <= a) return null;
+    const size = (b - a) * frame;
+    const out = new Uint8Array(44 + size);
+    wavHeader(new DataView(out.buffer), out, size, info.rate, info.channels, info.bits);
+    out.set(bytes.subarray(info.offset + a * frame, info.offset + b * frame), 44);
+    return out;
+  });
+}
+
+
+/** The kind of a clip's bytes: "wav" for a WAV file, else "ogg" (every other clip is Ogg Opus). */
+export const clipKind = (bytes) => (bytes && bytes.length >= 12 && ascii(bytes, 0, 4) === "RIFF" && ascii(bytes, 8, 4) === "WAVE" ? "wav" : "ogg");

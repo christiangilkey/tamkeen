@@ -21,6 +21,7 @@
 import { deckMap, deckProblem, defaultDeck, firstDecks, misplacedCards, noteUid, plan, progressRecord } from "./anki-sync.js";
 import { ankiFields } from "./shared-logic.js";
 import { clipRanges, cutClips } from "./anki-export.js";
+import { clipExt } from "./anki-deck.js";
 
 export const FIELDS = ["Front", "Back", "image", "TTS Input"];
 export const LAYOUT = "Tamkeen";
@@ -230,7 +231,7 @@ export function createAnkiSync(env) {
             const bytes = (clips[c.uid] || {})[part];
             if (!bytes) continue;
             try {
-              sounds += `[sound:${(await env.droid.addMedia({ name: `tk-${c.uid}-${tail}.ogg`, data: base64(bytes) })).name}]`;
+              sounds += `[sound:${(await env.droid.addMedia({ name: `tk-${c.uid}-${tail}.${clipExt(bytes)}`, data: base64(bytes) })).name}]`;
             } catch (e) { console.warn("A clip could not be given to AnkiDroid:", e); }
           }
           const values = { Front: c.front, Back: c.back, "TTS Input": sounds };

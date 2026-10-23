@@ -492,13 +492,29 @@ export async function saveClip(uid, blob, times) {
   requestSync();
 }
 
+/** Keep the learner's own recording for a card typed in with "Add words" (web/js/cardaudio.js: Ogg
+ * Opus, or a WAV file where this device can't make Ogg Opus) as the card's voice: stored and synced
+ * exactly like a voice made with Azure. */
+export const saveRecording = (uid, blob, times) => saveVoice(uid, blob, times);
+
+/** The file's real kind, whatever it was stored or downloaded as (Drive keeps every clip as audio/ogg;
+ * a recording made on an iPhone is a WAV file): an iPhone plays a file only by its right type. */
+async function typedClip(blob) {
+  try {
+    const b = new Uint8Array(await blob.slice(0, 12).arrayBuffer());
+    const head = String.fromCharCode(...b.subarray(0, 4));
+    const type = head === "RIFF" && String.fromCharCode(...b.subarray(8, 12)) === "WAVE" ? "audio/wav" : head === "OggS" ? "audio/ogg" : "";
+    return type && type !== blob.type ? new Blob([blob], { type }) : blob;
+  } catch { return blob; }
+}
+
 const clipUrls = new Map();
 /** Address the vocab page plays for a word that has its own clip. */
 export async function clipUrl(word) {
   if (clipUrls.has(word.id)) return clipUrls.get(word.id);
   const blob = await storedClip(word.id);
   if (!blob) throw new Error("This word's audio isn't on this phone yet. Sync and try again.");
-  const url = URL.createObjectURL(blob);
+  const url = URL.createObjectURL(await typedClip(blob));
   clipUrls.set(word.id, url);
   return url;
 }

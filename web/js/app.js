@@ -216,6 +216,25 @@ export async function saveVoice(vocabId, blob, times) {
   return res.json();
 }
 
+/** Keep the learner's own recording for a card typed in with "Add words" (cardaudio.js: Ogg Opus, or a
+ * WAV file that this computer makes into Ogg Opus) as the card's voice, with where its word and
+ * sentence are in it. */
+export async function saveRecording(vocabId, blob, times) {
+  const q = new URLSearchParams(Object.entries(times).filter(([, x]) => x !== null && x !== undefined));
+  let res;
+  try {
+    res = await fetch(`/api/vocab/${vocabId}/recording?${q}`, { method: "PUT", body: blob });
+  } catch {
+    throw new Error("Lost connection to the app's local server.");
+  }
+  if (!res.ok) {
+    let detail = "";
+    try { detail = (await res.json()).detail; } catch { /* no words with it */ }
+    throw new Error(typeof detail === "string" && detail ? detail : "Couldn't keep this card's recording.");
+  }
+  return res.json();
+}
+
 /** The phones' own text-to-speech; the computer speaks through the browser's (speechSynthesis). */
 export const speechPlugin = null;
 

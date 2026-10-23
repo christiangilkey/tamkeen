@@ -360,3 +360,5 @@ a281c392  # CC BY 4.0
 92725b91  # <{0} class="seg{1}{2}" dir="auto" data-s="{3}">  (book.js block)
 695b0895  # <{0} class="seg{1}" dir="auto" data-s="{2}">  (reader.js block)
 aecf88cb  # changelog changes versions history what's new release notes  (Settings search words, not shown)
+# "Add words" (web/js/addwords.js batchPrompt): what the app tells the AI about each word.
+e9369867  # fill in: {0}

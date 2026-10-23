@@ -5,7 +5,7 @@
 // episode has no such copy (streamed originals, videos, web pages) are exported without audio.
 
 import { buildDeck } from "./anki-deck.js";
-import { cutOggOpus } from "./ogg-clip.js";
+import { clipKind, cutOggOpus, cutWav } from "./ogg-clip.js";
 
 // The same air around a clip as the computer leaves (app/api/vocab.py).
 const WORD_LEAD = 0.05, WORD_TAIL = 0.12, SENTENCE_LEAD = 0.3, SENTENCE_TAIL = 0.45;
@@ -18,10 +18,13 @@ export function clipRanges(v) {
   return out;
 }
 
-/** Cut the clips for words that share one audio file. Returns { uid: { word, sentence } }. */
+/** Cut the clips for words that share one audio file (Ogg Opus, or a WAV file: a card's own recording
+ * made on a device that can't make Ogg Opus, web/js/cardaudio.js; its clips are WAV too). Returns
+ * { uid: { word, sentence } }. */
 export function cutClips(bytes, words) {
   const jobs = words.flatMap((v) => Object.entries(clipRanges(v)).map(([part, range]) => ({ uid: v.uid, part, range })));
-  const cut = cutOggOpus(bytes, jobs.map((j) => j.range)), out = {};
+  const ranges = jobs.map((j) => j.range);
+  const cut = clipKind(bytes) === "wav" ? cutWav(bytes, ranges) : cutOggOpus(bytes, ranges), out = {};
   jobs.forEach(({ uid, part }, i) => { if (cut[i]) (out[uid] ||= {})[part] = cut[i]; });
   return out;
 }

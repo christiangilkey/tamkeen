@@ -1,0 +1,115 @@
+b488d46d Impossible de garder l'enregistrement de cette carte.
+7ea6c018 Ce fichier n'a pas pu être lu comme du son. Essayez un fichier MP3, M4A, WAV ou OGG.
+cf446b72 Je n'ai entendu personne parler. Réessayez, un peu plus près du micro.
+8d7b2518 Tamkeen a besoin de l'autorisation d'utiliser le micro. Autorisez-le, puis réessayez.
+0c58fea6 Le micro n'a pas pu être utilisé pour l'instant. Fermez les autres apps qui l'utilisent peut-être, puis réessayez.
+93f49c5b Remplis-le pour moi
+9fe82b0d Je le tape
+1344e304 Phrase d'exemple
+ab3bf3d7 Écris-en une pour moi
+b02efb72 Pas de phrase
+e7348962 Crée-le pour moi
+6bccbf11 Pas d'audio
+fb9342f3 J'ajoute le mien
+66f4e3b0 Créer le dossier
+0215f9a3 Ajouter des mots
+c763b822 Comment saisir les mots
+469cea93 Un par un
+b4e62165 Coller une liste
+f8c430d8 Un autre mot
+bfc0a1bd On peut ajouter au plus 100 cartes à la fois.
+0b8b4231 Votre liste, une carte par ligne
+afab7c60 Une carte par ligne. Après le mot, vous pouvez ajouter son sens avec un tiret, un signe égal ou un point-virgule (<0/>), ou coller des colonnes d'un tableur : mot, sens, phrase, traduction.
+4786ee9c Utiliser celles-ci
+9660be10 Pour ces cartes
+d8ba3111 Remplir maintenant les sens et les phrases, pour les relire avant d'ajouter
+d20fc7ca Remplir
+3a045bb2 Ajouter les cartes
+30baa249 Dossier
+a711999b Nouveau dossier
+cc5030b7 Nom du nouveau dossier
+602b5b8d Aucun dossier
+fea7178e Nouveau dossier…
+a55c0ef6 Le télécharger ({0} Mo)
+0f8c4a48 Le télécharger
+e0c508d9 Le dictionnaire intégré de {0} n'est pas encore sur cet appareil.
+614a7991 Du dictionnaire intégré (l'IA est désactivée).
+6d2e1fd1 Du dictionnaire intégré. <0>Configurez l'IA</0> pour les mots qu'il n'a pas.
+a23a2c48 Du dictionnaire intégré, et de l'IA pour les mots qu'il n'a pas.
+57c4b8d7 Remplis par votre IA.
+c57060d6 Écrire des phrases pour vous demande l'IA, qui est désactivée. <0>Changez-le dans les Réglages</0>
+fd174aac Écrire des phrases pour vous demande l'IA, qui n'est pas encore configurée. <0>Configurez-la dans les Réglages</0>
+836ce4a2 Une phrase courte et naturelle, de niveau débutant à intermédiaire, avec sa traduction.
+44ac6fa5 Azure crée la voix de chaque carte quand vous les ajoutez : environ {0} caractères de votre quota.
+7964450b Azure crée la voix de chaque carte quand vous les ajoutez.
+33dcc8be Cet ordinateur crée la voix de chaque carte, avec les voix téléchargées dans les Réglages.
+bb7ff7f7 Votre ordinateur crée la voix de chaque carte à sa prochaine synchronisation. D'ici là, la voix de cet appareil les lit.
+bf3ffbd0 La voix de cet appareil les lit. Azure donne la voix la plus naturelle : <0>configurez-le</0>.
+a2604175 Enregistrez chaque carte, ou choisissez un fichier son, sous Audio dans la carte.
+b0626505 Choisissez un fichier son pour chaque carte, sous Audio dans la carte.
+7a628f6f Rien n'est gardé maintenant. Quand vous écoutez une carte, la voix de Réglages → Voix des cartes la lit.
+00474429 Le dictionnaire est maintenant sur cet appareil.
+0d612c12 auto
+49e64f52 Facultatif : grammaire, un moyen mnémotechnique, où vous l'avez entendu
+4871fc4e Afficher le reste de cette carte
+79476a70 Retirer cette carte
+6bb2cd6a Rempli pour vous
+a523979a Son sens
+e341869c Écrite pour vous
+71d22455 Une phrase qui l'emploie
+5e2b28b9 La phrase dans votre langue
+86066fb1 Ajouter quand même
+52bb6712 Déjà dans vos mots.
+9a283ec1 Le même mot que la carte {0}.
+7fd1975d Ajouter les cartes ({0})
+e620d3a2 Enregistrement du mot…
+dbcb4968 Enregistrement de la phrase…
+ef3f043d Préparation…
+84dce980 Retirer l'audio du mot
+b26a0253 Retirer l'audio de la phrase
+c79957d0 Ajouter un audio
+87249115 Choisir un fichier son
+e63dafbe Ajouter la phrase
+c3a8dd7b Enregistrer le mot
+a2217424 Enregistrer la phrase
+b5905530 Seules les {0} premières secondes sont gardées.
+7ee47277 une phrase
+c66610a8 Seules les 100 premières sont utilisées : on peut ajouter au plus 100 cartes à la fois.
+328b29ac Déjà enregistré
+054563bc Deux fois dans la liste
+02b5a0b9 Seules {0} d'entre elles tiennent : on peut ajouter au plus 100 cartes à la fois.
+363eacb1 Remplissage…
+f9536828 Le dictionnaire intégré n'est pas encore sur cet appareil : téléchargez-le sous Sens, ou tapez le sens.
+391cd7c1 Ce mot n'est pas dans le dictionnaire intégré. Tapez son sens.
+026abbb0 Aucun sens trouvé. Tapez son sens.
+9bd24ffb L'IA n'a rien renvoyé pour ce mot. Appuyez sur Remplir pour réessayer.
+afd39c81 Une partie n'a pas pu être remplie. Tapez-la, ou appuyez sur Remplir pour réessayer.
+829ddbe9 Cartes à vérifier : {0}. Voyez les notes en rouge.
+c314ddb6 C'est rempli. Relisez-les, puis ajoutez-les.
+1d786947 Cartes à vérifier : {0} (les notes en rouge). Appuyez de nouveau sur Ajouter pour les ajouter telles quelles.
+b68734c2 Ajoutée
+7cb67f35 Enregistrement de leur audio…
+da317251 Enregistrement de son audio…
+9fd6430d Ajoutée, avec votre audio
+f9cabf6f Ajoutée, mais son audio n'a pas pu être gardé : {0}
+bdffcecb Création de sa voix…
+6f02041c Ajoutée, avec sa voix
+cf1872a2 Ajoutée, mais sa voix n'a pas pu être créée : {0} En attendant, la voix de cet appareil la lit.
+e1dc6b28 Cartes ajoutées : {0}. Mots répétés laissés de côté : {2}.
+e8de8a44 Cartes ajoutées : {0}.
+53fe7582 Vous pourrez créer leurs voix plus tard dans Réglages → Voix des cartes → Les créer maintenant.
+df19a576 Cartes ajoutées : {0}. L'audio de {2} d'entre elles n'a pas pu être gardé ou créé :
+ddcee4df Partir sans ajouter ?
+20d80651 Ce que vous avez tapé ici n'est pas encore enregistré et sera perdu.
+6c2882bb Dans n'importe quelle transcription, faites un clic droit (ou un appui long) sur un mot ou une expression sélectionnée et choisissez « Enregistrer dans le vocabulaire ». Ou tapez les vôtres avec Ajouter des mots, plus haut : un par un ou toute une liste.
+90c6c5c7 Plus : ajouter des mots, exporter, réglages Anki
+e6a0568a Tapez ou collez de nouveaux mots : Tamkeen peut remplir leurs sens, des phrases d'exemple et l'audio
+abd94e0c Tapez ou collez de nouveaux mots, un ou plusieurs à la fois. Tamkeen peut remplir leurs sens, des phrases d'exemple et l'audio, ou vous pouvez le faire vous-même.
+1d9f6beb Ajoutez des mots, exportez vos mots pour Anki ou en tableur, et les réglages d'Anki.
+63947c8e On peut ajouter au plus {0} cartes à la fois.
+b76caa8f Ces temps ne correspondent pas à l'enregistrement.
+24cf9ded Cet enregistrement est vide ou trop gros.
+0bca0cff Cet enregistrement n'a pas pu être lu comme du son.
+4290b140 Cet enregistrement est trop long.
+066fc6be Cet enregistrement est trop gros.
+b1ef773a son sens

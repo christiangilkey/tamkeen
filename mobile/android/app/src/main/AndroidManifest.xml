@@ -67,7 +67,8 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <!-- The silent "cards to review today" notification that puts the number on the app icon. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <!-- Voice notes in friend chats (asked for the first time you tap the microphone). -->
+    <!-- Voice notes in friend chats, "Say it" practice, and recording your own audio for a card in
+         "Add words" (asked for the first time you tap the microphone). -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <!-- Syncing saved words with the Tamkeen deck in AnkiDroid (asked for when the sync is switched on). -->
