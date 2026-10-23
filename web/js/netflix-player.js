@@ -7,8 +7,11 @@
 //     "Are you still watching?" or an error, which stay visible);
 //   - when a title starts, the soundtrack is switched to the language being learned when Netflix
 //     has one, then the subtitles: Netflix then downloads that subtitle file, which the app's
-//     window notices and keeps as the transcript;
-//   - the app asks it where the player is (state) and tells it what to do (cmd).
+//     window notices and keeps as the transcript. This happens once per title (and again when the
+//     language being learned changes); a soundtrack or subtitles the viewer picks in Tamkeen's own
+//     menus (the browser extension's bar) are kept for the rest of the title;
+//   - the app asks it where the player is (state, with Netflix's lists of soundtracks and
+//     subtitles) and tells it what to do (cmd).
 // Netflix's player is reached through the API its own page uses:
 //   netflix.appContext.state.playerApp.getAPI().videoPlayer -> getVideoPlayerBySessionId(...)
 // whose times are in milliseconds. (Setting the <video>'s currentTime directly makes Netflix stop
@@ -79,8 +82,11 @@
     try { return typeof p[name] === "function" ? p[name]() : undefined; } catch (e) { return undefined; }
   }
 
-  // ---------- once per title: soundtrack, then subtitles ----------
-  var session = "";
+  // ---------- once per title (and when the language being learned changes): soundtrack, then subtitles ----------
+  // Chosen ONCE, never forced back: the viewer may change either in Tamkeen's Audio and Subtitles
+  // menus (cmd "audio" / "text"), and a track chosen by hand is kept for the rest of the title
+  // (lib.planChoice, lib.choseByHand).
+  var plan = {};      // {session, lang, manualAudio, manualText}
   var subs = { status: "waiting", bcp47: "", name: "" };
   var sound = { status: "waiting", name: "" };
   var textAt = 0;     // when to choose the subtitles (a moment after switching the soundtrack)
@@ -89,14 +95,17 @@
   function choose(found) {
     var p = found.p;
     var now = Date.now();
-    if (found.sid !== session) { // a new title (or the next episode)
-      session = found.sid;
+    var newTitle = plan.session !== found.sid; // a new title (or the next episode)
+    var again = lib.planChoice(plan, found.sid, readLang());
+    if (newTitle) {
       subs = { status: "waiting", bcp47: "", name: "" };
       sound = { status: "waiting", name: "" };
       textAt = 0;
       textTries = 0;
     }
-    if (!readLang()) return;
+    if (again.audio) sound = { status: "waiting", name: "" };
+    if (again.text) { subs = { status: "waiting", bcp47: "", name: "" }; textAt = 0; textTries = 0; }
+    if (!LANG) return;
     if (sound.status === "waiting") {
       var list = call(p, "getAudioTrackList");
       if (!list) return;
@@ -166,7 +175,47 @@
       rate: p ? Number(call(p, "getPlaybackRate")) || 1 : 1,
       error: errorText(), prompt: asking ? visibleText(asking) || "?" : "",
       subs: subs, audio: sound, info: id ? readInfo(id) : null,
+      learning: LANG, tracks: p ? tracks(p) : null,
+      manual: { audio: !!plan.manualAudio, text: !!plan.manualText },
     };
+  }
+
+  /** Netflix's soundtracks and subtitles for Tamkeen's menus, and the ones in use. */
+  function tracks(p) {
+    var audio = call(p, "getAudioTrackList") || [];
+    var text = call(p, "getTextTrackList") || [];
+    return {
+      audio: lib.menuTracks(audio, "audio"), text: lib.menuTracks(text, "text"),
+      audioNow: lib.currentKey(audio, call(p, "getAudioTrack"), "audio"),
+      textNow: lib.currentKey(text, call(p, "getTextTrack"), "text"),
+    };
+  }
+
+  /** The viewer chose a soundtrack (`kind` "audio") or subtitles ("text"; key "off" turns them off)
+   * in Tamkeen's menus: Netflix switches to it, and it is kept for the rest of this title. */
+  function chooseByHand(p, kind, key) {
+    if (kind === "audio") {
+      var a = lib.findTrack(call(p, "getAudioTrackList"), key);
+      if (!a) return;
+      p.setAudioTrack(a);
+      sound = { status: "manual", name: String(a.displayName || a.bcp47 || "") };
+      if (lib.choseByHand(plan, "audio") && LANG) { // the subtitles in the language being learned, once more
+        subs = { status: "waiting", bcp47: "", name: "" };
+        textAt = Date.now() + 1500;
+        textTries = 0;
+      }
+      return;
+    }
+    var list = call(p, "getTextTrackList") || [];
+    var off = String(key) === "off";
+    var tr = off ? lib.offTrack(list) : lib.findTrack(list, key);
+    if (!tr && !off) return;
+    lib.choseByHand(plan, "text");
+    subs = off ? { status: "off", bcp47: "", name: "" } : { status: "manual", bcp47: String(tr.bcp47 || ""), name: String(tr.displayName || "") };
+    if (tr) {
+      var done = p.setTextTrack(tr);
+      if (done && done.catch) done.catch(function () { /* the next state shows the track Netflix kept */ });
+    }
   }
 
   function cmd(name, value) {
@@ -180,6 +229,8 @@
       else if (name === "rate") {
         var r = Math.max(0.5, Math.min(2, Number(value) || 1));
         try { p.setPlaybackRate(r); } catch (e) { var v = video(); if (v) v.playbackRate = r; }
+      } else if (name === "audio" || name === "text") {
+        chooseByHand(p, name, String(value || ""));
       } else if (name === "continue") {
         var asking = prompt();
         var b = asking && asking.querySelector("button");

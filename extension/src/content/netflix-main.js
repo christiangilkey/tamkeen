@@ -5,7 +5,8 @@
 // language being learned; and answers state() / cmd(). This passes those to the extension's own part
 // of the page (content/netflix.js) as page events, a few times a second:
 //   "tamkeen:nf-state"   -> the player's state (JSON)
-//   "tamkeen:nf-cmd"     <- play, pause, seek, rate, continue (JSON {name, value})
+//   "tamkeen:nf-cmd"     <- play, pause, seek, rate, continue; audio, text: a soundtrack or subtitles
+//                           chosen in the bar's menus, by Netflix's key for it (JSON {name, value})
 //   "tamkeen:nf-config"  <- the language being learned (JSON {lang})
 // They carry nothing private: where the player is and what it should do.
 (function () {
@@ -30,9 +31,13 @@
   document.addEventListener("tamkeen:nf-cmd", function (e) {
     var c = read(e);
     var p = window.__tamkeenNetflixPlayer;
-    if (!c || !p || ["play", "pause", "seek", "rate", "continue"].indexOf(c.name) < 0) return;
-    var v = Number(c.value);
-    p.cmd(c.name, isFinite(v) ? v : 0);
+    if (!c || !p || ["play", "pause", "seek", "rate", "continue", "audio", "text"].indexOf(c.name) < 0) return;
+    if (c.name === "audio" || c.name === "text") { // a track's key (plain text, as Netflix names it)
+      p.cmd(c.name, String(c.value == null ? "" : c.value).slice(0, 200));
+    } else {
+      var v = Number(c.value);
+      p.cmd(c.name, isFinite(v) ? v : 0);
+    }
     send();
   });
   setInterval(send, 250);

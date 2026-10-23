@@ -134,6 +134,9 @@ const PATHS = {
     <path d="M18 6.2v11.6a.8.8 0 0 1-1.25.66L9.6 12.66a.8.8 0 0 1 0-1.32l7.15-5.8A.8.8 0 0 1 18 6.2z"/>`,
   ahead: `<path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.2 3.8v3.6h-3.6"/>`,
   fullscreen: `<path d="M4.5 9V5.5a1 1 0 0 1 1-1H9M15 4.5h3.5a1 1 0 0 1 1 1V9M19.5 15v3.5a1 1 0 0 1-1 1H15M9 19.5H5.5a1 1 0 0 1-1-1V15"/>`,
+  // A screen with two lines of text along its bottom: subtitles (the Netflix bar's Subtitles menu).
+  subtitles: `<rect class="fill" x="3" y="5" width="18" height="14" rx="2.6"/><rect x="3" y="5" width="18" height="14" rx="2.6"/>
+    <path d="M7 12.5h4M13.5 12.5H17M7 15.5h7M16.5 15.5H17"/>`,
   // A computer screen on its stand (Settings → Listening & transcripts: "This computer" / "My computer").
   computer: `<rect class="fill" x="3.5" y="4.5" width="17" height="11.5" rx="2"/><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"/>
     <path d="M12 16v3.5"/><path d="M8.5 19.5h7"/>`,

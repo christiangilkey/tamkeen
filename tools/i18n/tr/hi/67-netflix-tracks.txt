@@ -1,0 +1,6 @@
+# Netflix extension: Audio and Subtitles menus, following Tamkeen's language (2026-10-23)
+17770471 सबटाइटल
+fd582310 सबटाइटल बंद हैं।
+a6c86590 इसके बजाय Netflix के {0} सबटाइटल दिखाए जा रहे हैं।
+31dfec13 Tamkeen अभी {0} में शब्द नहीं खोज सकता। उसके सबटाइटल फिर भी यहाँ दिखते हैं।
+8293cbab यह पेज खुलने के बाद Tamkeen for Netflix बदल गया है। पेज दोबारा लोड करें ताकि Netflix फिर से आपकी Tamkeen सेटिंग्स का पालन करे।

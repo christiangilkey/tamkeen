@@ -1,0 +1,6 @@
+# Netflix extension: Audio and Subtitles menus, following Tamkeen's language (2026-10-23)
+17770471 Legendas
+fd582310 Legendas desativadas.
+a6c86590 Mostrando as legendas da Netflix em {0:lower} no lugar.
+31dfec13 O Tamkeen ainda não consegue buscar palavras em {0:lower}. As legendas continuam aparecendo aqui.
+8293cbab O Tamkeen para Netflix mudou desde que esta página foi aberta. Recarregue a página para que a Netflix volte a seguir suas configurações do Tamkeen.

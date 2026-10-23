@@ -1,0 +1,6 @@
+# Netflix extension: Audio and Subtitles menus, following Tamkeen's language (2026-10-23)
+17770471 字幕
+fd582310 字幕已关闭。
+a6c86590 改为显示 Netflix 的{0}字幕。
+31dfec13 Tamkeen 还不能查{0}的单词。字幕仍会显示在这里。
+8293cbab 自从打开此页面后，Tamkeen for Netflix 已有变化。请重新加载页面，让 Netflix 再次跟随你的 Tamkeen 设置。

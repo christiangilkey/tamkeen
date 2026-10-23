@@ -32,13 +32,19 @@
   function isOff(t) {
     return !!(t && (t.isNoneTrack || OFF.test(String(t.displayName || "").trim())));
   }
+  /** Subtitles for the deaf and hard of hearing: Netflix's ASSISTIVE tracks, closed captions,
+   * "English [CC]", SDH. (They describe sounds too, so they are never the first choice.) */
+  function isCaptions(t) {
+    return !!t && (t.trackType === "ASSISTIVE" || /closed ?captions?/i.test(String(t.rawTrackType || "")) ||
+      /\[cc\]|\(cc\)|\bsdh\b/i.test(String(t.displayName || "")));
+  }
 
   /**
    * The subtitle track to show for `lang` (the language being learned), from Netflix's list:
    * {track, image} or null. Never "Off" (the "none" track, or one named so) or the forced ones (a
    * few lines for signs); a text track before one drawn as pictures (`image`: Netflix only has pictures, which
    * Tamkeen can't read); the variant of the soundtrack being heard ("ar-LB" with Lebanese speech);
-   * ordinary subtitles (PRIMARY) before those for the hard of hearing (ASSISTIVE); the app's own
+   * ordinary subtitles (PRIMARY) before closed captions (ASSISTIVE, "[CC]"); the app's own
    * variant of the language; Netflix's order.
    */
   function chooseTextTrack(list, lang, audioCode) {
@@ -51,7 +57,7 @@
     });
     if (!usable.length) return null;
     var key = function (u) {
-      return [u.t.isImageBased ? 1 : 0, String(u.t.bcp47 || "").toLowerCase() === heard ? 0 : 1, u.t.trackType === "PRIMARY" ? 0 : 1,
+      return [u.t.isImageBased ? 1 : 0, String(u.t.bcp47 || "").toLowerCase() === heard ? 0 : 1, isCaptions(u.t) ? 1 : 0,
         variantRank(want, u.t.bcp47), u.i];
     };
     usable.sort(function (a, b) {
@@ -72,6 +78,98 @@
     if (!hits.length) return null;
     hits.sort(function (a, b) { return (b.isNative ? 1 : 0) - (a.isNative ? 1 : 0) || variantRank(want, a.bcp47) - variantRank(want, b.bcp47); });
     return hits[0];
+  }
+
+  // ---------- the viewer's own choice of soundtrack and subtitles (Tamkeen's Audio and Subtitles menus) ----------
+
+  /** A track's key in Netflix's list: its trackId, else its place in the list ("#3"). */
+  function trackKey(t, i) {
+    var id = t && (t.trackId || t.id);
+    return String(id || "#" + i).slice(0, 200);
+  }
+
+  /** Netflix's soundtracks (`kind` "audio") or subtitles ("text") as Tamkeen's menus list them:
+   * [{id, bcp47, lang, name, cc, image, described, native}], in Netflix's order. The subtitles leave
+   * out Netflix's "Off" and the forced lines (Tamkeen's menu has an Off of its own). */
+  function menuTracks(list, kind) {
+    var out = [];
+    var seen = {};
+    (list || []).forEach(function (t, i) {
+      if (!t || typeof t !== "object") return;
+      if (kind === "text" && (isOff(t) || t.isForcedNarrative)) return;
+      var id = trackKey(t, i);
+      if (seen[id]) return;
+      seen[id] = true;
+      var bcp47 = String(t.bcp47 || t.language || "").slice(0, 20);
+      out.push({ id: id, bcp47: bcp47, lang: base(bcp47), name: String(t.displayName || bcp47 || "?").replace(/\s+/g, " ").trim().slice(0, 80),
+        cc: kind === "text" && isCaptions(t), image: kind === "text" && !!t.isImageBased, described: kind === "audio" && described(t),
+        native: kind === "audio" && !!t.isNative });
+    });
+    return out;
+  }
+
+  /** The key of `current` (the track in use) in `list`; for subtitles "off" when they are turned off
+   * (Netflix's Off, or only its forced lines); "" when it isn't known. */
+  function currentKey(list, current, kind) {
+    if (!current || typeof current !== "object") return "";
+    if (kind === "text" && (isOff(current) || current.isForcedNarrative)) return "off";
+    var hit = "";
+    (list || []).some(function (t, i) {
+      if (!t) return false;
+      var same = t === current || (current.trackId && t.trackId === current.trackId) ||
+        (!current.trackId && t.bcp47 === current.bcp47 && t.displayName === current.displayName && t.trackType === current.trackType);
+      if (same) hit = trackKey(t, i);
+      return same;
+    });
+    return hit;
+  }
+
+  /** The track in `list` whose key (trackKey) is `key`, or null. */
+  function findTrack(list, key) {
+    var hit = null;
+    (list || []).some(function (t, i) { if (t && trackKey(t, i) === String(key)) hit = t; return !!hit; });
+    return hit;
+  }
+
+  /** Netflix's own "Off" in its list of subtitles (the "none" track, else the one named Off), or null. */
+  function offTrack(list) {
+    var named = null;
+    var none = null;
+    (list || []).forEach(function (t) {
+      if (!t) return;
+      if (t.isNoneTrack && !none) none = t;
+      else if (isOff(t) && !named) named = t;
+    });
+    return none || named;
+  }
+
+  /**
+   * When to choose a title's soundtrack and subtitles for the language being learned. `c` is what the
+   * page remembers ({session, lang, manualAudio, manualText}, changed in place: start with {}); `session`
+   * the player's session (a new title or episode is a new session) and `lang` the language being
+   * learned now. Returns {audio, text}: true = choose that one for `lang` now.
+   *   - A new session chooses both, and forgets the viewer's own choices (those were for the title before).
+   *   - The language being learned changing chooses again whatever the viewer hasn't chosen by hand.
+   *   - Otherwise nothing: the choice is made once, and Netflix's tracks are never forced back.
+   */
+  function planChoice(c, session, lang) {
+    var out = { audio: false, text: false };
+    if (c.session !== session) { c.session = session; c.lang = ""; c.manualAudio = false; c.manualText = false; }
+    if (!lang || c.lang === lang) return out;
+    c.lang = lang;
+    out.audio = !c.manualAudio;
+    out.text = !c.manualText;
+    return out;
+  }
+
+  /** The viewer chose a track by hand (`kind` "audio" or "text"): kept for the rest of this title.
+   * Returns whether to choose the subtitles in the language being learned once more: after a new
+   * soundtrack Netflix's list of subtitles follows it (and may drop them), unless the viewer chose the
+   * subtitles by hand too. */
+  function choseByHand(c, kind) {
+    if (kind === "audio") { c.manualAudio = true; return !c.manualText; }
+    c.manualText = true;
+    return false;
   }
 
   /** What Netflix's own description of a title says: {id, title, show, season, episode,
@@ -121,6 +219,7 @@
     return m ? m[1] : "";
   }
 
-  root.__tamkeenNetflixLib = { base: base, isOff: isOff, chooseTextTrack: chooseTextTrack, chooseAudioTrack: chooseAudioTrack,
-    titleInfo: titleInfo, watchId: watchId };
+  root.__tamkeenNetflixLib = { base: base, isOff: isOff, isCaptions: isCaptions, chooseTextTrack: chooseTextTrack,
+    chooseAudioTrack: chooseAudioTrack, trackKey: trackKey, menuTracks: menuTracks, currentKey: currentKey, findTrack: findTrack,
+    offTrack: offTrack, planChoice: planChoice, choseByHand: choseByHand, titleInfo: titleInfo, watchId: watchId };
 })();

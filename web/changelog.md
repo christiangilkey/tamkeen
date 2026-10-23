@@ -14,6 +14,9 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** The Netflix extension now follows the language you are learning in Tamkeen. Switch languages in the web app and an open Netflix tab changes too, including the title playing; before, it could stay stuck on the language it had first, and a title watched before kept showing its old subtitles. *(web app)*
+- **New:** Audio and Subtitles buttons on the Netflix extension's bar: choose any of Netflix's soundtracks or subtitles, or turn subtitles off. Tamkeen still picks the language you are learning when a title starts, but never switches back what you chose. The bar, the transcript and word lookups follow the subtitles you choose. *(web app)*
+- **Improved:** If the Netflix extension was updated while a Tamkeen page was open, Tamkeen asks you to reload the page so your settings reach Netflix again. *(web app)*
 - **Fixed:** Netflix's home page went dark below the top trailer with the extension (and in the computer's Netflix window): a trailer was taken for the title playing.
 - **New:** A "back to the start of the sentence" button beside "back 5 seconds", in the player and the Netflix extension (key R). Pressed again right away, it goes one sentence further back.
 - **Improved:** On a computer, the word popup's close button sits at the bottom right, beside Save.

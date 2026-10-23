@@ -1,0 +1,6 @@
+# Netflix extension: Audio and Subtitles menus, following Tamkeen's language (2026-10-23)
+17770471 字幕
+fd582310 字幕はオフです。
+a6c86590 代わりに Netflix の{0}の字幕を表示しています。
+31dfec13 Tamkeen はまだ{0}の単語を調べられません。字幕はここに表示されます。
+8293cbab このページを開いた後に Tamkeen for Netflix が変わりました。Netflix が再び Tamkeen の設定に従うよう、ページを再読み込みしてください。

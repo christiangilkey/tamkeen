@@ -5016,3 +5016,40 @@ ships with every version (tests/js/changelog.test.mjs fails if the two differ: `
 Settings → Data & updates → Changelog → Open: web/js/components/changelog.js draws it in a box (translate="no",
 English only); FINDS id "changelog". **Release step:** move "Unreleased" under the new version's heading in
 CHANGELOG.md, copy it to web/changelog.md, and add the version's short lines to web/js/whatsnew.js.
+
+## Netflix extension: follows Tamkeen's language live; Audio and Subtitles menus (2026-10-23; branch `worktree-agent-a4dc05d0e1009c9a1`, NOT merged, NOT pushed)
+Owner: "the netflix extension gets stuck on just one language. It should automatically update with what language is
+currently selected on tamkeen. The user should also be able to still change the subtitle and audio tracks".
+- **Why it got stuck** (several): netflix-player.js chose the tracks once per player session only, so a language change
+  never reached the title playing; background.js dropped every subtitle file not in the language stored at download
+  time; the panel cached lines per title (`nf:<id>`) and kept them if they had at least as many lines as the new file
+  (a title watched in Arabic stayed Arabic), and never called setStudyLanguage on a settings change; the web app sent
+  settings only on saveSettings/hello (not when a sync changed study_language: `tamkeen:learning`); and after the
+  extension is updated/reloaded, an already-open web app tab keeps an orphaned content script that silently drops
+  every message (browsers don't inject the new one into open tabs).
+- **Now**: `netflix-common.js` `planChoice`/`choseByHand` (pure): tracks chosen once per session and again when the
+  learning language changes, except those chosen by hand (kept for the title; a new session forgets them; a soundtrack
+  chosen by hand re-chooses the learning-language subtitles once, unless subtitles were chosen by hand too).
+  `chooseTextTrack` avoids closed captions (`isCaptions`: ASSISTIVE, rawTrackType closedcaptions, "[CC]", SDH).
+  state() now carries `learning`, `tracks {audio, text, audioNow, textNow}` (`menuTracks`, `currentKey`; text "off"
+  for Netflix's Off or forced-only) and `manual`; cmd("audio"|"text", key) (`findTrack`, `offTrack`; "off").
+  content/netflix.js + netflix-main.js pass string values for those two.
+- background.js passes subtitle files in every language (KEEP 16 per tab). The panel follows Netflix's selected text
+  track (`netflix-ttml.js selectedSubtitles`, `tamkeenLanguage`): the file of that language (bestSubtitles by its
+  bcp47; accepted if it came in the title's first 2 min or within 2 min after the selection changed), cache per title
+  AND language (`nf:<id>:<base>`, old `nf:<id>` read if its language matches), lookups in that language; a language
+  Tamkeen doesn't teach shows its words and says lookups aren't available (title not saved for the library). "Off"
+  hides the caption and transcript lines (`.tk.subs-off`).
+- **Menus** (panel.js "the Audio and Subtitles menus", icons `sound` and new `subtitles`): docked at the top of the bar
+  (`#bar-menu`; the bar grows, the picture gets shorter, never covered), chips in Netflix's names (translate="no"),
+  learning-language ones first with a teal dot, Off first for subtitles; Esc/× closes.
+- Web app: web-extension.js sends settings on `tamkeen:learning`; webapp.js answers "gone" (new EXT type in
+  extbridge.js) when its extension context is dead, and the web app toasts "reload the page".
+- **Limits**: the extension only learns the language from the web app (any open tab pushes at once; a tab opened later
+  pushes on open). Desktop-only or phone-only learners: it keeps the last language the web app gave; the Subtitles menu
+  is the fallback (pick any language; lookups follow). The desktop app's own Netflix window is unchanged apart from the
+  shared choose-once logic; no menus there (its transcript is the library episode's stored words, see netflix_overlay.py
+  offer_file). Closed captions vs plain subtitles in the same language can't be told apart from the file: the one with
+  more lines wins. Browse pages don't re-pick the language live (the next Open Netflix does).
+- Tests: netflix.test.mjs (+6), netflix-ttml.test.mjs (+2), extbridge.test.mjs (gone). Checked the built panel in the
+  browser with a stubbed chrome API and fake state (menus, Japanese, Polish, Off). **Not checked with real Netflix.**

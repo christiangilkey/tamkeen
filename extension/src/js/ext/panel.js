@@ -8,23 +8,26 @@
 //     view; tapping a line plays from there; it folds away to a slim tab for the full width;
 //   - a tapped word opens Tamkeen's word popup (meaning, Save, play the word or sentence again),
 //     docked in the sidebar or just above the bar, so the video gets shorter instead of covered.
-// The subtitles are Netflix's own, in the language being learned: Netflix's player downloads them once
-// they are chosen (js/netflix-player.js chooses them), the background part catches that file and
-// hands it over (background.js). Saved words and the title wait in the extension's storage until the
-// web app takes them into the library (web/js/extbridge.js).
+// The subtitles are Netflix's own: those chosen in Netflix's player. js/netflix-player.js chooses the
+// language being learned once per title (and again when Tamkeen's language changes); the viewer may
+// pick another soundtrack or other subtitles (or none) in the bar's Audio and Subtitles menus, kept
+// for that title. Netflix's player then downloads that subtitle file, the background part catches it
+// and hands it over (background.js), and the bar, the transcript and the word lookups follow it (in
+// its language). Saved words and the title wait in the extension's storage until the web app takes
+// them into the library (web/js/extbridge.js).
 import { esc, h, toast } from "../app.js";
 import { device, kv, known, loadSettings, settings } from "../store.js";
 import { startTranslating, t } from "../i18n.js";
 import { icon } from "../icons.js";
 import { sentenceStart } from "../sentencestart.js";
-import { gap, joinWords, regroupWords, setLang, setStudyLanguage } from "../languages.js";
+import { gap, isLanguage, joinWords, regroupWords, setLang, setStudyLanguage } from "../languages.js";
 import { EDGE_PUNCT, activeWordIndex, formatTime, sentenceBounds } from "../wordlookup.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
 import { lookupToggle } from "../components/lookupmode.js";
 import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
 import { readingsReady } from "../lexicon/readings.js";
-import { bestSubtitles, captionLines, cleanInfo, displayTitle } from "../netflix-ttml.js";
+import { baseLanguage, bestSubtitles, captionLines, cleanInfo, displayTitle, selectedSubtitles } from "../netflix-ttml.js";
 import { languageName, subtitleNote } from "../netflix.js";
 import { TITLE_KEY, WORD_KEY, savedWord, watchedTitle } from "../extbridge.js";
 import { CONFIG } from "./config.js";
@@ -48,7 +51,9 @@ const SIDE_KEY = "tkSideOpen";
 const S = {
   id: "", since: 0, player: null, at: 0,      // the title in the page, and the player's last state
   files: [], fileKey: "", infos: {},            // subtitle files caught in this tab; titles' names
-  lang: "", lines: [], n: 0,                    // the transcript shown
+  want: null, wantKey: "", wantSince: 0,        // the subtitles chosen in Netflix's player (selectedSubtitles)
+  fileBase: "", cacheTried: false,              // the language of the lines shown; looked in the cache yet
+  lang: "", lines: [], n: 0,                    // the transcript shown (lang: the Tamkeen language, "" if not one)
   starts: new Float64Array(0), ends: new Float64Array(0), segOf: new Int32Array(0), texts: [],
   segFirst: [], segLast: [],
   curSeg: -1, curWord: -1, capSeg: -1, capLock: -1,
@@ -60,10 +65,13 @@ const savedHere = new Set();
 await loadSettings();
 setStudyLanguage(settings.study_language || "ar");
 document.documentElement.style.setProperty("--ar-size", `${settings.font_size || 26}px`);
-try { // this device's lookup choices, as the web app has them
-  localStorage.setItem("lookupMode", device.lookup_mode === "quick" ? "quick" : "detailed");
-  localStorage.setItem("wordPause", device.word_pause === false ? "0" : "1");
-} catch { /* storage off: the defaults */ }
+function useDevice() {
+  try { // this device's lookup choices, as the web app has them
+    localStorage.setItem("lookupMode", device.lookup_mode === "quick" ? "quick" : "detailed");
+    localStorage.setItem("wordPause", device.word_pause === false ? "0" : "1");
+  } catch { /* storage off: the defaults */ }
+}
+useDevice();
 
 const root = document.getElementById("tk");
 root.innerHTML = `
@@ -79,6 +87,7 @@ root.innerHTML = `
   </aside>
   <button type="button" class="side-tab" id="tab" hidden title="Show the transcript (T)" aria-label="Show the transcript">${icon("chevron", 16)}</button>
   <section class="bar" id="bar">
+    <div class="bar-menu" id="bar-menu" hidden></div>
     <div class="bar-pop" id="bar-pop"></div>
     <div class="cap" id="cap"></div>
     <div class="bar-note small" id="bar-note" hidden></div>
@@ -93,6 +102,8 @@ root.innerHTML = `
         <select id="speed" title="Playback speed">${[0.5, 0.75, 0.9, 1, 1.25, 1.5].map((x) => `<option value="${x}">${x}×</option>`).join("")}</select>
       </div>
       <div class="ctl-side end">
+        <button type="button" class="ghost icon" id="audio-btn" title="Audio" aria-label="Audio" aria-haspopup="menu" aria-expanded="false" disabled>${icon("sound", 18)}</button>
+        <button type="button" class="ghost icon" id="subs-btn" title="Subtitles" aria-label="Subtitles" aria-haspopup="menu" aria-expanded="false" disabled>${icon("subtitles", 18)}</button>
         <button type="button" class="ghost icon" id="side-btn" title="Show or hide the transcript (T)" aria-label="Transcript">${icon("transcript", 18)}</button>
         <button type="button" class="ghost icon" id="full" title="Full screen (F)" aria-label="Full screen">${icon("fullscreen", 18)}</button>
         <button type="button" class="ghost icon" id="leave" title="Back to Netflix's titles" aria-label="Back to Netflix's titles">${icon("leave", 18)}</button>
@@ -168,6 +179,7 @@ function contextFor(i, j) {
 }
 
 function defineAt(i, anchor, where) {
+  if (!isLanguage(S.lang)) { flash(noLookupText()); return; } // subtitles in a language Tamkeen doesn't teach
   const c = contextFor(i, i);
   target = { i, j: i, si: c.si, sj: c.sj, text: c.word };
   S.clipEnd = null;
@@ -189,7 +201,10 @@ function wordsHtml(a, b) {
   return out;
 }
 
-async function useLines(lines, lang) {
+/** Show `lines` (subtitle lines) as the transcript. `lang`: the Tamkeen language their words are
+ * looked up in ("" for one Tamkeen doesn't teach: shown, not looked up); `code`: their own language
+ * code (Netflix's, for the text's direction then). */
+async function useLines(lines, lang, code = lang) {
   S.lang = lang;
   S.lines = lines;
   await readingsReady(lang, 3000).catch(() => {}); // Japanese and Chinese: the dictionary that splits words, if here
@@ -209,8 +224,10 @@ async function useLines(lines, lang) {
     S.segLast[s] = i;
   }
   S.curSeg = S.curWord = S.capSeg = S.capLock = -1;
-  setLang(cap, lang); // (text in the language being learned: never translated, drawn in its direction)
-  setLang(linesEl, lang);
+  for (const el of [cap, linesEl]) { // (subtitle text: never translated, drawn in its direction)
+    setLang(el, lang);
+    if (!isLanguage(lang)) { el.lang = /^[a-z]{2,3}(-[A-Za-z0-9]{1,8})*$/.test(code || "") ? code : ""; el.dir = "auto"; }
+  }
   linesEl.innerHTML = lines.map((l, si) => S.segFirst[si] < 0 ? "" : `<p class="ln" data-s="${si}"><button type="button" class="ln-t" tabindex="-1">${formatTime(l.start)}</button><span class="ln-x">${wordsHtml(S.segFirst[si], S.segLast[si])}</span></p>`).join("");
   cap.innerHTML = "";
   if (bubble.open) bubble.hide();
@@ -222,6 +239,7 @@ function clearTranscript() {
   S.n = 0;
   S.texts = [];
   S.fileKey = "";
+  S.fileBase = "";
   linesEl.innerHTML = "";
   cap.innerHTML = "";
   S.curSeg = S.curWord = S.capSeg = S.capLock = -1;
@@ -296,6 +314,78 @@ tab.onclick = () => setSide(true);
 $("#side-btn").onclick = () => setSide(side.hidden);
 $("#full").onclick = () => send({ type: "fullscreen" });
 $("#leave").onclick = () => send({ type: "leave" });
+
+// ---------- the Audio and Subtitles menus ----------
+// Netflix's own controls are hidden on a watch page, so its soundtracks and subtitles are chosen here.
+// The menu docks at the top of the bar (the bar grows and the picture gets shorter for a moment: it is
+// never drawn over the picture). A choice made here is Netflix's own, kept for the rest of the title
+// (js/netflix-player.js never switches it back); the subtitle line, the transcript and the word
+// lookups follow the subtitles chosen.
+let menuOpen = ""; // "audio", "text" or ""
+let menuSig = "";
+const menuEl = $("#bar-menu");
+
+function trackLists() {
+  const tr = S.player && S.player.page === "watch" ? S.player.tracks : null;
+  return tr && typeof tr === "object" && Array.isArray(tr.audio) && Array.isArray(tr.text) ? tr : null;
+}
+
+function paintMenus() {
+  const tr = trackLists();
+  const audioBtn = $("#audio-btn"), subsBtn = $("#subs-btn");
+  audioBtn.disabled = !tr || !tr.audio.length;
+  subsBtn.disabled = !tr;
+  subsBtn.classList.toggle("on", !!(tr && tr.textNow && tr.textNow !== "off"));
+  audioBtn.setAttribute("aria-expanded", String(menuOpen === "audio"));
+  subsBtn.setAttribute("aria-expanded", String(menuOpen === "text"));
+  if (!menuOpen) return;
+  if (!tr) { closeMenu(); return; }
+  const audio = menuOpen === "audio";
+  const learning = baseLanguage(settings.study_language);
+  const now = audio ? tr.audioNow : tr.textNow;
+  // The language being learned first, then Netflix's order.
+  const items = (audio ? tr.audio : tr.text).slice().sort((a, b) => Number(b.lang === learning) - Number(a.lang === learning));
+  const sig = JSON.stringify([menuOpen, now, learning, items]);
+  if (sig === menuSig) return;
+  menuSig = sig;
+  const chip = (id, name, mark) => `<button type="button" role="menuitemradio" class="tchip${id === now ? " on" : ""}" aria-checked="${id === now}" data-id="${esc(id)}">`
+    + `<span translate="no" dir="auto">${esc(name)}</span>${mark ? `<span class="tchip-mark" aria-hidden="true"></span>` : ""}</button>`;
+  const title = audio ? t("Audio") : t("Subtitles");
+  menuEl.innerHTML = `<div class="tmenu" role="menu"><div class="tmenu-head"><span class="tmenu-title"></span>`
+    + `<button type="button" class="ghost icon tmenu-close" title="Close" aria-label="Close">${icon("close", 16)}</button></div>`
+    + `<div class="tmenu-list">${audio ? "" : chip("off", t("Off"), false)}${items.map((x) => chip(x.id, x.name, !!learning && x.lang === learning)).join("")}</div></div>`;
+  menuEl.querySelector(".tmenu").setAttribute("aria-label", title);
+  menuEl.querySelector(".tmenu-title").textContent = title;
+}
+
+function openMenu(kind) {
+  if (menuOpen === kind) { closeMenu(); return; }
+  if (bubble.open && bubble.el.parentNode === $("#bar-pop")) bubble.hide();
+  menuOpen = kind;
+  menuSig = "";
+  menuEl.hidden = false;
+  paintMenus();
+  menuEl.querySelector(".tchip.on, .tchip")?.focus({ preventScroll: true });
+}
+function closeMenu() {
+  if (!menuOpen) return;
+  menuOpen = "";
+  menuSig = "";
+  menuEl.hidden = true;
+  menuEl.innerHTML = "";
+  paintMenus();
+}
+$("#audio-btn").onclick = () => openMenu("audio");
+$("#subs-btn").onclick = () => openMenu("text");
+menuEl.addEventListener("click", (e) => {
+  if (e.target.closest(".tmenu-close")) { closeMenu(); return; }
+  const b = e.target.closest(".tchip");
+  if (!b) return;
+  const kind = menuOpen;
+  closeMenu();
+  cmd(kind, b.dataset.id); // Netflix switches; the next state shows it
+});
+
 const seekEl = $("#seek");
 seekEl.addEventListener("input", () => { S.seeking = true; $("#cur").textContent = formatTime(Number(seekEl.value)); });
 seekEl.addEventListener("change", () => { S.seeking = false; S.clipEnd = null; seek(Number(seekEl.value)); });
@@ -320,6 +410,7 @@ addEventListener("keydown", (e) => {
   else if (e.key === "r" || e.key === "R") $("#restart").click();
   else if (e.key === "t" || e.key === "T") setSide(side.hidden);
   else if (e.key === "f" || e.key === "F") send({ type: "fullscreen" });
+  else if (e.key === "Escape" && menuOpen) closeMenu();
   else if (e.key === "Escape" && bubble.open) bubble.hide();
 });
 
@@ -332,7 +423,7 @@ function titleName() { const i = titleInfo(); return i.title || i.show ? display
 
 /** Keep the title (with its subtitles) for the web app's library. */
 async function saveTitle() {
-  if (!S.id || !S.lines.length) return;
+  if (!S.id || !S.lines.length || !isLanguage(S.lang)) return; // (subtitles Tamkeen can't look up: not for the library)
   const rec = watchedTitle({ id: S.id, info: titleInfo(), language: S.lang, lines: S.lines });
   if (rec) { await chrome.storage.local.set({ [TITLE_KEY + S.id]: rec }); S.titleSaved = S.id; }
 }
@@ -340,35 +431,95 @@ async function saveTitle() {
 async function newTitle(id) {
   S.id = id;
   S.since = Date.now();
+  S.want = null;
+  S.wantKey = "";
   savedHere.clear();
   clearTranscript();
-  // Watched here before: its words at once, before Netflix's file arrives again.
-  const kept = await kv.get(`nf:${id}`).catch(() => null);
-  if (kept && kept.lines && kept.lines.length && S.id === id) {
-    S.fileKey = kept.key || "";
-    await useLines(kept.lines, kept.lang);
-  }
+  root.classList.remove("subs-off");
   chooseFile();
 }
 
-/** The subtitle file to show for this title (see bestSubtitles), once the page has chosen subtitles in
- * the language being learned (not Netflix's own few "forced" lines, nor another language's). */
+const wantKeyOf = (want) => (want.off ? "off" : `${want.id}|${want.bcp47}`);
+// Lines kept per title and language, so a title watched before shows its words at once, before
+// Netflix's file arrives again. (Before: one per title, "nf:<id>", with its language inside.)
+const cacheKey = (id, base) => `nf:${id}:${base}`;
+
+async function fromCache(id, want) {
+  let kept = await kv.get(cacheKey(id, want.base)).catch(() => null);
+  if (!kept) {
+    const old = await kv.get(`nf:${id}`).catch(() => null);
+    if (old && baseLanguage(old.lang) === want.base) kept = old;
+  }
+  if (!kept || !Array.isArray(kept.lines) || !kept.lines.length) return;
+  if (S.id !== id || S.wantKey !== wantKeyOf(want) || S.n) return; // moved on meanwhile, or Netflix's file came
+  S.fileKey = kept.key || "";
+  S.fileBase = want.base;
+  await useLines(kept.lines, want.lang, want.bcp47);
+}
+
+/**
+ * Follow the subtitles chosen in Netflix's player (selectedSubtitles): the language being learned,
+ * as js/netflix-player.js chose it, or whatever the viewer picked in the Subtitles menu. Of the files
+ * caught for this title in that language, the best one is shown (bestSubtitles: the variant chosen,
+ * then the most lines, so Netflix's few "forced" lines lose); "Off" shows none.
+ */
 async function chooseFile() {
   const p = S.player;
-  if (!S.id || !p || p.id !== S.id || !p.subs || p.subs.status !== "chosen") return;
-  // A file counts for the title it was downloaded under, unless it came long after the title began
-  // (Netflix fetching the next episode's subtitles early).
-  const mine = S.files.filter((f) => f.watchId === S.id && f.at <= S.since + 120000);
-  const best = bestSubtitles(mine, settings.study_language, p.subs.bcp47);
-  if (!best || best.key === S.fileKey) return;
-  if (S.n && S.lines.length >= best.cues.length && S.fileKey) return; // the words shown already have as many lines
-  S.fileKey = best.key;
+  if (!S.id || !p || p.id !== S.id) return;
+  const want = selectedSubtitles(p);
+  if (!want) return; // not known yet: what is shown stays
+  const key = wantKeyOf(want);
+  if (key !== S.wantKey) { // other subtitles than before
+    S.wantKey = key;
+    S.want = want;
+    S.wantSince = Date.now();
+    S.cacheTried = false;
+    root.classList.toggle("subs-off", !!want.off);
+    if (want.off || want.image || want.base !== S.fileBase) clearTranscript(); // another language: its own lines
+    else S.fileKey = ""; // the same language (another variant): the best file for it, again
+    paintMenus();
+    paintNotes();
+  }
+  if (want.off || want.image) return;
   const id = S.id;
+  // A file counts for the title it was downloaded under if it came while the title began or just after
+  // these subtitles were chosen (not one Netflix fetched early for the next episode, near the end).
+  const mine = S.files.filter((f) => f.watchId === id && (f.at <= S.since + 120000 || (f.at >= S.wantSince - 5000 && f.at <= S.wantSince + 120000)));
+  const best = bestSubtitles(mine, want.bcp47, want.bcp47);
+  if (!best) {
+    if (!S.n && !S.cacheTried) { S.cacheTried = true; await fromCache(id, want); }
+    return;
+  }
+  if (best.key === S.fileKey) return;
+  if (S.n && S.fileKey && S.fileBase === want.base && S.lines.length >= best.cues.length) return; // the words shown have as many lines
+  S.fileKey = best.key;
+  S.fileBase = want.base;
   const lines = captionLines(best.cues);
-  await useLines(lines, settings.study_language);
-  await kv.set(`nf:${id}`, { key: best.key, lang: S.lang, lines }).catch(() => {});
+  await useLines(lines, want.lang, want.bcp47);
+  await kv.set(cacheKey(id, want.base), { key: best.key, lang: want.lang, base: want.base, lines }).catch(() => {});
   await saveTitle();
-  tellOnce();
+  if (p.subs && p.subs.status === "chosen") tellOnce(); // (Tamkeen chose them, not the viewer)
+}
+
+/** The name of the subtitles shown: the language's name in the user's language, else Netflix's own. */
+function subsName() {
+  const w = S.want;
+  if (!w || w.off) return "";
+  return w.lang ? languageName(w.lang) : w.name;
+}
+const noLookupText = () => t("Tamkeen can't look up words in {0} yet. Its subtitles still show here.", subsName());
+
+/** A short message just above the bar's subtitle line, for a few seconds. */
+let flashTimer = 0;
+function flash(text) {
+  const pop = $("#bar-pop");
+  pop.querySelector(".bar-flash")?.remove();
+  if (bubble.open) bubble.hide();
+  const el = h(`<p class="bar-flash small"></p>`);
+  el.textContent = text;
+  pop.append(el);
+  clearTimeout(flashTimer);
+  flashTimer = setTimeout(() => el.remove(), 4000);
 }
 
 // The one-time note: Netflix remembers the subtitle language for the profile.
@@ -400,8 +551,18 @@ function paintNotes() {
   } else if (p.prompt) {
     lines.push(t("Netflix is asking something. Answer it on Netflix's page."));
   } else {
-    const note = subtitleNote(p, { words: S.n, lang: settings.study_language });
-    if (note.subs) lines.push(note.subs);
+    const learning = settings.study_language;
+    const note = subtitleNote(p, { words: S.n, lang: learning });
+    const w = S.want;
+    const status = (p.subs && p.subs.status) || "";
+    const missing = ["none", "image", "failed"].includes(status); // no subtitles in the language being learned
+    if (missing && note.subs) lines.push(note.subs);
+    if (missing && w && !w.off && !w.image && w.base !== baseLanguage(learning)) lines.push(t("Showing Netflix's {0} subtitles instead.", subsName()));
+    if (w && w.off) lines.push(t("Subtitles are off."));
+    else if (w && w.image) lines.push(t("Netflix has {0} subtitles for this title only as pictures, so Tamkeen can't read their words.", subsName()));
+    else if (w && !S.n && p.video) lines.push(t("Getting Netflix's {0} subtitles…", subsName()));
+    else if (!w && !missing && note.subs) lines.push(note.subs);
+    if (w && !w.off && !w.image && !w.lang) lines.push(noLookupText());
     if (note.sound) lines.push(note.sound);
   }
   const key = lines.join("\n") + action;
@@ -420,7 +581,7 @@ function paintNotes() {
     notes.append(b);
   }
   const barNote = $("#bar-note");
-  barNote.textContent = !S.n && lines.length ? lines[0] : "";
+  barNote.textContent = !S.n && lines.length && !(S.want && S.want.off) ? lines[0] : ""; // (subtitles off: the bar is just the controls)
   barNote.hidden = !barNote.textContent;
 }
 
@@ -441,7 +602,18 @@ async function paintFoot() {
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area !== "local") return;
   if (Object.keys(changes).some((k) => k.startsWith(WORD_KEY))) paintFoot();
-  if (changes.settings) loadSettings().then(paintNotes);
+  // Tamkeen's language (or how words are looked up) changed in the web app: this follows at once. (The
+  // part in Netflix's page is told too, and chooses that language's soundtrack and subtitles for the
+  // title playing, unless the viewer chose them by hand; the subtitles shown follow that choice.)
+  if (changes.settings || changes.device) {
+    loadSettings().then(() => {
+      useDevice();
+      setStudyLanguage(settings.study_language || "ar");
+      document.documentElement.style.setProperty("--ar-size", `${settings.font_size || 26}px`);
+      paintNotes();
+      paintMenus();
+    });
+  }
 });
 paintFoot();
 
@@ -465,6 +637,7 @@ function onPage(m) {
     }
     if (document.activeElement !== $("#speed") && Number($("#speed").value) !== s.rate && [0.5, 0.75, 0.9, 1, 1.25, 1.5].includes(s.rate)) $("#speed").value = String(s.rate);
     paintNotes();
+    paintMenus();
     paintName();
   } else if (m.type === "info" && m.id && m.info) {
     S.infos[m.id] = cleanInfo(m.info);

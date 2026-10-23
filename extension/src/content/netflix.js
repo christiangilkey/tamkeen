@@ -122,7 +122,9 @@
       layout = { side: Number(m.side) || 0, bar: Number(m.bar) || 0 };
       applyLayout();
     } else if (m.type === "cmd" && typeof m.name === "string") {
-      document.dispatchEvent(new CustomEvent("tamkeen:nf-cmd", { detail: JSON.stringify({ name: m.name, value: Number(m.value) || 0 }) }));
+      var track = m.name === "audio" || m.name === "text"; // (a track's key; every other command takes a number)
+      var value = track ? String(m.value == null ? "" : m.value).slice(0, 200) : Number(m.value) || 0;
+      document.dispatchEvent(new CustomEvent("tamkeen:nf-cmd", { detail: JSON.stringify({ name: m.name, value: value }) }));
     } else if (m.type === "fullscreen") {
       if (document.fullscreenElement) document.exitFullscreen().catch(function () {});
       else document.documentElement.requestFullscreen().catch(function () {});

@@ -3,7 +3,9 @@
 //   - notices the subtitle files Netflix's player downloads in a Netflix tab (Netflix's video servers
 //     serve them as XML; the list of subtitles inside Netflix's page is encrypted, so this is the way
 //     to get them), fetches each again (no sign-in needed), reads it (web/js/netflix-ttml.js) and hands
-//     those in the language being learned to that tab's subtitle bar (panel.html);
+//     it to that tab's subtitle bar (panel.html), whatever its language: the bar shows the subtitles
+//     chosen in Netflix's player (the language being learned, unless the viewer picked others in the
+//     bar's Subtitles menu);
 //   - tells the part in Netflix's pages the language being learned and its messages (for choosing the
 //     language on Netflix's "Browse by Languages" page);
 //   - opens Netflix on titles in that language when the toolbar button is pressed (or the web app,
@@ -16,7 +18,7 @@ import { setDictionary } from "./js/i18n.js";
 import { isLanguage } from "./js/languages.js";
 
 const SUB_HOSTS = new RegExp(CONFIG.subtitleHosts);
-const KEEP = 8; // subtitle files kept per tab
+const KEEP = 16; // subtitle files kept per tab (in every language: the viewer may switch)
 
 async function settings() {
   try { return (await chrome.storage.local.get("settings")).settings || {}; } catch { return {}; }
@@ -64,8 +66,6 @@ async function onDownload(d) {
   if (d.tabId < 0 || d.statusCode !== 200 || (d.method && d.method !== "GET")) return;
   const type = ((d.responseHeaders || []).find((h) => String(h.name).toLowerCase() === "content-type") || {}).value || "";
   if (!isSubtitleDownload(d.url, type, SUB_HOSTS)) return;
-  const s = await settings();
-  if (!isLanguage(s.study_language)) return;
   let id = "";
   try { id = watchId((await chrome.tabs.get(d.tabId)).url); } catch { return; }
   if (!id) return;
@@ -77,7 +77,7 @@ async function onDownload(d) {
   } catch { return; }
   let parsed;
   try { parsed = parseTtml(text); } catch { return; } // not a subtitle file after all
-  if (!parsed.cues.length || baseLanguage(parsed.lang) !== baseLanguage(s.study_language)) return;
+  if (!parsed.cues.length || !baseLanguage(parsed.lang)) return;
   const c = parsed.cues;
   const file = { watchId: id, lang: parsed.lang, cues: c, at: Date.now(), key: `${parsed.lang}|${c.length}|${c[0][2]}|${c[c.length - 1][2]}` };
   if (await keep(d.tabId, file)) tell(d.tabId, { type: "subtitles", file });
