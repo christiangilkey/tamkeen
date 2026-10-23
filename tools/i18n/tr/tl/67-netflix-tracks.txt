@@ -1,0 +1,6 @@
+# Netflix extension: Audio and Subtitles menus, following Tamkeen's language (2026-10-23)
+17770471 Subtitle
+fd582310 Naka-off ang subtitle.
+a6c86590 Ipinapakita na lang ang {0} na subtitle ng Netflix.
+31dfec13 Hindi pa makakahanap ang Tamkeen ng mga salita sa {0}. Ipinapakita pa rin dito ang mga subtitle nito.
+8293cbab Nagbago ang Tamkeen para sa Netflix mula nang buksan ang page na ito. I-reload ang page para muling sundin ng Netflix ang mga setting mo sa Tamkeen.

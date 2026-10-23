@@ -26,9 +26,22 @@
       if (p.words.length || p.titles.length) post("pending", p);
     }
 
+    // After the extension is updated, reloaded or turned off, this copy of it stays on the page but can
+    // no longer reach the extension (the browser doesn't put the new one into pages already open). The
+    // web app is told, so it can ask for the page to be loaded again: otherwise a language changed here
+    // would never reach Netflix's tabs.
+    var gone = false;
+    function alive() {
+      try { return !!(chrome.runtime && chrome.runtime.id); } catch (x) { return false; }
+    }
+
     window.addEventListener("message", async function (e) {
       var d = B.checkMessage(e, { win: window, tag: B.APP, nonce: nonce });
       if (!d) return;
+      if (!alive()) {
+        if (!gone && ready) { gone = true; post("gone"); }
+        return;
+      }
       if (d.type === "hello") {
         if (d.nonce !== nonce) return;
         ready = true;
@@ -36,7 +49,7 @@
         return;
       }
       if (!ready) return;
-      if (d.type === "settings") {
+      if (d.type === "settings") { // (on every change: the language being learned included; Netflix's tabs follow at once)
         await chrome.storage.local.set({ settings: B.cleanSettings(d.settings), device: B.cleanDevice(d.device), settings_at: Date.now() });
       } else if (d.type === "ack") {
         var all = await chrome.storage.local.get(null);
@@ -47,7 +60,7 @@
 
     // Hello until the web app answers (it starts a moment after this page does).
     (function hello() {
-      if (ready || ++tries > 90) return;
+      if (ready || ++tries > 90 || !alive()) return;
       post("hello");
       setTimeout(hello, 1000);
     })();

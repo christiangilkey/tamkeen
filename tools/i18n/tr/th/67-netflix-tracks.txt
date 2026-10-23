@@ -1,0 +1,6 @@
+# Netflix extension: Audio and Subtitles menus, following Tamkeen's language (2026-10-23)
+17770471 คำบรรยาย
+fd582310 ปิดคำบรรยายอยู่
+a6c86590 กำลังแสดงคำบรรยาย{0}ของ Netflix แทน
+31dfec13 Tamkeen ยังค้นหาคำใน{0}ไม่ได้ แต่คำบรรยายยังแสดงที่นี่
+8293cbab Tamkeen สำหรับ Netflix มีการเปลี่ยนแปลงตั้งแต่เปิดหน้านี้ โหลดหน้าใหม่เพื่อให้ Netflix ทำตามการตั้งค่า Tamkeen ของคุณอีกครั้ง

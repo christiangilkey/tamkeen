@@ -17,6 +17,9 @@ const PLAYER = read("netflix-player.js");
 const BROWSER = read("netflix-browser.js");
 
 /** netflix-common.js's rules, run as the windows run them. */
+/** A plain copy (objects made inside the pretend windows have another realm's prototypes). */
+const J = (x) => JSON.parse(JSON.stringify(x));
+
 function lib() {
   const win = { URL };
   win.window = win;
@@ -203,6 +206,56 @@ test("soundtrack: switched to the language being learned, never to audio descrip
   assert.equal(L.chooseAudioTrack([{ bcp47: "es-ES", displayName: "Spanish (Spain)" }, { bcp47: "es", displayName: "Spanish", isNative: true }], "es", tracks[0]).bcp47, "es");
 });
 
+test("subtitles: closed captions and the forced lines are never the first choice", () => {
+  const L = lib();
+  const tr = (trackId, displayName, extra = {}) => ({ trackId, bcp47: "en", displayName, trackType: "PRIMARY", ...extra });
+  const pick = (list) => { const c = L.chooseTextTrack(list, "en", "en"); return c && c.track.trackId; };
+  assert.equal(pick([tr("a", "English [CC]"), tr("b", "English", { rawTrackType: "subtitles" })]), "b", "'[CC]' in the name");
+  assert.equal(pick([tr("c", "English", { rawTrackType: "closedcaptions" }), tr("d", "English (US)")]), "d", "Netflix's closed-captions kind");
+  assert.equal(pick([tr("e", "English (SDH)"), tr("f", "English", { trackType: "ASSISTIVE" }), tr("g", "English")]), "g");
+  assert.equal(pick([tr("h", "English [CC]")]), "h", "captions when there is nothing else");
+  assert.equal(pick([tr("i", "English", { isForcedNarrative: true })]), null, "the forced lines alone: none");
+  assert.ok(L.isCaptions({ trackType: "ASSISTIVE" }) && L.isCaptions({ displayName: "Deutsch [CC]" }) && !L.isCaptions({ displayName: "English" }));
+});
+
+test("the menus' tracks: Netflix's lists, keys, the one in use, Off", () => {
+  const L = lib();
+  const text = L.menuTracks(REAL_TRACKS, "text");
+  assert.equal(text.length, REAL_TRACKS.length - 1, "Netflix's 'Off' is left out (the menu has its own)");
+  assert.deepEqual(J(text[0]), { id: "T1", bcp47: "ar-LB", lang: "ar", name: "Arabic (Lebanon)", cc: true, image: false, described: false, native: false });
+  assert.equal(text.find((x) => x.bcp47 === "fil").lang, "tl", "Netflix's Filipino is Tamkeen's Tagalog");
+  assert.deepEqual(J(L.menuTracks([{ trackId: "F", bcp47: "en", displayName: "English", isForcedNarrative: true }, null, "x"], "text")), []);
+  const audio = L.menuTracks([{ bcp47: "en", displayName: "English [Original]", isNative: true }, { bcp47: "en", displayName: "English - Audio Description" }], "audio");
+  assert.deepEqual(J(audio.map((x) => [x.id, x.described, x.native])), [["#0", false, true], ["#1", true, false]], "no trackId: keyed by place");
+  assert.equal(L.currentKey(REAL_TRACKS, REAL_TRACKS[7], "text"), "T7");
+  assert.equal(L.currentKey(REAL_TRACKS, { trackId: "T5", bcp47: "es" }, "text"), "T5", "a copy of the track, by its trackId");
+  assert.equal(L.currentKey(REAL_TRACKS, REAL_TRACKS[0], "text"), "off", "Netflix's Off (named so)");
+  assert.equal(L.currentKey(REAL_TRACKS, { trackId: "X", bcp47: "ar", isForcedNarrative: true }, "text"), "off", "only the forced lines: off");
+  assert.equal(L.currentKey(REAL_TRACKS, null, "text"), "");
+  assert.equal(L.currentKey([{ bcp47: "ja", displayName: "Japanese" }], { bcp47: "ja", displayName: "Japanese" }, "audio"), "#0");
+  assert.equal(L.findTrack(REAL_TRACKS, "T9").bcp47, "fil");
+  assert.equal(L.findTrack(REAL_TRACKS, "nope"), null);
+  assert.equal(L.offTrack(REAL_TRACKS).trackId, "T0");
+  assert.equal(L.offTrack([{ trackId: "O", displayName: "Off" }, { trackId: "N", isNoneTrack: true }]).trackId, "N", "the 'none' track first");
+  assert.equal(L.offTrack([]), null);
+});
+
+test("the automatic choice: once per title, again when the language changes, never over the viewer's own", () => {
+  const L = lib();
+  const c = {};
+  assert.deepEqual(J(L.planChoice(c, "s1", "ar")), { audio: true, text: true }, "a title starts: both");
+  assert.deepEqual(J(L.planChoice(c, "s1", "ar")), { audio: false, text: false }, "once: never forced again");
+  assert.deepEqual(J(L.planChoice(c, "s1", "")), { audio: false, text: false }, "no language known: nothing");
+  assert.equal(L.choseByHand(c, "text"), false);
+  assert.deepEqual(J(L.planChoice(c, "s1", "ja")), { audio: true, text: false }, "the language changed: not the subtitles chosen by hand");
+  assert.equal(L.choseByHand(c, "audio"), false, "subtitles chosen by hand stay after a new soundtrack");
+  assert.deepEqual(J(L.planChoice(c, "s1", "fr")), { audio: false, text: false }, "both chosen by hand: nothing");
+  assert.deepEqual(J(L.planChoice(c, "s2", "fr")), { audio: true, text: true }, "the next title: chosen afresh");
+  const d = {};
+  L.planChoice(d, "x", "ar");
+  assert.equal(L.choseByHand(d, "audio"), true, "a new soundtrack by hand: the learning language's subtitles once more");
+});
+
 test("a title's description: a film, an episode, a series opened by its own number", () => {
   const L = lib();
   const film = L.titleInfo({ type: "movie", title: "بيت الجدة", runtime: 5400, boxart: [{ url: "http://x/a.jpg" }, { url: "https://occ/b.jpg" }] }, "80001001");
@@ -230,15 +283,18 @@ function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false, l
   const timers = [];
   const classes = new Set();
   let currentAudio = audio || { bcp47: "ar-LB", displayName: "Arabic (Lebanon) [Original]" };
+  const audioList = [currentAudio, { bcp47: "ar", displayName: "Arabic" }, { bcp47: "en", displayName: "English" }];
+  let currentText = tracks[0];
+  let sid = "s1";
   const video = { duration: 1500, ended: false, playbackRate: 1 };
   let t = 12000;
   let paused = false;
   const p = {
     getCurrentTime: () => t, seek: (ms) => { log.push(`seek ${ms}`); t = ms; }, play: () => { log.push("play"); paused = false; },
     pause: () => { log.push("pause"); paused = true; }, isPaused: () => paused, getPlaybackRate: () => 1,
-    setPlaybackRate: (r) => log.push(`rate ${r}`), getTextTrackList: () => tracks, getTextTrack: () => tracks[0],
-    setTextTrack: (x) => { log.push(`text ${x.trackId}`); return Promise.resolve(); },
-    getAudioTrackList: () => [currentAudio, { bcp47: "ar", displayName: "Arabic" }, { bcp47: "en", displayName: "English" }],
+    setPlaybackRate: (r) => log.push(`rate ${r}`), getTextTrackList: () => tracks, getTextTrack: () => currentText,
+    setTextTrack: (x) => { log.push(`text ${x.trackId}`); currentText = x; return Promise.resolve(); },
+    getAudioTrackList: () => audioList,
     getAudioTrack: () => currentAudio, setAudioTrack: (x) => { log.push(`audio ${x.displayName}`); currentAudio = x; },
   };
   const doc = {
@@ -255,7 +311,7 @@ function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false, l
     setInterval: (fn) => { timers.push(fn); return 0; }, Date: { now: () => now }, isFinite, Math, Number, String,
     __tamkeenNetflixCfg: { lang, hosts: ["www.netflix.com", "netflix.com"] },
     netflix: { appContext: { state: { playerApp: {
-      getAPI: () => ({ videoPlayer: { getAllPlayerSessionIds: () => ["s1"], getVideoPlayerBySessionId: () => p } }),
+      getAPI: () => ({ videoPlayer: { getAllPlayerSessionIds: () => [sid], getVideoPlayerBySessionId: () => p } }),
       getState: () => ({ videoPlayer: { videoMetadata: { 81946364: { _metadata: { video: { type: "movie", title: "Film", runtime: 1500 } } } } } }),
     } } } },
   };
@@ -263,7 +319,10 @@ function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false, l
   win.top = win;
   vm.runInNewContext(COMMON, win);
   vm.runInNewContext(PLAYER, win);
-  return { win, log, classes, tick: () => timers.forEach((fn) => fn()), wait: (ms) => { now += ms; }, api: win.__tamkeenNetflixPlayer };
+  return { win, log, classes, tick: () => timers.forEach((fn) => fn()), wait: (ms) => { now += ms; }, api: win.__tamkeenNetflixPlayer,
+    learn: (code) => { win.__tamkeenNetflixCfg.lang = code; }, // the extension says the language being learned changed
+    nextTitle: (s) => { sid = s; },                              // Netflix moves on (a new player session)
+    netflixSets: (x) => { currentText = x; } };                  // Netflix itself changes the subtitles
 }
 
 test("in Netflix's page: soundtrack first, then the subtitles, then only the picture shows", () => {
@@ -292,6 +351,69 @@ test("in Netflix's page: an Arabic soundtrack stays, Lebanese subtitles for Leba
   page.tick();
   assert.deepEqual(page.log, ["text T2"], "no soundtrack change; ar-LB PRIMARY, never 'Off'");
   assert.equal(page.api.state().audio.status, "already");
+});
+
+test("in Netflix's page: the language being learned changes while a title plays: switched once, then left alone", () => {
+  const page = watchPage("https://www.netflix.com/watch/81946364");
+  page.tick();
+  assert.deepEqual(page.log, ["text T2"]);
+  page.learn("en"); // switched to English in Tamkeen
+  page.tick();
+  assert.deepEqual(page.log, ["text T2", "audio English"], "Netflix's English soundtrack");
+  page.wait(1600);
+  page.tick();
+  assert.deepEqual(page.log, ["text T2", "audio English", "text T7"], "then English subtitles (not the closed captions)");
+  for (let i = 0; i < 5; i++) { page.wait(1000); page.tick(); }
+  assert.equal(page.log.length, 3, "chosen once: not forced every tick");
+  page.netflixSets(REAL_TRACKS[11]); // something else changes Netflix's subtitles
+  page.tick();
+  assert.equal(page.log.length, 3, "never switched back");
+  const s = page.api.state();
+  assert.deepEqual([s.learning, s.subs.status, s.subs.bcp47, s.tracks.textNow, s.manual.text], ["en", "chosen", "en", "T11", false]);
+  assert.equal(s.tracks.audio.length, 3);
+  assert.equal(s.tracks.text.length, REAL_TRACKS.length - 1);
+});
+
+test("in Netflix's page: tracks chosen in Tamkeen's menus are kept for the title, Off included", () => {
+  const page = watchPage("https://www.netflix.com/watch/81946364");
+  page.tick();
+  page.api.cmd("text", "T11"); // Japanese subtitles, by hand
+  assert.deepEqual(page.log, ["text T2", "text T11"]);
+  let s = page.api.state();
+  assert.deepEqual([s.subs.status, s.subs.bcp47, s.tracks.textNow, s.manual.text], ["manual", "ja", "T11", true]);
+  page.learn("fr");
+  page.tick();
+  page.wait(2000);
+  page.tick();
+  assert.deepEqual(page.log, ["text T2", "text T11"], "a new language in Tamkeen: no French soundtrack, and the subtitles chosen by hand stay");
+  page.api.cmd("audio", "#2"); // the English soundtrack, by hand
+  page.wait(2000);
+  page.tick();
+  assert.deepEqual(page.log, ["text T2", "text T11", "audio English"], "the subtitles chosen by hand still stay");
+  page.api.cmd("text", "off");
+  s = page.api.state();
+  assert.deepEqual([page.log.at(-1), s.subs.status, s.tracks.textNow], ["text T0", "off", "off"], "Off: Netflix's own Off");
+  page.api.cmd("text", "no-such-track");
+  assert.equal(page.log.at(-1), "text T0", "an unknown track: nothing");
+  page.nextTitle("s2"); // the next episode
+  page.tick();
+  page.tick();
+  assert.equal(page.log.at(-1), "text T10", "the next title: French subtitles for the language being learned, chosen afresh");
+  assert.equal(page.api.state().manual.text, false);
+});
+
+test("in Netflix's page: a soundtrack chosen by hand brings the learning language's subtitles back once", () => {
+  const page = watchPage("https://www.netflix.com/watch/81946364");
+  page.tick();
+  page.api.cmd("audio", "#2");
+  assert.deepEqual(page.log, ["text T2", "audio English"]);
+  assert.equal(page.api.state().audio.status, "manual");
+  page.netflixSets(REAL_TRACKS[7]); // Netflix's list follows the soundtrack: it switched to English subtitles
+  page.wait(1600);
+  page.tick();
+  assert.deepEqual(page.log, ["text T2", "audio English", "text T2"], "Arabic subtitles again (they weren't chosen by hand)");
+  for (let i = 0; i < 4; i++) { page.wait(1000); page.tick(); }
+  assert.equal(page.log.length, 3);
 });
 
 test("in Netflix's page: no subtitles in the language, a question from Netflix, another website", () => {

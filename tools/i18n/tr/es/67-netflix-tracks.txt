@@ -1,0 +1,6 @@
+# Netflix extension: Audio and Subtitles menus, following Tamkeen's language (2026-10-23)
+17770471 Subtítulos
+fd582310 Subtítulos desactivados.
+a6c86590 Se muestran los subtítulos en {0:lower} de Netflix en su lugar.
+31dfec13 Tamkeen todavía no puede buscar palabras en {0:lower}. Sus subtítulos se siguen mostrando aquí.
+8293cbab Tamkeen para Netflix cambió desde que se abrió esta página. Vuelve a cargar la página para que Netflix siga de nuevo tus ajustes de Tamkeen.

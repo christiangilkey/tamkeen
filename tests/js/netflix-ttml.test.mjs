@@ -5,7 +5,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { MAX_TTML_BYTES, TtmlError, baseLanguage, bestSubtitles, captionLines, cleanInfo, cleanTitleId, displayTitle,
-  isSubtitleDownload, parseTtml, ttmlSeconds } from "../../web/js/netflix-ttml.js";
+  isSubtitleDownload, parseTtml, selectedSubtitles, tamkeenLanguage, ttmlSeconds } from "../../web/js/netflix-ttml.js";
 
 const TICKS = 10_000_000;
 /** A subtitle file shaped like Netflix's (DFXP, times in ticks). */
@@ -105,6 +105,32 @@ test("the file kept: the language being learned, the variant chosen, then the mo
   assert.equal(bestSubtitles(files, "fr"), null);
   assert.equal(bestSubtitles([], "ar"), null);
   assert.equal(baseLanguage("fil"), "tl");
+});
+
+test("a Netflix track's language as Tamkeen's (or none: shown, not looked up)", () => {
+  const cases = { "ar-LB": "ar", ar: "ar", fil: "tl", "zh-Hant": "zh", "cmn-Hans": "zh", "pt-BR": "pt", "es-419": "es", en: "en",
+    fa: "fa", per: "fa", pl: "", he: "", tr: "", "": "", "x-y": "" };
+  for (const [code, want] of Object.entries(cases)) assert.equal(tamkeenLanguage(code), want, code);
+});
+
+test("the subtitles shown follow those chosen in Netflix's player", () => {
+  const text = [{ id: "T2", bcp47: "ar-LB", name: "Arabic (Lebanon)" }, { id: "T11", bcp47: "ja", name: "Japanese" },
+    { id: "T20", bcp47: "pl", name: "Polski" }, { id: "T21", bcp47: "en", name: "English [CC]", cc: true }, { id: "T22", bcp47: "ko", name: "Korean", image: true }];
+  const state = (textNow, status = "chosen", learning = "ar") => ({ learning, subs: { status, bcp47: "ar-LB" }, tracks: { audio: [], text, textNow } });
+  assert.deepEqual(selectedSubtitles(state("T2")), { off: false, id: "T2", bcp47: "ar-LB", base: "ar", lang: "ar", name: "Arabic (Lebanon)", cc: false, image: false });
+  assert.equal(selectedSubtitles(state("T11", "manual")).lang, "ja", "chosen by hand: looked up in Japanese");
+  const pl = selectedSubtitles(state("T20", "manual"));
+  assert.deepEqual([pl.base, pl.lang, pl.name], ["pl", "", "Polski"], "a language Tamkeen doesn't teach: shown, not looked up");
+  assert.equal(selectedSubtitles(state("T21")).cc, true);
+  assert.equal(selectedSubtitles(state("T22")).image, true);
+  assert.deepEqual(selectedSubtitles(state("off", "off")), { off: true });
+  assert.equal(selectedSubtitles(state("T11", "waiting")), null, "Tamkeen is choosing the language being learned: wait");
+  assert.equal(selectedSubtitles(state("T11", "waiting", "")).lang, "ja", "no language known: whatever Netflix has on");
+  assert.equal(selectedSubtitles(state("T99")), null, "not in the list (yet)");
+  assert.equal(selectedSubtitles(state("")), null);
+  assert.equal(selectedSubtitles({ subs: { status: "chosen", bcp47: "ar", name: "Arabic" } }).lang, "ar", "a page without the lists: its own choice");
+  assert.equal(selectedSubtitles({ subs: { status: "none" } }), null);
+  assert.equal(selectedSubtitles(null), null);
 });
 
 test("a title's name and its plain description", () => {

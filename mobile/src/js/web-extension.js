@@ -38,8 +38,14 @@ export function startExtensionBridge({ api, toast, refresh = () => {} }) {
       return;
     }
     if (d.type === "pending") takePending(cleanPending(d)).catch((err) => console.warn("Tamkeen extension:", err));
+    if (d.type === "gone") { // the extension was updated or turned off since this page opened: its part here can't pass anything on
+      nonce = "";
+      deps.toast("Tamkeen for Netflix changed since this page opened. Reload the page so Netflix follows your Tamkeen settings again.");
+    }
   });
   window.addEventListener(LOOKUP_EVENT, () => sendSettings());
+  // The language studied changed by a sync (unticked on another device; sync.js), not by saveSettings.
+  window.addEventListener("tamkeen:learning", () => sendSettings());
 }
 
 /** Is the extension talking to this page? */

@@ -33,6 +33,9 @@ test("a message counts only from this window, this address, with this visit's no
   for (const bad of [null, "text", [hello], { ...hello, nonce: "short" }]) assert.equal(checkMessage(event(bad), { win: page, tag: EXT }), null);
   assert.ok(checkMessage(event(message(APP, "ack", NONCE, { words: [] })), { win: page, tag: APP, nonce: NONCE }));
   assert.equal(checkMessage(event(message(APP, "pending", NONCE)), { win: page, tag: APP, nonce: NONCE }), null, "the web app never sends words");
+  const gone = message(EXT, "gone", NONCE);
+  assert.ok(checkMessage(event(gone), { win: page, tag: EXT, nonce: NONCE }), "the extension's part on the page says it was left behind by an update");
+  assert.equal(checkMessage(event(gone), { win: page, tag: EXT, nonce: "" }), null, "only within a visit's conversation");
   assert.match(newNonce(), /^[0-9a-f]{32}$/);
   assert.notEqual(newNonce(), newNonce());
 });

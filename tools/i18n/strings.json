@@ -16525,6 +16525,11 @@
   "f": "mobile/src/js/transcribe-service.js"
  },
  {
+  "id": "8293cbab",
+  "k": "Tamkeen for Netflix changed since this page opened. Reload the page so Netflix follows your Tamkeen settings again.",
+  "f": "mobile/src/js/web-extension.js"
+ },
+ {
   "id": "08af60d8",
   "k": "1 word you saved in Netflix is now in your Vocab",
   "f": "mobile/src/js/web-extension.js"
@@ -17905,6 +17910,11 @@
   "f": "extension/src/js/ext/panel.js"
  },
  {
+  "id": "17770471",
+  "k": "Subtitles",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
   "id": "f7697583",
   "k": "Show or hide the transcript (T)",
   "f": "extension/src/js/ext/panel.js"
@@ -17922,6 +17932,11 @@
  {
   "id": "45fb6254",
   "k": "Couldn't save this word.",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "31dfec13",
+  "k": "Tamkeen can't look up words in {0} yet. Its subtitles still show here.",
   "f": "extension/src/js/ext/panel.js"
  },
  {
@@ -17947,6 +17962,16 @@
  {
   "id": "bd48582c",
   "k": "Netflix is asking something. Answer it on Netflix's page.",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "a6c86590",
+  "k": "Showing Netflix's {0} subtitles instead.",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "fd582310",
+  "k": "Subtitles are off.",
   "f": "extension/src/js/ext/panel.js"
  },
  {

@@ -7,6 +7,7 @@
 // so it is unit-tested on its own (tests/js/netflix-ttml.test.mjs).
 import "./netflix-common.js"; // track languages ("ar-LB" -> "ar"): globalThis.__tamkeenNetflixLib
 import { spread } from "./ytcaptions.js";
+import { isLanguage } from "./languages.js";
 
 export const MAX_TTML_BYTES = 10 * 1024 * 1024;
 const lib = () => globalThis.__tamkeenNetflixLib;
@@ -209,6 +210,35 @@ export function bestSubtitles(files, wanted, chosen = "") {
     for (let k = 0; k < a.length; k++) if (a[k] !== b[k]) return a[k] > b[k] ? f : best;
     return best;
   }, null);
+}
+
+// ---------- the subtitles chosen in Netflix's player ----------
+
+/** The Tamkeen language a Netflix track's language is ("ar-LB" -> "ar", "fil" -> "tl"), or "" when
+ * Tamkeen doesn't teach it (its words can still be shown, not looked up). */
+export function tamkeenLanguage(code) {
+  const b = baseLanguage(code);
+  return b && isLanguage(b) ? b : "";
+}
+
+/**
+ * The subtitles the viewer has on in Netflix's player, from its page's state (js/netflix-player.js):
+ * {off: true} when they are turned off, else {off: false, id, bcp47, base, lang, name, cc, image}
+ * (`lang`: the Tamkeen language to look their words up in, "" if Tamkeen doesn't teach it); null
+ * while that isn't known (no player yet, or Tamkeen is about to choose the language being learned).
+ * The subtitle bar, the transcript and the word lookups follow these.
+ */
+export function selectedSubtitles(s) {
+  if (!s || typeof s !== "object") return null;
+  const subs = s.subs && typeof s.subs === "object" ? s.subs : {};
+  const describe = (t) => ({ off: false, id: String(t.id || ""), bcp47: String(t.bcp47 || ""), base: baseLanguage(t.bcp47),
+    lang: tamkeenLanguage(t.bcp47), name: String(t.name || t.bcp47 || ""), cc: !!t.cc, image: !!t.image });
+  const tracks = s.tracks && typeof s.tracks === "object" ? s.tracks : null;
+  if (!tracks) return subs.status === "chosen" && subs.bcp47 ? describe({ bcp47: subs.bcp47, name: subs.name }) : null; // (no lists)
+  if (subs.status === "waiting" && s.learning) return null; // being chosen for the language being learned
+  if (tracks.textNow === "off") return { off: true };
+  const hit = (Array.isArray(tracks.text) ? tracks.text : []).find((t) => t && t.id === tracks.textNow);
+  return hit && baseLanguage(hit.bcp47) ? describe(hit) : null;
 }
 
 // ---------- a title's name ----------

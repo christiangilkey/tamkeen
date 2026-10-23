@@ -1,0 +1,6 @@
+# Netflix extension: Audio and Subtitles menus, following Tamkeen's language (2026-10-23)
+17770471 자막
+fd582310 자막이 꺼져 있습니다.
+a6c86590 대신 Netflix의 {0} 자막을 보여 줍니다.
+31dfec13 Tamkeen은 아직 {0} 단어를 찾을 수 없습니다. 자막은 여기에 계속 표시됩니다.
+8293cbab 이 페이지를 연 뒤 Tamkeen for Netflix가 바뀌었습니다. Netflix가 다시 Tamkeen 설정을 따르도록 페이지를 새로고침하세요.

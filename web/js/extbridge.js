@@ -9,6 +9,9 @@
 //   web app -> extension  "settings" {settings, device}   what the extension needs to look words up
 //   extension -> web app  "pending" {words, titles}  words saved and titles watched in Netflix
 //   web app -> extension  "ack" {words, titles}      those are in the library now: forget them
+//   extension -> web app  "gone" {}                  the extension was updated or turned off since this
+//                                                    page opened: its part here can't pass anything on
+//                                                    until the page is loaded again
 // Both sides accept a message only from their own window (event.source) and the web app's own address
 // (event.origin), with the nonce; anything else is ignored. Everything that arrives is treated as data,
 // cleaned to plain short values (cleanSettings, cleanWord, cleanTitle) before it is used.
@@ -21,7 +24,7 @@ import { vocabFromDefinition } from "./languages.js";
 export const EXT = "tamkeenExtension"; // the tag on the extension's messages
 export const APP = "tamkeenApp";       // the tag on the web app's messages
 export const PROTOCOL = 1;
-export const TYPES = { [EXT]: ["hello", "pending"], [APP]: ["hello", "settings", "ack"] };
+export const TYPES = { [EXT]: ["hello", "pending", "gone"], [APP]: ["hello", "settings", "ack"] };
 
 const PROVIDERS = ["claude", "gemini", "openai", "grok"];
 const MODES = ["ai", "dictionary", "dictionary_first"];

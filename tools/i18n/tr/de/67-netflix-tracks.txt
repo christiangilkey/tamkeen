@@ -1,0 +1,6 @@
+# Netflix extension: Audio and Subtitles menus, following Tamkeen's language (2026-10-23)
+17770471 Untertitel
+fd582310 Untertitel sind aus.
+a6c86590 Stattdessen werden die Netflix-Untertitel auf {0} gezeigt.
+31dfec13 Tamkeen kann Wörter auf {0} noch nicht nachschlagen. Die Untertitel werden hier trotzdem angezeigt.
+8293cbab Tamkeen für Netflix hat sich geändert, seit diese Seite geöffnet wurde. Lade die Seite neu, damit Netflix wieder deinen Tamkeen-Einstellungen folgt.

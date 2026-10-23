@@ -1,0 +1,6 @@
+# Netflix extension: Audio and Subtitles menus, following Tamkeen's language (2026-10-23)
+17770471 Subtitle
+fd582310 Gipalong ang subtitle.
+a6c86590 Ang {0} nga subtitle sa Netflix maoy gipakita hinuon.
+31dfec13 Dili pa makapangita ang Tamkeen og mga pulong sa {0}. Gipakita gihapon dinhi ang mga subtitle niini.
+8293cbab Nausab ang Tamkeen para sa Netflix sukad giablihan kini nga page. I-reload ang page aron sundon na usab sa Netflix ang imong mga setting sa Tamkeen.
