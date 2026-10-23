@@ -79,18 +79,19 @@ test("variable rewards follow the documented odds", () => {
   assert.ok(Math.abs(count.surprise / 20000 - 0.02) < 0.006);
 });
 
-test("a word pays once a day, and combos multiply the next roll", () => {
+test("a word pays once a day, and lookups in the same session build a combo, however slow", () => {
   const s = newState(5);
-  const combo = { count: 0, at: 0 };
+  const combo = { count: 0, at: 0, session: 0 };
   const common = seq(0.1, 0.5); // tier roll, then amount: common, 10 XP
-  const first = earn(s, { type: "word", key: "es:hola" }, { rand: common, now: at("2026-10-10T10:00:00"), combo });
+  const first = earn(s, { type: "word", key: "es:hola" }, { rand: common, now: at("2026-10-10T10:00:00"), combo, session: 1 });
   assert.deepEqual([first.tier, first.xp, first.combo], ["common", 10, 1]);
-  assert.equal(earn(s, { type: "word", key: "es:hola" }, { rand: common, now: at("2026-10-10T10:00:05"), combo }), null);
-  const second = earn(s, { type: "word", key: "es:mundo" }, { rand: common, now: at("2026-10-10T10:00:10"), combo });
+  assert.equal(earn(s, { type: "word", key: "es:hola" }, { rand: common, now: at("2026-10-10T10:00:05"), combo, session: 1 }), null);
+  // Five minutes later, still in the same session: the combo goes on (no timer).
+  const second = earn(s, { type: "word", key: "es:mundo" }, { rand: common, now: at("2026-10-10T10:05:10"), combo, session: 1 });
   assert.deepEqual([second.combo, second.xp], [1.2, 12]);
   assert.deepEqual([second.base, second.mult], [10, 1.2], "the popup's sum: 10 ×1.2 = 12");
-  const later = earn(s, { type: "word", key: "es:gato" }, { rand: common, now: at("2026-10-10T10:05:00"), combo });
-  assert.equal(later.combo, 1, "the chain breaks after a pause");
+  const later = earn(s, { type: "word", key: "es:gato" }, { rand: common, now: at("2026-10-10T11:00:00"), combo, session: 2 });
+  assert.equal(later.combo, 1, "a new session starts the chain again");
   assert.equal(s.xp, 32);
   // Tomorrow the same word pays again.
   assert.ok(earn(s, { type: "word", key: "es:hola" }, { rand: common, now: at("2026-10-11T09:00:00"), combo }));
@@ -103,13 +104,13 @@ test("the multiplier shown beside a word is the one that was really applied", ()
   const now = at("2026-10-10T10:00:00");
   const s = newState(8);
   s.boostUntil = now.getTime() / 1000 + 600; // a double-XP boost is running
-  const combo = { count: 2, at: now.getTime() - 1000 }; // this lookup is the fourth of a chain: x2
-  const boosted = earn(s, { type: "word", key: "a" }, { rand: common, now, combo });
+  const combo = { count: 2, at: now.getTime() - 1000, session: 1 }; // this lookup is the fourth of a chain: x2
+  const boosted = earn(s, { type: "word", key: "a" }, { rand: common, now, combo, session: 1 });
   assert.deepEqual([boosted.base, boosted.combo, boosted.mult, boosted.xp], [10, 2, 4, 40]);
   const tired = newState(9);
   rollDay(tired, now);
   tired.day.taps = 40; // past the day's first 40 lookups, rewards are worth 0.4
-  const faded = earn(tired, { type: "word", key: "a" }, { rand: common, now, combo: { count: 2, at: now.getTime() - 1000 } });
+  const faded = earn(tired, { type: "word", key: "a" }, { rand: common, now, combo: { count: 2, at: now.getTime() - 1000, session: 1 }, session: 1 });
   assert.deepEqual([faded.base, faded.combo, faded.mult, faded.xp], [10, 2, 0.8, 8]);
   assert.equal(wordMultiplier(tired, 0, now), 0.4, "what the next lookup will be worth once the chain breaks");
 });

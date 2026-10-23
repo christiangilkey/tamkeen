@@ -16,7 +16,10 @@ import { BADGES, BOSSES, BRANCHES, BRANCH_IDS, CATALOG, TYPES, VARIANTS, WEEKLY_
 export const VERSION = 2;
 export const GOALS = [5, 10, 20];           // minutes of study a day; the owner chooses
 export const DAILY_COMPLETE_XP = 120;
-export const COMBO_WINDOW_MS = 30000;       // word lookups: long enough to read a definition first
+// Word lookups build a combo through a study session, however long each one takes to read: the owner
+// found a 30-second timer pushed for mindless clicking. A session ends when the app has been away
+// (closed or in the background) for SESSION_GAP_MS, or at midnight.
+export const SESSION_GAP_MS = 10 * 60 * 1000;
 export const COMBO_STEPS = [1, 1.2, 1.5, 2];
 export const REVIEW_SHARE = 0.25;           // a card in the vocab reviewer pays this share of a word lookup's roll (see earn)
 export const REVIEW_CLEAR_CARDS = 5;        // answering this many cards, with nothing left due, clears the day's cards
@@ -297,7 +300,8 @@ function payBoth(state) {
  *         {type: "save"}                 a word was saved to vocab
  *         {type: "study", seconds, mode} time spent listening ("listen") or reading ("read")
  *         {type: "review", cleared}      a card was answered in the vocab reviewer (`cleared`: none is left due)
- * `ctx` carries {rand, now (Date), combo: {count, at}} so the outcome is reproducible in tests.
+ * `ctx` carries {rand, now (Date), session (this study session's number), combo: {count, at, session}}
+ * so the outcome is reproducible in tests.
  */
 export function earn(state, event, ctx = {}) {
   const rand = ctx.rand || Math.random;
@@ -313,9 +317,13 @@ export function earn(state, event, ctx = {}) {
     day.words.push(key);
     state.stats.lookups++;
     const reward = rollReward(rand);
-    const combo = ctx.combo || { count: 0, at: 0 };
-    combo.count = now.getTime() - combo.at <= COMBO_WINDOW_MS ? combo.count + 1 : 0;
+    const combo = ctx.combo || { count: 0, at: 0, session: 0 };
+    const session = ctx.session ?? 0;
+    // The same session and the same day: the chain goes on, whatever the time between lookups.
+    const sameDay = combo.at && new Date(combo.at).toDateString() === now.toDateString();
+    combo.count = sameDay && combo.session === session ? combo.count + 1 : 0;
     combo.at = now.getTime();
+    combo.session = session;
     out.combo = COMBO_STEPS[Math.min(combo.count, COMBO_STEPS.length - 1)];
     out.tier = reward.tier;
     out.item = reward.item;

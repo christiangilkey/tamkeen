@@ -4771,3 +4771,14 @@ Owner: "once I've reviewed on my computer webapp, it didn't update on my phone a
   (needs two signed-in devices; if the project ever switches Realtime to "private channels only", nudges stop silently
   and the 60 s checks remain); Capacitor `pause` timing on a real phone; pywebview's focus/blur/visibility events in the
   real window (the logic was checked with the browser page and unit tests).
+
+## Word-lookup combo: per study session, no timer (2026-10-22)
+Owner: the 30-second combo "incentivises mindless clicking"; then: "it shouldn't be based on a timer, but instead
+based on session so a user can continue a combo by just looking up words in the same session". web/js/game/rules.js:
+COMBO_WINDOW_MS is gone; `earn(state, event, {combo, session})` continues the chain (x1.2, x1.5, x2) when the lookup
+is in the same session and on the same day, however long between lookups. SESSION_GAP_MS (10 min): game.js starts a
+new session when the app comes back after being hidden that long (visibilitychange); midnight also ends it. The XP
+chip (game.js showChip) has no fuse/countdown any more, shows for 5 s, and the flame shows while this session's combo
+is alive. info.js's "How to get XP" line says so. Battle combos (answering right within 5 s) are unchanged (owner).
+Note: the game info sheet's lists (info.js `get: [...]`) are not picked up by tools/i18n/extract.mjs (text right
+after "[" is skipped as a lookup key), so that sheet is English in every language: a known gap.
