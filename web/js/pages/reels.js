@@ -22,6 +22,7 @@ import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton } from "../vowels.js";
+import { wordClip } from "../wordclip.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -569,7 +570,7 @@ async function renderPlayer(view, { query }) {
       if (t === target) t.text = back.word;
       return back;
     },
-    onPlayWord: () => target && playClip(cur.starts[target.i], cur.ends[target.j]),
+    onPlayWord: () => target && playClip(...wordClip({ starts: cur.starts, ends: cur.ends, texts: cur.texts, i: target.i, j: target.j, lang: cur.lang })),
     onPlaySentence: () => target && playClip(cur.starts[target.si], cur.ends[target.sj]),
     onPlayFrom: () => { if (target && surface) { clipEnd = null; surface.do("seek", cur.starts[target.i]); surface.do("play"); } },
     onSettings: () => (location.hash = "#/settings?s=words"),
@@ -675,7 +676,7 @@ async function renderPlayer(view, { query }) {
     const { si, sj, word, ctx } = contextAt(i);
     target = { i, j: i, si, sj, text: word };
     buzz("tick");
-    playClip(cur.starts[i], cur.ends[i]);
+    playClip(...wordClip({ starts: cur.starts, ends: cur.ends, texts: cur.texts, i, lang: cur.lang }));
     bubble.show(cur.els[i], ctx, { saved: savedHere.has(savedKey(i, i)) });
     reward({ type: "word", key: `${cur.lang}:${word.toLowerCase()}` }, cur.els[i]);
     if (seen) seen.markSeen(i, i); // looked up: this word, in all its forms, is no longer new

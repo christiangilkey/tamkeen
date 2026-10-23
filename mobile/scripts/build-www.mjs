@@ -29,6 +29,7 @@ const SHARED = [
   "js/icons.js",
   "js/scrollhint.js",
   "js/vowels.js",
+  "js/wordclip.js",
   "js/vowelmarks.js",
   "js/game",
   "game-art",

@@ -36,6 +36,7 @@ import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
+import { wordClip } from "../wordclip.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const LONG_PRESS_MS = 550;
@@ -694,7 +695,8 @@ export async function render(view, { id, query }) {
 
   /** Play words i..j. Where only whole lines are timed, the line they are in is played instead. */
   function playWords(i, j = i) {
-    if (!lineTimed) { playClip(starts[i], ends[j]); return; }
+    // A word's own times are often tight: room either side, and as long as it takes to say (wordclip.js).
+    if (!lineTimed) { playClip(...wordClip({ starts, ends, texts, i, j, lang })); return; }
     let a = i;
     let b = j;
     while (a > 0 && segOf[a - 1] === segOf[i]) a--;
