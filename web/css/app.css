@@ -499,7 +499,10 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .wb-chip { font-size: 12px; padding: 1px 8px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }
 .wb-chip .ar { font-size: 14px; }
 /* where the meaning came from (Wiktionary, AI · model): one small muted line at the end of the popup */
-.wb-source { margin-top: 6px; display: flex; align-items: center; gap: 8px; min-width: 0; }
+/* in the popup's top row, at the end (right, or left in right-to-left text), before the close button */
+.wb-head > .wb-source { flex: 0 1 auto; margin: 6px 0 0; margin-inline-start: auto; max-width: 48%; flex-direction: column; align-items: flex-end; gap: 2px; }
+.wb-source { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.wb-head > .wb-srcmenu, .word-bubble > .wb-srcmenu { margin: 4px 0 8px; }
 /* the tag is a button: it opens the menu of sources (defsource.js) */
 button.wb-src { display: inline-flex; align-items: center; gap: 3px; max-width: 100%; min-width: 0; min-height: 0; overflow: hidden;
   text-overflow: ellipsis; white-space: nowrap; font-size: 11px; line-height: 18px; padding: 0 6px 0 8px; border-radius: 99px;

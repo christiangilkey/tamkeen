@@ -172,15 +172,20 @@ export function createWordBubble(host, actions) {
     }).catch(() => {});
   }
   const mb = (bytes) => `${Math.max(1, Math.round((bytes || 0) / 1e6))} MB`;
+  // (The owner: "The source selector should be up and to the right": the chip sits in the top row,
+  // between the word and the close button, and its menu opens just under that row.)
   function sourceTag(d) {
     const saved = Date.now() < savedUntil;
-    const choices = menuOpen ? sourceChoices(settings(), dictHere()) : [];
     return `<div class="wb-source">
         <button type="button" class="wb-src" data-act="source" aria-haspopup="menu" aria-expanded="${menuOpen}"
           title="Where this meaning comes from. Tap to use another source">${esc(tagLabel(settings(), d))}${icon("chevron", 11)}</button>
         ${saved ? `<span class="wb-saved" role="status">${icon("check", 12)} Saved</span>` : ""}
-      </div>
-      ${menuOpen ? `<div class="wb-srcmenu" role="menu" aria-label="Explain words with">
+      </div>`;
+  }
+  function sourceMenu() {
+    if (!menuOpen) return "";
+    const choices = sourceChoices(settings(), dictHere());
+    return `${menuOpen ? `<div class="wb-srcmenu" role="menu" aria-label="Explain words with">
         <div class="wb-srcmenu-title">Explain words with</div>
         ${choices.map((c) => `<button type="button" role="menuitemradio" aria-checked="${c.on}" class="wb-srcopt${c.on ? " on" : ""}"
             data-act="pick" data-id="${c.id}" ${c.unavailable ? "disabled" : ""}>
@@ -240,23 +245,23 @@ export function createWordBubble(host, actions) {
     const word = fix ? fix.to : ctx.word;
     let body = "";
     if (state === "loading") {
-      body = `<div class="wb-loading"><span class="spinner"></span> ${quick ? "Looking up…" : "Looking up in context…"}</div>${sourceTag(null)}`;
+      body = `<div class="wb-loading"><span class="spinner"></span> ${quick ? "Looking up…" : "Looking up in context…"}</div>`;
     } else if (state === "nokey") {
       body = `<p class="wb-muted">See what this word means in this sentence: add an AI provider key in Settings.</p>
               <div class="row"><button type="button" class="primary" data-act="settings">Set up definitions</button>
-              ${fallbackButton()}</div>${sourceTag(null)}`;
+              ${fallbackButton()}</div>`;
     } else if (state === "nomeanings") {
       body = `<p class="wb-muted">AI is off, so words are explained by the built-in ${esc(L().name || "")} dictionary. It isn't on this device yet: download it once and it works offline.</p>
               <div class="row"><button type="button" class="primary" data-act="getmeanings">Download the dictionary</button>
-              <button type="button" class="ghost" data-act="settings">Settings</button></div>${sourceTag(null)}`;
+              <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
     } else if (state === "error") {
       body = `<p class="wb-error">${esc(message)}</p>
               <div class="row"><button type="button" data-act="retry">Try again</button>
               ${fallbackButton()}
               ${kindOf(lastError) ? `<button type="button" data-act="trouble">Troubleshoot</button>` : ""}
-              <button type="button" class="ghost" data-act="settings">Settings</button></div>${sourceTag(null)}`;
+              <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
     } else if (quick) {
-      body = `<div class="wb-meaning">${esc(def.meaning)}</div>${sourceTag(def)}`;
+      body = `<div class="wb-meaning">${esc(def.meaning)}</div>`;
     } else {
       const d = def;
       // How the word is read (kana, pinyin, IPA) goes under the meaning; where the reading is the
@@ -273,8 +278,7 @@ export function createWordBubble(host, actions) {
         ${d.other_meanings.length ? `<div class="wb-row"><span class="wb-label">Also</span> ${d.other_meanings.map(esc).join("; ")}</div>` : ""}
         ${d.msa_equivalent ? `<div class="wb-row"><span class="wb-label">${esc(L().standard)}</span> <span class="ar" ${attrs()}>${esc(d.msa_equivalent)}</span></div>` : ""}
         ${d.dialect_note ? `<div class="wb-row"><span class="wb-label">${esc(L().note)}</span> ${esc(d.dialect_note)}</div>` : ""}
-        ${d.sentence_translation ? `<details class="wb-trans"><summary>Sentence translation</summary>${esc(d.sentence_translation)}</details>` : ""}
-        ${sourceTag(d)}`;
+        ${d.sentence_translation ? `<details class="wb-trans"><summary>Sentence translation</summary>${esc(d.sentence_translation)}</details>` : ""}`;
     }
     const shown = def && state === "ready" && def.vocalized && L().reading === "replace" ? def.vocalized : word;
     el.classList.toggle("quick", quick);
@@ -283,8 +287,10 @@ export function createWordBubble(host, actions) {
         ${actions.onPauseMode && !actions.noAudio ? modeSwitch() : ""}
         <div class="wb-word ar" ${attrs()}>${esc(shown)}</div>
         ${ipa ? `<span class="wb-ipa" translate="no" title="${ctx.lang === "th" ? "How it is said (Paiboon romanization, from Wiktionary)" : ctx.lang === "ko" ? "How it is said (Revised Romanization of Korean)" : "US pronunciation (CMU Pronouncing Dictionary)"}">${esc(ipa)}</span>` : ""}
+        ${sourceTag(state === "ready" ? def : null)}
         <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>
+      ${sourceMenu()}
       ${fix ? fixPill() : ""}
       <div class="wb-body">${body}</div>
       <div class="wb-actions">
