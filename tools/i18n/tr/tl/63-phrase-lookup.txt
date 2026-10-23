@@ -1,0 +1,4 @@
+17c9cfb8 Ipakita ang buong paliwanag ng pariralang ito
+3b543816 I-play ulit ang pariralang ito
+25eaeaa8 Parirala
+8d5aac96 Wala ang pariralang ito sa built-in na diksyunaryo. I-tap ang mga salita nito isa-isa para hanapin ang mga ito.

@@ -18,8 +18,9 @@ import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.j
 import { readingsReady } from "../lexicon/readings.js";
 import { blockTag, layoutBlocks, marksLookup, wordStyle } from "../readerlayout.js";
 import { applyPageSize, pageSize, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
+import { phrasePicker } from "../components/phrasepick.js";
+import { isPhrase, phraseText } from "../phrase.js";
 
-const LONG_PRESS_MS = 550;
 const TITLE_SEG = -1; // the title's words form a line of their own, before the page's first block
 
 export const isPage = (ep) => (ep.audio_type || "") === "text/html";
@@ -151,12 +152,12 @@ export async function render(view, { id, data, query }) {
     const [si, sj] = sentenceBounds(texts, segOf, i, j);
     const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
     const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
-    const word = joinWords(texts.slice(i, j + 1), lang).replace(EDGE_PUNCT, "") || texts[i];
+    const word = phraseText(texts, i, j, lang);
     return {
       si, sj, word,
       ctx: { word, lang, marked: markWord(texts.slice(si, sj + 1), i - si, j - si, lang),
              before: prev ? sentenceText(prev[0], prev[1]) : "", after: next ? sentenceText(next[0], next[1]) : "",
-             podcast: host || ep.feed_title, episode: ep.title },
+             podcast: host || ep.feed_title, episode: ep.title, phrase: isPhrase(i, j) },
     };
   }
 
@@ -223,10 +224,8 @@ export async function render(view, { id, data, query }) {
     seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
 
-  // ---------- clicks, long-press and right-click (same gestures as the player) ----------
+  // ---------- clicks, long-press, dragging and right-click (same gestures as the player) ----------
   let down = null;
-  let pressTimer = 0;
-  let suppressClick = false;
 
   function wordIndexAt(node, offset, atEnd) {
     const el = node.nodeType === Node.TEXT_NODE ? node.parentElement : node;
@@ -272,23 +271,17 @@ export async function render(view, { id, data, query }) {
   }
 
   tr.addEventListener("pointerdown", (e) => {
-    if (e.button !== 0) return;
-    down = { x: e.clientX, y: e.clientY };
-    suppressClick = false;
-    const wEl = e.target.closest(".w");
-    clearTimeout(pressTimer);
-    if (wEl && e.pointerType !== "mouse") {
-      pressTimer = setTimeout(() => { suppressClick = true; openMenu(e.clientX, e.clientY, wEl); }, LONG_PRESS_MS);
-    }
+    if (e.button === 0) down = { x: e.clientX, y: e.clientY };
   });
-  tr.addEventListener("pointermove", (e) => {
-    if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) clearTimeout(pressTimer);
+  // Dragging across words (mouse), or holding a word and sliding on (touch), looks them up together
+  // (components/phrasepick.js); holding a word and lifting opens its menu.
+  const picker = phrasePicker(tr, {
+    blockOf: (k) => segOf[k],
+    elOf: (k) => wordEls[k] || null,
+    onPick: (i, j) => defineAt(i, j),
+    onHold: (i, x, y, el) => openMenu(x, y, el),
   });
-  const endPress = () => clearTimeout(pressTimer);
-  tr.addEventListener("pointerup", endPress);
-  tr.addEventListener("pointercancel", endPress);
   tr.addEventListener("click", (e) => {
-    if (suppressClick) { suppressClick = false; return; }
     const wEl = e.target.closest(".w");
     if (!wEl || e.detail > 1) return;
     const sel = window.getSelection();
@@ -302,7 +295,6 @@ export async function render(view, { id, data, query }) {
     const hasSel = sel && !sel.isCollapsed && tr.contains(sel.anchorNode);
     if (!wEl && !hasSel) return;
     e.preventDefault();
-    clearTimeout(pressTimer);
     openMenu(e.clientX, e.clientY, wEl);
   });
 
@@ -378,7 +370,7 @@ export async function render(view, { id, data, query }) {
     window.removeEventListener("resize", onResize);
     document.removeEventListener("pointerdown", onOutside);
     document.removeEventListener("keydown", onKey);
-    clearTimeout(pressTimer);
+    picker.destroy();
     hideMenu();
   };
 }

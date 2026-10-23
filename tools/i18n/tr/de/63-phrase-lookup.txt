@@ -1,0 +1,4 @@
+17c9cfb8 Die vollständige Erklärung dieses Ausdrucks zeigen
+3b543816 Diesen Ausdruck noch einmal abspielen
+25eaeaa8 Ausdruck
+8d5aac96 Dieser Ausdruck ist nicht im eingebauten Wörterbuch. Tippe seine Wörter einzeln an, um sie nachzuschlagen.

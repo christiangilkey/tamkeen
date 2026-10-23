@@ -20,6 +20,8 @@ import { sentenceStart } from "../sentencestart.js";
 import { gap, joinWords, regroupWords, setLang, setStudyLanguage } from "../languages.js";
 import { EDGE_PUNCT, activeWordIndex, formatTime, sentenceBounds } from "../wordlookup.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
+import { phrasePicker } from "../components/phrasepick.js";
+import { isPhrase, phraseText } from "../phrase.js";
 import { lookupToggle } from "../components/lookupmode.js";
 import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
@@ -158,24 +160,25 @@ function contextFor(i, j) {
   const [si, sj] = sentenceBounds(texts, segOf, i, j);
   const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
   const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
-  const word = joinWords(texts.slice(i, j + 1), S.lang).replace(EDGE_PUNCT, "") || texts[i];
+  const word = phraseText(texts, i, j, S.lang);
   return {
     si, sj, word,
     ctx: { word, lang: S.lang, marked: markWord(texts.slice(si, sj + 1), i - si, j - si, S.lang),
       before: prev ? sentenceText(prev[0], prev[1]) : "", after: next ? sentenceText(next[0], next[1]) : "",
-      podcast: "Netflix", episode: titleName() },
+      podcast: "Netflix", episode: titleName(), phrase: isPhrase(i, j) },
   };
 }
 
-function defineAt(i, anchor, where) {
-  const c = contextFor(i, i);
-  target = { i, j: i, si: c.si, sj: c.sj, text: c.word };
+/** Look up words i..j (one word, or several dragged across together: components/phrasepick.js). */
+function defineAt(i, anchor, where, j = i) {
+  const c = contextFor(i, j);
+  target = { i, j, si: c.si, sj: c.sj, text: c.word };
   S.clipEnd = null;
   if (pauseAfterWord() && S.player && !S.player.paused) cmd("pause");
   const inBar = where === "bar" || side.hidden;
   if (inBar) { S.capLock = S.segOf[i]; drawCaption(S.capLock); anchor = cap.querySelector(`.w[data-i="${i}"]`) || anchor; }
   else S.capLock = -1;
-  bubble.show(anchor, c.ctx, { host: inBar ? $("#bar-pop") : $("#side-pop"), docked: true, saved: savedHere.has(`${i}-${i}`) });
+  bubble.show(anchor, c.ctx, { host: inBar ? $("#bar-pop") : $("#side-pop"), docked: true, saved: savedHere.has(`${i}-${j}`) });
   if (!inBar) setTimeout(() => anchor.scrollIntoView({ block: "nearest" }), 30);
 }
 
@@ -268,7 +271,7 @@ function frame() {
   if (!S.player || !S.n) return;
   const tNow = now();
   if (S.clipEnd !== null && tNow >= S.clipEnd) { S.clipEnd = null; cmd("pause"); }
-  if (!bubble.open) S.capLock = -1;
+  if (!bubble.open && !S.picking) S.capLock = -1;
   const si = segAt(tNow);
   drawCaption(S.capLock >= 0 ? S.capLock : si);
   if (si !== S.curSeg) {
@@ -309,6 +312,18 @@ linesEl.addEventListener("click", (e) => {
   if (w) { defineAt(Number(w.dataset.i), w, "side"); return; }
   const line = e.target.closest(".ln");
   if (line) { S.clipEnd = null; seek(S.lines[Number(line.dataset.s)].start); S.userScrolled = 0; }
+});
+// Words dragged across with the mouse (or held and slid across) are looked up together, within one line.
+// While the mouse is down on a caption word, the caption stays (it may be dragged on to the next words).
+phrasePicker(cap, {
+  blockOf: (k) => S.segOf[k],
+  onPick: (i, j, el) => defineAt(i, el, "bar", j),
+  onStart: () => { S.picking = true; S.capLock = S.capSeg; },
+  onEnd: () => { S.picking = false; },
+});
+phrasePicker(linesEl, {
+  blockOf: (k) => S.segOf[k],
+  onPick: (i, j, el) => defineAt(i, el, "side", j),
 });
 
 addEventListener("keydown", (e) => {

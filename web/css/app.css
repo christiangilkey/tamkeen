@@ -33,6 +33,7 @@
   --hl: #f6dc94;
   --hl-ink: #2a1d00;
   --sel-range: #dff1f4;
+  --phrase: #c9e6ea;
   --shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 4px 16px rgba(0, 0, 0, .06);
   --radius: 14px;
   --ar-size: 26px;
@@ -68,6 +69,7 @@
     --hl: #f1cf7b;
     --hl-ink: #2a1d00;
     --sel-range: #173a48;
+    --phrase: #1d5360;
     --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 4px 16px rgba(0, 0, 0, .3);
     color-scheme: dark;
   }
@@ -89,6 +91,7 @@
   --hl: #f1cf7b;
   --hl-ink: #2a1d00;
   --sel-range: #173a48;
+  --phrase: #1d5360;
   --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 4px 16px rgba(0, 0, 0, .3);
   color-scheme: dark;
 }
@@ -490,6 +493,7 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 @keyframes wb-in { from { opacity: 0; transform: translateY(4px); } }
 .wb-head { display: flex; align-items: flex-start; gap: 8px; }
 .wb-word { flex: 1; font-family: var(--ar-font); font-size: 30px; line-height: 1.5; text-align: start; }
+.wb-word.wb-phrase { font-size: 24px; min-width: 0; overflow-wrap: anywhere; } /* several words looked up together */
 .wb-reading { font-family: var(--ar-font); font-size: 17px; color: var(--muted); margin: -2px 0 6px; unicode-bidi: plaintext; }
 .wb-close { flex: none; }
 /* With a mouse, the close button sits at the end of the bottom row (the owner: easier to reach
@@ -1491,6 +1495,23 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .captions .w.new { color: #eaa6e4; } /* over a video the text is always on dark */
 .transcript .w.new.cur, .reader-text .w.new.cur, .captions .w.new.cur { color: var(--hl-ink); }
 .transcript .w, .reader-text .w, .captions .w { transition: background-color .08s, color .35s; }
+/* Several words looked up together (components/phrasepick.js): while a finger or the mouse drags
+   over them, one soft band of the brand teal runs across the words and the spaces between them
+   (each word reaches into the space beside it; the layout doesn't move). Plain and solid, no shadow. */
+.captions, .cap, .reel-words { --phrase: #1d6670; } /* (text on a dark bar) */
+.phrase-root .w.phr, .phrase-root .w.phr.cur, .phrase-root .w.phr:hover {
+  background: var(--phrase); color: inherit; border-radius: 0; padding-inline: .2em; margin-inline: -.16em; transition: none; }
+.phrase-root .w.phr.new { color: var(--new-word); }
+.captions .w.phr.new, .cap .w.phr.new, .reel-words .w.phr.new { color: #eaa6e4; }
+.phrase-root .w.phr-a { padding-inline-start: .04em; margin-inline-start: 0; border-start-start-radius: 5px; border-end-start-radius: 5px; }
+.phrase-root .w.phr-z { padding-inline-end: .04em; margin-inline-end: 0; border-start-end-radius: 5px; border-end-end-radius: 5px; }
+.phrase-picking { -webkit-user-select: none; user-select: none; }
+.phrase-picking .w:active { transform: none; }
+/* On touch screens a long press on a word starts a phrase: not the system's selection, magnifier or menu. */
+@media (hover: none), (pointer: coarse) {
+  .phrase-root { -webkit-touch-callout: none; }
+  .phrase-root .w { -webkit-user-select: none; user-select: none; }
+}
 .lex-offer-back { position: fixed; inset: 0; z-index: 90; background: rgba(0, 0, 0, .55); display: grid; place-items: center; padding: 16px; }
 .lex-offer { width: min(480px, 100%); background: var(--surface); color: var(--text); border-radius: 18px; padding: 20px 20px 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, .45); border-top: 6px solid var(--brand-plum); animation: update-in .25s cubic-bezier(.2, 1.2, .4, 1); }

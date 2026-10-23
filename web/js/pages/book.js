@@ -20,8 +20,9 @@ import { paginateBlocks, pageOf } from "../bookpages.js";
 import { icon } from "../icons.js";
 import { blockTag, layoutBlocks, marksLookup, wordStyle } from "../readerlayout.js";
 import { applyPageSize, pageSize, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
+import { phrasePicker } from "../components/phrasepick.js";
+import { isPhrase, phraseText } from "../phrase.js";
 
-const LONG_PRESS_MS = 550;
 const SWIPE_PX = 60;
 
 async function copyText(text) {
@@ -244,12 +245,12 @@ export async function render(view, { id, data, query }) {
     const [si, sj] = sentenceBounds(texts, segOf, i, j);
     const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
     const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
-    const word = joinWords(texts.slice(i, j + 1), lang).replace(EDGE_PUNCT, "") || texts[i];
+    const word = phraseText(texts, i, j, lang);
     return {
       si, sj, word,
       ctx: { word, lang, marked: markWord(texts.slice(si, sj + 1), i - si, j - si, lang),
              before: prev ? sentenceText(prev[0], prev[1]) : "", after: next ? sentenceText(next[0], next[1]) : "",
-             podcast: ep.description || ep.feed_title, episode: ep.title },
+             podcast: ep.description || ep.feed_title, episode: ep.title, phrase: isPhrase(i, j) },
     };
   }
 
@@ -292,9 +293,8 @@ export async function render(view, { id, data, query }) {
     seenAt.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
 
-  // ---------- taps, long-press, right-click, swipes ----------
+  // ---------- taps, long-press, dragging, right-click, swipes ----------
   let down = null;
-  let pressTimer = 0;
   let suppressClick = false;
   function selectionWords() {
     const sel = window.getSelection();
@@ -330,17 +330,17 @@ export async function render(view, { id, data, query }) {
     if (e.button !== 0) return;
     down = { x: e.clientX, y: e.clientY, t: Date.now() };
     suppressClick = false;
-    const wEl = e.target.closest(".w");
-    clearTimeout(pressTimer);
-    if (wEl && e.pointerType !== "mouse") {
-      pressTimer = setTimeout(() => { suppressClick = true; openMenu(e.clientX, e.clientY, wEl); }, LONG_PRESS_MS);
-    }
   });
-  tr.addEventListener("pointermove", (e) => {
-    if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) clearTimeout(pressTimer);
+  // Dragging across words (mouse), or holding a word and sliding on (touch), looks them up together
+  // (components/phrasepick.js; it keeps that release from turning the page); holding a word and
+  // lifting opens its menu.
+  const picker = phrasePicker(tr, {
+    blockOf: (k) => segOf[k],
+    elOf: (k) => wordEls[k] || null,
+    onPick: (i, j) => defineAt(i, j),
+    onHold: (i, x, y, el) => openMenu(x, y, el),
   });
   tr.addEventListener("pointerup", (e) => {
-    clearTimeout(pressTimer);
     if (!down) return;
     const dx = e.clientX - down.x;
     const dy = e.clientY - down.y;
@@ -352,7 +352,6 @@ export async function render(view, { id, data, query }) {
       turn((dx < 0) !== rtl ? 1 : -1);
     }
   });
-  tr.addEventListener("pointercancel", () => clearTimeout(pressTimer));
   tr.addEventListener("click", (e) => {
     if (suppressClick) { suppressClick = false; return; }
     const wEl = e.target.closest(".w");
@@ -367,7 +366,6 @@ export async function render(view, { id, data, query }) {
     const sel = window.getSelection();
     if (!wEl && !(sel && !sel.isCollapsed && tr.contains(sel.anchorNode))) return;
     e.preventDefault();
-    clearTimeout(pressTimer);
     openMenu(e.clientX, e.clientY, wEl);
   });
   // The arrows point the way the text reads: in Arabic, "next" is on the left.
@@ -475,7 +473,7 @@ export async function render(view, { id, data, query }) {
     if (document.fonts) document.fonts.removeEventListener("loadingdone", onFonts);
     document.removeEventListener("pointerdown", onOutside);
     document.removeEventListener("keydown", onKey);
-    clearTimeout(pressTimer);
+    picker.destroy();
     clearTimeout(resizeTimer);
     hideMenu();
   };

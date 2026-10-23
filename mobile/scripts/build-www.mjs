@@ -31,6 +31,8 @@ const SHARED = [
   "js/vowels.js",
   "js/wordclip.js",
   "js/sentencestart.js",
+  "js/phrase.js",
+  "js/components/phrasepick.js",
   "js/whatsnew.js",
   "js/components/changelog.js",
   "changelog.md",

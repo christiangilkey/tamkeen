@@ -1,0 +1,4 @@
+17c9cfb8 Mostrar a explicação completa desta expressão
+3b543816 Tocar esta expressão de novo
+25eaeaa8 Expressão
+8d5aac96 Esta expressão não está no dicionário embutido. Toque nas palavras dela uma de cada vez para buscá-las.

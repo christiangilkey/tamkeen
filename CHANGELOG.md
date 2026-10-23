@@ -17,6 +17,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 - **Fixed:** Netflix's home page went dark below the top trailer with the extension (and in the computer's Netflix window): a trailer was taken for the title playing.
 - **New:** A "back to the start of the sentence" button beside "back 5 seconds", in the player and the Netflix extension (key R). Pressed again right away, it goes one sentence further back.
 - **Improved:** On a computer, the word popup's close button sits at the bottom right, beside Save.
+- **New:** Look up several words together, such as an idiom or a set phrase. On a computer, press on a word and drag across the next words; on a phone, press and hold a word, then slide your finger across the others. The words light up as you go, and when you let go the popup explains them as one phrase in their sentence (and what they mean word by word when that is different). Word plays the whole phrase and Save keeps it as one card. Works in transcripts, captions, web pages, books, reels and the Netflix bar.
 - **Improved:** Quick lookup's word popup keeps the Word and Sentence play buttons.
 - **New:** Each friend's daily streak shows as a gold flame beside their name in Friends, 0 days included.
 - **New:** Home shows your daily streak, a gold flame and the number of days in a row you met your flashcard goal, beside the greeting.

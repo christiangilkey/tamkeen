@@ -1,0 +1,4 @@
+17c9cfb8 Mostra la spiegazione completa di questa espressione
+3b543816 Riascolta questa espressione
+25eaeaa8 Espressione
+8d5aac96 Questa espressione non è nel dizionario integrato. Tocca le sue parole una alla volta per cercarle.

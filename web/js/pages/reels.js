@@ -23,6 +23,8 @@ import { readingsReady } from "../lexicon/readings.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton } from "../vowels.js";
 import { wordClip } from "../wordclip.js";
+import { phrasePicker } from "../components/phrasepick.js";
+import { isPhrase, phraseText } from "../phrase.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -664,26 +666,33 @@ async function renderPlayer(view, { query }) {
     const [si, sj] = sentenceBounds(cur.texts, cur.segOf, i, j);
     const prev = si > 0 ? sentenceBounds(cur.texts, cur.segOf, si - 1) : null;
     const next = sj < cur.texts.length - 1 ? sentenceBounds(cur.texts, cur.segOf, sj + 1) : null;
-    const word = joinWords(cur.texts.slice(i, j + 1), cur.lang).replace(EDGE_PUNCT, "") || cur.texts[i];
+    const word = phraseText(cur.texts, i, j, cur.lang);
     return { si, sj, word, ctx: {
       word, lang: cur.lang, marked: markWord(cur.texts.slice(si, sj + 1), i - si, j - si, cur.lang),
       before: prev ? sentence(prev[0], prev[1]) : "", after: next ? sentence(next[0], next[1]) : "",
-      podcast: `@${cur.ep.description || "Instagram"}`, episode: cur.ep.title,
+      podcast: `@${cur.ep.description || "Instagram"}`, episode: cur.ep.title, phrase: isPhrase(i, j),
     } };
   }
 
-  function define(i) {
-    const { si, sj, word, ctx } = contextAt(i);
-    target = { i, j: i, si, sj, text: word };
+  /** Look up words i..j (one word, or several dragged across together). */
+  function define(i, j = i) {
+    const { si, sj, word, ctx } = contextAt(i, j);
+    target = { i, j, si, sj, text: word };
     buzz("tick");
-    playClip(...wordClip({ starts: cur.starts, ends: cur.ends, texts: cur.texts, i, lang: cur.lang }));
-    bubble.show(cur.els[i], ctx, { saved: savedHere.has(savedKey(i, i)) });
+    playClip(...wordClip({ starts: cur.starts, ends: cur.ends, texts: cur.texts, i, j, lang: cur.lang }));
+    bubble.show(cur.els[i], ctx, { saved: savedHere.has(savedKey(i, j)) });
     reward({ type: "word", key: `${cur.lang}:${word.toLowerCase()}` }, cur.els[i]);
-    if (seen) seen.markSeen(i, i); // looked up: this word, in all its forms, is no longer new
+    if (seen) seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
   wordsEl.addEventListener("click", (e) => {
     const el = e.target.closest(".w");
     if (el && cur) define(Number(el.dataset.i));
+  });
+  // Drag across words (mouse), or hold a word and slide on (touch): they are looked up together.
+  const picker = phrasePicker(wordsEl, {
+    blockOf: (k) => (cur ? cur.segOf[k] : -1),
+    elOf: (k) => (cur && cur.els[k]) || null,
+    onPick: (i, j) => { if (cur) define(i, j); },
   });
 
   function setActive(idx) {
@@ -864,6 +873,7 @@ async function renderPlayer(view, { query }) {
     menuWatch.disconnect();
     window.removeEventListener("resize", onResize);
     document.removeEventListener("pointerdown", onOutside);
+    picker.destroy();
     bubble.hide();
     if (seen) seen.close();
     if (surface) surface.close();

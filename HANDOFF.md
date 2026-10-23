@@ -5016,3 +5016,25 @@ ships with every version (tests/js/changelog.test.mjs fails if the two differ: `
 Settings → Data & updates → Changelog → Open: web/js/components/changelog.js draws it in a box (translate="no",
 English only); FINDS id "changelog". **Release step:** move "Unreleased" under the new version's heading in
 CHANGELOG.md, copy it to web/changelog.md, and add the version's short lines to web/js/whatsnew.js.
+
+## Look up several words together by dragging (2026-10-23; worktree branch `worktree-agent-ad90ccbd2202f60b5`, NOT merged, NOT pushed)
+- One helper for every place words are tappable: `web/js/components/phrasepick.js` (`phrasePicker(root, {onPick, onHold,
+  blockOf, elOf, onStart, onEnd})`); the pure part is `web/js/phrase.js` (`phraseRange`, `phraseText`, `isPhrase`,
+  `PHRASE_MAX` = 12), tested in `tests/js/phrase.test.mjs`. Both are in build-www.mjs SHARED; the extension finds them by imports.
+- Mouse: press on a word and drag; the words light up (class `phr`, `phr-a`/`phr-z` ends, `--phrase` colour in app.css)
+  from the first word to the one under the pointer, in text order (RTL fine), inside one block (segment/paragraph/line),
+  at most 12 words. A plain click is unchanged. Text selection can still start between words (right-click menu -> Define).
+- Touch: tap = one word, swipe = scroll. Hold 350 ms (word lights up, phone ticks) then slide; lifting looks the phrase up.
+  Hold and lift without sliding = the page's old long-press menu (`onHold`; the pages' own 550 ms timers are gone).
+  While holding/dragging: touchmove preventDefault (no scroll), contextmenu/selectstart blocked, and on touch screens
+  `.phrase-root .w` is user-select:none with -webkit-touch-callout:none. The click after a drag is swallowed.
+- Wired into player.js (transcript + video/YouTube/Netflix captions, which stop changing while pressed), reader.js,
+  book.js (a phrase release never turns the page), reels.js, extension panel.js (bar + sidebar).
+- `ctx.phrase` (set by every page's contextFor): definer.js `userPrompt` says "Target phrase" + explain as ONE unit
+  (idiom/collocation) and, in the full lookup, the literal word-by-word sense; correction is never used for a phrase.
+  meanings.js looks a phrase up only as an exact entry; define-service (desktop + phone) never starts the dictionary
+  download for a phrase, and `dictionaryFirst` only says "downloading" when it really downloads. Popup: smaller headword,
+  "Phrase" play button (wordClip i..j), no IPA, no fix pill; Save = one card with the sentence.
+- Checked in the browser (desktop server on a scratch data folder): mouse drags forward/backward, Arabic RTL band, block
+  limit, Escape cancels, plain click; touch simulated with pointer events in the phone viewport (hold, slide, scroll
+  cancels the hold, hold+lift opens the menu). Not tried on a real phone, nor in the Netflix extension.

@@ -48,7 +48,8 @@ export async function getDefinition(ctx, refresh = false, { quick = false } = {}
   // Dictionary first: the AI only for the words the dictionary doesn't have (see definer.dictionaryFirst).
   if (definerMode() === "dictionary_first") {
     const lang = ctx.lang || "ar";
-    return dictionaryFirst({ dictionary, ai, hasKey: !!cfg.key, refresh, lang, getDictionary: () => downloadMeanings(lang) });
+    // (A phrase the dictionary hasn't got is no reason to download it: dictionaries rarely have phrases.)
+    return dictionaryFirst({ dictionary, ai, hasKey: !!cfg.key, refresh, lang, getDictionary: ctx.phrase ? null : () => downloadMeanings(lang) });
   }
   return ai();
 }
