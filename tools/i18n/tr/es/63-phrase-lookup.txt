@@ -1,0 +1,4 @@
+17c9cfb8 Mostrar la explicación completa de esta frase
+3b543816 Volver a reproducir esta frase
+25eaeaa8 Frase
+8d5aac96 Esta frase no está en el diccionario integrado. Toca sus palabras una a una para buscarlas.

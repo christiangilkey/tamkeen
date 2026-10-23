@@ -4895,6 +4895,11 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
+  "id": "17c9cfb8",
+  "k": "Show the full explanation of this phrase",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
   "id": "86efdc55",
   "k": "Show the full explanation of this word",
   "f": "web/js/components/wordbubble.js"
@@ -4902,6 +4907,16 @@
  {
   "id": "4bab2d8f",
   "k": "More",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "3b543816",
+  "k": "Play this phrase again",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "25eaeaa8",
+  "k": "Phrase",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -9008,6 +9023,11 @@
   "id": "112eab9b",
   "k": "This Thai reading table is from a different version of the app.",
   "f": "web/js/lexicon/thai.js"
+ },
+ {
+  "id": "8d5aac96",
+  "k": "This phrase isn't in the built-in dictionary. Tap its words one at a time to look them up.",
+  "f": "web/js/meanings.js"
  },
  {
   "id": "8c6c358b",

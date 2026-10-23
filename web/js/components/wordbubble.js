@@ -131,6 +131,9 @@ export function createWordBubble(host, actions) {
   // The language of the word being shown (from the lookup; Arabic for older callers).
   const L = () => langInfo((ctx && ctx.lang) || "ar");
   const attrs = () => langAttrs((ctx && ctx.lang) || "ar");
+  // Several words looked up together (dragged across: phrasepick.js). A phrase is never "corrected"
+  // (that is for one misheard word) and has no pronunciation of its own here.
+  const phrase = () => !!(ctx && ctx.phrase);
 
   // A misheard word put right: one small purple pill, "what the transcript said → the word", with
   // an ✕ on its right that puts the transcript back. Tapping the pill says what happened.
@@ -292,7 +295,7 @@ export function createWordBubble(host, actions) {
     el.innerHTML = `
       <div class="wb-head">
         ${actions.onPauseMode && !actions.noAudio ? modeSwitch() : ""}
-        <div class="wb-word ar" ${attrs()}>${esc(shown)}</div>
+        <div class="wb-word ar${phrase() ? " wb-phrase" : ""}" ${attrs()}>${esc(shown)}</div>
         ${ipa ? `<span class="wb-ipa" translate="no" title="${ctx.lang === "th" ? "How it is said (Paiboon romanization, from Wiktionary)" : ctx.lang === "ko" ? "How it is said (Revised Romanization of Korean)" : "US pronunciation (CMU Pronouncing Dictionary)"}">${esc(ipa)}</span>` : ""}
         ${sourceTag(state === "ready" ? def : null)}
         <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
@@ -301,8 +304,8 @@ export function createWordBubble(host, actions) {
       ${fix ? fixPill() : ""}
       <div class="wb-body">${body}</div>
       <div class="wb-actions">
-        ${quick ? `<button type="button" data-act="more" title="Show the full explanation of this word">${icon("target", 15)} More</button>` : ""}
-        ${actions.noAudio ? "" : `<button type="button" data-act="word" title="Play this word again">${icon("sound", 15)} Word</button>
+        ${quick ? `<button type="button" data-act="more" title="${phrase() ? "Show the full explanation of this phrase" : "Show the full explanation of this word"}">${icon("target", 15)} More</button>` : ""}
+        ${actions.noAudio ? "" : `${phrase() ? `<button type="button" data-act="word" title="Play this phrase again">${icon("sound", 15)} Phrase</button>` : `<button type="button" data-act="word" title="Play this word again">${icon("sound", 15)} Word</button>`}
         <button type="button" data-act="sentence" title="Play the whole sentence">${icon("sound", 15)} Sentence</button>`}
         ${actions.noAudio || quick ? "" : `<button type="button" data-act="from" title="Continue playing from here">${icon("play", 15)} Continue</button>`}
         <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${icon(saved ? "check" : "star", 15)} ${saved ? "Saved" : "Save"}</button>
@@ -319,7 +322,7 @@ export function createWordBubble(host, actions) {
       const d = await actions.fetch(ctx, refresh, { quick });
       if (my !== token) return;
       def = d;
-      if (d && d.correction && !ctx.noCorrect) {
+      if (d && d.correction && !ctx.noCorrect && !ctx.phrase) {
         // Misheard: show the word that was said, and change the transcript to it.
         fix = { from: ctx.word, to: d.correction, applied: false };
         if (actions.onCorrect) {
@@ -329,7 +332,7 @@ export function createWordBubble(host, actions) {
             if (done) { fix = { from: fix.from, to: done.word, applied: true }; ctx = { ...done.ctx }; }
           } catch { /* the transcript stays as it was; the popup still shows the word that was said */ }
         }
-      } else if (d && d.corrected_from && !fix) {
+      } else if (d && d.corrected_from && !fix && !ctx.phrase) {
         fix = { from: d.corrected_from, to: ctx.word, applied: true }; // corrected earlier
       }
       render("ready");
@@ -434,7 +437,7 @@ export function createWordBubble(host, actions) {
     el.hidden = false;
     ipa = "";
     const shownFor = context;
-    pronounceWord(context.word, context.lang).then((p) => {
+    if (!context.phrase) pronounceWord(context.word, context.lang).then((p) => {
       if (p && ctx === shownFor && !el.hidden) { ipa = p; render(current.state, current.message); }
     }).catch(() => {});
     load();

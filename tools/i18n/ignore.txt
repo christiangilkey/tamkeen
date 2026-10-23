@@ -7,6 +7,8 @@ b7f28005  # You are an expert {0} teacher. A learner tapped one word (or a short
 9083f8be  # Previous sentence: {0}
 04363225  # Next sentence: {0}
 63afdc86  # Target word: {0}
+38caff3d  # Target phrase: {0}
+24b7ec37  # The learner selected these words together, so explain them as ONE unit
 1feaccd7  # Bearer {0}
 # Pieces of sentences the code glues together at run time (the whole is never on screen like this).
 56806a1f  # Take

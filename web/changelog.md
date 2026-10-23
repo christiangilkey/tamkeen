@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** Look up several words together, such as an idiom or a set phrase. On a computer, press on a word and drag across the next words; on a phone, press and hold a word, then slide your finger across the others. The words light up as you go, and when you let go the popup explains them as one phrase in their sentence (and what they mean word by word when that is different). Word plays the whole phrase and Save keeps it as one card. Works in transcripts, captions, web pages, books, reels and the Netflix bar.
 - **Improved:** Quick lookup's word popup keeps the Word and Sentence play buttons.
 - **New:** Each friend's daily streak shows as a gold flame beside their name in Friends, 0 days included.
 - **New:** Home shows your daily streak, a gold flame and the number of days in a row you met your flashcard goal, beside the greeting.

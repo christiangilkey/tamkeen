@@ -1,0 +1,4 @@
+17c9cfb8 Ipakita ang tibuok pagpatin-aw niini nga hugpong sa mga pulong
+3b543816 I-play pag-usab kini nga hugpong sa mga pulong
+25eaeaa8 Hugpong sa pulong
+8d5aac96 Kini nga hugpong sa mga pulong wala sa built-in nga diksyonaryo. I-tap ang mga pulong niini tagsa-tagsa aron pangitaon.

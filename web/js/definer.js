@@ -460,18 +460,30 @@ export async function rememberAnswer(cfg, ctx, data, save) {
   return key;
 }
 
-function userPrompt(ctx) {
+/** What the learner is asking about. Exported for the tests. */
+export function userPrompt(ctx, { quick = false } = {}) {
   const lines = [];
   if (ctx.podcast) lines.push(`Source: ${ctx.podcast}`);
   if (ctx.episode) lines.push(`Title: ${ctx.episode}`);
   if (ctx.before) lines.push(`Previous sentence: ${ctx.before}`);
   lines.push(`Sentence: ${ctx.marked}`);
   if (ctx.after) lines.push(`Next sentence: ${ctx.after}`);
-  lines.push(`Target word: ${ctx.word}`);
+  if (ctx.phrase) {
+    // Several words dragged across together (components/phrasepick.js): one expression, not words one by one.
+    lines.push(`Target phrase: ${ctx.word}`);
+    lines.push(PHRASE_RULES);
+    if (!quick) lines.push(PHRASE_DETAIL);
+  } else {
+    lines.push(`Target word: ${ctx.word}`);
+  }
   // The learner undid a correction of this word: it stays as written.
-  if (ctx.noCorrect) lines.push(`The learner has confirmed the target word is right as written: leave "correction" empty.`);
+  if (ctx.noCorrect && !ctx.phrase) lines.push(`The learner has confirmed the target word is right as written: leave "correction" empty.`);
   return lines.join("\n");
 }
+
+// ----- several words looked up together -----
+const PHRASE_RULES = `The learner selected these words together, so explain them as ONE unit: if they form an idiom, set phrase, collocation or phrasal verb, give what the expression as a whole means in this sentence, not the words one by one. Leave "correction" empty.`;
+const PHRASE_DETAIL = `In "explanation", say whether it is an idiom or fixed expression, and give the literal word-by-word sense when it differs from the meaning as a whole. "word" is the whole phrase as it appears in the sentence; "lemma" is the phrase in its dictionary form; fields that describe a single word's form ("root", "morphology", "pos") describe the phrase or its key word, or stay empty.`;
 
 /** The sentence with the target word (or phrase, words first..last) wrapped in ⟦⟧.
  * `code` is the language of the sentence (Japanese and Chinese are joined without spaces). */
@@ -702,7 +714,7 @@ export async function dictionaryFirst({ dictionary, ai, hasKey, refresh = false,
     }
     if (!hasKey) throw e;
     const d = await ai();
-    return missing && d && typeof d === "object" ? { ...d, dictionary_downloading: true } : d;
+    return missing && getDictionary && d && typeof d === "object" ? { ...d, dictionary_downloading: true } : d;
   }
 }
 
@@ -800,7 +812,7 @@ export async function define(cfg, ctx, transport, { quick = false } = {}) {
   const model = cfg.model || PROVIDERS[cfg.provider].defaultModel;
   const system = quick ? quickPrompt(cfg.language || "English", ctx.lang) : systemPrompt(cfg.language || "English", ctx.lang);
   // (A quick lookup sends the sentence itself but not its neighbours: less to read, less to pay for.)
-  const user = userPrompt(quick ? { ...ctx, before: "", after: "" } : ctx);
+  const user = userPrompt(quick ? { ...ctx, before: "", after: "" } : ctx, { quick });
   const schema = quick ? QUICK_SCHEMA : schemaFor(ctx.lang);
 
   let req = buildRequest(cfg.provider, model, cfg.key, system, user, schema);
@@ -817,7 +829,7 @@ export async function define(cfg, ctx, transport, { quick = false } = {}) {
   reportUsage({ provider: cfg.provider, model, ...usageOf(cfg.provider, data) }); // (paid for, whatever the answer turns out to be)
   const text = extractText(cfg.provider, data);
   try {
-    const answer = { ...normalize(parseJson(text), ctx.word, !!ctx.noCorrect), provider: cfg.provider, model };
+    const answer = { ...normalize(parseJson(text), ctx.word, !!ctx.noCorrect || !!ctx.phrase), provider: cfg.provider, model };
     if (quick) answer.quick = true;
     return answer;
   } catch {

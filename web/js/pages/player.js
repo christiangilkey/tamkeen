@@ -37,9 +37,10 @@ import { icon } from "../icons.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
 import { wordClip } from "../wordclip.js";
+import { phrasePicker } from "../components/phrasepick.js";
+import { isPhrase, phraseText } from "../phrase.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
-const LONG_PRESS_MS = 550;
 const CAPTION_WORDS = 12; // longest caption line, in words
 
 function lsGet(key, fallback) {
@@ -355,11 +356,13 @@ export async function render(view, { id, query }) {
   for (let i = 0; i < n; i++) if (!segFirst.has(segOf[i])) segFirst.set(segOf[i], i);
   let capStart = -1;
   let capEls = [];
+  let capHeld = false;
   let bubble = null;
   function showCaption(idx) {
     // Keep the tapped word in place while its popup is open. (Not on YouTube when the choice is
     // to keep playing: there the popup hangs below the captions, so they can carry on.)
-    if (!capEl || (bubble && bubble.open && !(embed && !pauseAfterWord()))) return;
+    // (Nor while a finger or the mouse is on a caption word: it may be dragged across to the next words.)
+    if (!capEl || capHeld || (bubble && bubble.open && !(embed && !pauseAfterWord()))) return;
     let start = -1;
     let end = -1;
     if (idx >= 0) {
@@ -719,35 +722,21 @@ export async function render(view, { id, query }) {
   }
   $("#loop-off").onclick = clearLoop;
 
-  // ---------- click to seek (never when selecting text) ----------
+  // ---------- click a word to look it up (never when selecting text) ----------
+  // Dragging across words (mouse), or holding a word and sliding the finger on (touch), looks the
+  // words up together (components/phrasepick.js); holding a word and lifting opens its menu.
   let down = null;
-  let pressTimer = 0;
-  let suppressClick = false;
-
   tr.addEventListener("pointerdown", (e) => {
-    if (e.button !== 0) return;
-    down = { x: e.clientX, y: e.clientY };
-    suppressClick = false;
-    const wEl = e.target.closest(".w");
-    clearTimeout(pressTimer);
-    // Long-press is for touch/pen. Mouse users right-click; a mouse long-press would fight
-    // with press-and-drag text selection.
-    if (wEl && e.pointerType !== "mouse") {
-      pressTimer = setTimeout(() => {
-        suppressClick = true;
-        openMenu(e.clientX, e.clientY, wEl);
-      }, LONG_PRESS_MS);
-    }
+    if (e.button === 0) down = { x: e.clientX, y: e.clientY };
   });
-  tr.addEventListener("pointermove", (e) => {
-    if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) clearTimeout(pressTimer);
+  const trPicker = phrasePicker(tr, {
+    blockOf: (k) => segOf[k],
+    elOf: (k) => wordEls[k] || null,
+    onPick: (i, j) => defineAt(i, j),
+    onHold: (i, x, y, el) => openMenu(x, y, el),
   });
-  const endPress = () => clearTimeout(pressTimer);
-  tr.addEventListener("pointerup", endPress);
-  tr.addEventListener("pointercancel", endPress);
 
   tr.addEventListener("click", (e) => {
-    if (suppressClick) { suppressClick = false; return; }
     const wEl = e.target.closest(".w");
     if (!wEl || e.detail > 1) return; // ignore the clicks of a double/triple-click (word/line select)
     const sel = window.getSelection();
@@ -763,7 +752,6 @@ export async function render(view, { id, query }) {
     const hasSel = sel && !sel.isCollapsed && tr.contains(sel.anchorNode);
     if (!wEl && !hasSel) return; // let the default menu appear on empty space
     e.preventDefault();
-    clearTimeout(pressTimer);
     openMenu(e.clientX, e.clientY, wEl);
   });
 
@@ -852,7 +840,7 @@ export async function render(view, { id, query }) {
     const [si, sj] = sentenceBounds(texts, segOf, i, j);
     const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
     const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
-    const word = joinWords(texts.slice(i, j + 1), lang).replace(EDGE_PUNCT, "") || texts[i];
+    const word = phraseText(texts, i, j, lang);
     return {
       si, sj, word,
       ctx: {
@@ -863,6 +851,7 @@ export async function render(view, { id, query }) {
         after: next ? sentenceText(next[0], next[1]) : "",
         podcast: ep.feed_title,
         episode: ep.title,
+        phrase: isPhrase(i, j), // several words looked up together
       },
     };
   }
@@ -969,6 +958,14 @@ export async function render(view, { id, query }) {
 
   // ---------- video: captions, transcript panel, full screen ----------
   const playerEl = view.querySelector(".player");
+  // Caption words dragged across (or held and slid across) are looked up together.
+  const capPicker = vid ? phrasePicker(capEl, {
+    blockOf: (k) => segOf[k],
+    elOf: (k) => capWord(k) || null,
+    onPick: (i, j, el) => defineAt(i, j, el),
+    onStart: () => { capHeld = true; },
+    onEnd: () => { capHeld = false; },
+  }) : null;
   if (vid) {
     capEl.addEventListener("click", (e) => {
       const wEl = e.target.closest(".w");
@@ -1150,7 +1147,8 @@ export async function render(view, { id, query }) {
       audio.load();
     }
     cancelAnimationFrame(raf);
-    clearTimeout(pressTimer);
+    trPicker.destroy();
+    if (capPicker) capPicker.destroy();
     document.removeEventListener("keydown", onKey);
     hideMenu();
   };
