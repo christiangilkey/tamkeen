@@ -1,0 +1,9 @@
+# The extension in the Chrome Web Store: "Add to Chrome" once it is listed (2026-10-23)
+e713dc70 Edge に追加
+1bf14b2c Firefox に追加
+d1d195f1 Chrome に追加
+f8912233 Chrome ウェブストアから追加できます。Edge でもそこから追加でき、自動で最新の状態に保たれます。
+8d7835b1 または手動で追加する
+6598484f Chrome ウェブストアを使えない場合のみ：<0>拡張機能をダウンロード</0> <1/>してから、次の手順に進みます：
+575edc69 Chrome ウェブストアから追加した場合は自動で更新されます。手動で追加した場合：
+c4277de7 拡張機能のプライバシーポリシー

@@ -1,9 +1,11 @@
 // Build the browser extension "Tamkeen for Netflix" (extension/): a folder you can load as it is
 // (chrome://extensions -> Developer mode -> Load unpacked), and optionally its zip and install page.
 //   node extension/scripts/build.mjs                        -> extension/build/
-//   node extension/scripts/build.mjs --out DIR --zip FILE --page DIR [--version 1.2.3]
-// webapp/build-web.mjs runs it for the web app's site: docs/extension/tamkeen-netflix.zip and
-// docs/extension/index.html (how to install it).
+//   node extension/scripts/build.mjs --out DIR --zip FILE --page DIR [--version 1.2.3] [--store-zip FILE]
+// webapp/build-web.mjs runs it for the web app's site: docs/extension/tamkeen-netflix.zip,
+// docs/extension/index.html (how to install it) and docs/extension/privacy.html (from
+// extension/privacy.html); and the zip to upload to the Chrome Web Store,
+// extension/store/upload/tamkeen-chrome-web-store.zip (not kept in git).
 //
 // The extension is the web app's own screens, the parts the subtitle bar needs: its own files
 // (extension/src) over the phone's (mobile/src) over the shared ones (web/), the same layering as the
@@ -129,6 +131,36 @@ if (testing) {
 }
 writeFileSync(join(out, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
 
+/** The manifest for the Chrome Web Store: Firefox's own parts left out. */
+function storeManifest(m) {
+  const copy = JSON.parse(JSON.stringify(m));
+  delete copy.browser_specific_settings;
+  if (copy.background) delete copy.background.scripts;
+  return copy;
+}
+
+/** The extension's Chrome Web Store listing, from the one line in web/js/netflix.js that names it
+ * (CHROME_WEB_STORE_URL), or "" while it isn't there. */
+function chromeWebStoreUrl() {
+  const src = readFileSync(join(root, "web", "js", "netflix.js"), "utf8");
+  const m = src.match(/^export const CHROME_WEB_STORE_URL = "([^"]*)";/m);
+  if (!m) throw new Error("web/js/netflix.js must keep its line: export const CHROME_WEB_STORE_URL = \"…\";");
+  const url = m[1].trim();
+  if (url && !/^https:\/\/(chromewebstore\.google\.com|chrome\.google\.com\/webstore)\/[\w\-./]+$/.test(url)) {
+    throw new Error(`CHROME_WEB_STORE_URL doesn't look like a Chrome Web Store address: ${url}`);
+  }
+  return url;
+}
+
+/** The install page with its store parts (once listed, "Add to Chrome" first) or its by-hand parts. */
+function installPage(html, storeUrl) {
+  const keep = storeUrl ? "store" : "manual";
+  const drop = storeUrl ? "manual" : "store";
+  return html.replace(new RegExp(`[ \\t]*<!--${drop}-->[\\s\\S]*?<!--/${drop}-->\\n?`, "g"), "")
+    .replace(new RegExp(`<!--/?${keep}-->`, "g"), "")
+    .replaceAll("{{STORE_URL}}", storeUrl);
+}
+
 // ---------- the zip ----------
 const CRC = new Uint32Array(256).map((_, n) => { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; return c >>> 0; });
 function crc32(buf) {
@@ -139,15 +171,17 @@ function crc32(buf) {
 function walk(dir) {
   return readdirSync(dir).sort().flatMap((n) => { const p = join(dir, n); return statSync(p).isDirectory() ? walk(p) : [p]; });
 }
-/** A plain zip of the folder (deflated; the same date on every file, so the same build gives the same zip). */
-function zip(dir) {
+/** A plain zip of the folder (deflated; the same date on every file, so the same build gives the same
+ * zip). `replace`: {"path/in/zip": Buffer} written instead of that file. */
+function zip(dir, replace = {}) {
   const DOS_TIME = 0, DOS_DATE = ((2026 - 1980) << 9) | (1 << 5) | 1;
   const parts = [];
   const central = [];
   let offset = 0;
   for (const file of walk(dir)) {
-    const name = Buffer.from(relative(dir, file).split("\\").join("/"), "utf8");
-    const data = readFileSync(file);
+    const rel = relative(dir, file).split("\\").join("/");
+    const name = Buffer.from(rel, "utf8");
+    const data = replace[rel] || readFileSync(file);
     const packed = deflateRawSync(data, { level: 9 });
     const crc = crc32(data);
     const head = Buffer.alloc(30);
@@ -180,15 +214,30 @@ if (zipPath) {
   zipBytes = bytes.length;
 }
 
-// ---------- the install page ----------
+// ---------- the zip for the Chrome Web Store ----------
+// The same files, with a manifest for Chrome alone: without the parts only Firefox reads (its
+// background "scripts" and its add-on id), which Chrome ignores but would warn about. Upload this one
+// to the Chrome Web Store (and Edge Add-ons); extension/store/HOW-TO-PUBLISH.md explains.
+const storeZipPath = opt("store-zip");
+if (storeZipPath) {
+  if (testing) throw new Error("A test build is never zipped for a store: leave out --store-zip.");
+  const bytes = zip(out, { "manifest.json": Buffer.from(JSON.stringify(storeManifest(manifest), null, 2) + "\n") });
+  mkdirSync(dirname(storeZipPath), { recursive: true });
+  writeFileSync(storeZipPath, bytes);
+}
+
+// ---------- the install page and the privacy policy ----------
 const pageDir = opt("page");
 if (pageDir) {
   if (testing) throw new Error("A test build has no install page.");
   const mb = zipBytes ? `${(zipBytes / 1e6).toFixed(1)} MB` : "";
-  const html = readFileSync(join(ext, "install.html"), "utf8").replaceAll("{{VERSION}}", version).replaceAll("{{SIZE}}", mb);
+  const html = installPage(readFileSync(join(ext, "install.html"), "utf8"), chromeWebStoreUrl())
+    .replaceAll("{{VERSION}}", version).replaceAll("{{SIZE}}", mb);
   mkdirSync(pageDir, { recursive: true });
   writeFileSync(join(pageDir, "index.html"), html);
   cpSync(join(ext, "icons", "icon-128.png"), join(pageDir, "icon-128.png"));
+  // (served at https://christiangilkey.github.io/tamkeen/extension/privacy.html: the store listing links to it)
+  cpSync(join(ext, "privacy.html"), join(pageDir, "privacy.html"));
 }
 
-console.log(`Built the Tamkeen extension ${version} in ${out}${testing ? " (TEST BUILD)" : ""}${zipPath ? `, zip ${zipPath} (${zipBytes} bytes)` : ""}`);
+console.log(`Built the Tamkeen extension ${version} in ${out}${testing ? " (TEST BUILD)" : ""}${zipPath ? `, zip ${zipPath} (${zipBytes} bytes)` : ""}${storeZipPath ? `, Chrome Web Store zip ${storeZipPath}` : ""}`);

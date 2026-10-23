@@ -1,0 +1,9 @@
+# The extension in the Chrome Web Store: "Add to Chrome" once it is listed (2026-10-23)
+e713dc70 Edge에 추가
+1bf14b2c Firefox에 추가
+d1d195f1 Chrome에 추가
+f8912233 Chrome 웹 스토어에서 추가해요. Edge에서도 그곳에서 추가할 수 있고, 저절로 최신 상태로 유지돼요.
+8d7835b1 또는 직접 추가하기
+6598484f Chrome 웹 스토어를 쓸 수 없을 때만: <0>확장 프로그램을 다운로드</0> <1/>한 다음:
+575edc69 Chrome 웹 스토어에서 추가했다면 저절로 업데이트돼요. 직접 추가했다면:
+c4277de7 확장 프로그램의 개인정보 처리방침

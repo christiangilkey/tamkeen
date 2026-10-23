@@ -15,6 +15,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 ## Unreleased
 
 - **Fixed:** Netflix's home page went dark below the top trailer with the extension (and in the computer's Netflix window): a trailer was taken for the title playing.
+- **New:** The Netflix extension has its own privacy policy, linked from its install page, and is ready for the Chrome Web Store. Once it is listed there, the web app's Netflix section and the install page offer "Add to Chrome" instead of the steps for adding it by hand. *(web app)*
 - **New:** A "back to the start of the sentence" button beside "back 5 seconds", in the player and the Netflix extension (key R). Pressed again right away, it goes one sentence further back.
 - **Improved:** On a computer, the word popup's close button sits at the bottom right, beside Save.
 - **Improved:** Quick lookup's word popup keeps the Word and Sentence play buttons.

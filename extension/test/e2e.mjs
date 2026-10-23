@@ -1,7 +1,8 @@
 // End-to-end check of "Tamkeen for Netflix" in a real Microsoft Edge, against the local stand-in for
 // Netflix (fake-netflix.mjs) and the web app built into docs/ (node webapp/build-web.mjs first). No
 // Netflix, no account, no sign-in: a fresh, empty browser profile in a temporary folder.
-//   node extension/test/e2e.mjs [--shots DIR] [--video sample.webm] [--headed]
+//   node extension/test/e2e.mjs [--shots DIR] [--video sample.webm] [--headed] [--size 1280x800]
+// (--size: both tabs' page size, e.g. 1280x800 for the Chrome Web Store's screenshots.)
 // It builds a TEST build of the extension (local hosts allowed; never zipped), starts Edge with it
 // (--load-extension, --remote-debugging-port) and drives it through the Chrome DevTools Protocol with
 // Node's own WebSocket. Screenshots go to --shots (default: a temporary folder; printed at the end).
@@ -15,6 +16,7 @@ import { PORTS, TITLE, start } from "./fake-netflix.mjs";
 const root = fileURLToPath(new URL("../..", import.meta.url));
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i > 0 ? process.argv[i + 1] : ""; };
 const EDGE = process.env.EDGE || ["C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe", "C:/Program Files/Microsoft/Edge/Application/msedge.exe"].find(existsSync);
+const SIZE = (([, w, h]) => (w ? { w: Number(w), h: Number(h) } : null))(/^(\d{3,4})x(\d{3,4})$/.exec(arg("size")) || []);
 const shots = arg("shots") || mkdtempSync(join(tmpdir(), "tamkeen-ext-shots-"));
 mkdirSync(shots, { recursive: true });
 const work = mkdtempSync(join(tmpdir(), "tamkeen-ext-e2e-"));
@@ -125,7 +127,7 @@ try {
   check("on install it opens the web app", !!appTarget);
   const app = await attach(appTarget.targetId);
   await cdp.send("Page.enable", {}, app);
-  await cdp.send("Emulation.setDeviceMetricsOverride", { width: 1280, height: 860, deviceScaleFactor: 1, mobile: false }, app);
+  await cdp.send("Emulation.setDeviceMetricsOverride", { width: SIZE ? SIZE.w : 1280, height: SIZE ? SIZE.h : 860, deviceScaleFactor: 1, mobile: false }, app);
 
   // 2. The web app as a learner of Arabic (as if the first screens were done), and the bridge.
   await until("the web app", () => evaluate(app, `!!document.querySelector("#view") && document.readyState === "complete"`));
@@ -164,11 +166,14 @@ try {
   check("without it: get the Tamkeen extension", /Get the Tamkeen extension/.test(noExt) && /browser extension/.test(noExt), noExt.replace(/\s+/g, " ").slice(0, 120));
   await evaluate(app, `document.documentElement.dataset.tamkeenExtension = ${JSON.stringify(mark)}`);
 
+  // (Screenshots for the store, --size: without the one-time note about Netflix remembering the subtitles.)
+  if (SIZE) await evaluate(swSession, `chrome.storage.local.set({ told_subtitles: true })`);
+
   // 4. Netflix's browse page: the language being learned is chosen by itself.
   const nfTarget = (await cdp.send("Target.createTarget", { url: `${NETFLIX}/browse/original-audio` })).targetId;
   const nf = await attach(nfTarget);
   await cdp.send("Page.enable", {}, nf);
-  await cdp.send("Emulation.setDeviceMetricsOverride", { width: 1400, height: 860, deviceScaleFactor: 1, mobile: false }, nf);
+  await cdp.send("Emulation.setDeviceMetricsOverride", { width: SIZE ? SIZE.w : 1400, height: SIZE ? SIZE.h : 860, deviceScaleFactor: 1, mobile: false }, nf);
   const browsed = await until("Arabic chosen in the language menu", () => evaluate(nf, `location.pathname === "/browse/original-audio/ar" && location.pathname`));
   check("browse by language: Arabic chosen", !!browsed, browsed);
   await sleep(700);

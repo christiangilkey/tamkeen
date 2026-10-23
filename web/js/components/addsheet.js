@@ -9,7 +9,7 @@
 import { api, esc, h, platform, toast, openNetflix, openYouTube, netflixSupport } from "../app.js";
 import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
-import { extensionLink, unavailableText } from "../netflix.js";
+import { extensionLink, extensionStore, storeButtonText, unavailableText } from "../netflix.js";
 import { uiLanguage } from "../i18n.js";
 import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "../youtube-home.js";
 import { openModal } from "./modal.js";
@@ -192,7 +192,13 @@ export function openAddSheet({ pickFile }) {
         note.querySelector("strong").textContent = title;
         note.querySelectorAll("p")[0].textContent = lines[0];
         note.querySelectorAll("p")[1].textContent = lines[1];
-        const get = h(`<a class="btn primary aw-wide" target="_blank" rel="noopener">${icon("puzzle", 18)} Get the Tamkeen extension</a>`);
+        // In the Chrome Web Store (netflix.js CHROME_WEB_STORE_URL): "Add to Chrome", straight there;
+        // until then the page that explains how to add it by hand.
+        const store = extensionStore(navigator.userAgent);
+        const get = store.url
+          ? h(`<a class="btn primary aw-wide" target="_blank" rel="noopener">${icon("puzzle", 18)} <span></span></a>`)
+          : h(`<a class="btn primary aw-wide" target="_blank" rel="noopener">${icon("puzzle", 18)} Get the Tamkeen extension</a>`);
+        if (store.url) get.querySelector("span").textContent = storeButtonText(store.browser);
         get.href = extensionLink(navigator.userAgent, uiLanguage());
         box.append(note, get, h(`<p class="small muted aw-note">Once it is added, reload this page and choose Netflix again.</p>`));
         return;

@@ -5016,3 +5016,48 @@ ships with every version (tests/js/changelog.test.mjs fails if the two differ: `
 Settings → Data & updates → Changelog → Open: web/js/components/changelog.js draws it in a box (translate="no",
 English only); FINDS id "changelog". **Release step:** move "Unreleased" under the new version's heading in
 CHANGELOG.md, copy it to web/changelog.md, and add the version's short lines to web/js/whatsnew.js.
+
+## Chrome Web Store: "Tamkeen for Netflix" ready to submit (2026-10-23; NOT submitted, NOT pushed)
+Owner wants the extension findable in the Chrome Web Store. Everything up to the upload is done; the owner registers
+(one-time fee, US$5 when checked), uploads and submits himself: **extension/store/HOW-TO-PUBLISH.md** (plain steps).
+- **Kit** `extension/store/`: `listing.md` (every dashboard field: description, Education, English, single purpose,
+  one justification per permission, remote code "No", data types ticked = Authentication information (the user's AI
+  key), Web history (watched titles), User activity (webRequest on nflxvideo only), Website content (subtitles, the
+  sentence sent to the user's AI); the 3 certifications; homepage/support/privacy URLs; reviewer test notes; what the
+  listing must and must not claim). `images/`: screenshot-1..5.png (1280x800, real screenshots from
+  `extension/test/e2e.mjs --size 1280x800 --video <sample>` against the fake Netflix with an ORIGINAL sample video:
+  no Netflix pictures/logo), promo-small-440x280.png, store-icon-128.png (96 px art + 16 px transparent edge, the
+  store's rule; the manifest icons are unchanged). `tools/` remakes them (make_sample_video.py, make_store_images.py).
+- **Privacy policy** of the extension: source `extension/privacy.html` → build.mjs `--page` copies it to
+  `docs/extension/privacy.html` (build-web.mjs deletes and rebuilds docs/extension, so the source lives outside docs/).
+  Served at https://christiangilkey.github.io/tamkeen/extension/privacy.html once pushed (the listing needs it live).
+  docs/privacy.html's Netflix section links to it. Keep it true to the code: the AI request includes the title's name
+  ("Source: Netflix", "Title: …", previous/next sentence) besides the word and sentence.
+- **Store zip**: `build.mjs --store-zip FILE` = the same files with Chrome's manifest only (no `background.scripts`, no
+  `browser_specific_settings`, which Chrome ignores but warns about). build-web.mjs writes
+  `extension/store/upload/tamkeen-chrome-web-store.zip` (git-ignored). docs/extension/tamkeen-netflix.zip keeps the
+  Firefox parts for by-hand installs.
+- **Store link, one constant**: `CHROME_WEB_STORE_URL` in web/js/netflix.js (empty). Set → the web app's Netflix
+  section shows "Add to Chrome" (Edge: "Add to Edge", from the same store; `extensionStore()`, `storeButtonText()`)
+  and build.mjs keeps install.html's `<!--store-->` parts (the button first; by-hand steps become "Or add it by hand")
+  and drops its `<!--manual-->` parts. Strings in tools/i18n/tr/<16>/66-extension-store.txt.
+- **Audit (MV3 + program policies)**: no remote code, no eval/new Function, every script in the package; downloads
+  only data (dictionaries from github.io, Netflix's TTML). Permissions all needed: storage, unlimitedStorage
+  (dictionaries 3-20 MB in IndexedDB), webRequest (non-blocking, *.nflxvideo.net; Netflix's track list is encrypted);
+  hosts www.netflix.com, *.nflxvideo.net (random subdomains, can't be narrower), content script only on
+  /tamkeen/app/*. Manifest summary 129 chars (≤132, a test checks), icons 16/32/48/128, homepage_url = install page.
+  Dead code shipped but never run: ytcaptions.js (for `spread`), stt.js via troubleshoot.js (they name YouTube/Groq
+  addresses); harmless, could be trimmed if a reviewer asks.
+- **Review risk (honest)**: the store allows this kind of extension (Language Reactor: 2M users, Education, same
+  techniques: hides Netflix's subtitles, reads the subtitle file, drives the player). Risks: (1) Netflix trademark in
+  the name "Tamkeen for Netflix" → possible IP complaint/takedown (Language Reactor was "Language Learning with
+  Netflix" before; Netflix Party became Teleparty); listing says "not affiliated", no Netflix imagery. Fallback name if
+  asked: "Tamkeen: clickable subtitles". (2) Keeping full subtitle transcripts in the library could be read as
+  "facilitating downloading copyrighted content"; listing never says download/export. (3) webRequest + hosts + new
+  developer → in-depth review, slower. (4) Reviewers without Netflix may call it non-functional → test notes in
+  listing.md. (5) Netflix site changes break it → ratings/"doesn't work" reports.
+- **Release step (from now on):** the release build makes `extension/store/upload/tamkeen-chrome-web-store.zip` (its
+  version = the tag); once listed, the owner uploads it in the dashboard (Package → Upload new package → Submit) with
+  each release. Fill `CHROME_WEB_STORE_URL` when the listing is live.
+- Tests: extbridge.test.mjs (store zip manifest, install page placeholders/markers, privacy copy), netflix.test.mjs
+  (store links per browser, only https). e2e.mjs `--size WxH` (and, with it, no one-time subtitle note).

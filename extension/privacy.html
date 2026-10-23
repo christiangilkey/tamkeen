@@ -1,0 +1,158 @@
+<!doctype html>
+<!-- The privacy policy of the browser extension "Tamkeen for Netflix", linked from its Chrome Web Store
+     listing. This is its source: extension/scripts/build.mjs copies it to docs/extension/privacy.html at
+     every web app build (served at https://christiangilkey.github.io/tamkeen/extension/privacy.html).
+     Edit this file, not the copy. Keep it true to what the code does: extension/src, and the shared
+     modules it uses (web/js/extbridge.js lists what goes between the extension and the web app). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy – Tamkeen for Netflix</title>
+<link rel="icon" href="icon-128.png">
+<link rel="stylesheet" href="../style.css">
+<style>
+  table { border-collapse: collapse; width: 100%; font-size: 15px; margin: 12px 0; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-weight: 600; }
+  code { font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="icon-128.png" alt="">
+    <div><h1>Privacy Policy</h1><div class="muted">Tamkeen for Netflix (browser extension) · Last updated October 23, 2026</div></div>
+  </header>
+
+  <p>"Tamkeen for Netflix" is a free browser extension for learning a language. On Netflix's website it shows the
+  subtitles in the language you are learning as words you can click, with the whole transcript beside the video and
+  the meaning of any word you click. It works together with the free Tamkeen web app
+  (<a href="https://christiangilkey.github.io/tamkeen/app/">christiangilkey.github.io/tamkeen/app</a>), where your
+  library and saved words live.</p>
+
+  <p><strong>In short:</strong> the extension keeps its data in your own browser. It sends nothing to the developer,
+  has no analytics, no advertising and no tracking, and never sells or shares your data. The only things that leave
+  your browser are listed below, and each one is needed for a feature you use.</p>
+
+  <p>Tamkeen and this extension are not made, endorsed or sponsored by Netflix. "Netflix" is a trademark of
+  Netflix, Inc.; it is named here only to say which website the extension works with.</p>
+
+  <h2>Where the extension runs</h2>
+  <ul>
+    <li><strong>Netflix's website</strong> (<code>www.netflix.com</code>), where you watch with your own Netflix
+      account.</li>
+    <li><strong>Netflix's video servers</strong> (<code>*.nflxvideo.net</code>), only to recognise and read the
+      subtitle files Netflix's player downloads.</li>
+    <li><strong>The Tamkeen web app's own pages</strong> (<code>christiangilkey.github.io/tamkeen/app/</code>), to
+      pass your settings and saved words between the web app and the extension.</li>
+  </ul>
+  <p>It does not run on any other website, and it does not look at your browsing anywhere else.</p>
+
+  <h2>What it does on Netflix's pages</h2>
+  <ul>
+    <li><strong>The player.</strong> It reads where the video is (the time, playing or paused, the speed, the title's
+      number) and controls it when you use Tamkeen's buttons (play, pause, jump back or ahead, change the speed, jump
+      to a line you click). It picks the soundtrack and the subtitles in the language you are learning. Netflix
+      remembers that subtitle choice for your Netflix profile, as it would if you chose it yourself.</li>
+    <li><strong>The screen.</strong> While a title plays it hides Netflix's own subtitles and controls and fits the
+      picture beside Tamkeen's subtitle bar and transcript.</li>
+    <li><strong>The subtitles.</strong> It watches the network requests made in Netflix tabs only to notice when
+      Netflix's player downloads a subtitle file. It then downloads that same file once more from Netflix's servers
+      (without your Netflix cookies) and reads its lines. A file in another language is dropped as soon as its
+      language is known. Nothing else about those requests is read or kept.</li>
+    <li><strong>The title's name.</strong> It asks Netflix's own website for the name of the title you are watching
+      (the same information Netflix's page shows), so the transcript and your saved words can say which title they
+      came from.</li>
+  </ul>
+  <p>It never reads or stores your Netflix password, your account or payment details, your profiles, or your
+  viewing history. It does not download or copy videos, and it does not get around Netflix's sign-in, subscription
+  or copy protection: you need your own Netflix subscription, and the video plays in Netflix's own player.</p>
+
+  <h2>What it keeps in your browser</h2>
+  <p>All of this stays in your browser's storage for the extension, on your computer. Removing the extension deletes
+  it.</p>
+  <table>
+    <tr><th>What</th><th>Why</th></tr>
+    <tr><td>The settings the Tamkeen web app gives it: the language you are learning, the language of the app,
+      the text size, how words are explained (built-in dictionary or AI, which AI provider and model, the language of
+      the explanations), your AI provider key if you added one in Tamkeen, and two display choices (quick or
+      detailed explanations, pause on a clicked word).</td><td>To show the right subtitles and explain words the way
+      you chose in Tamkeen.</td></tr>
+    <tr><td>Dictionaries downloaded for the language you are learning, and the explanations of words you have
+      already looked up (the word, its sentence and the explanation).</td><td>So words are explained quickly, and
+      without asking an AI provider twice.</td></tr>
+    <tr><td>The subtitle lines of the titles you watched, by Netflix title number, and the subtitle files found in an
+      open Netflix tab (the latter only until the browser closes).</td><td>So the transcript appears at once when you
+      watch a title again.</td></tr>
+    <tr><td>The words you save and the titles you watch (the Netflix title number and name, its subtitle lines,
+      and when), until the Tamkeen web app has taken them. The extension then deletes them.</td><td>So they reach your
+      Tamkeen library and vocabulary list.</td></tr>
+    <tr><td>Small choices: whether the transcript sidebar is open, and that you have seen a one-time
+      note.</td><td>To remember your layout.</td></tr>
+  </table>
+  <p>The settings it receives never include your Google account, your email address, sign-in tokens or any other
+  keys: the web app hands over only the items listed above.</p>
+
+  <h2>What leaves your browser, and to whom</h2>
+  <ul>
+    <li><strong>The Tamkeen web app, in the same browser.</strong> When you open the web app, the extension hands it
+      the words you saved and the titles you watched (with their subtitle lines), and the web app hands the extension
+      the settings above. This happens inside your browser, between the web app's page and the extension; nothing
+      goes to a server. The web app then keeps them in your library on your device, and in your own Google Drive if
+      you turned on sync there. What the web app does is described in
+      <a href="../privacy.html">Tamkeen's privacy policy</a>.</li>
+    <li><strong>The AI provider you chose, only if you use AI explanations.</strong> When you click a word and
+      Tamkeen asks an AI to explain it, the extension sends, straight from your browser to that provider (Anthropic
+      Claude, Google Gemini, OpenAI or xAI Grok) with your own key: the word, its subtitle sentence and the sentences
+      before and after it, the name of the title and that it is from Netflix, and the language you want the
+      explanation in. Nothing else about you is sent. That provider's privacy policy applies to these requests. With
+      "No AI" chosen in Tamkeen's settings, words are explained from the downloaded dictionary and nothing is sent
+      to any AI provider.</li>
+    <li><strong>GitHub Pages, to download dictionaries.</strong> If you agree to download the dictionary for your
+      language, the files come from Tamkeen's website (<code>christiangilkey.github.io/tamkeen/lexicon/</code>),
+      hosted by GitHub. That is an ordinary download: no personal data is sent, though GitHub, like any website,
+      sees your IP address (see <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</li>
+    <li><strong>Netflix.</strong> Only the requests described above: the title's name, and the subtitle file
+      downloaded again. Netflix's own privacy policy covers your use of Netflix.</li>
+  </ul>
+  <p>The extension itself never contacts the developer, Tamkeen's go-between server, the Friends service (Supabase)
+  or Google Drive. Those are features of the Tamkeen web app, used only if you turn them on there, and are covered by
+  <a href="../privacy.html">Tamkeen's privacy policy</a>.</p>
+
+  <h2>Netflix's subtitles</h2>
+  <p>Subtitles are read only to show them to you as words to click and to keep the transcript in your own Tamkeen
+  library, for your own study. They are never published, never sent to the developer and cannot be sent to friends
+  from Tamkeen.</p>
+
+  <h2>What the developer does not do</h2>
+  <ul>
+    <li>No selling or renting of your data, to anyone.</li>
+    <li>No advertising, analytics, tracking or crash reporting.</li>
+    <li>No use of your data for anything other than the extension's purpose (clickable subtitles for learning a
+      language on Netflix), and no use or transfer of it to decide creditworthiness or for lending.</li>
+    <li>No code loaded from the internet: everything the extension runs is inside the extension you install.</li>
+  </ul>
+  <p>The use of information received by this extension complies with the
+  <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Chrome Web Store User Data
+  Policy, including the Limited Use requirements</a>.</p>
+
+  <h2>Your choices</h2>
+  <ul>
+    <li>Use "No AI" in Tamkeen's settings to keep word lookups entirely in your browser.</li>
+    <li>Remove an AI key in Tamkeen's settings; the next time you open the web app, the extension gets the change.</li>
+    <li>Remove the extension (in your browser's extensions page) to delete everything it keeps.</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>The extension does not knowingly collect personal information from anyone, including children.</p>
+
+  <h2>Changes and contact</h2>
+  <p>Changes to this policy will be posted on this page, with a new date at the top. For questions, open an issue at
+  <a href="https://github.com/christiangilkey/tamkeen/issues">github.com/christiangilkey/tamkeen/issues</a>. The
+  extension's code is public in the same place.</p>
+
+  <footer><a href="./">← Tamkeen for Netflix</a> · <a href="../privacy.html">Tamkeen's privacy policy</a></footer>
+</main>
+</body>
+</html>
