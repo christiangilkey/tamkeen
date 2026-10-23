@@ -492,6 +492,13 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .wb-word { flex: 1; font-family: var(--ar-font); font-size: 30px; line-height: 1.5; text-align: start; }
 .wb-reading { font-family: var(--ar-font); font-size: 17px; color: var(--muted); margin: -2px 0 6px; unicode-bidi: plaintext; }
 .wb-close { flex: none; }
+/* With a mouse, the close button sits at the end of the bottom row (the owner: easier to reach
+   there); touch screens and the phone sheet keep it at the top. */
+.wb-actions > .wb-close-end { display: none; margin-inline-start: auto; }
+@media (hover: hover) and (pointer: fine) {
+  .word-bubble:not(.sheet) > .wb-head > .wb-close { display: none; }
+  .word-bubble:not(.sheet) > .wb-actions > .wb-close-end { display: inline-flex; }
+}
 .wb-meaning { font-size: 18px; font-weight: 600; margin: 2px 0 4px; }
 .wb-expl { color: var(--muted); margin: 0 0 8px; }
 .wb-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }

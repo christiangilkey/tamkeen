@@ -307,6 +307,7 @@ export function createWordBubble(host, actions) {
         ${actions.noAudio || quick ? "" : `<button type="button" data-act="from" title="Continue playing from here">${icon("play", 15)} Continue</button>`}
         <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${icon(saved ? "check" : "star", 15)} ${saved ? "Saved" : "Save"}</button>
         ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again" aria-label="Ask again">${icon("refresh", 15)}</button>` : ""}
+        <button type="button" class="ghost icon wb-close wb-close-end" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>`;
     paintSwitch(el.querySelector(".wb-mode"));
     requestAnimationFrame(position);
