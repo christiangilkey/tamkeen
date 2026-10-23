@@ -9660,6 +9660,16 @@
   "f": "web/js/pages/friends.js"
  },
  {
+  "id": "0fa8d4c3",
+  "k": "Daily streak: 1 day",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "5bc0fd9c",
+  "k": "Daily streak: {0} days",
+  "f": "web/js/pages/friends.js"
+ },
+ {
   "id": "a0ffb6d7",
   "k": "Learn together",
   "f": "web/js/pages/friends.js"
@@ -10097,16 +10107,6 @@
  {
   "id": "13fd0a3e",
   "k": "Good afternoon",
-  "f": "web/js/pages/home.js"
- },
- {
-  "id": "0fa8d4c3",
-  "k": "Daily streak: 1 day",
-  "f": "web/js/pages/home.js"
- },
- {
-  "id": "5bc0fd9c",
-  "k": "Daily streak: {0} days",
   "f": "web/js/pages/home.js"
  },
  {

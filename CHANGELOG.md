@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** Quick lookup's word popup keeps the Word and Sentence play buttons.
 - **New:** Each friend's daily streak shows as a gold flame beside their name in Friends, 0 days included.
 - **New:** Home shows your daily streak, a gold flame and the number of days in a row you met your flashcard goal, beside the greeting.
 - **New:** Card voices. Flashcards without a recording of their own (typed in, or saved from a web page, a book, YouTube, Netflix or a reel) are read out: by your device's own voice (free), by natural Azure voices with your own Azure key (Arabic by country; each card's voice is made once and kept), or by voices made on your computer, which reach your phone when it syncs. Settings → Card voices.
