@@ -65,6 +65,7 @@ export function videosIn(data) {
 
 async function fetchVideos(address) {
   const res = await webFetch(address, { headers: { "Accept-Language": `${settings.study_language || "en"},en;q=0.5` } });
+  if (res.status === 502 || res.status === 503 || res.status === 504) throw new Error("Couldn't reach YouTube just now. Try again in a minute.");
   if (!res.ok) throw new Error(`YouTube answered with an error (${res.status}). Try again in a minute.`);
   const data = initialData(await res.text());
   if (!data) throw new Error("YouTube's page couldn't be read. Try again in a minute.");

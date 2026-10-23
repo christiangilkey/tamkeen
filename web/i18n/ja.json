@@ -3345,6 +3345,7 @@
 "With Tamkeen added to your home screen you can also share the article straight to Tamkeen: in Chrome tap ⋮, then Share, then Tamkeen.":"Tamkeen をホーム画面に追加していれば、記事を直接 Tamkeen に共有することもできます。Chrome で ⋮ をタップし、「共有」、Tamkeen の順に選びます。",
 "Paste":"貼り付け",
 "Your browser didn't allow pasting from here. Long-press the box and choose Paste.":"ブラウザがここからの貼り付けを許可しませんでした。入力欄を長押しして「貼り付け」を選んでください。",
+"Couldn't reach YouTube just now. Try again in a minute.":"今は YouTube に接続できませんでした。1 分ほどしてからもう一度お試しください。",
 "YouTube answered with an error ({0}). Try again in a minute.":"YouTubeがエラーを返しました（{0}）。1分ほどしてからもう一度お試しください。",
 "YouTube's page couldn't be read. Try again in a minute.":"YouTubeのページを読み取れませんでした。1分ほどしてからもう一度お試しください。",
 "This channel's videos.":"このチャンネルの動画。",

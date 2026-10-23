@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** Web app: when YouTube or another site briefly can't be reached (error 502), Tamkeen tries again by itself a couple of times before showing an error.
 - **Fixed:** On the Vocab page, a word whose recording can't be played on this device (for example a podcast address that no longer works, or a file only your computer has) is read out by its card voice instead of showing red error messages, and the browser's own error text no longer appears. Messages now sit fully inside the window, as small boxes at the bottom right on a computer.
 - **Fixed:** The Netflix extension now follows the language you are learning in Tamkeen. Switch languages in the web app and an open Netflix tab changes too, including the title playing; before, it could stay stuck on the language it had first, and a title watched before kept showing its old subtitles. *(web app)*
 - **New:** Audio and Subtitles buttons on the Netflix extension's bar: choose any of Netflix's soundtracks or subtitles, or turn subtitles off. Tamkeen still picks the language you are learning when a title starts, but never switches back what you chose. The bar, the transcript and word lookups follow the subtitles you choose. *(web app)*

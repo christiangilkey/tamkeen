@@ -24,8 +24,13 @@ export async function webFetch(url, opts = {}) {
   let res;
   for (let attempt = 0; attempt < 4; attempt++) {
     res = await fetch(proxied(url), opts);
-    if (res.status !== 403 && res.status !== 429) break;
-    await new Promise((r) => setTimeout(r, 300 * (attempt + 1)));
+    // 403/429: the site is briefly refusing. 502/503/504: the go-between server couldn't reach it
+    // just then (a blip at the Cloudflare server near the user; a friend's iPhone saw it on YouTube).
+    // Both usually pass within a second or two, so try again a few times before giving up.
+    const busy = res.status === 403 || res.status === 429;
+    const unreachable = res.status === 502 || res.status === 503 || res.status === 504;
+    if ((!busy && !unreachable) || (unreachable && attempt >= 2)) break;
+    await new Promise((r) => setTimeout(r, (unreachable ? 700 : 300) * (attempt + 1)));
   }
   return res;
 }
