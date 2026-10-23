@@ -1,0 +1,9 @@
+# The extension in the Chrome Web Store: "Add to Chrome" once it is listed (2026-10-23)
+e713dc70 Zu Edge hinzufügen
+1bf14b2c Zu Firefox hinzufügen
+d1d195f1 Zu Chrome hinzufügen
+f8912233 Aus dem Chrome Web Store. Auch Edge kann sie von dort hinzufügen, und sie hält sich selbst aktuell.
+8d7835b1 Oder von Hand hinzufügen
+6598484f Nur wenn du den Chrome Web Store nicht nutzen kannst: <0>Lade die Erweiterung herunter</0> <1/>, dann:
+575edc69 Aus dem Chrome Web Store hinzugefügt, aktualisiert sie sich selbst. Von Hand hinzugefügt:
+c4277de7 Datenschutzerklärung der Erweiterung

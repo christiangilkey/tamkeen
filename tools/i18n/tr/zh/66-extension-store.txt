@@ -1,0 +1,9 @@
+# The extension in the Chrome Web Store: "Add to Chrome" once it is listed (2026-10-23)
+e713dc70 添加至 Edge
+1bf14b2c 添加至 Firefox
+d1d195f1 添加至 Chrome
+f8912233 来自 Chrome 应用商店。Edge 也可以从那里添加，而且它会自动保持最新。
+8d7835b1 或者手动添加
+6598484f 仅在无法使用 Chrome 应用商店时：<0>下载扩展</0> <1/>，然后：
+575edc69 从 Chrome 应用商店添加的会自动更新。手动添加的：
+c4277de7 扩展的隐私政策

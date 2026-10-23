@@ -1,0 +1,9 @@
+# The extension in the Chrome Web Store: "Add to Chrome" once it is listed (2026-10-23)
+e713dc70 Afegeix a Edge
+1bf14b2c Afegeix a Firefox
+d1d195f1 Afegeix a Chrome
+f8912233 Des del Chrome Web Store. Edge també la pot afegir des d'allà, i s'actualitza tota sola.
+8d7835b1 O afegeix-la a mà
+6598484f Només si no pots fer servir el Chrome Web Store: <0>baixa l'extensió</0> <1/> i després:
+575edc69 Si l'has afegida des del Chrome Web Store, s'actualitza tota sola. Si l'has afegida a mà:
+c4277de7 Política de privadesa de l'extensió

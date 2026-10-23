@@ -7,7 +7,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
-import { EXTENSION_PAGE, EXTENSION_STORES, browseAddresses, browseStart, browserTexts, drmAvailable, extensionBrowserTexts, extensionHere,
+import { CHROME_WEB_STORE_URL, EXTENSION_PAGE, EXTENSION_STORES, extensionStore, storeButtonText, browseAddresses, browseStart, browserTexts, drmAvailable, extensionBrowserTexts, extensionHere,
   extensionLink, languageNames, subtitleNote, unavailableReason, unavailableText } from "../../web/js/netflix.js";
 import { coveredBy, createNetflixMedia, watchPlacement } from "../../web/js/nfmedia.js";
 
@@ -82,11 +82,37 @@ test("where Netflix can play, and what is said elsewhere", () => {
 
 test("the extension: where to get it, and whether it is here", () => {
   const chrome = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36";
-  assert.equal(extensionLink(chrome), EXTENSION_PAGE, "not in a store yet: the install page");
-  assert.equal(extensionLink(chrome, "es"), `${EXTENSION_PAGE}?lang=es`, "in the user's language");
-  assert.equal(extensionLink(`${chrome} Edg/141.0`, "en"), EXTENSION_PAGE);
-  assert.equal(extensionLink(chrome, "<x>"), EXTENSION_PAGE);
+  const was0 = { ...EXTENSION_STORES };
+  Object.assign(EXTENSION_STORES, { chrome: "", edge: "", firefox: "" }); // (as before the store has it)
+  try {
+    assert.equal(extensionLink(chrome), EXTENSION_PAGE, "not in a store yet: the install page");
+    assert.equal(extensionLink(chrome, "es"), `${EXTENSION_PAGE}?lang=es`, "in the user's language");
+    assert.equal(extensionLink(`${chrome} Edg/141.0`, "en"), EXTENSION_PAGE);
+    assert.equal(extensionLink(chrome, "<x>"), EXTENSION_PAGE);
+  } finally {
+    Object.assign(EXTENSION_STORES, was0);
+  }
   assert.ok(Object.values(EXTENSION_STORES).every((v) => v === "" || /^https:\/\//.test(v)));
+  assert.ok(CHROME_WEB_STORE_URL === "" || /^https:\/\/chromewebstore\.google\.com\//.test(CHROME_WEB_STORE_URL));
+  assert.equal(EXTENSION_STORES.chrome, CHROME_WEB_STORE_URL, "the one constant");
+  // Once the Chrome Web Store has it: "Add to Chrome" there, Edge too; Firefox keeps the install page.
+  const was = { ...EXTENSION_STORES };
+  try {
+    const listing = "https://chromewebstore.google.com/detail/tamkeen-for-netflix/abcdefghijklmnopabcdefghijklmnop";
+    Object.assign(EXTENSION_STORES, { chrome: listing, edge: "", firefox: "" });
+    assert.deepEqual(extensionStore(chrome), { browser: "chrome", url: listing });
+    assert.deepEqual(extensionStore(`${chrome} Edg/141.0`), { browser: "edge", url: listing });
+    assert.deepEqual(extensionStore("Mozilla/5.0 (X11; Linux x86_64; rv:141.0) Gecko/20100101 Firefox/141.0"), { browser: "firefox", url: "" });
+    assert.equal(extensionLink(chrome, "es"), listing);
+    assert.equal(extensionLink("Mozilla/5.0 Firefox/141.0", "es"), `${EXTENSION_PAGE}?lang=es`);
+    assert.equal(storeButtonText("chrome"), "Add to Chrome");
+    assert.equal(storeButtonText("edge"), "Add to Edge");
+    EXTENSION_STORES.chrome = "javascript:alert(1)";
+    assert.equal(extensionStore(chrome).url, "", "only a real address");
+  } finally {
+    Object.assign(EXTENSION_STORES, was);
+  }
+  assert.deepEqual(extensionStore(chrome), { browser: "chrome", url: CHROME_WEB_STORE_URL });
   assert.equal(extensionHere({ documentElement: { dataset: { tamkeenExtension: "0.34.2" } } }), true);
   assert.equal(extensionHere({ documentElement: { dataset: {} } }), false);
   assert.equal(extensionHere(null), false);

@@ -10,6 +10,7 @@ import { mkdtempSync, readFileSync, rmSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { inflateRawSync } from "node:zlib";
 import { APP, EXT, TITLE_KEY, WORD_KEY, checkMessage, cleanAck, cleanDevice, cleanLines, cleanPending, cleanSettings, cleanTitle,
   cleanWord, keysToForget, message, newNonce, pendingFrom, savedWord, watchedTitle, wordUid } from "../../web/js/extbridge.js";
 
@@ -126,5 +127,53 @@ test("the extension's build: a release names only Netflix and the web app; test 
     assert.throws(() => execFileSync(process.execPath, [join(root, "extension/scripts/build.mjs"), "--out", out, "--test-netflix", "https://evil.example"], { stdio: "pipe" }));
   } finally {
     rmSync(out, { recursive: true, force: true });
+  }
+});
+
+/** One file out of a zip made by the build (deflated, as it writes them). */
+function fromZip(buf, name) {
+  for (let at = 0; buf.readUInt32LE(at) === 0x04034b50;) {
+    const size = buf.readUInt32LE(at + 18), nameLen = buf.readUInt16LE(at + 26), extra = buf.readUInt16LE(at + 28);
+    const file = buf.subarray(at + 30, at + 30 + nameLen).toString("utf8");
+    const data = buf.subarray(at + 30 + nameLen + extra, at + 30 + nameLen + extra + size);
+    if (file === name) return inflateRawSync(data);
+    at += 30 + nameLen + extra + size;
+  }
+  return null;
+}
+
+test("the extension's build for the Chrome Web Store: its zip, the install page and the privacy policy", () => {
+  const root = join(fileURLToPath(new URL("../..", import.meta.url)));
+  const work = mkdtempSync(join(tmpdir(), "tk-ext-store-"));
+  try {
+    const out = join(work, "build"), page = join(work, "page"), storeZip = join(work, "store.zip"), plainZip = join(work, "plain.zip");
+    execFileSync(process.execPath, [join(root, "extension/scripts/build.mjs"), "--out", out, "--version", "2.3.4",
+      "--zip", plainZip, "--page", page, "--store-zip", storeZip], { stdio: "pipe" });
+    // The store's zip: Chrome's manifest alone (no Firefox parts), everything else the same.
+    const m = JSON.parse(fromZip(readFileSync(storeZip), "manifest.json").toString("utf8"));
+    assert.equal(m.version, "2.3.4");
+    assert.equal(m.browser_specific_settings, undefined);
+    assert.deepEqual(m.background, { service_worker: "background.js", type: "module" });
+    assert.ok(m.description.length <= 132, "the store's summary is at most 132 characters");
+    assert.deepEqual(m.permissions, ["storage", "unlimitedStorage", "webRequest"]);
+    assert.ok(m.icons["16"] && m.icons["32"] && m.icons["48"] && m.icons["128"]);
+    assert.ok(fromZip(readFileSync(storeZip), "js/ext/panel.js"), "the extension's own files are in it");
+    // The zip on the install page keeps Firefox's parts.
+    const plain = JSON.parse(fromZip(readFileSync(plainZip), "manifest.json").toString("utf8"));
+    assert.ok(plain.browser_specific_settings.gecko.id);
+    // The install page: by hand until netflix.js names the store listing; then "Add to Chrome" first.
+    const html = readFileSync(join(page, "index.html"), "utf8");
+    const listed = /export const CHROME_WEB_STORE_URL = "(https:[^"]+)";/.exec(readFileSync(join(root, "web/js/netflix.js"), "utf8"));
+    assert.ok(!/\{\{|<!--\/?(store|manual)-->/.test(html), "no placeholders or markers left");
+    if (listed) {
+      assert.ok(html.includes(`href="${listed[1]}"`) && /Add to Chrome/.test(html));
+    } else {
+      assert.ok(!/Add to Chrome/.test(html) && /Download the extension/.test(html) && /isn't in the browsers' extension stores yet/.test(html));
+    }
+    // The privacy policy the listing links to, beside the install page.
+    assert.match(readFileSync(join(page, "privacy.html"), "utf8"), /Limited Use/);
+    assert.ok(/href="privacy\.html"/.test(html));
+  } finally {
+    rmSync(work, { recursive: true, force: true });
   }
 });

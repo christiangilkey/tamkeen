@@ -9105,6 +9105,21 @@
   "f": "web/js/netflix.js"
  },
  {
+  "id": "e713dc70",
+  "k": "Add to Edge",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "1bf14b2c",
+  "k": "Add to Firefox",
+  "f": "web/js/netflix.js"
+ },
+ {
+  "id": "d1d195f1",
+  "k": "Add to Chrome",
+  "f": "web/js/netflix.js"
+ },
+ {
   "id": "1d3cfbd0",
   "k": "Netflix needs the Tamkeen extension",
   "f": "web/js/netflix.js"
@@ -17955,6 +17970,11 @@
   "f": "extension/install.html"
  },
  {
+  "id": "f8912233",
+  "k": "From the Chrome Web Store. Edge can add it from there too, and it keeps itself up to date.",
+  "f": "extension/install.html"
+ },
+ {
   "id": "80242a6c",
   "k": "Download the extension",
   "f": "extension/install.html"
@@ -17967,6 +17987,16 @@
  {
   "id": "d88a4413",
   "k": "It isn't in the browsers' extension stores yet, so it is added by hand, once.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "8d7835b1",
+  "k": "Or add it by hand",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "6598484f",
+  "k": "Only if you can't use the Chrome Web Store: <0>download the extension</0> <1/>, then:",
   "f": "extension/install.html"
  },
  {
@@ -18005,6 +18035,11 @@
   "f": "extension/install.html"
  },
  {
+  "id": "575edc69",
+  "k": "Added from the Chrome Web Store, it updates by itself. Added by hand:",
+  "f": "extension/install.html"
+ },
+ {
   "id": "ce37f441",
   "k": "Download it again, unzip it over the old folder, then click the round arrow on Tamkeen for Netflix on the extensions page.",
   "f": "extension/install.html"
@@ -18017,6 +18052,11 @@
  {
   "id": "363e30f5",
   "k": "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "c4277de7",
+  "k": "Privacy policy of the extension",
   "f": "extension/install.html"
  }
 ]

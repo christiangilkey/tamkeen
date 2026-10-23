@@ -9,3 +9,4 @@ dist/
 app/sync/google_client.json
 mobile/node_modules/
 mobile/www/
+extension/store/upload/

@@ -85,15 +85,39 @@ export function extensionBrowserTexts(lang = studyLanguage()) {
 /** The page that explains how to install the extension (docs/extension/index.html, built by
  * extension/scripts/build.mjs). */
 export const EXTENSION_PAGE = "https://christiangilkey.github.io/tamkeen/extension/";
+/** THE ONE PLACE TO FILL IN once "Tamkeen for Netflix" is live in the Chrome Web Store: its listing's
+ * address, e.g. "https://chromewebstore.google.com/detail/tamkeen-for-netflix/<id>"
+ * (extension/store/HOW-TO-PUBLISH.md, last step). Then the web app's Netflix section says "Add to
+ * Chrome" (in Edge: "Add to Edge", Edge installs from that store too) and links there, and the install
+ * page (extension/install.html; extension/scripts/build.mjs reads this line) puts the same button
+ * first. Empty: both keep explaining how to add the extension by hand. Keep it on one line, in double
+ * quotes. */
+export const CHROME_WEB_STORE_URL = "";
 /** The extension's pages in the browsers' add-on stores, once it is published there; until then ""
  * and the install page is used (HANDOFF.md says how to publish it). */
-export const EXTENSION_STORES = { chrome: "", edge: "", firefox: "" };
+export const EXTENSION_STORES = { chrome: CHROME_WEB_STORE_URL, edge: "", firefox: "" };
 
-/** Where "Get the Tamkeen extension" leads in this browser: its store page once it is in that
- * browser's store, else the install page (in the user's language, `ui`). */
+const browserOf = (ua) => (/Edg\//.test(ua) ? "edge" : /Firefox\//.test(ua) ? "firefox" : "chrome");
+
+/** The extension's store page for this browser, if it has one: {browser, url} (url "" while it is
+ * in no store this browser can use; Edge can use the Chrome Web Store). */
+export function extensionStore(ua = typeof navigator !== "undefined" ? navigator.userAgent : "") {
+  const browser = browserOf(ua);
+  const url = EXTENSION_STORES[browser] || (browser === "edge" ? EXTENSION_STORES.chrome : "");
+  return { browser, url: /^https:\/\//.test(url) ? url : "" };
+}
+
+/** The store button's words in this browser ("Add to Chrome"). */
+export function storeButtonText(browser) {
+  if (browser === "edge") return t("Add to Edge");
+  if (browser === "firefox") return t("Add to Firefox");
+  return t("Add to Chrome");
+}
+
+/** Where "Get the Tamkeen extension" leads in this browser: its store page once it is in a store
+ * this browser can use, else the install page (in the user's language, `ui`). */
 export function extensionLink(ua = typeof navigator !== "undefined" ? navigator.userAgent : "", ui = "") {
-  const browser = /Edg\//.test(ua) ? "edge" : /Firefox\//.test(ua) ? "firefox" : "chrome";
-  return EXTENSION_STORES[browser] || (/^[a-z]{2,3}$/.test(ui) && ui !== "en" ? `${EXTENSION_PAGE}?lang=${ui}` : EXTENSION_PAGE);
+  return extensionStore(ua).url || (/^[a-z]{2,3}$/.test(ui) && ui !== "en" ? `${EXTENSION_PAGE}?lang=${ui}` : EXTENSION_PAGE);
 }
 
 /** Is the extension in this browser? Its part on the web app's pages marks the page. */

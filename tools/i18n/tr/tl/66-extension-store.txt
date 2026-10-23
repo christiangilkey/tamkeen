@@ -1,0 +1,9 @@
+# The extension in the Chrome Web Store: "Add to Chrome" once it is listed (2026-10-23)
+e713dc70 Idagdag sa Edge
+1bf14b2c Idagdag sa Firefox
+d1d195f1 Idagdag sa Chrome
+f8912233 Mula sa Chrome Web Store. Puwede rin itong idagdag ng Edge mula roon, at kusa itong nag-a-update.
+8d7835b1 O idagdag ito nang mano-mano
+6598484f Kung hindi mo lang magamit ang Chrome Web Store: <0>i-download ang extension</0> <1/>, pagkatapos:
+575edc69 Kung idinagdag mula sa Chrome Web Store, kusa itong nag-a-update. Kung idinagdag nang mano-mano:
+c4277de7 Patakaran sa privacy ng extension
