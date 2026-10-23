@@ -1401,6 +1401,31 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .stt-model .badge { white-space: nowrap; margin-left: 0; margin-inline-start: 6px; }
 .stt-per-dollar { margin: 6px 0 0; }
 .stt-card .ai-more .set-info { margin-top: 4px; }
+/* Settings → Card voices (components/voicesetup.js): the same card, with three tiles */
+.vo-who { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 560px) { .vo-who { grid-template-columns: minmax(0, 1fr); } .vo-who .stt-choice { padding: 12px 10px; } }
+.vo-panel { margin-top: 14px; }
+.vo-device { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; padding: 12px 14px; border-radius: 14px; background: var(--surface-2); font-size: 13.5px; line-height: 1.45; }
+.vo-device-ico { display: inline-flex; color: var(--accent); flex: none; }
+.vo-device.vo-missing .vo-device-ico { color: var(--warn); }
+.vo-device-text { flex: 1 1 220px; min-width: 0; }
+.vo-device-do { display: flex; flex-wrap: wrap; gap: 6px; }
+.vo-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.vo-row select { flex: 1 1 220px; min-width: 0; }
+#vo-test-result:empty, #vo-key-note:empty, #vo-voice-note:empty, .vo-all:empty { display: none; }
+.vo-all-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 12px; border-radius: 12px; background: var(--surface-2); }
+.vo-all-row > span { flex: 1 1 240px; line-height: 1.45; }
+.vo-steps { margin: 6px 0 0; padding-inline-start: 20px; line-height: 1.5; display: grid; gap: 4px; }
+.vo-wait { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; padding: 14px; border-radius: 14px; background: var(--surface-2); }
+.vo-wait strong { font-size: 22px; }
+.vo-wait span { max-width: 460px; line-height: 1.45; }
+.vo-voice-row { flex-wrap: wrap; cursor: default; }
+.vo-voice-row button { flex: none; }
+.vo-wait-line { margin: 0 0 10px; line-height: 1.45; }
+.vo-none { line-height: 1.45; color: var(--muted); }
+.vo-computer .set-info { margin-top: 10px; }
+.vo-azure .set-info { margin-top: 10px; }
+
 /* "How it works" and "What is sent…", at the foot of the card */
 .stt-folds { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); }
 

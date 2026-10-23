@@ -14,6 +14,9 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** Card voices. Flashcards without a recording of their own (typed in, or saved from a web page, a book, YouTube, Netflix or a reel) are read out: by your device's own voice (free), by natural Azure voices with your own Azure key (Arabic by country; each card's voice is made once and kept), or by voices made on your computer, which reach your phone when it syncs. Settings → Card voices.
+- **Fixed:** Word and Sentence on words saved from a video no longer show "Couldn't load this word's audio" again and again; the card's voice says them instead.
+- **Removed:** The Filmot "Find in a video" button, now that every card has a voice.
 - **Improved:** Settings → Listening & transcripts is redesigned. It opens on two big choices for who writes your transcripts, and the "Another model…" option is gone.
 - **New:** For Thai and Bisaya, Settings shows how accurate the language's own speech model is compared with the cloud model.
 - **Improved:** Reading is easier: web pages and books share one standard text style, keep their bold, italics and headings, and show title pages neatly. Book pages are now full pages.

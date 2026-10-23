@@ -8,6 +8,7 @@ import { api, esc, h, on, toast, download, loadStatus, saveSettings, fmtBytes, s
 import { modelManager, gpuPanel } from "../components/models.js";
 import { aiSetup } from "../components/aisetup.js";
 import { sttSetup } from "../components/sttsetup.js";
+import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
 import { STT_PROVIDERS, sttConfig } from "../stt.js";
 import { PROVIDERS, definerModeOf } from "../definer.js";
 import { commonWordsButton } from "../commonwords.js";
@@ -67,6 +68,7 @@ function home(view, status) {
         if (cfg.mode === "cloud") return { text: "Cloud transcription needs a key", warn: true };
         return status.model_ready ? { text: "This computer writes the transcripts" } : { text: "Download a transcription model", warn: true };
       },
+      voices: () => voiceSummary(s),
       look: () => [{ text: THEME_LINE[s.theme] || THEME_LINE.system }, { text: gameOn() ? "Game features on" : "Game features off" }],
       account: async () => {
         const st = await api("/sync/status");
@@ -88,7 +90,7 @@ function home(view, status) {
 
 // ---------- the sections ----------
 
-const BUILD = { languages, words, listening, look, account, apps, data };
+const BUILD = { languages, words, listening, voices, look, account, apps, data };
 
 function languages(body, status) {
   const s = status.settings;
@@ -193,6 +195,28 @@ function listening(body, status) {
   $("#delete-after").onchange = (e) => saveSettings({ delete_audio_after: e.target.checked });
   $("#stream").onchange = (e) => saveSettings({ stream_from_source: e.target.checked });
   return cleanups;
+}
+
+// Card voices: who reads out cards without a recording (components/voicesetup.js); on this computer
+// also its own voice models (app/voices.py).
+function voices(body) {
+  body.append(h(`<section class="card" id="voices"></section>`));
+  return [voiceSetup(body.querySelector("#voices"), {
+    words: () => api("/vocab"),
+    changed: () => loadStatus(),
+    computer: {
+      summary: () => api("/voices"),
+      download: (voice) => api("/voices/download", { method: "POST", body: { voice } }),
+      cancel: () => api("/voices/cancel", { method: "POST" }),
+      remove: (voice) => api(`/voices/${encodeURIComponent(voice)}`, { method: "DELETE" }),
+      pick: (lang, voice) => api("/voices/pick", { method: "POST", body: { lang, voice } }),
+      sampleUrl: (lang, text) => `/api/voices/sample?lang=${encodeURIComponent(lang)}&text=${encodeURIComponent(text)}&t=${Date.now()}`,
+      onChange: (fn) => {
+        const offs = [on("voice_download", fn), on("voices", fn)];
+        return () => offs.forEach((f) => f());
+      },
+    },
+  })];
 }
 
 function look(body, status) {

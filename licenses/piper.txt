@@ -1,0 +1,52 @@
+Piper: card voices made on this computer (optional download)
+
+With Settings → Card voices → "This computer" chosen, Tamkeen downloads, only when asked:
+
+1. Piper's program (https://github.com/rhasspy/piper, release 2023.11.14-2), run as a separate
+   program on this computer. Piper is MIT licensed:
+
+     MIT License
+     Copyright (c) 2022 Michael Hansen
+
+     Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+     and associated documentation files (the "Software"), to deal in the Software without
+     restriction, including without limitation the rights to use, copy, modify, merge, publish,
+     distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the
+     Software is furnished to do so, subject to the following conditions:
+
+     The above copyright notice and this permission notice shall be included in all copies or
+     substantial portions of the Software.
+
+     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+     BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+   Piper's download contains, as parts of that separate program: eSpeak NG (GPL-3.0,
+   https://github.com/espeak-ng/espeak-ng), which turns text into sounds; ONNX Runtime (MIT,
+   Microsoft); piper-phonemize (MIT) and libtashkeel (MIT), which adds vowel marks to Arabic text
+   before it is spoken. Their licences come inside that download. Tamkeen only starts the program;
+   none of it is part of Tamkeen.
+
+2. One voice per language, from https://huggingface.co/rhasspy/piper-voices (each voice's
+   MODEL_CARD names the licence of its recordings):
+
+     ar_JO-kareem-medium     Arabic      recordings' licence not stated by their maker
+     es_ES-davefx-medium     Spanish     CC0
+     es_MX-ald-medium        Spanish     Unlicense (public domain)
+     fr_FR-siwis-medium      French      CC BY 4.0 (SIWIS French speech corpus, University of Edinburgh / Idiap)
+     fr_FR-mls-medium        French      CC BY 4.0 (Multilingual LibriSpeech)
+     it_IT-serena-medium     Italian     CC BY 4.0
+     pt_BR-faber-medium      Portuguese  CC0
+     ca_ES-upc_ona-medium    Catalan     CC BY-SA 3.0 ES (UPC Festcat)
+     ru_RU-denis-medium      Russian     CC0
+     de_DE-thorsten-medium   German      CC0 (Thorsten-Voice)
+     de_DE-mls-medium        German      CC BY 4.0 (Multilingual LibriSpeech)
+     fa_IR-amir-medium       Persian     CC0
+     en_US-ljspeech-medium   English     public domain (LJ Speech)
+     en_GB-cori-medium       English     public domain
+
+   Many "medium" Piper voices were trained on top of Piper's English "lessac" voice, whose own
+   recordings are licensed for research; Piper publishes each voice under its own recordings'
+   licence. Voices whose recordings are licensed for non-commercial use only are not offered.

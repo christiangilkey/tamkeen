@@ -97,6 +97,8 @@ export const DEFAULTS = {
   llm_key_claude: "", llm_key_gemini: "", llm_key_openai: "", llm_key_grok: "",
   // Cloud transcription (transcribe-service.js): "local" = the computer writes transcripts, "cloud" = a provider does, from this phone.
   stt_mode: "local", stt_provider: "groq", stt_model_groq: "", stt_model_openai: "", stt_key_groq: "", stt_key_openai: "",
+  // Voices for cards without audio (web/js/cardvoice.js): "device", "azure" (the user's own key) or "computer"; synced with the keys.
+  tts_mode: "device", tts_key_azure: "", tts_region_azure: "", tts_voices: "",
   google_email: "",
   signed_in: false,
   haptics: true,

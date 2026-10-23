@@ -7,6 +7,9 @@ import { taskTargetCard } from "../components/tasktarget.js";
 import { api, checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js";
 import { aiSetup } from "../components/aisetup.js";
 import { sttSetup } from "../components/sttsetup.js";
+import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
+import { waitingForComputer } from "../cardvoice.js";
+import { cardLanguage } from "../voiceplay.js";
 import { STT_EVENT, testKey, usageToday } from "../transcribe-service.js";
 import { STT_PROVIDERS, sttConfig } from "../stt.js";
 import { PROVIDERS, definerModeOf } from "../definer.js";
@@ -90,6 +93,7 @@ function home(view) {
         if (cfg.mode === "cloud") return { text: "Cloud transcription needs a key", warn: true };
         return { text: "Your computer writes the transcripts" };
       },
+      voices: async () => voiceSummary(s, { waiting: waitingForComputer(await api("/vocab"), cardLanguage).count }),
       look: () => [{ text: isWeb ? THEME_LINE.dark : THEME_LINE[s.theme] || THEME_LINE.system }, { text: gameOn() ? "Game features on" : "Game features off" }],
       account: () => {
         if (!s.signed_in) return { text: "Google Drive: not connected" };
@@ -113,7 +117,7 @@ function home(view) {
 
 // ---------- the sections ----------
 
-const BUILD = { languages, words, listening, look, account, apps, data };
+const BUILD = { languages, words, listening, voices, look, account, apps, data };
 
 function languages(body) {
   const s = settings;
@@ -171,6 +175,13 @@ function listening(body) {
       return () => window.removeEventListener(STT_EVENT, hear);
     },
   })];
+}
+
+// Card voices: who reads out cards without a recording (components/voicesetup.js). The computer's
+// voice models live on the computer; here only how many cards wait for it.
+function voices(body) {
+  body.append(h(`<section class="card" id="voices"></section>`));
+  return [voiceSetup(body.querySelector("#voices"), { words: () => api("/vocab") })];
 }
 
 function look(body) {
@@ -281,7 +292,7 @@ function apps(body) {
       <h2>Tamkeen on the web</h2>
       <p class="set-hint">This works like the app, with a few things that need the Tamkeen app on your phone or computer.</p>
       <details class="set-info"><summary>What needs the app?</summary>Reels from your Instagram saves and random reels, reels with
-        a song from Instagram's music library, the built-in web browser (Import Page and Find in a video), AnkiDroid sync, and the
+        a song from Instagram's music library, the built-in web browser (Import Page), AnkiDroid sync, and the
         number on the app icon. What you add in the app shows up here after a sync.</details>
       <div><a class="btn primary" href="https://github.com/christiangilkey/tamkeen/releases/latest" target="_blank" rel="noopener">Get the app</a></div>
     </section>` : ""}

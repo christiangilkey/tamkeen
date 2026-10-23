@@ -51,3 +51,6 @@ export const AppUpdater = isNative && Capacitor.getPlatform() === "android" ? re
 export const AppBadge = isNative ? registerPlugin("AppBadge") : null;
 /** Reset Tamkeen: clears the cookies of the app's browser windows (AppResetPlugin.java / AppResetPlugin.swift). */
 export const AppReset = isNative ? registerPlugin("AppReset") : null;
+/** The phone's own text-to-speech, for cards without audio (SpeechPlugin.java: Android's
+ *  TextToSpeech; SpeechPlugin.swift: the iPhone's AVSpeechSynthesizer). See web/js/devicevoice.js. */
+export const TamkeenSpeech = isNative ? registerPlugin("TamkeenSpeech") : null;

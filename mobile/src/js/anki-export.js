@@ -28,8 +28,9 @@ export function cutClips(bytes, words) {
 
 /**
  * The deck file for these words, as bytes.
- * `source.audioFor(word)` resolves to { key, load } for the audio a word's times refer to, or null:
- * `key` names the file (words with the same key are cut together), `load()` resolves to its Blob.
+ * `source.audioFor(word)` resolves to { key, load, times? } for the audio a word's times refer to, or null:
+ * `key` names the file (words with the same key are cut together), `load()` resolves to its Blob;
+ * `times` (a card's voice, web/js/cardvoice.js) are the word's and sentence's times in that file instead.
  * `source.asset(path)` resolves to a fetch Response for a file shipped with the app.
  * `source.review` is each word's learning progress by uid (the game's `review` records), if any.
  * `source.reviewed(uid, today)` is what the vocab reviewer's answers come to for a word, if any.
@@ -38,11 +39,12 @@ export function cutClips(bytes, words) {
 export async function vocabDeck(items, source, progress = () => {}) {
   const groups = new Map();
   for (const v of items) {
-    if (!Object.keys(clipRanges(v)).length) continue;
     const audio = await source.audioFor(v);
     if (!audio) continue;
+    const w = audio.times ? { ...v, ...audio.times } : v;  // a card's voice: its own times in its file
+    if (!Object.keys(clipRanges(w)).length) continue;
     if (!groups.has(audio.key)) groups.set(audio.key, { load: audio.load, words: [] });
-    groups.get(audio.key).words.push(v);
+    groups.get(audio.key).words.push(w);
   }
   const clips = {};
   let done = 0;

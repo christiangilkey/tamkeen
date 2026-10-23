@@ -1,0 +1,111 @@
+2619fa36 Die Stimme dieser Karte konnte nicht gespeichert werden.
+332de0f3 Azure hat diesen Schlüssel in der Region „{0}“ nicht angenommen. Kopiere Key 1 noch einmal und prüfe, ob die Region die ist, die daneben steht (zum Beispiel westeurope).
+e217f040 Azure meldet zu viele Anfragen, oder das kostenlose Kontingent dieses Monats ist aufgebraucht. Versuche es später noch einmal oder prüfe deine Nutzung im Azure-Portal.
+51340aa5 Azure hat die Anfrage nicht angenommen: Die gewählte Stimme gibt es in dieser Region vielleicht nicht. Wähle eine andere Stimme.
+53c3380d Azure hat mit einem Fehler geantwortet ({0}). Versuche es gleich noch einmal.
+35cf401b Azure in der Region „{0}“ war nicht erreichbar. Prüfe deine Verbindung und wie die Region geschrieben ist (zum Beispiel westeurope, eastus).
+6dea6d8f Azure hat keinen Ton zurückgeschickt. Versuche es gleich noch einmal.
+26364875 Diese Karte hat kein Wort zum Sprechen.
+bf7aa035 Der Ton von Azure konnte nicht gelesen werden.
+052734c1 Diese Karte hat nichts zu sagen.
+1afd82ba Dieses Handy hat keine Stimme auf {0}. So fügst du eine hinzu: Öffne die Einstellungen des Handys → suche nach „Sprachausgabe“ → Bevorzugtes Modul (Sprachdienste von Google) → Einstellungen → Sprachdaten installieren → {1}.
+38f321bb Dieses iPhone hat keine Stimme auf {0}. So fügst du eine hinzu: Einstellungen → Bedienungshilfen → Gesprochene Inhalte → Stimmen → {1}.
+9747c1e8 Dieser Mac hat keine Stimme auf {0}. So fügst du eine hinzu: Systemeinstellungen → Bedienungshilfen → Gesprochene Inhalte → Systemstimme → Stimmen verwalten → {1}.
+57b8b3ab Dieser Computer hat keine Stimme auf {0}. So fügst du eine hinzu: Windows-Einstellungen → Zeit und Sprache → Spracherkennung → Stimmen hinzufügen → {1}. Starte Tamkeen danach neu.
+662c883b Dieser Browser hat keine Stimme auf {0}. Manche Browser haben mehr Stimmen als andere (Chrome und Edge haben viele), oder füge dem Gerät in seinen eigenen Einstellungen eine Stimme hinzu.
+c57d4482 Kartenstimmen
+9ae41195 Die Stimme, die Karteikarten ohne Aufnahme vorliest.
+74e96124 Stimme für Karten ohne Ton
+8f69a349 Azure-Speech-Schlüssel und Region
+2f3a219e Stimmen auf diesem Computer
+5de162ff Azure-Stimmen
+c1669e42 Azure braucht einen Schlüssel
+592a4522 Stimmen auf diesem Computer erstellt
+5717197d Wartet auf deinen Computer ({0} Karten)
+4f0fe97e Stimmen auf deinem Computer erstellt
+185b32a7 Die Stimme dieses Geräts
+ebc4da0c Kostenlos. Dein Computer erstellt sie; sie kommen bei der Synchronisierung an.
+a69ebf95 Kostenlos, offline. Hier mit einer heruntergeladenen Stimme erstellt und gespeichert.
+11266a50 Wer Karten ohne Ton vorliest
+ea750ccc Karten aus einem Podcast oder aus deinem eigenen Audio spielen ihre eigene Aufnahme. Karten, die du eingetippt oder von einer Webseite, aus einem Buch, von YouTube, Netflix oder aus einem Reel gespeichert hast, liest die Stimme vor, die du hier wählst: das Wort und seinen Satz.
+82711d71 Kostenlos. {0} spricht es, während du zuhörst; nichts wird gespeichert.
+a6d92721 Azure (dein eigener Schlüssel)
+3dd9501d Natürliche Stimmen, Arabisch nach Land. Einmal pro Karte erstellt und gespeichert.
+1829e96f Azure Speech
+0f217179 Region
+dc8d9204 zum Beispiel westeurope
+c67dd20e Schlüssel
+c0547393 Key 1 hier einfügen
+f083813f Azure-Schlüssel holen ↗
+c615bc62 Stimme für {0}
+05771f64 Hörprobe abspielen
+0c7c1be1 So bekommst du deinen eigenen kostenlosen Azure-Schlüssel
+8107ef6d Erstelle ein kostenloses Microsoft-Azure-Konto unter <0>azure.microsoft.com/free</0>. Azure fragt bei der Anmeldung nach einer Telefonnummer und einer Bankkarte, um zu prüfen, dass du ein Mensch bist; die kostenlose Stufe wird nicht berechnet.
+49d15d1f Erstelle im Azure-Portal eine <0>Speech</0>-Ressource (<1>dieser Link öffnet sie</1>). Wähle eine Region in deiner Nähe und den Tarif <2>Free F0</2>.
+3e97ae56 Öffne die neue Ressource → <0>Keys and Endpoint</0>. Kopiere <1>Key 1</1> in Schlüssel (oben) und <2>Location/Region</2> (zum Beispiel westeurope) in Region.
+40b93dff Tippe auf <0>Schlüssel testen</0>.
+ed90bcad Was kostet das?
+3545863b Jeder Nutzer hat sein eigenes Azure-Konto und sein eigenes Kontingent. Die kostenlose Stufe (F0) enthält etwa eine halbe Million Zeichen neuronaler Stimmen pro Monat; die aktuelle Menge und die Preise stehen auf Azures Seite: <0>Azure-Speech-Preise ↗</0>. Wort und Satz einer Karte haben meist 20 bis 120 Zeichen, und die Stimme jeder Karte wird nur einmal erstellt und dann mit der Karte auf all deinen Geräten gespeichert. Ist das kostenlose Kontingent aufgebraucht, lehnt Azure bis zum nächsten Monat ab, und die Karten nutzen die Stimme dieses Geräts.
+5f2b1a67 Eine Karte, die mit einer Aufnahme kam, spielt immer diese. Bei jeder anderen Karte spricht <0>Die Stimme dieses Geräts</0> das Wort und den Satz, wenn du auf Wort oder Satz tippst. <1>Azure</1> und <2>{0}</2> machen beim ersten Mal eine Aufnahme davon, speichern sie mit der Karte und schicken sie über Google Drive an deine anderen Geräte, sodass sie nur einmal erstellt wird. Sie kommt auch in einen Anki-Export. Solange es die Aufnahme einer Karte noch nicht gibt, liest die Stimme dieses Geräts sie vor.
+be6016cc Mit Azure gehen nur das Wort und sein Satz an Microsofts Sprachdienst in der gewählten Region, direkt von {0}, mit deinem Schlüssel; sonst nichts über dich oder deine Bibliothek. Dein Schlüssel wird auf {1} gespeichert und, wenn du die Google-Drive-Synchronisierung nutzt, im privaten Ordner der App in deinem eigenen Google Drive, damit deine anderen Geräte ihn auch haben. Er ist nie Teil eines Datenexports. Die Stimme des Geräts und die Stimmen des Computers senden nirgendwohin etwas.
+e6b3d051 {0} wartend
+75f52718 Kostenlos
+3f6cf33f Einstellungen der Sprachausgabe öffnen
+e185048c Erneut prüfen
+4c2739cc Dieses Gerät hat eine Stimme auf {0}. Sie liest die Karten ohne Aufnahme vor.
+e1c7fb3a Dieses Gerät hat eine Stimme auf {0}. Sie liest die Karten ohne Aufnahme vor, bis ihre eigene erstellt ist.
+0804d058 Die Stimme dieses Geräts liest die Karten ohne Aufnahme vor.
+b2dd3a55 Die Stimme dieses Geräts liest die Karten ohne Aufnahme vor, bis ihre eigene erstellt ist.
+d9f8f583 Gespeichert. Jetzt die Region, so wie Azure sie neben dem Schlüssel anzeigt.
+747715f4 Keine Stimme auf {0} bei Azure
+03755a9f Azure hat keine Stimme auf {0}, deshalb nutzen diese Karten die Stimme dieses Geräts.
+8d0d41ba · üblich
+91615915 Teste den Schlüssel, um aus allen Azure-Stimmen für die Sprache zu wählen.
+415c7c53 Schon erstellte Karten behalten ihre Stimme; neue nutzen diese.
+60706579 Füge zuerst deinen Schlüssel und die Region ein.
+d2f602e7 Azure wird nach seinen Stimmen gefragt …
+5cab77ed Füge zuerst Key 1 und die Region ein.
+09a9c133 {0} Stimmen auf {1} in dieser Region.
+97985713 Azure hat in dieser Region keine Stimme auf {0}.
+d5007d1f ✓ Funktioniert (Azure hat in {0} s geantwortet). {1} Der Test verbraucht keine deiner Zeichen.
+d24c44bd Jetzt erstellen
+8e4d2c67 Karten auf {1} noch ohne Stimme: {0} (etwa {3} Zeichen). Jede wird beim ersten Abspielen erstellt, oder alle jetzt, bereit für einen Anki-Export.
+f05831f2 Stimmen werden erstellt: {0} von {1} …
+b88dd56d Stimmen erstellt und gespeichert: {0}.
+11b10cf7 {0} erstellt. {1}
+b036bcb1 Karten: {0}
+c5cb3e55 Nichts wartet
+ecac64cd Dein Computer erstellt sie, wenn Tamkeen dort geöffnet ist und die Stimme auf {0} heruntergeladen ist (Einstellungen → Kartenstimmen auf dem Computer). Sie kommen bei der Synchronisierung hier an; bis dahin liest die Stimme dieses Handys sie vor.
+d9199b9a Dein Computer hat keine Stimme auf {0}, deshalb nutzen diese Karten die Stimme dieses Handys. Für natürliche Stimmen auf {1} wähle Azure.
+4191f605 Auf dieser Art von Computer können die Stimmen nicht laufen. Wähle Azure oder die Stimme dieses Geräts.
+f2abc459 Die einzigen kostenlosen Stimmen auf {0} für dieses Programm dürfen nicht frei genutzt werden (ihre Aufnahmen sind nur für nicht-kommerzielle Nutzung lizenziert), deshalb bietet Tamkeen sie nicht an.
+d905ce13 Für diesen Computer gibt es noch keine kostenlose Stimme auf {0}.
+a8ba7124 {0} Wähle Azure für natürliche Stimmen auf {1}, oder die Stimme dieses Geräts.
+d74a2319 + das Stimmprogramm, {0} MB, einmalig
+20716e92 In Gebrauch
+1d4d43cc Nutzen
+58fabfa7 Hörprobe
+b394bfc2 {0} · {1} MB{2}{3}
+7b33472e Über diese Stimmen
+ba2564f4 Es sind Piper-Stimmen (ein quelloffenes Sprachprogramm, das offline auf dem Prozessor dieses Computers läuft). Die Aufnahmen jeder Stimme tragen die angegebene Lizenz. Viele wurden auf Basis von Pipers englischer Stimme trainiert, deren eigene Aufnahmen für die Forschung lizenziert waren; Piper veröffentlicht sie unter ihren eigenen Lizenzen.
+d454ace4 Lade eine Stimme auf {0} herunter: Dann gibt dieser Computer jeder Karte auf {1} ohne Ton ihre eigene Aufnahme, auch den auf deinem Handy gespeicherten.
+94204dbd Karten auf {1}, die noch fehlen: {0}. Dieser Computer erstellt sie gerade.
+81846240 Jede Karte auf {0} hat ihre Stimme. Neue bekommen ihre beim Speichern, hier oder auf deinem Handy.
+2d8e8528 Der Download ist fehlgeschlagen: {0}
+8e09b678 {0} Bis dahin wird die Stimme dieses Geräts genutzt.
+a3ced5ce Diese Karte kann auf diesem Gerät nicht gesprochen werden.
+36e2543b Diese Audiodatei ist leer oder zu groß.
+628e1e3b Diese Stimme ist nicht für diese Sprache.
+d9720fb2 Der Ton der Stimme konnte nicht erstellt werden: {0}
+5728da40 vom Urheber nicht angegeben
+ad561619 Pipers einzige arabische Stimme. Piper setzt die Vokalzeichen vor dem Sprechen selbst.
+b3252c0d Unbekannte Stimme: {0}
+287e3948 Die Dateien dieser Stimme wurden nicht gefunden.
+981282c5 Stimmen auf diesem Computer brauchen Windows (64-Bit Intel oder AMD), einen Mac oder Linux.
+9efd4aef Es wird bereits eine Stimme heruntergeladen.
+51a539cf Diese Stimme ist auf diesem Computer nicht heruntergeladen.
+d4b56c4f Das Stimmprogramm konnte nicht laufen ({0}).
+db3b42e2 Das Stimmprogramm ist fehlgeschlagen: {0}
+899e00df Auf diesem Computer ist keine Stimme auf {0} heruntergeladen (Einstellungen → Kartenstimmen).
+e376cf70 Lade zuerst die Stimme dieser Sprache herunter.
+d6071c46 Reels aus deinen Instagram-Speicherungen und zufällige Reels, Reels mit einem Lied aus der Musikbibliothek von Instagram, der eingebaute Webbrowser (Seite importieren), die AnkiDroid-Synchronisierung und die Zahl auf dem App-Symbol. Was du in der App hinzufügst, erscheint hier nach einer Synchronisierung.

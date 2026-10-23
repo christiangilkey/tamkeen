@@ -14,9 +14,12 @@ from __future__ import annotations
 
 from typing import Any
 
-KEYS = ("llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok", "stt_key_groq", "stt_key_openai")
+KEYS = ("llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok", "stt_key_groq", "stt_key_openai",
+        # Card voices (web/js/cardvoice.js): the Azure key and its region, which voice source the cards use,
+        # and any Azure voice picked per language (JSON). They follow the learner the same way.
+        "tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices")
 TIMES = "key_times"  # setting: {key name: when it last changed, on this device or another (whole seconds)}
-MAX_LENGTH = 500
+MAX_LENGTH = 2000
 
 
 def _record(value: Any, at: Any) -> dict[str, Any]:

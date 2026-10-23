@@ -1,0 +1,111 @@
+2619fa36 No s'ha pogut desar la veu d'aquesta targeta.
+332de0f3 Azure no ha acceptat aquesta clau a la regió “{0}”. Torna a copiar la Key 1 i comprova que la regió és la que surt al costat (per exemple westeurope).
+e217f040 Azure diu que hi ha massa sol·licituds, o que la quota gratuïta d'aquest mes s'ha esgotat. Torna-ho a provar més tard o revisa el teu ús al portal d'Azure.
+51340aa5 Azure no ha acceptat la sol·licitud: potser la veu triada no existeix en aquesta regió. Tria una altra veu.
+53c3380d Azure ha respost amb un error ({0}). Torna-ho a provar d'aquí a un moment.
+35cf401b No s'ha pogut contactar amb Azure a la regió “{0}”. Comprova la connexió i com està escrita la regió (per exemple westeurope, eastus).
+6dea6d8f Azure no ha retornat cap so. Torna-ho a provar d'aquí a un moment.
+26364875 Aquesta targeta no té cap paraula per dir.
+bf7aa035 No s'ha pogut llegir el so d'Azure.
+052734c1 Aquesta targeta no té res per dir.
+1afd82ba Aquest telèfon no té cap veu en {0:lower}. Per afegir-ne una: obre la Configuració del telèfon → cerca “Text a veu” → Motor preferit (Serveis de veu de Google) → Configuració → Instal·la dades de veu → {1}.
+38f321bb Aquest iPhone no té cap veu en {0:lower}. Per afegir-ne una: Configuració → Accessibilitat → Contingut llegit → Veus → {1}.
+9747c1e8 Aquest Mac no té cap veu en {0:lower}. Per afegir-ne una: Configuració del Sistema → Accessibilitat → Contingut llegit → Veu del sistema → Gestiona les veus → {1}.
+57b8b3ab Aquest ordinador no té cap veu en {0:lower}. Per afegir-ne una: Configuració de Windows → Hora i idioma → Veu → Afegeix veus → {1}. Després reinicia Tamkeen.
+662c883b Aquest navegador no té cap veu en {0:lower}. Alguns navegadors tenen més veus que d'altres (Chrome i Edge en tenen moltes), o afegeix una veu al dispositiu des de la seva configuració.
+c57d4482 Veus de les targetes
+9ae41195 La veu que llegeix en veu alta les targetes que no tenen enregistrament.
+74e96124 Veu per a targetes sense àudio
+8f69a349 Clau i regió d'Azure Speech
+2f3a219e Veus en aquest ordinador
+5de162ff Veus d'Azure
+c1669e42 Azure necessita una clau
+592a4522 Veus fetes en aquest ordinador
+5717197d Esperant el teu ordinador ({0} targetes)
+4f0fe97e Veus fetes al teu ordinador
+185b32a7 La veu d'aquest dispositiu
+ebc4da0c Gratis. El teu ordinador les fa; arriben quan se sincronitza.
+a69ebf95 Gratis, sense connexió. Es fan aquí amb una veu baixada i es desen.
+11266a50 Qui llegeix les targetes sense àudio
+ea750ccc Les targetes d'un pòdcast o del teu propi àudio reprodueixen el seu enregistrament. Les targetes escrites a mà, o desades d'una pàgina web, un llibre, YouTube, Netflix o un reel, les llegeix la veu que triïs aquí: la paraula i la seva frase.
+82711d71 Gratis. La pronuncia {0} mentre escoltes; no es desa res.
+a6d92721 Azure (la teva pròpia clau)
+3dd9501d Veus naturals, l'àrab per país. Es fan un cop per targeta i es desen.
+1829e96f Azure Speech
+0f217179 Regió
+dc8d9204 per exemple westeurope
+c67dd20e Clau
+c0547393 Enganxa aquí la Key 1
+f083813f Aconsegueix una clau d'Azure ↗
+c615bc62 Veu per al {0:lower}
+05771f64 Escolta un exemple
+0c7c1be1 Com aconseguir la teva clau gratuïta d'Azure
+8107ef6d Crea un compte gratuït de Microsoft Azure a <0>azure.microsoft.com/free</0>. Azure demana un número de telèfon i una targeta bancària en registrar-te, per comprovar que ets una persona; el nivell gratuït no es cobra.
+49d15d1f Al portal d'Azure, crea un recurs <0>Speech</0> (<1>aquest enllaç l'obre</1>). Tria qualsevol regió propera i el pla de preus <2>Free F0</2>.
+3e97ae56 Obre el recurs nou → <0>Keys and Endpoint</0>. Copia la <1>Key 1</1> a Clau, a dalt, i la <2>Location/Region</2> (per exemple westeurope) a Regió.
+40b93dff Prem <0>Prova la clau</0>.
+ed90bcad Quant costa?
+3545863b Cada usuari té el seu compte d'Azure i la seva quota. El nivell gratuït (F0) inclou uns cinc-cents mil caràcters de veus neuronals al mes; consulta la pàgina d'Azure per a la quantitat i els preus actuals: <0>Preus d'Azure Speech ↗</0>. La paraula i la frase d'una targeta solen fer de 20 a 120 caràcters, i la veu de cada targeta es fa una sola vegada i després es desa amb la targeta a tots els teus dispositius. Si s'esgota la quota gratuïta, Azure s'hi nega fins al mes següent i les targetes fan servir la veu d'aquest dispositiu.
+5f2b1a67 Una targeta que ha arribat amb enregistrament sempre el reprodueix. Per a qualsevol altra targeta, <0>La veu d'aquest dispositiu</0> diu la paraula i la frase quan prems Paraula o Frase. <1>Azure</1> i <2>{0}</2> en fan un enregistrament la primera vegada, el desen amb la targeta i l'envien als teus altres dispositius a través de Google Drive, de manera que es fa una sola vegada. També va a l'exportació per a Anki. Fins que no existeix l'enregistrament d'una targeta, la llegeix la veu d'aquest dispositiu.
+be6016cc Amb Azure, només la paraula i la seva frase van al servei de veu de Microsoft a la regió que has triat, directament des de {0}, amb la teva clau; res més sobre tu o la teva biblioteca. La teva clau es desa a {1} i, si fas servir la sincronització amb Google Drive, a la carpeta privada de l'app al teu propi Google Drive, perquè els teus altres dispositius també la tinguin. Mai no forma part d'una exportació de dades. La veu del dispositiu i les veus de l'ordinador no envien res enlloc.
+e6b3d051 {0} en espera
+75f52718 Gratis
+3f6cf33f Obre la configuració de text a veu
+e185048c Torna-ho a comprovar
+4c2739cc Aquest dispositiu té una veu en {0:lower}. Llegeix les targetes que no tenen enregistrament.
+e1c7fb3a Aquest dispositiu té una veu en {0:lower}. Llegeix les targetes que no tenen enregistrament fins que es fa el seu.
+0804d058 La veu d'aquest dispositiu llegeix les targetes que no tenen enregistrament.
+b2dd3a55 La veu d'aquest dispositiu llegeix les targetes que no tenen enregistrament fins que es fa el seu.
+d9f8f583 Desada. Ara la regió, tal com la mostra Azure al costat de la clau.
+747715f4 No hi ha cap veu en {0:lower} a Azure
+03755a9f Azure no té cap veu en {0:lower}, així que aquestes targetes fan servir la veu d'aquest dispositiu.
+8d0d41ba · habitual
+91615915 Prova la clau per triar entre totes les veus d'Azure per a l'idioma.
+415c7c53 Les targetes ja fetes mantenen la seva veu; les noves fan servir aquesta.
+60706579 Primer enganxa la clau i la regió.
+d2f602e7 Demanant les veus a Azure…
+5cab77ed Primer enganxa la Key 1 i la regió.
+09a9c133 {0} veus en {1:lower} en aquesta regió.
+97985713 Azure no té cap veu en {0:lower} en aquesta regió.
+d5007d1f ✓ Funciona (Azure ha respost en {0} s). {1} La prova no gasta cap dels teus caràcters.
+d24c44bd Fes-les ara
+8e4d2c67 Targetes en {1:lower} encara sense veu: {0} (uns {3} caràcters). Cadascuna es fa la primera vegada que es reprodueix, o totes ara, a punt per a una exportació per a Anki.
+f05831f2 Fent veus: {0} de {1}…
+b88dd56d Veus fetes i desades: {0}.
+11b10cf7 {0} fetes. {1}
+b036bcb1 Targetes: {0}
+c5cb3e55 Res en espera
+ecac64cd El teu ordinador les fa quan Tamkeen hi està obert, amb la veu en {0:lower} baixada (Configuració → Veus de les targetes a l'ordinador). Arriben aquí quan se sincronitza; mentrestant les llegeix la veu d'aquest telèfon.
+d9199b9a El teu ordinador no té cap veu en {0:lower}, així que aquestes targetes fan servir la veu d'aquest telèfon. Per a veus naturals en {1:lower}, tria Azure.
+4191f605 Les veus no poden funcionar en aquest tipus d'ordinador. Tria Azure o la veu d'aquest dispositiu.
+f2abc459 Les úniques veus gratuïtes en {0:lower} per a aquest programa no es poden fer servir lliurement (els seus enregistraments tenen llicència només per a ús no comercial), així que Tamkeen no les ofereix.
+d905ce13 Encara no hi ha cap veu gratuïta en {0:lower} per a aquest ordinador.
+a8ba7124 {0} Tria Azure per a veus naturals en {1:lower}, o la veu d'aquest dispositiu.
+d74a2319 + el programa de veu, {0} MB, un sol cop
+20716e92 En ús
+1d4d43cc Fes-la servir
+58fabfa7 Exemple
+b394bfc2 {0} · {1} MB{2}{3}
+7b33472e Sobre aquestes veus
+ba2564f4 Són veus de Piper (un programa de veu de codi obert que funciona al processador d'aquest ordinador, sense connexió). Els enregistraments de cada veu porten la llicència indicada. Moltes es van entrenar a partir de la veu anglesa de Piper, els enregistraments de la qual tenien llicència per a recerca; Piper les publica amb les seves pròpies llicències.
+d454ace4 Baixa una veu en {0:lower}: així aquest ordinador dona a cada targeta en {1:lower} sense àudio el seu enregistrament, també a les desades al telèfon.
+94204dbd Targetes en {1:lower} per fer: {0}. Aquest ordinador les està fent ara.
+81846240 Cada targeta en {0:lower} té la seva veu. Les noves reben la seva en desar-se, aquí o al telèfon.
+2d8e8528 La baixada ha fallat: {0}
+8e09b678 {0} Mentrestant es fa servir la veu d'aquest dispositiu.
+a3ced5ce Aquesta targeta no es pot dir en aquest dispositiu.
+36e2543b Aquest àudio és buit o massa gran.
+628e1e3b Aquesta veu no és per a aquest idioma.
+d9720fb2 No s'ha pogut fer l'àudio de la veu: {0}
+5728da40 l'autor no l'indica
+ad561619 L'única veu àrab de Piper. Piper hi afegeix ell mateix les vocals abans de parlar.
+b3252c0d Veu desconeguda: {0}
+287e3948 No s'han trobat els fitxers d'aquesta veu.
+981282c5 Les veus en aquest ordinador necessiten Windows (Intel o AMD de 64 bits), un Mac o Linux.
+9efd4aef Ja s'està baixant una veu.
+51a539cf Aquesta veu no està baixada en aquest ordinador.
+d4b56c4f El programa de veu no s'ha pogut executar ({0}).
+db3b42e2 El programa de veu ha fallat: {0}
+899e00df No hi ha cap veu en {0:lower} baixada en aquest ordinador (Configuració → Veus de les targetes).
+e376cf70 Primer baixa la veu d'aquest idioma.
+d6071c46 Reels del que has desat a Instagram i reels a l'atzar, reels amb una cançó de la biblioteca musical d'Instagram, el navegador web integrat («Importa la pàgina»), la sincronització amb AnkiDroid i el número a la icona de l'app. El que afegeixis a l'app apareix aquí després d'una sincronització.

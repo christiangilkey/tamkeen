@@ -1,0 +1,111 @@
+2619fa36 Hindi naitago ang boses ng card na ito.
+332de0f3 Hindi tinanggap ng Azure ang key na ito sa region na “{0}”. Kopyahin ulit ang Key 1 at tingnan kung ang region ay ang nakalagay sa tabi nito (halimbawa westeurope).
+e217f040 Sabi ng Azure, sobrang dami ng request, o naubos na ang libreng allowance ngayong buwan. Subukan ulit mamaya, o tingnan ang paggamit mo sa Azure portal.
+51340aa5 Hindi tinanggap ng Azure ang request: baka wala sa region na ito ang napiling boses. Pumili ng ibang boses.
+53c3380d Sumagot ang Azure ng error ({0}). Subukan ulit maya-maya.
+35cf401b Hindi maabot ang Azure sa region na “{0}”. Tingnan ang koneksyon mo at kung paano nakasulat ang region (halimbawa westeurope, eastus).
+6dea6d8f Walang tunog na ibinalik ang Azure. Subukan ulit maya-maya.
+26364875 Walang salitang babasahin sa card na ito.
+bf7aa035 Hindi mabasa ang tunog mula sa Azure.
+052734c1 Walang babasahin sa card na ito.
+1afd82ba Walang boses na {0} ang teleponong ito. Para magdagdag: buksan ang Settings ng telepono → hanapin ang “Text-to-speech” → Preferred engine (Speech Services by Google) → Settings → Install voice data → {1}.
+38f321bb Walang boses na {0} ang iPhone na ito. Para magdagdag: Settings → Accessibility → Spoken Content → Voices → {1}.
+9747c1e8 Walang boses na {0} ang Mac na ito. Para magdagdag: System Settings → Accessibility → Spoken Content → System voice → Manage Voices → {1}.
+57b8b3ab Walang boses na {0} ang computer na ito. Para magdagdag: Windows Settings → Time & language → Speech → Add voices → {1}. Pagkatapos, buksan ulit ang Tamkeen.
+662c883b Walang boses na {0} ang browser na ito. May mga browser na mas maraming boses kaysa iba (marami sa Chrome at Edge), o magdagdag ng boses sa sariling settings ng device.
+c57d4482 Mga boses ng card
+9ae41195 Ang boses na nagbabasa nang malakas ng mga flashcard na walang recording.
+74e96124 Boses para sa mga card na walang audio
+8f69a349 Key at region ng Azure Speech
+2f3a219e Mga boses sa computer na ito
+5de162ff Mga boses ng Azure
+c1669e42 Kailangan ng Azure ng key
+592a4522 Mga boses na ginawa sa computer na ito
+5717197d Naghihintay sa computer mo ({0} card)
+4f0fe97e Mga boses na ginawa sa computer mo
+185b32a7 Boses ng device na ito
+ebc4da0c Libre. Ang computer mo ang gagawa; darating ang mga ito pag nag-sync.
+a69ebf95 Libre, offline. Ginagawa rito gamit ang na-download na boses at itinatago.
+11266a50 Sino ang nagbabasa ng mga card na walang audio
+ea750ccc Pinapatugtog ng mga card mula sa podcast o sa sarili mong audio ang sarili nilang recording. Ang mga card na tinype mo, o sine-save mula sa web page, libro, YouTube, Netflix o reel, ay binabasa ng boses na pipiliin mo rito: ang salita at ang pangungusap nito.
+82711d71 Libre. Binibigkas ng {0} habang nakikinig ka; walang itinatago.
+a6d92721 Azure (sarili mong key)
+3dd9501d Natural na mga boses, Arabic ayon sa bansa. Ginagawa nang isang beses bawat card at itinatago.
+1829e96f Azure Speech
+0f217179 Region
+dc8d9204 halimbawa westeurope
+c67dd20e Key
+c0547393 Idikit dito ang Key 1
+f083813f Kumuha ng Azure key ↗
+c615bc62 Boses para sa {0}
+05771f64 Makinig sa halimbawa
+0c7c1be1 Paano kumuha ng sarili mong libreng Azure key
+8107ef6d Gumawa ng libreng Microsoft Azure account sa <0>azure.microsoft.com/free</0>. Humihingi ang Azure ng numero ng telepono at bank card sa pag-sign up, para matiyak na tao ka; walang singil sa libreng tier.
+49d15d1f Sa Azure portal, gumawa ng <0>Speech</0> resource (<1>bubuksan ito ng link na ito</1>). Pumili ng kahit anong malapit na region at ng pricing tier na <2>Free F0</2>.
+3e97ae56 Buksan ang bagong resource → <0>Keys and Endpoint</0>. Kopyahin ang <1>Key 1</1> sa Key sa itaas, at ang <2>Location/Region</2> (halimbawa westeurope) sa Region.
+40b93dff Pindutin ang <0>Subukan ang key</0>.
+ed90bcad Magkano ito?
+3545863b May sariling Azure account at sariling allowance ang bawat user. Kasama sa libreng tier (F0) ang mga kalahating milyong character ng neural voices bawat buwan; tingnan ang page ng Azure para sa kasalukuyang dami at presyo: <0>Presyo ng Azure Speech ↗</0>. Karaniwang 20 hanggang 120 character ang salita at pangungusap ng isang card, at isang beses lang ginagawa ang boses ng bawat card, saka itinatago kasama ng card sa lahat ng device mo. Kapag naubos ang libreng allowance, tatanggi ang Azure hanggang sa susunod na buwan at gagamitin ng mga card ang boses ng device na ito.
+5f2b1a67 Laging pinapatugtog ng card na may kasamang recording ang recording na iyon. Para sa ibang card, binibigkas ng <0>Boses ng device na ito</0> ang salita at pangungusap kapag pinindot mo ang Salita o Pangungusap. Ang <1>Azure</1> at <2>{0}</2> ay gumagawa ng recording nito sa unang beses, itinatago ito kasama ng card at ipinapadala sa iba mong device sa Google Drive, kaya isang beses lang itong ginagawa. Kasama rin ito sa export para sa Anki. Habang wala pang recording ang card, binabasa ito ng boses ng device na ito.
+be6016cc Sa Azure, ang salita at pangungusap lang nito ang ipinapadala sa speech service ng Microsoft sa napili mong region, diretso mula sa {0}, gamit ang key mo; wala nang iba tungkol sa iyo o sa library mo. Nakatago ang key mo sa {1} at, kung gumagamit ka ng Google Drive sync, sa pribadong folder ng app sa sarili mong Google Drive, para nasa iba mo ring device. Hindi ito kailanman kasama sa data export. Walang ipinapadala kahit saan ang boses ng device at ang mga boses ng computer.
+e6b3d051 {0} naghihintay
+75f52718 Libre
+3f6cf33f Buksan ang settings ng text-to-speech
+e185048c Tingnan ulit
+4c2739cc May boses na {0} ang device na ito. Binabasa nito ang mga card na walang recording.
+e1c7fb3a May boses na {0} ang device na ito. Binabasa nito ang mga card na walang recording hanggang magawa ang sa kanila.
+0804d058 Binabasa ng boses ng device na ito ang mga card na walang recording.
+b2dd3a55 Binabasa ng boses ng device na ito ang mga card na walang recording hanggang magawa ang sa kanila.
+d9f8f583 Na-save. Ngayon ang region, gaya ng ipinapakita ng Azure sa tabi ng key.
+747715f4 Walang boses na {0} sa Azure
+03755a9f Walang boses na {0} ang Azure, kaya ginagamit ng mga card na ito ang boses ng device na ito.
+8d0d41ba · karaniwan
+91615915 Subukan ang key para makapili sa lahat ng boses ng Azure para sa wika.
+415c7c53 Nananatili ang boses ng mga card na nagawa na; ito ang gagamitin ng mga bago.
+60706579 Idikit muna ang key mo at ang region.
+d2f602e7 Hinihingi sa Azure ang mga boses nito…
+5cab77ed Idikit muna ang Key 1 at ang region.
+09a9c133 Mga boses na {1} sa region na ito: {0}.
+97985713 Walang boses na {0} ang Azure sa region na ito.
+d5007d1f ✓ Gumagana (sumagot ang Azure sa loob ng {0} s). {1} Walang nagagamit na character sa pagsubok.
+d24c44bd Gawin na ngayon
+8e4d2c67 Mga card na {1} na wala pang boses: {0} (mga {3} character). Ginagawa ang bawat isa sa unang beses na patugtugin, o lahat ngayon, handa para sa export sa Anki.
+f05831f2 Ginagawa ang mga boses: {0} sa {1}…
+b88dd56d Mga boses na nagawa at naitago: {0}.
+11b10cf7 {0} nagawa. {1}
+b036bcb1 Mga card: {0}
+c5cb3e55 Walang naghihintay
+ecac64cd Ginagawa ito ng computer mo kapag bukas doon ang Tamkeen at naka-download ang boses na {0} (Settings → Mga boses ng card sa computer). Darating ang mga ito rito pag nag-sync; hanggang doon, binabasa ito ng boses ng teleponong ito.
+d9199b9a Walang boses na {0} ang computer mo, kaya ginagamit ng mga card na ito ang boses ng teleponong ito. Para sa natural na boses na {1}, piliin ang Azure.
+4191f605 Hindi gumagana ang mga boses sa ganitong uri ng computer. Piliin ang Azure o ang boses ng device na ito.
+f2abc459 Hindi malayang magagamit ang tanging libreng boses na {0} para sa programang ito (lisensyado lang ang mga recording nito para sa hindi pangkomersyal na gamit), kaya hindi ito iniaalok ng Tamkeen.
+d905ce13 Wala pang libreng boses na {0} para sa computer na ito.
+a8ba7124 {0} Piliin ang Azure para sa natural na boses na {1}, o ang boses ng device na ito.
+d74a2319 + ang programa ng boses, {0} MB, isang beses
+20716e92 Ginagamit
+1d4d43cc Gamitin
+58fabfa7 Halimbawa
+b394bfc2 {0} · {1} MB{2}{3}
+7b33472e Tungkol sa mga boses na ito
+ba2564f4 Mga boses ito ng Piper (isang open-source na speech program na tumatakbo sa processor ng computer na ito, offline). May lisensyang nakalagay ang mga recording ng bawat boses. Marami ang sinanay mula sa English na boses ng Piper, na ang mga recording ay may lisensya para sa research; inilalathala ng Piper ang mga ito sa sarili nilang lisensya.
+d454ace4 Mag-download ng boses na {0}: saka bibigyan ng computer na ito ng sariling recording ang bawat card na {1} na walang audio, pati ang mga na-save sa telepono mo.
+94204dbd Mga card na {1} na gagawin pa: {0}. Ginagawa na ito ng computer na ito.
+81846240 May boses na ang bawat card na {0}. Makukuha ng mga bago ang sa kanila pagka-save, dito o sa telepono mo.
+2d8e8528 Nabigo ang download: {0}
+8e09b678 {0} Habang wala pa, ang boses ng device na ito ang ginagamit.
+a3ced5ce Hindi mabigkas ang card na ito sa device na ito.
+36e2543b Walang laman o sobrang laki ng audio na iyon.
+628e1e3b Hindi para sa wikang ito ang boses na iyon.
+d9720fb2 Hindi magawa ang audio ng boses: {0}
+5728da40 hindi sinabi ng gumawa
+ad561619 Ang tanging boses na Arabic ng Piper. Kusang naglalagay ang Piper ng mga patinig bago magsalita.
+b3252c0d Hindi kilalang boses: {0}
+287e3948 Hindi makita ang mga file ng boses na ito.
+981282c5 Kailangan ng mga boses sa computer na ito ng Windows (64-bit na Intel o AMD), Mac o Linux.
+9efd4aef May dina-download nang boses.
+51a539cf Hindi naka-download ang boses na ito sa computer na ito.
+d4b56c4f Hindi tumakbo ang programa ng boses ({0}).
+db3b42e2 Nabigo ang programa ng boses: {0}
+899e00df Walang naka-download na boses na {0} sa computer na ito (Settings → Mga boses ng card).
+e376cf70 I-download muna ang boses ng wikang ito.
+d6071c46 Reels mula sa mga na-save mo sa Instagram at random na reels, reels na may kanta mula sa music library ng Instagram, ang built-in na web browser (I-import ang Page), AnkiDroid sync, at ang numero sa icon ng app. Lalabas dito ang idinagdag mo sa app pagkatapos mag-sync.

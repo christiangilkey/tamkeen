@@ -1,0 +1,111 @@
+2619fa36 No se pudo guardar la voz de esta tarjeta.
+332de0f3 Azure no aceptó esta clave en la región “{0}”. Copia de nuevo la Key 1 y comprueba que la región es la que aparece junto a ella (por ejemplo westeurope).
+e217f040 Azure dice que hay demasiadas solicitudes, o que la cuota gratuita de este mes se ha agotado. Inténtalo más tarde o revisa tu uso en el portal de Azure.
+51340aa5 Azure no aceptó la solicitud: puede que la voz elegida no exista en esta región. Elige otra voz.
+53c3380d Azure respondió con un error ({0}). Inténtalo de nuevo en un momento.
+35cf401b No se pudo contactar con Azure en la región “{0}”. Comprueba tu conexión y cómo está escrita la región (por ejemplo westeurope, eastus).
+6dea6d8f Azure no devolvió ningún sonido. Inténtalo de nuevo en un momento.
+26364875 Esta tarjeta no tiene ninguna palabra que decir.
+bf7aa035 No se pudo leer el sonido de Azure.
+052734c1 Esta tarjeta no tiene nada que decir.
+1afd82ba Este teléfono no tiene una voz en {0:lower}. Para añadir una: abre los Ajustes del teléfono → busca “Texto a voz” → Motor preferido (Servicios de voz de Google) → Ajustes → Instalar datos de voz → {1}.
+38f321bb Este iPhone no tiene una voz en {0:lower}. Para añadir una: Ajustes → Accesibilidad → Contenido leído → Voces → {1}.
+9747c1e8 Este Mac no tiene una voz en {0:lower}. Para añadir una: Ajustes del Sistema → Accesibilidad → Contenido leído → Voz del sistema → Gestionar voces → {1}.
+57b8b3ab Este ordenador no tiene una voz en {0:lower}. Para añadir una: Configuración de Windows → Hora e idioma → Voz → Agregar voces → {1}. Después reinicia Tamkeen.
+662c883b Este navegador no tiene una voz en {0:lower}. Algunos navegadores tienen más voces que otros (Chrome y Edge tienen muchas), o añade una voz al dispositivo en sus propios ajustes.
+c57d4482 Voces de las tarjetas
+9ae41195 La voz que lee en voz alta las tarjetas que no tienen grabación.
+74e96124 Voz para tarjetas sin audio
+8f69a349 Clave y región de Azure Speech
+2f3a219e Voces en este ordenador
+5de162ff Voces de Azure
+c1669e42 Azure necesita una clave
+592a4522 Voces hechas en este ordenador
+5717197d Esperando a tu ordenador ({0} tarjetas)
+4f0fe97e Voces hechas en tu ordenador
+185b32a7 La voz de este dispositivo
+ebc4da0c Gratis. Tu ordenador las hace; llegan cuando se sincroniza.
+a69ebf95 Gratis, sin conexión. Se hacen aquí con una voz descargada y se guardan.
+11266a50 Quién lee las tarjetas sin audio
+ea750ccc Las tarjetas de un pódcast o de tu propio audio reproducen su propia grabación. Las tarjetas escritas a mano, o guardadas de una página web, un libro, YouTube, Netflix o un reel, las lee la voz que elijas aquí: la palabra y su frase.
+82711d71 Gratis. La pronuncia {0} mientras escuchas; no se guarda nada.
+a6d92721 Azure (tu propia clave)
+3dd9501d Voces naturales, árabe por país. Se hacen una vez por tarjeta y se guardan.
+1829e96f Azure Speech
+0f217179 Región
+dc8d9204 por ejemplo westeurope
+c67dd20e Clave
+c0547393 Pega aquí la Key 1
+f083813f Consigue una clave de Azure ↗
+c615bc62 Voz para {0:lower}
+05771f64 Escuchar un ejemplo
+0c7c1be1 Cómo conseguir tu propia clave gratuita de Azure
+8107ef6d Crea una cuenta gratuita de Microsoft Azure en <0>azure.microsoft.com/free</0>. Azure pide un número de teléfono y una tarjeta bancaria al registrarte, para comprobar que eres una persona; el nivel gratuito no se cobra.
+49d15d1f En el portal de Azure, crea un recurso <0>Speech</0> (<1>este enlace lo abre</1>). Elige cualquier región cercana y el plan de precios <2>Free F0</2>.
+3e97ae56 Abre el nuevo recurso → <0>Keys and Endpoint</0>. Copia la <1>Key 1</1> en Clave, arriba, y la <2>Location/Region</2> (por ejemplo westeurope) en Región.
+40b93dff Pulsa <0>Probar la clave</0>.
+ed90bcad ¿Cuánto cuesta?
+3545863b Cada usuario tiene su propia cuenta de Azure y su propia cuota. El nivel gratuito (F0) incluye unos quinientos mil caracteres de voces neuronales al mes; consulta la página de Azure para ver la cantidad y los precios actuales: <0>Precios de Azure Speech ↗</0>. La palabra y la frase de una tarjeta suelen ocupar de 20 a 120 caracteres, y la voz de cada tarjeta se hace una sola vez y luego se guarda con la tarjeta en todos tus dispositivos. Si se agota la cuota gratuita, Azure se niega hasta el mes siguiente y las tarjetas usan la voz de este dispositivo.
+5f2b1a67 Una tarjeta que vino con grabación siempre la reproduce. Para cualquier otra tarjeta, <0>La voz de este dispositivo</0> dice la palabra y la frase cuando pulsas Palabra o Frase. <1>Azure</1> y <2>{0}</2> hacen una grabación la primera vez, la guardan con la tarjeta y la envían a tus otros dispositivos a través de Google Drive, así que se hace una sola vez. También va en la exportación a Anki. Hasta que exista la grabación de una tarjeta, la lee la voz de este dispositivo.
+be6016cc Con Azure, solo la palabra y su frase van al servicio de voz de Microsoft en la región que elegiste, directamente desde {0}, con tu clave; nada más sobre ti ni sobre tu biblioteca. Tu clave se guarda en {1:lower} y, si usas la sincronización con Google Drive, en la carpeta privada de la app en tu propio Google Drive, para que tus otros dispositivos también la tengan. Nunca forma parte de una exportación de datos. La voz del dispositivo y las voces del ordenador no envían nada a ningún sitio.
+e6b3d051 {0} en espera
+75f52718 Gratis
+3f6cf33f Abrir los ajustes de texto a voz
+e185048c Comprobar de nuevo
+4c2739cc Este dispositivo tiene una voz en {0:lower}. Lee las tarjetas que no tienen grabación.
+e1c7fb3a Este dispositivo tiene una voz en {0:lower}. Lee las tarjetas que no tienen grabación hasta que se haga la suya.
+0804d058 La voz de este dispositivo lee las tarjetas que no tienen grabación.
+b2dd3a55 La voz de este dispositivo lee las tarjetas que no tienen grabación hasta que se haga la suya.
+d9f8f583 Guardada. Ahora la región, tal como la muestra Azure junto a la clave.
+747715f4 No hay voz en {0:lower} en Azure
+03755a9f Azure no tiene voz en {0:lower}, así que estas tarjetas usan la voz de este dispositivo.
+8d0d41ba · habitual
+91615915 Prueba la clave para elegir entre todas las voces de Azure para el idioma.
+415c7c53 Las tarjetas ya hechas conservan su voz; las nuevas usan esta.
+60706579 Primero pega tu clave y la región.
+d2f602e7 Pidiendo a Azure sus voces…
+5cab77ed Primero pega la Key 1 y la región.
+09a9c133 {0} voces en {1:lower} en esta región.
+97985713 Azure no tiene voz en {0:lower} en esta región.
+d5007d1f ✓ Funciona (Azure respondió en {0:lower} s). {1} Probarla no gasta ninguno de tus caracteres.
+d24c44bd Hacerlas ahora
+8e4d2c67 Tarjetas en {1:lower} sin voz todavía: {0} (unos {3} caracteres). Cada una se hace la primera vez que se reproduce, o todas ahora, listas para una exportación a Anki.
+f05831f2 Haciendo voces: {0} de {1}…
+b88dd56d Voces hechas y guardadas: {0}.
+11b10cf7 {0} hechas. {1}
+b036bcb1 Tarjetas: {0}
+c5cb3e55 Nada en espera
+ecac64cd Tu ordenador las hace cuando Tamkeen está abierto allí, con la voz en {0:lower} descargada (Ajustes → Voces de las tarjetas en el ordenador). Llegan aquí cuando se sincroniza; mientras tanto las lee la voz de este teléfono.
+d9199b9a Tu ordenador no tiene voz en {0:lower}, así que estas tarjetas usan la voz de este teléfono. Para voces naturales en {1:lower}, elige Azure.
+4191f605 Las voces no pueden funcionar en este tipo de ordenador. Elige Azure o la voz de este dispositivo.
+f2abc459 Las únicas voces gratuitas en {0:lower} para este programa no se pueden usar libremente (sus grabaciones tienen licencia solo para uso no comercial), así que Tamkeen no las ofrece.
+d905ce13 Todavía no hay ninguna voz gratuita en {0:lower} para este ordenador.
+a8ba7124 {0} Elige Azure para voces naturales en {1:lower}, o la voz de este dispositivo.
+d74a2319 + el programa de voz, {0} MB, una sola vez
+20716e92 En uso
+1d4d43cc Usar
+58fabfa7 Ejemplo
+b394bfc2 {0} · {1} MB{2}{3}
+7b33472e Sobre estas voces
+ba2564f4 Son voces de Piper (un programa de voz de código abierto que funciona en el procesador de este ordenador, sin conexión). Las grabaciones de cada voz llevan la licencia indicada. Muchas se entrenaron a partir de la voz inglesa de Piper, cuyas grabaciones tenían licencia para investigación; Piper las publica con sus propias licencias.
+d454ace4 Descarga una voz en {0:lower}: así este ordenador da a cada tarjeta en {1:lower} sin audio su propia grabación, también a las guardadas en tu teléfono.
+94204dbd Tarjetas en {1:lower} por hacer: {0}. Este ordenador las está haciendo ahora.
+81846240 Cada tarjeta en {0:lower} tiene su voz. Las nuevas reciben la suya al guardarse, aquí o en tu teléfono.
+2d8e8528 La descarga falló: {0}
+8e09b678 {0} Mientras tanto se usa la voz de este dispositivo.
+a3ced5ce Esta tarjeta no se puede decir en este dispositivo.
+36e2543b Ese audio está vacío o es demasiado grande.
+628e1e3b Esa voz no es para este idioma.
+d9720fb2 No se pudo hacer el audio de la voz: {0}
+5728da40 su autor no lo indica
+ad561619 La única voz árabe de Piper. Piper añade él mismo las vocales antes de hablar.
+b3252c0d Voz desconocida: {0}
+287e3948 No se encontraron los archivos de esta voz.
+981282c5 Las voces en este ordenador necesitan Windows (Intel o AMD de 64 bits), un Mac o Linux.
+9efd4aef Ya se está descargando una voz.
+51a539cf Esta voz no está descargada en este ordenador.
+d4b56c4f El programa de voz no pudo ejecutarse ({0}).
+db3b42e2 El programa de voz falló: {0}
+899e00df No hay ninguna voz en {0:lower} descargada en este ordenador (Ajustes → Voces de las tarjetas).
+e376cf70 Primero descarga la voz de este idioma.
+d6071c46 Reels de lo que guardaste en Instagram y reels al azar, reels con una canción de la biblioteca musical de Instagram, el navegador web integrado (Importar página), la sincronización con AnkiDroid y el número en el icono de la app. Lo que añadas en la app aparece aquí tras una sincronización.

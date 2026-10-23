@@ -6,6 +6,7 @@ every platform, so there is no separate binary to bundle or find on PATH.
 
 from __future__ import annotations
 
+import io
 import logging
 from pathlib import Path
 
@@ -129,6 +130,36 @@ def encode_speech_copy(src: Path, dst: Path, bitrate: int = 32_000) -> Path:
         raise AudioError(f"Could not create the compressed audio copy: {exc}") from exc
     os.replace(tmp, dst)
     return dst
+
+
+def encode_pcm_opus(pcm: np.ndarray, rate: int, bitrate: int = 32_000) -> bytes:
+    """Mono 16-bit samples at `rate` as a small Ogg Opus file (a card's voice, app/voices.py)."""
+    import av
+
+    buf = io.BytesIO()
+    try:
+        with av.open(buf, "w", format="ogg") as out:
+            ost = out.add_stream("libopus", rate=48000, layout="mono")
+            ost.bit_rate = bitrate
+            resampler = av.AudioResampler(format="s16", layout="mono", rate=48000)
+            samples = np.ascontiguousarray(pcm.astype(np.int16)).reshape(1, -1)
+            step = rate  # a second at a time
+            for at in range(0, samples.shape[1], step):
+                frame = av.AudioFrame.from_ndarray(samples[:, at:at + step], format="s16", layout="mono")
+                frame.sample_rate = rate
+                for f in resampler.resample(frame):
+                    f.pts = None
+                    for pkt in ost.encode(f):
+                        out.mux(pkt)
+            for f in resampler.resample(None):
+                f.pts = None
+                for pkt in ost.encode(f):
+                    out.mux(pkt)
+            for pkt in ost.encode(None):
+                out.mux(pkt)
+    except Exception as exc:
+        raise AudioError(f"Could not make the voice's audio: {exc}") from exc
+    return buf.getvalue()
 
 
 # How a clip can be stored: container, encoder, sample rate and sample layout the encoder takes.

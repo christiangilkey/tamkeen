@@ -16,6 +16,7 @@ export const SECTIONS = [
   { id: "languages", icon: "page", title: "Languages", about: "The language you speak and the one you're learning." },
   { id: "words", icon: "message", title: "Word definitions", about: "What you see when you tap a word." },
   { id: "listening", icon: "audio", title: "Listening & transcripts", about: "Who writes down what is said in podcasts, videos and reels." },
+  { id: "voices", icon: "sound", title: "Card voices", about: "The voice that reads out flashcards without a recording." },
   { id: "look", icon: "sun", title: "Look & feel", about: "Theme, text size and the game." },
   { id: "account", icon: "cloud", title: "Account & sync", about: "Google Drive sync, and Friends." },
   { id: "apps", icon: "link", title: "Apps & connections", about: "Other apps Tamkeen works with." },
@@ -52,6 +53,9 @@ export const FINDS = [
   { s: "listening", id: "whisper", label: "Transcription model", words: "whisper small medium large download", on: ["desktop"] },
   { s: "listening", id: "gpu", label: "GPU acceleration", words: "nvidia cuda graphics faster", on: ["desktop"] },
   { s: "listening", id: "storage", label: "Audio storage", words: "delete stream disk space downloaded", on: ["desktop"] },
+  { s: "voices", id: "cardvoice", label: "Voice for cards without audio", words: "tts speech read aloud pronunciation flashcards device" },
+  { s: "voices", id: "azurekey", label: "Azure Speech key and region", words: "microsoft azure neural voices dialect egyptian key test" },
+  { s: "voices", id: "localvoice", label: "Voices on this computer", words: "piper offline download model computer queue" },
   { s: "look", id: "theme", label: "Theme", words: "dark light night colours", on: ["desktop", "android", "ios"] }, // (the web app is always dark)
   { s: "look", id: "textsize", label: "Text size", words: "font bigger smaller larger" },
   { s: "look", id: "haptics", label: "Vibration", words: "haptics buzz vibrate", on: ["vibrates"] }, // (no iPhone or computer can)

@@ -1,0 +1,111 @@
+2619fa36 Impossibile salvare la voce di questa scheda.
+332de0f3 Azure non ha accettato questa chiave nella regione “{0}”. Copia di nuovo la Key 1 e controlla che la regione sia quella indicata accanto (per esempio westeurope).
+e217f040 Azure segnala troppe richieste, oppure la quota gratuita di questo mese è esaurita. Riprova più tardi o controlla il tuo utilizzo nel portale di Azure.
+51340aa5 Azure non ha accettato la richiesta: la voce scelta potrebbe non esistere in questa regione. Scegli un'altra voce.
+53c3380d Azure ha risposto con un errore ({0}). Riprova tra un momento.
+35cf401b Impossibile raggiungere Azure nella regione “{0}”. Controlla la connessione e come è scritta la regione (per esempio westeurope, eastus).
+6dea6d8f Azure non ha restituito alcun suono. Riprova tra un momento.
+26364875 Questa scheda non ha nessuna parola da dire.
+bf7aa035 Impossibile leggere il suono di Azure.
+052734c1 Questa scheda non ha niente da dire.
+1afd82ba Questo telefono non ha una voce in {0:lower}. Per aggiungerne una: apri le Impostazioni del telefono → cerca “Sintesi vocale” → Motore preferito (Servizi di sintesi vocale di Google) → Impostazioni → Installa dati vocali → {1}.
+38f321bb Questo iPhone non ha una voce in {0:lower}. Per aggiungerne una: Impostazioni → Accessibilità → Contenuto letto ad alta voce → Voci → {1}.
+9747c1e8 Questo Mac non ha una voce in {0:lower}. Per aggiungerne una: Impostazioni di Sistema → Accessibilità → Contenuto letto ad alta voce → Voce di sistema → Gestisci voci → {1}.
+57b8b3ab Questo computer non ha una voce in {0:lower}. Per aggiungerne una: Impostazioni di Windows → Data/ora e lingua → Voce → Aggiungi voci → {1}. Poi riavvia Tamkeen.
+662c883b Questo browser non ha una voce in {0:lower}. Alcuni browser hanno più voci di altri (Chrome ed Edge ne hanno molte), oppure aggiungi una voce al dispositivo nelle sue impostazioni.
+c57d4482 Voci delle schede
+9ae41195 La voce che legge le schede senza registrazione.
+74e96124 Voce per le schede senza audio
+8f69a349 Chiave e regione di Azure Speech
+2f3a219e Voci su questo computer
+5de162ff Voci di Azure
+c1669e42 Azure ha bisogno di una chiave
+592a4522 Voci create su questo computer
+5717197d In attesa del tuo computer ({0} schede)
+4f0fe97e Voci create sul tuo computer
+185b32a7 La voce di questo dispositivo
+ebc4da0c Gratis. Le crea il tuo computer; arrivano con la sincronizzazione.
+a69ebf95 Gratis, offline. Create qui con una voce scaricata e conservate.
+11266a50 Chi legge le schede senza audio
+ea750ccc Le schede di un podcast o del tuo audio riproducono la loro registrazione. Le schede scritte a mano, o salvate da una pagina web, un libro, YouTube, Netflix o un reel, vengono lette dalla voce che scegli qui: la parola e la sua frase.
+82711d71 Gratis. Pronunciata da {0} mentre ascolti; non si conserva nulla.
+a6d92721 Azure (la tua chiave)
+3dd9501d Voci naturali, l'arabo per paese. Create una volta per scheda e conservate.
+1829e96f Azure Speech
+0f217179 Regione
+dc8d9204 per esempio westeurope
+c67dd20e Chiave
+c0547393 Incolla qui la Key 1
+f083813f Ottieni una chiave Azure ↗
+c615bc62 Voce per {0:lower}
+05771f64 Ascolta un esempio
+0c7c1be1 Come ottenere la tua chiave Azure gratuita
+8107ef6d Crea un account Microsoft Azure gratuito su <0>azure.microsoft.com/free</0>. Azure chiede un numero di telefono e una carta bancaria all'iscrizione, per verificare che tu sia una persona; il livello gratuito non viene addebitato.
+49d15d1f Nel portale di Azure, crea una risorsa <0>Speech</0> (<1>questo link la apre</1>). Scegli una regione vicina e il piano tariffario <2>Free F0</2>.
+3e97ae56 Apri la nuova risorsa → <0>Keys and Endpoint</0>. Copia la <1>Key 1</1> in Chiave, qui sopra, e la <2>Location/Region</2> (per esempio westeurope) in Regione.
+40b93dff Premi <0>Prova la chiave</0>.
+ed90bcad Quanto costa?
+3545863b Ogni utente ha il proprio account Azure e la propria quota. Il livello gratuito (F0) include circa mezzo milione di caratteri di voci neurali al mese; controlla la pagina di Azure per quantità e prezzi attuali: <0>Prezzi di Azure Speech ↗</0>. La parola e la frase di una scheda sono di solito da 20 a 120 caratteri, e la voce di ogni scheda si crea una sola volta e poi resta con la scheda su tutti i tuoi dispositivi. Se la quota gratuita finisce, Azure rifiuta fino al mese successivo e le schede usano la voce di questo dispositivo.
+5f2b1a67 Una scheda arrivata con una registrazione la riproduce sempre. Per qualsiasi altra scheda, <0>La voce di questo dispositivo</0> dice la parola e la frase quando premi Parola o Frase. <1>Azure</1> e <2>{0}</2> ne creano una registrazione la prima volta, la conservano con la scheda e la inviano agli altri tuoi dispositivi tramite Google Drive, così si crea una volta sola. Va anche nell'esportazione per Anki. Finché la registrazione di una scheda non esiste, la legge la voce di questo dispositivo.
+be6016cc Con Azure, solo la parola e la sua frase vanno al servizio vocale di Microsoft nella regione scelta, direttamente da {0}, con la tua chiave; nient'altro su di te o sulla tua libreria. La tua chiave è conservata su {1} e, se usi la sincronizzazione con Google Drive, nella cartella privata dell'app nel tuo Google Drive, così ce l'hanno anche gli altri tuoi dispositivi. Non fa mai parte di un'esportazione dei dati. La voce del dispositivo e le voci del computer non inviano nulla da nessuna parte.
+e6b3d051 {0} in attesa
+75f52718 Gratis
+3f6cf33f Apri le impostazioni della sintesi vocale
+e185048c Controlla di nuovo
+4c2739cc Questo dispositivo ha una voce in {0:lower}. Legge le schede senza registrazione.
+e1c7fb3a Questo dispositivo ha una voce in {0:lower}. Legge le schede senza registrazione finché non viene creata la loro.
+0804d058 La voce di questo dispositivo legge le schede senza registrazione.
+b2dd3a55 La voce di questo dispositivo legge le schede senza registrazione finché non viene creata la loro.
+d9f8f583 Salvata. Ora la regione, come la mostra Azure accanto alla chiave.
+747715f4 Nessuna voce in {0:lower} su Azure
+03755a9f Azure non ha voci in {0:lower}, quindi queste schede usano la voce di questo dispositivo.
+8d0d41ba · abituale
+91615915 Prova la chiave per scegliere tra tutte le voci di Azure per la lingua.
+415c7c53 Le schede già create mantengono la loro voce; quelle nuove usano questa.
+60706579 Prima incolla la chiave e la regione.
+d2f602e7 Richiesta delle voci ad Azure…
+5cab77ed Prima incolla la Key 1 e la regione.
+09a9c133 {0} voci in {1:lower} in questa regione.
+97985713 Azure non ha voci in {0:lower} in questa regione.
+d5007d1f ✓ Funziona (Azure ha risposto in {0} s). {1} La prova non usa nessuno dei tuoi caratteri.
+d24c44bd Creale adesso
+8e4d2c67 Schede in {1:lower} ancora senza voce: {0} (circa {3} caratteri). Ognuna si crea la prima volta che viene riprodotta, oppure tutte adesso, pronte per un'esportazione per Anki.
+f05831f2 Creazione delle voci: {0} di {1}…
+b88dd56d Voci create e conservate: {0}.
+11b10cf7 {0} create. {1}
+b036bcb1 Schede: {0}
+c5cb3e55 Niente in attesa
+ecac64cd Il tuo computer le crea quando Tamkeen è aperto lì, con la voce in {0:lower} scaricata (Impostazioni → Voci delle schede sul computer). Arrivano qui con la sincronizzazione; fino ad allora le legge la voce di questo telefono.
+d9199b9a Il tuo computer non ha voci in {0:lower}, quindi queste schede usano la voce di questo telefono. Per voci naturali in {1:lower} scegli Azure.
+4191f605 Le voci non possono funzionare su questo tipo di computer. Scegli Azure o la voce di questo dispositivo.
+f2abc459 Le uniche voci gratuite in {0:lower} per questo programma non si possono usare liberamente (le loro registrazioni hanno una licenza solo per uso non commerciale), quindi Tamkeen non le offre.
+d905ce13 Non c'è ancora una voce gratuita in {0:lower} per questo computer.
+a8ba7124 {0} Scegli Azure per voci naturali in {1:lower}, oppure la voce di questo dispositivo.
+d74a2319 + il programma vocale, {0} MB, una sola volta
+20716e92 In uso
+1d4d43cc Usa
+58fabfa7 Esempio
+b394bfc2 {0} · {1} MB{2}{3}
+7b33472e Su queste voci
+ba2564f4 Sono voci Piper (un programma vocale open source che gira sul processore di questo computer, offline). Le registrazioni di ogni voce hanno la licenza indicata. Molte sono state addestrate a partire dalla voce inglese di Piper, le cui registrazioni avevano una licenza per la ricerca; Piper le pubblica con le loro licenze.
+d454ace4 Scarica una voce in {0:lower}: così questo computer dà a ogni scheda in {1:lower} senza audio la sua registrazione, anche a quelle salvate sul telefono.
+94204dbd Schede in {1:lower} da creare: {0}. Questo computer le sta creando adesso.
+81846240 Ogni scheda in {0:lower} ha la sua voce. Quelle nuove ricevono la loro appena salvate, qui o sul telefono.
+2d8e8528 Il download non è riuscito: {0}
+8e09b678 {0} Nel frattempo si usa la voce di questo dispositivo.
+a3ced5ce Questa scheda non può essere detta su questo dispositivo.
+36e2543b Quell'audio è vuoto o troppo grande.
+628e1e3b Quella voce non è per questa lingua.
+d9720fb2 Impossibile creare l'audio della voce: {0}
+5728da40 non indicata dal suo autore
+ad561619 L'unica voce araba di Piper. Piper aggiunge da sé le vocali prima di parlare.
+b3252c0d Voce sconosciuta: {0}
+287e3948 I file di questa voce non sono stati trovati.
+981282c5 Le voci su questo computer richiedono Windows (Intel o AMD a 64 bit), un Mac o Linux.
+9efd4aef È già in download una voce.
+51a539cf Questa voce non è scaricata su questo computer.
+d4b56c4f Il programma vocale non è riuscito ad avviarsi ({0}).
+db3b42e2 Il programma vocale non è riuscito: {0}
+899e00df Nessuna voce in {0:lower} è scaricata su questo computer (Impostazioni → Voci delle schede).
+e376cf70 Prima scarica la voce di questa lingua.
+d6071c46 I reel dai tuoi salvati su Instagram e i reel casuali, i reel con una canzone della libreria musicale di Instagram, il browser web integrato (Importa pagina), la sincronizzazione con AnkiDroid e il numero sull'icona dell'app. Ciò che aggiungi nell'app compare qui dopo una sincronizzazione.

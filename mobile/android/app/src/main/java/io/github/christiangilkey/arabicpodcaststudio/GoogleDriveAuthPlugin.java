@@ -170,12 +170,6 @@ public class GoogleDriveAuthPlugin extends Plugin {
                         notifyListeners("browserSite", event);
                         return;
                     }
-                    if (id.startsWith("tamkeen-video://find")) {
-                        // "Find in a video": the videos Filmot's results page listed, top first.
-                        event.put("url", id);
-                        notifyListeners("youtubeFind", event);
-                        return;
-                    }
                     if (id.startsWith("tamkeen-video:")) {
                         // The Follow button on a channel's page: JavaScript adds it to the followed channels.
                         event.put("url", id);
@@ -183,7 +177,7 @@ public class GoogleDriveAuthPlugin extends Plugin {
                         return;
                     }
                     // A YouTube video was tapped: JavaScript adds it and opens the app's player.
-                    // "<id>@<seconds>" when a moment in it came along (a caption search result).
+                    // "<id>@<seconds>" when a moment in it came along (the "t" of its link).
                     int cut = id.indexOf('@');
                     if (cut > 0) {
                         event.put("at", Integer.parseInt(id.substring(cut + 1)));

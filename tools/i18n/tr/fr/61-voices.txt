@@ -1,0 +1,111 @@
+2619fa36 Impossible de garder la voix de cette carte.
+332de0f3 Azure n'a pas accepté cette clé dans la région « {0} ». Copiez à nouveau la Key 1 et vérifiez que la région est celle affichée à côté (par exemple westeurope).
+e217f040 Azure signale trop de requêtes, ou le quota gratuit de ce mois est épuisé. Réessayez plus tard ou vérifiez votre utilisation dans le portail Azure.
+51340aa5 Azure n'a pas accepté la requête : la voix choisie n'existe peut-être pas dans cette région. Choisissez une autre voix.
+53c3380d Azure a répondu par une erreur ({0}). Réessayez dans un instant.
+35cf401b Impossible de joindre Azure dans la région « {0} ». Vérifiez votre connexion et l'orthographe de la région (par exemple westeurope, eastus).
+6dea6d8f Azure n'a renvoyé aucun son. Réessayez dans un instant.
+26364875 Cette carte n'a aucun mot à dire.
+bf7aa035 Le son d'Azure n'a pas pu être lu.
+052734c1 Cette carte n'a rien à dire.
+1afd82ba Ce téléphone n'a pas de voix en {0:lower}. Pour en ajouter une : ouvrez les Paramètres du téléphone → cherchez « Synthèse vocale » → Moteur préféré (Services vocaux Google) → Paramètres → Installer les données vocales → {1}.
+38f321bb Cet iPhone n'a pas de voix en {0:lower}. Pour en ajouter une : Réglages → Accessibilité → Contenu énoncé → Voix → {1}.
+9747c1e8 Ce Mac n'a pas de voix en {0:lower}. Pour en ajouter une : Réglages Système → Accessibilité → Contenu énoncé → Voix du système → Gérer les voix → {1}.
+57b8b3ab Cet ordinateur n'a pas de voix en {0:lower}. Pour en ajouter une : Paramètres Windows → Heure et langue → Voix → Ajouter des voix → {1}. Puis redémarrez Tamkeen.
+662c883b Ce navigateur n'a pas de voix en {0:lower}. Certains navigateurs ont plus de voix que d'autres (Chrome et Edge en ont beaucoup), ou ajoutez une voix à l'appareil dans ses propres réglages.
+c57d4482 Voix des cartes
+9ae41195 La voix qui lit les cartes qui n'ont pas d'enregistrement.
+74e96124 Voix pour les cartes sans audio
+8f69a349 Clé et région Azure Speech
+2f3a219e Voix sur cet ordinateur
+5de162ff Voix Azure
+c1669e42 Azure a besoin d'une clé
+592a4522 Voix créées sur cet ordinateur
+5717197d En attente de votre ordinateur ({0} cartes)
+4f0fe97e Voix créées sur votre ordinateur
+185b32a7 La voix de cet appareil
+ebc4da0c Gratuit. Votre ordinateur les crée ; elles arrivent à la synchronisation.
+a69ebf95 Gratuit, hors ligne. Créées ici avec une voix téléchargée, puis gardées.
+11266a50 Qui lit les cartes sans audio
+ea750ccc Les cartes d'un podcast ou de votre propre audio jouent leur propre enregistrement. Les cartes tapées à la main, ou enregistrées depuis une page web, un livre, YouTube, Netflix ou un reel, sont lues par la voix choisie ici : le mot et sa phrase.
+82711d71 Gratuit. Prononcé par {0} pendant que vous écoutez ; rien n'est gardé.
+a6d92721 Azure (votre propre clé)
+3dd9501d Voix naturelles, l'arabe par pays. Créées une fois par carte, puis gardées.
+1829e96f Azure Speech
+0f217179 Région
+dc8d9204 par exemple westeurope
+c67dd20e Clé
+c0547393 Collez la Key 1 ici
+f083813f Obtenir une clé Azure ↗
+c615bc62 Voix pour {0:lower}
+05771f64 Écouter un exemple
+0c7c1be1 Comment obtenir votre propre clé Azure gratuite
+8107ef6d Créez un compte Microsoft Azure gratuit sur <0>azure.microsoft.com/free</0>. Azure demande un numéro de téléphone et une carte bancaire à l'inscription, pour vérifier que vous êtes une personne ; l'offre gratuite n'est pas facturée.
+49d15d1f Dans le portail Azure, créez une ressource <0>Speech</0> (<1>ce lien l'ouvre</1>). Choisissez une région proche et le niveau tarifaire <2>Free F0</2>.
+3e97ae56 Ouvrez la nouvelle ressource → <0>Keys and Endpoint</0>. Copiez la <1>Key 1</1> dans Clé, ci-dessus, et la <2>Location/Region</2> (par exemple westeurope) dans Région.
+40b93dff Appuyez sur <0>Tester la clé</0>.
+ed90bcad Combien ça coûte ?
+3545863b Chaque utilisateur a son propre compte Azure et son propre quota. L'offre gratuite (F0) comprend environ un demi-million de caractères de voix neuronales par mois ; consultez la page d'Azure pour la quantité et les prix actuels : <0>Tarifs d'Azure Speech ↗</0>. Le mot et la phrase d'une carte font en général 20 à 120 caractères, et la voix de chaque carte n'est créée qu'une fois, puis gardée avec la carte sur tous vos appareils. Si le quota gratuit est épuisé, Azure refuse jusqu'au mois suivant et les cartes utilisent la voix de cet appareil.
+5f2b1a67 Une carte venue avec un enregistrement le joue toujours. Pour toute autre carte, <0>La voix de cet appareil</0> dit le mot et la phrase quand vous appuyez sur Mot ou Phrase. <1>Azure</1> et <2>{0}</2> en font un enregistrement la première fois, le gardent avec la carte et l'envoient à vos autres appareils par Google Drive, pour qu'il ne soit créé qu'une fois. Il part aussi dans un export Anki. Tant que l'enregistrement d'une carte n'existe pas, la voix de cet appareil la lit.
+be6016cc Avec Azure, seuls le mot et sa phrase vont au service vocal de Microsoft dans la région choisie, directement depuis {0}, avec votre clé ; rien d'autre sur vous ou votre bibliothèque. Votre clé est gardée sur {1} et, si vous utilisez la synchronisation Google Drive, dans le dossier privé de l'appli dans votre propre Google Drive, pour que vos autres appareils l'aient aussi. Elle ne fait jamais partie d'un export de données. La voix de l'appareil et les voix de l'ordinateur n'envoient rien nulle part.
+e6b3d051 {0} en attente
+75f52718 Gratuit
+3f6cf33f Ouvrir les réglages de synthèse vocale
+e185048c Vérifier à nouveau
+4c2739cc Cet appareil a une voix en {0:lower}. Elle lit les cartes qui n'ont pas d'enregistrement.
+e1c7fb3a Cet appareil a une voix en {0:lower}. Elle lit les cartes qui n'ont pas d'enregistrement en attendant le leur.
+0804d058 La voix de cet appareil lit les cartes qui n'ont pas d'enregistrement.
+b2dd3a55 La voix de cet appareil lit les cartes qui n'ont pas d'enregistrement en attendant le leur.
+d9f8f583 Enregistrée. Maintenant la région, telle qu'Azure l'affiche à côté de la clé.
+747715f4 Aucune voix en {0:lower} sur Azure
+03755a9f Azure n'a pas de voix en {0:lower} : ces cartes utilisent donc la voix de cet appareil.
+8d0d41ba · habituelle
+91615915 Testez la clé pour choisir parmi toutes les voix Azure de la langue.
+415c7c53 Les cartes déjà faites gardent leur voix ; les nouvelles utilisent celle-ci.
+60706579 Collez d'abord votre clé et la région.
+d2f602e7 Demande de ses voix à Azure…
+5cab77ed Collez d'abord la Key 1 et la région.
+09a9c133 {0} voix en {1:lower} dans cette région.
+97985713 Azure n'a pas de voix en {0:lower} dans cette région.
+d5007d1f ✓ Ça marche (Azure a répondu en {0:lower} s). {1} Le test n'utilise aucun de vos caractères.
+d24c44bd Les créer maintenant
+8e4d2c67 Cartes en {1:lower} encore sans voix : {0} (environ {3} caractères). Chacune est créée la première fois qu'elle est jouée, ou toutes maintenant, prêtes pour un export Anki.
+f05831f2 Création des voix : {0} sur {1}…
+b88dd56d Voix créées et gardées : {0}.
+11b10cf7 {0} créées. {1}
+b036bcb1 Cartes : {0}
+c5cb3e55 Rien en attente
+ecac64cd Votre ordinateur les crée quand Tamkeen y est ouvert, avec la voix en {0:lower} téléchargée (Réglages → Voix des cartes sur l'ordinateur). Elles arrivent ici à la synchronisation ; d'ici là, la voix de ce téléphone les lit.
+d9199b9a Votre ordinateur n'a pas de voix en {0:lower} : ces cartes utilisent donc la voix de ce téléphone. Pour des voix naturelles en {1:lower}, choisissez Azure.
+4191f605 Les voix ne peuvent pas fonctionner sur ce type d'ordinateur. Choisissez Azure ou la voix de cet appareil.
+f2abc459 Les seules voix gratuites en {0:lower} pour ce programme ne peuvent pas être utilisées librement (leurs enregistrements sont sous licence non commerciale uniquement) : Tamkeen ne les propose donc pas.
+d905ce13 Il n'y a pas encore de voix gratuite en {0:lower} pour cet ordinateur.
+a8ba7124 {0} Choisissez Azure pour des voix naturelles en {1:lower}, ou la voix de cet appareil.
+d74a2319 + le programme de voix, {0} Mo, une seule fois
+20716e92 Utilisée
+1d4d43cc Utiliser
+58fabfa7 Exemple
+b394bfc2 {0} · {1} Mo{2}{3}
+7b33472e À propos de ces voix
+ba2564f4 Ce sont des voix Piper (un programme de synthèse vocale open source qui tourne sur le processeur de cet ordinateur, hors ligne). Les enregistrements de chaque voix portent la licence indiquée. Beaucoup ont été entraînées à partir de la voix anglaise de Piper, dont les enregistrements étaient sous licence de recherche ; Piper les publie sous leurs propres licences.
+d454ace4 Téléchargez une voix en {0:lower} : cet ordinateur donnera alors à chaque carte en {1:lower} sans audio son propre enregistrement, y compris à celles enregistrées sur votre téléphone.
+94204dbd Cartes en {1:lower} à faire : {0}. Cet ordinateur les crée en ce moment.
+81846240 Chaque carte en {0:lower} a sa voix. Les nouvelles reçoivent la leur dès qu'elles sont enregistrées, ici ou sur votre téléphone.
+2d8e8528 Le téléchargement a échoué : {0}
+8e09b678 {0} En attendant, la voix de cet appareil est utilisée.
+a3ced5ce Cette carte ne peut pas être dite sur cet appareil.
+36e2543b Ce son est vide ou trop volumineux.
+628e1e3b Cette voix n'est pas pour cette langue.
+d9720fb2 Impossible de créer le son de la voix : {0}
+5728da40 non précisée par son auteur
+ad561619 La seule voix arabe de Piper. Piper ajoute lui-même les voyelles avant de parler.
+b3252c0d Voix inconnue : {0}
+287e3948 Les fichiers de cette voix sont introuvables.
+981282c5 Les voix sur cet ordinateur nécessitent Windows (Intel ou AMD 64 bits), un Mac ou Linux.
+9efd4aef Une voix est déjà en cours de téléchargement.
+51a539cf Cette voix n'est pas téléchargée sur cet ordinateur.
+d4b56c4f Le programme de voix n'a pas pu se lancer ({0}).
+db3b42e2 Le programme de voix a échoué : {0}
+899e00df Aucune voix en {0:lower} n'est téléchargée sur cet ordinateur (Réglages → Voix des cartes).
+e376cf70 Téléchargez d'abord la voix de cette langue.
+d6071c46 Les reels de vos enregistrements Instagram et les reels au hasard, les reels avec une chanson de la bibliothèque musicale d'Instagram, le navigateur web intégré (Importer la page), la synchronisation AnkiDroid et le nombre sur l'icône de l'application. Ce que vous ajoutez dans l'application apparaît ici après une synchronisation.

@@ -350,6 +350,11 @@
   "f": "web/js/app.js"
  },
  {
+  "id": "2619fa36",
+  "k": "Couldn't keep this card's voice.",
+  "f": "web/js/app.js"
+ },
+ {
   "id": "b887bd52",
   "k": "Copy the link of the video you want and paste it under “Add a webpage”.",
   "f": "web/js/app.js"
@@ -1633,6 +1638,76 @@
   "id": "41701b8a",
   "k": "Couldn't import this page.",
   "f": "web/js/browser-toolbar.js"
+ },
+ {
+  "id": "332de0f3",
+  "k": "Azure didn't accept this key in the region “{0}”. Copy Key 1 again, and check that the region is the one shown next to it (for example westeurope).",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "e217f040",
+  "k": "Azure says too many requests, or this month's free allowance is used up. Try again later, or check your usage in the Azure portal.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "51340aa5",
+  "k": "Azure didn't accept the request: the chosen voice may not exist in this region. Pick another voice.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "53c3380d",
+  "k": "Azure answered with an error ({0}). Try again in a moment.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "35cf401b",
+  "k": "Couldn't reach Azure in the region “{0}”. Check your connection and how the region is spelled (for example westeurope, eastus).",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "6dea6d8f",
+  "k": "Azure sent back no sound. Try again in a moment.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "26364875",
+  "k": "This card has no word to say.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "bf7aa035",
+  "k": "Azure's sound couldn't be read.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "052734c1",
+  "k": "This card has nothing to say.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "1afd82ba",
+  "k": "This phone has no {0} voice. To add one: open the phone's Settings → search for “Text-to-speech” → Preferred engine (Speech Services by Google) → Settings → Install voice data → {1}.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "38f321bb",
+  "k": "This iPhone has no {0} voice. To add one: Settings → Accessibility → Spoken Content → Voices → {1}.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "9747c1e8",
+  "k": "This Mac has no {0} voice. To add one: System Settings → Accessibility → Spoken Content → System voice → Manage Voices → {1}.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "57b8b3ab",
+  "k": "This computer has no {0} voice. To add one: Windows Settings → Time & language → Speech → Add voices → {1}. Then restart Tamkeen.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "662c883b",
+  "k": "This browser has no {0} voice. Some browsers have more voices than others (Chrome and Edge have many), or add a voice to the device in its own settings.",
+  "f": "web/js/cardvoice.js"
  },
  {
   "id": "97f0699d",
@@ -3590,6 +3665,16 @@
   "f": "web/js/components/settingsui.js"
  },
  {
+  "id": "c57d4482",
+  "k": "Card voices",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "9ae41195",
+  "k": "The voice that reads out flashcards without a recording.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "aaaa4873",
   "k": "Look & feel",
   "f": "web/js/components/settingsui.js"
@@ -3722,6 +3807,21 @@
  {
   "id": "fb0c95bf",
   "k": "Audio storage",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "74e96124",
+  "k": "Voice for cards without audio",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "8f69a349",
+  "k": "Azure Speech key and region",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "2f3a219e",
+  "k": "Voices on this computer",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -4255,6 +4355,386 @@
   "f": "web/js/components/troubleshoot.js"
  },
  {
+  "id": "5de162ff",
+  "k": "Azure voices",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "c1669e42",
+  "k": "Azure needs a key",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "592a4522",
+  "k": "Voices made on this computer",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "5717197d",
+  "k": "Waiting for your computer ({0} cards)",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "4f0fe97e",
+  "k": "Voices made on your computer",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "185b32a7",
+  "k": "This device's voice",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "ebc4da0c",
+  "k": "Free. Your computer makes them; they arrive when it syncs.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "a69ebf95",
+  "k": "Free, offline. Made here with a downloaded voice and kept.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "11266a50",
+  "k": "Who reads cards without audio",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "ea750ccc",
+  "k": "Cards from a podcast or your own audio play their own recording. Cards typed in, or saved from a web page, a book, YouTube, Netflix or a reel, are read out by the voice you choose here: the word and its sentence.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "82711d71",
+  "k": "Free. Spoken by {0} as you listen; nothing is kept.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "a6d92721",
+  "k": "Azure (your own key)",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "3dd9501d",
+  "k": "Natural voices, Arabic by country. Made once per card and kept.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "1829e96f",
+  "k": "Azure Speech",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "0f217179",
+  "k": "Region",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "dc8d9204",
+  "k": "for example westeurope",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "c67dd20e",
+  "k": "Key",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "c0547393",
+  "k": "Paste Key 1 here",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "f083813f",
+  "k": "Get an Azure key ↗",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "c615bc62",
+  "k": "Voice for {0}",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "05771f64",
+  "k": "Play a sample",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "0c7c1be1",
+  "k": "How to get your own free Azure key",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "8107ef6d",
+  "k": "Make a free Microsoft Azure account at <0>azure.microsoft.com/free</0>. Azure asks for a phone number and a bank card when you sign up, to check that you are a person; the free tier isn't charged.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "49d15d1f",
+  "k": "In the Azure portal, create a <0>Speech</0> resource (<1>this link opens it</1>). Pick any region near you and the pricing tier <2>Free F0</2>.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "3e97ae56",
+  "k": "Open the new resource → <0>Keys and Endpoint</0>. Copy <1>Key 1</1> into Key above, and the <2>Location/Region</2> (for example westeurope) into Region.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "40b93dff",
+  "k": "Press <0>Test the key</0>.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "ed90bcad",
+  "k": "What does it cost?",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "3545863b",
+  "k": "Each user has their own Azure account and their own allowance. The free tier (F0) includes about half a million characters of neural voices a month; check Azure's page for today's amount and prices: <0>Azure Speech pricing ↗</0>. A card's word and its sentence are usually 20 to 120 characters, and each card's voice is made only once, then kept with the card on all your devices. If the free allowance runs out, Azure refuses until next month and the cards use this device's voice.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "5f2b1a67",
+  "k": "A card that came with a recording always plays it. For any other card, <0>This device's voice</0> speaks the word and the sentence as you press Word or Sentence. <1>Azure</1> and <2>{0}</2> make a recording of them the first time, keep it with the card and send it to your other devices through Google Drive, so it is made only once. It also goes into an Anki export. Until a card's recording exists, this device's voice reads it.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "be6016cc",
+  "k": "With Azure, only the word and its sentence go to Microsoft's speech service in the region you chose, straight from {0}, with your key; nothing else about you or your library. Your key is kept on {1} and, if you use Google Drive sync, in the app's private folder in your own Google Drive, so your other devices have it too. It is never part of a data export. The device's own voice and the computer's voices send nothing anywhere.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "e6b3d051",
+  "k": "{0} waiting",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "75f52718",
+  "k": "Free",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "3f6cf33f",
+  "k": "Open text-to-speech settings",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "e185048c",
+  "k": "Check again",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "4c2739cc",
+  "k": "This device has a {0} voice. It reads the cards that have no recording.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "e1c7fb3a",
+  "k": "This device has a {0} voice. It reads the cards that have no recording until theirs is made.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "0804d058",
+  "k": "This device's voice reads the cards that have no recording.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "b2dd3a55",
+  "k": "This device's voice reads the cards that have no recording until theirs is made.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "d9f8f583",
+  "k": "Saved. Now the region, as Azure shows it next to the key.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "747715f4",
+  "k": "No {0} voice on Azure",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "03755a9f",
+  "k": "Azure has no {0} voice, so these cards use this device's voice.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "8d0d41ba",
+  "k": "· usual",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "91615915",
+  "k": "Test the key to choose from all of Azure's voices for the language.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "415c7c53",
+  "k": "Cards already made keep their voice; new ones use this one.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "60706579",
+  "k": "Paste your key and region first.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "d2f602e7",
+  "k": "Asking Azure for its voices…",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "5cab77ed",
+  "k": "Paste Key 1 and the region first.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "09a9c133",
+  "k": "{0} {1} voices in this region.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "97985713",
+  "k": "Azure has no {0} voice in this region.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "d5007d1f",
+  "k": "✓ Works (Azure answered in {0} s). {1} Testing uses none of your characters.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "d24c44bd",
+  "k": "Make them now",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "8e4d2c67",
+  "k": "{0} {1} card{2} have no voice yet (about {3} characters). Each is made the first time it is played, or all of them now, ready for an Anki export.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "9e253470",
+  "k": "Stop",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "f05831f2",
+  "k": "Making voices: {0} of {1}…",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "b88dd56d",
+  "k": "{0} voice{1} made and kept.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "11b10cf7",
+  "k": "{0} made. {1}",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "c3ae49bb",
+  "k": "Waiting for your computer",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "b036bcb1",
+  "k": "{0} card{1}",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "c5cb3e55",
+  "k": "Nothing waiting",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "ecac64cd",
+  "k": "Your computer makes them when Tamkeen is open there, with the {0} voice downloaded (Settings → Card voices on the computer). They arrive here when it syncs; until then this phone's voice reads them.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "d9199b9a",
+  "k": "Your computer has no {0} voice, so these cards use this phone's voice. For natural {1} voices choose Azure.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "4191f605",
+  "k": "Voices can't run on this kind of computer. Choose Azure or this device's voice.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "f2abc459",
+  "k": "The only free {0} voices for this program may not be used freely (their recordings are licensed for non-commercial use only), so Tamkeen doesn't offer them.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "d905ce13",
+  "k": "There is no free {0} voice for this computer yet.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "a8ba7124",
+  "k": "{0} Choose Azure for natural {1} voices, or this device's voice.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "d74a2319",
+  "k": "+ the voice program, {0} MB, once",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "20716e92",
+  "k": "In use",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "1d4d43cc",
+  "k": "Use",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "58fabfa7",
+  "k": "Sample",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "b394bfc2",
+  "k": "{0} · {1} MB{2}{3}",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "7b33472e",
+  "k": "About these voices",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "ba2564f4",
+  "k": "They are Piper voices (an open-source speech program that runs on this computer's processor, offline). Each voice's recordings carry the licence shown. Many were trained on top of Piper's English voice, whose own recordings were licensed for research; Piper publishes them under their own licences.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "d454ace4",
+  "k": "Download a {0} voice: then this computer gives every {1} card without audio its own recording, also the ones saved on your phone.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "94204dbd",
+  "k": "{0} {1} card{2} still to make: this computer is making them now.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "81846240",
+  "k": "Every {0} card has its voice. New ones get theirs as they are saved, here or on your phone.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "2d8e8528",
+  "k": "The download failed: {0}",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
   "id": "40ee915a",
   "k": "Keep playing after a tapped word",
   "f": "web/js/components/wordbubble.js"
@@ -4452,16 +4932,6 @@
  {
   "id": "2e026239",
   "k": "Continue",
-  "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "a8a5b895",
-  "k": "Save this word and find a YouTube video where it is said",
-  "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "9089cae1",
-  "k": "Find in a video",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -4698,96 +5168,6 @@
   "id": "f093a8da",
   "k": "Dictionary first",
   "f": "web/js/defsource.js"
- },
- {
-  "id": "6eb49351",
-  "k": "✓ Opened in Tamkeen",
-  "f": "web/js/filmot-browser.js"
- },
- {
-  "id": "84f89653",
-  "k": "Tap a result's link to YouTube to open that moment in Tamkeen",
-  "f": "web/js/filmot-browser.js"
- },
- {
-  "id": "3575edb8",
-  "k": "Looking for the word in the top video…",
-  "f": "web/js/filmot-browser.js"
- },
- {
-  "id": "fe2cb66b",
-  "k": "Getting the results…",
-  "f": "web/js/filmot-browser.js"
- },
- {
-  "id": "dfebdc6c",
-  "k": "✓ Saved in Tamkeen",
-  "f": "web/js/filmot-browser.js"
- },
- {
-  "id": "adb1dce3",
-  "k": "Couldn't use these results. Tap one to try it.",
-  "f": "web/js/filmot-browser.js"
- },
- {
-  "id": "ece4c60d",
-  "k": "Couldn't use these results.",
-  "f": "web/js/filmot-browser.js"
- },
- {
-  "id": "58103f1e",
-  "k": "Showing videos with captions in the language you're learning…",
-  "f": "web/js/filmot-browser.js"
- },
- {
-  "id": "42a0c143",
-  "k": "Answer Filmot's check yourself. Tamkeen then takes the top video by itself.",
-  "f": "web/js/filmot-browser.js"
- },
- {
-  "id": "f3f91e1e",
-  "k": "Portuguese (Brazil)",
-  "f": "web/js/filmot.js"
- },
- {
-  "id": "80559b82",
-  "k": "typed in by hand",
-  "f": "web/js/filmot.js"
- },
- {
-  "id": "0c88254c",
-  "k": "First found in: {0}{1}",
-  "f": "web/js/filmot.js"
- },
- {
-  "id": "3d7fa970",
-  "k": "Saved this video and its sentence with “{0}”.",
-  "f": "web/js/filmot.js"
- },
- {
-  "id": "4d91deca",
-  "k": "Press “Find in a video” on a word first.",
-  "f": "web/js/filmot.js"
- },
- {
-  "id": "24ed8380",
-  "k": "Filmot found no videos for “{0}”.",
-  "f": "web/js/filmot.js"
- },
- {
-  "id": "441d5e0d",
-  "k": "“{0}” isn't in the captions of the top {1} video{2}. Tap another result to try it.",
-  "f": "web/js/filmot.js"
- },
- {
-  "id": "a3fb746b",
-  "k": "“{0}” isn't in this video's captions, so nothing was saved with it. Try another result.",
-  "f": "web/js/filmot.js"
- },
- {
-  "id": "3d1f5290",
-  "k": "Couldn't save this video with “{0}”: {1}",
-  "f": "web/js/filmot.js"
  },
  {
   "id": "2e1adabb",
@@ -8640,6 +9020,11 @@
   "f": "web/js/netflix-browser.js"
  },
  {
+  "id": "6eb49351",
+  "k": "✓ Opened in Tamkeen",
+  "f": "web/js/netflix-browser.js"
+ },
+ {
   "id": "a44a102a",
   "k": "Couldn't open this title.",
   "f": "web/js/netflix-browser.js"
@@ -9920,11 +10305,6 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "c3ae49bb",
-  "k": "Waiting for your computer",
-  "f": "web/js/pages/library.js"
- },
- {
   "id": "cddfd770",
   "k": "Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)",
   "f": "web/js/pages/library.js"
@@ -10625,11 +11005,6 @@
   "f": "web/js/pages/reader.js"
  },
  {
-  "id": "1e5080c8",
-  "k": "Couldn't find this word in your vocab.",
-  "f": "web/js/pages/reader.js"
- },
- {
   "id": "63d2b95b",
   "k": "Sign in to Instagram to watch this reel.",
   "f": "web/js/pages/reels.js"
@@ -10802,11 +11177,6 @@
  {
   "id": "b2272a97",
   "k": "Reels in {0} on all sorts of everyday subjects, found by searching Instagram for a few words picked at random. Different every time.",
-  "f": "web/js/pages/reels.js"
- },
- {
-  "id": "9e253470",
-  "k": "Stop",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -12222,11 +12592,6 @@
  {
   "id": "9afb285b",
   "k": "· changed {0}",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "29eb5c50",
-  "k": "Look for a YouTube video where this word is said",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -14425,6 +14790,16 @@
   "f": "web/js/updatenotice.js"
  },
  {
+  "id": "8e09b678",
+  "k": "{0} This device's own voice is used meanwhile.",
+  "f": "web/js/voiceplay.js"
+ },
+ {
+  "id": "a3ced5ce",
+  "k": "This card can't be said on this device.",
+  "f": "web/js/voiceplay.js"
+ },
+ {
   "id": "b7219bda",
   "k": "Egyptian",
   "f": "web/js/vowels.js"
@@ -15445,11 +15820,6 @@
   "f": "mobile/src/js/backend.js"
  },
  {
-  "id": "4fdd6fdd",
-  "k": "There is no sentence to save.",
-  "f": "mobile/src/js/backend.js"
- },
- {
   "id": "95b85b31",
   "k": "That isn't an answer.",
   "f": "mobile/src/js/backend.js"
@@ -15660,8 +16030,8 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "3ec02d90",
-  "k": "Reels from your Instagram saves and random reels, reels with a song from Instagram's music library, the built-in web browser (Import Page and Find in a video), AnkiDroid sync, and the number on the app icon. What you add in the app shows up here after a sync.",
+  "id": "d6071c46",
+  "k": "Reels from your Instagram saves and random reels, reels with a song from Instagram's music library, the built-in web browser (Import Page), AnkiDroid sync, and the number on the app icon. What you add in the app shows up here after a sync.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -16500,11 +16870,6 @@
   "f": "app/api/vocab.py"
  },
  {
-  "id": "faecd643",
-  "k": "The audio for this word isn't on this computer.",
-  "f": "app/api/vocab.py"
- },
- {
   "id": "2ccc65dd",
   "k": "That audio clip is empty or too large.",
   "f": "app/api/vocab.py"
@@ -16515,9 +16880,19 @@
   "f": "app/api/vocab.py"
  },
  {
+  "id": "36e2543b",
+  "k": "That audio is empty or too large.",
+  "f": "app/api/vocab.py"
+ },
+ {
   "id": "a901ac03",
   "k": "Format must be csv, anki or apkg.",
   "f": "app/api/vocab.py"
+ },
+ {
+  "id": "628e1e3b",
+  "k": "That voice isn't for this language.",
+  "f": "app/api/voices.py"
  },
  {
   "id": "7b61342e",
@@ -16547,6 +16922,11 @@
  {
   "id": "fe34abe1",
   "k": "Could not create the compressed audio copy: {0}",
+  "f": "app/audio.py"
+ },
+ {
+  "id": "d9720fb2",
+  "k": "Could not make the voice's audio: {0}",
   "f": "app/audio.py"
  },
  {
@@ -16607,16 +16987,6 @@
  {
   "id": "aad067b1",
   "k": "Timed out starting the local server.",
-  "f": "app/desktop.py"
- },
- {
-  "id": "d6d720ba",
-  "k": "Only a search opened by “Find in a video” can do that.",
-  "f": "app/desktop.py"
- },
- {
-  "id": "a6f9a4d1",
-  "k": "Couldn't use these results ({0}).",
   "f": "app/desktop.py"
  },
  {
@@ -17358,6 +17728,61 @@
   "id": "914295b3",
   "k": "This file has no readable sound ({0}).",
   "f": "app/videos.py"
+ },
+ {
+  "id": "5728da40",
+  "k": "not stated by its maker",
+  "f": "app/voices.py"
+ },
+ {
+  "id": "ad561619",
+  "k": "Piper's only Arabic voice. Piper adds the vowel marks itself before speaking.",
+  "f": "app/voices.py"
+ },
+ {
+  "id": "b3252c0d",
+  "k": "Unknown voice: {0}",
+  "f": "app/voices.py"
+ },
+ {
+  "id": "287e3948",
+  "k": "This voice's files couldn't be found.",
+  "f": "app/voices.py"
+ },
+ {
+  "id": "981282c5",
+  "k": "Voices on this computer need Windows (64-bit Intel or AMD), a Mac or Linux.",
+  "f": "app/voices.py"
+ },
+ {
+  "id": "9efd4aef",
+  "k": "A voice is already downloading.",
+  "f": "app/voices.py"
+ },
+ {
+  "id": "51a539cf",
+  "k": "This voice isn't downloaded on this computer.",
+  "f": "app/voices.py"
+ },
+ {
+  "id": "d4b56c4f",
+  "k": "The voice program couldn't run ({0}).",
+  "f": "app/voices.py"
+ },
+ {
+  "id": "db3b42e2",
+  "k": "The voice program failed: {0}",
+  "f": "app/voices.py"
+ },
+ {
+  "id": "899e00df",
+  "k": "No {0} voice is downloaded on this computer (Settings → Card voices).",
+  "f": "app/voices.py"
+ },
+ {
+  "id": "e376cf70",
+  "k": "Download this language's voice first.",
+  "f": "app/voices.py"
  },
  {
   "id": "94492d5d",

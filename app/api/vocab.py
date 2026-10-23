@@ -41,17 +41,6 @@ class VocabPatch(BaseModel):
     folders: list[str] | None = None
 
 
-class VocabSource(BaseModel):
-    """Where a word is said: a moment in an episode and the sentence around it."""
-    episode_id: int
-    sentence: str
-    start: float
-    end: float
-    sent_start: float
-    sent_end: float
-    note: str = ""  # where the word was first found, added to the end of its own notes (memo)
-
-
 class FolderIn(BaseModel):
     name: str
 
@@ -72,11 +61,16 @@ def _out(row: Any) -> dict[str, Any]:
 
 
 def _items(q: str | None = None, folder: str | None = None) -> list[dict[str, Any]]:
-    """The saved words in the language being learned (the others wait for theirs to be chosen)."""
+    """The saved words in the language being learned (the others wait for theirs to be chosen), each
+    with its episode's `audio_type` (web/js/cardvoice.js decides from it whether the word's own audio
+    can be played, or a voice says it)."""
     study = languages.study()
     with db.session() as conn:
-        rows = conn.execute("SELECT * FROM vocab WHERE deleted = 0 AND COALESCE(language, ?) = ? "
-                            "ORDER BY created_at DESC", (study, study)).fetchall()
+        rows = conn.execute("SELECT v.*, CASE WHEN v.episode_id IS NULL THEN NULL WHEN e.id IS NULL OR e.deleted = 1 "
+                            "THEN 'missing' ELSE COALESCE(e.audio_type, '') END AS audio_type "
+                            "FROM vocab v LEFT JOIN episodes e ON e.id = v.episode_id "
+                            "WHERE v.deleted = 0 AND COALESCE(v.language, ?) = ? ORDER BY v.created_at DESC",
+                            (study, study)).fetchall()
     items = [_out(r) for r in rows]
     if folder == "none":
         items = [v for v in items if not v["folders"]]
@@ -189,6 +183,9 @@ def add_vocab(body: VocabIn) -> dict[str, Any]:
         )
         row = conn.execute("SELECT * FROM vocab WHERE id = ?", (cur.lastrowid,)).fetchone()
     sync.request()
+    from .. import voices
+
+    voices.worker.kick()  # with "My computer" chosen, a word without audio gets its voice made
     return _out(row)
 
 
@@ -208,9 +205,22 @@ def _vocab_row(vocab_id: int) -> Any:
     return row
 
 
+def voice_times(row: Any) -> dict[str, Any] | None:
+    """A card's voice (web/js/cardvoice.js, app/voices.py): where its word and sentence are in its
+    file, or None when it has none."""
+    try:
+        t = json.loads(row["voice"] or "null")
+    except (TypeError, ValueError, KeyError, IndexError):
+        return None
+    if not isinstance(t, dict) or not isinstance(t.get("start"), (int, float)) or not isinstance(t.get("end"), (int, float)):
+        return None
+    return {k: (float(t[k]) if isinstance(t.get(k), (int, float)) else None) for k in ("start", "end", "sent_start", "sent_end")}
+
+
 def _own_clip(row: Any) -> Path | None:
-    """The clip stored with a word that was shared with this user (fetched from Drive if needed)."""
-    if not row["clip"]:
+    """The clip stored with a word that was shared with this user, or its voice (fetched from Drive
+    if needed)."""
+    if not row["clip"] and voice_times(row) is None:
         return None
     path = engine.clip_path(row["uid"])
     if not path.exists():
@@ -240,15 +250,17 @@ def share_clip(vocab_id: int) -> dict[str, Any]:
     """The audio to send along with a word: {"audio": base64 Ogg/Opus, "times": {...}} with the
     word's and sentence's positions inside it. 404 when the word has no audio to send."""
     row = _vocab_row(vocab_id)
-    own = _own_clip(row)
+    own = _own_clip(row) if row["clip"] else None
     if own is not None:  # passing on a word a friend shared: reuse its clip as is
         times = {k: row[k] for k in ("start", "end", "sent_start", "sent_end")}
         return {"audio": base64.b64encode(own.read_bytes()).decode("ascii"), "times": times}
-    if row["start"] is None or row["sent_start"] is None or row["sent_end"] is None:
-        raise HTTPException(404, "This word has no audio.")
-    src = _episode_audio(row["episode_id"])
+    src = _episode_audio(row["episode_id"]) if row["start"] is not None and row["sent_start"] is not None \
+        and row["sent_end"] is not None else None
     if src is None:
-        raise HTTPException(404, "The audio for this word isn't on this computer.")
+        voiced = _own_clip(row)  # no recording to cut: the card's voice goes, if it has one
+        if voiced is not None:
+            return {"audio": base64.b64encode(voiced.read_bytes()).decode("ascii"), "times": voice_times(row)}
+        raise HTTPException(404, "This word has no audio.")
     tmp = paths.tmp_dir() / f"clip-{uuid.uuid4().hex}.ogg"
     try:
         began = audio.cut_clip(src, row["sent_start"] - CLIP_LEAD, row["sent_end"] + CLIP_TAIL, tmp)
@@ -265,8 +277,9 @@ def share_clip(vocab_id: int) -> dict[str, Any]:
 
 @router.put("/{vocab_id}/clip")
 async def save_clip(vocab_id: int, request: Request, start: float = 0, end: float = 0,
-                    sent_start: float = 0, sent_end: float = 0) -> dict[str, Any]:
-    """Store the clip that came with a shared word (raw request body = the audio file)."""
+                    sent_start: float | None = None, sent_end: float | None = None) -> dict[str, Any]:
+    """Store the clip that came with a shared word (raw request body = the audio file). A word
+    passed on without a sentence has no sentence times."""
     row = _vocab_row(vocab_id)
     data = await request.body()
     if not data or len(data) > MAX_CLIP_BYTES:
@@ -289,6 +302,27 @@ def get_clip(vocab_id: int) -> Response:
     return FileResponse(path, media_type="audio/ogg")
 
 
+@router.put("/{vocab_id}/voice")
+async def save_voice(vocab_id: int, request: Request, start: float, end: float,
+                     sent_start: float | None = None, sent_end: float | None = None) -> dict[str, Any]:
+    """Keep a card's voice made with Azure on this computer's page (web/js/cardvoice.js; raw request
+    body = the Ogg Opus file). Made once: a card that already has a voice, or a friend's clip, keeps it."""
+    row = _vocab_row(vocab_id)
+    if row["clip"] or voice_times(row) is not None:
+        return _out(row)
+    data = await request.body()
+    if not data or len(data) > MAX_CLIP_BYTES:
+        raise HTTPException(400, "That audio is empty or too large.")
+    dest = engine.clip_path(row["uid"])
+    dest.write_bytes(data)
+    times = {"start": start, "end": end, "sent_start": sent_start, "sent_end": sent_end}
+    with db.session() as conn:
+        conn.execute("UPDATE vocab SET voice = ? WHERE id = ? AND voice = ''", (json.dumps(times), vocab_id))
+        out = conn.execute("SELECT * FROM vocab WHERE id = ?", (vocab_id,)).fetchone()
+    sync.request(20)
+    return _out(out)
+
+
 @router.patch("/{vocab_id}")
 def update_vocab(vocab_id: int, body: VocabPatch) -> dict[str, Any]:
     with db.session() as conn:
@@ -307,36 +341,6 @@ def update_vocab(vocab_id: int, body: VocabPatch) -> dict[str, Any]:
     if row is None:
         raise HTTPException(404, "Not found.")
     sync.request(delay=10)  # typing in notes: wait for a pause
-    return _out(row)
-
-
-@router.post("/{vocab_id}/source")
-def set_source(vocab_id: int, body: VocabSource) -> dict[str, Any]:
-    """Give a word a place where it is said ("Find in a video" on the Vocab page, web/js/filmot.js):
-    the episode, the word's times and the whole sentence, as the player saves them. The sentence it
-    had (typed in, or from a web page) is replaced, and so is that sentence's translation; the
-    meaning, notes and folders stay. A clip the word came with is left behind for the new source.
-    `note` (where the word was first found, and its original sentence) goes on the end of the
-    learner's own notes, so nothing of the old source is lost."""
-    sentence = body.sentence.strip()
-    if not sentence:
-        raise HTTPException(400, "There is no sentence to save.")
-    with db.session() as conn:
-        row = conn.execute("SELECT id, memo FROM vocab WHERE id = ? AND deleted = 0", (vocab_id,)).fetchone()
-        ep = conn.execute("SELECT title, uid FROM episodes WHERE id = ? AND deleted = 0", (body.episode_id,)).fetchone()
-        if row is None or ep is None:
-            raise HTTPException(404, "Not found.")
-        memo = (row["memo"] or "").strip()
-        note = body.note.strip()
-        if note and note not in memo:
-            memo = f"{memo}\n{note}" if memo else note
-        conn.execute(
-            "UPDATE vocab SET episode_id = ?, episode_uid = ?, episode_title = ?, sentence = ?, start = ?, end = ?, "
-            "sent_start = ?, sent_end = ?, translation = '', clip = 0, memo = ?, updated_at = ? WHERE id = ?",
-            (body.episode_id, ep["uid"], ep["title"], sentence, body.start, body.end, body.sent_start, body.sent_end,
-             memo if note else row["memo"], time.time(), vocab_id))
-        row = conn.execute("SELECT * FROM vocab WHERE id = ?", (vocab_id,)).fetchone()
-    sync.request()
     return _out(row)
 
 
@@ -374,25 +378,28 @@ def _anki_clips(items: list[dict[str, Any]]) -> dict[str, dict[str, bytes]]:
     out: dict[str, dict[str, bytes]] = {}
     sources: dict[int, Path | None] = {}
     for v in items:
-        if v["start"] is None and v["sent_start"] is None:
-            continue
+        t: dict[str, Any] = {k: v[k] for k in ("start", "end", "sent_start", "sent_end")}
+        src = None
         if v["clip"]:  # a word a friend shared: its own clip, with times inside that clip
             own = engine.clip_path(v["uid"])
             src = own if own.exists() else None
-        else:
+        elif v["start"] is not None or v["sent_start"] is not None:
             if v["episode_id"] not in sources:
                 sources[v["episode_id"]] = _episode_audio(v["episode_id"], fetch=False)
             src = sources[v["episode_id"]]
-        if src is None:
+        if src is None and voice_times(v) is not None:  # no recording here: the card's voice, if made
+            own = engine.clip_path(v["uid"])
+            src, t = (own, voice_times(v)) if own.exists() else (None, t)
+        if src is None or (t["start"] is None and t["sent_start"] is None):
             continue
         clips: dict[str, bytes] = {}
-        if v["start"] is not None:
-            word_end = v["end"] if v["end"] is not None else v["start"] + 1
-            data = _anki_clip(src, v["uid"], "w", v["start"] - WORD_LEAD, word_end + WORD_TAIL)
+        if t["start"] is not None:
+            word_end = t["end"] if t["end"] is not None else t["start"] + 1
+            data = _anki_clip(src, v["uid"], "w", t["start"] - WORD_LEAD, word_end + WORD_TAIL)
             if data:
                 clips["word"] = data
-        if v["sent_start"] is not None and v["sent_end"] is not None:
-            data = _anki_clip(src, v["uid"], "s", v["sent_start"] - CLIP_LEAD, v["sent_end"] + CLIP_TAIL)
+        if t["sent_start"] is not None and t["sent_end"] is not None:
+            data = _anki_clip(src, v["uid"], "s", t["sent_start"] - CLIP_LEAD, t["sent_end"] + CLIP_TAIL)
             if data:
                 clips["sentence"] = data
         if clips:

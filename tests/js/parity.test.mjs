@@ -369,6 +369,7 @@ const COMPUTER_ONLY_SETTINGS = {
   google_scopes: "what the computer's Google sign-in allows; the phones ask their sign-in each time",
   sync_audio: "the computer uploads compressed audio copies; phones only play them",
   device_id: "the phones sync as \"android\"",
+  tts_local: "the voice models downloaded on the computer (app/voices.py); phones have none",
 };
 const PHONE_ONLY_SETTINGS = {
   signed_in: "the phone's own record of its Google sign-in (the computer keeps a token instead)",

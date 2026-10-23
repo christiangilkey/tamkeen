@@ -72,9 +72,13 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <!-- Syncing saved words with the Tamkeen deck in AnkiDroid (asked for when the sync is switched on). -->
     <uses-permission android:name="com.ichi2.anki.permission.READ_WRITE_DATABASE" />
-    <!-- Lets the app see whether AnkiDroid is installed. -->
+    <!-- Lets the app see whether AnkiDroid is installed, and reach the phone's text-to-speech engine
+         (cards without audio are read out by the phone's own voice: SpeechPlugin). -->
     <queries>
         <package android:name="com.ichi2.anki" />
         <provider android:authorities="com.ichi2.anki.flashcards" />
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
     </queries>
 </manifest>

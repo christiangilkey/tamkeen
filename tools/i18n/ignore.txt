@@ -334,7 +334,27 @@ b74002b9  # px), calc(100% -  (CSS)
 eab8b1db  # px) calc(100% -  (CSS)
 849551b4  # Not available in the extension: {0} {1}  (a request no screen of the extension makes)
 28f3bc79  # not saved  (an error only the code reads)
+# Card voices (app/voices.py VOICES): the computer's voices' own names and their recordings' licence codes.
+2f518aec  # Kareem (Jordan)
+68c92563  # Davefx (Spain)
+18840295  # Ald (Mexico)
+887c021d  # Siwis (France)
+e63561db  # MLS (France)
+65836c23  # Serena (Italy)
+f4021a1e  # Faber (Brazil)
+135182d0  # Ona (Catalonia)
+47f02f5b  # Denis (Russia)
+fffd2a43  # Thorsten (Germany)
+3cc94988  # MLS (Germany)
+a9f7721b  # Amir (Iran)
+f25e1786  # LJ (US)
+9fedae1b  # Cori (UK)
+38096a07  # Unlicense
+a281c392  # CC BY 4.0
+4177d678  # CC BY-SA 3.0 ES
+
 # HTML the readers build at run time (pages/book.js, pages/reader.js): tags, not words.
 756faa21  # {0} class="<0/>" data-k="{1}" style="white-space:nowrap"...  (book.js measuring probe)
 92725b91  # <{0} class="seg{1}{2}" dir="auto" data-s="{3}">  (book.js block)
 695b0895  # <{0} class="seg{1}" dir="auto" data-s="{2}">  (reader.js block)
+aecf88cb  # changelog changes versions history what's new release notes  (Settings search words, not shown)

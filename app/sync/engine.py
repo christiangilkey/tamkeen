@@ -117,7 +117,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE f.deleted = 0 ORDER BY e.uid")]
         vocab = [{**dict(r), "folders": _folder_list(r["folders"])} for r in conn.execute(
             "SELECT uid, episode_uid, text, sentence, start, end, sent_start, sent_end, meaning, notes, translation, memo, "
-            "episode_title, folders, clip, language, deleted, created_at, updated_at FROM vocab ORDER BY uid")]
+            "episode_title, folders, clip, language, voice, deleted, created_at, updated_at FROM vocab ORDER BY uid")]
         folders = [dict(r) for r in conn.execute(
             "SELECT uid, name, deleted, created_at, updated_at FROM vocab_folders ORDER BY uid")]
         defs = [{**dict(r), "data": json.loads(r["data"])} for r in conn.execute(
@@ -162,6 +162,16 @@ def _content(lib: dict[str, Any]) -> str:
 
 def _newer(remote: dict[str, Any], local: Any) -> bool:
     return (remote.get("updated_at") or 0) > ((local["updated_at"] if local is not None else None) or 0)
+
+
+def keep_voice(remote: dict[str, Any], local: Any) -> dict[str, Any]:
+    """A card's voice, once made, is never taken away by a copy without one: a voice made here
+    (app/voices.py, or with Azure) must survive the other device editing the card before it heard of
+    the voice. The other copy's other changes still win. A millisecond is added to its time so that
+    this copy, voice and all, goes back to the other device. (mobile/src/js/sync.js keepVoice is the twin.)"""
+    if local is None or not (local["voice"] or "") or remote.get("voice"):
+        return remote
+    return {**remote, "voice": local["voice"], "updated_at": round((remote.get("updated_at") or 0) + 0.001, 6)}
 
 
 def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]]:
@@ -238,23 +248,24 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
         ep_ids = {row["uid"]: row["id"] for row in conn.execute("SELECT id, uid FROM episodes")}
         for r in remote.get("vocab", []):
             local = conn.execute("SELECT * FROM vocab WHERE uid = ?", (r["uid"],)).fetchone()
-            # A device with an older version sends no translation or memo: keep the ones already known.
+            r = keep_voice(r, local)
+            # A device with an older version sends no translation, memo or voice: keep the ones already known.
             values = (r["text"], arabic.normalize(r["text"]), r["sentence"], r["start"], r["end"], r["sent_start"],
                       r["sent_end"], r["meaning"], r["notes"], r.get("translation"), r.get("memo"), r["episode_title"], r["deleted"],
                       r["episode_uid"], ep_ids.get(r["episode_uid"]), json.dumps(_folder_list(r.get("folders") or [])),
-                      1 if r.get("clip") else 0, _language(r), r["updated_at"])
+                      1 if r.get("clip") else 0, _language(r), r.get("voice"), r["updated_at"])
             if local is None:
                 conn.execute(
                     "INSERT INTO vocab(text, norm, sentence, start, end, sent_start, sent_end, meaning, notes, "
-                    "translation, memo, episode_title, deleted, episode_uid, episode_id, folders, clip, language, updated_at, "
-                    "uid, created_at) VALUES(?,?,?,?,?,?,?,?,?,COALESCE(?, ''),COALESCE(?, ''),?,?,?,?,?,?,?,?,?,?)",
+                    "translation, memo, episode_title, deleted, episode_uid, episode_id, folders, clip, language, voice, updated_at, "
+                    "uid, created_at) VALUES(?,?,?,?,?,?,?,?,?,COALESCE(?, ''),COALESCE(?, ''),?,?,?,?,?,?,?,COALESCE(?, ''),?,?,?)",
                     (*values, r["uid"], r["created_at"]))
                 result.merged["vocab"] += 1
             elif _newer(r, local):
                 conn.execute(
                     "UPDATE vocab SET text=?, norm=?, sentence=?, start=?, end=?, sent_start=?, sent_end=?, meaning=?, "
                     "notes=?, translation=COALESCE(?, translation), memo=COALESCE(?, memo), episode_title=?, deleted=?, episode_uid=?, "
-                    "episode_id=?, folders=?, clip=?, language=COALESCE(?, language), updated_at=? WHERE id=?",
+                    "episode_id=?, folders=?, clip=?, language=COALESCE(?, language), voice=COALESCE(?, voice), updated_at=? WHERE id=?",
                     (*values, local["id"]))
                 result.merged["vocab"] += 1
 
@@ -598,9 +609,9 @@ def upload_videos(drive: Drive, files: dict[str, dict[str, Any]], result: Result
 
 
 def upload_clips(drive: Drive, files: dict[str, dict[str, Any]]) -> None:
-    """Publish audio clips of words received from friends, so the user's other devices can play them."""
+    """Publish audio clips of words received from friends, and cards' voices, so the user's other devices can play them."""
     with db.session() as conn:
-        rows = conn.execute("SELECT uid FROM vocab WHERE clip = 1 AND deleted = 0").fetchall()
+        rows = conn.execute("SELECT uid FROM vocab WHERE (clip = 1 OR voice <> '') AND deleted = 0").fetchall()
     for v in rows:
         name = clip_name(v["uid"])
         src = clip_path(v["uid"])
@@ -620,7 +631,7 @@ def fetch_clip(drive: Drive, uid: str) -> Path | None:
 
 def remove_deleted_media(drive: Drive, files: dict[str, dict[str, Any]]) -> None:
     with db.session() as conn:
-        gone = [r["uid"] for r in conn.execute("SELECT uid FROM vocab WHERE clip = 1 AND deleted = 1")]
+        gone = [r["uid"] for r in conn.execute("SELECT uid FROM vocab WHERE (clip = 1 OR voice <> '') AND deleted = 1")]
     for uid in gone:
         clip_path(uid).unlink(missing_ok=True)
         meta = files.pop(clip_name(uid), None)

@@ -32,13 +32,14 @@ import { anki, onAnki, requestAnkiSync } from "./anki-phone.js";
 import { CALENDAR_SCOPE, DRIVE_SCOPE, RECONNECT_EVENT, TASKS_SCOPE, accessToken, drive, signIn, useWebToken, webPassLeft } from "./drive.js";
 import { mountLanguageSwitch, withLearningList } from "./components/langswitch.js";
 import { loadParked, maybeRestore, parked } from "./reset.js";
-import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, webFetch } from "./native.js";
+import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, TamkeenSpeech, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, webFetch } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
 import { audioCopy, driveFileId, flushSync, onSync, requestSync, syncFresh, syncNow } from "./sync.js";
 import { checkEvery, checkOnReturn, refreshMessage, shouldRedraw } from "./syncpace.js";
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
+import { voiceTimes } from "./cardvoice.js";
 import { vocabDeck } from "./anki-export.js";
 import { ankiCard } from "./review/fsrs.js";
 import { initScrollHints } from "./scrollhint.js";
@@ -184,6 +185,7 @@ export function toast(message, { error = false, action, timeout = 4000 } = {}) {
   }
   document.getElementById("toasts").append(el);
   setTimeout(() => el.remove(), error ? timeout * 2 : timeout);
+  return el; // (so a message already on screen isn't shown again on top of itself: voiceplay.js)
 }
 export function requestNotifications() { /* toasts are used on the phone */ }
 
@@ -440,9 +442,26 @@ const clipKey = (uid) => `clip:${uid}`;
 /** The clip to send with a word: only words that already have their own clip (ones a friend
  * shared). Cutting a new clip out of an episode is done on the computer. */
 export async function shareClip(word) {
-  if (!word.clip) return null;
+  const voice = word.clip ? null : voiceTimes(word); // a card's voice goes along too (cardvoice.js)
+  if (!word.clip && !voice) return null;
   const blob = await storedClip(word.id);
-  return blob ? { blob, times: { start: word.start, end: word.end, sent_start: word.sent_start, sent_end: word.sent_end } } : null;
+  return blob ? { blob, times: voice || { start: word.start, end: word.end, sent_start: word.sent_start, sent_end: word.sent_end } } : null;
+}
+
+/** Keep a card's voice made with Azure: stored here under the same key as a clip, sent to Drive as
+ * c_<uid>.ogg so the other devices have it, and its times on the word (`voice`). Made once. */
+export async function saveVoice(uid, blob, times) {
+  const v = lib.vocab.find((x) => x.uid === uid);
+  if (!v || v.clip || voiceTimes(v)) return v || null;
+  await audioStore.put(clipKey(uid), blob);
+  clipUrls.delete(uid);
+  Object.assign(v, { voice: JSON.stringify(times), updated_at: Date.now() / 1000 });
+  const pending = new Set((await kv.get("pending_clips")) || []);
+  pending.add(uid);
+  await kv.set("pending_clips", [...pending]);
+  saveLibrary();
+  requestSync();
+  return v;
 }
 
 async function storedClip(uid) {
@@ -481,6 +500,15 @@ export async function clipUrl(word) {
   clipUrls.set(word.id, url);
   return url;
 }
+
+// ---------- card voices (cardvoice.js, devicevoice.js) ----------
+/** The phone's own text-to-speech (SpeechPlugin.java / SpeechPlugin.swift); the web app speaks
+ * through the browser's (speechSynthesis). */
+export const speechPlugin = TamkeenSpeech;
+
+/** "My computer" chosen: a phone can't make a card's voice itself. The computer makes it and it
+ * arrives by sync ("Waiting for your computer"); meanwhile the phone's own voice says the card. */
+export const makeComputerVoice = null;
 
 // ---------- feedback ----------
 /** A short vibration for an action: "tick" for small things, "success" for a saved word.
@@ -624,12 +652,7 @@ async function youtubeBrowserScript() {
     // (for the Follow button it shows on a channel's page).
     const { followedChannels } = await import("./ytfollow.js");
     const names = followedChannels(settings.youtube_follows).map((c) => c.name);
-    // With it travels the script for Filmot's caption search results (see filmot.js): each of
-    // the two acts on its own website only.
-    let filmot = "";
-    try { filmot = await (await fetch(new URL("./filmot-browser.js", import.meta.url))).text(); } catch { /* that site just isn't handled */ }
-    return `window.__tamkeenFollowing=${JSON.stringify(names)};${source}
-;${filmot}`;
+    return `window.__tamkeenFollowing=${JSON.stringify(names)};${source}`;
   } catch { return ""; }
 }
 
@@ -696,10 +719,10 @@ async function openTamkeenLink(url) {
 let openingVideo = false;
 let browserListening = false;
 /** Open the in-app web browser (native screen with an "Import Page" button). `reading` false:
- * opened for something other than reading pages (YouTube), so without that button; a sign-in or
- * "Find in a video" browser never has it either. */
-export async function openBrowser(url = "", { instagramSignIn = false, find = false, reading = true } = {}) {
-  if (isWeb && reading && !instagramSignIn && !find && !/^https?:/i.test(url)) { // the Web page screen instead (no browser here)
+ * opened for something other than reading pages (YouTube), so without that button; a sign-in
+ * browser never has it either. */
+export async function openBrowser(url = "", { instagramSignIn = false, reading = true } = {}) {
+  if (isWeb && reading && !instagramSignIn && !/^https?:/i.test(url)) { // the Web page screen instead (no browser here)
     location.hash = "#/sites";
     return;
   }
@@ -725,41 +748,16 @@ export async function openBrowser(url = "", { instagramSignIn = false, find = fa
       }
       GoogleDriveAuth.browserToast({ text: message }).catch(() => {});
     });
-    // "Find in a video" (see filmot.js): the Filmot results page listed these videos, top first.
-    // The first whose captions say the word becomes its source; then the browser closes.
-    GoogleDriveAuth.addListener("youtubeFind", async ({ url: address }) => {
-      if (openingVideo) return;
-      openingVideo = true;
-      try {
-        GoogleDriveAuth.browserToast({ text: "Looking for the word in the top video…" }).catch(() => {});
-        const list = String(new URL(address).searchParams.get("c") || "").split(",").filter(Boolean).map((part) => {
-          const cut = part.lastIndexOf(".");
-          return cut > 0 ? { id: part.slice(0, cut), at: Number(part.slice(cut + 1)) || 0 } : { id: part, at: 0 };
-        });
-        const { findFromResults } = await import("./filmot.js");
-        const r = await findFromResults(list);
-        if (r.ok) {
-          emit("feeds", { refreshed: true });
-          await GoogleDriveAuth.closeBrowser();
-        } else {
-          GoogleDriveAuth.browserToast({ text: r.error }).catch(() => {});
-        }
-      } catch (e) {
-        GoogleDriveAuth.browserToast({ text: e.message || "Couldn't use these results." }).catch(() => {});
-      } finally {
-        openingVideo = false;
-      }
-    });
     // A video was tapped on YouTube (see youtube-browser.js): add it, then show it in the
     // app's own player, closing the browser. Without captions the browser stays open.
-    // `at` is the moment that came with it, from a caption search result (see filmot.js).
+    // `at` is the moment that came with it (the "t" of its link), if any.
     GoogleDriveAuth.addListener("youtubeVideo", async ({ id, at }) => {
       if (openingVideo) return;
       openingVideo = true;
       try {
         GoogleDriveAuth.browserToast({ text: "Getting captions…" }).catch(() => {});
-        const { watchFound } = await import("./filmot.js");
-        await watchFound(id, typeof at === "number" ? at : null);
+        const { watchVideo } = await import("./youtube.js");
+        await watchVideo(id, typeof at === "number" ? at : null);
         emit("feeds", { refreshed: true });
         await GoogleDriveAuth.closeBrowser();
       } catch (e) {
@@ -811,13 +809,10 @@ export async function openBrowser(url = "", { instagramSignIn = false, find = fa
   // The user's saved sites: drawn on the start page, and marked by the star in the browser's bar.
   const sites = savedSites(settings.browser_sites);
   await GoogleDriveAuth.browserSites({ sites: JSON.stringify(sites) }).catch(() => {});
-  // Opened by "Find in a video": the Filmot script takes the top results by itself (filmot-browser.js).
-  // `find` is {lang, values, names}: the language whose captions the search is for (see filmot.js).
-  const pageScript = (find ? `window.__tamkeenFind=${JSON.stringify(find === true ? {} : find)};` : "") + await youtubeBrowserScript();
-  await GoogleDriveAuth.openBrowser({ url, extractor: await extractorSource(), youtube: pageScript,
+  await GoogleDriveAuth.openBrowser({ url, extractor: await extractorSource(), youtube: await youtubeBrowserScript(),
                                       home: translateHtml(homeHtml(settings.study_language || "", sites)),
                                       closeOnInstagramSignIn: !!instagramSignIn,
-                                      forReading: !!reading && !instagramSignIn && !find });
+                                      forReading: !!reading && !instagramSignIn });
 }
 
 /** Open Instagram's sign-in page in the app's own browser (which shares its sign-ins with the reel
@@ -935,22 +930,21 @@ function exportDeck(url) {
     decks: anki.deckNames(), language: settings.study_language,
     // The audio a word's times refer to: its own clip (a word a friend shared), or the synced
     // copy of its episode. Other episodes (streamed originals, videos, pages) give no audio.
-    audioFor: async (v) => {
-      if (v.clip) return { key: clipKey(v.uid), load: () => storedClip(v.uid) };
-      const ep = lib.episodes.find((e) => e.uid === v.episode_uid);
-      if (!ep || !ep.remote_audio || (ep.audio_url || "").startsWith("drive:")) return null;
-      return { key: ep.uid, load: () => audioCopy(ep.uid) };  // kept on the phone once played; else fetched from Drive
-    },
+    audioFor: wordAudio,
   });
 }
 
-/** Where a new AnkiDroid card's audio comes from: the same answer as `audioFor` in exportDeck above.
- * (Written out a second time so that function stays as it was; the two can become one later.) */
+/** The audio a word's times refer to, for the Anki deck and new AnkiDroid cards: its own clip (a word
+ * a friend shared), the synced copy of its episode, else the card's kept voice (with its own times).
+ * Other episodes (streamed originals, videos, pages) give no audio. */
 async function wordAudio(v) {
   if (v.clip) return { key: clipKey(v.uid), load: () => storedClip(v.uid) };
-  const ep = lib.episodes.find((e) => e.uid === v.episode_uid);
-  if (!ep || !ep.remote_audio || (ep.audio_url || "").startsWith("drive:")) return null;
-  return { key: ep.uid, load: () => audioCopy(ep.uid) };
+  const ep = v.start != null || v.sent_start != null ? lib.episodes.find((e) => e.uid === v.episode_uid) : null;
+  if (ep && ep.remote_audio && !(ep.audio_url || "").startsWith("drive:")) {
+    return { key: ep.uid, load: () => audioCopy(ep.uid) };  // kept on the phone once played; else fetched from Drive
+  }
+  const times = voiceTimes(v);
+  return times ? { key: clipKey(v.uid), load: () => storedClip(v.uid), times } : null;
 }
 
 /** Save bytes as a file the share sheet can hand to another app. Written in pieces: the bridge

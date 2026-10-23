@@ -31,5 +31,6 @@
   {"name": "NVIDIA cuBLAS / cuDNN (optional download)", "license": "NVIDIA Software License", "file": "nvidia.txt", "on": ["desktop"]},
   {"name": "German word table and common-word list: today's spelling and capitals, from Wiktionary (optional download)", "license": "ODbL 1.0; CC BY-SA 4.0", "file": "german-sources.txt"},
   {"name": "Vazirmatn font (Persian)", "license": "SIL Open Font License 1.1", "file": "vazirmatn.txt"},
-  {"name": "Korean word list and common words, from Wiktionary and OpenSubtitles counts (optional download)", "license": "CC BY-SA 4.0", "file": "korean-sources.txt"}
+  {"name": "Korean word list and common words, from Wiktionary and OpenSubtitles counts (optional download)", "license": "CC BY-SA 4.0", "file": "korean-sources.txt"},
+  {"name": "Piper and its voices: card voices made on this computer (optional download)", "license": "MIT; voices CC0 / CC BY / CC BY-SA / public domain; eSpeak NG GPL-3.0", "file": "piper.txt", "on": ["desktop"]}
 ]

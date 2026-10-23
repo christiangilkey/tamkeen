@@ -436,16 +436,15 @@ final class InAppBrowser: UIViewController, WKNavigationDelegate, WKUIDelegate, 
     private func videoAddress(_ url: URL) {
         let host = url.host ?? ""
         // The Follow button on a channel's page, or a saved site taken off on the start page.
-        // Also "find": the videos a "Find in a video" search listed (web/js/filmot-browser.js).
-        if host == "follow" || host == "site" || host == "find" {
+        if host == "follow" || host == "site" {
             onVideo(url.absoluteString)
             return
         }
         let items = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems ?? []
         guard let id = items.first(where: { $0.name == "v" })?.value,
               id.range(of: "^[\\w-]{11}$", options: .regularExpression) != nil else { return }
-        // A moment in the video may come with it ("&t=95", from a caption search result, see
-        // web/js/filmot-browser.js): it travels on as "<id>@<seconds>".
+        // A moment in the video may come with it ("&t=95", the "t" of a video page's address, see
+        // web/js/youtube-browser.js): it travels on as "<id>@<seconds>".
         if let at = items.first(where: { $0.name == "t" })?.value,
            at.range(of: "^\\d{1,6}$", options: .regularExpression) != nil {
             onVideo("\(id)@\(at)")

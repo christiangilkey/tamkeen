@@ -73,17 +73,6 @@ def bring_forward(window: Any) -> None:
         log.debug("Couldn't bring a window forward: %s", exc)
 
 
-def _find_language(find: Any) -> dict[str, Any]:
-    """The language a "Find in a video" search is for, as the page script expects it ({lang, values,
-    names}, see languageChoices in web/js/filmot.js), keeping only short plain strings: it is written
-    into a script that runs inside someone else's website."""
-    ok = re.compile(r"^[A-Za-z][A-Za-z ()-]{0,39}$")
-    raw = find if isinstance(find, dict) else {}
-    words = lambda key: [w for w in (raw.get(key) or [])[:8] if isinstance(w, str) and ok.match(w)]  # noqa: E731
-    lang = raw.get("lang")
-    return {"lang": lang if isinstance(lang, str) and ok.match(lang) else "", "values": words("values"), "names": words("names")}
-
-
 NETFLIX_TEXTS = ("tap", "opening", "opened", "signin", "choose", "nolang", "failed")
 
 
@@ -113,47 +102,22 @@ class BrowserApi:
     YouTube video to the app's player. (Websites can reach this object, so it must never offer
     more than that.)"""
 
-    def __init__(self, main_window: Any = None, close_after_watch: bool = False, find: bool = False) -> None:
+    def __init__(self, main_window: Any = None, close_after_watch: bool = False) -> None:
         self._window: Any = None
         self._main = main_window
         self._close_after_watch = close_after_watch  # the YouTube window: done once its video is showing
-        self._find = find  # opened by "Find in a video": hands over the search results it shows
-
-    def find_results(self, candidates: Any = None) -> dict[str, Any]:
-        """"Find in a video": the Filmot results page showing in this window lists these videos, top
-        first ([{"id", "at"}], read by web/js/filmot-browser.js). The app keeps the first whose
-        captions say the word, and this window closes. Only for a window the app opened to find a
-        word, and only from filmot.com."""
-        from urllib.parse import urlsplit
-
-        from . import youtube
-
-        try:
-            host = (urlsplit(self._window.get_current_url() or "").hostname or "").lower()
-            if not self._find or host not in ("filmot.com", "www.filmot.com"):
-                return {"ok": False, "error": "Only a search opened by “Find in a video” can do that."}
-            result = youtube.ask_app_to_find(candidates if isinstance(candidates, list) else [])
-        except Exception as exc:  # never let a website's oddities crash the bridge
-            log.exception("Handing over Filmot's results failed")
-            return {"ok": False, "error": f"Couldn't use these results ({exc.__class__.__name__})."}
-        if result.get("ok"):
-            if self._main is not None:
-                bring_forward(self._main)
-            threading.Timer(0.4, self._close).start()  # after this answer has reached the page
-        return result
 
     def watch_video(self, video_id: str = "", at: Any = None) -> dict[str, Any]:
         """A video was tapped on YouTube: have the app add it (captions) and show it in its
         own player, then bring the app's window forward. See web/js/youtube-browser.js.
-        From Filmot's caption search results (web/js/filmot-browser.js) the moment the word is
-        said comes with it, as `at` (seconds)."""
+        A link's own "t" (seconds) comes with it as `at`."""
         from urllib.parse import urlsplit
 
         from . import youtube
 
         try:
             host = (urlsplit(self._window.get_current_url() or "").hostname or "").lower()
-            if host not in ("youtube.com", "filmot.com", "www.filmot.com") and not host.endswith(".youtube.com"):
+            if host != "youtube.com" and not host.endswith(".youtube.com"):
                 return {"ok": False, "error": "Videos can only be opened from youtube.com."}
             moment = None
             if isinstance(at, (int, float)) and not isinstance(at, bool) and 0 <= at < 1_000_000:
@@ -302,28 +266,23 @@ class JsApi:
         self._youtube_start = ""   # the address that window was last sent to
         self._netflix: Any = None  # the browser window opened by "Open Netflix", while it lives
 
-    def _browser_window(self, title: str, start: str, close_after_watch: bool = False, find: Any = False,
+    def _browser_window(self, title: str, start: str, close_after_watch: bool = False,
                         reading: bool = True, netflix: Any = None) -> Any:
         """A web browser window. Every page in it gets the bottom bar with "Import Page"
         (web/js/browser-toolbar.js) and, on youtube.com, tap-a-video-to-watch-it-in-the-app
-        (web/js/youtube-browser.js); on filmot.com, the same for its caption search results
-        (web/js/filmot-browser.js); on Netflix, the same for its titles (web/js/netflix-browser.js,
+        (web/js/youtube-browser.js); on Netflix, the same for its titles (web/js/netflix-browser.js,
         told `netflix`: see _netflix_config). `close_after_watch`: the window closes itself once a
-        video tapped in it is showing in the app's player. `find`: opened by "Find in a video", so on
-        Filmot's results the script takes the top video itself (web/js/filmot-browser.js).
-        `reading`: opened to read web pages. A window opened for something else (signing in,
-        YouTube, finding a word in a video) has no "Import Page" or save-to-start-page buttons."""
+        video tapped in it is showing in the app's player. `reading`: opened to read web pages. A
+        window opened for something else (signing in, YouTube) has no "Import Page" or
+        save-to-start-page buttons."""
         import webview
 
         scripts = [(paths.web_dir() / "js" / name).read_text(encoding="utf-8")
-                   for name in ("browser-toolbar.js", "youtube-browser.js", "filmot-browser.js", "netflix-common.js",
-                                "netflix-browser.js")]
+                   for name in ("browser-toolbar.js", "youtube-browser.js", "netflix-common.js", "netflix-browser.js")]
         scripts.insert(0, f"window.__tamkeenNetflix = {json.dumps(_netflix_config(netflix))};")
-        if find:
-            scripts.insert(0, f"window.__tamkeenFind = {json.dumps(_find_language(find))};")
         if not reading:
             scripts.insert(0, "window.__tamkeenNoImport = true;")
-        api = BrowserApi(self._window, close_after_watch, bool(find))
+        api = BrowserApi(self._window, close_after_watch)
         window = webview.create_window(f"{title} · {APP_NAME}", start, js_api=api,
                                        width=1200, height=820, min_size=(640, 480), text_select=True)
         api._window = window
@@ -338,20 +297,17 @@ class JsApi:
         window.events.loaded += add_scripts
         return window
 
-    def open_browser(self, url: str = "", find: Any = False, reading: bool = True) -> dict[str, Any]:
-        """Open a web browser window with an "Import Page" button. `find`: opened by "Find in a
-        video" on a word (web/js/filmot.js), with the language whose captions it is for.
-        `reading` false: opened for something other than reading pages (signing in), so
-        without the button. "Find in a video" windows never have it."""
+    def open_browser(self, url: str = "", reading: bool = True) -> dict[str, Any]:
+        """Open a web browser window with an "Import Page" button. `reading` false: opened for
+        something other than reading pages (signing in), so without the button."""
         from . import pages
 
         try:
             # Nothing typed: the start page (news in the study language and a search box).
             typed = (url or "").strip()
-            self._browser_window("Find in a video" if find else "Web Browser",
+            self._browser_window("Web Browser",
                                  pages.browser_start(typed) if typed else pages.browser_home(self._server.url),
-                                 find=find if find and typed else False,
-                                 reading=bool(reading) and not find)
+                                 reading=bool(reading))
         except Exception as exc:
             log.exception("Couldn't open the browser window")
             return {"ok": False, "error": f"Couldn't open the browser window ({exc})."}

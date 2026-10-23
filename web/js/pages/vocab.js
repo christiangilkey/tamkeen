@@ -8,8 +8,9 @@ import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
 import { icon } from "../icons.js";
-import { findInVideo, lacksAudio } from "../filmot.js";
 import { cardSentence, findWord } from "../cardtext.js";
+import { canSay, hasOwnAudio, voiceTimes } from "../cardvoice.js";
+import { cardSayer, stopDevice } from "../voiceplay.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
@@ -204,12 +205,14 @@ export async function render(view) {
   };
   // Backup for when animation frames are paused (window in the background).
   audio.addEventListener("timeupdate", () => { if (audio.currentTime >= stopAt) audio.pause(); });
-  /** Play part of a word's audio: its own clip (a word a friend shared) or its episode. */
-  async function playSnippet(v, start, end) {
-    const source = v.clip ? `clip:${v.id}` : `episode:${v.episode_id}`;
+  /** Play part of a word's audio: its own clip (a word a friend shared), its episode, or (`voice`)
+   * the voice kept for it (cardvoice.js: the same stored file as a clip). */
+  async function playSnippet(v, start, end, { voice = false } = {}) {
+    const own = v.clip || voice;
+    const source = own ? `clip:${v.id}` : `episode:${v.episode_id}`;
     if (audio.dataset.episode !== source) {
       audio.dataset.episode = source;
-      audio.src = v.clip ? await clipUrl(v) : await audioUrl(v.episode_id);
+      audio.src = own ? await clipUrl(v) : await audioUrl(v.episode_id);
       await new Promise((res, rej) => {
         audio.addEventListener("loadedmetadata", res, { once: true });
         audio.addEventListener("error", () => { audio.dataset.episode = ""; rej(new Error("Couldn't load this word's audio.")); }, { once: true });
@@ -236,6 +239,8 @@ export async function render(view) {
     });
     return { ended };
   }
+  // A card's word or sentence: its own recording, else the chosen voice (Settings → Card voices).
+  const say = cardSayer(playSnippet);
 
   // ----- folders -----
   async function newFolder() {
@@ -349,7 +354,8 @@ export async function render(view) {
           try {
             // Each word takes a short clip of its sentence with it, so your friend's
             // "Word" and "Sentence" buttons play exactly what yours do.
-            const withAudio = words.filter((v) => (v.episode_id || v.clip) && v.start != null).slice(0, social.MAX_SHARE_CLIPS);
+            // (A card's kept voice goes along too: cardvoice.js.)
+            const withAudio = words.filter((v) => hasOwnAudio(v) || voiceTimes(v)).slice(0, social.MAX_SHARE_CLIPS);
             if (withAudio.length) toast(`Preparing audio for ${withAudio.length} word${withAudio.length === 1 ? "" : "s"}…`, { timeout: 2500 });
             const clips = new Map();
             for (const v of withAudio) {
@@ -379,8 +385,9 @@ export async function render(view) {
   function item(v) {
     const changed = v.updated_at && v.updated_at - v.created_at > 60;
     const lang = langAttrs(detectLanguage(v.sentence || v.text));
-    const hasWord = (v.episode_id || v.clip) && v.start != null;
-    const hasSentence = (v.episode_id || v.clip) && v.sent_start != null;
+    // Every card can be heard: its own recording, or the voice chosen for cards without one.
+    const hasWord = canSay(v, "word");
+    const hasSentence = canSay(v, "sentence");
     const translation = String(v.translation || "").replace(/[⟦⟧]/g, "").trim();
     const el = h(`<div class="card vocab-item">
       <div class="vi-head" role="button" tabindex="0" aria-expanded="false">
@@ -399,7 +406,7 @@ export async function render(view) {
       <div class="vi-body" hidden>
         <div class="small muted">
           ${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}
-          ${v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}${changed ? ` · changed ${fmtDate(v.updated_at)}` : ""}
+          ${v.episode_id && v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}${changed ? ` · changed ${fmtDate(v.updated_at)}` : ""}
         </div>
         ${ankiProgressLine(ankiProgress[v.uid || v.id])}
         <div class="item-folders"></div>
@@ -408,7 +415,6 @@ export async function render(view) {
         <textarea class="notes" rows="2" placeholder="Grammar notes (root, grammar, usage…)" aria-label="Grammar notes"></textarea>
         <textarea class="memo" rows="1" placeholder="Personal notes (a mnemonic, where you heard it…)" aria-label="Personal notes"></textarea>
         <div class="row vi-actions">
-          ${lacksAudio(v) ? `<button type="button" class="ghost find-video" title="Look for a YouTube video where this word is said">${icon("video", 16)} Find in a video</button>` : ""}
           <button type="button" class="ghost folders-btn">${icon("folder", 16)} Folders</button>
           <span class="spacer"></span>
           <span class="small muted saved" hidden>Saved</span>
@@ -481,13 +487,10 @@ export async function render(view) {
       const r = e.currentTarget.getBoundingClientRect();
       folderMenu(r.left, r.bottom + 4, [v], "toggle");
     };
-    // A word with nothing to listen to: look for it in a video (see filmot.js).
-    const fv = el.querySelector(".find-video");
-    if (fv) fv.onclick = () => findInVideo(v).catch((e) => toast(e.message, { error: true }));
     const pw = el.querySelector(".play-word");
-    if (pw) pw.onclick = () => playSnippet(v, v.start, v.end ?? v.start + 1).catch((e) => toast(e.message, { error: true }));
+    if (pw) pw.onclick = () => say(v, "word");  // (never fails: at worst one calm message, see voiceplay.js)
     const ps = el.querySelector(".play-sent");
-    if (ps) ps.onclick = () => playSnippet(v, v.sent_start, v.sent_end).catch((e) => toast(e.message, { error: true }));
+    if (ps) ps.onclick = () => say(v, "sentence");
     el.querySelector(".del").onclick = async () => {
       if (!(await confirmDelete(v))) return;  // says so first when the word's Anki card would go too
       await api(`/vocab/${v.id}`, { method: "DELETE" });
@@ -567,10 +570,10 @@ export async function render(view) {
 
   function startReview() {
     openReview({
-      words: reviewWords(), allWords: all, log, playSnippet, highlight,
+      words: reviewWords(), allWords: all, log, playSnippet, say, highlight,
       scope: st.folder && st.folder !== "none" ? folderName(st.folder) || "" : "",
       onDelete: (v) => { all = all.filter((x) => x !== v); selected.delete(v.id); },  // a word deleted from its card
-      onClose: () => { audio.pause(); if (view.isConnected) renderAll(); },  // meanings and notes may have been edited on a card
+      onClose: () => { audio.pause(); stopDevice(); if (view.isConnected) renderAll(); },  // meanings and notes may have been edited on a card
     });
   }
 
@@ -702,5 +705,5 @@ export async function render(view) {
       text: "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several." },
     { target: "#more", title: "More", text: "Add a word by hand, export your words for Anki or as a spreadsheet, and Anki's settings." },
   ]);
-  return () => { audio.pause(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
+  return () => { audio.pause(); stopDevice(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
 }

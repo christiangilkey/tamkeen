@@ -4,7 +4,6 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { CARD_SENTENCE_MAX, cardSentence, cardTranslation, findWord, trimAround } from "../../web/js/cardtext.js";
 import { prompt } from "../../web/js/review/deck.js";
-import { originNote } from "../../web/js/filmot.js";
 
 // The owner's example: one news sentence of 300+ characters, joined by commas.
 const LONG = "والخبر السار هو أن الحرب بدأت تتجه نحو مسار إيجابي لصالح الحكومة اليمنية، وإن كانت المعركة ستكون شاقة وستشهد تقلبات وتحديات حالها حال أي معركة أخرى، فقد نجحت القوات الحكومية، مدعومةً بالقوة الجوية السعودية، في طرد الحوثيين من بعض المناطق ذات الأهمية الاستراتيجية في محيط مضيق باب المندب، وأثبتت قدرتها على العمل بفعالية.";
@@ -69,12 +68,4 @@ test("a mark the cut would leave alone is dropped", () => {
   assert.equal((shown.match(/⟦/g) || []).length, (shown.match(/⟧/g) || []).length, shown);
   const half = cardTranslation("A long, long opening clause that goes on for ever and ever, ⟦then⟧ the word and ⟦a split part that runs on past the end of the card⟧.", 70);
   assert.equal((half.match(/⟦/g) || []).length, (half.match(/⟧/g) || []).length, half);
-});
-
-test("the note a word keeps about where it was first found", () => {
-  assert.equal(originNote({ episode_title: "لا يمكن لأمريكا أن تغض الطرف عن الحوثيين", sentence: "  والخبر السار\nهو  " }),
-               "First found in: لا يمكن لأمريكا أن تغض الطرف عن الحوثيين — والخبر السار هو");
-  assert.equal(originNote({ episode_title: "", sentence: "typed sentence" }), "First found in: typed in by hand — typed sentence");
-  assert.equal(originNote({ episode_title: "A page", sentence: "" }), "First found in: A page");
-  assert.equal(originNote({ episode_title: "", sentence: "" }), "", "a word typed in alone has nothing to note");
 });

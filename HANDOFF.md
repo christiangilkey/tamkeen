@@ -1978,7 +1978,7 @@ The owner asked for a way to save a webpage to the browser's start page.
   be signed in to the owner's real Drive. This work used its own, `tamkeen-web-browser` (port 8812), after
   checking `/api/sync/status` said not signed in.
 
-### "Find in a video": Filmot for words with nothing to listen to (2026-10-13, "Vocab Page" chat, the one that released v0.15.0; on main, NOT committed, NOT released)
+### [REMOVED 2026-10-22, replaced by Card voices] "Find in a video": Filmot for words with nothing to listen to (2026-10-13, "Vocab Page" chat, the one that released v0.15.0; on main, NOT committed, NOT released)
 The owner asked for Filmot (filmot.com, a search engine over YouTube captions) for words with no audio, including
 words saved from a web page: open the video and save it with the whole sentence, as a word saved from a player.
 - **Why it is a button that opens Filmot, not a silent lookup**: Filmot has no public API today. The RapidAPI
@@ -2258,7 +2258,7 @@ play the attempt through an `<audio>` element from a blob URL instead of the sha
 **Gotcha met:** `node --check file.js` passed a file with a stray `}` that the browser refused (the whole app
 went blank). Check browser modules by copying them to a `.mjs` file and running `node --check` on that.
 
-### Cards the same size whatever they were saved from; the origin note on "Find in a video" (2026-10-15, "Vocab Page" chat; committed locally, NOT pushed)
+### Cards the same size whatever they were saved from; the origin note on "Find in a video" [that part REMOVED 2026-10-22; cardtext.js stays] (2026-10-15, "Vocab Page" chat; committed locally, NOT pushed)
 Owner (through the main chat, with a phone screenshot of a web-page card whose "sentence" was a whole paragraph):
 cards from text sources "should be exactly the same as the cards added from audio sources", and once "Find in a
 video" gives a card a video, "attach a note with the original source and the sentence from the text it was
@@ -2291,7 +2291,7 @@ originally found in".
   allowed), YouTube's own search + reading the found videos' captions on the device, or Forvo (word-only
   recordings by native speakers, paid API key, no sentence).
 
-### "Find in a video" takes the top result by itself (2026-10-16, "Vocab Page" chat; committed locally, NOT pushed)
+### [REMOVED 2026-10-22, replaced by Card voices] "Find in a video" takes the top result by itself (2026-10-16, "Vocab Page" chat; committed locally, NOT pushed)
 The owner chose, after hearing that Filmot cannot be searched automatically: "Just have the user do the captia,
 then pull the top YouTube video shown, from its transcript find the word, then seek to the beggining of the
 sentence that word is in".
@@ -2468,7 +2468,7 @@ right of them ... Also include a paste button onto the my notes box".
   `git add` of the whole file swept its unfinished lines in. Undone at once (soft reset, nothing pushed) and
   recommitted with only my block staged. Re-read each file's diff right before committing it.
 
-### "Find in a video" asks for captions in the language being learned (2026-10-17, "Vocab Page" chat; committed locally, NOT pushed)
+### [REMOVED 2026-10-22, replaced by Card voices] "Find in a video" asks for captions in the language being learned (2026-10-17, "Vocab Page" chat; committed locally, NOT pushed)
 Owner: "after the user does the captia, then automatically select the language to the language the user is learning
 in the settings on the webpage, then pull the word from the top videos of that query".
 - **Address first** (one page load): `filmotAddress(word, lang)` adds `&lang=<code>` with YouTube's caption code
@@ -2531,7 +2531,7 @@ the AI should say so, the popup should show and define the right word, and the t
   its word is in `<span class="lbl">`, hidden by the last section of `web/css/media.css`; aria-label "Transcript".
   YouTube title on a 375 px phone: 83 px -> 132 px. Desktop unchanged.
 
-### "Find in a video" in the word popup of web pages (2026-10-17, "Vocab Page" chat; committed locally, NOT pushed)
+### [REMOVED 2026-10-22, replaced by Card voices] "Find in a video" in the word popup of web pages (2026-10-17, "Vocab Page" chat; committed locally, NOT pushed)
 Owner: "The whole forvo find in video option we have on vocab cards should be a button right on the initial word
 pop up as well" (screenshot: the popup on an imported web page).
 - `wordbubble.js`: optional action `onFindVideo(def)`; when a page passes it, a "Find in a video" button (line
@@ -4827,6 +4827,113 @@ losing any information." And, about More options → Model → "Another model…
   `build.mjs --check` passes, build-www works. **Not checked**: a real phone/iPhone, a real key test, the panel's "ready"
   state with Typhoon really downloaded (unit-tested only), the web app's forced light theme shows "Test the key" with a
   dark native button (the web app is always dark, so not reachable there).
+
+## Card voices: a voice for flashcards without audio; Filmot and "Find in a video" removed (2026-10-22; branch of worktree agent-ae0984da255c84720, NOT merged, NOT pushed)
+Owner: "What's the best high quality text to speak option to add for cards that don't come with audio?" (answer: Azure,
+with the device's voices as the free fallback), then: "Could azure work as in every user has their own azure account
+with their own limit? Also could I get an option for local model users to have it sent to their computer (queued) and
+synced later? Also once this feature is implemented there will be no need for Filmot button or the find in a video
+button so it can be removed." Plus a bug (coordinator, from the owner's phone): Word/Sentence on Spanish words saved
+from a video ("concientivar", "cartera") showed "Couldn't load this word's audio." three times, stacked.
+- **Settings → Card voices** (new section, `web/js/components/voicesetup.js`, every version; laid out like Listening &
+  transcripts: three tiles, a status tag, then what the choice needs, folds at the foot). The choice `tts_mode`:
+  - **"This device's voice"** (default, free, nothing kept): `web/js/devicevoice.js`. Computer and web app: the
+    browser's `speechSynthesis`. Android and iPhone: our own plugin **TamkeenSpeech** (`SpeechPlugin.java`: Android
+    TextToSpeech, + a `<queries>` TTS_SERVICE entry in AndroidManifest; `SpeechPlugin.swift`: AVSpeechSynthesizer) with
+    `speak/stop/hasVoice/openSettings`. No voice for the language: says so and where to add one (Android, iPhone, Mac,
+    Windows, browser wording in `cardvoice.js addVoiceHelp`); Android has "Open text-to-speech settings".
+  - **"Azure (your own key)"**: each user's own Azure Speech key + region (`tts_key_azure`, `tts_region_azure`), and a
+    per-language voice pick (`tts_voices`, JSON). Called **straight from the device** (Azure's TTS answers browsers:
+    checked 2026-10-22, `Access-Control-Allow-Origin: *` on both `/cognitiveservices/v1` and `/voices/list`; no Worker).
+    "Test the key" asks `/voices/list` (uses no characters) and fills the voice menu. A setup fold (free account needs a
+    phone and a card; Speech resource, Free F0; Key 1 + Location/Region), a cost fold (each user's own account; "about
+    half a million characters a month in the free tier, check Azure's page", link to the pricing page, no prices
+    hard-coded), and "Make them now" (all cards of the language without a voice, with the character estimate).
+  - **"My computer" / "This computer"**: the computer makes the voices with Piper (below). Phones show "Waiting for your
+    computer: N cards" (and the tag "N waiting"); until a card's voice arrives the device's voice reads it.
+  - The four settings travel with the keys (`aikeys.py` / `aikeys.js` KEYS, `key_times`; MAX_LENGTH 500 → 2000 for
+    the JSON). `tts_key_azure` is in `db.SECRET_SETTINGS` (never in a backup). `tts_local` (which downloaded voice per
+    language) is computer-only. Privacy page has a "Card voices" paragraph.
+- **Which cards play their own audio** (`cardvoice.js hasOwnAudio`, the owner's bug): a friend's clip, or a moment in an
+  episode whose kind can be loaded. `NO_AUDIO_KINDS` = video/youtube, video/netflix, video/instagram, text/html,
+  text/book, "missing" (episode gone, or on a phone an episode whose sound isn't reachable: no Drive copy, no web
+  address). The vocab list now carries each word's episode `audio_type` (`app/api/vocab.py _items`, phone
+  `backend.js vocabOut`). Every other word is said by the voice. `sayCard` tries in order: own recording → kept
+  voice → voice made now (Azure / this computer) → the device's voice, falling through on any failure; `voiceplay.js
+  cardSayer` never rejects and shows at most one calm toast, never stacked (a missing device voice: once per run).
+- **Kept once, synced** (`vocab.voice`, new column; JSON `{start, end, sent_start, sent_end}` inside the card's file):
+  the file is the same one a friend's clip uses (`clips/<uid>.ogg`, phone `clip:<uid>`, Drive `c_<uid>.ogg`), so
+  upload/download/cleanup reuse that road (`engine.upload_clips` / `remove_deleted_media` now take `voice <> ''` too;
+  phone `pending_clips`). The card's own `start/end` (moments in a YouTube video etc.) are left alone. A word never has
+  both a friend's clip and a voice. Once-only: `ensureVoice` (a second press waits for the first; a card with audio or
+  a voice is never voiced), `PUT /api/vocab/<id>/voice` and the phone's `saveVoice` refuse a second voice, the
+  computer's `UPDATE ... WHERE voice = ''`. Sync: `keep_voice` / `keepVoice` (engine.py, cardvoice.js used by the
+  phone's sync.js): another device's newer copy without a voice keeps this one's voice (other edits still win) and is
+  stamped +1 ms so the voice goes back.
+- **One file for word + sentence**: Azure is asked twice (SSML `buildSsml`: the voice, `xml:lang`, `mstts:silence`
+  Leading-exact 60 ms, Tailing-exact 900 ms after the word / 350 ms after the sentence; format
+  `ogg-48khz-16bit-mono-opus`) and `web/js/oggjoin.js joinOggOpus` joins the two Ogg Opus files packet by packet (no
+  decoding), giving each part's start and length → `clipTimes`. The sentence said is the card's own cut (`cardSentence`,
+  ≤ ~110 characters). The computer joins PCM with the same gaps and encodes Opus (`audio.encode_pcm_opus`).
+- **Azure voices** (`AZURE_VOICES`, `AZURE_BY_COUNTRY` in cardvoice.js): ar ar-SA-Zariyah (Arabic by the country picked
+  for YouTube's "Popular in", `ytCountry:<lang>`: EG Salma, MA Mouna, LB Layla, JO Sana, SY Amany, AE Fatima, IQ Rana,
+  KW Noura, QA Amal, BH Laila, OM Aysha, YE Maryam, TN Reem, DZ Amina, LY Iman), es es-MX-Dalia (ES Elvira, AR Elena,
+  CO Salome, CL Catalina, PE Camila, US Paloma, VE Paola), fr fr-FR-Denise (CA/BE/CH), pt pt-BR-Francisca (PT Raquel),
+  en en-US-Jenny (GB/AU/CA/IE/NZ/IN), de de-DE-Katja (AT/CH), zh zh-CN-Xiaoxiao (TW HsiaoChen), ja Nanami, ru Svetlana,
+  it Elsa, tl fil-PH-Blessica, ca Joana, th Premwadee, fa Dilara, hi Swara, ko SunHi; **Bisaya: none** (the device's
+  voice). Names from Microsoft's language-support page (2026-10-22); a usual voice the region refuses (400) is swapped
+  for the region's own voice for that language from `/voices/list` (voiceplay.js `azureMaker`). HD/MAI voices are left
+  out of the menu (dearer).
+- **The computer's voices** (`app/voices.py`, `app/api/voices.py` `/api/voices`, `/download`, `/cancel`, `/pick`,
+  `DELETE /<id>`, `/make/<vocab id>`, `/sample`): **Piper** 2023.11.14-2 (MIT) run as its own program (`piper.exe
+  --output_raw`, ~21-26 MB per system, SHA-256 pinned) + one ONNX voice per language from rhasspy/piper-voices
+  (revision pinned `5041a7a…`, LFS SHA-256 checked), into `models/voices/`. eSpeak NG (GPL-3) and libtashkeel come inside
+  Piper's download as part of that separate program (Piper vowels Arabic itself). Voices (licence of the recordings):
+  ar_JO-kareem-medium (not stated by its maker), es_ES-davefx (CC0) / es_MX-ald (Unlicense), fr_FR-siwis (CC BY 4.0) /
+  fr_FR-mls (CC BY 4.0, from scratch), it_IT-serena (CC BY 4.0, from scratch), pt_BR-faber (CC0), ca_ES-upc_ona (CC
+  BY-SA 3.0 ES), ru_RU-denis (CC0), de_DE-thorsten (CC0) / de_DE-mls (CC BY 4.0), fa_IR-amir (CC0), en_US-ljspeech /
+  en_GB-cori (public domain, from scratch). **Left out**: Hindi, Korean, Japanese, Thai (their only Piper voices are CC
+  BY-NC-SA), Chinese (huayan "unknown", xiao_ya non-commercial, chaowen built on it), Tagalog and Bisaya (none), the
+  "ryan" family and other NC ones; MMS-TTS (CC BY-NC 4.0) and XTTS (CPML) not used; Kokoro not added (needs eSpeak in
+  process and special Japanese/Chinese front ends). **Caveat for the owner**: most "medium" voices were fine-tuned from
+  Piper's English "lessac" voice, whose recordings are licensed for research only (Blizzard 2013 licence); Piper
+  publishes each voice under its own recordings' licence. From-scratch alternatives exist for English, French, German,
+  Italian. licenses/piper.txt + index entry (desktop).
+  - `Worker` (started in main.py lifespan): with "computer" chosen, makes every card that needs one and whose language has
+    a downloaded voice, newest first, one at a time; woken by a new word, a download, a settings change; looks every 60 s
+    (so cards that arrive from the phone by sync are picked up). A failure waits an hour. The Vocab page and reviewer
+    on the computer also make one at once (`POST /api/voices/make/<id>`, ~1-2 s).
+  - SQL twin of `needsVoice`: `voices.NEEDS_VOICE` (pytest checks NO_AUDIO_KINDS and the language list match the JS).
+- **Where it plays**: Vocab list Word/Sentence on every card that has a word / a sentence; the reviewer's Word,
+  Sentence, "Say it" (models the kept voice or the device's, estimated length) and autoplay on flip; Anki export
+  (computer `_anki_clips` falls back to the voice file with the voice's times; phone `wordAudio` → `audioFor` with
+  `times`, used by the deck export and AnkiDroid sync); a word sent to a friend takes its voice as its clip.
+- **Removed: Filmot / "Find in a video"** everywhere: `web/js/filmot.js`, `web/js/filmot-browser.js`, their tests
+  (`tests/js/filmot.test.mjs`, `tests/test_filmot.py`), the Vocab button and the web-page popup button (`wordbubble.js
+  onFindVideo`, `reader.js findWordInVideo`), `POST /vocab/<id>/source` (computer and phone), `BrowserApi.find_results`,
+  `_find_language`, `open_browser(find=…)` (now `open_browser(url, reading)`), `youtube.ask_app_to_find`, the
+  `youtube_find` event, the phone's `youtubeFind` listener and `__tamkeenFind`, Android/iPhone "find" host hand-over.
+  Kept: the `t` moment of YouTube links (`youtube-browser.js` still sends `<id>@<seconds>`; `youtube_watch` now calls
+  `youtube.js watchVideo`), `cardtext.js`, `getVideo/readVideo`. Older Filmot sections above are marked REMOVED.
+- Translations: `tools/i18n/tr/<code>/61-voices.txt` (110 strings × 16, plus the web app's "What needs the app?" line
+  reworded without Find in a video); voice names and licence codes are in ignore.txt.
+- **Checked** (after merging main dae9f62): 518 pytest pass, 2 skipped (new `tests/test_voices.py`, 8), 746 JS (new `tests/js/cardvoice.test.mjs`, 17: kinds with
+  playable audio, voice per language and Arabic country, picks, SSML, key/region/errors, voice list filter, Ogg join with
+  intact CRCs, clip times, Azure request shape with a fake fetch, once-only, keepVoice, sayCard fall-through, waiting
+  count, device voice choice), parity tests, `build.mjs --check`, `build-www`, web app build, Android
+  `:app:compileDebugJavaWithJavac` (JDK 21). **Real voices on the computer** (fresh `APS_DATA_DIR`, never signed in):
+  downloaded the Piper program + es_ES-davefx + ar_JO-kareem through the app; made "cartera" + "Perdí mi cartera en el
+  metro de la Ciudad de México." (2.1 s) and "مكتبة" + "ذهبت إلى المكتبة لأقرأ كتابا جديدا."; Whisper large-v3 heard both
+  back word for word; the worker voiced a new card by itself within 6 s; the desktop Vocab page's Sentence button
+  fetched the voice file (206). **Web app** at 375×812 and desktop width, Azure faked inside the page: two requests per
+  card, a second press made none, "Make them now" voiced 2 cards (4 requests), Test the key filled the menu (HD voice
+  left out); a YouTube word and typed words in a browser with no voices gave one calm message after three presses.
+- **NOT checked**: a real Azure key/account (none was used: voice names, the 400-for-unknown-voice behaviour and the
+  real answer shapes are from Microsoft's docs; only the CORS preflight and a 401 for a made-up key were seen); the
+  Android/iPhone TextToSpeech plugins on a device (Java compiled, Swift not compiled here: CI's iOS build will tell);
+  iPhone WKWebView playing the joined Ogg Opus (the same format as the existing clips and audio copies); Piper on a Mac
+  or Linux; a phone and a computer actually syncing a voice through Drive (the paths are the friend-clip ones, unit
+  tested in merge only).
 
 ## One standard typography for pages and books; full book pages; bold, italic and headings kept (2026-10-22; branch `worktree-agent-a3c5a3b9111f5c97d`, NOT merged, NOT pushed)
 Owner (phone screenshot of the Bisaya book "Larawan", page 1/590, lines ~45-50 px): "way too big and unreadable … there

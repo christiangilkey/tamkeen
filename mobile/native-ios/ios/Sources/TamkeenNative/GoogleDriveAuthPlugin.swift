@@ -145,17 +145,11 @@ public class GoogleDriveAuthPlugin: CAPPlugin, CAPBridgedPlugin {
         }
     }
 
-    /// What the browser passes on: a tapped YouTube video, the Follow button, the star, or the
-    /// videos a "Find in a video" search listed.
+    /// What the browser passes on: a tapped YouTube video, the Follow button or the star.
     private func browserSaid(_ id: String) {
         if id.hasPrefix("tamkeen-video://site") {
             // The star in the bar, or a site taken off on the start page: JavaScript keeps the list.
             notifyListeners("browserSite", data: ["url": id])
-            return
-        }
-        if id.hasPrefix("tamkeen-video://find") {
-            // "Find in a video": the videos Filmot's results page listed, top first.
-            notifyListeners("youtubeFind", data: ["url": id])
             return
         }
         if id.hasPrefix("tamkeen-video:") {
@@ -164,7 +158,7 @@ public class GoogleDriveAuthPlugin: CAPPlugin, CAPBridgedPlugin {
             return
         }
         // A YouTube video was tapped: JavaScript adds it and opens the app's player.
-        // "<id>@<seconds>" when a moment in it came along (a caption search result).
+        // "<id>@<seconds>" when a moment in it came along (the "t" of its link).
         if let cut = id.firstIndex(of: "@"), cut != id.startIndex {
             let seconds = Int(id[id.index(after: cut)...]) ?? 0
             notifyListeners("youtubeVideo", data: ["id": String(id[..<cut]), "at": seconds])

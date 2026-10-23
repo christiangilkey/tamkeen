@@ -1,0 +1,111 @@
+2619fa36 Não foi possível guardar a voz deste cartão.
+332de0f3 O Azure não aceitou esta chave na região “{0}”. Copie a Key 1 de novo e confira se a região é a que aparece ao lado dela (por exemplo westeurope).
+e217f040 O Azure diz que há solicitações demais, ou que a cota gratuita deste mês acabou. Tente mais tarde ou confira seu uso no portal do Azure.
+51340aa5 O Azure não aceitou a solicitação: talvez a voz escolhida não exista nesta região. Escolha outra voz.
+53c3380d O Azure respondeu com um erro ({0}). Tente de novo em instantes.
+35cf401b Não foi possível acessar o Azure na região “{0}”. Confira sua conexão e como a região está escrita (por exemplo westeurope, eastus).
+6dea6d8f O Azure não devolveu nenhum som. Tente de novo em instantes.
+26364875 Este cartão não tem nenhuma palavra para dizer.
+bf7aa035 Não foi possível ler o som do Azure.
+052734c1 Este cartão não tem nada para dizer.
+1afd82ba Este celular não tem uma voz em {0:lower}. Para adicionar: abra as Configurações do celular → procure “Conversão de texto em voz” → Mecanismo preferencial (Serviços de voz do Google) → Configurações → Instalar dados de voz → {1}.
+38f321bb Este iPhone não tem uma voz em {0:lower}. Para adicionar: Ajustes → Acessibilidade → Conteúdo Falado → Vozes → {1}.
+9747c1e8 Este Mac não tem uma voz em {0:lower}. Para adicionar: Ajustes do Sistema → Acessibilidade → Conteúdo Falado → Voz do sistema → Gerenciar Vozes → {1}.
+57b8b3ab Este computador não tem uma voz em {0:lower}. Para adicionar: Configurações do Windows → Hora e idioma → Fala → Adicionar vozes → {1}. Depois reinicie o Tamkeen.
+662c883b Este navegador não tem uma voz em {0:lower}. Alguns navegadores têm mais vozes que outros (Chrome e Edge têm muitas), ou adicione uma voz ao aparelho nas configurações dele.
+c57d4482 Vozes dos cartões
+9ae41195 A voz que lê os cartões que não têm gravação.
+74e96124 Voz para cartões sem áudio
+8f69a349 Chave e região do Azure Speech
+2f3a219e Vozes neste computador
+5de162ff Vozes do Azure
+c1669e42 O Azure precisa de uma chave
+592a4522 Vozes feitas neste computador
+5717197d Esperando seu computador ({0} cartões)
+4f0fe97e Vozes feitas no seu computador
+185b32a7 A voz deste aparelho
+ebc4da0c Grátis. Seu computador as faz; elas chegam quando ele sincroniza.
+a69ebf95 Grátis, offline. Feitas aqui com uma voz baixada e guardadas.
+11266a50 Quem lê os cartões sem áudio
+ea750ccc Cartões de um podcast ou do seu próprio áudio tocam a própria gravação. Cartões digitados, ou salvos de uma página da web, um livro, o YouTube, a Netflix ou um reel, são lidos pela voz que você escolher aqui: a palavra e a frase dela.
+82711d71 Grátis. Falada por {0} enquanto você ouve; nada é guardado.
+a6d92721 Azure (sua própria chave)
+3dd9501d Vozes naturais, árabe por país. Feitas uma vez por cartão e guardadas.
+1829e96f Azure Speech
+0f217179 Região
+dc8d9204 por exemplo westeurope
+c67dd20e Chave
+c0547393 Cole a Key 1 aqui
+f083813f Obter uma chave do Azure ↗
+c615bc62 Voz para {0:lower}
+05771f64 Ouvir um exemplo
+0c7c1be1 Como obter sua própria chave grátis do Azure
+8107ef6d Crie uma conta grátis do Microsoft Azure em <0>azure.microsoft.com/free</0>. O Azure pede um número de telefone e um cartão bancário no cadastro, para confirmar que você é uma pessoa; o nível gratuito não é cobrado.
+49d15d1f No portal do Azure, crie um recurso <0>Speech</0> (<1>este link o abre</1>). Escolha qualquer região perto de você e o tipo de preço <2>Free F0</2>.
+3e97ae56 Abra o novo recurso → <0>Keys and Endpoint</0>. Copie a <1>Key 1</1> em Chave, acima, e a <2>Location/Region</2> (por exemplo westeurope) em Região.
+40b93dff Toque em <0>Testar a chave</0>.
+ed90bcad Quanto custa?
+3545863b Cada usuário tem sua própria conta do Azure e sua própria cota. O nível gratuito (F0) inclui cerca de meio milhão de caracteres de vozes neurais por mês; confira a página do Azure para a quantidade e os preços de hoje: <0>Preços do Azure Speech ↗</0>. A palavra e a frase de um cartão costumam ter de 20 a 120 caracteres, e a voz de cada cartão é feita uma só vez e depois fica com o cartão em todos os seus aparelhos. Se a cota gratuita acabar, o Azure recusa até o mês seguinte e os cartões usam a voz deste aparelho.
+5f2b1a67 Um cartão que veio com gravação sempre a toca. Para qualquer outro cartão, <0>A voz deste aparelho</0> diz a palavra e a frase quando você toca em Palavra ou Frase. <1>Azure</1> e <2>{0}</2> fazem uma gravação delas na primeira vez, guardam com o cartão e a enviam aos seus outros aparelhos pelo Google Drive, então ela é feita uma só vez. Ela também vai na exportação para o Anki. Até a gravação de um cartão existir, a voz deste aparelho o lê.
+be6016cc Com o Azure, só a palavra e a frase vão para o serviço de voz da Microsoft na região que você escolheu, direto de {0}, com sua chave; nada mais sobre você ou sua biblioteca. Sua chave fica guardada em {1} e, se você usa a sincronização com o Google Drive, na pasta privada do app no seu próprio Google Drive, para que seus outros aparelhos também a tenham. Ela nunca faz parte de uma exportação de dados. A voz do aparelho e as vozes do computador não enviam nada a lugar nenhum.
+e6b3d051 {0} esperando
+75f52718 Grátis
+3f6cf33f Abrir as configurações de conversão de texto em voz
+e185048c Verificar de novo
+4c2739cc Este aparelho tem uma voz em {0:lower}. Ela lê os cartões que não têm gravação.
+e1c7fb3a Este aparelho tem uma voz em {0:lower}. Ela lê os cartões que não têm gravação até a deles ser feita.
+0804d058 A voz deste aparelho lê os cartões que não têm gravação.
+b2dd3a55 A voz deste aparelho lê os cartões que não têm gravação até a deles ser feita.
+d9f8f583 Salva. Agora a região, como o Azure a mostra ao lado da chave.
+747715f4 Nenhuma voz em {0:lower} no Azure
+03755a9f O Azure não tem voz em {0:lower}, então estes cartões usam a voz deste aparelho.
+8d0d41ba · habitual
+91615915 Teste a chave para escolher entre todas as vozes do Azure para o idioma.
+415c7c53 Os cartões já feitos mantêm a voz deles; os novos usam esta.
+60706579 Cole primeiro sua chave e a região.
+d2f602e7 Pedindo as vozes ao Azure…
+5cab77ed Cole primeiro a Key 1 e a região.
+09a9c133 {0} vozes em {1:lower} nesta região.
+97985713 O Azure não tem voz em {0:lower} nesta região.
+d5007d1f ✓ Funciona (o Azure respondeu em {0} s). {1} O teste não usa nenhum dos seus caracteres.
+d24c44bd Fazer agora
+8e4d2c67 Cartões em {1:lower} ainda sem voz: {0} (cerca de {3} caracteres). Cada um é feito na primeira vez que toca, ou todos agora, prontos para uma exportação para o Anki.
+f05831f2 Fazendo vozes: {0} de {1}…
+b88dd56d Vozes feitas e guardadas: {0}.
+11b10cf7 {0} feitas. {1}
+b036bcb1 Cartões: {0}
+c5cb3e55 Nada esperando
+ecac64cd Seu computador as faz quando o Tamkeen está aberto nele, com a voz em {0:lower} baixada (Configurações → Vozes dos cartões no computador). Elas chegam aqui quando ele sincroniza; até lá, a voz deste celular as lê.
+d9199b9a Seu computador não tem voz em {0:lower}, então estes cartões usam a voz deste celular. Para vozes naturais em {1:lower}, escolha o Azure.
+4191f605 As vozes não funcionam neste tipo de computador. Escolha o Azure ou a voz deste aparelho.
+f2abc459 As únicas vozes grátis em {0:lower} para este programa não podem ser usadas livremente (as gravações delas têm licença só para uso não comercial), então o Tamkeen não as oferece.
+d905ce13 Ainda não há uma voz grátis em {0:lower} para este computador.
+a8ba7124 {0} Escolha o Azure para vozes naturais em {1:lower}, ou a voz deste aparelho.
+d74a2319 + o programa de voz, {0} MB, uma vez só
+20716e92 Em uso
+1d4d43cc Usar
+58fabfa7 Exemplo
+b394bfc2 {0} · {1} MB{2}{3}
+7b33472e Sobre estas vozes
+ba2564f4 São vozes do Piper (um programa de voz de código aberto que roda no processador deste computador, offline). As gravações de cada voz têm a licença indicada. Muitas foram treinadas a partir da voz em inglês do Piper, cujas gravações tinham licença para pesquisa; o Piper as publica com as licenças delas.
+d454ace4 Baixe uma voz em {0:lower}: assim este computador dá a cada cartão em {1:lower} sem áudio a própria gravação, inclusive aos salvos no seu celular.
+94204dbd Cartões em {1:lower} a fazer: {0}. Este computador está fazendo agora.
+81846240 Todo cartão em {0:lower} tem sua voz. Os novos recebem a deles assim que são salvos, aqui ou no seu celular.
+2d8e8528 O download falhou: {0}
+8e09b678 {0} Enquanto isso, a voz deste aparelho é usada.
+a3ced5ce Este cartão não pode ser dito neste aparelho.
+36e2543b Esse áudio está vazio ou grande demais.
+628e1e3b Essa voz não é para este idioma.
+d9720fb2 Não foi possível fazer o áudio da voz: {0}
+5728da40 não informada pelo autor
+ad561619 A única voz árabe do Piper. O Piper acrescenta as vogais sozinho antes de falar.
+b3252c0d Voz desconhecida: {0}
+287e3948 Os arquivos desta voz não foram encontrados.
+981282c5 As vozes neste computador precisam de Windows (Intel ou AMD de 64 bits), um Mac ou Linux.
+9efd4aef Uma voz já está sendo baixada.
+51a539cf Esta voz não está baixada neste computador.
+d4b56c4f O programa de voz não conseguiu rodar ({0}).
+db3b42e2 O programa de voz falhou: {0}
+899e00df Nenhuma voz em {0:lower} está baixada neste computador (Configurações → Vozes dos cartões).
+e376cf70 Baixe primeiro a voz deste idioma.
+d6071c46 Reels dos seus salvos do Instagram e reels aleatórios, reels com uma música da biblioteca musical do Instagram, o navegador embutido (Importar página), a sincronização com o AnkiDroid e o número no ícone do app. O que você adicionar no app aparece aqui depois de uma sincronização.

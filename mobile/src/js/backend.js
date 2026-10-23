@@ -456,7 +456,14 @@ function episodeOut(e) {
 }
 
 function vocabOut(v) {
-  return { ...v, id: v.uid, episode_id: v.episode_uid, folders: v.folders || [] };
+  // `audio_type`: the episode's kind, from which web/js/cardvoice.js decides whether the word's own
+  // audio can be played here or a voice says it (as app/api/vocab.py _items gives it).
+  // An episode whose sound this phone can't reach (no copy in Drive, no web address: a file only on
+  // the computer) counts as "missing" here.
+  const e = v.episode_uid ? episodeOf(v.episode_uid) : null;
+  const reachable = e && (e.remote_audio || /^(https?:|drive:)/i.test(e.audio_url || ""));
+  return { ...v, id: v.uid, episode_id: v.episode_uid, folders: v.folders || [],
+           audio_type: reachable ? e.audio_type || "" : v.episode_uid ? "missing" : null };
 }
 const folderOut = (f) => ({ uid: f.uid, name: f.name, created_at: f.created_at, updated_at: f.updated_at });
 const liveFolders = () => (lib.folders || []).filter((f) => !f.deleted).sort((a, b) => a.name.localeCompare(b.name));
@@ -877,22 +884,6 @@ const routes = [
     // The word itself only when something is left of it (as on the computer, app/api/vocab.py).
     if (typeof body.text === "string" && body.text.trim()) v.text = body.text.trim();
     v.updated_at = now();
-    changed();
-    return vocabOut(v);
-  }],
-  // "Find in a video" (web/js/filmot.js): the word gets the episode, the times and the sentence it
-  // is said in, as the player saves them. Its old sentence and that sentence's translation go.
-  ["POST", /^\/vocab\/([\w]+)\/source$/, (m, q, body) => {
-    const v = lib.vocab.find((x) => x.uid === m[1] && !x.deleted);
-    const e = body.episode_id ? episodeOf(body.episode_id) : null;
-    const sentence = (body.sentence || "").trim();
-    if (!v || !e) throw new ApiError("Not found.");
-    if (!sentence) throw new ApiError("There is no sentence to save.");
-    // Where the word was first found goes on the end of its own notes (see originNote in filmot.js).
-    const note = (body.note || "").trim();
-    const memo = note && !(v.memo || "").includes(note) ? [(v.memo || "").trim(), note].filter(Boolean).join("\n") : (v.memo || "");
-    Object.assign(v, { episode_uid: e.uid, episode_title: e.title, sentence, start: body.start, end: body.end,
-                       sent_start: body.sent_start, sent_end: body.sent_end, translation: "", clip: 0, memo, updated_at: now() });
     changed();
     return vocabOut(v);
   }],

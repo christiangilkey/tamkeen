@@ -1,0 +1,111 @@
+2619fa36 Wala matipigi ang tingog niini nga card.
+332de0f3 Wala dawata sa Azure kini nga key sa region nga “{0}”. Kopyaha pag-usab ang Key 1 ug susiha kung ang region mao ba ang nakabutang sa kilid niini (pananglitan westeurope).
+e217f040 Matud sa Azure, sobra ka daghan ang mga request, o nahurot na ang libre nga allowance karong bulana. Sulayi pag-usab unya, o tan-awa ang imong paggamit sa Azure portal.
+51340aa5 Wala dawata sa Azure ang request: basin wala sa kini nga region ang tingog nga gipili. Pili og laing tingog.
+53c3380d Mitubag ang Azure og error ({0}). Sulayi pag-usab sa makadiyot.
+35cf401b Dili maabot ang Azure sa region nga “{0}”. Susiha ang imong koneksyon ug kung giunsa pagsulat ang region (pananglitan westeurope, eastus).
+6dea6d8f Walay tingog nga gibalik ang Azure. Sulayi pag-usab sa makadiyot.
+26364875 Walay pulong nga basahon niini nga card.
+bf7aa035 Dili mabasa ang tingog gikan sa Azure.
+052734c1 Walay basahon niini nga card.
+1afd82ba Walay tingog nga {0} kini nga telepono. Aron modugang: ablihi ang Settings sa telepono → pangitaa ang “Text-to-speech” → Preferred engine (Speech Services by Google) → Settings → Install voice data → {1}.
+38f321bb Walay tingog nga {0} kini nga iPhone. Aron modugang: Settings → Accessibility → Spoken Content → Voices → {1}.
+9747c1e8 Walay tingog nga {0} kini nga Mac. Aron modugang: System Settings → Accessibility → Spoken Content → System voice → Manage Voices → {1}.
+57b8b3ab Walay tingog nga {0} kini nga computer. Aron modugang: Windows Settings → Time & language → Speech → Add voices → {1}. Dayon ablihi pag-usab ang Tamkeen.
+662c883b Walay tingog nga {0} kini nga browser. Ang ubang browser mas daghan og tingog (daghan sa Chrome ug Edge), o dugangi og tingog ang device sa kaugalingon niini nga settings.
+c57d4482 Mga tingog sa card
+9ae41195 Ang tingog nga mobasa og kusog sa mga flashcard nga walay recording.
+74e96124 Tingog para sa mga card nga walay audio
+8f69a349 Key ug region sa Azure Speech
+2f3a219e Mga tingog niini nga computer
+5de162ff Mga tingog sa Azure
+c1669e42 Kinahanglan sa Azure og key
+592a4522 Mga tingog nga gihimo niini nga computer
+5717197d Naghulat sa imong computer ({0} ka card)
+4f0fe97e Mga tingog nga gihimo sa imong computer
+185b32a7 Tingog niini nga device
+ebc4da0c Libre. Ang imong computer ang mohimo; moabot kini inig sync.
+a69ebf95 Libre, offline. Gihimo dinhi gamit ang na-download nga tingog ug gitipigan.
+11266a50 Kinsa ang mobasa sa mga card nga walay audio
+ea750ccc Ang mga card gikan sa podcast o sa imong kaugalingong audio mopatokar sa ilang kaugalingong recording. Ang mga card nga imong gi-type, o gi-save gikan sa web page, libro, YouTube, Netflix o reel, basahon sa tingog nga imong pilion dinhi: ang pulong ug ang sentence niini.
+82711d71 Libre. Ang {0} ang mobigkas samtang naminaw ka; walay gitipigan.
+a6d92721 Azure (imong kaugalingong key)
+3dd9501d Natural nga mga tingog, Arabic sumala sa nasod. Gihimo kausa matag card ug gitipigan.
+1829e96f Azure Speech
+0f217179 Region
+dc8d9204 pananglitan westeurope
+c67dd20e Key
+c0547393 Idikit dinhi ang Key 1
+f083813f Pagkuha og Azure key ↗
+c615bc62 Tingog para sa {0}
+05771f64 Paminaw og pananglitan
+0c7c1be1 Unsaon pagkuha sa imong kaugalingong libre nga Azure key
+8107ef6d Paghimo og libre nga Microsoft Azure account sa <0>azure.microsoft.com/free</0>. Mangayo ang Azure og numero sa telepono ug bank card inig sign up, aron masiguro nga tawo ka; walay bayad ang libre nga tier.
+49d15d1f Sa Azure portal, paghimo og <0>Speech</0> nga resource (<1>kini nga link moabli niini</1>). Pili og bisan unsang duol nga region ug ang pricing tier nga <2>Free F0</2>.
+3e97ae56 Ablihi ang bag-ong resource → <0>Keys and Endpoint</0>. Kopyaha ang <1>Key 1</1> ngadto sa Key sa ibabaw, ug ang <2>Location/Region</2> (pananglitan westeurope) ngadto sa Region.
+40b93dff Pindota ang <0>Sulayi ang key</0>.
+ed90bcad Pila ang bayad?
+3545863b Ang matag user adunay kaugalingong Azure account ug kaugalingong allowance. Ang libre nga tier (F0) adunay mga tunga sa milyon ka character sa neural voices kada bulan; tan-awa ang page sa Azure para sa karon nga gidaghanon ug presyo: <0>Presyo sa Azure Speech ↗</0>. Ang pulong ug sentence sa usa ka card kasagaran 20 ngadto sa 120 ka character, ug ang tingog sa matag card gihimo kausa ra, dayon gitipigan uban sa card sa tanan nimong device. Kung mahurot ang libre nga allowance, mobalibad ang Azure hangtod sa sunod bulan ug ang mga card mogamit sa tingog niini nga device.
+5f2b1a67 Ang card nga miabot nga adunay recording kanunay mopatokar niini. Para sa ubang card, ang <0>Tingog niini nga device</0> mobigkas sa pulong ug sentence inig pindot nimo sa Pulong o Sentence. Ang <1>Azure</1> ug <2>{0}</2> mohimo og recording niini sa unang higayon, itipig uban sa card ug ipadala sa imong ubang device pinaagi sa Google Drive, busa kausa ra kini himoon. Apil usab kini sa export para sa Anki. Samtang wala pay recording ang card, ang tingog niini nga device ang mobasa.
+be6016cc Sa Azure, ang pulong ug ang sentence niini ra ang ipadala sa speech service sa Microsoft sa region nga imong gipili, diretso gikan sa {0}, gamit ang imong key; wala nay lain bahin nimo o sa imong library. Ang imong key gitipigan sa {1} ug, kung mogamit ka og Google Drive sync, sa pribadong folder sa app sa imong kaugalingong Google Drive, aron anaa usab sa imong ubang device. Dili gyud kini apil sa data export. Ang tingog sa device ug ang mga tingog sa computer walay ipadala bisan asa.
+e6b3d051 {0} naghulat
+75f52718 Libre
+3f6cf33f Ablihi ang settings sa text-to-speech
+e185048c Susiha pag-usab
+4c2739cc Adunay tingog nga {0} kini nga device. Basahon niini ang mga card nga walay recording.
+e1c7fb3a Adunay tingog nga {0} kini nga device. Basahon niini ang mga card nga walay recording hangtod mahimo ang ila.
+0804d058 Ang tingog niini nga device mobasa sa mga card nga walay recording.
+b2dd3a55 Ang tingog niini nga device mobasa sa mga card nga walay recording hangtod mahimo ang ila.
+d9f8f583 Natipig. Karon ang region, sama sa gipakita sa Azure sa kilid sa key.
+747715f4 Walay tingog nga {0} sa Azure
+03755a9f Walay tingog nga {0} ang Azure, busa ang mga card mogamit sa tingog niini nga device.
+8d0d41ba · naandan
+91615915 Sulayi ang key aron makapili sa tanang tingog sa Azure para sa pinulongan.
+415c7c53 Ang mga card nga nahimo na magpabilin sa ilang tingog; ang mga bag-o mogamit niini.
+60706579 Idikit una ang imong key ug ang region.
+d2f602e7 Gipangayo sa Azure ang mga tingog niini…
+5cab77ed Idikit una ang Key 1 ug ang region.
+09a9c133 Mga tingog nga {1} niini nga region: {0}.
+97985713 Walay tingog nga {0} ang Azure niini nga region.
+d5007d1f ✓ Mogana (mitubag ang Azure sulod sa {0} s). {1} Walay character nga magamit sa pagsulay.
+d24c44bd Himoa karon
+8e4d2c67 Mga card nga {1} nga wala pay tingog: {0} (mga {3} ka character). Ang matag usa himoon sa unang higayon nga patokaron, o tanan karon, andam para sa export sa Anki.
+f05831f2 Gihimo ang mga tingog: {0} sa {1}…
+b88dd56d Mga tingog nga nahimo ug natipigan: {0}.
+11b10cf7 {0} nahimo. {1}
+b036bcb1 Mga card: {0}
+c5cb3e55 Walay naghulat
+ecac64cd Ang imong computer ang mohimo niini kung bukas didto ang Tamkeen ug na-download ang tingog nga {0} (Settings → Mga tingog sa card sa computer). Moabot kini dinhi inig sync; hangtod niadto, ang tingog niini nga telepono ang mobasa.
+d9199b9a Walay tingog nga {0} ang imong computer, busa ang mga card mogamit sa tingog niini nga telepono. Para sa natural nga tingog nga {1}, pilia ang Azure.
+4191f605 Dili modagan ang mga tingog niini nga klase sa computer. Pilia ang Azure o ang tingog niini nga device.
+f2abc459 Ang bugtong libre nga mga tingog nga {0} para niini nga programa dili magamit nga gawasnon (ang ilang recording lisensyado ra para sa dili komersyal nga gamit), busa wala kini gitanyag sa Tamkeen.
+d905ce13 Wala pay libre nga tingog nga {0} para niini nga computer.
+a8ba7124 {0} Pilia ang Azure para sa natural nga tingog nga {1}, o ang tingog niini nga device.
+d74a2319 + ang programa sa tingog, {0} MB, kausa ra
+20716e92 Gigamit
+1d4d43cc Gamita
+58fabfa7 Pananglitan
+b394bfc2 {0} · {1} MB{2}{3}
+7b33472e Bahin niini nga mga tingog
+ba2564f4 Mga tingog kini sa Piper (usa ka open-source nga speech program nga modagan sa processor niini nga computer, offline). Ang recording sa matag tingog adunay lisensya nga gipakita. Daghan ang gitudloan gikan sa English nga tingog sa Piper, kansang recording lisensyado para sa research; gipatik sa Piper kini ubos sa ilang kaugalingong lisensya.
+d454ace4 Pag-download og tingog nga {0}: dayon hatagan niini nga computer og kaugalingong recording ang matag card nga {1} nga walay audio, apil ang mga gi-save sa imong telepono.
+94204dbd Mga card nga {1} nga himoon pa: {0}. Gihimo na kini niini nga computer.
+81846240 Ang matag card nga {0} adunay tingog. Ang mga bag-o makadawat sa ila inig save, dinhi o sa imong telepono.
+2d8e8528 Napakyas ang download: {0}
+8e09b678 {0} Samtang wala pa, ang tingog niini nga device ang gigamit.
+a3ced5ce Dili mabigkas kini nga card niini nga device.
+36e2543b Walay sulod o sobra kadako kana nga audio.
+628e1e3b Dili para niini nga pinulongan kana nga tingog.
+d9720fb2 Dili mahimo ang audio sa tingog: {0}
+5728da40 wala gisulti sa naghimo
+ad561619 Ang bugtong Arabic nga tingog sa Piper. Ang Piper mismo ang mobutang sa mga bokales sa dili pa mosulti.
+b3252c0d Wala mailhing tingog: {0}
+287e3948 Wala makit-i ang mga file niini nga tingog.
+981282c5 Ang mga tingog niini nga computer nagkinahanglan og Windows (64-bit nga Intel o AMD), Mac o Linux.
+9efd4aef Adunay tingog nga gi-download na.
+51a539cf Wala ma-download kini nga tingog niini nga computer.
+d4b56c4f Dili modagan ang programa sa tingog ({0}).
+db3b42e2 Napakyas ang programa sa tingog: {0}
+899e00df Walay na-download nga tingog nga {0} niini nga computer (Settings → Mga tingog sa card).
+e376cf70 I-download una ang tingog niini nga pinulongan.
+d6071c46 Mga reel gikan sa imong mga save sa Instagram ug random nga mga reel, mga reel nga naay kanta gikan sa music library sa Instagram, ang built-in nga web browser (I-import ang Page), AnkiDroid sync, ug ang numero sa icon sa app. Ang imong idugang sa app makita dinhi human sa sync.

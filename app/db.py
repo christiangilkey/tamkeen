@@ -238,7 +238,11 @@ _SYNC_COLUMNS = {
               ("episode_uid", "TEXT"), ("folders", "TEXT NOT NULL DEFAULT '[]'"),
               ("clip", "INTEGER NOT NULL DEFAULT 0"), ("translation", "TEXT NOT NULL DEFAULT ''"),
               ("memo", "TEXT NOT NULL DEFAULT ''"),
-              ("language", "TEXT")],  # the word's language: the app shows only the language being learned
+              ("language", "TEXT"),  # the word's language: the app shows only the language being learned
+              # A card's voice (web/js/cardvoice.js, app/voices.py), for a word with no recording it can
+              # play: JSON {"start", "end", "sent_start", "sent_end"} inside clips/<uid>.ogg (the same file
+              # and Drive name as a friend's clip, c_<uid>.ogg; a word never has both). '' = none yet.
+              ("voice", "TEXT NOT NULL DEFAULT ''")],
     "segments": [("kind", "TEXT")],
     # Arabic vowel marks (app/tashkeel.py): each word's vowelled copy (NULL = the word as it is).
     "words": [("vowelled", "TEXT")],
@@ -272,7 +276,8 @@ BEGIN UPDATE vocab SET updated_at = {NOW_SQL} WHERE id = NEW.id; END;
 CREATE TRIGGER IF NOT EXISTS vocab_upd AFTER UPDATE ON vocab
 WHEN NEW.updated_at IS OLD.updated_at AND NOT EXISTS (SELECT 1 FROM sync_guard) AND (NEW.text IS NOT OLD.text OR NEW.meaning IS NOT OLD.meaning
   OR NEW.notes IS NOT OLD.notes OR NEW.deleted IS NOT OLD.deleted OR NEW.folders IS NOT OLD.folders
-  OR NEW.clip IS NOT OLD.clip OR NEW.translation IS NOT OLD.translation OR NEW.memo IS NOT OLD.memo)
+  OR NEW.clip IS NOT OLD.clip OR NEW.translation IS NOT OLD.translation OR NEW.memo IS NOT OLD.memo
+  OR NEW.voice IS NOT OLD.voice)
 BEGIN UPDATE vocab SET updated_at = {NOW_SQL} WHERE id = NEW.id; END;
 
 CREATE TRIGGER IF NOT EXISTS folders_ins AFTER INSERT ON vocab_folders WHEN NEW.updated_at IS NULL AND NOT EXISTS (SELECT 1 FROM sync_guard)
@@ -488,6 +493,14 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "stt_key_groq": "",
     "stt_key_openai": "",
     "stt_usage": None,              # audio sent to the provider today from this computer
+    # Voices for cards without audio (web/js/cardvoice.js, app/voices.py): "device" (the device's own
+    # voice, live), "azure" (the user's own Azure Speech key) or "computer" (a voice model on this
+    # computer). The first four follow the user between devices (app/aikeys.py).
+    "tts_mode": "device",
+    "tts_key_azure": "",
+    "tts_region_azure": "",
+    "tts_voices": "",               # {language: Azure voice} the user picked, as JSON ("" = the usual ones)
+    "tts_local": "",                # {language: voice model id} picked on this computer, as JSON ("" = the first downloaded)
     # Google Drive sync.
     "google_refresh_token": "",
     "google_email": "",
@@ -497,7 +510,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
 
 # Settings that hold secrets: never exported in backups.
 SECRET_SETTINGS = ("llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok", "stt_key_groq", "stt_key_openai",
-                   "google_refresh_token", "anki_token")
+                   "tts_key_azure", "google_refresh_token", "anki_token")
 
 
 def get_settings() -> dict[str, Any]:

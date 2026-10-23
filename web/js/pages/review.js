@@ -16,6 +16,7 @@ import { api, buzz, esc, fmtDate, h, platform, readClipboard, state as app, toas
 import { detectLanguage, langAttrs, langInfo } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
 import { cardSentence } from "../cardtext.js";
+import { canSay, hasOwnAudio, speakingSeconds, voiceText, voiceTimes } from "../cardvoice.js";
 import { addReadings } from "../lexicon/readings.js";
 import { reward, trackStudy } from "../game/game.js";
 import { vowelCard } from "../vowels.js";
@@ -146,11 +147,13 @@ async function play(el, frames, options) {
  *   log          every answer by word (from loadLog); answers given here are added to it
  *   scope        the folder's name when only a folder is being reviewed
  *   playSnippet  (word, start, end) => Promise, the Vocab page's audio
+ *   say          (word, "word" | "sentence") => Promise<{ended}>, the Vocab page's way of saying a
+ *                card: its own audio, else the voice chosen for cards without (voiceplay.js)
  *   highlight    (sentence, word) => html, the Vocab page's way of marking the word
  *   onDelete     (word) => void, told when a word is deleted from its card
  *   onClose      called when the reviewer is put away
  */
-export function openReview({ words, allWords = words, log, scope = "", playSnippet, highlight, onDelete = () => {}, onClose = () => {} }) {
+export function openReview({ words, allWords = words, log, scope = "", playSnippet, say = null, highlight, onDelete = () => {}, onClose = () => {} }) {
   if (document.querySelector(".rv")) return;
   const cards = states(log);
   let perDay = newPerDay();
@@ -293,11 +296,21 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     actions.querySelector(".rv-show").onclick = flip;
   }
 
-  const hasWordAudio = (v) => (v.episode_id || v.clip) && v.start != null;
-  const hasSentenceAudio = (v) => (v.episode_id || v.clip) && v.sent_start != null;
-  // How long each stretch plays, with the air the Vocab page's player leaves round it.
-  const wordSeconds = (v) => (v.end ?? v.start + 1) - v.start + 0.6;
-  const sentenceSeconds = (v) => Math.max(0.5, (v.sent_end ?? v.sent_start + 3) - v.sent_start) + 0.6;
+  // Every card can be heard: its own recording, or the voice chosen for cards without one (cardvoice.js).
+  const hasWordAudio = (v) => canSay(v, "word");
+  const hasSentenceAudio = (v) => canSay(v, "sentence");
+  // How long each stretch plays, with the air the Vocab page's player leaves round it (a voice
+  // spoken live: about as long as its text takes to say).
+  const timesOf = (v) => (hasOwnAudio(v) ? v : voiceTimes(v));
+  const wordSeconds = (v) => {
+    const t = timesOf(v);
+    return t ? (t.end ?? t.start + 1) - t.start + 0.6 : speakingSeconds(voiceText(v).word);
+  };
+  const sentenceSeconds = (v) => {
+    const t = timesOf(v);
+    return t && t.sent_start != null ? Math.max(0.5, (t.sent_end ?? t.sent_start + 3) - t.sent_start) + 0.6
+      : speakingSeconds(voiceText(v).sentence);
+  };
   // When audio started from this card will have finished: "Say it" must not record over it.
   let audioOverAt = 0;
   const track = (seconds, started) => {
@@ -308,9 +321,12 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       return playing;  // { ended }: "Say it" waits on it
     }, (e) => { audioOverAt = 0; throw e; });
   };
-  const sayWord = (v, quiet) => track(wordSeconds(v), playSnippet(v, v.start, v.end ?? v.start + 1))
+  // (A page that hands in no `say` plays only cards with a recording of their own.)
+  const sayPart = say || ((v, part) => (part === "word" ? playSnippet(v, v.start, v.end ?? v.start + 1)
+    : playSnippet(v, v.sent_start, v.sent_end ?? v.sent_start + 3)));
+  const sayWord = (v, quiet) => track(wordSeconds(v), sayPart(v, "word"))
     .catch((e) => { if (!quiet) toast(e.message, { error: true }); });
-  const saySentence = (v, quiet) => track(sentenceSeconds(v), playSnippet(v, v.sent_start, v.sent_end ?? v.sent_start + 3))
+  const saySentence = (v, quiet) => track(sentenceSeconds(v), sayPart(v, "sentence"))
     .catch((e) => { if (!quiet) toast(e.message, { error: true }); });
 
   // A notes box is as tall as what is written in it (up to a limit), so nothing hides in a
@@ -428,7 +444,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
           <ul class="rv-mnemo-list" hidden></ul>
         </div>
         <div class="rv-source">
-          <span>${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}${v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}</span>
+          <span>${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}${v.episode_id && v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}</span>
           <span class="saved" hidden>Saved</span>
           <button type="button" class="rv-trash" title="Delete this word (Del)" aria-label="Delete this word">${ICON.trash}</button>
         </div>

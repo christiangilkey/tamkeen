@@ -19,6 +19,8 @@ public class MainActivity extends BridgeActivity {
         registerPlugin(AppResetPlugin.class);
         // The review card's Paste button reads the phone's clipboard (see ClipboardPlugin).
         registerPlugin(ClipboardPlugin.class);
+        // Cards without audio are read out by the phone's own voice (see SpeechPlugin).
+        registerPlugin(SpeechPlugin.class);
         super.onCreate(savedInstanceState);
         // Lets the video player stream the user's own videos straight from Google Drive.
         getBridge().setWebViewClient(new DriveMediaWebViewClient(getBridge()));

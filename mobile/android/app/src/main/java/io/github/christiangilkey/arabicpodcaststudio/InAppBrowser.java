@@ -216,15 +216,14 @@ final class InAppBrowser {
                 android.net.Uri uri = request.getUrl();
                 if (uri == null || !VIDEO_SCHEME.equals(uri.getScheme())) return false;
                 // The Follow button on a channel's page, or a saved site taken off on the start page.
-                // Also "find": the videos a "Find in a video" search listed (web/js/filmot-browser.js).
-                if ("follow".equals(uri.getHost()) || "site".equals(uri.getHost()) || "find".equals(uri.getHost())) {
+                if ("follow".equals(uri.getHost()) || "site".equals(uri.getHost())) {
                     if (videos != null) videos.onVideo(uri.toString());
                     return true;
                 }
                 String id = uri.getQueryParameter("v");
                 if (id != null && id.matches("[\\w-]{11}") && videos != null) {
-                    // A moment in the video may come with it ("&t=95", from a caption search
-                    // result, see web/js/filmot-browser.js): it travels on as "<id>@<seconds>".
+                    // A moment in the video may come with it ("&t=95", the "t" of a video page's
+                    // address, see web/js/youtube-browser.js): it travels on as "<id>@<seconds>".
                     String at = uri.getQueryParameter("t");
                     videos.onVideo(at != null && at.matches("\\d{1,6}") ? id + "@" + at : id);
                 }

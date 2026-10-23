@@ -93,8 +93,8 @@ function emit(event, data) {
 }
 function connectEvents() {
   const es = new EventSource("/api/events");
-  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "youtube_find", "netflix_watch",
-    "netflix", "app_link", "reels", "reels_collections", "stt", "update", "vowels"]) {
+  for (const name of ["episode", "feeds", "model_download", "gpu_pack", "sync", "anki", "youtube_watch", "netflix_watch",
+    "netflix", "app_link", "reels", "reels_collections", "stt", "update", "vowels", "voice_download", "voices"]) {
     es.addEventListener(name, (e) => emit(name, JSON.parse(e.data)));
   }
   es.onopen = () => emit("reconnected", {});
@@ -195,7 +195,9 @@ export async function shareClip(word) {
 
 /** Keep the clip that came with a shared word (after the word itself was saved). */
 export async function saveClip(vocabId, blob, times) {
-  const q = new URLSearchParams({ start: times.start, end: times.end, sent_start: times.sent_start, sent_end: times.sent_end });
+  // (A card's voice without a sentence has no sentence times: those are left out.)
+  const q = new URLSearchParams(Object.entries({ start: times.start, end: times.end, sent_start: times.sent_start, sent_end: times.sent_end })
+    .filter(([, x]) => x !== null && x !== undefined));
   const res = await fetch(`/api/vocab/${vocabId}/clip?${q}`, { method: "PUT", body: blob });
   if (!res.ok) throw new Error("Couldn't save the audio for that word.");
 }
@@ -203,6 +205,25 @@ export async function saveClip(vocabId, blob, times) {
 /** Address the vocab page plays for a word that has its own clip. */
 export async function clipUrl(word) {
   return `/api/vocab/${word.id}/clip`;
+}
+
+// ---------- card voices (cardvoice.js, devicevoice.js, app/voices.py) ----------
+/** Keep a card's voice made with Azure (Ogg Opus) and where its word and sentence are in it. */
+export async function saveVoice(vocabId, blob, times) {
+  const q = new URLSearchParams(Object.entries(times).filter(([, x]) => x !== null && x !== undefined));
+  const res = await fetch(`/api/vocab/${vocabId}/voice?${q}`, { method: "PUT", body: blob });
+  if (!res.ok) throw new Error("Couldn't keep this card's voice.");
+  return res.json();
+}
+
+/** The phones' own text-to-speech; the computer speaks through the browser's (speechSynthesis). */
+export const speechPlugin = null;
+
+/** "My computer" chosen: this computer makes the card's voice now with its downloaded voice model,
+ * and keeps it with the card. Resolves to the card as stored (with its clip and times); throws when
+ * there is no voice for its language here. */
+export async function makeComputerVoice(word) {
+  return api(`/voices/make/${word.id}`, { method: "POST" });
 }
 
 /** Download a web page for "Add a webpage": {url, html}. The desktop's server fetches it. */
@@ -245,9 +266,9 @@ on("youtube_watch", async ({ token, video_id, at }) => {
   if (EMBED) return;
   let result;
   try {
-    // `at`: the moment that came with the video (a caption search result's; see filmot.js).
-    const { watchFound } = await import("./filmot.js");
-    const ep = await watchFound(video_id, at ?? null);
+    // `at`: the moment that came with the video (the "t" of its link), if any.
+    const { watchVideo } = await import("./youtube.js");
+    const ep = await watchVideo(video_id, at ?? null);
     result = { ok: true, title: ep.title };
   } catch (e) {
     result = { ok: false, error: e.message };
@@ -315,20 +336,6 @@ on("netflix_watch", async ({ token, netflix_id, info }) => {
   api("/youtube/watch-result", { method: "POST", body: { token, ...result } }).catch(() => {});
 });
 
-// "Find in a video": the Filmot results page in the browser window listed these videos, top first;
-// keep the first whose captions say the word (see filmot.js), and tell the window how it went.
-on("youtube_find", async ({ token, candidates }) => {
-  if (EMBED) return;
-  let result;
-  try {
-    const { findFromResults } = await import("./filmot.js");
-    result = await findFromResults(candidates || []);
-  } catch (e) {
-    result = { ok: false, error: e.message };
-  }
-  api("/youtube/watch-result", { method: "POST", body: { token, ...result } }).catch(() => {});
-});
-
 // tamkeen://watch?v=<id> links from other apps (Onyx Calendar's News; see app/applink.py): the
 // server keeps them until this page asks, once it has loaded and whenever "app_link" says one came.
 let openingLinks = false;
@@ -362,15 +369,12 @@ async function openLinks() {
 }
 on("app_link", openLinks);
 
-/** Open the in-app web browser (a second window with an "Import Page" button). `find`: opened by
- * "Find in a video" on a word, so its script takes the top result of the search itself.
+/** Open the in-app web browser (a second window with an "Import Page" button).
  * `signIn`: opened to sign in somewhere, not to read, so without the "Import Page" button. */
-export async function openBrowser(url = "", { find = false, signIn = false } = {}) {
+export async function openBrowser(url = "", { signIn = false } = {}) {
   const bridge = window.pywebview && window.pywebview.api;
   if (bridge && bridge.open_browser) {
-    // `find` is {lang, values, names}: the language whose captions the search is for (see filmot.js).
-    const r = await (find ? bridge.open_browser(url, find)
-                     : signIn ? bridge.open_browser(url, false, false) : bridge.open_browser(url));
+    const r = await (signIn ? bridge.open_browser(url, false) : bridge.open_browser(url));
     if (r && r.error) throw new Error(r.error);
     return;
   }
