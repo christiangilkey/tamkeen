@@ -1,0 +1,3 @@
+164b3d48 Talaan ng mga pagbabago
+798a62af Hindi mabuksan ang talaan ng mga pagbabago.
+46aeaf8e Ano ang nagbago sa bawat bersiyon (sa Ingles).

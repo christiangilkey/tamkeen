@@ -1,0 +1,3 @@
+164b3d48 Registre de canvis
+798a62af No s'ha pogut obrir el registre de canvis.
+46aeaf8e Què ha canviat a cada versió (en anglès).

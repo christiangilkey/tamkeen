@@ -1,0 +1,3 @@
+164b3d48 Registro delle modifiche
+798a62af Impossibile aprire il registro delle modifiche.
+46aeaf8e Cosa è cambiato in ogni versione (in inglese).

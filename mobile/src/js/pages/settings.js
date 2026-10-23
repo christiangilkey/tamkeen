@@ -298,6 +298,11 @@ function data(body) {
         <button type="button" id="check-updates">Check for updates</button></div>
       <div class="small muted" id="update-result"></div>
     </section>
+    <section class="card set-card stack" data-find="changelog">
+      <h2>Changelog</h2>
+      <div class="row"><span class="small muted">What changed in every version (in English).</span><span class="spacer"></span>
+        <button type="button" id="open-changelog">Open</button></div>
+    </section>
     <section class="card" id="reset-app" data-find="reset"></section>
     <section class="card set-card stack" data-find="about privacy">
       <h2>About Tamkeen</h2>
@@ -319,6 +324,7 @@ function data(body) {
   }));
   resetSection($("#reset-app"), parkAll);
   import("../version.js").then(({ APP_VERSION }) => { $("#app-version").textContent = `Version ${APP_VERSION}`; }).catch(() => {});
+  $("#open-changelog").onclick = () => import("../components/changelog.js").then((m) => m.openChangelog());
   $("#check-updates").onclick = async () => {
     const box = $("#update-result"), button = $("#check-updates");
     button.disabled = true;

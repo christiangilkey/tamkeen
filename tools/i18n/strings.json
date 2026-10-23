@@ -2785,6 +2785,16 @@
   "f": "web/js/components/avatar.js"
  },
  {
+  "id": "164b3d48",
+  "k": "Changelog",
+  "f": "web/js/components/changelog.js"
+ },
+ {
+  "id": "798a62af",
+  "k": "Couldn't open the changelog.",
+  "f": "web/js/components/changelog.js"
+ },
+ {
   "id": "5896cb72",
   "k": "Game features",
   "f": "web/js/components/gameswitch.js"
@@ -11877,6 +11887,11 @@
  {
   "id": "2916184c",
   "k": "Replaces your current library with a backup (.zip).",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "46aeaf8e",
+  "k": "What changed in every version (in English).",
   "f": "web/js/pages/settings.js"
  },
  {

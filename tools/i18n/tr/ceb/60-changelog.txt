@@ -1,0 +1,3 @@
+164b3d48 Listahan sa mga kausaban
+798a62af Dili maablihan ang listahan sa mga kausaban.
+46aeaf8e Unsay nausab sa matag bersiyon (sa English).

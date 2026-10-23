@@ -1,0 +1,3 @@
+164b3d48 Historial de cambios
+798a62af No se pudo abrir el historial de cambios.
+46aeaf8e Qué cambió en cada versión (en inglés).

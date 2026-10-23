@@ -1,0 +1,3 @@
+164b3d48 Journal des modifications
+798a62af Impossible d'ouvrir le journal des modifications.
+46aeaf8e Ce qui a changé dans chaque version (en anglais).

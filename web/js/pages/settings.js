@@ -375,6 +375,11 @@ function data(body, status) {
       <div class="row"><span>Version ${esc(status.version)}</span><span class="spacer"></span><button type="button" id="check-updates">Check for updates</button></div>
       <div id="update-result" class="small"></div>
     </section>
+    <section class="card set-card stack" data-find="changelog">
+      <h2>Changelog</h2>
+      <div class="row"><span class="small muted">What changed in every version (in English).</span><span class="spacer"></span>
+        <button type="button" id="open-changelog">Open</button></div>
+    </section>
     <section class="card" id="reset-app" data-find="reset"></section>
     <section class="card set-card stack" data-find="about privacy">
       <h2>About Tamkeen</h2>
@@ -427,6 +432,7 @@ function data(body, status) {
       toast(err.message, { error: true });
     }
   };
+  $("#open-changelog").onclick = () => import("../components/changelog.js").then((m) => m.openChangelog());
   $("#check-updates").onclick = async () => {
     const box = $("#update-result");
     box.textContent = "Checking…";

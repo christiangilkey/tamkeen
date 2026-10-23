@@ -4900,3 +4900,12 @@ last one seen, newest first, at most 8. mobile/src/js/app.js versionBanner: "Wha
 pill (which then stays until closed); a version with no lines still links to its GitHub release. Translated
 (tools/i18n/tr/<code>/59-whats-new.txt). **Release step: add the new version's lines to whatsnew.js (and CHANGELOG.md)
 before building, and use the real version number.**
+
+## CHANGELOG.md, and Settings → Changelog (2026-10-22)
+Owner: "a bulleted change log of every single version so far ... continuously updated", "accessible in the settings",
+"just english". CHANGELOG.md (project root): every version v0.1.0 → v0.35.0 plus "Unreleased", plain-English bullets
+(New / Improved / Changed / Fixed / Removed), written from the git history and HANDOFF. web/changelog.md is a copy that
+ships with every version (tests/js/changelog.test.mjs fails if the two differ: `cp CHANGELOG.md web/changelog.md`).
+Settings → Data & updates → Changelog → Open: web/js/components/changelog.js draws it in a box (translate="no",
+English only); FINDS id "changelog". **Release step:** move "Unreleased" under the new version's heading in
+CHANGELOG.md, copy it to web/changelog.md, and add the version's short lines to web/js/whatsnew.js.

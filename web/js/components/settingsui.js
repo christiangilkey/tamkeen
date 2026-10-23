@@ -65,6 +65,7 @@ export const FINDS = [
   { s: "apps", id: "getapp", label: "Get the app", words: "download install android iphone windows", on: ["web"] },
   { s: "data", id: "backup", label: "Your data", words: "export import backup folder zip", on: ["desktop"] },
   { s: "data", id: "updates", label: "Updates", words: "version update latest", on: ["desktop", "android", "ios"] },
+  { s: "data", id: "changelog", label: "Changelog", words: "changelog changes versions history what's new release notes" },
   { s: "data", id: "reset", label: "Reset Tamkeen", words: "start again sign out first" },
   { s: "data", id: "privacy", label: "Privacy policy", words: "privacy data" },
   { s: "data", id: "about", label: "About and open-source licenses", words: "licenses licences credits version source code" },
