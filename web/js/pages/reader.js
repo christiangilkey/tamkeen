@@ -16,9 +16,10 @@ import { seenWords } from "../lexicon/seen.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
 import { readingsReady } from "../lexicon/readings.js";
+import { blockTag, layoutBlocks, marksLookup, wordStyle } from "../readerlayout.js";
+import { applyPageSize, pageSize, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 
 const LONG_PRESS_MS = 550;
-const TAGS = { h1: "h2", h2: "h3", h3: "h4", li: "li", q: "blockquote", p: "p" };
 const TITLE_SEG = -1; // the title's words form a line of their own, before the page's first block
 
 export const isPage = (ep) => (ep.audio_type || "") === "text/html";
@@ -105,6 +106,9 @@ export async function render(view, { id, data, query }) {
   const tr = $("#text");
 
   // Build the page in one pass. Each block keeps its own direction, so right-to-left and left-to-right text mix correctly.
+  // Headings, lists, quotes, bold and italic come out the same for every site (readerlayout.js).
+  const layout = layoutBlocks(data.segments, { book: false });
+  const flagsOf = marksLookup(data.segments, layout);
   const parts = [`<h1 class="reader-title" dir="auto" data-s="${TITLE_SEG}">`];
   let w = 0;
   for (; w < titleWords; w++) {
@@ -114,20 +118,20 @@ export async function render(view, { id, data, query }) {
   if (!titleWords) parts.push(esc(ep.title));
   parts.push("</h1>");
   let inList = false;
-  for (const seg of data.segments) {
-    const tag = TAGS[seg.kind] || "p";
+  data.segments.forEach((seg, k) => {
+    const { tag, cls } = blockTag(layout[k]);
     if (tag === "li" && !inList) { parts.push("<ul>"); inList = true; }
     if (tag !== "li" && inList) { parts.push("</ul>"); inList = false; }
-    parts.push(`<${tag} class="seg" dir="auto" data-s="${seg.idx}">`);
+    parts.push(`<${tag} class="seg${cls ? ` ${cls}` : ""}" dir="auto" data-s="${seg.idx}">`);
     const first = w;
     while (w < n && segOf[w] === seg.idx) {
       if (w > first) parts.push(gap(texts[w - 1], texts[w], lang));
-      parts.push(`<span class="w" data-i="${w}">${wordHtml(shown[w], lang)}</span>`);
+      parts.push(`<span class="w${wordStyle(flagsOf(seg.idx, W.start[w]))}" data-i="${w}">${wordHtml(shown[w], lang)}</span>`);
       w++;
     }
     if (w === first) parts.push(esc(seg.text));
     parts.push(`</${tag}>`);
-  }
+  });
   if (inList) parts.push("</ul>");
   tr.innerHTML = parts.join("");
   const wordEls = tr.querySelectorAll(".w");
@@ -337,11 +341,18 @@ export async function render(view, { id, data, query }) {
 
   // ---------- text size ----------
   let fontTimer;
+  // A− / A+ make everything (text and headings together) a step smaller or larger than the standard size.
+  const paintSizeButtons = (size) => {
+    $("#font-down").disabled = size <= PAGE_SIZE_MIN;
+    $("#font-up").disabled = size >= PAGE_SIZE_MAX;
+  };
+  paintSizeButtons(pageSize(state.status?.settings?.page_font_size));
   const changeFont = (d) => {
     const s = state.status?.settings || {};
-    const size = Math.max(12, Math.min(40, (s.page_font_size || 17) + d));
+    const size = pageSize(pageSize(s.page_font_size) + d);
     s.page_font_size = size;
-    document.documentElement.style.setProperty("--page-size", `${size}px`);
+    applyPageSize(size);
+    paintSizeButtons(size);
     clearTimeout(fontTimer);
     fontTimer = setTimeout(() => saveSettings({ page_font_size: size }), 400);
   };

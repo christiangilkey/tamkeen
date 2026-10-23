@@ -8,7 +8,8 @@ A book is an ordinary episode whose "transcript" is the book's text, like an imp
     audio_type   "text/book"
     description  the author
     status       "done" from the start (there is nothing to transcribe)
-Each heading or paragraph is one segment (`segments.kind` "h2" or "p"). The text is read and split
+Each heading or paragraph is one segment (`segments.kind` "h1"/"h2"/"h3", "p", "li" or "q", with its
+bold and italic words after a "|": see blockmarks.py). The text is read and split
 into headings and paragraphs in the app's own page (web/js/books.js, bookfiles.js); this stores it.
 """
 
@@ -18,11 +19,13 @@ import time
 from typing import Any
 
 from . import arabic, db, ids, languages
+from .blockmarks import BLOCK_KINDS, block_kind
 
 LOCAL_FEED_URL = "local:books"
 LOCAL_FEED_TITLE = "My books"
 BOOK_TYPE = "text/book"
-KINDS = {"h2", "p"}
+# Headings at three levels, paragraphs, list items and quotes (books made before kept only h2 and p).
+KINDS = set(BLOCK_KINDS)
 MAX_WORDS = 500_000
 
 
@@ -50,7 +53,6 @@ def clean_blocks(blocks: list[dict[str, Any]]) -> list[tuple[str, str]]:
         text = " ".join(str(b.get("text") or "").split())
         if not text:
             continue
-        kind = b.get("kind") if b.get("kind") in KINDS else "p"
         tokens = text.split(" ")
         if words + len(tokens) > MAX_WORDS:
             tokens = tokens[:MAX_WORDS - words]
@@ -58,7 +60,8 @@ def clean_blocks(blocks: list[dict[str, Any]]) -> list[tuple[str, str]]:
         if not tokens:
             break
         words += len(tokens)
-        out.append((kind, text))
+        # The block's kind, with its bold and italic words (blockmarks.py) when it has any.
+        out.append((block_kind(b, len(tokens)), text))
     return out
 
 

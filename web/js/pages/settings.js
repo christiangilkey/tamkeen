@@ -24,6 +24,7 @@ import { readingsRow } from "../lexicon/readings.js";
 import { resetSection } from "../components/resetapp.js";
 import { licensesFold } from "../components/licenses.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
+import { applyPageSize, pageSize, pageSizeLabel, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
 import { resetTours } from "../components/tour.js";
 import { SECTIONS, confirmBox, findsFor, moreOptions, revealFind, sectionOfFind, sectionPage, settingsHome } from "../components/settingsui.js";
@@ -204,9 +205,9 @@ function look(body, status) {
       <div class="set-slider"><label for="font">Podcasts &amp; videos</label>
         <input type="range" id="font" min="16" max="56" step="1" value="${s.font_size}"><output id="font-val">${s.font_size}px</output></div>
       <div class="set-sample ar" ${langAttrs(lang)} style="font-size:var(--ar-size);line-height:2.1">${esc(langInfo(lang).sample)}</div>
-      <div class="set-slider"><label for="page-font">Web pages</label>
-        <input type="range" id="page-font" min="12" max="40" step="1" value="${s.page_font_size || 17}"><output id="page-font-val">${s.page_font_size || 17}px</output></div>
-      <div class="set-sample ar" ${langAttrs(lang)} style="font-size:var(--page-size);line-height:2">${esc(langInfo(lang).pageSample)}</div>
+      <div class="set-slider"><label for="page-font">Pages &amp; books</label>
+        <input type="range" id="page-font" min="${PAGE_SIZE_MIN}" max="${PAGE_SIZE_MAX}" step="1" value="${pageSize(s.page_font_size)}"><output id="page-font-val">${pageSizeLabel(s.page_font_size)}</output></div>
+      <div class="set-sample ar reader-sample" ${langAttrs(lang)}>${esc(langInfo(lang).pageSample)}</div>
     </section>
     <section class="card" id="game-switch" data-find="game"></section>
     <section class="card set-card" data-find="guides">
@@ -229,9 +230,9 @@ function look(body, status) {
   };
   let pageFontTimer;
   $("#page-font").oninput = (e) => {
-    const v = Number(e.target.value);
-    $("#page-font-val").textContent = `${v}px`;
-    document.documentElement.style.setProperty("--page-size", `${v}px`);
+    const v = pageSize(e.target.value);
+    $("#page-font-val").textContent = pageSizeLabel(v);
+    applyPageSize(v);
     clearTimeout(pageFontTimer);
     pageFontTimer = setTimeout(() => saveSettings({ page_font_size: v }), 300);
   };

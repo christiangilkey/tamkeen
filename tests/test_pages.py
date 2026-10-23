@@ -103,6 +103,40 @@ def test_page_syncs_to_another_device_with_headings(world):
         assert kinds == ["h2", "p", "li", "p"]
 
 
+def test_bold_and_italic_words_are_stored_and_synced_in_the_kind(world):
+    """Marks from the extractor ride in segments.kind ("p|b0-1,i4"), are checked, and reach other devices."""
+    drive, a, b = world
+    blocks = [
+        {"kind": "h2", "text": "Un viaje", "marks": [[0, 1, 1]]},             # headings keep no marks
+        {"kind": "p", "text": "Muy  pronto el tren llega.", "marks": [[0, 1, 1], [4, 4, 2], [9, 12, 1], "x"]},
+        {"kind": "q|i0-1", "text": "Dijo algo"},                              # a kind that already carries marks
+        {"kind": "li", "text": "Uno", "marks": "not a list"},
+    ]
+    with a:
+        ep = pages.save_page("https://example.com/tren", "El tren", blocks)
+        with db.session() as conn:
+            kinds = [s[0] for s in conn.execute("SELECT kind FROM segments WHERE episode_id = ? ORDER BY idx", (ep["id"],))]
+    assert kinds == ["h2", "p|b0-1,i4", "q|i0-1", "li"]
+    a.sync(drive)
+    b.sync(drive)
+    with b:
+        with db.session() as conn:
+            row = conn.execute("SELECT id FROM episodes WHERE uid = ?", (ep["uid"],)).fetchone()
+            synced = [s[0] for s in conn.execute("SELECT kind FROM segments WHERE episode_id = ? ORDER BY idx", (row["id"],))]
+    assert synced == kinds
+
+
+def test_block_kinds_match_the_javascript_copy():
+    from app.blockmarks import block_kind, decode_kind, encode_kind
+
+    assert encode_kind("p", [(0, 2, 1), (5, 5, 2), (9, 10, 3)], 20) == "p|b0-2,i5,bi9-10"
+    assert decode_kind("p|b0-2,i5,bi9-10") == ("p", [(0, 2, 1), (5, 5, 2), (9, 10, 3)])
+    assert decode_kind("weird|x1,b3") == ("p", [(3, 3, 1)])
+    assert block_kind({"kind": "p|b0-9"}, 3) == "p|b0-2"
+    assert block_kind({"kind": "h2|b0"}, 3) == "h2"
+    assert block_kind({"kind": "p"}, 3) == "p"
+
+
 def test_podcast_transcripts_keep_their_old_format(world):
     drive, a, _ = world
     a.sync(drive)

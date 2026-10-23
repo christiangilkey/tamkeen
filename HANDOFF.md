@@ -4771,3 +4771,67 @@ Owner: "once I've reviewed on my computer webapp, it didn't update on my phone a
   (needs two signed-in devices; if the project ever switches Realtime to "private channels only", nudges stop silently
   and the 60 s checks remain); Capacitor `pause` timing on a real phone; pywebview's focus/blur/visibility events in the
   real window (the logic was checked with the browser page and unit tests).
+
+## One standard typography for pages and books; full book pages; bold, italic and headings kept (2026-10-22; branch `worktree-agent-a3c5a3b9111f5c97d`, NOT merged, NOT pushed)
+Owner (phone screenshot of the Bisaya book "Larawan", page 1/590, lines ~45-50 px): "way too big and unreadable … there
+should be a standard font size for all imports. Boldness should carry over, and maybe a heading and body difference in
+size … standardized and clean between all websites and languages."
+- **Why it was so big, and 590 pages:** the stored `page_font_size` was at (or near) its old maximum, 40 px (A+ pressed
+  many times, or the Settings slider, which went to 40). The book reader then planned pages by a character budget with a
+  floor of 200 characters, so each page held ~4 short lines (Larawan's title page alone was "Bili: P 1.00 / LARAWAN /
+  (MGA SUGILANON…) / Sinulat ni…") = 590 pages, and pages that still overflowed could not shrink below that floor.
+  Reproduced exactly in the web app (40 → 1/590). Separately, every book paragraph had a 1.2em first-line indent (the
+  "indented lines"), and the budget could also be measured as 0 when the reader wasn't on screen yet.
+- **Text size (`web/js/textsize.js`, all versions):** `page_font_size` is now a *scale* on standard sizes (17 = 100%),
+  limits 13-24 (76%-141%); A−/A+ go one step and grey out at the ends; Settings' slider ("Pages & books", shown as a %)
+  uses the same limits and its sample uses the reader's own size. A stored value above 26 (only possible from before) is
+  put back to 17 once by `applySettings` (web/js/app.js, mobile/src/js/app.js); nothing can set it that high again.
+- **Type scale (`web/css/app.css`, `.reader-text`):** body = `--read-base` (19 px on a phone, rising to 21 px on a wide
+  screen: `clamp(19px, 17px + .35vw, 21px)`) × per-script factor `--rs` × `--page-scale`, never more than `5.4vw + 7px`
+  (27 px on a 375 px phone). Per script: Latin/Cyrillic 1.0, line height 1.65; Arabic/Persian 1.12, 1.95; Thai/Hindi
+  1.05, 1.85; Chinese/Japanese 1.0, 1.8; Korean 1.0, 1.75. Headings bold at 1.5× (`.rh1`, a web page's title), 1.3×
+  (`.rh2`), 1.15× (`.rh3`); line length `--measure: 34em` (~65-70 letters) centred; paragraphs .8em apart, no indents;
+  quotes indented and grey (no bar); italics stay upright in scripts without italics.
+- **Structure, sensed at import:** marks are stored in the block's kind: `"p|b0-2,i5,bi9-10"` (word numbers within the
+  block). `web/js/blockmarks.js` (+ `app/blockmarks.py`, the computer's copy) encodes/decodes/validates; nothing else in
+  storage or Drive sync changed, and an older app shows such a block as a plain paragraph. Producers: `extract.js`
+  (web pages: `<b>/<strong>/<i>/<em>`, inline font-weight/style; `<blockquote><p>` is now a quote), `bookfiles.js`
+  (EPUB/HTML/MOBI: same, plus h1/h2/h3 kept as levels, li and quotes; DOCX: run bold/italic, Title/Heading 1-3 styles,
+  lists, Quote styles; PDF: headings by size, 1.6×/1.35×/1.18× the page's usual text → h1/h2/h3; plain text: Gutenberg
+  `_italic_`, Markdown `#`…, `**bold**`, `*italic*`). Books now accept h1/h2/h3/p/li/q (`app/books.py KINDS`, phone
+  `saveBook`). Savers: `pages.py`/`books.py clean_blocks` and `backend.js savePage/saveBook` call `block_kind`/`blockKind`.
+  `sharetext.js` carries marks to a friend. **PDF bold is not detected** (PDF.js gives no real font names without
+  rendering each page; not cheap).
+- **Sensed when shown (`web/js/readerlayout.js`, so the owner's existing library looks right without re-importing):**
+  books: a *title page* = the leading run of 2+ short `p` lines (≤12 words / 90 characters; 30 for unspaced scripts; not
+  speech lines starting with a quote or dash) that is followed by a heading or contains the book's title → one centred
+  block: the line matching the title as a large heading, a following line that continues the title as a subtitle, the
+  rest small and grey; a page of its own. A first line equal to the title is the title too (Thai shelf books). Plain
+  paragraphs that are short ALL-CAPS lines (not ending in . , ; ! ? …), chapter lines (Chapter/Capítulo/Глава/الفصل/فصل/
+  अध्याय/บทที่/第…章/제…장 …) → level 2; a bare section number ("I.", "IV") → level 3. If guessed capitals come thicker
+  than 1 in 12 blocks (a play's speaker names) none are taken. Levels ≤2 start a new page. Web pages: h1/h2 → level 2,
+  h3 → level 3, a short all-bold paragraph that isn't a sentence → level 3. Checked over all ~200 shelf books
+  (`layoutBlocks` survey): sensible title pages for e.g. Larawan, Alice, Pinocchio, Noli; none for Arabic/Persian/Thai
+  books (they have none); the plays (Terra baixa) no longer turn every speaker into a heading.
+- **Book pages (`bookpages.js paginateBlocks`, `pages/book.js`):** pages are planned line by line from measured line
+  height, characters per line and margins of each block kind (a probe in the book's own text), short lines counting as
+  whole lines; headings never left at a page foot. Then the page shown is *fitted on screen*: drawn with what follows
+  (up to the next forced break), cut after the last line that fits, and the pages after it re-planned from there, so a
+  page is never cut off or half empty (page count can shift by a few as you read). Nothing is laid out while the reader
+  has no size (a ResizeObserver lays it out once it does, and again on rotation/resize). Larawan at the standard size on
+  a 375×812 phone: 184 pages (was 206 at 17 px, 590 at 40 px), title page alone, then full pages.
+- **Tests:** `tests/js/readerlayout.test.mjs` (marks encode/decode/validate, runs → words, extract.js with a tiny DOM
+  keeps bold/italic/headings/quotes/lists, plain text italics/Markdown/headings, heading guesses, Larawan's title page,
+  speech-not-a-title-page, plays, web-page levels + marks lookup, filled pages, title page/chapter breaks, headings kept
+  with text, unspaced scripts, text-size limits/reset); `tests/test_pages.py` (marks stored in segments.kind and synced
+  to a second device; Python/JS encodings agree), `tests/test_books.py` (levels, lists, quotes, bold kept).
+- **New string:** "Pages & books" (Settings slider label, was "Web pages"), in all 16 languages (`tr/<code>/58-reader.txt`);
+  three run-time HTML templates added to `tools/i18n/ignore.txt`.
+- **Checked** in the built web app (375×812 and 1280×800, dark and forced light): Larawan (title page, contents, story
+  headings, full pages, A+ to the limit 26.8 px and back), Arabic "al-Ajniha" (RTL, full pages), Thai Aesop (title, full
+  pages), a Spanish news page (bold lead, italics, h2/h3, quote, list, bold-only line as a heading), an English blog, an
+  Arabic news page (RTL headings, bold); a tap on a bold word opens the popup and marks it seen. Pages were imported
+  through `extractArticle` on local HTML copies (no live site fetched).
+- **Not checked:** the desktop pywebview window and the Android/iPhone apps themselves (same shared files); a real
+  EPUB/DOCX/PDF with bold (unit tests use runs and plain text); the shelf builder (`tools/build_books.py`) still writes
+  only h2/p without marks: the shelf books get their structure at display time instead.
