@@ -37,10 +37,20 @@ from .base import Segment, TranscriptionCancelled, Word
 
 log = logging.getLogger(__name__)
 
-PROVIDERS: dict[str, dict[str, str]] = {
-    "groq": {"label": "Groq", "url": "https://api.groq.com/openai/v1/audio/transcriptions", "default": "whisper-large-v3"},
-    "openai": {"label": "OpenAI", "url": "https://api.openai.com/v1/audio/transcriptions", "default": "whisper-1"},
+PROVIDERS: dict[str, dict[str, Any]] = {
+    "groq": {"label": "Groq", "url": "https://api.groq.com/openai/v1/audio/transcriptions", "default": "whisper-large-v3",
+             "models": ("whisper-large-v3", "whisper-large-v3-turbo")},
+    "openai": {"label": "OpenAI", "url": "https://api.openai.com/v1/audio/transcriptions", "default": "whisper-1",
+               "models": ("whisper-1",)},
 }
+# "models": what Settings offers for each (web/js/stt.js STT_PROVIDERS, the recommended one first). A
+# name typed in by hand under the old "Another model…" choice (gone 2026-10-22) means the recommended one.
+
+
+def known_model(provider: str, model: str | None) -> str:
+    """`model` if `provider` offers it, else the provider's recommended model."""
+    p = PROVIDERS.get(provider) or PROVIDERS["groq"]
+    return model if model in p["models"] else p["default"]
 
 PIECE_SECONDS = 300          # speech per upload: a piece is closed at the first pause after this much
 LONGEST_PIECE = 600          # ...and never runs past this, pause or not
@@ -76,7 +86,11 @@ def config(settings: dict[str, Any] | None = None) -> dict[str, str] | None:
     key = str(s.get(f"stt_key_{provider}") or (s.get("llm_key_openai") if provider == "openai" else "") or "").strip()
     if not key:
         return None
-    return {"provider": provider, "key": key, "model": str(s.get(f"stt_model_{provider}") or PROVIDERS[provider]["default"])}
+    stored = s.get(f"stt_model_{provider}") or ""
+    model = known_model(provider, stored)
+    if stored and model != stored and settings is None:
+        db.set_settings({f"stt_model_{provider}": ""})  # a hand-typed name: back to the recommended model, for good
+    return {"provider": provider, "key": key, "model": model}
 
 
 # --------------------------------------------------------------------------- what goes up
@@ -393,5 +407,5 @@ def test(provider: str, key: str, model: str) -> float:
     if not key.strip():
         raise CloudError("Paste an API key first.")
     started = time.monotonic()
-    send(provider, key.strip(), model or PROVIDERS[provider]["default"], encode_mp3(np.zeros(SAMPLE_RATE, dtype=np.float32)), None)
+    send(provider, key.strip(), known_model(provider, model), encode_mp3(np.zeros(SAMPLE_RATE, dtype=np.float32)), None)
     return time.monotonic() - started

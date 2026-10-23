@@ -1,0 +1,24 @@
+894e4e98 Whisper large-v3 (el model de Groq)
+06846f58 Caràcters erronis: com menys, millor
+89ab733c Com s'ha mesurat
+617a7e8e Model d'escolta per al tai: Typhoon
+b530e156 Model d'escolta per al bisaya
+b9ce4cad Com funcionen els preus
+5eb93a7e Amb {0}, un dòlar dona per a unes {1} hores d'àudio.
+a406458e Typhoon, al teu ordinador
+5f137e4e El tai es transcriu millor al teu ordinador
+87252d70 Typhoon Whisper Turbo és el model d'escolta propi del tai: Whisper reentrenat per SCB 10X amb unes 11.000 hores de tai. En la parla de cada dia comet aproximadament la meitat d'errors de caràcters que Whisper large-v3, el model que fa servir Groq.
+6e9c5e87 Parla de cada dia: 14 minuts de tertúlies de la televisió tailandesa
+104537cc 90 fragments de mig minut de parla tai
+add41fda Frases llegides en veu alta (FLEURS)
+b5137d68 A les tertúlies, Whisper large-v3 a més es va saltar una cinquena part del que es va dir, i Typhoon va ser 2,6 vegades més ràpid.
+e0f73cfc Amb frases llegides en veu alta, Whisper large-v3 ho fa una mica millor, en part perquè Typhoon escriu els nombres amb lletres i els noms anglesos en alfabet llatí.
+390a4486 Whisper d'OpenAI (whisper-1) i Whisper Large v3 Turbo de Groq: sense mesurar.
+9020c7fa Mesurat per Tamkeen en un ordinador, amb la configuració de transcripció de l'aplicació, en comparació amb les transcripcions oficials: tertúlies de la televisió tailandesa (el conjunt TVSpeech de Typhoon) unides en 14 minuts d'àudio semblant a un pòdcast, 90 fragments de mig minut i FLEURS, un conjunt públic de frases llegides en veu alta. La segona barra és Whisper large-v3 executat de la mateixa manera: el model que fa servir Groq.
+8c2cc4ff Per fer-lo servir, baixa Typhoon al teu ordinador (Configuració → Escolta i transcripcions → Model de transcripció) i tria El meu ordinador a dalt. Un proveïdor al núvol continua funcionant per al tai, directament des d'aquest telèfon, quan prefereixis no esperar l'ordinador.
+10905243 Baixa Typhoon a Model de transcripció, just a sota. Un cop baixat, escriu totes les transcripcions en tai en aquest ordinador, encara que hagis triat un proveïdor al núvol.
+bfe8bcc5 Typhoon està baixat: escriu totes les transcripcions en tai en aquest ordinador, encara que hagis triat un proveïdor al núvol.
+52da72ee Model de bisaya, al teu ordinador
+d149deb2 BuzzASR Cebuano és el model d'escolta propi del bisaya: Whisper large-v3 reentrenat per BuzzASR amb bisaya (cebuà). Comet menys de la meitat d'errors de caràcters que Whisper large-v3 sense més, el model que fa servir Groq.
+d30cb45e En pòdcasts en bisaya també va escriure el doble de paraules bisayes que Whisper large-v3 (el 10% de totes les paraules davant del 5%) i moltes menys de tagàloges (1,1% davant de 3,8%).
+9e7f7b73 Les xifres de FLEURS (un conjunt públic de frases llegides en veu alta) es van publicar amb el model. Les xifres dels pòdcasts les va mesurar Tamkeen en set fragments de dos minuts de pòdcasts en bisaya (una tertúlia, lectures de missa, una conversa en bisaya i anglès i narració), en comparació amb Whisper large-v3 amb la indicació per al bisaya de l'aplicació.

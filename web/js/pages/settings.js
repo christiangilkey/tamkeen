@@ -182,6 +182,12 @@ function listening(body, status) {
     usage: () => api("/stt/usage"),
     onUsage: (fn) => on("stt", fn),
     changed: async () => { await loadStatus(); paintUnused(); },
+    // The study language's own model (Thai's Typhoon, Bisaya's), once downloaded, writes its transcripts here.
+    ownReady: async () => {
+      const r = await api("/models");
+      return r.models.some((m) => m.language && m.language === r.study_language && m.installed);
+    },
+    onOwnChange: (fn) => on("model_download", (st) => { if (st.state === "done" || st.state === "idle") fn(); }),
   }));
   $("#delete-after").onchange = (e) => saveSettings({ delete_audio_after: e.target.checked });
   $("#stream").onchange = (e) => saveSettings({ stream_from_source: e.target.checked });

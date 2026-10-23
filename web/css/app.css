@@ -1294,21 +1294,69 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
   .model-btn .badge { display: none; } /* no room beside the price; the list still shows it */
 }
 
-/* "Cloud transcription" (components/sttsetup.js): the same card, with a choice of who writes the transcripts on top */
-.stt-card { border-color: var(--border); }
+/* Settings → Listening & transcripts (components/sttsetup.js and ownmodel.js): who writes the
+   transcripts as two big tiles, a language's own listening model and how it compares, then the cloud
+   provider's settings. Plain surfaces only: no banners, gradients or shadows. */
 .stt-card:has(.pill.done) { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
-.stt-who { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 10px; }
-.stt-choice { display: flex; align-items: flex-start; gap: 8px; padding: 9px 12px; border: 1px solid var(--border); border-radius: 14px; cursor: pointer; }
+.stt-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.stt-top h2 { flex: 1; margin: 0; }
+.stt-who { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.stt-choice { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 3px;
+  padding: 16px 10px 14px; border: 1.5px solid var(--border); border-radius: 16px; cursor: pointer; background: var(--surface); }
+.stt-choice input { position: absolute; opacity: 0; pointer-events: none; }
+.stt-choice-ico { display: inline-flex; color: var(--muted); margin-bottom: 4px; }
+.stt-choice strong { font-size: 15.5px; line-height: 1.25; }
+.stt-choice-line { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
 .stt-choice:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
-.stt-choice input { margin-top: 3px; }
-.stt-choice:has(input:disabled) { opacity: .5; cursor: default; }
-.stt-blocked { margin: 0 0 10px; padding: 10px 12px; border-radius: 12px; background: var(--surface-2); line-height: 1.45; }
-.stt-choice strong, .stt-choice .small { display: block; }
-#stt-model-other { margin-top: 4px; }
-.stt-limit { padding: 8px 12px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--brand-gold) 55%, var(--border)); background: color-mix(in srgb, var(--brand-gold) 10%, var(--surface)); }
+.stt-choice:has(input:checked) .stt-choice-ico { color: var(--accent); }
+.stt-choice:has(input:checked) .stt-choice-line { color: var(--text); }
+.stt-choice:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.stt-choice:has(input:disabled) { opacity: .45; cursor: default; }
+/* the language's own model (ownmodel.js) */
+.stt-own { margin-top: 14px; padding: 18px 16px 14px; border-radius: 16px; background: var(--surface-2); }
+.stt-own-head { text-align: center; }
+.stt-own-ico { width: 42px; height: 42px; border-radius: 12px; display: inline-grid; place-items: center; background: var(--accent-soft); color: var(--accent); }
+.stt-own-head h3 { font-size: 18px; margin: 8px 0 4px; line-height: 1.3; }
+.stt-own-head p { margin: 0 auto; max-width: 460px; font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+.stt-chart { margin: 14px 0 4px; padding: 12px 14px; border-radius: 12px; background: var(--surface); }
+.stt-chart-title { margin: 0 0 10px; font-size: 12px; font-weight: 700; color: var(--muted); text-align: center; }
+.stt-bars + .stt-bars { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.stt-bars-label { margin: 0 0 6px; font-size: 13px; font-weight: 650; line-height: 1.3; }
+.stt-bar-row { display: grid; grid-template-columns: minmax(0, 15em) minmax(0, 1fr); align-items: center; gap: 2px 10px; font-size: 12.5px; }
+@media (max-width: 560px) { .stt-bar-row { grid-template-columns: minmax(0, 1fr); } } /* a phone: each name over its bar */
+.stt-bar-row + .stt-bar-row { margin-top: 5px; }
+.stt-bar-name { color: var(--muted); line-height: 1.25; }
+.stt-bar-area { display: flex; align-items: center; gap: 6px; min-width: 0; }
+/* --w: the value against the chart's top value; the room for the number is kept free */
+.stt-bar { display: block; flex: none; height: 12px; border-radius: 4px; min-width: 3px; width: calc((100% - 3.6em) * var(--w)); }
+.stt-bar.own { background: var(--accent); }
+.stt-bar.cloud { background: color-mix(in srgb, var(--muted) 60%, var(--surface)); }
+.stt-bar-val { font-variant-numeric: tabular-nums; font-weight: 650; white-space: nowrap; }
+.stt-own-note { margin: 8px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+.stt-own-do { display: flex; gap: 8px; align-items: flex-start; margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--border); font-size: 14px; line-height: 1.45; }
+.stt-own-do .ic { color: var(--accent); margin-top: 1px; }
+.stt-own .set-info { margin-top: 10px; }
+.stt-card .set-info p { margin: 6px 0 0; line-height: 1.45; }
+/* the cloud provider's settings, only while it is chosen */
+.stt-cloud { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+.stt-cloud[hidden] { display: none; }
+.stt-cloud h3 { margin: 0 0 10px; font-size: 15px; }
+.stt-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+#stt-test-result:empty, #stt-key-note:empty { display: none; }
+.stt-limit { padding: 10px 12px; border-radius: 12px; background: var(--surface-2); color: var(--muted); line-height: 1.45; }
 .stt-limit[hidden] { display: none; }
-.stt-card .ai-setup[hidden] { display: none; }
-@media (max-width: 640px) { .stt-who { grid-template-columns: minmax(0, 1fr); } }
+.stt-models { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.stt-model { display: flex; align-items: center; gap: 10px; padding: 10px 12px; cursor: pointer; }
+.stt-model + .stt-model { border-top: 1px solid var(--border); }
+.stt-model:has(input:checked) { background: var(--accent-soft); }
+.stt-model input { flex: none; margin: 0; accent-color: var(--accent); }
+.stt-model-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.stt-model-name { font-weight: 600; }
+.stt-model .badge { white-space: nowrap; margin-left: 0; margin-inline-start: 6px; }
+.stt-per-dollar { margin: 6px 0 0; }
+.stt-card .ai-more .set-info { margin-top: 4px; }
+/* "How it works" and "What is sent…", at the foot of the card */
+.stt-folds { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); }
 
 /* "I'm stuck": getting an API key, step by step (components/keyhelp.js) */
 .key-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
