@@ -16,6 +16,7 @@ import * as cloud from "./transcribe-service.js";
 import { replaceInText } from "./correction.js";
 import { unpackTranscript } from "./sharetext.js";
 import { blockKind } from "./blockmarks.js";
+import { phoneCanReach } from "./cardvoice.js";
 import * as phoneReels from "./reels-phone.js";
 import { anki, requestAnkiSync } from "./anki-phone.js";
 import { cleanInfo, cleanTitleId, displayTitle } from "./netflix-ttml.js";
@@ -458,10 +459,10 @@ function episodeOut(e) {
 function vocabOut(v) {
   // `audio_type`: the episode's kind, from which web/js/cardvoice.js decides whether the word's own
   // audio can be played here or a voice says it (as app/api/vocab.py _items gives it).
-  // An episode whose sound this phone can't reach (no copy in Drive, no web address: a file only on
-  // the computer) counts as "missing" here.
+  // An episode whose sound this phone can't reach (no copy in Drive it can fetch, no web address: a
+  // file only on the computer) counts as "missing" here (cardvoice.js phoneCanReach).
   const e = v.episode_uid ? episodeOf(v.episode_uid) : null;
-  const reachable = e && (e.remote_audio || /^(https?:|drive:)/i.test(e.audio_url || ""));
+  const reachable = phoneCanReach(e, settings.signed_in);
   return { ...v, id: v.uid, episode_id: v.episode_uid, folders: v.folders || [],
            audio_type: reachable ? e.audio_type || "" : v.episode_uid ? "missing" : null };
 }

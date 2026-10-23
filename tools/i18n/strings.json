@@ -1640,6 +1640,11 @@
   "f": "web/js/browser-toolbar.js"
  },
  {
+  "id": "863892c6",
+  "k": "Couldn't load this word's audio.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
   "id": "332de0f3",
   "k": "Azure didn't accept this key in the region “{0}”. Copy Key 1 again, and check that the region is the one shown next to it (for example westeurope).",
   "f": "web/js/cardvoice.js"
@@ -12542,11 +12547,6 @@
  {
   "id": "35c2eb2c",
   "k": "Add a word",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "863892c6",
-  "k": "Couldn't load this word's audio.",
   "f": "web/js/pages/vocab.js"
  },
  {

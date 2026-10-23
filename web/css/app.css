@@ -269,19 +269,22 @@ label.check input { margin-top: 3px; }
 }
 
 /* ---------- toasts / menu ---------- */
-.toasts { position: fixed; bottom: 16px; right: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 50; }
+/* The messages stack at the bottom right, always inside the window: as wide as their words up to
+   380px (or the window less its margins), the words wrapping. Only the messages take clicks. */
+.toasts { position: fixed; bottom: 16px; right: 16px; left: 16px; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; z-index: 50; pointer-events: none; }
 .toast {
   background: var(--text);
   color: var(--bg);
   padding: 10px 14px;
   border-radius: 10px;
-  box-shadow: var(--shadow);
-  max-width: 380px;
+  max-width: min(380px, 100%);
   display: flex;
   gap: 10px;
   align-items: center;
+  pointer-events: auto;
   animation: toast-in .2s ease;
 }
+.toast > span { min-width: 0; overflow-wrap: anywhere; }
 .toast.error { background: var(--danger); color: #fff; }
 .toast a, .toast button { color: inherit; font-weight: 600; background: transparent; border: none; padding: 0; min-height: 0; text-decoration: underline; }
 @keyframes toast-in { from { transform: translateY(8px); opacity: 0; } }

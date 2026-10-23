@@ -6,10 +6,10 @@
 // Pressing Word or Sentence never ends in an error message per press: when nothing at all can say
 // the card, one calm message is shown, and the same one is never stacked on top of itself.
 
-import { makeComputerVoice, saveVoice, state, toast } from "./app.js";
-import { azureReady, azureVoiceFor, azureVoices, ensureVoice, makeAzureVoice, pickedVoices, sayCard, voiceMode,
-         voicesForLanguage, voiceLocale } from "./cardvoice.js";
-import { speakDevice, stopDevice } from "./devicevoice.js";
+import { makeComputerVoice, saveVoice, speechPlugin, state, toast } from "./app.js";
+import { AZURE_VOICES, LOCAL_VOICE_LANGUAGES, azureReady, azureVoiceFor, azureVoices, ensureVoice, makeAzureVoice, pickedVoices,
+         sayCard, voiceMode, voicesForLanguage, voiceLocale } from "./cardvoice.js";
+import { deviceHasVoice, speakDevice, stopDevice } from "./devicevoice.js";
 import { detectLanguage } from "./languages.js";
 
 const settings = () => (state.status && state.status.settings) || {};
@@ -100,6 +100,7 @@ export function cardSayer(playSnippet) {
         },
       });
     } catch (e) {
+      if (e && e.nothing) return { ended: Promise.resolve() };  // no text behind a failed recording: nothing to say about it
       const message = e && e.message ? e.message : "This card can't be said on this device.";
       // A device without a voice for the language: said once, not again on every card of a review.
       if (!(e && e.noVoice && told.has(message))) calm(message);
@@ -107,6 +108,33 @@ export function cardSayer(playSnippet) {
       return { ended: Promise.resolve() };
     }
   };
+}
+
+// ----- is there a voice for a language here? (the Vocab page's Word and Sentence buttons) -----
+const voiceKnown = new Map(); // lang -> true / false, once this device has said
+
+/** Can a text in language `lang` be said on this device: true (a voice is made for the card, or the
+ * device has one), false (no voice at all: a card with nothing it can play gets no buttons), or null
+ * while that isn't known yet (the buttons are shown). Synchronous; learnVoices finds it out. */
+export function voiceHere(lang, s = settings()) {
+  const mode = voiceMode(s);
+  if (mode === "azure" && azureReady(s) && AZURE_VOICES[lang]) return true;
+  if (mode === "computer" && makeComputerVoice && LOCAL_VOICE_LANGUAGES.includes(lang)) return true;
+  return voiceKnown.has(lang) ? voiceKnown.get(lang) : null;
+}
+
+/** Find out whether the device has a voice for each of `langs`. Resolves true when that changed what
+ * voiceHere says. A browser that lists no voices at all (or not yet) is taken as unknown, not as none. */
+export async function learnVoices(langs) {
+  let changed = false;
+  await Promise.all([...new Set(langs)].filter(Boolean).map(async (lang) => {
+    let has = await deviceHasVoice(lang);
+    if (has === false && !speechPlugin && window.speechSynthesis && !window.speechSynthesis.getVoices().length) has = null;
+    if (has === null || voiceKnown.get(lang) === has) return;
+    voiceKnown.set(lang, has);
+    changed = true;
+  }));
+  return changed;
 }
 
 export { stopDevice };

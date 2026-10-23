@@ -9,8 +9,8 @@ import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages
 import * as social from "../social.js";
 import { icon } from "../icons.js";
 import { cardSentence, findWord } from "../cardtext.js";
-import { canSay, hasOwnAudio, voiceTimes } from "../cardvoice.js";
-import { cardSayer, stopDevice } from "../voiceplay.js";
+import { audioKey, canSay, failedHere, hasOwnAudio, loadError, voiceTimes } from "../cardvoice.js";
+import { cardLanguage, cardSayer, learnVoices, stopDevice, voiceHere } from "../voiceplay.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
@@ -205,22 +205,66 @@ export async function render(view) {
   };
   // Backup for when animation frames are paused (window in the background).
   audio.addEventListener("timeupdate", () => { if (audio.currentTime >= stopAt) audio.pause(); });
+  // The recording in the player, and the promise of its loading: a second press while it loads waits
+  // for the same loading (rather than asking a player that has nothing yet to play, which the browser
+  // answers with its own words: "NotSupportedError: … no supported source was found").
+  let loaded = { source: "", ready: null };
+  const LOAD_WAIT = 12000;  // a recording that hasn't started loading by then is taken as unreachable
+  const superseded = () => Object.assign(new Error("superseded"), { superseded: true });
+  /** Load recording `source` into the player. Rejects with loadError() (cardvoice.js: plain words,
+   * marked `unplayable`) when this device can't play it, or `superseded` when another card took over. */
+  function loadRecording(source, address) {
+    if (loaded.source === source) return loaded.ready;
+    const ready = (async () => {
+      let url;
+      try { url = await address(); } catch { throw loadError(); }  // e.g. "This word's audio isn't on this phone yet"
+      if (loaded.source !== source) throw superseded();
+      if (!url) throw loadError();
+      audio.src = url;
+      await new Promise((res, rej) => {
+        const finish = (ok) => {
+          clearTimeout(timer);
+          audio.removeEventListener("loadedmetadata", onMeta);
+          audio.removeEventListener("error", onError);
+          if (loaded.source !== source) rej(superseded());
+          else if (ok) res();
+          else rej(loadError());
+        };
+        const onMeta = () => finish(true);
+        const onError = () => finish(false);
+        const timer = setTimeout(() => finish(false), LOAD_WAIT);
+        audio.addEventListener("loadedmetadata", onMeta);
+        audio.addEventListener("error", onError);
+      });
+    })();
+    loaded = { source, ready };
+    ready.catch(() => { if (loaded.ready === ready) loaded = { source: "", ready: null }; });  // tried afresh next time
+    return ready;
+  }
   /** Play part of a word's audio: its own clip (a word a friend shared), its episode, or (`voice`)
-   * the voice kept for it (cardvoice.js: the same stored file as a clip). */
+   * the voice kept for it (cardvoice.js: the same stored file as a clip). Never rejects with the
+   * browser's own words: only loadError() (the card's voice then says it: cardvoice.js sayCard). */
   async function playSnippet(v, start, end, { voice = false } = {}) {
     const own = v.clip || voice;
-    const source = own ? `clip:${v.id}` : `episode:${v.episode_id}`;
-    if (audio.dataset.episode !== source) {
-      audio.dataset.episode = source;
-      audio.src = own ? await clipUrl(v) : await audioUrl(v.episode_id);
-      await new Promise((res, rej) => {
-        audio.addEventListener("loadedmetadata", res, { once: true });
-        audio.addEventListener("error", () => { audio.dataset.episode = ""; rej(new Error("Couldn't load this word's audio.")); }, { once: true });
-      });
+    const source = audioKey(v, voice);
+    if (failedHere(source)) throw loadError();  // failed a moment ago: not tried (and waited for) again
+    const quietly = { ended: Promise.resolve() };
+    try {
+      await loadRecording(source, () => (own ? clipUrl(v) : audioUrl(v.episode_id, { quiet: true })));
+    } catch (e) {
+      if (e && e.superseded) return quietly;  // another card pressed meanwhile: that one plays
+      throw e;
     }
+    if (loaded.source !== source) return quietly;
     audio.currentTime = Math.max(0, start - 0.25);
     stopAt = end + 0.35;
-    await audio.play();
+    try {
+      await audio.play();
+    } catch (e) {
+      if (e && e.name === "AbortError") return quietly;  // interrupted by another press
+      if (e && e.name === "NotSupportedError") { loaded = { source: "", ready: null }; throw loadError(); }
+      throw Object.assign(new Error("Couldn't load this word's audio."), { cause: e });  // e.g. not allowed to play yet
+    }
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(watch);
     // `ended` settles once this stretch has finished playing: the player pauses at `stopAt`, or the
@@ -385,9 +429,6 @@ export async function render(view) {
   function item(v) {
     const changed = v.updated_at && v.updated_at - v.created_at > 60;
     const lang = langAttrs(detectLanguage(v.sentence || v.text));
-    // Every card can be heard: its own recording, or the voice chosen for cards without one.
-    const hasWord = canSay(v, "word");
-    const hasSentence = canSay(v, "sentence");
     const translation = String(v.translation || "").replace(/[⟦⟧]/g, "").trim();
     const el = h(`<div class="card vocab-item">
       <div class="vi-head" role="button" tabindex="0" aria-expanded="false">
@@ -396,10 +437,10 @@ export async function render(view) {
           <div class="word" ${lang}></div>
           <div class="vi-meaning"></div>
           ${v.sentence ? `<div class="sentence" ${lang}>${highlight(cardSentence(v.sentence, v.text), v.text)}</div>` : ""}
-          ${hasWord || hasSentence ? `<div class="vi-quick">
-            ${hasWord ? `<button type="button" class="play-word">${icon("sound", 15)} Word</button>` : ""}
-            ${hasSentence ? `<button type="button" class="play-sent">${icon("sound", 15)} Sentence</button>` : ""}
-          </div>` : ""}
+          <div class="vi-quick" hidden>
+            <button type="button" class="play-word" hidden>${icon("sound", 15)} Word</button>
+            <button type="button" class="play-sent" hidden>${icon("sound", 15)} Sentence</button>
+          </div>
         </div>
         <span class="vi-chev" aria-hidden="true">${icon("chevron", 20)}</span>
       </div>
@@ -487,10 +528,23 @@ export async function render(view) {
       const r = e.currentTarget.getBoundingClientRect();
       folderMenu(r.left, r.bottom + 4, [v], "toggle");
     };
+    // Word and Sentence: shown when the card can be heard on this device: its own recording when this
+    // device can play it, else its kept voice, else the voice chosen in Settings (cardvoice.js canSay).
+    // Drawn again when that changes: a recording that failed to load, or no voice for the language here.
+    const quick = el.querySelector(".vi-quick");
     const pw = el.querySelector(".play-word");
-    if (pw) pw.onclick = () => say(v, "word");  // (never fails: at worst one calm message, see voiceplay.js)
     const ps = el.querySelector(".play-sent");
-    if (ps) ps.onclick = () => say(v, "sentence");
+    el.__quick = () => {
+      const voice = voiceHere(cardLanguage(v));
+      pw.hidden = !canSay(v, "word", voice);
+      ps.hidden = !canSay(v, "sentence", voice);
+      quick.hidden = pw.hidden && ps.hidden;
+    };
+    el.__quick();
+    // (Never fails: at worst one calm message, see voiceplay.js. Afterwards every card is checked
+    // again, since a recording that failed is shared by all the cards from its episode.)
+    pw.onclick = () => say(v, "word").finally(refreshQuick);
+    ps.onclick = () => say(v, "sentence").finally(refreshQuick);
     el.querySelector(".del").onclick = async () => {
       if (!(await confirmDelete(v))) return;  // says so first when the word's Anki card would go too
       await api(`/vocab/${v.id}`, { method: "DELETE" });
@@ -605,6 +659,11 @@ export async function render(view) {
     renderReview();
   }
 
+  /** Check every listed card's Word and Sentence buttons again (see item()). */
+  function refreshQuick() {
+    for (const el of list.querySelectorAll(".vocab-item")) if (el.__quick) el.__quick();
+  }
+
   async function load() {
     const [items, fl, answers] = await Promise.all([
       api(`/vocab${st.q ? `?q=${encodeURIComponent(st.q)}` : ""}`),
@@ -615,6 +674,9 @@ export async function render(view) {
     all = items.map((v) => ({ ...v, folders: v.folders || [] }));
     folders = fl;
     renderAll();
+    // Whether this device has a voice for the cards' languages (a moment's work, asked once): a card
+    // with nothing it can play, in a language with no voice here, then shows no buttons.
+    learnVoices(all.map(cardLanguage)).then((changed) => { if (changed && view.isConnected) refreshQuick(); }, () => {});
   }
 
   // ----- wiring -----

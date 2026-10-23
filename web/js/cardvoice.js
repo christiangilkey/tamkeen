@@ -40,11 +40,64 @@ export const NO_AUDIO_KINDS = ["video/youtube", "video/netflix", "video/instagra
 
 /** True when a card has a recording of its own that can be played here: a friend's clip, or a moment
  * in an episode with a real sound file (a podcast, the learner's own audio or video). `audio_type` is
- * the episode's kind as the vocab list gives it. */
+ * the episode's kind as the vocab list gives it. A recording this device has just failed to load
+ * (audioFailed) counts as none for a while, so the card's voice says it instead. */
 export function hasOwnAudio(v) {
   if (!v || v.start == null) return false;
-  if (v.clip) return true;
-  return !!v.episode_id && !NO_AUDIO_KINDS.includes(v.audio_type || "");
+  if (!v.clip && (!v.episode_id || NO_AUDIO_KINDS.includes(v.audio_type || ""))) return false;
+  return !failedHere(audioKey(v));
+}
+
+// ----- recordings this device couldn't load -----
+// A card's recording may point at something this device can't play: a file only the computer has,
+// a podcast address that has gone, a host the browser refuses, a Drive copy that can't be fetched
+// right now. The Vocab page's player tells this file once it fails (audioFailed); from then on the
+// card, and every card from the same episode, is said by its voice at once, without trying (and
+// failing, and waiting) again. Forgotten after FAILED_FOR, so a connection that comes back is used again.
+
+/** How long a recording that failed to load is left alone (ms). */
+export const FAILED_FOR = 30 * 60 * 1000;
+const failed = new Map(); // audioKey -> when it failed (ms)
+
+/** Which recording a card plays: its own file ("clip:<id>", which also holds a kept voice) or its
+ * episode's ("episode:<id>", shared by every card saved from that episode). `voice`: the kept voice. */
+export function audioKey(v, voice = false) {
+  return v && (v.clip || voice) ? `clip:${v.id}` : `episode:${v && v.episode_id}`;
+}
+
+/** Note that recording `key` couldn't be loaded on this device. */
+export function audioFailed(key, now = Date.now()) {
+  if (key) failed.set(key, now);
+}
+
+/** Has recording `key` failed to load here lately? */
+export function failedHere(key, now = Date.now()) {
+  const at = failed.get(key);
+  if (at === undefined) return false;
+  if (now - at < FAILED_FOR) return true;
+  failed.delete(key);
+  return false;
+}
+
+/** For tests: forget the recordings that failed. */
+export function forgetFailed() { failed.clear(); }
+
+/** A loading error worded for the learner, never the browser's own words ("NotSupportedError: …").
+ * `unplayable`: the recording itself can't be played here (as opposed to the player being taken over). */
+export function loadError() {
+  return Object.assign(new Error("Couldn't load this word's audio."), { unplayable: true });
+}
+
+/** Can a phone or the web app load episode `ep`'s sound (mobile/src/js/app.js audioUrl)? Its copy in
+ * Google Drive needs a sign-in; without one, only a web address of its own is left (a podcast's). An
+ * address on the computer alone (a file the learner added there) can't be reached from here. The Vocab
+ * list calls an episode it can't reach "missing", so its cards are said by their voice from the start. */
+export function phoneCanReach(ep, signedIn) {
+  if (!ep) return false;
+  const url = String(ep.audio_url || "").trim();
+  if (/^drive:/i.test(url)) return !!(signedIn && ep.remote_audio);  // the learner's own video or audio, in Drive
+  if (ep.remote_audio && signedIn) return true;                        // the synced copy in Drive
+  return /^https?:\/\//i.test(url);
 }
 
 /** Where a card's kept voice has its word and sentence ({start, end, sent_start, sent_end}), or null. */
@@ -314,18 +367,21 @@ export async function sayCard(v, part, deps) {
   const text = voiceText(v);
   const word = part === "word";
   const stretch = (t) => (word ? [t.start, t.end ?? t.start + 1] : t.sent_start != null ? [t.sent_start, t.sent_end ?? t.sent_start + 3] : null);
+  // A recording that can't be loaded here is noted (audioFailed), so the next press goes straight to the voice.
+  const noted = (key) => (e) => { if (e && e.unplayable) audioFailed(key); };
   if (hasOwnAudio(v)) {
     const at = stretch(v);
-    if (at) { try { return await playSnippet(v, at[0], at[1], { voice: false }); } catch { /* the voice instead */ } }
+    if (at) { try { return await playSnippet(v, at[0], at[1], { voice: false }); } catch (e) { noted(audioKey(v))(e); /* the voice instead */ } }
   }
   if (!voiceTimes(v) && makeVoice) {
     try { await makeVoice(v); } catch (e) { onNote(e && e.message ? e.message : String(e)); }
   }
-  const kept = voiceTimes(v);
+  const kept = failedHere(audioKey(v, true)) ? null : voiceTimes(v);
   const at = kept && stretch(kept);
-  if (at) { try { return await playSnippet(v, at[0], at[1], { voice: true }); } catch { /* the device's voice */ } }
+  if (at) { try { return await playSnippet(v, at[0], at[1], { voice: true }); } catch (e) { noted(audioKey(v, true))(e); /* the device's voice */ } }
   const say = word ? text.word : text.sentence;
-  if (!say) throw new Error("This card has nothing to say.");
+  // (`nothing`: not worth a message: a button whose recording just failed, with no text behind it.)
+  if (!say) throw Object.assign(new Error("This card has nothing to say."), { nothing: true });
   return speakDevice(say, lang);
 }
 
@@ -336,11 +392,14 @@ export function speakingSeconds(text) {
 
 // ---------------------------------------------------------------- the computer's voices
 
-/** Can the card's word (or sentence) be heard at all: its own recording, a kept voice, or a text to say. */
-export function canSay(v, part = "word") {
-  const t = voiceTimes(v);
-  if (part === "word") return hasOwnAudio(v) || !!t || !!voiceText(v).word;
-  return (hasOwnAudio(v) && v.sent_start != null) || !!(t && t.sent_start != null) || !!voiceText(v).sentence;
+/** Can the card's word (or sentence) be heard at all: its own recording, a kept voice, or a text to say.
+ * `voice` is whether this device has a voice to say a text with (its own, or one it makes): false when
+ * it has none, so a card with nothing it can play gets no button; null or true when it may. */
+export function canSay(v, part = "word", voice = null) {
+  const t = failedHere(audioKey(v, true)) ? null : voiceTimes(v);  // a kept voice is in the card's own file
+  const text = voice !== false;
+  if (part === "word") return hasOwnAudio(v) || !!t || (text && !!voiceText(v).word);
+  return (hasOwnAudio(v) && v.sent_start != null) || !!(t && t.sent_start != null) || (text && !!voiceText(v).sentence);
 }
 
 /** Languages the computer has a voice model for (app/voices.py VOICES: tests check the two agree). */
