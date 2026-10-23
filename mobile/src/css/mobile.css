@@ -72,8 +72,14 @@ body:has(.add-fab) .toasts { bottom: calc(144px + env(safe-area-inset-bottom)); 
 .settings select, .settings input[type=text], .settings input[type=password] { width: 100%; }
 .stack-label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
 .vocab-item { grid-template-columns: 1fr; }
-.toasts { left: 12px; right: 12px; bottom: calc(70px + env(safe-area-inset-bottom)); }
+/* Messages: the width of a phone's screen less its margins; in a wider window (the web app on a
+   computer, a tablet) a box at the bottom right as on the desktop, never a bar across the window. */
+.toasts { left: 12px; right: 12px; bottom: calc(70px + env(safe-area-inset-bottom)); align-items: stretch; }
 .toast { max-width: none; }
+@media (min-width: 640px) {
+  .toasts { align-items: flex-end; }
+  .toast { max-width: min(420px, 100%); }
+}
 button, .btn { min-height: 38px; }
 .tabbar a { position: relative; }
 

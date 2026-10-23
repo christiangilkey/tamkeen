@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** On the Vocab page, a word whose recording can't be played on this device (for example a podcast address that no longer works, or a file only your computer has) is read out by its card voice instead of showing red error messages, and the browser's own error text no longer appears. Messages now sit fully inside the window, as small boxes at the bottom right on a computer.
 - **Fixed:** Netflix's home page went dark below the top trailer with the extension (and in the computer's Netflix window): a trailer was taken for the title playing.
 - **New:** A "back to the start of the sentence" button beside "back 5 seconds", in the player and the Netflix extension (key R). Pressed again right away, it goes one sentence further back.
 - **Improved:** On a computer, the word popup's close button sits at the bottom right, beside Save.

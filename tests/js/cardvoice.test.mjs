@@ -4,8 +4,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  AZURE_VOICES, azureError, azureReady, azureVoiceFor, buildSsml, canSay, cleanAzureKey, cleanRegion, clipTimes, ensureVoice,
-  forgetMaking, hasOwnAudio, keepVoice, makeAzureVoice, needsVoice, pickDeviceVoice, pickedVoices, sayCard, voiceChars, voiceMode, voiceText,
+  AZURE_VOICES, FAILED_FOR, audioFailed, audioKey, azureError, azureReady, azureVoiceFor, buildSsml, canSay, cleanAzureKey, cleanRegion,
+  clipTimes, ensureVoice, failedHere, forgetFailed, forgetMaking, hasOwnAudio, loadError, phoneCanReach, keepVoice, makeAzureVoice, needsVoice, pickDeviceVoice, pickedVoices, sayCard, voiceChars, voiceMode, voiceText,
   voiceTimes, voicesForLanguage, waitingForComputer, withPickedVoice,
 } from "../../web/js/cardvoice.js";
 import { joinOggOpus, opusPackets } from "../../web/js/oggjoin.js";
@@ -234,6 +234,79 @@ test("a card with a podcast recording plays it; a broken one falls back to the v
   const broken = deps({ playSnippet: async () => { throw new Error("Couldn't load this word's audio."); } });
   await sayCard(v, "sentence", broken);
   assert.deepEqual(broken.log, [["device", "hola amigo", "es"]], "no error: the device's voice says it");
+});
+
+test("a recording this device can't load is noted: its episode's cards go straight to the voice", async () => {
+  forgetFailed();
+  const v = { id: 7, text: "hola", sentence: "hola amigo", episode_id: 1, audio_type: "audio/mpeg", start: 1, end: 1.4, sent_start: 0.5, sent_end: 2 };
+  const same = { ...v, id: 8, text: "amigo" };  // another card from the same episode
+  const broken = deps({ playSnippet: async () => { throw loadError(); } });
+  await sayCard(v, "word", broken);
+  assert.deepEqual(broken.log, [["device", "hola", "es"]]);
+  assert.equal(failedHere("episode:1"), true);
+  assert.equal(hasOwnAudio(v), false, "no longer counts as playable here");
+  assert.equal(hasOwnAudio(same), false, "nor any card from that episode");
+  assert.equal(hasOwnAudio({ ...v, episode_id: 2 }), true, "another episode is still tried");
+  const next = deps();
+  await sayCard(same, "sentence", next);
+  assert.deepEqual(next.log, [["device", "hola amigo", "es"]], "not tried (and waited for) again");
+  // A failure that isn't the recording's (the player taken over, playing not allowed yet) is not noted.
+  forgetFailed();
+  await sayCard(v, "word", deps({ playSnippet: async () => { throw new Error("Couldn't load this word's audio."); } }));
+  assert.equal(failedHere("episode:1"), false);
+  forgetFailed();
+});
+
+test("a failed recording is tried again after a while; a kept voice lives in the card's own file", () => {
+  forgetFailed();
+  audioFailed("episode:3", 1000);
+  assert.equal(failedHere("episode:3", 1000 + FAILED_FOR - 1), true);
+  assert.equal(failedHere("episode:3", 1000 + FAILED_FOR), false, "forgotten: the connection may be back");
+  assert.equal(audioKey({ id: 5, episode_id: 3 }), "episode:3");
+  assert.equal(audioKey({ id: 5, episode_id: 3, clip: 1 }), "clip:5", "a friend's clip");
+  assert.equal(audioKey({ id: 5, episode_id: 3 }, true), "clip:5", "the kept voice");
+  assert.equal(loadError().message, "Couldn't load this word's audio.", "plain words, never the browser's");
+  assert.equal(loadError().unplayable, true);
+  forgetFailed();
+});
+
+test("Word and Sentence buttons: shown while the card can be heard here, hidden when nothing can say it", () => {
+  forgetFailed();
+  const podcast = { id: 9, text: "hola", sentence: "", episode_id: 4, audio_type: "audio/mpeg", start: 1, end: 2, sent_start: 0, sent_end: 3 };
+  assert.equal(canSay(podcast, "sentence"), true, "its recording has the sentence");
+  audioFailed("episode:4");
+  assert.equal(canSay(podcast, "sentence"), false, "recording gone and no sentence text: no Sentence button");
+  assert.equal(canSay(podcast, "word"), true, "the voice says the word");
+  assert.equal(canSay(podcast, "word", false), false, "no voice on this device either: no Word button");
+  assert.equal(canSay(podcast, "word", true), true);
+  assert.equal(canSay(podcast, "word", null), true, "not known yet: shown");
+  const kept = { id: 10, text: "x", voice: '{"start":0.1,"end":0.5}' };
+  assert.equal(canSay(kept, "word", false), true, "a kept voice needs no voice on the device");
+  audioFailed("clip:10");
+  assert.equal(canSay(kept, "word", false), false, "unless its file can't be loaded here");
+  forgetFailed();
+});
+
+test("a recording that failed, with no text behind the button, ends quietly", async () => {
+  forgetFailed();
+  const v = { id: 11, text: "hola", sentence: "", episode_id: 5, audio_type: "audio/mpeg", start: 1, end: 2, sent_start: 0, sent_end: 3 };
+  await assert.rejects(sayCard(v, "sentence", deps({ playSnippet: async () => { throw loadError(); } })), (e) => e.nothing === true);
+  forgetFailed();
+});
+
+test("what a phone or the web app can load of an episode", () => {
+  const podcast = { audio_url: "https://cdn.example.com/ep.mp3", remote_audio: 0 };
+  assert.equal(phoneCanReach(podcast, false), true, "a podcast's own address");
+  assert.equal(phoneCanReach({ ...podcast, remote_audio: 1 }, true), true, "its copy in Drive");
+  const own = { audio_url: "C:\\Users\\me\\talk.mp3", remote_audio: 1 };
+  assert.equal(phoneCanReach(own, true), true, "a file from the computer, copied to Drive");
+  assert.equal(phoneCanReach(own, false), false, "the same without a sign-in: only the computer has it");
+  assert.equal(phoneCanReach({ ...own, remote_audio: 0 }, true), false, "not in Drive yet");
+  const video = { audio_url: "drive:v_abc.mp4", remote_audio: 1 };
+  assert.equal(phoneCanReach(video, true), true);
+  assert.equal(phoneCanReach(video, false), false, "a video in Drive needs the sign-in");
+  assert.equal(phoneCanReach({ ...video, remote_audio: 0 }, true), false, "still uploading");
+  assert.equal(phoneCanReach(null, true), false);
 });
 
 test("a word from YouTube uses the voice: kept, made now, or the device's", async () => {

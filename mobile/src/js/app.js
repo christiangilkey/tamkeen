@@ -191,8 +191,10 @@ export function requestNotifications() { /* toasts are used on the phone */ }
 
 // ---------- audio ----------
 const objectUrls = new Map();
-/** Synced audio copy (exactly what was transcribed), downloaded on first play; else the original. */
-export async function audioUrl(uid) {
+/** Synced audio copy (exactly what was transcribed), downloaded on first play; else the original.
+ * `quiet`: a copy that can't be fetched falls back to the original without a message (the Vocab
+ * page: its cards fall back to their voice when the original can't be played either). */
+export async function audioUrl(uid, { quiet = false } = {}) {
   const ep = lib.episodes.find((e) => e.uid === uid);
   if (ep && (ep.audio_url || "").startsWith("drive:")) return videoUrl(ep);
   if (ep && ep.remote_audio && settings.signed_in) {
@@ -206,7 +208,7 @@ export async function audioUrl(uid) {
         return url;
       }
     } catch (e) {
-      toast(`Couldn't load the synced audio, streaming the original instead. (${e.message})`, { error: true });
+      if (!quiet) toast(`Couldn't load the synced audio, streaming the original instead. (${e.message})`, { error: true });
     }
   }
   return ep ? ep.audio_url : "";
