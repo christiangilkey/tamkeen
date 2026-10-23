@@ -16,6 +16,7 @@ import { gameBar } from "../game/friend-bar.js";
 import { gameOn } from "../components/gameswitch.js";
 import { publishNow } from "../game/friends-game.js";
 import { lastStreak } from "../review/flame.js";
+import { streakNow } from "../review/streak.js";
 import { firstVisitTour } from "../components/tour.js";
 
 // Remembered between sessions, per device: which part is showing, and whether my profile is folded.
@@ -86,7 +87,7 @@ export async function render(view) {
   }
 
   /** The one row layout: lead (picture or emblem), name + tags, status line, then actions on the right. */
-  function itemRow({ lead, name, tags = [], status = "", statusOn = false, game = null, actions = [], extra = null, onOpen = null }) {
+  function itemRow({ lead, name, tags = [], status = "", statusOn = false, game = null, actions = [], extra = null, onOpen = null, streak = false }) {
     const row = h(`<div class="item-row"><div class="item-main">
       <span class="item-lead"></span>
       <span class="item-text"><span class="item-name"><span class="n"></span></span><span class="item-status small"></span></span>
@@ -94,6 +95,16 @@ export async function render(view) {
     row.querySelector(".item-lead").append(lead);
     row.querySelector(".n").textContent = name;
     if (tags.length) row.querySelector(".item-name").append(tagChips(tags));
+    // A friend's daily streak right beside the name, the gold flame of Home's (the owner: 0 days shows too).
+    if (streak) {
+      const n = game ? streakNow(game) : 0;
+      const chip = h(`<span class="name-streak${n ? "" : " cold"}" role="img">${icon("flame", 16)}<b></b></span>`);
+      chip.querySelector("b").textContent = n.toLocaleString();
+      const label = n === 1 ? "Daily streak: 1 day" : `Daily streak: ${n} days`;
+      chip.title = label;
+      chip.setAttribute("aria-label", label);
+      row.querySelector(".item-name").append(chip);
+    }
     const st = row.querySelector(".item-status");
     st.textContent = status;
     st.classList.toggle("on", statusOn);
@@ -385,7 +396,7 @@ export async function render(view) {
       for (const f of sorted) {
         const row = itemRow({
           lead: avatar(f.user, { online: online(f.user.id) }), name: f.user.username, tags: tags.get(f.user.id) || [],
-          status: statusOf(f.user.id), statusOn: online(f.user.id), game: games.get(f.user.id),
+          status: statusOf(f.user.id), statusOn: online(f.user.id), game: games.get(f.user.id), streak: true,
           actions: [messageAct(f.user.id), iconButton("userminus", "Remove friend", async () => {
             if (!(await confirmBox(`Remove ${f.user.username}?`, `${f.user.username} will no longer be on your friends list. You can add each other again later.`,
               { ok: "Remove", danger: true }))) return;

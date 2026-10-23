@@ -849,6 +849,11 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .hero-streak.cold { opacity: .45; }
 .hero-streak.open .ic { opacity: .6; } /* today's cards still to do: the flame isn't lit yet */
 .hero-streak[hidden] { display: none; }
+/* The same streak beside each friend's name (pages/friends.js itemRow). */
+.name-streak { display: inline-flex; align-items: center; gap: 2px; margin-inline-start: 8px; color: var(--brand-gold);
+  font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; vertical-align: -2px; }
+.name-streak .ic .fill { fill: currentColor; fill-opacity: .25; }
+.name-streak.cold { opacity: .45; }
 .hero-logo { border-radius: 14px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .18); }
 .hero-ar { font-family: var(--ar-font); font-size: 30px; line-height: 1.4; color: var(--brand-gold); }
 .hero-en { opacity: .85; }
