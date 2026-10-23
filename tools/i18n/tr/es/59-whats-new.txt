@@ -1,0 +1,12 @@
+11375771 Páginas y libros: un tamaño de texto limpio, páginas completas, y los títulos y la negrita del original se conservan
+40f68bf4 El botón Palabra reproduce la palabra entera en lugar de cortarla
+997149e5 Diccionario primero descarga por sí solo el diccionario de tu idioma
+b070e46a Los combos duran toda tu sesión de estudio, sin temporizador
+fc12b22a Ajustes de Escucha y transcripciones rediseñados, con una comparación de precisión para el tailandés y el bisaya
+cc53cea3 El selector de fuente de la ventana de la palabra está arriba a la derecha
+012ab558 Aprende alemán, persa, hindi y coreano, y usa Tamkeen en ellos
+5c46c6f3 Una sola pantalla de Página web: pega una dirección, tus sitios guardados y las noticias
+dc8e988e Temas de YouTube: noticias, música, humor y más, en el idioma que aprendes
+7a45a22a Netflix con subtítulos que se pueden tocar, en la app de escritorio o con la extensión de Tamkeen
+c8bf777a Envía el repaso de hoy a Google Calendar a la hora que elijas
+a3f7cc7b Los cambios llegan a tus otros dispositivos en segundos, y hay un botón de actualizar en la barra superior

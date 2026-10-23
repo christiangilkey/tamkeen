@@ -1,0 +1,12 @@
+11375771 Pages et livres : une taille de texte nette et unique, des pages pleines, et les titres et le gras de l'original conservés
+40f68bf4 Le bouton Mot joue le mot entier au lieu de le couper
+997149e5 Dictionnaire d'abord télécharge tout seul le dictionnaire de ta langue
+b070e46a Les combos durent toute ta séance d'étude, sans minuteur
+fc12b22a Réglages Écoute et transcriptions repensés, avec une comparaison de précision pour le thaï et le bisaya
+cc53cea3 Le sélecteur de source de la fenêtre du mot est en haut à droite
+012ab558 Apprends l'allemand, le persan, le hindi et le coréen, et utilise Tamkeen dans ces langues
+5c46c6f3 Un seul écran Page web : colle une adresse, tes sites enregistrés et l'actualité
+dc8e988e Thèmes YouTube : actualités, musique, humour et plus, dans la langue que tu apprends
+7a45a22a Netflix avec des sous-titres qu'on peut toucher, dans l'application de bureau ou avec l'extension Tamkeen
+c8bf777a Envoie la révision du jour dans Google Agenda à l'heure de ton choix
+a3f7cc7b Les changements arrivent sur tes autres appareils en quelques secondes, et un bouton d'actualisation est dans la barre du haut

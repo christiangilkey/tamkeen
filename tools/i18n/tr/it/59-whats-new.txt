@@ -1,0 +1,12 @@
+11375771 Pagine e libri: una dimensione del testo pulita e unica, pagine piene, e titoli e grassetto dell'originale conservati
+40f68bf4 Il pulsante Parola riproduce la parola intera invece di tagliarla
+997149e5 Prima il dizionario scarica da solo il dizionario della tua lingua
+b070e46a Le combo durano tutta la sessione di studio, senza timer
+fc12b22a Impostazioni di Ascolto e trascrizioni ridisegnate, con un confronto di precisione per il thai e il bisaya
+cc53cea3 Il selettore della fonte nella finestra della parola è in alto a destra
+012ab558 Impara tedesco, persiano, hindi e coreano, e usa Tamkeen in queste lingue
+5c46c6f3 Una sola schermata Pagina web: incolla un indirizzo, i tuoi siti salvati e le notizie
+dc8e988e Argomenti di YouTube: notizie, musica, comicità e altro, nella lingua che impari
+7a45a22a Netflix con sottotitoli da toccare, nell'app per computer o con l'estensione Tamkeen
+c8bf777a Invia il ripasso di oggi a Google Calendar all'ora che scegli
+a3f7cc7b Le modifiche arrivano agli altri tuoi dispositivi in pochi secondi, e c'è un pulsante di aggiornamento nella barra in alto

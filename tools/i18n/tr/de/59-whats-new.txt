@@ -1,0 +1,12 @@
+11375771 Seiten und Bücher: eine saubere einheitliche Schriftgröße, volle Seiten, und Überschriften und Fettdruck aus dem Original bleiben
+40f68bf4 Die Wort-Taste spielt das ganze Wort, statt es abzuschneiden
+997149e5 „Wörterbuch zuerst“ lädt das Wörterbuch deiner Sprache selbst herunter
+b070e46a Combos halten deine ganze Lernsitzung lang, ohne Timer
+fc12b22a Einstellungen „Hören & Transkripte“ neu gestaltet, mit einem Genauigkeitsvergleich für Thai und Bisaya
+cc53cea3 Die Quellenauswahl im Wortfenster ist oben rechts
+012ab558 Lerne Deutsch, Persisch, Hindi und Koreanisch und nutze Tamkeen in diesen Sprachen
+5c46c6f3 Ein einziger Bildschirm für Webseiten: Adresse einfügen, deine gespeicherten Seiten und Nachrichten
+dc8e988e YouTube-Themen: Nachrichten, Musik, Comedy und mehr in der Sprache, die du lernst
+7a45a22a Netflix mit antippbaren Untertiteln, in der Desktop-App oder mit der Tamkeen-Erweiterung
+c8bf777a Sende die heutige Wiederholung zur gewählten Uhrzeit an Google Kalender
+a3f7cc7b Änderungen erreichen deine anderen Geräte in Sekunden, und oben gibt es eine Aktualisieren-Taste

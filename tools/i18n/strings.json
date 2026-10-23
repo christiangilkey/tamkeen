@@ -14505,6 +14505,66 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "11375771",
+  "k": "Pages and books: one clean text size, full pages, and headings and bold kept from the original",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "40f68bf4",
+  "k": "The Word button plays the whole word instead of cutting it short",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "997149e5",
+  "k": "Dictionary first downloads your language's dictionary by itself",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "b070e46a",
+  "k": "Combos last your whole study session, with no timer",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "fc12b22a",
+  "k": "Listening & transcripts settings redesigned, with an accuracy comparison for Thai and Bisaya",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "cc53cea3",
+  "k": "The word popup's source selector is at the top right",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "012ab558",
+  "k": "Learn German, Persian, Hindi and Korean, and use Tamkeen in them",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "5c46c6f3",
+  "k": "One Web page screen: paste an address, your saved sites and the news",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "dc8e988e",
+  "k": "YouTube topics: news, music, comedy and more, in the language you learn",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "7a45a22a",
+  "k": "Netflix with tappable subtitles, in the desktop app or with the Tamkeen extension",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "c8bf777a",
+  "k": "Send today's review to Google Calendar at a time you pick",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a3f7cc7b",
+  "k": "Changes reach your other devices within seconds, and a refresh button in the top bar",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "3c467cf7",
   "k": "✓ Following",
   "f": "web/js/youtube-browser.js"

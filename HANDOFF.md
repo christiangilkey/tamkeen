@@ -4891,3 +4891,12 @@ size … standardized and clean between all websites and languages."
 - **Not checked:** the desktop pywebview window and the Android/iPhone apps themselves (same shared files); a real
   EPUB/DOCX/PDF with bold (unit tests use runs and plain text); the shelf builder (`tools/build_books.py`) still writes
   only h2/p without marks: the shelf books get their structure at display time instead.
+
+## Web app "What's new": a short list in the banner instead of GitHub (2026-10-22)
+Owner: the update banner's "What's new" "should have a small bulleted drop-down of new features" instead of opening
+GitHub. web/js/whatsnew.js keeps plain-language lines per version (`notes("0.36.0", …)`, written with notes(…) because
+tools/i18n/extract.mjs skips text right after "["); `whatsNew(last, current)` gives every version's lines since the
+last one seen, newest first, at most 8. mobile/src/js/app.js versionBanner: "What's new ˅" opens the list under the
+pill (which then stays until closed); a version with no lines still links to its GitHub release. Translated
+(tools/i18n/tr/<code>/59-whats-new.txt). **Release step: add the new version's lines to whatsnew.js (and CHANGELOG.md)
+before building, and use the real version number.**

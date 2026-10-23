@@ -1,0 +1,12 @@
+11375771 Pàgines i llibres: una mida de text neta i única, pàgines plenes, i els títols i la negreta de l'original conservats
+40f68bf4 El botó Paraula reprodueix la paraula sencera en lloc de tallar-la
+997149e5 Primer el diccionari baixa tot sol el diccionari de la teva llengua
+b070e46a Els combos duren tota la sessió d'estudi, sense temporitzador
+fc12b22a Configuració d'Escolta i transcripcions redissenyada, amb una comparació de precisió per al tai i el bisaya
+cc53cea3 El selector de font de la finestra de la paraula és a dalt a la dreta
+012ab558 Aprèn alemany, persa, hindi i coreà, i fes servir Tamkeen en aquestes llengües
+5c46c6f3 Una sola pantalla de Pàgina web: enganxa una adreça, els teus llocs desats i les notícies
+dc8e988e Temes de YouTube: notícies, música, humor i més, en la llengua que aprens
+7a45a22a Netflix amb subtítols que es poden tocar, a l'aplicació d'ordinador o amb l'extensió Tamkeen
+c8bf777a Envia el repàs d'avui a Google Calendar a l'hora que triïs
+a3f7cc7b Els canvis arriben als teus altres dispositius en segons, i hi ha un botó d'actualitzar a la barra de dalt

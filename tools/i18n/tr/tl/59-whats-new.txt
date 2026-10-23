@@ -1,0 +1,12 @@
+11375771 Mga pahina at libro: iisang malinis na laki ng teksto, punong mga pahina, at napapanatili ang mga heading at bold ng orihinal
+40f68bf4 Pinapatugtog ng buton na Salita ang buong salita sa halip na putulin ito
+997149e5 Kusang dina-download ng Diksiyonaryo muna ang diksiyonaryo ng iyong wika
+b070e46a Tumatagal ang combo sa buong sesyon ng pag-aaral, walang timer
+fc12b22a Binago ang disenyo ng setting na Pakikinig at transcript, may paghahambing ng katumpakan para sa Thai at Bisaya
+cc53cea3 Nasa kanang itaas na ang pamili ng pinagmulan sa popup ng salita
+012ab558 Mag-aral ng German, Persian, Hindi at Korean, at gamitin ang Tamkeen sa mga ito
+5c46c6f3 Iisang screen ng Web page: mag-paste ng address, ang mga naka-save mong site at ang balita
+dc8e988e Mga paksa sa YouTube: balita, musika, komedya at iba pa, sa wikang pinag-aaralan mo
+7a45a22a Netflix na may subtitle na puwedeng pindutin, sa desktop app o gamit ang Tamkeen extension
+c8bf777a Ipadala ang review ngayong araw sa Google Calendar sa oras na pipiliin mo
+a3f7cc7b Umaabot ang mga pagbabago sa iba mong device sa loob ng ilang segundo, at may buton na refresh sa itaas na bar

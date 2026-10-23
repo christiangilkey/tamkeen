@@ -30,6 +30,7 @@ const SHARED = [
   "js/scrollhint.js",
   "js/vowels.js",
   "js/wordclip.js",
+  "js/whatsnew.js",
   "js/vowelmarks.js",
   "js/game",
   "game-art",

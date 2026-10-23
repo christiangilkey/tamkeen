@@ -1,0 +1,12 @@
+11375771 Mga panid ug libro: usa ka limpyo nga gidak-on sa teksto, puno nga mga panid, ug matipigan ang mga ulohan ug bold sa orihinal
+40f68bf4 Ang buton nga Pulong motokar sa tibuok pulong imbes nga putlon kini
+997149e5 Ang Diksiyonaryo una kusang mo-download sa diksiyonaryo sa imong pinulongan
+b070e46a Ang combo molungtad sa tibuok nimong sesyon sa pagtuon, walay timer
+fc12b22a Gibag-o ang setting sa Pagpaminaw ug transcript, uban ang pagtandi sa kasaktuhan para sa Thai ug Bisaya
+cc53cea3 Ang pilianan sa tinubdan sa popup sa pulong anaa na sa tuo nga ibabaw
+012ab558 Tun-i ang German, Persian, Hindi ug Korean, ug gamita ang Tamkeen niini
+5c46c6f3 Usa ra ka screen sa Web page: i-paste ang address, ang imong gitipigan nga mga site ug ang balita
+dc8e988e Mga hilisgutan sa YouTube: balita, musika, komedya ug uban pa, sa pinulongang imong gitun-an
+7a45a22a Netflix nga adunay subtitle nga mapindot, sa desktop app o gamit ang Tamkeen extension
+c8bf777a Ipadala ang review karong adlawa sa Google Calendar sa oras nga imong pilion
+a3f7cc7b Moabot ang mga kausaban sa imong ubang device sulod sa pipila ka segundo, ug adunay buton nga refresh sa ibabaw nga bar

@@ -1117,16 +1117,40 @@ export async function versionBanner() {
   } catch { return; } // storage off: no way to tell what is new
   if (!last || last === APP_VERSION) return;
   const bar = document.querySelector(".topbar");
-  const el = h(`<div class="version-banner" role="status"><span></span>
-    <a target="_blank" rel="noopener">What's new</a>
-    <button type="button" class="version-banner-close" aria-label="Close">${icon("close", 14)}</button></div>`);
+  // "What's new" opens a short list of the new features (web/js/whatsnew.js) under the banner, which
+  // then stays until closed; a version with no list there still links to its release page.
+  const { whatsNew } = await import("./whatsnew.js");
+  const lines = whatsNew(last, APP_VERSION);
+  const el = h(`<div class="version-banner" role="status"><div class="version-banner-row"><span></span>
+    ${lines.length ? `<button type="button" class="version-banner-more" aria-expanded="false">What's new ${icon("chevron", 12)}</button>`
+      : `<a target="_blank" rel="noopener">What's new</a>`}
+    <button type="button" class="version-banner-close" aria-label="Close">${icon("close", 14)}</button></div></div>`);
   el.querySelector("span").textContent = `Updated to version ${APP_VERSION}`;
-  el.querySelector("a").href = `https://github.com/christiangilkey/tamkeen/releases/tag/v${encodeURIComponent(APP_VERSION)}`;
+  const link = el.querySelector("a");
+  if (link) link.href = `https://github.com/christiangilkey/tamkeen/releases/tag/v${encodeURIComponent(APP_VERSION)}`;
   el.style.top = `${(bar ? bar.getBoundingClientRect().bottom : 0) + 8}px`;
   const go = () => { el.classList.add("leaving"); setTimeout(() => el.remove(), 400); };
-  el.querySelector("button").onclick = go;
+  el.querySelector(".version-banner-close").onclick = go;
+  const timer = setTimeout(go, 7000);
+  const more = el.querySelector(".version-banner-more");
+  if (more) {
+    more.onclick = () => {
+      clearTimeout(timer); // reading the list: the banner stays until closed
+      let list = el.querySelector(".version-banner-list");
+      if (!list) {
+        list = document.createElement("ul");
+        list.className = "version-banner-list";
+        for (const line of lines) {
+          const li = document.createElement("li");
+          li.textContent = line;
+          list.append(li);
+        }
+        el.append(list);
+      } else list.hidden = !list.hidden;
+      more.setAttribute("aria-expanded", String(!list.hidden));
+    };
+  }
   document.body.append(el);
-  setTimeout(go, 7000);
 }
 
 // ---------- chat notifications ----------
