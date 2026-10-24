@@ -26,7 +26,7 @@ import { practise, practiseButton } from "../review/pronounce.js";
 import { soundAlikes } from "../review/mnemonic.js";
 import { askMnemonic } from "../define-service.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
-import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
+import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
 import { cardGoal, deviceTimes, forgetAnswer, model, noteAnswer } from "../review/goal.js";
 import { GOAL_CHOICES, clockText, goalSeconds, setTimer, stopwatch, timerSettings } from "../review/cardtimer.js";
 
@@ -359,6 +359,23 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     box.focus({ preventScroll: true });
   }
 
+  /** The back of a card: a tap (not a swipe) on the word copies the word, on its sentence the whole
+   * sentence (the owner: "if I tap a word during review on the back card, it should copy it to
+   * clipboard. Same with sentences"). As stored, without the card's ⟦ ⟧ marks or furigana. */
+  async function copyTapped(target) {
+    const el = target instanceof Element ? target.closest(".rv-word, .rv-ans-sentence") : null;
+    const v = todo[0];
+    if (!el || !v) return;
+    const text = String((el.classList.contains("rv-word") ? v.text : v.sentence) || "").replace(/[⟦⟧]/g, "").replace(/\s+/g, " ").trim();
+    if (!text) return;
+    if (!(await copyText(text))) { toast(t("That couldn't be copied here."), { error: true }); return; }
+    buzz("tick");
+    el.classList.remove("rv-copied");
+    void el.offsetWidth;  // (so the flash plays again on a second tap)
+    el.classList.add("rv-copied");
+    toast(t("Copied"), { timeout: 1500 });
+  }
+
   /** Copy `text`, falling back to the old way where the clipboard can't be written directly. */
   async function copyText(text) {
     try { await navigator.clipboard.writeText(text); return true; } catch { /* try the old way */ }
@@ -398,7 +415,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       }
       list.hidden = !items.length;
       label.textContent = items.length ? "Make 5 more" : "Mnemonic maker";
-      say(items.length ? `${speaks} words that sound like it: copy one into Personal notes and picture it with the meaning.` : "");
+      say(items.length ? `${speaks} words that sound like it and hint at its meaning: copy one into Personal notes and picture it with the meaning.` : "");
     };
     const had = mnemonics.get(uidOf(v));
     if (had) draw(had);
@@ -820,7 +837,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const interactive = (target) => target.closest("input, textarea, button, a, select");
   card.addEventListener("pointerdown", (e) => {
     if (busy || e.button > 0 || interactive(e.target)) return;
-    drag = { id: e.pointerId, x: e.clientX, y: e.clientY, dx: 0, moved: false, at: performance.now() };
+    drag = { id: e.pointerId, x: e.clientX, y: e.clientY, dx: 0, moved: false, at: performance.now(), target: e.target };
   });
   card.addEventListener("pointermove", (e) => {
     if (!drag || e.pointerId !== drag.id) {
@@ -851,7 +868,12 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (!drag || e.pointerId !== drag.id) return;
     const d = drag;
     drag = null;
-    if (!d.moved) { if (!flipped && e.type === "pointerup") flip(); return; }
+    if (!d.moved) {
+      if (e.type !== "pointerup") return;
+      if (!flipped) flip();
+      else copyTapped(d.target);  // the answer side: a tap on the word or its sentence copies it
+      return;
+    }
     if (d.dead) return;
     const limit = Math.min(130, card.offsetWidth * 0.28);
     const speed = Math.abs(d.dx) / Math.max(1, performance.now() - d.at);

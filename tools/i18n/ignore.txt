@@ -10,6 +10,9 @@ b7f28005  # You are an expert {0} teacher. A learner tapped one word (or a short
 38caff3d  # Target phrase: {0}
 24b7ec37  # The learner selected these words together, so explain them as ONE unit
 1feaccd7  # Bearer {0}
+71e7c09d  # You help language learners remember words with the keyword method (mnemonic.js, to the AI)
+990ba541  # and are as close to its meaning as possible (mnemonic.js, to the AI)
+1ddb0cfa  # Give {0} keywords: real {1} words or phrases that sound like it{2} (mnemonic.js, to the AI)
 # Pieces of sentences the code glues together at run time (the whole is never on screen like this).
 56806a1f  # Take
 99e68eaa  # off the start page

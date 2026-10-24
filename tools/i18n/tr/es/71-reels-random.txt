@@ -1,0 +1,3 @@
+ade96e8d Conseguir {0} reels al azar en {1:lower} de todo Instagram
+991aa79d Los reels al azar vienen de todo Instagram, no de tu colección guardada. Para reels de tu colección, márcalos arriba y pulsa «Conseguir los reels marcados».
+b624b721 Palabras de tu idioma que suenan parecido y apuntan a su significado: copia una en Notas personales e imagínala junto con el significado.

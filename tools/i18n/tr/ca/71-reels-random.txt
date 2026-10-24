@@ -1,0 +1,3 @@
+ade96e8d Aconsegueix {0} reel{2} a l'atzar en {1:lower} de tot Instagram
+991aa79d Els reels a l'atzar vénen de tot Instagram, no de la teva col·lecció desada. Per a reels de la teva col·lecció, marca'ls a dalt i prem «Aconsegueix els reels marcats».
+b624b721 Paraules en {0:lower} que sonen semblant i en suggereixen el significat: copia'n una a Notes personals i imagina-la amb el significat.
