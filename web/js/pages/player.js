@@ -40,6 +40,8 @@ import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.j
 import { wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
+import { NO_AUDIO_KINDS } from "../cardvoice.js";
+import { voiceNewCard } from "../voiceplay.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const CAPTION_WORDS = 12; // longest caption line, in words
@@ -200,6 +202,9 @@ export async function render(view, { id, query }) {
   // Played by another company's player that nothing may be drawn over (YouTube's, Netflix's): the
   // clickable captions go under the video and the word popup into the transcript.
   const embed = yt || nf;
+  // A word saved from here keeps no sound of its own (YouTube's and Netflix's sound is never taken):
+  // the card gets its voice instead (cardvoice.js), or the popup offers "Add audio" (wordbubble.js).
+  const voiceless = NO_AUDIO_KINDS.includes(ep.audio_type || "");
   // Captions written by a person are timed per line, not per word (see ytcaptions.js); so are
   // Netflix's subtitles.
   const lineTimed = nf || (yt && ep.model !== "youtube-auto");
@@ -816,11 +821,12 @@ export async function render(view, { id, query }) {
         run: async () => {
           if (savedHere.has(savedKey(i, j))) return;
           try {
-            await api("/vocab", {
+            const row = await api("/vocab", {
               method: "POST",
               body: { text: clean, sentence, episode_id: id, start: starts[i], end: ends[j],
                       sent_start: starts[si], sent_end: ends[sj] },
             });
+            if (voiceless) voiceNewCard(row, ep.audio_type);  // its voice, now (Settings → Card voices)
             savedHere.add(savedKey(i, j));
             reward({ type: "save" }, wordEls[i]);
             seen.markSeen(i, j);
@@ -888,6 +894,7 @@ export async function render(view, { id, query }) {
     },
   });
   bubble = createWordBubble(vid && !embed ? $("#stage") : $(".transcript-wrap"), {
+    voiceless,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onCorrect: async (def) => {
       const t = bubbleTarget;
@@ -915,11 +922,12 @@ export async function render(view, { id, query }) {
     onSave: async (def) => {
       const t = bubbleTarget;
       try {
-        await api("/vocab", {
+        const row = await api("/vocab", {
           method: "POST",
           body: { ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj),
                   episode_id: id, start: starts[t.i], end: ends[t.j], sent_start: starts[t.si], sent_end: ends[t.sj] },
         });
+        if (voiceless) voiceNewCard(row, ep.audio_type);  // its voice, now (Settings → Card voices)
         savedHere.add(savedKey(t.i, t.j));
         reward({ type: "save" }, wordEls[t.i]);
         seen.markSeen(t.i, t.j);

@@ -3855,6 +3855,11 @@
   "f": "web/js/components/settingsui.js"
  },
  {
+  "id": "9297dd90",
+  "k": "Add the voice when a word is saved",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "2f3a219e",
   "k": "Voices on this computer",
   "f": "web/js/components/settingsui.js"
@@ -4495,6 +4500,11 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
+  "id": "13683bc3",
+  "k": "Add the voice when a word is saved<0/><1>Words saved from YouTube, Netflix, a reel, a web page or a book get Azure's voice at once: the word and its whole sentence, kept with the card like the sound of a card from a podcast. Off: each card's voice is made the first time you play it.</1>",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
   "id": "0c7c1be1",
   "k": "How to get your own free Azure key",
   "f": "web/js/components/voicesetup.js"
@@ -4985,6 +4995,16 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
+  "id": "f161408b",
+  "k": "Words saved from here have no sound of their own. Choose a voice for them in Settings → Card voices.",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "c79957d0",
+  "k": "Add audio",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
   "id": "3f094ed6",
   "k": "Ask again",
   "f": "web/js/components/wordbubble.js"
@@ -5185,8 +5205,8 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "836ce4a2",
-  "k": "A short, natural sentence at a beginner to intermediate level, with its translation.",
+  "id": "c6d69a2d",
+  "k": "A short sentence that uses the word the way a native speaker would, with its translation.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -5327,11 +5347,6 @@
  {
   "id": "b26a0253",
   "k": "Remove the sentence's audio",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "c79957d0",
-  "k": "Add audio",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -15383,6 +15398,11 @@
   "id": "3ab0d731",
   "k": "Updating…",
   "f": "web/js/updatenotice.js"
+ },
+ {
+  "id": "4e6639b9",
+  "k": "The word is saved, but its voice couldn't be made now: {0} It's tried again when you play the card.",
+  "f": "web/js/voiceplay.js"
  },
  {
   "id": "8e09b678",

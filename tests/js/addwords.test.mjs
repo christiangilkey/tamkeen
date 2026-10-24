@@ -146,6 +146,13 @@ test("the question names every word, what to fill in and what the card already h
   const q = batchPrompt(items, { study: "Spanish", speaks: "English" });
   assert.match(q.system, /Spanish/);
   assert.match(q.system, /beginner to intermediate/);
+  // Sentences as natives use the word (the owner: "natural, makes sense, … as close to how a native speaker
+  // would use it as possible"), checked by the model before it answers.
+  assert.match(q.system, /native speakers really use it/);
+  assert.match(q.system, /make complete sense on its own/);
+  assert.match(q.system, /never translated word for word from English/);
+  assert.match(q.system, /register and variety/);
+  assert.match(q.system, /would a native speaker say it just like this/);
   assert.match(q.system, /JSON only/);
   assert.match(q.system, /⟦ ⟧/);
   const lines = q.user.split("\n");

@@ -2,6 +2,7 @@
 // definition popup as the player, and "Save to vocab". (No audio: a page has no recording.)
 
 import { api, esc, h, toast, showMenu, hideMenu, saveSettings, state, buzz, openBrowser } from "../app.js";
+import { voiceNewCard } from "../voiceplay.js";
 import { saveProgress } from "../progress.js";
 import { sentenceBounds, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
@@ -171,6 +172,7 @@ export async function render(view, { id, data, query }) {
     if (savedHere.has(savedKey(t.i, t.j))) return savedRows.get(savedKey(t.i, t.j)) || null;
     const row = await api("/vocab", { method: "POST", body: {
       ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj), episode_id: id } });
+    voiceNewCard(row, "text/html");  // nothing to listen to here: its voice, now (Settings → Card voices)
     savedHere.add(savedKey(t.i, t.j));
     savedRows.set(savedKey(t.i, t.j), row);
     reward({ type: "save" }, wordEls[t.i]);
@@ -189,6 +191,7 @@ export async function render(view, { id, data, query }) {
   });
   const bubble = createWordBubble($(".transcript-wrap"), {
     noAudio: true,
+    voiceless: true,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onCorrect: async (def) => {
       const t = target;

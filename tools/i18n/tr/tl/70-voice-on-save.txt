@@ -1,0 +1,5 @@
+9297dd90 Idagdag ang boses kapag nag-save ng salita
+13683bc3 Idagdag ang boses kapag nag-save ng salita<0/><1>Ang mga salitang na-save mula sa YouTube, Netflix, reel, web page o libro ay agad nagkakaroon ng boses ng Azure: ang salita at ang buong pangungusap nito, itinatago kasama ng card gaya ng tunog ng card mula sa podcast. Kapag naka-off: ginagawa ang boses ng bawat card sa unang beses mo itong patugtugin.</1>
+f161408b Walang sariling tunog ang mga salitang na-save mula rito. Pumili ng boses para sa mga ito sa Settings → Mga boses ng card.
+c6d69a2d Isang maikling pangungusap na gumagamit ng salita gaya ng paggamit ng katutubong nagsasalita, kasama ang salin nito.
+4e6639b9 Na-save ang salita, pero hindi pa magawa ngayon ang boses nito: {0} Susubukan ulit kapag pinatugtog mo ang card.

@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import {
   AZURE_VOICES, FAILED_FOR, audioFailed, audioKey, azureError, azureReady, azureVoiceFor, buildSsml, canSay, cleanAzureKey, cleanRegion,
   clipTimes, ensureVoice, failedHere, forgetFailed, forgetMaking, hasOwnAudio, loadError, phoneCanReach, keepVoice, makeAzureVoice, needsVoice, pickDeviceVoice, pickedVoices, sayCard, voiceChars, voiceMode, voiceText,
-  voiceTimes, voicesForLanguage, waitingForComputer, withPickedVoice,
+  voiceTimes, voicesForLanguage, voicesOnSave, VOICE_SETTINGS, NO_AUDIO_KINDS, waitingForComputer, withPickedVoice,
 } from "../../web/js/cardvoice.js";
 import { joinOggOpus, opusPackets } from "../../web/js/oggjoin.js";
 import { oggOpusInfo } from "../../mobile/src/js/ogg-clip.js";
@@ -98,7 +98,7 @@ test("the key, the region and Azure's answers, worded for the learner", () => {
   assert.equal(azureError(400).badVoice, true);
   assert.match(azureError(429).message, /free allowance/);
   assert.equal(voiceMode({ tts_mode: "nonsense" }), "device");
-  for (const k of ["tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices"]) assert.ok(KEYS.includes(k), `${k} syncs like the other keys`);
+  for (const k of ["tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save"]) assert.ok(KEYS.includes(k), `${k} syncs like the other keys`);
 });
 
 test("Azure's voice list is narrowed to the language's plain neural voices", () => {
@@ -344,4 +344,30 @@ test("the device's voice for a language: exact, else the same language, else non
   assert.equal(pickDeviceVoice(voices, "ar").name, "B", "Egyptian when there is no Saudi one");
   assert.equal(pickDeviceVoice(voices, "tl").name, "C");
   assert.equal(pickDeviceVoice(voices, "ja"), null);
+});
+
+// ----- a voice as soon as a word is saved, or "Add audio" in the popup -----
+
+test("saved words get their voice by themselves only with Azure working and the switch on, or the computer's voices", () => {
+  const azure = { tts_mode: "azure", tts_key_azure: "abcd1234abcd1234", tts_region_azure: "eastus" };
+  assert.equal(voicesOnSave(azure), true, "on unless turned off (a setting never saved counts as on)");
+  assert.equal(voicesOnSave({ ...azure, tts_on_save: "on" }), true);
+  assert.equal(voicesOnSave({ ...azure, tts_on_save: "off" }), false, "switched off: each voice is made when first played");
+  assert.equal(voicesOnSave({ ...azure, tts_key_azure: "" }), false, "Azure without a key: the popup offers Add audio");
+  assert.equal(voicesOnSave({ ...azure, tts_mode: "device" }), false, "the device's own voice keeps nothing");
+  assert.equal(voicesOnSave({}), false);
+  assert.equal(voicesOnSave(null), false);
+  assert.equal(voicesOnSave({ tts_mode: "computer" }), true, "the computer makes them by itself");
+  assert.equal(VOICE_SETTINGS, "#/settings?s=voices&show=cardvoice");
+});
+
+test("words from every source with no sound of its own need a voice, Netflix included; a podcast's don't", () => {
+  for (const kind of ["video/youtube", "video/netflix", "video/instagram", "text/html", "text/book"]) {
+    assert.ok(NO_AUDIO_KINDS.includes(kind), kind);
+    const saved = { id: 7, text: "cartera", sentence: "Perdí mi cartera en el metro.", episode_id: 3, start: 1, end: 2, sent_start: 0, sent_end: 4 };
+    assert.equal(needsVoice({ ...saved, audio_type: kind }), true, `${kind}: its card gets a voice (its own times never play)`);
+    assert.deepEqual(voiceText({ ...saved, audio_type: kind }), { word: "cartera", sentence: "Perdí mi cartera en el metro." },
+      "the voice says the word and its whole sentence");
+  }
+  assert.equal(needsVoice({ id: 8, text: "cartera", episode_id: 3, start: 1, end: 2, audio_type: "audio/mpeg" }), false, "a podcast plays its own");
 });

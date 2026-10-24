@@ -1,0 +1,5 @@
+9297dd90 Afegeix la veu quan es desa una paraula
+13683bc3 Afegeix la veu quan es desa una paraula<0/><1>Les paraules desades de YouTube, Netflix, un reel, una pàgina web o un llibre reben la veu d'Azure de seguida: la paraula i tota la seva frase, desades amb la targeta com el so d'una targeta d'un pòdcast. Desactivat: la veu de cada targeta es fa la primera vegada que la reprodueixes.</1>
+f161408b Les paraules desades d'aquí no tenen so propi. Tria'ls una veu a Configuració → Veus de les targetes.
+c6d69a2d Una frase curta que fa servir la paraula com ho faria un parlant nadiu, amb la seva traducció.
+4e6639b9 La paraula s'ha desat, però ara no se n'ha pogut fer la veu: {0} Es tornarà a provar quan reprodueixis la targeta.

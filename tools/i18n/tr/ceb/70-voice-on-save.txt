@@ -1,0 +1,5 @@
+9297dd90 Idugang ang tingog inig tipig sa pulong
+13683bc3 Idugang ang tingog inig tipig sa pulong<0/><1>Ang mga pulong nga gitipig gikan sa YouTube, Netflix, reel, web page o libro makakuha dayon sa tingog sa Azure: ang pulong ug ang tibuok niini nga sentence, gitipig uban sa card sama sa tingog sa card gikan sa podcast. Kon off: himoon ang tingog sa matag card sa unang higayon nga imo kining patokaron.</1>
+f161408b Ang mga pulong nga gitipig gikan dinhi walay kaugalingong tingog. Pagpili og tingog para niini sa Settings → Mga tingog sa card.
+c6d69a2d Usa ka mubo nga sentence nga mogamit sa pulong sama sa paggamit sa lumad nga mamumulong, uban sa hubad niini.
+4e6639b9 Natipig na ang pulong, apan dili mahimo karon ang tingog niini: {0} Sulayan kini pag-usab inig patokar nimo sa card.

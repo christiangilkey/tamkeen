@@ -49,6 +49,13 @@ test("settings: only those the extension needs, as plain values", () => {
   assert.equal(s.font_size, 60);
   assert.equal(s.definer_mode, "ai");
   for (const k of ["google_email", "signed_in", "stt_key_groq"]) assert.ok(!(k in s), `${k} never leaves the web app`);
+  // Card voices: only whether saved words get their voice by themselves (for the popup's "Add audio");
+  // the voice settings and the Azure key stay in the web app.
+  assert.equal(s.card_voices, false);
+  const v = cleanSettings({ card_voices: true, tts_key_azure: "secret", tts_region_azure: "eastus", tts_mode: "azure", tts_on_save: "on" });
+  assert.equal(v.card_voices, true);
+  for (const k of ["tts_key_azure", "tts_region_azure", "tts_mode", "tts_on_save"]) assert.ok(!(k in v), `${k} never leaves the web app`);
+  assert.equal(cleanSettings({ card_voices: "yes" }).card_voices, false, "only a real true counts");
   const odd = cleanSettings({ study_language: "<script>", definer_provider: "evil", definer_mode: "x" });
   assert.deepEqual([odd.study_language, odd.definer_provider, odd.definer_mode], ["", "claude", "dictionary_first"]);
   assert.deepEqual(cleanSettings(null), {});

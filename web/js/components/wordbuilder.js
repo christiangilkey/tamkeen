@@ -221,7 +221,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       if (!aiReady()) {
         html = noAi() ? `Writing sentences for you needs AI, which is turned off. <a href="${MODE_SETTINGS}" class="cb-go">Change it in Settings</a>`
           : `Writing sentences for you needs AI, which isn't set up yet. <a href="${AI_SETTINGS}" class="cb-go">Set it up in Settings</a>`;
-      } else if (choices.sentence === "auto") html = "A short, natural sentence at a beginner to intermediate level, with its translation.";
+      } else if (choices.sentence === "auto") html = "A short sentence that uses the word the way a native speaker would, with its translation.";
     } else if (key === "audio") {
       const s = settings();
       if (choices.audio === "auto") {

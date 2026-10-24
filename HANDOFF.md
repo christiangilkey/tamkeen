@@ -5194,3 +5194,41 @@ by hand … input multiple cards at the same time."
   in the test browser: recording is the same MediaRecorder road as "Say it", untested here); real phones (Android
   WebView's AudioEncoder, iPhone WKWebView recording and WAV playback); a phone and computer syncing a WAV recording
   through Drive.
+
+## Card voices made when a word is saved; "Add audio" in the popup; native-like sentences in "Add words" (2026-10-23; branch `voice-on-save`)
+Owner: "an option in settings that saving a word from a source with no audio gets it from azure selected to that
+language's voice model, I also wanted this applied in Netflix so that I'm not breaking any laws by storing Netflix
+audio, there should be an add audio button on a popup if the audio in settings is disabled and when clicked it should
+bring you to settings … added to all media that has no audio to pull from", "should get the entire sentence and the
+word both and add those to the card so it is formatted exactly as if the card was pulled from YouTube", "an option for
+words that are manually added to automatically be placed in sentences and have audio added", "the sentences … natural,
+makes sense, and … as close to how a native speaker would use it as possible".
+- **Netflix sound is never stored** (checked: no MediaRecorder/captureStream anywhere near Netflix; a Netflix card keeps
+  only text and its moment in the title; `video/netflix` is in `NO_AUDIO_KINDS`, so it is always said by the card voice).
+- **Setting `tts_on_save`** ("on" default / "off"; db.py DEFAULT_SETTINGS, phone store.js, synced as a key: aikeys.py/js
+  KEYS). Settings → Card voices, inside the Azure panel: "Add the voice when a word is saved" (`#vo-onsave`, FINDS id
+  `voiceonsave`). `cardvoice.js voicesOnSave(s)`: computer mode → true (the computer's Worker voices cards itself);
+  Azure ready and `tts_on_save` not "off" → true; else false. `VOICE_SETTINGS` = `#/settings?s=voices&show=cardvoice`.
+- **Made at save**: `voiceplay.js voiceNewCard(row, kind)` (Azure only; one at a time through a promise chain, since
+  Azure F0 allows few requests a minute; `needsVoice` on the row with `audio_type: kind`; never rejects; one calm toast
+  per message). Called after `POST /vocab` in player.js (popup Save and right-click Save, when
+  `voiceless = NO_AUDIO_KINDS.includes(ep.audio_type)`: YouTube, Netflix in the computer's window), reader.js (`text/html`),
+  book.js (`text/book`), reels.js (`video/instagram`), and web-extension.js `takePending` (words saved in the Netflix
+  extension, `video/netflix`, after they are in the library; loaded with a dynamic import). The voice is the existing
+  one-file word + sentence voice (`{start, end, sent_start, sent_end}`), the sentence being the card's (cardSentence).
+  "Add words" already makes Azure voices when adding (its own Audio choice) and is unchanged.
+- **"Add audio" in the word popup** (wordbubble.js): new actions `voiceless`, `audioOn()`, `onAddAudio()`. Shown when
+  `voiceless` and not `voicesOnSave` (and not in /embed); hides the popup and opens Card voices. The Netflix extension
+  (extension/src/js/ext/panel.js) passes `audioOn: () => settings.card_voices === true` and opens the web app's
+  `#/settings?s=voices&show=cardvoice` in a new tab; the web app sends only `card_voices` (true/false) in
+  `cleanSettings` (extbridge.js), never the voice settings or the key.
+- **Sentences** (`addwords.js batchPrompt`): native, idiomatic, making sense alone, the word's most common sense (or the
+  given meaning) with its natural collocations, same register/variety as the word, 5-12 words, never translated word for
+  word, and a self-check before answering. The builder's note now says "…the way a native speaker would…".
+- Translations: `tools/i18n/tr/<code>/70-voice-on-save.txt` (5 strings × 16).
+- **Checked**: 795 JS, 523 pytest; extension build (cardvoice.js/cardtext.js/oggjoin.js come along, voiceplay.js does
+  not). Desktop preview (worktree server, throwaway library, Arabic YouTube clip 7Lnekifl6Iw): device voice → popup
+  shows Add audio, which opens Card voices; Azure (faked in the page with tests/fixtures/tone.ogg) → no Add audio, Save
+  made exactly 2 Azure requests (the word, then the whole caption sentence), the card got `voice` times and
+  `clips/<uid>.ogg`, the Vocab page's Sentence button fetched `/api/vocab/1/clip`; switch off → Add audio back, no Azure
+  request. **Not checked**: a real Azure key, the phone apps, the web app build and the Netflix extension in a browser.

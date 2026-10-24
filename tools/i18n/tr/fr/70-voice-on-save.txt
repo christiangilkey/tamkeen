@@ -1,0 +1,5 @@
+9297dd90 Ajouter la voix quand un mot est enregistré
+13683bc3 Ajouter la voix quand un mot est enregistré<0/><1>Les mots enregistrés depuis YouTube, Netflix, un reel, une page web ou un livre reçoivent tout de suite la voix d'Azure : le mot et toute sa phrase, gardés avec la carte comme le son d'une carte venue d'un podcast. Désactivé : la voix de chaque carte est créée la première fois que vous la jouez.</1>
+f161408b Les mots enregistrés ici n'ont pas de son à eux. Choisissez-leur une voix dans Réglages → Voix des cartes.
+c6d69a2d Une phrase courte qui emploie le mot comme le ferait un locuteur natif, avec sa traduction.
+4e6639b9 Le mot est enregistré, mais sa voix n'a pas pu être créée pour l'instant : {0} Ce sera réessayé quand vous jouerez la carte.
