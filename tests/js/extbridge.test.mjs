@@ -12,7 +12,8 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { inflateRawSync } from "node:zlib";
 import { APP, EXT, TITLE_KEY, WORD_KEY, checkMessage, cleanAck, cleanDevice, cleanLines, cleanPending, cleanSettings, cleanTitle,
-  cleanWord, keysToForget, message, newNonce, pendingFrom, savedWord, watchedTitle, wordUid } from "../../web/js/extbridge.js";
+  cleanTrack, cleanWord, keysToForget, message, newNonce, pendingFrom, savedSpotifyWord, savedWord, spotifySource, watchedTitle,
+  wordUid } from "../../web/js/extbridge.js";
 
 const NONCE = "0123456789abcdef0123456789abcdef";
 const page = { location: { origin: "https://christiangilkey.github.io" } };
@@ -59,6 +60,9 @@ test("settings: only those the extension needs, as plain values", () => {
   const odd = cleanSettings({ study_language: "<script>", definer_provider: "evil", definer_mode: "x" });
   assert.deepEqual([odd.study_language, odd.definer_provider, odd.definer_mode], ["", "claude", "dictionary_first"]);
   assert.deepEqual(cleanSettings(null), {});
+  // The languages ticked in Settings (a song in one of them is looked up in it without asking).
+  assert.deepEqual(cleanSettings({ learning_languages: ["es", "ar", "<x>", 5, "ceb"] }).learning_languages, ["es", "ar", "ceb"]);
+  assert.deepEqual(cleanSettings({}).learning_languages, []);
   assert.deepEqual(cleanDevice({ lookup_mode: "quick", word_pause: false }), { lookup_mode: "quick", word_pause: false });
   assert.deepEqual(cleanDevice("x"), { lookup_mode: "detailed", word_pause: true });
 });
@@ -77,6 +81,31 @@ test("a saved word: from the popup's answer, cleaned, linked to its title and pl
   assert.equal(cleanWord({ ...w, uid: "../../x" }), null);
   assert.equal(cleanWord({ ...w, start: "NaN" }).start, null);
   assert.equal(cleanWord({ ...w, text: "x".repeat(500) }).text.length, 200);
+});
+
+test("a word saved on Spotify: the lyric line as its sentence, the song as its source; never the whole lyrics", () => {
+  const track = { id: "6habFhsOp2NvshLv26DqMb", title: "Canción de Prueba", artist: "Cantante Uno, Otra Voz", album: "Disco", lyrics: "all of it" };
+  const def = { meaning: "heart", sentence_translation: "My ⟦heart⟧ is yours" };
+  const w = savedSpotifyWord({ track, def, word: "corazón", lang: "es", sentence: "Mi corazón es tuyo" }, 1760000000000, "spwabcdefgh1");
+  assert.deepEqual([w.uid, w.text, w.sentence, w.meaning, w.language, w.netflix_id, w.created_at],
+    ["spwabcdefgh1", "corazón", "Mi corazón es tuyo", "heart", "es", "", 1760000000000]);
+  assert.deepEqual(w.spotify, { id: "6habFhsOp2NvshLv26DqMb", title: "Canción de Prueba", artist: "Cantante Uno, Otra Voz" });
+  assert.equal(w.title, "Cantante Uno, Otra Voz – Canción de Prueba");
+  assert.equal(w.start, null, "no moment in the song is kept");
+  assert.ok(!JSON.stringify(w).includes("all of it"), "nothing else of the song comes along");
+  assert.equal(spotifySource(w.spotify), "Spotify – Cantante Uno, Otra Voz – Canción de Prueba");
+  assert.equal(spotifySource({ title: "Solo" }), "Spotify – Solo");
+  assert.equal(savedSpotifyWord({ track: { title: "" }, word: "x", lang: "es" }), null, "no song, no word");
+  assert.deepEqual(cleanTrack({ id: "../x", title: "  A   song ", artist: 5 }), { id: "", title: "A song", artist: "5" });
+  assert.equal(cleanTrack({ id: "6habFhsOp2NvshLv26DqMb" }), null);
+  assert.match(savedSpotifyWord({ track, word: "x", lang: "es" }).uid, /^spw[\w]{8,}$/);
+  // It waits with the Netflix words and goes over the same way.
+  const nf = savedWord({ netflixId: "81946364", word: "كيف", lang: "ar", sentence: "s", title: "T" }, 1000, "nfw00000002");
+  const p = pendingFrom({ [WORD_KEY + w.uid]: w, [WORD_KEY + nf.uid]: nf });
+  assert.deepEqual(p.words.map((x) => [x.uid, !!x.spotify]), [["nfw00000002", false], ["spwabcdefgh1", true]]);
+  assert.deepEqual(cleanPending({ words: p.words }).words[1].spotify, w.spotify);
+  assert.equal(cleanWord({ ...w, spotify: null }), null, "a word from neither Netflix nor Spotify");
+  assert.ok(!("spotify" in nf), "a Netflix word is as before");
 });
 
 test("a watched title: its subtitles as lines, cleaned and limited", () => {
@@ -109,7 +138,7 @@ test("pending: what waits in the extension, and what is forgotten once the web a
   assert.deepEqual(cleanAck({ words: ["../x", "nfw00000001"], titles: [{ id: "x" }] }), { words: ["nfw00000001"], titles: [] });
 });
 
-test("the extension's build: a release names only Netflix and the web app; test hosts need the test flags", () => {
+test("the extension's build: a release names only Netflix, Spotify, LRCLIB and the web app; test hosts need the test flags", () => {
   const root = join(fileURLToPath(new URL("../..", import.meta.url)));
   const out = mkdtempSync(join(tmpdir(), "tk-ext-"));
   try {
@@ -119,22 +148,38 @@ test("the extension's build: a release names only Netflix and the web app; test 
     assert.equal(m.version, "1.2.3");
     const text = JSON.stringify(m);
     assert.ok(!/localhost|127\.0\.0\.1/.test(text), "no local addresses in a release");
-    assert.deepEqual(m.host_permissions, ["https://www.netflix.com/*", "https://*.nflxvideo.net/*"]);
+    // (Spotify needs no host permission of its own: its scripts run there by "matches"; LRCLIB answers
+    // the lyrics panel's questions.)
+    assert.deepEqual(m.host_permissions, ["https://www.netflix.com/*", "https://*.nflxvideo.net/*", "https://lrclib.net/*"]);
     assert.ok(m.content_scripts.some((c) => c.world === "MAIN" && c.js.includes("js/netflix-player.js")));
+    const spotify = m.content_scripts.filter((c) => c.matches.includes("https://open.spotify.com/*"));
+    assert.deepEqual(spotify.map((c) => [c.world || "", c.run_at, c.js]), [
+      ["MAIN", "document_start", ["content/spotify-page.js", "content/spotify-main.js"]],
+      ["", "document_idle", ["content/spotify.js"]],
+    ]);
+    assert.deepEqual(m.web_accessible_resources[2], { resources: ["spotify.html"], matches: ["https://open.spotify.com/*"] });
     assert.ok(m.browser_specific_settings.gecko.id);
     const config = readFileSync(join(out, "js/ext/config.js"), "utf8");
     assert.match(config, /"test": false/);
-    for (const f of ["panel.html", "background.js", "js/ext/panel.js", "js/components/wordbubble.js", "js/lexicon-store.js", "i18n/es.json", "icons/icon-128.png"]) {
+    assert.match(config, /"lyricsApi": "https:\/\/lrclib\.net"/);
+    for (const f of ["panel.html", "spotify.html", "css/spotify.css", "background.js", "js/ext/panel.js", "js/ext/spotify-panel.js", "js/ext/common.js",
+      "js/lyrics.js", "content/spotify.js", "content/spotify-main.js", "content/spotify-page.js", "js/wordlists/ceb.js",
+      "js/components/wordbubble.js", "js/lexicon-store.js", "i18n/es.json", "icons/icon-128.png"]) {
       assert.ok(existsSync(join(out, f)), f);
     }
     for (const f of m.web_accessible_resources[1].resources) assert.ok(existsSync(join(out, f)), f);
     // A test build may name local stand-ins, and says so.
     execFileSync(process.execPath, [join(root, "extension/scripts/build.mjs"), "--out", out, "--test-netflix", "http://127.0.0.1:8931",
-      "--test-subs", "127.0.0.1", "--test-webapp", "http://127.0.0.1:8933/app/"], { stdio: "pipe" });
+      "--test-subs", "127.0.0.1", "--test-webapp", "http://127.0.0.1:8933/app/", "--test-spotify", "http://spotify.localhost:8934",
+      "--test-lyrics", "http://127.0.0.1:8935"], { stdio: "pipe" });
     const t = JSON.parse(readFileSync(join(out, "manifest.json"), "utf8"));
     assert.match(t.name, /test build/);
     assert.ok(t.content_scripts[0].matches.includes("http://127.0.0.1/*"));
+    assert.ok(t.content_scripts[3].matches.includes("http://spotify.localhost/*") && t.content_scripts[4].matches.includes("http://spotify.localhost/*"));
+    assert.ok(t.web_accessible_resources[2].matches.includes("http://spotify.localhost/*"));
+    assert.match(readFileSync(join(out, "js/ext/config.js"), "utf8"), /"lyricsApi": "http:\/\/127\.0\.0\.1:8935"/);
     assert.throws(() => execFileSync(process.execPath, [join(root, "extension/scripts/build.mjs"), "--out", out, "--test-netflix", "https://evil.example"], { stdio: "pipe" }));
+    assert.throws(() => execFileSync(process.execPath, [join(root, "extension/scripts/build.mjs"), "--out", out, "--test-lyrics", "https://lrclib.example"], { stdio: "pipe" }));
   } finally {
     rmSync(out, { recursive: true, force: true });
   }

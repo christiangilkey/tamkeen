@@ -1,5 +1,10 @@
-// Tamkeen for Netflix: the extension's background part (a service worker in Chrome and Edge, a
-// background script in Firefox). It
+// The Tamkeen extension's background part (a service worker in Chrome and Edge, a background script in
+// Firefox). It
+//   - finds the lyrics of the song playing on Spotify for the lyrics panel there (spotify.html): it
+//     asks LRCLIB (lrclib.net, a free collection of lyrics with line timings) by the song's title,
+//     artist and length, one request at a time with a pause between, waiting when LRCLIB says it is
+//     busy, and keeps the answers for a while (in the browser's session storage) so a song played
+//     again isn't asked for again (web/js/lyrics.js chooses the record);
 //   - notices the subtitle files Netflix's player downloads in a Netflix tab (Netflix's video servers
 //     serve them as XML; the list of subtitles inside Netflix's page is encrypted, so this is the way
 //     to get them), fetches each again (no sign-in needed), reads it (web/js/netflix-ttml.js) and hands
@@ -16,6 +21,7 @@ import { MAX_TTML_BYTES, baseLanguage, isSubtitleDownload, parseTtml } from "./j
 import { browseAddresses, extensionBrowserTexts, languageNames } from "./js/netflix.js";
 import { setDictionary } from "./js/i18n.js";
 import { isLanguage } from "./js/languages.js";
+import { lrclibRequests, lyricsKey, pickLyrics, retryDelay } from "./js/lyrics.js";
 
 const SUB_HOSTS = new RegExp(CONFIG.subtitleHosts);
 const KEEP = 16; // subtitle files kept per tab (in every language: the viewer may switch)
@@ -125,6 +131,100 @@ async function pageConfig() {
 chrome.runtime.onMessage.addListener((msg, sender, reply) => {
   if (!msg || msg.type !== "config" || !sender.tab) return false;
   pageConfig().then(reply, () => reply({ lang: "", webApp: CONFIG.webApp }));
+  return true; // answered later
+});
+
+// ---------- song lyrics, for the lyrics panel on Spotify ----------
+// LRCLIB asks clients to name themselves (browsers don't let an extension set User-Agent, so its
+// Lrclib-Client header), to send one request at a time with a short pause between, to keep answers
+// for a while, and to wait as long as its Retry-After says when it is busy.
+const LYRICS_CLIENT = `Tamkeen browser extension ${CONFIG.version} (https://christiangilkey.github.io/tamkeen/extension/)`;
+const FOUND_FOR = 12 * 3600 * 1000;  // an answer with lyrics is kept 12 hours
+const NONE_FOR = 3600 * 1000;        // "no lyrics" an hour (LRCLIB may find them by then)
+const KEEP_SONGS = 60;
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+let lastAsked = 0;
+async function politeFetch(url, attempt = 0) {
+  const wait = lastAsked + 350 - Date.now();
+  if (wait > 0) await sleep(wait);
+  lastAsked = Date.now();
+  let res;
+  try {
+    res = await fetch(url, { headers: { "Lrclib-Client": LYRICS_CLIENT }, credentials: "omit", cache: "no-store" });
+  } catch { return { status: 0 }; }
+  const later = retryDelay(res.status, res.headers.get("retry-after"), attempt);
+  if (later >= 0) { await sleep(later); return politeFetch(url, attempt + 1); }
+  return res;
+}
+
+/** Only what the panel uses of a record (no "lyricsfile"). */
+const slim = (r) => ({ id: r.id, trackName: r.trackName, artistName: r.artistName, albumName: r.albumName, duration: r.duration,
+  instrumental: !!r.instrumental, syncedLyrics: r.syncedLyrics || null, plainLyrics: r.plainLyrics || null });
+
+async function askLrclib(track) {
+  const found = [];
+  let error = 0;
+  for (const req of lrclibRequests(track, CONFIG.lyricsApi)) {
+    const res = await politeFetch(req.url);
+    if (res.status === 200) {
+      let body = null;
+      try { body = await res.json(); } catch { body = null; }
+      if (req.kind === "get" && body && typeof body === "object" && !Array.isArray(body)) found.push({ rec: body, trusted: true });
+      else if (Array.isArray(body)) for (const rec of body.slice(0, 20)) found.push({ rec });
+    } else if (res.status !== 404) error = res.status || -1;
+    const best = pickLyrics(found, track);
+    if (best && best.syncedLyrics) break; // (timed lyrics found: no need to search on)
+  }
+  const best = pickLyrics(found, track);
+  return { rec: best ? slim(best) : null, error: best ? 0 : error };
+}
+
+async function keptLyrics(key) {
+  try {
+    const got = (await chrome.storage.session.get(`ly:${key}`))[`ly:${key}`];
+    if (got && Date.now() - got.at < (got.rec ? FOUND_FOR : NONE_FOR)) return got;
+  } catch { /* no session storage */ }
+  return null;
+}
+async function keepLyrics(key, answer) {
+  try {
+    const index = (await chrome.storage.session.get("ly:index"))["ly:index"] || [];
+    const next = index.filter((k) => k !== key).concat(key);
+    const drop = next.splice(0, Math.max(0, next.length - KEEP_SONGS));
+    await chrome.storage.session.set({ [`ly:${key}`]: { ...answer, at: Date.now() }, "ly:index": next });
+    if (drop.length) await chrome.storage.session.remove(drop.map((k) => `ly:${k}`));
+  } catch { /* kept nowhere: asked again next time */ }
+}
+
+let lyricsQueue = Promise.resolve();
+const asking = new Map(); // key -> the answer on its way (two tabs asking for one song: asked once)
+function lyricsFor(track) {
+  const key = lyricsKey(track);
+  if (asking.has(key)) return asking.get(key);
+  const job = lyricsQueue.then(async () => {
+    const kept = await keptLyrics(key);
+    if (kept) return { rec: kept.rec, error: 0 };
+    const answer = await askLrclib(track);
+    if (!answer.error) await keepLyrics(key, answer); // (a failure is asked again next time)
+    return answer;
+  });
+  lyricsQueue = job.catch(() => {});
+  asking.set(key, job);
+  job.finally(() => asking.delete(key)).catch(() => {});
+  return job;
+}
+
+const cleanTrack = (t) => ({
+  title: String((t && t.title) || "").slice(0, 300), artist: String((t && t.artist) || "").slice(0, 300),
+  album: String((t && t.album) || "").slice(0, 300), duration: Math.max(0, Math.min(36000, Number(t && t.duration) || 0)),
+});
+
+chrome.runtime.onMessage.addListener((msg, sender, reply) => {
+  if (!msg || msg.type !== "lyrics" || !sender.url || !sender.url.startsWith(chrome.runtime.getURL("spotify.html"))) return false;
+  const track = cleanTrack(msg.track);
+  if (!track.title) { reply({ rec: null, error: 0 }); return false; }
+  lyricsFor(track).then(reply, () => reply({ rec: null, error: -1 }));
   return true; // answered later
 });
 

@@ -1,16 +1,18 @@
-// The web app's side of the Tamkeen browser extension ("Tamkeen for Netflix", extension/), on a
-// computer: the extension adds Tamkeen's subtitle bar to Netflix's own tab, but it can't read the
-// web app's library (browsers keep each website's storage apart). Its small part on this page
+// The web app's side of the Tamkeen browser extension (extension/), on a computer: the extension adds
+// Tamkeen's subtitle bar to Netflix's own tab and a lyrics panel to Spotify's web player, but it can't
+// read the web app's library (browsers keep each website's storage apart). Its small part on this page
 // (extension/src/content/webapp.js) and this file pass what each needs (web/js/extbridge.js explains
 // the messages):
 //   - the settings it needs to look words up (languages, AI provider and key, lookup mode, pause on a
 //     tapped word), whenever this page opens and whenever they change;
 //   - the words saved in Netflix and the titles watched there, which come into the library here (and
 //     then sync to Drive as usual): each title as a Netflix item with its subtitles, each word linked
-//     to it, at its place in the title.
+//     to it, at its place in the title;
+//   - the words saved on Spotify: cards with their lyric line as the sentence and "Spotify – Artist –
+//     Title" as where they came from (no Library item: a song's lyrics are never kept).
 // Only messages from this very page's window and address, with the nonce of this visit, are taken,
 // and what arrives is cleaned to plain values first (extbridge.js).
-import { APP, EXT, checkMessage, cleanPending, cleanSettings, message } from "./extbridge.js";
+import { APP, EXT, checkMessage, cleanPending, cleanSettings, message, spotifySource } from "./extbridge.js";
 import { NETFLIX_FEED } from "./netflix.js";
 import { lib, settings } from "./store.js";
 import { episodeUid, feedUid } from "./shared-logic.js";
@@ -77,7 +79,7 @@ async function takePending({ words, titles }) {
   busy = true;
   const { api, toast, refresh } = deps;
   const kept = { words: [], titles: [] };
-  const voiced = []; // the cards made here: they get their voice afterwards (Netflix's sound is never kept)
+  const voiced = []; // the cards made here: they get their voice afterwards (Netflix's and Spotify's sound is never kept)
   try {
     for (const t of titles) {
       try {
@@ -87,9 +89,19 @@ async function takePending({ words, titles }) {
     }
     const feed = await feedUid(NETFLIX_FEED);
     const done = imported();
-    let added = 0;
+    let added = 0, fromSpotify = 0;
     for (const w of words) {
       if (done.has(w.uid)) { kept.words.push(w.uid); continue; }
+      if (w.spotify) { // a word from a song's lyrics: its line, its song, and the language it was looked up in
+        try {
+          voiced.push(await api("/vocab", { method: "POST", body: { text: w.text, sentence: w.sentence, meaning: w.meaning, notes: w.notes,
+            translation: w.translation, language: w.language, source: spotifySource(w.spotify) } }));
+          done.add(w.uid);
+          kept.words.push(w.uid);
+          fromSpotify++;
+        } catch (err) { console.warn("Couldn't keep a word saved on Spotify:", err); }
+        continue;
+      }
       try {
         const uid = await episodeUid(feed, w.netflix_id);
         if (!lib.episodes.some((e) => e.uid === uid && !e.deleted)) { // its title isn't here yet (or was removed)
@@ -106,11 +118,14 @@ async function takePending({ words, titles }) {
     if (kept.words.length || kept.titles.length) post("ack", kept);
     if (added === 1) toast("1 word you saved in Netflix is now in your Vocab");
     else if (added > 1) toast(`${added} words you saved in Netflix are now in your Vocab`);
-    if (added || kept.titles.length) refresh();
+    if (fromSpotify === 1) toast("1 word you saved on Spotify is now in your Vocab");
+    else if (fromSpotify > 1) toast(`${fromSpotify} words you saved on Spotify are now in your Vocab`);
+    if (added || fromSpotify || kept.titles.length) refresh();
     // Each word's voice: Azure says the word and its sentence, kept with the card (Settings → Card voices).
+    // (A Spotify card has no episode: like a card typed in, it has no sound of its own.)
     if (voiced.length) {
       import("./voiceplay.js").then(({ voiceNewCard }) => {
-        for (const row of voiced) voiceNewCard(row, "video/netflix");
+        for (const row of voiced) voiceNewCard(row, row && row.episode_id ? "video/netflix" : "missing");
       }).catch((err) => console.warn("Tamkeen extension: voices", err));
     }
   } finally {

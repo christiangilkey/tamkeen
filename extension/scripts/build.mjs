@@ -1,4 +1,5 @@
-// Build the browser extension "Tamkeen for Netflix" (extension/): a folder you can load as it is
+// Build the Tamkeen browser extension (extension/; "Tamkeen for Netflix": Netflix's subtitles and
+// Spotify's song lyrics as words to click): a folder you can load as it is
 // (chrome://extensions -> Developer mode -> Load unpacked), and optionally its zip and install page.
 //   node extension/scripts/build.mjs                        -> extension/build/
 //   node extension/scripts/build.mjs --out DIR --zip FILE --page DIR [--version 1.2.3] [--store-zip FILE]
@@ -14,7 +15,8 @@
 //
 // FOR TESTS ONLY (never for a release): --test-netflix http://127.0.0.1:PORT makes a local stand-in
 // count as Netflix, --test-subs HOST serves its subtitle files, --test-webapp http://127.0.0.1:PORT/app/
-// is the web app. The manifest and config then name those too.
+// is the web app, --test-spotify http://spotify.localhost:PORT a stand-in for Spotify's web player,
+// --test-lyrics http://127.0.0.1:PORT one for LRCLIB. The manifest and config then name those too.
 import { execFileSync } from "node:child_process";
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { deflateRawSync } from "node:zlib";
@@ -30,12 +32,13 @@ const LAYERS = [join(ext, "src"), join(root, "mobile", "src"), join(root, "web")
 const args = process.argv.slice(2);
 const opt = (name) => { const i = args.indexOf(`--${name}`); return i >= 0 ? args[i + 1] : undefined; };
 const out = opt("out") || join(ext, "build");
-const test = { netflix: opt("test-netflix"), subs: opt("test-subs"), webapp: opt("test-webapp") };
-const local = (u) => /^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?(\/|$)/.test(String(u || ""));
+const test = { netflix: opt("test-netflix"), subs: opt("test-subs"), webapp: opt("test-webapp"), spotify: opt("test-spotify"), lyrics: opt("test-lyrics") };
+// (*.localhost is this computer too: a second stand-in site on its own name.)
+const local = (u) => /^http:\/\/(127\.0\.0\.1|localhost|[a-z0-9-]+\.localhost)(:\d+)?(\/|$)/.test(String(u || ""));
 for (const [k, v] of Object.entries(test)) {
   if (v && !(k === "subs" ? /^(127\.0\.0\.1|localhost)$/.test(v) : local(v))) throw new Error(`--test-${k} must be a local address (tests only): ${v}`);
 }
-const testing = !!(test.netflix || test.subs || test.webapp);
+const testing = Object.values(test).some(Boolean);
 
 let version = opt("version") || process.env.APP_VERSION || "";
 if (!version) {
@@ -51,11 +54,13 @@ const PROD = {
   subtitleHosts: "(^|\\.)nflxvideo\\.net$",
   subtitleUrls: ["https://*.nflxvideo.net/*"],
   webApp: "https://christiangilkey.github.io/tamkeen/app/",
+  lyricsApi: "https://lrclib.net",
 };
 const config = { ...PROD, version, test: testing };
 if (test.netflix) { config.netflixBase = test.netflix.replace(/\/+$/, ""); config.netflixHosts = [new URL(test.netflix).hostname]; }
 if (test.subs) { config.subtitleHosts = `^${test.subs.replace(/\./g, "\\.")}$`; config.subtitleUrls = [`http://${test.subs}/*`]; }
 if (test.webapp) config.webApp = test.webapp.endsWith("/") ? test.webapp : `${test.webapp}/`;
+if (test.lyrics) config.lyricsApi = new URL(test.lyrics).origin;
 
 // ---------- files ----------
 function find(rel) {
@@ -89,7 +94,8 @@ rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 
 // The pages and scripts of the extension itself; the app's look, fonts, translations and icons.
-for (const rel of ["panel.html", "css/ext.css", "content/netflix.js", "content/netflix-main.js", "content/webapp.js"]) copy(rel);
+for (const rel of ["panel.html", "spotify.html", "css/ext.css", "css/spotify.css", "content/netflix.js", "content/netflix-main.js",
+  "content/webapp.js", "content/spotify-page.js", "content/spotify-main.js", "content/spotify.js"]) copy(rel);
 copy("css/app.css");
 copy("css/media.css"); // (the word popup's pause switch and the quick/detailed switch)
 copy("fonts");
@@ -100,9 +106,9 @@ for (const rel of ["js/netflix-common.js", "js/netflix-player.js", "js/netflix-b
 // Word lists and dictionaries' code are loaded by name at times (import(`./wordlists/${lang}.js`)).
 copy("js/lexicon");
 copy("js/wordlists");
-// Every module the background part, the subtitle bar and the web app's part load.
+// Every module the background part, the subtitle bar, the lyrics panel and the web app's part load.
 const bridge = closure(["js/extbridge.js"]);
-for (const rel of closure(["background.js", "js/ext/panel.js", "js/extbridge.js"])) copy(rel);
+for (const rel of closure(["background.js", "js/ext/panel.js", "js/ext/spotify-panel.js", "js/extbridge.js"])) copy(rel);
 
 writeFileSync(join(out, "js", "ext", "config.js"),
   `// Made by extension/scripts/build.mjs.${testing ? " A TEST BUILD: it treats local stand-ins as Netflix." : ""}\nexport const CONFIG = ${JSON.stringify(config, null, 2)};\n`);
@@ -128,6 +134,12 @@ if (testing) {
     add(manifest.content_scripts[2].matches, `${u.protocol}//${u.hostname}${u.pathname}*`);
     add(manifest.web_accessible_resources[1].matches, `${u.protocol}//${u.hostname}/*`);
   }
+  if (test.spotify) {
+    const pattern = `${new URL(test.spotify).origin.replace(/:\d+$/, "")}/*`;
+    for (const cs of manifest.content_scripts.slice(3, 5)) add(cs.matches, pattern);
+    add(manifest.web_accessible_resources[2].matches, pattern);
+  }
+  if (test.lyrics) add(manifest.host_permissions, `${new URL(test.lyrics).origin.replace(/:\d+$/, "")}/*`);
 }
 writeFileSync(join(out, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
 

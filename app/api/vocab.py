@@ -31,6 +31,11 @@ class VocabIn(BaseModel):
     meaning: str = ""
     notes: str = ""
     translation: str = ""  # the sentence in the learner's language, ⟦ ⟧ around the word's part
+    # A word with no episode (saved from a song on Spotify through the browser extension): where it
+    # came from, as the Vocab page shows it ("Spotify – Artist – Title"), and the language it was
+    # looked up in.
+    source: str = ""
+    language: str = ""
 
 
 class BatchCard(BaseModel):
@@ -190,6 +195,10 @@ def add_vocab(body: VocabIn) -> dict[str, Any]:
                               "JOIN feeds f ON f.id = e.feed_id WHERE e.id = ?", (body.episode_id,)).fetchone()
             if ep:
                 title, episode_uid, language = ep["title"], ep["uid"], ep["language"]
+        if episode_uid is None:
+            title = " ".join(body.source.split())[:300]
+            if languages.valid(body.language):
+                language = body.language
         if not languages.valid(language):
             language = languages.detect(text, languages.study())  # a word typed in, or from an unknown source
         cur = conn.execute(

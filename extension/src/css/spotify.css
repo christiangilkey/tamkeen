@@ -1,0 +1,44 @@
+/* Tamkeen's karaoke on Spotify (spotify.html): the lyrics panel fills its frame, a column at the right
+   of Spotify's web player (content/spotify.js narrows Spotify's app to the rest). Built on the Netflix
+   sidebar's look (css/ext.css): plain solid surfaces, no shadows, the app's own colours. */
+.sp .side { left: 0; width: 100%; }
+.sp .side-head .sp-mark { flex: none; display: inline-flex; color: var(--accent); padding: 0 8px; }
+
+/* ---------- the lyrics: the line being sung big and centred, the lines around it dimmer ---------- */
+.sp .karaoke { position: relative; flex: 1 1 auto; min-height: 80px; display: flex; flex-direction: column; }
+.sp .lines { position: relative; flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 12px 16px; text-align: center;
+  line-height: 1.55; outline: none; font-size: clamp(15px, calc(var(--ar-size) * .62), 20px); }
+/* Room above the first line and below the last, so that any line can be in the middle; a share of the
+   box's height (not a fixed padding), so the box can still get shorter when the word popup opens. */
+.sp .lines:not(.plain)::before, .sp .lines:not(.plain)::after { content: ""; display: block; height: 42%; }
+.sp .ln { margin: 0 0 .6em; padding: 2px 8px; border-radius: 10px; text-align: center; color: var(--muted); opacity: .55;
+  transition: font-size .18s ease, opacity .18s ease, color .18s ease; }
+.sp .ln.near { opacity: .8; font-size: clamp(16px, calc(var(--ar-size) * .72), 23px); }
+.sp .ln.cur { opacity: 1; color: var(--text); background: none; font-weight: 700; font-size: clamp(21px, calc(var(--ar-size) * 1.02), 34px); }
+.sp .ln:hover { background: var(--surface-2); }
+.sp .ln .w.sung { color: var(--accent); }
+.sp .ln .w.cur { background: var(--hl); color: var(--hl-ink); }
+/* Lyrics without timings: a page of equal lines to scroll. */
+.sp .lines.plain { padding: 16px 16px 40px; }
+.sp .lines.plain .ln { opacity: 1; color: var(--text); cursor: default; font-size: clamp(16px, calc(var(--ar-size) * .7), 22px); }
+.sp .lines.plain .ln:hover { background: none; }
+/* Words that can't be looked up (a language Tamkeen doesn't teach, or not chosen yet). */
+.sp .lines.nolookup .w:hover { background: none; }
+.sp .credit { margin: 1.8em 0 0; padding: 0; font: 12px/1.5 var(--ui-font); text-align: center; }
+.sp .credit a { color: var(--muted); }
+
+/* "Follow along": after scrolling by hand, back to the line being sung. */
+.sp .follow { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 6px;
+  min-height: 32px; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
+  font: 600 13px/1 var(--ui-font); white-space: nowrap; }
+.sp .follow:hover { background: var(--accent-soft); }
+
+/* ---------- notes and controls ---------- */
+.sp .note-actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.sp .note-actions button, .sp .note-actions .btn { min-height: 32px; }
+.sp .sp-ctl { flex: none; justify-content: center; border-top: 1px solid var(--border); padding: 8px 12px 10px; background: var(--surface); }
+.sp .sp-ctl .ctl-main { flex-wrap: wrap; justify-content: center; }
+.sp .side-pop .bar-flash { margin: 8px 12px; }
+
+/* The word popup sits under the lyrics, above the controls (the lyrics get shorter, never covered). */
+.sp .side-pop .word-bubble { border-top: 1px solid var(--border); }
