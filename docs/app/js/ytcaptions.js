@@ -79,7 +79,7 @@ function translationCode(wanted, languages) {
  * language is unknown) is another hand-written track taken: otherwise an English song with
  * Japanese subtitles would count as Japanese.
  * `handmadeOnly` ("Only videos with handmade subtitles"): a person's track in the wanted language
- * or nothing. `translate` false leaves out translations ("Find in a video" wants what is said).
+ * or nothing. `translate` false leaves out translations (when only what is said will do).
  */
 export function captionChoices(tracks, wanted, taught = [], { handmadeOnly = false, translate = true, translationLanguages = null } = {}) {
   const list = (tracks || []).filter((t) => t && t.baseUrl);

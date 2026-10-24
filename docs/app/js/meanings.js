@@ -9,7 +9,7 @@
 
 import { api } from "./app.js";
 import { DefinerError } from "./definer.js";
-import { answerFrom, commonness, germanLookUp, lookUp, matchKey, wordKeys } from "./lexicon/meaningdata.js";
+import { answerFrom, commonness, findIn, germanLookUp, lookUp, matchKey, wordKeys } from "./lexicon/meaningdata.js";
 import { dictionaries } from "./lexicon/seen.js";
 import { LemmaTable } from "./lexicon/romance.js";
 import { lexemeOf } from "./lexicon/words.js";
@@ -87,7 +87,15 @@ export async function dictionaryDefine(ctx, { quick = false, language = "English
   // the word (or has it only as a name). (lookUp in ./lexicon/meaningdata.js)
   // German reads the sentence too (separable verbs: fängt … an is anfangen) and takes compounds apart.
   let found;
-  if (lang === "de") {
+  if (ctx.phrase) {
+    // Several words looked up together: only an entry for the whole phrase as it is ("por favor",
+    // "give up"), never one of its words or a guess at a form of it (those would answer another question).
+    const key = matchKey(ctx.word, lang);
+    for (const data of files) {
+      const hit = data && key && data.words[key] && data.words[key].length ? findIn(data, [key]) : null;
+      if (hit && hit.groups.length) { found = { ...hit, source: data.source }; break; }
+    }
+  } else if (lang === "de") {
     let tables = null;
     try { tables = await dictionaries(lang); } catch { /* no table: the meanings file's own forms */ }
     const table = (tables || []).find((t) => t instanceof LemmaTable) || null;
@@ -95,6 +103,9 @@ export async function dictionaryDefine(ctx, { quick = false, language = "English
   } else {
     const { keys, rank } = await candidates(ctx.word, lang);
     found = lookUp(files, keys, ctx.word, lang, { rank });
+  }
+  if ((!found || !found.groups.length) && ctx.phrase) {
+    throw new DefinerError("This phrase isn't in the built-in dictionary. Tap its words one at a time to look them up.");
   }
   if (!found || !found.groups.length) {
     throw new DefinerError("This word isn't in the built-in dictionary. It may be a name, slang, or a form it doesn't know.");

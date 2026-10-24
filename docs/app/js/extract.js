@@ -24,6 +24,53 @@ function extractArticle(doc, url) {
   function clean(text) {
     return String(text || "").replace(/[\u200b\u200e\u200f\ufeff]/g, "").replace(/\s+/g, " ").trim();
   }
+  // A block's words and which of them are bold or italic: <b>/<strong>, <i>/<em>, or an inline
+  // font-weight / font-style. Words are numbered as the text is stored (split at spaces), and each
+  // mark is [first word, last word, 1 bold | 2 italic]. (Same rules as blockmarks.js marksFromRuns.)
+  function styledWords(el) {
+    var chars = [];
+    function walk(node, b, i) {
+      for (var c = node.firstChild; c; c = c.nextSibling) {
+        if (c.nodeType === 3) {
+          var t = String(c.nodeValue || "").replace(/[\u200b\u200e\u200f\ufeff]/g, "");
+          var f = (b ? 1 : 0) | (i ? 2 : 0);
+          for (var k = 0; k < t.length; k++) chars.push([t.charAt(k), f]);
+          continue;
+        }
+        if (c.nodeType !== 1) continue;
+        var tag = String(c.tagName || "").toUpperCase();
+        if (tag === "BR") { chars.push([" ", 0]); continue; }
+        var style = String((c.getAttribute && c.getAttribute("style")) || "");
+        var bold = (b || /^(B|STRONG)$/.test(tag) || /font-weight\s*:\s*(bold|bolder|[6-9]00)/i.test(style)) && !/font-weight\s*:\s*(normal|lighter|[1-4]00)/i.test(style);
+        var ital = (i || /^(I|EM|CITE|DFN)$/.test(tag) || /font-style\s*:\s*(italic|oblique)/i.test(style)) && !/font-style\s*:\s*normal/i.test(style);
+        walk(c, bold, ital);
+      }
+    }
+    walk(el, false, false);
+    var words = [];
+    var cur = null;
+    for (var n = 0; n < chars.length; n++) {
+      var ch = chars[n][0];
+      if (/\s/.test(ch)) { cur = null; continue; }
+      if (!cur) { cur = { text: "", all: 0, letters: 0, b: 0, i: 0, ab: 0, ai: 0 }; words.push(cur); }
+      cur.text += ch;
+      cur.all++;
+      var fl = chars[n][1];
+      if (fl & 1) cur.ab++;
+      if (fl & 2) cur.ai++;
+      if (/[0-9A-Za-z\u00c0-\uffff]/.test(ch) && !/[\u2000-\u206f\u3000-\u303f\uff00-\uff0f]/.test(ch)) { cur.letters++; if (fl & 1) cur.b++; if (fl & 2) cur.i++; }
+    }
+    var marks = [];
+    var out = [];
+    for (var w = 0; w < words.length; w++) {
+      var x = words[w];
+      var total = x.letters || x.all;
+      var f2 = ((x.letters ? x.b : x.ab) * 2 > total ? 1 : 0) | ((x.letters ? x.i : x.ai) * 2 > total ? 2 : 0);
+      if (f2) marks.push([w, w, f2]);
+      out.push(x.text);
+    }
+    return { text: out.join(" "), marks: marks };
+  }
   function meta(name) {
     var el = doc.querySelector('meta[property="' + name + '"], meta[name="' + name + '"]');
     return el ? clean(el.getAttribute("content")) : "";
@@ -59,14 +106,16 @@ function extractArticle(doc, url) {
   var blocks = [];
   var words = 0;
   var seen = {};
-  function add(kind, text) {
+  function add(kind, text, marks) {
     if (!text || blocks.length >= MAX_BLOCKS || words >= MAX_WORDS) return;
     if (kind !== "p" && seen[kind + text]) return; // repeated headings / menu items
     seen[kind + text] = true;
     var count = text.split(" ").length;
     if (words + count > MAX_WORDS) text = text.split(" ").slice(0, MAX_WORDS - words).join(" ");
     words += count;
-    blocks.push({ kind: kind, text: text });
+    var block = { kind: kind, text: text };
+    if (marks && marks.length && kind.charAt(0) !== "h") block.marks = marks;
+    blocks.push(block);
   }
   var els = root.querySelectorAll(BLOCKS);
   for (var i = 0; i < els.length; i++) {
@@ -77,7 +126,8 @@ function extractArticle(doc, url) {
     var copy = el.cloneNode(true);
     var junk = copy.querySelectorAll(INLINE_JUNK);
     for (var j = 0; j < junk.length; j++) junk[j].parentNode.removeChild(junk[j]);
-    var text = clean(copy.textContent);
+    var styled = styledWords(copy);
+    var text = styled.text;
     if (!text) continue;
     if (tag === "li" || tag === "dd" || tag === "dt") {
       // A short list item that is nothing but a link is a menu entry, not content.
@@ -88,8 +138,10 @@ function extractArticle(doc, url) {
     }
     var kind = /^h[1-6]$/.test(tag) ? "h" + Math.min(3, Number(tag[1])) : tag === "li" || tag === "dd" || tag === "dt" ? "li"
       : tag === "blockquote" ? "q" : "p";
+    // A paragraph inside a quotation (<blockquote><p>…</p></blockquote>) is the quotation.
+    if (kind === "p" && el.closest && el.closest("blockquote") && root.contains(el.closest("blockquote"))) kind = "q";
     if (kind === "li" && text.length < 2) continue;
-    add(kind, text);
+    add(kind, text, styled.marks);
   }
   // Pages built without <p> tags (text separated by line breaks): if the blocks found hold only a
   // small part of the page's text, fall back to the text itself, line by line.

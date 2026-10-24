@@ -1,0 +1,7 @@
+902ae4cc Adicionar palavras: digite ou cole muitas palavras novas de uma vez, com significados, frases e áudio preenchidos para você
+e7d39c60 Procure várias palavras juntas: arraste sobre elas, ou mantenha pressionado e deslize no celular
+37453dfb Vozes dos cartões: todo cartão pode ser lido em voz alta, inclusive com as vozes naturais do Azure
+64dbc519 Sua sequência diária no Início e ao lado do nome dos seus amigos
+91fd5e18 Karaokê do Spotify: toque em qualquer palavra da letra de uma música (com a extensão do navegador)
+7407a8aa Extensão do Netflix: menus de Áudio e Legendas, e ela acompanha o idioma que você está aprendendo
+e7edd564 Um botão que volta ao início da frase

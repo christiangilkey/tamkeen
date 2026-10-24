@@ -15,6 +15,8 @@ import { newEpisodeRecords, parseFeed } from "./rss.js";
 import * as cloud from "./transcribe-service.js";
 import { replaceInText } from "./correction.js";
 import { unpackTranscript } from "./sharetext.js";
+import { blockKind } from "./blockmarks.js";
+import { phoneCanReach } from "./cardvoice.js";
 import * as phoneReels from "./reels-phone.js";
 import { anki, requestAnkiSync } from "./anki-phone.js";
 import { cleanInfo, cleanTitleId, displayTitle } from "./netflix-ttml.js";
@@ -29,12 +31,10 @@ const liveEpisodes = () => lib.episodes.filter((e) => !e.deleted);
 export const LOCAL_FEED_URL = "local:videos";
 const AUDIO_FEED_URL = "local:audio";
 const PAGES_FEED_URL = "local:pages";
-const PAGE_KINDS = ["h1", "h2", "h3", "p", "li", "q"];
 const MAX_PAGE_WORDS = 30000;
 // Books (same layout as the desktop's app/books.py): a free classic or an uploaded file, already
 // split into headings and paragraphs by web/js/books.js; read a page at a time (pages/book.js).
 const BOOKS_FEED_URL = "local:books";
-const BOOK_KINDS = ["h2", "p"];
 const MAX_BOOK_WORDS = 500000;
 const YOUTUBE_FEED_URL = "local:youtube";
 const MAX_YOUTUBE_WORDS = 60000;
@@ -66,7 +66,7 @@ async function savePage(body) {
     const first = words.text.length;
     tokens.forEach((t, i) => { words.start.push(first + i); words.end.push(first + i + 1); words.text.push(t); words.seg.push(segments.length); });
     segments.push([first, first + tokens.length, tokens.join(" ")]);
-    kinds.push(PAGE_KINDS.includes(b.kind) ? b.kind : "p");
+    kinds.push(blockKind(b, tokens.length)); // its kind, with its bold and italic words (blockmarks.js)
   }
   if (!segments.length) throw new ApiError("No readable text was found on that page.");
   const t = now();
@@ -120,7 +120,7 @@ async function saveBook(body) {
     const first = words.text.length;
     tokens.forEach((t, i) => { words.start.push(first + i); words.end.push(first + i + 1); words.text.push(t); words.seg.push(segments.length); });
     segments.push([first, first + tokens.length, tokens.join(" ")]);
-    kinds.push(BOOK_KINDS.includes(b.kind) ? b.kind : "p");
+    kinds.push(blockKind(b, tokens.length)); // its kind, with its bold and italic words (blockmarks.js)
   }
   if (!segments.length) throw new ApiError("No readable text was found in that book.");
   const t = now();
@@ -457,7 +457,14 @@ function episodeOut(e) {
 }
 
 function vocabOut(v) {
-  return { ...v, id: v.uid, episode_id: v.episode_uid, folders: v.folders || [] };
+  // `audio_type`: the episode's kind, from which web/js/cardvoice.js decides whether the word's own
+  // audio can be played here or a voice says it (as app/api/vocab.py _items gives it).
+  // An episode whose sound this phone can't reach (no copy in Drive it can fetch, no web address: a
+  // file only on the computer) counts as "missing" here (cardvoice.js phoneCanReach).
+  const e = v.episode_uid ? episodeOf(v.episode_uid) : null;
+  const reachable = phoneCanReach(e, settings.signed_in);
+  return { ...v, id: v.uid, episode_id: v.episode_uid, folders: v.folders || [],
+           audio_type: reachable ? e.audio_type || "" : v.episode_uid ? "missing" : null };
 }
 const folderOut = (f) => ({ uid: f.uid, name: f.name, created_at: f.created_at, updated_at: f.updated_at });
 const liveFolders = () => (lib.folders || []).filter((f) => !f.deleted).sort((a, b) => a.name.localeCompare(b.name));
@@ -820,12 +827,38 @@ const routes = [
                 start: body.start ?? null, end: body.end ?? null, sent_start: body.sent_start ?? null,
                 sent_end: body.sent_end ?? null, meaning: body.meaning || "", notes: body.notes || "",
                 translation: (body.translation || "").trim(),
-                // A word typed in, or from an unknown source, is in the language its letters say.
-                language: e ? episodeLang(e) : (isLanguage(detectLanguage(text, studyLanguage())) ? detectLanguage(text, studyLanguage()) : studyLanguage()),
-                episode_title: e ? e.title : "", folders: [], deleted: 0, created_at: t, updated_at: t };
+                // A word typed in, or from an unknown source, is in the language its letters say, unless
+                // the language it was looked up in is given (a word saved from a song on Spotify).
+                language: e ? episodeLang(e) : isLanguage(body.language) ? body.language
+                  : (isLanguage(detectLanguage(text, studyLanguage())) ? detectLanguage(text, studyLanguage()) : studyLanguage()),
+                // Where a word without an episode came from, as given ("Spotify – Artist – Title").
+                episode_title: e ? e.title : String(body.source || "").replace(/\s+/g, " ").trim().slice(0, 300),
+                folders: [], deleted: 0, created_at: t, updated_at: t };
     lib.vocab.push(v);
     changed();
     return vocabOut(v);
+  }],
+  // Several cards typed in at once (the Vocab page's "Add words"; the computer's twin is app/api/vocab.py
+  // add_batch): in the order given, the first the newest, each in the language its letters say.
+  ["POST", /^\/vocab\/batch$/, (m, q, body) => {
+    const cards = (Array.isArray(body.cards) ? body.cards : []).filter((c) => c && String(c.text || "").trim());
+    if (!cards.length) throw new ApiError("Nothing to save.");
+    if (cards.length > 100) throw new ApiError("At most 100 cards can be added at a time.");
+    const study = studyLanguage(), t = now();
+    const known = new Set(liveFolders().map((f) => f.uid));
+    const s = (x, n) => String(x || "").trim().slice(0, n);
+    const made = cards.map((c, n) => {
+      const text = s(c.text, 200), found = detectLanguage(text, study);
+      const v = { uid: newUid(), episode_uid: null, text, sentence: s(c.sentence, 1000), start: null, end: null, sent_start: null,
+                  sent_end: null, meaning: s(c.meaning, 500), notes: s(c.notes, 2000), translation: s(c.translation, 1000),
+                  language: isLanguage(found) ? found : study, episode_title: "",
+                  folders: [...new Set((Array.isArray(c.folders) ? c.folders : []).filter((f) => known.has(f)))].sort(),
+                  deleted: 0, created_at: t - n * 0.001, updated_at: t };
+      lib.vocab.push(v);
+      return v;
+    });
+    changed();
+    return { cards: made.map(vocabOut) };
   }],
   // ----- vocab folders (a word can be in several) -----
   ["GET", /^\/vocab\/folders$/, () => liveFolders().map(folderOut)],
@@ -878,22 +911,6 @@ const routes = [
     // The word itself only when something is left of it (as on the computer, app/api/vocab.py).
     if (typeof body.text === "string" && body.text.trim()) v.text = body.text.trim();
     v.updated_at = now();
-    changed();
-    return vocabOut(v);
-  }],
-  // "Find in a video" (web/js/filmot.js): the word gets the episode, the times and the sentence it
-  // is said in, as the player saves them. Its old sentence and that sentence's translation go.
-  ["POST", /^\/vocab\/([\w]+)\/source$/, (m, q, body) => {
-    const v = lib.vocab.find((x) => x.uid === m[1] && !x.deleted);
-    const e = body.episode_id ? episodeOf(body.episode_id) : null;
-    const sentence = (body.sentence || "").trim();
-    if (!v || !e) throw new ApiError("Not found.");
-    if (!sentence) throw new ApiError("There is no sentence to save.");
-    // Where the word was first found goes on the end of its own notes (see originNote in filmot.js).
-    const note = (body.note || "").trim();
-    const memo = note && !(v.memo || "").includes(note) ? [(v.memo || "").trim(), note].filter(Boolean).join("\n") : (v.memo || "");
-    Object.assign(v, { episode_uid: e.uid, episode_title: e.title, sentence, start: body.start, end: body.end,
-                       sent_start: body.sent_start, sent_end: body.sent_end, translation: "", clip: 0, memo, updated_at: now() });
     changed();
     return vocabOut(v);
   }],

@@ -45,6 +45,7 @@ export async function render(view) {
       <div class="hero-top">
         <img class="hero-logo" src="${new URL("../../icons/icon-256.png", import.meta.url).href}" alt="" width="56" height="56">
         <div><div class="hero-ar ar" ${langAttrs(studyLanguage())}>${esc(ar)}</div><div class="hero-en">${en}</div></div>
+        <div class="hero-streak" id="hero-streak" role="img" hidden>${icon("flame", 30)}<span></span></div>
       </div>
       <div class="hero-main" id="main"><div class="hero-loading">…</div></div>
     </section>
@@ -52,6 +53,20 @@ export async function render(view) {
     <div class="home-today" id="today"></div>
     <div id="habitat"></div>
   </div>`));
+  // The daily streak (days in a row the flashcard goal was met: review/flame.js), at the right of the
+  // greeting, in its gold: the owner wanted it there, a flame icon rather than an emoji.
+  import("../review/flame.js").then(({ myStreak }) => myStreak()).then(({ result }) => {
+    const el = view.querySelector("#hero-streak");
+    if (!el || !result) return;
+    const n = result.days || 0;
+    el.querySelector("span").textContent = String(n);
+    el.classList.toggle("cold", n === 0);
+    el.classList.toggle("open", result.today === "open" && n > 0);
+    const label = n === 1 ? "Daily streak: 1 day" : `Daily streak: ${n} days`;
+    el.title = `${label}. Each day you meet your flashcard goal, new words and reviews, adds a day.${result.today === "open" ? " Today's cards are still to do." : ""}`;
+    el.setAttribute("aria-label", label);
+    el.hidden = false;
+  }).catch(() => {});
   // The creature's habitat lives at the bottom of Home (unless the game is switched off in Settings).
   if (gameOn()) view.querySelector("#habitat").append(habitat().el);
   const main = view.querySelector("#main");

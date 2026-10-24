@@ -98,12 +98,85 @@ export const OWN_MODEL_LANGUAGES = { ceb: "Tagalog" };
 /** Whether cloud transcription is off for language `code` (see OWN_MODEL_LANGUAGES). */
 export const cloudBlocked = (code) => Object.hasOwn(OWN_MODEL_LANGUAGES, code || "");
 
+// What Settings → Listening & transcripts says about a language's own speech model (every language in
+// app/models_manager.py LANGUAGE_MODELS; tests/test_language_models.py checks the two lists agree):
+// what it is, how many characters it gets wrong next to Whisper large-v3 (the model Groq runs), and
+// the advice to transcribe that language on the computer (components/ownmodel.js draws it). Only
+// numbers that were measured or published, each with what it measures; `cloud: false` = no provider
+// knows the language (OWN_MODEL_LANGUAGES). The numbers come from HANDOFF.md ("Thai speech model:
+// Typhoon", "Bisaya speech model: BuzzASR/cebuano").
+export const LANGUAGE_MODEL_INFO = {
+  th: {
+    model: "typhoon",
+    cloud: true,
+    ownName: "Typhoon, on your computer",
+    headline: "Thai is best transcribed on your computer",
+    about: "Typhoon Whisper Turbo is Thai's own listening model: Whisper retrained on about 11,000 hours of Thai by SCB 10X. "
+      + "On everyday talk it gets about half as many characters wrong as Whisper large-v3, the model Groq runs.",
+    tests: [
+      { label: "Everyday talk: 14 minutes of Thai TV talk shows", own: 12.6, cloud: 27.1 },
+      { label: "90 half-minute clips of Thai talk", own: 9.4, cloud: 20.5 },
+      { label: "Sentences read aloud (FLEURS)", own: 12.6, cloud: 7.7 },
+    ],
+    notes: { // (an object, not a list: the string extractor reads a string just after "[" as a key)
+      talk: "On the talk shows Whisper large-v3 also left out about a fifth of what was said, and Typhoon was 2.6 times faster.",
+      read: "On sentences read aloud Whisper large-v3 does a little better, partly because Typhoon writes numbers as words and English names in Latin letters.",
+    },
+    unmeasured: "OpenAI's Whisper (whisper-1) and Groq's Whisper Large v3 Turbo: not measured.",
+    how: "Measured by Tamkeen on a computer, with the app's own transcription settings, against the official transcripts: "
+      + "Thai TV talk shows (Typhoon's TVSpeech set) joined into 14 minutes of podcast-like audio, 90 half-minute clips, "
+      + "and FLEURS, a public set of sentences read aloud. The second bar is Whisper large-v3 run the same way: the model Groq runs.",
+    // what to do, on the phone / on a computer without the model / with it
+    phone: "To use it, download Typhoon on your computer (Settings → Listening & transcripts → Transcription model) and choose "
+      + "My computer above. A cloud provider still works for Thai, straight from this phone, when you'd rather not wait for your computer.",
+    desktop: "Download Typhoon under Transcription model, just below. Once it is downloaded it writes every Thai transcript on this "
+      + "computer, even with a cloud provider chosen.",
+    ready: "Typhoon is downloaded: it writes every Thai transcript on this computer, even with a cloud provider chosen.",
+  },
+  ceb: {
+    model: "bisaya",
+    cloud: false,
+    ownName: "Bisaya model, on your computer",
+    headline: "Bisaya is transcribed on your computer",
+    about: "BuzzASR Cebuano is Bisaya's own listening model: Whisper large-v3 retrained on Bisaya (Cebuano) by BuzzASR. "
+      + "It gets fewer than half as many characters wrong as plain Whisper large-v3, the model Groq runs.",
+    tests: [{ label: "Sentences read aloud (FLEURS)", own: 5.9, cloud: 15.4 }],
+    notes: {
+      podcasts: "On Bisaya podcasts it also wrote twice as many Bisaya words as Whisper large-v3 (10% of all words against 5%) and far fewer Tagalog ones (1.1% against 3.8%).",
+    },
+    how: "The FLEURS figures (a public set of sentences read aloud) were published with the model. The podcast figures were "
+      + "measured by Tamkeen on seven two-minute Bisaya podcast clips (a talk show, Mass readings, a Bisaya-English chat and "
+      + "storytelling), against Whisper large-v3 with the app's Bisaya prompt.",
+  },
+};
+/** The panel's facts for language `code`, or null when it has no model of its own. */
+export const languageModelInfo = (code) => (Object.hasOwn(LANGUAGE_MODEL_INFO, code || "") ? LANGUAGE_MODEL_INFO[code] : null);
+
+/** The model `id` if `provider` offers it (STT_PROVIDERS), else its recommended one. A name typed in
+ * by hand under the old "Another model…" choice falls back to the recommended model. */
+export function knownSttModel(provider, id) {
+  const p = STT_PROVIDERS[provider] || STT_PROVIDERS.groq;
+  return p.models.some((m) => m.id === id) ? id : p.defaultModel;
+}
+
+/** Settings with any model name that isn't one of its provider's (see knownSttModel) set back to ""
+ * (the recommended one), or null when nothing needs changing. */
+export function forgetUnknownSttModels(settings) {
+  const s = settings || {};
+  const out = {};
+  for (const p of Object.keys(STT_PROVIDERS)) {
+    const id = s[`stt_model_${p}`];
+    if (id && knownSttModel(p, id) !== id) out[`stt_model_${p}`] = "";
+  }
+  return Object.keys(out).length ? out : null;
+}
+
 export function sttConfig(settings) {
   const s = settings || {};
   const provider = STT_PROVIDERS[s.stt_provider] ? s.stt_provider : "groq";
   const own = s[`stt_key_${provider}`] || "";
   const key = own || (provider === "openai" ? s.llm_key_openai || "" : "");
-  const model = s[`stt_model_${provider}`] || STT_PROVIDERS[provider].defaultModel;
+  const model = knownSttModel(provider, s[`stt_model_${provider}`]);
   const blocked = cloudBlocked(s.study_language);
   const mode = s.stt_mode === "cloud" && !blocked ? "cloud" : "local";
   return { on: mode === "cloud" && !!key, mode, provider, key, model, borrowed: !own && !!key, blocked };

@@ -1,0 +1,7 @@
+902ae4cc Afegeix paraules: escriu o enganxa moltes paraules noves alhora, amb significats, frases i àudio omplerts per tu
+e7d39c60 Cerca diverses paraules juntes: arrossega per sobre, o mantén premut i llisca al mòbil
+37453dfb Veus de les targetes: cada targeta es pot llegir en veu alta, també amb les veus naturals d'Azure
+64dbc519 La teva ratxa diària a l'Inici i al costat del nom dels teus amics
+91fd5e18 Karaoke de Spotify: toca qualsevol paraula de la lletra d'una cançó (amb l'extensió del navegador)
+7407a8aa Extensió de Netflix: menús d'Àudio i Subtítols, i segueix la llengua que aprens
+e7edd564 Un botó que torna al començament de la frase

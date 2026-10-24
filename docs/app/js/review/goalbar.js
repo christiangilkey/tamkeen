@@ -24,8 +24,10 @@ const FROM = {
   guess: "a first guess until you have reviewed a few more",
 };
 
-/** Draw the bar into `root` (an empty element). Returns {update(words, log), close()}. */
-export function goalBar(root) {
+/** Draw the bar into `root` (an empty element). `sendSlot` (optional): where the "Send to …" link goes
+ * instead of under the bar (the Vocab page puts it in a row with its "Add words" button). Returns
+ * {update(words, log), close()}. */
+export function goalBar(root, { sendSlot = null } = {}) {
   root.classList.add("goal-wrap");
   root.innerHTML = `
     <button type="button" class="goal" aria-haspopup="dialog" aria-expanded="false">
@@ -41,7 +43,8 @@ export function goalBar(root) {
       <p class="goal-pace"></p>
     </div>`;
   const $ = (s) => root.querySelector(s);
-  const button = $(".goal"), pop = $(".goal-pop");
+  const button = $(".goal"), pop = $(".goal-pop"), send = $(".goal-send");
+  if (sendSlot) sendSlot.append(send);
   let words = [], log = {};
   let plan = null; // today's review as a task, while there is some left (review/sendtask.js)
 
@@ -70,7 +73,6 @@ export function goalBar(root) {
     time.textContent = left.ms ? `${timeText(left, true)} left today${left.guess ? " (a first guess)" : ""}`
       : t.newDone + t.revDone ? "All done for today" : "Nothing due today";
     plan = left.ms ? reviewTask(t, left) : null;
-    const send = $(".goal-send");
     send.hidden = !plan;
     send.querySelector("span").textContent = `Send to ${TARGET_NAMES[taskTarget()]}`;
     send.title = !plan ? "" : taskTarget() === "calendar"
@@ -104,7 +106,7 @@ export function goalBar(root) {
     document.removeEventListener("keydown", onKey);
   }
   button.onclick = () => (pop.hidden ? open() : close());
-  $(".goal-send").onclick = async (e) => {
+  send.onclick = async (e) => {
     if (!plan) return;
     if (taskTarget() === "calendar") { openCalendarPopup(plan); return; }
     const b = e.currentTarget;

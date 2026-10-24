@@ -1,0 +1,7 @@
+902ae4cc Aggiungi parole: scrivi o incolla tante parole nuove insieme, con significati, frasi e audio compilati per te
+e7d39c60 Cerca più parole insieme: trascina sopra di esse, o tieni premuto e scorri sul telefono
+37453dfb Voci delle schede: ogni scheda può essere letta ad alta voce, anche con le voci naturali di Azure
+64dbc519 La tua serie giornaliera nella Home e accanto ai nomi dei tuoi amici
+91fd5e18 Karaoke di Spotify: tocca qualsiasi parola del testo di una canzone (con l'estensione del browser)
+7407a8aa Estensione Netflix: menu Audio e Sottotitoli, e segue la lingua che stai imparando
+e7edd564 Un pulsante che torna all'inizio della frase

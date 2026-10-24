@@ -21,6 +21,7 @@
 import { deckMap, deckProblem, defaultDeck, firstDecks, misplacedCards, noteUid, plan, progressRecord } from "./anki-sync.js";
 import { ankiFields } from "./shared-logic.js";
 import { clipRanges, cutClips } from "./anki-export.js";
+import { clipExt } from "./anki-deck.js";
 
 export const FIELDS = ["Front", "Back", "image", "TTS Input"];
 export const LAYOUT = "Tamkeen";
@@ -132,11 +133,12 @@ export async function wordClips(words, source) {
   const groups = new Map(), clips = {};
   if (!source) return clips;
   for (const v of words) {
-    if (!Object.keys(clipRanges(v)).length) continue;
     const audio = await source.audioFor(v);
     if (!audio) continue;
+    const w = audio.times ? { ...v, ...audio.times } : v;  // a card's voice: its own times in its file
+    if (!Object.keys(clipRanges(w)).length) continue;
     if (!groups.has(audio.key)) groups.set(audio.key, { load: audio.load, words: [] });
-    groups.get(audio.key).words.push(v);
+    groups.get(audio.key).words.push(w);
   }
   for (const { load, words: together } of groups.values()) {
     try {
@@ -229,7 +231,7 @@ export function createAnkiSync(env) {
             const bytes = (clips[c.uid] || {})[part];
             if (!bytes) continue;
             try {
-              sounds += `[sound:${(await env.droid.addMedia({ name: `tk-${c.uid}-${tail}.ogg`, data: base64(bytes) })).name}]`;
+              sounds += `[sound:${(await env.droid.addMedia({ name: `tk-${c.uid}-${tail}.${clipExt(bytes)}`, data: base64(bytes) })).name}]`;
             } catch (e) { console.warn("A clip could not be given to AnkiDroid:", e); }
           }
           const values = { Front: c.front, Back: c.back, "TTS Input": sounds };

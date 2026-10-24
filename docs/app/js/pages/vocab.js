@@ -8,12 +8,14 @@ import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
 import { icon } from "../icons.js";
-import { findInVideo, lacksAudio } from "../filmot.js";
 import { cardSentence, findWord } from "../cardtext.js";
+import { audioKey, canSay, failedHere, hasOwnAudio, loadError, voiceTimes } from "../cardvoice.js";
+import { cardLanguage, cardSayer, learnVoices, stopDevice, voiceHere } from "../voiceplay.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
 import { firstVisitTour } from "../components/tour.js";
+import { openWordBuilder } from "../components/wordbuilder.js";
 
 const DAY = 86400;
 const SORTS = {
@@ -119,7 +121,7 @@ export function rangeBounds(range, fromDate, toDate, now = Date.now() / 1000) {
 
 /** How words get here, for someone whose list is still empty. */
 const TIP = `In any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”.
-  Add a word by hand, or export your words for Anki, from the ⋯ menu.`;
+  Or type your own with Add words, above: one at a time or a whole list.`;
 
 export async function render(view) {
   const prefs = lsGet("vocabView", {});
@@ -143,7 +145,7 @@ export async function render(view) {
       <h1>Vocab</h1>
       <span class="muted" id="count"></span>
       <span class="spacer"></span>
-      <button type="button" class="icon vocab-more" id="more" title="More: add a word, export, Anki settings" aria-label="More" aria-haspopup="menu">${icon("more", 22)}</button>
+      <button type="button" class="icon vocab-more" id="more" title="More: add words, export, Anki settings" aria-label="More" aria-haspopup="menu">${icon("more", 22)}</button>
     </div>
     <section class="review-block">
       <button type="button" class="review-banner idle" id="review" hidden>
@@ -152,6 +154,10 @@ export async function render(view) {
         <span class="rb-go"></span>
       </button>
       <div id="goal" hidden></div>
+      <div class="vocab-actions">
+        <span class="va-send" id="send-slot"></span>
+        <button type="button" class="ghost va-add" id="add-words" title="Type or paste new words: Tamkeen can fill in their meanings, example sentences and audio">${icon("plus", 18)} Add words</button>
+      </div>
     </section>
     <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto">
     <div class="folder-bar" id="folders"></div>
@@ -175,13 +181,6 @@ export async function render(view) {
       <span class="spacer"></span>
       <button type="button" class="ghost" id="bulk-clear">Clear selection</button>
     </div>
-    <form id="add" class="card stack vocab-add" hidden>
-      <div class="row"><strong>Add a word</strong><span class="spacer"></span><button type="button" class="ghost" id="add-cancel">Cancel</button></div>
-      <input type="text" name="text" class="ar" placeholder="${esc(langInfo(studyLanguage()).word)}" required ${langAttrs(studyLanguage())} style="font-size:20px;width:100%">
-      <input type="text" name="meaning" placeholder="Meaning" style="width:100%">
-      <textarea name="sentence" class="ar" rows="2" placeholder="Example sentence (optional)" ${langAttrs(studyLanguage())}></textarea>
-      <div><button class="primary" type="submit">Add</button></div>
-    </form>
     <div class="vocab-list" id="list"></div>
   </div>`));
   const $ = (s) => view.querySelector(s);
@@ -192,6 +191,7 @@ export async function render(view) {
   let log = {};      // the reviewer's record: every answer by word uid (see pages/review.js)
   const selected = new Set();
   let shown = [];    // the words listed right now (the open folder, narrowed by the search box and the dates)
+  let justAdded = new Set();  // ids of the cards just added with "Add words": listed first, lit up a moment
   const folderName = (uid) => (folders.find((f) => f.uid === uid) || {}).name;
 
   // One shared audio element for snippet playback.
@@ -204,20 +204,66 @@ export async function render(view) {
   };
   // Backup for when animation frames are paused (window in the background).
   audio.addEventListener("timeupdate", () => { if (audio.currentTime >= stopAt) audio.pause(); });
-  /** Play part of a word's audio: its own clip (a word a friend shared) or its episode. */
-  async function playSnippet(v, start, end) {
-    const source = v.clip ? `clip:${v.id}` : `episode:${v.episode_id}`;
-    if (audio.dataset.episode !== source) {
-      audio.dataset.episode = source;
-      audio.src = v.clip ? await clipUrl(v) : await audioUrl(v.episode_id);
+  // The recording in the player, and the promise of its loading: a second press while it loads waits
+  // for the same loading (rather than asking a player that has nothing yet to play, which the browser
+  // answers with its own words: "NotSupportedError: … no supported source was found").
+  let loaded = { source: "", ready: null };
+  const LOAD_WAIT = 12000;  // a recording that hasn't started loading by then is taken as unreachable
+  const superseded = () => Object.assign(new Error("superseded"), { superseded: true });
+  /** Load recording `source` into the player. Rejects with loadError() (cardvoice.js: plain words,
+   * marked `unplayable`) when this device can't play it, or `superseded` when another card took over. */
+  function loadRecording(source, address) {
+    if (loaded.source === source) return loaded.ready;
+    const ready = (async () => {
+      let url;
+      try { url = await address(); } catch { throw loadError(); }  // e.g. "This word's audio isn't on this phone yet"
+      if (loaded.source !== source) throw superseded();
+      if (!url) throw loadError();
+      audio.src = url;
       await new Promise((res, rej) => {
-        audio.addEventListener("loadedmetadata", res, { once: true });
-        audio.addEventListener("error", () => { audio.dataset.episode = ""; rej(new Error("Couldn't load this word's audio.")); }, { once: true });
+        const finish = (ok) => {
+          clearTimeout(timer);
+          audio.removeEventListener("loadedmetadata", onMeta);
+          audio.removeEventListener("error", onError);
+          if (loaded.source !== source) rej(superseded());
+          else if (ok) res();
+          else rej(loadError());
+        };
+        const onMeta = () => finish(true);
+        const onError = () => finish(false);
+        const timer = setTimeout(() => finish(false), LOAD_WAIT);
+        audio.addEventListener("loadedmetadata", onMeta);
+        audio.addEventListener("error", onError);
       });
+    })();
+    loaded = { source, ready };
+    ready.catch(() => { if (loaded.ready === ready) loaded = { source: "", ready: null }; });  // tried afresh next time
+    return ready;
+  }
+  /** Play part of a word's audio: its own clip (a word a friend shared), its episode, or (`voice`)
+   * the voice kept for it (cardvoice.js: the same stored file as a clip). Never rejects with the
+   * browser's own words: only loadError() (the card's voice then says it: cardvoice.js sayCard). */
+  async function playSnippet(v, start, end, { voice = false } = {}) {
+    const own = v.clip || voice;
+    const source = audioKey(v, voice);
+    if (failedHere(source)) throw loadError();  // failed a moment ago: not tried (and waited for) again
+    const quietly = { ended: Promise.resolve() };
+    try {
+      await loadRecording(source, () => (own ? clipUrl(v) : audioUrl(v.episode_id, { quiet: true })));
+    } catch (e) {
+      if (e && e.superseded) return quietly;  // another card pressed meanwhile: that one plays
+      throw e;
     }
+    if (loaded.source !== source) return quietly;
     audio.currentTime = Math.max(0, start - 0.25);
     stopAt = end + 0.35;
-    await audio.play();
+    try {
+      await audio.play();
+    } catch (e) {
+      if (e && e.name === "AbortError") return quietly;  // interrupted by another press
+      if (e && e.name === "NotSupportedError") { loaded = { source: "", ready: null }; throw loadError(); }
+      throw Object.assign(new Error("Couldn't load this word's audio."), { cause: e });  // e.g. not allowed to play yet
+    }
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(watch);
     // `ended` settles once this stretch has finished playing: the player pauses at `stopAt`, or the
@@ -236,6 +282,8 @@ export async function render(view) {
     });
     return { ended };
   }
+  // A card's word or sentence: its own recording, else the chosen voice (Settings → Card voices).
+  const say = cardSayer(playSnippet);
 
   // ----- folders -----
   async function newFolder() {
@@ -349,7 +397,8 @@ export async function render(view) {
           try {
             // Each word takes a short clip of its sentence with it, so your friend's
             // "Word" and "Sentence" buttons play exactly what yours do.
-            const withAudio = words.filter((v) => (v.episode_id || v.clip) && v.start != null).slice(0, social.MAX_SHARE_CLIPS);
+            // (A card's kept voice goes along too: cardvoice.js.)
+            const withAudio = words.filter((v) => hasOwnAudio(v) || voiceTimes(v)).slice(0, social.MAX_SHARE_CLIPS);
             if (withAudio.length) toast(`Preparing audio for ${withAudio.length} word${withAudio.length === 1 ? "" : "s"}…`, { timeout: 2500 });
             const clips = new Map();
             for (const v of withAudio) {
@@ -379,27 +428,25 @@ export async function render(view) {
   function item(v) {
     const changed = v.updated_at && v.updated_at - v.created_at > 60;
     const lang = langAttrs(detectLanguage(v.sentence || v.text));
-    const hasWord = (v.episode_id || v.clip) && v.start != null;
-    const hasSentence = (v.episode_id || v.clip) && v.sent_start != null;
     const translation = String(v.translation || "").replace(/[⟦⟧]/g, "").trim();
-    const el = h(`<div class="card vocab-item">
+    const el = h(`<div class="card vocab-item${justAdded.has(v.id) ? " vi-new" : ""}">
       <div class="vi-head" role="button" tabindex="0" aria-expanded="false">
         <input type="checkbox" class="pick" aria-label="Select word">
         <div class="vi-main">
           <div class="word" ${lang}></div>
           <div class="vi-meaning"></div>
           ${v.sentence ? `<div class="sentence" ${lang}>${highlight(cardSentence(v.sentence, v.text), v.text)}</div>` : ""}
-          ${hasWord || hasSentence ? `<div class="vi-quick">
-            ${hasWord ? `<button type="button" class="play-word">${icon("sound", 15)} Word</button>` : ""}
-            ${hasSentence ? `<button type="button" class="play-sent">${icon("sound", 15)} Sentence</button>` : ""}
-          </div>` : ""}
+          <div class="vi-quick" hidden>
+            <button type="button" class="play-word" hidden>${icon("sound", 15)} Word</button>
+            <button type="button" class="play-sent" hidden>${icon("sound", 15)} Sentence</button>
+          </div>
         </div>
         <span class="vi-chev" aria-hidden="true">${icon("chevron", 20)}</span>
       </div>
       <div class="vi-body" hidden>
         <div class="small muted">
           ${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}
-          ${v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}${changed ? ` · changed ${fmtDate(v.updated_at)}` : ""}
+          ${v.episode_id && v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}${changed ? ` · changed ${fmtDate(v.updated_at)}` : ""}
         </div>
         ${ankiProgressLine(ankiProgress[v.uid || v.id])}
         <div class="item-folders"></div>
@@ -408,7 +455,6 @@ export async function render(view) {
         <textarea class="notes" rows="2" placeholder="Grammar notes (root, grammar, usage…)" aria-label="Grammar notes"></textarea>
         <textarea class="memo" rows="1" placeholder="Personal notes (a mnemonic, where you heard it…)" aria-label="Personal notes"></textarea>
         <div class="row vi-actions">
-          ${lacksAudio(v) ? `<button type="button" class="ghost find-video" title="Look for a YouTube video where this word is said">${icon("video", 16)} Find in a video</button>` : ""}
           <button type="button" class="ghost folders-btn">${icon("folder", 16)} Folders</button>
           <span class="spacer"></span>
           <span class="small muted saved" hidden>Saved</span>
@@ -481,13 +527,23 @@ export async function render(view) {
       const r = e.currentTarget.getBoundingClientRect();
       folderMenu(r.left, r.bottom + 4, [v], "toggle");
     };
-    // A word with nothing to listen to: look for it in a video (see filmot.js).
-    const fv = el.querySelector(".find-video");
-    if (fv) fv.onclick = () => findInVideo(v).catch((e) => toast(e.message, { error: true }));
+    // Word and Sentence: shown when the card can be heard on this device: its own recording when this
+    // device can play it, else its kept voice, else the voice chosen in Settings (cardvoice.js canSay).
+    // Drawn again when that changes: a recording that failed to load, or no voice for the language here.
+    const quick = el.querySelector(".vi-quick");
     const pw = el.querySelector(".play-word");
-    if (pw) pw.onclick = () => playSnippet(v, v.start, v.end ?? v.start + 1).catch((e) => toast(e.message, { error: true }));
     const ps = el.querySelector(".play-sent");
-    if (ps) ps.onclick = () => playSnippet(v, v.sent_start, v.sent_end).catch((e) => toast(e.message, { error: true }));
+    el.__quick = () => {
+      const voice = voiceHere(cardLanguage(v));
+      pw.hidden = !canSay(v, "word", voice);
+      ps.hidden = !canSay(v, "sentence", voice);
+      quick.hidden = pw.hidden && ps.hidden;
+    };
+    el.__quick();
+    // (Never fails: at worst one calm message, see voiceplay.js. Afterwards every card is checked
+    // again, since a recording that failed is shared by all the cards from its episode.)
+    pw.onclick = () => say(v, "word").finally(refreshQuick);
+    ps.onclick = () => say(v, "sentence").finally(refreshQuick);
     el.querySelector(".del").onclick = async () => {
       if (!(await confirmDelete(v))) return;  // says so first when the word's Anki card would go too
       await api(`/vocab/${v.id}`, { method: "DELETE" });
@@ -506,7 +562,10 @@ export async function render(view) {
     const when = (v) => (st.dateField === "changed" ? v.updated_at || v.created_at : v.created_at);
     if (from !== null) items = items.filter((v) => when(v) >= from);
     if (to !== null) items = items.filter((v) => when(v) < to);
-    return [...items].sort(SORTS[st.sort][1]);
+    const sorted = [...items].sort(SORTS[st.sort][1]);
+    if (!justAdded.size) return sorted;
+    const fresh = sorted.filter((v) => justAdded.has(v.id)).sort((a, b) => b.created_at - a.created_at);  // in the order typed
+    return [...fresh, ...sorted.filter((v) => !justAdded.has(v.id))];
   }
 
   // ----- the reviewer -----
@@ -520,7 +579,7 @@ export async function render(view) {
     const none = !reviewWords().length;
     banner.disabled = none;
     if (banner.hidden || none) {
-      goal.close(); $("#goal").hidden = true;
+      goal.close(); $("#goal").hidden = true; $("#send-slot").hidden = true;
       if (banner.hidden) return;
       banner.classList.add("idle");
       banner.querySelector("strong").textContent = "Review";
@@ -532,6 +591,7 @@ export async function render(view) {
     }
     const o = overview(reviewWords(), log);
     $("#goal").hidden = !o.askable;
+    $("#send-slot").hidden = !o.askable;  // ("Send to …" goes with the goal; "Add words" beside it is always there)
     goal.update(all, log);  // the whole day's goal, whichever folder is open
     const scope = st.folder && st.folder !== "none" ? folderName(st.folder) : "";
     const ready = o.due + o.fresh > 0;
@@ -562,15 +622,16 @@ export async function render(view) {
   const reviewRoom = new ResizeObserver(fitReview);
   reviewRoom.observe($("#review"));
   // The day's goal under the banner; changing its new words a day changes the banner's "new" count too.
-  const goal = goalBar($("#goal"));
+  // Its "Send to …" link sits in the row under it, beside "Add words".
+  const goal = goalBar($("#goal"), { sendSlot: $("#send-slot") });
   $("#goal").addEventListener("goalchange", renderReview);
 
   function startReview() {
     openReview({
-      words: reviewWords(), allWords: all, log, playSnippet, highlight,
+      words: reviewWords(), allWords: all, log, playSnippet, say, highlight,
       scope: st.folder && st.folder !== "none" ? folderName(st.folder) || "" : "",
       onDelete: (v) => { all = all.filter((x) => x !== v); selected.delete(v.id); },  // a word deleted from its card
-      onClose: () => { audio.pause(); if (view.isConnected) renderAll(); },  // meanings and notes may have been edited on a card
+      onClose: () => { audio.pause(); stopDevice(); if (view.isConnected) renderAll(); },  // meanings and notes may have been edited on a card
     });
   }
 
@@ -602,6 +663,11 @@ export async function render(view) {
     renderReview();
   }
 
+  /** Check every listed card's Word and Sentence buttons again (see item()). */
+  function refreshQuick() {
+    for (const el of list.querySelectorAll(".vocab-item")) if (el.__quick) el.__quick();
+  }
+
   async function load() {
     const [items, fl, answers] = await Promise.all([
       api(`/vocab${st.q ? `?q=${encodeURIComponent(st.q)}` : ""}`),
@@ -612,6 +678,9 @@ export async function render(view) {
     all = items.map((v) => ({ ...v, folders: v.folders || [] }));
     folders = fl;
     renderAll();
+    // Whether this device has a voice for the cards' languages (a moment's work, asked once): a card
+    // with nothing it can play, in a language with no voice here, then shows no buttons.
+    learnVoices(all.map(cardLanguage)).then((changed) => { if (changed && view.isConnected) refreshQuick(); }, () => {});
   }
 
   // ----- wiring -----
@@ -658,16 +727,29 @@ export async function render(view) {
     toast("Building the Anki deck with audio…", { timeout: 4000 });
     download(exportUrl("apkg"), "tamkeen-vocab.apkg");
   };
-  const openAdd = () => {
-    $("#add").hidden = false;
-    $("#add").scrollIntoView({ block: "nearest" });
-    $("#add").querySelector("[name=text]").focus();
-  };
+  // "Add words": the card builder (components/wordbuilder.js). The open folder's cards go into it; the
+  // new cards come first in the list, lit up for a moment, whatever it is sorted by.
+  const openAdd = () => openWordBuilder({
+    existing: () => all,
+    folders,
+    folder: st.folder && st.folder !== "none" ? st.folder : "",
+    onFolder: (f) => {  // a folder made in the builder shows among the folders at once
+      if (folders.some((x) => x.uid === f.uid)) return;
+      folders.push(f);
+      folders.sort((a, b) => a.name.localeCompare(b.name));
+      if (view.isConnected) renderFolders();
+    },
+    onAdded: (cards) => {
+      justAdded = new Set(cards.map((v) => v.id));
+      if (view.isConnected) load().then(() => list.firstElementChild && list.firstElementChild.scrollIntoView({ block: "nearest", behavior: "smooth" }), () => {});
+    },
+  });
+  $("#add-words").onclick = openAdd;
   // The ⋯ menu: the things used now and then.
   $("#more").onclick = (e) => {
     const r = e.currentTarget.getBoundingClientRect();
     showMenu(r.left, r.bottom + 6, "", [
-      { label: "Add a word", icon: icon("vocab", 16), run: openAdd },
+      { label: "Add words", icon: icon("plus", 16), run: openAdd },
       { label: "Export CSV", icon: icon("page", 16), run: () => download(exportUrl("csv"), "tamkeen-vocab.csv") },
       { label: "Export for Anki", icon: icon("send", 16), run: exportAnki },
       ...(ankiSyncHere() ? [ // (no Anki sync on the iPhone or in the web app: only the export)
@@ -676,31 +758,19 @@ export async function render(view) {
       ] : []),
     ]);
   };
-  $("#add-cancel").onclick = () => { $("#add").reset(); $("#add").hidden = true; };
-  $("#add").onsubmit = async (e) => {
-    e.preventDefault();
-    const f = new FormData(e.target);
-    const inFolder = st.folder && st.folder !== "none" ? [st.folder] : [];
-    try {
-      const v = await api("/vocab", { method: "POST", body: { text: f.get("text"), meaning: f.get("meaning"), sentence: f.get("sentence") } });
-      if (inFolder.length) await api(`/vocab/${v.id}`, { method: "PATCH", body: { folders: inFolder } });
-      e.target.reset();
-      e.target.hidden = true;
-      load();
-    } catch (err) { toast(err.message, { error: true }); }
-  };
-
   await load();
   firstVisitTour("vocab", view.querySelector(".vocab-page"), [
     { target: "#review", title: "Review",
       text: "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start." },
     { target: "#goal", title: "Daily goal", text: "How many new words you want to learn each day. Change it here." },
+    { target: "#add-words", title: "Add words",
+      text: "Type or paste new words, one or many at a time. Tamkeen can fill in their meanings, example sentences and audio, or you can." },
     { target: "#q", title: "Search", text: "Find a saved word by the word itself or by its meaning." },
     { target: "#folders", title: "Folders",
       text: "Tap a folder to see only its words; Review then covers just those. New folder makes one." },
     { target: "#list .vocab-item", title: "A saved word",
       text: "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several." },
-    { target: "#more", title: "More", text: "Add a word by hand, export your words for Anki or as a spreadsheet, and Anki's settings." },
+    { target: "#more", title: "More", text: "Add words, export your words for Anki or as a spreadsheet, and Anki's settings." },
   ]);
-  return () => { audio.pause(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
+  return () => { audio.pause(); stopDevice(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
 }

@@ -1,8 +1,10 @@
 <!doctype html>
-<!-- The page that explains how to add the browser extension "Tamkeen for Netflix" while it isn't in the
-     browsers' add-on stores. Its source is extension/install.html; extension/scripts/build.mjs makes
-     docs/extension/index.html from it (with the version and the size of the zip), beside the zip. It
-     shows itself in the user's language with the web app's own translations (../app/i18n/). -->
+<!-- The page that explains how to add the browser extension "Tamkeen for Netflix". Its source is
+     extension/install.html; extension/scripts/build.mjs makes docs/extension/index.html from it (with
+     the version and the size of the zip), beside the zip. It shows itself in the user's language with
+     the web app's own translations (../app/i18n/).
+     The parts between store and /store comments are kept only once CHROME_WEB_STORE_URL (web/js/netflix.js)
+     names the listing (the store's button first); the parts between manual and /manual only until then. -->
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
@@ -40,16 +42,23 @@
       <img src="icon-128.png" alt="" width="88" height="88">
       <h1>Tamkeen for Netflix</h1>
       <p class="lead">A browser extension for Chrome and Edge on a computer. On Netflix it adds Tamkeen's subtitle bar: the subtitles in the language you're learning become words you can click, with the whole transcript beside the video.</p>
+      <p class="lead">On Spotify's web player it adds a lyrics panel: the song's lyrics line by line as it plays, and every word can be clicked.</p>
     </div>
+
+    
     <div class="get">
       <a class="btn" href="tamkeen-netflix.zip" download>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11"/><path d="M7.5 10 12 14.5 16.5 10"/><path d="M4.5 14.5V18a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-3.5"/></svg>
         <span>Download the extension</span></a>
-      <span class="small" translate="no">tamkeen-netflix.zip · 0.35.0 · 2.3 MB</span>
+      <span class="small" translate="no">tamkeen-netflix.zip · 0.36.0 · 2.6 MB</span>
     </div>
+    
     <section class="card">
+      
       <h2>Add it to Chrome or Edge</h2>
       <p class="small center">It isn't in the browsers' extension stores yet, so it is added by hand, once.</p>
+      
+
       <ol>
         <li>Unzip the file you downloaded (right-click it, then Extract All). Keep the folder somewhere it can stay, such as Documents.</li>
         <li>Open the extensions page: type <code>chrome://extensions</code> in Chrome's address bar, or <code>edge://extensions</code> in Edge's.</li>
@@ -57,6 +66,7 @@
         <li>Click Load unpacked and choose the unzipped folder (the one with manifest.json in it).</li>
         <li>Tamkeen opens in a new tab: that hands the extension the language you're learning and your settings. Then choose Netflix in Tamkeen, or click the extension's button in the toolbar.</li>
       </ol>
+      <p class="small center">For songs, open Spotify's web player (<span translate="no">open.spotify.com</span>) and play one.</p>
     </section>
     <section class="card">
       <h2>Firefox</h2>
@@ -64,11 +74,14 @@
     </section>
     <section class="card">
       <h2>Updating it</h2>
+
       <p>Download it again, unzip it over the old folder, then click the round arrow on Tamkeen for Netflix on the extensions page.</p>
     </section>
     <section class="card">
       <h2>Your accounts stay yours</h2>
       <p>You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.</p>
+      <p>The same goes for Spotify. Song lyrics come from LRCLIB, a free lyrics collection, and Tamkeen keeps only the line of each word you save.</p>
+      <p class="small center"><a href="privacy.html">Privacy policy of the extension</a></p>
     </section>
     <p class="center"><a class="btn plain" href="../app/">Open Tamkeen</a></p>
   </main>

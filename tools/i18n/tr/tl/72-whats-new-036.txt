@@ -1,0 +1,7 @@
+902ae4cc Magdagdag ng salita: mag-type o mag-paste ng maraming bagong salita nang sabay, may kahulugan, pangungusap at audio na pinupunan para sa iyo
+e7d39c60 Hanapin ang ilang salita nang sabay: i-drag sa mga ito, o pindutin nang matagal at i-slide sa phone
+37453dfb Boses ng card: mababasa nang malakas ang bawat card, kasama ang natural na boses ng Azure
+64dbc519 Ang sunod-sunod mong araw sa Home at katabi ng pangalan ng mga kaibigan mo
+91fd5e18 Spotify karaoke: i-tap ang kahit anong salita sa lyrics ng kanta (gamit ang browser extension)
+7407a8aa Netflix extension: mga menu ng Audio at Subtitle, at sinusundan nito ang wikang pinag-aaralan mo
+e7edd564 Isang button na bumabalik sa simula ng pangungusap

@@ -4,6 +4,7 @@
 // a record-by-record merge with no translation layer.
 
 import { stampKeys } from "./aikeys.js";
+import { forgetUnknownSttModels } from "./stt.js";
 
 const DB_NAME = "aps";
 const DB_VERSION = 1;
@@ -96,6 +97,8 @@ export const DEFAULTS = {
   llm_key_claude: "", llm_key_gemini: "", llm_key_openai: "", llm_key_grok: "",
   // Cloud transcription (transcribe-service.js): "local" = the computer writes transcripts, "cloud" = a provider does, from this phone.
   stt_mode: "local", stt_provider: "groq", stt_model_groq: "", stt_model_openai: "", stt_key_groq: "", stt_key_openai: "",
+  // Voices for cards without audio (web/js/cardvoice.js): "device", "azure" (the user's own key) or "computer"; synced with the keys.
+  tts_mode: "device", tts_key_azure: "", tts_region_azure: "", tts_voices: "", tts_on_save: "on",
   google_email: "",
   signed_in: false,
   haptics: true,
@@ -145,6 +148,13 @@ export async function loadSettings() {
   if (!settings.task_target_default_moved) {
     if (settings.review_task_target === "google" && !(settings.review_task && settings.review_task.id)) settings.review_task_target = "calendar";
     settings.task_target_default_moved = true;
+    await kv.set("settings", { ...settings });
+  }
+  // Settings no longer offers "Another model…" for cloud transcription (2026-10-22): a model name typed
+  // in by hand goes back to the provider's recommended one ("" = recommended; stt.js knownSttModel).
+  const unknownModels = forgetUnknownSttModels(settings);
+  if (unknownModels) {
+    Object.assign(settings, unknownModels);
     await kv.set("settings", { ...settings });
   }
   return settings;

@@ -34,11 +34,16 @@ import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
+import { sentenceStart } from "../sentencestart.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
+import { wordClip } from "../wordclip.js";
+import { phrasePicker } from "../components/phrasepick.js";
+import { isPhrase, phraseText } from "../phrase.js";
+import { NO_AUDIO_KINDS } from "../cardvoice.js";
+import { voiceNewCard } from "../voiceplay.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
-const LONG_PRESS_MS = 550;
 const CAPTION_WORDS = 12; // longest caption line, in words
 
 function lsGet(key, fallback) {
@@ -197,6 +202,9 @@ export async function render(view, { id, query }) {
   // Played by another company's player that nothing may be drawn over (YouTube's, Netflix's): the
   // clickable captions go under the video and the word popup into the transcript.
   const embed = yt || nf;
+  // A word saved from here keeps no sound of its own (YouTube's and Netflix's sound is never taken):
+  // the card gets its voice instead (cardvoice.js), or the popup offers "Add audio" (wordbubble.js).
+  const voiceless = NO_AUDIO_KINDS.includes(ep.audio_type || "");
   // Captions written by a person are timed per line, not per word (see ytcaptions.js); so are
   // Netflix's subtitles.
   const lineTimed = nf || (yt && ep.model !== "youtube-auto");
@@ -253,6 +261,7 @@ export async function render(view, { id, query }) {
         </div>
         <div class="btnrow">
           <span id="loop-chip" class="chip" hidden>⟲ Looping sentence <button type="button" id="loop-off" title="Stop looping">✕</button></span>
+          <button type="button" id="restart" class="icon" title="Back to the start of the sentence (R)" aria-label="Back to the start of the sentence">${icon("sentence-start", 16)}</button>
           <button type="button" id="back5" title="Back 5 seconds (←)">⟲ 5s</button>
           <button type="button" id="play" class="play primary" title="Play/Pause (Space)">▶</button>
           <button type="button" id="fwd5" title="Forward 5 seconds (→)">5s ⟳</button>
@@ -354,11 +363,13 @@ export async function render(view, { id, query }) {
   for (let i = 0; i < n; i++) if (!segFirst.has(segOf[i])) segFirst.set(segOf[i], i);
   let capStart = -1;
   let capEls = [];
+  let capHeld = false;
   let bubble = null;
   function showCaption(idx) {
     // Keep the tapped word in place while its popup is open. (Not on YouTube when the choice is
     // to keep playing: there the popup hangs below the captions, so they can carry on.)
-    if (!capEl || (bubble && bubble.open && !(embed && !pauseAfterWord()))) return;
+    // (Nor while a finger or the mouse is on a caption word: it may be dragged across to the next words.)
+    if (!capEl || capHeld || (bubble && bubble.open && !(embed && !pauseAfterWord()))) return;
     let start = -1;
     let end = -1;
     if (idx >= 0) {
@@ -476,6 +487,9 @@ export async function render(view, { id, query }) {
   };
   $("#play").onclick = () => { clipEnd = null; audio.paused ? play() : audio.pause(); };
   $("#back5").onclick = () => seekTo(audio.currentTime - 5, false);
+  // Back to the start of the line being heard (again within a second: the line before).
+  const lineStarts = Float64Array.from(data.segments.map((s) => s.start)).sort();
+  $("#restart").onclick = () => seekTo(sentenceStart(lineStarts, audio.currentTime), false);
   $("#fwd5").onclick = () => seekTo(audio.currentTime + 5, false);
   $("#speed").onchange = (e) => {
     speed = Number(e.target.value);
@@ -544,6 +558,7 @@ export async function render(view, { id, query }) {
     const note = $("#yt-note");
     const studyName = langInfo(study).name;
     const lines = [];
+    let temp = ""; // a note shown for a few seconds only (the dubbed soundtrack: the owner wanted it temporary)
     let retry = false;
     if (lang !== study) {
       // YouTube had none in the language being learned and wouldn't hand over its translation.
@@ -555,14 +570,14 @@ export async function render(view, { id, query }) {
       lines.push("Translated by YouTube: it may not match what is said.");
     }
     const paint = () => {
-      note.innerHTML = lines.map(() => "<p></p>").join("");
-      note.querySelectorAll("p").forEach((el, i) => { el.textContent = lines[i]; });
+      note.innerHTML = lines.map(() => "<p></p>").join("") + (temp ? `<p class="yt-note-temp"></p>` : "");
+      note.querySelectorAll("p").forEach((el, i) => { el.textContent = i < lines.length ? lines[i] : temp; });
       if (retry) {
         const again = h(`<button type="button" class="link">Try again</button>`);
         again.onclick = () => tryCaptionsAgain(again);
         note.querySelector("p").append(" ", again);
       }
-      note.hidden = !lines.length;
+      note.hidden = !lines.length && !temp;
       if (bubble) fitBubble(); // the phone's popup hangs just below this
     };
     paint();
@@ -570,8 +585,10 @@ export async function render(view, { id, query }) {
     // can't choose it from outside YouTube's player, so the way to it is shown.
     dubbedTrack(ep).then((track) => {
       if (!track || disposed) return;
-      lines.push(`This video can be heard in ${studyName} too: choose it under ⚙ → Audio track in the video.`);
+      temp = `This video can be heard in ${studyName} too: choose it under ⚙ → Audio track in the video.`;
       paint();
+      // Shown for 12 seconds, fading out over the last one (media.css .yt-note-temp), then gone.
+      setTimeout(() => { if (disposed) return; temp = ""; paint(); }, 12000);
     }).catch(() => {});
   }
   /** Ask YouTube again for captions in the language being learned (its translation may come now). */
@@ -691,7 +708,8 @@ export async function render(view, { id, query }) {
 
   /** Play words i..j. Where only whole lines are timed, the line they are in is played instead. */
   function playWords(i, j = i) {
-    if (!lineTimed) { playClip(starts[i], ends[j]); return; }
+    // A word's own times are often tight: room either side, and as long as it takes to say (wordclip.js).
+    if (!lineTimed) { playClip(...wordClip({ starts, ends, texts, i, j, lang })); return; }
     let a = i;
     let b = j;
     while (a > 0 && segOf[a - 1] === segOf[i]) a--;
@@ -714,35 +732,21 @@ export async function render(view, { id, query }) {
   }
   $("#loop-off").onclick = clearLoop;
 
-  // ---------- click to seek (never when selecting text) ----------
+  // ---------- click a word to look it up (never when selecting text) ----------
+  // Dragging across words (mouse), or holding a word and sliding the finger on (touch), looks the
+  // words up together (components/phrasepick.js); holding a word and lifting opens its menu.
   let down = null;
-  let pressTimer = 0;
-  let suppressClick = false;
-
   tr.addEventListener("pointerdown", (e) => {
-    if (e.button !== 0) return;
-    down = { x: e.clientX, y: e.clientY };
-    suppressClick = false;
-    const wEl = e.target.closest(".w");
-    clearTimeout(pressTimer);
-    // Long-press is for touch/pen. Mouse users right-click; a mouse long-press would fight
-    // with press-and-drag text selection.
-    if (wEl && e.pointerType !== "mouse") {
-      pressTimer = setTimeout(() => {
-        suppressClick = true;
-        openMenu(e.clientX, e.clientY, wEl);
-      }, LONG_PRESS_MS);
-    }
+    if (e.button === 0) down = { x: e.clientX, y: e.clientY };
   });
-  tr.addEventListener("pointermove", (e) => {
-    if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) clearTimeout(pressTimer);
+  const trPicker = phrasePicker(tr, {
+    blockOf: (k) => segOf[k],
+    elOf: (k) => wordEls[k] || null,
+    onPick: (i, j) => defineAt(i, j),
+    onHold: (i, x, y, el) => openMenu(x, y, el),
   });
-  const endPress = () => clearTimeout(pressTimer);
-  tr.addEventListener("pointerup", endPress);
-  tr.addEventListener("pointercancel", endPress);
 
   tr.addEventListener("click", (e) => {
-    if (suppressClick) { suppressClick = false; return; }
     const wEl = e.target.closest(".w");
     if (!wEl || e.detail > 1) return; // ignore the clicks of a double/triple-click (word/line select)
     const sel = window.getSelection();
@@ -758,7 +762,6 @@ export async function render(view, { id, query }) {
     const hasSel = sel && !sel.isCollapsed && tr.contains(sel.anchorNode);
     if (!wEl && !hasSel) return; // let the default menu appear on empty space
     e.preventDefault();
-    clearTimeout(pressTimer);
     openMenu(e.clientX, e.clientY, wEl);
   });
 
@@ -818,11 +821,12 @@ export async function render(view, { id, query }) {
         run: async () => {
           if (savedHere.has(savedKey(i, j))) return;
           try {
-            await api("/vocab", {
+            const row = await api("/vocab", {
               method: "POST",
               body: { text: clean, sentence, episode_id: id, start: starts[i], end: ends[j],
                       sent_start: starts[si], sent_end: ends[sj] },
             });
+            if (voiceless) voiceNewCard(row, ep.audio_type);  // its voice, now (Settings → Card voices)
             savedHere.add(savedKey(i, j));
             reward({ type: "save" }, wordEls[i]);
             seen.markSeen(i, j);
@@ -847,7 +851,7 @@ export async function render(view, { id, query }) {
     const [si, sj] = sentenceBounds(texts, segOf, i, j);
     const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
     const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
-    const word = joinWords(texts.slice(i, j + 1), lang).replace(EDGE_PUNCT, "") || texts[i];
+    const word = phraseText(texts, i, j, lang);
     return {
       si, sj, word,
       ctx: {
@@ -858,6 +862,7 @@ export async function render(view, { id, query }) {
         after: next ? sentenceText(next[0], next[1]) : "",
         podcast: ep.feed_title,
         episode: ep.title,
+        phrase: isPhrase(i, j), // several words looked up together
       },
     };
   }
@@ -889,6 +894,7 @@ export async function render(view, { id, query }) {
     },
   });
   bubble = createWordBubble(vid && !embed ? $("#stage") : $(".transcript-wrap"), {
+    voiceless,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onCorrect: async (def) => {
       const t = bubbleTarget;
@@ -916,11 +922,12 @@ export async function render(view, { id, query }) {
     onSave: async (def) => {
       const t = bubbleTarget;
       try {
-        await api("/vocab", {
+        const row = await api("/vocab", {
           method: "POST",
           body: { ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj),
                   episode_id: id, start: starts[t.i], end: ends[t.j], sent_start: starts[t.si], sent_end: ends[t.sj] },
         });
+        if (voiceless) voiceNewCard(row, ep.audio_type);  // its voice, now (Settings → Card voices)
         savedHere.add(savedKey(t.i, t.j));
         reward({ type: "save" }, wordEls[t.i]);
         seen.markSeen(t.i, t.j);
@@ -964,6 +971,14 @@ export async function render(view, { id, query }) {
 
   // ---------- video: captions, transcript panel, full screen ----------
   const playerEl = view.querySelector(".player");
+  // Caption words dragged across (or held and slid across) are looked up together.
+  const capPicker = vid ? phrasePicker(capEl, {
+    blockOf: (k) => segOf[k],
+    elOf: (k) => capWord(k) || null,
+    onPick: (i, j, el) => defineAt(i, j, el),
+    onStart: () => { capHeld = true; },
+    onEnd: () => { capHeld = false; },
+  }) : null;
   if (vid) {
     capEl.addEventListener("click", (e) => {
       const wEl = e.target.closest(".w");
@@ -1091,6 +1106,7 @@ export async function render(view, { id, query }) {
     if (e.key === " " ) { e.preventDefault(); audio.paused ? play() : audio.pause(); }
     else if (e.key === "ArrowLeft") { e.preventDefault(); seekTo(audio.currentTime - 5, false); }
     else if (e.key === "ArrowRight") { e.preventDefault(); seekTo(audio.currentTime + 5, false); }
+    else if ((e.key === "r" || e.key === "R") && !e.ctrlKey && !e.metaKey) $("#restart").click();
     else if (e.key === "Escape") { if (bubble.open) bubble.hide(); else clearLoop(); }
     else if (vid && (e.key === "t" || e.key === "T")) setPanel(!playerEl.classList.contains("panel-open"));
     else if (vid && (e.key === "c" || e.key === "C")) setCaptions(playerEl.classList.contains("cc-off"));
@@ -1145,7 +1161,8 @@ export async function render(view, { id, query }) {
       audio.load();
     }
     cancelAnimationFrame(raf);
-    clearTimeout(pressTimer);
+    trPicker.destroy();
+    if (capPicker) capPicker.destroy();
     document.removeEventListener("keydown", onKey);
     hideMenu();
   };

@@ -1,0 +1,7 @@
+902ae4cc Wörter hinzufügen: viele neue Wörter auf einmal eintippen oder einfügen, Bedeutungen, Sätze und Audio werden für dich ergänzt
+e7d39c60 Mehrere Wörter zusammen nachschlagen: darüber ziehen, oder auf dem Handy gedrückt halten und wischen
+37453dfb Kartenstimmen: jede Karte kann vorgelesen werden, auch mit natürlichen Azure-Stimmen
+64dbc519 Deine Tagesserie auf der Startseite und neben den Namen deiner Freunde
+91fd5e18 Spotify-Karaoke: tippe auf jedes Wort im Liedtext (mit der Browsererweiterung)
+7407a8aa Netflix-Erweiterung: Menüs für Audio und Untertitel, und sie folgt der Sprache, die du lernst
+e7edd564 Eine Taste, die zum Satzanfang zurückspringt

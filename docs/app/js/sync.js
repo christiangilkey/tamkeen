@@ -13,6 +13,7 @@ import { cleanFollows, mergeFollows } from "./ytfollow.js";
 import { cleanSites, mergeSites } from "./browser-sites.js";
 import { cleanCollections, mergeCollections } from "./igcollections.js";
 import { cleanKeys, keysFromSettings, takeKeys } from "./aikeys.js";
+import { keepVoice } from "./cardvoice.js";
 import { cleanPayload, learningPayload, takeLearning } from "./learnlist.js";
 import { setStudyLanguage } from "./languages.js";
 import { SyncTimer, canSkip, hashText, libraryFingerprint, nudgeKey } from "./syncpace.js";
@@ -72,7 +73,8 @@ export function merge(remote) {
     if (!l) { vocab.set(r.uid, r); changed++; continue; }
     if (newer(r, l)) {
       // A device with an older version sends no translation or memo; keep the ones already known.
-      vocab.set(r.uid, { ...r, translation: r.translation ?? l.translation ?? "", memo: r.memo ?? l.memo ?? "",
+      // A card's voice is never taken away by a copy without one (keepVoice).
+      vocab.set(r.uid, { ...keepVoice(r, l), translation: r.translation ?? l.translation ?? "", memo: r.memo ?? l.memo ?? "",
                          language: r.language || l.language || null });
       changed++;
     }
@@ -191,8 +193,8 @@ export function snapshot() {
     device: "android",
     feeds: [...lib.feeds].sort(byUid),
     episodes: lib.episodes.filter((e) => live.has(e.feed_uid)).sort(byUid),
-    // Words saved before translations (or memos) were kept have none; the desktop writes those as "".
-    vocab: lib.vocab.map((v) => ({ ...v, translation: v.translation || "", memo: v.memo || "" })).sort(byUid),
+    // Words saved before translations (or memos, or card voices) were kept have none; the desktop writes those as "".
+    vocab: lib.vocab.map((v) => ({ ...v, translation: v.translation || "", memo: v.memo || "", voice: v.voice || "" })).sort(byUid),
     folders: [...(lib.folders || [])].sort(byUid),
     definitions: [...lib.definitions].sort((a, b) => (a.key < b.key ? -1 : 1)),
     lexemes: [...(lib.lexemes || [])].sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0)),

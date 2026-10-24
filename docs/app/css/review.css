@@ -377,3 +377,8 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .cal-note[hidden] { display: none; }
 .cal-body .confirm-buttons { align-self: stretch; margin-top: 8px; }
 .cal-body .confirm-buttons button { flex: 1 1 0; min-width: 0; white-space: normal; line-height: 1.25; padding-inline: 10px; } /* the same width, side by side */
+
+/* The back of a card: a tap on the word or its sentence copies it (review.js copyTapped), with a short flash. */
+.rv-back .rv-word, .rv-back .rv-ans-sentence { cursor: copy; -webkit-tap-highlight-color: transparent; border-radius: 12px; }
+.rv-copied { animation: rv-copied .6s ease-out; }
+@keyframes rv-copied { 0% { background: var(--accent-soft); } 100% { background: transparent; } }

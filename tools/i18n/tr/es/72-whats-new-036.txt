@@ -1,0 +1,7 @@
+902ae4cc Añadir palabras: escribe o pega muchas palabras nuevas a la vez, con significados, frases y audio completados por ti
+e7d39c60 Busca varias palabras juntas: arrastra sobre ellas, o mantén pulsado y desliza en el móvil
+37453dfb Voces para tarjetas: cada tarjeta se puede leer en voz alta, también con voces naturales de Azure
+64dbc519 Tu racha diaria en Inicio y junto a los nombres de tus amigos
+91fd5e18 Karaoke de Spotify: toca cualquier palabra de la letra de una canción (con la extensión del navegador)
+7407a8aa Extensión de Netflix: menús de Audio y Subtítulos, y sigue el idioma que estás aprendiendo
+e7edd564 Un botón que vuelve al inicio de la frase

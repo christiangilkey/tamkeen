@@ -1,0 +1,7 @@
+902ae4cc Ajouter des mots : tape ou colle beaucoup de nouveaux mots d'un coup, avec sens, phrases et audio remplis pour toi
+e7d39c60 Cherche plusieurs mots ensemble : fais glisser dessus, ou appuie longuement puis glisse sur un téléphone
+37453dfb Voix des cartes : chaque carte peut être lue à voix haute, y compris avec les voix naturelles d'Azure
+64dbc519 Ta série quotidienne sur l'Accueil et à côté du nom de tes amis
+91fd5e18 Karaoké Spotify : touche n'importe quel mot des paroles (avec l'extension du navigateur)
+7407a8aa Extension Netflix : menus Audio et Sous-titres, et elle suit la langue que tu apprends
+e7edd564 Un bouton qui revient au début de la phrase

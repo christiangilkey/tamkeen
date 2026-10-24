@@ -7,6 +7,9 @@ import { taskTargetCard } from "../components/tasktarget.js";
 import { api, checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js";
 import { aiSetup } from "../components/aisetup.js";
 import { sttSetup } from "../components/sttsetup.js";
+import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
+import { waitingForComputer } from "../cardvoice.js";
+import { cardLanguage } from "../voiceplay.js";
 import { STT_EVENT, testKey, usageToday } from "../transcribe-service.js";
 import { STT_PROVIDERS, sttConfig } from "../stt.js";
 import { PROVIDERS, definerModeOf } from "../definer.js";
@@ -25,6 +28,7 @@ import { dictionariesRow } from "../lexicon/seen.js";
 import { vowelsRow } from "../vowels.js";
 import { readingsRow } from "../lexicon/readings.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
+import { pageSize, pageSizeLabel, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
 import { transport } from "../define-service.js";
 import { signIn, signOut } from "../drive.js";
@@ -89,6 +93,7 @@ function home(view) {
         if (cfg.mode === "cloud") return { text: "Cloud transcription needs a key", warn: true };
         return { text: "Your computer writes the transcripts" };
       },
+      voices: async () => voiceSummary(s, { waiting: waitingForComputer(await api("/vocab"), cardLanguage).count }),
       look: () => [{ text: isWeb ? THEME_LINE.dark : THEME_LINE[s.theme] || THEME_LINE.system }, { text: gameOn() ? "Game features on" : "Game features off" }],
       account: () => {
         if (!s.signed_in) return { text: "Google Drive: not connected" };
@@ -112,7 +117,7 @@ function home(view) {
 
 // ---------- the sections ----------
 
-const BUILD = { languages, words, listening, look, account, apps, data };
+const BUILD = { languages, words, listening, voices, look, account, apps, data };
 
 function languages(body) {
   const s = settings;
@@ -172,6 +177,13 @@ function listening(body) {
   })];
 }
 
+// Card voices: who reads out cards without a recording (components/voicesetup.js). The computer's
+// voice models live on the computer; here only how many cards wait for it.
+function voices(body) {
+  body.append(h(`<section class="card" id="voices"></section>`));
+  return [voiceSetup(body.querySelector("#voices"), { words: () => api("/vocab") })];
+}
+
 function look(body) {
   const s = settings;
   const lang = studyLanguage();
@@ -188,9 +200,9 @@ function look(body) {
       <div class="set-slider"><label for="font">Podcasts &amp; videos</label>
         <input type="range" id="font" min="16" max="56" value="${s.font_size}"><output id="font-val">${s.font_size}px</output></div>
       <div class="set-sample ar" ${langAttrs(lang)} style="font-size:var(--ar-size);line-height:2">${esc(langInfo(lang).sample)}</div>
-      <div class="set-slider"><label for="page-font">Web pages</label>
-        <input type="range" id="page-font" min="12" max="40" value="${s.page_font_size || 17}"><output id="page-font-val">${s.page_font_size || 17}px</output></div>
-      <div class="set-sample ar" ${langAttrs(lang)} style="font-size:var(--page-size);line-height:2">${esc(langInfo(lang).pageSample)}</div>
+      <div class="set-slider"><label for="page-font">Pages &amp; books</label>
+        <input type="range" id="page-font" min="${PAGE_SIZE_MIN}" max="${PAGE_SIZE_MAX}" value="${pageSize(s.page_font_size)}"><output id="page-font-val">${pageSizeLabel(s.page_font_size)}</output></div>
+      <div class="set-sample ar reader-sample" ${langAttrs(lang)}>${esc(langInfo(lang).pageSample)}</div>
     </section>
     ${vibrates ? `<section class="card set-card" data-find="haptics">
       <h2>Vibration</h2>
@@ -213,8 +225,9 @@ function look(body) {
     saveSettings({ font_size: Number(e.target.value) });
   };
   $("#page-font").oninput = (e) => {
-    $("#page-font-val").textContent = `${e.target.value}px`;
-    saveSettings({ page_font_size: Number(e.target.value) });
+    const v = pageSize(e.target.value);
+    $("#page-font-val").textContent = pageSizeLabel(v);
+    saveSettings({ page_font_size: v });
   };
   gameSwitch($("#game-switch"));
   return [];
@@ -279,7 +292,7 @@ function apps(body) {
       <h2>Tamkeen on the web</h2>
       <p class="set-hint">This works like the app, with a few things that need the Tamkeen app on your phone or computer.</p>
       <details class="set-info"><summary>What needs the app?</summary>Reels from your Instagram saves and random reels, reels with
-        a song from Instagram's music library, the built-in web browser (Import Page and Find in a video), AnkiDroid sync, and the
+        a song from Instagram's music library, the built-in web browser (Import Page), AnkiDroid sync, and the
         number on the app icon. What you add in the app shows up here after a sync.</details>
       <div><a class="btn primary" href="https://github.com/christiangilkey/tamkeen/releases/latest" target="_blank" rel="noopener">Get the app</a></div>
     </section>` : ""}
@@ -295,6 +308,11 @@ function data(body) {
       <div class="row"><span id="app-version"></span><span class="spacer"></span>
         <button type="button" id="check-updates">Check for updates</button></div>
       <div class="small muted" id="update-result"></div>
+    </section>
+    <section class="card set-card stack" data-find="changelog">
+      <h2>Changelog</h2>
+      <div class="row"><span class="small muted">What changed in every version (in English).</span><span class="spacer"></span>
+        <button type="button" id="open-changelog">Open</button></div>
     </section>
     <section class="card" id="reset-app" data-find="reset"></section>
     <section class="card set-card stack" data-find="about privacy">
@@ -317,6 +335,7 @@ function data(body) {
   }));
   resetSection($("#reset-app"), parkAll);
   import("../version.js").then(({ APP_VERSION }) => { $("#app-version").textContent = `Version ${APP_VERSION}`; }).catch(() => {});
+  $("#open-changelog").onclick = () => import("../components/changelog.js").then((m) => m.openChangelog());
   $("#check-updates").onclick = async () => {
     const box = $("#update-result"), button = $("#check-updates");
     button.disabled = true;

@@ -1,0 +1,7 @@
+902ae4cc Pagdugang og mga pulong: i-type o i-paste ang daghang bag-ong pulong dungan, uban ang kahulugan, sentence ug audio nga gipuno para nimo
+e7d39c60 Pangitaa ang pipila ka pulong dungan: i-drag ibabaw niini, o pinduta og dugay ug i-slide sa phone
+37453dfb Tingog sa card: mabasa og kusog ang matag card, lakip ang natural nga tingog sa Azure
+64dbc519 Ang imong sunod-sunod nga adlaw sa Home ug tupad sa ngalan sa imong mga higala
+91fd5e18 Spotify karaoke: i-tap ang bisan unsang pulong sa lyrics sa kanta (gamit ang browser extension)
+7407a8aa Netflix extension: mga menu sa Audio ug Subtitle, ug musunod kini sa pinulongan nga imong gitun-an
+e7edd564 Usa ka button nga mobalik sa sinugdanan sa sentence

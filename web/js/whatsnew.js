@@ -9,6 +9,13 @@ const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, lines);
 
 notes("0.36.0",
+  "Add words: type or paste many new words at once, with meanings, sentences and audio filled in for you",
+  "Look up several words together: drag across them, or hold and slide on a phone",
+  "Card voices: every flashcard can be read aloud, including natural Azure voices",
+  "Your daily streak on Home and beside your friends' names",
+  "Spotify karaoke: tap any word in a song's lyrics (with the browser extension)",
+  "Netflix extension: Audio and Subtitles menus, and it follows the language you're learning",
+  "A button that goes back to the start of the sentence",
   "Pages and books: one clean text size, full pages, and headings and bold kept from the original",
   "The Word button plays the whole word instead of cutting it short",
   "Dictionary first downloads your language's dictionary by itself",
