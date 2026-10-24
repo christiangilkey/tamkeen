@@ -219,6 +219,8 @@ async function renderList(view) {
         <button type="button" class="primary" id="reel-random" ${busy ? "disabled" : ""} ${info.random ? "" : "hidden"}
           title="Reels in ${esc(info.language_name)} on all sorts of everyday subjects, found by searching Instagram for a few words picked at random. Different every time."></button>
       </div>
+      <p class="small muted reel-random-note" id="reel-random-note" ${info.random && info.mode === "saved" ? "" : "hidden"}>Random reels come from all of
+        Instagram, not from your saved collection. For reels from your collection, tick them above and press “Get the ticked reels”.</p>
       <div class="row">
         <button type="button" class="primary" id="reel-go" ${busy ? "disabled" : ""} ${info.mode === "saved" ? "hidden" : ""}></button>
         <button type="button" class="primary" id="reel-send" ${info.mode === "saved" ? "" : "hidden"} disabled></button>
@@ -263,7 +265,11 @@ async function renderList(view) {
     const want = q("#reel-n-want");
     const paintCount = () => {
       q("#reel-go").textContent = busy ? "Getting reels…" : `Get ${howMany} reel${howMany === 1 ? "" : "s"}`;
-      q("#reel-random").textContent = `Get ${howMany} random ${info.language_name} reel${howMany === 1 ? "" : "s"}`;
+      // Beside your saves the random ones must not look like part of them (the owner: "make it clear the 10
+      // random reels aren't from your collection"): the button says where they come from, and a line under it.
+      q("#reel-random").textContent = info.mode === "saved"
+        ? `Get ${howMany} random ${info.language_name} reel${howMany === 1 ? "" : "s"} from all of Instagram`
+        : `Get ${howMany} random ${info.language_name} reel${howMany === 1 ? "" : "s"}`;
     };
     const setCount = (n, typed = false) => {
       howMany = cleanCount(n);

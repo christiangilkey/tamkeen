@@ -11820,6 +11820,11 @@
   "f": "web/js/pages/reels.js"
  },
  {
+  "id": "991aa79d",
+  "k": "Random reels come from all of Instagram, not from your saved collection. For reels from your collection, tick them above and press “Get the ticked reels”.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
   "id": "9648ea78",
   "k": "Sign in to Instagram",
   "f": "web/js/pages/reels.js"
@@ -11847,6 +11852,11 @@
  {
   "id": "497fe891",
   "k": "Get {0} reel{1}",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "ade96e8d",
+  "k": "Get {0} random {1} reel{2} from all of Instagram",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -12210,13 +12220,13 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "af74f7c5",
-  "k": "Copy",
+  "id": "13289035",
+  "k": "That couldn't be copied here.",
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "13289035",
-  "k": "That couldn't be copied here.",
+  "id": "af74f7c5",
+  "k": "Copy",
   "f": "web/js/pages/review.js"
  },
  {
@@ -12225,8 +12235,8 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "4d8637fa",
-  "k": "{0} words that sound like it: copy one into Personal notes and picture it with the meaning.",
+  "id": "b624b721",
+  "k": "{0} words that sound like it and hint at its meaning: copy one into Personal notes and picture it with the meaning.",
   "f": "web/js/pages/review.js"
  },
  {

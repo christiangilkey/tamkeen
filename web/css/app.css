@@ -1797,3 +1797,41 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
   .cb-note { grid-column: 1; }
   .cb-for { padding: 12px; }
 }
+
+/* ---------- drop-down menus on touch screens (components/selectsheet.js) ----------
+   The system's own list never opens (the select takes no taps); Tamkeen's sheet slides up instead. */
+html.sel-sheets select { pointer-events: none; }
+.sel-sheet-back {
+  position: fixed; inset: 0; z-index: 1000; display: flex; align-items: flex-end; justify-content: center;
+  background: rgba(10, 8, 14, 0); transition: background-color .16s ease;
+}
+.sel-sheet-back.shown { background: rgba(10, 8, 14, .5); }
+.sel-sheet-back.closing { background: rgba(10, 8, 14, 0); }
+.sel-sheet {
+  width: min(560px, 100%); max-height: min(72vh, 640px); display: flex; flex-direction: column;
+  background: var(--surface); color: var(--text); border: 1px solid var(--border); border-bottom: 0;
+  border-radius: 20px 20px 0 0; box-shadow: 0 -8px 32px rgba(0, 0, 0, .25);
+  padding: 8px 0 calc(10px + env(safe-area-inset-bottom, 0px));
+  transform: translateY(100%); transition: transform .18s ease-out;
+}
+.sel-sheet::before { content: ""; align-self: center; width: 40px; height: 4px; border-radius: 4px; background: var(--border); margin: 2px 0 8px; }
+.sel-sheet-back.shown .sel-sheet { transform: none; }
+.sel-sheet-back.closing .sel-sheet { transform: translateY(100%); }
+.sel-sheet-title { padding: 2px 20px 10px; font-weight: 700; font-size: 15px; color: var(--muted); border-bottom: 1px solid var(--border); }
+.sel-sheet-list { overflow-y: auto; overscroll-behavior: contain; padding: 6px 10px; }
+.sel-group { padding: 12px 10px 4px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.sel-opt {
+  display: flex; align-items: center; gap: 12px; width: 100%; min-height: 50px; padding: 10px 12px;
+  border: 0; border-radius: 12px; background: transparent; color: var(--text); font: inherit; font-size: 16px; text-align: start; cursor: pointer;
+}
+.sel-opt:hover, .sel-opt:focus-visible { background: var(--surface-2); outline: none; }
+.sel-opt.on { background: var(--accent-soft); font-weight: 650; }
+.sel-opt:disabled { color: var(--muted); opacity: .6; cursor: default; }
+.sel-opt-text { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.sel-opt-mark { flex: none; width: 20px; display: flex; color: var(--accent); }
+@media (min-width: 700px) {
+  .sel-sheet-back { align-items: center; }
+  .sel-sheet { border-radius: 20px; border-bottom: 1px solid var(--border); transform: translateY(16px); opacity: 0; transition: transform .16s ease-out, opacity .16s; }
+  .sel-sheet-back.shown .sel-sheet { opacity: 1; }
+  .sel-sheet-back.closing .sel-sheet { opacity: 0; }
+}

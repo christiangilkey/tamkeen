@@ -1,0 +1,3 @@
+ade96e8d Obtenir {0} reels au hasard en {1:lower} de tout Instagram
+991aa79d Les reels au hasard viennent de tout Instagram, pas de votre collection enregistrée. Pour des reels de votre collection, cochez-les plus haut et appuyez sur « Obtenir les reels cochés ».
+b624b721 Des mots de votre langue qui lui ressemblent à l'oreille et évoquent son sens : copiez-en un dans Notes personnelles et imaginez-le avec le sens.

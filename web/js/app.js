@@ -22,6 +22,7 @@ import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating } from "./i18n.js";
 import { applyPageSize, isAbsurdPageSize, PAGE_SIZE_DEFAULT } from "./textsize.js";
 import { initScrollHints } from "./scrollhint.js";
+import { installSelectSheets } from "./components/selectsheet.js";
 import { shouldRedraw } from "./syncpace.js";
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
@@ -641,6 +642,7 @@ async function bootEmbed() {
 }
 
 async function boot() {
+  installSelectSheets(); // drop-down menus open Tamkeen's own list on a touch screen (components/selectsheet.js)
   connectEvents();
   if (EMBED) return bootEmbed();
   try {

@@ -5360,3 +5360,31 @@ Owner: "Add support for opening spotify with karaoke mode but the words can be c
   element), and play/pause; Free with ads (an ad may be looked up: "No lyrics found"); Spotify's own lyrics view: that
   its lines are read and the marked line found (class-pattern guess); a Japanese/Chinese song's word splitting; that
   LRCLIB isn't asked too often while skipping songs.
+
+## Tamkeen's own drop-down list; tap to copy on the review card's back; Mnemonic maker: real words, sound AND meaning; random reels labelled (2026-10-23; branch `reels-random-label`)
+Owner (phone screenshots): "It needs to be made clear the the 10 random reels aren't from your collection"; the collection
+drop-down "is ugly", then "Do the same with all the drop down that show the default android drop down"; "if I tap a word
+during review on the back card, it should copy it to clipboard … Same with sentences"; the Mnemonic maker's suggestions
+("now-ee-ah", "Nawiyah sounds like") should be real words that "BOTH sound like the word and also be as closely related to
+the meaning as possible".
+- **Drop-downs** (`web/js/components/selectsheet.js`, CSS at the end of app.css): `installSelectSheets({always})` in both
+  shells' boot (phones: always; desktop page and web app: on `(pointer: coarse)`). `html.sel-sheets select {pointer-events:
+  none}` so the system list never opens; a capture-phase click finds the select under the tap inside the element hit
+  (`selectAt`: the hit element must contain the select, so a covered one is never opened), and `openSelectSheet` shows a
+  bottom sheet (centred box ≥700 px): title from aria-label / label / title, optgroups, the chosen one ticked, disabled
+  greyed; choosing sets the option and dispatches `input` + `change`. Escape, a tap outside or a hash change closes it.
+  Enter/Space on a focused select opens it too. Nothing else changed: every page keeps its <select>.
+- **Review back card** (`review.js copyTapped`): in the card's own drag code (`drop`), an unmoved pointerup on the back
+  copies `v.text` (tap on `.rv-word`) or the whole `v.sentence` (tap on `.rv-ans-sentence`), ⟦ ⟧ removed; flash
+  `.rv-copied`, buzz, toast "Copied". Swipes never copy.
+- **Mnemonic maker** (`review/mnemonic.js`): the prompt asks for real words of the learner's language that BOTH sound like the
+  word and are as close to its meaning as possible, with a self-check; `spelledOut()` drops "… sounds like …" and hyphenated
+  syllable chains ("now-ee-ah"); the three prompt strings are in tools/i18n/ignore.txt. The note above the list now says
+  "… sound like it and hint at its meaning" (also fixes ko/th/ceb translations that took the language name for a number).
+- **Random reels** (`pages/reels.js`): in "saved" mode the button reads "Get N random <language> reels from all of Instagram"
+  and `#reel-random-note` says they aren't from the saved collection.
+- Translations: `tools/i18n/tr/<code>/71-reels-random.txt`. **Checked**: 823 JS tests; browser preview at phone size
+  (touch emulated): the Provider drop-down opened the sheet (title, options, current one ticked), choosing Gemini fired one
+  `change` and saved the setting; on a review card's back a tap copied the word, a tap copied the whole sentence, a sideways
+  swipe copied nothing. **Not checked**: a real Android phone (the WebView should never open its own list since the select
+  takes no taps), the reels panel (only the installed apps can get reels).
