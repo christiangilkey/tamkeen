@@ -48,7 +48,11 @@ Every language the app teaches has its voice in `build_course.py` (`AZURE`, the 
 card voices; Bisaya, which Azure has no voice for, uses Meta's MMS voice made on this computer, `--voice mms`).
 Each language is made on a branch of its own off `basics-course` (`basics-<lang>`), touching only its own
 files: `tools/course/<lang>/` (its words, and any ranking script it needs), `docs/course/<lang>/`, and its
-entry in `docs/course/index.json` (which merges by language: keep every language's entry).
+entry in `docs/course/index.json` (which merges by language: keep every language's entry). The full brief
+for a language's session, with the variety each voice speaks, is `tools/course/LANGUAGES.md`.
+- `check_audio.py` hears Chinese, Japanese and Thai letter by letter (they have no spaces), Thai with
+  Typhoon and Bisaya with BuzzASR's model (the listening models Tamkeen downloads for them), and takes
+  `--out` so a language's check can be written outside its folder.
 
 - Rows of a batch can carry a seventh item, `form`: the word as the sentence has it when it isn't written
   the same ("went" for "go"); `tests/js/course-content.test.mjs` checks the sentence contains the word or
