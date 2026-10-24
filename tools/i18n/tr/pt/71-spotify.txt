@@ -1,0 +1,41 @@
+# Spotify: song lyrics as words to click, through the browser extension (2026-10-23)
+cce78a45 Ouça músicas com a letra em palavras que você pode clicar
+82e4cd34 Abrir o Spotify
+5ab6f3dd O Spotify abre em uma nova aba. Entre lá com a sua própria conta do Spotify e toque uma música: o painel do Tamkeen ao lado mostra a letra linha por linha, e você pode clicar em qualquer palavra. As palavras que você salvar lá voltam para cá.
+fb95b2e7 Depois de adicioná-la, recarregue esta página e escolha o Spotify de novo.
+980cf944 As palavras que você salvar lá chegam ao seu Vocabulário, em todos os aparelhos que sincronizam.
+f98556d3 O Spotify precisa da extensão do Tamkeen
+2ca4249a Com a extensão do Tamkeen no Chrome ou no Edge, o player web do Spotify ganha ao lado um painel com a letra da música, linha por linha enquanto toca, e dá para clicar em cada palavra.
+d85f04a5 As palavras que você salvar lá voltam para cá, para o seu Vocabulário.
+b5f5d2f3 O Spotify funciona em um navegador
+43a57f4e Letras de música como palavras clicáveis funcionam com o player web do Spotify no Chrome ou no Edge, com a extensão do Tamkeen: abra lá o app web do Tamkeen e escolha o Spotify para adicioná-la.
+fb5bd03a As letras do Spotify precisam de um computador
+6f6b63a2 No celular, as letras do Spotify não podem aparecer como palavras clicáveis: os navegadores de celular não aceitam a extensão do Tamkeen.
+3c3f757e O Tamkeen não consegue colocar suas letras no próprio app do Spotify.
+50330e1f No computador, com a extensão do Tamkeen no Chrome ou no Edge, o player web do Spotify mostra a letra da música como palavras que você pode clicar.
+446c9372 1 palavra que você salvou no Spotify já está no seu Vocabulário
+2e966c14 {0} palavras que você salvou no Spotify já estão no seu Vocabulário
+76c482d6 Esconder as letras do Tamkeen
+d43a7c66 Acompanhar a música
+ea515062 Voltar ao início da linha (R)
+68bb8891 Voltar ao início da linha
+96fe96cc Mostrar as letras do Tamkeen
+dbf9cb9a Buscar as palavras desta música em {0:lower}?
+875dab7e Buscar palavras em {0:lower}
+405a9c2c Letra do LRCLIB
+d7415edb Letra como o Spotify mostra
+6155f1a4 O Tamkeen ainda não consegue buscar palavras em {0:lower}. A letra continua aparecendo aqui.
+5dc18dfd O Tamkeen não conseguiu saber em que idioma esta música está, então as palavras dela não podem ser buscadas. A letra continua aparecendo aqui.
+12c31782 Toque uma música no Spotify: a letra aparece aqui, e você pode clicar nas palavras.
+c4c3ff0d Procurando a letra desta música…
+9de5c655 Não foi possível acessar o LRCLIB, a coleção de letras. Verifique a conexão e tente de novo.
+2a0f917a Esta música não tem letra para cantar.
+4175ee41 Nenhuma letra encontrada para esta música.
+4cfb088a Se o Spotify tiver a letra, abra-a com o botão de letras do Spotify (o microfone): o Tamkeen a mostra aqui.
+0f020d4b Esta letra não tem tempos, então não acompanha a música.
+9bf2e820 Esta música está em {0:lower}.
+d521d9bd O Tamkeen não conseguiu saber em que idioma esta música está.
+3d9d57d2 As palavras são buscadas em {0:lower}.
+82abd836 No player web do Spotify, ela adiciona um painel de letras: a letra da música linha por linha enquanto toca, e dá para clicar em cada palavra.
+94eb48d7 Para músicas, abra o player web do Spotify (<0/>) e toque uma.
+4c12ffbb O mesmo vale para o Spotify. As letras vêm do LRCLIB, uma coleção gratuita de letras, e o Tamkeen guarda só a linha de cada palavra que você salva.

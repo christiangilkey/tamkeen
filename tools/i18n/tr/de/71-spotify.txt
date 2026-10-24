@@ -1,0 +1,41 @@
+# Spotify: song lyrics as words to click, through the browser extension (2026-10-23)
+cce78a45 Hör Songs mit ihrem Text als Wörter zum Anklicken
+82e4cd34 Spotify öffnen
+5ab6f3dd Spotify öffnet sich in einem neuen Tab. Melde dich dort mit deinem eigenen Spotify-Konto an und spiel einen Song: Tamkeens Seitenleiste daneben zeigt den Text Zeile für Zeile, und du kannst jedes Wort anklicken. Wörter, die du dort speicherst, kommen hierher zurück.
+fb95b2e7 Sobald sie hinzugefügt ist, lade diese Seite neu und wähle noch einmal Spotify.
+980cf944 Wörter, die du dort speicherst, kommen in deine Vokabeln, auf jedem Gerät, das synchronisiert.
+f98556d3 Spotify braucht die Tamkeen-Erweiterung
+2ca4249a Mit der Tamkeen-Erweiterung in Chrome oder Edge bekommt der Webplayer von Spotify daneben eine Seitenleiste mit dem Songtext, Zeile für Zeile, während er läuft, und jedes Wort lässt sich anklicken.
+d85f04a5 Wörter, die du dort speicherst, kommen hierher zurück, in deine Vokabeln.
+b5f5d2f3 Spotify funktioniert im Webbrowser
+43a57f4e Songtexte als Wörter zum Anklicken funktionieren mit dem Webplayer von Spotify in Chrome oder Edge, mit der Tamkeen-Erweiterung: Öffne dort die Tamkeen-Web-App und wähle Spotify, um sie hinzuzufügen.
+fb5bd03a Spotifys Songtexte brauchen einen Computer
+6f6b63a2 Auf dem Handy lassen sich Spotifys Songtexte nicht als Wörter zum Anklicken zeigen: Browser auf Handys nehmen die Tamkeen-Erweiterung nicht an.
+3c3f757e Tamkeen kann seine Songtexte nicht in Spotifys eigene App einfügen.
+50330e1f Auf einem Computer zeigt der Webplayer von Spotify mit der Tamkeen-Erweiterung in Chrome oder Edge den Songtext als Wörter zum Anklicken.
+446c9372 1 Wort, das du auf Spotify gespeichert hast, ist jetzt in deinen Vokabeln
+2e966c14 {0} Wörter, die du auf Spotify gespeichert hast, sind jetzt in deinen Vokabeln
+76c482d6 Tamkeens Songtexte ausblenden
+d43a7c66 Mitlesen
+ea515062 Zurück zum Zeilenanfang (R)
+68bb8891 Zurück zum Zeilenanfang
+96fe96cc Tamkeens Songtexte einblenden
+dbf9cb9a Die Wörter dieses Songs auf {0} nachschlagen?
+875dab7e Wörter auf {0} nachschlagen
+405a9c2c Songtext von LRCLIB
+d7415edb Songtext, wie Spotify ihn zeigt
+6155f1a4 Tamkeen kann Wörter auf {0} noch nicht nachschlagen. Der Songtext wird hier trotzdem angezeigt.
+5dc18dfd Tamkeen kann nicht erkennen, in welcher Sprache dieser Song ist, deshalb lassen sich seine Wörter nicht nachschlagen. Der Songtext wird hier trotzdem angezeigt.
+12c31782 Spiel einen Song auf Spotify: Sein Text erscheint hier, und du kannst seine Wörter anklicken.
+c4c3ff0d Suche den Text dieses Songs…
+9de5c655 LRCLIB, die Songtext-Sammlung, ist nicht erreichbar. Prüf die Verbindung und versuch es noch einmal.
+2a0f917a Dieser Song hat keinen Text zum Singen.
+4175ee41 Für diesen Song wurde kein Text gefunden.
+4cfb088a Wenn Spotify einen Text dafür hat, öffne ihn mit Spotifys Songtext-Taste (dem Mikrofon): Tamkeen zeigt ihn dann hier.
+0f020d4b Dieser Songtext hat keine Zeitangaben und folgt dem Song deshalb nicht.
+9bf2e820 Dieser Song ist auf {0}.
+d521d9bd Tamkeen konnte nicht erkennen, in welcher Sprache dieser Song ist.
+3d9d57d2 Wörter werden auf {0} nachgeschlagen.
+82abd836 Im Webplayer von Spotify fügt sie eine Songtext-Leiste hinzu: den Text des Songs Zeile für Zeile, während er läuft, und jedes Wort lässt sich anklicken.
+94eb48d7 Für Songs öffne den Webplayer von Spotify (<0/>) und spiel einen ab.
+4c12ffbb Für Spotify gilt dasselbe. Songtexte kommen von LRCLIB, einer freien Songtext-Sammlung, und Tamkeen behält nur die Zeile jedes Wortes, das du speicherst.

@@ -5232,3 +5232,131 @@ makes sense, and … as close to how a native speaker would use it as possible".
   made exactly 2 Azure requests (the word, then the whole caption sentence), the card got `voice` times and
   `clips/<uid>.ogg`, the Vocab page's Sentence button fetched `/api/vocab/1/clip`; switch off → Add audio back, no Azure
   request. **Not checked**: a real Azure key, the phone apps, the web app build and the Netflix extension in a browser.
+
+## Spotify with karaoke lyrics, words to click, in the browser extension (2026-10-23; branch `worktree-agent-a22cb2492be53d801`, NOT merged, NOT pushed)
+Owner: "Add support for opening spotify with karaoke mode but the words can be clicked and added to tamkeen".
+- **Research (2026-10-23, read online):**
+  - Spotify's lyrics: its help page says lyrics are for Free and Premium ("availability varies by market, device,
+    rights"; https://support.spotify.com/us/article/lyrics/). On open.spotify.com they show only when the viewer
+    opens the lyrics view (the microphone, `[data-testid="lyrics-button"]`), which fills Spotify's main area; lines
+    are `[data-testid="lyrics-line"]`, sung / being sung / to come marked only by hashed class names that change with
+    Spotify's updates (no timestamps in the page). Signed out, the track page says "Sign in to see lyrics".
+  - The song and place, as seen in the real signed-out page (headless Edge) and current open-source extensions
+    (haroldalan/spotify-karaoke, 2026): `navigator.mediaSession.metadata`; `[data-testid="now-playing-bar"]`,
+    `context-item-info-title`/`-artist` (title link may point at the album with `?highlight=spotify:track:<id>`),
+    `control-button-playpause`, `playback-position`/`playback-duration` ("-m:ss" = time left), the progress bar
+    `[data-testid="playback-progressbar"]` with a hidden `input type=range` (value/max in ms, `aria-valuetext`
+    "1:23/3:49", step 5000) and `[data-testid="progress-bar"]` (`--progress-bar-transform: N%`); all move about once
+    a second. The page's app is `#main` (relative, full width), body `display:flex`.
+  - Spotify's terms: the User Guidelines forbid "crawling" or "scraping" the Service or Content; the Developer Terms
+    count song lyrics as Spotify Content (II.8). So Tamkeen's lyrics come from LRCLIB first; Spotify's own lines are
+    read only when LRCLIB has no timed lyrics and the viewer has opened Spotify's lyrics view.
+  - LRCLIB (docs inside lrclib.net's own page bundle; its "Terms" page): no key; anonymous access stays; "Identify your
+    application using User-Agent" (from a browser: `X-User-Agent` or `Lrclib-Client`); ~45 requests/min per IP for
+    generic clients, ~90 identified, more if registered (optional, free app id); 429/503 with Retry-After that "must"
+    be honoured with jitter; one request after another with 200-500 ms between; cache. "Lyrics may be protected by
+    third-party copyright. You are responsible…". `/api/get` (title, artist, album, length ±2 s), `/api/search` (q or
+    track_name/artist_name, max 20). CORS `*`. New `hasWordSync`/`lyricsfile` (word timings): none of the ~80 songs
+    tried had them. Coverage tried with real songs (timed lyrics found): es, fr, ja, zh, ru, it, pt, de, hi, ko, tl:
+    3/3 each; ar: popular Egyptian/Lebanese pop yes (by the Latin-letter names Spotify shows, e.g. Tamally Maak, Ya
+    Tabtab Wa Dallaa, Kifak Inta), Umm Kulthum only plain; ca, th, fa: about half; ceb: 1 of 6. Some Hindi records
+    are in Latin letters (then "not a Tamkeen language").
+  - Spotify Web API: no lyrics endpoint. Development Mode since Feb 2026: **5 users** per app (allowlisted by email),
+    the app owner needs **Premium**; extended quota only for organisations with 250k+ monthly users (since May 2025);
+    July 2026 only raised Client IDs per developer to 25 (developer.spotify.com/documentation/web-api/concepts/quota-modes,
+    /blog/2026-02-06-update-on-developer-access-and-platform-security, /blog/2026-07-23-web-api-quota-updates).
+    `GET /me/player/currently-playing` (scope user-read-currently-playing) gives the song and `progress_ms`. Developer
+    Policy III.6 "Do not synchronize any sound recordings with any visual media" and III.5 (no product integrated with
+    another service's content) argue against a karaoke app on the Web API.
+  - The desktop app's web view (WebView2, Edge 155) offers Widevine (and PlayReady) on https pages, open.spotify.com
+    included (checked with a pywebview probe), so Spotify's web player should play there.
+  - Phones: Spotify's help says the web player works in phone browsers (Android 6+ Chrome/Samsung/Firefox, iOS
+    Safari/Chrome; support.spotify.com/us/article/web-player-help/), but phone browsers don't take Chrome extensions
+    (only Firefox for Android takes add-ons; not tried).
+- **The extension on open.spotify.com** (desktop Chrome/Edge):
+  - `content/spotify-page.js` (MAIN world, first; pure helpers on `window.__tamkeenSpotifyPage`: `clock`,
+    `trackIdFrom`, `progressFrom`, `activeIndex` = the line whose look (classes) no other line has, between the sung
+    and the coming groups; DOM readers `nowPlaying`, `progress`, `readLyrics`), `content/spotify-main.js` (MAIN world:
+    remembers media elements as they `play()` (Spotify's is often not in the page; only one whose length is the song's
+    and not a silent looping Canvas video is trusted), wraps `mediaSession.setPositionState`; sends
+    `tamkeen:sp-state` 4×/s {title, artist, album, id, t, d, paused, rate, lyrics{hash, active, lines when changed}};
+    between the bar's once-a-second moves the time runs on from when it last changed; takes `tamkeen:sp-cmd`
+    play/pause (Spotify's own button, then the media element if the song didn't follow), seek (the slider: value set
+    as a person would, step "any" for the moment, "input"+"change"; then a click on the bar; then the media element;
+    each checked 0.9 s later), line (clicks Spotify's own lyric line)). `content/spotify.js` (isolated): the panel
+    frame (`spotify.html`, closed shadow root, MessageChannel with a one-time token, as on Netflix) at the right;
+    Spotify's `#main` is narrowed by the column's width (`--tk-side`; checked on the real signed-out page: no
+    sideways scroll, nothing covered); column = min(420, max(300, 28% of the window)), 26 px folded; follows
+    Spotify's full screen.
+  - `js/ext/spotify-panel.js` + `css/spotify.css`: karaoke view (current line big, centred, previous/next dimmer,
+    words lit as sung by spreading each line's time, `.sung`/`.cur`), auto-scroll; wheel/touch/keys/scrollbar stop
+    following and show **Follow along**; tap a line's empty side = jump there; words: tap/drag (phrasePicker) → word
+    popup docked under the lyrics (they get shorter), pause on a tapped word as set; Word/Sentence play buttons only
+    for LRCLIB's timed lyrics (seek + pause at the end). Controls: back to the start of the line (R), back 5 s (←),
+    play/pause (Space), quick/detailed switch; T folds. Notes: open Tamkeen once; play a song; looking; no lyrics (+
+    open Spotify's lyrics view); instrumental; LRCLIB unreachable (+ Try again); no timings; language. Credit line
+    under the lyrics ("Lyrics from LRCLIB · lrclib.net" / "Lyrics as Spotify shows them").
+  - Lyrics: asked once a song has played 1.2 s with its length known (or 4 s), from **background.js** (one request at
+    a time, 350 ms apart, `Lrclib-Client: Tamkeen browser extension <version> (…/extension/)`, Retry-After + up to 30%
+    jitter, twice at most; `/api/get` then searches, stopping at timed lyrics; answers kept in `chrome.storage.session`
+    12 h, "none" 1 h, 60 songs). Choice (`choose`): LRCLIB timed → Spotify's own lines while its view shows a marked
+    line → LRCLIB plain → Spotify's unmarked lines → none. Song key = title + artist (Spotify's id comes and goes).
+  - Language: `web/js/lyrics.js detectLyricsLanguage` (script counts with CJK weighted; Arabic vs Persian by
+    `looksPersian`; Ukrainian/Serbian letters; Latin by Zipf scores over each language's 1000 commonest words from
+    web/js/wordlists, unknown below 35% coverage). Looked up in the song's language when it is the learning language
+    or one of `learning_languages` (now in `cleanSettings`); another Tamkeen language: "This song is in X" + **Look
+    up words in X** (and in the learning language too when written the same way), remembered per song for the
+    session; a word tapped meanwhile offers the same; other languages: lyrics shown, "Tamkeen can't look up words in
+    X yet". Words are split/spaced by the song's own language even before (Japanese, Chinese, Thai).
+  - Shared with the Netflix panel now: `js/ext/common.js` (`pagePort`, `applySettings`, `followSettings`,
+    `transcriptWords` → lyrics.js `lineWords` → languages.js `regroupWords`, `wordsHtml`, `flash` (with an optional
+    button), `savedFoot`). panel.js uses them; its behaviour is unchanged (full e2e passes).
+- **Saving (copyright choice):** a Spotify word waits as `w:<uid>` like Netflix words, `{…, spotify: {id, title,
+  artist}, sentence: the lyric line}` (extbridge `cleanTrack`, `savedSpotifyWord`, `spotifySource`). The web app
+  (web-extension.js) posts it to **POST /vocab with `source` "Spotify – Artist – Title" (→ `episode_title`) and
+  `language`** (both servers: backend.js, app/api/vocab.py `VocabIn.source/.language`; tests/test_vocab_source.py),
+  no episode; toast "N words you saved on Spotify…"; card voice like a typed card (`voiceNewCard(row, "missing")`).
+  **No Library item and no full lyrics are stored anywhere** (LRCLIB's terms leave copyright to the user; Spotify's
+  terms count lyrics as its Content; a store reviewer could read stored lyrics as copying copyrighted content). Only
+  each saved word's line is kept, as its card's sentence.
+- **In the app:** Library → + → **Spotify** (music icon, after Netflix; `web/js/spotify.js` `spotifyReason`,
+  `spotifyText`, in build-www SHARED): web app on a computer with the extension → **Open Spotify** (new tab); without
+  → "Spotify needs the Tamkeen extension" + Get the Tamkeen extension (same store/install-page link as Netflix);
+  computer app → "Spotify works in a web browser" (use the web app in Chrome/Edge); web app on a phone and the phone
+  apps → "Spotify's lyrics need a computer" with why. Translations `tools/i18n/tr/<code>/71-spotify.txt` (40 × 16;
+  70 was taken by voice-on-save); ignore.txt has lyrics.js's version pattern.
+- **Not built: "Open Spotify" in the desktop app's own window.** WebView2 has Widevine, so it should play, but the
+  karaoke panel there needs its own host (no chrome.* APIs: the local server's page framed into Spotify's page in a
+  pywebview window, a main-world script injected by Python, lookups and saves through /api, window management): a
+  separate task. The desktop explains the browser route instead.
+- **Phones (not built):** realistic only for the owner and up to 4 friends: a Web API version (PKCE sign-in in the
+  phone app, poll currently-playing every few seconds for the song and progress, LRCLIB for the lyrics, the same
+  karaoke view in Tamkeen while the Spotify app plays) needs Development Mode (5 allowlisted users, owner's Premium);
+  extended quota is out of reach, and Developer Policy III.6/III.5 make a public karaoke feature on the Web API
+  doubtful.
+- **Manifest:** + content scripts on `https://open.spotify.com/*` (MAIN: spotify-page.js, spotify-main.js; isolated:
+  spotify.js), web_accessible `spotify.html` for open.spotify.com, host permission **`https://lrclib.net/*`** only
+  (Spotify needs none: content scripts by "matches"). Summary 125 chars. Name unchanged ("Tamkeen for Netflix";
+  listing.md suggests a brand-free name). Store kit (listing.md, HOW-TO-PUBLISH.md step 16), extension/privacy.html
+  (+ docs copy via build.mjs --page) and docs/privacy.html updated; install page mentions Spotify.
+- **Build:** `build.mjs` copies the new files, follows `js/ext/spotify-panel.js`; test-only `--test-spotify
+  http://spotify.localhost:PORT` (*.localhost now counts as local) and `--test-lyrics http://127.0.0.1:PORT`.
+  (A worktree needs `mobile/node_modules` for `webapp/build-web.mjs`: a junction to the main checkout's works.)
+- **Tests:** tests/js/lyrics.test.mjs (20: LRC stamps/several per line/offset/pauses/word stamps, plain lyrics, view
+  lines, line at a time, ja/zh/th word splitting, name normalising, matching and refusals, requests, Retry-After,
+  language of 17 samples + K-pop, Ukrainian, romanised Hindi, Finnish), spotify-page.test.mjs (4), spotify.test.mjs
+  (2), extbridge.test.mjs (+1, build checks), pytest test_vocab_source.py (2). **e2e** (`node extension/test/e2e.mjs
+  [--spotify-only]`, real Edge 155 headless, fake Spotify built from the real page's structure + fake LRCLIB, lyrics
+  written for the test, `extension/test/fake-spotify.mjs`): Spotify narrowed / nothing covered, LRCLIB asked once
+  with album+length and the client header, 14 lines, current line big and centred, words lit, follows, word →
+  meaning (real Arabic dictionary) and pause, Save → web app Vocab card (line, "Spotify – …", no episode, ar) and the
+  extension forgets it, popup under the lyrics, Follow along, back 5 s through the slider, back to line start, line
+  tap, Spanish song offer → lookups in Spanish, no-LRCLIB song → Spotify's own lines following its marked line and
+  line click, plain lyrics, fold/unfold, cache (no second request), web app Spotify entry with/without the extension.
+- **Needs the owner on real Spotify** (Chrome or Edge, extension loaded unpacked, web app opened once): that the
+  panel appears and Spotify narrows properly when signed in (Now Playing view open and closed, full screen); the song
+  and time (does `play()` catch Spotify's media element? else the bar's once-a-second time is used: lines may lag
+  ~0.5 s); that back 5 s / line tap / restart really seek (the slider route; if not, the bar click; then the media
+  element), and play/pause; Free with ads (an ad may be looked up: "No lyrics found"); Spotify's own lyrics view: that
+  its lines are read and the marked line found (class-pattern guess); a Japanese/Chinese song's word splitting; that
+  LRCLIB isn't asked too often while skipping songs.

@@ -27,7 +27,8 @@
 
   <p>"Tamkeen for Netflix" is a free browser extension for learning a language. On Netflix's website it shows the
   subtitles in the language you are learning as words you can click, with the whole transcript beside the video and
-  the meaning of any word you click. It works together with the free Tamkeen web app
+  the meaning of any word you click. On Spotify's web player it shows the lyrics of the song playing, line by line
+  as it plays, as words you can click in the same way. It works together with the free Tamkeen web app
   (<a href="https://christiangilkey.github.io/tamkeen/app/">christiangilkey.github.io/tamkeen/app</a>), where your
   library and saved words live.</p>
 
@@ -35,8 +36,9 @@
   has no analytics, no advertising and no tracking, and never sells or shares your data. The only things that leave
   your browser are listed below, and each one is needed for a feature you use.</p>
 
-  <p>Tamkeen and this extension are not made, endorsed or sponsored by Netflix. "Netflix" is a trademark of
-  Netflix, Inc.; it is named here only to say which website the extension works with.</p>
+  <p>Tamkeen and this extension are not made, endorsed or sponsored by Netflix or Spotify. "Netflix" is a trademark
+  of Netflix, Inc., and "Spotify" a trademark of Spotify AB; they are named here only to say which websites the
+  extension works with.</p>
 
   <h2>Where the extension runs</h2>
   <ul>
@@ -44,6 +46,10 @@
       account.</li>
     <li><strong>Netflix's video servers</strong> (<code>*.nflxvideo.net</code>), only to recognise and read the
       subtitle files Netflix's player downloads.</li>
+    <li><strong>Spotify's web player</strong> (<code>open.spotify.com</code>), where you listen with your own Spotify
+      account.</li>
+    <li><strong>LRCLIB</strong> (<code>lrclib.net</code>), a free, open collection of song lyrics, only to ask for the
+      lyrics of the song playing on Spotify.</li>
     <li><strong>The Tamkeen web app's own pages</strong> (<code>christiangilkey.github.io/tamkeen/app/</code>), to
       pass your settings and saved words between the web app and the extension.</li>
   </ul>
@@ -69,6 +75,22 @@
   viewing history. It does not download or copy videos, and it does not get around Netflix's sign-in, subscription
   or copy protection: you need your own Netflix subscription, and the video plays in Netflix's own player.</p>
 
+  <h2>What it does on Spotify's web player</h2>
+  <ul>
+    <li><strong>The song playing.</strong> It reads what Spotify's page shows about the song playing: its title,
+      artist, album and length, Spotify's number for the song, where in the song it is, and whether it is playing.</li>
+    <li><strong>The screen.</strong> It narrows Spotify's page a little to make room for Tamkeen's lyrics panel at the
+      right (or a slim tab, when you fold the panel away). Everything of Spotify stays usable.</li>
+    <li><strong>The controls.</strong> When you use Tamkeen's buttons (play, pause, back 5 seconds, back to the start
+      of a line, a line you click), it uses Spotify's own play button and progress bar, as you would.</li>
+    <li><strong>Spotify's own lyrics.</strong> Only if LRCLIB has no timed lyrics for the song and you open Spotify's
+      own lyrics view, it reads the lines shown there, and which one Spotify marks as being sung, to show them in
+      Tamkeen's panel while you listen.</li>
+  </ul>
+  <p>It never reads or stores your Spotify password, your account, your playlists, your library or your listening
+  history, and it never records, copies or downloads any sound: the music plays in Spotify's own player, with your
+  own Spotify account.</p>
+
   <h2>What it keeps in your browser</h2>
   <p>All of this stays in your browser's storage for the extension, on your computer. Removing the extension deletes
   it.</p>
@@ -88,8 +110,14 @@
     <tr><td>The words you save and the titles you watch (the Netflix title number and name, its subtitle lines,
       and when), until the Tamkeen web app has taken them. The extension then deletes them.</td><td>So they reach your
       Tamkeen library and vocabulary list.</td></tr>
-    <tr><td>Small choices: whether the transcript sidebar is open, and that you have seen a one-time
-      note.</td><td>To remember your layout.</td></tr>
+    <tr><td>The words you save on Spotify (the word, its explanation, the one lyric line it is in, and the song's
+      title, artist and Spotify number), until the Tamkeen web app has taken them. The extension then deletes
+      them.</td><td>So they reach your vocabulary list, each with its line as the card's sentence.</td></tr>
+    <tr><td>The lyrics LRCLIB found for songs you played lately (or that it found none), by the song's title, artist
+      and length: for at most 12 hours, and only until the browser closes.</td><td>So a song played again doesn't
+      have to be asked for again.</td></tr>
+    <tr><td>Small choices: whether the transcript sidebar and the lyrics panel are open, and that you have seen a
+      one-time note.</td><td>To remember your layout.</td></tr>
   </table>
   <p>The settings it receives never include your Google account, your email address, sign-in tokens or any other
   keys: the web app hands over only the items listed above.</p>
@@ -105,7 +133,8 @@
     <li><strong>The AI provider you chose, only if you use AI explanations.</strong> When you click a word and
       Tamkeen asks an AI to explain it, the extension sends, straight from your browser to that provider (Anthropic
       Claude, Google Gemini, OpenAI or xAI Grok) with your own key: the word, its subtitle sentence and the sentences
-      before and after it, the name of the title and that it is from Netflix, and the language you want the
+      before and after it, the name of the title and that it is from Netflix (for a song: its lyric line and the lines
+      before and after it, the song's title and artist, and that it is from Spotify), and the language you want the
       explanation in. Nothing else about you is sent. That provider's privacy policy applies to these requests. With
       "No AI" chosen in Tamkeen's settings, words are explained from the downloaded dictionary and nothing is sent
       to any AI provider.</li>
@@ -115,6 +144,13 @@
       sees your IP address (see <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</li>
     <li><strong>Netflix.</strong> Only the requests described above: the title's name, and the subtitle file
       downloaded again. Netflix's own privacy policy covers your use of Netflix.</li>
+    <li><strong>LRCLIB, to find a song's lyrics.</strong> When a song plays on Spotify's web player, the extension
+      asks LRCLIB (<code>lrclib.net</code>) for its lyrics, sending the song's title, artist, album and length, and
+      the extension's name and version (LRCLIB asks programs to say who they are). Nothing about you is sent, though
+      LRCLIB, like any website, sees your IP address. A song is asked for once, then remembered for a while (see
+      above).</li>
+    <li><strong>Spotify.</strong> The extension sends Spotify nothing of its own: it presses Spotify's own buttons
+      when you use Tamkeen's. Spotify's own privacy policy covers your use of Spotify.</li>
   </ul>
   <p>The extension itself never contacts the developer, Tamkeen's go-between server, the Friends service (Supabase)
   or Google Drive. Those are features of the Tamkeen web app, used only if you turn them on there, and are covered by
@@ -125,12 +161,19 @@
   library, for your own study. They are never published, never sent to the developer and cannot be sent to friends
   from Tamkeen.</p>
 
+  <h2>Song lyrics</h2>
+  <p>A song's lyrics are shown only while you listen, as words to click. They are never kept in your Tamkeen library:
+  only the one line a word you save comes from is kept, as that word card's sentence, with the song's title and
+  artist as where it came from. Lyrics are never published, never sent to the developer and never sent to
+  friends.</p>
+
   <h2>What the developer does not do</h2>
   <ul>
     <li>No selling or renting of your data, to anyone.</li>
     <li>No advertising, analytics, tracking or crash reporting.</li>
-    <li>No use of your data for anything other than the extension's purpose (clickable subtitles for learning a
-      language on Netflix), and no use or transfer of it to decide creditworthiness or for lending.</li>
+    <li>No use of your data for anything other than the extension's purpose (clickable subtitles and song lyrics for
+      learning a language on Netflix and Spotify), and no use or transfer of it to decide creditworthiness or for
+      lending.</li>
     <li>No code loaded from the internet: everything the extension runs is inside the extension you install.</li>
   </ul>
   <p>The use of information received by this extension complies with the

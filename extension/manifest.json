@@ -3,16 +3,16 @@
   "name": "Tamkeen for Netflix",
   "short_name": "Tamkeen",
   "version": "0.0.0",
-  "description": "Learn a language with Netflix: Tamkeen's subtitle bar shows the subtitles in the language you're learning as words you can click.",
+  "description": "Learn a language with Netflix and Spotify: subtitles and song lyrics in the language you're learning, as words you can click.",
   "homepage_url": "https://christiangilkey.github.io/tamkeen/extension/",
   "icons": { "16": "icons/icon-16.png", "32": "icons/icon-32.png", "48": "icons/icon-48.png", "128": "icons/icon-128.png" },
   "action": {
-    "default_title": "Tamkeen for Netflix: open Netflix on titles in the language you're learning",
+    "default_title": "Tamkeen: open Netflix on titles in the language you're learning",
     "default_icon": { "16": "icons/icon-16.png", "32": "icons/icon-32.png", "48": "icons/icon-48.png" }
   },
   "background": { "service_worker": "background.js", "scripts": ["background.js"], "type": "module" },
   "permissions": ["storage", "unlimitedStorage", "webRequest"],
-  "host_permissions": ["https://www.netflix.com/*", "https://*.nflxvideo.net/*"],
+  "host_permissions": ["https://www.netflix.com/*", "https://*.nflxvideo.net/*", "https://lrclib.net/*"],
   "content_scripts": [
     {
       "matches": ["https://www.netflix.com/*"],
@@ -29,6 +29,17 @@
       "matches": ["https://christiangilkey.github.io/tamkeen/app/*"],
       "js": ["content/webapp.js"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "js": ["content/spotify-page.js", "content/spotify-main.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "js": ["content/spotify.js"],
+      "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
@@ -36,7 +47,8 @@
     {
       "resources": ["js/extbridge.js", "js/netflix-ttml.js", "js/netflix-common.js", "js/ytcaptions.js", "js/languages.js", "js/wordlists/th.js"],
       "matches": ["https://christiangilkey.github.io/*"]
-    }
+    },
+    { "resources": ["spotify.html"], "matches": ["https://open.spotify.com/*"] }
   ],
   "browser_specific_settings": {
     "gecko": { "id": "tamkeen-netflix@christiangilkey.github.io", "strict_min_version": "128.0" }

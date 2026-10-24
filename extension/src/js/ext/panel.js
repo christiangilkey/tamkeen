@@ -16,36 +16,28 @@
 // its language). Saved words and the title wait in the extension's storage until the web app takes
 // them into the library (web/js/extbridge.js).
 import { esc, h, toast } from "../app.js";
-import { device, kv, known, loadSettings, settings } from "../store.js";
+import { kv, known, loadSettings, settings } from "../store.js";
 import { startTranslating, t } from "../i18n.js";
 import { icon } from "../icons.js";
 import { sentenceStart } from "../sentencestart.js";
-import { gap, isLanguage, joinWords, regroupWords, setLang, setStudyLanguage } from "../languages.js";
-import { EDGE_PUNCT, activeWordIndex, formatTime, sentenceBounds } from "../wordlookup.js";
+import { isLanguage, joinWords, setLang } from "../languages.js";
+import { activeWordIndex, formatTime, sentenceBounds } from "../wordlookup.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
 import { lookupToggle } from "../components/lookupmode.js";
 import { getDefinition } from "../define-service.js";
 import { markWord } from "../definer.js";
-import { readingsReady } from "../lexicon/readings.js";
 import { baseLanguage, bestSubtitles, captionLines, cleanInfo, displayTitle, selectedSubtitles } from "../netflix-ttml.js";
 import { languageName, subtitleNote } from "../netflix.js";
 import { TITLE_KEY, WORD_KEY, savedWord, watchedTitle } from "../extbridge.js";
+import { applySettings, flash as flashIn, followSettings, pagePort, savedFoot, transcriptWords, wordsHtml as wordsOf } from "./common.js";
 import { CONFIG } from "./config.js";
 
 // ---------- the private line to the page (opened by content/netflix.js with this page's token) ----------
-const NONCE = location.hash.slice(1);
-let port = null;
-let ready = false; // the page below is drawn: until then the page's messages wait
-const early = [];
-addEventListener("message", (e) => {
-  if (port || e.source !== parent || !/^[0-9a-f]{32}$/.test(NONCE) || !e.data || e.data.tamkeenPanel !== NONCE || !e.ports[0]) return;
-  port = e.ports[0];
-  port.onmessage = (m) => (ready ? onPage(m.data || {}) : early.push(m.data || {}));
-  if (ready) reportLayout();
-});
-const send = (msg) => { if (port) port.postMessage(msg); };
+// (Its messages wait until this page is drawn: see the end.)
+const page = pagePort();
+const send = page.send;
 const cmd = (name, value = 0) => send({ type: "cmd", name, value });
 
 // ---------- what is known ----------
@@ -65,15 +57,7 @@ const savedHere = new Set();
 
 // ---------- the page ----------
 await loadSettings();
-setStudyLanguage(settings.study_language || "ar");
-document.documentElement.style.setProperty("--ar-size", `${settings.font_size || 26}px`);
-function useDevice() {
-  try { // this device's lookup choices, as the web app has them
-    localStorage.setItem("lookupMode", device.lookup_mode === "quick" ? "quick" : "detailed");
-    localStorage.setItem("wordPause", device.word_pause === false ? "0" : "1");
-  } catch { /* storage off: the defaults */ }
-}
-useDevice();
+applySettings();
 
 const root = document.getElementById("tk");
 root.innerHTML = `
@@ -201,14 +185,7 @@ function defineAt(i, anchor, where, j = i) {
 }
 
 // ---------- the transcript ----------
-function wordsHtml(a, b) {
-  let out = "";
-  for (let i = a; i <= b; i++) {
-    if (i > a) out += esc(gap(S.texts[i - 1], S.texts[i], S.lang));
-    out += `<span class="w" data-i="${i}">${esc(S.texts[i])}</span>`;
-  }
-  return out;
-}
+const wordsHtml = (a, b) => wordsOf(S.texts, a, b, S.lang);
 
 /** Show `lines` (subtitle lines) as the transcript. `lang`: the Tamkeen language their words are
  * looked up in ("" for one Tamkeen doesn't teach: shown, not looked up); `code`: their own language
@@ -216,22 +193,8 @@ function wordsHtml(a, b) {
 async function useLines(lines, lang, code = lang) {
   S.lang = lang;
   S.lines = lines;
-  await readingsReady(lang, 3000).catch(() => {}); // Japanese and Chinese: the dictionary that splits words, if here
-  const W = { start: [], end: [], seg: [], text: [] };
-  lines.forEach((l, si) => { for (const [s, e, w] of l.words) { W.start.push(s); W.end.push(e); W.text.push(w); W.seg.push(si); } });
-  const R = regroupWords(W, lang, true, (si) => (lines[si] ? lines[si].text : ""));
-  S.n = R.text.length;
-  S.starts = Float64Array.from(R.start);
-  S.ends = Float64Array.from(R.end);
-  S.segOf = Int32Array.from(R.seg);
-  S.texts = R.text;
-  S.segFirst = lines.map(() => -1);
-  S.segLast = lines.map(() => -1);
-  for (let i = 0; i < S.n; i++) {
-    const s = S.segOf[i];
-    if (S.segFirst[s] < 0) S.segFirst[s] = i;
-    S.segLast[s] = i;
-  }
+  // (Japanese and Chinese: split by the dictionary that splits words, if it is here: common.js.)
+  Object.assign(S, await transcriptWords(lines, lang));
   S.curSeg = S.curWord = S.capSeg = S.capLock = -1;
   for (const el of [cap, linesEl]) { // (subtitle text: never translated, drawn in its direction)
     setLang(el, lang);
@@ -531,17 +494,7 @@ function subsName() {
 const noLookupText = () => t("Tamkeen can't look up words in {0} yet. Its subtitles still show here.", subsName());
 
 /** A short message just above the bar's subtitle line, for a few seconds. */
-let flashTimer = 0;
-function flash(text) {
-  const pop = $("#bar-pop");
-  pop.querySelector(".bar-flash")?.remove();
-  if (bubble.open) bubble.hide();
-  const el = h(`<p class="bar-flash small"></p>`);
-  el.textContent = text;
-  pop.append(el);
-  clearTimeout(flashTimer);
-  flashTimer = setTimeout(() => el.remove(), 4000);
-}
+const flash = (text) => flashIn($("#bar-pop"), text, bubble);
 
 // The one-time note: Netflix remembers the subtitle language for the profile.
 let told = false;
@@ -606,37 +559,11 @@ function paintNotes() {
   barNote.hidden = !barNote.textContent;
 }
 
-async function paintFoot() {
-  const all = await chrome.storage.local.get(null);
-  const n = Object.keys(all).filter((k) => k.startsWith(WORD_KEY)).length;
-  const foot = $("#foot");
-  foot.hidden = !n;
-  if (!n) return;
-  foot.innerHTML = "";
-  const text = h(`<span class="small muted"></span>`);
-  text.textContent = n === 1 ? t("1 saved word goes to your Vocab when you open Tamkeen.")
-    : t("{0} saved words go to your Vocab when you open Tamkeen.", n);
-  const open = h(`<a class="btn" target="_blank" rel="noopener">Open Tamkeen</a>`);
-  open.href = CONFIG.webApp;
-  foot.append(text, open);
-}
-chrome.storage.onChanged.addListener((changes, area) => {
-  if (area !== "local") return;
-  if (Object.keys(changes).some((k) => k.startsWith(WORD_KEY))) paintFoot();
-  // Tamkeen's language (or how words are looked up) changed in the web app: this follows at once. (The
-  // part in Netflix's page is told too, and chooses that language's soundtrack and subtitles for the
-  // title playing, unless the viewer chose them by hand; the subtitles shown follow that choice.)
-  if (changes.settings || changes.device) {
-    loadSettings().then(() => {
-      useDevice();
-      setStudyLanguage(settings.study_language || "ar");
-      document.documentElement.style.setProperty("--ar-size", `${settings.font_size || 26}px`);
-      paintNotes();
-      paintMenus();
-    });
-  }
-});
-paintFoot();
+savedFoot($("#foot"), CONFIG.webApp);
+// Tamkeen's language (or how words are looked up) changed in the web app: this follows at once. (The
+// part in Netflix's page is told too, and chooses that language's soundtrack and subtitles for the
+// title playing, unless the viewer chose them by hand; the subtitles shown follow that choice.)
+followSettings(() => { paintNotes(); paintMenus(); });
 
 // ---------- messages ----------
 function onPage(m) {
@@ -690,6 +617,6 @@ connect();
 setSide(sideOpen());
 paintNotes();
 paintName();
-ready = true;
-for (const m of early.splice(0)) onPage(m);
+page.listen(onPage); // (the page's messages that came while this was being drawn, then the rest)
+page.onConnect(reportLayout);
 reportLayout();

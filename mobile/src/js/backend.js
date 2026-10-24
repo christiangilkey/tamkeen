@@ -827,9 +827,13 @@ const routes = [
                 start: body.start ?? null, end: body.end ?? null, sent_start: body.sent_start ?? null,
                 sent_end: body.sent_end ?? null, meaning: body.meaning || "", notes: body.notes || "",
                 translation: (body.translation || "").trim(),
-                // A word typed in, or from an unknown source, is in the language its letters say.
-                language: e ? episodeLang(e) : (isLanguage(detectLanguage(text, studyLanguage())) ? detectLanguage(text, studyLanguage()) : studyLanguage()),
-                episode_title: e ? e.title : "", folders: [], deleted: 0, created_at: t, updated_at: t };
+                // A word typed in, or from an unknown source, is in the language its letters say, unless
+                // the language it was looked up in is given (a word saved from a song on Spotify).
+                language: e ? episodeLang(e) : isLanguage(body.language) ? body.language
+                  : (isLanguage(detectLanguage(text, studyLanguage())) ? detectLanguage(text, studyLanguage()) : studyLanguage()),
+                // Where a word without an episode came from, as given ("Spotify – Artist – Title").
+                episode_title: e ? e.title : String(body.source || "").replace(/\s+/g, " ").trim().slice(0, 300),
+                folders: [], deleted: 0, created_at: t, updated_at: t };
     lib.vocab.push(v);
     changed();
     return vocabOut(v);

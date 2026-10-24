@@ -88,6 +88,7 @@ const SHARED = [
   "js/netflix-ttml.js",
   "js/netflix-common.js",
   "js/extbridge.js",
+  "js/spotify.js",
   "js/youtube-browser.js",
   "js/cardtext.js",
   "js/cardvoice.js",
