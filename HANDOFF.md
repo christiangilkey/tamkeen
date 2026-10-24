@@ -5436,7 +5436,23 @@ batch with Arabic first. This system will also be placed on a redesigned vocab p
   (card with voice, source, folder), Add all 49 (50 cards, all with voice), header 50/1000, unit 1 "All in your
   cards", Continue moved to unit 2, Review "20 new". **Not checked**: Azure audio (no key), the phones, the web app
   build, units 3-20 (not written).
-- **Next**: owner adds his Azure key (Settings → Card voices) → `build_course.py ar --voice azure` →
-  `check_audio.py ar` → listen to flagged ones → owner reviews units 1-2 → write words 101-1000 → other languages
-  (each needs its own grouping step) → publish with a release (ask first). Meanings/translations are English only.
+- **2026-10-24 progress**: owner approved units 1-2 ("They sound good to me, go ahead and proceed with the rest").
+  All **1000 Arabic words written** (ranks 1-1516 of ar-ranked.json; batches in tools/course/build/batch-ar-*.json,
+  added with `tools/course/add_batch.py`); Azure audio built in batches as they were written. Words skipped by hand:
+  names, places, nationalities, months, abbreviations, dialect forms (اللي, مش), religious-only terms, and near
+  repeats of a word already in (أمل noun after أَمَلَ, نقل after نَقَلَ…).
+- **Other languages (prepared, not started)**: `build_course.py` has every app language's Azure voice (same as
+  cardvoice.js AZURE_VOICES) and a machine-wide "one Azure build at a time" lock file (temp dir), UTF-8 logs, a clear
+  message when Azure refuses (allowance used up). `add_batch.py` rows may carry a 7th item `form`.
+  `tests/js/course-content.test.mjs` checks every non-Arabic `tools/course/<lang>/words.json`. Plan (brief in the
+  side-session notes, `basics-course-languages.md`): one session and branch `basics-<lang>` per language, a 20-word
+  audio sample per language checked by listening back (Thai with Typhoon, Bisaya with its own model) before the rest.
+  Starting the sessions needs a message typed in the desktop app (refused over Remote Control). **Azure allowance**:
+  about 50,000 characters per language, ~850,000 for all 17; the free tier gives ~500,000 a month.
+- **Bisaya voice**: Azure has none. Meta MMS `facebook/mms-tts-ceb` runs locally from
+  `~/Documents/arabic-tts/local-tts` (its own venv: Python 3.12, CPU torch, transformers; `mms_say.py`, `--batch`);
+  `build_course.py ceb --voice mms`. **Licence CC BY-NC 4.0 (non-commercial)**: the owner decides whether its audio
+  may be published. Not in the app's "This computer" card voices (would need PyTorch in the app).
+- **Next**: `check_audio.py ar` on all 1000 → listen to the flagged ones → other languages → publish with a release
+  (ask first). Meanings/translations are English only.
 
