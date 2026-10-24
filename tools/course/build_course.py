@@ -112,7 +112,12 @@ def azure_key() -> tuple[str, str]:
                      "Tamkeen on this computer (Settings -> Card voices -> Azure).")
 
 
-def azure_synth(text: str, lang: str, rate: str = "", attempt: int = 0) -> tuple[np.ndarray, int]:
+# Azure's free tier allows about 20 requests a minute. Requests go as fast as Azure takes them; once it
+# says "too many" (429), they are spaced out for the rest of the run, waiting as long as it asks.
+_pace = {"gap": 0.0, "last": 0.0}
+
+
+def azure_synth(text: str, lang: str, rate: str = "") -> tuple[np.ndarray, int]:
     import httpx
 
     key, region = azure_key()
@@ -122,16 +127,34 @@ def azure_synth(text: str, lang: str, rate: str = "", attempt: int = 0) -> tuple
         body = f'<prosody rate="{rate}">{body}</prosody>'
     ssml = (f'<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="{v["locale"]}">'
             f'<voice name="{v["voice"]}">{body}</voice></speak>')
-    r = httpx.post(f"https://{region}.tts.speech.microsoft.com/cognitiveservices/v1", content=ssml.encode("utf-8"),
-                   headers={"Ocp-Apim-Subscription-Key": key, "Content-Type": "application/ssml+xml",
-                            "X-Microsoft-OutputFormat": "raw-24khz-16bit-mono-pcm", "User-Agent": "Tamkeen-course-builder"},
-                   timeout=60)
-    if r.status_code == 429 and attempt < 6:  # the free tier allows only so many requests a minute
-        time.sleep(5 + attempt * 5)
-        return azure_synth(text, lang, rate, attempt + 1)
-    if r.status_code != 200:
-        raise SystemExit(f"Azure answered {r.status_code}: {r.text[:200]}")
-    return np.frombuffer(r.content[: len(r.content) // 2 * 2], dtype="<i2"), 24000
+    for attempt in range(12):
+        wait = _pace["last"] + _pace["gap"] - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
+        _pace["last"] = time.monotonic()
+        try:
+            r = httpx.post(f"https://{region}.tts.speech.microsoft.com/cognitiveservices/v1", content=ssml.encode("utf-8"),
+                           headers={"Ocp-Apim-Subscription-Key": key, "Content-Type": "application/ssml+xml",
+                                    "X-Microsoft-OutputFormat": "raw-24khz-16bit-mono-pcm", "User-Agent": "Tamkeen-course-builder"},
+                           timeout=60)
+        except httpx.HTTPError as exc:  # a dropped connection: try again shortly
+            log(f"  (connection problem: {exc.__class__.__name__}; trying again)")
+            time.sleep(5)
+            continue
+        if r.status_code == 429:
+            _pace["gap"] = max(_pace["gap"], 3.2)
+            try:
+                after = float(r.headers.get("Retry-After", "0"))
+            except ValueError:
+                after = 0.0
+            time.sleep(max(after, 5.0 + attempt * 2))
+            continue
+        if r.status_code != 200:
+            raise SystemExit(f"Azure answered {r.status_code}: {r.text[:200]}")
+        if len(r.content) < 2000:
+            raise SystemExit(f"Azure sent almost no sound for: {text}")
+        return np.frombuffer(r.content[: len(r.content) // 2 * 2], dtype="<i2"), 24000
+    raise SystemExit("Azure kept saying it was too busy. Try again later.")
 
 
 def piper_synth(text: str, lang: str, rate: str = "") -> tuple[np.ndarray, int]:

@@ -1,0 +1,21 @@
+{
+ "format": 1,
+ "courses": {
+  "ar": {
+   "file": "ar/course.json",
+   "title": "Arabic basics",
+   "variety": "Modern Standard Arabic",
+   "words": 100,
+   "planned": 1000,
+   "bytes": 37597,
+   "audio_bytes": 1243234,
+   "sha256": "a1bf465bf8fbda3c1ddd3a2a6771572b2d9b55d6f1b8f60ba89141cd6b58e899",
+   "voice": {
+    "engine": "azure",
+    "name": "Zariyah (Azure, Saudi Arabia)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  }
+ }
+}

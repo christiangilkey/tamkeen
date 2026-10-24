@@ -1,0 +1,905 @@
+{
+ "under": 0.85,
+ "results": [
+  {
+   "n": 1,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "أسكن في بيت صغير",
+   "heard_word": "شكرا",
+   "expected": "أسكن في بيت صغير.",
+   "word": "في"
+  },
+  {
+   "n": 2,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أنا من مصر",
+   "heard_word": "من",
+   "expected": "أنا من مصر.",
+   "word": "من"
+  },
+  {
+   "n": 3,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "أريد أن أشرب ماءً",
+   "heard_word": "ن",
+   "expected": "أريد أن أشرب ماء.",
+   "word": "أن"
+  },
+  {
+   "n": 4,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "الكتاب على الطاولة",
+   "heard_word": "على",
+   "expected": "الكتاب على الطاولة.",
+   "word": "على"
+  },
+  {
+   "n": 5,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "كان الجو جميلا أمس",
+   "heard_word": "كنا",
+   "expected": "كان الجو جميلا أمس.",
+   "word": "كان"
+  },
+  {
+   "n": 6,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أذهب إلى المدرسة كل يوم",
+   "heard_word": "إلى",
+   "expected": "أذهب إلى المدرسة كل يوم.",
+   "word": "إلى"
+  },
+  {
+   "n": 7,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "هذا بيتي",
+   "heard_word": "هاذر",
+   "expected": "هذا بيتي.",
+   "word": "هذا"
+  },
+  {
+   "n": 8,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هذا هو الرجل الذي ساعدني.",
+   "heard_word": "الذي",
+   "expected": "هذا هو الرجل الذي ساعدني.",
+   "word": "الذي"
+  },
+  {
+   "n": 9,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "لا أعرف",
+   "heard_word": "لا",
+   "expected": "لا أعرف.",
+   "word": "لا"
+  },
+  {
+   "n": 10,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "ما اسمك؟",
+   "heard_word": "ما",
+   "expected": "ما اسمك؟",
+   "word": "ما"
+  },
+  {
+   "n": 11,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أحب الشاي والقهوة",
+   "heard_word": "و",
+   "expected": "أحب الشاي والقهوة.",
+   "word": "و"
+  },
+  {
+   "n": 12,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "نتكلم عن العمل",
+   "heard_word": "أن",
+   "expected": "نتكلم عن العمل.",
+   "word": "عن"
+  },
+  {
+   "n": 13,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "هذه الهدية لك",
+   "heard_word": "لي",
+   "expected": "هذه الهدية لك.",
+   "word": "ل"
+  },
+  {
+   "n": 14,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "أسكن مع عائلتي",
+   "heard_word": "ما",
+   "expected": "أسكن مع عائلتي.",
+   "word": "مع"
+  },
+  {
+   "n": 15,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "من ذلك الرجل؟",
+   "heard_word": "ذلك",
+   "expected": "من ذلك الرجل؟",
+   "word": "ذلك"
+  },
+  {
+   "n": 16,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هو طبيب",
+   "heard_word": "هو",
+   "expected": "هو طبيب.",
+   "word": "هو"
+  },
+  {
+   "n": 17,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أشرب القهوة كل صباح",
+   "heard_word": "كل",
+   "expected": "أشرب القهوة كل صباح.",
+   "word": "كل"
+  },
+  {
+   "n": 18,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هل تريد شايًا أو قهوة؟",
+   "heard_word": "أو",
+   "expected": "هل تريد شايا أو قهوة؟",
+   "word": "أو"
+  },
+  {
+   "n": 19,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أكتب بقلم أزرق",
+   "heard_word": "ب",
+   "expected": "أكتب بقلم أزرق.",
+   "word": "ب"
+  },
+  {
+   "n": 20,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "اليوم يوم جميل",
+   "heard_word": "يوم",
+   "expected": "اليوم يوم جميل.",
+   "word": "يوم"
+  },
+  {
+   "n": 21,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "قال لي صباح الخير",
+   "heard_word": "خالي",
+   "expected": "قال لي: صباح الخير.",
+   "word": "قال"
+  },
+  {
+   "n": 22,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "قد وصل القطار",
+   "heard_word": "قد",
+   "expected": "قد وصل القطار.",
+   "word": "قد"
+  },
+  {
+   "n": 23,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أشرب الشاي بعد الأكل",
+   "heard_word": "بعد",
+   "expected": "أشرب الشاي بعد الأكل.",
+   "word": "بعد"
+  },
+  {
+   "n": 24,
+   "score": 0.75,
+   "word_heard": false,
+   "heard": "زورتم مصر العام الماضي",
+   "heard_word": "I'm",
+   "expected": "زرت مصر العام الماضي.",
+   "word": "عام"
+  },
+  {
+   "n": 25,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "البيت صغير لكنه جميل",
+   "heard_word": "لكن",
+   "expected": "البيت صغير لكنه جميل.",
+   "word": "لكن"
+  },
+  {
+   "n": 26,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "لم أنم جيداً.",
+   "heard_word": "لم",
+   "expected": "لم أنم جيدا.",
+   "word": "لم"
+  },
+  {
+   "n": 27,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هي أختي",
+   "heard_word": "هي",
+   "expected": "هي أختي.",
+   "word": "هي"
+  },
+  {
+   "n": 28,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "المطعم بين البنك والمكتبة",
+   "heard_word": "بين",
+   "expected": "المطعم بين البنك والمكتبة.",
+   "word": "بين"
+  },
+  {
+   "n": 29,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "إن شاء الله نلتقي غدا",
+   "heard_word": "ألا",
+   "expected": "إن شاء الله نلتقي غدا.",
+   "word": "الله"
+  },
+  {
+   "n": 30,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "تم العمل بنجاح",
+   "heard_word": "تم",
+   "expected": "تم العمل بنجاح.",
+   "word": "تم"
+  },
+  {
+   "n": 31,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هذا أول يوم لي في العمل",
+   "heard_word": "أول",
+   "expected": "هذا أول يوم لي في العمل.",
+   "word": "أول"
+  },
+  {
+   "n": 32,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "عندي سيارة جديدة",
+   "heard_word": "أين ده؟",
+   "expected": "عندي سيارة جديدة.",
+   "word": "عند"
+  },
+  {
+   "n": 33,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أي كتاب تريد؟",
+   "heard_word": "أي",
+   "expected": "أي كتاب تريد؟",
+   "word": "أي"
+  },
+  {
+   "n": 34,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "اشتريت بعض الخبز",
+   "heard_word": "باب",
+   "expected": "اشتريت بعض الخبز.",
+   "word": "بعض"
+  },
+  {
+   "n": 35,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "نسكن في نفس الشارع",
+   "heard_word": "نفس",
+   "expected": "نسكن في نفس الشارع.",
+   "word": "نفس"
+  },
+  {
+   "n": 36,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "انتظرتك حتى المساء",
+   "heard_word": "حتى",
+   "expected": "انتظرتك حتى المساء.",
+   "word": "حتى"
+  },
+  {
+   "n": 37,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أغسل يدي قبل الأكل",
+   "heard_word": "قبل",
+   "expected": "أغسل يدي قبل الأكل.",
+   "word": "قبل"
+  },
+  {
+   "n": 38,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "هذا غير صحيح",
+   "heard_word": "غيره",
+   "expected": "هذا غير صحيح.",
+   "word": "غير"
+  },
+  {
+   "n": 39,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "إذا كنت جائعا فكل شيئا",
+   "heard_word": "إذا",
+   "expected": "إذا كنت جائعا فكل شيئا.",
+   "word": "إذا"
+  },
+  {
+   "n": 40,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أنا طالب",
+   "heard_word": "أنا",
+   "expected": "أنا طالب.",
+   "word": "أنا"
+  },
+  {
+   "n": 41,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "يا أحمد، تعال إلى هنا",
+   "heard_word": "يا",
+   "expected": "يا أحمد، تعال إلى هنا!",
+   "word": "يا"
+  },
+  {
+   "n": 42,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "هل تريد شيئا؟",
+   "heard_word": "شيئا",
+   "expected": "هل تريد شيئا؟",
+   "word": "شيء"
+  },
+  {
+   "n": 43,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هل يوجد أحد في البيت؟",
+   "heard_word": "أحد",
+   "expected": "هل يوجد أحد في البيت؟",
+   "word": "أحد"
+  },
+  {
+   "n": 44,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "افعل كما قلت لك",
+   "heard_word": "كاما",
+   "expected": "افعل كما قلت لك.",
+   "word": "كما"
+  },
+  {
+   "n": 45,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أنت صديقي",
+   "heard_word": "أنت",
+   "expected": "أنت صديقي.",
+   "word": "أنت"
+  },
+  {
+   "n": 46,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هل يمكنني أن أجلس هنا؟",
+   "heard_word": "يمكن",
+   "expected": "هل يمكنني أن أجلس هنا؟",
+   "word": "يمكن"
+  },
+  {
+   "n": 47,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أنا أيضا أحب القهوة",
+   "heard_word": "أيضاً",
+   "expected": "أنا أيضا أحب القهوة.",
+   "word": "أيضا"
+  },
+  {
+   "n": 48,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أحتاج إلى وقت أكثر",
+   "heard_word": "أكثر",
+   "expected": "أحتاج إلى وقت أكثر.",
+   "word": "أكثر"
+  },
+  {
+   "n": 49,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "سأتصل بك خلال الأسبوع",
+   "heard_word": "خنال",
+   "expected": "سأتصل بك خلال الأسبوع.",
+   "word": "خلال"
+  },
+  {
+   "n": 50,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "عدت إلى القرية حيث ولدت",
+   "heard_word": "حيث",
+   "expected": "عدت إلى القرية حيث ولدت.",
+   "word": "حيث"
+  },
+  {
+   "n": 51,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "المطعم ليس بعيداً",
+   "heard_word": "نيس",
+   "expected": "المطعم ليس بعيدا.",
+   "word": "ليس"
+  },
+  {
+   "n": 52,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هو طويل مثل أبيه",
+   "heard_word": "مثل",
+   "expected": "هو طويل مثل أبيه.",
+   "word": "مثل"
+  },
+  {
+   "n": 53,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "بدأ الدرس في الساعة التاسعة",
+   "heard_word": "بدأ",
+   "expected": "بدأ الدرس في الساعة التاسعة.",
+   "word": "بدأ"
+  },
+  {
+   "n": 54,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "قام الطلاب عندما دخل المعلم.",
+   "heard_word": "هم",
+   "expected": "قام الطلاب عندما دخل المعلم.",
+   "word": "قام"
+  },
+  {
+   "n": 55,
+   "score": 0.8,
+   "word_heard": true,
+   "heard": "أريد كوباً آخر من الشيء",
+   "heard_word": "آخر",
+   "expected": "أريد كوبا آخر من الشاي.",
+   "word": "آخر"
+  },
+  {
+   "n": 56,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "عندي عمل كثير اليوم",
+   "heard_word": "آمين",
+   "expected": "عندي عمل كثير اليوم.",
+   "word": "عمل"
+  },
+  {
+   "n": 57,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "عمل أبي معلماً عشرين سنة",
+   "heard_word": "آميلا",
+   "expected": "عمل أبي معلما عشرين سنة.",
+   "word": "عمل"
+  },
+  {
+   "n": 58,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "اشتريت هاتفا جديدا",
+   "heard_word": "جديد",
+   "expected": "اشتريت هاتفا جديدا.",
+   "word": "جديد"
+  },
+  {
+   "n": 59,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أريد أن أسافر حول العالم",
+   "heard_word": "عالم",
+   "expected": "أريد أن أسافر حول العالم.",
+   "word": "عالم"
+  },
+  {
+   "n": 60,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "الحياة في القرية هادئة",
+   "heard_word": "حيا",
+   "expected": "الحياة في القرية هادئة.",
+   "word": "حياة"
+  },
+  {
+   "n": 61,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "عمري عشرون سنة",
+   "heard_word": "سنة",
+   "expected": "عمري عشرون سنة.",
+   "word": "سنة"
+  },
+  {
+   "n": 62,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هناك مقهى قريب من هنا",
+   "heard_word": "هناك",
+   "expected": "هناك مقهى قريب من هنا.",
+   "word": "هناك"
+  },
+  {
+   "n": 63,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "عنده أصدقاء كثيرون",
+   "heard_word": "كثير",
+   "expected": "عنده أصدقاء كثيرون.",
+   "word": "كثير"
+  },
+  {
+   "n": 64,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "القاهرة مدينة كبيرة",
+   "heard_word": "مدينة",
+   "expected": "القاهرة مدينة كبيرة.",
+   "word": "مدينة"
+  },
+  {
+   "n": 65,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "لا أشرب إلا الماء",
+   "heard_word": "إلا",
+   "expected": "لا أشرب إلا الماء.",
+   "word": "إلا"
+  },
+  {
+   "n": 66,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "جميع الطلاب حاضرون",
+   "heard_word": "جميع",
+   "expected": "جميع الطلاب حاضرون.",
+   "word": "جميع"
+  },
+  {
+   "n": 67,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "ليس عندي وقت الآن",
+   "heard_word": "وقت",
+   "expected": "ليس عندي وقت الآن.",
+   "word": "وقت"
+  },
+  {
+   "n": 68,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أتعلم اللغة العربية",
+   "heard_word": "عربي",
+   "expected": "أتعلم اللغة العربية.",
+   "word": "عربي"
+  },
+  {
+   "n": 69,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "أريد قهوة واحدة من فضلك",
+   "heard_word": "واحد",
+   "expected": "أريد قهوة واحدة، من فضلك.",
+   "word": "واحد"
+  },
+  {
+   "n": 70,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "بيتهم كبير جداً",
+   "heard_word": "كبير",
+   "expected": "بيتهم كبير جدا.",
+   "word": "كبير"
+  },
+  {
+   "n": 71,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "هذه غرفة خاصة",
+   "heard_word": "خاصة",
+   "expected": "هذه غرفة خاصة.",
+   "word": "خاص"
+  },
+  {
+   "n": 72,
+   "score": 0.667,
+   "word_heard": true,
+   "heard": "أنا مجرون الآن",
+   "heard_word": "الآن",
+   "expected": "أنا مشغول الآن.",
+   "word": "الآن"
+  },
+  {
+   "n": 73,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "زرت دولاً كثيرة",
+   "heard_word": "دولة",
+   "expected": "زرت دولا كثيرة.",
+   "word": "دولة"
+  },
+  {
+   "n": 74,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "هو شخص لطيف",
+   "heard_word": "شخصو",
+   "expected": "هو شخص لطيف.",
+   "word": "شخص"
+  },
+  {
+   "n": 75,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "الناس هنا طيبون",
+   "heard_word": "ناس",
+   "expected": "الناس هنا طيبون.",
+   "word": "ناس"
+  },
+  {
+   "n": 76,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "ما سبب التأخير؟",
+   "heard_word": "سبب",
+   "expected": "ما سبب التأخير؟",
+   "word": "سبب"
+  },
+  {
+   "n": 77,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "رئيس الشركة في اجتماع",
+   "heard_word": "رئيس",
+   "expected": "رئيس الشركة في اجتماع.",
+   "word": "رئيس"
+  },
+  {
+   "n": 78,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "كم عدد الطلاب في الصف؟",
+   "heard_word": "عدد",
+   "expected": "كم عدد الطلاب في الصف؟",
+   "word": "عدد"
+  },
+  {
+   "n": 79,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "رأيت رجلا في الشارع",
+   "heard_word": "رجل",
+   "expected": "رأيت رجلا في الشارع.",
+   "word": "رجل"
+  },
+  {
+   "n": 80,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "أسكن في منطقة هادئة",
+   "heard_word": "منطق",
+   "expected": "أسكن في منطقة هادئة.",
+   "word": "منطقة"
+  },
+  {
+   "n": 81,
+   "score": 0.75,
+   "word_heard": true,
+   "heard": "وجدت مفتاحي تحت الكرسية",
+   "heard_word": "وجد",
+   "expected": "وجدت مفتاحي تحت الكرسي.",
+   "word": "وجد"
+  },
+  {
+   "n": 82,
+   "score": 0.667,
+   "word_heard": true,
+   "heard": "أكنا ثم خرجنا",
+   "heard_word": "ثم",
+   "expected": "أكلنا ثم خرجنا.",
+   "word": "ثم"
+  },
+  {
+   "n": 83,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "زرت موقع الشركة على الإنترنت",
+   "heard_word": "موبيا",
+   "expected": "زرت موقع الشركة على الإنترنت.",
+   "word": "موقع"
+  },
+  {
+   "n": 84,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "الرياضة تعطيك قوة",
+   "heard_word": "هو",
+   "expected": "الرياضة تعطيك قوة.",
+   "word": "قوة"
+  },
+  {
+   "n": 85,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "لدي سؤال",
+   "heard_word": "ندى",
+   "expected": "لدي سؤال.",
+   "word": "لدى"
+  },
+  {
+   "n": 86,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "التقطت صورة جميلة",
+   "heard_word": "سوري",
+   "expected": "التقطت صورة جميلة.",
+   "word": "صورة"
+  },
+  {
+   "n": 87,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "أشرب القهوة دون سكر",
+   "heard_word": "دونة",
+   "expected": "أشرب القهوة دون سكر.",
+   "word": "دون"
+  },
+  {
+   "n": 88,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "أسكن في الطابق الثاني",
+   "heard_word": "ثاني",
+   "expected": "أسكن في الطابق الثاني.",
+   "word": "ثان"
+  },
+  {
+   "n": 89,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "أعلمت بالخبر أمس",
+   "heard_word": "آلم",
+   "expected": "علمت بالخبر أمس.",
+   "word": "علم"
+  },
+  {
+   "n": 90,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "رأيت صديقي في السوق",
+   "heard_word": "ألا",
+   "expected": "رأيت صديقي في السوق.",
+   "word": "رأى"
+  },
+  {
+   "n": 91,
+   "score": 0.5,
+   "word_heard": true,
+   "heard": "اسمي سرى",
+   "heard_word": "اسم",
+   "expected": "اسمي سارة.",
+   "word": "اسم"
+  },
+  {
+   "n": 92,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هذا أمر مهم.",
+   "heard_word": "أمر",
+   "expected": "هذا أمر مهم.",
+   "word": "أمر"
+  },
+  {
+   "n": 93,
+   "score": 0.8,
+   "word_heard": true,
+   "heard": "لو كان عندي وقت لساعتك",
+   "heard_word": "لو",
+   "expected": "لو كان عندي وقت لساعدتك.",
+   "word": "لو"
+  },
+  {
+   "n": 94,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هذا الطريق طويل",
+   "heard_word": "طريق",
+   "expected": "هذا الطريق طويل.",
+   "word": "طريق"
+  },
+  {
+   "n": 95,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "أحب شكل هذه الساعة",
+   "heard_word": "شك",
+   "expected": "أحب شكل هذه الساعة.",
+   "word": "شكل"
+  },
+  {
+   "n": 96,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "أسكن هنا منذ سنتين",
+   "heard_word": "موندو",
+   "expected": "أسكن هنا منذ سنتين.",
+   "word": "منذ"
+  },
+  {
+   "n": 97,
+   "score": 0.5,
+   "word_heard": true,
+   "heard": "معك حقه",
+   "heard_word": "حق",
+   "expected": "معك حق.",
+   "word": "حق"
+  },
+  {
+   "n": 98,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هل تعرف هذا الرجل؟",
+   "heard_word": "عرف",
+   "expected": "هل تعرف هذا الرجل؟",
+   "word": "عرف"
+  },
+  {
+   "n": 99,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "زرت لبنان مرة واحدة فقط",
+   "heard_word": "مرة",
+   "expected": "زرت لبنان مرة واحدة فقط.",
+   "word": "مرة"
+  },
+  {
+   "n": 100,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "عاد أبي من العمل",
+   "heard_word": "أد",
+   "expected": "عاد أبي من العمل.",
+   "word": "عاد"
+  }
+ ]
+}
