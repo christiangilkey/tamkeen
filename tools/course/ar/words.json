@@ -6303,6 +6303,907 @@
       "meaning": "twenty",
       "sentence": "عُمْرِي عِشْرُونَ سَنَةً.",
       "translation": "I'm ⟦twenty⟧ years old."
+    },
+    {
+      "n": 701,
+      "rank": 845,
+      "word": "وَظِيفَة",
+      "pos": "noun",
+      "meaning": "job; post",
+      "sentence": "وَجَدْتُ وَظِيفَةً جَدِيدَةً.",
+      "translation": "I found a new ⟦job⟧."
+    },
+    {
+      "n": 702,
+      "rank": 846,
+      "word": "مَعْرِض",
+      "pos": "noun",
+      "meaning": "exhibition; fair; showroom",
+      "sentence": "ذَهَبْنَا إِلَى مَعْرِضِ الْكِتَابِ.",
+      "translation": "We went to the book ⟦fair⟧."
+    },
+    {
+      "n": 703,
+      "rank": 848,
+      "word": "قَوِيّ",
+      "pos": "adj",
+      "meaning": "strong",
+      "sentence": "أَخِي قَوِيٌّ جِدًّا.",
+      "translation": "My brother is very ⟦strong⟧."
+    },
+    {
+      "n": 704,
+      "rank": 850,
+      "word": "يَنْبَغِي",
+      "pos": "verb",
+      "meaning": "should; ought to (يَنْبَغِي أَنْ)",
+      "sentence": "يَنْبَغِي أَنْ تَنَامَ مُبَكِّرًا.",
+      "translation": "You ⟦should⟧ go to bed early."
+    },
+    {
+      "n": 705,
+      "rank": 856,
+      "word": "أَضَافَ",
+      "pos": "verb",
+      "meaning": "to add",
+      "sentence": "أَضَافَتْ أُمِّي السُّكَّرَ إِلَى الشَّايِ.",
+      "translation": "My mother ⟦added⟧ sugar to the tea."
+    },
+    {
+      "n": 706,
+      "rank": 857,
+      "word": "سُوء",
+      "pos": "noun",
+      "meaning": "badness (لِسُوءِ الْحَظِّ: unfortunately)",
+      "sentence": "لِسُوءِ الْحَظِّ، فَاتَنِي الْقِطَارُ.",
+      "translation": "⟦Unfortunately⟧, I missed the train."
+    },
+    {
+      "n": 707,
+      "rank": 859,
+      "word": "سَمَاء",
+      "pos": "noun",
+      "meaning": "sky",
+      "sentence": "السَّمَاءُ صَافِيَةٌ الْيَوْمَ.",
+      "translation": "The ⟦sky⟧ is clear today."
+    },
+    {
+      "n": 708,
+      "rank": 863,
+      "word": "لَذِيذ",
+      "pos": "adj",
+      "meaning": "delicious; tasty",
+      "sentence": "الْكَعْكَةُ لَذِيذَةٌ!",
+      "translation": "The cake is ⟦delicious⟧!"
+    },
+    {
+      "n": 709,
+      "rank": 864,
+      "word": "مُعَلِّم",
+      "pos": "noun",
+      "meaning": "teacher",
+      "sentence": "مُعَلِّمِي صَبُورٌ جِدًّا.",
+      "translation": "My ⟦teacher⟧ is very patient."
+    },
+    {
+      "n": 710,
+      "rank": 865,
+      "word": "اعْتَمَدَ",
+      "pos": "verb",
+      "meaning": "to depend; to rely (اعْتَمَدَ عَلَى)",
+      "sentence": "يَعْتَمِدُ عَلَى الطَّقْسِ.",
+      "translation": "It ⟦depends⟧ on the weather."
+    },
+    {
+      "n": 711,
+      "rank": 869,
+      "word": "رِوَايَة",
+      "pos": "noun",
+      "meaning": "novel; story; account",
+      "sentence": "أَقْرَأُ رِوَايَةً جَمِيلَةً.",
+      "translation": "I'm reading a lovely ⟦novel⟧."
+    },
+    {
+      "n": 712,
+      "rank": 870,
+      "word": "حَيَوَان",
+      "pos": "noun",
+      "meaning": "animal",
+      "sentence": "أُحِبُّ الْحَيَوَانَاتِ.",
+      "translation": "I love ⟦animals⟧."
+    },
+    {
+      "n": 713,
+      "rank": 872,
+      "word": "مَفْتُوح",
+      "pos": "adj",
+      "meaning": "open",
+      "sentence": "هَلِ الْمَحَلُّ مَفْتُوحٌ الْآنَ؟",
+      "translation": "Is the shop ⟦open⟧ now?"
+    },
+    {
+      "n": 714,
+      "rank": 874,
+      "word": "سَفَر",
+      "pos": "noun",
+      "meaning": "travel; travelling",
+      "sentence": "أُحِبُّ السَّفَرَ كَثِيرًا.",
+      "translation": "I really love ⟦travelling⟧."
+    },
+    {
+      "n": 715,
+      "rank": 875,
+      "word": "نَجَاح",
+      "pos": "noun",
+      "meaning": "success; passing (an exam)",
+      "sentence": "مَبْرُوكٌ عَلَى النَّجَاحِ!",
+      "translation": "Congratulations on your ⟦success⟧!"
+    },
+    {
+      "n": 716,
+      "rank": 876,
+      "word": "مُعَيَّن",
+      "pos": "adj",
+      "meaning": "certain; particular; appointed",
+      "sentence": "لَيْسَ عِنْدِي وَقْتٌ مُعَيَّنٌ.",
+      "translation": "I don't have a ⟦particular⟧ time."
+    },
+    {
+      "n": 717,
+      "rank": 877,
+      "word": "عَلَامَة",
+      "pos": "noun",
+      "meaning": "mark; sign; grade",
+      "sentence": "حَصَلْتُ عَلَى عَلَامَةٍ كَامِلَةٍ.",
+      "translation": "I got full ⟦marks⟧."
+    },
+    {
+      "n": 718,
+      "rank": 878,
+      "word": "سَهْل",
+      "pos": "adj",
+      "meaning": "easy",
+      "sentence": "الِامْتِحَانُ كَانَ سَهْلًا.",
+      "translation": "The exam was ⟦easy⟧."
+    },
+    {
+      "n": 719,
+      "rank": 879,
+      "word": "بَاقِي",
+      "pos": "noun",
+      "meaning": "the rest; remaining (الْبَاقِي: the change)",
+      "sentence": "احْتَفِظْ بِالْبَاقِي.",
+      "translation": "Keep the ⟦change⟧."
+    },
+    {
+      "n": 720,
+      "rank": 881,
+      "word": "صَعْب",
+      "pos": "adj",
+      "meaning": "difficult; hard",
+      "sentence": "هٰذَا السُّؤَالُ صَعْبٌ.",
+      "translation": "This question is ⟦difficult⟧."
+    },
+    {
+      "n": 721,
+      "rank": 882,
+      "word": "فَنَّان",
+      "pos": "noun",
+      "meaning": "artist",
+      "sentence": "أُخْتِي فَنَّانَةٌ مَوْهُوبَةٌ.",
+      "translation": "My sister is a talented ⟦artist⟧.",
+      "form": "فَنَّانَة"
+    },
+    {
+      "n": 722,
+      "rank": 884,
+      "word": "حُضُور",
+      "pos": "noun",
+      "meaning": "attendance; presence; coming",
+      "sentence": "شُكْرًا عَلَى حُضُورِكُمْ.",
+      "translation": "Thank you for ⟦coming⟧."
+    },
+    {
+      "n": 723,
+      "rank": 888,
+      "word": "بِنْت",
+      "pos": "noun",
+      "meaning": "girl; daughter",
+      "sentence": "عِنْدَهُمْ بِنْتٌ وَوَلَدٌ.",
+      "translation": "They have a ⟦girl⟧ and a boy."
+    },
+    {
+      "n": 724,
+      "rank": 890,
+      "word": "رَسْم",
+      "pos": "noun",
+      "meaning": "drawing; fee (رُسُوم: fees)",
+      "sentence": "ابْنِي يُحِبُّ الرَّسْمَ.",
+      "translation": "My son loves ⟦drawing⟧."
+    },
+    {
+      "n": 725,
+      "rank": 892,
+      "word": "عَادِيّ",
+      "pos": "adj",
+      "meaning": "normal; ordinary (عَادِي: it's fine)",
+      "sentence": "كَانَ يَوْمًا عَادِيًّا.",
+      "translation": "It was an ⟦ordinary⟧ day."
+    },
+    {
+      "n": 726,
+      "rank": 893,
+      "word": "ظُرُوف",
+      "pos": "noun",
+      "meaning": "circumstances (singular ظَرْف: envelope)",
+      "sentence": "الظُّرُوفُ صَعْبَةٌ هٰذِهِ الْأَيَّامَ.",
+      "translation": "⟦Things⟧ are hard these days."
+    },
+    {
+      "n": 727,
+      "rank": 897,
+      "word": "رَجَعَ",
+      "pos": "verb",
+      "meaning": "to come back; to return",
+      "sentence": "رَجَعْتُ إِلَى الْبَيْتِ مُتَأَخِّرًا.",
+      "translation": "I ⟦came back⟧ home late."
+    },
+    {
+      "n": 728,
+      "rank": 898,
+      "word": "سَوَاء",
+      "pos": "noun",
+      "meaning": "the same (سَوَاءٌ ... أَمْ: whether ... or)",
+      "sentence": "كُلُّهُمْ عِنْدِي سَوَاءٌ.",
+      "translation": "They're all ⟦the same⟧ to me."
+    },
+    {
+      "n": 729,
+      "rank": 899,
+      "word": "رَغِبَ",
+      "pos": "verb",
+      "meaning": "to want; to wish (رَغِبَ فِي)",
+      "sentence": "هَلْ تَرْغَبُ فِي شُرْبِ شَيْءٍ؟",
+      "translation": "Would you ⟦like⟧ something to drink?"
+    },
+    {
+      "n": 730,
+      "rank": 902,
+      "word": "أَمَلَ",
+      "pos": "verb",
+      "meaning": "to hope (آمُلُ أَنْ: I hope that)",
+      "sentence": "آمُلُ أَنْ أَرَاكَ قَرِيبًا.",
+      "translation": "I ⟦hope⟧ to see you soon."
+    },
+    {
+      "n": 731,
+      "rank": 905,
+      "word": "تَنَاوَلَ",
+      "pos": "verb",
+      "meaning": "to have (a meal); to take (medicine)",
+      "sentence": "تَنَاوَلْنَا الْغَدَاءَ مَعًا.",
+      "translation": "We ⟦had⟧ lunch together."
+    },
+    {
+      "n": 732,
+      "rank": 907,
+      "word": "جَبَل",
+      "pos": "noun",
+      "meaning": "mountain",
+      "sentence": "صَعِدْنَا الْجَبَلَ.",
+      "translation": "We climbed the ⟦mountain⟧."
+    },
+    {
+      "n": 733,
+      "rank": 908,
+      "word": "خَوْف",
+      "pos": "noun",
+      "meaning": "fear",
+      "sentence": "الْخَوْفُ شُعُورٌ طَبِيعِيٌّ.",
+      "translation": "⟦Fear⟧ is a natural feeling."
+    },
+    {
+      "n": 734,
+      "rank": 909,
+      "word": "جَوّ",
+      "pos": "noun",
+      "meaning": "weather; air; atmosphere",
+      "sentence": "الْجَوُّ حَارٌّ الْيَوْمَ.",
+      "translation": "The ⟦weather⟧ is hot today."
+    },
+    {
+      "n": 735,
+      "rank": 911,
+      "word": "أَزْمَة",
+      "pos": "noun",
+      "meaning": "crisis",
+      "sentence": "نَمُرُّ بِأَزْمَةٍ صَعْبَةٍ.",
+      "translation": "We're going through a difficult ⟦crisis⟧."
+    },
+    {
+      "n": 736,
+      "rank": 912,
+      "word": "وَرَاءَ",
+      "pos": "prep",
+      "meaning": "behind",
+      "sentence": "الْحَدِيقَةُ وَرَاءَ الْبَيْتِ.",
+      "translation": "The garden is ⟦behind⟧ the house."
+    },
+    {
+      "n": 737,
+      "rank": 913,
+      "word": "مَجَلَّة",
+      "pos": "noun",
+      "meaning": "magazine",
+      "sentence": "أَقْرَأُ مَجَلَّةً فِي الطَّائِرَةِ.",
+      "translation": "I read a ⟦magazine⟧ on the plane."
+    },
+    {
+      "n": 738,
+      "rank": 914,
+      "word": "ضَرَبَ",
+      "pos": "verb",
+      "meaning": "to hit; to strike",
+      "sentence": "لَا تَضْرِبْ أَخَاكَ!",
+      "translation": "Don't ⟦hit⟧ your brother!"
+    },
+    {
+      "n": 739,
+      "rank": 915,
+      "word": "تَفْكِير",
+      "pos": "noun",
+      "meaning": "thinking; thought",
+      "sentence": "أَحْتَاجُ إِلَى وَقْتٍ لِلتَّفْكِيرِ.",
+      "translation": "I need time to ⟦think⟧."
+    },
+    {
+      "n": 740,
+      "rank": 919,
+      "word": "مُرُور",
+      "pos": "noun",
+      "meaning": "passing; traffic",
+      "sentence": "هُنَاكَ زَحْمَةُ مُرُورٍ.",
+      "translation": "There's a ⟦traffic⟧ jam."
+    },
+    {
+      "n": 741,
+      "rank": 922,
+      "word": "اسْتَحَقَّ",
+      "pos": "verb",
+      "meaning": "to deserve",
+      "sentence": "تَسْتَحِقُّ الْأَفْضَلَ.",
+      "translation": "You ⟦deserve⟧ the best."
+    },
+    {
+      "n": 742,
+      "rank": 924,
+      "word": "مُثِير",
+      "pos": "adj",
+      "meaning": "exciting",
+      "sentence": "كَانَتِ الْمُبَارَاةُ مُثِيرَةً.",
+      "translation": "The match was ⟦exciting⟧."
+    },
+    {
+      "n": 743,
+      "rank": 925,
+      "word": "سِرّ",
+      "pos": "noun",
+      "meaning": "secret",
+      "sentence": "هٰذَا سِرٌّ بَيْنَنَا.",
+      "translation": "This is a ⟦secret⟧ between us."
+    },
+    {
+      "n": 744,
+      "rank": 928,
+      "word": "سَادِس",
+      "pos": "adj",
+      "meaning": "sixth",
+      "sentence": "ابْنَتِي فِي الصَّفِّ السَّادِسِ.",
+      "translation": "My daughter is in ⟦sixth⟧ grade."
+    },
+    {
+      "n": 745,
+      "rank": 931,
+      "word": "مِسَاحَة",
+      "pos": "noun",
+      "meaning": "area; space",
+      "sentence": "مَا مِسَاحَةُ الشَّقَّةِ؟",
+      "translation": "What's the flat's floor ⟦area⟧?"
+    },
+    {
+      "n": 746,
+      "rank": 932,
+      "word": "مُنْتَخَب",
+      "pos": "noun",
+      "meaning": "national team",
+      "sentence": "يَلْعَبُ فِي الْمُنْتَخَبِ الْوَطَنِيِّ.",
+      "translation": "He plays for the ⟦national team⟧."
+    },
+    {
+      "n": 747,
+      "rank": 934,
+      "word": "أَدَوَات",
+      "pos": "noun",
+      "meaning": "tools; utensils (singular أَدَاة)",
+      "sentence": "أَيْنَ أَدَوَاتُ الْمَطْبَخِ؟",
+      "translation": "Where are the kitchen ⟦utensils⟧?"
+    },
+    {
+      "n": 748,
+      "rank": 938,
+      "word": "غَاز",
+      "pos": "noun",
+      "meaning": "gas",
+      "sentence": "انْقَطَعَ الْغَازُ.",
+      "translation": "The ⟦gas⟧ has been cut off."
+    },
+    {
+      "n": 749,
+      "rank": 940,
+      "word": "جِنْسِيَّة",
+      "pos": "noun",
+      "meaning": "nationality",
+      "sentence": "مَا جِنْسِيَّتُكَ؟",
+      "translation": "What's your ⟦nationality⟧?"
+    },
+    {
+      "n": 750,
+      "rank": 941,
+      "word": "تَوَقَّعَ",
+      "pos": "verb",
+      "meaning": "to expect",
+      "sentence": "لَمْ أَتَوَقَّعْ ذٰلِكَ.",
+      "translation": "I didn't ⟦expect⟧ that."
+    },
+    {
+      "n": 751,
+      "rank": 943,
+      "word": "أَخْبَرَ",
+      "pos": "verb",
+      "meaning": "to tell; to inform",
+      "sentence": "أَخْبَرَنِي بِالْخَبَرِ.",
+      "translation": "He ⟦told⟧ me the news."
+    },
+    {
+      "n": 752,
+      "rank": 944,
+      "word": "رِيَال",
+      "pos": "noun",
+      "meaning": "riyal",
+      "sentence": "السِّعْرُ خَمْسُونَ رِيَالًا.",
+      "translation": "The price is fifty ⟦riyals⟧."
+    },
+    {
+      "n": 753,
+      "rank": 946,
+      "word": "مَالِك",
+      "pos": "noun",
+      "meaning": "owner",
+      "sentence": "مَالِكُ الْبَيْتِ رَجُلٌ طَيِّبٌ.",
+      "translation": "The ⟦owner⟧ of the house is a kind man."
+    },
+    {
+      "n": 754,
+      "rank": 947,
+      "word": "صَارَ",
+      "pos": "verb",
+      "meaning": "to become",
+      "sentence": "صَارَ الْجَوُّ بَارِدًا.",
+      "translation": "The weather ⟦has turned⟧ cold."
+    },
+    {
+      "n": 755,
+      "rank": 949,
+      "word": "طَبِيعَة",
+      "pos": "noun",
+      "meaning": "nature",
+      "sentence": "أُحِبُّ الطَّبِيعَةَ.",
+      "translation": "I love ⟦nature⟧."
+    },
+    {
+      "n": 756,
+      "rank": 951,
+      "word": "اتِّجَاه",
+      "pos": "noun",
+      "meaning": "direction",
+      "sentence": "فِي أَيِّ اتِّجَاهٍ الْمَطَارُ؟",
+      "translation": "Which ⟦direction⟧ is the airport?"
+    },
+    {
+      "n": 757,
+      "rank": 953,
+      "word": "شَرْط",
+      "pos": "noun",
+      "meaning": "condition",
+      "sentence": "عِنْدِي شَرْطٌ وَاحِدٌ.",
+      "translation": "I have one ⟦condition⟧."
+    },
+    {
+      "n": 758,
+      "rank": 956,
+      "word": "بِيئَة",
+      "pos": "noun",
+      "meaning": "environment",
+      "sentence": "يَجِبُ أَنْ نَحْمِيَ الْبِيئَةَ.",
+      "translation": "We must protect the ⟦environment⟧."
+    },
+    {
+      "n": 759,
+      "rank": 958,
+      "word": "سَبَقَ",
+      "pos": "verb",
+      "meaning": "to come before (هَلْ سَبَقَ أَنْ: have you ever)",
+      "sentence": "هَلْ سَبَقَ أَنْ زُرْتَ مِصْرَ؟",
+      "translation": "Have you ⟦ever⟧ been to Egypt?"
+    },
+    {
+      "n": 760,
+      "rank": 959,
+      "word": "صَدَّقَ",
+      "pos": "verb",
+      "meaning": "to believe (someone or something)",
+      "sentence": "لَا أُصَدِّقُ!",
+      "translation": "I can't ⟦believe⟧ it!"
+    },
+    {
+      "n": 761,
+      "rank": 960,
+      "word": "مَضَى",
+      "pos": "verb",
+      "meaning": "to pass; to go by",
+      "sentence": "مَضَى وَقْتٌ طَوِيلٌ.",
+      "translation": "A long time ⟦has passed⟧."
+    },
+    {
+      "n": 762,
+      "rank": 961,
+      "word": "كَافٍ",
+      "pos": "adj",
+      "meaning": "enough",
+      "sentence": "هٰذَا كَافٍ، شُكْرًا.",
+      "translation": "That's ⟦enough⟧, thanks."
+    },
+    {
+      "n": 763,
+      "rank": 965,
+      "word": "مُتَابَعَة",
+      "pos": "noun",
+      "meaning": "following; watching",
+      "sentence": "شُكْرًا عَلَى الْمُتَابَعَةِ.",
+      "translation": "Thanks for ⟦watching⟧."
+    },
+    {
+      "n": 764,
+      "rank": 966,
+      "word": "أَجْنَبِيّ",
+      "pos": "adj",
+      "meaning": "foreign; foreigner",
+      "sentence": "هَلْ أَنْتَ أَجْنَبِيٌّ؟",
+      "translation": "Are you a ⟦foreigner⟧?"
+    },
+    {
+      "n": 765,
+      "rank": 967,
+      "word": "ظَنَّ",
+      "pos": "verb",
+      "meaning": "to think; to suppose",
+      "sentence": "أَظُنُّ أَنَّهُ فِي الْبَيْتِ.",
+      "translation": "I ⟦think⟧ he's at home."
+    },
+    {
+      "n": 766,
+      "rank": 970,
+      "word": "فَنّ",
+      "pos": "noun",
+      "meaning": "art",
+      "sentence": "الْفَنُّ جُزْءٌ مِنْ حَيَاتِي.",
+      "translation": "⟦Art⟧ is part of my life."
+    },
+    {
+      "n": 767,
+      "rank": 971,
+      "word": "عَقْد",
+      "pos": "noun",
+      "meaning": "contract; decade",
+      "sentence": "وَقَّعْتُ الْعَقْدَ.",
+      "translation": "I signed the ⟦contract⟧."
+    },
+    {
+      "n": 768,
+      "rank": 974,
+      "word": "مَحَلّ",
+      "pos": "noun",
+      "meaning": "shop; place",
+      "sentence": "فَتَحَ أَخِي مَحَلًّا لِلْمَلَابِسِ.",
+      "translation": "My brother opened a clothes ⟦shop⟧."
+    },
+    {
+      "n": 769,
+      "rank": 975,
+      "word": "شَاعِر",
+      "pos": "noun",
+      "meaning": "poet",
+      "sentence": "الْمُتَنَبِّي شَاعِرٌ عَظِيمٌ.",
+      "translation": "Al-Mutanabbi is a great ⟦poet⟧."
+    },
+    {
+      "n": 770,
+      "rank": 976,
+      "word": "تَرْجَمَة",
+      "pos": "noun",
+      "meaning": "translation",
+      "sentence": "هٰذِهِ التَّرْجَمَةُ غَيْرُ صَحِيحَةٍ.",
+      "translation": "This ⟦translation⟧ isn't correct."
+    },
+    {
+      "n": 771,
+      "rank": 980,
+      "word": "بَيْع",
+      "pos": "noun",
+      "meaning": "selling; sale (لِلْبَيْعِ: for sale)",
+      "sentence": "هٰذِهِ السَّيَّارَةُ لِلْبَيْعِ.",
+      "translation": "This car is for ⟦sale⟧."
+    },
+    {
+      "n": 772,
+      "rank": 984,
+      "word": "مُمَيَّز",
+      "pos": "adj",
+      "meaning": "special; distinctive",
+      "sentence": "هٰذَا يَوْمٌ مُمَيَّزٌ.",
+      "translation": "This is a ⟦special⟧ day."
+    },
+    {
+      "n": 773,
+      "rank": 986,
+      "word": "صَفّ",
+      "pos": "noun",
+      "meaning": "class; row; grade",
+      "sentence": "صَفُّنَا كَبِيرٌ.",
+      "translation": "Our ⟦class⟧ is big."
+    },
+    {
+      "n": 774,
+      "rank": 991,
+      "word": "شَهَادَة",
+      "pos": "noun",
+      "meaning": "certificate; degree; testimony",
+      "sentence": "حَصَلْتُ عَلَى الشَّهَادَةِ.",
+      "translation": "I got my ⟦certificate⟧."
+    },
+    {
+      "n": 775,
+      "rank": 996,
+      "word": "حُلْم",
+      "pos": "noun",
+      "meaning": "dream",
+      "sentence": "عِنْدِي حُلْمٌ كَبِيرٌ.",
+      "translation": "I have a big ⟦dream⟧."
+    },
+    {
+      "n": 776,
+      "rank": 998,
+      "word": "تَقْلِيدِيّ",
+      "pos": "adj",
+      "meaning": "traditional",
+      "sentence": "نَلْبَسُ الْمَلَابِسَ التَّقْلِيدِيَّةَ فِي الْعِيدِ.",
+      "translation": "We wear ⟦traditional⟧ clothes for Eid."
+    },
+    {
+      "n": 777,
+      "rank": 999,
+      "word": "نَجْم",
+      "pos": "noun",
+      "meaning": "star",
+      "sentence": "هُوَ نَجْمٌ كَبِيرٌ فِي السِّينَمَا.",
+      "translation": "He's a big film ⟦star⟧."
+    },
+    {
+      "n": 778,
+      "rank": 1003,
+      "word": "أَنْتُمْ",
+      "pos": "pron",
+      "meaning": "you (plural)",
+      "sentence": "أَيْنَ أَنْتُمُ الْآنَ؟",
+      "translation": "Where are ⟦you⟧ all now?"
+    },
+    {
+      "n": 779,
+      "rank": 1005,
+      "word": "شَجَرَة",
+      "pos": "noun",
+      "meaning": "tree",
+      "sentence": "جَلَسْنَا تَحْتَ الشَّجَرَةِ.",
+      "translation": "We sat under the ⟦tree⟧."
+    },
+    {
+      "n": 780,
+      "rank": 1008,
+      "word": "مَهْرَجَان",
+      "pos": "noun",
+      "meaning": "festival",
+      "sentence": "ذَهَبْنَا إِلَى مَهْرَجَانِ الْمُوسِيقَى.",
+      "translation": "We went to the music ⟦festival⟧."
+    },
+    {
+      "n": 781,
+      "rank": 1009,
+      "word": "اقْتِصَاد",
+      "pos": "noun",
+      "meaning": "economy; economics",
+      "sentence": "يَدْرُسُ أَخِي الِاقْتِصَادَ.",
+      "translation": "My brother studies ⟦economics⟧."
+    },
+    {
+      "n": 782,
+      "rank": 1010,
+      "word": "مَسْأَلَة",
+      "pos": "noun",
+      "meaning": "matter; issue; problem (maths)",
+      "sentence": "هٰذِهِ مَسْأَلَةُ وَقْتٍ.",
+      "translation": "It's a ⟦matter⟧ of time."
+    },
+    {
+      "n": 783,
+      "rank": 1012,
+      "word": "تَأْكِيد",
+      "pos": "noun",
+      "meaning": "confirmation (بِالتَّأْكِيدِ: of course, definitely)",
+      "sentence": "بِالتَّأْكِيدِ سَأَحْضُرُ.",
+      "translation": "⟦Of course⟧ I'll come."
+    },
+    {
+      "n": 784,
+      "rank": 1016,
+      "word": "مَوْعِد",
+      "pos": "noun",
+      "meaning": "appointment; date; time",
+      "sentence": "عِنْدِي مَوْعِدٌ مَعَ الطَّبِيبِ.",
+      "translation": "I have an ⟦appointment⟧ with the doctor."
+    },
+    {
+      "n": 785,
+      "rank": 1019,
+      "word": "مَطَار",
+      "pos": "noun",
+      "meaning": "airport",
+      "sentence": "سَأُوصِلُكَ إِلَى الْمَطَارِ.",
+      "translation": "I'll take you to the ⟦airport⟧."
+    },
+    {
+      "n": 786,
+      "rank": 1021,
+      "word": "تَحْمِيل",
+      "pos": "noun",
+      "meaning": "download; loading",
+      "sentence": "التَّحْمِيلُ بَطِيءٌ.",
+      "translation": "The ⟦download⟧ is slow."
+    },
+    {
+      "n": 787,
+      "rank": 1023,
+      "word": "قَضَى",
+      "pos": "verb",
+      "meaning": "to spend (time)",
+      "sentence": "قَضَيْنَا يَوْمًا جَمِيلًا.",
+      "translation": "We ⟦spent⟧ a lovely day."
+    },
+    {
+      "n": 788,
+      "rank": 1024,
+      "word": "نَصّ",
+      "pos": "noun",
+      "meaning": "text",
+      "sentence": "اقْرَأِ النَّصَّ بِصَوْتٍ عَالٍ.",
+      "translation": "Read the ⟦text⟧ out loud."
+    },
+    {
+      "n": 789,
+      "rank": 1026,
+      "word": "شِعْر",
+      "pos": "noun",
+      "meaning": "poetry",
+      "sentence": "أُحِبُّ الشِّعْرَ الْعَرَبِيَّ.",
+      "translation": "I love Arabic ⟦poetry⟧."
+    },
+    {
+      "n": 790,
+      "rank": 1027,
+      "word": "تِجَارَة",
+      "pos": "noun",
+      "meaning": "trade; business",
+      "sentence": "يَعْمَلُ أَبِي فِي التِّجَارَةِ.",
+      "translation": "My father is in ⟦business⟧."
+    },
+    {
+      "n": 791,
+      "rank": 1028,
+      "word": "قَصْر",
+      "pos": "noun",
+      "meaning": "palace",
+      "sentence": "زُرْنَا قَصْرًا قَدِيمًا.",
+      "translation": "We visited an old ⟦palace⟧."
+    },
+    {
+      "n": 792,
+      "rank": 1030,
+      "word": "صُنْدُوق",
+      "pos": "noun",
+      "meaning": "box",
+      "sentence": "ضَعِ الْكُتُبَ فِي الصُّنْدُوقِ.",
+      "translation": "Put the books in the ⟦box⟧."
+    },
+    {
+      "n": 793,
+      "rank": 1032,
+      "word": "مَعًا",
+      "pos": "adv",
+      "meaning": "together",
+      "sentence": "لِنَذْهَبْ مَعًا.",
+      "translation": "Let's go ⟦together⟧."
+    },
+    {
+      "n": 794,
+      "rank": 1033,
+      "word": "حِوَار",
+      "pos": "noun",
+      "meaning": "conversation; dialogue",
+      "sentence": "كَانَ حِوَارًا مُفِيدًا.",
+      "translation": "It was a useful ⟦conversation⟧."
+    },
+    {
+      "n": 795,
+      "rank": 1034,
+      "word": "إِصْلَاح",
+      "pos": "noun",
+      "meaning": "repair; reform",
+      "sentence": "السَّيَّارَةُ تَحْتَاجُ إِلَى إِصْلَاحٍ.",
+      "translation": "The car needs ⟦repairing⟧."
+    },
+    {
+      "n": 796,
+      "rank": 1035,
+      "word": "سَفِينَة",
+      "pos": "noun",
+      "meaning": "ship",
+      "sentence": "سَافَرْنَا بِالسَّفِينَةِ.",
+      "translation": "We travelled by ⟦ship⟧."
+    },
+    {
+      "n": 797,
+      "rank": 1038,
+      "word": "فُنْدُق",
+      "pos": "noun",
+      "meaning": "hotel",
+      "sentence": "حَجَزْتُ غُرْفَةً فِي الْفُنْدُقِ.",
+      "translation": "I booked a room at the ⟦hotel⟧."
+    },
+    {
+      "n": 798,
+      "rank": 1039,
+      "word": "أَعَادَ",
+      "pos": "verb",
+      "meaning": "to repeat; to give back",
+      "sentence": "هَلْ يُمْكِنُ أَنْ تُعِيدَ السُّؤَالَ؟",
+      "translation": "Could you ⟦repeat⟧ the question?"
+    },
+    {
+      "n": 799,
+      "rank": 1040,
+      "word": "مَلْعَب",
+      "pos": "noun",
+      "meaning": "stadium; pitch; playground",
+      "sentence": "الْمَلْعَبُ مُمْتَلِئٌ.",
+      "translation": "The ⟦stadium⟧ is full."
+    },
+    {
+      "n": 800,
+      "rank": 1042,
+      "word": "قَلَق",
+      "pos": "noun",
+      "meaning": "worry; anxiety",
+      "sentence": "لَا دَاعِيَ لِلْقَلَقِ.",
+      "translation": "There's no need to ⟦worry⟧."
     }
   ]
 }
