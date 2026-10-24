@@ -73,6 +73,9 @@ export function cleanSettings(s) {
     definer_mode: MODES.includes(s.definer_mode) ? s.definer_mode : "dictionary_first",
     definer_language: text(s.definer_language, 40) || "English",
     font_size: Math.min(60, Math.max(12, Number(s.font_size) || 26)),
+    // Do saved words get their voice by themselves (cardvoice.js voicesOnSave)? Only that: without it the
+    // popup offers "Add audio". The voice settings themselves never leave the web app.
+    card_voices: s.card_voices === true,
   };
   for (const p of PROVIDERS) {
     out[`llm_key_${p}`] = String(s[`llm_key_${p}`] ?? "").replace(/\s+/g, "").slice(0, 400);

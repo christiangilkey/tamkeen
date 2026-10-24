@@ -495,11 +495,12 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "stt_usage": None,              # audio sent to the provider today from this computer
     # Voices for cards without audio (web/js/cardvoice.js, app/voices.py): "device" (the device's own
     # voice, live), "azure" (the user's own Azure Speech key) or "computer" (a voice model on this
-    # computer). The first four follow the user between devices (app/aikeys.py).
+    # computer). All but tts_local follow the user between devices (app/aikeys.py).
     "tts_mode": "device",
     "tts_key_azure": "",
     "tts_region_azure": "",
     "tts_voices": "",               # {language: Azure voice} the user picked, as JSON ("" = the usual ones)
+    "tts_on_save": "on",            # Azure: a word saved from something with no sound of its own gets its voice at once ("off": when first played)
     "tts_local": "",                # {language: voice model id} picked on this computer, as JSON ("" = the first downloaded)
     # Google Drive sync.
     "google_refresh_token": "",

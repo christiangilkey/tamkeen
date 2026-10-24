@@ -8,6 +8,7 @@
 // next one starts by itself.
 
 import { api, esc, h, on, toast, platform, buzz, reelSurface, fmtDuration, openInstagramSignIn } from "../app.js";
+import { voiceNewCard } from "../voiceplay.js";
 import { icon } from "../icons.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
@@ -558,6 +559,7 @@ async function renderPlayer(view, { query }) {
 
   const bubble = createWordBubble($("#reel-pop"), {
     noAudio: !surface,
+    voiceless: true,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     // Misheard words, put right in this reel's words when a lookup finds them (fixword.js).
     onCorrect: async (def) => {
@@ -579,9 +581,10 @@ async function renderPlayer(view, { query }) {
     onSave: async (def) => {
       const t = target;
       try {
-        await api("/vocab", { method: "POST", body: {
+        const row = await api("/vocab", { method: "POST", body: {
           ...vocabFromDefinition(def, t.text, cur.lang), sentence: sentence(t.si, t.sj), episode_id: cur.ep.id,
           start: cur.starts[t.i], end: cur.ends[t.j], sent_start: cur.starts[t.si], sent_end: cur.ends[t.sj] } });
+        voiceNewCard(row, "video/instagram");  // a reel's sound stays Instagram's: its voice, now (Settings → Card voices)
         savedHere.add(savedKey(t.i, t.j)); // no message: the popup's Save button says "Saved"
         reward({ type: "save" }, cur.els[t.i]);
         if (seen) seen.markSeen(t.i, t.j);

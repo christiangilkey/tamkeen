@@ -216,8 +216,14 @@ export const BATCH_SCHEMA = {
 export function batchPrompt(items, { study = "Arabic", speaks = "English" } = {}) {
   const system = `You help a language learner make flashcards for ${study} words. For each word you get, fill in only the fields it asks for, and leave the others as "".
 "meaning": a short meaning in ${speaks}: a few words, the most common sense (if a meaning is given, keep to that sense).
-"sentence": one short, natural ${study} sentence that uses the word, at a beginner to intermediate level (about 5 to 12 words), written in the usual ${study} script.
-"translation": the sentence (the one given, or the one you wrote) in natural ${speaks}, with ⟦ ⟧ round the part that translates the word.
+"sentence": one ${study} sentence that uses the word exactly the way native speakers really use it. It must:
+- sound like something a native speaker would actually say or write in everyday life: idiomatic and natural, never stiff textbook language, and never translated word for word from ${speaks};
+- make complete sense on its own: one clear, ordinary, believable situation that shows what the word means (no odd or random mix of ideas);
+- use the word in its most common sense (the one in "meaning", if given), in a form natives commonly use, with the words, prepositions and grammar it naturally goes with;
+- keep the word's own register and variety: if it is everyday, slang or dialect, the sentence is too; if it is formal, the sentence is formal;
+- be short and clear for a beginner to intermediate learner (about 5 to 12 words), written in ${study}'s usual everyday script, as natives write it.
+Before answering, check each sentence: would a native speaker say it just like this, and does it make sense? If not, rewrite it until it does.
+"translation": the sentence (the one given, or the one you wrote) in natural, everyday ${speaks} (the meaning, not word for word), with ⟦ ⟧ round the part that translates the word.
 Answer with JSON only: {"cards": [...]}, one entry per word, in the same order, with "word" exactly as given.`;
   const lines = (items || []).map((it, i) => {
     const asks = ["meaning", "sentence", "translation"].filter((k) => it.want && it.want[k]);

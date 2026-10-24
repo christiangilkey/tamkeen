@@ -10,6 +10,7 @@ import { LOOKUP_EVENT, lookupMode } from "./lookupmode.js";
 import { showTroubleshoot } from "./troubleshoot.js";
 import { kindOf } from "../trouble.js";
 import { pronounceWord } from "../lexicon/seen.js";
+import { VOICE_SETTINGS, voicesOnSave } from "../cardvoice.js";
 
 // ----- what happens after a tapped word has played: pause there, or keep playing -----
 // One choice for the whole app, remembered on this device. Pausing is how it has always worked.
@@ -59,6 +60,11 @@ export function pauseSwitch(onChange) {
  *   onPlayWord: () => void, onPlaySentence: () => void, onPlayFrom: () => void,
  *   onSave: (def: object|null) => Promise<void>, onSettings: () => void,
  *   noAudio?: boolean,   // true for imported web pages: hides the play buttons
+ *   voiceless?: boolean, // a saved word gets no sound from here (YouTube, Netflix, a reel, a page, a book): while
+ *                        // cards get no voice by themselves (cardvoice.js voicesOnSave), the popup shows
+ *                        // "Add audio", which opens Settings → Card voices
+ *   audioOn?: () => boolean,  // instead of voicesOnSave(settings) (the extension, which has no voice settings)
+ *   onAddAudio?: () => void,  // instead of opening Settings → Card voices in this window
  *   onCorrect?: (def: object) => Promise<{word: string, ctx: object}|null>,  // the lookup found the
  *                        // word misheard (def.correction): change the transcript; null if it can't
  *   onUndoCorrect?: (fix: {from: string, to: string}) => Promise<{word: string, ctx: object}>,
@@ -88,6 +94,15 @@ export function createWordBubble(host, actions) {
   let fix = null;
   // Docked (see show): part of its container's layout, below what is already in it, not floating.
   let docked = false;
+
+  // "Add audio": a word saved from here would have nothing to listen to, and cards don't get a voice by
+  // themselves (Settings → Card voices). Not inside another app's panel (/embed: no Settings there).
+  function addAudio() {
+    if (!actions.voiceless || document.documentElement.classList.contains("embed")) return false;
+    try {
+      return !(actions.audioOn ? actions.audioOn() : voicesOnSave((state.status && state.status.settings) || {}));
+    } catch { return false; }
+  }
 
   function position() {
     if (el.hidden || !anchor) return;
@@ -309,6 +324,7 @@ export function createWordBubble(host, actions) {
         <button type="button" data-act="sentence" title="Play the whole sentence">${icon("sound", 15)} Sentence</button>`}
         ${actions.noAudio || quick ? "" : `<button type="button" data-act="from" title="Continue playing from here">${icon("play", 15)} Continue</button>`}
         <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${icon(saved ? "check" : "star", 15)} ${saved ? "Saved" : "Save"}</button>
+        ${addAudio() ? `<button type="button" class="ghost wb-add-audio" data-act="add-audio" title="Words saved from here have no sound of their own. Choose a voice for them in Settings → Card voices.">${icon("sound", 15)} Add audio</button>` : ""}
         ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again" aria-label="Ask again">${icon("refresh", 15)}</button>` : ""}
         <button type="button" class="ghost icon wb-close wb-close-end" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>`;
@@ -399,6 +415,10 @@ export function createWordBubble(host, actions) {
         }
         break;
       }
+      case "add-audio":
+        if (actions.onAddAudio) actions.onAddAudio();
+        else { hide(); location.hash = VOICE_SETTINGS; }
+        break;
       case "save":
         // Works with or without a definition (no key, or the lookup failed).
         b.disabled = true;

@@ -1,0 +1,5 @@
+9297dd90 Stimme beim Speichern eines Worts hinzufügen
+13683bc3 Stimme beim Speichern eines Worts hinzufügen<0/><1>Wörter, die du aus YouTube, Netflix, einem Reel, einer Webseite oder einem Buch speicherst, bekommen sofort die Stimme von Azure: das Wort und seinen ganzen Satz, gespeichert mit der Karte wie der Ton einer Karte aus einem Podcast. Aus: Die Stimme jeder Karte wird erstellt, wenn du sie zum ersten Mal abspielst.</1>
+f161408b Wörter, die du hier speicherst, haben keinen eigenen Ton. Wähle in Einstellungen → Kartenstimmen eine Stimme für sie.
+c6d69a2d Ein kurzer Satz, der das Wort so verwendet, wie es Muttersprachler tun, mit Übersetzung.
+4e6639b9 Das Wort ist gespeichert, aber seine Stimme konnte gerade nicht erstellt werden: {0} Es wird erneut versucht, wenn du die Karte abspielst.

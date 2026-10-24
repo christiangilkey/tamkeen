@@ -1,0 +1,5 @@
+9297dd90 Adicionar a voz ao salvar uma palavra
+13683bc3 Adicionar a voz ao salvar uma palavra<0/><1>As palavras salvas do YouTube, da Netflix, de um reel, de uma página da web ou de um livro recebem na hora a voz do Azure: a palavra e a frase inteira, guardadas com o cartão como o som de um cartão de um podcast. Desligado: a voz de cada cartão é feita na primeira vez que você o toca.</1>
+f161408b As palavras salvas daqui não têm som próprio. Escolha uma voz para elas em Configurações → Vozes dos cartões.
+c6d69a2d Uma frase curta que usa a palavra como um falante nativo usaria, com a tradução.
+4e6639b9 A palavra foi salva, mas a voz dela não pôde ser feita agora: {0} Vamos tentar de novo quando você tocar o cartão.

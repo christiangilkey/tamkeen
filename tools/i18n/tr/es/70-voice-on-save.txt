@@ -1,0 +1,5 @@
+9297dd90 Añadir la voz al guardar una palabra
+13683bc3 Añadir la voz al guardar una palabra<0/><1>Las palabras guardadas de YouTube, Netflix, un reel, una página web o un libro reciben enseguida la voz de Azure: la palabra y su frase completa, guardadas con la tarjeta como el sonido de una tarjeta de un pódcast. Desactivado: la voz de cada tarjeta se hace la primera vez que la reproduces.</1>
+f161408b Las palabras guardadas desde aquí no tienen sonido propio. Elige una voz para ellas en Ajustes → Voces de las tarjetas.
+c6d69a2d Una frase corta que usa la palabra como lo haría un hablante nativo, con su traducción.
+4e6639b9 La palabra está guardada, pero ahora no se pudo hacer su voz: {0} Se volverá a intentar cuando reproduzcas la tarjeta.

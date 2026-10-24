@@ -1,0 +1,5 @@
+9297dd90 Aggiungi la voce quando salvi una parola
+13683bc3 Aggiungi la voce quando salvi una parola<0/><1>Le parole salvate da YouTube, Netflix, un reel, una pagina web o un libro ricevono subito la voce di Azure: la parola e tutta la sua frase, conservate con la scheda come il suono di una scheda presa da un podcast. Disattivato: la voce di ogni scheda viene creata la prima volta che la riproduci.</1>
+f161408b Le parole salvate da qui non hanno un suono proprio. Scegli una voce per loro in Impostazioni → Voci delle schede.
+c6d69a2d Una frase breve che usa la parola come farebbe un madrelingua, con la sua traduzione.
+4e6639b9 La parola è salvata, ma ora non è stato possibile crearne la voce: {0} Si riproverà quando riprodurrai la scheda.

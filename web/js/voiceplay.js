@@ -7,8 +7,8 @@
 // the card, one calm message is shown, and the same one is never stacked on top of itself.
 
 import { makeComputerVoice, saveVoice, speechPlugin, state, toast } from "./app.js";
-import { AZURE_VOICES, LOCAL_VOICE_LANGUAGES, azureReady, azureVoiceFor, azureVoices, ensureVoice, makeAzureVoice, pickedVoices,
-         sayCard, voiceMode, voicesForLanguage, voiceLocale } from "./cardvoice.js";
+import { AZURE_VOICES, LOCAL_VOICE_LANGUAGES, azureReady, azureVoiceFor, azureVoices, ensureVoice, makeAzureVoice, needsVoice,
+         pickedVoices, sayCard, voiceMode, voicesForLanguage, voicesOnSave, voiceLocale } from "./cardvoice.js";
 import { deviceHasVoice, speakDevice, stopDevice } from "./devicevoice.js";
 import { detectLanguage } from "./languages.js";
 
@@ -69,6 +69,45 @@ export function voiceMaker(s = settings()) {
     }, () => null);
   }
   return null;
+}
+
+/**
+ * A word has just been saved from something with no sound of its own (`kind`: its episode's kind,
+ * "video/youtube", "video/netflix", "video/instagram", "text/html", "text/book"; "missing" for a word
+ * with no episode). With Azure and "Add the voice when a word is saved" on (cardvoice.js voicesOnSave),
+ * its voice is made now, in the background: Azure says the word, then the card's sentence, and both
+ * are kept in one file with the card ({start, end, sent_start, sent_end}), so it plays, syncs and goes
+ * into Anki exactly like a card cut from a podcast's own sound. (The computer's voices are made by the
+ * computer itself, app/voices.py.) `row` is the card as the save answered; it gets `voice` once made.
+ * Never rejects; a voice that couldn't be made is said once, calmly (it is tried again when played).
+ * Voices are made one at a time, in the order the words were saved: Azure's free tier allows only a
+ * few requests a minute, and words saved in Netflix can arrive many at once.
+ */
+let voicing = Promise.resolve();
+export function voiceNewCard(row, kind = "missing", s = settings()) {
+  const job = voicing.then(() => voiceOne(row, kind, s));
+  voicing = job.catch(() => {});
+  return job;
+}
+
+async function voiceOne(row, kind, s) {
+  if (!row || row.id == null || voiceMode(s) !== "azure" || !voicesOnSave(s)) return false;
+  const card = { ...row, audio_type: kind || "missing" };
+  if (!needsVoice(card)) return false;
+  const make = voiceMaker(s);
+  if (!make) return false;
+  try {
+    const ok = await make(card);
+    if (ok && card.voice) row.voice = card.voice;
+    return !!ok;
+  } catch (e) {
+    const message = e && e.message ? e.message : String(e);
+    if (!told.has(message)) {
+      told.add(message);
+      calm(`The word is saved, but its voice couldn't be made now: ${message} It's tried again when you play the card.`);
+    }
+    return false;
+  }
 }
 
 // ----- one calm message, never stacked -----

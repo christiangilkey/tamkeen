@@ -16,6 +16,7 @@ import { lib, settings } from "./store.js";
 import { episodeUid, feedUid } from "./shared-logic.js";
 import { lookupMode, LOOKUP_EVENT } from "./components/lookupmode.js";
 import { pauseAfterWord } from "./components/wordbubble.js";
+import { voicesOnSave } from "./cardvoice.js";
 
 let nonce = "";
 let deps = null;
@@ -54,7 +55,10 @@ export const extensionConnected = () => !!nonce;
 /** Give the extension the settings it needs (after a change too). */
 export function sendSettings() {
   if (!nonce) return;
-  post("settings", { settings: cleanSettings(settings), device: { lookup_mode: lookupMode(), word_pause: pauseAfterWord() } });
+  // (card_voices: only whether saved words get their voice by themselves, for the popup's "Add audio";
+  // the voice settings and the Azure key never go to the extension.)
+  post("settings", { settings: cleanSettings({ ...settings, card_voices: voicesOnSave(settings) }),
+    device: { lookup_mode: lookupMode(), word_pause: pauseAfterWord() } });
 }
 
 function imported() {
@@ -73,6 +77,7 @@ async function takePending({ words, titles }) {
   busy = true;
   const { api, toast, refresh } = deps;
   const kept = { words: [], titles: [] };
+  const voiced = []; // the cards made here: they get their voice afterwards (Netflix's sound is never kept)
   try {
     for (const t of titles) {
       try {
@@ -90,8 +95,8 @@ async function takePending({ words, titles }) {
         if (!lib.episodes.some((e) => e.uid === uid && !e.deleted)) { // its title isn't here yet (or was removed)
           await api("/netflix", { method: "POST", body: { id: w.netflix_id, info: { title: w.title }, language: w.language } });
         }
-        await api("/vocab", { method: "POST", body: { text: w.text, sentence: w.sentence, episode_id: uid, start: w.start, end: w.end,
-          sent_start: w.sent_start, sent_end: w.sent_end, meaning: w.meaning, notes: w.notes, translation: w.translation } });
+        voiced.push(await api("/vocab", { method: "POST", body: { text: w.text, sentence: w.sentence, episode_id: uid, start: w.start, end: w.end,
+          sent_start: w.sent_start, sent_end: w.sent_end, meaning: w.meaning, notes: w.notes, translation: w.translation } }));
         done.add(w.uid);
         kept.words.push(w.uid);
         added++;
@@ -102,6 +107,12 @@ async function takePending({ words, titles }) {
     if (added === 1) toast("1 word you saved in Netflix is now in your Vocab");
     else if (added > 1) toast(`${added} words you saved in Netflix are now in your Vocab`);
     if (added || kept.titles.length) refresh();
+    // Each word's voice: Azure says the word and its sentence, kept with the card (Settings → Card voices).
+    if (voiced.length) {
+      import("./voiceplay.js").then(({ voiceNewCard }) => {
+        for (const row of voiced) voiceNewCard(row, "video/netflix");
+      }).catch((err) => console.warn("Tamkeen extension: voices", err));
+    }
   } finally {
     busy = false;
     const again = next;

@@ -4,6 +4,7 @@
 // turn pages with the arrows, a swipe, or the arrow keys. Where you got to is kept on this device.
 
 import { api, esc, h, toast, showMenu, hideMenu, saveSettings, state, buzz } from "../app.js";
+import { voiceNewCard } from "../voiceplay.js";
 import { saveProgress } from "../progress.js";
 import { sentenceBounds, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
@@ -261,6 +262,7 @@ export async function render(view, { id, data, query }) {
     if (savedHere.has(savedKey(t.i, t.j))) return savedRows.get(savedKey(t.i, t.j)) || null;
     const row = await api("/vocab", { method: "POST", body: {
       ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj), episode_id: id } });
+    voiceNewCard(row, "text/book");  // nothing to listen to here: its voice, now (Settings → Card voices)
     savedHere.add(savedKey(t.i, t.j));
     savedRows.set(savedKey(t.i, t.j), row);
     if (wordEls[t.i]) reward({ type: "save" }, wordEls[t.i]);
@@ -270,6 +272,7 @@ export async function render(view, { id, data, query }) {
 
   const bubble = createWordBubble($(".book-wrap"), {
     noAudio: true,
+    voiceless: true,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onPlayWord: () => {}, onPlaySentence: () => {}, onPlayFrom: () => {},
     onSettings: () => (location.hash = "#/settings?s=words"),

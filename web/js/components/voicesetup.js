@@ -83,6 +83,10 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
         <div class="ai-field ai-wide"><label for="vo-voice">Voice for ${esc(name)}</label>
           <div class="vo-row"><select id="vo-voice"></select><button type="button" class="ghost" id="vo-try">${icon("sound", 16)} Play a sample</button></div>
           <span class="small muted" id="vo-voice-note"></span></div>
+        <label class="check ai-wide vo-onsave" data-find="voiceonsave"><input type="checkbox" id="vo-onsave">
+          <span>Add the voice when a word is saved<br><span class="small muted">Words saved from YouTube, Netflix, a reel, a web page
+          or a book get Azure's voice at once: the word and its whole sentence, kept with the card like the sound of a card
+          from a podcast. Off: each card's voice is made the first time you play it.</span></span></label>
         <div class="ai-wide vo-all" id="vo-all"></div>
       </div>
       <details class="set-info" id="vo-guide"><summary>How to get your own free Azure key</summary><ol class="vo-steps">
@@ -165,6 +169,9 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
   }
 
   // ----- Azure -----
+  // "Add the voice when a word is saved" (tts_on_save, on unless turned off; cardvoice.js voicesOnSave).
+  $("#vo-onsave").checked = String(cur().tts_on_save ?? "on") !== "off";
+  $("#vo-onsave").onchange = (e) => save({ tts_on_save: e.target.checked ? "on" : "off" }).catch((err) => toast(err.message, { error: true }));
   $("#vo-region").value = cur().tts_region_azure || "";
   $("#vo-key").value = cur().tts_key_azure || "";
   let keyTimer = 0;

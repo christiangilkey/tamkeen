@@ -39,7 +39,7 @@ def _js_list(name: str) -> list[str]:
 def test_the_computer_and_the_page_agree_on_kinds_and_languages():
     assert tuple(_js_list("NO_AUDIO_KINDS")) == voices.NO_AUDIO_KINDS
     assert _js_list("LOCAL_VOICE_LANGUAGES") == list(voices.VOICES), "web/js/cardvoice.js and app/voices.py list the same languages"
-    for name in ("tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices"):
+    for name in ("tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save"):
         assert name in aikeys.KEYS, f"{name} follows the learner between devices"
     assert "tts_key_azure" in db.SECRET_SETTINGS, "the Azure key never goes into a backup"
 

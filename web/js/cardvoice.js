@@ -33,6 +33,21 @@ export function voiceMode(s) {
   return VOICE_MODES.includes(s && s.tts_mode) ? s.tts_mode : "device";
 }
 
+/** Do words saved from something with no sound of their own (YouTube, Netflix, a reel, a web page, a
+ * book) get audio kept with their card without the learner doing anything? With Azure set up and
+ * "Add the voice when a word is saved" on (`tts_on_save`, "on" unless turned "off"), its voice is made
+ * the moment the word is saved (voiceplay.js voiceNewCard); with the computer's voices, the computer
+ * makes it by itself (app/voices.py). Otherwise (this device's voice, Azure without a working key, or
+ * the switch off) the word popup offers "Add audio", which opens Settings → Card voices. */
+export function voicesOnSave(s) {
+  const mode = voiceMode(s);
+  if (mode === "computer") return true;
+  return mode === "azure" && azureReady(s) && String((s && s.tts_on_save) ?? "on") !== "off";
+}
+
+/** Where "Add audio" takes the learner: Settings → Card voices. */
+export const VOICE_SETTINGS = "#/settings?s=voices&show=cardvoice";
+
 /** Kinds of episode whose sound the Vocab page and the review card can't load on any device: they
  * play inside YouTube's, Netflix's or Instagram's own player, or have no sound at all. ("missing":
  * the episode isn't on this device any more.) app/voices.py NO_AUDIO_KINDS is the twin. */
