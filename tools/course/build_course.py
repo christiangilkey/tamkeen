@@ -57,6 +57,12 @@ AZURE = {
 }
 SENTENCE_RATE = "-10%"
 PIPER = {"ar": "ar_JO-kareem-medium"}
+# Languages Azure has no voice for: Meta's MMS voices (facebook/mms-tts-<code>, CC BY-NC 4.0: free, not
+# for commercial use), run on this computer from their own Python (they need PyTorch, which the app
+# doesn't): the owner's Documents/arabic-tts/local-tts (venv + mms_say.py), or MMS_DIR.
+MMS = {"ceb": "ceb"}
+MMS_DIR = Path(os.environ.get("MMS_DIR", str(Path.home() / "Documents" / "arabic-tts" / "local-tts")))
+_mms: dict[str, tuple[np.ndarray, int]] = {}  # text -> what MMS said, made beforehand in one batch
 
 # Silence round the parts (seconds), as a card voice has them (app/voices.py LEAD, GAP, TAIL).
 LEAD, GAP, TAIL = 0.06, 0.9, 0.35
@@ -167,6 +173,38 @@ def piper_synth(text: str, lang: str, rate: str = "") -> tuple[np.ndarray, int]:
     return voices.synth(text, vid)
 
 
+def mms_prepare(texts: list[str], lang: str) -> None:
+    """Have MMS say every text in one run (it takes a few seconds to load), kept for mms_synth."""
+    import subprocess
+    import tempfile
+    import wave
+
+    todo = sorted({t for t in texts if t not in _mms})
+    if not todo:
+        return
+    py, script = MMS_DIR / "venv" / "Scripts" / "python.exe", MMS_DIR / "mms_say.py"
+    if not py.exists():
+        py = MMS_DIR / "venv" / "bin" / "python"
+    if not py.exists() or not script.exists():
+        raise SystemExit(f"The MMS voice isn't set up in {MMS_DIR} (venv with torch and transformers, and mms_say.py).")
+    with tempfile.TemporaryDirectory() as tmp:
+        items = [{"key": f"t{i:05d}", "text": t} for i, t in enumerate(todo)]
+        (Path(tmp) / "items.json").write_text(json.dumps(items, ensure_ascii=False), encoding="utf-8")
+        log(f"MMS: saying {len(items)} texts...")
+        subprocess.run([str(py), str(script), "--batch", MMS[lang], str(Path(tmp) / "items.json"), str(Path(tmp) / "out")],
+                       check=True, cwd=str(MMS_DIR))
+        for it in items:
+            with wave.open(str(Path(tmp) / "out" / f"{it['key']}.wav"), "rb") as wav:  # 16-bit mono
+                pcm = np.frombuffer(wav.readframes(wav.getnframes()), dtype="<i2").copy()
+                _mms[it["text"]] = (pcm, wav.getframerate())
+
+
+def mms_synth(text: str, lang: str, rate: str = "") -> tuple[np.ndarray, int]:
+    if text not in _mms:
+        mms_prepare([text], lang)
+    return _mms[text]
+
+
 def trim(pcm: np.ndarray, rate: int, floor: int = 300) -> np.ndarray:
     loud = np.flatnonzero(np.abs(pcm.astype(np.int32)) > floor)
     if not len(loud):
@@ -178,7 +216,7 @@ def trim(pcm: np.ndarray, rate: int, floor: int = 300) -> np.ndarray:
 def make_audio(word: str, sentence: str, lang: str, engine: str) -> tuple[bytes, dict[str, float]]:
     from app import audio
 
-    synth = azure_synth if engine == "azure" else piper_synth
+    synth = {"azure": azure_synth, "piper": piper_synth, "mms": mms_synth}[engine]
     w, rate = synth(word, lang)
     s, rate2 = synth(sentence, lang, SENTENCE_RATE if engine == "azure" else "")
     if rate2 != rate:
@@ -196,20 +234,20 @@ def make_audio(word: str, sentence: str, lang: str, engine: str) -> tuple[bytes,
 # ---------------------------------------------------------------- building
 
 def fingerprint(w: dict[str, Any], engine: str) -> str:
-    return hashlib.sha1(json.dumps([w["word"], w["sentence"], engine, AZURE.get("ar", {}).get("voice"), SENTENCE_RATE],
+    return hashlib.sha1(json.dumps([w["word"], w["sentence"], engine, AZURE.get("ar", {}).get("voice") if engine == "azure" else engine, SENTENCE_RATE],
                                    ensure_ascii=False).encode()).hexdigest()[:16]
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("lang")
-    ap.add_argument("--voice", choices=("azure", "piper"), required=True)
+    ap.add_argument("--voice", choices=("azure", "piper", "mms"), required=True)
     ap.add_argument("--redo", action="store_true", help="make every audio file again")
     ap.add_argument("--out", default="", help="where the course goes (default docs/course; a Piper preview: "
                     "tools/course/build/preview, which is never published)")
     args = ap.parse_args()
     lang, engine = args.lang, args.voice
-    out = Path(args.out) if args.out else OUT if engine == "azure" else HERE / "build" / "preview"
+    out = Path(args.out) if args.out else OUT if engine in ("azure", "mms") else HERE / "build" / "preview"
     if engine == "piper" and out.resolve() == OUT.resolve():
         raise SystemExit("A Piper preview never goes into docs/course (it would be published).")
     sys.path.insert(0, str(ROOT))
@@ -218,6 +256,8 @@ def main() -> None:
         os.environ["APS_DATA_DIR"] = str(HERE / "build" / "data")
     if engine == "azure" and lang not in AZURE:
         raise SystemExit(f"No Azure voice chosen for {lang} yet (AZURE in this file).")
+    if engine == "mms" and lang not in MMS:
+        raise SystemExit(f"{lang} has an Azure voice: use --voice azure (MMS is only for languages Azure lacks).")
 
     data = load_words(lang)
     words = data["words"]
@@ -228,6 +268,10 @@ def main() -> None:
     old = json.loads((folder / "course.json").read_text(encoding="utf-8")) if (folder / "course.json").exists() else {}
     old_times = {w["n"]: w.get("times") for w in old.get("words", [])}
 
+    if engine == "mms":  # everything still to make, said in one run
+        todo = [w for w in words if args.redo or made.get(f"{w['n']:04d}.ogg") != fingerprint(w, engine)
+                or not (folder / "audio" / f"{w['n']:04d}.ogg").exists() or not old_times.get(w["n"])]
+        mms_prepare([t for w in todo for t in (w["word"], w["sentence"])], lang)
     items = []
     for w in words:
         name = f"{w['n']:04d}.ogg"
@@ -248,7 +292,8 @@ def main() -> None:
         first, last = u * UNIT + 1, (u + 1) * UNIT
         have = sum(1 for it in items if first <= it["n"] <= last)
         units.append({"n": u + 1, "from": first, "to": last, "ready": have == UNIT})
-    voice = (AZURE[lang]["name"] if engine == "azure" else f"Piper {PIPER[lang]} (preview, not for publishing)")
+    voice = (AZURE[lang]["name"] if engine == "azure" else f"Meta MMS ({MMS[lang]}, CC BY-NC 4.0)" if engine == "mms"
+             else f"Piper {PIPER[lang]} (preview, not for publishing)")
     course = {"format": 1, "lang": lang, "title": data["title"], "variety": data.get("variety", ""), "about": data.get("about", ""),
               "planned": PLANNED, "unit": UNIT, "voice": {"engine": engine, "name": voice, "synthetic": True},
               "built": time.strftime("%Y-%m-%d"), "units": units, "words": items}

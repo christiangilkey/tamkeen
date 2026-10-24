@@ -29,13 +29,13 @@
    "n": 3,
    "from": 101,
    "to": 150,
-   "ready": false
+   "ready": true
   },
   {
    "n": 4,
    "from": 151,
    "to": 200,
-   "ready": false
+   "ready": true
   },
   {
    "n": 5,
@@ -1633,6 +1633,1506 @@
     "end": 0.549,
     "sent_start": 1.449,
     "sent_end": 3.01
+   }
+  },
+  {
+   "n": 101,
+   "word": "شَرِكَة",
+   "pos": "noun",
+   "meaning": "company",
+   "sentence": "أَعْمَلُ فِي شَرِكَةٍ كَبِيرَةٍ.",
+   "translation": "I work at a big ⟦company⟧.",
+   "audio": "audio/0101.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.68,
+    "sent_start": 1.58,
+    "sent_end": 3.561
+   }
+  },
+  {
+   "n": 102,
+   "word": "طِفْل",
+   "pos": "noun",
+   "meaning": "child",
+   "sentence": "الطِّفْلُ نَائِمٌ الْآنَ.",
+   "translation": "The ⟦child⟧ is asleep now.",
+   "audio": "audio/0102.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.505,
+    "sent_start": 1.405,
+    "sent_end": 3.066
+   }
+  },
+  {
+   "n": 103,
+   "word": "فَقَطْ",
+   "pos": "adv",
+   "meaning": "only; just",
+   "sentence": "أُرِيدُ كُوبَ مَاءٍ فَقَطْ.",
+   "translation": "I ⟦just⟧ want a glass of water.",
+   "audio": "audio/0103.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.477,
+    "sent_start": 1.377,
+    "sent_end": 3.28
+   }
+  },
+  {
+   "n": 104,
+   "word": "أَب",
+   "pos": "noun",
+   "meaning": "father",
+   "sentence": "أَبِي طَبِيبٌ.",
+   "translation": "My ⟦father⟧ is a doctor.",
+   "audio": "audio/0104.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.386,
+    "sent_start": 1.286,
+    "sent_end": 2.249
+   }
+  },
+  {
+   "n": 105,
+   "word": "أَرَادَ",
+   "pos": "verb",
+   "meaning": "to want",
+   "sentence": "أُرِيدُ أَنْ أَتَعَلَّمَ الْعَرَبِيَّةَ.",
+   "translation": "I ⟦want⟧ to learn Arabic.",
+   "audio": "audio/0105.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.648,
+    "sent_start": 1.548,
+    "sent_end": 3.603
+   }
+  },
+  {
+   "n": 106,
+   "word": "أَصْبَحَ",
+   "pos": "verb",
+   "meaning": "to become",
+   "sentence": "أَصْبَحَ الْجَوُّ بَارِدًا.",
+   "translation": "The weather has ⟦become⟧ cold.",
+   "audio": "audio/0106.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.592,
+    "sent_start": 1.492,
+    "sent_end": 3.158
+   }
+  },
+  {
+   "n": 107,
+   "word": "هَلْ",
+   "pos": "part",
+   "meaning": "(starts a yes/no question)",
+   "sentence": "هَلْ أَنْتَ جَائِعٌ؟",
+   "translation": "⟦Are⟧ you hungry?",
+   "audio": "audio/0107.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.495,
+    "sent_start": 1.395,
+    "sent_end": 2.569
+   }
+  },
+  {
+   "n": 108,
+   "word": "بَلَد",
+   "pos": "noun",
+   "meaning": "country",
+   "sentence": "بَلَدِي جَمِيلٌ.",
+   "translation": "My ⟦country⟧ is beautiful.",
+   "audio": "audio/0108.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.709,
+    "sent_start": 1.609,
+    "sent_end": 2.833
+   }
+  },
+  {
+   "n": 109,
+   "word": "جِدًّا",
+   "pos": "adv",
+   "meaning": "very",
+   "sentence": "الطَّعَامُ لَذِيذٌ جِدًّا.",
+   "translation": "The food is ⟦very⟧ tasty.",
+   "audio": "audio/0109.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.806,
+    "sent_start": 1.706,
+    "sent_end": 3.601
+   }
+  },
+  {
+   "n": 110,
+   "word": "أَجْل",
+   "pos": "noun",
+   "meaning": "sake (مِنْ أَجْلِ: for; in order to)",
+   "sentence": "أَعْمَلُ مِنْ أَجْلِ عَائِلَتِي.",
+   "translation": "I work ⟦for⟧ my family.",
+   "audio": "audio/0110.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.643,
+    "sent_start": 1.543,
+    "sent_end": 3.465
+   }
+  },
+  {
+   "n": 111,
+   "word": "كَيْفَ",
+   "pos": "adv",
+   "meaning": "how",
+   "sentence": "كَيْفَ حَالُكَ؟",
+   "translation": "⟦How⟧ are you?",
+   "audio": "audio/0111.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.446,
+    "sent_start": 1.346,
+    "sent_end": 2.261
+   }
+  },
+  {
+   "n": 112,
+   "word": "ثَلَاثَة",
+   "pos": "noun",
+   "meaning": "three",
+   "sentence": "عِنْدِي ثَلَاثَةُ أَوْلَادٍ.",
+   "translation": "I have ⟦three⟧ children.",
+   "audio": "audio/0112.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.696,
+    "sent_start": 1.596,
+    "sent_end": 3.29
+   }
+  },
+  {
+   "n": 113,
+   "word": "أَفْضَل",
+   "pos": "adj",
+   "meaning": "better; best",
+   "sentence": "هٰذَا الْمَطْعَمُ أَفْضَلُ مِنْ ذٰلِكَ.",
+   "translation": "This restaurant is ⟦better⟧ than that one.",
+   "audio": "audio/0113.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.705,
+    "sent_start": 1.605,
+    "sent_end": 3.779
+   }
+  },
+  {
+   "n": 114,
+   "word": "حِينَ",
+   "pos": "conj",
+   "meaning": "when; time (أَحْيَانًا: sometimes)",
+   "sentence": "اتَّصِلْ بِي حِينَ تَصِلُ.",
+   "translation": "Call me ⟦when⟧ you arrive.",
+   "audio": "audio/0114.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.653,
+    "sent_start": 1.553,
+    "sent_end": 3.213
+   }
+  },
+  {
+   "n": 115,
+   "word": "نِظَام",
+   "pos": "noun",
+   "meaning": "system",
+   "sentence": "النِّظَامُ الْجَدِيدُ سَهْلٌ.",
+   "translation": "The new ⟦system⟧ is easy.",
+   "audio": "audio/0115.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.785,
+    "sent_start": 1.685,
+    "sent_end": 3.354
+   }
+  },
+  {
+   "n": 116,
+   "word": "حَوْلَ",
+   "pos": "prep",
+   "meaning": "around; about",
+   "sentence": "جَلَسْنَا حَوْلَ الطَّاوِلَةِ.",
+   "translation": "We sat ⟦around⟧ the table.",
+   "audio": "audio/0116.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.651,
+    "sent_start": 1.551,
+    "sent_end": 3.185
+   }
+  },
+  {
+   "n": 117,
+   "word": "هُنَا",
+   "pos": "adv",
+   "meaning": "here",
+   "sentence": "انْتَظِرْنِي هُنَا.",
+   "translation": "Wait for me ⟦here⟧.",
+   "audio": "audio/0117.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.569,
+    "sent_start": 1.469,
+    "sent_end": 2.758
+   }
+  },
+  {
+   "n": 118,
+   "word": "مَجْمُوعَة",
+   "pos": "noun",
+   "meaning": "group",
+   "sentence": "سَافَرْنَا فِي مَجْمُوعَةٍ صَغِيرَةٍ.",
+   "translation": "We travelled in a small ⟦group⟧.",
+   "audio": "audio/0118.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.909,
+    "sent_start": 1.809,
+    "sent_end": 4.151
+   }
+  },
+  {
+   "n": 119,
+   "word": "قَدَّمَ",
+   "pos": "verb",
+   "meaning": "to offer; to serve; to present",
+   "sentence": "قَدَّمَ لَنَا الْقَهْوَةَ.",
+   "translation": "He ⟦served⟧ us coffee.",
+   "audio": "audio/0119.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.6,
+    "sent_start": 1.5,
+    "sent_end": 2.857
+   }
+  },
+  {
+   "n": 120,
+   "word": "وَصَلَ",
+   "pos": "verb",
+   "meaning": "to arrive",
+   "sentence": "وَصَلْتُ إِلَى الْبَيْتِ مُتَأَخِّرًا.",
+   "translation": "I ⟦arrived⟧ home late.",
+   "audio": "audio/0120.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.686,
+    "sent_start": 1.586,
+    "sent_end": 3.964
+   }
+  },
+  {
+   "n": 121,
+   "word": "فِيلْم",
+   "pos": "noun",
+   "meaning": "film; movie",
+   "sentence": "شَاهَدْنَا فِيلْمًا جَمِيلًا.",
+   "translation": "We watched a nice ⟦film⟧.",
+   "audio": "audio/0121.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.63,
+    "sent_start": 1.53,
+    "sent_end": 3.466
+   }
+  },
+  {
+   "n": 122,
+   "word": "مَكَان",
+   "pos": "noun",
+   "meaning": "place",
+   "sentence": "هٰذَا مَكَانٌ هَادِئٌ.",
+   "translation": "This is a quiet ⟦place⟧.",
+   "audio": "audio/0122.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.807,
+    "sent_start": 1.707,
+    "sent_end": 3.282
+   }
+  },
+  {
+   "n": 123,
+   "word": "أَرْض",
+   "pos": "noun",
+   "meaning": "ground; land; earth",
+   "sentence": "سَقَطَ الْكِتَابُ عَلَى الْأَرْضِ.",
+   "translation": "The book fell on the ⟦ground⟧.",
+   "audio": "audio/0123.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.5,
+    "sent_start": 1.4,
+    "sent_end": 3.278
+   }
+  },
+  {
+   "n": 124,
+   "word": "كِتَاب",
+   "pos": "noun",
+   "meaning": "book",
+   "sentence": "أَقْرَأُ كِتَابًا مُمْتِعًا.",
+   "translation": "I'm reading an interesting ⟦book⟧.",
+   "audio": "audio/0124.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.701,
+    "sent_start": 1.601,
+    "sent_end": 3.448
+   }
+  },
+  {
+   "n": 125,
+   "word": "عَمَلِيَّة",
+   "pos": "noun",
+   "meaning": "operation; process",
+   "sentence": "نَجَحَتِ الْعَمَلِيَّةُ.",
+   "translation": "The ⟦operation⟧ was a success.",
+   "audio": "audio/0125.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.722,
+    "sent_start": 1.622,
+    "sent_end": 3.059
+   }
+  },
+  {
+   "n": 126,
+   "word": "لَنْ",
+   "pos": "part",
+   "meaning": "will not",
+   "sentence": "لَنْ أَنْسَاكَ.",
+   "translation": "I ⟦won't⟧ forget you.",
+   "audio": "audio/0126.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.545,
+    "sent_start": 1.445,
+    "sent_end": 2.463
+   }
+  },
+  {
+   "n": 127,
+   "word": "عَنَى",
+   "pos": "verb",
+   "meaning": "to mean",
+   "sentence": "مَاذَا تَعْنِي هٰذِهِ الْكَلِمَةُ؟",
+   "translation": "What does this word ⟦mean⟧?",
+   "audio": "audio/0127.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.529,
+    "sent_start": 1.429,
+    "sent_end": 3.333
+   }
+  },
+  {
+   "n": 128,
+   "word": "تَحْتَ",
+   "pos": "prep",
+   "meaning": "under",
+   "sentence": "الْقِطَّةُ تَحْتَ السَّرِيرِ.",
+   "translation": "The cat is ⟦under⟧ the bed.",
+   "audio": "audio/0128.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.529,
+    "sent_start": 1.429,
+    "sent_end": 3.221
+   }
+  },
+  {
+   "n": 129,
+   "word": "فَعَلَ",
+   "pos": "verb",
+   "meaning": "to do",
+   "sentence": "مَاذَا فَعَلْتَ أَمْسِ؟",
+   "translation": "What did you ⟦do⟧ yesterday?",
+   "audio": "audio/0129.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.651,
+    "sent_start": 1.551,
+    "sent_end": 3.146
+   }
+  },
+  {
+   "n": 130,
+   "word": "عُمْر",
+   "pos": "noun",
+   "meaning": "age; life",
+   "sentence": "كَمْ عُمْرُكَ؟",
+   "translation": "What is your ⟦age⟧?",
+   "audio": "audio/0130.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.524,
+    "sent_start": 1.424,
+    "sent_end": 2.344
+   }
+  },
+  {
+   "n": 131,
+   "word": "شَهْر",
+   "pos": "noun",
+   "meaning": "month",
+   "sentence": "سَأُسَافِرُ الشَّهْرَ الْقَادِمَ.",
+   "translation": "I'll travel next ⟦month⟧.",
+   "audio": "audio/0131.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.663,
+    "sent_start": 1.563,
+    "sent_end": 3.493
+   }
+  },
+  {
+   "n": 132,
+   "word": "حَالَة",
+   "pos": "noun",
+   "meaning": "condition; state; case",
+   "sentence": "هُوَ فِي حَالَةٍ جَيِّدَةٍ.",
+   "translation": "He is in good ⟦condition⟧.",
+   "audio": "audio/0132.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.651,
+    "sent_start": 1.551,
+    "sent_end": 3.114
+   }
+  },
+  {
+   "n": 133,
+   "word": "ذَكَرَ",
+   "pos": "verb",
+   "meaning": "to mention",
+   "sentence": "ذَكَرَ اسْمَكَ فِي الِاجْتِمَاعِ.",
+   "translation": "He ⟦mentioned⟧ your name in the meeting.",
+   "audio": "audio/0133.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.715,
+    "sent_start": 1.615,
+    "sent_end": 3.556
+   }
+  },
+  {
+   "n": 134,
+   "word": "جَعَلَ",
+   "pos": "verb",
+   "meaning": "to make (someone do something)",
+   "sentence": "هٰذَا الْفِيلْمُ جَعَلَنِي أَبْكِي.",
+   "translation": "This film ⟦made⟧ me cry.",
+   "audio": "audio/0134.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.663,
+    "sent_start": 1.563,
+    "sent_end": 3.549
+   }
+  },
+  {
+   "n": 135,
+   "word": "مَرَّ",
+   "pos": "verb",
+   "meaning": "to pass",
+   "sentence": "مَرَّ الْوَقْتُ بِسُرْعَةٍ.",
+   "translation": "Time ⟦passed⟧ quickly.",
+   "audio": "audio/0135.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.653,
+    "sent_start": 1.553,
+    "sent_end": 3.081
+   }
+  },
+  {
+   "n": 136,
+   "word": "سَاعَة",
+   "pos": "noun",
+   "meaning": "hour; clock; watch",
+   "sentence": "انْتَظَرْتُكَ سَاعَةً كَامِلَةً.",
+   "translation": "I waited for you a whole ⟦hour⟧.",
+   "audio": "audio/0136.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.589,
+    "sent_start": 1.489,
+    "sent_end": 3.76
+   }
+  },
+  {
+   "n": 137,
+   "word": "يَجِبُ",
+   "pos": "verb",
+   "meaning": "must; it is necessary",
+   "sentence": "يَجِبُ أَنْ أَذْهَبَ الْآنَ.",
+   "translation": "I ⟦must⟧ go now.",
+   "audio": "audio/0137.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.673,
+    "sent_start": 1.573,
+    "sent_end": 3.314
+   }
+  },
+  {
+   "n": 138,
+   "word": "هُمْ",
+   "pos": "pron",
+   "meaning": "they",
+   "sentence": "هُمْ أَصْدِقَائِي.",
+   "translation": "⟦They⟧ are my friends.",
+   "audio": "audio/0138.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.525,
+    "sent_start": 1.425,
+    "sent_end": 2.622
+   }
+  },
+  {
+   "n": 139,
+   "word": "صَغِير",
+   "pos": "adj",
+   "meaning": "small; young",
+   "sentence": "أُخْتِي الصَّغِيرَةُ فِي الْمَدْرَسَةِ.",
+   "translation": "My ⟦little⟧ sister is at school.",
+   "audio": "audio/0139.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.73,
+    "sent_start": 1.63,
+    "sent_end": 3.61
+   }
+  },
+  {
+   "n": 140,
+   "word": "حَدّ",
+   "pos": "noun",
+   "meaning": "limit; border",
+   "sentence": "لِكُلِّ شَيْءٍ حَدٌّ.",
+   "translation": "Everything has a ⟦limit⟧.",
+   "audio": "audio/0140.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.536,
+    "sent_start": 1.436,
+    "sent_end": 2.899
+   }
+  },
+  {
+   "n": 141,
+   "word": "قَانُون",
+   "pos": "noun",
+   "meaning": "law",
+   "sentence": "يَجِبُ احْتِرَامُ الْقَانُونِ.",
+   "translation": "The ⟦law⟧ must be respected.",
+   "audio": "audio/0141.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.663,
+    "sent_start": 1.563,
+    "sent_end": 3.399
+   }
+  },
+  {
+   "n": 142,
+   "word": "عَدِيد",
+   "pos": "adj",
+   "meaning": "many; numerous (الْعَدِيدُ مِنْ)",
+   "sentence": "زُرْتُ الْعَدِيدَ مِنَ الْمُدُنِ.",
+   "translation": "I have visited ⟦many⟧ cities.",
+   "audio": "audio/0142.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.719,
+    "sent_start": 1.619,
+    "sent_end": 3.516
+   }
+  },
+  {
+   "n": 143,
+   "word": "نِسْبَة",
+   "pos": "noun",
+   "meaning": "percentage; ratio (بِالنِّسْبَةِ لِـ: as for)",
+   "sentence": "بِالنِّسْبَةِ لِي، هٰذَا سَهْلٌ.",
+   "translation": "⟦For⟧ me, this is easy.",
+   "audio": "audio/0143.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.499,
+    "sent_start": 1.399,
+    "sent_end": 3.734
+   }
+  },
+  {
+   "n": 144,
+   "word": "حُكُومَة",
+   "pos": "noun",
+   "meaning": "government",
+   "sentence": "أَعْلَنَتِ الْحُكُومَةُ قَرَارًا جَدِيدًا.",
+   "translation": "The ⟦government⟧ announced a new decision.",
+   "audio": "audio/0144.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.722,
+    "sent_start": 1.622,
+    "sent_end": 4.218
+   }
+  },
+  {
+   "n": 145,
+   "word": "مَرْكَز",
+   "pos": "noun",
+   "meaning": "centre",
+   "sentence": "يَقَعُ الْفُنْدُقُ فِي مَرْكَزِ الْمَدِينَةِ.",
+   "translation": "The hotel is in the city ⟦centre⟧.",
+   "audio": "audio/0145.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.711,
+    "sent_start": 1.611,
+    "sent_end": 4.075
+   }
+  },
+  {
+   "n": 146,
+   "word": "إِنْسَان",
+   "pos": "noun",
+   "meaning": "human being; person",
+   "sentence": "كُلُّ إِنْسَانٍ يُخْطِئُ.",
+   "translation": "Every ⟦person⟧ makes mistakes.",
+   "audio": "audio/0146.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.784,
+    "sent_start": 1.684,
+    "sent_end": 3.18
+   }
+  },
+  {
+   "n": 147,
+   "word": "أَحَبَّ",
+   "pos": "verb",
+   "meaning": "to love; to like",
+   "sentence": "أُحِبُّ الْمُوسِيقَى.",
+   "translation": "I ⟦love⟧ music.",
+   "audio": "audio/0147.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.497,
+    "sent_start": 1.397,
+    "sent_end": 2.667
+   }
+  },
+  {
+   "n": 148,
+   "word": "وَطَنِيّ",
+   "pos": "adj",
+   "meaning": "national",
+   "sentence": "الْيَوْمُ عِيدٌ وَطَنِيٌّ.",
+   "translation": "Today is a ⟦national⟧ holiday.",
+   "audio": "audio/0148.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.777,
+    "sent_start": 1.677,
+    "sent_end": 3.576
+   }
+  },
+  {
+   "n": 149,
+   "word": "بَرْنَامَج",
+   "pos": "noun",
+   "meaning": "programme; show",
+   "sentence": "أُحِبُّ هٰذَا الْبَرْنَامَجَ.",
+   "translation": "I like this ⟦programme⟧.",
+   "audio": "audio/0149.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.899,
+    "sent_start": 1.799,
+    "sent_end": 3.433
+   }
+  },
+  {
+   "n": 150,
+   "word": "مَجْلِس",
+   "pos": "noun",
+   "meaning": "council",
+   "sentence": "اجْتَمَعَ مَجْلِسُ الْمَدِينَةِ أَمْسِ.",
+   "translation": "The city ⟦council⟧ met yesterday.",
+   "audio": "audio/0150.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.734,
+    "sent_start": 1.634,
+    "sent_end": 3.883
+   }
+  },
+  {
+   "n": 151,
+   "word": "سِيَاسِيّ",
+   "pos": "adj",
+   "meaning": "political; politician",
+   "sentence": "لَا أُحِبُّ الْأَحَادِيثَ السِّيَاسِيَّةَ.",
+   "translation": "I don't like ⟦political⟧ conversations.",
+   "audio": "audio/0151.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.83,
+    "sent_start": 1.73,
+    "sent_end": 3.963
+   }
+  },
+  {
+   "n": 152,
+   "word": "دَوْلِيّ",
+   "pos": "adj",
+   "meaning": "international",
+   "sentence": "هٰذَا مَطَارٌ دَوْلِيٌّ.",
+   "translation": "This is an ⟦international⟧ airport.",
+   "audio": "audio/0152.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.694,
+    "sent_start": 1.594,
+    "sent_end": 3.257
+   }
+  },
+  {
+   "n": 153,
+   "word": "سَابِق",
+   "pos": "adj",
+   "meaning": "former; previous",
+   "sentence": "هٰذَا مُدِيرِي السَّابِقُ.",
+   "translation": "This is my ⟦former⟧ boss.",
+   "audio": "audio/0153.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.804,
+    "sent_start": 1.704,
+    "sent_end": 3.347
+   }
+  },
+  {
+   "n": 154,
+   "word": "أَمَامَ",
+   "pos": "prep",
+   "meaning": "in front of",
+   "sentence": "انْتَظَرْتُكَ أَمَامَ الْبَابِ.",
+   "translation": "I waited for you ⟦in front of⟧ the door.",
+   "audio": "audio/0154.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.683,
+    "sent_start": 1.584,
+    "sent_end": 3.464
+   }
+  },
+  {
+   "n": 155,
+   "word": "حَرْب",
+   "pos": "noun",
+   "meaning": "war",
+   "sentence": "انْتَهَتِ الْحَرْبُ قَبْلَ سَنَوَاتٍ.",
+   "translation": "The ⟦war⟧ ended years ago.",
+   "audio": "audio/0155.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.622,
+    "sent_start": 1.522,
+    "sent_end": 3.831
+   }
+  },
+  {
+   "n": 156,
+   "word": "دَوْر",
+   "pos": "noun",
+   "meaning": "turn; role",
+   "sentence": "جَاءَ دَوْرُكَ.",
+   "translation": "It's your ⟦turn⟧.",
+   "audio": "audio/0156.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.583,
+    "sent_start": 1.483,
+    "sent_end": 2.565
+   }
+  },
+  {
+   "n": 157,
+   "word": "أَمَّا",
+   "pos": "conj",
+   "meaning": "as for",
+   "sentence": "أَنَا أُحِبُّ الشَّايَ، أَمَّا أَخِي فَيُحِبُّ الْقَهْوَةَ.",
+   "translation": "I like tea; ⟦as for⟧ my brother, he likes coffee.",
+   "audio": "audio/0157.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.52,
+    "sent_start": 1.42,
+    "sent_end": 5.004
+   }
+  },
+  {
+   "n": 158,
+   "word": "نَوْع",
+   "pos": "noun",
+   "meaning": "kind; type",
+   "sentence": "أَيَّ نَوْعٍ مِنَ الْمُوسِيقَى تُحِبُّ؟",
+   "translation": "What ⟦kind⟧ of music do you like?",
+   "audio": "audio/0158.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.682,
+    "sent_start": 1.582,
+    "sent_end": 3.761
+   }
+  },
+  {
+   "n": 159,
+   "word": "كَتَبَ",
+   "pos": "verb",
+   "meaning": "to write",
+   "sentence": "كَتَبْتُ رِسَالَةً إِلَى صَدِيقِي.",
+   "translation": "I ⟦wrote⟧ a letter to my friend.",
+   "audio": "audio/0159.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.531,
+    "sent_start": 1.431,
+    "sent_end": 3.696
+   }
+  },
+  {
+   "n": 160,
+   "word": "تَارِيخ",
+   "pos": "noun",
+   "meaning": "history; date",
+   "sentence": "أُحِبُّ دِرَاسَةَ التَّارِيخِ.",
+   "translation": "I love studying ⟦history⟧.",
+   "audio": "audio/0160.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.611,
+    "sent_start": 1.511,
+    "sent_end": 3.332
+   }
+  },
+  {
+   "n": 161,
+   "word": "دِين",
+   "pos": "noun",
+   "meaning": "religion",
+   "sentence": "احْتَرِمْ دِينَ الْآخَرِينَ.",
+   "translation": "Respect other people's ⟦religion⟧.",
+   "audio": "audio/0161.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.547,
+    "sent_start": 1.447,
+    "sent_end": 3.169
+   }
+  },
+  {
+   "n": 162,
+   "word": "اسْتِخْدَام",
+   "pos": "noun",
+   "meaning": "use",
+   "sentence": "اسْتِخْدَامُ الْهَاتِفِ مَمْنُوعٌ هُنَا.",
+   "translation": "The ⟦use⟧ of phones is not allowed here.",
+   "audio": "audio/0162.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.898,
+    "sent_start": 1.798,
+    "sent_end": 4.152
+   }
+  },
+  {
+   "n": 163,
+   "word": "فَقَدَ",
+   "pos": "verb",
+   "meaning": "to lose",
+   "sentence": "فَقَدْتُ مِفْتَاحَ السَّيَّارَةِ.",
+   "translation": "I ⟦lost⟧ the car key.",
+   "audio": "audio/0163.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.684,
+    "sent_start": 1.584,
+    "sent_end": 3.354
+   }
+  },
+  {
+   "n": 164,
+   "word": "عَبَّرَ",
+   "pos": "verb",
+   "meaning": "to express",
+   "sentence": "لَا أَعْرِفُ كَيْفَ أُعَبِّرُ عَنْ شُكْرِي.",
+   "translation": "I don't know how to ⟦express⟧ my thanks.",
+   "audio": "audio/0164.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.601,
+    "sent_start": 1.501,
+    "sent_end": 4.019
+   }
+  },
+  {
+   "n": 165,
+   "word": "عَشَرَة",
+   "pos": "noun",
+   "meaning": "ten",
+   "sentence": "سَأَعُودُ بَعْدَ عَشْرِ دَقَائِقَ.",
+   "translation": "I'll be back in ⟦ten⟧ minutes.",
+   "audio": "audio/0165.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.611,
+    "sent_start": 1.512,
+    "sent_end": 3.759
+   }
+  },
+  {
+   "n": 166,
+   "word": "مُخْتَلِف",
+   "pos": "adj",
+   "meaning": "different",
+   "sentence": "رَأْيِي مُخْتَلِفٌ عَنْ رَأْيِكَ.",
+   "translation": "My opinion is ⟦different⟧ from yours.",
+   "audio": "audio/0166.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.673,
+    "sent_start": 1.573,
+    "sent_end": 3.564
+   }
+  },
+  {
+   "n": 167,
+   "word": "وِلَايَة",
+   "pos": "noun",
+   "meaning": "state (of a country)",
+   "sentence": "يَعِيشُ أَخِي فِي وِلَايَةِ تِكْسَاس.",
+   "translation": "My brother lives in the ⟦state⟧ of Texas.",
+   "audio": "audio/0167.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.709,
+    "sent_start": 1.609,
+    "sent_end": 4.018
+   }
+  },
+  {
+   "n": 168,
+   "word": "لُغَة",
+   "pos": "noun",
+   "meaning": "language",
+   "sentence": "أَتَكَلَّمُ ثَلَاثَ لُغَاتٍ.",
+   "translation": "I speak three ⟦languages⟧.",
+   "audio": "audio/0168.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.609,
+    "sent_start": 1.509,
+    "sent_end": 3.566
+   }
+  },
+  {
+   "n": 169,
+   "word": "نَحْنُ",
+   "pos": "pron",
+   "meaning": "we",
+   "sentence": "نَحْنُ مِنَ الْأُرْدُنِّ.",
+   "translation": "⟦We⟧ are from Jordan.",
+   "audio": "audio/0169.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.654,
+    "sent_start": 1.554,
+    "sent_end": 3.05
+   }
+  },
+  {
+   "n": 170,
+   "word": "مُسْلِم",
+   "pos": "noun",
+   "meaning": "Muslim",
+   "sentence": "هُوَ مُسْلِمٌ وَيُصَلِّي كُلَّ يَوْمٍ.",
+   "translation": "He is a ⟦Muslim⟧ and prays every day.",
+   "audio": "audio/0170.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.778,
+    "sent_start": 1.678,
+    "sent_end": 4.295
+   }
+  },
+  {
+   "n": 171,
+   "word": "عَالَمِيّ",
+   "pos": "adj",
+   "meaning": "global; world (adjective)",
+   "sentence": "كُرَةُ الْقَدَمِ رِيَاضَةٌ عَالَمِيَّةٌ.",
+   "translation": "Football is a ⟦global⟧ sport.",
+   "audio": "audio/0171.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.785,
+    "sent_start": 1.685,
+    "sent_end": 4.075
+   }
+  },
+  {
+   "n": 172,
+   "word": "حَدَثَ",
+   "pos": "verb",
+   "meaning": "to happen",
+   "sentence": "مَاذَا حَدَثَ؟",
+   "translation": "What ⟦happened⟧?",
+   "audio": "audio/0172.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.587,
+    "sent_start": 1.488,
+    "sent_end": 2.507
+   }
+  },
+  {
+   "n": 173,
+   "word": "رَغْمَ",
+   "pos": "prep",
+   "meaning": "despite",
+   "sentence": "خَرَجْنَا رَغْمَ الْمَطَرِ.",
+   "translation": "We went out ⟦despite⟧ the rain.",
+   "audio": "audio/0173.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.633,
+    "sent_start": 1.533,
+    "sent_end": 3.203
+   }
+  },
+  {
+   "n": 174,
+   "word": "اسْتَطَاعَ",
+   "pos": "verb",
+   "meaning": "to be able to; can",
+   "sentence": "هَلْ تَسْتَطِيعُ مُسَاعَدَتِي؟",
+   "translation": "⟦Can⟧ you help me?",
+   "audio": "audio/0174.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.748,
+    "sent_start": 1.648,
+    "sent_end": 3.559
+   }
+  },
+  {
+   "n": 175,
+   "word": "أَكْبَر",
+   "pos": "adj",
+   "meaning": "bigger; older; biggest",
+   "sentence": "أَخِي أَكْبَرُ مِنِّي.",
+   "translation": "My brother is ⟦older⟧ than me.",
+   "audio": "audio/0175.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.678,
+    "sent_start": 1.578,
+    "sent_end": 3.034
+   }
+  },
+  {
+   "n": 176,
+   "word": "زَالَ",
+   "pos": "verb",
+   "meaning": "(مَا زَالَ / لَا يَزَالُ) still",
+   "sentence": "مَا زَالَ الْمَطَرُ يَنْزِلُ.",
+   "translation": "It's ⟦still⟧ raining.",
+   "audio": "audio/0176.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.643,
+    "sent_start": 1.543,
+    "sent_end": 3.299
+   }
+  },
+  {
+   "n": 177,
+   "word": "أَلْف",
+   "pos": "noun",
+   "meaning": "thousand",
+   "sentence": "ثَمَنُهُ أَلْفُ دِرْهَمٍ.",
+   "translation": "It costs a ⟦thousand⟧ dirhams.",
+   "audio": "audio/0177.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.416,
+    "sent_start": 1.316,
+    "sent_end": 3.027
+   }
+  },
+  {
+   "n": 178,
+   "word": "مَاء",
+   "pos": "noun",
+   "meaning": "water",
+   "sentence": "الْمَاءُ بَارِدٌ جِدًّا.",
+   "translation": "The ⟦water⟧ is very cold.",
+   "audio": "audio/0178.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.491,
+    "sent_start": 1.391,
+    "sent_end": 3.169
+   }
+  },
+  {
+   "n": 179,
+   "word": "فِيدْيُو",
+   "pos": "noun",
+   "meaning": "video",
+   "sentence": "شَاهَدْتُ فِيدْيُو مُضْحِكًا.",
+   "translation": "I watched a funny ⟦video⟧.",
+   "audio": "audio/0179.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.606,
+    "sent_start": 1.506,
+    "sent_end": 3.463
+   }
+  },
+  {
+   "n": 180,
+   "word": "حُكْم",
+   "pos": "noun",
+   "meaning": "rule; ruling; verdict",
+   "sentence": "صَدَرَ الْحُكْمُ أَمْسِ.",
+   "translation": "The ⟦verdict⟧ was given yesterday.",
+   "audio": "audio/0180.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.578,
+    "sent_start": 1.478,
+    "sent_end": 2.889
+   }
+  },
+  {
+   "n": 181,
+   "word": "وُجُود",
+   "pos": "noun",
+   "meaning": "presence; existence",
+   "sentence": "شُكْرًا لِوُجُودِكَ مَعِي.",
+   "translation": "Thank you for ⟦being⟧ with me.",
+   "audio": "audio/0181.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.712,
+    "sent_start": 1.612,
+    "sent_end": 3.453
+   }
+  },
+  {
+   "n": 182,
+   "word": "نَظَرَ",
+   "pos": "verb",
+   "meaning": "to look",
+   "sentence": "انْظُرْ إِلَى السَّمَاءِ!",
+   "translation": "⟦Look⟧ at the sky!",
+   "audio": "audio/0182.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.72,
+    "sent_start": 1.62,
+    "sent_end": 2.933
+   }
+  },
+  {
+   "n": 183,
+   "word": "طَرِيقَة",
+   "pos": "noun",
+   "meaning": "way; method",
+   "sentence": "هٰذِهِ طَرِيقَةٌ سَهْلَةٌ لِلطَّبْخِ.",
+   "translation": "This is an easy ⟦way⟧ to cook.",
+   "audio": "audio/0183.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.652,
+    "sent_start": 1.552,
+    "sent_end": 3.991
+   }
+  },
+  {
+   "n": 184,
+   "word": "كَلِمَة",
+   "pos": "noun",
+   "meaning": "word",
+   "sentence": "مَا مَعْنَى هٰذِهِ الْكَلِمَةِ؟",
+   "translation": "What does this ⟦word⟧ mean?",
+   "audio": "audio/0184.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.585,
+    "sent_start": 1.485,
+    "sent_end": 3.245
+   }
+  },
+  {
+   "n": 185,
+   "word": "أَخِير",
+   "pos": "adj",
+   "meaning": "last; latest",
+   "sentence": "كَانَ الْيَوْمُ الْأَخِيرُ مِنَ الرِّحْلَةِ جَمِيلًا.",
+   "translation": "The ⟦last⟧ day of the trip was beautiful.",
+   "audio": "audio/0185.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.646,
+    "sent_start": 1.546,
+    "sent_end": 4.447
+   }
+  },
+  {
+   "n": 186,
+   "word": "وَضَعَ",
+   "pos": "verb",
+   "meaning": "to put",
+   "sentence": "وَضَعْتُ الْكِتَابَ عَلَى الرَّفِّ.",
+   "translation": "I ⟦put⟧ the book on the shelf.",
+   "audio": "audio/0186.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.63,
+    "sent_start": 1.53,
+    "sent_end": 3.479
+   }
+  },
+  {
+   "n": 187,
+   "word": "أَمْ",
+   "pos": "conj",
+   "meaning": "or (in questions)",
+   "sentence": "هَلْ هٰذَا لَكَ أَمْ لِأَخِيكَ؟",
+   "translation": "Is this yours ⟦or⟧ your brother's?",
+   "audio": "audio/0187.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.438,
+    "sent_start": 1.338,
+    "sent_end": 3.172
+   }
+  },
+  {
+   "n": 188,
+   "word": "ابْن",
+   "pos": "noun",
+   "meaning": "son",
+   "sentence": "ابْنِي فِي الْجَامِعَةِ.",
+   "translation": "My ⟦son⟧ is at university.",
+   "audio": "audio/0188.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.58,
+    "sent_start": 1.48,
+    "sent_end": 2.685
+   }
+  },
+  {
+   "n": 189,
+   "word": "وَزِير",
+   "pos": "noun",
+   "meaning": "minister",
+   "sentence": "زَارَ الْوَزِيرُ الْمَدْرَسَةَ.",
+   "translation": "The ⟦minister⟧ visited the school.",
+   "audio": "audio/0189.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.695,
+    "sent_start": 1.595,
+    "sent_end": 3.234
+   }
+  },
+  {
+   "n": 190,
+   "word": "فَتْرَة",
+   "pos": "noun",
+   "meaning": "period (of time)",
+   "sentence": "عِشْتُ فِي لَنْدَنَ فَتْرَةً قَصِيرَةً.",
+   "translation": "I lived in London for a short ⟦time⟧.",
+   "audio": "audio/0190.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.6,
+    "sent_start": 1.5,
+    "sent_end": 3.868
+   }
+  },
+  {
+   "n": 191,
+   "word": "جُزْء",
+   "pos": "noun",
+   "meaning": "part",
+   "sentence": "قَرَأْتُ الْجُزْءَ الْأَوَّلَ مِنَ الْكِتَابِ.",
+   "translation": "I read the first ⟦part⟧ of the book.",
+   "audio": "audio/0191.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.67,
+    "sent_start": 1.57,
+    "sent_end": 3.922
+   }
+  },
+  {
+   "n": 192,
+   "word": "عَلَاقَة",
+   "pos": "noun",
+   "meaning": "relationship; relation",
+   "sentence": "عَلَاقَتِي بِجِيرَانِي جَيِّدَةٌ.",
+   "translation": "My ⟦relationship⟧ with my neighbours is good.",
+   "audio": "audio/0192.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.665,
+    "sent_start": 1.565,
+    "sent_end": 3.536
+   }
+  },
+  {
+   "n": 193,
+   "word": "مَدْرَسَة",
+   "pos": "noun",
+   "meaning": "school",
+   "sentence": "تَبْدَأُ الْمَدْرَسَةُ فِي سِبْتَمْبَرَ.",
+   "translation": "⟦School⟧ starts in September.",
+   "audio": "audio/0193.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.705,
+    "sent_start": 1.605,
+    "sent_end": 3.762
+   }
+  },
+  {
+   "n": 194,
+   "word": "مُشْكِلَة",
+   "pos": "noun",
+   "meaning": "problem",
+   "sentence": "لَا مُشْكِلَةَ.",
+   "translation": "No ⟦problem⟧.",
+   "audio": "audio/0194.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.763,
+    "sent_start": 1.663,
+    "sent_end": 2.573
+   }
+  },
+  {
+   "n": 195,
+   "word": "خِدْمَة",
+   "pos": "noun",
+   "meaning": "service",
+   "sentence": "الْخِدْمَةُ فِي هٰذَا الْفُنْدُقِ مُمْتَازَةٌ.",
+   "translation": "The ⟦service⟧ in this hotel is excellent.",
+   "audio": "audio/0195.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.571,
+    "sent_start": 1.471,
+    "sent_end": 4.056
+   }
+  },
+  {
+   "n": 196,
+   "word": "قَلْب",
+   "pos": "noun",
+   "meaning": "heart",
+   "sentence": "قَلْبُهُ طَيِّبٌ.",
+   "translation": "He has a kind ⟦heart⟧.",
+   "audio": "audio/0196.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.499,
+    "sent_start": 1.399,
+    "sent_end": 2.519
+   }
+  },
+  {
+   "n": 197,
+   "word": "حَصَلَ",
+   "pos": "verb",
+   "meaning": "to get (حَصَلَ عَلَى); to happen",
+   "sentence": "حَصَلْتُ عَلَى عَمَلٍ جَدِيدٍ.",
+   "translation": "I ⟦got⟧ a new job.",
+   "audio": "audio/0197.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.709,
+    "sent_start": 1.609,
+    "sent_end": 3.628
+   }
+  },
+  {
+   "n": 198,
+   "word": "جَامِعَة",
+   "pos": "noun",
+   "meaning": "university",
+   "sentence": "أَدْرُسُ فِي الْجَامِعَةِ.",
+   "translation": "I study at the ⟦university⟧.",
+   "audio": "audio/0198.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.697,
+    "sent_start": 1.597,
+    "sent_end": 2.972
+   }
+  },
+  {
+   "n": 199,
+   "word": "عَدَم",
+   "pos": "noun",
+   "meaning": "lack of; not (doing)",
+   "sentence": "أَعْتَذِرُ عَنْ عَدَمِ الْحُضُورِ.",
+   "translation": "I'm sorry for ⟦not⟧ coming.",
+   "audio": "audio/0199.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.643,
+    "sent_start": 1.543,
+    "sent_end": 3.518
+   }
+  },
+  {
+   "n": 200,
+   "word": "يَد",
+   "pos": "noun",
+   "meaning": "hand",
+   "sentence": "يَدِي تُؤْلِمُنِي.",
+   "translation": "My ⟦hand⟧ hurts.",
+   "audio": "audio/0200.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.452,
+    "sent_start": 1.352,
+    "sent_end": 2.658
    }
   }
  ]
