@@ -42,6 +42,22 @@ only when it is played or added.
    Listen to those, fix the text or remake them (`--redo`).
 6. **Publish** with the website (a release; ask the owner first).
 
+## Other languages
+
+Every language the app teaches has its voice in `build_course.py` (`AZURE`, the same voices as the app's
+card voices; Bisaya, which Azure has no voice for, uses Meta's MMS voice made on this computer, `--voice mms`).
+Each language is made on a branch of its own off `basics-course` (`basics-<lang>`), touching only its own
+files: `tools/course/<lang>/` (its words, and any ranking script it needs), `docs/course/<lang>/`, and its
+entry in `docs/course/index.json` (which merges by language: keep every language's entry).
+
+- Rows of a batch can carry a seventh item, `form`: the word as the sentence has it when it isn't written
+  the same ("went" for "go"); `tests/js/course-content.test.mjs` checks the sentence contains the word or
+  that form, and the numbering, ranks, length, ending and ⟦ ⟧ marks, for every language but Arabic.
+- Several builds can run at once on this computer: they take turns with Azure (a lock file in the temp
+  folder), since its free tier allows about 20 requests a minute for the whole key.
+- If Azure refuses (401/403), the month's free allowance may be used up: what is made is kept, and the
+  next run makes only the rest.
+
 ## Size and cost
 
 About 14 KB of audio per word (Ogg Opus), so about 14 MB for a whole language. A word and its sentence are

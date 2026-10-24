@@ -52,8 +52,24 @@ PLANNED = 1000
 # The voice per language and how its sentences are said. Arabic: Modern Standard Arabic, Saudi voice
 # (the app's usual Arabic card voice, cardvoice.js AZURE_VOICES). Sentences a little slower than normal
 # speech, for beginners; the word itself at the usual speed.
+# The other languages use the same voices as the app's card voices (web/js/cardvoice.js AZURE_VOICES).
 AZURE = {
     "ar": {"voice": "ar-SA-ZariyahNeural", "locale": "ar-SA", "name": "Zariyah (Azure, Saudi Arabia)"},
+    "es": {"voice": "es-MX-DaliaNeural", "locale": "es-MX", "name": "Dalia (Azure, Mexico)"},
+    "fr": {"voice": "fr-FR-DeniseNeural", "locale": "fr-FR", "name": "Denise (Azure, France)"},
+    "ja": {"voice": "ja-JP-NanamiNeural", "locale": "ja-JP", "name": "Nanami (Azure, Japan)"},
+    "zh": {"voice": "zh-CN-XiaoxiaoNeural", "locale": "zh-CN", "name": "Xiaoxiao (Azure, mainland China)"},
+    "ru": {"voice": "ru-RU-SvetlanaNeural", "locale": "ru-RU", "name": "Svetlana (Azure, Russia)"},
+    "it": {"voice": "it-IT-ElsaNeural", "locale": "it-IT", "name": "Elsa (Azure, Italy)"},
+    "tl": {"voice": "fil-PH-BlessicaNeural", "locale": "fil-PH", "name": "Blessica (Azure, Philippines)"},
+    "pt": {"voice": "pt-BR-FranciscaNeural", "locale": "pt-BR", "name": "Francisca (Azure, Brazil)"},
+    "ca": {"voice": "ca-ES-JoanaNeural", "locale": "ca-ES", "name": "Joana (Azure, Catalonia)"},
+    "th": {"voice": "th-TH-PremwadeeNeural", "locale": "th-TH", "name": "Premwadee (Azure, Thailand)"},
+    "de": {"voice": "de-DE-KatjaNeural", "locale": "de-DE", "name": "Katja (Azure, Germany)"},
+    "fa": {"voice": "fa-IR-DilaraNeural", "locale": "fa-IR", "name": "Dilara (Azure, Iran)"},
+    "hi": {"voice": "hi-IN-SwaraNeural", "locale": "hi-IN", "name": "Swara (Azure, India)"},
+    "ko": {"voice": "ko-KR-SunHiNeural", "locale": "ko-KR", "name": "SunHi (Azure, South Korea)"},
+    "en": {"voice": "en-US-JennyNeural", "locale": "en-US", "name": "Jenny (Azure, United States)"},
 }
 SENTENCE_RATE = "-10%"
 PIPER = {"ar": "ar_JO-kareem-medium"}
@@ -70,6 +86,14 @@ LEAD, GAP, TAIL = 0.06, 0.9, 0.35
 
 def log(*a: Any) -> None:
     print(*a, flush=True)
+
+
+# Logs often go to a file, which Windows would write in its old code page (no Arabic letters).
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
 
 
 # ---------------------------------------------------------------- the words
@@ -123,9 +147,44 @@ def azure_key() -> tuple[str, str]:
 _pace = {"gap": 0.0, "last": 0.0}
 
 
+_lock: dict[str, Any] = {}
+
+
+def azure_turn() -> None:
+    """Wait until no other course build on this computer is talking to Azure, then hold the turn
+    until this build ends. Several languages are built side by side (one checkout each), and Azure's
+    free tier allows about 20 requests a minute for the whole key: taking turns is faster than all of
+    them being told "too many" at once."""
+    if _lock:
+        return
+    import tempfile
+
+    f = open(Path(tempfile.gettempdir()) / "tamkeen-course-azure.lock", "a+")
+    said = False
+    while True:
+        try:
+            if os.name == "nt":
+                import msvcrt
+
+                f.seek(0)
+                msvcrt.locking(f.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+
+                fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            break
+        except OSError:
+            if not said:
+                log("  (another course is being voiced on this computer; waiting for its turn to end)")
+                said = True
+            time.sleep(10)
+    _lock["file"] = f  # held until this program ends
+
+
 def azure_synth(text: str, lang: str, rate: str = "") -> tuple[np.ndarray, int]:
     import httpx
 
+    azure_turn()
     key, region = azure_key()
     v = AZURE[lang]
     body = escape(text)
@@ -155,6 +214,9 @@ def azure_synth(text: str, lang: str, rate: str = "") -> tuple[np.ndarray, int]:
                 after = 0.0
             time.sleep(max(after, 5.0 + attempt * 2))
             continue
+        if r.status_code in (401, 403):
+            raise SystemExit(f"Azure refused ({r.status_code}): the key is wrong, or this month's free allowance is used "
+                             "up. The audio made so far is kept; run again later and only the rest is made.")
         if r.status_code != 200:
             raise SystemExit(f"Azure answered {r.status_code}: {r.text[:200]}")
         if len(r.content) < 2000:
@@ -233,8 +295,8 @@ def make_audio(word: str, sentence: str, lang: str, engine: str) -> tuple[bytes,
 
 # ---------------------------------------------------------------- building
 
-def fingerprint(w: dict[str, Any], engine: str) -> str:
-    return hashlib.sha1(json.dumps([w["word"], w["sentence"], engine, AZURE.get("ar", {}).get("voice") if engine == "azure" else engine, SENTENCE_RATE],
+def fingerprint(w: dict[str, Any], engine: str, lang: str) -> str:
+    return hashlib.sha1(json.dumps([w["word"], w["sentence"], engine, AZURE.get(lang, {}).get("voice") if engine == "azure" else engine, SENTENCE_RATE],
                                    ensure_ascii=False).encode()).hexdigest()[:16]
 
 
@@ -269,13 +331,13 @@ def main() -> None:
     old_times = {w["n"]: w.get("times") for w in old.get("words", [])}
 
     if engine == "mms":  # everything still to make, said in one run
-        todo = [w for w in words if args.redo or made.get(f"{w['n']:04d}.ogg") != fingerprint(w, engine)
+        todo = [w for w in words if args.redo or made.get(f"{w['n']:04d}.ogg") != fingerprint(w, engine, lang)
                 or not (folder / "audio" / f"{w['n']:04d}.ogg").exists() or not old_times.get(w["n"])]
         mms_prepare([t for w in todo for t in (w["word"], w["sentence"])], lang)
     items = []
     for w in words:
         name = f"{w['n']:04d}.ogg"
-        fp = fingerprint(w, engine)
+        fp = fingerprint(w, engine, lang)
         path = folder / "audio" / name
         times = old_times.get(w["n"])
         if args.redo or made.get(name) != fp or not path.exists() or not times:
