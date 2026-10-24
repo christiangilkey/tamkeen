@@ -49,7 +49,6 @@
 .reel-signin p { margin: 0 0 6px; }
 .reel-signin .row { gap: 6px; flex-wrap: wrap; }
 .reel-signin button { min-height: 30px; padding: 2px 10px; font-size: 13px; }
-.reel-signin ~ .reel-hint { display: none; }
 .reel-log { display: flex; flex-direction: column; gap: 2px; max-height: 220px; overflow: auto; font-size: 13px; }
 .reel-log:empty { display: none; }
 .reel-logline { display: flex; gap: 6px; align-items: baseline; min-width: 0; }
@@ -83,7 +82,7 @@
   background: #111; border-top: 1px solid #2c2c2c;
   --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838; }
 .reel-words, .reel-pop { min-width: 0; min-height: 0; overflow: auto; -webkit-overflow-scrolling: touch; }
-.reel-words { padding: 6px 12px 30px; font-size: clamp(17px, calc(var(--ar-size) * .78), 26px); line-height: 1.75; color: #f2f1ec; }
+.reel-words { padding: 6px 12px 30px; font-size: clamp(19px, calc(var(--ar-size) * .88), 29px); line-height: 1.75; color: #f2f1ec; }
 .reel-words .seg { margin: 0 0 .3em; }
 .reel-words .w { border-radius: 5px; cursor: pointer; padding: 0 .04em; transition: background-color .08s, color .35s; }
 .reel-words .w.cur { background: var(--hl); color: var(--hl-ink); }
@@ -93,7 +92,6 @@
 .reel-words .w.new.cur { color: var(--hl-ink); }
 .reel-words .w:active { display: inline-block; transform: scale(.9); }
 .reel-pop { border-left: 1px solid #383838; padding: 0; display: flex; flex-direction: column; overflow: hidden; }
-.reel-hint { margin: 8px 10px; }
 /* The word popup is part of the bar here, not a floating card or a sheet. It fills its half of the
    bar: the heading stays at the top and only the explanation under it scrolls. */
 .reel-pop .word-bubble, .reel-pop .word-bubble.sheet {
@@ -113,7 +111,7 @@
    two halves. */
 .reelplay:not(.no-video) .reel-bar { display: flex; flex-direction: column; }
 .reelplay:not(.no-video) .reel-words { flex: none; overflow-x: auto; overflow-y: hidden; white-space: nowrap; scrollbar-width: none;
-  padding: 4px 12px; line-height: 1.6; font-size: clamp(18px, calc(var(--ar-size) * .8), 24px); border-bottom: 1px solid #2c2c2c;
+  padding: 4px 12px; line-height: 1.6; font-size: clamp(21px, calc(var(--ar-size) * .95), 28px); border-bottom: 1px solid #2c2c2c;
   unicode-bidi: isolate; } /* the line runs the language's way (its dir), not decided again by its first letters */
 .reelplay:not(.no-video) .reel-words::-webkit-scrollbar { display: none; }
 .reelplay:not(.no-video) .reel-words .seg { display: inline-block; margin: 0; } /* a box each, so the space between them holds in right-to-left text too */

@@ -1,4 +1,5 @@
-// How the web app and the Tamkeen browser extension ("Tamkeen for Netflix", extension/) talk.
+// How the web app and the Tamkeen browser extension (extension/: Netflix's subtitles and Spotify's
+// lyrics as words to click) talk.
 //
 // The extension can't simply read the web app's library: its own pages inside Netflix are another
 // website, and browsers keep each website's storage apart. So it has a small part on the web app's
@@ -7,8 +8,12 @@
 //   extension -> web app  "hello" {nonce}            I'm here (once, when the page opens)
 //   web app -> extension  "hello" {nonce}            the same nonce back: from now on every message carries it
 //   web app -> extension  "settings" {settings, device}   what the extension needs to look words up
-//   extension -> web app  "pending" {words, titles}  words saved and titles watched in Netflix
+//   extension -> web app  "pending" {words, titles}  words saved (in Netflix or on Spotify) and titles
+//                                                    watched in Netflix
 //   web app -> extension  "ack" {words, titles}      those are in the library now: forget them
+//   extension -> web app  "gone" {}                  the extension was updated or turned off since this
+//                                                    page opened: its part here can't pass anything on
+//                                                    until the page is loaded again
 // Both sides accept a message only from their own window (event.source) and the web app's own address
 // (event.origin), with the nonce; anything else is ignored. Everything that arrives is treated as data,
 // cleaned to plain short values (cleanSettings, cleanWord, cleanTitle) before it is used.
@@ -21,7 +26,7 @@ import { vocabFromDefinition } from "./languages.js";
 export const EXT = "tamkeenExtension"; // the tag on the extension's messages
 export const APP = "tamkeenApp";       // the tag on the web app's messages
 export const PROTOCOL = 1;
-export const TYPES = { [EXT]: ["hello", "pending"], [APP]: ["hello", "settings", "ack"] };
+export const TYPES = { [EXT]: ["hello", "pending", "gone"], [APP]: ["hello", "settings", "ack"] };
 
 const PROVIDERS = ["claude", "gemini", "openai", "grok"];
 const MODES = ["ai", "dictionary", "dictionary_first"];
@@ -66,10 +71,15 @@ export function cleanSettings(s) {
   if (!plain(s)) return {};
   const out = {
     study_language: code(s.study_language), ui_language: code(s.ui_language),
+    // The languages ticked in Settings (a song in one of them is looked up in it without asking).
+    learning_languages: (Array.isArray(s.learning_languages) ? s.learning_languages : []).map(code).filter(Boolean).slice(0, 20),
     definer_provider: PROVIDERS.includes(s.definer_provider) ? s.definer_provider : "claude",
     definer_mode: MODES.includes(s.definer_mode) ? s.definer_mode : "dictionary_first",
     definer_language: text(s.definer_language, 40) || "English",
     font_size: Math.min(60, Math.max(12, Number(s.font_size) || 26)),
+    // Do saved words get their voice by themselves (cardvoice.js voicesOnSave)? Only that: without it the
+    // popup offers "Add audio". The voice settings themselves never leave the web app.
+    card_voices: s.card_voices === true,
   };
   for (const p of PROVIDERS) {
     out[`llm_key_${p}`] = String(s[`llm_key_${p}`] ?? "").replace(/\s+/g, "").slice(0, 400);
@@ -84,18 +94,36 @@ export function cleanDevice(d) {
   return { lookup_mode: x.lookup_mode === "quick" ? "quick" : "detailed", word_pause: x.word_pause !== false };
 }
 
-/** A word saved in Netflix, as it waits for the web app (extension/src/js/ext/queue.js makes them). */
+/** A song on Spotify, as a saved word names it: {id (Spotify's 22-character id, or ""), title,
+ * artist}, or null. */
+export function cleanTrack(x) {
+  if (!plain(x)) return null;
+  const title = text(x.title, 300);
+  if (!title) return null;
+  return { id: /^[A-Za-z0-9]{22}$/.test(String(x.id ?? "")) ? String(x.id) : "", title, artist: text(x.artist, 300) };
+}
+
+/** Where a card saved on Spotify came from, as the Vocab page shows it: "Spotify – Artist – Title". */
+export const spotifySource = (track) => {
+  const t = cleanTrack(track);
+  return t ? ["Spotify", t.artist, t.title].filter(Boolean).join(" – ") : "Spotify";
+};
+
+/** A word saved in Netflix (netflix_id: the title it is in) or on Spotify (spotify: the song), as it
+ * waits for the web app (the extension's panels make them: savedWord, savedSpotifyWord). */
 export function cleanWord(w) {
   if (!plain(w)) return null;
   const uid = /^[\w-]{8,64}$/.test(String(w.uid ?? "")) ? String(w.uid) : "";
   const netflix_id = cleanTitleId(w.netflix_id);
+  const spotify = netflix_id ? null : cleanTrack(w.spotify);
   const word = text(w.text, 200);
-  if (!uid || !netflix_id || !word) return null;
+  if (!uid || !(netflix_id || spotify) || !word) return null;
   return {
     uid, netflix_id, text: word, sentence: text(w.sentence, 2000),
     start: num(w.start), end: num(w.end), sent_start: num(w.sent_start), sent_end: num(w.sent_end),
     meaning: text(w.meaning, 1000), notes: text(w.notes, 2000), translation: text(w.translation, 2000),
     language: code(w.language), title: text(w.title, 300), created_at: stamp(w.created_at),
+    ...(spotify ? { spotify } : {}),
   };
 }
 
@@ -155,8 +183,17 @@ export const WORD_KEY = "w:";
 export const TITLE_KEY = "t:";
 
 /** A new word's own id. */
-export const wordUid = (now = Date.now(), rand = Math.random) =>
-  `nfw${now.toString(36)}${Math.floor(rand() * 2 ** 40).toString(36).padStart(8, "0")}`;
+export const wordUid = (now = Date.now(), rand = Math.random, prefix = "nfw") =>
+  `${prefix}${now.toString(36)}${Math.floor(rand() * 2 ** 40).toString(36).padStart(8, "0")}`;
+
+/** A word saved from a song's lyrics on Spotify: its card's sentence is the lyric line (the song's
+ * whole lyrics are never kept), its source the song. `lang`: the language it was looked up in. */
+export function savedSpotifyWord({ track, def = null, word, lang, sentence }, now = Date.now(), uid = wordUid(now, Math.random, "spw")) {
+  const song = cleanTrack(track);
+  if (!song) return null;
+  return cleanWord({ uid, spotify: song, ...vocabFromDefinition(def, word, lang), sentence, language: lang,
+    title: [song.artist, song.title].filter(Boolean).join(" – "), created_at: now });
+}
 
 /** A word saved from a Netflix title's subtitles (def: the popup's answer, or null). */
 export function savedWord({ netflixId, def = null, word, lang, sentence, start, end, sentStart, sentEnd, title }, now = Date.now(), uid = wordUid(now)) {

@@ -78,4 +78,4 @@ export async function addFromFile(file, lang, onStep = () => {}) {
 }
 
 // Splitting a book into pages: bookpages.js (no screen code there, so it is tested on its own).
-export { pageOf, paginate } from "./bookpages.js";
+export { pageOf, paginate, paginateBlocks } from "./bookpages.js";

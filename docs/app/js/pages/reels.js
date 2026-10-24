@@ -8,6 +8,7 @@
 // next one starts by itself.
 
 import { api, esc, h, on, toast, platform, buzz, reelSurface, fmtDuration, openInstagramSignIn } from "../app.js";
+import { voiceNewCard } from "../voiceplay.js";
 import { icon } from "../icons.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
@@ -22,6 +23,9 @@ import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton } from "../vowels.js";
+import { wordClip } from "../wordclip.js";
+import { phrasePicker } from "../components/phrasepick.js";
+import { isPhrase, phraseText } from "../phrase.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -215,6 +219,8 @@ async function renderList(view) {
         <button type="button" class="primary" id="reel-random" ${busy ? "disabled" : ""} ${info.random ? "" : "hidden"}
           title="Reels in ${esc(info.language_name)} on all sorts of everyday subjects, found by searching Instagram for a few words picked at random. Different every time."></button>
       </div>
+      <p class="small muted reel-random-note" id="reel-random-note" ${info.random && info.mode === "saved" ? "" : "hidden"}>Random reels come from all of
+        Instagram, not from your saved collection. For reels from your collection, tick them above and press “Get the ticked reels”.</p>
       <div class="row">
         <button type="button" class="primary" id="reel-go" ${busy ? "disabled" : ""} ${info.mode === "saved" ? "hidden" : ""}></button>
         <button type="button" class="primary" id="reel-send" ${info.mode === "saved" ? "" : "hidden"} disabled></button>
@@ -259,7 +265,11 @@ async function renderList(view) {
     const want = q("#reel-n-want");
     const paintCount = () => {
       q("#reel-go").textContent = busy ? "Getting reels…" : `Get ${howMany} reel${howMany === 1 ? "" : "s"}`;
-      q("#reel-random").textContent = `Get ${howMany} random ${info.language_name} reel${howMany === 1 ? "" : "s"}`;
+      // Beside your saves the random ones must not look like part of them (the owner: "make it clear the 10
+      // random reels aren't from your collection"): the button says where they come from, and a line under it.
+      q("#reel-random").textContent = info.mode === "saved"
+        ? `Get ${howMany} random ${info.language_name} reel${howMany === 1 ? "" : "s"} from all of Instagram`
+        : `Get ${howMany} random ${info.language_name} reel${howMany === 1 ? "" : "s"}`;
     };
     const setCount = (n, typed = false) => {
       howMany = cleanCount(n);
@@ -499,7 +509,7 @@ async function renderPlayer(view, { query }) {
       <div class="reel-stage" id="reel-stage"></div>
       <div class="reel-bar">
         <div class="reel-words ar" id="reel-words" tabindex="0"></div>
-        <div class="reel-pop" id="reel-pop"><p class="small muted reel-hint" id="reel-hint">Tap a word to see what it means.</p></div>
+        <div class="reel-pop" id="reel-pop"></div>
       </div>
       <div class="reel-controls" id="reel-controls">
         <div class="rc-seekrow">
@@ -555,6 +565,7 @@ async function renderPlayer(view, { query }) {
 
   const bubble = createWordBubble($("#reel-pop"), {
     noAudio: !surface,
+    voiceless: true,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     // Misheard words, put right in this reel's words when a lookup finds them (fixword.js).
     onCorrect: async (def) => {
@@ -569,16 +580,17 @@ async function renderPlayer(view, { query }) {
       if (t === target) t.text = back.word;
       return back;
     },
-    onPlayWord: () => target && playClip(cur.starts[target.i], cur.ends[target.j]),
+    onPlayWord: () => target && playClip(...wordClip({ starts: cur.starts, ends: cur.ends, texts: cur.texts, i: target.i, j: target.j, lang: cur.lang })),
     onPlaySentence: () => target && playClip(cur.starts[target.si], cur.ends[target.sj]),
     onPlayFrom: () => { if (target && surface) { clipEnd = null; surface.do("seek", cur.starts[target.i]); surface.do("play"); } },
     onSettings: () => (location.hash = "#/settings?s=words"),
     onSave: async (def) => {
       const t = target;
       try {
-        await api("/vocab", { method: "POST", body: {
+        const row = await api("/vocab", { method: "POST", body: {
           ...vocabFromDefinition(def, t.text, cur.lang), sentence: sentence(t.si, t.sj), episode_id: cur.ep.id,
           start: cur.starts[t.i], end: cur.ends[t.j], sent_start: cur.starts[t.si], sent_end: cur.ends[t.sj] } });
+        voiceNewCard(row, "video/instagram");  // a reel's sound stays Instagram's: its voice, now (Settings → Card voices)
         savedHere.add(savedKey(t.i, t.j)); // no message: the popup's Save button says "Saved"
         reward({ type: "save" }, cur.els[t.i]);
         if (seen) seen.markSeen(t.i, t.j);
@@ -615,9 +627,8 @@ async function renderPlayer(view, { query }) {
     const item = mediaFromEpisode(reels[index]);
     return item && { ...item, language: episodeLanguage(reels[index]) };
   }));
-  // The popup lives in the right half of the bar; the hint shows whenever it is closed.
-  const hint = $("#reel-hint");
-  new MutationObserver(() => { hint.hidden = bubble.open; }).observe(bubble.el, { attributes: true, attributeFilter: ["hidden"] });
+  // (The popup lives in the right half of the bar. The owner had the "Tap a word to see what it means."
+  // hint that filled it while closed taken away.)
 
   const sentence = (a, b) => joinWords(cur.texts.slice(a, b + 1), cur.lang);
 
@@ -664,26 +675,33 @@ async function renderPlayer(view, { query }) {
     const [si, sj] = sentenceBounds(cur.texts, cur.segOf, i, j);
     const prev = si > 0 ? sentenceBounds(cur.texts, cur.segOf, si - 1) : null;
     const next = sj < cur.texts.length - 1 ? sentenceBounds(cur.texts, cur.segOf, sj + 1) : null;
-    const word = joinWords(cur.texts.slice(i, j + 1), cur.lang).replace(EDGE_PUNCT, "") || cur.texts[i];
+    const word = phraseText(cur.texts, i, j, cur.lang);
     return { si, sj, word, ctx: {
       word, lang: cur.lang, marked: markWord(cur.texts.slice(si, sj + 1), i - si, j - si, cur.lang),
       before: prev ? sentence(prev[0], prev[1]) : "", after: next ? sentence(next[0], next[1]) : "",
-      podcast: `@${cur.ep.description || "Instagram"}`, episode: cur.ep.title,
+      podcast: `@${cur.ep.description || "Instagram"}`, episode: cur.ep.title, phrase: isPhrase(i, j),
     } };
   }
 
-  function define(i) {
-    const { si, sj, word, ctx } = contextAt(i);
-    target = { i, j: i, si, sj, text: word };
+  /** Look up words i..j (one word, or several dragged across together). */
+  function define(i, j = i) {
+    const { si, sj, word, ctx } = contextAt(i, j);
+    target = { i, j, si, sj, text: word };
     buzz("tick");
-    playClip(cur.starts[i], cur.ends[i]);
-    bubble.show(cur.els[i], ctx, { saved: savedHere.has(savedKey(i, i)) });
+    playClip(...wordClip({ starts: cur.starts, ends: cur.ends, texts: cur.texts, i, j, lang: cur.lang }));
+    bubble.show(cur.els[i], ctx, { saved: savedHere.has(savedKey(i, j)) });
     reward({ type: "word", key: `${cur.lang}:${word.toLowerCase()}` }, cur.els[i]);
-    if (seen) seen.markSeen(i, i); // looked up: this word, in all its forms, is no longer new
+    if (seen) seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
   wordsEl.addEventListener("click", (e) => {
     const el = e.target.closest(".w");
     if (el && cur) define(Number(el.dataset.i));
+  });
+  // Drag across words (mouse), or hold a word and slide on (touch): they are looked up together.
+  const picker = phrasePicker(wordsEl, {
+    blockOf: (k) => (cur ? cur.segOf[k] : -1),
+    elOf: (k) => (cur && cur.els[k]) || null,
+    onPick: (i, j) => { if (cur) define(i, j); },
   });
 
   function setActive(idx) {
@@ -864,6 +882,7 @@ async function renderPlayer(view, { query }) {
     menuWatch.disconnect();
     window.removeEventListener("resize", onResize);
     document.removeEventListener("pointerdown", onOutside);
+    picker.destroy();
     bubble.hide();
     if (seen) seen.close();
     if (surface) surface.close();

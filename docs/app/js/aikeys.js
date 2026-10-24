@@ -6,9 +6,13 @@
 // key on one device removes it on the others too. The computer's copy of this is app/aikeys.py: the
 // two must agree exactly, or two devices would keep rewriting each other's keys.
 
-export const KEYS = ["llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok", "stt_key_groq", "stt_key_openai"];
+export const KEYS = ["llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok", "stt_key_groq", "stt_key_openai",
+  // Card voices (cardvoice.js): the Azure key and its region, which voice source the cards use, and any
+  // Azure voice picked per language (JSON), and whether a word saved from something with no sound gets its
+  // voice at once ("on"/"off"). They follow the learner the same way.
+  "tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save"];
 export const TIMES = "key_times"; // setting: {key name: when it last changed, here or on another device (whole seconds)}
-const MAX_LENGTH = 500;
+const MAX_LENGTH = 2000;
 
 function record(value, at) {
   const n = Math.trunc(Number(at) || 0);

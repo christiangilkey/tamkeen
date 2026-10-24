@@ -54,7 +54,7 @@ const EARNED = {
       title: "XP", pic: "xp",
       now: `You have ${fmt(game.xp)} XP and are level ${lv.level}. The next level is ${fmt(lv.need - lv.into)} XP away.`,
       get: [
-        "Look up a word: usually 5 to 15, sometimes 30 to 50, now and then 100 to 200. A word pays once a day, and looking up another within 30 seconds builds a combo of up to double.",
+        "Look up a word: usually 5 to 15, sometimes 30 to 50, now and then 100 to 200. A word pays once a day, and each word you look up in the same study session builds a combo of up to double, with no hurry: the session ends only when you've been away from the app for 10 minutes, or at midnight.",
         "Save a word to your vocab: 20.",
         "Listen or read: a slow trickle while you study, which dries up well past your daily goal.",
         `Reach your daily goal: ${DAILY_COMPLETE_XP}. This is the big one, and it pays the same whether your goal is 5 minutes or 20.`,

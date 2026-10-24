@@ -72,8 +72,14 @@ body:has(.add-fab) .toasts { bottom: calc(144px + env(safe-area-inset-bottom)); 
 .settings select, .settings input[type=text], .settings input[type=password] { width: 100%; }
 .stack-label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
 .vocab-item { grid-template-columns: 1fr; }
-.toasts { left: 12px; right: 12px; bottom: calc(70px + env(safe-area-inset-bottom)); }
+/* Messages: the width of a phone's screen less its margins; in a wider window (the web app on a
+   computer, a tablet) a box at the bottom right as on the desktop, never a bar across the window. */
+.toasts { left: 12px; right: 12px; bottom: calc(70px + env(safe-area-inset-bottom)); align-items: stretch; }
 .toast { max-width: none; }
+@media (min-width: 640px) {
+  .toasts { align-items: flex-end; }
+  .toast { max-width: min(420px, 100%); }
+}
 button, .btn { min-height: 38px; }
 .tabbar a { position: relative; }
 
@@ -146,8 +152,20 @@ button, .btn { min-height: 38px; }
   padding: 6px 6px 6px 14px; border-radius: 99px; background: #0b8693; color: #fff; font-size: 13px; font-weight: 600;
   animation: version-in .3s ease-out both; }
 .version-banner a { color: #fff; text-decoration: underline; font-weight: 500; white-space: nowrap; }
+/* "What's new": a button that opens the list of new features under the banner (app.js versionBanner) */
+.version-banner:has(.version-banner-row) { flex-direction: column; align-items: stretch; gap: 6px; }
+.version-banner-row { display: flex; align-items: center; gap: 10px; }
+.version-banner-more { display: inline-flex; align-items: center; gap: 3px; background: transparent; border: 0; padding: 0; min-height: 0;
+  color: #fff; font: inherit; font-weight: 600; text-decoration: underline; white-space: nowrap; cursor: pointer; }
+.version-banner-more .ic { transform: rotate(90deg); transition: transform .15s; }
+.version-banner-more[aria-expanded="true"] .ic { transform: rotate(-90deg); }
+.version-banner-list { margin: 0; padding: 0 4px 2px 20px; max-width: 360px; font-size: 13px; line-height: 1.45; }
+.version-banner-list li { margin: 3px 0; }
+.version-banner-list[hidden] { display: none; }
 .version-banner-close { background: transparent; border: 0; color: #fff; padding: 4px; min-height: 0; border-radius: 50%; display: grid; place-items: center; }
 .version-banner-close:hover:not(:disabled) { background: rgba(255, 255, 255, .18); }
 .version-banner.leaving { opacity: 0; transform: translateY(-6px); transition: opacity .35s, transform .35s; }
 @keyframes version-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .version-banner { animation: none; } .version-banner.leaving { transition: none; } }
+/* With the list open the pill becomes a rounded card. */
+.version-banner:has(.version-banner-list:not([hidden])) { border-radius: 16px; padding-bottom: 10px; }

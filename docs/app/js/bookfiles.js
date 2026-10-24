@@ -3,9 +3,13 @@
 // DOC, and HTML. Everything happens on the device; the file is not sent anywhere.
 // Shared by the desktop app, the phone and the web app (see books.js).
 
+import { BLOCK_KINDS, marksFromRuns, runsOf } from "./blockmarks.js";
+import { guessHeading } from "./readerlayout.js";
+
 const MAX_BYTES = 200 * 1024 * 1024;
 
-/** {title, author, blocks: [{kind: "h2"|"p", text}]} for a File. `onStep(text)` hears progress. */
+/** {title, author, blocks: [{kind: "h1"|"h2"|"h3"|"p"|"li"|"q", text, marks?}]} for a File, with
+ * bold and italic words as marks (blockmarks.js). `onStep(text)` hears progress. */
 export async function readBookFile(file, onStep = () => {}) {
   if (file.size > MAX_BYTES) throw new Error("That file is too big (over 200 MB).");
   const name = file.name.toLowerCase();
@@ -33,9 +37,8 @@ export function decodeText(bytes) {
   try { return new TextDecoder("utf-8", { fatal: true }).decode(bytes); } catch { return new TextDecoder("windows-1252").decode(bytes); }
 }
 
-// (Not \b after the word: in JavaScript that only knows Latin letters.)
-const HEADING = /^(chapter|capítulo|capitulo|chapitre|capitolo|kabanata|libro|livre|book|part|parte|partie|глава|часть|باب|الفصل|الجزء|prologue|prólogo|epilogue|épilogue)(?=[\s.:,\d]|$)|^[IVXLC]+\.?$|^第[一二三四五六七八九十百零〇\d]+[回章話节節篇卷]/i;
-export const looksLikeHeading = (line) => line.length <= 70 && HEADING.test(line.trim());
+/** A chapter line ("Chapter 3", "第三章", "IV.") or a short line in capitals: a heading in plain text. */
+export const looksLikeHeading = (line) => guessHeading(line) > 0;
 
 function tidyBlocks(blocks) {
   const out = [];
@@ -43,12 +46,36 @@ function tidyBlocks(blocks) {
     const text = tidy(b.text);
     if (!text || !/[\p{L}\p{N}]/u.test(text)) continue;
     if (out.length && out[out.length - 1].text === text) continue;
-    out.push({ kind: b.kind === "h2" ? "h2" : "p", text });
+    const kind = BLOCK_KINDS.includes(b.kind) ? b.kind : "p";
+    out.push(Array.isArray(b.marks) && b.marks.length && !/^h/.test(kind) ? { kind, text, marks: b.marks } : { kind, text });
   }
   return out;
 }
 
-/** Plain text: paragraphs are separated by blank lines (or, in a text without any, each line is one). */
+/** A block of plain text with its heading level guessed: "h2" for a chapter line or a line in capitals, "h3" for a bare section number. */
+const plainBlock = (text, marks) => {
+  const level = guessHeading(text);
+  const kind = level === 3 ? "h3" : level ? "h2" : "p";
+  return marks && marks.length && kind === "p" ? { kind, text, marks } : { kind, text };
+};
+
+/** Markdown's (and plain text's) emphasis as styled runs: **bold**, __bold__, *italic*, _italic_. */
+function emphasisRuns(text, markdown) {
+  const runs = [];
+  const re = markdown ? /(\*\*|__)(?=\S)([^]*?\S)\1|(\*|_)(?=\S)([^*_]*?\S)\3/g : /(?<![\p{L}\p{N}])_(?=\S)([^_]*?\S)_(?![\p{L}\p{N}])/gu;
+  let at = 0;
+  for (const m of text.matchAll(re)) {
+    if (m.index > at) runs.push({ text: text.slice(at, m.index) });
+    if (markdown) runs.push(m[1] ? { text: m[2], b: true } : { text: m[4], i: true });
+    else runs.push({ text: m[1], i: true });
+    at = m.index + m[0].length;
+  }
+  if (at < text.length) runs.push({ text: text.slice(at) });
+  return runs;
+}
+
+/** Plain text: paragraphs are separated by blank lines (or, in a text without any, each line is one).
+ * Markdown's # headings and **bold** / *italic*, and plain text's _italic_ (as Project Gutenberg writes it), are kept. */
 export function textBook(text, markdown = false) {
   const lines = text.replace(/\r\n?/g, "\n").split("\n");
   const blank = lines.filter((l) => !l.trim()).length;
@@ -57,21 +84,24 @@ export function textBook(text, markdown = false) {
   const flush = () => {
     if (para.length) {
       const joined = /[぀-ヿ㐀-鿿]/.test(para.join("")) ? para.join("") : para.join(" ");
-      blocks.push({ kind: para.length === 1 && looksLikeHeading(joined) ? "h2" : "p", text: joined });
+      const { text: plain, marks } = marksFromRuns(emphasisRuns(joined, markdown));
+      if (para.length === 1) blocks.push(plainBlock(markdown ? plain.replace(/`+/g, "") : plain, marks));
+      else blocks.push(marks.length ? { kind: "p", text: plain, marks } : { kind: "p", text: plain });
     }
     para = [];
   };
   for (const raw of lines) {
     const line = raw.trim();
-    if (markdown && /^#{1,3}\s/.test(line)) { flush(); blocks.push({ kind: "h2", text: line.replace(/^#+\s*/, "") }); continue; }
+    const md = markdown && /^(#{1,6})\s/.exec(line);
+    if (md) { flush(); blocks.push({ kind: `h${Math.min(3, md[1].length)}`, text: line.replace(/^#+\s*/, "").replace(/[*_`]+/g, "") }); continue; }
     if (!line) { flush(); continue; }
-    para.push(markdown ? line.replace(/[*_`]+/g, "") : line);
+    para.push(markdown ? line.replace(/`+/g, "") : line);
     if (blank < lines.length / 20) flush(); // no blank lines between paragraphs: one per line
   }
   flush();
   // The first short line is taken for the title, unless it is a chapter heading (then the file's name is used).
   const first = blocks.find((b) => b.text.length < 120);
-  return { title: first && first.kind !== "h2" ? first.text : "", author: "", blocks };
+  return { title: first && first.kind === "p" ? first.text : "", author: "", blocks };
 }
 
 /** The readable blocks of an HTML (or XHTML) document. */
@@ -84,15 +114,20 @@ export function htmlBlocks(doc) {
   // it is called (div, section, header, main...); a container with only text in it is one block too.
   const LEAF = /^(P|H[1-6]|LI|BLOCKQUOTE|DD|DT|PRE|TD|TH|FIGCAPTION|CAPTION)$/;
   const INSIDE = "p,h1,h2,h3,h4,h5,h6,li,blockquote,dd,dt,pre,td,th,figcaption,div,section,article,header,footer,main,table,ul,ol,figure";
-  const walk = (el) => {
+  // Headings keep their level (h1, h2, h3 and below as h3); list items and quotations stay so; the
+  // words in <b>/<strong> and <i>/<em> are kept as bold and italic.
+  const walk = (el, quote = false) => {
     for (const child of el.children) {
       const tag = child.tagName.toUpperCase();
-      if (!LEAF.test(tag) && child.querySelector(INSIDE)) { walk(child); continue; }
-      if (LEAF.test(tag) && /^(LI|BLOCKQUOTE|TD)$/.test(tag) && child.querySelector("p,div,li")) { walk(child); continue; }
-      const text = tidy(child.textContent);
+      if (!LEAF.test(tag) && child.querySelector(INSIDE)) { walk(child, quote); continue; }
+      if (LEAF.test(tag) && /^(LI|BLOCKQUOTE|TD)$/.test(tag) && child.querySelector("p,div,li")) { walk(child, quote || tag === "BLOCKQUOTE"); continue; }
+      const { text, marks } = marksFromRuns(runsOf(child));
       if (!text) continue;
-      const heading = /^H[1-4]$/.test(tag) || (text.length <= 70 && /chapter|title|heading/i.test(child.className || ""));
-      blocks.push({ kind: heading ? "h2" : "p", text });
+      const cls = typeof child.className === "string" ? child.className : "";
+      const kind = /^H[1-6]$/.test(tag) ? `h${Math.min(3, Number(tag[1]))}`
+        : text.length <= 70 && /chapter|title|heading/i.test(cls) ? "h2"
+        : /^(LI|DD|DT)$/.test(tag) ? "li" : tag === "BLOCKQUOTE" || quote ? "q" : "p";
+      blocks.push(marks.length && !/^h/.test(kind) ? { kind, text, marks } : { kind, text });
     }
   };
   walk(body);
@@ -196,15 +231,34 @@ async function readDocx(bytes) {
   if (!xml) throw new Error("That Word file is damaged.");
   const doc = new DOMParser().parseFromString(xml, "application/xml");
   const blocks = [];
+  // A run's bold or italic switch (<w:b/>, <w:i/>; w:val="0" or "false" turns it off).
+  const on = (rPr, name) => {
+    const el = rPr && [...rPr.children].find((c) => c.localName === name);
+    if (!el) return false;
+    const v = el.getAttribute("w:val");
+    return v === null || !/^(0|false|off|none)$/i.test(v);
+  };
   for (const p of doc.getElementsByTagNameNS("*", "p")) {
-    let text = "";
-    for (const node of p.getElementsByTagNameNS("*", "*")) {
-      if (node.localName === "t") text += node.textContent;
-      else if (node.localName === "tab") text += " ";
-      else if (node.localName === "br") text += " ";
+    const runs = [];
+    for (const r of p.getElementsByTagNameNS("*", "r")) {
+      const rPr = [...r.children].find((c) => c.localName === "rPr");
+      const b = on(rPr, "b"), i = on(rPr, "i");
+      for (const node of r.children) {
+        if (node.localName === "t") runs.push({ text: node.textContent, b, i });
+        else if (node.localName === "tab" || node.localName === "br") runs.push({ text: " " });
+      }
     }
+    const { text, marks } = marksFromRuns(runs);
+    // Word's own paragraph styles: Title / Heading 1 / 2 / 3… (in any language Word names them in),
+    // lists and quotations.
     const style = p.getElementsByTagNameNS("*", "pStyle")[0]?.getAttribute("w:val") || "";
-    blocks.push({ kind: /^(heading|title|berschrift|titre|t[ií]tulo)/i.test(style) ? "h2" : "p", text });
+    const numbered = p.getElementsByTagNameNS("*", "numPr").length > 0;
+    let kind = "p";
+    if (/^(title|titel|titre|t[ií]tulo|titolo)$/i.test(style)) kind = "h1";
+    else if (/^(heading|berschrift|titre|t[ií]tulo|titolo|kop|rubrik|nagłówek)/i.test(style)) kind = `h${Math.min(3, Number((style.match(/\d/) || ["2"])[0]) || 2)}`;
+    else if (/quote|zitat|citation|cita/i.test(style)) kind = "q";
+    else if (numbered || /^list/i.test(style)) kind = "li";
+    blocks.push(marks.length && !/^h/.test(kind) ? { kind, text, marks } : { kind, text });
   }
   const core = await unzipText(bytes, files, "docProps/core.xml");
   const coreDoc = core ? new DOMParser().parseFromString(core, "application/xml") : null;
@@ -305,7 +359,7 @@ function readDoc(bytes) {
   if (!text) throw new Error("No text was found in that Word file. Try saving it as .docx.");
   // Field codes (\x13 code \x14 result \x15): keep the result. Cell and page marks become breaks.
   text = text.replace(/\x13[^\x14\x15]*\x14?([^\x15]*)\x15/g, "$1").replace(/[\x07\x0b\x0c]/g, "\r").replace(/[\x00-\x08\x0e-\x1f]/g, "");
-  return { title: "", author: "", blocks: text.split("\r").map((t) => ({ kind: looksLikeHeading(t) ? "h2" : "p", text: t })) };
+  return { title: "", author: "", blocks: text.split("\r").map((t) => plainBlock(tidy(t))) };
 }
 
 // ---------- Kindle AZW3 / MOBI (DRM-free) ----------
@@ -435,17 +489,23 @@ async function readPdf(bytes, onStep) {
     const sizes = kept.map((l) => l.size).sort((x, y) => x - y);
     const textSize = sizes.length ? sizes[Math.floor(sizes.length / 2)] : 0;
     let para = "";
+    // Text this much larger than the page's ordinary text, on a short line, is a heading: the larger, the higher.
+    const levelOf = (size) => (!textSize ? 0 : size >= textSize * 1.6 ? 1 : size >= textSize * 1.35 ? 2 : size >= textSize * 1.18 ? 3 : 0);
     kept.forEach((l, k) => {
       const t = l.text.trim();
-      if (textSize && l.size >= textSize * 1.25 && t.length <= 80) { // a heading line
-        if (para) { blocks.push({ kind: looksLikeHeading(para) ? "h2" : "p", text: para }); para = ""; }
-        blocks.push({ kind: "h2", text: t });
+      const level = t.length <= 80 ? levelOf(l.size) : 0;
+      if (level) { // a heading line
+        if (para) { blocks.push(plainBlock(para)); para = ""; }
+        const last = blocks[blocks.length - 1];
+        // A heading over two lines (same size, straight after) is one heading.
+        if (last && last.kind === `h${level}` && last.page === n && last.text.length + t.length <= 120) last.text += ` ${t}`;
+        else blocks.push({ kind: `h${level}`, text: t, page: n });
         return;
       }
       para = para ? (/-$/.test(para) ? para.slice(0, -1) + t : /[぀-鿿]$/.test(para) ? para + t : `${para} ${t}`) : t;
       const next = kept[k + 1];
-      if (!next || (usual && Math.abs(l.y - next.y) > usual * 1.45) || (textSize && next.size >= textSize * 1.25)) {
-        blocks.push({ kind: looksLikeHeading(para) ? "h2" : "p", text: para });
+      if (!next || (usual && Math.abs(l.y - next.y) > usual * 1.45) || (next.text.trim().length <= 80 && levelOf(next.size))) {
+        blocks.push(plainBlock(para));
         para = "";
       }
     });

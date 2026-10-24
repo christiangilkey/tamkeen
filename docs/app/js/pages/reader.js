@@ -2,6 +2,7 @@
 // definition popup as the player, and "Save to vocab". (No audio: a page has no recording.)
 
 import { api, esc, h, toast, showMenu, hideMenu, saveSettings, state, buzz, openBrowser } from "../app.js";
+import { voiceNewCard } from "../voiceplay.js";
 import { saveProgress } from "../progress.js";
 import { sentenceBounds, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
@@ -16,9 +17,11 @@ import { seenWords } from "../lexicon/seen.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
 import { readingsReady } from "../lexicon/readings.js";
+import { blockTag, layoutBlocks, marksLookup, wordStyle } from "../readerlayout.js";
+import { applyPageSize, pageSize, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
+import { phrasePicker } from "../components/phrasepick.js";
+import { isPhrase, phraseText } from "../phrase.js";
 
-const LONG_PRESS_MS = 550;
-const TAGS = { h1: "h2", h2: "h3", h3: "h4", li: "li", q: "blockquote", p: "p" };
 const TITLE_SEG = -1; // the title's words form a line of their own, before the page's first block
 
 export const isPage = (ep) => (ep.audio_type || "") === "text/html";
@@ -105,6 +108,9 @@ export async function render(view, { id, data, query }) {
   const tr = $("#text");
 
   // Build the page in one pass. Each block keeps its own direction, so right-to-left and left-to-right text mix correctly.
+  // Headings, lists, quotes, bold and italic come out the same for every site (readerlayout.js).
+  const layout = layoutBlocks(data.segments, { book: false });
+  const flagsOf = marksLookup(data.segments, layout);
   const parts = [`<h1 class="reader-title" dir="auto" data-s="${TITLE_SEG}">`];
   let w = 0;
   for (; w < titleWords; w++) {
@@ -114,20 +120,20 @@ export async function render(view, { id, data, query }) {
   if (!titleWords) parts.push(esc(ep.title));
   parts.push("</h1>");
   let inList = false;
-  for (const seg of data.segments) {
-    const tag = TAGS[seg.kind] || "p";
+  data.segments.forEach((seg, k) => {
+    const { tag, cls } = blockTag(layout[k]);
     if (tag === "li" && !inList) { parts.push("<ul>"); inList = true; }
     if (tag !== "li" && inList) { parts.push("</ul>"); inList = false; }
-    parts.push(`<${tag} class="seg" dir="auto" data-s="${seg.idx}">`);
+    parts.push(`<${tag} class="seg${cls ? ` ${cls}` : ""}" dir="auto" data-s="${seg.idx}">`);
     const first = w;
     while (w < n && segOf[w] === seg.idx) {
       if (w > first) parts.push(gap(texts[w - 1], texts[w], lang));
-      parts.push(`<span class="w" data-i="${w}">${wordHtml(shown[w], lang)}</span>`);
+      parts.push(`<span class="w${wordStyle(flagsOf(seg.idx, W.start[w]))}" data-i="${w}">${wordHtml(shown[w], lang)}</span>`);
       w++;
     }
     if (w === first) parts.push(esc(seg.text));
     parts.push(`</${tag}>`);
-  }
+  });
   if (inList) parts.push("</ul>");
   tr.innerHTML = parts.join("");
   const wordEls = tr.querySelectorAll(".w");
@@ -147,12 +153,12 @@ export async function render(view, { id, data, query }) {
     const [si, sj] = sentenceBounds(texts, segOf, i, j);
     const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
     const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
-    const word = joinWords(texts.slice(i, j + 1), lang).replace(EDGE_PUNCT, "") || texts[i];
+    const word = phraseText(texts, i, j, lang);
     return {
       si, sj, word,
       ctx: { word, lang, marked: markWord(texts.slice(si, sj + 1), i - si, j - si, lang),
              before: prev ? sentenceText(prev[0], prev[1]) : "", after: next ? sentenceText(next[0], next[1]) : "",
-             podcast: host || ep.feed_title, episode: ep.title },
+             podcast: host || ep.feed_title, episode: ep.title, phrase: isPhrase(i, j) },
     };
   }
 
@@ -161,34 +167,17 @@ export async function render(view, { id, data, query }) {
   const savedHere = new Set();
   const savedKey = (i, j) => `${i}-${j}`;
 
-  const savedRows = new Map();  // savedKey -> the word as saved, for "Find in a video"
+  const savedRows = new Map();  // savedKey -> the word as saved
   async function saveWord(t, def) {
     if (savedHere.has(savedKey(t.i, t.j))) return savedRows.get(savedKey(t.i, t.j)) || null;
     const row = await api("/vocab", { method: "POST", body: {
       ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj), episode_id: id } });
+    voiceNewCard(row, "text/html");  // nothing to listen to here: its voice, now (Settings → Card voices)
     savedHere.add(savedKey(t.i, t.j));
     savedRows.set(savedKey(t.i, t.j), row);
     reward({ type: "save" }, wordEls[t.i]);
     seen.markSeen(t.i, t.j);
     return row;
-  }
-
-  /** "Find in a video" from the popup: the word's card (the one already saved from this page if
-   * there is one, else saved now exactly as Save does), then a video where it is said (filmot.js).
-   * The card keeps this page and its sentence as where the word was first found. */
-  async function findWordInVideo(t, def) {
-    const { findInVideo } = await import("../filmot.js");
-    const { fold } = await import("../cardtext.js");
-    let v = savedRows.get(savedKey(t.i, t.j)) || null;
-    if (!v) {
-      const same = (x) => fold(x.text) === fold(t.text) || (def && def.vocalized && fold(x.text) === fold(def.vocalized));
-      const found = (await api(`/vocab?q=${encodeURIComponent(t.text)}`)).filter(same);
-      v = found.find((x) => String(x.episode_id) === String(id)) || found[0] || null;
-      if (v) { savedHere.add(savedKey(t.i, t.j)); savedRows.set(savedKey(t.i, t.j), v); }
-    }
-    if (!v) v = await saveWord(t, def);
-    if (!v) throw new Error("Couldn't find this word in your vocab.");
-    await findInVideo(v);
   }
 
   // Misheard or misspelt words, put right in the page's text when a lookup finds them (fixword.js).
@@ -202,6 +191,7 @@ export async function render(view, { id, data, query }) {
   });
   const bubble = createWordBubble($(".transcript-wrap"), {
     noAudio: true,
+    voiceless: true,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onCorrect: async (def) => {
       const t = target;
@@ -220,10 +210,6 @@ export async function render(view, { id, data, query }) {
     onSave: async (def) => {
       try { await saveWord(target, def); } catch (e) { toast(e.message, { error: true }); throw e; }
     },
-    // A web page's words have nothing to listen to: one tap saves the word and finds it in a video.
-    onFindVideo: async (def) => {
-      try { await findWordInVideo(target, def); } catch (e) { toast(e.message, { error: true }); throw e; }
-    },
   });
 
   function mark(i, j) {
@@ -241,10 +227,8 @@ export async function render(view, { id, data, query }) {
     seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
 
-  // ---------- clicks, long-press and right-click (same gestures as the player) ----------
+  // ---------- clicks, long-press, dragging and right-click (same gestures as the player) ----------
   let down = null;
-  let pressTimer = 0;
-  let suppressClick = false;
 
   function wordIndexAt(node, offset, atEnd) {
     const el = node.nodeType === Node.TEXT_NODE ? node.parentElement : node;
@@ -290,23 +274,17 @@ export async function render(view, { id, data, query }) {
   }
 
   tr.addEventListener("pointerdown", (e) => {
-    if (e.button !== 0) return;
-    down = { x: e.clientX, y: e.clientY };
-    suppressClick = false;
-    const wEl = e.target.closest(".w");
-    clearTimeout(pressTimer);
-    if (wEl && e.pointerType !== "mouse") {
-      pressTimer = setTimeout(() => { suppressClick = true; openMenu(e.clientX, e.clientY, wEl); }, LONG_PRESS_MS);
-    }
+    if (e.button === 0) down = { x: e.clientX, y: e.clientY };
   });
-  tr.addEventListener("pointermove", (e) => {
-    if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) clearTimeout(pressTimer);
+  // Dragging across words (mouse), or holding a word and sliding on (touch), looks them up together
+  // (components/phrasepick.js); holding a word and lifting opens its menu.
+  const picker = phrasePicker(tr, {
+    blockOf: (k) => segOf[k],
+    elOf: (k) => wordEls[k] || null,
+    onPick: (i, j) => defineAt(i, j),
+    onHold: (i, x, y, el) => openMenu(x, y, el),
   });
-  const endPress = () => clearTimeout(pressTimer);
-  tr.addEventListener("pointerup", endPress);
-  tr.addEventListener("pointercancel", endPress);
   tr.addEventListener("click", (e) => {
-    if (suppressClick) { suppressClick = false; return; }
     const wEl = e.target.closest(".w");
     if (!wEl || e.detail > 1) return;
     const sel = window.getSelection();
@@ -320,7 +298,6 @@ export async function render(view, { id, data, query }) {
     const hasSel = sel && !sel.isCollapsed && tr.contains(sel.anchorNode);
     if (!wEl && !hasSel) return;
     e.preventDefault();
-    clearTimeout(pressTimer);
     openMenu(e.clientX, e.clientY, wEl);
   });
 
@@ -337,11 +314,18 @@ export async function render(view, { id, data, query }) {
 
   // ---------- text size ----------
   let fontTimer;
+  // A− / A+ make everything (text and headings together) a step smaller or larger than the standard size.
+  const paintSizeButtons = (size) => {
+    $("#font-down").disabled = size <= PAGE_SIZE_MIN;
+    $("#font-up").disabled = size >= PAGE_SIZE_MAX;
+  };
+  paintSizeButtons(pageSize(state.status?.settings?.page_font_size));
   const changeFont = (d) => {
     const s = state.status?.settings || {};
-    const size = Math.max(12, Math.min(40, (s.page_font_size || 17) + d));
+    const size = pageSize(pageSize(s.page_font_size) + d);
     s.page_font_size = size;
-    document.documentElement.style.setProperty("--page-size", `${size}px`);
+    applyPageSize(size);
+    paintSizeButtons(size);
     clearTimeout(fontTimer);
     fontTimer = setTimeout(() => saveSettings({ page_font_size: size }), 400);
   };
@@ -389,7 +373,7 @@ export async function render(view, { id, data, query }) {
     window.removeEventListener("resize", onResize);
     document.removeEventListener("pointerdown", onOutside);
     document.removeEventListener("keydown", onKey);
-    clearTimeout(pressTimer);
+    picker.destroy();
     hideMenu();
   };
 }

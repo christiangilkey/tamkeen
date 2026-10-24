@@ -42,7 +42,7 @@ export async function importVideo(link) {
 /** A video's captions in the language being studied, read from this device and not yet kept:
  * {videoId, title, channel, duration, language, auto, kind, lines, ...} (see ytcaptions.js
  * fetchCaptions). Throws when it has none. `handmade`: "Only videos with handmade subtitles";
- * `translate` false never takes YouTube's translation ("Find in a video" wants what is said). */
+ * `translate` false never takes YouTube's translation (when only what is said will do). */
 export async function readVideo(id, { translate = true, handmade = handmadeOnly() } = {}) {
   return fetchCaptions(id, {
     language: studyLanguage(), languageName: langInfo(studyLanguage()).name, taught: LANGUAGE_CODES, request: ytRequest,

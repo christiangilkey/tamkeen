@@ -19,6 +19,8 @@
 // On the friend's side `acceptInto` puts the item in their library through those same routes
 // (and POST /shared/podcast for a podcast episode), so it opens ready, with clickable words.
 
+import { cleanKind } from "./blockmarks.js";
+
 export const FORMAT = "tamkeen-transcript";
 export const VERSION = 1;
 /** A file in the "voice" storage may be at most 3 MB (supabase/schema.sql). */
@@ -30,7 +32,6 @@ const MAX_SEGMENTS = 20000;
 const MAX_WORDS = 300000;
 const MAX_BLOCKS = 60000;
 const MAX_TEXT_CHARS = 4000000;
-const BLOCK_KINDS = new Set(["h1", "h2", "h3", "p", "li", "q"]);
 
 /** The kinds whose transcript is their text, read without sound (stored as blocks). */
 export const TEXT_KINDS = new Set(["page", "book", "text"]);
@@ -49,7 +50,7 @@ export function packTranscript(t, { asText = false } = {}) {
   const ep = (t && t.episode) || {};
   const out = { format: FORMAT, v: VERSION, model: line(ep.model, 80), language: code(ep.language) };
   if (asText) {
-    const blocks = segs.map((s) => ({ kind: BLOCK_KINDS.has(s.kind) ? s.kind : "p", text: line(s.text, 20000) }))
+    const blocks = segs.map((s) => ({ kind: cleanKind(s.kind), text: line(s.text, 20000) }))
       .filter((b) => b.text);
     return blocks.length ? { ...out, blocks } : null;
   }
@@ -81,7 +82,7 @@ export function unpackTranscript(x) {
       if (!text) continue;
       chars += text.length;
       if (chars > MAX_TEXT_CHARS) break;
-      blocks.push({ kind: BLOCK_KINDS.has(b.kind) ? b.kind : "p", text });
+      blocks.push({ kind: cleanKind(b.kind, text.split(" ").length), text }); // (with its bold and italic words: blockmarks.js)
     }
     if (blocks.length) out.blocks = blocks;
   }

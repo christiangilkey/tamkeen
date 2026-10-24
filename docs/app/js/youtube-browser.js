@@ -62,8 +62,7 @@
     } catch (e) { /* nothing playing */ }
   }
 
-  /** The moment a video's address asks for ("t=95", "t=1m35s"), in seconds, or null. A link from
-   * a caption search (see filmot-browser.js) that ended up on YouTube's own page carries one. */
+  /** The moment a video's address asks for ("t=95", "t=1m35s"), in seconds, or null. */
   function moment(href) {
     var u;
     try { u = new URL(href, location.href); } catch (e) { return null; }

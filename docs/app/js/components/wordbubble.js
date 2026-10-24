@@ -10,6 +10,7 @@ import { LOOKUP_EVENT, lookupMode } from "./lookupmode.js";
 import { showTroubleshoot } from "./troubleshoot.js";
 import { kindOf } from "../trouble.js";
 import { pronounceWord } from "../lexicon/seen.js";
+import { VOICE_SETTINGS, voicesOnSave } from "../cardvoice.js";
 
 // ----- what happens after a tapped word has played: pause there, or keep playing -----
 // One choice for the whole app, remembered on this device. Pausing is how it has always worked.
@@ -59,11 +60,14 @@ export function pauseSwitch(onChange) {
  *   onPlayWord: () => void, onPlaySentence: () => void, onPlayFrom: () => void,
  *   onSave: (def: object|null) => Promise<void>, onSettings: () => void,
  *   noAudio?: boolean,   // true for imported web pages: hides the play buttons
+ *   voiceless?: boolean, // a saved word gets no sound from here (YouTube, Netflix, a reel, a page, a book): while
+ *                        // cards get no voice by themselves (cardvoice.js voicesOnSave), the popup shows
+ *                        // "Add audio", which opens Settings → Card voices
+ *   audioOn?: () => boolean,  // instead of voicesOnSave(settings) (the extension, which has no voice settings)
+ *   onAddAudio?: () => void,  // instead of opening Settings → Card voices in this window
  *   onCorrect?: (def: object) => Promise<{word: string, ctx: object}|null>,  // the lookup found the
  *                        // word misheard (def.correction): change the transcript; null if it can't
  *   onUndoCorrect?: (fix: {from: string, to: string}) => Promise<{word: string, ctx: object}>,
- *   onFindVideo?: (def: object|null) => Promise<void>,  // given: a "Find in a video" button beside
- *                        // Save, which saves the word if need be and looks for it in a video (filmot.js)
  *   onPauseMode?: (pause: boolean) => void,  // given: the popup shows the pause / keep-playing
  *                        // switch and calls this when it is flipped (see pauseAfterWord)
  * }} actions
@@ -82,13 +86,23 @@ export function createWordBubble(host, actions) {
   let token = 0;
   let saved = false;
   // Quick lookup (see lookupmode.js): this popup shows only the meaning, with "More" to open
-  // the full explanation for this one word.
+  // the full explanation for this one word. The Word and Sentence play buttons stay (the owner
+  // wanted them in quick mode too); Continue and Ask again are left to the full view.
   let quick = false;
   // A misheard word put right (see fixword.js): {from: what the transcript said, to: the word
   // said, applied: the transcript was changed (so Undo is offered)}.
   let fix = null;
   // Docked (see show): part of its container's layout, below what is already in it, not floating.
   let docked = false;
+
+  // "Add audio": a word saved from here would have nothing to listen to, and cards don't get a voice by
+  // themselves (Settings → Card voices). Not inside another app's panel (/embed: no Settings there).
+  function addAudio() {
+    if (!actions.voiceless || document.documentElement.classList.contains("embed")) return false;
+    try {
+      return !(actions.audioOn ? actions.audioOn() : voicesOnSave((state.status && state.status.settings) || {}));
+    } catch { return false; }
+  }
 
   function position() {
     if (el.hidden || !anchor) return;
@@ -132,6 +146,9 @@ export function createWordBubble(host, actions) {
   // The language of the word being shown (from the lookup; Arabic for older callers).
   const L = () => langInfo((ctx && ctx.lang) || "ar");
   const attrs = () => langAttrs((ctx && ctx.lang) || "ar");
+  // Several words looked up together (dragged across: phrasepick.js). A phrase is never "corrected"
+  // (that is for one misheard word) and has no pronunciation of its own here.
+  const phrase = () => !!(ctx && ctx.phrase);
 
   // A misheard word put right: one small purple pill, "what the transcript said → the word", with
   // an ✕ on its right that puts the transcript back. Tapping the pill says what happened.
@@ -172,15 +189,20 @@ export function createWordBubble(host, actions) {
     }).catch(() => {});
   }
   const mb = (bytes) => `${Math.max(1, Math.round((bytes || 0) / 1e6))} MB`;
+  // (The owner: "The source selector should be up and to the right": the chip sits in the top row,
+  // between the word and the close button, and its menu opens just under that row.)
   function sourceTag(d) {
     const saved = Date.now() < savedUntil;
-    const choices = menuOpen ? sourceChoices(settings(), dictHere()) : [];
     return `<div class="wb-source">
         <button type="button" class="wb-src" data-act="source" aria-haspopup="menu" aria-expanded="${menuOpen}"
           title="Where this meaning comes from. Tap to use another source">${esc(tagLabel(settings(), d))}${icon("chevron", 11)}</button>
         ${saved ? `<span class="wb-saved" role="status">${icon("check", 12)} Saved</span>` : ""}
-      </div>
-      ${menuOpen ? `<div class="wb-srcmenu" role="menu" aria-label="Explain words with">
+      </div>`;
+  }
+  function sourceMenu() {
+    if (!menuOpen) return "";
+    const choices = sourceChoices(settings(), dictHere());
+    return `${menuOpen ? `<div class="wb-srcmenu" role="menu" aria-label="Explain words with">
         <div class="wb-srcmenu-title">Explain words with</div>
         ${choices.map((c) => `<button type="button" role="menuitemradio" aria-checked="${c.on}" class="wb-srcopt${c.on ? " on" : ""}"
             data-act="pick" data-id="${c.id}" ${c.unavailable ? "disabled" : ""}>
@@ -190,6 +212,11 @@ export function createWordBubble(host, actions) {
           </button>`).join("")}
         <div class="wb-srcmenu-foot">For every language you study. Also in Settings → Word definitions.</div>
       </div>` : ""}`;
+  }
+  // Dictionary first, while this language's dictionary is still downloading: the AI answered this one.
+  function downloadingNote() {
+    if (!def || !def.dictionary_downloading) return "";
+    return `<p class="wb-muted wb-dlnote">The ${esc(L().name || "")} dictionary is downloading. Until it's on this device, the AI answers.</p>`;
   }
   // "Use the dictionary instead", beside Try again when the AI failed (and when there is no key).
   function fallbackButton() {
@@ -240,23 +267,25 @@ export function createWordBubble(host, actions) {
     const word = fix ? fix.to : ctx.word;
     let body = "";
     if (state === "loading") {
-      body = `<div class="wb-loading"><span class="spinner"></span> ${quick ? "Looking up…" : "Looking up in context…"}</div>${sourceTag(null)}`;
+      // (Only the AI reads the sentence: the dictionary modes just say "Looking up".)
+      const aiOnly = (settings().definer_mode || "dictionary_first") === "ai";
+      body = `<div class="wb-loading"><span class="spinner"></span> ${quick || !aiOnly ? "Looking up…" : "Looking up in context…"}</div>`;
     } else if (state === "nokey") {
       body = `<p class="wb-muted">See what this word means in this sentence: add an AI provider key in Settings.</p>
               <div class="row"><button type="button" class="primary" data-act="settings">Set up definitions</button>
-              ${fallbackButton()}</div>${sourceTag(null)}`;
+              ${fallbackButton()}</div>`;
     } else if (state === "nomeanings") {
       body = `<p class="wb-muted">AI is off, so words are explained by the built-in ${esc(L().name || "")} dictionary. It isn't on this device yet: download it once and it works offline.</p>
               <div class="row"><button type="button" class="primary" data-act="getmeanings">Download the dictionary</button>
-              <button type="button" class="ghost" data-act="settings">Settings</button></div>${sourceTag(null)}`;
+              <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
     } else if (state === "error") {
       body = `<p class="wb-error">${esc(message)}</p>
               <div class="row"><button type="button" data-act="retry">Try again</button>
               ${fallbackButton()}
               ${kindOf(lastError) ? `<button type="button" data-act="trouble">Troubleshoot</button>` : ""}
-              <button type="button" class="ghost" data-act="settings">Settings</button></div>${sourceTag(null)}`;
+              <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
     } else if (quick) {
-      body = `<div class="wb-meaning">${esc(def.meaning)}</div>${sourceTag(def)}`;
+      body = `<div class="wb-meaning">${esc(def.meaning)}</div>${downloadingNote()}`;
     } else {
       const d = def;
       // How the word is read (kana, pinyin, IPA) goes under the meaning; where the reading is the
@@ -274,27 +303,30 @@ export function createWordBubble(host, actions) {
         ${d.msa_equivalent ? `<div class="wb-row"><span class="wb-label">${esc(L().standard)}</span> <span class="ar" ${attrs()}>${esc(d.msa_equivalent)}</span></div>` : ""}
         ${d.dialect_note ? `<div class="wb-row"><span class="wb-label">${esc(L().note)}</span> ${esc(d.dialect_note)}</div>` : ""}
         ${d.sentence_translation ? `<details class="wb-trans"><summary>Sentence translation</summary>${esc(d.sentence_translation)}</details>` : ""}
-        ${sourceTag(d)}`;
+        ${downloadingNote()}`;
     }
     const shown = def && state === "ready" && def.vocalized && L().reading === "replace" ? def.vocalized : word;
     el.classList.toggle("quick", quick);
     el.innerHTML = `
       <div class="wb-head">
         ${actions.onPauseMode && !actions.noAudio ? modeSwitch() : ""}
-        <div class="wb-word ar" ${attrs()}>${esc(shown)}</div>
+        <div class="wb-word ar${phrase() ? " wb-phrase" : ""}" ${attrs()}>${esc(shown)}</div>
         ${ipa ? `<span class="wb-ipa" translate="no" title="${ctx.lang === "th" ? "How it is said (Paiboon romanization, from Wiktionary)" : ctx.lang === "ko" ? "How it is said (Revised Romanization of Korean)" : "US pronunciation (CMU Pronouncing Dictionary)"}">${esc(ipa)}</span>` : ""}
+        ${sourceTag(state === "ready" ? def : null)}
         <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>
+      ${sourceMenu()}
       ${fix ? fixPill() : ""}
       <div class="wb-body">${body}</div>
       <div class="wb-actions">
-        ${quick ? `<button type="button" data-act="more" title="Show the full explanation of this word">${icon("target", 15)} More</button>` : ""}
-        ${actions.noAudio || quick ? "" : `<button type="button" data-act="word" title="Play this word again">${icon("sound", 15)} Word</button>
-        <button type="button" data-act="sentence" title="Play the whole sentence">${icon("sound", 15)} Sentence</button>
-        <button type="button" data-act="from" title="Continue playing from here">${icon("play", 15)} Continue</button>`}
+        ${quick ? `<button type="button" data-act="more" title="${phrase() ? "Show the full explanation of this phrase" : "Show the full explanation of this word"}">${icon("target", 15)} More</button>` : ""}
+        ${actions.noAudio ? "" : `${phrase() ? `<button type="button" data-act="word" title="Play this phrase again">${icon("sound", 15)} Phrase</button>` : `<button type="button" data-act="word" title="Play this word again">${icon("sound", 15)} Word</button>`}
+        <button type="button" data-act="sentence" title="Play the whole sentence">${icon("sound", 15)} Sentence</button>`}
+        ${actions.noAudio || quick ? "" : `<button type="button" data-act="from" title="Continue playing from here">${icon("play", 15)} Continue</button>`}
         <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${icon(saved ? "check" : "star", 15)} ${saved ? "Saved" : "Save"}</button>
-        ${actions.onFindVideo && !quick ? `<button type="button" data-act="findvideo" title="Save this word and find a YouTube video where it is said">${icon("video", 15)} Find in a video</button>` : ""}
+        ${addAudio() ? `<button type="button" class="ghost wb-add-audio" data-act="add-audio" title="Words saved from here have no sound of their own. Choose a voice for them in Settings → Card voices.">${icon("sound", 15)} Add audio</button>` : ""}
         ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again" aria-label="Ask again">${icon("refresh", 15)}</button>` : ""}
+        <button type="button" class="ghost icon wb-close wb-close-end" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>`;
     paintSwitch(el.querySelector(".wb-mode"));
     requestAnimationFrame(position);
@@ -307,7 +339,7 @@ export function createWordBubble(host, actions) {
       const d = await actions.fetch(ctx, refresh, { quick });
       if (my !== token) return;
       def = d;
-      if (d && d.correction && !ctx.noCorrect) {
+      if (d && d.correction && !ctx.noCorrect && !ctx.phrase) {
         // Misheard: show the word that was said, and change the transcript to it.
         fix = { from: ctx.word, to: d.correction, applied: false };
         if (actions.onCorrect) {
@@ -317,7 +349,7 @@ export function createWordBubble(host, actions) {
             if (done) { fix = { from: fix.from, to: done.word, applied: true }; ctx = { ...done.ctx }; }
           } catch { /* the transcript stays as it was; the popup still shows the word that was said */ }
         }
-      } else if (d && d.corrected_from && !fix) {
+      } else if (d && d.corrected_from && !fix && !ctx.phrase) {
         fix = { from: d.corrected_from, to: ctx.word, applied: true }; // corrected earlier
       }
       render("ready");
@@ -383,16 +415,9 @@ export function createWordBubble(host, actions) {
         }
         break;
       }
-      case "findvideo":
-        // Saves the word first when it isn't saved yet, exactly as Save does.
-        b.disabled = true;
-        try {
-          await actions.onFindVideo(def);
-          saved = true;
-          render(current.state, current.message);
-        } catch {
-          b.disabled = false;
-        }
+      case "add-audio":
+        if (actions.onAddAudio) actions.onAddAudio();
+        else { hide(); location.hash = VOICE_SETTINGS; }
         break;
       case "save":
         // Works with or without a definition (no key, or the lookup failed).
@@ -433,7 +458,7 @@ export function createWordBubble(host, actions) {
     el.hidden = false;
     ipa = "";
     const shownFor = context;
-    pronounceWord(context.word, context.lang).then((p) => {
+    if (!context.phrase) pronounceWord(context.word, context.lang).then((p) => {
       if (p && ctx === shownFor && !el.hidden) { ipa = p; render(current.state, current.message); }
     }).catch(() => {});
     load();

@@ -4,9 +4,10 @@
 // turn pages with the arrows, a swipe, or the arrow keys. Where you got to is kept on this device.
 
 import { api, esc, h, toast, showMenu, hideMenu, saveSettings, state, buzz } from "../app.js";
+import { voiceNewCard } from "../voiceplay.js";
 import { saveProgress } from "../progress.js";
 import { sentenceBounds, EDGE_PUNCT } from "../wordlookup.js";
-import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
+import { episodeLanguage, gap, joinWords, langAttrs, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
 import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { lookupToggle } from "../components/lookupmode.js";
@@ -16,10 +17,13 @@ import { seenWords } from "../lexicon/seen.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, vowelsButton, watchVowels } from "../vowels.js";
 import { readingsReady } from "../lexicon/readings.js";
-import { paginate, pageOf } from "../books.js";
+import { paginateBlocks, pageOf } from "../bookpages.js";
 import { icon } from "../icons.js";
+import { blockTag, layoutBlocks, marksLookup, wordStyle } from "../readerlayout.js";
+import { applyPageSize, pageSize, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
+import { phrasePicker } from "../components/phrasepick.js";
+import { isPhrase, phraseText } from "../phrase.js";
 
-const LONG_PRESS_MS = 550;
 const SWIPE_PX = 60;
 
 async function copyText(text) {
@@ -35,8 +39,11 @@ export async function render(view, { id, data, query }) {
   const texts = W.text;
   const n = texts.length;
   const segOf = Int32Array.from(W.seg);
-  const kinds = [];
-  for (const s of data.segments) kinds[s.idx] = s.kind === "h2" ? "h2" : "p";
+  // Headings, the title page, bold and italic: the same for every book (readerlayout.js).
+  const layoutList = layoutBlocks(data.segments, { book: true, title: ep.title });
+  const blockAt = new Map(data.segments.map((s, k) => [s.idx, layoutList[k]]));
+  const flagsOf = marksLookup(data.segments, layoutList);
+  const isFront = (seg) => /^front/.test((blockAt.get(seg) || {}).role || "");
   let vowels = data.vowels || null;
   let shown = displayWords(texts, vowels, (i) => segOf[i]);
 
@@ -73,56 +80,148 @@ export async function render(view, { id, data, query }) {
   let pageFirst = 0;
 
   // ---------- pages ----------
-  // How many characters fit: measured with this book's own text at the current size, then checked
-  // against the page actually drawn (a page that overflows makes every page a little smaller).
-  let fill = 1;
-  function budget() {
+  // A page is filled like a printed one. First every page is planned: how wide a line is and how
+  // tall each kind of block is are measured on screen, in this book's own text at the current size,
+  // and the words are laid into lines (bookpages.js). Then the page shown is fitted on the screen
+  // itself: it is drawn with the words that follow too, cut after the last line that fits, and the
+  // pages after it are planned again from there. So a page is never cut off and never half empty.
+  // Nothing is measured while the reader isn't on screen (it has no size then).
+  const KINDS = { p: "p", h1: "h2.rh.rh1", h2: "h3.rh.rh2", h3: "h4.rh.rh3", li: "li", q: "blockquote",
+                  front: "p.front", "front-sub": "p.front-sub", "front-title": "h2.rh.rh1.front-title" };
+  function measure() {
     const probe = document.createElement("div");
     probe.className = tr.className;
-    probe.style.cssText = "position:absolute;visibility:hidden;inset:auto;height:auto;width:" + tr.clientWidth + "px";
+    probe.style.cssText = "position:absolute;visibility:hidden;inset:0 auto auto 0;height:auto;overflow:visible;width:" + tr.clientWidth + "px";
     for (const a of [...tr.attributes]) if (a.name === "lang" || a.name === "dir") probe.setAttribute(a.name, a.value);
-    const sample = joinWords(texts.slice(Math.min(200, Math.max(0, n - 400)), Math.min(n, 600)), lang) || "x";
-    probe.innerHTML = `<p>${esc(sample)}</p>`;
+    const sample = joinWords(texts.slice(Math.min(200, Math.max(0, n - 400)), Math.min(n, 400)), lang).slice(0, 400) || "x";
+    const parts = Object.entries(KINDS).map(([k, sel]) => {
+      const [tag, ...cls] = sel.split(".");
+      const el = `<${tag} class="${cls.join(" ")}" data-k="${k}" style="white-space:nowrap"><span>${esc(sample)}</span></${tag}>`;
+      return k === "li" ? `<ul>${el}</ul>` : k.startsWith("front") ? `<div class="front-block">${el}</div>` : el;
+    });
+    probe.innerHTML = `<p>x</p>${parts.join("")}`; // (none of them first on the page, where some lose the space above them)
     tr.parentElement.append(probe);
-    const perPx = sample.length / Math.max(1, probe.querySelector("p").offsetHeight);
+    const out = {};
+    for (const el of probe.querySelectorAll("[data-k]")) {
+      const st = getComputedStyle(el);
+      const lineH = parseFloat(st.lineHeight) || parseFloat(st.fontSize) * 1.6;
+      const charW = el.firstElementChild.getBoundingClientRect().width / Math.max(1, sample.length);
+      const width = el.clientWidth - parseFloat(st.paddingLeft) - parseFloat(st.paddingRight);
+      const top = parseFloat(st.marginTop) || 0;
+      const extra = top + (parseFloat(st.marginBottom) || 0);
+      out[el.dataset.k] = { lineH, cpl: Math.max(4, Math.floor((width / Math.max(0.5, charW)) * 0.98)), extra, top };
+    }
+    const fb = getComputedStyle(probe.querySelector(".front-block"));
+    const frontExtra = parseFloat(fb.marginTop) + parseFloat(fb.marginBottom) + parseFloat(fb.paddingTop) + parseFloat(fb.paddingBottom);
     probe.remove();
     const style = getComputedStyle(tr);
-    const height = tr.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
-    return Math.max(200, Math.floor(height * perPx * 0.9 * fill));
+    const pageH = tr.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
+    return { kinds: out, pageH, frontExtra };
   }
+  const firstFront = (data.segments[layoutList.findIndex((b) => /^front/.test(b.role))] || { idx: null }).idx;
+  let measured = false;
+  let plan = null; // (from) -> planned pages from word `from` to the end
   function layout(keepWord = pages[page] ? pages[page][0] : 0) {
-    pages = paginate(texts, segOf, kinds, budget());
+    if (tr.clientHeight < 80 || tr.clientWidth < 80) return; // not on screen yet: laid out when it is
+    measured = true;
+    lastSize = `${tr.clientWidth}x${tr.clientHeight}`;
+    const m = measure();
+    const blockOf = (seg) => {
+      const b = blockAt.get(seg) || { role: "p", level: 0 };
+      const key = b.role === "h" ? `h${b.level}` : b.role;
+      const k = m.kinds[key] || m.kinds.p;
+      return { ...k, extra: k.extra + (seg === firstFront ? m.frontExtra : 0), breakBefore: b.breakBefore, keep: b.role === "h" };
+    };
+    const space = langInfo(lang).unspaced ? 0 : 1;
+    plan = (from) => paginateBlocks(texts, segOf, blockOf, Math.max(60, m.pageH), space, from);
+    pages = plan(0);
     page = pageOf(pages, keepWord);
-    $("#where").max = String(pages.length);
     show(page, false);
+  }
+
+  // A block that has to start a page of its own (a chapter heading, the end of the title page): the
+  // first word from `from` (up to `to`) that begins one, else `to`.
+  function nextBreak(from, to = n) {
+    for (let w = from; w < to; w++) {
+      if (w > 0 && segOf[w] !== segOf[w - 1] && (blockAt.get(segOf[w]) || {}).breakBefore) return w;
+    }
+    return to;
+  }
+
+  function draw(a, b) {
+    const parts = [];
+    let seg = -1;
+    let close = "";
+    let wrap = ""; // "ul" around list items, "front" around the title page's lines
+    const setWrap = (want) => {
+      if (want === wrap) return;
+      if (wrap) parts.push(wrap === "ul" ? "</ul>" : "</div>");
+      if (want) parts.push(want === "ul" ? "<ul>" : `<div class="front-block">`);
+      wrap = want;
+    };
+    for (let w = a; w < b; w++) {
+      if (segOf[w] !== seg) {
+        parts.push(close);
+        seg = segOf[w];
+        const block = blockAt.get(seg) || { role: "p", level: 0 };
+        const { tag, cls } = blockTag(block);
+        setWrap(tag === "li" ? "ul" : isFront(seg) ? "front" : "");
+        // A paragraph carried over from the page before is marked, so it doesn't look like a new one.
+        const cont = w === a && w > 0 && segOf[w - 1] === seg;
+        parts.push(`<${tag} class="seg${cls ? ` ${cls}` : ""}${cont ? " cont" : ""}" dir="auto" data-s="${seg}">`);
+        close = `</${tag}>`;
+      } else if (w > a) {
+        parts.push(gap(texts[w - 1], texts[w], lang));
+      }
+      parts.push(`<span class="w${wordStyle(flagsOf(seg, W.start[w]))}" data-i="${w}">${wordHtml(shown[w], lang)}</span>`);
+    }
+    parts.push(close);
+    setWrap("");
+    tr.innerHTML = parts.join("");
+    tr.scrollTop = 0;
+  }
+
+  /** Where page `a…` really ends on screen: drawn with what follows (up to the next forced page
+   * break), cut after the last word whose line fits. A heading isn't left alone at the foot. */
+  function fit(a, planned) {
+    const limit = nextBreak(a + 1, Math.min(n, Math.max(planned, a + 1) + 400));
+    draw(a, limit);
+    const style = getComputedStyle(tr);
+    const bottom = tr.getBoundingClientRect().top + tr.clientHeight - parseFloat(style.paddingBottom) + 1;
+    const els = tr.querySelectorAll(".w");
+    let cut = limit;
+    for (let k = 0; k < els.length; k++) {
+      if (els[k].getBoundingClientRect().bottom > bottom) { cut = a + k; break; }
+    }
+    if (cut < limit) {
+      // Not a heading (or the end of one) as the last thing on the page.
+      const lastSeg = segOf[cut - 1];
+      if (cut > a && (blockAt.get(lastSeg) || {}).role === "h") {
+        let s = cut - 1;
+        while (s > a && segOf[s - 1] === lastSeg) s--;
+        if (s > a) cut = s;
+      }
+    }
+    return Math.max(a + 1, cut);
   }
 
   function show(p, remember = true) {
     page = Math.max(0, Math.min(pages.length - 1, p));
-    const [a, b] = pages[page];
+    const [a, planned] = pages[page];
     if (seen) seen.close();
     for (let k = pageFirst; k < Math.min(n, pageFirst + 50000); k++) if (wordEls[k]) wordEls[k] = undefined;
     pageFirst = a;
-    const parts = [];
-    let seg = -1;
-    for (let w = a; w < b; w++) {
-      if (segOf[w] !== seg) {
-        if (seg !== -1) parts.push(kinds[seg] === "h2" ? "</h2>" : "</p>");
-        seg = segOf[w];
-        // A paragraph carried over from the page before goes on without a fresh indent.
-        const cont = w === a && w > 0 && segOf[w - 1] === seg;
-        parts.push(kinds[seg] === "h2" ? `<h2 class="seg" dir="auto" data-s="${seg}">` : `<p class="seg${cont ? " cont" : ""}" dir="auto" data-s="${seg}">`);
-      } else if (w > a) {
-        parts.push(gap(texts[w - 1], texts[w], lang));
-      }
-      parts.push(`<span class="w" data-i="${w}">${wordHtml(shown[w], lang)}</span>`);
+    let b = planned;
+    if (measured && plan) {
+      b = fit(a, planned);
+      // The pages after this one, planned again from where it really ends.
+      if (b !== planned) pages = [...pages.slice(0, page), [a, b], ...(b < n ? plan(b) : [])];
     }
-    if (seg !== -1) parts.push(kinds[seg] === "h2" ? "</h2>" : "</p>");
-    tr.innerHTML = parts.join("");
+    draw(a, b);
     const els = tr.querySelectorAll(".w");
     els.forEach((el, k) => { wordEls[a + k] = el; });
     seen = seenWords({ tokens: texts.slice(a, b), lang, els });
-    tr.scrollTop = 0;
+    $("#where").max = String(pages.length);
     $("#where").value = String(page + 1);
     $("#page-n").textContent = `${page + 1} / ${pages.length}`;
     // (In a right-to-left book the left arrow goes on to the next page.)
@@ -131,12 +230,6 @@ export async function render(view, { id, data, query }) {
     $("#next").disabled = rtl ? page === 0 : page === pages.length - 1;
     bubble.hide();
     marked = null;
-    // Too much on the page after all (long words, a tall font): every page gets a little smaller.
-    if (tr.scrollHeight > tr.clientHeight + 4 && fill > 0.6) {
-      fill *= 0.92;
-      layout(a);
-      return;
-    }
     if (remember) keep();
   }
   function rtlBook() { return getComputedStyle(tr).direction === "rtl"; }
@@ -153,12 +246,12 @@ export async function render(view, { id, data, query }) {
     const [si, sj] = sentenceBounds(texts, segOf, i, j);
     const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
     const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
-    const word = joinWords(texts.slice(i, j + 1), lang).replace(EDGE_PUNCT, "") || texts[i];
+    const word = phraseText(texts, i, j, lang);
     return {
       si, sj, word,
       ctx: { word, lang, marked: markWord(texts.slice(si, sj + 1), i - si, j - si, lang),
              before: prev ? sentenceText(prev[0], prev[1]) : "", after: next ? sentenceText(next[0], next[1]) : "",
-             podcast: ep.description || ep.feed_title, episode: ep.title },
+             podcast: ep.description || ep.feed_title, episode: ep.title, phrase: isPhrase(i, j) },
     };
   }
 
@@ -169,6 +262,7 @@ export async function render(view, { id, data, query }) {
     if (savedHere.has(savedKey(t.i, t.j))) return savedRows.get(savedKey(t.i, t.j)) || null;
     const row = await api("/vocab", { method: "POST", body: {
       ...vocabFromDefinition(def, t.text, lang), sentence: sentenceText(t.si, t.sj), episode_id: id } });
+    voiceNewCard(row, "text/book");  // nothing to listen to here: its voice, now (Settings → Card voices)
     savedHere.add(savedKey(t.i, t.j));
     savedRows.set(savedKey(t.i, t.j), row);
     if (wordEls[t.i]) reward({ type: "save" }, wordEls[t.i]);
@@ -178,6 +272,7 @@ export async function render(view, { id, data, query }) {
 
   const bubble = createWordBubble($(".book-wrap"), {
     noAudio: true,
+    voiceless: true,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onPlayWord: () => {}, onPlaySentence: () => {}, onPlayFrom: () => {},
     onSettings: () => (location.hash = "#/settings?s=words"),
@@ -201,9 +296,8 @@ export async function render(view, { id, data, query }) {
     seenAt.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
 
-  // ---------- taps, long-press, right-click, swipes ----------
+  // ---------- taps, long-press, dragging, right-click, swipes ----------
   let down = null;
-  let pressTimer = 0;
   let suppressClick = false;
   function selectionWords() {
     const sel = window.getSelection();
@@ -239,17 +333,17 @@ export async function render(view, { id, data, query }) {
     if (e.button !== 0) return;
     down = { x: e.clientX, y: e.clientY, t: Date.now() };
     suppressClick = false;
-    const wEl = e.target.closest(".w");
-    clearTimeout(pressTimer);
-    if (wEl && e.pointerType !== "mouse") {
-      pressTimer = setTimeout(() => { suppressClick = true; openMenu(e.clientX, e.clientY, wEl); }, LONG_PRESS_MS);
-    }
   });
-  tr.addEventListener("pointermove", (e) => {
-    if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) clearTimeout(pressTimer);
+  // Dragging across words (mouse), or holding a word and sliding on (touch), looks them up together
+  // (components/phrasepick.js; it keeps that release from turning the page); holding a word and
+  // lifting opens its menu.
+  const picker = phrasePicker(tr, {
+    blockOf: (k) => segOf[k],
+    elOf: (k) => wordEls[k] || null,
+    onPick: (i, j) => defineAt(i, j),
+    onHold: (i, x, y, el) => openMenu(x, y, el),
   });
   tr.addEventListener("pointerup", (e) => {
-    clearTimeout(pressTimer);
     if (!down) return;
     const dx = e.clientX - down.x;
     const dy = e.clientY - down.y;
@@ -261,7 +355,6 @@ export async function render(view, { id, data, query }) {
       turn((dx < 0) !== rtl ? 1 : -1);
     }
   });
-  tr.addEventListener("pointercancel", () => clearTimeout(pressTimer));
   tr.addEventListener("click", (e) => {
     if (suppressClick) { suppressClick = false; return; }
     const wEl = e.target.closest(".w");
@@ -276,7 +369,6 @@ export async function render(view, { id, data, query }) {
     const sel = window.getSelection();
     if (!wEl && !(sel && !sel.isCollapsed && tr.contains(sel.anchorNode))) return;
     e.preventDefault();
-    clearTimeout(pressTimer);
     openMenu(e.clientX, e.clientY, wEl);
   });
   // The arrows point the way the text reads: in Arabic, "next" is on the left.
@@ -302,18 +394,32 @@ export async function render(view, { id, data, query }) {
     else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); turn(rtlBook() && e.key === "ArrowLeft" ? 1 : -1); }
   };
   document.addEventListener("keydown", onKey);
+  // The page's size changes (window resized, phone turned, the reader first shown): lay the pages out again.
   let resizeTimer = 0;
-  const onResize = () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { fill = 1; layout(); }, 200); };
+  let lastSize = "";
+  const onResize = () => {
+    const size = `${tr.clientWidth}x${tr.clientHeight}`;
+    if (size === lastSize && measured) return;
+    lastSize = size;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => layout(), measured ? 200 : 0);
+  };
   window.addEventListener("resize", onResize);
+  const sizeWatch = typeof ResizeObserver === "function" ? new ResizeObserver(onResize) : null;
 
   // ---------- text size and vowels ----------
   let fontTimer;
+  const paintSizeButtons = (size) => {
+    $("#font-down").disabled = size <= PAGE_SIZE_MIN;
+    $("#font-up").disabled = size >= PAGE_SIZE_MAX;
+  };
+  paintSizeButtons(pageSize(state.status?.settings?.page_font_size));
   const changeFont = (d) => {
     const s = state.status?.settings || {};
-    const size = Math.max(12, Math.min(40, (s.page_font_size || 17) + d));
+    const size = pageSize(pageSize(s.page_font_size) + d);
     s.page_font_size = size;
-    document.documentElement.style.setProperty("--page-size", `${size}px`);
-    fill = 1;
+    applyPageSize(size);
+    paintSizeButtons(size);
     layout();
     clearTimeout(fontTimer);
     fontTimer = setTimeout(() => saveSettings({ page_font_size: size }), 400);
@@ -340,8 +446,12 @@ export async function render(view, { id, data, query }) {
   await new Promise((r) => setTimeout(r, 0)); // (a timer, not an animation frame: those pause while the window is hidden)
   // Measured in the book's own font, so wait for it (the stand-in font shown meanwhile is smaller).
   try { await Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 2500))]); } catch { /* no font API */ }
+  pages = [[0, n]];
+  page = 0;
   layout(start);
-  const onFonts = () => { fill = 1; layout(); };
+  if (!measured) { pages = [[start, start]]; } // (laid out from `start` once the reader has a size)
+  if (sizeWatch) sizeWatch.observe(tr);
+  const onFonts = () => layout();
   if (document.fonts) document.fonts.addEventListener("loadingdone", onFonts);
   if (query && query.get("t") !== null) {
     const el = wordEls[start];
@@ -362,10 +472,11 @@ export async function render(view, { id, data, query }) {
     keep();
     bubble.hide();
     window.removeEventListener("resize", onResize);
+    if (sizeWatch) sizeWatch.disconnect();
     if (document.fonts) document.fonts.removeEventListener("loadingdone", onFonts);
     document.removeEventListener("pointerdown", onOutside);
     document.removeEventListener("keydown", onKey);
-    clearTimeout(pressTimer);
+    picker.destroy();
     clearTimeout(resizeTimer);
     hideMenu();
   };

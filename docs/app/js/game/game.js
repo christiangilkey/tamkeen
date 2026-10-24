@@ -3,14 +3,26 @@
 
 import { api, on, saveSettings, state as app } from "../app.js";
 import { gameOn } from "../components/gameswitch.js";
-import { COMBO_STEPS, COMBO_WINDOW_MS, earn, earnAnki, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
+import { COMBO_STEPS, SESSION_GAP_MS, earn, earnAnki, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
 import { cardsGlow } from "./idle.js";
 import { icon } from "./render.js";
 
 let game = null;
 let saveTimer = 0;
 const listeners = new Set();
-const combo = { count: 0, at: 0 };
+const combo = { count: 0, at: 0, session: 0 };
+// The study session the combo belongs to: a new one once the app has been away for SESSION_GAP_MS.
+let session = 1;
+let hiddenAt = 0;
+if (typeof document !== "undefined") {
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) { hiddenAt = Date.now(); return; }
+    if (hiddenAt && Date.now() - hiddenAt >= SESSION_GAP_MS) session++;
+    hiddenAt = 0;
+  });
+}
+/** Is a combo running in this session (for the chip)? */
+const comboAlive = () => combo.count > 0 && combo.session === session && new Date(combo.at).toDateString() === new Date().toDateString();
 
 export function getGame() {
   listenForAnki();
@@ -61,7 +73,7 @@ export function onGame(fn) {
 export function reward(event, anchor = null) {
   if (!gameOn()) return null;  // the game is switched off in Settings
   const g = getGame();
-  const result = earn(g, event, { combo });
+  const result = earn(g, event, { combo, session });
   if (!result) return null;
   if (result.cleared) result.glow = cardsGlow(g); // the day's flashcards are done: their reward is glow
   saveGame();
@@ -214,8 +226,8 @@ function celebrate(result, anchor) {
 
 // ---------- the XP readout shown while studying ----------
 // Away from Home there is no habitat on screen, so a small chip appears after each reward: the
-// total rolls up to its new value, and while a combo is alive it catches fire and shows the
-// multiplier with the time left to keep the chain going.
+// total rolls up to its new value, and while this session's combo is alive it catches fire and
+// shows the multiplier and the next one. No countdown: the combo lasts the whole session.
 let chipTimer = 0;
 // Leaving the page puts the readout away (Home has the full bar).
 if (typeof window !== "undefined") window.addEventListener("hashchange", () => document.getElementById("game-chip")?.classList.remove("show", "hot", "max"));
@@ -225,12 +237,12 @@ function showChip(g, result) {
   if (!chip) {
     chip = document.createElement("div");
     chip.id = "game-chip";
-    chip.innerHTML = `<span class="chip-xp"><b></b> XP</span><span class="chip-combo" hidden></span><i class="chip-fuse"></i>`;
+    chip.innerHTML = `<span class="chip-xp"><b></b> XP</span><span class="chip-combo" hidden></span>`;
     chip.querySelector("b").dataset.value = String(g.xp - (result.xp || 0));
     document.body.append(chip);
   }
   rollNumber(chip.querySelector("b"), g.xp, (n) => n.toLocaleString());
-  const hot = result.type === "word" && combo.count > 0;
+  const hot = result.type === "word" && comboAlive();
   // What the next lookup will really be multiplied by (combo, boost and the day's fade together),
   // the same sum the popup beside the word shows.
   const next = times(wordMultiplier(g, combo.count + 1));
@@ -239,13 +251,9 @@ function showChip(g, result) {
   label.textContent = hot ? `${times(result.mult)} · next ${next}` : `next ${next}`; // while hot, app.css puts the combo flame in front
   chip.classList.toggle("hot", hot);
   chip.classList.toggle("max", result.combo >= COMBO_STEPS[COMBO_STEPS.length - 1]);
-  const fuse = chip.querySelector(".chip-fuse");
-  fuse.style.animation = "none";
-  void fuse.offsetWidth;
-  fuse.style.animation = result.type === "word" ? `chip-fuse ${COMBO_WINDOW_MS}ms linear forwards` : "none";
   chip.classList.add("show");
   clearTimeout(chipTimer);
-  chipTimer = setTimeout(() => chip.classList.remove("show", "hot", "max"), result.type === "word" ? COMBO_WINDOW_MS : 5000);
+  chipTimer = setTimeout(() => chip.classList.remove("show", "hot", "max"), 5000);
 }
 
 /** Count a number on screen up to its new value, ticking as it goes. */
