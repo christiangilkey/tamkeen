@@ -5407,8 +5407,9 @@ batch with Arabic first. This system will also be placed on a redesigned vocab p
   joined as PCM and encoded Ogg Opus (`app/audio.encode_pcm_opus`), times `{start, end, sent_start, sent_end}` (the
   card-voice shape) → `docs/course/<lang>/course.json` + `audio/NNNN.ogg` + `docs/course/index.json`; keeps audio
   whose text/voice didn't change (`audio/made.json`). Azure: `ar-SA-ZariyahNeural` (raw-24khz PCM); key from env
-  `AZURE_SPEECH_KEY`/`AZURE_SPEECH_REGION` or Tamkeen's settings DB (`tts_key_azure`, read only). **The owner has no
-  Azure key saved yet (checked 2026-10-23), so no Azure audio exists.** Piper (`ar_JO-kareem-medium`, downloaded
+  `AZURE_SPEECH_KEY`/`AZURE_SPEECH_REGION` or Tamkeen's settings DB (`tts_key_azure`, read only). **Azure audio for words 1-100 made 2026-10-24** with the owner's key (region eastus; 200 requests, 1.2 MB), in
+  `docs/course/ar/`; Whisper check: sentences 0.97 average, 9 under 0.85 (mostly case endings heard as other letters:
+  حقٌّ as حقه; worth a listen: 72 مشغول, 82 أكلنا). The builder spaces requests out after Azure's first 429. Piper (`ar_JO-kareem-medium`, downloaded
   into `tools/course/build/data` via app/voices.py) only for previews → `tools/course/build/preview/` (refused for
   docs/course: its licence isn't stated). `tools/course/check_audio.py` re-hears each file with Whisper large-v3 from
   the owner's Tamkeen models (decoding with app.audio: faster-whisper's own reader breaks on this PyAV) and scores
