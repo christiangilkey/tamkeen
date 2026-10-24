@@ -5388,3 +5388,54 @@ the meaning as possible".
   `change` and saved the setting; on a review card's back a tap copied the word, a tap copied the whole sentence, a sideways
   swipe copied nothing. **Not checked**: a real Android phone (the WebView should never open its own list since the select
   takes no taps), the reels panel (only the installed apps can get reels).
+
+## Basics courses: the 1000 most common words per language, on a redesigned Vocab page (2026-10-23; branch `basics-course`, NOT merged, NOT pushed)
+Owner: "a basics course for each language that helps the user learn the top 1000 most common words, all words
+should be put in basic elementary style sentences, used in a way that native speakers would actually use them, and
+also contain audio from the most accurate text to speech option we have available for each language. These audios
+may need to be made locally on my PC and then sent to users based on what languages they chose to learn … an example
+batch with Arabic first. This system will also be placed on a redesigned vocab page." How-to: `tools/course/README.md`.
+- **Word list** (Arabic): `tools/course/forms.py` (wordfreq 3.1.1, top 20,000 forms; run with a Python that has
+  wordfreq, e.g. a scratch venv) → `tools/course/rank.mjs` groups forms by lexeme with `web/js/lexicon/arabic.js` +
+  `docs/lexicon/ar-msa.json.gz` and ranks by summed frequency (6,682 lexemes; build output is git-ignored). Then a
+  hand pass: the analyzer's mistakes fixed (كل→أكل, يرى→nonsense, قبل→"to accept", أيضا, أفضل), names left out
+  (محمد, السعودية, بن), feminine/plural forms of a word already in (أخرى) skipped.
+- **Content** `tools/course/ar/words.json`: words 1-100 written (units 1-2: the example batch). Modern Standard
+  Arabic, everything fully vowelled with case endings; one short everyday sentence per word (2-10 words), English
+  translation with ⟦ ⟧. `rank` keeps each word's frequency rank. tests/js/course.test.mjs checks the file.
+- **Audio** `tools/course/build_course.py <lang> --voice azure|piper`: word, 0.9 s gap, sentence (Azure at -10% rate)
+  joined as PCM and encoded Ogg Opus (`app/audio.encode_pcm_opus`), times `{start, end, sent_start, sent_end}` (the
+  card-voice shape) → `docs/course/<lang>/course.json` + `audio/NNNN.ogg` + `docs/course/index.json`; keeps audio
+  whose text/voice didn't change (`audio/made.json`). Azure: `ar-SA-ZariyahNeural` (raw-24khz PCM); key from env
+  `AZURE_SPEECH_KEY`/`AZURE_SPEECH_REGION` or Tamkeen's settings DB (`tts_key_azure`, read only). **The owner has no
+  Azure key saved yet (checked 2026-10-23), so no Azure audio exists.** Piper (`ar_JO-kareem-medium`, downloaded
+  into `tools/course/build/data` via app/voices.py) only for previews → `tools/course/build/preview/` (refused for
+  docs/course: its licence isn't stated). `tools/course/check_audio.py` re-hears each file with Whisper large-v3 from
+  the owner's Tamkeen models (decoding with app.audio: faster-whisper's own reader breaks on this PyAV) and scores
+  the sentence part separately from the word. Piper preview: sentences 0.93 average match, 20/100 under 0.85
+  (real mispronunciations, e.g. صغير heard as صرير): the reason the published audio must be Azure.
+- **App**: `app/course.py` + `GET /api/course/{index.json|<lang>/course.json|<lang>/audio/NNNN.ogg}` (desktop: the
+  repo's docs/course when running from source, or `APS_COURSE_DIR`; else the published site, kept in
+  `<data>/course/`; audio cached for good, JSON asked afresh, kept copy used offline). Phones fetch
+  `https://christiangilkey.github.io/tamkeen/course/…`, the web app `/tamkeen/course/…` (`coursedata.courseUrl`).
+  `web/js/coursedata.js` (pure: urls, `wordKey`/`vowelledKey`, `progress`, `cardOf`, `markedHtml`) and
+  `web/js/components/coursepanel.js` (UI). **Vocab page**: under Review, tabs **Basics | My words** (`#vtabs`, shown
+  only when the study language has a course; last tab kept in localStorage `vocabTab`, Basics by default); My words
+  = the old search/folders/filters/list (`#mywords`). Basics: gradient header (title, variety, "The 1000 most common
+  words, 50 at a time", gold progress bar, "N of 1000 words in your cards", Continue: unit N), 20 unit tiles (ready /
+  started / done / "Coming soon"); a unit: ← back, "Add all 50 to my cards" / "Add the other N", rows with number,
+  word, meaning, sentence (word highlighted), translation (⟦⟧ bold), Word / Sentence (plays the segment), Add / ✓ In
+  my cards. Adding: folder named after the course ("Arabic basics", made once), `POST /vocab/batch` with the new
+  `source` field (→ `episode_title`, desktop and phone backend.js: the card back shows "Arabic basics · word 2"),
+  then `saveVoice(id, blob, times)` per card (4 at a time). In-cards matching: vowelled cards by their vowels (so
+  عَمَل and عَمِلَ stay apart), unvowelled cards without.
+- Translations: `tools/i18n/tr/<code>/72-basics-course.txt` (25 strings × 16); 5 internal strings in ignore.txt.
+- **Checked**: 832 JS (tests/js/course.test.mjs, 9), 530 pytest (tests/test_course.py, 5); preview (`tamkeen-basics`
+  launch config, Piper preview course, throwaway library): tabs, header, tiles, unit 1 rows, Sentence played, Add one
+  (card with voice, source, folder), Add all 49 (50 cards, all with voice), header 50/1000, unit 1 "All in your
+  cards", Continue moved to unit 2, Review "20 new". **Not checked**: Azure audio (no key), the phones, the web app
+  build, units 3-20 (not written).
+- **Next**: owner adds his Azure key (Settings → Card voices) → `build_course.py ar --voice azure` →
+  `check_audio.py ar` → listen to flagged ones → owner reviews units 1-2 → write words 101-1000 → other languages
+  (each needs its own grouping step) → publish with a release (ask first). Meanings/translations are English only.
+

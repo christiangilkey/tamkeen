@@ -1,0 +1,25 @@
+b5ffacdb Gikarga ang kurso…
+e5cfdce4 Padulong na ang batakang kurso sa {0}. Samtang wala pa, pagdugang og mga pulong gamit ang “Pagdugang og mga pulong” sa tab nga Akong mga pulong.
+3284ffc7 Dili makarga ang kurso. Susiha ang imong koneksyon ug sulayi pag-usab.
+353a0114 Padayon: yunit {0}
+5fa8930e Ang {0} ka labing kasagarang pulong, 50 matag higayon
+593fcfbb {0} sa {1} ka pulong anaa sa imong mga card
+e4115be2 Hapit na
+da1dc06f {0} Tanan anaa sa imong mga card
+2375cfe0 Mga pulong {0}–{1}
+920a5ea0 text to speech
+598fe0cb Ang audio usa ka tingog sa kompyuter ({0}). Ang mga kahulogan ug hubad naa sa English sa pagkakaron.
+be6dabee Tanang yunit
+e4688281 Yunit {0}
+56459cba Mga pulong {0}–{1} · {2} sa {3} anaa sa imong mga card
+9b5def44 Idugang ang tanang {0} sa akong mga card
+9ebfbf8f Idugang ang laing {0}
+75236a51 {0} Anaa sa akong mga card
+15d8968c {0} Idugang
+c16713e5 Nadugang sa imong mga card, uban ang audio niini.
+b0b1fc6c {0} ka pulong ang nadugang sa imong mga card, uban ang ilang audio.
+2d491802 Ang {0} sa bag-ong mga card wala makakuha sa ilang audio karon; ang tingog sa card ang mobasa niini.
+c37636be Dili makarga ang audio niini nga pulong.
+5f2b15f8 Dili mapatokar ang audio niini nga pulong.
+5fcebeef Batakan
+39b187b0 Akong mga pulong

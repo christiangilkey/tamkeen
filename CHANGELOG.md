@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** A basics course on the Vocab page's new **Basics** tab (beside **My words**): the 1000 most common words of the language you're learning, 50 at a time, each with a short everyday sentence, its translation and audio of the word and the sentence. Add a word, or a whole unit, to your cards in one tap; they come with their audio and go into your reviews. Arabic first (Modern Standard Arabic, fully vowelled).
 - **Improved:** Drop-down menus open Tamkeen's own list, in the app's colours, instead of the plain system list (on Android a grey box of round buttons). On the phones, and on touch screens in the web app and the desktop app.
 - **New:** On the back of a review card, tap the word to copy it, or its sentence to copy the whole sentence. A short flash and "Copied" confirm it; a swipe never copies.
 - **Improved:** The Mnemonic maker suggests real words of your own language that both sound like the word and point to its meaning, never the word's sounds spelled out ("nah-wee-yah"); anything like that is left out.

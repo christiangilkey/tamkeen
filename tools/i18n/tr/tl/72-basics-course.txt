@@ -1,0 +1,25 @@
+b5ffacdb Nilo-load ang kurso…
+e5cfdce4 Paparating na ang batayang kurso sa {0}. Habang wala pa, magdagdag ng mga salita gamit ang “Magdagdag ng mga salita” sa tab na Mga salita ko.
+3284ffc7 Hindi ma-load ang kurso. Tingnan ang koneksyon mo at subukan ulit.
+353a0114 Ituloy: yunit {0}
+5fa8930e Ang {0} pinakakaraniwang salita, 50 bawat pagkakataon
+593fcfbb {0} sa {1} salita ang nasa mga card mo
+e4115be2 Malapit na
+da1dc06f {0} Lahat nasa mga card mo
+2375cfe0 Mga salita {0}–{1}
+920a5ea0 text to speech
+598fe0cb Boses ng computer ang audio ({0}). Nasa English muna ang mga kahulugan at salin.
+be6dabee Lahat ng yunit
+e4688281 Yunit {0}
+56459cba Mga salita {0}–{1} · {2} sa {3} ang nasa mga card mo
+9b5def44 Idagdag ang lahat ng {0} sa mga card ko
+9ebfbf8f Idagdag ang iba pang {0}
+75236a51 {0} Nasa mga card ko
+15d8968c {0} Idagdag
+c16713e5 Naidagdag sa mga card mo, kasama ang audio nito.
+b0b1fc6c {0} salita ang naidagdag sa mga card mo, kasama ang audio nila.
+2d491802 Hindi nakuha ngayon ng {0} sa mga bagong card ang audio nila; ang boses ng card ang babasa sa mga ito.
+c37636be Hindi ma-load ang audio ng salitang ito.
+5f2b15f8 Hindi mapatugtog ang audio ng salitang ito.
+5fcebeef Batayan
+39b187b0 Mga salita ko

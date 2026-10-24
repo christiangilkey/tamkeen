@@ -1,0 +1,25 @@
+b5ffacdb Caricamento del corso…
+e5cfdce4 Un corso base di {0:lower} sta arrivando. Nel frattempo, aggiungi parole con «Aggiungi parole» nella scheda Le mie parole.
+3284ffc7 Non è stato possibile caricare il corso. Controlla la connessione e riprova.
+353a0114 Continua: unità {0}
+5fa8930e Le {0} parole più comuni, 50 alla volta
+593fcfbb {0} parole su {1} nelle tue schede
+e4115be2 In arrivo
+da1dc06f {0} Tutte nelle tue schede
+2375cfe0 Parole {0}–{1}
+920a5ea0 sintesi vocale
+598fe0cb L'audio è una voce sintetica ({0}). Significati e traduzioni sono in inglese, per ora.
+be6dabee Tutte le unità
+e4688281 Unità {0}
+56459cba Parole {0}–{1} · {2} su {3} nelle tue schede
+9b5def44 Aggiungi tutte le {0} alle mie schede
+9ebfbf8f Aggiungi le altre {0}
+75236a51 {0} Nelle mie schede
+15d8968c {0} Aggiungi
+c16713e5 Aggiunta alle tue schede, con il suo audio.
+b0b1fc6c {0} parole aggiunte alle tue schede, con il loro audio.
+2d491802 {0} delle nuove schede non hanno potuto avere il loro audio ora; le legge la voce delle schede.
+c37636be Non è stato possibile caricare l'audio di questa parola.
+5f2b15f8 Non è stato possibile riprodurre l'audio di questa parola.
+5fcebeef Base
+39b187b0 Le mie parole

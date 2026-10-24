@@ -1,0 +1,908 @@
+{
+  "lang": "ar",
+  "title": "Arabic basics",
+  "variety": "Modern Standard Arabic",
+  "about": "The most common words of written and spoken Arabic (wordfreq counts, grouped by dictionary word with tools/course/rank.mjs), most common first, 50 to a unit. Names of people and places are left out. Each word has one short everyday sentence that uses it the way native speakers do, fully vowelled, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "فِي",
+      "pos": "prep",
+      "meaning": "in",
+      "sentence": "أَسْكُنُ فِي بَيْتٍ صَغِيرٍ.",
+      "translation": "I live ⟦in⟧ a small house."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "مِنْ",
+      "pos": "prep",
+      "meaning": "from; of",
+      "sentence": "أَنَا مِنْ مِصْرَ.",
+      "translation": "I am ⟦from⟧ Egypt."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "أَنْ",
+      "pos": "conj",
+      "meaning": "to (before a verb); that",
+      "sentence": "أُرِيدُ أَنْ أَشْرَبَ مَاءً.",
+      "translation": "I want ⟦to⟧ drink some water."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "عَلَى",
+      "pos": "prep",
+      "meaning": "on",
+      "sentence": "الْكِتَابُ عَلَى الطَّاوِلَةِ.",
+      "translation": "The book is ⟦on⟧ the table."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "كَانَ",
+      "pos": "verb",
+      "meaning": "was; to be",
+      "sentence": "كَانَ الْجَوُّ جَمِيلًا أَمْسِ.",
+      "translation": "The weather ⟦was⟧ nice yesterday."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "إِلَى",
+      "pos": "prep",
+      "meaning": "to (towards)",
+      "sentence": "أَذْهَبُ إِلَى الْمَدْرَسَةِ كُلَّ يَوْمٍ.",
+      "translation": "I go ⟦to⟧ school every day."
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "هٰذَا",
+      "pos": "pron",
+      "meaning": "this (masculine)",
+      "sentence": "هٰذَا بَيْتِي.",
+      "translation": "⟦This⟧ is my house."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "الَّذِي",
+      "pos": "pron",
+      "meaning": "who; which (masculine)",
+      "sentence": "هٰذَا هُوَ الرَّجُلُ الَّذِي سَاعَدَنِي.",
+      "translation": "This is the man ⟦who⟧ helped me."
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "لَا",
+      "pos": "part",
+      "meaning": "no; not",
+      "sentence": "لَا أَعْرِفُ.",
+      "translation": "I ⟦don't⟧ know."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "مَا",
+      "pos": "pron",
+      "meaning": "what",
+      "sentence": "مَا اسْمُكَ؟",
+      "translation": "⟦What⟧ is your name?"
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "وَ",
+      "pos": "conj",
+      "meaning": "and",
+      "sentence": "أُحِبُّ الشَّايَ وَالْقَهْوَةَ.",
+      "translation": "I like tea ⟦and⟧ coffee."
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "عَنْ",
+      "pos": "prep",
+      "meaning": "about; from",
+      "sentence": "نَتَكَلَّمُ عَنِ الْعَمَلِ.",
+      "translation": "We are talking ⟦about⟧ work."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "لِـ",
+      "pos": "prep",
+      "meaning": "for; belonging to",
+      "sentence": "هٰذِهِ الْهَدِيَّةُ لَكَ.",
+      "translation": "This gift is ⟦for⟧ you."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "مَعَ",
+      "pos": "prep",
+      "meaning": "with",
+      "sentence": "أَسْكُنُ مَعَ عَائِلَتِي.",
+      "translation": "I live ⟦with⟧ my family."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "ذٰلِكَ",
+      "pos": "pron",
+      "meaning": "that (masculine)",
+      "sentence": "مَنْ ذٰلِكَ الرَّجُلُ؟",
+      "translation": "Who is ⟦that⟧ man?"
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "هُوَ",
+      "pos": "pron",
+      "meaning": "he; it",
+      "sentence": "هُوَ طَبِيبٌ.",
+      "translation": "⟦He⟧ is a doctor."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "كُلّ",
+      "pos": "noun",
+      "meaning": "every; all",
+      "sentence": "أَشْرَبُ الْقَهْوَةَ كُلَّ صَبَاحٍ.",
+      "translation": "I drink coffee ⟦every⟧ morning."
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "أَوْ",
+      "pos": "conj",
+      "meaning": "or",
+      "sentence": "هَلْ تُرِيدُ شَايًا أَوْ قَهْوَةً؟",
+      "translation": "Do you want tea ⟦or⟧ coffee?"
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "بِـ",
+      "pos": "prep",
+      "meaning": "with; by; in",
+      "sentence": "أَكْتُبُ بِقَلَمٍ أَزْرَقَ.",
+      "translation": "I write ⟦with⟧ a blue pen."
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "يَوْم",
+      "pos": "noun",
+      "meaning": "day",
+      "sentence": "الْيَوْمُ يَوْمٌ جَمِيلٌ.",
+      "translation": "Today is a beautiful ⟦day⟧."
+    },
+    {
+      "n": 21,
+      "rank": 21,
+      "word": "قَالَ",
+      "pos": "verb",
+      "meaning": "to say (he said)",
+      "sentence": "قَالَ لِي: صَبَاحَ الْخَيْرِ.",
+      "translation": "He ⟦said⟧ to me: good morning."
+    },
+    {
+      "n": 22,
+      "rank": 22,
+      "word": "قَدْ",
+      "pos": "part",
+      "meaning": "already (before a past verb)",
+      "sentence": "قَدْ وَصَلَ الْقِطَارُ.",
+      "translation": "The train ⟦has⟧ arrived."
+    },
+    {
+      "n": 23,
+      "rank": 23,
+      "word": "بَعْدَ",
+      "pos": "prep",
+      "meaning": "after",
+      "sentence": "أَشْرَبُ الشَّايَ بَعْدَ الْأَكْلِ.",
+      "translation": "I drink tea ⟦after⟧ eating."
+    },
+    {
+      "n": 24,
+      "rank": 24,
+      "word": "عَام",
+      "pos": "noun",
+      "meaning": "year",
+      "sentence": "زُرْتُ مِصْرَ الْعَامَ الْمَاضِيَ.",
+      "translation": "I visited Egypt last ⟦year⟧."
+    },
+    {
+      "n": 25,
+      "rank": 25,
+      "word": "لٰكِنْ",
+      "pos": "conj",
+      "meaning": "but",
+      "sentence": "الْبَيْتُ صَغِيرٌ لٰكِنَّهُ جَمِيلٌ.",
+      "translation": "The house is small, ⟦but⟧ it is beautiful."
+    },
+    {
+      "n": 26,
+      "rank": 26,
+      "word": "لَمْ",
+      "pos": "part",
+      "meaning": "did not",
+      "sentence": "لَمْ أَنَمْ جَيِّدًا.",
+      "translation": "I ⟦didn't⟧ sleep well."
+    },
+    {
+      "n": 27,
+      "rank": 27,
+      "word": "هِيَ",
+      "pos": "pron",
+      "meaning": "she; it",
+      "sentence": "هِيَ أُخْتِي.",
+      "translation": "⟦She⟧ is my sister."
+    },
+    {
+      "n": 28,
+      "rank": 28,
+      "word": "بَيْنَ",
+      "pos": "prep",
+      "meaning": "between",
+      "sentence": "الْمَطْعَمُ بَيْنَ الْبَنْكِ وَالْمَكْتَبَةِ.",
+      "translation": "The restaurant is ⟦between⟧ the bank and the bookshop."
+    },
+    {
+      "n": 29,
+      "rank": 29,
+      "word": "اللّٰه",
+      "pos": "noun",
+      "meaning": "God",
+      "sentence": "إِنْ شَاءَ اللّٰهُ نَلْتَقِي غَدًا.",
+      "translation": "⟦God⟧ willing, we'll meet tomorrow."
+    },
+    {
+      "n": 30,
+      "rank": 30,
+      "word": "تَمَّ",
+      "pos": "verb",
+      "meaning": "to be done; to be completed",
+      "sentence": "تَمَّ الْعَمَلُ بِنَجَاحٍ.",
+      "translation": "The work ⟦was completed⟧ successfully."
+    },
+    {
+      "n": 31,
+      "rank": 31,
+      "word": "أَوَّل",
+      "pos": "adj",
+      "meaning": "first",
+      "sentence": "هٰذَا أَوَّلُ يَوْمٍ لِي فِي الْعَمَلِ.",
+      "translation": "This is my ⟦first⟧ day at work."
+    },
+    {
+      "n": 32,
+      "rank": 32,
+      "word": "عِنْدَ",
+      "pos": "prep",
+      "meaning": "at; to have (عِنْدِي: I have)",
+      "sentence": "عِنْدِي سَيَّارَةٌ جَدِيدَةٌ.",
+      "translation": "I ⟦have⟧ a new car."
+    },
+    {
+      "n": 33,
+      "rank": 33,
+      "word": "أَيّ",
+      "pos": "pron",
+      "meaning": "which; any",
+      "sentence": "أَيَّ كِتَابٍ تُرِيدُ؟",
+      "translation": "⟦Which⟧ book do you want?"
+    },
+    {
+      "n": 34,
+      "rank": 34,
+      "word": "بَعْض",
+      "pos": "noun",
+      "meaning": "some",
+      "sentence": "اشْتَرَيْتُ بَعْضَ الْخُبْزِ.",
+      "translation": "I bought ⟦some⟧ bread."
+    },
+    {
+      "n": 35,
+      "rank": 35,
+      "word": "نَفْس",
+      "pos": "noun",
+      "meaning": "same; self",
+      "sentence": "نَسْكُنُ فِي نَفْسِ الشَّارِعِ.",
+      "translation": "We live on the ⟦same⟧ street."
+    },
+    {
+      "n": 36,
+      "rank": 36,
+      "word": "حَتَّى",
+      "pos": "prep",
+      "meaning": "until; even",
+      "sentence": "انْتَظَرْتُكَ حَتَّى الْمَسَاءِ.",
+      "translation": "I waited for you ⟦until⟧ the evening."
+    },
+    {
+      "n": 37,
+      "rank": 37,
+      "word": "قَبْلَ",
+      "pos": "prep",
+      "meaning": "before",
+      "sentence": "أَغْسِلُ يَدَيَّ قَبْلَ الْأَكْلِ.",
+      "translation": "I wash my hands ⟦before⟧ eating."
+    },
+    {
+      "n": 38,
+      "rank": 38,
+      "word": "غَيْر",
+      "pos": "noun",
+      "meaning": "not; other than",
+      "sentence": "هٰذَا غَيْرُ صَحِيحٍ.",
+      "translation": "This is ⟦not⟧ correct."
+    },
+    {
+      "n": 39,
+      "rank": 39,
+      "word": "إِذَا",
+      "pos": "conj",
+      "meaning": "if; when",
+      "sentence": "إِذَا كُنْتَ جَائِعًا فَكُلْ شَيْئًا.",
+      "translation": "⟦If⟧ you are hungry, eat something."
+    },
+    {
+      "n": 40,
+      "rank": 40,
+      "word": "أَنَا",
+      "pos": "pron",
+      "meaning": "I",
+      "sentence": "أَنَا طَالِبٌ.",
+      "translation": "⟦I⟧ am a student."
+    },
+    {
+      "n": 41,
+      "rank": 41,
+      "word": "يَا",
+      "pos": "part",
+      "meaning": "(calling someone) hey, O",
+      "sentence": "يَا أَحْمَدُ، تَعَالَ إِلَى هُنَا!",
+      "translation": "⟦Hey⟧ Ahmad, come here!"
+    },
+    {
+      "n": 42,
+      "rank": 42,
+      "word": "شَيْء",
+      "pos": "noun",
+      "meaning": "thing; something",
+      "sentence": "هَلْ تُرِيدُ شَيْئًا؟",
+      "translation": "Do you want ⟦anything⟧?"
+    },
+    {
+      "n": 43,
+      "rank": 43,
+      "word": "أَحَد",
+      "pos": "noun",
+      "meaning": "someone; one",
+      "sentence": "هَلْ يُوجَدُ أَحَدٌ فِي الْبَيْتِ؟",
+      "translation": "Is ⟦anyone⟧ at home?"
+    },
+    {
+      "n": 44,
+      "rank": 44,
+      "word": "كَمَا",
+      "pos": "conj",
+      "meaning": "as; just as",
+      "sentence": "افْعَلْ كَمَا قُلْتُ لَكَ.",
+      "translation": "Do ⟦as⟧ I told you."
+    },
+    {
+      "n": 45,
+      "rank": 45,
+      "word": "أَنْتَ",
+      "pos": "pron",
+      "meaning": "you (masculine)",
+      "sentence": "أَنْتَ صَدِيقِي.",
+      "translation": "⟦You⟧ are my friend."
+    },
+    {
+      "n": 46,
+      "rank": 46,
+      "word": "يُمْكِنُ",
+      "pos": "verb",
+      "meaning": "can; it is possible",
+      "sentence": "هَلْ يُمْكِنُنِي أَنْ أَجْلِسَ هُنَا؟",
+      "translation": "⟦Can⟧ I sit here?"
+    },
+    {
+      "n": 47,
+      "rank": 47,
+      "word": "أَيْضًا",
+      "pos": "adv",
+      "meaning": "also; too",
+      "sentence": "أَنَا أَيْضًا أُحِبُّ الْقَهْوَةَ.",
+      "translation": "I ⟦also⟧ like coffee."
+    },
+    {
+      "n": 48,
+      "rank": 48,
+      "word": "أَكْثَر",
+      "pos": "adj",
+      "meaning": "more",
+      "sentence": "أَحْتَاجُ إِلَى وَقْتٍ أَكْثَرَ.",
+      "translation": "I need ⟦more⟧ time."
+    },
+    {
+      "n": 49,
+      "rank": 49,
+      "word": "خِلَالَ",
+      "pos": "prep",
+      "meaning": "during; within",
+      "sentence": "سَأَتَّصِلُ بِكَ خِلَالَ الْأُسْبُوعِ.",
+      "translation": "I'll call you ⟦during⟧ the week."
+    },
+    {
+      "n": 50,
+      "rank": 50,
+      "word": "حَيْثُ",
+      "pos": "conj",
+      "meaning": "where (the place where)",
+      "sentence": "عُدْتُ إِلَى الْقَرْيَةِ حَيْثُ وُلِدْتُ.",
+      "translation": "I went back to the village ⟦where⟧ I was born."
+    },
+    {
+      "n": 51,
+      "rank": 51,
+      "word": "لَيْسَ",
+      "pos": "verb",
+      "meaning": "is not",
+      "sentence": "الْمَطْعَمُ لَيْسَ بَعِيدًا.",
+      "translation": "The restaurant ⟦isn't⟧ far."
+    },
+    {
+      "n": 52,
+      "rank": 52,
+      "word": "مِثْل",
+      "pos": "noun",
+      "meaning": "like; similar to",
+      "sentence": "هُوَ طَوِيلٌ مِثْلَ أَبِيهِ.",
+      "translation": "He is tall ⟦like⟧ his father."
+    },
+    {
+      "n": 53,
+      "rank": 53,
+      "word": "بَدَأَ",
+      "pos": "verb",
+      "meaning": "to begin",
+      "sentence": "بَدَأَ الدَّرْسُ فِي السَّاعَةِ التَّاسِعَةِ.",
+      "translation": "The lesson ⟦began⟧ at nine o'clock."
+    },
+    {
+      "n": 54,
+      "rank": 54,
+      "word": "قَامَ",
+      "pos": "verb",
+      "meaning": "to stand up; to carry out (قَامَ بِـ)",
+      "sentence": "قَامَ الطُّلَّابُ عِنْدَمَا دَخَلَ الْمُعَلِّمُ.",
+      "translation": "The students ⟦stood up⟧ when the teacher came in."
+    },
+    {
+      "n": 55,
+      "rank": 55,
+      "word": "آخَر",
+      "pos": "adj",
+      "meaning": "other; another",
+      "sentence": "أُرِيدُ كُوبًا آخَرَ مِنَ الشَّايِ.",
+      "translation": "I'd like ⟦another⟧ cup of tea."
+    },
+    {
+      "n": 56,
+      "rank": 56,
+      "word": "عَمَل",
+      "pos": "noun",
+      "meaning": "work; job",
+      "sentence": "عِنْدِي عَمَلٌ كَثِيرٌ الْيَوْمَ.",
+      "translation": "I have a lot of ⟦work⟧ today."
+    },
+    {
+      "n": 57,
+      "rank": 57,
+      "word": "عَمِلَ",
+      "pos": "verb",
+      "meaning": "to work",
+      "sentence": "عَمِلَ أَبِي مُعَلِّمًا عِشْرِينَ سَنَةً.",
+      "translation": "My father ⟦worked⟧ as a teacher for twenty years."
+    },
+    {
+      "n": 58,
+      "rank": 58,
+      "word": "جَدِيد",
+      "pos": "adj",
+      "meaning": "new",
+      "sentence": "اشْتَرَيْتُ هَاتِفًا جَدِيدًا.",
+      "translation": "I bought a ⟦new⟧ phone."
+    },
+    {
+      "n": 59,
+      "rank": 59,
+      "word": "عَالَم",
+      "pos": "noun",
+      "meaning": "world",
+      "sentence": "أُرِيدُ أَنْ أُسَافِرَ حَوْلَ الْعَالَمِ.",
+      "translation": "I want to travel around the ⟦world⟧."
+    },
+    {
+      "n": 60,
+      "rank": 60,
+      "word": "حَيَاة",
+      "pos": "noun",
+      "meaning": "life",
+      "sentence": "الْحَيَاةُ فِي الْقَرْيَةِ هَادِئَةٌ.",
+      "translation": "⟦Life⟧ in the village is quiet."
+    },
+    {
+      "n": 61,
+      "rank": 61,
+      "word": "سَنَة",
+      "pos": "noun",
+      "meaning": "year",
+      "sentence": "عُمْرِي عِشْرُونَ سَنَةً.",
+      "translation": "I am twenty ⟦years⟧ old."
+    },
+    {
+      "n": 62,
+      "rank": 62,
+      "word": "هُنَاكَ",
+      "pos": "adv",
+      "meaning": "there; there is",
+      "sentence": "هُنَاكَ مَقْهًى قَرِيبٌ مِنْ هُنَا.",
+      "translation": "⟦There is⟧ a café near here."
+    },
+    {
+      "n": 63,
+      "rank": 63,
+      "word": "كَثِير",
+      "pos": "adj",
+      "meaning": "many; a lot",
+      "sentence": "عِنْدَهُ أَصْدِقَاءُ كَثِيرُونَ.",
+      "translation": "He has ⟦many⟧ friends."
+    },
+    {
+      "n": 64,
+      "rank": 64,
+      "word": "مَدِينَة",
+      "pos": "noun",
+      "meaning": "city",
+      "sentence": "الْقَاهِرَةُ مَدِينَةٌ كَبِيرَةٌ.",
+      "translation": "Cairo is a big ⟦city⟧."
+    },
+    {
+      "n": 65,
+      "rank": 65,
+      "word": "إِلَّا",
+      "pos": "part",
+      "meaning": "except; only",
+      "sentence": "لَا أَشْرَبُ إِلَّا الْمَاءَ.",
+      "translation": "I drink ⟦nothing but⟧ water."
+    },
+    {
+      "n": 66,
+      "rank": 66,
+      "word": "جَمِيع",
+      "pos": "noun",
+      "meaning": "all",
+      "sentence": "جَمِيعُ الطُّلَّابِ حَاضِرُونَ.",
+      "translation": "⟦All⟧ the students are here."
+    },
+    {
+      "n": 67,
+      "rank": 67,
+      "word": "وَقْت",
+      "pos": "noun",
+      "meaning": "time",
+      "sentence": "لَيْسَ عِنْدِي وَقْتٌ الْآنَ.",
+      "translation": "I don't have ⟦time⟧ now."
+    },
+    {
+      "n": 68,
+      "rank": 68,
+      "word": "عَرَبِيّ",
+      "pos": "adj",
+      "meaning": "Arabic; Arab",
+      "sentence": "أَتَعَلَّمُ اللُّغَةَ الْعَرَبِيَّةَ.",
+      "translation": "I'm learning the ⟦Arabic⟧ language."
+    },
+    {
+      "n": 69,
+      "rank": 69,
+      "word": "وَاحِد",
+      "pos": "noun",
+      "meaning": "one",
+      "sentence": "أُرِيدُ قَهْوَةً وَاحِدَةً، مِنْ فَضْلِكَ.",
+      "translation": "⟦One⟧ coffee, please."
+    },
+    {
+      "n": 70,
+      "rank": 70,
+      "word": "كَبِير",
+      "pos": "adj",
+      "meaning": "big; old (in age)",
+      "sentence": "بَيْتُهُمْ كَبِيرٌ جِدًّا.",
+      "translation": "Their house is very ⟦big⟧."
+    },
+    {
+      "n": 71,
+      "rank": 71,
+      "word": "خَاصّ",
+      "pos": "adj",
+      "meaning": "private; special",
+      "sentence": "هٰذِهِ غُرْفَةٌ خَاصَّةٌ.",
+      "translation": "This is a ⟦private⟧ room."
+    },
+    {
+      "n": 72,
+      "rank": 72,
+      "word": "الْآنَ",
+      "pos": "adv",
+      "meaning": "now",
+      "sentence": "أَنَا مَشْغُولٌ الْآنَ.",
+      "translation": "I'm busy ⟦now⟧."
+    },
+    {
+      "n": 73,
+      "rank": 73,
+      "word": "دَوْلَة",
+      "pos": "noun",
+      "meaning": "country; state",
+      "sentence": "زُرْتُ دُوَلًا كَثِيرَةً.",
+      "translation": "I have visited many ⟦countries⟧."
+    },
+    {
+      "n": 74,
+      "rank": 74,
+      "word": "شَخْص",
+      "pos": "noun",
+      "meaning": "person",
+      "sentence": "هُوَ شَخْصٌ لَطِيفٌ.",
+      "translation": "He is a nice ⟦person⟧."
+    },
+    {
+      "n": 75,
+      "rank": 77,
+      "word": "نَاس",
+      "pos": "noun",
+      "meaning": "people",
+      "sentence": "النَّاسُ هُنَا طَيِّبُونَ.",
+      "translation": "⟦People⟧ here are kind."
+    },
+    {
+      "n": 76,
+      "rank": 78,
+      "word": "سَبَب",
+      "pos": "noun",
+      "meaning": "reason; cause",
+      "sentence": "مَا سَبَبُ التَّأْخِيرِ؟",
+      "translation": "What is the ⟦reason⟧ for the delay?"
+    },
+    {
+      "n": 77,
+      "rank": 79,
+      "word": "رَئِيس",
+      "pos": "noun",
+      "meaning": "president; head; boss",
+      "sentence": "رَئِيسُ الشَّرِكَةِ فِي اجْتِمَاعٍ.",
+      "translation": "The ⟦head⟧ of the company is in a meeting."
+    },
+    {
+      "n": 78,
+      "rank": 80,
+      "word": "عَدَد",
+      "pos": "noun",
+      "meaning": "number",
+      "sentence": "كَمْ عَدَدُ الطُّلَّابِ فِي الصَّفِّ؟",
+      "translation": "What is the ⟦number⟧ of students in the class?"
+    },
+    {
+      "n": 79,
+      "rank": 81,
+      "word": "رَجُل",
+      "pos": "noun",
+      "meaning": "man",
+      "sentence": "رَأَيْتُ رَجُلًا فِي الشَّارِعِ.",
+      "translation": "I saw a ⟦man⟧ in the street."
+    },
+    {
+      "n": 80,
+      "rank": 82,
+      "word": "مِنْطَقَة",
+      "pos": "noun",
+      "meaning": "area; region",
+      "sentence": "أَسْكُنُ فِي مِنْطَقَةٍ هَادِئَةٍ.",
+      "translation": "I live in a quiet ⟦area⟧."
+    },
+    {
+      "n": 81,
+      "rank": 83,
+      "word": "وَجَدَ",
+      "pos": "verb",
+      "meaning": "to find",
+      "sentence": "وَجَدْتُ مِفْتَاحِي تَحْتَ الْكُرْسِيِّ.",
+      "translation": "I ⟦found⟧ my key under the chair."
+    },
+    {
+      "n": 82,
+      "rank": 84,
+      "word": "ثُمَّ",
+      "pos": "adv",
+      "meaning": "then",
+      "sentence": "أَكَلْنَا ثُمَّ خَرَجْنَا.",
+      "translation": "We ate, ⟦then⟧ we went out."
+    },
+    {
+      "n": 83,
+      "rank": 85,
+      "word": "مَوْقِع",
+      "pos": "noun",
+      "meaning": "website; location",
+      "sentence": "زُرْتُ مَوْقِعَ الشَّرِكَةِ عَلَى الْإِنْتَرْنِتِ.",
+      "translation": "I visited the company's ⟦website⟧."
+    },
+    {
+      "n": 84,
+      "rank": 86,
+      "word": "قُوَّة",
+      "pos": "noun",
+      "meaning": "strength; force",
+      "sentence": "الرِّيَاضَةُ تُعْطِيكَ قُوَّةً.",
+      "translation": "Sport gives you ⟦strength⟧."
+    },
+    {
+      "n": 85,
+      "rank": 87,
+      "word": "لَدَى",
+      "pos": "prep",
+      "meaning": "to have (لَدَيَّ: I have); at",
+      "sentence": "لَدَيَّ سُؤَالٌ.",
+      "translation": "I ⟦have⟧ a question."
+    },
+    {
+      "n": 86,
+      "rank": 89,
+      "word": "صُورَة",
+      "pos": "noun",
+      "meaning": "picture; photo",
+      "sentence": "الْتَقَطْتُ صُورَةً جَمِيلَةً.",
+      "translation": "I took a nice ⟦photo⟧."
+    },
+    {
+      "n": 87,
+      "rank": 90,
+      "word": "دُونَ",
+      "pos": "prep",
+      "meaning": "without",
+      "sentence": "أَشْرَبُ الْقَهْوَةَ دُونَ سُكَّرٍ.",
+      "translation": "I drink coffee ⟦without⟧ sugar."
+    },
+    {
+      "n": 88,
+      "rank": 91,
+      "word": "ثَانٍ",
+      "pos": "adj",
+      "meaning": "second (2nd)",
+      "sentence": "أَسْكُنُ فِي الطَّابِقِ الثَّانِي.",
+      "translation": "I live on the ⟦second⟧ floor."
+    },
+    {
+      "n": 89,
+      "rank": 92,
+      "word": "عَلِمَ",
+      "pos": "verb",
+      "meaning": "to know; to learn (of something)",
+      "sentence": "عَلِمْتُ بِالْخَبَرِ أَمْسِ.",
+      "translation": "I ⟦learned⟧ of the news yesterday."
+    },
+    {
+      "n": 90,
+      "rank": 93,
+      "word": "رَأَى",
+      "pos": "verb",
+      "meaning": "to see",
+      "sentence": "رَأَيْتُ صَدِيقِي فِي السُّوقِ.",
+      "translation": "I ⟦saw⟧ my friend at the market."
+    },
+    {
+      "n": 91,
+      "rank": 94,
+      "word": "اسْم",
+      "pos": "noun",
+      "meaning": "name",
+      "sentence": "اسْمِي سَارَةُ.",
+      "translation": "My ⟦name⟧ is Sarah."
+    },
+    {
+      "n": 92,
+      "rank": 95,
+      "word": "أَمْر",
+      "pos": "noun",
+      "meaning": "matter; thing",
+      "sentence": "هٰذَا أَمْرٌ مُهِمٌّ.",
+      "translation": "This is an important ⟦matter⟧."
+    },
+    {
+      "n": 93,
+      "rank": 97,
+      "word": "لَوْ",
+      "pos": "conj",
+      "meaning": "if (something not real)",
+      "sentence": "لَوْ كَانَ عِنْدِي وَقْتٌ لَسَاعَدْتُكَ.",
+      "translation": "⟦If⟧ I had time, I would help you."
+    },
+    {
+      "n": 94,
+      "rank": 98,
+      "word": "طَرِيق",
+      "pos": "noun",
+      "meaning": "road; way",
+      "sentence": "هٰذَا الطَّرِيقُ طَوِيلٌ.",
+      "translation": "This ⟦road⟧ is long."
+    },
+    {
+      "n": 95,
+      "rank": 99,
+      "word": "شَكْل",
+      "pos": "noun",
+      "meaning": "shape; look",
+      "sentence": "أُحِبُّ شَكْلَ هٰذِهِ السَّاعَةِ.",
+      "translation": "I like the ⟦look⟧ of this watch."
+    },
+    {
+      "n": 96,
+      "rank": 100,
+      "word": "مُنْذُ",
+      "pos": "prep",
+      "meaning": "since; for (a time)",
+      "sentence": "أَسْكُنُ هُنَا مُنْذُ سَنَتَيْنِ.",
+      "translation": "I've lived here ⟦for⟧ two years."
+    },
+    {
+      "n": 97,
+      "rank": 101,
+      "word": "حَقّ",
+      "pos": "noun",
+      "meaning": "right; truth",
+      "sentence": "مَعَكَ حَقٌّ.",
+      "translation": "You're ⟦right⟧."
+    },
+    {
+      "n": 98,
+      "rank": 102,
+      "word": "عَرَفَ",
+      "pos": "verb",
+      "meaning": "to know (someone or something)",
+      "sentence": "هَلْ تَعْرِفُ هٰذَا الرَّجُلَ؟",
+      "translation": "Do you ⟦know⟧ this man?"
+    },
+    {
+      "n": 99,
+      "rank": 103,
+      "word": "مَرَّة",
+      "pos": "noun",
+      "meaning": "time (once, twice…)",
+      "sentence": "زُرْتُ لُبْنَانَ مَرَّةً وَاحِدَةً فَقَطْ.",
+      "translation": "I visited Lebanon only one ⟦time⟧."
+    },
+    {
+      "n": 100,
+      "rank": 104,
+      "word": "عَادَ",
+      "pos": "verb",
+      "meaning": "to come back; to return",
+      "sentence": "عَادَ أَبِي مِنَ الْعَمَلِ.",
+      "translation": "My father ⟦came back⟧ from work."
+    }
+  ]
+}

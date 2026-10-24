@@ -16,6 +16,7 @@ import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
 import { firstVisitTour } from "../components/tour.js";
 import { openWordBuilder } from "../components/wordbuilder.js";
+import { coursePanel, hasCourse } from "../components/coursepanel.js";
 
 const DAY = 86400;
 const SORTS = {
@@ -159,6 +160,12 @@ export async function render(view) {
         <button type="button" class="ghost va-add" id="add-words" title="Type or paste new words: Tamkeen can fill in their meanings, example sentences and audio">${icon("plus", 18)} Add words</button>
       </div>
     </section>
+    <div class="vocab-tabs" role="tablist" id="vtabs" hidden>
+      <button type="button" role="tab" data-tab="basics">${icon("learn", 18)} <span>Basics</span></button>
+      <button type="button" role="tab" data-tab="words">${icon("vocab", 18)} <span>My words</span></button>
+    </div>
+    <div class="course" id="course" hidden></div>
+    <div id="mywords">
     <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto">
     <div class="folder-bar" id="folders"></div>
     <div class="row vocab-filters">
@@ -182,6 +189,7 @@ export async function render(view) {
       <button type="button" class="ghost" id="bulk-clear">Clear selection</button>
     </div>
     <div class="vocab-list" id="list"></div>
+    </div>
   </div>`));
   const $ = (s) => view.querySelector(s);
   const list = $("#list");
@@ -759,6 +767,31 @@ export async function render(view) {
     ]);
   };
   await load();
+
+  // ----- Basics | My words (the basics course of the language being learned: components/coursepanel.js) -----
+  // The tabs show only when there is a course for the language; the one last chosen is kept on this
+  // device (the course first, until the learner has chosen).
+  let closeCourse = null;
+  const lang = studyLanguage();
+  const showTab = (tab) => {
+    for (const b of view.querySelectorAll("#vtabs [data-tab]")) {
+      const on = b.dataset.tab === tab;
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-selected", String(on));
+    }
+    $("#course").hidden = tab !== "basics";
+    $("#mywords").hidden = tab === "basics";
+    if (tab === "basics" && !closeCourse) closeCourse = coursePanel($("#course"), lang, { onCards: () => load() });
+    try { localStorage.setItem("vocabTab", tab); } catch { /* storage off */ }
+  };
+  for (const b of view.querySelectorAll("#vtabs [data-tab]")) b.onclick = () => showTab(b.dataset.tab);
+  hasCourse(lang).then((yes) => {
+    if (!yes || !view.isConnected) return;
+    $("#vtabs").hidden = false;
+    let saved = null;
+    try { saved = localStorage.getItem("vocabTab"); } catch { /* storage off */ }
+    showTab(saved === "words" ? "words" : "basics");
+  });
   firstVisitTour("vocab", view.querySelector(".vocab-page"), [
     { target: "#review", title: "Review",
       text: "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start." },
@@ -772,5 +805,5 @@ export async function render(view) {
       text: "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several." },
     { target: "#more", title: "More", text: "Add words, export your words for Anki or as a spreadsheet, and Anki's settings." },
   ]);
-  return () => { audio.pause(); stopDevice(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
+  return () => { audio.pause(); stopDevice(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); if (closeCourse) closeCourse(); };
 }
