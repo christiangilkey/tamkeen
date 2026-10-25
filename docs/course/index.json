@@ -17,6 +17,22 @@
    },
    "built": "2026-10-24"
   },
+  "ca": {
+   "file": "ca/course.json",
+   "title": "Catalan basics",
+   "variety": "Central Catalan (Barcelona), in the current spelling (2017 rules: soc, dona)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 346425,
+   "audio_bytes": 13667054,
+   "sha256": "506f9334ac8a255ab6053e6e96ffd86770934434ba257c774c6caa87f228ac2b",
+   "voice": {
+    "engine": "azure",
+    "name": "Joana (Azure, Catalonia)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
   "es": {
    "file": "es/course.json",
    "title": "Spanish basics",
