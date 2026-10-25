@@ -1423,6 +1423,270 @@
         {"type":"say","q":"How do you say “I want to get good at Japanese.”?","answer":"日本語が上手になりたいです。","r":"Nihongo ga jōzu ni naritai desu.","from":"say-what-you-want"},
         {"type":"free","q":"Your turn: how have you, your town or your life changed recently? Use {{なりました|narimashita}}.","answers":[{"t":"最近、仕事が忙しくなりました。でも、料理が上手になりました。","r":"Saikin, shigoto ga isogashiku narimashita. Demo, ryōri ga jōzu ni narimashita.","tr":"Work has got busy lately. But I've got good at cooking."},{"t":"私の町は新しい駅ができて、便利になりました。","r":"Watashi no machi wa atarashii eki ga dekite, benri ni narimashita.","tr":"A new station opened in my town, and it's become convenient."}]}
       ]
+    },
+    {
+      "id": "say-what-you-must",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say what you must and needn't do",
+      "summary": "Talk about what you have to do and what's optional: “I have to get up early tomorrow.” “You don't need to bring anything.”",
+      "topic": "{{～なければなりません|… nakereba narimasen}} and casual {{～なきゃ|… nakya}}; {{～なくてもいいです|… nakute mo ii desu}}",
+      "blocks": [
+        {"goal":{"t":"明日は早く起きなければなりません。","r":"Ashita wa hayaku okinakereba narimasen.","tr":"I have to get up early tomorrow."}},
+        {"dialog":[{"who":"You","t":"土曜日のパーティーに、何か持っていかなければなりませんか。","r":"Doyōbi no pātī ni, nanika motte ikanakereba narimasen ka.","tr":"Do I need to bring anything to the party on Saturday?"},{"who":"Ms Sato","t":"いいえ、何も持ってこなくてもいいですよ。","r":"Iie, nani mo motte konakute mo ii desu yo.","tr":"No, you don't need to bring anything."},{"who":"You","t":"何時に行かなければなりませんか。","r":"Nan-ji ni ikanakereba narimasen ka.","tr":"What time do I need to be there?"},{"who":"Ms Sato","t":"七時ごろ来てください。あ、靴を脱がなければなりませんから、きれいな靴下で来てくださいね！","r":"Shichi-ji goro kite kudasai. A, kutsu o nuganakereba narimasen kara, kirei na kutsushita de kite kudasai ne!","tr":"Please come around seven. Oh, and you'll have to take your shoes off, so wear clean socks!"}]},
+        {"p":"**Must: the ない form + {{なければなりません|nakereba narimasen}}.** Change the final {{ない|nai}} to {{なければなりません|nakereba narimasen}}: {{行かない|ikanai}} → {{行かなければなりません|ikanakereba narimasen}} “I have to go”. Word for word “if I don't go, it won't do”: a double negative that means “must”. It's long, but completely regular."},
+        {"p":"**In everyday speech** it gets shorter: {{行かなきゃ|ikanakya}} with friends (“gotta go”), or {{行かなければいけません|ikanakereba ikemasen}}, which means the same as {{なりません|narimasen}}. You'll hear {{なきゃ|nakya}} all the time."},
+        {"p":"**Don't have to: the ない form + {{くてもいいです|kute mo ii desu}}.** {{ない|nai}} → {{なくてもいいです|nakute mo ii desu}}: {{行かなくてもいいです|ikanakute mo ii desu}} “You don't have to go”. It's the permission pattern you know ({{てもいい|te mo ii}}) on a negative: “it's fine even if you don't go”."},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["must","{{書かなければなりません|kakanakereba narimasen}}","I have to write it."],
+          ["must (casual)","{{書かなきゃ|kakanakya}}","I've got to write it."],
+          ["needn't","{{書かなくてもいいです|kakanakute mo ii desu}}","You don't have to write it."],
+          ["asking","{{書かなければなりませんか|kakanakereba narimasen ka}}","Do I have to write it?"]
+        ] },
+        {"p":"Careful: “mustn't” is a different pattern, the rule from the permission lesson: {{書いてはいけません|kaite wa ikemasen}} “You mustn't write it”."},
+        { "ex": [
+          {"t":"薬を飲まなければなりません。","r":"Kusuri o nomanakereba narimasen.","tr":"I have to take medicine."},
+          {"t":"もう帰らなきゃ。","r":"Mō kaeranakya.","tr":"I've got to go home now."},
+          {"t":"日曜日は会社へ行かなくてもいいです。","r":"Nichiyōbi wa kaisha e ikanakute mo ii desu.","tr":"I don't have to go to the office on Sundays."},
+          {"t":"名前を書かなければなりませんか。","r":"Namae o kakanakereba narimasen ka.","tr":"Do I have to write my name?"},
+          {"t":"いいえ、書かなくてもいいですよ。","r":"Iie, kakanakute mo ii desu yo.","tr":"No, you don't need to."},
+          {"t":"日本では、家に入る前に靴を脱がなければなりません。","r":"Nihon de wa, ie ni hairu mae ni kutsu o nuganakereba narimasen.","tr":"In Japan, you have to take your shoes off before going into a house."}
+        ] },
+        {"tip":"The shortest everyday form is {{～ないと|… nai to}}: {{もう行かないと|mō ikanai to}} “I have to get going”."}
+      ],
+      "mistakes": [
+        {"wrong":"行くなければなりません。","right":"行かなければなりません。","rw":"Iku nakereba narimasen.","rr":"Ikanakereba narimasen.","tr":"I have to go.","why":"Start from the ない form: {{行かない|ikanai}} → {{行かなければ|ikanakereba}}."},
+        {"wrong":"書かないてもいいです。","right":"書かなくてもいいです。","rw":"Kakanaite mo ii desu.","rr":"Kakanakute mo ii desu.","tr":"You don't have to write it.","why":"{{ない|nai}} changes like an い-adjective: {{なくて|nakute}}, then {{もいいです|mo ii desu}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing ending.","t":"明日は六時に起き___なりません。","r":"Ashita wa roku-ji ni oki___ narimasen.","tr":"I have to get up at six tomorrow.","options":["なければ","ないで","なくて"],"rs":["nakereba","naide","nakute"],"answer":0,"why":"Must: {{起きなければなりません|okinakereba narimasen}}."},
+        {"type":"fill","q":"Choose the missing ending.","t":"日曜日は働か___もいいです。","r":"Nichiyōbi wa hataraka___ mo ii desu.","tr":"I don't have to work on Sundays.","options":["なくて","なければ","ない"],"rs":["nakute","nakereba","nai"],"answer":0,"why":"Needn't: {{働かなくてもいいです|hatarakanakute mo ii desu}}."},
+        {"type":"choice","q":"{{行かなくてもいいです。|Ikanakute mo ii desu.}} means…","options":["You don't have to go.","You mustn't go.","You have to go."],"answer":0,"why":"{{なくてもいい|nakute mo ii}}: it's fine not to."},
+        {"type":"dialogue","q":"A friend invites you, but you have a report to write. Choose your reply.","lines":[{"who":"Yuki","t":"今晩、映画を見に行かない？","r":"Konban, eiga o mi ni ikanai?","tr":"Want to go and see a movie tonight?"},{"options":["ごめん、今日はレポートを書かなきゃ。","ごめん、今日はレポートを書かなくてもいい。"],"rs":["Gomen, kyō wa repōto o kakanakya.","Gomen, kyō wa repōto o kakanakute mo ii."],"answer":0,"why":"Your excuse: you **have to** write it, {{書かなきゃ|kakanakya}}."},{"who":"Yuki","t":"そっか。じゃ、また今度ね。","r":"Sokka. Ja, mata kondo ne.","tr":"Oh, OK. Next time, then."}],"from":"talk-casually"},
+        {"type":"order","q":"Put the words in order.","tr":"Do I have to write my name?","words":["名前を","書かなければ","なりませんか。"],"rs":["Namae o","kakanakereba","narimasen ka."],"why":"{{名前を書かなければなりませんか。|Namae o kakanakereba narimasen ka.}}"},
+        {"type":"say","q":"Compare: how do you say “You mustn't take photos here.”?","answer":"ここで写真を撮ってはいけません。","r":"Koko de shashin o totte wa ikemasen.","from":"ask-permission"},
+        {"type":"free","q":"Your turn: say two things you have to do this week, and one thing you don't have to do.","answers":[{"t":"今週は宿題を出さなければなりません。歯医者にも行かなければなりません。でも、土曜日は働かなくてもいいです。","r":"Konshū wa shukudai o dasanakereba narimasen. Haisha ni mo ikanakereba narimasen. Demo, doyōbi wa hatarakanakute mo ii desu.","tr":"This week I have to hand in my homework. I also have to go to the dentist. But I don't have to work on Saturday."},{"t":"毎朝、犬の散歩をしなければなりません。料理はしなくてもいいです。","r":"Maiasa, inu no sanpo o shinakereba narimasen. Ryōri wa shinakute mo ii desu.","tr":"Every morning I have to walk the dog. I don't have to cook."}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give advice",
+      "summary": "Tell someone what they'd better do or not do, and ask people not to do things: “You'd better go home and rest.” “Please don't worry.”",
+      "topic": "{{～たほうがいいです|… ta hō ga ii desu}}; {{～ないほうがいいです|… nai hō ga ii desu}}; {{～ないでください|… naide kudasai}}",
+      "blocks": [
+        {"goal":{"t":"今日は早く帰って、休んだほうがいいですよ。","r":"Kyō wa hayaku kaette, yasunda hō ga ii desu yo.","tr":"You'd better go home early today and rest."}},
+        {"dialog":[{"who":"Colleague","t":"大丈夫ですか。顔色が悪いですよ。","r":"Daijōbu desu ka. Kaoiro ga warui desu yo.","tr":"Are you OK? You look pale."},{"who":"You","t":"昨日から熱があるんです。","r":"Kinō kara netsu ga aru n desu.","tr":"I've had a fever since yesterday."},{"who":"Colleague","t":"それは大変ですね。今日は早く帰って、休んだほうがいいですよ。","r":"Sore wa taihen desu ne. Kyō wa hayaku kaette, yasunda hō ga ii desu yo.","tr":"Oh no. You'd better go home early today and rest."},{"who":"You","t":"でも、仕事が…。","r":"Demo, shigoto ga…","tr":"But my work…"},{"who":"Colleague","t":"仕事は心配しないでください。私がやりますから。","r":"Shigoto wa shinpai shinaide kudasai. Watashi ga yarimasu kara.","tr":"Don't worry about the work. I'll do it."}]},
+        {"p":"**You'd better: plain past + {{ほうがいいです|hō ga ii desu}}.** {{休んだほうがいいです|yasunda hō ga ii desu}} “You'd better rest”, word for word “the side of having rested is good”. The verb is in the plain past, even though the advice is about now or later. It's strong, friendly advice; {{よ|yo}} at the end makes it warmer."},
+        {"p":"**You'd better not: the ない form + {{ほうがいいです|hō ga ii desu}}.** Here the verb is in the ない form, not the past: {{あまり飲まないほうがいいです|amari nomanai hō ga ii desu}} “You'd better not drink too much”."},
+        {"p":"**Please don't: the ない form + {{でください|de kudasai}}.** {{心配しないでください|shinpai shinaide kudasai}} “Please don't worry”, {{ここに車を止めないでください|koko ni kuruma o tomenaide kudasai}} “Please don't park here”. It's the negative partner of {{てください|te kudasai}}."},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["advice","{{寝たほうがいいです|neta hō ga ii desu}}","You'd better go to bed."],
+          ["advice: not","{{食べないほうがいいです|tabenai hō ga ii desu}}","You'd better not eat it."],
+          ["please don't","{{触らないでください|sawaranaide kudasai}}","Please don't touch."]
+        ] },
+        {"p":"Advising your boss or your teacher is delicate. Instead of telling them, ask: {{少し休みませんか|sukoshi yasumimasen ka}} “Shall we take a short break?”"},
+        { "ex": [
+          {"t":"傘を持っていったほうがいいですよ。","r":"Kasa o motte itta hō ga ii desu yo.","tr":"You'd better take an umbrella."},
+          {"t":"夜遅くコーヒーを飲まないほうがいいです。","r":"Yoru osoku kōhī o nomanai hō ga ii desu.","tr":"You'd better not drink coffee late at night."},
+          {"t":"心配しないでください。","r":"Shinpai shinaide kudasai.","tr":"Please don't worry."},
+          {"t":"ここで写真を撮らないでください。","r":"Koko de shashin o toranaide kudasai.","tr":"Please don't take photos here."},
+          {"t":"毎日少し勉強したほうがいいと思います。","r":"Mainichi sukoshi benkyō shita hō ga ii to omoimasu.","tr":"I think it's better to study a little every day."},
+          {"t":"病院へ行ったほうがいいですよ。","r":"Byōin e itta hō ga ii desu yo.","tr":"You should see a doctor."}
+        ] },
+        {"tip":"{{ほうがいい|hō ga ii}} is real advice, with a reason behind it. A gentler suggestion, {{～たらどうですか|… tara dō desu ka}}, comes in a later lesson."}
+      ],
+      "mistakes": [
+        {"wrong":"飲まなかったほうがいいです。","right":"飲まないほうがいいです。","rw":"Nomanakatta hō ga ii desu.","rr":"Nomanai hō ga ii desu.","tr":"You'd better not drink it.","why":"For “better not”, use the ない form, not the past."},
+        {"wrong":"心配しなくてください。","right":"心配しないでください。","rw":"Shinpai shinakute kudasai.","rr":"Shinpai shinaide kudasai.","tr":"Please don't worry.","why":"“Please don't” is {{ないでください|naide kudasai}}; {{なくて|nakute}} belongs to {{なくてもいい|nakute mo ii}} “needn't”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing ending.","t":"早く寝___ほうがいいですよ。","r":"Hayaku ne___ hō ga ii desu yo.","tr":"You'd better go to bed early.","options":["た","て","ます"],"rs":["ta","te","masu"],"answer":0,"why":"Advice: plain past + {{ほうがいい|hō ga ii}}: {{寝たほうがいい|neta hō ga ii}}."},
+        {"type":"fill","q":"Choose the missing ending.","t":"ここに車を止め___ください。","r":"Koko ni kuruma o tome___ kudasai.","tr":"Please don't park here.","options":["ないで","なくて","なければ"],"rs":["naide","nakute","nakereba"],"answer":0,"why":"“Please don't”: {{止めないでください|tomenaide kudasai}}."},
+        {"type":"choice","q":"A friend has a bad cold and wants to go to a party tonight. You say…","options":["{{今日は行かないほうがいいですよ。|Kyō wa ikanai hō ga ii desu yo.}}","{{今日は行かなかったほうがいいですよ。|Kyō wa ikanakatta hō ga ii desu yo.}}","{{今日は行ったほうがいいですよ。|Kyō wa itta hō ga ii desu yo.}}"],"answer":0,"why":"“Better not”: the ない form + {{ほうがいい|hō ga ii}}."},
+        {"type":"dialogue","q":"A friend can't sleep well. Choose your advice.","lines":[{"who":"Friend","t":"最近、よく眠れないんです。","r":"Saikin, yoku nemurenai n desu.","tr":"I haven't been sleeping well lately."},{"options":["寝る前に、スマホを見ないほうがいいですよ。","寝る前に、スマホを見なかったほうがいいですよ。"],"rs":["Neru mae ni, sumaho o minai hō ga ii desu yo.","Neru mae ni, sumaho o minakatta hō ga ii desu yo."],"answer":0,"why":"“Better not”: {{見ないほうがいい|minai hō ga ii}}."},{"who":"Friend","t":"そうですね。ほかには？","r":"Sō desu ne. Hoka ni wa?","tr":"Good point. Anything else?"},{"options":["夜はコーヒーを飲まないでください。","夜はコーヒーを飲まなくてください。"],"rs":["Yoru wa kōhī o nomanaide kudasai.","Yoru wa kōhī o nomanakute kudasai."],"answer":0,"why":"“Don't…, please”: {{ないでください|naide kudasai}}."}],"from":"talk-about-plans"},
+        {"type":"order","q":"Put the words in order.","tr":"You'd better take an umbrella.","words":["傘を","持っていった","ほうが","いいですよ。"],"rs":["Kasa o","motte itta","hō ga","ii desu yo."],"why":"{{傘を持っていったほうがいいですよ。|Kasa o motte itta hō ga ii desu yo.}}"},
+        {"type":"say","q":"How do you say “You'd better go home and rest.”?","answer":"家に帰って、休んだほうがいいですよ。","r":"Ie ni kaette, yasunda hō ga ii desu yo.","from":"link-actions"},
+        {"type":"free","q":"Your turn: a friend is visiting your country. Give one piece of advice about what to do, and one about what not to do.","answers":[{"t":"夏は暑いので、たくさん水を飲んだほうがいいですよ。夜、一人で公園に行かないほうがいいです。","r":"Natsu wa atsui node, takusan mizu o nonda hō ga ii desu yo. Yoru, hitori de kōen ni ikanai hō ga ii desu.","tr":"Summer is hot, so you'd better drink lots of water. You'd better not go to the park alone at night."},{"t":"電車のほうが便利なので、車で行かないほうがいいです。地元の料理を食べたほうがいいですよ！","r":"Densha no hō ga benri na node, kuruma de ikanai hō ga ii desu. Jimoto no ryōri o tabeta hō ga ii desu yo!","tr":"The train is more convenient, so you'd better not drive. And you should try the local food!"}]}
+      ]
+    },
+    {
+      "id": "say-when",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say when things happen",
+      "summary": "Say when something happens or happened: “When I was a child, I lived in Osaka.” “When it's cold, I drink hot tea.”",
+      "topic": "plain form + {{とき|toki}}; {{子供のとき|kodomo no toki}}; {{行くとき|iku toki}} and {{行ったとき|itta toki}}",
+      "blocks": [
+        {"goal":{"t":"子供のとき、大阪に住んでいました。","r":"Kodomo no toki, Ōsaka ni sunde imashita.","tr":"When I was a child, I lived in Osaka."}},
+        {"dialog":[{"who":"Yui","t":"トムさんはいつ日本語の勉強を始めましたか。","r":"Tomu-san wa itsu Nihongo no benkyō o hajimemashita ka.","tr":"When did you start learning Japanese, Tom?"},{"who":"Tom","t":"高校生のとき、始めました。","r":"Kōkōsei no toki, hajimemashita.","tr":"When I was in high school."},{"who":"Yui","t":"どうして日本語を？","r":"Dōshite Nihongo o?","tr":"Why Japanese?"},{"who":"Tom","t":"十五歳のとき、家族と日本へ来たんです。その時、日本が大好きになりました。","r":"Jūgo-sai no toki, kazoku to Nihon e kita n desu. Sono toki, Nihon ga daisuki ni narimashita.","tr":"When I was fifteen, I came to Japan with my family. That's when I fell in love with Japan."}]},
+        {"p":"**When: … {{とき|toki}}.** {{とき|toki}} is a noun meaning “time”, so whatever describes it comes before it, just as a description comes before any noun: a noun + {{の|no}} ({{子供のとき|kodomo no toki}} “when I was a child”), an い-adjective ({{寒いとき|samui toki}} “when it's cold”), a な-adjective + {{な|na}} ({{ひまなとき|hima na toki}} “when I'm free”), a plain verb ({{寝るとき|neru toki}} “when I go to bed”)."},
+        {"p":"**The order of events decides the verb before {{とき|toki}}.** The tense of the whole sentence is at the end. The verb before {{とき|toki}} is in the dictionary form if that action hasn't happened yet at that moment, and in the past if it already has:"},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["not yet happened","{{日本へ行くとき、カメラを買いました。|Nihon e iku toki, kamera o kaimashita.}}","I bought a camera before going to Japan (on my way)."],
+          ["already happened","{{日本へ行ったとき、カメラを買いました。|Nihon e itta toki, kamera o kaimashita.}}","I bought a camera when I went to Japan (once I was there)."]
+        ] },
+        {"p":"**A subject inside the とき part takes {{が|ga}}**, not {{は|wa}}: {{母が来たとき|haha ga kita toki}} “when my mother came”. {{は|wa}} stays for the topic of the whole sentence."},
+        { "ex": [
+          {"t":"ひまなとき、何をしますか。","r":"Hima na toki, nani o shimasu ka.","tr":"What do you do when you're free?"},
+          {"t":"寒いとき、温かいお茶を飲みます。","r":"Samui toki, atatakai ocha o nomimasu.","tr":"When it's cold, I drink hot tea."},
+          {"t":"日本へ行くとき、ガイドブックを買いました。","r":"Nihon e iku toki, gaidobukku o kaimashita.","tr":"I bought a guidebook before going to Japan."},
+          {"t":"家に帰ったとき、だれもいませんでした。","r":"Ie ni kaetta toki, dare mo imasen deshita.","tr":"When I got home, nobody was there."},
+          {"t":"母が来たとき、一緒に京都へ行きました。","r":"Haha ga kita toki, issho ni Kyōto e ikimashita.","tr":"When my mother came, we went to Kyoto together."},
+          {"t":"寝るとき、「おやすみなさい」と言います。","r":"Neru toki, 'oyasuminasai' to iimasu.","tr":"When you go to bed, you say “oyasuminasai” (good night)."}
+        ] },
+        {"tip":"{{寝る前に|neru mae ni}} “before going to bed” and {{寝るとき|neru toki}} “at bedtime” are close: {{とき|toki}} is about the moment, {{前に|mae ni}} about the order."}
+      ],
+      "mistakes": [
+        {"wrong":"子供とき、大阪に住んでいました。","right":"子供のとき、大阪に住んでいました。","rw":"Kodomo toki, Ōsaka ni sunde imashita.","rr":"Kodomo no toki, Ōsaka ni sunde imashita.","tr":"When I was a child, I lived in Osaka.","why":"A noun needs {{の|no}} before {{とき|toki}}."},
+        {"wrong":"ひまとき、本を読みます。","right":"ひまなとき、本を読みます。","rw":"Hima toki, hon o yomimasu.","rr":"Hima na toki, hon o yomimasu.","tr":"When I'm free, I read.","why":"A な-adjective takes {{な|na}} before {{とき|toki}}."},
+        {"wrong":"日本へ行ったとき、パスポートを取りました。","right":"日本へ行くとき、パスポートを取りました。","rw":"Nihon e itta toki, pasupōto o torimashita.","rr":"Nihon e iku toki, pasupōto o torimashita.","tr":"I got a passport before going to Japan.","why":"The passport came before the trip, so the trip hadn't happened yet: {{行くとき|iku toki}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"子供___とき、よく海で泳ぎました。","r":"Kodomo ___ toki, yoku umi de oyogimashita.","tr":"When I was a child, I often swam in the sea.","options":["の","な","が"],"rs":["no","na","ga"],"answer":0,"why":"Noun + {{の|no}} + {{とき|toki}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"ひま___とき、映画を見ます。","r":"Hima ___ toki, eiga o mimasu.","tr":"When I'm free, I watch movies.","options":["な","の","だ"],"rs":["na","no","da"],"answer":0,"why":"な-adjective + {{な|na}} + {{とき|toki}}."},
+        {"type":"choice","q":"You bought a souvenir in Kyoto, during the trip. You say…","options":["{{京都へ行ったとき、お土産を買いました。|Kyōto e itta toki, omiyage o kaimashita.}}","{{京都へ行くとき、お土産を買いました。|Kyōto e iku toki, omiyage o kaimashita.}}"],"answer":0,"why":"You were already there: {{行ったとき|itta toki}}."},
+        {"type":"dialogue","q":"A friend asks about your childhood dreams. Choose your replies.","lines":[{"who":"Yui","t":"子供のとき、何になりたかったですか。","r":"Kodomo no toki, nani ni naritakatta desu ka.","tr":"What did you want to be when you were a child?"},{"options":["パイロットになりたかったです。","パイロットになりたいでした。"],"rs":["Pairotto ni naritakatta desu.","Pairotto ni naritai deshita."],"answer":0,"why":"{{たい|tai}} works like an い-adjective: {{なりたかった|naritakatta}}."},{"who":"Yui","t":"へえ、どうしてですか。","r":"Hē, dōshite desu ka.","tr":"Oh really? Why?"},{"options":["飛行機が大好きだったからです。","飛行機が大好きからでした。"],"rs":["Hikōki ga daisuki datta kara desu.","Hikōki ga daisuki kara deshita."],"answer":0,"why":"The reason is in the past: {{大好きだった|daisuki datta}}, then {{からです|kara desu}}."}],"from":"give-reasons"},
+        {"type":"order","q":"Put the words in order.","tr":"When I got home, nobody was there.","words":["家に","帰ったとき、","だれも","いませんでした。"],"rs":["Ie ni","kaetta toki,","dare mo","imasen deshita."],"why":"{{家に帰ったとき、だれもいませんでした。|Ie ni kaetta toki, dare mo imasen deshita.}}"},
+        {"type":"say","q":"How do you say “What do you do when you're free?”","answer":"ひまなとき、何をしますか。","r":"Hima na toki, nani o shimasu ka.","from":"describe-things"},
+        {"type":"free","q":"Your turn: say something you did when you were a child, and what you do now when you're free.","answers":[{"t":"子供のとき、よく木に登りました。今はひまなとき、ゲームをします。","r":"Kodomo no toki, yoku ki ni noborimashita. Ima wa hima na toki, gēmu o shimasu.","tr":"When I was a child, I often climbed trees. Now, when I'm free, I play video games."},{"t":"小学生のとき、ピアノを習っていました。今はひまなとき、散歩します。","r":"Shōgakusei no toki, piano o naratte imashita. Ima wa hima na toki, sanpo shimasu.","tr":"In primary school I took piano lessons. Now, when I'm free, I go for walks."}]}
+      ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give and follow directions",
+      "summary": "Tell someone the way, and understand directions: “Go straight on, and the station is on your right.”",
+      "topic": "dictionary form + {{と|to}} “whenever, and then”; {{を|o}} for the route; {{に曲がる|ni magaru}}",
+      "blocks": [
+        {"goal":{"t":"まっすぐ行くと、右に駅があります。","r":"Massugu iku to, migi ni eki ga arimasu.","tr":"Go straight on, and the station is on your right."}},
+        {"dialog":[{"who":"You","t":"すみません、市役所へ行きたいんですが…。","r":"Sumimasen, shiyakusho e ikitai n desu ga…","tr":"Excuse me, I'd like to get to the city hall…"},{"who":"Passer-by","t":"市役所ですか。この道をまっすぐ行ってください。二つ目の信号を左に曲がると、銀行があります。","r":"Shiyakusho desu ka. Kono michi o massugu itte kudasai. Futatsume no shingō o hidari ni magaru to, ginkō ga arimasu.","tr":"City hall? Go straight along this road. Turn left at the second traffic lights, and there's a bank."},{"who":"You","t":"二つ目の信号を左ですね。","r":"Futatsume no shingō o hidari desu ne.","tr":"Left at the second lights, right?"},{"who":"Passer-by","t":"はい。市役所は銀行の隣ですよ。","r":"Hai. Shiyakusho wa ginkō no tonari desu yo.","tr":"Yes. The city hall is next to the bank."},{"who":"You","t":"ありがとうございました。","r":"Arigatō gozaimashita.","tr":"Thank you very much."}]},
+        {"p":"**Whenever, and then: dictionary form + {{と|to}}.** After a dictionary form, {{と|to}} means: when this happens, that always follows. It's perfect for directions: {{まっすぐ行くと、右に駅があります|massugu iku to, migi ni eki ga arimasu}} “Go straight on, and there's the station on your right”. It also works for machines and nature: {{このボタンを押すと、お湯が出ます|kono botan o osu to, oyu ga demasu}} “When you press this button, hot water comes out”. What follows {{と|to}} is a result, never a request or a wish."},
+        {"p":"**The route takes {{を|o}}.** With verbs of moving, {{を|o}} marks the space you go along or through: {{この道をまっすぐ行きます|kono michi o massugu ikimasu}} “go straight along this road”, {{橋を渡ります|hashi o watarimasu}} “cross the bridge”, {{角を曲がります|kado o magarimasu}} “turn at the corner”. The direction takes {{に|ni}}: {{右に曲がります|migi ni magarimasu}} “turn right”."},
+        { "table": [
+          ["","Japanese","note"],
+          ["go along this road","{{この道を行きます|kono michi o ikimasu}}","the route: {{を|o}}"],
+          ["turn right at the lights","{{信号を右に曲がります|shingō o migi ni magarimasu}}","the place {{を|o}}, the direction {{に|ni}}"],
+          ["cross the bridge","{{橋を渡ります|hashi o watarimasu}}","the route: {{を|o}}"],
+          ["and there it is","{{～と、左にあります|… to, hidari ni arimasu}}","the result after {{と|to}}"]
+        ] },
+        {"p":"Counting in order: {{一つ目|hitotsume}} “the first”, {{二つ目|futatsume}} “the second”: {{二つ目の角|futatsume no kado}} “the second corner”."},
+        { "ex": [
+          {"t":"この道をまっすぐ行ってください。","r":"Kono michi o massugu itte kudasai.","tr":"Go straight along this road."},
+          {"t":"二つ目の角を右に曲がってください。","r":"Futatsume no kado o migi ni magatte kudasai.","tr":"Turn right at the second corner."},
+          {"t":"橋を渡ると、左に郵便局があります。","r":"Hashi o wataru to, hidari ni yūbinkyoku ga arimasu.","tr":"Cross the bridge, and there's the post office on your left."},
+          {"t":"このボタンを押すと、切符が出ます。","r":"Kono botan o osu to, kippu ga demasu.","tr":"When you press this button, the ticket comes out."},
+          {"t":"春になると、桜が咲きます。","r":"Haru ni naru to, sakura ga sakimasu.","tr":"When spring comes, the cherry trees blossom."},
+          {"t":"駅から歩いて五分ぐらいです。","r":"Eki kara aruite go-fun gurai desu.","tr":"It's about five minutes' walk from the station."}
+        ] },
+        {"tip":"To check directions, repeat the key part with {{ね|ne}}: {{二つ目の信号を左ですね|futatsume no shingō o hidari desu ne}} “Left at the second lights, right?”."}
+      ],
+      "mistakes": [
+        {"wrong":"まっすぐ行くと、右に曲がってください。","right":"まっすぐ行って、右に曲がってください。","rw":"Massugu iku to, migi ni magatte kudasai.","rr":"Massugu itte, migi ni magatte kudasai.","tr":"Go straight on, then turn right.","why":"After {{と|to}} comes a result, never a request. For a string of instructions, use the て-form."},
+        {"wrong":"橋に渡ります。","right":"橋を渡ります。","rw":"Hashi ni watarimasu.","rr":"Hashi o watarimasu.","tr":"I cross the bridge.","why":"The space you cross or go along takes {{を|o}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"この道___まっすぐ行ってください。","r":"Kono michi ___ massugu itte kudasai.","tr":"Go straight along this road.","options":["を","に","で"],"rs":["o","ni","de"],"answer":0,"why":"The route: {{この道を|kono michi o}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"信号を左___曲がってください。","r":"Shingō o hidari ___ magatte kudasai.","tr":"Turn left at the lights.","options":["に","を","で"],"rs":["ni","o","de"],"answer":0,"why":"The direction: {{左に|hidari ni}}."},
+        {"type":"choice","q":"{{このボタンを押すと、お湯が出ます。|Kono botan o osu to, oyu ga demasu.}} means…","options":["When you press this button, hot water comes out.","Please press this button for hot water.","Don't press this button: hot water comes out."],"answer":0,"why":"{{と|to}}: whenever this happens, that follows."},
+        {"type":"dialogue","q":"A tourist asks you the way. Choose your replies.","lines":[{"who":"Tourist","t":"すみません、駅はどこですか。","r":"Sumimasen, eki wa doko desu ka.","tr":"Excuse me, where's the station?"},{"options":["この道をまっすぐ行くと、左にありますよ。","この道にまっすぐ行くと、左にありますよ。"],"rs":["Kono michi o massugu iku to, hidari ni arimasu yo.","Kono michi ni massugu iku to, hidari ni arimasu yo."],"answer":0,"why":"The route takes {{を|o}}."},{"who":"Tourist","t":"遠いですか。","r":"Tōi desu ka.","tr":"Is it far?"},{"options":["いいえ、歩いて五分ぐらいです。","いいえ、歩いて五分ぐらいがあります。"],"rs":["Iie, aruite go-fun gurai desu.","Iie, aruite go-fun gurai ga arimasu."],"answer":0,"why":"Distance in time: {{五分ぐらいです|go-fun gurai desu}}."}],"from":"say-where-things-are"},
+        {"type":"order","q":"Put the words in order.","tr":"Turn right at the second corner.","words":["二つ目の","角を","右に","曲がってください。"],"rs":["Futatsume no","kado o","migi ni","magatte kudasai."],"why":"{{二つ目の角を右に曲がってください。|Futatsume no kado o migi ni magatte kudasai.}}"},
+        {"type":"say","q":"Say: “Please turn left at the corner by the bank.”","answer":"銀行の角を左に曲がってください。","r":"Ginkō no kado o hidari ni magatte kudasai.","from":"ask-politely"},
+        {"type":"free","q":"Your turn: tell someone how to get from the station to your home, or to a café you like.","answers":[{"t":"駅を出て、右に行ってください。一つ目の信号を渡ると、左にカフェがあります。","r":"Eki o dete, migi ni itte kudasai. Hitotsume no shingō o wataru to, hidari ni kafe ga arimasu.","tr":"Leave the station and go right. Cross at the first lights, and there's the café on your left."},{"t":"駅前の道をまっすぐ行って、コンビニの角を曲がると、私の家があります。","r":"Ekimae no michi o massugu itte, konbini no kado o magaru to, watashi no ie ga arimasu.","tr":"Go straight along the road in front of the station, turn at the convenience store, and there's my house."}]}
+      ]
+    },
+    {
+      "id": "give-and-receive",
+      "unit": 7,
+      "level": "A2",
+      "title": "Talk about giving and getting presents",
+      "summary": "Say who gave what to whom: “I gave my mother flowers.” “A friend gave me a book.” “I got a watch from my father.”",
+      "topic": "{{あげます|agemasu}}, {{くれます|kuremasu}}, {{もらいます|moraimasu}}",
+      "blocks": [
+        {"goal":{"t":"誕生日に友達が本をくれました。","r":"Tanjōbi ni tomodachi ga hon o kuremashita.","tr":"A friend gave me a book for my birthday."}},
+        {"dialog":[{"who":"Yui","t":"すてきな時計ですね。","r":"Suteki na tokei desu ne.","tr":"What a lovely watch."},{"who":"Tom","t":"ありがとう。誕生日に父にもらったんです。","r":"Arigatō. Tanjōbi ni chichi ni moratta n desu.","tr":"Thanks. I got it from my father for my birthday."},{"who":"Yui","t":"いいですね。お父さんに何かあげましたか。","r":"Ii desu ne. Otōsan ni nanika agemashita ka.","tr":"Nice. Did you give your father anything?"},{"who":"Tom","t":"父の日にネクタイをあげました。ゆいさんは、誕生日に何をもらいましたか。","r":"Chichi no hi ni nekutai o agemashita. Yui-san wa, tanjōbi ni nani o moraimashita ka.","tr":"I gave him a tie on Father's Day. What did you get for your birthday, Yui?"},{"who":"Yui","t":"姉がかわいいかばんをくれました。","r":"Ane ga kawaii kaban o kuremashita.","tr":"My sister gave me a cute bag."}]},
+        {"p":"**Three verbs, chosen by direction.** English has “give” and “get”; Japanese chooses the verb by who gives to whom, seen from where you stand:"},
+        { "table": [
+          ["verb","direction","example"],
+          ["{{あげます|agemasu}}","I (or anyone) give to someone else: away from me","{{私は母に花をあげました。|Watashi wa haha ni hana o agemashita.}} I gave my mother flowers."],
+          ["{{くれます|kuremasu}}","someone gives to me or my family: towards me","{{友達が本をくれました。|Tomodachi ga hon o kuremashita.}} A friend gave me a book."],
+          ["{{もらいます|moraimasu}}","I (or anyone) receive from someone","{{父に時計をもらいました。|Chichi ni tokei o moraimashita.}} I got a watch from my father."]
+        ] },
+        {"p":"The receiver takes {{に|ni}} with {{あげます|agemasu}} and {{くれます|kuremasu}}. With {{もらいます|moraimasu}}, the giver takes {{に|ni}}, or {{から|kara}} “from”. After {{くれます|kuremasu}}, “to me” is usually left out: {{くれます|kuremasu}} already says it."},
+        {"p":"**The key rule:** when something is given **to you**, never use {{あげます|agemasu}}: {{友達が私に本をあげました|tomodachi ga watashi ni hon o agemashita}} is wrong. Use {{くれます|kuremasu}}, or turn the sentence round with {{もらいます|moraimasu}}: {{友達に本をもらいました|tomodachi ni hon o moraimashita}}."},
+        {"p":"**Family words.** Talking to others about your own family, Japanese uses plain words: {{父|chichi}} my father, {{母|haha}} my mother, {{姉|ane}} my older sister. For someone else's family, or talking to your own parents, the polite words: {{お父さん|otōsan}}, {{お母さん|okāsan}}, {{お姉さん|onēsan}}."},
+        { "ex": [
+          {"t":"私は母に花をあげました。","r":"Watashi wa haha ni hana o agemashita.","tr":"I gave my mother flowers."},
+          {"t":"父に時計をもらいました。","r":"Chichi ni tokei o moraimashita.","tr":"I got a watch from my father."},
+          {"t":"田中さんは佐藤さんにチョコレートをあげました。","r":"Tanaka-san wa Satō-san ni chokorēto o agemashita.","tr":"Mr Tanaka gave Ms Sato some chocolates."},
+          {"t":"このペン、だれがくれたんですか。","r":"Kono pen, dare ga kureta n desu ka.","tr":"Who gave you this pen?"},
+          {"t":"先生から手紙をもらいました。","r":"Sensei kara tegami o moraimashita.","tr":"I got a letter from my teacher."},
+          {"t":"これ、どうぞ。京都のお土産です。","r":"Kore, dōzo. Kyōto no omiyage desu.","tr":"This is for you. A souvenir from Kyoto."}
+        ] },
+        {"tip":"In Japan, people often bring {{お土産|omiyage}}, small gifts from a trip, for colleagues and friends. Hand one over with {{これ、どうぞ|kore, dōzo}} “This is for you”."}
+      ],
+      "mistakes": [
+        {"wrong":"友達が私にプレゼントをあげました。","right":"友達が私にプレゼントをくれました。","rw":"Tomodachi ga watashi ni purezento o agemashita.","rr":"Tomodachi ga watashi ni purezento o kuremashita.","tr":"A friend gave me a present.","why":"Someone giving to you: {{くれます|kuremasu}}, never {{あげます|agemasu}}."},
+        {"wrong":"父を時計をもらいました。","right":"父に時計をもらいました。","rw":"Chichi o tokei o moraimashita.","rr":"Chichi ni tokei o moraimashita.","tr":"I got a watch from my father.","why":"With {{もらいます|moraimasu}}, the giver takes {{に|ni}} (or {{から|kara}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right verb.","t":"姉が私にかばんを___。","r":"Ane ga watashi ni kaban o ___.","tr":"My older sister gave me a bag.","options":["くれました","あげました","もらいました"],"rs":["kuremashita","agemashita","moraimashita"],"answer":0,"why":"Towards you: {{くれました|kuremashita}}."},
+        {"type":"fill","q":"Choose the right verb.","t":"私は友達に花を___。","r":"Watashi wa tomodachi ni hana o ___.","tr":"I gave my friend flowers.","options":["あげました","くれました"],"rs":["agemashita","kuremashita"],"answer":0,"why":"Away from you: {{あげました|agemashita}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"先生___手紙をもらいました。","r":"Sensei ___ tegami o moraimashita.","tr":"I got a letter from my teacher.","options":["から","を","が"],"rs":["kara","o","ga"],"answer":0,"why":"With {{もらいます|moraimasu}}, the giver takes {{から|kara}} or {{に|ni}}."},
+        {"type":"choice","q":"Which one means “Ken gave me a CD”?","options":["{{ケンさんがCDをくれました。|Ken-san ga shīdī o kuremashita.}}","{{ケンさんがCDをあげました。|Ken-san ga shīdī o agemashita.}}","{{ケンさんにCDをあげました。|Ken-san ni shīdī o agemashita.}}"],"answer":0,"why":"Given to you: {{くれました|kuremashita}}. The last one means “I gave Ken a CD”."},
+        {"type":"dialogue","q":"A friend notices your bag. Choose your replies.","lines":[{"who":"Yui","t":"すてきなかばんですね。","r":"Suteki na kaban desu ne.","tr":"What a lovely bag."},{"options":["ありがとう。母がくれたんです。","ありがとう。母があげたんです。"],"rs":["Arigatō. Haha ga kureta n desu.","Arigatō. Haha ga ageta n desu."],"answer":0,"why":"Your mother gave it to you: {{くれた|kureta}}."},{"who":"Yui","t":"いいですね。誕生日のプレゼントですか。","r":"Ii desu ne. Tanjōbi no purezento desu ka.","tr":"Nice. Was it a birthday present?"},{"options":["はい、誕生日にもらいました。","はい、誕生日をもらいました。"],"rs":["Hai, tanjōbi ni moraimashita.","Hai, tanjōbi o moraimashita."],"answer":0,"why":"“On my birthday”: {{誕生日に|tanjōbi ni}}."}],"from":"explain-situations"},
+        {"type":"say","q":"How do you say “I'm planning to give my mother flowers.”?","answer":"母に花をあげるつもりです。","r":"Haha ni hana o ageru tsumori desu.","from":"talk-about-plans"},
+        {"type":"free","q":"Your turn: what's a present you got and loved, and who gave it to you? What did you give someone recently?","answers":[{"t":"去年、姉が自転車をくれました。私は友達に本をあげました。","r":"Kyonen, ane ga jitensha o kuremashita. Watashi wa tomodachi ni hon o agemashita.","tr":"Last year my older sister gave me a bike. I gave a friend a book."},{"t":"子供のとき、祖母に時計をもらいました。今も使っています。","r":"Kodomo no toki, sobo ni tokei o moraimashita. Ima mo tsukatte imasu.","tr":"When I was a child, I got a watch from my grandmother. I still use it."}]}
+      ]
+    },
+    {
+      "id": "ask-for-favors",
+      "unit": 7,
+      "level": "A2",
+      "title": "Ask for and talk about favours",
+      "summary": "Ask someone to do something for you, softly, and talk about kindness: “Could you check this for me?” “Ken helped me move.”",
+      "topic": "{{～てあげます|… te agemasu}}, {{～てくれます|… te kuremasu}}, {{～てもらいます|… te moraimasu}}; {{～てもらえませんか|… te moraemasen ka}}",
+      "blocks": [
+        {"goal":{"t":"すみません、写真を撮ってもらえませんか。","r":"Sumimasen, shashin o totte moraemasen ka.","tr":"Excuse me, could you take a photo for us?"}},
+        {"dialog":[{"who":"You","t":"田中さん、ちょっといいですか。この書類をチェックしてもらえませんか。","r":"Tanaka-san, chotto ii desu ka. Kono shorui o chekku shite moraemasen ka.","tr":"Mr Tanaka, have you got a moment? Could you check this document for me?"},{"who":"Mr Tanaka","t":"いいですよ。…はい、大丈夫です。","r":"Ii desu yo. … Hai, daijōbu desu.","tr":"Sure. …Yes, it's fine."},{"who":"You","t":"ありがとうございます。助かりました。","r":"Arigatō gozaimasu. Tasukarimashita.","tr":"Thank you. That's a great help."},{"who":"Mr Tanaka","t":"いいえ。昨日はコピーを手伝ってくれて、ありがとう。","r":"Iie. Kinō wa kopī o tetsudatte kurete, arigatō.","tr":"Not at all. And thanks for helping me with the copying yesterday."}]},
+        {"p":"**Doing things for people.** The three giving verbs from the last lesson go after a て-form to show that an action is a favour, with the same directions:"},
+        { "table": [
+          ["","direction","example"],
+          ["{{～てあげます|… te agemasu}}","I do something for someone","{{弟に宿題を教えてあげました。|Otōto ni shukudai o oshiete agemashita.}} I helped my little brother with his homework."],
+          ["{{～てくれます|… te kuremasu}}","someone does something for me","{{ケンが引っ越しを手伝ってくれました。|Ken ga hikkoshi o tetsudatte kuremashita.}} Ken helped me move."],
+          ["{{～てもらいます|… te moraimasu}}","I get someone to do something","{{友達に写真を撮ってもらいました。|Tomodachi ni shashin o totte moraimashita.}} I had a friend take my photo."]
+        ] },
+        {"p":"{{てくれます|te kuremasu}} is how Japanese shows gratitude. {{手伝いました|tetsudaimashita}} just reports that he helped; {{手伝ってくれました|tetsudatte kuremashita}} says he helped **me**, and I'm grateful. Leaving it out can sound cold. {{てあげます|te agemasu}}, on the other hand, can sound like showing off: don't say {{手伝ってあげます|tetsudatte agemasu}} to someone's face. Offer with {{手伝いましょうか|tetsudaimashō ka}} instead."},
+        {"p":"**Asking for a favour.** Softer than {{てください|te kudasai}}: {{～てくれませんか|… te kuremasen ka}} “Would you… for me?”, and softest of all, {{～てもらえませんか|… te moraemasen ka}} “Could I ask you to…?”. Start with {{すみません|sumimasen}} for strangers, or {{ちょっといいですか|chotto ii desu ka}} “Have you got a moment?” for colleagues."},
+        {"p":"**Saying thank you for a favour:** the て-form of {{くれる|kureru}} + {{ありがとう|arigatō}}: {{手伝ってくれて、ありがとう|tetsudatte kurete, arigatō}} “Thanks for helping me”."},
+        { "ex": [
+          {"t":"母が駅まで車で送ってくれました。","r":"Haha ga eki made kuruma de okutte kuremashita.","tr":"My mother drove me to the station."},
+          {"t":"友達に日本語を教えてもらっています。","r":"Tomodachi ni Nihongo o oshiete moratte imasu.","tr":"A friend is teaching me Japanese."},
+          {"t":"妹にケーキを作ってあげました。","r":"Imōto ni kēki o tsukutte agemashita.","tr":"I made a cake for my little sister."},
+          {"t":"ちょっと窓を開けてくれませんか。","r":"Chotto mado o akete kuremasen ka.","tr":"Would you open the window a little?"},
+          {"t":"すみません、道を教えてもらえませんか。","r":"Sumimasen, michi o oshiete moraemasen ka.","tr":"Excuse me, could you tell me the way?"},
+          {"t":"来てくれて、ありがとう。","r":"Kite kurete, arigatō.","tr":"Thanks for coming."}
+        ] },
+        {"tip":"{{助かりました|tasukarimashita}} “That was a great help”, word for word “I was saved”, is the warmest thank-you for a favour."}
+      ],
+      "mistakes": [
+        {"wrong":"ケンが私を手伝ってあげました。","right":"ケンが手伝ってくれました。","rw":"Ken ga watashi o tetsudatte agemashita.","rr":"Ken ga tetsudatte kuremashita.","tr":"Ken helped me.","why":"Someone doing something for you: {{てくれます|te kuremasu}}. {{てあげます|te agemasu}} is for favours going away from you."},
+        {"wrong":"写真を撮ってもらいませんか。","right":"写真を撮ってもらえませんか。","rw":"Shashin o totte moraimasen ka.","rr":"Shashin o totte moraemasen ka.","tr":"Could you take a photo for us?","why":"The request uses the “can” form {{もらえます|moraemasu}}: {{もらえませんか|moraemasen ka}} “could I get you to…?”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right verb.","t":"友達が引っ越しを手伝って___。","r":"Tomodachi ga hikkoshi o tetsudatte ___.","tr":"A friend helped me move.","options":["くれました","あげました"],"rs":["kuremashita","agemashita"],"answer":0,"why":"A favour to you: {{てくれました|te kuremashita}}."},
+        {"type":"fill","q":"Choose the missing part.","t":"すみません、道を教えて___ませんか。","r":"Sumimasen, michi o oshiete ___masen ka.","tr":"Excuse me, could you tell me the way?","options":["もらえ","もらい","あげ"],"rs":["morae","morai","age"],"answer":0,"why":"Asking a favour: {{てもらえませんか|te moraemasen ka}}."},
+        {"type":"choice","q":"Which is the softest way to ask a stranger to take your photo?","options":["{{写真を撮ってもらえませんか。|Shashin o totte moraemasen ka.}}","{{写真を撮ってください。|Shashin o totte kudasai.}}","{{写真を撮って。|Shashin o totte.}}"],"answer":0,"why":"{{てもらえませんか|te moraemasen ka}} is the softest; the last one is casual, for friends."},
+        {"type":"dialogue","q":"At the office: choose your replies.","lines":[{"options":["田中さん、ちょっといいですか。この書類をチェックしてもらえませんか。","田中さん、ちょっといいですか。この書類をチェックしてあげませんか。"],"rs":["Tanaka-san, chotto ii desu ka. Kono shorui o chekku shite moraemasen ka.","Tanaka-san, chotto ii desu ka. Kono shorui o chekku shite agemasen ka."],"answer":0,"why":"Asking for a favour: {{てもらえませんか|te moraemasen ka}}."},{"who":"Mr Tanaka","t":"いいですよ。…はい、大丈夫です。","r":"Ii desu yo. … Hai, daijōbu desu.","tr":"Sure. …Yes, it's fine."},{"options":["ありがとうございます。助かりました。","ありがとうございます。チェックしてあげました。"],"rs":["Arigatō gozaimasu. Tasukarimashita.","Arigatō gozaimasu. Chekku shite agemashita."],"answer":0,"why":"Thank him warmly: {{助かりました|tasukarimashita}}."}],"from":"ask-politely"},
+        {"type":"order","q":"Put the words in order.","tr":"My mother drove me to the station.","words":["母が","駅まで","車で","送ってくれました。"],"rs":["Haha ga","eki made","kuruma de","okutte kuremashita."],"why":"{{母が駅まで車で送ってくれました。|Haha ga eki made kuruma de okutte kuremashita.}}"},
+        {"type":"say","q":"Say to a friend: “Thanks for coming.”","answer":"来てくれて、ありがとう。","r":"Kite kurete, arigatō.","from":"give-and-receive"},
+        {"type":"free","q":"Your turn: tell about someone who did something kind for you recently, and something you did for someone.","answers":[{"t":"先週、同僚が仕事を手伝ってくれました。私は友達に料理を作ってあげました。","r":"Senshū, dōryō ga shigoto o tetsudatte kuremashita. Watashi wa tomodachi ni ryōri o tsukutte agemashita.","tr":"Last week a colleague helped me with my work. I cooked for a friend."},{"t":"昨日、駅で知らない人が道を教えてくれました。とても助かりました。","r":"Kinō, eki de shiranai hito ga michi o oshiete kuremashita. Totemo tasukarimashita.","tr":"Yesterday at the station, a stranger showed me the way. It was a great help."}]}
+      ]
     }
   ]
 }
