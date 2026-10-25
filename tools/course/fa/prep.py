@@ -40,7 +40,7 @@ def main() -> None:
     done = []
     for row in rows:
         rank, word, pos, meaning, sentence, translation, *form = row
-        word, sentence = fa(word), fa(sentence)
+        word, sentence, meaning = fa(word), fa(sentence), fa(meaning)
         form = [fa(f) for f in ([form[0]] if isinstance(form[0], str) else form[0])] if form and form[0] else []
         tag = f"{rank} {word}"
         if rank <= last:

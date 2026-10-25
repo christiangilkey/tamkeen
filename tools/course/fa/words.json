@@ -1827,6 +1827,911 @@
       "meaning": "(entekhâb) choice (انتخاب کردن: to choose)",
       "sentence": "یک رنگ انتخاب کن.",
       "translation": "⟦Choose⟧ a colour."
+    },
+    {
+      "n": 201,
+      "rank": 230,
+      "word": "اصلی",
+      "pos": "adj",
+      "meaning": "(asli) main",
+      "sentence": "در اصلی بسته است.",
+      "translation": "The ⟦main⟧ door is closed."
+    },
+    {
+      "n": 202,
+      "rank": 231,
+      "word": "شروع",
+      "pos": "noun",
+      "meaning": "(shoru') start (شروع کردن / شدن: to start)",
+      "sentence": "کلاس ساعت هشت شروع می‌شود.",
+      "translation": "The class ⟦starts⟧ at eight."
+    },
+    {
+      "n": 203,
+      "rank": 232,
+      "word": "کس",
+      "pos": "noun",
+      "meaning": "(kas) person (کسی: someone; anyone)",
+      "sentence": "کسی خانه نیست.",
+      "translation": "There's ⟦nobody⟧ home."
+    },
+    {
+      "n": 204,
+      "rank": 233,
+      "word": "زمین",
+      "pos": "noun",
+      "meaning": "(zamin) ground; floor; earth; land",
+      "sentence": "کتاب روی زمین افتاد.",
+      "translation": "The book fell on the ⟦floor⟧."
+    },
+    {
+      "n": 205,
+      "rank": 234,
+      "word": "ایجاد",
+      "pos": "noun",
+      "meaning": "(ijâd) creating (ایجاد کردن: to create)",
+      "sentence": "این کار مشکل ایجاد می‌کند.",
+      "translation": "This will ⟦create⟧ problems."
+    },
+    {
+      "n": 206,
+      "rank": 235,
+      "word": "توجه",
+      "pos": "noun",
+      "meaning": "(tavajjoh) attention (توجه کردن: to pay attention)",
+      "sentence": "لطفاً توجه کنید.",
+      "translation": "Please ⟦pay attention⟧."
+    },
+    {
+      "n": 207,
+      "rank": 236,
+      "word": "عشق",
+      "pos": "noun",
+      "meaning": "(eshgh) love",
+      "sentence": "این آهنگ درباره‌ی عشق است.",
+      "translation": "This song is about ⟦love⟧."
+    },
+    {
+      "n": 208,
+      "rank": 237,
+      "word": "شرط",
+      "pos": "noun",
+      "meaning": "(shart) condition",
+      "sentence": "به یک شرط می‌آیم.",
+      "translation": "I'll come on one ⟦condition⟧."
+    },
+    {
+      "n": 209,
+      "rank": 238,
+      "word": "میان",
+      "pos": "prep",
+      "meaning": "(miyân) among; middle",
+      "sentence": "او میان دوستانش محبوب است.",
+      "translation": "He's popular ⟦among⟧ his friends."
+    },
+    {
+      "n": 210,
+      "rank": 239,
+      "word": "اجرا",
+      "pos": "noun",
+      "meaning": "(ejrâ) performance; carrying out",
+      "sentence": "این خواننده امشب اجرا دارد.",
+      "translation": "This singer has a ⟦show⟧ tonight."
+    },
+    {
+      "n": 211,
+      "rank": 240,
+      "word": "خانم",
+      "pos": "noun",
+      "meaning": "(khânom) lady; Mrs; wife",
+      "sentence": "این خانم مادر دوست من است.",
+      "translation": "This ⟦lady⟧ is my friend's mother."
+    },
+    {
+      "n": 212,
+      "rank": 241,
+      "word": "مرگ",
+      "pos": "noun",
+      "meaning": "(marg) death",
+      "sentence": "از مرگ نمی‌ترسم.",
+      "translation": "I'm not afraid of ⟦death⟧."
+    },
+    {
+      "n": 213,
+      "rank": 244,
+      "word": "وارد",
+      "pos": "adj",
+      "meaning": "(vâred) entering (وارد شدن: to enter)",
+      "sentence": "او وارد اتاق شد.",
+      "translation": "He ⟦came into⟧ the room."
+    },
+    {
+      "n": 214,
+      "rank": 245,
+      "word": "پایان",
+      "pos": "noun",
+      "meaning": "(pâyân) end",
+      "sentence": "در پایان، از همه تشکر کرد.",
+      "translation": "At the ⟦end⟧, he thanked everyone."
+    },
+    {
+      "n": 215,
+      "rank": 246,
+      "word": "هفته",
+      "pos": "noun",
+      "meaning": "(hafte) week",
+      "sentence": "هفته‌ی بعد امتحان دارم.",
+      "translation": "I have an exam next ⟦week⟧."
+    },
+    {
+      "n": 216,
+      "rank": 247,
+      "word": "مجلس",
+      "pos": "noun",
+      "meaning": "(majles) parliament; gathering",
+      "sentence": "او نماینده‌ی مجلس است.",
+      "translation": "He's a member of ⟦parliament⟧."
+    },
+    {
+      "n": 217,
+      "rank": 248,
+      "word": "خانواده",
+      "pos": "noun",
+      "meaning": "(khânevâde) family",
+      "sentence": "خانواده‌ی من بزرگ است.",
+      "translation": "My ⟦family⟧ is big."
+    },
+    {
+      "n": 218,
+      "rank": 249,
+      "word": "بد",
+      "pos": "adj",
+      "meaning": "(bad) bad",
+      "sentence": "هوا امروز بد است.",
+      "translation": "The weather is ⟦bad⟧ today."
+    },
+    {
+      "n": 219,
+      "rank": 250,
+      "word": "تغییر",
+      "pos": "noun",
+      "meaning": "(taghyir) change (تغییر کردن: to change)",
+      "sentence": "برنامه تغییر کرد.",
+      "translation": "The plan ⟦changed⟧."
+    },
+    {
+      "n": 220,
+      "rank": 251,
+      "word": "پشت",
+      "pos": "noun",
+      "meaning": "(posht) back; behind",
+      "sentence": "ماشین پشت خانه است.",
+      "translation": "The car is ⟦behind⟧ the house."
+    },
+    {
+      "n": 221,
+      "rank": 253,
+      "word": "قانون",
+      "pos": "noun",
+      "meaning": "(ghânun) law",
+      "sentence": "این کار خلاف قانون است.",
+      "translation": "This is against the ⟦law⟧."
+    },
+    {
+      "n": 222,
+      "rank": 254,
+      "word": "سلام",
+      "pos": "interj",
+      "meaning": "(salâm) hello",
+      "sentence": "سلام، حالت چطور است؟",
+      "translation": "⟦Hello⟧, how are you?"
+    },
+    {
+      "n": 223,
+      "rank": 255,
+      "word": "رابطه",
+      "pos": "noun",
+      "meaning": "(râbete) relationship; relation",
+      "sentence": "رابطه‌ی ما خیلی خوب است.",
+      "translation": "Our ⟦relationship⟧ is very good."
+    },
+    {
+      "n": 224,
+      "rank": 256,
+      "word": "روش",
+      "pos": "noun",
+      "meaning": "(ravesh) method; way",
+      "sentence": "این روش بهتری است.",
+      "translation": "This is a better ⟦way⟧."
+    },
+    {
+      "n": 225,
+      "rank": 257,
+      "word": "دوره",
+      "pos": "noun",
+      "meaning": "(dowre) period; course",
+      "sentence": "دوره‌ی آشپزی را تمام کردم.",
+      "translation": "I finished the cooking ⟦course⟧."
+    },
+    {
+      "n": 226,
+      "rank": 258,
+      "word": "جان",
+      "pos": "noun",
+      "meaning": "(jân) life; soul; (after a name) dear",
+      "sentence": "او جان مرا نجات داد.",
+      "translation": "He saved my ⟦life⟧."
+    },
+    {
+      "n": 227,
+      "rank": 259,
+      "word": "حضور",
+      "pos": "noun",
+      "meaning": "(hozur) presence",
+      "sentence": "از حضور شما متشکرم.",
+      "translation": "Thank you for ⟦coming⟧."
+    },
+    {
+      "n": 228,
+      "rank": 260,
+      "word": "خوش",
+      "pos": "adj",
+      "meaning": "(khosh) pleasant; happy",
+      "sentence": "خوش آمدید!",
+      "translation": "⟦Welcome⟧!"
+    },
+    {
+      "n": 229,
+      "rank": 261,
+      "word": "چقدر",
+      "pos": "adv",
+      "meaning": "(cheghadr) how much",
+      "sentence": "قیمت این کیف چقدر است؟",
+      "translation": "⟦How much⟧ is this bag?"
+    },
+    {
+      "n": 230,
+      "rank": 262,
+      "word": "نشان",
+      "pos": "noun",
+      "meaning": "(neshân) sign; badge (نشان دادن: to show)",
+      "sentence": "عکس‌هایت را به من نشان بده.",
+      "translation": "⟦Show⟧ me your photos."
+    },
+    {
+      "n": 231,
+      "rank": 263,
+      "word": "مگر",
+      "pos": "conj",
+      "meaning": "(magar) unless; (in questions) really?",
+      "sentence": "مگر امروز تعطیل است؟",
+      "translation": "Is today ⟦really⟧ a holiday?"
+    },
+    {
+      "n": 232,
+      "rank": 264,
+      "word": "یافتن",
+      "pos": "verb",
+      "meaning": "(yâftan) to find (written)",
+      "sentence": "او بالاخره کار خوبی یافت.",
+      "translation": "He finally ⟦found⟧ a good job.",
+      "form": "یافت"
+    },
+    {
+      "n": 233,
+      "rank": 265,
+      "word": "علم",
+      "pos": "noun",
+      "meaning": "(elm) science; knowledge",
+      "sentence": "او به علم علاقه دارد.",
+      "translation": "She's interested in ⟦science⟧."
+    },
+    {
+      "n": 234,
+      "rank": 266,
+      "word": "جواب",
+      "pos": "noun",
+      "meaning": "(javâb) answer",
+      "sentence": "جواب این سؤال را می‌دانی؟",
+      "translation": "Do you know the ⟦answer⟧ to this question?"
+    },
+    {
+      "n": 235,
+      "rank": 267,
+      "word": "خواندن",
+      "pos": "verb",
+      "meaning": "(khândan) to read; to sing; to study",
+      "sentence": "هر شب کتاب می‌خوانم.",
+      "translation": "I ⟦read⟧ a book every night.",
+      "form": "می‌خوانم"
+    },
+    {
+      "n": 236,
+      "rank": 268,
+      "word": "کجا",
+      "pos": "adv",
+      "meaning": "(kojâ) where",
+      "sentence": "کجا می‌روی؟",
+      "translation": "⟦Where⟧ are you going?"
+    },
+    {
+      "n": 237,
+      "rank": 269,
+      "word": "یعنی",
+      "pos": "conj",
+      "meaning": "(ya'ni) that is; I mean; it means",
+      "sentence": "این کلمه یعنی چه؟",
+      "translation": "What does this word ⟦mean⟧?"
+    },
+    {
+      "n": 238,
+      "rank": 270,
+      "word": "آزاد",
+      "pos": "adj",
+      "meaning": "(âzâd) free",
+      "sentence": "این صندلی آزاد است؟",
+      "translation": "Is this seat ⟦free⟧?"
+    },
+    {
+      "n": 239,
+      "rank": 271,
+      "word": "شماره",
+      "pos": "noun",
+      "meaning": "(shomâre) number",
+      "sentence": "شماره‌ی تلفنت را به من بده.",
+      "translation": "Give me your phone ⟦number⟧."
+    },
+    {
+      "n": 240,
+      "rank": 272,
+      "word": "مرکز",
+      "pos": "noun",
+      "meaning": "(markaz) centre",
+      "sentence": "مرکز شهر خیلی شلوغ است.",
+      "translation": "The city ⟦centre⟧ is very busy."
+    },
+    {
+      "n": 241,
+      "rank": 273,
+      "word": "شبکه",
+      "pos": "noun",
+      "meaning": "(shabake) channel; network",
+      "sentence": "کدام شبکه فوتبال پخش می‌کند؟",
+      "translation": "Which ⟦channel⟧ is showing the football?"
+    },
+    {
+      "n": 242,
+      "rank": 274,
+      "word": "خون",
+      "pos": "noun",
+      "meaning": "(khun) blood",
+      "sentence": "از انگشتم خون می‌آید.",
+      "translation": "My finger is ⟦bleeding⟧."
+    },
+    {
+      "n": 243,
+      "rank": 276,
+      "word": "برخی",
+      "pos": "pron",
+      "meaning": "(barkhi) some (written)",
+      "sentence": "برخی از مردم قهوه دوست ندارند.",
+      "translation": "⟦Some⟧ people don't like coffee."
+    },
+    {
+      "n": 244,
+      "rank": 277,
+      "word": "بیش",
+      "pos": "adv",
+      "meaning": "(bish) more (بیش از: more than)",
+      "sentence": "بیش از صد نفر آمدند.",
+      "translation": "⟦More⟧ than a hundred people came."
+    },
+    {
+      "n": 245,
+      "rank": 278,
+      "word": "کل",
+      "pos": "adj",
+      "meaning": "(koll) whole; all",
+      "sentence": "کل روز باران بارید.",
+      "translation": "It rained the ⟦whole⟧ day."
+    },
+    {
+      "n": 246,
+      "rank": 279,
+      "word": "مختلف",
+      "pos": "adj",
+      "meaning": "(mokhtalef) different; various",
+      "sentence": "او به کشورهای مختلف سفر کرده است.",
+      "translation": "He has travelled to ⟦different⟧ countries."
+    },
+    {
+      "n": 247,
+      "rank": 280,
+      "word": "اطلاعات",
+      "pos": "noun",
+      "meaning": "(ettelâ'ât) information",
+      "sentence": "اطلاعات بیشتری لازم دارم.",
+      "translation": "I need more ⟦information⟧."
+    },
+    {
+      "n": 248,
+      "rank": 281,
+      "word": "حق",
+      "pos": "noun",
+      "meaning": "(hagh) right; truth",
+      "sentence": "حق با توست.",
+      "translation": "You're ⟦right⟧."
+    },
+    {
+      "n": 249,
+      "rank": 282,
+      "word": "افتادن",
+      "pos": "verb",
+      "meaning": "(oftâdan) to fall",
+      "sentence": "بچه از دوچرخه افتاد.",
+      "translation": "The child ⟦fell⟧ off the bike.",
+      "form": "افتاد"
+    },
+    {
+      "n": 250,
+      "rank": 284,
+      "word": "انسان",
+      "pos": "noun",
+      "meaning": "(ensân) human being; person",
+      "sentence": "همه‌ی انسان‌ها اشتباه می‌کنند.",
+      "translation": "All ⟦humans⟧ make mistakes."
+    },
+    {
+      "n": 251,
+      "rank": 285,
+      "word": "گل",
+      "pos": "noun",
+      "meaning": "(gol) flower; (in football) goal",
+      "sentence": "این گل‌ها را برای تو خریدم.",
+      "translation": "I bought these ⟦flowers⟧ for you."
+    },
+    {
+      "n": 252,
+      "rank": 287,
+      "word": "تصویر",
+      "pos": "noun",
+      "meaning": "(tasvir) image; picture",
+      "sentence": "تصویر تلویزیون واضح نیست.",
+      "translation": "The TV ⟦picture⟧ isn't clear."
+    },
+    {
+      "n": 253,
+      "rank": 288,
+      "word": "مدت",
+      "pos": "noun",
+      "meaning": "(moddat) period; while",
+      "sentence": "مدتی است که او را ندیده‌ام.",
+      "translation": "I haven't seen him for a ⟦while⟧."
+    },
+    {
+      "n": 254,
+      "rank": 289,
+      "word": "بستن",
+      "pos": "verb",
+      "meaning": "(bastan) to close; to tie",
+      "sentence": "لطفاً در را ببند.",
+      "translation": "Please ⟦close⟧ the door.",
+      "form": "ببند"
+    },
+    {
+      "n": 255,
+      "rank": 290,
+      "word": "اعلام",
+      "pos": "noun",
+      "meaning": "(e'lâm) announcement (اعلام کردن: to announce)",
+      "sentence": "نتایج امتحان را اعلام کردند.",
+      "translation": "They ⟦announced⟧ the exam results."
+    },
+    {
+      "n": 256,
+      "rank": 291,
+      "word": "حمله",
+      "pos": "noun",
+      "meaning": "(hamle) attack",
+      "sentence": "سگ به او حمله کرد.",
+      "translation": "The dog ⟦attacked⟧ him."
+    },
+    {
+      "n": 257,
+      "rank": 292,
+      "word": "شاید",
+      "pos": "adv",
+      "meaning": "(shâyad) maybe; perhaps",
+      "sentence": "شاید فردا بیایم.",
+      "translation": "⟦Maybe⟧ I'll come tomorrow."
+    },
+    {
+      "n": 258,
+      "rank": 293,
+      "word": "آموزش",
+      "pos": "noun",
+      "meaning": "(âmuzesh) education; training; lessons",
+      "sentence": "آموزش رانندگی می‌بینم.",
+      "translation": "I'm taking driving ⟦lessons⟧."
+    },
+    {
+      "n": 259,
+      "rank": 294,
+      "word": "عضو",
+      "pos": "noun",
+      "meaning": "(ozv) member",
+      "sentence": "من عضو این باشگاه هستم.",
+      "translation": "I'm a ⟦member⟧ of this club."
+    },
+    {
+      "n": 260,
+      "rank": 295,
+      "word": "افزایش",
+      "pos": "noun",
+      "meaning": "(afzâyesh) increase (افزایش یافتن: to go up)",
+      "sentence": "قیمت نان افزایش یافت.",
+      "translation": "The price of bread ⟦went up⟧."
+    },
+    {
+      "n": 261,
+      "rank": 296,
+      "word": "جمله",
+      "pos": "noun",
+      "meaning": "(jomle) sentence",
+      "sentence": "این جمله را ترجمه کن.",
+      "translation": "Translate this ⟦sentence⟧."
+    },
+    {
+      "n": 262,
+      "rank": 297,
+      "word": "شکستن",
+      "pos": "verb",
+      "meaning": "(shekastan) to break",
+      "sentence": "لیوان افتاد و شکست.",
+      "translation": "The glass fell and ⟦broke⟧.",
+      "form": "شکست"
+    },
+    {
+      "n": 263,
+      "rank": 298,
+      "word": "فارسی",
+      "pos": "noun",
+      "meaning": "(fârsi) Persian (the language)",
+      "sentence": "من کمی فارسی حرف می‌زنم.",
+      "translation": "I speak a little ⟦Persian⟧."
+    },
+    {
+      "n": 264,
+      "rank": 299,
+      "word": "رئیس",
+      "pos": "noun",
+      "meaning": "(ra'is) boss; head; chairman",
+      "sentence": "رئیس من امروز عصبانی است.",
+      "translation": "My ⟦boss⟧ is angry today."
+    },
+    {
+      "n": 265,
+      "rank": 301,
+      "word": "یاد",
+      "pos": "noun",
+      "meaning": "(yâd) memory (یاد گرفتن: to learn; یاد دادن: to teach)",
+      "sentence": "مادرم به من آشپزی یاد داد.",
+      "translation": "My mother ⟦taught⟧ me to cook."
+    },
+    {
+      "n": 266,
+      "rank": 302,
+      "word": "انقلاب",
+      "pos": "noun",
+      "meaning": "(enghelâb) revolution",
+      "sentence": "پدرم قبل از انقلاب به دنیا آمد.",
+      "translation": "My father was born before the ⟦revolution⟧."
+    },
+    {
+      "n": 267,
+      "rank": 303,
+      "word": "احساس",
+      "pos": "noun",
+      "meaning": "(ehsâs) feeling (احساس کردن: to feel)",
+      "sentence": "امروز احساس خستگی می‌کنم.",
+      "translation": "I ⟦feel⟧ tired today."
+    },
+    {
+      "n": 268,
+      "rank": 304,
+      "word": "میلیون",
+      "pos": "num",
+      "meaning": "(milyun) million",
+      "sentence": "تهران بیش از ده میلیون نفر جمعیت دارد.",
+      "translation": "Tehran has more than ten ⟦million⟧ people."
+    },
+    {
+      "n": 269,
+      "rank": 305,
+      "word": "تعداد",
+      "pos": "noun",
+      "meaning": "(te'dâd) number; count",
+      "sentence": "تعداد دانشجوها زیاد است.",
+      "translation": "The ⟦number⟧ of students is large."
+    },
+    {
+      "n": 270,
+      "rank": 306,
+      "word": "جهانی",
+      "pos": "adj",
+      "meaning": "(jahâni) world; global",
+      "sentence": "جام جهانی را تماشا می‌کنی؟",
+      "translation": "Are you watching the ⟦World⟧ Cup?"
+    },
+    {
+      "n": 271,
+      "rank": 308,
+      "word": "جامعه",
+      "pos": "noun",
+      "meaning": "(jâme'e) society",
+      "sentence": "زنان نقش مهمی در جامعه دارند.",
+      "translation": "Women play an important role in ⟦society⟧."
+    },
+    {
+      "n": 272,
+      "rank": 309,
+      "word": "استاد",
+      "pos": "noun",
+      "meaning": "(ostâd) professor; master",
+      "sentence": "استاد ما خیلی سخت‌گیر است.",
+      "translation": "Our ⟦professor⟧ is very strict."
+    },
+    {
+      "n": 273,
+      "rank": 311,
+      "word": "داستان",
+      "pos": "noun",
+      "meaning": "(dâstân) story",
+      "sentence": "مادربزرگم برایم داستان تعریف می‌کرد.",
+      "translation": "My grandmother used to tell me ⟦stories⟧."
+    },
+    {
+      "n": 274,
+      "rank": 312,
+      "word": "مجموعه",
+      "pos": "noun",
+      "meaning": "(majmu'e) collection; set; series",
+      "sentence": "او مجموعه‌ی بزرگی از تمبر دارد.",
+      "translation": "He has a big stamp ⟦collection⟧."
+    },
+    {
+      "n": 275,
+      "rank": 313,
+      "word": "موضوع",
+      "pos": "noun",
+      "meaning": "(mowzu') subject; topic; matter",
+      "sentence": "موضوع جلسه چیست؟",
+      "translation": "What's the ⟦topic⟧ of the meeting?"
+    },
+    {
+      "n": 276,
+      "rank": 314,
+      "word": "منبع",
+      "pos": "noun",
+      "meaning": "(manba') source",
+      "sentence": "منبع این خبر چیست؟",
+      "translation": "What's the ⟦source⟧ of this news?"
+    },
+    {
+      "n": 277,
+      "rank": 315,
+      "word": "اشاره",
+      "pos": "noun",
+      "meaning": "(eshâre) pointing; mention (اشاره کردن: to point; to mention)",
+      "sentence": "به آن خانه اشاره کرد.",
+      "translation": "He ⟦pointed⟧ at that house."
+    },
+    {
+      "n": 278,
+      "rank": 316,
+      "word": "علیه",
+      "pos": "prep",
+      "meaning": "(aleyh) against",
+      "sentence": "همه علیه او رأی دادند.",
+      "translation": "Everyone voted ⟦against⟧ him."
+    },
+    {
+      "n": 279,
+      "rank": 317,
+      "word": "جوان",
+      "pos": "adj",
+      "meaning": "(javân) young; young person",
+      "sentence": "او هنوز خیلی جوان است.",
+      "translation": "He's still very ⟦young⟧."
+    },
+    {
+      "n": 280,
+      "rank": 318,
+      "word": "امنیت",
+      "pos": "noun",
+      "meaning": "(amniyat) security; safety",
+      "sentence": "امنیت بچه‌ها خیلی مهم است.",
+      "translation": "Children's ⟦safety⟧ is very important."
+    },
+    {
+      "n": 281,
+      "rank": 319,
+      "word": "برابر",
+      "pos": "adj",
+      "meaning": "(barâbar) equal; in front of",
+      "sentence": "زن و مرد برابرند.",
+      "translation": "Women and men are ⟦equal⟧."
+    },
+    {
+      "n": 282,
+      "rank": 320,
+      "word": "کِی",
+      "pos": "adv",
+      "meaning": "(key) when",
+      "sentence": "کِی به خانه برمی‌گردی؟",
+      "translation": "⟦When⟧ are you coming back home?"
+    },
+    {
+      "n": 283,
+      "rank": 322,
+      "word": "غیر",
+      "pos": "prep",
+      "meaning": "(gheyr) other than; non- (غیر از: except)",
+      "sentence": "غیر از من، همه رفتند.",
+      "translation": "Everyone left ⟦except⟧ me."
+    },
+    {
+      "n": 284,
+      "rank": 323,
+      "word": "دل",
+      "pos": "noun",
+      "meaning": "(del) heart (feelings); stomach",
+      "sentence": "دلم درد می‌کند.",
+      "translation": "I have a ⟦stomach⟧ ache."
+    },
+    {
+      "n": 285,
+      "rank": 327,
+      "word": "نیاز",
+      "pos": "noun",
+      "meaning": "(niyâz) need (نیاز داشتن: to need)",
+      "sentence": "به کمک تو نیاز دارم.",
+      "translation": "I ⟦need⟧ your help."
+    },
+    {
+      "n": 286,
+      "rank": 328,
+      "word": "فعالیت",
+      "pos": "noun",
+      "meaning": "(fa'âliyat) activity",
+      "sentence": "کوه‌نوردی فعالیت مورد علاقه‌ی من است.",
+      "translation": "Hiking is my favourite ⟦activity⟧."
+    },
+    {
+      "n": 287,
+      "rank": 329,
+      "word": "مدرسه",
+      "pos": "noun",
+      "meaning": "(madrese) school",
+      "sentence": "بچه‌ها به مدرسه رفتند.",
+      "translation": "The children went to ⟦school⟧."
+    },
+    {
+      "n": 288,
+      "rank": 330,
+      "word": "بدن",
+      "pos": "noun",
+      "meaning": "(badan) body",
+      "sentence": "ورزش برای بدن خوب است.",
+      "translation": "Exercise is good for the ⟦body⟧."
+    },
+    {
+      "n": 289,
+      "rank": 331,
+      "word": "خاطر",
+      "pos": "noun",
+      "meaning": "(khâter) mind; sake (به خاطر: because of)",
+      "sentence": "به خاطر باران دیر رسیدم.",
+      "translation": "I was late ⟦because of⟧ the rain."
+    },
+    {
+      "n": 290,
+      "rank": 332,
+      "word": "ثبت",
+      "pos": "noun",
+      "meaning": "(sabt) recording; registration (ثبت‌نام کردن: to sign up)",
+      "sentence": "در کلاس زبان ثبت‌نام کردم.",
+      "translation": "I ⟦signed up⟧ for a language class."
+    },
+    {
+      "n": 291,
+      "rank": 333,
+      "word": "قابل",
+      "pos": "adj",
+      "meaning": "(ghâbel) able; worthy (قابلی ندارد: it's nothing)",
+      "sentence": "قابلی ندارد.",
+      "translation": "It's ⟦nothing⟧ (a polite reply)."
+    },
+    {
+      "n": 292,
+      "rank": 334,
+      "word": "گوش",
+      "pos": "noun",
+      "meaning": "(gush) ear (گوش دادن: to listen)",
+      "sentence": "به موسیقی گوش می‌دهم.",
+      "translation": "I'm ⟦listening⟧ to music."
+    },
+    {
+      "n": 293,
+      "rank": 335,
+      "word": "حرکت",
+      "pos": "noun",
+      "meaning": "(harakat) movement; departure (حرکت کردن: to move; to set off)",
+      "sentence": "قطار ساعت هشت حرکت می‌کند.",
+      "translation": "The train ⟦leaves⟧ at eight."
+    },
+    {
+      "n": 294,
+      "rank": 336,
+      "word": "خط",
+      "pos": "noun",
+      "meaning": "(khatt) line; handwriting",
+      "sentence": "خط تو خیلی قشنگ است.",
+      "translation": "Your ⟦handwriting⟧ is very nice."
+    },
+    {
+      "n": 295,
+      "rank": 337,
+      "word": "قسمت",
+      "pos": "noun",
+      "meaning": "(ghesmat) part; episode",
+      "sentence": "قسمت آخر سریال را دیدی؟",
+      "translation": "Did you see the last ⟦episode⟧ of the series?"
+    },
+    {
+      "n": 296,
+      "rank": 338,
+      "word": "غذا",
+      "pos": "noun",
+      "meaning": "(ghazâ) food; meal",
+      "sentence": "غذا آماده است.",
+      "translation": "The ⟦food⟧ is ready."
+    },
+    {
+      "n": 297,
+      "rank": 340,
+      "word": "برگزار",
+      "pos": "adj",
+      "meaning": "(bargozâr) held (برگزار شدن: to be held)",
+      "sentence": "جلسه فردا برگزار می‌شود.",
+      "translation": "The meeting will be ⟦held⟧ tomorrow."
+    },
+    {
+      "n": 298,
+      "rank": 341,
+      "word": "ده",
+      "pos": "num",
+      "meaning": "(dah) ten",
+      "sentence": "ده دقیقه صبر کن.",
+      "translation": "Wait ⟦ten⟧ minutes."
+    },
+    {
+      "n": 299,
+      "rank": 343,
+      "word": "هدف",
+      "pos": "noun",
+      "meaning": "(hadaf) goal; aim",
+      "sentence": "هدف من یادگیری فارسی است.",
+      "translation": "My ⟦goal⟧ is to learn Persian."
+    },
+    {
+      "n": 300,
+      "rank": 344,
+      "word": "لباس",
+      "pos": "noun",
+      "meaning": "(lebâs) clothes; dress",
+      "sentence": "لباس‌هایت را عوض کن.",
+      "translation": "Change your ⟦clothes⟧."
     }
   ]
 }
