@@ -1,0 +1,260 @@
+{
+  "from": "en",
+  "to": "ca",
+  "title": "Catalan grammar",
+  "variety": "Central Catalan",
+  "about": "From your very first conversation to everyday fluency, one short lesson at a time. Each lesson gives you something you can say straight away, then the grammar that makes it work. You don't need to know any grammar: each grammar word is explained when you first need it. Every example is central Catalan, as it is spoken in Barcelona, in the current spelling.",
+  "reading": "",
+  "units": [
+    {"n":1,"title":"First conversations"},
+    {"n":2,"title":"Out and about"},
+    {"n":3,"title":"Everyday life"},
+    {"n":4,"title":"Plans, wishes and abilities"},
+    {"n":5,"title":"Telling what happened"},
+    {"n":6,"title":"Describing and comparing"},
+    {"n":7,"title":"Getting things done"},
+    {"n":8,"title":"Connecting your ideas"},
+    {"n":9,"title":"Opinions, feelings and imagination"}
+  ],
+  "lessons": [
+    {
+      "id": "say-who-you-are",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say hello and who you are",
+      "summary": "Greet someone, say your name and where you're from, and ask them the same: your first Catalan conversation.",
+      "topic": "{{em dic}} and {{et dius}}; {{soc}}, {{ets}}, {{és}} “I am, you are, he or she is”; {{de}} “from”",
+      "blocks": [
+        {"goal":{"t":"Hola, em dic Laura. Soc de Boston.","tr":"Hi, my name's Laura. I'm from Boston."}},
+        {"dialog":[{"who":"Marc","t":"Hola! Em dic Marc.","tr":"Hi! My name's Marc."},{"who":"Laura","t":"Hola, Marc. Jo em dic Laura.","tr":"Hi, Marc. I'm Laura."},{"who":"Marc","t":"D'on ets?","tr":"Where are you from?"},{"who":"Laura","t":"Soc de Boston. I tu?","tr":"I'm from Boston. And you?"},{"who":"Marc","t":"Jo soc d'aquí, de Barcelona. Encantat!","tr":"I'm from here, from Barcelona. Nice to meet you!"},{"who":"Laura","t":"Encantada!","tr":"Nice to meet you!"}]},
+        {"p":"**Saying your name.** Catalans say {{em dic}}, word for word “I call myself”: {{Em dic Laura.}} “My name's Laura.” To ask, {{Com et dius?}} “What's your name?”, word for word “how do you call yourself?”. The little words {{em}} “myself” and {{et}} “yourself” go before the verb. You'll meet many more little words like them: they are one of the things that make Catalan Catalan."},
+        {"term":"verb","means":"a word for doing or being: go, eat, live, call, be."},
+        {"p":"**I'm, you're.** “To be” is {{ser}}: {{soc}} “I am”, {{ets}} “you are”, {{és}} “he is, she is”. There is no word for “I” in {{Soc de Boston}}: the verb's ending already says who it is, so Catalan usually leaves “I” and “you” out. You add {{jo}} “I” or {{tu}} “you” only for a contrast: {{Jo soc d'aquí.}} “I'm from here (and you aren't).”"},
+        { "table": [
+          ["","Catalan","example"],
+          ["I am","{{soc}}","{{Soc de Boston.}} I'm from Boston."],
+          ["you are","{{ets}}","{{Ets de Barcelona?}} Are you from Barcelona?"],
+          ["he is, she is","{{és}}","{{És de Girona.}} He's (she's) from Girona."]
+        ] },
+        {"p":"**Where from.** {{de}} is “from” (and “of”). Before a vowel it becomes {{d'}}: {{D'on ets?}} “Where are you from?”, word for word “from where are you?”. The “from” always goes first, never at the end. {{I tu?}} “And you?” turns any question back to the other person."},
+        { "ex": [
+          {"t":"Com et dius?","tr":"What's your name?"},
+          {"t":"Em dic Jordi, i tu?","tr":"My name's Jordi, and you?"},
+          {"t":"Soc de Londres.","tr":"I'm from London.","note":"many cities have a Catalan name: {{Londres}}, {{Nova York}}"},
+          {"t":"Ets de Barcelona?","tr":"Are you from Barcelona?","note":"a question just by raising your voice at the end"},
+          {"t":"És de València.","tr":"He's from Valencia. (She's from Valencia.)","note":"{{és}} is both “he is” and “she is”: the conversation tells you who"},
+          {"t":"Molt de gust!","tr":"Nice to meet you!","note":"the same for a man or a woman"}
+        ] },
+        {"tip":"{{Encantat}} is said by a man, {{encantada}} by a woman: Catalan words often take an {{-a}} for a woman (lesson 3). Greetings: {{Bon dia}} “good morning” (until lunch), {{Bona tarda}} “good afternoon, good evening”, {{Bona nit}} “good night”, {{Adeu}} “bye”, {{Fins després}} “see you later”."}
+      ],
+      "mistakes": [
+        {"wrong":"On ets de?","right":"D'on ets?","tr":"Where are you from?","why":"“From” goes in front of “where”, never at the end: {{d'on}}."},
+        {"wrong":"De on ets?","right":"D'on ets?","tr":"Where are you from?","why":"{{de}} becomes {{d'}} before a vowel."}
+      ],
+      "practice": [
+        {"type":"choice","q":"You want to ask someone's name. You say…","options":["{{Com et dius?}}","{{Com em dic?}}","{{D'on ets?}}"],"answer":0,"why":"{{et}} is “yourself”: “how do you call yourself?”. {{Com em dic?}} would be “What's my name?”, and {{D'on ets?}} is “Where are you from?”."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ de Boston.","tr":"I'm from Boston.","options":["Soc","Ets","És"],"answer":0,"why":"{{soc}} is “I am”; {{ets}} “you are”; {{és}} “he or she is”."},
+        {"type":"dialogue","q":"You're Tom, from Chicago. Choose your replies.","lines":[{"who":"Núria","t":"Hola! Em dic Núria. I tu?","tr":"Hi! My name's Núria. And you?"},{"options":["Em dic Tom.","Et dius Tom."],"answer":0,"why":"About yourself: {{em dic}}. {{Et dius}} is “your name is”."},{"who":"Núria","t":"D'on ets?","tr":"Where are you from?"},{"options":["Soc de Chicago.","Ets de Chicago."],"answer":0,"why":"“I am”: {{soc}}."},{"who":"Núria","t":"Molt de gust!","tr":"Nice to meet you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"My name's Jordi, and you?","words":["Em","dic","Jordi,","i","tu?"]},
+        {"type":"say","q":"Ask someone where they're from.","answer":"D'on ets?"},
+        {"type":"free","q":"Your turn: say hello, your name and where you're from. Start with {{Hola, em dic…}}","answers":[{"t":"Hola, em dic John. Soc de Nova York.","tr":"Hi, my name's John. I'm from New York."},{"t":"Bon dia! Em dic Sarah i soc de Manchester.","tr":"Good morning! My name's Sarah and I'm from Manchester."}]}
+      ]
+    },
+    {
+      "id": "order-in-a-cafe",
+      "unit": 1,
+      "level": "A1",
+      "title": "Order in a café",
+      "summary": "Ask for what you'd like in a café or a shop, politely: “I'd like a coffee with milk, please.”",
+      "topic": "{{vull}} and {{voldria}} + a thing; {{un}} and {{una}} “a”; no word for “some”; {{no}}",
+      "blocks": [
+        {"goal":{"t":"Voldria un cafè amb llet, si us plau.","tr":"I'd like a coffee with milk, please."}},
+        {"dialog":[{"who":"Waiter","t":"Bon dia! Què et poso?","tr":"Good morning! What can I get you?"},{"who":"You","t":"Bon dia. Voldria un cafè amb llet, si us plau.","tr":"Good morning. I'd like a coffee with milk, please."},{"who":"Waiter","t":"Alguna cosa més?","tr":"Anything else?"},{"who":"You","t":"Sí, un croissant. I una aigua.","tr":"Yes, a croissant. And a water."},{"who":"Waiter","t":"Amb gas o sense?","tr":"Sparkling or still?"},{"who":"You","t":"Sense gas. Gràcies!","tr":"Still. Thanks!"}]},
+        {"p":"**Asking for something.** {{Voldria}} “I'd like” is the polite way, good anywhere. {{Vull}} “I want” is fine too, with {{si us plau}} “please”: {{Vull un tallat, si us plau.}} “A cortado, please.” Then say thanks: {{gràcies}}, or {{moltes gràcies}} “thank you very much”."},
+        {"term":"noun","means":"a word for a person, a thing or a place: coffee, waiter, Barcelona."},
+        {"p":"**A, an.** Catalan has two words for “a”: {{un}} and {{una}}. Every noun is either masculine or feminine (lesson 4 explains), and “a” matches it: {{un cafè}} “a coffee”, but {{una aigua}} “a water”, {{una cervesa}} “a beer”. Nouns ending in {{-a}} nearly always take {{una}}; learn the others with their {{un}} or {{una}}."},
+        { "table": [
+          ["{{un}} (masculine)","{{una}} (feminine)"],
+          ["{{un cafè}} a coffee","{{una aigua}} a (bottle of) water"],
+          ["{{un entrepà}} a sandwich","{{una cervesa}} a beer"],
+          ["{{un suc de taronja}} an orange juice","{{una ampolla de vi}} a bottle of wine"]
+        ] },
+        {"p":"**No word for “some”.** For things you don't count, like bread, milk or water, Catalan uses the noun alone: {{Vull pa.}} “I'd like some bread.” {{Tens llet?}} “Do you have any milk?”."},
+        {"p":"**Not.** {{no}} goes right before the verb: {{No vull sucre.}} “I don't want sugar.”"},
+        { "ex": [
+          {"t":"Vull un entrepà de pernil, si us plau.","tr":"I'd like a ham sandwich, please."},
+          {"t":"Voldria una ampolla d'aigua.","tr":"I'd like a bottle of water."},
+          {"t":"Un tallat i un croissant, si us plau.","tr":"A cortado and a croissant, please.","note":"{{tallat}}: an espresso with a little milk"},
+          {"t":"No vull sucre, gràcies.","tr":"I don't want sugar, thanks."},
+          {"t":"Què vols?","tr":"What would you like?","note":"{{vols}} “you want”"},
+          {"t":"Em cobres, si us plau?","tr":"Can I pay, please?","note":"word for word “will you charge me?”: what people say at the bar"}
+        ] },
+        {"tip":"In a bar in Barcelona you'll hear {{Em poses un cafè?}} “Can I have a coffee?” (word for word “will you put me a coffee?”), and the waiter asks {{Què et poso?}} “What can I get you?”. {{em}} “(to) me” and {{et}} “(to) you” are the little words from lesson 1 again."}
+      ],
+      "mistakes": [
+        {"wrong":"Voldria una cafè.","right":"Voldria un cafè.","tr":"I'd like a coffee.","why":"{{cafè}} is masculine: {{un cafè}}. Only nouns ending in {{-a}} are a safe bet for {{una}}."},
+        {"wrong":"Vull alguna llet.","right":"Vull llet.","tr":"I'd like some milk.","why":"For things you don't count, “some” is no word at all: just {{llet}}."},
+        {"wrong":"Vull no sucre.","right":"No vull sucre.","tr":"I don't want sugar.","why":"{{no}} goes before the verb."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which one is the polite “I'd like”?","options":["{{voldria}}","{{vols}}","{{vull}}"],"answer":0,"why":"{{voldria}} is “I would like”. {{vull}} “I want” is fine too with {{si us plau}}; {{vols}} is “you want”."},
+        {"type":"fill","q":"Choose the missing word.","t":"Voldria ___ cervesa, si us plau.","tr":"I'd like a beer, please.","options":["una","un"],"answer":0,"why":"{{cervesa}} ends in {{-a}}: it's feminine, so “a” is {{una}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Un cafè ___ llet, si us plau.","tr":"A coffee with milk, please.","options":["amb","de","i"],"answer":0,"why":"{{amb}} is “with”."},
+        {"type":"dialogue","q":"At the bar: choose your replies.","lines":[{"who":"Waiter","t":"Hola! Què et poso?","tr":"Hi! What can I get you?"},{"options":["Una aigua, si us plau.","Un aigua, si us plau."],"answer":0,"why":"{{aigua}} ends in {{-a}} and is feminine: {{una aigua}}."},{"who":"Waiter","t":"Amb gas o sense?","tr":"Sparkling or still?"},{"options":["Sense gas, gràcies.","Sense sucre, gràcies."],"answer":0,"why":"She's asking about the bubbles: {{sense gas}} “without gas” is still water. ({{sucre}} is sugar.)"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'd like a ham sandwich, please.","words":["Voldria","un entrepà","de pernil,","si us plau."]},
+        {"type":"say","q":"How do you say “I don't want sugar, thanks”?","answer":"No vull sucre, gràcies."},
+        {"type":"free","q":"Your turn: you're in a café. Order something to drink and something to eat. Start with {{Voldria…}}","answers":[{"t":"Voldria un suc de taronja i un croissant, si us plau.","tr":"I'd like an orange juice and a croissant, please."},{"t":"Voldria una cervesa i un entrepà de formatge, si us plau.","tr":"I'd like a beer and a cheese sandwich, please."}]}
+      ]
+    },
+    {
+      "id": "describe-people",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say who people are and what they're like",
+      "summary": "Introduce your friends and describe people: “Jordi and I are friends. He's from Girona, and he's very nice.”",
+      "topic": "{{ser}} “to be” for everyone; {{jo, tu, ell, ella…}}; adjectives for a man, a woman, and more than one; {{en}} and {{la}} before names",
+      "blocks": [
+        {"goal":{"t":"En Jordi i jo som amics. És de Girona i és molt simpàtic.","tr":"Jordi and I are friends. He's from Girona, and he's very nice."}},
+        {"dialog":[{"who":"Anna","t":"Qui és la noia de la foto?","tr":"Who's the girl in the photo?"},{"who":"Marc","t":"És la Clara. És de Tarragona.","tr":"That's Clara. She's from Tarragona."},{"who":"Anna","t":"I com és?","tr":"And what's she like?"},{"who":"Marc","t":"És molt simpàtica i una mica tímida.","tr":"She's very nice and a little shy."},{"who":"Anna","t":"I els dos nois?","tr":"And the two guys?"},{"who":"Marc","t":"Són en Pere i en Joan. Són bessons!","tr":"They're Pere and Joan. They're twins!"}]},
+        {"term":"pronoun","means":"a short word that stands for a person or a thing: I, you, she, they."},
+        {"p":"**The whole verb.** Here is {{ser}} “to be” for everyone. The ending tells you who it is, so the pronouns are usually left out; you say them for a contrast, or when it wouldn't be clear: {{Ell és de Girona, i ella és de Vic.}} “He's from Girona, and she's from Vic.”"},
+        { "table": [
+          ["","pronoun","“to be”"],
+          ["I","{{jo}}","{{soc}}"],
+          ["you (one friend)","{{tu}}","{{ets}}"],
+          ["he, she","{{ell}}, {{ella}}","{{és}}"],
+          ["you (polite)","{{vostè}}","{{és}}"],
+          ["we","{{nosaltres}}","{{som}}"],
+          ["you (more than one)","{{vosaltres}}","{{sou}}"],
+          ["they","{{ells}}, {{elles}}","{{són}}"],
+          ["you (polite, more than one)","{{vostès}}","{{són}}"]
+        ] },
+        {"p":"**{{tu}} or {{vostè}}?** {{tu}} is for friends, family, children and people your age, and it's what Catalans use most. {{vostè}} is the polite “you”, for older people and formal moments, and it takes the verb of “he, she”: {{Vostè és de Lleida?}} “Are you from Lleida?”."},
+        {"term":"adjective","means":"a word that describes a person or a thing: tall, nice, new."},
+        {"p":"**Describing a man or a woman.** Adjectives change to match the person. Most add {{-a}} for a woman: {{alt}} → {{alta}} “tall”, {{simpàtic}} → {{simpàtica}} “nice”. Many that end in {{-e}} stay the same: {{jove}} “young”, {{amable}} “kind”. For more than one, add {{-s}}, and for women change {{-a}} to {{-es}}: {{Són alts.}} “They're tall (men, or a mixed group).” {{Són altes.}} “They're tall (women).”"},
+        {"p":"**Names take an article.** In everyday Catalan a name has a little word in front: {{en}} for a man, {{la}} for a woman, and {{l'}} for anyone whose name starts with a vowel: {{en Jordi}}, {{la Clara}}, {{l'Anna}}, {{l'Oriol}}. You leave it out when you speak to the person: {{Hola, Clara!}}"},
+        { "ex": [
+          {"t":"Som de Manchester.","tr":"We're from Manchester."},
+          {"t":"La Clara és molt simpàtica.","tr":"Clara is very nice."},
+          {"t":"En Pere i en Joan són alts.","tr":"Pere and Joan are tall."},
+          {"t":"Vosaltres sou d'aquí?","tr":"Are you guys from here?"},
+          {"t":"L'Anna és professora.","tr":"Anna is a teacher.","note":"no word for “a” before a job"},
+          {"t":"Vostè és el senyor Puig?","tr":"Are you Mr. Puig?","note":"the polite {{vostè}}, with {{és}}"}
+        ] },
+        {"tip":"{{jo}} “I” has a small letter, unlike English “I”. In Mallorca, and in some formal writing, you'll see {{na}} instead of {{la}} before a woman's name: {{na Maria}}."}
+      ],
+      "mistakes": [
+        {"wrong":"La Clara és simpàtic.","right":"La Clara és simpàtica.","tr":"Clara is nice.","why":"Clara is a woman: the adjective takes {{-a}}."},
+        {"wrong":"L'Anna és una professora.","right":"L'Anna és professora.","tr":"Anna is a teacher.","why":"After {{ser}}, a job has no “a”: {{és professora}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Nosaltres ___ amics.","tr":"We're friends.","options":["som","sou","són"],"answer":0,"why":"{{nosaltres}} “we” goes with {{som}}. {{sou}} is for {{vosaltres}}, {{són}} for {{ells}}."},
+        {"type":"choice","q":"Which one is about a woman?","options":["{{És molt alta.}}","{{És molt alt.}}"],"answer":0,"why":"{{alta}}, with {{-a}}, describes a woman."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ Jordi és de Girona.","tr":"Jordi is from Girona.","options":["En","La","L'"],"answer":0,"why":"A man's name starting with a consonant: {{en}}."},
+        {"type":"dialogue","q":"Your friend looks at your photos. Choose your replies.","lines":[{"who":"Friend","t":"Qui són aquests?","tr":"Who are these people?"},{"options":["Són la Marta i l'Àlex.","Som la Marta i l'Àlex."],"answer":0,"why":"“They are”: {{són}}. ({{som}} is “we are”.)"},{"who":"Friend","t":"I com són?","tr":"And what are they like?"},{"options":["Són molt simpàtics.","És molt simpàtics."],"answer":0,"why":"Two people: {{són}}, and the adjective in the plural, {{simpàtics}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Clara is very nice.","words":["La Clara","és","molt","simpàtica."]},
+        {"type":"say","q":"Ask a group of friends: “Where are you from?”","answer":"D'on sou?","from":"say-who-you-are"},
+        {"type":"free","q":"Your turn: describe a friend or someone in your family. Say where they're from and what they're like.","answers":[{"t":"La Sarah és d'Escòcia. És alta i molt divertida.","tr":"Sarah is from Scotland. She's tall and very funny."},{"t":"En Mike i en Dan són de Toronto. Són molt simpàtics.","tr":"Mike and Dan are from Toronto. They're very nice."}]}
+      ]
+    },
+    {
+      "id": "name-things",
+      "unit": 1,
+      "level": "A1",
+      "title": "Name things: “the”, “a” and more than one",
+      "summary": "Name the things around you, one or many: “the keys”, “a table”, “two beers”.",
+      "topic": "Masculine and feminine; {{el, la, l', els, les}} “the”; {{un, una, uns, unes}}; plurals; {{dos}}, {{dues}}",
+      "blocks": [
+        {"goal":{"t":"Dos cafès i una aigua, si us plau.","tr":"Two coffees and a water, please."}},
+        {"term":"gender","means":"whether a noun is masculine or feminine. In Catalan every noun has one, even things, and the words around it change to match."},
+        {"p":"**Masculine and feminine.** {{el llibre}} “the book” is masculine, {{la taula}} “the table” is feminine. There's no logic to it, but there's a strong hint: nouns ending in {{-a}} are nearly always feminine ({{la casa}} “the house”, {{la porta}} “the door”). A few aren't: {{el dia}} “the day” and {{el pa}} “the bread” are masculine. Nouns with other endings can be either: {{el cotxe}} “the car”, but {{la clau}} “the key”."},
+        {"term":"article","means":"a little word before a noun: “the” or “a”."},
+        { "table": [
+          ["","masculine","feminine"],
+          ["the","{{el llibre}} the book","{{la taula}} the table"],
+          ["the, before a vowel","{{l'home}} the man","{{l'hora}} the time"],
+          ["the, more than one","{{els llibres}} the books","{{les taules}} the tables"],
+          ["a","{{un llibre}} a book","{{una taula}} a table"],
+          ["some, more than one","{{uns amics}} some friends","{{unes amigues}} some (female) friends"]
+        ] },
+        {"p":"**{{l'}}.** Before a vowel, or an {{h}} (always silent in Catalan), {{el}} and {{la}} both become {{l'}}: {{l'aigua}} “the water”, {{l'home}} “the man”. {{els}}, {{les}}, {{un}} and {{una}} never change."},
+        {"term":"plural","means":"the form of a word for more than one: books, tables. The form for one is the singular."},
+        {"p":"**More than one.** Most nouns add {{-s}}: {{el cotxe}} → {{els cotxes}}, {{el cafè}} → {{els cafès}}. A final {{-a}} becomes {{-es}}: {{la casa}} → {{les cases}}, {{la cervesa}} → {{les cerveses}}; sometimes the spelling shifts to keep the sound, as in {{amiga}} → {{amigues}}. Masculine nouns ending in {{-s}} add {{-os}}: {{el gos}} → {{els gossos}} “the dogs”. And nouns ending in a stressed vowel add {{-ns}}: {{l'entrepà}} → {{els entrepans}} “the sandwiches”."},
+        {"p":"**One and two.** “One” and “two” have a feminine: {{un cafè}}, {{una aigua}}; {{dos cafès}}, {{dues cerveses}}. From three on, numbers don't change: {{tres cafès}}, {{tres cerveses}}."},
+        { "ex": [
+          {"t":"El pa és molt bo.","tr":"The bread is very good.","note":"{{pa}} ends in {{-a}} but is masculine"},
+          {"t":"Les claus són aquí.","tr":"The keys are here."},
+          {"t":"L'hotel és nou.","tr":"The hotel is new."},
+          {"t":"Dues cerveses, si us plau.","tr":"Two beers, please."},
+          {"t":"Són uns amics de la Clara.","tr":"They're some friends of Clara's."},
+          {"t":"Els gossos són molt bonics.","tr":"The dogs are very cute."}
+        ] },
+        {"tip":"Learn each noun with its article, {{el pa}}, {{la llet}} “the milk”, {{la nit}} “the night”: the article tells you its gender, and its gender changes the words around it."}
+      ],
+      "mistakes": [
+        {"wrong":"Dos cerveses, si us plau.","right":"Dues cerveses, si us plau.","tr":"Two beers, please.","why":"{{cervesa}} is feminine, so “two” is {{dues}}."},
+        {"wrong":"La home és alt.","right":"L'home és alt.","tr":"The man is tall.","why":"Before a vowel or a silent {{h}}, “the” is {{l'}}."},
+        {"wrong":"Les cotxes són nous.","right":"Els cotxes són nous.","tr":"The cars are new.","why":"{{cotxe}} is masculine, so “the” in the plural is {{els}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ casa és molt gran.","tr":"The house is very big.","options":["La","El","L'"],"answer":0,"why":"{{casa}} ends in {{-a}}: feminine, {{la}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Vull dues ___, si us plau.","tr":"I'd like two beers, please.","options":["cerveses","cervesa","cervesas"],"answer":0,"why":"A final {{-a}} becomes {{-es}} in the plural: {{cerveses}}."},
+        {"type":"choice","q":"Which one is “the water”?","options":["{{l'aigua}}","{{la aigua}}","{{el aigua}}"],"answer":0,"why":"Before a vowel, {{la}} becomes {{l'}}."},
+        {"type":"choice","q":"{{el gos}} is “the dog”. “The dogs” is…","options":["{{els gossos}}","{{les gosses}}","{{els gos}}"],"answer":0,"why":"A masculine noun ending in {{-s}} adds {{-os}}: {{els gossos}}."},
+        {"type":"order","q":"Put the words in order.","tr":"The keys are here.","words":["Les","claus","són","aquí."]},
+        {"type":"say","q":"Order two coffees and a beer, politely.","answer":"Voldria dos cafès i una cervesa, si us plau.","from":"order-in-a-cafe"},
+        {"type":"free","q":"Your turn: you're ordering for a group of friends. Ask for two of one thing and three of another.","answers":[{"t":"Dues cerveses i tres cafès, si us plau.","tr":"Two beers and three coffees, please."},{"t":"Dos entrepans de formatge i tres aigües, si us plau.","tr":"Two cheese sandwiches and three waters, please."}]}
+      ]
+    },
+    {
+      "id": "ask-questions",
+      "unit": 1,
+      "level": "A1",
+      "title": "Ask questions",
+      "summary": "Ask who, what, where, when, how and why, and ask yes-or-no questions just with your voice.",
+      "topic": "Question words: {{què, qui, on, quan, com, per què, quant, quin}}; questions by intonation; {{oi?}}",
+      "blocks": [
+        {"goal":{"t":"On vius? I què fas?","tr":"Where do you live? And what do you do?"}},
+        {"dialog":[{"who":"Marta","t":"Hola! Com et dius?","tr":"Hi! What's your name?"},{"who":"Ben","t":"Ben. I tu?","tr":"Ben. And you?"},{"who":"Marta","t":"Marta. Ets anglès?","tr":"Marta. Are you English?"},{"who":"Ben","t":"No, soc irlandès, de Dublín.","tr":"No, I'm Irish, from Dublin."},{"who":"Marta","t":"I què fas a Barcelona?","tr":"And what are you doing in Barcelona?"},{"who":"Ben","t":"Estudio a la universitat. I tu, on vius?","tr":"I'm studying at the university. And you, where do you live?"},{"who":"Marta","t":"A Gràcia, a prop d'aquí.","tr":"In Gràcia, near here."}]},
+        {"p":"**Yes or no.** A yes-or-no question is the same sentence said with your voice going up: {{Ets anglès.}} “You're English.” → {{Ets anglès?}} “Are you English?”. Nothing moves, and there's no word like “do”: {{Parles català?}} “Do you speak Catalan?”. In speech you'll often hear {{que}} at the start, just to signal a question: {{Que ets anglès?}}. And {{oi?}} at the end means “right?”: {{Ets d'aquí, oi?}} “You're from here, right?”."},
+        { "table": [
+          ["Catalan","English","example"],
+          ["{{què}}","what","{{Què vols?}} What would you like?"],
+          ["{{qui}}","who","{{Qui és?}} Who is it?"],
+          ["{{on}}","where","{{On vius?}} Where do you live?"],
+          ["{{quan}}","when","{{Quan arribes?}} When do you arrive?"],
+          ["{{com}}","how","{{Com va?}} How's it going?"],
+          ["{{per què}}","why","{{Per què estudies català?}} Why are you learning Catalan?"],
+          ["{{quant}}","how much","{{Quant costa?}} How much is it?"],
+          ["{{quin}}, {{quina}}","which, what","{{Quin dia és avui?}} What day is it today?"]
+        ] },
+        {"p":"**The question word comes first**, then the verb, and the person (if you say who) after it: {{On viu la Marta?}} “Where does Marta live?”. A little word like “from” or “with” goes in front of the question word, never at the end: {{D'on ets?}} “Where are you from?”, {{Amb qui vius?}} “Who do you live with?”."},
+        {"p":"**Accents.** {{què}} “what” has an accent, which tells it apart from {{que}} “that”. “Why” is two words, {{per què}}, while the answer “because” is one: {{perquè}}."},
+        { "ex": [
+          {"t":"Què fas aquí?","tr":"What are you doing here?"},
+          {"t":"Qui és aquell noi?","tr":"Who's that guy?"},
+          {"t":"On és el lavabo?","tr":"Where's the restroom?"},
+          {"t":"Quan és la festa?","tr":"When's the party?"},
+          {"t":"Per què no vens?","tr":"Why don't you come?","note":"{{vens}} “you come”"},
+          {"t":"Amb qui vius?","tr":"Who do you live with?"},
+          {"t":"Parles anglès?","tr":"Do you speak English?"}
+        ] },
+        {"tip":"{{Com?}} on its own means “Sorry?”, when you didn't catch something. More polite: {{Perdona, pots repetir?}} “Sorry, can you say that again?”."}
+      ],
+      "mistakes": [
+        {"wrong":"Qui vius amb?","right":"Amb qui vius?","tr":"Who do you live with?","why":"A word like {{amb}} “with” goes in front of the question word, never at the end."},
+        {"wrong":"Que vols?","right":"Què vols?","tr":"What would you like?","why":"“What” is {{què}}, with an accent."},
+        {"wrong":"Per què? Per què és tard.","right":"Per què? Perquè és tard.","tr":"Why? Because it's late.","why":"“Why” is {{per què}}, two words; “because” is {{perquè}}, one word."}
+      ],
+      "practice": [
+        {"type":"choice","q":"You want to know where someone lives. You ask…","options":["{{On vius?}}","{{Quan vius?}}","{{Com vius?}}"],"answer":0,"why":"{{on}} is “where”; {{quan}} is “when”, {{com}} “how”."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ és aquell noi?","tr":"Who's that guy?","options":["Qui","Què","Quin"],"answer":0,"why":"{{qui}} is “who”, for people."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ costa el pa?","tr":"How much is the bread?","options":["Quant","Quan","Com"],"answer":0,"why":"{{quant}} is “how much”; {{quan}}, without the {{t}}, is “when”."},
+        {"type":"order","q":"Put the words in order.","tr":"Who do you live with?","words":["Amb","qui","vius?"]},
+        {"type":"dialogue","q":"At a language exchange, someone asks about you. Choose your replies.","lines":[{"who":"Pol","t":"Ets americà, oi?","tr":"You're American, right?"},{"options":["Sí, soc de Seattle. I tu, d'on ets?","Sí, soc de Seattle. I tu, on ets de?"],"answer":0,"why":"“From” goes in front of “where”: {{d'on}}."},{"who":"Pol","t":"Soc d'aquí, de Barcelona.","tr":"I'm from here, from Barcelona."},{"options":["I on vius?","I quan vius?"],"answer":0,"why":"{{on}} “where”: “And where do you live?”. {{quan}} is “when”."}]},
+        {"type":"say","q":"Ask an older man, politely: “Are you from here?”","answer":"Vostè és d'aquí?","from":"describe-people"},
+        {"type":"free","q":"Your turn: write two or three questions for someone you've just met.","answers":[{"t":"Com et dius? D'on ets? On vius?","tr":"What's your name? Where are you from? Where do you live?"},{"t":"Què fas? Per què estudies català?","tr":"What do you do? Why are you learning Catalan?"}]}
+      ]
+    }
+  ]
+}
