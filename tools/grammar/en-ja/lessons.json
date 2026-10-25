@@ -1157,6 +1157,272 @@
         {"type":"say","q":"You see a colleague leaving. Ask politely: “Where are you off to?”","answer":"どこへ行くんですか。","r":"Doko e iku n desu ka."},
         {"type":"free","q":"Your turn: you're late for class. Explain why to your teacher, with {{んです|n desu}}.","answers":[{"t":"すみません、電車が遅れたんです。","r":"Sumimasen, densha ga okureta n desu.","tr":"I'm sorry, the train was late."},{"t":"すみません、朝、気分が悪かったんです。","r":"Sumimasen, asa, kibun ga warukatta n desu.","tr":"I'm sorry, I felt unwell this morning."}]}
       ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what you can do",
+      "summary": "Talk about your abilities and what's possible, and say what your hobby is: “I can play the piano.” “You can pay by card here.”",
+      "topic": "dictionary form + {{ことができます|koto ga dekimasu}}; noun + {{ができます|ga dekimasu}}; {{趣味は～ことです|shumi wa … koto desu}}",
+      "blocks": [
+        {"goal":{"t":"私はピアノを弾くことができます。","r":"Watashi wa piano o hiku koto ga dekimasu.","tr":"I can play the piano."}},
+        {"dialog":[{"who":"Interviewer","t":"日本語ができますか。","r":"Nihongo ga dekimasu ka.","tr":"Do you speak Japanese?"},{"who":"You","t":"はい、少しできます。漢字も少し読むことができます。","r":"Hai, sukoshi dekimasu. Kanji mo sukoshi yomu koto ga dekimasu.","tr":"Yes, a little. I can read a few kanji too."},{"who":"Interviewer","t":"車の運転ができますか。","r":"Kuruma no unten ga dekimasu ka.","tr":"Can you drive?"},{"who":"You","t":"はい、できます。","r":"Hai, dekimasu.","tr":"Yes, I can."},{"who":"Interviewer","t":"趣味は何ですか。","r":"Shumi wa nan desu ka.","tr":"What are your hobbies?"},{"who":"You","t":"料理をすることです。","r":"Ryōri o suru koto desu.","tr":"Cooking."}]},
+        {"p":"**{{できます|dekimasu}}: can.** With a noun: noun + {{が|ga}} + {{できます|dekimasu}}: {{日本語ができます|Nihongo ga dekimasu}} “I can speak Japanese”, {{テニスができます|tenisu ga dekimasu}} “I can play tennis”. As with {{好き|suki}} and {{わかります|wakarimasu}}, the thing takes {{が|ga}}."},
+        {"p":"**With a verb: dictionary form + {{ことができます|koto ga dekimasu}}.** {{こと|koto}} turns the verb into a noun, “the doing of…”, and then it works like any noun: {{泳ぐことができます|oyogu koto ga dekimasu}} “I can swim”, word for word “swimming is possible”. It also says what is possible or allowed: {{ここでカードで払うことができます|koko de kādo de harau koto ga dekimasu}} “You can pay by card here”."},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["noun","{{運転ができます|unten ga dekimasu}}","I can drive."],
+          ["verb","{{漢字を読むことができます|kanji o yomu koto ga dekimasu}}","I can read kanji."],
+          ["can't","{{泳ぐことができません|oyogu koto ga dekimasen}}","I can't swim."],
+          ["couldn't","{{寝ることができませんでした|neru koto ga dekimasen deshita}}","I couldn't sleep."]
+        ] },
+        {"p":"**Hobbies: {{趣味は～ことです|shumi wa … koto desu}}.** {{こと|koto}} again makes a verb into a noun: {{趣味は写真を撮ることです|shumi wa shashin o toru koto desu}} “My hobby is taking photos”. A shorter way to say “can” comes later ({{泳げます|oyogemasu}}); {{ことができます|koto ga dekimasu}} is always correct, if a little formal."},
+        { "ex": [
+          {"t":"私は泳ぐことができます。","r":"Watashi wa oyogu koto ga dekimasu.","tr":"I can swim."},
+          {"t":"日本語が少しできます。","r":"Nihongo ga sukoshi dekimasu.","tr":"I can speak a little Japanese."},
+          {"t":"このカードで払うことができますか。","r":"Kono kādo de harau koto ga dekimasu ka.","tr":"Can I pay with this card?"},
+          {"t":"昨日の夜は暑くて、寝ることができませんでした。","r":"Kinō no yoru wa atsukute, neru koto ga dekimasen deshita.","tr":"It was hot last night, and I couldn't sleep."},
+          {"t":"図書館で本を借りることができます。","r":"Toshokan de hon o kariru koto ga dekimasu.","tr":"You can borrow books at the library."},
+          {"t":"趣味は映画を見ることです。","r":"Shumi wa eiga o miru koto desu.","tr":"My hobby is watching movies."}
+        ] },
+        {"tip":"If you say {{日本語ができます|Nihongo ga dekimasu}}, people will probably answer {{上手ですね|jōzu desu ne}}. Remember the modest reply: {{まだまだです|madamada desu}}."}
+      ],
+      "mistakes": [
+        {"wrong":"泳ぐができます。","right":"泳ぐことができます。","rw":"Oyogu ga dekimasu.","rr":"Oyogu koto ga dekimasu.","tr":"I can swim.","why":"A verb needs {{こと|koto}} before {{ができます|ga dekimasu}}: {{泳ぐこと|oyogu koto}} “swimming”."},
+        {"wrong":"泳ぎますことができます。","right":"泳ぐことができます。","rw":"Oyogimasu koto ga dekimasu.","rr":"Oyogu koto ga dekimasu.","tr":"I can swim.","why":"Use the dictionary form before {{こと|koto}}, not the ます form."},
+        {"wrong":"日本語をできます。","right":"日本語ができます。","rw":"Nihongo o dekimasu.","rr":"Nihongo ga dekimasu.","tr":"I can speak Japanese.","why":"{{できます|dekimasu}} takes {{が|ga}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"私はピアノを弾く___ができます。","r":"Watashi wa piano o hiku ___ ga dekimasu.","tr":"I can play the piano.","options":["こと","の","を"],"rs":["koto","no","o"],"answer":0,"why":"Verb + {{こと|koto}} + {{ができます|ga dekimasu}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"日本語___少しできます。","r":"Nihongo ___ sukoshi dekimasu.","tr":"I can speak a little Japanese.","options":["が","を","で"],"rs":["ga","o","de"],"answer":0,"why":"{{できます|dekimasu}} takes {{が|ga}}."},
+        {"type":"choice","q":"“I can read kanji” is…","options":["{{漢字を読むことができます。|Kanji o yomu koto ga dekimasu.}}","{{漢字を読みますことができます。|Kanji o yomimasu koto ga dekimasu.}}","{{漢字を読むができます。|Kanji o yomu ga dekimasu.}}"],"answer":0,"why":"Dictionary form + {{ことができます|koto ga dekimasu}}."},
+        {"type":"dialogue","q":"At a shop: choose your replies.","lines":[{"options":["すみません、このカードで払うことができますか。","すみません、このカードで払いますことができますか。"],"rs":["Sumimasen, kono kādo de harau koto ga dekimasu ka.","Sumimasen, kono kādo de haraimasu koto ga dekimasu ka."],"answer":0,"why":"Dictionary form before {{こと|koto}}."},{"who":"Shop assistant","t":"申し訳ありません。現金だけです。","r":"Mōshiwake arimasen. Genkin dake desu.","tr":"I'm very sorry. Cash only."},{"options":["そうですか。じゃ、現金で払います。","そうですか。じゃ、現金に払います。"],"rs":["Sō desu ka. Ja, genkin de haraimasu.","Sō desu ka. Ja, genkin ni haraimasu."],"answer":0,"why":"“With, by means of” is {{で|de}}, as in {{電車で|densha de}}."}],"from":"say-where-you-go"},
+        {"type":"order","q":"Put the words in order.","tr":"My hobby is watching movies.","words":["趣味は","映画を","見ることです。"],"rs":["Shumi wa","eiga o","miru koto desu."],"why":"{{趣味は映画を見ることです。|Shumi wa eiga o miru koto desu.}}"},
+        {"type":"say","q":"How do you say “I can't drive.”? (driving: {{運転|unten}})","answer":"運転ができません。","r":"Unten ga dekimasen.","from":"say-what-you-like"},
+        {"type":"free","q":"Your turn: say two things you can do, one thing you can't, and what your hobby is.","answers":[{"t":"私は泳ぐことができます。ギターも少しできます。でも、運転はできません。趣味は旅行です。","r":"Watashi wa oyogu koto ga dekimasu. Gitā mo sukoshi dekimasu. Demo, unten wa dekimasen. Shumi wa ryokō desu.","tr":"I can swim. I can play the guitar a little too. But I can't drive. My hobby is travelling."},{"t":"英語とスペイン語ができます。趣味は絵をかくことです。","r":"Eigo to Supeingo ga dekimasu. Shumi wa e o kaku koto desu.","tr":"I can speak English and Spanish. My hobby is drawing."}]}
+      ]
+    },
+    {
+      "id": "talk-about-plans",
+      "unit": 6,
+      "level": "A2",
+      "title": "Talk about your plans",
+      "summary": "Say what you intend to do, what's scheduled, and what you'll do before and after: “I'm planning to go to Hokkaido in the summer.”",
+      "topic": "{{つもりです|tsumori desu}}; {{予定です|yotei desu}}; {{前に|mae ni}} and {{後で|ato de}}",
+      "blocks": [
+        {"goal":{"t":"夏休みに北海道へ行くつもりです。","r":"Natsuyasumi ni Hokkaidō e iku tsumori desu.","tr":"I'm planning to go to Hokkaido in the summer holidays."}},
+        {"dialog":[{"who":"Yui","t":"卒業してから、何をするつもりですか。","r":"Sotsugyō shite kara, nani o suru tsumori desu ka.","tr":"What are you planning to do after you graduate?"},{"who":"Tom","t":"日本の会社で働くつもりです。","r":"Nihon no kaisha de hataraku tsumori desu.","tr":"I'm planning to work for a Japanese company."},{"who":"Yui","t":"すごいですね。国へは帰らないんですか。","r":"Sugoi desu ne. Kuni e wa kaeranai n desu ka.","tr":"Wow. Aren't you going back to your country?"},{"who":"Tom","t":"来月、一度帰る予定です。働く前に、家族に会いたいんです。","r":"Raigetsu, ichido kaeru yotei desu. Hataraku mae ni, kazoku ni aitai n desu.","tr":"I'm due to go home once next month. I want to see my family before I start work."}]},
+        {"p":"**I'm planning to…: dictionary form + {{つもりです|tsumori desu}}.** {{行くつもりです|iku tsumori desu}} “I intend to go”. For “I'm not planning to”, use the ない form: {{行かないつもりです|ikanai tsumori desu}}."},
+        {"p":"**It's scheduled: dictionary form or noun + {{予定です|yotei desu}}.** {{予定|yotei}} is for fixed plans and timetables, often decided by others: {{会議は三時に始まる予定です|kaigi wa san-ji ni hajimaru yotei desu}} “The meeting is due to start at three”. With a noun, add {{の|no}}: {{明日は出張の予定です|ashita wa shutchō no yotei desu}} “I'm due to go on a business trip tomorrow”."},
+        {"p":"**Before: dictionary form + {{前に|mae ni}}.** {{寝る前に|neru mae ni}} “before going to bed”. Even in a story about the past, the verb before {{前に|mae ni}} stays in the dictionary form: {{日本へ来る前に、日本語を勉強しました|Nihon e kuru mae ni, Nihongo o benkyō shimashita}} “Before I came to Japan, I studied Japanese”."},
+        {"p":"**After: plain past + {{後で|ato de}}.** {{仕事が終わった後で|shigoto ga owatta ato de}} “after work finishes”. It's close to て-form + {{から|kara}}, which is more common in everyday speech."},
+        { "table": [
+          ["","with a verb","with a noun"],
+          ["before","dictionary form + {{前に|mae ni}}: {{寝る前に|neru mae ni}}","{{の前に|no mae ni}}: {{食事の前に|shokuji no mae ni}}"],
+          ["after","plain past + {{後で|ato de}}: {{食べた後で|tabeta ato de}}","{{の後で|no ato de}}: {{授業の後で|jugyō no ato de}}"]
+        ] },
+        { "ex": [
+          {"t":"今年はお酒を飲まないつもりです。","r":"Kotoshi wa osake o nomanai tsumori desu.","tr":"I'm not going to drink alcohol this year."},
+          {"t":"飛行機は十時に着く予定です。","r":"Hikōki wa jū-ji ni tsuku yotei desu.","tr":"The plane is due to arrive at ten."},
+          {"t":"寝る前に、歯を磨きます。","r":"Neru mae ni, ha o migakimasu.","tr":"I brush my teeth before I go to bed."},
+          {"t":"仕事が終わった後で、ジムへ行きます。","r":"Shigoto ga owatta ato de, jimu e ikimasu.","tr":"I go to the gym after work."},
+          {"t":"授業の後で、先生に質問しました。","r":"Jugyō no ato de, sensei ni shitsumon shimashita.","tr":"After class, I asked the teacher a question."},
+          {"t":"日本へ来る前に、日本語を勉強しました。","r":"Nihon e kuru mae ni, Nihongo o benkyō shimashita.","tr":"I studied Japanese before I came to Japan."}
+        ] },
+        {"tip":"{{つもり|tsumori}} is for your own intentions. Asking a superior {{何をするつもりですか|nani o suru tsumori desu ka}} can sound like checking up on them; {{ご予定は？|go-yotei wa?}} “What are your plans?” is softer."}
+      ],
+      "mistakes": [
+        {"wrong":"日本へ行きますつもりです。","right":"日本へ行くつもりです。","rw":"Nihon e ikimasu tsumori desu.","rr":"Nihon e iku tsumori desu.","tr":"I'm planning to go to Japan.","why":"Use the dictionary form before {{つもり|tsumori}}."},
+        {"wrong":"日本へ来た前に、日本語を勉強しました。","right":"日本へ来る前に、日本語を勉強しました。","rw":"Nihon e kita mae ni, Nihongo o benkyō shimashita.","rr":"Nihon e kuru mae ni, Nihongo o benkyō shimashita.","tr":"I studied Japanese before I came to Japan.","why":"Before {{前に|mae ni}}, the verb is always in the dictionary form, even about the past."},
+        {"wrong":"食べる後で、散歩します。","right":"食べた後で、散歩します。","rw":"Taberu ato de, sanpo shimasu.","rr":"Tabeta ato de, sanpo shimasu.","tr":"After I eat, I go for a walk.","why":"Before {{後で|ato de}}, use the plain past: {{食べた後で|tabeta ato de}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"来年、日本で働く___です。","r":"Rainen, Nihon de hataraku ___ desu.","tr":"I'm planning to work in Japan next year.","options":["つもり","こと","まえ"],"rs":["tsumori","koto","mae"],"answer":0,"why":"An intention: {{つもりです|tsumori desu}}."},
+        {"type":"fill","q":"Choose the missing words.","t":"寝る___、本を読みます。","r":"Neru ___, hon o yomimasu.","tr":"I read a book before I go to bed.","options":["前に","後で","から"],"rs":["mae ni","ato de","kara"],"answer":0,"why":"Dictionary form + {{前に|mae ni}}: “before going to bed”."},
+        {"type":"choice","q":"“After I ate, I went for a walk” is…","options":["{{食べた後で、散歩しました。|Tabeta ato de, sanpo shimashita.}}","{{食べる後で、散歩しました。|Taberu ato de, sanpo shimashita.}}","{{食べた前に、散歩しました。|Tabeta mae ni, sanpo shimashita.}}"],"answer":0,"why":"Plain past + {{後で|ato de}}."},
+        {"type":"dialogue","q":"A friend asks about your weekend plans. Choose your replies.","lines":[{"who":"Friend","t":"週末、何をするつもりですか。","r":"Shūmatsu, nani o suru tsumori desu ka.","tr":"What are you planning to do at the weekend?"},{"options":["友達と山に登るつもりです。","友達と山に登りますつもりです。"],"rs":["Tomodachi to yama ni noboru tsumori desu.","Tomodachi to yama ni noborimasu tsumori desu."],"answer":0,"why":"Dictionary form before {{つもり|tsumori}}."},{"who":"Friend","t":"いいですね。何時に出かけますか。","r":"Ii desu ne. Nan-ji ni dekakemasu ka.","tr":"Nice. What time are you setting off?"},{"options":["朝ご飯を食べてから、出かけます。","朝ご飯を食べるから、出かけます。"],"rs":["Asagohan o tabete kara, dekakemasu.","Asagohan o taberu kara, dekakemasu."],"answer":0,"why":"“After eating” is て-form + {{から|kara}}. {{食べるから|taberu kara}} would mean “because I eat”."}],"from":"link-actions"},
+        {"type":"order","q":"Put the words in order.","tr":"I brush my teeth before I go to bed.","words":["寝る","前に、","歯を","磨きます。"],"rs":["Neru","mae ni,","ha o","migakimasu."],"why":"{{寝る前に、歯を磨きます。|Neru mae ni, ha o migakimasu.}}"},
+        {"type":"say","q":"How do you say “I'm not planning to go back to my country.”?","answer":"国へ帰らないつもりです。","r":"Kuni e kaeranai tsumori desu.","from":"talk-casually"},
+        {"type":"free","q":"Your turn: what are you planning to do this year? And what do you do before you go to bed?","answers":[{"t":"今年は日本語の試験を受けるつもりです。寝る前に、いつも漢字を勉強します。","r":"Kotoshi wa Nihongo no shiken o ukeru tsumori desu. Neru mae ni, itsumo kanji o benkyō shimasu.","tr":"This year I'm planning to take a Japanese exam. Before bed, I always study kanji."},{"t":"夏に引っ越すつもりです。寝る前に、本を読みます。","r":"Natsu ni hikkosu tsumori desu. Neru mae ni, hon o yomimasu.","tr":"I'm planning to move house in the summer. I read before I go to bed."}]}
+      ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what you have (never) done",
+      "summary": "Talk about your experiences, and ask about other people's: “Have you ever climbed Mt Fuji?” “No, never.”",
+      "topic": "plain past + {{ことがあります|koto ga arimasu}}; {{一度も|ichido mo}} + negative",
+      "blocks": [
+        {"goal":{"t":"富士山に登ったことがありますか。","r":"Fujisan ni nobotta koto ga arimasu ka.","tr":"Have you ever climbed Mt Fuji?"}},
+        {"dialog":[{"who":"Yui","t":"納豆を食べたことがありますか。","r":"Nattō o tabeta koto ga arimasu ka.","tr":"Have you ever eaten natto?"},{"who":"Tom","t":"はい、一度あります。","r":"Hai, ichido arimasu.","tr":"Yes, once."},{"who":"Yui","t":"どうでしたか。","r":"Dō deshita ka.","tr":"How was it?"},{"who":"Tom","t":"ちょっと苦手でした。ゆいさんは外国に行ったことがありますか。","r":"Chotto nigate deshita. Yui-san wa gaikoku ni itta koto ga arimasu ka.","tr":"Not really my thing. Have you ever been abroad, Yui?"},{"who":"Yui","t":"いいえ、一度もありません。でも、いつかイギリスへ行きたいです。","r":"Iie, ichido mo arimasen. Demo, itsuka Igirisu e ikitai desu.","tr":"No, never. But I'd like to go to Britain someday."}]},
+        {"p":"**Have you ever…?: plain past + {{ことがあります|koto ga arimasu}}.** Word for word “there is the fact that I did…”: {{富士山に登ったことがあります|Fujisan ni nobotta koto ga arimasu}} “I've climbed Mt Fuji (at some point)”. The verb before {{こと|koto}} is always in the plain past, the ta-form."},
+        {"p":"**Never.** {{ことがありません|koto ga arimasen}} “I've never…”. {{一度も|ichido mo}} “not even once” makes it stronger: {{一度も行ったことがありません|ichido mo itta koto ga arimasen}}. Short answers use just {{あります|arimasu}}: {{はい、あります|hai, arimasu}}, {{いいえ、ありません|iie, arimasen}}. How many times: {{一度|ichido}} or {{一回|ikkai}} “once”, {{二回|ni-kai}} “twice”."},
+        {"p":"**An experience, not one event.** {{昨日、すしを食べました|kinō, sushi o tabemashita}} says what you did yesterday. {{すしを食べたことがあります|sushi o tabeta koto ga arimasu}} says that sushi is part of your experience. So {{ことがある|koto ga aru}} never goes with a time like {{昨日|kinō}}."},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["experience","{{日本へ行ったことがあります。|Nihon e itta koto ga arimasu.}}","I've been to Japan."],
+          ["never","{{日本へ行ったことがありません。|Nihon e itta koto ga arimasen.}}","I've never been to Japan."],
+          ["question","{{日本へ行ったことがありますか。|Nihon e itta koto ga arimasu ka.}}","Have you ever been to Japan?"],
+          ["one past event","{{去年、日本へ行きました。|Kyonen, Nihon e ikimashita.}}","I went to Japan last year."]
+        ] },
+        { "ex": [
+          {"t":"着物を着たことがあります。","r":"Kimono o kita koto ga arimasu.","tr":"I've worn a kimono."},
+          {"t":"一度も海外へ行ったことがありません。","r":"Ichido mo kaigai e itta koto ga arimasen.","tr":"I've never been abroad."},
+          {"t":"日本の映画を見たことがありますか。","r":"Nihon no eiga o mita koto ga arimasu ka.","tr":"Have you ever seen a Japanese movie?"},
+          {"t":"沖縄には二回行ったことがあります。","r":"Okinawa ni wa ni-kai itta koto ga arimasu.","tr":"I've been to Okinawa twice."},
+          {"t":"有名な人に会ったことがありますか。","r":"Yūmei na hito ni atta koto ga arimasu ka.","tr":"Have you ever met a famous person?"},
+          {"t":"はい、一度あります。","r":"Hai, ichido arimasu.","tr":"Yes, once."}
+        ] },
+        {"tip":"{{会います|aimasu}} “meet” takes {{に|ni}} for the person: {{田中さんに会いました|Tanaka-san ni aimashita}} “I met Mr Tanaka”."}
+      ],
+      "mistakes": [
+        {"wrong":"日本へ行くことがあります。","right":"日本へ行ったことがあります。","rw":"Nihon e iku koto ga arimasu.","rr":"Nihon e itta koto ga arimasu.","tr":"I've been to Japan.","why":"For experiences, the verb before {{こと|koto}} is in the plain past. ({{行くことがあります|iku koto ga arimasu}} means “I sometimes go”.)"},
+        {"wrong":"昨日、すしを食べたことがあります。","right":"昨日、すしを食べました。","rw":"Kinō, sushi o tabeta koto ga arimasu.","rr":"Kinō, sushi o tabemashita.","tr":"I had sushi yesterday.","why":"{{ことがある|koto ga aru}} is for experience in general; with a time like {{昨日|kinō}}, use the ordinary past."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"着物を着た___があります。","r":"Kimono o kita ___ ga arimasu.","tr":"I've worn a kimono.","options":["こと","の","もの"],"rs":["koto","no","mono"],"answer":0,"why":"Plain past + {{ことがあります|koto ga arimasu}}."},
+        {"type":"fill","q":"Choose the right form.","t":"富士山に___ことがありますか。","r":"Fujisan ni ___ koto ga arimasu ka.","tr":"Have you ever climbed Mt Fuji?","options":["登った","登る","登ります"],"rs":["nobotta","noboru","noborimasu"],"answer":0,"why":"Experiences take the plain past: {{登った|nobotta}}."},
+        {"type":"choice","q":"{{一度も行ったことがありません。|Ichido mo itta koto ga arimasen.}} means…","options":["I've never been there.","I went there once.","I've been there many times."],"answer":0,"why":"{{一度も|ichido mo}} + negative: “not even once”."},
+        {"type":"dialogue","q":"A friend asks about Japanese food. Choose your replies.","lines":[{"who":"Yui","t":"お好み焼きを食べたことがありますか。","r":"Okonomiyaki o tabeta koto ga arimasu ka.","tr":"Have you ever had okonomiyaki?"},{"options":["いいえ、一度もありません。","いいえ、一度もあります。"],"rs":["Iie, ichido mo arimasen.","Iie, ichido mo arimasu."],"answer":0,"why":"{{一度も|ichido mo}} goes with a negative."},{"who":"Yui","t":"じゃ、今度一緒に食べに行きませんか。","r":"Ja, kondo issho ni tabe ni ikimasen ka.","tr":"Then shall we go and have some together sometime?"},{"options":["いいですね。ぜひ行きたいです。","いいですね。ぜひ行ったことがあります。"],"rs":["Ii desu ne. Zehi ikitai desu.","Ii desu ne. Zehi itta koto ga arimasu."],"answer":0,"why":"“I'd love to go”: {{ぜひ行きたいです|zehi ikitai desu}}."}],"from":"say-what-you-want"},
+        {"type":"order","q":"Put the words in order.","tr":"I've been to Okinawa twice.","words":["沖縄には","二回","行ったことが","あります。"],"rs":["Okinawa ni wa","ni-kai","itta koto ga","arimasu."],"why":"{{沖縄には二回行ったことがあります。|Okinawa ni wa ni-kai itta koto ga arimasu.}}"},
+        {"type":"say","q":"How do you say “Have you ever worn a kimono?”","answer":"着物を着たことがありますか。","r":"Kimono o kita koto ga arimasu ka.","from":"chat-about-the-past"},
+        {"type":"free","q":"Your turn: say something interesting you've done, and something you've never done.","answers":[{"t":"アフリカへ行ったことがあります。でも、一度もスキーをしたことがありません。","r":"Afurika e itta koto ga arimasu. Demo, ichido mo sukī o shita koto ga arimasen.","tr":"I've been to Africa. But I've never been skiing."},{"t":"有名な歌手に会ったことがあります。納豆は食べたことがありません。","r":"Yūmei na kashu ni atta koto ga arimasu. Nattō wa tabeta koto ga arimasen.","tr":"I've met a famous singer. I've never eaten natto."}]}
+      ]
+    },
+    {
+      "id": "talk-about-weekends",
+      "unit": 6,
+      "level": "A2",
+      "title": "Give examples of what you do",
+      "summary": "Mention a few things you do, without listing everything: “At weekends I watch movies, go shopping, that kind of thing.”",
+      "topic": "{{～たり、～たりします|… tari, … tari shimasu}}",
+      "blocks": [
+        {"goal":{"t":"週末は映画を見たり、買い物をしたりします。","r":"Shūmatsu wa eiga o mitari, kaimono o shitari shimasu.","tr":"At weekends I watch movies, go shopping and so on."}},
+        {"dialog":[{"who":"Mr Kato","t":"休みの日は何をしていますか。","r":"Yasumi no hi wa nani o shite imasu ka.","tr":"What do you do on your days off?"},{"who":"You","t":"家で本を読んだり、友達と食事をしたりします。","r":"Ie de hon o yondari, tomodachi to shokuji o shitari shimasu.","tr":"I read at home, eat out with friends, things like that."},{"who":"Mr Kato","t":"そうですか。旅行は？","r":"Sō desu ka. Ryokō wa?","tr":"I see. What about travelling?"},{"who":"You","t":"時々します。去年の夏は、京都でお寺を見たり、着物を着たりしました。","r":"Tokidoki shimasu. Kyonen no natsu wa, Kyōto de otera o mitari, kimono o kitari shimashita.","tr":"Sometimes. Last summer I visited temples in Kyoto, wore a kimono and so on."}]},
+        {"p":"**A few examples: {{～たり、～たりします|… tari, … tari shimasu}}.** Take the plain past (ta-form), add {{り|ri}}, list two or three actions, and finish with {{します|shimasu}}: {{見たり、買い物をしたりします|mitari, kaimono o shitari shimasu}} “I watch movies, go shopping and so on”. It tells the listener these are examples, not the full list. The tense goes on the final {{します|shimasu}}: {{…したりしました|… shitari shimashita}} “I did things like…”."},
+        { "table": [
+          ["","ta-form","+ {{り|ri}}"],
+          ["watch","{{見た|mita}}","{{見たり|mitari}}"],
+          ["read","{{読んだ|yonda}}","{{読んだり|yondari}}"],
+          ["go","{{行った|itta}}","{{行ったり|ittari}}"],
+          ["do","{{した|shita}}","{{したり|shitari}}"]
+        ] },
+        {"p":"**Back and forth.** With opposite actions, it means “now this, now that”: {{行ったり来たりしています|ittari kitari shite imasu}} “going back and forth”, {{雨が降ったり止んだりしています|ame ga futtari yandari shite imasu}} “it keeps raining on and off”."},
+        {"p":"Compare the て-form: {{見て、買い物をして、帰りました|mite, kaimono o shite, kaerimashita}} tells everything you did, in order. {{見たり、買い物をしたりしました|mitari, kaimono o shitari shimashita}} gives a sample, in no particular order."},
+        { "ex": [
+          {"t":"夏休みは泳いだり、山に登ったりしました。","r":"Natsuyasumi wa oyoidari, yama ni nobottari shimashita.","tr":"In the summer holidays I swam, climbed mountains and so on."},
+          {"t":"日曜日は掃除をしたり、洗濯をしたりします。","r":"Nichiyōbi wa sōji o shitari, sentaku o shitari shimasu.","tr":"On Sundays I do the cleaning, the laundry, that kind of thing."},
+          {"t":"パーティーでは歌ったり、踊ったりしました。","r":"Pātī de wa utattari, odottari shimashita.","tr":"At the party we sang, danced and so on."},
+          {"t":"雨が降ったり止んだりしています。","r":"Ame ga futtari yandari shite imasu.","tr":"It keeps raining on and off."},
+          {"t":"図書館では勉強したり、本を借りたりすることができます。","r":"Toshokan de wa benkyō shitari, hon o karitari suru koto ga dekimasu.","tr":"At the library you can study, borrow books and so on."},
+          {"t":"週末は映画を見たりします。","r":"Shūmatsu wa eiga o mitari shimasu.","tr":"At weekends I watch movies and stuff.","note":"one {{たり|tari}} alone: soft and vague"}
+        ] },
+        {"tip":"This is the natural answer to {{休みの日は何をしていますか|yasumi no hi wa nani o shite imasu ka}} “What do you do on your days off?”: it sounds relaxed, not like a timetable."}
+      ],
+      "mistakes": [
+        {"wrong":"映画を見たり、買い物をします。","right":"映画を見たり、買い物をしたりします。","rw":"Eiga o mitari, kaimono o shimasu.","rr":"Eiga o mitari, kaimono o shitari shimasu.","tr":"I watch movies, go shopping and so on.","why":"Each action takes {{たり|tari}}, and {{します|shimasu}} comes at the end."},
+        {"wrong":"泳ぎたり、山に登ったりしました。","right":"泳いだり、山に登ったりしました。","rw":"Oyogitari, yama ni nobottari shimashita.","rr":"Oyoidari, yama ni nobottari shimashita.","tr":"I swam, climbed mountains and so on.","why":"{{たり|tari}} is made from the ta-form: {{泳いだ|oyoida}} → {{泳いだり|oyoidari}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing ending.","t":"週末は本を読ん___、テレビを見たりします。","r":"Shūmatsu wa hon o yon___, terebi o mitari shimasu.","tr":"At weekends I read, watch TV and so on.","options":["だり","たり","で"],"rs":["dari","tari","de"],"answer":0,"why":"{{読んだ|yonda}} → {{読んだり|yondari}}."},
+        {"type":"choice","q":"Which sentence gives examples, rather than everything in order?","options":["{{泳いだり、寝たりしました。|Oyoidari, netari shimashita.}}","{{泳いで、寝ました。|Oyoide, nemashita.}}"],"answer":0,"why":"{{たり|tari}} gives a sample; the て-form tells actions in order."},
+        {"type":"fill","q":"Choose the missing word.","t":"掃除をしたり、洗濯をしたり___。","r":"Sōji o shitari, sentaku o shitari ___.","tr":"I do the cleaning, the laundry and so on.","options":["します","です"],"rs":["shimasu","desu"],"answer":0,"why":"The list ends with {{します|shimasu}}."},
+        {"type":"dialogue","q":"Your manager asks about your days off. Choose your replies.","lines":[{"who":"Mr Kato","t":"休みの日は何をしていますか。","r":"Yasumi no hi wa nani o shite imasu ka.","tr":"What do you do on your days off?"},{"options":["ジョギングをしたり、料理をしたりします。","ジョギングをしたり、料理をします。"],"rs":["Jogingu o shitari, ryōri o shitari shimasu.","Jogingu o shitari, ryōri o shimasu."],"answer":0,"why":"Each action takes {{たり|tari}}, then {{します|shimasu}}."},{"who":"Mr Kato","t":"料理が好きなんですか。","r":"Ryōri ga suki na n desu ka.","tr":"Oh, you like cooking?"},{"options":["はい、大好きなんです。","はい、大好きんです。"],"rs":["Hai, daisuki na n desu.","Hai, daisuki n desu."],"answer":0,"why":"A な-adjective + {{な|na}} + {{んです|n desu}}."}],"from":"explain-situations"},
+        {"type":"order","q":"Put the words in order.","tr":"In the summer holidays I swam, climbed mountains and so on.","words":["夏休みは","泳いだり、","山に","登ったり","しました。"],"rs":["Natsuyasumi wa","oyoidari,","yama ni","nobottari","shimashita."],"why":"{{夏休みは泳いだり、山に登ったりしました。|Natsuyasumi wa oyoidari, yama ni nobottari shimashita.}}"},
+        {"type":"say","q":"How do you say “At the party we sang, danced and so on.”?","answer":"パーティーでは歌ったり、踊ったりしました。","r":"Pātī de wa utattari, odottari shimashita.","from":"chat-about-the-past"},
+        {"type":"free","q":"Your turn: what do you do on your days off? Give two or three examples with {{たり|tari}}.","answers":[{"t":"休みの日は公園を散歩したり、カフェで本を読んだりします。","r":"Yasumi no hi wa kōen o sanpo shitari, kafe de hon o yondari shimasu.","tr":"On my days off I walk in the park, read in cafés and so on."},{"t":"週末は家族と料理をしたり、ゲームをしたりします。","r":"Shūmatsu wa kazoku to ryōri o shitari, gēmu o shitari shimasu.","tr":"At weekends I cook with my family, play games and so on."}]}
+      ]
+    },
+    {
+      "id": "compare",
+      "unit": 6,
+      "level": "A2",
+      "title": "Compare things and pick the best",
+      "summary": "Compare two things, ask which is better, and say what's best of all: “Tokyo is bigger than Osaka.” “Which do you prefer?”",
+      "topic": "{{AはBより|A wa B yori}}; {{どちら|dochira}} and {{～のほうが|… no hō ga}}; {{～の中で～が一番|… no naka de … ga ichiban}}",
+      "blocks": [
+        {"goal":{"t":"東京は大阪より大きいです。","r":"Tōkyō wa Ōsaka yori ōkii desu.","tr":"Tokyo is bigger than Osaka."}},
+        {"dialog":[{"who":"Friend","t":"このシャツとあのシャツ、どちらがいいと思いますか。","r":"Kono shatsu to ano shatsu, dochira ga ii to omoimasu ka.","tr":"This shirt or that one: which do you think is better?"},{"who":"You","t":"あのシャツのほうがいいと思います。色がきれいです。","r":"Ano shatsu no hō ga ii to omoimasu. Iro ga kirei desu.","tr":"I think that one's better. The colour is lovely."},{"who":"Friend","t":"でも、あのシャツはこのシャツより高いですよ。","r":"Demo, ano shatsu wa kono shatsu yori takai desu yo.","tr":"But that shirt is more expensive than this one."},{"who":"You","t":"じゃ、両方買いましょう！","r":"Ja, ryōhō kaimashō!","tr":"Then let's buy both!"}]},
+        {"p":"**A is more … than B: {{AはBより～|A wa B yori …}}.** {{より|yori}} means “than”, and the adjective doesn't change at all: {{東京は大阪より大きいです|Tōkyō wa Ōsaka yori ōkii desu}} “Tokyo is bigger than Osaka”, word for word “Tokyo, than Osaka, is big”. There's no “-er” or “more”."},
+        {"p":"**Which of the two?: {{AとB、どちらが～ですか|A to B, dochira ga … desu ka}}.** {{どちら|dochira}} (casually {{どっち|dotchi}}) is “which of the two”. Answer with {{～のほうが|… no hō ga}}, “the side of…”: {{犬のほうが好きです|inu no hō ga suki desu}} “I prefer dogs”. A question word takes {{が|ga}}, and so does the answer."},
+        {"p":"**The most: {{～の中で～が一番|… no naka de … ga ichiban}}.** {{一番|ichiban}} “number one” before an adjective makes “the most”: {{日本の中で富士山が一番高いです|Nihon no naka de Fujisan ga ichiban takai desu}} “Mt Fuji is the highest in Japan”. Asking: {{何が一番好きですか|nani ga ichiban suki desu ka}} “What do you like best?”. For three or more, “which” is {{どれ|dore}}."},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["comparing","{{夏は冬より好きです。|Natsu wa fuyu yori suki desu.}}","I like summer more than winter."],
+          ["which of two?","{{夏と冬、どちらが好きですか。|Natsu to fuyu, dochira ga suki desu ka.}}","Which do you like better, summer or winter?"],
+          ["the answer","{{夏のほうが好きです。|Natsu no hō ga suki desu.}}","I prefer summer."],
+          ["the most","{{一年の中で夏が一番好きです。|Ichinen no naka de natsu ga ichiban suki desu.}}","Summer is my favourite time of year."]
+        ] },
+        { "ex": [
+          {"t":"電車はバスより速いです。","r":"Densha wa basu yori hayai desu.","tr":"The train is faster than the bus."},
+          {"t":"コーヒーと紅茶、どちらがいいですか。","r":"Kōhī to kōcha, dochira ga ii desu ka.","tr":"Coffee or tea: which would you like?"},
+          {"t":"紅茶のほうがいいです。","r":"Kōcha no hō ga ii desu.","tr":"I'd prefer tea."},
+          {"t":"家族の中で私が一番背が高いです。","r":"Kazoku no naka de watashi ga ichiban se ga takai desu.","tr":"I'm the tallest in my family.","note":"{{背が高い|se ga takai}} “tall”, word for word “height is high”"},
+          {"t":"スポーツの中で何が一番好きですか。","r":"Supōtsu no naka de nani ga ichiban suki desu ka.","tr":"What sport do you like best?"},
+          {"t":"どちらでもいいです。","r":"Dochira demo ii desu.","tr":"Either is fine."}
+        ] },
+        {"tip":"In shops and restaurants, staff use the polite {{どちらがよろしいですか|dochira ga yoroshii desu ka}} “Which would you prefer?”."}
+      ],
+      "mistakes": [
+        {"wrong":"コーヒーと紅茶、どれがいいですか。","right":"コーヒーと紅茶、どちらがいいですか。","rw":"Kōhī to kōcha, dore ga ii desu ka.","rr":"Kōhī to kōcha, dochira ga ii desu ka.","tr":"Coffee or tea: which would you like?","why":"For a choice between two, use {{どちら|dochira}}; {{どれ|dore}} is for three or more."},
+        {"wrong":"犬のほうは好きです。","right":"犬のほうが好きです。","rw":"Inu no hō wa suki desu.","rr":"Inu no hō ga suki desu.","tr":"I prefer dogs.","why":"{{ほう|hō}} answers “which?”, so it takes {{が|ga}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"電車はバス___速いです。","r":"Densha wa basu ___ hayai desu.","tr":"The train is faster than the bus.","options":["より","ほう","一番"],"rs":["yori","hō","ichiban"],"answer":0,"why":"“Than” is {{より|yori}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"紅茶の___がいいです。","r":"Kōcha no ___ ga ii desu.","tr":"I'd prefer tea.","options":["ほう","より","中"],"rs":["hō","yori","naka"],"answer":0,"why":"{{紅茶のほうがいいです|kōcha no hō ga ii desu}} “tea is better (for me)”."},
+        {"type":"choice","q":"Which word asks “which of the two?”","options":["{{どちら|dochira}}","{{どれ|dore}}","{{どこ|doko}}"],"answer":0,"why":"{{どちら|dochira}} is for two; {{どれ|dore}} for three or more; {{どこ|doko}} is “where”."},
+        {"type":"dialogue","q":"At a restaurant: choose your replies.","lines":[{"who":"Waiter","t":"ご飯とパン、どちらがよろしいですか。","r":"Gohan to pan, dochira ga yoroshii desu ka.","tr":"Rice or bread, which would you prefer?"},{"options":["ご飯のほうがいいです。","ご飯のほうはいいです。"],"rs":["Gohan no hō ga ii desu.","Gohan no hō wa ii desu."],"answer":0,"why":"The answer to “which?” takes {{が|ga}}."},{"who":"Waiter","t":"お飲み物は？","r":"Onomimono wa?","tr":"And to drink?"},{"options":["冷たいお茶をください。","冷たいのお茶をください。"],"rs":["Tsumetai ocha o kudasai.","Tsumetai no ocha o kudasai."],"answer":0,"why":"An い-adjective goes straight before the noun: no {{の|no}}."}],"from":"describe-things"},
+        {"type":"order","q":"Put the words in order.","tr":"Mt Fuji is the highest mountain in Japan.","words":["日本で","富士山が","一番","高い","山です。"],"rs":["Nihon de","Fujisan ga","ichiban","takai","yama desu."],"why":"{{日本で富士山が一番高い山です。|Nihon de Fujisan ga ichiban takai yama desu.}}"},
+        {"type":"say","q":"How do you say “I think the train is faster than the bus.”?","answer":"電車はバスより速いと思います。","r":"Densha wa basu yori hayai to omoimasu.","from":"say-what-you-think"},
+        {"type":"free","q":"Your turn: compare two cities, foods or seasons, and say which one you like best.","answers":[{"t":"ロンドンは東京より小さいですが、公園が多いです。私はロンドンのほうが好きです。","r":"Rondon wa Tōkyō yori chiisai desu ga, kōen ga ōi desu. Watashi wa Rondon no hō ga suki desu.","tr":"London is smaller than Tokyo, but it has lots of parks. I prefer London."},{"t":"日本料理の中ですしが一番好きです。","r":"Nihon ryōri no naka de sushi ga ichiban suki desu.","tr":"Of all Japanese food, I like sushi best."}]}
+      ]
+    },
+    {
+      "id": "say-how-things-change",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how things change, and choose",
+      "summary": "Talk about change, and say what you've decided on: “It's got cold, hasn't it?” “I'll have the coffee.”",
+      "topic": "{{～くなります|… ku narimasu}} and {{～になります|… ni narimasu}}; {{～にします|… ni shimasu}}",
+      "blocks": [
+        {"goal":{"t":"だんだん寒くなりましたね。","r":"Dandan samuku narimashita ne.","tr":"It's getting colder and colder, isn't it?"}},
+        {"dialog":[{"who":"Ken","t":"最近、日本語が上手になりましたね。","r":"Saikin, Nihongo ga jōzu ni narimashita ne.","tr":"Your Japanese has really improved lately."},{"who":"Emma","t":"ありがとうございます。毎日勉強していますから。","r":"Arigatō gozaimasu. Mainichi benkyō shite imasu kara.","tr":"Thank you. I study every day."},{"who":"Waiter","t":"ご注文は？","r":"Go-chūmon wa?","tr":"What would you like?"},{"who":"Ken","t":"私はコーヒーにします。","r":"Watashi wa kōhī ni shimasu.","tr":"I'll have coffee."},{"who":"Emma","t":"暑くなりましたから、私はアイスティーにします。","r":"Atsuku narimashita kara, watashi wa aisu tī ni shimasu.","tr":"It's got hot, so I'll have an iced tea."}]},
+        {"p":"**Becoming: {{なります|narimasu}}.** An い-adjective changes {{い|i}} to {{く|ku}}: {{寒い|samui}} → {{寒くなります|samuku narimasu}} “it gets cold”. A な-adjective or a noun takes {{に|ni}}: {{上手になります|jōzu ni narimasu}} “get good at”, {{医者になります|isha ni narimasu}} “become a doctor”. In the past, {{なりました|narimashita}} often means “has become”: {{寒くなりました|samuku narimashita}} “It's got cold”."},
+        { "table": [
+          ["","+ {{なります|narimasu}}","Meaning"],
+          ["{{い|i}}-adjective","{{暑くなります|atsuku narimasu}}","it gets hot"],
+          ["{{な|na}}-adjective","{{元気になります|genki ni narimasu}}","get better, get well"],
+          ["noun","{{先生になります|sensei ni narimasu}}","become a teacher"],
+          ["{{いい|ii}}","{{よくなります|yoku narimasu}}","get better"]
+        ] },
+        {"p":"**Making: {{します|shimasu}}.** The same shapes with {{します|shimasu}} mean “make something…”: {{部屋をきれいにします|heya o kirei ni shimasu}} “I'll tidy the room” (make it clean), {{音を小さくしてください|oto o chiisaku shite kudasai}} “Please turn the sound down” (make it small)."},
+        {"p":"**Choosing: noun + {{にします|ni shimasu}}.** In shops and restaurants: {{コーヒーにします|kōhī ni shimasu}} “I'll have coffee”, {{これにします|kore ni shimasu}} “I'll take this one”. Word for word “I make it coffee”: the most natural way to say what you've decided on."},
+        { "ex": [
+          {"t":"将来、医者になりたいです。","r":"Shōrai, isha ni naritai desu.","tr":"I want to become a doctor in the future."},
+          {"t":"薬を飲んで、元気になりました。","r":"Kusuri o nonde, genki ni narimashita.","tr":"I took some medicine and got better."},
+          {"t":"日本語が上手になりたいです。","r":"Nihongo ga jōzu ni naritai desu.","tr":"I want to get good at Japanese."},
+          {"t":"部屋をきれいにしてください。","r":"Heya o kirei ni shite kudasai.","tr":"Please tidy your room."},
+          {"t":"私はこのケーキにします。","r":"Watashi wa kono kēki ni shimasu.","tr":"I'll have this cake."},
+          {"t":"来月から、バスの料金が高くなります。","r":"Raigetsu kara, basu no ryōkin ga takaku narimasu.","tr":"Bus fares are going up from next month."}
+        ] },
+        {"tip":"{{～になりました|… ni narimashita}} is also how polite Japanese announces news: {{会議は三時からになりました|kaigi wa san-ji kara ni narimashita}} “The meeting will now start at three”."}
+      ],
+      "mistakes": [
+        {"wrong":"寒いになりました。","right":"寒くなりました。","rw":"Samui ni narimashita.","rr":"Samuku narimashita.","tr":"It's got cold.","why":"An い-adjective changes {{い|i}} to {{く|ku}} before {{なります|narimasu}}."},
+        {"wrong":"元気くなりました。","right":"元気になりました。","rw":"Genkiku narimashita.","rr":"Genki ni narimashita.","tr":"I got better.","why":"A な-adjective takes {{に|ni}}: {{元気になりました|genki ni narimashita}}."},
+        {"wrong":"コーヒーをします。","right":"コーヒーにします。","rw":"Kōhī o shimasu.","rr":"Kōhī ni shimasu.","tr":"I'll have coffee.","why":"Choosing is {{にします|ni shimasu}}; {{をします|o shimasu}} would mean “do coffee”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing ending.","t":"だんだん暑___なりました。","r":"Dandan atsu___ narimashita.","tr":"It's getting hotter and hotter.","options":["く","に","い"],"rs":["ku","ni","i"],"answer":0,"why":"An い-adjective: {{暑く|atsuku}} + {{なりました|narimashita}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"将来、先生___なりたいです。","r":"Shōrai, sensei ___ naritai desu.","tr":"I want to become a teacher in the future.","options":["に","く","を"],"rs":["ni","ku","o"],"answer":0,"why":"A noun takes {{に|ni}} before {{なります|narimasu}}."},
+        {"type":"choice","q":"At a café, how do you say “I'll have the cheesecake”?","options":["{{チーズケーキにします。|Chīzukēki ni shimasu.}}","{{チーズケーキをします。|Chīzukēki o shimasu.}}","{{チーズケーキになります。|Chīzukēki ni narimasu.}}"],"answer":0,"why":"Choosing: {{にします|ni shimasu}}."},
+        {"type":"dialogue","q":"At a café: choose your reply.","lines":[{"who":"Waiter","t":"お飲み物は何になさいますか。","r":"Onomimono wa nani ni nasaimasu ka.","tr":"What would you like to drink? (very polite)"},{"options":["オレンジジュースにします。","オレンジジュースをなります。"],"rs":["Orenji jūsu ni shimasu.","Orenji jūsu o narimasu."],"answer":0,"why":"Choosing: {{にします|ni shimasu}}. ({{なさいます|nasaimasu}} is the waiter's polite {{します|shimasu}}.)"},{"who":"Waiter","t":"かしこまりました。","r":"Kashikomarimashita.","tr":"Certainly."}],"from":"buy-things"},
+        {"type":"order","q":"Put the words in order.","tr":"I took some medicine and got better.","words":["薬を","飲んで、","元気に","なりました。"],"rs":["Kusuri o","nonde,","genki ni","narimashita."],"why":"{{薬を飲んで、元気になりました。|Kusuri o nonde, genki ni narimashita.}}"},
+        {"type":"say","q":"How do you say “I want to get good at Japanese.”?","answer":"日本語が上手になりたいです。","r":"Nihongo ga jōzu ni naritai desu.","from":"say-what-you-want"},
+        {"type":"free","q":"Your turn: how have you, your town or your life changed recently? Use {{なりました|narimashita}}.","answers":[{"t":"最近、仕事が忙しくなりました。でも、料理が上手になりました。","r":"Saikin, shigoto ga isogashiku narimashita. Demo, ryōri ga jōzu ni narimashita.","tr":"Work has got busy lately. But I've got good at cooking."},{"t":"私の町は新しい駅ができて、便利になりました。","r":"Watashi no machi wa atarashii eki ga dekite, benri ni narimashita.","tr":"A new station opened in my town, and it's become convenient."}]}
+      ]
     }
   ]
 }
