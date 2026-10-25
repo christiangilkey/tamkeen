@@ -2,7 +2,7 @@
 // common each dictionary word is in all its forms together, like tools/course/rank.mjs for Arabic.
 //
 //   node tools/course/ko/rank_ko.mjs   ->  tools/course/build/ko-ranked.json
-//     [{rank, lemma, freq, forms: [[form, freq], ...]}, ...]  (the top 3000)
+//     [{rank, lemma, freq, forms: [[form, freq], ...]}, ...]  (the top 6000)
 //
 // wordfreq counts Korean the way MeCab cuts it up: verb stems apart from their endings (하, 했, 할, 합니다),
 // nouns apart from their particles (사람 + 들 + 이). So each form is read with the app's analyzer
@@ -94,7 +94,7 @@ for (const [form, freq] of forms) {
     e.forms.push([form, freq * share]);
   }
 }
-const ranked = [...byLemma.values()].sort((x, y) => y.freq - x.freq).slice(0, 3000)
+const ranked = [...byLemma.values()].sort((x, y) => y.freq - x.freq).slice(0, 6000)
   .map((e, i) => ({ rank: i + 1, ...e, freq: Number(e.freq.toPrecision(4)), forms: e.forms.slice(0, 6).map(([f, n]) => [f, Number(n.toPrecision(3))]) }));
 writeFileSync(join(build, "ko-ranked.json"), JSON.stringify(ranked, null, 1));
 console.log(`${byLemma.size} dictionary words from ${forms.length} forms; top ${ranked.length} -> build/ko-ranked.json`);
