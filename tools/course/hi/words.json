@@ -5503,6 +5503,912 @@
       "meaning": "[iṇṭarneṭ] internet",
       "sentence": "यहाँ इंटरनेट नहीं चल रहा।",
       "translation": "The ⟦internet⟧ isn't working here."
+    },
+    {
+      "n": 601,
+      "rank": 727,
+      "word": "वेबसाइट",
+      "pos": "noun",
+      "meaning": "[vebsāiṭ] website",
+      "sentence": "हमारी वेबसाइट पर जाइए।",
+      "translation": "Visit our ⟦website⟧."
+    },
+    {
+      "n": 602,
+      "rank": 728,
+      "word": "अस्पताल",
+      "pos": "noun",
+      "meaning": "[aspatāl] hospital",
+      "sentence": "सबसे पास अस्पताल कहाँ है?",
+      "translation": "Where's the nearest ⟦hospital⟧?"
+    },
+    {
+      "n": 603,
+      "rank": 729,
+      "word": "गिरफ़्तार",
+      "pos": "adj",
+      "meaning": "[giraftār] arrested (गिरफ़्तार करना: to arrest)",
+      "sentence": "पुलिस ने चोर को गिरफ़्तार किया।",
+      "translation": "The police ⟦arrested⟧ the thief."
+    },
+    {
+      "n": 604,
+      "rank": 730,
+      "word": "आधा",
+      "pos": "adj",
+      "meaning": "[ādhā] half",
+      "sentence": "मुझे आधा कप चाय दीजिए।",
+      "translation": "Give me ⟦half⟧ a cup of tea, please."
+    },
+    {
+      "n": 605,
+      "rank": 731,
+      "word": "ज़ोर",
+      "pos": "noun",
+      "meaning": "[zor] force; strength; stress (ज़ोर से: loudly, hard)",
+      "sentence": "ज़ोर से मत बोलो।",
+      "translation": "Don't talk so ⟦loudly⟧."
+    },
+    {
+      "n": 606,
+      "rank": 732,
+      "word": "हरा",
+      "pos": "adj",
+      "meaning": "[harā] green",
+      "sentence": "हरी सब्ज़ियाँ सेहत के लिए अच्छी हैं।",
+      "translation": "⟦Green⟧ vegetables are good for your health.",
+      "form": "हरी"
+    },
+    {
+      "n": 607,
+      "rank": 733,
+      "word": "टेस्ट",
+      "pos": "noun",
+      "meaning": "[ṭesṭ] test",
+      "sentence": "कल मेरा ड्राइविंग टेस्ट है।",
+      "translation": "My driving ⟦test⟧ is tomorrow."
+    },
+    {
+      "n": 608,
+      "rank": 734,
+      "word": "प्रवेश",
+      "pos": "noun",
+      "meaning": "[pravesh] entry; admission (formal)",
+      "sentence": "यहाँ प्रवेश निषेध है।",
+      "translation": "⟦Entry⟧ is prohibited here."
+    },
+    {
+      "n": 609,
+      "rank": 736,
+      "word": "व्यापार",
+      "pos": "noun",
+      "meaning": "[vyāpār] business; trade",
+      "sentence": "मेरे पिता का कपड़ों का व्यापार है।",
+      "translation": "My father has a clothing ⟦business⟧."
+    },
+    {
+      "n": 610,
+      "rank": 737,
+      "word": "सत्ता",
+      "pos": "noun",
+      "meaning": "[sattā] power (political); rule",
+      "sentence": "कौन सी पार्टी सत्ता में है?",
+      "translation": "Which party is in ⟦power⟧?"
+    },
+    {
+      "n": 611,
+      "rank": 740,
+      "word": "हासिल",
+      "pos": "adj",
+      "meaning": "[hāsil] achieved; obtained (हासिल करना: to achieve, to get)",
+      "sentence": "उसने पहला स्थान हासिल किया।",
+      "translation": "She ⟦got⟧ first place."
+    },
+    {
+      "n": 612,
+      "rank": 741,
+      "word": "भाव",
+      "pos": "noun",
+      "meaning": "[bhāv] rate, price (in the market); feeling",
+      "sentence": "आज टमाटर का भाव क्या है?",
+      "translation": "What's the ⟦price⟧ of tomatoes today?"
+    },
+    {
+      "n": 613,
+      "rank": 742,
+      "word": "लक्ष्य",
+      "pos": "noun",
+      "meaning": "[lakshya] goal; target",
+      "sentence": "मेरा लक्ष्य डॉक्टर बनना है।",
+      "translation": "My ⟦goal⟧ is to become a doctor."
+    },
+    {
+      "n": 614,
+      "rank": 745,
+      "word": "क़रीब",
+      "pos": "adv",
+      "meaning": "[qarīb] near; close; about, nearly",
+      "sentence": "स्टेशन क़रीब ही है।",
+      "translation": "The station is quite ⟦close⟧."
+    },
+    {
+      "n": 615,
+      "rank": 746,
+      "word": "कार",
+      "pos": "noun",
+      "meaning": "[kār] car",
+      "sentence": "उसने नई कार ख़रीदी।",
+      "translation": "He bought a new ⟦car⟧."
+    },
+    {
+      "n": 616,
+      "rank": 748,
+      "word": "कर्म",
+      "pos": "noun",
+      "meaning": "[karm] deeds; action; karma",
+      "sentence": "अच्छे कर्म करो।",
+      "translation": "Do good ⟦deeds⟧."
+    },
+    {
+      "n": 617,
+      "rank": 750,
+      "word": "अरे",
+      "pos": "interj",
+      "meaning": "[are] hey!; oh!",
+      "sentence": "अरे, तुम यहाँ कैसे?",
+      "translation": "⟦Hey⟧, what are you doing here?"
+    },
+    {
+      "n": 618,
+      "rank": 753,
+      "word": "दक्षिण",
+      "pos": "noun",
+      "meaning": "[dakshiṇ] south",
+      "sentence": "वह दक्षिण भारत से है।",
+      "translation": "She's from ⟦South⟧ India."
+    },
+    {
+      "n": 619,
+      "rank": 754,
+      "word": "बावजूद",
+      "pos": "postp",
+      "meaning": "[bāvjūd] despite (के बावजूद)",
+      "sentence": "बारिश के बावजूद मैच हुआ।",
+      "translation": "The match went ahead ⟦despite⟧ the rain."
+    },
+    {
+      "n": 620,
+      "rank": 757,
+      "word": "संविधान",
+      "pos": "noun",
+      "meaning": "[samvidhān] constitution",
+      "sentence": "भारत का संविधान बहुत लंबा है।",
+      "translation": "India's ⟦constitution⟧ is very long."
+    },
+    {
+      "n": 621,
+      "rank": 759,
+      "word": "संघर्ष",
+      "pos": "noun",
+      "meaning": "[saṅgharsh] struggle",
+      "sentence": "उसकी ज़िंदगी संघर्ष से भरी रही।",
+      "translation": "Her life was full of ⟦struggle⟧."
+    },
+    {
+      "n": 622,
+      "rank": 760,
+      "word": "भीड़",
+      "pos": "noun",
+      "meaning": "[bhīṛ] crowd",
+      "sentence": "स्टेशन पर बहुत भीड़ थी।",
+      "translation": "There was a huge ⟦crowd⟧ at the station."
+    },
+    {
+      "n": 623,
+      "rank": 761,
+      "word": "सुधार",
+      "pos": "noun",
+      "meaning": "[sudhār] improvement; reform",
+      "sentence": "तुम्हारी हिंदी में बहुत सुधार हुआ है।",
+      "translation": "Your Hindi has ⟦improved⟧ a lot."
+    },
+    {
+      "n": 624,
+      "rank": 762,
+      "word": "नोट",
+      "pos": "noun",
+      "meaning": "[noṭ] banknote; note",
+      "sentence": "क्या आपके पास पाँच सौ का नोट है?",
+      "translation": "Do you have a five-hundred ⟦note⟧?"
+    },
+    {
+      "n": 625,
+      "rank": 764,
+      "word": "कार्ड",
+      "pos": "noun",
+      "meaning": "[kārḍ] card",
+      "sentence": "क्या मैं कार्ड से पैसे दे सकती हूँ?",
+      "translation": "Can I pay by ⟦card⟧?"
+    },
+    {
+      "n": 626,
+      "rank": 767,
+      "word": "तय",
+      "pos": "adj",
+      "meaning": "[tay] decided; fixed (तय करना: to decide)",
+      "sentence": "शादी की तारीख़ तय हो गई।",
+      "translation": "The wedding date has been ⟦fixed⟧."
+    },
+    {
+      "n": 627,
+      "rank": 768,
+      "word": "निजी",
+      "pos": "adj",
+      "meaning": "[nijī] private; personal",
+      "sentence": "यह मेरा निजी मामला है।",
+      "translation": "This is a ⟦personal⟧ matter."
+    },
+    {
+      "n": 628,
+      "rank": 769,
+      "word": "नींद",
+      "pos": "noun",
+      "meaning": "[nīnd] sleep (नींद आना: to feel sleepy)",
+      "sentence": "मुझे नींद आ रही है।",
+      "translation": "I'm feeling ⟦sleepy⟧."
+    },
+    {
+      "n": 629,
+      "rank": 771,
+      "word": "प्रशासन",
+      "pos": "noun",
+      "meaning": "[prashāsan] administration; the authorities",
+      "sentence": "प्रशासन ने स्कूल बंद कर दिए।",
+      "translation": "The ⟦authorities⟧ have closed the schools."
+    },
+    {
+      "n": 630,
+      "rank": 772,
+      "word": "बारिश",
+      "pos": "noun",
+      "meaning": "[bārish] rain",
+      "sentence": "बाहर बारिश हो रही है।",
+      "translation": "It's ⟦raining⟧ outside."
+    },
+    {
+      "n": 631,
+      "rank": 775,
+      "word": "संसद",
+      "pos": "noun",
+      "meaning": "[sansad] parliament",
+      "sentence": "संसद में नया क़ानून पास हुआ।",
+      "translation": "A new law was passed in ⟦Parliament⟧."
+    },
+    {
+      "n": 632,
+      "rank": 777,
+      "word": "सुरक्षित",
+      "pos": "adj",
+      "meaning": "[surakshit] safe",
+      "sentence": "यहाँ आप सुरक्षित हैं।",
+      "translation": "You're ⟦safe⟧ here."
+    },
+    {
+      "n": 633,
+      "rank": 778,
+      "word": "स्वागत",
+      "pos": "noun",
+      "meaning": "[svāgat] welcome (आपका स्वागत है: welcome)",
+      "sentence": "आपका स्वागत है!",
+      "translation": "⟦Welcome⟧!"
+    },
+    {
+      "n": 634,
+      "rank": 779,
+      "word": "तेज़",
+      "pos": "adj",
+      "meaning": "[tez] fast; sharp; strong; bright",
+      "sentence": "वह बहुत तेज़ दौड़ता है।",
+      "translation": "He runs very ⟦fast⟧."
+    },
+    {
+      "n": 635,
+      "rank": 780,
+      "word": "प्रभाव",
+      "pos": "noun",
+      "meaning": "[prabhāv] effect; influence",
+      "sentence": "उस पर उसके पिता का गहरा प्रभाव है।",
+      "translation": "His father has a strong ⟦influence⟧ on him."
+    },
+    {
+      "n": 636,
+      "rank": 782,
+      "word": "दावा",
+      "pos": "noun",
+      "meaning": "[dāvā] claim (दावा करना: to claim)",
+      "sentence": "वह जीत का दावा कर रहा है।",
+      "translation": "He's ⟦claiming⟧ victory."
+    },
+    {
+      "n": 637,
+      "rank": 784,
+      "word": "ज़रा",
+      "pos": "adv",
+      "meaning": "[zarā] a little; just (softens a request)",
+      "sentence": "ज़रा सोचो, यह कैसे हुआ।",
+      "translation": "⟦Just⟧ think how this happened."
+    },
+    {
+      "n": 638,
+      "rank": 787,
+      "word": "ख़तरा",
+      "pos": "noun",
+      "meaning": "[khatrā] danger; risk",
+      "sentence": "बच्चे अब ख़तरे से बाहर हैं।",
+      "translation": "The children are out of ⟦danger⟧ now.",
+      "form": "ख़तरे"
+    },
+    {
+      "n": 639,
+      "rank": 789,
+      "word": "विश्वविद्यालय",
+      "pos": "noun",
+      "meaning": "[vishvavidyālay] university",
+      "sentence": "वह दिल्ली विश्वविद्यालय में पढ़ती है।",
+      "translation": "She studies at Delhi ⟦University⟧."
+    },
+    {
+      "n": 640,
+      "rank": 791,
+      "word": "डिग्री",
+      "pos": "noun",
+      "meaning": "[ḍigrī] degree",
+      "sentence": "आज तापमान चालीस डिग्री है।",
+      "translation": "It's forty ⟦degrees⟧ today."
+    },
+    {
+      "n": 641,
+      "rank": 792,
+      "word": "प्रचार",
+      "pos": "noun",
+      "meaning": "[prachār] publicity; campaigning",
+      "sentence": "चुनाव का प्रचार शुरू हो गया है।",
+      "translation": "The election ⟦campaign⟧ has started."
+    },
+    {
+      "n": 642,
+      "rank": 794,
+      "word": "प्रभावित",
+      "pos": "adj",
+      "meaning": "[prabhāvit] affected; impressed",
+      "sentence": "मैं उसके काम से बहुत प्रभावित हूँ।",
+      "translation": "I'm very ⟦impressed⟧ with his work."
+    },
+    {
+      "n": 643,
+      "rank": 795,
+      "word": "भले",
+      "pos": "adv",
+      "meaning": "[bhale] even if (भले ही)",
+      "sentence": "भले ही देर हो, मैं आऊँगी।",
+      "translation": "⟦Even if⟧ it's late, I'll come."
+    },
+    {
+      "n": 644,
+      "rank": 797,
+      "word": "योग",
+      "pos": "noun",
+      "meaning": "[yog] yoga",
+      "sentence": "योग से मन शांत रहता है।",
+      "translation": "⟦Yoga⟧ keeps the mind calm."
+    },
+    {
+      "n": 645,
+      "rank": 798,
+      "word": "सहयोग",
+      "pos": "noun",
+      "meaning": "[sahyog] cooperation; help",
+      "sentence": "आपके सहयोग के लिए धन्यवाद।",
+      "translation": "Thank you for your ⟦cooperation⟧."
+    },
+    {
+      "n": 646,
+      "rank": 799,
+      "word": "हार्दिक",
+      "pos": "adj",
+      "meaning": "[hārdik] heartfelt; warm (हार्दिक बधाई: warm congratulations)",
+      "sentence": "आपको हार्दिक बधाई!",
+      "translation": "⟦Warmest⟧ congratulations!"
+    },
+    {
+      "n": 647,
+      "rank": 800,
+      "word": "फ़रवरी",
+      "pos": "noun",
+      "meaning": "[farvarī] February",
+      "sentence": "फ़रवरी सबसे छोटा महीना है।",
+      "translation": "⟦February⟧ is the shortest month."
+    },
+    {
+      "n": 648,
+      "rank": 802,
+      "word": "पेड़",
+      "pos": "noun",
+      "meaning": "[peṛ] tree",
+      "sentence": "हमारे घर के सामने एक बड़ा पेड़ है।",
+      "translation": "There's a big ⟦tree⟧ in front of our house."
+    },
+    {
+      "n": 649,
+      "rank": 803,
+      "word": "उतरना",
+      "pos": "verb",
+      "meaning": "[utarnā] to get off; to come down",
+      "sentence": "हमें अगले स्टेशन पर उतरना है।",
+      "translation": "We have to ⟦get off⟧ at the next station."
+    },
+    {
+      "n": 650,
+      "rank": 804,
+      "word": "ख़ास",
+      "pos": "adj",
+      "meaning": "[khās] special; particular",
+      "sentence": "क्या आज कोई ख़ास दिन है?",
+      "translation": "Is today a ⟦special⟧ day?"
+    },
+    {
+      "n": 651,
+      "rank": 805,
+      "word": "दुकान",
+      "pos": "noun",
+      "meaning": "[dukān] shop",
+      "sentence": "दुकान कोने पर है।",
+      "translation": "The ⟦shop⟧ is on the corner."
+    },
+    {
+      "n": 652,
+      "rank": 806,
+      "word": "अपराध",
+      "pos": "noun",
+      "meaning": "[aprādh] crime",
+      "sentence": "चोरी एक अपराध है।",
+      "translation": "Theft is a ⟦crime⟧."
+    },
+    {
+      "n": 653,
+      "rank": 808,
+      "word": "धार्मिक",
+      "pos": "adj",
+      "meaning": "[dhārmik] religious",
+      "sentence": "मेरी दादी बहुत धार्मिक हैं।",
+      "translation": "My grandmother is very ⟦religious⟧."
+    },
+    {
+      "n": 654,
+      "rank": 809,
+      "word": "प्रतिशत",
+      "pos": "noun",
+      "meaning": "[pratishat] percent",
+      "sentence": "उसे परीक्षा में नब्बे प्रतिशत मिले।",
+      "translation": "She got ninety ⟦percent⟧ in the exam."
+    },
+    {
+      "n": 655,
+      "rank": 810,
+      "word": "मई",
+      "pos": "noun",
+      "meaning": "[maī] May",
+      "sentence": "मई में बहुत गर्मी होती है।",
+      "translation": "It's very hot in ⟦May⟧."
+    },
+    {
+      "n": 656,
+      "rank": 811,
+      "word": "मात्रा",
+      "pos": "noun",
+      "meaning": "[mātrā] amount; quantity; dose",
+      "sentence": "पानी की सही मात्रा डालो।",
+      "translation": "Add the right ⟦amount⟧ of water."
+    },
+    {
+      "n": 657,
+      "rank": 813,
+      "word": "रन",
+      "pos": "noun",
+      "meaning": "[ran] run (in cricket)",
+      "sentence": "उसने सौ रन बनाए।",
+      "translation": "He scored a hundred ⟦runs⟧."
+    },
+    {
+      "n": 658,
+      "rank": 815,
+      "word": "नवंबर",
+      "pos": "noun",
+      "meaning": "[navambar] November",
+      "sentence": "नवंबर में ठंड शुरू हो जाती है।",
+      "translation": "The cold weather starts in ⟦November⟧."
+    },
+    {
+      "n": 659,
+      "rank": 816,
+      "word": "खोना",
+      "pos": "verb",
+      "meaning": "[khonā] to lose",
+      "sentence": "मेरा बटुआ खो गया।",
+      "translation": "I've ⟦lost⟧ my wallet.",
+      "form": "खो"
+    },
+    {
+      "n": 660,
+      "rank": 817,
+      "word": "तुरंत",
+      "pos": "adv",
+      "meaning": "[turant] immediately; at once",
+      "sentence": "तुरंत डॉक्टर को बुलाओ!",
+      "translation": "Call a doctor ⟦immediately⟧!"
+    },
+    {
+      "n": 661,
+      "rank": 819,
+      "word": "दर्ज",
+      "pos": "adj",
+      "meaning": "[darj] registered; recorded (दर्ज करना: to register)",
+      "sentence": "पुलिस ने शिकायत दर्ज की।",
+      "translation": "The police ⟦registered⟧ the complaint."
+    },
+    {
+      "n": 662,
+      "rank": 820,
+      "word": "फ़ायदा",
+      "pos": "noun",
+      "meaning": "[fāydā] benefit; profit; advantage",
+      "sentence": "इसका क्या फ़ायदा है?",
+      "translation": "What's the ⟦benefit⟧ of this?"
+    },
+    {
+      "n": 663,
+      "rank": 821,
+      "word": "गैस",
+      "pos": "noun",
+      "meaning": "[gais] gas",
+      "sentence": "गैस बंद कर दो।",
+      "translation": "Turn off the ⟦gas⟧."
+    },
+    {
+      "n": 664,
+      "rank": 823,
+      "word": "धरती",
+      "pos": "noun",
+      "meaning": "[dhartī] earth; land",
+      "sentence": "धरती सूरज के चारों ओर घूमती है।",
+      "translation": "The ⟦Earth⟧ goes round the sun."
+    },
+    {
+      "n": 665,
+      "rank": 824,
+      "word": "प्रधान",
+      "pos": "noun",
+      "meaning": "[pradhān] head; chief (गाँव का प्रधान: village head)",
+      "sentence": "गाँव के प्रधान ने सभा बुलाई।",
+      "translation": "The village ⟦head⟧ called a meeting."
+    },
+    {
+      "n": 666,
+      "rank": 825,
+      "word": "प्रसाद",
+      "pos": "noun",
+      "meaning": "[prasād] prasad (food offered at a temple)",
+      "sentence": "मंदिर में प्रसाद बँट रहा है।",
+      "translation": "⟦Prasad⟧ is being handed out at the temple."
+    },
+    {
+      "n": 667,
+      "rank": 826,
+      "word": "बचपन",
+      "pos": "noun",
+      "meaning": "[bachpan] childhood",
+      "sentence": "मेरा बचपन गाँव में बीता।",
+      "translation": "I spent my ⟦childhood⟧ in a village."
+    },
+    {
+      "n": 668,
+      "rank": 827,
+      "word": "बोर्ड",
+      "pos": "noun",
+      "meaning": "[borḍ] board",
+      "sentence": "बोर्ड पर अपना नाम लिखो।",
+      "translation": "Write your name on the ⟦board⟧."
+    },
+    {
+      "n": 669,
+      "rank": 829,
+      "word": "मूल",
+      "pos": "adj",
+      "meaning": "[mūl] original; basic; root (मूल रूप से: originally)",
+      "sentence": "वह मूल रूप से बिहार से है।",
+      "translation": "He's ⟦originally⟧ from Bihar."
+    },
+    {
+      "n": 670,
+      "rank": 831,
+      "word": "सौ",
+      "pos": "num",
+      "meaning": "[sau] hundred",
+      "sentence": "मेरी दादी सौ साल की हैं।",
+      "translation": "My grandmother is a ⟦hundred⟧ years old."
+    },
+    {
+      "n": 671,
+      "rank": 832,
+      "word": "जलना",
+      "pos": "verb",
+      "meaning": "[jalnā] to burn; to be on (of a light)",
+      "sentence": "खाना जल गया!",
+      "translation": "The food has ⟦burnt⟧!",
+      "form": "जल"
+    },
+    {
+      "n": 672,
+      "rank": 833,
+      "word": "लाइन",
+      "pos": "noun",
+      "meaning": "[lāin] line; queue",
+      "sentence": "कृपया लाइन में खड़े रहिए।",
+      "translation": "Please stand in ⟦line⟧."
+    },
+    {
+      "n": 673,
+      "rank": 834,
+      "word": "संभव",
+      "pos": "adj",
+      "meaning": "[sambhav] possible",
+      "sentence": "क्या यह संभव है?",
+      "translation": "Is this ⟦possible⟧?"
+    },
+    {
+      "n": 674,
+      "rank": 835,
+      "word": "दिमाग़",
+      "pos": "noun",
+      "meaning": "[dimāgh] brain; mind",
+      "sentence": "उसका दिमाग़ बहुत तेज़ है।",
+      "translation": "He has a very sharp ⟦mind⟧."
+    },
+    {
+      "n": 675,
+      "rank": 836,
+      "word": "शिकायत",
+      "pos": "noun",
+      "meaning": "[shikāyat] complaint",
+      "sentence": "मुझे आपसे कोई शिकायत नहीं है।",
+      "translation": "I have no ⟦complaint⟧ about you."
+    },
+    {
+      "n": 676,
+      "rank": 837,
+      "word": "चाय",
+      "pos": "noun",
+      "meaning": "[chāy] tea",
+      "sentence": "क्या आप चाय पिएँगे?",
+      "translation": "Would you like some ⟦tea⟧?"
+    },
+    {
+      "n": 677,
+      "rank": 838,
+      "word": "यार",
+      "pos": "noun",
+      "meaning": "[yār] friend; mate (spoken: यार!)",
+      "sentence": "यार, बहुत भूख लगी है।",
+      "translation": "⟦Man⟧, I'm really hungry."
+    },
+    {
+      "n": 678,
+      "rank": 839,
+      "word": "विरोधी",
+      "pos": "noun",
+      "meaning": "[virodhī] opponent; (as an adjective) opposing",
+      "sentence": "वह मेरा विरोधी नहीं, दोस्त है।",
+      "translation": "He's not my ⟦opponent⟧, he's my friend."
+    },
+    {
+      "n": 679,
+      "rank": 840,
+      "word": "महसूस",
+      "pos": "adj",
+      "meaning": "[mahsūs] felt (महसूस करना: to feel)",
+      "sentence": "मैं आज बेहतर महसूस कर रही हूँ।",
+      "translation": "I'm ⟦feeling⟧ better today."
+    },
+    {
+      "n": 680,
+      "rank": 844,
+      "word": "मैदान",
+      "pos": "noun",
+      "meaning": "[maidān] ground; field; playground",
+      "sentence": "बच्चे मैदान में खेल रहे हैं।",
+      "translation": "The children are playing on the ⟦playground⟧."
+    },
+    {
+      "n": 681,
+      "rank": 845,
+      "word": "तुलना",
+      "pos": "noun",
+      "meaning": "[tulnā] comparison (की तुलना में: compared with)",
+      "sentence": "दिल्ली की तुलना में मुंबई महँगा है।",
+      "translation": "Mumbai is expensive ⟦compared to⟧ Delhi."
+    },
+    {
+      "n": 682,
+      "rank": 846,
+      "word": "ग्रामीण",
+      "pos": "adj",
+      "meaning": "[grāmīṇ] rural; village",
+      "sentence": "ग्रामीण इलाक़ों में बिजली की समस्या है।",
+      "translation": "There are electricity problems in ⟦rural⟧ areas."
+    },
+    {
+      "n": 683,
+      "rank": 847,
+      "word": "संदेश",
+      "pos": "noun",
+      "meaning": "[sandesh] message",
+      "sentence": "मैंने तुम्हें एक संदेश भेजा है।",
+      "translation": "I've sent you a ⟦message⟧."
+    },
+    {
+      "n": 684,
+      "rank": 848,
+      "word": "राय",
+      "pos": "noun",
+      "meaning": "[rāy] opinion; advice",
+      "sentence": "मुझे आपकी राय चाहिए।",
+      "translation": "I'd like your ⟦advice⟧."
+    },
+    {
+      "n": 685,
+      "rank": 849,
+      "word": "पैर",
+      "pos": "noun",
+      "meaning": "[pair] foot; leg",
+      "sentence": "मेरे पैर में चोट लगी है।",
+      "translation": "I've hurt my ⟦foot⟧."
+    },
+    {
+      "n": 686,
+      "rank": 850,
+      "word": "स्टेशन",
+      "pos": "noun",
+      "meaning": "[sṭeshan] station",
+      "sentence": "स्टेशन यहाँ से पास है।",
+      "translation": "The ⟦station⟧ is near here."
+    },
+    {
+      "n": 687,
+      "rank": 851,
+      "word": "देवता",
+      "pos": "noun",
+      "meaning": "[devtā] god; deity",
+      "sentence": "हिंदू धर्म में कई देवता हैं।",
+      "translation": "There are many ⟦gods⟧ in Hinduism."
+    },
+    {
+      "n": 688,
+      "rank": 853,
+      "word": "हटना",
+      "pos": "verb",
+      "meaning": "[haṭnā] to move away; to step aside",
+      "sentence": "रास्ते से हटो!",
+      "translation": "⟦Get out of⟧ the way!",
+      "form": "हटो"
+    },
+    {
+      "n": 689,
+      "rank": 854,
+      "word": "बैठक",
+      "pos": "noun",
+      "meaning": "[baiṭhak] meeting",
+      "sentence": "बैठक तीन बजे शुरू होगी।",
+      "translation": "The ⟦meeting⟧ will start at three."
+    },
+    {
+      "n": 690,
+      "rank": 855,
+      "word": "दिलाना",
+      "pos": "verb",
+      "meaning": "[dilānā] to get (something) for someone; to remind (याद दिलाना)",
+      "sentence": "मुझे कल याद दिला देना।",
+      "translation": "⟦Remind⟧ me tomorrow.",
+      "form": "दिला"
+    },
+    {
+      "n": 691,
+      "rank": 856,
+      "word": "बीमारी",
+      "pos": "noun",
+      "meaning": "[bīmārī] illness; disease",
+      "sentence": "यह बीमारी बहुत आम है।",
+      "translation": "This ⟦illness⟧ is very common."
+    },
+    {
+      "n": 692,
+      "rank": 858,
+      "word": "चोर",
+      "pos": "noun",
+      "meaning": "[chor] thief",
+      "sentence": "चोर खिड़की से अंदर आया।",
+      "translation": "The ⟦thief⟧ came in through the window."
+    },
+    {
+      "n": 693,
+      "rank": 859,
+      "word": "मज़बूत",
+      "pos": "adj",
+      "meaning": "[mazbūt] strong; sturdy",
+      "sentence": "यह मेज़ बहुत मज़बूत है।",
+      "translation": "This table is very ⟦sturdy⟧."
+    },
+    {
+      "n": 694,
+      "rank": 861,
+      "word": "अनुभव",
+      "pos": "noun",
+      "meaning": "[anubhav] experience",
+      "sentence": "मुझे पढ़ाने का पाँच साल का अनुभव है।",
+      "translation": "I have five years' ⟦experience⟧ of teaching."
+    },
+    {
+      "n": 695,
+      "rank": 864,
+      "word": "मौजूद",
+      "pos": "adj",
+      "meaning": "[maujūd] present; available",
+      "sentence": "क्या मैनेजर मौजूद हैं?",
+      "translation": "Is the manager ⟦available⟧?"
+    },
+    {
+      "n": 696,
+      "rank": 865,
+      "word": "मौसम",
+      "pos": "noun",
+      "meaning": "[mausam] weather; season",
+      "sentence": "आज मौसम कैसा है?",
+      "translation": "What's the ⟦weather⟧ like today?"
+    },
+    {
+      "n": 697,
+      "rank": 866,
+      "word": "लड़ाई",
+      "pos": "noun",
+      "meaning": "[laṛāī] fight; quarrel; battle",
+      "sentence": "दोनों भाइयों में लड़ाई हो गई।",
+      "translation": "The two brothers had a ⟦fight⟧."
+    },
+    {
+      "n": 698,
+      "rank": 867,
+      "word": "विज्ञान",
+      "pos": "noun",
+      "meaning": "[vigyān] science",
+      "sentence": "मुझे विज्ञान पढ़ना अच्छा लगता है।",
+      "translation": "I like studying ⟦science⟧."
+    },
+    {
+      "n": 699,
+      "rank": 868,
+      "word": "सूची",
+      "pos": "noun",
+      "meaning": "[sūchī] list",
+      "sentence": "मैंने ख़रीदारी की सूची बनाई।",
+      "translation": "I made a shopping ⟦list⟧."
+    },
+    {
+      "n": 700,
+      "rank": 869,
+      "word": "हिसाब",
+      "pos": "noun",
+      "meaning": "[hisāb] account; calculation; the bill (के हिसाब से: according to)",
+      "sentence": "हिसाब कर दीजिए।",
+      "translation": "Please make up the ⟦bill⟧."
     }
   ]
 }
