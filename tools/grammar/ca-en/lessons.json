@@ -1320,6 +1320,193 @@
         {"type":"say","q":"Digues «Ens vam conèixer fa deu anys a Londres».","answer":"We met ten years ago in London.","from":"say-what-you-did"},
         {"type":"free","q":"Et toca: explica què vas fer el dissabte passat, en ordre. Fes servir {{first}}, {{then}} i {{finally}}.","answers":[{"t":"First I got up late, then I went shopping, and finally I had dinner with some friends.","tr":"Primer em vaig llevar tard, després vaig anar a comprar i, al final, vaig sopar amb uns amics."},{"t":"First we went to the beach. Then we had lunch there, and in the end we took the train home.","tr":"Primer vam anar a la platja. Després hi vam dinar i, al final, vam tornar a casa en tren."}]}
       ]
+    },
+    {
+      "id": "describe-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Descriu persones i coses",
+      "summary": "Descriu com són les persones, els llocs i les coses, amb l'adjectiu on va en anglès: {{We stayed in a small hotel with a beautiful view.}}",
+      "topic": "L'adjectiu davant del nom i sense plural; {{very}}, {{really}}, {{too}}; {{bored}} o {{boring}}",
+      "blocks": [
+        {"goal":{"t":"We stayed in a small hotel with a beautiful view.","tr":"Ens vam allotjar en un hotel petit amb una vista preciosa."}},
+        {"dialog":[{"who":"Sara","t":"What's your new roommate like?","tr":"Com és el teu nou company de pis?"},{"who":"Pol","t":"He's tall, with short brown hair. He's really nice.","tr":"És alt, amb els cabells castanys i curts. És molt simpàtic."},{"who":"Sara","t":"Is he interesting?","tr":"És interessant?"},{"who":"Pol","t":"Not really. He talks about soccer all day. It's so boring!","tr":"No gaire. Parla de futbol tot el dia. És molt avorrit!"},{"who":"Sara","t":"Poor you! Are you bored?","tr":"Pobre! T'avorreixes?"},{"who":"Pol","t":"A little. But he makes amazing food!","tr":"Una mica. Però cuina de meravella!"}]},
+        {"term":"adjectiu","means":"una paraula que descriu un nom: alt, simpàtic, nou."},
+        {"p":"**Davant del nom.** En català l'adjectiu sol anar darrere: «un hotel petit». En anglès va sempre davant: {{a small hotel}}, {{a beautiful view}}, {{an old man}}. I darrere de {{be}}: {{The hotel is small.}}"},
+        {"p":"**Sense plural ni gènere.** {{a red car}}, {{two red cars}}; {{a tall man}}, {{a tall woman}}: l'adjectiu no canvia mai. Amb més d'un adjectiu, l'ordre normal és opinió, mida, edat, color, origen: {{a nice little restaurant}}, {{a big old house}}."},
+        {"p":"**Molt i massa.** {{very}} i {{really}} volen dir «molt»: {{very good}}, {{really nice}}. {{too}} és «massa»: {{It's too expensive.}} «És massa car.» Compte: {{too}} sempre és negatiu, vol dir «més del que convé»."},
+        {"p":"**{{-ed}} o {{-ing}}?** Molts adjectius tenen dues formes. Amb {{-ed}}, com et sents tu: {{I'm bored.}} «M'avorreixo.» Amb {{-ing}}, com és la cosa: {{The movie is boring.}} «La pel·lícula és avorrida.» En català, «avorrit» fa les dues feines; en anglès, no."},
+        { "table": [
+          ["com et sents ({{-ed}})","com és ({{-ing}})","català"],
+          ["{{I'm bored.}}","{{It's boring.}}","avorrit"],
+          ["{{I'm interested.}}","{{It's interesting.}}","interessat, interessant"],
+          ["{{I'm tired.}}","{{It's tiring.}}","cansat, que cansa"],
+          ["{{I'm excited.}}","{{It's exciting.}}","il·lusionat, emocionant"]
+        ] },
+        { "ex": [
+          {"t":"She has long black hair.","tr":"Té els cabells llargs i negres."},
+          {"t":"It's a really nice little restaurant.","tr":"És un restaurant petit i molt agradable."},
+          {"t":"These shoes are too small.","tr":"Aquestes sabates són massa petites."},
+          {"t":"The museum was very interesting.","tr":"El museu era molt interessant."},
+          {"t":"I'm so excited about the trip!","tr":"Tinc tantes ganes de fer el viatge!"},
+          {"t":"What's your boss like?","tr":"Com és el teu cap?","note":"{{What… like?}} serveix per preguntar com és algú o alguna cosa"}
+        ] },
+        {"tip":"Un fals amic: {{embarrassed}} vol dir «avergonyit», no «embarassada», que és {{pregnant}}! {{I was so embarrassed!}} «Quina vergonya vaig passar!»"}
+      ],
+      "mistakes": [
+        {"wrong":"A hotel small.","right":"A small hotel.","tr":"Un hotel petit.","why":"L'adjectiu va davant del nom."},
+        {"wrong":"Two reds cars.","right":"Two red cars.","tr":"Dos cotxes vermells.","why":"L'adjectiu no fa plural."},
+        {"wrong":"I'm boring in this class.","right":"I'm bored in this class.","tr":"M'avorreixo en aquesta classe.","why":"Com et sents: {{bored}}. {{I'm boring}} vol dir «soc avorrit»!"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"It's a ___ movie. I love it!","tr":"És una pel·lícula molt interessant. M'encanta!","options":["very interesting","interesting very","very interested"],"answer":0,"why":"{{very}} + l'adjectiu, davant del nom; i la pel·lícula és {{interesting}}.","from":"say-what-you-like"},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"This coffee is ___ hot. I can't drink it.","tr":"Aquest cafè crema massa. No el puc beure.","options":["too","very","so much"],"answer":0,"why":"«Massa», més del que convé: {{too}}."},
+        {"type":"choice","q":"«Tinc dos gats negres» és…","options":["{{I have two black cats.}}","{{I have two cats blacks.}}","{{I have two blacks cats.}}"],"answer":0,"why":"L'adjectiu davant i sense plural."},
+        {"type":"dialogue","q":"Expliques les teves vacances. Tria les respostes.","lines":[{"who":"Amiga","t":"Where did you stay?","tr":"On us vau allotjar?"},{"options":["In a small hotel near the beach.","In a hotel small near the beach."],"answer":0,"why":"L'adjectiu va davant: {{a small hotel}}."},{"who":"Amiga","t":"Was it nice?","tr":"Estava bé?"},{"options":["Yes, but the town was a little boring.","Yes, but the town was a little bored."],"answer":0,"why":"Com era el poble: {{boring}}."}]},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Té els cabells llargs i negres.","words":["She","has","long","black","hair."]},
+        {"type":"say","q":"Pregunta «Com és el teu cap?»","answer":"What's your boss like?"},
+        {"type":"free","q":"Et toca: descriu una persona que coneixes i un lloc que t'agrada, amb dos o tres adjectius.","answers":[{"t":"My sister is tall and very funny. She lives in a small apartment with a beautiful view.","tr":"La meva germana és alta i molt divertida. Viu en un pis petit amb una vista preciosa."},{"t":"My favorite place is a quiet little beach in Menorca.","tr":"El meu lloc preferit és una platgeta tranquil·la de Menorca."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Compara",
+      "summary": "Digues què és més gran, més barat o millor, i quin és el millor de tots: {{New York is bigger than Barcelona, but Barcelona is more beautiful.}}",
+      "topic": "{{-er than}}, {{more… than}}; {{as… as}}; {{the -est}}, {{the most}}; {{better}}, {{worse}}",
+      "blocks": [
+        {"goal":{"t":"New York is bigger than Barcelona, but Barcelona is more beautiful.","tr":"Nova York és més gran que Barcelona, però Barcelona és més bonica."}},
+        {"dialog":[{"who":"Júlia","t":"Which apartment do you like more?","tr":"Quin pis t'agrada més?"},{"who":"Dan","t":"The one in Gràcia is nicer, but the one in Sants is cheaper.","tr":"El de Gràcia és més bonic, però el de Sants és més barat."},{"who":"Júlia","t":"Which one is bigger?","tr":"I quin és més gran?"},{"who":"Dan","t":"They're about the same size. But the Gràcia one is brighter.","tr":"Són més o menys igual de grans. Però el de Gràcia té més llum."},{"who":"Júlia","t":"Then the Gràcia one is the best!","tr":"Doncs el de Gràcia és el millor!"}]},
+        {"p":"**Adjectius curts: {{-er}}.** Els adjectius d'una síl·laba, i els de dues acabats en {{-y}}, fan el comparatiu amb {{-er}}: {{big}} → {{bigger}} «més gran», {{cheap}} → {{cheaper}} «més barat», {{easy}} → {{easier}} «més fàcil». «Que» és {{than}}: {{Paris is bigger than Lyon.}}"},
+        {"p":"**Adjectius llargs: {{more}}.** Els de dues síl·labes o més van amb {{more}}: {{more expensive}} «més car», {{more beautiful}} «més bonic», {{more interesting}}. Mai les dues coses alhora, com {{more bigger}}."},
+        {"p":"**El superlatiu.** «El més…» és {{the}} + {{-est}} o {{the most}}: {{the biggest}} «el més gran», {{the most expensive}} «el més car». «De» darrere del superlatiu, per a un lloc, és {{in}}: {{the best restaurant in town}} «el millor restaurant de la ciutat»."},
+        { "table": [
+          ["","comparatiu","superlatiu"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{cheap}}","{{cheaper}}","{{the cheapest}}"],
+          ["{{easy}}","{{easier}}","{{the easiest}}"],
+          ["{{expensive}}","{{more expensive}}","{{the most expensive}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"]
+        ] },
+        {"p":"**Igual de.** {{as}} + adjectiu + {{as}}: {{She's as tall as her brother.}} «És tan alta com el seu germà.» {{It isn't as cold as yesterday.}} «No fa tant de fred com ahir.»"},
+        { "ex": [
+          {"t":"The train is faster than the bus.","tr":"El tren és més ràpid que l'autobús."},
+          {"t":"This hotel is more expensive than the other one.","tr":"Aquest hotel és més car que l'altre."},
+          {"t":"It's the best pizza in New York.","tr":"És la millor pizza de Nova York."},
+          {"t":"Today is hotter than yesterday.","tr":"Avui fa més calor que ahir."},
+          {"t":"My sister is as tall as me.","tr":"La meva germana és tan alta com jo."},
+          {"t":"That was the worst movie ever!","tr":"Va ser la pitjor pel·lícula de la història!"}
+        ] },
+        {"tip":"Un fals amic: {{large}} vol dir «gran», no «llarg», que és {{long}}. {{A large coffee}} és un cafè gran!"}
+      ],
+      "mistakes": [
+        {"wrong":"It's more big than my house.","right":"It's bigger than my house.","tr":"És més gran que casa meva.","why":"Els adjectius curts fan {{-er}}, sense {{more}}."},
+        {"wrong":"She's taller that me.","right":"She's taller than me.","tr":"És més alta que jo.","why":"«Que», en una comparació, és {{than}}."},
+        {"wrong":"It's the most good restaurant of the city.","right":"It's the best restaurant in the city.","tr":"És el millor restaurant de la ciutat.","why":"{{good}} → {{the best}}, i per a un lloc, {{in}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"The subway is ___ than the bus.","tr":"El metro és més ràpid que l'autobús.","options":["faster","more fast","fastest"],"answer":0,"why":"Un adjectiu curt: {{-er}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"This is the ___ expensive hotel in Sitges.","tr":"Aquest és l'hotel més car de Sitges.","options":["most","more","much"],"answer":0,"why":"El superlatiu d'un adjectiu llarg: {{the most}}."},
+        {"type":"choice","q":"«Avui fa millor temps que ahir» és…","options":["{{The weather is better today than yesterday.}}","{{The weather is more good today that yesterday.}}","{{The weather is best today than yesterday.}}"],"answer":0,"why":"{{good}} → {{better}}, i {{than}}."},
+        {"type":"dialogue","q":"En una botiga, tries entre dos mòbils. Tria les respostes.","lines":[{"who":"Dependent","t":"Which one do you prefer?","tr":"Quin prefereixes?"},{"options":["The black one. It's smaller than the white one.","The black one. It's more small than the white one."],"answer":0,"why":"{{small}} → {{smaller}}."},{"who":"Dependent","t":"And it's cheaper!","tr":"I és més barat!"},{"options":["Great, it's the best option.","Great, it's the better option."],"answer":0,"why":"El millor de tots: {{the best}}."}],"from":"describe-things"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Avui fa més calor que ahir.","words":["Today","is","hotter","than","yesterday."]},
+        {"type":"say","q":"Digues «És la millor pizza de Nova York».","answer":"It's the best pizza in New York."},
+        {"type":"free","q":"Et toca: compara dues ciutats o dos llocs que coneguis.","answers":[{"t":"Barcelona is bigger than Girona, but Girona is quieter.","tr":"Barcelona és més gran que Girona, però Girona és més tranquil·la."},{"t":"London is more expensive than Barcelona, and the weather is worse.","tr":"Londres és més cara que Barcelona, i hi fa pitjor temps."}]}
+      ]
+    },
+    {
+      "id": "how-much-and-how-many",
+      "unit": 6,
+      "level": "A2",
+      "title": "Parla de quantitats",
+      "summary": "Pregunta quant n'hi ha i digues si n'hi ha molt o poc, amb les paraules que es compten i les que no: {{How much money do you need?}}",
+      "topic": "Noms comptables i incomptables; {{much}}, {{many}}, {{a lot of}}, {{a few}}, {{a little}}; {{information}}, {{advice}}, {{news}}… sense plural",
+      "blocks": [
+        {"goal":{"t":"How much money do you need? —Not much.","tr":"Quants diners necessites? —No gaires."}},
+        {"dialog":[{"who":"Kate","t":"How many people are coming to the party?","tr":"Quanta gent ve a la festa?"},{"who":"Jordi","t":"A lot! About thirty.","tr":"Molta! Una trentena."},{"who":"Kate","t":"How much food do we need?","tr":"Quant de menjar necessitem?"},{"who":"Jordi","t":"A lot of food, and a lot of ice!","tr":"Molt de menjar i molt de gel!"},{"who":"Kate","t":"Do we have any chairs?","tr":"Tenim cadires?"},{"who":"Jordi","t":"Only a few. People can sit on the floor!","tr":"Només unes quantes. La gent pot seure a terra!"}]},
+        {"term":"nom incomptable","means":"un nom per a una cosa que no es compta una per una i no té plural: aigua, diners, informació. En anglès, {{water}}, {{money}}, {{information}}."},
+        {"p":"**Comptables i incomptables.** Les coses que es compten tenen plural: {{one apple}}, {{two apples}}. Les que no es compten no en tenen, i no porten {{a}}: {{water}}, {{bread}}, {{money}}, {{time}}."},
+        {"p":"**Molts, molt.** Amb els comptables: {{many}} «molts», {{a few}} «uns quants», {{How many?}} «Quants?». Amb els incomptables: {{much}} «molt», {{a little}} «una mica», {{How much?}} «Quant?». {{a lot of}} serveix per a tots dos: {{a lot of friends}}, {{a lot of money}}. A les frases afirmatives, {{a lot of}} és el més natural; {{much}} i {{many}} van sobretot a les preguntes i a les negatives."},
+        { "table": [
+          ["","comptables ({{apples}})","incomptables ({{water}})"],
+          ["quants? quant?","{{How many apples?}}","{{How much water?}}"],
+          ["molts, molt","{{a lot of apples}}","{{a lot of water}}"],
+          ["uns quants, una mica","{{a few apples}}","{{a little water}}"],
+          ["no gaires, no gaire","{{not many apples}}","{{not much water}}"]
+        ] },
+        {"p":"**Incomptables en anglès, comptables en català.** Algunes paraules que en català fan plural, en anglès no: {{information}} «informació, informacions», {{advice}} «consell, consells», {{news}} «notícies», {{furniture}} «mobles», {{homework}} «deures», {{luggage}} «equipatge». Per comptar-les: {{a piece of advice}} «un consell». I {{money}} «diners» és singular: {{The money is on the table.}}"},
+        {"p":"**La gent.** Al revés: {{people}} és plural en anglès: {{People are very nice here.}} «Aquí la gent és molt simpàtica.»"},
+        { "ex": [
+          {"t":"How many brothers and sisters do you have?","tr":"Quants germans tens?"},
+          {"t":"I don't have much time.","tr":"No tinc gaire temps."},
+          {"t":"There are a lot of people here.","tr":"Aquí hi ha molta gent."},
+          {"t":"Can I give you some advice?","tr":"Et puc donar un consell?"},
+          {"t":"I have a few friends in Boston.","tr":"Tinc uns quants amics a Boston."},
+          {"t":"The news is very good.","tr":"Les notícies són molt bones.","note":"{{news}} va en singular: {{is}}"}
+        ] },
+        {"tip":"{{a few}} i {{a little}} són positius, «uns quants», «una mica»; sense {{a}}, {{few}} i {{little}} són negatius, «pocs», «poc»: {{I have few friends}} sona trist!"}
+      ],
+      "mistakes": [
+        {"wrong":"I need some informations.","right":"I need some information.","tr":"Necessito informació.","why":"{{information}} és incomptable: sense {{-s}}."},
+        {"wrong":"How much people?","right":"How many people?","tr":"Quanta gent?","why":"{{people}} és plural i es compta: {{how many}}."},
+        {"wrong":"The money are on the table.","right":"The money is on the table.","tr":"Els diners són a la taula.","why":"{{money}} és singular en anglès."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"How ___ water do you drink a day?","tr":"Quanta aigua beus al dia?","options":["much","many","lot"],"answer":0,"why":"{{water}} és incomptable: {{how much}}.","from":"do-and-dont"},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Can you give me some ___?","tr":"Em pots donar uns quants consells?","options":["advice","advices","an advice"],"answer":0,"why":"{{advice}} és incomptable: ni {{-s}} ni {{an}}."},
+        {"type":"choice","q":"«Tinc uns quants amics» és…","options":["{{I have a few friends.}}","{{I have a little friends.}}","{{I have few friend.}}"],"answer":0,"why":"Es compten: {{a few}} i el plural."},
+        {"type":"dialogue","q":"Prepareu un sopar. Tria les respostes.","lines":[{"who":"Amic","t":"Is there any bread?","tr":"Hi ha pa?"},{"options":["Yes, but not much.","Yes, but not many."],"answer":0,"why":"{{bread}} és incomptable: {{not much}}."},{"who":"Amic","t":"And how many people are coming?","tr":"I quanta gent ve?"},{"options":["Only a few: four or five.","Only a little: four or five."],"answer":0,"why":"Les persones es compten: {{a few}}."}]},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"No tinc gaire temps.","words":["I","don't","have","much","time."]},
+        {"type":"say","q":"Pregunta «Quants germans tens?»","answer":"How many brothers and sisters do you have?"},
+        {"type":"free","q":"Et toca: digues una cosa de la qual tens molt i una de la qual en tens poc (temps, amics, feina, diners…).","answers":[{"t":"I have a lot of friends, but I don't have much free time.","tr":"Tinc molts amics, però no tinc gaire temps lliure."},{"t":"I have a lot of work this week and not much money!","tr":"Aquesta setmana tinc molta feina i pocs diners!"}]}
+      ]
+    },
+    {
+      "id": "say-how-things-were",
+      "unit": 6,
+      "level": "A2",
+      "title": "Explica com era la teva vida abans",
+      "summary": "Explica què feies abans i ja no fas, i què no feies i ara sí: {{When I was a child, I used to spend the summer in the Pyrenees.}}",
+      "topic": "{{used to}} + verb per als hàbits del passat (l'imperfet català); {{didn't use to}}; {{Did you use to…?}}",
+      "blocks": [
+        {"goal":{"t":"When I was a child, I used to spend the summer in the Pyrenees.","tr":"Quan era petit, passava l'estiu al Pirineu."}},
+        {"dialog":[{"who":"Mia","t":"Did you use to live here?","tr":"Abans vivies aquí?"},{"who":"Arnau","t":"No, I used to live in a small village near Vic.","tr":"No, abans vivia en un poble petit a prop de Vic."},{"who":"Mia","t":"What was it like?","tr":"Com era?"},{"who":"Arnau","t":"Very quiet. We used to play in the street all day.","tr":"Molt tranquil. Ens passàvem el dia jugant al carrer."},{"who":"Mia","t":"Did you use to have a TV?","tr":"Teníeu tele?"},{"who":"Arnau","t":"Yes, but I didn't use to watch it much.","tr":"Sí, però no la mirava gaire."}]},
+        {"p":"**L'imperfet dels hàbits.** En català, l'imperfet explica el que feies habitualment: «cada estiu anàvem a la platja». L'anglès no té imperfet: per als hàbits del passat fa servir {{used to}} + el verb: {{We used to go to the beach every summer.}} Vol dir que ho feies i que ara ja no ho fas."},
+        { "table": [
+          ["","anglès","català"],
+          ["afirmativa","{{I used to smoke.}}","Abans fumava."],
+          ["negativa","{{I didn't use to like coffee.}}","Abans no m'agradava el cafè."],
+          ["pregunta","{{Did you use to play soccer?}}","Jugaves a futbol, abans?"]
+        ] },
+        {"p":"**{{use}} sense {{-d}}.** A les negatives i a les preguntes, amb {{did}}, s'escriu {{use to}}, sense {{-d}}, com tots els verbs darrere de {{did}} (lliçó 26)."},
+        {"p":"**També el passat simple.** Si dius quan o quantes vegades, n'hi ha prou amb el passat simple: {{Every summer we went to the beach.}} Però {{used to}} ja diu, tot sol, «abans sí, ara no»."},
+        {"p":"**No és per a un moment concret.** «Ahir plovia» és {{It was raining yesterday}} (lliçó 27), mai {{It used to rain yesterday}}. {{used to}} només és per als hàbits i les situacions que duraven."},
+        { "ex": [
+          {"t":"I used to live in Sabadell.","tr":"Abans vivia a Sabadell."},
+          {"t":"My dad used to say that time is money.","tr":"El meu pare sempre deia que el temps és or."},
+          {"t":"We didn't use to have a car.","tr":"Abans no teníem cotxe."},
+          {"t":"Did you use to wear glasses?","tr":"Abans portaves ulleres?"},
+          {"t":"There used to be a movie theater here.","tr":"Aquí hi havia un cinema."},
+          {"t":"She used to be very shy.","tr":"Abans era molt tímida."}
+        ] },
+        {"tip":"{{used to}} es pronuncia «iústa», amb una «s», no «iuzd tu»."}
+      ],
+      "mistakes": [
+        {"wrong":"When I was a child, I use to play soccer.","right":"When I was a child, I used to play soccer.","tr":"De petit jugava a futbol.","why":"A l'afirmativa, {{used to}}, amb {{-d}}."},
+        {"wrong":"Did you used to live here?","right":"Did you use to live here?","tr":"Abans vivies aquí?","why":"Darrere de {{did}}, {{use}} sense {{-d}}."},
+        {"wrong":"Yesterday it used to rain.","right":"Yesterday it was raining.","tr":"Ahir plovia.","why":"{{used to}} és per als hàbits; per a un moment concret, el passat continu."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I ___ to live in Lleida.","tr":"Abans vivia a Lleida.","options":["used","use","was"],"answer":0,"why":"Un hàbit del passat, a l'afirmativa: {{used to}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"There ___ to be a cinema on this street.","tr":"En aquest carrer hi havia un cinema.","options":["used","use","was used"],"answer":0,"why":"«Hi havia» (i ara no): {{There used to be}}.","from":"say-what-there-is"},
+        {"type":"choice","q":"{{I didn't use to like vegetables.}} vol dir…","options":["Abans no m'agradava la verdura (ara sí).","Ahir no em va agradar la verdura.","No estic acostumat a la verdura."],"answer":0,"why":"{{didn't use to}}: abans no, ara sí."},
+        {"type":"dialogue","q":"Una amiga nova et pregunta per la teva infància. Tria les respostes.","lines":[{"who":"Amiga","t":"Where did you grow up?","tr":"On et vas criar?"},{"options":["In Reus. We used to live near the center.","In Reus. We use to live near the center."],"answer":0,"why":"A l'afirmativa: {{used to}}."},{"who":"Amiga","t":"Did you use to go to the beach?","tr":"Anàveu a la platja?"},{"options":["Yes, we used to go every summer!","Yes, we were going every summer!"],"answer":0,"why":"Un hàbit: {{used to}}, no el continu."}],"from":"ask-what-happened"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Abans no teníem cotxe.","words":["We","didn't","use to","have","a car."]},
+        {"type":"say","q":"Digues «Aquí hi havia un cinema».","answer":"There used to be a movie theater here."},
+        {"type":"free","q":"Et toca: explica dues coses que feies quan eres petit i que ara ja no fas.","answers":[{"t":"When I was a child, I used to play in the street every afternoon, and I used to hate vegetables.","tr":"Quan era petit, jugava al carrer cada tarda, i odiava la verdura."},{"t":"I used to live in a village, and I used to walk to school.","tr":"Abans vivia en un poble i anava a l'escola a peu."}]}
+      ]
     }
   ]
 }
