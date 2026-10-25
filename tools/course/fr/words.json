@@ -3702,6 +3702,939 @@
       "meaning": "market",
       "sentence": "Ce marché est ouvert le dimanche.",
       "translation": "This ⟦market⟧ is open on Sundays."
+    },
+    {
+      "n": 401,
+      "rank": 417,
+      "word": "image",
+      "pos": "noun",
+      "meaning": "picture, image",
+      "sentence": "Le livre a beaucoup d'images.",
+      "translation": "The book has lots of ⟦pictures⟧.",
+      "form": "images"
+    },
+    {
+      "n": 402,
+      "rank": 418,
+      "word": "monter",
+      "pos": "verb",
+      "meaning": "to go up; to get in (a car, a bus); to climb",
+      "sentence": "Monte dans la voiture !",
+      "translation": "⟦Get in⟧ the car!",
+      "form": "monte"
+    },
+    {
+      "n": 403,
+      "rank": 419,
+      "word": "grâce",
+      "pos": "noun",
+      "meaning": "grace (grâce à: thanks to)",
+      "sentence": "J'ai trouvé ce travail grâce à toi.",
+      "translation": "I found this job ⟦thanks to⟧ you."
+    },
+    {
+      "n": 404,
+      "rank": 420,
+      "word": "principal",
+      "pos": "adj",
+      "meaning": "main (principale: feminine)",
+      "sentence": "C'est la rue principale.",
+      "translation": "It's the ⟦main⟧ street.",
+      "form": "principale"
+    },
+    {
+      "n": 405,
+      "rank": 421,
+      "word": "musique",
+      "pos": "noun",
+      "meaning": "music",
+      "sentence": "Je mets un peu de musique.",
+      "translation": "I'll put some ⟦music⟧ on."
+    },
+    {
+      "n": 406,
+      "rank": 422,
+      "word": "rappeler",
+      "pos": "verb",
+      "meaning": "to remind; to call back (se rappeler: to remember)",
+      "sentence": "Ça me rappelle mon enfance.",
+      "translation": "That ⟦reminds⟧ me of my childhood.",
+      "form": "rappelle"
+    },
+    {
+      "n": 407,
+      "rank": 423,
+      "word": "million",
+      "pos": "noun",
+      "meaning": "million",
+      "sentence": "La ville a deux millions d'habitants.",
+      "translation": "The city has two ⟦million⟧ inhabitants.",
+      "form": "millions"
+    },
+    {
+      "n": 408,
+      "rank": 425,
+      "word": "tuer",
+      "pos": "verb",
+      "meaning": "to kill",
+      "sentence": "Le chat a tué une souris.",
+      "translation": "The cat ⟦killed⟧ a mouse.",
+      "form": "tué"
+    },
+    {
+      "n": 409,
+      "rank": 426,
+      "word": "joueur",
+      "pos": "noun",
+      "meaning": "player (joueuse: feminine)",
+      "sentence": "C'est le meilleur joueur de l'équipe.",
+      "translation": "He's the best ⟦player⟧ on the team."
+    },
+    {
+      "n": 410,
+      "rank": 427,
+      "word": "pied",
+      "pos": "noun",
+      "meaning": "foot (à pied: on foot)",
+      "sentence": "J'ai mal au pied.",
+      "translation": "My ⟦foot⟧ hurts."
+    },
+    {
+      "n": 411,
+      "rank": 428,
+      "word": "intérêt",
+      "pos": "noun",
+      "meaning": "interest",
+      "sentence": "Ça n'a aucun intérêt.",
+      "translation": "It's of no ⟦interest⟧."
+    },
+    {
+      "n": 412,
+      "rank": 429,
+      "word": "cinq",
+      "pos": "num",
+      "meaning": "five",
+      "sentence": "Le magasin ferme à cinq heures.",
+      "translation": "The shop closes at ⟦five⟧."
+    },
+    {
+      "n": 413,
+      "rank": 430,
+      "word": "mars",
+      "pos": "noun",
+      "meaning": "March",
+      "sentence": "Mon anniversaire est en mars.",
+      "translation": "My birthday is in ⟦March⟧."
+    },
+    {
+      "n": 414,
+      "rank": 432,
+      "word": "différent",
+      "pos": "adj",
+      "meaning": "different",
+      "sentence": "Mon frère et moi, on est très différents.",
+      "translation": "My brother and I are very ⟦different⟧.",
+      "form": "différents"
+    },
+    {
+      "n": 415,
+      "rank": 433,
+      "word": "particulier",
+      "pos": "adj",
+      "meaning": "special, particular; private (en particulier: in particular)",
+      "sentence": "Tu fais quelque chose de particulier ce week-end ?",
+      "translation": "Are you doing anything ⟦special⟧ this weekend?"
+    },
+    {
+      "n": 416,
+      "rank": 434,
+      "word": "auteur",
+      "pos": "noun",
+      "meaning": "author, writer",
+      "sentence": "Qui est l'auteur de ce livre ?",
+      "translation": "Who's the ⟦author⟧ of this book?"
+    },
+    {
+      "n": 417,
+      "rank": 435,
+      "word": "source",
+      "pos": "noun",
+      "meaning": "source; spring (of water)",
+      "sentence": "Quelle est la source de cette information ?",
+      "translation": "What's the ⟦source⟧ of this information?"
+    },
+    {
+      "n": 418,
+      "rank": 436,
+      "word": "programme",
+      "pos": "noun",
+      "meaning": "programme; plan, schedule",
+      "sentence": "Quel est le programme pour demain ?",
+      "translation": "What's the ⟦plan⟧ for tomorrow?"
+    },
+    {
+      "n": 419,
+      "rank": 437,
+      "word": "prêt",
+      "pos": "adj",
+      "meaning": "ready (prête: feminine)",
+      "sentence": "Tu es prêt ?",
+      "translation": "Are you ⟦ready⟧?"
+    },
+    {
+      "n": 420,
+      "rank": 438,
+      "word": "tourner",
+      "pos": "verb",
+      "meaning": "to turn",
+      "sentence": "Tournez à droite après le pont.",
+      "translation": "⟦Turn⟧ right after the bridge.",
+      "form": "tournez"
+    },
+    {
+      "n": 421,
+      "rank": 439,
+      "word": "humain",
+      "pos": "adj",
+      "meaning": "human",
+      "sentence": "C'est humain de se tromper.",
+      "translation": "It's ⟦human⟧ to make mistakes."
+    },
+    {
+      "n": 422,
+      "rank": 440,
+      "word": "rentrer",
+      "pos": "verb",
+      "meaning": "to go home, to come back; to go in",
+      "sentence": "À quelle heure tu rentres ?",
+      "translation": "What time are you ⟦coming home⟧?",
+      "form": "rentres"
+    },
+    {
+      "n": 423,
+      "rank": 441,
+      "word": "risque",
+      "pos": "noun",
+      "meaning": "risk",
+      "sentence": "Il y a un risque de pluie.",
+      "translation": "There's a ⟦risk⟧ of rain."
+    },
+    {
+      "n": 424,
+      "rank": 442,
+      "word": "commun",
+      "pos": "adj",
+      "meaning": "common, shared (en commun: in common)",
+      "sentence": "Nous avons beaucoup de choses en commun.",
+      "translation": "We have a lot ⟦in common⟧."
+    },
+    {
+      "n": 425,
+      "rank": 443,
+      "word": "information",
+      "pos": "noun",
+      "meaning": "information; (plural) the news",
+      "sentence": "J'ai regardé les informations à la télé.",
+      "translation": "I watched the ⟦news⟧ on TV.",
+      "form": "informations"
+    },
+    {
+      "n": 426,
+      "rank": 444,
+      "word": "réseau",
+      "pos": "noun",
+      "meaning": "network; signal (for a phone)",
+      "sentence": "Il n'y a pas de réseau ici.",
+      "translation": "There's no ⟦signal⟧ here."
+    },
+    {
+      "n": 427,
+      "rank": 445,
+      "word": "parfois",
+      "pos": "adv",
+      "meaning": "sometimes",
+      "sentence": "Je travaille parfois le samedi.",
+      "translation": "I ⟦sometimes⟧ work on Saturdays."
+    },
+    {
+      "n": 428,
+      "rank": 446,
+      "word": "sud",
+      "pos": "noun",
+      "meaning": "south",
+      "sentence": "Ils habitent dans le sud.",
+      "translation": "They live in the ⟦south⟧."
+    },
+    {
+      "n": 429,
+      "rank": 447,
+      "word": "super",
+      "pos": "adj",
+      "meaning": "great, super (informal)",
+      "sentence": "Ce film était super !",
+      "translation": "That film was ⟦great⟧!"
+    },
+    {
+      "n": 430,
+      "rank": 448,
+      "word": "emploi",
+      "pos": "noun",
+      "meaning": "job, employment (emploi du temps: timetable)",
+      "sentence": "Il cherche un emploi.",
+      "translation": "He's looking for a ⟦job⟧."
+    },
+    {
+      "n": 431,
+      "rank": 449,
+      "word": "manger",
+      "pos": "verb",
+      "meaning": "to eat",
+      "sentence": "On mange à quelle heure ?",
+      "translation": "What time are we ⟦eating⟧?",
+      "form": "mange"
+    },
+    {
+      "n": 432,
+      "rank": 450,
+      "word": "train",
+      "pos": "noun",
+      "meaning": "train (être en train de: to be busy doing)",
+      "sentence": "Je prends le train pour Paris.",
+      "translation": "I'm taking the ⟦train⟧ to Paris."
+    },
+    {
+      "n": 433,
+      "rank": 451,
+      "word": "peine",
+      "pos": "noun",
+      "meaning": "sorrow; trouble (ce n'est pas la peine: there's no need; à peine: hardly)",
+      "sentence": "Ce n'est pas la peine de venir.",
+      "translation": "There's ⟦no need⟧ to come."
+    },
+    {
+      "n": 434,
+      "rank": 452,
+      "word": "lancer",
+      "pos": "verb",
+      "meaning": "to throw; to launch",
+      "sentence": "Lance-moi la balle !",
+      "translation": "⟦Throw⟧ me the ball!",
+      "form": "lance"
+    },
+    {
+      "n": 435,
+      "rank": 453,
+      "word": "siècle",
+      "pos": "noun",
+      "meaning": "century",
+      "sentence": "Cette église date du douzième siècle.",
+      "translation": "This church dates from the twelfth ⟦century⟧."
+    },
+    {
+      "n": 436,
+      "rank": 454,
+      "word": "importer",
+      "pos": "verb",
+      "meaning": "to matter (peu importe: never mind; n'importe quoi: anything, nonsense)",
+      "sentence": "Peu importe, on y va.",
+      "translation": "⟦Never mind⟧, let's go.",
+      "form": "importe"
+    },
+    {
+      "n": 437,
+      "rank": 455,
+      "word": "population",
+      "pos": "noun",
+      "meaning": "population",
+      "sentence": "La population de la ville augmente.",
+      "translation": "The town's ⟦population⟧ is growing."
+    },
+    {
+      "n": 438,
+      "rank": 456,
+      "word": "gauche",
+      "pos": "noun",
+      "meaning": "left (à gauche: on the left)",
+      "sentence": "La poste est à gauche.",
+      "translation": "The post office is on the ⟦left⟧."
+    },
+    {
+      "n": 439,
+      "rank": 457,
+      "word": "doute",
+      "pos": "noun",
+      "meaning": "doubt (sans doute: probably)",
+      "sentence": "Il va sans doute pleuvoir.",
+      "translation": "It's ⟦probably⟧ going to rain."
+    },
+    {
+      "n": 440,
+      "rank": 458,
+      "word": "fait",
+      "pos": "noun",
+      "meaning": "fact (en fait: actually)",
+      "sentence": "En fait, je ne suis pas d'accord.",
+      "translation": "⟦Actually⟧, I don't agree."
+    },
+    {
+      "n": 441,
+      "rank": 459,
+      "word": "route",
+      "pos": "noun",
+      "meaning": "road; way",
+      "sentence": "Cette route va à la plage.",
+      "translation": "This ⟦road⟧ goes to the beach."
+    },
+    {
+      "n": 442,
+      "rank": 460,
+      "word": "parent",
+      "pos": "noun",
+      "meaning": "parent; relative",
+      "sentence": "Mes parents habitent à la campagne.",
+      "translation": "My ⟦parents⟧ live in the country.",
+      "form": "parents"
+    },
+    {
+      "n": 443,
+      "rank": 461,
+      "word": "fermer",
+      "pos": "verb",
+      "meaning": "to close, to shut",
+      "sentence": "La pharmacie ferme à sept heures.",
+      "translation": "The chemist's ⟦closes⟧ at seven.",
+      "form": "ferme"
+    },
+    {
+      "n": 444,
+      "rank": 462,
+      "word": "étranger",
+      "pos": "noun",
+      "meaning": "foreigner; abroad (à l'étranger); (adjective) foreign",
+      "sentence": "Il habite à l'étranger.",
+      "translation": "He lives ⟦abroad⟧."
+    },
+    {
+      "n": 445,
+      "rank": 463,
+      "word": "condition",
+      "pos": "noun",
+      "meaning": "condition",
+      "sentence": "Les conditions de travail sont difficiles.",
+      "translation": "The working ⟦conditions⟧ are hard.",
+      "form": "conditions"
+    },
+    {
+      "n": 446,
+      "rank": 464,
+      "word": "objet",
+      "pos": "noun",
+      "meaning": "object, item, thing",
+      "sentence": "Ne laissez aucun objet dans la voiture.",
+      "translation": "Don't leave any ⟦items⟧ in the car."
+    },
+    {
+      "n": 447,
+      "rank": 465,
+      "word": "classe",
+      "pos": "noun",
+      "meaning": "class; classroom",
+      "sentence": "Il y a vingt élèves dans ma classe.",
+      "translation": "There are twenty pupils in my ⟦class⟧."
+    },
+    {
+      "n": 448,
+      "rank": 466,
+      "word": "lien",
+      "pos": "noun",
+      "meaning": "link; bond",
+      "sentence": "Je t'envoie le lien.",
+      "translation": "I'll send you the ⟦link⟧."
+    },
+    {
+      "n": 449,
+      "rank": 467,
+      "word": "peur",
+      "pos": "noun",
+      "meaning": "fear (avoir peur: to be afraid)",
+      "sentence": "J'ai peur des chiens.",
+      "translation": "I'm ⟦afraid⟧ of dogs."
+    },
+    {
+      "n": 450,
+      "rank": 468,
+      "word": "longtemps",
+      "pos": "adv",
+      "meaning": "a long time, long",
+      "sentence": "Tu attends depuis longtemps ?",
+      "translation": "Have you been waiting ⟦long⟧?"
+    },
+    {
+      "n": 451,
+      "rank": 469,
+      "word": "voilà",
+      "pos": "adv",
+      "meaning": "here is, there is; there you go",
+      "sentence": "Voilà votre café.",
+      "translation": "⟦Here's⟧ your coffee."
+    },
+    {
+      "n": 452,
+      "rank": 470,
+      "word": "suivant",
+      "pos": "adj",
+      "meaning": "next, following",
+      "sentence": "Le jour suivant, il est parti.",
+      "translation": "The ⟦next⟧ day, he left."
+    },
+    {
+      "n": 453,
+      "rank": 471,
+      "word": "toucher",
+      "pos": "verb",
+      "meaning": "to touch",
+      "sentence": "Ne touche pas, c'est chaud !",
+      "translation": "Don't ⟦touch⟧, it's hot!",
+      "form": "touche"
+    },
+    {
+      "n": 454,
+      "rank": 472,
+      "word": "police",
+      "pos": "noun",
+      "meaning": "police",
+      "sentence": "Appelle la police !",
+      "translation": "Call the ⟦police⟧!"
+    },
+    {
+      "n": 455,
+      "rank": 473,
+      "word": "cher",
+      "pos": "adj",
+      "meaning": "expensive; dear (chère: feminine)",
+      "sentence": "Ce restaurant est cher.",
+      "translation": "This restaurant is ⟦expensive⟧."
+    },
+    {
+      "n": 456,
+      "rank": 474,
+      "word": "club",
+      "pos": "noun",
+      "meaning": "club",
+      "sentence": "Il joue dans un club de foot.",
+      "translation": "He plays in a football ⟦club⟧."
+    },
+    {
+      "n": 457,
+      "rank": 475,
+      "word": "reprendre",
+      "pos": "verb",
+      "meaning": "to start again; to take back; to have more",
+      "sentence": "Les cours reprennent lundi.",
+      "translation": "Classes ⟦start again⟧ on Monday.",
+      "form": "reprennent"
+    },
+    {
+      "n": 458,
+      "rank": 476,
+      "word": "environ",
+      "pos": "adv",
+      "meaning": "about, around",
+      "sentence": "Ça coûte environ vingt euros.",
+      "translation": "It costs ⟦about⟧ twenty euros."
+    },
+    {
+      "n": 459,
+      "rank": 477,
+      "word": "chance",
+      "pos": "noun",
+      "meaning": "luck; chance (avoir de la chance: to be lucky)",
+      "sentence": "Bonne chance !",
+      "translation": "Good ⟦luck⟧!"
+    },
+    {
+      "n": 460,
+      "rank": 478,
+      "word": "époque",
+      "pos": "noun",
+      "meaning": "time, period, era",
+      "sentence": "À cette époque, j'habitais à Lyon.",
+      "translation": "At that ⟦time⟧, I lived in Lyon."
+    },
+    {
+      "n": 461,
+      "rank": 480,
+      "word": "considérer",
+      "pos": "verb",
+      "meaning": "to consider",
+      "sentence": "Je le considère comme un frère.",
+      "translation": "I ⟦consider⟧ him a brother.",
+      "form": "considère"
+    },
+    {
+      "n": 462,
+      "rank": 481,
+      "word": "mouvement",
+      "pos": "noun",
+      "meaning": "movement",
+      "sentence": "J'ai vu un mouvement derrière la fenêtre.",
+      "translation": "I saw a ⟦movement⟧ behind the window."
+    },
+    {
+      "n": 463,
+      "rank": 482,
+      "word": "décider",
+      "pos": "verb",
+      "meaning": "to decide",
+      "sentence": "J'ai décidé de partir.",
+      "translation": "I've ⟦decided⟧ to leave.",
+      "form": "décidé"
+    },
+    {
+      "n": 464,
+      "rank": 483,
+      "word": "deuxième",
+      "pos": "adj",
+      "meaning": "second",
+      "sentence": "J'habite au deuxième étage.",
+      "translation": "I live on the ⟦second⟧ floor."
+    },
+    {
+      "n": 465,
+      "rank": 485,
+      "word": "juin",
+      "pos": "noun",
+      "meaning": "June",
+      "sentence": "Il fait chaud en juin.",
+      "translation": "It's hot in ⟦June⟧."
+    },
+    {
+      "n": 466,
+      "rank": 486,
+      "word": "lorsque",
+      "pos": "conj",
+      "meaning": "when",
+      "sentence": "Lorsque j'étais petit, j'habitais à la campagne.",
+      "translation": "⟦When⟧ I was little, I lived in the country."
+    },
+    {
+      "n": 467,
+      "rank": 487,
+      "word": "mai",
+      "pos": "noun",
+      "meaning": "May",
+      "sentence": "Le premier mai est un jour férié.",
+      "translation": "The first of ⟦May⟧ is a public holiday."
+    },
+    {
+      "n": 468,
+      "rank": 488,
+      "word": "septembre",
+      "pos": "noun",
+      "meaning": "September",
+      "sentence": "L'école reprend en septembre.",
+      "translation": "School starts again in ⟦September⟧."
+    },
+    {
+      "n": 469,
+      "rank": 489,
+      "word": "sécurité",
+      "pos": "noun",
+      "meaning": "safety, security",
+      "sentence": "Pour votre sécurité, restez assis.",
+      "translation": "For your ⟦safety⟧, stay seated."
+    },
+    {
+      "n": 470,
+      "rank": 490,
+      "word": "langue",
+      "pos": "noun",
+      "meaning": "language; tongue",
+      "sentence": "Tu parles combien de langues ?",
+      "translation": "How many ⟦languages⟧ do you speak?",
+      "form": "langues"
+    },
+    {
+      "n": 471,
+      "rank": 491,
+      "word": "difficile",
+      "pos": "adj",
+      "meaning": "difficult, hard",
+      "sentence": "Le français, c'est difficile ?",
+      "translation": "Is French ⟦difficult⟧?"
+    },
+    {
+      "n": 472,
+      "rank": 492,
+      "word": "culture",
+      "pos": "noun",
+      "meaning": "culture",
+      "sentence": "J'aime la culture française.",
+      "translation": "I love French ⟦culture⟧."
+    },
+    {
+      "n": 473,
+      "rank": 493,
+      "word": "texte",
+      "pos": "noun",
+      "meaning": "text",
+      "sentence": "Lis ce texte à voix haute.",
+      "translation": "Read this ⟦text⟧ aloud."
+    },
+    {
+      "n": 474,
+      "rank": 494,
+      "word": "vendre",
+      "pos": "verb",
+      "meaning": "to sell",
+      "sentence": "Ils vendent leur maison.",
+      "translation": "They're ⟦selling⟧ their house.",
+      "form": "vendent"
+    },
+    {
+      "n": 475,
+      "rank": 496,
+      "word": "parmi",
+      "pos": "prep",
+      "meaning": "among",
+      "sentence": "Il est parmi les meilleurs.",
+      "translation": "He's ⟦among⟧ the best."
+    },
+    {
+      "n": 476,
+      "rank": 497,
+      "word": "presque",
+      "pos": "adv",
+      "meaning": "almost, nearly",
+      "sentence": "J'ai presque fini.",
+      "translation": "I've ⟦almost⟧ finished."
+    },
+    {
+      "n": 477,
+      "rank": 498,
+      "word": "tellement",
+      "pos": "adv",
+      "meaning": "so; so much",
+      "sentence": "Je suis tellement content !",
+      "translation": "I'm ⟦so⟧ happy!"
+    },
+    {
+      "n": 478,
+      "rank": 499,
+      "word": "milieu",
+      "pos": "noun",
+      "meaning": "middle; environment, world",
+      "sentence": "Il s'est arrêté au milieu de la rue.",
+      "translation": "He stopped in the ⟦middle⟧ of the street."
+    },
+    {
+      "n": 479,
+      "rank": 500,
+      "word": "final",
+      "pos": "adj",
+      "meaning": "final (finale: feminine; la finale: the final)",
+      "sentence": "C'est ma réponse finale.",
+      "translation": "That's my ⟦final⟧ answer.",
+      "form": "finale"
+    },
+    {
+      "n": 480,
+      "rank": 501,
+      "word": "occuper",
+      "pos": "verb",
+      "meaning": "to occupy (s'occuper de: to look after, to deal with)",
+      "sentence": "Je m'occupe des enfants.",
+      "translation": "I'm ⟦looking after⟧ the children.",
+      "form": "occupe"
+    },
+    {
+      "n": 481,
+      "rank": 502,
+      "word": "écouter",
+      "pos": "verb",
+      "meaning": "to listen (to)",
+      "sentence": "Écoute-moi !",
+      "translation": "⟦Listen⟧ to me!",
+      "form": "écoute"
+    },
+    {
+      "n": 482,
+      "rank": 503,
+      "word": "ajouter",
+      "pos": "verb",
+      "meaning": "to add",
+      "sentence": "Ajoute un peu de sel.",
+      "translation": "⟦Add⟧ a bit of salt.",
+      "form": "ajoute"
+    },
+    {
+      "n": 483,
+      "rank": 504,
+      "word": "roi",
+      "pos": "noun",
+      "meaning": "king",
+      "sentence": "Le roi habitait dans ce château.",
+      "translation": "The ⟦king⟧ lived in this castle."
+    },
+    {
+      "n": 484,
+      "rank": 505,
+      "word": "fonction",
+      "pos": "noun",
+      "meaning": "function; post, role (en fonction de: depending on)",
+      "sentence": "Le prix change en fonction de la saison.",
+      "translation": "The price changes ⟦depending on⟧ the season."
+    },
+    {
+      "n": 485,
+      "rank": 506,
+      "word": "marier",
+      "pos": "verb",
+      "meaning": "to marry (se marier: to get married)",
+      "sentence": "Ils se marient en juin.",
+      "translation": "They're ⟦getting married⟧ in June.",
+      "form": "marient"
+    },
+    {
+      "n": 486,
+      "rank": 507,
+      "word": "économique",
+      "pos": "adj",
+      "meaning": "economic; economical",
+      "sentence": "Le pays traverse une crise économique.",
+      "translation": "The country is going through an ⟦economic⟧ crisis."
+    },
+    {
+      "n": 487,
+      "rank": 508,
+      "word": "avancer",
+      "pos": "verb",
+      "meaning": "to move forward; to make progress",
+      "sentence": "Avancez, s'il vous plaît.",
+      "translation": "⟦Move forward⟧, please.",
+      "form": "avancez"
+    },
+    {
+      "n": 488,
+      "rank": 509,
+      "word": "local",
+      "pos": "adj",
+      "meaning": "local (locaux: plural)",
+      "sentence": "On achète des produits locaux.",
+      "translation": "We buy ⟦local⟧ products.",
+      "form": "locaux"
+    },
+    {
+      "n": 489,
+      "rank": 510,
+      "word": "développement",
+      "pos": "noun",
+      "meaning": "development",
+      "sentence": "Le développement de la ville est rapide.",
+      "translation": "The town's ⟦development⟧ is fast."
+    },
+    {
+      "n": 490,
+      "rank": 511,
+      "word": "rouge",
+      "pos": "adj",
+      "meaning": "red",
+      "sentence": "Ma couleur préférée, c'est le rouge.",
+      "translation": "My favourite colour is ⟦red⟧."
+    },
+    {
+      "n": 491,
+      "rank": 512,
+      "word": "armée",
+      "pos": "noun",
+      "meaning": "army",
+      "sentence": "Son frère est dans l'armée.",
+      "translation": "His brother is in the ⟦army⟧."
+    },
+    {
+      "n": 492,
+      "rank": 513,
+      "word": "intérieur",
+      "pos": "noun",
+      "meaning": "inside (à l'intérieur: inside); (adjective) inner",
+      "sentence": "On mange à l'intérieur ?",
+      "translation": "Shall we eat ⟦inside⟧?"
+    },
+    {
+      "n": 493,
+      "rank": 514,
+      "word": "partager",
+      "pos": "verb",
+      "meaning": "to share",
+      "sentence": "On partage une pizza ?",
+      "translation": "Shall we ⟦share⟧ a pizza?",
+      "form": "partage"
+    },
+    {
+      "n": 494,
+      "rank": 515,
+      "word": "santé",
+      "pos": "noun",
+      "meaning": "health (santé !: cheers!)",
+      "sentence": "Fumer est mauvais pour la santé.",
+      "translation": "Smoking is bad for your ⟦health⟧."
+    },
+    {
+      "n": 495,
+      "rank": 516,
+      "word": "voix",
+      "pos": "noun",
+      "meaning": "voice",
+      "sentence": "Elle a une jolie voix.",
+      "translation": "She has a lovely ⟦voice⟧."
+    },
+    {
+      "n": 496,
+      "rank": 517,
+      "word": "feu",
+      "pos": "noun",
+      "meaning": "fire; traffic lights",
+      "sentence": "Tourne à gauche au prochain feu.",
+      "translation": "Turn left at the next ⟦lights⟧."
+    },
+    {
+      "n": 497,
+      "rank": 518,
+      "word": "privé",
+      "pos": "adj",
+      "meaning": "private (privée: feminine)",
+      "sentence": "C'est une école privée.",
+      "translation": "It's a ⟦private⟧ school.",
+      "form": "privée"
+    },
+    {
+      "n": 498,
+      "rank": 519,
+      "word": "relation",
+      "pos": "noun",
+      "meaning": "relationship; relation",
+      "sentence": "J'ai de bonnes relations avec mes voisins.",
+      "translation": "I'm on good ⟦terms⟧ with my neighbours.",
+      "form": "relations"
+    },
+    {
+      "n": 499,
+      "rank": 520,
+      "word": "période",
+      "pos": "noun",
+      "meaning": "period, time",
+      "sentence": "C'est une période difficile pour lui.",
+      "translation": "It's a difficult ⟦time⟧ for him."
+    },
+    {
+      "n": 500,
+      "rank": 521,
+      "word": "attaquer",
+      "pos": "verb",
+      "meaning": "to attack",
+      "sentence": "Le chien a attaqué le facteur.",
+      "translation": "The dog ⟦attacked⟧ the postman.",
+      "form": "attaqué"
     }
   ]
 }
