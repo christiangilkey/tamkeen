@@ -1142,6 +1142,227 @@
         {"type":"say","q":"Say “I work from nine to five.”","answer":"我从九点工作到五点。","r":"Wǒ cóng jiǔ diǎn gōngzuò dào wǔ diǎn.","from":"say-when"},
         {"type":"free","q":"Your turn: how long have you been learning Chinese, and how long did you sleep last night?","answers":[{"t":"我学中文学了三个月了。我昨天晚上睡了七个小时。","r":"Wǒ xué Zhōngwén xué le sān ge yuè le. Wǒ zuótiān wǎnshang shuì le qī ge xiǎoshí.","tr":"I've been learning Chinese for three months. Last night I slept seven hours."},{"t":"我学了一年中文了。昨天我只睡了五个小时！","r":"Wǒ xué le yì nián Zhōngwén le. Zuótiān wǒ zhǐ shuì le wǔ ge xiǎoshí!","tr":"I've been learning Chinese for a year. Yesterday I only slept five hours!"}]}
       ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Compare two things",
+      "summary": "“Today is colder than yesterday”, “This one's a bit cheaper”, “I'm not as tall as my brother”: compare people and things.",
+      "topic": "A {{比|bǐ}} B + adjective (no {{很|hěn}}); {{一点儿|yìdiǎnr}}, {{多了|duō le}}; A {{没有|méiyǒu}} B ({{那么|nàme}}) + adjective",
+      "blocks": [
+        {"goal":{"t":"今天比昨天冷。","r":"Jīntiān bǐ zuótiān lěng.","tr":"Today is colder than yesterday."}},
+        {"dialog":[{"who":"Anna","t":"这个手机比那个贵吗？","r":"Zhège shǒujī bǐ nàge guì ma?","tr":"Is this phone more expensive than that one?"},{"who":"Shop assistant","t":"贵一点儿。这个比那个好多了。","r":"Guì yìdiǎnr. Zhège bǐ nàge hǎo duō le.","tr":"A bit more expensive. This one is much better than that one."},{"who":"Anna","t":"那个呢？","r":"Nàge ne?","tr":"And that one?"},{"who":"Shop assistant","t":"那个便宜一点儿，没有这个快。","r":"Nàge piányi yìdiǎnr, méiyǒu zhège kuài.","tr":"That one's a bit cheaper, but not as fast as this one."},{"who":"Anna","t":"好，我要这个。","r":"Hǎo, wǒ yào zhège.","tr":"OK, I'll take this one."}]},
+        {"p":"**A {{比|bǐ}} B + adjective.** {{比|bǐ}} means “compared with”: {{今天比昨天冷。|Jīntiān bǐ zuótiān lěng.}} “Today is colder than yesterday” (“today compared-with yesterday cold”). The adjective never changes (no “-er”, no “more”), and there's **no {{很|hěn}}** in a comparison."},
+        {"p":"**How much more?** Say it after the adjective: {{一点儿|yìdiǎnr}} “a bit”, {{多了|duō le}} “much”: {{这个比那个贵一点儿。|Zhège bǐ nàge guì yìdiǎnr.}} “This one is a bit more expensive.” {{他比我高多了。|Tā bǐ wǒ gāo duō le.}} “He's much taller than me.” Or {{更|gèng}} “even more” before the adjective: {{明天更冷。|Míngtiān gèng lěng.}} “Tomorrow will be even colder.”"},
+        {"p":"**Not as… as**: A {{没有|méiyǒu}} B ({{那么|nàme}}) + adjective: {{我没有我哥哥那么高。|Wǒ méiyǒu wǒ gēge nàme gāo.}} “I'm not as tall as my brother.” ({{不比|bù bǐ}} exists too, but it means “no more … than”, which is rarely what you want.)"},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["more","{{我比他大。|Wǒ bǐ tā dà.}}","I'm older than him."],
+          ["a bit more","{{这个比那个便宜一点儿。|Zhège bǐ nàge piányi yìdiǎnr.}}","This one's a bit cheaper than that one."],
+          ["much more","{{他比我高多了。|Tā bǐ wǒ gāo duō le.}}","He's much taller than me."],
+          ["not as","{{我没有他那么忙。|Wǒ méiyǒu tā nàme máng.}}","I'm not as busy as him."]
+        ] },
+        { "ex": [
+          {"t":"今天比昨天冷。","r":"Jīntiān bǐ zuótiān lěng.","tr":"Today is colder than yesterday."},
+          {"t":"我比他大两岁。","r":"Wǒ bǐ tā dà liǎng suì.","tr":"I'm two years older than him.","note":"how much more goes after the adjective"},
+          {"t":"坐地铁比打车快。","r":"Zuò dìtiě bǐ dǎchē kuài.","tr":"The subway is faster than a taxi.","note":"you can compare actions too"},
+          {"t":"这家饭馆比那家好吃多了。","r":"Zhè jiā fànguǎn bǐ nà jiā hǎochī duō le.","tr":"The food here is much better than at that restaurant."},
+          {"t":"我的中文没有你的好。","r":"Wǒ de Zhōngwén méiyǒu nǐ de hǎo.","tr":"My Chinese isn't as good as yours."},
+          {"t":"你比以前瘦了！","r":"Nǐ bǐ yǐqián shòu le!","tr":"You've lost weight!","note":"{{以前|yǐqián}} “before”: compared with the past. In China, a compliment!"}
+        ] },
+        {"tip":"{{大|dà}} “big” also means “older” for people, and {{小|xiǎo}} “younger”: {{我妹妹比我小三岁。|Wǒ mèimei bǐ wǒ xiǎo sān suì.}} “My sister is three years younger than me.”"}
+      ],
+      "mistakes": [
+        {"wrong":"今天比昨天很冷。","right":"今天比昨天冷。","tr":"Today is colder than yesterday.","why":"No {{很|hěn}} after {{比|bǐ}}: {{今天比昨天冷。|Jīntiān bǐ zuótiān lěng.}} For “much colder”, put {{多了|duō le}} after it: {{冷多了|lěng duō le}}."},
+        {"wrong":"我比他两岁大。","right":"我比他大两岁。","tr":"I'm two years older than him.","why":"How much more goes after the adjective: {{大两岁|dà liǎng suì}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我哥哥___我高。","r":"Wǒ gēge ___ wǒ gāo.","tr":"My brother is taller than me.","options":["比","很","是"],"rs":["bǐ","hěn","shì"],"answer":0,"why":"Comparing: A {{比|bǐ}} B + adjective."},
+        {"type":"choice","q":"“This one's much cheaper” is…","options":["{{这个便宜多了。|Zhège piányi duō le.}}","{{这个很多便宜。|Zhège hěn duō piányi.}}","{{这个多了便宜。|Zhège duō le piányi.}}"],"answer":0,"why":"“Much” goes after the adjective: {{便宜多了|piányi duō le}}."},
+        {"type":"choice","q":"{{我没有他那么忙。|Wǒ méiyǒu tā nàme máng.}} means…","options":["I'm not as busy as him.","I don't have his work.","He isn't busy."],"answer":0,"why":"A {{没有|méiyǒu}} B ({{那么|nàme}}) + adjective: “not as … as”."},
+        {"type":"dialogue","q":"Choosing a restaurant with a friend. Choose your replies.","lines":[{"who":"Friend","t":"我们去哪家饭馆？","r":"Wǒmen qù nǎ jiā fànguǎn?","tr":"Which restaurant shall we go to?"},{"options":["去那家吧，那家比这家便宜。","去那家吧，那家比这家很便宜。"],"rs":["Qù nà jiā ba, nà jiā bǐ zhè jiā piányi.","Qù nà jiā ba, nà jiā bǐ zhè jiā hěn piányi."],"answer":0,"why":"No {{很|hěn}} after {{比|bǐ}}."},{"who":"Friend","t":"那家好吃吗？","r":"Nà jiā hǎochī ma?","tr":"Is the food good there?"},{"options":["没有这家好吃。","不比这家很好吃。"],"rs":["Méiyǒu zhè jiā hǎochī.","Bù bǐ zhè jiā hěn hǎochī."],"answer":0,"why":"“Not as good as this one”: {{没有|méiyǒu}} + this one + the adjective."},{"who":"Friend","t":"那我们去这家吧！","r":"Nà wǒmen qù zhè jiā ba!","tr":"Then let's go to this one!"}],"from":"make-plans"},
+        {"type":"order","q":"Put the words in order.","tr":"I'm two years older than him.","words":["我","比","他","大","两岁。"],"rs":["wǒ","bǐ","tā","dà","liǎng suì."],"from":"talk-about-your-family"},
+        {"type":"say","q":"Say “The subway is faster than a taxi.”","answer":"坐地铁比打车快。","r":"Zuò dìtiě bǐ dǎchē kuài.","from":"describe-your-day"},
+        {"type":"free","q":"Your turn: compare two people you know, or your city and another one.","answers":[{"t":"我比我妹妹高。我妹妹比我聪明多了！","r":"Wǒ bǐ wǒ mèimei gāo. Wǒ mèimei bǐ wǒ cōngming duō le!","tr":"I'm taller than my sister. My sister is much cleverer than me!"},{"t":"北京比我的城市大多了。我的城市没有北京那么冷。","r":"Běijīng bǐ wǒ de chéngshì dà duō le. Wǒ de chéngshì méiyǒu Běijīng nàme lěng.","tr":"Beijing is much bigger than my city. My city isn't as cold as Beijing."}]}
+      ]
+    },
+    {
+      "id": "say-same-or-most",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what's the same, what's different, and the most",
+      "summary": "“We're the same age”, “It's different from mine”, “He's my best friend”: say same, different, and most.",
+      "topic": "A {{跟|gēn}} B {{一样|yíyàng}} (+ adjective); {{不一样|bù yíyàng}}; {{最|zuì}} + adjective",
+      "blocks": [
+        {"goal":{"t":"我跟我哥哥一样高。","r":"Wǒ gēn wǒ gēge yíyàng gāo.","tr":"I'm as tall as my brother."}},
+        {"dialog":[{"who":"Xiao Wang","t":"你的手机跟我的一样！","r":"Nǐ de shǒujī gēn wǒ de yíyàng!","tr":"Your phone is the same as mine!"},{"who":"Mark","t":"不一样，我的是新的。","r":"Bù yíyàng, wǒ de shì xīn de.","tr":"It's not the same, mine is the new one."},{"who":"Xiao Wang","t":"新的贵吗？","r":"Xīn de guì ma?","tr":"Is the new one expensive?"},{"who":"Mark","t":"很贵，是最贵的！","r":"Hěn guì, shì zuì guì de!","tr":"Very, it's the most expensive one!"},{"who":"Xiao Wang","t":"我的最好：最便宜！","r":"Wǒ de zuì hǎo: zuì piányi!","tr":"Mine's the best: it's the cheapest!"}]},
+        {"p":"**The same: A {{跟|gēn}} B {{一样|yíyàng}}.** {{跟|gēn}} (or {{和|hé}}) “with”, then {{一样|yíyàng}} “the same”: {{你的手机跟我的一样。|Nǐ de shǒujī gēn wǒ de yíyàng.}} “Your phone is the same as mine.” Add an adjective for “as … as”: {{我跟他一样高。|Wǒ gēn tā yíyàng gāo.}} “I'm as tall as him.”"},
+        {"p":"**Different** is {{不一样|bù yíyàng}}: {{中国菜跟美国菜很不一样。|Zhōngguó cài gēn Měiguó cài hěn bù yíyàng.}} “Chinese food is very different from American food.”"},
+        {"p":"**The most: {{最|zuì}} + adjective.** {{最|zuì}} goes before the adjective, like {{很|hěn}}: {{这个最好。|Zhège zuì hǎo.}} “This one is the best.” Before a noun, add {{的|de}}: {{最贵的菜|zuì guì de cài}} “the most expensive dish”, {{最好的朋友|zuì hǎo de péngyou}} “best friend”. Where it's the most comes first: {{班里最高的|bān li zuì gāo de}} “the tallest in the class”."},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["the same","{{我们一样大。|Wǒmen yíyàng dà.}}","We're the same age."],
+          ["as … as","{{今天跟昨天一样热。|Jīntiān gēn zuótiān yíyàng rè.}}","Today's as hot as yesterday."],
+          ["different","{{这两个字不一样。|Zhè liǎng ge zì bù yíyàng.}}","These two characters are different."],
+          ["the most","{{他是我最好的朋友。|Tā shì wǒ zuì hǎo de péngyou.}}","He's my best friend."]
+        ] },
+        { "ex": [
+          {"t":"我跟我哥哥一样高。","r":"Wǒ gēn wǒ gēge yíyàng gāo.","tr":"I'm as tall as my brother."},
+          {"t":"你的手机跟我的一样。","r":"Nǐ de shǒujī gēn wǒ de yíyàng.","tr":"Your phone is the same as mine."},
+          {"t":"北京的冬天跟这儿不一样。","r":"Běijīng de dōngtiān gēn zhèr bù yíyàng.","tr":"Winter in Beijing is different from here."},
+          {"t":"这家店的饺子最好吃。","r":"Zhè jiā diàn de jiǎozi zuì hǎochī.","tr":"This shop's dumplings are the best."},
+          {"t":"你最喜欢哪个季节？","r":"Nǐ zuì xǐhuan nǎge jìjié?","tr":"Which season do you like best?"},
+          {"t":"他是我们班最高的。","r":"Tā shì wǒmen bān zuì gāo de.","tr":"He's the tallest in our class."}
+        ] },
+        {"tip":"{{一样|yíyàng}} is handy on its own: {{我也一样。|Wǒ yě yíyàng.}} “Same here.” {{都一样。|Dōu yíyàng.}} “It makes no difference.”"}
+      ],
+      "mistakes": [
+        {"wrong":"我一样高跟他。","right":"我跟他一样高。","tr":"I'm as tall as him.","why":"The order is A {{跟|gēn}} B {{一样|yíyàng}} + adjective: {{我跟他一样高。|Wǒ gēn tā yíyàng gāo.}}"},
+        {"wrong":"他是最高在班里。","right":"他是班里最高的。","tr":"He's the tallest in the class.","why":"“In the class” comes first, before {{最|zuì}}: {{班里最高的|bān li zuì gāo de}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我跟我妹妹___高。","r":"Wǒ gēn wǒ mèimei ___ gāo.","tr":"I'm as tall as my sister.","options":["一样","比","最"],"rs":["yíyàng","bǐ","zuì"],"answer":0,"why":"A {{跟|gēn}} B {{一样|yíyàng}} + adjective."},
+        {"type":"choice","q":"“He's my best friend” is…","options":["{{他是我最好的朋友。|Tā shì wǒ zuì hǎo de péngyou.}}","{{他是我最朋友好。|Tā shì wǒ zuì péngyou hǎo.}}","{{他是我的好最朋友。|Tā shì wǒ de hǎo zuì péngyou.}}"],"answer":0,"why":"{{最|zuì}} before the adjective, then {{的|de}} and the noun."},
+        {"type":"choice","q":"“Chinese is different from English” is…","options":["{{中文跟英文不一样。|Zhōngwén gēn Yīngwén bù yíyàng.}}","{{中文跟英文一样不。|Zhōngwén gēn Yīngwén yíyàng bù.}}"],"answer":0,"why":"{{不|bù}} goes right before {{一样|yíyàng}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Which season do you like best?","words":["你","最","喜欢","哪个","季节？"],"rs":["nǐ","zuì","xǐhuan","nǎge","jìjié?"],"from":"say-what-you-like"},
+        {"type":"dialogue","q":"Getting to know someone. Choose your replies.","lines":[{"who":"Friend","t":"你多大？","r":"Nǐ duō dà?","tr":"How old are you?"},{"options":["我二十八岁。","我是二十八岁大。"],"rs":["Wǒ èrshíbā suì.","Wǒ shì èrshíbā suì dà."],"answer":0,"why":"An age: just the number and {{岁|suì}}."},{"who":"Friend","t":"真的？我也二十八岁！","r":"Zhēn de? Wǒ yě èrshíbā suì!","tr":"Really? I'm twenty-eight too!"},{"options":["我们一样大！","我们一样是大！"],"rs":["Wǒmen yíyàng dà!","Wǒmen yíyàng shì dà!"],"answer":0,"why":"{{一样|yíyàng}} + adjective, with no {{是|shì}}."}],"from":"talk-about-your-family"},
+        {"type":"say","q":"Say “This shop's dumplings are the best.”","answer":"这家店的饺子最好吃。","r":"Zhè jiā diàn de jiǎozi zuì hǎochī."},
+        {"type":"free","q":"Your turn: who's your best friend? Say one way you're the same and one way you're different.","answers":[{"t":"我最好的朋友叫丽丽。我们一样大。她比我高。","r":"Wǒ zuì hǎo de péngyou jiào Lìlì. Wǒmen yíyàng dà. Tā bǐ wǒ gāo.","tr":"My best friend is called Lili. We're the same age. She's taller than me."},{"t":"我最好的朋友是大卫。他喜欢喝茶，我喜欢喝咖啡，我们不一样！","r":"Wǒ zuì hǎo de péngyou shì Dàwèi. Tā xǐhuan hē chá, wǒ xǐhuan hē kāfēi, wǒmen bù yíyàng!","tr":"My best friend is David. He likes tea, I like coffee: we're different!"}]}
+      ]
+    },
+    {
+      "id": "say-how-well",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how well someone does something",
+      "summary": "“You speak Chinese really well!”, “He runs fast”, “How did you sleep?”: describe how something is done, with {{得|de}}.",
+      "topic": "Verb + {{得|de}} + how: {{说得很好|shuō de hěn hǎo}}; with an object: {{(说)中文说得很好|(shuō) Zhōngwén shuō de hěn hǎo}}; {{…得怎么样？|…de zěnmeyàng?}}",
+      "blocks": [
+        {"goal":{"t":"你中文说得很好！","r":"Nǐ Zhōngwén shuō de hěn hǎo!","tr":"You speak Chinese really well!"}},
+        {"dialog":[{"who":"Xiao Lin","t":"你做饭做得真好！","r":"Nǐ zuò fàn zuò de zhēn hǎo!","tr":"You're a really good cook!"},{"who":"Anna","t":"谢谢！菜做得怎么样？","r":"Xièxie! Cài zuò de zěnmeyàng?","tr":"Thanks! How was the food?"},{"who":"Xiao Lin","t":"非常好吃！你中文也说得很好。","r":"Fēicháng hǎochī! Nǐ Zhōngwén yě shuō de hěn hǎo.","tr":"Delicious! And you speak Chinese really well, too."},{"who":"Anna","t":"哪里哪里，我说得太慢了。","r":"Nǎlǐ nǎlǐ, wǒ shuō de tài màn le.","tr":"Oh no, I speak too slowly."},{"who":"Xiao Lin","t":"不慢！","r":"Bú màn!","tr":"Not at all!"}]},
+        {"p":"**How it's done: verb + {{得|de}} + description.** English says “runs fast”; Chinese says “runs-*de* fast”, with the description after {{得|de}}: {{他跑得很快。|Tā pǎo de hěn kuài.}} “He runs fast.” {{我昨天睡得不好。|Wǒ zuótiān shuì de bù hǎo.}} “I didn't sleep well last night.” The description is an adjective, usually with {{很|hěn}}, {{太…了|tài… le}} or {{不|bù}}."},
+        {"term":"complement","means":"a word or phrase after a verb that completes it: how well the action was done, or what came of it. “Well” in “speaks well”."},
+        {"p":"**With an object, say the verb twice**, as with “how long”: {{她说中文说得很好。|Tā shuō Zhōngwén shuō de hěn hǎo.}} Or put the object first and say the verb once: {{她中文说得很好。|Tā Zhōngwén shuō de hěn hǎo.}} Either way, a verb comes right before {{得|de}}."},
+        {"p":"**How did it go?** {{…得怎么样？|…de zěnmeyàng?}}: {{你考得怎么样？|Nǐ kǎo de zěnmeyàng?}} “How did your exam go?” {{你睡得怎么样？|Nǐ shuì de zěnmeyàng?}} “How did you sleep?”"},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["how","{{他跑得很快。|Tā pǎo de hěn kuài.}}","He runs fast."],
+          ["not","{{我睡得不好。|Wǒ shuì de bù hǎo.}}","I didn't sleep well."],
+          ["with an object","{{她做饭做得很好吃。|Tā zuò fàn zuò de hěn hǎochī.}}","She cooks delicious food."],
+          ["asking","{{你考得怎么样？|Nǐ kǎo de zěnmeyàng?}}","How did your exam go?"]
+        ] },
+        { "ex": [
+          {"t":"你中文说得很好！","r":"Nǐ Zhōngwén shuō de hěn hǎo!","tr":"You speak Chinese really well!"},
+          {"t":"他跑得很快。","r":"Tā pǎo de hěn kuài.","tr":"He runs fast."},
+          {"t":"我昨天睡得不好。","r":"Wǒ zuótiān shuì de bù hǎo.","tr":"I didn't sleep well last night."},
+          {"t":"你来得太晚了！","r":"Nǐ lái de tài wǎn le!","tr":"You're too late!","note":"“you came too late”"},
+          {"t":"她唱歌唱得非常好听。","r":"Tā chànggē chàng de fēicháng hǎotīng.","tr":"She sings beautifully."},
+          {"t":"你们玩儿得怎么样？","r":"Nǐmen wánr de zěnmeyàng?","tr":"Did you have a good time?"}
+        ] },
+        {"tip":"When someone says {{你中文说得很好！|Nǐ Zhōngwén shuō de hěn hǎo!}}, the modest answer is {{哪里哪里|nǎlǐ nǎlǐ}} or {{还可以|hái kěyǐ}} “it's OK”. A plain {{谢谢|xièxie}} is fine too."}
+      ],
+      "mistakes": [
+        {"wrong":"他说中文得很好。","right":"他中文说得很好。","tr":"He speaks Chinese very well.","why":"{{得|de}} must come right after a verb: {{他中文说得很好。|Tā Zhōngwén shuō de hěn hǎo.}} or {{他说中文说得很好。|Tā shuō Zhōngwén shuō de hěn hǎo.}}"},
+        {"wrong":"他跑很快。","right":"他跑得很快。","tr":"He runs fast.","why":"How it's done comes after {{得|de}}: {{跑得很快|pǎo de hěn kuài}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"你来___太晚了！","r":"Nǐ lái ___ tài wǎn le!","tr":"You're too late!","options":["得","的","了"],"rs":["de","de","le"],"answer":0,"why":"How it was done: verb + {{得|de}}. ({{的|de}} sounds the same but joins words to nouns.)"},
+        {"type":"choice","q":"“She sings beautifully” is…","options":["{{她唱歌唱得很好听。|Tā chànggē chàng de hěn hǎotīng.}}","{{她唱歌得很好听。|Tā chànggē de hěn hǎotīng.}}","{{她很好听唱歌。|Tā hěn hǎotīng chànggē.}}"],"answer":0,"why":"With an object ({{歌|gē}} “song”), say the verb again before {{得|de}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I didn't sleep well last night.","words":["我","昨天","睡得","不好。"],"rs":["wǒ","zuótiān","shuì de","bù hǎo."],"from":"say-when"},
+        {"type":"dialogue","q":"A colleague asks about your weekend trip. Choose your replies.","lines":[{"who":"Colleague","t":"你们玩儿得怎么样？","r":"Nǐmen wánr de zěnmeyàng?","tr":"Did you have a good time?"},{"options":["玩儿得很开心！","很开心玩儿得！"],"rs":["Wánr de hěn kāixīn!","Hěn kāixīn wánr de!"],"answer":0,"why":"The verb, {{得|de}}, then how: {{玩儿得很开心|wánr de hěn kāixīn}} “had a great time”."},{"who":"Colleague","t":"你们吃了什么？","r":"Nǐmen chī le shénme?","tr":"What did you eat?"},{"options":["我们吃了很多烤鸭。","我们吃很多了烤鸭。"],"rs":["Wǒmen chī le hěn duō kǎoyā.","Wǒmen chī hěn duō le kǎoyā."],"answer":0,"why":"{{了|le}} right after the verb."},{"who":"Colleague","t":"太好了！","r":"Tài hǎo le!","tr":"Great!"}],"from":"say-what-you-did"},
+        {"type":"say","q":"Tell a friend: “You cook really well!”","answer":"你做饭做得真好！","r":"Nǐ zuò fàn zuò de zhēn hǎo!"},
+        {"type":"free","q":"Your turn: say one thing you do well and one thing you don't.","answers":[{"t":"我游泳游得很快。我唱歌唱得不好听。","r":"Wǒ yóuyǒng yóu de hěn kuài. Wǒ chànggē chàng de bù hǎotīng.","tr":"I swim fast. I don't sing well."},{"t":"我做饭做得不错。我中文说得太慢了！","r":"Wǒ zuò fàn zuò de búcuò. Wǒ Zhōngwén shuō de tài màn le!","tr":"I'm not a bad cook. I speak Chinese too slowly!"}]}
+      ]
+    },
+    {
+      "id": "say-a-bit-or-too",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say a bit, too, and not at all",
+      "summary": "“It's a bit expensive”, “A bit slower, please”, “It's not hard at all”: soften what you say, or make it stronger.",
+      "topic": "{{有点儿|yǒudiǎnr}} + adjective (a bit too) vs adjective + {{一点儿|yìdiǎnr}} (a bit more); {{太…了|tài… le}}; {{不太|bú tài}}; {{一点儿也不|yìdiǎnr yě bù}}",
+      "blocks": [
+        {"goal":{"t":"这件衣服有点儿贵。","r":"Zhè jiàn yīfu yǒudiǎnr guì.","tr":"This top is a bit expensive."}},
+        {"dialog":[{"who":"Waiter","t":"菜怎么样？","r":"Cài zěnmeyàng?","tr":"How's the food?"},{"who":"Tom","t":"很好吃，就是有点儿辣。","r":"Hěn hǎochī, jiùshì yǒudiǎnr là.","tr":"Delicious, just a bit spicy."},{"who":"Waiter","t":"要不要喝点儿水？","r":"Yào bu yào hē diǎnr shuǐ?","tr":"Would you like some water?"},{"who":"Tom","t":"好，谢谢！我朋友一点儿也不怕辣。","r":"Hǎo, xièxie! Wǒ péngyou yìdiǎnr yě bú pà là.","tr":"Yes, thanks! My friend doesn't mind spicy food at all."},{"who":"Friend","t":"对，我是四川人！","r":"Duì, wǒ shì Sìchuānrén!","tr":"Right, I'm from Sichuan!"}]},
+        {"p":"**A bit (too): {{有点儿|yǒudiǎnr}} + adjective.** Before an adjective, {{有点儿|yǒudiǎnr}} means “a bit, rather”, and it's for things you're not happy about: {{有点儿贵|yǒudiǎnr guì}} “a bit expensive”, {{有点儿累|yǒudiǎnr lèi}} “a bit tired”."},
+        {"p":"**A bit more: adjective + {{一点儿|yìdiǎnr}}.** After an adjective, {{一点儿|yìdiǎnr}} compares: “a bit more …”. It's how you ask for something different: {{便宜一点儿吧！|Piányi yìdiǎnr ba!}} “A bit cheaper!” {{请说慢一点儿。|Qǐng shuō màn yìdiǎnr.}} “A bit more slowly, please.” Before a noun, {{一点儿|yìdiǎnr}} is “some, a little”: {{喝一点儿水|hē yìdiǎnr shuǐ}} “drink some water”."},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["{{有点儿|yǒudiǎnr}} + adjective","{{今天有点儿冷。|Jīntiān yǒudiǎnr lěng.}}","It's a bit cold today."],
+          ["adjective + {{一点儿|yìdiǎnr}}","{{这件大一点儿。|Zhè jiàn dà yìdiǎnr.}}","This one's a bit bigger."],
+          ["too, so","{{太冷了！|Tài lěng le!}}","It's so cold!"],
+          ["not very","{{不太冷。|Bú tài lěng.}}","It's not very cold."],
+          ["not at all","{{一点儿也不冷。|Yìdiǎnr yě bù lěng.}}","It's not cold at all."]
+        ] },
+        {"p":"**Stronger or softer.** {{太…了|tài… le}} “too, so”; {{不太|bú tài}} “not very”, a gentle “no”; {{一点儿也不|yìdiǎnr yě bù}} “not at all”: {{中文一点儿也不难！|Zhōngwén yìdiǎnr yě bù nán!}} “Chinese isn't hard at all!”"},
+        { "ex": [
+          {"t":"这件衣服有点儿贵。","r":"Zhè jiàn yīfu yǒudiǎnr guì.","tr":"This top is a bit expensive."},
+          {"t":"我今天有点儿累。","r":"Wǒ jīntiān yǒudiǎnr lèi.","tr":"I'm a bit tired today."},
+          {"t":"请说慢一点儿。","r":"Qǐng shuō màn yìdiǎnr.","tr":"A bit more slowly, please."},
+          {"t":"有没有便宜一点儿的？","r":"Yǒu méiyǒu piányi yìdiǎnr de?","tr":"Do you have anything a bit cheaper?"},
+          {"t":"这个菜不太辣。","r":"Zhège cài bú tài là.","tr":"This dish isn't very spicy."},
+          {"t":"我一点儿也不饿。","r":"Wǒ yìdiǎnr yě bú è.","tr":"I'm not hungry at all."}
+        ] },
+        {"tip":"In quick speech {{一点儿|yìdiǎnr}} often drops its {{一|yì}}: {{喝点儿水|hē diǎnr shuǐ}} “have some water”. In the south you'll hear {{一点|yìdiǎn}} and {{有点|yǒudiǎn}}, without the {{儿|r}}."}
+      ],
+      "mistakes": [
+        {"wrong":"你可以说有点儿慢吗？","right":"你可以说慢一点儿吗？","tr":"Could you speak a bit more slowly?","why":"Asking for “a bit more”: the adjective, then {{一点儿|yìdiǎnr}}. {{有点儿|yǒudiǎnr}} is for complaints."},
+        {"wrong":"今天一点儿冷。","right":"今天有点儿冷。","tr":"It's a bit cold today.","why":"Before an adjective, “a bit” is {{有点儿|yǒudiǎnr}}: {{今天有点儿冷。|Jīntiān yǒudiǎnr lěng.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"今天___冷。","r":"Jīntiān ___ lěng.","tr":"It's a bit cold today.","options":["有点儿","一点儿","太"],"rs":["yǒudiǎnr","yìdiǎnr","tài"],"answer":0,"why":"“A bit (too)” before an adjective: {{有点儿|yǒudiǎnr}}."},
+        {"type":"choice","q":"At a market: “A bit cheaper!”","options":["{{便宜一点儿吧！|Piányi yìdiǎnr ba!}}","{{有点儿便宜吧！|Yǒudiǎnr piányi ba!}}"],"answer":0,"why":"Asking for a bit more: the adjective, then {{一点儿|yìdiǎnr}}.","from":"ask-how-much"},
+        {"type":"choice","q":"{{我一点儿也不累。|Wǒ yìdiǎnr yě bú lèi.}} means…","options":["I'm a bit tired.","I'm not tired at all.","I'm too tired."],"answer":1,"why":"{{一点儿也不|yìdiǎnr yě bù}} is “not at all”."},
+        {"type":"dialogue","q":"Trying on shoes. Choose your replies.","lines":[{"who":"Shop assistant","t":"这双怎么样？","r":"Zhè shuāng zěnmeyàng?","tr":"How about this pair?"},{"options":["有点儿小。有没有大一点儿的？","一点儿小。有没有有点儿大的？"],"rs":["Yǒudiǎnr xiǎo. Yǒu méiyǒu dà yìdiǎnr de?","Yìdiǎnr xiǎo. Yǒu méiyǒu yǒudiǎnr dà de?"],"answer":0,"why":"A complaint: {{有点儿小|yǒudiǎnr xiǎo}}. Asking for more: {{大一点儿|dà yìdiǎnr}}."},{"who":"Shop assistant","t":"这双呢？","r":"Zhè shuāng ne?","tr":"And this pair?"},{"options":["不大不小，太好了！","不大不小，太好！"],"rs":["Bú dà bù xiǎo, tài hǎo le!","Bú dà bù xiǎo, tài hǎo!"],"answer":0,"why":"“Great!” is {{太好了|tài hǎo le}}, with {{了|le}}."}],"from":"ask-politely"},
+        {"type":"order","q":"Put the words in order.","tr":"This dish isn't very spicy.","words":["这个","菜","不太","辣。"],"rs":["zhège","cài","bú tài","là."]},
+        {"type":"say","q":"Say “Chinese isn't hard at all!”","answer":"中文一点儿也不难！","r":"Zhōngwén yìdiǎnr yě bù nán!","from":"say-how-you-are"},
+        {"type":"free","q":"Your turn: describe today: the weather, how you feel, and what you'd like a bit more of.","answers":[{"t":"今天有点儿冷。我有点儿累，想早一点儿睡觉。","r":"Jīntiān yǒudiǎnr lěng. Wǒ yǒudiǎnr lèi, xiǎng zǎo yìdiǎnr shuìjiào.","tr":"It's a bit cold today. I'm a bit tired, I'd like to go to bed a bit earlier."},{"t":"今天太热了！我一点儿也不想出去。","r":"Jīntiān tài rè le! Wǒ yìdiǎnr yě bù xiǎng chūqù.","tr":"It's so hot today! I don't want to go out at all."}]}
+      ]
+    },
+    {
+      "id": "say-which-one",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say which one you mean",
+      "summary": "“The book I bought yesterday”, “the woman in red”, “What you said is right”: describe a person or thing with a whole phrase.",
+      "topic": "A describing phrase + {{的|de}} + the noun, always before it: {{我昨天买的书|wǒ zuótiān mǎi de shū}}, {{穿红衣服的人|chuān hóng yīfu de rén}}",
+      "blocks": [
+        {"goal":{"t":"这是我昨天买的书。","r":"Zhè shì wǒ zuótiān mǎi de shū.","tr":"This is the book I bought yesterday."}},
+        {"dialog":[{"who":"Anna","t":"那个穿红衣服的人是谁？","r":"Nàge chuān hóng yīfu de rén shì shéi?","tr":"Who's that woman in red?"},{"who":"Xiao Wang","t":"哪个？","r":"Nǎge?","tr":"Which one?"},{"who":"Anna","t":"在门口打电话的那个。","r":"Zài ménkǒu dǎ diànhuà de nàge.","tr":"The one on the phone by the door."},{"who":"Xiao Wang","t":"她是我在大学认识的朋友。","r":"Tā shì wǒ zài dàxué rènshi de péngyou.","tr":"She's a friend I met at university."},{"who":"Anna","t":"她做的蛋糕很好吃！","r":"Tā zuò de dàngāo hěn hǎochī!","tr":"The cake she made is delicious!"}]},
+        {"p":"**Everything that describes a noun goes before it, joined by {{的|de}}.** English puts a long description after the noun: “the book *that I bought yesterday*”. Chinese puts it before, and joins it with {{的|de}}, just as it does with owners: {{我昨天买的书|wǒ zuótiān mǎi de shū}}, word for word “I yesterday bought -*de* book”."},
+        { "table": [
+          ["Describing phrase","+ {{的|de}}","+ noun","Meaning"],
+          ["{{我昨天买|wǒ zuótiān mǎi}}","{{的|de}}","{{书|shū}}","the book I bought yesterday"],
+          ["{{穿红衣服|chuān hóng yīfu}}","{{的|de}}","{{人|rén}}","the person wearing red"],
+          ["{{她做|tā zuò}}","{{的|de}}","{{蛋糕|dàngāo}}","the cake she made"],
+          ["{{很好吃|hěn hǎochī}}","{{的|de}}","{{菜|cài}}","really tasty food"]
+        ] },
+        {"p":"**No “who”, “which” or “that”**: {{的|de}} does all their work. Once the noun is known, it can be left out: {{你说的对。|Nǐ shuō de duì.}} “What you said is right.” {{我要红的。|Wǒ yào hóng de.}} “I'd like the red one.”"},
+        {"p":"**With “this” or “that”**, the description usually comes first: {{我昨天买的那本书|wǒ zuótiān mǎi de nà běn shū}} “that book I bought yesterday”."},
+        { "ex": [
+          {"t":"这是我昨天买的书。","r":"Zhè shì wǒ zuótiān mǎi de shū.","tr":"This is the book I bought yesterday."},
+          {"t":"穿红衣服的人是我姐姐。","r":"Chuān hóng yīfu de rén shì wǒ jiějie.","tr":"The woman in red is my older sister."},
+          {"t":"你说的对。","r":"Nǐ shuō de duì.","tr":"You're right.","note":"“what you said is right”"},
+          {"t":"我喜欢你做的菜。","r":"Wǒ xǐhuan nǐ zuò de cài.","tr":"I love the food you make."},
+          {"t":"我们昨天看的电影很有意思。","r":"Wǒmen zuótiān kàn de diànyǐng hěn yǒu yìsi.","tr":"The film we saw yesterday was really interesting."},
+          {"t":"在中国工作的外国人很多。","r":"Zài Zhōngguó gōngzuò de wàiguórén hěn duō.","tr":"There are lots of foreigners working in China."}
+        ] },
+        {"tip":"After a short adjective, {{的|de}} is often dropped: {{好朋友|hǎo péngyou}} “good friend”, {{新手机|xīn shǒujī}} “new phone”. In speech, keep descriptions short: say {{那个人|nàge rén}} first, then add the detail."}
+      ],
+      "mistakes": [
+        {"wrong":"这是书我昨天买的。","right":"这是我昨天买的书。","tr":"This is the book I bought yesterday.","why":"The whole description goes before the noun, with {{的|de}}: {{我昨天买的书|wǒ zuótiān mǎi de shū}}."},
+        {"wrong":"我昨天买书很好。","right":"我昨天买的书很好。","tr":"The book I bought yesterday is great.","why":"Without {{的|de}}, the description doesn't join the noun: {{我昨天买的书|wǒ zuótiān mǎi de shū}} “the book I bought yesterday”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"这是我妈妈做___蛋糕。","r":"Zhè shì wǒ māma zuò ___ dàngāo.","tr":"This is the cake my mum made.","options":["的","得","了"],"rs":["de","de","le"],"answer":0,"why":"A description joins a noun with {{的|de}}. ({{得|de}} sounds the same but follows a verb, to say how.)","from":"say-how-well"},
+        {"type":"choice","q":"“The film we saw yesterday” is…","options":["{{我们昨天看的电影|wǒmen zuótiān kàn de diànyǐng}}","{{电影我们昨天看的|diànyǐng wǒmen zuótiān kàn de}}","{{我们昨天的看电影|wǒmen zuótiān de kàn diànyǐng}}"],"answer":0,"why":"Description + {{的|de}} + noun."},
+        {"type":"choice","q":"{{你说的对。|Nǐ shuō de duì.}} means…","options":["You said it correctly.","What you said is right.","You're talking to me."],"answer":1,"why":"{{你说的|nǐ shuō de}} “what you said”, with the noun left out."},
+        {"type":"order","q":"Put the words in order.","tr":"The woman in red is my older sister.","words":["穿红衣服的","人","是","我","姐姐。"],"rs":["chuān hóng yīfu de","rén","shì","wǒ","jiějie."],"from":"say-whose-it-is"},
+        {"type":"dialogue","q":"At a party, you're looking for someone. Choose your replies.","lines":[{"who":"Friend","t":"你找谁？","r":"Nǐ zhǎo shéi?","tr":"Who are you looking for?"},{"options":["我找昨天认识的那个人。","我找那个人昨天认识的。"],"rs":["Wǒ zhǎo zuótiān rènshi de nàge rén.","Wǒ zhǎo nàge rén zuótiān rènshi de."],"answer":0,"why":"The description comes first: {{昨天认识的那个人|zuótiān rènshi de nàge rén}} “that person I met yesterday”."},{"who":"Friend","t":"哪个？","r":"Nǎge?","tr":"Which one?"},{"options":["戴眼镜的那个。","那个戴眼镜。"],"rs":["Dài yǎnjìng de nàge.","Nàge dài yǎnjìng."],"answer":0,"why":"“The one with glasses”: description + {{的|de}} + {{那个|nàge}}."},{"who":"Friend","t":"他在厨房做饭呢。","r":"Tā zài chúfáng zuò fàn ne.","tr":"He's in the kitchen, cooking."}],"from":"say-what-is-happening-now"},
+        {"type":"say","q":"Say “I love the food you make.”","answer":"我喜欢你做的菜。","r":"Wǒ xǐhuan nǐ zuò de cài."},
+        {"type":"free","q":"Your turn: describe something you have with a phrase: something you bought somewhere, or a present someone gave you.","answers":[{"t":"这是我在北京买的茶杯。","r":"Zhè shì wǒ zài Běijīng mǎi de chábēi.","tr":"This is the teacup I bought in Beijing."},{"t":"我最喜欢的书是我爸爸送我的。","r":"Wǒ zuì xǐhuan de shū shì wǒ bàba sòng wǒ de.","tr":"My favourite book is the one my dad gave me."}]}
+      ]
     }
   ]
 }
