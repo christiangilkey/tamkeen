@@ -573,6 +573,238 @@
         {"type":"say","q":"英語で言ってみましょう：「私はいつも忙しいです。」","answer":"I'm always busy."},
         {"type":"free","q":"あなたの番です。いつもすること、ときどきすること、全くしないことを1つずつ言いましょう。","answers":[{"t":"I always eat breakfast. I sometimes go to the movies. I never smoke.","tr":"いつも朝食を食べます。ときどき映画に行きます。たばこは吸いません。"},{"t":"I usually get up at seven. I often read on the train. I never drink coffee at night.","tr":"たいてい7時に起きます。よく電車で本を読みます。夜はコーヒーを飲みません。"}]}
       ]
+    },
+    {
+      "id": "there-is-are",
+      "unit": 3,
+      "level": "A1",
+      "title": "何があるかを言う",
+      "summary": "ある場所に何があるか、いくつあるかを言います：「駅の近くにコンビニがあります。」",
+      "topic": "{{there is}} と {{there are}}; {{a}} / {{some}} / {{any}}; {{How many …?}}",
+      "blocks": [
+        {"goal":{"t":"There's a convenience store near the station.","tr":"駅の近くにコンビニがあります。"}},
+        {"dialog":[{"who":"あなた","t":"Excuse me, is there a supermarket near here?","tr":"すみません、この近くにスーパーはありますか？"},{"who":"女性","t":"Yes, there's one on Main Street.","tr":"ええ、メイン通りに1軒ありますよ。"},{"who":"あなた","t":"Great. Are there any good restaurants?","tr":"よかった。いいレストランはありますか？"},{"who":"女性","t":"Yes, there are some nice cafés by the park.","tr":"ええ、公園のそばにすてきなカフェがいくつかあります。"},{"who":"あなた","t":"Thank you!","tr":"ありがとうございます！"}]},
+        {"p":"**「〜がある」：{{There is}} と {{There are}}。** 何かがある・いると言うときは、1つなら {{There is}}、2つ以上なら {{There are}}。場所はふつう文の最後に来ます：{{There's a bank near the station.}}（駅の近くに銀行がある）。{{There's}} は {{There is}} の短い形です。"},
+        {"p":"**新しく話に出すものには {{a}}。** {{There is}} は、相手がまだ知らないものを話に出すための形です。だから {{a}}（1つ）や {{some}}（いくつか）がつき、ふつう {{the}} はつきません。"},
+        { "table": [
+          ["","英語","意味"],
+          ["1つ","{{There's a park near here.}}","この近くに公園がある。"],
+          ["2つ以上","{{There are two parks near here.}}","この近くに公園が2つある。"],
+          ["ない","{{There isn't a park near here.}}","この近くに公園はない。"],
+          ["質問","{{Is there a park near here?}}","この近くに公園はある？"]
+        ] },
+        {"p":"**{{some}} と {{any}}。** 「いくつかの」は、ふつうの文では {{some}}、疑問文と否定文では {{any}}：{{There are some cafés.}}（カフェがいくつかある）、{{Are there any cafés?}}（カフェはある？）、{{There aren't any cafés.}}（カフェは1軒もない）。数えない名詞にも使えます：{{There's some milk.}}（牛乳が少しある）。"},
+        {"p":"**数を聞く：{{How many … are there?}}** {{How many students are there?}}（学生は何人いますか？）。{{How many}} のあとの名詞は複数形です。"},
+        { "ex": [
+          {"t":"There are three bedrooms in our apartment.","tr":"私たちのアパートには寝室が3つあります。"},
+          {"t":"Is there a bank near here?","tr":"この近くに銀行はありますか？"},
+          {"t":"There aren't any trains after midnight.","tr":"夜12時を過ぎると電車がありません。"},
+          {"t":"There's some coffee in the kitchen.","tr":"台所にコーヒーがありますよ。"},
+          {"t":"There are a lot of people here.","tr":"ここには人がたくさんいます。"},
+          {"t":"How many people are there in your family?","tr":"ご家族は何人ですか？"}
+        ] },
+        {"tip":"人がいるときも {{There is / are}} です。日本語の「ある」と「いる」の区別は、英語にはありません。"}
+      ],
+      "mistakes": [
+        {"wrong":"There is two parks.","right":"There are two parks.","tr":"公園が2つあります。","why":"2つ以上なら {{There are}}。"},
+        {"wrong":"Near the station has a bank.","right":"There's a bank near the station.","tr":"駅の近くに銀行があります。","why":"「〜がある」は {{There is}} で始めます。日本語の語順のまま「場所 + ある」にしないこと。"},
+        {"wrong":"There aren't some cafés here.","right":"There aren't any cafés here.","tr":"ここにはカフェが1軒もありません。","why":"否定文では {{any}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"There ___ a lot of people at the station.","tr":"駅に人がたくさんいます。","options":["are","is"],"answer":0,"why":"{{people}} は複数なので {{There are}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Are there ___ good restaurants near here?","tr":"この近くにいいレストランはありますか？","options":["any","some","a"],"answer":0,"why":"疑問文では {{any}}。"},
+        {"type":"choice","q":"「この近くに銀行はありますか？」は英語で？","options":["{{Is there a bank near here?}}","{{Near here has a bank?}}","{{Is a bank there near here?}}"],"answer":0,"why":"{{There is}} の疑問文は {{Is there …?}}"},
+        {"type":"dialogue","q":"薬局を探しています。返事を選んでください。","lines":[{"options":["Excuse me, is there a pharmacy near here?","Excuse me, near here has a pharmacy?"],"answer":0,"why":"「〜はありますか？」は {{Is there …?}}"},{"who":"男性","t":"Yes, there's one across from the bank.","tr":"ええ、銀行の向かいに1軒ありますよ。"},{"options":["Thank you. Is it open now?","Thank you. It open now?"],"answer":0,"why":"be動詞を前に出して {{Is it open?}}"}],"from":"ask-yes-no-questions"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"ご家族は何人ですか？","words":["How","many","people","are","there","in","your","family?"],"why":"{{How many people are there in your family?}}"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"There's some ___ in the fridge.","tr":"冷蔵庫に牛乳が少しあります。","options":["milk","milks","a milk"],"answer":0,"why":"{{milk}} は数えない名詞なので、そのままの形。","from":"talk-about-likes"},
+        {"type":"free","q":"あなたの番です。あなたの家の近くに何があるか、何がないかを言いましょう。","answers":[{"t":"There's a big park near my house. There are two supermarkets, but there isn't a movie theater.","tr":"家の近くに大きな公園があります。スーパーは2軒ありますが、映画館はありません。"},{"t":"There are a lot of restaurants near my apartment. There isn't a station.","tr":"アパートの近くにはレストランがたくさんあります。駅はありません。"}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 3,
+      "level": "A1",
+      "title": "物がどこにあるかを言う",
+      "summary": "場所の前置詞を使って、物や人がどこにあるかを言います：「鍵はテーブルの上にあるよ。」",
+      "topic": "{{in}} / {{on}} / {{under}} / {{next to}} / {{near}} / {{between}} / {{in front of}}; はじめは {{a}}、次からは {{the}}",
+      "blocks": [
+        {"goal":{"t":"Your keys are on the table.","tr":"鍵はテーブルの上にあるよ。"}},
+        {"dialog":[{"who":"ケン","t":"Where's my phone?","tr":"ぼくのスマホどこ？"},{"who":"エマ","t":"It's on the sofa.","tr":"ソファの上にあるよ。"},{"who":"ケン","t":"No, it isn't.","tr":"ないよ。"},{"who":"エマ","t":"Hmm… Oh, it's under the sofa! And your keys are in your bag.","tr":"うーん…あ、ソファの下にある！それと、鍵はかばんの中だよ。"},{"who":"ケン","t":"Thanks! Where's my bag?","tr":"ありがとう！かばんはどこ？"},{"who":"エマ","t":"Next to the door.","tr":"ドアの横。"}]},
+        {"p":"**場所の前置詞は名詞の前。** 日本語は「テーブルの上に」と「上」があとに来ますが、英語は前置詞が先です：{{on the table}}。"},
+        { "table": [
+          ["前置詞","意味","例"],
+          ["{{in}}","〜の中に","{{in the box}}"],
+          ["{{on}}","〜の上に（くっついて）","{{on the table}}"],
+          ["{{under}}","〜の下に","{{under the bed}}"],
+          ["{{next to}}","〜の隣に","{{next to the bank}}"],
+          ["{{near}}","〜の近くに","{{near the station}}"],
+          ["{{between}}","〜の間に","{{between the bank and the park}}"],
+          ["{{in front of}}","〜の前に","{{in front of the hotel}}"],
+          ["{{behind}}","〜の後ろに","{{behind the door}}"]
+        ] },
+        {"p":"**はじめは {{a}}、次からは {{the}}。** はじめて話に出すものには {{a}}、もう話に出たもの、どれのことかおたがいにわかるものには {{the}} をつけます：{{There's a cat in the garden. The cat is black.}}（庭に猫がいる。その猫は黒い。）家の中のテーブルやドアも、どれのことか相手にわかるので {{the table}}、{{the door}} です。"},
+        {"p":"**どこ？：{{Where is …?}}** {{Where's my phone?}}（私のスマホどこ？）、答えは {{It's on the sofa.}}。複数なら {{Where are …?}} と聞き、{{They're …}} と答えます。"},
+        { "ex": [
+          {"t":"The cat is under the bed.","tr":"猫はベッドの下にいます。"},
+          {"t":"There's a café next to the bank.","tr":"銀行の隣にカフェがあります。"},
+          {"t":"The station is near my house.","tr":"駅は私の家の近くにあります。"},
+          {"t":"My office is between the post office and the library.","tr":"私の会社は郵便局と図書館の間にあります。"},
+          {"t":"Where are my glasses?","tr":"私のメガネどこ？"},
+          {"t":"They're in front of you!","tr":"目の前にあるよ！"}
+        ] },
+        {"tip":"{{on}} は「上」だけでなく、くっついていれば壁にも使います：{{a picture on the wall}}（壁の絵）。{{in}} は町や国にも：{{in Tokyo}}、{{in Japan}}。"}
+      ],
+      "mistakes": [
+        {"wrong":"The keys are table on.","right":"The keys are on the table.","tr":"鍵はテーブルの上にあります。","why":"前置詞は名詞の前に置きます。"},
+        {"wrong":"There's the cat in the garden.","right":"There's a cat in the garden.","tr":"庭に猫がいます。","why":"{{There is}} で新しく話に出すものには {{a}}。"},
+        {"wrong":"Where is my glasses?","right":"Where are my glasses?","tr":"私のメガネはどこ？","why":"{{glasses}} は複数なので {{are}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"The cat is ___ the bed.","tr":"猫はベッドの下にいます。","options":["under","between","next"],"answer":0,"why":"「〜の下に」は {{under}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"There's a dog in the park. ___ dog is very big.","tr":"公園に犬がいます。その犬はとても大きいです。","options":["The","A"],"answer":0,"why":"もう話に出た犬なので {{the}}。"},
+        {"type":"choice","q":"「銀行の隣にカフェがあります」は英語で？","options":["{{There's a café next to the bank.}}","{{There's a café the bank next to.}}","{{Next to the bank has a café.}}"],"answer":0,"why":"{{There's}} で始め、前置詞は名詞の前。"},
+        {"type":"dialogue","q":"家で探し物をしています。返事を選んでください。","lines":[{"who":"ケン","t":"Where's my phone?","tr":"ぼくのスマホどこ？"},{"options":["It's on the sofa.","It's the sofa on."],"answer":0,"why":"前置詞は名詞の前：{{on the sofa}}。"},{"who":"ケン","t":"And where are my keys?","tr":"鍵は？"},{"options":["They're in your bag.","It's in your bag."],"answer":0,"why":"鍵は複数なので {{they're}}。"}],"from":"ask-what-it-is"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"駅は私の家の近くにあります。","words":["The","station","is","near","my","house."],"why":"{{The station is near my house.}}"},
+        {"type":"say","q":"英語で言ってみましょう：「公園の前にバス停があります。」","answer":"There's a bus stop in front of the park.","from":"there-is-are"},
+        {"type":"free","q":"あなたの番です。あなたの部屋にあるものを2つ選んで、どこにあるか説明しましょう。","answers":[{"t":"My computer is on the desk. My bag is under the desk.","tr":"パソコンは机の上にあります。かばんは机の下にあります。"},{"t":"There's a plant next to the window. The plant is very big.","tr":"窓の横に植物があります。その植物はとても大きいです。"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have",
+      "unit": 3,
+      "level": "A1",
+      "title": "持っているもの・家族のことを言う",
+      "summary": "{{have}} を使って、持っているものや家族のことを言います：「兄弟が2人います。」「車を持っていますか？」",
+      "topic": "{{have}} と {{has}}; {{Do you have …?}}; {{have}} と {{there is}} の違い",
+      "blocks": [
+        {"goal":{"t":"I have two brothers.","tr":"兄弟が2人います。"}},
+        {"dialog":[{"who":"クリス","t":"Do you have any brothers or sisters?","tr":"兄弟はいる？"},{"who":"ミホ","t":"Yes, I have an older brother. He has two kids.","tr":"うん、兄が1人いる。兄には子どもが2人いるよ。"},{"who":"クリス","t":"Do you have a car?","tr":"車持ってる？"},{"who":"ミホ","t":"No, I don't. I have a bike.","tr":"ううん。自転車を持ってる。"},{"who":"クリス","t":"Does your brother have a car?","tr":"お兄さんは車持ってる？"},{"who":"ミホ","t":"Yes, he does. He has a big van.","tr":"うん、大きなバンを持ってるよ。"}]},
+        {"p":"**「持っている」「いる」：{{have}}。** {{I have a car.}}（車を持っている）。日本語では「兄がいる」と言いますが、英語では「兄を持っている」と言います：{{I have a brother.}}。ペットも：{{I have a dog.}}（犬を飼っている）。"},
+        {"p":"**三人称単数は {{has}}。** {{She has a cat.}}、{{My brother has two kids.}}。疑問文と否定文は {{do}} を使い、{{does}} のあとは {{have}} に戻ります：{{Do you have …?}}、{{Does he have …?}}、{{I don't have …}}。"},
+        { "table": [
+          ["","英語","意味"],
+          ["肯定","{{I have a car.}} / {{She has a car.}}","車を持っている。"],
+          ["否定","{{I don't have a car.}} / {{She doesn't have a car.}}","車を持っていない。"],
+          ["疑問","{{Do you have a car?}} / {{Does she have a car?}}","車を持っている？"]
+        ] },
+        {"p":"**{{have}} と {{there is}}。** 日本語ではどちらも「ある・いる」ですが、英語では「だれかのもの」なら {{have}}、「ある場所にある」なら {{there is}}：{{I have a car.}}（私は車を持っている）／{{There's a car in front of my house.}}（家の前に車がある）。"},
+        {"p":"**体のことや病気にも {{have}}。** {{She has long hair.}}（彼女は髪が長い）、{{I have a cold.}}（風邪をひいている）、{{I have a headache.}}（頭が痛い）。"},
+        { "ex": [
+          {"t":"She has a cat and a dog.","tr":"彼女は猫と犬を飼っています。"},
+          {"t":"Do you have a pen?","tr":"ペンを持っていますか？"},
+          {"t":"I don't have time today.","tr":"今日は時間がありません。"},
+          {"t":"He has blue eyes.","tr":"彼は青い目をしています。"},
+          {"t":"I have a headache.","tr":"頭が痛いです。"},
+          {"t":"We have a big kitchen.","tr":"うちの台所は広いです。"}
+        ] },
+        {"tip":"{{older brother}}（兄）、{{younger sister}}（妹）という言い方もありますが、英語では年上か年下かをあまり気にせず、ふつうは {{brother}}、{{sister}} とだけ言います。"}
+      ],
+      "mistakes": [
+        {"wrong":"I have two brother.","right":"I have two brothers.","tr":"兄弟が2人います。","why":"2人以上なら複数形。"},
+        {"wrong":"He have a car.","right":"He has a car.","tr":"彼は車を持っています。","why":"三人称単数は {{has}}。"},
+        {"wrong":"Do you have a time?","right":"Do you have time?","tr":"時間はありますか？","why":"{{time}}（時間）は数えない名詞なので {{a}} はつけません。（{{Do you have the time?}} は「今何時ですか？」という別の意味です。）"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"My sister ___ two kids.","tr":"姉には子どもが2人います。","options":["has","have","is"],"answer":0,"why":"三人称単数なので {{has}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"___ you have a car?","tr":"車を持っていますか？","options":["Do","Are","Have"],"answer":0,"why":"{{have}} の疑問文は {{Do you have …?}}"},
+        {"type":"choice","q":"「今日は時間がありません」は英語で？","options":["{{I don't have time today.}}","{{I'm not have time today.}}","{{There is no my time today.}}"],"answer":0,"why":"{{have}} の否定は {{don't have}}。"},
+        {"type":"dialogue","q":"ペットの話をします。返事を選んでください。","lines":[{"who":"クリス","t":"Do you have any pets?","tr":"ペット飼ってる？"},{"options":["Yes, I have a cat.","Yes, there is a cat."],"answer":0,"why":"自分のペットは {{have}}。"},{"who":"クリス","t":"Does your sister have a pet?","tr":"妹さんは？"},{"options":["No, she doesn't. She lives in a small apartment.","No, she hasn't. She lives in a small apartment."],"answer":0,"why":"{{Does}} で聞かれたら {{doesn't}} で答えます。"}],"from":"ask-with-do"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"彼は青い目をしています。","words":["He","has","blue","eyes."],"why":"{{He has blue eyes.}}"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"___ a big park near my house.","tr":"家の近くに大きな公園があります。","options":["There's","I have","It has"],"answer":0,"why":"「ある場所にある」は {{there is}}。","from":"there-is-are"},
+        {"type":"free","q":"あなたの番です。家族やペット、持っているものについて言いましょう（{{have}} と {{has}} を使って）。","answers":[{"t":"I have one sister. She has a dog. I don't have a pet.","tr":"姉が1人います。姉は犬を飼っています。私はペットを飼っていません。"},{"t":"I have a car, but I don't have a bike. My father has a motorcycle.","tr":"車は持っていますが、自転車は持っていません。父はバイクを持っています。"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "できること・頼めることを言う",
+      "summary": "{{can}} で、できること・できないことを言い、頼みごとや許可をもらうときにも使います：「泳げますが、スキーはできません。」",
+      "topic": "{{can}} と {{can't}}; {{Can you …?}}（お願い）; {{Can I …?}}（許可）",
+      "blocks": [
+        {"goal":{"t":"I can swim, but I can't ski.","tr":"泳げますが、スキーはできません。"}},
+        {"dialog":[{"who":"ジェイク","t":"Can you speak Chinese?","tr":"中国語話せる？"},{"who":"アイ","t":"No, I can't. But I can speak a little Korean.","tr":"ううん、話せない。でも韓国語は少し話せるよ。"},{"who":"ジェイク","t":"Cool. Can you help me with this letter? It's in Korean.","tr":"すごい。この手紙、手伝ってくれる？韓国語なんだ。"},{"who":"アイ","t":"Sure. Can I sit here?","tr":"いいよ。ここに座ってもいい？"},{"who":"ジェイク","t":"Of course.","tr":"もちろん。"}]},
+        {"term":"助動詞","means":"動詞の前に置いて、「できる」「〜すべき」などの意味を足す言葉：{{can}}、{{should}}、{{will}} など。あとの動詞はもとの形です。"},
+        {"p":"**できる：{{can}} + 動詞のもとの形。** {{I can swim.}}（泳げる）。三人称単数でも {{can}} の形は変わらず、動詞にも {{-s}} はつきません：{{She can drive.}}（彼女は運転できる）。"},
+        {"p":"**否定と疑問。** 否定は {{can't}}（{{cannot}}）：{{I can't ski.}}。疑問文は {{can}} を前に出すだけで、{{do}} はいりません：{{Can you swim?}} → {{Yes, I can.}} / {{No, I can't.}}"},
+        {"p":"**お願いと許可。** {{Can you …?}} は「〜してくれる？」というお願いになります：{{Can you help me?}}（手伝ってくれる？）。{{Can I …?}} は「〜してもいい？」：{{Can I open the window?}}（窓を開けてもいい？）。"},
+        { "table": [
+          ["","英語","意味"],
+          ["能力","{{I can play the piano.}}","ピアノが弾ける。"],
+          ["否定","{{He can't cook.}}","彼は料理ができない。"],
+          ["お願い","{{Can you close the door?}}","ドアを閉めてくれる？"],
+          ["許可","{{Can I use your phone?}}","電話を借りてもいい？"]
+        ] },
+        {"p":"**発音のポイント。** {{can}} は文の中では弱く短く「クン」のように、{{can't}} は強く「キャーント」と言います。この違いで、できるのかできないのかを聞き分けます。"},
+        { "ex": [
+          {"t":"My grandmother can use a smartphone.","tr":"祖母はスマホが使えます。"},
+          {"t":"Can you speak English?","tr":"英語を話せますか？"},
+          {"t":"Can you say that again?","tr":"もう一度言ってもらえますか？"},
+          {"t":"Can I sit here?","tr":"ここに座ってもいいですか？"},
+          {"t":"I can't hear you.","tr":"よく聞こえません。"},
+          {"t":"You can't park here.","tr":"ここに車を止めてはいけません。","note":"{{can't}} は「〜してはいけない」の意味にも"}
+        ] },
+        {"tip":"「英語を話せますか？」は {{Do you speak English?}} と聞くほうが感じよく聞こえることがあります。{{Can you …?}} だと能力を試しているように響くことがあるからです。"}
+      ],
+      "mistakes": [
+        {"wrong":"She can drives.","right":"She can drive.","tr":"彼女は運転できます。","why":"{{can}} のあとは動詞のもとの形。{{-s}} はつきません。"},
+        {"wrong":"Do you can swim?","right":"Can you swim?","tr":"泳げますか？","why":"{{can}} の疑問文に {{do}} はいりません。{{can}} を前に出すだけです。"},
+        {"wrong":"I can to play the guitar.","right":"I can play the guitar.","tr":"ギターが弾けます。","why":"{{can}} のあとに {{to}} はいりません。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"My son ___ ride a bike.","tr":"息子は自転車に乗れます。","options":["can","cans","can to"],"answer":0,"why":"{{can}} の形は主語が何でも変わりません。"},
+        {"type":"choice","q":"「ここに座ってもいいですか？」は英語で？","options":["{{Can I sit here?}}","{{Do I can sit here?}}","{{Can I sitting here?}}"],"answer":0,"why":"許可は {{Can I}} + 動詞のもとの形。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Can you ___ me?","tr":"手伝ってくれますか？","options":["help","helps","to help"],"answer":0,"why":"{{can}} のあとは動詞のもとの形。"},
+        {"type":"dialogue","q":"言葉の話をします。返事を選んでください。","lines":[{"who":"ジェイク","t":"Can you speak Chinese?","tr":"中国語話せる？"},{"options":["No, I can't. But I can speak a little Korean.","No, I don't. But I can speak a little Korean."],"answer":0,"why":"{{Can}} の質問には {{can't}} で答えます。"},{"who":"ジェイク","t":"Can you read this word?","tr":"この単語、読める？"},{"options":["Yes. It says \"Welcome.\"","Yes. It say \"Welcome.\""],"answer":0,"why":"{{it}} は三人称単数なので {{says}}。"}],"from":"talk-about-someone"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"もう一度言ってもらえますか？","words":["Can","you","say","that","again?"],"why":"お願いは {{Can you …?}}"},
+        {"type":"say","q":"英語で言ってみましょう：「泳げますが、スキーはできません。」","answer":"I can swim, but I can't ski."},
+        {"type":"free","q":"あなたの番です。できることを2つ、できないことを1つ言いましょう。","answers":[{"t":"I can cook and I can play the piano. I can't drive.","tr":"料理ができて、ピアノも弾けます。運転はできません。"},{"t":"I can speak English a little. I can swim. I can't sing well.","tr":"英語が少し話せます。泳げます。歌はうまく歌えません。"}]}
+      ]
+    },
+    {
+      "id": "a-or-the",
+      "unit": 3,
+      "level": "A1",
+      "title": "a と the を使い分ける",
+      "summary": "日本語にない冠詞を整理します。どれのことか相手にわかるなら {{the}}：「会社の近くに新しいカフェがあるんです。そこのコーヒーがおいしくて。」",
+      "topic": "{{a}} / {{an}}（新しい・どれでもいい1つ）; {{the}}（どれかわかる）; 冠詞なし（〜全般）",
+      "blocks": [
+        {"goal":{"t":"There's a new café near my office. The coffee is really good.","tr":"会社の近くに新しいカフェがあるんです。そこのコーヒーがすごくおいしいんです。"}},
+        {"dialog":[{"who":"同僚","t":"Is there a good restaurant near here?","tr":"この近くにいいレストランある？"},{"who":"あなた","t":"Yes, there's an Italian restaurant on Park Street. The pizza is amazing.","tr":"うん、パーク通りにイタリアンがあるよ。そこのピザが最高なんだ。"},{"who":"同僚","t":"Great. Is it expensive?","tr":"いいね。高い？"},{"who":"あなた","t":"No. And the owner is really friendly.","tr":"ううん。それにオーナーがすごく感じがいいんだ。"},{"who":"同僚","t":"I love pizza!","tr":"ピザ大好き！"}]},
+        {"p":"**日本語にない「冠詞」。** 英語の名詞の前には、ほとんどいつも何かがつきます：{{a}}、{{the}}、{{my}}、{{some}} など。日本語には冠詞がないので、何もつけずに名詞を使いがちですが、それは英語ではとても目立つまちがいです。基本は3つだけです："},
+        { "table": [
+          ["","使うとき","例"],
+          ["{{a}} / {{an}}","数えられるものを1つ、はじめて話に出すとき・どれでもいいとき","{{I have a dog.}}（犬を1匹飼っている）"],
+          ["{{the}}","どれのことか相手にわかるとき","{{The dog is very old.}}（その犬はとても年をとっている）"],
+          ["何もつけない","複数形や数えない名詞で「〜というもの全般」","{{I like dogs.}}（犬が好き）"]
+        ] },
+        {"p":"**{{the}} を使うのは、相手が「どれのことか」わかるとき。** ①一度話に出たもの：{{There's a café. The coffee is good.}} ②その場で一つに決まるもの：{{Close the door, please.}}（この部屋のドア）、{{the station}}（いつもの駅） ③世界に一つのもの：{{the sun}}（太陽）、{{the sea}}（海）。"},
+        {"p":"**迷ったら自分に聞いてみる：** 「相手は、どれのことかわかる？」わからない → {{a}}。わかる → {{the}}。〜全般 → 何もつけない（複数形・数えない名詞）。"},
+        {"p":"**冠詞をつけない決まった言い方もあります：** {{go to work}}（仕事に行く）、{{go to school}}（学校に行く）、{{at home}}（家で）、{{by train}}（電車で）。"},
+        { "ex": [
+          {"t":"Can you open the window?","tr":"窓を開けてくれる？","note":"この部屋の窓：どれかわかる"},
+          {"t":"I have a sister and a brother. My sister is a doctor.","tr":"姉と兄がいます。姉は医者です。"},
+          {"t":"The sun is very strong today.","tr":"今日は日差しがとても強いです。"},
+          {"t":"I go to work by train.","tr":"電車で通勤しています。"},
+          {"t":"Dogs are smart animals.","tr":"犬は賢い動物です。"},
+          {"t":"Where's the bathroom?","tr":"お手洗いはどこですか？","note":"この建物のお手洗い"}
+        ] },
+        {"tip":"{{the}} の発音：子音の前では「ザ」に近く（{{the book}}）、母音の前では「ジ」に近く（{{the apple}}）なります。th は舌先を軽く歯ではさんで発音します。"}
+      ],
+      "mistakes": [
+        {"wrong":"I have dog.","right":"I have a dog.","tr":"犬を飼っています。","why":"数えられるものが1つなら {{a}} が必要です。"},
+        {"wrong":"Please open window.","right":"Please open the window.","tr":"窓を開けてください。","why":"その部屋の窓（どれかわかる）なので {{the}}。"},
+        {"wrong":"I go to the work by the train.","right":"I go to work by train.","tr":"電車で通勤しています。","why":"{{go to work}}、{{by train}} は冠詞をつけない決まった言い方です。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"There's a cat in the garden. ___ cat is white.","tr":"庭に猫がいます。その猫は白いです。","options":["The","A"],"answer":0,"why":"もう話に出た猫なので {{the}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I have ___ idea!","tr":"いい考えがある！","options":["an","a","the"],"answer":0,"why":"はじめて話に出す1つのもの、母音で始まるので {{an}}。"},
+        {"type":"choice","q":"「犬は賢い動物です」（犬全般の話）は英語で？","options":["{{Dogs are smart animals.}}","{{The dog is smart animal.}}","{{Dog is smart animal.}}"],"answer":0,"why":"「〜全般」は冠詞なしの複数形。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Can you close ___ door, please?","tr":"ドアを閉めてくれますか？","options":["the","a"],"answer":0,"why":"この部屋のドア：どれかわかるので {{the}}。","from":"say-what-you-can-do"},
+        {"type":"dialogue","q":"同僚にお店をすすめます。返事を選んでください。","lines":[{"who":"同僚","t":"Is there a good restaurant near here?","tr":"この近くにいいレストランある？"},{"options":["Yes, there's a Thai restaurant. The curry is great.","Yes, there's the Thai restaurant. A curry is great."],"answer":0,"why":"はじめて出すレストランは {{a}}、そこのカレー（どれかわかる）は {{the}}。"},{"who":"同僚","t":"Nice. Where is it?","tr":"いいね。どこにあるの？"},{"options":["It's next to the station.","It's next to station."],"answer":0,"why":"どの駅か相手にわかるので {{the}}。"}],"from":"say-where-things-are"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"電車で通勤しています。","words":["I","go","to","work","by","train."],"why":"冠詞をつけない決まった言い方：{{go to work}}、{{by train}}。"},
+        {"type":"free","q":"あなたの番です。近所のお店を {{a}} で紹介して、次の文で {{the}} を使ってそのお店のことを言いましょう。","answers":[{"t":"There's a bakery near my house. The bread is really good.","tr":"家の近くにパン屋があります。そこのパンがすごくおいしいです。"},{"t":"There's a small bookstore by the station. The owner is very kind.","tr":"駅のそばに小さな本屋があります。店主がとても親切です。"}]}
+      ]
     }
   ]
 }
