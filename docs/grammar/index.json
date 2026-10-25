@@ -22,13 +22,14 @@
    "title": "Korean grammar",
    "variety": "Standard Korean (Seoul), polite 해요 style",
    "units": 9,
-   "lessons": 38,
+   "lessons": 44,
    "levels": [
     "A1",
-    "A2"
+    "A2",
+    "B1"
    ],
-   "bytes": 270359,
-   "sha256": "ad528aa27618c9a6df008675ed3e92b6f5df737282a3a17746d1f4cd60bfdcde"
+   "bytes": 316258,
+   "sha256": "5173fda8f79b4c4562fedaef7ae408364d6ac8b671c7cef18e6df41a6c4087fb"
   }
  }
 }
