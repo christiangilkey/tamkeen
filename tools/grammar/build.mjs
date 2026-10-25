@@ -5,9 +5,11 @@
 // other courses' entries are kept). Stops, listing what is wrong, if a course doesn't pass the checks
 // (web/js/grammardata.js checkCourse). The output has no date in it, so building twice gives the same
 // files and tests/js/grammar.test.mjs can tell whether the published copy is up to date.
+// A course whose lessons.json says "draft": true is checked but not published (any copy of it already
+// in docs/grammar is taken out), so learners don't see it until it's ready.
 
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { checkCourse, lessonVersion } from "../../web/js/grammardata.js";
@@ -25,7 +27,8 @@ export function sources() {
 
 export const readSource = (id) => JSON.parse(readFileSync(join(here, id, "lessons.json"), "utf8"));
 
-/** A course as published: {problems, text (course.json), entry (its line in index.json)}. */
+/** A course as published: {problems, text (course.json), entry (its line in index.json), draft (not to be
+ * published yet)}. */
 export function buildCourse(id, source = readSource(id)) {
   const problems = checkCourse(source, { languages: LANGUAGE_CODES });
   if (`${source.from}-${source.to}` !== id) problems.unshift(`course: its folder is ${id} but it says ${source.from}-${source.to}`);
@@ -55,7 +58,7 @@ export function buildCourse(id, source = readSource(id)) {
     bytes: Buffer.byteLength(text),
     sha256: createHash("sha256").update(text).digest("hex"),
   };
-  return { problems, text, entry };
+  return { problems, text, entry, draft: source.draft === true };
 }
 
 export function readIndex() {
@@ -75,11 +78,17 @@ function main(args) {
       failed = true;
       continue;
     }
-    const { problems, text, entry } = buildCourse(id);
+    const { problems, text, entry, draft } = buildCourse(id);
     if (problems.length) {
       failed = true;
       console.error(`${id}: ${problems.length} problem${problems.length === 1 ? "" : "s"}`);
       for (const p of problems) console.error(`  - ${p}`);
+      continue;
+    }
+    if (draft) {
+      rmSync(join(PUBLISHED, id), { recursive: true, force: true });
+      delete index.courses[id];
+      console.log(`${id}: ${entry.lessons} lessons, a draft: checked, not published`);
       continue;
     }
     mkdirSync(join(PUBLISHED, id), { recursive: true });

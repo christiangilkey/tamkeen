@@ -3,7 +3,7 @@
 // published copy in docs/grammar is up to date with it.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import {
   GRAMMAR_BASE, checkCourse, cleanProgress, costCents, courseFor, explanationTexts, finished, grammarUrl, groups,
   checkPrompt, keepsMarks, lessonVersion, listTexts, makeLesson, markProblem, reviewQuestions, mergeProgress, optionOrder, orderIsRight, parseRich, plainText, progressOf,
@@ -272,8 +272,12 @@ test("the AI's look at a “your turn” sentence names the grammar, the models 
 
 for (const id of sources()) {
   test(`the ${id} course passes every check and its published copy is up to date`, () => {
-    const { problems, text, entry } = buildCourse(id);
+    const { problems, text, entry, draft } = buildCourse(id);
     assert.deepEqual(problems, [], problems.join("\n"));
+    if (draft) {
+      assert.ok(!existsSync(`${PUBLISHED}/${id}`) && !readIndex().courses[id], `${id} is a draft but is published: run node tools/grammar/build.mjs ${id}`);
+      return;
+    }
     // (git may have checked it out with Windows line endings)
     const published = readFileSync(`${PUBLISHED}/${id}/course.json`, "utf8").replace(/\r\n/g, "\n");
     assert.equal(published, text, `run node tools/grammar/build.mjs ${id}`);

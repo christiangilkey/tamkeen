@@ -139,6 +139,7 @@ the lessons of another file to it). `tools/grammar/en-ar/lessons.json` is the mo
   "variety": "Modern Standard Arabic",
   "about": "From your very first sentence to everyday conversation…",
   "reading": "transliteration",              // what an example's `r` is, if the course has readings
+  "draft": false,                            // true: checked, but not published (learners don't see it yet)
   "units": [{ "n": 1, "title": "First conversations" }, …],
   "lessons": [
     {
