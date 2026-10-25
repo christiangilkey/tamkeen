@@ -4635,6 +4635,921 @@
       "sentence": "Le chien a attaqué le facteur.",
       "translation": "The dog ⟦attacked⟧ the postman.",
       "form": "attaqué"
+    },
+    {
+      "n": 501,
+      "rank": 522,
+      "word": "personnel",
+      "pos": "adj",
+      "meaning": "personal (personnelle: feminine); (noun) staff",
+      "sentence": "C'est une question personnelle.",
+      "translation": "It's a ⟦personal⟧ question.",
+      "form": "personnelle"
+    },
+    {
+      "n": 502,
+      "rank": 524,
+      "word": "date",
+      "pos": "noun",
+      "meaning": "date",
+      "sentence": "Quelle est la date aujourd'hui ?",
+      "translation": "What's the ⟦date⟧ today?"
+    },
+    {
+      "n": 503,
+      "rank": 525,
+      "word": "remettre",
+      "pos": "verb",
+      "meaning": "to hand in; to put back; to put off",
+      "sentence": "Je dois remettre mon rapport lundi.",
+      "translation": "I have to ⟦hand in⟧ my report on Monday."
+    },
+    {
+      "n": 504,
+      "rank": 526,
+      "word": "zone",
+      "pos": "noun",
+      "meaning": "zone, area",
+      "sentence": "C'est une zone piétonne.",
+      "translation": "It's a pedestrian ⟦zone⟧."
+    },
+    {
+      "n": 505,
+      "rank": 527,
+      "word": "autour",
+      "pos": "adv",
+      "meaning": "around (autour de)",
+      "sentence": "Il y a beaucoup de restaurants autour de la gare.",
+      "translation": "There are lots of restaurants ⟦around⟧ the station."
+    },
+    {
+      "n": 506,
+      "rank": 528,
+      "word": "avis",
+      "pos": "noun",
+      "meaning": "opinion (à mon avis: in my opinion); notice",
+      "sentence": "À mon avis, c'est une erreur.",
+      "translation": "In my ⟦opinion⟧, it's a mistake."
+    },
+    {
+      "n": 507,
+      "rank": 529,
+      "word": "cependant",
+      "pos": "adv",
+      "meaning": "however",
+      "sentence": "Il est riche, cependant il n'est pas heureux.",
+      "translation": "He's rich; ⟦however⟧, he isn't happy."
+    },
+    {
+      "n": 508,
+      "rank": 530,
+      "word": "hier",
+      "pos": "adv",
+      "meaning": "yesterday",
+      "sentence": "Je l'ai vu hier soir.",
+      "translation": "I saw him ⟦yesterday⟧ evening."
+    },
+    {
+      "n": 509,
+      "rank": 531,
+      "word": "juillet",
+      "pos": "noun",
+      "meaning": "July",
+      "sentence": "On part en vacances en juillet.",
+      "translation": "We're going on holiday in ⟦July⟧."
+    },
+    {
+      "n": 510,
+      "rank": 532,
+      "word": "carte",
+      "pos": "noun",
+      "meaning": "card; map; menu",
+      "sentence": "Je peux payer par carte ?",
+      "translation": "Can I pay by ⟦card⟧?"
+    },
+    {
+      "n": 511,
+      "rank": 533,
+      "word": "envie",
+      "pos": "noun",
+      "meaning": "wish, desire (avoir envie de: to feel like, to want)",
+      "sentence": "J'ai envie d'une glace.",
+      "translation": "I ⟦feel like⟧ an ice cream."
+    },
+    {
+      "n": 512,
+      "rank": 534,
+      "word": "abord",
+      "pos": "adv",
+      "meaning": "d'abord: first, at first (tout d'abord: first of all)",
+      "sentence": "D'abord, on mange.",
+      "translation": "⟦First⟧, let's eat."
+    },
+    {
+      "n": 513,
+      "rank": 535,
+      "word": "tirer",
+      "pos": "verb",
+      "meaning": "to pull; to shoot",
+      "sentence": "Tirez la porte.",
+      "translation": "⟦Pull⟧ the door.",
+      "form": "tirez"
+    },
+    {
+      "n": 514,
+      "rank": 536,
+      "word": "formation",
+      "pos": "noun",
+      "meaning": "training; education",
+      "sentence": "Elle suit une formation en informatique.",
+      "translation": "She's doing a ⟦training course⟧ in IT."
+    },
+    {
+      "n": 515,
+      "rank": 537,
+      "word": "page",
+      "pos": "noun",
+      "meaning": "page",
+      "sentence": "Ouvrez vos livres à la page dix.",
+      "translation": "Open your books at ⟦page⟧ ten."
+    },
+    {
+      "n": 516,
+      "rank": 538,
+      "word": "réponse",
+      "pos": "noun",
+      "meaning": "answer, reply",
+      "sentence": "J'attends ta réponse.",
+      "translation": "I'm waiting for your ⟦answer⟧."
+    },
+    {
+      "n": 517,
+      "rank": 539,
+      "word": "ouais",
+      "pos": "interj",
+      "meaning": "yeah (informal)",
+      "sentence": "Ouais, pas de souci.",
+      "translation": "⟦Yeah⟧, no problem."
+    },
+    {
+      "n": 518,
+      "rank": 540,
+      "word": "pourtant",
+      "pos": "adv",
+      "meaning": "yet, and yet; though",
+      "sentence": "Il fait froid, et pourtant il y a du soleil.",
+      "translation": "It's cold, and ⟦yet⟧ it's sunny."
+    },
+    {
+      "n": 519,
+      "rank": 541,
+      "word": "poste",
+      "pos": "noun",
+      "meaning": "post office (la poste); job, position (le poste)",
+      "sentence": "Je vais à la poste.",
+      "translation": "I'm going to the ⟦post office⟧."
+    },
+    {
+      "n": 520,
+      "rank": 542,
+      "word": "choisir",
+      "pos": "verb",
+      "meaning": "to choose",
+      "sentence": "Choisis un dessert.",
+      "translation": "⟦Choose⟧ a dessert.",
+      "form": "choisis"
+    },
+    {
+      "n": 521,
+      "rank": 543,
+      "word": "juger",
+      "pos": "verb",
+      "meaning": "to judge",
+      "sentence": "Ne juge pas les gens trop vite.",
+      "translation": "Don't ⟦judge⟧ people too quickly.",
+      "form": "juge"
+    },
+    {
+      "n": 522,
+      "rank": 544,
+      "word": "origine",
+      "pos": "noun",
+      "meaning": "origin",
+      "sentence": "Il est d'origine italienne.",
+      "translation": "He's of Italian ⟦origin⟧."
+    },
+    {
+      "n": 523,
+      "rank": 545,
+      "word": "mode",
+      "pos": "noun",
+      "meaning": "fashion (la mode); way, mode (le mode)",
+      "sentence": "Elle travaille dans la mode.",
+      "translation": "She works in ⟦fashion⟧."
+    },
+    {
+      "n": 524,
+      "rank": 546,
+      "word": "marche",
+      "pos": "noun",
+      "meaning": "step (of stairs); walk, walking",
+      "sentence": "Attention à la marche !",
+      "translation": "Mind the ⟦step⟧!"
+    },
+    {
+      "n": 525,
+      "rank": 547,
+      "word": "tenter",
+      "pos": "verb",
+      "meaning": "to try; to tempt",
+      "sentence": "Je vais tenter ma chance.",
+      "translation": "I'm going to ⟦try⟧ my luck."
+    },
+    {
+      "n": 526,
+      "rank": 548,
+      "word": "quitter",
+      "pos": "verb",
+      "meaning": "to leave (a place, a job, a person)",
+      "sentence": "Il a quitté son travail.",
+      "translation": "He ⟦left⟧ his job.",
+      "form": "quitté"
+    },
+    {
+      "n": 527,
+      "rank": 549,
+      "word": "libre",
+      "pos": "adj",
+      "meaning": "free",
+      "sentence": "Tu es libre ce soir ?",
+      "translation": "Are you ⟦free⟧ tonight?"
+    },
+    {
+      "n": 528,
+      "rank": 550,
+      "word": "message",
+      "pos": "noun",
+      "meaning": "message",
+      "sentence": "Laisse-moi un message.",
+      "translation": "Leave me a ⟦message⟧."
+    },
+    {
+      "n": 529,
+      "rank": 551,
+      "word": "esprit",
+      "pos": "noun",
+      "meaning": "mind; spirit",
+      "sentence": "Elle a l'esprit ouvert.",
+      "translation": "She has an open ⟦mind⟧."
+    },
+    {
+      "n": 530,
+      "rank": 552,
+      "word": "qualité",
+      "pos": "noun",
+      "meaning": "quality",
+      "sentence": "Ce sont des produits de bonne qualité.",
+      "translation": "These are good-⟦quality⟧ products."
+    },
+    {
+      "n": 531,
+      "rank": 553,
+      "word": "scène",
+      "pos": "noun",
+      "meaning": "stage; scene",
+      "sentence": "Le chanteur est sur scène.",
+      "translation": "The singer is on ⟦stage⟧."
+    },
+    {
+      "n": 532,
+      "rank": 554,
+      "word": "liste",
+      "pos": "noun",
+      "meaning": "list",
+      "sentence": "Je fais la liste des courses.",
+      "translation": "I'm making the shopping ⟦list⟧."
+    },
+    {
+      "n": 533,
+      "rank": 555,
+      "word": "gars",
+      "pos": "noun",
+      "meaning": "guy, lad (informal)",
+      "sentence": "Salut les gars !",
+      "translation": "Hi ⟦guys⟧!"
+    },
+    {
+      "n": 534,
+      "rank": 556,
+      "word": "octobre",
+      "pos": "noun",
+      "meaning": "October",
+      "sentence": "Il pleut beaucoup en octobre.",
+      "translation": "It rains a lot in ⟦October⟧."
+    },
+    {
+      "n": 535,
+      "rank": 557,
+      "word": "euro",
+      "pos": "noun",
+      "meaning": "euro",
+      "sentence": "Ça fait dix euros.",
+      "translation": "That's ten ⟦euros⟧.",
+      "form": "euros"
+    },
+    {
+      "n": 536,
+      "rank": 558,
+      "word": "âge",
+      "pos": "noun",
+      "meaning": "age",
+      "sentence": "Quel âge as-tu ?",
+      "translation": "⟦How old⟧ are you?"
+    },
+    {
+      "n": 537,
+      "rank": 559,
+      "word": "rôle",
+      "pos": "noun",
+      "meaning": "role, part",
+      "sentence": "Il joue le rôle du père.",
+      "translation": "He plays the ⟦role⟧ of the father."
+    },
+    {
+      "n": 538,
+      "rank": 560,
+      "word": "prévoir",
+      "pos": "verb",
+      "meaning": "to plan; to expect, to forecast",
+      "sentence": "Tu as prévu quelque chose ce soir ?",
+      "translation": "Have you ⟦planned⟧ anything for tonight?",
+      "form": "prévu"
+    },
+    {
+      "n": 539,
+      "rank": 561,
+      "word": "direction",
+      "pos": "noun",
+      "meaning": "direction; management",
+      "sentence": "La gare, c'est dans quelle direction ?",
+      "translation": "Which ⟦direction⟧ is the station?"
+    },
+    {
+      "n": 540,
+      "rank": 562,
+      "word": "proche",
+      "pos": "adj",
+      "meaning": "close, near",
+      "sentence": "C'est un ami proche.",
+      "translation": "He's a ⟦close⟧ friend."
+    },
+    {
+      "n": 541,
+      "rank": 563,
+      "word": "chacun",
+      "pos": "pron",
+      "meaning": "each one; everyone (chacune: feminine)",
+      "sentence": "Chacun paie sa part.",
+      "translation": "⟦Everyone⟧ pays their share."
+    },
+    {
+      "n": 542,
+      "rank": 564,
+      "word": "cadre",
+      "pos": "noun",
+      "meaning": "frame; setting; executive",
+      "sentence": "J'ai acheté un cadre pour cette photo.",
+      "translation": "I bought a ⟦frame⟧ for this photo."
+    },
+    {
+      "n": 543,
+      "rank": 565,
+      "word": "technique",
+      "pos": "adj",
+      "meaning": "technical; (noun) technique",
+      "sentence": "Il y a un problème technique.",
+      "translation": "There's a ⟦technical⟧ problem."
+    },
+    {
+      "n": 544,
+      "rank": 566,
+      "word": "avril",
+      "pos": "noun",
+      "meaning": "April",
+      "sentence": "Poisson d'avril !",
+      "translation": "⟦April⟧ Fool!"
+    },
+    {
+      "n": 545,
+      "rank": 568,
+      "word": "janvier",
+      "pos": "noun",
+      "meaning": "January",
+      "sentence": "Il neige souvent en janvier.",
+      "translation": "It often snows in ⟦January⟧."
+    },
+    {
+      "n": 546,
+      "rank": 569,
+      "word": "réaliser",
+      "pos": "verb",
+      "meaning": "to achieve, to fulfil; to make (a film); to realise",
+      "sentence": "Elle a réalisé son rêve.",
+      "translation": "She ⟦fulfilled⟧ her dream.",
+      "form": "réalisé"
+    },
+    {
+      "n": 547,
+      "rank": 570,
+      "word": "association",
+      "pos": "noun",
+      "meaning": "association, club; charity",
+      "sentence": "Je suis bénévole dans une association.",
+      "translation": "I volunteer for a ⟦charity⟧."
+    },
+    {
+      "n": 548,
+      "rank": 571,
+      "word": "souvenir",
+      "pos": "verb",
+      "meaning": "se souvenir: to remember; (noun) memory, souvenir",
+      "sentence": "Tu te souviens de moi ?",
+      "translation": "Do you ⟦remember⟧ me?",
+      "form": "souviens"
+    },
+    {
+      "n": 549,
+      "rank": 572,
+      "word": "fou",
+      "pos": "adj",
+      "meaning": "mad, crazy (folle: feminine)",
+      "sentence": "Tu es fou !",
+      "translation": "You're ⟦crazy⟧!"
+    },
+    {
+      "n": 550,
+      "rank": 573,
+      "word": "salle",
+      "pos": "noun",
+      "meaning": "room, hall (salle de bains: bathroom)",
+      "sentence": "On mange dans la salle à manger.",
+      "translation": "We eat in the dining ⟦room⟧."
+    },
+    {
+      "n": 551,
+      "rank": 574,
+      "word": "pratique",
+      "pos": "adj",
+      "meaning": "practical, handy; (noun) practice",
+      "sentence": "Ce sac est très pratique.",
+      "translation": "This bag is very ⟦handy⟧."
+    },
+    {
+      "n": 552,
+      "rank": 575,
+      "word": "voter",
+      "pos": "verb",
+      "meaning": "to vote",
+      "sentence": "Tu vas voter dimanche ?",
+      "translation": "Are you going to ⟦vote⟧ on Sunday?"
+    },
+    {
+      "n": 553,
+      "rank": 576,
+      "word": "dur",
+      "pos": "adj",
+      "meaning": "hard; tough",
+      "sentence": "C'est dur de se lever tôt.",
+      "translation": "It's ⟦hard⟧ to get up early."
+    },
+    {
+      "n": 554,
+      "rank": 577,
+      "word": "actuel",
+      "pos": "adj",
+      "meaning": "current, present (actuelle: feminine)",
+      "sentence": "Mon travail actuel est intéressant.",
+      "translation": "My ⟦current⟧ job is interesting."
+    },
+    {
+      "n": 555,
+      "rank": 578,
+      "word": "plaisir",
+      "pos": "noun",
+      "meaning": "pleasure (avec plaisir: with pleasure)",
+      "sentence": "Avec plaisir !",
+      "translation": "With ⟦pleasure⟧!"
+    },
+    {
+      "n": 556,
+      "rank": 579,
+      "word": "cœur",
+      "pos": "noun",
+      "meaning": "heart (par cœur: by heart)",
+      "sentence": "Il a un grand cœur.",
+      "translation": "He has a big ⟦heart⟧."
+    },
+    {
+      "n": 557,
+      "rank": 580,
+      "word": "malgré",
+      "pos": "prep",
+      "meaning": "despite, in spite of",
+      "sentence": "On est sortis malgré la pluie.",
+      "translation": "We went out ⟦despite⟧ the rain."
+    },
+    {
+      "n": 558,
+      "rank": 582,
+      "word": "propos",
+      "pos": "noun",
+      "meaning": "à propos: by the way; à propos de: about",
+      "sentence": "À propos, tu as vu Marie ?",
+      "translation": "⟦By the way⟧, have you seen Marie?"
+    },
+    {
+      "n": 559,
+      "rank": 583,
+      "word": "manque",
+      "pos": "noun",
+      "meaning": "lack, shortage",
+      "sentence": "Il y a un manque de personnel.",
+      "translation": "There's a ⟦shortage⟧ of staff."
+    },
+    {
+      "n": 560,
+      "rank": 584,
+      "word": "lettre",
+      "pos": "noun",
+      "meaning": "letter",
+      "sentence": "J'ai reçu une lettre de ma grand-mère.",
+      "translation": "I got a ⟦letter⟧ from my grandmother."
+    },
+    {
+      "n": 561,
+      "rank": 585,
+      "word": "élection",
+      "pos": "noun",
+      "meaning": "election",
+      "sentence": "Les élections ont lieu en mai.",
+      "translation": "The ⟦elections⟧ are in May.",
+      "form": "élections"
+    },
+    {
+      "n": 562,
+      "rank": 587,
+      "word": "expérience",
+      "pos": "noun",
+      "meaning": "experience; experiment",
+      "sentence": "Il a beaucoup d'expérience.",
+      "translation": "He has a lot of ⟦experience⟧."
+    },
+    {
+      "n": 563,
+      "rank": 588,
+      "word": "derrière",
+      "pos": "prep",
+      "meaning": "behind",
+      "sentence": "Le jardin est derrière la maison.",
+      "translation": "The garden is ⟦behind⟧ the house."
+    },
+    {
+      "n": 564,
+      "rank": 589,
+      "word": "occasion",
+      "pos": "noun",
+      "meaning": "chance, opportunity; occasion (d'occasion: second-hand)",
+      "sentence": "Je n'ai pas eu l'occasion de lui parler.",
+      "translation": "I didn't get the ⟦chance⟧ to talk to him."
+    },
+    {
+      "n": 565,
+      "rank": 590,
+      "word": "campagne",
+      "pos": "noun",
+      "meaning": "countryside; campaign",
+      "sentence": "On passe le week-end à la campagne.",
+      "translation": "We're spending the weekend in the ⟦countryside⟧."
+    },
+    {
+      "n": 566,
+      "rank": 591,
+      "word": "arme",
+      "pos": "noun",
+      "meaning": "weapon",
+      "sentence": "Il est interdit de porter une arme.",
+      "translation": "It's illegal to carry a ⟦weapon⟧."
+    },
+    {
+      "n": 567,
+      "rank": 592,
+      "word": "production",
+      "pos": "noun",
+      "meaning": "production",
+      "sentence": "La production de vin est importante ici.",
+      "translation": "Wine ⟦production⟧ is important here."
+    },
+    {
+      "n": 568,
+      "rank": 593,
+      "word": "position",
+      "pos": "noun",
+      "meaning": "position",
+      "sentence": "Quelle est ta position sur ce sujet ?",
+      "translation": "What's your ⟦position⟧ on this subject?"
+    },
+    {
+      "n": 569,
+      "rank": 594,
+      "word": "appel",
+      "pos": "noun",
+      "meaning": "call",
+      "sentence": "J'ai un appel manqué.",
+      "translation": "I have a missed ⟦call⟧."
+    },
+    {
+      "n": 570,
+      "rank": 595,
+      "word": "pire",
+      "pos": "adj",
+      "meaning": "worse; worst",
+      "sentence": "C'est le pire jour de ma vie.",
+      "translation": "It's the ⟦worst⟧ day of my life."
+    },
+    {
+      "n": 571,
+      "rank": 596,
+      "word": "bout",
+      "pos": "noun",
+      "meaning": "bit, piece; end (au bout de: at the end of)",
+      "sentence": "Tu veux un bout de pain ?",
+      "translation": "Do you want a ⟦bit⟧ of bread?"
+    },
+    {
+      "n": 572,
+      "rank": 597,
+      "word": "battre",
+      "pos": "verb",
+      "meaning": "to beat (se battre: to fight)",
+      "sentence": "Notre équipe a battu Marseille.",
+      "translation": "Our team ⟦beat⟧ Marseille.",
+      "form": "battu"
+    },
+    {
+      "n": 573,
+      "rank": 598,
+      "word": "confiance",
+      "pos": "noun",
+      "meaning": "trust, confidence (faire confiance à: to trust)",
+      "sentence": "Je te fais confiance.",
+      "translation": "I ⟦trust⟧ you."
+    },
+    {
+      "n": 574,
+      "rank": 599,
+      "word": "dix",
+      "pos": "num",
+      "meaning": "ten",
+      "sentence": "Le bus passe toutes les dix minutes.",
+      "translation": "The bus comes every ⟦ten⟧ minutes."
+    },
+    {
+      "n": 575,
+      "rank": 600,
+      "word": "décembre",
+      "pos": "noun",
+      "meaning": "December",
+      "sentence": "Noël est en décembre.",
+      "translation": "Christmas is in ⟦December⟧."
+    },
+    {
+      "n": 576,
+      "rank": 601,
+      "word": "novembre",
+      "pos": "noun",
+      "meaning": "November",
+      "sentence": "Il fait gris en novembre.",
+      "translation": "It's grey in ⟦November⟧."
+    },
+    {
+      "n": 577,
+      "rank": 602,
+      "word": "six",
+      "pos": "num",
+      "meaning": "six",
+      "sentence": "Je me lève à six heures.",
+      "translation": "I get up at ⟦six⟧."
+    },
+    {
+      "n": 578,
+      "rank": 603,
+      "word": "apprendre",
+      "pos": "verb",
+      "meaning": "to learn; to teach",
+      "sentence": "J'apprends à conduire.",
+      "translation": "I'm ⟦learning⟧ to drive.",
+      "form": "apprends"
+    },
+    {
+      "n": 579,
+      "rank": 604,
+      "word": "nécessaire",
+      "pos": "adj",
+      "meaning": "necessary",
+      "sentence": "Ce n'est pas nécessaire.",
+      "translation": "It's not ⟦necessary⟧."
+    },
+    {
+      "n": 580,
+      "rank": 606,
+      "word": "note",
+      "pos": "noun",
+      "meaning": "mark, grade; note; bill",
+      "sentence": "J'ai eu une bonne note en maths.",
+      "translation": "I got a good ⟦mark⟧ in maths."
+    },
+    {
+      "n": 581,
+      "rank": 607,
+      "word": "organisation",
+      "pos": "noun",
+      "meaning": "organisation",
+      "sentence": "Il travaille pour une organisation internationale.",
+      "translation": "He works for an international ⟦organisation⟧."
+    },
+    {
+      "n": 582,
+      "rank": 608,
+      "word": "couleur",
+      "pos": "noun",
+      "meaning": "colour",
+      "sentence": "Tu aimes cette couleur ?",
+      "translation": "Do you like this ⟦colour⟧?"
+    },
+    {
+      "n": 583,
+      "rank": 609,
+      "word": "mondial",
+      "pos": "adj",
+      "meaning": "world, global (mondiale: feminine)",
+      "sentence": "C'est un problème mondial.",
+      "translation": "It's a ⟦global⟧ problem."
+    },
+    {
+      "n": 584,
+      "rank": 610,
+      "word": "valoir",
+      "pos": "verb",
+      "meaning": "to be worth (il vaut mieux: it's better to)",
+      "sentence": "Ça vaut combien ?",
+      "translation": "How much is it ⟦worth⟧?",
+      "form": "vaut"
+    },
+    {
+      "n": 585,
+      "rank": 611,
+      "word": "supérieur",
+      "pos": "adj",
+      "meaning": "upper, higher; superior",
+      "sentence": "Il habite à l'étage supérieur.",
+      "translation": "He lives on the floor ⟦above⟧."
+    },
+    {
+      "n": 586,
+      "rank": 612,
+      "word": "charge",
+      "pos": "noun",
+      "meaning": "load; responsibility; (plural) bills, service charges",
+      "sentence": "Les charges sont comprises dans le loyer.",
+      "translation": "⟦Bills⟧ are included in the rent.",
+      "form": "charges"
+    },
+    {
+      "n": 587,
+      "rank": 613,
+      "word": "août",
+      "pos": "noun",
+      "meaning": "August",
+      "sentence": "Tout est fermé en août.",
+      "translation": "Everything's closed in ⟦August⟧."
+    },
+    {
+      "n": 588,
+      "rank": 615,
+      "word": "demain",
+      "pos": "adv",
+      "meaning": "tomorrow",
+      "sentence": "À demain !",
+      "translation": "See you ⟦tomorrow⟧!"
+    },
+    {
+      "n": 589,
+      "rank": 617,
+      "word": "directeur",
+      "pos": "noun",
+      "meaning": "director, manager; head teacher (directrice: feminine)",
+      "sentence": "Le directeur veut te voir.",
+      "translation": "The ⟦manager⟧ wants to see you."
+    },
+    {
+      "n": 590,
+      "rank": 618,
+      "word": "facile",
+      "pos": "adj",
+      "meaning": "easy",
+      "sentence": "Ce n'est pas facile.",
+      "translation": "It isn't ⟦easy⟧."
+    },
+    {
+      "n": 591,
+      "rank": 619,
+      "word": "compagnie",
+      "pos": "noun",
+      "meaning": "company",
+      "sentence": "J'aime ta compagnie.",
+      "translation": "I enjoy your ⟦company⟧."
+    },
+    {
+      "n": 592,
+      "rank": 620,
+      "word": "attention",
+      "pos": "noun",
+      "meaning": "attention (attention !: careful!, watch out!)",
+      "sentence": "Attention, la route est glissante !",
+      "translation": "⟦Careful⟧, the road is slippery!"
+    },
+    {
+      "n": 593,
+      "rank": 621,
+      "word": "total",
+      "pos": "noun",
+      "meaning": "total (au total: in total); (adjective) total",
+      "sentence": "Ça fait combien au total ?",
+      "translation": "How much is it in ⟦total⟧?"
+    },
+    {
+      "n": 594,
+      "rank": 622,
+      "word": "coupe",
+      "pos": "noun",
+      "meaning": "cup (a trophy); haircut; cut",
+      "sentence": "La France a gagné la Coupe du monde.",
+      "translation": "France won the World ⟦Cup⟧."
+    },
+    {
+      "n": 595,
+      "rank": 623,
+      "word": "science",
+      "pos": "noun",
+      "meaning": "science",
+      "sentence": "J'aime les sciences.",
+      "translation": "I like ⟦science⟧.",
+      "form": "sciences"
+    },
+    {
+      "n": 596,
+      "rank": 624,
+      "word": "domaine",
+      "pos": "noun",
+      "meaning": "field, area; estate",
+      "sentence": "Il travaille dans le domaine de la santé.",
+      "translation": "He works in the health ⟦sector⟧."
+    },
+    {
+      "n": 597,
+      "rank": 625,
+      "word": "sauf",
+      "pos": "prep",
+      "meaning": "except",
+      "sentence": "Le magasin est ouvert tous les jours sauf le dimanche.",
+      "translation": "The shop is open every day ⟦except⟧ Sunday."
+    },
+    {
+      "n": 598,
+      "rank": 626,
+      "word": "heureux",
+      "pos": "adj",
+      "meaning": "happy (heureuse: feminine)",
+      "sentence": "Ils ont l'air heureux.",
+      "translation": "They look ⟦happy⟧."
+    },
+    {
+      "n": 599,
+      "rank": 627,
+      "word": "chemin",
+      "pos": "noun",
+      "meaning": "path, way",
+      "sentence": "Ce chemin mène à la plage.",
+      "translation": "This ⟦path⟧ leads to the beach."
+    },
+    {
+      "n": 600,
+      "rank": 628,
+      "word": "espace",
+      "pos": "noun",
+      "meaning": "space",
+      "sentence": "Il n'y a pas assez d'espace.",
+      "translation": "There isn't enough ⟦space⟧."
     }
   ]
 }
