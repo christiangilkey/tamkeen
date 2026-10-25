@@ -11,10 +11,11 @@ const LEXICON = new URL("../../docs/lexicon/zh-cedict.json.gz", import.meta.url)
 
 if (existsSync(FILE)) {
   const course = JSON.parse(readFileSync(FILE, "utf8"));
-  const { t2s, s2tc } = JSON.parse(gunzipSync(readFileSync(LEXICON)).toString("utf8"));
-  // A character with a simplified form that isn't itself a simplified character (么 is both). 著 is also
-  // simplified (著名 famous), not only the old form of 着.
-  const traditional = (s) => [...s].filter((c) => t2s[c] && t2s[c] !== c && !s2tc[c] && c !== "著");
+  const { words, t2s } = JSON.parse(gunzipSync(readFileSync(LEXICON)).toString("utf8"));
+  // A character with a simplified form (t2s) that no simplified CEDICT word uses: t2s also merges some
+  // variants (座 -> 坐) and characters that are both (著 in 著名 famous, the old form of 着).
+  const simplified = new Set(Object.keys(words).flatMap((k) => [...k]));
+  const traditional = (s) => [...s].filter((c) => t2s[c] && t2s[c] !== c && !simplified.has(c));
 
   test("zh: each meaning starts with the word's pinyin, with tone marks", () => {
     for (const w of course.words) {
