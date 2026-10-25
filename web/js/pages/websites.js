@@ -45,7 +45,7 @@ export async function renderSites(view, { web = null } = {}) {
     : ["Open a site, find an article, then press the <strong>round teal button</strong> at the bottom right to read it with every word clickable."];
   view.innerHTML = `<div class="page sites-page">
     <div class="disc-head">
-      <a class="btn ghost" href="#/library" title="Back to the library">←</a>
+      <a class="btn ghost" href="#/library?show=pages" title="Back to the library">←</a>
       <div class="meta"><h1>Read the web in ${esc(name)}</h1>
         ${notes.map((n) => `<div class="small muted">${n}</div>`).join("")}</div>
     </div>

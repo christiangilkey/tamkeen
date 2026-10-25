@@ -27,7 +27,7 @@ export async function render(view, { query }) {
   view.append(h(`
     <div class="page discover">
       <div class="disc-head">
-        <a class="btn ghost" href="#/library" title="Back to the library">←</a>
+        <a class="btn ghost" href="#/library?show=podcasts" title="Back to the library">←</a>
         <div class="meta">
           <h1>${icon("trending", 26)} Trending in ${esc(name)}</h1>
           <div class="small muted">${hasPicks(lang)

@@ -1,0 +1,4 @@
+a16536d7 Mga kurso
+92d695b2 Wala pay mga kurso para niini nga pinulongan.
+b97964cd Pagbalhin-balhin sa imong mga kurso, mga podcast, video sa YouTube, webpage, libro, reels ug imong kaugalingong mga video.
+6dd47c9e Padulong na ang batakang kurso sa {0}. Samtang wala pa, pagdugang og mga pulong gamit ang “Pagdugang og mga pulong” sa panid sa Vocab.

@@ -2935,8 +2935,8 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
-  "id": "e5cfdce4",
-  "k": "A basics course for {0} is on its way. Until then, add words with “Add words” on the My words tab.",
+  "id": "6dd47c9e",
+  "k": "A basics course for {0} is on its way. Until then, add words with “Add words” on the Vocab page.",
   "f": "web/js/components/coursepanel.js"
  },
  {
@@ -11315,6 +11315,11 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "a16536d7",
+  "k": "Courses",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "fd52b45d",
   "k": "Podcasts",
   "f": "web/js/pages/library.js"
@@ -11432,6 +11437,11 @@
  {
   "id": "18915bbf",
   "k": "Watch these reels",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "5fcebeef",
+  "k": "Basics",
   "f": "web/js/pages/library.js"
  },
  {
@@ -11655,6 +11665,11 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "92d695b2",
+  "k": "There are no courses for this language yet.",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "96141178",
   "k": "Refreshing…",
   "f": "web/js/pages/library.js"
@@ -11735,8 +11750,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "356d37c4",
-  "k": "Switch between podcasts, YouTube videos, webpages, books, reels and your own videos.",
+  "id": "b97964cd",
+  "k": "Switch between your courses, podcasts, YouTube videos, webpages, books, reels and your own videos.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -13522,16 +13537,6 @@
  {
   "id": "e6a0568a",
   "k": "Type or paste new words: Tamkeen can fill in their meanings, example sentences and audio",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "5fcebeef",
-  "k": "Basics",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "39b187b0",
-  "k": "My words",
   "f": "web/js/pages/vocab.js"
  },
  {

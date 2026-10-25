@@ -1,0 +1,4 @@
+a16536d7 Cursos
+92d695b2 Ainda não há cursos para este idioma.
+b97964cd Alterne entre seus cursos, podcasts, vídeos do YouTube, páginas da web, livros, reels e seus próprios vídeos.
+6dd47c9e Um curso básico de {0:lower} está a caminho. Até lá, adicione palavras com “Adicionar palavras” na página Vocabulário.

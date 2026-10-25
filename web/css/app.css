@@ -334,6 +334,12 @@ label.check input { margin-top: 3px; }
 .lib-actions .add-feed .row { flex-wrap: nowrap; }
 .lib-actions .upload-status { max-width: 520px; margin-bottom: 10px; }
 .library.desk .lib-main.empty-kind .tabs, .library.desk .lib-main.empty-kind .toolbar { display: none; }
+/* Courses (the first kind): the learner's courses instead of episodes, so none of the episode tools. */
+.library.courses-kind .filter-row, .library.courses-kind .toolbar, .library.courses-kind #episodes,
+.library.courses-kind #more, .library.courses-kind #lib-head { display: none; }
+.library.desk.courses-kind .lib-bar { display: none; } /* (on the phone it holds the kinds, which stay) */
+.library:not(.courses-kind) .lib-courses { display: none; }
+.lib-courses .vocab-tabs { margin-top: 4px; }
 .lib-head { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 12px; }
 .lib-head img { width: 88px; height: 88px; border-radius: 10px; object-fit: cover; flex: none; }
 .lib-head .meta { flex: 1; min-width: 0; }
@@ -1897,14 +1903,14 @@ html.sel-sheets select { pointer-events: none; }
 .g-offer-text .ic { flex: none; color: var(--brand-gold); margin-top: 2px; }
 .g-offer-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .g-offer-actions .primary, .g-offer-actions .btn { display: inline-flex; align-items: center; gap: 8px; }
-.gu-list { display: grid; gap: 18px; margin: 18px 0 10px; }
+.gu-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; margin: 18px 0 10px; }
 .gu-head { display: flex; align-items: baseline; gap: 10px; margin: 0 2px 8px; }
 .gu-head h3 { margin: 0; font-size: 17px; flex: 1; }
 .gu-n { display: inline-grid; place-items: center; min-width: 26px; height: 26px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 750; }
 .gu-count { font-size: 13px; white-space: nowrap; }
-.gu-lessons { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.gu-lessons { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
 .gl-row { width: 100%; display: flex; align-items: center; gap: 12px; text-align: start; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--border);
-  background: var(--surface); color: var(--text); cursor: pointer; font: inherit; }
+  background: var(--surface); color: var(--text); cursor: pointer; font: inherit; white-space: normal; /* (buttons don't wrap by default) */ }
 .gl-row:hover { border-color: var(--accent); }
 .gl-row.done { border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
 .gl-n { min-width: 24px; font-size: 13px; font-weight: 700; color: var(--muted); }

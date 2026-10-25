@@ -16,8 +16,6 @@ import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
 import { firstVisitTour } from "../components/tour.js";
 import { openWordBuilder } from "../components/wordbuilder.js";
-import { coursePanel, hasCourse } from "../components/coursepanel.js";
-import { grammarFor, grammarPanel } from "../components/grammarpanel.js";
 
 const DAY = 86400;
 const SORTS = {
@@ -161,13 +159,6 @@ export async function render(view) {
         <button type="button" class="ghost va-add" id="add-words" title="Type or paste new words: Tamkeen can fill in their meanings, example sentences and audio">${icon("plus", 18)} Add words</button>
       </div>
     </section>
-    <div class="vocab-tabs" role="tablist" id="vtabs" hidden>
-      <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span>Basics</span></button>
-      <button type="button" role="tab" data-tab="grammar" hidden>${icon("book", 18)} <span>Grammar</span></button>
-      <button type="button" role="tab" data-tab="words">${icon("vocab", 18)} <span>My words</span></button>
-    </div>
-    <div class="course" id="course" hidden></div>
-    <div class="course grammar" id="grammar" hidden></div>
     <div id="mywords">
     <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto">
     <div class="folder-bar" id="folders"></div>
@@ -771,37 +762,6 @@ export async function render(view) {
   };
   await load();
 
-  // ----- Basics | Grammar | My words (the courses of the language being learned: components/coursepanel.js,
-  // components/grammarpanel.js) -----
-  // A course's tab shows only when there is one for the language (the tabs at all only when there is
-  // either); the one last chosen is kept on this device (the basics first, until the learner has chosen).
-  let closeCourse = null, closeGrammar = null, grammarChoice = null;
-  const lang = studyLanguage();
-  const showTab = (tab) => {
-    for (const b of view.querySelectorAll("#vtabs [data-tab]")) {
-      const on = b.dataset.tab === tab;
-      b.classList.toggle("on", on);
-      b.setAttribute("aria-selected", String(on));
-    }
-    $("#course").hidden = tab !== "basics";
-    $("#grammar").hidden = tab !== "grammar";
-    $("#mywords").hidden = tab !== "words";
-    if (tab === "basics" && !closeCourse) closeCourse = coursePanel($("#course"), lang, { onCards: () => load() });
-    if (tab === "grammar" && !closeGrammar && grammarChoice) closeGrammar = grammarPanel($("#grammar"), lang, grammarChoice);
-    try { localStorage.setItem("vocabTab", tab); } catch { /* storage off */ }
-  };
-  for (const b of view.querySelectorAll("#vtabs [data-tab]")) b.onclick = () => showTab(b.dataset.tab);
-  Promise.all([hasCourse(lang), grammarFor(lang).catch(() => null)]).then(([basics, grammar]) => {
-    if ((!basics && !grammar) || !view.isConnected) return;
-    grammarChoice = grammar;
-    view.querySelector('#vtabs [data-tab="basics"]').hidden = !basics;
-    view.querySelector('#vtabs [data-tab="grammar"]').hidden = !grammar;
-    $("#vtabs").hidden = false;
-    let saved = null;
-    try { saved = localStorage.getItem("vocabTab"); } catch { /* storage off */ }
-    const can = { basics, grammar: !!grammar, words: true };
-    showTab(can[saved] ? saved : basics ? "basics" : "grammar");
-  });
   firstVisitTour("vocab", view.querySelector(".vocab-page"), [
     { target: "#review", title: "Review",
       text: "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start." },
@@ -815,5 +775,5 @@ export async function render(view) {
       text: "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several." },
     { target: "#more", title: "More", text: "Add words, export your words for Anki or as a spreadsheet, and Anki's settings." },
   ]);
-  return () => { audio.pause(); stopDevice(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); if (closeCourse) closeCourse(); if (closeGrammar) closeGrammar(); };
+  return () => { audio.pause(); stopDevice(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
 }

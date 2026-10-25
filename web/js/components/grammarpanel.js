@@ -1,4 +1,4 @@
-// The Vocab page's "Grammar" tab: the grammar course of the language being learned, explained in the
+// The Library's Courses → "Grammar" tab (pages/library.js): the grammar course of the language being learned, explained in the
 // learner's own language (grammardata.js says which course that is; tools/grammar/README.md what a course
 // is). Every version has it.
 //

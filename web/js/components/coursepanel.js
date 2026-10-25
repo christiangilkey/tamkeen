@@ -1,4 +1,4 @@
-// The Vocab page's "Basics" tab: the basics course of the language being learned (coursedata.js says
+// The Library's Courses → "Basics" tab (pages/library.js): the basics course of the language being learned (coursedata.js says
 // what a course is). Every version has it.
 //
 //   - The course: how many of its 1000 words are in the learner's cards (a bar), "Continue" to the
@@ -54,7 +54,7 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
     } catch (e) {
       box.innerHTML = `<div class="course-note"></div>`;
       box.firstChild.textContent = e.message === "none"
-        ? `A basics course for ${name} is on its way. Until then, add words with “Add words” on the My words tab.`
+        ? `A basics course for ${name} is on its way. Until then, add words with “Add words” on the Vocab page.`
         : "The course couldn't be loaded. Check your connection and try again.";
       return;
     }

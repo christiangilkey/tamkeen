@@ -12,6 +12,8 @@ import { openModal } from "../components/modal.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { firstVisitTour } from "../components/tour.js";
+import { coursePanel, hasCourse } from "../components/coursepanel.js";
+import { grammarFor, grammarPanel } from "../components/grammarpanel.js";
 
 /** The phone (or web app) asked to transcribe Bisaya: only the computer can, with its Bisaya model
  *  (no cloud provider knows the language). The episodes are queued for the computer; this says so. */
@@ -49,8 +51,11 @@ const BOOKS_FEED = "local:books";
 
 // The library is a list of kinds, always in this order: a strip on the phone, the side list on the
 // computer. Choosing "Podcasts" (or "YouTube") opens a second list with the podcasts (or channels).
+// "Courses" comes first and is what the Library opens on: the courses of the language being learned
+// (the 1000-word basics course, components/coursepanel.js, and the grammar course, grammarpanel.js).
 const KINDS = [
-  { key: "podcasts", label: "Podcasts", icon: "podcast" },
+  { key: "courses", label: "Courses", icon: "learn", href: "#/library" },
+  { key: "podcasts", label: "Podcasts", icon: "podcast", href: "#/library?show=podcasts" },
   { key: "youtube", label: "YouTube", icon: "video", feed: YOUTUBE_FEED,
     empty: "No YouTube videos yet. Press + and choose YouTube." },
   { key: "netflix", label: "Netflix", icon: "film", feed: NETFLIX_FEED,
@@ -91,8 +96,9 @@ export async function render(view, { feedId: routeFeed, query }) {
   let feedId = routeFeed;
   // (Asked here, not when this file loads: the app shell is still starting up at that point.)
   const phone = platform === "android";
-  // Which kind is showing ("podcasts" unless the address or the feed says otherwise).
-  let kind = KINDS.some((k) => k.key === query.get("show")) ? query.get("show") : "podcasts";
+  // Which kind is showing: the courses, unless the address or the feed says otherwise (a feed's own
+  // address is set in renderStrips).
+  let kind = KINDS.some((k) => k.key === query.get("show")) ? query.get("show") : feedId ? "podcasts" : "courses";
   const filter = query.get("status") || "";
   // YouTube: the followed channel whose videos are showing ("" = all of them, recently watched first).
   const channel = query.get("channel") || "";
@@ -129,6 +135,15 @@ export async function render(view, { feedId: routeFeed, query }) {
           </div>
         </div>
         ${phone ? `<div class="feed-list sub-list" id="podcast-list" hidden></div>` : ""}
+        <div class="lib-courses" id="lib-courses" hidden>
+          <div class="vocab-tabs" role="tablist" id="course-tabs" hidden>
+            <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span>Basics</span></button>
+            <button type="button" role="tab" data-tab="grammar" hidden>${icon("book", 18)} <span>Grammar</span></button>
+          </div>
+          <div class="course" id="course" hidden></div>
+          <div class="course grammar" id="grammar" hidden></div>
+          <p class="course-note" id="no-courses" hidden></p>
+        </div>
         <div id="lib-head"></div>
         <div class="upload-status" id="upload-status" hidden>
           <div class="small"><span id="upload-name"></span> <span class="muted" id="upload-pct"></span></div>
@@ -155,8 +170,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     // A built-in list opened by its own address belongs to its kind; one that doesn't exist
     // yet (nothing added) shows an empty page for that kind.
     const current = feedId ? feeds.find((x) => x.id === feedId) : null;
-    if (current) kind = (KINDS.find((k) => k.feed === current.url) || KINDS[0]).key;
-    else if (kind !== "podcasts") {
+    if (current) kind = (KINDS.find((k) => k.feed === current.url) || { key: "podcasts" }).key;
+    else if (kind !== "podcasts" && kind !== "courses") {
       const own = feeds.find((x) => x.url === KINDS.find((k) => k.key === kind).feed);
       if (own) feedId = own.id;
     }
@@ -166,7 +181,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     list.innerHTML = "";
     for (const k of KINDS) {
       const own = k.feed ? feeds.find((x) => x.url === k.feed) : null;
-      const href = k.href ? k.href : k.key === "podcasts" ? "#/library" : own ? `#/feed/${own.id}` : `#/library?show=${k.key}`;
+      const href = k.href ? k.href : own ? `#/feed/${own.id}` : `#/library?show=${k.key}`;
       const el = h(`<a class="feed-item${k.key === kind ? " active" : ""}" href="${href}">
         <div class="ph all">${icon(k.icon, 24)}</div><div><div class="t">${k.label}</div></div></a>`);
       remember(el);
@@ -202,7 +217,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     const podcasts = feeds.filter((x) => !isLocalFeed(x.url))
       .map((x, i) => ({ f: x, last: heard.get(x.title) || 0, i }))
       .sort((a, b) => b.last - a.last || a.i - b.i);
-    const all = h(`<a class="feed-item${feedId ? "" : " active"}" href="#/library"><div class="ph all">${icon("podcast", 22)}</div><div><div class="t">All episodes</div></div></a>`);
+    const all = h(`<a class="feed-item${feedId ? "" : " active"}" href="#/library?show=podcasts"><div class="ph all">${icon("podcast", 22)}</div><div><div class="t">All episodes</div></div></a>`);
     remember(all);
     strip.append(all);
     for (const { f } of podcasts) {
@@ -244,8 +259,10 @@ export async function render(view, { feedId: routeFeed, query }) {
   function renderHead() {
     const head = $("#lib-head");
     head.innerHTML = "";
+    root.classList.toggle("courses-kind", kind === "courses");
+    if (kind === "courses") { showCourses(); return; }
     // A kind with nothing in it yet (say, no YouTube videos) has no list of its own.
-    const emptyKind = !feedId && kind !== "podcasts" ? KINDS.find((k) => k.key === kind) : null;
+    const emptyKind = !feedId && kind !== "podcasts" && kind !== "courses" ? KINDS.find((k) => k.key === kind) : null;
     $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
     if (emptyKind) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon(emptyKind.icon, 44)}</div><div class="meta"><h1>${emptyKind.label}</h1>
@@ -258,7 +275,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       return;
     }
     const f = feeds.find((x) => x.id === feedId);
-    if (!f) { location.hash = "#/library"; return; }
+    if (!f) { location.hash = "#/library?show=podcasts"; return; }
     if (f.url === PAGES_FEED) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("page", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
         <div class="desc small">Web pages you imported. Open one to read it with every word clickable. Press + to add more.</div></div></div>`));
@@ -348,7 +365,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     el.querySelector("#remove-feed").onclick = async () => {
       if (!confirm(`Remove “${f.title}”? Its transcripts and downloaded audio will be deleted. Saved vocab is kept.`)) return;
       await api(`/feeds/${feedId}`, { method: "DELETE" });
-      location.hash = "#/library";
+      location.hash = "#/library?show=podcasts";
     };
   }
 
@@ -365,7 +382,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       const b = h(`<button type="button" class="${key === filter ? "active" : ""}">${label} <span class="n">${n(key)}</span></button>`);
       b.onclick = () => {
         const base = feedId ? `#/feed/${feedId}` : "#/library";
-        const keep = new URLSearchParams();
+        const keep = new URLSearchParams(feedId ? {} : { show: "podcasts" }); // "All episodes" sits under Podcasts
         if (key) keep.set("status", key);
         if (channel) keep.set("channel", channel); // stay on the same YouTube channel
         location.hash = keep.size ? `${base}?${keep}` : base;
@@ -529,6 +546,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   }
 
   async function loadEpisodes(append = false) {
+    if (kind === "courses") return; // no episodes: renderHead shows the courses
     if (!append) offset = 0;
     if (!feedId && kind !== "podcasts") { // nothing of this kind yet: renderHead says so
       renderTabs({});
@@ -559,6 +577,47 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (!data.total) {
       listEl.append(h(`<div class="empty">${feeds.length ? "No episodes match this filter." : "Press + to add a podcast, a video or a web page."}</div>`));
     }
+  }
+
+  // ----- courses: Basics | Grammar, for the language being learned -----
+  // A tab shows only when there is that course for the language; the one last chosen is kept on this
+  // device (the basics first, until the learner has chosen). Each panel is built the first time it shows.
+  let closeCourse = null, closeGrammar = null, grammarChoice = null, coursesAsked = false;
+  const courseLang = studyLanguage();
+  const showCourseTab = (tab) => {
+    for (const b of root.querySelectorAll("#course-tabs [data-tab]")) {
+      const on = b.dataset.tab === tab;
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-selected", String(on));
+    }
+    $("#course").hidden = tab !== "basics";
+    $("#grammar").hidden = tab !== "grammar";
+    if (tab === "basics" && !closeCourse) closeCourse = coursePanel($("#course"), courseLang);
+    if (tab === "grammar" && !closeGrammar && grammarChoice) closeGrammar = grammarPanel($("#grammar"), courseLang, grammarChoice);
+    try { localStorage.setItem("courseTab", tab); } catch { /* storage off */ }
+  };
+  for (const b of root.querySelectorAll("#course-tabs [data-tab]")) b.onclick = () => showCourseTab(b.dataset.tab);
+  function showCourses() {
+    $("#lib-courses").hidden = false;
+    if (coursesAsked) return;
+    coursesAsked = true;
+    Promise.all([hasCourse(courseLang), grammarFor(courseLang).catch(() => null)]).then(([basics, grammar]) => {
+      if (!root.isConnected) return;
+      if (!basics && !grammar) {
+        const note = $("#no-courses");
+        note.textContent = "There are no courses for this language yet.";
+        note.hidden = false;
+        return;
+      }
+      grammarChoice = grammar;
+      root.querySelector('#course-tabs [data-tab="basics"]').hidden = !basics;
+      root.querySelector('#course-tabs [data-tab="grammar"]').hidden = !grammar;
+      $("#course-tabs").hidden = false;
+      let saved = null;
+      try { saved = localStorage.getItem("courseTab"); } catch { /* storage off */ }
+      const can = { basics, grammar: !!grammar };
+      showCourseTab(can[saved] ? saved : basics ? "basics" : "grammar");
+    });
   }
 
   // ----- wiring -----
@@ -699,7 +758,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   }
   firstVisitTour("library", root, [
     { target: "#feed-list", title: "What to show",
-      text: "Switch between podcasts, YouTube videos, webpages, books, reels and your own videos." },
+      text: "Switch between your courses, podcasts, YouTube videos, webpages, books, reels and your own videos." },
     { target: "#podcast-list", title: "Your podcasts and channels", text: "Tap one to see only its episodes or videos." },
     { target: "#tabs", title: "Filter by progress",
       text: "Show everything, or only what's not started, waiting, being transcribed, done or failed. The numbers count each." },
@@ -709,5 +768,5 @@ export async function render(view, { feedId: routeFeed, query }) {
       text: "Add something to learn from: a podcast, a YouTube video, a webpage, a book, reels, or a video or audio file of your own." },
   ]);
 
-  return () => { offEp(); offFeeds(); offRe(); clearTimeout(reloadTimer); clearTimeout(countsTimer); };
+  return () => { offEp(); offFeeds(); offRe(); clearTimeout(reloadTimer); clearTimeout(countsTimer); if (closeCourse) closeCourse(); if (closeGrammar) closeGrammar(); };
 }
