@@ -1070,6 +1070,229 @@
         {"type":"order","q":"把单词排成正确的顺序。","tr":"你能帮我拿一下包吗？","words":["Could","you","help","me","with","my","bag?"]},
         {"type":"free","q":"轮到你了：邀请一个朋友这个周末一起做件事，再客气地请他帮你一个小忙。","answers":[{"t":"Would you like to have dinner with me on Saturday? Could you bring some drinks?","tr":"星期六想和我一起吃晚饭吗？你能带点儿饮料吗？"},{"t":"Let's go to the beach on Sunday! Could you drive?","tr":"星期天我们去海边吧！你能开车吗？"}]}
       ]
+    },
+    {
+      "id": "say-where-you-were",
+      "unit": 6,
+      "level": "A2",
+      "title": "说你在哪儿：was / were",
+      "summary": "“我昨天在家”“周末你在哪儿？”：用 {{was}} 和 {{were}} 说过去在哪儿、怎么样。",
+      "topic": "{{be}} 的过去式：{{was}}（{{I}}、{{he}}、{{she}}、{{it}}）/ {{were}}（{{you}}、{{we}}、{{they}}）；{{yesterday}}、{{last…}}、{{…ago}}",
+      "blocks": [
+        {"goal":{"t":"I was at home yesterday.","tr":"我昨天在家。"}},
+        {"dialog":[{"who":"Mike","t":"Where were you yesterday? You weren't at work.","tr":"你昨天去哪儿了？你没来上班。"},{"who":"李明","t":"I was sick. I was at home all day.","tr":"我病了，一整天都在家。"},{"who":"Mike","t":"Oh no! Are you OK now?","tr":"哎呀！现在好了吗？"},{"who":"李明","t":"Yes, I'm fine now. Was the meeting long?","tr":"好了，现在没事了。会开得久吗？"},{"who":"Mike","t":"Yes, and it was really boring!","tr":"久，而且特别无聊！"}]},
+        {"p":"**说过去，动词要变。** 中文说“我昨天在家”，“在”不用变，有“昨天”就知道是过去；英语不行，{{be}} 本身要变成过去式：{{I'm at home.}}（我在家。）→ {{I was at home.}}（我那时在家。）"},
+        { "table": [
+          ["主语","现在","过去"],
+          ["{{I}}","{{am}}","{{was}}"],
+          ["{{he}}、{{she}}、{{it}}","{{is}}","{{was}}"],
+          ["{{you}}、{{we}}、{{they}}","{{are}}","{{were}}"]
+        ] },
+        {"p":"**否定和提问**：{{wasn't}}（= {{was not}}）、{{weren't}}（= {{were not}}）；提问就把 {{was}} / {{were}} 放到前面：{{Were you at home?}}（你在家吗？）{{Was it good?}}（好吗？）"},
+        {"p":"**过去的时间词**，一般放在句末：{{yesterday}}（昨天）、{{last night}}（昨晚）、{{last week}}（上周）、{{two days ago}}（两天前）。注意：“上周”是 {{last week}}，前面不加 {{the}}；“……以前”是时间 + {{ago}}。"},
+        { "ex": [
+          {"t":"I was at home yesterday.","tr":"我昨天在家。"},
+          {"t":"Where were you last night?","tr":"你昨晚在哪儿？"},
+          {"t":"The movie was great.","tr":"那部电影很好看。"},
+          {"t":"We were in Paris two years ago.","tr":"我们两年前在巴黎。"},
+          {"t":"She wasn't happy.","tr":"她不高兴。"},
+          {"t":"Were you tired?","tr":"你累了吗？"}
+        ] },
+        {"tip":"{{was}} 和 {{were}} 在句子里通常读得很轻：/wəz/、/wər/。但在简短回答里要读清楚：{{Yes, I was.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I am at home yesterday.","right":"I was at home yesterday.","tr":"我昨天在家。","why":"说过去，{{be}} 也要变成过去式：{{was}}。"},
+        {"wrong":"They was late.","right":"They were late.","tr":"他们迟到了。","why":"{{they}} 用 {{were}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"We ___ in Shanghai last year.","tr":"我们去年在上海。","options":["were","was","are"],"answer":0,"why":"{{we}} + 过去：{{were}}。"},
+        {"type":"choice","q":"“三天前”是……","options":["{{three days ago}}","{{ago three days}}","{{before three days}}"],"answer":0,"why":"时间 + {{ago}}。"},
+        {"type":"choice","q":"“你周末在哪儿？”","options":["{{Where were you on the weekend?}}","{{Where you were on the weekend?}}","{{Where was you on the weekend?}}"],"answer":0,"why":"疑问词 + {{were}} + {{you}}。","from":"ask-who-what-where"},
+        {"type":"dialogue","q":"星期一回到公司。选出你的回答。","lines":[{"who":"Colleague","t":"How was your weekend?","tr":"周末过得怎么样？"},{"options":["It was great! I was at the beach.","It is great! I am at the beach."],"answer":0,"why":"周末已经过去了：{{was}}。"},{"who":"Colleague","t":"Were your kids with you?","tr":"孩子们和你一起吗？"},{"options":["Yes, they were. They were very happy.","Yes, they was. They was very happy."],"answer":0,"why":"{{they}} 用 {{were}}。"},{"who":"Colleague","t":"Sounds fun!","tr":"听起来很好玩！"}],"from":"say-where-things-are"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我们两年前在巴黎。","words":["We","were","in","Paris","two","years","ago."]},
+        {"type":"free","q":"轮到你了：昨天晚上你在哪儿？那时你怎么样（累、开心、忙）？","answers":[{"t":"I was at home last night. I was very tired.","tr":"我昨晚在家，很累。"},{"t":"I was at a restaurant with my friends. The food was delicious.","tr":"我昨晚和朋友在餐厅，菜很好吃。"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 6,
+      "level": "A2",
+      "title": "说你做了什么：-ed",
+      "summary": "“我昨天打扫了公寓”“我们看了一部电影”：说过去发生的事，英语的动词要变成过去式，最常见的是加 {{-ed}}。",
+      "topic": "规则动词的过去式：加 {{-ed}}（三种读音 /t/、/d/、/ɪd/）；每个动词都要变",
+      "blocks": [
+        {"goal":{"t":"I cleaned my apartment yesterday.","tr":"我昨天打扫了公寓。"}},
+        {"dialog":[{"who":"Kate","t":"What did you do last weekend?","tr":"你上个周末做了什么？"},{"who":"王芳","t":"I stayed home. I cleaned the apartment and cooked dinner for my friends.","tr":"我待在家里，打扫了公寓，还给朋友做了晚饭。"},{"who":"Kate","t":"Nice! What did you cook?","tr":"不错！你做了什么？"},{"who":"王芳","t":"I cooked dumplings. We talked and laughed all night.","tr":"我包了饺子。我们聊了一晚上，也笑了一晚上。"},{"who":"Kate","t":"That sounds like fun.","tr":"听起来很开心。"}]},
+        {"p":"**每个动词都要变。** 中文用“了”或者时间词表示过去，动词本身不变：“我昨天打扫房间”。英语不一样：只要是过去的事，动词就要换成过去式，哪怕句子里已经有了 {{yesterday}}：{{I clean}} → {{I cleaned}}。这是中国学生最容易漏掉的地方。"},
+        {"term":"过去式","means":"动词表示过去发生的形式，比如 {{cleaned}}、{{watched}}、{{went}}。过去式对所有人都一样，不加 {{-s}}。"},
+        {"p":"**规则动词：加 {{-ed}}。** {{work}} → {{worked}}，{{watch}} → {{watched}}；以 e 结尾的只加 {{-d}}：{{live}} → {{lived}}；辅音字母 + y：{{study}} → {{studied}}；短词以“一个元音 + 一个辅音”结尾的，辅音双写：{{stop}} → {{stopped}}。对谁都一样：{{I worked}}、{{she worked}}。"},
+        { "table": [
+          ["读音","什么时候","例子"],
+          ["/t/","在 p、k、s、sh、ch、f 这些清辅音后面","{{walked}}、{{stopped}}、{{watched}}"],
+          ["/d/","在元音和浊辅音后面","{{played}}、{{cleaned}}、{{lived}}"],
+          ["/ɪd/","在 t 和 d 后面","{{wanted}}、{{needed}}、{{waited}}"]
+        ] },
+        {"p":"**别多加一个音节。** {{walked}} 只有一个音节，读 /wɔkt/，不是 walk-ed；只有在 t 和 d 后面，{{-ed}} 才单独读成一个音节：{{wanted}}。"},
+        { "ex": [
+          {"t":"I cleaned my apartment yesterday.","tr":"我昨天打扫了公寓。"},
+          {"t":"We watched a movie last night.","tr":"我们昨晚看了一部电影。"},
+          {"t":"She worked late on Friday.","tr":"她星期五加班到很晚。"},
+          {"t":"They lived in Texas for two years.","tr":"他们在得克萨斯州住过两年。"},
+          {"t":"I called my mom this morning.","tr":"我今天早上给妈妈打了电话。"},
+          {"t":"The train arrived at ten.","tr":"火车十点到的。"}
+        ] },
+        {"tip":"听英语的时候，{{-ed}} 很轻，常常和后面的词连在一起：{{I walked to work}}。可以靠时间词（{{yesterday}}、{{last week}}）帮你判断是不是过去。"}
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday I clean my room.","right":"Yesterday I cleaned my room.","tr":"我昨天打扫了房间。","why":"已经有了 {{yesterday}}，动词也要变成过去式：{{cleaned}}。"},
+        {"wrong":"She watcheds TV.","right":"She watched TV.","tr":"她看了电视。","why":"过去式对谁都一样，不再加 {{-s}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"I ___ my mom last night.","tr":"我昨晚给妈妈打了电话。","options":["called","call","calls"],"answer":0,"why":"过去的事：{{called}}。"},
+        {"type":"choice","q":"{{wanted}} 的 {{-ed}} 怎么读？","options":["/ɪd/，单独一个音节","/t/","/d/"],"answer":0,"why":"在 t 后面：/ɪd/。"},
+        {"type":"choice","q":"“她上周搬家了。”","options":["{{She moved last week.}}","{{She move last week.}}","{{She moveds last week.}}"],"answer":0,"why":"以 e 结尾加 {{-d}}：{{moved}}，对谁都一样。","from":"say-what-someone-else-does"},
+        {"type":"dialogue","q":"同事问起你的周末。选出你的回答。","lines":[{"who":"Colleague","t":"How was your weekend?","tr":"周末过得怎么样？"},{"options":["Great! I played tennis with my brother.","Great! I play tennis with my brother."],"answer":0,"why":"周末已经过去了：{{played}}。"},{"who":"Colleague","t":"Who won?","tr":"谁赢了？"},{"options":["He did. But I enjoyed it!","He did. But I enjoy it!"],"answer":0,"why":"也是过去的事：{{enjoyed}}。"},{"who":"Colleague","t":"Ha, next time!","tr":"哈，下次赢回来！"}],"from":"say-where-you-were"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我们昨晚看了一部电影。","words":["We","watched","a","movie","last","night."]},
+        {"type":"free","q":"轮到你了：说说你昨天做的三件事。记得每个动词都要用过去式！","answers":[{"t":"I worked in the morning. I cooked dinner. I watched TV with my husband.","tr":"我上午工作，做了晚饭，和丈夫一起看了电视。"},{"t":"I walked to work. I called my friend. I studied English at night.","tr":"我走路去上班，给朋友打了电话，晚上学了英语。"}]}
+      ]
+    },
+    {
+      "id": "tell-what-happened",
+      "unit": 6,
+      "level": "A2",
+      "title": "讲发生了什么：不规则动词",
+      "summary": "“我去了西安”“我们吃了火锅”“我看到了一只熊猫”：最常用的动词偏偏不规则，要一个一个记。",
+      "topic": "常用的不规则过去式：{{went}}、{{saw}}、{{ate}}、{{had}}、{{got}}、{{came}}、{{bought}}、{{took}}、{{made}}、{{said}}",
+      "blocks": [
+        {"goal":{"t":"I went to Xi'an last summer.","tr":"我去年夏天去了西安。"}},
+        {"dialog":[{"who":"Emily","t":"How was your trip?","tr":"旅行怎么样？"},{"who":"李明","t":"Amazing! I went to Xi'an with my parents.","tr":"太棒了！我和爸妈去了西安。"},{"who":"Emily","t":"What did you see?","tr":"你们看了什么？"},{"who":"李明","t":"We saw the Terracotta Warriors. We ate a lot of noodles too.","tr":"我们看了兵马俑，还吃了很多面。"},{"who":"Emily","t":"Did you buy anything?","tr":"买东西了吗？"},{"who":"李明","t":"Yes, I bought you a present!","tr":"买了，我给你买了个礼物！"}]},
+        {"p":"**最常用的动词，过去式偏偏不规则。** 大部分动词加 {{-ed}} 就行，可最常用的那些却是不规则的，只能一个一个记住。好消息是：过去式对所有人都一样，{{I went}}、{{she went}}、{{they went}}。"},
+        { "table": [
+          ["原形","过去式","中文"],
+          ["{{go}}","{{went}}","去"],
+          ["{{see}}","{{saw}}","看见"],
+          ["{{eat}}","{{ate}}","吃"],
+          ["{{have}}","{{had}}","有、吃"],
+          ["{{get}}","{{got}}","得到、到达"],
+          ["{{come}}","{{came}}","来"],
+          ["{{buy}}","{{bought}}","买"],
+          ["{{take}}","{{took}}","拿、坐（车）"],
+          ["{{make}}","{{made}}","做"],
+          ["{{say}}","{{said}}","说"],
+          ["{{meet}}","{{met}}","遇见"],
+          ["{{leave}}","{{left}}","离开"]
+        ] },
+        {"p":"**{{have}} 不只是“有”。** {{had}} 也常常表示“吃了”“度过了”：{{We had dinner at seven.}}（我们七点吃的晚饭。）{{I had a great time.}}（我玩得很开心。）"},
+        { "ex": [
+          {"t":"I went to Xi'an last summer.","tr":"我去年夏天去了西安。"},
+          {"t":"We ate hot pot for dinner.","tr":"我们晚饭吃了火锅。"},
+          {"t":"She bought a new phone.","tr":"她买了一部新手机。"},
+          {"t":"I saw a panda at the zoo!","tr":"我在动物园看到了一只熊猫！"},
+          {"t":"They came home late.","tr":"他们很晚才回家。"},
+          {"t":"I had a great time.","tr":"我玩得很开心。"}
+        ] },
+        {"tip":"每天记两三个就好，记住以后马上用它们说一句关于你自己的话：{{I got up at seven. I took the bus.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I goed to the store.","right":"I went to the store.","tr":"我去了商店。","why":"{{go}} 不规则：过去式是 {{went}}。"},
+        {"wrong":"Last week I buy a car.","right":"Last week I bought a car.","tr":"我上周买了一辆车。","why":"过去的事，动词要变：{{buy}} → {{bought}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"We ___ a lot of dumplings last night.","tr":"我们昨晚吃了很多饺子。","options":["ate","eat","eated"],"answer":0,"why":"{{eat}} 的过去式不规则：{{ate}}。"},
+        {"type":"choice","q":"{{take}} 的过去式是……","options":["{{took}}","{{taked}}","{{takes}}"],"answer":0,"why":"不规则：{{took}}。"},
+        {"type":"choice","q":"“我在火车站碰到了我的老师。”","options":["{{I met my teacher at the train station.}}","{{I meet my teacher at the train station.}}","{{I meeted my teacher at the train station.}}"],"answer":0,"why":"{{meet}} → {{met}}。","from":"say-what-you-did"},
+        {"type":"dialogue","q":"朋友问你的假期。选出你的回答。","lines":[{"who":"Friend","t":"Where did you go for vacation?","tr":"你去哪儿度假了？"},{"options":["I went to Hawaii with my family.","I go to Hawaii with my family."],"answer":0,"why":"过去：{{went}}。"},{"who":"Friend","t":"Cool! What did you do there?","tr":"酷！你们在那儿做了什么？"},{"options":["We swam and ate a lot of fish.","We swim and eat a lot of fish."],"answer":0,"why":"{{swim}} → {{swam}}，{{eat}} → {{ate}}。"},{"who":"Friend","t":"Sounds perfect!","tr":"听起来太完美了！"}],"from":"say-where-you-were"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"她买了一部新手机。","words":["She","bought","a","new","phone."]},
+        {"type":"free","q":"轮到你了：讲讲你上一次旅行：去了哪儿、看到了什么、吃了什么。","answers":[{"t":"I went to Chengdu last year. I saw pandas and I ate a lot of spicy food.","tr":"我去年去了成都，看了熊猫，吃了很多辣的东西。"},{"t":"Last summer we went to the beach. We took a lot of photos and had a great time.","tr":"去年夏天我们去了海边，拍了很多照片，玩得很开心。"}]}
+      ]
+    },
+    {
+      "id": "ask-about-the-past",
+      "unit": 6,
+      "level": "A2",
+      "title": "问过去的事：did",
+      "summary": "“你昨天去哪儿了？”“我没去”：问过去的事、说没做的事，都要用 {{did}}，后面的动词变回原形。",
+      "topic": "{{Did you…?}}；{{didn't}} + 动词原形；{{What did you do?}}、{{Where did you go?}}",
+      "blocks": [
+        {"goal":{"t":"Where did you go on vacation?","tr":"你去哪儿度假了？"}},
+        {"dialog":[{"who":"Mike","t":"Did you watch the game last night?","tr":"你昨晚看比赛了吗？"},{"who":"李明","t":"No, I didn't. I went to bed early.","tr":"没看，我很早就睡了。"},{"who":"Mike","t":"Really? What did you do yesterday?","tr":"真的？你昨天干什么了？"},{"who":"李明","t":"I helped my friend move. I didn't sit down all day!","tr":"我帮朋友搬家，一整天都没坐下来过！"},{"who":"Mike","t":"No wonder you were tired.","tr":"难怪你那么累。"}]},
+        {"p":"**问过去：{{Did}} + 主语 + 动词原形？** 现在时的问句用 {{do}}，过去时就用 {{did}}，后面的动词变回原形：{{You went.}} → {{Did you go?}}（你去了吗？）{{Did she call?}}（她打电话了吗？）对谁都用 {{did}}。"},
+        {"p":"**没做：{{didn't}} + 动词原形。** 中文说“我没去”；英语说 {{I didn't go.}} 过去的意思已经在 {{didn't}} 里了，所以后面不能再用过去式：不能说 {{I didn't went.}}"},
+        { "table": [
+          ["","现在","过去"],
+          ["提问","{{Do you work?}}","{{Did you work?}}"],
+          ["否定","{{She doesn't cook.}}","{{She didn't cook.}}"],
+          ["疑问词","{{Where do you go?}}","{{Where did you go?}}"],
+          ["简短回答","{{Yes, I do.}}","{{Yes, I did.}} / {{No, I didn't.}}"]
+        ] },
+        {"p":"**有 {{was}} / {{were}} 的句子不用 {{did}}。** 直接提问，或者加 {{not}}：{{Were you tired?}}，不能说 {{Did you tired?}}"},
+        { "ex": [
+          {"t":"Where did you go on vacation?","tr":"你去哪儿度假了？"},
+          {"t":"Did you have breakfast?","tr":"你吃早饭了吗？"},
+          {"t":"I didn't sleep well.","tr":"我没睡好。"},
+          {"t":"What did she say?","tr":"她说什么了？"},
+          {"t":"We didn't see him.","tr":"我们没看见他。"},
+          {"t":"Did it rain yesterday?","tr":"昨天下雨了吗？"}
+        ] },
+        {"tip":"{{Did you…?}} 说快了会连读，听起来像 /dɪdʒə/：{{Did you eat?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I didn't went.","right":"I didn't go.","tr":"我没去。","why":"{{didn't}} 后面用动词原形：{{go}}。"},
+        {"wrong":"Did you saw it?","right":"Did you see it?","tr":"你看到了吗？","why":"{{did}} 后面用原形：{{see}}。"},
+        {"wrong":"Where you went?","right":"Where did you go?","tr":"你去哪儿了？","why":"过去的问句要用 {{did}}：{{Where did you go?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"I didn't ___ my keys.","tr":"我没找到钥匙。","options":["find","found","finding"],"answer":0,"why":"{{didn't}} + 动词原形：{{find}}。"},
+        {"type":"choice","q":"“你周末做什么了？”","options":["{{What did you do on the weekend?}}","{{What you did on the weekend?}}","{{What did you did on the weekend?}}"],"answer":0,"why":"疑问词 + {{did}} + 主语 + 原形。","from":"ask-about-habits"},
+        {"type":"choice","q":"别人问 {{Did you call your mom?}}，你打了。你说……","options":["{{Yes, I did.}}","{{Yes, I called.}}","{{Yes, I do.}}"],"answer":0,"why":"用 {{did}} 问，就用 {{did}} 答。"},
+        {"type":"dialogue","q":"医生问你的情况。选出你的回答。","lines":[{"who":"Doctor","t":"Did you sleep well last night?","tr":"你昨晚睡得好吗？"},{"options":["No, I didn't. I had a headache.","No, I didn't slept. I had a headache."],"answer":0,"why":"{{No, I didn't.}} 就够了；{{have}} → {{had}}。"},{"who":"Doctor","t":"Did you take any medicine?","tr":"你吃药了吗？"},{"options":["Yes, I took some aspirin.","Yes, I take some aspirin."],"answer":0,"why":"过去：{{take}} → {{took}}。"},{"who":"Doctor","t":"OK. Let me take a look.","tr":"好，我来看看。"}],"from":"tell-what-happened"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"她说什么了？","words":["What","did","she","say?"]},
+        {"type":"free","q":"轮到你了：问一个朋友三个关于他上个周末的问题。","answers":[{"t":"What did you do last weekend? Did you go out? Where did you eat?","tr":"你上周末做什么了？出去了吗？在哪儿吃的饭？"},{"t":"Did you see your family? Did you have fun? What did you buy?","tr":"你见家人了吗？玩得开心吗？买了什么？"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-used-to-do",
+      "unit": 6,
+      "level": "A2",
+      "title": "说以前常做的事：used to",
+      "summary": "“我以前住在北京”“我以前不喝咖啡”：用 {{used to}} 说过去的习惯，和现在已经不同的事。",
+      "topic": "{{used to}} + 动词原形；{{didn't use to}}；{{Did you use to…?}}",
+      "blocks": [
+        {"goal":{"t":"I used to live in Beijing.","tr":"我以前住在北京。"}},
+        {"dialog":[{"who":"Kate","t":"Is that you? Your hair is so long!","tr":"那是你吗？头发好长啊！"},{"who":"王芳","t":"Yes! I used to have long hair in college.","tr":"对！我上大学的时候是长头发。"},{"who":"Kate","t":"And who's this?","tr":"这是谁？"},{"who":"王芳","t":"That's my best friend. We used to do everything together.","tr":"那是我最好的朋友。我们以前做什么都在一起。"},{"who":"Kate","t":"Do you still see her?","tr":"你们现在还见面吗？"},{"who":"王芳","t":"Not often. She lives in London now.","tr":"不常见了。她现在住在伦敦。"}]},
+        {"p":"**{{used to}}：以前常常这样，现在不了。** 中文说“我以前……”；英语用 {{used to}} + 动词原形，说过去的习惯或状态，同时暗示现在已经不是这样了：{{I used to smoke.}}（我以前抽烟，现在不抽了。）{{She used to live here.}}（她以前住在这儿。）"},
+        {"p":"**{{used to}} 对谁都一样**，后面是动词原形：{{He used to play basketball.}} 否定和问句用 {{did}}，这时写成 {{use to}}（没有 d）：{{I didn't use to like coffee.}}（我以前不喜欢咖啡。）{{Did you use to live here?}}（你以前住这儿吗？）"},
+        { "table": [
+          ["","例句","中文"],
+          ["肯定","{{I used to walk to school.}}","我以前走路上学。"],
+          ["否定","{{I didn't use to cook.}}","我以前不做饭。"],
+          ["提问","{{Did you use to play the piano?}}","你以前弹钢琴吗？"],
+          ["对比现在","{{I used to live in Beijing, but now I live in Boston.}}","我以前住在北京，现在住在波士顿。"]
+        ] },
+        {"p":"**{{used to}} 还是一般过去时？** 只发生过一次的事，用一般过去时：{{I went to Paris in 2019.}} 很多年里常常这样的事，用 {{used to}}：{{I used to go to Paris every summer.}}（我以前每年夏天都去巴黎。）"},
+        { "ex": [
+          {"t":"I used to live in Beijing.","tr":"我以前住在北京。"},
+          {"t":"My dad used to smoke.","tr":"我爸爸以前抽烟。"},
+          {"t":"We used to play here when we were kids.","tr":"我们小时候常在这儿玩。"},
+          {"t":"I didn't use to like vegetables.","tr":"我以前不爱吃蔬菜。"},
+          {"t":"Did you use to have a dog?","tr":"你以前养过狗吗？"},
+          {"t":"There used to be a cinema here.","tr":"这里以前有一家电影院。","note":"{{there used to be}}：以前有"}
+        ] },
+        {"tip":"{{used to}} 读作 /ˈjuːstə/，d 和 t 连在一起，几乎听不出 d。"}
+      ],
+      "mistakes": [
+        {"wrong":"I use to live in Beijing.","right":"I used to live in Beijing.","tr":"我以前住在北京。","why":"肯定句里是 {{used to}}，有 d。"},
+        {"wrong":"I used to living here.","right":"I used to live here.","tr":"我以前住在这儿。","why":"{{used to}} 后面用动词原形：{{live}}。"},
+        {"wrong":"I didn't used to cook.","right":"I didn't use to cook.","tr":"我以前不做饭。","why":"有了 {{didn't}}，后面写 {{use to}}，没有 d。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"My grandpa used to ___ a farmer.","tr":"我爷爷以前是农民。","options":["be","is","was"],"answer":0,"why":"{{used to}} + 动词原形：{{be}}。"},
+        {"type":"choice","q":"“我以前不喝咖啡，现在每天都喝。”","options":["{{I didn't use to drink coffee, but now I drink it every day.}}","{{I used to not drinking coffee, but now I drink it every day.}}","{{I don't used to drink coffee, but now I drink it every day.}}"],"answer":0,"why":"否定：{{didn't use to}} + 原形。","from":"say-what-you-do-every-day"},
+        {"type":"choice","q":"哪一句说的是“以前常常，现在不了”？","options":["{{I used to go swimming.}}","{{I went swimming yesterday.}}","{{I go swimming.}}"],"answer":0,"why":"{{used to}}：过去的习惯，现在没有了。"},
+        {"type":"dialogue","q":"和朋友聊小时候。选出你的回答。","lines":[{"who":"Friend","t":"What did you use to do after school?","tr":"你以前放学后都做什么？"},{"options":["I used to play soccer with my friends.","I use to played soccer with my friends."],"answer":0,"why":"{{used to}} + 原形：{{play}}。"},{"who":"Friend","t":"Did you use to like school?","tr":"你以前喜欢上学吗？"},{"options":["Not really. I didn't use to like math.","Not really. I didn't used to liked math."],"answer":0,"why":"{{didn't use to}} + 原形。"},{"who":"Friend","t":"Me neither!","tr":"我也不喜欢！"}],"from":"ask-about-the-past"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"这里以前有一家电影院。","words":["There","used","to","be","a","cinema","here."]},
+        {"type":"free","q":"轮到你了：说说两件你以前常做、现在不做的事。","answers":[{"t":"I used to play video games every day. I used to get up late, but now I get up at six.","tr":"我以前每天打游戏。我以前起得很晚，现在六点就起床。"},{"t":"I used to live with my parents. I didn't use to cook, but now I cook every night.","tr":"我以前和父母住在一起。我以前不做饭，现在每天晚上都做。"}]}
+      ]
     }
   ]
 }
