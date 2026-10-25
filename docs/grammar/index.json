@@ -30,6 +30,20 @@
    ],
    "bytes": 364097,
    "sha256": "dcbd4f2f92980a45dfc3371d3ec809124ed4b9d7dbd120dfcb1176f84d499249"
+  },
+  "ko-en": {
+   "file": "ko-en/course.json",
+   "from": "ko",
+   "to": "en",
+   "title": "영어 문법",
+   "variety": "미국 영어",
+   "units": 9,
+   "lessons": 6,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 33800,
+   "sha256": "f4336db0fca5796a13d52cb9a01dc39922588c235d932474af79d60215b6e011"
   }
  }
 }
