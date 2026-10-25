@@ -38,12 +38,12 @@
    "title": "Gramática do inglês",
    "variety": "American English",
    "units": 8,
-   "lessons": 6,
+   "lessons": 12,
    "levels": [
     "A1"
    ],
-   "bytes": 31979,
-   "sha256": "70d4ebbde9eca36eec9b331f2d5513adbf2d904edef1e75109731cdc5ed18286"
+   "bytes": 64370,
+   "sha256": "d509e9ad7452eda78b2b0f38a75df26487158c82a367e8c0ca73f8dea29e15ea"
   }
  }
 }

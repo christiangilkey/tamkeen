@@ -303,6 +303,322 @@
         {"type":"say","q":"Como se diz “Quanto custa isto?”","answer":"How much is this?","from":"name-things"},
         {"type":"free","q":"Sua vez: faça três perguntas para conhecer alguém: o nome, de onde é e o que faz.","answers":[{"t":"What's your name? Where are you from? What do you do?","tr":"Qual é o seu nome? De onde você é? O que você faz?"},{"t":"Hi! What's your name? Are you from here? Are you a student?","tr":"Oi! Qual é o seu nome? Você é daqui? Você é estudante?"}]}
       ]
+    },
+    {
+      "id": "describe-people-and-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Descreva pessoas e coisas",
+      "summary": "Diga como são as pessoas, os lugares e as coisas: grande, bonito, velho, simpático.",
+      "topic": "O adjetivo vem antes do substantivo e nunca vai para o plural; {{is}} ou {{are}}; {{very}}, {{really}}",
+      "blocks": [
+        {"goal":{"t":"New York is a big city, but it's really expensive.","tr":"Nova York é uma cidade grande, mas é muito cara."}},
+        {"dialog":[{"who":"Amanda","t":"So, how's your new apartment?","tr":"E aí, como é o apartamento novo?"},{"who":"Léo","t":"It's small, but it's really nice.","tr":"É pequeno, mas é muito bonito."},{"who":"Amanda","t":"And your neighbors?","tr":"E os vizinhos?"},{"who":"Léo","t":"They're very friendly. They're a sweet old couple.","tr":"São muito simpáticos. São um casal de velhinhos uns amores."},{"who":"Amanda","t":"And the neighborhood?","tr":"E o bairro?"},{"who":"Léo","t":"It's quiet and green. I love it!","tr":"É tranquilo e cheio de árvores. Adoro!"}]},
+        {"p":"**O adjetivo vem antes.** Em português dizemos “uma cidade grande”; em inglês a ordem é a contrária: {{a big city}}. O adjetivo vem antes do substantivo: {{a new car}} “um carro novo”, {{a nice person}} “uma pessoa simpática”."},
+        {"p":"**E ele nunca muda.** O adjetivo inglês não tem masculino, feminino nem plural: {{a red car}}, {{a red house}}, {{two red cars}}. Só o substantivo ganha {{-s}}: “carros vermelhos” é {{red cars}}, nunca {{reds cars}}."},
+        { "table": [
+          ["","português","inglês"],
+          ["um, masculino","um carro novo","{{a new car}}"],
+          ["um, feminino","uma casa nova","{{a new house}}"],
+          ["vários","casas novas","{{new houses}}"],
+          ["depois do {{be}}","As casas são novas.","{{The houses are new.}}"]
+        ] },
+        {"p":"**Depois do {{be}}, igual ao português.** {{The city is big}} “A cidade é grande”, {{They're friendly}} “Eles são simpáticos”. E lembre que {{be}} é “ser” e “estar”: {{The soup is cold}} “A sopa está fria”."},
+        {"p":"**{{is}} ou {{are}}?** {{is}} para um ({{he}}, {{she}}, {{it}}, uma coisa), {{are}} para vários ({{we}}, {{you}}, {{they}}, várias coisas): {{The beach is beautiful}}; {{The beaches are beautiful}}."},
+        { "table": [
+          ["","{{be}}","forma curta"],
+          ["I","{{am}}","{{I'm}}"],
+          ["you","{{are}}","{{you're}}"],
+          ["he, she, it","{{is}}","{{he's}}, {{she's}}, {{it's}}"],
+          ["we","{{are}}","{{we're}}"],
+          ["they","{{are}}","{{they're}}"]
+        ] },
+        {"p":"**{{very}} e {{really}}.** “Muito” antes de um adjetivo é {{very}} ou, na fala, {{really}}: {{very good}}, {{really nice}}."},
+        { "ex": [
+          {"t":"She's tall and very smart.","tr":"Ela é alta e muito inteligente."},
+          {"t":"My car is old, but it's good.","tr":"Meu carro é velho, mas é bom."},
+          {"t":"The beaches are beautiful.","tr":"As praias são lindas."},
+          {"t":"It's a really nice restaurant.","tr":"É um restaurante muito bom."},
+          {"t":"They have two black cats.","tr":"Eles têm dois gatos pretos."},
+          {"t":"What a beautiful day!","tr":"Que dia lindo!","note":"{{What a…!}} é “Que…!”"}
+        ] },
+        {"tip":"Com mais de um adjetivo, o inglês segue uma ordem: opinião, tamanho, idade, cor. {{a nice big old house}} “uma casa antiga, grande e bonita”. Mas no dia a dia, um ou dois adjetivos bastam."}
+      ],
+      "mistakes": [
+        {"wrong":"a car red","right":"a red car","tr":"um carro vermelho","why":"Em inglês o adjetivo vem antes do substantivo."},
+        {"wrong":"two bigs houses","right":"two big houses","tr":"duas casas grandes","why":"O adjetivo nunca vai para o plural: só {{houses}} ganha {{-s}}."},
+        {"wrong":"The beaches is beautiful.","right":"The beaches are beautiful.","tr":"As praias são lindas.","why":"Mais de uma: {{are}}."}
+      ],
+      "practice": [
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"É um carro novo.","words":["It's","a","new","car."]},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"They're very ___.","tr":"Eles são muito simpáticos.","options":["friendlies","friendlys","friendly"],"answer":2,"why":"O adjetivo nunca vai para o plural."},
+        {"type":"choice","q":"Como se diz “casas bonitas”?","options":["{{beautifuls houses}}","{{beautiful houses}}","{{houses beautiful}}"],"answer":1,"why":"O adjetivo vem antes e não muda."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"The beaches ___ beautiful.","tr":"As praias são lindas.","options":["are","is","be"],"answer":0,"why":"Várias: {{are}}."},
+        {"type":"dialogue","q":"Uma amiga pergunta da sua casa nova. Escolha suas respostas.","from":"say-how-you-are","lines":[{"who":"Amanda","t":"How's your new apartment?","tr":"Como é o apartamento novo?"},{"options":["Is small, but is very nice.","It's small, but it's very nice."],"answer":1,"why":"O sujeito sempre aparece: {{it's}}."},{"who":"Amanda","t":"And the neighbors?","tr":"E os vizinhos?"},{"options":["They're really friendlies.","They're really friendly."],"answer":1,"why":"O adjetivo não vai para o plural."},{"who":"Amanda","t":"Lucky you!","tr":"Que sorte!"}]},
+        {"type":"say","q":"Como se diz “É uma cidade muito bonita”?","answer":"It's a very beautiful city."},
+        {"type":"free","q":"Sua vez: descreva a sua cidade ou a sua casa em duas ou três frases.","answers":[{"t":"My city is small and quiet. It's very green.","tr":"Minha cidade é pequena e tranquila. Tem muito verde."},{"t":"My apartment is old, but it's big and really comfortable.","tr":"Meu apartamento é antigo, mas é grande e muito confortável."}]}
+      ]
+    },
+    {
+      "id": "say-what-there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Pergunte o que tem por perto",
+      "summary": "Pergunte se tem farmácia, caixa eletrônico ou wi-fi, e diga o que tem e o que não tem.",
+      "topic": "{{there is}} / {{there are}} para “tem” (nunca {{have}}); {{Is there…?}}; {{some}}, {{any}}, {{no}}",
+      "blocks": [
+        {"goal":{"t":"Is there a pharmacy near here?","tr":"Tem uma farmácia aqui perto?"}},
+        {"dialog":[{"who":"Você","t":"Hi! Is there a good restaurant near here?","tr":"Oi! Tem algum restaurante bom aqui perto?"},{"who":"Recepcionista","t":"Yes, there are two on Main Street.","tr":"Tem, sim, tem dois na Main Street."},{"who":"Você","t":"Great. And is there a pharmacy?","tr":"Ótimo. E tem farmácia?"},{"who":"Recepcionista","t":"No, there isn't, but there's a supermarket on the corner.","tr":"Não, não tem, mas tem um supermercado na esquina."},{"who":"Você","t":"Perfect, thanks!","tr":"Perfeito, obrigado!"}]},
+        {"p":"**Tem = {{there is}}, {{there are}}.** Em português, “tem” serve para posse (“eu tenho um carro”) e para existência (“tem um banco aqui”). Em inglês são coisas diferentes: para dizer que algo existe num lugar, use {{there is}} (para um) ou {{there are}} (para vários). Nunca {{have}}!"},
+        { "table": [
+          ["","português","inglês"],
+          ["existe um","Tem um banco aqui.","{{There's a bank here.}}"],
+          ["existem vários","Tem muita gente.","{{There are a lot of people.}}"],
+          ["pergunta","Tem farmácia?","{{Is there a pharmacy?}}"],
+          ["pergunta, vários","Tem banheiro?","{{Are there any restrooms?}}"],
+          ["não tem","Não tem.","{{There isn't.}} / {{There aren't any.}}"]
+        ] },
+        {"p":"{{There's}} é a forma curta de {{there is}}. Na pergunta, {{is}} e {{are}} vão para a frente, como sempre: {{Is there…?}}, {{Are there…?}} A resposta curta: {{Yes, there is.}} / {{No, there isn't.}}"},
+        {"p":"**{{some}} e {{any}}.** {{some}} “alguns, um pouco” nas frases afirmativas: {{There are some chairs}}. {{any}} nas perguntas e nas negativas: {{Are there any chairs?}}, {{There aren't any chairs}}."},
+        {"p":"**{{no}}: um jeito curto de dizer “não tem”.** {{There's no wi-fi}} “Não tem wi-fi”, {{There are no taxis}} “Não tem táxi”."},
+        { "ex": [
+          {"t":"There's an ATM in the lobby.","tr":"Tem um caixa eletrônico no saguão."},
+          {"t":"There are a lot of people on the beach today.","tr":"Tem muita gente na praia hoje."},
+          {"t":"Is there wi-fi in the room?","tr":"Tem wi-fi no quarto?"},
+          {"t":"There aren't any seats.","tr":"Não tem lugar."},
+          {"t":"There's no milk in the fridge.","tr":"Não tem leite na geladeira."},
+          {"t":"Are there any good bars around here?","tr":"Tem algum bar bom por aqui?"}
+        ] },
+        {"tip":"Esse é talvez o erro número um dos brasileiros: traduzir “tem” por {{have}}. {{Have a lot of people}} não faz sentido para um americano. Sempre que “tem” quiser dizer “existe”, pense em {{there is}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Have a pharmacy near here?","right":"Is there a pharmacy near here?","tr":"Tem uma farmácia aqui perto?","why":"“Tem” no sentido de “existe” é {{there is}}, não {{have}}."},
+        {"wrong":"Have many people here.","right":"There are a lot of people here.","tr":"Tem muita gente aqui.","why":"Vários: {{there are}}."},
+        {"wrong":"There is two hotels.","right":"There are two hotels.","tr":"Tem dois hotéis.","why":"Com mais de um: {{there are}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"___ a bank on this street?","tr":"Tem um banco nesta rua?","options":["There is","Is there","Have"],"answer":1,"why":"Pergunta: {{Is there…?}}"},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"There ___ two restaurants near the hotel.","tr":"Tem dois restaurantes perto do hotel.","options":["are","is","have"],"answer":0,"why":"Dois: {{there are}}."},
+        {"type":"choice","q":"Você quer dizer “Não tem wi-fi aqui”. Você diz…","options":["{{There's no wi-fi here.}}","{{Don't have wi-fi here.}}","{{Is no wi-fi here.}}"],"answer":0,"why":"“Não tem” = {{there's no}}."},
+        {"type":"dialogue","q":"No hotel: escolha suas respostas.","from":"ask-questions","lines":[{"who":"Recepcionista","t":"Good evening! Can I help you?","tr":"Boa noite! Posso ajudar?"},{"options":["Yes. Have a supermarket near here?","Yes. Is there a supermarket near here?"],"answer":1,"why":"“Tem”, no sentido de “existe”: {{Is there…?}}"},{"who":"Recepcionista","t":"Yes, there's one on the corner.","tr":"Tem, sim, um na esquina."},{"options":["Great! And is there any pharmacies?","Great! And are there any pharmacies?"],"answer":1,"why":"Várias: {{are there}}."},{"who":"Recepcionista","t":"Sorry, there aren't any around here.","tr":"Desculpe, não tem nenhuma por aqui."}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Tem muita gente na praia.","words":["There","are","a lot of","people","on the beach."]},
+        {"type":"say","q":"Como se diz “Tem wi-fi aqui?”","answer":"Is there wi-fi here?"},
+        {"type":"free","q":"Sua vez: diga o que tem (e o que não tem) perto da sua casa, com {{There's…}}, {{There are…}} e {{There's no…}}","answers":[{"t":"There's a park and a bakery near my house, but there's no subway.","tr":"Tem um parque e uma padaria perto da minha casa, mas não tem metrô."},{"t":"There are a lot of restaurants on my street. There isn't a beach!","tr":"Tem muitos restaurantes na minha rua. Não tem praia!"}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "Diga onde as coisas estão",
+      "summary": "Pergunte onde fica um lugar e diga onde as coisas estão: em cima, embaixo, ao lado, em casa.",
+      "topic": "{{in}}, {{on}}, {{at}} (o “em” do português); {{next to, near, under, between, in front of, behind}}",
+      "blocks": [
+        {"goal":{"t":"Excuse me, where's the restroom?","tr":"Com licença, onde fica o banheiro?"}},
+        {"dialog":[{"who":"Você","t":"Excuse me, where's the subway station?","tr":"Com licença, onde fica a estação de metrô?"},{"who":"Mulher","t":"It's on Fifth Avenue, next to the bank.","tr":"Fica na Quinta Avenida, ao lado do banco."},{"who":"Você","t":"Is it far?","tr":"É longe?"},{"who":"Mulher","t":"No, it's about five minutes from here.","tr":"Não, uns cinco minutos daqui."},{"who":"Você","t":"Thank you so much!","tr":"Muito obrigado!"},{"who":"Mulher","t":"You're welcome!","tr":"De nada!"}]},
+        {"term":"preposição","means":"uma palavrinha que liga um substantivo ao resto da frase, muitas vezes para dizer onde ou quando: em, de, perto de, sobre."},
+        {"p":"**Um “em”, três palavras.** O português usa “em” (no, na) para quase tudo. O inglês divide em três:"},
+        { "table": [
+          ["","quando","exemplos"],
+          ["{{in}}","dentro de algo; cidades, países, bairros","{{in the box}}, {{in São Paulo}}, {{in Brazil}}"],
+          ["{{on}}","em cima de uma superfície; ruas","{{on the table}}, {{on Fifth Avenue}}"],
+          ["{{at}}","num ponto, num lugar onde se faz algo","{{at home}}, {{at work}}, {{at the airport}}"]
+        ] },
+        {"p":"Algumas expressões fixas: {{at home}} “em casa” (sem {{the}}!), {{at work}} “no trabalho”, {{at school}} “na escola”, {{on the bus}} “no ônibus”, {{in the car}} “no carro”."},
+        {"p":"**Outras preposições de lugar:**"},
+        { "table": [
+          ["","inglês","exemplo"],
+          ["ao lado de","{{next to}}","{{next to the bank}}"],
+          ["perto de","{{near}}","{{near the hotel}}"],
+          ["na frente de","{{in front of}}","{{in front of the school}}"],
+          ["atrás de","{{behind}}","{{behind the church}}"],
+          ["embaixo de","{{under}}","{{under the bed}}"],
+          ["entre","{{between}}","{{between the bank and the café}}"]
+        ] },
+        {"p":"Repare: {{near}} e {{next to}} já incluem o “de”. É {{near the hotel}}, nunca {{near of the hotel}}."},
+        {"p":"**Onde fica?** {{Where's…?}} serve para tudo, lugares e coisas: {{Where's the station?}}, {{Where are my keys?}} O inglês não tem um “ficar” para lugares: é sempre {{be}}."},
+        { "ex": [
+          {"t":"My phone is on the table.","tr":"Meu celular está na mesa."},
+          {"t":"The pharmacy is next to the hotel.","tr":"A farmácia fica ao lado do hotel."},
+          {"t":"I live in Curitiba, near downtown.","tr":"Moro em Curitiba, perto do centro."},
+          {"t":"Where are you? — I'm on the bus.","tr":"Onde você está? — Estou no ônibus."},
+          {"t":"She's at home today.","tr":"Ela está em casa hoje."},
+          {"t":"The keys are under the newspaper.","tr":"As chaves estão embaixo do jornal."}
+        ] },
+        {"tip":"Nos Estados Unidos, o banheiro de um lugar público é {{restroom}}; {{bathroom}} é mais o de casa (mas também se ouve na rua). E “o centro da cidade” é {{downtown}}, sem artigo: {{I work downtown}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I'm in home.","right":"I'm at home.","tr":"Estou em casa.","why":"“Em casa” é a expressão fixa {{at home}}."},
+        {"wrong":"The book is in the table.","right":"The book is on the table.","tr":"O livro está na mesa.","why":"Em cima de uma superfície: {{on}}."},
+        {"wrong":"near of the hotel","right":"near the hotel","tr":"perto do hotel","why":"{{near}} já inclui o “de”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"My phone is ___ the table.","tr":"Meu celular está na mesa.","options":["at","on","in"],"answer":1,"why":"Em cima de uma superfície: {{on}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"She's ___ work right now.","tr":"Ela está no trabalho agora.","options":["on","at","in"],"answer":1,"why":"Expressão fixa: {{at work}}."},
+        {"type":"choice","q":"Como se diz “Moro em São Paulo”?","options":["{{I live at São Paulo.}}","{{I live in São Paulo.}}","{{I live on São Paulo.}}"],"answer":1,"why":"Cidades: {{in}}."},
+        {"type":"dialogue","q":"Na rua: escolha suas respostas.","from":"ask-questions","lines":[{"who":"Mulher","t":"Can I help you?","tr":"Posso ajudar?"},{"options":["Yes, please. Where the subway station is?","Yes, please. Where's the subway station?"],"answer":1,"why":"Na pergunta: {{Where's…?}}"},{"who":"Mulher","t":"It's next to the bank.","tr":"Fica ao lado do banco."},{"options":["Is it far from here?","It's far of here?"],"answer":0,"why":"Pergunta com {{is}} na frente, e “daqui” é {{from here}}."},{"who":"Mulher","t":"No, it's really close.","tr":"Não, é bem perto."}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"A farmácia fica ao lado do hotel.","words":["The","pharmacy","is","next to","the hotel."]},
+        {"type":"say","q":"Um amigo liga. Diga “Estou no ônibus.”","answer":"I'm on the bus.","from":"say-how-you-are"},
+        {"type":"free","q":"Sua vez: diga onde você mora e o que tem perto da sua casa. Use {{I live in…}} e {{near}} ou {{next to}}.","answers":[{"t":"I live in Recife, near the beach.","tr":"Moro em Recife, perto da praia."},{"t":"I live in Campinas. My house is next to a park.","tr":"Moro em Campinas. Minha casa fica ao lado de um parque."}]}
+      ]
+    },
+    {
+      "id": "say-whose-it-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Diga de quem é",
+      "summary": "Pergunte de quem é alguma coisa e diga “meu”, “seu”, “dele”, “dela” e “o carro da Ana”.",
+      "topic": "{{my, your, his, her, its, our, their}} (quem decide é o dono, não a coisa); {{Ana's car}}; {{Whose…?}}; {{mine, yours}}",
+      "blocks": [
+        {"goal":{"t":"Is this your bag? — No, it's her bag.","tr":"Essa bolsa é sua? — Não, é dela."}},
+        {"dialog":[{"who":"Paula","t":"Whose jacket is this?","tr":"De quem é esta jaqueta?"},{"who":"Gui","t":"It isn't mine. I think it's Julia's.","tr":"Não é minha. Acho que é da Julia."},{"who":"Paula","t":"And these keys? Are they yours?","tr":"E estas chaves? São suas?"},{"who":"Gui","t":"Yes! Thanks. And that umbrella is Mark's.","tr":"São! Obrigado. E aquele guarda-chuva é do Mark."},{"who":"Paula","t":"No, his umbrella is black. That's my mom's!","tr":"Não, o guarda-chuva dele é preto. Esse é da minha mãe!"}]},
+        {"term":"possessivo","means":"uma palavra que diz de quem é algo: meu, seu, dele, nosso."},
+        {"p":"**Os possessivos** vêm antes do substantivo, como em português, mas **sem artigo**: {{my car}} “o meu carro”, nunca {{the my car}}."},
+        { "table": [
+          ["","inglês","português"],
+          ["I","{{my}}","meu, minha"],
+          ["you","{{your}}","seu, sua, teu, tua"],
+          ["he","{{his}}","dele"],
+          ["she","{{her}}","dela"],
+          ["it","{{its}}","dele, dela (de uma coisa ou de um bicho)"],
+          ["we","{{our}}","nosso, nossa"],
+          ["they","{{their}}","deles, delas"]
+        ] },
+        {"p":"**Quem decide é o dono.** Em português, “seu” e “sua” combinam com a coisa: “sua casa”, “seu carro”. Em inglês, {{his}} e {{her}} mostram se o dono é homem ou mulher, e a coisa não importa: {{Maria and her brother}} “a Maria e o irmão dela”, {{Pedro and his sister}} “o Pedro e a irmã dele”."},
+        {"p":"**O carro da Ana: {{'s}}.** Para dizer de quem é, o inglês põe {{'s}} no dono, antes da coisa: {{Ana's car}} “o carro da Ana”, {{my father's house}} “a casa do meu pai”. Nada de {{the car of Ana}}."},
+        {"p":"**De quem?: {{Whose…?}}** {{Whose bag is this?}} “De quem é esta bolsa?”. Para responder sem repetir a coisa: {{mine}} “meu, minha”, {{yours}} “seu, sua”, {{his}} “dele”, {{hers}} “dela”, {{ours}} “nosso”, {{theirs}} “deles”: {{It's mine.}}"},
+        { "ex": [
+          {"t":"Is this your phone?","tr":"Este celular é seu?"},
+          {"t":"Carla and her husband live in Recife.","tr":"A Carla e o marido dela moram em Recife."},
+          {"t":"Pedro forgot his backpack.","tr":"O Pedro esqueceu a mochila dele."},
+          {"t":"This is my mom's car.","tr":"Este é o carro da minha mãe."},
+          {"t":"Whose keys are these? — They're mine.","tr":"De quem são estas chaves? — São minhas."},
+          {"t":"Our house is small, but their house is huge.","tr":"Nossa casa é pequena, mas a casa deles é enorme."}
+        ] },
+        {"tip":"Cuidado com {{its}} (dele, dela, de uma coisa) e {{it's}} ({{it is}}). {{The dog wants its food}} “O cachorro quer a comida dele”; {{It's late}} “É tarde”. O apóstrofo só aparece em {{it's}} = {{it is}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Maria and his brother","right":"Maria and her brother","tr":"a Maria e o irmão dela","why":"Quem decide é o dono: a Maria é mulher, então {{her}}, mesmo com {{brother}}."},
+        {"wrong":"the car of Ana","right":"Ana's car","tr":"o carro da Ana","why":"Para dizer de quem é: o dono + {{'s}} + a coisa."},
+        {"wrong":"This is the my house.","right":"This is my house.","tr":"Esta é a minha casa.","why":"Em inglês, o possessivo não leva artigo."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"Pedro forgot ___ phone.","tr":"O Pedro esqueceu o celular dele.","options":["her","its","his"],"answer":2,"why":"O dono é homem: {{his}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"Julia and ___ brother live in Rio.","tr":"A Julia e o irmão dela moram no Rio.","options":["her","his","their"],"answer":0,"why":"A dona é a Julia: {{her}}, mesmo com {{brother}}."},
+        {"type":"choice","q":"Como se diz “o carro da Ana”?","options":["{{the car of Ana}}","{{car's Ana}}","{{Ana's car}}"],"answer":2,"why":"O dono + {{'s}} + a coisa."},
+        {"type":"dialogue","q":"Depois de uma festa: escolha suas respostas.","from":"name-things","lines":[{"who":"Paula","t":"Whose umbrella is this?","tr":"De quem é este guarda-chuva?"},{"options":["It's my! Thanks.","It's mine! Thanks."],"answer":1,"why":"Sem a coisa depois: {{mine}}."},{"who":"Paula","t":"And those keys?","tr":"E aquelas chaves?"},{"options":["Those are of Mark.","Those are Mark's."],"answer":1,"why":"O dono + {{'s}}."},{"who":"Paula","t":"OK, I'll give them to him.","tr":"Tá, vou entregar para ele."}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Esta é a casa do meu pai.","words":["This","is","my","father's","house."]},
+        {"type":"say","q":"Como se diz “A Carla e o marido dela moram aqui”?","answer":"Carla and her husband live here."},
+        {"type":"free","q":"Sua vez: fale de duas pessoas que você conhece e de algo delas, com {{his}} ou {{her}}.","answers":[{"t":"My brother has a dog. His dog is called Max.","tr":"Meu irmão tem um cachorro. O cachorro dele se chama Max."},{"t":"My neighbor is really nice. Her house is the blue one.","tr":"Minha vizinha é muito simpática. A casa dela é a azul."}]}
+      ]
+    },
+    {
+      "id": "count-and-pay",
+      "unit": 2,
+      "level": "A1",
+      "title": "Conte e pergunte o preço",
+      "summary": "Conte, pergunte quanto custa e entenda os preços em dólar.",
+      "topic": "Os números; {{How much is it?}} / {{How much are they?}}; {{fifteen}} ou {{fifty}}; os preços em dólar",
+      "blocks": [
+        {"goal":{"t":"How much are these sunglasses?","tr":"Quanto custam estes óculos de sol?"}},
+        {"dialog":[{"who":"Você","t":"Excuse me, how much is this T-shirt?","tr":"Com licença, quanto custa esta camiseta?"},{"who":"Vendedora","t":"It's fifteen dollars.","tr":"Custa quinze dólares."},{"who":"Você","t":"Fifteen or fifty?","tr":"Quinze ou cinquenta?"},{"who":"Vendedora","t":"Fifteen. One five.","tr":"Quinze. Um, cinco."},{"who":"Você","t":"Great! And how much are the shorts?","tr":"Ótimo! E quanto custa a bermuda?"},{"who":"Vendedora","t":"They're twenty-four ninety-nine.","tr":"Custa vinte e quatro e noventa e nove."}]},
+        { "table": [
+          ["1 a 10","11 a 21","as dezenas"],
+          ["{{one}} 1","{{eleven}} 11","{{twenty}} 20"],
+          ["{{two}} 2","{{twelve}} 12","{{thirty}} 30"],
+          ["{{three}} 3","{{thirteen}} 13","{{forty}} 40"],
+          ["{{four}} 4","{{fourteen}} 14","{{fifty}} 50"],
+          ["{{five}} 5","{{fifteen}} 15","{{sixty}} 60"],
+          ["{{six}} 6","{{sixteen}} 16","{{seventy}} 70"],
+          ["{{seven}} 7","{{seventeen}} 17","{{eighty}} 80"],
+          ["{{eight}} 8","{{eighteen}} 18","{{ninety}} 90"],
+          ["{{nine}} 9","{{nineteen}} 19","{{a hundred}} 100"],
+          ["{{ten}} 10","{{twenty-one}} 21","{{a thousand}} 1.000"]
+        ] },
+        {"p":"**Os números.** Entre a dezena e a unidade não vai “e”, só um hífen: {{twenty-five}} 25, {{thirty-two}} 32. Depois de {{hundred}}, o {{and}} é opcional: {{a hundred (and) ten}} 110."},
+        {"p":"**{{-teen}} ou {{-ty}}?** {{fifteen}} (15) e {{fifty}} (50) soam parecidos. A diferença está na força: {{fif-TEEN}}, com o “teen” forte e longo; {{FIF-ty}}, com a força no começo. Na dúvida, faça como na conversa: {{Fifteen or fifty?}}"},
+        {"p":"**Quanto custa?** {{How much is it?}} para uma coisa; {{How much are they?}} para várias. Algumas coisas são plurais em inglês: {{shorts}} (bermuda), {{jeans}}, {{glasses}} (óculos), {{pants}} (calça): {{How much are these jeans?}}"},
+        {"p":"**Os preços.** Os americanos escrevem com ponto e leem o número em dois pedaços: $24.99 é {{twenty-four ninety-nine}}; $5.50 é {{five fifty}}. E 1,000, com vírgula, é mil: o contrário do português!"},
+        { "ex": [
+          {"t":"How much is this hat?","tr":"Quanto custa este chapéu?"},
+          {"t":"How much are the tickets?","tr":"Quanto custam os ingressos?"},
+          {"t":"It's nine ninety-nine.","tr":"Custa nove e noventa e nove."},
+          {"t":"That's thirty dollars, please.","tr":"São trinta dólares, por favor."},
+          {"t":"These jeans are on sale.","tr":"Esta calça jeans está em promoção.","note":"{{jeans}} é plural em inglês"},
+          {"t":"Two coffees, please.","tr":"Dois cafés, por favor."}
+        ] },
+        {"tip":"Nos Estados Unidos, o preço da etiqueta geralmente não inclui o imposto ({{tax}}): ele é somado no caixa. Não se assuste se o total vier um pouco maior!"}
+      ],
+      "mistakes": [
+        {"wrong":"How much is these jeans?","right":"How much are these jeans?","tr":"Quanto custa esta calça jeans?","why":"{{Jeans}} é plural em inglês: {{are}}."},
+        {"wrong":"twenty and five","right":"twenty-five","tr":"vinte e cinco","why":"Entre a dezena e a unidade não vai “e”: só o hífen."},
+        {"wrong":"How many is it?","right":"How much is it?","tr":"Quanto custa?","why":"Para preço: {{how much}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"$50 se lê…","options":["{{five dollars}}","{{fifty dollars}}","{{fifteen dollars}}"],"answer":1,"why":"50 é {{fifty}}; 15 é {{fifteen}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"How much ___ these glasses?","tr":"Quanto custam estes óculos?","options":["are","is","be"],"answer":0,"why":"{{Glasses}} é plural: {{are}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"It's ___ dollars.","tr":"Custa vinte e cinco dólares.","options":["two five","twenty-five","twenty and five"],"answer":1,"why":"Só o hífen: {{twenty-five}}."},
+        {"type":"dialogue","q":"Numa loja: escolha suas respostas.","from":"order-food-and-drinks","lines":[{"who":"Vendedor","t":"Hi there! Can I help you?","tr":"Oi! Posso ajudar?"},{"options":["Yes, how many is this T-shirt?","Yes, how much is this T-shirt?"],"answer":1,"why":"Preço: {{how much}}."},{"who":"Vendedor","t":"It's fifteen dollars.","tr":"Custa quinze dólares."},{"options":["Great. Can I have two, please?","Great. I want two."],"answer":0,"why":"Pedido educado: {{Can I have…?}}"},{"who":"Vendedor","t":"Sure! That's thirty dollars.","tr":"Claro! São trinta dólares."}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Quanto custam os ingressos?","words":["How","much","are","the","tickets?"]},
+        {"type":"say","q":"Leia em voz alta o preço $24.99.","answer":"twenty-four ninety-nine"},
+        {"type":"free","q":"Sua vez: pergunte o preço de duas coisas numa loja, uma no singular e outra no plural.","answers":[{"t":"Excuse me, how much is this bag? And how much are those shoes?","tr":"Com licença, quanto custa esta bolsa? E quanto custam aqueles sapatos?"},{"t":"How much is the blue shirt? And how much are these jeans?","tr":"Quanto custa a camisa azul? E quanto custa esta calça jeans?"}]}
+      ]
+    },
+    {
+      "id": "tell-the-time-and-date",
+      "unit": 2,
+      "level": "A1",
+      "title": "Diga a hora e a data",
+      "summary": "Pergunte e diga a hora, os dias e as datas, e use {{at}}, {{on}} e {{in}} com o tempo.",
+      "topic": "{{What time is it?}}; {{at 3}}, {{on Monday}}, {{in July}}, {{in the morning}}, {{at night}}; as datas ({{June 5th}})",
+      "blocks": [
+        {"goal":{"t":"The class is on Monday at seven p.m.","tr":"A aula é na segunda às sete da noite."}},
+        {"dialog":[{"who":"Você","t":"What time is it?","tr":"Que horas são?"},{"who":"Rachel","t":"It's six thirty.","tr":"São seis e meia."},{"who":"Você","t":"When is the movie?","tr":"Quando é o filme?"},{"who":"Rachel","t":"At seven fifteen.","tr":"Às sete e quinze."},{"who":"Você","t":"And are you free on Saturday?","tr":"E você está livre no sábado?"},{"who":"Rachel","t":"Yes, I am. I'm at the gym in the morning, but I'm free in the afternoon.","tr":"Estou, sim. De manhã estou na academia, mas à tarde estou livre."}]},
+        {"p":"**Que horas são?** {{What time is it?}} A resposta começa com {{It's}} (o sujeito de sempre!), e o jeito mais fácil é dizer os números: {{It's three fifteen}} 3h15, {{It's six thirty}} 6h30."},
+        { "table": [
+          ["","jeito fácil","jeito tradicional"],
+          ["3:00","{{It's three.}}","{{It's three o'clock.}}"],
+          ["3:15","{{It's three fifteen.}}","{{It's a quarter after three.}}"],
+          ["3:30","{{It's three thirty.}}","{{It's half past three.}}"],
+          ["3:45","{{It's three forty-five.}}","{{It's a quarter to four.}}"],
+          ["12:00","{{It's noon.}} / {{It's midnight.}}","{{It's twelve o'clock.}}"]
+        ] },
+        {"p":"**a.m. e p.m.** No dia a dia os americanos não usam as 24 horas: {{7 a.m.}} é sete da manhã, {{7 p.m.}} é sete da noite."},
+        {"p":"**Três preposições para o tempo.** A mesma ideia da lição 9: {{at}} para um ponto, {{on}} para os dias, {{in}} para períodos maiores."},
+        { "table": [
+          ["","quando","exemplos"],
+          ["{{at}}","a hora; a noite","{{at three}}, {{at noon}}, {{at night}}"],
+          ["{{on}}","dias e datas; o fim de semana","{{on Monday}}, {{on June 5th}}, {{on the weekend}}"],
+          ["{{in}}","partes do dia, meses, anos, estações","{{in the morning}}, {{in July}}, {{in 2025}}, {{in the summer}}"]
+        ] },
+        {"p":"Sem preposição nenhuma: {{today}}, {{tomorrow}}, {{yesterday}}, {{this week}}, {{next Monday}}, {{every day}}."},
+        {"p":"**Dias e meses** se escrevem com letra maiúscula: {{Monday}}, {{Tuesday}}, {{Wednesday}}, {{Thursday}}, {{Friday}}, {{Saturday}}, {{Sunday}}; {{January}}, {{February}}, {{March}}…"},
+        {"p":"**As datas.** Os americanos põem o mês primeiro, e o dia se lê com o número ordinal: {{June 5th}} “5 de junho” se lê {{June fifth}} ({{first}}, {{second}}, {{third}}, {{fourth}}, {{fifth}}…)."},
+        { "ex": [
+          {"t":"What time is it? — It's ten twenty.","tr":"Que horas são? — São dez e vinte."},
+          {"t":"The bus leaves at seven thirty.","tr":"O ônibus sai às sete e meia."},
+          {"t":"I have class on Tuesday.","tr":"Tenho aula na terça."},
+          {"t":"My birthday is in May.","tr":"Meu aniversário é em maio."},
+          {"t":"See you on Friday!","tr":"Até sexta!"},
+          {"t":"The store opens at 9 a.m.","tr":"A loja abre às 9 da manhã."}
+        ] },
+        {"tip":"Datas escritas só com números: 03/04, nos Estados Unidos, é 4 de março ({{March 4th}}), não 3 de abril. E “de segunda a sexta” é {{Monday through Friday}} ou {{from Monday to Friday}}."}
+      ],
+      "mistakes": [
+        {"wrong":"The movie is in seven o'clock.","right":"The movie is at seven o'clock.","tr":"O filme é às sete.","why":"Para a hora: {{at}}."},
+        {"wrong":"See you in Monday.","right":"See you on Monday.","tr":"Até segunda.","why":"Para os dias da semana: {{on}}."},
+        {"wrong":"I work in the next Monday.","right":"I work next Monday.","tr":"Trabalho na próxima segunda.","why":"Com {{next}}, {{this}} e {{every}}, não vai preposição."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"The meeting is ___ ten.","tr":"A reunião é às dez.","options":["at","on","in"],"answer":0,"why":"A hora: {{at}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"My birthday is ___ July.","tr":"Meu aniversário é em julho.","options":["on","at","in"],"answer":2,"why":"Meses: {{in}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"See you ___ Saturday!","tr":"Até sábado!","options":["on","in","at"],"answer":0,"why":"Dias da semana: {{on}}."},
+        {"type":"choice","q":"Nos Estados Unidos, a data 05/06 é…","options":["6 de maio","5 de junho","5 de maio"],"answer":0,"why":"O mês vem primeiro: maio (5), dia 6."},
+        {"type":"dialogue","q":"Combinando com uma amiga: escolha suas respostas.","from":"say-how-you-are","lines":[{"who":"Rachel","t":"What time is it?","tr":"Que horas são?"},{"options":["Is eight thirty.","It's eight thirty."],"answer":1,"why":"O sujeito sempre aparece: {{it's}}."},{"who":"Rachel","t":"Are you free on Sunday?","tr":"Você está livre no domingo?"},{"options":["Yes, I am. But only in the afternoon.","Yes, I am. But only on the afternoon."],"answer":0,"why":"Partes do dia: {{in the afternoon}}."},{"who":"Rachel","t":"Perfect!","tr":"Perfeito!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"A loja abre às nove da manhã.","words":["The","store","opens","at nine","in the morning."]},
+        {"type":"say","q":"Como se diz “Até segunda!”?","answer":"See you on Monday!"},
+        {"type":"free","q":"Sua vez: descreva a sua semana: onde você está, em que dias e a que horas?","answers":[{"t":"I'm at work Monday through Friday, from nine to six. On Saturday I'm at the gym in the morning.","tr":"Estou no trabalho de segunda a sexta, das nove às seis. No sábado estou na academia de manhã."},{"t":"My English class is on Tuesday at seven p.m.","tr":"Minha aula de inglês é na terça às sete da noite."}]}
+      ]
     }
   ]
 }
