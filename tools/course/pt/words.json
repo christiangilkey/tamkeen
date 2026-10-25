@@ -20,7 +20,11 @@
       "pos": "art",
       "meaning": "the (masculine; feminine: a)",
       "sentence": "O café está quente.",
-      "translation": "⟦The⟧ coffee is hot."
+      "translation": "⟦The⟧ coffee is hot.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "u"
+      }
     },
     {
       "n": 3,
@@ -48,7 +52,11 @@
       "pos": "conj",
       "meaning": "and",
       "sentence": "Eu como arroz e feijão todo dia.",
-      "translation": "I eat rice ⟦and⟧ beans every day."
+      "translation": "I eat rice ⟦and⟧ beans every day.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "i"
+      }
     },
     {
       "n": 6,
