@@ -2065,6 +2065,351 @@
         {"type":"say","q":"Say: “If only I had more vacation time!”","answer":"Si seulement j'avais plus de vacances !"},
         {"type":"free","q":"Your turn: what would you do if you won the lottery? And where would you live if you could live anywhere?","answers":[{"t":"Si je gagnais au loto, j'arrêterais de travailler et je voyagerais. Si je pouvais vivre n'importe où, je vivrais à Paris.","tr":"If I won the lottery, I'd stop working and travel. If I could live anywhere, I'd live in Paris."},{"t":"Si j'avais beaucoup d'argent, j'achèterais une maison à la campagne. Je vivrais au Canada, près de la mer.","tr":"If I had a lot of money, I'd buy a house in the country. I'd live in Canada, near the sea."}]}
       ]
+    },
+    {
+      "id": "describe-in-more-detail",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say exactly who and which",
+      "summary": "Join two ideas about the same person or thing: “the friend who lives in Nice”, “the book I'm reading”, “the town where I was born”: {{qui}}, {{que}}, {{où}}.",
+      "topic": "relative pronouns {{qui}} (does the action), {{que}} (receives it), {{où}} (place, time); {{ce qui}}, {{ce que}}; {{dont}} to recognise",
+      "blocks": [
+        {"goal":{"t":"C'est le livre que je lis en ce moment : l'histoire d'une femme qui part seule en Asie.","tr":"This is the book I'm reading right now: the story of a woman who sets off alone to Asia."}},
+        {"dialog":[{"who":"Marc","t":"Tu connais la femme qui parle avec Julien ?","tr":"Do you know the woman who's talking with Julien?"},{"who":"Lisa","t":"Oui, c'est Claire, la collègue que j'ai rencontrée à Lyon.","tr":"Yes, that's Claire, the colleague I met in Lyon."},{"who":"Marc","t":"Ah, la femme qui travaille dans le cinéma ?","tr":"Oh, the woman who works in movies?"},{"who":"Lisa","t":"Exactement. Et le restaurant où elle nous a invités était génial.","tr":"Exactly. And the restaurant she took us to was great."},{"who":"Marc","t":"Tu me donnes le nom ? C'est un restaurant que je ne connais pas.","tr":"Can you give me the name? It's a restaurant I don't know."}]},
+        {"term":"relative pronoun","means":"a little word that attaches a description to a noun: the woman **who** works here, the book **that** I'm reading. In French: {{qui}}, {{que}}, {{où}}, {{dont}}."},
+        {"p":"**Qui: who, which, that, doing the action.** {{Qui}} is followed straight by its verb: it's the subject. {{la femme qui parle}} “the woman who's talking”, {{le train qui part à huit heures}} “the train that leaves at eight”. It's for people and things alike."},
+        {"p":"**Que: who, which, that, receiving the action.** {{Que}} is followed by a new subject: {{le livre que je lis}} “the book (that) I'm reading”, {{la collègue que j'ai rencontrée}} “the colleague I met”. Before a vowel it's {{qu'}}: {{le film qu'il a vu}}. English often leaves “that” out; French never leaves out {{que}}."},
+        { "table": [
+          ["","what comes next","example"],
+          ["{{qui}}","a verb","{{l'ami qui habite à Nice}} the friend who lives in Nice"],
+          ["{{que}}","a subject + a verb","{{l'ami que j'appelle}} the friend I'm calling"],
+          ["{{où}}","a subject + a verb","{{la ville où j'habite}} the town where I live"]
+        ] },
+        {"p":"**Où: where, and when.** {{Où}} is for places, and for times too: {{le jour où je t'ai rencontré}} “the day I met you”."},
+        {"p":"**Ce qui, ce que: what.** For “what” in the middle of a sentence: {{Ce qui est important, c'est la santé.}} “What's important is your health.” {{Je ne comprends pas ce que tu dis.}} “I don't understand what you're saying.”"},
+        {"p":"**Dont, to recognise.** {{Dont}} stands for {{de}} + a noun: {{le livre dont je t'ai parlé}} “the book I told you about” (from {{parler de}}). You'll hear it often, but you can always get by with {{qui}}, {{que}} and {{où}}."},
+        { "ex": [
+          {"t":"J'ai un ami qui parle cinq langues.","tr":"I have a friend who speaks five languages."},
+          {"t":"Le film que nous avons vu était super.","tr":"The movie we saw was great."},
+          {"t":"C'est la maison où j'ai grandi.","tr":"That's the house where I grew up."},
+          {"t":"Tu as reçu le message que je t'ai envoyé ?","tr":"Did you get the message I sent you?"},
+          {"t":"Je me souviens du jour où tu es né.","tr":"I remember the day you were born."},
+          {"t":"Fais ce que tu veux !","tr":"Do what you want!"}
+        ] },
+        {"tip":"With {{que}} and the passé composé, the participle agrees in writing with the noun before it, as with {{la}} and {{les}} in lesson 31: {{la robe que j'ai achetée}}, {{les amis que j'ai invités}}. Usually you can't hear it."}
+      ],
+      "mistakes": [
+        {"wrong":"Le livre je lis est bon.","right":"Le livre que je lis est bon.","tr":"The book I'm reading is good.","why":"French never leaves out {{que}}."},
+        {"wrong":"La femme que parle avec Julien est ma sœur.","right":"La femme qui parle avec Julien est ma sœur.","tr":"The woman who's talking with Julien is my sister.","why":"Followed straight by a verb: {{qui}}."},
+        {"wrong":"C'est la ville que j'habite.","right":"C'est la ville où j'habite.","tr":"It's the town where I live.","why":"A place: {{où}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"J'ai une sœur ___ habite à Montréal.","tr":"I have a sister who lives in Montreal.","options":["qui","que","où"],"answer":0,"why":"A verb comes next: {{qui}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"C'est le restaurant ___ je préfère.","tr":"It's the restaurant I like best.","options":["que","qui","où"],"answer":0,"why":"A new subject ({{je}}) comes next: {{que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Voici le parc ___ je cours le matin.","tr":"Here's the park where I run in the mornings.","options":["où","que","qui"],"answer":0,"why":"A place: {{où}}."},
+        {"type":"choice","q":"{{Je ne comprends pas ce que tu dis.}} means…","options":["I don't understand what you're saying.","I don't understand why you're saying it.","I don't understand who you're talking to."],"answer":0,"why":"{{Ce que}}: “what”."},
+        {"type":"dialogue","q":"At a party. Ask about the people. Choose your lines.","from":"say-where-you-went","lines":[{"who":"Your friend","t":"Tu as vu le garçon qui est arrivé avec Sophie ?","tr":"Did you see the guy who came with Sophie?"},{"options":["Oui ! C'est le garçon qu'elle a rencontré en vacances ?","Oui ! C'est le garçon qui elle a rencontré en vacances ?"],"answer":0,"why":"A new subject ({{elle}}) comes next: {{que}}, {{qu'}} before a vowel."},{"who":"Your friend","t":"Oui, au Portugal. Il travaille dans l'hôtel où ils étaient.","tr":"Yes, in Portugal. He works at the hotel where they were staying."},{"options":["C'est une histoire que j'adore !","C'est une histoire qui j'adore !"],"answer":0,"why":"{{J'adore}} has its own subject: {{que}}."},{"who":"Your friend","t":"Moi aussi !","tr":"Me too!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"The movie we saw was great.","words":["Le film","que","nous","avons vu","était super."]},
+        {"type":"free","q":"Your turn: describe three things with {{qui}}, {{que}} and {{où}}: a person you know, a book or a movie, and a place.","answers":[{"t":"J'ai un ami qui vit au Japon. Le dernier livre que j'ai lu était génial. La ville où je suis né est très petite.","tr":"I have a friend who lives in Japan. The last book I read was great. The town where I was born is very small."},{"t":"Ma meilleure amie est une femme qui adore voyager. Le film que je préfère, c'est Amélie. Le café où je travaille est près de la gare.","tr":"My best friend is a woman who loves to travel. My favorite movie is Amélie. The café where I work is near the station."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Give your opinion, agree and disagree",
+      "summary": "Say what you think and why, agree or disagree politely: {{je pense que}}, {{à mon avis}}, {{je suis d'accord}}; and a first look at the subjunctive, after {{je ne pense pas que}}.",
+      "topic": "{{je pense, je crois, je trouve que}}; {{à mon avis}}; {{je suis d'accord}}; {{je ne pense pas que}} + subjunctive (to recognise)",
+      "blocks": [
+        {"goal":{"t":"À mon avis, c'est une bonne idée, mais je ne pense pas que ce soit facile.","tr":"In my opinion it's a good idea, but I don't think it's easy."}},
+        {"dialog":[{"who":"Hugo","t":"Tu as aimé le film ?","tr":"Did you like the movie?"},{"who":"Inès","t":"Oui, je trouve que les acteurs sont excellents. Et toi ?","tr":"Yes, I think the actors are excellent. And you?"},{"who":"Hugo","t":"Bof. À mon avis, il est trop long.","tr":"Meh. In my opinion, it's too long."},{"who":"Inès","t":"Tu as raison, il est un peu long. Mais l'histoire est belle, non ?","tr":"You're right, it's a bit long. But the story is beautiful, isn't it?"},{"who":"Hugo","t":"Je ne suis pas d'accord. Je ne pense pas que ce soit une belle histoire. Elle est triste !","tr":"I don't agree. I don't think it's a beautiful story. It's sad!"},{"who":"Inès","t":"Triste, mais belle !","tr":"Sad, but beautiful!"}]},
+        {"p":"**Saying what you think.** {{Je pense que}}, {{je crois que}} (I believe), {{je trouve que}} (I find: your own judgment) + an ordinary sentence: {{Je pense qu'il a raison.}} “I think he's right.” Unlike English, {{que}} is never left out."},
+        { "table": [
+          ["English","French"],
+          ["I think…","{{Je pense que…}}, {{Je crois que…}}"],
+          ["I find… (my judgment)","{{Je trouve que…}}"],
+          ["In my opinion…","{{À mon avis,…}}, {{Pour moi,…}}"],
+          ["I agree.","{{Je suis d'accord.}}"],
+          ["I don't agree.","{{Je ne suis pas d'accord.}}"],
+          ["You're right.","{{Tu as raison.}}, {{Vous avez raison.}}"],
+          ["Maybe, but…","{{Peut-être, mais…}}"]
+        ] },
+        {"p":"**Agreeing: être d'accord.** “I agree” is “I am in agreement”: {{je suis d'accord}}, with {{être}}. With someone: {{Je suis d'accord avec toi.}}"},
+        {"term":"subjunctive","means":"a special form of a verb used after certain words of doubt, wishing, feeling or necessity: {{je ne pense pas que ce soit…}}, {{il faut que tu viennes}}. Lessons 44 and 45 show how it's made."},
+        {"p":"**Doubt changes the verb.** When you say you **don't** think something, the next verb goes into the subjunctive: {{Je pense que c'est vrai.}} but {{Je ne pense pas que ce soit vrai.}} “I don't think it's true.” For now, just recognise the commonest forms: {{soit}} (from {{être}}), {{ait}} (from {{avoir}}), {{fasse}} (from {{faire}}), {{puisse}} (from {{pouvoir}})."},
+        { "ex": [
+          {"t":"Je pense que tu as raison.","tr":"I think you're right."},
+          {"t":"Je trouve que Paris est plus beau que Londres.","tr":"I think Paris is more beautiful than London."},
+          {"t":"À mon avis, il va pleuvoir.","tr":"In my opinion, it's going to rain."},
+          {"t":"Je suis tout à fait d'accord avec vous.","tr":"I completely agree with you."},
+          {"t":"Je ne crois pas qu'il soit là.","tr":"I don't think he's here."},
+          {"t":"Je ne pense pas que ce soit une bonne idée.","tr":"I don't think it's a good idea."}
+        ] },
+        {"tip":"To disagree gently, start with {{Oui, mais…}} or {{C'est vrai, mais…}}, or ask {{Tu es sûr ?}} “Are you sure?”. The French enjoy a good debate: disagreeing politely isn't rude."}
+      ],
+      "mistakes": [
+        {"wrong":"J'accorde avec toi.","right":"Je suis d'accord avec toi.","tr":"I agree with you.","why":"“To agree” is {{être d'accord}}."},
+        {"wrong":"Je pense c'est une bonne idée.","right":"Je pense que c'est une bonne idée.","tr":"I think it's a good idea.","why":"French never leaves out {{que}}."},
+        {"wrong":"Je ne pense pas que c'est vrai.","right":"Je ne pense pas que ce soit vrai.","tr":"I don't think it's true.","why":"After {{je ne pense pas que}}, the subjunctive: {{soit}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Je pense ___ tu as raison.","tr":"I think you're right.","options":["que","qui","de"],"answer":0,"why":"{{Penser que}}: {{que}} is never left out."},
+        {"type":"fill","q":"Choose the missing word.","t":"Je ___ d'accord avec vous.","tr":"I agree with you.","options":["suis","ai","fais"],"answer":0,"why":"{{Être d'accord}}: {{je suis}}."},
+        {"type":"choice","q":"Which one is right?","options":["{{Je ne pense pas que ce soit facile.}}","{{Je ne pense pas que c'est facile.}}","{{Je ne pense pas ce soit facile.}}"],"answer":0,"why":"{{Que}}, then the subjunctive {{soit}}."},
+        {"type":"choice","q":"Your friend says {{Le train est plus pratique que la voiture.}} You agree. You say…","options":["{{Tu as raison, il est plus rapide et moins cher.}}","{{Tu as raison, il est plus bon.}}","{{Je ne suis pas d'accord.}}"],"answer":0,"why":"{{Tu as raison}} agrees; and never “plus bon”: that's {{meilleur}}.","from":"compare-things"},
+        {"type":"dialogue","q":"Talking about a new café with a friend. Choose your lines.","from":"give-reasons","lines":[{"who":"Your friend","t":"Tu aimes le nouveau café ?","tr":"Do you like the new café?"},{"options":["Oui, je trouve qu'il est très sympa, parce que les serveurs sont gentils.","Oui, je trouve il est très sympa, parce que les serveurs sont gentils."],"answer":0,"why":"{{Je trouve que}}, with {{qu'}} before a vowel."},{"who":"Your friend","t":"Moi, je trouve que c'est trop cher.","tr":"I think it's too expensive."},{"options":["C'est vrai, mais à mon avis, le café est excellent.","C'est vrai, mais à mon avis, le café est excellente."],"answer":0,"why":"{{Le café}} is masculine: {{excellent}}."},{"who":"Your friend","t":"Bon, d'accord !","tr":"OK, fine!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I don't think he's here.","words":["Je","ne crois pas","qu'il","soit","là."]},
+        {"type":"free","q":"Your turn: give your opinion on something (a city, a movie, a food): what you think, why, and one thing you don't think.","answers":[{"t":"À mon avis, New York est une ville fantastique, parce qu'il y a beaucoup de choses à faire. Mais je ne pense pas que ce soit une ville calme !","tr":"In my opinion, New York is a fantastic city, because there's a lot to do. But I don't think it's a quiet city!"},{"t":"Je trouve que la cuisine française est délicieuse. Je ne pense pas qu'elle soit difficile à faire.","tr":"I think French cooking is delicious. I don't think it's hard to make."}]}
+      ]
+    },
+    {
+      "id": "say-what-has-to-happen",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what someone has to do",
+      "summary": "Say “you have to come”, “we need to leave”, “they mustn't know”: {{il faut que}} + the subjunctive.",
+      "topic": "the present subjunctive: the {{ils}} stem + {{-e, -es, -e, -ions, -iez, -ent}}; the irregular ones ({{sois, aie, aille, fasse, puisse, sache, veuille}}); {{il faut que}}",
+      "blocks": [
+        {"goal":{"t":"Il faut que tu viennes à la fête samedi !","tr":"You have to come to the party on Saturday!"}},
+        {"dialog":[{"who":"Mom","t":"Il faut que tu fasses tes devoirs avant de sortir.","tr":"You have to do your homework before you go out."},{"who":"Théo","t":"Mais maman, il faut que je parte à six heures !","tr":"But Mom, I have to leave at six!"},{"who":"Mom","t":"Alors il faut que tu commences maintenant.","tr":"Then you have to start now."},{"who":"Théo","t":"D'accord… Et il faut que je sois rentré à quelle heure ?","tr":"OK… And what time do I have to be home?"},{"who":"Mom","t":"À onze heures. Il faut qu'on puisse dormir !","tr":"At eleven. We need to be able to sleep!"}]},
+        {"p":"**Il faut que + a person.** {{Il faut}} + infinitive (lesson 21) says what must be done in general: {{Il faut partir.}} To say **who** must do it, use {{il faut que}} + a subject + the verb in the subjunctive: {{Il faut que tu partes.}} “You have to leave.”"},
+        {"p":"**How it's made.** Take the {{ils}} form of the present, drop {{-ent}}, and add {{-e, -es, -e, -ions, -iez, -ent}}. For most verbs, the {{je}}, {{tu}}, {{il}} and {{ils}} forms sound just like the present; {{nous}} and {{vous}} look like the imparfait."},
+        { "table": [
+          ["","{{parler}} ({{ils parlent}})","{{partir}} ({{ils partent}})","{{prendre}} ({{ils prennent}})"],
+          ["que je","{{parle}}","{{parte}}","{{prenne}}"],
+          ["que tu","{{parles}}","{{partes}}","{{prennes}}"],
+          ["qu'il, qu'elle, qu'on","{{parle}}","{{parte}}","{{prenne}}"],
+          ["que nous","{{parlions}}","{{partions}}","{{prenions}}"],
+          ["que vous","{{parliez}}","{{partiez}}","{{preniez}}"],
+          ["qu'ils","{{parlent}}","{{partent}}","{{prennent}}"]
+        ] },
+        {"p":"Verbs like {{prendre}} and {{venir}} use their {{nous}} stem for {{nous}} and {{vous}}: {{que nous prenions}}, {{que vous veniez}}."},
+        {"p":"**The irregular ones** are the most common verbs:"},
+        { "table": [
+          ["verb","subjunctive","with {{nous}}, {{vous}}"],
+          ["{{être}}","{{que je sois}}, {{tu sois}}, {{il soit}}, {{ils soient}}","{{soyons}}, {{soyez}}"],
+          ["{{avoir}}","{{que j'aie}}, {{tu aies}}, {{il ait}}, {{ils aient}}","{{ayons}}, {{ayez}}"],
+          ["{{aller}}","{{que j'aille}}, {{ils aillent}}","{{allions}}, {{alliez}}"],
+          ["{{faire}}","{{que je fasse}}","{{fassions}}, {{fassiez}}"],
+          ["{{pouvoir}}","{{que je puisse}}","{{puissions}}, {{puissiez}}"],
+          ["{{savoir}}","{{que je sache}}","{{sachions}}, {{sachiez}}"],
+          ["{{vouloir}}","{{que je veuille}}","{{voulions}}, {{vouliez}}"]
+        ] },
+        {"p":"**Other phrases of necessity** take it too: {{il est important que}}, {{il est nécessaire que}}. And {{il ne faut pas que}} means “must not”: {{Il ne faut pas que tu sois en retard.}} “You mustn't be late.”"},
+        { "ex": [
+          {"t":"Il faut que je parte.","tr":"I have to go."},
+          {"t":"Il faut que vous preniez ce médicament.","tr":"You need to take this medicine."},
+          {"t":"Il faut qu'on fasse les courses.","tr":"We have to do the grocery shopping."},
+          {"t":"Il faut que tu sois patient.","tr":"You have to be patient."},
+          {"t":"Il ne faut pas que les enfants aient peur.","tr":"The children mustn't be frightened."},
+          {"t":"Il est important que tout le monde puisse venir.","tr":"It's important that everyone can come."}
+        ] },
+        {"tip":"{{Il faut que j'y aille.}} “I have to go” is one of the commonest ways to end a conversation: {{Bon, il faut que j'y aille. Salut !}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Il faut que tu viens.","right":"Il faut que tu viennes.","tr":"You have to come.","why":"After {{il faut que}}: the subjunctive, {{viennes}}."},
+        {"wrong":"Il faut que tu es là.","right":"Il faut que tu sois là.","tr":"You have to be there.","why":"{{Être}} in the subjunctive: {{sois}}."},
+        {"wrong":"Il faut que je partir.","right":"Il faut que je parte.","tr":"I have to leave.","why":"After {{que}} + a subject, a conjugated verb in the subjunctive, never the infinitive."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Il faut que tu ___ tes devoirs.","tr":"You have to do your homework.","options":["fasses","fais","faire"],"answer":0,"why":"{{Faire}} in the subjunctive: {{fasses}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Il faut que nous ___ à l'heure.","tr":"We have to be on time.","options":["soyons","sommes","serons"],"answer":0,"why":"{{Être}} in the subjunctive: {{soyons}}."},
+        {"type":"choice","q":"How do you end a conversation with “I have to go”?","options":["{{Il faut que j'y aille.}}","{{Il faut que je vais.}}","{{Il faut je aller.}}"],"answer":0,"why":"{{Aller}} in the subjunctive, {{aille}}, with {{y}} “there”.","from":"say-there-and-some"},
+        {"type":"fill","q":"Choose the missing word.","t":"Il ___ réserver une table.","tr":"You have to book a table.","options":["faut","faut que","doit"],"answer":0,"why":"In general, without saying who: {{il faut}} + infinitive.","from":"say-what-you-have-to-do"},
+        {"type":"dialogue","q":"A friend has a job interview tomorrow. Give advice.","from":"ask-politely-and-advise","lines":[{"who":"Your friend","t":"J'ai un entretien demain. Je suis stressé !","tr":"I have an interview tomorrow. I'm stressed!"},{"options":["Il faut que tu dormes bien ce soir.","Il faut que tu dors bien ce soir."],"answer":0,"why":"The subjunctive: {{dormes}} (from {{ils dorment}})."},{"who":"Your friend","t":"Et demain matin ?","tr":"And tomorrow morning?"},{"options":["Il faut que tu partes tôt et que tu sois calme.","Il faut que tu pars tôt et que tu es calme."],"answer":0,"why":"Both verbs after {{que}}: {{partes}}, {{sois}}."},{"who":"Your friend","t":"Merci, tu es génial !","tr":"Thanks, you're awesome!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"You mustn't be late.","words":["Il","ne faut pas","que","tu","sois","en retard."]},
+        {"type":"free","q":"Your turn: a friend is coming to visit your town. Tell them three things they have to do or see, with {{il faut que tu…}}","answers":[{"t":"Il faut que tu visites le vieux quartier. Il faut aussi que tu manges une pizza chez Luigi et que tu ailles au parc.","tr":"You have to visit the old town. You also have to eat a pizza at Luigi's and go to the park."},{"t":"Il faut que tu prennes le bateau, que tu voies le musée et que tu fasses une balade au bord de la rivière.","tr":"You have to take the boat, see the museum and go for a walk along the river."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-want-others-to-do",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what you want others to do",
+      "summary": "Say “I want you to come”, “I'm glad you're here”, “so that you understand”, “before he gets home”: {{vouloir que}}, {{pour que}}, {{avant que}} + the subjunctive.",
+      "topic": "{{vouloir que}}, {{aimer que}}, {{être content que}}, {{avoir peur que}} + subjunctive; {{pour que}}, {{avant que}}, {{bien que}}; the same person → the infinitive",
+      "blocks": [
+        {"goal":{"t":"Je voudrais que tu restes avec moi ce soir.","tr":"I'd like you to stay with me tonight."}},
+        {"dialog":[{"who":"Léa","t":"Je veux que la fête soit une surprise pour Marc.","tr":"I want the party to be a surprise for Marc."},{"who":"Sam","t":"D'accord. Tu veux que j'achète le gâteau ?","tr":"OK. Do you want me to buy the cake?"},{"who":"Léa","t":"Oui, et j'aimerais que tu appelles ses amis avant qu'il rentre.","tr":"Yes, and I'd like you to call his friends before he gets home."},{"who":"Sam","t":"Et pour que tout le monde vienne, on envoie un message ?","tr":"And so that everyone comes, shall we send a message?"},{"who":"Léa","t":"Bonne idée ! Mais je ne veux pas qu'il le sache !","tr":"Good idea! But I don't want him to know!"}]},
+        {"p":"**Wanting someone else to do it.** English says “I want you to come”. French can't: it says “I want that you come”, with {{que}} and the subjunctive (lesson 44): {{Je veux que tu viennes.}} The same after {{je voudrais que}}, {{j'aimerais que}}, {{je préfère que}}."},
+        {"p":"**The same person: the infinitive.** When you want to do it yourself, there's no {{que}}: {{Je veux partir.}} “I want to leave.” {{Je veux que tu partes.}} “I want you to leave.”"},
+        { "table": [
+          ["","the same person","someone else"],
+          ["want","{{Je veux venir.}}","{{Je veux que tu viennes.}}"],
+          ["would like","{{J'aimerais rester.}}","{{J'aimerais que vous restiez.}}"],
+          ["be glad","{{Je suis content d'être là.}}","{{Je suis content que tu sois là.}}"],
+          ["be afraid","{{J'ai peur d'être en retard.}}","{{J'ai peur qu'il soit en retard.}}"]
+        ] },
+        {"p":"**Feelings too.** After {{je suis content que}}, {{je suis triste que}}, {{j'ai peur que}}, {{c'est dommage que}} (it's a shame that): the subjunctive. {{Je suis content que tu sois là.}} “I'm glad you're here.”"},
+        {"p":"**Linkers that take it.** {{Pour que}} (so that), {{avant que}} (before), {{bien que}} (although), {{à condition que}} (as long as): {{Je t'explique pour que tu comprennes.}} {{Rentre avant qu'il fasse nuit.}} “Come home before it gets dark.” But {{parce que}} and {{après que}} don't."},
+        { "ex": [
+          {"t":"Tu veux que je t'aide ?","tr":"Do you want me to help you?"},
+          {"t":"Mes parents veulent que je devienne médecin.","tr":"My parents want me to become a doctor."},
+          {"t":"Je suis très content que vous puissiez venir.","tr":"I'm really glad you can come."},
+          {"t":"C'est dommage qu'il pleuve.","tr":"It's a shame it's raining."},
+          {"t":"Je parle lentement pour que tu comprennes.","tr":"I'm speaking slowly so that you understand."},
+          {"t":"Bien qu'il soit tard, je n'ai pas sommeil.","tr":"Although it's late, I'm not sleepy."}
+        ] },
+        {"tip":"{{Tu veux que je… ?}} is the everyday way to offer help: {{Tu veux que je t'emmène ?}} “Do you want me to give you a ride?” {{Vous voulez que je ferme la fenêtre ?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Je veux tu viens.","right":"Je veux que tu viennes.","tr":"I want you to come.","why":"“Want someone to”: {{vouloir que}} + the subjunctive."},
+        {"wrong":"Je veux que je parte.","right":"Je veux partir.","tr":"I want to leave.","why":"The same person: just the infinitive, no {{que}}."},
+        {"wrong":"Je suis content que tu es là.","right":"Je suis content que tu sois là.","tr":"I'm glad you're here.","why":"A feeling + {{que}}: the subjunctive."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Je voudrais que tu ___ avec nous.","tr":"I'd like you to come with us.","options":["viennes","viens","venir"],"answer":0,"why":"Someone else: {{que}} + the subjunctive, {{viennes}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Tu veux que je ___ le dîner ?","tr":"Do you want me to make dinner?","options":["fasse","fais","faire"],"answer":0,"why":"{{Faire}} in the subjunctive: {{fasse}}."},
+        {"type":"choice","q":"How do you say “I want to stay” (you yourself)?","options":["{{Je veux rester.}}","{{Je veux que je reste.}}","{{Je veux que rester.}}"],"answer":0,"why":"The same person: the infinitive."},
+        {"type":"fill","q":"Choose the missing word.","t":"Je t'explique pour que tu ___.","tr":"I'm explaining so that you understand.","options":["comprennes","comprends","comprendre"],"answer":0,"why":"After {{pour que}}: the subjunctive."},
+        {"type":"dialogue","q":"Planning a surprise party. Choose your lines.","from":"talk-to-people","lines":[{"who":"Your friend","t":"On fait une fête pour l'anniversaire de Julie ?","tr":"Shall we throw a party for Julie's birthday?"},{"options":["Oui ! Tu veux que je lui achète un cadeau ?","Oui ! Tu veux je lui achète un cadeau ?"],"answer":0,"why":"Someone else (you): {{que}} + the subjunctive."},{"who":"Your friend","t":"Oui, et j'aimerais que tu invites ses amis.","tr":"Yes, and I'd like you to invite her friends."},{"options":["D'accord, mais il ne faut pas qu'elle le sache !","D'accord, mais il ne faut pas qu'elle le sait !"],"answer":0,"why":"After {{il faut que}}: {{savoir}} in the subjunctive, {{sache}}."},{"who":"Your friend","t":"Bien sûr, c'est une surprise !","tr":"Of course, it's a surprise!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'm glad you're here.","words":["Je","suis content","que","tu","sois là."]},
+        {"type":"free","q":"Your turn: say what you'd like three people in your life to do, with {{je voudrais que…}} or {{j'aimerais que…}}","answers":[{"t":"Je voudrais que mon frère vienne me voir. J'aimerais que mes enfants fassent du sport. Et je voudrais que mon chef soit plus patient !","tr":"I'd like my brother to come and see me. I'd like my kids to do some sport. And I'd like my boss to be more patient!"},{"t":"J'aimerais que ma mère prenne des vacances. Je voudrais que mes amis viennent en France avec moi.","tr":"I'd like my mother to take a vacation. I'd like my friends to come to France with me."}]}
+      ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 8,
+      "level": "B1",
+      "title": "Report what someone said",
+      "summary": "Pass on a message: “She said she was tired”, “He asked if you could pick him up”, “They said they'd call”: reported speech.",
+      "topic": "{{dire que}}, {{demander si}}, {{demander ce que}}; the tenses step back (present → imparfait, future → conditional)",
+      "blocks": [
+        {"goal":{"t":"Marie m'a dit qu'elle était fatiguée et qu'elle ne viendrait pas.","tr":"Marie told me she was tired and wouldn't come."}},
+        {"dialog":[{"who":"Paul","t":"Qui a téléphoné ?","tr":"Who called?"},{"who":"Anne","t":"C'était ton frère. Il a dit qu'il arrivait demain.","tr":"It was your brother. He said he was arriving tomorrow."},{"who":"Paul","t":"Il a dit à quelle heure ?","tr":"Did he say what time?"},{"who":"Anne","t":"Il a dit qu'il prendrait le train de dix heures. Et il a demandé si tu pouvais aller le chercher à la gare.","tr":"He said he'd take the ten o'clock train. And he asked if you could pick him up at the station."},{"who":"Paul","t":"Bien sûr. Il a demandé autre chose ?","tr":"Sure. Did he ask anything else?"},{"who":"Anne","t":"Oui, il a demandé ce que tu voulais pour ton anniversaire !","tr":"Yes, he asked what you wanted for your birthday!"}]},
+        {"term":"reported speech","means":"telling what someone said without their exact words: She said (that) she was tired."},
+        {"p":"**Saying what someone says.** {{Dire que}} + a sentence: {{Il dit qu'il est fatigué.}} “He says he's tired.” As always, {{que}} is never left out, and the pronouns change as in English: {{Je suis fatigué.}} → {{Il dit qu'il est fatigué.}}"},
+        {"p":"**In the past, the tenses step back**, as they do in English:"},
+        { "table": [
+          ["what was said","reported in the past"],
+          ["present: {{Je suis fatiguée.}}","imparfait: {{Elle a dit qu'elle était fatiguée.}}"],
+          ["future: {{Je viendrai.}}","conditional: {{Elle a dit qu'elle viendrait.}}"],
+          ["{{aller}} + infinitive: {{Je vais appeler.}}","{{allait}} + infinitive: {{Elle a dit qu'elle allait appeler.}}"],
+          ["passé composé: {{J'ai fini.}}","{{avait}} + participle: {{Elle a dit qu'elle avait fini.}}"]
+        ] },
+        {"p":"That last form, {{avait fini}} “had finished”, is the pluperfect: lesson 47 is about it."},
+        {"p":"**Questions: demander si, demander ce que.** A yes-or-no question is reported with {{si}} “if, whether”: {{Tu viens ?}} → {{Il a demandé si je venais.}} A question word stays: {{Où est la gare ?}} → {{Il a demandé où était la gare.}} And {{qu'est-ce que}} becomes {{ce que}}: {{Il a demandé ce que je voulais.}}"},
+        {"p":"**Telling someone: dire à.** {{Dire à quelqu'un}} “to tell someone” takes {{à}}, so {{lui}} and {{leur}} (lesson 32): {{Je lui ai dit que j'étais malade.}} “I told him I was sick.”"},
+        { "ex": [
+          {"t":"Il dit qu'il fait beau à Nice.","tr":"He says it's nice out in Nice."},
+          {"t":"Elle m'a dit qu'elle aimait le jazz.","tr":"She told me she liked jazz."},
+          {"t":"Ils ont dit qu'ils arriveraient en retard.","tr":"They said they'd be late."},
+          {"t":"Le médecin a dit que ce n'était pas grave.","tr":"The doctor said it wasn't serious."},
+          {"t":"Je lui ai demandé s'il voulait venir.","tr":"I asked him if he wanted to come."},
+          {"t":"Elle m'a demandé où j'habitais.","tr":"She asked me where I lived."}
+        ] },
+        {"tip":"{{Si}} + {{il}} or {{ils}} becomes {{s'il}}, {{s'ils}}, as in lesson 39: {{Il a demandé s'il pouvait entrer.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Elle a dit elle était fatiguée.","right":"Elle a dit qu'elle était fatiguée.","tr":"She said she was tired.","why":"{{Que}} is never left out."},
+        {"wrong":"Il a demandé que je venais.","right":"Il a demandé si je venais.","tr":"He asked if I was coming.","why":"A yes-or-no question is reported with {{si}}."},
+        {"wrong":"Il a demandé qu'est-ce que je voulais.","right":"Il a demandé ce que je voulais.","tr":"He asked what I wanted.","why":"Reported, {{qu'est-ce que}} becomes {{ce que}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Elle a dit qu'elle ___ malade.","tr":"She said she was sick.","options":["était","est","sera"],"answer":0,"why":"The present steps back to the imparfait: {{était}}.","from":"describe-how-things-were"},
+        {"type":"fill","q":"Choose the missing word.","t":"Il m'a demandé ___ je voulais un café.","tr":"He asked me if I wanted a coffee.","options":["si","que","ce que"],"answer":0,"why":"A yes-or-no question: {{si}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ils ont dit qu'ils ___ demain.","tr":"They said they would come tomorrow.","options":["viendraient","viendront","venaient"],"answer":0,"why":"The future steps back to the conditional: {{viendraient}}.","from":"ask-politely-and-advise"},
+        {"type":"choice","q":"Marc said {{Je vais t'appeler.}} You report it:","options":["{{Marc a dit qu'il allait m'appeler.}}","{{Marc a dit qu'il va t'appeler.}}","{{Marc a dit que je vais l'appeler.}}"],"answer":0,"why":"The tense steps back ({{allait}}), and “you” becomes “me”."},
+        {"type":"dialogue","q":"Pass on a phone message. Choose your lines.","from":"talk-to-people","lines":[{"who":"Your roommate","t":"Quelqu'un a appelé ?","tr":"Did anyone call?"},{"options":["Oui, ta mère. Elle a dit qu'elle passerait ce soir.","Oui, ta mère. Elle a dit elle passera ce soir."],"answer":0,"why":"{{Que}}, and the future steps back to the conditional."},{"who":"Your roommate","t":"Elle a dit autre chose ?","tr":"Did she say anything else?"},{"options":["Elle a demandé si tu avais besoin de quelque chose.","Elle a demandé que tu as besoin de quelque chose."],"answer":0,"why":"A yes-or-no question: {{si}}, and the imparfait."},{"who":"Your roommate","t":"Merci !","tr":"Thanks!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"She asked me where I lived.","words":["Elle","m'a demandé","où","j'habitais."]},
+        {"type":"free","q":"Your turn: report a recent conversation: something someone told you, and something they asked you.","answers":[{"t":"Mon ami m'a dit qu'il allait se marier. Il m'a demandé si je voulais être son témoin !","tr":"My friend told me he was going to get married. He asked me if I wanted to be his best man!"},{"t":"Ma collègue m'a dit qu'elle était fatiguée. Elle m'a demandé ce que je faisais ce week-end.","tr":"My colleague told me she was tired. She asked me what I was doing this weekend."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story-in-order",
+      "unit": 8,
+      "level": "B1",
+      "title": "Tell a story in order",
+      "summary": "Say what had already happened, what came first and what came next: the pluperfect ({{j'avais oublié}}), {{avant de}}, {{après avoir}}, {{d'abord}}, {{ensuite}}, {{finalement}}.",
+      "topic": "the plus-que-parfait (the imparfait of {{avoir}} or {{être}} + participle); {{avant de}} + infinitive; {{après avoir}}, {{après être}} + participle; {{d'abord, ensuite, puis, enfin, finalement}}",
+      "blocks": [
+        {"goal":{"t":"Quand je suis arrivé à la gare, le train était déjà parti.","tr":"When I got to the station, the train had already left."}},
+        {"dialog":[{"who":"Clara","t":"Raconte ! Pourquoi tu es arrivé si tard ?","tr":"Tell me! Why did you get here so late?"},{"who":"Max","t":"D'abord, j'avais oublié mon portable à la maison, alors je suis rentré.","tr":"First, I'd left my phone at home, so I went back."},{"who":"Clara","t":"Et ensuite ?","tr":"And then?"},{"who":"Max","t":"Ensuite, après avoir pris mon portable, j'ai couru à la gare, mais le train était déjà parti !","tr":"Then, after getting my phone, I ran to the station, but the train had already left!"},{"who":"Clara","t":"Oh non ! Et finalement ?","tr":"Oh no! So in the end?"},{"who":"Max","t":"Finalement, j'ai pris un taxi… et j'ai payé quarante euros !","tr":"In the end I took a taxi… and paid forty euros!"}]},
+        {"term":"pluperfect","means":"the past before the past: “had done”. In French, the plus-que-parfait: {{j'avais mangé}} “I had eaten”, {{elle était partie}} “she had left”."},
+        {"p":"**The past before the past.** When you're telling a story in the past and need to go back further, French uses the plus-que-parfait: the imparfait of {{avoir}} or {{être}} (lesson 27) + the participle. The helper and the agreement are the same as in the passé composé."},
+        { "table": [
+          ["","passé composé","plus-que-parfait"],
+          ["with {{avoir}}","{{j'ai oublié}} I forgot","{{j'avais oublié}} I had forgotten"],
+          ["","{{nous avons mangé}} we ate","{{nous avions mangé}} we had eaten"],
+          ["with {{être}}","{{le train est parti}} the train left","{{le train était parti}} the train had left"],
+          ["reflexive","{{elle s'est levée}} she got up","{{elle s'était levée}} she had got up"]
+        ] },
+        {"p":"{{Déjà}} “already” often comes with it, between the helper and the participle: {{Il avait déjà mangé.}} “He had already eaten.”"},
+        {"p":"**Before doing, after doing.** “Before” + a verb is {{avant de}} + infinitive: {{avant de partir}} “before leaving”. “After” + a verb is {{après avoir}} + participle ({{après être}} for the être verbs): {{après avoir mangé}} “after eating”, {{après être rentrée}} “after getting home”. The person doing both must be the same."},
+        {"p":"**Putting it in order.** {{D'abord}} (first), {{ensuite}} and {{puis}} (then), {{après}} (afterwards), {{enfin}} (lastly), {{finalement}} (in the end). And to begin: {{Un jour,…}} “One day…”, {{Il était une fois…}} “Once upon a time…”"},
+        { "ex": [
+          {"t":"Je n'avais jamais vu la mer avant.","tr":"I had never seen the sea before."},
+          {"t":"Elle était déjà partie quand je suis arrivé.","tr":"She had already left when I arrived."},
+          {"t":"On avait réservé, mais il n'y avait pas de table.","tr":"We had booked, but there was no table."},
+          {"t":"Avant de sortir, ferme la fenêtre.","tr":"Before you go out, close the window."},
+          {"t":"Après avoir dîné, nous sommes allés au cinéma.","tr":"After having dinner, we went to the movies."},
+          {"t":"D'abord, j'ai pris une douche, puis je me suis habillé.","tr":"First I took a shower, then I got dressed."}
+        ] },
+        {"tip":"{{Il était une fois}} opens every French fairy tale. Tales and novels use yet another past, the passé simple ({{il fut}}, {{elle alla}}): you'll read it, but you never need to say it."}
+      ],
+      "mistakes": [
+        {"wrong":"Quand je suis arrivé, le train est déjà parti.","right":"Quand je suis arrivé, le train était déjà parti.","tr":"When I arrived, the train had already left.","why":"It left before you arrived: the past before the past, the plus-que-parfait."},
+        {"wrong":"Après manger, on est sortis.","right":"Après avoir mangé, on est sortis.","tr":"After eating, we went out.","why":"“After doing”: {{après avoir}} + the participle."},
+        {"wrong":"Avant partir, je ferme tout.","right":"Avant de partir, je ferme tout.","tr":"Before leaving, I lock up.","why":"{{Avant de}} + infinitive: don't forget {{de}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quand nous sommes arrivés, le film ___ déjà commencé.","tr":"When we arrived, the movie had already started.","options":["avait","a","était"],"answer":0,"why":"{{Commencer}} takes {{avoir}}: {{avait commencé}}.","from":"tell-a-story"},
+        {"type":"fill","q":"Choose the missing word.","t":"Elle ___ partie avant moi.","tr":"She had left before me.","options":["était","avait","est"],"answer":0,"why":"{{Partir}} takes {{être}}: {{était partie}}.","from":"say-where-you-went"},
+        {"type":"fill","q":"Choose the missing word.","t":"Après ___ mangé, ils ont fait une balade.","tr":"After eating, they went for a walk.","options":["avoir","être","avant"],"answer":0,"why":"{{Manger}} takes {{avoir}}: {{après avoir mangé}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Lave-toi les mains avant ___ manger.","tr":"Wash your hands before eating.","options":["de","à","pour"],"answer":0,"why":"{{Avant de}} + infinitive."},
+        {"type":"order","q":"Put the words in order.","tr":"First I took a shower, then I got dressed.","words":["D'abord,","j'ai pris","une douche,","puis","je me suis","habillé."]},
+        {"type":"dialogue","q":"Tell a friend why you missed the party. Choose your lines.","from":"describe-how-things-were","lines":[{"who":"Your friend","t":"Pourquoi tu n'es pas venu samedi ?","tr":"Why didn't you come on Saturday?"},{"options":["Je suis venu ! Mais quand je suis arrivé, tout le monde était déjà parti.","Je suis venu ! Mais quand je suis arrivé, tout le monde est déjà parti."],"answer":0,"why":"They left before you arrived: {{était parti}}."},{"who":"Your friend","t":"Tu es arrivé à quelle heure ?","tr":"What time did you arrive?"},{"options":["À minuit. Après avoir fini mon travail, j'ai pris le bus.","À minuit. Après finir mon travail, j'ai pris le bus."],"answer":0,"why":"“After finishing”: {{après avoir fini}}."},{"who":"Your friend","t":"Dommage !","tr":"Too bad!"}]},
+        {"type":"free","q":"Your turn: tell a short story in order: what had happened before, then what happened step by step, and how it ended.","answers":[{"t":"Un jour, j'avais oublié mes clés. D'abord, j'ai appelé ma sœur, mais elle était partie en vacances. Ensuite, j'ai attendu mon mari. Finalement, il est arrivé à minuit !","tr":"One day I had forgotten my keys. First I called my sister, but she had gone on vacation. Then I waited for my husband. In the end, he arrived at midnight!"},{"t":"L'été dernier, je suis allée à Paris. Je n'avais jamais pris l'avion. Après être arrivée, j'ai visité la tour Eiffel, puis j'ai mangé des crêpes. Enfin, je suis rentrée, très contente.","tr":"Last summer I went to Paris. I had never flown before. After arriving, I visited the Eiffel Tower, then I ate crêpes. Finally, I went home, very happy."}]}
+      ]
+    },
+    {
+      "id": "follow-everyday-french",
+      "unit": 8,
+      "level": "B1",
+      "title": "Follow everyday spoken French",
+      "summary": "Understand French as it's really spoken, fast and casual: no {{ne}}, {{t'as}}, {{y a}}, {{ça}}, {{ouais}}; and the formal French of signs and announcements.",
+      "topic": "spoken French: no {{ne}}, {{t'as}}, {{t'es}}, {{y a}}, {{ça}}, question words at the end; formal French: {{ne}}, {{nous}}, inversion, {{veuillez}}",
+      "blocks": [
+        {"goal":{"t":"T'as vu ? Y a plus de pain. On va en acheter ?","tr":"Did you see? There's no more bread. Shall we go buy some?"}},
+        {"dialog":[{"who":"Jules","t":"Salut ! Ça va ?","tr":"Hi! How's it going?"},{"who":"Léa","t":"Ouais, ça va. T'es où, là ?","tr":"Yeah, fine. Where are you right now?"},{"who":"Jules","t":"Chez moi. Tu fais quoi ce soir ?","tr":"At home. What are you up to tonight?"},{"who":"Léa","t":"Je sais pas. On va au ciné ?","tr":"I dunno. Shall we go to the movies?"},{"who":"Jules","t":"Ouais, carrément ! Y a un film qui a l'air sympa.","tr":"Yeah, totally! There's a movie that looks good."},{"who":"Léa","t":"OK, on se retrouve à huit heures devant le cinéma. À plus !","tr":"OK, let's meet at eight in front of the theater. See ya!"}]},
+        {"p":"**French as it's spoken.** Everything in this course is correct French. But with friends, people talk fast and shorten a lot. You don't need to speak like this, but you'll want to understand it."},
+        { "table": [
+          ["you'll hear","the full form","meaning"],
+          ["{{Je sais pas.}}","{{Je ne sais pas.}}","I don't know. (no {{ne}}: lesson 6)"],
+          ["{{T'as vu ?}}","{{Tu as vu ?}}","Did you see?"],
+          ["{{T'es où ?}}","{{Tu es où ?}}","Where are you?"],
+          ["{{Y a du monde.}}","{{Il y a du monde.}}","There are a lot of people."],
+          ["{{C'est pas grave.}}","{{Ce n'est pas grave.}}","It doesn't matter."],
+          ["{{Ouais.}}","{{Oui.}}","Yeah."],
+          ["{{À plus !}}","{{À plus tard !}}","See you later!"]
+        ] },
+        {"p":"**Ça for everything.** {{Ça}}, short for {{cela}}, means “it, that, this” and is everywhere: {{Ça marche.}} “OK, sounds good.” {{Ça me plaît.}} “I like it.” {{C'est quoi, ça ?}} “What's that?”"},
+        {"p":"**Questions stay in order.** In speech, the question word often goes at the end, with no inversion: {{Tu fais quoi ?}} “What are you doing?” {{Il arrive quand ?}} {{C'est combien ?}} (lesson 7). And {{on}} is “we” (lesson 13)."},
+        {"p":"**And the other end: formal French.** Signs, announcements, letters and polite service use the full forms: {{ne}} always, {{nous}} for “we”, inversion ({{Pourriez-vous… ?}}, {{Avez-vous… ?}}), and set phrases: {{Veuillez patienter.}} “Please wait.” {{Il est interdit de fumer.}} “No smoking.” {{Nous vous prions de nous excuser.}} “We apologize.”"},
+        { "ex": [
+          {"t":"Je sais pas, moi !","tr":"I don't know!"},
+          {"t":"T'inquiète, c'est pas grave.","tr":"Don't worry, it doesn't matter.","note":"{{t'inquiète}}: short for {{ne t'inquiète pas}}"},
+          {"t":"On mange où ce soir ?","tr":"Where are we eating tonight?"},
+          {"t":"Y a quelqu'un ?","tr":"Is anyone there?"},
+          {"t":"Ça te dit, un café ?","tr":"How about a coffee?","note":"{{ça te dit ?}}: does that appeal to you?"},
+          {"t":"Mesdames et messieurs, le train à destination de Lyon partira avec dix minutes de retard.","tr":"Ladies and gentlemen, the train to Lyon will leave ten minutes late.","note":"formal: a station announcement"},
+          {"t":"Veuillez patienter, un conseiller va vous répondre.","tr":"Please hold, an advisor will be with you shortly."}
+        ] },
+        {"tip":"When people speak too fast, just ask: {{Pardon, vous pouvez répéter plus lentement ?}} Nobody minds. And if you hear “chuis”, it's {{je suis}} said fast: {{Chuis fatigué.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Je pas sais.","right":"Je ne sais pas.","tr":"I don't know.","why":"When people drop {{ne}}, {{pas}} still goes after the verb: {{je sais pas}}. In writing, keep {{ne}}."},
+        {"wrong":"Ouais, monsieur le directeur.","right":"Oui, monsieur le directeur.","tr":"Yes, sir.","why":"{{Ouais}} is very casual: with someone you call {{monsieur}} or {{madame}}, say {{oui}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{T'as faim ?}} means…","options":["Are you hungry?","Are you tired?","Do you have time?"],"answer":0,"why":"{{T'as}} is {{tu as}}: {{tu as faim}}.","from":"say-what-you-have"},
+        {"type":"choice","q":"{{Y a pas de problème.}} is short for…","options":["{{Il n'y a pas de problème.}}","{{Il y a un problème.}}","{{Il n'a pas de problème.}}"],"answer":0,"why":"{{Il}} and {{ne}} drop out of {{il n'y a pas}}.","from":"say-where-things-are"},
+        {"type":"choice","q":"Which sentence would you see on a sign or hear in an announcement?","options":["{{Veuillez fermer la porte.}}","{{Ferme la porte, steuplé.}}","{{Tu peux fermer la porte ?}}"],"answer":0,"why":"{{Veuillez}} + infinitive: formal “please”."},
+        {"type":"fill","q":"Choose the missing word.","t":"Je ___ pas, moi !","tr":"I don't know!","options":["sais","sait","savoir"],"answer":0,"why":"With {{ne}} dropped, the verb is still {{je sais}}."},
+        {"type":"dialogue","q":"A friend texts you. Choose your replies.","from":"invite-accept-refuse","lines":[{"who":"Your friend","t":"Salut ! Tu fais quoi ce soir ?","tr":"Hi! What are you up to tonight?"},{"options":["Rien de spécial. Pourquoi ?","Je fais quoi ce soir."],"answer":0,"why":"Answer the question: {{rien de spécial}} “nothing special”."},{"who":"Your friend","t":"Ça te dit, un ciné ?","tr":"How about a movie?"},{"options":["Ouais, carrément ! On se retrouve où ?","Ouais, carrément ! Où nous retrouverons-nous, monsieur ?"],"answer":0,"why":"With a friend, keep it casual: the formal question sounds funny here."},{"who":"Your friend","t":"Devant le cinéma, à huit heures. À plus !","tr":"In front of the theater, at eight. See ya!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Where are we eating tonight?","words":["On","mange","où","ce soir ?"]},
+        {"type":"free","q":"Your turn: write a short casual message inviting a friend out. Then write the same invitation formally, to your boss.","answers":[{"t":"Salut ! Ça te dit, un resto ce soir ? … Bonjour madame, accepteriez-vous de dîner avec l'équipe ce soir ?","tr":"Hi! How about dinner out tonight? … Hello, would you agree to have dinner with the team tonight?"},{"t":"Coucou, t'es libre samedi ? On fait un pique-nique ! … Monsieur, seriez-vous libre samedi pour un déjeuner d'équipe ?","tr":"Hey, are you free on Saturday? We're having a picnic! … Sir, would you be free on Saturday for a team lunch?"}]}
+      ]
     }
   ]
 }
