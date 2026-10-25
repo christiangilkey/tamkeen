@@ -613,6 +613,331 @@
         {"type":"say","q":"บอกทางว่า “ตรงไปสองช่วงตึก แล้วเลี้ยวซ้าย”","answer":"Go straight for two blocks, then turn left."},
         {"type":"free","q":"ถึงตาคุณ: บอกทางจากบ้านคุณไปร้านกาแฟหรือร้านสะดวกซื้อที่ใกล้ที่สุด","answers":[{"t":"Go out of my house and turn right. Go straight for two blocks. The coffee shop is on your left.","tr":"ออกจากบ้านแล้วเลี้ยวขวา ตรงไปสองช่วงตึก ร้านกาแฟอยู่ทางซ้ายมือ"},{"t":"Turn left at the corner and go past the school. The 7-Eleven is next to the bank.","tr":"เลี้ยวซ้ายที่หัวมุม ผ่านโรงเรียนไป เซเว่นอยู่ข้างธนาคาร"}]}
       ]
+    },
+    {
+      "id": "daily-routine",
+      "unit": 3,
+      "level": "A1",
+      "title": "เล่ากิจวัตรประจำวัน: present simple",
+      "summary": "บอกว่าทุกวันคุณทำอะไร ตื่นกี่โมง ไปทำงานยังไง ด้วยคำกริยารูปพื้นฐาน",
+      "topic": "present simple กับ {{I}} / {{you}} / {{we}} / {{they}}; {{at}} + เวลา; {{in the morning}}, {{every day}}",
+      "blocks": [
+        {"goal":{"t":"I get up at six every day.","tr":"ฉันตื่นนอนหกโมงทุกวัน"}},
+        {"dialog":[{"who":"เจค","t":"What time do you get up?","tr":"ปกติตื่นกี่โมง"},{"who":"นก","t":"I get up at six. I go to work at seven thirty.","tr":"ตื่นหกโมง ไปทำงานเจ็ดโมงครึ่ง"},{"who":"เจค","t":"Wow, that's early! How do you get to work?","tr":"ว้าว เช้าจัง ไปทำงานยังไง"},{"who":"นก","t":"I take the Skytrain. And you?","tr":"นั่งรถไฟฟ้า แล้วคุณล่ะ"},{"who":"เจค","t":"I work from home. I start at nine.","tr":"ผมทำงานที่บ้าน เริ่มเก้าโมง"}]},
+        {"term":"กาล (tense)","means":"รูปของคำกริยาที่บอกเวลา เช่น {{work}} (ทำงาน เป็นปกติ) กับ {{worked}} (ทำงาน เมื่อก่อน) ภาษาไทยไม่เปลี่ยนรูปคำกริยา แต่ภาษาอังกฤษเปลี่ยน"},
+        {"term":"present simple (ปัจจุบันกาลธรรมดา)","means":"รูปคำกริยาสำหรับเรื่องที่ทำเป็นประจำหรือเป็นจริงเสมอ เช่น {{I work in Bangkok.}} “ฉันทำงานที่กรุงเทพฯ”"},
+        {"p":"**สิ่งที่ทำเป็นประจำ** สิ่งที่ทำทุกวันหรือเป็นนิสัย ภาษาอังกฤษใช้ present simple: {{I get up at six.}} {{We eat dinner at home.}} {{They work in Bangkok.}}"},
+        {"p":"**กับ I, you, we, they: คำกริยารูปเดิม** กับประธานเหล่านี้ คำกริยาเป็นรูปเดิมเหมือนในพจนานุกรม และ**ไม่มี** {{am}} / {{is}} / {{are}}: {{I work.}} ไม่ใช่ {{I am work.}} (ส่วน {{he}} / {{she}} / {{it}} ต้องเติม s: บทหน้า)"},
+        {"p":"**เวลา** “ตอน…โมง” ใช้ {{at}}: {{at six}} {{at 7:30}} (อ่านว่า {{seven thirty}}) ช่วงของวันใช้ {{in}}: {{in the morning}} {{in the evening}} ยกเว้น “ตอนกลางคืน” คือ {{at night}} และ “ทุกวัน” {{every day}} วางท้ายประโยค"},
+        { "table": [
+          ["ภาษาอังกฤษ","ความหมาย"],
+          ["{{get up}}","ตื่นนอน (ลุกจากเตียง)"],
+          ["{{take a shower}}","อาบน้ำ"],
+          ["{{have breakfast}}","กินข้าวเช้า"],
+          ["{{go to work}}","ไปทำงาน"],
+          ["{{take the bus}}","นั่งรถเมล์"],
+          ["{{get home}}","ถึงบ้าน"],
+          ["{{go to bed}}","เข้านอน"]
+        ] },
+        { "ex": [
+          {"t":"I have breakfast at seven.","tr":"ฉันกินข้าวเช้าเจ็ดโมง"},
+          {"t":"We take the bus to school.","tr":"เรานั่งรถเมล์ไปโรงเรียน"},
+          {"t":"They work in Bangkok.","tr":"พวกเขาทำงานที่กรุงเทพฯ"},
+          {"t":"I drink coffee in the morning.","tr":"ฉันดื่มกาแฟตอนเช้า"},
+          {"t":"I get home at six in the evening.","tr":"ผมถึงบ้านหกโมงเย็น"},
+          {"t":"I go to bed at eleven.","tr":"ฉันเข้านอนห้าทุ่ม"},
+          {"t":"You work very hard.","tr":"คุณทำงานหนักมาก"}
+        ] },
+        {"tip":"ภาษาอังกฤษบอกเวลาแบบ 12 ชั่วโมง: {{6 a.m.}} หกโมงเช้า {{6 p.m.}} หกโมงเย็น หรือพูดว่า {{six in the morning}} / {{six in the evening}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I am get up at six.","right":"I get up at six.","tr":"ฉันตื่นหกโมง","why":"มีคำกริยา {{get up}} แล้ว ไม่ต้องมี {{am}}"},
+        {"wrong":"I go to work in 7:30.","right":"I go to work at 7:30.","tr":"ฉันไปทำงานเจ็ดโมงครึ่ง","why":"เวลาที่เป็นโมงใช้ {{at}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"I ___ coffee every morning.","tr":"ฉันดื่มกาแฟทุกเช้า","options":["drink","am drink","drinking"],"answer":0,"why":"สิ่งที่ทำเป็นประจำ: คำกริยารูปเดิม ไม่มี {{am}}"},
+        {"type":"choice","q":"“ฉันเข้านอนห้าทุ่ม”","options":["{{I go to bed at eleven.}}","{{I am go to bed at eleven.}}","{{I go to bed in eleven.}}"],"answer":0,"why":"ไม่มี {{am}} และเวลาเป็นโมงใช้ {{at}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"เรานั่งรถเมล์ไปโรงเรียน","words":["We","take","the bus","to","school."]},
+        {"type":"dialogue","q":"เพื่อนใหม่ถามเรื่องงานของคุณ (คุณเป็นพยาบาล) เลือกคำตอบ","from":"where-youre-from","lines":[{"who":"เจค","t":"What do you do?","tr":"ทำงานอะไร"},{"options":["I'm a nurse. I work at a hospital.","I'm a nurse. I am work at a hospital."],"answer":0,"why":"มีคำกริยา {{work}} แล้ว ไม่ต้องมี {{am}}"},{"who":"เจค","t":"What time do you start?","tr":"เริ่มงานกี่โมง"},{"options":["I start at eight in the morning.","I start in eight in the morning."],"answer":0,"why":"เวลาเป็นโมงใช้ {{at}}; ช่วงของวันใช้ {{in}}"}]},
+        {"type":"say","q":"พูดว่า “ฉันตื่นหกโมงทุกวัน”","answer":"I get up at six every day."},
+        {"type":"free","q":"ถึงตาคุณ: เล่าสามอย่างที่คุณทำในวันธรรมดา พร้อมเวลา","answers":[{"t":"I get up at seven. I go to work at eight. I get home at six.","tr":"ฉันตื่นเจ็ดโมง ไปทำงานแปดโมง ถึงบ้านหกโมงเย็น"},{"t":"I have breakfast at seven thirty, and I go to bed at eleven.","tr":"ผมกินข้าวเช้าเจ็ดโมงครึ่ง และเข้านอนห้าทุ่ม"}]}
+      ]
+    },
+    {
+      "id": "he-works",
+      "unit": 3,
+      "level": "A1",
+      "title": "เล่าว่าคนอื่นทำอะไร: -s กับ he, she, it",
+      "summary": "เล่าว่าแม่ เพื่อน หรือแฟนทำอะไรทุกวัน: กับ {{he}} / {{she}} / {{it}} คำกริยาต้องเติม -s",
+      "topic": "{{he}} / {{she}} / {{it}} + คำกริยาเติม {{-s}} / {{-es}} ({{works}}, {{watches}}, {{goes}}); {{has}}; การออกเสียง -s",
+      "blocks": [
+        {"goal":{"t":"My mom works at a hospital.","tr":"แม่ของฉันทำงานที่โรงพยาบาล"}},
+        {"dialog":[{"who":"เจค","t":"What does your sister do?","tr":"พี่สาวคุณทำงานอะไร"},{"who":"นก","t":"She teaches English. She works at a high school.","tr":"เขาสอนภาษาอังกฤษ ทำงานที่โรงเรียนมัธยม"},{"who":"เจค","t":"Cool. And your brother?","tr":"เจ๋ง แล้วพี่ชายล่ะ"},{"who":"นก","t":"He lives in Chiang Mai. He has a small coffee shop.","tr":"เขาอยู่เชียงใหม่ มีร้านกาแฟเล็กๆ"},{"who":"นก","t":"He gets up at five every day and goes to the market.","tr":"เขาตื่นตีห้าทุกวัน แล้วไปตลาด"}]},
+        {"p":"**เติม -s กับ he, she, it** ภาษาไทยใช้ “ทำงาน” แบบเดิมไม่ว่าใครทำ แต่ภาษาอังกฤษ ถ้าประธานเป็น {{he}}, {{she}}, {{it}} หรือคนหรือสิ่งเดียว (เช่น {{my mom}}, {{the shop}}) คำกริยาต้องเติม {{-s}}: {{I work}} → {{she works}} จุดเล็กๆ นี้คนไทยลืมบ่อยที่สุด แต่เจ้าของภาษาได้ยินทันที"},
+        { "table": [
+          ["ประธาน","คำกริยา"],
+          ["{{I}} / {{you}} / {{we}} / {{they}}","{{work}}, {{live}}, {{go}}"],
+          ["{{he}} / {{she}} / {{it}}","{{works}}, {{lives}}, {{goes}}"]
+        ] },
+        {"p":"**-es และ -ies** คำกริยาที่ลงท้ายด้วย s, sh, ch, x, o เติม {{-es}}: {{watch}} → {{watches}}, {{go}} → {{goes}}, {{do}} → {{does}} ลงท้ายด้วยพยัญชนะ + y เปลี่ยนเป็น {{-ies}}: {{study}} → {{studies}} และ {{have}} เปลี่ยนเป็น {{has}}"},
+        {"p":"**ออกเสียง -s ให้ได้ยิน** เหมือนพหูพจน์ในบทที่ 7: เสียง s ท้าย {{works}} {{lives}} ต้องได้ยิน ถ้ากลืนเสียงไป ประโยคจะฟังเหมือนผิดไวยากรณ์ ส่วน {{-es}} ออกเสียงเป็นพยางค์เพิ่มขึ้นมาหนึ่งพยางค์: {{watches}} “วอท-ฉิซ”"},
+        { "ex": [
+          {"t":"He lives in Chiang Mai.","tr":"เขาอยู่เชียงใหม่"},
+          {"t":"She teaches English.","tr":"เขาสอนภาษาอังกฤษ"},
+          {"t":"My dad watches the news every night.","tr":"พ่อดูข่าวทุกคืน"},
+          {"t":"It opens at ten.","tr":"(ร้าน) เปิดสิบโมง"},
+          {"t":"My brother studies at a university in Bangkok.","tr":"น้องชายเรียนมหาวิทยาลัยที่กรุงเทพฯ"},
+          {"t":"She has two kids.","tr":"เขามีลูกสองคน"},
+          {"t":"This bus goes to the airport.","tr":"รถเมล์คันนี้ไปสนามบิน"}
+        ] },
+        {"tip":"ประธานที่เป็นคนเดียวหรือสิ่งเดียว ถึงจะไม่ได้พูดว่า {{he}} หรือ {{she}} ก็เติม s: {{My friend lives here.}} {{The store opens at nine.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"My mom work at a hospital.","right":"My mom works at a hospital.","tr":"แม่ฉันทำงานที่โรงพยาบาล","why":"ประธานเป็นคนเดียว ({{my mom}} = {{she}}) คำกริยาต้องเติม {{-s}}"},
+        {"wrong":"He haves a car.","right":"He has a car.","tr":"เขามีรถ","why":"{{have}} กับ {{he}} / {{she}} / {{it}} เปลี่ยนเป็น {{has}}"},
+        {"wrong":"She is works here.","right":"She works here.","tr":"เขาทำงานที่นี่","why":"มีคำกริยา {{works}} แล้ว ไม่ต้องมี {{is}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"My brother ___ in Chiang Mai.","tr":"พี่ชายฉันอยู่เชียงใหม่","options":["lives","live","living"],"answer":0,"why":"ประธานเป็นคนเดียว: เติม s"},
+        {"type":"choice","q":"“เขา (ผู้หญิง) ดูทีวีทุกคืน”","options":["{{She watches TV every night.}}","{{She watch TV every night.}}","{{She watchs TV every night.}}"],"answer":0,"why":"{{watch}} ลงท้ายด้วย ch: เติม {{-es}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ร้านเปิดเก้าโมง","words":["The","store","opens","at","nine."]},
+        {"type":"dialogue","q":"เพื่อนถามเรื่องพ่อแม่ของคุณ เลือกคำตอบ","from":"daily-routine","lines":[{"who":"เจค","t":"What time does your dad get up?","tr":"พ่อคุณตื่นกี่โมง"},{"options":["He gets up at five.","He get up at five."],"answer":0,"why":"{{he}}: เติม s, {{gets}}"},{"who":"เจค","t":"Wow! And your mom?","tr":"ว้าว แล้วแม่ล่ะ"},{"options":["She gets up at six and makes breakfast.","She get up at six and make breakfast."],"answer":0,"why":"{{she}}: เติม s ทุกคำกริยา {{gets}}, {{makes}}"}]},
+        {"type":"say","q":"พูดว่า “แม่ฉันทำงานที่โรงพยาบาล”","answer":"My mom works at a hospital."},
+        {"type":"free","q":"ถึงตาคุณ: เล่าว่าคนในครอบครัวหรือเพื่อนหนึ่งคนทำอะไรทุกวัน","answers":[{"t":"My sister works at a bank. She gets up at six and takes the Skytrain.","tr":"พี่สาวฉันทำงานที่ธนาคาร เขาตื่นหกโมงแล้วนั่งรถไฟฟ้าไป"},{"t":"My dad lives in Khon Kaen. He has a small shop. He opens it at eight.","tr":"พ่อผมอยู่ขอนแก่น มีร้านเล็กๆ เขาเปิดร้านแปดโมง"}]}
+      ]
+    },
+    {
+      "id": "dont-doesnt",
+      "unit": 3,
+      "level": "A1",
+      "title": "บอกว่าไม่ทำอะไร: don't / doesn't",
+      "summary": "บอกว่าคุณไม่กินเนื้อ ไม่ดื่มกาแฟ หรือเพื่อนไม่ชอบเผ็ด: ภาษาอังกฤษใช้ {{don't}} / {{doesn't}} แทน “ไม่”",
+      "topic": "{{don't}} / {{doesn't}} + คำกริยารูปเดิม (ไม่ใช่ {{I not…}}, ไม่ใช่ {{He don't…}}); {{not}} กับ {{be}}",
+      "blocks": [
+        {"goal":{"t":"I don't eat meat.","tr":"ฉันไม่กินเนื้อสัตว์"}},
+        {"dialog":[{"who":"เจค","t":"Do you want some chicken?","tr":"เอาไก่หน่อยไหม"},{"who":"พลอย","t":"No, thanks. I don't eat meat.","tr":"ไม่เป็นไร ขอบคุณ ฉันไม่กินเนื้อสัตว์"},{"who":"เจค","t":"Oh, OK. And Ton?","tr":"อ๋อ โอเค แล้วต้นล่ะ"},{"who":"พลอย","t":"He eats everything, but he doesn't like spicy food.","tr":"เขากินทุกอย่าง แต่ไม่ชอบเผ็ด"},{"who":"เจค","t":"Really? But he's Thai!","tr":"จริงเหรอ เขาเป็นคนไทยนะ"},{"who":"พลอย","t":"I know. He doesn't even eat som tam!","tr":"ใช่ เขาไม่กินส้มตำด้วยซ้ำ"}]},
+        {"term":"กริยาช่วย (helping verb)","means":"คำกริยาเล็กๆ ที่มาช่วยคำกริยาหลัก เพื่อทำประโยคปฏิเสธ คำถาม หรือบอกเวลา เช่น {{do}}, {{does}}, {{can}}, {{will}}"},
+        {"p":"**“ไม่” = don't** ภาษาไทยวาง “ไม่” หน้าคำกริยาได้เลย แต่ภาษาอังกฤษไม่วาง {{not}} หน้าคำกริยาตรงๆ ต้องมีกริยาช่วย {{do}} มาด้วย: {{I don't eat meat.}} ({{don't}} = {{do not}}) ห้ามพูดว่า {{I not eat.}}"},
+        {"p":"**he, she, it ใช้ doesn't** กับ {{he}} / {{she}} / {{it}} ใช้ {{doesn't}} ({{does not}}) และคำกริยาหลักกลับเป็น**รูปเดิม ไม่เติม s**: {{She doesn't like it.}} ไม่ใช่ {{She doesn't likes it.}} เพราะ s ไปอยู่ที่ {{does}} แล้ว"},
+        { "table": [
+          ["ประธาน","บอกเล่า","ปฏิเสธ"],
+          ["{{I}} / {{you}} / {{we}} / {{they}}","{{I eat meat.}}","{{I don't eat meat.}}"],
+          ["{{he}} / {{she}} / {{it}}","{{She eats meat.}}","{{She doesn't eat meat.}}"]
+        ] },
+        {"p":"**be ไม่ใช้ don't** ประโยคที่มีแค่ {{am}} / {{is}} / {{are}} ใช้ {{not}} ตามเดิม (บทที่ 5): {{I'm not hungry.}} ไม่ใช่ {{I don't hungry.}} จำง่ายๆ: มีคำกริยาอื่นใช้ {{don't}} ถ้ามีแค่ {{be}} ใช้ {{not}}"},
+        { "ex": [
+          {"t":"I don't drink coffee.","tr":"ฉันไม่ดื่มกาแฟ"},
+          {"t":"He doesn't like spicy food.","tr":"เขาไม่ชอบอาหารเผ็ด"},
+          {"t":"We don't have a car.","tr":"เราไม่มีรถ"},
+          {"t":"My mom doesn't speak English.","tr":"แม่ฉันพูดภาษาอังกฤษไม่เป็น"},
+          {"t":"They don't live here.","tr":"พวกเขาไม่ได้อยู่ที่นี่"},
+          {"t":"It doesn't work.","tr":"มันใช้ไม่ได้ (เสีย)","note":"{{work}} ใช้กับเครื่องได้ด้วย: “ทำงาน ใช้การได้”"},
+          {"t":"I don't know.","tr":"ไม่รู้"}
+        ] },
+        {"tip":"{{I don't know.}} “ไม่รู้” และ {{I don't understand.}} “ไม่เข้าใจ” เป็นสองประโยคที่ควรพูดให้คล่องที่สุด"}
+      ],
+      "mistakes": [
+        {"wrong":"I not eat meat.","right":"I don't eat meat.","tr":"ฉันไม่กินเนื้อสัตว์","why":"“ไม่” หน้าคำกริยาคือ {{don't}} ไม่ใช่ {{not}} อย่างเดียว"},
+        {"wrong":"He don't like it.","right":"He doesn't like it.","tr":"เขาไม่ชอบ","why":"{{he}} / {{she}} / {{it}} ใช้ {{doesn't}}"},
+        {"wrong":"She doesn't likes it.","right":"She doesn't like it.","tr":"เขาไม่ชอบ","why":"หลัง {{doesn't}} คำกริยาเป็นรูปเดิม ไม่เติม s"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"My dad ___ drink alcohol.","tr":"พ่อฉันไม่ดื่มเหล้า","options":["doesn't","don't","not"],"answer":0,"why":"{{my dad}} = {{he}}: ใช้ {{doesn't}}"},
+        {"type":"choice","q":"“ฉันไม่หิว”","options":["{{I'm not hungry.}}","{{I don't hungry.}}","{{I not hungry.}}"],"answer":0,"why":"มีแค่ {{be}} กับคำคุณศัพท์: ใช้ {{not}}","from":"its-good"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"พวกเขาไม่ได้อยู่ที่นี่","words":["They","don't","live","here."]},
+        {"type":"dialogue","q":"เพื่อนถามเรื่องพี่สาวของคุณ เลือกคำตอบ","from":"he-works","lines":[{"who":"เพื่อน","t":"Does your sister work in Bangkok?","tr":"พี่สาวทำงานที่กรุงเทพฯ หรือเปล่า"},{"options":["No, she doesn't. She works in Phuket.","No, she don't. She work in Phuket."],"answer":0,"why":"{{she}}: {{doesn't}} และ {{works}} เติม s"},{"who":"เพื่อน","t":"Does she like it there?","tr":"เขาชอบที่นั่นไหม"},{"options":["Yes, but she doesn't like the rain.","Yes, but she doesn't likes the rain."],"answer":0,"why":"หลัง {{doesn't}} คำกริยาไม่เติม s"}]},
+        {"type":"say","q":"พูดว่า “ขอโทษ ฉันไม่เข้าใจ”","answer":"Sorry, I don't understand."},
+        {"type":"free","q":"ถึงตาคุณ: บอกสองอย่างที่คุณไม่ทำ และหนึ่งอย่างที่คนในครอบครัวไม่ทำ","answers":[{"t":"I don't drink coffee, and I don't eat pork. My mom doesn't speak English.","tr":"ฉันไม่ดื่มกาแฟ และไม่กินหมู แม่ฉันพูดภาษาอังกฤษไม่เป็น"},{"t":"I don't have a car. My brother doesn't like cats.","tr":"ผมไม่มีรถ น้องชายผมไม่ชอบแมว"}]}
+      ]
+    },
+    {
+      "id": "do-you",
+      "unit": 3,
+      "level": "A1",
+      "title": "ถามว่า Do you…? และตอบว่า Yes, I do",
+      "summary": "ถามว่าชอบไหม มีไหม ทำไหม: คำว่า “ไหม” ในภาษาอังกฤษคือ {{Do}} / {{Does}} ที่ต้นประโยค",
+      "topic": "{{Do you…?}} / {{Does he…?}} + คำกริยารูปเดิม; คำตอบสั้น {{Yes, I do.}} / {{No, she doesn't.}}; {{Do}} หรือ {{Are}}",
+      "blocks": [
+        {"goal":{"t":"Do you like spicy food? — Yes, I do.","tr":"ชอบอาหารเผ็ดไหม — ชอบ"}},
+        {"dialog":[{"who":"นก","t":"Do you like Thai food?","tr":"ชอบอาหารไทยไหม"},{"who":"เจค","t":"Yes, I do. I love it!","tr":"ชอบ ชอบมากเลย"},{"who":"นก","t":"Do you eat spicy food?","tr":"กินเผ็ดไหม"},{"who":"เจค","t":"Yes, but not too spicy.","tr":"กิน แต่ไม่เผ็ดมากนะ"},{"who":"นก","t":"Does your wife like it, too?","tr":"ภรรยาคุณชอบด้วยไหม"},{"who":"เจค","t":"No, she doesn't. She doesn't eat chili at all.","tr":"ไม่ชอบ เขาไม่กินพริกเลย"}]},
+        {"p":"**“ไหม” = Do…?** ภาษาไทยเติม “ไหม” ท้ายประโยค แต่ภาษาอังกฤษใส่ {{Do}} ไว้**หน้า**ประธาน: {{You like coffee.}} → {{Do you like coffee?}} ถ้าประธานเป็น {{he}} / {{she}} / {{it}} ใช้ {{Does}} และคำกริยาหลักไม่เติม s: {{Does she like coffee?}}"},
+        { "table": [
+          ["บอกเล่า","คำถาม","คำตอบสั้น"],
+          ["{{You live here.}}","{{Do you live here?}}","{{Yes, I do.}} / {{No, I don't.}}"],
+          ["{{They work here.}}","{{Do they work here?}}","{{Yes, they do.}} / {{No, they don't.}}"],
+          ["{{She likes it.}}","{{Does she like it?}}","{{Yes, she does.}} / {{No, she doesn't.}}"]
+        ] },
+        {"p":"**ตอบสั้นด้วย do** ภาษาไทยตอบด้วยคำกริยาซ้ำ (“ชอบ” “ไม่ชอบ”) ภาษาอังกฤษตอบด้วย {{Yes}} หรือ {{No}} + ประธาน + {{do}} / {{does}}: {{Yes, I do.}} ห้ามตอบว่า {{Yes, I like.}}"},
+        {"p":"**Do หรือ Are?** ถ้าประโยคมีคำกริยาอื่น (กิน ชอบ ไป อยู่) ใช้ {{Do}} / {{Does}} ถ้ามีแค่ {{be}} กับคำคุณศัพท์หรือสถานที่ ใช้ {{Are}} / {{Is}} (บทที่ 5): {{Are you hungry?}} แต่ {{Do you want to eat?}}"},
+        { "ex": [
+          {"t":"Do you speak English?","tr":"คุณพูดภาษาอังกฤษได้ไหม"},
+          {"t":"Yes, a little.","tr":"ได้นิดหน่อย"},
+          {"t":"Do you have Wi-Fi?","tr":"มีไวไฟไหม"},
+          {"t":"Does he live near here?","tr":"เขาอยู่แถวนี้หรือเปล่า"},
+          {"t":"No, he doesn't.","tr":"เปล่า"},
+          {"t":"Do they work on Saturdays?","tr":"พวกเขาทำงานวันเสาร์ไหม"},
+          {"t":"Does it open on Sundays?","tr":"(ร้าน) เปิดวันอาทิตย์ไหม"}
+        ] },
+        {"tip":"{{Do you know…?}} “รู้ไหมว่า…” ใช้เปิดคำถามได้สุภาพ: {{Do you know a good restaurant near here?}} “รู้จักร้านอร่อยแถวนี้ไหม”"}
+      ],
+      "mistakes": [
+        {"wrong":"You like coffee?","right":"Do you like coffee?","tr":"ชอบกาแฟไหม","why":"คำถามแบบ “ไหม” ขึ้นต้นด้วย {{Do}}"},
+        {"wrong":"Does she likes coffee?","right":"Does she like coffee?","tr":"เขาชอบกาแฟไหม","why":"มี {{does}} แล้ว คำกริยาหลักไม่เติม s"},
+        {"wrong":"Yes, I like.","right":"Yes, I do.","tr":"(ชอบไหม) ชอบ","why":"คำตอบสั้นใช้ {{do}}: {{Yes, I do.}} หรือพูดเต็มว่า {{Yes, I like it.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"___ you live in Bangkok?","tr":"คุณอยู่กรุงเทพฯ หรือเปล่า","options":["Do","Are","Does"],"answer":0,"why":"มีคำกริยา {{live}} และประธานคือ {{you}}: {{Do}}"},
+        {"type":"choice","q":"มีคนถาม {{Does your brother have a car?}} เขามีรถ คุณตอบว่า","options":["{{Yes, he does.}}","{{Yes, he has.}}","{{Yes, he do.}}"],"answer":0,"why":"ถามด้วย {{does}} ก็ตอบด้วย {{does}}"},
+        {"type":"order","q":"เรียงคำให้เป็นคำถาม","tr":"ร้านเปิดวันอาทิตย์ไหม","words":["Does","it","open","on","Sundays?"]},
+        {"type":"dialogue","q":"เพื่อนถามเรื่องกาแฟ เลือกคำตอบ","from":"dont-doesnt","lines":[{"who":"เจค","t":"Do you drink coffee?","tr":"ดื่มกาแฟไหม"},{"options":["No, I don't. I drink tea.","No, I not. I drink tea."],"answer":0,"why":"คำตอบสั้นแบบปฏิเสธ: {{No, I don't.}}"},{"who":"เจค","t":"Does your husband drink coffee?","tr":"สามีคุณดื่มกาแฟไหม"},{"options":["Yes, he does. He drinks three cups a day!","Yes, he do. He drink three cups a day!"],"answer":0,"why":"{{he}}: {{does}}, และ {{drinks}} เติม s"}]},
+        {"type":"say","q":"ถามว่า “คุณพูดภาษาไทยได้ไหม”","answer":"Do you speak Thai?"},
+        {"type":"free","q":"ถึงตาคุณ: ถามเพื่อนใหม่สองคำถามด้วย {{Do you…?}} แล้วบอกเรื่องเดียวกันของตัวเอง","answers":[{"t":"Do you like Thai food? Do you live near here? I live near here.","tr":"ชอบอาหารไทยไหม อยู่แถวนี้หรือเปล่า ฉันอยู่แถวนี้"},{"t":"Do you play soccer? Do you have a cat? I don't have a cat, but I have a dog.","tr":"เล่นฟุตบอลไหม มีแมวไหม ผมไม่มีแมว แต่มีหมา"}]}
+      ]
+    },
+    {
+      "id": "have-has",
+      "unit": 3,
+      "level": "A1",
+      "title": "บอกว่ามีอะไร และของใคร",
+      "summary": "บอกว่ามีพี่น้องกี่คน มีรถไหม และบอกว่าของเป็นของใคร: ภาษาอังกฤษวางเจ้าของไว้หน้าของ",
+      "topic": "{{have}} / {{has}}; {{Do you have…?}}, {{don't have}}; {{my}}, {{your}}, {{his}}, {{her}}, {{its}}, {{our}}, {{their}}; {{'s}} ({{Nok's}})",
+      "blocks": [
+        {"goal":{"t":"I have two brothers and a sister.","tr":"ฉันมีพี่น้องผู้ชายสองคน ผู้หญิงหนึ่งคน"}},
+        {"dialog":[{"who":"เจค","t":"Do you have any brothers or sisters?","tr":"มีพี่น้องไหม"},{"who":"นก","t":"Yes, I have two brothers and a sister.","tr":"มี มีพี่น้องผู้ชายสองคน ผู้หญิงหนึ่งคน"},{"who":"เจค","t":"Wow, a big family!","tr":"ว้าว ครอบครัวใหญ่จัง"},{"who":"นก","t":"My sister has three kids, so I have three nieces!","tr":"พี่สาวมีลูกสามคน ฉันเลยมีหลานสาวสามคน"},{"who":"เจค","t":"Is this your car?","tr":"นี่รถของคุณเหรอ"},{"who":"นก","t":"No, it's my brother's car.","tr":"เปล่า รถของพี่ชาย"}]},
+        {"p":"**have: เป็นเจ้าของ** “มี” แบบเป็นเจ้าของ ใช้ {{have}}: {{I have a car.}} กับ {{he}} / {{she}} / {{it}} เปลี่ยนเป็น {{has}}: {{She has two kids.}} คำถามและปฏิเสธใช้ {{do}} เหมือนคำกริยาอื่น: {{Do you have…?}} {{I don't have…}} {{Does she have…?}}"},
+        {"p":"**ของใคร: วางหน้าคำนาม** ภาษาไทยวางเจ้าของไว้ข้างหลัง (“แม่ของฉัน”) แต่ภาษาอังกฤษวางไว้**ข้างหน้า**: {{my mom}} “แม่ฉัน” {{your phone}} “โทรศัพท์คุณ” และไม่มีคำว่า “ของ”"},
+        { "table": [
+          ["","เจ้าของ","ตัวอย่าง"],
+          ["ผม/ฉัน","{{my}}","{{my car}} รถของฉัน"],
+          ["คุณ","{{your}}","{{your bag}} กระเป๋าของคุณ"],
+          ["เขา (ผู้ชาย)","{{his}}","{{his wife}} ภรรยาของเขา"],
+          ["เขา (ผู้หญิง)","{{her}}","{{her son}} ลูกชายของเธอ"],
+          ["มัน","{{its}}","{{its name}} ชื่อของมัน"],
+          ["เรา","{{our}}","{{our house}} บ้านของเรา"],
+          ["พวกเขา","{{their}}","{{their kids}} ลูกๆ ของพวกเขา"]
+        ] },
+        {"p":"**ชื่อ + 's** “ของนก” ใช้ชื่อ + {{'s}}: {{Nok's car}} “รถของนก” {{my brother's car}} “รถของพี่ชายฉัน” เจ้าของมาก่อนเสมอ"},
+        {"p":"**his หรือ her** เลือกตาม**เจ้าของ** ไม่ใช่ตามของ: “ภรรยาของเขา (ผู้ชาย)” คือ {{his wife}} “สามีของเธอ” คือ {{her husband}}"},
+        { "ex": [
+          {"t":"She has a new phone.","tr":"เขามีโทรศัพท์เครื่องใหม่"},
+          {"t":"Do you have a pen?","tr":"มีปากกาไหม"},
+          {"t":"We don't have time.","tr":"เราไม่มีเวลา"},
+          {"t":"This is my mom's house.","tr":"นี่บ้านของแม่ฉัน"},
+          {"t":"His wife is a doctor.","tr":"ภรรยาของเขาเป็นหมอ"},
+          {"t":"Their kids are very cute.","tr":"ลูกๆ ของพวกเขาน่ารักมาก"},
+          {"t":"Is this your bag?","tr":"นี่กระเป๋าของคุณหรือเปล่า"}
+        ] },
+        {"tip":"{{its}} (ของมัน) ไม่มีเครื่องหมาย ' ส่วน {{it's}} คือ {{it is}}: {{The dog wants its food.}} “หมาอยากได้อาหารของมัน”"}
+      ],
+      "mistakes": [
+        {"wrong":"mom my","right":"my mom","tr":"แม่ฉัน","why":"ภาษาอังกฤษวางเจ้าของไว้หน้าคำนาม"},
+        {"wrong":"She have a car.","right":"She has a car.","tr":"เขามีรถ","why":"{{she}} ใช้ {{has}}"},
+        {"wrong":"Ton's wife is a teacher. His name is Ploy.","right":"Ton's wife is a teacher. Her name is Ploy.","tr":"ภรรยาของต้นเป็นครู เธอชื่อพลอย","why":"ชื่อนี้เป็นของภรรยา (ผู้หญิง) จึงใช้ {{her}}: เลือก {{his}} / {{her}} ตามเจ้าของ"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"My sister ___ two kids.","tr":"พี่สาวฉันมีลูกสองคน","options":["has","have","is"],"answer":0,"why":"{{my sister}} = {{she}}: {{has}}"},
+        {"type":"choice","q":"“รถของพี่ชายฉัน”","options":["{{my brother's car}}","{{car my brother}}","{{my brother car's}}"],"answer":0,"why":"เจ้าของ + {{'s}} มาก่อน แล้วจึงเป็นของ"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ภรรยาของเขาเป็นหมอ","words":["His","wife","is","a","doctor."]},
+        {"type":"dialogue","q":"คุณไปร้านอาหารที่จองไว้ เลือกคำพูด","from":"do-you","lines":[{"who":"พนักงาน","t":"Do you have a reservation?","tr":"จองไว้หรือเปล่าครับ"},{"options":["Yes, I do. It's under my name, Nok.","Yes, I have. It's under name my, Nok."],"answer":0,"why":"ตอบ {{Yes, I do.}} และเจ้าของมาก่อน: {{my name}}"},{"who":"พนักงาน","t":"Great. A table for two?","tr":"ดีครับ โต๊ะสองที่ใช่ไหมครับ"},{"options":["Yes. My friend has a small baby, too.","Yes. My friend have a small baby, too."],"answer":0,"why":"{{my friend}} = คนเดียว: {{has}}"}]},
+        {"type":"say","q":"พูดว่า “ฉันไม่มีเวลา”","answer":"I don't have time."},
+        {"type":"free","q":"ถึงตาคุณ: บอกว่าคุณมีพี่น้องกี่คน และเล่าเรื่องของคนในครอบครัวหนึ่งคน (ชื่อ งาน ของที่เขามี)","answers":[{"t":"I have one sister. Her name is Fon. She has a small coffee shop.","tr":"ฉันมีพี่สาวหนึ่งคน ชื่อฝน เขามีร้านกาแฟเล็กๆ"},{"t":"I have two brothers. My older brother's name is Ton. He has three kids.","tr":"ผมมีพี่น้องผู้ชายสองคน พี่ชายคนโตชื่อต้น เขามีลูกสามคน"}]}
+      ]
+    },
+    {
+      "id": "wh-questions",
+      "unit": 3,
+      "level": "A1",
+      "title": "ถามว่าที่ไหน เมื่อไร อะไร ใคร: Wh- questions",
+      "summary": "ถามข้อมูลด้วย {{where}}, {{when}}, {{what}}, {{who}}, {{why}}, {{how}}: ภาษาอังกฤษวางคำถามไว้ต้นประโยค",
+      "topic": "คำถาม Wh- ต้นประโยค + {{do}} / {{does}} + ประธาน + คำกริยา ({{Where do you live?}}); กับ {{be}}: {{Where is…?}}; {{Who}} ที่เป็นผู้ทำ",
+      "blocks": [
+        {"goal":{"t":"Where do you work?","tr":"คุณทำงานที่ไหน"}},
+        {"dialog":[{"who":"เจค","t":"Where do you live?","tr":"คุณอยู่ที่ไหน"},{"who":"พลอย","t":"I live in Bang Na.","tr":"ฉันอยู่บางนา"},{"who":"เจค","t":"Where do you work?","tr":"ทำงานที่ไหน"},{"who":"พลอย","t":"At a bank in Silom.","tr":"ที่ธนาคารแห่งหนึ่งแถวสีลม"},{"who":"เจค","t":"How do you get there?","tr":"ไปยังไง"},{"who":"พลอย","t":"I take the Skytrain. Why do you ask?","tr":"นั่งรถไฟฟ้า ถามทำไมเหรอ"},{"who":"เจค","t":"I'm new here! I want to know the city.","tr":"ผมเพิ่งมาอยู่ที่นี่ อยากรู้จักเมืองนี้"}]},
+        {"term":"คำแสดงคำถาม (question word)","means":"คำที่ใช้ถามข้อมูล เช่น {{what}} อะไร, {{where}} ที่ไหน, {{who}} ใคร ในภาษาอังกฤษส่วนใหญ่ขึ้นต้นด้วย wh จึงเรียกคำถามแบบนี้ว่า Wh- questions"},
+        {"p":"**คำถามอยู่ต้นประโยค** ภาษาไทยวางคำถามไว้ตรงที่คำตอบจะอยู่ (“คุณอยู่**ที่ไหน**”) แต่ภาษาอังกฤษวางคำถามไว้**ต้นประโยคเสมอ**: {{Where do you live?}} แปลทีละคำว่า “ที่ไหน (ช่วย) คุณ อยู่”"},
+        {"p":"**ลำดับคำ: คำถาม + do + ประธาน + คำกริยา** ถ้ามีคำกริยาหลัก ต้องมี {{do}} (หรือ {{does}} กับ he/she/it) ตามหลังคำถาม: {{What do you want?}} {{Where does she work?}} ถ้ามีแค่ {{be}} ก็สลับ {{be}} ขึ้นหน้าประธาน: {{Where is the station?}} {{Who are they?}}"},
+        { "table": [
+          ["คำถาม","ความหมาย","ตัวอย่าง"],
+          ["{{What}}","อะไร","{{What do you do?}} ทำงานอะไร"],
+          ["{{Where}}","ที่ไหน","{{Where do you live?}} อยู่ที่ไหน"],
+          ["{{When}}","เมื่อไร","{{When does it open?}} เปิดเมื่อไร"],
+          ["{{What time}}","กี่โมง","{{What time do you get up?}} ตื่นกี่โมง"],
+          ["{{Who}}","ใคร","{{Who is she?}} เขาเป็นใคร"],
+          ["{{Why}}","ทำไม","{{Why do you study English?}} ทำไมเรียนภาษาอังกฤษ"],
+          ["{{How}}","อย่างไร","{{How do you get to work?}} ไปทำงานยังไง"]
+        ] },
+        {"p":"**Who ที่เป็นคนทำ** ถ้า {{who}} คือคนที่ทำเอง ไม่ต้องมี {{do}} และคำกริยาเติม s: {{Who lives here?}} “ใครอยู่ที่นี่” (เทียบกับ {{Who do you live with?}} “คุณอยู่กับใคร”)"},
+        { "ex": [
+          {"t":"What do you want to eat?","tr":"อยากกินอะไร"},
+          {"t":"When does the bank open?","tr":"ธนาคารเปิดเมื่อไร"},
+          {"t":"What time does the movie start?","tr":"หนังเริ่มกี่โมง"},
+          {"t":"Why are you tired?","tr":"ทำไมเหนื่อย"},
+          {"t":"Who lives next door?","tr":"ใครอยู่บ้านข้างๆ"},
+          {"t":"How do you say this in English?","tr":"อันนี้ภาษาอังกฤษพูดว่ายังไง"}
+        ] },
+        {"tip":"คำถาม Wh- พูดด้วยเสียงต่ำลงตอนท้าย ไม่ขึ้นเสียงสูงแบบคำถาม yes/no"}
+      ],
+      "mistakes": [
+        {"wrong":"You live where?","right":"Where do you live?","tr":"คุณอยู่ที่ไหน","why":"คำถามอยู่ต้นประโยค แล้วตามด้วย {{do}} + ประธาน + คำกริยา"},
+        {"wrong":"Where you work?","right":"Where do you work?","tr":"คุณทำงานที่ไหน","why":"ต้องมี {{do}} หลังคำถาม"},
+        {"wrong":"Where does she works?","right":"Where does she work?","tr":"เขาทำงานที่ไหน","why":"มี {{does}} แล้ว คำกริยาไม่เติม s"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"What time ___ the store open?","tr":"ร้านเปิดกี่โมง","options":["does","do","is"],"answer":0,"why":"{{the store}} = {{it}}: {{does}}"},
+        {"type":"choice","q":"“คุณอยากกินอะไร”","options":["{{What do you want to eat?}}","{{You want to eat what?}}","{{What you want eat?}}"],"answer":0,"why":"คำถามต้นประโยค + {{do}} + ประธาน + {{want to}}"},
+        {"type":"order","q":"เรียงคำให้เป็นคำถาม","tr":"คุณไปทำงานยังไง","words":["How","do","you","get","to","work?"]},
+        {"type":"dialogue","q":"เพื่อนเล่าเรื่องลูก เลือกคำถาม","from":"have-has","lines":[{"who":"เจค","t":"I have two kids.","tr":"ผมมีลูกสองคน"},{"options":["How old are they?","How old they are?"],"answer":0,"why":"คำถามกับ {{be}}: {{are}} ขึ้นหน้าประธาน"},{"who":"เจค","t":"Five and eight.","tr":"ห้าขวบกับแปดขวบ"},{"options":["Where do they go to school?","Where they go to school?"],"answer":0,"why":"คำถาม + {{do}} + ประธาน + คำกริยา"}]},
+        {"type":"say","q":"ถามว่า “คุณทำงานที่ไหน”","answer":"Where do you work?"},
+        {"type":"free","q":"ถึงตาคุณ: ถามคำถามสามข้อด้วยคำถามต่างกัน เช่น {{Where}}, {{What}}, {{When}}, {{Why}}","answers":[{"t":"Where do you live? What do you do? When do you finish work?","tr":"คุณอยู่ที่ไหน ทำงานอะไร เลิกงานกี่โมง"},{"t":"What's your name? Where are you from? Why do you like Thailand?","tr":"คุณชื่ออะไร มาจากไหน ทำไมชอบเมืองไทย"}]}
+      ]
+    },
+    {
+      "id": "like-ing",
+      "unit": 3,
+      "level": "A1",
+      "title": "บอกว่าชอบทำอะไร และทำบ่อยแค่ไหน",
+      "summary": "บอกงานอดิเรก สิ่งที่ชอบและไม่ชอบทำ และบอกความถี่: always, usually, sometimes, never",
+      "topic": "{{like}} / {{love}} / {{hate}} / {{enjoy}} + {{-ing}}; {{really like}}; คำบอกความถี่ {{always}}, {{usually}}, {{often}}, {{sometimes}}, {{never}}",
+      "blocks": [
+        {"goal":{"t":"I love cooking, but I hate washing the dishes.","tr":"ฉันชอบทำอาหารมาก แต่เกลียดการล้างจาน"}},
+        {"dialog":[{"who":"เจค","t":"What do you like doing on weekends?","tr":"วันหยุดชอบทำอะไร"},{"who":"นก","t":"I like reading and going to the gym.","tr":"ชอบอ่านหนังสือกับไปยิม"},{"who":"เจค","t":"Do you go to the gym every weekend?","tr":"ไปยิมทุกสุดสัปดาห์ไหม"},{"who":"นก","t":"Usually. I never miss Saturdays! And you?","tr":"ส่วนใหญ่ไป วันเสาร์ไม่เคยขาดเลย แล้วคุณล่ะ"},{"who":"เจค","t":"I really like hiking, but I don't like running.","tr":"ผมชอบเดินป่ามาก แต่ไม่ชอบวิ่ง"}]},
+        {"term":"รูป -ing (gerund)","means":"คำกริยาที่เติม -ing แล้วใช้เหมือนคำนาม เช่น {{swimming}} การว่ายน้ำ ใน {{I like swimming.}}"},
+        {"p":"**like + -ing** ภาษาไทยพูด “ชอบอ่าน” ติดกันได้เลย แต่ภาษาอังกฤษต้องเปลี่ยนคำกริยาตัวที่สองเป็นรูป {{-ing}}: {{I like reading.}} หรือใช้ {{to}} ก็ได้ ({{I like to read.}}) แต่ใช้รูปเดิมเฉยๆ ไม่ได้: {{I like read.}} ผิด"},
+        {"p":"**ชอบมาก** ภาษาไทยวาง “มาก” ไว้ข้างหลัง แต่ภาษาอังกฤษพูดว่า {{I really like…}} หรือ {{I love…}} ห้ามพูด {{I very like.}} ถ้าจะใช้ {{very much}} ให้วางท้ายประโยค: {{I like it very much.}}"},
+        { "table": [
+          ["ภาษาอังกฤษ","ความหมาย"],
+          ["{{I love cooking.}}","ชอบทำอาหารมาก"],
+          ["{{I really like reading.}}","ชอบอ่านหนังสือมาก"],
+          ["{{I like swimming.}}","ชอบว่ายน้ำ"],
+          ["{{I don't like running.}}","ไม่ชอบวิ่ง"],
+          ["{{I hate waiting.}}","เกลียดการรอ"]
+        ] },
+        {"p":"**บ่อยแค่ไหน** คำบอกความถี่วาง**หน้า**คำกริยาหลัก แต่วาง**หลัง** {{be}}: {{I always get up early.}} {{She never eats breakfast.}} {{I'm usually tired.}} เรียงจากบ่อยที่สุด: {{always}} เสมอ → {{usually}} ส่วนใหญ่ → {{often}} บ่อย → {{sometimes}} บางที → {{never}} ไม่เลย"},
+        {"p":"**สะกด -ing** ส่วนใหญ่เติม -ing ได้เลย: {{read}} → {{reading}} คำที่ลงท้ายด้วย e ให้ตัด e: {{dance}} → {{dancing}} คำสั้นที่ลงท้ายด้วยสระเดี่ยว + พยัญชนะ ให้ซ้ำพยัญชนะ: {{swim}} → {{swimming}}, {{run}} → {{running}}"},
+        { "ex": [
+          {"t":"I like swimming.","tr":"ฉันชอบว่ายน้ำ"},
+          {"t":"She loves dancing.","tr":"เขาชอบเต้นมาก"},
+          {"t":"I really like this song.","tr":"ผมชอบเพลงนี้มาก"},
+          {"t":"We sometimes eat out.","tr":"บางทีเราก็กินข้าวนอกบ้าน"},
+          {"t":"He never drinks coffee.","tr":"เขาไม่ดื่มกาแฟเลย"},
+          {"t":"I'm always late!","tr":"ฉันมาสายตลอด"},
+          {"t":"Do you enjoy living in Bangkok?","tr":"ชอบอยู่กรุงเทพฯ ไหม"}
+        ] },
+        {"tip":"{{never}} เป็นคำปฏิเสธอยู่แล้ว ไม่ต้องมี {{don't}}: {{I never eat meat.}} ไม่ใช่ {{I don't never eat meat.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I like swim.","right":"I like swimming.","tr":"ฉันชอบว่ายน้ำ","why":"หลัง {{like}} ใช้รูป {{-ing}} (หรือ {{to swim}})"},
+        {"wrong":"I very like it.","right":"I really like it.","tr":"ฉันชอบมาก","why":"“ชอบมาก” คือ {{really like}} หรือ {{like … very much}}: {{very}} ไม่วางหน้าคำกริยา"},
+        {"wrong":"I go always to the gym.","right":"I always go to the gym.","tr":"ฉันไปยิมเป็นประจำ","why":"คำบอกความถี่วางหน้าคำกริยาหลัก"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"I hate ___ for the bus.","tr":"ฉันเกลียดการรอรถเมล์","options":["waiting","wait","to waiting"],"answer":0,"why":"หลัง {{hate}} ใช้รูป {{-ing}}"},
+        {"type":"choice","q":"“ฉันชอบเพลงนี้มาก”","options":["{{I really like this song.}}","{{I very like this song.}}","{{I like very this song.}}"],"answer":0,"why":"“ชอบมาก” คือ {{really like}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"เขาไม่กินข้าวเช้าเลย","words":["She","never","eats","breakfast."]},
+        {"type":"dialogue","q":"เพื่อนถามเรื่องเวลาว่าง เลือกคำตอบ","from":"wh-questions","lines":[{"who":"เจค","t":"What do you like doing in your free time?","tr":"เวลาว่างชอบทำอะไร"},{"options":["I like watching movies.","I like watch movies."],"answer":0,"why":"หลัง {{like}} ใช้ {{-ing}}"},{"who":"เจค","t":"How often do you go to the movies?","tr":"ไปดูหนังบ่อยแค่ไหน"},{"options":["I usually go on Fridays.","I go usually on Fridays."],"answer":0,"why":"{{usually}} วางหน้าคำกริยาหลัก"}]},
+        {"type":"say","q":"พูดว่า “ฉันชอบทำอาหารมาก แต่ไม่ชอบล้างจาน”","answer":"I love cooking, but I don't like washing the dishes."},
+        {"type":"free","q":"ถึงตาคุณ: บอกสิ่งที่ชอบทำ สิ่งที่ไม่ชอบทำ และทำบ่อยแค่ไหน","answers":[{"t":"I love reading. I usually read before bed. I don't like running.","tr":"ฉันชอบอ่านหนังสือมาก ปกติอ่านก่อนนอน ไม่ชอบวิ่ง"},{"t":"I really like playing soccer. I play every Sunday, but I never play in the rain.","tr":"ผมชอบเล่นฟุตบอลมาก เล่นทุกวันอาทิตย์ แต่ไม่เคยเล่นตอนฝนตก"}]}
+      ]
     }
   ]
 }
