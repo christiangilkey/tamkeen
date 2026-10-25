@@ -156,10 +156,10 @@
       ],
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"Eu ___ entendo.","tr":"I don't understand.","options":["sim","é","não"],"answer":2,"why":"“Not” is {{não}}, right before the verb."},
-        {"type":"choice","q":"“Você mora em São Paulo?” The most natural way to say yes is…","options":["{{Sim, mora.}}","{{Moro, sim.}}","{{Sim, faço.}}"],"answer":1,"why":"Answer with the verb, in the “I” form: {{moro}}. ({{Mora}} would be “you live”.)"},
+        {"type":"choice","q":"{{Você mora em São Paulo?}} The most natural way to say yes is…","options":["{{Sim, mora.}}","{{Moro, sim.}}","{{Sim, faço.}}"],"answer":1,"why":"Answer with the verb, in the “I” form: {{moro}}. ({{Mora}} would be “you live”.)"},
         {"type":"dialogue","q":"At a party. Choose your replies.","lines":[{"who":"Juliana","t":"Você é americano?","tr":"Are you American?"},{"options":["Não, não sou. Sou inglês.","Não, sou não inglês."],"answer":0,"why":"{{Não, não sou}}: “no, I'm not”. Then say what you are."},{"who":"Juliana","t":"Você fala português?","tr":"Do you speak Portuguese?"},{"options":["Fala um pouco.","Falo um pouco."],"answer":1,"why":"{{Falo}} is “I speak”; {{fala}} would be “you speak”."},{"who":"Juliana","t":"Que legal!","tr":"How cool!"}]},
         {"type":"order","q":"Put the words in order.","tr":"I don't speak Portuguese very well.","words":["Não","falo","português","muito bem."]},
-        {"type":"choice","q":"“Você está bem?” Answer yes, Brazilian style.","options":["{{Sou, sim.}}","{{Está, sim.}}","{{Estou, sim.}}"],"answer":2,"why":"How you are: {{estar}}, in the “I” form, {{estou}}.","from":"say-how-you-are"},
+        {"type":"choice","q":"{{Você está bem?}} Answer yes, Brazilian style.","options":["{{Sou, sim.}}","{{Está, sim.}}","{{Estou, sim.}}"],"answer":2,"why":"How you are: {{estar}}, in the “I” form, {{estou}}.","from":"say-how-you-are"},
         {"type":"say","q":"Someone asks {{Você entende?}} Say “Yes, I do”, like a Brazilian.","answer":"Entendo, sim."},
         {"type":"free","q":"Your turn: someone asks {{Você fala português?}} Answer honestly, and say what you do speak.","answers":[{"t":"Falo um pouco. Falo inglês e espanhol.","tr":"A little. I speak English and Spanish."},{"t":"Não, não falo muito bem, mas entendo.","tr":"No, I don't speak very well, but I understand."}]}
       ]
@@ -1234,7 +1234,7 @@
       "level": "A2",
       "title": "Say what you did",
       "summary": "Tell someone what you did yesterday or last week, and ask what they did: the past of regular verbs.",
-      "topic": "The pretérito perfeito of regular verbs ({{falei, comi, abri}}); {{ontem}}, {{semana passada}}, {{há}} “ago”",
+      "topic": "The {{pretérito perfeito}} of regular verbs ({{falei, comi, abri}}); {{ontem}}, {{semana passada}}, {{há}} “ago”",
       "blocks": [
         {"goal":{"t":"Ontem eu trabalhei até tarde e depois jantei com uma amiga.","tr":"Yesterday I worked late and then had dinner with a friend."}},
         {"dialog":[{"who":"Renata","t":"E aí, o que você fez ontem?","tr":"So, what did you do yesterday?"},{"who":"Alex","t":"Trabalhei o dia todo. E à noite assisti a um filme.","tr":"I worked all day. And in the evening I watched a movie."},{"who":"Renata","t":"Qual filme?","tr":"Which movie?"},{"who":"Alex","t":"Um brasileiro. Gostei muito! E você?","tr":"A Brazilian one. I liked it a lot! And you?"},{"who":"Renata","t":"Eu estudei pra prova e dormi cedo.","tr":"I studied for the test and went to bed early."},{"who":"Alex","t":"Coitada!","tr":"Poor you!"}]},
@@ -1581,7 +1581,7 @@
       "unit": 6,
       "level": "A2",
       "title": "Sound friendly with little words",
-      "summary": "Use the little endings Brazilians put everywhere: “um cafezinho”, “rapidinho”, “um minutinho”.",
+      "summary": "Use the little endings Brazilians put everywhere: {{um cafezinho}}, {{rapidinho}}, {{um minutinho}}.",
       "topic": "Diminutives {{-inho}}, {{-zinho}}; augmentative {{-ão}}",
       "blocks": [
         {"goal":{"t":"Espera um minutinho, já volto!","tr":"Wait just a minute, I'll be right back!"}},
@@ -2110,7 +2110,7 @@
       "unit": 7,
       "level": "B1",
       "title": "Wonder aloud and understand the news",
-      "summary": "Wonder about things the Brazilian way, “Será que…?”, and understand the one-word future of the news and announcements.",
+      "summary": "Wonder about things the Brazilian way, {{Será que…?}}, and understand the one-word future of the news and announcements.",
       "topic": "{{Será que…?}}; {{sei lá}}; the simple future ({{falarei, será, farei}}) to recognise",
       "blocks": [
         {"goal":{"t":"Será que vai chover amanhã?","tr":"Do you think it's going to rain tomorrow?"}},
@@ -2401,7 +2401,7 @@
       "unit": 8,
       "level": "B1",
       "title": "Keep a conversation going",
-      "summary": "React, ask for agreement and keep people talking with the little words that make you sound Brazilian: né?, sabe?, pois é, nossa!",
+      "summary": "React, ask for agreement and keep people talking with the little words that make you sound Brazilian: {{né?}}, {{sabe?}}, {{pois é}}, {{nossa!}}",
       "topic": "{{né?}}, {{sabe?}}, {{então}}, {{tipo}}, {{pois é}}, {{nossa!}}, {{sério?}}, {{e aí?}}; reactions and follow-up questions",
       "blocks": [
         {"goal":{"t":"Sério? E aí, o que aconteceu depois?","tr":"Really? So what happened next?"}},

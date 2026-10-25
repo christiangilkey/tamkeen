@@ -71,7 +71,7 @@
       "unit": 1,
       "level": "A1",
       "title": "Diga qual é a sua profissão",
-      "summary": "Diga o que você faz e pergunte a profissão dos outros: “I'm a teacher.”",
+      "summary": "Diga o que você faz e pergunte a profissão dos outros: {{I'm a teacher.}}",
       "topic": "{{a}} / {{an}} antes da profissão (o português não usa artigo); {{he's}}, {{she's}}; {{What do you do?}}",
       "blocks": [
         {"goal":{"t":"I'm a nurse. What do you do?","tr":"Sou enfermeira. E você, o que faz?"}},
@@ -118,12 +118,12 @@
       "unit": 1,
       "level": "A1",
       "title": "Diga como você está",
-      "summary": "Responda “How are you?”, diga como você se sente e faça perguntas com {{be}}.",
+      "summary": "Responda {{How are you?}}, diga como você se sente e faça perguntas com {{be}}.",
       "topic": "{{be}} + adjetivo; a negativa com {{not}}; perguntas ({{Are you…?}}) e respostas curtas ({{Yes, I am}}); {{it}} como sujeito ({{It's cold}})",
       "blocks": [
         {"goal":{"t":"I'm fine, thanks. I'm just a little tired.","tr":"Estou bem, obrigado. Só um pouco cansado."}},
         {"dialog":[{"who":"Kate","t":"Hi, Bruno! How are you?","tr":"Oi, Bruno! Tudo bem?"},{"who":"Bruno","t":"I'm good, thanks. And you?","tr":"Tudo bem, obrigado. E você?"},{"who":"Kate","t":"I'm OK. But I'm tired. It's late!","tr":"Estou bem. Mas estou cansada. É tarde!"},{"who":"Bruno","t":"Are you hungry?","tr":"Você está com fome?"},{"who":"Kate","t":"Yes, I am. Very!","tr":"Estou, sim. Muita!"},{"who":"Bruno","t":"Me too. Is the restaurant open?","tr":"Eu também. O restaurante está aberto?"},{"who":"Kate","t":"No, it isn't. It's closed on Mondays.","tr":"Não, não está. Fecha às segundas."}]},
-        {"p":"**How are you?** É o “Tudo bem?” dos americanos. As respostas mais comuns: {{I'm good}}, {{I'm fine}}, {{I'm OK}}, {{Not bad}} “Nada mal”. E devolva a pergunta: {{And you?}} ou {{How about you?}}"},
+        {"p":"**{{How are you?}}** É o “Tudo bem?” dos americanos. As respostas mais comuns: {{I'm good}}, {{I'm fine}}, {{I'm OK}}, {{Not bad}} “Nada mal”. E devolva a pergunta: {{And you?}} ou {{How about you?}}"},
         {"term":"adjetivo","means":"uma palavra que descreve uma pessoa ou uma coisa: cansado, feliz, grande, novo."},
         {"p":"**{{be}} + adjetivo.** Para dizer como você está, use {{be}} e um adjetivo: {{I'm tired}} “Estou cansado, cansada”, {{She's happy}}. O adjetivo em inglês nunca muda: {{tired}} serve para homem, mulher, uma pessoa ou várias."},
         {"p":"**Não: {{not}} depois do {{be}}.** {{I'm not tired}} “Não estou cansado”. Com {{is}} e {{are}}, a forma curta mais falada junta {{not}} ao verbo: {{isn't}}, {{aren't}}."},
@@ -154,7 +154,7 @@
       ],
       "practice": [
         {"type":"fill","q":"Escolha a palavra que falta.","t":"___ cold today.","tr":"Está frio hoje.","options":["Is","It","It's"],"answer":2,"why":"Sujeito + verbo: {{It's}}."},
-        {"type":"choice","q":"Responda “Are you tired?” com um sim curto e natural.","options":["{{Yes, I tired.}}","{{Yes, I am.}}","{{Yes, I'm.}}"],"answer":1,"why":"No fim da resposta vai a forma completa: {{I am}}. ({{Yes, I'm}} não existe.)"},
+        {"type":"choice","q":"Responda {{Are you tired?}} com um sim curto e natural.","options":["{{Yes, I tired.}}","{{Yes, I am.}}","{{Yes, I'm.}}"],"answer":1,"why":"No fim da resposta vai a forma completa: {{I am}}. ({{Yes, I'm}} não existe.)"},
         {"type":"fill","q":"Escolha a palavra que falta.","t":"She ___ here today.","tr":"Ela não está aqui hoje.","options":["isn't","aren't","not"],"answer":0,"why":"Com {{she}}: {{is}} + {{not}} = {{isn't}}."},
         {"type":"dialogue","q":"Um colega cumprimenta você. Escolha suas respostas.","from":"say-who-you-are","lines":[{"who":"Colega","t":"Hi! How are you?","tr":"Oi! Tudo bem?"},{"options":["I'm good, thanks. And you?","I good, thanks. And you?"],"answer":0,"why":"Sempre com o verbo {{be}}: {{I'm good}}."},{"who":"Colega","t":"Are you hungry?","tr":"Você está com fome?"},{"options":["Yes, I am!","Yes, I have!"],"answer":0,"why":"Resposta curta com o mesmo verbo da pergunta: {{I am}}."},{"who":"Colega","t":"Me too!","tr":"Eu também!"}]},
         {"type":"order","q":"Coloque as palavras na ordem.","tr":"O restaurante está aberto?","words":["Is","the","restaurant","open?"]},
@@ -167,14 +167,14 @@
       "unit": 1,
       "level": "A1",
       "title": "Aponte e diga o nome das coisas",
-      "summary": "Pergunte “O que é isso?”, diga o nome das coisas e use “this”, “that” e o plural.",
+      "summary": "Pergunte “O que é isso?”, diga o nome das coisas e use {{this}}, {{that}} e o plural.",
       "topic": "{{this, that, these, those}}; o plural com {{-s}}; {{It's a…}} / {{They're…}}; {{the}}",
       "blocks": [
         {"goal":{"t":"What's this? Is it a fruit?","tr":"O que é isso? É uma fruta?"}},
         {"dialog":[{"who":"Você","t":"Excuse me, what's this?","tr":"Com licença, o que é isso?"},{"who":"Vendedor","t":"It's a blueberry muffin.","tr":"É um muffin de mirtilo."},{"who":"Você","t":"And what are those?","tr":"E aqueles ali, o que são?"},{"who":"Vendedor","t":"Those are cinnamon rolls. They're really good.","tr":"Aqueles são rolinhos de canela. São muito bons."},{"who":"Você","t":"Two, please.","tr":"Dois, por favor."},{"who":"Vendedor","t":"Sure. Here you go!","tr":"Claro. Aqui está!"}]},
         {"term":"substantivo","means":"uma palavra que dá nome a uma pessoa, um lugar ou uma coisa: café, amigo, cidade, água."},
         {"term":"plural","means":"a forma de uma palavra para mais de um: uma casa, duas casas."},
-        {"p":"**What's this?** {{What's this?}} “O que é isto?” serve para qualquer coisa que você aponte. A resposta precisa de sujeito: {{It's a muffin}} “É um muffin”, nunca só {{Is a muffin}}. Para mais de uma coisa: {{They're…}} “São…”."},
+        {"p":"**{{What's this?}}** “O que é isto?” serve para qualquer coisa que você aponte. A resposta precisa de sujeito: {{It's a muffin}} “É um muffin”, nunca só {{Is a muffin}}. Para mais de uma coisa: {{They're…}} “São…”."},
         {"p":"**{{this}}, {{that}}, {{these}}, {{those}}.** O inglês separa perto e longe, e um e vários:"},
         { "table": [
           ["","perto: este, esta, isto","longe: aquele, aquela, aquilo"],
@@ -214,7 +214,7 @@
       "unit": 1,
       "level": "A1",
       "title": "Peça comida e bebida",
-      "summary": "Peça com educação num café ou num restaurante: “Can I have a coffee, please?”",
+      "summary": "Peça com educação num café ou num restaurante: {{Can I have a coffee, please?}}",
       "topic": "{{I'd like…}}, {{Can I have…?}} e {{I want}} (e por que soa seco); {{to}} antes do segundo verbo; {{some}}",
       "blocks": [
         {"goal":{"t":"Hi! Can I have a coffee and a bagel, please?","tr":"Oi! Pode me ver um café e um bagel, por favor?"}},
@@ -259,7 +259,7 @@
       "unit": 1,
       "level": "A1",
       "title": "Faça perguntas",
-      "summary": "Pergunte quem, o quê, onde, quando, como e quanto, e diga a sua idade: “I'm 25.”",
+      "summary": "Pergunte quem, o quê, onde, quando, como e quanto, e diga a sua idade: {{I'm 25.}}",
       "topic": "{{what, where, who, when, how, how old, how much}} + {{be}}; a idade com {{be}}: {{I'm 25}}",
       "blocks": [
         {"goal":{"t":"How old are you? — I'm twenty-five.","tr":"Quantos anos você tem? — Tenho vinte e cinco."}},
@@ -327,11 +327,11 @@
         {"p":"**{{is}} ou {{are}}?** {{is}} para um ({{he}}, {{she}}, {{it}}, uma coisa), {{are}} para vários ({{we}}, {{you}}, {{they}}, várias coisas): {{The beach is beautiful}}; {{The beaches are beautiful}}."},
         { "table": [
           ["","{{be}}","forma curta"],
-          ["I","{{am}}","{{I'm}}"],
-          ["you","{{are}}","{{you're}}"],
-          ["he, she, it","{{is}}","{{he's}}, {{she's}}, {{it's}}"],
-          ["we","{{are}}","{{we're}}"],
-          ["they","{{are}}","{{they're}}"]
+          ["{{I}}","{{am}}","{{I'm}}"],
+          ["{{you}}","{{are}}","{{you're}}"],
+          ["{{he}}, {{she}}, {{it}}","{{is}}","{{he's}}, {{she's}}, {{it's}}"],
+          ["{{we}}","{{are}}","{{we're}}"],
+          ["{{they}}","{{are}}","{{they're}}"]
         ] },
         {"p":"**{{very}} e {{really}}.** “Muito” antes de um adjetivo é {{very}} ou, na fala, {{really}}: {{very good}}, {{really nice}}."},
         { "ex": [
@@ -476,13 +476,13 @@
         {"p":"**Os possessivos** vêm antes do substantivo, como em português, mas **sem artigo**: {{my car}} “o meu carro”, nunca {{the my car}}."},
         { "table": [
           ["","inglês","português"],
-          ["I","{{my}}","meu, minha"],
-          ["you","{{your}}","seu, sua, teu, tua"],
-          ["he","{{his}}","dele"],
-          ["she","{{her}}","dela"],
-          ["it","{{its}}","dele, dela (de uma coisa ou de um bicho)"],
-          ["we","{{our}}","nosso, nossa"],
-          ["they","{{their}}","deles, delas"]
+          ["{{I}}","{{my}}","meu, minha"],
+          ["{{you}}","{{your}}","seu, sua, teu, tua"],
+          ["{{he}}","{{his}}","dele"],
+          ["{{she}}","{{her}}","dela"],
+          ["{{it}}","{{its}}","dele, dela (de uma coisa ou de um bicho)"],
+          ["{{we}}","{{our}}","nosso, nossa"],
+          ["{{they}}","{{their}}","deles, delas"]
         ] },
         {"p":"**Quem decide é o dono.** Em português, “seu” e “sua” combinam com a coisa: “sua casa”, “seu carro”. Em inglês, {{his}} e {{her}} mostram se o dono é homem ou mulher, e a coisa não importa: {{Maria and her brother}} “a Maria e o irmão dela”, {{Pedro and his sister}} “o Pedro e a irmã dele”."},
         {"p":"**O carro da Ana: {{'s}}.** Para dizer de quem é, o inglês põe {{'s}} no dono, antes da coisa: {{Ana's car}} “o carro da Ana”, {{my father's house}} “a casa do meu pai”. Nada de {{the car of Ana}}."},
@@ -634,11 +634,11 @@
         {"p":"**O verbo quase não muda.** Em português o verbo muda para cada pessoa: eu trabalho, você trabalha, nós trabalhamos… Em inglês o presente tem só duas formas: a do dicionário ({{work}}) e a com {{-s}} ({{works}}). Por isso o sujeito é tão importante: é ele que diz quem."},
         { "table": [
           ["","{{work}} trabalhar","{{live}} morar"],
-          ["I","{{I work}}","{{I live}}"],
-          ["you","{{you work}}","{{you live}}"],
-          ["he, she, it","{{he works}}","{{she lives}}"],
-          ["we","{{we work}}","{{we live}}"],
-          ["they","{{they work}}","{{they live}}"]
+          ["{{I}}","{{I work}}","{{I live}}"],
+          ["{{you}}","{{you work}}","{{you live}}"],
+          ["{{he}}, {{she}}, {{it}}","{{he works}}","{{she lives}}"],
+          ["{{we}}","{{we work}}","{{we live}}"],
+          ["{{they}}","{{they work}}","{{they live}}"]
         ] },
         {"p":"**O {{-s}} de {{he}}, {{she}} e {{it}}.** Só com a terceira pessoa (ele, ela, uma coisa, a Ana, meu pai) o verbo ganha {{-s}}: {{She works}}, {{My father lives in Recife}}. É fácil esquecer, porque no português não tem nada parecido: preste atenção nele!"},
         {"p":"**Ortografia.** Depois de {{s}}, {{sh}}, {{ch}}, {{x}} e {{o}}, o {{-s}} vira {{-es}}: {{watches}}, {{goes}}, {{does}}. Consoante + {{y}} vira {{-ies}}: {{study}} → {{studies}}. E um irregular: {{have}} → {{has}} (lição 16)."},
@@ -673,7 +673,7 @@
       "unit": 3,
       "level": "A1",
       "title": "Diga o que você não faz",
-      "summary": "Diga o que você não faz e o que os outros não fazem: “I don't eat meat.”",
+      "summary": "Diga o que você não faz e o que os outros não fazem: {{I don't eat meat.}}",
       "topic": "{{don't}} / {{doesn't}} + verbo; o {{-s}} passa para o {{doesn't}}; {{be}} não usa {{don't}}",
       "blocks": [
         {"goal":{"t":"I don't eat meat, and my husband doesn't drink coffee.","tr":"Eu não como carne, e meu marido não toma café."}},
@@ -682,8 +682,8 @@
         {"p":"**O “não” precisa de ajuda.** Em português basta pôr “não” antes do verbo: “Eu não como carne”. Em inglês, com quase todos os verbos, o “não” precisa de um verbo auxiliar: {{do not}}, que na fala vira {{don't}}. {{I don't eat meat.}}"},
         { "table": [
           ["","afirmativa","negativa"],
-          ["I, you, we, they","{{I eat meat.}}","{{I don't eat meat.}}"],
-          ["he, she, it","{{She eats meat.}}","{{She doesn't eat meat.}}"]
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{I eat meat.}}","{{I don't eat meat.}}"],
+          ["{{he}}, {{she}}, {{it}}","{{She eats meat.}}","{{She doesn't eat meat.}}"]
         ] },
         {"p":"**O {{-s}} muda de lugar.** Com {{he}}, {{she}} e {{it}}, o auxiliar é {{does}} ({{doesn't}}), e ele leva o {{-s}}: o verbo principal volta à forma do dicionário. {{She doesn't eat}}, nunca {{She doesn't eats}}."},
         {"p":"**{{be}} é diferente.** Com {{am}}, {{is}} e {{are}} não se usa {{don't}}: o {{not}} vai direto depois deles (lição 3). {{I'm not hungry}}, mas {{I don't like it}}."},
@@ -730,8 +730,8 @@
         {"p":"**A pergunta também precisa de ajuda.** Em português, a pergunta é a mesma frase com outra entonação: “Você mora aqui?”. Em inglês, com os verbos comuns, põe-se {{do}} (ou {{does}}) no começo: {{Do you live here?}} É o mesmo auxiliar da negativa."},
         { "table": [
           ["","afirmativa","pergunta"],
-          ["I, you, we, they","{{You live here.}}","{{Do you live here?}}"],
-          ["he, she, it","{{She works here.}}","{{Does she work here?}}"]
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{You live here.}}","{{Do you live here?}}"],
+          ["{{he}}, {{she}}, {{it}}","{{She works here.}}","{{Does she work here?}}"]
         ] },
         {"p":"Como na negativa, o {{-s}} vai para o {{does}}: {{Does she work?}}, nunca {{Does she works?}}"},
         {"p":"**Respostas curtas.** O português responde com o verbo (“Moro.”, “Não, não moro.”); o inglês responde com o auxiliar: {{Yes, I do.}} / {{No, I don't.}}; {{Yes, she does.}} / {{No, she doesn't.}}"},
@@ -754,7 +754,7 @@
       "practice": [
         {"type":"fill","q":"Escolha a palavra que falta.","t":"___ you like pizza?","tr":"Você gosta de pizza?","options":["Do","Does","Are"],"answer":0,"why":"Pergunta com {{you}}: {{do}}."},
         {"type":"fill","q":"Escolha a palavra que falta.","t":"Where ___ your brother live?","tr":"Onde o seu irmão mora?","options":["does","do","is"],"answer":0,"why":"{{Your brother}} é “ele”: {{does}}."},
-        {"type":"choice","q":"Responda “Do you speak English?” com um sim curto.","options":["{{Yes, I speak.}}","{{Yes, I am.}}","{{Yes, I do.}}"],"answer":2,"why":"A resposta curta usa o auxiliar da pergunta: {{do}}.","from":"say-how-you-are"},
+        {"type":"choice","q":"Responda {{Do you speak English?}} com um sim curto.","options":["{{Yes, I speak.}}","{{Yes, I am.}}","{{Yes, I do.}}"],"answer":2,"why":"A resposta curta usa o auxiliar da pergunta: {{do}}.","from":"say-how-you-are"},
         {"type":"dialogue","q":"Um colega novo puxa conversa. Escolha suas respostas.","from":"say-what-you-dont-do","lines":[{"who":"Ryan","t":"Do you live near here?","tr":"Você mora aqui perto?"},{"options":["No, I don't. I live in Queens.","No, I not. I live in Queens."],"answer":0,"why":"Resposta curta: {{No, I don't}}."},{"who":"Ryan","t":"Does your wife work here too?","tr":"Sua esposa também trabalha aqui?"},{"options":["Yes, she does. She's a designer.","Yes, she works. She's a designer."],"answer":0,"why":"Resposta curta com o auxiliar: {{she does}}."},{"who":"Ryan","t":"Oh, nice!","tr":"Ah, que bom!"}]},
         {"type":"order","q":"Coloque as palavras na ordem.","tr":"Que horas a loja abre?","words":["What","time","does","the store","open?"]},
         {"type":"say","q":"Como se pergunta “Onde você trabalha?”","answer":"Where do you work?"},
@@ -766,7 +766,7 @@
       "unit": 3,
       "level": "A1",
       "title": "Fale da sua família e do que você tem",
-      "summary": "Diga quem é a sua família e o que você tem, e pergunte aos outros: “Do you have kids?”",
+      "summary": "Diga quem é a sua família e o que você tem, e pergunte aos outros: {{Do you have kids?}}",
       "topic": "{{have}} / {{has}}; {{Do you have…?}}; {{have breakfast}}, {{have fun}}; {{have got}} para reconhecer; o som do {{h}}",
       "blocks": [
         {"goal":{"t":"I have two brothers and a sister.","tr":"Tenho dois irmãos e uma irmã."}},
@@ -774,8 +774,8 @@
         {"p":"**{{have}} e {{has}}.** “Ter”, no sentido de posse, é {{have}}; com {{he}}, {{she}} e {{it}}, é {{has}} (o {{-s}} da lição 13, num verbo irregular)."},
         { "table": [
           ["","afirmativa","negativa","pergunta"],
-          ["I, you, we, they","{{I have a car.}}","{{I don't have a car.}}","{{Do you have a car?}}"],
-          ["he, she, it","{{She has a car.}}","{{She doesn't have a car.}}","{{Does she have a car?}}"]
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{I have a car.}}","{{I don't have a car.}}","{{Do you have a car?}}"],
+          ["{{he}}, {{she}}, {{it}}","{{She has a car.}}","{{She doesn't have a car.}}","{{Does she have a car?}}"]
         ] },
         {"p":"Na negativa e na pergunta, {{have}} funciona como qualquer verbo: precisa de {{do}} ou {{does}}, e depois de {{does}} volta a ser {{have}}. {{Does she have…?}}, nunca {{Does she has…?}}"},
         {"p":"**Lembre: o “tem” de existir é outra coisa.** {{I have a dog}} “Eu tenho um cachorro”; mas “Tem um cachorro no quintal” é {{There's a dog in the yard}} (lição 8)."},
@@ -914,7 +914,7 @@
       "unit": 3,
       "level": "A1",
       "title": "Diga o que está acontecendo agora",
-      "summary": "Diga o que você está fazendo agora, pergunte aos outros e fale do tempo: “It's raining.”",
+      "summary": "Diga o que você está fazendo agora, pergunte aos outros e fale do tempo: {{It's raining.}}",
       "topic": "O present continuous ({{am/is/are}} + {{-ing}}); a diferença do presente simples; verbos como {{know}} e {{want}}, sem {{-ing}}",
       "blocks": [
         {"goal":{"t":"What are you doing? — I'm watching a movie.","tr":"O que você está fazendo? — Estou vendo um filme."}},
@@ -923,9 +923,9 @@
         {"p":"**Agora: {{be}} + {{-ing}}.** Para o que está acontecendo neste momento, o inglês faz como o português (“estou + -ndo”): {{be}} + o verbo com {{-ing}}. {{I'm working}} “Estou trabalhando”."},
         { "table": [
           ["","afirmativa","negativa","pergunta"],
-          ["I","{{I'm working.}}","{{I'm not working.}}","{{Am I working?}}"],
-          ["you, we, they","{{You're working.}}","{{You aren't working.}}","{{Are you working?}}"],
-          ["he, she, it","{{She's working.}}","{{She isn't working.}}","{{Is she working?}}"]
+          ["{{I}}","{{I'm working.}}","{{I'm not working.}}","{{Am I working?}}"],
+          ["{{you}}, {{we}}, {{they}}","{{You're working.}}","{{You aren't working.}}","{{Are you working?}}"],
+          ["{{he}}, {{she}}, {{it}}","{{She's working.}}","{{She isn't working.}}","{{Is she working?}}"]
         ] },
         {"p":"**Ortografia do {{-ing}}.** Normalmente é só acrescentar: {{work}} → {{working}}. O {{-e}} do fim cai: {{make}} → {{making}}. Vogal + consoante no fim de uma sílaba forte: a consoante dobra: {{run}} → {{running}}, {{sit}} → {{sitting}}."},
         {"p":"**Sempre ou agora?** Aqui o inglês é mais rígido que o português. {{I work in a bank}}: é o meu trabalho, sempre. {{I'm working}}: estou fazendo isso agora. Para rotina, nada de {{-ing}}: {{I go to the gym every day}}."},
@@ -961,7 +961,7 @@
       "unit": 3,
       "level": "A1",
       "title": "Diga o que você sabe e pode fazer",
-      "summary": "Diga o que você sabe fazer, peça favores e permissão: “Can you help me?”, “Can I sit here?”.",
+      "summary": "Diga o que você sabe fazer, peça favores e permissão: {{Can you help me?}}, {{Can I sit here?}}",
       "topic": "{{can}} / {{can't}} + verbo (sem {{to}}, sem {{-s}}, sem {{do}}); {{Can you…?}} e {{Can I…?}}; a pronúncia de {{can}} e {{can't}}",
       "blocks": [
         {"goal":{"t":"Can you help me? I can't open the door.","tr":"Você pode me ajudar? Não consigo abrir a porta."}},
@@ -1061,7 +1061,7 @@
       "unit": 4,
       "level": "A2",
       "title": "Ofereça ajuda e prometa",
-      "summary": "Ofereça ajuda, prometa, decida na hora e faça previsões: “I'll help you!”",
+      "summary": "Ofereça ajuda, prometa, decida na hora e faça previsões: {{I'll help you!}}",
       "topic": "{{will}} ({{I'll}}, {{won't}}): ofertas, promessas, decisões na hora, previsões; {{will}} ou {{going to}}",
       "blocks": [
         {"goal":{"t":"Don't worry, I'll help you with your bags.","tr":"Não se preocupe, eu te ajudo com as malas."}},
@@ -1204,7 +1204,7 @@
       "unit": 4,
       "level": "A2",
       "title": "Fale das pessoas sem repetir o nome",
-      "summary": "Diga “me”, “te”, “ele”, “ela”, “isso” e “nos” do jeito do inglês, depois do verbo: “I love you”, “Call me”.",
+      "summary": "Diga “me”, “te”, “ele”, “ela”, “isso” e “nos” do jeito do inglês, depois do verbo: {{I love you}}, {{Call me}}.",
       "topic": "Os pronomes objeto {{me, you, him, her, it, us, them}}, sempre depois do verbo; {{it}} para coisas; depois de preposição ({{with me}}, {{for her}})",
       "blocks": [
         {"goal":{"t":"I'll call you tomorrow. Can you text me the address?","tr":"Te ligo amanhã. Você me manda o endereço?"}},
@@ -1422,8 +1422,8 @@
         {"p":"**O passado do {{be}}: {{was}} e {{were}}.** É o “era”, o “estava” e o “foi” do português, numa palavra só. {{was}} para {{I}}, {{he}}, {{she}}, {{it}}; {{were}} para {{you}}, {{we}}, {{they}}."},
         { "table": [
           ["","afirmativa","negativa","pergunta"],
-          ["I, he, she, it","{{I was tired.}}","{{I wasn't tired.}}","{{Was she tired?}}"],
-          ["you, we, they","{{We were late.}}","{{We weren't late.}}","{{Were you late?}}"]
+          ["{{I}}, {{he}}, {{she}}, {{it}}","{{I was tired.}}","{{I wasn't tired.}}","{{Was she tired?}}"],
+          ["{{you}}, {{we}}, {{they}}","{{We were late.}}","{{We weren't late.}}","{{Were you late?}}"]
         ] },
         {"p":"Como no presente, {{be}} não usa {{did}}: {{Were you at home?}}, nunca {{Did you were at home?}}"},
         {"p":"**Como foi?: {{How was it?}}** {{How was the trip?}} “Como foi a viagem?” — {{It was great!}}, {{It was OK}}, {{It was terrible}}."},
@@ -1459,7 +1459,7 @@
       "unit": 5,
       "level": "A2",
       "title": "Conte uma história",
-      "summary": "Monte a cena e conte o que aconteceu: “I was sleeping when the phone rang.”",
+      "summary": "Monte a cena e conte o que aconteceu: {{I was sleeping when the phone rang.}}",
       "topic": "O past continuous ({{was/were}} + {{-ing}}) para o cenário; o passado simples para os fatos; {{when}}, {{while}}; {{first, then, suddenly, in the end}}",
       "blocks": [
         {"goal":{"t":"I was sleeping when the phone rang.","tr":"Eu estava dormindo quando o telefone tocou."}},
@@ -1504,7 +1504,7 @@
       "unit": 5,
       "level": "A2",
       "title": "Diga o que você fazia antigamente",
-      "summary": "Fale da sua infância e de como as coisas eram: “I used to live in a small town.”",
+      "summary": "Fale da sua infância e de como as coisas eram: {{I used to live in a small town.}}",
       "topic": "{{used to}} + verbo para hábitos e estados do passado (o nosso imperfeito); {{didn't use to}}; {{Did you use to…?}}",
       "blocks": [
         {"goal":{"t":"When I was a kid, I used to play soccer every day.","tr":"Quando eu era criança, jogava futebol todo dia."}},
@@ -1549,7 +1549,7 @@
       "unit": 6,
       "level": "A2",
       "title": "Fale das suas experiências",
-      "summary": "Pergunte e conte o que você já fez na vida: “Have you ever been to New York?”",
+      "summary": "Pergunte e conte o que você já fez na vida: {{Have you ever been to New York?}}",
       "topic": "O present perfect ({{have}} + particípio): {{Have you ever…?}}, {{I've never…}}; o passado simples quando se diz quando",
       "blocks": [
         {"goal":{"t":"Have you ever been to New York? — No, I've never been there.","tr":"Você já foi a Nova York? — Não, nunca fui."}},
@@ -1587,7 +1587,7 @@
           {"t":"I've met him before.","tr":"Já conheço ele.","note":"palavra por palavra, “já o encontrei antes”"},
           {"t":"I saw that movie last week.","tr":"Vi esse filme semana passada.","note":"com data: passado simples"}
         ] },
-        {"tip":"{{She's}} pode ser {{she is}} ou {{she has}}: {{She's tired}} (is), {{She's been there}} (has). O que vem depois mostra qual é."}
+        {"tip":"{{She's}} pode ser {{she is}} ou {{she has}}: {{She's tired}} ({{is}}), {{She's been there}} ({{has}}). O que vem depois mostra qual é."}
       ],
       "mistakes": [
         {"wrong":"I've been to Boston last year.","right":"I went to Boston last year.","tr":"Fui a Boston no ano passado.","why":"Com a data ({{last year}}): passado simples."},
@@ -1609,7 +1609,7 @@
       "unit": 6,
       "level": "A2",
       "title": "Diga há quanto tempo",
-      "summary": "Diga há quanto tempo você mora, trabalha ou estuda num lugar: “I've lived here for two years.”",
+      "summary": "Diga há quanto tempo você mora, trabalha ou estuda num lugar: {{I've lived here for two years.}}",
       "topic": "{{for}} e {{since}} com o present perfect; {{How long have you…?}}; o {{há}} do passado é {{ago}}",
       "blocks": [
         {"goal":{"t":"I've lived in Toronto for two years.","tr":"Moro em Toronto há dois anos."}},
@@ -1752,7 +1752,7 @@
       "unit": 6,
       "level": "A2",
       "title": "Diga qual é o melhor",
-      "summary": "Diga qual é o maior, o melhor e o mais bonito: “It's the best pizza in the city!”",
+      "summary": "Diga qual é o maior, o melhor e o mais bonito: {{It's the best pizza in the city!}}",
       "topic": "O superlativo: {{the}} + {{-est}} / {{the most}}; {{the best}}, {{the worst}}; {{in the city}}; {{the best… I've ever…}}",
       "blocks": [
         {"goal":{"t":"It's the best pizza I've ever had!","tr":"É a melhor pizza que eu já comi!"}},
@@ -1858,7 +1858,7 @@
       "unit": 6,
       "level": "A2",
       "title": "Dê conselhos",
-      "summary": "Dê conselhos e diga o que alguém deveria fazer: “You should see a doctor.”",
+      "summary": "Dê conselhos e diga o que alguém deveria fazer: {{You should see a doctor.}}",
       "topic": "{{should}} / {{shouldn't}} + verbo; {{I think you should…}}; {{Should I…?}}; {{Why don't you…?}}; {{You'd better…}}",
       "blocks": [
         {"goal":{"t":"You should see a doctor. You don't look well.","tr":"Você devia ir ao médico. Você não parece bem."}},
@@ -1905,7 +1905,7 @@
       "unit": 6,
       "level": "A2",
       "title": "Diga o que você tem que fazer",
-      "summary": "Diga o que você tem que fazer, o que não precisa e o que é proibido: “I have to work tomorrow.”",
+      "summary": "Diga o que você tem que fazer, o que não precisa e o que é proibido: {{I have to work tomorrow.}}",
       "topic": "{{have to}} / {{has to}} / {{had to}}; {{don't have to}} (não precisa) e {{can't}}, {{mustn't}} (não pode); {{must}} em regras e para deduzir",
       "blocks": [
         {"goal":{"t":"I have to go. I have to get up early tomorrow.","tr":"Tenho que ir. Tenho que acordar cedo amanhã."}},
@@ -1934,7 +1934,7 @@
           {"t":"You can't smoke in here.","tr":"Não pode fumar aqui dentro."},
           {"t":"You must be hungry after the trip.","tr":"Você deve estar com fome depois da viagem.","note":"dedução"}
         ] },
-        {"tip":"{{I've got to go}} (na fala, “I gotta go”) é o jeito mais casual de dizer “Tenho que ir”: você vai ouvir no fim de muita ligação."}
+        {"tip":"{{I've got to go}} (na fala, {{I gotta go}}) é o jeito mais casual de dizer “Tenho que ir”: você vai ouvir no fim de muita ligação."}
       ],
       "mistakes": [
         {"wrong":"I have go now.","right":"I have to go now.","tr":"Tenho que ir agora.","why":"“Ter que” é {{have to}}: o {{to}} não pode faltar."},
@@ -1956,7 +1956,7 @@
       "unit": 7,
       "level": "B1",
       "title": "Fale do que pode acontecer",
-      "summary": "Diga o que pode acontecer e o que talvez seja verdade: “It might rain.”, “She may be at home.”",
+      "summary": "Diga o que pode acontecer e o que talvez seja verdade: {{It might rain.}}, {{She may be at home.}}",
       "topic": "{{might}}, {{may}}, {{could}} + verbo para possibilidades; {{might not}}; {{maybe}} ou {{may be}}",
       "blocks": [
         {"goal":{"t":"Take an umbrella. It might rain later.","tr":"Leve um guarda-chuva. Pode chover mais tarde."}},
@@ -2003,7 +2003,7 @@
       "unit": 7,
       "level": "B1",
       "title": "Diga o que vai acontecer se…",
-      "summary": "Fale do futuro com “se” e “quando”: “If it rains, I'll stay home.”, “When I get home, I'll call you.”",
+      "summary": "Fale do futuro com “se” e “quando”: {{If it rains, I'll stay home.}}, {{When I get home, I'll call you.}}",
       "topic": "{{if}}, {{when}}, {{as soon as}} + presente, e {{will}} na outra parte (nunca {{when I will…}}); o nosso futuro do subjuntivo",
       "blocks": [
         {"goal":{"t":"When I get home, I'll text you.","tr":"Quando eu chegar em casa, te mando mensagem."}},
@@ -2049,7 +2049,7 @@
       "unit": 7,
       "level": "B1",
       "title": "Imagine e diga o que você faria",
-      "summary": "Imagine e sonhe em voz alta: “If I won the lottery, I'd travel the world.”, “If I were you…”",
+      "summary": "Imagine e sonhe em voz alta: {{If I won the lottery, I'd travel the world.}}, {{If I were you…}}",
       "topic": "{{if}} + passado e {{would}} na outra parte (o nosso “se eu tivesse… faria”); {{If I were you}}; {{could}}; {{I wish}}",
       "blocks": [
         {"goal":{"t":"If I won the lottery, I would travel around the world.","tr":"Se eu ganhasse na loteria, viajaria pelo mundo."}},
@@ -2090,6 +2090,404 @@
         {"type":"order","q":"Coloque as palavras na ordem.","tr":"Seria ótimo se você pudesse vir.","words":["It","would be","great","if","you could","come."]},
         {"type":"say","q":"Como se diz “Se eu fosse você, não iria”?","answer":"If I were you, I wouldn't go."},
         {"type":"free","q":"Sua vez: o que você faria se pudesse morar um ano em outro país? Responda com {{If I…, I'd…}}","answers":[{"t":"If I could live in another country, I'd live in Canada and I'd learn to ski.","tr":"Se eu pudesse morar em outro país, moraria no Canadá e aprenderia a esquiar."},{"t":"If I had a year abroad, I'd travel around Europe by train.","tr":"Se eu tivesse um ano fora, viajaria pela Europa de trem."}]}
+      ]
+    },
+    {
+      "id": "describe-with-who-and-that",
+      "unit": 8,
+      "level": "B1",
+      "title": "Diga de qual você está falando",
+      "summary": "Descreva pessoas, coisas e lugares com uma frase inteira: {{the friend who lives in Boston}}, {{the movie I saw}}.",
+      "topic": "Orações relativas com {{who}}, {{which}}, {{that}}, {{where}}; o {{that}} que pode sumir; nada de pronome repetido",
+      "blocks": [
+        {"goal":{"t":"I met a woman who speaks five languages!","tr":"Conheci uma mulher que fala cinco línguas!"}},
+        {"dialog":[{"who":"Amy","t":"Who's the guy who's talking to Ben?","tr":"Quem é o cara que está falando com o Ben?"},{"who":"Você","t":"That's Leo, the friend who lives in Boston.","tr":"É o Leo, o amigo que mora em Boston."},{"who":"Amy","t":"Oh, the one who works in movies?","tr":"Ah, o que trabalha com cinema?"},{"who":"Você","t":"Exactly. And that's the woman who made the cake.","tr":"Esse mesmo. E aquela é a mulher que fez o bolo."},{"who":"Amy","t":"The cake that I ate three times? I need to meet her!","tr":"O bolo que eu comi três vezes? Preciso conhecer ela!"}]},
+        {"term":"oração relativa","means":"um pedaço de frase que descreve um substantivo e começa com “que”, “onde”, “quem”: o livro **que eu li**, a cidade **onde eu nasci**."},
+        {"p":"**Um “que”, várias palavras.** O português usa “que” para quase tudo. O inglês escolhe:"},
+        { "table": [
+          ["","quando","exemplo"],
+          ["{{who}}","para pessoas","{{the friend who lives in Boston}}"],
+          ["{{which}}","para coisas","{{the book which I bought}}"],
+          ["{{that}}","para pessoas e coisas (o mais comum na fala)","{{the cake that I ate}}"],
+          ["{{where}}","para lugares","{{the city where I was born}}"]
+        ] },
+        {"p":"**O “que” que some.** Diferente do português, o inglês pode tirar o {{that}} (ou {{who}}, {{which}}) quando ele é o objeto do verbo seguinte: {{the movie (that) I saw}} “o filme que eu vi”, {{the people (that) we met}} “as pessoas que a gente conheceu”. Na fala, quase sempre some. Mas quando ele é o sujeito, fica: {{the woman who speaks five languages}}."},
+        {"p":"**Nada de pronome repetido.** O objeto não se repete: {{the book that I read}}, nunca {{the book that I read it}}."},
+        {"p":"**A preposição vai para o fim.** Em português ela vem antes: “a pessoa com quem eu falei”. Em inglês, na conversa, ela vai para o fim: {{the person I talked to}}, {{the music I listen to}}."},
+        { "ex": [
+          {"t":"The movie we saw yesterday was great.","tr":"O filme que a gente viu ontem foi ótimo.","note":"o {{that}} sumiu"},
+          {"t":"This is the street where I used to live.","tr":"Esta é a rua onde eu morava."},
+          {"t":"I have a friend who works at a hospital.","tr":"Tenho um amigo que trabalha num hospital."},
+          {"t":"Is this the bus that goes downtown?","tr":"Este é o ônibus que vai para o centro?"},
+          {"t":"The guy I talked to was really nice.","tr":"O cara com quem eu falei foi muito simpático."},
+          {"t":"That's the best thing that happened to me this year.","tr":"Foi a melhor coisa que me aconteceu este ano."}
+        ] },
+        {"tip":"{{What}} é “o que” no sentido de “a coisa que”: {{I didn't understand what he said}} “Não entendi o que ele disse”, {{That's what I want}} “É isso que eu quero”. Nesses casos, não use {{that}}."}
+      ],
+      "mistakes": [
+        {"wrong":"the book that I read it","right":"the book that I read","tr":"o livro que eu li","why":"O objeto não se repete depois do {{that}}."},
+        {"wrong":"the man which lives here","right":"the man who lives here","tr":"o homem que mora aqui","why":"Para pessoas: {{who}} (ou {{that}}), nunca {{which}}."},
+        {"wrong":"I didn't understand that he said.","right":"I didn't understand what he said.","tr":"Não entendi o que ele disse.","why":"“O que”, no sentido de “a coisa que”, é {{what}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"The girl ___ lives next door is my cousin.","tr":"A menina que mora ao lado é minha prima.","options":["where","who","which"],"answer":1,"why":"Pessoa: {{who}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"This is the city ___ I was born.","tr":"Esta é a cidade onde eu nasci.","options":["who","where","which"],"answer":1,"why":"Lugar: {{where}}."},
+        {"type":"choice","q":"Qual está certa?","options":["{{The movie who I saw was great.}}","{{The movie I saw was great.}}","{{The movie I saw it was great.}}"],"answer":1,"why":"O {{that}} pode sumir, e o objeto não se repete."},
+        {"type":"dialogue","q":"Numa festa: escolha suas respostas.","from":"say-what-you-used-to-do","lines":[{"who":"Amy","t":"Who's that guy?","tr":"Quem é aquele cara?"},{"options":["That's the teacher which taught me English!","That's the teacher who taught me English!"],"answer":1,"why":"Pessoa: {{who}}."},{"who":"Amy","t":"Really? Was he good?","tr":"Sério? Ele era bom?"},{"options":["He was the best teacher I've ever had.","He was the best teacher I've ever had him."],"answer":0,"why":"Sem repetir o objeto."},{"who":"Amy","t":"Cool!","tr":"Que legal!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Esta é a rua onde eu morava.","words":["This","is","the street","where","I","used to live."]},
+        {"type":"say","q":"Como se diz “Não entendi o que ele disse”?","answer":"I didn't understand what he said."},
+        {"type":"free","q":"Sua vez: descreva um lugar ou uma pessoa especial para você, usando {{who}}, {{that}} ou {{where}}.","answers":[{"t":"I have a friend who lives in São Paulo and always helps me with my English.","tr":"Tenho uma amiga que mora em São Paulo e sempre me ajuda com o inglês."},{"t":"The beach where I used to spend my vacations is my favorite place.","tr":"A praia onde eu passava as férias é o meu lugar favorito."}]}
+      ]
+    },
+    {
+      "id": "connect-your-ideas",
+      "unit": 8,
+      "level": "B1",
+      "title": "Ligue suas ideias",
+      "summary": "Dê motivos e consequências e junte as suas ideias: {{because}}, {{so}}, {{but}}, {{although}}, {{however}}.",
+      "topic": "{{because}} e {{because of}}; {{so}}; {{but}}, {{although}}, {{even though}}, {{however}}; {{so}} ou {{then}}",
+      "blocks": [
+        {"goal":{"t":"I didn't go to the party because I was really tired.","tr":"Não fui à festa porque estava muito cansado."}},
+        {"dialog":[{"who":"Lisa","t":"Why didn't you come yesterday?","tr":"Por que você não veio ontem?"},{"who":"Você","t":"Because I had to work late. Sorry!","tr":"Porque tive que trabalhar até tarde. Desculpa!"},{"who":"Lisa","t":"That's OK. But you're coming on Saturday, right?","tr":"Tudo bem. Mas você vem no sábado, né?"},{"who":"Você","t":"Yes! I asked for the day off, so I'm free.","tr":"Vou! Pedi folga, então estou livre."},{"who":"Lisa","t":"Great! Although it might rain…","tr":"Ótimo! Embora possa chover…"},{"who":"Você","t":"No problem. We'll stay inside.","tr":"Sem problema. A gente fica lá dentro."}]},
+        {"p":"**Motivo e consequência.** {{because}} “porque” dá o motivo; {{so}} “então, por isso” dá a consequência: {{I went home because I was tired}}; {{I was tired, so I went home}}."},
+        { "table": [
+          ["","inglês","português"],
+          ["motivo","{{because}}","porque"],
+          ["motivo + substantivo","{{because of}}","por causa de"],
+          ["consequência","{{so}}","então, por isso"],
+          ["contraste","{{but}}","mas"],
+          ["contraste","{{although}}, {{even though}}","embora, mesmo que"],
+          ["contraste (formal)","{{however}}","porém, no entanto"]
+        ] },
+        {"p":"**{{because}} ou {{because of}}?** {{because}} + uma frase: {{because it was raining}}. {{because of}} + um substantivo: {{because of the rain}} “por causa da chuva”."},
+        {"p":"**{{although}}: sem subjuntivo.** Em português, “embora” pede o subjuntivo: “Embora seja caro…”. Em inglês o verbo não muda: {{Although it's expensive, it's worth it}}. {{Even though}} é mais forte: “mesmo que”."},
+        {"p":"**{{however}}** é mais formal e começa uma frase nova, com vírgula: {{The hotel was nice. However, it was far from the beach.}} Na conversa, use {{but}}."},
+        {"p":"**Cuidado com o “então”.** {{then}} é o “então” de tempo, “depois”: {{First we ate, then we danced}}. Para consequência, é {{so}}: {{It was late, so we left}}."},
+        { "ex": [
+          {"t":"I'm learning English because I want to work abroad.","tr":"Estou aprendendo inglês porque quero trabalhar fora."},
+          {"t":"The flight was canceled because of the storm.","tr":"O voo foi cancelado por causa da tempestade."},
+          {"t":"It was raining, so we stayed home.","tr":"Estava chovendo, então a gente ficou em casa."},
+          {"t":"It's far, but you can walk there.","tr":"É longe, mas dá para ir a pé."},
+          {"t":"Although I like São Paulo, I'd rather live in a small town.","tr":"Embora eu goste de São Paulo, prefiro morar numa cidade pequena."},
+          {"t":"The food was great. However, the service was slow.","tr":"A comida estava ótima. Porém, o atendimento foi lento."}
+        ] },
+        {"tip":"{{So…}} no começo da frase também puxa assunto, como o nosso “Então…”: {{So, how was your trip?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I stayed home because the rain.","right":"I stayed home because of the rain.","tr":"Fiquei em casa por causa da chuva.","why":"Antes de um substantivo: {{because of}}."},
+        {"wrong":"It was late, then we left.","right":"It was late, so we left.","tr":"Era tarde, então a gente foi embora.","why":"Para consequência, “então” é {{so}}; {{then}} é “depois”."},
+        {"wrong":"Although it's expensive, but I like it.","right":"Although it's expensive, I like it.","tr":"Embora seja caro, eu gosto.","why":"Com {{although}}, não vai {{but}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I was tired, ___ I went to bed early.","tr":"Eu estava cansado, então fui dormir cedo.","options":["because","so","then"],"answer":1,"why":"Consequência: {{so}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"The game was canceled ___ the rain.","tr":"O jogo foi cancelado por causa da chuva.","options":["so","because of","because"],"answer":1,"why":"Antes de um substantivo: {{because of}}."},
+        {"type":"choice","q":"Como se diz “Embora seja caro, vale a pena”?","options":["{{Although it's expensive, it's worth it.}}","{{Although it's expensive, but it's worth it.}}","{{Although it be expensive, it's worth it.}}"],"answer":0,"why":"Com {{although}}: sem {{but}} e sem mudar o verbo."},
+        {"type":"dialogue","q":"Uma amiga pergunta por que você faltou. Escolha suas respostas.","from":"ask-what-happened","lines":[{"who":"Lisa","t":"Why didn't you come yesterday?","tr":"Por que você não veio ontem?"},{"options":["Because of I had to work late.","Because I had to work late."],"answer":1,"why":"Antes de uma frase: {{because}}."},{"who":"Lisa","t":"Are you coming on Saturday?","tr":"Você vem no sábado?"},{"options":["Yes! I asked for the day off, then I'm free.","Yes! I asked for the day off, so I'm free."],"answer":1,"why":"Consequência: {{so}}."},{"who":"Lisa","t":"Yay!","tr":"Oba!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Estava chovendo, então a gente ficou em casa.","words":["It","was raining,","so","we","stayed","home."]},
+        {"type":"say","q":"Como se diz “O voo foi cancelado por causa da tempestade”?","answer":"The flight was canceled because of the storm."},
+        {"type":"free","q":"Sua vez: por que você está aprendendo inglês? Dê dois motivos, com {{because}} e {{so}} ou {{but}}.","answers":[{"t":"I'm learning English because I want to travel, so I study every day.","tr":"Estou aprendendo inglês porque quero viajar, então estudo todo dia."},{"t":"Because of my job, I need English. It's hard, but I love it.","tr":"Por causa do meu trabalho, preciso de inglês. É difícil, mas eu adoro."}]}
+      ]
+    },
+    {
+      "id": "use-phrasal-verbs",
+      "unit": 8,
+      "level": "B1",
+      "title": "Use os phrasal verbs do dia a dia",
+      "summary": "Use os verbos de duas palavras que os americanos usam o tempo todo: {{get up}}, {{turn off}}, {{look for}}, {{find out}}.",
+      "topic": "Phrasal verbs: verbo + {{up}}, {{off}}, {{on}}, {{out}}, {{for}}…; o pronome no meio ({{turn it off}})",
+      "blocks": [
+        {"goal":{"t":"Can you turn off the lights when you leave?","tr":"Você pode apagar a luz quando sair?"}},
+        {"dialog":[{"who":"Pai","t":"Wake up! It's seven o'clock!","tr":"Acorda! São sete horas!"},{"who":"Você","t":"Five more minutes…","tr":"Mais cinco minutinhos…"},{"who":"Pai","t":"Come on, get up! And put on your jacket, it's cold.","tr":"Vamos, levanta! E põe o casaco, está frio."},{"who":"Você","t":"OK, OK. Where are my keys? I'm looking for them.","tr":"Tá, tá. Cadê minhas chaves? Estou procurando."},{"who":"Pai","t":"They're on the table. And don't forget to turn off the TV!","tr":"Estão na mesa. E não esquece de desligar a TV!"}]},
+        {"term":"phrasal verb","means":"um verbo inglês de duas ou três palavras (verbo + {{up}}, {{off}}, {{out}}…) que, juntas, têm um sentido próprio: {{get up}} “levantar”, {{give up}} “desistir”."},
+        {"p":"**Duas palavras, um sentido.** O inglês tem centenas de verbos assim, e na conversa eles aparecem mais que os verbos “de dicionário”. Muitas vezes não dá para adivinhar o sentido pelas partes: {{give up}} não é “dar para cima”, é “desistir”."},
+        { "table": [
+          ["phrasal verb","português","exemplo"],
+          ["{{wake up}}","acordar","{{I wake up at six.}}"],
+          ["{{get up}}","levantar (da cama)","{{Get up, it's late!}}"],
+          ["{{turn on}}, {{turn off}}","ligar, desligar","{{Turn off the TV.}}"],
+          ["{{put on}}, {{take off}}","vestir, tirar (a roupa)","{{Put on your jacket.}}"],
+          ["{{look for}}","procurar","{{I'm looking for my keys.}}"],
+          ["{{find out}}","descobrir","{{I found out the truth.}}"],
+          ["{{pick up}}","buscar (alguém), pegar","{{I'll pick you up at eight.}}"],
+          ["{{give up}}","desistir","{{Don't give up!}}"],
+          ["{{hang out}}","sair junto, passar o tempo","{{We hung out all day.}}"],
+          ["{{figure out}}","entender, descobrir como","{{I can't figure it out.}}"]
+        ] },
+        {"p":"**O pronome vai no meio.** Com muitos phrasal verbs, a coisa pode ir depois ou no meio: {{Turn off the TV}} ou {{Turn the TV off}}. Mas um pronome ({{it}}, {{them}}, {{him}}) **tem** que ir no meio: {{Turn it off}}, nunca {{Turn off it}}; {{I'll pick you up}}, nunca {{I'll pick up you}}."},
+        {"p":"Alguns nunca se separam, como {{look for}}: {{I'm looking for it}}."},
+        { "ex": [
+          {"t":"What time do you usually get up?","tr":"Que horas você costuma levantar?"},
+          {"t":"Can you turn on the air conditioning?","tr":"Você pode ligar o ar-condicionado?"},
+          {"t":"Take off your shoes, please.","tr":"Tira o sapato, por favor."},
+          {"t":"I'm looking for a cheap hotel.","tr":"Estou procurando um hotel barato."},
+          {"t":"I'll pick you up at the airport.","tr":"Eu te busco no aeroporto."},
+          {"t":"She found out about the party.","tr":"Ela descobriu a festa."},
+          {"t":"Don't give up! You're almost there.","tr":"Não desiste! Você está quase lá."}
+        ] },
+        {"tip":"Não precisa decorar listas enormes: aprenda cada phrasal verb junto com uma frase, como você aprendeu as expressões do português (“dar um jeito”, “pegar no pé”)."}
+      ],
+      "mistakes": [
+        {"wrong":"Turn off it.","right":"Turn it off.","tr":"Desliga isso.","why":"Com pronome, ele vai no meio: {{turn it off}}."},
+        {"wrong":"I'll pick up you at eight.","right":"I'll pick you up at eight.","tr":"Te busco às oito.","why":"O pronome vai no meio: {{pick you up}}."},
+        {"wrong":"I'm searching my keys.","right":"I'm looking for my keys.","tr":"Estou procurando minhas chaves.","why":"No dia a dia, “procurar” é {{look for}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"Please turn ___ your phones.","tr":"Por favor, desliguem o celular.","options":["up","off","out"],"answer":1,"why":"“Desligar” é {{turn off}}."},
+        {"type":"choice","q":"Qual está certa?","options":["{{Turn it on, please.}}","{{Turn on it, please.}}","{{It turn on, please.}}"],"answer":0,"why":"Com pronome, no meio: {{turn it on}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I'm looking ___ a job.","tr":"Estou procurando emprego.","options":["at","after","for"],"answer":2,"why":"“Procurar” é {{look for}}. ({{look after}} é “cuidar de”.)"},
+        {"type":"dialogue","q":"De manhã em casa: escolha suas respostas.","from":"use-me-him-her","lines":[{"who":"Pai","t":"It's cold outside!","tr":"Está frio lá fora!"},{"options":["OK, I'll put my jacket in.","OK, I'll put on my jacket."],"answer":1,"why":"“Vestir” é {{put on}}."},{"who":"Pai","t":"And can you turn off the TV?","tr":"E você pode desligar a TV?"},{"options":["Sure, I'll turn off it.","Sure, I'll turn it off."],"answer":1,"why":"Com pronome, no meio: {{turn it off}}."},{"who":"Pai","t":"Thanks!","tr":"Obrigado!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Eu te busco no aeroporto.","words":["I'll","pick","you","up","at the airport."]},
+        {"type":"say","q":"Encoraje um amigo: “Não desiste!”","answer":"Don't give up!"},
+        {"type":"free","q":"Sua vez: descreva a sua manhã usando pelo menos três phrasal verbs.","answers":[{"t":"I wake up at six, but I get up at six thirty. I put on my clothes, turn off the lights and leave.","tr":"Acordo às seis, mas levanto às seis e meia. Ponho a roupa, apago a luz e saio."},{"t":"I usually get up late, turn on the coffee machine and look for my phone.","tr":"Normalmente levanto tarde, ligo a cafeteira e procuro o celular."}]}
+      ]
+    },
+    {
+      "id": "make-or-do",
+      "unit": 8,
+      "level": "B1",
+      "title": "Escolha entre {{make}} e {{do}}, {{say}} e {{tell}}",
+      "summary": "Acerte os verbos que o português junta num só: fazer ({{make}}, {{do}}), dizer ({{say}}, {{tell}}), falar ({{speak}}, {{talk}}).",
+      "topic": "{{make}} ou {{do}}; {{say}} ou {{tell}}; {{speak}} ou {{talk}}",
+      "blocks": [
+        {"goal":{"t":"I made dinner, and then I did the dishes.","tr":"Fiz o jantar e depois lavei a louça."}},
+        {"dialog":[{"who":"Colega de casa","t":"Did you do your homework?","tr":"Você fez a lição de casa?"},{"who":"Você","t":"Yes, I did. And I made a cake!","tr":"Fiz. E fiz um bolo!"},{"who":"Colega de casa","t":"Nice! Can you tell me the recipe?","tr":"Que legal! Me passa a receita?"},{"who":"Você","t":"Sure. My grandma told me. She says it's a secret!","tr":"Claro. Minha avó me ensinou. Ela diz que é segredo!"},{"who":"Colega de casa","t":"Don't worry, I won't tell anyone.","tr":"Fica tranquilo, não vou contar para ninguém."}]},
+        {"p":"**Fazer: {{make}} ou {{do}}.** {{make}} é criar, produzir algo que não existia; {{do}} é realizar uma atividade, uma tarefa. Mas muita coisa é só costume, então aprenda as combinações:"},
+        { "table": [
+          ["{{make}}","{{do}}"],
+          ["{{make dinner}} fazer o jantar","{{do the dishes}} lavar a louça"],
+          ["{{make a cake}} fazer um bolo","{{do homework}} fazer a lição"],
+          ["{{make a mistake}} errar","{{do the laundry}} lavar a roupa"],
+          ["{{make money}} ganhar dinheiro","{{do exercise}} fazer exercício"],
+          ["{{make friends}} fazer amigos","{{do your best}} fazer o seu melhor"],
+          ["{{make a decision}} tomar uma decisão","{{do a favor}} fazer um favor"]
+        ] },
+        {"p":"**Dizer: {{say}} ou {{tell}}.** {{tell}} pede uma pessoa logo depois: {{tell me}}, {{tell her}}. {{say}} vem sem pessoa (ou com {{to}}): {{She said hello}}, {{He said he was tired}}, {{What did you say to him?}}"},
+        { "table": [
+          ["","exemplo"],
+          ["{{say}} + o que","{{She said yes.}} Ela disse que sim."],
+          ["{{tell}} + quem","{{She told me the truth.}} Ela me disse a verdade."],
+          ["{{tell}} em expressões","{{tell a story}}, {{tell a joke}}, {{tell the truth}}, {{tell a lie}}"]
+        ] },
+        {"p":"**Falar: {{speak}} ou {{talk}}.** {{speak}} para línguas e falas formais: {{Do you speak English?}} {{talk}} para conversar: {{We talked for hours}}, {{Can I talk to you?}}"},
+        { "ex": [
+          {"t":"I made a mistake.","tr":"Errei.","note":"palavra por palavra, “fiz um erro”"},
+          {"t":"Can you do me a favor?","tr":"Você pode me fazer um favor?"},
+          {"t":"She makes a lot of money.","tr":"Ela ganha muito dinheiro."},
+          {"t":"He told me a funny story.","tr":"Ele me contou uma história engraçada."},
+          {"t":"What did she say?","tr":"O que ela disse?"},
+          {"t":"Can we talk later?","tr":"A gente pode conversar mais tarde?"}
+        ] },
+        {"tip":"{{I'm doing my best}} “Estou fazendo o meu melhor” e {{It doesn't make sense}} “Não faz sentido” são duas frases que você vai usar muito."}
+      ],
+      "mistakes": [
+        {"wrong":"I did a mistake.","right":"I made a mistake.","tr":"Errei.","why":"“Cometer um erro” é {{make a mistake}}."},
+        {"wrong":"She said me the truth.","right":"She told me the truth.","tr":"Ela me disse a verdade.","why":"Com a pessoa logo depois: {{tell}}."},
+        {"wrong":"Do you talk English?","right":"Do you speak English?","tr":"Você fala inglês?","why":"Para línguas: {{speak}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"Can you ___ me a favor?","tr":"Você pode me fazer um favor?","options":["make","give","do"],"answer":2,"why":"Combinação fixa: {{do a favor}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"He ___ me a great story.","tr":"Ele me contou uma história ótima.","options":["said","spoke","told"],"answer":2,"why":"Com a pessoa ({{me}}) depois: {{told}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I always ___ mistakes in English.","tr":"Sempre erro em inglês.","options":["do","have","make"],"answer":2,"why":"{{make a mistake}}."},
+        {"type":"choice","q":"Como se diz “Você fala português?”","options":["{{Do you talk Portuguese?}}","{{Do you say Portuguese?}}","{{Do you speak Portuguese?}}"],"answer":2,"why":"Línguas: {{speak}}.","from":"ask-about-someones-life"},
+        {"type":"dialogue","q":"Em casa com a colega: escolha suas respostas.","from":"tell-about-your-weekend","lines":[{"who":"Colega de casa","t":"What did you do yesterday?","tr":"O que você fez ontem?"},{"options":["I made a cake and did the laundry.","I did a cake and made the laundry."],"answer":0,"why":"Criar algo: {{make}}; uma tarefa: {{do}}."},{"who":"Colega de casa","t":"Can you tell me the recipe?","tr":"Me passa a receita?"},{"options":["Sure, but don't tell anyone!","Sure, but don't say anyone!"],"answer":0,"why":"Com a pessoa depois ({{anyone}}): {{tell}}."},{"who":"Colega de casa","t":"I promise!","tr":"Prometo!"}]},
+        {"type":"say","q":"Como se diz “Não faz sentido”?","answer":"It doesn't make sense."},
+        {"type":"free","q":"Sua vez: conte o que você fez ontem em casa, com {{make}} e {{do}}, e algo que alguém te disse, com {{told}} ou {{said}}.","answers":[{"t":"Yesterday I made lunch and did the dishes. My mom called and told me some good news.","tr":"Ontem fiz o almoço e lavei a louça. Minha mãe ligou e me contou uma notícia boa."},{"t":"I did my homework and made a cake. My friend said it was delicious!","tr":"Fiz a lição de casa e um bolo. Minha amiga disse que estava delicioso!"}]}
+      ]
+    },
+    {
+      "id": "avoid-false-friends",
+      "unit": 8,
+      "level": "B1",
+      "title": "Fuja dos falsos amigos",
+      "summary": "Não caia nas palavras que parecem português mas querem dizer outra coisa: {{pretend}}, {{actually}}, {{push}}, {{library}}…",
+      "topic": "Falsos amigos: {{pretend}}, {{actually}}, {{push}}, {{library}}, {{parents}}, {{realize}}, {{eventually}}, {{attend}}, {{college}}, {{exquisite}}",
+      "blocks": [
+        {"goal":{"t":"Actually, I intend to stay, not leave.","tr":"Na verdade, eu pretendo ficar, não ir embora."}},
+        {"dialog":[{"who":"Mike","t":"So you're leaving the company?","tr":"Então você vai sair da empresa?"},{"who":"Você","t":"No! Actually, I intend to stay. Who told you that?","tr":"Não! Na verdade, pretendo ficar. Quem te disse isso?"},{"who":"Mike","t":"Someone at the party.","tr":"Alguém na festa."},{"who":"Você","t":"I just realized what happened: I said I'm going to attend a course.","tr":"Acabei de perceber o que aconteceu: eu disse que vou fazer um curso."},{"who":"Mike","t":"Oh, that makes sense!","tr":"Ah, faz sentido!"}]},
+        {"term":"falso amigo","means":"uma palavra de outra língua que parece com uma do português, mas quer dizer outra coisa: {{pretend}} não é “pretender”."},
+        {"p":"**Parece, mas não é.** O inglês e o português têm muitas palavras parecidas, e quase sempre isso ajuda ({{important}}, {{family}}, {{hospital}}). Mas algumas enganam. Estas são as que mais confundem os brasileiros:"},
+        { "table": [
+          ["inglês","quer dizer","não é","“o nosso”, em inglês"],
+          ["{{pretend}}","fingir","pretender","{{intend}}"],
+          ["{{actually}}","na verdade","atualmente","{{currently}}, {{nowadays}}"],
+          ["{{push}}","empurrar","puxar","{{pull}}"],
+          ["{{library}}","biblioteca","livraria","{{bookstore}}"],
+          ["{{parents}}","pai e mãe","parentes","{{relatives}}"],
+          ["{{realize}}","perceber, se dar conta","realizar","{{accomplish}}, {{achieve}}"],
+          ["{{eventually}}","finalmente, com o tempo","eventualmente","{{occasionally}}"],
+          ["{{attend}}","frequentar, ir a","atender","{{answer}} (o telefone), {{serve}}"],
+          ["{{college}}","faculdade","colégio","{{high school}}, {{school}}"],
+          ["{{exquisite}}","refinado, delicioso","esquisito","{{weird}}, {{strange}}"]
+        ] },
+        {"p":"**Mais alguns.** {{fabric}} é “tecido” (fábrica é {{factory}}); {{novel}} é “romance, livro” (novela é {{soap opera}}); {{sensible}} é “sensato” (sensível é {{sensitive}}); {{lunch}} é “almoço” (lanche é {{snack}}); {{costume}} é “fantasia” (costume é {{habit}})."},
+        { "ex": [
+          {"t":"He pretended to be sick.","tr":"Ele fingiu que estava doente."},
+          {"t":"Actually, I'm from Recife, not Rio.","tr":"Na verdade, sou de Recife, não do Rio."},
+          {"t":"I'm currently living in Denver.","tr":"Atualmente estou morando em Denver."},
+          {"t":"I left my book at the library.","tr":"Esqueci meu livro na biblioteca."},
+          {"t":"My parents and all my relatives came to the wedding.","tr":"Meus pais e todos os meus parentes vieram ao casamento."},
+          {"t":"I suddenly realized I forgot my keys.","tr":"De repente percebi que tinha esquecido as chaves."},
+          {"t":"She attends college in Boston.","tr":"Ela faz faculdade em Boston."}
+        ] },
+        {"tip":"{{Push}} e {{Pull}} nas portas, mais uma vez, porque é o falso amigo que mais faz brasileiro passar vergonha: {{push}} é empurre, {{pull}} é puxe!"}
+      ],
+      "mistakes": [
+        {"wrong":"I pretend to study medicine.","right":"I intend to study medicine.","tr":"Pretendo estudar medicina.","why":"{{pretend}} é “fingir”; “pretender” é {{intend}} ou {{plan to}}."},
+        {"wrong":"Actually, I live in Miami.","right":"Currently, I live in Miami.","tr":"Atualmente, moro em Miami.","why":"{{actually}} é “na verdade”; “atualmente” é {{currently}}."},
+        {"wrong":"I'm going to the library to buy a book.","right":"I'm going to the bookstore to buy a book.","tr":"Vou à livraria comprar um livro.","why":"{{library}} é biblioteca (lá não se compra nada); livraria é {{bookstore}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{He pretended to be asleep}} quer dizer…","options":["Ele pretendia dormir.","Ele queria dormir.","Ele fingiu que estava dormindo."],"answer":2,"why":"{{pretend}} é “fingir”."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I'm ___ working from home.","tr":"Atualmente estou trabalhando de casa.","options":["currently","actually","eventually"],"answer":0,"why":"“Atualmente” é {{currently}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"All my ___ came to the party: uncles, aunts, cousins…","tr":"Todos os meus parentes vieram à festa: tios, tias, primos…","options":["relatives","parents","fathers"],"answer":0,"why":"“Parentes” é {{relatives}}; {{parents}} é pai e mãe."},
+        {"type":"choice","q":"Você quer comprar um livro. Você vai à…","options":["{{library}}","{{librarian}}","{{bookstore}}"],"answer":2,"why":"Livraria é {{bookstore}}; {{library}} é biblioteca."},
+        {"type":"dialogue","q":"Desfazendo um mal-entendido: escolha suas respostas.","from":"describe-with-who-and-that","lines":[{"who":"Mike","t":"So you're leaving the company?","tr":"Então você vai sair da empresa?"},{"options":["No! Actually, I intend to stay.","No! Currently, I pretend to stay."],"answer":0,"why":"“Na verdade” é {{actually}}; “pretender” é {{intend}}."},{"who":"Mike","t":"Oh! I heard it from someone who works with you.","tr":"Ah! Ouvi de alguém que trabalha com você."},{"options":["I see what happened: I said I'm going to attend a course!","I see what happened: I said I'm going to assist a course!"],"answer":0,"why":"“Fazer, frequentar um curso” é {{attend}}."},{"who":"Mike","t":"That makes sense!","tr":"Faz sentido!"}]},
+        {"type":"say","q":"Como se diz “Pretendo viajar no ano que vem”?","answer":"I intend to travel next year."},
+        {"type":"free","q":"Sua vez: escreva duas frases usando bem {{actually}}, {{realize}} ou {{pretend}}.","answers":[{"t":"Actually, I don't like coffee. I just pretend to like it at work!","tr":"Na verdade, não gosto de café. Só finjo que gosto no trabalho!"},{"t":"I realized I left my wallet at home, so I had to go back.","tr":"Percebi que tinha deixado a carteira em casa, então tive que voltar."}]}
+      ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 8,
+      "level": "B1",
+      "title": "Conte o que alguém disse",
+      "summary": "Passe adiante o que alguém disse, perguntou ou pediu: {{She said she was tired.}}",
+      "topic": "{{said (that)}}, {{told me (that)}}; o verbo volta um passo ({{am}} → {{was}}, {{will}} → {{would}}); {{asked if}}; {{asked me to}}",
+      "blocks": [
+        {"goal":{"t":"She said she was going to be late.","tr":"Ela disse que ia se atrasar."}},
+        {"dialog":[{"who":"Chefe","t":"Did Maria call?","tr":"A Maria ligou?"},{"who":"Você","t":"Yes. She said she was stuck in traffic.","tr":"Ligou. Ela disse que estava presa no trânsito."},{"who":"Chefe","t":"Did she say when she'd get here?","tr":"Ela disse quando chega?"},{"who":"Você","t":"She told me she would be here at ten. And she asked if the meeting could start later.","tr":"Me disse que chegaria às dez. E perguntou se a reunião podia começar mais tarde."},{"who":"Chefe","t":"OK. Ask her to text me when she arrives.","tr":"Tá. Pede para ela me mandar mensagem quando chegar."}]},
+        {"p":"**Disse que: {{said}}, {{told}}.** Para contar o que alguém disse, use {{say}} (sem pessoa) ou {{tell}} + pessoa, como na lição 46: {{She said (that) she was tired}}, {{She told me (that) she was tired}}. Aqui o {{that}} pode sumir."},
+        {"p":"**O verbo volta um passo.** Como no português (“estou” → “ela disse que estava”), o verbo vai um passo para o passado:"},
+        { "table": [
+          ["o que ela disse","o que você conta"],
+          ["{{I'm tired.}}","{{She said she was tired.}}"],
+          ["{{I'm going to be late.}}","{{She said she was going to be late.}}"],
+          ["{{I'll call you.}}","{{She said she would call me.}}"],
+          ["{{I can help.}}","{{She said she could help.}}"],
+          ["{{I live in Boston.}}","{{She said she lived in Boston.}}"]
+        ] },
+        {"p":"Se ainda é verdade, dá para manter o presente: {{He said he lives in Boston}} (ele ainda mora lá)."},
+        {"p":"**Perguntou se: {{asked if}}.** Uma pergunta de sim ou não vira {{if}} (ou {{whether}}) e fica na ordem normal, sem {{do}}: {{She asked if I was OK}} “Ela perguntou se eu estava bem”. Com palavra interrogativa: {{He asked where I lived}}, nunca {{where did I live}}."},
+        {"p":"**Pediu para: {{asked me to}}, {{told me to}}.** {{She asked me to wait}} “Ela me pediu para esperar”; {{He told me to call him}} “Ele me disse para ligar para ele”."},
+        { "ex": [
+          {"t":"He said he was sick.","tr":"Ele disse que estava doente."},
+          {"t":"My mom told me she was coming on Sunday.","tr":"Minha mãe me disse que vinha no domingo."},
+          {"t":"They asked if we wanted to go with them.","tr":"Eles perguntaram se a gente queria ir junto."},
+          {"t":"The doctor told me to rest.","tr":"O médico me disse para descansar."},
+          {"t":"She asked where the bathroom was.","tr":"Ela perguntou onde ficava o banheiro."},
+          {"t":"I told him I'd be there at eight.","tr":"Eu disse para ele que estaria lá às oito."}
+        ] },
+        {"tip":"Na conversa americana, para contar uma fala, também se usa {{like}}: {{And she was like, “No way!”}} “E ela tipo: Não acredito!”. É informal, mas você vai ouvir muito."}
+      ],
+      "mistakes": [
+        {"wrong":"She said me she was tired.","right":"She told me she was tired.","tr":"Ela me disse que estava cansada.","why":"Com a pessoa logo depois: {{told me}}."},
+        {"wrong":"He asked where did I live.","right":"He asked where I lived.","tr":"Ele perguntou onde eu morava.","why":"A pergunta contada fica na ordem normal, sem {{did}}."},
+        {"wrong":"She asked me that I wait.","right":"She asked me to wait.","tr":"Ela me pediu para esperar.","why":"“Pedir para” é {{ask}} + pessoa + {{to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"She ___ me she was busy.","tr":"Ela me disse que estava ocupada.","options":["told","said","spoke"],"answer":0,"why":"Com a pessoa ({{me}}) logo depois: {{told}}.","from":"make-or-do"},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"He asked ___ I liked samba.","tr":"Ele perguntou se eu gostava de samba.","options":["if","that","what"],"answer":0,"why":"Pergunta de sim ou não, contada: {{if}}."},
+        {"type":"choice","q":"A Ana disse: {{I'll call you.}} Você conta…","options":["{{Ana said she will call you.}}","{{Ana said me she would call.}}","{{Ana said she would call me.}}"],"answer":2,"why":"{{will}} volta para {{would}}, e {{you}} vira {{me}}."},
+        {"type":"dialogue","q":"O chefe pergunta por uma colega. Escolha suas respostas.","from":"ask-what-happened","lines":[{"who":"Chefe","t":"Did Maria call?","tr":"A Maria ligou?"},{"options":["Yes. She said me she was stuck in traffic.","Yes. She said she was stuck in traffic."],"answer":1,"why":"{{said}}, sem pessoa depois."},{"who":"Chefe","t":"What else did she say?","tr":"O que mais ela disse?"},{"options":["She asked if the meeting could start later.","She asked could the meeting start later."],"answer":0,"why":"Pergunta contada: {{if}} + ordem normal."},{"who":"Chefe","t":"Sure. Tell her not to worry.","tr":"Claro. Diz para ela não se preocupar."}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"O médico me disse para descansar.","words":["The doctor","told","me","to","rest."]},
+        {"type":"say","q":"Como se diz “Ela me pediu para esperar”?","answer":"She asked me to wait."},
+        {"type":"free","q":"Sua vez: conte uma conversa recente. O que a outra pessoa disse, perguntou ou pediu?","answers":[{"t":"My sister called me yesterday. She said she missed me and asked if I was coming home for Christmas.","tr":"Minha irmã me ligou ontem. Ela disse que estava com saudade e perguntou se eu ia para casa no Natal."},{"t":"My boss told me the meeting was on Friday and asked me to prepare a presentation.","tr":"Meu chefe me disse que a reunião era na sexta e me pediu para preparar uma apresentação."}]}
+      ]
+    },
+    {
+      "id": "recognize-the-passive",
+      "unit": 8,
+      "level": "B1",
+      "title": "Entenda a voz passiva",
+      "summary": "Entenda e use frases como {{It was built in 1900}}, {{English is spoken here}} e {{Made in Brazil}}.",
+      "topic": "A voz passiva: {{be}} + particípio ({{is made}}, {{was built}}); {{by}}; o nosso “se” ({{aluga-se}}); {{I was born}}, mais uma vez",
+      "blocks": [
+        {"goal":{"t":"This bridge was built in 1937.","tr":"Esta ponte foi construída em 1937."}},
+        {"dialog":[{"who":"Guia","t":"This church was built in 1750.","tr":"Esta igreja foi construída em 1750."},{"who":"Você","t":"Wow! Is it still used?","tr":"Nossa! Ela ainda é usada?"},{"who":"Guia","t":"Yes, it is. Mass is held every Sunday.","tr":"É, sim. Tem missa todo domingo."},{"who":"Você","t":"And who were those paintings made by?","tr":"E aquelas pinturas foram feitas por quem?"},{"who":"Guia","t":"They were painted by a local artist.","tr":"Foram pintadas por um artista da região."},{"who":"Você","t":"Are photos allowed inside?","tr":"Pode tirar foto lá dentro?"},{"who":"Guia","t":"No, they aren't, sorry.","tr":"Não, não é permitido, desculpe."}]},
+        {"term":"voz passiva","means":"a frase em que o foco é quem sofre a ação, e quem fez aparece depois de “por”, ou nem aparece: A ponte foi construída em 1937."},
+        {"p":"**Igual ao português.** A passiva inglesa funciona como a nossa: {{be}} + particípio, e “por” é {{by}}. “A igreja foi construída” = {{The church was built}}; “Foi pintada por um artista” = {{It was painted by an artist}}."},
+        { "table": [
+          ["","inglês","português"],
+          ["presente","{{English is spoken here.}}","Fala-se inglês aqui."],
+          ["passado","{{The house was built in 1990.}}","A casa foi construída em 1990."],
+          ["com {{by}}","{{The book was written by a Brazilian.}}","O livro foi escrito por um brasileiro."],
+          ["negativa","{{Photos aren't allowed.}}","Não é permitido tirar fotos."],
+          ["pergunta","{{Where were you born?}}","Onde você nasceu?"]
+        ] },
+        {"p":"**O nosso “se”.** Quando o português diz “Aluga-se”, “Fala-se inglês”, “Vende-se”, o inglês usa a passiva ({{English spoken here}}) ou expressões prontas: {{For rent}}, {{For sale}}. Na conversa, também {{they}} ou {{you}}: {{They speak English here}}."},
+        {"p":"**Onde você vai ver.** Nas notícias ({{Two people were injured}}), nas etiquetas ({{Made in Brazil}}), nos avisos ({{Smoking is not allowed}}), na história ({{Brazil was colonized by Portugal}}). E numa frase que você já conhece: {{I was born}}, a passiva de “nascer”!"},
+        {"p":"**Quando usar.** Use a passiva quando quem fez não importa ou não se sabe: {{My phone was stolen}} “Roubaram meu celular”. Se quem fez importa, a frase normal é mais natural: {{My brother fixed the car}}."},
+        { "ex": [
+          {"t":"This house was built by my grandfather.","tr":"Esta casa foi construída pelo meu avô."},
+          {"t":"Breakfast is served from seven to ten.","tr":"O café da manhã é servido das sete às dez."},
+          {"t":"My phone was stolen on the bus.","tr":"Roubaram meu celular no ônibus."},
+          {"t":"The tickets were sold in an hour.","tr":"Os ingressos foram vendidos em uma hora."},
+          {"t":"Spanish is spoken in most of South America.","tr":"Fala-se espanhol na maior parte da América do Sul."},
+          {"t":"Is breakfast included?","tr":"O café da manhã está incluído?"}
+        ] },
+        {"tip":"O particípio da passiva é o mesmo da lição 32: {{built}}, {{written}}, {{made}}, {{sold}}, {{stolen}}. Quem já sabe o present perfect já sabe metade da passiva!"}
+      ],
+      "mistakes": [
+        {"wrong":"The church built in 1750.","right":"The church was built in 1750.","tr":"A igreja foi construída em 1750.","why":"A passiva precisa do {{be}}: {{was built}}."},
+        {"wrong":"The book was written for a Brazilian.","right":"The book was written by a Brazilian.","tr":"O livro foi escrito por um brasileiro.","why":"Quem fez a ação vem com {{by}}."},
+        {"wrong":"Speaks English here.","right":"English is spoken here.","tr":"Fala-se inglês aqui.","why":"O nosso “se” vira passiva (ou {{They speak English here}}): o sujeito sempre aparece."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"This bridge ___ built in 1937.","tr":"Esta ponte foi construída em 1937.","options":["was","is","did"],"answer":0,"why":"Passiva no passado: {{was}} + particípio."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"The book was written ___ a famous writer.","tr":"O livro foi escrito por um escritor famoso.","options":["by","for","of"],"answer":0,"why":"Quem fez: {{by}}."},
+        {"type":"choice","q":"Numa etiqueta está escrito {{Made in Brazil}}. Quer dizer…","options":["Vendido no Brasil","Fabricado no Brasil","Feito para o Brasil"],"answer":1,"why":"{{made}} é o particípio de {{make}}: “feito, fabricado”."},
+        {"type":"dialogue","q":"Num passeio guiado: escolha suas respostas.","from":"say-where-you-were","lines":[{"who":"Guia","t":"This church was built in 1750.","tr":"Esta igreja foi construída em 1750."},{"options":["Wow! Is it still used?","Wow! Does it still use?"],"answer":0,"why":"Passiva: {{is}} + {{used}}."},{"who":"Guia","t":"Yes, it is.","tr":"É, sim."},{"options":["And who did the paintings made by?","And who were the paintings made by?"],"answer":1,"why":"Passiva no passado: {{were made}}; quem fez vem com {{by}}."},{"who":"Guia","t":"By a local artist.","tr":"Por um artista da região."}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Roubaram meu celular no ônibus.","words":["My","phone","was","stolen","on the bus."]},
+        {"type":"say","q":"Pergunte no hotel: “O café da manhã está incluído?”","answer":"Is breakfast included?"},
+        {"type":"free","q":"Sua vez: fale de algo da sua cidade ou do seu país: quando foi construído ou feito, e por quem?","answers":[{"t":"Christ the Redeemer was finished in 1931. It was designed by a Brazilian engineer.","tr":"O Cristo Redentor foi terminado em 1931. Foi projetado por um engenheiro brasileiro."},{"t":"My house was built in the 1980s by my father and my uncles.","tr":"Minha casa foi construída nos anos 1980 pelo meu pai e pelos meus tios."}]}
+      ]
+    },
+    {
+      "id": "keep-a-conversation-going",
+      "unit": 8,
+      "level": "B1",
+      "title": "Mantenha a conversa",
+      "summary": "Reaja, peça confirmação e faça a conversa andar como um americano: {{right?}}, {{isn't it?}}, {{So do I}}, {{you know}}…",
+      "topic": "Tag questions ({{isn't it?}}, {{don't you?}}, {{right?}}); {{So do I}}, {{Neither do I}}; reações e perguntas de continuação; {{you know}}, {{I mean}}, {{like}}",
+      "blocks": [
+        {"goal":{"t":"It's a beautiful day, isn't it?","tr":"Que dia lindo, né?"}},
+        {"dialog":[{"who":"Jen","t":"So, you know that new Brazilian restaurant? I went there yesterday.","tr":"Então, sabe aquele restaurante brasileiro novo? Fui lá ontem."},{"who":"Você","t":"Oh, really? How was it?","tr":"Ah, é? E aí, como foi?"},{"who":"Jen","t":"Amazing! The food was, like, perfect.","tr":"Incrível! A comida estava, tipo, perfeita."},{"who":"Você","t":"Really? It's kind of expensive, though, isn't it?","tr":"Sério? Mas é meio caro, né?"},{"who":"Jen","t":"A little. But it's worth it, you know?","tr":"Um pouco. Mas vale a pena, sabe?"},{"who":"Você","t":"I love feijoada.","tr":"Eu adoro feijoada."},{"who":"Jen","t":"So do I! Let's go together sometime.","tr":"Eu também! Vamos juntas um dia desses."}]},
+        {"p":"**O “né?” do inglês: as tag questions.** Para pedir confirmação, o português põe “né?” no fim de qualquer frase. O inglês repete o auxiliar da frase, ao contrário: frase afirmativa, tag negativa; frase negativa, tag afirmativa."},
+        { "table": [
+          ["frase","tag","português"],
+          ["{{It's cold,}}","{{isn't it?}}","Está frio, né?"],
+          ["{{You're from Rio,}}","{{aren't you?}}","Você é do Rio, né?"],
+          ["{{You like coffee,}}","{{don't you?}}","Você gosta de café, né?"],
+          ["{{She went home,}}","{{didn't she?}}","Ela foi para casa, né?"],
+          ["{{You can't come,}}","{{can you?}}","Você não pode vir, né?"]
+        ] },
+        {"p":"É difícil fazer isso rápido. A boa notícia: na conversa americana, {{right?}} serve para tudo, como o nosso “né?”: {{You're from Rio, right?}}"},
+        {"p":"**Eu também: {{So do I}}, {{Neither do I}}.** O {{Me too}} da lição 17 tem uma versão mais completa, que repete o auxiliar da frase: {{I love it. — So do I.}}; {{I'm tired. — So am I.}}; {{I can't swim. — Neither can I.}}"},
+        {"p":"**Reagir e continuar.** Reaja ({{Really?}}, {{No way!}} “Não acredito!”, {{That's great!}}, {{That's too bad}} “Que pena”, {{Oh no!}}) e pergunte mais, para a outra pessoa continuar falando: {{And then what happened?}}, {{What do you mean?}} “Como assim?”, {{How was it?}}"},
+        {"p":"**Palavras de apoio.** {{you know}} “sabe”, {{I mean}} “quer dizer”, {{like}} “tipo”, {{well}} “bom…”, {{so}} “então”. Elas dão tempo para pensar e fazem você soar natural (só não exagere no {{like}}!)."},
+        { "ex": [
+          {"t":"You're from São Paulo, right?","tr":"Você é de São Paulo, né?"},
+          {"t":"It's really hot today, isn't it?","tr":"Está muito quente hoje, né?"},
+          {"t":"I love this song. — So do I!","tr":"Adoro esta música. — Eu também!"},
+          {"t":"I don't eat meat. — Neither do I.","tr":"Não como carne. — Eu também não."},
+          {"t":"What do you mean? I didn't get it.","tr":"Como assim? Não entendi."},
+          {"t":"Well, I mean, it's not bad, you know?","tr":"Bom, quer dizer, não é ruim, sabe?"}
+        ] },
+        {"tip":"{{No way!}} quer dizer “Não acredito!” ou “De jeito nenhum!”, dependendo do tom. E {{Sounds good}} é o nosso “Beleza!”, “Fechado!”."}
+      ],
+      "mistakes": [
+        {"wrong":"You're from Rio, no?","right":"You're from Rio, right?","tr":"Você é do Rio, né?","why":"O “né?” do inglês é {{right?}} ou a tag question ({{aren't you?}}), não {{no?}}."},
+        {"wrong":"I'm tired. — So do I.","right":"I'm tired. — So am I.","tr":"Estou cansado. — Eu também.","why":"Repita o auxiliar da frase: com {{am}}, {{So am I}}."},
+        {"wrong":"It's cold, is it?","right":"It's cold, isn't it?","tr":"Está frio, né?","why":"Frase afirmativa, tag negativa: {{isn't it?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"It's a nice day, ___ it?","tr":"O dia está bonito, né?","options":["is","doesn't","isn't"],"answer":2,"why":"Frase afirmativa com {{is}}: tag {{isn't it?}}"},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I love pizza. — So ___ I!","tr":"Adoro pizza. — Eu também!","options":["love","do","am"],"answer":1,"why":"{{love}} é um verbo comum: o auxiliar é {{do}}."},
+        {"type":"choice","q":"Uma amiga conta {{I lost my phone yesterday.}} A melhor reação é…","options":["{{Oh no! Did you find it?}}","{{That's great!}}","{{So do I.}}"],"answer":0,"why":"Reaja e pergunte mais, com {{did}}.","from":"ask-what-happened"},
+        {"type":"dialogue","q":"Uma amiga conta de um restaurante. Escolha suas respostas.","from":"say-what-you-like","lines":[{"who":"Jen","t":"I went to that new Brazilian restaurant yesterday.","tr":"Fui naquele restaurante brasileiro novo ontem."},{"options":["Really? How is it was?","Really? How was it?"],"answer":1,"why":"Pergunte mais: {{How was it?}}"},{"who":"Jen","t":"Amazing! I love Brazilian food.","tr":"Incrível! Adoro comida brasileira."},{"options":["So do I! We should go together, right?","So am I! We should go together, right?"],"answer":0,"why":"Com {{love}} (verbo comum): {{So do I}}."},{"who":"Jen","t":"Definitely!","tr":"Com certeza!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Como assim? Não entendi.","words":["What","do you","mean?","I didn't","get it."]},
+        {"type":"say","q":"Peça confirmação: “Você é de São Paulo, né?”","answer":"You're from São Paulo, right?"},
+        {"type":"free","q":"Sua vez: um amigo diz {{I went to New York on vacation!}} Mantenha a conversa: reaja e faça duas perguntas.","answers":[{"t":"No way! That's great! How was it? Did you go to Central Park?","tr":"Não acredito! Que legal! Como foi? Você foi ao Central Park?"},{"t":"Really? I'm so jealous! How long did you stay? Was it cold?","tr":"Sério? Que inveja! Quanto tempo você ficou? Estava frio?"}]}
       ]
     }
   ]
