@@ -293,6 +293,254 @@
         {"type":"say","q":"Pregunta a algú «Estàs bé?»","answer":"Are you OK?"},
         {"type":"free","q":"Et toca: escriu tres preguntes per a algú que acabes de conèixer.","answers":[{"t":"What's your name? Where are you from? Are you a student?","tr":"Com et dius? D'on ets? Ets estudiant?"},{"t":"How old are you? Where's your family from?","tr":"Quants anys tens? D'on és la teva família?"}]}
       ]
+    },
+    {
+      "id": "say-what-there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Digues què hi ha",
+      "summary": "Pregunta si hi ha una farmàcia a prop i digues què hi ha i què no: {{Is there a pharmacy near here?}}",
+      "topic": "{{there is}} i {{there are}}; {{Is there…?}}, {{There isn't…}}; {{some}} i {{any}}",
+      "blocks": [
+        {"goal":{"t":"Is there a pharmacy near here?","tr":"Hi ha alguna farmàcia a prop d'aquí?"}},
+        {"dialog":[{"who":"Tu","t":"Is there Wi-Fi in the room?","tr":"Hi ha wifi a l'habitació?"},{"who":"Recepcionista","t":"Yes, there is. The password is on the card.","tr":"Sí. La contrasenya és a la targeta."},{"who":"Tu","t":"And is there a supermarket near here?","tr":"I hi ha algun supermercat a prop?"},{"who":"Recepcionista","t":"Yes, there's one across the street.","tr":"Sí, n'hi ha un a l'altra banda del carrer."},{"who":"Tu","t":"Are there any good restaurants?","tr":"Hi ha bons restaurants?"},{"who":"Recepcionista","t":"Yes, there are a lot!","tr":"Sí, n'hi ha molts!"}]},
+        {"p":"**Singular i plural.** «Hi ha» té dues formes en anglès, segons si parles d'una cosa o de més d'una: {{There is a bank.}} «Hi ha un banc.» (contracció: {{There's}}) {{There are two banks.}} «Hi ha dos bancs.»"},
+        { "table": [
+          ["","una cosa","més d'una"],
+          ["sí","{{There's a bar.}}","{{There are two bars.}}"],
+          ["no","{{There isn't a bar.}}","{{There aren't any bars.}}"],
+          ["pregunta","{{Is there a bar?}}","{{Are there any bars?}}"],
+          ["resposta curta","{{Yes, there is.}}","{{No, there aren't.}}"]
+        ] },
+        {"p":"**Preguntar**, com amb {{be}} (lliçó 6): el verb passa davant: {{There is…}} → {{Is there…?}}"},
+        {"p":"**{{some}} i {{any}}.** Amb el plural i amb les coses que no es compten, {{some}} vol dir «una mica, uns quants», a les frases afirmatives: {{There are some cookies.}} «Hi ha galetes.» A les negatives i a les preguntes es fa servir {{any}}: {{Is there any milk?}} «Hi ha llet?» {{There isn't any bread.}} «No hi ha pa.»"},
+        { "ex": [
+          {"t":"There's a park near my house.","tr":"Hi ha un parc a prop de casa meva."},
+          {"t":"There are a lot of tourists in summer.","tr":"A l'estiu hi ha molts turistes."},
+          {"t":"Is there an ATM near here?","tr":"Hi ha algun caixer a prop d'aquí?"},
+          {"t":"There isn't any milk.","tr":"No hi ha llet."},
+          {"t":"Are there any questions?","tr":"Hi ha alguna pregunta?"},
+          {"t":"There's a problem with my room.","tr":"Hi ha un problema amb la meva habitació."}
+        ] },
+        {"tip":"No confonguis {{there}} «allà», {{their}} «el seu, d'ells» i {{they're}} «ells són»: sonen igual!"}
+      ],
+      "mistakes": [
+        {"wrong":"There is two bars.","right":"There are two bars.","tr":"Hi ha dos bars.","why":"Per a més d'una cosa, {{there are}}."},
+        {"wrong":"Is a pharmacy near here?","right":"Is there a pharmacy near here?","tr":"Hi ha alguna farmàcia a prop d'aquí?","why":"«Hi ha» és {{there is}}, i a la pregunta, {{Is there…?}}"},
+        {"wrong":"Have a bank near here?","right":"Is there a bank near here?","tr":"Hi ha algun banc a prop d'aquí?","why":"«Hi ha» no és {{have}}: és {{there is}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"There ___ three bedrooms in the apartment.","tr":"El pis té tres habitacions.","options":["are","is","have"],"answer":0,"why":"Més d'una: {{there are}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Is there ___ milk?","tr":"Hi ha llet?","options":["any","some","a"],"answer":0,"why":"En una pregunta, {{any}}."},
+        {"type":"choice","q":"«No hi ha pa» és…","options":["{{There isn't any bread.}}","{{There is no any bread.}}","{{Not is bread.}}"],"answer":0,"why":"{{There isn't}} + {{any}}. També es diu {{There's no bread.}}"},
+        {"type":"dialogue","q":"A la recepció de l'hotel. Tria les respostes.","lines":[{"who":"Recepcionista","t":"Good morning! How can I help you?","tr":"Bon dia! En què el puc ajudar?"},{"options":["Is there a pharmacy near here?","Have a pharmacy near here?"],"answer":0,"why":"«Hi ha…?» és {{Is there…?}}"},{"who":"Recepcionista","t":"Yes, there's one on Main Street.","tr":"Sí, n'hi ha una al carrer Main."},{"options":["Is it far?","It is far?"],"answer":0,"why":"Pregunta amb {{be}}: el verb davant, {{Is it…?}}"}],"from":"ask-questions"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"A l'estiu hi ha molts turistes.","words":["There are","a lot","of tourists","in summer."]},
+        {"type":"say","q":"Pregunta «Hi ha algun caixer a prop d'aquí?»","answer":"Is there an ATM near here?"},
+        {"type":"free","q":"Et toca: què hi ha al teu carrer o al teu barri? Digues dues coses que hi ha i una que no.","answers":[{"t":"There's a bakery and there are two bars, but there isn't a park.","tr":"Hi ha un forn i dos bars, però no hi ha cap parc."},{"t":"In my neighborhood there are a lot of stores, but there aren't any movie theaters.","tr":"Al meu barri hi ha moltes botigues, però no hi ha cap cinema."}]}
+      ]
+    },
+    {
+      "id": "find-your-way",
+      "unit": 2,
+      "level": "A1",
+      "title": "Digues on són les coses i com s'hi va",
+      "summary": "Explica on és una cosa i com arribar-hi: {{The bank is next to the supermarket, on the left.}}",
+      "topic": "{{in}}, {{on}}, {{at}}, {{next to}}, {{near}}, {{across from}}, {{between}}; {{turn left}}, {{go straight}}",
+      "blocks": [
+        {"goal":{"t":"The bank is next to the supermarket, on the left.","tr":"El banc és al costat del supermercat, a l'esquerra."}},
+        {"dialog":[{"who":"Turista","t":"Excuse me, where's the museum?","tr":"Perdoni, on és el museu?"},{"who":"Dona","t":"Go straight and turn left at the light.","tr":"Segueixi recte i giri a l'esquerra al semàfor."},{"who":"Turista","t":"Is it far?","tr":"És lluny?"},{"who":"Dona","t":"No, it's about five minutes. It's across from the park.","tr":"No, és a uns cinc minuts. És davant del parc."},{"who":"Turista","t":"Thank you!","tr":"Gràcies!"},{"who":"Dona","t":"You're welcome!","tr":"De res!"}]},
+        {"term":"preposició","means":"una paraula petita que relaciona un nom amb la resta de la frase, sovint per dir on: a, de, amb, davant de."},
+        {"p":"**«A» no sempre és igual.** El català fa servir «a» per a gairebé tot: «a casa», «a la taula», «a Barcelona». L'anglès en té tres: {{in}} «dins»: {{in the box}}, {{in Barcelona}}, {{in the kitchen}}; {{on}} «a sobre»: {{on the table}}, {{on the wall}}, {{on Main Street}}; {{at}} «en un punt»: {{at home}}, {{at work}}, {{at the station}}."},
+        { "table": [
+          ["català","anglès"],
+          ["a prop de","{{near}}"],
+          ["al costat de","{{next to}}"],
+          ["davant de (a l'altra banda del carrer)","{{across from}}"],
+          ["davant de (just al davant)","{{in front of}}"],
+          ["darrere de","{{behind}}"],
+          ["entre","{{between}}"],
+          ["a la dreta, a l'esquerra","{{on the right}}, {{on the left}}"]
+        ] },
+        {"p":"**Indicacions.** Es donen amb el verb tal com és, sense subjecte (és l'imperatiu, lliçó 20): {{Go straight.}} «Segueix recte.» {{Turn left.}} «Gira a l'esquerra.» {{Take the first right.}} «Agafa el primer carrer a la dreta.» És l'única vegada que l'anglès deixa el verb sense subjecte."},
+        { "ex": [
+          {"t":"The keys are in my bag.","tr":"Les claus són a la meva bossa."},
+          {"t":"Your phone is on the table.","tr":"El teu mòbil és a la taula."},
+          {"t":"I'm at the station.","tr":"Soc a l'estació."},
+          {"t":"The pharmacy is next to the bank.","tr":"La farmàcia és al costat del banc."},
+          {"t":"Turn right at the corner.","tr":"Gira a la dreta a la cantonada."},
+          {"t":"The hotel is between the park and the beach.","tr":"L'hotel és entre el parc i la platja."}
+        ] },
+        {"tip":"Un fals amic: {{library}} és «biblioteca»; una «llibreria» és una {{bookstore}}."}
+      ],
+      "mistakes": [
+        {"wrong":"The book is in the table.","right":"The book is on the table.","tr":"El llibre és a la taula.","why":"A sobre d'una superfície: {{on}}."},
+        {"wrong":"I'm in home.","right":"I'm at home.","tr":"Soc a casa.","why":"«A casa» és {{at home}}."},
+        {"wrong":"It's next the bank.","right":"It's next to the bank.","tr":"És al costat del banc.","why":"«Al costat de» és {{next to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"The cat is ___ the sofa.","tr":"El gat és al sofà.","options":["on","in","at"],"answer":0,"why":"A sobre: {{on}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"She's ___ work right now.","tr":"Ara és a la feina.","options":["at","in","on"],"answer":0,"why":"«A la feina» és {{at work}}."},
+        {"type":"choice","q":"{{The bank is across from the park.}} vol dir…","options":["El banc és davant del parc, a l'altra banda.","El banc és dins del parc.","El banc és darrere del parc."],"answer":0,"why":"{{across from}}: a l'altra banda, de cara."},
+        {"type":"dialogue","q":"Un turista t'atura pel carrer. Tria les respostes.","lines":[{"who":"Turista","t":"Excuse me, is there a bank near here?","tr":"Perdoni, hi ha algun banc a prop d'aquí?"},{"options":["Yes, there is. Go straight and turn left.","Yes, there are. Go straight and turn left."],"answer":0,"why":"Un banc: {{there is}}."},{"who":"Turista","t":"Is it far?","tr":"És lluny?"},{"options":["No, it's next to the supermarket.","No, is next the supermarket."],"answer":0,"why":"El subjecte {{it}}, i {{next to}}."}],"from":"say-what-there-is"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Gira a la dreta a la cantonada.","words":["Turn","right","at","the corner."]},
+        {"type":"say","q":"Digues «Soc a casa».","answer":"I'm at home."},
+        {"type":"free","q":"Et toca: explica on és casa teva: a prop de què, al costat de què.","answers":[{"t":"My apartment is near the beach, next to a small park.","tr":"El meu pis és a prop de la platja, al costat d'un parc petit."},{"t":"I live on Gran Via, across from the market.","tr":"Visc a la Gran Via, davant del mercat."}]}
+      ]
+    },
+    {
+      "id": "shop-this-and-that",
+      "unit": 2,
+      "level": "A1",
+      "title": "Assenyala i compra",
+      "summary": "Assenyala el que vols, pregunta què val i entén el preu: {{How much are these shoes?}}",
+      "topic": "{{this}}, {{that}}, {{these}}, {{those}}; {{How much is…?}}, {{How much are…?}}; els números i els preus",
+      "blocks": [
+        {"goal":{"t":"How much are these shoes?","tr":"Quant costen aquestes sabates?"}},
+        {"dialog":[{"who":"Dependent","t":"Hi! Can I help you?","tr":"Hola! Et puc ajudar?"},{"who":"Tu","t":"Yes. How much is this jacket?","tr":"Sí. Quant costa aquesta jaqueta?"},{"who":"Dependent","t":"It's sixty dollars.","tr":"Val seixanta dòlars."},{"who":"Tu","t":"And those shoes?","tr":"I aquelles sabates?"},{"who":"Dependent","t":"They're forty-five.","tr":"Valen quaranta-cinc."},{"who":"Tu","t":"OK, I'll take the shoes.","tr":"D'acord, em quedo les sabates."}]},
+        {"p":"**Aquest i aquell.** {{this}} «aquest, aquesta, això» és per al que tens a prop; {{that}} «aquell, aquella, allò», per al que és més lluny. En plural canvien: {{these}} «aquests, aquestes» i {{those}} «aquells, aquelles». Com que no hi ha gènere, no importa si la cosa és masculina o femenina."},
+        { "table": [
+          ["","a prop","més lluny"],
+          ["una cosa","{{this shirt}} aquesta camisa","{{that shirt}} aquella camisa"],
+          ["més d'una","{{these shoes}} aquestes sabates","{{those shoes}} aquelles sabates"]
+        ] },
+        {"p":"**Quant costa?** {{How much is…?}} per a una cosa, {{How much are…?}} per a més d'una: {{How much is this?}} «Quant costa això?» {{How much are these?}} «Quant costen aquests?» Les respostes: {{It's ten dollars.}} {{They're five dollars each.}} «Valen cinc dòlars cadascun.»"},
+        {"p":"**Preus i números.** {{$3.50}} es diu {{three fifty}} o {{three dollars and fifty cents}}; els decimals porten punt, no coma. Els números: {{one}}, {{two}}, {{three}}… {{ten}}; {{eleven}}, {{twelve}}; de 13 a 19 acaben en {{-teen}} ({{thirteen}}, {{fifteen}}); les desenes, en {{-ty}} ({{twenty}}, {{thirty}}, {{forty}}, {{fifty}}); i {{a hundred}} és 100."},
+        { "ex": [
+          {"t":"How much is this?","tr":"Quant costa això?"},
+          {"t":"I like these sunglasses.","tr":"M'agraden aquestes ulleres de sol."},
+          {"t":"Is that your car?","tr":"És el teu cotxe, aquell?"},
+          {"t":"Those cookies look great.","tr":"Aquelles galetes fan molt bona pinta."},
+          {"t":"It's twelve ninety-nine.","tr":"Val dotze noranta-nou ($12.99)."},
+          {"t":"Can I pay by card?","tr":"Puc pagar amb targeta?"}
+        ] },
+        {"tip":"Compte amb {{thirteen}} (13) i {{thirty}} (30), {{fifteen}} (15) i {{fifty}} (50): a {{-teen}} la força va al final («thir-TIIN»), i a {{-ty}}, al principi («THIR-ti»)."}
+      ],
+      "mistakes": [
+        {"wrong":"How much is these shoes?","right":"How much are these shoes?","tr":"Quant costen aquestes sabates?","why":"Més d'una cosa: {{are}}."},
+        {"wrong":"This shoes are nice.","right":"These shoes are nice.","tr":"Aquestes sabates són boniques.","why":"En plural, {{this}} es torna {{these}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"How much ___ this T-shirt?","tr":"Quant costa aquesta samarreta?","options":["is","are"],"answer":0,"why":"Una cosa: {{is}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I like ___ shoes over there.","tr":"M'agraden aquelles sabates d'allà.","options":["those","these","that"],"answer":0,"why":"Més d'una i lluny: {{those}}."},
+        {"type":"choice","q":"{{It's forty-five dollars.}} Quant val?","options":["45 $","54 $","4,5 $"],"answer":0,"why":"{{forty}} és 40 i {{five}} és 5."},
+        {"type":"dialogue","q":"En una botiga de roba. Tria les respostes.","lines":[{"who":"Dependenta","t":"Hi! Can I help you?","tr":"Hola! Et puc ajudar?"},{"options":["Yes, how much are these jeans?","Yes, how much is these jeans?"],"answer":0,"why":"{{jeans}} és plural: {{are}}."},{"who":"Dependenta","t":"They're thirty dollars.","tr":"Valen trenta dòlars."},{"options":["Great. Can I pay by card, please?","Great. I pay by card?"],"answer":0,"why":"Per demanar: {{Can I…?}}"}],"from":"ask-for-things"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Quant costen aquestes ulleres?","words":["How much","are","these","glasses?"]},
+        {"type":"say","q":"Pregunta «Quant costa això?»","answer":"How much is this?"},
+        {"type":"free","q":"Et toca: ets en una botiga. Assenyala dues coses i pregunta què valen.","answers":[{"t":"How much is this bag? And those sunglasses?","tr":"Quant costa aquesta bossa? I aquelles ulleres de sol?"},{"t":"Excuse me, how much are these shoes?","tr":"Perdoni, quant costen aquestes sabates?"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have",
+      "unit": 2,
+      "level": "A1",
+      "title": "Digues què tens i quants anys tens",
+      "summary": "Parla del que tens, digues l'edat i explica que tens gana, fred o son: {{I'm twenty-five, and I'm really hungry!}}",
+      "topic": "{{have}}, {{has}}; {{I'm 25}}; {{I'm hungry, cold, right}}: on el català diu «tenir», l'anglès sovint diu {{be}}",
+      "blocks": [
+        {"goal":{"t":"I'm twenty-five, and I'm really hungry!","tr":"Tinc vint-i-cinc anys i tinc molta gana!"}},
+        {"dialog":[{"who":"Lily","t":"Are you hungry?","tr":"Tens gana?"},{"who":"Pau","t":"Yes, I'm starving! And I'm thirsty.","tr":"Sí, em moro de gana! I tinc set."},{"who":"Lily","t":"I have sandwiches and water. Here you go!","tr":"Tinc entrepans i aigua. Té!"},{"who":"Pau","t":"Great! You're the best.","tr":"Genial! Ets la millor."},{"who":"Lily","t":"And I have chocolate too!","tr":"I també tinc xocolata!"}]},
+        {"p":"**Tenir: {{have}}.** Per a les coses que tens: {{I have a car.}} «Tinc cotxe.» {{She has two kids.}} «Té dos fills.» Amb {{he}}, {{she}} i {{it}} és {{has}}. (També es diu {{I've got}}, però als Estats Units és més habitual {{I have}}.)"},
+        { "table": [
+          ["","{{have}}"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{have}}"],
+          ["{{he}}, {{she}}, {{it}}","{{has}}"]
+        ] },
+        {"p":"**L'edat va amb {{be}}.** En català «tens» anys; en anglès, «ets» anys: {{I'm thirty.}} «Tinc trenta anys.» {{How old are you?}} «Quants anys tens?» Mai {{I have thirty years}}."},
+        {"p":"**Gana, set, fred: també amb {{be}}.** Moltes frases que en català van amb «tenir», en anglès van amb {{be}} i un adjectiu:"},
+        { "table": [
+          ["català","anglès"],
+          ["tinc gana","{{I'm hungry}}"],
+          ["tinc set","{{I'm thirsty}}"],
+          ["tinc fred, tinc calor","{{I'm cold}}, {{I'm hot}}"],
+          ["tinc son","{{I'm sleepy}}"],
+          ["tinc por","{{I'm scared}}"],
+          ["tinc raó","{{I'm right}}"],
+          ["tinc pressa","{{I'm in a hurry}}"],
+          ["tinc vint anys","{{I'm twenty}}"]
+        ] },
+        { "ex": [
+          {"t":"I have a dog and two cats.","tr":"Tinc un gos i dos gats."},
+          {"t":"My sister has a new job.","tr":"La meva germana té una feina nova."},
+          {"t":"I'm forty-two.","tr":"Tinc quaranta-dos anys."},
+          {"t":"Are you cold?","tr":"Tens fred?"},
+          {"t":"Sorry, I'm in a hurry!","tr":"Perdona, tinc pressa!"},
+          {"t":"You're right.","tr":"Tens raó."}
+        ] },
+        {"tip":"{{I have a cold}} vol dir «estic refredat», no «tinc fred», que és {{I'm cold}}. La diferència és important!"}
+      ],
+      "mistakes": [
+        {"wrong":"I have twenty years.","right":"I'm twenty.","tr":"Tinc vint anys.","why":"L'edat va amb {{be}}: {{I'm twenty}} (o {{I'm twenty years old}})."},
+        {"wrong":"I have hungry.","right":"I'm hungry.","tr":"Tinc gana.","why":"«Tenir gana» és {{be hungry}}."},
+        {"wrong":"She have a car.","right":"She has a car.","tr":"Té cotxe.","why":"Amb {{he}}, {{she}}, {{it}}: {{has}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"My brother ___ three children.","tr":"El meu germà té tres fills.","options":["has","have","is"],"answer":0,"why":"Amb {{he}} (el meu germà): {{has}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"___ thirsty. Is there any water?","tr":"Tinc set. Hi ha aigua?","options":["I'm","I have","I has"],"answer":0,"why":"«Tenir set» és {{be thirsty}}: {{I'm thirsty}}.","from":"say-what-there-is"},
+        {"type":"choice","q":"{{I'm cold.}} vol dir…","options":["Tinc fred.","Estic refredat.","Soc fred."],"answer":0,"why":"{{be cold}}: tenir fred. «Estic refredat» és {{I have a cold}}."},
+        {"type":"dialogue","q":"D'excursió amb un amic. Tria les respostes.","lines":[{"who":"Amic","t":"Wow, it's hot! Are you thirsty?","tr":"Uf, quina calor! Tens set?"},{"options":["Yes, I'm very thirsty.","Yes, I have very thirsty."],"answer":0,"why":"«Tenir set»: {{be thirsty}}."},{"who":"Amic","t":"I have water. Here you go!","tr":"Tinc aigua. Té!"},{"options":["Thanks! You're very kind.","Thanks! You have very kind."],"answer":0,"why":"«Ser amable» és {{be kind}}."}]},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Tinc quaranta-dos anys.","words":["I'm","forty-two","years","old."]},
+        {"type":"say","q":"Digues «Perdona, tinc pressa!»","answer":"Sorry, I'm in a hurry!"},
+        {"type":"free","q":"Et toca: quants anys tens, què tens (germans, animals, un cotxe…) i com et trobes ara: tens gana, son, fred?","answers":[{"t":"I'm thirty-one. I have a sister and a cat. Right now I'm a little sleepy.","tr":"Tinc trenta-un anys. Tinc una germana i un gat. Ara tinc una mica de son."},{"t":"I'm twenty, I have a bike, and I'm really hungry!","tr":"Tinc vint anys, tinc una bici i tinc molta gana!"}]}
+      ]
+    },
+    {
+      "id": "talk-about-family",
+      "unit": 2,
+      "level": "A1",
+      "title": "Parla de la teva família",
+      "summary": "Explica qui és qui a la teva família i pregunta per la dels altres: {{My sister's name is Anna. Her husband is from Chicago.}}",
+      "topic": "{{my}}, {{your}}, {{his}}, {{her}}, {{our}}, {{their}}, sense article; {{his}} o {{her}} segons qui té la cosa; la {{'s}}",
+      "blocks": [
+        {"goal":{"t":"My sister's name is Anna. Her husband is from Chicago.","tr":"La meva germana es diu Anna. El seu marit és de Chicago."}},
+        {"dialog":[{"who":"Ryan","t":"Is this your family?","tr":"Aquesta és la teva família?"},{"who":"Laia","t":"Yes! These are my parents, and this is my brother, Pol.","tr":"Sí! Aquests són els meus pares, i aquest és el meu germà, en Pol."},{"who":"Ryan","t":"And who's the woman?","tr":"I qui és la dona?"},{"who":"Laia","t":"That's his wife, Emma. She's from Chicago.","tr":"És la seva dona, l'Emma. És de Chicago."},{"who":"Ryan","t":"And the kids?","tr":"I els nens?"},{"who":"Laia","t":"They're their children. My parents' grandchildren!","tr":"Són els seus fills. Els néts dels meus pares!"}]},
+        {"term":"possessiu","means":"una paraula que diu de qui és una cosa: meu, teu, seu, nostre."},
+        {"p":"**Sense article.** En català diem «el meu germà», amb article. En anglès el possessiu va sol: {{my brother}} «el meu germà», {{my parents}} «els meus pares». I no canvia ni per al femení ni per al plural."},
+        { "table": [
+          ["català","anglès"],
+          ["el meu, la meva, els meus, les meves","{{my}}"],
+          ["el teu, la teva…","{{your}}"],
+          ["el seu (d'ell)","{{his}}"],
+          ["el seu (d'ella)","{{her}}"],
+          ["el nostre…","{{our}}"],
+          ["el vostre…","{{your}}"],
+          ["el seu (d'ells, d'elles)","{{their}}"]
+        ] },
+        {"p":"**{{his}} o {{her}}: depèn de l'amo.** En català, «el seu» o «la seva» concorden amb la cosa: «la seva mare». En anglès és al revés: depèn de qui és l'amo. Si és d'un home, {{his}}; si és d'una dona, {{her}}. «El marit de la Laia» és {{her husband}}, encara que el marit sigui un home. «La dona d'en Pol» és {{his wife}}."},
+        {"p":"**La {{'s}}.** Per dir de qui és una cosa amb el nom de la persona, l'anglès posa {{'s}} darrere del propietari: {{Laia's brother}} «el germà de la Laia», {{my mom's car}} «el cotxe de la meva mare». Si el propietari ja acaba en la {{-s}} del plural, només s'hi posa l'apòstrof: {{my parents' house}} «la casa dels meus pares»."},
+        { "table": [
+          ["català","anglès"],
+          ["el pare, la mare, els pares","{{father}} ({{dad}}), {{mother}} ({{mom}}), {{parents}}"],
+          ["el germà, la germana","{{brother}}, {{sister}}"],
+          ["el fill, la filla, els fills","{{son}}, {{daughter}}, {{children}} ({{kids}})"],
+          ["el marit, la dona, la parella","{{husband}}, {{wife}}, {{partner}}"],
+          ["l'avi, l'àvia, els avis","{{grandfather}}, {{grandmother}}, {{grandparents}}"],
+          ["el cosí, la cosina","{{cousin}}"]
+        ] },
+        {"p":"L'anglès no té una paraula com «germans» per a germans i germanes junts: es diu {{brothers and sisters}}."},
+        { "ex": [
+          {"t":"My dad is a doctor.","tr":"El meu pare és metge."},
+          {"t":"What's your mom's name?","tr":"Com es diu la teva mare?"},
+          {"t":"Our daughter is six.","tr":"La nostra filla té sis anys."},
+          {"t":"Marc and his wife are very nice.","tr":"En Marc i la seva dona són molt simpàtics."},
+          {"t":"Anna and her husband live in Boston.","tr":"L'Anna i el seu marit viuen a Boston."},
+          {"t":"This is my parents' house.","tr":"Aquesta és la casa dels meus pares."}
+        ] },
+        {"tip":"Pronuncia {{mother}}, {{father}} i {{brother}} amb el so de {{th}} (lliçó 2): la llengua entre les dents."}
+      ],
+      "mistakes": [
+        {"wrong":"Laia and his husband.","right":"Laia and her husband.","tr":"La Laia i el seu marit.","why":"El marit és de la Laia, una dona: {{her}}."},
+        {"wrong":"The my brother is tall.","right":"My brother is tall.","tr":"El meu germà és alt.","why":"El possessiu va sense article."},
+        {"wrong":"The car of my mom.","right":"My mom's car.","tr":"El cotxe de la meva mare.","why":"Amb persones, l'anglès fa servir {{'s}}: {{my mom's car}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Pol and ___ wife live in Girona.","tr":"En Pol i la seva dona viuen a Girona.","options":["his","her","their"],"answer":0,"why":"La dona és d'en Pol, un home: {{his}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Anna and ___ brother are twins.","tr":"L'Anna i el seu germà són bessons.","options":["her","his","she"],"answer":0,"why":"El germà és de l'Anna: {{her}}."},
+        {"type":"choice","q":"«La casa de la Marta» és…","options":["{{Marta's house}}","{{the house of Marta}}","{{Marta house}}"],"answer":0,"why":"Amb el nom d'una persona: {{'s}}."},
+        {"type":"dialogue","q":"Un amic et pregunta per la teva família. Tria les respostes.","lines":[{"who":"Amic","t":"Do you have any brothers or sisters?","tr":"Tens germans?"},{"options":["Yes, I have a sister.","Yes, I has a sister."],"answer":0,"why":"Amb {{I}}: {{have}}."},{"who":"Amic","t":"How old is she?","tr":"Quants anys té?"},{"options":["She's twenty-eight.","She has twenty-eight years."],"answer":0,"why":"L'edat va amb {{be}}."}],"from":"say-what-you-have"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Aquesta és la casa dels meus pares.","words":["This is","my","parents'","house."]},
+        {"type":"say","q":"Pregunta a un amic «Com es diu la teva mare?»","answer":"What's your mom's name?"},
+        {"type":"free","q":"Et toca: parla de dues persones de la teva família: com es diuen, quants anys tenen o on viuen.","answers":[{"t":"My brother's name is Jordi. He's thirty, and his wife is from Seville.","tr":"El meu germà es diu Jordi. Té trenta anys, i la seva dona és de Sevilla."},{"t":"My mom is a teacher, and my dad is an engineer.","tr":"La meva mare és mestra i el meu pare és enginyer."}]}
+      ]
     }
   ]
 }

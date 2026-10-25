@@ -8,12 +8,12 @@
    "title": "Gramàtica anglesa",
    "variety": "Anglès americà",
    "units": 9,
-   "lessons": 6,
+   "lessons": 11,
    "levels": [
     "A1"
    ],
-   "bytes": 28548,
-   "sha256": "97ec98f1b4d5e3230e467ad54d8851428a2b27a1f536f18e098fce9c38ace79f"
+   "bytes": 53080,
+   "sha256": "6473908f64c16e90546082a93dc1e9ca9dcf75b761f506496d783cbf2b060821"
   },
   "en-ar": {
    "file": "en-ar/course.json",
