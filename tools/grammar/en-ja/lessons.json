@@ -745,6 +745,186 @@
         {"type":"say","q":"How do you say “I like cooking, but I'm bad at it.”?","answer":"料理は好きですが、下手です。","r":"Ryōri wa suki desu ga, heta desu.","from":"say-what-you-like"},
         {"type":"free","q":"Your turn: contrast two things: something you do and something you don't, or something you like and something you don't. Use {{は…が、…は…|wa … ga, … wa …}}.","answers":[{"t":"テニスはしますが、ゴルフはしません。","r":"Tenisu wa shimasu ga, gorufu wa shimasen.","tr":"I play tennis, but I don't play golf."},{"t":"夏は好きですが、冬は嫌いです。","r":"Natsu wa suki desu ga, fuyu wa kirai desu.","tr":"I like summer, but I hate winter."}]}
       ]
+    },
+    {
+      "id": "ask-politely",
+      "unit": 4,
+      "level": "A1",
+      "title": "Ask someone to do something",
+      "summary": "Make polite requests: wait a moment, say it again, speak more slowly: “Please speak a little more slowly.”",
+      "topic": "the {{て|te}}-form; the three verb groups; {{～てください|… te kudasai}}",
+      "blocks": [
+        {"goal":{"t":"もう少しゆっくり話してください。","r":"Mō sukoshi yukkuri hanashite kudasai.","tr":"Please speak a little more slowly."}},
+        {"dialog":[{"who":"You","t":"すみません、この電車は新宿に行きますか。","r":"Sumimasen, kono densha wa Shinjuku ni ikimasu ka.","tr":"Excuse me, does this train go to Shinjuku?"},{"who":"Station staff","t":"いいえ、三番線の電車に乗ってください。","r":"Iie, san-bansen no densha ni notte kudasai.","tr":"No. Please take the train from platform 3."},{"who":"You","t":"すみません、もう一度言ってください。","r":"Sumimasen, mō ichido itte kudasai.","tr":"Sorry, could you say that again, please?"},{"who":"Station staff","t":"三番線です。あの階段を上がってください。","r":"San-bansen desu. Ano kaidan o agatte kudasai.","tr":"Platform 3. Please go up those stairs."},{"who":"You","t":"わかりました。ありがとうございます。","r":"Wakarimashita. Arigatō gozaimasu.","tr":"I see. Thank you."}]},
+        {"term":"te-form","means":"the form of a verb ending in {{て|te}} or {{で|de}} ({{食べて|tabete}}, {{読んで|yonde}}), used to ask, to link actions and much more."},
+        {"p":"**The て-form.** Every verb has a form ending in {{て|te}} or {{で|de}}. Alone it doesn't mean much, but a whole set of useful patterns is built on it, starting with this one: て-form + {{ください|kudasai}} “please do…”."},
+        {"term":"verb group","means":"one of the three families of Japanese verbs; each family makes its forms in its own way."},
+        {"p":"**Making it from the {{ます|masu}} form.** It depends on the verb's group. **Group 3** has just two verbs: {{します|shimasu}} → {{して|shite}}, {{来ます|kimasu}} → {{来て|kite}}. **Group 2**: drop {{ます|masu}} and add {{て|te}}: {{食べます|tabemasu}} → {{食べて|tabete}}, {{見ます|mimasu}} → {{見て|mite}}. Every verb whose stem ends in an e-sound ({{食べ|tabe}}, {{寝|ne}}, {{開け|ake}}) is group 2, and so are a few with an i-sound, like {{見ます|mimasu}}, {{起きます|okimasu}}, {{降ります|orimasu}} and {{います|imasu}}: learn those as you meet them. **Group 1** is all the rest, and the sound before {{ます|masu}} decides the change:"},
+        { "table": [
+          ["before {{ます|masu}}","becomes","examples"],
+          ["{{い|i}}, {{ち|chi}}, {{り|ri}}","{{って|tte}}","{{買います|kaimasu}} → {{買って|katte}}, {{待ちます|machimasu}} → {{待って|matte}}, {{帰ります|kaerimasu}} → {{帰って|kaette}}"],
+          ["{{み|mi}}, {{び|bi}}, {{に|ni}}","{{んで|nde}}","{{飲みます|nomimasu}} → {{飲んで|nonde}}, {{遊びます|asobimasu}} → {{遊んで|asonde}}"],
+          ["{{き|ki}}","{{いて|ite}}","{{書きます|kakimasu}} → {{書いて|kaite}}; but {{行きます|ikimasu}} → {{行って|itte}}"],
+          ["{{ぎ|gi}}","{{いで|ide}}","{{泳ぎます|oyogimasu}} → {{泳いで|oyoide}}"],
+          ["{{し|shi}}","{{して|shite}}","{{話します|hanashimasu}} → {{話して|hanashite}}"]
+        ] },
+        {"p":"It looks like a lot, but it's all about sound: the changes make the words easier to say. Learn one example from each row and the rest follow. {{行きます|ikimasu}} is the only exception in group 1."},
+        {"p":"**Asking: て-form + {{ください|kudasai}}.** {{待ってください|matte kudasai}} “please wait”, {{見てください|mite kudasai}} “please look”. It's polite, but it's still a request that the other person is expected to follow: teachers, staff and doctors use it all the time. When you ask a favour, start with {{すみません|sumimasen}}; later lessons give you softer ways."},
+        { "ex": [
+          {"t":"ちょっと待ってください。","r":"Chotto matte kudasai.","tr":"Please wait a moment."},
+          {"t":"ここに名前を書いてください。","r":"Koko ni namae o kaite kudasai.","tr":"Please write your name here."},
+          {"t":"この漢字を読んでください。","r":"Kono kanji o yonde kudasai.","tr":"Please read this kanji."},
+          {"t":"明日、八時に来てください。","r":"Ashita, hachi-ji ni kite kudasai.","tr":"Please come at eight tomorrow."},
+          {"t":"次の駅で降りてください。","r":"Tsugi no eki de orite kudasai.","tr":"Please get off at the next station.","note":"{{降ります|orimasu}} is group 2: {{降りて|orite}}"},
+          {"t":"すみません、もう一度言ってください。","r":"Sumimasen, mō ichido itte kudasai.","tr":"Sorry, could you say that again, please?","note":"{{言います|iimasu}} → {{言って|itte}}"}
+        ] },
+        {"tip":"{{わかりました|wakarimashita}} “I understand, will do” is the natural answer to a request. Between friends, {{ください|kudasai}} is often dropped: {{ちょっと待って！|chotto matte!}} “Wait a sec!”."}
+      ],
+      "mistakes": [
+        {"wrong":"待ちてください。","right":"待ってください。","rw":"Machite kudasai.","rr":"Matte kudasai.","tr":"Please wait.","why":"{{待ちます|machimasu}} is group 1: {{ち|chi}} → {{って|tte}}."},
+        {"wrong":"行いてください。","right":"行ってください。","rw":"Iite kudasai.","rr":"Itte kudasai.","tr":"Please go.","why":"{{行きます|ikimasu}} is the one exception: {{行って|itte}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"ちょっと___ください。","r":"Chotto ___ kudasai.","tr":"Please wait a moment.","options":["待って","待ちて","待んで"],"rs":["matte","machite","mande"],"answer":0,"why":"{{ち|chi}} → {{って|tte}}: {{待って|matte}}."},
+        {"type":"choice","q":"What's the て-form of {{書きます|kakimasu}} “write”?","options":["{{書いて|kaite}}","{{書きて|kakite}}","{{書って|katte}}"],"answer":0,"why":"{{き|ki}} → {{いて|ite}}."},
+        {"type":"choice","q":"And the て-form of {{食べます|tabemasu}} “eat”?","options":["{{食べて|tabete}}","{{食べって|tabette}}","{{食べいて|tabeite}}"],"answer":0,"why":"Group 2: drop {{ます|masu}}, add {{て|te}}."},
+        {"type":"dialogue","q":"At a hotel reception: choose your replies.","lines":[{"who":"Receptionist","t":"こちらにお名前を書いてください。","r":"Kochira ni onamae o kaite kudasai.","tr":"Please write your name here."},{"options":["はい、わかりました。","はい、書きてください。"],"rs":["Hai, wakarimashita.","Hai, kakite kudasai."],"answer":0,"why":"Answer a request with {{わかりました|wakarimashita}}."},{"who":"Receptionist","t":"お部屋は五階です。エレベーターはあちらです。","r":"Oheya wa go-kai desu. Erebētā wa achira desu.","tr":"Your room is on the fifth floor. The lift is over there."},{"options":["すみません、もう一度言ってください。","すみません、もう一度言いてください。"],"rs":["Sumimasen, mō ichido itte kudasai.","Sumimasen, mō ichido iite kudasai."],"answer":0,"why":"{{言います|iimasu}} → {{言って|itte}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Please write your name here.","words":["ここに","名前を","書いてください。"],"also":[["名前を","ここに","書いてください。"]],"rs":["Koko ni","namae o","kaite kudasai."],"why":"{{ここに名前を書いてください。|Koko ni namae o kaite kudasai.}}"},
+        {"type":"fill","q":"Choose the missing word.","t":"明日、八時___来てください。","r":"Ashita, hachi-ji ___ kite kudasai.","tr":"Please come at eight tomorrow.","options":["に","で","を"],"rs":["ni","de","o"],"answer":0,"why":"A clock time takes {{に|ni}}.","from":"say-where-you-go"},
+        {"type":"say","q":"Ask someone to speak a little more slowly.","answer":"もう少しゆっくり話してください。","r":"Mō sukoshi yukkuri hanashite kudasai."},
+        {"type":"free","q":"Your turn: you're a teacher. Give your class two instructions with {{てください|te kudasai}}.","answers":[{"t":"教科書を開いてください。この文を読んでください。","r":"Kyōkasho o hiraite kudasai. Kono bun o yonde kudasai.","tr":"Please open your textbooks. Please read this sentence."},{"t":"静かにしてください。ノートに書いてください。","r":"Shizuka ni shite kudasai. Nōto ni kaite kudasai.","tr":"Please be quiet. Please write it in your notebooks."}]}
+      ]
+    },
+    {
+      "id": "ask-permission",
+      "unit": 4,
+      "level": "A1",
+      "title": "Ask if you may, and say what's not allowed",
+      "summary": "Ask permission, give it, and understand the rules: “May I take photos here?” “Not inside, please.”",
+      "topic": "{{～てもいいですか|… te mo ii desu ka}}; {{～てはいけません|… te wa ikemasen}}",
+      "blocks": [
+        {"goal":{"t":"ここで写真を撮ってもいいですか。","r":"Koko de shashin o totte mo ii desu ka.","tr":"May I take photos here?"}},
+        {"dialog":[{"who":"You","t":"すみません、ここで写真を撮ってもいいですか。","r":"Sumimasen, koko de shashin o totte mo ii desu ka.","tr":"Excuse me, may I take photos here?"},{"who":"Temple staff","t":"外はいいですよ。でも、中で写真を撮ってはいけません。","r":"Soto wa ii desu yo. Demo, naka de shashin o totte wa ikemasen.","tr":"Outside is fine. But you mustn't take photos inside."},{"who":"You","t":"わかりました。中に入ってもいいですか。","r":"Wakarimashita. Naka ni haitte mo ii desu ka.","tr":"I see. May I go inside?"},{"who":"Temple staff","t":"はい、どうぞ。靴をここで脱いでください。","r":"Hai, dōzo. Kutsu o koko de nuide kudasai.","tr":"Yes, go ahead. Please take your shoes off here."}]},
+        {"p":"**May I…?: て-form + {{もいいですか|mo ii desu ka}}.** Word for word “Even if I do…, is it good?”: {{写真を撮ってもいいですか|shashin o totte mo ii desu ka}} “May I take a photo?”. To say yes: {{はい、どうぞ|hai, dōzo}} “Yes, go ahead” or {{いいですよ|ii desu yo}} “Sure”."},
+        {"p":"**Not allowed: て-form + {{はいけません|wa ikemasen}}.** {{ここでたばこを吸ってはいけません|koko de tabako o sutte wa ikemasen}} “You mustn't smoke here”. This is strong: the language of rules, signs and parents. To turn down someone's request, people say {{すみません、ちょっと…|sumimasen, chotto…}} instead, just as with invitations."},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["asking","{{入ってもいいですか|haitte mo ii desu ka}}","May I come in?"],
+          ["yes","{{はい、どうぞ|hai, dōzo}} / {{いいですよ|ii desu yo}}","Go ahead. / Sure."],
+          ["no, softly","{{すみません、ちょっと…|sumimasen, chotto…}}","Sorry, it's a bit…"],
+          ["a rule","{{入ってはいけません|haitte wa ikemasen}}","You mustn't go in."]
+        ] },
+        { "ex": [
+          {"t":"窓を開けてもいいですか。","r":"Mado o akete mo ii desu ka.","tr":"May I open the window?"},
+          {"t":"はい、どうぞ。","r":"Hai, dōzo.","tr":"Yes, go ahead."},
+          {"t":"このペンを使ってもいいですか。","r":"Kono pen o tsukatte mo ii desu ka.","tr":"May I use this pen?"},
+          {"t":"ここでたばこを吸ってはいけません。","r":"Koko de tabako o sutte wa ikemasen.","tr":"You mustn't smoke here."},
+          {"t":"美術館で食べ物を食べてはいけません。","r":"Bijutsukan de tabemono o tabete wa ikemasen.","tr":"You mustn't eat in the museum."},
+          {"t":"トイレに行ってもいいですか。","r":"Toire ni itte mo ii desu ka.","tr":"May I go to the toilet?"}
+        ] },
+        {"tip":"Signs often use the written word {{禁止|kinshi}} “forbidden”: {{撮影禁止|satsuei kinshi}} “no photos”. And {{禁煙|kin'en}} means “no smoking”."}
+      ],
+      "mistakes": [
+        {"wrong":"写真を撮りてもいいですか。","right":"写真を撮ってもいいですか。","rw":"Shashin o torite mo ii desu ka.","rr":"Shashin o totte mo ii desu ka.","tr":"May I take a photo?","why":"{{撮ります|torimasu}} is group 1: {{り|ri}} → {{って|tte}}, so {{撮って|totte}}."},
+        {"wrong":"ここでたばこを吸ってもいけません。","right":"ここでたばこを吸ってはいけません。","rw":"Koko de tabako o sutte mo ikemasen.","rr":"Koko de tabako o sutte wa ikemasen.","tr":"You mustn't smoke here.","why":"Permission is {{てもいい|te mo ii}}; a rule is {{てはいけません|te wa ikemasen}}. Don't mix {{も|mo}} and {{は|wa}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"ここに座って___いいですか。","r":"Koko ni suwatte ___ ii desu ka.","tr":"May I sit here?","options":["も","は","を"],"rs":["mo","wa","o"],"answer":0,"why":"Asking permission: {{てもいいですか|te mo ii desu ka}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"ここで泳いで___いけません。","r":"Koko de oyoide ___ ikemasen.","tr":"You mustn't swim here.","options":["は","も","が"],"rs":["wa","mo","ga"],"answer":0,"why":"A rule: {{てはいけません|te wa ikemasen}}."},
+        {"type":"choice","q":"A museum guard says {{写真を撮ってはいけません。|Shashin o totte wa ikemasen.}} What does it mean?","options":["You mustn't take photos.","You may take photos.","Please take a photo."],"answer":0,"why":"{{てはいけません|te wa ikemasen}}: not allowed."},
+        {"type":"dialogue","q":"You're visiting a friend's home. Choose your replies.","lines":[{"who":"Friend","t":"どうぞ、入ってください。","r":"Dōzo, haitte kudasai.","tr":"Come in, please."},{"options":["お邪魔します。トイレを使ってもいいですか。","お邪魔します。トイレを使ってください。"],"rs":["Ojama shimasu. Toire o tsukatte mo ii desu ka.","Ojama shimasu. Toire o tsukatte kudasai."],"answer":0,"why":"Asking permission: {{てもいいですか|te mo ii desu ka}}. {{使ってください|tsukatte kudasai}} would tell your friend to use it!"},{"who":"Friend","t":"はい、どうぞ。あそこです。","r":"Hai, dōzo. Asoko desu.","tr":"Sure, go ahead. It's over there."}],"from":"ask-politely"},
+        {"type":"order","q":"Put the words in order.","tr":"May I use this pen?","words":["この","ペンを","使ってもいいですか。"],"rs":["Kono","pen o","tsukatte mo ii desu ka."],"why":"{{このペンを使ってもいいですか。|Kono pen o tsukatte mo ii desu ka.}}"},
+        {"type":"say","q":"How do you say “Please take your shoes off here.”?","answer":"ここで靴を脱いでください。","r":"Koko de kutsu o nuide kudasai.","from":"ask-politely"},
+        {"type":"free","q":"Your turn: you're staying with a Japanese family. Ask two things you'd like to do, with {{てもいいですか|te mo ii desu ka}}.","answers":[{"t":"シャワーを浴びてもいいですか。","r":"Shawā o abite mo ii desu ka.","tr":"May I take a shower?"},{"t":"この自転車を使ってもいいですか。台所でお茶を飲んでもいいですか。","r":"Kono jitensha o tsukatte mo ii desu ka. Daidokoro de ocha o nonde mo ii desu ka.","tr":"May I use this bike? May I have some tea in the kitchen?"}]}
+      ]
+    },
+    {
+      "id": "say-whats-happening",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what's happening now, and how things are",
+      "summary": "Say what you're doing right now, and talk about states: where you live, whether you're married, what you know: “I'm making dinner right now.”",
+      "topic": "{{～ています|… te imasu}}: something in progress, and a state",
+      "blocks": [
+        {"goal":{"t":"今、晩ご飯を作っています。","r":"Ima, bangohan o tsukutte imasu.","tr":"I'm making dinner right now."}},
+        {"dialog":[{"who":"Yui","t":"もしもし、ケンさん？今、何をしていますか。","r":"Moshimoshi, Ken-san? Ima, nani o shite imasu ka.","tr":"Hello, Ken? What are you doing right now?"},{"who":"Ken","t":"テレビでサッカーを見ています。","r":"Terebi de sakkā o mite imasu.","tr":"I'm watching football on TV."},{"who":"Yui","t":"そうですか。マリアさんの電話番号を知っていますか。","r":"Sō desu ka. Maria-san no denwa bangō o shitte imasu ka.","tr":"I see. Do you know Maria's phone number?"},{"who":"Ken","t":"すみません、知りません。でも、ジョンさんが知っていますよ。","r":"Sumimasen, shirimasen. Demo, Jon-san ga shitte imasu yo.","tr":"Sorry, I don't. But John knows it."}]},
+        {"p":"**Doing it right now: て-form + {{います|imasu}}.** {{作っています|tsukutte imasu}} “I'm making”, {{見ています|mite imasu}} “I'm watching”. This {{います|imasu}} is the verb “to be (somewhere)”: you **are** in the middle of doing it. It changes like any {{ます|masu}} verb: {{見ていません|mite imasen}} “I'm not watching”, {{見ていました|mite imashita}} “I was watching”."},
+        {"p":"**Being in a state.** With some verbs, {{ています|te imasu}} describes a state that began earlier and is still true: {{住んでいます|sunde imasu}} “I live (there)”, word for word “I've settled there”; {{結婚しています|kekkon shite imasu}} “I'm married”; {{知っています|shitte imasu}} “I know”; {{働いています|hataraite imasu}} “I work (at…)”; {{持っています|motte imasu}} “I have, I own”. English uses the simple present for these; Japanese needs {{ています|te imasu}}."},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["in progress","{{今、雨が降っています。|Ima, ame ga futte imasu.}}","It's raining now."],
+          ["a state","{{東京に住んでいます。|Tōkyō ni sunde imasu.}}","I live in Tokyo."],
+          ["a state","{{結婚しています。|Kekkon shite imasu.}}","I'm married."],
+          ["a state","{{田中さんを知っています。|Tanaka-san o shitte imasu.}}","I know Mr Tanaka."]
+        ] },
+        {"p":"**One odd one out:** “I don't know” is {{知りません|shirimasen}}, not {{知っていません|shitte imasen}}."},
+        { "ex": [
+          {"t":"子供たちは公園で遊んでいます。","r":"Kodomotachi wa kōen de asonde imasu.","tr":"The children are playing in the park."},
+          {"t":"私は大阪に住んでいます。","r":"Watashi wa Ōsaka ni sunde imasu.","tr":"I live in Osaka."},
+          {"t":"姉は銀行で働いています。","r":"Ane wa ginkō de hataraite imasu.","tr":"My older sister works at a bank."},
+          {"t":"田中さんは結婚しています。","r":"Tanaka-san wa kekkon shite imasu.","tr":"Mr Tanaka is married."},
+          {"t":"車を持っていますか。","r":"Kuruma o motte imasu ka.","tr":"Do you have a car?"},
+          {"t":"すみません、知りません。","r":"Sumimasen, shirimasen.","tr":"Sorry, I don't know."}
+        ] },
+        {"tip":"{{もしもし|moshimoshi}} is “hello” on the phone only."}
+      ],
+      "mistakes": [
+        {"wrong":"東京に住みます。","right":"東京に住んでいます。","rw":"Tōkyō ni sumimasu.","rr":"Tōkyō ni sunde imasu.","tr":"I live in Tokyo.","why":"Where you live is a state: {{住んでいます|sunde imasu}}. {{住みます|sumimasu}} would mean “I'm going to live there”."},
+        {"wrong":"知っていません。","right":"知りません。","rw":"Shitte imasen.","rr":"Shirimasen.","tr":"I don't know.","why":"“I don't know” is simply {{知りません|shirimasen}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"今、何をして___か。","r":"Ima, nani o shite ___ ka.","tr":"What are you doing right now?","options":["います","いました","ください"],"rs":["imasu","imashita","kudasai"],"answer":0,"why":"Right now: {{しています|shite imasu}}."},
+        {"type":"choice","q":"How do you say “I live in Kyoto”?","options":["{{京都に住んでいます。|Kyōto ni sunde imasu.}}","{{京都に住みます。|Kyōto ni sumimasu.}}","{{京都で住んでいます。|Kyōto de sunde imasu.}}"],"answer":0,"why":"A state, {{住んでいます|sunde imasu}}; the place where you live takes {{に|ni}}."},
+        {"type":"choice","q":"Someone asks {{田中さんの住所を知っていますか。|Tanaka-san no jūsho o shitte imasu ka.}} You don't know it. You say…","options":["{{すみません、知りません。|Sumimasen, shirimasen.}}","{{すみません、知っていません。|Sumimasen, shitte imasen.}}"],"answer":0,"why":"“I don't know” is {{知りません|shirimasen}}."},
+        {"type":"dialogue","q":"A friend calls you. Choose your replies.","lines":[{"who":"Friend","t":"もしもし。今、何をしていますか。","r":"Moshimoshi. Ima, nani o shite imasu ka.","tr":"Hello. What are you doing right now?"},{"options":["家で日本語を勉強しています。","家で日本語を勉強してください。"],"rs":["Ie de Nihongo o benkyō shite imasu.","Ie de Nihongo o benkyō shite kudasai."],"answer":0,"why":"In progress: {{ています|te imasu}}."},{"who":"Friend","t":"そうですか。今晩、一緒にご飯を食べませんか。","r":"Sō desu ka. Konban, issho ni gohan o tabemasen ka.","tr":"I see. Would you like to have dinner together tonight?"},{"options":["いいですね。食べましょう。","はい、食べません。"],"rs":["Ii desu ne. Tabemashō.","Hai, tabemasen."],"answer":0,"why":"Accept an invitation with {{ましょう|mashō}}."}],"from":"invite-someone"},
+        {"type":"order","q":"Put the words in order.","tr":"My older sister works at a bank.","words":["姉は","銀行で","働いています。"],"rs":["Ane wa","ginkō de","hataraite imasu."],"why":"{{姉は銀行で働いています。|Ane wa ginkō de hataraite imasu.}}"},
+        {"type":"say","q":"How do you say “It's raining now.”?","answer":"今、雨が降っています。","r":"Ima, ame ga futte imasu."},
+        {"type":"free","q":"Your turn: where do you live, and where do you work or study? Use {{ています|te imasu}}.","answers":[{"t":"ロンドンに住んでいます。病院で働いています。","r":"Rondon ni sunde imasu. Byōin de hataraite imasu.","tr":"I live in London. I work at a hospital."},{"t":"東京に住んでいます。大学で経済を勉強しています。","r":"Tōkyō ni sunde imasu. Daigaku de keizai o benkyō shite imasu.","tr":"I live in Tokyo. I'm studying economics at university."}]}
+      ]
+    },
+    {
+      "id": "link-actions",
+      "unit": 4,
+      "level": "A2",
+      "title": "Tell what you do, step by step",
+      "summary": "Link actions in order, and join descriptions together: “In the morning I get up, have a shower and go to work.”",
+      "topic": "{{～て、～て|… te, … te}}; {{～てから|… te kara}}; adjectives joined with {{くて|kute}} and {{で|de}}",
+      "blocks": [
+        {"goal":{"t":"朝起きて、シャワーを浴びて、会社へ行きます。","r":"Asa okite, shawā o abite, kaisha e ikimasu.","tr":"In the morning I get up, have a shower and go to work."}},
+        {"dialog":[{"who":"Yui","t":"昨日は何をしましたか。","r":"Kinō wa nani o shimashita ka.","tr":"What did you do yesterday?"},{"who":"Tom","t":"友達と新宿へ行って、買い物をして、映画を見ました。","r":"Tomodachi to Shinjuku e itte, kaimono o shite, eiga o mimashita.","tr":"I went to Shinjuku with a friend, did some shopping and saw a movie."},{"who":"Yui","t":"どうでしたか。","r":"Dō deshita ka.","tr":"How was it?"},{"who":"Tom","t":"映画は長くて、ちょっと退屈でした。でも、レストランは安くておいしかったです。","r":"Eiga wa nagakute, chotto taikutsu deshita. Demo, resutoran wa yasukute oishikatta desu.","tr":"The movie was long and a bit boring. But the restaurant was cheap and good."}]},
+        {"p":"**And then… and then…: the て-form.** To tell several actions in a row, put every verb except the last in the て-form. Only the last verb shows when it happens and how polite you are: {{起きて、シャワーを浴びて、会社へ行きます|okite, shawā o abite, kaisha e ikimasu}} “I get up, shower and go to work” (every day); {{…会社へ行きました|… kaisha e ikimashita}} “…and went to work” (yesterday)."},
+        {"p":"**After doing…: て-form + {{から|kara}}.** {{から|kara}} makes the order clear: {{宿題をしてから、テレビを見ます|shukudai o shite kara, terebi o mimasu}} “I'll watch TV after I do my homework”."},
+        {"p":"**Joining descriptions.** An い-adjective changes {{い|i}} to {{くて|kute}}: {{安くておいしい|yasukute oishii}} “cheap and good” ({{いい|ii}} → {{よくて|yokute}}). A な-adjective or a noun adds {{で|de}}: {{静かできれい|shizuka de kirei}} “quiet and pretty”, {{兄は医者で…|ani wa isha de…}} “my brother is a doctor and…”."},
+        { "table": [
+          ["","joins with","example"],
+          ["verb","the {{て|te}}-form","{{起きて、食べて、出かけます|okite, tabete, dekakemasu}} I get up, eat and go out"],
+          ["{{い|i}}-adjective","{{くて|kute}}","{{安くておいしい|yasukute oishii}} cheap and good"],
+          ["{{な|na}}-adjective, noun","{{で|de}}","{{静かできれい|shizuka de kirei}} quiet and pretty"]
+        ] },
+        { "ex": [
+          {"t":"昨日は図書館へ行って、勉強しました。","r":"Kinō wa toshokan e itte, benkyō shimashita.","tr":"Yesterday I went to the library and studied."},
+          {"t":"手を洗ってから、食べてください。","r":"Te o aratte kara, tabete kudasai.","tr":"Please wash your hands before you eat.","note":"word for word “after washing your hands, please eat”"},
+          {"t":"このアパートは広くて、明るいです。","r":"Kono apāto wa hirokute, akarui desu.","tr":"This apartment is big and bright."},
+          {"t":"京都は静かで、きれいな町です。","r":"Kyōto wa shizuka de, kirei na machi desu.","tr":"Kyoto is a quiet, beautiful city."},
+          {"t":"兄は医者で、東京に住んでいます。","r":"Ani wa isha de, Tōkyō ni sunde imasu.","tr":"My older brother is a doctor and lives in Tokyo."},
+          {"t":"家に帰ってから、晩ご飯を作ります。","r":"Ie ni kaette kara, bangohan o tsukurimasu.","tr":"After I get home, I make dinner."}
+        ] },
+        {"tip":"The て-form you learnt for {{ください|kudasai}} now works as a link. One form, many jobs: that's why it's worth learning well."}
+      ],
+      "mistakes": [
+        {"wrong":"昨日、映画を見ました、ご飯を食べました。","right":"昨日、映画を見て、ご飯を食べました。","rw":"Kinō, eiga o mimashita, gohan o tabemashita.","rr":"Kinō, eiga o mite, gohan o tabemashita.","tr":"Yesterday I saw a movie and had a meal.","why":"Join actions with the て-form; only the last verb takes {{ました|mashita}}."},
+        {"wrong":"安いて、おいしいです。","right":"安くて、おいしいです。","rw":"Yasuite, oishii desu.","rr":"Yasukute, oishii desu.","tr":"It's cheap and good.","why":"An い-adjective joins with {{くて|kute}}."},
+        {"wrong":"静かくて、きれいです。","right":"静かで、きれいです。","rw":"Shizukakute, kirei desu.","rr":"Shizuka de, kirei desu.","tr":"It's quiet and pretty.","why":"A な-adjective joins with {{で|de}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing ending.","t":"このレストランは安___、おいしいです。","r":"Kono resutoran wa yasu___, oishii desu.","tr":"This restaurant is cheap and good.","options":["くて","いで","で"],"rs":["kute","ide","de"],"answer":0,"why":"An い-adjective: {{安くて|yasukute}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"京都は静か___、きれいです。","r":"Kyōto wa shizuka ___, kirei desu.","tr":"Kyoto is quiet and pretty.","options":["で","くて","て"],"rs":["de","kute","te"],"answer":0,"why":"A な-adjective: {{静かで|shizuka de}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I get up, have a shower and go to work.","words":["起きて、","シャワーを","浴びて、","会社へ","行きます。"],"rs":["Okite,","shawā o","abite,","kaisha e","ikimasu."],"why":"Every verb but the last in the て-form: {{起きて、シャワーを浴びて、会社へ行きます。|Okite, shawā o abite, kaisha e ikimasu.}}"},
+        {"type":"choice","q":"{{宿題をしてから、遊びます。|Shukudai o shite kara, asobimasu.}} means…","options":["I'll play after I do my homework.","I'll do my homework after I play.","I do my homework, but I don't play."],"answer":0,"why":"て-form + {{から|kara}}: “after doing…”."},
+        {"type":"dialogue","q":"A friend asks about your Sunday. Choose your replies.","lines":[{"who":"Friend","t":"日曜日は何をしましたか。","r":"Nichiyōbi wa nani o shimashita ka.","tr":"What did you do on Sunday?"},{"options":["海へ行って、泳ぎました。","海へ行きます、泳ぎました。"],"rs":["Umi e itte, oyogimashita.","Umi e ikimasu, oyogimashita."],"answer":0,"why":"Join actions with the て-form: {{行って|itte}}."},{"who":"Friend","t":"いいですね。海はどうでしたか。","r":"Ii desu ne. Umi wa dō deshita ka.","tr":"Nice. How was the sea?"},{"options":["きれいで、楽しかったです。","きれいくて、楽しかったです。"],"rs":["Kirei de, tanoshikatta desu.","Kireikute, tanoshikatta desu."],"answer":0,"why":"{{きれい|kirei}} is a な-adjective: {{きれいで|kirei de}}."}],"from":"say-how-it-was"},
+        {"type":"say","q":"How do you say “My older brother is a doctor and lives in Tokyo.”?","answer":"兄は医者で、東京に住んでいます。","r":"Ani wa isha de, Tōkyō ni sunde imasu.","from":"say-whats-happening"},
+        {"type":"free","q":"Your turn: describe your morning, step by step, with the て-form.","answers":[{"t":"七時に起きて、コーヒーを飲んで、八時に家を出ます。","r":"Shichi-ji ni okite, kōhī o nonde, hachi-ji ni ie o demasu.","tr":"I get up at seven, drink a coffee and leave home at eight."},{"t":"朝ご飯を食べて、犬と散歩して、仕事を始めます。","r":"Asagohan o tabete, inu to sanpo shite, shigoto o hajimemasu.","tr":"I have breakfast, walk the dog and start work."}]}
+      ]
     }
   ]
 }
