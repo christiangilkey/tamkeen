@@ -16,6 +16,22 @@
     "synthetic": true
    },
    "built": "2026-10-24"
+  },
+  "fr": {
+   "file": "fr/course.json",
+   "title": "French basics",
+   "variety": "French (France)",
+   "words": 20,
+   "planned": 1000,
+   "bytes": 8508,
+   "audio_bytes": 194611,
+   "sha256": "b0e29e6610f459e85fd1fd94f198cd921280c7281e09b3f16cf7d05ae4bf6304",
+   "voice": {
+    "engine": "azure",
+    "name": "Denise (Azure, France)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
   }
  }
 }

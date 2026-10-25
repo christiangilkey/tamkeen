@@ -1,0 +1,190 @@
+{
+  "lang": "fr",
+  "title": "French basics",
+  "variety": "French (France)",
+  "about": "The most common words of written and spoken French (wordfreq counts, grouped by dictionary word with tools/course/fr/rank.mjs), most common first, 50 to a unit. Names of people and places are left out. Each word has one short everyday sentence that uses it the way native speakers in France do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "le",
+      "pos": "art",
+      "meaning": "the (la before a feminine noun, les in the plural)",
+      "sentence": "Le café est trop chaud.",
+      "translation": "⟦The⟧ coffee is too hot."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "de",
+      "pos": "prep",
+      "meaning": "of; from",
+      "sentence": "Une tasse de thé, s'il vous plaît.",
+      "translation": "A cup ⟦of⟧ tea, please."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "être",
+      "pos": "verb",
+      "meaning": "to be",
+      "sentence": "Je suis en retard.",
+      "translation": "I ⟦am⟧ late.",
+      "form": "suis"
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "à",
+      "pos": "prep",
+      "meaning": "to; at; in",
+      "sentence": "Je vais à la gare.",
+      "translation": "I'm going ⟦to⟧ the station."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "un",
+      "pos": "art",
+      "meaning": "a, an; one (une before a feminine noun)",
+      "sentence": "J'ai un frère et une sœur.",
+      "translation": "I have ⟦a⟧ brother and a sister."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "avoir",
+      "pos": "verb",
+      "meaning": "to have",
+      "sentence": "Nous avons deux enfants.",
+      "translation": "We ⟦have⟧ two children.",
+      "form": "avons"
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "et",
+      "pos": "conj",
+      "meaning": "and",
+      "sentence": "J'aime le thé et le café.",
+      "translation": "I like tea ⟦and⟧ coffee."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "ce",
+      "pos": "det",
+      "meaning": "this; that (cette before a feminine noun, ces in the plural); it (c'est: it is)",
+      "sentence": "Ce livre est très bon.",
+      "translation": "⟦This⟧ book is very good."
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "que",
+      "pos": "conj",
+      "meaning": "that; than",
+      "sentence": "Je pense que c'est vrai.",
+      "translation": "I think ⟦that⟧ it's true."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "en",
+      "pos": "prep",
+      "meaning": "in; by (with transport)",
+      "sentence": "Je vais au travail en bus.",
+      "translation": "I go to work ⟦by⟧ bus."
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "des",
+      "pos": "art",
+      "meaning": "some (the plural of un); of the",
+      "sentence": "J'ai acheté des pommes.",
+      "translation": "I bought ⟦some⟧ apples."
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "je",
+      "pos": "pron",
+      "meaning": "I",
+      "sentence": "Je parle un peu français.",
+      "translation": "⟦I⟧ speak a little French."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "il",
+      "pos": "pron",
+      "meaning": "he; it (ils: they)",
+      "sentence": "Il travaille dans une banque.",
+      "translation": "⟦He⟧ works in a bank."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "pas",
+      "pos": "adv",
+      "meaning": "not (ne ... pas)",
+      "sentence": "Ce n'est pas loin.",
+      "translation": "It's ⟦not⟧ far."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "pour",
+      "pos": "prep",
+      "meaning": "for; (in order) to",
+      "sentence": "Ce cadeau est pour toi.",
+      "translation": "This present is ⟦for⟧ you."
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "ne",
+      "pos": "adv",
+      "meaning": "not (ne ... pas; n' before a vowel)",
+      "sentence": "Je ne comprends pas.",
+      "translation": "I ⟦don't⟧ understand."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "dans",
+      "pos": "prep",
+      "meaning": "in; inside",
+      "sentence": "Les clés sont dans mon sac.",
+      "translation": "The keys are ⟦in⟧ my bag."
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "qui",
+      "pos": "pron",
+      "meaning": "who; which, that",
+      "sentence": "Qui est à l'appareil ?",
+      "translation": "⟦Who⟧'s calling?"
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "se",
+      "pos": "pron",
+      "meaning": "oneself; himself, herself, themselves; each other",
+      "sentence": "Elle se regarde dans le miroir.",
+      "translation": "She looks at ⟦herself⟧ in the mirror."
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "son",
+      "pos": "det",
+      "meaning": "his; her; its (sa before a feminine noun, ses in the plural)",
+      "sentence": "Il a perdu son téléphone.",
+      "translation": "He lost ⟦his⟧ phone."
+    }
+  ]
+}

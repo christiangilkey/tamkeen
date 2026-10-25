@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "fr",
+ "title": "French basics",
+ "variety": "French (France)",
+ "about": "The most common words of written and spoken French (wordfreq counts, grouped by dictionary word with tools/course/fr/rank.mjs), most common first, 50 to a unit. Names of people and places are left out. Each word has one short everyday sentence that uses it the way native speakers in France do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Denise (Azure, France)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "le",
+   "pos": "art",
+   "meaning": "the (la before a feminine noun, les in the plural)",
+   "sentence": "Le café est trop chaud.",
+   "translation": "⟦The⟧ coffee is too hot.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.356,
+    "sent_start": 1.256,
+    "sent_end": 2.63
+   }
+  },
+  {
+   "n": 2,
+   "word": "de",
+   "pos": "prep",
+   "meaning": "of; from",
+   "sentence": "Une tasse de thé, s'il vous plaît.",
+   "translation": "A cup ⟦of⟧ tea, please.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.386,
+    "sent_start": 1.286,
+    "sent_end": 3.15
+   }
+  },
+  {
+   "n": 3,
+   "word": "être",
+   "pos": "verb",
+   "meaning": "to be",
+   "sentence": "Je suis en retard.",
+   "translation": "I ⟦am⟧ late.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.496,
+    "sent_start": 1.396,
+    "sent_end": 2.611
+   }
+  },
+  {
+   "n": 4,
+   "word": "à",
+   "pos": "prep",
+   "meaning": "to; at; in",
+   "sentence": "Je vais à la gare.",
+   "translation": "I'm going ⟦to⟧ the station.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.314,
+    "sent_start": 1.214,
+    "sent_end": 2.376
+   }
+  },
+  {
+   "n": 5,
+   "word": "un",
+   "pos": "art",
+   "meaning": "a, an; one (une before a feminine noun)",
+   "sentence": "J'ai un frère et une sœur.",
+   "translation": "I have ⟦a⟧ brother and a sister.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.286,
+    "sent_start": 1.186,
+    "sent_end": 2.718
+   }
+  },
+  {
+   "n": 6,
+   "word": "avoir",
+   "pos": "verb",
+   "meaning": "to have",
+   "sentence": "Nous avons deux enfants.",
+   "translation": "We ⟦have⟧ two children.",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.673,
+    "sent_start": 1.573,
+    "sent_end": 2.819
+   }
+  },
+  {
+   "n": 7,
+   "word": "et",
+   "pos": "conj",
+   "meaning": "and",
+   "sentence": "J'aime le thé et le café.",
+   "translation": "I like tea ⟦and⟧ coffee.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.244,
+    "sent_start": 1.144,
+    "sent_end": 2.673
+   }
+  },
+  {
+   "n": 8,
+   "word": "ce",
+   "pos": "det",
+   "meaning": "this; that (cette before a feminine noun, ces in the plural); it (c'est: it is)",
+   "sentence": "Ce livre est très bon.",
+   "translation": "⟦This⟧ book is very good.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.399,
+    "sent_start": 1.299,
+    "sent_end": 2.479
+   }
+  },
+  {
+   "n": 9,
+   "word": "que",
+   "pos": "conj",
+   "meaning": "that; than",
+   "sentence": "Je pense que c'est vrai.",
+   "translation": "I think ⟦that⟧ it's true.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.332,
+    "sent_start": 1.232,
+    "sent_end": 2.46
+   }
+  },
+  {
+   "n": 10,
+   "word": "en",
+   "pos": "prep",
+   "meaning": "in; by (with transport)",
+   "sentence": "Je vais au travail en bus.",
+   "translation": "I go to work ⟦by⟧ bus.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.267,
+    "sent_start": 1.167,
+    "sent_end": 2.747
+   }
+  },
+  {
+   "n": 11,
+   "word": "des",
+   "pos": "art",
+   "meaning": "some (the plural of un); of the",
+   "sentence": "J'ai acheté des pommes.",
+   "translation": "I bought ⟦some⟧ apples.",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.392,
+    "sent_start": 1.292,
+    "sent_end": 2.605
+   }
+  },
+  {
+   "n": 12,
+   "word": "je",
+   "pos": "pron",
+   "meaning": "I",
+   "sentence": "Je parle un peu français.",
+   "translation": "⟦I⟧ speak a little French.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.37,
+    "sent_start": 1.27,
+    "sent_end": 2.675
+   }
+  },
+  {
+   "n": 13,
+   "word": "il",
+   "pos": "pron",
+   "meaning": "he; it (ils: they)",
+   "sentence": "Il travaille dans une banque.",
+   "translation": "⟦He⟧ works in a bank.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.353,
+    "sent_start": 1.253,
+    "sent_end": 2.812
+   }
+  },
+  {
+   "n": 14,
+   "word": "pas",
+   "pos": "adv",
+   "meaning": "not (ne ... pas)",
+   "sentence": "Ce n'est pas loin.",
+   "translation": "It's ⟦not⟧ far.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.332,
+    "sent_start": 1.232,
+    "sent_end": 2.165
+   }
+  },
+  {
+   "n": 15,
+   "word": "pour",
+   "pos": "prep",
+   "meaning": "for; (in order) to",
+   "sentence": "Ce cadeau est pour toi.",
+   "translation": "This present is ⟦for⟧ you.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.443,
+    "sent_start": 1.343,
+    "sent_end": 2.732
+   }
+  },
+  {
+   "n": 16,
+   "word": "ne",
+   "pos": "adv",
+   "meaning": "not (ne ... pas; n' before a vowel)",
+   "sentence": "Je ne comprends pas.",
+   "translation": "I ⟦don't⟧ understand.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.369,
+    "sent_start": 1.269,
+    "sent_end": 2.352
+   }
+  },
+  {
+   "n": 17,
+   "word": "dans",
+   "pos": "prep",
+   "meaning": "in; inside",
+   "sentence": "Les clés sont dans mon sac.",
+   "translation": "The keys are ⟦in⟧ my bag.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.416,
+    "sent_start": 1.316,
+    "sent_end": 2.833
+   }
+  },
+  {
+   "n": 18,
+   "word": "qui",
+   "pos": "pron",
+   "meaning": "who; which, that",
+   "sentence": "Qui est à l'appareil ?",
+   "translation": "⟦Who⟧'s calling?",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.356,
+    "sent_start": 1.256,
+    "sent_end": 2.371
+   }
+  },
+  {
+   "n": 19,
+   "word": "se",
+   "pos": "pron",
+   "meaning": "oneself; himself, herself, themselves; each other",
+   "sentence": "Elle se regarde dans le miroir.",
+   "translation": "She looks at ⟦herself⟧ in the mirror.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.399,
+    "sent_start": 1.299,
+    "sent_end": 3.236
+   }
+  },
+  {
+   "n": 20,
+   "word": "son",
+   "pos": "det",
+   "meaning": "his; her; its (sa before a feminine noun, ses in the plural)",
+   "sentence": "Il a perdu son téléphone.",
+   "translation": "He lost ⟦his⟧ phone.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.44,
+    "sent_start": 1.34,
+    "sent_end": 3.005
+   }
+  }
+ ]
+}
