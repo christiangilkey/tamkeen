@@ -31,6 +31,7 @@ test("a reading is the Cyrillic in Latin letters, with the stress, said as it is
     ["семья́, съесть", "sem'yá, syest'"],
     ["Ты говори́шь по-ру́сски?", "Ty govorísh' po-rússki?"],
     ["-ешь, -ю", "-esh', -yu"],
+    ["Мо́жно счёт? Мужчи́на.", "Mózhno shchot? Mushchína."],
   ];
   for (const [t, r] of cases) assert.equal(reading(t), r, t);
 });

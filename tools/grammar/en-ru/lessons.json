@@ -119,12 +119,12 @@
           ["fish","{{ры́ба|rýba}}","{{Я хочу́ ры́бу.|Ya khochú rýbu.}}"],
           ["pizza","{{пи́цца|pítstsa}}","{{Мо́жно пи́ццу?|Mózhno pítstsu?}}"],
           ["tea (no change)","{{чай|chay}}","{{Я хочу́ чай.|Ya khochú chay.}}"],
-          ["the check (no change)","{{счёт|schot}}","{{Мо́жно счёт?|Mózhno schot?}}"]
+          ["the check (no change)","{{счёт|shchot}}","{{Мо́жно счёт?|Mózhno shchot?}}"]
         ] },
         { "ex": [
           {"t":"Я хочу́ пи́ццу.","r":"Ya khochú pítstsu.","tr":"I want pizza."},
           {"t":"Мо́жно меню́, пожа́луйста?","r":"Mózhno menyú, pozháluysta?","tr":"Can I have the menu, please?"},
-          {"t":"Мо́жно счёт, пожа́луйста?","r":"Mózhno schot, pozháluysta?","tr":"Can I have the check, please?"},
+          {"t":"Мо́жно счёт, пожа́луйста?","r":"Mózhno shchot, pozháluysta?","tr":"Can I have the check, please?"},
           {"t":"Ты хо́чешь ко́фе?","r":"Ty khóchesh' kófe?","tr":"Do you want some coffee?","note":"to a friend: {{хо́чешь|khóchesh'}}"},
           {"t":"Спаси́бо, не хочу́.","r":"Spasíbo, ne khochú.","tr":"No, thank you.","note":"word for word “Thanks, I don't want.”"}
         ] },
@@ -137,7 +137,7 @@
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"Мо́жно ___, пожа́луйста?","tr":"Can I have some water, please?","options":["во́ду","вода́"],"answer":0,"why":"The thing you ask for: {{вода́|vodá}} becomes {{во́ду|vódu}}."},
         {"type":"choice","q":"Which word does NOT change after {{хочу́|khochú}}?","options":["{{пи́цца|pítstsa}}","{{ры́ба|rýba}}","{{сок|sok}}"],"answer":2,"why":"{{сок|sok}} doesn't end in {{-а|-a}}, so it stays: {{Я хочу́ сок.|Ya khochú sok.}}"},
-        {"type":"dialogue","q":"In a café: choose your replies.","lines":[{"who":"Waiter","t":"Что вы хоти́те?","r":"Shto vy khotíte?","tr":"What would you like?"},{"options":["Я хочу́ пи́ццу и сок.","Я хочу́ пи́цца и сок."],"answer":0,"why":"{{пи́цца|pítstsa}} becomes {{пи́ццу|pítstsu}}; {{сок|sok}} doesn't change."},{"who":"Waiter","t":"Что́-нибудь ещё?","r":"Shtó-nibud' yeshchó?","tr":"Anything else?"},{"options":["Нет, спаси́бо. Мо́жно счёт?","Нет, спаси́бо. Э́то счёт?"],"answer":0,"why":"{{Мо́жно…?|Mózhno…?}} asks for something; {{Э́то счёт?|Éto schot?}} would be “Is this the check?”."},{"who":"Waiter","t":"Коне́чно.","r":"Konéshno.","tr":"Of course."}]},
+        {"type":"dialogue","q":"In a café: choose your replies.","lines":[{"who":"Waiter","t":"Что вы хоти́те?","r":"Shto vy khotíte?","tr":"What would you like?"},{"options":["Я хочу́ пи́ццу и сок.","Я хочу́ пи́цца и сок."],"answer":0,"why":"{{пи́цца|pítstsa}} becomes {{пи́ццу|pítstsu}}; {{сок|sok}} doesn't change."},{"who":"Waiter","t":"Что́-нибудь ещё?","r":"Shtó-nibud' yeshchó?","tr":"Anything else?"},{"options":["Нет, спаси́бо. Мо́жно счёт?","Нет, спаси́бо. Э́то счёт?"],"answer":0,"why":"{{Мо́жно…?|Mózhno…?}} asks for something; {{Э́то счёт?|Éto shchot?}} would be “Is this the check?”."},{"who":"Waiter","t":"Коне́чно.","r":"Konéshno.","tr":"Of course."}]},
         {"type":"order","q":"Put the words in order.","tr":"I'd like a coffee, please.","words":["Я","хочу́","ко́фе,","пожа́луйста."]},
         {"type":"say","q":"The waiter brings something you didn't order. Ask: “What's this?”","answer":"Что э́то?","r":"Shto éto?","from":"whats-this"},
         {"type":"say","q":"How do you say “Can I have the menu, please?”","answer":"Мо́жно меню́, пожа́луйста?","r":"Mózhno menyú, pozháluysta?"},
@@ -185,7 +185,7 @@
         {"type":"fill","q":"Choose the missing word.","t":"Где мой ключ? — Вот ___!","tr":"Where's my key? — Here it is!","options":["он","она́","оно́"],"answer":0,"why":"{{ключ|klyuch}} ends in a consonant: masculine, so {{он|on}}."},
         {"type":"dialogue","q":"At a hotel: choose your replies.","lines":[{"who":"Receptionist","t":"Здра́вствуйте! Ваш па́спорт, пожа́луйста.","r":"Zdrástvuyte! Vash pásport, pozháluysta.","tr":"Hello! Your passport, please."},{"options":["Вот он.","Вот она́."],"answer":0,"why":"{{па́спорт|pásport}} is masculine: {{он|on}}."},{"who":"Receptionist","t":"Спаси́бо. Вот ваш ключ.","r":"Spasíbo. Vot vash klyuch.","tr":"Thank you. Here's your key."},{"options":["Спаси́бо! А где лифт?","Спаси́бо! А где есть лифт?"],"answer":0,"why":"{{Где…?|Gde…?}} needs no verb: {{Где лифт?|Gde lift?}} “Where's the elevator?”."},{"who":"Receptionist","t":"Вот он, сле́ва.","r":"Vot on, sléva.","tr":"There it is, on the left."}]},
         {"type":"order","q":"Put the words in order.","tr":"This isn't my bag.","words":["Э́то","не","моя́","су́мка."],"from":"whats-this"},
-        {"type":"say","q":"In a café, ask: “Can I have the check, please?”","answer":"Мо́жно счёт, пожа́луйста?","r":"Mózhno schot, pozháluysta?","from":"ask-for-things"},
+        {"type":"say","q":"In a café, ask: “Can I have the check, please?”","answer":"Мо́жно счёт, пожа́луйста?","r":"Mózhno shchot, pozháluysta?","from":"ask-for-things"},
         {"type":"free","q":"Your turn: you've lost three things. Ask where they are with {{Где мой… / моя́… / моё…?|Gde moy… / moyá… / moyó…?}}","answers":[{"t":"Где мой телефо́н? Где моя́ су́мка? Где моё пальто́?","r":"Gde moy telefón? Gde moyá súmka? Gde moyó pal'tó?","tr":"Where's my phone? Where's my bag? Where's my coat?"},{"t":"Где мой ключ? Где моя́ ру́чка? Где моё письмо́?","r":"Gde moy klyuch? Gde moyá rúchka? Gde moyó pis'mó?","tr":"Where's my key? Where's my pen? Where's my letter?"}]}
       ]
     },
@@ -275,6 +275,305 @@
         {"type":"dialogue","q":"A friend is looking at your photos. Choose your replies.","lines":[{"who":"Friend","t":"Кто э́то?","r":"Kto éto?","tr":"Who are they?"},{"options":["Э́то мои́ бра́тья.","Э́то мой бра́тья."],"answer":0,"why":"{{бра́тья|brát'ya}} is plural: {{мои́|moí}}. ({{Кто э́то?|Kto éto?}} works for one person or several.)"},{"who":"Friend","t":"Они́ ру́сские?","r":"Oní rússkiye?","tr":"Are they Russian?"},{"options":["Нет, они́ америка́нцы.","Нет, он америка́нец."],"answer":0,"why":"“They”: {{они́|oní}}, with the plural {{америка́нцы|amerikántsy}}."},{"who":"Friend","t":"Каки́е симпати́чные!","r":"Kakíye simpatíchnyye!","tr":"They look so nice!"}]},
         {"type":"say","q":"Ask: “Where are my keys?”","answer":"Где мои́ ключи́?","r":"Gde moí klyuchí?","from":"where-is-it"},
         {"type":"free","q":"Your turn: name things or people you have more than one of (friends, books, keys…), and say what they're like. Start with {{Э́то мои́…|Éto moí…}} or {{Мои́…|Moí…}}","answers":[{"t":"Э́то мои́ кни́ги. Они́ ста́рые, но интере́сные.","r":"Éto moí knígi. Oní stáryye, no interésnyye.","tr":"These are my books. They're old, but interesting."},{"t":"Мои́ друзья́ о́чень весёлые.","r":"Moí druz'yá óchen' vesyólyye.","tr":"My friends are a lot of fun."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you do",
+      "summary": "Say what you're doing and what you do, and ask others: “I'm reading. And you?”",
+      "topic": "Verbs in the present: the {{-ешь|-esh'}} pattern ({{рабо́тать|rabótat'}}, {{чита́ть|chitát'}}, {{знать|znat'}}, {{де́лать|délat'}})",
+      "blocks": [
+        {"goal":{"t":"Что ты де́лаешь? — Я чита́ю.","r":"Shto ty délayesh'? — Ya chitáyu.","tr":"What are you doing? — I'm reading."}},
+        {"dialog":[{"who":"Dima","t":"Приве́т! Что ты де́лаешь?","r":"Privét! Shto ty délayesh'?","tr":"Hi! What are you doing?"},{"who":"Katya","t":"Я чита́ю. А ты?","r":"Ya chitáyu. A ty?","tr":"I'm reading. And you?"},{"who":"Dima","t":"Я рабо́таю. А что ты чита́ешь?","r":"Ya rabótayu. A shto ty chitáyesh'?","tr":"I'm working. What are you reading?"},{"who":"Katya","t":"Ру́сский рома́н. Он о́чень интере́сный.","r":"Rússkiy román. On óchen' interésnyy.","tr":"A Russian novel. It's very interesting."},{"who":"Dima","t":"А Ма́ша и О́ля? Что они́ де́лают?","r":"A Másha i Ólya? Shto oní délayut?","tr":"And Masha and Olya? What are they doing?"},{"who":"Katya","t":"Они́ слу́шают му́зыку.","r":"Oní slúshayut múzyku.","tr":"They're listening to music."}]},
+        {"term":"verb","means":"a word for an action or a state: work, read, know, be."},
+        {"term":"infinitive","means":"the basic form of a verb, the one in the dictionary: “to work”. Russian infinitives usually end in {{-ть|-t'}}: {{рабо́тать|rabótat'}} “to work”."},
+        {"p":"Russian has one present tense for both “I read” and “I'm reading”: {{я чита́ю|ya chitáyu}}. What changes is the verb's ending, which shows who is doing it."},
+        {"term":"conjugate","means":"to change a verb's ending to match who does it: I work, she works."},
+        {"p":"**How to make the forms.** Take the infinitive, drop {{-ть|-t'}}, and add the ending for each person. Most verbs that end in {{-ать|-at'}} or {{-ять|-yat'}} work like this. The new words: {{мы|my}} “we”, and {{он|on}}, {{она́|oná}}, {{они́|oní}}, which you know."},
+        { "table": [
+          ["","{{рабо́тать|rabótat'}} “to work”","ending"],
+          ["{{я|ya}}","{{рабо́таю|rabótayu}}","{{-ю|-yu}}"],
+          ["{{ты|ty}}","{{рабо́таешь|rabótayesh'}}","{{-ешь|-esh'}}"],
+          ["{{он|on}}, {{она́|oná}}","{{рабо́тает|rabótayet}}","{{-ет|-et}}"],
+          ["{{мы|my}}","{{рабо́таем|rabótayem}}","{{-ем|-em}}"],
+          ["{{вы|vy}}","{{рабо́таете|rabótayete}}","{{-ете|-ete}}"],
+          ["{{они́|oní}}","{{рабо́тают|rabótayut}}","{{-ют|-yut}}"]
+        ] },
+        {"p":"**No “do”, no “am”.** A question is the same sentence with a rising voice: {{Ты зна́ешь?|Ty znáyesh'?}} “Do you know?”. “Not” is {{не|ne}} before the verb: {{Я не зна́ю.|Ya ne znáyu.}} “I don't know.” And since the ending already says who, Russians often drop the pronoun in a quick answer: {{Что де́лаешь? — Рабо́таю.|Shto délayesh'? — Rabótayu.}}"},
+        { "ex": [
+          {"t":"Я рабо́таю, а он отдыха́ет.","r":"Ya rabótayu, a on otdykháyet.","tr":"I'm working, and he's resting."},
+          {"t":"Вы зна́ете, где метро́?","r":"Vy znáyete, gde metró?","tr":"Do you know where the subway is?"},
+          {"t":"Мы де́лаем уро́ки.","r":"My délayem uróki.","tr":"We're doing our homework."},
+          {"t":"Я не понима́ю.","r":"Ya ne ponimáyu.","tr":"I don't understand."},
+          {"t":"Что вы де́лаете ве́чером?","r":"Shto vy délayete vécherom?","tr":"What do you do in the evening?","note":"the same present for “do” and “are doing”"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я чита́ть.","right":"Я чита́ю.","tr":"I'm reading.","why":"{{чита́ть|chitát'}} is the dictionary form, “to read”. With {{я|ya}}, the verb ends in {{-ю|-yu}}."},
+        {"wrong":"Он рабо́таешь.","right":"Он рабо́тает.","tr":"He works.","why":"{{-ешь|-esh'}} is for {{ты|ty}}; for {{он|on}} and {{она́|oná}} it's {{-ет|-et}}."},
+        {"wrong":"Я есть чита́ю.","right":"Я чита́ю.","tr":"I'm reading.","why":"No “am” before a verb: {{я чита́ю|ya chitáyu}} is both “I read” and “I'm reading”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Что ты ___?","tr":"What are you doing?","options":["де́лаешь","де́лает","де́лать"],"answer":0,"why":"With {{ты|ty}}: {{-ешь|-esh'}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Они́ ___ му́зыку.","tr":"They're listening to music.","options":["слу́шают","слу́шаем","слу́шает"],"answer":0,"why":"With {{они́|oní}}: {{-ют|-yut}}."},
+        {"type":"choice","q":"{{Я чита́ю|Ya chitáyu}} means…","options":["“I read”","“I'm reading”","both"],"answer":2,"why":"Russian has one present for both."},
+        {"type":"order","q":"Put the words in order.","tr":"My friends don't understand.","words":["Мои́","друзья́","не","понима́ют."],"from":"more-than-one"},
+        {"type":"dialogue","q":"A friend calls you. Choose your replies.","lines":[{"who":"Friend","t":"Приве́т! Что ты де́лаешь?","r":"Privét! Shto ty délayesh'?","tr":"Hi! What are you doing?"},{"options":["Я отдыха́ю. А ты?","Я отдыха́ть. А ты?"],"answer":0,"why":"With {{я|ya}}: {{-ю|-yu}}."},{"who":"Friend","t":"Я рабо́таю. Ты зна́ешь, где Ма́ша?","r":"Ya rabótayu. Ty znáyesh', gde Másha?","tr":"I'm working. Do you know where Masha is?"},{"options":["Нет, не зна́ю.","Нет, не зна́ет."],"answer":0,"why":"You don't know: {{(я) не зна́ю|(ya) ne znáyu}}."},{"who":"Friend","t":"Ла́дно, пока́!","r":"Ládno, poká!","tr":"OK, bye!"}]},
+        {"type":"say","q":"Ask a stranger: “Do you know where the subway is?”","answer":"Вы зна́ете, где метро́?","r":"Vy znáyete, gde metró?","from":"where-is-it"},
+        {"type":"free","q":"Your turn: what are you doing now, and what is someone near you doing? Use {{я|ya}} and {{он|on}}, {{она́|oná}} or {{они́|oní}}.","answers":[{"t":"Я чита́ю, а мой брат слу́шает му́зыку.","r":"Ya chitáyu, a moy brat slúshayet múzyku.","tr":"I'm reading, and my brother is listening to music."},{"t":"Я рабо́таю, а моя́ ко́шка отдыха́ет.","r":"Ya rabótayu, a moyá kóshka otdykháyet.","tr":"I'm working, and my cat is resting."}]}
+      ]
+    },
+    {
+      "id": "speak-languages",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say which languages you speak",
+      "summary": "Say which languages you speak and how well, and what you like and watch.",
+      "topic": "The {{-ишь|-ish'}} pattern ({{говори́ть|govorít'}}, {{смотре́ть|smotrét'}}, {{люби́ть|lyubít'}}); {{по-ру́сски|po-rússki}} and {{ру́сский язы́к|rússkiy yazýk}}",
+      "blocks": [
+        {"goal":{"t":"Я немно́го говорю́ по-ру́сски.","r":"Ya nemnógo govoryú po-rússki.","tr":"I speak a little Russian."}},
+        {"dialog":[{"who":"Oleg","t":"Вы говори́те по-ру́сски?","r":"Vy govoríte po-rússki?","tr":"Do you speak Russian?"},{"who":"Emma","t":"Да, немно́го. Я понима́ю, но говорю́ ме́дленно.","r":"Da, nemnógo. Ya ponimáyu, no govoryú médlenno.","tr":"Yes, a little. I understand, but I speak slowly."},{"who":"Oleg","t":"Вы хорошо́ говори́те!","r":"Vy khoroshó govoríte!","tr":"You speak well!"},{"who":"Emma","t":"Спаси́бо! А вы говори́те по-англи́йски?","r":"Spasíbo! A vy govoríte po-anglíyski?","tr":"Thank you! And do you speak English?"},{"who":"Oleg","t":"Пло́хо. Но я ча́сто смотрю́ америка́нские фи́льмы.","r":"Plókho. No ya chásto smotryú amerikánskiye fíl'my.","tr":"Badly. But I often watch American movies."}]},
+        {"p":"Many verbs that end in {{-ить|-it'}}, and some in {{-еть|-et'}}, have {{и|i}} in their endings where {{рабо́тать|rabótat'}} has {{е|ye}}: {{ты говори́шь|ty govorísh'}}, {{он говори́т|on govorít}}. Their {{они́|oní}} form ends in {{-ят|-yat}} (or {{-ат|-at}})."},
+        { "table": [
+          ["","{{говори́ть|govorít'}} “to speak”","{{смотре́ть|smotrét'}} “to watch”"],
+          ["{{я|ya}}","{{говорю́|govoryú}}","{{смотрю́|smotryú}}"],
+          ["{{ты|ty}}","{{говори́шь|govorísh'}}","{{смо́тришь|smótrish'}}"],
+          ["{{он|on}}, {{она́|oná}}","{{говори́т|govorít}}","{{смо́трит|smótrit}}"],
+          ["{{мы|my}}","{{говори́м|govorím}}","{{смо́трим|smótrim}}"],
+          ["{{вы|vy}}","{{говори́те|govoríte}}","{{смо́трите|smótrite}}"],
+          ["{{они́|oní}}","{{говоря́т|govoryát}}","{{смо́трят|smótryat}}"]
+        ] },
+        {"p":"**Two patterns.** So Russian verbs follow one of two patterns: the {{-ешь|-esh'}} pattern of {{рабо́тать|rabótat'}} and the {{-ишь|-ish'}} pattern of {{говори́ть|govorít'}}. The {{ты|ty}} form tells you which, so learn it with the verb. Listen to the stress: in {{смотрю́|smotryú}} it's on the ending; in {{смо́тришь|smótrish'}} it moves back."},
+        {"p":"**An extra {{л|l}}.** When the part before the ending finishes in {{б|b}}, {{п|p}}, {{в|v}}, {{м|m}} or {{ф|f}}, the {{я|ya}} form adds {{л|l}}: {{люби́ть|lyubít'}} “to love, to like” → {{я люблю́|ya lyublyú}}, but {{ты лю́бишь|ty lyúbish'}}; {{гото́вить|gotóvit'}} “to cook” → {{я гото́влю|ya gotóvlyu}}. Only the {{я|ya}} form does this."},
+        {"p":"**Languages.** “Speak Russian” is {{говори́ть по-ру́сски|govorít' po-rússki}}: {{по-ру́сски|po-rússki}} means “in Russian”. With {{знать|znat'}} “know”, {{учи́ть|uchít'}} “learn” and {{люби́ть|lyubít'}}, use the language itself: {{ру́сский язы́к|rússkiy yazýk}} “the Russian language”. To say how well: {{хорошо́|khoroshó}} “well”, {{пло́хо|plókho}} “badly”, {{немно́го|nemnógo}} “a little”, {{ме́дленно|médlenno}} “slowly”, {{свобо́дно|svobódno}} “fluently”."},
+        { "table": [
+          ["","speak it","the language"],
+          ["Russian","{{по-ру́сски|po-rússki}}","{{ру́сский язы́к|rússkiy yazýk}}"],
+          ["English","{{по-англи́йски|po-anglíyski}}","{{англи́йский язы́к|anglíyskiy yazýk}}"],
+          ["Spanish","{{по-испа́нски|po-ispánski}}","{{испа́нский язы́к|ispánskiy yazýk}}"],
+          ["French","{{по-францу́зски|po-frantsúzski}}","{{францу́зский язы́к|frantsúzskiy yazýk}}"]
+        ] },
+        { "ex": [
+          {"t":"Вы говори́те по-англи́йски?","r":"Vy govoríte po-anglíyski?","tr":"Do you speak English?"},
+          {"t":"Я учу́ ру́сский язы́к.","r":"Ya uchú rússkiy yazýk.","tr":"I'm learning Russian.","note":"{{учи́ть|uchít'}}: {{я учу́|ya uchú}}, {{ты у́чишь|ty úchish'}}"},
+          {"t":"Мой брат свобо́дно говори́т по-испа́нски.","r":"Moy brat svobódno govorít po-ispánski.","tr":"My brother speaks Spanish fluently."},
+          {"t":"Я о́чень люблю́ ко́фе.","r":"Ya óchen' lyublyú kófe.","tr":"I really love coffee."},
+          {"t":"Что ты смо́тришь? — Фильм.","r":"Shto ty smótrish'? — Fil'm.","tr":"What are you watching? — A movie."}
+        ] },
+        {"tip":"Russian writes languages and nationalities with a small letter: {{ру́сский|rússkiy}}, {{англи́йский|anglíyskiy}}, {{америка́нец|amerikánets}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Я говорю́ ру́сский.","right":"Я говорю́ по-ру́сски.","tr":"I speak Russian.","why":"With {{говори́ть|govorít'}}, say {{по-ру́сски|po-rússki}}. {{ру́сский язы́к|rússkiy yazýk}} goes with {{знать|znat'}}, {{учи́ть|uchít'}} and {{люби́ть|lyubít'}}."},
+        {"wrong":"Я любю́ ко́фе.","right":"Я люблю́ ко́фе.","tr":"I love coffee.","why":"{{люби́ть|lyubít'}} adds {{л|l}} in the {{я|ya}} form: {{люблю́|lyublyú}}."},
+        {"wrong":"Ты говори́ешь по-ру́сски?","right":"Ты говори́шь по-ру́сски?","tr":"Do you speak Russian?","why":"{{говори́ть|govorít'}} follows the {{-ишь|-ish'}} pattern: {{говори́шь|govorísh'}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ты ___ по-англи́йски?","tr":"Do you speak English?","options":["говори́шь","говори́ешь","говори́т"],"answer":0,"why":"The {{-ишь|-ish'}} pattern: {{ты говори́шь|ty govorísh'}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Я ___ ру́сский язы́к.","tr":"I'm learning Russian.","options":["учу́","учи́ть","у́чит"],"answer":0,"why":"With {{я|ya}}: {{учу́|uchú}}."},
+        {"type":"choice","q":"How do you say “I speak Spanish”?","options":["{{Я говорю́ по-испа́нски.|Ya govoryú po-ispánski.}}","{{Я говорю́ испа́нский.|Ya govoryú ispánskiy.}}"],"answer":0,"why":"After {{говори́ть|govorít'}}: {{по-испа́нски|po-ispánski}}."},
+        {"type":"dialogue","q":"You're Mike, from New York, at a party in Moscow. Choose your replies.","lines":[{"who":"Guest","t":"Вы говори́те по-ру́сски?","r":"Vy govoríte po-rússki?","tr":"Do you speak Russian?"},{"options":["Да, немно́го.","Да, ру́сский немно́го."],"answer":0,"why":"Answer with how well: {{немно́го|nemnógo}}, {{хорошо́|khoroshó}}."},{"who":"Guest","t":"А по-англи́йски?","r":"A po-anglíyski?","tr":"And English?"},{"options":["Коне́чно! Я америка́нец.","Коне́чно! Я америка́нский."],"answer":0,"why":"A man from America is {{америка́нец|amerikánets}}. {{америка́нский|amerikánskiy}} is an adjective: {{америка́нский фильм|amerikánskiy fil'm}}."},{"who":"Guest","t":"Здо́рово!","r":"Zdórovo!","tr":"Great!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We understand, but we speak slowly.","words":["Мы","понима́ем,","но","говори́м","ме́дленно."],"from":"say-what-you-do"},
+        {"type":"say","q":"Say: “I don't understand. I speak a little Russian.”","answer":"Я не понима́ю. Я немно́го говорю́ по-ру́сски.","r":"Ya ne ponimáyu. Ya nemnógo govoryú po-rússki.","from":"say-what-you-do"},
+        {"type":"free","q":"Your turn: which languages do you speak, and how well? Use {{Я говорю́ по-…|Ya govoryú po-…}} with {{хорошо́|khoroshó}}, {{немно́го|nemnógo}} or {{свобо́дно|svobódno}}.","answers":[{"t":"Я свобо́дно говорю́ по-англи́йски и немно́го по-ру́сски.","r":"Ya svobódno govoryú po-anglíyski i nemnógo po-rússki.","tr":"I speak English fluently and a little Russian."},{"t":"Я говорю́ по-испа́нски, а сейча́с учу́ ру́сский язы́к.","r":"Ya govoryú po-ispánski, a seychás uchú rússkiy yazýk.","tr":"I speak Spanish, and now I'm learning Russian."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-live",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say where you live and work",
+      "summary": "Say where you live, work and study, and where people and things are: “I live in Moscow and work at a bank.”",
+      "topic": "The prepositional case after {{в|v}} and {{на|na}} ({{где?|gde?}}); {{жить|zhit'}}: {{живу́|zhivú}}, {{живёшь|zhivyósh'}}",
+      "blocks": [
+        {"goal":{"t":"Я живу́ в Москве́ и рабо́таю в ба́нке.","r":"Ya zhivú v Moskvé i rabótayu v bánke.","tr":"I live in Moscow and work at a bank."}},
+        {"dialog":[{"who":"Ira","t":"Где вы живёте?","r":"Gde vy zhivyóte?","tr":"Where do you live?"},{"who":"Mark","t":"Я живу́ в Петербу́рге.","r":"Ya zhivú v Peterbúrge.","tr":"I live in St. Petersburg."},{"who":"Ira","t":"А где вы рабо́таете?","r":"A gde vy rabótayete?","tr":"And where do you work?"},{"who":"Mark","t":"Я рабо́таю в шко́ле. Я учи́тель.","r":"Ya rabótayu v shkóle. Ya uchítel'.","tr":"I work at a school. I'm a teacher."},{"who":"Ira","t":"А я рабо́таю на по́чте, в це́нтре.","r":"A ya rabótayu na póchte, v tséntre.","tr":"And I work at the post office, downtown."}]},
+        {"p":"Look at the places in this conversation: {{Петербу́рг|Peterbúrg}} becomes {{в Петербу́рге|v Peterbúrge}}, {{шко́ла|shkóla}} becomes {{в шко́ле|v shkóle}}. After {{в|v}} “in” and {{на|na}} “on, at”, a word saying where something is takes a new ending."},
+        {"term":"preposition","means":"a little word before a noun that shows place, time or direction: in, on, at, to, from."},
+        {"term":"case","means":"the form a noun takes to show its job in the sentence. Russian has six cases, each with its own endings. The dictionary form is one of them."},
+        {"term":"prepositional case","means":"the case for where something is, after {{в|v}} and {{на|na}}, and for what you talk about, after {{о|o}}. It's never used without a preposition, hence the name."},
+        {"p":"**The ending is almost always {{-е|-e}}.** Words in {{-ия|-iya}} and feminine words in {{-ь|-'}} take {{-и|-i}}."},
+        { "table": [
+          ["the word","where?","the ending"],
+          ["{{Москва́|Moskvá}}","{{в Москве́|v Moskvé}}","{{-а|-a}} → {{-е|-e}}"],
+          ["{{банк|bank}}","{{в ба́нке|v bánke}}","add {{-е|-e}}"],
+          ["{{музе́й|muzéy}}","{{в музе́е|v muzéye}}","{{-й|-y}} → {{-е|-e}}"],
+          ["{{мо́ре|móre}}","{{на мо́ре|na móre}}","{{-е|-e}} stays"],
+          ["{{Росси́я|Rossíya}}","{{в Росси́и|v Rossíi}}","{{-ия|-iya}} → {{-ии|-ii}}"],
+          ["{{пло́щадь|plóshchad'}} (feminine)","{{на пло́щади|na plóshchadi}}","{{-ь|-'}} → {{-и|-i}}"]
+        ] },
+        {"p":"**{{в|v}} or {{на|na}}?** {{в|v}} is “in”, inside a place: {{в Москве́|v Moskvé}}, {{в ба́нке|v bánke}}, {{в па́рке|v párke}}, {{в шко́ле|v shkóle}}. {{на|na}} is “on”, and “at” for events, open spaces and some places you just learn: {{на рабо́те|na rabóte}} “at work”, {{на по́чте|na póchte}} “at the post office”, {{на у́лице|na úlitse}} “outside, on the street”, {{на конце́рте|na kontsérte}} “at a concert”, {{на мо́ре|na móre}} “at the seaside”. Foreign words ending in a vowel never change: {{в кафе́|v kafé}}, {{в метро́|v metró}}, {{в кино́|v kinó}} “at the movies”."},
+        {"p":"**Living.** {{жить|zhit'}} “to live” is a little irregular: {{я живу́|ya zhivú}}, {{ты живёшь|ty zhivyósh'}}, {{он живёт|on zhivyót}}, {{мы живём|my zhivyóm}}, {{вы живёте|vy zhivyóte}}, {{они́ живу́т|oní zhivút}}. And “at home” is one special word: {{до́ма|dóma}}."},
+        { "ex": [
+          {"t":"Мы живём в Аме́рике.","r":"My zhivyóm v Amérike.","tr":"We live in America."},
+          {"t":"Па́па на рабо́те, а ма́ма до́ма.","r":"Pápa na rabóte, a máma dóma.","tr":"Dad's at work, and Mom's at home."},
+          {"t":"Где ты рабо́таешь? — В магази́не.","r":"Gde ty rabótayesh'? — V magazíne.","tr":"Where do you work? — In a store."},
+          {"t":"Ле́том мы живём на да́че.","r":"Létom my zhivyóm na dáche.","tr":"In summer we live at the dacha.","note":"a {{да́ча|dácha}} is a summer house outside the city"},
+          {"t":"Кни́га на столе́.","r":"Kníga na stolé.","tr":"The book is on the table.","note":"the stress moves: {{стол|stol}}, {{на столе́|na stolé}}"},
+          {"t":"Я сейча́с в кафе́.","r":"Ya seychás v kafé.","tr":"I'm at a café right now."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я живу́ в Москва́.","right":"Я живу́ в Москве́.","tr":"I live in Moscow.","why":"After {{в|v}} saying where: {{-а|-a}} → {{-е|-e}}."},
+        {"wrong":"Я сейча́с в рабо́те.","right":"Я сейча́с на рабо́те.","tr":"I'm at work now.","why":"“At work” is {{на рабо́те|na rabóte}}: some places take {{на|na}}, and you learn them as you go."},
+        {"wrong":"Я живу́ в Росси́е.","right":"Я живу́ в Росси́и.","tr":"I live in Russia.","why":"Words in {{-ия|-iya}} end in {{-ии|-ii}}: {{в Росси́и|v Rossíi}}, {{в А́нглии|v Ánglii}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Я живу́ в ___.","tr":"I live in London.","options":["Ло́ндоне","Ло́ндон","Ло́ндона"],"answer":0,"why":"Where: add {{-е|-e}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ма́ма сейча́с ___ рабо́те.","tr":"Mom is at work now.","options":["на","в"],"answer":0,"why":"“At work”: {{на рабо́те|na rabóte}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Они́ живу́т в ___.","tr":"They live in Russia.","options":["Росси́и","Росси́е","Росси́я"],"answer":0,"why":"{{-ия|-iya}} → {{-ии|-ii}}."},
+        {"type":"dialogue","q":"A new neighbor asks about you. Choose your replies.","lines":[{"who":"Neighbor","t":"Вы живёте здесь?","r":"Vy zhivyóte zdes'?","tr":"Do you live here?"},{"options":["Нет, я живу́ в це́нтре.","Нет, я живу́ в центр."],"answer":0,"why":"Where: {{центр|tsentr}} → {{в це́нтре|v tséntre}}."},{"who":"Neighbor","t":"А где вы рабо́таете?","r":"A gde vy rabótayete?","tr":"And where do you work?"},{"options":["В университе́те. Я преподава́тель.","В университе́т. Я преподава́тель."],"answer":0,"why":"Where: {{университе́т|universitét}} + {{-е|-e}}."},{"who":"Neighbor","t":"Как интере́сно!","r":"Kak interésno!","tr":"How interesting!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"In Moscow I speak Russian.","words":["В","Москве́","я","говорю́","по-ру́сски."],"from":"speak-languages"},
+        {"type":"say","q":"Ask a friend: “Where do you work?”","answer":"Где ты рабо́таешь?","r":"Gde ty rabótayesh'?","from":"say-what-you-do"},
+        {"type":"free","q":"Your turn: where do you live, and where do you work or study? Start with {{Я живу́ в…|Ya zhivú v…}}","answers":[{"t":"Я живу́ в Бо́стоне и рабо́таю в больни́це.","r":"Ya zhivú v Bóstone i rabótayu v bol'nítse.","tr":"I live in Boston and work at a hospital."},{"t":"Я живу́ в Ло́ндоне. Я рабо́таю на по́чте.","r":"Ya zhivú v Lóndone. Ya rabótayu na póchte.","tr":"I live in London. I work at the post office."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you like and what you're doing",
+      "summary": "Talk about what you love, read, watch and cook: the form a noun takes when something is done to it.",
+      "topic": "The accusative case of things: {{-у|-u}}, {{-ю|-yu}}, adjectives {{-ую|-uyu}}; {{люблю́|lyublyú}} + infinitive",
+      "blocks": [
+        {"goal":{"t":"Я о́чень люблю́ ру́сскую му́зыку.","r":"Ya óchen' lyublyú rússkuyu múzyku.","tr":"I really love Russian music."}},
+        {"dialog":[{"who":"Nastya","t":"Что ты лю́бишь де́лать в свобо́дное вре́мя?","r":"Shto ty lyúbish' délat' v svobódnoye vrémya?","tr":"What do you like to do in your free time?"},{"who":"Ben","t":"Я люблю́ гото́вить. И я люблю́ смотре́ть фи́льмы.","r":"Ya lyublyú gotóvit'. I ya lyublyú smotrét' fíl'my.","tr":"I like to cook. And I like watching movies."},{"who":"Nastya","t":"Каки́е фи́льмы ты лю́бишь?","r":"Kakíye fíl'my ty lyúbish'?","tr":"What kind of movies do you like?"},{"who":"Ben","t":"Коме́дии. А ты?","r":"Komédii. A ty?","tr":"Comedies. And you?"},{"who":"Nastya","t":"А я люблю́ му́зыку. Я игра́ю на гита́ре.","r":"A ya lyublyú múzyku. Ya igráyu na gitáre.","tr":"And I love music. I play the guitar."},{"who":"Ben","t":"Здо́рово!","r":"Zdórovo!","tr":"Cool!"}]},
+        {"term":"subject","means":"the person or thing doing the action: in “Anna reads a book”, Anna."},
+        {"term":"object","means":"the person or thing the action is done to: in “Anna reads a book”, a book."},
+        {"p":"In English, the order of the words shows who does what: “Anna reads the book”. In Russian, the endings show it. The subject stays in the dictionary form, and the object takes the **accusative**: {{кни́га|kníga}} becomes {{кни́гу|knígu}} in {{А́нна чита́ет кни́гу|Ánna chitáyet knígu}}. You've used it since lesson 3: {{Я хочу́ во́ду.|Ya khochú vódu.}}"},
+        {"term":"nominative case","means":"the dictionary form of a noun, used for the subject: {{кни́га|kníga}}, {{Москва́|Moskvá}}."},
+        {"term":"accusative case","means":"the case of the object, the thing you read, want, love or do something to: {{Я чита́ю кни́гу.|Ya chitáyu knígu.}}"},
+        { "table": [
+          ["","nominative (subject)","accusative (object)"],
+          ["masculine","{{фильм|fil'm}}","{{фильм|fil'm}} (no change)"],
+          ["feminine in {{-а|-a}}, {{-я|-ya}}","{{кни́га|kníga}}, {{пе́сня|pésnya}}","{{кни́гу|knígu}}, {{пе́сню|pésnyu}}"],
+          ["feminine in {{-ь|-'}}","{{вещь|veshch'}}","{{вещь|veshch'}} (no change)"],
+          ["neuter","{{письмо́|pis'mó}}","{{письмо́|pis'mó}} (no change)"],
+          ["plural","{{фи́льмы|fíl'my}}, {{кни́ги|knígi}}","{{фи́льмы|fíl'my}}, {{кни́ги|knígi}} (no change)"]
+        ] },
+        {"p":"So for things, only feminine words in {{-а|-a}} and {{-я|-ya}} change. An adjective with them changes too, {{-ая|-aya}} → {{-ую|-uyu}}: {{Я люблю́ ру́сскую ку́хню.|Ya lyublyú rússkuyu kúkhnyu.}} “I love Russian food.” ({{ку́хня|kúkhnya}} means both “kitchen” and “cuisine”.)"},
+        {"p":"**Love to do.** {{люби́ть|lyubít'}} works with a noun or with another verb in the infinitive: {{Я люблю́ гото́вить.|Ya lyublyú gotóvit'.}} “I like to cook.” Russians use it for things they like a lot, not only for people."},
+        { "ex": [
+          {"t":"Я чита́ю интере́сную кни́гу.","r":"Ya chitáyu interésnuyu knígu.","tr":"I'm reading an interesting book."},
+          {"t":"Ты лю́бишь ру́сскую ку́хню?","r":"Ty lyúbish' rússkuyu kúkhnyu?","tr":"Do you like Russian food?"},
+          {"t":"Мы смо́трим но́вый фильм.","r":"My smótrim nóvyy fil'm.","tr":"We're watching a new movie.","note":"a masculine thing: no change"},
+          {"t":"Она́ пи́шет письмо́.","r":"Oná píshet pis'mó.","tr":"She's writing a letter.","note":"{{писа́ть|pisát'}}: {{я пишу́|ya pishú}}, {{ты пи́шешь|ty píshesh'}}"},
+          {"t":"Я люблю́ гуля́ть и слу́шать му́зыку.","r":"Ya lyublyú gulyát' i slúshat' múzyku.","tr":"I like going for walks and listening to music."},
+          {"t":"Ма́ма гото́вит пи́ццу.","r":"Máma gotóvit pítstsu.","tr":"Mom is making pizza."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я люблю́ ру́сская му́зыка.","right":"Я люблю́ ру́сскую му́зыку.","tr":"I love Russian music.","why":"The object: {{-а|-a}} → {{-у|-u}}, and its adjective {{-ая|-aya}} → {{-ую|-uyu}}."},
+        {"wrong":"Я люблю́ чита́ю.","right":"Я люблю́ чита́ть.","tr":"I love reading.","why":"After {{люблю́|lyublyú}}, the second verb stays in the infinitive, in {{-ть|-t'}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Я чита́ю ___.","tr":"I'm reading a newspaper.","options":["газе́ту","газе́та","газе́ты"],"answer":0,"why":"The object: {{газе́та|gazéta}} → {{газе́ту|gazétu}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ты лю́бишь ___ ку́хню?","tr":"Do you like Russian food?","options":["ру́сскую","ру́сская","ру́сский"],"answer":0,"why":"With a feminine object, {{-ая|-aya}} → {{-ую|-uyu}}."},
+        {"type":"choice","q":"In {{Я смотрю́ фильм|Ya smotryú fil'm}}, why doesn't {{фильм|fil'm}} change?","options":["Masculine things don't change in the accusative.","{{смотре́ть|smotrét'}} never changes its object.","It's a plural."],"answer":0,"why":"Only feminine words in {{-а|-a}} and {{-я|-ya}} change when they're things."},
+        {"type":"order","q":"Put the words in order.","tr":"I like to cook and watch movies.","words":["Я","люблю́","гото́вить","и","смотре́ть","фи́льмы."]},
+        {"type":"dialogue","q":"Getting to know someone: choose your replies.","lines":[{"who":"Friend","t":"Что ты лю́бишь де́лать?","r":"Shto ty lyúbish' délat'?","tr":"What do you like to do?"},{"options":["Я люблю́ чита́ть.","Я люблю́ чита́ю."],"answer":0,"why":"After {{люблю́|lyublyú}}: the infinitive."},{"who":"Friend","t":"А что ты сейча́с чита́ешь?","r":"A shto ty seychás chitáyesh'?","tr":"And what are you reading now?"},{"options":["Ру́сскую кни́гу.","Ру́сская кни́га."],"answer":0,"why":"A short answer is still the object of {{чита́ю|chitáyu}}: {{ру́сскую кни́гу|rússkuyu knígu}}."},{"who":"Friend","t":"Интере́сную?","r":"Interésnuyu?","tr":"Is it interesting?"}]},
+        {"type":"say","q":"Say: “I live in Moscow and love Russian music.”","answer":"Я живу́ в Москве́ и люблю́ ру́сскую му́зыку.","r":"Ya zhivú v Moskvé i lyublyú rússkuyu múzyku.","from":"say-where-you-live"},
+        {"type":"free","q":"Your turn: what do you like doing, and what are you reading or watching right now? Use {{Я люблю́…|Ya lyublyú…}} and {{Сейча́с я чита́ю / смотрю́…|Seychás ya chitáyu / smotryú…}}","answers":[{"t":"Я люблю́ гото́вить. Сейча́с я чита́ю интере́сную кни́гу.","r":"Ya lyublyú gotóvit'. Seychás ya chitáyu interésnuyu knígu.","tr":"I like to cook. Right now I'm reading an interesting book."},{"t":"Я люблю́ спорт. Сейча́с я смотрю́ но́вый сериа́л.","r":"Ya lyublyú sport. Seychás ya smotryú nóvyy seriál.","tr":"I love sports. Right now I'm watching a new series."}]}
+      ]
+    },
+    {
+      "id": "people-you-know",
+      "unit": 2,
+      "level": "A1",
+      "title": "Talk about people you know",
+      "summary": "Say whom you know, love, see and wait for, and find out at last how {{Меня́ зову́т|Menyá zovút}} works.",
+      "topic": "The accusative of people: {{бра́та|bráta}}, {{А́нну|Ánnu}}; {{меня́|menyá}}, {{тебя́|tebyá}}, {{его́|yevó}}, {{её|yeyó}}, {{нас|nas}}, {{вас|vas}}, {{их|ikh}}",
+      "blocks": [
+        {"goal":{"t":"Ты зна́ешь Ива́на? — Да, я его́ хорошо́ зна́ю.","r":"Ty znáyesh' Ivána? — Da, ya yevó khoroshó znáyu.","tr":"Do you know Ivan? — Yes, I know him well."}},
+        {"dialog":[{"who":"Kolya","t":"Ты зна́ешь Ле́ну?","r":"Ty znáyesh' Lénu?","tr":"Do you know Lena?"},{"who":"Sasha","t":"Ле́ну? Коне́чно, я её зна́ю.","r":"Lénu? Konéshno, ya yeyó znáyu.","tr":"Lena? Of course I know her."},{"who":"Kolya","t":"А её бра́та?","r":"A yeyó bráta?","tr":"And her brother?"},{"who":"Sasha","t":"Макси́ма? Нет, я его́ не зна́ю.","r":"Maksíma? Net, ya yevó ne znáyu.","tr":"Maxim? No, I don't know him."},{"who":"Kolya","t":"Он о́чень симпати́чный. Я его́ жду.","r":"On óchen' simpatíchnyy. Ya yevó zhdu.","tr":"He's really nice. I'm waiting for him."},{"who":"Sasha","t":"А, вот и он!","r":"A, vot i on!","tr":"Oh, here he is!"}]},
+        {"p":"In the last lesson, masculine things didn't change in the accusative: {{Я смотрю́ фильм.|Ya smotryú fil'm.}} Masculine **people and animals** do: they add {{-а|-a}} (or {{-я|-ya}}): {{Я зна́ю Ива́на.|Ya znáyu Ivána.}} {{Я жду бра́та.|Ya zhdu bráta.}} {{Я люблю́ кота́.|Ya lyublyú kotá.}} Women change like feminine things: {{А́нна|Ánna}} → {{А́нну|Ánnu}}, {{ма́ма|máma}} → {{ма́му|mámu}}. Words with them change too: {{мой брат|moy brat}} → {{моего́ бра́та|moyevó bráta}}, {{но́вый друг|nóvyy drug}} → {{но́вого дру́га|nóvovo drúga}} (the {{г|g}} in {{-ого|-ogo}} is said v)."},
+        { "table": [
+          ["","nominative","accusative"],
+          ["a masculine thing","{{фильм|fil'm}}","{{фильм|fil'm}}"],
+          ["a man or a male animal","{{брат|brat}}, {{Ива́н|Iván}}, {{кот|kot}}","{{бра́та|bráta}}, {{Ива́на|Ivána}}, {{кота́|kotá}}"],
+          ["the same in {{-й|-y}}, {{-ь|-'}}","{{Серге́й|Sergéy}}, {{учи́тель|uchítel'}}","{{Серге́я|Sergéya}}, {{учи́теля|uchítelya}}"],
+          ["a woman","{{ма́ма|máma}}, {{А́нна|Ánna}}","{{ма́му|mámu}}, {{А́нну|Ánnu}}"],
+          ["a man in {{-а|-a}}","{{па́па|pápa}}, {{Ди́ма|Díma}}","{{па́пу|pápu}}, {{Ди́му|Dímu}}"]
+        ] },
+        {"p":"**Me, him, her.** Pronouns have their own accusative, and it usually comes before the verb: {{Я его́ зна́ю.|Ya yevó znáyu.}} “I know him.”"},
+        { "table": [
+          ["","subject","object"],
+          ["I, me","{{я|ya}}","{{меня́|menyá}}"],
+          ["you","{{ты|ty}}","{{тебя́|tebyá}}"],
+          ["he, him; it","{{он|on}}, {{оно́|onó}}","{{его́|yevó}}"],
+          ["she, her; it","{{она́|oná}}","{{её|yeyó}}"],
+          ["we, us","{{мы|my}}","{{нас|nas}}"],
+          ["you","{{вы|vy}}","{{вас|vas}}"],
+          ["they, them","{{они́|oní}}","{{их|ikh}}"]
+        ] },
+        {"p":"**Now you can read {{Меня́ зову́т|Menyá zovút}}.** {{зову́т|zovút}} is “(they) call”, and {{меня́|menyá}} is “me”: “they call me Anna”. So you ask {{Как тебя́ зову́т?|Kak tebyá zovút?}}, and about others {{Как его́ зову́т?|Kak yevó zovút?}} “What's his name?”, {{Как её зову́т?|Kak yeyó zovút?}} “What's her name?”."},
+        { "ex": [
+          {"t":"Я люблю́ ма́му и па́пу.","r":"Ya lyublyú mámu i pápu.","tr":"I love my mom and dad.","note":"Russian leaves out “my” when it's obvious"},
+          {"t":"Ты ви́дишь Ди́му? — Да, я его́ ви́жу.","r":"Ty vídish' Dímu? — Da, ya yevó vízhu.","tr":"Do you see Dima? — Yes, I see him.","note":"{{ви́деть|vídet'}}: {{я ви́жу|ya vízhu}}, {{ты ви́дишь|ty vídish'}}"},
+          {"t":"Я вас не понима́ю.","r":"Ya vas ne ponimáyu.","tr":"I don't understand you."},
+          {"t":"Мы ждём А́нну.","r":"My zhdyom Ánnu.","tr":"We're waiting for Anna.","note":"{{ждать|zhdat'}} “wait for” takes the accusative, with no word for “for”"},
+          {"t":"Как её зову́т? — Её зову́т Ка́тя.","r":"Kak yeyó zovút? — Yeyó zovút Kátya.","tr":"What's her name? — Her name is Katya."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я зна́ю Ива́н.","right":"Я зна́ю Ива́на.","tr":"I know Ivan.","why":"A man as the object: add {{-а|-a}}."},
+        {"wrong":"Я зна́ю он.","right":"Я его́ зна́ю.","tr":"I know him.","why":"“Him” is {{его́|yevó}} (said “yevó”), usually before the verb."},
+        {"wrong":"Я жду для А́нну.","right":"Я жду А́нну.","tr":"I'm waiting for Anna.","why":"“Wait for” is just {{ждать|zhdat'}} and the accusative."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ты зна́ешь ___?","tr":"Do you know Sergei?","options":["Серге́я","Серге́й","Серге́ю"],"answer":0,"why":"A man as the object: {{-й|-y}} → {{-я|-ya}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Я ___ люблю́.","tr":"I love you.","options":["тебя́","ты","твой"],"answer":0,"why":"“You” as the object: {{тебя́|tebyá}}."},
+        {"type":"choice","q":"How do you ask “What's his name?”","options":["{{Как его́ зову́т?|Kak yevó zovút?}}","{{Как он зову́т?|Kak on zovút?}}"],"answer":0,"why":"“They call him…”: {{его́|yevó}}, the object."},
+        {"type":"dialogue","q":"At work, a colleague asks you about people. Choose your replies.","lines":[{"who":"Colleague","t":"Вы зна́ете Ни́ну Петро́вну?","r":"Vy znáyete Nínu Petróvnu?","tr":"Do you know Nina Petrovna?"},{"options":["Да, я её зна́ю.","Да, я она́ зна́ю."],"answer":0,"why":"“Her” as the object: {{её|yeyó}}."},{"who":"Colleague","t":"А её му́жа?","r":"A yeyó múzha?","tr":"And her husband?"},{"options":["Нет, я его́ не зна́ю.","Нет, я не зна́ю его́ муж."],"answer":0,"why":"“Him”: {{его́|yevó}}. (A man as the object would be {{му́жа|múzha}}.)"},{"who":"Colleague","t":"Вот он! Пойдём, я вас познако́млю.","r":"Vot on! Poydyóm, ya vas poznakómlyu.","tr":"There he is! Come on, I'll introduce you."}]},
+        {"type":"order","q":"Put the words in order.","tr":"My brother loves Russian food.","words":["Мой","брат","лю́бит","ру́сскую","ку́хню."],"from":"say-what-you-like"},
+        {"type":"say","q":"Say: “We're waiting for Dima.”","answer":"Мы ждём Ди́му.","r":"My zhdyom Dímu.","from":"say-what-you-do"},
+        {"type":"free","q":"Your turn: name two people you know or love, and say what they're called. Use {{Я люблю́…|Ya lyublyú…}} or {{Я зна́ю…|Ya znáyu…}}, and {{Его́ / Её зову́т…|Yevó / Yeyó zovút…}}","answers":[{"t":"Я о́чень люблю́ ба́бушку. Её зову́т Мэ́ри.","r":"Ya óchen' lyublyú bábushku. Yeyó zovút Méri.","tr":"I love my grandma very much. Her name is Mary."},{"t":"Я хорошо́ зна́ю сосе́да. Его́ зову́т Боб.","r":"Ya khoroshó znáyu soséda. Yevó zovút Bob.","tr":"I know my neighbor well. His name is Bob."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you did yesterday",
+      "summary": "Tell someone what you did and where you were: the Russian past, which follows the speaker's gender.",
+      "topic": "The past tense: {{-л|-l}}, {{-ла|-la}}, {{-ло|-lo}}, {{-ли|-li}}; {{был|byl}}, {{была́|bylá}}, {{бы́ли|býli}}",
+      "blocks": [
+        {"goal":{"t":"Вчера́ я была́ до́ма и смотре́ла фильм.","r":"Vcherá ya bylá dóma i smotréla fil'm.","tr":"Yesterday I was at home and watched a movie.","note":"said by a woman; a man says {{был|byl}} and {{смотре́л|smotrél}}"}},
+        {"dialog":[{"who":"Oleg","t":"Приве́т! Что ты де́лала вчера́?","r":"Privét! Shto ty délala vcherá?","tr":"Hi! What did you do yesterday?"},{"who":"Natasha","t":"Я была́ на конце́рте. А ты?","r":"Ya bylá na kontsérte. A ty?","tr":"I was at a concert. And you?"},{"who":"Oleg","t":"А я был до́ма. Я рабо́тал.","r":"A ya byl dóma. Ya rabótal.","tr":"I was at home. I worked."},{"who":"Natasha","t":"Весь день?","r":"Ves' den'?","tr":"All day?"},{"who":"Oleg","t":"Нет, ве́чером мы гуля́ли в па́рке.","r":"Net, vécherom my gulyáli v párke.","tr":"No, in the evening we went for a walk in the park."},{"who":"Natasha","t":"Здо́рово!","r":"Zdórovo!","tr":"Nice!"}]},
+        {"term":"tense","means":"the form of a verb that shows when something happens: present (I work), past (I worked), future (I will work)."},
+        {"p":"The Russian past is easy to make: take the infinitive, drop {{-ть|-t'}}, and add {{-л|-l}}. But it doesn't change for “I, you, he” like the present. It changes for **gender**, like an adjective: {{-л|-l}} for a man, {{-ла|-la}} for a woman, {{-ло|-lo}} for an “it”, {{-ли|-li}} for more than one, and always with {{вы|vy}}."},
+        { "table": [
+          ["","{{рабо́тать|rabótat'}}","{{говори́ть|govorít'}}","{{быть|byt'}} “to be”"],
+          ["{{я|ya}}, {{ты|ty}}, {{он|on}} (a man)","{{рабо́тал|rabótal}}","{{говори́л|govoríl}}","{{был|byl}}"],
+          ["{{я|ya}}, {{ты|ty}}, {{она́|oná}} (a woman)","{{рабо́тала|rabótala}}","{{говори́ла|govoríla}}","{{была́|bylá}}"],
+          ["{{оно́|onó}}","{{рабо́тало|rabótalo}}","{{говори́ло|govorílo}}","{{бы́ло|býlo}}"],
+          ["{{мы|my}}, {{вы|vy}}, {{они́|oní}}","{{рабо́тали|rabótali}}","{{говори́ли|govoríli}}","{{бы́ли|býli}}"]
+        ] },
+        {"p":"**So “I” has two pasts.** A man says {{я был|ya byl}}, a woman {{я была́|ya bylá}}. Talking to someone, you choose by them: {{Где ты был?|Gde ty byl?}} to a man, {{Где ты была́?|Gde ty bylá?}} to a woman."},
+        {"p":"**The past has “was”.** The present has no “is”, but the past does: {{Я до́ма.|Ya dóma.}} “I'm at home.” → {{Я был до́ма.|Ya byl dóma.}} “I was at home.” With {{не|ne}}, the stress jumps onto it: {{я не́ был|ya né byl}}, {{мы не́ были|my né byli}} (but {{она́ не была́|oná ne bylá}})."},
+        { "ex": [
+          {"t":"Вчера́ я рабо́тал весь день.","r":"Vcherá ya rabótal ves' den'.","tr":"Yesterday I worked all day.","note":"a man"},
+          {"t":"Где ты была́? — Я была́ в магази́не.","r":"Gde ty bylá? — Ya bylá v magazíne.","tr":"Where were you? — I was at the store.","note":"to a woman, and her answer"},
+          {"t":"Мы смотре́ли интере́сный фильм.","r":"My smotréli interésnyy fil'm.","tr":"We watched an interesting movie."},
+          {"t":"Ра́ньше они́ жи́ли в Каза́ни.","r":"Rán'she oní zhíli v Kazáni.","tr":"They used to live in Kazan."},
+          {"t":"Что вы де́лали вчера́ ве́чером?","r":"Shto vy délali vcherá vécherom?","tr":"What did you do last night?"},
+          {"t":"Я не́ был в Москве́.","r":"Ya né byl v Moskvé.","tr":"I haven't been to Moscow.","note":"a man; the stress moves to {{не|ne}}"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я был до́ма.","right":"Я была́ до́ма.","tr":"I was at home. (a woman speaking)","why":"A woman says {{я была́|ya bylá}}: the past follows the speaker's gender."},
+        {"wrong":"Вчера́ я рабо́таю.","right":"Вчера́ я рабо́тал.","tr":"Yesterday I worked.","why":"Yesterday is the past: {{-л|-l}}."},
+        {"wrong":"Мы был в па́рке.","right":"Мы бы́ли в па́рке.","tr":"We were in the park.","why":"With {{мы|my}}, {{вы|vy}} and {{они́|oní}}, the past ends in {{-ли|-li}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Вчера́ А́нна ___ в теа́тре.","tr":"Yesterday Anna was at the theater.","options":["была́","был","бы́ли"],"answer":0,"why":"Anna is a woman: {{была́|bylá}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Что вы ___ вчера́?","tr":"What did you do yesterday?","options":["де́лали","де́лал","де́лаете"],"answer":0,"why":"{{вы|vy}} always takes {{-ли|-li}} in the past."},
+        {"type":"choice","q":"A man asks a woman “Where were you?”. He says…","options":["{{Где ты была́?|Gde ty bylá?}}","{{Где ты был?|Gde ty byl?}}"],"answer":0,"why":"The verb follows the person it's about: she's a woman."},
+        {"type":"dialogue","q":"You're a man. A friend calls you. Choose your replies.","from":"say-where-you-live","lines":[{"who":"Friend","t":"Где ты был вчера́?","r":"Gde ty byl vcherá?","tr":"Where were you yesterday?"},{"options":["Я был в музе́е.","Я был в музе́й."],"answer":0,"why":"Where: {{в музе́е|v muzéye}}."},{"who":"Friend","t":"А что ты де́лал ве́чером?","r":"A shto ty délal vécherom?","tr":"And what did you do in the evening?"},{"options":["Я чита́л кни́гу.","Я чита́ю кни́гу."],"answer":0,"why":"The past: {{чита́л|chitál}}."},{"who":"Friend","t":"Ску́чно!","r":"Skúshno!","tr":"Boring!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We lived in Moscow.","words":["Мы","жи́ли","в","Москве́."]},
+        {"type":"say","q":"Say, as a woman: “Yesterday I saw Ivan.”","answer":"Вчера́ я ви́дела Ива́на.","r":"Vcherá ya vídela Ivána.","from":"people-you-know"},
+        {"type":"free","q":"Your turn: what did you do yesterday? Say where you were and two things you did.","answers":[{"t":"Вчера́ я был на рабо́те, а ве́чером смотре́л фильм.","r":"Vcherá ya byl na rabóte, a vécherom smotrél fil'm.","tr":"Yesterday I was at work, and in the evening I watched a movie."},{"t":"Вчера́ я была́ до́ма. Я чита́ла и гото́вила у́жин.","r":"Vcherá ya bylá dóma. Ya chitála i gotóvila úzhin.","tr":"Yesterday I was at home. I read and made dinner."}]}
       ]
     }
   ]

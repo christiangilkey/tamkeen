@@ -6,7 +6,7 @@
 // A reading is a plain Latin transliteration (ж zh, х kh, ц ts, ч ch, ш sh, щ shch, ы y, й y, ь ', е ye at
 // the start of a word and after a vowel) with the stress marked, and the few words that aren't said as
 // they are spelled written as they are said: что "shto", г in -ого/-его "v", -тся/-ться "tsa",
-// коне́чно "konéshno", сего́дня "sevódnya", здра́вствуйте "zdrástvuyte"…
+// коне́чно "konéshno", сего́дня "sevódnya", здра́вствуйте "zdrástvuyte", счёт "shchot"…
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -42,7 +42,8 @@ function respell(p) {
   if (s.startsWith("праздн")) swap(/^([Пп]ра́?з)д/u, "$1");
   if (s.startsWith("поздн")) swap(/^([Пп]о́?з)д/u, "$1");
   if (s.startsWith("лестниц")) swap(/^([Лл]е́?с)т/u, "$1");
-  if (s.startsWith("счаст")) swap(/^([Сс])ч/u, (m, c) => (c === "С" ? "Щ" : "щ"));
+  if (s.startsWith("сч")) swap(/^([Сс])ч/u, (m, c) => (c === "С" ? "Щ" : "щ")); // счёт "shchot"
+  swap(/жч/gu, "щ"); // мужчи́на "mushchína"
   swap(/ть?ся$/u, "ца");
   return p;
 }
