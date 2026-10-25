@@ -1503,6 +1503,357 @@
         {"type":"say","q":"Ask your friend Meena: “Who were you talking to?”","answer":"तुम किससे बात कर रही थीं?","r":"tum kisse bāt kar rahī thī̃?"},
         {"type":"free","q":"Your turn: say what you were doing at eight o'clock yesterday evening, and what someone at home was doing.","answers":[{"t":"कल रात आठ बजे मैं खाना खा रहा था, और मेरी बेटी पढ़ रही थी।","r":"kal rāt āṭh baje maĩ khānā khā rahā thā, aur merī beṭī paṛh rahī thī.","tr":"At eight last night I was having dinner, and my daughter was studying."},{"t":"आठ बजे मैं जिम से घर आ रही थी, और मेरे पति खाना बना रहे थे।","r":"āṭh baje maĩ jim se ghar ā rahī thī, aur mere pati khānā banā rahe the.","tr":"At eight I was coming home from the gym, and my husband was cooking."}]}
       ]
+    },
+    {
+      "id": "say-how-you-feel",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how you feel",
+      "summary": "Say “I'm hungry”, “I'm cold”, “I'm scared of dogs”, “I was so happy”, and “I think…”.",
+      "topic": "The “to” form + {{लगना|lagnā}}: {{मुझे भूख लगी है|mujhe bhūkh lagī hai}}, {{डर लगता है|ḍar lagtā hai}}; {{ख़ुशी हुई|khushī huī}}; {{मुझे लगता है कि…|mujhe lagtā hai ki…}}",
+      "blocks": [
+        {"goal":{"t":"मुझे बहुत भूख लगी है।","r":"mujhe bahut bhūkh lagī hai.","tr":"I'm really hungry."}},
+        {"dialog":[{"who":"Aarav","t":"माँ, मुझे भूख लगी है!","r":"mā̃, mujhe bhūkh lagī hai!","tr":"Mom, I'm hungry!"},{"who":"Mom","t":"अभी? तुमने अभी तो खाना खाया!","r":"abhī? tumne abhī to khānā khāyā!","tr":"Now? You just ate!"},{"who":"Aarav","t":"हाँ, लेकिन मुझे फिर से भूख लग रही है। और प्यास भी।","r":"hā̃, lekin mujhe phir se bhūkh lag rahī hai. aur pyās bhī.","tr":"Yes, but I'm getting hungry again. And thirsty too."},{"who":"Mom","t":"ठीक है, यह केला लो। तुम्हें ठंड तो नहीं लग रही?","r":"ṭhīk hai, yah kelā lo. tumhẽ ṭhaṇḍ to nahī̃ lag rahī?","tr":"OK, have this banana. You're not cold, are you?"},{"who":"Aarav","t":"नहीं, मैं ठीक हूँ।","r":"nahī̃, maĩ ṭhīk hū̃.","tr":"No, I'm fine."}]},
+        {"p":"**Feelings come to you.** Hunger, thirst, cold, fear: in Hindi they strike you. Use the “to” form (lesson 16) and {{लगना|lagnā}} “to be felt”: {{मुझे भूख लगी है|mujhe bhūkh lagī hai}} “I'm hungry”, word for word “hunger has struck me”. The verb agrees with the feeling: {{भूख|bhūkh}}, {{प्यास|pyās}}, {{ठंड|ṭhaṇḍ}} and {{गर्मी|garmī}} are feminine, {{डर|ḍar}} “fear” masculine."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["hungry","{{मुझे भूख लगी है।|mujhe bhūkh lagī hai.}}","I'm hungry."],
+          ["thirsty","{{मुझे प्यास लगी है।|mujhe pyās lagī hai.}}","I'm thirsty."],
+          ["cold","{{मुझे ठंड लग रही है।|mujhe ṭhaṇḍ lag rahī hai.}}","I'm cold."],
+          ["hot","{{मुझे गर्मी लग रही है।|mujhe garmī lag rahī hai.}}","I'm hot."],
+          ["afraid","{{मुझे डर लगता है।|mujhe ḍar lagtā hai.}}","I'm scared."]
+        ] },
+        {"p":"**Which tense?** {{लगी है|lagī hai}} “has struck” for hunger and thirst you have now; {{लग रही है|lag rahī hai}} for cold or heat you're feeling at the moment; {{लगता है|lagtā hai}} for what is generally true: {{मुझे कुत्तों से डर लगता है|mujhe kuttõ se ḍar lagtā hai}} “I'm scared of dogs”."},
+        {"p":"**Happy, sad.** For a feeling something gives you, use {{होना|honā}}: {{मुझे बहुत ख़ुशी हुई|mujhe bahut khushī huī}} “I was so happy (about it)”, {{मुझे दुख हुआ|mujhe dukh huā}} “I was sad (about it)”. And {{मैं ख़ुश हूँ|maĩ khush hū̃}} “I'm happy”, {{मैं थका हुआ हूँ|maĩ thakā huā hū̃}} “I'm tired” (a woman: {{थकी हुई|thakī huī}}) work like ordinary adjectives."},
+        {"p":"**I think.** The same {{लगना|lagnā}} gives the everyday way to say what you think: {{मुझे लगता है कि…|mujhe lagtā hai ki…}}, word for word “it seems to me that…”: {{मुझे लगता है कि बारिश होगी|mujhe lagtā hai ki bārish hogī}} “I think it'll rain”. {{कि|ki}} “that” joins the two parts (lesson 41)."},
+        { "ex": [
+          {"t":"मुझे ठंड लग रही है।","r":"mujhe ṭhaṇḍ lag rahī hai.","tr":"I'm feeling cold."},
+          {"t":"क्या आपको भूख लगी है?","r":"kyā āpko bhūkh lagī hai?","tr":"Are you hungry?"},
+          {"t":"उसे अँधेरे से डर लगता है।","r":"use ãdhere se ḍar lagtā hai.","tr":"She's afraid of the dark."},
+          {"t":"आपसे मिलकर बहुत ख़ुशी हुई।","r":"āpse milkar bahut khushī huī.","tr":"It was really nice to meet you."},
+          {"t":"मैं आज बहुत थकी हुई हूँ।","r":"maĩ āj bahut thakī huī hū̃.","tr":"I'm really tired today.","note":"a woman speaking"},
+          {"t":"मुझे लगता है कि वह सही है।","r":"mujhe lagtā hai ki vah sahī hai.","tr":"I think he's right."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मुझे भूख लगा है।","right":"मुझे भूख लगी है।","tr":"I'm hungry.","why":"{{भूख|bhūkh}} is feminine: {{लगी|lagī}}."},
+        {"wrong":"मैं ठंड लग रहा हूँ।","right":"मुझे ठंड लग रही है।","tr":"I'm cold.","why":"The cold strikes you: {{मुझे|mujhe}}, and the verb agrees with {{ठंड|ṭhaṇḍ}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"मुझे बहुत प्यास ___ है।","tr":"I'm really thirsty.","options":["लगी","लगा","लगे"],"answer":0,"why":"{{प्यास|pyās}} is feminine: {{लगी|lagī}}.","r":"mujhe bahut pyās ___ hai.","rs":["lagī","lagā","lage"]},
+        {"type":"fill","q":"Choose the right word.","t":"___ कुत्तों से डर लगता है।","tr":"I'm scared of dogs.","options":["मुझे","मैं","मेरा"],"answer":0,"why":"Feelings take the “to” form.","from":"say-what-you-like","r":"___ kuttõ se ḍar lagtā hai.","rs":["mujhe","maĩ","merā"]},
+        {"type":"choice","q":"{{मुझे लगता है कि…|mujhe lagtā hai ki…}} means…","options":["I think that…","I'm hungry…","I like that…"],"answer":0,"why":"“It seems to me that…”: the everyday way to say “I think”."},
+        {"type":"order","q":"Put the words in order.","tr":"Are you hungry?","words":["क्या","आपको","भूख","लगी","है?"],"rs":["kyā","āpko","bhūkh","lagī","hai?"]},
+        {"type":"dialogue","q":"A friend arrives on a cold day. Choose your lines.","from":"make-suggestions","lines":[{"who":"Friend","t":"बाहर बहुत ठंड है!","r":"bāhar bahut ṭhaṇḍ hai!","tr":"It's really cold outside!"},{"options":["अंदर आओ! क्या तुम्हें ठंड लग रही है?","अंदर आओ! क्या तुम ठंड लग रहे हो?"],"answer":0,"why":"{{तुम्हें|tumhẽ}} … {{लग रही है|lag rahī hai}}.","rs":["andar āo! kyā tumhẽ ṭhaṇḍ lag rahī hai?","andar āo! kyā tum ṭhaṇḍ lag rahe ho?"]},{"who":"Friend","t":"हाँ, बहुत। और भूख भी लगी है!","r":"hā̃, bahut. aur bhūkh bhī lagī hai!","tr":"Yes, very. And I'm hungry too!"},{"options":["चलो, पहले चाय पिएँ, फिर खाना खाएँ।","चलो, पहले चाय पिएँगे हैं।"],"answer":0,"why":"A suggestion: the subjunctive, {{पिएँ|piẽ}}, {{खाएँ|khāẽ}} (lesson 24).","rs":["chalo, pahle chāy piẽ, phir khānā khāẽ.","chalo, pahle chāy piẽge haĩ."]}]},
+        {"type":"say","q":"Say: “I think it'll rain.”","answer":"मुझे लगता है कि बारिश होगी।","r":"mujhe lagtā hai ki bārish hogī.","from":"say-what-you-will-do"},
+        {"type":"free","q":"Your turn: say how you feel right now, and one thing you're scared of.","answers":[{"t":"मुझे थोड़ी भूख लगी है, और मुझे ऊँचाई से डर लगता है।","r":"mujhe thoṛī bhūkh lagī hai, aur mujhe ū̃chāī se ḍar lagtā hai.","tr":"I'm a bit hungry, and I'm scared of heights."},{"t":"मैं आज बहुत ख़ुश हूँ! लेकिन मुझे मकड़ियों से डर लगता है।","r":"maĩ āj bahut khush hū̃! lekin mujhe makṛiyõ se ḍar lagtā hai.","tr":"I'm really happy today! But I'm scared of spiders."}]}
+      ]
+    },
+    {
+      "id": "at-the-doctors",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what's wrong at the doctor's",
+      "summary": "Say “I have a headache”, “I've had a fever for two days”, and understand the doctor's advice.",
+      "topic": "{{मेरे सिर में दर्द है|mere sir mẽ dard hai}}; {{मुझे बुख़ार है|mujhe bukhār hai}}; {{से|se}} “since, for”; {{दिन में तीन बार|din mẽ tīn bār}}",
+      "blocks": [
+        {"goal":{"t":"डॉक्टर साहब, मेरे सिर में दर्द है और मुझे बुख़ार है।","r":"ḍôkṭar sāhab, mere sir mẽ dard hai aur mujhe bukhār hai.","tr":"Doctor, I have a headache and a fever."}},
+        {"dialog":[{"who":"Doctor","t":"बताइए, क्या तकलीफ़ है?","r":"batāie, kyā taklīf hai?","tr":"Tell me, what's the trouble?"},{"who":"Patient","t":"मेरे गले में दर्द है, और मुझे बुख़ार है।","r":"mere gale mẽ dard hai, aur mujhe bukhār hai.","tr":"I have a sore throat, and I have a fever."},{"who":"Doctor","t":"कब से?","r":"kab se?","tr":"Since when?"},{"who":"Patient","t":"दो दिन से। रात को खाँसी भी आती है।","r":"do din se. rāt ko khā̃sī bhī ātī hai.","tr":"For two days. And I cough at night."},{"who":"Doctor","t":"ठीक है। यह दवाई दिन में तीन बार लीजिए, खाने के बाद। और आराम कीजिए।","r":"ṭhīk hai. yah davāī din mẽ tīn bār lījie, khāne ke bād. aur ārām kījie.","tr":"OK. Take this medicine three times a day, after meals. And get some rest."},{"who":"Patient","t":"धन्यवाद, डॉक्टर साहब।","r":"dhanyavād, ḍôkṭar sāhab.","tr":"Thank you, doctor."}]},
+        {"p":"**Where it hurts.** Pain is “in” the body part: {{मेरे सिर में दर्द है|mere sir mẽ dard hai}} “I have a headache”, word for word “in my head is pain”. The body part is followed by {{में|mẽ}}, so {{मेरा|merā}} becomes {{मेरे|mere}}, and a word like {{गला|galā}} “throat” becomes {{गले|gale}} (lesson 9)."},
+        {"p":"**Illnesses** take the “to” form, like feelings: {{मुझे बुख़ार है|mujhe bukhār hai}} “I have a fever”, {{मुझे ज़ुकाम है|mujhe zukām hai}} “I have a cold”, {{उसे खाँसी है|use khā̃sī hai}} “He has a cough”."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["head","{{मेरे सिर में दर्द है।|mere sir mẽ dard hai.}}","I have a headache."],
+          ["stomach","{{मेरे पेट में दर्द है।|mere peṭ mẽ dard hai.}}","I have a stomach ache."],
+          ["throat","{{मेरा गला ख़राब है।|merā galā kharāb hai.}}","I have a sore throat."],
+          ["fever","{{मुझे बुख़ार है।|mujhe bukhār hai.}}","I have a fever."],
+          ["cold","{{मुझे ज़ुकाम है।|mujhe zukām hai.}}","I have a cold."]
+        ] },
+        {"p":"**Since when?** {{से|se}} “from” also means “since”, and “for” a stretch of time up to now: {{कब से?|kab se?}} “Since when? How long?”, {{दो दिन से|do din se}} “for two days”, {{सोमवार से|somvār se}} “since Monday”. Hindi uses the present with it: {{मुझे दो दिन से बुख़ार है|mujhe do din se bukhār hai}} “I've had a fever for two days”, word for word “I have a fever since two days”."},
+        {"p":"**The doctor's advice** comes as polite commands (lesson 12) and {{चाहिए|chāhie}} (lesson 23): {{दिन में तीन बार|din mẽ tīn bār}} “three times a day”, {{खाने के बाद|khāne ke bād}} “after meals”, {{आपको आराम करना चाहिए|āpko ārām karnā chāhie}} “you should rest”."},
+        { "ex": [
+          {"t":"मेरे पेट में दर्द है।","r":"mere peṭ mẽ dard hai.","tr":"I have a stomach ache."},
+          {"t":"मेरा गला ख़राब है।","r":"merā galā kharāb hai.","tr":"I have a sore throat."},
+          {"t":"मुझे तीन दिन से ज़ुकाम है।","r":"mujhe tīn din se zukām hai.","tr":"I've had a cold for three days."},
+          {"t":"उसके दाँत में बहुत दर्द है।","r":"uske dā̃t mẽ bahut dard hai.","tr":"He has a bad toothache."},
+          {"t":"यह गोली दिन में दो बार लीजिए।","r":"yah golī din mẽ do bār lījie.","tr":"Take this pill twice a day."},
+          {"t":"पास में कोई दवाई की दुकान है?","r":"pās mẽ koī davāī kī dukān hai?","tr":"Is there a pharmacy nearby?"}
+        ] },
+        {"tip":"{{डॉक्टर साहब|ḍôkṭar sāhab}} is the respectful way to address a doctor; to a woman doctor, {{डॉक्टर साहिबा|ḍôkṭar sāhibā}} or just {{डॉक्टर|ḍôkṭar}}."}
+      ],
+      "mistakes": [
+        {"wrong":"मेरा सिर में दर्द है।","right":"मेरे सिर में दर्द है।","tr":"I have a headache.","why":"Before {{में|mẽ}}, {{मेरा|merā}} becomes {{मेरे|mere}} (lesson 9)."},
+        {"wrong":"मेरे पास बुख़ार है।","right":"मुझे बुख़ार है।","tr":"I have a fever.","why":"An illness isn't “near you”: {{मुझे|mujhe}} (lesson 11)."},
+        {"wrong":"मुझे दो दिन के लिए बुख़ार है।","right":"मुझे दो दिन से बुख़ार है।","tr":"I've had a fever for two days.","why":"“For two days (up to now)” is {{से|se}}; {{के लिए|ke lie}} is “for” a period ahead."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right word.","t":"___ सिर में दर्द है।","tr":"I have a headache.","options":["मेरे","मेरा","मुझे"],"answer":0,"why":"Before {{में|mẽ}}: {{मेरे|mere}}.","from":"around-town","r":"___ sir mẽ dard hai.","rs":["mere","merā","mujhe"]},
+        {"type":"fill","q":"Choose the right word.","t":"मुझे दो दिन ___ बुख़ार है।","tr":"I've had a fever for two days.","options":["से","में","पर"],"answer":0,"why":"“For (up to now), since”: {{से|se}}.","r":"mujhe do din ___ bukhār hai.","rs":["se","mẽ","par"]},
+        {"type":"choice","q":"The doctor says {{यह दवाई दिन में तीन बार लीजिए।|yah davāī din mẽ tīn bār lījie.}} How often?","options":["Three times a day","Once a day, for three days","Every three days"],"answer":0,"why":"{{दिन में तीन बार|din mẽ tīn bār}}: “three times in a day”."},
+        {"type":"order","q":"Put the words in order.","tr":"I have a sore throat.","words":["मेरा","गला","ख़राब","है।"],"rs":["merā","galā","kharāb","hai."]},
+        {"type":"dialogue","q":"At the doctor's. Choose your replies.","from":"say-what-you-have-to-do","lines":[{"who":"Doctor","t":"बताइए, क्या तकलीफ़ है?","r":"batāie, kyā taklīf hai?","tr":"Tell me, what's the trouble?"},{"options":["मुझे बुख़ार है, और मेरे सिर में दर्द है।","मेरे पास बुख़ार है, और मेरा सिर में दर्द है।"],"answer":0,"why":"An illness: {{मुझे|mujhe}}; pain in your head: {{मेरे सिर में|mere sir mẽ}}.","rs":["mujhe bukhār hai, aur mere sir mẽ dard hai.","mere pās bukhār hai, aur merā sir mẽ dard hai."]},{"who":"Doctor","t":"कब से?","r":"kab se?","tr":"Since when?"},{"options":["कल से।","कल के लिए।"],"answer":0,"why":"“Since yesterday”: {{कल से|kal se}}.","rs":["kal se.","kal ke lie."]},{"who":"Doctor","t":"ठीक है, आपको आराम करना चाहिए।","r":"ṭhīk hai, āpko ārām karnā chāhie.","tr":"OK, you should rest."}]},
+        {"type":"say","q":"Ask someone in the street: “Is there a pharmacy nearby?”","answer":"पास में कोई दवाई की दुकान है?","r":"pās mẽ koī davāī kī dukān hai?","from":"say-what-you-have"},
+        {"type":"free","q":"Your turn: you're at the doctor's. Say what's wrong, and since when.","answers":[{"t":"मेरे पेट में दर्द है, और मुझे कल से बुख़ार है।","r":"mere peṭ mẽ dard hai, aur mujhe kal se bukhār hai.","tr":"I have a stomach ache, and I've had a fever since yesterday."},{"t":"मुझे तीन दिन से ज़ुकाम है, और खाँसी भी है।","r":"mujhe tīn din se zukām hai, aur khā̃sī bhī hai.","tr":"I've had a cold for three days, and a cough too."}]}
+      ]
+    },
+    {
+      "id": "one-thing-after-another",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say one thing after another",
+      "summary": "Join actions: “I shower and then have breakfast”, “Wash your hands, then eat.”",
+      "topic": "The stem + {{-कर|-kar}} “having done”: {{खाकर|khākar}}, {{जाकर|jākar}}, {{करके|karke}}; {{ने|ne}} follows the last verb",
+      "blocks": [
+        {"goal":{"t":"मैं नहाकर नाश्ता करता हूँ, फिर काम पर जाता हूँ।","r":"maĩ nahākar nāshtā kartā hū̃, phir kām par jātā hū̃.","tr":"I shower and have breakfast, then I go to work.","note":"said by a man; a woman says {{करती … जाती|kartī … jātī}}"}},
+        {"dialog":[{"who":"Grandma","t":"पहले पानी उबालो।","r":"pahle pānī ubālo.","tr":"First, boil the water."},{"who":"Lisa","t":"ठीक है। फिर?","r":"ṭhīk hai. phir?","tr":"OK. Then?"},{"who":"Grandma","t":"पानी में अदरक डालकर पाँच मिनट उबालो।","r":"pānī mẽ adrak ḍālkar pā̃ch minaṭ ubālo.","tr":"Put some ginger in the water and boil it for five minutes."},{"who":"Lisa","t":"और चायपत्ती?","r":"aur chāypattī?","tr":"And the tea leaves?"},{"who":"Grandma","t":"चायपत्ती और दूध डालकर थोड़ा और उबालो, फिर छानकर पियो!","r":"chāypattī aur dūdh ḍālkar thoṛā aur ubālo, phir chhānkar piyo!","tr":"Add the tea leaves and milk and boil a little longer, then strain it and drink!"}]},
+        {"p":"**One thing, then the next.** Hindi joins actions with {{-कर|-kar}} on the stem: {{डालकर|ḍālkar}} “having put in”, {{खाकर|khākar}} “having eaten”. The {{-कर|-kar}} action happens first, and the main verb comes at the end: {{मैं खाना खाकर सोऊँगा|maĩ khānā khākar soū̃gā}} “I'll eat and then sleep”, word for word “having eaten food, I'll sleep”. The {{-कर|-kar}} form never changes, whoever does it and whenever."},
+        {"p":"**One exception:** {{करना|karnā}} “to do” makes {{करके|karke}}, not {{करकर|karkar}}: {{काम ख़त्म करके|kām khatm karke}} “having finished work”. (In speech you'll hear {{-के|-ke}} with other verbs too, {{खाके|khāke}}; write {{-कर|-kar}}.)"},
+        { "table": [
+          ["","verb","{{-कर|-kar}} form","example"],
+          ["eat","{{खाना|khānā}}","{{खाकर|khākar}}","{{खाना खाकर|khānā khākar}} after eating"],
+          ["go","{{जाना|jānā}}","{{जाकर|jākar}}","{{घर जाकर|ghar jākar}} once home"],
+          ["shower","{{नहाना|nahānā}}","{{नहाकर|nahākar}}","{{नहाकर|nahākar}} after a shower"],
+          ["do","{{करना|karnā}}","{{करके|karke}}","{{काम करके|kām karke}} after working"]
+        ] },
+        {"p":"**The same person, and the last verb decides.** Both actions are done by the same person. If the sentence is in the past, {{ने|ne}} depends only on the *last* verb: {{मैंने हाथ धोकर खाना खाया|maĩne hāth dhokar khānā khāyā}} “I washed my hands and ate” ({{ने|ne}} for {{खाया|khāyā}}), but {{मैं खाना खाकर घर गया|maĩ khānā khākar ghar gayā}} “I ate and went home” (no {{ने|ne}}: {{गया|gayā}})."},
+        { "ex": [
+          {"t":"मैं नहाकर नाश्ता करती हूँ।","r":"maĩ nahākar nāshtā kartī hū̃.","tr":"I shower and then have breakfast.","note":"a woman speaking"},
+          {"t":"हाथ धोकर खाना खाओ।","r":"hāth dhokar khānā khāo.","tr":"Wash your hands, then eat."},
+          {"t":"वह काम ख़त्म करके घर गया।","r":"vah kām khatm karke ghar gayā.","tr":"He finished work and went home."},
+          {"t":"घर पहुँचकर मुझे फ़ोन करो।","r":"ghar pahũchkar mujhe fon karo.","tr":"Call me when you get home."},
+          {"t":"उसने चाय पीकर काम शुरू किया।","r":"usne chāy pīkar kām shurū kiyā.","tr":"She had some tea and then started work.","note":"{{ने|ne}} for {{शुरू किया|shurū kiyā}}"},
+          {"t":"चलिए, बैठकर बात करते हैं।","r":"chalie, baiṭhkar bāt karte haĩ.","tr":"Come on, let's sit down and talk."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"वह काम ख़त्म करकर घर गया।","right":"वह काम ख़त्म करके घर गया।","tr":"He finished work and went home.","why":"{{करना|karnā}} → {{करके|karke}}."},
+        {"wrong":"मैंने खाना खाकर घर गया।","right":"मैं खाना खाकर घर गया।","tr":"I ate and went home.","why":"The last verb decides: {{गया|gayā}} takes no {{ने|ne}}."},
+        {"wrong":"मैं घर जाकर खाना खाया।","right":"मैंने घर जाकर खाना खाया।","tr":"I went home and ate.","why":"The last verb, {{खाया|khāyā}}, is transitive: {{मैंने|maĩne}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"हाथ ___ खाना खाओ।","tr":"Wash your hands, then eat.","options":["धोकर","धोना","धोता"],"answer":0,"why":"The first action: stem + {{-कर|-kar}}.","r":"hāth ___ khānā khāo.","rs":["dhokar","dhonā","dhotā"]},
+        {"type":"fill","q":"Choose the right form.","t":"वह काम ख़त्म ___ घर गया।","tr":"He finished work and went home.","options":["करके","करकर","करना"],"answer":0,"why":"{{करना|karnā}} → {{करके|karke}}.","r":"vah kām khatm ___ ghar gayā.","rs":["karke","karkar","karnā"]},
+        {"type":"choice","q":"Which one is right for “I had tea and then went to work”?","options":["{{मैं चाय पीकर काम पर गया।|maĩ chāy pīkar kām par gayā.}}","{{मैंने चाय पीकर काम पर गया।|maĩne chāy pīkar kām par gayā.}}"],"answer":0,"why":"The last verb, {{गया|gayā}}, decides: no {{ने|ne}}.","from":"say-what-you-did"},
+        {"type":"order","q":"Put the words in order.","tr":"Call me when you get home.","words":["घर","पहुँचकर","मुझे","फ़ोन","करो।"],"from":"ask-people-to-do-things","rs":["ghar","pahũchkar","mujhe","fon","karo."]},
+        {"type":"dialogue","q":"A friend asks about your evening. Choose your replies (you're a man).","from":"say-what-you-will-do","lines":[{"who":"Friend","t":"आज शाम क्या करोगे?","r":"āj shām kyā karoge?","tr":"What are you doing this evening?"},{"options":["मैं जिम जाकर खाना बनाऊँगा।","मैं जिम जाना खाना बनाऊँगा।"],"answer":0,"why":"The first action with {{-कर|-kar}}: {{जाकर|jākar}}.","rs":["maĩ jim jākar khānā banāū̃gā.","maĩ jim jānā khānā banāū̃gā."]},{"who":"Friend","t":"और फिर?","r":"aur phir?","tr":"And then?"},{"options":["खाना खाकर फ़िल्म देखूँगा।","खाना खाया फ़िल्म देखूँगा।"],"answer":0,"why":"{{खाकर|khākar}}: “after eating”.","rs":["khānā khākar film dekhū̃gā.","khānā khāyā film dekhū̃gā."]}]},
+        {"type":"say","q":"Say: “Come on, let's sit down and talk.”","answer":"चलिए, बैठकर बात करते हैं।","r":"chalie, baiṭhkar bāt karte haĩ."},
+        {"type":"free","q":"Your turn: describe your morning in one sentence with two {{-कर|-kar}} forms.","answers":[{"t":"मैं उठकर कॉफ़ी पीता हूँ, फिर नहाकर काम पर जाता हूँ।","r":"maĩ uṭhkar kôfī pītā hū̃, phir nahākar kām par jātā hū̃.","tr":"I get up and have coffee, then I shower and go to work."},{"t":"मैं योग करके नाश्ता करती हूँ, फिर बच्चों को स्कूल छोड़कर दफ़्तर जाती हूँ।","r":"maĩ yog karke nāshtā kartī hū̃, phir bachchõ ko skūl chhoṛkar daftar jātī hū̃.","tr":"I do yoga and then have breakfast, then I drop the kids at school and go to the office."}]}
+      ]
+    },
+    {
+      "id": "before-after-and-for",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say before, after and what for",
+      "summary": "Say “before going to bed”, “after finishing work”, “I came here to learn Hindi.”",
+      "topic": "The {{-ने|-ne}} form + {{से पहले|se pahle}}, {{के बाद|ke bād}}, {{के लिए|ke lie}}",
+      "blocks": [
+        {"goal":{"t":"सोने से पहले मैं थोड़ा पढ़ता हूँ।","r":"sone se pahle maĩ thoṛā paṛhtā hū̃.","tr":"Before going to bed, I read a little.","note":"said by a man; a woman says {{पढ़ती हूँ|paṛhtī hū̃}}"}},
+        {"dialog":[{"who":"Manager","t":"ऑफ़िस आने के बाद पहले ईमेल देखिए।","r":"ôfis āne ke bād pahle īmel dekhie.","tr":"When you get to the office, check your email first."},{"who":"Sam","t":"जी। और जाने से पहले?","r":"jī. aur jāne se pahle?","tr":"Sure. And before leaving?"},{"who":"Manager","t":"जाने से पहले कंप्यूटर बंद कीजिए।","r":"jāne se pahle kampyūṭar band kījie.","tr":"Before you leave, turn off the computer."},{"who":"Sam","t":"और खाना खाने के लिए कहाँ जाते हैं?","r":"aur khānā khāne ke lie kahā̃ jāte haĩ?","tr":"And where do people go to eat?"},{"who":"Manager","t":"नीचे कैंटीन है। खाने के लिए एक घंटा मिलता है।","r":"nīche kaiṇṭīn hai. khāne ke lie ek ghaṇṭā miltā hai.","tr":"There's a cafeteria downstairs. You get an hour for lunch."}]},
+        {"p":"**Before, after, for.** Postpositions you know with nouns ({{खाने के बाद|khāne ke bād}} “after the meal”) work with verbs too. Put the verb in its {{-ने|-ne}} form (the {{-ना|-nā}} form in the oblique, lesson 9), then the postposition:"},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["before","{{जाने से पहले|jāne se pahle}}","before going"],
+          ["after","{{आने के बाद|āne ke bād}}","after coming"],
+          ["(in order) to","{{सीखने के लिए|sīkhne ke lie}}","(in order) to learn"]
+        ] },
+        {"p":"“Before” is {{से पहले|se pahle}}; “after” {{के बाद|ke bād}} and “for” {{के लिए|ke lie}} have {{के|ke}}. Whoever does it, the {{-ने|-ne}} form never changes: {{सोने से पहले वह पढ़ती है|sone se pahle vah paṛhtī hai}} “Before bed, she reads”."},
+        {"p":"**Why you do something.** {{के लिए|ke lie}} after a verb gives the purpose: {{मैं हिंदी सीखने के लिए भारत आया|maĩ hindī sīkhne ke lie bhārat āyā}} “I came to India to learn Hindi”. With {{आना|ānā}} and {{जाना|jānā}} you can leave {{के लिए|ke lie}} out (lesson 25): {{मैं हिंदी सीखने आया|maĩ hindī sīkhne āyā}}."},
+        { "ex": [
+          {"t":"खाना खाने से पहले हाथ धोओ।","r":"khānā khāne se pahle hāth dhoo.","tr":"Wash your hands before you eat."},
+          {"t":"काम ख़त्म करने के बाद हम बाहर गए।","r":"kām khatm karne ke bād ham bāhar gae.","tr":"After finishing work, we went out."},
+          {"t":"मैं पैसे बचाने के लिए घर पर खाना बनाता हूँ।","r":"maĩ paise bachāne ke lie ghar par khānā banātā hū̃.","tr":"I cook at home to save money."},
+          {"t":"यह टिकट ख़रीदने के लिए कहाँ जाना पड़ेगा?","r":"yah ṭikaṭ kharīdne ke lie kahā̃ jānā paṛegā?","tr":"Where do I have to go to buy this ticket?"},
+          {"t":"सोने से पहले फ़ोन मत देखो।","r":"sone se pahle fon mat dekho.","tr":"Don't look at your phone before going to bed."},
+          {"t":"हम खाना खाने के बाद टहलने जाते हैं।","r":"ham khānā khāne ke bād ṭahalne jāte haĩ.","tr":"After dinner we go for a walk."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"जाना से पहले कंप्यूटर बंद कीजिए।","right":"जाने से पहले कंप्यूटर बंद कीजिए।","tr":"Turn off the computer before you leave.","why":"Before a postposition, {{-ना|-nā}} becomes {{-ने|-ne}}."},
+        {"wrong":"खाना खाने से बाद हम टहलने जाते हैं।","right":"खाना खाने के बाद हम टहलने जाते हैं।","tr":"After dinner we go for a walk.","why":"“After” is {{के बाद|ke bād}}; it's “before” that is {{से पहले|se pahle}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"___ से पहले हाथ धोओ।","tr":"Wash your hands before eating.","options":["खाने","खाना","खाकर"],"answer":0,"why":"Before a postposition: {{-ने|-ne}}.","r":"___ se pahle hāth dhoo.","rs":["khāne","khānā","khākar"]},
+        {"type":"fill","q":"Choose the right word.","t":"काम ख़त्म करने ___ बाद हम बाहर गए।","tr":"After finishing work, we went out.","options":["के","से","का"],"answer":0,"why":"“After” is {{के बाद|ke bād}}.","r":"kām khatm karne ___ bād ham bāhar gae.","rs":["ke","se","kā"]},
+        {"type":"choice","q":"{{मैं पैसे बचाने के लिए घर पर खाना बनाता हूँ।|maĩ paise bachāne ke lie ghar par khānā banātā hū̃.}} Why does he cook at home?","options":["To save money","Because he likes cooking","Before he goes out"],"answer":0,"why":"{{-ने के लिए|-ne ke lie}}: “in order to”."},
+        {"type":"order","q":"Put the words in order.","tr":"Don't look at your phone before going to bed.","words":["सोने","से","पहले","फ़ोन","मत","देखो।"],"from":"ask-people-to-do-things","rs":["sone","se","pahle","fon","mat","dekho."]},
+        {"type":"fill","q":"Choose the right form.","t":"मैं खाना ___ टहलने जाता हूँ।","tr":"After eating, I go for a walk.","options":["खाकर","खाना","खाते"],"answer":0,"why":"“Having eaten”: {{खाकर|khākar}}. ({{खाने के बाद|khāne ke bād}} would be right too.)","from":"one-thing-after-another","r":"maĩ khānā ___ ṭahalne jātā hū̃.","rs":["khākar","khānā","khāte"]},
+        {"type":"dialogue","q":"First day at a new job. Choose your questions.","from":"make-suggestions","lines":[{"who":"Manager","t":"नौ बजे आइए।","r":"nau baje āie.","tr":"Come at nine."},{"options":["और आने के बाद क्या करूँ?","और आना के बाद क्या करूँ?"],"answer":0,"why":"Before {{के बाद|ke bād}}: {{आने|āne}}.","rs":["aur āne ke bād kyā karū̃?","aur ānā ke bād kyā karū̃?"]},{"who":"Manager","t":"पहले ईमेल देखिए, फिर मीटिंग में आइए।","r":"pahle īmel dekhie, phir mīṭiṅg mẽ āie.","tr":"First check your email, then come to the meeting."},{"options":["ठीक है। जाने से पहले कुछ करना है?","ठीक है। जाने के पहले से कुछ करना है?"],"answer":0,"why":"“Before going”: {{जाने से पहले|jāne se pahle}}.","rs":["ṭhīk hai. jāne se pahle kuchh karnā hai?","ṭhīk hai. jāne ke pahle se kuchh karnā hai?"]}]},
+        {"type":"free","q":"Your turn: say one thing you do before going to bed, and why you're learning Hindi.","answers":[{"t":"सोने से पहले मैं थोड़ा पढ़ती हूँ। मैं भारत जाने के लिए हिंदी सीख रही हूँ।","r":"sone se pahle maĩ thoṛā paṛhtī hū̃. maĩ bhārat jāne ke lie hindī sīkh rahī hū̃.","tr":"Before going to bed I read a little. I'm learning Hindi to go to India. (a woman)"},{"t":"मैं सोने से पहले दाँत साफ़ करता हूँ। मैं दोस्तों से बात करने के लिए हिंदी सीख रहा हूँ।","r":"maĩ sone se pahle dā̃t sāf kartā hū̃. maĩ dostõ se bāt karne ke lie hindī sīkh rahā hū̃.","tr":"I brush my teeth before going to bed. I'm learning Hindi to talk with my friends. (a man)"}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Compare things",
+      "summary": "Say “cheaper than”, “older than me”, “the best”, “not as good”.",
+      "topic": "{{… से|… se}} + adjective “than …”; {{ज़्यादा|zyādā}}, {{कम|kam}}; {{सबसे|sabse}} “the most”; {{बेहतर|behtar}}; {{उतना … नहीं|utnā … nahī̃}}",
+      "blocks": [
+        {"goal":{"t":"यह फ़ोन उससे सस्ता है, लेकिन वह सबसे अच्छा है।","r":"yah fon usse sastā hai, lekin vah sabse achchhā hai.","tr":"This phone is cheaper than that one, but that one is the best."}},
+        {"dialog":[{"who":"Customer","t":"इन दोनों में से कौन-सा अच्छा है?","r":"in donõ mẽ se kaun-sā achchhā hai?","tr":"Which of these two is better?"},{"who":"Salesman","t":"यह वाला उससे थोड़ा महँगा है, लेकिन इसका कैमरा बेहतर है।","r":"yah vālā usse thoṛā mahãgā hai, lekin iskā kaimrā behtar hai.","tr":"This one is a bit more expensive than that one, but its camera is better."},{"who":"Customer","t":"और सबसे सस्ता कौन-सा है?","r":"aur sabse sastā kaun-sā hai?","tr":"And which is the cheapest?"},{"who":"Salesman","t":"यह लाल वाला। लेकिन यह उतना अच्छा नहीं है।","r":"yah lāl vālā. lekin yah utnā achchhā nahī̃ hai.","tr":"This red one. But it's not as good."}]},
+        {"p":"**Cheaper than.** Hindi doesn't change the adjective: it uses “from”. Put {{से|se}} after the thing you compare with: {{यह फ़ोन उससे सस्ता है|yah fon usse sastā hai}} “This phone is cheaper than that one”, word for word “this phone, from that, is cheap”. Add {{ज़्यादा|zyādā}} “more” or {{कम|kam}} “less” to be clearer: {{राहुल मुझसे ज़्यादा लंबा है|rāhul mujhse zyādā lambā hai}} “Rahul is taller than me”."},
+        {"p":"**The most.** {{सबसे|sabse}}, “than all”, goes before the adjective: {{सबसे सस्ता|sabse sastā}} “the cheapest”, {{सबसे अच्छी दोस्त|sabse achchhī dost}} “best friend”. The adjective still agrees, as always: {{यह सबसे अच्छी किताब है|yah sabse achchhī kitāb hai}}."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["more … than","{{मुंबई में दिल्ली से ज़्यादा बारिश होती है।|mumbaī mẽ dillī se zyādā bārish hotī hai.}}","It rains more in Mumbai than in Delhi."],
+          ["less … than","{{यह उससे कम मीठा है।|yah usse kam mīṭhā hai.}}","This is less sweet than that."],
+          ["the most","{{यह सबसे महँगा है।|yah sabse mahãgā hai.}}","This is the most expensive."],
+          ["not as … as","{{यह उतना अच्छा नहीं है।|yah utnā achchhā nahī̃ hai.}}","It's not as good."]
+        ] },
+        {"p":"**Better.** “Better” has its own word, {{बेहतर|behtar}}, and “the best” is {{सबसे अच्छा|sabse achchhā}}. With pronouns, {{से|se}} gives {{मुझसे|mujhse}} “than me”, {{उससे|usse}} “than him, her, that”, {{आपसे|āpse}} “than you” (lesson 28)."},
+        { "ex": [
+          {"t":"मेरा भाई मुझसे दो साल बड़ा है।","r":"merā bhāī mujhse do sāl baṛā hai.","tr":"My brother is two years older than me."},
+          {"t":"आज कल से ज़्यादा गर्मी है।","r":"āj kal se zyādā garmī hai.","tr":"It's hotter today than yesterday."},
+          {"t":"यह रास्ता उससे छोटा है।","r":"yah rāstā usse chhoṭā hai.","tr":"This way is shorter than that one."},
+          {"t":"वह मेरी सबसे अच्छी दोस्त है।","r":"vah merī sabse achchhī dost hai.","tr":"She's my best friend."},
+          {"t":"ट्रेन बस से तेज़ है।","r":"ṭren bas se tez hai.","tr":"The train is faster than the bus."},
+          {"t":"यह सबसे सस्ता होटल है।","r":"yah sabse sastā hoṭal hai.","tr":"This is the cheapest hotel."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"राहुल मैं से लंबा है।","right":"राहुल मुझसे लंबा है।","tr":"Rahul is taller than me.","why":"“Than me” is {{मुझसे|mujhse}}."},
+        {"wrong":"यह सबसे अच्छा किताब है।","right":"यह सबसे अच्छी किताब है।","tr":"This is the best book.","why":"The adjective agrees with {{किताब|kitāb}} (feminine), even after {{सबसे|sabse}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right word.","t":"मेरा भाई ___ दो साल बड़ा है।","tr":"My brother is two years older than me.","options":["मुझसे","मुझे","मेरा"],"answer":0,"why":"“Than me”: {{मुझसे|mujhse}}.","from":"say-who-you-saw","r":"merā bhāī ___ do sāl baṛā hai.","rs":["mujhse","mujhe","merā"]},
+        {"type":"fill","q":"Choose the right word.","t":"यह ___ सस्ता होटल है।","tr":"This is the cheapest hotel.","options":["सबसे","ज़्यादा","बहुत"],"answer":0,"why":"“The most”: {{सबसे|sabse}}.","r":"yah ___ sastā hoṭal hai.","rs":["sabse","zyādā","bahut"]},
+        {"type":"choice","q":"{{ट्रेन बस से तेज़ है।|ṭren bas se tez hai.}} means…","options":["The train is faster than the bus.","The train comes from the bus.","The bus is faster than the train."],"answer":0,"why":"{{से|se}} after the thing compared: “than the bus”."},
+        {"type":"order","q":"Put the words in order.","tr":"She's my best friend.","words":["वह","मेरी","सबसे","अच्छी","दोस्त","है।"],"from":"describe-things","rs":["vah","merī","sabse","achchhī","dost","hai."]},
+        {"type":"dialogue","q":"Buying a phone. Choose your lines.","from":"shop-and-ask-prices","lines":[{"who":"Salesman","t":"ये दो फ़ोन हैं।","r":"ye do fon haĩ.","tr":"Here are two phones."},{"options":["इनमें से कौन-सा सस्ता है?","इनमें से कौन-सा सस्ती है?"],"answer":0,"why":"{{फ़ोन|fon}} is masculine.","rs":["inmẽ se kaun-sā sastā hai?","inmẽ se kaun-sā sastī hai?"]},{"who":"Salesman","t":"यह वाला। लेकिन उसका कैमरा इससे बेहतर है।","r":"yah vālā. lekin uskā kaimrā isse behtar hai.","tr":"This one. But that one's camera is better than this one's."},{"options":["ठीक है, वह वाला दीजिए।","ठीक है, वह वाली दीजिए।"],"answer":0,"why":"{{फ़ोन|fon}} is masculine: {{वाला|vālā}} (lesson 13).","rs":["ṭhīk hai, vah vālā dījie.","ṭhīk hai, vah vālī dījie."]}]},
+        {"type":"say","q":"Say: “The train is faster than the bus.”","answer":"ट्रेन बस से तेज़ है।","r":"ṭren bas se tez hai."},
+        {"type":"free","q":"Your turn: compare two places you know, and say which is the best.","answers":[{"t":"न्यूयॉर्क शिकागो से बड़ा है, लेकिन शिकागो ज़्यादा सस्ता है। मेरे लिए सबसे अच्छा शहर बोस्टन है।","r":"nyūyôrk shikāgo se baṛā hai, lekin shikāgo zyādā sastā hai. mere lie sabse achchhā shahar bosṭan hai.","tr":"New York is bigger than Chicago, but Chicago is cheaper. For me, the best city is Boston."},{"t":"मेरा गाँव शहर से छोटा है, लेकिन वहाँ की हवा सबसे साफ़ है।","r":"merā gā̃v shahar se chhoṭā hai, lekin vahā̃ kī havā sabse sāf hai.","tr":"My village is smaller than the city, but the air there is the cleanest."}]}
+      ]
+    },
+    {
+      "id": "say-why",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say why, and link your ideas",
+      "summary": "Give reasons and results: “because I was sick”, “so I stayed home”, “but”, “still”, “because of the rain”.",
+      "topic": "{{क्योंकि|kyõki}} “because”, {{इसलिए|islie}} “so”, {{लेकिन|lekin}} “but”, {{फिर भी|phir bhī}} “still”, {{के कारण|ke kāraṇ}} “because of”; {{सका|sakā}} “could”",
+      "blocks": [
+        {"goal":{"t":"मैं कल नहीं आ सका, क्योंकि मैं बीमार था।","r":"maĩ kal nahī̃ ā sakā, kyõki maĩ bīmār thā.","tr":"I couldn't come yesterday because I was sick.","note":"said by a man; a woman says {{सकी … थी|sakī … thī}}"}},
+        {"dialog":[{"who":"Nisha","t":"तुम पार्टी में क्यों नहीं आए?","r":"tum pārṭī mẽ kyõ nahī̃ āe?","tr":"Why didn't you come to the party?"},{"who":"Ben","t":"क्योंकि मुझे बहुत काम था।","r":"kyõki mujhe bahut kām thā.","tr":"Because I had a lot of work."},{"who":"Nisha","t":"पूरा दिन?","r":"pūrā din?","tr":"All day?"},{"who":"Ben","t":"हाँ, और मैं बहुत थका हुआ था, इसलिए जल्दी सो गया।","r":"hā̃, aur maĩ bahut thakā huā thā, islie jaldī so gayā.","tr":"Yes, and I was really tired, so I went to bed early."},{"who":"Nisha","t":"ठीक है, लेकिन अगली बार ज़रूर आना!","r":"ṭhīk hai, lekin aglī bār zarūr ānā!","tr":"OK, but next time you have to come!"}]},
+        {"p":"**Because, so.** {{क्योंकि|kyõki}} “because” starts the reason: {{मैं नहीं आया, क्योंकि मैं बीमार था|maĩ nahī̃ āyā, kyõki maĩ bīmār thā}} “I didn't come, because I was sick”. {{इसलिए|islie}} “so, that's why” starts the result: {{मैं बीमार था, इसलिए नहीं आया|maĩ bīmār thā, islie nahī̃ āyā}} “I was sick, so I didn't come”. Each part is a whole sentence, with its verb at its own end."},
+        {"p":"**But, still, so.** {{लेकिन|lekin}} (or {{पर|par}}) “but”; {{फिर भी|phir bhī}} “still, even so”: {{बारिश हो रही थी, फिर भी हम गए|bārish ho rahī thī, phir bhī ham gae}} “It was raining; still, we went”. {{तो|to}} “so, then” often starts a reply: {{तो चलें?|to chalẽ?}} “So, shall we go?”"},
+        { "table": [
+          ["","Hindi","example"],
+          ["because","{{क्योंकि|kyõki}}","{{मैं ख़ुश हूँ क्योंकि आज छुट्टी है।|maĩ khush hū̃ kyõki āj chhuṭṭī hai.}} I'm happy because it's a holiday today."],
+          ["so, that's why","{{इसलिए|islie}}","{{आज छुट्टी है, इसलिए मैं ख़ुश हूँ।|āj chhuṭṭī hai, islie maĩ khush hū̃.}} It's a holiday today, so I'm happy."],
+          ["but","{{लेकिन|lekin}}","{{मैं थक गई हूँ, लेकिन ख़ुश हूँ।|maĩ thak gaī hū̃, lekin khush hū̃.}} I'm tired, but happy."],
+          ["still","{{फिर भी|phir bhī}}","{{वह थका था, फिर भी उसने काम किया।|vah thakā thā, phir bhī usne kām kiyā.}} He was tired, but he worked anyway."],
+          ["because of","{{के कारण|ke kāraṇ}}","{{बारिश के कारण|bārish ke kāraṇ}} because of the rain"]
+        ] },
+        {"p":"**Because of** a thing: {{के कारण|ke kāraṇ}} or {{की वजह से|kī vajah se}} after a noun: {{बारिश के कारण मैच रद्द हो गया|bārish ke kāraṇ maich radd ho gayā}} “The match was called off because of the rain”. And {{सका|sakā}}, in the goal sentence, is the past of {{सकना|saknā}} “can” (lesson 22), without {{ने|ne}}: {{मैं नहीं आ सका|maĩ nahī̃ ā sakā}} “I couldn't come”."},
+        { "ex": [
+          {"t":"मैं नहीं आई क्योंकि मैं बीमार थी।","r":"maĩ nahī̃ āī kyõki maĩ bīmār thī.","tr":"I didn't come because I was sick.","note":"a woman speaking"},
+          {"t":"बारिश हो रही थी, इसलिए मैं नहीं आई।","r":"bārish ho rahī thī, islie maĩ nahī̃ āī.","tr":"It was raining, so I didn't come."},
+          {"t":"खाना ठंडा था, फिर भी अच्छा था।","r":"khānā ṭhaṇḍā thā, phir bhī achchhā thā.","tr":"The food was cold, but it was still good."},
+          {"t":"बारिश के कारण मैच रद्द हो गया।","r":"bārish ke kāraṇ maich radd ho gayā.","tr":"The match was canceled because of the rain."},
+          {"t":"तो, अब क्या करें?","r":"to, ab kyā karẽ?","tr":"So, what shall we do now?"},
+          {"t":"मैं हिंदी सीख रहा हूँ, क्योंकि मुझे भारत बहुत पसंद है।","r":"maĩ hindī sīkh rahā hū̃, kyõki mujhe bhārat bahut pasand hai.","tr":"I'm learning Hindi because I really like India."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैं नहीं आया क्योंकि मैं था बीमार।","right":"मैं नहीं आया क्योंकि मैं बीमार था।","tr":"I didn't come because I was sick.","why":"After {{क्योंकि|kyõki}} comes a whole sentence, with its verb at the end."},
+        {"wrong":"बारिश क्योंकि मैच रद्द हो गया।","right":"बारिश के कारण मैच रद्द हो गया।","tr":"The match was canceled because of the rain.","why":"Before a noun, “because of” is {{के कारण|ke kāraṇ}} (or {{की वजह से|kī vajah se}}); {{क्योंकि|kyõki}} needs a whole sentence."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right word.","t":"मैं नहीं आया ___ मैं बीमार था।","tr":"I didn't come because I was sick.","options":["क्योंकि","इसलिए","लेकिन"],"answer":0,"why":"The reason follows {{क्योंकि|kyõki}}.","r":"maĩ nahī̃ āyā ___ maĩ bīmār thā.","rs":["kyõki","islie","lekin"]},
+        {"type":"fill","q":"Choose the right word.","t":"बारिश हो रही थी, ___ मैं घर पर रहा।","tr":"It was raining, so I stayed home.","options":["इसलिए","क्योंकि","फिर भी"],"answer":0,"why":"The result follows {{इसलिए|islie}}.","from":"say-what-was-going-on","r":"bārish ho rahī thī, ___ maĩ ghar par rahā.","rs":["islie","kyõki","phir bhī"]},
+        {"type":"choice","q":"{{वह थका था, फिर भी उसने काम किया।|vah thakā thā, phir bhī usne kām kiyā.}} means…","options":["He was tired, but he worked anyway.","He was tired, so he didn't work.","He worked, so he was tired."],"answer":0,"why":"{{फिर भी|phir bhī}}: still, even so."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm tired, but happy. (a woman)","words":["मैं","थक","गई","हूँ,","लेकिन","ख़ुश","हूँ।"],"rs":["maĩ","thak","gaī","hū̃,","lekin","khush","hū̃."]},
+        {"type":"dialogue","q":"Your friend asks why you're late. Choose your replies (you're a man).","from":"say-where-you-went","lines":[{"who":"Friend","t":"तुम इतनी देर से क्यों आए?","r":"tum itnī der se kyõ āe?","tr":"Why are you so late?"},{"options":["क्योंकि ट्रैफ़िक बहुत था।","इसलिए ट्रैफ़िक बहुत था।"],"answer":0,"why":"Giving the reason: {{क्योंकि|kyõki}}.","rs":["kyõki ṭraifik bahut thā.","islie ṭraifik bahut thā."]},{"who":"Friend","t":"फ़ोन क्यों नहीं किया?","r":"fon kyõ nahī̃ kiyā?","tr":"Why didn't you call?"},{"options":["मेरा फ़ोन बंद था, इसलिए नहीं कर सका।","मेरा फ़ोन बंद था, क्योंकि नहीं कर सका।"],"answer":0,"why":"The result: {{इसलिए|islie}}. ({{सका|sakā}} is the past of {{सकना|saknā}}.)","rs":["merā fon band thā, islie nahī̃ kar sakā.","merā fon band thā, kyõki nahī̃ kar sakā."]}]},
+        {"type":"say","q":"Say: “So, what shall we do now?”","answer":"तो, अब क्या करें?","r":"to, ab kyā karẽ?","from":"make-suggestions"},
+        {"type":"free","q":"Your turn: say why you're learning Hindi, and one thing you couldn't do this week, and why.","answers":[{"t":"मैं हिंदी सीख रहा हूँ क्योंकि मेरी पत्नी भारत से है। इस हफ़्ते मैं जिम नहीं जा सका, क्योंकि मुझे बहुत काम था।","r":"maĩ hindī sīkh rahā hū̃ kyõki merī patnī bhārat se hai. is hafte maĩ jim nahī̃ jā sakā, kyõki mujhe bahut kām thā.","tr":"I'm learning Hindi because my wife is from India. This week I couldn't go to the gym, because I had a lot of work."},{"t":"मुझे हिंदी फ़िल्में पसंद हैं, इसलिए मैं हिंदी सीख रही हूँ।","r":"mujhe hindī filmẽ pasand haĩ, islie maĩ hindī sīkh rahī hū̃.","tr":"I like Hindi films, so I'm learning Hindi."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-own",
+      "unit": 6,
+      "level": "A2",
+      "title": "Talk about your own things",
+      "summary": "Say “I live with my family”, “She called her sister”, “I made it myself”, “Take care of yourself”.",
+      "topic": "{{अपना|apnā}} “one's own” for the subject's things; {{ख़ुद|khud}} “myself”",
+      "blocks": [
+        {"goal":{"t":"मैं अपने परिवार के साथ रहता हूँ।","r":"maĩ apne parivār ke sāth rahtā hū̃.","tr":"I live with my family.","note":"said by a man; a woman says {{रहती हूँ|rahtī hū̃}}"}},
+        {"dialog":[{"who":"Neighbor","t":"यह किसकी गाड़ी है?","r":"yah kiskī gāṛī hai?","tr":"Whose car is this?"},{"who":"Raj","t":"यह मेरी गाड़ी है। मेरा भाई भी अपनी गाड़ी यहीं खड़ी करता है।","r":"yah merī gāṛī hai. merā bhāī bhī apnī gāṛī yahī̃ khaṛī kartā hai.","tr":"This is my car. My brother parks his car here too."},{"who":"Neighbor","t":"अच्छा। क्या आपका भाई अपने बच्चों के साथ आया है?","r":"achchhā. kyā āpkā bhāī apne bachchõ ke sāth āyā hai?","tr":"I see. Has your brother come with his children?"},{"who":"Raj","t":"हाँ, वे सब अपनी दादी से मिलने आए हैं।","r":"hā̃, ve sab apnī dādī se milne āe haĩ.","tr":"Yes, they've all come to see their grandmother."}]},
+        {"p":"**One's own.** When the owner is the subject of the sentence, Hindi uses {{अपना|apnā}} instead of {{मेरा, तुम्हारा, उसका|merā, tumhārā, uskā}}: {{मैं अपने परिवार के साथ रहता हूँ|maĩ apne parivār ke sāth rahtā hū̃}} “I live with my family”, {{वह अपनी गाड़ी में आया|vah apnī gāṛī mẽ āyā}} “He came in his (own) car”. {{अपना|apnā}} changes like {{मेरा|merā}}: {{अपना|apnā}}, {{अपनी|apnī}}, {{अपने|apne}}."},
+        {"p":"**Why it matters.** With “he” and “she”, {{अपना|apnā}} tells you whose: {{राज अपनी माँ को फ़ोन करता है|rāj apnī mā̃ ko fon kartā hai}} is Raj's own mother, but {{राज उसकी माँ को फ़ोन करता है|rāj uskī mā̃ ko fon kartā hai}} is someone else's. With “I”, {{मेरा|merā}} is also heard in speech, but {{अपना|apnā}} is better Hindi: {{मैं अपना काम कर रहा हूँ|maĩ apnā kām kar rahā hū̃}} “I'm doing my work”."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["his own","{{राज अपनी माँ को फ़ोन करता है।|rāj apnī mā̃ ko fon kartā hai.}}","Raj calls his (own) mother."],
+          ["someone else's","{{राज उसकी माँ को फ़ोन करता है।|rāj uskī mā̃ ko fon kartā hai.}}","Raj calls his (another man's) mother."],
+          ["my own","{{मैंने अपना फ़ोन घर पर छोड़ा।|maĩne apnā fon ghar par chhoṛā.}}","I left my phone at home."]
+        ] },
+        {"p":"**Myself.** {{ख़ुद|khud}} (or {{अपने आप|apne āp}}) is “myself, yourself, by oneself”: {{मैंने यह ख़ुद बनाया|maĩne yah khud banāyā}} “I made this myself”. And {{अपना ख़याल रखना|apnā khayāl rakhnā}} “take care of yourself” is how friends say goodbye."},
+        { "ex": [
+          {"t":"मैं अपने परिवार के साथ रहती हूँ।","r":"maĩ apne parivār ke sāth rahtī hū̃.","tr":"I live with my family.","note":"a woman speaking"},
+          {"t":"अपना बैग यहाँ रखिए।","r":"apnā baig yahā̃ rakhie.","tr":"Put your bag here."},
+          {"t":"उसने अपनी बहन को फ़ोन किया।","r":"usne apnī bahan ko fon kiyā.","tr":"She called her (own) sister."},
+          {"t":"हम अपनी छुट्टियों में गोवा जाएँगे।","r":"ham apnī chhuṭṭiyõ mẽ govā jāẽge.","tr":"We'll go to Goa on our vacation."},
+          {"t":"मैंने यह खाना ख़ुद बनाया।","r":"maĩne yah khānā khud banāyā.","tr":"I cooked this food myself."},
+          {"t":"अपना ख़याल रखना।","r":"apnā khayāl rakhnā.","tr":"Take care of yourself."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"राज उसकी माँ को रोज़ फ़ोन करता है।","right":"राज अपनी माँ को रोज़ फ़ोन करता है।","tr":"Raj calls his mother every day.","why":"If it's Raj's own mother: {{अपनी|apnī}}. {{उसकी|uskī}} would be someone else's mother."},
+        {"wrong":"वह अपना बहन से मिला।","right":"वह अपनी बहन से मिला।","tr":"He met his sister.","why":"{{अपना|apnā}} agrees like {{मेरा|merā}}: {{बहन|bahan}} is feminine, so {{अपनी|apnī}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right word.","t":"राज ___ माँ को रोज़ फ़ोन करता है।","tr":"Raj calls his (own) mother every day.","options":["अपनी","अपना","उसका"],"answer":0,"why":"His own mother: {{अपनी|apnī}} (feminine, for {{माँ|mā̃}}).","r":"rāj ___ mā̃ ko roz fon kartā hai.","rs":["apnī","apnā","uskā"]},
+        {"type":"fill","q":"Choose the right word.","t":"हम ___ दोस्तों के साथ खाना खाने गए।","tr":"We went out to eat with our friends.","options":["अपने","अपना","हमारा"],"answer":0,"why":"Our own friends, before {{के साथ|ke sāth}}: {{अपने|apne}}.","from":"make-plans","r":"ham ___ dostõ ke sāth khānā khāne gae.","rs":["apne","apnā","hamārā"]},
+        {"type":"choice","q":"{{मैंने यह ख़ुद बनाया।|maĩne yah khud banāyā.}} means…","options":["I made this myself.","I made this for myself.","He made this himself."],"answer":0,"why":"{{ख़ुद|khud}}: myself, by myself."},
+        {"type":"order","q":"Put the words in order.","tr":"She called her (own) sister.","words":["उसने","अपनी","बहन","को","फ़ोन","किया।"],"from":"say-who-you-saw","rs":["usne","apnī","bahan","ko","fon","kiyā."]},
+        {"type":"dialogue","q":"Saying goodbye to a friend. Choose your replies.","lines":[{"who":"Friend","t":"अच्छा, मैं चलता हूँ।","r":"achchhā, maĩ chaltā hū̃.","tr":"Well, I'm off."},{"options":["ठीक है, अपना ख़याल रखना!","ठीक है, मेरा ख़याल रखना!"],"answer":0,"why":"“Take care of yourself”: {{अपना ख़याल रखना|apnā khayāl rakhnā}}.","rs":["ṭhīk hai, apnā khayāl rakhnā!","ṭhīk hai, merā khayāl rakhnā!"]},{"who":"Friend","t":"तुम भी। और अपनी माँ को मेरा नमस्ते कहना।","r":"tum bhī. aur apnī mā̃ ko merā namaste kahnā.","tr":"You too. And say hello to your mother for me."},{"options":["ज़रूर। अरे, तुम अपना छाता भूल रहे हो!","ज़रूर। अरे, तुम तुम्हारा छाता भूल रहे हो!"],"answer":0,"why":"Your own umbrella: {{अपना|apnā}}.","rs":["zarūr. are, tum apnā chhātā bhūl rahe ho!","zarūr. are, tum tumhārā chhātā bhūl rahe ho!"]}]},
+        {"type":"say","q":"Say: “I cooked this food myself.”","answer":"मैंने यह खाना ख़ुद बनाया।","r":"maĩne yah khānā khud banāyā."},
+        {"type":"free","q":"Your turn: say who you live with, and one thing you do yourself.","answers":[{"t":"मैं अपनी पत्नी और अपने दो बच्चों के साथ रहता हूँ। मैं अपना खाना ख़ुद बनाता हूँ।","r":"maĩ apnī patnī aur apne do bachchõ ke sāth rahtā hū̃. maĩ apnā khānā khud banātā hū̃.","tr":"I live with my wife and my two children. I cook my own food."},{"t":"मैं अपनी दोस्त के साथ रहती हूँ। मैं अपना घर ख़ुद साफ़ करती हूँ।","r":"maĩ apnī dost ke sāth rahtī hū̃. maĩ apnā ghar khud sāf kartī hū̃.","tr":"I live with my friend. I clean my place myself."}]}
+      ]
+    },
+    {
+      "id": "sound-natural",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say it like a native: आ गया, खा लो, दे दो",
+      "summary": "Use the little second verbs Hindi speakers add all the time: “It's here!”, “Eat up!”, “Give it to me.”",
+      "topic": "Compound verbs: the stem + {{जाना|jānā}}, {{लेना|lenā}}, {{देना|denā}}",
+      "blocks": [
+        {"goal":{"t":"बस आ गई! जल्दी चलो!","r":"bas ā gaī! jaldī chalo!","tr":"The bus is here! Quick, let's go!"}},
+        {"dialog":[{"who":"Mom","t":"खाना खा लो, ठंडा हो जाएगा।","r":"khānā khā lo, ṭhaṇḍā ho jāegā.","tr":"Eat your food, it'll get cold."},{"who":"Son","t":"एक मिनट, माँ। मैं यह मैसेज भेज दूँ।","r":"ek minaṭ, mā̃. maĩ yah maisej bhej dū̃.","tr":"One minute, Mom. Let me just send this message."},{"who":"Mom","t":"हमेशा फ़ोन! पापा भी आ गए हैं।","r":"hameshā fon! pāpā bhī ā gae haĩ.","tr":"Always the phone! Dad's home too."},{"who":"Son","t":"अच्छा, आ गया!","r":"achchhā, ā gayā!","tr":"OK, I'm coming!"}]},
+        {"p":"**Two verbs, one action.** Hindi speakers often add a second verb to the stem of the first: {{आ गया|ā gayā}} instead of {{आया|āyā}}, {{खा लो|khā lo}} instead of {{खाओ|khāo}}. The first verb gives the meaning; the second ({{जाना|jānā}}, {{लेना|lenā}} or {{देना|denā}}) loses its own meaning and adds a shade: done completely, done for yourself, done for someone else. These make Hindi sound natural, and you hear them all the time."},
+        { "table": [
+          ["","adds","example"],
+          ["{{जाना|jānā}}","a change, done and complete","{{वह आ गया।|vah ā gayā.}} He's here. {{खाना ठंडा हो गया।|khānā ṭhaṇḍā ho gayā.}} The food has gone cold."],
+          ["{{लेना|lenā}}","done for yourself","{{खाना खा लो।|khānā khā lo.}} Eat up. {{मैंने टिकट ले लिया।|maĩne ṭikaṭ le liyā.}} I've got the ticket."],
+          ["{{देना|denā}}","done for someone else","{{मुझे पानी दे दो।|mujhe pānī de do.}} Give me some water. {{मैंने उसे बता दिया।|maĩne use batā diyā.}} I've told him."]
+        ] },
+        {"p":"**The second verb takes the endings.** The first is just its stem; the second changes as usual: {{आ गई|ā gaī}}, {{आ जाएगा|ā jāegā}}, {{खा लिया|khā liyā}}. And {{ने|ne}} goes by the second verb: {{जाना|jānā}} never has it ({{मैं समझ गया|maĩ samajh gayā}} “I understand (I've got it)”), {{लेना|lenā}} and {{देना|denā}} do ({{मैंने खा लिया|maĩne khā liyā}} “I've eaten”)."},
+        {"p":"**When not to.** With {{नहीं|nahī̃}}, Hindi mostly drops the second verb: {{मैं नहीं समझा|maĩ nahī̃ samjhā}} “I didn't understand”. And if you leave compound verbs out altogether, you'll still be understood: they are about sounding natural, not about being right. Notice the son's {{आ गया!|ā gayā!}}: Hindi speakers say “I've come!” as they set off."},
+        { "ex": [
+          {"t":"मेरी गाड़ी ख़राब हो गई।","r":"merī gāṛī kharāb ho gaī.","tr":"My car has broken down."},
+          {"t":"चाबी मेज़ पर रख दो।","r":"chābī mez par rakh do.","tr":"Put the key on the table."},
+          {"t":"अपना छाता ले लो।","r":"apnā chhātā le lo.","tr":"Take your umbrella."},
+          {"t":"मैंने पूरी किताब पढ़ ली।","r":"maĩne pūrī kitāb paṛh lī.","tr":"I read the whole book."},
+          {"t":"जी हाँ, मैं समझ गई।","r":"jī hā̃, maĩ samajh gaī.","tr":"Yes, I understand.","note":"a woman speaking"},
+          {"t":"बैठ जाइए।","r":"baiṭh jāie.","tr":"Please sit down."},
+          {"t":"यह किताब अपने भाई को दे दो।","r":"yah kitāb apne bhāī ko de do.","tr":"Give this book to your brother."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैंने आ गया।","right":"मैं आ गया।","tr":"I'm here.","why":"With {{जाना|jānā}} as the second verb, never {{ने|ne}}."},
+        {"wrong":"मैं खाना खा लिया।","right":"मैंने खाना खा लिया।","tr":"I've eaten.","why":"With {{लेना|lenā}}, the {{ने|ne}} rule applies: {{मैंने|maĩne}}."},
+        {"wrong":"मैं नहीं समझ गया।","right":"मैं नहीं समझा।","tr":"I didn't understand.","why":"With {{नहीं|nahī̃}}, drop the second verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"बस आ ___!","tr":"The bus is here!","options":["गई","गया","गए"],"answer":0,"why":"{{बस|bas}} is feminine: {{आ गई|ā gaī}}.","from":"say-where-you-went","r":"bas ā ___!","rs":["gaī","gayā","gae"]},
+        {"type":"fill","q":"Choose the right form.","t":"मैंने पूरी किताब पढ़ ___।","tr":"I read the whole book.","options":["ली","लिया","गई"],"answer":0,"why":"With {{लेना|lenā}} and {{ने|ne}}, it agrees with {{किताब|kitāb}}: {{ली|lī}}.","from":"say-what-you-did","r":"maĩne pūrī kitāb paṛh ___.","rs":["lī","liyā","gaī"]},
+        {"type":"choice","q":"Your friend explains something, and you say {{मैं समझ गया।|maĩ samajh gayā.}} You mean…","options":["I understand (I've got it).","I went to understand.","I didn't understand."],"answer":0,"why":"{{समझ गया|samajh gayā}}: “I've understood”."},
+        {"type":"order","q":"Put the words in order.","tr":"Put the key on the table.","words":["चाबी","मेज़","पर","रख","दो।"],"rs":["chābī","mez","par","rakh","do."]},
+        {"type":"dialogue","q":"Dinner time at home. Choose your replies.","lines":[{"who":"Mom","t":"खाना तैयार है!","r":"khānā taiyār hai!","tr":"Dinner's ready!"},{"options":["आ गया, माँ!","आया गया, माँ!"],"answer":0,"why":"{{आ गया!|ā gayā!}}: “Coming!” (said as you set off).","rs":["ā gayā, mā̃!","āyā gayā, mā̃!"]},{"who":"Mom","t":"पहले हाथ धो लो।","r":"pahle hāth dho lo.","tr":"Wash your hands first."},{"options":["मैंने धो लिए हैं।","मैं धो लिया हूँ।"],"answer":0,"why":"With {{लेना|lenā}}: {{मैंने|maĩne}}, and {{लिए|lie}} for {{हाथ|hāth}} (plural).","rs":["maĩne dho lie haĩ.","maĩ dho liyā hū̃."]}]},
+        {"type":"say","q":"Say to a guest: “Please sit down.”","answer":"बैठ जाइए।","r":"baiṭh jāie.","from":"ask-people-to-do-things"},
+        {"type":"free","q":"Your turn: say two things that have just happened, with {{गया|gayā}}, {{लिया|liyā}} or {{दिया|diyā}}.","answers":[{"t":"मेरा फ़ोन ख़राब हो गया, और मैंने नया फ़ोन ले लिया।","r":"merā fon kharāb ho gayā, aur maĩne nayā fon le liyā.","tr":"My phone broke, and I got a new one."},{"t":"मेहमान आ गए हैं, और मैंने चाय बना दी है।","r":"mehmān ā gae haĩ, aur maĩne chāy banā dī hai.","tr":"The guests have arrived, and I've made tea."}]}
+      ]
     }
   ]
 }
