@@ -517,6 +517,7 @@
         {"goal":{"t":"عِنْدِي سُؤَالٌ.","r":"ʿindī suʾālun.","tr":"I have a question."}},
         {"dialog":[{"who":"Student","t":"عَفْوًا، عِنْدِي سُؤَالٌ.","r":"ʿafwan, ʿindī suʾālun.","tr":"Excuse me, I have a question."},{"who":"Teacher","t":"تَفَضَّلْ.","r":"tafaḍḍal.","tr":"Go ahead."},{"who":"Student","t":"هَلْ عِنْدَكِ وَقْتٌ بَعْدَ الدَّرْسِ؟","r":"hal ʿindaki waqtun baʿda d-darsi?","tr":"Do you have time after the lesson?"},{"who":"Teacher","t":"لِلْأَسَفِ، الْيَوْمَ لَيْسَ عِنْدِي وَقْتٌ.","r":"lil-asafi, al-yawma laysa ʿindī waqtun.","tr":"Unfortunately, I don't have time today."}]},
         {"p":"To say “I have”, Arabic says “at me (there is)…”: {{عِنْدِي|ʿindī}}, made of {{عِنْدَ}} “at” and the ending “my”. Then what you have: {{عِنْدِي سَيَّارَةٌ.|ʿindī sayyāratun.}} “I have a car.” The thing you have keeps -un: in Arabic it's the subject of the sentence."},
+        {"term":"subject","means":"who or what does the action, or what the sentence is about. In “The train arrives”, the subject is “the train”; in {{عِنْدِي سَيَّارَةٌ}} “I have a car”, it is the car."},
         { "table": [
           ["","Arabic"],
           ["I have","{{عِنْدِي|ʿindī}}"],
@@ -669,6 +670,294 @@
         {"type":"dialogue","q":"At the market. Choose your replies.","lines":[{"who":"Seller","t":"تَفَضَّلْ، مَاذَا تُرِيدُ؟","r":"tafaḍḍal, mādhā turīdu?","tr":"Go ahead, what would you like?"},{"options":["أُرِيدُ تِلْكَ الْحَقِيبَةَ، مِنْ فَضْلِكَ.","أُرِيدُ تِلْكَ حَقِيبَةٌ، مِنْ فَضْلِكَ."],"answer":0,"why":"“That bag” is a phrase: {{الْـ}} on the noun."},{"who":"Seller","t":"هَذِهِ الْحَمْرَاءُ؟","r":"hādhihi l-ḥamrāʾu?","tr":"This red one?"},{"options":["لَا، تِلْكَ الصَّغِيرَةُ.","لَا، ذَلِكَ الصَّغِيرَةُ."],"answer":0,"why":"A bag is feminine: {{تِلْكَ}}."}],"from":"say-what-you-want"},
         {"type":"say","q":"Ask the price of this bag.","answer":"بِكَمْ هَذِهِ الْحَقِيبَةُ؟","r":"bikam hādhihi l-ḥaqībatu?","from":"ask-questions"},
         {"type":"free","q":"Your turn: in a shop, ask for one thing near you and one further away, and ask a price.","answers":[{"t":"أُرِيدُ هَذَا الْقَمِيصَ وَتِلْكَ الْحَقِيبَةَ.","r":"urīdu hādhā l-qamīṣa wa-tilka l-ḥaqībata.","tr":"I'd like this shirt and that bag."},{"t":"بِكَمْ ذَلِكَ الْكِتَابُ؟","r":"bikam dhālika l-kitābu?","tr":"How much is that book?"}]}
+      ]
+    },
+    {
+      "id": "what-you-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you do: “I live…, I work…, I study…”",
+      "summary": "Talk about your life: where you live, where you work or study, how you get there.",
+      "topic": "The present tense: I, you, he, she (a letter in front says who)",
+      "blocks": [
+        {"goal":{"t":"أَسْكُنُ فِي الْقَاهِرَةِ، وَأَعْمَلُ فِي بَنْكٍ.","r":"askunu fī l-qāhirati, wa-aʿmalu fī bankin.","tr":"I live in Cairo, and I work in a bank."}},
+        {"dialog":[{"who":"Lina","t":"أَيْنَ تَسْكُنُ؟","r":"ayna taskunu?","tr":"Where do you live?"},{"who":"Adam","t":"أَسْكُنُ قُرْبَ الْجَامِعَةِ.","r":"askunu qurba l-jāmiʿati.","tr":"I live near the university."},{"who":"Lina","t":"هَلْ تَدْرُسُ هُنَاكَ؟","r":"hal tadrusu hunāka?","tr":"Do you study there?"},{"who":"Adam","t":"لَا، أَعْمَلُ فِي مُسْتَشْفًى. وَأَنْتِ؟","r":"lā, aʿmalu fī mustashfan. wa-anti?","tr":"No, I work in a hospital. And you?"},{"who":"Lina","t":"أَنَا أَدْرُسُ الطِّبَّ.","r":"anā adrusu ṭ-ṭibba.","tr":"I study medicine."}]},
+        {"term":"tense","means":"the form of a verb that shows when something happens: now (the present), before (the past) or later (the future)."},
+        {"p":"An Arabic verb in the present is its root with a letter in front that says **who** does it, and -u at the end. From {{س ك ن}} “living (somewhere)”:"},
+        { "table": [
+          ["","Arabic","in front"],
+          ["I live","{{أَسْكُنُ|askunu}}","{{أَ}}"],
+          ["you live (man)","{{تَسْكُنُ|taskunu}}","{{تَ}}"],
+          ["you live (woman)","{{تَسْكُنِينَ|taskunīna}}","{{تَ}}, and -īna at the end"],
+          ["he lives","{{يَسْكُنُ|yaskunu}}","{{يَ}}"],
+          ["she lives","{{تَسْكُنُ|taskunu}}","{{تَ}}"]
+        ] },
+        {"p":"The Arabic present is also English's “-ing”: {{أَعْمَلُ}} is “I work” and “I'm working”. And since the verb already says who, the pronoun is usually left out: {{أَسْكُنُ فِي الْقَاهِرَةِ}}. Lina's {{أَنَا أَدْرُسُ}} stresses “me”: “*I* study medicine”."},
+        {"p":"**Learning verbs.** The vowel after the second root letter changes from verb to verb: {{يَسْكُنُ|yaskunu}} “lives”, {{يَعْمَلُ|yaʿmalu}} “works”, {{يَجْلِسُ|yajlisu}} “sits”. Dictionaries give each verb as “he did, he does”: {{سَكَنَ يَسْكُنُ}}. Learn both."},
+        { "ex": [
+          {"t":"أَيْنَ تَسْكُنِينَ؟","r":"ayna taskunīna?","tr":"Where do you live?","note":"to a woman"},
+          {"t":"هُوَ يَدْرُسُ فِي الْجَامِعَةِ.","r":"huwa yadrusu fī l-jāmiʿati.","tr":"He studies at the university."},
+          {"t":"هِيَ تَعْمَلُ فِي بَنْكٍ.","r":"hiya taʿmalu fī bankin.","tr":"She works in a bank."},
+          {"t":"أَذْهَبُ إِلَى الْعَمَلِ بِالْحَافِلَةِ.","r":"adhhabu ilā l-ʿamali bi-l-ḥāfilati.","tr":"I go to work by bus."},
+          {"t":"مَاذَا تَفْعَلُ؟","r":"mādhā tafʿalu?","tr":"What are you doing?","note":"to a man; {{مَاذَا}} is “what” before a verb"}
+        ] },
+        {"tip":"“You” (to a man) and “she” look the same in the present: {{تَسْكُنُ}}. Who it is comes from the conversation."}
+      ],
+      "mistakes": [
+        {"wrong":"أَنَا يَعْمَلُ فِي بَنْكٍ.","right":"أَعْمَلُ فِي بَنْكٍ.","tr":"I work in a bank.","why":"The letter in front must match the person: {{أَ}} for “I”."},
+        {"wrong":"أَيْنَ تَسْكُنُ يَا لِينَا؟","right":"أَيْنَ تَسْكُنِينَ يَا لِينَا؟","tr":"Where do you live, Lina?","why":"Talking to a woman, the verb ends in -īna."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ فِي بَنْكٍ.","tr":"I work in a bank.","options":["أَعْمَلُ","يَعْمَلُ","تَعْمَلِينَ"],"answer":0,"why":"{{أَ}} in front: “I”."},
+        {"type":"choice","q":"{{تَدْرُسِينَ}} is said to…","options":["a man","a woman","a group"],"answer":1,"why":"The ending -īna is for one woman."},
+        {"type":"dialogue","q":"Someone asks about you. Choose your replies.","lines":[{"who":"Neighbour","t":"أَيْنَ تَعْمَلُ؟","r":"ayna taʿmalu?","tr":"Where do you work?"},{"options":["أَعْمَلُ فِي مَدْرَسَةٍ.","يَعْمَلُ فِي مَدْرَسَةٍ."],"answer":0,"why":"About yourself: {{أَ}} in front."},{"who":"Neighbour","t":"وَأَيْنَ تَسْكُنُ؟","r":"wa-ayna taskunu?","tr":"And where do you live?"},{"options":["أَسْكُنُ فِي هَذَا الشَّارِعِ.","أَسْكُنُ فِي هَذَا الشَّارِعُ."],"answer":0,"why":"After {{فِي}}, -i, also after “this”: {{فِي هَذَا الشَّارِعِ}}."}],"from":"where-things-are"},
+        {"type":"order","q":"Put the words in order.","tr":"He studies at the university.","words":["هُوَ","يَدْرُسُ","فِي","الْجَامِعَةِ."]},
+        {"type":"say","q":"Ask a woman: “Where do you live?”","answer":"أَيْنَ تَسْكُنِينَ؟","r":"ayna taskunīna?"},
+        {"type":"free","q":"Your turn: say where you live, and where you work or study.","answers":[{"t":"أَسْكُنُ فِي لَنْدَنَ، وَأَعْمَلُ فِي مَكْتَبٍ.","r":"askunu fī landana, wa-aʿmalu fī maktabin.","tr":"I live in London, and I work in an office."},{"t":"أَسْكُنُ قُرْبَ الْبَحْرِ، وَأَدْرُسُ فِي الْجَامِعَةِ.","r":"askunu qurba l-baḥri, wa-adrusu fī l-jāmiʿati.","tr":"I live near the sea, and I study at the university."}]}
+      ]
+    },
+    {
+      "id": "what-others-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what others do: we, you all, they",
+      "summary": "Talk about your family and friends: “We live near the sea”, “They're playing in the garden”.",
+      "topic": "The present tense: we, you (group), they; the whole pattern",
+      "blocks": [
+        {"goal":{"t":"نَسْكُنُ قُرْبَ الْبَحْرِ، وَالْأَوْلَادُ يَلْعَبُونَ هُنَاكَ.","r":"naskunu qurba l-baḥri, wa-l-awlādu yalʿabūna hunāka.","tr":"We live near the sea, and the children play there."}},
+        {"dialog":[{"who":"Grandmother","t":"أَيْنَ الْأَوْلَادُ؟","r":"ayna l-awlādu?","tr":"Where are the children?"},{"who":"Father","t":"يَلْعَبُونَ فِي الْحَدِيقَةِ.","r":"yalʿabūna fī l-ḥadīqati.","tr":"They're playing in the garden."},{"who":"Grandmother","t":"وَمَتَى تَرْجِعُونَ إِلَى الْبَيْتِ؟","r":"wa-matā tarjiʿūna ilā l-bayti?","tr":"And when are you all coming back home?"},{"who":"Father","t":"نَرْجِعُ فِي الْمَسَاءِ.","r":"narjiʿu fī l-masāʾi.","tr":"We're coming back in the evening."}]},
+        { "table": [
+          ["","Arabic"],
+          ["we write","{{نَكْتُبُ|naktubu}}"],
+          ["you write (group)","{{تَكْتُبُونَ|taktubūna}}"],
+          ["they write","{{يَكْتُبُونَ|yaktubūna}}"]
+        ] },
+        {"p":"So the whole present has one shape: a letter in front ({{أَ}} I, {{تَ}} you and she, {{يَ}} he and they, {{نَ}} we) and an ending for some persons (-īna for one woman, -ūna for a group). Three verbs in full:"},
+        { "table": [
+          ["","write","drink","go"],
+          ["I","{{أَكْتُبُ}}","{{أَشْرَبُ}}","{{أَذْهَبُ}}"],
+          ["you (man)","{{تَكْتُبُ}}","{{تَشْرَبُ}}","{{تَذْهَبُ}}"],
+          ["you (woman)","{{تَكْتُبِينَ}}","{{تَشْرَبِينَ}}","{{تَذْهَبِينَ}}"],
+          ["he","{{يَكْتُبُ}}","{{يَشْرَبُ}}","{{يَذْهَبُ}}"],
+          ["she","{{تَكْتُبُ}}","{{تَشْرَبُ}}","{{تَذْهَبُ}}"],
+          ["we","{{نَكْتُبُ}}","{{نَشْرَبُ}}","{{نَذْهَبُ}}"],
+          ["you (group)","{{تَكْتُبُونَ}}","{{تَشْرَبُونَ}}","{{تَذْهَبُونَ}}"],
+          ["they","{{يَكْتُبُونَ}}","{{يَشْرَبُونَ}}","{{يَذْهَبُونَ}}"]
+        ] },
+        {"p":"A group of women only has forms of its own ({{يَكْتُبْنَ|yaktubna}} “they write”), and so do two people; you'll see them in writing more than you hear them."},
+        { "ex": [
+          {"t":"نَسْكُنُ قُرْبَ الْبَحْرِ.","r":"naskunu qurba l-baḥri.","tr":"We live near the sea."},
+          {"t":"هَلْ تَعْمَلُونَ الْيَوْمَ؟","r":"hal taʿmalūna l-yawma?","tr":"Are you working today?","note":"to a group"},
+          {"t":"نَذْهَبُ إِلَى السُّوقِ يَوْمَ الْجُمُعَةِ.","r":"nadhhabu ilā s-sūqi yawma l-jumuʿati.","tr":"We go to the market on Fridays."},
+          {"t":"يَجْلِسُونَ فِي الْمَقْهَى.","r":"yajlisūna fī l-maqhā.","tr":"They're sitting in the café."},
+          {"t":"أَصْدِقَائِي يَسْكُنُونَ فِي دِمَشْقَ.","r":"aṣdiqāʾī yaskunūna fī dimashqa.","tr":"My friends live in Damascus."}
+        ] },
+        {"tip":"Listen for the -ūna: it tells “they write” ({{يَكْتُبُونَ}}) from “he writes” ({{يَكْتُبُ}})."}
+      ],
+      "mistakes": [
+        {"wrong":"هُمْ يَلْعَبُ فِي الْحَدِيقَةِ.","right":"هُمْ يَلْعَبُونَ فِي الْحَدِيقَةِ.","tr":"They're playing in the garden.","why":"After “they”, the verb takes -ūna."},
+        {"wrong":"نَحْنُ يَسْكُنُ هُنَا.","right":"نَسْكُنُ هُنَا.","tr":"We live here.","why":"“We” is {{نَ}} in front: naskunu."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ فِي الْمَسَاءِ.","tr":"We're coming back in the evening.","options":["نَرْجِعُ","يَرْجِعُونَ","تَرْجِعُونَ"],"answer":0,"why":"{{نَ}} in front: “we”."},
+        {"type":"choice","q":"{{يَرْجِعُونَ}} means…","options":["he comes back","they come back","we come back"],"answer":1,"why":"{{يَ}} in front and -ūna at the end: “they”."},
+        {"type":"choice","q":"Ask a group: “Where do you live?”","options":["{{أَيْنَ تَسْكُنُونَ؟}}","{{أَيْنَ يَسْكُنُونَ؟}}","{{أَيْنَ تَسْكُنُ؟}}"],"answer":0,"why":"{{تَ}} in front and -ūna for a group of you."},
+        {"type":"order","q":"Put the words in order.","tr":"My friends live in Damascus.","words":["أَصْدِقَائِي","يَسْكُنُونَ","فِي","دِمَشْقَ."],"from":"whose"},
+        {"type":"say","q":"Say “They're sitting in the café.”","answer":"يَجْلِسُونَ فِي الْمَقْهَى.","r":"yajlisūna fī l-maqhā."},
+        {"type":"free","q":"Your turn: say where your family or friends live and what they do.","answers":[{"t":"أَهْلِي يَسْكُنُونَ فِي قَرْيَةٍ صَغِيرَةٍ.","r":"ahlī yaskunūna fī qaryatin ṣaghīratin.","tr":"My family live in a small village."},{"t":"نَحْنُ نَعْمَلُ فِي نَفْسِ الشَّرِكَةِ.","r":"naḥnu naʿmalu fī nafsi sh-sharikati.","tr":"We work at the same company."}]}
+      ]
+    },
+    {
+      "id": "likes",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you like, eat and drink",
+      "summary": "“I love Arabic food”, “I drink tea every morning”, “She's reading a book”: the thing you act on.",
+      "topic": "The object of a verb and its -a ending",
+      "blocks": [
+        {"goal":{"t":"أُحِبُّ الطَّعَامَ الْعَرَبِيَّ، وَأَشْرَبُ الشَّايَ كُلَّ صَبَاحٍ.","r":"uḥibbu ṭ-ṭaʿāma l-ʿarabiyya, wa-ashrabu sh-shāya kulla ṣabāḥin.","tr":"I love Arabic food, and I drink tea every morning."}},
+        {"dialog":[{"who":"Host","t":"هَلْ تُحِبُّ الْقَهْوَةَ؟","r":"hal tuḥibbu l-qahwata?","tr":"Do you like coffee?"},{"who":"Guest","t":"نَعَمْ، أُحِبُّ الْقَهْوَةَ الْعَرَبِيَّةَ كَثِيرًا.","r":"naʿam, uḥibbu l-qahwata l-ʿarabiyyata kathīran.","tr":"Yes, I really like Arabic coffee."},{"who":"Host","t":"تَفَضَّلْ، وَهَذَا كَعْكٌ.","r":"tafaḍḍal, wa-hādhā kaʿkun.","tr":"Here you are, and here's some cake."},{"who":"Guest","t":"شُكْرًا! آكُلُ كَعْكَةً وَاحِدَةً فَقَطْ.","r":"shukran! ākulu kaʿkatan wāḥidatan faqaṭ.","tr":"Thanks! I'll have just one piece."}]},
+        {"term":"object","means":"the person or thing a verb acts on. In “I love coffee”, the object is “coffee”."},
+        {"p":"The object of a verb ends in **-a**: {{الْقَهْوَةُ|al-qahwatu}} becomes {{أُحِبُّ الْقَهْوَةَ.|uḥibbu l-qahwata.}} “I like coffee.” That is the -a you have been copying since {{أُرِيدُ قَهْوَةً}}."},
+        {"p":"Without “the”, the ending is **-an**, written with an extra alif: {{كِتَابٌ}} → {{أَقْرَأُ كِتَابًا.|aqraʾu kitāban.}} “I'm reading a book.” Words in {{ة}} add no alif: {{أَكْتُبُ رِسَالَةً.|aktubu risālatan.}} “I'm writing a letter.” An adjective takes the same ending as its noun: {{الطَّعَامَ الْعَرَبِيَّ}}."},
+        {"p":"So you now know all three case endings: -u for the subject, -a for the object, -i after a preposition. A lesson soon puts them side by side."},
+        { "ex": [
+          {"t":"هِيَ تَقْرَأُ كِتَابًا.","r":"hiya taqraʾu kitāban.","tr":"She's reading a book."},
+          {"t":"نُحِبُّ الطَّعَامَ الْعَرَبِيَّ.","r":"nuḥibbu ṭ-ṭaʿāma l-ʿarabiyya.","tr":"We love Arabic food."},
+          {"t":"هَلْ تَعْرِفُ الطَّرِيقَ؟","r":"hal taʿrifu ṭ-ṭarīqa?","tr":"Do you know the way?"},
+          {"t":"أُرِيدُ مَاءً، مِنْ فَضْلِكَ.","r":"urīdu māʾan, min faḍlika.","tr":"I'd like some water, please."},
+          {"t":"يَشْتَرِي أَبِي الْخُبْزَ كُلَّ يَوْمٍ.","r":"yashtarī abī l-khubza kulla yawmin.","tr":"My father buys bread every day."}
+        ] },
+        {"tip":"Some verbs have u- in front instead of a-: {{أُرِيدُ|urīdu}} “I want”, {{أُحِبُّ|uḥibbu}} “I love”, {{تُحِبُّ|tuḥibbu}} “you love”. A later lesson on verb families explains why; for now, learn them as they are."}
+      ],
+      "mistakes": [
+        {"wrong":"أُحِبُّ الْقَهْوَةُ.","right":"أُحِبُّ الْقَهْوَةَ.","tr":"I like coffee.","why":"The object ends in -a."},
+        {"wrong":"أُرِيدُ كِتَابَ.","right":"أُرِيدُ كِتَابًا.","tr":"I want a book.","why":"Without “the”, the object ends in -an, written {{ـًا}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"أَشْرَبُ ___ كُلَّ صَبَاحٍ.","tr":"I drink tea every morning.","options":["الشَّايَ","الشَّايُ","الشَّايِ"],"answer":0,"why":"The object ends in -a."},
+        {"type":"choice","q":"“She's writing a letter” is…","options":["{{تَكْتُبُ رِسَالَةً.}}","{{تَكْتُبُ رِسَالَةٌ.}}","{{تَكْتُبُ الرِّسَالَةٌ.}}"],"answer":0,"why":"An object without “the”: -an."},
+        {"type":"choice","q":"Which word is the object in {{نُحِبُّ الطَّعَامَ الْعَرَبِيَّ}}?","options":["{{نُحِبُّ}}","{{الطَّعَامَ}}"],"answer":1,"why":"{{الطَّعَامَ}} is what we love, and it ends in -a."},
+        {"type":"dialogue","q":"A friend invites you to eat. Choose your replies.","lines":[{"who":"Friend","t":"مَاذَا تُحِبِّينَ؟ السَّمَكَ أَمِ اللَّحْمَ؟","r":"mādhā tuḥibbīna? as-samaka ami l-laḥma?","tr":"What do you like? Fish or meat?"},{"options":["أُحِبُّ السَّمَكَ كَثِيرًا.","أُحِبُّ السَّمَكُ كَثِيرًا."],"answer":0,"why":"The object: -a."},{"who":"Friend","t":"وَتَشْرَبِينَ عَصِيرًا؟","r":"wa-tashrabīna ʿaṣīran?","tr":"And will you have some juice?"},{"options":["نَعَمْ، أُرِيدُ عَصِيرًا، شُكْرًا.","نَعَمْ، أُرِيدُ عَصِيرٌ، شُكْرًا."],"answer":0,"why":"An object without “the”: -an."}],"from":"say-what-you-want"},
+        {"type":"say","q":"Ask a man: “Do you know the way?”","answer":"هَلْ تَعْرِفُ الطَّرِيقَ؟","r":"hal taʿrifu ṭ-ṭarīqa?","from":"ask-questions"},
+        {"type":"free","q":"Your turn: say what you like to eat and drink, and what you have every morning.","answers":[{"t":"أُحِبُّ الْأَرُزَّ وَالسَّمَكَ.","r":"uḥibbu l-aruzza wa-s-samaka.","tr":"I like rice and fish."},{"t":"أَشْرَبُ الْقَهْوَةَ كُلَّ صَبَاحٍ.","r":"ashrabu l-qahwata kulla ṣabāḥin.","tr":"I drink coffee every morning."}]}
+      ]
+    },
+    {
+      "id": "dont",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you don't do",
+      "summary": "“I don't understand”, “He doesn't drink coffee”, “We don't work on Saturdays”.",
+      "topic": "{{لَا}} before a verb in the present",
+      "blocks": [
+        {"goal":{"t":"عَفْوًا، لَا أَفْهَمُ.","r":"ʿafwan, lā afhamu.","tr":"Sorry, I don't understand."}},
+        {"dialog":[{"who":"Taxi driver","t":"إِلَى أَيْنَ؟","r":"ilā ayna?","tr":"Where to?"},{"who":"You","t":"إِلَى الْفُنْدُقِ، لَكِنْ لَا أَعْرِفُ الْعُنْوَانَ.","r":"ilā l-funduqi, lākin lā aʿrifu l-ʿunwāna.","tr":"To the hotel, but I don't know the address."},{"who":"Taxi driver","t":"مَا اسْمُ الْفُنْدُقِ؟","r":"mā smu l-funduqi?","tr":"What's the hotel called?"},{"who":"You","t":"فُنْدُقُ النِّيلِ. هَلْ تَعْرِفُهُ؟","r":"funduqu n-nīli. hal taʿrifuhu?","tr":"The Nile Hotel. Do you know it?"}]},
+        {"p":"To make a verb in the present negative, put {{لَا|lā}} in front of it. Nothing else changes: {{أَعْرِفُ|aʿrifu}} “I know” → {{لَا أَعْرِفُ.|lā aʿrifu.}} “I don't know.”"},
+        {"p":"{{لَا}} is only for verbs. A sentence without a verb takes {{لَيْسَ}}, which you met earlier: {{لَسْتُ مُتْعَبًا}} “I'm not tired”, but {{لَا أَنَامُ}} “I don't sleep”. On its own, {{لَا}} is the answer “no”."},
+        { "ex": [
+          {"t":"لَا أَعْرِفُ.","r":"lā aʿrifu.","tr":"I don't know."},
+          {"t":"هُوَ لَا يَشْرَبُ الْقَهْوَةَ.","r":"huwa lā yashrabu l-qahwata.","tr":"He doesn't drink coffee."},
+          {"t":"لَا نَسْكُنُ هُنَا.","r":"lā naskunu hunā.","tr":"We don't live here."},
+          {"t":"لِمَاذَا لَا تَأْكُلِينَ؟","r":"limādhā lā taʾkulīna?","tr":"Why aren't you eating?","note":"to a woman"},
+          {"t":"لَا يَعْمَلُونَ يَوْمَ السَّبْتِ.","r":"lā yaʿmalūna yawma s-sabti.","tr":"They don't work on Saturdays."}
+        ] },
+        {"tip":"{{لَا أَفْهَمُ}} and {{مِنْ فَضْلِكَ، بِبُطْءٍ|min faḍlika, bi-buṭʾin}} “slowly, please” are two of the most useful sentences of your first weeks."}
+      ],
+      "mistakes": [
+        {"wrong":"أَنَا لَيْسَ أَعْرِفُ.","right":"لَا أَعْرِفُ.","tr":"I don't know.","why":"With a verb, use {{لَا}}; {{لَيْسَ}} is for sentences without a verb."},
+        {"wrong":"أَعْرِفُ لَا.","right":"لَا أَعْرِفُ.","tr":"I don't know.","why":"{{لَا}} comes before the verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"هُوَ ___ يَشْرَبُ الْقَهْوَةَ.","tr":"He doesn't drink coffee.","options":["لَا","لَيْسَ","لَسْتُ"],"answer":0,"why":"Before a verb: {{لَا}}."},
+        {"type":"choice","q":"{{لَا يَعْمَلُونَ}} means…","options":["they don't work","he doesn't work","we don't work"],"answer":0,"why":"{{يَ}}… -ūna is “they”."},
+        {"type":"choice","q":"Which of these needs {{لَيْسَ}}, not {{لَا}}?","options":["“I'm not tired.”","“I don't drink coffee.”"],"answer":0,"why":"It has no verb: {{لَسْتُ مُتْعَبًا}}.","from":"is-not"},
+        {"type":"order","q":"Put the words in order.","tr":"We don't live here.","words":["لَا","نَسْكُنُ","هُنَا."]},
+        {"type":"say","q":"Tell someone politely that you don't understand, and ask them to speak slowly.","answer":"لَا أَفْهَمُ، مِنْ فَضْلِكَ، بِبُطْءٍ.","r":"lā afhamu, min faḍlika, bi-buṭʾin."},
+        {"type":"free","q":"Your turn: say two things you don't do, and one thing you do instead.","answers":[{"t":"لَا أَشْرَبُ الْقَهْوَةَ، أَشْرَبُ الشَّايَ.","r":"lā ashrabu l-qahwata, ashrabu sh-shāya.","tr":"I don't drink coffee, I drink tea."},{"t":"لَا أَعْمَلُ يَوْمَ الْأَحَدِ.","r":"lā aʿmalu yawma l-aḥadi.","tr":"I don't work on Sundays."}]}
+      ]
+    },
+    {
+      "id": "me-and-you",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say “I know him”, “Help me”, “I love you”",
+      "summary": "Put “me, you, him, her, us, them” after a verb.",
+      "topic": "Object endings on verbs ({{ـنِي}}, {{ـكَ}}, {{ـهُ}}, {{ـهَا}}…)",
+      "blocks": [
+        {"goal":{"t":"هَلْ تَفْهَمُنِي؟ نَعَمْ، أَفْهَمُكَ.","r":"hal tafhamunī? naʿam, afhamuka.","tr":"Do you understand me? Yes, I understand you."}},
+        {"dialog":[{"who":"Rami","t":"هَلْ تَعْرِفُ هَذَا الرَّجُلَ؟","r":"hal taʿrifu hādhā r-rajula?","tr":"Do you know this man?"},{"who":"Sami","t":"نَعَمْ، أَعْرِفُهُ جَيِّدًا. هُوَ جَارِي.","r":"naʿam, aʿrifuhu jayyidan. huwa jārī.","tr":"Yes, I know him well. He's my neighbour."},{"who":"Rami","t":"وَزَوْجَتُهُ؟","r":"wa-zawjatuhu?","tr":"And his wife?"},{"who":"Sami","t":"لَا، لَا أَعْرِفُهَا.","r":"lā, lā aʿrifuhā.","tr":"No, I don't know her."}]},
+        {"p":"“Him”, “her”, “you” after a verb are the endings you know from “my”, “your”, “his”, joined to the verb: {{أَعْرِفُهُ.|aʿrifuhu.}} “I know him.”, {{لَا أَعْرِفُهَا.}} “I don't know her.”"},
+        { "table": [
+          ["","Ending","Example"],
+          ["me","{{ـنِي|-nī}}","{{يَعْرِفُنِي|yaʿrifunī}} he knows me"],
+          ["you (man / woman)","{{ـكَ|-ka}} / {{ـكِ|-ki}}","{{أُحِبُّكَ|uḥibbuka}} / {{أُحِبُّكِ|uḥibbuki}} I love you"],
+          ["him, it / her, it","{{ـهُ|-hu}} / {{ـهَا|-hā}}","{{أَعْرِفُهُ|aʿrifuhu}} / {{أَعْرِفُهَا|aʿrifuhā}}"],
+          ["us","{{ـنَا|-nā}}","{{يَفْهَمُنَا|yafhamunā}} he understands us"],
+          ["you (group)","{{ـكُمْ|-kum}}","{{نَنْتَظِرُكُمْ|nantaẓirukum}} we're waiting for you"],
+          ["them","{{ـهُمْ|-hum}}","{{أَعْرِفُهُمْ|aʿrifuhum}} I know them"]
+        ] },
+        {"p":"Only “me” is different: on a verb it is {{ـنِي|-nī}}, not {{ـِي}}: {{أَخِي يُسَاعِدُنِي.|akhī yusāʿidunī.}} “My brother helps me.” And “it” is {{ـهُ}} or {{ـهَا}} by the noun's gender: {{السَّيَّارَةُ جَمِيلَةٌ، أُرِيدُهَا.}} “The car is beautiful, I want it.”"},
+        { "ex": [
+          {"t":"أَعْرِفُهُ جَيِّدًا.","r":"aʿrifuhu jayyidan.","tr":"I know him well."},
+          {"t":"نَنْتَظِرُكَ هُنَا.","r":"nantaẓiruka hunā.","tr":"We're waiting for you here.","note":"to a man"},
+          {"t":"هَذَا الطَّعَامُ لَذِيذٌ، أُحِبُّهُ.","r":"hādhā ṭ-ṭaʿāmu ladhīdhun, uḥibbuhu.","tr":"This food is delicious, I love it."},
+          {"t":"لَا أَعْرِفُهُمْ.","r":"lā aʿrifuhum.","tr":"I don't know them."},
+          {"t":"أُحِبُّكِ.","r":"uḥibbuki.","tr":"I love you.","note":"to a woman"}
+        ] },
+        {"tip":"The verb keeps its -u before the ending: {{أَعْرِفُ}} + {{ـهُ}} = {{أَعْرِفُهُ|aʿrifuhu}}."}
+      ],
+      "mistakes": [
+        {"wrong":"يَعْرِفُي","right":"يَعْرِفُنِي","tr":"he knows me","why":"On a verb, “me” is {{ـنِي}}."},
+        {"wrong":"أَعْرِفُ هُوَ.","right":"أَعْرِفُهُ.","tr":"I know him.","why":"{{هُوَ}} is only a subject; as an object, “him” is the ending {{ـهُ}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"زَوْجَتُهُ؟ لَا، لَا ___.","tr":"His wife? No, I don't know her.","options":["أَعْرِفُهَا","أَعْرِفُهُ","أَعْرِفُ هِيَ"],"answer":0,"why":"“Her” on a verb: -hā."},
+        {"type":"choice","q":"{{هَلْ تَفْهَمُنِي؟}} means…","options":["Do you understand me?","Do I understand you?","Does he understand us?"],"answer":0,"why":"{{تَ}} in front is “you”, and -nī is “me”."},
+        {"type":"choice","q":"“I don't know them” is…","options":["{{لَا أَعْرِفُهُمْ.}}","{{لَيْسَ أَعْرِفُهُمْ.}}","{{لَا أَعْرِفُ هُمْ.}}"],"answer":0,"why":"{{لَا}} before the verb, and “them” as the ending -hum.","from":"dont"},
+        {"type":"order","q":"Put the words in order.","tr":"We're waiting for you here. (to a man)","words":["نَنْتَظِرُكَ","هُنَا."]},
+        {"type":"say","q":"Tell a woman: “I love you.”","answer":"أُحِبُّكِ.","r":"uḥibbuki."},
+        {"type":"free","q":"Your turn: say who you know well, and something you love (with “it”).","answers":[{"t":"أَعْرِفُ جَارِي جَيِّدًا.","r":"aʿrifu jārī jayyidan.","tr":"I know my neighbour well."},{"t":"هَذِهِ الْمَدِينَةُ جَمِيلَةٌ، أُحِبُّهَا.","r":"hādhihi l-madīnatu jamīlatun, uḥibbuhā.","tr":"This city is beautiful, I love it."}]}
+      ]
+    },
+    {
+      "id": "who-does-what",
+      "unit": 3,
+      "level": "A1",
+      "title": "Read the news: the verb first",
+      "summary": "Arabic often starts with the verb: “Arrives the train…”. And then the verb stays singular, even for “the students”.",
+      "topic": "Word order: verb first or subject first, and how the verb agrees",
+      "blocks": [
+        {"goal":{"t":"يَصِلُ الْقِطَارُ فِي الْمَسَاءِ.","r":"yaṣilu l-qiṭāru fī l-masāʾi.","tr":"The train arrives in the evening."}},
+        {"p":"With a noun as the subject, Arabic can put the verb first. That is usual in writing and the news: {{يَصِلُ الْقِطَارُ فِي الْمَسَاءِ.}} “The train arrives in the evening.” (word for word: arrives the train in the evening). The subject first is also correct, and common in speech: {{الْقِطَارُ يَصِلُ فِي الْمَسَاءِ.}}"},
+        {"p":"**The rule to remember:** when the verb comes **first**, it stays singular, even with a plural subject; it only matches the gender. When the subject comes first, the verb matches it completely."},
+        { "table": [
+          ["","Verb first","Subject first"],
+          ["The students go to school.","{{يَذْهَبُ الطُّلَّابُ إِلَى الْمَدْرَسَةِ.|yadhhabu ṭ-ṭullābu ilā l-madrasati.}}","{{الطُّلَّابُ يَذْهَبُونَ إِلَى الْمَدْرَسَةِ.|aṭ-ṭullābu yadhhabūna ilā l-madrasati.}}"],
+          ["The girls are playing.","{{تَلْعَبُ الْبَنَاتُ.|talʿabu l-banātu.}}","{{الْبَنَاتُ يَلْعَبْنَ.|al-banātu yalʿabna.}}"]
+        ] },
+        {"p":"With a feminine subject, the verb takes {{تَ}} in front wherever it stands: {{تَعْمَلُ أُمِّي فِي مَدْرَسَةٍ.|taʿmalu ummī fī madrasatin.}} “My mother works at a school.”"},
+        { "ex": [
+          {"t":"يَدْرُسُ أَحْمَدُ فِي الْمَكْتَبَةِ.","r":"yadrusu aḥmadu fī l-maktabati.","tr":"Ahmad studies in the library."},
+          {"t":"يَنْتَظِرُ الْمُسَافِرُونَ فِي الْمَطَارِ.","r":"yantaẓiru l-musāfirūna fī l-maṭāri.","tr":"The travellers are waiting at the airport.","note":"verb first: singular"},
+          {"t":"الْمُسَافِرُونَ يَنْتَظِرُونَ فِي الْمَطَارِ.","r":"al-musāfirūna yantaẓirūna fī l-maṭāri.","tr":"The travellers are waiting at the airport.","note":"subject first: plural"},
+          {"t":"تَعْمَلُ أُمِّي فِي مَدْرَسَةٍ.","r":"taʿmalu ummī fī madrasatin.","tr":"My mother works at a school."},
+          {"t":"يُحِبُّ النَّاسُ هَذَا الْمَطْعَمَ.","r":"yuḥibbu n-nāsu hādhā l-maṭʿama.","tr":"People love this restaurant."}
+        ] },
+        {"tip":"Both orders are correct. You'll read the verb-first order in newspapers; in conversation, the subject first is just as natural."}
+      ],
+      "mistakes": [
+        {"wrong":"يَذْهَبُونَ الطُّلَّابُ إِلَى الْمَدْرَسَةِ.","right":"يَذْهَبُ الطُّلَّابُ إِلَى الْمَدْرَسَةِ.","tr":"The students go to school.","why":"A verb before its subject stays singular."},
+        {"wrong":"يَعْمَلُ أُمِّي فِي مَدْرَسَةٍ.","right":"تَعْمَلُ أُمِّي فِي مَدْرَسَةٍ.","tr":"My mother works at a school.","why":"A feminine subject: the verb takes {{تَ}} in front."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ الْمُسَافِرُونَ فِي الْمَطَارِ.","tr":"The travellers are waiting at the airport.","options":["يَنْتَظِرُ","يَنْتَظِرُونَ"],"answer":0,"why":"Verb first: singular."},
+        {"type":"choice","q":"“The students study”, subject first:","options":["{{الطُّلَّابُ يَدْرُسُ.}}","{{الطُّلَّابُ يَدْرُسُونَ.}}"],"answer":1,"why":"Subject first: the verb matches it fully.","from":"what-others-do"},
+        {"type":"choice","q":"“Sara works here” is…","options":["{{يَعْمَلُ سَارَةُ هُنَا.}}","{{تَعْمَلُ سَارَةُ هُنَا.}}"],"answer":1,"why":"A woman: {{تَ}} in front."},
+        {"type":"order","q":"Put the words in order.","tr":"The train arrives in the evening.","words":["يَصِلُ","الْقِطَارُ","فِي","الْمَسَاءِ."],"also":[["الْقِطَارُ","يَصِلُ","فِي","الْمَسَاءِ."]]},
+        {"type":"say","q":"Say “People love this restaurant”, verb first.","answer":"يُحِبُّ النَّاسُ هَذَا الْمَطْعَمَ.","r":"yuḥibbu n-nāsu hādhā l-maṭʿama.","from":"likes"},
+        {"type":"free","q":"Your turn: write a short “news” sentence about someone in your family, verb first.","answers":[{"t":"يَعْمَلُ أَخِي فِي شَرِكَةٍ كَبِيرَةٍ.","r":"yaʿmalu akhī fī sharikatin kabīratin.","tr":"My brother works at a big company."},{"t":"تَدْرُسُ أُخْتِي الطِّبَّ.","r":"tadrusu ukhtī ṭ-ṭibba.","tr":"My sister studies medicine."}]}
+      ]
+    },
+    {
+      "id": "three-endings",
+      "unit": 3,
+      "level": "A1",
+      "title": "See who does what: the three endings",
+      "summary": "Put together the endings -u, -a and -i, and learn when speakers leave them out.",
+      "topic": "The three case endings side by side; dropping endings at a pause",
+      "blocks": [
+        {"goal":{"t":"تُحِبُّ الْبِنْتُ الْقِطَّةَ.","r":"tuḥibbu l-bintu l-qiṭṭata.","tr":"The girl loves the cat.","note":"the endings tell you who loves whom"}},
+        {"p":"You have now met all three case endings. Side by side:"},
+        { "table": [
+          ["Ending","With “the”","Without “the”","Used for"],
+          ["-u","{{الْبَيْتُ}}","{{بَيْتٌ}}","the subject, and what you say about it"],
+          ["-a","{{الْبَيْتَ}}","{{بَيْتًا}}","the object; after {{لَيْسَ}}"],
+          ["-i","{{الْبَيْتِ}}","{{بَيْتٍ}}","after a preposition; the second noun of an iḍāfa"]
+        ] },
+        {"p":"One sentence with all three: {{يَقْرَأُ الطَّالِبُ الْكِتَابَ فِي الْمَكْتَبَةِ.|yaqraʾu ṭ-ṭālibu l-kitāba fī l-maktabati.}} “The student is reading the book in the library.” The student does it (-u), the book is what is read (-a), the library comes after {{فِي}} (-i). The endings let Arabic say who did what, whatever the order."},
+        {"p":"Their Arabic names are marfūʿ (-u), manṣūb (-a) and majrūr (-i); English grammars call them nominative, accusative and genitive."},
+        {"p":"**In speech, the last ending is dropped.** At the end of a sentence, or before a pause, speakers don't say the final short vowel, or -un and -in: {{الْبَيْتُ كَبِيرٌ.}} is said al-baytu kabīr, and {{ة}} is said -a: {{مَدِينَةٌ}} madīna. In relaxed talk many people drop endings inside the sentence too; news readers and teachers say them."},
+        {"p":"A few kinds of nouns don't show all three: names and some plurals never take -un, and use -a where you'd expect -i ({{مِنْ مِصْرَ}}, {{أَصْدِقَاءُ}}); nouns ending in a long ā never show their ending ({{مُسْتَشْفًى}}, {{الْمَقْهَى}}). Learn them as you meet them."},
+        { "ex": [
+          {"t":"يَقْرَأُ الطَّالِبُ الْكِتَابَ فِي الْمَكْتَبَةِ.","r":"yaqraʾu ṭ-ṭālibu l-kitāba fī l-maktabati.","tr":"The student is reading the book in the library."},
+          {"t":"يَشْرَبُ أَبِي الشَّايَ فِي الصَّبَاحِ.","r":"yashrabu abī sh-shāya fī ṣ-ṣabāḥi.","tr":"My father drinks tea in the morning."},
+          {"t":"أُرِيدُ غُرْفَةً فِي فُنْدُقٍ هَادِئٍ.","r":"urīdu ghurfatan fī funduqin hādiʾin.","tr":"I want a room in a quiet hotel."},
+          {"t":"صَدِيقِي مُهَنْدِسٌ.","r":"ṣadīqī muhandisun.","tr":"My friend is an engineer.","note":"said at a pause: ṣadīqī muhandis"}
+        ] },
+        {"tip":"Don't let the endings slow you down when you speak. Say the words without them at a pause, as everyone does; when you read, use them to see who does what."}
+      ],
+      "mistakes": [
+        {"wrong":"يَقْرَأُ الطَّالِبَ الْكِتَابُ.","right":"يَقْرَأُ الطَّالِبُ الْكِتَابَ.","tr":"The student is reading the book.","why":"The one reading is the subject (-u); the thing read is the object (-a)."},
+        {"wrong":"فِي فُنْدُقٌ","right":"فِي فُنْدُقٍ","tr":"in a hotel","why":"After a preposition: -in."}
+      ],
+      "practice": [
+        {"type":"choice","q":"In {{تُحِبُّ الْبِنْتُ الْقِطَّةَ}}, who loves whom?","options":["The girl loves the cat.","The cat loves the girl."],"answer":0,"why":"{{الْبِنْتُ}} has -u: the subject; {{الْقِطَّةَ}} has -a: the object."},
+        {"type":"fill","q":"Choose the missing word.","t":"أُرِيدُ غُرْفَةً فِي ___ هَادِئٍ.","tr":"I want a room in a quiet hotel.","options":["فُنْدُقٍ","فُنْدُقٌ","فُنْدُقًا"],"answer":0,"why":"After {{فِي}}: -in."},
+        {"type":"choice","q":"Which ending does the noun after {{لَيْسَ}} take?","options":["-u","-a","-i"],"answer":1,"why":"After {{لَيْسَ}}, as for an object: -a (-an).","from":"is-not"},
+        {"type":"order","q":"Put the words in order.","tr":"My father drinks tea in the morning.","words":["يَشْرَبُ","أَبِي","الشَّايَ","فِي","الصَّبَاحِ."],"also":[["أَبِي","يَشْرَبُ","الشَّايَ","فِي","الصَّبَاحِ."]]},
+        {"type":"say","q":"Say “My friend is an engineer”, as you'd say it at the end of a sentence.","answer":"صَدِيقِي مُهَنْدِسٌ.","r":"ṣadīqī muhandis.","why":"At a pause the final -un is dropped: muhandis."},
+        {"type":"free","q":"Your turn: write one sentence with a subject, an object and a place (like the student reading in the library).","answers":[{"t":"تَشْرَبُ أُمِّي الْقَهْوَةَ فِي الْمَطْبَخِ.","r":"tashrabu ummī l-qahwata fī l-maṭbakhi.","tr":"My mother drinks coffee in the kitchen."},{"t":"يَقْرَأُ الْأَوْلَادُ الْقِصَصَ فِي الْغُرْفَةِ.","r":"yaqraʾu l-awlādu l-qiṣaṣa fī l-ghurfati.","tr":"The children read stories in the room."}]}
       ]
     }
   ]
