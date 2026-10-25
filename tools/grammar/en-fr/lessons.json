@@ -366,6 +366,259 @@
         {"type":"choice","q":"Your friend asks {{Tu n'es pas fatigué ?}} You ARE tired. You answer…","options":["{{Si !}}","{{Non !}}","{{Oui !}}"],"answer":0,"why":"Yes to a negative question: {{si}}. ({{Non}} would mean “No, I'm not”.)","from":"say-no"},
         {"type":"free","q":"Your turn: you've just met someone. Ask them three things: their name, where they're from, and one more question.","answers":[{"t":"Comment tu t'appelles ? Tu es d'où ? Tu as quel âge ?","tr":"What's your name? Where are you from? How old are you?"},{"t":"Comment vous appelez-vous ? Vous êtes d'où ? Est-ce que vous êtes étudiante ?","tr":"What's your name? Where are you from? Are you a student?"}]}
       ]
+    },
+    {
+      "id": "point-and-name",
+      "unit": 2,
+      "level": "A1",
+      "title": "Point at things and name them",
+      "summary": "Say what things are, “a” or “the”, one or more: {{c'est un cadeau}}, {{ce sont les clés}}.",
+      "topic": "{{le, la, l', les}} and {{un, une, des}}; plurals; {{c'est}} and {{ce sont}}",
+      "blocks": [
+        {"goal":{"t":"Qu'est-ce que c'est ? — C'est une crêpe, la spécialité de la maison !","tr":"What's this? — It's a crêpe, the house specialty!"}},
+        {"dialog":[{"who":"Chloé","t":"Qu'est-ce que c'est ?","tr":"What's that?"},{"who":"Sam","t":"C'est un cadeau pour Marie.","tr":"It's a present for Marie."},{"who":"Chloé","t":"Et ça ?","tr":"And this?"},{"who":"Sam","t":"Ce sont des chocolats. Les chocolats sont pour toi !","tr":"They're chocolates. The chocolates are for you!"},{"who":"Chloé","t":"Oh, merci !","tr":"Oh, thank you!"}]},
+        {"p":"**A or the.** As in English, “a” ({{un}}, {{une}}) is for something new, “the” for something you both know about. Sam says {{des chocolats}} “some chocolates”, then {{les chocolats}} “the chocolates”: the ones he has just mentioned."},
+        { "table": [
+          ["","masculine","feminine","before a vowel","more than one"],
+          ["“the”","{{le}}","{{la}}","{{l'}}","{{les}}"],
+          ["“a”, “some”","{{un}}","{{une}}","{{un}}, {{une}}","{{des}}"]
+        ] },
+        {"term":"plural","means":"more than one: books, children. One is singular."},
+        {"p":"**Plurals.** Most nouns add {{-s}} in the plural, as in English, but in French the {{s}} is silent: {{livre}} and {{livres}} sound the same. So you hear the plural in the article: {{le livre}} “luh”, {{les livres}} “lay”. Nouns ending in {{-eau}} add {{-x}}: {{un gâteau}}, {{des gâteaux}}."},
+        {"p":"**Des.** In the plural, English often says nothing (“They're chocolates”). French needs an article: {{Ce sont des chocolats.}}"},
+        {"p":"**C'est, ce sont.** {{C'est…}} “it's, this is” for one thing, {{ce sont…}} “they're, these are” for more than one. In speech you'll often hear {{c'est}} for both."},
+        {"p":"**L'.** Before a vowel or a silent {{h}}, {{le}} and {{la}} shorten to {{l'}}: {{l'eau}} “the water”, {{l'hôtel}} “the hotel”. And {{les}} links to a vowel with a “z”: {{les amis}} “lay-zah-mee”."},
+        { "ex": [
+          {"t":"C'est le train pour Lyon ?","tr":"Is this the train to Lyon?"},
+          {"t":"La gare est loin ?","tr":"Is the station far?"},
+          {"t":"Ce sont des amis de Paris.","tr":"They're friends from Paris."},
+          {"t":"Les enfants sont à l'école.","tr":"The children are at school."},
+          {"t":"Où est l'hôtel ?","tr":"Where's the hotel?"},
+          {"t":"J'ai des questions.","tr":"I have some questions."}
+        ] },
+        {"tip":"Learn each noun with {{le}} or {{la}}, or {{un}} or {{une}}: {{l'}} and {{les}} hide the gender. {{L'hôtel}} doesn't tell you that hotel is masculine ({{un hôtel}})."}
+      ],
+      "mistakes": [
+        {"wrong":"Ce sont chocolats.","right":"Ce sont des chocolats.","tr":"They're chocolates.","why":"A French noun needs its article: {{des}} in the plural."},
+        {"wrong":"La eau est froide.","right":"L'eau est froide.","tr":"The water is cold.","why":"Before a vowel, {{le}} and {{la}} become {{l'}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“The children” is…","options":["{{les enfants}}","{{le enfants}}","{{des enfants}}"],"answer":0,"why":"“The”, more than one: {{les}}. ({{Des enfants}} is “some children”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Où est ___ hôtel ?","tr":"Where's the hotel?","options":["l'","le","la"],"answer":0,"why":"Before a vowel or a silent {{h}}: {{l'}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ce sont ___ amis de Marc.","tr":"They're friends of Marc's.","options":["des","un","le"],"answer":0,"why":"Some friends, more than one: {{des}}."},
+        {"type":"dialogue","q":"A friend is back from Paris. Choose your replies.","from":"ask-questions","lines":[{"who":"Your friend","t":"Regarde, c'est pour toi !","tr":"Look, it's for you!"},{"options":["Qu'est-ce que c'est ?","Qui est-ce ?"],"answer":0,"why":"For a thing: {{Qu'est-ce que c'est ?}} ({{Qui est-ce ?}} is for a person.)"},{"who":"Your friend","t":"Ce sont des macarons.","tr":"They're macarons."},{"options":["Merci ! Les macarons de Paris sont super !","Merci ! Macarons de Paris sont super !"],"answer":0,"why":"A noun needs its article: {{les macarons}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"The children are at school.","words":["Les enfants","sont","à","l'école."]},
+        {"type":"say","q":"Ask: “Is this the train to Lyon?”","answer":"C'est le train pour Lyon ?"},
+        {"type":"free","q":"Your turn: look around you and name three things you can see, with {{c'est un…}}, {{c'est une…}} or {{ce sont des…}}","answers":[{"t":"C'est une table. Ce sont des livres. C'est un téléphone.","tr":"It's a table. They're books. It's a phone."},{"t":"C'est une fenêtre, c'est un ordinateur et ce sont des clés.","tr":"It's a window, it's a computer and they're keys."}]}
+      ]
+    },
+    {
+      "id": "describe-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Describe people and things",
+      "summary": "Say what something is like, big or small, new or old, red or blue: adjectives that agree with their noun and mostly come after it.",
+      "topic": "adjectives: agreement ({{-e}}, {{-s}}); after the noun, except a few short ones ({{grand, petit, bon, beau, nouveau, vieux, jeune}}…)",
+      "blocks": [
+        {"goal":{"t":"C'est une petite maison blanche avec un grand jardin.","tr":"It's a little white house with a big yard."}},
+        {"dialog":[{"who":"The agent","t":"Elle est comment, votre valise ?","tr":"What does your suitcase look like?"},{"who":"You","t":"Elle est grande et noire.","tr":"It's big and black."},{"who":"The agent","t":"Il y a beaucoup de valises noires…","tr":"There are a lot of black suitcases…"},{"who":"You","t":"Elle a un petit ruban rouge.","tr":"It has a little red ribbon."},{"who":"The agent","t":"Ah ! Voilà une valise noire avec un ruban rouge.","tr":"Ah! Here's a black suitcase with a red ribbon."}]},
+        {"term":"adjective","means":"a word that describes a noun: big, red, French, kind."},
+        {"term":"agree","means":"to take the form that matches another word. A French adjective takes the gender of its noun, and its number (one or more than one)."},
+        {"p":"**Agreement.** Add {{-e}} for a feminine noun, {{-s}} for a plural, {{-es}} for both. As with nouns, the {{-s}} is silent; the {{-e}} lets you hear a final consonant: {{noir}} and {{noire}} sound the same, but {{petit}} “puh-tee” becomes {{petite}} “puh-teet”."},
+        { "table": [
+          ["","masculine","feminine"],
+          ["one","{{un sac noir}}","{{une valise noire}}"],
+          ["more than one","{{des sacs noirs}}","{{des valises noires}}"]
+        ] },
+        {"p":"An adjective that already ends in {{-e}} doesn't add another: {{un sac rouge}}, {{une valise rouge}}. Some change more: {{blanc}} → {{blanche}}, {{bon}} → {{bonne}}, {{gentil}} → {{gentille}}, {{italien}} → {{italienne}}."},
+        {"p":"**After the noun, mostly.** French usually puts the adjective after the noun: {{une voiture rouge}} “a red car”, {{un film intéressant}} “an interesting movie”. Colors and nationalities always go after."},
+        {"p":"**A few short ones go before.** About ten very common adjectives come before the noun. They're about beauty, age, goodness and size: {{beau}} (beautiful), {{joli}} (pretty), {{jeune}} (young), {{vieux}} (old), {{nouveau}} (new), {{bon}} (good), {{mauvais}} (bad), {{grand}} (big, tall), {{petit}} (small)."},
+        {"p":"**With être.** After {{être}}, the adjective agrees with the subject: {{Il est petit.}} {{Elle est petite.}} {{Ils sont contents.}}"},
+        { "ex": [
+          {"t":"J'ai une voiture rouge.","tr":"I have a red car."},
+          {"t":"C'est un bon restaurant.","tr":"It's a good restaurant."},
+          {"t":"Elle est très gentille.","tr":"She's very kind."},
+          {"t":"Ce sont des chaussures italiennes.","tr":"They're Italian shoes."},
+          {"t":"Le café est froid !","tr":"The coffee is cold!"},
+          {"t":"Il a un nouveau travail.","tr":"He has a new job."}
+        ] },
+        {"tip":"{{Beau}}, {{nouveau}} and {{vieux}} have their own feminine forms: {{belle}}, {{nouvelle}}, {{vieille}}. {{Une belle journée}} “a beautiful day”, {{une vieille voiture}} “an old car”."}
+      ],
+      "mistakes": [
+        {"wrong":"une rouge voiture","right":"une voiture rouge","tr":"a red car","why":"Colors go after the noun."},
+        {"wrong":"une petit maison","right":"une petite maison","tr":"a small house","why":"{{Maison}} is feminine, so the adjective is too: {{petite}}."},
+        {"wrong":"Elles sont content.","right":"Elles sont contentes.","tr":"They're happy.","why":"After {{être}}, the adjective agrees with the subject: feminine and plural, {{-es}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"J'ai une voiture ___.","tr":"I have a black car.","options":["noire","noir","noirs"],"answer":0,"why":"{{Voiture}} is feminine: {{noire}}."},
+        {"type":"choice","q":"Which one is right?","options":["{{un grand jardin}}","{{un jardin grand}}","{{une grande jardin}}"],"answer":0,"why":"{{Grand}} is one of the short ones that go before, and {{jardin}} is masculine."},
+        {"type":"order","q":"Put the words in order.","tr":"It's a small white house.","words":["C'est","une","petite","maison","blanche."]},
+        {"type":"dialogue","q":"At the airport, your suitcase is lost. Choose your replies.","from":"say-no","lines":[{"who":"The agent","t":"Elle est comment, votre valise ?","tr":"What does your suitcase look like?"},{"options":["Elle est petite et bleue.","Elle est petit et bleu."],"answer":0,"why":"{{Valise}} is feminine: {{petite}}, {{bleue}}."},{"who":"The agent","t":"Vous avez une photo ?","tr":"Do you have a photo?"},{"options":["Non, je n'ai pas de photo.","Non, je n'ai pas une photo."],"answer":0,"why":"After a negative: {{de}}."},{"who":"The agent","t":"Pas de problème. Nous cherchons.","tr":"No problem. We'll look for it."}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Ils sont très ___.","tr":"They're very kind.","options":["gentils","gentil","gentilles"],"answer":0,"why":"{{Ils}}: masculine plural, so {{-s}}.","from":"talk-about-people"},
+        {"type":"say","q":"Say: “It's a good restaurant.”","answer":"C'est un bon restaurant."},
+        {"type":"free","q":"Your turn: describe your home, your car or your bag in two or three sentences.","answers":[{"t":"J'ai un petit appartement. Il est vieux, mais il est joli.","tr":"I have a small apartment. It's old, but it's pretty."},{"t":"C'est une grande maison blanche avec un petit jardin.","tr":"It's a big white house with a small yard."},{"t":"J'ai une vieille voiture grise, mais elle est super.","tr":"I have an old gray car, but it's great."}]}
+      ]
+    },
+    {
+      "id": "say-whose-it-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say whose it is",
+      "summary": "Talk about your family and your things: “my, your, his, her” in French, and {{de}} for “Paul's”.",
+      "topic": "{{mon, ma, mes}}, {{ton, ta, tes}}, {{son, sa, ses}}, {{notre, votre, leur}}; {{la voiture de Paul}}",
+      "blocks": [
+        {"goal":{"t":"Voici ma sœur et son mari. Et ce sont leurs enfants.","tr":"This is my sister and her husband. And these are their children."}},
+        {"dialog":[{"who":"Ana","t":"C'est ta famille ?","tr":"Is that your family?"},{"who":"Louis","t":"Oui ! Voici mon père et ma mère.","tr":"Yes! This is my father and my mother."},{"who":"Ana","t":"Et le garçon, c'est ton frère ?","tr":"And the boy, is that your brother?"},{"who":"Louis","t":"Non, c'est le fils de ma sœur. Il s'appelle Léo.","tr":"No, it's my sister's son. His name is Léo."},{"who":"Ana","t":"Il est mignon !","tr":"He's cute!"}]},
+        {"term":"possessive","means":"a word that says whose something is: my, your, his, her, our, their."},
+        {"p":"**My, your…** “My” agrees with the thing you have, like an adjective: {{mon}} before a masculine noun, {{ma}} before a feminine one, {{mes}} before a plural."},
+        { "table": [
+          ["","masculine","feminine","plural"],
+          ["my","{{mon}}","{{ma}}","{{mes}}"],
+          ["your (with {{tu}})","{{ton}}","{{ta}}","{{tes}}"],
+          ["his, her","{{son}}","{{sa}}","{{ses}}"],
+          ["our","{{notre}}","{{notre}}","{{nos}}"],
+          ["your (with {{vous}})","{{votre}}","{{votre}}","{{vos}}"],
+          ["their","{{leur}}","{{leur}}","{{leurs}}"]
+        ] },
+        {"p":"**His or her: the same word.** {{Son}}, {{sa}} and {{ses}} mean “his” or “her”. They agree with the thing owned, not with the owner: {{sa mère}} is “his mother” or “her mother”, because {{mère}} is feminine; {{son père}} is “his father” or “her father”. The rest of the sentence tells you who."},
+        {"p":"**Before a vowel: mon.** Before a feminine word that starts with a vowel, {{ma}}, {{ta}} and {{sa}} become {{mon}}, {{ton}}, {{son}}, just to sound smooth: {{mon amie}} “my friend” (a woman), {{son école}} “his school, her school”."},
+        {"p":"**Paul's: la … de Paul.** French has no 's. Say “the car of Paul”: {{la voiture de Paul}}; {{le fils de ma sœur}} “my sister's son”."},
+        { "ex": [
+          {"t":"C'est mon téléphone.","tr":"It's my phone."},
+          {"t":"Ma fille a six ans.","tr":"My daughter is six."},
+          {"t":"Ce sont tes clés ?","tr":"Are these your keys?"},
+          {"t":"Marie est avec son frère.","tr":"Marie is with her brother.","note":"{{frère}} is masculine, so {{son}}, though Marie is a woman"},
+          {"t":"Paul est avec sa sœur.","tr":"Paul is with his sister."},
+          {"t":"Voici notre maison.","tr":"Here's our house."},
+          {"t":"C'est la voiture de mon père.","tr":"It's my father's car."}
+        ] },
+        {"tip":"“Your” follows “you”: {{ton, ta, tes}} with someone you call {{tu}}, {{votre, vos}} with {{vous}}. At a hotel: {{Votre nom, s'il vous plaît ?}} “Your name, please?”"}
+      ],
+      "mistakes": [
+        {"wrong":"Marie est avec sa frère.","right":"Marie est avec son frère.","tr":"Marie is with her brother.","why":"{{Son}} and {{sa}} agree with the thing owned: {{frère}} is masculine."},
+        {"wrong":"ma amie","right":"mon amie","tr":"my friend (a woman)","why":"Before a vowel, {{ma}} becomes {{mon}}."},
+        {"wrong":"C'est Paul voiture.","right":"C'est la voiture de Paul.","tr":"It's Paul's car.","why":"French has no 's: {{la voiture de Paul}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Julie is talking about her father. “Her father” is…","options":["{{son père}}","{{sa père}}","{{leur père}}"],"answer":0,"why":"{{Père}} is masculine: {{son}}, whoever the owner is."},
+        {"type":"fill","q":"Ask a friend. Choose the missing word.","t":"Ce sont ___ clés ?","tr":"Are these your keys?","options":["tes","ton","ta"],"answer":0,"why":"{{Clés}} is plural, and with a friend it's {{tu}}: {{tes}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"C'est ___ amie Claire.","tr":"This is my friend Claire.","options":["mon","ma","mes"],"answer":0,"why":"Before a vowel, {{mon}}, even for a feminine noun."},
+        {"type":"order","q":"Put the words in order.","tr":"It's my brother's car.","words":["C'est","la voiture","de","mon frère."]},
+        {"type":"dialogue","q":"A friend shows you a photo. Choose your replies.","from":"describe-things","lines":[{"who":"Your friend","t":"Regarde, c'est ma famille.","tr":"Look, this is my family."},{"options":["C'est ton père ?","C'est ta père ?"],"answer":0,"why":"{{Père}} is masculine: {{ton}}."},{"who":"Your friend","t":"Oui, et voici ma sœur.","tr":"Yes, and this is my sister."},{"options":["Elle est très jolie ! Et c'est son chien ?","Elle est très joli ! Et c'est sa chien ?"],"answer":0,"why":"{{Jolie}} agrees with your friend's sister; {{chien}} is masculine: {{son}}."},{"who":"Your friend","t":"Oui, c'est Max !","tr":"Yes, that's Max!"}]},
+        {"type":"say","q":"At the hotel desk, ask politely: “Your name, please?”","answer":"Votre nom, s'il vous plaît ?"},
+        {"type":"free","q":"Your turn: talk about two people in your family: who they are, and one thing about each.","answers":[{"t":"Mon père a soixante ans et ma sœur est étudiante.","tr":"My father is sixty and my sister is a student."},{"t":"J'ai un frère. Sa femme est italienne et leurs enfants sont petits.","tr":"I have a brother. His wife is Italian and their children are small."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say where things are",
+      "summary": "Say what there is and where: {{il y a}} “there is, there are”, and “on, under, next to, opposite”, with {{du}} and {{au}}.",
+      "topic": "{{il y a}}; {{dans, sur, sous, devant, derrière, entre, à côté de, près de, en face de}}; {{du}}, {{des}}, {{au}}, {{aux}}",
+      "blocks": [
+        {"goal":{"t":"Il y a une pharmacie à côté de la gare.","tr":"There's a pharmacy next to the station."}},
+        {"dialog":[{"who":"You","t":"Excusez-moi, il y a un supermarché près d'ici ?","tr":"Excuse me, is there a supermarket near here?"},{"who":"The receptionist","t":"Oui, il y a un supermarché en face du musée.","tr":"Yes, there's a supermarket opposite the museum."},{"who":"You","t":"Et il y a des restaurants dans le quartier ?","tr":"And are there restaurants in the neighborhood?"},{"who":"The receptionist","t":"Oui, il y a beaucoup de restaurants à côté de la place.","tr":"Yes, there are a lot of restaurants next to the square."},{"who":"You","t":"Merci !","tr":"Thank you!"}]},
+        {"p":"**There is, there are: il y a.** {{Il y a}} is both “there is” and “there are”: {{il y a une pharmacie}}, {{il y a des restaurants}}. To ask, raise your voice or start with {{est-ce qu'}}: {{Est-ce qu'il y a un bus ?}} To say no: {{il n'y a pas de…}}"},
+        {"term":"preposition","means":"a little word that shows where, when or how: on, under, in, with, to."},
+        { "table": [
+          ["English","French"],
+          ["in","{{dans}}"],
+          ["on","{{sur}}"],
+          ["under","{{sous}}"],
+          ["in front of","{{devant}}"],
+          ["behind","{{derrière}}"],
+          ["between","{{entre}}"],
+          ["next to","{{à côté de}}"],
+          ["near","{{près de}}"],
+          ["opposite","{{en face de}}"]
+        ] },
+        {"term":"contraction","means":"two words joined into one, like “do not” → “don't”. In French it isn't optional: {{de}} + {{le}} is always {{du}}."},
+        {"p":"**De + le = du.** The prepositions ending in {{de}} ({{à côté de}}, {{près de}}, {{en face de}}) join with {{le}} and {{les}}: {{de + le}} becomes {{du}}, {{de + les}} becomes {{des}}. With {{la}} and {{l'}}, nothing changes. {{À}} “at, in, to” joins the same way: {{au}}, {{aux}}."},
+        { "table": [
+          ["","after {{de}}","after {{à}}"],
+          ["{{le}}","{{du}}: {{à côté du musée}}","{{au}}: {{au bureau}}"],
+          ["{{la}}","{{de la}}: {{à côté de la gare}}","{{à la}}: {{à la gare}}"],
+          ["{{l'}}","{{de l'}}: {{près de l'hôtel}}","{{à l'}}: {{à l'hôtel}}"],
+          ["{{les}}","{{des}}: {{en face des magasins}}","{{aux}}: {{aux toilettes}}"]
+        ] },
+        { "ex": [
+          {"t":"Il y a un problème.","tr":"There's a problem."},
+          {"t":"Les clés sont sur la table.","tr":"The keys are on the table."},
+          {"t":"Le chat est sous le lit.","tr":"The cat is under the bed."},
+          {"t":"Il y a un café en face du cinéma.","tr":"There's a café opposite the movie theater."},
+          {"t":"La banque est entre la poste et la pharmacie.","tr":"The bank is between the post office and the pharmacy."},
+          {"t":"Il n'y a pas de bus le dimanche.","tr":"There's no bus on Sundays."},
+          {"t":"Elle est au bureau.","tr":"She's at the office."}
+        ] },
+        {"tip":"{{Il y a}} is said fast, almost “ya”: {{Y a un problème ?}} “Is there a problem?” And {{Qu'est-ce qu'il y a ?}} means “What's the matter?”"}
+      ],
+      "mistakes": [
+        {"wrong":"à côté de le musée","right":"à côté du musée","tr":"next to the museum","why":"{{De}} + {{le}} always becomes {{du}}."},
+        {"wrong":"Il est à le bureau.","right":"Il est au bureau.","tr":"He's at the office.","why":"{{À}} + {{le}} always becomes {{au}}."},
+        {"wrong":"Il n'y a pas des bus.","right":"Il n'y a pas de bus.","tr":"There aren't any buses.","why":"After a negative: {{de}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing words.","t":"Il y a une pharmacie à côté ___ gare.","tr":"There's a pharmacy next to the station.","options":["de la","du","des"],"answer":0,"why":"{{Gare}} is feminine: {{de la}} stays as it is."},
+        {"type":"fill","q":"Choose the missing word.","t":"Le restaurant est en face ___ musée.","tr":"The restaurant is opposite the museum.","options":["du","de le","de la"],"answer":0,"why":"{{Musée}} is masculine: {{de + le}} = {{du}}."},
+        {"type":"choice","q":"{{Le chat est sous la table.}} Where's the cat?","options":["under the table","on the table","next to the table"],"answer":0,"why":"{{Sous}} is “under”, {{sur}} is “on”."},
+        {"type":"dialogue","q":"You're looking for an ATM. Choose your replies.","from":"ask-questions","lines":[{"who":"A passer-by","t":"Vous cherchez quelque chose ?","tr":"Are you looking for something?"},{"options":["Oui, il y a un distributeur près d'ici ?","Oui, il est un distributeur près d'ici ?"],"answer":0,"why":"“Is there…?”: {{il y a … ?}}"},{"who":"A passer-by","t":"Oui, à côté de la banque.","tr":"Yes, next to the bank."},{"options":["Et où est la banque ?","Et quand est la banque ?"],"answer":0,"why":"“Where”: {{où}}."},{"who":"A passer-by","t":"Là-bas, derrière l'église.","tr":"Over there, behind the church."}]},
+        {"type":"order","q":"Put the words in order.","tr":"The keys are on the table.","words":["Les clés","sont","sur","la table."]},
+        {"type":"say","q":"Say: “There's no problem.”","answer":"Il n'y a pas de problème.","from":"say-no"},
+        {"type":"free","q":"Your turn: describe your street or your room: what there is, and where.","answers":[{"t":"Dans ma rue, il y a une boulangerie et un café. La boulangerie est à côté du café.","tr":"On my street there's a bakery and a café. The bakery is next to the café."},{"t":"Dans ma chambre, il y a un lit et une table. Mon ordinateur est sur la table.","tr":"In my room there's a bed and a table. My computer is on the table."}]}
+      ]
+    },
+    {
+      "id": "ask-the-price",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask how much and how many",
+      "summary": "Ask the price, understand the answer and buy the right amount: numbers to 100, {{combien}}, and {{un kilo de}}.",
+      "topic": "numbers to 100 ({{soixante-dix}}, {{quatre-vingts}}); {{combien}}, {{combien de}}; amounts with {{de}}",
+      "blocks": [
+        {"goal":{"t":"Ça coûte combien ? — Quatre-vingt-quinze euros.","tr":"How much does it cost? — Ninety-five euros."}},
+        {"dialog":[{"who":"The stallholder","t":"Bonjour, madame ! Vous désirez ?","tr":"Good morning, madam! What would you like?"},{"who":"You","t":"Je voudrais un kilo de tomates, s'il vous plaît.","tr":"I'd like a kilo of tomatoes, please."},{"who":"The stallholder","t":"Voilà. Et avec ça ?","tr":"Here you go. Anything else?"},{"who":"You","t":"Six œufs. Ça fait combien ?","tr":"Six eggs. How much is that?"},{"who":"The stallholder","t":"Ça fait quatre euros quatre-vingts.","tr":"That's four euros eighty."},{"who":"You","t":"Voilà cinq euros.","tr":"Here's five euros."},{"who":"The stallholder","t":"Et vingt centimes. Merci, bonne journée !","tr":"And twenty cents. Thank you, have a nice day!"}]},
+        {"p":"**Asking the price.** {{C'est combien ?}} “How much is it?”, {{Ça coûte combien ?}} “How much does it cost?”, and at the checkout {{Ça fait combien ?}} “How much is that (all together)?”"},
+        { "table": [
+          ["number","French","how it's built"],
+          ["1 to 10","{{un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix}}",""],
+          ["11 to 16","{{onze, douze, treize, quatorze, quinze, seize}}","learn them as they are"],
+          ["17, 18, 19","{{dix-sept, dix-huit, dix-neuf}}","ten-seven, ten-eight, ten-nine"],
+          ["20, 30, 40, 50, 60","{{vingt, trente, quarante, cinquante, soixante}}",""],
+          ["21, 31, 41…","{{vingt et un, trente et un}}","with {{et}} “and”"],
+          ["22, 35, 48…","{{vingt-deux, trente-cinq, quarante-huit}}","with a dash"],
+          ["70, 71, 75","{{soixante-dix, soixante et onze, soixante-quinze}}","sixty-ten, sixty-eleven, sixty-fifteen"],
+          ["80, 81, 85","{{quatre-vingts, quatre-vingt-un, quatre-vingt-cinq}}","four twenties, four-twenty-one…"],
+          ["90, 99","{{quatre-vingt-dix, quatre-vingt-dix-neuf}}","four-twenty-ten, four-twenty-ten-nine"],
+          ["100","{{cent}}",""]
+        ] },
+        {"p":"**70, 80, 90.** From 60 on, French in France counts in twenties: 70 is “sixty-ten”, 80 “four twenties”, 90 “four twenties ten”. (In Belgium and Switzerland you'll hear {{septante}} and {{nonante}}, but not in France.)"},
+        {"p":"**Prices.** The euros first, then the cents, usually without the word {{centimes}}: {{4,80 €}} is {{quatre euros quatre-vingts}}. French writes a comma where English writes a decimal point."},
+        {"p":"**How many: combien de.** Before a noun, “how much” or “how many” is {{combien de}}: {{Combien de personnes ?}} “How many people?” Amounts take {{de}} too, with no article: {{un kilo de tomates}}, {{un verre de vin}}, {{beaucoup de monde}} “a lot of people”, {{un peu de sucre}} “a little sugar”."},
+        { "ex": [
+          {"t":"C'est combien, le croissant ? — Un euro vingt.","tr":"How much is the croissant? — One euro twenty."},
+          {"t":"Combien de personnes ? — Nous sommes quatre.","tr":"How many people? — There are four of us.","note":"at a restaurant"},
+          {"t":"Je voudrais deux kilos de pommes.","tr":"I'd like two kilos of apples."},
+          {"t":"Un verre de vin rouge, s'il vous plaît.","tr":"A glass of red wine, please."},
+          {"t":"Il y a beaucoup de monde !","tr":"There are a lot of people!"},
+          {"t":"Ça fait soixante-quinze euros.","tr":"That's seventy-five euros."}
+        ] },
+        {"tip":"{{Six}} and {{dix}} end in an “s” sound on their own, a “z” before a vowel ({{six euros}} “see-zeuro”), and nothing before a consonant ({{six pommes}} “see pom”)."}
+      ],
+      "mistakes": [
+        {"wrong":"un kilo des tomates","right":"un kilo de tomates","tr":"a kilo of tomatoes","why":"After an amount, just {{de}}, with no article."},
+        {"wrong":"Combien personnes ?","right":"Combien de personnes ?","tr":"How many people?","why":"Before a noun: {{combien de}}."},
+        {"wrong":"septante euros","right":"soixante-dix euros","tr":"seventy euros","why":"In France, 70 is {{soixante-dix}}. {{Septante}} is Belgian and Swiss."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Quatre-vingt-dix}} is…","options":["90","80","70"],"answer":0,"why":"Four twenties (80) plus ten: 90."},
+        {"type":"choice","q":"The stallholder says {{Ça fait soixante-douze euros.}} You pay…","options":["72 €","62 €","92 €"],"answer":0,"why":"Sixty-twelve: 72."},
+        {"type":"fill","q":"Choose the missing word.","t":"Je voudrais un kilo ___ tomates.","tr":"I'd like a kilo of tomatoes.","options":["de","des","les"],"answer":0,"why":"After an amount: {{de}} alone."},
+        {"type":"fill","q":"At a restaurant. Choose the missing word.","t":"___ de personnes ? — Nous sommes trois.","tr":"How many people? — There are three of us.","options":["Combien","Quand","Comment"],"answer":0,"why":"“How many”: {{combien de}}.","from":"ask-questions"},
+        {"type":"dialogue","q":"At the market. Choose your replies.","from":"ask-for-things","lines":[{"who":"The stallholder","t":"Bonjour ! Vous désirez ?","tr":"Hello! What would you like?"},{"options":["Je voudrais un kilo de pommes, s'il vous plaît.","Je voudrais un kilo des pommes, s'il vous plaît."],"answer":0,"why":"{{Je voudrais}}, and after an amount, {{de}} alone."},{"who":"The stallholder","t":"Voilà. Et avec ça ?","tr":"Here you go. Anything else?"},{"options":["C'est tout, merci. Ça fait combien ?","C'est tout, merci. Ça fait comment ?"],"answer":0,"why":"“How much”: {{combien}}."},{"who":"The stallholder","t":"Deux euros cinquante.","tr":"Two euros fifty."}]},
+        {"type":"say","q":"Say the price: 80 €.","answer":"Quatre-vingts euros."},
+        {"type":"free","q":"Your turn: you're at a market. Ask for two things with an amount, then ask the price.","answers":[{"t":"Je voudrais un kilo de tomates et six œufs, s'il vous plaît. Ça fait combien ?","tr":"I'd like a kilo of tomatoes and six eggs, please. How much is that?"},{"t":"Bonjour ! Deux baguettes et un pot de confiture, s'il vous plaît. C'est combien ?","tr":"Hello! Two baguettes and a jar of jam, please. How much is it?"}]}
+      ]
     }
   ]
 }
