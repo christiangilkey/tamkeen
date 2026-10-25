@@ -2709,11 +2709,12 @@
     {
       "n": 298,
       "rank": 341,
-      "word": "ده",
+      "word": "دَه",
       "pos": "num",
       "meaning": "(dah) ten",
       "sentence": "ده دقیقه صبر کن.",
-      "translation": "Wait ⟦ten⟧ minutes."
+      "translation": "Wait ⟦ten⟧ minutes.",
+      "form": "ده"
     },
     {
       "n": 299,
@@ -8475,11 +8476,12 @@
     {
       "n": 936,
       "rank": 1169,
-      "word": "میل",
+      "word": "مَیل",
       "pos": "noun",
       "meaning": "(meyl) desire; appetite (میل داشتن: to feel like)",
       "sentence": "میل دارید چیزی بخورید؟",
-      "translation": "Would you ⟦like⟧ something to eat?"
+      "translation": "Would you ⟦like⟧ something to eat?",
+      "form": "میل"
     },
     {
       "n": 937,
@@ -8901,11 +8903,12 @@
     {
       "n": 983,
       "rank": 1235,
-      "word": "سنت",
+      "word": "سُنت",
       "pos": "noun",
       "meaning": "(sonnat) tradition",
       "sentence": "نوروز یک سنت قدیمی است.",
-      "translation": "Nowruz is an old ⟦tradition⟧."
+      "translation": "Nowruz is an old ⟦tradition⟧.",
+      "form": "سنت"
     },
     {
       "n": 984,
