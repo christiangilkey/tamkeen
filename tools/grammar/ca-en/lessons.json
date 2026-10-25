@@ -1045,6 +1045,281 @@
         {"type":"say","q":"Digues «T'estimo».","answer":"I love you."},
         {"type":"free","q":"Et toca: parla d'una persona que coneixes i d'una cosa que t'agrada, sense repetir-ne el nom: fes servir {{him}}, {{her}}, {{it}} o {{them}}.","answers":[{"t":"My neighbor is very nice. I see her every morning.","tr":"La meva veïna és molt simpàtica. La veig cada matí."},{"t":"I have a new bike. I love it! I ride it every day.","tr":"Tinc una bici nova. M'encanta! La faig servir cada dia."}]}
       ]
+    },
+    {
+      "id": "say-where-you-were",
+      "unit": 5,
+      "level": "A2",
+      "title": "Digues on eres i com estaves",
+      "summary": "Parla del passat amb {{be}}: on eres, com estaves, on vas néixer: {{I was at home yesterday because I was sick.}}",
+      "topic": "{{was}}, {{were}}; {{wasn't}}, {{weren't}}; {{Were you…?}}; {{I was born}}",
+      "blocks": [
+        {"goal":{"t":"I was at home yesterday because I was sick.","tr":"Ahir era a casa perquè estava malalt."}},
+        {"dialog":[{"who":"Laia","t":"Where were you last night? You weren't at the party!","tr":"On eres ahir a la nit? No vas venir a la festa!"},{"who":"Sam","t":"I was at home. I was very tired.","tr":"Era a casa. Estava molt cansat."},{"who":"Laia","t":"Were you sick?","tr":"Estaves malalt?"},{"who":"Sam","t":"No, I wasn't. I was just tired. How was the party?","tr":"No. Només estava cansat. Com va anar la festa?"},{"who":"Laia","t":"It was great! Everybody was there.","tr":"Va ser genial! Hi era tothom."}]},
+        {"p":"**{{be}} en passat.** {{be}} té dues formes en passat: {{was}} per a {{I}}, {{he}}, {{she}}, {{it}}, i {{were}} per a {{you}}, {{we}}, {{they}}. Fan la feina d'«era», «estava», «vaig ser» i «vaig estar»: {{I was tired.}} «Estava cansat.» {{It was great.}} «Va ser genial.»"},
+        { "table": [
+          ["","afirmativa","negativa","pregunta"],
+          ["{{I}}, {{he}}, {{she}}, {{it}}","{{I was there.}}","{{She wasn't there.}}","{{Was it good?}}"],
+          ["{{you}}, {{we}}, {{they}}","{{We were there.}}","{{They weren't there.}}","{{Were you there?}}"]
+        ] },
+        {"p":"**Preguntes i respostes**, com en present (lliçó 6): el verb passa davant. {{Were you at home?}} «Eres a casa?» {{Yes, I was.}} / {{No, I wasn't.}}"},
+        {"p":"**Néixer.** «Vaig néixer» en anglès és {{I was born}}, amb {{be}}: {{I was born in 1995.}} «Vaig néixer el 1995.» {{Where were you born?}} «On vas néixer?»"},
+        { "ex": [
+          {"t":"I was in London last week.","tr":"La setmana passada era a Londres."},
+          {"t":"The movie was really good.","tr":"La pel·lícula estava molt bé."},
+          {"t":"We weren't at home.","tr":"No érem a casa."},
+          {"t":"Was it expensive?","tr":"Era car?"},
+          {"t":"My grandparents were from Valencia.","tr":"Els meus avis eren de València."},
+          {"t":"I was born in Girona.","tr":"Vaig néixer a Girona."}
+        ] },
+        {"tip":"Les paraules del passat: {{yesterday}} «ahir», {{last night}} «ahir a la nit», {{last week}} «la setmana passada», {{last year}} «l'any passat», {{two days ago}} «fa dos dies» (lliçó 24)."}
+      ],
+      "mistakes": [
+        {"wrong":"I were tired.","right":"I was tired.","tr":"Estava cansat.","why":"Amb {{I}}: {{was}}."},
+        {"wrong":"You was late.","right":"You were late.","tr":"Vas arribar tard.","why":"Amb {{you}}: {{were}}."},
+        {"wrong":"I born in 1990.","right":"I was born in 1990.","tr":"Vaig néixer el 1990.","why":"«Néixer» en anglès és {{be born}}: {{I was born}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"We ___ at the beach yesterday.","tr":"Ahir érem a la platja.","options":["were","was","are"],"answer":0,"why":"Passat, amb {{we}}: {{were}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Where ___ you born?","tr":"On vas néixer?","options":["were","was","did"],"answer":0,"why":"{{be born}} en passat, amb {{you}}: {{were}}."},
+        {"type":"choice","q":"{{Was the hotel nice?}} La resposta curta és…","options":["{{Yes, it was.}}","{{Yes, it is.}}","{{Yes, was.}}"],"answer":0,"why":"En passat i amb el subjecte: {{Yes, it was.}}"},
+        {"type":"dialogue","q":"Dilluns a la feina. Tria les respostes.","lines":[{"who":"Companya","t":"Where were you on Friday?","tr":"On eres divendres?"},{"options":["I was sick. I was at home.","I were sick. I was in home."],"answer":0,"why":"{{I was}}, i «a casa» és {{at home}}."},{"who":"Companya","t":"Are you OK now?","tr":"Ara estàs bé?"},{"options":["Yes, I'm fine now, thanks.","Yes, I was fine now, thanks."],"answer":0,"why":"Ara: el present, {{I'm}}."}],"from":"say-what-you-are"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Vaig néixer a Girona.","words":["I","was","born","in Girona."]},
+        {"type":"say","q":"Pregunta «Com va anar la festa?»","answer":"How was the party?"},
+        {"type":"free","q":"Et toca: on vas néixer, i on eres ahir a aquesta hora?","answers":[{"t":"I was born in Reus. Yesterday at this time I was at work.","tr":"Vaig néixer a Reus. Ahir a aquesta hora era a la feina."},{"t":"I was born in Barcelona in 1998. Yesterday I was at home with my family.","tr":"Vaig néixer a Barcelona el 1998. Ahir era a casa amb la meva família."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "Explica què vas fer ahir",
+      "summary": "Digues què vas fer ahir, la setmana passada o fa un any: {{Yesterday I worked until eight, and then I watched a movie.}}",
+      "topic": "El passat simple dels verbs regulars ({{-ed}}); els tres sons de {{-ed}}; {{yesterday}}, {{last}}, {{ago}}",
+      "blocks": [
+        {"goal":{"t":"Yesterday I worked until eight, and then I watched a movie.","tr":"Ahir vaig treballar fins a les vuit i després vaig mirar una pel·lícula."}},
+        {"dialog":[{"who":"Jordi","t":"What did you do yesterday?","tr":"Què vas fer ahir?"},{"who":"Emma","t":"I stayed at home. I cleaned the apartment and cooked.","tr":"Em vaig quedar a casa. Vaig netejar el pis i vaig cuinar."},{"who":"Jordi","t":"Boring!","tr":"Quin avorriment!"},{"who":"Emma","t":"Not really. In the evening I called some friends, and we played cards.","tr":"No tant. Al vespre vaig trucar a uns amics i vam jugar a cartes."},{"who":"Jordi","t":"And who was the winner?","tr":"I qui va guanyar?"},{"who":"Emma","t":"Me, of course!","tr":"Jo, és clar!"}]},
+        {"p":"**Una sola forma.** El català fa servir «vaig, vas, va…» + infinitiu: sis formes. El passat anglès és una sola paraula, igual per a tothom: {{I worked}} «vaig treballar», {{she worked}} «va treballar», {{we worked}} «vam treballar». Per als verbs regulars, s'hi afegeix {{-ed}}."},
+        { "table": [
+          ["verb","passat","català"],
+          ["{{work}}","{{worked}}","vaig treballar"],
+          ["{{watch}}","{{watched}}","vaig mirar"],
+          ["{{live}}","{{lived}}","vaig viure, vivia"],
+          ["{{study}}","{{studied}}","vaig estudiar"],
+          ["{{stop}}","{{stopped}}","em vaig aturar"]
+        ] },
+        {"p":"**L'ortografia.** Si el verb acaba en {{-e}}, només {{-d}}: {{live}} → {{lived}}. Una {{-y}} darrere de consonant es torna {{-ied}}: {{study}} → {{studied}}. Una consonant final darrere d'una vocal curta es dobla: {{stop}} → {{stopped}}."},
+        {"p":"**Els tres sons de {{-ed}}.** No es pronuncia mai «ed». Darrere de {{t}} o {{d}} sona «id» i afegeix una síl·laba: {{wanted}}, {{needed}}. Darrere de {{p}}, {{k}}, {{s}}, {{sh}}, {{ch}} sona «t»: {{worked}} «uorkt», {{watched}} «uotxt». Darrere de la resta sona «d»: {{played}} «pleid», {{called}} «cold»."},
+        {"p":"**Quan?** {{yesterday}} «ahir», {{last night}} «ahir a la nit», {{last week}}, {{last summer}}; i {{ago}} «fa», que va darrere: {{two days ago}} «fa dos dies», {{a year ago}} «fa un any»."},
+        { "ex": [
+          {"t":"I called my mom last night.","tr":"Ahir a la nit vaig trucar a la meva mare."},
+          {"t":"We watched the game on TV.","tr":"Vam mirar el partit per la tele."},
+          {"t":"She lived in Paris for two years.","tr":"Va viure dos anys a París."},
+          {"t":"They arrived an hour ago.","tr":"Van arribar fa una hora."},
+          {"t":"I studied English at school.","tr":"Vaig estudiar anglès a l'escola."},
+          {"t":"The movie started at nine.","tr":"La pel·lícula va començar a les nou."}
+        ] },
+        {"tip":"Un fals amic: {{attend}} és «assistir» (a classe, a una reunió); {{assist}} vol dir «ajudar». «Vaig assistir a la reunió» és {{I attended the meeting}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday I work a lot.","right":"Yesterday I worked a lot.","tr":"Ahir vaig treballar molt.","why":"Per al passat, el verb porta {{-ed}}."},
+        {"wrong":"I called her ago two days.","right":"I called her two days ago.","tr":"Li vaig trucar fa dos dies.","why":"{{ago}} va darrere del temps."},
+        {"wrong":"She studyed medicine.","right":"She studied medicine.","tr":"Va estudiar medicina.","why":"{{study}}: la {{-y}} es torna {{-ied}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Last night we ___ a movie.","tr":"Ahir a la nit vam mirar una pel·lícula.","options":["watched","watch","watching"],"answer":0,"why":"Passat: {{-ed}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I arrived in Boston two weeks ___.","tr":"Vaig arribar a Boston fa dues setmanes.","options":["ago","before","last"],"answer":0,"why":"«Fa» + temps és … {{ago}}, al final."},
+        {"type":"choice","q":"Com sona {{wanted}}?","options":["amb una síl·laba més: «uon-tid»","«uont», amb una t","«uon-ted», amb e"],"answer":0,"why":"Darrere de {{t}} o {{d}}, {{-ed}} sona «id»."},
+        {"type":"dialogue","q":"Dilluns, un company et pregunta pel cap de setmana. Tria les respostes.","lines":[{"who":"Company","t":"How was your weekend?","tr":"Com va anar el cap de setmana?"},{"options":["It was great! I visited my parents.","It is great! I visit my parents."],"answer":0,"why":"En passat: {{was}} i {{visited}}."},{"who":"Company","t":"Nice! Did you stay there?","tr":"Que bé! T'hi vas quedar a dormir?"},{"options":["Yes, I stayed until Sunday.","Yes, I stay until Sunday."],"answer":0,"why":"Passat: {{stayed}}."}],"from":"say-where-you-were"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Ahir a la nit vaig trucar a la meva mare.","words":["I","called","my mom","last night."]},
+        {"type":"say","q":"Digues «Van arribar fa una hora».","answer":"They arrived an hour ago."},
+        {"type":"free","q":"Et toca: digues tres coses que vas fer ahir, amb verbs regulars ({{worked}}, {{cooked}}, {{watched}}, {{called}}…).","answers":[{"t":"Yesterday I worked until six, I cooked dinner and I watched a series.","tr":"Ahir vaig treballar fins a les sis, vaig fer el sopar i vaig mirar una sèrie."},{"t":"I cleaned the house, I called my sister and I played tennis.","tr":"Vaig netejar la casa, vaig trucar a la meva germana i vaig jugar a tennis."}]}
+      ]
+    },
+    {
+      "id": "irregular-past",
+      "unit": 5,
+      "level": "A2",
+      "title": "Explica un viatge",
+      "summary": "Explica on vas anar i què vas fer, amb els verbs irregulars més freqüents: {{Last summer we went to Menorca and ate a lot of fish.}}",
+      "topic": "El passat dels verbs irregulars: {{went}}, {{had}}, {{saw}}, {{ate}}, {{bought}}, {{took}}, {{got}}, {{made}}, {{came}}…; {{make}} o {{do}}",
+      "blocks": [
+        {"goal":{"t":"Last summer we went to Menorca and ate a lot of fish.","tr":"L'estiu passat vam anar a Menorca i vam menjar molt de peix."}},
+        {"dialog":[{"who":"Ruth","t":"Where did you go on vacation?","tr":"On vas anar de vacances?"},{"who":"Oriol","t":"We went to Scotland!","tr":"Vam anar a Escòcia!"},{"who":"Ruth","t":"Wow! How was it?","tr":"Ostres! Com va anar?"},{"who":"Oriol","t":"Amazing. We saw castles, we ate haggis and we took a thousand photos.","tr":"Increïble. Vam veure castells, vam menjar haggis i vam fer mil fotos."},{"who":"Ruth","t":"And the weather?","tr":"I el temps?"},{"who":"Oriol","t":"It rained every day, but we had a great time!","tr":"Va ploure cada dia, però ens ho vam passar molt bé!"}]},
+        {"term":"verb irregular","means":"un verb que no segueix la regla general; en anglès, els que no fan el passat amb {{-ed}}: {{go}} → {{went}}."},
+        {"p":"**Els irregulars.** Molts dels verbs més freqüents no fan el passat amb {{-ed}}: cal aprendre'ls de memòria. La bona notícia és que, com els regulars, tenen una sola forma per a totes les persones: {{I went}}, {{she went}}, {{they went}}."},
+        { "table": [
+          ["verb","passat","català"],
+          ["{{go}}","{{went}}","anar"],
+          ["{{have}}","{{had}}","tenir, prendre"],
+          ["{{see}}","{{saw}}","veure"],
+          ["{{eat}}","{{ate}}","menjar"],
+          ["{{buy}}","{{bought}}","comprar"],
+          ["{{take}}","{{took}}","agafar, fer (fotos)"],
+          ["{{get}}","{{got}}","aconseguir, arribar"],
+          ["{{make}}","{{made}}","fer (preparar, crear)"],
+          ["{{come}}","{{came}}","venir"],
+          ["{{do}}","{{did}}","fer"],
+          ["{{say}}","{{said}}","dir"]
+        ] },
+        {"p":"**{{make}} o {{do}}?** El català té un sol «fer»; l'anglès en té dos. {{make}} és preparar o crear alguna cosa: {{make dinner}} «fer el sopar», {{make a cake}}, {{make a mistake}} «fer un error». {{do}} és fer una activitat o una feina: {{do homework}} «fer els deures», {{do sports}}, {{do the dishes}} «rentar els plats»."},
+        {"p":"**Passar-ho bé.** «Ens ho vam passar molt bé» és {{We had a great time}}, amb {{have}}. I «vam fer fotos» és {{we took photos}}, amb {{take}}."},
+        { "ex": [
+          {"t":"I went to the beach yesterday.","tr":"Ahir vaig anar a la platja."},
+          {"t":"We had dinner at a great restaurant.","tr":"Vam sopar en un restaurant boníssim."},
+          {"t":"She bought a new phone.","tr":"Es va comprar un mòbil nou."},
+          {"t":"They came home very late.","tr":"Van tornar a casa molt tard."},
+          {"t":"I made a cake for her birthday.","tr":"Vaig fer un pastís pel seu aniversari."},
+          {"t":"We took the train to Madrid.","tr":"Vam agafar el tren cap a Madrid."}
+        ] },
+        {"tip":"El passat de {{read}} «llegir» s'escriu igual, {{read}}, però es pronuncia «red»: {{Yesterday I read a book.}} «Ahir vaig llegir un llibre.»"}
+      ],
+      "mistakes": [
+        {"wrong":"I goed to Madrid.","right":"I went to Madrid.","tr":"Vaig anar a Madrid.","why":"{{go}} és irregular: {{went}}."},
+        {"wrong":"I did a cake.","right":"I made a cake.","tr":"Vaig fer un pastís.","why":"Preparar o cuinar alguna cosa és {{make}}."},
+        {"wrong":"We passed a great time.","right":"We had a great time.","tr":"Ens ho vam passar molt bé.","why":"«Passar-ho bé» és {{have a good time}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Last year we ___ to Italy.","tr":"L'any passat vam anar a Itàlia.","options":["went","goed","go"],"answer":0,"why":"{{go}} → {{went}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I ___ a lot of photos in Rome.","tr":"Vaig fer moltes fotos a Roma.","options":["took","made","did"],"answer":0,"why":"«Fer fotos» és {{take photos}}: {{took}}."},
+        {"type":"choice","q":"«Vaig fer els deures» és…","options":["{{I did my homework.}}","{{I made my homework.}}","{{I doed my homework.}}"],"answer":0,"why":"Una feina: {{do}}, i el passat és {{did}}."},
+        {"type":"dialogue","q":"Expliques un viatge. Tria les respostes.","lines":[{"who":"Amiga","t":"How was your trip?","tr":"Com va anar el viatge?"},{"options":["It was amazing! We saw the Eiffel Tower.","It was amazing! We seed the Eiffel Tower."],"answer":0,"why":"{{see}} → {{saw}}."},{"who":"Amiga","t":"Did you visit any museums?","tr":"Vau visitar algun museu?"},{"options":["Yes, we visited the Louvre.","Yes, we visit the Louvre."],"answer":0,"why":"Passat regular: {{visited}}."}],"from":"say-what-you-did"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Ens ho vam passar molt bé.","words":["We","had","a great","time."]},
+        {"type":"say","q":"Digues «Ahir vaig anar a la platja».","answer":"I went to the beach yesterday."},
+        {"type":"free","q":"Et toca: explica un viatge o una sortida: on vas anar, què vas veure, què vas menjar.","answers":[{"t":"Last summer I went to Lisbon. I saw the castle, and I ate a lot of fish.","tr":"L'estiu passat vaig anar a Lisboa. Vaig veure el castell i vaig menjar molt de peix."},{"t":"We went to the Pyrenees, we took a lot of photos and we had a great time.","tr":"Vam anar al Pirineu, vam fer moltes fotos i ens ho vam passar molt bé."}]}
+      ]
+    },
+    {
+      "id": "ask-what-happened",
+      "unit": 5,
+      "level": "A2",
+      "title": "Pregunta què va passar",
+      "summary": "Fes preguntes i negatives en passat: {{What did you do last weekend? —I didn't go out.}}",
+      "topic": "{{did}} a les preguntes, {{didn't}} a les negatives; el verb torna a la forma bàsica; {{Yes, I did.}}",
+      "blocks": [
+        {"goal":{"t":"What did you do last weekend?","tr":"Què vas fer el cap de setmana passat?"}},
+        {"dialog":[{"who":"Neus","t":"Did you go to the concert on Saturday?","tr":"Vas anar al concert dissabte?"},{"who":"Joe","t":"No, I didn't. I didn't have a ticket.","tr":"No. No tenia entrada."},{"who":"Neus","t":"Oh no! What did you do?","tr":"Vaja! I què vas fer?"},{"who":"Joe","t":"I stayed home. Did you like it?","tr":"Em vaig quedar a casa. Et va agradar?"},{"who":"Neus","t":"Yes, I did! It was amazing.","tr":"Sí! Va ser increïble."},{"who":"Joe","t":"Did they play my favorite song?","tr":"Van tocar la meva cançó preferida?"}]},
+        {"p":"**{{did}}, el {{do}} del passat.** Com en present (lliçó 13), les preguntes i les negatives d'un verb normal necessiten un ajudant. En passat és {{did}}, igual per a tothom: {{Did you go?}} «Hi vas anar?» {{She didn't call.}} «No va trucar.»"},
+        {"p":"**El verb torna a la forma bàsica.** Com que {{did}} ja diu que és passat, el verb principal va sense {{-ed}} i sense la forma irregular: {{Did you see it?}}, mai {{Did you saw it?}}; {{I didn't go}}, mai {{I didn't went}}."},
+        { "table": [
+          ["","afirmativa","pregunta","negativa"],
+          ["regular","{{You worked.}}","{{Did you work?}}","{{You didn't work.}}"],
+          ["irregular","{{She went.}}","{{Did she go?}}","{{She didn't go.}}"],
+          ["{{be}} (sense {{did}})","{{It was good.}}","{{Was it good?}}","{{It wasn't good.}}"]
+        ] },
+        {"p":"**Respostes curtes:** {{Yes, I did.}} / {{No, I didn't.}} **Amb paraula interrogativa:** {{What did you eat?}} «Què vas menjar?» {{Where did they go?}} «On van anar?» {{Why didn't you come?}} «Per què no vas venir?»"},
+        { "ex": [
+          {"t":"Did you sleep well?","tr":"Has dormit bé?","note":"aquí el català fa servir el perfet; l'anglès americà, el passat (lliçó 34)"},
+          {"t":"What did she say?","tr":"Què va dir?"},
+          {"t":"I didn't see the game.","tr":"No vaig veure el partit."},
+          {"t":"Where did you buy that jacket?","tr":"On vas comprar aquesta jaqueta?"},
+          {"t":"We didn't have time.","tr":"No vam tenir temps."},
+          {"t":"Did you have a good time? —Yes, we did!","tr":"Us ho vau passar bé? —Sí!"}
+        ] },
+        {"tip":"No barregis {{did}} amb {{be}}: {{Were you tired?}} «Estaves cansat?» no porta {{did}}, perquè {{be}} ja fa de verb ajudant."}
+      ],
+      "mistakes": [
+        {"wrong":"Did you saw the movie?","right":"Did you see the movie?","tr":"Vas veure la pel·lícula?","why":"Amb {{did}}, el verb en la forma bàsica: {{see}}."},
+        {"wrong":"I didn't went out.","right":"I didn't go out.","tr":"No vaig sortir.","why":"Amb {{didn't}}, la forma bàsica: {{go}}."},
+        {"wrong":"Where you went?","right":"Where did you go?","tr":"On vas anar?","why":"Les preguntes en passat necessiten {{did}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"___ you call your mom?","tr":"Vas trucar a la teva mare?","options":["Did","Do","Were"],"answer":0,"why":"Una pregunta en passat amb un verb normal: {{Did}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"We didn't ___ the train.","tr":"No vam agafar el tren.","options":["take","took","taken"],"answer":0,"why":"Amb {{didn't}}, la forma bàsica: {{take}}.","from":"irregular-past"},
+        {"type":"choice","q":"{{Did you like the food?}} La resposta curta és…","options":["{{Yes, I did.}}","{{Yes, I liked.}}","{{Yes, I was.}}"],"answer":0,"why":"Es respon amb l'ajudant de la pregunta: {{did}}."},
+        {"type":"dialogue","q":"Un amic et pregunta per ahir. Tria les respostes.","lines":[{"who":"Amic","t":"Did you go to the gym yesterday?","tr":"Ahir vas anar al gimnàs?"},{"options":["No, I didn't. I was tired.","No, I didn't went. I was tired."],"answer":0,"why":"{{No, I didn't}}, i res més."},{"who":"Amic","t":"What did you do?","tr":"I què vas fer?"},{"options":["I watched a movie at home.","I did watch a movie in home."],"answer":0,"why":"A l'afirmativa, el passat sense {{did}}: {{I watched}}; i «a casa» és {{at home}}."}]},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"On vas comprar aquesta jaqueta?","words":["Where","did you","buy","that","jacket?"]},
+        {"type":"say","q":"Pregunta «Què va dir?» (parlant d'una dona).","answer":"What did she say?"},
+        {"type":"free","q":"Et toca: escriu dues preguntes en passat per a un amic sobre el seu cap de setmana, i una cosa que tu no vas fer.","answers":[{"t":"What did you do on Saturday? Did you go out? I didn't do anything!","tr":"Què vas fer dissabte? Vas sortir? Jo no vaig fer res!"},{"t":"Where did you go? Did you have fun? I didn't leave the house.","tr":"On vas anar? T'ho vas passar bé? Jo no vaig sortir de casa."}]}
+      ]
+    },
+    {
+      "id": "set-the-scene",
+      "unit": 5,
+      "level": "A2",
+      "title": "Explica una història amb el seu context",
+      "summary": "Explica què estava passant quan va passar una cosa: {{I was walking home when it started to rain.}}",
+      "topic": "El passat continu ({{was}}, {{were}} + {{-ing}}) per al context; el passat simple per als fets; {{when}}, {{while}}",
+      "blocks": [
+        {"goal":{"t":"I was walking home when it started to rain.","tr":"Tornava a casa a peu quan va començar a ploure."}},
+        {"dialog":[{"who":"Anna","t":"Why were you late yesterday?","tr":"Per què vas arribar tard ahir?"},{"who":"Ben","t":"I was waiting for the bus, and it started to rain.","tr":"Esperava l'autobús i va començar a ploure."},{"who":"Anna","t":"Did you have an umbrella?","tr":"Tenies paraigua?"},{"who":"Ben","t":"No! And when the bus came, it was full.","tr":"No! I quan va arribar l'autobús, anava ple."},{"who":"Anna","t":"What bad luck! What did you do?","tr":"Quina mala sort! I què vas fer?"},{"who":"Ben","t":"I took a taxi. I was soaking wet!","tr":"Vaig agafar un taxi. Anava xop!"}]},
+        {"p":"**El context i els fets.** En català distingim l'imperfet («esperava», «plovia») del passat amb «vaig» («va començar»). L'anglès fa una distinció semblant: el passat continu ({{was}}, {{were}} + {{-ing}}) per al que estava passant, el context; i el passat simple per als fets que fan avançar la història."},
+        { "table": [
+          ["context (passat continu)","fet (passat simple)"],
+          ["{{I was sleeping…}} dormia…","{{…when the phone rang.}} …quan va sonar el telèfon."],
+          ["{{We were having dinner…}} sopàvem…","{{…when Pere arrived.}} …quan va arribar en Pere."],
+          ["{{It was raining…}} plovia…","{{…when we left.}} …quan vam sortir."]
+        ] },
+        {"p":"**{{when}} i {{while}}.** {{when}} «quan» sol introduir el fet: {{I was cooking when you called.}} «Cuinava quan vas trucar.» {{while}} «mentre» introdueix el context: {{While I was cooking, I was listening to the radio.}} «Mentre cuinava, escoltava la ràdio.»"},
+        {"p":"**Compte:** l'imperfet català també serveix per als hàbits («cada estiu anàvem a la platja»). Per als hàbits, l'anglès no fa servir el continu, sinó {{used to}} o el passat simple (lliçó 32)."},
+        { "ex": [
+          {"t":"It was raining when I left home.","tr":"Plovia quan vaig sortir de casa."},
+          {"t":"We were having dinner when Pere arrived.","tr":"Sopàvem quan va arribar en Pere."},
+          {"t":"What were you doing at ten last night?","tr":"Què feies ahir a les deu de la nit?"},
+          {"t":"I met her when I was living in London.","tr":"La vaig conèixer quan vivia a Londres."},
+          {"t":"While she was working, he was sleeping.","tr":"Mentre ella treballava, ell dormia."},
+          {"t":"The sun was shining, and the birds were singing.","tr":"Feia sol i els ocells cantaven."}
+        ] },
+        {"tip":"Per començar una història: {{It was a sunny day…}} «Era un dia de sol…», {{It was late, and I was tired…}} «Era tard i estava cansat…». Primer el context, i després: {{Suddenly…}} «De sobte…»."}
+      ],
+      "mistakes": [
+        {"wrong":"I was sleep when you called.","right":"I was sleeping when you called.","tr":"Dormia quan vas trucar.","why":"El passat continu és {{was}} + {{-ing}}: {{was sleeping}}."},
+        {"wrong":"When I was arriving, I called you.","right":"When I arrived, I called you.","tr":"Quan vaig arribar, et vaig trucar.","why":"Dos fets, l'un darrere l'altre: passat simple."},
+        {"wrong":"Every summer we were going to the beach.","right":"Every summer we went to the beach.","tr":"Cada estiu anàvem a la platja.","why":"Un hàbit no va amb el continu: {{we went}} (o {{we used to go}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I ___ reading when the lights went out.","tr":"Llegia quan va marxar la llum.","options":["was","were","did"],"answer":0,"why":"El context, amb {{I}}: {{was reading}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"We were watching TV when the phone ___.","tr":"Miràvem la tele quan va sonar el telèfon.","options":["rang","was ringing","rings"],"answer":0,"why":"El fet que interromp: passat simple, {{rang}}.","from":"irregular-past"},
+        {"type":"choice","q":"{{While I was cooking, she was setting the table.}} Les dues accions…","options":["passaven alhora","van passar l'una darrere l'altra"],"answer":0,"why":"{{while}} + dos continus: alhora."},
+        {"type":"dialogue","q":"Un amic et pregunta per què vas arribar tard. Tria les respostes.","lines":[{"who":"Amic","t":"Why were you late?","tr":"Per què vas arribar tard?"},{"options":["I was waiting for the subway, and it broke down.","I waited for the subway, and it was breaking down."],"answer":0,"why":"L'espera és el context ({{was waiting}}); l'avaria, el fet ({{broke down}})."},{"who":"Amic","t":"Oh no! What did you do?","tr":"Vaja! I què vas fer?"},{"options":["I took a taxi.","I was taking a taxi."],"answer":0,"why":"El fet següent: passat simple, {{took}}."}],"from":"ask-what-happened"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Plovia quan vaig sortir de casa.","words":["It","was raining","when","I left","home."]},
+        {"type":"say","q":"Pregunta «Què feies ahir a les deu de la nit?»","answer":"What were you doing at ten last night?"},
+        {"type":"free","q":"Et toca: explica una cosa que et va passar. Primer el context (on eres, què feies, quin temps feia), després el fet.","answers":[{"t":"It was Sunday, and I was walking in the park. Suddenly I saw a friend from school.","tr":"Era diumenge i passejava pel parc. De sobte vaig veure un amic de l'escola."},{"t":"I was taking a shower when my phone rang. It was my boss!","tr":"M'estava dutxant quan va sonar el mòbil. Era el meu cap!"}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 5,
+      "level": "A2",
+      "title": "Explica una història pas a pas",
+      "summary": "Explica una història en ordre, del principi al final: {{First we had dinner, then we went dancing, and finally we walked home.}}",
+      "topic": "{{first}}, {{then}}, {{after that}}, {{later}}, {{suddenly}}, {{finally}}; el passat simple i el continu junts",
+      "blocks": [
+        {"goal":{"t":"First we had dinner, then we went dancing, and finally we walked home.","tr":"Primer vam sopar, després vam anar a ballar i, al final, vam tornar a casa a peu."}},
+        {"dialog":[{"who":"Laura","t":"So, how was the date?","tr":"I bé, com va anar la cita?"},{"who":"Marc","t":"Great! First we had dinner at a little Italian place.","tr":"Genial! Primer vam sopar en un italià petit."},{"who":"Laura","t":"And then?","tr":"I després?"},{"who":"Marc","t":"Then we went to a concert. While we were dancing, I saw my ex!","tr":"Després vam anar a un concert. Mentre ballàvem, vaig veure la meva ex!"},{"who":"Laura","t":"No way! What did you do?","tr":"No m'ho puc creure! I què vas fer?"},{"who":"Marc","t":"Nothing. After that we left, and finally we walked home along the beach.","tr":"Res. Després vam marxar i, al final, vam tornar a casa a peu per la platja."}]},
+        {"p":"**En ordre.** Les paraules que encadenen els fets: {{first}} «primer», {{then}} «després, aleshores», {{after that}} «després d'això», {{later}} «més tard», {{suddenly}} «de sobte», {{finally}} o {{in the end}} «al final»."},
+        {"p":"**Tots els passats junts.** Una bona història barreja el que has après: {{was}} i {{were}} per descriure (lliçó 23), el passat simple per als fets (lliçons 24 i 25), el continu per al context (lliçó 27) i {{did}} per preguntar (lliçó 26)."},
+        {"p":"**{{when}} i {{after}}.** {{When we arrived, the party was over.}} «Quan vam arribar, la festa s'havia acabat.» {{After lunch, we went for a walk.}} «Després de dinar, vam anar a passejar.»"},
+        { "table": [
+          ["per…","anglès","català"],
+          ["començar","{{first}}, {{at first}}","primer, al principi"],
+          ["continuar","{{then}}, {{after that}}, {{later}}","després, més tard"],
+          ["una sorpresa","{{suddenly}}","de sobte"],
+          ["acabar","{{finally}}, {{in the end}}","finalment, al final"]
+        ] },
+        { "ex": [
+          {"t":"First we visited the museum, and then we had lunch.","tr":"Primer vam visitar el museu i després vam dinar."},
+          {"t":"When I got home, I took a shower.","tr":"Quan vaig arribar a casa, em vaig dutxar."},
+          {"t":"Suddenly it started to rain.","tr":"De sobte va començar a ploure."},
+          {"t":"After lunch, we went to the beach.","tr":"Després de dinar, vam anar a la platja."},
+          {"t":"In the end, we stayed home.","tr":"Al final, ens vam quedar a casa."},
+          {"t":"We met ten years ago in London.","tr":"Ens vam conèixer fa deu anys a Londres."}
+        ] },
+        {"tip":"Per reaccionar quan algú t'explica una història: {{Really?}} «De debò?», {{And then what?}} «I què més?», {{No way!}} «No m'ho puc creure!», {{Oh no!}} «Oh, no!»."}
+      ],
+      "mistakes": [
+        {"wrong":"First we had dinner, then we go dancing.","right":"First we had dinner, then we went dancing.","tr":"Primer vam sopar, després vam anar a ballar.","why":"Tota la història, en passat: {{went}}."},
+        {"wrong":"After to eat, we went out.","right":"After eating, we went out.","tr":"Després de menjar, vam sortir.","why":"Darrere de {{after}}, el verb en {{-ing}} (lliçó 41), mai {{to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"We had dinner, and ___ we went to a bar.","tr":"Vam sopar i després vam anar a un bar.","options":["then","after","first"],"answer":0,"why":"Per encadenar el fet següent: {{then}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"When we ___ to the hotel, it was very late.","tr":"Quan vam arribar a l'hotel, era molt tard.","options":["got","get","were getting"],"answer":0,"why":"Un fet: passat simple, {{got}} ({{get}} → {{got}}).","from":"irregular-past"},
+        {"type":"choice","q":"{{In the end}} vol dir…","options":["al final","al principi","de sobte"],"answer":0,"why":"{{in the end}}: finalment."},
+        {"type":"dialogue","q":"Un amic vol saber com va anar la teva excursió. Tria les respostes.","lines":[{"who":"Amic","t":"How was the hike?","tr":"Com va anar l'excursió?"},{"options":["Great! First we walked for three hours, then we had lunch at the top.","Great! First we walk for three hours, then we have lunch at the top."],"answer":0,"why":"Una història acabada: passat simple."},{"who":"Amic","t":"Did it rain?","tr":"Va ploure?"},{"options":["Yes! While we were going down, it started to rain.","Yes! While we went down, it was starting to rain."],"answer":0,"why":"El context, {{were going down}}; el fet, {{started}}."}],"from":"set-the-scene"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Després de dinar, vam anar a la platja.","words":["After","lunch,","we went","to the","beach."]},
+        {"type":"say","q":"Digues «Ens vam conèixer fa deu anys a Londres».","answer":"We met ten years ago in London.","from":"say-what-you-did"},
+        {"type":"free","q":"Et toca: explica què vas fer el dissabte passat, en ordre. Fes servir {{first}}, {{then}} i {{finally}}.","answers":[{"t":"First I got up late, then I went shopping, and finally I had dinner with some friends.","tr":"Primer em vaig llevar tard, després vaig anar a comprar i, al final, vaig sopar amb uns amics."},{"t":"First we went to the beach. Then we had lunch there, and in the end we took the train home.","tr":"Primer vam anar a la platja. Després hi vam dinar i, al final, vam tornar a casa en tren."}]}
+      ]
     }
   ]
 }
