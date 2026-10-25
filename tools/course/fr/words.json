@@ -330,7 +330,11 @@
       "pos": "pron",
       "meaning": "there; (to, about) it",
       "sentence": "J'y vais demain.",
-      "translation": "I'm going ⟦there⟧ tomorrow."
+      "translation": "I'm going ⟦there⟧ tomorrow.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "i"
+      }
     },
     {
       "n": 37,
