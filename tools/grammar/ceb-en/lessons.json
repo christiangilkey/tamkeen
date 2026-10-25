@@ -1,0 +1,301 @@
+{
+  "from": "ceb",
+  "to": "en",
+  "title": "Gramatika sa Iningles",
+  "variety": "American English",
+  "about": "Gikan sa imong unang panag-istorya hangtod sa adlaw-adlaw nga Iningles, usa ka mubo nga leksyon matag higayon. Ang matag leksyon maghatag nimo og usa ka butang nga imong masulti dayon, unya ang gramatika nga nagpalihok niini. Dili nimo kinahanglan nga kahibalo og gramatika: ang matag pulong sa gramatika ipasabot sa unang higayon nga kinahanglan nimo kini. Ang tanang pananglitan American English. Ang mga pagpasabot gisulat para sa Bisaya: gitandi sa Bisaya, ug gipakita kung asa kasagaran masayop ang mga Bisaya.",
+  "reading": "",
+  "units": [
+    {"n":1,"title":"Unang mga panag-istorya"},
+    {"n":2,"title":"Sa gawas"},
+    {"n":3,"title":"Adlaw-adlaw"},
+    {"n":4,"title":"Unsay nahitabo"},
+    {"n":5,"title":"Mga plano"},
+    {"n":6,"title":"Paghulagway ug pagtandi"},
+    {"n":7,"title":"Mga kasinatian"},
+    {"n":8,"title":"Pagdugtong sa mga ideya"},
+    {"n":9,"title":"Sama sa lumad"}
+  ],
+  "lessons": [
+    {
+      "id": "introduce-yourself",
+      "unit": 1,
+      "level": "A1",
+      "title": "Ipaila ang imong kaugalingon",
+      "summary": "Pangumusta, isulti ang imong ngalan, taga-asa ka ug ang imong trabaho: ang imong unang panag-istorya sa Iningles.",
+      "topic": "{{I am}} ug {{you are}} (dili mahimong kuhaon); {{I'm}}, {{you're}}; {{a}} sa unahan sa trabaho",
+      "blocks": [
+        {"goal":{"t":"Hi! I'm Ana. I'm from Cebu.","tr":"Hi! Ako si Ana. Taga-Cebu ko."}},
+        {"dialog":[{"who":"Ben","t":"Hi! I'm Ben.","tr":"Hi! Ako si Ben."},{"who":"Ana","t":"Hi, Ben! I'm Ana.","tr":"Hi, Ben! Ako si Ana."},{"who":"Ben","t":"Nice to meet you, Ana. Where are you from?","tr":"Nalipay ko nga nakaila nimo, Ana. Taga-asa ka?"},{"who":"Ana","t":"I'm from Cebu. And you?","tr":"Taga-Cebu ko. Ikaw?"},{"who":"Ben","t":"I'm from Chicago. I'm a teacher.","tr":"Taga-Chicago ko. Maestro ko."},{"who":"Ana","t":"Oh, cool! I'm a nurse.","tr":"Ay, nindot! Nars ko."}]},
+        {"p":"Sa Bisaya, wala tay pulong para sa “am”, “is” o “are”: “Nars ko”, direkta lang. Sa Iningles, **kinahanglan gyud kini**: {{I am a nurse.}} Kung kuhaon nimo ang {{am}}, sayop na ang sentence."},
+        {"term":"sentence","means":"grupo sa mga pulong nga nagsulti og kompleto nga hunahuna: “Taga-Cebu ko.” Sa Iningles: {{I'm from Cebu.}}"},
+        {"term":"pronoun","means":"mubo nga pulong nga mopuli sa ngalan sa tawo o butang: ako, ikaw, siya. Sa Iningles: {{I}}, {{you}}, {{he}}, {{she}}."},
+        {"p":"**Ang han-ay baliktad sa Bisaya.** Sa Bisaya, ang “nars” mag-una ug ang “ko” mosunod. Sa Iningles, ang tawo ang mag-una: {{I}} (ako), dayon {{am}}, dayon ang uban: {{I am a nurse.}} Ug sa istorya, kanunay nga gipamubo: {{I am}} → {{I'm}}, {{you are}} → {{you're}}."},
+        { "table": [
+          ["Bisaya","Iningles","mubo (sa istorya)"],
+          ["ako … (Nars ko.)","{{I am a nurse.}}","{{I'm a nurse.}}"],
+          ["ikaw … (Nars ka.)","{{You are a nurse.}}","{{You're a nurse.}}"]
+        ] },
+        {"p":"**Ang {{a}} sa unahan sa trabaho.** “Nars ko”: walay “usa” sa Bisaya. Sa Iningles, ang usa ka trabaho kinahanglan og {{a}}: {{I'm a nurse.}} {{You're a teacher.}} (Ipasabot pa kini og maayo sa leksyon 5.) Ug ang “taga-” kay {{from}}: {{I'm from Cebu.}}"},
+        { "ex": [
+          {"t":"I'm a student.","tr":"Estudyante ko."},
+          {"t":"I'm from Davao.","tr":"Taga-Davao ko."},
+          {"t":"My name is Ana.","tr":"Ana ang akong ngalan."},
+          {"t":"You're from Bohol.","tr":"Taga-Bohol ka."},
+          {"t":"I'm Filipino.","tr":"Pilipino ko."},
+          {"t":"Nice to meet you!","tr":"Nalipay ko nga nakaila nimo!"}
+        ] },
+        {"tip":"Pagpangumusta: {{Hi!}} o {{Hello!}} bisan unsang orasa; {{Good morning}} sa buntag, {{Good afternoon}} sa hapon, {{Good evening}} sa gabii. Ang {{Good night}} para lang sa pagpanamilit o pagkatulog."}
+      ],
+      "mistakes": [
+        {"wrong":"I teacher.","right":"I'm a teacher.","tr":"Maestra ko.","why":"Kinahanglan ang {{am}} (o ang mubo nga {{'m}}), bisan wala kini sa Bisaya."},
+        {"wrong":"I'm teacher.","right":"I'm a teacher.","tr":"Maestra ko.","why":"Ang usa ka trabaho kinahanglan og {{a}} sa unahan."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Unsa ang husto nga Iningles sa “Maestra ko”?","options":["{{I'm a teacher.}}","{{I teacher.}}","{{Teacher I am.}}"],"answer":0,"why":"Ang tawo una ({{I}}), dayon {{am}}, dayon {{a teacher}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ from Cebu.","tr":"Taga-Cebu ko.","options":["am","is","are"],"answer":0,"why":"Uban sa {{I}}: {{am}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"You ___ a nurse.","tr":"Nars ka.","options":["are","am","is"],"answer":0,"why":"Uban sa {{you}}: {{are}}."},
+        {"type":"dialogue","q":"Ikaw si Joy, taga-Mandaue. Pilia ang imong mga tubag.","lines":[{"who":"Mark","t":"Hi! I'm Mark.","tr":"Hi! Ako si Mark."},{"options":["Hi, Mark! I'm Joy.","Hi, Mark! I Joy."],"answer":0,"why":"Kinahanglan ang {{am}}: {{I'm Joy}}."},{"who":"Mark","t":"Where are you from?","tr":"Taga-asa ka?"},{"options":["I'm from Mandaue.","I from Mandaue."],"answer":0,"why":"{{I'm from…}}: ayaw kalimti ang {{'m}}."},{"who":"Mark","t":"Nice to meet you!","tr":"Nalipay ko nga nakaila nimo!"}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Taga-Davao ko.","words":["I'm","from","Davao."]},
+        {"type":"say","q":"Isulti sa Iningles: “Estudyante ko.”","answer":"I'm a student."},
+        {"type":"free","q":"Ikaw na: isulti ang imong ngalan, taga-asa ka, ug ang imong trabaho. Sugdi sa {{Hi! I'm…}}","answers":[{"t":"Hi! I'm Joy. I'm from Mandaue. I'm a student.","tr":"Hi! Ako si Joy. Taga-Mandaue ko. Estudyante ko."},{"t":"Hello! My name is Mark. I'm from Cebu City. I'm a driver.","tr":"Hello! Mark ang akong ngalan. Taga-Cebu City ko. Drayber ko."}]}
+      ]
+    },
+    {
+      "id": "talk-about-people",
+      "unit": 1,
+      "level": "A1",
+      "title": "Isulti kinsa ang ubang tawo",
+      "summary": "Isulti kinsa ug unsa ang ubang tawo: ang lisod nga pagpili tali sa {{he}} ug {{she}}, ug ang {{it}} para sa mga butang.",
+      "topic": "{{he}}, {{she}}, {{it}}, {{we}}, {{they}} + {{is}} / {{are}}; ang “siya” sa Bisaya mahimong {{he}} o {{she}}",
+      "blocks": [
+        {"goal":{"t":"He's a doctor, and she's a nurse.","tr":"Doktor siya, ug nars siya."}},
+        {"dialog":[{"who":"Joy","t":"Who's that?","tr":"Kinsa kana?"},{"who":"Ana","t":"That's Mark. He's my cousin. He's a pilot.","tr":"Si Mark kana. Akong ig-agaw siya. Piloto siya."},{"who":"Joy","t":"And the woman with him?","tr":"Ug ang babaye nga iyang kauban?"},{"who":"Ana","t":"That's Lisa. She's his wife. She's a singer.","tr":"Si Lisa kana. Iyang asawa siya. Mag-aawit siya."},{"who":"Joy","t":"They're a cute couple!","tr":"Nindot kaayo sila nga magtiayon!"}]},
+        {"p":"Tan-awa ang goal sa ibabaw: sa Bisaya, “Doktor siya, ug nars siya”, ang duha ka “siya” managsama. Sa Iningles, **kinahanglan mopili**: {{he}} para sa lalaki, {{she}} para sa babaye. Kini ang pinakasagad nga sayop sa mga Bisaya sa Iningles, busa magbalik-balik kini sa daghang leksyon."},
+        {"p":"**{{it}} para sa mga butang ug mananap.** Sa Bisaya, “Lami kaayo!”, walay pulong para sa butang. Sa Iningles, kinahanglan ang {{it}}: {{It's delicious!}} {{It's hot today.}} Bisan sa panahon ug sa oras: {{It's raining.}} {{It's three o'clock.}}"},
+        {"p":"**Usa ra ka “we”.** Ang Bisaya naay duha (kami ug kita); ang Iningles usa ra: {{we}}. Ug ang “sila” kay {{they}}."},
+        { "table": [
+          ["Bisaya","Iningles","mubo"],
+          ["ako","{{I am}}","{{I'm}}"],
+          ["ikaw / kamo","{{you are}}","{{you're}}"],
+          ["siya (lalaki)","{{he is}}","{{he's}}"],
+          ["siya (babaye)","{{she is}}","{{she's}}"],
+          ["(butang, mananap)","{{it is}}","{{it's}}"],
+          ["kami / kita","{{we are}}","{{we're}}"],
+          ["sila","{{they are}}","{{they're}}"]
+        ] },
+        {"p":"**{{is}} o {{are}}?** Usa ka tawo o butang ({{he}}, {{she}}, {{it}}, o usa ka ngalan): {{is}}. Daghan ({{we}}, {{you}}, {{they}}): {{are}}. {{Lisa is a singer.}} {{Mark and Lisa are married.}}"},
+        { "ex": [
+          {"t":"He's my brother.","tr":"Akong igsoon siya."},
+          {"t":"She's a teacher.","tr":"Maestra siya."},
+          {"t":"It's hot today.","tr":"Init karon."},
+          {"t":"We're from Cebu.","tr":"Taga-Cebu mi."},
+          {"t":"They're tired.","tr":"Gikapoy sila."},
+          {"t":"It's delicious!","tr":"Lami kaayo!"}
+        ] },
+        {"tip":"Usa ka paagi sa paghinumdom: {{she}} naay {{s}} sama sa “siya nga babaye”; {{he}} walay. Ug kung dili ka sigurado, gamita ang ngalan: {{Lisa is a singer.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Lisa is my friend. He's a singer.","right":"Lisa is my friend. She's a singer.","tr":"Akong higala si Lisa. Mag-aawit siya.","why":"Babaye si Lisa: {{she}}. Ang {{he}} para lang sa lalaki."},
+        {"wrong":"Is hot today.","right":"It's hot today.","tr":"Init karon.","why":"Sa Iningles kinahanglan ang {{it}}, bisan wala kini sa Bisaya."},
+        {"wrong":"They is tired.","right":"They're tired.","tr":"Gikapoy sila.","why":"Uban sa {{they}}: {{are}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Si Mark (lalaki): “Doktor siya.”","options":["{{He's a doctor.}}","{{She's a doctor.}}","{{It's a doctor.}}"],"answer":0,"why":"Lalaki: {{he}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Lisa is my friend. ___ is a singer.","tr":"Akong higala si Lisa. Mag-aawit siya.","options":["She","He","It"],"answer":0,"why":"Babaye si Lisa: {{she}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ hot today.","tr":"Init karon.","options":["It's","Is","He's"],"answer":0,"why":"Ang panahon: {{it}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"They ___ from Bohol.","tr":"Taga-Bohol sila.","options":["are","is","am"],"answer":0,"why":"Uban sa {{they}}: {{are}}."},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Taga-Cebu mi.","words":["We're","from","Cebu."]},
+        {"type":"say","q":"Isulti: “Taga-Bohol ko.”","answer":"I'm from Bohol.","from":"introduce-yourself"},
+        {"type":"free","q":"Ikaw na: isulti ang bahin sa duha ka tawo sa imong kinabuhi, usa ka lalaki ug usa ka babaye.","answers":[{"t":"This is my dad. He's a driver. This is my mom. She's a teacher.","tr":"Mao ni akong papa. Drayber siya. Mao ni akong mama. Maestra siya."},{"t":"Mark is my friend. He's from Davao. Lisa is my sister. She's a nurse.","tr":"Akong higala si Mark. Taga-Davao siya. Akong igsoon si Lisa. Nars siya."}]}
+      ]
+    },
+    {
+      "id": "ask-with-be",
+      "unit": 1,
+      "level": "A1",
+      "title": "Pangutana: Are you…? Where…?",
+      "summary": "Pangutana og oo-o-dili nga pangutana, ug pangutana kung unsa, asa ug kinsa.",
+      "topic": "Ang {{am}} / {{is}} / {{are}} mobalhin sa unahan; {{what}}, {{where}}, {{who}}, {{how}}; mubo nga tubag ({{Yes, I am.}})",
+      "blocks": [
+        {"goal":{"t":"Are you a student? Where are you from?","tr":"Estudyante ka ba? Taga-asa ka?"}},
+        {"dialog":[{"who":"Lito","t":"Hi! What's your name?","tr":"Hi! Unsa imong ngalan?"},{"who":"Emma","t":"I'm Emma. And you?","tr":"Ako si Emma. Ikaw?"},{"who":"Lito","t":"I'm Lito. Are you a new student?","tr":"Ako si Lito. Bag-ong estudyante ka?"},{"who":"Emma","t":"Yes, I am. Where's the library?","tr":"Oo. Asa man ang librarya?"},{"who":"Lito","t":"It's on the second floor. Are you from Manila?","tr":"Naa sa ikaduhang andana. Taga-Manila ka?"},{"who":"Emma","t":"No, I'm from Iloilo.","tr":"Dili, taga-Iloilo ko."}]},
+        {"p":"**Oo o dili nga pangutana.** Sa Bisaya, mopataas lang ta sa tingog o mobutang og “ba”: “Estudyante ka ba?” Sa Iningles, **ibalhin ang {{am}}, {{is}} o {{are}} sa unahan**: {{You are a student.}} → {{Are you a student?}} {{She is your sister.}} → {{Is she your sister?}}"},
+        {"p":"**Unsa, asa, kinsa.** Ang pulong sa pangutana mag-una, sama sa Bisaya; dayon ang {{is}} o {{are}}; dayon ang tawo: {{Where are you from?}} “Taga-asa ka?”, {{Who is she?}} “Kinsa siya?”"},
+        { "table": [
+          ["Iningles","Bisaya","pananglitan"],
+          ["{{what}}","unsa","{{What's your name?}} Unsa imong ngalan?"],
+          ["{{where}}","asa","{{Where are you from?}} Taga-asa ka?"],
+          ["{{who}}","kinsa","{{Who's he?}} Kinsa siya?"],
+          ["{{how}}","kumusta, unsaon","{{How are you?}} Kumusta ka?"]
+        ] },
+        {"p":"**Mubo nga tubag.** Sa Bisaya, “Oo” o “Dili” igo na. Sa Iningles, ang naandan: {{Yes}} + ang tawo + {{am/is/are}}: {{Are you a student? — Yes, I am.}} {{Is she your sister? — Yes, she is.}} Pero ayaw gamita ang mubo nga porma sa katapusan: {{Yes, I am}}, dili {{Yes, I'm}}."},
+        { "ex": [
+          {"t":"Are you okay?","tr":"Okay ra ka?"},
+          {"t":"Is she your sister?","tr":"Imong igsoon siya?"},
+          {"t":"Where's the bathroom?","tr":"Asa ang banyo?"},
+          {"t":"What's your name?","tr":"Unsa imong ngalan?"},
+          {"t":"How are you?","tr":"Kumusta ka?"},
+          {"t":"Who's he?","tr":"Kinsa siya?"}
+        ] },
+        {"tip":"Sa istorya, madungog nimo usahay ang {{You're a student?}} nga gipataas lang ang tingog, sama sa Bisaya. Pero kini kasagaran para sa katingala (“Estudyante diay ka?”). Sa naandan nga pangutana: {{Are you…?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"You are a student?","right":"Are you a student?","tr":"Estudyante ka ba?","why":"Sa pangutana, ang {{are}} mobalhin sa unahan sa {{you}}."},
+        {"wrong":"Where you are from?","right":"Where are you from?","tr":"Taga-asa ka?","why":"Human sa {{where}}: {{are}} una, dayon ang {{you}}."},
+        {"wrong":"Yes, I'm.","right":"Yes, I am.","tr":"Oo.","why":"Ang mubo nga {{I'm}} dili mahimong katapusan sa sentence."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Unsa ang husto nga pangutana?","options":["{{Are you a student?}}","{{You are a student?}}","{{Student are you?}}"],"answer":0,"why":"Ang {{are}} mag-una."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ is the bathroom?","tr":"Asa ang banyo?","options":["Where","What","Who"],"answer":0,"why":"Asa: {{where}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ she your sister?","tr":"Imong igsoon siya?","options":["Is","Are","Am"],"answer":0,"why":"Uban sa {{she}}: {{is}}, ug kini mag-una sa pangutana."},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Taga-asa ka?","words":["Where","are","you","from?"]},
+        {"type":"dialogue","q":"Bag-ong klasmeyt: pilia ang imong mga tubag.","lines":[{"who":"Emma","t":"Hi! Are you a new student?","tr":"Hi! Bag-ong estudyante ka?"},{"options":["Yes, I am.","Yes, I'm."],"answer":0,"why":"Sa katapusan: {{I am}}, dili {{I'm}}."},{"who":"Emma","t":"Cool! I'm Emma.","tr":"Nindot! Ako si Emma."},{"options":["Nice to meet you! Where are you from?","Nice to meet you! Where you are from?"],"answer":0,"why":"{{are}} una sa {{you}}."}]},
+        {"type":"say","q":"Pangutan-a: “Kumusta ka?”","answer":"How are you?"},
+        {"type":"choice","q":"Pangutana bahin kang Lisa: “Taga-Cebu ba siya?”","options":["{{Is she from Cebu?}}","{{Is he from Cebu?}}","{{Are she from Cebu?}}"],"answer":0,"why":"Babaye: {{she}}, ug uban sa {{she}}: {{is}}.","from":"talk-about-people"},
+        {"type":"free","q":"Ikaw na: pangutan-a og duha o tulo ka pangutana ang usa ka bag-ong higala.","answers":[{"t":"What's your name? Where are you from? Are you a student?","tr":"Unsa imong ngalan? Taga-asa ka? Estudyante ka?"},{"t":"How are you? Who's she? Is she your sister?","tr":"Kumusta ka? Kinsa siya? Imong igsoon siya?"}]}
+      ]
+    },
+    {
+      "id": "say-no-with-be",
+      "unit": 1,
+      "level": "A1",
+      "title": "Isulti nga dili",
+      "summary": "Isulti kung unsa ang dili ikaw, ug tubaga og husto ang pangutana nga naay “dili”.",
+      "topic": "{{not}} human sa {{am}} / {{is}} / {{are}}; {{isn't}}, {{aren't}}; {{No, I'm not.}}; pagtubag sa pangutana nga naay “dili”",
+      "blocks": [
+        {"goal":{"t":"I'm not American. I'm Filipino.","tr":"Dili ko Amerikano. Pilipino ko."}},
+        {"dialog":[{"who":"Turista","t":"Are you from Manila?","tr":"Taga-Manila ka?"},{"who":"Ana","t":"No, I'm not. I'm from Cebu.","tr":"Dili. Taga-Cebu ko."},{"who":"Turista","t":"Are you a tour guide?","tr":"Tour guide ka?"},{"who":"Ana","t":"No, I'm a student. But my brother is a tour guide!","tr":"Dili, estudyante ko. Pero tour guide ang akong igsoon!"},{"who":"Turista","t":"You're not hungry?","tr":"Dili ka gigutom?"},{"who":"Ana","t":"No, I'm not. I just ate.","tr":"Oo, dili. Bag-o lang ko nikaon."}]},
+        {"p":"**Ang {{not}}.** Sa Bisaya, ang “dili” mag-una: “Dili ko Amerikano.” Sa Iningles, ang {{not}} **mosunod** sa {{am}}, {{is}} o {{are}}: {{I am not American.}} Sa istorya, kanunay nga gipamubo: {{I'm not}}, {{he isn't}}, {{they aren't}}."},
+        { "table": [
+          ["oo","dili","mubo"],
+          ["{{I am tired.}}","{{I am not tired.}}","{{I'm not tired.}}"],
+          ["{{She is here.}}","{{She is not here.}}","{{She isn't here.}}"],
+          ["{{They are ready.}}","{{They are not ready.}}","{{They aren't ready.}}"]
+        ] },
+        {"p":"**Mubo nga tubag**: {{No, I'm not.}} {{No, she isn't.}} {{No, they aren't.}} Mamatikdan nimo nga ang Bisaya mogamit og “wala” para sa “wala dinhi” (“Wala siya dinhi”), pero ang Iningles {{not}} gihapon: {{She isn't here.}}"},
+        {"p":"**Ang lit-ag: pangutana nga naay “dili”.** Sa Bisaya, kung pangutan-on ka og “Dili ka gigutom?”, motubag ka og “Oo” kung uyon ka nga dili ka gigutom. Sa Iningles, ang tubag nagsunod sa **tinuod**, dili sa pangutana: kung dili ka gigutom, {{No, I'm not.}} Kung gigutom ka, {{Yes, I am!}} Ang {{Yes}} kanunay nagpasabot nga tinuod ang butang."},
+        { "ex": [
+          {"t":"I'm not tired.","tr":"Dili ko gikapoy."},
+          {"t":"She isn't here.","tr":"Wala siya dinhi."},
+          {"t":"It isn't expensive.","tr":"Dili mahal."},
+          {"t":"They aren't from here.","tr":"Dili sila taga-dinhi."},
+          {"t":"No, I'm not.","tr":"Dili."},
+          {"t":"You're not hungry? — Yes, I am! I'm starving!","tr":"Dili ka gigutom? — Gigutom! Gigutom kaayo ko!"}
+        ] },
+        {"tip":"Usa pa ka mubo nga porma: {{You're not}} ug {{You aren't}}, {{She's not}} ug {{She isn't}}: parehas ra ang kahulogan. Gamita ang bisan asa."}
+      ],
+      "mistakes": [
+        {"wrong":"I not tired.","right":"I'm not tired.","tr":"Dili ko gikapoy.","why":"Kinahanglan gihapon ang {{am}}: {{I am not}}, mubo {{I'm not}}."},
+        {"wrong":"She no here.","right":"She isn't here.","tr":"Wala siya dinhi.","why":"Ang “wala dinhi” sa Iningles: {{is not}} → {{isn't}}. Ang {{no}} dili mahimong mopuli sa {{not}}."},
+        {"wrong":"You're not hungry? — Yes.","right":"You're not hungry? — No, I'm not.","tr":"Dili ka gigutom? — Oo, dili.","why":"Kung dili ka gigutom, ang tubag sa Iningles {{No}}: nagsunod kini sa tinuod, dili sa pangutana."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ not tired.","tr":"Dili ko gikapoy.","options":["am","is","are"],"answer":0,"why":"{{I am not}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"She ___ here.","tr":"Wala siya dinhi.","options":["isn't","aren't","not"],"answer":0,"why":"Uban sa {{she}}: {{is not}} → {{isn't}}."},
+        {"type":"choice","q":"Pangutana: {{You're not hungry?}} Dili ka gigutom. Unsay imong tubag?","options":["{{No, I'm not.}}","{{Yes.}}","{{Yes, I'm not.}}"],"answer":0,"why":"Dili ka gigutom: {{No}}. Ang {{Yes}} nagpasabot nga gigutom ka."},
+        {"type":"dialogue","q":"Usa ka turista nasayop sa pagtag-an. Pilia ang imong mga tubag.","lines":[{"who":"Turista","t":"Are you Japanese?","tr":"Hapon ka?"},{"options":["No, I'm not. I'm Filipino.","No, I not. I'm Filipino."],"answer":0,"why":"{{I'm not}}: kinahanglan ang {{'m}}."},{"who":"Turista","t":"Oh, sorry! Is Cebu your hometown?","tr":"Ay, sorry! Cebu ba ang imong lungsod?"},{"options":["No, it isn't. I'm from Leyte.","No, it no. I'm from Leyte."],"answer":0,"why":"{{it is not}} → {{it isn't}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Dili sila taga-dinhi.","words":["They","aren't","from","here."]},
+        {"type":"choice","q":"Pangutana: {{Are you a student?}} Dili ka estudyante. Unsay imong tubag?","options":["{{No, I'm not.}}","{{No, I amn't.}}","{{No, I'm.}}"],"answer":0,"why":"{{No, I'm not.}}: ang {{am not}} gipamubo nga {{'m not}}.","from":"ask-with-be"},
+        {"type":"say","q":"Isulti: “Dili siya (babaye) taga-Cebu.”","answer":"She isn't from Cebu.","from":"talk-about-people"},
+        {"type":"free","q":"Ikaw na: isulti ang usa ka butang nga dili ikaw, ug usa nga ikaw.","answers":[{"t":"I'm not a teacher. I'm a nurse.","tr":"Dili ko maestra. Nars ko."},{"t":"I'm not from Manila. I'm from Cebu.","tr":"Dili ko taga-Manila. Taga-Cebu ko."}]}
+      ]
+    },
+    {
+      "id": "point-and-name",
+      "unit": 1,
+      "level": "A1",
+      "title": "Itudlo ug nganli ang mga butang",
+      "summary": "Pangutana “Unsa ni? Unsa kana?”, ug nganli ang usa o daghang butang.",
+      "topic": "{{this}}, {{that}}, {{these}}, {{those}}; {{a}} ug {{an}}; ang {{-s}} sa daghan",
+      "blocks": [
+        {"goal":{"t":"What's this? — It's a jackfruit.","tr":"Unsa ni? — Nangka kini."}},
+        {"dialog":[{"who":"Turista","t":"What's that?","tr":"Unsa kana?"},{"who":"Ikaw","t":"It's a jackfruit. And these are mangosteens.","tr":"Nangka kana. Ug mga mangosteen kini."},{"who":"Turista","t":"Are they sweet?","tr":"Tam-is ba sila?"},{"who":"Ikaw","t":"Yes, they are! And that's a durian over there.","tr":"Oo! Ug durian kadto didto."},{"who":"Turista","t":"What are those?","tr":"Unsa kadto?"},{"who":"Ikaw","t":"Those are rambutans. Try one!","tr":"Mga rambutan kadto. Tilawi ang usa!"}]},
+        {"p":"**This ug that.** Ang Bisaya naay tulo: kini, kana, kadto. Ang Iningles duha ra: {{this}} para sa duol nimo (kini), ug {{that}} para sa layo nimo (kana o kadto). Kung daghan: {{these}} (kini nga mga) ug {{those}} (kana o kadto nga mga)."},
+        { "table": [
+          ["","usa","daghan"],
+          ["duol nako (kini)","{{this}}: {{this book}}","{{these}}: {{these books}}"],
+          ["layo nako (kana, kadto)","{{that}}: {{that book}}","{{those}}: {{those books}}"]
+        ] },
+        {"term":"noun","means":"pulong para sa tawo, butang o lugar: balay, mangga, Cebu. Sa Iningles: {{house}}, {{mango}}, {{Cebu}}."},
+        {"p":"**{{a}} ug {{an}}.** “Nangka kini”: sa Bisaya walay “usa”. Sa Iningles, ang usa ka butang nga maihap kinahanglan og {{a}}: {{It's a jackfruit.}} Kung ang sunod nga pulong magsugod sa tingog nga a, e, i, o, u, gamita ang {{an}}: {{an apple}}, {{an egg}}, {{an umbrella}}. (Nagsunod kini sa **tingog**, dili sa letra: {{an hour}}, pero {{a university}}.)"},
+        {"term":"plural","means":"kapin sa usa. Sa Bisaya, “mga”; sa Iningles, kasagaran {{-s}} sa katapusan: {{book}} → {{books}}."},
+        {"p":"**Ang daghan: {{-s}}.** Ang “mga” sa Bisaya mahimong kuhaon, pero sa Iningles **kinahanglan gyud** ang {{-s}} kung kapin sa usa: {{one book}}, {{two books}}, {{these books}}. Ang ubang pulong {{-es}}: {{mango}} → {{mangoes}}, {{box}} → {{boxes}}."},
+        { "ex": [
+          {"t":"This is my phone.","tr":"Akong selpon kini."},
+          {"t":"That's a church.","tr":"Simbahan kana."},
+          {"t":"These are my friends.","tr":"Mao ni akong mga higala."},
+          {"t":"Those are expensive.","tr":"Mahal kadto."},
+          {"t":"It's an umbrella.","tr":"Payong kini."},
+          {"t":"I need two eggs.","tr":"Kinahanglan ko og duha ka itlog."}
+        ] },
+        {"tip":"Ang {{th}} sa {{this}}, {{that}}, {{these}}, {{those}}: ibutang ang tumoy sa dila taliwala sa mga ngipon, dayon isulti ang “d”. Ayaw ilisi og “d” lang: {{this}}, dili “dis”."}
+      ],
+      "mistakes": [
+        {"wrong":"It's jackfruit.","right":"It's a jackfruit.","tr":"Nangka kini.","why":"Usa ka butang nga maihap: kinahanglan ang {{a}}."},
+        {"wrong":"It's a apple.","right":"It's an apple.","tr":"Mansanas kini.","why":"Sa unahan sa tingog nga a, e, i, o, u: {{an}}."},
+        {"wrong":"These is my book.","right":"These are my books.","tr":"Akong mga libro kini.","why":"Daghan: {{these are}}, ug {{-s}} sa {{books}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"It's ___ umbrella.","tr":"Payong kini.","options":["an","a","the"],"answer":0,"why":"Ang {{umbrella}} magsugod sa tingog nga u: {{an}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ are my friends.","tr":"Mao ni akong mga higala.","options":["These","This","That"],"answer":0,"why":"Daghan ug duol: {{these}}."},
+        {"type":"choice","q":"Unsa ang plural sa {{book}}?","options":["{{books}}","{{mga book}}","{{bookes}}"],"answer":0,"why":"Idugang ang {{-s}}."},
+        {"type":"dialogue","q":"Sa merkado uban sa usa ka turista: pilia ang imong mga tubag.","lines":[{"who":"Turista","t":"What's this?","tr":"Unsa ni?"},{"options":["It's a mango.","It's mango."],"answer":0,"why":"Usa ka mangga: {{a mango}}."},{"who":"Turista","t":"And those?","tr":"Ug kadto?"},{"options":["Those are bananas.","That is bananas."],"answer":0,"why":"Daghan: {{those are}} + {{-s}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Akong selpon kini.","words":["This","is","my","phone."]},
+        {"type":"say","q":"Pangutana: “Unsa kana?”","answer":"What's that?","from":"ask-with-be"},
+        {"type":"choice","q":"“Lami kaayo ni!” sa Iningles:","options":["{{It's really delicious!}}","{{Is really delicious!}}"],"answer":0,"why":"Kinahanglan ang {{it}}.","from":"talk-about-people"},
+        {"type":"free","q":"Ikaw na: itudlo ang duha o tulo ka butang duol nimo ug isulti kung unsa sila.","answers":[{"t":"This is my phone. That's a fan.","tr":"Akong selpon kini. Bentilador kana."},{"t":"These are my keys. That's an umbrella.","tr":"Akong mga yawe kini. Payong kana."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-family",
+      "unit": 1,
+      "level": "A1",
+      "title": "Isulti ang bahin sa imong pamilya",
+      "summary": "Ipaila ang imong pamilya: “I have two brothers. My sister's name is Lisa.”",
+      "topic": "{{my}}, {{your}}, {{his}}, {{her}}, {{our}}, {{their}}; ang {{'s}} ({{Ben's house}}); {{have}} / {{has}}",
+      "blocks": [
+        {"goal":{"t":"I have two brothers. My sister's name is Lisa.","tr":"Naa koy duha ka igsoon nga lalaki. Lisa ang ngalan sa akong igsoon nga babaye."}},
+        {"dialog":[{"who":"Joy","t":"Is this your family?","tr":"Imong pamilya ni?"},{"who":"Ben","t":"Yes! This is my mom, and this is my dad.","tr":"Oo! Mao ni akong mama, ug mao ni akong papa."},{"who":"Joy","t":"Who's he?","tr":"Kinsa siya?"},{"who":"Ben","t":"That's my brother, Paul. He has two kids.","tr":"Akong igsoon kana, si Paul. Naa siyay duha ka anak."},{"who":"Joy","t":"And the woman next to him?","tr":"Ug ang babaye sa iyang tupad?"},{"who":"Ben","t":"That's my sister. Her name is Lisa. Her husband is a pilot.","tr":"Akong igsoon kana. Lisa ang iyang ngalan. Piloto ang iyang bana."}]},
+        {"p":"**My, your, his, her…** Kini ang Iningles sa “akong, imong, iyang…”. Pareho sa Bisaya, mag-una sila sa nombre: {{my mom}} “akong mama”. Pero bantayi ang “iyang”: sama sa “siya”, kinahanglan mopili: {{his}} kung lalaki ang tag-iya, {{her}} kung babaye."},
+        { "table": [
+          ["Bisaya","Iningles","pananglitan"],
+          ["akong","{{my}}","{{my house}}"],
+          ["imong / inyong","{{your}}","{{your house}}"],
+          ["iyang (lalaki)","{{his}}","{{his house}}"],
+          ["iyang (babaye)","{{her}}","{{her house}}"],
+          ["(sa butang)","{{its}}","{{its name}}"],
+          ["among / atong","{{our}}","{{our house}}"],
+          ["ilang","{{their}}","{{their house}}"]
+        ] },
+        {"p":"**Ang {{'s}}.** “Ang balay ni Ben” sa Iningles: {{Ben's house}}. Ang tag-iya mag-una, dayon {{'s}}, dayon ang butang: baliktad sa Bisaya. {{my sister's name}} “ang ngalan sa akong igsoon”."},
+        {"p":"**Have ug has.** Ang “Naa koy…” sa Iningles: {{I have…}}. Uban sa {{he}}, {{she}}, {{it}}, o usa ka ngalan, mahimong {{has}}: {{She has a dog.}} {{Paul has two kids.}} Sa uban ({{I}}, {{you}}, {{we}}, {{they}}): {{have}}."},
+        { "ex": [
+          {"t":"My mom is a teacher.","tr":"Maestra ang akong mama."},
+          {"t":"His name is Paul.","tr":"Paul ang iyang ngalan."},
+          {"t":"Her husband is a pilot.","tr":"Piloto ang iyang bana."},
+          {"t":"Ben's house is big.","tr":"Dako ang balay ni Ben."},
+          {"t":"I have two brothers.","tr":"Naa koy duha ka igsoon nga lalaki."},
+          {"t":"She has a dog.","tr":"Naa siyay iro."},
+          {"t":"Our house is small.","tr":"Gamay ang among balay."}
+        ] },
+        {"tip":"Ang “igsoon” duha sa Iningles: {{brother}} (lalaki) ug {{sister}} (babaye). Ang “manghod” ug “magulang”: {{younger brother}}, {{older sister}}, ug uban pa. Kung dili ka mopili, {{siblings}}: {{I have three siblings.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Lisa is my sister. His husband is a pilot.","right":"Lisa is my sister. Her husband is a pilot.","tr":"Akong igsoon si Lisa. Piloto ang iyang bana.","why":"Babaye ang tag-iya (si Lisa): {{her}}."},
+        {"wrong":"She have a dog.","right":"She has a dog.","tr":"Naa siyay iro.","why":"Uban sa {{he}}, {{she}}, {{it}}: {{has}}."},
+        {"wrong":"the house of Ben","right":"Ben's house","tr":"ang balay ni Ben","why":"Sa Iningles, mas natural ang tag-iya + {{'s}} + butang."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Lisa is my friend. ___ husband is a pilot.","tr":"Akong higala si Lisa. Piloto ang iyang bana.","options":["Her","His","She"],"answer":0,"why":"Babaye ang tag-iya: {{her}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"She ___ two kids.","tr":"Naa siyay duha ka anak.","options":["has","have","is"],"answer":0,"why":"Uban sa {{she}}: {{has}}."},
+        {"type":"choice","q":"“Ang balay ni Ben” sa Iningles:","options":["{{Ben's house}}","{{house Ben's}}","{{Ben house's}}"],"answer":0,"why":"Ang tag-iya + {{'s}} + ang butang."},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Gamay ang among balay.","words":["Our","house","is","small."]},
+        {"type":"dialogue","q":"Gipakita nimo ang litrato sa imong pamilya. Pilia ang imong mga tubag.","lines":[{"who":"Mark","t":"Who's that?","tr":"Kinsa kana?"},{"options":["That's my sister. Her name is Joy.","That's my sister. His name is Joy."],"answer":0,"why":"Babaye ang imong igsoon: {{her}}."},{"who":"Mark","t":"Does she have kids?","tr":"Naa ba siyay anak?"},{"options":["Yes, she has two kids.","Yes, she have two kids."],"answer":0,"why":"{{she has}}."}]},
+        {"type":"say","q":"Isulti: “Mao ni akong mga ginikanan.”","answer":"These are my parents.","from":"point-and-name"},
+        {"type":"choice","q":"“Taga-Bohol ang iyang asawa.” (lalaki ang tag-iya)","options":["{{His wife is from Bohol.}}","{{Her wife is from Bohol.}}"],"answer":0,"why":"Lalaki ang tag-iya: {{his}}.","from":"talk-about-people"},
+        {"type":"free","q":"Ikaw na: isulti ang bahin sa duha ka tawo sa imong pamilya.","answers":[{"t":"I have one sister. Her name is Joy. She's a nurse.","tr":"Naa koy usa ka igsoon nga babaye. Joy ang iyang ngalan. Nars siya."},{"t":"My dad's name is Rudy. He has a small store.","tr":"Rudy ang ngalan sa akong papa. Naa siyay gamay nga tindahan."}]}
+      ]
+    }
+  ]
+}

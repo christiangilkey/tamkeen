@@ -1,6 +1,20 @@
 {
  "format": 1,
  "courses": {
+  "ceb-en": {
+   "file": "ceb-en/course.json",
+   "from": "ceb",
+   "to": "en",
+   "title": "Gramatika sa Iningles",
+   "variety": "American English",
+   "units": 9,
+   "lessons": 6,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 29618,
+   "sha256": "1fb7d84468b709af4a728db29221d95457b65445f82be45d73199ef81263b8ab"
+  },
   "en-ar": {
    "file": "en-ar/course.json",
    "from": "en",
