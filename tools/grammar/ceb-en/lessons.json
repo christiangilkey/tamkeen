@@ -1204,6 +1204,247 @@
         {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"They ___ watching TV.","tr":"Nagtan-aw sila og TV.","options":["were","was","is"],"answer":0,"why":"Kaniadto, uban sa {{they}}: {{were}}.","from":"say-where-you-were"},
         {"type":"free","q":"Ikaw na: unsay imong gibuhat kagabii alas otso? Ug unsay nahitabo?","answers":[{"t":"I was watching TV at eight. Then my brother came home with pizza!","tr":"Nanan-aw ko og TV alas otso. Dayon miabot akong igsoon nga nagdala og pizza!"},{"t":"I was cooking dinner when my friend called me.","tr":"Nagluto ko sa panihapon sa dihang gitawagan ko sa akong higala."}]}
       ]
+    },
+    {
+      "id": "talk-about-plans",
+      "unit": 5,
+      "level": "A2",
+      "title": "Isulti ang imong mga plano",
+      "summary": "Isulti kung unsay imong plano karong weekend ug sunod semana: “I'm going to visit my lola.”",
+      "topic": "{{be going to}} + berbo para sa plano; ang present continuous para sa gikasabotan na ({{I'm meeting Ben at six.}})",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit my lola this weekend.","tr":"Mobisita ko sa akong lola karong weekend."}},
+        {"dialog":[{"who":"Amy","t":"What are you going to do this weekend?","tr":"Unsay imong buhaton karong weekend?"},{"who":"Ana","t":"I'm going to visit my lola in Carcar. I'm going to cook for her.","tr":"Mobisita ko sa akong lola sa Carcar. Magluto ko para niya."},{"who":"Amy","t":"Nice! Are you going to stay there?","tr":"Nindot! Magpabilin ka didto?"},{"who":"Ana","t":"No, I'm not. I'm meeting my friends on Sunday.","tr":"Dili. Magkita mi sa akong mga higala sa Domingo."},{"who":"Amy","t":"What are you going to do?","tr":"Unsay inyong buhaton?"},{"who":"Ana","t":"We're going to watch a movie.","tr":"Manan-aw mi og sine."}]},
+        {"p":"Sa Bisaya, ang “mo-” ug “mag-” para sa wala pa mahitabo. Sa Iningles, ang umaabot naay lain-laing porma. Para sa **plano nga nadesisyonan na**: {{be going to}} + berbo: {{I'm going to visit my lola.}}"},
+        { "table": [
+          ["","Iningles","Bisaya"],
+          ["plano","{{I'm going to visit my lola.}}","Mobisita ko sa akong lola."],
+          ["pangutana","{{Are you going to stay?}}","Magpabilin ka?"],
+          ["dili","{{I'm not going to stay.}}","Dili ko magpabilin."],
+          ["gikasabotan na","{{I'm meeting my friends on Sunday.}}","Magkita mi sa akong mga higala sa Domingo."]
+        ] },
+        {"p":"**Ang porma**: {{am}} / {{is}} / {{are}} + {{going to}} + berbo nga walay usab. Kinahanglan ang {{am/is/are}}: {{I'm going to…}}, dili {{I going to…}}. Ug human sa {{to}}, walay {{-s}}: {{She's going to buy}}, dili {{buys}}."},
+        {"p":"**Gikasabotan na uban sa uban**, naay oras ug lugar: ang present continuous, uban ang pulong sa umaabot: {{I'm meeting Ben at six.}} {{We're flying to Manila tomorrow.}} Ang {{tomorrow}}, {{on Sunday}} ang nagsulti nga umaabot kini, dili karon."},
+        { "ex": [
+          {"t":"I'm going to visit my lola.","tr":"Mobisita ko sa akong lola."},
+          {"t":"It's going to rain.","tr":"Moulan."},
+          {"t":"She's going to buy a new phone.","tr":"Mopalit siya og bag-ong selpon."},
+          {"t":"We're not going to stay long.","tr":"Dili mi magdugay."},
+          {"t":"Are you going to come?","tr":"Mouban ka?"},
+          {"t":"I'm meeting Ben at six.","tr":"Magkita mi ni Ben alas sais."}
+        ] },
+        {"tip":"Sa istorya, ang {{going to}} kasagaran madungog nga {{gonna}}: {{I'm gonna visit my lola.}} Masabtan nimo kini, pero isulat gihapon ang {{going to}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I going to visit my lola.","right":"I'm going to visit my lola.","tr":"Mobisita ko sa akong lola.","why":"Kinahanglan ang {{am}}: {{I am going to}}."},
+        {"wrong":"She's going to buys a phone.","right":"She's going to buy a phone.","tr":"Mopalit siya og selpon.","why":"Human sa {{to}}: berbo nga walay {{-s}}."},
+        {"wrong":"Tomorrow I visit my lola.","right":"Tomorrow I'm going to visit my lola.","tr":"Ugma mobisita ko sa akong lola.","why":"Plano sa umaabot: {{going to}}. Ang {{I visit}} para sa naandan."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I'm ___ to visit my lola.","tr":"Mobisita ko sa akong lola.","options":["going","go","went"],"answer":0,"why":"{{be going to}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"She's going to ___ a new phone.","tr":"Mopalit siya og bag-ong selpon.","options":["buy","buys","bought"],"answer":0,"why":"Human sa {{to}}: walay usab."},
+        {"type":"choice","q":"Ngitngit ang langit: “Moulan.”","options":["{{It's going to rain.}}","{{It rains.}}","{{It raining.}}"],"answer":0,"why":"Makita na nimo nga mahitabo: {{going to}}."},
+        {"type":"dialogue","q":"Gipangutana ka bahin sa imong weekend. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"What are you going to do this weekend?","tr":"Unsay imong buhaton karong weekend?"},{"options":["I'm going to clean my apartment.","I going to clean my apartment."],"answer":0,"why":"{{I'm going to…}}"},{"who":"Amy","t":"Are you going to go out?","tr":"Mogawas ka?"},{"options":["Yes, I'm meeting my cousins on Sunday.","Yes, I meet my cousins on Sunday."],"answer":0,"why":"Gikasabotan na: {{I'm meeting…}}"}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Manan-aw mi og sine.","words":["We're","going to","watch","a movie."]},
+        {"type":"choice","q":"“Gusto ko moadto.” ug “Moadto ko (plano na).”","options":["{{I want to go.}} ug {{I'm going to go.}}","{{I'm going to go.}} ug {{I want to go.}}"],"answer":0,"why":"{{want to}}: gusto. {{going to}}: plano.","from":"say-what-you-want-to-do"},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I'm ___ my friends on Sunday.","tr":"Magkita mi sa akong mga higala sa Domingo.","options":["meeting","meet","met"],"answer":0,"why":"Gikasabotan na: {{am}} + {{-ing}}, sama sa leksyon 16.","from":"say-what-youre-doing-now"},
+        {"type":"free","q":"Ikaw na: isulti ang duha ka plano nimo karong semanaha.","answers":[{"t":"I'm going to visit my parents on Saturday. On Sunday, I'm going to rest.","tr":"Mobisita ko sa akong ginikanan sa Sabado. Sa Domingo, mopahulay ko."},{"t":"I'm meeting my friend for lunch tomorrow. We're going to try a new restaurant.","tr":"Magkita mi sa akong higala para maniudto ugma. Mosulay mi og bag-ong restawran."}]}
+      ]
+    },
+    {
+      "id": "make-promises-and-predictions",
+      "unit": 5,
+      "level": "A2",
+      "title": "Mosaad ug motag-an",
+      "summary": "Mosaad, motanyag og tabang ug motag-an: “Don't worry, I'll help you.”",
+      "topic": "{{will}} / {{'ll}} + berbo para sa desisyon karon dayon, saad, tanyag ug tag-an; {{won't}}; {{will}} vs {{going to}}",
+      "blocks": [
+        {"goal":{"t":"Don't worry, I'll help you.","tr":"Ayaw kabalaka, tabangan tika."}},
+        {"dialog":[{"who":"Joy","t":"This box is so heavy!","tr":"Bug-at kaayo kini nga kahon!"},{"who":"Ben","t":"I'll help you!","tr":"Tabangan tika!"},{"who":"Joy","t":"Thanks! I'll buy you coffee later.","tr":"Salamat! Ilibre tika og kape unya."},{"who":"Ben","t":"Deal! Will you be at the office tomorrow?","tr":"Sige! Naa ka sa opisina ugma?"},{"who":"Joy","t":"No, I won't. I'll work from home.","tr":"Dili. Magtrabaho ko sa balay."},{"who":"Ben","t":"Okay. I'll call you, then.","tr":"Okay. Tawagan tika, kon mao."}]},
+        {"p":"**{{will}}** (mubo {{'ll}}) + berbo nga walay usab. Gamiton kini para sa: **desisyon karon dayon** ({{I'll help you!}}), **saad** ({{I'll call you.}}), **tanyag** ({{I'll carry that.}}), ug **tag-an** ({{It will be hot tomorrow.}} {{You'll love Cebu!}})."},
+        {"p":"**{{will}} o {{going to}}?** Kung nadesisyonan na nimo kaniadto (naa nay plano): {{going to}}. Kung karon pa lang nimo gidesisyonan, sa pagsulti: {{will}}. “Mobisita ko sa akong lola ugma” (plano na) → {{I'm going to visit my lola.}} Mobagting ang telepono: “Ako nay motubag!” → {{I'll get it!}}"},
+        { "table": [
+          ["","Iningles","Bisaya"],
+          ["desisyon karon","{{I'll help you.}}","Tabangan tika."],
+          ["saad","{{I won't be late.}}","Dili ko maulahi."],
+          ["tag-an","{{It will be sunny tomorrow.}}","Init ugma."],
+          ["pangutana","{{Will you be home?}}","Naa ka sa balay?"],
+          ["plano na","{{I'm going to visit my lola.}}","Mobisita ko sa akong lola."]
+        ] },
+        {"p":"**Dili: {{won't}}** ({{will not}}): {{I won't be late.}} Ug sama sa {{can}}: walay {{to}}, walay {{-s}}: {{She will come}}, dili {{She wills come}} o {{will to come}}."},
+        { "ex": [
+          {"t":"I'll help you.","tr":"Tabangan tika."},
+          {"t":"I'll call you tomorrow.","tr":"Tawagan tika ugma."},
+          {"t":"It will be sunny tomorrow.","tr":"Init ugma."},
+          {"t":"You'll love it!","tr":"Magustohan gyud nimo!"},
+          {"t":"I won't be late.","tr":"Dili ko maulahi."},
+          {"t":"Will you be home tonight?","tr":"Naa ka sa balay karong gabii?"}
+        ] },
+        {"tip":"Ang {{late}}, {{home}}, {{happy}} dili berbo, busa kinahanglan ang {{be}} human sa {{will}}: {{I'll be late.}} {{She'll be happy.}}, dili {{I'll late}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I will to call you.","right":"I'll call you.","tr":"Tawagan tika.","why":"Human sa {{will}}: berbo dayon, walay {{to}}."},
+        {"wrong":"She wills come.","right":"She will come.","tr":"Moanhi siya.","why":"Ang {{will}} walay {{-s}}."},
+        {"wrong":"I won't late.","right":"I won't be late.","tr":"Dili ko maulahi.","why":"Ang {{late}} dili berbo: {{won't be late}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Don't worry, I___ help you.","tr":"Ayaw kabalaka, tabangan tika.","options":["'ll","'m","'s"],"answer":0,"why":"Saad, desisyon karon: {{I'll}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I won't ___ late.","tr":"Dili ko maulahi.","options":["be","to be","being"],"answer":0,"why":"{{won't be}} + {{late}}."},
+        {"type":"choice","q":"Saad: “Tawagan tika ugma.”","options":["{{I'll call you tomorrow.}}","{{I call you tomorrow.}}","{{I calling you tomorrow.}}"],"answer":0,"why":"Saad: {{will}}."},
+        {"type":"dialogue","q":"Ang imong higala naay problema. Pilia ang imong mga tubag.","lines":[{"who":"Mark","t":"My car broke down, and I have a meeting at nine!","tr":"Naguba akong awto, ug naa koy miting alas nuwebe!"},{"options":["Don't worry, I'll drive you.","Don't worry, I drive you."],"answer":0,"why":"Desisyon karon, tanyag: {{I'll}}."},{"who":"Mark","t":"Really? Thanks! Will we be on time?","tr":"Tinuod? Salamat! Moabot ba ta sa oras?"},{"options":["Yes, we will. Let's go!","Yes, we are will. Let's go!"],"answer":0,"why":"Mubo nga tubag: {{Yes, we will.}}"}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Dili ko maulahi.","words":["I","won't","be","late."]},
+        {"type":"choice","q":"Asa ang husto nga pagpasabot?","options":["Plano na kaniadto: {{going to}}. Desisyon karon dayon: {{will}}.","Plano na kaniadto: {{will}}. Desisyon karon dayon: {{going to}}."],"answer":0,"why":"{{I'm going to visit my lola}} (plano). {{I'll get it!}} (karon pa nidesisyon).","from":"talk-about-plans"},
+        {"type":"say","q":"Isulti: “Dili ko makaadto, pero tawagan tika.”","answer":"I can't come, but I'll call you.","from":"say-what-you-can-do"},
+        {"type":"free","q":"Ikaw na: mosaad og duha ka butang sa usa ka higala.","answers":[{"t":"I'll call you every week. I won't forget your birthday!","tr":"Tawagan tika matag semana. Dili nako kalimtan ang imong birthday!"},{"t":"I'll help you with your move on Saturday. I'll bring food too.","tr":"Tabangan tika sa imong pagbalhin sa Sabado. Magdala sad ko og pagkaon."}]}
+      ]
+    },
+    {
+      "id": "invite-and-suggest",
+      "unit": 5,
+      "level": "A2",
+      "title": "Pagdapit ug pagsugyot",
+      "summary": "Dapita ang usa ka tawo, sugyoti og plano, ug dawata o balibari og matinahuron.",
+      "topic": "{{Would you like to…?}}; {{I'd love to!}}; {{Let's…}}, {{Why don't we…?}}, {{How about…?}}",
+      "blocks": [
+        {"goal":{"t":"Would you like to have dinner with us on Saturday?","tr":"Gusto nimo mouban namo og panihapon sa Sabado?"}},
+        {"dialog":[{"who":"Ana","t":"Would you like to have dinner with us on Saturday?","tr":"Gusto nimo mouban namo og panihapon sa Sabado?"},{"who":"Amy","t":"I'd love to! What time?","tr":"Ganahan kaayo ko! Unsang orasa?"},{"who":"Ana","t":"How about seven?","tr":"Alas siyete kaha?"},{"who":"Amy","t":"Perfect. Should I bring something?","tr":"Sakto. Magdala ba ko og bisan unsa?"},{"who":"Ana","t":"Why don't you bring dessert?","tr":"Pagdala na lang og dessert."},{"who":"Amy","t":"Sure! See you on Saturday!","tr":"Sige! Magkita ta sa Sabado!"}]},
+        {"p":"**Pagdapit.** Ang matinahuron: {{Would you like to…?}} “Gusto nimo…?”. Ang mas kaswal: {{Do you want to…?}} Pagtubag: {{I'd love to!}} “Ganahan kaayo ko!”, {{Sure!}}, o kung dili: {{Sorry, I can't. I'm busy.}}: kanunay uban ang gamay nga rason."},
+        {"p":"**Pagsugyot.** Ang {{Let's…}} sa leksyon 19 ({{Let's eat out!}}), ug duha pa: {{Why don't we…?}} ({{Why don't we eat out?}} “Mokaon kaha ta sa gawas?”) ug {{How about…?}} + nombre o {{-ing}} ({{How about seven?}} {{How about going to the beach?}})."},
+        { "table": [
+          ["","Iningles","Bisaya"],
+          ["dapit (matinahuron)","{{Would you like to come?}}","Gusto nimo mouban?"],
+          ["dapit (kaswal)","{{Do you want to come?}}","Ganahan ka mouban?"],
+          ["sugyot","{{Why don't we eat out?}}","Mokaon kaha ta sa gawas?"],
+          ["sugyot","{{How about pizza?}}","Pizza kaha?"],
+          ["dawat","{{I'd love to!}}","Ganahan kaayo ko!"],
+          ["balibad","{{Sorry, I can't. I'm working.}}","Sorry, dili ko makaadto. Naa koy trabaho."]
+        ] },
+        {"p":"**Ang {{Why don't we…?}} dili tinuod nga “ngano”**: sugyot kini, sama sa “…kaha ta?”. Ayaw tubaga og {{Because…}}; tubaga og {{Sure!}} o {{Good idea!}}"},
+        { "ex": [
+          {"t":"Would you like to come to my party?","tr":"Gusto nimo moanhi sa akong party?"},
+          {"t":"I'd love to!","tr":"Ganahan kaayo ko!"},
+          {"t":"Sorry, I can't. I'm working.","tr":"Sorry, dili ko makaadto. Naa koy trabaho."},
+          {"t":"Why don't we eat out tonight?","tr":"Mokaon kaha ta sa gawas karong gabii?"},
+          {"t":"How about pizza?","tr":"Pizza kaha?"},
+          {"t":"Let's meet at the mall.","tr":"Magkita ta sa mall."}
+        ] },
+        {"tip":"Sa Amerika, ang pagbalibad nga walay rason morag bugnaw. Kanunay idugang ang gamay nga rason ug, kung mahimo, laing petsa: {{Sorry, I can't on Saturday. How about Sunday?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Would you like come?","right":"Would you like to come?","tr":"Gusto nimo mouban?","why":"{{Would you like}} + {{to}} + berbo."},
+        {"wrong":"How about go to the beach?","right":"How about going to the beach?","tr":"Moadto kaha ta sa baybayon?","why":"Human sa {{How about}}: nombre o berbo-{{ing}}."},
+        {"wrong":"Why don't we eat out? — Because I'm busy.","right":"Why don't we eat out? — Sorry, I'm busy tonight.","tr":"Mokaon kaha ta sa gawas? — Sorry, busy ko karong gabii.","why":"Ang {{Why don't we…?}} usa ka sugyot, dili pangutana sa rason."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Would you like ___ come?","tr":"Gusto nimo mouban?","options":["to","for","in"],"answer":0,"why":"{{Would you like to…?}}"},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"How about ___ to the beach?","tr":"Moadto kaha ta sa baybayon?","options":["going","go","to go"],"answer":0,"why":"Human sa {{How about}}: {{-ing}}."},
+        {"type":"choice","q":"Gidapit ka pero dili ka makaadto. Asa ang matinahuron?","options":["{{Sorry, I can't. I'm visiting my parents.}}","{{No.}}","{{I don't want.}}"],"answer":0,"why":"Balibad + gamay nga rason."},
+        {"type":"dialogue","q":"Gidapit nimo ang usa ka kauban sa trabaho. Pilia ang imong mga sulti.","lines":[{"options":["Would you like to have lunch with me?","Would you like have lunch with me?"],"answer":0,"why":"{{like to}} + berbo."},{"who":"Kauban","t":"Sure! Where?","tr":"Sige! Asa?"},{"options":["How about the new Korean place?","How about go to the new Korean place?"],"answer":0,"why":"Human sa {{How about}}: nombre (o {{going}})."},{"who":"Kauban","t":"Sounds great!","tr":"Nindot kana!"}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Mokaon kaha ta sa gawas?","words":["Why","don't","we","eat out?"]},
+        {"type":"say","q":"Isulti: “Sorry, dili ko makaadto. Mobisita ko sa akong lola.”","answer":"Sorry, I can't. I'm going to visit my lola.","from":"talk-about-plans"},
+        {"type":"choice","q":"Asa ang husto?","options":["{{Let's go!}}","{{Let's to go!}}","{{Let's going!}}"],"answer":0,"why":"{{Let's}} + berbo dayon.","from":"tell-people-what-to-do"},
+        {"type":"free","q":"Ikaw na: dapita ang usa ka higala sa usa ka butang, ug sugyoti ang oras.","answers":[{"t":"Would you like to go to the beach on Sunday? How about nine in the morning?","tr":"Gusto nimo moadto sa baybayon sa Domingo? Alas nuwebe kaha sa buntag?"},{"t":"Why don't we watch a movie tonight? Let's meet at seven.","tr":"Manan-aw kaha ta og sine karong gabii? Magkita ta alas siyete."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-to-do",
+      "unit": 5,
+      "level": "A2",
+      "title": "Isulti ang kinahanglan nimong buhaton",
+      "summary": "Isulti kung unsay kinahanglan, kung unsay angay, ug kung unsay dili kinahanglan: “I have to work, but you should rest.”",
+      "topic": "{{have to}} / {{has to}}; {{must}}; {{should}} / {{shouldn't}}; {{don't have to}} vs {{mustn't}}; {{had to}}",
+      "blocks": [
+        {"goal":{"t":"I have to work tomorrow, but you should rest.","tr":"Kinahanglan ko motrabaho ugma, pero angay ka mopahulay."}},
+        {"dialog":[{"who":"Doktor","t":"You have a bad cold. You should rest for two days.","tr":"Grabe ang imong sip-on. Angay ka mopahulay og duha ka adlaw."},{"who":"Ben","t":"But I have to work tomorrow!","tr":"Pero kinahanglan ko motrabaho ugma!"},{"who":"Doktor","t":"You must take this medicine three times a day.","tr":"Kinahanglan gyud nimong imnon kini nga tambal tulo ka beses sa usa ka adlaw."},{"who":"Ben","t":"Do I have to stay in bed?","tr":"Kinahanglan ba ko magpabilin sa katre?"},{"who":"Doktor","t":"No, you don't have to. But you shouldn't go out in the rain.","tr":"Dili kinahanglan. Pero dili ka angay mogawas sa ulan."}]},
+        {"p":"**Kinahanglan: {{have to}}.** {{I have to work.}} Uban sa {{he}}, {{she}}, {{it}}: {{has to}}: {{She has to go.}} Para sa lagda o butang nga importante kaayo (karatula, doktor, balaod): {{must}}: {{You must wear a helmet.}}"},
+        {"p":"**Angay, dapat: {{should}}**, para sa tambag: {{You should rest.}} {{You shouldn't drink so much coffee.}} Ang {{must}} ug {{should}}, sama sa {{can}}: berbo dayon, walay {{to}}, walay {{-s}}."},
+        {"p":"**Bantayi: {{don't have to}} ug {{mustn't}} lahi kaayo.** {{don't have to}} = “dili kinahanglan” (pwede, pero dili pugos): {{You don't have to pay. It's free.}} {{mustn't}} = “ginadili, ayaw gyud”: {{You mustn't smoke here.}}"},
+        { "table": [
+          ["Bisaya","Iningles"],
+          ["Kinahanglan ko motrabaho.","{{I have to work.}}"],
+          ["Kinahanglan siya mobiya.","{{She has to leave.}}"],
+          ["Kinahanglan gyud (lagda).","{{You must wear a helmet.}}"],
+          ["Angay ka mopahulay.","{{You should rest.}}"],
+          ["Dili ka kinahanglan mobayad.","{{You don't have to pay.}}"],
+          ["Ginadili ang pagpanigarilyo.","{{You mustn't smoke.}}"]
+        ] },
+        {"p":"**Sa kaniadto**: {{had to}}: {{I had to work yesterday.}} Pangutana: {{Do I have to…?}} {{Does she have to…?}}"},
+        { "ex": [
+          {"t":"I have to work tomorrow.","tr":"Kinahanglan ko motrabaho ugma."},
+          {"t":"She has to leave at five.","tr":"Kinahanglan siya mobiya alas singko."},
+          {"t":"You should rest.","tr":"Angay ka mopahulay."},
+          {"t":"You must wear a helmet.","tr":"Kinahanglan gyud ka magsul-ob og helmet."},
+          {"t":"You don't have to pay. It's free.","tr":"Dili ka kinahanglan mobayad. Libre ra."},
+          {"t":"I had to wait for two hours.","tr":"Napugos ko og hulat og duha ka oras."}
+        ] },
+        {"tip":"Para sa tambag nga humok: {{Maybe you should…}} “Basin angay nimong…”. Kini ang paagi sa mga Amerikano sa paghatag og tambag nga dili mosugo."}
+      ],
+      "mistakes": [
+        {"wrong":"She have to go.","right":"She has to go.","tr":"Kinahanglan siya molakaw.","why":"Uban sa {{she}}: {{has to}}."},
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"Angay ka mopahulay.","why":"Human sa {{should}}: berbo dayon, walay {{to}}."},
+        {"wrong":"You mustn't pay. It's free.","right":"You don't have to pay. It's free.","tr":"Dili ka kinahanglan mobayad. Libre ra.","why":"{{mustn't}} = ginadili. Dili kinahanglan = {{don't have to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"She ___ to leave at five.","tr":"Kinahanglan siya mobiya alas singko.","options":["has","have","must"],"answer":0,"why":"Uban sa {{she}}: {{has to}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"You ___ rest.","tr":"Angay ka mopahulay.","options":["should","should to","have"],"answer":0,"why":"Tambag: {{should}} + berbo."},
+        {"type":"choice","q":"Libre ang sulod sa museyo: “Dili ka kinahanglan mobayad.”","options":["{{You don't have to pay.}}","{{You mustn't pay.}}"],"answer":0,"why":"Dili kinahanglan: {{don't have to}}."},
+        {"type":"dialogue","q":"Sa doktor: pilia ang imong mga tubag.","lines":[{"who":"Doktor","t":"You should drink a lot of water.","tr":"Angay ka moinom og daghang tubig."},{"options":["Okay. Do I have to take medicine?","Okay. Do I must take medicine?"],"answer":0,"why":"Pangutana: {{Do I have to…?}}"},{"who":"Doktor","t":"Yes, you have to take this twice a day.","tr":"Oo, kinahanglan nimong imnon kini kaduha sa usa ka adlaw."},{"options":["Can I go to work?","Can I to go to work?"],"answer":0,"why":"Human sa {{can}}: berbo dayon."},{"who":"Doktor","t":"No, you shouldn't. Stay home for two days.","tr":"Dili angay. Pabilin sa balay og duha ka adlaw."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Dili ka angay moinom og daghang kape.","words":["You","shouldn't","drink","so much","coffee."]},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"My dad ___ to work on Saturdays.","tr":"Kinahanglan motrabaho ang akong papa kung Sabado.","options":["has","have","haves"],"answer":0,"why":"{{my dad}} = {{he}}: {{has to}}.","from":"talk-about-someone-elses-day"},
+        {"type":"say","q":"Isulti: “Napugos ko og trabaho gahapon.”","answer":"I had to work yesterday.","from":"tell-about-your-weekend"},
+        {"type":"free","q":"Ikaw na: isulti ang duha ka butang nga kinahanglan nimong buhaton karong semanaha, ug hatagi og tambag ang usa ka higala.","answers":[{"t":"I have to pay my bills and I have to clean the house. You should come with me to the gym!","tr":"Kinahanglan nakong bayran ang akong mga bayronon ug limpyohan ang balay. Angay kang mouban nako sa gym!"},{"t":"I have to study for an exam. You should try the new café near the school.","tr":"Kinahanglan ko magtuon para sa exam. Angay nimong sulayan ang bag-ong café duol sa eskwelahan."}]}
+      ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 5,
+      "level": "A2",
+      "title": "Pagtudlo sa dalan",
+      "summary": "Tudloi og dalan ang usa ka turista sa Iningles: “Go straight, turn left at the church, and it's on your right.”",
+      "topic": "Mga sugo ({{Go straight}}, {{Turn left}}); {{to}}, {{past}}, {{across}}, {{along}}; {{on your right}}; {{get on}} / {{get off}}",
+      "blocks": [
+        {"goal":{"t":"Go straight, turn left at the church, and it's on your right.","tr":"Diretso lang, liko sa wala sa simbahan, ug naa ra sa imong tuo."}},
+        {"dialog":[{"who":"Turista","t":"Excuse me, how do I get to Fort San Pedro?","tr":"Excuse me, unsaon nako pag-adto sa Fort San Pedro?"},{"who":"Ikaw","t":"Go straight down this street. Then turn left at the church.","tr":"Diretso lang niini nga dalan. Dayon liko sa wala sa simbahan."},{"who":"Turista","t":"Is it far?","tr":"Layo ba?"},{"who":"Ikaw","t":"No, it's about ten minutes on foot. Walk past the plaza and cross the street.","tr":"Dili, mga napulo ka minuto kung maglakaw. Lapas sa plaza ug tabok sa dalan."},{"who":"Ikaw","t":"It's on your right, next to the port.","tr":"Naa ra sa imong tuo, tupad sa pantalan."},{"who":"Turista","t":"Thank you so much!","tr":"Salamat kaayo!"}]},
+        {"p":"**Ang direksyon mga sugo** (leksyon 19): berbo lang: {{Go straight.}} {{Turn left.}} {{Take a jeepney.}} Sa Bisaya “Diretso lang”, “Liko sa wala”: parehas ra."},
+        {"p":"**Mga pulong sa paglihok.** Ang “sa” sa Bisaya nahimong daghan pag-usab, depende sa lihok:"},
+        { "table": [
+          ["Bisaya","Iningles"],
+          ["paingon sa mall","{{to the mall}}"],
+          ["sulod sa building","{{into the building}}"],
+          ["lapas sa simbahan","{{past the church}}"],
+          ["tabok sa dalan","{{across the street}}"],
+          ["subay sa dalan","{{along the street}} / {{down the street}}"],
+          ["sa kanto","{{at the corner}}"],
+          ["sa imong tuo / wala","{{on your right}} / {{on your left}}"]
+        ] },
+        {"p":"**Pangutana**: {{How do I get to…?}} “Unsaon pag-adto sa…?”, {{Is it far?}} “Layo ba?”, {{Where's the nearest ATM?}} “Asa ang pinakaduol nga ATM?”"},
+        {"p":"**Sa jeep ug bus**: {{get on}} = sakay, {{get off}} = naog: {{Get off at Ayala.}} Ang “go down” sa Philippine English dili masabtan sa Amerika: {{get off}} ang husto."},
+        { "ex": [
+          {"t":"How do I get to the mall?","tr":"Unsaon pag-adto sa mall?"},
+          {"t":"Go straight for two blocks.","tr":"Diretso lang og duha ka block."},
+          {"t":"Turn right at the traffic light.","tr":"Liko sa tuo sa suga."},
+          {"t":"Walk past the church.","tr":"Lakaw lapas sa simbahan."},
+          {"t":"Cross the street.","tr":"Tabok sa dalan."},
+          {"t":"Get off at Ayala.","tr":"Naog sa Ayala."},
+          {"t":"It's on your left.","tr":"Naa sa imong wala."}
+        ] },
+        {"tip":"Kung dili ka sigurado, matinahuron nga isulti: {{Sorry, I'm not sure. Maybe ask at the store?}} “Sorry, dili ko sigurado. Pangutana kaha sa tindahan?”"}
+      ],
+      "mistakes": [
+        {"wrong":"Go down at Ayala.","right":"Get off at Ayala.","tr":"Naog sa Ayala.","why":"Ang pagnaog sa sakyanan: {{get off}}."},
+        {"wrong":"How to go to the mall?","right":"How do I get to the mall?","tr":"Unsaon pag-adto sa mall?","why":"Kompleto nga pangutana: {{How do I get to…?}}"},
+        {"wrong":"Turn to left.","right":"Turn left.","tr":"Liko sa wala.","why":"Walay {{to}}: {{turn left}}, {{turn right}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Turn ___ at the church.","tr":"Liko sa wala sa simbahan.","options":["left","to left","the left"],"answer":0,"why":"{{turn left}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Get ___ at Ayala.","tr":"Naog sa Ayala.","options":["off","down","out"],"answer":0,"why":"Naog sa sakyanan: {{get off}}."},
+        {"type":"choice","q":"“Unsaon pag-adto sa Ayala?”","options":["{{How do I get to Ayala?}}","{{How to go Ayala?}}","{{How I go to Ayala?}}"],"answer":0,"why":"{{How do I get to…?}}"},
+        {"type":"dialogue","q":"Usa ka turista ang nangutana nimo. Pilia ang imong mga tubag.","lines":[{"who":"Turista","t":"Excuse me, where's the nearest pharmacy?","tr":"Excuse me, asa ang pinakaduol nga botika?"},{"options":["Go straight and turn right at the corner.","Go straight and turn to right in the corner."],"answer":0,"why":"{{turn right}}, {{at the corner}}."},{"who":"Turista","t":"Is it far?","tr":"Layo ba?"},{"options":["No, it's close. It's on your left, across from the bank.","No, it's close. It's in your left, across from the bank."],"answer":0,"why":"{{on your left}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Lakaw lapas sa simbahan.","words":["Walk","past","the church."]},
+        {"type":"say","q":"Isulti: “Naa tupad sa bangko, sa imong tuo.”","answer":"It's next to the bank, on your right.","from":"say-where-things-are"},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ cross here. It's dangerous.","tr":"Ayaw tabok dinhi. Delikado.","options":["Don't","No","Not"],"answer":0,"why":"Ayaw: {{Don't}} + berbo.","from":"tell-people-what-to-do"},
+        {"type":"free","q":"Ikaw na: tudloi og dalan ang usa ka turista gikan sa imong balay paingon sa pinakaduol nga tindahan.","answers":[{"t":"Go straight for one block, then turn left. The store is on your right, next to the church.","tr":"Diretso lang og usa ka block, dayon liko sa wala. Naa sa imong tuo ang tindahan, tupad sa simbahan."},{"t":"Take a jeepney to Colon and get off at the church. Walk past the plaza, and it's across the street.","tr":"Sakay og jeep paingon sa Colon ug naog sa simbahan. Lakaw lapas sa plaza, ug naa sa tabok sa dalan."}]}
+      ]
     }
   ]
 }
