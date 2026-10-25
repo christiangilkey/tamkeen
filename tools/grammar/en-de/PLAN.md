@@ -71,7 +71,7 @@ strangers from the first lesson. 48 lessons in 9 units: 20 A1, 19 A2, 9 B1.
 | 34 | ask-indirectly | Ask politely, without a straight question | *Wissen Sie, wo…? Ich weiß nicht, ob…* | A2 |
 | 35 | make-plans | Talk about plans and the future | the present with a time word; *werden* | A2 |
 | **8** | | **Feelings, comparisons and descriptions** | | |
-| 36 | talk-about-feelings | Talk about feelings and plans with *sich* | reflexive verbs (*sich freuen auf, sich treffen*) | A2 |
+| 36 | talk-about-feelings | Say what you're looking forward to | reflexive verbs (*sich freuen auf, sich treffen*) | A2 |
 | 37 | compare-things | Compare things and say what you prefer | *-er als, so … wie, am -sten*; *lieber, am liebsten* | A2 |
 | 38 | ask-very-politely | Ask very politely | *könnten, würden, hätten, wäre* (Konjunktiv II) | A2 |
 | 39 | describe-what-you-want | Describe what you're looking for | adjective endings after *ein, kein, mein* | A2 |

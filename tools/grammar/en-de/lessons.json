@@ -1999,6 +1999,335 @@
         {"type":"dialogue","q":"At a party: point people out.","lines":[{"who":"Friend","t":"Wer ist der Mann dort?","tr":"Who's the man over there?"},{"options":["Das ist der Nachbar, der über uns wohnt.","Das ist der Nachbar, der wohnt über uns."],"answer":0,"why":"The verb goes last in the relative clause."},{"who":"Friend","t":"Und die Frau?","tr":"And the woman?"},{"options":["Das ist seine Frau, die ich aber nicht so gut kenne.","Das ist seine Frau, die ich aber kenne nicht so gut."],"answer":0,"why":"The verb goes last in the relative clause."}]},
         {"type":"free","q":"Your turn: describe a person and a thing that matter to you, each with a relative clause.","answers":[{"t":"Meine Schwester ist die Person, die mich am besten kennt.","tr":"My sister is the person who knows me best."},{"t":"Das ist das Buch, das ich am liebsten lese.","tr":"That's the book I like reading most."}]}
       ]
+    },
+    {
+      "id": "explain-causes-and-contrasts",
+      "unit": 9,
+      "level": "B1",
+      "title": "Explain causes and contrasts",
+      "summary": "Link your ideas like a fluent speaker: “I have an exam, so I have to study.” “Although it's raining, we're going for a walk.”",
+      "topic": "{{deshalb}} and {{trotzdem}} (verb second), {{obwohl}} (verb last), {{wegen}} + the genitive",
+      "blocks": [
+        {"goal":{"t":"Obwohl es regnet, gehen wir spazieren.","tr":"Although it's raining, we're going for a walk."}},
+        {"dialog":[{"who":"Max","t":"Kommst du heute mit ins Kino?","tr":"Are you coming to the movies today?"},{"who":"Jana","t":"Ich habe morgen eine Prüfung, deshalb muss ich lernen.","tr":"I have an exam tomorrow, so I have to study."},{"who":"Max","t":"Schade. Und am Freitag?","tr":"Too bad. And on Friday?"},{"who":"Jana","t":"Am Freitag bin ich bestimmt müde, aber ich komme trotzdem!","tr":"On Friday I'll be tired for sure, but I'll come anyway!"},{"who":"Max","t":"Super! Obwohl du den Film schon gesehen hast?","tr":"Great! Even though you've already seen the movie?"},{"who":"Jana","t":"Ja, wegen der Musik. Die ist so toll!","tr":"Yes, because of the music. It's so good!"}]},
+        {"p":"**deshalb: “so, that's why”** gives a result. It's a word like {{dann}} or {{morgen}}, not a linking word, so when it starts a clause it takes first place and the verb comes right after it: {{Es regnet, deshalb bleiben wir zu Hause.}} ({{darum}} and {{deswegen}} mean the same.)"},
+        {"p":"**trotzdem: “anyway, still”** says something happens in spite of what you just said. It works the same way: {{Ich bin müde, trotzdem gehe ich aus.}}, or later in the clause: {{Ich gehe trotzdem aus.}}"},
+        {"p":"**obwohl: “although, even though”** is a linking word like {{weil}}: its verb goes to the end. {{Ich gehe aus, obwohl ich müde bin.}} When the {{obwohl}} clause comes first, it's verb, comma, verb: {{Obwohl ich müde bin, gehe ich aus.}}"},
+        { "table": [
+          ["meaning","verb second","verb last"],
+          ["because","{{denn}}: {{…, denn ich bin müde.}}","{{weil}}: {{…, weil ich müde bin.}}"],
+          ["so, that's why","{{deshalb}}: {{…, deshalb bleibe ich zu Hause.}}","(none)"],
+          ["in spite of that","{{trotzdem}}: {{…, trotzdem gehe ich aus.}}","{{obwohl}}: {{…, obwohl ich müde bin.}}"]
+        ] },
+        {"term":"genitive","means":"the case that says whose something is: {{das Auto meines Vaters}} “my father's car”. In speech it's mostly replaced by {{von}} + dative, but it lives on after words like {{wegen}} “because of”."},
+        {"p":"**wegen: “because of”** + a noun. In writing it takes the genitive: {{des}} for masculine and neuter nouns, which also add {{-s}} ({{wegen des Wetters}}), and {{der}} for feminine and plural ones ({{wegen der Arbeit}}). In everyday speech many people use the dative ({{wegen dem Wetter}}), but the genitive is always right."},
+        { "ex": [
+          {"t":"Der Zug hatte Verspätung, deshalb bin ich zu spät gekommen.","tr":"The train was late, so I got there late."},
+          {"t":"Es ist kalt, trotzdem trägt er kurze Hosen.","tr":"It's cold, but he's wearing shorts anyway."},
+          {"t":"Obwohl sie wenig Zeit hat, hilft sie mir immer.","tr":"Although she has little time, she always helps me."},
+          {"t":"Wegen des Streiks fahren heute keine Züge.","tr":"Because of the strike, there are no trains today."},
+          {"t":"Er hat die Prüfung bestanden, obwohl er wenig gelernt hat.","tr":"He passed the exam even though he didn't study much."},
+          {"t":"Ich habe Hunger, deshalb mache ich mir ein Brot.","tr":"I'm hungry, so I'm making myself a sandwich."}
+        ] },
+        {"tip":"{{trotzdem}} on its own makes a great reply: {{Es regnet. – Ich gehe trotzdem!}} “It's raining. – I'm going anyway!”"}
+      ],
+      "mistakes": [
+        {"wrong":"Es regnet, deshalb wir bleiben zu Hause.","right":"Es regnet, deshalb bleiben wir zu Hause.","tr":"It's raining, so we're staying home.","why":"{{deshalb}} takes first place in its clause, so the verb comes right after it."},
+        {"wrong":"Ich gehe aus, obwohl ich bin müde.","right":"Ich gehe aus, obwohl ich müde bin.","tr":"I'm going out even though I'm tired.","why":"After {{obwohl}}, the verb goes to the end."},
+        {"wrong":"Ich gehe aus, trotzdem ich müde bin.","right":"Ich gehe aus, obwohl ich müde bin.","tr":"I'm going out even though I'm tired.","why":"“Although” + a clause is {{obwohl}}; {{trotzdem}} means “anyway” and starts a normal clause."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“I'm tired, but I'm going anyway.”","options":["{{Ich bin müde, trotzdem gehe ich.}}","{{Ich bin müde, trotzdem ich gehe.}}","{{Ich bin müde, obwohl ich gehe.}}"],"answer":0,"why":"{{trotzdem}} takes first place, and the verb comes right after it."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich habe kein Geld, ___ kann ich nicht mitkommen.","tr":"I have no money, so I can't come along.","options":["deshalb","obwohl","weil"],"answer":0,"why":"A result, with the verb right after: {{deshalb}}.","from":"say-what-you-can-do"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ es kalt ist, gehen wir schwimmen.","tr":"Although it's cold, we're going swimming.","options":["Obwohl","Trotzdem","Deshalb"],"answer":0,"why":"The verb ({{ist}}) is at the end: a linking word, {{obwohl}}."},
+        {"type":"order","q":"Put the words in order.","tr":"The train was late, so I got there late.","words":["Der Zug","hatte Verspätung,","deshalb","bin","ich","zu spät","gekommen."],"from":"say-where-you-went"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ des Wetters bleiben wir zu Hause.","tr":"Because of the weather, we're staying home.","options":["Wegen","Weil","Obwohl"],"answer":0,"why":"“Because of” + a noun: {{wegen}}."},
+        {"type":"dialogue","q":"Your friend doesn't want to go out.","from":"make-conditions","lines":[{"who":"Friend","t":"Ich bin so müde. Ich bleibe heute zu Hause.","tr":"I'm so tired. I'm staying home today."},{"options":["Komm trotzdem mit! Es wird bestimmt lustig.","Komm obwohl mit! Es wird bestimmt lustig."],"answer":0,"why":"“Anyway”: {{trotzdem}}."},{"who":"Friend","t":"Na gut. Aber nur, weil du es bist!","tr":"Oh, all right. But only because it's you!"},{"options":["Super! Obwohl du müde bist, kommst du mit!","Super! Obwohl du bist müde, kommst du mit!"],"answer":0,"why":"After {{obwohl}}, the verb goes last; then verb, comma, verb."}]},
+        {"type":"free","q":"Your turn: say one thing you do even though it's hard (with {{obwohl}}), and one thing you do because of something (with {{deshalb}}).","answers":[{"t":"Obwohl ich wenig Zeit habe, lerne ich jeden Tag Deutsch.","tr":"Although I have little time, I study German every day."},{"t":"Ich möchte in Berlin arbeiten, deshalb lerne ich Deutsch.","tr":"I'd like to work in Berlin, so I'm learning German."}]}
+      ]
+    },
+    {
+      "id": "say-what-for",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say what something is for",
+      "summary": "Say why you do things and what you feel like doing: “I'm learning German to study in Germany.” “Do you feel like coming along?”",
+      "topic": "{{um … zu}} + infinitive; {{zu}} + infinitive ({{Lust haben}}, {{vergessen}}, {{versuchen}}); {{damit}}",
+      "blocks": [
+        {"goal":{"t":"Ich lerne Deutsch, um in Deutschland zu studieren.","tr":"I'm learning German so I can study in Germany."}},
+        {"dialog":[{"who":"Lena","t":"Warum stehst du so früh auf?","tr":"Why do you get up so early?"},{"who":"Paul","t":"Um vor der Arbeit joggen zu gehen.","tr":"To go jogging before work."},{"who":"Lena","t":"Respekt! Ich habe nie Lust, früh aufzustehen.","tr":"Respect! I never feel like getting up early."},{"who":"Paul","t":"Hast du Lust, morgen mitzukommen?","tr":"Do you feel like coming along tomorrow?"},{"who":"Lena","t":"Morgen? Na gut, ich versuche, um sieben da zu sein!","tr":"Tomorrow? Oh, all right, I'll try to be there at seven!"},{"who":"Paul","t":"Ich schreibe dir, damit du es nicht vergisst.","tr":"I'll text you so that you don't forget."}]},
+        {"p":"**um … zu: “in order to”.** To say what you do something *for*, start with {{um}}, put the infinitive at the very end, with {{zu}} just before it: {{Ich lerne Deutsch, um in Deutschland zu studieren.}} English often just says “to”; German needs the whole frame, and a comma before {{um}}."},
+        {"p":"**Separable verbs** take the {{zu}} inside, as one word: {{aufstehen}} → {{aufzustehen}}, {{mitkommen}} → {{mitzukommen}}, {{einkaufen}} → {{einzukaufen}}."},
+        {"p":"**zu + infinitive after other words.** Many verbs and phrases are followed by {{zu}} + an infinitive at the end: {{Ich habe keine Lust, zu kochen.}} “I don't feel like cooking.” But never after a modal verb: {{Ich will kochen}}, not {{zu kochen}}."},
+        { "table": [
+          ["phrase","example","English"],
+          ["{{Lust haben, … zu}}","{{Hast du Lust, ins Kino zu gehen?}}","Do you feel like going to the movies?"],
+          ["{{vergessen, … zu}}","{{Ich habe vergessen, dich anzurufen.}}","I forgot to call you."],
+          ["{{versuchen, … zu}}","{{Ich versuche, pünktlich zu sein.}}","I try to be on time."],
+          ["{{anfangen, … zu}}","{{Es fängt an zu regnen.}}","It's starting to rain."],
+          ["{{Zeit haben, … zu}}","{{Ich habe keine Zeit, zu kochen.}}","I have no time to cook."]
+        ] },
+        {"p":"**damit: “so that”**, when the person who acts isn't the same in both halves. It's a linking word with the verb last: {{Ich schreibe dir, damit du es nicht vergisst.}} (I write, you don't forget). The same person in both halves? Use {{um … zu}}."},
+        { "ex": [
+          {"t":"Ich gehe in den Supermarkt, um Milch zu kaufen.","tr":"I'm going to the supermarket to buy milk."},
+          {"t":"Hast du Lust, mitzukommen?","tr":"Do you feel like coming along?"},
+          {"t":"Wir sparen, um nach Japan zu fliegen.","tr":"We're saving up to fly to Japan."},
+          {"t":"Vergiss nicht, die Tür abzuschließen!","tr":"Don't forget to lock the door!"},
+          {"t":"Es ist nicht leicht, eine Wohnung zu finden.","tr":"It isn't easy to find an apartment."},
+          {"t":"Ich spreche langsam, damit alle mich verstehen.","tr":"I'm speaking slowly so that everyone understands me."}
+        ] },
+        {"tip":"{{Keine Lust!}} on its own is the honest German answer to many suggestions: “Don't feel like it!”"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich lerne Deutsch, für in Deutschland zu studieren.","right":"Ich lerne Deutsch, um in Deutschland zu studieren.","tr":"I'm learning German so I can study in Germany.","why":"“In order to” is {{um … zu}}, never {{für}}."},
+        {"wrong":"Ich habe keine Lust, zu aufstehen.","right":"Ich habe keine Lust, aufzustehen.","tr":"I don't feel like getting up.","why":"With a separable verb, {{zu}} goes inside: {{aufzustehen}}."},
+        {"wrong":"Ich möchte zu schlafen.","right":"Ich möchte schlafen.","tr":"I'd like to sleep.","why":"After a modal verb, no {{zu}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“I'm going to the bakery to buy rolls.”","options":["{{Ich gehe zum Bäcker, um Brötchen zu kaufen.}}","{{Ich gehe zum Bäcker, für Brötchen zu kaufen.}}","{{Ich gehe zum Bäcker, um zu kaufen Brötchen.}}"],"answer":0,"why":"{{um}} … {{zu kaufen}}, with the infinitive at the very end."},
+        {"type":"fill","q":"Choose the missing word.","t":"Hast du Lust, heute Abend ins Kino zu ___?","tr":"Do you feel like going to the movies tonight?","options":["gehen","gehst","geht"],"answer":0,"why":"After {{zu}}: the infinitive."},
+        {"type":"fill","q":"Choose the missing word.","t":"Vergiss nicht, mich ___!","tr":"Don't forget to call me!","options":["anzurufen","zu anrufen","anrufen"],"answer":0,"why":"{{anrufen}} is separable, so the {{zu}} goes inside: {{anzurufen}}.","from":"describe-your-day"},
+        {"type":"order","q":"Put the words in order.","tr":"I'm learning German so I can study in Germany.","words":["Ich","lerne Deutsch,","um","in Deutschland","zu","studieren."]},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich spreche langsam, ___ du mich verstehst.","tr":"I'm speaking slowly so that you understand me.","options":["damit","um","weil"],"answer":0,"why":"Two different people (I speak, you understand): {{damit}}, with the verb last."},
+        {"type":"dialogue","q":"A friend suggests a hike.","from":"tell-someone-what-to-do","lines":[{"who":"Friend","t":"Hast du Lust, am Samstag wandern zu gehen?","tr":"Do you feel like going hiking on Saturday?"},{"options":["Gern! Ich versuche, früh aufzustehen.","Gern! Ich versuche, früh zu aufstehen."],"answer":0,"why":"{{zu}} goes inside a separable verb: {{aufzustehen}}."},{"who":"Friend","t":"Super. Ich hole dich um acht ab.","tr":"Great. I'll pick you up at eight."},{"options":["Ruf mich an, damit ich nicht verschlafe!","Ruf mich an, um ich nicht verschlafe!"],"answer":0,"why":"Two different people (you call, I don't oversleep): {{damit}}."}]},
+        {"type":"free","q":"Your turn: why are you learning German, and what do you never feel like doing? Use {{um … zu}} and {{keine Lust … zu}}.","answers":[{"t":"Ich lerne Deutsch, um mit meiner Familie in Deutschland zu sprechen. Ich habe nie Lust, die Küche aufzuräumen.","tr":"I'm learning German so I can talk to my family in Germany. I never feel like cleaning up the kitchen."},{"t":"Ich lerne Deutsch, um in Wien zu arbeiten. Ich habe keine Lust, am Sonntag früh aufzustehen.","tr":"I'm learning German so I can work in Vienna. I don't feel like getting up early on Sundays."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 9,
+      "level": "B1",
+      "title": "Tell a story from your past",
+      "summary": "Tell a story in order, with “when”, “before” and “after”, and understand the past tense of books and the news: “When I was a child, we lived in the country.”",
+      "topic": "The Präteritum of everyday verbs ({{ging, kam, sah, wohnte}}); {{als}} vs {{wenn}}; {{bevor}}, {{nachdem}}",
+      "blocks": [
+        {"goal":{"t":"Als ich ein Kind war, wohnten wir auf dem Land.","tr":"When I was a child, we lived in the country."}},
+        {"dialog":[{"who":"Grandma","t":"Als ich jung war, gab es noch keine Handys.","tr":"When I was young, there were no cell phones yet."},{"who":"Grandson","t":"Wirklich? Wie habt ihr euch dann verabredet?","tr":"Really? So how did you make plans to meet?"},{"who":"Grandma","t":"Wir haben uns einfach im Café getroffen. Und wenn jemand nicht kam, haben wir gewartet.","tr":"We just met at the café. And if someone didn't come, we waited."},{"who":"Grandson","t":"Und wie hast du Opa kennengelernt?","tr":"And how did you meet Grandpa?"},{"who":"Grandma","t":"Das war 1968. Ich saß im Zug nach Hamburg, und er fragte mich, ob der Platz frei ist.","tr":"That was in 1968. I was sitting on the train to Hamburg, and he asked me if the seat was free."}]},
+        {"p":"**Two pasts, two styles.** In conversation you use the Perfekt ({{ich bin gefahren}}) plus {{war}} and {{hatte}}. In written stories, books, fairy tales and the news, German uses the **Präteritum** for every verb: {{Er fuhr nach Hamburg.}} “He drove to Hamburg.” You mostly need to recognise it, and to use a few common forms when you tell a story."},
+        {"p":"**Regular verbs** add {{-te}}: {{wohnen}} → {{ich wohnte}}, {{wir wohnten}}; {{sagen}} → {{er sagte}}; {{arbeiten}} → {{sie arbeitete}}. **Irregular verbs** change their vowel, and add nothing for {{ich}} and {{er/sie}}:"},
+        { "table": [
+          ["infinitive","Präteritum ({{ich}}, {{er/sie}})","Perfekt"],
+          ["{{gehen}}","{{ging}}","{{ist gegangen}}"],
+          ["{{kommen}}","{{kam}}","{{ist gekommen}}"],
+          ["{{sehen}}","{{sah}}","{{hat gesehen}}"],
+          ["{{geben}}","{{gab}}","{{hat gegeben}}"],
+          ["{{fahren}}","{{fuhr}}","{{ist gefahren}}"],
+          ["{{sitzen}}","{{saß}}","{{hat gesessen}}"],
+          ["{{finden}}","{{fand}}","{{hat gefunden}}"],
+          ["{{sprechen}}","{{sprach}}","{{hat gesprochen}}"]
+        ] },
+        {"p":"With {{wir}} and {{sie/Sie}} they add {{-en}}: {{wir gingen}}, {{sie kamen}}. And {{es gab}}, the past of {{es gibt}}, means “there was, there were”."},
+        {"p":"**als or wenn for “when”?** For **one** event or period in the past, it's {{als}}: {{Als ich ein Kind war, …}}, {{Als ich in Berlin ankam, …}} For something that happened **again and again** in the past, or for the present and future, it's {{wenn}}: {{Wenn es regnete, spielten wir drinnen.}} “Whenever it rained, we played inside.” Both send their verb to the end."},
+        {"p":"**In order.** {{bevor}} “before” and {{nachdem}} “after” are linking words, with the verb last: {{Bevor ich nach Deutschland kam, habe ich Deutsch gelernt.}} In speech, it's often simpler to use {{zuerst}} “first”, {{dann}} “then”, {{danach}} “after that” and {{am Ende}} “in the end”: each takes first place, with the verb right after."},
+        { "ex": [
+          {"t":"Es war einmal ein König, der drei Töchter hatte.","tr":"Once upon a time there was a king who had three daughters.","note":"how fairy tales begin"},
+          {"t":"Als ich achtzehn war, zog ich nach Berlin.","tr":"When I was eighteen, I moved to Berlin."},
+          {"t":"Wenn wir Oma besuchten, gab es immer Kuchen.","tr":"Whenever we visited Grandma, there was always cake."},
+          {"t":"Zuerst waren wir im Museum, dann sind wir essen gegangen.","tr":"First we went to the museum, then we went out to eat."},
+          {"t":"Bevor du gehst, ruf bitte deine Mutter an.","tr":"Before you go, please call your mother."},
+          {"t":"Er kam nach Hause und sah, dass die Tür offen war.","tr":"He came home and saw that the door was open."}
+        ] },
+        {"tip":"When you tell a story aloud, mixing is completely normal: {{war}}, {{hatte}} and the modals in the Präteritum, most other verbs in the Perfekt, and perhaps a few common Präteritum forms like {{ging}}, {{kam}} or {{sagte}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Wenn ich ein Kind war, wohnten wir in Köln.","right":"Als ich ein Kind war, wohnten wir in Köln.","tr":"When I was a child, we lived in Cologne.","why":"One period in the past: {{als}}. {{wenn}} is for “whenever”, or for the present and future."},
+        {"wrong":"Als ich war jung, gab es keine Handys.","right":"Als ich jung war, gab es keine Handys.","tr":"When I was young, there were no cell phones.","why":"After {{als}}, the verb goes to the end."},
+        {"wrong":"Als ich nach Berlin kam, ich hatte kein Geld.","right":"Als ich nach Berlin kam, hatte ich kein Geld.","tr":"When I came to Berlin, I had no money.","why":"The {{als}} clause is first, so the main verb comes right after the comma."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“When I was in Rome last year, it rained every day.” Here “when” is…","options":["{{als}}","{{wenn}}","{{wann}}"],"answer":0,"why":"One time in the past: {{als}}. ({{wann}} is the question word “when?”.)"},
+        {"type":"choice","q":"{{Sie ging nach Hause.}} means…","options":["She went home.","She goes home.","She will go home."],"answer":0,"why":"{{ging}} is the Präteritum of {{gehen}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ wir Kinder waren, spielten wir jeden Tag draußen.","tr":"When we were children, we played outside every day.","options":["Als","Wenn","Wann"],"answer":0,"why":"One period of the past (childhood): {{als}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Immer ___ es regnete, blieben wir zu Hause.","tr":"Whenever it rained, we stayed home.","options":["wenn","als","wann"],"answer":0,"why":"Again and again: {{wenn}}.","from":"make-conditions"},
+        {"type":"order","q":"Put the words in order.","tr":"When I came to Berlin, I had no money.","words":["Als ich","nach Berlin","kam,","hatte","ich kein Geld."],"from":"say-how-it-was"},
+        {"type":"dialogue","q":"Tell a friend how you met your partner.","from":"say-what-you-did","lines":[{"who":"Friend","t":"Wie habt ihr euch kennengelernt?","tr":"How did you two meet?"},{"options":["Als ich in Wien studiert habe, war er mein Nachbar.","Wenn ich in Wien studiert habe, war er mein Nachbar."],"answer":0,"why":"One period in the past: {{als}}."},{"who":"Friend","t":"Wie romantisch! Und dann?","tr":"How romantic! And then?"},{"options":["Zuerst waren wir nur Freunde, aber dann haben wir uns verliebt.","Zuerst wir waren nur Freunde, aber dann wir haben uns verliebt."],"answer":0,"why":"{{zuerst}} and {{dann}} take first place: the verb comes right after."}]},
+        {"type":"free","q":"Your turn: tell a short story from your childhood or a trip, with {{als}} and words like {{zuerst}}, {{dann}} and {{danach}}.","answers":[{"t":"Als ich zehn war, sind wir nach Florida gefahren. Zuerst waren wir am Strand, dann haben wir Delfine gesehen.","tr":"When I was ten, we went to Florida. First we went to the beach, then we saw dolphins."},{"t":"Als ich ein Kind war, wohnten wir auf dem Land. Wenn es schneite, bauten wir einen Schneemann.","tr":"When I was a child, we lived in the country. Whenever it snowed, we built a snowman."}]}
+      ]
+    },
+    {
+      "id": "imagine-and-dream",
+      "unit": 9,
+      "level": "B1",
+      "title": "Imagine and dream",
+      "summary": "Talk about dreams and what you'd do if things were different: “If I had more time, I'd travel around the world.”",
+      "topic": "The Konjunktiv II for what isn't real: {{würde}} + infinitive; {{wenn ich … hätte / wäre}}; {{Ich wünschte, …}}",
+      "blocks": [
+        {"goal":{"t":"Wenn ich mehr Zeit hätte, würde ich um die Welt reisen.","tr":"If I had more time, I'd travel around the world."}},
+        {"dialog":[{"who":"Jonas","t":"Was würdest du machen, wenn du im Lotto gewinnen würdest?","tr":"What would you do if you won the lottery?"},{"who":"Mia","t":"Ich würde sofort kündigen und ein Haus am Meer kaufen.","tr":"I'd quit right away and buy a house by the sea."},{"who":"Jonas","t":"Und dann?","tr":"And then?"},{"who":"Mia","t":"Dann würde ich den ganzen Tag lesen und schwimmen. Und du?","tr":"Then I'd read and swim all day. And you?"},{"who":"Jonas","t":"Wenn ich reich wäre, hätte ich einen Hund und einen großen Garten.","tr":"If I were rich, I'd have a dog and a big yard."},{"who":"Mia","t":"Einen Hund kannst du auch ohne Lotto haben!","tr":"You can have a dog without the lottery too!"}]},
+        {"p":"**Imagining: the Konjunktiv II again.** You met {{könnte}}, {{hätte}}, {{wäre}} and {{würde}} as polite forms. Their main job is talking about things that aren't real: wishes, dreams, “what if”. {{Ich wäre gern reich.}} “I'd like to be rich.”, {{Ich würde gern Japanisch lernen.}} “I'd like to learn Japanese.”"},
+        {"p":"**würde + infinitive** is “would” for almost every verb: {{Ich würde ein Haus kaufen.}} “I would buy a house.” But {{sein}}, {{haben}} and the modal verbs use their own forms: {{ich wäre}} (not {{ich würde sein}}), {{ich hätte}}, {{ich könnte}}, {{ich müsste}}."},
+        {"p":"**If… then.** For an imagined condition, both halves take the Konjunktiv II: {{Wenn ich mehr Geld hätte, würde ich ein Auto kaufen.}} “If I had more money, I'd buy a car.” The word order is the one you know: the verb last in the {{wenn}} clause, then verb, comma, verb."},
+        { "table": [
+          ["","German","English"],
+          ["real","{{Wenn ich Zeit habe, komme ich.}}","If I have time, I'll come."],
+          ["imagined","{{Wenn ich Zeit hätte, würde ich kommen.}}","If I had time, I'd come."],
+          ["real","{{Wenn es schön ist, gehen wir raus.}}","If it's nice, we'll go out."],
+          ["imagined","{{Wenn es schön wäre, würden wir rausgehen.}}","If it were nice, we'd go out."]
+        ] },
+        {"p":"**Wishes: Ich wünschte…** “I wish…” takes the Konjunktiv II too: {{Ich wünschte, ich hätte mehr Zeit.}} “I wish I had more time.”, {{Ich wünschte, du wärst hier.}} “I wish you were here.”"},
+        { "ex": [
+          {"t":"Ich würde gern in Italien leben.","tr":"I'd love to live in Italy."},
+          {"t":"Wenn ich du wäre, würde ich das nicht machen.","tr":"If I were you, I wouldn't do that."},
+          {"t":"Was würdest du machen, wenn du eine Million hättest?","tr":"What would you do if you had a million?"},
+          {"t":"Wenn ich mehr Zeit hätte, könnte ich mehr Sport machen.","tr":"If I had more time, I could exercise more."},
+          {"t":"Ich wünschte, es wäre schon Freitag.","tr":"I wish it were Friday already."},
+          {"t":"Das wäre toll!","tr":"That would be great!"}
+        ] },
+        {"tip":"{{würde}} (with dots) is “would”; {{wurde}} (no dots) is “became, was”; {{werde}} is “will”. Three look-alikes, three meanings."}
+      ],
+      "mistakes": [
+        {"wrong":"Wenn ich reich sein würde, würde ich reisen.","right":"Wenn ich reich wäre, würde ich reisen.","tr":"If I were rich, I'd travel.","why":"For {{sein}}, use {{wäre}}."},
+        {"wrong":"Wenn ich mehr Zeit habe, würde ich reisen.","right":"Wenn ich mehr Zeit hätte, würde ich reisen.","tr":"If I had more time, I'd travel.","why":"Something imagined: both halves in the Konjunktiv II."},
+        {"wrong":"Ich würde kaufen ein Haus am Meer.","right":"Ich würde ein Haus am Meer kaufen.","tr":"I'd buy a house by the sea.","why":"With {{würde}}, the infinitive goes last."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“If I were you…”","options":["{{Wenn ich du wäre, …}}","{{Wenn ich du bin, …}}","{{Wenn ich du würde, …}}"],"answer":0,"why":"Imagined, with {{sein}}: {{wäre}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wenn ich mehr Geld ___, würde ich ein Auto kaufen.","tr":"If I had more money, I'd buy a car.","options":["hätte","habe","hatte"],"answer":0,"why":"Imagined: {{hätte}}, with dots. ({{hatte}} is the past, “had”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich ___ gern um die Welt reisen.","tr":"I'd love to travel around the world.","options":["würde","werde","wurde"],"answer":0,"why":"“Would”: {{würde}}, with dots. ({{werde}} = will, {{wurde}} = became.)"},
+        {"type":"order","q":"Put the words in order.","tr":"What would you do if you had a million?","words":["Was","würdest","du machen,","wenn","du eine Million","hättest?"]},
+        {"type":"fill","q":"Choose the missing word.","t":"Wenn ich morgen Zeit ___, komme ich mit.","tr":"If I have time tomorrow, I'll come along.","options":["habe","hätte","hatte"],"answer":0,"why":"A real possibility: the ordinary present.","from":"make-conditions"},
+        {"type":"dialogue","q":"Dream with a friend.","from":"compare-things","lines":[{"who":"Friend","t":"Wo würdest du am liebsten wohnen?","tr":"Where would you most like to live?"},{"options":["Am liebsten würde ich in Wien wohnen.","Am liebsten würde ich wohnen in Wien."],"answer":0,"why":"With {{würde}}, the infinitive goes last."},{"who":"Friend","t":"Warum?","tr":"Why?"},{"options":["Weil die Stadt so schön ist und es viele Cafés gibt.","Weil die Stadt ist so schön und es gibt viele Cafés."],"answer":0,"why":"After {{weil}}, each verb goes to the end of its clause."}]},
+        {"type":"free","q":"Your turn: what would you do if you had a whole year off? Use {{Wenn ich … hätte, würde ich…}}","answers":[{"t":"Wenn ich ein Jahr frei hätte, würde ich nach Deutschland ziehen und jeden Tag Deutsch sprechen.","tr":"If I had a year off, I'd move to Germany and speak German every day."},{"t":"Wenn ich ein Jahr frei hätte, würde ich durch Südamerika reisen.","tr":"If I had a year off, I'd travel around South America."}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 9,
+      "level": "B1",
+      "title": "Give advice",
+      "summary": "Give and ask for advice: “You should get more sleep.” “If I were you, I'd call him.”",
+      "topic": "{{du solltest}} (the Konjunktiv II of {{sollen}}); {{An deiner Stelle würde ich…}}; {{Was soll ich machen?}}",
+      "blocks": [
+        {"goal":{"t":"Du solltest mehr schlafen und weniger Kaffee trinken.","tr":"You should sleep more and drink less coffee."}},
+        {"dialog":[{"who":"Tim","t":"Ich bin immer so müde. Was soll ich machen?","tr":"I'm always so tired. What should I do?"},{"who":"Sara","t":"Du solltest früher ins Bett gehen.","tr":"You should go to bed earlier."},{"who":"Tim","t":"Das sagt meine Mutter auch.","tr":"My mother says that too."},{"who":"Sara","t":"Und an deiner Stelle würde ich abends nicht mehr aufs Handy schauen.","tr":"And if I were you, I wouldn't look at my phone in the evening."},{"who":"Tim","t":"Hm. Vielleicht sollte ich auch mehr Sport machen?","tr":"Hm. Maybe I should exercise more too?"},{"who":"Sara","t":"Genau! Wie wäre es mit Joggen am Morgen?","tr":"Exactly! How about jogging in the morning?"}]},
+        {"p":"**sollte: “should”.** The Konjunktiv II of {{sollen}} is the standard way to give advice: {{Du solltest zum Arzt gehen.}} “You should go to the doctor.” It's the frame of every modal verb: {{sollte}} second, the infinitive at the end."},
+        { "table": [
+          ["","{{sollen}}: should"],
+          ["{{ich}}","{{sollte}}"],
+          ["{{du}}","{{solltest}}"],
+          ["{{er / sie / es}}","{{sollte}}"],
+          ["{{wir / sie / Sie}}","{{sollten}}"],
+          ["{{ihr}}","{{solltet}}"]
+        ] },
+        {"p":"**Softer and stronger.** {{Vielleicht solltest du…}} “Maybe you should…” is gentle. {{An deiner Stelle würde ich…}} “In your place, I'd…” (or {{Wenn ich du wäre, …}}) is personal. {{Du musst unbedingt…}} “You absolutely have to…” is a strong tip, often an enthusiastic one: {{Du musst unbedingt nach Hamburg fahren!}}"},
+        {"p":"**Suggesting:** {{Wie wäre es mit…?}} “How about…?” + a noun in the dative: {{Wie wäre es mit einem Spaziergang?}}; or {{Warum … nicht?}}: {{Warum fragst du nicht deinen Chef?}} “Why don't you ask your boss?” **Asking for advice:** {{Was soll ich machen?}} “What should I do?”, {{Was würdest du an meiner Stelle machen?}} “What would you do in my place?”"},
+        { "ex": [
+          {"t":"Sie sollten mehr Wasser trinken.","tr":"You should drink more water.","note":"a doctor to a patient"},
+          {"t":"Du solltest nicht so viel arbeiten.","tr":"You shouldn't work so much."},
+          {"t":"An deiner Stelle würde ich das Angebot annehmen.","tr":"If I were you, I'd take the offer."},
+          {"t":"Vielleicht solltet ihr früher losfahren.","tr":"Maybe you should leave earlier.","note":"to two or more friends"},
+          {"t":"Wie wäre es mit einem Kaffee?","tr":"How about a coffee?"},
+          {"t":"Was würdest du an meiner Stelle machen?","tr":"What would you do in my place?"}
+        ] },
+        {"tip":"{{soll}} (no dots: “am supposed to”) passes on someone else's instruction; {{sollte}} gives your own advice: {{Der Arzt sagt, ich soll mehr laufen.}} / {{Du solltest mehr laufen.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Du solltest mehr zu schlafen.","right":"Du solltest mehr schlafen.","tr":"You should sleep more.","why":"After {{solltest}}, no {{zu}}: just the infinitive at the end."},
+        {"wrong":"An deiner Stelle ich würde ihn anrufen.","right":"An deiner Stelle würde ich ihn anrufen.","tr":"If I were you, I'd call him.","why":"{{An deiner Stelle}} takes first place, so the verb comes right after."},
+        {"wrong":"Wie wäre es mit ein Spaziergang?","right":"Wie wäre es mit einem Spaziergang?","tr":"How about a walk?","why":"{{mit}} takes the dative: {{einem}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Your friend has a bad cough. Gentle advice:","options":["{{Vielleicht solltest du zum Arzt gehen.}}","{{Du sollst zum Arzt gehen.}}","{{Du wirst zum Arzt gehen.}}"],"answer":0,"why":"Your own advice: {{solltest}}. {{sollst}} passes on someone else's order; {{wirst}} predicts."},
+        {"type":"fill","q":"Choose the missing word.","t":"Du ___ mehr Wasser trinken.","tr":"You should drink more water.","options":["solltest","sollte","sollst"],"answer":0,"why":"Advice to {{du}}: {{solltest}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"An deiner Stelle ___ ich das Angebot annehmen.","tr":"If I were you, I'd take the offer.","options":["würde","werde","wurde"],"answer":0,"why":"“Would”: {{würde}}.","from":"imagine-and-dream"},
+        {"type":"fill","q":"Choose the missing word.","t":"Wie wäre es mit ___ Spaziergang?","tr":"How about a walk?","options":["einem","einen","ein"],"answer":0,"why":"{{mit}} takes the dative: {{der Spaziergang}} → {{einem}}.","from":"travel-around"},
+        {"type":"order","q":"Put the words in order.","tr":"What would you do in my place?","words":["Was","würdest","du","an meiner Stelle","machen?"]},
+        {"type":"dialogue","q":"Your friend can't sleep.","from":"say-when","lines":[{"who":"Friend","t":"Ich kann nachts nicht schlafen. Was soll ich machen?","tr":"I can't sleep at night. What should I do?"},{"options":["Du solltest abends keinen Kaffee mehr trinken.","Du solltest abends trinken keinen Kaffee mehr."],"answer":0,"why":"The infinitive goes last."},{"who":"Friend","t":"Hm, und sonst?","tr":"Hm, anything else?"},{"options":["An deiner Stelle würde ich vor dem Schlafen ein Buch lesen.","An deiner Stelle ich würde vor dem Schlafen ein Buch lesen."],"answer":0,"why":"After {{An deiner Stelle}}, the verb comes next."}]},
+        {"type":"free","q":"Your turn: a friend wants to start learning German too. Give them two pieces of advice.","answers":[{"t":"Du solltest jeden Tag ein bisschen üben. An deiner Stelle würde ich deutsche Serien schauen.","tr":"You should practice a little every day. If I were you, I'd watch German shows."},{"t":"Vielleicht solltest du einen Sprachkurs machen. Und du musst unbedingt nach Berlin fahren!","tr":"Maybe you should take a language class. And you absolutely have to go to Berlin!"}]}
+      ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 9,
+      "level": "B1",
+      "title": "Report what someone said",
+      "summary": "Pass on messages, and tell what people said and asked: “She said she's coming later.” “He asked if you can send the figures.”",
+      "topic": "{{Er hat gesagt, dass…}}; {{Sie hat gefragt, ob / wann…}}; {{Du sollst…}}; the Konjunktiv I ({{er sei}}, {{sie habe}}) to recognise",
+      "blocks": [
+        {"goal":{"t":"Anna hat gesagt, dass sie später kommt.","tr":"Anna said she's coming later."}},
+        {"dialog":[{"who":"Colleague","t":"Hat jemand für mich angerufen?","tr":"Did anyone call for me?"},{"who":"Nora","t":"Ja, Herr Weber. Er hat gesagt, dass das Meeting erst am Donnerstag ist.","tr":"Yes, Mr. Weber. He said the meeting isn't until Thursday."},{"who":"Colleague","t":"Okay. Hat er sonst noch etwas gesagt?","tr":"OK. Did he say anything else?"},{"who":"Nora","t":"Er hat gefragt, ob du ihm die Zahlen schicken kannst.","tr":"He asked if you can send him the figures."},{"who":"Colleague","t":"Mache ich. Hat er gesagt, wann er wieder im Büro ist?","tr":"Will do. Did he say when he'll be back in the office?"},{"who":"Nora","t":"Am Montag. Und du sollst ihn zurückrufen!","tr":"On Monday. And you're supposed to call him back!"}]},
+        {"p":"**Reporting what someone said: dass.** {{Er hat gesagt, dass er später kommt.}} “He said he's coming later.” The reported part is a {{dass}} clause with the verb last, or, just as often, a normal clause without {{dass}}: {{Er hat gesagt, er kommt später.}}"},
+        {"p":"**The tense stays.** English often shifts back (“He *said* he *was* tired”); German usually keeps the tense the speaker used: {{Er hat gesagt, dass er müde ist.}} If they talked about the past, use the past: {{Sie hat gesagt, dass sie schon gegessen hat.}} Pronouns change, as in English: Anna says {{Ich komme später.}} → {{Anna hat gesagt, dass sie später kommt.}}"},
+        {"p":"**Reporting a question:** a question word, or {{ob}} for a yes/no question, with the verb last: {{Er hat gefragt, wann du kommst.}}, {{Sie hat gefragt, ob du Zeit hast.}} **Reporting a request:** {{sollen}}: {{Ruf mich an!}} → {{Er hat gesagt, du sollst ihn anrufen.}} And passing one on: {{Sag ihr, sie soll mich anrufen.}} “Tell her to call me.”"},
+        { "table": [
+          ["what was said","reported"],
+          ["{{Ich bin müde.}}","{{Er hat gesagt, dass er müde ist.}}"],
+          ["{{Hast du Zeit?}}","{{Sie hat gefragt, ob du Zeit hast.}}"],
+          ["{{Wann kommst du?}}","{{Er hat gefragt, wann du kommst.}}"],
+          ["{{Ruf mich an!}}","{{Sie hat gesagt, du sollst sie anrufen.}}"]
+        ] },
+        {"term":"Konjunktiv I","means":"the verb form used, mostly in the news, to report what someone said without taking sides: {{er sei}} “he is, they say”, {{sie habe}} “she has, they say”."},
+        {"p":"**In the news: the Konjunktiv I.** Newspapers and TV report what people said with a special form, to show it's their claim, not the reporter's: {{Der Minister sagte, er sei optimistisch.}} “The minister said he was optimistic.” You only need to recognise it: {{sei}} (from {{sein}}), {{habe}} (from {{haben}}), and {{-e}} forms like {{komme}} or {{gebe}} with {{er}} and {{sie}}."},
+        { "ex": [
+          {"t":"Mein Chef hat gesagt, dass ich morgen frei habe.","tr":"My boss said I have tomorrow off."},
+          {"t":"Sie hat gefragt, ob wir am Samstag Zeit haben.","tr":"She asked if we have time on Saturday."},
+          {"t":"Er hat gesagt, er kommt in zehn Minuten.","tr":"He said he's coming in ten minutes."},
+          {"t":"Sag ihm, er soll nicht so laut sein!","tr":"Tell him not to be so loud!"},
+          {"t":"Der Arzt hat gesagt, ich soll mehr Wasser trinken.","tr":"The doctor said I should drink more water."},
+          {"t":"Die Polizei sagte, der Fahrer sei zu schnell gefahren.","tr":"The police said the driver had been going too fast.","note":"news style, with {{sei}}"}
+        ] },
+        {"tip":"{{Was hat er gesagt?}} “What did he say?” and {{Was meinst du damit?}} “What do you mean by that?” keep a conversation going when you've missed something."}
+      ],
+      "mistakes": [
+        {"wrong":"Er hat gesagt, dass er ist müde.","right":"Er hat gesagt, dass er müde ist.","tr":"He said he's tired.","why":"After {{dass}}, the verb goes last."},
+        {"wrong":"Sie hat gefragt, dass du Zeit hast.","right":"Sie hat gefragt, ob du Zeit hast.","tr":"She asked if you have time.","why":"A reported yes/no question takes {{ob}}."},
+        {"wrong":"Anna hat gesagt, dass ich später komme.","right":"Anna hat gesagt, dass sie später kommt.","tr":"Anna said she's coming later.","why":"When you report Anna's words, her {{ich}} becomes {{sie}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Your friend Paul said: {{Ich habe keine Zeit.}} You report:","options":["{{Er hat gesagt, dass er keine Zeit hat.}}","{{Er hat gesagt, dass ich keine Zeit habe.}}","{{Er hat gesagt, dass er hat keine Zeit.}}"],"answer":0,"why":"His {{ich}} becomes {{er}}, and the verb goes last after {{dass}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Sie hat gefragt, ___ du morgen kommst.","tr":"She asked if you're coming tomorrow.","options":["ob","dass","wenn"],"answer":0,"why":"A reported yes/no question: {{ob}}.","from":"ask-indirectly"},
+        {"type":"fill","q":"Choose the missing word.","t":"Der Arzt hat gesagt, ich ___ mehr schlafen.","tr":"The doctor said I should sleep more.","options":["soll","will","darf"],"answer":0,"why":"Passing on someone else's instruction: {{sollen}}."},
+        {"type":"order","q":"Put the words in order.","tr":"He said he's coming later.","words":["Er","hat gesagt,","dass","er später","kommt."],"from":"say-what-you-did"},
+        {"type":"fill","q":"Choose the missing word.","t":"Er hat gefragt, wann der Film ___.","tr":"He asked when the movie starts.","options":["anfängt","fängt an","anfangen"],"answer":0,"why":"Verb last, and a separable verb joins up: {{anfängt}}.","from":"describe-your-day"},
+        {"type":"dialogue","q":"Pass on a message to your roommate.","lines":[{"who":"Roommate","t":"Hat jemand angerufen?","tr":"Did anyone call?"},{"options":["Ja, deine Mutter. Sie hat gefragt, ob du am Sonntag kommst.","Ja, deine Mutter. Sie hat gefragt, ob kommst du am Sonntag."],"answer":0,"why":"After {{ob}}, the verb goes last."},{"who":"Roommate","t":"Und hat sie noch etwas gesagt?","tr":"And did she say anything else?"},{"options":["Ja, du sollst sie heute Abend anrufen.","Ja, du sollst sie heute Abend anrufst."],"answer":0,"why":"After {{sollst}}: the infinitive, {{anrufen}}."}]},
+        {"type":"free","q":"Your turn: tell someone what a friend or someone in your family said or asked you recently.","answers":[{"t":"Meine Schwester hat gesagt, dass sie im Sommer heiratet!","tr":"My sister said she's getting married in the summer!"},{"t":"Mein Chef hat gefragt, ob ich am Samstag arbeiten kann.","tr":"My boss asked if I can work on Saturday."}]}
+      ]
+    },
+    {
+      "id": "understand-signs-and-news",
+      "unit": 9,
+      "level": "B1",
+      "title": "Understand signs, instructions and the news",
+      "summary": "Understand sentences where what happens matters more than who does it: “The town hall was built in 1890.” “German is spoken here.”",
+      "topic": "The passive: {{werden}} + participle ({{wird gemacht}}, {{wurde gebaut}}); {{man}}",
+      "blocks": [
+        {"goal":{"t":"Das Rathaus wurde 1890 gebaut.","tr":"The town hall was built in 1890."}},
+        {"dialog":[{"who":"Guide","t":"Das ist das Rathaus. Es wurde 1890 gebaut.","tr":"This is the town hall. It was built in 1890."},{"who":"Tourist","t":"Und die Kirche daneben?","tr":"And the church next to it?"},{"who":"Guide","t":"Die Kirche ist viel älter. Sie wurde im Krieg zerstört und später wieder aufgebaut.","tr":"The church is much older. It was destroyed in the war and rebuilt later."},{"who":"Tourist","t":"Kann man sie besichtigen?","tr":"Can you visit it?"},{"who":"Guide","t":"Ja, sie wird jeden Tag um zehn geöffnet. Aber drinnen darf nicht fotografiert werden.","tr":"Yes, it opens every day at ten. But taking photos isn't allowed inside."}]},
+        {"term":"passive","means":"a way of building a sentence so that the thing something is done to is the subject: The bridge **was built** in 1900."},
+        {"p":"**When who did it doesn't matter.** In an active sentence, someone does something: {{Man baut eine Brücke.}} “Someone is building a bridge.” In the passive, the thing it's done to becomes the subject, and the person who does it disappears: {{Die Brücke wird gebaut.}} “The bridge is being built.”"},
+        {"p":"**werden + participle.** The German passive is {{werden}} in second place and a participle at the end: {{Das Museum wird um zehn geöffnet.}} “The museum is opened at ten.” For the past, it's {{wurde}}: {{Die Brücke wurde 1900 gebaut.}} “The bridge was built in 1900.”"},
+        { "table": [
+          ["","present","past"],
+          ["{{ich}}","{{werde gefragt}}","{{wurde gefragt}}"],
+          ["{{er / sie / es}}","{{wird gebaut}}","{{wurde gebaut}}"],
+          ["{{wir / sie / Sie}}","{{werden gebaut}}","{{wurden gebaut}}"]
+        ] },
+        {"p":"**Not “will”!** {{Das Haus wird gebaut.}} is “The house is being built.” Only {{werden}} + an infinitive is the future ({{Es wird regnen.}}), and {{werden}} + an adjective is “get, become” ({{Es wird kalt.}}). The participle tells you it's the passive."},
+        {"p":"**Who did it?** If it matters, add {{von}} + the dative: {{Das Bild wurde von einem Kind gemalt.}} “The picture was painted by a child.” **In everyday speech, man** often does the same job: {{Hier spricht man Deutsch.}} “German is spoken here.”, {{Wie schreibt man das?}} “How is that spelled?” And signs use the passive with modal verbs: {{Hier darf nicht geparkt werden.}} “No parking here.”"},
+        { "ex": [
+          {"t":"Die Geschäfte werden um acht geöffnet.","tr":"The stores open at eight."},
+          {"t":"Das Auto wurde in Deutschland gebaut.","tr":"The car was made in Germany."},
+          {"t":"Hier wird Deutsch gesprochen.","tr":"German is spoken here."},
+          {"t":"Der Dieb wurde von der Polizei gefunden.","tr":"The thief was found by the police."},
+          {"t":"Die Pakete werden morgen geliefert.","tr":"The packages will be delivered tomorrow."},
+          {"t":"Wie wird das gemacht?","tr":"How is that done?"}
+        ] },
+        {"tip":"Signs and instructions love the passive and {{man}}: {{Bitte nicht berühren}} “Please don't touch”, {{Hier wird nicht geraucht}} “No smoking here”. Now you can read them."}
+      ],
+      "mistakes": [
+        {"wrong":"Die Brücke wurde gebaut 1900.","right":"Die Brücke wurde 1900 gebaut.","tr":"The bridge was built in 1900.","why":"The participle goes last, as in every verb bracket."},
+        {"wrong":"Das Bild wurde bei einem Kind gemalt.","right":"Das Bild wurde von einem Kind gemalt.","tr":"The picture was painted by a child.","why":"“By” someone in the passive is {{von}}."},
+        {"wrong":"Hier wird Deutsch gesprecht.","right":"Hier wird Deutsch gesprochen.","tr":"German is spoken here.","why":"The passive uses the same participles as the Perfekt: {{gesprochen}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Das Haus wird gebaut.}} means…","options":["The house is being built.","The house will build.","The house was built."],"answer":0,"why":"{{wird}} + a participle: the passive, now."},
+        {"type":"fill","q":"Choose the missing word.","t":"Das Rathaus ___ 1890 gebaut.","tr":"The town hall was built in 1890.","options":["wurde","wird","war"],"answer":0,"why":"The passive in the past: {{wurde}} + participle."},
+        {"type":"fill","q":"Choose the missing word.","t":"Hier wird Englisch ___.","tr":"English is spoken here.","options":["gesprochen","gesprecht","sprechen"],"answer":0,"why":"The participle of {{sprechen}} is {{gesprochen}}.","from":"talk-about-an-evening-out"},
+        {"type":"fill","q":"Choose the missing word.","t":"Das Bild wurde ___ einem Kind gemalt.","tr":"The picture was painted by a child.","options":["von","bei","mit"],"answer":0,"why":"“By” in the passive: {{von}}, with the dative.","from":"travel-around"},
+        {"type":"order","q":"Put the words in order.","tr":"The packages will be delivered tomorrow.","words":["Die Pakete","werden","morgen","geliefert."]},
+        {"type":"dialogue","q":"On a city tour.","from":"tell-about-your-day","lines":[{"who":"Guide","t":"Das ist die alte Brücke.","tr":"This is the old bridge."},{"options":["Wann wurde sie gebaut?","Wann wird sie gebaut?"],"answer":0,"why":"It already stands there, so it's the past: {{wurde}}."},{"who":"Guide","t":"Im Jahr 1650. Aber sie wurde im Krieg zerstört.","tr":"In 1650. But it was destroyed in the war."},{"options":["Und wann wurde sie wieder aufgebaut?","Und wann wurde sie wieder aufbauen?"],"answer":0,"why":"The passive: {{wurde}} + participle ({{aufgebaut}})."}]},
+        {"type":"free","q":"Your turn: tell a visitor about a building, a dish or a holiday where you live, using the passive.","answers":[{"t":"Bei uns wird Thanksgiving im November gefeiert.","tr":"Where I'm from, Thanksgiving is celebrated in November."},{"t":"Die Golden Gate Bridge wurde 1937 gebaut.","tr":"The Golden Gate Bridge was built in 1937."}]}
+      ]
     }
   ]
 }
