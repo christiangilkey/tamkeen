@@ -2630,14 +2630,14 @@
    "word": "وِلَايَة",
    "pos": "noun",
    "meaning": "state (of a country)",
-   "sentence": "يَعِيشُ أَخِي فِي وِلَايَةِ تِكْسَاس.",
+   "sentence": "يَعِيشُ أَخِي فِي وِلَايَةِ تِكْسَاسَ.",
    "translation": "My brother lives in the ⟦state⟧ of Texas.",
    "audio": "audio/0167.ogg",
    "times": {
     "start": 0.06,
     "end": 0.709,
     "sent_start": 1.609,
-    "sent_end": 4.018
+    "sent_end": 4.039
    }
   },
   {
@@ -4100,14 +4100,14 @@
    "word": "حَالِيًّا",
    "pos": "adv",
    "meaning": "currently; at the moment",
-   "sentence": "أَعِيشُ حَالِيًّا فِي دُبَيٍّ.",
+   "sentence": "أَعِيشُ حَالِيًّا فِي دُبَيَّ.",
    "translation": "I ⟦currently⟧ live in Dubai.",
    "audio": "audio/0265.ogg",
    "times": {
     "start": 0.06,
     "end": 0.918,
     "sent_start": 1.818,
-    "sent_end": 3.698
+    "sent_end": 3.705
    }
   },
   {
@@ -6182,17 +6182,17 @@
   },
   {
    "n": 404,
-   "word": "وَسْط",
+   "word": "وَسَط",
    "pos": "noun",
    "meaning": "middle; centre",
-   "sentence": "يَقَعُ الْفُنْدُقُ فِي وَسْطِ الْمَدِينَةِ.",
+   "sentence": "يَقَعُ الْفُنْدُقُ فِي وَسَطِ الْمَدِينَةِ.",
    "translation": "The hotel is in the ⟦centre⟧ of the city.",
    "audio": "audio/0404.ogg",
    "times": {
     "start": 0.06,
-    "end": 0.632,
-    "sent_start": 1.532,
-    "sent_end": 3.914
+    "end": 0.491,
+    "sent_start": 1.391,
+    "sent_end": 3.831
    }
   },
   {
@@ -7850,14 +7850,14 @@
    "word": "مُؤْتَمَر",
    "pos": "noun",
    "meaning": "conference",
-   "sentence": "سَأَحْضُرُ مُؤْتَمَرًا فِي دُبَيٍّ.",
+   "sentence": "سَأَحْضُرُ مُؤْتَمَرًا فِي دُبَيَّ.",
    "translation": "I'll attend a ⟦conference⟧ in Dubai.",
    "audio": "audio/0515.ogg",
    "times": {
     "start": 0.06,
     "end": 0.794,
     "sent_start": 1.694,
-    "sent_end": 3.889
+    "sent_end": 3.842
    }
   },
   {
@@ -10490,14 +10490,14 @@
    "word": "تَفَاصِيل",
    "pos": "noun",
    "meaning": "details (singular تَفْصِيل)",
-   "sentence": "أَرْسِلْ لِي التَّفَاصِيلَ.",
+   "sentence": "أَرْسِلْ لِيَ التَّفَاصِيلَ.",
    "translation": "Send me the ⟦details⟧.",
    "audio": "audio/0691.ogg",
    "times": {
     "start": 0.06,
     "end": 0.825,
     "sent_start": 1.725,
-    "sent_end": 3.205
+    "sent_end": 3.215
    }
   },
   {
@@ -10907,7 +10907,7 @@
   },
   {
    "n": 719,
-   "word": "بَاقِي",
+   "word": "بَاقٍ",
    "pos": "noun",
    "meaning": "the rest; remaining (الْبَاقِي: the change)",
    "sentence": "احْتَفِظْ بِالْبَاقِي.",
@@ -10915,9 +10915,9 @@
    "audio": "audio/0719.ogg",
    "times": {
     "start": 0.06,
-    "end": 0.729,
-    "sent_start": 1.629,
-    "sent_end": 2.964
+    "end": 0.525,
+    "sent_start": 1.425,
+    "sent_end": 2.76
    }
   },
   {
@@ -12440,14 +12440,14 @@
    "word": "لِسَان",
    "pos": "noun",
    "meaning": "tongue",
-   "sentence": "عَضَضْتُ لِسَانِي.",
+   "sentence": "عَضِضْتُ لِسَانِي.",
    "translation": "I bit my ⟦tongue⟧.",
    "audio": "audio/0821.ogg",
    "times": {
     "start": 0.06,
     "end": 0.772,
     "sent_start": 1.672,
-    "sent_end": 2.955
+    "sent_end": 2.908
    }
   },
   {
@@ -12905,14 +12905,14 @@
    "word": "رَابِط",
    "pos": "noun",
    "meaning": "link",
-   "sentence": "أَرْسِلْ لِي الرَّابِطَ.",
+   "sentence": "أَرْسِلْ لِيَ الرَّابِطَ.",
    "translation": "Send me the ⟦link⟧.",
    "audio": "audio/0852.ogg",
    "times": {
     "start": 0.06,
     "end": 0.683,
     "sent_start": 1.583,
-    "sent_end": 2.843
+    "sent_end": 2.815
    }
   },
   {
@@ -13115,14 +13115,14 @@
    "word": "كُلَّمَا",
    "pos": "conj",
    "meaning": "whenever; every time",
-   "sentence": "كُلَّمَا أَرَاهُ، يَبْتَسِمُ.",
+   "sentence": "كُلَّمَا رَأَيْتُهُ ابْتَسَمَ.",
    "translation": "⟦Whenever⟧ I see him, he smiles.",
    "audio": "audio/0866.ogg",
    "times": {
     "start": 0.06,
     "end": 0.654,
     "sent_start": 1.554,
-    "sent_end": 3.648
+    "sent_end": 3.372
    }
   },
   {
