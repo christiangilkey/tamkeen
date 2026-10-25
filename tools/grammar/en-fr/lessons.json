@@ -921,6 +921,203 @@
         {"type":"say","q":"Say: “It's eight thirty.”","answer":"Il est huit heures et demie."},
         {"type":"free","q":"Your turn: describe your week. What time do you start? What do you do on certain days? Say something you often do and something you never do.","answers":[{"t":"Je commence à neuf heures. Le mercredi, je fais du yoga. Je vais souvent au cinéma, mais je ne regarde jamais la télé.","tr":"I start at nine. On Wednesdays I do yoga. I often go to the movies, but I never watch TV."},{"t":"Le lundi, je commence à huit heures. Le samedi, je fais les courses. Je ne travaille jamais le dimanche.","tr":"On Mondays I start at eight. On Saturdays I do the grocery shopping. I never work on Sundays."}]}
       ]
+    },
+    {
+      "id": "say-what-youre-going-to-do",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what you're going to do",
+      "summary": "Talk about your plans for tonight, the weekend or next year: {{aller}} + an infinitive, the everyday future.",
+      "topic": "{{aller}} + infinitive (the near future); {{ce soir, demain, la semaine prochaine}}; {{je ne vais pas…}}",
+      "blocks": [
+        {"goal":{"t":"Demain, je vais visiter le Louvre avec mes parents.","tr":"Tomorrow I'm going to visit the Louvre with my parents."}},
+        {"dialog":[{"who":"Sarah","t":"Qu'est-ce que tu vas faire pendant les vacances ?","tr":"What are you going to do during the vacation?"},{"who":"Omar","t":"Je vais aller en Bretagne. On va faire du camping !","tr":"I'm going to go to Brittany. We're going to go camping!"},{"who":"Sarah","t":"Super ! Vous allez rester combien de temps ?","tr":"Great! How long are you going to stay?"},{"who":"Omar","t":"Une semaine. Et toi ?","tr":"A week. And you?"},{"who":"Sarah","t":"Moi, je ne vais pas partir. Je vais travailler…","tr":"I'm not going away. I'm going to work…"}]},
+        {"term":"tense","means":"the form of a verb that shows when something happens: the present, a past, a future."},
+        {"p":"**Going to do: aller + infinitive.** Exactly like English “I'm going to…”: {{aller}} in the present (lesson 16), then the second verb in the infinitive. {{Je vais regarder}} “I'm going to watch”."},
+        { "table": [
+          ["","{{aller}}","+ infinitive"],
+          ["I'm going to eat","{{je vais}}","{{manger}}"],
+          ["you're going to leave","{{tu vas}}","{{partir}}"],
+          ["she's going to work","{{elle va}}","{{travailler}}"],
+          ["we're going to see","{{nous allons}}, {{on va}}","{{voir}}"],
+          ["you're going to sleep","{{vous allez}}","{{dormir}}"],
+          ["they're going to come","{{ils vont}}","{{venir}}"]
+        ] },
+        {"p":"It's for plans and for what's about to happen, as in English, and in speech it's the usual way to talk about the future: {{Il va pleuvoir.}} “It's going to rain.” (Lesson 38 has the other future, the one-word one.)"},
+        {"p":"**Not going to: ne … pas around aller.** {{Je ne vais pas travailler demain.}} “I'm not going to work tomorrow.” The infinitive stays outside."},
+        {"p":"**When.** {{ce soir}} (tonight), {{demain}} (tomorrow), {{ce week-end}}, {{la semaine prochaine}} (next week), {{l'année prochaine}} (next year), {{bientôt}} (soon)."},
+        { "ex": [
+          {"t":"Je vais appeler ma mère.","tr":"I'm going to call my mother."},
+          {"t":"Qu'est-ce que tu vas faire ce week-end ?","tr":"What are you going to do this weekend?"},
+          {"t":"On va manger au restaurant ce soir.","tr":"We're going to eat out tonight."},
+          {"t":"Il va pleuvoir cet après-midi.","tr":"It's going to rain this afternoon."},
+          {"t":"Nous allons déménager l'année prochaine.","tr":"We're going to move next year."},
+          {"t":"Je ne vais pas sortir ce soir, je suis fatiguée.","tr":"I'm not going to go out tonight, I'm tired."}
+        ] },
+        {"tip":"Two meanings of {{je vais}}: {{Je vais à la plage.}} “I'm going to the beach” (a place: {{à}}). {{Je vais nager.}} “I'm going to swim” (a verb: the infinitive, with nothing before it)."}
+      ],
+      "mistakes": [
+        {"wrong":"Je vais à manger.","right":"Je vais manger.","tr":"I'm going to eat.","why":"Before a verb, no {{à}}: the infinitive comes straight after {{aller}}."},
+        {"wrong":"Je vais travaille demain.","right":"Je vais travailler demain.","tr":"I'm going to work tomorrow.","why":"After {{aller}}, the second verb is the infinitive ({{-er}})."},
+        {"wrong":"Je vais ne pas sortir.","right":"Je ne vais pas sortir.","tr":"I'm not going to go out.","why":"{{Ne … pas}} goes around {{aller}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Demain, nous ___ visiter le musée.","tr":"Tomorrow we're going to visit the museum.","options":["allons","allez","vont"],"answer":0,"why":"“We”: {{nous allons}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Je vais ___ ma sœur ce soir.","tr":"I'm going to call my sister tonight.","options":["appeler","appelle","à appeler"],"answer":0,"why":"After {{aller}}: the infinitive, with nothing before it."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm not going to work tomorrow.","words":["Je","ne vais pas","travailler","demain."]},
+        {"type":"choice","q":"{{Il va pleuvoir.}} means…","options":["It's going to rain.","It's raining.","It rained."],"answer":0,"why":"{{Aller}} + infinitive: what's going to happen."},
+        {"type":"dialogue","q":"A friend asks about your vacation. Choose your replies.","from":"say-where-youre-going","lines":[{"who":"Your friend","t":"Tu vas où pendant les vacances ?","tr":"Where are you going on vacation?"},{"options":["Je vais aller en Espagne.","Je vais aller à Espagne."],"answer":0,"why":"A feminine country: {{en}}."},{"who":"Your friend","t":"Qu'est-ce que tu vas faire ?","tr":"What are you going to do?"},{"options":["Je vais faire du surf !","Je vais fais du surf !"],"answer":0,"why":"After {{aller}}: the infinitive {{faire}}."},{"who":"Your friend","t":"Génial !","tr":"Awesome!"}]},
+        {"type":"say","q":"Say, with {{on}}: “We're going to eat out tonight.”","answer":"On va manger au restaurant ce soir."},
+        {"type":"free","q":"Your turn: say three things you're going to do this week or this year, and one thing you're not going to do.","answers":[{"t":"Ce week-end, je vais voir mes amis, je vais faire du sport et je vais lire. Je ne vais pas travailler !","tr":"This weekend I'm going to see my friends, do some sport and read. I'm not going to work!"},{"t":"Cette année, je vais apprendre le français et je vais aller en France. Je ne vais pas acheter de voiture.","tr":"This year I'm going to learn French and go to France. I'm not going to buy a car."}]}
+      ]
+    },
+    {
+      "id": "invite-accept-refuse",
+      "unit": 4,
+      "level": "A1",
+      "title": "Invite, accept and say no nicely",
+      "summary": "Ask someone out, ask for help, say yes with pleasure or no politely: {{vouloir}} and {{pouvoir}} + infinitive.",
+      "topic": "{{vouloir}}, {{pouvoir}} + infinitive; {{Tu veux … ?}}, {{Tu peux … ?}}; {{je veux bien}}; {{je ne peux pas}}",
+      "blocks": [
+        {"goal":{"t":"Tu veux venir au cinéma ce soir ? — Je veux bien, mais je ne peux pas, je travaille.","tr":"Do you want to come to the movies tonight? — I'd love to, but I can't, I'm working."}},
+        {"dialog":[{"who":"Léo","t":"Allô, Clara ? Tu veux dîner avec moi samedi ?","tr":"Hello, Clara? Do you want to have dinner with me on Saturday?"},{"who":"Clara","t":"Samedi, je ne peux pas, je vais chez mes parents. Mais dimanche, je veux bien !","tr":"Saturday I can't, I'm going to my parents'. But Sunday, I'd love to!"},{"who":"Léo","t":"Super ! On peut aller au restaurant italien ?","tr":"Great! Can we go to the Italian restaurant?"},{"who":"Clara","t":"Bonne idée. Tu peux réserver ?","tr":"Good idea. Can you book a table?"},{"who":"Léo","t":"Oui, pas de problème.","tr":"Yes, no problem."}]},
+        {"p":"**Wanting and being able.** {{Vouloir}} “to want” and {{pouvoir}} “can, to be able to” are irregular, and both take a second verb in the infinitive: {{Je veux partir.}} “I want to leave.” {{Je peux venir.}} “I can come.”"},
+        { "table": [
+          ["","{{vouloir}} “to want”","{{pouvoir}} “can”"],
+          ["I","{{je veux}}","{{je peux}}"],
+          ["you (a friend)","{{tu veux}}","{{tu peux}}"],
+          ["he, she; we (casual)","{{il veut}}; {{on veut}}","{{il peut}}; {{on peut}}"],
+          ["we","{{nous voulons}}","{{nous pouvons}}"],
+          ["you (polite, or several)","{{vous voulez}}","{{vous pouvez}}"],
+          ["they","{{ils veulent}}","{{ils peuvent}}"]
+        ] },
+        {"p":"**Inviting: Tu veux … ?** {{Tu veux venir ?}} “Do you want to come?” is how friends invite each other; with {{vous}}, {{Vous voulez venir ?}}. {{On peut … ?}} suggests something: {{On peut aller au parc ?}} “Can we go to the park?”"},
+        {"p":"**Asking for help: Tu peux … ?** {{Tu peux m'aider ?}} “Can you help me?” {{Vous pouvez répéter, s'il vous plaît ?}} “Could you say that again, please?” ({{M'}} “me” goes before the verb: lesson 32 explains.)"},
+        {"p":"**Saying yes.** {{Oui, je veux bien !}} “Yes, I'd love to!” (not “I want well”). {{Avec plaisir !}} “With pleasure!” {{D'accord.}} “OK.”"},
+        {"p":"**Saying no nicely.** {{Désolé, je ne peux pas.}} “Sorry, I can't.” Then a reason ({{je travaille}}, {{je suis occupé}} “I'm busy”) and maybe {{Une autre fois ?}} “Another time?” A bare {{je ne veux pas}} sounds blunt: “I don't want to.”"},
+        { "ex": [
+          {"t":"Vous voulez un café ?","tr":"Would you like a coffee?"},
+          {"t":"Tu peux fermer la fenêtre ?","tr":"Can you close the window?"},
+          {"t":"On peut payer par carte ?","tr":"Can we pay by card?"},
+          {"t":"Ils veulent visiter Paris.","tr":"They want to visit Paris."},
+          {"t":"Je ne peux pas venir demain.","tr":"I can't come tomorrow."},
+          {"t":"Vous pouvez parler plus lentement, s'il vous plaît ?","tr":"Could you speak more slowly, please?"}
+        ] },
+        {"tip":"{{Je veux}} is fine for what you want to do ({{Je veux apprendre le français.}}). To ask for a thing, {{je voudrais}} (lesson 3) is the polite form of this same verb: lesson 40 shows how it's made."}
+      ],
+      "mistakes": [
+        {"wrong":"Je peux à venir.","right":"Je peux venir.","tr":"I can come.","why":"The infinitive comes straight after {{pouvoir}}: no {{à}}."},
+        {"wrong":"Tu veux venir ? — Oui, je veux.","right":"Tu veux venir ? — Oui, je veux bien !","tr":"Do you want to come? — Yes, I'd love to!","why":"A bare {{je veux}} sounds strange here. Say {{je veux bien}} or {{avec plaisir}}."},
+        {"wrong":"Je ne peux venir pas.","right":"Je ne peux pas venir.","tr":"I can't come.","why":"{{Ne … pas}} goes around {{pouvoir}}; the infinitive comes after."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Vous ___ répéter, s'il vous plaît ?","tr":"Could you repeat that, please?","options":["pouvez","voulez","peux"],"answer":0,"why":"Asking someone to do something: {{pouvoir}}, with {{vous}}: {{vous pouvez}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ils ___ visiter le château.","tr":"They want to visit the castle.","options":["veulent","voulons","veut"],"answer":0,"why":"“They want”: {{ils veulent}}."},
+        {"type":"choice","q":"A friend invites you out and you'd love to go. You say…","options":["{{Oui, je veux bien !}}","{{Oui, je veux !}}","{{Oui, je peux bien !}}"],"answer":0,"why":"{{Je veux bien}}: “I'd love to, gladly”."},
+        {"type":"dialogue","q":"A colleague invites you out. Choose your replies.","from":"say-what-youre-going-to-do","lines":[{"who":"Your colleague","t":"On va boire un verre après le travail. Tu veux venir ?","tr":"We're going for a drink after work. Do you want to come?"},{"options":["Désolé, je ne peux pas ce soir. Une autre fois ?","Désolé, je ne veux pas."],"answer":0,"why":"Polite: you can't, and maybe another time. {{Je ne veux pas}} sounds rude."},{"who":"Your colleague","t":"Pas de problème. Et vendredi ?","tr":"No problem. What about Friday?"},{"options":["Vendredi, je veux bien !","Vendredi, je vais bien !"],"answer":0,"why":"{{Je veux bien}} is “I'd love to”. ({{Je vais bien}} means “I'm fine”.)"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Can you help me, please?","words":["Tu","peux","m'aider,","s'il te plaît ?"]},
+        {"type":"say","q":"Ask politely: “Could you speak more slowly, please?”","answer":"Vous pouvez parler plus lentement, s'il vous plaît ?"},
+        {"type":"free","q":"Your turn: invite a friend to do something this weekend. Then say no nicely to another invitation.","answers":[{"t":"Tu veux aller au cinéma samedi ? … Désolée, dimanche je ne peux pas, je vais chez mes parents.","tr":"Do you want to go to the movies on Saturday? … Sorry, on Sunday I can't, I'm going to my parents'."},{"t":"On peut faire une randonnée dimanche ? … Merci, mais je ne peux pas, je travaille. Une autre fois ?","tr":"Can we go hiking on Sunday? … Thanks, but I can't, I'm working. Another time?"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-to-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you have to do and what you need",
+      "summary": "Say you have to leave, that you need a doctor, that your head hurts: {{devoir}}, {{il faut}}, {{avoir besoin de}} and {{avoir mal à}}.",
+      "topic": "{{devoir}} + infinitive; {{il faut}} + infinitive; {{avoir besoin de}}; {{avoir mal à}}",
+      "blocks": [
+        {"goal":{"t":"J'ai mal à la tête, je dois rentrer à la maison.","tr":"I have a headache, I have to go home."}},
+        {"dialog":[{"who":"The pharmacist","t":"Bonjour, madame. Qu'est-ce qui ne va pas ?","tr":"Hello, madam. What's wrong?"},{"who":"You","t":"J'ai mal à la gorge et j'ai de la fièvre.","tr":"I have a sore throat and a fever."},{"who":"The pharmacist","t":"Vous avez besoin de repos. Il faut boire beaucoup d'eau.","tr":"You need rest. You need to drink a lot of water."},{"who":"You","t":"Je dois aller chez le médecin ?","tr":"Do I have to go to the doctor?"},{"who":"The pharmacist","t":"Si la fièvre ne baisse pas, oui. Et vous devez prendre une pastille trois fois par jour.","tr":"If the fever doesn't go down, yes. And you have to take a lozenge three times a day."}]},
+        {"p":"**Having to: devoir + infinitive.** {{Devoir}} “must, to have to” works like {{pouvoir}} (lesson 20): {{Je dois partir.}} “I have to go.”"},
+        { "table": [
+          ["","{{devoir}} “to have to, must”"],
+          ["I","{{je dois}}"],
+          ["you (a friend)","{{tu dois}}"],
+          ["he, she; we (casual)","{{il doit}}; {{on doit}}"],
+          ["we","{{nous devons}}"],
+          ["you (polite, or several)","{{vous devez}}"],
+          ["they","{{ils doivent}}"]
+        ] },
+        {"p":"**It's necessary: il faut.** {{Il faut}} + infinitive says what has to be done without saying by whom: {{Il faut réserver.}} “You have to book.” It never changes: there's only {{il faut}}. With a noun it means “you need, it takes”: {{Il faut deux heures.}} “It takes two hours.”"},
+        {"p":"**Needing: avoir besoin de.** “I need” is “I have need of”: {{J'ai besoin d'un médecin.}} “I need a doctor.” {{J'ai besoin de dormir.}} “I need to sleep.”"},
+        {"p":"**It hurts: avoir mal à.** “My head hurts” is “I have pain at the head”: {{J'ai mal à la tête.}} {{À}} joins the article as usual: {{j'ai mal au dos}} (back), {{au ventre}} (stomach), {{à la gorge}} (throat), {{aux dents}} (teeth). French says “the head”, not “my head”."},
+        { "ex": [
+          {"t":"Je dois travailler ce soir.","tr":"I have to work tonight."},
+          {"t":"Tu dois essayer ce restaurant !","tr":"You have to try this restaurant!"},
+          {"t":"Il faut changer de train à Lyon.","tr":"You have to change trains in Lyon."},
+          {"t":"Il ne faut pas toucher.","tr":"Don't touch.","note":"{{il ne faut pas}}: you mustn't"},
+          {"t":"On a besoin de pain.","tr":"We need bread."},
+          {"t":"J'ai mal au dos.","tr":"My back hurts."},
+          {"t":"Vous devez prendre ce médicament deux fois par jour.","tr":"You have to take this medicine twice a day."}
+        ] },
+        {"tip":"{{Il ne faut pas}} means “you must not”, not “you don't have to”. For “you don't have to”, say {{tu n'es pas obligé de…}}: {{Tu n'es pas obligé de venir.}} “You don't have to come.”"}
+      ],
+      "mistakes": [
+        {"wrong":"J'ai besoin un médecin.","right":"J'ai besoin d'un médecin.","tr":"I need a doctor.","why":"{{Avoir besoin}} always takes {{de}}."},
+        {"wrong":"J'ai mal à ma tête.","right":"J'ai mal à la tête.","tr":"I have a headache.","why":"With parts of the body, French says “the”, not “my”."},
+        {"wrong":"Je dois à partir.","right":"Je dois partir.","tr":"I have to go.","why":"The infinitive comes right after {{devoir}}: no {{à}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Vous ___ prendre le bus numéro 3.","tr":"You have to take the number 3 bus.","options":["devez","doit","dois"],"answer":0,"why":"“You”, with {{vous}}: {{vous devez}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"J'ai mal ___ dos.","tr":"My back hurts.","options":["au","à le","à la"],"answer":0,"why":"{{Dos}} is masculine: {{à}} + {{le}} = {{au}}.","from":"say-where-things-are"},
+        {"type":"choice","q":"{{Il ne faut pas fumer ici.}} means…","options":["You mustn't smoke here.","You don't have to smoke here.","Nobody smokes here."],"answer":0,"why":"{{Il ne faut pas}}: it's forbidden."},
+        {"type":"fill","q":"Choose the missing word.","t":"J'ai besoin ___ dormir.","tr":"I need to sleep.","options":["de","à","pour"],"answer":0,"why":"{{Avoir besoin de}}, always with {{de}}."},
+        {"type":"dialogue","q":"At the pharmacy. Choose your replies.","from":"say-what-you-have","lines":[{"who":"The pharmacist","t":"Bonjour ! Qu'est-ce qui ne va pas ?","tr":"Hello! What's wrong?"},{"options":["J'ai mal à la tête et j'ai froid.","Je suis mal à la tête et je suis froid."],"answer":0,"why":"Pain and cold: {{avoir}}."},{"who":"The pharmacist","t":"Vous avez de la fièvre ?","tr":"Do you have a fever?"},{"options":["Non, je n'ai pas de fièvre.","Non, je n'ai pas la fièvre."],"answer":0,"why":"After a negative, {{de la}} becomes {{de}}."},{"who":"The pharmacist","t":"Alors, il faut boire beaucoup d'eau et dormir.","tr":"Then you need to drink a lot of water and sleep."}]},
+        {"type":"order","q":"Put the words in order.","tr":"You have to change trains in Lyon.","words":["Il faut","changer","de train","à Lyon."]},
+        {"type":"free","q":"Your turn: say two things you have to do this week, and one thing you need.","answers":[{"t":"Cette semaine, je dois aller chez le dentiste et je dois faire les courses. J'ai besoin de vacances !","tr":"This week I have to go to the dentist and do the grocery shopping. I need a vacation!"},{"t":"Je dois travailler samedi. Il faut aussi acheter un cadeau pour ma mère. J'ai besoin d'un nouveau téléphone.","tr":"I have to work on Saturday. I also have to buy a present for my mother. I need a new phone."}]}
+      ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 4,
+      "level": "A2",
+      "title": "Give directions and instructions",
+      "summary": "Tell someone the way, follow a recipe, say “come in” and “don't worry”: the imperative, for {{tu}}, {{vous}} and {{nous}}.",
+      "topic": "the imperative ({{prends, prenez, prenons}}); the negative imperative; {{sois, soyez}}",
+      "blocks": [
+        {"goal":{"t":"Prenez la première rue à gauche, puis continuez tout droit.","tr":"Take the first street on the left, then keep going straight."}},
+        {"dialog":[{"who":"A tourist","t":"Pardon, madame, pour aller au musée, s'il vous plaît ?","tr":"Excuse me, ma'am, how do I get to the museum, please?"},{"who":"A woman","t":"Alors, traversez la place et tournez à droite.","tr":"So, cross the square and turn right."},{"who":"A tourist","t":"À droite, d'accord.","tr":"Right, OK."},{"who":"A woman","t":"Ensuite, prenez la deuxième rue à gauche. Le musée est en face de l'église.","tr":"Then take the second street on the left. The museum is opposite the church."},{"who":"A tourist","t":"Merci beaucoup !","tr":"Thank you very much!"},{"who":"A woman","t":"Je vous en prie. Et ne prenez pas le bus, c'est tout près !","tr":"You're welcome. And don't take the bus, it's very close!"}]},
+        {"term":"imperative","means":"the form of a verb that tells someone to do something: Come! Take the bus. Don't worry."},
+        {"p":"**Telling someone what to do.** The French imperative is the present tense without its subject: {{vous prenez}} “you take” → {{Prenez !}} “Take!” There are three: for {{tu}}, for {{vous}}, and for {{nous}}, which means “let's”."},
+        { "table": [
+          ["","to a friend ({{tu}})","to others ({{vous}})","let's ({{nous}})"],
+          ["{{tourner}} to turn","{{Tourne !}}","{{Tournez !}}","{{Tournons !}}"],
+          ["{{prendre}} to take","{{Prends !}}","{{Prenez !}}","{{Prenons !}}"],
+          ["{{venir}} to come","{{Viens !}}","{{Venez !}}","{{Venons !}}"],
+          ["{{faire}} to do","{{Fais !}}","{{Faites !}}","{{Faisons !}}"],
+          ["{{aller}} to go","{{Va !}}","{{Allez !}}","{{Allons !}}"]
+        ] },
+        {"p":"**-er verbs lose their -s with tu.** {{Tu tournes}} → {{Tourne !}}, {{tu regardes}} → {{Regarde !}} “Look!” Other verbs keep it: {{Prends !}} {{Viens !}} {{Fais !}}"},
+        {"p":"**Don't: ne … pas around it.** {{Ne prenez pas le bus.}} “Don't take the bus.” {{Ne t'inquiète pas.}} “Don't worry.” (to a friend)"},
+        {"p":"**Être and avoir have their own.** {{Sois}}, {{soyez}} “be”; {{aie}}, {{ayez}} “have”: {{Soyez prudents !}} “Be careful!” {{N'ayez pas peur.}} “Don't be afraid.”"},
+        {"p":"**Directions.** {{à gauche}} (on the left), {{à droite}} (on the right), {{tout droit}} (straight ahead), {{la première rue}} (the first street), {{la deuxième}} (the second), {{jusqu'au feu}} (as far as the traffic lights)."},
+        { "ex": [
+          {"t":"Tournez à droite après la banque.","tr":"Turn right after the bank."},
+          {"t":"Viens ici !","tr":"Come here!"},
+          {"t":"Entrez, je vous en prie.","tr":"Come in, please."},
+          {"t":"Allons au café !","tr":"Let's go to the café!"},
+          {"t":"Ne mange pas trop vite !","tr":"Don't eat too fast!"},
+          {"t":"Asseyez-vous, s'il vous plaît.","tr":"Sit down, please.","note":"a verb with {{vous}} twice: lesson 29 explains"},
+          {"t":"Coupez les tomates et ajoutez du sel.","tr":"Cut the tomatoes and add some salt."}
+        ] },
+        {"tip":"An imperative alone can sound bossy. Soften it with {{s'il vous plaît}}, or ask instead: {{Vous pouvez fermer la porte ?}} (lesson 20)."}
+      ],
+      "mistakes": [
+        {"wrong":"Tournes à gauche !","right":"Tourne à gauche !","tr":"Turn left!","why":"With {{tu}}, -er verbs drop their {{-s}} in the imperative."},
+        {"wrong":"Pas prenez le bus.","right":"Ne prenez pas le bus.","tr":"Don't take the bus.","why":"{{Ne … pas}} goes around the verb, as always."},
+        {"wrong":"Êtes prudents !","right":"Soyez prudents !","tr":"Be careful!","why":"{{Être}} has its own imperative: {{sois}}, {{soyez}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"To a stranger. Choose the missing word.","t":"___ la deuxième rue à gauche.","tr":"Take the second street on the left.","options":["Prenez","Prends","Prenons"],"answer":0,"why":"To someone you don't know: the {{vous}} form, {{prenez}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Paul, ___ ici !","tr":"Paul, come here!","options":["viens","venez","viennent"],"answer":0,"why":"To one friend: the {{tu}} form, {{viens}}."},
+        {"type":"choice","q":"How do you say “Let's go to the park!”?","options":["{{Allons au parc !}}","{{Allez au parc !}}","{{Va au parc !}}"],"answer":0,"why":"“Let's”: the {{nous}} form, {{allons}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Don't take the bus.","words":["Ne","prenez","pas","le bus."]},
+        {"type":"dialogue","q":"A tourist asks you the way to the station. Choose your replies.","from":"say-where-things-are","lines":[{"who":"A tourist","t":"Pardon, la gare, c'est loin ?","tr":"Excuse me, is the station far?"},{"options":["Non ! Continuez tout droit et tournez à gauche.","Non ! Continuer tout droit et tourner à gauche."],"answer":0,"why":"Telling a stranger what to do: the {{vous}} imperative."},{"who":"A tourist","t":"Et après ?","tr":"And then?"},{"options":["La gare est en face du parc.","La gare est en face de le parc."],"answer":0,"why":"{{De}} + {{le}} = {{du}}."},{"who":"A tourist","t":"Merci beaucoup !","tr":"Thank you very much!"}]},
+        {"type":"say","q":"Tell a friend: “Don't worry!”","answer":"Ne t'inquiète pas !"},
+        {"type":"free","q":"Your turn: tell a friend how to get from your home to a café or a shop nearby. Use {{tu}}.","answers":[{"t":"Tourne à droite au bout de ma rue, puis continue tout droit. Le café est à côté de la banque.","tr":"Turn right at the end of my street, then keep going straight. The café is next to the bank."},{"t":"Prends la première rue à gauche, puis traverse la place. La boulangerie est en face de l'église.","tr":"Take the first street on the left, then cross the square. The bakery is opposite the church."}]}
+      ]
     }
   ]
 }
