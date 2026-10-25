@@ -7411,6 +7411,933 @@
       "meaning": "foreign country (がいこく)",
       "sentence": "外国に住んだことがありますか。",
       "translation": "Have you ever lived in a ⟦foreign country⟧?"
+    },
+    {
+      "n": 801,
+      "rank": 1165,
+      "word": "左",
+      "pos": "noun",
+      "meaning": "left (ひだり)",
+      "sentence": "次の信号を左に曲がってください。",
+      "translation": "Please turn ⟦left⟧ at the next light.",
+      "say": "ひだり"
+    },
+    {
+      "n": 802,
+      "rank": 1167,
+      "word": "当然",
+      "pos": "adv",
+      "meaning": "naturally; of course (とうぜん)",
+      "sentence": "当然、私も行きます。",
+      "translation": "⟦Of course⟧ I'm going too."
+    },
+    {
+      "n": 803,
+      "rank": 1168,
+      "word": "恋",
+      "pos": "noun",
+      "meaning": "(romantic) love (こい)",
+      "sentence": "彼女に恋をしました。",
+      "translation": "I fell in ⟦love⟧ with her."
+    },
+    {
+      "n": 804,
+      "rank": 1169,
+      "word": "旅",
+      "pos": "noun",
+      "meaning": "journey; trip (たび)",
+      "sentence": "一人で旅に出ました。",
+      "translation": "I set off on a ⟦journey⟧ alone."
+    },
+    {
+      "n": 805,
+      "rank": 1170,
+      "word": "特徴",
+      "pos": "noun",
+      "meaning": "feature; characteristic (とくちょう)",
+      "sentence": "この車の特徴は何ですか。",
+      "translation": "What are this car's ⟦features⟧?"
+    },
+    {
+      "n": 806,
+      "rank": 1171,
+      "word": "選択",
+      "pos": "noun",
+      "meaning": "choice (せんたく)",
+      "sentence": "いい選択でしたね。",
+      "translation": "That was a good ⟦choice⟧."
+    },
+    {
+      "n": 807,
+      "rank": 1172,
+      "word": "野球",
+      "pos": "noun",
+      "meaning": "baseball (やきゅう)",
+      "sentence": "日曜日に野球をします。",
+      "translation": "I play ⟦baseball⟧ on Sundays."
+    },
+    {
+      "n": 808,
+      "rank": 1173,
+      "word": "雨",
+      "pos": "noun",
+      "meaning": "rain (あめ)",
+      "sentence": "外は雨が降っています。",
+      "translation": "It's ⟦raining⟧ outside."
+    },
+    {
+      "n": 809,
+      "rank": 1174,
+      "word": "食事",
+      "pos": "noun",
+      "meaning": "meal (しょくじ)",
+      "sentence": "一緒に食事をしませんか。",
+      "translation": "Would you like to have a ⟦meal⟧ together?"
+    },
+    {
+      "n": 810,
+      "rank": 1175,
+      "word": "魔法",
+      "pos": "noun",
+      "meaning": "magic (まほう)",
+      "sentence": "魔法が使えたらいいのに。",
+      "translation": "I wish I could use ⟦magic⟧."
+    },
+    {
+      "n": 811,
+      "rank": 1176,
+      "word": "離れる",
+      "pos": "verb",
+      "meaning": "to leave; to be away from (はなれる)",
+      "sentence": "家族と離れて住んでいます。",
+      "translation": "I live ⟦apart⟧ from my family.",
+      "form": "離れ"
+    },
+    {
+      "n": 812,
+      "rank": 1177,
+      "word": "悩む",
+      "pos": "verb",
+      "meaning": "to worry; to be unable to decide (なやむ)",
+      "sentence": "何を買うか悩んでいます。",
+      "translation": "I can't ⟦decide⟧ what to buy.",
+      "form": "悩ん"
+    },
+    {
+      "n": 813,
+      "rank": 1179,
+      "word": "おいしい",
+      "pos": "adj",
+      "meaning": "delicious; tasty (also written 美味しい)",
+      "sentence": "このラーメン、おいしいですね。",
+      "translation": "This ramen is ⟦delicious⟧."
+    },
+    {
+      "n": 814,
+      "rank": 1180,
+      "word": "飛ぶ",
+      "pos": "verb",
+      "meaning": "to fly (とぶ)",
+      "sentence": "鳥が空を飛んでいます。",
+      "translation": "Birds are ⟦flying⟧ in the sky.",
+      "form": "飛ん"
+    },
+    {
+      "n": 815,
+      "rank": 1186,
+      "word": "どういう",
+      "pos": "det",
+      "meaning": "what kind of; how",
+      "sentence": "それはどういう意味ですか。",
+      "translation": "⟦What⟧ do you mean by that?"
+    },
+    {
+      "n": 816,
+      "rank": 1190,
+      "word": "反対",
+      "pos": "noun",
+      "meaning": "opposite; against (はんたい)",
+      "sentence": "私はその計画に反対です。",
+      "translation": "I'm ⟦against⟧ that plan."
+    },
+    {
+      "n": 817,
+      "rank": 1192,
+      "word": "客",
+      "pos": "noun",
+      "meaning": "customer; guest (きゃく)",
+      "sentence": "今日はお客さんが多いです。",
+      "translation": "There are a lot of ⟦customers⟧ today.",
+      "form": "お客",
+      "say": "きゃく"
+    },
+    {
+      "n": 818,
+      "rank": 1193,
+      "word": "専用",
+      "pos": "noun",
+      "meaning": "for … only; exclusive (せんよう)",
+      "sentence": "この車両は女性専用です。",
+      "translation": "This car is for women ⟦only⟧."
+    },
+    {
+      "n": 819,
+      "rank": 1194,
+      "word": "弁護士",
+      "pos": "noun",
+      "meaning": "lawyer (べんごし)",
+      "sentence": "兄は弁護士です。",
+      "translation": "My older brother is a ⟦lawyer⟧."
+    },
+    {
+      "n": 820,
+      "rank": 1196,
+      "word": "意見",
+      "pos": "noun",
+      "meaning": "opinion (いけん)",
+      "sentence": "あなたの意見を聞かせてください。",
+      "translation": "Please tell me your ⟦opinion⟧."
+    },
+    {
+      "n": 821,
+      "rank": 1197,
+      "word": "成長",
+      "pos": "noun",
+      "meaning": "growth (せいちょう; 成長する: to grow)",
+      "sentence": "子供の成長は早いですね。",
+      "translation": "Children ⟦grow⟧ up so fast."
+    },
+    {
+      "n": 822,
+      "rank": 1201,
+      "word": "無駄",
+      "pos": "noun",
+      "meaning": "waste; no use (むだ)",
+      "sentence": "時間の無駄です。",
+      "translation": "It's a ⟦waste⟧ of time."
+    },
+    {
+      "n": 823,
+      "rank": 1203,
+      "word": "箱",
+      "pos": "noun",
+      "meaning": "box (はこ)",
+      "sentence": "この箱に入れてください。",
+      "translation": "Please put it in this ⟦box⟧."
+    },
+    {
+      "n": 824,
+      "rank": 1205,
+      "word": "赤",
+      "pos": "noun",
+      "meaning": "red (あか)",
+      "sentence": "信号が赤になりました。",
+      "translation": "The light turned ⟦red⟧.",
+      "say": "あか"
+    },
+    {
+      "n": 825,
+      "rank": 1208,
+      "word": "髪",
+      "pos": "noun",
+      "meaning": "hair (on the head) (かみ)",
+      "sentence": "髪の色を変えました。",
+      "translation": "I changed my ⟦hair⟧ color.",
+      "say": "かみ"
+    },
+    {
+      "n": 826,
+      "rank": 1209,
+      "word": "集まる",
+      "pos": "verb",
+      "meaning": "to gather; to get together (あつまる)",
+      "sentence": "駅の前に人が集まっています。",
+      "translation": "People are ⟦gathering⟧ in front of the station.",
+      "form": "集まっ"
+    },
+    {
+      "n": 827,
+      "rank": 1210,
+      "word": "加える",
+      "pos": "verb",
+      "meaning": "to add (くわえる)",
+      "sentence": "塩を少し加えてください。",
+      "translation": "Please ⟦add⟧ a little salt.",
+      "form": "加え"
+    },
+    {
+      "n": 828,
+      "rank": 1211,
+      "word": "速い",
+      "pos": "adj",
+      "meaning": "fast (はやい)",
+      "sentence": "彼は走るのが速いです。",
+      "translation": "He's a ⟦fast⟧ runner."
+    },
+    {
+      "n": 829,
+      "rank": 1214,
+      "word": "スマホ",
+      "pos": "noun",
+      "meaning": "smartphone",
+      "sentence": "スマホをなくしました。",
+      "translation": "I lost my ⟦smartphone⟧."
+    },
+    {
+      "n": 830,
+      "rank": 1215,
+      "word": "パン",
+      "pos": "noun",
+      "meaning": "bread",
+      "sentence": "このパンはおいしいです。",
+      "translation": "This ⟦bread⟧ is good."
+    },
+    {
+      "n": 831,
+      "rank": 1218,
+      "word": "予想",
+      "pos": "noun",
+      "meaning": "expectation; prediction (よそう)",
+      "sentence": "予想より簡単でした。",
+      "translation": "It was easier than I ⟦expected⟧."
+    },
+    {
+      "n": 832,
+      "rank": 1219,
+      "word": "今後",
+      "pos": "noun",
+      "meaning": "from now on; in the future (こんご)",
+      "sentence": "今後ともよろしくお願いします。",
+      "translation": "I look forward to working with you ⟦from now on⟧."
+    },
+    {
+      "n": 833,
+      "rank": 1221,
+      "word": "南",
+      "pos": "noun",
+      "meaning": "south (みなみ)",
+      "sentence": "沖縄は日本の南にあります。",
+      "translation": "Okinawa is in the ⟦south⟧ of Japan.",
+      "say": "みなみ"
+    },
+    {
+      "n": 834,
+      "rank": 1222,
+      "word": "命",
+      "pos": "noun",
+      "meaning": "life (いのち)",
+      "sentence": "命は大切です。",
+      "translation": "⟦Life⟧ is precious."
+    },
+    {
+      "n": 835,
+      "rank": 1223,
+      "word": "変化",
+      "pos": "noun",
+      "meaning": "change (へんか)",
+      "sentence": "最近、天気の変化が激しいです。",
+      "translation": "The weather has been ⟦changing⟧ a lot lately."
+    },
+    {
+      "n": 836,
+      "rank": 1224,
+      "word": "夫",
+      "pos": "noun",
+      "meaning": "(my) husband (おっと)",
+      "sentence": "夫は料理が得意です。",
+      "translation": "My ⟦husband⟧ is good at cooking."
+    },
+    {
+      "n": 837,
+      "rank": 1225,
+      "word": "新聞",
+      "pos": "noun",
+      "meaning": "newspaper (しんぶん)",
+      "sentence": "毎朝新聞を読みます。",
+      "translation": "I read the ⟦newspaper⟧ every morning."
+    },
+    {
+      "n": 838,
+      "rank": 1227,
+      "word": "男子",
+      "pos": "noun",
+      "meaning": "boy; men's (だんし)",
+      "sentence": "男子トイレはどこですか。",
+      "translation": "Where's the ⟦men's⟧ room?"
+    },
+    {
+      "n": 839,
+      "rank": 1229,
+      "word": "賞",
+      "pos": "noun",
+      "meaning": "prize; award (しょう)",
+      "sentence": "彼女は賞をもらいました。",
+      "translation": "She won an ⟦award⟧."
+    },
+    {
+      "n": 840,
+      "rank": 1232,
+      "word": "集める",
+      "pos": "verb",
+      "meaning": "to collect; to gather (あつめる)",
+      "sentence": "切手を集めています。",
+      "translation": "I ⟦collect⟧ stamps.",
+      "form": "集め"
+    },
+    {
+      "n": 841,
+      "rank": 1233,
+      "word": "比べる",
+      "pos": "verb",
+      "meaning": "to compare (くらべる)",
+      "sentence": "去年と比べて、今年は暑いです。",
+      "translation": "⟦Compared⟧ to last year, this year is hot.",
+      "form": "比べ"
+    },
+    {
+      "n": 842,
+      "rank": 1234,
+      "word": "抜く",
+      "pos": "verb",
+      "meaning": "to pull out; to skip (a meal) (ぬく)",
+      "sentence": "朝ご飯を抜きました。",
+      "translation": "I ⟦skipped⟧ breakfast.",
+      "form": "抜き"
+    },
+    {
+      "n": 843,
+      "rank": 1236,
+      "word": "正しい",
+      "pos": "adj",
+      "meaning": "correct; right (ただしい)",
+      "sentence": "正しい答えはどれですか。",
+      "translation": "Which is the ⟦correct⟧ answer?"
+    },
+    {
+      "n": 844,
+      "rank": 1238,
+      "word": "切れる",
+      "pos": "verb",
+      "meaning": "to run out; to be cut; to expire (きれる)",
+      "sentence": "電池が切れました。",
+      "translation": "The battery ⟦ran out⟧.",
+      "form": "切れ"
+    },
+    {
+      "n": 845,
+      "rank": 1239,
+      "word": "打つ",
+      "pos": "verb",
+      "meaning": "to hit; to type (うつ)",
+      "sentence": "彼はホームランを打ちました。",
+      "translation": "He ⟦hit⟧ a home run.",
+      "form": "打ち"
+    },
+    {
+      "n": 846,
+      "rank": 1241,
+      "word": "歌う",
+      "pos": "verb",
+      "meaning": "to sing (うたう)",
+      "sentence": "カラオケで歌いましょう。",
+      "translation": "Let's ⟦sing⟧ karaoke.",
+      "form": "歌い"
+    },
+    {
+      "n": 847,
+      "rank": 1242,
+      "word": "落とす",
+      "pos": "verb",
+      "meaning": "to drop (おとす)",
+      "sentence": "スマホを落としました。",
+      "translation": "I ⟦dropped⟧ my phone.",
+      "form": "落とし"
+    },
+    {
+      "n": 848,
+      "rank": 1243,
+      "word": "見つかる",
+      "pos": "verb",
+      "meaning": "to be found (みつかる)",
+      "sentence": "鍵が見つかりました。",
+      "translation": "I ⟦found⟧ my keys.",
+      "form": "見つかり"
+    },
+    {
+      "n": 849,
+      "rank": 1244,
+      "word": "さすが",
+      "pos": "adv",
+      "meaning": "just as you'd expect (of)",
+      "sentence": "さすがプロですね。",
+      "translation": "That's a pro ⟦for you⟧."
+    },
+    {
+      "n": 850,
+      "rank": 1250,
+      "word": "テスト",
+      "pos": "noun",
+      "meaning": "test",
+      "sentence": "明日、数学のテストがあります。",
+      "translation": "I have a math ⟦test⟧ tomorrow."
+    },
+    {
+      "n": 851,
+      "rank": 1254,
+      "word": "壁",
+      "pos": "noun",
+      "meaning": "wall (かべ)",
+      "sentence": "壁に絵をかけました。",
+      "translation": "I hung a picture on the ⟦wall⟧."
+    },
+    {
+      "n": 852,
+      "rank": 1255,
+      "word": "妹",
+      "pos": "noun",
+      "meaning": "younger sister (いもうと)",
+      "sentence": "妹は高校生です。",
+      "translation": "My ⟦younger sister⟧ is in high school."
+    },
+    {
+      "n": 853,
+      "rank": 1256,
+      "word": "席",
+      "pos": "noun",
+      "meaning": "seat (せき)",
+      "sentence": "この席は空いていますか。",
+      "translation": "Is this ⟦seat⟧ free?"
+    },
+    {
+      "n": 854,
+      "rank": 1259,
+      "word": "条件",
+      "pos": "noun",
+      "meaning": "condition; terms (じょうけん)",
+      "sentence": "条件がいい仕事を探しています。",
+      "translation": "I'm looking for a job with good ⟦conditions⟧."
+    },
+    {
+      "n": 855,
+      "rank": 1261,
+      "word": "直接",
+      "pos": "adv",
+      "meaning": "directly; in person (ちょくせつ)",
+      "sentence": "直接会って話しましょう。",
+      "translation": "Let's meet and talk ⟦in person⟧."
+    },
+    {
+      "n": 856,
+      "rank": 1263,
+      "word": "耳",
+      "pos": "noun",
+      "meaning": "ear (みみ)",
+      "sentence": "祖父は耳が遠いです。",
+      "translation": "My grandfather is hard of ⟦hearing⟧."
+    },
+    {
+      "n": 857,
+      "rank": 1264,
+      "word": "観光",
+      "pos": "noun",
+      "meaning": "sightseeing (かんこう)",
+      "sentence": "京都へ観光に行きました。",
+      "translation": "I went ⟦sightseeing⟧ in Kyoto."
+    },
+    {
+      "n": 858,
+      "rank": 1265,
+      "word": "押す",
+      "pos": "verb",
+      "meaning": "to push; to press (おす)",
+      "sentence": "このボタンを押してください。",
+      "translation": "Please ⟦press⟧ this button.",
+      "form": "押し"
+    },
+    {
+      "n": 859,
+      "rank": 1267,
+      "word": "甘い",
+      "pos": "adj",
+      "meaning": "sweet (あまい)",
+      "sentence": "甘いものが好きです。",
+      "translation": "I like ⟦sweet⟧ things."
+    },
+    {
+      "n": 860,
+      "rank": 1268,
+      "word": "ひどい",
+      "pos": "adj",
+      "meaning": "terrible; cruel",
+      "sentence": "ひどい雨ですね。",
+      "translation": "What ⟦terrible⟧ rain."
+    },
+    {
+      "n": 861,
+      "rank": 1269,
+      "word": "広い",
+      "pos": "adj",
+      "meaning": "wide; spacious (ひろい)",
+      "sentence": "この部屋は広いですね。",
+      "translation": "This room is ⟦spacious⟧."
+    },
+    {
+      "n": 862,
+      "rank": 1270,
+      "word": "隠す",
+      "pos": "verb",
+      "meaning": "to hide (かくす)",
+      "sentence": "何を隠しているんですか。",
+      "translation": "What are you ⟦hiding⟧?",
+      "form": "隠し"
+    },
+    {
+      "n": 863,
+      "rank": 1274,
+      "word": "たまに",
+      "pos": "adv",
+      "meaning": "once in a while",
+      "sentence": "たまに映画を見ます。",
+      "translation": "I watch movies ⟦once in a while⟧."
+    },
+    {
+      "n": 864,
+      "rank": 1275,
+      "word": "クラス",
+      "pos": "noun",
+      "meaning": "class",
+      "sentence": "クラスに留学生が三人います。",
+      "translation": "There are three international students in my ⟦class⟧."
+    },
+    {
+      "n": 865,
+      "rank": 1279,
+      "word": "応援",
+      "pos": "noun",
+      "meaning": "support; cheering (おうえん; 応援する: to cheer for)",
+      "sentence": "いつも応援しています。",
+      "translation": "I'm always ⟦rooting⟧ for you."
+    },
+    {
+      "n": 866,
+      "rank": 1281,
+      "word": "治療",
+      "pos": "noun",
+      "meaning": "(medical) treatment (ちりょう)",
+      "sentence": "歯の治療に行きます。",
+      "translation": "I'm going for dental ⟦treatment⟧."
+    },
+    {
+      "n": 867,
+      "rank": 1282,
+      "word": "法律",
+      "pos": "noun",
+      "meaning": "law (ほうりつ)",
+      "sentence": "それは法律で禁止されています。",
+      "translation": "That's prohibited by ⟦law⟧."
+    },
+    {
+      "n": 868,
+      "rank": 1284,
+      "word": "種類",
+      "pos": "noun",
+      "meaning": "kind; type (しゅるい)",
+      "sentence": "どんな種類の本が好きですか。",
+      "translation": "What ⟦kind⟧ of books do you like?"
+    },
+    {
+      "n": 869,
+      "rank": 1286,
+      "word": "泣く",
+      "pos": "verb",
+      "meaning": "to cry (なく)",
+      "sentence": "赤ちゃんが泣いています。",
+      "translation": "The baby is ⟦crying⟧.",
+      "form": "泣い"
+    },
+    {
+      "n": 870,
+      "rank": 1289,
+      "word": "あたり",
+      "pos": "noun",
+      "meaning": "around; the area",
+      "sentence": "このあたりに郵便局はありますか。",
+      "translation": "Is there a post office ⟦around here⟧?"
+    },
+    {
+      "n": 871,
+      "rank": 1290,
+      "word": "いくつ",
+      "pos": "pron",
+      "meaning": "how many; how old",
+      "sentence": "お子さんはいくつですか。",
+      "translation": "⟦How old⟧ is your child?"
+    },
+    {
+      "n": 872,
+      "rank": 1291,
+      "word": "すでに",
+      "pos": "adv",
+      "meaning": "already (formal)",
+      "sentence": "チケットはすでに売り切れました。",
+      "translation": "The tickets have ⟦already⟧ sold out."
+    },
+    {
+      "n": 873,
+      "rank": 1292,
+      "word": "それでも",
+      "pos": "conj",
+      "meaning": "even so; still",
+      "sentence": "それでも、私は行きます。",
+      "translation": "⟦Even so⟧, I'm going."
+    },
+    {
+      "n": 874,
+      "rank": 1295,
+      "word": "ツアー",
+      "pos": "noun",
+      "meaning": "tour",
+      "sentence": "京都のツアーに参加しました。",
+      "translation": "I joined a ⟦tour⟧ of Kyoto."
+    },
+    {
+      "n": 875,
+      "rank": 1298,
+      "word": "不安",
+      "pos": "adj",
+      "meaning": "anxiety; uneasy (ふあん)",
+      "sentence": "明日の試験が不安です。",
+      "translation": "I'm ⟦nervous⟧ about tomorrow's exam."
+    },
+    {
+      "n": 876,
+      "rank": 1299,
+      "word": "事務所",
+      "pos": "noun",
+      "meaning": "office (じむしょ)",
+      "sentence": "事務所は三階にあります。",
+      "translation": "The ⟦office⟧ is on the third floor."
+    },
+    {
+      "n": 877,
+      "rank": 1301,
+      "word": "小説",
+      "pos": "noun",
+      "meaning": "novel (しょうせつ)",
+      "sentence": "この小説はとても面白いです。",
+      "translation": "This ⟦novel⟧ is really interesting."
+    },
+    {
+      "n": 878,
+      "rank": 1304,
+      "word": "年齢",
+      "pos": "noun",
+      "meaning": "age (ねんれい)",
+      "sentence": "年齢は関係ありません。",
+      "translation": "⟦Age⟧ doesn't matter."
+    },
+    {
+      "n": 879,
+      "rank": 1305,
+      "word": "投票",
+      "pos": "noun",
+      "meaning": "vote; voting (とうひょう)",
+      "sentence": "日曜日に投票に行きます。",
+      "translation": "I'm going to ⟦vote⟧ on Sunday."
+    },
+    {
+      "n": 880,
+      "rank": 1306,
+      "word": "旅行",
+      "pos": "noun",
+      "meaning": "travel; trip (りょこう; 旅行する: to travel)",
+      "sentence": "来月、家族で旅行します。",
+      "translation": "I'm ⟦traveling⟧ with my family next month."
+    },
+    {
+      "n": 881,
+      "rank": 1307,
+      "word": "機会",
+      "pos": "noun",
+      "meaning": "opportunity; chance (きかい)",
+      "sentence": "いい機会ですね。",
+      "translation": "That's a good ⟦opportunity⟧."
+    },
+    {
+      "n": 882,
+      "rank": 1308,
+      "word": "活躍",
+      "pos": "noun",
+      "meaning": "being active; doing great things (かつやく)",
+      "sentence": "彼はチームで活躍しています。",
+      "translation": "He's ⟦doing great⟧ on the team."
+    },
+    {
+      "n": 883,
+      "rank": 1310,
+      "word": "趣味",
+      "pos": "noun",
+      "meaning": "hobby (しゅみ)",
+      "sentence": "趣味は何ですか。",
+      "translation": "What are your ⟦hobbies⟧?"
+    },
+    {
+      "n": 884,
+      "rank": 1312,
+      "word": "借りる",
+      "pos": "verb",
+      "meaning": "to borrow (かりる)",
+      "sentence": "ペンを借りてもいいですか。",
+      "translation": "Can I ⟦borrow⟧ a pen?",
+      "form": "借り"
+    },
+    {
+      "n": 885,
+      "rank": 1313,
+      "word": "現れる",
+      "pos": "verb",
+      "meaning": "to appear (あらわれる)",
+      "sentence": "空に虹が現れました。",
+      "translation": "A rainbow ⟦appeared⟧ in the sky.",
+      "form": "現れ"
+    },
+    {
+      "n": 886,
+      "rank": 1314,
+      "word": "止まる",
+      "pos": "verb",
+      "meaning": "to stop (とまる)",
+      "sentence": "急に電車が止まりました。",
+      "translation": "The train suddenly ⟦stopped⟧.",
+      "form": "止まり"
+    },
+    {
+      "n": 887,
+      "rank": 1315,
+      "word": "減る",
+      "pos": "verb",
+      "meaning": "to decrease; to go down (へる)",
+      "sentence": "最近、体重が減りました。",
+      "translation": "I've ⟦lost⟧ weight recently.",
+      "form": "減り"
+    },
+    {
+      "n": 888,
+      "rank": 1316,
+      "word": "進める",
+      "pos": "verb",
+      "meaning": "to go ahead with; to move forward (すすめる)",
+      "sentence": "このまま計画を進めましょう。",
+      "translation": "Let's ⟦go ahead⟧ with the plan as it is.",
+      "form": "進め"
+    },
+    {
+      "n": 889,
+      "rank": 1318,
+      "word": "おはよう",
+      "pos": "interj",
+      "meaning": "good morning",
+      "sentence": "おはようございます。",
+      "translation": "⟦Good morning⟧."
+    },
+    {
+      "n": 890,
+      "rank": 1319,
+      "word": "おめでとう",
+      "pos": "interj",
+      "meaning": "congratulations",
+      "sentence": "結婚おめでとうございます。",
+      "translation": "⟦Congratulations⟧ on your marriage."
+    },
+    {
+      "n": 891,
+      "rank": 1320,
+      "word": "コーヒー",
+      "pos": "noun",
+      "meaning": "coffee",
+      "sentence": "コーヒーを一杯ください。",
+      "translation": "A cup of ⟦coffee⟧, please."
+    },
+    {
+      "n": 892,
+      "rank": 1321,
+      "word": "テーマ",
+      "pos": "noun",
+      "meaning": "theme; topic",
+      "sentence": "今日のテーマは環境です。",
+      "translation": "Today's ⟦theme⟧ is the environment."
+    },
+    {
+      "n": 893,
+      "rank": 1322,
+      "word": "トイレ",
+      "pos": "noun",
+      "meaning": "toilet; restroom",
+      "sentence": "トイレに行ってもいいですか。",
+      "translation": "May I go to the ⟦restroom⟧?"
+    },
+    {
+      "n": 894,
+      "rank": 1324,
+      "word": "プレゼント",
+      "pos": "noun",
+      "meaning": "present; gift",
+      "sentence": "誕生日にプレゼントをもらいました。",
+      "translation": "I got a ⟦present⟧ for my birthday."
+    },
+    {
+      "n": 895,
+      "rank": 1329,
+      "word": "地震",
+      "pos": "noun",
+      "meaning": "earthquake (じしん)",
+      "sentence": "昨日の夜、地震がありました。",
+      "translation": "There was an ⟦earthquake⟧ last night."
+    },
+    {
+      "n": 896,
+      "rank": 1330,
+      "word": "失礼",
+      "pos": "noun",
+      "meaning": "rudeness; excuse me (しつれい)",
+      "sentence": "失礼ですが、お名前は？",
+      "translation": "⟦Excuse me⟧, but may I have your name?"
+    },
+    {
+      "n": 897,
+      "rank": 1332,
+      "word": "広告",
+      "pos": "noun",
+      "meaning": "advertisement (こうこく)",
+      "sentence": "新聞に広告を出しました。",
+      "translation": "We put an ⟦ad⟧ in the newspaper."
+    },
+    {
+      "n": 898,
+      "rank": 1334,
+      "word": "画面",
+      "pos": "noun",
+      "meaning": "screen (がめん)",
+      "sentence": "スマホの画面が割れました。",
+      "translation": "My phone ⟦screen⟧ cracked."
+    },
+    {
+      "n": 899,
+      "rank": 1335,
+      "word": "社長",
+      "pos": "noun",
+      "meaning": "company president; boss (しゃちょう)",
+      "sentence": "社長は今、会議中です。",
+      "translation": "The ⟦president⟧ is in a meeting right now."
+    },
+    {
+      "n": 900,
+      "rank": 1336,
+      "word": "秋",
+      "pos": "noun",
+      "meaning": "autumn; fall (あき)",
+      "sentence": "秋は紅葉がきれいです。",
+      "translation": "In ⟦autumn⟧, the leaves are beautiful."
     }
   ]
 }
