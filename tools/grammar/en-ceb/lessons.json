@@ -1181,6 +1181,288 @@
         {"type":"say","q":"Say: “Call me and tell me.”","answer":"Tawagi ko ug sultihi ko.","from":"do-things-for-people"},
         {"type":"free","q":"Your turn: tell someone where to put something, and who to give something to.","answers":[{"t":"Ibutang ang bag sa lawak. Ihatag kini nga sulat kang Lito.","tr":"Put the bag in the room. Give this letter to Lito."},{"t":"Ihatag ni kang Papa, palihug. Ibutang ang cake sa ref.","tr":"Please give this to Dad. Put the cake in the fridge."}]}
       ]
+    },
+    {
+      "id": "say-what-you-need",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you need and have to do",
+      "summary": "Say “I need help”, “I have to go home” and “You don't have to pay.”",
+      "topic": "{{kinahanglan}} + {{og}} (a thing), + a {{mo-}} verb, + an {{-on}} verb for a particular thing; {{dili kinahanglan}}",
+      "blocks": [
+        {"goal":{"t":"Kinahanglan na ko mouli kay ulahi na.","tr":"I have to go home now because it's late."}},
+        {"dialog":[{"who":"Ben","t":"Joy, kinahanglan na ko mouli.","tr":"Joy, I have to go home now."},{"who":"Joy","t":"Sayo pa man! Ngano man?","tr":"It's still early! Why?"},{"who":"Ben","t":"Kinahanglan ko mobangon og sayo ugma. Naa koy trabaho.","tr":"I have to get up early tomorrow. I have work."},{"who":"Joy","t":"Ihatud tika. Naa koy awto.","tr":"I'll take you. I have a car."},{"who":"Ben","t":"Dili na kinahanglan, salamat. Mosakay lang ko og taxi.","tr":"No need, thanks. I'll just take a taxi."}]},
+        {"p":"{{kinahanglan}} is “need”, “have to” or “must”. It works like {{gusto}}: with {{og}} and a thing, it's needing something ({{Kinahanglan ko og tabang.}} “I need help.”); with a {{mo-}} verb, it's having to do something ({{Kinahanglan ko mouli.}} “I have to go home.”)."},
+        {"p":"**Don't have to.** {{dili}} in front, with the short word after it: {{Dili ka kinahanglan mobayad.}} “You don't have to pay.” And {{Dili na kinahanglan.}} on its own is “No need.”"},
+        {"p":"**A particular thing.** When what you need is particular, point at it with {{ang}}, and the person comes from the {{nako}} set, as in a {{gi-}} sentence: {{Kinahanglan nako ang imong tabang.}} “I need your help.” If a verb follows, it takes its -on form from lesson 23: {{Kinahanglan nimong imnon ang tambal.}} “You need to take the medicine.”"},
+        { "table": [
+          ["","Bisaya","English"],
+          ["a thing","{{Kinahanglan ko og tubig.}}","I need some water."],
+          ["to do","{{Kinahanglan ko motrabaho.}}","I have to work."],
+          ["a particular thing","{{Kinahanglan nako ang yawe.}}","I need the key."],
+          ["to do something to it","{{Kinahanglan nakong basahon kini.}}","I have to read this."],
+          ["don't have to","{{Dili ka kinahanglan moadto.}}","You don't have to go."]
+        ] },
+        { "ex": [
+          {"t":"Kinahanglan ko og tabang.","tr":"I need help."},
+          {"t":"Kinahanglan na ko mouli.","tr":"I have to go home now."},
+          {"t":"Kinahanglan ta mobiya og sayo.","tr":"We need to leave early."},
+          {"t":"Dili ka kinahanglan mobayad.","tr":"You don't have to pay."},
+          {"t":"Kinahanglan nako ang imong tabang.","tr":"I need your help."},
+          {"t":"Kinahanglan nimong imnon ang tambal.","tr":"You need to take the medicine.","note":"{{nimo}} + -ng joins the verb"},
+          {"t":"Angay ka mopahulay.","tr":"You should rest.","note":"{{angay}}: should"}
+        ] },
+        {"tip":"Softer than {{kinahanglan}}: {{angay}} “should” ({{Angay ka mopahulay.}}) and, from Spanish, {{dapat}} “should, ought to” ({{Dapat mopahulay ka.}})."}
+      ],
+      "mistakes": [
+        {"wrong":"Kinahanglan ko tabang.","right":"Kinahanglan ko og tabang.","tr":"I need help.","why":"The thing you need takes {{og}}."},
+        {"wrong":"Kinahanglan ko uli.","right":"Kinahanglan ko mouli.","tr":"I have to go home.","why":"After {{kinahanglan}}, as after {{gusto}}: {{mo-}}."},
+        {"wrong":"Wala ka kinahanglan mobayad.","right":"Dili ka kinahanglan mobayad.","tr":"You don't have to pay.","why":"“Don't have to” is {{dili}}; {{wala}} is for what didn't happen."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Kinahanglan ko ___ tabang.","tr":"I need help.","options":["og","ang","sa"],"answer":0,"why":"A thing needed: {{og}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Kinahanglan na ko ___.","tr":"I have to go home now.","options":["mouli","miuli","uli"],"answer":0,"why":"After {{kinahanglan}}: {{mo-}}."},
+        {"type":"choice","q":"{{Dili ka kinahanglan mobayad.}} means…","options":["You don't have to pay.","You mustn't pay.","You didn't pay."],"answer":0,"why":"{{dili kinahanglan}}: no need to."},
+        {"type":"dialogue","q":"You're leaving a party. Choose your replies.","lines":[{"who":"Host","t":"Mouli na ka? Sayo pa!","tr":"You're going home already? It's still early!"},{"options":["Oo, kinahanglan ko mobangon og sayo.","Oo, kinahanglan ko mibangon og sayo."],"answer":0,"why":"Tomorrow, not yet: {{mo-}} after {{kinahanglan}}."},{"who":"Host","t":"Kinahanglan ka og sakay?","tr":"Do you need a ride?"},{"options":["Dili na kinahanglan, salamat.","Wala na kinahanglan, salamat."],"answer":0,"why":"“No need”: {{Dili na kinahanglan}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We need to leave early.","words":["Kinahanglan","ta","mobiya","og","sayo."]},
+        {"type":"choice","q":"Which one means “I need to rest”?","options":["{{Kinahanglan ko mopahulay.}}","{{Gusto ko mopahulay.}}"],"answer":0,"why":"{{gusto}} is want; {{kinahanglan}} is need.","from":"say-what-you-want-to-do"},
+        {"type":"say","q":"Say “You need to take the medicine.”","answer":"Kinahanglan nimong imnon ang tambal.","from":"say-what-youll-do-with-it"},
+        {"type":"free","q":"Your turn: say two things you have to do this week, and one you don't have to do.","answers":[{"t":"Kinahanglan ko motrabaho sa Sabado. Kinahanglan ko mopalit og pagkaon. Dili ko kinahanglan mobangon og sayo sa Domingo.","tr":"I have to work on Saturday. I have to buy food. I don't have to get up early on Sunday."},{"t":"Kinahanglan ko motawag sa akong mama. Kinahanglan nakong limpyohan ang akong kwarto.","tr":"I have to call my mom. I have to clean my room."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you like",
+      "summary": "Talk about food, places and hobbies you like and don't like.",
+      "topic": "{{ganahan}} with the topic words ({{ganahan ko}}, {{ganahan siya}}) vs {{gusto}} with {{nako}}, {{niya}}; {{sa}} (what you like), {{og}} (an offer); {{pag-}}",
+      "blocks": [
+        {"goal":{"t":"Ganahan kaayo ko sa lechon, pero dili ko ganahan sa durian.","tr":"I really like lechon, but I don't like durian."}},
+        {"dialog":[{"who":"Joy","t":"Ganahan ka sa pagkaon dinhi?","tr":"Do you like the food here?"},{"who":"Emma","t":"Oo! Ganahan kaayo ko sa lechon ug sa puso.","tr":"Yes! I really like lechon and puso."},{"who":"Joy","t":"Ug ang balut?","tr":"And balut?"},{"who":"Emma","t":"Ay, dili ko ganahan ana!","tr":"Oh, I don't like that!"},{"who":"Joy","t":"Ganahan ka molangoy?","tr":"Do you like swimming?"},{"who":"Emma","t":"Ganahan kaayo ko molangoy, labi na sa Moalboal.","tr":"I love swimming, especially at Moalboal."}]},
+        {"p":"{{ganahan}} is “like”. It's a describing word, so it takes the **topic words**: {{ganahan ko}}, {{ganahan ka}}, {{ganahan siya}}. That's different from {{gusto}}, which takes the {{nako}} set ({{gusto niya}}). Both are common, and both can mean “like” or “want”."},
+        { "table": [
+          ["","{{ganahan}} (topic words)","{{gusto}} ({{nako}} set)"],
+          ["I like it","{{Ganahan ko.}}","{{Gusto nako.}}"],
+          ["you like it","{{Ganahan ka.}}","{{Gusto nimo.}}"],
+          ["she likes it","{{Ganahan siya.}}","{{Gusto niya.}}"],
+          ["they like it","{{Ganahan sila.}}","{{Gusto nila.}}"]
+        ] },
+        {"p":"**What you like** takes {{sa}}: {{Ganahan ko sa lechon.}} “I like lechon.” With a pronoun, the short {{nimo}}, {{niya}} after {{ganahan ko}}: {{Ganahan ko nimo.}} “I like you.” With {{og}}, it's more like an offer of some: {{Ganahan ka og kape?}} “Would you like some coffee?”"},
+        {"p":"**Liking to do something**: {{ganahan}} + a {{mo-}} verb ({{Ganahan ko molangoy.}} “I like to swim.”), or + {{sa}} + {{pag-}} ({{Ganahan ko sa paglangoy.}} “I like swimming.”). You met {{pag-}} in {{Unsaon pag-adto…?}}: it turns a verb into an “-ing” word."},
+        { "ex": [
+          {"t":"Ganahan ko mobasa og libro.","tr":"I like to read books."},
+          {"t":"Ganahan ko sa prutas, labi na sa mangga.","tr":"I like fruit, especially mangoes."},
+          {"t":"Ganahan ko nimo.","tr":"I like you."},
+          {"t":"Ganahan ka og kape?","tr":"Would you like some coffee?"},
+          {"t":"Dili siya ganahan sa init.","tr":"She doesn't like the heat."},
+          {"t":"Ganahan kaayo mi sa paglangoy.","tr":"We really love swimming."},
+          {"t":"Paborito nako ang mangga.","tr":"Mango is my favorite."}
+        ] },
+        {"tip":"{{Dili ko ganahan ana.}} “I don't like that.” is polite enough; to turn down food gently, {{Busog pa ko, salamat.}} “I'm still full, thanks.” works even better."}
+      ],
+      "mistakes": [
+        {"wrong":"Ganahan niya sa lechon.","right":"Ganahan siya sa lechon.","tr":"She likes lechon.","why":"{{ganahan}} takes the topic words: {{siya}}. ({{Gusto niya}} is the other way to say it.)"},
+        {"wrong":"Ganahan ko lechon.","right":"Ganahan ko sa lechon.","tr":"I like lechon.","why":"What you like takes {{sa}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ganahan ___ sa lechon.","tr":"She likes lechon.","options":["siya","niya","iyang"],"answer":0,"why":"{{ganahan}}: topic words."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ganahan ko ___ prutas.","tr":"I like fruit.","options":["sa","ang","si"],"answer":0,"why":"What you like: {{sa}}."},
+        {"type":"choice","q":"Which one says “He likes to swim”?","options":["{{Ganahan siya molangoy.}}","{{Ganahan niya molangoy.}}","{{Gusto siya molangoy.}}"],"answer":0,"why":"{{ganahan siya}}, or {{gusto niya}}: not the other way round."},
+        {"type":"dialogue","q":"Talking about food: choose your replies.","lines":[{"who":"Lito","t":"Ganahan ka sa sutukil?","tr":"Do you like sutukil (grilled, stewed and raw fish)?"},{"options":["Oo, ganahan kaayo ko!","Oo, ganahan kaayo nako!"],"answer":0,"why":"{{ganahan}} + the topic word {{ko}}."},{"who":"Lito","t":"Ug ang durian?","tr":"And durian?"},{"options":["Dili ko ganahan ana.","Wala ko ganahan ana."],"answer":0,"why":"Not liking is {{dili}}, like any describing word."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I don't like that.","words":["Dili","ko","ganahan","ana."]},
+        {"type":"choice","q":"She: {{Gusto ___ molangoy.}} and {{Ganahan ___ molangoy.}}","options":["{{niya}}, {{siya}}","{{siya}}, {{niya}}","{{siya}}, {{siya}}"],"answer":0,"why":"{{gusto}} + the {{nako}} set; {{ganahan}} + the topic words.","from":"say-what-you-want-to-do"},
+        {"type":"say","q":"Ask: “Do you like durian?”","answer":"Ganahan ka sa durian?","from":"ask-questions"},
+        {"type":"free","q":"Your turn: say two things you like and one you don't.","answers":[{"t":"Ganahan ko sa kape ug sa musika. Dili ko ganahan sa ulan.","tr":"I like coffee and music. I don't like rain."},{"t":"Ganahan kaayo ko molangoy, pero dili ko ganahan modagan.","tr":"I love swimming, but I don't like running."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you can do and ask permission",
+      "summary": "Say “I can speak a little Bisaya”, “I can't come”, “Do you know how to swim?” and “Can I sit here?”",
+      "topic": "{{maka-}} “can, be able to”; {{kabalo}} “know how”; {{pwede}} and {{mahimo}} “may”; {{Wala ko kabalo.}}",
+      "blocks": [
+        {"goal":{"t":"Makasulti ko og gamay nga Bisaya.","tr":"I can speak a little Bisaya."}},
+        {"dialog":[{"who":"Vendor","t":"Kabalo ka mag-Bisaya, Sir?","tr":"Do you speak Bisaya, Sir?"},{"who":"Tom","t":"Gamay ra. Makasabot ko, pero lisud pa mosulti.","tr":"Just a little. I can understand, but speaking is still hard."},{"who":"Vendor","t":"Maayo man imong Bisaya!","tr":"Your Bisaya is pretty good!"},{"who":"Tom","t":"Salamat! Pwede ko motilaw ani?","tr":"Thanks! Can I taste this?"},{"who":"Vendor","t":"Sige, tilawi!","tr":"Sure, taste it!"},{"who":"Tom","t":"Lami! Dili ko makapili, lami tanan!","tr":"Delicious! I can't choose, it's all delicious!"}]},
+        {"p":"**Can, be able to: {{maka-}}.** Put {{maka-}} on the root: {{makasulti}} “can speak”, {{makaadto}} “can go”, {{makasabot}} “can understand”. {{Makaadto ka ugma?}} “Can you come tomorrow?” — {{Dili ko makaadto.}} “I can't come.” (Its “done” partner, {{naka-}}, comes in lesson 34.)"},
+        {"p":"**Know how: {{kabalo}}.** For a skill you've learned, use {{kabalo}} + a {{mo-}} verb: {{Kabalo ka molangoy?}} “Do you know how to swim?” With languages there's a shortcut, {{mag-}} + the language's name: {{Kabalo ka mag-Bisaya?}} “Do you speak Bisaya?” And {{Wala ko kabalo.}} (with {{wala}}) is the everyday “I don't know.”"},
+        {"p":"**May I? {{pwede}}** (or the more careful {{mahimo}}), + a {{mo-}} verb: {{Pwede ko molingkod dinhi?}} “Can I sit here?” {{Mahimo ba kong mangutana?}} “May I ask a question?” Answers: {{Pwede.}} / {{Sige.}} “Sure.” or {{Dili pwede.}} “You can't.”"},
+        { "table": [
+          ["","yes","no"],
+          ["able","{{Makaadto ko.}} I can come.","{{Dili ko makaadto.}} I can't come."],
+          ["skill","{{Kabalo ko molangoy.}} I can swim.","{{Wala ko kabalo molangoy.}} I can't swim."],
+          ["permission","{{Pwede ko mosulod?}} Can I come in?","{{Dili pwede.}} You can't."]
+        ] },
+        { "ex": [
+          {"t":"Makaadto ka ugma?","tr":"Can you come tomorrow?"},
+          {"t":"Dili ko makaadto, naa koy trabaho.","tr":"I can't come, I have work."},
+          {"t":"Kabalo ka molangoy?","tr":"Do you know how to swim?"},
+          {"t":"Pwede ko molingkod dinhi?","tr":"Can I sit here?"},
+          {"t":"Mahimo ba kong mangutana?","tr":"May I ask a question?","note":"{{kong}} = {{ko}} + -ng"},
+          {"t":"Makasabot ko og gamay.","tr":"I understand a little."},
+          {"t":"Wala ko kabalo.","tr":"I don't know."}
+        ] },
+        {"tip":"Another everyday “I don't know”, a little casual, with a shrug: {{Ambot.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Makasulti ko Bisaya.","right":"Makasulti ko og Bisaya.","tr":"I can speak Bisaya.","why":"The language, like any thing, takes {{og}}."},
+        {"wrong":"Pwede ko lingkod dinhi?","right":"Pwede ko molingkod dinhi?","tr":"Can I sit here?","why":"After {{pwede}}, as after {{gusto}}: {{mo-}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ka ugma?","tr":"Can you come tomorrow?","options":["Makaadto","Moadto","Miadto"],"answer":0,"why":"Can: {{maka-}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wala ko ___.","tr":"I don't know.","options":["kabalo","makaadto","pwede"],"answer":0,"why":"{{Wala ko kabalo.}} “I don't know.”"},
+        {"type":"choice","q":"You'd like to sit at a stranger's table. You ask:","options":["{{Pwede ko molingkod dinhi?}}","{{Makalingkod ko dinhi.}}","{{Lingkod ko dinhi.}}"],"answer":0,"why":"Asking permission: {{pwede}} + {{mo-}}."},
+        {"type":"dialogue","q":"At the market: choose your replies.","lines":[{"who":"Vendor","t":"Kabalo ka mag-Bisaya?","tr":"Do you speak Bisaya?"},{"options":["Gamay ra. Makasabot ko og gamay.","Gamay ra. Makasabot ko gamay og."],"answer":0,"why":"{{og gamay}} “a little” comes after the verb and {{ko}}."},{"who":"Vendor","t":"Maayo! Gusto nimo motilaw?","tr":"Great! Do you want to taste?"},{"options":["Oo, pwede?","Oo, makatilaw?"],"answer":0,"why":"{{Pwede?}} “May I?”"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I understand a little.","words":["Makasabot","ko","og","gamay."]},
+        {"type":"say","q":"Say “I can't come, I have to work.”","answer":"Dili ko makaadto, kinahanglan ko motrabaho.","from":"say-what-you-need"},
+        {"type":"choice","q":"{{Dili ko makaadto, naa koy trabaho.}} Why can't they come?","options":["They have work.","There's no work.","They don't like work."],"answer":0,"why":"{{naa koy trabaho}}: I have work.","from":"say-what-there-is"},
+        {"type":"free","q":"Your turn: say two things you can do and one you can't (yet).","answers":[{"t":"Kabalo ko molangoy ug moluto. Dili pa ko makasulti og daghang Bisaya.","tr":"I can swim and cook. I can't speak much Bisaya yet."},{"t":"Makasabot ko og gamay nga Bisaya. Wala ko kabalo modrayb.","tr":"I can understand a little Bisaya. I can't drive."}]}
+      ]
+    },
+    {
+      "id": "make-plans-together",
+      "unit": 5,
+      "level": "A2",
+      "title": "Make plans with someone",
+      "summary": "Invite a friend, agree on where and when: “Let's meet tomorrow at Ayala, at five.”",
+      "topic": "{{kita}}/{{ta}} (with you) vs {{kami}}/{{mi}} (without you); {{mag-}}, the “not yet” of {{nag-}}, for doing things together",
+      "blocks": [
+        {"goal":{"t":"Magkita ta ugma sa Ayala, alas singko.","tr":"Let's meet tomorrow at Ayala, at five."}},
+        {"dialog":[{"who":"Ana","t":"Lisa, libre ka ugma?","tr":"Lisa, are you free tomorrow?"},{"who":"Lisa","t":"Oo! Unsay plano?","tr":"Yes! What's the plan?"},{"who":"Ana","t":"Magsine ta? Naay bag-ong pelikula.","tr":"Shall we see a movie? There's a new one."},{"who":"Lisa","t":"Sige! Asa ta magkita?","tr":"Sure! Where shall we meet?"},{"who":"Ana","t":"Magkita ta sa Ayala, alas singko.","tr":"Let's meet at Ayala, at five."},{"who":"Lisa","t":"Mouban si Joy?","tr":"Is Joy coming?"},{"who":"Ana","t":"Dili, moadto sila sa Bohol. Kita ra duha.","tr":"No, they're going to Bohol. Just the two of us."}]},
+        {"p":"**Two “we”s, in real life.** Making plans with someone, it's always {{kita}} / {{ta}}, because they're included: {{Adto ta!}}, {{Magkita ta.}} Telling someone about you and other people, it's {{kami}} / {{mi}}: {{Moadto mi sa Bohol.}} “We're going to Bohol” (not you). Choosing wrong sounds like an invitation, or like leaving someone out!"},
+        { "table": [
+          ["","includes the listener","leaves the listener out"],
+          ["we (topic)","{{kita}} / {{ta}}","{{kami}} / {{mi}}"],
+          ["our","{{atong}}","{{among}}"],
+          ["us, by us","{{nato}}","{{namo}}"],
+          ["to us","{{kanato}}","{{kanamo}}"]
+        ] },
+        {"p":"**{{mag-}}: the “not yet” of {{nag-}}.** Just as {{mi-}} has {{mo-}}, {{nag-}} has {{mag-}}: {{Nagluto ko.}} “I cooked, I'm cooking.” → {{Magluto ko.}} “I'll cook.” {{mag-}} is also the usual form for doing something **together**: {{Magkita ta.}} “Let's meet (see each other).” {{Magdula ta.}} “Let's play.” {{Mag-istorya ta.}} “Let's talk.”"},
+        {"p":"**{{mag-}} + a noun** means doing that activity: {{magsine}} “go to the movies” ({{sine}} is a movie), {{mag-Bisaya}} “speak Bisaya”. Very handy: {{Magsine ta?}} “Shall we go to the movies?”"},
+        { "ex": [
+          {"t":"Magkita ta sunod semana.","tr":"Let's meet next week."},
+          {"t":"Magsugod na ta.","tr":"Let's start."},
+          {"t":"Kanus-a ta magkita?","tr":"When shall we meet?"},
+          {"t":"Moadto mi sa Bohol sa Sabado.","tr":"We're going to Bohol on Saturday.","note":"{{mi}}: the listener isn't coming"},
+          {"t":"Kita ra duha.","tr":"Just the two of us."},
+          {"t":"Nagkita mi niadtong Lunes.","tr":"We met last Monday.","note":"{{nag-}}: done"}
+        ] },
+        {"tip":"A plan with a question mark is a gentle suggestion: {{Magsine ta?}} {{Mokaon ta sa gawas?}} “Shall we eat out?” Answer {{Sige!}} “Okay!” or {{Dili ko makaadto, sorry.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Adto mi! (inviting a friend)","right":"Adto ta!","tr":"Let's go!","why":"Inviting someone includes them: {{ta}}. {{Adto mi}} would mean “We're off” without them."},
+        {"wrong":"Nagkita ta ugma.","right":"Magkita ta ugma.","tr":"Let's meet tomorrow.","why":"Tomorrow is not yet: {{mag-}}. {{nag-}} is done or going on."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Magkita ___ ugma?","tr":"Shall we meet tomorrow? (to your friend)","options":["ta","mi","sila"],"answer":0,"why":"You and your friend: {{ta}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ ta sa Ayala, alas singko.","tr":"Let's meet at Ayala, at five.","options":["Magkita","Nagkita","Kita"],"answer":0,"why":"Not yet, together: {{mag-}}."},
+        {"type":"choice","q":"You tell a coworker about your family trip (they're not coming): “We're going to Bohol.”","options":["{{Moadto mi sa Bohol.}}","{{Moadto ta sa Bohol.}}"],"answer":0,"why":"Your coworker isn't included: {{mi}}."},
+        {"type":"dialogue","q":"Texting a friend: choose your replies.","lines":[{"who":"Joy","t":"Libre ka karong gabii?","tr":"Are you free tonight?"},{"options":["Oo! Mokaon ta sa gawas?","Oo! Mokaon mi sa gawas?"],"answer":0,"why":"Inviting Joy: {{ta}}."},{"who":"Joy","t":"Sige! Asa ta magkita?","tr":"Okay! Where shall we meet?"},{"options":["Magkita ta sa SM, alas siyete.","Nagkita ta sa SM, alas siyete."],"answer":0,"why":"Not yet: {{mag-}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"When shall we meet?","words":["Kanus-a","ta","magkita?"]},
+        {"type":"say","q":"Ask: “What time shall we meet?”","answer":"Unsang orasa ta magkita?","from":"ask-about-someones-day"},
+        {"type":"choice","q":"{{Adto ta!}} and {{Magkita ta!}} both start with…","options":["“Let's…”","“We went…”","“Don't…”"],"answer":0,"why":"A verb + {{ta}}: let's.","from":"tell-people-what-to-do"},
+        {"type":"free","q":"Your turn: invite a friend: say what, where and when.","answers":[{"t":"Magsine ta sa Sabado! Magkita ta sa SM, alas tres.","tr":"Let's go to the movies on Saturday! Let's meet at SM, at three."},{"t":"Mokaon ta sa gawas karong gabii? Magkita ta sa Ayala, alas siyete.","tr":"Shall we eat out tonight? Let's meet at Ayala, at seven."}]}
+      ]
+    },
+    {
+      "id": "run-errands",
+      "unit": 5,
+      "level": "A2",
+      "title": "Run errands and do chores",
+      "summary": "Talk about shopping, laundry, dishes and meals: “I'm going shopping, then I'll do the laundry.”",
+      "topic": "{{mang-}} (not yet) and {{nang-}} (done) for everyday activities: {{mamalit}}, {{manglaba}}, {{mangaon}}, {{mangutana}}; how {{mang-}} melts into the root",
+      "blocks": [
+        {"goal":{"t":"Mamalit ko sa merkado, dayon manglaba ko.","tr":"I'm going shopping at the market, then I'll do the laundry."}},
+        {"dialog":[{"who":"Mom","t":"Ben, unsay imong buhaton karon?","tr":"Ben, what are you doing today?"},{"who":"Ben","t":"Mamalit ko sa merkado. Unsay akong paliton?","tr":"I'm going shopping at the market. What should I buy?"},{"who":"Mom","t":"Isda ug utanon. Ug manglaba pa ta unya.","tr":"Fish and vegetables. And we still have to do the laundry later."},{"who":"Ben","t":"Sige. Human ana, mangaon ta sa gawas?","tr":"Okay. After that, shall we eat out?"},{"who":"Mom","t":"Sige, pero ikaw ang manghugas og plato!","tr":"Okay, but you're washing the dishes!"}]},
+        {"p":"**{{mang-}}** is a prefix for many everyday activities, especially ones done on several things or as a regular job: {{mamalit}} “go shopping” (buy things), {{manglaba}} “do the laundry”, {{manghugas}} “do the dishes”, {{mangaon}} “eat, have a meal”. Like {{mo-}} and {{mi-}}, it has a pair: {{mang-}} for not yet, {{nang-}} for done."},
+        {"p":"**{{mang-}} melts into the root.** Its last sound changes to fit the first sound of the root, which disappears: p and b become **m** ({{palit}} → {{mamalit}}), k becomes **ng** ({{kaon}} → {{mangaon}}), t and s become **n** ({{tan-aw}} → {{manan-aw}} “watch a show”). Before a vowel, h or l, it just adds on: {{manglaba}}, {{manghugas}}."},
+        { "table": [
+          ["root","not yet","done","meaning"],
+          ["{{palit}}","{{mamalit}}","{{namalit}}","go shopping"],
+          ["{{kaon}}","{{mangaon}}","{{nangaon}}","eat, have a meal"],
+          ["{{laba}}","{{manglaba}}","{{nanglaba}}","do the laundry"],
+          ["{{hugas}}","{{manghugas}}","{{nanghugas}}","wash (the dishes)"],
+          ["{{tan-aw}}","{{manan-aw}}","{{nanan-aw}}","watch (a show, a game)"]
+        ] },
+        {"p":"**Meals and asking** use it too: {{mamahaw}} “have breakfast”, {{maniudto}} “have lunch”, {{manihapon}} “have supper”, and from the Basics course {{mangutana}} “ask” and {{mangayo}} “ask for”. {{Mangaon na ta!}} “Let's eat!” is what you'll hear at every Bisaya table."},
+        { "ex": [
+          {"t":"Mamalit ko sa merkado.","tr":"I'm going shopping at the market."},
+          {"t":"Namalit mi og prutas gahapon.","tr":"We bought some fruit yesterday."},
+          {"t":"Manglaba ko karong Sabado.","tr":"I'll do the laundry this Saturday."},
+          {"t":"Mangaon na ta!","tr":"Let's eat!"},
+          {"t":"Nanihapon na mo?","tr":"Have you all had supper?","note":"{{mo}} here is short for {{kamo}}, you all"},
+          {"t":"Pwede ko mangutana?","tr":"Can I ask something?"},
+          {"t":"Pwede ko mangayo og tubig?","tr":"Could I have some water?"}
+        ] },
+        {"tip":"{{Nanihapon na ka?}} “Have you had supper?” is, like {{Nikaon ka na?}}, a friendly greeting more than a real question."}
+      ],
+      "mistakes": [
+        {"wrong":"Mangpalit ko.","right":"Mamalit ko.","tr":"I'm going shopping.","why":"{{mang-}} + p melts into m: {{mamalit}}."},
+        {"wrong":"Nangaon na ta!","right":"Mangaon na ta!","tr":"Let's eat!","why":"“Let's” is not yet: {{mang-}}. {{nang-}} is done."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ko sa merkado ugma.","tr":"I'm going shopping at the market tomorrow.","options":["Mamalit","Mangpalit","Namalit"],"answer":0,"why":"Not yet, and p melts into m: {{mamalit}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ na ta!","tr":"Let's eat!","options":["Mangaon","Nangaon","Mikaon"],"answer":0,"why":"Let's: not yet, {{mang-}}."},
+        {"type":"choice","q":"{{Nanihapon na mo?}} means…","options":["Have you all had supper?","Are you going to cook?","Did you go shopping?"],"answer":0,"why":"{{nang-}} done + {{panihapon}} supper."},
+        {"type":"dialogue","q":"Saturday at home: choose your replies.","lines":[{"who":"Mom","t":"Unsay imong buhaton karon?","tr":"What are you doing today?"},{"options":["Manglaba ko, dayon mamalit ko.","Nanglaba ko, dayon namalit ko."],"answer":0,"why":"Plans for today, not done yet: {{mang-}}."},{"who":"Mom","t":"Ug ang mga plato?","tr":"And the dishes?"},{"options":["Manghugas ko unya, Ma.","Manghugas ko gahapon, Ma."],"answer":0,"why":"{{mang-}} is not yet: later, {{unya}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'll do the laundry this Saturday.","words":["Manglaba","ko","karong","Sabado."]},
+        {"type":"say","q":"Ask: “Can I ask something?”","answer":"Pwede ko mangutana?","from":"say-what-you-can-do"},
+        {"type":"choice","q":"{{Namalit ko gahapon.}} is…","options":["done","not yet"],"answer":0,"why":"{{nang-}}, like {{mi-}}: done.","from":"tell-what-you-did"},
+        {"type":"free","q":"Your turn: say what errands and chores you'll do this weekend.","answers":[{"t":"Mamalit ko sa merkado sa Sabado, dayon manglaba ko.","tr":"I'll go shopping at the market on Saturday, then I'll do the laundry."},{"t":"Manghugas ko og plato ug manglimpyo ko sa balay.","tr":"I'll wash the dishes and clean the house."}]}
+      ]
+    },
+    {
+      "id": "sound-natural",
+      "unit": 5,
+      "level": "A2",
+      "title": "Sound natural with little words",
+      "summary": "Add the little words that give Bisaya its feeling: really, too, still, oh!, you know, of course.",
+      "topic": "{{na}}, {{pa}}, {{lang}}, {{ra}}, {{gyud}}, {{sad}}, {{man}}, {{diay}}, {{baya}}, {{lagi}}, {{kaha}}",
+      "blocks": [
+        {"goal":{"t":"Lami man diay ni!","tr":"Oh, this is actually tasty!"}},
+        {"dialog":[{"who":"Joy","t":"Tilawi ni, Ben. Balut.","tr":"Try this, Ben. Balut."},{"who":"Ben","t":"Ay, ayaw lang. Nahadlok ko.","tr":"Oh, no thanks. I'm scared."},{"who":"Joy","t":"Sulayi lang! Gamay ra.","tr":"Just try it! Just a little."},{"who":"Ben","t":"…Uy, lami man diay ni!","tr":"…Hey, this is actually tasty!"},{"who":"Joy","t":"Lagi! Usa pa?","tr":"Told you! One more?"},{"who":"Ben","t":"Sige, usa pa gyud!","tr":"Okay, one more!"}]},
+        {"p":"Bisaya is full of small words that don't change the facts but change the **feeling**: surprise, insistence, softness, “me too”. You already know some. They gather right after the first word, with the short pronouns, so they're easy to drop in."},
+        { "table": [
+          ["word","feeling","example"],
+          ["{{na}}","already, now; anymore","{{Kaon na!}} Eat now! {{Dili na.}} Not anymore."],
+          ["{{pa}}","still, yet; more","{{Sayo pa.}} It's still early. {{Usa pa.}} One more."],
+          ["{{lang}}, {{ra}}","just, only","{{Tubig lang.}} Just water. {{Duol ra.}} It's just near."],
+          ["{{gyud}}","really, truly","{{Lami gyud!}} It's really good!"],
+          ["{{sad}}","also, too","{{Ako sad.}} Me too."],
+          ["{{man}}","softens; “after all”","{{Asa man ka?}} So where are you? {{Maayo man.}} I'm fine."],
+          ["{{diay}}","oh! (finding something out)","{{Ikaw diay!}} Oh, it's you!"],
+          ["{{baya}}","you know (a reminder)","{{Init baya.}} It's hot, you know."],
+          ["{{lagi}}","of course; come on","{{Oo lagi!}} Of course!"],
+          ["{{kaha}}","I wonder","{{Asa kaha siya?}} I wonder where she is."]
+        ] },
+        {"p":"**Two or three together** are normal: {{Lami man diay ni!}} “Oh, this is actually tasty!” {{Asa na man ka?}} “So where are you now?” Copy the orders you hear; the short pronouns {{ko}}, {{ka}}, {{ta}} usually come early in the group, and {{siya}}, {{sila}} later."},
+        { "ex": [
+          {"t":"Ako sad.","tr":"Me too."},
+          {"t":"Usa pa, palihug.","tr":"One more, please."},
+          {"t":"Ikaw diay ang bag-ong maestra!","tr":"So you're the new teacher!"},
+          {"t":"Ulahi na baya ta!","tr":"We're late, you know!"},
+          {"t":"Asa kaha siya?","tr":"I wonder where she is."},
+          {"t":"Oo lagi!","tr":"Of course!"},
+          {"t":"Maayo man ko, salamat.","tr":"I'm fine, thanks."}
+        ] },
+        {"tip":"{{sad}} is the Cebu word for “also, too” in conversation; you'll also hear {{pud}}, and see {{usab}} in writing. {{Mao ba?}} “Really?” and {{Mao diay?}} “Oh, really?” keep any conversation going."}
+      ],
+      "mistakes": [
+        {"wrong":"Ko sad.","right":"Ako sad.","tr":"Me too.","why":"Nothing comes before it, so use the full {{ako}}: a short word can't start."},
+        {"wrong":"Sayo na.","right":"Sayo pa.","tr":"It's still early.","why":"“Still” is {{pa}}; {{Sayo na}} would be “It's early now”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ako ___.","tr":"Me too.","options":["sad","pa","na"],"answer":0,"why":"Too, also: {{sad}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Sayo ___!","tr":"It's still early!","options":["pa","na","diay"],"answer":0,"why":"Still: {{pa}}."},
+        {"type":"choice","q":"The person you've been waiting for turns out to be your old classmate. You say:","options":["{{Ikaw diay!}}","{{Ikaw baya!}}","{{Ikaw kaha!}}"],"answer":0,"why":"Finding something out: {{diay}}."},
+        {"type":"dialogue","q":"A friend offers you something new. Choose your replies.","lines":[{"who":"Lito","t":"Tilawi ni. Tuslob buwa.","tr":"Try this. Tuslob buwa (a Cebu street dish)."},{"options":["Sige, gamay lang.","Sige, gamay na."],"answer":0,"why":"Just a little: {{lang}}."},{"who":"Lito","t":"Unsa man?","tr":"So?"},{"options":["Lami man diay!","Lami man kaha!"],"answer":0,"why":"Surprise: it's actually good! {{diay}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"One more, please.","words":["Usa","pa,","palihug."]},
+        {"type":"fill","q":"Choose the missing word.","t":"Wala ___ siya moabot.","tr":"She hasn't arrived yet.","options":["pa","na","sad"],"answer":0,"why":"Not yet: {{wala pa}}.","from":"say-what-you-didnt-do"},
+        {"type":"say","q":"Say “Me too! I really like lechon.”","answer":"Ako sad! Ganahan gyud ko sa lechon.","from":"say-what-you-like"},
+        {"type":"free","q":"Your turn: react to something with two little words ({{gyud}}, {{diay}}, {{baya}}, {{lagi}}…).","answers":[{"t":"Lami gyud diay ang durian!","tr":"Durian really is tasty after all!"},{"t":"Init baya karon! Ako sad, gikapoy na ko.","tr":"It's hot today, you know! Me too, I'm tired now."}]}
+      ]
     }
   ]
 }
