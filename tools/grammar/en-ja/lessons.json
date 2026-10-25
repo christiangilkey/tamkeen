@@ -925,6 +925,238 @@
         {"type":"say","q":"How do you say “My older brother is a doctor and lives in Tokyo.”?","answer":"兄は医者で、東京に住んでいます。","r":"Ani wa isha de, Tōkyō ni sunde imasu.","from":"say-whats-happening"},
         {"type":"free","q":"Your turn: describe your morning, step by step, with the て-form.","answers":[{"t":"七時に起きて、コーヒーを飲んで、八時に家を出ます。","r":"Shichi-ji ni okite, kōhī o nonde, hachi-ji ni ie o demasu.","tr":"I get up at seven, drink a coffee and leave home at eight."},{"t":"朝ご飯を食べて、犬と散歩して、仕事を始めます。","r":"Asagohan o tabete, inu to sanpo shite, shigoto o hajimemasu.","tr":"I have breakfast, walk the dog and start work."}]}
       ]
+    },
+    {
+      "id": "talk-casually",
+      "unit": 5,
+      "level": "A2",
+      "title": "Talk casually with friends",
+      "summary": "Switch to the style friends use with each other: “Are you free tomorrow? Want to go and see a movie?”",
+      "topic": "plain forms: the dictionary form, the {{ない|nai}} form, {{だ|da}}; questions without {{か|ka}}",
+      "blocks": [
+        {"goal":{"t":"明日、一緒に映画を見に行かない？","r":"Ashita, issho ni eiga o mi ni ikanai?","tr":"Want to go and see a movie together tomorrow?"}},
+        {"dialog":[{"who":"Yuki","t":"ケン、明日ひま？","r":"Ken, ashita hima?","tr":"Ken, are you free tomorrow?"},{"who":"Ken","t":"うん、ひまだよ。","r":"Un, hima da yo.","tr":"Yeah, I'm free."},{"who":"Yuki","t":"一緒に映画を見に行かない？","r":"Issho ni eiga o mi ni ikanai?","tr":"Want to go and see a movie together?"},{"who":"Ken","t":"いいね！何を見る？","r":"Ii ne! Nani o miru?","tr":"Great! What shall we see?"},{"who":"Yuki","t":"新しいアニメはどう？","r":"Atarashii anime wa dō?","tr":"How about the new anime?"},{"who":"Ken","t":"いいよ。何時に行く？","r":"Ii yo. Nan-ji ni iku?","tr":"Sure. What time shall we go?"}]},
+        {"p":"**Two styles.** So far everything has been in the polite style, with {{です|desu}} and {{ます|masu}}: right with people you don't know well, at work and in shops. With friends and family, Japanese uses the **plain** style. Polite forms with close friends sound distant; plain forms with your boss sound rude. You need both, and the plain forms are also the building blocks of many patterns in the coming lessons."},
+        {"term":"plain form","means":"the casual form of a verb or adjective, used with friends and inside longer sentences: {{行く|iku}} instead of {{行きます|ikimasu}}."},
+        {"term":"dictionary form","means":"the plain present of a verb, the form you find in a dictionary: {{食べる|taberu}}, {{行く|iku}}, {{する|suru}}."},
+        {"p":"**The dictionary form** (plain “do, will do”). Group 2: drop {{ます|masu}}, add {{る|ru}}: {{食べます|tabemasu}} → {{食べる|taberu}}. Group 1: the i-sound before {{ます|masu}} becomes a u-sound: {{行きます|ikimasu}} → {{行く|iku}}, {{飲みます|nomimasu}} → {{飲む|nomu}}, {{待ちます|machimasu}} → {{待つ|matsu}}, {{買います|kaimasu}} → {{買う|kau}}. Group 3: {{する|suru}} and {{来る|kuru}}."},
+        {"p":"**The ない form** (plain “don't”). Group 2: drop {{ます|masu}}, add {{ない|nai}}: {{食べない|tabenai}}. Group 1: the i-sound becomes an a-sound, then {{ない|nai}}: {{行かない|ikanai}}, {{飲まない|nomanai}}, {{待たない|matanai}}; but a verb in {{います|imasu}} takes {{わ|wa}}: {{買わない|kawanai}}. Group 3: {{しない|shinai}}, {{来ない|konai}}. And {{ある|aru}} “there is” has the plain negative {{ない|nai}}."},
+        { "table": [
+          ["","polite","plain","plain negative"],
+          ["group 2: eat","{{食べます|tabemasu}}","{{食べる|taberu}}","{{食べない|tabenai}}"],
+          ["group 1: go","{{行きます|ikimasu}}","{{行く|iku}}","{{行かない|ikanai}}"],
+          ["group 1: drink","{{飲みます|nomimasu}}","{{飲む|nomu}}","{{飲まない|nomanai}}"],
+          ["group 1: buy","{{買います|kaimasu}}","{{買う|kau}}","{{買わない|kawanai}}"],
+          ["group 3: do","{{します|shimasu}}","{{する|suru}}","{{しない|shinai}}"],
+          ["group 3: come","{{来ます|kimasu}}","{{来る|kuru}}","{{来ない|konai}}"]
+        ] },
+        {"p":"**Adjectives and nouns.** い-adjectives just drop {{です|desu}}: {{高い|takai}}, {{高くない|takakunai}}. Nouns and な-adjectives change {{です|desu}} to {{だ|da}}: {{ひまだ|hima da}} “I'm free”, and “not” is {{じゃない|ja nai}}: {{ひまじゃない|hima ja nai}}. In a question, {{だ|da}} disappears: {{ひま？|hima?}} “Are you free?”"},
+        {"p":"**Casual questions** drop {{か|ka}}: just raise your voice. {{行く？|iku?}} “Are you going?”. A negative question invites, like {{ませんか|masen ka}}: {{行かない？|ikanai?}} “Want to go?”. “Yes” and “no” are {{うん|un}} and {{ううん|uun}}, and little words at the end add feeling: {{よ|yo}} “I'm telling you”, {{ね|ne}} “isn't it?”."},
+        { "ex": [
+          {"t":"明日、何する？","r":"Ashita, nani suru?","tr":"What are you doing tomorrow?"},
+          {"t":"今日はどこにも行かない。","r":"Kyō wa doko ni mo ikanai.","tr":"I'm not going anywhere today."},
+          {"t":"このケーキ、おいしいね。","r":"Kono kēki, oishii ne.","tr":"This cake is good, isn't it?"},
+          {"t":"ううん、ひまじゃない。","r":"Uun, hima ja nai.","tr":"No, I'm not free."},
+          {"t":"一緒に昼ご飯を食べない？","r":"Issho ni hirugohan o tabenai?","tr":"Want to have lunch together?"},
+          {"t":"うん、行く行く！","r":"Un, iku iku!","tr":"Yeah, I'm in!"}
+        ] },
+        {"tip":"In casual speech, particles like {{を|o}} and {{は|wa}} are often dropped: {{映画見る？|eiga miru?}} “Want to watch a movie?”. In this course they mostly stay, so you can see how the sentence is built."}
+      ],
+      "mistakes": [
+        {"wrong":"明日、ひまだ？","right":"明日、ひま？","rw":"Ashita, hima da?","rr":"Ashita, hima?","tr":"Are you free tomorrow?","why":"In a casual question, {{だ|da}} disappears: just {{ひま？|hima?}} with your voice going up."},
+        {"wrong":"行きない。","right":"行かない。","rw":"Ikinai.","rr":"Ikanai.","tr":"I'm not going.","why":"Group 1: the i-sound becomes an a-sound before {{ない|nai}}: {{行かない|ikanai}}."},
+        {"wrong":"買あない。","right":"買わない。","rw":"Kaanai.","rr":"Kawanai.","tr":"I won't buy it.","why":"Verbs in {{います|imasu}} (like {{買います|kaimasu}}) take {{わ|wa}}: {{買わない|kawanai}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"What's the dictionary form of {{飲みます|nomimasu}} “drink”?","options":["{{飲む|nomu}}","{{飲みる|nomiru}}","{{飲まない|nomanai}}"],"answer":0,"why":"Group 1: {{み|mi}} → {{む|mu}}."},
+        {"type":"fill","q":"Choose the right form.","t":"今日は学校へ___。","r":"Kyō wa gakkō e ___.","tr":"I'm not going to school today.","options":["行かない","行きない","行くない"],"rs":["ikanai","ikinai","ikunai"],"answer":0,"why":"{{行きます|ikimasu}} → {{行かない|ikanai}}."},
+        {"type":"choice","q":"Your friend asks {{明日、ひま？|Ashita, hima?}} You're free. You say…","options":["{{うん、ひまだよ。|Un, hima da yo.}}","{{うん、ひまだか。|Un, hima da ka.}}","{{はい、ひまでございます。|Hai, hima de gozaimasu.}}"],"answer":0,"why":"Casual: {{うん|un}}, and {{だ|da}} with a noun or な-adjective. The last one is very formal!"},
+        {"type":"dialogue","q":"A friend invites you. Choose your replies.","lines":[{"who":"Yuki","t":"週末、一緒にカラオケに行かない？","r":"Shūmatsu, issho ni karaoke ni ikanai?","tr":"Want to go to karaoke together at the weekend?"},{"options":["いいね！行く行く。","いいね！行かない。"],"rs":["Ii ne! Iku iku.","Ii ne! Ikanai."],"answer":0,"why":"{{行かない？|ikanai?}} is an invitation: say yes with {{行く|iku}}."},{"who":"Yuki","t":"何曜日がいい？","r":"Nan'yōbi ga ii?","tr":"Which day is good for you?"},{"options":["土曜日がいい。","土曜日がいいだ。"],"rs":["Doyōbi ga ii.","Doyōbi ga ii da."],"answer":0,"why":"An い-adjective takes no {{だ|da}}: just {{いい|ii}}."}],"from":"invite-someone"},
+        {"type":"order","q":"Put the words in order.","tr":"Want to have lunch together?","words":["一緒に","昼ご飯を","食べない？"],"rs":["Issho ni","hirugohan o","tabenai?"],"why":"{{一緒に昼ご飯を食べない？|Issho ni hirugohan o tabenai?}}"},
+        {"type":"say","q":"Ask a friend casually: “What do you want to eat?”","answer":"何が食べたい？","r":"Nani ga tabetai?","from":"say-what-you-want"},
+        {"type":"free","q":"Your turn: ask a friend, casually, what they're doing this weekend, and invite them to something.","answers":[{"t":"週末、何する？一緒に買い物に行かない？","r":"Shūmatsu, nani suru? Issho ni kaimono ni ikanai?","tr":"What are you doing at the weekend? Want to go shopping together?"},{"t":"明日ひま？うちで映画を見ない？","r":"Ashita hima? Uchi de eiga o minai?","tr":"Are you free tomorrow? Want to watch a movie at my place?"}]}
+      ]
+    },
+    {
+      "id": "chat-about-the-past",
+      "unit": 5,
+      "level": "A2",
+      "title": "Chat casually about what happened",
+      "summary": "Tell a friend what you did and how it was, in the casual style: “I went to Kyoto yesterday. It was so much fun!”",
+      "topic": "the plain past: {{た|ta}} and {{なかった|nakatta}}; {{だった|datta}}; {{かった|katta}}",
+      "blocks": [
+        {"goal":{"t":"昨日、京都に行った。すごく楽しかった！","r":"Kinō, Kyōto ni itta. Sugoku tanoshikatta!","tr":"I went to Kyoto yesterday. It was so much fun!"}},
+        {"dialog":[{"who":"Yuki","t":"週末、何した？","r":"Shūmatsu, nani shita?","tr":"What did you do at the weekend?"},{"who":"Ken","t":"友達と富士山に登った。","r":"Tomodachi to Fujisan ni nobotta.","tr":"I climbed Mt Fuji with some friends."},{"who":"Yuki","t":"え、すごい！大変だった？","r":"E, sugoi! Taihen datta?","tr":"Whoa, amazing! Was it hard?"},{"who":"Ken","t":"うん、大変だった。でも、景色はすごくきれいだった。","r":"Un, taihen datta. Demo, keshiki wa sugoku kirei datta.","tr":"Yeah, it was hard. But the view was really beautiful."},{"who":"Yuki","t":"写真、撮った？","r":"Shashin, totta?","tr":"Did you take pictures?"},{"who":"Ken","t":"ううん、撮らなかった。カメラを忘れた…。","r":"Uun, toranakatta. Kamera o wasureta…","tr":"No, I didn't. I forgot my camera…"}]},
+        {"term":"ta-form","means":"the plain past of a verb. It's made like the て-form, with {{た|ta}} or {{だ|da}}: {{食べた|tabeta}}, {{飲んだ|nonda}}."},
+        {"p":"**The plain past: {{て|te}} becomes {{た|ta}}.** You already know the て-form, and the plain past is the same with {{た|ta}} (or {{だ|da}} where the て-form has {{で|de}}): {{食べて|tabete}} → {{食べた|tabeta}} “ate”, {{行って|itte}} → {{行った|itta}} “went”, {{飲んで|nonde}} → {{飲んだ|nonda}} “drank”, {{して|shite}} → {{した|shita}} “did”."},
+        {"p":"**Didn't: {{なかった|nakatta}}.** Take the ない form and change {{ない|nai}} to {{なかった|nakatta}}, the way {{高い|takai}} becomes {{高かった|takakatta}}: {{行かなかった|ikanakatta}} “didn't go”, {{食べなかった|tabenakatta}} “didn't eat”."},
+        { "table": [
+          ["","て-form","plain past","plain past negative"],
+          ["eat","{{食べて|tabete}}","{{食べた|tabeta}}","{{食べなかった|tabenakatta}}"],
+          ["go","{{行って|itte}}","{{行った|itta}}","{{行かなかった|ikanakatta}}"],
+          ["drink","{{飲んで|nonde}}","{{飲んだ|nonda}}","{{飲まなかった|nomanakatta}}"],
+          ["do","{{して|shite}}","{{した|shita}}","{{しなかった|shinakatta}}"],
+          ["come","{{来て|kite}}","{{来た|kita}}","{{来なかった|konakatta}}"]
+        ] },
+        {"p":"**Adjectives and nouns.** い-adjectives drop {{です|desu}}: {{楽しかった|tanoshikatta}} “it was fun”. Nouns and な-adjectives take {{だった|datta}}, and “wasn't” is {{じゃなかった|ja nakatta}}: {{大変だった|taihen datta}} “it was hard”, {{雨じゃなかった|ame ja nakatta}} “it didn't rain”."},
+        { "ex": [
+          {"t":"朝ご飯、食べた？","r":"Asagohan, tabeta?","tr":"Did you have breakfast?"},
+          {"t":"ううん、食べなかった。","r":"Uun, tabenakatta.","tr":"No, I didn't."},
+          {"t":"映画はすごくおもしろかった。","r":"Eiga wa sugoku omoshirokatta.","tr":"The movie was really good."},
+          {"t":"テストは簡単だった。","r":"Tesuto wa kantan datta.","tr":"The test was easy."},
+          {"t":"昨日は休みじゃなかった。","r":"Kinō wa yasumi ja nakatta.","tr":"Yesterday wasn't a day off."},
+          {"t":"週末はどこにも行かなかった。","r":"Shūmatsu wa doko ni mo ikanakatta.","tr":"I didn't go anywhere at the weekend."}
+        ] },
+        {"tip":"{{すごい！|sugoi!}} “amazing!” and {{すごく|sugoku}} “really, so” are everywhere in casual talk: {{すごくおいしかった|sugoku oishikatta}} “it was so good”."}
+      ],
+      "mistakes": [
+        {"wrong":"行きた。","right":"行った。","rw":"Ikita.","rr":"Itta.","tr":"I went.","why":"The plain past follows the て-form: {{行って|itte}} → {{行った|itta}}."},
+        {"wrong":"楽しいだった。","right":"楽しかった。","rw":"Tanoshii datta.","rr":"Tanoshikatta.","tr":"It was fun.","why":"An い-adjective makes its own past: {{楽しかった|tanoshikatta}}. {{だった|datta}} is for nouns and な-adjectives."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"昨日、映画を___。","r":"Kinō, eiga o ___.","tr":"I saw a movie yesterday.","options":["見た","見だ","見るた"],"rs":["mita","mida","miruta"],"answer":0,"why":"{{見て|mite}} → {{見た|mita}}."},
+        {"type":"choice","q":"The plain past of {{飲みます|nomimasu}} “drink” is…","options":["{{飲んだ|nonda}}","{{飲みた|nomita}}","{{飲った|notta}}"],"answer":0,"why":"Its て-form is {{飲んで|nonde}}, so the past is {{飲んだ|nonda}}."},
+        {"type":"fill","q":"Choose the missing ending.","t":"旅行は楽し___。","r":"Ryokō wa tanoshi___.","tr":"The trip was fun.","options":["かった","いだった","だった"],"rs":["katta","i datta","datta"],"answer":0,"why":"An い-adjective: {{楽しかった|tanoshikatta}}."},
+        {"type":"dialogue","q":"A friend asks about your evening. Choose your replies.","lines":[{"who":"Yuki","t":"昨日、何した？","r":"Kinō, nani shita?","tr":"What did you do yesterday?"},{"options":["家で映画を見た。","家で映画を見るた。"],"rs":["Ie de eiga o mita.","Ie de eiga o miruta."],"answer":0,"why":"The plain past: {{見た|mita}}."},{"who":"Yuki","t":"どうだった？","r":"Dō datta?","tr":"How was it?"},{"options":["ちょっと長かった。でも、おもしろかった。","ちょっと長いだった。でも、おもしろいだった。"],"rs":["Chotto nagakatta. Demo, omoshirokatta.","Chotto nagai datta. Demo, omoshiroi datta."],"answer":0,"why":"い-adjectives make their own past: {{長かった|nagakatta}}."}],"from":"say-how-it-was"},
+        {"type":"order","q":"Put the words in order.","tr":"I didn't go anywhere at the weekend.","words":["週末は","どこにも","行かなかった。"],"rs":["Shūmatsu wa","doko ni mo","ikanakatta."],"why":"{{週末はどこにも行かなかった。|Shūmatsu wa doko ni mo ikanakatta.}}"},
+        {"type":"say","q":"Say casually: “I'm not free today.”","answer":"今日はひまじゃない。","r":"Kyō wa hima ja nai.","from":"talk-casually"},
+        {"type":"free","q":"Your turn: tell a friend, casually, what you did yesterday and how it was.","answers":[{"t":"昨日、友達とラーメンを食べに行った。すごくおいしかった！","r":"Kinō, tomodachi to rāmen o tabe ni itta. Sugoku oishikatta!","tr":"Yesterday I went for ramen with a friend. It was so good!"},{"t":"昨日は一日中勉強した。大変だった。","r":"Kinō wa ichinichijū benkyō shita. Taihen datta.","tr":"I studied all day yesterday. It was hard work."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-think",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you think, and what someone said",
+      "summary": "Give your opinion, and pass on what others said: “I think Japanese is interesting.” “Mr Tanaka said there's no problem.”",
+      "topic": "plain form + {{と思います|to omoimasu}}; {{～と言っていました|… to itte imashita}}",
+      "blocks": [
+        {"goal":{"t":"日本語はおもしろいと思います。","r":"Nihongo wa omoshiroi to omoimasu.","tr":"I think Japanese is interesting."}},
+        {"dialog":[{"who":"Mr Kato","t":"この計画はどう思いますか。","r":"Kono keikaku wa dō omoimasu ka.","tr":"What do you think of this plan?"},{"who":"You","t":"いいと思います。でも、ちょっと高いと思います。","r":"Ii to omoimasu. Demo, chotto takai to omoimasu.","tr":"I think it's good. But I think it's a bit expensive."},{"who":"Mr Kato","t":"そうですね。田中さんは何と言っていましたか。","r":"Sō desu ne. Tanaka-san wa nan to itte imashita ka.","tr":"Hmm, yes. What did Mr Tanaka say?"},{"who":"You","t":"問題ないと言っていました。","r":"Mondai nai to itte imashita.","tr":"He said there's no problem."},{"who":"Mr Kato","t":"わかりました。じゃ、やりましょう。","r":"Wakarimashita. Ja, yarimashō.","tr":"All right. Then let's do it."}]},
+        {"p":"**I think…: plain form + {{と思います|to omoimasu}}.** What you think comes first, in the plain form, then {{と|to}} (a quotation mark you can hear), then {{思います|omoimasu}} “I think”: {{おもしろいと思います|omoshiroi to omoimasu}} “I think it's interesting”, {{田中さんは来ると思います|Tanaka-san wa kuru to omoimasu}} “I think Mr Tanaka will come”."},
+        {"p":"Nouns and な-adjectives need {{だ|da}} before {{と|to}}: {{便利だと思います|benri da to omoimasu}} “I think it's convenient”. For “I don't think…”, Japanese usually puts the “not” inside the thought: {{来ないと思います|konai to omoimasu}} “I don't think he'll come”, word for word “I think he won't come”."},
+        { "table": [
+          ["what you think","+ {{と思います|to omoimasu}}","Meaning"],
+          ["verb","{{雨が降ると思います。|Ame ga furu to omoimasu.}}","I think it'll rain."],
+          ["{{い|i}}-adjective","{{高いと思います。|Takai to omoimasu.}}","I think it's expensive."],
+          ["{{な|na}}-adjective","{{便利だと思います。|Benri da to omoimasu.}}","I think it's convenient."],
+          ["noun","{{いい考えだと思います。|Ii kangae da to omoimasu.}}","I think it's a good idea."],
+          ["negative","{{来ないと思います。|Konai to omoimasu.}}","I don't think he'll come."]
+        ] },
+        {"p":"**What do you think?: {{どう思いますか|dō omoimasu ka}}.** Answers often begin with {{そうですね…|sō desu ne…}} “Let me see…”."},
+        {"p":"**Someone said…: plain form + {{と言っていました|to itte imashita}}.** To pass on what someone said: {{田中さんは来ると言っていました|Tanaka-san wa kuru to itte imashita}} “Mr Tanaka said he'd come”. {{と|to}} again marks the words being quoted."},
+        { "ex": [
+          {"t":"日本の電車は便利だと思います。","r":"Nihon no densha wa benri da to omoimasu.","tr":"I think Japanese trains are convenient."},
+          {"t":"明日は雨が降ると思います。","r":"Ashita wa ame ga furu to omoimasu.","tr":"I think it'll rain tomorrow."},
+          {"t":"田中さんは今日来ないと思います。","r":"Tanaka-san wa kyō konai to omoimasu.","tr":"I don't think Mr Tanaka is coming today."},
+          {"t":"この映画はどう思いますか。","r":"Kono eiga wa dō omoimasu ka.","tr":"What do you think of this movie?"},
+          {"t":"ゆいさんは明日休むと言っていました。","r":"Yui-san wa ashita yasumu to itte imashita.","tr":"Yui said she's taking tomorrow off."},
+          {"t":"先生はテストは簡単だと言っていました。","r":"Sensei wa tesuto wa kantan da to itte imashita.","tr":"The teacher said the test would be easy."}
+        ] },
+        {"tip":"Japanese often softens opinions with {{と思います|to omoimasu}}, even about things that are fairly sure: it sounds less pushy than a flat statement."}
+      ],
+      "mistakes": [
+        {"wrong":"便利と思います。","right":"便利だと思います。","rw":"Benri to omoimasu.","rr":"Benri da to omoimasu.","tr":"I think it's convenient.","why":"A な-adjective or a noun needs {{だ|da}} before {{と思います|to omoimasu}}."},
+        {"wrong":"おもしろいですと思います。","right":"おもしろいと思います。","rw":"Omoshiroi desu to omoimasu.","rr":"Omoshiroi to omoimasu.","tr":"I think it's interesting.","why":"What you think goes in the plain form: no {{です|desu}} or {{ます|masu}} before {{と|to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"この町は静か___と思います。","r":"Kono machi wa shizuka ___ to omoimasu.","tr":"I think this town is quiet.","options":["だ","な","です"],"rs":["da","na","desu"],"answer":0,"why":"A な-adjective + {{だ|da}} before {{と思います|to omoimasu}}."},
+        {"type":"choice","q":"How do you say “I think it'll rain tomorrow”?","options":["{{明日は雨が降ると思います。|Ashita wa ame ga furu to omoimasu.}}","{{明日は雨が降りますと思います。|Ashita wa ame ga furimasu to omoimasu.}}","{{明日は雨が降ると思うです。|Ashita wa ame ga furu to omou desu.}}"],"answer":0,"why":"The plain form before {{と|to}}, and {{思います|omoimasu}} at the end."},
+        {"type":"dialogue","q":"Your manager asks your opinion. Choose your replies.","lines":[{"who":"Mr Kato","t":"この店はどう思いますか。","r":"Kono mise wa dō omoimasu ka.","tr":"What do you think of this shop?"},{"options":["安くて、いいと思います。","安くて、いいですと思います。"],"rs":["Yasukute, ii to omoimasu.","Yasukute, ii desu to omoimasu."],"answer":0,"why":"The plain form before {{と思います|to omoimasu}}."},{"who":"Mr Kato","t":"ゆいさんは何と言っていましたか。","r":"Yui-san wa nan to itte imashita ka.","tr":"What did Yui say?"},{"options":["少し遠いと言っていました。","少し遠いを言っていました。"],"rs":["Sukoshi tōi to itte imashita.","Sukoshi tōi o itte imashita."],"answer":0,"why":"Quote with {{と|to}}."}],"from":"link-actions"},
+        {"type":"order","q":"Put the words in order.","tr":"I think Japanese trains are convenient.","words":["日本の","電車は","便利だと","思います。"],"rs":["Nihon no","densha wa","benri da to","omoimasu."],"why":"{{日本の電車は便利だと思います。|Nihon no densha wa benri da to omoimasu.}}"},
+        {"type":"fill","q":"Choose the right form.","t":"田中さんは今日___と思います。","r":"Tanaka-san wa kyō ___ to omoimasu.","tr":"I don't think Mr Tanaka is coming today.","options":["来ない","来ません"],"rs":["konai","kimasen"],"answer":0,"why":"Plain form before {{と|to}}: {{来ない|konai}}.","from":"talk-casually"},
+        {"type":"say","q":"How do you say “I think he forgot.”? (forget: {{忘れます|wasuremasu}})","answer":"忘れたと思います。","r":"Wasureta to omoimasu.","from":"chat-about-the-past"},
+        {"type":"free","q":"Your turn: give your opinion about Japanese food, your town or learning Japanese. Use {{と思います|to omoimasu}}.","answers":[{"t":"日本の食べ物はおいしくて、体にいいと思います。","r":"Nihon no tabemono wa oishikute, karada ni ii to omoimasu.","tr":"I think Japanese food is delicious and good for you."},{"t":"日本語は難しいですが、漢字はおもしろいと思います。","r":"Nihongo wa muzukashii desu ga, kanji wa omoshiroi to omoimasu.","tr":"Japanese is difficult, but I think kanji are interesting."}]}
+      ]
+    },
+    {
+      "id": "give-reasons",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say why",
+      "summary": "Give reasons and ask why: “I have an early start tomorrow, so I'm going to bed early.”",
+      "topic": "{{から|kara}} and {{ので|node}} “because, so”; {{どうして|dōshite}} and {{なんで|nande}}; {{だから|dakara}}",
+      "blocks": [
+        {"goal":{"t":"明日は早いので、今日は早く寝ます。","r":"Ashita wa hayai node, kyō wa hayaku nemasu.","tr":"I have an early start tomorrow, so I'm going to bed early tonight."}},
+        {"dialog":[{"who":"Mr Kato","t":"明日のパーティーに来ますか。","r":"Ashita no pātī ni kimasu ka.","tr":"Are you coming to the party tomorrow?"},{"who":"You","t":"すみません、明日は用事があるので、ちょっと…。","r":"Sumimasen, ashita wa yōji ga aru node, chotto…","tr":"I'm sorry, I have something on tomorrow, so…"},{"who":"Mr Kato","t":"そうですか。残念ですね。","r":"Sō desu ka. Zannen desu ne.","tr":"I see. That's a pity."},{"who":"Yuki","t":"なんで行かないの？","r":"Nande ikanai no?","tr":"Why aren't you going?"},{"who":"You","t":"パーティーは苦手だから。","r":"Pātī wa nigate da kara.","tr":"Because I'm not really into parties."}]},
+        {"p":"**Because: {{から|kara}}.** The reason comes first, then {{から|kara}}, then what follows from it: {{雨が降っていますから、タクシーで行きます|ame ga futte imasu kara, takushī de ikimasu}} “It's raining, so I'll take a taxi”. It's the reverse of English “because”: reason first, result last."},
+        {"p":"**{{ので|node}}** means the same, but sounds softer and more polite: good for excuses and requests. Before {{ので|node}}, use the plain form, and nouns and な-adjectives take {{な|na}}: {{用事があるので|yōji ga aru node}}, {{雨なので|ame na node}} “because it's raining”."},
+        { "table": [
+          ["","{{から|kara}}","{{ので|node}}"],
+          ["feel","direct, personal","softer, more polite"],
+          ["verb","{{行くから|iku kara}} / {{行きますから|ikimasu kara}}","{{行くので|iku node}}"],
+          ["{{い|i}}-adjective","{{高いから|takai kara}}","{{高いので|takai node}}"],
+          ["{{な|na}}-adjective, noun","{{雨だから|ame da kara}}","{{雨なので|ame na node}}"]
+        ] },
+        {"p":"**Why?** {{どうして|dōshite}}, or casually {{なんで|nande}}. The answer can stop at {{から|kara}}: {{なんで来なかった？|nande konakatta?}} “Why didn't you come?” — {{忙しかったから。|isogashikatta kara.}} “Because I was busy.” And {{だから|dakara}} at the start of a sentence means “so, that's why”."},
+        { "ex": [
+          {"t":"暑いですから、窓を開けましょうか。","r":"Atsui desu kara, mado o akemashō ka.","tr":"It's hot, so shall I open the window?"},
+          {"t":"頭が痛いので、帰ってもいいですか。","r":"Atama ga itai node, kaette mo ii desu ka.","tr":"I have a headache, so may I go home?"},
+          {"t":"日曜日なので、銀行は休みです。","r":"Nichiyōbi na node, ginkō wa yasumi desu.","tr":"It's Sunday, so the bank is closed."},
+          {"t":"なんで来なかった？","r":"Nande konakatta?","tr":"Why didn't you come?"},
+          {"t":"忙しかったから。","r":"Isogashikatta kara.","tr":"Because I was busy."},
+          {"t":"だから、日本語を勉強しています。","r":"Dakara, Nihongo o benkyō shite imasu.","tr":"That's why I'm studying Japanese."}
+        ] },
+        {"tip":"Leaving the result unsaid is very Japanese: {{用事があるので…|yōji ga aru node…}} “I have something on, so…” is a complete, polite “no”."}
+      ],
+      "mistakes": [
+        {"wrong":"雨ので、行きません。","right":"雨なので、行きません。","rw":"Ame node, ikimasen.","rr":"Ame na node, ikimasen.","tr":"It's raining, so I'm not going.","why":"A noun or な-adjective takes {{な|na}} before {{ので|node}}."},
+        {"wrong":"から寒いです、コートを着ます。","right":"寒いですから、コートを着ます。","rw":"Kara samui desu, kōto o kimasu.","rr":"Samui desu kara, kōto o kimasu.","tr":"It's cold, so I'll wear a coat.","why":"{{から|kara}} comes after the reason, not before it."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"日曜日___ので、銀行は休みです。","r":"Nichiyōbi ___ node, ginkō wa yasumi desu.","tr":"It's Sunday, so the bank is closed.","options":["な","だ","の"],"rs":["na","da","no"],"answer":0,"why":"A noun before {{ので|node}}: {{日曜日なので|nichiyōbi na node}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"疲れました___、早く寝ます。","r":"Tsukaremashita ___, hayaku nemasu.","tr":"I'm tired, so I'm going to bed early.","options":["から","まで","でも"],"rs":["kara","made","demo"],"answer":0,"why":"Reason + {{から|kara}}, then the result."},
+        {"type":"choice","q":"{{忙しいので、行きません。|Isogashii node, ikimasen.}} means…","options":["I'm busy, so I'm not going.","I'm not busy, so I'm going.","I'm going because I'm busy."],"answer":0,"why":"The reason comes first: “busy, so…”."},
+        {"type":"dialogue","q":"A colleague invites you, but you start early tomorrow. Choose your reply.","lines":[{"who":"Colleague","t":"今晩、一緒に飲みに行きませんか。","r":"Konban, issho ni nomi ni ikimasen ka.","tr":"Would you like to go for a drink tonight?"},{"options":["すみません、明日早いので、今晩はちょっと…。","すみません、明日早いなので、今晩はちょっと…。"],"rs":["Sumimasen, ashita hayai node, konban wa chotto…","Sumimasen, ashita hayai na node, konban wa chotto…"],"answer":0,"why":"An い-adjective goes straight before {{ので|node}}: {{早いので|hayai node}}."},{"who":"Colleague","t":"そうですか。じゃ、また今度。","r":"Sō desu ka. Ja, mata kondo.","tr":"I see. Another time, then."}],"from":"invite-someone"},
+        {"type":"order","q":"Put the words in order.","tr":"I have a headache, so may I go home?","words":["頭が","痛いので、","帰っても","いいですか。"],"rs":["Atama ga","itai node,","kaette mo","ii desu ka."],"why":"{{頭が痛いので、帰ってもいいですか。|Atama ga itai node, kaette mo ii desu ka.}}","from":"ask-permission"},
+        {"type":"say","q":"Ask a friend casually: “Why didn't you come?”","answer":"なんで来なかった？","r":"Nande konakatta?","from":"chat-about-the-past"},
+        {"type":"free","q":"Your turn: why are you learning Japanese? Answer with {{から|kara}} or {{ので|node}}.","answers":[{"t":"日本のアニメが好きなので、日本語を勉強しています。","r":"Nihon no anime ga suki na node, Nihongo o benkyō shite imasu.","tr":"I'm studying Japanese because I love Japanese anime."},{"t":"来年日本で働きたいですから、毎日勉強しています。","r":"Rainen Nihon de hatarakitai desu kara, mainichi benkyō shite imasu.","tr":"I want to work in Japan next year, so I study every day."}]}
+      ]
+    },
+    {
+      "id": "explain-situations",
+      "unit": 5,
+      "level": "A2",
+      "title": "Explain what's going on, and ask",
+      "summary": "Explain your situation, ask with concern, and lead into a request: “What's wrong?” “I have a headache.”",
+      "topic": "{{～んです|… n desu}} and {{～んですか|… n desu ka}}; {{～んですが、…|… n desu ga, …}}",
+      "blocks": [
+        {"goal":{"t":"すみません、道に迷ったんですが…。","r":"Sumimasen, michi ni mayotta n desu ga…","tr":"Excuse me, I'm lost… (could you help me?)"}},
+        {"dialog":[{"who":"Colleague","t":"顔色が悪いですね。どうしたんですか。","r":"Kaoiro ga warui desu ne. Dō shita n desu ka.","tr":"You look pale. What's wrong?"},{"who":"You","t":"ちょっと頭が痛いんです。","r":"Chotto atama ga itai n desu.","tr":"I've got a bit of a headache."},{"who":"Colleague","t":"大丈夫ですか。薬はありますか。","r":"Daijōbu desu ka. Kusuri wa arimasu ka.","tr":"Are you OK? Do you have any medicine?"},{"who":"You","t":"いいえ、持っていないんです。","r":"Iie, motte inai n desu.","tr":"No, I don't have any."},{"who":"Colleague","t":"じゃ、私のをどうぞ。","r":"Ja, watashi no o dōzo.","tr":"Then have some of mine."}]},
+        {"p":"**{{んです|n desu}}: explaining.** Put {{んです|n desu}} after a plain form and the sentence becomes an explanation: not just a fact, but “the thing is…”, “you see…”. {{頭が痛いです|atama ga itai desu}} states a fact; {{頭が痛いんです|atama ga itai n desu}} explains your situation: why you look pale, why you're going home."},
+        {"p":"**Asking for the story: {{んですか|n desu ka}}.** When you notice something and want to know what's behind it: {{どうしたんですか|dō shita n desu ka}} “What's wrong? What happened?”, {{どこへ行くんですか|doko e iku n desu ka}} “Where are you off to?” (when you see someone leaving). It shows interest and concern."},
+        {"p":"**Leading into a request: {{んですが、…|n desu ga, …}}.** Explain your situation, add {{が|ga}}, and the request is understood, or follows: {{道に迷ったんですが…|michi ni mayotta n desu ga…}} “I'm lost, (could you help?)”. This is how Japanese people start most requests to strangers."},
+        {"p":"**Form.** Plain form + {{んです|n desu}}. Nouns and な-adjectives take {{な|na}}: {{学生なんです|gakusei na n desu}}, {{好きなんです|suki na n desu}}. In writing and formal speech it's {{のです|no desu}}; with friends, {{の|no}} with a rising voice asks ({{どうしたの？|dō shita no?}}) and {{んだ|n da}} explains."},
+        { "table": [
+          ["","plain form","+ {{んです|n desu}}"],
+          ["verb","{{行く|iku}}, {{行った|itta}}","{{行くんです|iku n desu}}, {{行ったんです|itta n desu}}"],
+          ["{{い|i}}-adjective","{{痛い|itai}}","{{痛いんです|itai n desu}}"],
+          ["{{な|na}}-adjective","{{好き|suki}}","{{好きなんです|suki na n desu}}"],
+          ["noun","{{試験|shiken}}","{{試験なんです|shiken na n desu}}"]
+        ] },
+        { "ex": [
+          {"t":"どうしたんですか。","r":"Dō shita n desu ka.","tr":"What's wrong?"},
+          {"t":"財布をなくしたんです。","r":"Saifu o nakushita n desu.","tr":"I've lost my wallet."},
+          {"t":"日本の映画が好きなんです。","r":"Nihon no eiga ga suki na n desu.","tr":"I really love Japanese films, you see."},
+          {"t":"すみません、この漢字がわからないんですが…。","r":"Sumimasen, kono kanji ga wakaranai n desu ga…","tr":"Excuse me, I don't understand this kanji…"},
+          {"t":"明日は試験なんです。","r":"Ashita wa shiken na n desu.","tr":"I have an exam tomorrow (that's why)."},
+          {"t":"どこへ行くんですか。","r":"Doko e iku n desu ka.","tr":"Where are you off to?"}
+        ] },
+        {"tip":"Use {{んです|n desu}} when there's a situation to explain. For plain facts to someone you've just met ({{アメリカ人です|Amerikajin desu}}), it would sound as if they had doubted you."}
+      ],
+      "mistakes": [
+        {"wrong":"頭が痛いなんです。","right":"頭が痛いんです。","rw":"Atama ga itai na n desu.","rr":"Atama ga itai n desu.","tr":"I have a headache.","why":"An い-adjective goes straight before {{んです|n desu}}; only nouns and な-adjectives take {{な|na}}."},
+        {"wrong":"明日は試験んです。","right":"明日は試験なんです。","rw":"Ashita wa shiken n desu.","rr":"Ashita wa shiken na n desu.","tr":"I have an exam tomorrow.","why":"A noun needs {{な|na}} before {{んです|n desu}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"明日は試験___んです。","r":"Ashita wa shiken ___ n desu.","tr":"I have an exam tomorrow, you see.","options":["な","だ","の"],"rs":["na","da","no"],"answer":0,"why":"A noun + {{な|na}} + {{んです|n desu}}."},
+        {"type":"choice","q":"A colleague looks upset. You ask…","options":["{{どうしたんですか。|Dō shita n desu ka.}}","{{何をしましたか。|Nani o shimashita ka.}}","{{どうしてですか。|Dōshite desu ka.}}"],"answer":0,"why":"{{どうしたんですか|dō shita n desu ka}} asks “What's wrong?” with concern."},
+        {"type":"dialogue","q":"You need to find the station. Choose your replies.","lines":[{"options":["すみません、駅へ行きたいんですが…。","すみません、駅へ行きたいなんですが…。"],"rs":["Sumimasen, eki e ikitai n desu ga…","Sumimasen, eki e ikitai na n desu ga…"],"answer":0,"why":"{{たい|tai}} works like an い-adjective: no {{な|na}}."},{"who":"Passer-by","t":"駅ですか。あの信号を右に曲がってください。","r":"Eki desu ka. Ano shingō o migi ni magatte kudasai.","tr":"The station? Turn right at those traffic lights."},{"options":["ありがとうございます。","どうしたんですか。"],"rs":["Arigatō gozaimasu.","Dō shita n desu ka."],"answer":0,"why":"Thank them: {{ありがとうございます|arigatō gozaimasu}}."}],"from":"say-what-you-want"},
+        {"type":"order","q":"Put the words in order.","tr":"Excuse me, I don't understand this kanji…","words":["すみません、","この","漢字が","わからないんですが…。"],"rs":["Sumimasen,","kono","kanji ga","wakaranai n desu ga…"],"why":"{{すみません、この漢字がわからないんですが…。|Sumimasen, kono kanji ga wakaranai n desu ga…}}"},
+        {"type":"fill","q":"Choose the missing word.","t":"頭が痛い___、早く帰ります。","r":"Atama ga itai ___, hayaku kaerimasu.","tr":"I have a headache, so I'm going home early.","options":["ので","なので","んで"],"rs":["node","na node","nde"],"answer":0,"why":"An い-adjective goes straight before {{ので|node}}.","from":"give-reasons"},
+        {"type":"say","q":"You see a colleague leaving. Ask politely: “Where are you off to?”","answer":"どこへ行くんですか。","r":"Doko e iku n desu ka."},
+        {"type":"free","q":"Your turn: you're late for class. Explain why to your teacher, with {{んです|n desu}}.","answers":[{"t":"すみません、電車が遅れたんです。","r":"Sumimasen, densha ga okureta n desu.","tr":"I'm sorry, the train was late."},{"t":"すみません、朝、気分が悪かったんです。","r":"Sumimasen, asa, kibun ga warukatta n desu.","tr":"I'm sorry, I felt unwell this morning."}]}
+      ]
     }
   ]
 }
