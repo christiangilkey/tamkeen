@@ -919,6 +919,194 @@
         {"type":"say","q":"Scrivi a un amico: “Scusa, sono in ritardo! Sto arrivando!”","answer":"Sorry, I'm late! I'm coming!","from":"ask-questions-with-be"},
         {"type":"free","q":"Tocca a te: è sabato mattina. Di' cosa stai facendo tu e cosa stanno facendo due persone che conosci.","answers":[{"t":"I'm drinking coffee, my husband is reading the news, and my daughter is sleeping.","tr":"Sto bevendo un caffè, mio marito sta leggendo le notizie e mia figlia sta dormendo."},{"t":"I'm studying English! My brother is working and my parents are walking the dog.","tr":"Sto studiando inglese! Mio fratello sta lavorando e i miei genitori stanno portando a spasso il cane."}]}
       ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 4,
+      "level": "A2",
+      "title": "Chiedi e dai indicazioni",
+      "summary": "Vai dritto, gira a sinistra, non attraversare qui: chiedi la strada e spiegala, anche a chi non conosci.",
+      "topic": "L'imperativo ({{Go straight, Turn left}}); {{Don't…}}; {{Let's…}}",
+      "blocks": [
+        {"goal":{"t":"Go straight and turn left at the light.","tr":"Vai dritto e gira a sinistra al semaforo."}},
+        {"dialog":[{"who":"Tu","t":"Excuse me, how do I get to the train station?","tr":"Scusi, come arrivo alla stazione?"},{"who":"Signora","t":"Go straight on this street for two blocks.","tr":"Vada dritto per questa strada per due isolati."},{"who":"Tu","t":"OK...","tr":"Sì..."},{"who":"Signora","t":"Then turn right at the light. The station is on your left.","tr":"Poi giri a destra al semaforo. La stazione è sulla sinistra."},{"who":"Tu","t":"Is it far?","tr":"È lontano?"},{"who":"Signora","t":"No, it's a ten-minute walk. Don't take a cab, it's too close!","tr":"No, sono dieci minuti a piedi. Non prenda un taxi, è troppo vicino!"}]},
+        {"term":"imperativo","means":"la forma del verbo per dire a qualcuno di fare qualcosa: “Vieni! Guarda! Gira a destra!”."},
+        {"p":"**Un solo imperativo, per tutti.** L'imperativo inglese è il verbo nella forma base, senza soggetto: {{Go!}} “Vai! Vada! Andate!”, {{Turn left}} “Gira a sinistra”. È uguale per il tu, il Lei e il voi: la gentilezza la dà {{please}}."},
+        {"p":"**“Non…!”**: {{Don't}} + il verbo: {{Don't worry}} “Non preoccuparti”, {{Don't cross here}} “Non attraversare qui”. **“Facciamo…!”**: {{Let's}} + il verbo: {{Let's go!}} “Andiamo!”, {{Let's take a cab}} “Prendiamo un taxi”."},
+        { "table": [
+          ["italiano","inglese"],
+          ["vai dritto","{{go straight}}"],
+          ["gira a destra, a sinistra","{{turn right}}, {{turn left}}"],
+          ["prendi la seconda a destra","{{take the second right}}"],
+          ["attraversa la strada","{{cross the street}}"],
+          ["al semaforo, all'incrocio","{{at the light}}, {{at the intersection}}"],
+          ["per due isolati","{{for two blocks}}"],
+          ["è sulla tua sinistra","{{it's on your left}}"]
+        ] },
+        {"p":"**Chiedere la strada**: {{Excuse me, how do I get to…?}} “Scusi, come arrivo a…?”, {{Where's the nearest…?}} “Dov'è il … più vicino?”. In America le distanze in città si contano in isolati: {{It's three blocks away}} “È a tre isolati da qui”."},
+        { "ex": [
+          {"t":"Turn left on Oak Street.","tr":"Gira a sinistra in Oak Street."},
+          {"t":"Take the subway to Union Square.","tr":"Prendi la metro fino a Union Square."},
+          {"t":"Don't forget your umbrella!","tr":"Non dimenticare l'ombrello!"},
+          {"t":"Please sit down.","tr":"Si sieda, prego."},
+          {"t":"Let's go to the park!","tr":"Andiamo al parco!"},
+          {"t":"Let's not take the car.","tr":"Non prendiamo la macchina.","note":"“non facciamo…”: {{Let's not}}"},
+          {"t":"Excuse me, where's the nearest pharmacy?","tr":"Scusi, dov'è la farmacia più vicina?"}
+        ] },
+        {"tip":"Per essere gentili con l'imperativo basta {{please}}, all'inizio o alla fine: {{Please wait here}}, {{Wait here, please}}. Il nostro “Lei”, in inglese, si fa con il tono, non con il verbo."}
+      ],
+      "mistakes": [
+        {"wrong":"Not cross here!","right":"Don't cross here!","tr":"Non attraversare qui!","why":"“Non…!” si dice {{Don't}} + il verbo."},
+        {"wrong":"Let's to go!","right":"Let's go!","tr":"Andiamo!","why":"Dopo {{let's}}, il verbo senza {{to}}."},
+        {"wrong":"How I get to the station?","right":"How do I get to the station?","tr":"Come arrivo alla stazione?","why":"È una domanda con un verbo normale: ci vuole {{do}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"___ right at the light.","tr":"Gira a destra al semaforo.","options":["Turn","Turns","Turning"],"answer":0,"why":"L'imperativo è il verbo nella forma base: {{Turn}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"___ worry, I can help you.","tr":"Non preoccuparti, posso aiutarti.","options":["Don't","Not","No"],"answer":0,"why":"“Non…!”: {{Don't}} + il verbo.","from":"say-what-you-can-do"},
+        {"type":"choice","q":"“Prendiamo un taxi!” si dice…","options":["{{Let's take a cab!}}","{{We take a cab!}}","{{Let's to take a cab!}}"],"answer":0,"why":"“Facciamo qualcosa”: {{Let's}} + il verbo, senza {{to}}."},
+        {"type":"dialogue","q":"Un turista ti chiede la strada. Scegli le risposte.","lines":[{"who":"Turista","t":"Excuse me, how do I get to the museum?","tr":"Scusi, come arrivo al museo?"},{"options":["Go straight for two blocks, then turn left.","You going straight two blocks, then left turning."],"answer":0,"why":"L'imperativo: {{Go}}, {{turn}}."},{"who":"Turista","t":"Is it far?","tr":"È lontano?"},{"options":["No, it's five minutes. Don't take the bus!","No, it's five minutes. Not take the bus!"],"answer":0,"why":"“Non prenda”: {{Don't take}}."}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"La banca è sulla tua destra, accanto al bar.","words":["The bank","is on","your right,","next to","the café."],"from":"say-where-things-are"},
+        {"type":"say","q":"Chiedi: “Scusi, come arrivo all'aeroporto?”","answer":"Excuse me, how do I get to the airport?","from":"ask-about-habits"},
+        {"type":"free","q":"Tocca a te: spiega a un turista come arrivare da casa tua al bar o alla fermata più vicini.","answers":[{"t":"Go straight to the corner, then turn right. The café is on your left.","tr":"Vai dritto fino all'angolo, poi gira a destra. Il bar è sulla sinistra."},{"t":"Cross the street, take the first left and walk for two blocks. The bus stop is in front of the bank.","tr":"Attraversa la strada, prendi la prima a sinistra e cammina per due isolati. La fermata è davanti alla banca."}]}
+      ]
+    },
+    {
+      "id": "go-shopping",
+      "unit": 4,
+      "level": "A2",
+      "title": "Fai la spesa",
+      "summary": "Quanto costa? Quante mele? Un po' di formaggio, tanti pomodori: compra cose che si contano e cose che non si contano.",
+      "topic": "Nomi numerabili e non numerabili; {{much, many, a lot of}}; {{How much…? How many…?}}",
+      "blocks": [
+        {"goal":{"t":"I'd like some cheese and a few apples, please.","tr":"Vorrei del formaggio e qualche mela, per favore."}},
+        {"dialog":[{"who":"Venditore","t":"Hi there! What can I get you?","tr":"Ciao! Cosa ti do?"},{"who":"Tu","t":"I'd like some tomatoes, please.","tr":"Vorrei dei pomodori, per favore."},{"who":"Venditore","t":"Sure. How many?","tr":"Certo. Quanti?"},{"who":"Tu","t":"Six, please. And some cheese. How much is this one?","tr":"Sei, per favore. E del formaggio. Quanto costa questo?"},{"who":"Venditore","t":"That's twelve dollars a pound.","tr":"Dodici dollari alla libbra."},{"who":"Tu","t":"Wow, that's a lot of money! Just a little, then.","tr":"Accidenti, sono un sacco di soldi! Allora solo un pochino."}]},
+        {"term":"numerabile","means":"un nome che si può contare e ha un plurale: {{an apple, two apples}}. Quelli che non si contano ({{water}}, {{money}}) non hanno plurale."},
+        {"p":"**Cose che si contano e cose che no.** Alcuni nomi si contano ({{an apple, two apples}}); altri no, e non hanno plurale: {{water}}, {{milk}}, {{money}}, {{bread}}, {{cheese}}, {{information}}, {{advice}}, {{furniture}}, {{news}}. Non si dice {{an information}} o {{two breads}}."},
+        { "table": [
+          ["","si contano","non si contano"],
+          ["esempi","{{an apple, two apples}}","{{water, money, bread}}"],
+          ["quanti? quanto?","{{How many apples?}}","{{How much water?}}"],
+          ["molti, molto","{{many apples}}, {{a lot of apples}}","{{much water}}, {{a lot of water}}"],
+          ["pochi, un po'","{{a few apples}}","{{a little water}}"]
+        ] },
+        {"p":"**Plurali che in inglese non lo sono.** In italiano “le informazioni”, “i consigli”, “i mobili” e “le notizie” sono plurali; in inglese {{information}}, {{advice}}, {{furniture}} e {{news}} non si contano: {{The news is good}} “Le notizie sono buone”, {{a piece of advice}} “un consiglio”."},
+        {"p":"**{{a lot of}}** va bene sempre, con tutti e due: {{a lot of people}}, {{a lot of time}}. {{much}} si usa soprattutto nelle domande e nelle negative: {{I don't have much time}} “Non ho molto tempo”."},
+        {"p":"**Il prezzo**: {{How much is it?}} “Quanto costa?” per una cosa, {{How much are they?}} per più cose. La risposta: {{It's five dollars}} “Costa cinque dollari”."},
+        { "ex": [
+          {"t":"How much is this shirt?","tr":"Quanto costa questa camicia?"},
+          {"t":"How many kids do you have?","tr":"Quanti figli hai?"},
+          {"t":"We don't have much time.","tr":"Non abbiamo molto tempo."},
+          {"t":"There are a lot of people here.","tr":"Qui c'è un sacco di gente.","note":"{{people}} è plurale: {{there are}}"},
+          {"t":"Can I have a little milk?","tr":"Posso avere un goccio di latte?"},
+          {"t":"I need some information, please.","tr":"Mi servono delle informazioni, per favore."},
+          {"t":"Can I give you a piece of advice?","tr":"Posso darti un consiglio?"}
+        ] },
+        {"tip":"Nei negozi americani: {{a pound}} è circa mezzo chilo (454 grammi), {{a gallon}} circa 3,8 litri. E le tasse si aggiungono alla cassa: il prezzo sul cartellino non è quello finale!"}
+      ],
+      "mistakes": [
+        {"wrong":"I need some informations.","right":"I need some information.","tr":"Mi servono delle informazioni.","why":"{{information}} non si conta: niente {{-s}}."},
+        {"wrong":"How many money do you have?","right":"How much money do you have?","tr":"Quanti soldi hai?","why":"{{money}} non si conta: {{How much}}."},
+        {"wrong":"The news are bad.","right":"The news is bad.","tr":"Le notizie sono brutte.","why":"{{news}} è singolare, anche se finisce in {{-s}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"How ___ eggs do we need?","tr":"Quante uova ci servono?","options":["many","much","lot"],"answer":0,"why":"Le uova si contano: {{How many}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I don't have ___ time today.","tr":"Oggi non ho molto tempo.","options":["much","many","a few"],"answer":0,"why":"{{time}} non si conta, e la frase è negativa: {{much}}."},
+        {"type":"choice","q":"“Mi dai un consiglio?” si dice…","options":["{{Can you give me some advice?}}","{{Can you give me an advice?}}","{{Can you give me advices?}}"],"answer":0,"why":"{{advice}} non si conta: {{some advice}} o {{a piece of advice}}.","from":"say-what-you-can-do"},
+        {"type":"dialogue","q":"Al mercato. Scegli le frasi.","lines":[{"who":"Venditore","t":"Hi! What can I get you?","tr":"Ciao! Cosa ti do?"},{"options":["I'd like some bread and a few peaches.","I'd like a bread and a few peach."],"answer":0,"why":"{{bread}} non si conta ({{some bread}}); le pesche sì, al plurale: {{peaches}}."},{"who":"Venditore","t":"Here you go. Anything else?","tr":"Ecco a te. Altro?"},{"options":["No, thanks. How much is it?","No, thanks. How many is it?"],"answer":0,"why":"Il prezzo: {{How much}}."}],"from":"order-at-the-cafe"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Oggi c'è un sacco di traffico.","words":["There's","a lot of","traffic","today."],"from":"say-what-there-is"},
+        {"type":"say","q":"Chiedi: “Quanto costano queste scarpe?”","answer":"How much are these shoes?","from":"point-at-things"},
+        {"type":"free","q":"Tocca a te: scrivi la tua lista della spesa per stasera: tre cose, con {{some}}, {{a few}}, {{a little}} o un numero.","answers":[{"t":"I need some pasta, a few tomatoes and a little cheese.","tr":"Mi servono della pasta, qualche pomodoro e un po' di formaggio."},{"t":"Two bottles of water, some bread and a lot of fruit!","tr":"Due bottiglie d'acqua, del pane e tanta frutta!"}]}
+      ]
+    },
+    {
+      "id": "make-plans",
+      "unit": 4,
+      "level": "A2",
+      "title": "Fai progetti",
+      "summary": "Stasera vedo Anna, domani vado a trovare i miei: di' cosa hai in programma, come lo dicono gli americani.",
+      "topic": "{{be going to}} + verbo; il present continuous per gli appuntamenti fissati ({{I'm meeting Anna tonight}})",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit my parents this weekend.","tr":"Questo fine settimana vado a trovare i miei."}},
+        {"dialog":[{"who":"Chris","t":"What are you doing tonight?","tr":"Cosa fai stasera?"},{"who":"Tu","t":"I'm meeting Anna for dinner. Why?","tr":"Ceno con Anna. Perché?"},{"who":"Chris","t":"We're going to watch the game at Mike's. Do you want to come?","tr":"Guardiamo la partita da Mike. Vuoi venire?"},{"who":"Tu","t":"Sorry, not tonight. But what are you doing on Saturday?","tr":"Scusa, stasera no. Ma sabato cosa fai?"},{"who":"Chris","t":"Nothing yet. I'm going to sleep a lot!","tr":"Niente, per ora. Ho intenzione di dormire un sacco!"},{"who":"Tu","t":"Let's go hiking!","tr":"Andiamo a fare un'escursione!"}]},
+        {"p":"**Il futuro di tutti i giorni.** In italiano usiamo spesso il presente per il futuro: “stasera vedo Anna”. In inglese il present simple non va bene per questo: {{I see Anna tonight}} non si dice. Ci sono due modi:"},
+        { "table": [
+          ["forma","quando si usa","esempio"],
+          ["{{be going to}} + verbo","un'intenzione, una cosa decisa","{{I'm going to study tonight.}} “Stasera studio.”"],
+          ["present continuous","un appuntamento fissato, con ora e persone","{{I'm meeting Anna at eight.}} “Alle otto vedo Anna.”"]
+        ] },
+        {"p":"**{{going to}}**: {{be}} + {{going to}} + il verbo nella forma base: {{I'm going to cook}}, {{She's going to call you}}, {{Are you going to come?}}, {{We aren't going to wait}}. Nel parlato veloce si sente {{gonna}}: {{I'm gonna cook}}."},
+        {"p":"**Il present continuous per gli appuntamenti**: lo stesso {{I'm …-ing}} di “adesso”, ma con una parola di tempo futuro: {{I'm flying to New York tomorrow}} “Domani volo a New York”, {{What are you doing tonight?}} “Cosa fai stasera?”."},
+        {"p":"**Le parole del futuro**: {{tonight}} “stasera”, {{tomorrow}} “domani”, {{this weekend}} “questo fine settimana”, {{next week}} “la settimana prossima”, {{next year}} “l'anno prossimo”, {{in two days}} “fra due giorni”."},
+        { "ex": [
+          {"t":"I'm going to buy a new car.","tr":"Ho intenzione di comprare una macchina nuova."},
+          {"t":"Are you going to watch the game?","tr":"Guardi la partita?"},
+          {"t":"Look at those clouds! It's going to rain.","tr":"Guarda quelle nuvole! Sta per piovere.","note":"anche per una cosa che si vede arrivare"},
+          {"t":"We're having a party on Friday.","tr":"Venerdì facciamo una festa."},
+          {"t":"She's leaving tomorrow morning.","tr":"Parte domani mattina."},
+          {"t":"I'm not going to tell anybody.","tr":"Non lo dirò a nessuno."},
+          {"t":"What are you doing this weekend?","tr":"Cosa fai questo fine settimana?"}
+        ] },
+        {"tip":"{{I'm going to go}} è giusto, anche se suona strano: “ho intenzione di andare”. Ma per un programma si dice più spesso {{I'm going to the movies tonight}} “Stasera vado al cinema”."}
+      ],
+      "mistakes": [
+        {"wrong":"Tonight I see Anna.","right":"Tonight I'm seeing Anna.","tr":"Stasera vedo Anna.","why":"Per un appuntamento: il present continuous, non il present simple come in italiano. (Va bene anche {{I'm meeting Anna}}.)"},
+        {"wrong":"I'm going to studying.","right":"I'm going to study.","tr":"Ho intenzione di studiare.","why":"Dopo {{going to}}, il verbo nella forma base."},
+        {"wrong":"I going to call you.","right":"I'm going to call you.","tr":"Ti chiamo.","why":"Non dimenticare {{be}}: {{I'm going to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"We're going to ___ my parents on Sunday.","tr":"Domenica andiamo a trovare i miei genitori.","options":["visit","visiting","visits"],"answer":0,"why":"Dopo {{going to}}: la forma base, {{visit}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"What ___ you doing tomorrow night?","tr":"Cosa fai domani sera?","options":["are","do","is"],"answer":0,"why":"Present continuous per i programmi: {{What are you doing…?}}","from":"say-what-is-happening-now"},
+        {"type":"choice","q":"“Domani alle tre vado dal dentista” (è fissato):","options":["{{I'm seeing the dentist at three tomorrow.}}","{{I see the dentist at three tomorrow.}}","{{I'm going see the dentist at three tomorrow.}}"],"answer":0,"why":"Un appuntamento fissato: il present continuous."},
+        {"type":"dialogue","q":"Un amico ti chiede dei tuoi programmi. Scegli le risposte.","lines":[{"who":"Chris","t":"What are you doing tonight?","tr":"Cosa fai stasera?"},{"options":["I'm having dinner with my sister.","I have dinner with my sister."],"answer":0,"why":"Un programma per stasera: {{I'm having}}."},{"who":"Chris","t":"And this summer?","tr":"E quest'estate?"},{"options":["I'm going to travel to Spain.","I'm going to traveling to Spain."],"answer":0,"why":"Dopo {{going to}}: {{travel}}."}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Sta per piovere: prendi l'ombrello!","words":["It's going","to rain.","Take","your umbrella!"],"from":"give-directions"},
+        {"type":"say","q":"Di': “Sabato facciamo una festa. Vieni?”","answer":"We're having a party on Saturday. Are you coming?"},
+        {"type":"free","q":"Tocca a te: di' una cosa che hai in programma per stasera o domani (con l'ora) e una cosa che hai intenzione di fare quest'anno.","answers":[{"t":"Tomorrow I'm meeting my friends at seven. This year I'm going to learn to swim.","tr":"Domani alle sette vedo i miei amici. Quest'anno voglio imparare a nuotare."},{"t":"Tonight I'm watching a movie with my husband. Next year we're going to visit New York.","tr":"Stasera guardo un film con mio marito. L'anno prossimo andremo a New York."}]}
+      ]
+    },
+    {
+      "id": "ask-politely",
+      "unit": 4,
+      "level": "A2",
+      "title": "Chiedi con gentilezza",
+      "summary": "Potrebbe aiutarmi? Ti va un caffè? Le dispiace se apro la finestra? Le formule gentili che gli americani usano sempre.",
+      "topic": "{{Could you…? Would you…?}}; {{Would you like…?}} (diverso da {{Do you like…?}}); {{Do you mind if…?}}",
+      "blocks": [
+        {"goal":{"t":"Could you help me with my bags, please?","tr":"Potrebbe aiutarmi con le valigie, per favore?"}},
+        {"dialog":[{"who":"Tu","t":"Excuse me, could you call a taxi for me?","tr":"Scusi, potrebbe chiamarmi un taxi?"},{"who":"Receptionist","t":"Of course. Would you like a taxi now or later?","tr":"Certo. Lo vuole adesso o più tardi?"},{"who":"Tu","t":"In ten minutes, please. And could you keep my bags here until three?","tr":"Fra dieci minuti, per favore. E potrebbe tenermi le valigie fino alle tre?"},{"who":"Receptionist","t":"No problem. Would you like a coffee while you wait?","tr":"Nessun problema. Le va un caffè mentre aspetta?"},{"who":"Tu","t":"Yes, I'd love one. Thank you so much!","tr":"Sì, volentieri. Grazie mille!"}]},
+        {"p":"**Più gentile di {{can}}**: {{Could you…?}} “Potrebbe…? Potresti…?” e {{Would you…?}} “Le dispiacerebbe…?”: {{Could you open the window?}}, {{Would you help me?}}. Vanno bene con chiunque, anche con gli sconosciuti."},
+        {"p":"**Offrire: {{Would you like…?}}** “Ti va…? Vuoi…? Gradisce…?”: {{Would you like a coffee?}}. Non confonderlo con {{Do you like…?}} “Ti piace…?”, che chiede i tuoi gusti."},
+        { "table": [
+          ["inglese","vuol dire","risposta"],
+          ["{{Would you like a coffee?}}","Vuoi un caffè? (te lo offro)","{{Yes, please!}} {{No, thanks.}}"],
+          ["{{Do you like coffee?}}","Ti piace il caffè? (in generale)","{{Yes, I do.}} {{No, I don't.}}"],
+          ["{{Would you like to come?}}","Ti va di venire?","{{I'd love to!}}"]
+        ] },
+        {"p":"**Chiedere il permesso con garbo**: {{Do you mind if I…?}} “Le dispiace se…?”: {{Do you mind if I open the window?}}. Attenzione alla risposta: {{mind}} vuol dire “dispiacere”, quindi per dire “prego, faccia pure” si risponde {{No, not at all}} o {{No, go ahead}}!"},
+        { "ex": [
+          {"t":"Could you repeat that, please?","tr":"Potrebbe ripetere, per favore?"},
+          {"t":"Could you speak more slowly?","tr":"Potrebbe parlare più piano?"},
+          {"t":"Would you like something to drink?","tr":"Vuoi qualcosa da bere?"},
+          {"t":"Would you like to have dinner with us?","tr":"Ti va di cenare con noi?"},
+          {"t":"I'd love to, thanks!","tr":"Volentieri, grazie!"},
+          {"t":"Do you mind if I sit here? No, go ahead.","tr":"Le dispiace se mi siedo qui? No, faccia pure."},
+          {"t":"Could I have the check, please?","tr":"Potrei avere il conto, per favore?"}
+        ] },
+        {"tip":"Al ristorante, in America, si chiede {{the check}} “il conto” ({{the bill}} è più britannico) e si lascia la mancia, {{the tip}}: di solito tra il 15 e il 20 per cento."}
+      ],
+      "mistakes": [
+        {"wrong":"Do you like a coffee?","right":"Would you like a coffee?","tr":"Vuoi un caffè?","why":"Per offrire: {{Would you like…?}} {{Do you like…?}} chiede se ti piace in generale."},
+        {"wrong":"Do you mind if I smoke? Yes, go ahead.","right":"Do you mind if I smoke? No, go ahead.","tr":"Le dispiace se fumo? No, faccia pure.","why":"{{mind}} è “dispiacere”: “no, non mi dispiace” vuol dire che puoi farlo."},
+        {"wrong":"Could you to help me?","right":"Could you help me?","tr":"Potrebbe aiutarmi?","why":"Dopo {{could}} e {{would}}, il verbo senza {{to}}, come dopo {{can}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"___ you like some more pasta?","tr":"Vuoi ancora un po' di pasta?","options":["Would","Do","Are"],"answer":0,"why":"Per offrire: {{Would you like…?}}"},
+        {"type":"choice","q":"Un'amica ti chiede {{Would you like to come to the beach?}} Vuole sapere…","options":["se ti va di andare al mare con lei","se ti piace il mare in generale","se ci vai spesso"],"answer":0,"why":"{{Would you like to…?}} è un invito: “ti va di…?”."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"___ you speak more slowly, please?","tr":"Potrebbe parlare più piano, per favore?","options":["Could","Do","Are"],"answer":0,"why":"Per chiedere con gentilezza: {{Could you…?}}","from":"say-what-you-can-do"},
+        {"type":"dialogue","q":"In treno fa caldo. Scegli le frasi.","lines":[{"who":"Passeggera","t":"Hi there!","tr":"Salve!"},{"options":["Hi! Do you mind if I open the window?","Hi! Do you mind if I opening the window?"],"answer":0,"why":"{{Do you mind if I}} + il verbo normale: {{open}}."},{"who":"Passeggera","t":"No, not at all. It's really hot in here.","tr":"No, figurati. Fa proprio caldo qui."},{"options":["Would you like some water?","Do you like some water?"],"answer":0,"why":"Per offrire: {{Would you like…?}}"},{"who":"Passeggera","t":"Oh, yes, please. That's so kind of you!","tr":"Oh, sì, grazie. Sei proprio gentile!"}],"from":"ask-questions-with-be"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Potrei avere il conto, per favore?","words":["Could I","have","the check,","please?"]},
+        {"type":"say","q":"Invita una collega: “Ti va di prendere un caffè con me?”","answer":"Would you like to get a coffee with me?","from":"order-at-the-cafe"},
+        {"type":"free","q":"Tocca a te: in un hotel americano, fai due richieste gentili alla reception, con {{Could you…?}} o {{Do you mind if…?}}","answers":[{"t":"Could you call a taxi for me, please? And could I have a map of the city?","tr":"Potrebbe chiamarmi un taxi, per favore? E potrei avere una cartina della città?"},{"t":"Do you mind if I leave my bags here? Could you wake me up at seven?","tr":"Le dispiace se lascio qui le valigie? Potrebbe svegliarmi alle sette?"}]}
+      ]
     }
   ]
 }
