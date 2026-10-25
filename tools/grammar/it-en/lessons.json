@@ -484,6 +484,441 @@
         {"type":"say","q":"Di': “Il mio ufficio è in Main Street, accanto alla banca.”","answer":"My office is on Main Street, next to the bank."},
         {"type":"free","q":"Tocca a te: guardati intorno e di' dove sono tre cose.","answers":[{"t":"My phone is on the desk, my bag is under the chair, and the cat is in the kitchen.","tr":"Il mio telefono è sulla scrivania, la borsa è sotto la sedia e il gatto è in cucina."},{"t":"I'm at home. My books are on the shelf, next to the window.","tr":"Sono a casa. I miei libri sono sullo scaffale, accanto alla finestra."}]}
       ]
+    },
+    {
+      "id": "talk-about-your-life",
+      "unit": 3,
+      "level": "A1",
+      "title": "Parla della tua vita",
+      "summary": "Di' dove vivi, che lavoro fai e che lingue parli: il presente di tutti i giorni.",
+      "topic": "Il present simple ({{I live, I work}}); la negazione con {{don't}}",
+      "blocks": [
+        {"goal":{"t":"I live in Milan and I work in a bank.","tr":"Vivo a Milano e lavoro in banca."}},
+        {"dialog":[{"who":"Sarah","t":"So, where do you live?","tr":"Allora, dove vivi?"},{"who":"Tu","t":"I live in Turin, but I work in Milan.","tr":"Vivo a Torino, ma lavoro a Milano."},{"who":"Sarah","t":"Wow, that's far!","tr":"Caspita, è lontano!"},{"who":"Tu","t":"Not really. I take the train every day.","tr":"Non tanto. Prendo il treno tutti i giorni."},{"who":"Sarah","t":"And you speak English really well!","tr":"E parli inglese benissimo!"},{"who":"Tu","t":"Thanks! I watch a lot of American TV shows.","tr":"Grazie! Guardo un sacco di serie americane."}]},
+        {"p":"**Un presente quasi senza desinenze.** In italiano ogni persona ha la sua desinenza: lavoro, lavori, lavoriamo… In inglese il verbo resta uguale per {{I}}, {{you}}, {{we}} e {{they}}: {{I work}}, {{you work}}, {{we work}}, {{they work}}. Ecco perché il soggetto non si può togliere: è l'unico a dire chi."},
+        {"term":"infinito","means":"la forma base del verbo, quella del dizionario: “lavorare, vivere”. In inglese spesso si scrive con {{to}}: {{to work}}, {{to live}}."},
+        { "table": [
+          ["italiano","inglese"],
+          ["io lavoro","{{I work}}"],
+          ["tu lavori","{{you work}}"],
+          ["noi lavoriamo","{{we work}}"],
+          ["voi lavorate","{{you work}}"],
+          ["loro lavorano","{{they work}}"]
+        ] },
+        {"p":"**Per le abitudini e le cose sempre vere.** Il present simple si usa per quello che fai di solito, per la tua vita e per i fatti: {{I live in Turin}}, {{We speak Italian}}, {{I drink coffee every morning}}. Per quello che succede proprio adesso c'è un'altra forma, che vedremo più avanti."},
+        {"p":"**“Non”: {{don't}}.** Davanti al verbo si mette {{don't}} (da {{do not}}): {{I don't smoke}} “Non fumo”, {{We don't eat meat}} “Non mangiamo carne”. Il verbo resta com'è, senza {{to}}."},
+        { "ex": [
+          {"t":"I speak Italian and a little English.","tr":"Parlo italiano e un po' d'inglese."},
+          {"t":"We live near the beach.","tr":"Abitiamo vicino alla spiaggia."},
+          {"t":"I work from home.","tr":"Lavoro da casa."},
+          {"t":"They play soccer on Sundays.","tr":"Giocano a calcio la domenica."},
+          {"t":"I don't eat meat.","tr":"Non mangio carne."},
+          {"t":"We don't watch TV.","tr":"Non guardiamo la TV."},
+          {"t":"My parents live in Florence.","tr":"I miei genitori vivono a Firenze.","note":"{{my parents}} = {{they}}: il verbo resta {{live}}"}
+        ] },
+        {"tip":"Attenzione a {{live}} “vivere” e {{leave}} “partire”: {{live}} ha una “i” breve e rilassata, quasi una “e”; {{leave}} ha una “i” lunga, come la nostra. {{I live here}} non è {{I leave here}}!"}
+      ],
+      "mistakes": [
+        {"wrong":"I not work on Saturdays.","right":"I don't work on Saturdays.","tr":"Il sabato non lavoro.","why":"La negazione si fa con {{don't}} davanti al verbo: {{I don't work}}."},
+        {"wrong":"Live in Turin.","right":"I live in Turin.","tr":"Vivo a Torino.","why":"Il verbo non dice chi: il soggetto ci vuole sempre."},
+        {"wrong":"I don't to smoke.","right":"I don't smoke.","tr":"Non fumo.","why":"Dopo {{don't}}, il verbo senza {{to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I ___ in a small town near Venice.","tr":"Vivo in una cittadina vicino a Venezia.","options":["live","lives","living"],"answer":0,"why":"Con {{I}} il verbo resta uguale: {{live}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"We ___ eat meat.","tr":"Non mangiamo carne.","options":["don't","not","no"],"answer":0,"why":"“Non” davanti a un verbo: {{don't}}."},
+        {"type":"choice","q":"“Vivono a Roma” si dice…","options":["{{They live in Rome.}}","{{Live in Rome.}}","{{They lives in Rome.}}"],"answer":0,"why":"Ci vuole il soggetto ({{they}}), e il verbo resta uguale: {{live}}.","from":"introduce-yourself"},
+        {"type":"dialogue","q":"Una collega americana ti fa qualche domanda. Scegli le risposte.","lines":[{"who":"Sarah","t":"So, where do you live?","tr":"Allora, dove vivi?"},{"options":["I live in Turin.","Live in Turin."],"answer":0,"why":"Il soggetto non si toglie: {{I live}}."},{"who":"Sarah","t":"And do you drive to work?","tr":"E vai al lavoro in macchina?"},{"options":["No, I don't drive. I take the train.","No, I not drive. I take the train."],"answer":0,"why":"“Non guido”: {{I don't drive}}."}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Non parliamo francese.","words":["We","don't","speak","French."]},
+        {"type":"say","q":"Di': “Lavoro in un ospedale, ma vivo lontano.”","answer":"I work in a hospital, but I live far away."},
+        {"type":"free","q":"Tocca a te: di' dove vivi, che lavoro fai o che cosa studi, e una cosa che non fai.","answers":[{"t":"I live in Padua. I work in an office and I don't drive.","tr":"Vivo a Padova. Lavoro in un ufficio e non guido."},{"t":"I live with my parents. I study engineering and I don't eat fish.","tr":"Vivo con i miei genitori. Studio ingegneria e non mangio pesce."}]}
+      ]
+    },
+    {
+      "id": "talk-about-other-people",
+      "unit": 3,
+      "level": "A1",
+      "title": "Parla degli altri",
+      "summary": "Lei lavora, lui vive, mia sorella non beve caffè: la piccola -s che gli italiani dimenticano sempre.",
+      "topic": "La {{-s}} della terza persona ({{she works}}); {{doesn't}}; {{has, goes, does}}",
+      "blocks": [
+        {"goal":{"t":"My sister works in London, but she doesn't like the weather.","tr":"Mia sorella lavora a Londra, ma il tempo non le piace."}},
+        {"dialog":[{"who":"Jake","t":"What does your brother do?","tr":"Che lavoro fa tuo fratello?"},{"who":"Tu","t":"He's a chef. He works in a restaurant in Milan.","tr":"Fa lo chef. Lavora in un ristorante a Milano."},{"who":"Jake","t":"Cool! Does he cook at home, too?","tr":"Forte! Cucina anche a casa?"},{"who":"Tu","t":"No, never! At home his wife cooks. He just eats!","tr":"No, mai! A casa cucina sua moglie. Lui mangia e basta!"},{"who":"Jake","t":"Smart guy!","tr":"Furbo!"}]},
+        {"p":"**Una sola desinenza: la {{-s}}.** Con {{he}}, {{she}} e {{it}} (e con un nome al singolare: {{my brother}}, {{Anna}}), il verbo prende {{-s}}: {{I work}}, ma {{she works}}; {{they live}}, ma {{he lives}}. È l'unica desinenza del presente inglese, ed è facilissimo dimenticarla."},
+        { "table": [
+          ["","{{work}}","{{watch}}","{{study}}"],
+          ["{{I, you, we, they}}","{{work}}","{{watch}}","{{study}}"],
+          ["{{he, she, it}}","{{works}}","{{watches}}","{{studies}}"]
+        ] },
+        {"p":"**Come si scrive**: dopo s, sh, ch, x e o si aggiunge {{-es}} ({{watches}}, {{goes}}, {{does}}); consonante + {{y}} diventa {{-ies}} ({{study → studies}}). E un verbo irregolare: {{have → has}}."},
+        {"p":"**“Non” per lui e per lei: {{doesn't}}.** Con {{he, she, it}} la negazione è {{doesn't}} (da {{does not}}), e la {{-s}} passa lì: il verbo torna senza {{-s}}. {{She doesn't smoke}}, mai {{she doesn't smokes}}."},
+        { "ex": [
+          {"t":"Marco lives in Boston.","tr":"Marco vive a Boston."},
+          {"t":"She speaks four languages.","tr":"Parla quattro lingue."},
+          {"t":"My dad watches the news every night.","tr":"Mio padre guarda il telegiornale tutte le sere."},
+          {"t":"He goes to the gym on Mondays.","tr":"Il lunedì va in palestra."},
+          {"t":"Anna has a new job.","tr":"Anna ha un lavoro nuovo."},
+          {"t":"He doesn't drink coffee.","tr":"Non beve caffè."},
+          {"t":"The store opens at nine.","tr":"Il negozio apre alle nove.","note":"anche per le cose: {{it opens}}"}
+        ] },
+        {"tip":"Un trucco: una sola {{s}} per frase. In {{She works}} la {{s}} è sul verbo; in {{She doesn't work}} è passata a {{doesn't}}."}
+      ],
+      "mistakes": [
+        {"wrong":"She work in a bank.","right":"She works in a bank.","tr":"Lavora in banca.","why":"Con {{he}}, {{she}}, {{it}}, il verbo prende la {{-s}}."},
+        {"wrong":"He don't like pizza.","right":"He doesn't like pizza.","tr":"A lui la pizza non piace.","why":"Con {{he}}, {{she}}, {{it}}: {{doesn't}}."},
+        {"wrong":"She doesn't speaks English.","right":"She doesn't speak English.","tr":"Non parla inglese.","why":"Dopo {{doesn't}} il verbo non prende la {{-s}}: una sola {{s}} per frase."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"My brother ___ in Chicago.","tr":"Mio fratello vive a Chicago.","options":["lives","live","living"],"answer":0,"why":"{{my brother}} = {{he}}: {{lives}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Laura ___ eat meat.","tr":"Laura non mangia carne.","options":["doesn't","don't","not"],"answer":0,"why":"Con {{she}}: {{doesn't}}."},
+        {"type":"choice","q":"Quale frase è giusta?","options":["{{He has two cats.}}","{{He haves two cats.}}","{{He have two cats.}}"],"answer":0,"why":"{{have}} è irregolare: con {{he, she, it}} diventa {{has}}."},
+        {"type":"dialogue","q":"Parli di tua sorella con Jake. Scegli le frasi.","lines":[{"who":"Jake","t":"What does your sister do?","tr":"Che lavoro fa tua sorella?"},{"options":["She's a lawyer. She works in Rome.","She's lawyer. She work in Rome."],"answer":0,"why":"Il mestiere vuole {{a}}, e il verbo la {{-s}}: {{She works}}."},{"who":"Jake","t":"Does she like it?","tr":"Le piace?"},{"options":["Yes, but she doesn't like the traffic.","Yes, but she doesn't likes the traffic."],"answer":0,"why":"Dopo {{doesn't}}, niente {{-s}}."}],"from":"introduce-someone"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Mio padre non guida di notte.","words":["My dad","doesn't","drive","at night."]},
+        {"type":"say","q":"Di': “Il museo apre alle dieci e chiude alle sei.”","answer":"The museum opens at ten and closes at six."},
+        {"type":"free","q":"Tocca a te: parla di una persona che conosci: dove vive, che lavoro fa e una cosa che non fa.","answers":[{"t":"My friend Elena lives in Verona. She works in a hotel and she doesn't have a car.","tr":"La mia amica Elena vive a Verona. Lavora in un albergo e non ha la macchina."},{"t":"My grandfather lives in the country. He grows tomatoes and he doesn't watch TV.","tr":"Mio nonno vive in campagna. Coltiva pomodori e non guarda la TV."}]}
+      ]
+    },
+    {
+      "id": "ask-about-habits",
+      "unit": 3,
+      "level": "A1",
+      "title": "Fai domande sulla vita di tutti i giorni",
+      "summary": "Parli inglese? Dove lavora? Che cosa fai il sabato? Le domande con “do” e “does”, una parola che in italiano non c'è.",
+      "topic": "{{Do you…? Does she…?}}; {{Where do you…? What does he…?}}; le risposte brevi {{Yes, I do}}",
+      "blocks": [
+        {"goal":{"t":"Do you speak Italian?","tr":"Parli italiano?"}},
+        {"dialog":[{"who":"Tu","t":"Where do you live?","tr":"Dove vivi?"},{"who":"Megan","t":"I live in Brooklyn. Do you know New York?","tr":"Vivo a Brooklyn. Conosci New York?"},{"who":"Tu","t":"Yes, I do! My cousin lives there.","tr":"Sì! Ci vive mio cugino."},{"who":"Megan","t":"Oh, nice! What does he do?","tr":"Che bello! Che lavoro fa?"},{"who":"Tu","t":"He's a photographer. Does your family live in New York, too?","tr":"Fa il fotografo. Anche la tua famiglia vive a New York?"},{"who":"Megan","t":"No, they don't. They live in Ohio.","tr":"No. Vivono in Ohio."}]},
+        {"p":"**Una parola che in italiano non c'è.** Per fare una domanda con un verbo normale (cioè non {{be}}), l'inglese mette davanti {{do}}, o {{does}} con {{he, she, it}}: {{You speak English}} → {{Do you speak English?}}. {{do}} non si traduce: serve solo a dire “questa è una domanda”."},
+        { "table": [
+          ["affermazione","domanda"],
+          ["{{You live here.}}","{{Do you live here?}}"],
+          ["{{They work on Sundays.}}","{{Do they work on Sundays?}}"],
+          ["{{She likes coffee.}}","{{Does she like coffee?}}"],
+          ["{{He plays tennis.}}","{{Does he play tennis?}}"]
+        ] },
+        {"p":"**La {{-s}} passa a {{does}}**, come con {{doesn't}}: {{Does she like coffee?}}, non {{Does she likes…?}}"},
+        {"p":"**Con le parole interrogative** l'ordine è: parola interrogativa + {{do}} o {{does}} + soggetto + verbo. {{Where do you work?}} “Dove lavori?”, {{What does he do?}} “Che lavoro fa?”, {{When do you finish?}} “Quando finisci?”."},
+        { "table": [
+          ["italiano","inglese"],
+          ["chi?","{{who?}}"],
+          ["che cosa?","{{what?}}"],
+          ["dove?","{{where?}}"],
+          ["quando?","{{when?}}"],
+          ["perché?","{{why?}}"],
+          ["come?","{{how?}}"],
+          ["quale?","{{which?}}"]
+        ] },
+        {"p":"**Le risposte brevi** ripetono {{do}}: {{Do you like it?}} {{Yes, I do.}} / {{No, I don't.}} {{Does she work here?}} {{Yes, she does.}} / {{No, she doesn't.}}"},
+        { "ex": [
+          {"t":"Do you have kids?","tr":"Hai figli?"},
+          {"t":"Where do you work?","tr":"Dove lavori?"},
+          {"t":"What do you do?","tr":"Che lavoro fai?","note":"il primo {{do}} fa la domanda, il secondo vuol dire “fare”"},
+          {"t":"Does your husband cook?","tr":"Tuo marito cucina?"},
+          {"t":"When does the store close?","tr":"Quando chiude il negozio?"},
+          {"t":"Do you like it? Yes, I do!","tr":"Ti piace? Sì!"},
+          {"t":"Why do you study English?","tr":"Perché studi inglese?"}
+        ] },
+        {"tip":"{{What do you do?}} è il modo più comune per chiedere “Che lavoro fai?”. Non chiede che cosa stai facendo in questo momento."}
+      ],
+      "mistakes": [
+        {"wrong":"You speak English?","right":"Do you speak English?","tr":"Parli inglese?","why":"Le domande con un verbo normale vogliono {{do}} davanti. (Con la voce che sale si sente anche senza, ma solo nel parlato molto rilassato.)"},
+        {"wrong":"Where you live?","right":"Where do you live?","tr":"Dove vivi?","why":"Dopo la parola interrogativa ci vuole {{do}}: {{Where do you live?}}"},
+        {"wrong":"Does she works here?","right":"Does she work here?","tr":"Lavora qui?","why":"La {{-s}} è già in {{does}}: il verbo resta senza."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"___ you like jazz?","tr":"Ti piace il jazz?","options":["Do","Does","Are"],"answer":0,"why":"Con {{you}} e un verbo normale: {{Do}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Where ___ your sister live?","tr":"Dove vive tua sorella?","options":["does","do","is"],"answer":0,"why":"{{your sister}} = {{she}}: {{does}}.","from":"talk-about-other-people"},
+        {"type":"choice","q":"{{Does he play tennis?}} Rispondi di sì:","options":["{{Yes, he does.}}","{{Yes, he plays.}}","{{Yes, he is.}}"],"answer":0,"why":"Nella risposta breve si ripete {{does}}."},
+        {"type":"dialogue","q":"A uno scambio linguistico. Scegli le domande.","lines":[{"who":"Megan","t":"Hi! I'm Megan.","tr":"Ciao! Sono Megan."},{"options":["Hi! Where do you live?","Hi! Where you live?"],"answer":0,"why":"Dopo {{where}}: {{do you}}."},{"who":"Megan","t":"In Brooklyn. And I work in Manhattan.","tr":"A Brooklyn. E lavoro a Manhattan."},{"options":["What do you do?","What you do?"],"answer":0,"why":"Ci vuole {{do}}: {{What do you do?}}"},{"who":"Megan","t":"I'm a nurse. And you?","tr":"Faccio l'infermiera. E tu?"}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"A che ora chiude la banca?","words":["What time","does","the bank","close?"]},
+        {"type":"say","q":"Chiedi a un amico: “Parli spagnolo?”","answer":"Do you speak Spanish?"},
+        {"type":"free","q":"Tocca a te: scrivi tre domande per conoscere un nuovo collega americano.","answers":[{"t":"Where do you live? Do you have kids? What do you do on weekends?","tr":"Dove vivi? Hai figli? Cosa fai nel fine settimana?"},{"t":"Do you like your job? Where does your family live? Do you speak Italian?","tr":"Ti piace il tuo lavoro? Dove vive la tua famiglia? Parli italiano?"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have",
+      "unit": 3,
+      "level": "A1",
+      "title": "Di' cosa hai",
+      "summary": "Hai figli? Abbiamo una prenotazione. Lei ha un cane. E “have” anche per la colazione, la doccia e le feste.",
+      "topic": "{{have}} e {{has}}; {{Do you have…?}}; {{I've got}}; {{have breakfast, have a good time}}",
+      "blocks": [
+        {"goal":{"t":"We have a reservation for two.","tr":"Abbiamo una prenotazione per due."}},
+        {"dialog":[{"who":"Cameriere","t":"Good evening! Do you have a reservation?","tr":"Buonasera! Avete una prenotazione?"},{"who":"Tu","t":"Yes, we have a table for two at eight. The name is Bianchi.","tr":"Sì, abbiamo un tavolo per due alle otto. A nome Bianchi."},{"who":"Cameriere","t":"Perfect. Do you have any allergies?","tr":"Perfetto. Avete allergie?"},{"who":"Tu","t":"My wife doesn't eat nuts. She has an allergy.","tr":"Mia moglie non mangia frutta secca. Ha un'allergia."},{"who":"Cameriere","t":"No problem. Have a seat, please.","tr":"Nessun problema. Accomodatevi, prego."}]},
+        {"p":"**{{have}} “avere”**: {{I have}}, {{you have}}, {{we have}}, {{they have}}; con {{he, she, it}}: {{has}}. Domande e negative si fanno come con gli altri verbi, con {{do}}: {{Do you have a pen?}} “Hai una penna?”, {{I don't have time}} “Non ho tempo”, {{Does she have kids?}} “Ha figli?”."},
+        { "table": [
+          ["","affermazione","negazione","domanda"],
+          ["{{I, you, we, they}}","{{have}}","{{don't have}}","{{Do… have?}}"],
+          ["{{he, she, it}}","{{has}}","{{doesn't have}}","{{Does… have?}}"]
+        ] },
+        {"p":"**{{have got}}.** Nel parlato si sente anche {{I've got}} “ho” e {{she's got}} “ha”: {{I've got two kids}}. Vuol dire lo stesso; in America è più comune {{I have}}, soprattutto nelle domande."},
+        {"p":"**{{have}} al posto di “fare”.** Molte azioni di tutti i giorni usano {{have}} dove noi diciamo “fare” o “prendere”: {{have breakfast}} “fare colazione”, {{have lunch}}, {{have dinner}} “pranzare, cenare”, {{have a party}} “fare una festa”, {{have a good time}} “divertirsi”. Per la doccia, in America si dice di solito {{take a shower}}."},
+        { "ex": [
+          {"t":"I have two brothers.","tr":"Ho due fratelli."},
+          {"t":"Do you have a minute?","tr":"Hai un minuto?"},
+          {"t":"She has long hair.","tr":"Ha i capelli lunghi.","note":"{{hair}} “capelli” è singolare in inglese"},
+          {"t":"We don't have a car.","tr":"Non abbiamo la macchina."},
+          {"t":"Does the room have a balcony?","tr":"La camera ha un balcone?"},
+          {"t":"I have breakfast at seven.","tr":"Faccio colazione alle sette."},
+          {"t":"Have a good time!","tr":"Divertiti!"}
+        ] },
+        {"tip":"{{Have a nice day!}} “Buona giornata!” è il saluto di ogni negozio americano. La risposta: {{You too!}} “Anche a te!”."}
+      ],
+      "mistakes": [
+        {"wrong":"She have a dog.","right":"She has a dog.","tr":"Ha un cane.","why":"Con {{he}}, {{she}}, {{it}}: {{has}}."},
+        {"wrong":"Have you a pen?","right":"Do you have a pen?","tr":"Hai una penna?","why":"In inglese americano la domanda con {{have}} vuole {{do}}."},
+        {"wrong":"I make breakfast at seven.","right":"I have breakfast at seven.","tr":"Faccio colazione alle sette.","why":"“Fare colazione”, cioè mangiarla, è {{have breakfast}}. {{make breakfast}} vuol dire prepararla."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"My brother ___ three kids.","tr":"Mio fratello ha tre figli.","options":["has","have","haves"],"answer":0,"why":"Con {{he}}: {{has}}.","from":"talk-about-other-people"},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"___ you have any brothers or sisters?","tr":"Hai fratelli o sorelle?","options":["Do","Have","Are"],"answer":0,"why":"Domanda con {{have}}: {{Do you have…?}}","from":"ask-about-habits"},
+        {"type":"choice","q":"“Facciamo colazione al bar” si dice…","options":["{{We have breakfast at a café.}}","{{We make breakfast at a café.}}","{{We do breakfast at a café.}}"],"answer":0,"why":"“Fare colazione”: {{have breakfast}}."},
+        {"type":"dialogue","q":"Al ristorante. Scegli le risposte.","lines":[{"who":"Cameriere","t":"Good evening! Do you have a reservation?","tr":"Buonasera! Avete una prenotazione?"},{"options":["Yes, we have a table for four.","Yes, we has a table for four."],"answer":0,"why":"Con {{we}}: {{have}}."},{"who":"Cameriere","t":"Great. Does anyone have allergies?","tr":"Perfetto. Qualcuno ha allergie?"},{"options":["Yes, my son has an allergy to milk.","Yes, my son have an allergy to milk."],"answer":0,"why":"{{my son}} = {{he}}: {{has}}."}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Oggi non ho tempo.","words":["I","don't have","time","today."]},
+        {"type":"say","q":"Saluta la commessa come fanno gli americani: “Grazie, buona giornata!”","answer":"Thanks, have a nice day!"},
+        {"type":"free","q":"Tocca a te: di' tre cose che hai (o non hai) e una cosa che fai con {{have}}: colazione, pranzo, una festa…","answers":[{"t":"I have a small apartment and two cats, but I don't have a car. I have lunch at one.","tr":"Ho un appartamento piccolo e due gatti, ma non ho la macchina. Pranzo all'una."},{"t":"I've got a big family. We have dinner together every Sunday.","tr":"Ho una famiglia numerosa. Ceniamo insieme tutte le domeniche."}]}
+      ]
+    },
+    {
+      "id": "tell-the-time",
+      "unit": 3,
+      "level": "A1",
+      "title": "Di' l'ora e prendi appuntamenti",
+      "summary": "Che ore sono, a che ora apre, martedì alle tre, a luglio: l'ora e i giorni, con “at”, “on” e “in”.",
+      "topic": "L'ora ({{It's seven thirty}}, {{half past seven}}); {{at, on, in}} per il tempo",
+      "blocks": [
+        {"goal":{"t":"The store opens at nine on Saturdays.","tr":"Il sabato il negozio apre alle nove."}},
+        {"dialog":[{"who":"Segretaria","t":"Dr. Miller's office. How can I help you?","tr":"Studio del dottor Miller. Come posso aiutarla?"},{"who":"Tu","t":"Hi, I'd like an appointment, please.","tr":"Buongiorno, vorrei un appuntamento, per favore."},{"who":"Segretaria","t":"Sure. Is Tuesday at 3:15 OK?","tr":"Certo. Martedì alle tre e un quarto va bene?"},{"who":"Tu","t":"Sorry, I work on Tuesdays. Is Thursday possible?","tr":"Mi dispiace, il martedì lavoro. Giovedì è possibile?"},{"who":"Segretaria","t":"Thursday at 10:30 a.m.?","tr":"Giovedì alle dieci e mezza?"},{"who":"Tu","t":"Perfect. See you on Thursday!","tr":"Perfetto. A giovedì!"}]},
+        {"p":"**Che ore sono?** {{What time is it?}} La risposta comincia sempre con {{It's}}. Il modo più facile è dire i numeri come sull'orologio digitale: {{It's seven thirty}} (7:30), {{It's ten fifteen}} (10:15), {{It's three forty-five}} (3:45)."},
+        { "table": [
+          ["ora","inglese (digitale)","inglese (classico)"],
+          ["7:00","{{It's seven.}}","{{It's seven o'clock.}}"],
+          ["7:15","{{It's seven fifteen.}}","{{It's a quarter after seven.}}"],
+          ["7:30","{{It's seven thirty.}}","{{It's half past seven.}}"],
+          ["7:45","{{It's seven forty-five.}}","{{It's a quarter to eight.}}"],
+          ["12:00","{{It's twelve.}}","{{It's noon.}} {{It's midnight.}}"]
+        ] },
+        {"p":"**a.m. e p.m.** Gli americani usano l'orologio di dodici ore: {{a.m.}} è prima di mezzogiorno, {{p.m.}} dopo. {{8 a.m.}} “le otto di mattina”, {{8 p.m.}} “le otto di sera”. Le “20:00” si dicono quasi solo nell'esercito!"},
+        {"p":"**{{at}}, {{on}}, {{in}} per il tempo**: {{at}} con l'ora ({{at nine}}, {{at noon}}); {{on}} con i giorni e le date ({{on Monday}}, {{on May 5th}}); {{in}} con i mesi, le stagioni, gli anni e le parti del giorno ({{in July}}, {{in the summer}}, {{in 2010}}, {{in the morning}}). Eccezione: {{at night}} “di notte”."},
+        {"p":"**Lunedì o il lunedì?** {{on Monday}} è “lunedì”, questo; {{on Mondays}}, con la {{-s}}, è “il lunedì”, ogni settimana. Giorni e mesi vogliono la maiuscola: {{Monday}}, {{July}}."},
+        { "ex": [
+          {"t":"What time is it? It's six thirty.","tr":"Che ore sono? Sono le sei e mezza."},
+          {"t":"The movie starts at 8 p.m.","tr":"Il film comincia alle otto di sera."},
+          {"t":"See you on Friday!","tr":"Ci vediamo venerdì!"},
+          {"t":"I play tennis on Sundays.","tr":"La domenica gioco a tennis."},
+          {"t":"My birthday is in March.","tr":"Il mio compleanno è a marzo."},
+          {"t":"We go to the beach in the summer.","tr":"D'estate andiamo al mare."},
+          {"t":"I work at night.","tr":"Lavoro di notte."}
+        ] },
+        {"tip":"Le date americane vanno al contrario: mese, giorno, anno. {{7/4/2026}} è il 4 luglio, non il 7 aprile!"}
+      ],
+      "mistakes": [
+        {"wrong":"The meeting is in Monday.","right":"The meeting is on Monday.","tr":"La riunione è lunedì.","why":"Con i giorni: {{on}}."},
+        {"wrong":"See you at the morning.","right":"See you in the morning.","tr":"Ci vediamo domattina.","why":"Le parti del giorno vogliono {{in}}: {{in the morning}}, {{in the evening}}. Eccezione: {{at night}}."},
+        {"wrong":"It's the seven.","right":"It's seven.","tr":"Sono le sette.","why":"L'ora non vuole {{the}}: {{It's seven}}, {{It's seven o'clock}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"The store opens ___ nine.","tr":"Il negozio apre alle nove.","options":["at","on","in"],"answer":0,"why":"Con l'ora: {{at}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I'm on vacation ___ August.","tr":"Ad agosto sono in vacanza.","options":["in","on","at"],"answer":0,"why":"Con i mesi: {{in}}."},
+        {"type":"choice","q":"“Il sabato non lavoro” si dice…","options":["{{I don't work on Saturdays.}}","{{I don't work in Saturday.}}","{{I not work the Saturday.}}"],"answer":0,"why":"Ogni settimana: {{on Saturdays}}, con la {{-s}}; e la negazione con {{don't}}.","from":"talk-about-your-life"},
+        {"type":"dialogue","q":"Prendi un appuntamento. Scegli le risposte.","lines":[{"who":"Segretaria","t":"Can you come on Wednesday?","tr":"Può venire mercoledì?"},{"options":["Yes. What time?","Yes. What hour?"],"answer":0,"why":"“A che ora?” si dice {{What time?}}"},{"who":"Segretaria","t":"At 4:30 p.m.","tr":"Alle quattro e mezza del pomeriggio."},{"options":["Great, see you on Wednesday at four thirty.","Great, see you in Wednesday at four thirty."],"answer":0,"why":"Con i giorni: {{on}}."}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Faccio colazione alle sette di mattina.","words":["I","have breakfast","at seven","in the morning."],"from":"say-what-you-have"},
+        {"type":"say","q":"Chiedi: “Scusi, che ore sono?”","answer":"Excuse me, what time is it?"},
+        {"type":"free","q":"Tocca a te: descrivi la tua settimana con tre orari o giorni: quando lavori, quando fai sport, quando ti riposi.","answers":[{"t":"I work from nine to five. I go to the gym on Tuesdays, and I relax on Sundays.","tr":"Lavoro dalle nove alle cinque. Il martedì vado in palestra e la domenica mi riposo."},{"t":"I have lunch at one. In the summer, I go to the beach on weekends.","tr":"Pranzo all'una. D'estate, nel fine settimana vado al mare."}]}
+      ]
+    },
+    {
+      "id": "say-how-often",
+      "unit": 3,
+      "level": "A1",
+      "title": "Di' quanto spesso",
+      "summary": "Sempre, di solito, a volte, mai: parla delle tue abitudini. E niente doppia negazione!",
+      "topic": "{{always, usually, often, sometimes, never}} e dove vanno; {{never}} senza {{don't}}",
+      "blocks": [
+        {"goal":{"t":"I always have coffee in the morning, but I never drink it at night.","tr":"La mattina prendo sempre il caffè, ma la sera non lo bevo mai."}},
+        {"dialog":[{"who":"Medico","t":"How often do you exercise?","tr":"Quanto spesso fa attività fisica?"},{"who":"Tu","t":"I usually go running twice a week.","tr":"Di solito vado a correre due volte a settimana."},{"who":"Medico","t":"Good. Do you smoke?","tr":"Bene. Fuma?"},{"who":"Tu","t":"No, I never smoke.","tr":"No, non fumo mai."},{"who":"Medico","t":"And how often do you eat fast food?","tr":"E quanto spesso mangia al fast food?"},{"who":"Tu","t":"Hmm... sometimes. OK, often!","tr":"Mmh... a volte. Va bene, spesso!"}]},
+        {"p":"**Quanto spesso**: {{always}} “sempre”, {{usually}} “di solito”, {{often}} “spesso”, {{sometimes}} “a volte”, {{rarely}} “raramente”, {{never}} “mai”."},
+        {"term":"avverbio","means":"una parola che dice come, quando o quanto spesso succede qualcosa: {{always}} “sempre”, {{often}} “spesso”, {{well}} “bene”."},
+        {"p":"**Dove vanno**: prima del verbo normale ({{I always drink coffee}}), ma dopo {{be}} ({{I'm always tired}}). Mai dopo il verbo come in italiano: “bevo sempre il caffè” è {{I always drink coffee}}, non {{I drink always coffee}}."},
+        { "table": [
+          ["italiano","inglese"],
+          ["Bevo sempre il caffè.","{{I always drink coffee.}}"],
+          ["Sono sempre stanco.","{{I'm always tired.}}"],
+          ["Di solito lavoro da casa.","{{I usually work from home.}}"],
+          ["Non fumo mai.","{{I never smoke.}}"],
+          ["Quanto spesso…?","{{How often…?}}"]
+        ] },
+        {"p":"**Niente doppia negazione.** In italiano diciamo “non… mai”, “non… niente”, “non… nessuno”. In inglese {{never}}, {{nothing}} e {{nobody}} sono già negativi: niente {{don't}}. {{I never smoke}}, non {{I don't never smoke}}. Se c'è già {{don't}}, si usa {{ever}}, {{anything}}, {{anybody}}: {{I don't know anybody}} “Non conosco nessuno”."},
+        {"p":"**Quante volte**: {{once}} “una volta”, {{twice}} “due volte”, {{three times}} “tre volte”… + {{a week}}, {{a month}}, {{a year}}: {{twice a week}} “due volte a settimana”. E {{every day}} “tutti i giorni”."},
+        { "ex": [
+          {"t":"I usually get up at seven.","tr":"Di solito mi alzo alle sette."},
+          {"t":"She's never late.","tr":"Non è mai in ritardo."},
+          {"t":"We often eat out on Fridays.","tr":"Il venerdì mangiamo spesso fuori."},
+          {"t":"I sometimes work on weekends.","tr":"A volte lavoro nel fine settimana."},
+          {"t":"He never calls me!","tr":"Non mi chiama mai!"},
+          {"t":"I go to the gym three times a week.","tr":"Vado in palestra tre volte a settimana."},
+          {"t":"I don't know anybody here.","tr":"Qui non conosco nessuno."}
+        ] },
+        {"tip":"{{sometimes}} può andare anche all'inizio della frase: {{Sometimes I work late}} “A volte lavoro fino a tardi”."}
+      ],
+      "mistakes": [
+        {"wrong":"I drink always coffee.","right":"I always drink coffee.","tr":"Bevo sempre il caffè.","why":"{{always}} va prima del verbo normale."},
+        {"wrong":"I don't never smoke.","right":"I never smoke.","tr":"Non fumo mai.","why":"{{never}} è già negativo: niente {{don't}}."},
+        {"wrong":"I always am tired.","right":"I'm always tired.","tr":"Sono sempre stanco.","why":"Con {{be}}, l'avverbio va dopo il verbo: {{I'm always…}}"}
+      ],
+      "practice": [
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Di solito vado al lavoro in bici.","words":["I","usually","bike","to work."]},
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"She ___ eats breakfast.","tr":"Non fa mai colazione.","options":["never","doesn't never","don't"],"answer":0,"why":"{{never}} da solo: è già negativo. (E {{eats}} ha la {{-s}}: {{she}}.)","from":"talk-about-other-people"},
+        {"type":"choice","q":"“Sono sempre in ritardo” si dice…","options":["{{I'm always late.}}","{{I always am late.}}","{{Always I'm late.}}"],"answer":0,"why":"Con {{be}}: {{I'm always…}}"},
+        {"type":"dialogue","q":"Dal medico. Scegli le risposte.","lines":[{"who":"Medico","t":"How often do you exercise?","tr":"Quanto spesso fa attività fisica?"},{"options":["I go swimming twice a week.","I go swimming two times for week."],"answer":0,"why":"“Due volte a settimana”: {{twice a week}}."},{"who":"Medico","t":"And do you drink alcohol?","tr":"E beve alcolici?"},{"options":["Not much. I never drink during the week.","Not much. I don't never drink during the week."],"answer":0,"why":"{{never}} non vuole {{don't}}."}],"from":"ask-about-habits"},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I don't know ___ in this city.","tr":"Non conosco nessuno in questa città.","options":["anybody","nobody","never"],"answer":0,"why":"C'è già {{don't}}: quindi {{anybody}}, non {{nobody}}."},
+        {"type":"say","q":"Di': “Il venerdì sera mangiamo spesso la pizza.”","answer":"We often have pizza on Friday nights.","from":"say-what-you-have"},
+        {"type":"free","q":"Tocca a te: di' una cosa che fai sempre, una che fai di solito e una che non fai mai.","answers":[{"t":"I always read before bed, I usually cook dinner, and I never watch TV in the morning.","tr":"Leggo sempre prima di dormire, di solito preparo la cena e la mattina non guardo mai la TV."},{"t":"I always drink espresso, I often go to the movies, and I never eat fast food.","tr":"Bevo sempre l'espresso, vado spesso al cinema e non mangio mai al fast food."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "Di' cosa ti piace",
+      "summary": "Mi piacciono i cani, adoro cucinare, odio il traffico: in inglese si dice al contrario. E le cose in generale non vogliono “the”.",
+      "topic": "{{like, love, hate}} + nome o {{-ing}}; le cose in generale senza {{the}} ({{I like dogs}}); {{I like it}}",
+      "blocks": [
+        {"goal":{"t":"I like dogs, and I love cooking.","tr":"Mi piacciono i cani, e adoro cucinare."}},
+        {"dialog":[{"who":"Ryan","t":"Do you like American food?","tr":"Ti piace il cibo americano?"},{"who":"Tu","t":"Some things. I love pancakes, but I don't like peanut butter.","tr":"Alcune cose. Adoro i pancake, ma il burro d'arachidi non mi piace."},{"who":"Ryan","t":"What? I love it! What about sports?","tr":"Cosa? Io lo adoro! E lo sport?"},{"who":"Tu","t":"I like watching soccer, but I hate running.","tr":"Mi piace guardare il calcio, ma odio correre."},{"who":"Ryan","t":"Me too!","tr":"Anch'io!"}]},
+        {"p":"**Al contrario dell'italiano.** “Mi piace il caffè” vuol dire, alla lettera, “il caffè piace a me”. In inglese chi apprezza è il soggetto, come con “amare”: {{I like coffee}}. E il verbo segue le regole di sempre: {{She likes coffee}}, {{Do you like coffee?}}"},
+        { "table": [
+          ["italiano","inglese"],
+          ["Mi piace il caffè.","{{I like coffee.}}"],
+          ["Mi piacciono i gatti.","{{I like cats.}}"],
+          ["Ti piace?","{{Do you like it?}}"],
+          ["A Marco piace il calcio.","{{Marco likes soccer.}}"],
+          ["Non mi piace guidare.","{{I don't like driving.}}"]
+        ] },
+        {"p":"**Le cose in generale, senza {{the}}.** In italiano diciamo “mi piacciono i cani”, “la vita è bella”. In inglese, quando parli di qualcosa in generale, niente articolo: {{I like dogs}}, {{Life is beautiful}}, {{I love music}}. {{the}} si usa per cose precise: {{I like the dogs in this park}} “Mi piacciono i cani di questo parco”."},
+        {"p":"**Piace fare qualcosa**: dopo {{like}}, {{love}} e {{hate}}, il verbo prende {{-ing}}: {{I love cooking}}, {{She hates waiting}}. (Si sente anche {{I like to cook}}, che va bene lo stesso.)"},
+        {"p":"**“Sì, mi piace” vuole {{it}}.** {{like}} ha sempre bisogno di qualcosa dopo: {{Yes, I like it}}, {{I love them}}, mai {{Yes, I like}} da solo. Oppure la risposta breve: {{Yes, I do.}}"},
+        { "ex": [
+          {"t":"I like jazz.","tr":"Mi piace il jazz."},
+          {"t":"Do you like cats?","tr":"Ti piacciono i gatti?"},
+          {"t":"She loves Italian movies.","tr":"Adora i film italiani."},
+          {"t":"My kids hate vegetables.","tr":"I miei figli odiano la verdura."},
+          {"t":"I don't like getting up early.","tr":"Non mi piace alzarmi presto."},
+          {"t":"Coffee? I love it!","tr":"Il caffè? Lo adoro!"},
+          {"t":"We like walking on the beach.","tr":"Ci piace camminare sulla spiaggia."}
+        ] },
+        {"tip":"{{I'd like}}, con {{'d}}, è “vorrei”; {{I like}} è “mi piace”. {{I'd like a coffee}} lo ordini, {{I like coffee}} lo racconti."}
+      ],
+      "mistakes": [
+        {"wrong":"I like the dogs.","right":"I like dogs.","tr":"Mi piacciono i cani.","why":"Parlando di qualcosa in generale, l'inglese non usa {{the}}."},
+        {"wrong":"Yes, I like.","right":"Yes, I like it.","tr":"Sì, mi piace.","why":"{{like}} vuole sempre qualcosa dopo: {{I like it}}."},
+        {"wrong":"She like cooking.","right":"She likes cooking.","tr":"Le piace cucinare.","why":"Con {{she}}: {{likes}}, con la {{-s}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I love ___ .","tr":"Adoro la musica.","options":["music","the music","musics"],"answer":0,"why":"La musica in generale: niente {{the}}."},
+        {"type":"choice","q":"Un amico ti chiede {{Do you like pizza?}} Rispondi “Sì, mi piace tantissimo!”:","options":["{{Yes, I love it!}}","{{Yes, I love!}}","{{Yes, it likes me!}}"],"answer":0,"why":"{{love}} e {{like}} vogliono qualcosa dopo: {{it}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"My husband hates ___ .","tr":"Mio marito odia aspettare.","options":["waiting","wait","waits"],"answer":0,"why":"Dopo {{hate}}: il verbo con {{-ing}}."},
+        {"type":"dialogue","q":"Un nuovo amico ti chiede dei tuoi gusti. Scegli le risposte.","lines":[{"who":"Ryan","t":"Do you like sports?","tr":"Ti piace lo sport?"},{"options":["Yes, I love basketball.","Yes, I love the basketball."],"answer":0,"why":"Uno sport in generale: niente {{the}}."},{"who":"Ryan","t":"Does your wife like it, too?","tr":"Piace anche a tua moglie?"},{"options":["No, she doesn't. She likes reading.","No, she doesn't. She like reading."],"answer":0,"why":"Con {{she}}: {{likes}}."}],"from":"talk-about-other-people"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Non mi piace guidare in città.","words":["I","don't like","driving","in the city."]},
+        {"type":"say","q":"Di': “Mi piacciono i gatti, ma i cani li adoro!”","answer":"I like cats, but I love dogs!"},
+        {"type":"free","q":"Tocca a te: di' due cose che ti piacciono e una che odi. Ricorda: niente {{the}} per le cose in generale!","answers":[{"t":"I love Italian movies and I like hiking, but I hate traffic.","tr":"Adoro i film italiani e mi piace fare escursioni, ma odio il traffico."},{"t":"I like cooking and I love dogs, but I hate getting up early.","tr":"Mi piace cucinare e adoro i cani, ma odio alzarmi presto."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Di' cosa sai e puoi fare",
+      "summary": "So nuotare, non posso venire, posso pagare con la carta? Con “can”, un verbo che non cambia mai.",
+      "topic": "{{can}} e {{can't}}: saper fare, poter fare, chiedere il permesso; {{Can you…?}}",
+      "blocks": [
+        {"goal":{"t":"I can swim, but I can't ski.","tr":"So nuotare, ma non so sciare."}},
+        {"dialog":[{"who":"Tu","t":"Excuse me, can I pay by card?","tr":"Scusi, posso pagare con la carta?"},{"who":"Cassiera","t":"Sure, you can.","tr":"Certo."},{"who":"Tu","t":"And can you help me? I can't find the milk.","tr":"E mi può aiutare? Non trovo il latte."},{"who":"Cassiera","t":"It's in aisle five.","tr":"È nella corsia cinque."},{"who":"Tu","t":"Thanks! Oh, and can I use the restroom?","tr":"Grazie! Ah, posso usare il bagno?"},{"who":"Cassiera","t":"Sorry, it's for employees only.","tr":"Mi dispiace, è solo per i dipendenti."}]},
+        {"p":"**Un verbo per tre cose.** {{can}} vuol dire “so” (un'abilità: {{I can swim}} “so nuotare”), “posso” (è possibile o permesso: {{I can come tomorrow}} “posso venire domani”), e serve per chiedere ({{Can you help me?}} “Mi aiuti?”). Il negativo è {{can't}} (da {{cannot}})."},
+        {"p":"**Non cambia mai.** {{can}} è uguale per tutti, senza {{-s}} ({{she can}}), e il verbo dopo resta com'è, senza {{to}}: {{She can drive}}, mai {{she cans drive}} o {{she can to drive}}. E le domande non vogliono {{do}}: {{Can you drive?}}"},
+        { "table": [
+          ["","affermazione","negazione","domanda"],
+          ["{{I, you, we, they}}","{{I can swim.}}","{{I can't swim.}}","{{Can you swim?}}"],
+          ["{{he, she, it}}","{{She can swim.}}","{{She can't swim.}}","{{Can she swim?}}"]
+        ] },
+        {"p":"**Chiedere e permettere**: {{Can I…?}} “Posso…?” ({{Can I sit here?}}), {{Can you…?}} “Puoi…?, Può…?” ({{Can you repeat that?}}). Le risposte: {{Yes, you can.}}, {{Sure!}}, {{Sorry, you can't.}}"},
+        { "ex": [
+          {"t":"I can speak three languages.","tr":"So parlare tre lingue."},
+          {"t":"Can you drive?","tr":"Sai guidare?"},
+          {"t":"Sorry, I can't come tonight.","tr":"Scusa, stasera non posso venire."},
+          {"t":"Can I sit here?","tr":"Posso sedermi qui?"},
+          {"t":"Can you help me, please?","tr":"Mi può aiutare, per favore?"},
+          {"t":"My grandma can't see very well.","tr":"Mia nonna non ci vede molto bene."},
+          {"t":"You can't park here.","tr":"Qui non si può parcheggiare."}
+        ] },
+        {"tip":"Nella frase, {{can}} si dice debole, quasi “kn” ({{I can swim}}: “ai kn suìm”), mentre {{can't}} è forte e lungo, “kènt”. È così che gli americani capiscono se dici sì o no!"}
+      ],
+      "mistakes": [
+        {"wrong":"She cans drive.","right":"She can drive.","tr":"Sa guidare.","why":"{{can}} non prende mai la {{-s}}."},
+        {"wrong":"I can to swim.","right":"I can swim.","tr":"So nuotare.","why":"Dopo {{can}}, il verbo senza {{to}}."},
+        {"wrong":"Do you can help me?","right":"Can you help me?","tr":"Mi può aiutare?","why":"Con {{can}} la domanda non vuole {{do}}: {{can}} va davanti."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"My son ___ swim. He's only two!","tr":"Mio figlio non sa nuotare. Ha solo due anni!","options":["can't","doesn't can","not can"],"answer":0,"why":"“Non sa”: {{can't}}. (E l'età con {{be}}: {{He's only two}}.)","from":"say-your-age-and-how-you-feel"},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"___ I pay by card?","tr":"Posso pagare con la carta?","options":["Can","Do","Am"],"answer":0,"why":"Per chiedere il permesso: {{Can I…?}}"},
+        {"type":"choice","q":"Quale frase è giusta?","options":["{{She can speak Chinese.}}","{{She cans speak Chinese.}}","{{She can to speak Chinese.}}"],"answer":0,"why":"{{can}} non cambia e non vuole {{to}}."},
+        {"type":"dialogue","q":"Al supermercato. Scegli le frasi.","lines":[{"who":"Commesso","t":"Hi! Do you need help?","tr":"Ciao! Ti serve aiuto?"},{"options":["Yes, I can't find the coffee.","Yes, I don't can find the coffee."],"answer":0,"why":"“Non trovo”: {{I can't find}}."},{"who":"Commesso","t":"It's in aisle three.","tr":"È nella corsia tre."},{"options":["Thanks! Can I pay with my phone?","Thanks! Do I can pay with my phone?"],"answer":0,"why":"Con {{can}}, niente {{do}}: {{Can I…?}}"}],"from":"ask-about-habits"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Puoi ripetere, per favore?","words":["Can you","repeat","that,","please?"]},
+        {"type":"say","q":"Di': “Mi dispiace, domani non posso venire.”","answer":"Sorry, I can't come tomorrow."},
+        {"type":"free","q":"Tocca a te: di' due cose che sai fare e una che non sai fare.","answers":[{"t":"I can cook very well and I can play the guitar, but I can't dance!","tr":"So cucinare molto bene e so suonare la chitarra, ma non so ballare!"},{"t":"I can speak Italian and Spanish, but I can't drive.","tr":"So parlare italiano e spagnolo, ma non so guidare."}]}
+      ]
+    },
+    {
+      "id": "say-what-is-happening-now",
+      "unit": 3,
+      "level": "A1",
+      "title": "Di' cosa succede adesso",
+      "summary": "Sto lavorando, sta piovendo, cosa stai facendo? E perché “I work” e “I'm working” non sono la stessa cosa.",
+      "topic": "Il present continuous ({{I'm working}}) e la differenza con il present simple",
+      "blocks": [
+        {"goal":{"t":"Sorry, I can't talk right now. I'm driving!","tr":"Scusa, adesso non posso parlare. Sto guidando!"}},
+        {"dialog":[{"who":"Mamma","t":"Hi, honey! What are you doing?","tr":"Ciao, tesoro! Cosa stai facendo?"},{"who":"Tu","t":"I'm making dinner. Tom is watching the game.","tr":"Sto preparando la cena. Tom sta guardando la partita."},{"who":"Mamma","t":"And the kids?","tr":"E i bambini?"},{"who":"Tu","t":"They're doing their homework. Well, they're playing video games.","tr":"Stanno facendo i compiti. Be', stanno giocando ai videogiochi."},{"who":"Mamma","t":"Ha! Is it raining there?","tr":"Ah! Lì piove?"},{"who":"Tu","t":"Yes, it's raining a lot.","tr":"Sì, piove tantissimo."}]},
+        {"p":"**Adesso, in questo momento**: {{be}} + il verbo con {{-ing}}: {{I'm working}}, {{she's sleeping}}, {{they're playing}}. Si usa per quello che sta succedendo mentre parli."},
+        {"term":"gerundio","means":"la forma del verbo in “-ando, -endo”: “lavorando, leggendo”. In inglese finisce in {{-ing}}: {{working}}, {{reading}}."},
+        { "table": [
+          ["","affermazione","domanda"],
+          ["{{I}}","{{I'm working.}}","{{Am I working?}}"],
+          ["{{you, we, they}}","{{You're working.}}","{{Are you working?}}"],
+          ["{{he, she, it}}","{{She's working.}}","{{Is she working?}}"]
+        ] },
+        {"p":"**Due presenti, due significati.** In italiano “lavoro” vuol dire tutte e due le cose. In inglese no: {{I work in a bank}} è la tua vita, un'abitudine; {{I'm working}} è adesso. {{What do you do?}} “Che lavoro fai?”; {{What are you doing?}} “Cosa stai facendo?”"},
+        { "table": [
+          ["present simple: di solito, sempre","present continuous: adesso"],
+          ["{{I work from home.}}","{{I'm working right now.}}"],
+          ["{{It rains a lot in Seattle.}}","{{It's raining!}}"],
+          ["{{She speaks French.}}","{{She's speaking French on the phone.}}"]
+        ] },
+        {"p":"**Come si scrive**: {{make → making}} (la {{e}} finale cade), {{sit → sitting}}, {{run → running}} (vocale breve + consonante: la consonante raddoppia)."},
+        {"p":"Alcuni verbi non usano quasi mai {{-ing}}, perché non sono azioni ma stati: {{like}}, {{love}}, {{know}}, {{want}}, {{understand}}. “Adesso capisco” è {{Now I understand}}, non {{I'm understanding}}."},
+        { "ex": [
+          {"t":"What are you doing?","tr":"Cosa stai facendo?"},
+          {"t":"I'm watching a movie.","tr":"Sto guardando un film."},
+          {"t":"It's raining again!","tr":"Piove di nuovo!","note":"per la pioggia che cade adesso, sempre {{-ing}}"},
+          {"t":"She's talking on the phone.","tr":"Sta parlando al telefono."},
+          {"t":"We're waiting for the bus.","tr":"Stiamo aspettando l'autobus."},
+          {"t":"Shh! The baby is sleeping.","tr":"Sst! Il bambino dorme."},
+          {"t":"I know the answer.","tr":"So la risposta.","note":"{{know}} non vuole {{-ing}}"}
+        ] },
+        {"tip":"{{I'm coming!}} “Arrivo!” è quello che gridi quando suonano alla porta."}
+      ],
+      "mistakes": [
+        {"wrong":"Sorry, I work right now.","right":"Sorry, I'm working right now.","tr":"Scusa, adesso sto lavorando.","why":"Per quello che stai facendo adesso: {{I'm working}}."},
+        {"wrong":"Look! It rains.","right":"Look! It's raining.","tr":"Guarda! Piove.","why":"Sta piovendo adesso: {{It's raining}}. ({{It rains}} è per le abitudini: {{It rains a lot here}} “Qui piove tanto”.)"},
+        {"wrong":"I'm understanding.","right":"I understand.","tr":"Capisco.","why":"{{understand}}, {{know}}, {{like}} e {{want}} quasi mai con {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Shh! The kids ___ sleeping.","tr":"Sst! I bambini stanno dormendo.","options":["are","is","do"],"answer":0,"why":"{{the kids}} = {{they}}: {{are sleeping}}."},
+        {"type":"choice","q":"Un'amica al telefono ti chiede {{What are you doing?}} Vuole sapere…","options":["che cosa stai facendo adesso","che lavoro fai","che cosa fai di solito"],"answer":0,"why":"{{What are you doing?}} è adesso; “che lavoro fai?” è {{What do you do?}}","from":"ask-about-habits"},
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"She usually ___ the bus, but today she's walking.","tr":"Di solito prende l'autobus, ma oggi va a piedi.","options":["takes","is taking","take"],"answer":0,"why":"Un'abitudine ({{usually}}): present simple, con la {{-s}}.","from":"say-how-often"},
+        {"type":"dialogue","q":"Ti chiama tua madre. Scegli le risposte.","lines":[{"who":"Mamma","t":"Hi! What are you doing?","tr":"Ciao! Cosa stai facendo?"},{"options":["I'm cooking dinner.","I cook dinner."],"answer":0,"why":"Adesso: {{I'm cooking}}."},{"who":"Mamma","t":"Is it cold there?","tr":"Lì fa freddo?"},{"options":["Yes, and it's snowing!","Yes, and it snows!"],"answer":0,"why":"La neve che cade adesso: {{it's snowing}}."}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Stiamo aspettando un taxi.","words":["We're","waiting","for","a taxi."]},
+        {"type":"say","q":"Scrivi a un amico: “Scusa, sono in ritardo! Sto arrivando!”","answer":"Sorry, I'm late! I'm coming!","from":"ask-questions-with-be"},
+        {"type":"free","q":"Tocca a te: è sabato mattina. Di' cosa stai facendo tu e cosa stanno facendo due persone che conosci.","answers":[{"t":"I'm drinking coffee, my husband is reading the news, and my daughter is sleeping.","tr":"Sto bevendo un caffè, mio marito sta leggendo le notizie e mia figlia sta dormendo."},{"t":"I'm studying English! My brother is working and my parents are walking the dog.","tr":"Sto studiando inglese! Mio fratello sta lavorando e i miei genitori stanno portando a spasso il cane."}]}
+      ]
     }
   ]
 }
