@@ -32,6 +32,22 @@
    ],
    "bytes": 301021,
    "sha256": "34199545373d24384fe53288622e8ca8d1b768e9b7fbbfd6a1fc47c69f7e77d1"
+  },
+  "en-ja": {
+   "file": "en-ja/course.json",
+   "from": "en",
+   "to": "ja",
+   "title": "Japanese grammar",
+   "variety": "Standard Japanese",
+   "units": 8,
+   "lessons": 47,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 361261,
+   "sha256": "2922785ceb2f277998a181cbce0096feaccf0d7894a344d3e7e7781a0e64c2e6"
   }
  }
 }
