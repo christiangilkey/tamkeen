@@ -626,6 +626,244 @@
         {"type":"say","q":"Ask “How much are these avocados?”","answer":"¿Cuánto cuestan estos aguacates?"},
         {"type":"free","q":"Your turn: you're at a market. Say you like something and ask its price.","answers":[{"t":"Me gusta esa bolsa. ¿Cuánto cuesta?","tr":"I like that bag. How much is it?"},{"t":"Me gustan estos aretes. ¿Cuánto cuestan?","tr":"I like these earrings. How much are they?"}],"from":"say-what-you-like"}
       ]
+    },
+    {
+      "id": "find-places",
+      "unit": 3,
+      "level": "A1",
+      "title": "Ask where places are",
+      "summary": "Find a pharmacy, an ATM or the bathroom: “Is there a pharmacy around here?”, and understand the answer.",
+      "topic": "{{hay}} (there is, there are) or {{está}} (where it is); {{cerca de, al lado de, enfrente de}}; {{de}} + {{el}} = {{del}}",
+      "blocks": [
+        {"goal":{"t":"Disculpe, ¿hay una farmacia por aquí?","tr":"Excuse me, is there a pharmacy around here?"}},
+        {"dialog":[{"who":"You","t":"Disculpe, ¿hay una farmacia por aquí?","tr":"Excuse me, is there a pharmacy around here?"},{"who":"Man","t":"Sí, hay una en la esquina, al lado del banco.","tr":"Yes, there's one on the corner, next to the bank."},{"who":"You","t":"¿Y el metro? ¿Está lejos?","tr":"And the subway? Is it far?"},{"who":"Man","t":"No, está muy cerca. Está enfrente del parque.","tr":"No, it's very close. It's across from the park."},{"who":"You","t":"Muchas gracias.","tr":"Thank you very much."},{"who":"Man","t":"De nada.","tr":"You're welcome."}]},
+        {"p":"**{{hay}}: there is, there are.** One little word for both, and it never changes: {{Hay un banco.}} “There's a bank.” {{Hay dos bancos.}} “There are two banks.” {{¿Hay…?}} asks “Is there…?” or “Are there…?”, and {{No hay…}} says “There isn't…”, “There aren't…”."},
+        {"p":"**{{hay}} or {{está}}?** {{hay}} says that something exists somewhere, usually with {{un}}, {{una}}, a number, or nothing before the noun. {{está}} (more than one: {{están}}) says **where** a particular thing is: one with {{el}}, {{la}}, a name, or {{mi}}, {{tu}}…"},
+        { "table": [
+          ["{{hay}}: is there one?","{{está}}: where is it?"],
+          ["{{¿Hay un baño por aquí?}} Is there a bathroom around here?","{{¿Dónde está el baño?}} Where's the bathroom?"],
+          ["{{Hay una farmacia en la esquina.}} There's a pharmacy on the corner.","{{La farmacia está en la esquina.}} The pharmacy is on the corner."],
+          ["{{No hay leche.}} There's no milk.","{{La leche está en el refri.}} The milk is in the fridge."]
+        ] },
+        {"term":"preposition","means":"a little word that links a noun to the rest of the sentence, often to say where or when: in, on, next to, from."},
+        {"p":"**Where things are.** Many of these end in {{de}}: {{cerca de}} (near), {{lejos de}} (far from), {{al lado de}} (next to), {{enfrente de}} (across from, in front of), {{detrás de}} (behind), {{a la derecha de}} and {{a la izquierda de}} (to the right, to the left of). Others: {{en}} (in, on, at), {{entre}} (between), {{en la esquina}} (on the corner)."},
+        {"p":"**{{de}} + {{el}} = {{del}}.** When {{de}} meets {{el}}, the two join: {{al lado del banco}} “next to the bank”. With {{la}}, {{los}} and {{las}} nothing joins: {{al lado de la iglesia}} “next to the church”."},
+        { "ex": [
+          {"t":"¿Hay un cajero por aquí?","tr":"Is there an ATM around here?"},
+          {"t":"El hotel está enfrente del parque.","tr":"The hotel is across from the park."},
+          {"t":"Hay muchos restaurantes en el centro.","tr":"There are lots of restaurants downtown."},
+          {"t":"Mi casa está cerca de la escuela.","tr":"My house is near the school."},
+          {"t":"No hay estacionamiento.","tr":"There's no parking.","note":"{{no hay}} + a noun with no article: “there's no…”"},
+          {"t":"Los baños están al fondo, a la derecha.","tr":"The restrooms are at the back, on the right."}
+        ] },
+        {"tip":"{{por aquí}} “around here” makes a question gentler: {{¿Hay un Oxxo por aquí?}} (Oxxo: the convenience store on every Mexican corner). Start with {{Disculpe}} “Excuse me”, and thank with {{Muchas gracias}}; the answer is {{De nada}}."}
+      ],
+      "mistakes": [
+        {"wrong":"¿Dónde hay el baño?","right":"¿Dónde está el baño?","tr":"Where's the bathroom?","why":"Asking where a particular thing is (the bathroom): {{está}}."},
+        {"wrong":"Está un banco en la esquina.","right":"Hay un banco en la esquina.","tr":"There's a bank on the corner.","why":"Saying that something exists somewhere, with {{un}}: {{hay}}."},
+        {"wrong":"Está al lado de el banco.","right":"Está al lado del banco.","tr":"It's next to the bank.","why":"{{de}} + {{el}} become {{del}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¿___ un supermercado por aquí?","tr":"Is there a supermarket around here?","options":["Hay","Está","Es"],"answer":0,"why":"Is there one? {{hay}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"El metro ___ enfrente del parque.","tr":"The subway is across from the park.","options":["está","hay","es"],"answer":0,"why":"Where a particular thing is: {{está}}.","from":"say-how-and-where-you-are"},
+        {"type":"choice","q":"How do you say “next to the bank”?","options":["{{al lado del banco}}","{{al lado de el banco}}","{{al lado el banco}}"],"answer":0,"why":"{{de}} + {{el}} → {{del}}."},
+        {"type":"dialogue","q":"You're looking for an ATM. Choose your replies.","lines":[{"who":"Woman","t":"¿Le ayudo? ¿Qué busca?","tr":"Can I help you? What are you looking for?"},{"options":["Sí, gracias. ¿Hay un cajero por aquí?","Sí, gracias. ¿Está un cajero por aquí?"],"answer":0,"why":"Is there one? {{¿Hay…?}}"},{"who":"Woman","t":"Sí, hay uno en el centro comercial.","tr":"Yes, there's one in the mall."},{"options":["¿Y dónde está el centro comercial?","¿Y dónde hay el centro comercial?"],"answer":0,"why":"Where a particular place is: {{está}}."},{"who":"Woman","t":"Muy cerca, a dos cuadras.","tr":"Very close, two blocks away."}]},
+        {"type":"order","q":"Put the words in order.","tr":"My house is near the school.","words":["Mi casa","está","cerca de","la escuela."]},
+        {"type":"say","q":"Ask “Where is the bathroom?”","answer":"¿Dónde está el baño?"},
+        {"type":"free","q":"Your turn: describe your street. What is there, and where is it? Use {{hay}} and {{está}}.","answers":[{"t":"En mi calle hay una tienda y un parque. El parque está al lado de mi casa.","tr":"On my street there's a store and a park. The park is next to my house."},{"t":"Hay muchas casas y un restaurante. El restaurante está en la esquina.","tr":"There are lots of houses and a restaurant. The restaurant is on the corner."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-are-going",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say where you're going",
+      "summary": "Say where you're going and how you get there: “I'm going downtown by subway.”",
+      "topic": "{{ir}} “to go” ({{voy, vas, va, vamos, van}}); {{a}} + {{el}} = {{al}}; {{en camión}}, {{a pie}}",
+      "blocks": [
+        {"goal":{"t":"Voy al centro en metro.","tr":"I'm going downtown by subway."}},
+        {"dialog":[{"who":"Neighbor","t":"¡Buenos días! ¿Adónde vas tan temprano?","tr":"Good morning! Where are you going so early?"},{"who":"You","t":"Voy al trabajo. ¿Y usted?","tr":"I'm going to work. And you?"},{"who":"Neighbor","t":"Voy al mercado. ¿Vas en carro?","tr":"I'm going to the market. Are you driving?"},{"who":"You","t":"No, voy en camión.","tr":"No, I'm taking the bus."},{"who":"Neighbor","t":"¡Que te vaya bien!","tr":"Have a good day!"}]},
+        {"p":"**{{ir}} “to go”** is irregular, but its endings look like the -ar ones you know:"},
+        { "table": [
+          ["","{{ir}} “to go”"],
+          ["I go, I'm going","{{voy}}"],
+          ["you go (friendly)","{{vas}}"],
+          ["he goes, she goes, you go (polite)","{{va}}"],
+          ["we go","{{vamos}}"],
+          ["you (all) go, they go","{{van}}"]
+        ] },
+        {"p":"**Where to: {{a}}.** After {{ir}}, the place comes with {{a}} “to”: {{Voy a México.}} {{Vamos a la playa.}} When {{a}} meets {{el}}, they join into {{al}}: {{Voy al mercado}}, {{Va al banco}}. (Only {{el}} joins: {{a la}}, {{a los}}, {{a las}} stay apart.) To ask: {{¿Adónde vas?}} or {{¿A dónde vas?}} “Where are you going?”"},
+        {"p":"**How: {{en}}.** {{en carro}} (by car), {{en camión}} (by bus: in Mexico a city bus is a {{camión}}), {{en metro}}, {{en taxi}}, {{en avión}} (by plane), {{en bici}}. But on foot is {{a pie}}, or simply {{caminando}}."},
+        {"p":"The present of {{ir}} is both “I go” and “I'm going”: {{Voy al gimnasio los lunes}} “I go to the gym on Mondays”, {{Voy al súper}} “I'm going to the supermarket”."},
+        { "ex": [
+          {"t":"¿Adónde van ustedes?","tr":"Where are you all going?"},
+          {"t":"Vamos al cine el sábado.","tr":"We're going to the movies on Saturday."},
+          {"t":"Mis hijos van a la escuela a pie.","tr":"My kids walk to school.","note":"word for word “go to school on foot”"},
+          {"t":"¿Vas al súper? Voy contigo.","tr":"Are you going to the supermarket? I'll go with you.","note":"{{contigo}} “with you”; {{conmigo}} “with me”"},
+          {"t":"No voy a la fiesta.","tr":"I'm not going to the party."},
+          {"t":"Mi esposo va al trabajo en bici.","tr":"My husband bikes to work."},
+          {"t":"¡Ya voy!","tr":"Coming!","note":"what you call out when someone calls you"}
+        ] },
+        {"tip":"{{Vamos}} on its own also means “Let's go!”, and {{¡Vámonos!}} is the everyday “Let's get going!”. {{¡Que te vaya bien!}} “May it go well for you” is how Mexicans wish someone a good day (lesson 44 shows how it works)."}
+      ],
+      "mistakes": [
+        {"wrong":"Voy a el mercado.","right":"Voy al mercado.","tr":"I'm going to the market.","why":"{{a}} + {{el}} become {{al}}."},
+        {"wrong":"Voy en pie.","right":"Voy a pie.","tr":"I'm walking there.","why":"On foot is {{a pie}}; vehicles take {{en}}: {{en carro}}, {{en camión}}."},
+        {"wrong":"Vamos a la parque.","right":"Vamos al parque.","tr":"Let's go to the park.","why":"{{parque}} is masculine: {{al parque}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mis papás ___ a Cancún en diciembre.","tr":"My parents are going to Cancún in December.","options":["van","vamos","va"],"answer":0,"why":"“They”: {{van}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Voy ___ banco.","tr":"I'm going to the bank.","options":["al","a la","a"],"answer":0,"why":"{{banco}} is masculine: {{a}} + {{el}} = {{al}}."},
+        {"type":"choice","q":"How do you say “We're going by bus” in Mexico?","options":["{{Vamos en camión.}}","{{Vamos a camión.}}","{{Vamos al camión.}}"],"answer":0,"why":"How you travel: {{en}}. And a city bus is a {{camión}}."},
+        {"type":"dialogue","q":"Your coworker asks about your weekend. Choose your replies.","lines":[{"who":"Coworker","t":"¿Adónde vas el fin de semana?","tr":"Where are you going this weekend?"},{"options":["Voy a la playa con mi familia.","Voy al playa con mi familia."],"answer":0,"why":"{{playa}} is feminine: {{a la playa}}."},{"who":"Coworker","t":"¡Qué padre! ¿Van en carro?","tr":"Cool! Are you driving?"},{"options":["No, vamos en avión.","No, van en avión."],"answer":0,"why":"You and your family are “we”: {{vamos}}."},{"who":"Coworker","t":"¡Qué envidia!","tr":"I'm so jealous!"}],"from":"name-things"},
+        {"type":"order","q":"Put the words in order.","tr":"We're going to the movies on Saturday.","words":["Vamos","al cine","el sábado."]},
+        {"type":"say","q":"Ask a friend “Where are you going?”","answer":"¿Adónde vas?"},
+        {"type":"free","q":"Your turn: where do you go every week, and how? Use {{voy}} with {{a}} or {{al}}, and {{en}} or {{a pie}}.","answers":[{"t":"Voy al trabajo en carro y voy al gimnasio a pie.","tr":"I drive to work and walk to the gym."},{"t":"Los domingos voy a la iglesia en camión.","tr":"On Sundays I take the bus to church."}]}
+      ]
+    },
+    {
+      "id": "say-when",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what time and what day",
+      "summary": "Ask and tell the time, and say when things happen: “The class is on Tuesday at six in the evening.”",
+      "topic": "{{¿Qué hora es?}}; {{es la una}}, {{son las…}}; {{a las…}}; {{el lunes}}, {{los lunes}}; {{ser}} for when and where an event is",
+      "blocks": [
+        {"goal":{"t":"La clase es el martes a las seis de la tarde.","tr":"The class is on Tuesday at six in the evening."}},
+        {"dialog":[{"who":"Receptionist","t":"Consultorio del doctor Ruiz, buenos días.","tr":"Dr. Ruiz's office, good morning."},{"who":"You","t":"Buenos días. ¿Hay citas para el jueves?","tr":"Good morning. Are there any appointments on Thursday?"},{"who":"Receptionist","t":"Sí, a las diez y media o a las cuatro de la tarde.","tr":"Yes, at ten thirty or at four in the afternoon."},{"who":"You","t":"A las diez y media, por favor.","tr":"At ten thirty, please."},{"who":"Receptionist","t":"Perfecto. Su cita es el jueves a las diez y media.","tr":"Perfect. Your appointment is on Thursday at ten thirty."}]},
+        {"p":"**What time is it?** {{¿Qué hora es?}} The answer is {{Son las}} + the number, because hours are plural ({{las}} stands for {{las horas}}): {{Son las tres.}} “It's three.” Only one o'clock is singular: {{Es la una.}}"},
+        { "table": [
+          ["","Spanish"],
+          ["1:00","{{Es la una.}}"],
+          ["3:00","{{Son las tres.}}"],
+          ["3:15","{{Son las tres y cuarto.}}"],
+          ["3:30","{{Son las tres y media.}}"],
+          ["3:45","{{Es un cuarto para las cuatro.}}"],
+          ["3:50","{{Son diez para las cuatro.}}"]
+        ] },
+        {"p":"**At what time?** {{a las}} + the hour: {{a las ocho}} “at eight”, {{a la una}} “at one”. {{¿A qué hora…?}} asks “What time…?”. Add the part of the day: {{de la mañana}} (in the morning), {{de la tarde}} (in the afternoon, early evening), {{de la noche}} (at night)."},
+        {"p":"**Days.** {{lunes}}, {{martes}}, {{miércoles}}, {{jueves}}, {{viernes}}, {{sábado}}, {{domingo}}, with no capital letter. “On Monday” is {{el lunes}}, with no word for “on”; “on Mondays”, every week, is {{los lunes}}."},
+        {"p":"**When and where an event is: {{ser}}.** You know {{estar}} for where things are. But for an event (a class, a party, a meeting), Spanish uses {{ser}}, for its time and also for its place: {{La fiesta es el sábado.}} {{La fiesta es en mi casa.}} “The party is at my house.”"},
+        { "ex": [
+          {"t":"¿A qué hora abre el banco?","tr":"What time does the bank open?"},
+          {"t":"Trabajo de nueve a cinco.","tr":"I work from nine to five."},
+          {"t":"Los sábados como con mis papás.","tr":"On Saturdays I have lunch with my parents.","note":"{{comer}} is also the big midday meal"},
+          {"t":"La reunión es a las once.","tr":"The meeting is at eleven."},
+          {"t":"Llego a casa a las siete de la noche.","tr":"I get home at seven in the evening."},
+          {"t":"La boda es en una iglesia muy bonita.","tr":"The wedding is in a very beautiful church."},
+          {"t":"¿Qué día es hoy? — Hoy es viernes.","tr":"What day is it today? — Today is Friday."}
+        ] },
+        {"tip":"{{Nos vemos a las ocho.}} “See you at eight.” With {{como}}, a time is approximate: {{como a las ocho}} “around eight”."}
+      ],
+      "mistakes": [
+        {"wrong":"Son la una.","right":"Es la una.","tr":"It's one o'clock.","why":"One o'clock is singular: {{Es la una}}. Every other hour: {{Son las…}}"},
+        {"wrong":"La fiesta está en mi casa.","right":"La fiesta es en mi casa.","tr":"The party is at my house.","why":"Where an event takes place: {{ser}}, not {{estar}}."},
+        {"wrong":"Trabajo en lunes.","right":"Trabajo el lunes.","tr":"I'm working on Monday.","why":"No word for “on” before a day: just {{el lunes}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ las cinco y media.","tr":"It's five thirty.","options":["Son","Es","Están"],"answer":0,"why":"Hours are plural: {{Son las…}} (only one o'clock is {{Es la una}})."},
+        {"type":"fill","q":"Choose the missing words.","t":"La clase es ___ ocho de la mañana.","tr":"The class is at eight in the morning.","options":["a las","en las","a la"],"answer":0,"why":"“At” a time: {{a las}} + the hour."},
+        {"type":"choice","q":"“On Saturdays I go to the market.” Which one?","options":["{{Los sábados voy al mercado.}}","{{En sábados voy al mercado.}}","{{El sábado voy a el mercado.}}"],"answer":0,"why":"Every week: {{los sábados}}; and {{a}} + {{el}} = {{al}}.","from":"say-where-you-are-going"},
+        {"type":"dialogue","q":"You're inviting a friend. Choose your replies.","lines":[{"who":"Friend","t":"¿Cuándo es la fiesta?","tr":"When's the party?"},{"options":["Es el viernes a las nueve.","Está el viernes a las nueve."],"answer":0,"why":"When an event is: {{ser}}, {{es}}."},{"who":"Friend","t":"¿Y dónde es?","tr":"And where is it?"},{"options":["Es en mi casa.","Está en mi casa."],"answer":0,"why":"Where an event takes place: {{ser}} again."},{"who":"Friend","t":"¡Perfecto! Ahí nos vemos.","tr":"Perfect! See you there."}]},
+        {"type":"order","q":"Put the words in order.","tr":"What time does the bank open?","words":["¿A","qué","hora","abre","el banco?"]},
+        {"type":"say","q":"Say “It's a quarter to four”, the Mexican way.","answer":"Es un cuarto para las cuatro."},
+        {"type":"free","q":"Your turn: which days and what hours do you work or study? Use {{de … a …}}, {{a las}} and {{los lunes…}}","answers":[{"t":"Trabajo de lunes a viernes, de ocho a cinco.","tr":"I work Monday through Friday, from eight to five."},{"t":"Estudio los martes y los jueves a las seis de la tarde.","tr":"I study on Tuesdays and Thursdays at six in the evening."}]}
+      ]
+    },
+    {
+      "id": "make-plans",
+      "unit": 3,
+      "level": "A1",
+      "title": "Make plans",
+      "summary": "Say what you're going to do and suggest plans: “This weekend I'm going to visit my parents.”",
+      "topic": "{{ir a}} + infinitive, the everyday future; {{vamos a}} + infinitive for “let's”; words for when",
+      "blocks": [
+        {"goal":{"t":"Este fin de semana voy a visitar a mis papás.","tr":"This weekend I'm going to visit my parents."}},
+        {"dialog":[{"who":"Lalo","t":"¿Qué vas a hacer mañana?","tr":"What are you going to do tomorrow?"},{"who":"Nina","t":"Voy a limpiar la casa. ¿Y tú?","tr":"I'm going to clean the house. And you?"},{"who":"Lalo","t":"Voy a ver el partido con mis primos. ¿Quieres venir?","tr":"I'm going to watch the game with my cousins. Do you want to come?"},{"who":"Nina","t":"¡Sí! ¿A qué hora?","tr":"Yes! What time?"},{"who":"Lalo","t":"A las cinco. Vamos a hacer carne asada.","tr":"At five. We're going to have a cookout."}]},
+        {"p":"**The future with {{ir}}.** You know {{Voy al mercado}} “I'm going to the market”. Put {{a}} and an infinitive after {{ir}}, and you have the future that Mexicans use every day: {{ir a}} + infinitive, just like English “going to”:"},
+        { "table": [
+          ["","{{ir a}} + infinitive","English"],
+          ["I","{{voy a comer}}","I'm going to eat"],
+          ["you (friendly)","{{vas a trabajar}}","you're going to work"],
+          ["he, she, you (polite)","{{va a llegar}}","she's going to arrive"],
+          ["we","{{vamos a ver}}","we're going to see"],
+          ["you (all), they","{{van a salir}}","they're going to go out"]
+        ] },
+        {"p":"Only {{ir}} changes; the second verb stays an infinitive. {{No}} goes before {{ir}}: {{No voy a ir.}} “I'm not going to go.”"},
+        {"p":"**Let's.** {{Vamos a}} + infinitive is also “let's…”: {{¡Vamos a comer!}} “Let's eat!” Your voice and the situation say which you mean."},
+        {"p":"**When?** {{hoy}} (today), {{mañana}} (tomorrow), {{pasado mañana}} (the day after tomorrow), {{esta noche}} (tonight), {{este fin de semana}} (this weekend), {{la próxima semana}} or {{la semana que viene}} (next week), {{el próximo año}} (next year). They go at the start or the end: {{Mañana voy a trabajar}} or {{Voy a trabajar mañana}}."},
+        { "ex": [
+          {"t":"Mañana va a llover.","tr":"It's going to rain tomorrow."},
+          {"t":"¿Qué van a hacer en vacaciones?","tr":"What are you all going to do on vacation?"},
+          {"t":"Vamos a comprar un carro nuevo.","tr":"We're going to buy a new car."},
+          {"t":"Esta noche no voy a salir.","tr":"I'm not going out tonight."},
+          {"t":"Mi hermana va a tener un bebé.","tr":"My sister is going to have a baby."},
+          {"t":"¡Vamos a bailar!","tr":"Let's dance!"}
+        ] },
+        {"tip":"**The personal a.** The goal sentence has a second {{a}}: {{visitar a mis papás}}. Spanish puts {{a}} before a person who receives the action: {{Voy a ver a mi abuela}} “I'm going to see my grandmother”, but {{Voy a ver una película}} “I'm going to see a movie”. Lesson 24 comes back to it."}
+      ],
+      "mistakes": [
+        {"wrong":"Voy comer.","right":"Voy a comer.","tr":"I'm going to eat.","why":"Don't forget the {{a}}: {{ir a}} + infinitive."},
+        {"wrong":"Voy a como.","right":"Voy a comer.","tr":"I'm going to eat.","why":"After {{ir a}}, the infinitive: {{comer}}."},
+        {"wrong":"Voy a visitar mis papás.","right":"Voy a visitar a mis papás.","tr":"I'm going to visit my parents.","why":"Before a person who receives the action, Spanish puts {{a}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mañana ___ a trabajar en casa.","tr":"Tomorrow I'm going to work from home.","options":["voy","va","vamos"],"answer":0,"why":"“I”: {{voy}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Qué vas a ___ el sábado?","tr":"What are you going to do on Saturday?","options":["hacer","haces","hace"],"answer":0,"why":"After {{ir a}}, the infinitive: {{hacer}}."},
+        {"type":"choice","q":"How do you say “Let's eat!”?","options":["{{¡Vamos a comer!}}","{{¡Vamos comer!}}","{{¡Vamos a comemos!}}"],"answer":0,"why":"{{Vamos a}} + infinitive."},
+        {"type":"dialogue","q":"Plan an evening with a friend. Choose your replies.","lines":[{"who":"Friend","t":"¿Qué vamos a hacer el viernes?","tr":"What are we going to do on Friday?"},{"options":["Vamos a ver una película.","Vamos ver una película."],"answer":0,"why":"{{vamos a}} + infinitive."},{"who":"Friend","t":"Va. ¿A qué hora?","tr":"Okay. What time?"},{"options":["A las ocho, en el cine del centro.","En las ocho, en el cine del centro."],"answer":0,"why":"At a time: {{a las}}."},{"who":"Friend","t":"Perfecto. Ahí nos vemos.","tr":"Perfect. See you there."}],"from":"say-when"},
+        {"type":"order","q":"Put the words in order.","tr":"I'm not going out tonight.","words":["Esta noche","no","voy a","salir."]},
+        {"type":"say","q":"Say “It's going to rain tomorrow.”","answer":"Mañana va a llover."},
+        {"type":"free","q":"Your turn: what are you going to do this weekend? Say two things with {{voy a}}.","answers":[{"t":"Este fin de semana voy a descansar y voy a ver una película.","tr":"This weekend I'm going to rest and watch a movie."},{"t":"El sábado voy a visitar a mi abuela y el domingo vamos a comer en un restaurante.","tr":"On Saturday I'm going to visit my grandmother, and on Sunday we're going to eat at a restaurant."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-and-must-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you can and have to do",
+      "summary": "Say what you can, can't and have to do, and ask for permission or a favor: “I can't go out today: I have to work.”",
+      "topic": "{{poder}} + infinitive; {{¿Puedo…?}}, {{¿Me puede…?}}; {{tener que}} + infinitive; {{hay que}} + infinitive",
+      "blocks": [
+        {"goal":{"t":"Hoy no puedo salir: tengo que trabajar.","tr":"I can't go out today: I have to work."}},
+        {"dialog":[{"who":"Caro","t":"¿Puedes venir a mi casa hoy?","tr":"Can you come over today?"},{"who":"You","t":"Hoy no puedo. Tengo que terminar un proyecto.","tr":"I can't today. I have to finish a project."},{"who":"Caro","t":"¿Y mañana?","tr":"And tomorrow?"},{"who":"You","t":"Mañana sí puedo. ¿Puedo llevar a mi novio?","tr":"Tomorrow I can. Can I bring my boyfriend?"},{"who":"Caro","t":"¡Claro! Pero hay que llegar temprano, porque vamos a cenar a las ocho.","tr":"Of course! But you have to come early, because we're having dinner at eight."}]},
+        {"p":"**Can: {{poder}}.** Like {{querer}}, it changes its vowel, here **o → ue**, except for “we”. And like {{querer}}, an infinitive comes right after it:"},
+        { "table": [
+          ["","{{poder}} “can”","Example"],
+          ["I can","{{puedo}}","{{No puedo ir.}}"],
+          ["you can (friendly)","{{puedes}}","{{¿Puedes venir?}}"],
+          ["he, she, you (polite) can","{{puede}}","{{¿Me puede ayudar?}}"],
+          ["we can","{{podemos}}","{{Podemos ir mañana.}}"],
+          ["you (all), they can","{{pueden}}","{{¿Pueden hablar más despacio?}}"]
+        ] },
+        {"p":"**Asking.** {{¿Puedo…?}} asks for permission: {{¿Puedo pagar con tarjeta?}} “Can I pay by card?” {{¿Puedes…?}} or {{¿Puede…?}} asks for a favor, with {{me}} “me” before the verb: {{¿Me puede ayudar?}} “Can you help me?”"},
+        {"p":"**Have to: {{tener que}}.** {{tener}} + {{que}} + infinitive: {{Tengo que trabajar.}} “I have to work.” {{Mi hijo tiene que estudiar.}} “My son has to study.”"},
+        {"p":"**{{hay que}}: you have to**, for everyone, without saying who: {{Hay que pagar en la caja.}} “You have to pay at the register.” Here {{hay}} never changes."},
+        { "ex": [
+          {"t":"¿Puedo pasar?","tr":"May I come in?"},
+          {"t":"No podemos ir a la boda.","tr":"We can't go to the wedding."},
+          {"t":"¿Me puede dar la dirección?","tr":"Could you give me the address?"},
+          {"t":"Tengo que ir al doctor.","tr":"I have to go to the doctor."},
+          {"t":"Tenemos que salir a las siete.","tr":"We have to leave at seven."},
+          {"t":"Hay que reservar con tiempo.","tr":"You need to book ahead."},
+          {"t":"No tienes que pagar nada.","tr":"You don't have to pay anything.","note":"{{no tener que}}: it isn't necessary"}
+        ] },
+        {"tip":"{{poder}} is “can” in the sense of being able, or allowed. For a skill you've learned, Spanish uses {{saber}} “to know how”: {{Sé nadar}} “I can swim” (lesson 24)."}
+      ],
+      "mistakes": [
+        {"wrong":"Yo podo ir.","right":"Yo puedo ir.","tr":"I can go.","why":"{{poder}} changes o → ue: {{puedo}}."},
+        {"wrong":"Tengo trabajar.","right":"Tengo que trabajar.","tr":"I have to work.","why":"“Have to” needs {{que}}: {{tener que}} + infinitive."},
+        {"wrong":"¿Puedo a pagar con tarjeta?","right":"¿Puedo pagar con tarjeta?","tr":"Can I pay by card?","why":"The infinitive comes right after {{puedo}}, with no {{a}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¿___ pagar con tarjeta?","tr":"Can I pay by card?","options":["Puedo","Podo","Puede"],"answer":0,"why":"“Can I…?”: {{puedo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mañana tengo ___ trabajar.","tr":"Tomorrow I have to work.","options":["que","a","de"],"answer":0,"why":"{{tener que}} + infinitive."},
+        {"type":"choice","q":"A sign at a museum says “You have to buy tickets at the entrance.” Which one?","options":["{{Hay que comprar los boletos en la entrada.}}","{{Hay comprar los boletos en la entrada.}}","{{Tienes comprar los boletos en la entrada.}}"],"answer":0,"why":"For everyone in general: {{hay que}} + infinitive."},
+        {"type":"dialogue","q":"A friend invites you. Choose your replies.","lines":[{"who":"Friend","t":"¿Vas a venir a la fiesta el sábado?","tr":"Are you coming to the party on Saturday?"},{"options":["No puedo. Tengo que trabajar.","No podo. Tengo trabajar."],"answer":0,"why":"{{puedo}}, and {{tengo que}} + infinitive."},{"who":"Friend","t":"¡Qué lástima! ¿Y el domingo?","tr":"What a shame! And on Sunday?"},{"options":["El domingo sí. Vamos a comer juntos.","El domingo sí. Vamos comer juntos."],"answer":0,"why":"“Let's…”: {{vamos a}} + infinitive."},{"who":"Friend","t":"¡Perfecto!","tr":"Perfect!"}],"from":"make-plans"},
+        {"type":"order","q":"Put the words in order.","tr":"Can you help me?","words":["¿Me","puede","ayudar?"]},
+        {"type":"say","q":"Ask someone politely: “Can you speak more slowly?”","answer":"¿Puede hablar más despacio?"},
+        {"type":"free","q":"Your turn: what do you have to do this week, and what can't you do? Use {{tengo que}} and {{no puedo}}.","answers":[{"t":"El martes tengo que ir al doctor, y no puedo ir al gimnasio.","tr":"On Tuesday I have to go to the doctor, and I can't go to the gym."},{"t":"Esta semana tengo que trabajar mucho. No puedo salir con mis amigos.","tr":"This week I have to work a lot. I can't go out with my friends."}]}
+      ]
     }
   ]
 }
