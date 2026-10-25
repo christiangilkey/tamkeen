@@ -22,12 +22,12 @@
    "title": "Russian grammar",
    "variety": "Standard Russian",
    "units": 9,
-   "lessons": 12,
+   "lessons": 17,
    "levels": [
     "A1"
    ],
-   "bytes": 89232,
-   "sha256": "78e2219dc1bd0390e19c2d9eca89db1aa78bf963d69bba22c389e2835c4e60be"
+   "bytes": 128598,
+   "sha256": "6f3394527d9b2cd2e912061f7a286347a0984bda377392c3a53520e2e0962bf3"
   }
  }
 }

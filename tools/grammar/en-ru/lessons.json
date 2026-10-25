@@ -575,6 +575,250 @@
         {"type":"say","q":"Say, as a woman: “Yesterday I saw Ivan.”","answer":"Вчера́ я ви́дела Ива́на.","r":"Vcherá ya vídela Ivána.","from":"people-you-know"},
         {"type":"free","q":"Your turn: what did you do yesterday? Say where you were and two things you did.","answers":[{"t":"Вчера́ я был на рабо́те, а ве́чером смотре́л фильм.","r":"Vcherá ya byl na rabóte, a vécherom smotrél fil'm.","tr":"Yesterday I was at work, and in the evening I watched a movie."},{"t":"Вчера́ я была́ до́ма. Я чита́ла и гото́вила у́жин.","r":"Vcherá ya bylá dóma. Ya chitála i gotóvila úzhin.","tr":"Yesterday I was at home. I read and made dinner."}]}
       ]
+    },
+    {
+      "id": "say-what-you-have",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you have",
+      "summary": "Say what you have, and ask in shops and hotels: “Do you have a room for tonight?”",
+      "topic": "{{У меня́ есть|U menyá yest'}}; {{у тебя́|u tebyá}}, {{у него́|u nevó}}, {{у неё|u neyó}}… (with {{н|n}} after {{у|u}})",
+      "blocks": [
+        {"goal":{"t":"У вас есть свобо́дный но́мер? — Да, есть.","r":"U vas yest' svobódnyy nómer? — Da, yest'.","tr":"Do you have a room available? — Yes, we do."}},
+        {"dialog":[{"who":"You","t":"Здра́вствуйте! У вас есть аспири́н?","r":"Zdrástvuyte! U vas yest' aspirín?","tr":"Hello! Do you have aspirin?"},{"who":"Pharmacist","t":"Да, есть.","r":"Da, yest'.","tr":"Yes, we do."},{"who":"You","t":"А вода́ у вас есть?","r":"A vodá u vas yest'?","tr":"And do you have water?"},{"who":"Pharmacist","t":"Есть. Вот, пожа́луйста.","r":"Yest'. Vot, pozháluysta.","tr":"We do. Here you are."},{"who":"You","t":"Спаси́бо. У меня́ то́лько ка́рта. Мо́жно ка́ртой?","r":"Spasíbo. U menyá tól'ko kárta. Mózhno kártoy?","tr":"Thank you. I only have a card. Can I pay by card?"},{"who":"Pharmacist","t":"Коне́чно.","r":"Konéshno.","tr":"Of course."}]},
+        {"p":"Russian has a verb for “to have”, but in everyday speech nobody uses it for owning things. Instead, Russians say {{У меня́ есть…|U menyá yest'…}}, word for word “At me there is…”. What you have is the subject, so it stays in the nominative: {{У меня́ есть маши́на.|U menyá yest' mashína.}} “I have a car.”"},
+        { "table": [
+          ["","who has","for example"],
+          ["I have","{{у меня́|u menyá}}","{{У меня́ есть вре́мя.|U menyá yest' vrémya.}}"],
+          ["you have","{{у тебя́|u tebyá}}","{{У тебя́ есть ру́чка?|U tebyá yest' rúchka?}}"],
+          ["he has","{{у него́|u nevó}}","{{У него́ есть соба́ка.|U nevó yest' sobáka.}}"],
+          ["she has","{{у неё|u neyó}}","{{У неё есть маши́на.|U neyó yest' mashína.}}"],
+          ["we have","{{у нас|u nas}}","{{У нас есть да́ча.|U nas yest' dácha.}}"],
+          ["you have","{{у вас|u vas}}","{{У вас есть меню́?|U vas yest' menyú?}}"],
+          ["they have","{{у них|u nikh}}","{{У них есть де́ти.|U nikh yest' déti.}}"]
+        ] },
+        {"p":"**An extra {{н|n}}.** After {{у|u}}, and after most other prepositions, “him”, “her” and “them” start with {{н|n}}: {{у него́|u nevó}}, {{у неё|u neyó}}, {{у них|u nikh}}. Without a preposition, {{его́|yevó}}, {{её|yeyó}} and {{их|ikh}} mean “his”, “her” and “their”: {{у него́ есть маши́на|u nevó yest' mashína}} “he has a car”, {{его́ маши́на|yevó mashína}} “his car”."},
+        {"p":"**Asking and answering.** {{У вас есть…?|U vas yest'…?}} is how you ask in shops, hotels and cafés: “Do you have…?”. The short answer is {{Есть.|Yest'.}} or {{Да, есть.|Da, yest'.}} When what matters isn't whether you have it but what it's like, leave out {{есть|yest'}}: {{У неё больша́я семья́.|U neyó bol'sháya sem'yá.}} “She has a big family.”"},
+        { "ex": [
+          {"t":"У тебя́ есть ру́чка? — Да, вот она́.","r":"U tebyá yest' rúchka? — Da, vot oná.","tr":"Do you have a pen? — Yes, here it is."},
+          {"t":"У нас есть ко́шка и соба́ка.","r":"U nas yest' kóshka i sobáka.","tr":"We have a cat and a dog."},
+          {"t":"У неё есть де́ти?","r":"U neyó yest' déti?","tr":"Does she have children?"},
+          {"t":"У меня́ есть иде́я!","r":"U menyá yest' idéya!","tr":"I have an idea!"},
+          {"t":"У него́ но́вая рабо́та.","r":"U nevó nóvaya rabóta.","tr":"He has a new job.","note":"no {{есть|yest'}}: what matters is that it's new"}
+        ] },
+        {"tip":"In the past, {{есть|yest'}} becomes {{был|byl}}, {{была́|bylá}}, {{бы́ло|býlo}} or {{бы́ли|býli}}, agreeing with the thing you had: {{У меня́ была́ маши́на.|U menyá bylá mashína.}} “I had a car.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Я име́ю маши́ну.","right":"У меня́ есть маши́на.","tr":"I have a car.","why":"In everyday Russian, “I have” is {{у меня́ есть|u menyá yest'}}, and the thing is in the nominative."},
+        {"wrong":"У его́ есть соба́ка.","right":"У него́ есть соба́ка.","tr":"He has a dog.","why":"After {{у|u}}: {{него́|nevó}}, with {{н|n}}."},
+        {"wrong":"У меня́ есть маши́ну.","right":"У меня́ есть маши́на.","tr":"I have a car.","why":"What you have is the subject: the nominative {{маши́на|mashína}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"У ___ есть брат?","tr":"Do you have a brother?","options":["тебя́","ты","твой"],"answer":0,"why":"“You have”: {{у тебя́|u tebyá}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"У ___ есть соба́ка.","tr":"She has a dog.","options":["неё","её","она́"],"answer":0,"why":"After {{у|u}}: {{неё|neyó}}, with {{н|n}}."},
+        {"type":"choice","q":"{{У меня́ есть|U menyá yest'}} is, word for word…","options":["“At me there is”","“I am having”","“My is”"],"answer":0,"why":"The owner comes after {{у|u}} “at”, and the thing is the subject."},
+        {"type":"dialogue","q":"At a hotel: choose your replies.","lines":[{"who":"Receptionist","t":"До́брый день!","r":"Dóbryy den'!","tr":"Good afternoon!"},{"options":["Здра́вствуйте! У вас есть свобо́дный но́мер?","Здра́вствуйте! Вы име́ете свобо́дный но́мер?"],"answer":0,"why":"Ask with {{У вас есть…?|U vas yest'…?}}"},{"who":"Receptionist","t":"Есть. На одну́ ночь?","r":"Yest'. Na odnú noch'?","tr":"We do. For one night?"},{"options":["Да. А за́втрак у вас есть?","Да. А за́втрака у вас есть?"],"answer":0,"why":"With {{есть|yest'}}, the thing stays in the nominative: {{за́втрак|závtrak}}."},{"who":"Receptionist","t":"Да, за́втрак в семь часо́в.","r":"Da, závtrak v sem' chasóv.","tr":"Yes, breakfast is at seven."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I had a car.","words":["У","меня́","была́","маши́на."],"from":"say-what-you-did"},
+        {"type":"say","q":"Say: “She has a big family.”","answer":"У неё больша́я семья́.","r":"U neyó bol'sháya sem'yá.","from":"describe-things"},
+        {"type":"free","q":"Your turn: say two things you have, and ask a friend if they have something. Use {{У меня́ есть…|U menyá yest'…}} and {{У тебя́ есть…?|U tebyá yest'…?}}","answers":[{"t":"У меня́ есть кот и велосипе́д. А у тебя́ есть соба́ка?","r":"U menyá yest' kot i velosipéd. A u tebyá yest' sobáka?","tr":"I have a cat and a bike. Do you have a dog?"},{"t":"У меня́ есть маши́на. У тебя́ есть вре́мя за́втра?","r":"U menyá yest' mashína. U tebyá yest' vrémya závtra?","tr":"I have a car. Do you have time tomorrow?"}]}
+      ]
+    },
+    {
+      "id": "say-what-isnt-there",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you don't have, and what isn't there",
+      "summary": "Say you don't have something, that something isn't there, or that someone isn't in: “Sorry, I don't have time.”",
+      "topic": "{{нет|net}} and the genitive case: {{-а|-a}}, {{-я|-ya}}, {{-ы|-y}}, {{-и|-i}}; {{у бра́та|u bráta}}",
+      "blocks": [
+        {"goal":{"t":"Извини́те, у меня́ нет вре́мени.","r":"Izviníte, u menyá net vrémeni.","tr":"Sorry, I don't have time."}},
+        {"dialog":[{"who":"You","t":"Здра́вствуйте! Мо́жно Ива́на Петро́вича?","r":"Zdrástvuyte! Mózhno Ivána Petróvicha?","tr":"Hello! May I speak to Ivan Petrovich?"},{"who":"Secretary","t":"Его́ сейча́с нет.","r":"Yevó seychás net.","tr":"He isn't in right now."},{"who":"You","t":"А где он?","r":"A gde on?","tr":"Where is he?"},{"who":"Secretary","t":"На встре́че. А у вас есть его́ но́мер?","r":"Na vstréche. A u vas yest' yevó nómer?","tr":"In a meeting. Do you have his number?"},{"who":"You","t":"Нет, у меня́ нет его́ но́мера.","r":"Net, u menyá net yevó nómera.","tr":"No, I don't have his number."},{"who":"Secretary","t":"Тогда́ позвони́те, пожа́луйста, по́сле обе́да.","r":"Togdá pozvoníte, pozháluysta, pósle obéda.","tr":"Then please call after lunch."}]},
+        {"p":"{{нет|net}} isn't only “no”. It also means “there isn't, there's no”: {{Здесь нет ба́нка.|Zdes' net bánka.}} “There's no bank here.” And the thing that isn't there takes a new case, the **genitive**: {{банк|bank}} → {{ба́нка|bánka}}."},
+        {"term":"genitive case","means":"the case for what isn't there ({{нет вре́мени|net vrémeni}} “no time”), for “of” ({{ча́шка ча́я|cháshka cháya}} “a cup of tea”), for amounts and for “from”. After {{у|u}} it names the owner."},
+        { "table": [
+          ["","there is","there isn't"],
+          ["masculine: add {{-а|-a}} ({{-я|-ya}} after {{-й|-y}}, {{-ь|-'}})","{{Есть банк.|Yest' bank.}}","{{Нет ба́нка.|Net bánka.}}"],
+          ["neuter: {{-о|-o}} → {{-а|-a}}","{{Есть молоко́.|Yest' molokó.}}","{{Нет молока́.|Net moloká.}}"],
+          ["feminine: {{-а|-a}} → {{-ы|-y}} ({{-и|-i}} after {{к|k}}, {{г|g}}, {{х|kh}}…)","{{Есть вода́.|Yest' vodá.}} {{Есть кни́га.|Yest' kníga.}}","{{Нет воды́.|Net vodý.}} {{Нет кни́ги.|Net knígi.}}"],
+          ["feminine: {{-я|-ya}}, {{-ь|-'}} → {{-и|-i}}","{{Есть ку́хня.|Yest' kúkhnya.}}","{{Нет ку́хни.|Net kúkhni.}}"]
+        ] },
+        {"p":"**I don't have.** {{У меня́ есть|U menyá yest'}} becomes {{У меня́ нет|U menyá net}} and the genitive: {{У меня́ нет маши́ны.|U menyá net mashíny.}} “I don't have a car.” The everyday word {{вре́мя|vrémya}} “time” is irregular: {{нет вре́мени|net vrémeni}}."},
+        {"p":"**Someone isn't here.** For a person, it's {{нет|net}} and the person in the genitive: {{Его́ нет.|Yevó net.}} “He isn't here, he isn't in.” {{Ма́мы нет до́ма.|Mámy net dóma.}} “Mom isn't home.” The pronouns look like the accusative ones: {{меня́|menyá}}, {{тебя́|tebyá}}, {{его́|yevó}}, {{её|yeyó}}, {{нас|nas}}, {{вас|vas}}, {{их|ikh}}."},
+        {"p":"**Who has it.** The same genitive comes after {{у|u}} with nouns and names: {{У бра́та есть маши́на.|U bráta yest' mashína.}} “My brother has a car.” {{У А́нны нет вре́мени.|U Ánny net vrémeni.}} “Anna has no time.”"},
+        { "ex": [
+          {"t":"У меня́ нет бра́та, но есть сестра́.","r":"U menyá net bráta, no yest' sestrá.","tr":"I don't have a brother, but I have a sister."},
+          {"t":"В холоди́льнике нет молока́.","r":"V kholodíl'nike net moloká.","tr":"There's no milk in the fridge."},
+          {"t":"Па́пы нет до́ма.","r":"Pápy net dóma.","tr":"Dad isn't home."},
+          {"t":"У А́нны нет маши́ны.","r":"U Ánny net mashíny.","tr":"Anna doesn't have a car."},
+          {"t":"Извини́те, у нас нет сда́чи.","r":"Izviníte, u nas net sdáchi.","tr":"Sorry, we don't have change."}
+        ] },
+        {"tip":"In the past, {{нет|net}} becomes {{не́ было|né bylo}}, whatever the thing: {{Вчера́ у меня́ не́ было вре́мени.|Vcherá u menyá né bylo vrémeni.}} “Yesterday I had no time.”"}
+      ],
+      "mistakes": [
+        {"wrong":"У меня́ нет маши́на.","right":"У меня́ нет маши́ны.","tr":"I don't have a car.","why":"After {{нет|net}}: the genitive."},
+        {"wrong":"У меня́ не есть вре́мени.","right":"У меня́ нет вре́мени.","tr":"I don't have time.","why":"“There isn't” is one word: {{нет|net}}."},
+        {"wrong":"Он нет до́ма.","right":"Его́ нет до́ма.","tr":"He isn't home.","why":"Someone who isn't there is in the genitive after {{нет|net}}: {{его́|yevó}}, {{А́нны|Ánny}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"У меня́ нет ___.","tr":"I don't have a car.","options":["маши́ны","маши́на","маши́ну"],"answer":0,"why":"After {{нет|net}}, the genitive: {{-а|-a}} → {{-ы|-y}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Здесь нет ___.","tr":"There's no bank here.","options":["ба́нка","банк","ба́нке"],"answer":0,"why":"After {{нет|net}}: masculine adds {{-а|-a}}."},
+        {"type":"choice","q":"How do you say “He isn't home”?","options":["{{Его́ нет до́ма.|Yevó net dóma.}}","{{Он нет до́ма.|On net dóma.}}","{{У него́ нет до́ма.|U nevó net dóma.}}"],"answer":0,"why":"{{Его́ нет до́ма|Yevó net dóma}}: he isn't at home. {{У него́ нет до́ма|U nevó net dóma}} would mean he has no house!"},
+        {"type":"dialogue","q":"In a small shop: choose your replies.","from":"say-what-you-have","lines":[{"who":"Seller","t":"Что вы хоти́те?","r":"Shto vy khotíte?","tr":"What would you like?"},{"options":["У вас есть молоко́?","У вас есть молока́?"],"answer":0,"why":"With {{есть|yest'}}: the nominative."},{"who":"Seller","t":"Извини́те, молока́ нет.","r":"Izviníte, moloká net.","tr":"Sorry, we're out of milk."},{"options":["А кефи́р есть?","А кефи́ра есть?"],"answer":0,"why":"{{есть|yest'}} takes the nominative; {{нет|net}} takes the genitive."},{"who":"Seller","t":"Кефи́р есть.","r":"Kefír yest'.","tr":"We do have kefir."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Yesterday I had no time.","words":["Вчера́","у меня́","не́ было","вре́мени."],"from":"say-what-you-did"},
+        {"type":"say","q":"Say: “Sorry, I don't have time.”","answer":"Извини́те, у меня́ нет вре́мени.","r":"Izviníte, u menyá net vrémeni."},
+        {"type":"free","q":"Your turn: say what you don't have, or what there isn't in your town, and what there is instead. Use {{У меня́ нет…|U menyá net…}} or {{Здесь нет…|Zdes' net…}}, then {{но есть…|no yest'…}}","answers":[{"t":"У меня́ нет маши́ны, но есть велосипе́д.","r":"U menyá net mashíny, no yest' velosipéd.","tr":"I don't have a car, but I have a bike."},{"t":"Здесь нет метро́, но есть большо́й парк.","r":"Zdes' net metró, no yest' bol'shóy park.","tr":"There's no subway here, but there's a big park."}]}
+      ]
+    },
+    {
+      "id": "ask-the-price",
+      "unit": 3,
+      "level": "A1",
+      "title": "Ask what things cost",
+      "summary": "Count, ask “How much is it?” and understand prices: one ruble, two rubles, five rubles.",
+      "topic": "Numbers; {{Ско́лько сто́ит?|Skól'ko stóit?}}; {{рубль|rubl'}}, {{рубля́|rublyá}}, {{рубле́й|rubléy}} after 1, 2–4 and 5+",
+      "blocks": [
+        {"goal":{"t":"Ско́лько сто́ит э́та футбо́лка? — Пятьсо́т рубле́й.","r":"Skól'ko stóit éta futbólka? — Pyat'sót rubléy.","tr":"How much is this T-shirt? — Five hundred rubles."}},
+        {"dialog":[{"who":"You","t":"Ско́лько сто́ят я́блоки?","r":"Skól'ko stóyat yábloki?","tr":"How much are the apples?"},{"who":"Seller","t":"Сто два́дцать рубле́й килогра́мм.","r":"Sto dvádtsat' rubléy kilográmm.","tr":"A hundred and twenty rubles a kilo."},{"who":"You","t":"А помидо́ры?","r":"A pomidóry?","tr":"And the tomatoes?"},{"who":"Seller","t":"Две́сти рубле́й.","r":"Dvésti rubléy.","tr":"Two hundred rubles."},{"who":"You","t":"Хорошо́, я беру́ я́блоки.","r":"Khoroshó, ya berú yábloki.","tr":"OK, I'll take the apples."},{"who":"Seller","t":"С вас сто два́дцать рубле́й.","r":"S vas sto dvádtsat' rubléy.","tr":"That's a hundred and twenty rubles."}]},
+        {"p":"**Numbers.** Learn 1 to 10 first; the rest are built from them."},
+        { "table": [
+          ["","Russian","","Russian"],
+          ["1","{{оди́н|odín}}","10","{{де́сять|désyat'}}"],
+          ["2","{{два|dva}}","20","{{два́дцать|dvádtsat'}}"],
+          ["3","{{три|tri}}","30","{{три́дцать|trídtsat'}}"],
+          ["4","{{четы́ре|chetýre}}","40","{{со́рок|sórok}}"],
+          ["5","{{пять|pyat'}}","50","{{пятьдеся́т|pyat'desyát}}"],
+          ["6","{{шесть|shest'}}","100","{{сто|sto}}"],
+          ["7","{{семь|sem'}}","200","{{две́сти|dvésti}}"],
+          ["8","{{во́семь|vósem'}}","500","{{пятьсо́т|pyat'sót}}"],
+          ["9","{{де́вять|dévyat'}}","1000","{{ты́сяча|týsyacha}}"]
+        ] },
+        {"p":"Bigger numbers are put side by side: {{два́дцать оди́н|dvádtsat' odín}} (21), {{сто пятьдеся́т|sto pyat'desyát}} (150), {{ты́сяча две́сти|týsyacha dvésti}} (1,200). From 11 to 19 they end in {{-на́дцать|-nádtsat'}}: {{оди́ннадцать|odínnadtsat'}}, {{двена́дцать|dvenádtsat'}}, {{пятна́дцать|pyatnádtsat'}}. One and two agree with their noun: {{оди́н рубль|odín rubl'}} but {{одна́ ты́сяча|odná týsyacha}}; {{два рубля́|dva rublyá}} but {{две ты́сячи|dve týsyachi}}."},
+        {"p":"**How much?** {{Ско́лько сто́ит…?|Skól'ko stóit…?}} “How much does … cost?” for one thing, {{Ско́лько сто́ят…?|Skól'ko stóyat…?}} for several. To point at it, {{э́тот|étot}}, {{э́та|éta}}, {{э́то|éto}}, {{э́ти|éti}} “this, these” agree like adjectives: {{э́та футбо́лка|éta futbólka}}, {{э́ти я́блоки|éti yábloki}}."},
+        {"p":"**The noun after a number.** Here is a Russian surprise: the noun changes with the number. After 1 (and 21, 31…): the nominative, {{оди́н рубль|odín rubl'}}. After 2, 3, 4 (and 22, 33…): the genitive singular you met with {{нет|net}}, {{два рубля́|dva rublyá}}. After 5 to 20, and after round tens and hundreds: the genitive plural, {{пять рубле́й|pyat' rubléy}}. For now, learn the three forms of the words you need most; a later lesson shows how to make them."},
+        { "table": [
+          ["","1, 21, 31…","2–4, 22–24…","5–20, 25–30…"],
+          ["ruble","{{рубль|rubl'}}","{{рубля́|rublyá}}","{{рубле́й|rubléy}}"],
+          ["dollar","{{до́ллар|dóllar}}","{{до́ллара|dóllara}}","{{до́лларов|dóllarov}}"],
+          ["year (of age)","{{год|god}}","{{го́да|góda}}","{{лет|let}}"],
+          ["hour","{{час|chas}}","{{часа́|chasá}}","{{часо́в|chasóv}}"]
+        ] },
+        { "ex": [
+          {"t":"Ско́лько сто́ит биле́т? — Три́ста рубле́й.","r":"Skól'ko stóit bilét? — Trísta rubléy.","tr":"How much is a ticket? — Three hundred rubles."},
+          {"t":"Э́то сто́ит два до́ллара.","r":"Éto stóit dva dóllara.","tr":"It costs two dollars."},
+          {"t":"Ко́фе сто́ит сто пятьдеся́т рубле́й.","r":"Kófe stóit sto pyat'desyát rubléy.","tr":"The coffee is a hundred and fifty rubles."},
+          {"t":"Э́то до́рого!","r":"Éto dórogo!","tr":"That's expensive!"},
+          {"t":"А подеше́вле есть?","r":"A podeshévle yest'?","tr":"Do you have anything cheaper?"},
+          {"t":"Оди́н биле́т, пожа́луйста.","r":"Odín bilét, pozháluysta.","tr":"One ticket, please."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Пять рубля́.","right":"Пять рубле́й.","tr":"Five rubles.","why":"From 5 up: {{рубле́й|rubléy}}. {{рубля́|rublyá}} is for 2, 3 and 4."},
+        {"wrong":"Ско́лько сто́ит я́блоки?","right":"Ско́лько сто́ят я́блоки?","tr":"How much are the apples?","why":"Several things: {{сто́ят|stóyat}}."},
+        {"wrong":"Два ты́сячи.","right":"Две ты́сячи.","tr":"Two thousand.","why":"{{ты́сяча|týsyacha}} is feminine: {{две|dve}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Э́то сто́ит три ___.","tr":"It costs three rubles.","options":["рубля́","рубле́й","рубль"],"answer":0,"why":"After 2, 3, 4: {{рубля́|rublyá}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Биле́т сто́ит пятьсо́т ___.","tr":"The ticket costs five hundred rubles.","options":["рубле́й","рубля́","рубль"],"answer":0,"why":"After a round hundred: {{рубле́й|rubléy}}."},
+        {"type":"choice","q":"“21 rubles” is…","options":["{{два́дцать оди́н рубль|dvádtsat' odín rubl'}}","{{два́дцать оди́н рубле́й|dvádtsat' odín rubléy}}","{{два́дцать оди́н рубля́|dvádtsat' odín rublyá}}"],"answer":0,"why":"The last number decides: {{оди́н|odín}}, so {{рубль|rubl'}}."},
+        {"type":"dialogue","q":"At the market: choose your replies.","from":"ask-for-things","lines":[{"who":"Seller","t":"Что вы хоти́те?","r":"Shto vy khotíte?","tr":"What would you like?"},{"options":["Ско́лько сто́ят помидо́ры?","Ско́лько сто́ит помидо́ры?"],"answer":0,"why":"Tomatoes are several: {{сто́ят|stóyat}}."},{"who":"Seller","t":"Две́сти рубле́й килогра́мм.","r":"Dvésti rubléy kilográmm.","tr":"Two hundred rubles a kilo."},{"options":["Хорошо́. Мо́жно килогра́мм?","Хорошо́. Мо́жно килогра́мма?"],"answer":0,"why":"What you ask for is in the accusative: masculine {{килогра́мм|kilográmm}} doesn't change."},{"who":"Seller","t":"Пожа́луйста. С вас две́сти рубле́й.","r":"Pozháluysta. S vas dvésti rubléy.","tr":"Here you go. That's two hundred rubles."}]},
+        {"type":"order","q":"Put the words in order.","tr":"How much is this T-shirt?","words":["Ско́лько","сто́ит","э́та","футбо́лка?"]},
+        {"type":"say","q":"Ask: “How much is the coffee?”","answer":"Ско́лько сто́ит ко́фе?","r":"Skól'ko stóit kófe?"},
+        {"type":"free","q":"Your turn: ask the price of something and say what you think: {{Э́то до́рого!|Éto dórogo!}} or {{Э́то недо́рого.|Éto nedórogo.}}","answers":[{"t":"Ско́лько сто́ит э́та су́мка? Три ты́сячи? Э́то до́рого!","r":"Skól'ko stóit éta súmka? Tri týsyachi? Éto dórogo!","tr":"How much is this bag? Three thousand? That's expensive!"},{"t":"Ско́лько сто́ят биле́ты? Пятьсо́т рубле́й? Э́то недо́рого.","r":"Skól'ko stóyat biléty? Pyat'sót rubléy? Éto nedórogo.","tr":"How much are the tickets? Five hundred rubles? That's not expensive."}]}
+      ]
+    },
+    {
+      "id": "your-family-and-age",
+      "unit": 3,
+      "level": "A1",
+      "title": "Talk about your family and your age",
+      "summary": "Say who's in your family and how old everyone is, and ask about someone else's family.",
+      "topic": "{{Мне два́дцать лет|Mne dvádtsat' let}}: {{мне|mne}}, {{тебе́|tebé}}, {{ему́|yemú}}, {{ей|yey}}… as set phrases; {{год|god}}, {{го́да|góda}}, {{лет|let}}",
+      "blocks": [
+        {"goal":{"t":"Мне три́дцать лет. У меня́ есть брат и сестра́.","r":"Mne trídtsat' let. U menyá yest' brat i sestrá.","tr":"I'm thirty. I have a brother and a sister."}},
+        {"dialog":[{"who":"Vera","t":"У тебя́ больша́я семья́?","r":"U tebyá bol'sháya sem'yá?","tr":"Do you have a big family?"},{"who":"Jack","t":"Нет, ма́ленькая. У меня́ есть ста́рший брат.","r":"Net, málen'kaya. U menyá yest' stárshiy brat.","tr":"No, a small one. I have an older brother."},{"who":"Vera","t":"Ско́лько ему́ лет?","r":"Skól'ko yemú let?","tr":"How old is he?"},{"who":"Jack","t":"Ему́ три́дцать два го́да. А тебе́ ско́лько лет?","r":"Yemú trídtsat' dva góda. A tebé skól'ko let?","tr":"He's thirty-two. And how old are you?"},{"who":"Vera","t":"Мне два́дцать пять. А у меня́ есть сестра́, ей де́сять лет.","r":"Mne dvádtsat' pyat'. A u menyá yest' sestrá, yey désyat' let.","tr":"I'm twenty-five. And I have a sister, she's ten."},{"who":"Jack","t":"Ой, кака́я ма́ленькая!","r":"Oy, kakáya málen'kaya!","tr":"Oh, she's so little!"}]},
+        {"p":"To say your age, Russian says “To me thirty years”: {{Мне три́дцать лет.|Mne trídtsat' let.}} There's no “am”, and the person takes a new form, {{мне|mne}} “to me”. Learn these forms with the phrase for now: they belong to the dative case, which gets its own lesson later."},
+        { "table": [
+          ["","“to…”","for example"],
+          ["I","{{мне|mne}}","{{Мне два́дцать лет.|Mne dvádtsat' let.}}"],
+          ["you","{{тебе́|tebé}}","{{Ско́лько тебе́ лет?|Skól'ko tebé let?}}"],
+          ["he","{{ему́|yemú}}","{{Ему́ пять лет.|Yemú pyat' let.}}"],
+          ["she","{{ей|yey}}","{{Ей три го́да.|Yey tri góda.}}"],
+          ["we","{{нам|nam}}","{{Нам по два́дцать лет.|Nam po dvádtsat' let.}}"],
+          ["you (polite)","{{вам|vam}}","{{Ско́лько вам лет?|Skól'ko vam let?}}"],
+          ["they","{{им|im}}","{{Им со́рок лет.|Im sórok let.}}"]
+        ] },
+        {"p":"**Year, years.** {{год|god}} follows the number rule from the last lesson, with one twist: after 5 it becomes a different word, {{лет|let}}. So: {{Мне два́дцать оди́н год.|Mne dvádtsat' odín god.}} {{Мне два́дцать два го́да.|Mne dvádtsat' dva góda.}} {{Мне два́дцать пять лет.|Mne dvádtsat' pyat' let.}} ({{Нам по два́дцать лет|Nam po dvádtsat' let}}: {{по|po}} means “each”.)"},
+        {"p":"**Family.** {{ма́ма|máma}} and {{па́па|pápa}} (or, more formally, {{мать|mat'}} and {{оте́ц|otéts}}), {{роди́тели|rodíteli}} “parents”, {{брат|brat}}, {{сестра́|sestrá}}, {{сын|syn}} “son”, {{дочь|doch'}} “daughter”, {{де́ти|déti}} “children”, {{муж|muzh}} “husband”, {{жена́|zhená}} “wife”, {{ба́бушка|bábushka}} and {{де́душка|dédushka}}. Brothers and sisters can be {{ста́рший|stárshiy}} “older” or {{мла́дший|mládshiy}} “younger”."},
+        {"p":"**Someone else's family.** “His”, “her” and “their” are {{его́|yevó}}, {{её|yeyó}} and {{их|ikh}}, and they never change: {{его́ жена́|yevó zhená}}, {{её брат|yeyó brat}}, {{их де́ти|ikh déti}}."},
+        { "ex": [
+          {"t":"Ско́лько вам лет? — Мне со́рок оди́н год.","r":"Skól'ko vam let? — Mne sórok odín god.","tr":"How old are you? — I'm forty-one."},
+          {"t":"У меня́ есть сын и дочь.","r":"U menyá yest' syn i doch'.","tr":"I have a son and a daughter."},
+          {"t":"Её муж — врач.","r":"Yeyó muzh — vrach.","tr":"Her husband is a doctor."},
+          {"t":"У него́ есть де́ти? — Да, два сы́на.","r":"U nevó yest' déti? — Da, dva sýna.","tr":"Does he have children? — Yes, two sons.","note":"after 2: the genitive {{сы́на|sýna}}"},
+          {"t":"Мой мла́дший брат ещё студе́нт.","r":"Moy mládshiy brat yeshchó studént.","tr":"My younger brother is still a student."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я три́дцать лет.","right":"Мне три́дцать лет.","tr":"I'm thirty.","why":"Age is {{мне|mne}} and the number: “to me thirty years”."},
+        {"wrong":"Мне два́дцать пять го́да.","right":"Мне два́дцать пять лет.","tr":"I'm twenty-five.","why":"After 5 to 20 (and 25…): {{лет|let}}. {{го́да|góda}} goes after 2, 3, 4."},
+        {"wrong":"Как ста́рый ты?","right":"Ско́лько тебе́ лет?","tr":"How old are you?","why":"Ask “how many years to you”: {{Ско́лько тебе́ лет?|Skól'ko tebé let?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ два́дцать лет.","tr":"I'm twenty.","options":["Мне","Я","Меня́"],"answer":0,"why":"Age: {{мне|mne}} “to me”."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ему́ три ___.","tr":"He's three.","options":["го́да","лет","год"],"answer":0,"why":"After 3: {{го́да|góda}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ей со́рок пять ___.","tr":"She's forty-five.","options":["лет","го́да","год"],"answer":0,"why":"After 5: {{лет|let}}."},
+        {"type":"choice","q":"How do you politely ask a new colleague how old they are?","options":["{{Ско́лько вам лет?|Skól'ko vam let?}}","{{Ско́лько тебе́ лет?|Skól'ko tebé let?}}","{{Ско́лько вы лет?|Skól'ko vy let?}}"],"answer":0,"why":"Polite “to you”: {{вам|vam}}."},
+        {"type":"dialogue","q":"A friend asks about your family. Choose your replies.","from":"say-what-you-have","lines":[{"who":"Friend","t":"У тебя́ есть бра́тья и́ли сёстры?","r":"U tebyá yest' brát'ya íli syóstry?","tr":"Do you have brothers or sisters?"},{"options":["Да, у меня́ есть сестра́.","Да, я име́ю сестру́."],"answer":0,"why":"“I have”: {{у меня́ есть|u menyá yest'}}."},{"who":"Friend","t":"Ско́лько ей лет?","r":"Skól'ko yey let?","tr":"How old is she?"},{"options":["Ей восемна́дцать лет.","Она́ восемна́дцать лет."],"answer":0,"why":"Age: {{ей|yey}} “to her”."},{"who":"Friend","t":"О, она́ ещё молода́я!","r":"O, oná yeshchó molodáya!","tr":"Oh, she's still young!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"His name is Pavel, he's thirty.","words":["Его́","зову́т","Па́вел,","ему́","три́дцать","лет."],"from":"people-you-know"},
+        {"type":"free","q":"Your turn: tell someone about your family: who's in it and how old they are. Use {{У меня́ есть…|U menyá yest'…}} and {{Ему́ / Ей… лет.|Yemú / Yey… let.}}","answers":[{"t":"У меня́ есть брат. Его́ зову́т Том, ему́ два́дцать два го́да.","r":"U menyá yest' brat. Yevó zovút Tom, yemú dvádtsat' dva góda.","tr":"I have a brother. His name is Tom, he's twenty-two."},{"t":"У меня́ есть дочь. Ей пять лет.","r":"U menyá yest' doch'. Yey pyat' let.","tr":"I have a daughter. She's five."}]}
+      ]
+    },
+    {
+      "id": "tell-the-time",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what time and which day",
+      "summary": "Ask the time, say when things happen, and make plans for a day of the week: “On Saturday at seven.”",
+      "topic": "{{Кото́рый час?|Kotóryy chas?}}; {{в|v}} + time ({{в два часа́|v dva chasá}}); {{в|v}} + day ({{в сре́ду|v srédu}}); {{у́тром|útrom}}, {{ве́чером|vécherom}}",
+      "blocks": [
+        {"goal":{"t":"Конце́рт в суббо́ту в семь часо́в ве́чера.","r":"Kontsért v subbótu v sem' chasóv véchera.","tr":"The concert is on Saturday at seven in the evening."}},
+        {"dialog":[{"who":"Anya","t":"Что ты де́лаешь в суббо́ту?","r":"Shto ty délayesh' v subbótu?","tr":"What are you doing on Saturday?"},{"who":"Liza","t":"Ничего́. А что?","r":"Nichevó. A shto?","tr":"Nothing. Why?"},{"who":"Anya","t":"В суббо́ту конце́рт в па́рке. Хо́чешь?","r":"V subbótu kontsért v párke. Khóchesh'?","tr":"There's a concert in the park on Saturday. Want to come?"},{"who":"Liza","t":"Хочу́! Во ско́лько?","r":"Khochú! Vo skól'ko?","tr":"Yes! What time?"},{"who":"Anya","t":"В семь часо́в ве́чера.","r":"V sem' chasóv véchera.","tr":"At seven in the evening."},{"who":"Liza","t":"Отли́чно! Ой, а сейча́с кото́рый час? Я опа́здываю!","r":"Otlíchno! Oy, a seychás kotóryy chas? Ya opázdyvayu!","tr":"Great! Oh, what time is it now? I'm late!"}]},
+        {"p":"**What time is it?** {{Кото́рый час?|Kotóryy chas?}} or, more casually, {{Ско́лько вре́мени?|Skól'ko vrémeni?}}. The answer is a number with {{час|chas}} “hour”, following the number rule: {{час|chas}} (one o'clock, with no number), {{два часа́|dva chasá}}, {{три часа́|tri chasá}}, {{пять часо́в|pyat' chasóv}}. Minutes are {{мину́ты|minúty}}: {{два часа́ два́дцать мину́т|dva chasá dvádtsat' minút}}, or simply {{два два́дцать|dva dvádtsat'}}."},
+        {"p":"**At what time?** {{в|v}} and the time: {{в два часа́|v dva chasá}} “at two”, {{в семь часо́в|v sem' chasóv}} “at seven”. You ask {{Во ско́лько?|Vo skól'ko?}} “At what time?”. To say which part of the day, add {{утра́|utrá}}, {{дня|dnya}} or {{ве́чера|véchera}}: {{в семь утра́|v sem' utrá}} “at 7 a.m.”, {{в семь ве́чера|v sem' véchera}} “at 7 p.m.”. Timetables use the 24-hour clock: {{в девятна́дцать часо́в|v devyatnádtsat' chasóv}}."},
+        {"p":"**On what day?** {{в|v}} and the day in the accusative (lesson 10), so only the days in {{-а|-a}} change: {{в сре́ду|v srédu}}, {{в пя́тницу|v pyátnitsu}}, {{в суббо́ту|v subbótu}}. Before {{вто́рник|vtórnik}}, {{в|v}} becomes {{во|vo}}, which is easier to say. Days are written with a small letter."},
+        { "table": [
+          ["day","Russian","on that day"],
+          ["Monday","{{понеде́льник|ponedél'nik}}","{{в понеде́льник|v ponedél'nik}}"],
+          ["Tuesday","{{вто́рник|vtórnik}}","{{во вто́рник|vo vtórnik}}"],
+          ["Wednesday","{{среда́|sredá}}","{{в сре́ду|v srédu}}"],
+          ["Thursday","{{четве́рг|chetvérg}}","{{в четве́рг|v chetvérg}}"],
+          ["Friday","{{пя́тница|pyátnitsa}}","{{в пя́тницу|v pyátnitsu}}"],
+          ["Saturday","{{суббо́та|subbóta}}","{{в суббо́ту|v subbótu}}"],
+          ["Sunday","{{воскресе́нье|voskresén'ye}}","{{в воскресе́нье|v voskresén'ye}}"]
+        ] },
+        {"p":"**Parts of the day** are single words with no preposition: {{у́тром|útrom}} “in the morning”, {{днём|dnyom}} “in the afternoon”, {{ве́чером|vécherom}} “in the evening”, {{но́чью|nóch'yu}} “at night”. With them: {{сего́дня|sevódnya}} “today”, {{за́втра|závtra}} “tomorrow”, {{вчера́|vcherá}} “yesterday”."},
+        { "ex": [
+          {"t":"Кото́рый час? — Два часа́.","r":"Kotóryy chas? — Dva chasá.","tr":"What time is it? — Two o'clock."},
+          {"t":"Уро́к в де́вять часо́в утра́.","r":"Urók v dévyat' chasóv utrá.","tr":"The class is at nine in the morning."},
+          {"t":"Во ско́лько ты встаёшь? — В семь.","r":"Vo skól'ko ty vstayósh'? — V sem'.","tr":"What time do you get up? — At seven.","note":"{{встава́ть|vstavát'}}: {{я встаю́|ya vstayú}}, {{ты встаёшь|ty vstayósh'}}"},
+          {"t":"В пя́тницу ве́чером я рабо́таю.","r":"V pyátnitsu vécherom ya rabótayu.","tr":"On Friday evening I'm working."},
+          {"t":"Мы ви́дели его́ во вто́рник.","r":"My vídeli yevó vo vtórnik.","tr":"We saw him on Tuesday."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"В пя́тница.","right":"В пя́тницу.","tr":"On Friday.","why":"On a day: {{в|v}} and the accusative, {{-а|-a}} → {{-у|-u}}."},
+        {"wrong":"В пять часа́.","right":"В пять часо́в.","tr":"At five.","why":"After 5: {{часо́в|chasóv}}."},
+        {"wrong":"Я рабо́таю в у́тром.","right":"Я рабо́таю у́тром.","tr":"I work in the morning.","why":"{{у́тром|útrom}} already means “in the morning”: no {{в|v}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Конце́рт в ___.","tr":"The concert is on Wednesday.","options":["сре́ду","среда́","среде́"],"answer":0,"why":"On a day: the accusative, {{среда́|sredá}} → {{сре́ду|srédu}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Я рабо́таю ___ вто́рник.","tr":"I work on Tuesday.","options":["во","в","на"],"answer":0,"why":"Before {{вто́рник|vtórnik}}: {{во|vo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Встре́ча в три ___.","tr":"The meeting is at three.","options":["часа́","часо́в","час"],"answer":0,"why":"After 3: {{часа́|chasá}}."},
+        {"type":"dialogue","q":"A friend invites you out. Choose your replies.","from":"ask-the-price","lines":[{"who":"Friend","t":"Пойдём в кино́ в суббо́ту?","r":"Poydyóm v kinó v subbótu?","tr":"Shall we go to the movies on Saturday?"},{"options":["Дава́й! Во ско́лько?","Дава́й! В ско́лько час?"],"answer":0,"why":"“At what time?” is {{Во ско́лько?|Vo skól'ko?}}"},{"who":"Friend","t":"В во́семь ве́чера.","r":"V vósem' véchera.","tr":"At eight p.m."},{"options":["Отли́чно! А ско́лько сто́ят биле́ты?","Отли́чно! А ско́лько сто́ит биле́ты?"],"answer":0,"why":"Several tickets: {{сто́ят|stóyat}}."},{"who":"Friend","t":"Три́ста рубле́й.","r":"Trísta rubléy.","tr":"Three hundred rubles."}]},
+        {"type":"order","q":"Put the words in order.","tr":"On Sunday morning I rest.","words":["В","воскресе́нье","у́тром","я","отдыха́ю."],"from":"say-what-you-do"},
+        {"type":"say","q":"Ask: “What time is it?”","answer":"Кото́рый час?","r":"Kotóryy chas?"},
+        {"type":"free","q":"Your turn: say what you do on two days of the week, and at what time. Use {{в|v}} with a day and {{в|v}} with a time.","answers":[{"t":"В понеде́льник я рабо́таю, а в семь часо́в ве́чера у меня́ йо́га.","r":"V ponedél'nik ya rabótayu, a v sem' chasóv véchera u menyá yóga.","tr":"On Monday I work, and at seven in the evening I have yoga."},{"t":"В суббо́ту у́тром я гуля́ю в па́рке, а в воскресе́нье отдыха́ю до́ма.","r":"V subbótu útrom ya gulyáyu v párke, a v voskresén'ye otdykháyu dóma.","tr":"On Saturday morning I go for a walk in the park, and on Sunday I relax at home."}]}
+      ]
     }
   ]
 }
