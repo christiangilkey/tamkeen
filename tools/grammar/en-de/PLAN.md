@@ -54,7 +54,7 @@ strangers from the first lesson. 48 lessons in 9 units: 20 A1, 19 A2, 9 B1.
 | 20 | tell-someone-what-to-do | Tell someone what to do | the command with *du* and *ihr*; *doch, mal, bitte* | A1 |
 | **5** | | **Telling what happened** | | |
 | 21 | say-what-you-did | Say what you did | Perfekt: *haben* + *ge-…-t* | A2 |
-| 22 | talk-about-your-weekend | Talk about your weekend | participles in *-en* (*gegessen, gesehen*) | A2 |
+| 22 | talk-about-an-evening-out | Talk about an evening out | participles in *-en* (*gegessen, gesehen*) | A2 |
 | 23 | say-where-you-went | Say where you went | Perfekt with *sein* (*gefahren, gekommen, geblieben*) | A2 |
 | 24 | tell-about-your-day | Tell someone about your day | participles of separable verbs and of *be-, ver-, -ieren* verbs | A2 |
 | 25 | say-how-it-was | Say how it was | *war, hatte*; *konnte, musste, wollte* | A2 |

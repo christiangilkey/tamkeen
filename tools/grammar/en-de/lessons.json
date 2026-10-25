@@ -991,6 +991,250 @@
         {"type":"say","q":"Tell a friend: “Wait a second!”","answer":"Warte mal!"},
         {"type":"free","q":"Your turn: a friend is visiting your city for the first time. Give them two tips with the {{du}} command.","answers":[{"t":"Nimm die U-Bahn, sie ist schnell. Und iss unbedingt eine Currywurst!","tr":"Take the subway, it's fast. And be sure to eat a currywurst!"},{"t":"Geh in den Park und besuch das Museum!","tr":"Go to the park and visit the museum!"}]}
       ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you did",
+      "summary": "Say what you did yesterday or last weekend: “On the weekend I played soccer and cooked.”",
+      "topic": "The Perfekt: {{haben}} + a participle {{ge-…-t}} ({{gespielt}}, {{gekauft}}, {{gearbeitet}})",
+      "blocks": [
+        {"goal":{"t":"Am Wochenende habe ich Fußball gespielt und gekocht.","tr":"On the weekend I played soccer and cooked."}},
+        {"dialog":[{"who":"Colleague","t":"Na, was hast du am Wochenende gemacht?","tr":"So, what did you do on the weekend?"},{"who":"Jan","t":"Nicht viel. Am Samstag habe ich die Wohnung geputzt.","tr":"Not much. On Saturday I cleaned the apartment."},{"who":"Colleague","t":"Und am Sonntag?","tr":"And on Sunday?"},{"who":"Jan","t":"Da habe ich mit Freunden gekocht. Wir haben lange geredet.","tr":"Then I cooked with friends. We talked for a long time."},{"who":"Colleague","t":"Schön! Ich habe nur gearbeitet.","tr":"Nice! I just worked."}]},
+        {"term":"participle","means":"the form of a verb used with {{haben}} or {{sein}} to talk about the past: {{gemacht}} “done, made”, {{gespielt}} “played”."},
+        {"term":"Perfekt","means":"the past tense Germans use in conversation: {{haben}} or {{sein}}, plus a participle: {{ich habe gespielt}} “I played, I have played”."},
+        {"p":"**The past in conversation.** When Germans talk about what happened, they almost always use the Perfekt: a form of {{haben}} in second place, and a participle at the very end. Another verb bracket: {{Ich habe Fußball gespielt.}}, word for word “I have soccer played.”"},
+        {"p":"**One form, two English meanings.** {{Ich habe gespielt}} is both “I played” and “I have played”, and it's fine with a time word: {{Gestern habe ich Tennis gespielt.}} “Yesterday I played tennis.”"},
+        {"p":"**Regular participles: ge- + stem + -t.** Take the infinitive, drop {{-en}}, put {{ge-}} in front and {{-t}} at the end: {{spielen}} → {{gespielt}}, {{machen}} → {{gemacht}}, {{kaufen}} → {{gekauft}}. If the stem ends in {{-t}} or {{-d}}, it's {{-et}}: {{arbeiten}} → {{gearbeitet}}."},
+        { "table": [
+          ["infinitive","participle","in a sentence"],
+          ["{{machen}}","{{gemacht}}","{{Was hast du gemacht?}}"],
+          ["{{kaufen}}","{{gekauft}}","{{Ich habe Brot gekauft.}}"],
+          ["{{kochen}}","{{gekocht}}","{{Wir haben Pasta gekocht.}}"],
+          ["{{hören}}","{{gehört}}","{{Hast du das gehört?}}"],
+          ["{{sagen}}","{{gesagt}}","{{Was hat er gesagt?}}"],
+          ["{{arbeiten}}","{{gearbeitet}}","{{Sie hat lange gearbeitet.}}"]
+        ] },
+        {"p":"**Questions and “not”** work as always: {{haben}} goes first in a yes/no question ({{Hast du Brot gekauft?}}) and after a question word ({{Was hast du gemacht?}}); {{nicht}} goes just before the participle ({{Ich habe nicht gearbeitet.}})."},
+        { "ex": [
+          {"t":"Gestern habe ich lange gearbeitet.","tr":"Yesterday I worked late."},
+          {"t":"Hast du die Tickets gekauft?","tr":"Did you buy the tickets?"},
+          {"t":"Wir haben im Urlaub viel gelacht.","tr":"We laughed a lot on vacation."},
+          {"t":"Was hat sie gesagt?","tr":"What did she say?"},
+          {"t":"Er hat zwei Jahre in Wien gewohnt.","tr":"He lived in Vienna for two years."},
+          {"t":"Ich habe das nicht gehört.","tr":"I didn't hear that."}
+        ] },
+        {"tip":"Time words for the past: {{gestern}} “yesterday”, {{vorgestern}} “the day before yesterday”, {{letzte Woche}} “last week”, {{am Wochenende}} “on the weekend”, {{vor zwei Tagen}} “two days ago”."}
+      ],
+      "mistakes": [
+        {"wrong":"Ich habe gespielt Fußball.","right":"Ich habe Fußball gespielt.","tr":"I played soccer.","why":"The participle goes to the very end."},
+        {"wrong":"Gestern ich habe gekocht.","right":"Gestern habe ich gekocht.","tr":"Yesterday I cooked.","why":"Verb second: after {{gestern}} comes {{habe}}, then {{ich}}."},
+        {"wrong":"Ich habe gearbeit.","right":"Ich habe gearbeitet.","tr":"I worked.","why":"A stem ending in {{-t}} takes {{-et}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Ich habe gestern Tennis gespielt.}} means…","options":["I played tennis yesterday.","I play tennis yesterday.","I want to play tennis."],"answer":0,"why":"{{habe}} + {{gespielt}}: the Perfekt, the past."},
+        {"type":"fill","q":"Choose the missing word.","t":"Was hast du am Wochenende ___?","tr":"What did you do on the weekend?","options":["gemacht","machen","gemachen"],"answer":0,"why":"{{machen}} → {{ge-mach-t}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wir ___ gestern lange gearbeitet.","tr":"We worked late yesterday.","options":["haben","hat","habt"],"answer":0,"why":"{{wir haben}}, and the participle at the end."},
+        {"type":"order","q":"Put the words in order.","tr":"Yesterday I bought bread.","words":["Gestern","habe","ich","Brot","gekauft."],"from":"say-when"},
+        {"type":"dialogue","q":"Monday morning: a colleague asks about your weekend.","lines":[{"who":"Colleague","t":"Was hast du am Wochenende gemacht?","tr":"What did you do on the weekend?"},{"options":["Ich habe viel gekocht und Musik gehört.","Ich habe viel gekocht und gehört Musik."],"answer":0,"why":"Each participle goes to the end of its part of the sentence."},{"who":"Colleague","t":"Schön! Und am Sonntag?","tr":"Nice! And on Sunday?"},{"options":["Am Sonntag habe ich nichts gemacht.","Am Sonntag ich habe nichts gemacht."],"answer":0,"why":"The time first, then the verb {{habe}}."}]},
+        {"type":"say","q":"Say: “My brother lived in Berlin for two years.”","answer":"Mein Bruder hat zwei Jahre in Berlin gewohnt.","from":"talk-about-your-family"},
+        {"type":"free","q":"Your turn: what did you do last weekend? Say two or three things with {{habe}} + {{ge-…-t}}.","answers":[{"t":"Am Samstag habe ich gearbeitet und am Sonntag habe ich gekocht.","tr":"On Saturday I worked and on Sunday I cooked."},{"t":"Ich habe Musik gehört und mit meiner Schwester Tennis gespielt.","tr":"I listened to music and played tennis with my sister."}]}
+      ]
+    },
+    {
+      "id": "talk-about-an-evening-out",
+      "unit": 5,
+      "level": "A2",
+      "title": "Talk about an evening out",
+      "summary": "Say where you ate, what you drank and what you saw: the commonest verbs have participles in -en.",
+      "topic": "Irregular participles in {{-en}}: {{gegessen}}, {{getrunken}}, {{gesehen}}, {{geschrieben}}",
+      "blocks": [
+        {"goal":{"t":"Gestern haben wir beim Italiener gegessen und einen Film gesehen.","tr":"Yesterday we ate at an Italian restaurant and saw a movie."}},
+        {"dialog":[{"who":"Lisa","t":"Was habt ihr gestern Abend gemacht?","tr":"What did you do last night?"},{"who":"Tom","t":"Wir haben beim Italiener gegessen.","tr":"We ate at an Italian restaurant."},{"who":"Lisa","t":"Lecker! Was hast du genommen?","tr":"Yummy! What did you have?"},{"who":"Tom","t":"Ich habe eine Pizza gegessen und Rotwein getrunken.","tr":"I had a pizza and drank red wine."},{"who":"Lisa","t":"Und danach?","tr":"And afterwards?"},{"who":"Tom","t":"Danach haben wir noch einen Film gesehen.","tr":"Afterwards we watched a movie too."}]},
+        {"p":"**The most common verbs have participles in -en**, often with a different vowel: {{essen}} → {{gegessen}}, {{trinken}} → {{getrunken}}, {{sehen}} → {{gesehen}}. They're the verbs you use most, so learn each one as you meet it; dictionaries list them."},
+        { "table": [
+          ["infinitive","participle","English"],
+          ["{{essen}}","{{gegessen}}","eaten"],
+          ["{{trinken}}","{{getrunken}}","drunk"],
+          ["{{sehen}}","{{gesehen}}","seen"],
+          ["{{lesen}}","{{gelesen}}","read"],
+          ["{{schreiben}}","{{geschrieben}}","written"],
+          ["{{nehmen}}","{{genommen}}","taken"],
+          ["{{finden}}","{{gefunden}}","found"],
+          ["{{schlafen}}","{{geschlafen}}","slept"],
+          ["{{sprechen}}","{{gesprochen}}","spoken"],
+          ["{{treffen}}","{{getroffen}}","met"]
+        ] },
+        {"p":"Patterns help: {{ei}} often becomes {{ie}} ({{schreiben}} → {{geschrieben}}), {{i}} often becomes {{u}} ({{trinken}} → {{getrunken}}, {{finden}} → {{gefunden}}), and some verbs keep their vowel ({{gegessen}}, {{gesehen}}, {{gelesen}}, {{geschlafen}}). Everything else stays the same: {{haben}} second, the participle at the end."},
+        { "ex": [
+          {"t":"Hast du schon gegessen?","tr":"Have you eaten yet?"},
+          {"t":"Ich habe deine Nachricht nicht gesehen.","tr":"I didn't see your message."},
+          {"t":"Wir haben im Urlaub viele Bücher gelesen.","tr":"We read lots of books on vacation."},
+          {"t":"Er hat mir eine E-Mail geschrieben.","tr":"He wrote me an email."},
+          {"t":"Ich habe schlecht geschlafen.","tr":"I slept badly."},
+          {"t":"Wie hast du das Hotel gefunden?","tr":"How did you like the hotel?","note":"{{finden}} also means “think of”: “How did you find the hotel?”"}
+        ] },
+        {"tip":"{{schon}} “already, yet” and {{noch nicht}} “not yet” go well with the Perfekt: {{Hast du schon gegessen? – Nein, noch nicht.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich habe eine Pizza geesst.","right":"Ich habe eine Pizza gegessen.","tr":"I had a pizza.","why":"{{essen}} has an irregular participle: {{gegessen}}."},
+        {"wrong":"Wir haben einen Film gesieht.","right":"Wir haben einen Film gesehen.","tr":"We saw a movie.","why":"{{sehen}} → {{gesehen}}: {{-en}}, not {{-t}}, and the vowel of the infinitive."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The participle of {{trinken}} is…","options":["{{getrunken}}","{{getrinkt}}","{{getranken}}"],"answer":0,"why":"{{i}} → {{u}}, and {{-en}}: {{getrunken}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Hast du den Film ___?","tr":"Have you seen the movie?","options":["gesehen","gesieht","sehen"],"answer":0,"why":"{{sehen}} → {{gesehen}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich habe gestern ein Buch ___.","tr":"I read a book yesterday.","options":["gelesen","geliest","gelest"],"answer":0,"why":"{{lesen}} → {{gelesen}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Have you eaten yet?","words":["Hast","du","schon","gegessen?"]},
+        {"type":"dialogue","q":"Tell a friend about last night.","from":"say-when","lines":[{"who":"Friend","t":"Wo habt ihr gegessen?","tr":"Where did you eat?"},{"options":["Wir haben beim Griechen gegessen.","Wir haben beim Griechen geesst."],"answer":0,"why":"{{essen}} → {{gegessen}}."},{"who":"Friend","t":"Und danach?","tr":"And afterwards?"},{"options":["Danach habe ich meinen Bruder getroffen.","Danach ich habe meinen Bruder getroffen."],"answer":0,"why":"{{danach}} is first, so {{habe}} comes next."}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich habe ___ Salat genommen.","tr":"I had a salad.","options":["einen","ein","eine"],"answer":0,"why":"{{der Salat}}: a masculine object, so {{einen}}.","from":"order-food-and-drinks"},
+        {"type":"free","q":"Your turn: tell someone about a recent evening: where you ate, what you had, or what you saw or read.","answers":[{"t":"Gestern habe ich zu Hause gegessen und ein Buch gelesen.","tr":"Yesterday I ate at home and read a book."},{"t":"Am Freitag haben wir Sushi gegessen und danach einen Film gesehen.","tr":"On Friday we had sushi and then saw a movie."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-went",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say where you went",
+      "summary": "Say where you went and how long you stayed: “We flew to Rome and stayed for a week.”",
+      "topic": "The Perfekt with {{sein}}: moving and changing ({{gefahren}}, {{gegangen}}, {{gekommen}}), and {{geblieben}}",
+      "blocks": [
+        {"goal":{"t":"Wir sind nach Rom geflogen und eine Woche geblieben.","tr":"We flew to Rome and stayed for a week."}},
+        {"dialog":[{"who":"Grandpa","t":"Wohin seid ihr im Urlaub gefahren?","tr":"Where did you go on vacation?"},{"who":"Sophie","t":"Wir sind nach Italien gefahren.","tr":"We went to Italy."},{"who":"Grandpa","t":"Mit dem Auto?","tr":"By car?"},{"who":"Sophie","t":"Nein, wir sind geflogen. Dann sind wir mit dem Zug nach Florenz gefahren.","tr":"No, we flew. Then we took the train to Florence."},{"who":"Grandpa","t":"Und wie lange seid ihr geblieben?","tr":"And how long did you stay?"},{"who":"Sophie","t":"Zwei Wochen. Und Paul ist jeden Tag im Meer geschwommen!","tr":"Two weeks. And Paul swam in the sea every day!"}]},
+        {"p":"**Some verbs use sein, not haben.** Verbs of **moving from one place to another** ({{gehen}}, {{fahren}}, {{fliegen}}, {{kommen}}) and of **changing state** ({{aufstehen}} “get up”, {{einschlafen}} “fall asleep”) make their Perfekt with {{sein}}: {{Ich bin nach Berlin gefahren.}} “I went to Berlin.” Two more take {{sein}} although nothing moves: {{bleiben}} “stay” ({{ich bin geblieben}}) and {{sein}} itself ({{ich bin gewesen}})."},
+        { "table": [
+          ["infinitive","Perfekt","English"],
+          ["{{gehen}}","{{ich bin gegangen}}","I went (on foot)"],
+          ["{{fahren}}","{{ich bin gefahren}}","I went, drove"],
+          ["{{fliegen}}","{{ich bin geflogen}}","I flew"],
+          ["{{kommen}}","{{ich bin gekommen}}","I came"],
+          ["{{laufen}}","{{ich bin gelaufen}}","I ran, walked"],
+          ["{{schwimmen}}","{{ich bin geschwommen}}","I swam"],
+          ["{{bleiben}}","{{ich bin geblieben}}","I stayed"],
+          ["{{passieren}}","{{es ist passiert}}","it happened"]
+        ] },
+        {"p":"**The rest is the same:** {{sein}} in second place, changing for the person ({{ich bin}}, {{du bist}}, {{wir sind}}…), the participle at the end. Almost all of these verbs have participles in {{-en}}."},
+        {"p":"A useful test: if you can ask “where to?”, or the verb means a change of state, it's probably {{sein}}. Everything else, including {{essen}}, {{schlafen}} and {{arbeiten}}, takes {{haben}}."},
+        { "ex": [
+          {"t":"Ich bin gestern ins Kino gegangen.","tr":"I went to the movies yesterday."},
+          {"t":"Wann bist du nach Hause gekommen?","tr":"When did you get home?"},
+          {"t":"Wir sind am Sonntag zu Hause geblieben.","tr":"We stayed home on Sunday."},
+          {"t":"Sie ist mit dem Zug nach Wien gefahren.","tr":"She took the train to Vienna."},
+          {"t":"Was ist passiert?","tr":"What happened?"},
+          {"t":"Bist du schon mal in Deutschland gewesen?","tr":"Have you ever been to Germany?"}
+        ] },
+        {"tip":"{{schon mal}} “ever, before” makes the classic question {{Bist du schon mal in … gewesen?}} “Have you ever been to …?”"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich habe nach Berlin gefahren.","right":"Ich bin nach Berlin gefahren.","tr":"I went to Berlin.","why":"Going from one place to another takes {{sein}}."},
+        {"wrong":"Wir haben zu Hause geblieben.","right":"Wir sind zu Hause geblieben.","tr":"We stayed home.","why":"{{bleiben}} takes {{sein}}, even though you don't move."},
+        {"wrong":"Was hat passiert?","right":"Was ist passiert?","tr":"What happened?","why":"{{passieren}} “happen” takes {{sein}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which verb takes {{sein}} in the Perfekt?","options":["{{fliegen}} “fly”","{{essen}} “eat”","{{kaufen}} “buy”"],"answer":0,"why":"Flying takes you from one place to another: {{ich bin geflogen}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wir ___ nach Rom geflogen.","tr":"We flew to Rome.","options":["sind","haben","seid"],"answer":0,"why":"Moving: {{sein}}, and with {{wir}} it's {{sind}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich ___ gestern lange geschlafen.","tr":"I slept late yesterday.","options":["habe","bin","hat"],"answer":0,"why":"Sleeping doesn't take you anywhere: {{haben}}.","from":"talk-about-an-evening-out"},
+        {"type":"fill","q":"Choose the missing word.","t":"Wann ___ du nach Hause gekommen?","tr":"When did you get home?","options":["bist","hast","ist"],"answer":0,"why":"{{kommen}} takes {{sein}}: {{du bist}}."},
+        {"type":"order","q":"Put the words in order.","tr":"On Sunday we stayed home.","words":["Am Sonntag","sind","wir","zu Hause","geblieben."],"from":"say-when"},
+        {"type":"dialogue","q":"Talk about your vacation.","lines":[{"who":"Friend","t":"Wohin bist du im Urlaub gefahren?","tr":"Where did you go on vacation?"},{"options":["Ich bin nach Spanien geflogen.","Ich habe nach Spanien geflogen."],"answer":0,"why":"{{fliegen}} takes {{sein}}."},{"who":"Friend","t":"Und was hast du dort gemacht?","tr":"And what did you do there?"},{"options":["Ich bin viel geschwommen und habe viel gegessen.","Ich habe viel geschwommen und bin viel gegessen."],"answer":0,"why":"Swimming moves you through the water: {{sein}}. Eating takes {{haben}}."}]},
+        {"type":"free","q":"Your turn: where did you go on your last trip, and how long did you stay? Use {{sein}}.","answers":[{"t":"Ich bin letztes Jahr nach Deutschland geflogen und drei Wochen geblieben.","tr":"Last year I flew to Germany and stayed three weeks."},{"t":"Wir sind im Sommer an die Ostsee gefahren und eine Woche geblieben.","tr":"In the summer we went to the Baltic Sea and stayed a week."}]}
+      ]
+    },
+    {
+      "id": "tell-about-your-day",
+      "unit": 5,
+      "level": "A2",
+      "title": "Tell someone about your day",
+      "summary": "Tell what you did today, with everyday verbs like get up, call, shop, visit and forget: “I got up early and called my mother.”",
+      "topic": "Participles of separable verbs ({{aufgestanden}}, {{angerufen}}) and of verbs without {{ge-}} ({{besucht}}, {{verstanden}}, {{telefoniert}})",
+      "blocks": [
+        {"goal":{"t":"Heute bin ich früh aufgestanden und habe meine Mutter angerufen.","tr":"Today I got up early and called my mother."}},
+        {"dialog":[{"who":"Partner","t":"Wie war dein Tag?","tr":"How was your day?"},{"who":"Kai","t":"Anstrengend! Ich bin um sechs aufgestanden.","tr":"Exhausting! I got up at six."},{"who":"Partner","t":"Oh je. Und dann?","tr":"Oh dear. And then?"},{"who":"Kai","t":"Ich habe den ganzen Tag telefoniert. Dann habe ich eingekauft und Oma besucht.","tr":"I was on the phone all day. Then I went shopping and visited Grandma."},{"who":"Partner","t":"Hast du auch den Arzt angerufen?","tr":"Did you call the doctor too?"},{"who":"Kai","t":"Oh nein, das habe ich vergessen!","tr":"Oh no, I forgot!"}]},
+        {"p":"**Separable verbs: ge- goes in the middle.** The front part stays in front, and {{ge}} goes between it and the rest: {{einkaufen}} → {{eingekauft}}, {{anrufen}} → {{angerufen}}, {{aufstehen}} → {{aufgestanden}}. It's written as one word, at the end, as usual: {{Ich habe eingekauft.}}"},
+        {"p":"**No ge- at all** for two kinds of verb. First, verbs that begin with an unstressed front part that never splits off: {{be-}}, {{ver-}}, {{er-}}, {{ent-}}: {{besuchen}} → {{besucht}}, {{verstehen}} → {{verstanden}}, {{erklären}} → {{erklärt}}. Second, verbs ending in {{-ieren}}: {{telefonieren}} → {{telefoniert}}, {{studieren}} → {{studiert}}."},
+        { "table": [
+          ["infinitive","participle","in a sentence"],
+          ["{{aufstehen}}","{{aufgestanden}}","{{Ich bin früh aufgestanden.}}"],
+          ["{{anrufen}}","{{angerufen}}","{{Hast du mich angerufen?}}"],
+          ["{{einkaufen}}","{{eingekauft}}","{{Wir haben schon eingekauft.}}"],
+          ["{{besuchen}}","{{besucht}}","{{Sie hat ihre Oma besucht.}}"],
+          ["{{verstehen}}","{{verstanden}}","{{Hast du das verstanden?}}"],
+          ["{{vergessen}}","{{vergessen}}","{{Ich habe es vergessen.}}"],
+          ["{{bezahlen}}","{{bezahlt}}","{{Er hat schon bezahlt.}}"],
+          ["{{telefonieren}}","{{telefoniert}}","{{Wir haben lange telefoniert.}}"]
+        ] },
+        {"p":"So a participle tells you what kind of verb it is: {{ge}} in the middle means a separable verb; no {{ge}} at all means a {{be-}}, {{ver-}} or {{-ieren}} verb (or one like them)."},
+        { "ex": [
+          {"t":"Wann bist du heute aufgestanden?","tr":"When did you get up today?"},
+          {"t":"Ich habe dich gestern angerufen.","tr":"I called you yesterday."},
+          {"t":"Der Zug ist pünktlich angekommen.","tr":"The train arrived on time."},
+          {"t":"Wir haben unsere Freunde in Hamburg besucht.","tr":"We visited our friends in Hamburg."},
+          {"t":"Entschuldigung, ich habe Sie nicht verstanden.","tr":"Sorry, I didn't understand you."},
+          {"t":"Ich habe in Berlin studiert.","tr":"I went to college in Berlin."}
+        ] },
+        {"tip":"An apology to keep handy: {{Entschuldigung, das habe ich vergessen.}} “Sorry, I forgot.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich habe geangerufen.","right":"Ich habe angerufen.","tr":"I called.","why":"With a separable verb, {{ge}} goes after the front part: {{an-ge-rufen}}."},
+        {"wrong":"Wir haben Oma gebesucht.","right":"Wir haben Oma besucht.","tr":"We visited Grandma.","why":"Verbs starting with {{be-}} take no {{ge-}}."},
+        {"wrong":"Ich habe in München gestudiert.","right":"Ich habe in München studiert.","tr":"I went to college in Munich.","why":"Verbs ending in {{-ieren}} take no {{ge-}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The participle of {{einkaufen}} is…","options":["{{eingekauft}}","{{geeinkauft}}","{{einkauft}}"],"answer":0,"why":"A separable verb: {{ein-ge-kauft}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Hast du das ___?","tr":"Did you understand that?","options":["verstanden","geverstanden","verstehen"],"answer":0,"why":"{{ver-}} verbs take no {{ge-}}: {{verstanden}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich ___ heute um sechs aufgestanden.","tr":"I got up at six today.","options":["bin","habe","ist"],"answer":0,"why":"Getting up is a change (from lying to standing): {{sein}}.","from":"say-where-you-went"},
+        {"type":"order","q":"Put the words in order.","tr":"I called you yesterday.","words":["Ich","habe","dich","gestern","angerufen."]},
+        {"type":"dialogue","q":"Your partner asks about your day.","lines":[{"who":"Partner","t":"Und, was hast du heute gemacht?","tr":"So, what did you do today?"},{"options":["Ich habe eingekauft und meine Schwester besucht.","Ich habe eingekauft und meine Schwester gebesucht."],"answer":0,"why":"{{besuchen}} takes no {{ge-}}: {{besucht}}."},{"who":"Partner","t":"Hast du auch die Rechnung bezahlt?","tr":"Did you pay the bill too?"},{"options":["Oh nein, das habe ich vergessen!","Oh nein, das habe ich gevergessen!"],"answer":0,"why":"{{vergessen}} starts with {{ver-}}: no {{ge-}}, so the participle looks like the infinitive."}]},
+        {"type":"say","q":"Say to the person at the counter: “Sorry, I didn't understand you.”","answer":"Entschuldigung, ich habe Sie nicht verstanden.","from":"say-what-you-did"},
+        {"type":"free","q":"Your turn: tell someone about your day so far in two or three sentences, with at least one separable verb and one {{be-}} or {{ver-}} verb.","answers":[{"t":"Ich bin um sieben aufgestanden und habe gefrühstückt. Dann habe ich meine Oma besucht.","tr":"I got up at seven and had breakfast. Then I visited my grandma."},{"t":"Heute habe ich eingekauft und lange mit meiner Mutter telefoniert.","tr":"Today I went shopping and talked to my mother on the phone for a long time."}]}
+      ]
+    },
+    {
+      "id": "say-how-it-was",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say how it was",
+      "summary": "Say how things were, and what you had, could or had to do: “The party was great, but I had to go home early.”",
+      "topic": "{{war}} and {{hatte}}; {{konnte, musste, wollte, durfte}}: the simple past of {{sein}}, {{haben}} and the modal verbs",
+      "blocks": [
+        {"goal":{"t":"Die Party war toll, aber ich musste früh nach Hause gehen.","tr":"The party was great, but I had to go home early."}},
+        {"dialog":[{"who":"Jonas","t":"Wie war dein Urlaub?","tr":"How was your vacation?"},{"who":"Mia","t":"Super! Das Wetter war schön und das Hotel war direkt am Meer.","tr":"Great! The weather was nice and the hotel was right by the sea."},{"who":"Jonas","t":"Toll! Und wie war das Essen?","tr":"Great! And how was the food?"},{"who":"Mia","t":"Sehr gut. Nur am letzten Tag hatte ich Bauchschmerzen.","tr":"Very good. Only on the last day I had a stomachache."},{"who":"Jonas","t":"Oh nein!","tr":"Oh no!"},{"who":"Mia","t":"Ja, ich konnte nicht schwimmen gehen und musste im Bett bleiben.","tr":"Yes, I couldn't go swimming and had to stay in bed."}]},
+        {"p":"**war, hatte: the exception everyone uses.** For {{sein}} and {{haben}}, Germans rarely say {{ich bin gewesen}} or {{ich habe gehabt}} in conversation. They use a one-word past: {{ich war}} “I was”, {{ich hatte}} “I had”. The same goes for the modal verbs: {{ich konnte}} “I could”, {{ich musste}} “I had to”, {{ich wollte}} “I wanted to”."},
+        {"term":"Präteritum","means":"the one-word past tense: {{ich war}}, {{ich hatte}}. In conversation it's used mostly for {{sein}}, {{haben}} and the modal verbs; in books and stories, for every verb."},
+        { "table": [
+          ["","{{sein}}","{{haben}}","{{können}}","{{müssen}}"],
+          ["{{ich}}","{{war}}","{{hatte}}","{{konnte}}","{{musste}}"],
+          ["{{du}}","{{warst}}","{{hattest}}","{{konntest}}","{{musstest}}"],
+          ["{{er / sie / es}}","{{war}}","{{hatte}}","{{konnte}}","{{musste}}"],
+          ["{{wir / sie / Sie}}","{{waren}}","{{hatten}}","{{konnten}}","{{mussten}}"],
+          ["{{ihr}}","{{wart}}","{{hattet}}","{{konntet}}","{{musstet}}"]
+        ] },
+        {"p":"{{ich}} and {{er/sie}} share one form, with no ending. The modal verbs lose their dots: {{können}} → {{konnte}}, {{müssen}} → {{musste}}, {{dürfen}} → {{durfte}}; and {{wollen}} → {{wollte}}. ({{möchten}} has no past of its own: use {{wollte}}.)"},
+        {"p":"**With a modal, it's still a bracket**: the modal in second place, the infinitive at the end: {{Ich musste früh gehen.}} {{Wir konnten nicht kommen.}}"},
+        { "ex": [
+          {"t":"Wo warst du gestern?","tr":"Where were you yesterday?"},
+          {"t":"Ich war krank und hatte Fieber.","tr":"I was sick and had a fever."},
+          {"t":"Wir hatten keine Zeit.","tr":"We didn't have time."},
+          {"t":"Das Konzert war super!","tr":"The concert was great!"},
+          {"t":"Ich wollte dich anrufen, aber ich konnte nicht.","tr":"I wanted to call you, but I couldn't."},
+          {"t":"Als Kind durfte ich nicht viel fernsehen.","tr":"As a child I wasn't allowed to watch much TV."}
+        ] },
+        {"tip":"So a typical German story mixes the two pasts: {{Ich war in Berlin und habe viele Museen besucht.}} “I was in Berlin and visited lots of museums.” That's exactly how people talk."}
+      ],
+      "mistakes": [
+        {"wrong":"Ich habe krank gewesen.","right":"Ich war krank.","tr":"I was sick.","why":"{{sein}} never takes {{haben}}; and in conversation people simply say {{war}}."},
+        {"wrong":"Ich musste gehen früh.","right":"Ich musste früh gehen.","tr":"I had to leave early.","why":"Still a bracket: the infinitive goes last."},
+        {"wrong":"Wir wart im Kino.","right":"Wir waren im Kino.","tr":"We were at the movies.","why":"With {{wir}}: {{waren}}. {{wart}} is for {{ihr}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"How do Germans usually say “I was tired” in conversation?","options":["{{Ich war müde.}}","{{Ich habe müde gewesen.}}","{{Ich bin müde.}}"],"answer":0,"why":"{{war}}: the everyday past of {{sein}}. {{Ich bin müde}} is the present."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wie ___ der Film?","tr":"How was the movie?","options":["war","hatte","waren"],"answer":0,"why":"One movie: {{war}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich ___ gestern keine Zeit.","tr":"I didn't have time yesterday.","options":["hatte","war","habe"],"answer":0,"why":"The past of {{haben}}: {{hatte}}.","from":"say-what-you-have"},
+        {"type":"fill","q":"Choose the missing word.","t":"Wir ___ leider nicht kommen.","tr":"Unfortunately we couldn't come.","options":["konnten","könnten","können"],"answer":0,"why":"The past of {{können}}: {{konnten}}, without dots. ({{könnten}}, with dots, means “could, would be able to”: a later lesson.)","from":"say-what-you-can-do"},
+        {"type":"order","q":"Put the words in order.","tr":"I had to stay home.","words":["Ich","musste","zu Hause","bleiben."],"from":"say-what-you-have-to-do"},
+        {"type":"dialogue","q":"A friend asks why you weren't at the party.","lines":[{"who":"Friend","t":"Wo warst du am Samstag?","tr":"Where were you on Saturday?"},{"options":["Ich war krank. Ich hatte Fieber.","Ich habe krank gewesen. Ich hatte Fieber."],"answer":0,"why":"{{sein}} never takes {{haben}}, and in conversation people just say {{war}}."},{"who":"Friend","t":"Oh nein! Die Party war super.","tr":"Oh no! The party was great."},{"options":["Schade! Ich wollte wirklich kommen.","Schade! Ich wollte wirklich gekommen."],"answer":0,"why":"After a modal: the infinitive, {{kommen}}."}]},
+        {"type":"free","q":"Your turn: how was your last weekend or vacation? Say how it was, and one thing you had to do or couldn't do.","answers":[{"t":"Mein Wochenende war schön, aber ich musste am Sonntag arbeiten.","tr":"My weekend was nice, but I had to work on Sunday."},{"t":"Der Urlaub war toll! Leider hatten wir nur fünf Tage und konnten nicht nach Berlin fahren.","tr":"The vacation was great! Unfortunately we only had five days and couldn't go to Berlin."}]}
+      ]
     }
   ]
 }
