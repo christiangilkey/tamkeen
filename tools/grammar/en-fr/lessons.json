@@ -1118,6 +1118,316 @@
         {"type":"say","q":"Tell a friend: “Don't worry!”","answer":"Ne t'inquiète pas !"},
         {"type":"free","q":"Your turn: tell a friend how to get from your home to a café or a shop nearby. Use {{tu}}.","answers":[{"t":"Tourne à droite au bout de ma rue, puis continue tout droit. Le café est à côté de la banque.","tr":"Turn right at the end of my street, then keep going straight. The café is next to the bank."},{"t":"Prends la première rue à gauche, puis traverse la place. La boulangerie est en face de l'église.","tr":"Take the first street on the left, then cross the square. The bakery is opposite the church."}]}
       ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you did",
+      "summary": "Tell someone what you did yesterday or last week: the passé composé, made with {{avoir}} and a past participle.",
+      "topic": "the passé composé with {{avoir}}: {{j'ai parlé}}, {{j'ai fini}}, {{j'ai attendu}}; {{je n'ai pas…}}; {{hier}}, {{la semaine dernière}}",
+      "blocks": [
+        {"goal":{"t":"Hier soir, j'ai dîné avec des amis et nous avons beaucoup parlé.","tr":"Last night I had dinner with friends and we talked a lot."}},
+        {"dialog":[{"who":"Nathalie","t":"Tu as passé un bon week-end ?","tr":"Did you have a good weekend?"},{"who":"Marc","t":"Oui ! Samedi, j'ai travaillé dans le jardin, et dimanche, j'ai regardé le match.","tr":"Yes! On Saturday I worked in the garden, and on Sunday I watched the game."},{"who":"Nathalie","t":"Ah, tu as aimé ?","tr":"Oh, did you like it?"},{"who":"Marc","t":"Non, on a perdu !","tr":"No, we lost!"},{"who":"Nathalie","t":"Moi, je n'ai pas regardé. J'ai fini mon livre.","tr":"I didn't watch. I finished my book."}]},
+        {"term":"past participle","means":"the form of a verb used to build a past tense, like English “talked”, “finished”, “waited”: {{parlé}}, {{fini}}, {{attendu}}."},
+        {"term":"auxiliary","means":"a helper verb used to build a tense, like “have” in “I have talked”. French has two: {{avoir}} and {{être}}."},
+        {"p":"**The everyday past.** To say what you did, French uses the passé composé: {{avoir}} in the present (lesson 5) + a past participle. {{J'ai mangé}} is word for word “I have eaten”, but it also means “I ate”: it's the usual past when you speak."},
+        { "table": [
+          ["","{{avoir}} + past participle","English"],
+          ["I","{{j'ai mangé}}","I ate, I've eaten"],
+          ["you (a friend)","{{tu as mangé}}","you ate"],
+          ["he, she; we (casual)","{{il a mangé}}; {{on a mangé}}","he ate; we ate"],
+          ["we","{{nous avons mangé}}","we ate"],
+          ["you (polite, or several)","{{vous avez mangé}}","you ate"],
+          ["they","{{ils ont mangé}}","they ate"]
+        ] },
+        {"p":"**Making the participle.** For regular verbs, change the infinitive's ending: -er verbs end in {{-é}}, most -ir verbs in {{-i}}, -re verbs in {{-u}}. {{Parlé}} sounds just like {{parler}}: you hear the past in {{j'ai}}, {{tu as}}, {{il a}}."},
+        { "table": [
+          ["infinitive","past participle","example"],
+          ["{{parler}}","{{parlé}}","{{J'ai parlé avec Marie.}}"],
+          ["{{finir}}","{{fini}}","{{Tu as fini ?}}"],
+          ["{{attendre}}","{{attendu}}","{{Nous avons attendu le bus.}}"]
+        ] },
+        {"p":"**The negative goes around the helper.** {{Ne … pas}} goes around {{avoir}}, not around the participle: {{Je n'ai pas mangé.}} “I didn't eat.” Short adverbs go in the same place: {{J'ai bien dormi.}} “I slept well.” {{Nous avons beaucoup parlé.}}"},
+        {"p":"**When.** {{hier}} (yesterday), {{hier soir}} (last night), {{avant-hier}} (the day before yesterday), {{la semaine dernière}} (last week), {{l'année dernière}} (last year), {{ce matin}} (this morning)."},
+        { "ex": [
+          {"t":"J'ai acheté une nouvelle robe.","tr":"I bought a new dress."},
+          {"t":"Tu as fini tes devoirs ?","tr":"Have you finished your homework?"},
+          {"t":"Nous avons attendu une heure !","tr":"We waited an hour!"},
+          {"t":"Elle a choisi le menu à vingt euros.","tr":"She chose the twenty-euro menu."},
+          {"t":"Je n'ai pas bien dormi.","tr":"I didn't sleep well."},
+          {"t":"Ils ont vendu leur maison l'année dernière.","tr":"They sold their house last year."}
+        ] },
+        {"tip":"The passé composé covers English “I ate”, “I've eaten” and “I did eat”: {{Tu as mangé ?}} is “Did you eat?” or “Have you eaten?”. One French form, three English ones."}
+      ],
+      "mistakes": [
+        {"wrong":"Je mangé une pizza.","right":"J'ai mangé une pizza.","tr":"I ate a pizza.","why":"The past needs its helper: {{j'ai}} + {{mangé}}."},
+        {"wrong":"Je n'ai mangé pas.","right":"Je n'ai pas mangé.","tr":"I didn't eat.","why":"{{Ne … pas}} goes around the helper {{avoir}}."},
+        {"wrong":"J'ai attendé le bus.","right":"J'ai attendu le bus.","tr":"I waited for the bus.","why":"-re verbs make their participle in {{-u}}: {{attendu}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Hier, nous ___ travaillé jusqu'à vingt heures.","tr":"Yesterday we worked until 8 p.m.","options":["avons","sommes","ont"],"answer":0,"why":"The helper {{avoir}}, with {{nous}}: {{avons}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Tu as ___ le film ?","tr":"Did you like the movie?","options":["aimé","aimer","aimez"],"answer":0,"why":"After {{avoir}}: the past participle, in {{-é}}. (All three sound the same!)"},
+        {"type":"choice","q":"The past participle of {{finir}} is…","options":["{{fini}}","{{finé}}","{{finu}}"],"answer":0,"why":"Most -ir verbs: {{-i}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I didn't sleep well.","words":["Je","n'ai","pas","bien","dormi."]},
+        {"type":"dialogue","q":"Monday morning. A colleague asks about your weekend. Choose your replies.","from":"say-what-youre-going-to-do","lines":[{"who":"Your colleague","t":"Tu as passé un bon week-end ?","tr":"Did you have a good weekend?"},{"options":["Oui ! J'ai joué au tennis avec mon frère.","Oui ! Je joué au tennis avec mon frère."],"answer":0,"why":"The past needs {{avoir}}: {{j'ai joué}}."},{"who":"Your colleague","t":"Et ce week-end, qu'est-ce que tu vas faire ?","tr":"And what are you going to do this weekend?"},{"options":["Je vais visiter Lyon.","J'ai visité Lyon."],"answer":0,"why":"A plan: {{aller}} + infinitive. {{J'ai visité}} would be the past."},{"who":"Your colleague","t":"Super !","tr":"Great!"}]},
+        {"type":"say","q":"Say: “We waited an hour!”","answer":"Nous avons attendu une heure !"},
+        {"type":"free","q":"Your turn: say three things you did yesterday, and one thing you didn't do.","answers":[{"t":"Hier, j'ai travaillé, j'ai acheté du pain et j'ai regardé un film. Je n'ai pas téléphoné à ma mère.","tr":"Yesterday I worked, I bought bread and I watched a movie. I didn't call my mother."},{"t":"Hier soir, j'ai dîné avec mon mari et nous avons parlé de nos vacances. Je n'ai pas bien dormi.","tr":"Last night I had dinner with my husband and we talked about our vacation. I didn't sleep well."}]}
+      ]
+    },
+    {
+      "id": "tell-about-your-weekend",
+      "unit": 5,
+      "level": "A2",
+      "title": "Tell someone about your weekend",
+      "summary": "Say what you saw, did, took and drank: the irregular past participles you'll use every day.",
+      "topic": "irregular past participles: {{fait, pris, vu, eu, été, bu, lu, dit, écrit, mis, ouvert, pu, voulu, dû}}",
+      "blocks": [
+        {"goal":{"t":"Samedi, j'ai fait une balade, et dimanche, j'ai vu un film génial.","tr":"On Saturday I went for a walk, and on Sunday I saw a great movie."}},
+        {"dialog":[{"who":"Emma","t":"Alors, ce week-end ?","tr":"So, how was the weekend?"},{"who":"Hugo","t":"Super ! J'ai pris le train pour Bordeaux et j'ai vu des amis.","tr":"Great! I took the train to Bordeaux and saw some friends."},{"who":"Emma","t":"Qu'est-ce que vous avez fait ?","tr":"What did you do?"},{"who":"Hugo","t":"On a bu du très bon vin et on a fait du vélo.","tr":"We drank some very good wine and went cycling."},{"who":"Emma","t":"Tu as eu de la chance ! Moi, j'ai eu un rhume…","tr":"You were lucky! I had a cold…"},{"who":"Hugo","t":"Oh non ! Ça va mieux ?","tr":"Oh no! Are you feeling better?"}]},
+        {"p":"**The common verbs are irregular.** Most of the verbs you use every day have a participle to learn. The good news: it's a short list, and it's the same for every person: {{j'ai fait}}, {{tu as fait}}, {{ils ont fait}}."},
+        { "table": [
+          ["infinitive","participle","example"],
+          ["{{faire}} to do, to make","{{fait}}","{{J'ai fait les courses.}}"],
+          ["{{prendre}} to take","{{pris}}","{{J'ai pris le métro.}}"],
+          ["{{voir}} to see","{{vu}}","{{Tu as vu ce film ?}}"],
+          ["{{avoir}} to have","{{eu}}","{{J'ai eu de la chance.}}"],
+          ["{{être}} to be","{{été}}","{{J'ai été malade.}}"],
+          ["{{boire}} to drink","{{bu}}","{{On a bu un café.}}"],
+          ["{{lire}} to read","{{lu}}","{{Elle a lu le livre.}}"],
+          ["{{dire}} to say","{{dit}}","{{Il a dit oui.}}"],
+          ["{{écrire}} to write","{{écrit}}","{{J'ai écrit un message.}}"],
+          ["{{mettre}} to put","{{mis}}","{{Tu as mis les clés où ?}}"],
+          ["{{ouvrir}} to open","{{ouvert}}","{{Qui a ouvert la fenêtre ?}}"],
+          ["{{pouvoir}}, {{vouloir}}, {{devoir}}","{{pu}}, {{voulu}}, {{dû}}","{{Je n'ai pas pu venir.}}"]
+        ] },
+        {"p":"**Patterns that help.** Verbs built on {{prendre}} share its participle: {{apprendre}} → {{appris}} (learned), {{comprendre}} → {{compris}} (understood). And {{avoir}} and {{être}} both use {{avoir}} as their helper: {{j'ai eu}} “I had”, {{j'ai été}} “I was, I've been”."},
+        {"p":"**Faire for lots of things.** {{J'ai fait une balade}} (went for a walk), {{j'ai fait du sport}}, {{j'ai fait la fête}} (partied), {{j'ai fait la grasse matinée}} (slept in). All of lesson 17's {{faire}} now has a past."},
+        { "ex": [
+          {"t":"J'ai fait la grasse matinée.","tr":"I slept in.","note":"word for word “I made the fat morning”"},
+          {"t":"Tu as vu mes lunettes ?","tr":"Have you seen my glasses?"},
+          {"t":"Nous avons pris un taxi.","tr":"We took a taxi."},
+          {"t":"Je n'ai pas compris.","tr":"I didn't understand."},
+          {"t":"Elle a eu un bébé !","tr":"She had a baby!"},
+          {"t":"Il a été très gentil.","tr":"He was very kind."},
+          {"t":"J'ai mis une heure pour venir.","tr":"It took me an hour to get here.","note":"{{mettre}} + a length of time: to take"}
+        ] },
+        {"tip":"{{Je n'ai pas compris.}} “I didn't understand” is one of the most useful sentences you can learn. Follow it with {{Vous pouvez répéter ?}} (lesson 20)."}
+      ],
+      "mistakes": [
+        {"wrong":"J'ai prendu le train.","right":"J'ai pris le train.","tr":"I took the train.","why":"{{Prendre}} is irregular: {{pris}}."},
+        {"wrong":"J'ai faisé du sport.","right":"J'ai fait du sport.","tr":"I did some exercise.","why":"{{Faire}} is irregular: {{fait}}."},
+        {"wrong":"J'ai voir le film.","right":"J'ai vu le film.","tr":"I saw the movie.","why":"After {{avoir}} comes the participle ({{vu}}), not the infinitive."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Tu as ___ le dernier film de Spielberg ?","tr":"Have you seen Spielberg's latest movie?","options":["vu","voir","vois"],"answer":0,"why":"The participle of {{voir}}: {{vu}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nous avons ___ le métro.","tr":"We took the subway.","options":["pris","prendu","prendre"],"answer":0,"why":"The participle of {{prendre}}: {{pris}}."},
+        {"type":"choice","q":"{{J'ai eu peur !}} means…","options":["I was scared!","I have a fear!","I'm going to be scared!"],"answer":0,"why":"{{Avoir peur}} “to be afraid”, in the past: {{j'ai eu peur}}.","from":"say-what-you-have"},
+        {"type":"fill","q":"Choose the missing word.","t":"Je n'ai pas ___. Vous pouvez répéter ?","tr":"I didn't understand. Could you repeat that?","options":["compris","comprendu","comprend"],"answer":0,"why":"Like {{prendre}}: {{compris}}.","from":"invite-accept-refuse"},
+        {"type":"dialogue","q":"A friend asks about your weekend. Choose your replies.","from":"talk-about-free-time","lines":[{"who":"Your friend","t":"Tu as fait quoi, ce week-end ?","tr":"What did you do this weekend?"},{"options":["J'ai fait du vélo et j'ai lu.","J'ai fais du vélo et j'ai lire."],"answer":0,"why":"The participles: {{fait}}, {{lu}}."},{"who":"Your friend","t":"Il a fait beau ?","tr":"Was the weather nice?"},{"options":["Oui, il a fait très beau !","Oui, il a été très beau !"],"answer":0,"why":"The weather takes {{faire}}: in the past, {{il a fait beau}}."},{"who":"Your friend","t":"Tu as de la chance !","tr":"You're lucky!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We took a taxi to the station.","words":["Nous","avons pris","un taxi","pour aller","à la gare."]},
+        {"type":"free","q":"Your turn: tell a friend about your last weekend: what you did, what you saw, and one more thing.","answers":[{"t":"Samedi, j'ai fait les courses et j'ai vu mes parents. Dimanche, j'ai lu un livre.","tr":"On Saturday I did the grocery shopping and saw my parents. On Sunday I read a book."},{"t":"Ce week-end, j'ai pris le train pour la mer. J'ai bu un café sur la plage et j'ai fait une balade.","tr":"This weekend I took the train to the sea. I had a coffee on the beach and went for a walk."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-went",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say where you went and when you came back",
+      "summary": "Say you went to Paris, arrived late, stayed at home or were born in 1990: the verbs that make their past with {{être}}.",
+      "topic": "the passé composé with {{être}} ({{je suis allé}}, {{elle est partie}}); the participle agrees with the subject",
+      "blocks": [
+        {"goal":{"t":"L'été dernier, je suis allée en Italie et je suis restée deux semaines.","tr":"Last summer I went to Italy and I stayed for two weeks.","note":"said by a woman"}},
+        {"dialog":[{"who":"Karim","t":"Vous êtes allés où pendant les vacances ?","tr":"Where did you go on vacation?"},{"who":"Julie","t":"Nous sommes allés en Grèce. Nous sommes partis le premier juillet.","tr":"We went to Greece. We left on July first."},{"who":"Karim","t":"Et vous êtes rentrés quand ?","tr":"And when did you get back?"},{"who":"Julie","t":"Mon mari est rentré le quinze, mais moi, je suis restée une semaine de plus.","tr":"My husband came back on the fifteenth, but I stayed a week longer."},{"who":"Karim","t":"Tu as de la chance !","tr":"You're lucky!"}]},
+        {"p":"**Some verbs use être.** About fifteen verbs, most of them about moving from one place to another or changing state, make their passé composé with {{être}} instead of {{avoir}}: {{je suis allé}} “I went”, never “j'ai allé”."},
+        { "table": [
+          ["","verbs","participles"],
+          ["going and coming","{{aller}}, {{venir}}, {{arriver}}, {{partir}}","{{allé}}, {{venu}}, {{arrivé}}, {{parti}}"],
+          ["in and out","{{entrer}}, {{sortir}}, {{rentrer}} (go home), {{retourner}}","{{entré}}, {{sorti}}, {{rentré}}, {{retourné}}"],
+          ["up and down","{{monter}}, {{descendre}}, {{tomber}} (fall)","{{monté}}, {{descendu}}, {{tombé}}"],
+          ["staying","{{rester}}","{{resté}}"],
+          ["life","{{naître}} (be born), {{mourir}} (die), {{devenir}} (become)","{{né}}, {{mort}}, {{devenu}}"]
+        ] },
+        {"p":"**The participle agrees with the subject.** With {{être}}, the participle behaves like an adjective (lesson 9): add {{-e}} for a woman, {{-s}} for several people, {{-es}} for several women. Usually you can't hear it ({{allé}}, {{allée}} and {{allés}} sound the same), but you write it."},
+        { "table": [
+          ["","{{aller}} in the passé composé"],
+          ["I (a man, a woman)","{{je suis allé}}, {{je suis allée}}"],
+          ["you (a friend)","{{tu es allé}}, {{tu es allée}}"],
+          ["he, she","{{il est allé}}, {{elle est allée}}"],
+          ["we","{{nous sommes allés}}, {{nous sommes allées}}"],
+          ["you (polite, or several)","{{vous êtes allé}}, {{allée}}, {{allés}}, {{allées}}"],
+          ["they","{{ils sont allés}}, {{elles sont allées}}"]
+        ] },
+        {"p":"**With on.** {{On}} meaning “we” takes {{est}}, and the participle usually agrees with the people meant: {{On est partis à six heures.}} “We left at six.”"},
+        {"p":"**Born: je suis né.** “I was born” is {{je suis né}} (a woman writes {{je suis née}}): {{Je suis née en 1995.}}"},
+        { "ex": [
+          {"t":"Je suis arrivé en retard.","tr":"I arrived late."},
+          {"t":"Elle est partie ce matin.","tr":"She left this morning."},
+          {"t":"Nous sommes restés à la maison.","tr":"We stayed home."},
+          {"t":"Ils sont venus à notre mariage.","tr":"They came to our wedding."},
+          {"t":"Je suis tombée dans l'escalier.","tr":"I fell down the stairs."},
+          {"t":"Mon grand-père est né à Marseille.","tr":"My grandfather was born in Marseille."},
+          {"t":"On est sortis hier soir.","tr":"We went out last night."}
+        ] },
+        {"tip":"Most of these verbs tell a life's journey: you're born ({{naître}}), you arrive ({{arriver}}), go in ({{entrer}}), go up ({{monter}}), stay ({{rester}}), come down ({{descendre}}), go out ({{sortir}}), leave ({{partir}}), and one day you die ({{mourir}})."}
+      ],
+      "mistakes": [
+        {"wrong":"J'ai allé à Paris.","right":"Je suis allé à Paris.","tr":"I went to Paris.","why":"{{Aller}} makes its past with {{être}}."},
+        {"wrong":"Elle est parti.","right":"Elle est partie.","tr":"She left.","why":"With {{être}}, the participle agrees: {{-e}} for a woman."},
+        {"wrong":"Ils sont arrivé.","right":"Ils sont arrivés.","tr":"They arrived.","why":"Several people: {{-s}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which verb makes its past with {{être}}?","options":["{{partir}}","{{manger}}","{{prendre}}"],"answer":0,"why":"{{Partir}} is a verb of movement: {{je suis parti}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Marie est ___ à huit heures.","tr":"Marie left at eight.","options":["partie","parti","partis"],"answer":0,"why":"Marie is a woman: {{partie}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nous ___ restés à la maison.","tr":"We stayed home.","options":["sommes","avons","sont"],"answer":0,"why":"{{Rester}} takes {{être}}: {{nous sommes}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Hier, nous ___ vu un film, puis nous sommes rentrés.","tr":"Yesterday we saw a movie, then we went home.","options":["avons","sommes"],"answer":0,"why":"{{Voir}} takes {{avoir}}; {{rentrer}} takes {{être}}.","from":"tell-about-your-weekend"},
+        {"type":"dialogue","q":"A colleague asks about your trip. You're a woman. Choose your replies.","from":"say-where-youre-going","lines":[{"who":"Your colleague","t":"Vous êtes allée où ?","tr":"Where did you go?"},{"options":["Je suis allée au Canada.","J'ai allé au Canada."],"answer":0,"why":"{{Aller}} takes {{être}}; a masculine country takes {{au}}."},{"who":"Your colleague","t":"Vous êtes restée combien de temps ?","tr":"How long did you stay?"},{"options":["Je suis restée dix jours.","Je suis resté dix jours."],"answer":0,"why":"You're a woman: {{restée}}."},{"who":"Your colleague","t":"Et vous êtes rentrée quand ?","tr":"And when did you get back?"},{"options":["Je suis rentrée dimanche.","Je suis rentrée à dimanche."],"answer":0,"why":"No preposition before a day."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We went out last night.","words":["On","est","sortis","hier soir."]},
+        {"type":"free","q":"Your turn: tell someone about a trip: where you went, when you left and came back, and how long you stayed.","answers":[{"t":"L'année dernière, je suis allé à Rome. Je suis parti en mai et je suis resté une semaine.","tr":"Last year I went to Rome. I left in May and I stayed a week."},{"t":"En juillet, nous sommes allés en Bretagne. Nous sommes partis un samedi et nous sommes rentrés deux semaines après.","tr":"In July we went to Brittany. We left on a Saturday and came back two weeks later."}]}
+      ]
+    },
+    {
+      "id": "ask-about-a-trip",
+      "unit": 5,
+      "level": "A2",
+      "title": "Ask someone about their trip",
+      "summary": "Ask what someone did and where they went, and whether they've ever been to Paris: questions in the past, with {{déjà}}, {{pas encore}} and {{jamais}}.",
+      "topic": "questions in the passé composé; {{déjà}}; {{ne … pas encore}}, {{ne … jamais}}",
+      "blocks": [
+        {"goal":{"t":"Tu es déjà allé au Japon ? — Non, pas encore !","tr":"Have you ever been to Japan? — No, not yet!"}},
+        {"dialog":[{"who":"Sophie","t":"Alors, ce voyage au Maroc ?","tr":"So, how was the trip to Morocco?"},{"who":"Ben","t":"Génial ! Tu es déjà allée au Maroc ?","tr":"Awesome! Have you ever been to Morocco?"},{"who":"Sophie","t":"Non, jamais. Qu'est-ce que vous avez visité ?","tr":"No, never. What did you visit?"},{"who":"Ben","t":"On a visité Marrakech et on est allés dans le désert.","tr":"We visited Marrakech and went into the desert."},{"who":"Sophie","t":"Vous avez dormi sous une tente ?","tr":"Did you sleep in a tent?"},{"who":"Ben","t":"Oui ! Et j'ai mangé un couscous incroyable.","tr":"Yes! And I ate an incredible couscous."}]},
+        {"p":"**Asking in the past.** The three ways of lesson 7 work in the past too. Raise your voice: {{Tu as bien dormi ?}} Put {{est-ce que}} in front: {{Est-ce que tu as bien dormi ?}} Or use a question word, first or last: {{Qu'est-ce que tu as fait ?}} {{Tu es allé où ?}}"},
+        { "table": [
+          ["","question","answer"],
+          ["what","{{Qu'est-ce que vous avez fait ?}}","{{On a visité Marrakech.}}"],
+          ["where","{{Tu es allée où ?}}","{{Je suis allée au Maroc.}}"],
+          ["when","{{Vous êtes rentrés quand ?}}","{{Dimanche.}}"],
+          ["how long","{{Vous êtes restés combien de temps ?}}","{{Dix jours.}}"],
+          ["who with","{{Tu es parti avec qui ?}}","{{Avec mon frère.}}"],
+          ["did you like it","{{Tu as aimé ?}}","{{J'ai adoré !}}"]
+        ] },
+        {"p":"**In formal French, inversion.** The pronoun goes after the helper, with a dash: {{Avez-vous bien dormi ?}} {{Où êtes-vous allés ?}} You'll hear it at a hotel desk."},
+        {"p":"**Ever: déjà.** {{Tu as déjà mangé des escargots ?}} “Have you ever eaten snails?” {{Déjà}} also means “already”: {{J'ai déjà mangé.}} “I've already eaten.” It goes between the helper and the participle."},
+        {"p":"**Not yet, never.** Two more negatives that work like {{ne … pas}}: {{ne … pas encore}} “not yet” and {{ne … jamais}} “never” (lesson 18). They go around the helper: {{Je n'ai pas encore fini.}} “I haven't finished yet.” {{Je ne suis jamais allé en Asie.}} “I've never been to Asia.” Short answers: {{Oui, déjà.}} {{Non, pas encore.}} {{Non, jamais.}}"},
+        { "ex": [
+          {"t":"Tu as passé de bonnes vacances ?","tr":"Did you have a good vacation?"},
+          {"t":"Qu'est-ce que tu as acheté ?","tr":"What did you buy?"},
+          {"t":"Vous êtes déjà venus ici ?","tr":"Have you been here before?"},
+          {"t":"Il n'a pas encore appelé.","tr":"He hasn't called yet."},
+          {"t":"Je n'ai jamais vu la mer.","tr":"I've never seen the sea."},
+          {"t":"Avez-vous fait bon voyage ?","tr":"Did you have a good trip?","note":"formal, at a hotel"},
+          {"t":"Tu es rentrée à quelle heure ?","tr":"What time did you get home?"}
+        ] },
+        {"tip":"To show interest, react: {{Ah bon ?}} “Really?”, {{C'est vrai ?}} “Is that true?”, {{Génial !}} “Awesome!”, {{Quelle chance !}} “How lucky!”"}
+      ],
+      "mistakes": [
+        {"wrong":"Tu as allé où ?","right":"Tu es allé où ?","tr":"Where did you go?","why":"{{Aller}} takes {{être}}, in questions too."},
+        {"wrong":"J'ai mangé déjà.","right":"J'ai déjà mangé.","tr":"I've already eaten.","why":"{{Déjà}} goes between the helper and the participle."},
+        {"wrong":"Je n'ai encore pas fini.","right":"Je n'ai pas encore fini.","tr":"I haven't finished yet.","why":"It's {{pas encore}}, in that order, around the helper."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Vous ___ partis quand ?","tr":"When did you leave?","options":["êtes","avez","sont"],"answer":0,"why":"{{Partir}} takes {{être}}: {{vous êtes partis}}.","from":"say-where-you-went"},
+        {"type":"fill","q":"Choose the missing word.","t":"Je n'ai pas ___ fini.","tr":"I haven't finished yet.","options":["encore","jamais","déjà"],"answer":0,"why":"“Not yet”: {{pas encore}}."},
+        {"type":"choice","q":"{{Tu as déjà mangé des escargots ?}} means…","options":["Have you ever eaten snails?","Did you eat snails yesterday?","Do you want to eat snails?"],"answer":0,"why":"{{Déjà}} in a question: “ever”."},
+        {"type":"order","q":"Put the words in order.","tr":"I've never been to Asia.","words":["Je","ne suis","jamais","allé","en Asie."]},
+        {"type":"dialogue","q":"A friend is back from Rome. Ask about the trip.","from":"say-what-you-did","lines":[{"who":"Your friend","t":"Je suis rentré de Rome hier !","tr":"I got back from Rome yesterday!"},{"options":["Génial ! Qu'est-ce que tu as visité ?","Génial ! Qu'est-ce que tu visites hier ?"],"answer":0,"why":"A finished trip: the passé composé."},{"who":"Your friend","t":"Le Colisée et le Vatican. Et j'ai mangé beaucoup de glaces !","tr":"The Colosseum and the Vatican. And I ate a lot of ice cream!"},{"options":["Tu es parti avec qui ?","Tu as parti avec qui ?"],"answer":0,"why":"{{Partir}} takes {{être}}."},{"who":"Your friend","t":"Avec ma copine.","tr":"With my girlfriend."}]},
+        {"type":"say","q":"Ask a friend: “Have you ever seen the sea?”","answer":"Tu as déjà vu la mer ?","from":"tell-about-your-weekend"},
+        {"type":"free","q":"Your turn: a friend is back from a trip. Ask them three questions about it.","answers":[{"t":"Tu es allé où ? Tu es resté combien de temps ? Qu'est-ce que tu as fait ?","tr":"Where did you go? How long did you stay? What did you do?"},{"t":"Vous êtes partis avec qui ? Qu'est-ce que vous avez visité ? Vous avez aimé ?","tr":"Who did you go with? What did you visit? Did you like it?"}]}
+      ]
+    },
+    {
+      "id": "describe-how-things-were",
+      "unit": 5,
+      "level": "A2",
+      "title": "Describe how things were and used to be",
+      "summary": "Describe the past and say what you used to do: {{c'était}}, {{il y avait}}, {{quand j'étais petit…}}: the imparfait.",
+      "topic": "the imparfait: the {{nous}} stem + {{-ais, -ait, -ions, -iez, -aient}}; {{être}} → {{ét-}}; for descriptions and habits",
+      "blocks": [
+        {"goal":{"t":"Quand j'étais petit, j'habitais à la campagne et je jouais dehors tous les jours.","tr":"When I was little, I lived in the country and I played outside every day."}},
+        {"dialog":[{"who":"Léa","t":"C'est toi, sur la photo ?","tr":"Is that you in the photo?"},{"who":"Grandma","t":"Oui ! J'avais dix ans. On habitait à Lille.","tr":"Yes! I was ten. We lived in Lille."},{"who":"Léa","t":"C'était comment ?","tr":"What was it like?"},{"who":"Grandma","t":"Il faisait froid, mais c'était joli. Il n'y avait pas de télé, alors on jouait dans la rue.","tr":"It was cold, but it was pretty. There was no TV, so we played in the street."},{"who":"Léa","t":"Et tu allais à l'école à pied ?","tr":"And did you walk to school?"},{"who":"Grandma","t":"Oui, tous les matins !","tr":"Yes, every morning!"}]},
+        {"term":"imparfait","means":"a past tense for how things were (descriptions, feelings, the background) and for what used to happen again and again: “I was ten”, “we used to play”."},
+        {"p":"**Two pasts.** The passé composé (lessons 23 to 25) says what happened: an event, finished. The imparfait describes: what things were like, what was going on, what used to happen. English says “was”, “was …-ing” or “used to” for it."},
+        {"p":"**How it's made.** Take the {{nous}} form of the present ({{nous parlons}}, {{nous faisons}}), drop {{-ons}}, and add the endings. This works for every verb except {{être}}, whose stem is {{ét-}}."},
+        { "table": [
+          ["","{{parler}}","{{faire}}","{{être}}"],
+          ["I","{{je parlais}}","{{je faisais}}","{{j'étais}}"],
+          ["you (a friend)","{{tu parlais}}","{{tu faisais}}","{{tu étais}}"],
+          ["he, she; we (casual)","{{il parlait}}; {{on parlait}}","{{il faisait}}","{{il était}}"],
+          ["we","{{nous parlions}}","{{nous faisions}}","{{nous étions}}"],
+          ["you (polite, or several)","{{vous parliez}}","{{vous faisiez}}","{{vous étiez}}"],
+          ["they","{{ils parlaient}}","{{ils faisaient}}","{{ils étaient}}"]
+        ] },
+        {"p":"As in the present, most endings sound the same: {{parlais}}, {{parlait}} and {{parlaient}} are all “par-lay”."},
+        {"p":"**Three you'll use all the time.** {{C'était}} “it was” ({{C'était super !}}), {{il y avait}} “there was, there were”, and {{il faisait}} for the weather ({{Il faisait beau.}})."},
+        {"p":"**Habits: what used to happen.** With words like {{tous les jours}} (every day), {{souvent}}, {{le dimanche}} or {{quand j'étais petit}}, the imparfait means “used to”: {{Le dimanche, on mangeait chez ma grand-mère.}} “On Sundays we used to eat at my grandmother's.”"},
+        { "ex": [
+          {"t":"C'était délicieux !","tr":"It was delicious!"},
+          {"t":"Il y avait beaucoup de monde.","tr":"There were a lot of people."},
+          {"t":"J'étais fatigué, alors je suis rentré.","tr":"I was tired, so I went home.","note":"the imparfait describes; the passé composé says what happened"},
+          {"t":"Avant, je fumais.","tr":"I used to smoke."},
+          {"t":"Quand nous étions jeunes, nous sortions tous les soirs.","tr":"When we were young, we went out every night."},
+          {"t":"Il faisait chaud et le ciel était bleu.","tr":"It was hot and the sky was blue."}
+        ] },
+        {"tip":"{{Avant}} “before, in the past” + the imparfait is the easy way to say “used to”: {{Avant, j'habitais à New York.}} “I used to live in New York.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Quand j'ai été petit, j'ai habité à la campagne.","right":"Quand j'étais petit, j'habitais à la campagne.","tr":"When I was little, I lived in the country.","why":"A description, and a situation that went on for years: the imparfait."},
+        {"wrong":"C'est était super.","right":"C'était super.","tr":"It was great.","why":"{{C'est}} in the past is {{c'était}}: {{c'}} + {{était}}."},
+        {"wrong":"Il y était beaucoup de monde.","right":"Il y avait beaucoup de monde.","tr":"There were a lot of people.","why":"{{Il y a}} comes from {{avoir}}: in the imparfait, {{il y avait}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quand j'___ petit, j'adorais le chocolat.","tr":"When I was little, I loved chocolate.","options":["étais","ai été","suis"],"answer":0,"why":"A description of the past: the imparfait of {{être}}, {{j'étais}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Avant, nous ___ à Paris.","tr":"We used to live in Paris.","options":["habitions","habitons","avons habité"],"answer":0,"why":"“Used to”: the imparfait, {{nous habitions}}."},
+        {"type":"choice","q":"{{Il y avait beaucoup de monde.}} means…","options":["There were a lot of people.","There are a lot of people.","There will be a lot of people."],"answer":0,"why":"{{Il y avait}}: {{il y a}} in the imparfait.","from":"say-where-things-are"},
+        {"type":"fill","q":"Choose the missing word.","t":"Hier, il ___ très froid.","tr":"It was very cold yesterday.","options":["faisait","était","avait"],"answer":0,"why":"The weather takes {{faire}}: {{il faisait froid}}.","from":"talk-about-free-time"},
+        {"type":"dialogue","q":"A friend asks about the concert. Choose your replies.","from":"tell-about-your-weekend","lines":[{"who":"Your friend","t":"Alors, le concert ?","tr":"So, how was the concert?"},{"options":["C'était génial !","C'est était génial !"],"answer":0,"why":"“It was”: {{c'était}}."},{"who":"Your friend","t":"Il y avait du monde ?","tr":"Were there a lot of people?"},{"options":["Oui, il y avait beaucoup de monde.","Oui, il était beaucoup de monde."],"answer":0,"why":"“There were”: {{il y avait}}."},{"who":"Your friend","t":"Et tu as pris des photos ?","tr":"And did you take any photos?"},{"options":["Oui, j'ai pris beaucoup de photos !","Oui, je prenais beaucoup de photos !"],"answer":0,"why":"What you did that evening, finished: the passé composé, {{j'ai pris}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"On Sundays we used to eat at my grandmother's.","words":["Le dimanche,","on","mangeait","chez","ma grand-mère."]},
+        {"type":"free","q":"Your turn: describe your childhood. Where did you live? What was it like? What did you use to do?","answers":[{"t":"Quand j'étais petite, j'habitais à Boston. C'était une grande ville. Je jouais souvent au parc avec mon frère.","tr":"When I was little, I lived in Boston. It was a big city. I often played in the park with my brother."},{"t":"Quand j'étais enfant, nous habitions à la campagne. Il n'y avait pas de magasins, mais c'était super. Je faisais du vélo tous les jours.","tr":"When I was a child, we lived in the country. There were no stores, but it was great. I rode my bike every day."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 5,
+      "level": "A2",
+      "title": "Tell a short story",
+      "summary": "Tell what happened, with its scene and its events: the imparfait for the background, the passé composé for what happened.",
+      "topic": "passé composé or imparfait: the scene ({{il pleuvait}}, {{je dormais}}) and the events ({{le téléphone a sonné}})",
+      "blocks": [
+        {"goal":{"t":"Je dormais quand le téléphone a sonné.","tr":"I was sleeping when the phone rang."}},
+        {"dialog":[{"who":"Inès","t":"Écoute ! Hier, j'étais au café avec Lucie…","tr":"Listen! Yesterday I was at the café with Lucie…"},{"who":"Tom","t":"Et alors ?","tr":"And?"},{"who":"Inès","t":"Il faisait beau, on parlait… et tout à coup, un homme est entré.","tr":"The weather was nice, we were talking… and suddenly a man came in."},{"who":"Tom","t":"Qui c'était ?","tr":"Who was it?"},{"who":"Inès","t":"C'était un acteur très célèbre ! Il a pris un café et il est parti.","tr":"It was a very famous actor! He had a coffee and left."},{"who":"Tom","t":"Et tu as demandé un autographe ?","tr":"And did you ask for an autograph?"},{"who":"Inès","t":"Non, j'étais trop timide !","tr":"No, I was too shy!"}]},
+        {"p":"**A story has a scene and events.** In English, “was …-ing” sets the scene and the simple past moves the story on. French does the same with its two pasts."},
+        { "table": [
+          ["","the imparfait: the scene","the passé composé: the events"],
+          ["what it says","the background, descriptions, what was going on","what happened, one step at a time"],
+          ["it answers","What was it like? What was going on?","What happened? And then?"],
+          ["example","{{Il pleuvait. Je lisais.}}","{{Quelqu'un a frappé à la porte.}}"]
+        ] },
+        {"p":"**An action cut short.** Something in progress (the imparfait) is interrupted by something that happens (the passé composé): {{Je prenais ma douche quand le téléphone a sonné.}} “I was taking a shower when the phone rang.”"},
+        {"p":"**Words that move the story on.** {{Tout à coup}} and {{soudain}} (suddenly), {{puis}} and {{ensuite}} (then), {{alors}} (so) usually come with the passé composé. {{Pendant que}} (while), {{d'habitude}} (usually) and {{tous les jours}} go with the imparfait."},
+        {"p":"**The same verb, two meanings.** {{J'étais malade}} describes the situation: “I was ill”. {{J'ai été malade}} sums up an episode that's over: “I was ill (for a while)”. {{Il y avait du monde}} sets the scene; {{il y a eu un accident}} “there was an accident” is an event."},
+        { "ex": [
+          {"t":"Il pleuvait, alors nous sommes restés à la maison.","tr":"It was raining, so we stayed home."},
+          {"t":"Pendant que je cuisinais, les enfants regardaient la télé.","tr":"While I was cooking, the kids were watching TV.","note":"two things going on: both in the imparfait"},
+          {"t":"Je marchais dans la rue quand j'ai vu un vieil ami.","tr":"I was walking down the street when I saw an old friend."},
+          {"t":"Quand je suis arrivé, tout le monde dansait.","tr":"When I arrived, everyone was dancing."},
+          {"t":"Elle était fatiguée, mais elle a fini son travail.","tr":"She was tired, but she finished her work."},
+          {"t":"Soudain, il y a eu un grand bruit.","tr":"Suddenly there was a loud noise."}
+        ] },
+        {"tip":"A rule of thumb: if English could say “was …-ing” or “used to”, it's the imparfait. If it's “and then…”, a single step in the story, it's the passé composé."}
+      ],
+      "mistakes": [
+        {"wrong":"Je dormais quand le téléphone sonnait.","right":"Je dormais quand le téléphone a sonné.","tr":"I was sleeping when the phone rang.","why":"The ringing is the event that cuts in: the passé composé."},
+        {"wrong":"Quand je suis arrivé, tout le monde a dansé.","right":"Quand je suis arrivé, tout le monde dansait.","tr":"When I arrived, everyone was dancing.","why":"They were already dancing: that's the scene, the imparfait. ({{A dansé}} would mean they started dancing when you came in.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Je ___ la télé quand tu as appelé.","tr":"I was watching TV when you called.","options":["regardais","ai regardé","regarde"],"answer":0,"why":"What was going on: the imparfait."},
+        {"type":"fill","q":"Choose the missing words.","t":"Nous dînions quand quelqu'un ___ à la porte.","tr":"We were having dinner when someone knocked on the door.","options":["a frappé","frappait","frappe"],"answer":0,"why":"The knock is the event: the passé composé."},
+        {"type":"choice","q":"Which part of {{Il neigeait quand nous sommes partis.}} is the background?","options":["{{il neigeait}}","{{nous sommes partis}}"],"answer":0,"why":"“It was snowing”: the scene, in the imparfait."},
+        {"type":"fill","q":"Choose the missing word.","t":"Quand je suis ___, tout le monde dormait.","tr":"When I got home, everyone was asleep.","options":["rentré","rentrait","rentrer"],"answer":0,"why":"After {{je suis}}: the participle {{rentré}}.","from":"say-where-you-went"},
+        {"type":"dialogue","q":"Tell a friend about something that happened. Choose your lines.","from":"describe-how-things-were","lines":[{"who":"Your friend","t":"Qu'est-ce qui s'est passé ?","tr":"What happened?"},{"options":["Je marchais dans le parc et tout à coup, j'ai vu un renard !","J'ai marché dans le parc et tout à coup, je voyais un renard !"],"answer":0,"why":"The walk is the scene (imparfait); seeing the fox is the event (passé composé)."},{"who":"Your friend","t":"Un renard ? Il était comment ?","tr":"A fox? What was it like?"},{"options":["Il était petit et très mignon.","Il a été petit et très mignon."],"answer":0,"why":"A description: the imparfait."},{"who":"Your friend","t":"Tu as de la chance !","tr":"You're lucky!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"It was raining, so we stayed home.","words":["Il pleuvait,","alors","nous","sommes restés","à la maison."]},
+        {"type":"free","q":"Your turn: tell a short story. Say where you were, what the scene was like, and what happened.","answers":[{"t":"Samedi, j'étais à la plage. Il faisait beau et je lisais. Tout à coup, un chien a pris mon sandwich !","tr":"On Saturday I was at the beach. It was nice out and I was reading. Suddenly a dog took my sandwich!"},{"t":"Hier soir, je rentrais à la maison. Il pleuvait. Soudain, j'ai vu ma voisine et nous avons parlé une heure sous la pluie.","tr":"Last night I was walking home. It was raining. Suddenly I saw my neighbor and we talked for an hour in the rain."}]}
+      ]
     }
   ]
 }
