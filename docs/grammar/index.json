@@ -22,12 +22,13 @@
    "title": "Catalan grammar",
    "variety": "Central Catalan",
    "units": 9,
-   "lessons": 18,
+   "lessons": 23,
    "levels": [
-    "A1"
+    "A1",
+    "A2"
    ],
-   "bytes": 97512,
-   "sha256": "92d60515cac93f4ad4ecdfdf2ca7dd8fe09abdcbe8dd20aa333b159a8f7532a6"
+   "bytes": 124208,
+   "sha256": "cd8215eafc6a2cd63a771017c0685388ee226dcaa413c09a5d61b99f45620ae9"
   }
  }
 }

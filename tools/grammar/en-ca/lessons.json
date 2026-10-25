@@ -912,6 +912,234 @@
         {"type":"say","q":"Ask a stranger, politely: “Excuse me, what time is it?”","answer":"Perdoni, quina hora és?"},
         {"type":"free","q":"Your turn: invite a friend to do something. Say the day and the time.","answers":[{"t":"Quedem diumenge a les onze per fer un cafè?","tr":"Shall we meet on Sunday at eleven for a coffee?"},{"t":"Vols venir al cinema divendres? La pel·lícula és a dos quarts de deu.","tr":"Do you want to come to the movies on Friday? The film is at nine thirty."}]}
       ]
+    },
+    {
+      "id": "say-what-you-can",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what you can and want to do",
+      "summary": "Ask if you can do something, and say what you want to do and what you know how to do: “Can I pay by card?”",
+      "topic": "{{poder}} “can”, {{voler}} “want” and {{saber}} “know how to” + an infinitive",
+      "blocks": [
+        {"goal":{"t":"Puc pagar amb targeta?","tr":"Can I pay by card?"}},
+        {"dialog":[{"who":"Arnau","t":"Vols venir a la platja diumenge?","tr":"Do you want to come to the beach on Sunday?"},{"who":"Kim","t":"Vull, però no puc: treballo.","tr":"I'd like to, but I can't: I'm working."},{"who":"Arnau","t":"I dissabte? Podem anar en caiac!","tr":"And Saturday? We can go kayaking!"},{"who":"Kim","t":"Dissabte sí que puc. Però no sé remar…","tr":"Saturday I can. But I don't know how to paddle…"},{"who":"Arnau","t":"No passa res, t'ensenyo jo!","tr":"No problem, I'll teach you!"}]},
+        {"p":"**Verb + verb.** {{poder}} “can, be able to”, {{voler}} “want” and {{saber}} “know how to” are followed straight by a second verb in the infinitive, with nothing between them: {{Puc venir.}} “I can come.” {{Vull aprendre.}} “I want to learn.” {{Sé nedar.}} “I can swim (I know how).”"},
+        { "table": [
+          ["","{{poder}} “can”","{{voler}} “want”","{{saber}} “know (how)”"],
+          ["I","{{puc}}","{{vull}}","{{sé}}"],
+          ["you","{{pots}}","{{vols}}","{{saps}}"],
+          ["he, she","{{pot}}","{{vol}}","{{sap}}"],
+          ["we","{{podem}}","{{volem}}","{{sabem}}"],
+          ["you (more than one)","{{podeu}}","{{voleu}}","{{sabeu}}"],
+          ["they","{{poden}}","{{volen}}","{{saben}}"]
+        ] },
+        {"p":"**Can: {{poder}} or {{saber}}?** English “can” has two jobs. For a skill you've learned, Catalan uses {{saber}}: {{Saps cuinar?}} “Can you cook?”. For being able, free or allowed right now, it's {{poder}}: {{Avui no puc cuinar, no tinc temps.}} “I can't cook today, I don't have time.”"},
+        {"p":"**Asking.** {{Puc…?}} “Can I…?” asks for permission: {{Puc obrir la finestra?}} “Can I open the window?”. {{Pots…?}} “Can you…?” asks someone to do something: {{Pots parlar més a poc a poc?}} “Can you speak more slowly?”."},
+        { "ex": [
+          {"t":"Puc seure aquí?","tr":"Can I sit here?"},
+          {"t":"Vols venir amb nosaltres?","tr":"Do you want to come with us?"},
+          {"t":"Saps conduir?","tr":"Can you drive?","note":"a skill: {{saber}}"},
+          {"t":"No podem venir dissabte.","tr":"We can't come on Saturday."},
+          {"t":"Els nens volen anar a la platja.","tr":"The kids want to go to the beach."},
+          {"t":"Pots parlar més a poc a poc, si us plau?","tr":"Can you speak more slowly, please?"}
+        ] },
+        {"tip":"Two phrases you'll hear every day: {{No pot ser!}} “It can't be!”, “No way!”, and {{No passa res}} “It doesn't matter”, “No problem”."}
+      ],
+      "mistakes": [
+        {"wrong":"Puc a venir.","right":"Puc venir.","tr":"I can come.","why":"Nothing goes between {{poder}} and the second verb."},
+        {"wrong":"Puc parlar tres idiomes.","right":"Sé parlar tres idiomes.","tr":"I can speak three languages.","why":"A skill you've learned is {{saber}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ obrir la finestra?","tr":"Can I open the window?","options":["Puc","Sé","Vull"],"answer":0,"why":"Asking for permission: {{puc}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"La meva filla ja ___ llegir.","tr":"My daughter can already read.","options":["sap","pot","vol"],"answer":0,"why":"A skill she has learned: {{saber}}, {{sap}}."},
+        {"type":"choice","q":"{{Saps nedar?}} asks…","options":["if you know how to swim","if you're allowed to swim now","if you want to swim"],"answer":0,"why":"{{saber}} + a verb: a skill."},
+        {"type":"dialogue","q":"A friend invites you out. Choose your replies.","lines":[{"who":"Friend","t":"Vols venir al concert dissabte?","tr":"Do you want to come to the concert on Saturday?"},{"options":["Vull, però no puc. Treballo.","Vull, però no sé. Treballo."],"answer":0,"why":"You're not free: {{no puc}}. {{no sé}} would be “I don't know how”."},{"who":"Friend","t":"Llàstima! I diumenge?","tr":"Too bad! And Sunday?"},{"options":["Diumenge sí! A quina hora?","Diumenge sí! Quina hora és?"],"answer":0,"why":"You want the time you'll meet: {{A quina hora?}}. {{Quina hora és?}} asks what time it is now."}],"from":"tell-the-time"},
+        {"type":"order","q":"Put the words in order.","tr":"The kids want to go to the beach.","words":["Els nens","volen","anar","a la platja."]},
+        {"type":"say","q":"Ask: “Can I sit here?”","answer":"Puc seure aquí?"},
+        {"type":"free","q":"Your turn: say something you can do, something you can't do, and something you want to do this year.","answers":[{"t":"Sé cuinar, però no sé nedar. Aquest any vull aprendre català.","tr":"I can cook, but I can't swim. This year I want to learn Catalan."},{"t":"Sé tocar la guitarra i vull aprendre a ballar.","tr":"I can play the guitar, and I want to learn to dance."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-must",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what you have to do",
+      "summary": "Say what you have to do, what's necessary and what isn't: “Tomorrow I have to work until eight.”",
+      "topic": "{{haver de}} + infinitive “have to”: {{he de, has de, ha de…}}; {{cal}}, {{no cal}}",
+      "blocks": [
+        {"goal":{"t":"Demà he de treballar fins a les vuit.","tr":"Tomorrow I have to work until eight."}},
+        {"dialog":[{"who":"Laia","t":"Vens a sopar aquesta nit?","tr":"Are you coming to dinner tonight?"},{"who":"Ryan","t":"No puc, he d'estudiar. Demà tinc un examen.","tr":"I can't, I have to study. I have an exam tomorrow."},{"who":"Laia","t":"I dissabte?","tr":"And Saturday?"},{"who":"Ryan","t":"Dissabte sí. Haig de portar alguna cosa?","tr":"Saturday, yes. Do I need to bring anything?"},{"who":"Laia","t":"No, no cal. Només has de venir!","tr":"No, there's no need. You just have to come!"}]},
+        {"p":"**{{haver de}}** + an infinitive is “have to, must”. It's the {{haver}} of {{hi ha}}, with {{de}} before the second verb:"},
+        { "table": [
+          ["","{{haver de}}","example"],
+          ["I","{{he de}} or {{haig de}}","{{He de marxar.}} I have to go."],
+          ["you","{{has de}}","{{Has de venir!}} You have to come!"],
+          ["he, she","{{ha de}}","{{Ha de treballar.}} She has to work."],
+          ["we","{{hem de}}","{{Hem de parlar.}} We need to talk."],
+          ["you (more than one)","{{heu de}}","{{Heu d'esperar.}} You have to wait."],
+          ["they","{{han de}}","{{Han de pagar.}} They have to pay."]
+        ] },
+        {"p":"{{de}} becomes {{d'}} before a vowel: {{he d'estudiar}}, {{has d'anar}}. For “I have to”, {{haig de}} is very common in speech; both are correct."},
+        {"p":"**It's necessary: {{cal}}.** For something necessary in general, not for one person, use {{cal}} + an infinitive: {{Cal reservar taula.}} “You need to book a table.” {{No cal}} is “there's no need”: {{No cal pagar.}} “You don't have to pay.” On its own, {{No cal!}} means “No need!”."},
+        { "ex": [
+          {"t":"Ho sento, he de marxar.","tr":"Sorry, I have to go."},
+          {"t":"Has de provar el pa amb tomàquet.","tr":"You have to try pa amb tomàquet."},
+          {"t":"Demà ens hem de llevar molt d'hora.","tr":"We have to get up very early tomorrow.","note":"the {{ens}} of {{llevar-se}} goes in front of {{hem de}}"},
+          {"t":"Cal portar el passaport?","tr":"Do you need to bring your passport?"},
+          {"t":"No cal reservar.","tr":"There's no need to book."},
+          {"t":"Què haig de fer?","tr":"What do I have to do?"}
+        ] },
+        {"tip":"“I have to” is never {{tinc que}} in good Catalan, though you may hear it: it's a borrowing careful speakers avoid. Say {{he de}} or {{haig de}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Tinc que treballar.","right":"He de treballar.","tr":"I have to work.","why":"“Have to” is {{haver de}}: {{he de}}."},
+        {"wrong":"He treballar demà.","right":"He de treballar demà.","tr":"I have to work tomorrow.","why":"Don't forget the {{de}}: {{he de}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Demà ___ de treballar.","tr":"Tomorrow I have to work.","options":["he","tinc","soc"],"answer":0,"why":"“I have to”: {{he de}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Heu ___ esperar una mica.","tr":"You guys have to wait a little.","options":["d'","de","a"],"answer":0,"why":"{{de}} becomes {{d'}} before a vowel: {{heu d'esperar}}."},
+        {"type":"choice","q":"{{No cal reservar.}} means…","options":["There's no need to book.","You mustn't book.","It's impossible to book."],"answer":0,"why":"{{no cal}}: it isn't necessary."},
+        {"type":"dialogue","q":"A friend wants to go out tonight. Choose your replies.","lines":[{"who":"Friend","t":"Sortim aquesta nit?","tr":"Shall we go out tonight?"},{"options":["No puc, he d'estudiar.","No puc, tinc que estudiar."],"answer":0,"why":"“Have to” is {{haver de}}: {{he d'estudiar}}."},{"who":"Friend","t":"I demà?","tr":"And tomorrow?"},{"options":["Demà sí que puc!","Demà sí que sé!"],"answer":0,"why":"Being free: {{poder}}. {{saber}} is for skills."}],"from":"say-what-you-can"},
+        {"type":"order","q":"Put the words in order.","tr":"We have to get up very early tomorrow.","words":["Demà","ens hem","de llevar","molt d'hora."]},
+        {"type":"say","q":"Say “Sorry, I have to go.”","answer":"Ho sento, he de marxar."},
+        {"type":"free","q":"Your turn: what do you have to do this week? Say two things, with {{he de}} or {{haig de}}.","answers":[{"t":"Dilluns he d'anar al metge i dimecres he de treballar fins tard.","tr":"On Monday I have to go to the doctor, and on Wednesday I have to work late."},{"t":"Haig de fer la compra i he de trucar a la meva mare.","tr":"I have to do the grocery shopping, and I have to call my mom."}]}
+      ]
+    },
+    {
+      "id": "make-plans",
+      "unit": 4,
+      "level": "A2",
+      "title": "Make plans and suggestions",
+      "summary": "Suggest doing something, say what you're planning, and accept or turn down an invitation: “Do you feel like going to the movies on Saturday?”",
+      "topic": "The present for plans ({{demà treballo}}); {{pensar}} + infinitive “plan to”; {{et ve de gust…?}}; {{per què no…?}}; {{em sap greu}}",
+      "blocks": [
+        {"goal":{"t":"Et ve de gust anar al cinema dissabte?","tr":"Do you feel like going to the movies on Saturday?"}},
+        {"dialog":[{"who":"Oriol","t":"Què fas aquest cap de setmana?","tr":"What are you doing this weekend?"},{"who":"Hannah","t":"Dissabte treballo, però diumenge estic lliure.","tr":"I'm working on Saturday, but Sunday I'm free."},{"who":"Oriol","t":"Penso anar a Montserrat. Et ve de gust venir?","tr":"I'm planning to go to Montserrat. Do you feel like coming?"},{"who":"Hannah","t":"Sí, amb molt de gust! Anem en tren?","tr":"Yes, I'd love to! Shall we go by train?"},{"who":"Oriol","t":"Sí, el tren surt a les nou de plaça d'Espanya.","tr":"Yes, the train leaves at nine from Plaça d'Espanya."},{"who":"Hannah","t":"Perfecte. Quedem a tres quarts de nou a l'estació?","tr":"Perfect. Shall we meet at a quarter to nine at the station?"},{"who":"Oriol","t":"Fet!","tr":"Deal!"}]},
+        {"p":"**The present for plans.** Catalan often talks about plans with the plain present and a time word: {{Dissabte treballo.}} “I'm working on Saturday.” {{Demà anem a la platja.}} “We're going to the beach tomorrow.” {{Què fas aquest cap de setmana?}} “What are you doing this weekend?”"},
+        {"p":"**Planning to.** {{pensar}} + an infinitive is “to plan to, to be thinking of”: {{Penso anar a Montserrat.}} “I'm planning to go to Montserrat.” Or use {{voler}}: {{Vull fer una festa.}} “I want to have a party.”"},
+        {"p":"**Suggesting.** The most Catalan way is {{Et ve de gust…?}} “Do you feel like…?”, word for word “does it come to you with pleasure?”; to several people, {{Us ve de gust…?}}. Others: {{Per què no…?}} “Why don't we…?”, or just the “we” form: {{Sopem fora?}} “Shall we eat out?”. {{Anem!}} on its own is “Let's go!”."},
+        { "table": [
+          ["to suggest","to say yes","to say no"],
+          ["{{Et ve de gust anar a la platja?}}","{{Sí, amb molt de gust!}}","{{Em sap greu, no puc.}}"],
+          ["{{Per què no anem al cinema?}}","{{Bona idea!}}","{{Avui no em va bé.}}"],
+          ["{{Sopem fora?}}","{{D'acord!}} {{Fet!}}","{{Potser un altre dia.}}"]
+        ] },
+        {"p":"**{{Em sap greu}}** “I'm sorry”, word for word “it weighs on me”, is how Catalans turn something down kindly. You'll hear it all the time."},
+        { "ex": [
+          {"t":"Aquest estiu pensem anar a Itàlia.","tr":"This summer we're planning to go to Italy."},
+          {"t":"Et ve de gust fer un cafè?","tr":"Do you feel like having a coffee?"},
+          {"t":"Per què no sopem a casa meva?","tr":"Why don't we have dinner at my place?"},
+          {"t":"Demà al matí no treballo.","tr":"I'm not working tomorrow morning."},
+          {"t":"Em sap greu, aquest dissabte no em va bé.","tr":"I'm sorry, this Saturday doesn't work for me."},
+          {"t":"Anem, que fem tard!","tr":"Let's go, we're late!","note":"{{fer tard}} “to be late”"}
+        ] },
+        {"tip":"Catalan avoids {{anar a}} + a verb for the future. Plans are the present ({{Dissabte vaig a la platja.}}), {{pensar}} + a verb, or the future tense (lesson 37). {{Vaig a}} + a verb is for going somewhere to do something: {{Vaig a comprar pa.}} “I'm off to buy bread.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Et ve de gust a anar al cinema?","right":"Et ve de gust anar al cinema?","tr":"Do you feel like going to the movies?","why":"Nothing goes between {{de gust}} and the verb."},
+        {"wrong":"Penso que anar a Montserrat.","right":"Penso anar a Montserrat.","tr":"I'm planning to go to Montserrat.","why":"To plan to do something: {{pensar}} + the verb, with no {{que}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Et ve de ___ venir a la festa?","tr":"Do you feel like coming to the party?","options":["gust","grat","bé"],"answer":0,"why":"The phrase is {{et ve de gust}}."},
+        {"type":"choice","q":"{{Aquest estiu penso anar a Mallorca.}} means…","options":["This summer I'm planning to go to Mallorca.","This summer I'm thinking about Mallorca.","Last summer I went to Mallorca."],"answer":0,"why":"{{pensar}} + a verb: “plan to”."},
+        {"type":"choice","q":"A friend invites you, but you're busy. The kindest answer is…","options":["{{Em sap greu, no puc. Potser un altre dia?}}","{{No.}}","{{No vull.}}"],"answer":0,"why":"{{Em sap greu}} “I'm sorry” softens it, and {{potser un altre dia}} “maybe another day” keeps the door open."},
+        {"type":"dialogue","q":"Planning the weekend with a friend. Choose your replies.","lines":[{"who":"Friend","t":"Què fas dissabte?","tr":"What are you doing on Saturday?"},{"options":["Res. Per què no anem a la platja?","Res. Per què no anar a la platja?"],"answer":0,"why":"{{Per què no}} + the “we” form: {{anem}}."},{"who":"Friend","t":"Bona idea! A quina hora quedem?","tr":"Good idea! What time shall we meet?"},{"options":["A dos quarts d'onze, a l'estació.","A dos quarts d'onze, a la estació."],"answer":0,"why":"Before a vowel, {{la}} becomes {{l'}}: {{a l'estació}}."}],"from":"tell-the-time"},
+        {"type":"order","q":"Put the words in order.","tr":"Why don't we have dinner at my place?","words":["Per què","no","sopem","a casa meva?"]},
+        {"type":"say","q":"Ask a friend: “Do you feel like having a coffee?”","answer":"Et ve de gust fer un cafè?"},
+        {"type":"free","q":"Your turn: invite a friend to do something this weekend. Say what, when and where.","answers":[{"t":"Et ve de gust anar a la platja diumenge? Podem quedar a les deu a l'estació.","tr":"Do you feel like going to the beach on Sunday? We can meet at ten at the station."},{"t":"Dissabte penso fer un sopar a casa. Vols venir?","tr":"On Saturday I'm planning to have people over for dinner. Do you want to come?"}]}
+      ]
+    },
+    {
+      "id": "it-and-them",
+      "unit": 4,
+      "level": "A2",
+      "title": "Talk about things without naming them again",
+      "summary": "Say “it” and “them” the Catalan way, before the verb: “I don't know, I can't find it.”",
+      "topic": "{{el, la, l', els, les}} “it, him, her, them” and {{ho}} “it, that”: before the verb, or after an infinitive ({{comprar-lo}})",
+      "blocks": [
+        {"goal":{"t":"No ho sé, no la trobo.","tr":"I don't know, I can't find it.","note":"about a key: {{la clau}}"}},
+        {"dialog":[{"who":"Assistant","t":"T'agrada aquest jersei?","tr":"Do you like this sweater?"},{"who":"You","t":"Sí, m'encanta! Que el teniu en blau?","tr":"Yes, I love it! Do you have it in blue?"},{"who":"Assistant","t":"Sí, el tenim en blau i en verd.","tr":"Yes, we have it in blue and in green."},{"who":"You","t":"En blau, si us plau. El compro!","tr":"In blue, please. I'll take it!"},{"who":"Assistant","t":"Molt bé. El pots pagar a la caixa.","tr":"Very good. You can pay for it at the register."}]},
+        {"term":"object","means":"the person or thing a verb acts on: in “I buy the sweater”, the sweater is the object."},
+        {"p":"**“It” is a weak pronoun.** To avoid repeating an object, Catalan uses {{el}}, {{la}}, {{els}}, {{les}}, which look just like the articles. They match the noun's gender and number, and they go right before the verb: {{Compro el jersei.}} → {{El compro.}} “I'll buy it.” {{Conec la Marta.}} → {{La conec.}} “I know her.”"},
+        { "table": [
+          ["","masculine","feminine"],
+          ["it, him, her","{{el}} ({{l'}} before a vowel)","{{la}} ({{l'}} before a vowel)"],
+          ["them","{{els}}","{{les}}"],
+          ["it, that (a fact, an idea)","{{ho}}","{{ho}}"]
+        ] },
+        {"p":"Before a vowel, {{el}} and {{la}} become {{l'}}: {{L'espero aquí.}} “I'll wait for him (or her) here.”"},
+        {"p":"**{{ho}}** is “it” or “that” for something that isn't a noun: a fact, an idea, what someone has just said. {{No ho sé.}} “I don't know.” {{Ho entenc.}} “I understand.” {{Ho sento.}} “I'm sorry”, word for word “I feel it”."},
+        {"p":"**With an infinitive.** With two verbs, the pronoun can go before both, or on the end of the infinitive with a hyphen: {{El vull comprar.}} = {{Vull comprar-lo.}} “I want to buy it.” On the end, {{el}} becomes {{-lo}} and {{els}} becomes {{-los}}; {{-la}}, {{-les}} and {{-ho}} stay the same."},
+        { "ex": [
+          {"t":"On és la clau? No la trobo.","tr":"Where's the key? I can't find it."},
+          {"t":"Aquests pantalons? Els compro.","tr":"These pants? I'll take them."},
+          {"t":"Coneixes en Pau? —Sí, el conec molt bé.","tr":"Do you know Pau? —Yes, I know him very well."},
+          {"t":"No ho entenc.","tr":"I don't understand."},
+          {"t":"Les galetes? Les pots deixar a la taula.","tr":"The cookies? You can leave them on the table."},
+          {"t":"És un llibre molt bo. Has de llegir-lo!","tr":"It's a really good book. You have to read it!"}
+        ] },
+        {"tip":"“I don't know” is {{No ho sé}}: Catalan likes its {{ho}}. The same in {{Ho sé}} “I know” and {{Ho sento}} “I'm sorry”."}
+      ],
+      "mistakes": [
+        {"wrong":"Compro el.","right":"El compro.","tr":"I'll take it.","why":"Before a conjugated verb: {{el compro}}."},
+        {"wrong":"On és la clau? No el trobo.","right":"On és la clau? No la trobo.","tr":"Where's the key? I can't find it.","why":"{{clau}} is feminine, so “it” is {{la}}."},
+        {"wrong":"Vull comprar-el.","right":"Vull comprar-lo.","tr":"I want to buy it.","why":"On the end of an infinitive, {{el}} becomes {{-lo}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Aquesta camisa és molt bonica. ___ compro.","tr":"This shirt is really nice. I'll take it.","options":["La","El","Ho"],"answer":0,"why":"{{camisa}} is feminine: {{la}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Perdona, no ___ entenc.","tr":"Sorry, I don't understand.","options":["ho","el","la"],"answer":0,"why":"Not understanding what was said: {{ho}}."},
+        {"type":"choice","q":"{{Vull veure-la.}} means the same as…","options":["{{La vull veure.}}","{{Vull la veure.}}","{{Veure la vull.}}"],"answer":0,"why":"The pronoun goes before both verbs, or on the end of the infinitive."},
+        {"type":"order","q":"Put the words in order.","tr":"I know him very well.","words":["El","conec","molt","bé."]},
+        {"type":"dialogue","q":"In a shoe store. Choose your replies.","lines":[{"who":"Assistant","t":"T'agraden aquestes sabates?","tr":"Do you like these shoes?"},{"options":["Sí, m'agraden molt. Les puc provar?","Sí, m'agrada molt. Els puc provar?"],"answer":0,"why":"{{sabates}} is feminine plural: {{m'agraden}}, and “them” is {{les}}."},{"who":"Assistant","t":"És clar. Quin número tens?","tr":"Of course. What size are you?"},{"options":["El trenta-vuit.","Tinc trenta-vuit anys."],"answer":0,"why":"She's asking your shoe size, not your age!"}],"from":"say-what-you-like"},
+        {"type":"say","q":"Your friend asks something you don't know. Say “I don't know, sorry.”","answer":"No ho sé, ho sento."},
+        {"type":"free","q":"Your turn: a shop assistant shows you something. Say whether you like it and whether you'll buy it, without naming it again.","answers":[{"t":"M'agrada molt, però és massa car. No el compro.","tr":"I really like it, but it's too expensive. I won't take it."},{"t":"Són molt bonics! Els vull comprar.","tr":"They're really nice! I want to buy them."}]}
+      ]
+    },
+    {
+      "id": "how-much-and-how-many",
+      "unit": 4,
+      "level": "A2",
+      "title": "Ask for amounts: some, none, how many",
+      "summary": "Ask for a quantity, and say you have some or none, without repeating the thing: “Apples? Yes, I'd like a kilo, please.”",
+      "topic": "{{en}} “of it, of them, some”: {{en vull dos}}, {{no en tinc}}; {{molt, poc, una mica, massa, prou, gaire}}",
+      "blocks": [
+        {"goal":{"t":"Pomes? Sí, en vull un quilo, si us plau.","tr":"Apples? Yes, I'd like a kilo, please."}},
+        {"dialog":[{"who":"Seller","t":"Què et poso?","tr":"What can I get you?"},{"who":"You","t":"Voldria ous. En teniu?","tr":"I'd like some eggs. Do you have any?"},{"who":"Seller","t":"Sí. Quants en vols?","tr":"Yes. How many do you want?"},{"who":"You","t":"En vull una dotzena. I maduixes?","tr":"A dozen, please. And strawberries?"},{"who":"Seller","t":"Ho sento, avui no en tenim.","tr":"Sorry, we don't have any today."},{"who":"You","t":"Doncs voldria una mica de formatge.","tr":"Then I'd like a little cheese."},{"who":"Seller","t":"Aquest és molt bo. En vols tastar?","tr":"This one's very good. Would you like to try some?"}]},
+        {"p":"**{{en}}: some of it, of them.** When you talk about an amount of something already mentioned, Catalan uses the weak pronoun {{en}}, before the verb: {{Vols pa? —Sí, en vull.}} “Do you want some bread? —Yes, I'd like some.” {{Quants germans tens? —En tinc dos.}} “How many brothers and sisters do you have? —I have two.” English often says nothing here (“I have two”), but Catalan needs its {{en}}."},
+        {"p":"Before a vowel it becomes {{n'}}: {{N'hi ha molts.}} “There are lots (of them).” That's the {{n'}} of {{n'hi ha un}} in lesson 7. On the end of an infinitive it becomes {{-ne}}: {{Vull comprar-ne.}} “I want to buy some.”"},
+        { "table": [
+          ["without {{en}}","with {{en}}","English"],
+          ["{{Tinc tres germans.}}","{{En tinc tres.}}","I have three."],
+          ["{{No tinc diners.}}","{{No en tinc.}}","I don't have any."],
+          ["{{Hi ha molts turistes.}}","{{N'hi ha molts.}}","There are lots."],
+          ["{{Vull un quilo de pomes.}}","{{En vull un quilo.}}","I'd like a kilo."]
+        ] },
+        {"p":"**How much.** {{molt}} “a lot, many” and {{poc}} “little, few” agree with the noun like adjectives: {{molta gent}} “a lot of people”, {{molts amics}} “lots of friends”, {{pocs diners}} “little money”. {{massa}} “too much, too many” and {{prou}} “enough” never change: {{massa feina}} “too much work”, {{prou temps}} “enough time”. {{una mica}} “a little” takes {{de}}: {{una mica de llet}} “a little milk”."},
+        {"p":"**{{gaire}}** is “much, many” after {{no}} and in questions: {{No tinc gaire temps.}} “I don't have much time.” {{Hi ha gaire gent?}} “Are there many people?”"},
+        { "ex": [
+          {"t":"Tens fills? —Sí, en tinc dos.","tr":"Do you have kids? —Yes, I have two."},
+          {"t":"Vols més cafè? —No, gràcies, encara en tinc.","tr":"More coffee? —No, thanks, I still have some."},
+          {"t":"No tinc gaire temps.","tr":"I don't have much time."},
+          {"t":"Hi ha massa gent aquí.","tr":"There are too many people here."},
+          {"t":"Tenim prou cadires? —No, en falten dues.","tr":"Do we have enough chairs? —No, we're two short.","note":"{{falten}} “are missing”"},
+          {"t":"Una mica de formatge, si us plau.","tr":"A little cheese, please."}
+        ] },
+        {"tip":"{{els diners}} “money” is plural in Catalan: {{No tinc diners.}} “I don't have any money.” {{Tinc pocs diners.}} “I have little money.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Tens germans? —Sí, tinc dos.","right":"Tens germans? —Sí, en tinc dos.","tr":"Do you have brothers or sisters? —Yes, I have two.","why":"When you give a number without the noun, Catalan needs {{en}}."},
+        {"wrong":"Tinc molt amics.","right":"Tinc molts amics.","tr":"I have lots of friends.","why":"{{molt}} before a noun agrees with it: {{molts amics}}."},
+        {"wrong":"Tinc gaire temps.","right":"No tinc gaire temps.","tr":"I don't have much time.","why":"{{gaire}} only works after {{no}} or in a question."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Tens germans? —Sí, ___ tinc tres.","tr":"Do you have any brothers or sisters? —Yes, I have three.","options":["en","els","hi"],"answer":0,"why":"A number without the noun: {{en}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"No tinc ___ temps.","tr":"I don't have much time.","options":["gaire","massa","molta"],"answer":0,"why":"After {{no}}, “much” is {{gaire}}."},
+        {"type":"choice","q":"{{No en tinc.}} means…","options":["I don't have any.","I don't have it.","I'm not there."],"answer":0,"why":"{{en}}: an amount of something. “I don't have it” is {{No el tinc}}.","from":"it-and-them"},
+        {"type":"dialogue","q":"At the bakery. Choose your replies.","lines":[{"who":"Baker","t":"Bon dia! Què li poso?","tr":"Good morning! What can I get you?"},{"options":["Croissants. En té?","Croissants. Els té?"],"answer":0,"why":"Asking whether she has some: {{en}}."},{"who":"Baker","t":"Sí. Quants en vol?","tr":"Yes. How many would you like?"},{"options":["En vull quatre, si us plau.","Vull quatre, si us plau."],"answer":0,"why":"A number without the noun: {{en vull quatre}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"There are too many people here.","words":["Hi ha","massa","gent","aquí."]},
+        {"type":"say","q":"Someone offers you more wine, but you still have some. Say “No, thanks, I still have some.”","answer":"No, gràcies, encara en tinc."},
+        {"type":"free","q":"Your turn: answer without repeating the thing. How many brothers and sisters do you have? How many languages do you speak?","answers":[{"t":"Germans? En tinc dos. Idiomes? En parlo tres.","tr":"Brothers and sisters? I have two. Languages? I speak three."},{"t":"No en tinc cap. Parlo anglès i una mica de català.","tr":"I don't have any. I speak English and a little Catalan."}]}
+      ]
     }
   ]
 }
