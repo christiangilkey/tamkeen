@@ -339,6 +339,281 @@
         {"type":"say","q":"पूछिए: “माफ़ कीजिए, बाथरूम कहाँ है?”","answer":"Excuse me, where's the bathroom?"},
         {"type":"free","q":"आपकी बारी: किसी चीज़ के बारे में दो वाक्य बोलिए: पहले {{a}} से, फिर {{the}} से।","answers":[{"t":"This is a photo of my village. The village is very small.","tr":"यह मेरे गाँव की एक फ़ोटो है। गाँव बहुत छोटा है।"},{"t":"I need a new phone. The old phone is broken.","tr":"मुझे एक नया फ़ोन चाहिए। पुराना फ़ोन टूट गया है।"}]}
       ]
+    },
+    {
+      "id": "whose-is-it",
+      "unit": 2,
+      "level": "A1",
+      "title": "किसका है?: my, your, his, her",
+      "summary": "“my sister”, “her name”, “Raj's car”: और {{his}} / {{her}} का वह नियम जो हिंदी से उल्टा है।",
+      "topic": "{{my, your, his, her, its, our, their}}; {{'s}}; {{his}} / {{her}} मालिक के हिसाब से",
+      "blocks": [
+        {"goal":{"t":"This is my brother. His name is Arjun.","tr":"यह मेरा भाई है। उसका नाम अर्जुन है।"}},
+        {"dialog":[{"who":"माइक","t":"Who's this?","tr":"यह कौन है?"},{"who":"प्रिया","t":"That's my sister. Her name is Meera.","tr":"वह मेरी बहन है। उसका नाम मीरा है।"},{"who":"माइक","t":"And who's this man?","tr":"और यह आदमी कौन है?"},{"who":"प्रिया","t":"That's her husband. His name is Raj.","tr":"वह उसका पति है। उसका नाम राज है।"},{"who":"माइक","t":"Is this their house?","tr":"क्या यह उनका घर है?"},{"who":"प्रिया","t":"Yes, it is. And that's Raj's car!","tr":"हाँ। और वह राज की गाड़ी है!"}]},
+        {"p":"**हिंदी से उल्टा.** हिंदी में “उसका / उसकी” उस चीज़ के हिसाब से बदलता है जो किसी की है: “उसकी गाड़ी” (गाड़ी स्त्रीलिंग है)। अंग्रेज़ी में {{his}} / {{her}} **मालिक** के हिसाब से चलता है: आदमी की चीज़ {{his}}, औरत की चीज़ {{her}}, चीज़ चाहे जो हो। {{his car}} = उसकी (आदमी की) गाड़ी; {{her car}} = उसकी (औरत की) गाड़ी।"},
+        { "table": [
+          ["","हिंदी","अंग्रेज़ी"],
+          ["{{I}}","मेरा, मेरी, मेरे","{{my}}"],
+          ["{{you}}","आपका, तुम्हारा, तेरा","{{your}}"],
+          ["{{he}}","उसका, उसकी (आदमी का)","{{his}}"],
+          ["{{she}}","उसका, उसकी (औरत का)","{{her}}"],
+          ["{{it}}","उसका (चीज़ या जानवर का)","{{its}}"],
+          ["{{we}}","हमारा","{{our}}"],
+          ["{{they}}","उनका","{{their}}"]
+        ] },
+        {"p":"**कभी नहीं बदलते.** {{my}} हमेशा {{my}}: {{my brother}}, {{my sister}}, {{my books}}। मेरा / मेरी / मेरे वाला फ़र्क़ अंग्रेज़ी में नहीं है।"},
+        {"p":"**'s: का, की, के.** नाम के बाद {{'s}} लगाइए: {{Raj's car}} “राज की गाड़ी”, {{my mother's name}} “मेरी माँ का नाम”। क्रम हिंदी जैसा ही है: पहले मालिक, फिर चीज़।"},
+        { "ex": [
+          {"t":"What's your name?","tr":"आपका नाम क्या है?"},
+          {"t":"Her name is Anjali.","tr":"उसका नाम अंजलि है।"},
+          {"t":"His car is new.","tr":"उसकी (आदमी की) गाड़ी नई है।"},
+          {"t":"Our house is small.","tr":"हमारा घर छोटा है।"},
+          {"t":"Their children are very cute.","tr":"उनके बच्चे बहुत प्यारे हैं।"},
+          {"t":"This is my friend's bike.","tr":"यह मेरे दोस्त की साइकिल है।"},
+          {"t":"The dog is in its bed.","tr":"कुत्ता अपने बिस्तर में है।","note":"चीज़ों और जानवरों के लिए {{its}}।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"My sister is a doctor. His name is Meera.","right":"My sister is a doctor. Her name is Meera.","tr":"मेरी बहन डॉक्टर है। उसका नाम मीरा है।","why":"मालिक औरत है: {{her}}। (हिंदी के “उसका नाम” से यह भ्रम होता है।)"},
+        {"wrong":"This is car of Raj.","right":"This is Raj's car.","tr":"यह राज की गाड़ी है।","why":"लोगों के साथ {{'s}}: {{Raj's car}}, ठीक हिंदी के “राज की गाड़ी” वाले क्रम में।"},
+        {"wrong":"The dog is cute. It's name is Moti.","right":"The dog is cute. Its name is Moti.","tr":"कुत्ता प्यारा है। उसका नाम मोती है।","why":"{{its}} = उसका; {{it's}} = {{it is}}।"}
+      ],
+      "practice": [
+        {"type":"choice","q":"आपके दोस्त राहुल की बहन के बारे में: “उसका नाम पूजा है।”","options":["{{Her name is Pooja.}}","{{His name is Pooja.}}","{{Its name is Pooja.}}"],"answer":0,"why":"नाम पूजा का है, जो औरत है: {{her}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"This is Mr. Sharma. ___ wife is a teacher.","tr":"ये शर्मा जी हैं। उनकी पत्नी टीचर हैं।","options":["His","Her","Their"],"answer":0,"why":"मालिक शर्मा जी हैं (आदमी): {{his}}, भले ही पत्नी औरत हैं।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"___ house is near the station.","tr":"हमारा घर स्टेशन के पास है।","options":["Our","We","Us"],"answer":0,"why":"“हमारा”: {{our}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"यह मेरे दोस्त की साइकिल है।","words":["This","is","my","friend's","bike."]},
+        {"type":"dialogue","q":"एक दोस्त आपके परिवार की फ़ोटो देख रहा है।","from":"he-she-it-they","lines":[{"who":"दोस्त","t":"Who's this?","tr":"यह कौन है?"},{"options":["That's my brother. His name is Vikram.","That's my brother. Her name is Vikram."],"answer":0,"why":"भाई का नाम: {{his}}।"},{"who":"दोस्त","t":"And this woman?","tr":"और यह औरत?"},{"options":["That's his wife. Her name is Asha.","That's her wife. His name is Asha."],"answer":0,"why":"भाई की पत्नी: {{his wife}}; पत्नी का नाम: {{her name}}।"}]},
+        {"type":"say","q":"पूछिए: “आपका नाम क्या है?”","answer":"What's your name?"},
+        {"type":"free","q":"आपकी बारी: अपने परिवार के दो लोगों के बारे में बताइए: उनका नाम और कुछ और, {{his}} या {{her}} के साथ।","answers":[{"t":"My father's name is Ramesh. His shop is in the market.","tr":"मेरे पिताजी का नाम रमेश है। उनकी दुकान बाज़ार में है।"},{"t":"This is my aunt. Her children are in America.","tr":"ये मेरी मौसी हैं। उनके बच्चे अमेरिका में हैं।"}]}
+      ]
+    },
+    {
+      "id": "what-you-have",
+      "unit": 2,
+      "level": "A1",
+      "title": "आपके पास क्या है: have, has",
+      "summary": "“I have a car”, “She has two brothers”, “Do you have a pen?”: “मेरे पास” को अंग्रेज़ी में उलटकर।",
+      "topic": "{{have}} / {{has}}; {{Do you have…?}}, {{I don't have…}}; परिवार, चीज़ें, बीमारी: सबके लिए {{have}}",
+      "blocks": [
+        {"goal":{"t":"I have two brothers and a sister.","tr":"मेरे दो भाई और एक बहन है।"}},
+        {"dialog":[{"who":"माइक","t":"Do you have a car?","tr":"क्या आपके पास गाड़ी है?"},{"who":"रवि","t":"No, I don't. But I have a bike.","tr":"नहीं। लेकिन मेरे पास साइकिल है।"},{"who":"माइक","t":"Do you have any brothers or sisters?","tr":"क्या आपके कोई भाई-बहन हैं?"},{"who":"रवि","t":"Yes, I have two sisters. They're in Chennai.","tr":"हाँ, मेरी दो बहनें हैं। वे चेन्नई में हैं।"},{"who":"माइक","t":"I have a brother. He has three kids!","tr":"मेरा एक भाई है। उसके तीन बच्चे हैं!"}]},
+        {"p":"**“मेरे पास” → I have.** हिंदी के “मेरे पास गाड़ी है” में व्यक्ति “पास” के साथ आता है। अंग्रेज़ी में व्यक्ति कर्ता है और {{have}} क्रिया: {{I have a car}}, शब्दशः “मैं रखता हूँ एक गाड़ी”। परिवार के लिए भी यही: “मेरे दो भाई हैं” → {{I have two brothers}}।"},
+        {"p":"**have या has?** {{he}}, {{she}}, {{it}} (और एक व्यक्ति के नाम) के साथ {{has}}; बाक़ी सबके साथ {{have}}: {{She has a dog.}}, {{They have two kids.}}"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["{{I, you, we, they}}","{{I have a phone.}}","मेरे पास फ़ोन है।"],
+          ["{{he, she, it}}","{{He has a car.}}","उसके पास गाड़ी है।"],
+          ["परिवार","{{We have three children.}}","हमारे तीन बच्चे हैं।"],
+          ["बीमारी","{{I have a cold.}}","मुझे ज़ुकाम है।"]
+        ] },
+        {"p":"**सवाल और “नहीं”.** {{Do you have…?}} “क्या आपके पास … है?”, {{I don't have…}} “मेरे पास … नहीं है”; {{he}} / {{she}} के साथ {{Does she have…?}}, {{She doesn't have…}}। यह {{do}} वाला ढाँचा पाठ 15 में पूरा समझेंगे; अभी इन्हें ऐसे ही याद कर लीजिए।"},
+        {"p":"**have got.** भारत (और ब्रिटेन) में {{I've got a car}} भी बहुत चलता है; अमेरिका में {{I have a car}} ज़्यादा आम है। दोनों समझे जाते हैं।"},
+        { "ex": [
+          {"t":"I have a new phone.","tr":"मेरे पास नया फ़ोन है।"},
+          {"t":"She has two brothers.","tr":"उसके दो भाई हैं।"},
+          {"t":"Do you have a pen?","tr":"क्या आपके पास पेन है?"},
+          {"t":"We don't have time.","tr":"हमारे पास समय नहीं है।"},
+          {"t":"He has a headache.","tr":"उसके सिर में दर्द है।"},
+          {"t":"They have a big house.","tr":"उनका बड़ा घर है।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I am having a car.","right":"I have a car.","tr":"मेरे पास गाड़ी है।","why":"{{have}} (किसी के पास होना) के साथ {{-ing}} नहीं लगता: {{I have}} (पाठ 17)।"},
+        {"wrong":"She have a dog.","right":"She has a dog.","tr":"उसके पास एक कुत्ता है।","why":"{{she}} के साथ {{has}}।"},
+        {"wrong":"Do you have pen?","right":"Do you have a pen?","tr":"क्या आपके पास पेन है?","why":"एक पेन: {{a}} (पाठ 4)।"}
+      ],
+      "practice": [
+        {"type":"choice","q":"“मेरे दो भाई हैं।”","options":["{{I have two brothers.}}","{{To me are two brothers.}}","{{My two brothers have.}}"],"answer":0,"why":"व्यक्ति कर्ता, फिर {{have}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"My sister ___ a new car.","tr":"मेरी बहन के पास नई गाड़ी है।","options":["has","have","is"],"answer":0,"why":"एक व्यक्ति ({{she}}): {{has}}।","from":"he-she-it-they"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"___ you have a pen?","tr":"क्या आपके पास पेन है?","options":["Do","Are","Have"],"answer":0,"why":"{{Do you have…?}}"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"हमारे पास समय नहीं है।","words":["We","don't","have","time."]},
+        {"type":"dialogue","q":"एक नए साथी से बातचीत।","from":"a-an-this-that","lines":[{"who":"साथी","t":"Do you have kids?","tr":"क्या आपके बच्चे हैं?"},{"options":["Yes, I have a son and a daughter.","Yes, I am having a son and a daughter."],"answer":0,"why":"{{have}} के साथ {{-ing}} नहीं।"},{"who":"साथी","t":"Nice! Do you have a photo?","tr":"वाह! कोई फ़ोटो है?"},{"options":["Yes, I have a photo on my phone.","Yes, I have photo on my phone."],"answer":0,"why":"एक फ़ोटो: {{a photo}}।"}]},
+        {"type":"say","q":"एक आदमी के बारे में कहिए: “उसके सिर में दर्द है।”","answer":"He has a headache."},
+        {"type":"free","q":"आपकी बारी: बताइए कि आपके पास क्या है (और क्या नहीं), और आपके कितने भाई-बहन हैं।","answers":[{"t":"I have a bike, but I don't have a car. I have one brother.","tr":"मेरे पास साइकिल है, लेकिन गाड़ी नहीं है। मेरा एक भाई है।"},{"t":"I have two sisters and a dog. I don't have a laptop.","tr":"मेरी दो बहनें हैं और एक कुत्ता है। मेरे पास लैपटॉप नहीं है।"}]}
+      ]
+    },
+    {
+      "id": "there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "कहाँ क्या है: there is, there are",
+      "summary": "पूछिए “Is there an ATM near here?” और कहिए “There are two hotels on this street.”",
+      "topic": "{{there is}} / {{there are}}; {{Is there…? Are there…?}}; {{some}}, {{any}}",
+      "blocks": [
+        {"goal":{"t":"Is there an ATM near here?","tr":"क्या यहाँ पास में कोई एटीएम है?"}},
+        {"dialog":[{"who":"रवि","t":"Excuse me, is there a pharmacy near here?","tr":"माफ़ कीजिए, क्या यहाँ पास में कोई दवाई की दुकान है?"},{"who":"औरत","t":"Yes, there's one on Main Street.","tr":"हाँ, मेन स्ट्रीट पर एक है।"},{"who":"रवि","t":"Are there any restaurants?","tr":"क्या कोई रेस्टोरेंट भी हैं?"},{"who":"औरत","t":"Yes, there are two Indian restaurants next to the bank.","tr":"हाँ, बैंक के पास दो भारतीय रेस्टोरेंट हैं।"},{"who":"रवि","t":"Great, thank you!","tr":"बढ़िया, शुक्रिया!"},{"who":"औरत","t":"You're welcome.","tr":"कोई बात नहीं।"}]},
+        {"p":"**“यहाँ … है” → There is.** हिंदी में “यहाँ एक बैंक है” काफ़ी है। अंग्रेज़ी में किसी जगह कुछ होने की बात {{there is}} (एक के लिए) या {{there are}} (कई के लिए) से शुरू होती है: {{There's a bank here.}}, {{There are two banks here.}} {{Here is a bank}} का मतलब कुछ और है: “यह रहा बैंक” (हाथ से दिखाते हुए)।"},
+        { "table": [
+          ["","बात","सवाल","नहीं"],
+          ["एक","{{There's a park.}}","{{Is there a park?}}","{{There isn't a park.}}"],
+          ["कई","{{There are two parks.}}","{{Are there any parks?}}","{{There aren't any parks.}}"]
+        ] },
+        {"p":"**some और any.** कई चीज़ों के साथ सीधी बात में {{some}} “कुछ”, सवाल और “नहीं” में {{any}} “कोई”: {{There are some good shops.}}, {{Are there any good shops?}}, {{There aren't any shops.}}"},
+        {"p":"**जवाब में one.** {{Is there an ATM?}} — {{Yes, there's one on the corner.}} “हाँ, कोने पर एक है।”"},
+        { "ex": [
+          {"t":"There's a problem.","tr":"एक दिक़्क़त है।"},
+          {"t":"There are a lot of people here.","tr":"यहाँ बहुत लोग हैं।"},
+          {"t":"Is there a bus to the airport?","tr":"क्या एयरपोर्ट के लिए कोई बस है?"},
+          {"t":"There isn't any milk.","tr":"दूध नहीं है।"},
+          {"t":"There are two beds in the room.","tr":"कमरे में दो बिस्तर हैं।"},
+          {"t":"Is there anyone here?","tr":"क्या यहाँ कोई है?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Here is a bank near my house.","right":"There's a bank near my house.","tr":"मेरे घर के पास एक बैंक है।","why":"किसी जगह कुछ होना: {{there is}}।"},
+        {"wrong":"There is two hotels.","right":"There are two hotels.","tr":"दो होटल हैं।","why":"कई: {{there are}}।"},
+        {"wrong":"In this street is a café.","right":"There's a café on this street.","tr":"इस गली में एक कैफ़े है।","why":"अंग्रेज़ी ऐसे वाक्य {{there is}} से शुरू करती है; जगह बाद में आती है।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"There ___ two hotels on this street.","tr":"इस गली में दो होटल हैं।","options":["are","is","have"],"answer":0,"why":"दो होटल: {{are}}।"},
+        {"type":"choice","q":"“क्या यहाँ पास में कोई एटीएम है?”","options":["{{Is there an ATM near here?}}","{{Here is ATM near?}}","{{There is an ATM near here is?}}"],"answer":0,"why":"सवाल: {{is}} पहले, {{Is there…?}} (पाठ 3)।","from":"ask-and-say-no"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Are there ___ good restaurants here?","tr":"क्या यहाँ कोई अच्छे रेस्टोरेंट हैं?","options":["any","some","a"],"answer":0,"why":"सवाल में {{any}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"कमरे में दो बिस्तर हैं।","words":["There","are","two","beds","in","the","room."],"from":"more-than-one"},
+        {"type":"dialogue","q":"आप एक नए शहर के होटल में हैं। अपने सवाल चुनिए।","lines":[{"who":"रिसेप्शनिस्ट","t":"Welcome to the hotel!","tr":"होटल में आपका स्वागत है!"},{"options":["Thanks. Is there a gym here?","Thanks. Here is a gym?"],"answer":0,"why":"किसी जगह कुछ है या नहीं: {{Is there…?}}"},{"who":"रिसेप्शनिस्ट","t":"Yes, there's one on the second floor.","tr":"हाँ, दूसरी मंज़िल पर है।"},{"options":["Great. Are there any restaurants near here?","Great. Is there any restaurants near here?"],"answer":0,"why":"कई रेस्टोरेंट: {{Are there any…?}}"}]},
+        {"type":"say","q":"कहिए: “यहाँ बहुत लोग हैं।”","answer":"There are a lot of people here."},
+        {"type":"free","q":"आपकी बारी: अपने मोहल्ले के बारे में बताइए: वहाँ क्या-क्या है, और क्या नहीं।","answers":[{"t":"There's a big park and two schools. There isn't a hospital.","tr":"एक बड़ा पार्क और दो स्कूल हैं। अस्पताल नहीं है।"},{"t":"There are a lot of shops near my house, but there aren't any good cafés.","tr":"मेरे घर के पास बहुत दुकानें हैं, लेकिन कोई अच्छा कैफ़े नहीं है।"}]}
+      ]
+    },
+    {
+      "id": "where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "चीज़ें कहाँ हैं: in, on, under, next to",
+      "summary": "“The keys are on the table”, “I'm at home”: पूर्वसर्ग, जो संज्ञा से पहले आते हैं।",
+      "topic": "{{in, on, under, next to, in front of, behind, between}}; {{at home}}, {{at work}}; {{on the bus}}",
+      "blocks": [
+        {"goal":{"t":"Your keys are on the table, next to the TV.","tr":"आपकी चाबियाँ मेज़ पर हैं, टीवी के पास।"}},
+        {"dialog":[{"who":"रवि","t":"Where's my phone?","tr":"मेरा फ़ोन कहाँ है?"},{"who":"आशा","t":"Is it in your bag?","tr":"क्या आपके बैग में है?"},{"who":"रवि","t":"No, it isn't.","tr":"नहीं।"},{"who":"आशा","t":"Look! It's under the newspaper, on the sofa.","tr":"देखिए! सोफ़े पर, अख़बार के नीचे है।"},{"who":"रवि","t":"Thanks! And where are my glasses?","tr":"शुक्रिया! और मेरा चश्मा कहाँ है?"},{"who":"आशा","t":"They're on your head!","tr":"आपके सिर पर है!"}]},
+        {"term":"पूर्वसर्ग","means":"जगह, समय या तरीक़ा बताने वाला छोटा शब्द जो संज्ञा से **पहले** आता है: {{in the bag}} “बैग में”। हिंदी में ऐसे शब्द (में, पर, से) संज्ञा के बाद आते हैं।"},
+        {"p":"**पहले पूर्वसर्ग, फिर संज्ञा.** हिंदी “बैग में” → अंग्रेज़ी {{in the bag}}, शब्दशः “में बैग”। हिंदी का क्रम उलट दीजिए।"},
+        { "table": [
+          ["हिंदी","अंग्रेज़ी","उदाहरण"],
+          ["में","{{in}}","{{in the box}}"],
+          ["पर (ऊपर)","{{on}}","{{on the table}}"],
+          ["के नीचे","{{under}}","{{under the bed}}"],
+          ["के पास","{{next to}}, {{near}}","{{next to the bank}}"],
+          ["के सामने","{{in front of}}","{{in front of the hotel}}"],
+          ["के पीछे","{{behind}}","{{behind the door}}"],
+          ["के बीच","{{between}}","{{between the bank and the school}}"]
+        ] },
+        {"p":"**at: किसी जगह पर.** कुछ आम जगहों के साथ {{at}}: {{at home}} “घर पर”, {{at work}} “काम पर”, {{at school}}, {{at the station}}। ({{at home}} में {{the}} नहीं लगता।)"},
+        {"p":"**“में” हमेशा {{in}} नहीं.** हिंदी के “में” और “पर” हर बार अंग्रेज़ी से मेल नहीं खाते: {{on the bus}} “बस में”, {{on the second floor}} “दूसरी मंज़िल पर”, {{in the picture}} “तस्वीर में”। ऐसे जोड़े धीरे-धीरे याद हो जाते हैं।"},
+        { "ex": [
+          {"t":"The keys are in my bag.","tr":"चाबियाँ मेरे बैग में हैं।"},
+          {"t":"Your phone is on the sofa.","tr":"आपका फ़ोन सोफ़े पर है।"},
+          {"t":"The cat is under the bed.","tr":"बिल्ली बिस्तर के नीचे है।"},
+          {"t":"The bank is next to the post office.","tr":"बैंक डाकघर के पास है।"},
+          {"t":"I'm at home.","tr":"मैं घर पर हूँ।"},
+          {"t":"She's on the bus.","tr":"वह बस में है।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"The keys are table on.","right":"The keys are on the table.","tr":"चाबियाँ मेज़ पर हैं।","why":"पूर्वसर्ग संज्ञा से पहले: {{on the table}}।"},
+        {"wrong":"I'm in home.","right":"I'm at home.","tr":"मैं घर पर हूँ।","why":"घर पर: {{at home}}, बिना {{the}}।"},
+        {"wrong":"She's in the bus.","right":"She's on the bus.","tr":"वह बस में है।","why":"बस, ट्रेन, प्लेन के लिए अमेरिकी अंग्रेज़ी में {{on}}; {{in}} कार और टैक्सी के लिए।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"The cat is ___ the bed.","tr":"बिल्ली बिस्तर के नीचे है।","options":["under","on","at"],"answer":0,"why":"“के नीचे”: {{under}}।"},
+        {"type":"choice","q":"“मैं घर पर हूँ।”","options":["{{I'm at home.}}","{{I'm home at.}}","{{I'm in the home.}}"],"answer":0,"why":"{{at home}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"The bank is next ___ the school.","tr":"बैंक स्कूल के पास है।","options":["to","of","at"],"answer":0,"why":"{{next to}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"आपका फ़ोन सोफ़े पर है।","words":["Your","phone","is","on","the","sofa."],"from":"whose-is-it"},
+        {"type":"dialogue","q":"आपकी पत्नी को कुछ नहीं मिल रहा।","from":"there-is","lines":[{"who":"पत्नी","t":"Where are my glasses?","tr":"मेरा चश्मा कहाँ है?"},{"options":["They're on the table, next to your book.","They're the table on, your book next to."],"answer":0,"why":"पूर्वसर्ग पहले: {{on the table}}, {{next to your book}}।"},{"who":"पत्नी","t":"And my phone?","tr":"और मेरा फ़ोन?"},{"options":["There's a phone under the newspaper.","Is a phone under the newspaper."],"answer":0,"why":"किसी जगह कुछ होना: {{there's}} (पाठ 10)।"}]},
+        {"type":"say","q":"एक औरत के बारे में कहिए: “वह बस में है।”","answer":"She's on the bus."},
+        {"type":"free","q":"आपकी बारी: बताइए कि आपके कमरे में तीन चीज़ें कहाँ हैं।","answers":[{"t":"My laptop is on the desk. My shoes are under the bed. The lamp is next to the window.","tr":"मेरा लैपटॉप डेस्क पर है। मेरे जूते बिस्तर के नीचे हैं। लैंप खिड़की के पास है।"},{"t":"There's a plant in front of the window, and my bag is behind the door.","tr":"खिड़की के सामने एक पौधा है, और मेरा बैग दरवाज़े के पीछे है।"}]}
+      ]
+    },
+    {
+      "id": "ask-people-to-do-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "किसी से कुछ करने को कहिए, रास्ता बताइए",
+      "summary": "“Please sit down”, “Don't worry”, “Turn left”: अंग्रेज़ी का एक ही आज्ञा-रूप, आप, तुम, तू सबके लिए।",
+      "topic": "आज्ञा: क्रिया का मूल रूप ({{sit}}, {{come}}); {{please}}; {{Don't…}}; {{Let's…}}; रास्ता बताना",
+      "blocks": [
+        {"goal":{"t":"Please come in and sit down.","tr":"आइए, अंदर आइए और बैठिए।"}},
+        {"dialog":[{"who":"राहुल","t":"Excuse me, how do I get to the museum?","tr":"माफ़ कीजिए, म्यूज़ियम कैसे जाऊँ?"},{"who":"औरत","t":"Go straight for two blocks, then turn left.","tr":"दो ब्लॉक सीधे जाइए, फिर बाएँ मुड़िए।"},{"who":"राहुल","t":"Left at the bank?","tr":"बैंक से बाएँ?"},{"who":"औरत","t":"Yes. Then walk past the park. The museum is on your right.","tr":"हाँ। फिर पार्क के आगे से निकलिए। म्यूज़ियम आपके दाईं तरफ़ है।"},{"who":"राहुल","t":"Thank you so much!","tr":"बहुत-बहुत शुक्रिया!"},{"who":"औरत","t":"You're welcome. Don't worry, it's easy to find.","tr":"कोई बात नहीं। चिंता मत कीजिए, आसानी से मिल जाएगा।"}]},
+        {"p":"**एक ही रूप सबके लिए.** हिंदी में “बैठिए, बैठो, बैठ” तीन रूप हैं। अंग्रेज़ी में बस क्रिया का मूल रूप: {{Sit.}}, {{Come.}}, {{Wait.}} कर्ता नहीं लगता। विनम्रता {{please}} से आती है: {{Please sit down.}} या {{Sit down, please.}}"},
+        {"p":"**“मत”: Don't.** {{don't}} क्रिया से पहले: {{Don't go.}} “मत जाओ”, {{Don't worry.}} “चिंता मत करो”।"},
+        {"p":"**“चलो”: Let's.** सुझाव के लिए {{Let's}} + क्रिया: {{Let's go.}} “चलो चलते हैं”, {{Let's eat.}} “चलो खाना खाते हैं”।"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["करो","{{Close the door, please.}}","दरवाज़ा बंद कीजिए।"],
+          ["मत करो","{{Don't touch that.}}","उसे मत छुओ।"],
+          ["चलो","{{Let's start.}}","चलो, शुरू करते हैं।"],
+          ["रास्ता","{{Turn right at the corner.}}","कोने से दाएँ मुड़िए।"]
+        ] },
+        {"p":"**रास्ता बताना.** {{go straight}} “सीधे जाइए”, {{turn left}} / {{turn right}} “बाएँ / दाएँ मुड़िए”, {{on your left}} “आपके बाईं तरफ़”, {{at the corner}} “कोने पर”, {{a block}} “दो सड़कों के बीच का हिस्सा” (अमेरिका में दूरी ऐसे ही बताते हैं)।"},
+        { "ex": [
+          {"t":"Please wait here.","tr":"कृपया यहाँ रुकिए।"},
+          {"t":"Come in!","tr":"अंदर आइए!"},
+          {"t":"Don't worry.","tr":"चिंता मत कीजिए।"},
+          {"t":"Let's go home.","tr":"चलो, घर चलते हैं।"},
+          {"t":"Turn left at the light.","tr":"सिग्नल से बाएँ मुड़िए।","note":"{{the light}} यानी ट्रैफ़िक लाइट।"},
+          {"t":"Please speak slowly.","tr":"कृपया धीरे बोलिए।"}
+        ] },
+        {"tip":"अमेरिका में अनजान लोगों को {{Sir}} या {{Madam}} कहना ज़रूरी नहीं; बात {{Excuse me}} से शुरू कीजिए। और आज्ञा के साथ {{please}} लगाना अच्छा रहता है, ख़ासकर दुकान या दफ़्तर में।"}
+      ],
+      "mistakes": [
+        {"wrong":"You sit down.","right":"Please sit down.","tr":"बैठिए।","why":"आज्ञा में कर्ता नहीं लगता; {{You sit down}} रूखा लगता है।"},
+        {"wrong":"No go there.","right":"Don't go there.","tr":"वहाँ मत जाओ।","why":"“मत”: {{don't}}, {{no}} नहीं।"},
+        {"wrong":"Kindly do the needful.","right":"Could you please take care of this?","tr":"क्या आप यह काम कर देंगे?","why":"{{Kindly do the needful}} भारतीय दफ़्तरों में आम है, लेकिन अमेरिका में अजीब लगता है। साफ़ बताइए कि क्या करना है।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"___ worry, everything is fine.","tr":"चिंता मत कीजिए, सब ठीक है।","options":["Don't","No","Not"],"answer":0,"why":"“मत”: {{Don't}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"___ go to the park!","tr":"चलो, पार्क चलते हैं!","options":["Let's","Let","We"],"answer":0,"why":"सुझाव: {{Let's}}।"},
+        {"type":"choice","q":"मेहमान घर आए हैं। आप कहते हैं…","options":["{{Please come in and sit down.}}","{{You come in and you sit.}}","{{Coming in, sitting down.}}"],"answer":0,"why":"आज्ञा: क्रिया का मूल रूप, और {{please}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"दो ब्लॉक सीधे जाइए, फिर बाएँ मुड़िए।","words":["Go","straight","for","two blocks,","then","turn","left."]},
+        {"type":"dialogue","q":"कोई आपसे रास्ता पूछता है।","from":"where-things-are","lines":[{"who":"आदमी","t":"Excuse me, where's the post office?","tr":"माफ़ कीजिए, डाकघर कहाँ है?"},{"options":["Go straight and turn right. It's next to the bank.","You go straight and you turn right. It's the bank next to."],"answer":0,"why":"आज्ञा में कर्ता नहीं; और {{next to the bank}}।"},{"who":"आदमी","t":"Thanks a lot!","tr":"बहुत शुक्रिया!"},{"options":["You're welcome!","Welcome!"],"answer":0,"why":"“शुक्रिया” का जवाब {{You're welcome}} है। अकेला {{Welcome}} “स्वागत है” होता है।"}]},
+        {"type":"say","q":"किसी से धीरे बोलने को कहिए।","answer":"Please speak slowly."},
+        {"type":"free","q":"आपकी बारी: अपने घर से पास की दुकान तक का रास्ता बताइए।","answers":[{"t":"Go out of the building and turn left. Walk for two minutes. The store is next to the bank.","tr":"इमारत से निकलकर बाएँ मुड़िए। दो मिनट चलिए। दुकान बैंक के पास है।"},{"t":"Go straight, then turn right at the corner. Don't cross the main road.","tr":"सीधे जाइए, फिर कोने से दाएँ मुड़िए। मेन रोड पार मत कीजिए।"}]}
+      ]
+    },
+    {
+      "id": "how-much-is-it",
+      "unit": 2,
+      "level": "A1",
+      "title": "दाम पूछिए: How much is it?",
+      "summary": "दाम और गिनती पूछिए, और “the red one” कहिए।",
+      "topic": "{{How much is…? How much are…?}}; {{How many…?}}; गिनती; {{this one}}, {{the red one}}",
+      "blocks": [
+        {"goal":{"t":"How much is this shirt?","tr":"यह शर्ट कितने की है?"}},
+        {"dialog":[{"who":"आप","t":"Excuse me, how much is this shirt?","tr":"माफ़ कीजिए, यह शर्ट कितने की है?"},{"who":"सेल्सवुमन","t":"It's twenty-five dollars.","tr":"पच्चीस डॉलर की।"},{"who":"आप","t":"And the blue one?","tr":"और नीली वाली?"},{"who":"सेल्सवुमन","t":"That one is thirty dollars.","tr":"वह तीस डॉलर की है।"},{"who":"आप","t":"OK, I'll take the blue one. How much are these socks?","tr":"ठीक है, मैं नीली वाली लूँगा। ये मोज़े कितने के हैं?"},{"who":"सेल्सवुमन","t":"They're five dollars a pair.","tr":"पाँच डॉलर जोड़ी।"}]},
+        {"p":"**How much: दाम.** एक चीज़ के लिए {{How much is…?}}, कई के लिए {{How much are…?}}: {{How much is this bag?}}, {{How much are these shoes?}} जवाब: {{It's ten dollars.}}, {{They're forty dollars.}}"},
+        {"p":"**How many: गिनती.** गिनी जाने वाली चीज़ों के लिए {{How many}} + बहुवचन: {{How many people?}} “कितने लोग?”, {{How many tickets?}} “कितने टिकट?” ({{much}} और {{many}} का पूरा फ़र्क़: पाठ 37।)"},
+        {"p":"**the red one.** हिंदी “लाल वाला” → {{the red one}}; कई के लिए {{the red ones}}। {{this one}}, {{that one}}: “यह वाला, वह वाला”।"},
+        { "table": [
+          ["संख्या","अंग्रेज़ी","संख्या","अंग्रेज़ी"],
+          ["13","{{thirteen}}","30","{{thirty}}"],
+          ["14","{{fourteen}}","40","{{forty}}"],
+          ["15","{{fifteen}}","50","{{fifty}}"],
+          ["20","{{twenty}}","100","{{a hundred}}"],
+          ["25","{{twenty-five}}","1,000","{{a thousand}}"]
+        ] },
+        { "ex": [
+          {"t":"How much is it?","tr":"यह कितने का है?"},
+          {"t":"How much are the tickets?","tr":"टिकट कितने के हैं?"},
+          {"t":"It's fifteen dollars.","tr":"पंद्रह डॉलर का है।"},
+          {"t":"How many people are there?","tr":"कितने लोग हैं?"},
+          {"t":"I'll take this one.","tr":"मैं यह वाला लूँगा।"},
+          {"t":"Do you have it in black?","tr":"क्या यह काले रंग में है?"}
+        ] },
+        {"tip":"उच्चारण: {{thirteen}} (13) में ज़ोर आख़िर पर (“थर्-**टीन**”), {{thirty}} (30) में शुरू में (“**थर्**-टी”)। दाम सुनते समय यही फ़र्क़ काम आता है। और {{$9.99}} को बोलते हैं {{nine ninety-nine}}।"}
+      ],
+      "mistakes": [
+        {"wrong":"How much is these shoes?","right":"How much are these shoes?","tr":"ये जूते कितने के हैं?","why":"कई चीज़ें: {{are}}।"},
+        {"wrong":"How much people?","right":"How many people?","tr":"कितने लोग?","why":"गिनती: {{how many}}।"},
+        {"wrong":"I want red colour one.","right":"I'd like the red one.","tr":"मुझे लाल वाला चाहिए।","why":"“लाल वाला”: {{the red one}}; {{color}} कहने की ज़रूरत नहीं (और अमेरिकी वर्तनी {{color}} है, {{colour}} नहीं)।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"How much ___ these shoes?","tr":"ये जूते कितने के हैं?","options":["are","is","do"],"answer":0,"why":"कई चीज़ें: {{are}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"How ___ tickets do you need?","tr":"आपको कितने टिकट चाहिए?","options":["many","much"],"answer":0,"why":"गिनती: {{how many}}।"},
+        {"type":"choice","q":"“लाल वाला दिखाइए।”","options":["{{Can I see the red one?}}","{{Show red wala.}}","{{Can I see the red?}}"],"answer":0,"why":"{{the red one}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"ये जूते कितने के हैं?","words":["How","much","are","these","shoes?"],"from":"a-an-this-that"},
+        {"type":"dialogue","q":"एक दुकान में।","from":"ask-for-things","lines":[{"who":"सेल्सवुमन","t":"Hi, can I help you?","tr":"नमस्ते, बताइए?"},{"options":["Yes, how much is this jacket?","Yes, how much are this jacket?"],"answer":0,"why":"एक जैकेट: {{is}}।"},{"who":"सेल्सवुमन","t":"It's sixty dollars.","tr":"साठ डॉलर की है।"},{"options":["Hmm. Do you have a cheaper one?","Hmm. You have cheaper?"],"answer":0,"why":"पूरा सवाल: {{Do you have a cheaper one?}}"}]},
+        {"type":"say","q":"पूछिए: “टिकट कितने के हैं?”","answer":"How much are the tickets?"},
+        {"type":"free","q":"आपकी बारी: एक दुकान में किसी चीज़ का दाम पूछिए, और दूसरे रंग वाली के बारे में भी।","answers":[{"t":"How much is this bag? And the black one?","tr":"यह बैग कितने का है? और काला वाला?"},{"t":"Excuse me, how much are these jeans? Do you have them in blue?","tr":"माफ़ कीजिए, यह जींस कितने की है? क्या नीले रंग में है?"}]}
+      ]
     }
   ]
 }
