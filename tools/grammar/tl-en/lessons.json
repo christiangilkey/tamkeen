@@ -1647,6 +1647,254 @@
         {"type":"dialogue","q":"Nagkuwentuhan kayo pagkatapos ng isang meeting. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"How was the meeting?","tr":"Kumusta ang meeting?"},{"options":["It was so boring! I was bored after ten minutes.","It was so bored! I was boring after ten minutes."],"answer":0,"why":"Ang meeting ang nakakainip ({{boring}}); ikaw ang naiinip ({{bored}})."},{"who":"Katrabaho","t":"Ha! Are you tired?","tr":"Ha! Pagod ka ba?"},{"options":["Yes, and I'm hungry. Let's get lunch!","Yes, and I have hungry. Let's get lunch!"],"answer":0,"why":"{{I'm hungry}}, may {{be}}."}],"from":"say-where-you-were"},
         {"type":"free","q":"Ikaw naman: sabihin ang nararamdaman mo ngayon, at ilarawan ang isang bagay na nakakapagod, nakakainip o kawili-wili sa linggo mo.","answers":[{"t":"Right now, I'm tired and a little hungry. My job is interesting, but the commute is tiring.","tr":"Ngayon, pagod ako at medyo gutom. Kawili-wili ang trabaho ko, pero nakakapagod ang biyahe papunta doon."},{"t":"I'm excited because my sister is visiting this weekend. My English class is very interesting.","tr":"Excited ako kasi bibisita ang ate ko ngayong weekend. Napakakawili-wili ng klase ko sa Ingles."}]}
       ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 7,
+      "level": "A2",
+      "title": "Pag-usapan ang mga naranasan mo",
+      "summary": "Gamitin ang present perfect para sa karanasan sa buhay: {{Have you ever been to Japan?}} {{I've never tried balut.}}",
+      "topic": "Ang present perfect: {{have}} / {{has}} + past participle ({{been}}, {{eaten}}, {{seen}}); {{ever}}, {{never}}; ang “nakapunta na” ng Tagalog",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to Japan?","tr":"Nakapunta ka na ba sa Japan?"}},
+        {"dialog":[{"who":"Mike","t":"Have you ever been to Japan?","tr":"Nakapunta ka na ba sa Japan?"},{"who":"Ana","t":"No, I've never been there. Have you?","tr":"Hindi pa ako nakakapunta doon. Ikaw?"},{"who":"Mike","t":"Yes, I have. I've been there twice.","tr":"Oo. Dalawang beses na akong nakapunta doon."},{"who":"Ana","t":"Have you ever eaten balut?","tr":"Nakakain ka na ba ng balut?"},{"who":"Mike","t":"No! But I've tried halo-halo. I love it!","tr":"Hindi pa! Pero natikman ko na ang halo-halo. Gustong-gusto ko!"}]},
+        {"p":"Ang “Nakapunta ka na ba…?” ng Tagalog ay tungkol sa karanasan, kahit kailan sa buhay mo. Sa Ingles, may espesyal na anyo para dito: ang present perfect, {{have}} o {{has}} + ang past participle ng pandiwa: {{I have been}}, {{she has eaten}}. Pinaikli: {{I've}}, {{she's}}."},
+        {"term":"present perfect","means":"anyo ng pandiwa na {{have}} / {{has}} + past participle ({{I've seen}}, {{she has eaten}}): para sa karanasan sa buhay, at sa mga nangyaring konektado pa sa ngayon."},
+        {"term":"past participle","means":"ang ikatlong anyo ng pandiwa, ginagamit pagkatapos ng {{have}}: {{been}}, {{eaten}}, {{seen}}, {{worked}}."},
+        {"p":"**Ang past participle.** Sa regular na pandiwa, kapareho ito ng nakaraan: {{worked}}, {{visited}}, {{tried}}. Sa di-regular, madalas ay may ikatlong anyo:"},
+        { "table": [
+          ["ngayon","nakaraan","past participle"],
+          ["{{go}} / {{be}}","{{went}} / {{was}}","{{been}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{have}}","{{had}}","{{had}}"],
+          ["{{try}}","{{tried}}","{{tried}}"],
+          ["{{meet}}","{{met}}","{{met}}"]
+        ] },
+        {"p":"**Mga lugar na napuntahan**: {{have been to}} + lugar: {{I've been to Japan.}} “Nakapunta na ako sa Japan.” Ginagamit ang {{been}} (hindi {{gone}}) kapag nakapunta ka at nakabalik na."},
+        {"p":"**{{ever}} at {{never}}.** Sa tanong, {{ever}} “kahit kailan”: {{Have you ever tried balut?}} Sa sagot na hindi, {{never}}: {{I've never tried it.}} Mga maikling sagot: {{Yes, I have.}} / {{No, I haven't.}}"},
+        {"p":"**May tiyak na oras? Past simple na.** {{I've been to Japan}} (kahit kailan), pero {{I went to Japan in 2019}} (may tiyak na taon). Mali ang {{I've been to Japan in 2019}}."},
+        { "ex": [
+          {"t":"I've been to Japan twice.","tr":"Dalawang beses na akong nakapunta sa Japan."},
+          {"t":"Have you ever eaten balut?","tr":"Nakakain ka na ba ng balut?"},
+          {"t":"I've never seen snow.","tr":"Hindi pa ako nakakakita ng niyebe."},
+          {"t":"She has met the president!","tr":"Nakilala na niya ang presidente!"},
+          {"t":"We've tried a lot of American food.","tr":"Marami na kaming natikmang pagkaing Amerikano."},
+          {"t":"No, I haven't.","tr":"Hindi pa."},
+          {"t":"I went to Japan in 2019.","tr":"Pumunta ako sa Japan noong 2019.","note":"may tiyak na taon: past simple"}
+        ] },
+        {"tip":"May pag-asa ang “Hindi pa” ng Tagalog: baka balang araw. Sa Ingles, sabihin ang {{I've never…}} at idagdag ang pangarap mo: {{I've never been there, but I want to go!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Have you ever went to Japan?","right":"Have you ever been to Japan?","tr":"Nakapunta ka na ba sa Japan?","why":"Pagkatapos ng {{have}}: past participle ({{been}}), hindi nakaraan ({{went}})."},
+        {"wrong":"I've been to Japan in 2019.","right":"I went to Japan in 2019.","tr":"Pumunta ako sa Japan noong 2019.","why":"May tiyak na taon: past simple."},
+        {"wrong":"I have never eat balut.","right":"I have never eaten balut.","tr":"Hindi pa ako nakakakain ng balut.","why":"Pagkatapos ng {{have}}: {{eaten}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Have you ever ___ to Japan?","tr":"Nakapunta ka na ba sa Japan?","options":["been","went","go"],"answer":0,"why":"{{have been to}}: nakapunta na."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I've never ___ snow.","tr":"Hindi pa ako nakakakita ng niyebe.","options":["seen","saw","see"],"answer":0,"why":"Past participle ng {{see}}: {{seen}}."},
+        {"type":"choice","q":"Tanong sa iyo: {{Have you ever tried adobo?}} Oo. Maikling sagot:","options":["{{Yes, I have.}}","{{Yes, I did.}}","{{Yes, I tried.}}"],"answer":0,"why":"May {{have}} ang tanong: {{Yes, I have.}}","from":"ask-about-the-past"},
+        {"type":"choice","q":"Alin ang tama?","options":["{{I went to Cebu last year.}}","{{I've been to Cebu last year.}}","{{I've went to Cebu last year.}}"],"answer":0,"why":"May tiyak na oras ({{last year}}): past simple."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Hindi pa ako nakakakain ng balut.","words":["I've","never","eaten","balut."]},
+        {"type":"dialogue","q":"Nag-uusap kayo ng bagong kaibigan tungkol sa paglalakbay. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"Have you ever been to New York?","tr":"Nakapunta ka na ba sa New York?"},{"options":["Yes, I have! I went there last summer.","Yes, I have! I've been there last summer."],"answer":0,"why":"Karanasan: {{Yes, I have}}; pero may tiyak na oras ({{last summer}}): {{went}}."},{"who":"Kaibigan","t":"Cool! Have you ever been to Canada?","tr":"Astig! Nakapunta ka na ba sa Canada?"},{"options":["No, I've never been there.","No, I've never went there."],"answer":0,"why":"Pagkatapos ng {{have}}: {{been}}."}],"from":"use-common-irregular-pasts"},
+        {"type":"free","q":"Ikaw naman: sabihin ang dalawang lugar o bagay na naranasan mo na, at isang hindi pa.","answers":[{"t":"I've been to Hong Kong and Singapore. I've tried Korean barbecue. I've never seen snow.","tr":"Nakapunta na ako sa Hong Kong at Singapore. Natikman ko na ang Korean barbecue. Hindi pa ako nakakakita ng niyebe."},{"t":"I've been on a plane many times. I've met a famous singer! I've never been to Europe.","tr":"Maraming beses na akong nakasakay ng eroplano. Nakilala ko na ang isang sikat na mang-aawit! Hindi pa ako nakakapunta sa Europa."}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 7,
+      "level": "A2",
+      "title": "Sabihin kung gaano katagal na",
+      "summary": "Sabihin kung gaano katagal ka nang nakatira, nagtatrabaho o nag-aaral sa isang lugar: {{I've lived here for five years.}} {{I've worked here since 2020.}}",
+      "topic": "Present perfect + {{for}} (haba ng panahon) at {{since}} (simula); {{How long have you…?}}; hindi {{I live here since…}}",
+      "blocks": [
+        {"goal":{"t":"I've lived in California for five years.","tr":"Limang taon na akong nakatira sa California."}},
+        {"dialog":[{"who":"Sarah","t":"How long have you lived here?","tr":"Gaano ka na katagal nakatira dito?"},{"who":"Ana","t":"I've lived here for three years.","tr":"Tatlong taon na akong nakatira dito."},{"who":"Sarah","t":"And how long have you worked at the hospital?","tr":"E gaano ka na katagal sa ospital?"},{"who":"Ana","t":"Since 2022. I love it!","tr":"Mula pa noong 2022. Gustong-gusto ko!"},{"who":"Sarah","t":"How long have you known Mike?","tr":"Gaano mo na katagal kilala si Mike?"},{"who":"Ana","t":"Oh, for a long time! Since college.","tr":"Ay, matagal na! Mula pa noong kolehiyo."}]},
+        {"p":"Ang “Limang taon na akong nakatira dito” ay tungkol sa bagay na nagsimula sa nakaraan at **nagpapatuloy pa** ngayon. Sa Ingles, present perfect ang ginagamit dito, hindi present simple: {{I've lived here for five years.}}"},
+        {"p":"**{{for}} o {{since}}?** {{for}} + haba ng panahon: {{for five years}}, {{for two months}}, {{for a long time}}. {{since}} + ang simula: {{since 2020}}, {{since May}}, {{since I was a kid}}."},
+        { "table": [
+          ["{{for}} (gaano katagal)","{{since}} (mula kailan)"],
+          ["{{for three years}}","{{since 2022}}"],
+          ["{{for two weeks}}","{{since Monday}}"],
+          ["{{for a long time}}","{{since college}}"],
+          ["{{for ten minutes}}","{{since this morning}}"]
+        ] },
+        {"p":"**Pagtatanong**: {{How long have you…?}}: {{How long have you lived here?}} “Gaano ka na katagal nakatira dito?”"},
+        {"p":"**Ang pinakamadalas na pagkakamali**: isalin ang “Nakatira ako dito mula pa noong 2020” sa {{I live here since 2020}}. Kapag may {{since}} o {{for}} at nagpapatuloy pa ito, kailangan ang present perfect: {{I've lived here since 2020.}}"},
+        {"p":"**Kasama ang {{be}} at {{know}}**: {{We've been married for ten years.}} “Sampung taon na kaming kasal.”, {{I've known her since college.}} “Kilala ko na siya mula pa noong kolehiyo.”"},
+        { "ex": [
+          {"t":"I've lived in California for five years.","tr":"Limang taon na akong nakatira sa California."},
+          {"t":"She's worked here since 2020.","tr":"Nagtatrabaho na siya dito mula pa noong 2020."},
+          {"t":"How long have you studied English?","tr":"Gaano ka na katagal nag-aaral ng Ingles?"},
+          {"t":"We've been married for ten years.","tr":"Sampung taon na kaming kasal."},
+          {"t":"I've known Ana since college.","tr":"Kilala ko na si Ana mula pa noong kolehiyo."},
+          {"t":"I haven't seen him for a long time.","tr":"Matagal ko na siyang hindi nakikita."}
+        ] },
+        {"tip":"Kapag tapos na ang bagay, past simple na: {{I lived in Cebu for ten years}} (dati, wala ka na doon). {{I've lived in Cebu for ten years}} (nandoon ka pa)."}
+      ],
+      "mistakes": [
+        {"wrong":"I live here since 2020.","right":"I've lived here since 2020.","tr":"Nakatira ako dito mula pa noong 2020.","why":"Nagsimula sa nakaraan at nagpapatuloy pa: present perfect."},
+        {"wrong":"I've lived here since five years.","right":"I've lived here for five years.","tr":"Limang taon na akong nakatira dito.","why":"Haba ng panahon: {{for}}. Ang {{since}} ay para sa simula."},
+        {"wrong":"How long are you married?","right":"How long have you been married?","tr":"Gaano na kayo katagal kasal?","why":"Para sa “gaano katagal na”: present perfect."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I've lived here ___ five years.","tr":"Limang taon na akong nakatira dito.","options":["for","since","from"],"answer":0,"why":"Haba ng panahon: {{for}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"She's worked here ___ 2020.","tr":"Nagtatrabaho na siya dito mula pa noong 2020.","options":["since","for","in"],"answer":0,"why":"Ang simula: {{since}}."},
+        {"type":"choice","q":"“Tatlong taon na akong nag-aaral ng Ingles.”","options":["{{I've studied English for three years.}}","{{I study English since three years.}}","{{I'm studying English since three years.}}"],"answer":0,"why":"Present perfect, at {{for}} para sa haba.","from":"talk-about-experiences"},
+        {"type":"choice","q":"Tumira ka sa Cebu dati, pero nasa Maynila ka na. Sasabihin mo…","options":["{{I lived in Cebu for ten years.}}","{{I've lived in Cebu for ten years.}}","{{I live in Cebu for ten years.}}"],"answer":0,"why":"Tapos na: past simple.","from":"say-what-you-did"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Gaano ka na katagal nakatira dito?","words":["How long","have","you","lived","here?"]},
+        {"type":"dialogue","q":"Sa isang job interview. Piliin ang mga sagot mo.","lines":[{"who":"Interviewer","t":"How long have you been a nurse?","tr":"Gaano ka na katagal nars?"},{"options":["I've been a nurse for eight years.","I'm a nurse since eight years."],"answer":0,"why":"Present perfect, at {{for}} para sa haba."},{"who":"Interviewer","t":"And how long have you lived in the US?","tr":"At gaano ka na katagal nakatira sa Amerika?"},{"options":["Since 2021. I came here with my husband.","For 2021. I came here with my husband."],"answer":0,"why":"Simula: {{since}}. At {{came}}, past simple, para sa pagdating."}]},
+        {"type":"free","q":"Ikaw naman: sabihin kung gaano katagal ka nang nakatira sa lugar mo, nagtatrabaho o nag-aaral, at kilala ang matalik mong kaibigan.","answers":[{"t":"I've lived in Quezon City for twelve years. I've worked at a bank since 2019. I've known my best friend since high school.","tr":"Labindalawang taon na akong nakatira sa Quezon City. Nagtatrabaho na ako sa bangko mula pa noong 2019. Kilala ko na ang matalik kong kaibigan mula pa noong high school."},{"t":"I've lived in Texas for two years. I've studied English for six months. I've known Carla for a long time.","tr":"Dalawang taon na akong nakatira sa Texas. Anim na buwan na akong nag-aaral ng Ingles. Matagal ko nang kilala si Carla."}]}
+      ]
+    },
+    {
+      "id": "say-what-youve-just-done",
+      "unit": 7,
+      "level": "A2",
+      "title": "Sabihin ang kagagawa mo lang, at ang hindi pa",
+      "summary": "Gamitin ang {{just}}, {{already}}, {{yet}} at {{still}}: {{I've just eaten.}} {{Have you finished yet?}} {{He still isn't here.}}",
+      "topic": "{{just}} (kaka-…lang), {{already}} (na), {{yet}} (pa, sa tanong at negatibo), {{still}} (pa rin); sa Amerika, pwede rin ang past simple",
+      "blocks": [
+        {"goal":{"t":"I've just eaten, thanks!","tr":"Kakakain ko lang, salamat!"}},
+        {"dialog":[{"who":"Sarah","t":"Do you want some cake?","tr":"Gusto mo ng cake?"},{"who":"Ana","t":"No, thanks. I've just eaten.","tr":"Hindi na, salamat. Kakakain ko lang."},{"who":"Sarah","t":"Has Mike arrived yet?","tr":"Dumating na ba si Mike?"},{"who":"Ana","t":"No, not yet. He's still at work.","tr":"Hindi pa. Nasa trabaho pa siya."},{"who":"Sarah","t":"Did you call him already?","tr":"Tinawagan mo na ba siya?"},{"who":"Ana","t":"Yes, I already called him. He's on his way.","tr":"Oo, tinawagan ko na siya. Papunta na siya."}]},
+        {"p":"Ang maliliit na salitang “na”, “pa” at “lang” ng Tagalog ay may mga katumbas sa Ingles:"},
+        { "table": [
+          ["Tagalog","Ingles","halimbawa"],
+          ["kaka-… lang","{{just}}","{{I've just eaten.}} Kakakain ko lang."],
+          ["na","{{already}}","{{I've already paid.}} Nagbayad na ako."],
+          ["… na ba?","{{yet}} (sa tanong)","{{Have you eaten yet?}} Kumain ka na ba?"],
+          ["hindi pa","{{not yet}}","{{I haven't eaten yet.}} Hindi pa ako kumakain."],
+          ["pa, pa rin","{{still}}","{{He's still at work.}} Nasa trabaho pa siya."]
+        ] },
+        {"p":"**Kasama ang present perfect**: ang {{just}} at {{already}} ay nasa pagitan ng {{have}} at ng pandiwa: {{I've just finished.}}, {{She's already left.}} Ang {{yet}} ay nasa dulo: {{Have you finished yet?}}, {{I haven't finished yet.}}"},
+        {"p":"**Sa Ingles na Amerikano**, karaniwan din ang past simple kasama ng mga salitang ito: {{I just ate.}}, {{Did you eat yet?}}, {{I already called him.}} Parehong tama; sa kaswal na usapan, mas madalas pa nga ang past simple."},
+        {"p":"**{{still}}** “pa rin” ay para sa bagay na nagpapatuloy, at nauuna sa pandiwa (o pagkatapos ng {{be}}): {{He still works there.}}, {{She's still sleeping.}}, {{He still isn't here.}}"},
+        {"p":"**Ang “until now” ng Pilipinong Ingles.** Ang “Hanggang ngayon, wala pa siya” ay madalas isalin na {{Until now he's not here}}. Sa Amerika: {{He still isn't here.}} o {{He's not here yet.}}"},
+        { "ex": [
+          {"t":"I've just eaten.","tr":"Kakakain ko lang."},
+          {"t":"I just got home.","tr":"Kauuwi ko lang."},
+          {"t":"Have you finished yet?","tr":"Tapos ka na ba?"},
+          {"t":"I haven't finished yet.","tr":"Hindi pa ako tapos."},
+          {"t":"She's already left.","tr":"Umalis na siya."},
+          {"t":"He's still at work.","tr":"Nasa trabaho pa siya."},
+          {"t":"It's still raining.","tr":"Umuulan pa rin."}
+        ] },
+        {"tip":"Kapag inalok ka ng pagkain sa Amerika at ayaw mo, perpekto at magalang ang {{No, thanks. I just ate.}} Hindi ka na pipilitin: kadalasan, isang beses lang mag-alok ang mga Amerikano."}
+      ],
+      "mistakes": [
+        {"wrong":"Until now he's not here.","right":"He still isn't here.","tr":"Hanggang ngayon, wala pa siya.","why":"Pilipinong Ingles ang {{until now}} dito. Sa Amerika: {{still}} o {{yet}}."},
+        {"wrong":"I haven't eaten already.","right":"I haven't eaten yet.","tr":"Hindi pa ako kumakain.","why":"Sa negatibo, ang “pa” ay {{yet}}, hindi {{already}}."},
+        {"wrong":"I've eaten just.","right":"I've just eaten.","tr":"Kakakain ko lang.","why":"Nasa pagitan ng {{have}} at ng pandiwa ang {{just}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"No, thanks. I've ___ eaten.","tr":"Hindi na, salamat. Kakakain ko lang.","options":["just","yet","still"],"answer":0,"why":"Kagagawa lang: {{just}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I haven't finished ___.","tr":"Hindi pa ako tapos.","options":["yet","already","just"],"answer":0,"why":"“Hindi pa”: {{not… yet}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"He's ___ at work.","tr":"Nasa trabaho pa siya.","options":["still","yet","already"],"answer":0,"why":"Nagpapatuloy pa: {{still}}."},
+        {"type":"choice","q":"“Hanggang ngayon, wala pa ang bus.”","options":["{{The bus still isn't here.}}","{{Until now the bus is not here.}}","{{The bus is already not here.}}"],"answer":0,"why":"Sa Amerika: {{still}}."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Umalis na siya.","words":["She's","already","left."],"from":"talk-about-experiences"},
+        {"type":"dialogue","q":"Kinukumusta ka ng manager mo tungkol sa isang proyekto. Piliin ang mga sagot mo.","lines":[{"who":"Manager","t":"Have you sent the report yet?","tr":"Naipadala mo na ba ang report?"},{"options":["Yes, I've just sent it.","Yes, I've sent it yet."],"answer":0,"why":"Kagagawa lang: {{just}}; ang {{yet}} ay para sa tanong at negatibo."},{"who":"Manager","t":"Great. Has the client called?","tr":"Ayos. Tumawag na ba ang kliyente?"},{"options":["Not yet. I'm still waiting.","Not already. I'm yet waiting."],"answer":0,"why":"“Hindi pa”: {{not yet}}; “naghihintay pa”: {{still}}."}],"from":"say-what-youre-doing-now"},
+        {"type":"free","q":"Ikaw naman: sabihin ang isang bagay na kagagawa mo lang, isang nagawa mo na ngayong araw, at isang hindi mo pa nagagawa.","answers":[{"t":"I've just had coffee. I've already cleaned the kitchen. I haven't called my mom yet.","tr":"Kakakape ko lang. Nalinis ko na ang kusina. Hindi ko pa natatawagan ang nanay ko."},{"t":"I just got home. I already ate dinner. I still haven't done my homework!","tr":"Kauuwi ko lang. Naghapunan na ako. Hindi ko pa rin nagagawa ang homework ko!"}]}
+      ]
+    },
+    {
+      "id": "talk-about-how-much-and-how-many",
+      "unit": 7,
+      "level": "A2",
+      "title": "Pag-usapan kung gaano karami",
+      "summary": "Alamin kung aling mga bagay ang nabibilang ({{two apples}}) at hindi ({{some water}}), at gamitin ang {{much}}, {{many}}, {{some}}, {{any}} at {{a lot of}}.",
+      "topic": "Nabibilang at hindi nabibilang; {{How much…?}} / {{How many…?}}; {{some}} / {{any}}; {{a lot of}}, {{a few}}, {{a little}}; walang {{informations}} o {{advices}}",
+      "blocks": [
+        {"goal":{"t":"How many people are coming, and how much food do we need?","tr":"Ilan ang darating, at gaano karaming pagkain ang kailangan natin?"}},
+        {"dialog":[{"who":"Ana","t":"How many people are coming to the party?","tr":"Ilan ang darating sa party?"},{"who":"Mike","t":"About twenty. We need a lot of food!","tr":"Mga dalawampu. Kailangan natin ng maraming pagkain!"},{"who":"Ana","t":"How much rice do we have?","tr":"Gaano karami ang bigas natin?"},{"who":"Mike","t":"Not much. And we don't have any soda.","tr":"Hindi gaano. At wala tayong softdrinks."},{"who":"Ana","t":"Okay, I'll buy some rice and a few bottles of soda.","tr":"Sige, bibili ako ng bigas at ilang bote ng softdrinks."}]},
+        {"p":"Sa Tagalog, “marami” ang ginagamit sa tao man o sa tubig: “maraming tao”, “maraming tubig”. Sa Ingles, nahahati ang mga pangngalan sa dalawa: **nabibilang** ({{one apple}}, {{two apples}}) at **hindi nabibilang** ({{water}}, {{rice}}, {{money}}). Iba-iba ang mga salitang kasama nila."},
+        {"term":"countable / uncountable","means":"mga pangngalang nabibilang ({{apples}}, {{people}}: may maramihan) at hindi nabibilang ({{water}}, {{rice}}, {{information}}: walang {{-s}} at walang {{a}})."},
+        { "table": [
+          ["","nabibilang","hindi nabibilang"],
+          ["halimbawa","{{apples}}, {{people}}, {{cars}}","{{water}}, {{rice}}, {{money}}, {{time}}"],
+          ["gaano karami?","{{How many apples?}}","{{How much water?}}"],
+          ["marami","{{many}} / {{a lot of apples}}","{{much}} / {{a lot of water}}"],
+          ["kaunti","{{a few apples}}","{{a little water}}"],
+          ["mayroon (ilan)","{{some apples}}","{{some water}}"]
+        ] },
+        {"p":"**Ang pinakamadali**: {{a lot of}} ay para sa dalawa: {{a lot of people}}, {{a lot of money}}. Sa positibong pangungusap, ito ang pinakanatural."},
+        {"p":"**{{some}} at {{any}}.** {{some}} sa positibo ({{I have some money.}}), {{any}} sa negatibo at sa tanong ({{I don't have any money.}}, {{Do you have any questions?}})."},
+        {"p":"**Mga bitag.** Hindi nabibilang sa Ingles ang {{information}}, {{advice}}, {{furniture}}, {{equipment}}, {{homework}} at {{luggage}}: walang {{-s}} at walang {{a}}. Para bilangin: {{a piece of advice}}, {{two pieces of furniture}}."},
+        { "ex": [
+          {"t":"How many people are coming?","tr":"Ilan ang darating?"},
+          {"t":"How much money do you have?","tr":"Magkano ang pera mo?"},
+          {"t":"There's a lot of traffic today.","tr":"Ang daming traffic ngayon."},
+          {"t":"I have a few friends in Texas.","tr":"May ilang kaibigan ako sa Texas."},
+          {"t":"Can I have a little sugar?","tr":"Pahingi ng kaunting asukal?"},
+          {"t":"I don't have any homework today.","tr":"Wala akong homework ngayon."},
+          {"t":"Can you give me some information?","tr":"Pwede mo ba akong bigyan ng impormasyon?"}
+        ] },
+        {"tip":"Hindi rin nabibilang ang {{traffic}}: {{a lot of traffic}}, {{heavy traffic}}, hindi {{many traffics}}. Ganoon din ang {{news}}: {{The news is good.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I need some informations.","right":"I need some information.","tr":"Kailangan ko ng impormasyon.","why":"Hindi nabibilang ang {{information}}: walang {{-s}}."},
+        {"wrong":"She gave me an advice.","right":"She gave me some advice.","tr":"Binigyan niya ako ng payo.","why":"Hindi nabibilang ang {{advice}}: walang {{an}}. (O kaya: {{a piece of advice}}.)"},
+        {"wrong":"How many money do you have?","right":"How much money do you have?","tr":"Magkano ang pera mo?","why":"Hindi nabibilang ang {{money}}: {{much}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"How ___ people are coming?","tr":"Ilan ang darating?","options":["many","much","lot"],"answer":0,"why":"Nabibilang ang tao: {{many}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"How ___ water do we need?","tr":"Gaano karaming tubig ang kailangan natin?","options":["much","many","few"],"answer":0,"why":"Hindi nabibilang ang tubig: {{much}}."},
+        {"type":"choice","q":"Alin ang tama?","options":["{{Can you give me some information?}}","{{Can you give me some informations?}}","{{Can you give me an information?}}"],"answer":0,"why":"Hindi nabibilang ang {{information}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I don't have ___ homework today.","tr":"Wala akong homework ngayon.","options":["any","some","many"],"answer":0,"why":"Sa negatibo: {{any}}.","from":"say-what-you-have"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Ang daming traffic ngayon.","words":["There's","a lot of","traffic","today."],"from":"say-there-is"},
+        {"type":"dialogue","q":"Namimili kayo para sa isang salu-salo. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"How many eggs do we need?","tr":"Ilang itlog ang kailangan natin?"},{"options":["We need a dozen. And a little milk.","We need a dozen. And a few milk."],"answer":0,"why":"Hindi nabibilang ang gatas: {{a little}}."},{"who":"Kaibigan","t":"Do we have any bread?","tr":"May tinapay pa ba tayo?"},{"options":["No, we don't have any. Let's buy some.","No, we don't have some. Let's buy any."],"answer":0,"why":"Negatibo: {{any}}; positibo: {{some}}."}]},
+        {"type":"free","q":"Ikaw naman: ilarawan kung ano ang mayroon (at wala) sa kusina mo ngayon, gamit ang {{a lot of}}, {{a few}}, {{a little}} o {{any}}.","answers":[{"t":"I have a lot of rice and a few eggs. There's a little milk. I don't have any fruit.","tr":"Marami akong bigas at ilang itlog. May kaunting gatas. Wala akong prutas."},{"t":"There are a lot of cans in my kitchen, but there isn't any bread. I have a little coffee.","tr":"Ang daming de-lata sa kusina ko, pero walang tinapay. May kaunti akong kape."}]}
+      ]
+    },
+    {
+      "id": "use-everyday-phrasal-verbs",
+      "unit": 7,
+      "level": "A2",
+      "title": "Gamitin ang mga pang-araw-araw na phrasal verb",
+      "summary": "Matuto ng mga pandiwang may kasamang maliit na salita: {{turn on}}, {{turn off}}, {{pick up}}, {{look for}}, {{get up}}. At sabihin ang {{turn on the light}}, hindi {{open the light}}.",
+      "topic": "Mga phrasal verb: {{turn on}} / {{off}}, {{pick up}}, {{look for}}, {{get up}}, {{find out}}, {{put on}}, {{take off}}, {{give up}}; kung saan ilalagay ang {{it}}",
+      "blocks": [
+        {"goal":{"t":"Can you turn off the lights, please?","tr":"Pakipatay naman ng ilaw?"}},
+        {"dialog":[{"who":"Mike","t":"It's dark in here. Can you turn on the light?","tr":"Ang dilim dito. Pakibukas naman ng ilaw?"},{"who":"Ana","t":"Sure. What are you looking for?","tr":"Sige. Ano ang hinahanap mo?"},{"who":"Mike","t":"My keys. I have to pick up my son at five.","tr":"Ang mga susi ko. Susunduin ko ang anak ko nang alas-singko."},{"who":"Ana","t":"Here they are! Don't forget to turn off the TV before you go.","tr":"Heto na! Huwag mong kalimutang patayin ang TV bago ka umalis."}]},
+        {"p":"Maraming pang-araw-araw na pandiwa sa Ingles ang may kasamang maliit na salita na nagbabago sa kahulugan: ang {{turn}} ay “ikutin”, pero ang {{turn on}} ay “buksan (ang ilaw, ang TV)”, at ang {{turn off}} ay “patayin”."},
+        {"term":"phrasal verb","means":"pandiwa + maliit na salita ({{on}}, {{off}}, {{up}}, {{for}}…) na may sariling kahulugan: {{turn on}}, {{pick up}}, {{look for}}."},
+        { "table": [
+          ["phrasal verb","kahulugan","halimbawa"],
+          ["{{turn on}} / {{turn off}}","buksan / patayin (ilaw, TV, aircon)","{{Turn off the lights.}}"],
+          ["{{pick up}}","sunduin; damputin","{{I'll pick you up at six.}}"],
+          ["{{look for}}","hanapin","{{I'm looking for my keys.}}"],
+          ["{{get up}}","bumangon","{{I get up at six.}}"],
+          ["{{find out}}","malaman","{{I found out the truth.}}"],
+          ["{{put on}} / {{take off}}","isuot / hubarin","{{Take off your shoes.}}"],
+          ["{{give up}}","sumuko, itigil","{{Don't give up!}}"]
+        ] },
+        {"p":"**Ang “open the light”.** Ang “buksan ang ilaw” ng Tagalog ay madalas isalin na {{open the light}}, pero sa Ingles, {{turn on the light}} ang tama. Ang {{open}} ay para sa pinto, bintana, kahon at tindahan. Ganoon din: {{turn off the TV}}, hindi {{close the TV}}."},
+        {"p":"**Saan ilalagay ang {{it}}?** Sa karamihan ng phrasal verb, pwedeng {{Turn off the light}} o {{Turn the light off}}. Pero kapag {{it}}, {{them}}, {{me}} o {{you}}, laging nasa gitna: {{Turn it off.}} (hindi {{Turn off it}}), {{I'll pick you up.}} Eksepsiyon ang {{look for}}: {{I'm looking for it.}}"},
+        { "ex": [
+          {"t":"Can you turn on the light?","tr":"Pakibukas naman ng ilaw?"},
+          {"t":"Turn off the TV, please.","tr":"Pakipatay ng TV."},
+          {"t":"I'll pick you up at six.","tr":"Susunduin kita nang alas-sais."},
+          {"t":"What are you looking for?","tr":"Ano ang hinahanap mo?"},
+          {"t":"I get up at five every day.","tr":"Alas-singko ako bumabangon araw-araw."},
+          {"t":"Please take off your shoes.","tr":"Pakihubad ng sapatos."},
+          {"t":"Don't give up!","tr":"Huwag kang susuko!"}
+        ] },
+        {"tip":"Ang {{turn on}} at {{turn off}} ay para sa lahat ng may switch: ilaw, TV, radyo, makina. Ang aircon ay {{the AC}} sa Amerika: {{Can you turn on the AC?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Open the light, please.","right":"Turn on the light, please.","tr":"Pakibukas ng ilaw.","why":"Pilipinong Ingles ang {{open the light}}. Ang ilaw at mga makina ay {{turn on}} at {{turn off}}."},
+        {"wrong":"Close the TV.","right":"Turn off the TV.","tr":"Patayin mo ang TV.","why":"Pinapatay ang TV: {{turn off}}. Ang {{close}} ay para sa pinto, bintana o tindahan."},
+        {"wrong":"I'll pick up you at six.","right":"I'll pick you up at six.","tr":"Susunduin kita nang alas-sais.","why":"Kapag {{you}}, {{it}} o {{me}}: sa gitna ng phrasal verb."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“Pakibukas ng ilaw.”","options":["{{Please turn on the light.}}","{{Please open the light.}}","{{Please turn the light open.}}"],"answer":0,"why":"Ilaw: {{turn on}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Don't forget to turn ___ the TV.","tr":"Huwag mong kalimutang patayin ang TV.","options":["off","on","out"],"answer":0,"why":"Patayin: {{turn off}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I'm looking ___ my keys.","tr":"Hinahanap ko ang mga susi ko.","options":["for","at","up"],"answer":0,"why":"Hanapin: {{look for}}.","from":"say-what-youre-doing-now"},
+        {"type":"choice","q":"“Susunduin kita.”","options":["{{I'll pick you up.}}","{{I'll pick up you.}}","{{I'll up pick you.}}"],"answer":0,"why":"{{you}} sa gitna: {{pick you up}}.","from":"make-promises-and-predictions"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Pakihubad ng sapatos.","words":["Please","take off","your","shoes."]},
+        {"type":"dialogue","q":"Bisita ka sa bahay ng isang Amerikanong kaibigan. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"Come in! It's a little hot in here.","tr":"Pasok ka! Medyo mainit dito."},{"options":["Can I turn on the fan?","Can I open the fan?"],"answer":0,"why":"Ang bentilador ay may switch: {{turn on}}."},{"who":"Kaibigan","t":"Sure! Oh, and could you turn off the oven? The cookies are ready.","tr":"Sige! At pwede mo bang patayin ang oven? Luto na ang cookies."},{"options":["Okay, I'll turn it off.","Okay, I'll turn off it."],"answer":0,"why":"Kapag {{it}}: {{turn it off}}."}]},
+        {"type":"free","q":"Ikaw naman: ikuwento ang umaga mo gamit ang tatlong phrasal verb ({{get up}}, {{turn on}}, {{put on}}, {{pick up}}…).","answers":[{"t":"I get up at six. I turn on the coffee maker and put on my uniform. Then I pick up my friend and we go to work.","tr":"Alas-sais ako bumabangon. Binubuksan ko ang coffee maker at isinusuot ko ang uniporme ko. Tapos, sinusundo ko ang kaibigan ko at sabay kaming pumapasok."},{"t":"I wake up at seven and get up at seven thirty. I turn off my alarm, put on my clothes, and look for my keys!","tr":"Alas-siyete ako nagigising at alas-siyete y medya bumabangon. Pinapatay ko ang alarm, nagbibihis ako, at hinahanap ko ang mga susi ko!"}]}
+      ]
     }
   ]
 }
