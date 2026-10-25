@@ -1696,6 +1696,244 @@
         {"type":"say","q":"Dites : « Nous venons d'acheter une maison ! »","answer":"We've just bought a house!"},
         {"type":"free","q":"À vous : dites une chose que vous venez de faire, une chose que vous avez déjà faite aujourd'hui, et une chose que vous n'avez pas encore faite.","answers":[{"t":"I've just eaten lunch. I've already called my mother today. I haven't done my homework yet.","tr":"Je viens de déjeuner. J'ai déjà appelé ma mère aujourd'hui. Je n'ai pas encore fait mes devoirs."},{"t":"I've just finished work. I've already been to the gym. I haven't made dinner yet.","tr":"Je viens de finir le travail. Je suis déjà allé à la salle de sport. Je n'ai pas encore fait le dîner."}]}
       ]
+    },
+    {
+      "id": "say-what-will-happen-if",
+      "unit": 7,
+      "level": "A2",
+      "title": "Dire ce qui arrivera si… et quand…",
+      "summary": "Dire « S'il pleut, on restera à la maison » et « Quand j'arriverai, je t'appellerai » : après {{if}} et {{when}}, l'anglais met le présent, même pour l'avenir.",
+      "topic": "{{if}} + présent, puis {{will}} ; {{when}}, {{as soon as}}, {{before}}, {{after}} + présent (jamais {{will}}) ; {{unless}}",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll stay home.","tr":"S'il pleut demain, nous resterons à la maison."}},
+        {"dialog":[{"who":"Hugo","t":"What are we doing on Saturday?","tr":"On fait quoi samedi ?"},{"who":"Léna","t":"If it's sunny, we'll go to the beach.","tr":"S'il fait beau, on ira à la plage."},{"who":"Hugo","t":"And if it rains?","tr":"Et s'il pleut ?"},{"who":"Léna","t":"If it rains, we'll go to the museum.","tr":"S'il pleut, on ira au musée."},{"who":"Hugo","t":"OK. When I'm ready, I'll text you.","tr":"D'accord. Quand je serai prêt, je t'enverrai un message."},{"who":"Léna","t":"Perfect. If you're late, I'll leave without you!","tr":"Parfait. Si tu es en retard, je pars sans toi !"}]},
+        {"p":"**Si : comme en français.** Pour une possibilité réelle, l'anglais fait comme le français : {{if}} + le présent, puis {{will}} : {{If I have time, I'll call you.}} « Si j'ai le temps, je t'appellerai. » Jamais de {{will}} après {{if}} : {{if it rains}}, et non « if it will rain »."},
+        {"p":"**Quand : là, ça change !** En français, on dit « quand j'arriverai », au futur. En anglais, après {{when}}, on garde le présent : {{When I arrive, I'll call you.}} C'est pareil après {{as soon as}} (dès que), {{before}} (avant de, avant que), {{after}} (après) et {{until}} (jusqu'à ce que)."},
+        { "table": [
+          ["français","anglais"],
+          ["S'il pleut, on restera ici.","{{If it rains, we'll stay here.}}"],
+          ["Quand j'arriverai, je t'appellerai.","{{When I arrive, I'll call you.}}"],
+          ["Dès qu'il sera là, on mangera.","{{As soon as he gets here, we'll eat.}}"],
+          ["Avant de partir, je fermerai la porte.","{{Before I leave, I'll lock the door.}}"]
+        ] },
+        {"p":"**Unless : sauf si.** {{unless}} = {{if … not}} : {{We'll go to the beach unless it rains.}} « On ira à la plage, sauf s'il pleut. »"},
+        {"p":"**Une vérité générale** : le présent des deux côtés. {{If you heat water, it boils.}} {{When it rains, I take the bus.}}"},
+        { "ex": [
+          {"t":"If you're hungry, there's some pizza in the fridge.","tr":"Si tu as faim, il y a de la pizza dans le frigo."},
+          {"t":"If you need help, call me.","tr":"Si tu as besoin d'aide, appelle-moi."},
+          {"t":"I'll be happy if you come.","tr":"Je serai content si tu viens."},
+          {"t":"When I get home, I'll make dinner.","tr":"Quand je rentrerai, je ferai le dîner."},
+          {"t":"As soon as I hear from her, I'll tell you.","tr":"Dès que j'aurai de ses nouvelles, je te le dirai."},
+          {"t":"We won't go out unless it stops raining.","tr":"Nous ne sortirons pas, sauf s'il arrête de pleuvoir."}
+        ] },
+        {"tip":"{{if}} et {{when}} ne sont pas interchangeables : {{If I see him}} « si je le vois » (peut-être), {{When I see him}} « quand je le verrai » (c'est sûr)."}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we'll stay home.","right":"If it rains, we'll stay home.","tr":"S'il pleut, nous resterons à la maison.","why":"Après {{if}}, jamais {{will}} : le présent."},
+        {"wrong":"When I will arrive, I'll call you.","right":"When I arrive, I'll call you.","tr":"Quand j'arriverai, je t'appellerai.","why":"Après {{when}}, l'anglais garde le présent, même pour l'avenir."},
+        {"wrong":"I call you when I'll be there.","right":"I'll call you when I get there.","tr":"Je t'appellerai quand j'y serai.","why":"{{will}} dans la phrase principale, le présent après {{when}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"If it ___ tomorrow, we'll stay home.","tr":"S'il pleut demain, nous resterons à la maison.","options":["rains","will rain","rained"],"answer":0,"why":"Après {{if}} : le présent."},
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"When I ___ in New York, I'll call you.","tr":"Quand je serai à New York, je t'appellerai.","options":["am","will be","would be"],"answer":0,"why":"Après {{when}} : le présent, même pour l'avenir."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"If you come, I ___ be very happy.","tr":"Si tu viens, je serai très content.","options":["will","would","do"],"answer":0,"why":"Le résultat d'une possibilité réelle : {{will}}.","from":"say-what-will-happen"},
+        {"type":"choice","q":"« On ira à la plage, sauf s'il pleut. »","options":["{{We'll go to the beach unless it rains.}}","{{We'll go to the beach unless it will rain.}}","{{We go to the beach unless it don't rain.}}"],"answer":0,"why":"{{unless}} + le présent."},
+        {"type":"dialogue","q":"Vous organisez votre samedi avec une amie. Choisissez vos répliques.","from":"say-what-you-can-do","lines":[{"who":"Your friend","t":"What should we do on Saturday?","tr":"On fait quoi samedi ?"},{"options":["If it's sunny, we can go hiking.","If it will be sunny, we can go hiking."],"answer":0,"why":"Après {{if}} : le présent."},{"who":"Your friend","t":"Good idea. Call me when you wake up.","tr":"Bonne idée. Appelle-moi quand tu te réveilles."},{"options":["OK, I'll call you as soon as I wake up.","OK, I'll call you as soon as I'll wake up."],"answer":0,"why":"Après {{as soon as}} : le présent."},{"who":"Your friend","t":"Great!","tr":"Super !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Quand je rentrerai, je ferai le dîner.","words":["When","I get home,","I'll","make","dinner."]},
+        {"type":"free","q":"À vous : dites ce que vous ferez ce week-end s'il fait beau, et s'il pleut. Puis une chose que vous ferez quand vous aurez plus de temps.","answers":[{"t":"If it's sunny, I'll go to the park. If it rains, I'll watch a movie. When I have more time, I'll learn the guitar.","tr":"S'il fait beau, j'irai au parc. S'il pleut, je regarderai un film. Quand j'aurai plus de temps, j'apprendrai la guitare."},{"t":"If the weather is nice, we'll have a picnic. If it rains, we'll stay home. When I retire, I'll travel around the world.","tr":"S'il fait beau, nous ferons un pique-nique. S'il pleut, nous resterons à la maison. Quand je serai à la retraite, je ferai le tour du monde."}]}
+      ]
+    },
+    {
+      "id": "ask-politely-and-offer",
+      "unit": 7,
+      "level": "A2",
+      "title": "Demander poliment, proposer, inviter",
+      "summary": "Dire « Vous voulez un café ? », « Pourriez-vous m'aider ? », « Ça vous dérange de… ? », et « Je veux que tu viennes » : {{would}}, {{could}}, et {{want someone to}}.",
+      "topic": "{{Would you like…?}}, {{I'd like to…}} ; {{Could you…?}}, {{Would you mind}} + {{-ing}} ; {{Do you want me to…?}} ; {{want}} + quelqu'un + {{to}}",
+      "blocks": [
+        {"goal":{"t":"Would you like some coffee? — Yes, please. Could you add a little milk?","tr":"Vous voulez du café ? — Oui, s'il vous plaît. Vous pourriez ajouter un peu de lait ?"}},
+        {"dialog":[{"who":"The receptionist","t":"Good morning, Grand Hotel. How can I help you?","tr":"Bonjour, Grand Hôtel. Que puis-je faire pour vous ?"},{"who":"You","t":"Good morning. I'd like to book a room for Saturday, please.","tr":"Bonjour. Je voudrais réserver une chambre pour samedi, s'il vous plaît."},{"who":"The receptionist","t":"Of course. Would you like a room with a view?","tr":"Bien sûr. Vous voulez une chambre avec vue ?"},{"who":"You","t":"Yes, that would be great. Could you send me a confirmation by email?","tr":"Oui, ce serait parfait. Vous pourriez m'envoyer une confirmation par e-mail ?"},{"who":"The receptionist","t":"Certainly. Would you mind spelling your name?","tr":"Certainement. Ça vous dérangerait d'épeler votre nom ?"}]},
+        {"term":"conditionnel","means":"en français, le temps de « je voudrais », « je pourrais ». En anglais, il se forme avec {{would}} + la forme de base ({{I would go}}), et {{could}} sert de conditionnel à {{can}}."},
+        {"p":"**Offrir, inviter : Would you like…?** {{Would you like…?}} « Voulez-vous… ? Vous aimeriez… ? » est la façon polie d'offrir ou d'inviter : {{Would you like a drink?}} {{Would you like to come for dinner?}} Réponses : {{Yes, please.}} {{No, thank you.}} {{I'd love to!}} « Avec plaisir ! »"},
+        {"p":"**Demander poliment : Could you…?** {{Could you…?}} « Pourriez-vous… ? » est plus poli que {{Can you…?}} (leçon 18). Plus poli encore : {{Would you mind}} + {{-ing}}, « Ça vous dérangerait de… ? » : {{Would you mind closing the window?}} Attention : pour dire oui, on répond {{No, not at all}}, « non, ça ne me dérange pas »."},
+        {"p":"**Proposer son aide.** {{Do you want me to…?}} ou {{Would you like me to…?}} « Vous voulez que je… ? » : {{Do you want me to call a taxi?}}"},
+        {"p":"**Vouloir que quelqu'un fasse : want + personne + to.** C'est le grand piège. En français : « je veux que tu viennes ». En anglais, pas de {{that}} : {{want}} + la personne (forme complément, leçon 27) + {{to}} + le verbe. {{I want you to come.}} {{She'd like me to help her.}}"},
+        { "table": [
+          ["français","anglais"],
+          ["Je veux que tu viennes.","{{I want you to come.}}"],
+          ["Il voudrait que je l'aide.","{{He'd like me to help him.}}"],
+          ["Vous voulez que je ferme la porte ?","{{Do you want me to close the door?}}"],
+          ["Mes parents veulent que je sois médecin.","{{My parents want me to be a doctor.}}"]
+        ] },
+        { "ex": [
+          {"t":"Would you like to dance?","tr":"Tu veux danser ?"},
+          {"t":"I'd like to make a reservation.","tr":"Je voudrais faire une réservation."},
+          {"t":"Could you help me with my bags?","tr":"Vous pourriez m'aider avec mes bagages ?"},
+          {"t":"Would you mind waiting a moment?","tr":"Ça vous dérangerait d'attendre un instant ?"},
+          {"t":"Do you want me to drive?","tr":"Tu veux que je conduise ?"},
+          {"t":"I want you to be happy.","tr":"Je veux que tu sois heureux."}
+        ] },
+        {"tip":"{{I'd}} peut être {{I would}} ou {{I had}} : {{I'd like}} = {{I would like}}. Le verbe qui suit vous dit lequel (leçon 45)."}
+      ],
+      "mistakes": [
+        {"wrong":"I want that you come.","right":"I want you to come.","tr":"Je veux que tu viennes.","why":"« Vouloir que quelqu'un… » : {{want}} + la personne + {{to}}, sans {{that}}."},
+        {"wrong":"Would you like a coffee? — Yes, I would like.","right":"Would you like a coffee? — Yes, please.","tr":"Vous voulez un café ? — Oui, s'il vous plaît.","why":"La réponse naturelle : {{Yes, please}} (ou {{Yes, I would}})."},
+        {"wrong":"Would you mind to close the window?","right":"Would you mind closing the window?","tr":"Ça vous dérangerait de fermer la fenêtre ?","why":"Après {{mind}}, le verbe prend {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"___ you like some tea?","tr":"Vous voulez du thé ?","options":["Would","Do","Will"],"answer":0,"why":"Offrir poliment : {{Would you like…?}}"},
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"I want ___ to come to my party.","tr":"Je veux que tu viennes à ma fête.","options":["you","that you","your"],"answer":0,"why":"{{want}} + la personne + {{to}}."},
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"Would you mind ___ the door?","tr":"Ça vous dérangerait de fermer la porte ?","options":["closing","to close","close"],"answer":0,"why":"Après {{mind}} : {{-ing}}."},
+        {"type":"choice","q":"La demande la plus polie :","options":["{{Could you speak more slowly, please?}}","{{Speak more slowly.}}","{{You can speak more slowly?}}"],"answer":0,"why":"{{Could you…?}} + {{please}}.","from":"say-what-you-can-do"},
+        {"type":"dialogue","q":"Vous recevez une amie chez vous. Choisissez vos répliques.","from":"talk-about-people-and-things","lines":[{"who":"Your friend","t":"Hi! Sorry I'm late.","tr":"Salut ! Désolée, je suis en retard."},{"options":["No problem! Would you like something to drink?","No problem! Do you like something to drink?"],"answer":0,"why":"Pour offrir : {{Would you like…?}}"},{"who":"Your friend","t":"Yes, please. A glass of water.","tr":"Oui, s'il te plaît. Un verre d'eau."},{"options":["Sure. Do you want me to take your coat?","Sure. Do you want that I take your coat?"],"answer":0,"why":"« Tu veux que je… » : {{want me to}}."},{"who":"Your friend","t":"Thanks, that's very kind.","tr":"Merci, c'est très gentil."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Mes parents veulent que je sois médecin.","words":["My parents","want","me","to be","a doctor."]},
+        {"type":"free","q":"À vous : invitez quelqu'un poliment, demandez un service avec {{Could you…?}}, et dites ce que vous voulez qu'une personne fasse.","answers":[{"t":"Would you like to have dinner with us on Friday? Could you bring some dessert? I want you to meet my sister!","tr":"Tu veux dîner avec nous vendredi ? Tu pourrais apporter un dessert ? Je veux que tu rencontres ma sœur !"},{"t":"Would you like to come to the movies? Could you pick me up at seven? I'd like you to choose the movie.","tr":"Tu veux venir au cinéma ? Tu pourrais passer me prendre à sept heures ? J'aimerais que tu choisisses le film."}]}
+      ]
+    },
+    {
+      "id": "give-reasons",
+      "unit": 7,
+      "level": "A2",
+      "title": "Donner vos raisons et relier vos idées",
+      "summary": "Dire pourquoi, donc, mais, bien que, et dans quel but : {{because}}, {{so}}, {{but}}, {{although}}, et {{to}} + verbe (jamais « for to »).",
+      "topic": "{{because}}, {{because of}} ; {{so}} ; {{but}}, {{although}}, {{even though}} ; {{since}} (comme) ; {{to}} + verbe pour le but",
+      "blocks": [
+        {"goal":{"t":"I stayed home because I was sick, so I missed the party.","tr":"Je suis resté à la maison parce que j'étais malade, donc j'ai raté la fête."}},
+        {"dialog":[{"who":"Manon","t":"Why are you learning English?","tr":"Pourquoi tu apprends l'anglais ?"},{"who":"Hugo","t":"Because I want to work in the US. And my girlfriend is American, so I want to talk to her family.","tr":"Parce que je veux travailler aux États-Unis. Et ma copine est américaine, donc je veux parler avec sa famille."},{"who":"Manon","t":"Is it hard?","tr":"C'est difficile ?"},{"who":"Hugo","t":"A little, but I love it. Although I'm busy, I study every day.","tr":"Un peu, mais j'adore ça. Même si je suis occupé, j'étudie tous les jours."},{"who":"Manon","t":"Are you going to the US this summer?","tr":"Tu vas aux États-Unis cet été ?"},{"who":"Hugo","t":"Yes, to see her. I'm saving money to buy the plane tickets!","tr":"Oui, pour la voir. J'économise pour acheter les billets d'avion !"}]},
+        {"p":"**Pourquoi ? Parce que.** {{Why…?}} et {{because}} : {{Why are you tired? — Because I didn't sleep.}} Devant un nom, {{because of}} « à cause de » : {{because of the rain}}."},
+        { "table": [
+          ["français","anglais","exemple"],
+          ["parce que","{{because}}","{{I'm staying home because it's raining.}}"],
+          ["à cause de","{{because of}}","{{The flight was late because of the snow.}}"],
+          ["donc, alors","{{so}}","{{It's raining, so I'm staying home.}}"],
+          ["mais","{{but}}","{{It's raining, but I'm going out.}}"],
+          ["bien que, même si","{{although}}, {{even though}}","{{Although it's raining, I'm going out.}}"],
+          ["comme, puisque","{{since}}","{{Since you're here, let's start.}}"],
+          ["pour (un but)","{{to}} + verbe","{{I'm going out to buy bread.}}"]
+        ] },
+        {"p":"**Pour faire quelque chose : to, pas for.** Pour dire le but d'une action, l'anglais met {{to}} + le verbe : {{I'm saving money to buy a car.}} « J'économise pour acheter une voiture. » Le mot à mot « for to buy » ou « for buy » est une faute très fréquente. {{for}} se met devant un nom : {{I went out for a walk.}} {{This is for you.}}"},
+        {"p":"**So, deux sens.** {{so}} veut dire « donc » ({{I was tired, so I went to bed.}}), et aussi « tellement » devant un adjectif ({{It's so beautiful!}})."},
+        {"p":"**Although, even though** « bien que, même si » : le verbe qui suit est tout à fait normal. Il n'y a pas de subjonctif en anglais : {{Although it's late, I'm not tired.}}"},
+        { "ex": [
+          {"t":"Why are you laughing? — Because it's funny!","tr":"Pourquoi tu ris ? — Parce que c'est drôle !"},
+          {"t":"I was hungry, so I made a sandwich.","tr":"J'avais faim, alors je me suis fait un sandwich."},
+          {"t":"It's expensive, but it's really good.","tr":"C'est cher, mais c'est vraiment bon."},
+          {"t":"Even though he's rich, he's not happy.","tr":"Même s'il est riche, il n'est pas heureux."},
+          {"t":"I went to the post office to send a package.","tr":"Je suis allé à la poste pour envoyer un colis."},
+          {"t":"We stayed inside because of the storm.","tr":"Nous sommes restés à l'intérieur à cause de la tempête."}
+        ] },
+        {"tip":"{{since}} a deux sens : « depuis » (leçon 33) et « comme, puisque » : {{Since it's late, let's go home.}} « Comme il est tard, rentrons. »"}
+      ],
+      "mistakes": [
+        {"wrong":"I'm saving money for buy a car.","right":"I'm saving money to buy a car.","tr":"J'économise pour acheter une voiture.","why":"Pour un but, devant un verbe : {{to}}, jamais {{for}}."},
+        {"wrong":"The game was canceled because the rain.","right":"The game was canceled because of the rain.","tr":"Le match a été annulé à cause de la pluie.","why":"Devant un nom : {{because of}}."},
+        {"wrong":"Although it's late, but I'm not tired.","right":"Although it's late, I'm not tired.","tr":"Bien qu'il soit tard, je ne suis pas fatigué.","why":"{{although}} suffit : pas de {{but}} en plus."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I'm going to the bank ___ get some money.","tr":"Je vais à la banque pour retirer de l'argent.","options":["to","for","for to"],"answer":0,"why":"Un but, devant un verbe : {{to}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I was tired, ___ I went to bed early.","tr":"J'étais fatigué, donc je me suis couché tôt.","options":["so","because","but"],"answer":0,"why":"La conséquence : {{so}}.","from":"tell-about-your-weekend"},
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"We stayed home ___ the snow.","tr":"Nous sommes restés à la maison à cause de la neige.","options":["because of","because","so"],"answer":0,"why":"Devant un nom : {{because of}}."},
+        {"type":"choice","q":"« Même s'il pleut, je vais courir. »","options":["{{Even though it's raining, I'm going running.}}","{{Even though it's raining, but I'm going running.}}","{{Even it rains, I go running.}}"],"answer":0,"why":"{{even though}}, sans {{but}}."},
+        {"type":"dialogue","q":"Un ami vous invite. Refusez et donnez une raison.","from":"ask-politely-and-offer","lines":[{"who":"Your friend","t":"Would you like to come to the beach tomorrow?","tr":"Tu veux venir à la plage demain ?"},{"options":["I'd love to, but I can't because I have to work.","I'd love to, but I can't for I have to work."],"answer":0,"why":"La raison : {{because}}."},{"who":"Your friend","t":"Too bad! What about Sunday?","tr":"Dommage ! Et dimanche ?"},{"options":["Sunday is perfect! I'll bring some food to share.","Sunday is perfect! I'll bring some food for share."],"answer":0,"why":"Un but : {{to}} + verbe."},{"who":"Your friend","t":"Great!","tr":"Super !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"J'ai faim, alors je vais me faire un sandwich.","words":["I'm hungry,","so","I'm going to","make","a sandwich."],"from":"talk-about-your-plans"},
+        {"type":"free","q":"À vous : pourquoi apprenez-vous l'anglais ? Donnez deux raisons, et dites ce que vous faites pour progresser.","answers":[{"t":"I'm learning English because I love traveling and because I need it for my job. I watch movies in English to improve.","tr":"J'apprends l'anglais parce que j'adore voyager et parce que j'en ai besoin pour mon travail. Je regarde des films en anglais pour progresser."},{"t":"Since my husband is American, I want to talk to his family. So I study every evening to make progress.","tr":"Comme mon mari est américain, je veux parler avec sa famille. Alors j'étudie tous les soirs pour progresser."}]}
+      ]
+    },
+    {
+      "id": "use-phrasal-verbs",
+      "unit": 7,
+      "level": "A2",
+      "title": "Utiliser les verbes à particule du quotidien",
+      "summary": "Se lever, allumer la lumière, chercher ses clés, venir chercher quelqu'un : les {{phrasal verbs}}, ces verbes suivis d'un petit mot qui changent de sens.",
+      "topic": "verbe + particule ({{get up, turn on, look for, pick up, find out, give up}}…) ; le pronom avant la particule ({{pick it up}}, jamais « pick up it »)",
+      "blocks": [
+        {"goal":{"t":"Can you pick me up at six? My car broke down.","tr":"Tu peux venir me chercher à six heures ? Ma voiture est tombée en panne."}},
+        {"dialog":[{"who":"Mom","t":"Wake up! It's seven. Get up!","tr":"Réveille-toi ! Il est sept heures. Lève-toi !"},{"who":"Théo","t":"Five more minutes…","tr":"Encore cinq minutes…"},{"who":"Mom","t":"No! Turn off your alarm and get dressed. I'm picking you up after school today.","tr":"Non ! Éteins ton réveil et habille-toi. Je viens te chercher après l'école aujourd'hui."},{"who":"Théo","t":"OK… Have you seen my phone? I'm looking for it.","tr":"D'accord… Tu as vu mon téléphone ? Je le cherche."},{"who":"Mom","t":"It's on the table. Hurry up!","tr":"Il est sur la table. Dépêche-toi !"}]},
+        {"term":"verbe à particule","means":"un verbe suivi d'un petit mot ({{up}}, {{down}}, {{on}}, {{off}}, {{out}}…) qui forme avec lui un sens nouveau : {{get}} « obtenir » → {{get up}} « se lever ». En anglais : {{phrasal verb}}."},
+        {"p":"**Un verbe + un petit mot = un nouveau verbe.** L'anglais parlé en est rempli, et le sens n'est pas toujours logique : apprenez-les comme des mots à part entière, dans une phrase."},
+        { "table": [
+          ["anglais","français","exemple"],
+          ["{{get up}}","se lever","{{I get up at seven.}}"],
+          ["{{wake up}}","se réveiller","{{Wake up!}}"],
+          ["{{turn on}}, {{turn off}}","allumer, éteindre","{{Turn off the lights.}}"],
+          ["{{look for}}","chercher","{{I'm looking for my keys.}}"],
+          ["{{pick up}}","ramasser, venir chercher","{{I'll pick you up at six.}}"],
+          ["{{find out}}","découvrir, apprendre","{{I found out the truth.}}"],
+          ["{{give up}}","abandonner, arrêter","{{Don't give up!}}"],
+          ["{{come back}}","revenir","{{Come back soon!}}"],
+          ["{{put on}}, {{take off}}","mettre, enlever (un vêtement)","{{Take off your shoes.}}"],
+          ["{{break down}}","tomber en panne","{{My car broke down.}}"]
+        ] },
+        {"p":"**Avec un pronom : au milieu.** Pour beaucoup de ces verbes, le complément peut aller après ({{turn off the TV}}) ou au milieu ({{turn the TV off}}). Mais un pronom ({{it}}, {{them}}, {{me}}…) se met **toujours au milieu** : {{Turn it off.}} {{I'll pick you up.}} Jamais « turn off it »."},
+        {"p":"Quelques-uns ne se coupent jamais, comme {{look for}} : {{I'm looking for it.}} En cas de doute, regardez les exemples du dictionnaire."},
+        { "ex": [
+          {"t":"What time do you usually get up?","tr":"À quelle heure tu te lèves d'habitude ?"},
+          {"t":"Can you turn on the light?","tr":"Tu peux allumer la lumière ?"},
+          {"t":"I'm looking for a pharmacy.","tr":"Je cherche une pharmacie."},
+          {"t":"She found out about the party.","tr":"Elle a découvert qu'il y avait une fête."},
+          {"t":"He gave up smoking last year.","tr":"Il a arrêté de fumer l'an dernier."},
+          {"t":"Put your coat on, it's cold!","tr":"Mets ton manteau, il fait froid !"}
+        ] },
+        {"tip":"Les phrasal verbs sont plus naturels que leurs équivalents savants : {{find out}} plutôt que {{discover}}, {{give up}} plutôt que {{abandon}}. Un francophone qui dit « I will abandon » pour « je laisse tomber » sonne très soutenu."}
+      ],
+      "mistakes": [
+        {"wrong":"Turn off it.","right":"Turn it off.","tr":"Éteins-le.","why":"Le pronom se place entre le verbe et la particule."},
+        {"wrong":"I'm looking my keys.","right":"I'm looking for my keys.","tr":"Je cherche mes clés.","why":"« Chercher » : {{look for}}, avec {{for}}."},
+        {"wrong":"Pick up me at six.","right":"Pick me up at six.","tr":"Viens me chercher à six heures.","why":"Le pronom {{me}} au milieu."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I usually get ___ at seven.","tr":"D'habitude, je me lève à sept heures.","options":["up","on","off"],"answer":0,"why":"Se lever : {{get up}}.","from":"say-when-and-how-often"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"It's dark. Can you turn ___ the light?","tr":"Il fait sombre. Tu peux allumer la lumière ?","options":["on","off","up"],"answer":0,"why":"Allumer : {{turn on}}."},
+        {"type":"choice","q":"« La télé ? Éteins-la ! »","options":["{{Turn it off!}}","{{Turn off it!}}","{{Off turn it!}}"],"answer":0,"why":"Le pronom entre le verbe et la particule.","from":"talk-about-people-and-things"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Don't give ___! You can do it!","tr":"N'abandonne pas ! Tu peux y arriver !","options":["up","out","down"],"answer":0,"why":"Abandonner : {{give up}}.","from":"give-directions"},
+        {"type":"dialogue","q":"Votre voiture est en panne. Vous appelez un ami.","from":"say-what-will-happen","lines":[{"who":"Your friend","t":"Hello?","tr":"Allô ?"},{"options":["Hi! My car broke down. Can you pick me up?","Hi! My car broke. Can you pick up me?"],"answer":0,"why":"Tomber en panne : {{break down}} ; et le pronom au milieu : {{pick me up}}."},{"who":"Your friend","t":"Sure! Where are you?","tr":"Bien sûr ! Tu es où ?"},{"options":["At the gas station. I'll look for you outside.","At the gas station. I'll look you outside."],"answer":0,"why":"Chercher quelqu'un : {{look for}}."},{"who":"Your friend","t":"OK, I'll be there in ten minutes.","tr":"D'accord, j'arrive dans dix minutes."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Mets ton manteau, il fait froid !","words":["Put","your coat","on,","it's","cold!"]},
+        {"type":"free","q":"À vous : décrivez votre matinée avec au moins trois phrasal verbs ({{wake up, get up, turn on, put on, pick up}}…).","answers":[{"t":"I wake up at six thirty, but I get up at seven. I turn on the radio, I put on my clothes and I pick up a coffee on the way.","tr":"Je me réveille à six heures et demie, mais je me lève à sept heures. J'allume la radio, je m'habille et je prends un café en route."},{"t":"I usually wake up early. I get up, turn off my alarm and put on my running shoes.","tr":"D'habitude, je me réveille tôt. Je me lève, j'éteins mon réveil et je mets mes chaussures de course."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 7,
+      "level": "B1",
+      "title": "Imaginer : dire ce que vous feriez si…",
+      "summary": "Rêver et imaginer : « Si je gagnais au loto, je ferais le tour du monde ». {{if}} + prétérit, puis {{would}} : exactement comme « si » + imparfait, puis le conditionnel.",
+      "topic": "{{if}} + prétérit, {{would}} + verbe ; {{If I were}} ; {{If I were you}} ; {{could}} ; {{I wish}} + prétérit",
+      "blocks": [
+        {"goal":{"t":"If I had more time, I'd learn the piano.","tr":"Si j'avais plus de temps, j'apprendrais le piano."}},
+        {"dialog":[{"who":"Zoé","t":"What would you do if you won the lottery?","tr":"Qu'est-ce que tu ferais si tu gagnais au loto ?"},{"who":"Nathan","t":"I'd quit my job and travel around the world!","tr":"Je quitterais mon travail et je ferais le tour du monde !"},{"who":"Zoé","t":"I'd buy a house by the ocean.","tr":"Moi, j'achèterais une maison au bord de l'océan."},{"who":"Nathan","t":"And if you could live anywhere?","tr":"Et si tu pouvais vivre n'importe où ?"},{"who":"Zoé","t":"I'd live in California. The weather is always perfect!","tr":"Je vivrais en Californie. Il fait toujours beau !"}]},
+        {"p":"**Comme en français.** Bonne nouvelle : la phrase imaginaire suit la même logique qu'en français. « Si » + imparfait → {{if}} + prétérit ; conditionnel → {{would}} + la forme de base. {{If I had money, I would buy a boat.}} « Si j'avais de l'argent, j'achèterais un bateau. » À l'oral : {{I'd}}."},
+        { "table": [
+          ["","après {{if}}","le résultat"],
+          ["possible (leçon 35)","présent : {{If it's sunny,}}","{{will}} : {{we'll go to the beach.}}"],
+          ["imaginaire","prétérit : {{If it was sunny,}}","{{would}} : {{we'd go to the beach.}}"]
+        ] },
+        {"p":"**Jamais de would après if.** Comme en français, où « si j'aurais » est une faute, l'anglais ne met pas {{would}} après {{if}} : {{if I had}}, et non « if I would have »."},
+        {"p":"**If I were.** Avec {{be}}, l'anglais soigné dit {{were}} pour toutes les personnes : {{If I were rich…}}, {{If she were here…}} À l'oral, on entend aussi {{If I was}}. Pour un conseil : {{If I were you, I'd call her.}} « À ta place, je l'appellerais. »"},
+        {"p":"**Could, aussi.** {{could}} veut dire « pourrait » : {{If I had a car, I could visit you more often.}}"},
+        {"p":"**Regretter : I wish.** {{I wish}} + prétérit, « j'aimerais que… », pour une chose qui n'est pas vraie : {{I wish I spoke Spanish.}} « J'aimerais parler espagnol. » {{I wish I were taller!}}"},
+        { "ex": [
+          {"t":"If I had a car, I'd go to the mountains this weekend.","tr":"Si j'avais une voiture, j'irais à la montagne ce week-end."},
+          {"t":"What would you do in my place?","tr":"Que ferais-tu à ma place ?"},
+          {"t":"If it weren't raining, we'd go out.","tr":"S'il ne pleuvait pas, on sortirait."},
+          {"t":"If I were you, I'd tell the truth.","tr":"À ta place, je dirais la vérité."},
+          {"t":"I'd be really happy if you came.","tr":"Je serais vraiment content si tu venais."},
+          {"t":"I wish I had more vacation!","tr":"Si seulement j'avais plus de vacances !"}
+        ] },
+        {"tip":"{{I'd}} devant une forme de base, c'est {{I would}} ({{I'd go}}) ; devant un participe passé, c'est {{I had}} ({{I'd gone}}, leçon 45)."}
+      ],
+      "mistakes": [
+        {"wrong":"If I would have money, I would buy a house.","right":"If I had money, I would buy a house.","tr":"Si j'avais de l'argent, j'achèterais une maison.","why":"Après {{if}}, le prétérit, jamais {{would}}."},
+        {"wrong":"If I was rich, I will buy a boat.","right":"If I were rich, I would buy a boat.","tr":"Si j'étais riche, j'achèterais un bateau.","why":"Pour imaginer : {{would}} dans le résultat."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"If I ___ more money, I'd travel more.","tr":"Si j'avais plus d'argent, je voyagerais plus.","options":["had","would have","have"],"answer":0,"why":"Après {{if}}, pour imaginer : le prétérit.","from":"tell-about-your-weekend"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"If you came, I ___ be very happy.","tr":"Si tu venais, je serais très content.","options":["would","will","am"],"answer":0,"why":"Le résultat imaginé : {{would}}."},
+        {"type":"choice","q":"{{If it was sunny, we'd go to the beach.}} C'est…","options":["imaginaire : il ne fait pas beau","une possibilité réelle pour demain"],"answer":0,"why":"{{if}} + prétérit, puis {{would}} : on imagine. (Pour demain : {{If it's sunny, we'll go…}})","from":"say-what-will-happen-if"},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"À ta place, je l'appellerais.","words":["If","I","were","you,","I'd call","her."],"from":"talk-about-people-and-things"},
+        {"type":"dialogue","q":"Un ami a un problème. Choisissez vos réponses.","from":"give-advice-and-rules","lines":[{"who":"Your friend","t":"My boss doesn't pay me enough. What would you do?","tr":"Mon patron ne me paie pas assez. Tu ferais quoi, toi ?"},{"options":["If I were you, I'd talk to him.","If I would be you, I'd talk to him."],"answer":0,"why":"Après {{if}} : {{were}}, jamais {{would}}."},{"who":"Your friend","t":"And if he says no?","tr":"Et s'il dit non ?"},{"options":["Then you should look for another job.","Then you would should look for another job."],"answer":0,"why":"Un conseil : {{should}}, tout seul."},{"who":"Your friend","t":"You're right.","tr":"Tu as raison."}]},
+        {"type":"say","q":"Dites, avec {{I wish}} : « J'aimerais parler espagnol. »","answer":"I wish I spoke Spanish."},
+        {"type":"free","q":"À vous : que feriez-vous si vous gagniez au loto ? Et où vivriez-vous si vous pouviez vivre n'importe où ?","answers":[{"t":"If I won the lottery, I'd stop working and I'd travel. If I could live anywhere, I'd live in New York.","tr":"Si je gagnais au loto, j'arrêterais de travailler et je voyagerais. Si je pouvais vivre n'importe où, je vivrais à New York."},{"t":"If I had a lot of money, I'd buy a house in the country. I'd live in Canada, near a lake.","tr":"Si j'avais beaucoup d'argent, j'achèterais une maison à la campagne. Je vivrais au Canada, près d'un lac."}]}
+      ]
     }
   ]
 }
