@@ -118,5 +118,5 @@ Levels: lessons 1–19 A1, 20–38 A2, 39–48 B1 (19 / 19 / 10).
 
 ## Grammar words (each explained once, where first needed)
 
-sentence, pronoun (1); marker (3); noun, plural (5); verb, linker (7); adjective (9); aspect (12);
-root (13); command (17); focus (24); little word / particle (38); clause (39); causative (44).
+sentence, pronoun (1); marker (3); noun, plural (5); verb, linker (7); adjective (9); aspect, root (12);
+command (17); focus (24); little word / particle (38); clause (39); causative (44).

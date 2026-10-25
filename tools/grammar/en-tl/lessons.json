@@ -548,6 +548,296 @@
         {"type":"say","q":"Ask, politely: “Where's the CR?”","answer":"Nasaan po ang CR?"},
         {"type":"free","q":"Your turn: say where three people or things in your home are right now.","answers":[{"t":"Nasa kusina si Nanay. Nasa mesa ang susi. Nasa ilalim ng kama ang pusa.","tr":"Mom is in the kitchen. The key is on the table. The cat is under the bed."},{"t":"Nasa trabaho ang asawa ko. Nasa sala ang mga bata. Nandito ako sa kuwarto.","tr":"My husband is at work. The kids are in the living room. I'm here in the bedroom."}]}
       ]
+    },
+    {
+      "id": "say-what-youre-doing",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you're doing right now",
+      "summary": "Say what you and other people are doing at the moment: “I'm cooking dinner.” “What are you doing?”",
+      "topic": "Aspect; the ongoing form of {{-um-}} and {{mag-}} verbs ({{kumakain}}, {{nagluluto}})",
+      "blocks": [
+        {"goal":{"t":"Nagluluto ako ng hapunan.","tr":"I'm cooking dinner."}},
+        {"dialog":[{"who":"Ana","t":"Hello, Ben! Ano ang ginagawa mo?","tr":"Hello, Ben! What are you doing?"},{"who":"Ben","t":"Nagluluto ako ng hapunan. Ikaw?","tr":"I'm cooking dinner. You?"},{"who":"Ana","t":"Nag-aaral ako.","tr":"I'm studying."},{"who":"Ben","t":"E si Liza?","tr":"And Liza?"},{"who":"Ana","t":"Kumakain siya.","tr":"She's eating."}]},
+        {"p":"Tagalog verbs don't change for **when** something happens (past, present, future) the way English verbs do. They change for **where the action is**: not begun yet, going on, or finished. This is the heart of Tagalog verbs."},
+        {"term":"aspect","means":"the form of a verb that shows whether the action has begun, and whether it's finished. Tagalog has three: completed, ongoing and not yet begun."},
+        {"p":"This lesson is about the **ongoing** form: something that has begun and isn't finished, like “I'm cooking”, “she's eating”."},
+        {"term":"root","means":"the basic word a verb is built from: {{kain}} (eating) gives {{kumain}} “eat” and {{kumakain}} “is eating”."},
+        {"p":"**Two kinds of verbs to start with.** Most action verbs are a root plus a piece added to it. The two commonest, for “someone does something”, are {{-um-}}, which goes **inside** the root, after its first consonant ({{kain}} → {{kumain}}), and {{mag-}}, which goes **in front** ({{luto}} → {{magluto}} “cook”). You met these basic forms after {{gusto}}."},
+        {"p":"**The ongoing form**: repeat the first syllable of the root (its first consonant and vowel). For {{-um-}} verbs, keep the {{-um-}}; for {{mag-}} verbs, {{mag-}} becomes {{nag-}}."},
+        { "table": [
+          ["","an {{-um-}} verb","a {{mag-}} verb"],
+          ["the root","{{kain}}","{{luto}}"],
+          ["the basic form","{{kumain}} eat","{{magluto}} cook"],
+          ["ongoing","{{kumakain}} is eating","{{nagluluto}} is cooking"],
+          ["how","{{k-um-a-kain}}: {{ka}} repeated","{{nag-lu-luto}}: {{lu}} repeated"]
+        ] },
+        {"p":"More of them: {{uminom}} (drink) → {{umiinom}}, {{pumunta}} (go) → {{pumupunta}}, {{mag-aral}} (study) → {{nag-aaral}}, {{maglaro}} (play) → {{naglalaro}}, {{magtrabaho}} (work) → {{nagtatrabaho}}. When the root starts with a vowel, the {{-um-}} goes at the very front: {{inom}} → {{uminom}}."},
+        {"p":"**Word order**: the verb first, then who, then what (with {{ng}}) and where (with {{sa}}): {{Kumakain si Ben ng mangga sa kusina.}} “Ben is eating a mango in the kitchen.” With these verbs, the one **doing** it is the one the sentence is about, so the doer takes {{ang}}, {{si}} or a pronoun like {{ako}}."},
+        { "ex": [
+          {"t":"Kumakain ako.","tr":"I'm eating."},
+          {"t":"Nag-aaral si Ana ng Ingles.","tr":"Ana is studying English."},
+          {"t":"Umiinom sila ng kape.","tr":"They're having coffee."},
+          {"t":"Naglalaro ang mga bata sa labas.","tr":"The kids are playing outside."},
+          {"t":"Ano ang ginagawa mo?","tr":"What are you doing?","note":"a fixed question: learn it as it is"},
+          {"t":"Naghihintay ako sa iyo.","tr":"I'm waiting for you."},
+          {"t":"Nagtatrabaho pa si Tatay.","tr":"Dad is still working."}
+        ] },
+        {"tip":"The ongoing form also says what someone does regularly: {{Nagtatrabaho siya sa bangko}} is “She works at a bank” as well as “She's working at a bank”. Lesson 15 uses it for your daily routine."}
+      ],
+      "mistakes": [
+        {"wrong":"Ako kumakain.","right":"Kumakain ako.","tr":"I'm eating.","why":"The verb comes first, then who."},
+        {"wrong":"Magluto ako.","right":"Nagluluto ako.","tr":"I'm cooking.","why":"{{magluto}} is the basic form (after {{gusto}}, in commands). For “is cooking”, the ongoing form: {{nag-}} + {{lu}} + {{luto}}."},
+        {"wrong":"Kumakain si Ben ang mangga.","right":"Kumakain si Ben ng mangga.","tr":"Ben is eating a mango.","why":"The sentence is about Ben, the one eating; what he eats takes {{ng}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ako ng hapunan.","tr":"I'm cooking dinner.","options":["Nagluluto","Magluto","Luto"],"answer":0,"why":"Going on now: {{nag-}} + the repeated {{lu}}."},
+        {"type":"choice","q":"The ongoing form of {{uminom}} (drink) is…","options":["{{umiinom}}","{{uminominom}}","{{nag-iinom}}"],"answer":0,"why":"Repeat the root's first syllable, {{i}}: {{um-i-inom}}."},
+        {"type":"choice","q":"And of {{maglaro}} (play)?","options":["{{naglalaro}}","{{maglalaro}}","{{lumalaro}}"],"answer":0,"why":"{{mag-}} becomes {{nag-}}, and {{la}} is repeated. ({{maglalaro}} means “will play”: lesson 14.)"},
+        {"type":"order","q":"Put the words in order.","tr":"The kids are playing outside.","words":["Naglalaro","ang","mga bata","sa labas."]},
+        {"type":"fill","q":"Choose the missing word.","t":"Nag-aaral si Ana ___ Ingles.","tr":"Ana is studying English.","options":["ng","ang","si"],"answer":0,"why":"What she studies isn't what the sentence is about: {{ng}}.","from":"say-what-you-want"},
+        {"type":"dialogue","q":"Your friend's grandmother calls. Choose your replies.","lines":[{"who":"Lola","t":"Hello, iha! Ano ang ginagawa mo?","tr":"Hello, dear! What are you doing?"},{"options":["Nag-aaral po ako, Lola.","Mag-aral po ako, Lola."],"answer":0,"why":"Going on now: the ongoing form, {{nag-aaral}}."},{"who":"Lola","t":"Nasaan si Mark?","tr":"Where's Mark?"},{"options":["Nasa labas po siya. Naglalaro po siya ng basketball.","Nasa labas po siya. Maglaro siya ng basketball."],"answer":0,"why":"{{nasa labas}} “outside”, and {{naglalaro}} “is playing”."}],"from":"say-where-things-are"},
+        {"type":"free","q":"Your turn: say what you're doing right now, and what someone near you is doing.","answers":[{"t":"Nag-aaral ako ng Tagalog. Nagluluto si Mama.","tr":"I'm studying Tagalog. Mom is cooking."},{"t":"Umiinom ako ng kape. Naglalaro ang anak ko.","tr":"I'm having coffee. My kid is playing."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you did",
+      "summary": "Say what you did, ask “Have you eaten?” (the Filipino way of asking how someone is) and answer “Not yet.”",
+      "topic": "The completed form ({{kumain}}, {{nagluto}}); {{na}} “already” and {{pa}} “still, yet”; time words",
+      "blocks": [
+        {"goal":{"t":"Kumain ka na ba?","tr":"Have you eaten?","note":"a friendly “how are you?” in the Philippines"}},
+        {"dialog":[{"who":"Tita","t":"Kumain ka na ba?","tr":"Have you eaten?"},{"who":"Mark","t":"Opo, kumain na po ako kanina. Nagluto po si Ana ng pansit.","tr":"Yes, I ate earlier. Ana cooked pancit."},{"who":"Tita","t":"E si Ana, kumain na ba siya?","tr":"And Ana, has she eaten?"},{"who":"Mark","t":"Hindi pa po siya kumakain.","tr":"She hasn't eaten yet."}]},
+        {"p":"**The completed form** says an action began and is finished: “ate, cooked, went”. For {{-um-}} verbs it looks just like the basic form: {{kumain}} is both “eat” and “ate”. For {{mag-}} verbs, {{mag-}} becomes {{nag-}}: {{magluto}} → {{nagluto}} “cooked”."},
+        { "table": [
+          ["basic form","completed","ongoing"],
+          ["{{kumain}} eat","{{kumain}} ate","{{kumakain}}"],
+          ["{{uminom}} drink","{{uminom}} drank","{{umiinom}}"],
+          ["{{pumunta}} go","{{pumunta}} went","{{pumupunta}}"],
+          ["{{magluto}} cook","{{nagluto}} cooked","{{nagluluto}}"],
+          ["{{mag-aral}} study","{{nag-aral}} studied","{{nag-aaral}}"]
+        ] },
+        {"p":"Since {{kumain}} is both “eat” and “ate”, the sentence tells you which: {{Gusto kong kumain}} “I want to eat”, but {{Kumain ako}} “I ate”. An {{-um-}} verb starting a statement is completed."},
+        {"p":"**{{na}} and {{pa}}.** These little words go early, like {{ba}}: {{na}} is “already, now”, {{pa}} is “still, yet”. {{Kumain na ako.}} “I've already eaten.” And “not yet” is {{hindi pa}} with the **ongoing** form, because the eating hasn't happened: {{Hindi pa ako kumakain.}} “I haven't eaten yet.”"},
+        {"p":"**Their order**: the short {{ka}} comes before them, longer pronouns after: {{Kumain ka na ba?}} but {{Kumain na ba siya?}}"},
+        {"p":"**When.** Time words go at the end or at the start: {{kanina}} “earlier today”, {{kahapon}} “yesterday”, {{kagabi}} “last night”, {{noong Sabado}} “last Saturday”."},
+        { "ex": [
+          {"t":"Kumain na ako.","tr":"I've eaten."},
+          {"t":"Hindi pa ako kumakain.","tr":"I haven't eaten yet."},
+          {"t":"Nagluto si Nanay ng adobo kagabi.","tr":"Mom cooked adobo last night."},
+          {"t":"Pumunta kami sa Tagaytay kahapon.","tr":"We went to Tagaytay yesterday."},
+          {"t":"Uminom ka na ba ng gamot?","tr":"Have you taken your medicine?","note":"Tagalog “drinks” medicine"},
+          {"t":"Nag-aral ba sila kahapon?","tr":"Did they study yesterday?"},
+          {"t":"Dumating na si Ben.","tr":"Ben's here.","note":"word for word “Ben has arrived”"}
+        ] },
+        {"tip":"{{Kumain ka na ba?}} is how Filipinos show they care: an aunt, a neighbor or a friend asks it instead of “How are you?”. Even when you've eaten, {{Opo, salamat po!}} is a lovely answer."}
+      ],
+      "mistakes": [
+        {"wrong":"Magluto si Nanay kagabi.","right":"Nagluto si Nanay kagabi.","tr":"Mom cooked last night.","why":"Finished: {{nag-}}. {{magluto}} is the basic form."},
+        {"wrong":"Hindi pa ako kumain.","right":"Hindi pa ako kumakain.","tr":"I haven't eaten yet.","why":"For “not yet”, Tagalog uses the ongoing form: the eating hasn't been completed."},
+        {"wrong":"Kumain na ba ka?","right":"Kumain ka na ba?","tr":"Have you eaten?","why":"The short {{ka}} comes first, before {{na}} and {{ba}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ si Nanay ng adobo kagabi.","tr":"Mom cooked adobo last night.","options":["Nagluto","Magluto","Nagluluto"],"answer":0,"why":"Last night, finished: {{nagluto}}.","from":"say-what-youre-doing"},
+        {"type":"fill","q":"Choose the missing word.","t":"Kumain ka ___ ba?","tr":"Have you eaten (yet)?","options":["na","pa","po"],"answer":0,"why":"{{na}} “already”."},
+        {"type":"choice","q":"How do you say “I haven't eaten yet”?","options":["{{Hindi pa ako kumakain.}}","{{Hindi na ako kumain.}}","{{Hindi ako pa kumain.}}"],"answer":0,"why":"{{hindi pa}} + the ongoing form. ({{Hindi na ako kumain}} is “I didn't eat any more”.)"},
+        {"type":"order","q":"Put the words in order.","tr":"We went to Tagaytay yesterday.","words":["Pumunta","kami","sa Tagaytay","kahapon."]},
+        {"type":"dialogue","q":"Your neighbor greets you. Choose your replies.","lines":[{"who":"Aling Nena","t":"O, kumain ka na ba?","tr":"Oh, have you eaten?"},{"options":["Hindi pa po. Kayo po?","Hindi na po. Kayo po?"],"answer":0,"why":"“Not yet” is {{hindi pa}}; {{hindi na}} is “not any more”."},{"who":"Aling Nena","t":"Kumain na kami. Halika, kain ka dito!","tr":"We've eaten. Come, eat here!"},{"options":["Salamat po!","Salamat ka!"],"answer":0,"why":"{{Salamat po}}: thank you, politely."}],"from":"speak-politely"},
+        {"type":"say","q":"Ask a friend about her brother: “Has he arrived?”","answer":"Dumating na ba siya?"},
+        {"type":"free","q":"Your turn: say three things you did yesterday or last night.","answers":[{"t":"Kahapon, nag-aral ako ng Tagalog. Pumunta ako sa palengke. Nagluto ako ng sinigang.","tr":"Yesterday I studied Tagalog. I went to the market. I cooked sinigang."},{"t":"Kagabi, kumain kami sa labas at uminom ng kape.","tr":"Last night we ate out and had coffee."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-will-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you're going to do",
+      "summary": "Talk about your plans: “I'm going to the mall tomorrow.” “I'll cook kare-kare on Sunday.”",
+      "topic": "The not-yet-begun form ({{kakain}}, {{magluluto}}); all the forms together; {{bukas}}, {{mamaya}}",
+      "blocks": [
+        {"goal":{"t":"Pupunta ako sa mall bukas.","tr":"I'm going to the mall tomorrow."}},
+        {"dialog":[{"who":"Liza","t":"Saan ka pupunta bukas?","tr":"Where are you going tomorrow?"},{"who":"Mark","t":"Pupunta ako sa Makati. Magtatrabaho ako.","tr":"I'm going to Makati. I'll be working."},{"who":"Liza","t":"E sa Linggo? Magluluto ka ba?","tr":"And on Sunday? Will you cook?"},{"who":"Mark","t":"Oo! Magluluto ako ng kare-kare.","tr":"Yes! I'll cook kare-kare."},{"who":"Liza","t":"Sasama ako!","tr":"I'm coming!"}]},
+        {"p":"**Not yet begun**: the form for what's going to happen, “will eat, am going to cook”. For {{-um-}} verbs, leave out the {{-um-}} and repeat the first syllable: {{kumain}} → {{kakain}}. For {{mag-}} verbs, keep {{mag-}} and repeat the first syllable of the root: {{magluto}} → {{magluluto}}."},
+        { "table": [
+          ["basic form","completed","ongoing","not yet begun"],
+          ["{{kumain}}","{{kumain}}","{{kumakain}}","{{kakain}}"],
+          ["{{uminom}}","{{uminom}}","{{umiinom}}","{{iinom}}"],
+          ["{{pumunta}}","{{pumunta}}","{{pumupunta}}","{{pupunta}}"],
+          ["{{magluto}}","{{nagluto}}","{{nagluluto}}","{{magluluto}}"],
+          ["{{mag-aral}}","{{nag-aral}}","{{nag-aaral}}","{{mag-aaral}}"]
+        ] },
+        {"p":"Look at the pattern. The sign of **begun** is {{-um-}} or {{nag-}}; the sign of **not finished** is the repeated syllable. Completed has only the first, not-yet-begun only the second, and ongoing has both."},
+        {"p":"**When.** {{bukas}} “tomorrow”, {{mamaya}} “later today”, {{sa Lunes}} “on Monday”, {{sa susunod na linggo}} “next week”."},
+        {"p":"Plans can also use {{gusto}}: {{Gusto kong pumunta}} “I want to go”. The not-yet-begun form is firmer: {{Pupunta ako}} “I'm going”."},
+        { "ex": [
+          {"t":"Kakain kami sa labas mamaya.","tr":"We're eating out later."},
+          {"t":"Magluluto ako ng hapunan.","tr":"I'll cook dinner."},
+          {"t":"Pupunta ka ba sa party?","tr":"Are you going to the party?"},
+          {"t":"Mag-aaral ako ng Tagalog sa Pilipinas.","tr":"I'm going to study Tagalog in the Philippines."},
+          {"t":"Uuwi na ako.","tr":"I'm going home now.","note":"{{na}}: now, at last"},
+          {"t":"Darating si Lola sa Sabado.","tr":"Grandma is coming on Saturday.","note":"{{dumating}} → {{darating}}: a d between vowels often becomes r"}
+        ] },
+        {"tip":"{{Uuwi na ako}} and {{Aalis na ako}} “I'm leaving now” are how you say goodbye. People will answer {{Ingat!}} “Take care!”."}
+      ],
+      "mistakes": [
+        {"wrong":"Kumakain ako bukas.","right":"Kakain ako bukas.","tr":"I'll eat tomorrow.","why":"Tomorrow hasn't begun: leave out the {{-um-}}, keep only the repeated syllable."},
+        {"wrong":"Nagluluto ako bukas.","right":"Magluluto ako bukas.","tr":"I'll cook tomorrow.","why":"For what's coming, {{mag-}} stays {{mag-}}; {{nag-}} means it has begun."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ako ng kare-kare sa Linggo.","tr":"I'll cook kare-kare on Sunday.","options":["Magluluto","Nagluluto","Nagluto"],"answer":0,"why":"Not begun yet: {{mag-}} + the repeated {{lu}}."},
+        {"type":"choice","q":"The not-yet-begun form of {{uminom}} (drink) is…","options":["{{iinom}}","{{umiinom}}","{{uuminom}}"],"answer":0,"why":"Leave out {{-um-}} and repeat the first syllable: {{i-inom}}."},
+        {"type":"choice","q":"Which one is “I'll eat”?","options":["{{Kakain ako.}}","{{Kumakain ako.}}","{{Kumain na ako.}}"],"answer":0,"why":"{{kakain}}: not yet begun. {{Kumakain ako}} is “I'm eating”, {{Kumain na ako}} “I've eaten”.","from":"say-what-you-did"},
+        {"type":"order","q":"Put the words in order.","tr":"Grandma is coming on Saturday.","words":["Darating","si Lola","sa Sabado."]},
+        {"type":"dialogue","q":"Planning the weekend with a friend. Choose your replies.","lines":[{"who":"Ben","t":"May gagawin ka ba bukas?","tr":"Are you doing anything tomorrow?"},{"options":["Oo, mag-aaral ako.","Oo, nag-aral ako."],"answer":0,"why":"Tomorrow: the not-yet-begun form, {{mag-aaral}}. ({{nag-aral}} is “studied”.)"},{"who":"Ben","t":"E sa Linggo? Pupunta ako sa Tagaytay.","tr":"And on Sunday? I'm going to Tagaytay."},{"options":["Sasama ako!","Sumama ako!"],"answer":0,"why":"{{sumama}} “come along” → not yet begun: {{sasama}}. {{Sumama ako}} is “I went along”."}],"from":"say-what-you-did"},
+        {"type":"say","q":"Say “I'm going home now.”","answer":"Uuwi na ako."},
+        {"type":"free","q":"Your turn: say three things you'll do this weekend.","answers":[{"t":"Sa Sabado, pupunta ako sa mall. Kakain kami sa labas. Sa Linggo, magluluto ako.","tr":"On Saturday I'm going to the mall. We'll eat out. On Sunday I'll cook."},{"t":"Bukas, mag-aaral ako ng Tagalog. Maglalaro kami ng basketball.","tr":"Tomorrow I'll study Tagalog. We'll play basketball."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Talk about your daily routine",
+      "summary": "Say what you usually do and when: “I get up at six. I shower, then I have coffee.”",
+      "topic": "The ongoing form for habits; {{ma-}} verbs ({{matulog}}, {{maligo}}, {{manood}}); {{araw-araw}}, {{tuwing}}, {{lagi}}; time first",
+      "blocks": [
+        {"goal":{"t":"Alas-sais ako gumigising araw-araw.","tr":"I get up at six every day."}},
+        {"dialog":[{"who":"Liza","t":"Ano ang ginagawa mo sa umaga?","tr":"What do you do in the morning?"},{"who":"Mark","t":"Alas-sais ako gumigising. Naliligo ako, tapos nagkakape.","tr":"I get up at six. I shower, then I have coffee."},{"who":"Liza","t":"Paano ka pumapasok?","tr":"How do you get to work?"},{"who":"Mark","t":"Sumasakay ako ng jeep.","tr":"I take a jeepney."},{"who":"Liza","t":"Ako, alas-nuwebe ako gumigising!","tr":"Me, I get up at nine!"}]},
+        {"p":"**Habits use the ongoing form.** What you do regularly is “going on” in your life, so Tagalog uses the same form as for “right now”: {{Nagtatrabaho ako sa bangko.}} “I work at a bank.” A time word makes it clear: {{araw-araw}} “every day”, {{tuwing Lunes}} “every Monday”, {{tuwing umaga}} “every morning”, {{minsan}} “sometimes”."},
+        {"p":"**A third kind of verb: {{ma-}}.** Some everyday verbs take {{ma-}}: {{matulog}} “sleep”, {{maligo}} “take a shower”, {{manood}} “watch”. They work like {{mag-}} verbs: {{ma-}} becomes {{na-}} once the action has begun."},
+        { "table": [
+          ["basic form","completed","ongoing","not yet begun"],
+          ["{{matulog}} sleep","{{natulog}}","{{natutulog}}","{{matutulog}}"],
+          ["{{maligo}} shower","{{naligo}}","{{naliligo}}","{{maliligo}}"],
+          ["{{manood}} watch","{{nanood}}","{{nanonood}}","{{manonood}}"]
+        ] },
+        {"p":"**Time first.** A time often starts the sentence, and then the pronoun jumps up to right after it, before the verb: {{Alas-sais ako gumigising.}} “At six I get up.” (The time words themselves are the next unit: {{alas-sais}} is “six o'clock”.) {{lagi}} “always” is tied to what follows with the linker: {{Lagi akong nagkakape.}} “I always have coffee.”"},
+        {"p":"**Then.** {{tapos}} (or {{pagkatapos}}) “then, after that” links the steps of your day: {{Naliligo ako, tapos nagkakape.}}"},
+        {"p":"**A noun as a verb.** {{mag-}} turns many nouns into verbs: {{kape}} “coffee” → {{magkape}} “have coffee”, {{almusal}} “breakfast” → {{mag-almusal}} “have breakfast”."},
+        { "ex": [
+          {"t":"Alas-sais ako gumigising.","tr":"I get up at six."},
+          {"t":"Naliligo ako tuwing umaga.","tr":"I shower every morning."},
+          {"t":"Nagtatrabaho siya sa ospital.","tr":"She works at a hospital."},
+          {"t":"Sumasakay kami ng jeep papunta sa eskuwela.","tr":"We take a jeepney to school.","note":"{{papunta sa}} “heading to”"},
+          {"t":"Lagi akong nagkakape sa umaga.","tr":"I always have coffee in the morning."},
+          {"t":"Natutulog si Lolo tuwing hapon.","tr":"Grandpa takes a nap every afternoon."},
+          {"t":"Minsan, nanonood kami ng sine.","tr":"Sometimes we go to the movies.","note":"word for word “we watch a film”"}
+        ] },
+        {"tip":"The ongoing form doesn't say whether it's a habit or happening now: {{Nanonood siya ng TV}} is “He watches TV” or “He's watching TV”. Words like {{araw-araw}} or {{ngayon}} “now” tell you which."}
+      ],
+      "mistakes": [
+        {"wrong":"Alas-sais gumigising ako.","right":"Alas-sais ako gumigising.","tr":"I get up at six.","why":"When the time comes first, the pronoun jumps up to right after it."},
+        {"wrong":"Nagtrabaho ako sa bangko araw-araw.","right":"Nagtatrabaho ako sa bangko araw-araw.","tr":"I work at a bank every day.","why":"A habit is going on: the ongoing form. ({{nagtrabaho}} is “worked”.)"},
+        {"wrong":"Lagi ako nagkakape.","right":"Lagi akong nagkakape.","tr":"I always have coffee.","why":"{{lagi}} and the pronoun are tied to the verb with the linker: {{akong}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Alas-sais ___ gumigising.","tr":"I get up at six.","options":["ako","ko","akong"],"answer":0,"why":"The doer is {{ako}}, right after the time."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ ako tuwing umaga.","tr":"I shower every morning.","options":["Naliligo","Maligo","Naligo"],"answer":0,"why":"A habit: the ongoing form {{naliligo}}."},
+        {"type":"choice","q":"{{Nanonood siya ng TV.}} can mean…","options":["He watches TV, or he's watching TV","Only “he watched TV”","Only “he'll watch TV”"],"answer":0,"why":"The ongoing form is for now and for habits."},
+        {"type":"order","q":"Put the words in order.","tr":"She works at a hospital.","words":["Nagtatrabaho","siya","sa ospital."],"from":"say-what-youre-doing"},
+        {"type":"order","q":"Put the words in order.","tr":"I always have coffee in the morning.","words":["Lagi","akong","nagkakape","sa umaga."]},
+        {"type":"dialogue","q":"A new coworker asks about your day. Choose your replies.","lines":[{"who":"Coworker","t":"Paano ka pumapasok?","tr":"How do you get to work?"},{"options":["Sumasakay ako ng jeep.","Sumakay ako ng jeep bukas."],"answer":0,"why":"Every day: the ongoing form."},{"who":"Coworker","t":"Anong oras ka gumigising?","tr":"What time do you get up?"},{"options":["Alas-singko ako gumigising.","Alas-singko gumigising ako."],"answer":0,"why":"The time first, then {{ako}}, then the verb."}],"from":"say-what-you-will-do"},
+        {"type":"free","q":"Your turn: describe your morning in three steps, with {{tapos}}.","answers":[{"t":"Alas-siyete ako gumigising. Naliligo ako, tapos nag-aalmusal ako. Tapos, pumapasok ako sa trabaho.","tr":"I get up at seven. I shower, then I have breakfast. Then I go to work."},{"t":"Alas-sais ako gumigising. Nagkakape ako, tapos naglalakad ako papunta sa eskuwela.","tr":"I get up at six. I have coffee, then I walk to school."}]}
+      ]
+    },
+    {
+      "id": "ask-questions",
+      "unit": 3,
+      "level": "A1",
+      "title": "Ask who, what, where, when and how",
+      "summary": "Ask for information: “Where do you live?” “When did you arrive?” “Why are you learning Tagalog?”",
+      "topic": "{{sino}}, {{ano}}, {{saan}}, {{kailan}}, {{paano}}, {{bakit}}; the pronoun right after the question word",
+      "blocks": [
+        {"goal":{"t":"Saan ka nakatira?","tr":"Where do you live?"}},
+        {"dialog":[{"who":"Ana","t":"Saan ka nakatira?","tr":"Where do you live?"},{"who":"Tom","t":"Sa Makati. Ikaw?","tr":"In Makati. You?"},{"who":"Ana","t":"Sa Pasig. Kailan ka dumating sa Pilipinas?","tr":"In Pasig. When did you get to the Philippines?"},{"who":"Tom","t":"Noong Lunes.","tr":"On Monday."},{"who":"Ana","t":"Bakit ka nag-aaral ng Tagalog?","tr":"Why are you learning Tagalog?"},{"who":"Tom","t":"Kasi Pilipina ang girlfriend ko!","tr":"Because my girlfriend is Filipina!"}]},
+        {"p":"**The question word comes first**, and the little pronouns ({{ka}}, {{ako}}, {{siya}}…) jump up to right after it, before the verb: {{Saan ka nakatira?}} “Where do you live?”, word for word “where you living?”. {{Kailan ka dumating?}} “When did you arrive?”"},
+        { "table": [
+          ["question word","meaning","example"],
+          ["{{sino}}","who","{{Sino siya?}} Who's she?"],
+          ["{{ano}}","what","{{Ano ang ginagawa mo?}} What are you doing?"],
+          ["{{saan}}","where (to, at)","{{Saan ka pupunta?}} Where are you going?"],
+          ["{{kailan}}","when","{{Kailan ka dumating?}} When did you arrive?"],
+          ["{{paano}}","how","{{Paano ka pumunta dito?}} How did you get here?"],
+          ["{{bakit}}","why","{{Bakit ka nandito?}} Why are you here?"]
+        ] },
+        {"p":"**{{sino}} and {{ano}} + {{ang}}.** Before a noun, {{sino}} and {{ano}} take {{ang}}: {{Sino ang guro mo?}} “Who's your teacher?”, {{Ano ang trabaho mo?}} “What's your job?”. In speech, {{ano ang}} is often squeezed to {{anong}}: {{Anong pangalan mo?}}"},
+        {"p":"**{{saan}} or {{nasaan}}?** {{nasaan}} is “where is (someone, something)?” on its own; {{saan}} goes with a verb: {{Saan ka nag-aaral?}} “Where do you study?”"},
+        {"p":"**Answering**: just the new information, often with {{sa}}: {{Sa Makati.}} “In Makati.” {{Bukas.}} “Tomorrow.” And {{Bakit?}} is answered with {{kasi}} “because”: {{Kasi gutom ako.}} “Because I'm hungry.”"},
+        { "ex": [
+          {"t":"Sino iyon?","tr":"Who's that?"},
+          {"t":"Ano ang trabaho mo?","tr":"What do you do (for work)?"},
+          {"t":"Saan ka nag-aaral?","tr":"Where do you go to school?"},
+          {"t":"Kailan ang birthday mo?","tr":"When's your birthday?"},
+          {"t":"Paano ka pumunta dito?","tr":"How did you get here?"},
+          {"t":"Bakit hindi ka kumain?","tr":"Why didn't you eat?","note":"{{ka}} goes right after {{hindi}} (or right after {{bakit}}: both are said)"}
+        ] },
+        {"tip":"When you don't catch something: {{Ano po?}} or just {{Po?}} “Sorry?”. And {{Ano ang ibig sabihin ng…?}} “What does … mean?” will keep any conversation going."}
+      ],
+      "mistakes": [
+        {"wrong":"Saan nakatira ka?","right":"Saan ka nakatira?","tr":"Where do you live?","why":"The little pronoun jumps up to right after the question word."},
+        {"wrong":"Nasaan ka nag-aaral?","right":"Saan ka nag-aaral?","tr":"Where do you study?","why":"With a verb, use {{saan}}. {{nasaan}} is “where is…?” on its own."},
+        {"wrong":"Sino guro mo?","right":"Sino ang guro mo?","tr":"Who's your teacher?","why":"{{sino}} takes {{ang}} before a noun."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ka nakatira?","tr":"Where do you live?","options":["Saan","Nasaan","Sino"],"answer":0,"why":"With a verb ({{nakatira}} “living”): {{saan}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Kailan ___ dumating?","tr":"When did you arrive?","options":["ka","ikaw","mo"],"answer":0,"why":"After a question word, the short {{ka}}."},
+        {"type":"choice","q":"You want to know who someone's teacher is. You ask…","options":["{{Sino ang guro mo?}}","{{Ano ang guro mo?}}","{{Saan ang guro mo?}}"],"answer":0,"why":"A person: {{sino}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Why didn't you eat?","words":["Bakit","hindi","ka","kumain?"],"also":[["Bakit","ka","hindi","kumain?"]],"from":"say-what-you-did"},
+        {"type":"order","q":"Put the words in order.","tr":"Where are you going tomorrow?","words":["Saan","ka","pupunta","bukas?"],"from":"say-what-you-will-do"},
+        {"type":"dialogue","q":"Your Tagalog teacher asks about you. Choose your replies.","lines":[{"who":"Teacher","t":"Saan ka nakatira?","tr":"Where do you live?"},{"options":["Sa Quezon City po.","Nasa po Quezon City."],"answer":0,"why":"Just the place, with {{sa}}, and {{po}}."},{"who":"Teacher","t":"Bakit ka nag-aaral ng Tagalog?","tr":"Why are you learning Tagalog?"},{"options":["Kasi po may mga kaibigan akong Pilipino.","Kasi po ako may kaibigan Pilipino."],"answer":0,"why":"{{kasi}} “because”; after {{may… }} the pronoun is tied on with the linker: {{akong Pilipino}}."}],"from":"say-what-you-have"},
+        {"type":"say","q":"Ask a friend: “What do you do for work?”","answer":"Ano ang trabaho mo?"},
+        {"type":"free","q":"Your turn: ask a new friend three questions: where they live, what they do, and when their birthday is.","answers":[{"t":"Saan ka nakatira? Ano ang trabaho mo? Kailan ang birthday mo?","tr":"Where do you live? What do you do? When's your birthday?"},{"t":"Taga-saan ka? Saan ka nag-aaral? Bakit ka nag-aaral ng Ingles?","tr":"Where are you from? Where do you study? Why are you studying English?"}]}
+      ]
+    },
+    {
+      "id": "tell-people-what-to-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Tell someone what to do, and not to",
+      "summary": "Welcome a guest, give instructions, say “don't” and “let's”: “Sit down.” “Don't be shy.” “Let's eat!”",
+      "topic": "Commands: the basic form + {{ka}} / {{kayo}}; {{huwag}} + the linker; {{tayo}} “let's”; {{Tara!}}",
+      "blocks": [
+        {"goal":{"t":"Tara, kain na tayo!","tr":"Come on, let's eat!"}},
+        {"dialog":[{"who":"Tita","t":"Pasok kayo! Umupo kayo.","tr":"Come in! Sit down."},{"who":"Mark","t":"Salamat po.","tr":"Thank you."},{"who":"Tita","t":"Huwag kang mahiya. Kumain ka!","tr":"Don't be shy. Eat!"},{"who":"Mark","t":"Opo. Ang sarap po!","tr":"I will. It's delicious!"},{"who":"Tita","t":"Tara, kain na tayo!","tr":"Come on, let's all eat!"}]},
+        {"p":"**Telling someone to do something**: the basic form of the verb (the one after {{gusto}}) + {{ka}} for one person or {{kayo}} for several (or to be polite): {{Kumain ka.}} “Eat.” {{Umupo po kayo.}} “Please sit down.” English leaves the “you” out; Tagalog says it."},
+        {"term":"command","means":"a sentence that tells someone to do something: Sit down! Don't go!"},
+        {"p":"**Don't**: {{huwag}} first, then the pronoun with the linker, then the basic form: {{Huwag kang umalis.}} “Don't go.” {{Huwag kayong mag-alala.}} “Don't worry.”"},
+        { "table": [
+          ["","do it","don't"],
+          ["you (one)","{{Umupo ka.}}","{{Huwag kang umupo.}}"],
+          ["you (several, or polite)","{{Umupo kayo.}}","{{Huwag kayong umupo.}}"],
+          ["let's","{{Umupo tayo.}}","{{Huwag tayong umupo.}}"]
+        ] },
+        {"p":"**Let's**: the basic form + {{tayo}}: {{Kumain tayo!}} “Let's eat!” ({{tayo}}, because you're included). {{Tara!}} “Come on!” starts many of these: {{Tara, uwi na tayo.}} “Come on, let's go home.”"},
+        {"p":"**Short and friendly.** In casual speech the root alone often does the job: {{Kain na!}} “Eat!”, {{Upo ka.}} “Sit.”, {{Pasok!}} “Come in!”. With older people, use the full form and {{po}}: {{Umupo po kayo.}}"},
+        {"p":"**Softer**: add {{na}} “now, go on”, {{muna}} “first, for a moment” or {{lang}} “just”: {{Hintay ka muna.}} “Wait a moment.” {{Upo ka lang.}} “Just sit down.”"},
+        { "ex": [
+          {"t":"Umupo po kayo.","tr":"Please sit down."},
+          {"t":"Huwag kang mag-alala.","tr":"Don't worry."},
+          {"t":"Kumain ka pa.","tr":"Have some more."},
+          {"t":"Huwag kayong maingay.","tr":"Don't be noisy."},
+          {"t":"Tara, uwi na tayo.","tr":"Come on, let's go home."},
+          {"t":"Hintay ka muna.","tr":"Wait a moment."},
+          {"t":"Mag-ingat ka!","tr":"Take care!"}
+        ] },
+        {"tip":"{{Sandali lang!}} “Just a moment!” and {{Teka!}} “Wait!” are the commands you'll hear most in Manila."}
+      ],
+      "mistakes": [
+        {"wrong":"Huwag umalis ka.","right":"Huwag kang umalis.","tr":"Don't go.","why":"After {{huwag}} comes the pronoun with the linker, then the verb."},
+        {"wrong":"Kumakain ka!","right":"Kumain ka!","tr":"Eat!","why":"Commands use the basic form. ({{Kumakain ka}} is “You're eating”.)"},
+        {"wrong":"Hindi kang umalis.","right":"Huwag kang umalis.","tr":"Don't go.","why":"“Don't” is {{huwag}}; {{hindi}} is “not” in statements."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ kang mag-alala.","tr":"Don't worry.","options":["Huwag","Hindi","Wala"],"answer":0,"why":"“Don't” is {{huwag}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Umupo po ___.","tr":"Please sit down. (to someone older)","options":["kayo","ka","tayo"],"answer":0,"why":"With {{po}}, “you” is {{kayo}}.","from":"speak-politely"},
+        {"type":"choice","q":"To say “Let's eat!” to your friends, you say…","options":["{{Kumain tayo!}}","{{Kumain kami!}}","{{Kumakain tayo!}}"],"answer":0,"why":"“Let's”, with you included: {{tayo}}, and the basic form.","from":"say-we-and-they"},
+        {"type":"order","q":"Put the words in order.","tr":"Don't go.","words":["Huwag","kang","umalis."]},
+        {"type":"dialogue","q":"You're the host, and your friend's mother arrives. Choose your replies.","lines":[{"who":"Aling Rosa","t":"Magandang gabi!","tr":"Good evening!"},{"options":["Magandang gabi po! Pasok po kayo.","Magandang gabi! Pasok ka."],"answer":0,"why":"She's older: {{po}} and {{kayo}}."},{"who":"Aling Rosa","t":"Salamat. Ang ganda ng bahay mo!","tr":"Thanks. Your house is lovely!"},{"options":["Salamat po. Umupo po kayo.","Salamat po. Umupo ka."],"answer":0,"why":"A polite command: the basic form + {{po kayo}}."}]},
+        {"type":"say","q":"Tell a friend, casually: “Wait a moment.”","answer":"Hintay ka muna."},
+        {"type":"free","q":"Your turn: welcome a friend to your home: tell them to come in and sit down, not to be shy, and invite them to eat.","answers":[{"t":"Pasok ka! Umupo ka. Huwag kang mahiya. Tara, kain tayo!","tr":"Come in! Sit down. Don't be shy. Come on, let's eat!"},{"t":"Tuloy ka! Upo ka lang. Huwag kang mahiya. Kumain ka!","tr":"Come in! Just sit down. Don't be shy. Eat!"}]}
+      ]
     }
   ]
 }

@@ -22,12 +22,12 @@
    "title": "Tagalog grammar",
    "variety": "Tagalog (Filipino) as spoken in Manila",
    "units": 8,
-   "lessons": 11,
+   "lessons": 17,
    "levels": [
     "A1"
    ],
-   "bytes": 55141,
-   "sha256": "8d5c31e12afb6ac73bde2e5ec6823dcd951c44b9b1ecc0411d1f2552193f1c20"
+   "bytes": 87681,
+   "sha256": "33eb22b55cfc53ea809ab099b320c04c84f89783e651be94b6e6a8c88297f395"
   }
  }
 }
