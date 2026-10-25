@@ -97,6 +97,22 @@
    },
    "built": "2026-10-24"
   },
+  "hi": {
+   "file": "hi/course.json",
+   "title": "Hindi basics",
+   "variety": "Everyday Hindi (India), in Devanagari",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 405522,
+   "audio_bytes": 13278609,
+   "sha256": "2e55928c0d2b350ad67bcf0b8cdfca92daefe6a8fcb0d9e69427dc3b5e67ac07",
+   "voice": {
+    "engine": "azure",
+    "name": "Swara (Azure, India)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
   "it": {
    "file": "it/course.json",
    "title": "Italian basics",
