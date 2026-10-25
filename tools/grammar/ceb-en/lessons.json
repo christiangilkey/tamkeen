@@ -1828,6 +1828,237 @@
         {"type":"say","q":"Isulti: “Naa ko sa Manila og duha ka tuig, pero karon nagpuyo ko sa Cebu.”","answer":"I was in Manila for two years, but now I live in Cebu.","from":"say-where-you-were"},
         {"type":"free","q":"Ikaw na: isulti kung unsa na kadugay ka nagpuyo sa imong lugar ug nagtuon og Iningles.","answers":[{"t":"I've lived in Mandaue for twenty years. I've studied English since high school.","tr":"Baynte ka tuig na ko nagpuyo sa Mandaue. Nagtuon ko og Iningles sukad pa sa high school."},{"t":"I've worked at a call center for three years, and I've used this app for two months.","tr":"Tulo ka tuig na ko nagtrabaho sa call center, ug duha ka bulan na nakong gigamit kini nga app."}]}
       ]
+    },
+    {
+      "id": "talk-about-the-old-days",
+      "unit": 8,
+      "level": "B1",
+      "title": "Isulti ang naandan kaniadto",
+      "summary": "Isulti kung unsa ang naandan kaniadto apan dili na karon: “I used to live in Davao, but now I live in Cebu.”",
+      "topic": "{{used to}} + berbo; {{didn't use to}}; {{Did you use to…?}}; {{used to}} vs ang usa ka hitabo",
+      "blocks": [
+        {"goal":{"t":"I used to live in Davao, but now I live in Cebu.","tr":"Nagpuyo ko sa Davao kaniadto, pero karon nagpuyo ko sa Cebu."}},
+        {"dialog":[{"who":"Amy","t":"Is that you in the photo?","tr":"Ikaw ba na sa litrato?"},{"who":"Lola","t":"Yes! I used to be very thin.","tr":"Oo! Niwang kaayo ko kaniadto."},{"who":"Amy","t":"Where did you live?","tr":"Asa mo nagpuyo?"},{"who":"Lola","t":"We used to live on a farm in Bohol. We didn't use to have electricity!","tr":"Nagpuyo mi sa uma sa Bohol kaniadto. Wala pa mi kuryente niadto!"},{"who":"Amy","t":"Wow! What did you use to do for fun?","tr":"Wow! Unsay inyong kalingawan kaniadto?"},{"who":"Lola","t":"We used to swim in the river every afternoon.","tr":"Molangoy mi sa suba matag hapon."}]},
+        {"p":"Sa Bisaya, “kaniadto” uban sa berbo: “Nagpuyo ko sa Davao kaniadto”. Sa Iningles, para sa naandan o kahimtang kaniadto nga **dili na tinuod karon**: {{used to}} + berbo: {{I used to live in Davao.}} (Nagpuyo ko didto, pero dili na karon.)"},
+        {"p":"**Ang porma**: parehas para sa tanan, walay {{-s}}: {{she used to}}, {{they used to}}. Ang “dili”: {{didn't use to}} (walay {{d}}): {{I didn't use to like vegetables.}} Pangutana: {{Did you use to…?}}"},
+        { "table": [
+          ["","Iningles","Bisaya"],
+          ["oo","{{I used to live in Davao.}}","Nagpuyo ko sa Davao kaniadto."],
+          ["dili","{{I didn't use to like coffee.}}","Dili ko ganahan og kape kaniadto."],
+          ["pangutana","{{Did you use to have long hair?}}","Taas ba ang imong buhok kaniadto?"],
+          ["naa kaniadto","{{There used to be a cinema here.}}","Naay sinehan dinhi kaniadto."]
+        ] },
+        {"p":"**Naandan o usa ka higayon?** Ang {{used to}} para sa butang nga nahitabo **kanunay** o dugay. Para sa usa ka hitabo, ang past simple: {{I went to Bohol last year.}} Pero: {{I used to go to Bohol every summer.}}"},
+        { "ex": [
+          {"t":"I used to live in Davao.","tr":"Nagpuyo ko sa Davao kaniadto."},
+          {"t":"She used to be a teacher.","tr":"Maestra siya kaniadto."},
+          {"t":"We used to play in the street every afternoon.","tr":"Magdula mi sa dalan matag hapon kaniadto."},
+          {"t":"I didn't use to like vegetables.","tr":"Dili ko ganahan og utanon kaniadto."},
+          {"t":"Did you use to have long hair?","tr":"Taas ba ang imong buhok kaniadto?"},
+          {"t":"There used to be a cinema here.","tr":"Naay sinehan dinhi kaniadto."}
+        ] },
+        {"tip":"Ayaw kalibog: ang {{I'm used to the heat}} lahi: “Naanad na ko sa init.” Kini {{be used to}} + nombre, dili {{used to}} + berbo."}
+      ],
+      "mistakes": [
+        {"wrong":"I use to live in Davao.","right":"I used to live in Davao.","tr":"Nagpuyo ko sa Davao kaniadto.","why":"Sa positibo: {{used}}, uban ang {{d}}."},
+        {"wrong":"I didn't used to like it.","right":"I didn't use to like it.","tr":"Dili ko ganahan niini kaniadto.","why":"Human sa {{didn't}}: {{use}}, walay {{d}}."},
+        {"wrong":"I used to go to Bohol last year.","right":"I went to Bohol last year.","tr":"Miadto ko sa Bohol sa miaging tuig.","why":"Usa ka higayon: past simple. Ang {{used to}} para sa naandan."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ to live in Davao.","tr":"Nagpuyo ko sa Davao kaniadto.","options":["used","use","using"],"answer":0,"why":"Positibo: {{used to}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I didn't ___ to like vegetables.","tr":"Dili ko ganahan og utanon kaniadto.","options":["use","used","using"],"answer":0,"why":"Human sa {{didn't}}: {{use}}."},
+        {"type":"choice","q":"“Miadto ko sa Bohol kausa, sa 2019.”","options":["{{I went to Bohol in 2019.}}","{{I used to go to Bohol in 2019.}}"],"answer":0,"why":"Usa ka higayon: past simple."},
+        {"type":"dialogue","q":"Gipangutana ka bahin sa imong pagkabata. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"Where did you grow up?","tr":"Asa ka nagdako?"},{"options":["In Leyte. We used to live near the sea.","In Leyte. We use to live near the sea."],"answer":0,"why":"Positibo: {{used to}}."},{"who":"Amy","t":"Did you use to swim a lot?","tr":"Kanunay ka molangoy kaniadto?"},{"options":["Yes! I used to swim every day after school.","Yes! I used to swam every day after school."],"answer":0,"why":"Human sa {{used to}}: berbo nga walay usab."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Naay sinehan dinhi kaniadto.","words":["There","used to","be","a cinema","here."]},
+        {"type":"say","q":"Isulti: “Nars ko kaniadto. Karon maestra na ko.”","answer":"I used to be a nurse. Now I'm a teacher.","from":"say-where-you-were"},
+        {"type":"choice","q":"{{I eat rice every day.}} ug {{I used to eat rice every day.}}","options":["“Karon, naandan” ug “Kaniadto, naandan (dili na karon)”","“Kaniadto” ug “Karon”"],"answer":0,"why":"Present simple: naandan karon. {{used to}}: naandan kaniadto.","from":"talk-about-your-routine"},
+        {"type":"free","q":"Ikaw na: isulti ang duha ka butang nga imong naandan kaniadto pero dili na karon.","answers":[{"t":"I used to play basketball every weekend. I used to live with my grandparents.","tr":"Magdula ko og basketball matag weekend kaniadto. Nagpuyo ko uban sa akong mga apohan kaniadto."},{"t":"I didn't use to like spicy food, but now I love it!","tr":"Dili ko ganahan sa halang kaniadto, pero karon ganahan na kaayo ko!"}]}
+      ]
+    },
+    {
+      "id": "say-who-and-which",
+      "unit": 8,
+      "level": "B1",
+      "title": "Isulti kung kinsa o unsa ang imong gipasabot",
+      "summary": "Ihulagway kung kinsang tawo o unsang butang: “The man who lives next door is a pilot.” Ang usa ka “nga” nahimong tulo.",
+      "topic": "{{who}} (tawo), {{which}} (butang), {{that}} (duha); human dayon sa nombre; walay dugang {{it}} o {{she}}",
+      "blocks": [
+        {"goal":{"t":"The man who lives next door is a pilot.","tr":"Piloto ang lalaki nga nagpuyo sa silingan."}},
+        {"dialog":[{"who":"Amy","t":"Who's the man who's talking to your dad?","tr":"Kinsa ang lalaki nga nakig-istorya sa imong papa?"},{"who":"Ana","t":"That's Mr. Cruz. He's the man who owns the bakery.","tr":"Si Mr. Cruz kana. Siya ang tag-iya sa panaderya."},{"who":"Amy","t":"And the woman who's wearing a red dress?","tr":"Ug ang babaye nga nagsul-ob og pula nga sinina?"},{"who":"Ana","t":"That's his wife. She makes the cakes that everyone loves.","tr":"Iyang asawa kana. Siya ang mohimo sa mga cake nga ganahan ang tanan."},{"who":"Amy","t":"Is that the cake that's on the table?","tr":"Mao ba kana ang cake nga naa sa lamesa?"},{"who":"Ana","t":"Yes! The one that has mangoes on top.","tr":"Oo! Ang naay mangga sa ibabaw."}]},
+        {"p":"Sa Bisaya, usa ra ka pulong: “nga” (“ang lalaki nga nagpuyo sa silingan”). Sa Iningles, mopili: {{who}} para sa **tawo**, {{which}} para sa **butang**, ug {{that}} para sa duha (ang pinakasagad sa istorya). Ang bahin nga naay {{who}} mosunod dayon sa nombre: {{the man who lives next door}}."},
+        { "table": [
+          ["Bisaya","Iningles"],
+          ["ang lalaki nga nagpuyo sa silingan","{{the man who lives next door}}"],
+          ["ang bus nga moadto sa Lahug","{{the bus that goes to Lahug}} / {{the bus which goes to Lahug}}"],
+          ["ang libro nga akong gibasa","{{the book (that) I read}}"],
+          ["ang babaye nga akong nakita","{{the woman (who) I saw}}"]
+        ] },
+        {"p":"**Mahimong kuhaon ang {{that}}** kung ang nombre dili maoy nagbuhat: {{the book (that) I read}}, {{the woman (who) I saw}}. Pero kung siya ang nagbuhat, kinahanglan: {{the man who lives next door}}."},
+        {"p":"**Ayaw idugang ang {{it}} o {{she}}.** Ang {{who}} o {{that}} na mismo ang mopuli: {{the book that I read}}, dili {{the book that I read it}}; {{my sister who lives in Manila}}, dili {{my sister who she lives}}. Kini sagad nga sayop kay ang Bisaya usahay mobalik sa “siya”."},
+        { "ex": [
+          {"t":"The man who lives next door is a pilot.","tr":"Piloto ang lalaki nga nagpuyo sa silingan."},
+          {"t":"She's the teacher who helped me.","tr":"Siya ang maestra nga mitabang nako."},
+          {"t":"This is the book that I told you about.","tr":"Mao ni ang libro nga akong gisulti nimo."},
+          {"t":"I have a friend who speaks Japanese.","tr":"Naa koy higala nga makasulti og Hapon."},
+          {"t":"The phone that I bought is great.","tr":"Nindot kaayo ang selpon nga akong gipalit."},
+          {"t":"Is this the bus that goes to Lahug?","tr":"Mao ba ni ang bus nga moadto sa Lahug?"}
+        ] },
+        {"tip":"{{The one who…}} / {{The one that…}} = “Ang…”: {{I'm the one who called you.}} “Ako ang nitawag nimo.”"}
+      ],
+      "mistakes": [
+        {"wrong":"The man which lives next door is a pilot.","right":"The man who lives next door is a pilot.","tr":"Piloto ang lalaki nga nagpuyo sa silingan.","why":"Tawo: {{who}} (o {{that}}), dili {{which}}."},
+        {"wrong":"This is the book that I read it.","right":"This is the book that I read.","tr":"Mao ni ang libro nga akong gibasa.","why":"Ang {{that}} na ang mopuli sa {{it}}."},
+        {"wrong":"My sister who she lives in Manila is a nurse.","right":"My sister who lives in Manila is a nurse.","tr":"Nars ang akong igsoon nga nagpuyo sa Manila.","why":"Walay dugang {{she}}: ang {{who}} na ang mopuli."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"She's the teacher ___ helped me.","tr":"Siya ang maestra nga mitabang nako.","options":["who","which","what"],"answer":0,"why":"Tawo: {{who}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Is this the bus ___ goes to Lahug?","tr":"Mao ba ni ang bus nga moadto sa Lahug?","options":["that","who","what"],"answer":0,"why":"Butang: {{that}} (o {{which}})."},
+        {"type":"choice","q":"Asa ang husto?","options":["{{The phone that I bought is great.}}","{{The phone that I bought it is great.}}","{{The phone who I bought is great.}}"],"answer":0,"why":"Butang: {{that}}, ug walay dugang {{it}}."},
+        {"type":"dialogue","q":"Sa usa ka party: pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"Who's that woman?","tr":"Kinsa kana nga babaye?"},{"options":["She's the friend who taught me to cook.","She's the friend which taught me to cook."],"answer":0,"why":"Tawo: {{who}}."},{"who":"Amy","t":"Did she make this dish?","tr":"Siya ba ang naghimo niini nga sud-an?"},{"options":["Yes! It's the dish that everyone asks for.","Yes! It's the dish that everyone asks for it."],"answer":0,"why":"Walay dugang {{it}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Naa koy higala nga makasulti og Hapon.","words":["I have","a friend","who","speaks","Japanese."]},
+        {"type":"say","q":"Isulti: “Gusto ko og selpon nga naay maayong camera.”","answer":"I want a phone that has a good camera.","from":"describe-things"},
+        {"type":"choice","q":"“Ang babaye nga nagkanta, akong igsoon.”","options":["{{The woman who's singing is my sister.}}","{{The woman who she's singing is my sister.}}","{{The woman which is singing is my sister.}}"],"answer":0,"why":"{{who}} (tawo), walay dugang {{she}}.","from":"talk-about-people"},
+        {"type":"free","q":"Ikaw na: ihulagway ang duha ka tawo o butang sa imong kinabuhi gamit ang {{who}} o {{that}}.","answers":[{"t":"I have a brother who works in Dubai. He sends me gifts that I love.","tr":"Naa koy igsoon nga nagtrabaho sa Dubai. Mopadala siya nako og mga regalo nga ganahan kaayo ko."},{"t":"My best friend is the girl who lives next door. Her mom makes the best adobo that I've ever eaten.","tr":"Ang akong labing suod nga higala mao ang babaye nga nagpuyo sa silingan. Ang iyang mama mohimo sa pinakalami nga adobo nga akong nakaon."}]}
+      ]
+    },
+    {
+      "id": "say-what-will-happen-if",
+      "unit": 8,
+      "level": "B1",
+      "title": "Isulti kung unsay mahitabo kung…",
+      "summary": "Paghimo og plano nga nagdepende sa usa ka butang: “If it rains tomorrow, we'll stay home.”",
+      "topic": "Ang first conditional: {{If}} + present simple, {{will}} + berbo; walay {{will}} human sa {{if}} ug {{when}}",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll stay home.","tr":"Kung moulan ugma, magpabilin ta sa balay."}},
+        {"dialog":[{"who":"Ben","t":"Are we going to the beach tomorrow?","tr":"Moadto ta sa baybayon ugma?"},{"who":"Ana","t":"If it's sunny, we'll go. If it rains, we'll stay home.","tr":"Kung init, moadto ta. Kung moulan, magpabilin ta sa balay."},{"who":"Ben","t":"What will we do if we stay home?","tr":"Unsay atong buhaton kung magpabilin ta sa balay?"},{"who":"Ana","t":"We'll watch movies. And if you cook, I'll wash the dishes!","tr":"Manan-aw ta og sine. Ug kung ikaw ang moluto, ako ang manghugas!"},{"who":"Ben","t":"Deal! But if it's sunny, you'll drive!","tr":"Sige! Pero kung init, ikaw ang modrayb!"}]},
+        {"p":"Sa Bisaya: “Kung moulan ugma…”, ang “mo-” kay umaabot pa. Sa Iningles: {{If}} + **present simple**, ug ang laing bahin {{will}} + berbo: {{If it rains, we'll stay home.}} Bantayi: **human sa {{if}}, walay {{will}}**, bisan umaabot ang gipasabot. Dili {{If it will rain}}."},
+        { "table": [
+          ["bahin sa {{if}} (present simple)","resulta ({{will}})"],
+          ["{{If it rains,}}","{{we'll stay home.}}"],
+          ["{{If you study hard,}}","{{you'll pass.}}"],
+          ["{{If I have time,}}","{{I'll call you.}}"],
+          ["{{When I get home,}}","{{I'll text you.}}"]
+        ] },
+        {"p":"**Mahimong baliktaron**: {{We'll stay home if it rains.}} (walay koma kung ang {{if}} naa sa tunga)."},
+        {"p":"**{{when}} para sa sigurado.** Para sa butang nga sigurado mahitabo (“inig abot nako…”): {{when}}, ug parehas nga lagda: present simple human niini: {{When I get home, I'll call you.}}, dili {{When I will get home}}."},
+        { "ex": [
+          {"t":"If it rains, we'll stay home.","tr":"Kung moulan, magpabilin ta sa balay."},
+          {"t":"If you're hungry, there's food in the fridge.","tr":"Kung gigutom ka, naay pagkaon sa ref."},
+          {"t":"I'll call you if I have time.","tr":"Tawagan tika kung naa koy panahon."},
+          {"t":"If you study hard, you'll pass.","tr":"Kung magtuon ka og maayo, makapasar ka."},
+          {"t":"When I get home, I'll text you.","tr":"Inig abot nako sa balay, i-text tika."},
+          {"t":"What will you do if you lose your job?","tr":"Unsay imong buhaton kung mawad-an ka og trabaho?"}
+        ] },
+        {"tip":"{{unless}} = {{if not}} “gawas kung”: {{We'll go unless it rains.}} = {{We'll go if it doesn't rain.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we'll stay home.","right":"If it rains, we'll stay home.","tr":"Kung moulan, magpabilin ta sa balay.","why":"Human sa {{if}}: present simple, walay {{will}}."},
+        {"wrong":"If I will have time, I call you.","right":"If I have time, I'll call you.","tr":"Kung naa koy panahon, tawagan tika.","why":"Present simple sa bahin sa {{if}}; {{will}} sa resulta."},
+        {"wrong":"When I will get home, I'll call you.","right":"When I get home, I'll call you.","tr":"Inig abot nako sa balay, tawagan tika.","why":"Human sa {{when}}: present simple usab."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"If it ___ tomorrow, we'll stay home.","tr":"Kung moulan ugma, magpabilin ta sa balay.","options":["rains","will rain","rained"],"answer":0,"why":"Human sa {{if}}: present simple."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"If you study hard, you___ pass.","tr":"Kung magtuon ka og maayo, makapasar ka.","options":["'ll","'re","'d"],"answer":0,"why":"Resulta: {{will}} ({{'ll}})."},
+        {"type":"choice","q":"“Inig abot nako sa balay, tawagan tika.”","options":["{{When I get home, I'll call you.}}","{{When I will get home, I'll call you.}}","{{When I get home, I call you.}}"],"answer":0,"why":"{{when}} + present simple; resulta: {{will}}."},
+        {"type":"dialogue","q":"Nagplano mo sa weekend. Pilia ang imong mga tubag.","lines":[{"who":"Mark","t":"Are you coming to the party on Saturday?","tr":"Moanhi ka sa party sa Sabado?"},{"options":["If I finish work early, I'll come.","If I will finish work early, I'll come."],"answer":0,"why":"Human sa {{if}}: present simple."},{"who":"Mark","t":"And if you don't finish?","tr":"Ug kung dili ka mahuman?"},{"options":["I'll call you and tell you.","I call you and tell you."],"answer":0,"why":"Resulta: {{I'll call}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Tawagan tika kung naa koy panahon.","words":["I'll call","you","if","I have","time."]},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Don't worry. If you get lost, I ___ come and get you.","tr":"Ayaw kabalaka. Kung masaag ka, adtoan tika.","options":["will","am","would"],"answer":0,"why":"Saad sa resulta: {{will}}.","from":"make-promises-and-predictions"},
+        {"type":"say","q":"Isulti: “Kung masakiton ka, angay ka mopahulay.”","answer":"If you're sick, you should rest.","from":"say-what-you-have-to-do"},
+        {"type":"free","q":"Ikaw na: isulti ang imong buhaton karong weekend kung init, ug kung moulan.","answers":[{"t":"If it's sunny, I'll go to the beach with my friends. If it rains, I'll stay home and watch movies.","tr":"Kung init, moadto ko sa baybayon uban sa akong mga higala. Kung moulan, magpabilin ko sa balay ug manan-aw og sine."},{"t":"If I have money, I'll buy new shoes. When I get my salary, I'll treat my family.","tr":"Kung naa koy kwarta, mopalit ko og bag-ong sapatos. Inig dawat nako sa akong suweldo, ilibre nako ang akong pamilya."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 8,
+      "level": "B1",
+      "title": "Paghanduraw",
+      "summary": "Handuraw ug paghatag og tambag: “If I had a lot of money, I would buy a house by the sea.”",
+      "topic": "Ang second conditional: {{If}} + past simple, {{would}} + berbo; {{If I were you, I'd…}}; tinuod nga posibilidad vs handuraw",
+      "blocks": [
+        {"goal":{"t":"If I had a lot of money, I would buy a house by the sea.","tr":"Kung daghan pa koy kwarta, mopalit unta ko og balay duol sa dagat."}},
+        {"dialog":[{"who":"Amy","t":"What would you do if you won the lottery?","tr":"Unsay imong buhaton kung modaog ka sa lotto?"},{"who":"Ben","t":"I'd buy a house for my parents. And I'd travel around the world!","tr":"Mopalit unta ko og balay para sa akong ginikanan. Ug mobiyahe ko sa tibuok kalibutan!"},{"who":"Amy","t":"Would you quit your job?","tr":"Mohunong ka sa imong trabaho?"},{"who":"Ben","t":"Maybe not. I'd get bored!","tr":"Basin dili. Mabagot ko!"},{"who":"Amy","t":"If I were you, I'd buy a farm in Bohol.","tr":"Kung ako pa nimo, mopalit ko og uma sa Bohol."},{"who":"Ben","t":"That's not a bad idea!","tr":"Dili daotan kana nga ideya!"}]},
+        {"p":"Sa Bisaya, ang handuraw: “Kung daghan pa koy kwarta, mopalit unta ko…”: ang “pa” ug “unta”. Sa Iningles: {{If}} + **past simple**, ug ang laing bahin {{would}} ({{'d}}) + berbo: {{If I had money, I would buy a house.}} Ang past dinhi wala nagpasabot og kaniadto: nagpasabot kini nga **dili tinuod karon**."},
+        { "table": [
+          ["","bahin sa {{if}}","resulta"],
+          ["posible (leksyon 41)","{{If it rains,}}","{{we'll stay home.}}"],
+          ["handuraw","{{If I won the lottery,}}","{{I'd travel.}}"],
+          ["tambag","{{If I were you,}}","{{I'd call her.}}"]
+        ] },
+        {"p":"**Kung ako pa nimo: {{If I were you,…}}** Ang {{were}} para sa tanan dinhi ({{If I were}}, {{if she were}}), ilabi na sa matinahuron nga Iningles. Kini ang pinakasagad nga paagi sa paghatag og tambag: {{If I were you, I'd rest.}}"},
+        {"p":"**Ang {{would}}**, sama sa {{will}} ug {{can}}: berbo dayon, walay {{to}}, walay {{-s}}: {{she would go}}. Ug sa bahin sa {{if}}, walay {{would}}: dili {{If I would have money}}."},
+        { "ex": [
+          {"t":"If I had more time, I'd learn to swim.","tr":"Kung naa pa koy daghang panahon, mokat-on unta ko molangoy."},
+          {"t":"If I were you, I'd call her.","tr":"Kung ako pa nimo, tawagan nako siya."},
+          {"t":"What would you do if you were the president?","tr":"Unsay imong buhaton kung ikaw ang presidente?"},
+          {"t":"She'd be happier if she lived near her family.","tr":"Mas malipayon unta siya kung duol siya sa iyang pamilya."},
+          {"t":"If I could fly, I'd visit you every day!","tr":"Kung makalupad pa ko, bisitahon tika matag adlaw!"},
+          {"t":"I wouldn't do that if I were you.","tr":"Kung ako pa nimo, dili nako buhaton kana."}
+        ] },
+        {"tip":"Ang {{I wish…}} parehas sa “unta”: {{I wish I had more time.}} “Unta naa pa koy daghang panahon.” Human sa {{I wish}}, past simple usab."}
+      ],
+      "mistakes": [
+        {"wrong":"If I have money, I would buy a house.","right":"If I had money, I would buy a house.","tr":"Kung naa pa koy kwarta, mopalit unta ko og balay.","why":"Handuraw: past simple sa bahin sa {{if}}."},
+        {"wrong":"If I would have money, I would buy a house.","right":"If I had money, I would buy a house.","tr":"Kung naa pa koy kwarta, mopalit unta ko og balay.","why":"Walay {{would}} sa bahin sa {{if}}."},
+        {"wrong":"I would bought a house.","right":"I would buy a house.","tr":"Mopalit unta ko og balay.","why":"Human sa {{would}}: berbo nga walay usab."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"If I ___ a lot of money, I'd buy a house.","tr":"Kung daghan pa koy kwarta, mopalit unta ko og balay.","options":["had","have","would have"],"answer":0,"why":"Handuraw: past simple."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"If I were you, I ___ call her.","tr":"Kung ako pa nimo, tawagan nako siya.","options":["would","will","am"],"answer":0,"why":"Handuraw: {{would}}."},
+        {"type":"choice","q":"Asa ang handuraw (dili tinuod karon)?","options":["{{If I won the lottery, I'd quit my job.}}","{{If it rains, we'll stay home.}}"],"answer":0,"why":"Past + {{would}}: handuraw. Present + {{will}}: tinuod nga posibilidad."},
+        {"type":"dialogue","q":"Nag-istorya mo bahin sa mga damgo. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"Where would you live if you could live anywhere?","tr":"Asa ka magpuyo kung makapili ka bisan asa?"},{"options":["I'd live in Siargao. I love the sea.","I'll live in Siargao. I love the sea."],"answer":0,"why":"Handuraw: {{I'd}}."},{"who":"Amy","t":"What would you do there?","tr":"Unsay imong buhaton didto?"},{"options":["If I had money, I'd open a small café.","If I have money, I'd open a small café."],"answer":0,"why":"Handuraw: past ({{had}})."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Kung ako pa nimo, tawagan nako siya.","words":["If","I were","you,","I'd call","her."]},
+        {"type":"choice","q":"{{If it rains, we'll stay home.}} ug {{If I won the lottery, I'd quit.}}","options":["posible ug handuraw","handuraw ug posible"],"answer":0,"why":"Present + {{will}}: posible. Past + {{would}}: handuraw.","from":"say-what-will-happen-if"},
+        {"type":"say","q":"Isulti: “Kung kahibalo pa ko molangoy, mag-diving unta ko.”","answer":"If I could swim, I'd go diving.","from":"say-what-you-can-do"},
+        {"type":"free","q":"Ikaw na: unsay imong buhaton kung naa kay usa ka bulan nga bakasyon ug daghang kwarta?","answers":[{"t":"If I had a month off, I'd travel to Japan. I'd eat sushi every day!","tr":"Kung naa pa koy usa ka bulan nga bakasyon, mobiyahe unta ko sa Japan. Mokaon ko og sushi matag adlaw!"},{"t":"If I had a lot of money, I'd build a house for my parents in Cebu.","tr":"Kung daghan pa koy kwarta, magtukod unta ko og balay para sa akong ginikanan sa Cebu."}]}
+      ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 8,
+      "level": "B1",
+      "title": "Isulti kung unsay giingon sa uban",
+      "summary": "Isulti kung unsay giingon o gipangutana sa laing tawo: “She said she was tired.”",
+      "topic": "{{said (that)}} ug {{told me (that)}}; ang berbo moatras og usa ka panahon ({{is}} → {{was}}, {{will}} → {{would}}); {{asked if…}}, {{asked where…}}",
+      "blocks": [
+        {"goal":{"t":"She said she was tired. She told me she wanted to go home.","tr":"Miingon siya nga gikapoy siya. Giingnan ko niya nga gusto na siya mouli."}},
+        {"dialog":[{"who":"Ben","t":"Did you talk to Lisa?","tr":"Naistorya nimo si Lisa?"},{"who":"Ana","t":"Yes. She said she was sick.","tr":"Oo. Miingon siya nga masakiton siya."},{"who":"Ben","t":"Is she coming to the party?","tr":"Moanhi ba siya sa party?"},{"who":"Ana","t":"She told me she couldn't come. She asked if we could visit her tomorrow.","tr":"Giingnan ko niya nga dili siya makaadto. Nangutana siya kung mabisitahan ba nato siya ugma."},{"who":"Ben","t":"Sure! What else did she say?","tr":"Sige! Unsa pay iyang giingon?"},{"who":"Ana","t":"She said she missed us!","tr":"Miingon siya nga gimingaw siya nato!"}]},
+        {"p":"Sa Bisaya, “Miingon siya nga gikapoy siya”: ang mga pulong wala mausab. Sa Iningles, human sa {{said}}, ang berbo kasagaran **moatras og usa ka panahon**: “{{I'm tired}}” → {{She said she was tired.}} Ug ang tawo mausab: ang “ako” sa nagsulti mahimong {{he}} o {{she}} (pagpili gihapon!)."},
+        { "table": [
+          ["iyang giingon","imong isulti"],
+          ["“{{I'm tired.}}”","{{She said she was tired.}}"],
+          ["“{{I can't come.}}”","{{She said she couldn't come.}}"],
+          ["“{{I'll call you.}}”","{{He said he would call me.}}"],
+          ["“{{I want to go home.}}”","{{She said she wanted to go home.}}"],
+          ["“{{Are you okay?}}”","{{He asked if I was okay.}}"],
+          ["“{{Where do you live?}}”","{{She asked where I lived.}}"]
+        ] },
+        {"p":"**{{said}} ug {{told}}.** {{say}} + ang giingon: {{She said (that) she was tired.}} {{tell}} + ang **tawo** nga giingnan: {{She told me (that) she was tired.}} Dili {{She said me}}. Para sa hangyo o sugo: {{told me to}} + berbo: {{My mom told me to come home early.}}"},
+        {"p":"**Ang gipangutana**: {{asked if}} para sa oo-o-dili, o {{asked}} + pulong sa pangutana. Ang han-ay sama sa naandan nga sentence, dili pangutana: {{She asked where I lived.}}, dili {{where did I live}}."},
+        { "ex": [
+          {"t":"He said he was busy.","tr":"Miingon siya nga busy siya."},
+          {"t":"She told me she loved the gift.","tr":"Giingnan ko niya nga ganahan kaayo siya sa regalo."},
+          {"t":"They said they would come.","tr":"Miingon sila nga moanhi sila."},
+          {"t":"He asked if I was okay.","tr":"Nangutana siya kung okay ra ba ko."},
+          {"t":"She asked where I lived.","tr":"Nangutana siya kung asa ko nagpuyo."},
+          {"t":"My mom told me to come home early.","tr":"Giingnan ko sa akong mama nga mouli og sayo."}
+        ] },
+        {"tip":"Sa adlaw-adlaw nga istorya sa Amerika, kung tinuod pa karon ang butang, usahay dili na moatras ang berbo: {{She said she's coming.}} Husto kini. Pero kung nagduhaduha ka, iatras."}
+      ],
+      "mistakes": [
+        {"wrong":"She said me that she was tired.","right":"She told me that she was tired.","tr":"Giingnan ko niya nga gikapoy siya.","why":"Uban sa tawo nga giingnan: {{told me}}."},
+        {"wrong":"He asked where did I live.","right":"He asked where I lived.","tr":"Nangutana siya kung asa ko nagpuyo.","why":"Ang gipangutana: han-ay sama sa naandan nga sentence, walay {{did}}."},
+        {"wrong":"Lisa said he was sick.","right":"Lisa said she was sick.","tr":"Miingon si Lisa nga masakiton siya.","why":"Si Lisa babaye: {{she}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"She ___ me she was tired.","tr":"Giingnan ko niya nga gikapoy siya.","options":["told","said","asked"],"answer":0,"why":"Uban sa {{me}}: {{told}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"He ___ he was busy.","tr":"Miingon siya nga busy siya.","options":["said","told","say"],"answer":0,"why":"Walay tawo human niini: {{said}}."},
+        {"type":"choice","q":"“Nangutana siya kung asa ko nagpuyo.”","options":["{{She asked where I lived.}}","{{She asked where did I live.}}","{{She asked where do I live.}}"],"answer":0,"why":"Han-ay sa naandan nga sentence."},
+        {"type":"dialogue","q":"Gipangutana ka bahin sa tawag sa imong igsoon. Pilia ang imong mga tubag.","lines":[{"who":"Mama","t":"What did your brother say?","tr":"Unsay giingon sa imong igsoon?"},{"options":["He said he would come on Sunday.","He said he will comes on Sunday."],"answer":0,"why":"{{will}} → {{would}}, ug berbo nga walay usab."},{"who":"Mama","t":"Did he ask about me?","tr":"Nangutana ba siya bahin nako?"},{"options":["Yes, he asked if you were okay.","Yes, he asked were you okay."],"answer":0,"why":"Oo-o-dili nga pangutana: {{asked if}} + han-ay sa sentence."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Nangutana siya kung asa ko nagpuyo.","words":["She","asked","where","I","lived."]},
+        {"type":"choice","q":"Si Lisa: “I'm tired.” → {{Lisa said ___ was tired.}}","options":["{{she}}","{{he}}","{{I}}"],"answer":0,"why":"Si Lisa babaye: {{she}}.","from":"talk-about-people"},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"“I'll call you.” → He said he ___ call me.","tr":"Miingon siya nga tawagan ko niya.","options":["would","will","wills"],"answer":0,"why":"Ang {{will}} moatras: {{would}}.","from":"make-promises-and-predictions"},
+        {"type":"free","q":"Ikaw na: isulti ang usa ka butang nga giingon o gipangutana nimo sa usa ka tawo karong semanaha.","answers":[{"t":"My boss said I did a good job. She asked if I could work on Saturday.","tr":"Miingon ang akong boss nga maayo akong trabaho. Nangutana siya kung makatrabaho ba ko sa Sabado."},{"t":"My friend told me she was getting married! She said the wedding would be in June.","tr":"Giingnan ko sa akong higala nga magminyo na siya! Miingon siya nga sa Hunyo ang kasal."}]}
+      ]
     }
   ]
 }
