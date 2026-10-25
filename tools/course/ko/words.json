@@ -4828,6 +4828,925 @@
       "meaning": "surroundings; around; nearby",
       "sentence": "이 주변에 편의점 있어요?",
       "translation": "Is there a convenience store ⟦around⟧ here?"
+    },
+    {
+      "n": 521,
+      "rank": 660,
+      "word": "환자",
+      "pos": "noun",
+      "meaning": "patient",
+      "sentence": "병원에 환자가 많아요.",
+      "translation": "There are a lot of ⟦patients⟧ at the hospital."
+    },
+    {
+      "n": 522,
+      "rank": 661,
+      "word": "돌아오다",
+      "pos": "verb",
+      "meaning": "to come back",
+      "sentence": "몇 시에 돌아와요?",
+      "translation": "What time are you ⟦coming back⟧?",
+      "form": "돌아와요"
+    },
+    {
+      "n": 523,
+      "rank": 662,
+      "word": "거기",
+      "pos": "pron",
+      "meaning": "there",
+      "sentence": "거기 어떻게 가요?",
+      "translation": "How do I get ⟦there⟧?"
+    },
+    {
+      "n": 524,
+      "rank": 663,
+      "word": "공원",
+      "pos": "noun",
+      "meaning": "park",
+      "sentence": "공원에서 산책해요.",
+      "translation": "I take a walk in the ⟦park⟧."
+    },
+    {
+      "n": 525,
+      "rank": 664,
+      "word": "낮",
+      "pos": "noun",
+      "meaning": "daytime",
+      "sentence": "낮에는 덥고 밤에는 추워요.",
+      "translation": "It's hot during the ⟦day⟧ and cold at night."
+    },
+    {
+      "n": 526,
+      "rank": 665,
+      "word": "능력",
+      "pos": "noun",
+      "meaning": "ability",
+      "sentence": "그 사람은 능력이 좋아요.",
+      "translation": "He's very ⟦capable⟧."
+    },
+    {
+      "n": 527,
+      "rank": 667,
+      "word": "동생",
+      "pos": "noun",
+      "meaning": "younger brother or sister",
+      "sentence": "동생이 두 명 있어요.",
+      "translation": "I have two ⟦younger siblings⟧."
+    },
+    {
+      "n": 528,
+      "rank": 668,
+      "word": "부모",
+      "pos": "noun",
+      "meaning": "parents (부모님: polite)",
+      "sentence": "부모님은 시골에 사세요.",
+      "translation": "My ⟦parents⟧ live in the countryside."
+    },
+    {
+      "n": 529,
+      "rank": 669,
+      "word": "시설",
+      "pos": "noun",
+      "meaning": "facilities",
+      "sentence": "이 호텔은 시설이 좋아요.",
+      "translation": "This hotel has good ⟦facilities⟧."
+    },
+    {
+      "n": 530,
+      "rank": 670,
+      "word": "앉다",
+      "pos": "verb",
+      "meaning": "to sit",
+      "sentence": "소파에 앉아서 텔레비전을 봐요.",
+      "translation": "I ⟦sit⟧ on the sofa and watch TV.",
+      "form": "앉아서"
+    },
+    {
+      "n": 531,
+      "rank": 671,
+      "word": "잠",
+      "pos": "noun",
+      "meaning": "sleep",
+      "sentence": "요즘 잠이 부족해요.",
+      "translation": "I'm not getting enough ⟦sleep⟧ these days."
+    },
+    {
+      "n": 532,
+      "rank": 672,
+      "word": "저녁",
+      "pos": "noun",
+      "meaning": "evening; dinner",
+      "sentence": "저녁 먹었어요?",
+      "translation": "Have you had ⟦dinner⟧?"
+    },
+    {
+      "n": 533,
+      "rank": 674,
+      "word": "축구",
+      "pos": "noun",
+      "meaning": "soccer",
+      "sentence": "친구들과 축구를 했어요.",
+      "translation": "I played ⟦soccer⟧ with my friends."
+    },
+    {
+      "n": 534,
+      "rank": 675,
+      "word": "잊다",
+      "pos": "verb",
+      "meaning": "to forget",
+      "sentence": "비밀번호를 잊어버렸어요.",
+      "translation": "I ⟦forgot⟧ my password.",
+      "form": "잊어버렸어요"
+    },
+    {
+      "n": 535,
+      "rank": 677,
+      "word": "공항",
+      "pos": "noun",
+      "meaning": "airport",
+      "sentence": "공항에 마중 나갈게요.",
+      "translation": "I'll pick you up at the ⟦airport⟧."
+    },
+    {
+      "n": 536,
+      "rank": 678,
+      "word": "교회",
+      "pos": "noun",
+      "meaning": "church",
+      "sentence": "교회는 우리 집 근처에 있어요.",
+      "translation": "The ⟦church⟧ is near our house."
+    },
+    {
+      "n": 537,
+      "rank": 679,
+      "word": "그림",
+      "pos": "noun",
+      "meaning": "picture; painting; drawing",
+      "sentence": "벽에 그림을 걸었어요.",
+      "translation": "I hung a ⟦painting⟧ on the wall."
+    },
+    {
+      "n": 538,
+      "rank": 680,
+      "word": "맛",
+      "pos": "noun",
+      "meaning": "taste; flavor",
+      "sentence": "맛이 어때요?",
+      "translation": "How does it ⟦taste⟧?"
+    },
+    {
+      "n": 539,
+      "rank": 681,
+      "word": "매일",
+      "pos": "adv",
+      "meaning": "every day",
+      "sentence": "매일 일기를 써요.",
+      "translation": "I write in my diary ⟦every day⟧."
+    },
+    {
+      "n": 540,
+      "rank": 682,
+      "word": "반대",
+      "pos": "noun",
+      "meaning": "the opposite; opposition (반대하다: to be against)",
+      "sentence": "부모님이 결혼을 반대하세요.",
+      "translation": "My parents ⟦are against⟧ the marriage."
+    },
+    {
+      "n": 541,
+      "rank": 683,
+      "word": "병",
+      "pos": "noun",
+      "meaning": "bottle; illness",
+      "sentence": "물 한 병 주세요.",
+      "translation": "A ⟦bottle⟧ of water, please."
+    },
+    {
+      "n": 542,
+      "rank": 684,
+      "word": "인사",
+      "pos": "noun",
+      "meaning": "greeting (인사하다: to say hello)",
+      "sentence": "선생님께 인사하세요.",
+      "translation": "⟦Say hello⟧ to the teacher."
+    },
+    {
+      "n": 543,
+      "rank": 687,
+      "word": "차이",
+      "pos": "noun",
+      "meaning": "difference",
+      "sentence": "두 가지 차이가 뭐예요?",
+      "translation": "What's the ⟦difference⟧ between the two?"
+    },
+    {
+      "n": 544,
+      "rank": 688,
+      "word": "지내다",
+      "pos": "verb",
+      "meaning": "to get along; to spend time; to live",
+      "sentence": "잘 지내요?",
+      "translation": "How are you ⟦doing⟧?",
+      "form": "지내요"
+    },
+    {
+      "n": 545,
+      "rank": 690,
+      "word": "뜨다",
+      "pos": "verb",
+      "meaning": "to rise (the sun); to float; to open (your eyes)",
+      "sentence": "해가 떴어요.",
+      "translation": "The sun has ⟦come up⟧.",
+      "form": "떴어요"
+    },
+    {
+      "n": 546,
+      "rank": 692,
+      "word": "기능",
+      "pos": "noun",
+      "meaning": "function; feature",
+      "sentence": "이 휴대폰에는 좋은 기능이 많아요.",
+      "translation": "This phone has lots of good ⟦features⟧."
+    },
+    {
+      "n": 547,
+      "rank": 696,
+      "word": "역할",
+      "pos": "noun",
+      "meaning": "role; part",
+      "sentence": "그 배우는 어떤 역할을 해요?",
+      "translation": "What ⟦role⟧ does that actor play?"
+    },
+    {
+      "n": 548,
+      "rank": 698,
+      "word": "위험",
+      "pos": "noun",
+      "meaning": "danger; risk (위험하다: dangerous)",
+      "sentence": "여기서 수영하면 위험해요.",
+      "translation": "It's ⟦dangerous⟧ to swim here."
+    },
+    {
+      "n": 549,
+      "rank": 701,
+      "word": "해결",
+      "pos": "noun",
+      "meaning": "solution (해결하다: to solve)",
+      "sentence": "문제가 해결됐어요.",
+      "translation": "The problem has been ⟦solved⟧."
+    },
+    {
+      "n": 550,
+      "rank": 703,
+      "word": "빠르다",
+      "pos": "adj",
+      "meaning": "fast; quick",
+      "sentence": "지하철이 버스보다 빨라요.",
+      "translation": "The subway is ⟦faster⟧ than the bus.",
+      "form": "빨라요"
+    },
+    {
+      "n": 551,
+      "rank": 705,
+      "word": "끌다",
+      "pos": "verb",
+      "meaning": "to pull; to drag; to attract",
+      "sentence": "캐리어를 끌고 공항에 갔어요.",
+      "translation": "I went to the airport ⟦pulling⟧ my suitcase.",
+      "form": "끌고"
+    },
+    {
+      "n": 552,
+      "rank": 706,
+      "word": "뛰다",
+      "pos": "verb",
+      "meaning": "to run; to jump",
+      "sentence": "늦어서 뛰어왔어요.",
+      "translation": "I was late, so I ⟦ran⟧ here.",
+      "form": "뛰어"
+    },
+    {
+      "n": 553,
+      "rank": 707,
+      "word": "과거",
+      "pos": "noun",
+      "meaning": "the past",
+      "sentence": "과거는 잊으세요.",
+      "translation": "Forget the ⟦past⟧."
+    },
+    {
+      "n": 554,
+      "rank": 708,
+      "word": "광고",
+      "pos": "noun",
+      "meaning": "advertisement; commercial",
+      "sentence": "텔레비전 광고가 너무 많아요.",
+      "translation": "There are too many TV ⟦commercials⟧."
+    },
+    {
+      "n": 555,
+      "rank": 709,
+      "word": "나이",
+      "pos": "noun",
+      "meaning": "age",
+      "sentence": "나이가 어떻게 되세요?",
+      "translation": "May I ask your ⟦age⟧?"
+    },
+    {
+      "n": 556,
+      "rank": 710,
+      "word": "바람",
+      "pos": "noun",
+      "meaning": "wind",
+      "sentence": "오늘은 바람이 많이 불어요.",
+      "translation": "It's really ⟦windy⟧ today."
+    },
+    {
+      "n": 557,
+      "rank": 711,
+      "word": "번호",
+      "pos": "noun",
+      "meaning": "number",
+      "sentence": "전화번호 좀 알려 주세요.",
+      "translation": "Could you tell me your phone ⟦number⟧?"
+    },
+    {
+      "n": 558,
+      "rank": 712,
+      "word": "오후",
+      "pos": "noun",
+      "meaning": "afternoon; p.m.",
+      "sentence": "오후 두 시에 회의가 있어요.",
+      "translation": "I have a meeting at two in the ⟦afternoon⟧."
+    },
+    {
+      "n": 559,
+      "rank": 714,
+      "word": "지구",
+      "pos": "noun",
+      "meaning": "the earth",
+      "sentence": "지구를 지켜야 해요.",
+      "translation": "We have to protect the ⟦earth⟧."
+    },
+    {
+      "n": 560,
+      "rank": 719,
+      "word": "곧",
+      "pos": "adv",
+      "meaning": "soon",
+      "sentence": "곧 도착해요.",
+      "translation": "I'll be there ⟦soon⟧."
+    },
+    {
+      "n": 561,
+      "rank": 720,
+      "word": "공간",
+      "pos": "noun",
+      "meaning": "space; room",
+      "sentence": "차에 공간이 없어요.",
+      "translation": "There's no ⟦room⟧ in the car."
+    },
+    {
+      "n": 562,
+      "rank": 721,
+      "word": "공부",
+      "pos": "noun",
+      "meaning": "study (공부하다: to study)",
+      "sentence": "시험 공부를 해야 해요.",
+      "translation": "I have to ⟦study⟧ for the exam."
+    },
+    {
+      "n": 563,
+      "rank": 722,
+      "word": "다리",
+      "pos": "noun",
+      "meaning": "leg; bridge",
+      "sentence": "오래 걸어서 다리가 아파요.",
+      "translation": "My ⟦legs⟧ hurt from walking so long."
+    },
+    {
+      "n": 564,
+      "rank": 723,
+      "word": "동물",
+      "pos": "noun",
+      "meaning": "animal",
+      "sentence": "저는 동물을 정말 좋아해요.",
+      "translation": "I really love ⟦animals⟧."
+    },
+    {
+      "n": 565,
+      "rank": 724,
+      "word": "드라마",
+      "pos": "noun",
+      "meaning": "TV drama; series",
+      "sentence": "요즘 한국 드라마를 봐요.",
+      "translation": "I'm watching a Korean ⟦drama⟧ these days."
+    },
+    {
+      "n": 566,
+      "rank": 726,
+      "word": "버스",
+      "pos": "noun",
+      "meaning": "bus",
+      "sentence": "버스가 안 와요.",
+      "translation": "The ⟦bus⟧ isn't coming."
+    },
+    {
+      "n": 567,
+      "rank": 730,
+      "word": "스스로",
+      "pos": "adv",
+      "meaning": "by oneself; for oneself",
+      "sentence": "아이가 스스로 옷을 입었어요.",
+      "translation": "The child got dressed ⟦by himself⟧."
+    },
+    {
+      "n": 568,
+      "rank": 731,
+      "word": "아빠",
+      "pos": "noun",
+      "meaning": "dad",
+      "sentence": "아빠, 사랑해요.",
+      "translation": "I love you, ⟦Dad⟧."
+    },
+    {
+      "n": 569,
+      "rank": 732,
+      "word": "여행",
+      "pos": "noun",
+      "meaning": "trip; travel (여행하다: to travel)",
+      "sentence": "여행 잘 다녀오세요.",
+      "translation": "Have a good ⟦trip⟧."
+    },
+    {
+      "n": 570,
+      "rank": 733,
+      "word": "예술",
+      "pos": "noun",
+      "meaning": "art",
+      "sentence": "파리는 예술의 도시예요.",
+      "translation": "Paris is a city of ⟦art⟧."
+    },
+    {
+      "n": 571,
+      "rank": 734,
+      "word": "요즘",
+      "pos": "noun",
+      "meaning": "these days; lately",
+      "sentence": "요즘 어떻게 지내요?",
+      "translation": "How have you been ⟦lately⟧?"
+    },
+    {
+      "n": 572,
+      "rank": 737,
+      "word": "팬",
+      "pos": "noun",
+      "meaning": "fan",
+      "sentence": "저는 그 가수의 팬이에요.",
+      "translation": "I'm a ⟦fan⟧ of that singer."
+    },
+    {
+      "n": 573,
+      "rank": 738,
+      "word": "후기",
+      "pos": "noun",
+      "meaning": "review (of a product or place)",
+      "sentence": "사기 전에 후기를 읽어 보세요.",
+      "translation": "Read the ⟦reviews⟧ before you buy."
+    },
+    {
+      "n": 574,
+      "rank": 742,
+      "word": "그때",
+      "pos": "noun",
+      "meaning": "then; at that time",
+      "sentence": "그때 정말 재밌었어요.",
+      "translation": "We had so much fun ⟦back then⟧."
+    },
+    {
+      "n": 575,
+      "rank": 745,
+      "word": "대학교",
+      "pos": "noun",
+      "meaning": "university",
+      "sentence": "어느 대학교에 다녀요?",
+      "translation": "Which ⟦university⟧ do you go to?"
+    },
+    {
+      "n": 576,
+      "rank": 746,
+      "word": "동시",
+      "pos": "noun",
+      "meaning": "(동시에) at the same time",
+      "sentence": "두 사람이 동시에 말했어요.",
+      "translation": "They both spoke ⟦at the same time⟧."
+    },
+    {
+      "n": 577,
+      "rank": 747,
+      "word": "땅",
+      "pos": "noun",
+      "meaning": "ground; land",
+      "sentence": "비가 와서 땅이 젖었어요.",
+      "translation": "The ⟦ground⟧ is wet from the rain."
+    },
+    {
+      "n": 578,
+      "rank": 749,
+      "word": "목적",
+      "pos": "noun",
+      "meaning": "purpose; aim",
+      "sentence": "여행 목적이 뭐예요?",
+      "translation": "What's the ⟦purpose⟧ of your trip?"
+    },
+    {
+      "n": 579,
+      "rank": 750,
+      "word": "반응",
+      "pos": "noun",
+      "meaning": "reaction; response",
+      "sentence": "사람들 반응이 좋았어요.",
+      "translation": "People's ⟦reaction⟧ was good."
+    },
+    {
+      "n": 580,
+      "rank": 751,
+      "word": "발전",
+      "pos": "noun",
+      "meaning": "development; progress (발전하다)",
+      "sentence": "한국 경제는 빨리 발전했어요.",
+      "translation": "The Korean economy ⟦developed⟧ quickly."
+    },
+    {
+      "n": 581,
+      "rank": 753,
+      "word": "숨",
+      "pos": "noun",
+      "meaning": "breath",
+      "sentence": "숨을 깊이 쉬세요.",
+      "translation": "Take a deep ⟦breath⟧."
+    },
+    {
+      "n": 582,
+      "rank": 756,
+      "word": "옆",
+      "pos": "noun",
+      "meaning": "side; next to",
+      "sentence": "은행 옆에 카페가 있어요.",
+      "translation": "There's a café ⟦next to⟧ the bank."
+    },
+    {
+      "n": 583,
+      "rank": 758,
+      "word": "자연",
+      "pos": "noun",
+      "meaning": "nature",
+      "sentence": "자연 속에서 쉬고 싶어요.",
+      "translation": "I want to rest out in ⟦nature⟧."
+    },
+    {
+      "n": 584,
+      "rank": 759,
+      "word": "정리",
+      "pos": "noun",
+      "meaning": "tidying up; organizing (정리하다)",
+      "sentence": "방 좀 정리하세요.",
+      "translation": "⟦Tidy up⟧ your room."
+    },
+    {
+      "n": 585,
+      "rank": 761,
+      "word": "지도",
+      "pos": "noun",
+      "meaning": "map",
+      "sentence": "지도를 보면서 걸었어요.",
+      "translation": "I walked while looking at the ⟦map⟧."
+    },
+    {
+      "n": 586,
+      "rank": 765,
+      "word": "무섭다",
+      "pos": "adj",
+      "meaning": "scary; scared",
+      "sentence": "이 영화 너무 무서워요.",
+      "translation": "This movie is so ⟦scary⟧.",
+      "form": "무서워요"
+    },
+    {
+      "n": 587,
+      "rank": 767,
+      "word": "나쁘다",
+      "pos": "adj",
+      "meaning": "bad",
+      "sentence": "오늘은 날씨가 나빠요.",
+      "translation": "The weather is ⟦bad⟧ today.",
+      "form": "나빠요"
+    },
+    {
+      "n": 588,
+      "rank": 768,
+      "word": "예쁘다",
+      "pos": "adj",
+      "meaning": "pretty",
+      "sentence": "꽃이 정말 예뻐요.",
+      "translation": "The flowers are really ⟦pretty⟧.",
+      "form": "예뻐요"
+    },
+    {
+      "n": 589,
+      "rank": 770,
+      "word": "가운데",
+      "pos": "noun",
+      "meaning": "middle; center; among",
+      "sentence": "사진 가운데 있는 사람이 저예요.",
+      "translation": "The person in the ⟦middle⟧ of the photo is me."
+    },
+    {
+      "n": 590,
+      "rank": 771,
+      "word": "기본",
+      "pos": "noun",
+      "meaning": "basics; the basic",
+      "sentence": "기본부터 다시 배워요.",
+      "translation": "I'm learning again from the ⟦basics⟧."
+    },
+    {
+      "n": 591,
+      "rank": 772,
+      "word": "나무",
+      "pos": "noun",
+      "meaning": "tree; wood",
+      "sentence": "집 앞에 큰 나무가 있어요.",
+      "translation": "There's a big ⟦tree⟧ in front of the house."
+    },
+    {
+      "n": 592,
+      "rank": 773,
+      "word": "나중",
+      "pos": "noun",
+      "meaning": "later (나중에)",
+      "sentence": "나중에 다시 전화할게요.",
+      "translation": "I'll call you again ⟦later⟧."
+    },
+    {
+      "n": 593,
+      "rank": 775,
+      "word": "미안하다",
+      "pos": "adj",
+      "meaning": "sorry",
+      "sentence": "정말 미안해요.",
+      "translation": "I'm really ⟦sorry⟧.",
+      "form": "미안해요"
+    },
+    {
+      "n": 594,
+      "rank": 777,
+      "word": "유명하다",
+      "pos": "adj",
+      "meaning": "famous",
+      "sentence": "이 식당은 비빔밥으로 유명해요.",
+      "translation": "This restaurant is ⟦famous⟧ for its bibimbap.",
+      "form": "유명해요"
+    },
+    {
+      "n": 595,
+      "rank": 779,
+      "word": "작업",
+      "pos": "noun",
+      "meaning": "work; task; job",
+      "sentence": "이 작업은 시간이 오래 걸려요.",
+      "translation": "This ⟦job⟧ takes a long time."
+    },
+    {
+      "n": 596,
+      "rank": 780,
+      "word": "주소",
+      "pos": "noun",
+      "meaning": "address",
+      "sentence": "주소를 여기에 써 주세요.",
+      "translation": "Please write your ⟦address⟧ here."
+    },
+    {
+      "n": 597,
+      "rank": 782,
+      "word": "컴퓨터",
+      "pos": "noun",
+      "meaning": "computer",
+      "sentence": "컴퓨터가 고장 났어요.",
+      "translation": "My ⟦computer⟧ broke down."
+    },
+    {
+      "n": 598,
+      "rank": 783,
+      "word": "혹시",
+      "pos": "adv",
+      "meaning": "by any chance",
+      "sentence": "혹시 볼펜 있어요?",
+      "translation": "Do you have a pen, ⟦by any chance⟧?"
+    },
+    {
+      "n": 599,
+      "rank": 784,
+      "word": "효과",
+      "pos": "noun",
+      "meaning": "effect",
+      "sentence": "이 약은 효과가 좋아요.",
+      "translation": "This medicine is really ⟦effective⟧."
+    },
+    {
+      "n": 600,
+      "rank": 787,
+      "word": "미래",
+      "pos": "noun",
+      "meaning": "future",
+      "sentence": "미래에 뭐가 되고 싶어요?",
+      "translation": "What do you want to be in the ⟦future⟧?"
+    },
+    {
+      "n": 601,
+      "rank": 788,
+      "word": "변화",
+      "pos": "noun",
+      "meaning": "change",
+      "sentence": "큰 변화가 있었어요.",
+      "translation": "There was a big ⟦change⟧."
+    },
+    {
+      "n": 602,
+      "rank": 790,
+      "word": "붙다",
+      "pos": "verb",
+      "meaning": "to stick; to pass (an exam)",
+      "sentence": "시험에 붙었어요!",
+      "translation": "I ⟦passed⟧ the exam!",
+      "form": "붙었어요"
+    },
+    {
+      "n": 603,
+      "rank": 791,
+      "word": "소개",
+      "pos": "noun",
+      "meaning": "introduction (소개하다: to introduce)",
+      "sentence": "자기소개 해 주세요.",
+      "translation": "Please ⟦introduce⟧ yourself."
+    },
+    {
+      "n": 604,
+      "rank": 792,
+      "word": "심장",
+      "pos": "noun",
+      "meaning": "heart (the organ)",
+      "sentence": "심장이 빨리 뛰어요.",
+      "translation": "My ⟦heart⟧ is beating fast."
+    },
+    {
+      "n": 605,
+      "rank": 793,
+      "word": "얼마",
+      "pos": "noun",
+      "meaning": "how much",
+      "sentence": "모두 얼마예요?",
+      "translation": "⟦How much⟧ is it altogether?"
+    },
+    {
+      "n": 606,
+      "rank": 794,
+      "word": "재밌다",
+      "pos": "adj",
+      "meaning": "fun; interesting (short for 재미있다)",
+      "sentence": "이 게임 진짜 재밌어요.",
+      "translation": "This game is really ⟦fun⟧.",
+      "form": "재밌어요"
+    },
+    {
+      "n": 607,
+      "rank": 795,
+      "word": "조건",
+      "pos": "noun",
+      "meaning": "condition; terms",
+      "sentence": "좋은 조건으로 일을 구했어요.",
+      "translation": "I found a job on good ⟦terms⟧."
+    },
+    {
+      "n": 608,
+      "rank": 798,
+      "word": "강하다",
+      "pos": "adj",
+      "meaning": "strong",
+      "sentence": "오늘은 바람이 강해요.",
+      "translation": "The wind is ⟦strong⟧ today.",
+      "form": "강해요"
+    },
+    {
+      "n": 609,
+      "rank": 800,
+      "word": "맞추다",
+      "pos": "verb",
+      "meaning": "to fit; to set (an alarm); to guess right",
+      "sentence": "알람을 여섯 시에 맞췄어요.",
+      "translation": "I ⟦set⟧ the alarm for six.",
+      "form": "맞췄어요"
+    },
+    {
+      "n": 610,
+      "rank": 802,
+      "word": "빠지다",
+      "pos": "verb",
+      "meaning": "to fall into; to be missing; to come out",
+      "sentence": "사랑에 빠졌어요.",
+      "translation": "I ⟦fell⟧ in love.",
+      "form": "빠졌어요"
+    },
+    {
+      "n": 611,
+      "rank": 803,
+      "word": "나가다",
+      "pos": "verb",
+      "meaning": "to go out; to leave",
+      "sentence": "잠깐 나갔다 올게요.",
+      "translation": "I'll ⟦step out⟧ for a moment.",
+      "form": "나갔다"
+    },
+    {
+      "n": 612,
+      "rank": 804,
+      "word": "산",
+      "pos": "noun",
+      "meaning": "mountain",
+      "sentence": "주말에 산에 갔어요.",
+      "translation": "I went to the ⟦mountains⟧ on the weekend."
+    },
+    {
+      "n": 613,
+      "rank": 805,
+      "word": "계약",
+      "pos": "noun",
+      "meaning": "contract (계약하다: to sign a contract)",
+      "sentence": "새 집 계약을 했어요.",
+      "translation": "I signed the ⟦contract⟧ for a new house."
+    },
+    {
+      "n": 614,
+      "rank": 806,
+      "word": "그대로",
+      "pos": "adv",
+      "meaning": "as it is; just like that",
+      "sentence": "그대로 두세요.",
+      "translation": "Leave it ⟦as it is⟧."
+    },
+    {
+      "n": 615,
+      "rank": 807,
+      "word": "기자",
+      "pos": "noun",
+      "meaning": "reporter; journalist",
+      "sentence": "형은 신문 기자예요.",
+      "translation": "My older brother is a newspaper ⟦reporter⟧."
+    },
+    {
+      "n": 616,
+      "rank": 813,
+      "word": "여름",
+      "pos": "noun",
+      "meaning": "summer",
+      "sentence": "한국의 여름은 아주 더워요.",
+      "translation": "⟦Summer⟧ in Korea is very hot."
+    },
+    {
+      "n": 617,
+      "rank": 814,
+      "word": "일단",
+      "pos": "adv",
+      "meaning": "first; for now",
+      "sentence": "일단 밥부터 먹어요.",
+      "translation": "Let's eat ⟦first⟧."
+    },
+    {
+      "n": 618,
+      "rank": 815,
+      "word": "장소",
+      "pos": "noun",
+      "meaning": "place; venue",
+      "sentence": "만날 장소를 정했어요?",
+      "translation": "Have you picked a ⟦place⟧ to meet?"
+    },
+    {
+      "n": 619,
+      "rank": 816,
+      "word": "절대",
+      "pos": "adv",
+      "meaning": "never; absolutely",
+      "sentence": "절대 포기하지 마세요.",
+      "translation": "⟦Never⟧ give up."
+    },
+    {
+      "n": 620,
+      "rank": 817,
+      "word": "책임",
+      "pos": "noun",
+      "meaning": "responsibility",
+      "sentence": "제가 책임질게요.",
+      "translation": "I'll take ⟦responsibility⟧."
     }
   ]
 }
