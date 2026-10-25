@@ -2811,6 +2811,953 @@
       "meaning": "to buy",
       "sentence": "Ich muss noch Brot kaufen.",
       "translation": "I still need to ⟦buy⟧ bread."
+    },
+    {
+      "n": 301,
+      "rank": 318,
+      "word": "deshalb",
+      "pos": "adv",
+      "meaning": "that's why, therefore",
+      "sentence": "Ich war krank, deshalb bin ich nicht gekommen.",
+      "translation": "I was sick, ⟦that's why⟧ I didn't come."
+    },
+    {
+      "n": 302,
+      "rank": 319,
+      "word": "eben",
+      "pos": "adv",
+      "meaning": "just (a moment ago); simply",
+      "sentence": "Ich habe ihn eben gesehen.",
+      "translation": "I ⟦just⟧ saw him."
+    },
+    {
+      "n": 303,
+      "rank": 320,
+      "word": "die Polizei",
+      "pos": "noun",
+      "meaning": "police (no pl.)",
+      "sentence": "Wir müssen die Polizei rufen.",
+      "translation": "We have to call the ⟦police⟧.",
+      "form": "Polizei"
+    },
+    {
+      "n": 304,
+      "rank": 321,
+      "word": "der Gott",
+      "pos": "noun",
+      "meaning": "God; god (pl. Götter)",
+      "sentence": "Gott sei Dank!",
+      "translation": "Thank ⟦God⟧!",
+      "form": "Gott"
+    },
+    {
+      "n": 305,
+      "rank": 322,
+      "word": "das Auge",
+      "pos": "noun",
+      "meaning": "eye (pl. Augen)",
+      "sentence": "Sie hat blaue Augen.",
+      "translation": "She has blue ⟦eyes⟧.",
+      "form": "Augen"
+    },
+    {
+      "n": 306,
+      "rank": 323,
+      "word": "versuchen",
+      "pos": "verb",
+      "meaning": "to try",
+      "sentence": "Ich versuche es noch einmal.",
+      "translation": "I'll ⟦try⟧ again.",
+      "form": "versuche"
+    },
+    {
+      "n": 307,
+      "rank": 324,
+      "word": "toll",
+      "pos": "adj",
+      "meaning": "great, terrific",
+      "sentence": "Das Konzert war toll!",
+      "translation": "The concert was ⟦great⟧!"
+    },
+    {
+      "n": 308,
+      "rank": 325,
+      "word": "die Nacht",
+      "pos": "noun",
+      "meaning": "night (pl. Nächte)",
+      "sentence": "Ich habe die ganze Nacht nicht geschlafen.",
+      "translation": "I didn't sleep all ⟦night⟧.",
+      "form": "Nacht"
+    },
+    {
+      "n": 309,
+      "rank": 326,
+      "word": "die Straße",
+      "pos": "noun",
+      "meaning": "street, road (pl. Straßen)",
+      "sentence": "In welcher Straße wohnst du?",
+      "translation": "What ⟦street⟧ do you live on?",
+      "form": "Straße"
+    },
+    {
+      "n": 310,
+      "rank": 327,
+      "word": "schwarz",
+      "pos": "adj",
+      "meaning": "black",
+      "sentence": "Ich trinke meinen Kaffee schwarz.",
+      "translation": "I drink my coffee ⟦black⟧."
+    },
+    {
+      "n": 311,
+      "rank": 328,
+      "word": "außerdem",
+      "pos": "adv",
+      "meaning": "besides, in addition",
+      "sentence": "Außerdem ist es zu teuer.",
+      "translation": "⟦Besides⟧, it's too expensive."
+    },
+    {
+      "n": 312,
+      "rank": 329,
+      "word": "leider",
+      "pos": "adv",
+      "meaning": "unfortunately",
+      "sentence": "Ich kann leider nicht kommen.",
+      "translation": "⟦Unfortunately⟧ I can't come."
+    },
+    {
+      "n": 313,
+      "rank": 330,
+      "word": "online",
+      "pos": "adv",
+      "meaning": "online",
+      "sentence": "Ich kaufe fast alles online.",
+      "translation": "I buy almost everything ⟦online⟧."
+    },
+    {
+      "n": 314,
+      "rank": 331,
+      "word": "deutlich",
+      "pos": "adj",
+      "meaning": "clear; clearly, distinctly",
+      "sentence": "Bitte sprich etwas deutlicher.",
+      "translation": "Please speak a bit more ⟦clearly⟧."
+    },
+    {
+      "n": 315,
+      "rank": 332,
+      "word": "der Punkt",
+      "pos": "noun",
+      "meaning": "point; dot, period (pl. Punkte)",
+      "sentence": "Das ist ein guter Punkt.",
+      "translation": "That's a good ⟦point⟧.",
+      "form": "Punkt"
+    },
+    {
+      "n": 316,
+      "rank": 333,
+      "word": "bieten",
+      "pos": "verb",
+      "meaning": "to offer",
+      "sentence": "Das Hotel bietet kostenloses WLAN.",
+      "translation": "The hotel ⟦offers⟧ free Wi-Fi.",
+      "form": "bietet"
+    },
+    {
+      "n": 317,
+      "rank": 334,
+      "word": "weg",
+      "pos": "adv",
+      "meaning": "away, gone",
+      "sentence": "Mein Fahrrad ist weg!",
+      "translation": "My bike is ⟦gone⟧!"
+    },
+    {
+      "n": 318,
+      "rank": 335,
+      "word": "daher",
+      "pos": "adv",
+      "meaning": "so, that's why; from there",
+      "sentence": "Der Zug hat Verspätung, daher komme ich später.",
+      "translation": "The train is delayed, ⟦so⟧ I'll be late."
+    },
+    {
+      "n": 319,
+      "rank": 336,
+      "word": "kaum",
+      "pos": "adv",
+      "meaning": "hardly, barely",
+      "sentence": "Ich kann es kaum glauben.",
+      "translation": "I can ⟦hardly⟧ believe it."
+    },
+    {
+      "n": 320,
+      "rank": 337,
+      "word": "danken",
+      "pos": "verb",
+      "meaning": "to thank",
+      "sentence": "Ich danke Ihnen für Ihre Hilfe.",
+      "translation": "I ⟦thank⟧ you for your help.",
+      "form": "danke"
+    },
+    {
+      "n": 321,
+      "rank": 338,
+      "word": "legen",
+      "pos": "verb",
+      "meaning": "to lay, to put (lying down)",
+      "sentence": "Leg das Buch auf den Tisch.",
+      "translation": "⟦Put⟧ the book on the table.",
+      "form": "leg"
+    },
+    {
+      "n": 322,
+      "rank": 339,
+      "word": "aktuell",
+      "pos": "adj",
+      "meaning": "current; at the moment (not 'actual')",
+      "sentence": "Die Preise sind aktuell sehr hoch.",
+      "translation": "Prices are very high ⟦at the moment⟧."
+    },
+    {
+      "n": 323,
+      "rank": 340,
+      "word": "daran",
+      "pos": "adv",
+      "meaning": "of it, about it; on it",
+      "sentence": "Ich habe nicht daran gedacht.",
+      "translation": "I didn't think ⟦of it⟧."
+    },
+    {
+      "n": 324,
+      "rank": 341,
+      "word": "halt",
+      "pos": "part",
+      "meaning": "just, simply (casual)",
+      "sentence": "Das ist halt so.",
+      "translation": "That's ⟦just⟧ the way it is."
+    },
+    {
+      "n": 325,
+      "rank": 342,
+      "word": "nutzen",
+      "pos": "verb",
+      "meaning": "to use",
+      "sentence": "Wir nutzen das Auto nur am Wochenende.",
+      "translation": "We only ⟦use⟧ the car on weekends."
+    },
+    {
+      "n": 326,
+      "rank": 343,
+      "word": "niemand",
+      "pos": "pron",
+      "meaning": "nobody, no one",
+      "sentence": "Niemand hat mich angerufen.",
+      "translation": "⟦Nobody⟧ called me."
+    },
+    {
+      "n": 327,
+      "rank": 344,
+      "word": "gemeinsam",
+      "pos": "adj",
+      "meaning": "together; common, shared",
+      "sentence": "Wir haben viel gemeinsam.",
+      "translation": "We have a lot in ⟦common⟧."
+    },
+    {
+      "n": 328,
+      "rank": 345,
+      "word": "kosten",
+      "pos": "verb",
+      "meaning": "to cost",
+      "sentence": "Was kostet das?",
+      "translation": "How much does that ⟦cost⟧?",
+      "form": "kostet"
+    },
+    {
+      "n": 329,
+      "rank": 346,
+      "word": "der Kopf",
+      "pos": "noun",
+      "meaning": "head (pl. Köpfe)",
+      "sentence": "Mir tut der Kopf weh.",
+      "translation": "My ⟦head⟧ hurts.",
+      "form": "Kopf"
+    },
+    {
+      "n": 330,
+      "rank": 347,
+      "word": "fühlen",
+      "pos": "verb",
+      "meaning": "to feel",
+      "sentence": "Ich fühle mich heute nicht gut.",
+      "translation": "I don't ⟦feel⟧ well today.",
+      "form": "fühle"
+    },
+    {
+      "n": 331,
+      "rank": 348,
+      "word": "genug",
+      "pos": "adv",
+      "meaning": "enough",
+      "sentence": "Ich habe genug gegessen.",
+      "translation": "I've eaten ⟦enough⟧."
+    },
+    {
+      "n": 332,
+      "rank": 349,
+      "word": "hinter",
+      "pos": "prep",
+      "meaning": "behind",
+      "sentence": "Der Garten ist hinter dem Haus.",
+      "translation": "The garden is ⟦behind⟧ the house."
+    },
+    {
+      "n": 333,
+      "rank": 350,
+      "word": "laut",
+      "pos": "adj",
+      "meaning": "loud; according to",
+      "sentence": "Die Nachbarn sind sehr laut.",
+      "translation": "The neighbors are very ⟦loud⟧."
+    },
+    {
+      "n": 334,
+      "rank": 351,
+      "word": "der Staat",
+      "pos": "noun",
+      "meaning": "state, country (pl. Staaten)",
+      "sentence": "Der Staat muss mehr helfen.",
+      "translation": "The ⟦state⟧ needs to help more.",
+      "form": "Staat"
+    },
+    {
+      "n": 335,
+      "rank": 352,
+      "word": "linke",
+      "pos": "adj",
+      "meaning": "left (links: on the left)",
+      "sentence": "Mein linker Arm tut weh.",
+      "translation": "My ⟦left⟧ arm hurts."
+    },
+    {
+      "n": 336,
+      "rank": 353,
+      "word": "überhaupt",
+      "pos": "adv",
+      "meaning": "at all; anyway, even",
+      "sentence": "Das gefällt mir überhaupt nicht.",
+      "translation": "I don't like that ⟦at all⟧."
+    },
+    {
+      "n": 337,
+      "rank": 354,
+      "word": "die Idee",
+      "pos": "noun",
+      "meaning": "idea (pl. Ideen)",
+      "sentence": "Hast du eine Idee?",
+      "translation": "Do you have an ⟦idea⟧?",
+      "form": "Idee"
+    },
+    {
+      "n": 338,
+      "rank": 355,
+      "word": "sterben",
+      "pos": "verb",
+      "meaning": "to die",
+      "sentence": "Sein Großvater ist letztes Jahr gestorben.",
+      "translation": "His grandfather ⟦died⟧ last year.",
+      "form": "gestorben"
+    },
+    {
+      "n": 339,
+      "rank": 356,
+      "word": "rund",
+      "pos": "adj",
+      "meaning": "round; around, about",
+      "sentence": "Der Tisch ist rund.",
+      "translation": "The table is ⟦round⟧."
+    },
+    {
+      "n": 340,
+      "rank": 357,
+      "word": "wählen",
+      "pos": "verb",
+      "meaning": "to choose; to vote; to dial",
+      "sentence": "Du kannst zwischen drei Farben wählen.",
+      "translation": "You can ⟦choose⟧ between three colors."
+    },
+    {
+      "n": 341,
+      "rank": 358,
+      "word": "handeln",
+      "pos": "verb",
+      "meaning": "to act (es handelt sich um: it's about)",
+      "sentence": "Wir müssen jetzt handeln.",
+      "translation": "We have to ⟦act⟧ now."
+    },
+    {
+      "n": 342,
+      "rank": 360,
+      "word": "das Wasser",
+      "pos": "noun",
+      "meaning": "water (no pl.)",
+      "sentence": "Das Wasser ist zu kalt zum Schwimmen.",
+      "translation": "The ⟦water⟧ is too cold for swimming.",
+      "form": "Wasser"
+    },
+    {
+      "n": 343,
+      "rank": 361,
+      "word": "anders",
+      "pos": "adv",
+      "meaning": "different; differently",
+      "sentence": "Heute ist alles anders.",
+      "translation": "Everything is ⟦different⟧ today."
+    },
+    {
+      "n": 344,
+      "rank": 363,
+      "word": "der Abend",
+      "pos": "noun",
+      "meaning": "evening (pl. Abende)",
+      "sentence": "Wir hatten einen schönen Abend.",
+      "translation": "We had a lovely ⟦evening⟧.",
+      "form": "Abend"
+    },
+    {
+      "n": 345,
+      "rank": 364,
+      "word": "entscheiden",
+      "pos": "verb",
+      "meaning": "to decide",
+      "sentence": "Ich kann mich nicht entscheiden.",
+      "translation": "I can't ⟦decide⟧."
+    },
+    {
+      "n": 346,
+      "rank": 365,
+      "word": "der Bereich",
+      "pos": "noun",
+      "meaning": "area, field (pl. Bereiche)",
+      "sentence": "Er arbeitet im Bereich Marketing.",
+      "translation": "He works in the ⟦field⟧ of marketing.",
+      "form": "Bereich"
+    },
+    {
+      "n": 347,
+      "rank": 367,
+      "word": "euer",
+      "pos": "det",
+      "meaning": "your (several people, informal)",
+      "sentence": "Ist das euer Hund?",
+      "translation": "Is that ⟦your⟧ dog?"
+    },
+    {
+      "n": 348,
+      "rank": 368,
+      "word": "das Team",
+      "pos": "noun",
+      "meaning": "team (pl. Teams)",
+      "sentence": "Unser Team hat gewonnen.",
+      "translation": "Our ⟦team⟧ won.",
+      "form": "Team"
+    },
+    {
+      "n": 349,
+      "rank": 369,
+      "word": "öffentlich",
+      "pos": "adj",
+      "meaning": "public",
+      "sentence": "Ich fahre mit öffentlichen Verkehrsmitteln.",
+      "translation": "I use ⟦public⟧ transportation."
+    },
+    {
+      "n": 350,
+      "rank": 370,
+      "word": "ebenfalls",
+      "pos": "adv",
+      "meaning": "likewise, also; you too",
+      "sentence": "Danke, ebenfalls!",
+      "translation": "Thanks, ⟦you too⟧!"
+    },
+    {
+      "n": 351,
+      "rank": 371,
+      "word": "eher",
+      "pos": "adv",
+      "meaning": "rather, more; earlier, sooner",
+      "sentence": "Ich bin eher ein Morgenmensch.",
+      "translation": "I'm ⟦more of⟧ a morning person."
+    },
+    {
+      "n": 352,
+      "rank": 373,
+      "word": "die Musik",
+      "pos": "noun",
+      "meaning": "music (no pl.)",
+      "sentence": "Mach bitte die Musik leiser.",
+      "translation": "Please turn the ⟦music⟧ down.",
+      "form": "Musik"
+    },
+    {
+      "n": 353,
+      "rank": 375,
+      "word": "pro",
+      "pos": "prep",
+      "meaning": "per, a",
+      "sentence": "Das Zimmer kostet achtzig Euro pro Nacht.",
+      "translation": "The room costs eighty euros ⟦per⟧ night."
+    },
+    {
+      "n": 354,
+      "rank": 376,
+      "word": "nennen",
+      "pos": "verb",
+      "meaning": "to call, to name",
+      "sentence": "Alle nennen ihn Max.",
+      "translation": "Everyone ⟦calls⟧ him Max."
+    },
+    {
+      "n": 355,
+      "rank": 377,
+      "word": "der Preis",
+      "pos": "noun",
+      "meaning": "price; prize (pl. Preise)",
+      "sentence": "Der Preis ist in Ordnung.",
+      "translation": "The ⟦price⟧ is fine.",
+      "form": "Preis"
+    },
+    {
+      "n": 356,
+      "rank": 378,
+      "word": "warten",
+      "pos": "verb",
+      "meaning": "to wait",
+      "sentence": "Warte bitte auf mich!",
+      "translation": "Please ⟦wait⟧ for me!",
+      "form": "warte"
+    },
+    {
+      "n": 357,
+      "rank": 379,
+      "word": "falsch",
+      "pos": "adj",
+      "meaning": "wrong, false",
+      "sentence": "Sie haben die falsche Nummer.",
+      "translation": "You have the ⟦wrong⟧ number."
+    },
+    {
+      "n": 358,
+      "rank": 380,
+      "word": "der Vater",
+      "pos": "noun",
+      "meaning": "father (pl. Väter)",
+      "sentence": "Mein Vater kocht sehr gut.",
+      "translation": "My ⟦father⟧ is a very good cook.",
+      "form": "Vater"
+    },
+    {
+      "n": 359,
+      "rank": 381,
+      "word": "die Million",
+      "pos": "noun",
+      "meaning": "million (pl. Millionen)",
+      "sentence": "Die Stadt hat zwei Millionen Einwohner.",
+      "translation": "The city has two ⟦million⟧ inhabitants.",
+      "form": "Millionen"
+    },
+    {
+      "n": 360,
+      "rank": 382,
+      "word": "das Video",
+      "pos": "noun",
+      "meaning": "video (pl. Videos)",
+      "sentence": "Hast du das Video gesehen?",
+      "translation": "Have you seen the ⟦video⟧?",
+      "form": "Video"
+    },
+    {
+      "n": 361,
+      "rank": 383,
+      "word": "bald",
+      "pos": "adv",
+      "meaning": "soon",
+      "sentence": "Bis bald!",
+      "translation": "See you ⟦soon⟧!"
+    },
+    {
+      "n": 362,
+      "rank": 384,
+      "word": "nachdem",
+      "pos": "conj",
+      "meaning": "after",
+      "sentence": "Nachdem er gegangen war, wurde es still.",
+      "translation": "⟦After⟧ he left, it got quiet."
+    },
+    {
+      "n": 363,
+      "rank": 385,
+      "word": "sofort",
+      "pos": "adv",
+      "meaning": "immediately, right away",
+      "sentence": "Komm sofort nach Hause!",
+      "translation": "Come home ⟦right now⟧!"
+    },
+    {
+      "n": 364,
+      "rank": 386,
+      "word": "die Gesellschaft",
+      "pos": "noun",
+      "meaning": "society; company (pl. Gesellschaften)",
+      "sentence": "Wir leben in einer modernen Gesellschaft.",
+      "translation": "We live in a modern ⟦society⟧.",
+      "form": "Gesellschaft"
+    },
+    {
+      "n": 365,
+      "rank": 387,
+      "word": "die Mutter",
+      "pos": "noun",
+      "meaning": "mother (pl. Mütter)",
+      "sentence": "Meine Mutter ruft jeden Sonntag an.",
+      "translation": "My ⟦mother⟧ calls every Sunday.",
+      "form": "Mutter"
+    },
+    {
+      "n": 366,
+      "rank": 388,
+      "word": "rot",
+      "pos": "adj",
+      "meaning": "red",
+      "sentence": "Die Ampel ist rot.",
+      "translation": "The traffic light is ⟦red⟧."
+    },
+    {
+      "n": 367,
+      "rank": 389,
+      "word": "die Partei",
+      "pos": "noun",
+      "meaning": "(political) party (pl. Parteien)",
+      "sentence": "Welche Partei hast du gewählt?",
+      "translation": "Which ⟦party⟧ did you vote for?",
+      "form": "Partei"
+    },
+    {
+      "n": 368,
+      "rank": 390,
+      "word": "dritte",
+      "pos": "adj",
+      "meaning": "third",
+      "sentence": "Das ist mein dritter Versuch.",
+      "translation": "This is my ⟦third⟧ try."
+    },
+    {
+      "n": 369,
+      "rank": 391,
+      "word": "danach",
+      "pos": "adv",
+      "meaning": "afterwards, after that",
+      "sentence": "Und was machen wir danach?",
+      "translation": "And what do we do ⟦afterwards⟧?"
+    },
+    {
+      "n": 370,
+      "rank": 394,
+      "word": "sich freuen",
+      "pos": "verb",
+      "meaning": "to be glad, to be happy (sich freuen auf: to look forward to)",
+      "sentence": "Ich freue mich, dich zu sehen.",
+      "translation": "I'm ⟦glad⟧ to see you.",
+      "form": "freue"
+    },
+    {
+      "n": 371,
+      "rank": 395,
+      "word": "folgend",
+      "pos": "adj",
+      "meaning": "following",
+      "sentence": "Lesen Sie den folgenden Text.",
+      "translation": "Read the ⟦following⟧ text."
+    },
+    {
+      "n": 372,
+      "rank": 396,
+      "word": "fest",
+      "pos": "adj",
+      "meaning": "firm, tight; fixed",
+      "sentence": "Halt dich gut fest!",
+      "translation": "Hold on ⟦tight⟧!"
+    },
+    {
+      "n": 373,
+      "rank": 397,
+      "word": "reden",
+      "pos": "verb",
+      "meaning": "to talk",
+      "sentence": "Wir müssen reden.",
+      "translation": "We need to ⟦talk⟧."
+    },
+    {
+      "n": 374,
+      "rank": 398,
+      "word": "der Anfang",
+      "pos": "noun",
+      "meaning": "beginning, start (pl. Anfänge)",
+      "sentence": "Am Anfang war es schwer.",
+      "translation": "At the ⟦beginning⟧ it was hard.",
+      "form": "Anfang"
+    },
+    {
+      "n": 375,
+      "rank": 399,
+      "word": "das Ziel",
+      "pos": "noun",
+      "meaning": "goal; destination (pl. Ziele)",
+      "sentence": "Was ist dein Ziel?",
+      "translation": "What's your ⟦goal⟧?",
+      "form": "Ziel"
+    },
+    {
+      "n": 376,
+      "rank": 400,
+      "word": "das Mitglied",
+      "pos": "noun",
+      "meaning": "member (pl. Mitglieder)",
+      "sentence": "Sie ist Mitglied in einem Sportverein.",
+      "translation": "She's a ⟦member⟧ of a sports club.",
+      "form": "Mitglied"
+    },
+    {
+      "n": 377,
+      "rank": 401,
+      "word": "damals",
+      "pos": "adv",
+      "meaning": "back then, at that time",
+      "sentence": "Damals war ich noch ein Kind.",
+      "translation": "⟦Back then⟧ I was still a child."
+    },
+    {
+      "n": 378,
+      "rank": 402,
+      "word": "endlich",
+      "pos": "adv",
+      "meaning": "finally, at last",
+      "sentence": "Endlich ist Wochenende!",
+      "translation": "⟦Finally⟧, it's the weekend!"
+    },
+    {
+      "n": 379,
+      "rank": 404,
+      "word": "fünf",
+      "pos": "num",
+      "meaning": "five",
+      "sentence": "Der Laden schließt um fünf.",
+      "translation": "The store closes at ⟦five⟧."
+    },
+    {
+      "n": 380,
+      "rank": 405,
+      "word": "die Form",
+      "pos": "noun",
+      "meaning": "form, shape (pl. Formen)",
+      "sentence": "Ich bin nicht in Form.",
+      "translation": "I'm out of ⟦shape⟧.",
+      "form": "Form"
+    },
+    {
+      "n": 381,
+      "rank": 406,
+      "word": "gefallen",
+      "pos": "verb",
+      "meaning": "to please (es gefällt mir: I like it)",
+      "sentence": "Wie gefällt dir die Stadt?",
+      "translation": "How do you ⟦like⟧ the city?",
+      "form": "gefällt"
+    },
+    {
+      "n": 382,
+      "rank": 407,
+      "word": "hoffen",
+      "pos": "verb",
+      "meaning": "to hope",
+      "sentence": "Ich hoffe, es geht dir gut.",
+      "translation": "I ⟦hope⟧ you're well.",
+      "form": "hoffe"
+    },
+    {
+      "n": 383,
+      "rank": 408,
+      "word": "essen",
+      "pos": "verb",
+      "meaning": "to eat",
+      "sentence": "Was essen wir heute?",
+      "translation": "What are we ⟦eating⟧ today?"
+    },
+    {
+      "n": 384,
+      "rank": 409,
+      "word": "bestimmt",
+      "pos": "adv",
+      "meaning": "surely, certainly; certain",
+      "sentence": "Er kommt bestimmt gleich.",
+      "translation": "He'll ⟦surely⟧ be here soon."
+    },
+    {
+      "n": 385,
+      "rank": 410,
+      "word": "egal",
+      "pos": "adj",
+      "meaning": "all the same (das ist mir egal: I don't care)",
+      "sentence": "Das ist mir egal.",
+      "translation": "I don't ⟦care⟧."
+    },
+    {
+      "n": 386,
+      "rank": 413,
+      "word": "offen",
+      "pos": "adj",
+      "meaning": "open",
+      "sentence": "Ist der Supermarkt noch offen?",
+      "translation": "Is the supermarket still ⟦open⟧?"
+    },
+    {
+      "n": 387,
+      "rank": 414,
+      "word": "der Artikel",
+      "pos": "noun",
+      "meaning": "article (pl. Artikel)",
+      "sentence": "Hast du den Artikel gelesen?",
+      "translation": "Did you read the ⟦article⟧?",
+      "form": "Artikel"
+    },
+    {
+      "n": 388,
+      "rank": 415,
+      "word": "die Wahl",
+      "pos": "noun",
+      "meaning": "choice; election (pl. Wahlen)",
+      "sentence": "Du hast keine Wahl.",
+      "translation": "You have no ⟦choice⟧.",
+      "form": "Wahl"
+    },
+    {
+      "n": 389,
+      "rank": 416,
+      "word": "zahlen",
+      "pos": "verb",
+      "meaning": "to pay",
+      "sentence": "Kann ich mit Karte zahlen?",
+      "translation": "Can I ⟦pay⟧ by card?"
+    },
+    {
+      "n": 390,
+      "rank": 417,
+      "word": "international",
+      "pos": "adj",
+      "meaning": "international",
+      "sentence": "Das ist eine internationale Schule.",
+      "translation": "That's an ⟦international⟧ school."
+    },
+    {
+      "n": 391,
+      "rank": 418,
+      "word": "das Wissen",
+      "pos": "noun",
+      "meaning": "knowledge (no pl.)",
+      "sentence": "Wissen ist Macht.",
+      "translation": "⟦Knowledge⟧ is power.",
+      "form": "Wissen"
+    },
+    {
+      "n": 392,
+      "rank": 419,
+      "word": "das Alter",
+      "pos": "noun",
+      "meaning": "age (no pl.)",
+      "sentence": "In meinem Alter ist das normal.",
+      "translation": "At my ⟦age⟧, that's normal.",
+      "form": "Alter"
+    },
+    {
+      "n": 393,
+      "rank": 420,
+      "word": "das Ergebnis",
+      "pos": "noun",
+      "meaning": "result (pl. Ergebnisse)",
+      "sentence": "Wir warten noch auf das Ergebnis.",
+      "translation": "We're still waiting for the ⟦result⟧.",
+      "form": "Ergebnis"
+    },
+    {
+      "n": 394,
+      "rank": 421,
+      "word": "der Sinn",
+      "pos": "noun",
+      "meaning": "sense, meaning, point (pl. Sinne)",
+      "sentence": "Das hat keinen Sinn.",
+      "translation": "There's no ⟦point⟧.",
+      "form": "Sinn"
+    },
+    {
+      "n": 395,
+      "rank": 422,
+      "word": "das Foto",
+      "pos": "noun",
+      "meaning": "photo (pl. Fotos)",
+      "sentence": "Kannst du ein Foto von uns machen?",
+      "translation": "Can you take a ⟦photo⟧ of us?",
+      "form": "Foto"
+    },
+    {
+      "n": 396,
+      "rank": 423,
+      "word": "das System",
+      "pos": "noun",
+      "meaning": "system (pl. Systeme)",
+      "sentence": "Das System funktioniert nicht.",
+      "translation": "The ⟦system⟧ isn't working.",
+      "form": "System"
+    },
+    {
+      "n": 397,
+      "rank": 424,
+      "word": "der Sohn",
+      "pos": "noun",
+      "meaning": "son (pl. Söhne)",
+      "sentence": "Unser Sohn studiert in Köln.",
+      "translation": "Our ⟦son⟧ is studying in Cologne.",
+      "form": "Sohn"
+    },
+    {
+      "n": 398,
+      "rank": 425,
+      "word": "die Richtung",
+      "pos": "noun",
+      "meaning": "direction (pl. Richtungen)",
+      "sentence": "Wir fahren in die falsche Richtung.",
+      "translation": "We're going in the wrong ⟦direction⟧.",
+      "form": "Richtung"
+    },
+    {
+      "n": 399,
+      "rank": 426,
+      "word": "die Möglichkeit",
+      "pos": "noun",
+      "meaning": "possibility, option (pl. Möglichkeiten)",
+      "sentence": "Es gibt keine andere Möglichkeit.",
+      "translation": "There's no other ⟦option⟧.",
+      "form": "Möglichkeit"
+    },
+    {
+      "n": 400,
+      "rank": 427,
+      "word": "gegenüber",
+      "pos": "prep",
+      "meaning": "opposite, across from",
+      "sentence": "Die Bank ist gegenüber vom Bahnhof.",
+      "translation": "The bank is ⟦across from⟧ the train station."
     }
   ]
 }
