@@ -959,6 +959,264 @@
         {"type":"say","q":"Say “My friend is an engineer”, as you'd say it at the end of a sentence.","answer":"صَدِيقِي مُهَنْدِسٌ.","r":"ṣadīqī muhandis.","why":"At a pause the final -un is dropped: muhandis."},
         {"type":"free","q":"Your turn: write one sentence with a subject, an object and a place (like the student reading in the library).","answers":[{"t":"تَشْرَبُ أُمِّي الْقَهْوَةَ فِي الْمَطْبَخِ.","r":"tashrabu ummī l-qahwata fī l-maṭbakhi.","tr":"My mother drinks coffee in the kitchen."},{"t":"يَقْرَأُ الْأَوْلَادُ الْقِصَصَ فِي الْغُرْفَةِ.","r":"yaqraʾu l-awlādu l-qiṣaṣa fī l-ghurfati.","tr":"The children read stories in the room."}]}
       ]
+    },
+    {
+      "id": "can-must",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you can, may and must do",
+      "summary": "“I can help you”, “Can I sit here?”, “I have to go now”, “Maybe he'll come”.",
+      "topic": "{{أَسْتَطِيعُ أَنْ}}, {{يُمْكِنُ أَنْ}}, {{يَجِبُ أَنْ}}, {{رُبَّمَا}}, with the -a form",
+      "blocks": [
+        {"goal":{"t":"يَجِبُ أَنْ أَذْهَبَ الْآنَ، لَكِنْ أَسْتَطِيعُ أَنْ أَرْجِعَ غَدًا.","r":"yajibu an adhhaba l-āna, lākin astaṭīʿu an arjiʿa ghadan.","tr":"I have to go now, but I can come back tomorrow."}},
+        {"dialog":[{"who":"You","t":"عَفْوًا، هَلْ يُمْكِنُنِي أَنْ أَجْلِسَ هُنَا؟","r":"ʿafwan, hal yumkinunī an ajlisa hunā?","tr":"Excuse me, can I sit here?"},{"who":"Woman","t":"طَبْعًا، تَفَضَّلْ.","r":"ṭabʿan, tafaḍḍal.","tr":"Of course, go ahead."},{"who":"You","t":"شُكْرًا. هَلْ يُمْكِنُ أَنْ تُسَاعِدِينِي؟ لَا أَعْرِفُ هَذِهِ الْمَحَطَّةَ.","r":"shukran. hal yumkinu an tusāʿidīnī? lā aʿrifu hādhihi l-maḥaṭṭata.","tr":"Thanks. Could you help me? I don't know this station."},{"who":"Woman","t":"نَعَمْ، يَجِبُ أَنْ تَنْزِلَ بَعْدَ مَحَطَّتَيْنِ.","r":"naʿam, yajibu an tanzila baʿda maḥaṭṭatayni.","tr":"Yes, you have to get off after two stops."}]},
+        {"p":"These all work like {{أُرِيدُ أَنْ}}: {{أَنْ}} and a second verb, which ends in -a."},
+        { "table": [
+          ["","Arabic","Example"],
+          ["I can, I'm able to","{{أَسْتَطِيعُ أَنْ|astaṭīʿu an}}","{{أَسْتَطِيعُ أَنْ أُسَاعِدَكَ.|astaṭīʿu an usāʿidaka.}} I can help you."],
+          ["it's possible, one can","{{يُمْكِنُ أَنْ|yumkinu an}}","{{يُمْكِنُ أَنْ نَذْهَبَ غَدًا.|yumkinu an nadhhaba ghadan.}} We can go tomorrow."],
+          ["can I…? (polite)","{{هَلْ يُمْكِنُنِي أَنْ…؟|hal yumkinunī an…?}}","{{هَلْ يُمْكِنُنِي أَنْ أَدْفَعَ بِالْبِطَاقَةِ؟|hal yumkinunī an adfaʿa bi-l-biṭāqati?}} Can I pay by card?"],
+          ["must, have to","{{يَجِبُ أَنْ|yajibu an}}","{{يَجِبُ أَنْ أَذْهَبَ الْآنَ.|yajibu an adhhaba l-āna.}} I have to go now."],
+          ["maybe","{{رُبَّمَا|rubbamā}} + present","{{رُبَّمَا يَأْتِي غَدًا.|rubbamā yaʾtī ghadan.}} Maybe he'll come tomorrow."]
+        ] },
+        {"p":"{{يُمْكِنُ}} and {{يَجِبُ}} don't change for the person: the second verb says who ({{يَجِبُ أَنْ تَدْرُسَ}} “you have to study”). To make it personal, add an ending: {{يُمْكِنُنِي}} “it's possible for me”, or {{عَلَى}}: {{يَجِبُ عَلَيْكَ أَنْ تَدْرُسَ.|yajibu ʿalayka an tadrusa.}} “You have to study” (word for word: it's a must on you). In the -a form, -īna loses its n: {{أَنْ تُسَاعِدِي}}."},
+        {"p":"**Not:** {{لَا أَسْتَطِيعُ أَنْ…}} “I can't…”, {{لَا يُمْكِنُ}} “it's not possible”, {{لَا يَجِبُ أَنْ…}} “you mustn't…”."},
+        { "ex": [
+          {"t":"أَسْتَطِيعُ أَنْ أُسَاعِدَكَ.","r":"astaṭīʿu an usāʿidaka.","tr":"I can help you."},
+          {"t":"لَا أَسْتَطِيعُ أَنْ أَنَامَ.","r":"lā astaṭīʿu an anāma.","tr":"I can't sleep."},
+          {"t":"يَجِبُ عَلَيْنَا أَنْ نَنْتَظِرَ.","r":"yajibu ʿalaynā an nantaẓira.","tr":"We have to wait."},
+          {"t":"هَلْ يُمْكِنُ أَنْ تُسَاعِدَنِي؟","r":"hal yumkinu an tusāʿidanī?","tr":"Could you help me?","note":"to a man"},
+          {"t":"رُبَّمَا يَأْتِي غَدًا.","r":"rubbamā yaʾtī ghadan.","tr":"Maybe he'll come tomorrow."}
+        ] },
+        {"tip":"{{هَلْ يُمْكِنُ…؟}} is the polite way to ask for anything: {{هَلْ يُمْكِنُ أَنْ تُكَرِّرَ؟|hal yumkinu an tukarrira?}} “Could you say that again?”"}
+      ],
+      "mistakes": [
+        {"wrong":"أَسْتَطِيعُ أُسَاعِدُكَ.","right":"أَسْتَطِيعُ أَنْ أُسَاعِدَكَ.","tr":"I can help you.","why":"{{أَنْ}} between the two verbs, and -a on the second."},
+        {"wrong":"يَجِبُ أَنْ أَذْهَبُ.","right":"يَجِبُ أَنْ أَذْهَبَ.","tr":"I have to go.","why":"After {{أَنْ}}: -a."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"يَجِبُ أَنْ ___ الْآنَ.","tr":"I have to go now.","options":["أَذْهَبَ","أَذْهَبُ","ذَهَبَ"],"answer":0,"why":"After {{أَنْ}}: the -a form."},
+        {"type":"choice","q":"{{هَلْ يُمْكِنُنِي أَنْ أَجْلِسَ هُنَا؟}} means…","options":["Can I sit here?","Do you sit here?","I have to sit here."],"answer":0,"why":"{{يُمْكِنُنِي}} “it's possible for me”."},
+        {"type":"dialogue","q":"In a shop. Choose your replies.","lines":[{"who":"Cashier","t":"الْمَجْمُوعُ مِئَةُ دِرْهَمٍ.","r":"al-majmūʿu miʾatu dirhamin.","tr":"That's a hundred dirhams altogether."},{"options":["هَلْ يُمْكِنُنِي أَنْ أَدْفَعَ بِالْبِطَاقَةِ؟","هَلْ يُمْكِنُنِي أَدْفَعُ بِالْبِطَاقَةِ؟"],"answer":0,"why":"{{أَنْ}} and the -a form."},{"who":"Cashier","t":"لِلْأَسَفِ، لَا. يَجِبُ أَنْ تَدْفَعَ نَقْدًا.","r":"lil-asafi, lā. yajibu an tadfaʿa naqdan.","tr":"Sorry, no. You have to pay cash."},{"options":["لَا مُشْكِلَةَ، تَفَضَّلْ.","لَا أُرِيدُ مُشْكِلَةٌ."],"answer":0,"why":"“No problem, here you are.”"}],"from":"dont"},
+        {"type":"order","q":"Put the words in order.","tr":"We have to wait.","words":["يَجِبُ","عَلَيْنَا","أَنْ","نَنْتَظِرَ."]},
+        {"type":"say","q":"Ask a man: “Could you help me?”","answer":"هَلْ يُمْكِنُ أَنْ تُسَاعِدَنِي؟","r":"hal yumkinu an tusāʿidanī?","from":"me-and-you"},
+        {"type":"free","q":"Your turn: say one thing you can do, one you can't, and one you have to do this week.","answers":[{"t":"أَسْتَطِيعُ أَنْ أَطْبُخَ.","r":"astaṭīʿu an aṭbukha.","tr":"I can cook."},{"t":"لَا أَسْتَطِيعُ أَنْ أَسْبَحَ.","r":"lā astaṭīʿu an asbaḥa.","tr":"I can't swim."},{"t":"يَجِبُ أَنْ أَعْمَلَ يَوْمَ السَّبْتِ.","r":"yajibu an aʿmala yawma s-sabti.","tr":"I have to work on Saturday."}]}
+      ]
+    },
+    {
+      "id": "how-often",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say how and how often",
+      "summary": "“I always walk to work”, “I speak a little Arabic”, “Thanks a lot”, “every day”.",
+      "topic": "Words for how, how much and how often, with the -an ending",
+      "blocks": [
+        {"goal":{"t":"أَتَكَلَّمُ الْعَرَبِيَّةَ قَلِيلًا، وَأَدْرُسُ كُلَّ يَوْمٍ.","r":"atakallamu l-ʿarabiyyata qalīlan, wa-adrusu kulla yawmin.","tr":"I speak a little Arabic, and I study every day."}},
+        {"dialog":[{"who":"Hiba","t":"أَنْتَ تَتَكَلَّمُ الْعَرَبِيَّةَ جَيِّدًا!","r":"anta tatakallamu l-ʿarabiyyata jayyidan!","tr":"You speak Arabic well!"},{"who":"Tom","t":"شُكْرًا! أَتَكَلَّمُ قَلِيلًا فَقَطْ.","r":"shukran! atakallamu qalīlan faqaṭ.","tr":"Thanks! I only speak a little."},{"who":"Hiba","t":"هَلْ تَدْرُسُ كَثِيرًا؟","r":"hal tadrusu kathīran?","tr":"Do you study a lot?"},{"who":"Tom","t":"نَعَمْ، كُلَّ يَوْمٍ، وَأَحْيَانًا مَعَ أَصْدِقَائِي.","r":"naʿam, kulla yawmin, wa-aḥyānan maʿa aṣdiqāʾī.","tr":"Yes, every day, and sometimes with my friends."}]},
+        {"p":"Many words that say how, how much or when are adjectives or nouns with the -an ending: {{كَثِيرٌ}} “much, many” → {{كَثِيرًا|kathīran}} “a lot”, {{جَيِّدٌ}} “good” → {{جَيِّدًا|jayyidan}} “well”."},
+        {"term":"adverb","means":"a word that says how, how often, when or where something happens: well, always, today, here."},
+        { "table": [
+          ["","Arabic","Example"],
+          ["very","{{جِدًّا|jiddan}}","{{الْجَوُّ حَارٌّ جِدًّا.|al-jawwu ḥārrun jiddan.}} It's very hot."],
+          ["a lot","{{كَثِيرًا|kathīran}}","{{يَعْمَلُ كَثِيرًا.|yaʿmalu kathīran.}} He works a lot."],
+          ["a little","{{قَلِيلًا|qalīlan}}","{{أَنَامُ قَلِيلًا.|anāmu qalīlan.}} I sleep a little."],
+          ["always","{{دَائِمًا|dāʾiman}}","{{هُوَ دَائِمًا مُتَأَخِّرٌ.|huwa dāʾiman mutaʾakhkhirun.}} He's always late."],
+          ["sometimes","{{أَحْيَانًا|aḥyānan}}","{{أَحْيَانًا أَطْبُخُ.|aḥyānan aṭbukhu.}} Sometimes I cook."],
+          ["never (with {{لَا}})","{{أَبَدًا|abadan}}","{{لَا أُدَخِّنُ أَبَدًا.|lā udakhkhinu abadan.}} I never smoke."],
+          ["every day","{{كُلَّ يَوْمٍ|kulla yawmin}}","{{أَمْشِي كُلَّ يَوْمٍ.|amshī kulla yawmin.}} I walk every day."],
+          ["also, too","{{أَيْضًا|ayḍan}}","{{وَأَنَا أَيْضًا.|wa-anā ayḍan.}} Me too."],
+          ["only","{{فَقَطْ|faqaṭ}}","{{عِنْدِي سُؤَالٌ وَاحِدٌ فَقَطْ.|ʿindī suʾālun wāḥidun faqaṭ.}} I have just one question."],
+          ["together","{{مَعًا|maʿan}}","{{نَدْرُسُ مَعًا.|nadrusu maʿan.}} We study together."]
+        ] },
+        {"p":"**When**: {{الْيَوْمَ|al-yawma}} “today”, {{غَدًا|ghadan}} “tomorrow”, {{أَمْسِ|amsi}} “yesterday”, {{الْآنَ|al-āna}} “now”, {{صَبَاحًا|ṣabāḥan}} “in the morning”, {{مَسَاءً|masāʾan}} “in the evening”. They usually come after the verb and its object, or at the start for emphasis."},
+        { "ex": [
+          {"t":"شُكْرًا جَزِيلًا.","r":"shukran jazīlan.","tr":"Thank you very much."},
+          {"t":"لَا أَشْرَبُ الْقَهْوَةَ أَبَدًا.","r":"lā ashrabu l-qahwata abadan.","tr":"I never drink coffee."},
+          {"t":"نَدْرُسُ مَعًا كُلَّ يَوْمٍ.","r":"nadrusu maʿan kulla yawmin.","tr":"We study together every day."},
+          {"t":"هُوَ دَائِمًا مُتَأَخِّرٌ.","r":"huwa dāʾiman mutaʾakhkhirun.","tr":"He's always late."},
+          {"t":"أَرْجِعُ إِلَى الْبَيْتِ مَسَاءً.","r":"arjiʿu ilā l-bayti masāʾan.","tr":"I come home in the evening."}
+        ] },
+        {"tip":"{{جِدًّا}} comes **after** the word it strengthens: {{جَمِيلٌ جِدًّا}} “very beautiful”."}
+      ],
+      "mistakes": [
+        {"wrong":"جِدًّا جَمِيلٌ","right":"جَمِيلٌ جِدًّا","tr":"very beautiful","why":"{{جِدًّا}} comes after the adjective."},
+        {"wrong":"أَبَدًا أَشْرَبُ الْقَهْوَةَ.","right":"لَا أَشْرَبُ الْقَهْوَةَ أَبَدًا.","tr":"I never drink coffee.","why":"{{أَبَدًا}} needs {{لَا}} before the verb to mean “never”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"أَتَكَلَّمُ الْعَرَبِيَّةَ ___.","tr":"I speak a little Arabic.","options":["قَلِيلًا","قَلِيلٌ","قَلِيلٍ"],"answer":0,"why":"“How much”: the -an form."},
+        {"type":"choice","q":"{{أَحْيَانًا}} means…","options":["always","sometimes","never"],"answer":1,"why":"{{أَحْيَانًا}}, aḥyānan, “sometimes”."},
+        {"type":"choice","q":"“It's very hot” is…","options":["{{الْجَوُّ حَارٌّ جِدًّا.}}","{{الْجَوُّ جِدًّا حَارٌّ.}}"],"answer":0,"why":"{{جِدًّا}} after the adjective.","from":"describe"},
+        {"type":"order","q":"Put the words in order.","tr":"We study together every day.","words":["نَدْرُسُ","مَعًا","كُلَّ","يَوْمٍ."]},
+        {"type":"say","q":"Say “Thank you very much.”","answer":"شُكْرًا جَزِيلًا.","r":"shukran jazīlan."},
+        {"type":"free","q":"Your turn: say something you always do, something you sometimes do, and something you never do.","answers":[{"t":"أَشْرَبُ الْقَهْوَةَ دَائِمًا فِي الصَّبَاحِ.","r":"ashrabu l-qahwata dāʾiman fī ṣ-ṣabāḥi.","tr":"I always drink coffee in the morning."},{"t":"أَحْيَانًا أَمْشِي إِلَى الْعَمَلِ.","r":"aḥyānan amshī ilā l-ʿamali.","tr":"Sometimes I walk to work."},{"t":"لَا أَطْبُخُ أَبَدًا.","r":"lā aṭbukhu abadan.","tr":"I never cook."}]}
+      ]
+    },
+    {
+      "id": "activities",
+      "unit": 4,
+      "level": "A2",
+      "title": "Talk about your hobbies",
+      "summary": "“I like reading”, “Swimming is good for you”, “Learning languages is fun”: the action itself as a noun.",
+      "topic": "The verbal noun (maṣdar)",
+      "blocks": [
+        {"goal":{"t":"أُحِبُّ الْقِرَاءَةَ وَالسِّبَاحَةَ.","r":"uḥibbu l-qirāʾata wa-s-sibāḥata.","tr":"I like reading and swimming."}},
+        {"dialog":[{"who":"Karim","t":"مَاذَا تُحِبِّينَ أَنْ تَفْعَلِي فِي وَقْتِ الْفَرَاغِ؟","r":"mādhā tuḥibbīna an tafʿalī fī waqti l-farāghi?","tr":"What do you like doing in your free time?"},{"who":"Hala","t":"أُحِبُّ الْقِرَاءَةَ كَثِيرًا، وَالطَّبْخَ أَيْضًا.","r":"uḥibbu l-qirāʾata kathīran, wa-ṭ-ṭabkha ayḍan.","tr":"I love reading, and cooking too."},{"who":"Karim","t":"وَالرِّيَاضَةُ؟","r":"wa-r-riyāḍatu?","tr":"And sport?"},{"who":"Hala","t":"السِّبَاحَةُ فَقَطْ. هِيَ مُفِيدَةٌ جِدًّا.","r":"as-sibāḥatu faqaṭ. hiya mufīdatun jiddan.","tr":"Just swimming. It's very good for you."}]},
+        {"term":"verbal noun","means":"a noun that names the action of a verb: reading, writing, travel. Arabic calls it maṣdar."},
+        {"p":"Each Arabic verb has a noun for the action itself: {{قَرَأَ|qaraʾa}} “he read” → {{الْقِرَاءَةُ|al-qirāʾatu}} “reading”. Use it to talk about activities, as a subject ({{السِّبَاحَةُ مُفِيدَةٌ}} “Swimming is good for you”) or an object ({{أُحِبُّ الْقِرَاءَةَ}} “I like reading”)."},
+        {"p":"It can also replace {{أَنْ}} + verb: {{أُرِيدُ السَّفَرَ}} = {{أُرِيدُ أَنْ أُسَافِرَ}} “I want to travel”. Their shapes vary, so learn each with its verb (for the longer verb families, in a later lesson, they're regular)."},
+        { "table": [
+          ["verb","verbal noun","meaning"],
+          ["{{قَرَأَ|qaraʾa}}","{{قِرَاءَةٌ|qirāʾatun}}","reading"],
+          ["{{كَتَبَ|kataba}}","{{كِتَابَةٌ|kitābatun}}","writing"],
+          ["{{سَافَرَ|sāfara}}","{{سَفَرٌ|safarun}}","travel"],
+          ["{{سَبَحَ|sabaḥa}}","{{سِبَاحَةٌ|sibāḥatun}}","swimming"],
+          ["{{طَبَخَ|ṭabakha}}","{{طَبْخٌ|ṭabkhun}}","cooking"],
+          ["{{نَامَ|nāma}}","{{نَوْمٌ|nawmun}}","sleep"],
+          ["{{تَعَلَّمَ|taʿallama}}","{{تَعَلُّمٌ|taʿallumun}}","learning"]
+        ] },
+        { "ex": [
+          {"t":"السِّبَاحَةُ مُفِيدَةٌ.","r":"as-sibāḥatu mufīdatun.","tr":"Swimming is good for you."},
+          {"t":"تَعَلُّمُ اللُّغَاتِ مُمْتِعٌ.","r":"taʿallumu l-lughāti mumtiʿun.","tr":"Learning languages is fun."},
+          {"t":"لَا أُحِبُّ الطَّبْخَ.","r":"lā uḥibbu ṭ-ṭabkha.","tr":"I don't like cooking."},
+          {"t":"أُرِيدُ السَّفَرَ إِلَى الْمَغْرِبِ.","r":"urīdu s-safara ilā l-maghribi.","tr":"I want to travel to Morocco."},
+          {"t":"النَّوْمُ مُهِمٌّ.","r":"an-nawmu muhimmun.","tr":"Sleep is important."}
+        ] },
+        {"tip":"A verbal noun can have its own object in an iḍāfa: {{تَعَلُّمُ اللُّغَاتِ}} “learning (of) languages”, {{شُرْبُ الْمَاءِ|shurbu l-māʾi}} “drinking water”."}
+      ],
+      "mistakes": [
+        {"wrong":"أُحِبُّ أَقْرَأُ.","right":"أُحِبُّ الْقِرَاءَةَ.","tr":"I like reading.","why":"Use the verbal noun ({{الْقِرَاءَةَ}}) or {{أَنْ أَقْرَأَ}}; two verbs can't simply follow each other."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"أُحِبُّ ___ وَالطَّبْخَ.","tr":"I like reading and cooking.","options":["الْقِرَاءَةَ","أَقْرَأُ","قَرَأَ"],"answer":0,"why":"The verbal noun, as the object: -a."},
+        {"type":"choice","q":"{{الْكِتَابَةُ}} is the verbal noun of…","options":["{{كَتَبَ}} “write”","{{قَرَأَ}} “read”"],"answer":0,"why":"Same root, {{ك ت ب}}.","from":"read-arabic-words"},
+        {"type":"choice","q":"Which means the same as {{أُرِيدُ أَنْ أُسَافِرَ}}?","options":["{{أُرِيدُ السَّفَرَ.}}","{{أُرِيدُ سَافَرَ.}}"],"answer":0,"why":"The verbal noun can replace {{أَنْ}} + verb.","from":"say-what-you-want"},
+        {"type":"order","q":"Put the words in order.","tr":"Learning languages is fun.","words":["تَعَلُّمُ","اللُّغَاتِ","مُمْتِعٌ."],"from":"two-nouns"},
+        {"type":"say","q":"Say “Sleep is important.”","answer":"النَّوْمُ مُهِمٌّ.","r":"an-nawmu muhimmun."},
+        {"type":"free","q":"Your turn: say what you like doing in your free time, and what you don't like.","answers":[{"t":"أُحِبُّ الْمَشْيَ وَالْقِرَاءَةَ.","r":"uḥibbu l-mashya wa-l-qirāʾata.","tr":"I like walking and reading."},{"t":"لَا أُحِبُّ الرِّيَاضَةَ كَثِيرًا.","r":"lā uḥibbu r-riyāḍata kathīran.","tr":"I don't like sport much."}]}
+      ]
+    },
+    {
+      "id": "plans",
+      "unit": 4,
+      "level": "A2",
+      "title": "Talk about your plans",
+      "summary": "“I'll call you tomorrow”, “We'll see”, “I won't forget”, “It'll be cold”.",
+      "topic": "The future: {{سَـ}} and {{سَوْفَ}}; “won't”: {{لَنْ}} + the -a form",
+      "blocks": [
+        {"goal":{"t":"سَأَتَّصِلُ بِكَ غَدًا، إِنْ شَاءَ اللَّهُ.","r":"sa-attaṣilu bika ghadan, in shāʾa llāhu.","tr":"I'll call you tomorrow, God willing."}},
+        {"dialog":[{"who":"Samira","t":"مَاذَا سَتَفْعَلُ فِي الْعُطْلَةِ؟","r":"mādhā sa-tafʿalu fī l-ʿuṭlati?","tr":"What will you do in the holidays?"},{"who":"Rami","t":"سَأُسَافِرُ إِلَى الْأُرْدُنِّ مَعَ عَائِلَتِي.","r":"sa-usāfiru ilā l-urdunni maʿa ʿāʾilatī.","tr":"I'll travel to Jordan with my family."},{"who":"Samira","t":"جَمِيلٌ! هَلْ سَتَزُورُ الْبَتْرَاءَ؟","r":"jamīlun! hal sa-tazūru l-batrāʾa?","tr":"Lovely! Will you visit Petra?"},{"who":"Rami","t":"طَبْعًا! لَنْ أَرْجِعَ قَبْلَ أَنْ أَرَاهَا.","r":"ṭabʿan! lan arjiʿa qabla an arāhā.","tr":"Of course! I won't come back before I've seen it."}]},
+        {"p":"For the future, put {{سَـ|sa-}} (joined to the verb) or {{سَوْفَ|sawfa}} (a separate word) in front of a present verb: {{أُسَافِرُ}} “I travel” → {{سَأُسَافِرُ غَدًا.|sa-usāfiru ghadan.}} “I'll travel tomorrow.” {{سَـ}} is the everyday one; {{سَوْفَ}} sounds a little further off or more formal: {{سَوْفَ نَرَى.|sawfa narā.}} “We'll see.”"},
+        {"p":"**“Won't”**: {{لَنْ|lan}} + the -a form, as after {{أَنْ}}: {{لَنْ أَنْسَى.|lan ansā.}} “I won't forget.”, {{لَنْ يَأْتُوا.|lan yaʾtū.}} “They won't come.” (Not {{لَا سَـ}}.)"},
+        {"p":"The future of “be” is {{سَيَكُونُ|sa-yakūnu}}, and what follows ends in -an, as after {{لَيْسَ}}: {{سَيَكُونُ الْجَوُّ بَارِدًا.|sa-yakūnu l-jawwu bāridan.}} “It will be cold.”"},
+        { "ex": [
+          {"t":"مَتَى سَتَرْجِعُ؟","r":"matā sa-tarjiʿu?","tr":"When will you be back?"},
+          {"t":"سَوْفَ نَرَى.","r":"sawfa narā.","tr":"We'll see."},
+          {"t":"لَنْ أَنْسَى هَذَا الْيَوْمَ.","r":"lan ansā hādhā l-yawma.","tr":"I'll never forget this day."},
+          {"t":"سَيَكُونُ الْجَوُّ بَارِدًا غَدًا.","r":"sa-yakūnu l-jawwu bāridan ghadan.","tr":"It will be cold tomorrow."},
+          {"t":"لَنْ يَأْتُوا الْيَوْمَ.","r":"lan yaʾtū l-yawma.","tr":"They won't come today."}
+        ] },
+        {"tip":"{{إِنْ شَاءَ اللَّهُ|in shāʾa llāhu}} “God willing” goes with almost every plan in the Arab world, whatever the speaker's beliefs: it's simply what people say."}
+      ],
+      "mistakes": [
+        {"wrong":"لَا سَأَذْهَبُ.","right":"لَنْ أَذْهَبَ.","tr":"I won't go.","why":"“Won't” is {{لَنْ}} + the -a form."},
+        {"wrong":"سَ أُسَافِرُ","right":"سَأُسَافِرُ","tr":"I'll travel","why":"{{سَـ}} is written joined to the verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ إِلَى الْأُرْدُنِّ.","tr":"I'll travel to Jordan.","options":["سَأُسَافِرُ","سَافَرْتُ","أُسَافِرَ"],"answer":0,"why":"{{سَـ}} + the present: the future."},
+        {"type":"choice","q":"“I won't forget” is…","options":["{{لَا سَأَنْسَى.}}","{{لَنْ أَنْسَى.}}"],"answer":1,"why":"{{لَنْ}} for “won't”."},
+        {"type":"choice","q":"{{سَيَكُونُ الْجَوُّ بَارِدًا.}} means…","options":["It was cold.","It will be cold.","It isn't cold."],"answer":1,"why":"{{سَـ}}: the future."},
+        {"type":"dialogue","q":"A friend asks about your weekend. Choose your replies.","lines":[{"who":"Friend","t":"هَلْ سَتَأْتِي إِلَى الْحَفْلَةِ؟","r":"hal sa-taʾtī ilā l-ḥaflati?","tr":"Will you come to the party?"},{"options":["لِلْأَسَفِ، لَنْ أَسْتَطِيعَ.","لِلْأَسَفِ، لَا سَأَسْتَطِيعُ."],"answer":0,"why":"{{لَنْ}} + the -a form."},{"who":"Friend","t":"لِمَاذَا؟","r":"limādhā?","tr":"Why?"},{"options":["يَجِبُ أَنْ أَعْمَلَ.","يَجِبُ أَنْ أَعْمَلُ."],"answer":0,"why":"After {{أَنْ}}: -a."}],"from":"can-must"},
+        {"type":"say","q":"Tell a man: “I'll call you tomorrow.”","answer":"سَأَتَّصِلُ بِكَ غَدًا.","r":"sa-attaṣilu bika ghadan."},
+        {"type":"free","q":"Your turn: what will you do this weekend? Say two things you'll do and one you won't.","answers":[{"t":"سَأَزُورُ أَهْلِي، وَسَنَأْكُلُ مَعًا.","r":"sa-azūru ahlī, wa-sa-naʾkulu maʿan.","tr":"I'll visit my family, and we'll eat together."},{"t":"لَنْ أَعْمَلَ يَوْمَ السَّبْتِ.","r":"lan aʿmala yawma s-sabti.","tr":"I won't work on Saturday."}]}
+      ]
+    },
+    {
+      "id": "requests",
+      "unit": 4,
+      "level": "A2",
+      "title": "Ask and tell people to do things",
+      "summary": "“Come in”, “Wait here, please”, “Don't worry”, “Tell me”.",
+      "topic": "Commands, and “don't…!” ({{لَا}} + the short form)",
+      "blocks": [
+        {"goal":{"t":"تَفَضَّلْ، اِجْلِسْ!","r":"tafaḍḍal, ijlis!","tr":"Please, have a seat!"}},
+        {"dialog":[{"who":"Host","t":"أَهْلًا وَسَهْلًا! تَفَضَّلُوا، اُدْخُلُوا.","r":"ahlan wa-sahlan! tafaḍḍalū, udkhulū.","tr":"Welcome! Please, come in."},{"who":"Guest","t":"شُكْرًا. أَيْنَ نَضَعُ الْأَحْذِيَةَ؟","r":"shukran. ayna naḍaʿu l-aḥdhiyata?","tr":"Thank you. Where shall we put our shoes?"},{"who":"Host","t":"هُنَا. وَاجْلِسُوا هُنَاكَ، لَا تَقِفُوا!","r":"hunā. wa-jlisū hunāka, lā taqifū!","tr":"Here. And sit over there, don't stand!"},{"who":"Guest","t":"لَا تُتْعِبِي نَفْسَكِ، مِنْ فَضْلِكِ.","r":"lā tutʿibī nafsaki, min faḍliki.","tr":"Please don't go to any trouble."}]},
+        {"term":"command","means":"the form of a verb used to tell or invite someone to do something: Sit down! Come in!"},
+        {"p":"A command comes from the present without its first letter: {{تَكْتُبُ}} → {{اُكْتُبْ!|uktub!}} “Write!”, with no vowel at the end. If the word would then start with two consonants, a vowel is put in front: {{اُ}} when the verb has u ({{اُكْتُبْ}}, {{اُدْخُلْ}}), otherwise {{اِ}} ({{اِجْلِسْ|ijlis}} “sit”, {{اِذْهَبْ|idhhab}} “go”)."},
+        { "table": [
+          ["","to a man","to a woman","to a group"],
+          ["write","{{اُكْتُبْ|uktub}}","{{اُكْتُبِي|uktubī}}","{{اُكْتُبُوا|uktubū}}"],
+          ["sit","{{اِجْلِسْ|ijlis}}","{{اِجْلِسِي|ijlisī}}","{{اِجْلِسُوا|ijlisū}}"],
+          ["come in","{{اُدْخُلْ|udkhul}}","{{اُدْخُلِي|udkhulī}}","{{اُدْخُلُوا|udkhulū}}"],
+          ["please, go ahead","{{تَفَضَّلْ|tafaḍḍal}}","{{تَفَضَّلِي|tafaḍḍalī}}","{{تَفَضَّلُوا|tafaḍḍalū}}"]
+        ] },
+        {"p":"Some common ones to learn as they are: {{تَعَالَ|taʿāla}} “come here”, {{قُلْ لِي|qul lī}} “tell me”, {{اِنْتَظِرْ|intaẓir}} “wait”, {{سَاعِدْنِي|sāʿidnī}} “help me”."},
+        {"p":"**“Don't…!”**: {{لَا}} + the present, keeping its first letter, with no vowel at the end (and no n in -īna, -ūna): {{لَا تَقْلَقْ!|lā taqlaq!}} “Don't worry!”, {{لَا تَقْلَقِي!}} to a woman, {{لَا تَقِفُوا!}} to a group."},
+        {"term":"jussive","means":"the short form of a present verb, with no vowel at the end (and no n in -īna, -ūna). It follows {{لَا}} in “don't!”, and a few other little words."},
+        { "ex": [
+          {"t":"اِنْتَظِرْنِي هُنَا، مِنْ فَضْلِكَ.","r":"intaẓirnī hunā, min faḍlika.","tr":"Wait for me here, please."},
+          {"t":"لَا تَقْلَقِي!","r":"lā taqlaqī!","tr":"Don't worry!","note":"to a woman"},
+          {"t":"اُكْتُبُوا أَسْمَاءَكُمْ.","r":"uktubū asmāʾakum.","tr":"Write your names.","note":"to a group"},
+          {"t":"تَعَالَ مَعِي.","r":"taʿāla maʿī.","tr":"Come with me."},
+          {"t":"قُلْ لِي، مَاذَا تُرِيدُ؟","r":"qul lī, mādhā turīdu?","tr":"Tell me, what do you want?"}
+        ] },
+        {"tip":"{{تَفَضَّلْ}} is one of the most useful words in Arabic: say it when you hold a door, offer food, hand something over, or invite someone in."}
+      ],
+      "mistakes": [
+        {"wrong":"تَكْتُبْ!","right":"اُكْتُبْ!","tr":"Write!","why":"A command drops the {{تَـ}} and adds a helping vowel."},
+        {"wrong":"لَا تَقْلَقُ!","right":"لَا تَقْلَقْ!","tr":"Don't worry!","why":"“Don't” takes the short form: no vowel at the end."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___، اِجْلِسْ!","tr":"Please, have a seat!","options":["تَفَضَّلْ","تَفَضَّلَ","يَتَفَضَّلُ"],"answer":0,"why":"The command, to a man: {{تَفَضَّلْ}}."},
+        {"type":"choice","q":"Tell a woman: “Don't worry!”","options":["{{لَا تَقْلَقْ!}}","{{لَا تَقْلَقِي!}}","{{لَنْ تَقْلَقِي!}}"],"answer":1,"why":"To a woman: -ī, with {{لَا}}."},
+        {"type":"choice","q":"Tell a group: “Come in!”","options":["{{اُدْخُلْ!}}","{{اُدْخُلِي!}}","{{اُدْخُلُوا!}}"],"answer":2,"why":"To a group: -ū."},
+        {"type":"order","q":"Put the words in order.","tr":"Wait for me here, please. (to a man)","words":["اِنْتَظِرْنِي","هُنَا،","مِنْ","فَضْلِكَ."],"from":"me-and-you"},
+        {"type":"say","q":"Tell a group: “Write your names.”","answer":"اُكْتُبُوا أَسْمَاءَكُمْ.","r":"uktubū asmāʾakum.","from":"whose"},
+        {"type":"free","q":"Your turn: you have a guest. Invite them in, offer them a seat and something to drink.","answers":[{"t":"تَفَضَّلْ، اُدْخُلْ!","r":"tafaḍḍal, udkhul!","tr":"Please, come in!"},{"t":"اِجْلِسْ هُنَا. مَاذَا تُرِيدُ أَنْ تَشْرَبَ؟","r":"ijlis hunā. mādhā turīdu an tashraba?","tr":"Sit here. What would you like to drink?"}]}
+      ]
+    },
+    {
+      "id": "talking-to",
+      "unit": 4,
+      "level": "A2",
+      "title": "Talk to a man, a woman, or a group",
+      "summary": "One “you”, three forms: everything that changes when you talk to a woman or to a group, side by side.",
+      "topic": "Review: the forms for “you” (man, woman, group) in pronouns, endings, verbs and commands",
+      "blocks": [
+        {"goal":{"t":"كَيْفَ حَالُكُمْ؟ تَفَضَّلُوا، اِجْلِسُوا!","r":"kayfa ḥālukum? tafaḍḍalū, ijlisū!","tr":"How are you all? Please, sit down!"}},
+        {"p":"Arabic marks who you're talking to almost everywhere. Here is what you've learned, side by side:"},
+        { "table": [
+          ["","to a man","to a woman","to a group"],
+          ["you","{{أَنْتَ|anta}}","{{أَنْتِ|anti}}","{{أَنْتُمْ|antum}}"],
+          ["your book","{{كِتَابُكَ|kitābuka}}","{{كِتَابُكِ|kitābuki}}","{{كِتَابُكُمْ|kitābukum}}"],
+          ["you write","{{تَكْتُبُ|taktubu}}","{{تَكْتُبِينَ|taktubīna}}","{{تَكْتُبُونَ|taktubūna}}"],
+          ["write!","{{اُكْتُبْ|uktub}}","{{اُكْتُبِي|uktubī}}","{{اُكْتُبُوا|uktubū}}"],
+          ["you're tired","{{أَنْتَ مُتْعَبٌ}}","{{أَنْتِ مُتْعَبَةٌ}}","{{أَنْتُمْ مُتْعَبُونَ}}"],
+          ["thank you","{{شُكْرًا لَكَ|shukran laka}}","{{شُكْرًا لَكِ|shukran laki}}","{{شُكْرًا لَكُمْ|shukran lakum}}"]
+        ] },
+        {"p":"The pattern: for a woman, think **-i** ({{ـكِ}}, {{أَنْتِ}}, -īna, -ī); for a group, think **-u** and **m** ({{ـكُمْ}}, {{أَنْتُمْ}}, -ūna, -ū). Everyday phrases change the same way: {{كَيْفَ حَالُكَ؟}} / {{كَيْفَ حَالُكِ؟}} / {{كَيْفَ حَالُكُمْ؟}}; {{مِنْ فَضْلِكَ}} / {{مِنْ فَضْلِكِ}} / {{مِنْ فَضْلِكُمْ}}."},
+        {"dialog":[{"who":"Teacher","t":"صَبَاحَ الْخَيْرِ! كَيْفَ حَالُكُمُ الْيَوْمَ؟","r":"ṣabāḥa l-khayri! kayfa ḥālukumu l-yawma?","tr":"Good morning! How are you all today?"},{"who":"Students","t":"بِخَيْرٍ، شُكْرًا.","r":"bi-khayrin, shukran.","tr":"Fine, thanks."},{"who":"Teacher","t":"يَا مَرْيَمُ، هَلْ أَنْتِ جَاهِزَةٌ؟ اِقْرَئِي الْجُمْلَةَ الْأُولَى، مِنْ فَضْلِكِ.","r":"yā maryamu, hal anti jāhizatun? iqraʾī l-jumlata l-ūlā, min faḍliki.","tr":"Maryam, are you ready? Read the first sentence, please."}]},
+        {"p":"Before {{الْـ}}, the m of -kum and -tum takes a u to join on: {{كَيْفَ حَالُكُمُ الْيَوْمَ؟|kayfa ḥālukumu l-yawma?}}"},
+        { "ex": [
+          {"t":"أَيْنَ تَعْمَلِينَ؟","r":"ayna taʿmalīna?","tr":"Where do you work?","note":"to a woman"},
+          {"t":"شُكْرًا لَكِ عَلَى الْمُسَاعَدَةِ.","r":"shukran laki ʿalā l-musāʿadati.","tr":"Thank you for your help.","note":"to a woman"},
+          {"t":"تَفَضَّلُوا، اُدْخُلُوا.","r":"tafaḍḍalū, udkhulū.","tr":"Please, come in.","note":"to a group"},
+          {"t":"أَنْتِ عَلَى حَقٍّ.","r":"anti ʿalā ḥaqqin.","tr":"You're right.","note":"to a woman"},
+          {"t":"مَاذَا تُرِيدُونَ أَنْ تَشْرَبُوا؟","r":"mādhā turīdūna an tashrabū?","tr":"What would you like to drink?","note":"to a group"}
+        ] },
+        {"tip":"Mixed groups use the group form. Only a group of women uses its own forms ({{أَنْتُنَّ}}, {{تَكْتُبْنَ}}), mostly in formal speech."}
+      ],
+      "mistakes": [
+        {"wrong":"أَنْتِ تَعْمَلُ هُنَا؟","right":"أَنْتِ تَعْمَلِينَ هُنَا؟","tr":"Do you work here? (to a woman)","why":"To a woman: -īna."},
+        {"wrong":"تَفَضَّلْ، اُدْخُلُوا.","right":"تَفَضَّلُوا، اُدْخُلُوا.","tr":"Please, come in. (to a group)","why":"Talking to a group, every word for “you” changes: {{تَفَضَّلُوا}} too."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"كَيْفَ ___؟","tr":"How are you? (to a woman)","options":["حَالُكِ","حَالُكَ","حَالُكُمْ"],"answer":0,"why":"To a woman: -ki."},
+        {"type":"choice","q":"Thank a group:","options":["{{شُكْرًا لَكُمْ}}","{{شُكْرًا لَكِ}}","{{شُكْرًا لَكَ}}"],"answer":0,"why":"A group: -kum."},
+        {"type":"dialogue","q":"Two friends (a man and a woman) visit you. Choose your replies.","lines":[{"who":"Friends","t":"مَرْحَبًا! كَيْفَ حَالُكَ؟","r":"marḥaban! kayfa ḥāluka?","tr":"Hi! How are you?"},{"options":["بِخَيْرٍ! تَفَضَّلُوا، اُدْخُلُوا.","بِخَيْرٍ! تَفَضَّلْ، اُدْخُلْ."],"answer":0,"why":"Two or more people: the group form."},{"who":"Friends","t":"شُكْرًا.","r":"shukran.","tr":"Thank you."},{"options":["مَاذَا تُرِيدُونَ أَنْ تَشْرَبُوا؟","مَاذَا تُرِيدِينَ أَنْ تَشْرَبِي؟"],"answer":0,"why":"To the group: -ūna, -ū."}],"from":"requests"},
+        {"type":"order","q":"Put the words in order.","tr":"What would you like to drink? (to a group)","words":["مَاذَا","تُرِيدُونَ","أَنْ","تَشْرَبُوا؟"]},
+        {"type":"say","q":"Tell a woman: “You're right.”","answer":"أَنْتِ عَلَى حَقٍّ.","r":"anti ʿalā ḥaqqin."},
+        {"type":"free","q":"Your turn: greet a group of guests, ask how they are, and invite them to sit.","answers":[{"t":"أَهْلًا وَسَهْلًا! كَيْفَ حَالُكُمْ؟","r":"ahlan wa-sahlan! kayfa ḥālukum?","tr":"Welcome! How are you all?"},{"t":"تَفَضَّلُوا، اِجْلِسُوا هُنَا.","r":"tafaḍḍalū, ijlisū hunā.","tr":"Please, sit here."}]}
+      ]
     }
   ]
 }
