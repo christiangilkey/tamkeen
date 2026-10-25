@@ -1898,6 +1898,425 @@
         {"type":"dialogue","q":"At a party, a friend points people out. Choose your replies.","lines":[{"who":"Ana","t":"Nakikita mo ba iyong lalaking nakasuot ng asul?","tr":"Do you see that man in blue?"},{"options":["Oo. Siya ba ang lalaking tumawag sa iyo kahapon?","Oo. Siya ba ang lalaking tinawagan sa iyo kahapon?"],"answer":0,"why":"He's the one who called: actor focus, {{tumawag}}."},{"who":"Ana","t":"Oo! At siya rin ang nagdala ng cake na kinakain mo!","tr":"Yes! And he's also the one who brought the cake you're eating!"},{"options":["Talaga? Ang sarap ng cake na dinala niya!","Talaga? Ang sarap ng cake na nagdala niya!"],"answer":0,"why":"The cake is what he brought: object focus, {{dinala niya}}."}],"from":"describe-people-and-things"},
         {"type":"free","q":"Your turn: describe two people or things in your life with a description tied on: “the friend who…”, “the food I…”.","answers":[{"t":"Si Ana ang kaibigang tumulong sa akin noong lumipat ako. Adobo ang pagkaing pinakagusto ko.","tr":"Ana is the friend who helped me when I moved. Adobo is the food I like best."},{"t":"Ito ang librong binabasa ko ngayon. Mababait ang mga taong nakatira sa tabi namin.","tr":"This is the book I'm reading now. The people who live next door are nice."}]}
       ]
+    },
+    {
+      "id": "report-what-people-say",
+      "unit": 8,
+      "level": "B1",
+      "title": "Pass on what someone said",
+      "summary": "Report what you heard and what people asked: “Ana says she'll come later.” “He asked if we can wait.”",
+      "topic": "{{daw}} / {{raw}}; {{sabi ni…}}, {{sinabi niya na…}}; {{tinanong niya kung…}} “asked whether”",
+      "blocks": [
+        {"goal":{"t":"Sabi ni Ana, pupunta raw siya mamaya.","tr":"Ana says she'll come later."}},
+        {"dialog":[{"who":"Ben","t":"Tumawag si Ana kanina.","tr":"Ana called earlier."},{"who":"Liza","t":"Ano ang sabi niya?","tr":"What did she say?"},{"who":"Ben","t":"Male-late daw siya kasi traffic sa EDSA. Tinanong niya kung pwede tayong maghintay.","tr":"She says she'll be late because there's traffic on EDSA. She asked if we can wait."},{"who":"Liza","t":"Sige. Sabihin mo sa kanya na hihintayin natin siya.","tr":"Okay. Tell her we'll wait for her."}]},
+        {"p":"**{{daw}} / {{raw}} “he says, she says, they say”** is the quickest way to pass something on. Keep the sentence as it was said, change the pronoun to fit (as in English), and slip {{daw}} in after the first word: {{Pagod ako.}} “I'm tired.” → {{Pagod daw siya.}} “She says she's tired.” After a vowel it's {{raw}}: {{Uuwi raw siya.}} “She says she's coming home.” It also means “I've heard, people say”: {{Uulan daw bukas.}} “They say it'll rain tomorrow.”"},
+        {"p":"**{{sabi ni…}} “… says, … said”** names who said it, usually at the start: {{Sabi ni Ana, pupunta raw siya.}} Filipinos often keep {{daw}} as well. With a noun: {{Sabi ng doktor…}} “The doctor says…”"},
+        {"p":"**{{sinabi niya na…}} “she said that…”**: the full verb {{sabihin}} (object focus), with {{na}} “that” before the words said: {{Sinabi niya na pagod siya.}} “He said he was tired.” As a command: {{Sabihin mo sa kanya na…}} “Tell her that…”"},
+        {"p":"**Questions**: {{tinanong niya kung…}} “she asked if…”: {{Tinanong niya kung pwede tayong maghintay.}} With a question word, keep the question word: {{Tinanong niya kung saan ka nakatira.}} “She asked where you live.”"},
+        { "table": [
+          ["what she said","what you pass on"],
+          ["{{Pagod ako.}}","{{Pagod daw siya.}} / {{Sinabi niya na pagod siya.}}"],
+          ["{{Pupunta ako.}}","{{Pupunta raw siya.}}"],
+          ["{{Libre ka ba?}}","{{Tinanong niya kung libre ka.}}"],
+          ["{{Saan ka nakatira?}}","{{Tinanong niya kung saan ka nakatira.}}"]
+        ] },
+        {"p":"Unlike English (“she said she **was** tired”), Tagalog keeps the verb form the speaker used: {{Sinabi niya na pagod siya.}}, {{Pupunta raw siya.}}"},
+        { "ex": [
+          {"t":"Sabi ni Ana, pupunta raw siya mamaya.","tr":"Ana says she'll come later."},
+          {"t":"Male-late daw siya.","tr":"She says she'll be late.","note":"{{late}} ends in a t sound, so {{daw}}"},
+          {"t":"Uulan daw bukas.","tr":"They say it'll rain tomorrow."},
+          {"t":"Sinabi ng doktor na kailangan kong magpahinga.","tr":"The doctor said I need to rest."},
+          {"t":"Tinanong niya kung libre ka sa Sabado.","tr":"He asked if you're free on Saturday."},
+          {"t":"Sabihin mo sa kanya na tatawag ako mamaya.","tr":"Tell her I'll call later."},
+          {"t":"Ano raw?","tr":"What did they say?"}
+        ] },
+        {"tip":"{{daw}} also passes on instructions: {{Kumain ka na raw.}} “(Mom) says you should eat now.” Filipinos like it because it says “these aren't my words”: a gentle way to deliver news or orders."}
+      ],
+      "mistakes": [
+        {"wrong":"Pagod daw ako.","right":"Pagod daw siya.","tr":"She says she's tired.","why":"Change the pronoun to fit who's talking: she said it about herself, so {{siya}}."},
+        {"wrong":"Tinanong niya na libre ka.","right":"Tinanong niya kung libre ka.","tr":"He asked if you're free.","why":"A yes-or-no question passed on: “whether, if” is {{kung}}, not {{na}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Uuwi ___ siya mamaya.","tr":"She says she's coming home later.","options":["raw","daw","ba"],"answer":0,"why":"After a vowel ({{uuwi}}): {{raw}}.","from":"sound-natural-with-little-words"},
+        {"type":"fill","q":"Choose the missing word.","t":"Tinanong niya ___ libre ka sa Sabado.","tr":"He asked if you're free on Saturday.","options":["kung","na","kasi"],"answer":0,"why":"Passing on a yes-or-no question: {{kung}}."},
+        {"type":"choice","q":"Ben told you {{Pagod ako.}} You tell Ana…","options":["{{Pagod daw si Ben.}}","{{Pagod daw ako.}}","{{Pagod si Ben ako.}}"],"answer":0,"why":"It's Ben who's tired: {{si Ben}}, with {{daw}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Tell her I'll call later.","words":["Sabihin mo","sa kanya","na","tatawag ako","mamaya."],"from":"tell-people-what-to-do"},
+        {"type":"dialogue","q":"You took a phone call for your housemate. Choose your replies.","lines":[{"who":"Housemate","t":"May tumawag ba sa akin?","tr":"Did anyone call me?"},{"options":["Oo, si Mark. Tatawag daw ulit siya mamaya.","Oo, si Mark. Tatawag ulit ako mamaya."],"answer":0,"why":"Passing on Mark's words: {{daw}}, and Mark is {{siya}}."},{"who":"Housemate","t":"May sinabi pa ba siya?","tr":"Did he say anything else?"},{"options":["Tinanong niya kung pwede kang sumama sa Sabado.","Tinanong niya na pwede ka sa Sabado."],"answer":0,"why":"A yes-or-no question passed on: {{kung}}."}],"from":"say-what-you-need-to-do"},
+        {"type":"say","q":"Pass it on: your teacher said there's no class tomorrow.","answer":"Wala raw klase bukas."},
+        {"type":"free","q":"Your turn: pass on two things someone told you this week: one with {{daw}}, one with {{sinabi niya na}} or {{tinanong niya kung}}.","answers":[{"t":"Sabi ni Mama, uuwi raw siya sa Sabado. Tinanong niya kung kumakain ako nang maayos.","tr":"Mom says she's coming home on Saturday. She asked if I'm eating properly."},{"t":"Masarap daw ang bagong restaurant. Sinabi ng boss ko na wala kaming pasok sa Lunes.","tr":"They say the new restaurant is good. My boss said we don't have work on Monday."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what you think",
+      "summary": "Give your opinion, agree and disagree gently: “I think the red one is nicer.” “You're right.” “I thought it was cheap!”",
+      "topic": "{{sa tingin ko}}, {{sa palagay ko}}, {{para sa akin}}; {{akala ko}} “I thought (but no)”; {{mukhang}} “it looks”; agreeing and disagreeing",
+      "blocks": [
+        {"goal":{"t":"Sa tingin ko, mas maganda ang pula.","tr":"I think the red one is nicer."}},
+        {"dialog":[{"who":"Ana","t":"Ano sa tingin mo, alin ang mas maganda?","tr":"What do you think, which one is nicer?"},{"who":"Liza","t":"Sa tingin ko, mas maganda ang pula. Pero mukhang mahal.","tr":"I think the red one is nicer. But it looks expensive."},{"who":"Ana","t":"Akala ko mura lang! Tatlong libo pala.","tr":"I thought it was cheap! Turns out it's three thousand."},{"who":"Liza","t":"Ang mahal! Para sa akin, hindi sulit.","tr":"So expensive! For me, it's not worth it."},{"who":"Ana","t":"Sang-ayon ako. Tingnan natin ang iba.","tr":"I agree. Let's look at the others."}]},
+        {"p":"**I think**: {{sa tingin ko}} (word for word “in my view”) or {{sa palagay ko}}, at the start, often with a comma: {{Sa tingin ko, uulan mamaya.}} “I think it'll rain later.” Asking: {{Ano sa tingin mo?}} “What do you think?”"},
+        {"p":"**For me**: {{para sa akin}} “for me, in my opinion”: {{Para sa akin, mas masarap ang adobo.}}"},
+        {"p":"**I thought (but I was wrong)**: {{akala ko}}: {{Akala ko sarado ang tindahan.}} “I thought the store was closed (but it isn't).” It usually means you've found out otherwise, often with {{pala}}: {{Akala ko mura. Mahal pala!}} For what you think now, use {{sa tingin ko}}."},
+        {"p":"**It looks…**: {{mukhang}} ({{mukha}} “face, look” + the linker), then an adjective or a whole sentence: {{Mukhang masarap!}} “It looks delicious!” {{Mukhang uulan.}} “It looks like rain.”"},
+        {"p":"**Agreeing**: {{Sang-ayon ako.}} “I agree.”, {{Tama ka.}} “You're right.”, {{Oo nga.}} “That's true.” **Disagreeing**: {{Hindi ako sang-ayon.}} “I don't agree.” Filipinos usually soften a no with {{parang}} “it seems, kind of” or {{siguro}} “maybe”: {{Parang hindi.}} “I don't think so.”"},
+        { "table": [
+          ["","Tagalog","meaning"],
+          ["your opinion","{{Sa tingin ko,…}}","I think…"],
+          ["","{{Para sa akin,…}}","For me…"],
+          ["a wrong idea","{{Akala ko…}}","I thought… (but no)"],
+          ["how it looks","{{Mukhang…}}","It looks…"],
+          ["agree","{{Sang-ayon ako.}} {{Tama ka.}}","I agree. You're right."],
+          ["disagree","{{Hindi ako sang-ayon.}} {{Parang hindi.}}","I don't agree. I don't think so."]
+        ] },
+        { "ex": [
+          {"t":"Sa tingin ko, uulan mamaya.","tr":"I think it's going to rain later."},
+          {"t":"Ano sa tingin mo?","tr":"What do you think?"},
+          {"t":"Para sa akin, mas masarap ang adobo.","tr":"For me, adobo is better."},
+          {"t":"Akala ko sarado ang tindahan.","tr":"I thought the store was closed."},
+          {"t":"Mukhang masarap!","tr":"It looks delicious!"},
+          {"t":"Tama ka.","tr":"You're right."},
+          {"t":"Parang hindi totoo iyan.","tr":"I don't think that's true."}
+        ] },
+        {"tip":"{{Ewan ko}} “I dunno” (more offhand than {{Hindi ko alam}}) and {{Bahala na}} “Whatever happens, happens” are two very Filipino ways of not giving a firm answer."}
+      ],
+      "mistakes": [
+        {"wrong":"Akala ko, maganda ang Palawan.","right":"Sa tingin ko, maganda ang Palawan.","tr":"I think Palawan is beautiful.","why":"{{akala ko}} means you thought so but were wrong. For your opinion now: {{sa tingin ko}}."},
+        {"wrong":"Mukha masarap!","right":"Mukhang masarap!","tr":"It looks delicious!","why":"{{mukha}} is tied to what follows with the linker: {{mukhang}}."},
+        {"wrong":"Sa tingin ako, uulan.","right":"Sa tingin ko, uulan.","tr":"I think it'll rain.","why":"{{sa tingin ko}} is “in my view”: the {{ko}} set."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Sa tingin ___, mas maganda ang pula.","tr":"I think the red one is nicer.","options":["ko","ako","akin"],"answer":0,"why":"“In my view”: {{sa tingin ko}}.","from":"compare-things"},
+        {"type":"choice","q":"You were sure the store was closed, but it's open. You say…","options":["{{Akala ko sarado ito!}}","{{Sa tingin ko sarado ito!}}","{{Mukhang sarado ito!}}"],"answer":0,"why":"You thought so, and you were wrong: {{akala ko}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ masarap!","tr":"It looks delicious!","options":["Mukhang","Mukha","Akala"],"answer":0,"why":"{{mukha}} + the linker."},
+        {"type":"order","q":"Put the words in order.","tr":"For me, adobo is better.","words":["Para","sa akin,","mas masarap","ang adobo."]},
+        {"type":"dialogue","q":"Choosing a restaurant with friends. Choose your replies.","lines":[{"who":"Ben","t":"Ano sa tingin mo, sa Jollibee o sa Max's?","tr":"What do you think, Jollibee or Max's?"},{"options":["Para sa akin, mas masarap ang manok sa Max's.","Para sa ako, mas masarap ang manok sa Max's."],"answer":0,"why":"“For me” is {{para sa akin}}."},{"who":"Ben","t":"Pero mas mahal doon.","tr":"But it's more expensive there."},{"options":["Tama ka. Sige, Jollibee na lang tayo.","Tama ako. Sige, Jollibee na lang tayo."],"answer":0,"why":"“You're right”: {{Tama ka}}."}],"from":"make-plans"},
+        {"type":"say","q":"Say “I think it's going to rain later.”","answer":"Sa tingin ko, uulan mamaya."},
+        {"type":"free","q":"Your turn: give your opinion about a place or a food, and say something you thought was true but wasn't.","answers":[{"t":"Sa tingin ko, pinakamaganda ang Palawan. Akala ko mahirap ang Tagalog, pero masaya pala!","tr":"I think Palawan is the most beautiful. I thought Tagalog was hard, but it turns out it's fun!"},{"t":"Para sa akin, masarap ang balut. Akala ko maanghang ang pagkaing Pilipino, pero hindi pala.","tr":"For me, balut is delicious. I thought Filipino food was spicy, but it isn't."}]}
+      ]
+    },
+    {
+      "id": "talk-about-if",
+      "unit": 8,
+      "level": "B1",
+      "title": "Talk about what will happen if…",
+      "summary": "Talk about conditions and give advice: “If it rains tomorrow, we won't go.” “If I were you, I'd take a taxi.”",
+      "topic": "{{kung}} and {{kapag}} + a condition, the not-yet-begun form in the result; {{kung ako sa iyo}}; imagining with {{kung}}",
+      "blocks": [
+        {"goal":{"t":"Kung umulan bukas, hindi tayo tutuloy.","tr":"If it rains tomorrow, we won't go."}},
+        {"dialog":[{"who":"Ben","t":"Tuloy ba tayo sa beach bukas?","tr":"Are we still on for the beach tomorrow?"},{"who":"Ana","t":"Oo, pero kung umulan, hindi tayo tutuloy.","tr":"Yes, but if it rains, we won't go."},{"who":"Ben","t":"Kung hindi tayo tutuloy, ano ang gagawin natin?","tr":"If we don't go, what will we do?"},{"who":"Ana","t":"Manonood na lang tayo ng sine.","tr":"We'll just see a movie."},{"who":"Ben","t":"Sige! Kung ako sa iyo, magdadala ako ng payong.","tr":"Okay! If I were you, I'd bring an umbrella."}]},
+        {"p":"**If**: {{kung}} + the condition, then the result: {{Kung umulan bukas, hindi tayo tutuloy.}} “If it rains tomorrow, we won't go.” The result hasn't happened, so it's in the **not-yet-begun** form ({{tutuloy}}, {{manonood}})."},
+        {"p":"**The condition**: for an event, you'll usually hear the completed form, as if picturing it done ({{kung umulan}} “if it rains”, {{kung dumating siya}} “if she comes”); the not-yet-begun form ({{kung uulan}}) is heard too. For a state, just the adjective or {{may}}: {{Kung pagod ka…}} “If you're tired…”, {{Kung may oras ka…}} “If you have time…”"},
+        {"p":"**{{kung}} or {{kapag}}?** {{kapag}} is for something you expect (“when”), {{kung}} for something that may or may not happen (“if”): {{Kapag dumating si Ben, kakain na tayo.}} “When Ben gets here, we'll eat.” {{Kung dumating si Ben, kakain tayo.}} “If Ben comes, we'll eat.”"},
+        {"p":"**Advice**: {{Kung ako sa iyo,…}} “If I were you,…”, word for word “if I (were) in your place”: {{Kung ako sa iyo, mag-ta-taxi ako.}} “If I were you, I'd take a taxi.”"},
+        {"p":"**Imagining**: Tagalog uses the same pattern for things that aren't true: {{Kung mayaman ako, bibili ako ng bahay sa Boracay.}} “If I were rich, I'd buy a house in Boracay.” The verb doesn't change; the situation tells you it's imagined. (Lesson 43 adds {{sana}} for wishes and regrets.)"},
+        { "ex": [
+          {"t":"Kung umulan bukas, hindi tayo tutuloy.","tr":"If it rains tomorrow, we won't go."},
+          {"t":"Kung may oras ka, tawagan mo ako.","tr":"If you have time, call me."},
+          {"t":"Kapag dumating si Ben, kakain na tayo.","tr":"When Ben gets here, we'll eat."},
+          {"t":"Kung pagod ka, magpahinga ka muna.","tr":"If you're tired, rest for a bit."},
+          {"t":"Kung ako sa iyo, mag-ta-taxi ako.","tr":"If I were you, I'd take a taxi."},
+          {"t":"Kung mayaman ako, bibili ako ng bahay sa Boracay.","tr":"If I were rich, I'd buy a house in Boracay."},
+          {"t":"Hindi ako sasama kung hindi ka sasama.","tr":"I won't go if you don't."}
+        ] },
+        {"tip":"{{kung}} has three jobs, all a kind of “if”: “if” ({{kung umulan}}), “whether” ({{Tinanong niya kung…}}, lesson 40), and, with a question word, an indirect question ({{Hindi ko alam kung saan siya nakatira.}} “I don't know where she lives.”)."}
+      ],
+      "mistakes": [
+        {"wrong":"Kung umulan bukas, hindi tayo tumuloy.","right":"Kung umulan bukas, hindi tayo tutuloy.","tr":"If it rains tomorrow, we won't go.","why":"The result is still to come: the not-yet-begun form, {{tutuloy}}."},
+        {"wrong":"Kung ako ikaw, mag-ta-taxi ako.","right":"Kung ako sa iyo, mag-ta-taxi ako.","tr":"If I were you, I'd take a taxi.","why":"“If I were you” is {{kung ako sa iyo}}: “if I (were) in your place”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Kung umulan bukas, hindi tayo ___.","tr":"If it rains tomorrow, we won't go.","options":["tutuloy","tumuloy","tumutuloy"],"answer":0,"why":"Still to come: the not-yet-begun form.","from":"say-what-you-will-do"},
+        {"type":"fill","q":"Choose the missing word.","t":"Kung ___ sa iyo, mag-ta-taxi ako.","tr":"If I were you, I'd take a taxi.","options":["ako","ko","akin"],"answer":0,"why":"{{kung ako sa iyo}}: “if I (were) in your place”."},
+        {"type":"choice","q":"You're sure Ben is coming, you just don't know when. “When Ben gets here, we'll eat.”","options":["{{Kapag dumating si Ben, kakain na tayo.}}","{{Noong dumating si Ben, kakain na tayo.}}","{{Habang dumating si Ben, kakain na tayo.}}"],"answer":0,"why":"Expected, still to come: {{kapag}}.","from":"say-when"},
+        {"type":"order","q":"Put the words in order.","tr":"If you have time, call me.","words":["Kung","may oras ka,","tawagan mo","ako."]},
+        {"type":"dialogue","q":"A friend asks your advice. Choose your replies.","lines":[{"who":"Mark","t":"Masakit ang ngipin ko. Ano ang gagawin ko?","tr":"My tooth hurts. What should I do?"},{"options":["Kung ako sa iyo, pupunta ako sa dentista.","Kung ako sa iyo, pumunta ako sa dentista."],"answer":0,"why":"What you would do: not yet begun, {{pupunta}}."},{"who":"Mark","t":"Pero takot ako sa dentista!","tr":"But I'm scared of the dentist!"},{"options":["Kung hindi ka pupunta, mas sasakit iyan!","Kung hindi ka pumupunta, mas sumakit iyan!"],"answer":0,"why":"Both still to come: not-yet-begun forms."}],"from":"say-how-you-feel"},
+        {"type":"say","q":"Say “If I were rich, I'd buy a house in Boracay.”","answer":"Kung mayaman ako, bibili ako ng bahay sa Boracay."},
+        {"type":"free","q":"Your turn: say what you'll do this weekend if the weather is good, and what you'd do if you were rich.","answers":[{"t":"Kung maganda ang panahon, pupunta kami sa beach. Kung mayaman ako, maglalakbay ako sa buong mundo.","tr":"If the weather's nice, we'll go to the beach. If I were rich, I'd travel all over the world."},{"t":"Kung hindi umulan, maglalaro kami ng basketball. Kung mayaman ako, bibilhan ko ng bahay ang nanay ko.","tr":"If it doesn't rain, we'll play basketball. If I were rich, I'd buy my mom a house."}]}
+      ]
+    },
+    {
+      "id": "make-wishes",
+      "unit": 8,
+      "level": "B1",
+      "title": "Wish, hope and regret",
+      "summary": "Say what you hope for and what you wish had happened: “I hope you can come.” “I should have studied.” “What a shame!”",
+      "topic": "{{sana}} for hopes and wishes; {{sana}} + the completed form for regrets; {{Sayang!}}",
+      "blocks": [
+        {"goal":{"t":"Sana makapunta ka sa birthday ko!","tr":"I hope you can come to my birthday!"}},
+        {"dialog":[{"who":"Liza","t":"Sana makapunta ka sa birthday ko sa Sabado!","tr":"I hope you can make it to my birthday on Saturday!"},{"who":"Mark","t":"Sana nga! Pero may trabaho ako. Sayang!","tr":"I hope so! But I have work. What a shame!"},{"who":"Liza","t":"Ay, sayang naman! Noong isang taon, hindi ka rin nakapunta.","tr":"Oh, too bad! Last year you couldn't come either."},{"who":"Mark","t":"Oo nga. Sana nag-leave ako.","tr":"Right. I should have taken the day off."},{"who":"Liza","t":"Sige, sa susunod na taon na lang!","tr":"Okay, next year then!"}]},
+        {"p":"**Hoping**: {{sana}} “I hope, hopefully” comes first, then the sentence: {{Sana umaraw bukas.}} “I hope it's sunny tomorrow.” With being able: {{Sana makapunta ka.}} “I hope you can come.”"},
+        {"p":"**Wishing things were different now**: {{sana}} + what you wish: {{Sana nandito ka.}} “I wish you were here.” {{Sana mayaman ako.}} “I wish I were rich.”"},
+        {"p":"**Regret, “should have”**: {{sana}} + the **completed** form: {{Sana nag-aral ako.}} “I should have studied.” With {{hindi}}: {{Sana hindi ako kumain nang marami.}} “I shouldn't have eaten so much.” With {{mag-}} verbs you can hear the difference: {{Sana mag-aral ka}} “I hope you'll study”, but {{Sana nag-aral ka}} “You should have studied”. With {{-um-}} verbs the two look alike ({{Sana pumunta ka}}), and the situation tells you which."},
+        { "table": [
+          ["","Tagalog","meaning"],
+          ["a hope","{{Sana umaraw bukas.}}","I hope it's sunny tomorrow."],
+          ["a hope (can)","{{Sana makapunta ka.}}","I hope you can come."],
+          ["a wish (now)","{{Sana nandito ka.}}","I wish you were here."],
+          ["a regret","{{Sana nag-aral ako.}}","I should have studied."],
+          ["a regret (not)","{{Sana hindi ako kumain nang marami.}}","I shouldn't have eaten so much."]
+        ] },
+        {"p":"**What a shame!** {{Sayang!}} “Too bad! What a waste!”: {{Sayang, hindi ka nakapunta!}} “Too bad you couldn't come!” It's also for wasted things: {{Sayang ang pagkain.}} “That food is going to waste.”"},
+        { "ex": [
+          {"t":"Sana makapunta ka sa birthday ko.","tr":"I hope you can come to my birthday."},
+          {"t":"Sana umaraw bukas.","tr":"I hope it's sunny tomorrow."},
+          {"t":"Sana nandito ka.","tr":"I wish you were here."},
+          {"t":"Sana nag-aral ako nang mabuti.","tr":"I should have studied harder."},
+          {"t":"Sana hindi ako kumain nang marami.","tr":"I shouldn't have eaten so much."},
+          {"t":"Sayang, hindi ka nakapunta!","tr":"Too bad you couldn't make it!"},
+          {"t":"Sana nga!","tr":"I really hope so!"}
+        ] },
+        {"tip":"{{Sana all!}} (“I wish everyone had that!”) is what Filipinos say, half joking, when a friend shows off a new phone, a trip or a sweet boyfriend."}
+      ],
+      "mistakes": [
+        {"wrong":"Sana nag-aral ka bukas.","right":"Sana mag-aral ka bukas.","tr":"I hope you'll study tomorrow.","why":"A hope about tomorrow: the basic form. {{nag-aral}} after {{sana}} is a regret about the past."},
+        {"wrong":"Sana ka makapunta.","right":"Sana makapunta ka.","tr":"I hope you can come.","why":"The pronoun goes after the verb here: {{makapunta ka}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Sana ___ ka sa birthday ko.","tr":"I hope you can come to my birthday.","options":["makapunta","nakapunta","pumupunta"],"answer":0,"why":"A hope about being able: the basic form, {{makapunta}}. ({{Sana nakapunta ka}} is “I wish you'd been able to come”.)","from":"say-what-you-can-do"},
+        {"type":"choice","q":"You failed a test you didn't study for. You say…","options":["{{Sana nag-aral ako.}}","{{Sana mag-aral ako.}}","{{Sana mag-aaral ako.}}"],"answer":0,"why":"A regret: {{sana}} + the completed form."},
+        {"type":"choice","q":"Your friend missed a great party. You say…","options":["{{Sayang, hindi ka nakapunta!}}","{{Sana, hindi ka nakapunta!}}","{{Sayang, hindi ka pupunta!}}"],"answer":0,"why":"{{Sayang!}} “Too bad!”, and the completed {{nakapunta}}: it's over."},
+        {"type":"order","q":"Put the words in order.","tr":"I wish you were here.","words":["Sana","nandito","ka."],"from":"say-where-things-are"},
+        {"type":"dialogue","q":"Your friend is moving abroad. Choose your replies.","lines":[{"who":"Ana","t":"Aalis na ako sa Lunes.","tr":"I'm leaving on Monday."},{"options":["Sayang! Sana hindi ka na lang umalis.","Sayang! Sana hindi ka aalis kahapon."],"answer":0,"why":"A wish about something you can't change: {{sana}}."},{"who":"Ana","t":"Bibisita naman ako sa Pasko.","tr":"I'll visit at Christmas, though."},{"options":["Talaga? Sana nga!","Talaga? Sana nag-bisita ka!"],"answer":0,"why":"{{Sana nga!}} “I really hope so!”"}],"from":"sound-natural-with-little-words"},
+        {"type":"say","q":"Say “I hope it's sunny tomorrow.”","answer":"Sana umaraw bukas."},
+        {"type":"free","q":"Your turn: say one hope for this year, and one thing you should (or shouldn't) have done.","answers":[{"t":"Sana makapunta ako sa Pilipinas ngayong taon. Sana nag-aral ako ng Tagalog noong bata pa ako.","tr":"I hope I can go to the Philippines this year. I wish I'd studied Tagalog as a kid."},{"t":"Sana pumasa ako sa exam. Sana hindi ako kumain ng maraming cake kagabi!","tr":"I hope I pass the exam. I shouldn't have eaten so much cake last night!"}]}
+      ]
+    },
+    {
+      "id": "get-things-done",
+      "unit": 8,
+      "level": "B1",
+      "title": "Have something done, and make someone do it",
+      "summary": "Say you had something done (“I got a haircut”) and that someone made or let someone do something (“Mom made me clean my room”).",
+      "topic": "The causative: {{magpa-}} “have it done” ({{nagpagupit}}), {{ipa-}} for the thing ({{ipaayos}}), {{pa-…-in}} “make or let someone” ({{pinakain}}, {{pinaglinis}})",
+      "blocks": [
+        {"goal":{"t":"Nagpagupit ako kahapon.","tr":"I got a haircut yesterday."}},
+        {"dialog":[{"who":"Ana","t":"Uy, nagpagupit ka!","tr":"Hey, you got a haircut!"},{"who":"Ben","t":"Oo, kahapon. Pinapunta ako ni Mama sa barbero.","tr":"Yes, yesterday. Mom sent me to the barber."},{"who":"Ana","t":"Bakit?","tr":"Why?"},{"who":"Ben","t":"May kasal kasi ang pinsan ko. Pinaglinis din niya ako ng sapatos!","tr":"My cousin's getting married. She made me clean my shoes too!"},{"who":"Ana","t":"Ipaayos mo na rin ang relo mo. Sira na iyan!","tr":"Get your watch fixed too. It's broken!"}]},
+        {"term":"causative","means":"a verb for causing an action: having it done, or making or letting someone do it. In Tagalog it has {{pa-}} in it."},
+        {"p":"**Having something done for you**: {{magpa-}} + the root: {{gupit}} “cut” → {{magpagupit}} “get a haircut”, {{ayos}} “fix” → {{magpaayos}} “have something fixed”, {{masahe}} → {{magpamasahe}} “get a massage”. It's actor focus, so you're {{ako}}: {{Nagpagupit ako.}} “I got a haircut.”"},
+        { "table": [
+          ["","get a haircut","have it fixed"],
+          ["basic","{{magpagupit}}","{{magpaayos}}"],
+          ["completed","{{nagpagupit}}","{{nagpaayos}}"],
+          ["ongoing","{{nagpapagupit}}","{{nagpapaayos}}"],
+          ["not yet begun","{{magpapagupit}}","{{magpapaayos}}"]
+        ] },
+        {"p":"**The thing you have done, in focus**: {{ipa-}} + the root: {{Ipaayos mo ang relo mo.}} “Get your watch fixed.” {{Ipinaayos ko na.}} “I've already had it fixed.”"},
+        {"p":"**Making or letting someone do it**: {{pa-…-in}}, with the person made to do it in focus: {{pakainin}} “feed” (make eat), {{papuntahin}} “send” (make go). Completed: {{pinakain}}, {{pinapunta}}. For {{mag-}} verbs, {{pag-…-in}}: {{paglinisin}} “make (someone) clean” → {{pinaglinis}}. {{Pinaglinis ako ni Nanay ng kuwarto.}} “Mom made me clean my room.” The one who causes it takes {{ni}} / {{ng}} or the {{ko}} set."},
+        {"p":"“Make” or “let”? The situation tells you: {{Pinauwi kami nang maaga.}} “They let us go home early” (or “sent us home early”)."},
+        { "ex": [
+          {"t":"Nagpagupit ako kahapon.","tr":"I got a haircut yesterday."},
+          {"t":"Magpapaayos ako ng cellphone bukas.","tr":"I'm getting my phone fixed tomorrow."},
+          {"t":"Ipaayos mo ang relo mo.","tr":"Get your watch fixed."},
+          {"t":"Pinakain ko na ang aso.","tr":"I've already fed the dog."},
+          {"t":"Pinaglinis ako ni Nanay ng kuwarto.","tr":"Mom made me clean my room."},
+          {"t":"Pinapunta ako ng boss ko sa Cebu.","tr":"My boss sent me to Cebu."},
+          {"t":"Pinauwi kami nang maaga.","tr":"They let us go home early."}
+        ] },
+        {"tip":"A good Filipino host tells the kids: {{Papasukin mo siya.}} “Let him in.” and {{Paupuin mo ang bisita.}} “Have the guest sit down.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Naggupit ako sa barbero.","right":"Nagpagupit ako sa barbero.","tr":"I got a haircut at the barber's.","why":"You didn't cut it yourself: {{magpa-}}, “have it done”. ({{Naggupit ako}} means you did the cutting.)"},
+        {"wrong":"Pinaglinis si Nanay ako ng kuwarto.","right":"Pinaglinis ako ni Nanay ng kuwarto.","tr":"Mom made me clean my room.","why":"The one made to do it ({{ako}}) is in focus; the one who made it happen takes {{ni}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ako kahapon.","tr":"I got a haircut yesterday.","options":["Nagpagupit","Naggupit","Gumupit"],"answer":0,"why":"Had it done: {{nagpa-}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Pinaglinis ako ___ Nanay ng kuwarto.","tr":"Mom made me clean my room.","options":["ni","si","kay"],"answer":0,"why":"Mom isn't in focus: {{ni}}.","from":"do-things-to-people-and-places"},
+        {"type":"choice","q":"Your phone screen is cracked. A friend says “Get it fixed!”","options":["{{Ipaayos mo!}}","{{Ayusin mo ako!}}","{{Nagpaayos ka!}}"],"answer":0,"why":"The phone is in focus, and you'll have it done: {{ipa-}}, with {{mo}}."},
+        {"type":"choice","q":"{{Pinakain ko na ang aso.}} means…","options":["I've already fed the dog.","The dog has already eaten me.","I've already eaten the dog."],"answer":0,"why":"{{pa-}}: you made the dog eat."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm getting my phone fixed tomorrow.","words":["Magpapaayos","ako","ng cellphone","bukas."],"from":"say-what-you-will-do"},
+        {"type":"dialogue","q":"At the barbershop. Choose your replies.","lines":[{"who":"Barber","t":"Ano po ang gagawin natin?","tr":"What are we doing today?"},{"options":["Magpapagupit po ako. Maikli lang po.","Maggugupit po ako. Maikli lang po."],"answer":0,"why":"You're having it done: {{magpa-}}."},{"who":"Barber","t":"Gusto rin po ba ninyong magpamasahe?","tr":"Would you like a massage too?"},{"options":["Hindi na po, salamat.","Hindi pa po, salamat."],"answer":0,"why":"“No, that's all”: {{hindi na}}."}],"from":"speak-politely"},
+        {"type":"free","q":"Your turn: say one thing you had done recently, and one thing someone made you do as a child.","answers":[{"t":"Nagpaayos ako ng kotse noong isang linggo. Noong bata ako, pinaghugas ako ni Nanay ng pinggan araw-araw.","tr":"I had my car fixed last week. When I was a kid, Mom made me wash the dishes every day."},{"t":"Nagpamasahe ako noong Sabado. Noong bata pa ako, pinatulog kami ni Lola tuwing hapon.","tr":"I got a massage on Saturday. When I was little, Grandma made us nap every afternoon."}]}
+      ]
+    },
+    {
+      "id": "say-it-was-an-accident",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say something happened by accident",
+      "summary": "Say you broke, dropped, spilled or forgot something without meaning to: “Sorry, I broke the glass.” “I left my umbrella on the jeepney.”",
+      "topic": "{{ma-}} for accidents ({{nabasag}}, {{natapon}}, {{naiwan}}, {{nawala}}); {{na-}} for things that happen to you ({{nadulas}}, {{naligaw}})",
+      "blocks": [
+        {"goal":{"t":"Sorry, nabasag ko ang baso.","tr":"Sorry, I broke the glass."}},
+        {"dialog":[{"who":"Ana","t":"Ay! Ano iyon?","tr":"Oh! What was that?"},{"who":"Ben","t":"Sorry po, nabasag ko ang baso.","tr":"Sorry, I broke the glass."},{"who":"Tita","t":"Okay lang, iho. Nahulog ba?","tr":"That's all right, dear. Did it fall?"},{"who":"Ben","t":"Opo, nadulas po sa kamay ko.","tr":"Yes, it slipped out of my hand."},{"who":"Tita","t":"Basta hindi ka nasugatan.","tr":"As long as you didn't get hurt."}]},
+        {"p":"Tagalog shows whether you **meant** to do something. {{Binasag ko ang baso}} says you broke the glass on purpose; {{Nabasag ko ang baso}} says it broke while you had it, by accident. The {{ma-}} form (completed {{na-}}) means “it happened; nobody planned it”."},
+        { "table": [
+          ["on purpose","by accident","meaning"],
+          ["{{Binasag ko.}}","{{Nabasag ko.}}","I broke it."],
+          ["{{Itinapon ko.}} (threw it out)","{{Natapon ko.}} (spilled it)","I threw / spilled it."],
+          ["{{Iniwan ko.}}","{{Naiwan ko.}}","I left it (behind)."]
+        ] },
+        {"p":"**With no one to blame**, leave the doer out and the thing stays in focus: {{Nabasag ang baso.}} “The glass broke.” {{Nahulog ang cellphone ko.}} “My phone fell.” {{Nawala ang susi ko.}} “My key got lost.”"},
+        {"p":"**Things that happen to you**: the same {{na-}} for little misfortunes, with you in focus: {{nadulas}} “slipped”, {{nasugatan}} “got hurt”, {{naligaw}} “got lost”, {{nabasa}} “got wet”. The Taglish {{na-late}} and {{na-traffic}} (lesson 28) work the same way."},
+        {"p":"**Apologizing**: {{Sorry}} or {{Pasensya na}} + what happened: {{Pasensya na, naiwan ko ang payong mo.}} “Sorry, I left your umbrella somewhere.” And to reassure someone: {{Okay lang.}} “It's okay.”, {{Hindi bale.}} “Never mind.”"},
+        { "ex": [
+          {"t":"Sorry, nabasag ko ang baso.","tr":"Sorry, I broke the glass."},
+          {"t":"Nahulog ang cellphone ko sa tubig!","tr":"My phone fell in the water!"},
+          {"t":"Naiwan ko ang payong ko sa jeep.","tr":"I left my umbrella on the jeepney."},
+          {"t":"Natapon ko ang kape sa damit ko.","tr":"I spilled coffee on my clothes."},
+          {"t":"Nawala ang susi ko.","tr":"I've lost my key.","note":"word for word “my key got lost”"},
+          {"t":"Naligaw kami sa Quiapo.","tr":"We got lost in Quiapo."},
+          {"t":"Hindi bale. Okay lang.","tr":"Never mind. It's okay."}
+        ] },
+        {"tip":"Filipinos usually say {{Nawala}} “it got lost” rather than “I lost it”: the {{na-}} form is a gentle way to talk about mistakes, yours and other people's."}
+      ],
+      "mistakes": [
+        {"wrong":"Binasag ko ang baso. Sorry, hindi sinasadya.","right":"Nabasag ko ang baso. Sorry, hindi sinasadya.","tr":"I broke the glass. Sorry, I didn't mean to.","why":"{{binasag}} says you broke it on purpose. By accident: {{nabasag}}."},
+        {"wrong":"Naiwan ako ang payong.","right":"Naiwan ko ang payong.","tr":"I left the umbrella behind.","why":"The umbrella is in focus; the one it happened to is in the {{ko}} set."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Sorry, ___ ko ang baso.","tr":"Sorry, I broke the glass (by accident).","options":["nabasag","binasag","bumasag"],"answer":0,"why":"By accident: {{na-}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Naiwan ___ ang payong ko sa jeep.","tr":"I left my umbrella on the jeepney.","options":["ko","ako","ka"],"answer":0,"why":"The umbrella is in focus: the one it happened to is {{ko}}.","from":"focus-on-the-thing"},
+        {"type":"choice","q":"{{Binasag niya ang plato.}} means…","options":["He broke the plate on purpose.","He broke the plate by accident.","The plate broke by itself."],"answer":0,"why":"{{binasag}}, the {{-in}} form: he meant to."},
+        {"type":"choice","q":"Your key is gone and you don't know how. You say…","options":["{{Nawala ang susi ko.}}","{{Iniwan ko ang susi ko.}}","{{Nawala ko ako.}}"],"answer":0,"why":"It just happened: {{nawala}}. ({{Iniwan ko}} would mean you left it somewhere on purpose.)"},
+        {"type":"order","q":"Put the words in order.","tr":"I spilled coffee on my clothes.","words":["Natapon","ko","ang kape","sa damit ko."]},
+        {"type":"dialogue","q":"You've lost your friend's book. Choose your replies.","lines":[{"who":"Ana","t":"Nasaan na ang libro ko?","tr":"Where's my book?"},{"options":["Pasensya na, naiwan ko sa jeep.","Pasensya na, iniwan ko sa jeep."],"answer":0,"why":"By accident: {{naiwan}}. ({{iniwan ko}} would mean you left it there on purpose!)"},{"who":"Ana","t":"Ay! Hindi bale. Luma na rin iyon.","tr":"Oh! Never mind. It was old anyway."},{"options":["Bibilhan kita ng bago!","Binilhan kita ng bago!"],"answer":0,"why":"A promise: not yet begun, {{bibilhan}} “will buy (for)”, with {{kita}}."}],"from":"do-things-to-people-and-places"},
+        {"type":"free","q":"Your turn: tell about a small accident you had: something you broke, dropped, spilled or left behind.","answers":[{"t":"Noong isang linggo, nahulog ang cellphone ko sa CR. Nabasag ang screen!","tr":"Last week my phone fell in the bathroom. The screen broke!"},{"t":"Kahapon, naiwan ko ang wallet ko sa bahay, kaya hindi ako nakabili ng lunch.","tr":"Yesterday I left my wallet at home, so I couldn't buy lunch."}]}
+      ]
+    },
+    {
+      "id": "talk-about-how-things-were",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say how things used to be",
+      "summary": "Talk about how life was and what you used to do: “When I was a kid, we always played in the street.” “I don't smoke any more.”",
+      "topic": "{{dati}}, {{noon}}, {{noong bata pa ako}} + the ongoing form for past habits; {{hindi na}} “not any more”; {{dating}} “former”",
+      "blocks": [
+        {"goal":{"t":"Noong bata pa ako, lagi kaming naglalaro sa kalye.","tr":"When I was a kid, we always used to play in the street."}},
+        {"dialog":[{"who":"Grandchild","t":"Lola, ano po ang ginagawa ninyo noong bata pa kayo?","tr":"Grandma, what did you do when you were little?"},{"who":"Lola","t":"Noon, wala pang cellphone. Naglalaro kami ng tumbang preso sa labas.","tr":"Back then there were no cell phones yet. We used to play tumbang preso outside."},{"who":"Grandchild","t":"Talaga po? E sa eskuwela?","tr":"Really? And school?"},{"who":"Lola","t":"Naglalakad kami papunta sa eskuwela, isang oras araw-araw!","tr":"We used to walk to school, an hour every day!"},{"who":"Grandchild","t":"Ang layo po!","tr":"That's so far!"},{"who":"Lola","t":"Oo. Dati, mas simple ang buhay.","tr":"Yes. Life used to be simpler."}]},
+        {"p":"**What used to happen**, again and again, takes the **ongoing** form, with a past time word to set the scene: {{dati}} “before, in the past”, {{noon}} “back then”, {{noong bata pa ako}} “when I was a kid”. The ongoing form says it went on and on; the time word says it's over."},
+        {"p":"Compare: {{Naglaro kami sa labas.}} “We played outside (that time).” and {{Naglalaro kami sa labas noon.}} “We used to play outside.”"},
+        { "table": [
+          ["","completed: once","ongoing: used to"],
+          ["play","{{Naglaro kami.}} We played.","{{Naglalaro kami noon.}} We used to play."],
+          ["walk","{{Naglakad kami.}} We walked.","{{Naglalakad kami dati.}} We used to walk."],
+          ["live","{{Tumira kami sa Cebu.}} We lived in Cebu (for a time).","{{Nakatira kami dati sa Cebu.}} We used to live in Cebu."]
+        ] },
+        {"p":"**Not any more**: {{hindi na}} + the ongoing form: {{Hindi na ako naninigarilyo.}} “I don't smoke any more.” For things, {{wala na}}: {{Wala na ang lumang bahay namin.}} “Our old house isn't there any more.”"},
+        {"p":"**Former**: {{dating}} ({{dati}} + the linker) before a noun: {{ang dating bahay namin}} “our old house”, {{ang dating guro ko}} “my former teacher”."},
+        { "ex": [
+          {"t":"Noong bata pa ako, lagi kaming naglalaro sa kalye.","tr":"When I was a kid, we always used to play in the street."},
+          {"t":"Dati, nakatira kami sa probinsya.","tr":"We used to live in the province."},
+          {"t":"Naglalakad kami papunta sa eskuwela noon.","tr":"Back then we used to walk to school."},
+          {"t":"Noon, wala pang cellphone.","tr":"Back then there were no cell phones yet."},
+          {"t":"Hindi na ako naninigarilyo.","tr":"I don't smoke any more."},
+          {"t":"Siya ang dating guro ko.","tr":"She's my former teacher."},
+          {"t":"Dati, mas mura ang lahat.","tr":"Everything used to be cheaper."}
+        ] },
+        {"tip":"Older Filipinos love to talk about {{noong araw}} “the old days”: many of their stories start {{Noong araw…}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Noong bata pa ako, naglaro kami sa labas araw-araw.","right":"Noong bata pa ako, naglalaro kami sa labas araw-araw.","tr":"When I was a kid, we played outside every day.","why":"Again and again in the past (“used to”): the ongoing form. The completed form is for one time."},
+        {"wrong":"Hindi pa ako naninigarilyo.","right":"Hindi na ako naninigarilyo.","tr":"I don't smoke any more.","why":"“Not any more” is {{hindi na}}; {{hindi pa}} is “not yet”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Noong bata pa ako, lagi kaming ___ sa kalye.","tr":"When I was a kid, we always used to play in the street.","options":["naglalaro","naglaro","maglalaro"],"answer":0,"why":"A past habit: the ongoing form.","from":"talk-about-your-day"},
+        {"type":"fill","q":"Choose the missing word.","t":"Hindi ___ ako naninigarilyo.","tr":"I don't smoke any more.","options":["na","pa","rin"],"answer":0,"why":"Not any more: {{hindi na}}."},
+        {"type":"choice","q":"“We used to live in the province.”","options":["{{Dati, nakatira kami sa probinsya.}}","{{Bukas, nakatira kami sa probinsya.}}","{{Dati, titira kami sa probinsya.}}"],"answer":0,"why":"{{dati}} sets it in the past; {{nakatira}} says it went on."},
+        {"type":"order","q":"Put the words in order.","tr":"Back then there were no cell phones yet.","words":["Noon,","wala","pang","cellphone."],"from":"say-what-you-have"},
+        {"type":"dialogue","q":"A friend asks about your childhood. Choose your replies.","lines":[{"who":"Liza","t":"Saan ka lumaki?","tr":"Where did you grow up?"},{"options":["Sa Ohio. Dati, nakatira kami malapit sa bukid.","Sa Ohio. Bukas, nakatira kami malapit sa bukid."],"answer":0,"why":"The past: {{dati}}."},{"who":"Liza","t":"Ano ang ginagawa mo noon tuwing summer?","tr":"What did you use to do in the summer?"},{"options":["Lumalangoy kami sa ilog araw-araw.","Lumangoy kami sa ilog bukas."],"answer":0,"why":"Again and again, in the past: the ongoing form."}]},
+        {"type":"say","q":"Say “Everything used to be cheaper.”","answer":"Dati, mas mura ang lahat.","from":"compare-things"},
+        {"type":"free","q":"Your turn: say three things you used to do as a kid, and one thing you don't do any more.","answers":[{"t":"Noong bata pa ako, nanonood ako ng cartoons tuwing Sabado. Naglalaro kami sa labas, at lagi kaming kumakain sa bahay ni Lola. Hindi na ako nanonood ng cartoons!","tr":"When I was a kid, I watched cartoons every Saturday. We played outside, and we always ate at Grandma's. I don't watch cartoons any more!"},{"t":"Dati, naglalakad ako papunta sa eskuwela. Naglalaro kami ng basketball araw-araw. Hindi na ako naglalaro ngayon.","tr":"I used to walk to school. We played basketball every day. I don't play any more."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 8,
+      "level": "B1",
+      "title": "Tell a story",
+      "summary": "Tell a real story from beginning to end: set the scene, say what happened, and how it ended.",
+      "topic": "The ongoing form for the scene ({{habang naglalakad ako}}), the completed form for events; {{isang araw}}, {{bigla}}, {{hanggang}}, {{sa wakas}}",
+      "blocks": [
+        {"goal":{"t":"Habang naglalakad ako pauwi, biglang umulan nang malakas.","tr":"As I was walking home, it suddenly started pouring."}},
+        {"dialog":[{"who":"Ben","t":"Alam mo ba ang nangyari sa akin kahapon?","tr":"Do you know what happened to me yesterday?"},{"who":"Ana","t":"Ano?","tr":"What?"},{"who":"Ben","t":"Habang naglalakad ako pauwi, biglang umulan nang malakas. Wala akong payong!","tr":"As I was walking home, it suddenly started pouring. I didn't have an umbrella!"},{"who":"Ana","t":"Ay! Tapos?","tr":"Oh no! And then?"},{"who":"Ben","t":"Sumilong ako sa isang tindahan. Doon, nakita ko si Mark, ang dati kong kaklase!","tr":"I took shelter in a shop. And there I saw Mark, my old classmate!"},{"who":"Ana","t":"Talaga? Ang liit ng mundo!","tr":"Really? Small world!"},{"who":"Ben","t":"Oo! Nagkuwentuhan kami hanggang tumigil ang ulan. Sa wakas, nakauwi rin ako.","tr":"Yes! We chatted until the rain stopped. Finally I made it home."}]},
+        {"p":"A good story uses two forms side by side. The **ongoing** form sets the scene, what was going on: {{Habang naglalakad ako pauwi,…}} “As I was walking home,…”. The **completed** form tells the events, one after another: {{…biglang umulan.}} “…it suddenly rained.”"},
+        { "table": [
+          ["part of the story","Tagalog","meaning"],
+          ["the start","{{Isang araw,…}}","One day,…"],
+          ["the scene","{{Habang naglalakad ako,…}}","As I was walking,…"],
+          ["a surprise","{{biglang…}}","suddenly…"],
+          ["what came next","{{Tapos,…}}","Then,…"],
+          ["the result","{{…kaya…}}","…so…"],
+          ["how long","{{…hanggang…}}","…until…"],
+          ["the end","{{Sa wakas,…}}","Finally,…"]
+        ] },
+        {"p":"{{bigla}} “suddenly” is tied to the verb with the linker: {{biglang umulan}}, {{biglang dumating si Ben}}."},
+        {"p":"**Everything together**: object focus for a particular person or thing ({{nakita ko si Mark}}), {{maka-}} for what you managed ({{nakauwi rin ako}}), {{na-}} for accidents ({{nabasa ako}} “I got wet”). Storytellers pull the listener in with {{Alam mo ba?}} “You know what?”, and listeners keep it going with {{Tapos?}}, {{Talaga?}}, {{Grabe!}} “No way!”."},
+        { "ex": [
+          {"t":"Isang araw, nawala ang aso namin.","tr":"One day our dog went missing."},
+          {"t":"Habang nagluluto si Nanay, biglang namatay ang ilaw.","tr":"While Mom was cooking, the lights suddenly went out."},
+          {"t":"Hinanap namin siya sa buong barangay.","tr":"We looked for him all over the neighborhood."},
+          {"t":"Wala kaming nakita, kaya umuwi kami.","tr":"We didn't find anything, so we went home."},
+          {"t":"Naghintay kami hanggang gabi.","tr":"We waited until night."},
+          {"t":"Sa wakas, bumalik siya, gutom na gutom!","tr":"Finally he came back, starving!"}
+        ] },
+        {"tip":"Filipinos tell stories with a lot of {{tapos}}: {{tapos… tapos… tapos…}}. Using it in every sentence is perfectly normal; that's what it's for."}
+      ],
+      "mistakes": [
+        {"wrong":"Habang naglakad ako pauwi, biglang umulan.","right":"Habang naglalakad ako pauwi, biglang umulan.","tr":"As I was walking home, it suddenly rained.","why":"The scene, what was going on, takes the ongoing form after {{habang}}."},
+        {"wrong":"Bigla umulan.","right":"Biglang umulan.","tr":"It suddenly rained.","why":"{{bigla}} is tied to the verb with the linker: {{biglang}}."},
+        {"wrong":"Sa wakas, nakakauwi ako.","right":"Sa wakas, nakauwi ako.","tr":"Finally I made it home.","why":"The end of the story is done: the completed form."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Habang ___ ako pauwi, biglang umulan.","tr":"As I was walking home, it suddenly started to rain.","options":["naglalakad","naglakad","maglalakad"],"answer":0,"why":"The scene: the ongoing form after {{habang}}.","from":"say-when"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ dumating si Ben.","tr":"Ben suddenly turned up.","options":["Biglang","Bigla","Bago"],"answer":0,"why":"{{bigla}} + the linker."},
+        {"type":"choice","q":"In a story, “we were eating” (the scene) is…","options":["{{kumakain kami}}","{{kumain kami}}","{{kakain kami}}"],"answer":0,"why":"What was going on: the ongoing form."},
+        {"type":"order","q":"Put the words in order.","tr":"We waited until night.","words":["Naghintay","kami","hanggang","gabi."]},
+        {"type":"order","q":"Put the words in order.","tr":"We didn't find anything, so we went home.","words":["Wala","kaming nakita,","kaya","umuwi kami."],"from":"say-why"},
+        {"type":"dialogue","q":"A friend tells you a story. React and keep it going.","lines":[{"who":"Ben","t":"Alam mo ba? Kahapon, naiwan ko ang wallet ko sa jeep!","tr":"You know what? Yesterday I left my wallet on a jeepney!"},{"options":["Grabe! Tapos? Nakuha mo ba ulit?","Grabe! Tapos? Makukuha mo ba kahapon?"],"answer":0,"why":"Asking what happened: the completed {{nakuha}} “managed to get”."},{"who":"Ben","t":"Oo! Hinabol ko ang jeep, at sa wakas, naabutan ko!","tr":"Yes! I ran after the jeepney, and finally I caught up with it!"},{"options":["Ang suwerte mo!","Ang suwerte ako!"],"answer":0,"why":"{{Ang}} + adjective + the {{ko}} set: {{Ang suwerte mo!}} “You're so lucky!”"}],"from":"say-it-was-an-accident"},
+        {"type":"free","q":"Your turn: tell a short true story in four or five sentences: set the scene with {{habang}}, use {{bigla}}, and end with {{sa wakas}}.","answers":[{"t":"Isang araw, habang nagsha-shopping ako sa mall, biglang nawala ang anak ko. Hinanap ko siya kahit saan. Tapos, narinig ko ang pangalan ko sa speaker. Sa wakas, nakita ko siya sa information desk!","tr":"One day, while I was shopping at the mall, my child suddenly disappeared. I looked for him everywhere. Then I heard my name over the speaker. Finally I found him at the information desk!"},{"t":"Noong isang taon, habang nagbabakasyon kami sa Palawan, biglang umulan nang malakas. Naligaw kami sa daan. Sa wakas, nakarating din kami sa hotel.","tr":"Last year, while we were on vacation in Palawan, it suddenly poured. We got lost on the way. Finally we made it to the hotel."}]}
+      ]
+    },
+    {
+      "id": "keep-a-conversation-going",
+      "unit": 8,
+      "level": "B1",
+      "title": "Keep a conversation going",
+      "summary": "React, ask follow-up questions and turn questions back, so a chat doesn't stop after one answer.",
+      "topic": "Reactions ({{Talaga?}}, {{Grabe!}}, {{Ang galing!}}); follow-up questions with the right focus; {{E ikaw?}}, {{Ikaw naman?}}; {{mahilig}}",
+      "blocks": [
+        {"goal":{"t":"Talaga? Paano mo nagawa iyon?","tr":"Really? How did you manage that?"}},
+        {"dialog":[{"who":"Tom","t":"Nakatapos ako ng marathon!","tr":"I finished a marathon!"},{"who":"Liza","t":"Talaga? Ang galing! Paano mo nagawa iyon?","tr":"Really? That's amazing! How did you manage that?"},{"who":"Tom","t":"Nag-ensayo ako araw-araw sa loob ng anim na buwan.","tr":"I trained every day for six months."},{"who":"Liza","t":"Grabe! Hindi ka ba napagod?","tr":"Wow! Didn't you get tired?"},{"who":"Tom","t":"Siyempre napagod! Pero masaya. E ikaw, mahilig ka bang tumakbo?","tr":"Of course I got tired! But it was fun. What about you, do you like running?"},{"who":"Liza","t":"Hindi masyado. Mas gusto kong lumangoy.","tr":"Not really. I'd rather swim."}]},
+        {"p":"In a Filipino conversation, an answer is an invitation. Keep it going in three ways: **react**, **ask more**, and **turn it back**."},
+        { "table": [
+          ["","Tagalog","meaning"],
+          ["react","{{Talaga?}}","Really?"],
+          ["","{{Grabe!}}","Wow! No way!"],
+          ["","{{Ang galing!}}","That's great!"],
+          ["","{{Sayang!}} {{Kawawa naman!}}","Too bad! Poor thing!"],
+          ["ask more","{{Bakit naman?}}","How come?"],
+          ["","{{Paano mo nagawa iyon?}}","How did you manage that?"],
+          ["","{{Tapos?}} {{Ano'ng nangyari?}}","And then? What happened?"],
+          ["turn it back","{{E ikaw?}} {{Ikaw naman?}}","What about you?"]
+        ] },
+        {"p":"**Follow-up questions use everything you know**: the question word first, the pronoun right after it, and the focus that fits what you ask about: {{Saan kayo kumain?}} “Where did you eat?” (actor focus), {{Ano ang kinain ninyo?}} “What did you eat?” (object focus), {{Sino ang kasama mo?}} “Who were you with?”"},
+        {"p":"**Checking you understood**: {{di ba?}} turns a statement into “right?”: {{Taga-Davao ka, di ba?}}. {{Ibig mong sabihin…}} “You mean…”."},
+        {"p":"**Showing interest without a question**: {{Ah, kaya pala!}} “Oh, so that's why!”, {{Oo nga, ano?}} “That's true, isn't it?”, {{Sige, kuwento mo pa!}} “Go on, tell me more!”"},
+        { "ex": [
+          {"t":"Talaga? Paano mo nagawa iyon?","tr":"Really? How did you manage that?"},
+          {"t":"Grabe! Hindi ka ba napagod?","tr":"Wow! Didn't you get tired?"},
+          {"t":"Sino ang kasama mo?","tr":"Who were you with?"},
+          {"t":"Ano ang kinain ninyo doon?","tr":"What did you eat there?"},
+          {"t":"Ah, kaya pala!","tr":"Oh, so that's why!"},
+          {"t":"Sige, kuwento mo pa!","tr":"Go on, tell me more!"},
+          {"t":"E ikaw, mahilig ka bang tumakbo?","tr":"What about you, do you like running?"}
+        ] },
+        {"tip":"{{mahilig}} “fond of, into” is the natural way to ask about hobbies: {{Mahilig ka bang magluto?}} “Do you like cooking?”, {{Mahilig ako sa musika.}} “I'm into music.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Paano ka nagawa iyon?","right":"Paano mo nagawa iyon?","tr":"How did you manage that?","why":"{{nagawa}} is object focus (the thing done is {{iyon}}): the doer is {{mo}}."},
+        {"wrong":"Sino ang kasama ka?","right":"Sino ang kasama mo?","tr":"Who were you with?","why":"{{kasama mo}} is “your companion”: the {{ko}} set, like {{bahay mo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Your friend says she just got a new job. A good reaction and follow-up:","options":["{{Talaga? Ang galing! Saan?}}","{{Ah.}}","{{Ako rin ba?}}"],"answer":0,"why":"React, then ask more."},
+        {"type":"fill","q":"Choose the missing word.","t":"Paano ___ nagawa iyon?","tr":"How did you manage that?","options":["mo","ka","ikaw"],"answer":0,"why":"Object focus: the doer is {{mo}}.","from":"focus-on-the-thing"},
+        {"type":"fill","q":"Choose the missing word.","t":"Ano ang ___ ninyo doon?","tr":"What did you eat there?","options":["kinain","kumain","kakain"],"answer":0,"why":"Asking about the thing eaten: object focus, completed.","from":"ask-who-did-what"},
+        {"type":"order","q":"Put the words in order.","tr":"What about you, do you like running?","words":["E ikaw,","mahilig","ka","bang","tumakbo?"]},
+        {"type":"dialogue","q":"A coworker tells you about her weekend. Keep it going.","lines":[{"who":"Coworker","t":"Pumunta kami sa Batangas noong weekend.","tr":"We went to Batangas last weekend."},{"options":["Talaga? Sino ang kasama mo?","Talaga? Sino ang kasama ka?"],"answer":0,"why":"{{kasama mo}}: your companion."},{"who":"Coworker","t":"Ang pamilya ko. Nag-diving kami!","tr":"My family. We went diving!"},{"options":["Grabe! Nakakatakot ba?","Grabe! Natatakot ba?"],"answer":0,"why":"“Is it scary?”: {{nakakatakot}}, what it does to you."},{"who":"Coworker","t":"Hindi naman! Ang ganda ng dagat. E ikaw, ano ang ginawa mo?","tr":"Not really! The sea was beautiful. What about you, what did you do?"},{"options":["Wala, natulog lang ako buong weekend!","Wala, matutulog lang ako buong weekend kahapon!"],"answer":0,"why":"Over and done: {{natulog}}; {{lang}} keeps it modest."}],"from":"say-how-you-feel"},
+        {"type":"say","q":"React to good news and ask for more: “Really? Go on, tell me more!”","answer":"Talaga? Sige, kuwento mo pa!"},
+        {"type":"free","q":"Your turn: a friend says {{Nagbakasyon ako sa Japan!}} Write a reaction, two follow-up questions, and something about yourself.","answers":[{"t":"Wow, ang saya! Kailan ka bumalik? Ano ang pinakagusto mo doon? Gusto ko ring pumunta sa Japan!","tr":"Wow, how fun! When did you get back? What did you like best there? I want to go to Japan too!"},{"t":"Talaga? Ang galing! Sino ang kasama mo? Ano ang kinain ninyo? Ako, hindi pa ako nakakapunta doon.","tr":"Really? That's great! Who did you go with? What did you eat? Me, I've never been there."}]}
+      ]
     }
   ]
 }
