@@ -2096,6 +2096,321 @@
         {"type":"say","q":"ถามเพื่อยืนยันว่า “วันนี้ร้อนมากเลยนะ”","answer":"It's really hot today, isn't it?"},
         {"type":"free","q":"ถึงตาคุณ: ตอบคำถามนี้ตามความจริงของคุณ: {{Don't you like spicy food?}} แล้วถามเพื่อนกลับหนึ่งคำถามด้วย {{…, right?}}","answers":[{"t":"No, I don't. It's too hot for me. You like spicy food, right?","tr":"ไม่ชอบ เผ็ดเกินไปสำหรับฉัน คุณชอบเผ็ดใช่ไหม"},{"t":"Yes, I do! I love it. You're from Bangkok, right?","tr":"ชอบสิ ชอบมากเลย คุณมาจากกรุงเทพฯ ใช่ไหม"}]}
       ]
+    },
+    {
+      "id": "who-which-that",
+      "unit": 8,
+      "level": "B1",
+      "title": "อธิบายคนและสิ่งของด้วยประโยค: who, which, that",
+      "summary": "พูดว่า “ผู้ชายที่ทำงานกับฉัน” “ร้านที่เราไปเมื่อวาน”: “ที่” ในภาษาไทย ภาษาอังกฤษใช้ {{who}}, {{which}} หรือ {{that}} หลังคำนาม",
+      "topic": "relative clause: คำนาม + {{who}} (คน) / {{which}} (สิ่งของ) / {{that}} (ทั้งสองอย่าง) + ประโยค; ไม่ใส่คำสรรพนามซ้ำ; ละ {{that}} ได้เมื่อตามด้วยประธานใหม่",
+      "blocks": [
+        {"goal":{"t":"That's the man who works with my sister.","tr":"นั่นคือผู้ชายที่ทำงานกับพี่สาวฉัน"}},
+        {"dialog":[{"who":"เจค","t":"Who's that woman over there?","tr":"ผู้หญิงคนนั้นเป็นใคร"},{"who":"นก","t":"She's the teacher who taught me English.","tr":"เขาคือครูที่สอนภาษาอังกฤษฉัน"},{"who":"เจค","t":"Oh! And is this the restaurant that you told me about?","tr":"อ้อ แล้วนี่ใช่ร้านที่คุณเล่าให้ฟังไหม"},{"who":"นก","t":"Yes! It's the place I always come to on Fridays.","tr":"ใช่ เป็นร้านที่ฉันมาทุกวันศุกร์"}]},
+        {"term":"อนุประโยค (relative clause)","means":"ประโยคย่อยที่ตามหลังคำนามเพื่อบอกว่าเป็นคนไหน สิ่งไหน เหมือน “ที่…” ในภาษาไทย เช่น {{the man who lives next door}} “ผู้ชายที่อยู่บ้านข้างๆ”"},
+        {"p":"**ที่ = who / which / that** ภาษาไทยวาง “ที่…” หลังคำนาม ภาษาอังกฤษก็เหมือนกัน แค่ต้องเลือกคำ: คนใช้ {{who}} ({{the man who lives next door}}) สิ่งของหรือสัตว์ใช้ {{which}} ({{the bag which I bought}}) ส่วน {{that}} ใช้ได้ทั้งคนและสิ่งของ และเป็นคำที่ใช้บ่อยที่สุดในภาษาพูด"},
+        { "table": [
+          ["","คำ","ตัวอย่าง"],
+          ["คน","{{who}} / {{that}}","{{the woman who called}} ผู้หญิงที่โทรมา"],
+          ["สิ่งของ สัตว์","{{which}} / {{that}}","{{the phone that I bought}} โทรศัพท์ที่ฉันซื้อ"],
+          ["ที่ (สถานที่)","{{where}}","{{the hotel where we stayed}} โรงแรมที่เราพัก"]
+        ] },
+        {"p":"**ไม่ใส่คำซ้ำ** {{who}} / {{which}} / {{that}} ทำหน้าที่แทนคำนามแล้ว จึงไม่ต้องใส่ {{he}}, {{it}} ซ้ำอีก: {{the book that I read}} ไม่ใช่ {{the book that I read it}}"},
+        {"p":"**ละ that ได้** ถ้าหลัง {{that}} มีประธานใหม่ ({{I}}, {{you}}, {{she}}…) ละ {{that}} ทิ้งได้: {{the movie (that) we saw}} “หนังที่เราดู” แต่ถ้า {{who}} / {{that}} เป็นประธานเอง ละไม่ได้: {{the man who lives here}} (ต้องมี {{who}})"},
+        { "ex": [
+          {"t":"I have a friend who lives in New York.","tr":"ฉันมีเพื่อนที่อยู่นิวยอร์ก"},
+          {"t":"This is the phone that I bought last week.","tr":"นี่คือโทรศัพท์ที่ฉันซื้อเมื่อสัปดาห์ที่แล้ว"},
+          {"t":"The movie we saw was great.","tr":"หนังที่เราดูสนุกมาก"},
+          {"t":"Do you know anyone who speaks Japanese?","tr":"รู้จักใครที่พูดภาษาญี่ปุ่นได้ไหม"},
+          {"t":"That's the hotel where we stayed.","tr":"นั่นคือโรงแรมที่เราพัก"},
+          {"t":"The bus that goes to the airport leaves at six.","tr":"รถเมล์ที่ไปสนามบินออกตอนหกโมง"}
+        ] },
+        {"tip":"ในภาษาพูดแบบอเมริกัน {{that}} ใช้ได้เกือบทุกที่ ถ้าไม่แน่ใจว่าจะใช้ {{who}} หรือ {{which}} ให้ใช้ {{that}}"}
+      ],
+      "mistakes": [
+        {"wrong":"The man he lives next door is a doctor.","right":"The man who lives next door is a doctor.","tr":"ผู้ชายที่อยู่บ้านข้างๆ เป็นหมอ","why":"“ที่” ต้องมี {{who}} / {{that}} ไม่ใช่ {{he}}"},
+        {"wrong":"This is the book that I read it.","right":"This is the book that I read.","tr":"นี่คือหนังสือที่ฉันอ่าน","why":"{{that}} แทน {{the book}} แล้ว ไม่ต้องมี {{it}} ซ้ำ"},
+        {"wrong":"the woman which called","right":"the woman who called","tr":"ผู้หญิงที่โทรมา","why":"คนใช้ {{who}} (หรือ {{that}}) ไม่ใช้ {{which}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"I have a friend ___ lives in New York.","tr":"ฉันมีเพื่อนที่อยู่นิวยอร์ก","options":["who","which","he"],"answer":0,"why":"คน: {{who}}"},
+        {"type":"choice","q":"“นี่คือกระเป๋าที่ฉันซื้อ”","options":["{{This is the bag that I bought.}}","{{This is the bag that I bought it.}}","{{This is bag I bought it.}}"],"answer":0,"why":"ไม่ต้องมี {{it}} ซ้ำ"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"นั่นคือโรงแรมที่เราพัก","words":["That's","the hotel","where","we","stayed."]},
+        {"type":"dialogue","q":"เพื่อนถามถึงร้านอาหาร เลือกคำตอบ","from":"the-best","lines":[{"who":"เจค","t":"What's the best restaurant you know?","tr":"ร้านอาหารที่ดีที่สุดที่คุณรู้จักคือร้านไหน"},{"options":["There's a small place that serves great curry.","There's a small place it serves great curry."],"answer":0,"why":"“ที่” = {{that}}"},{"who":"เจค","t":"Is it the one near your office?","tr":"ร้านที่อยู่ใกล้ออฟฟิศคุณหรือเปล่า"},{"options":["Yes, it's the one I told you about.","Yes, it's the one I told you about it."],"answer":0,"why":"ไม่ต้องมี {{it}} ซ้ำ"}]},
+        {"type":"say","q":"พูดว่า “ฉันมีเพื่อนที่อยู่นิวยอร์ก”","answer":"I have a friend who lives in New York."},
+        {"type":"free","q":"ถึงตาคุณ: อธิบายคนหนึ่งคนและสิ่งของหนึ่งอย่างที่สำคัญกับคุณ โดยใช้ {{who}} หรือ {{that}}","answers":[{"t":"My grandmother is the person who taught me to cook. My bike is the thing that I use every day.","tr":"ยายคือคนที่สอนฉันทำอาหาร จักรยานคือของที่ฉันใช้ทุกวัน"},{"t":"I have a friend who always makes me laugh. This watch is a gift that my dad gave me.","tr":"ผมมีเพื่อนที่ทำให้หัวเราะได้เสมอ นาฬิกาเรือนนี้เป็นของขวัญที่พ่อให้"}]}
+      ]
+    },
+    {
+      "id": "said-that",
+      "unit": 8,
+      "level": "B1",
+      "title": "เล่าต่อว่าคนอื่นพูดอะไร",
+      "summary": "เล่าว่า “เขาบอกว่า…” “แม่บอกให้…” “เขาถามว่า…ไหม”: ภาษาอังกฤษเลื่อนกาลถอยหลังหนึ่งขั้น และใช้ {{told me to}} กับ {{asked if}}",
+      "topic": "reported speech: {{said (that)}} + ประโยค, กาลถอยหลัง ({{am}} → {{was}}, {{will}} → {{would}}, {{can}} → {{could}}); {{told me to…}}; {{asked if…}} (เรียงคำแบบบอกเล่า)",
+      "blocks": [
+        {"goal":{"t":"She said she was tired.","tr":"เขาบอกว่าเขาเหนื่อย"}},
+        {"dialog":[{"who":"แม่","t":"Did Tom call?","tr":"ทอมโทรมาหรือเปล่า"},{"who":"นก","t":"Yes. He said he would be late.","tr":"โทรมาค่ะ เขาบอกว่าจะมาสาย"},{"who":"แม่","t":"Did he say why?","tr":"เขาบอกไหมว่าทำไม"},{"who":"นก","t":"He said there was a lot of traffic. He told me to start dinner without him.","tr":"เขาบอกว่ารถติดมาก แล้วบอกให้เริ่มกินข้าวไปก่อนเลย"},{"who":"แม่","t":"OK. Can you ask him if he wants dessert?","tr":"โอเค ช่วยถามเขาหน่อยว่าเอาของหวานไหม"}]},
+        {"p":"**บอกว่า… = said (that)…** ภาษาไทยเล่าต่อโดยไม่เปลี่ยนคำกริยา แต่ภาษาอังกฤษ ถ้า {{said}} เป็นอดีตแล้ว คำกริยาในประโยคที่เล่าต่อมักถอยหลังไปหนึ่งขั้น: เขาพูดว่า {{“I'm tired.”}} → {{He said (that) he was tired.}} (ละ {{that}} ได้)"},
+        { "table": [
+          ["คำพูดจริง","เล่าต่อ"],
+          ["{{“I'm busy.”}}","{{She said she was busy.}}"],
+          ["{{“I like it.”}}","{{He said he liked it.}}"],
+          ["{{“I'll call you.”}}","{{He said he would call me.}}"],
+          ["{{“I can't come.”}}","{{She said she couldn't come.}}"],
+          ["{{“I saw it.”}}","{{He said he had seen it.}} / {{he saw it}}"]
+        ] },
+        {"p":"**บอกให้… = told + คน + to** “บอกให้” “สั่งให้” ใช้ {{told}} + คน + {{to}} + คำกริยา: {{The doctor told me to rest.}} “หมอบอกให้พัก” ปฏิเสธใช้ {{not to}}: {{She told me not to worry.}} “เขาบอกว่าไม่ต้องห่วง” ระวัง: {{told}} ต้องมีคนตามหลังเสมอ ส่วน {{said}} ไม่มี ({{He said…}} / {{He told me…}})"},
+        {"p":"**ถามว่า…ไหม = asked if** “ถามว่า…ไหม” ใช้ {{asked if}} และเรียงคำแบบประโยคบอกเล่า (ไม่สลับ ไม่มี {{do}}): {{“Are you OK?”}} → {{She asked if I was OK.}} คำถามที่มีคำแสดงคำถาม ใช้คำนั้นแทน {{if}}: {{He asked where I lived.}} “เขาถามว่าฉันอยู่ที่ไหน”"},
+        { "ex": [
+          {"t":"She said she was tired.","tr":"เขาบอกว่าเขาเหนื่อย"},
+          {"t":"He said he would call me tomorrow.","tr":"เขาบอกว่าพรุ่งนี้จะโทรหาฉัน"},
+          {"t":"My mom told me to come home early.","tr":"แม่บอกให้กลับบ้านเร็ว"},
+          {"t":"The teacher told us not to be late.","tr":"ครูบอกว่าอย่ามาสาย"},
+          {"t":"She asked if I was hungry.","tr":"เขาถามว่าฉันหิวไหม"},
+          {"t":"He asked me where I worked.","tr":"เขาถามว่าฉันทำงานที่ไหน"}
+        ] },
+        {"tip":"ถ้าเรื่องที่เล่ายังจริงอยู่ตอนนี้ ไม่ต้องถอยกาลก็ได้: {{She said she lives in Bangkok.}} (ตอนนี้ยังอยู่) เวลาพูดเร็วๆ คนอเมริกันก็ทำแบบนี้บ่อย"}
+      ],
+      "mistakes": [
+        {"wrong":"He said me he was busy.","right":"He told me he was busy.","tr":"เขาบอกฉันว่าเขายุ่ง","why":"มีคนตามหลังใช้ {{told}}; {{said}} ไม่มีคนตามหลัง"},
+        {"wrong":"My mom said me to come home.","right":"My mom told me to come home.","tr":"แม่บอกให้ฉันกลับบ้าน","why":"“บอกให้” คือ {{told}} + คน + {{to}}"},
+        {"wrong":"She asked was I hungry.","right":"She asked if I was hungry.","tr":"เขาถามว่าฉันหิวไหม","why":"“ถามว่า…ไหม” ใช้ {{asked if}} + เรียงคำแบบบอกเล่า"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"The doctor ___ me to rest.","tr":"หมอบอกให้ฉันพัก","options":["told","said","asked if"],"answer":0,"why":"บอกให้ + คน: {{told me to}}"},
+        {"type":"choice","q":"เพื่อนพูดว่า {{“I'll be late.”}} คุณเล่าต่อว่า","options":["{{She said she would be late.}}","{{She said me she will be late.}}","{{She told she would be late.}}"],"answer":0,"why":"{{said}} ไม่มีคนตาม และ {{will}} → {{would}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"เขาถามว่าฉันทำงานที่ไหน","words":["He","asked","me","where","I","worked."]},
+        {"type":"dialogue","q":"คุณเล่าให้เพื่อนฟังเรื่องที่เจอที่ทำงาน","from":"tell-a-story","lines":[{"who":"เพื่อน","t":"What happened at work today?","tr":"วันนี้ที่ทำงานเกิดอะไรขึ้น"},{"options":["My boss called me while I was having lunch. She said she needed the report.","My boss called me while I have lunch. She said me she need the report."],"answer":0,"why":"{{while I was having}} และ {{she said she needed}}"},{"who":"เพื่อน","t":"What did you do?","tr":"แล้วคุณทำยังไง"},{"options":["I told her I would send it in an hour.","I said her I will send it in an hour."],"answer":0,"why":"{{told her}} + {{would}}"}]},
+        {"type":"say","q":"เล่าว่า “แม่บอกให้กลับบ้านเร็ว”","answer":"My mom told me to come home early."},
+        {"type":"free","q":"ถึงตาคุณ: เล่าว่าเมื่อเร็วๆ นี้มีคนบอกหรือถามอะไรคุณ","answers":[{"t":"My friend said she was moving to Chiang Mai. She asked if I wanted to visit her.","tr":"เพื่อนบอกว่าเขาจะย้ายไปเชียงใหม่ แล้วถามว่าฉันอยากไปเยี่ยมไหม"},{"t":"My boss told me to take a day off. He said I looked tired.","tr":"หัวหน้าบอกให้ผมลาพักหนึ่งวัน เขาบอกว่าผมดูเหนื่อย"}]}
+      ]
+    },
+    {
+      "id": "opinions",
+      "unit": 8,
+      "level": "B1",
+      "title": "แสดงความคิดเห็น เห็นด้วย และไม่เห็นด้วย",
+      "summary": "บอกว่าคุณคิดอย่างไร เห็นด้วยหรือไม่เห็นด้วยอย่างสุภาพ: {{agree}} เป็นคำกริยา จึงพูดว่า {{I agree}} ไม่ใช่ {{I am agree}}",
+      "topic": "{{I think (that)…}}, {{I don't think…}}, {{In my opinion…}}; {{I agree}} / {{I don't agree}} (ไม่ใช่ {{I am agree}}); ไม่เห็นด้วยอย่างนุ่มนวล; {{I'm not sure}}",
+      "blocks": [
+        {"goal":{"t":"I agree with you, but I think it's too expensive.","tr":"ฉันเห็นด้วยกับคุณ แต่คิดว่ามันแพงเกินไป"}},
+        {"dialog":[{"who":"เจค","t":"I think we should take the train to Chiang Mai.","tr":"ผมคิดว่าเราควรนั่งรถไฟไปเชียงใหม่"},{"who":"นก","t":"I agree. It's more comfortable than the bus.","tr":"เห็นด้วย สบายกว่ารถทัวร์"},{"who":"ต้น","t":"Hmm, I'm not sure. I don't think the train is fast enough.","tr":"อืม ไม่แน่ใจนะ ผมว่ารถไฟไม่เร็วพอ"},{"who":"เจค","t":"That's true. What do you think about flying?","tr":"จริง แล้วคิดยังไงเรื่องนั่งเครื่องบิน"},{"who":"ต้น","t":"In my opinion, flying is the best. It only takes an hour.","tr":"ผมว่านั่งเครื่องบินดีที่สุด ใช้เวลาแค่ชั่วโมงเดียว"}]},
+        {"p":"**บอกความคิดเห็น** {{I think (that)…}} “ฉันคิดว่า…” เป็นวิธีที่ง่ายและใช้บ่อยที่สุด หรือ {{In my opinion,…}} “ในความคิดของฉัน” (ทางการขึ้นหน่อย) ถามความเห็นคนอื่น: {{What do you think?}} {{What do you think about…?}}"},
+        {"p":"**I don't think…** “ฉันคิดว่าไม่…” ภาษาอังกฤษนิยมวาง {{not}} ไว้ที่ {{think}}: {{I don't think it's a good idea.}} ฟังเป็นธรรมชาติกว่า {{I think it's not a good idea.}}"},
+        {"p":"**agree เป็นคำกริยา** “เห็นด้วย” ภาษาอังกฤษคือ {{agree}} ซึ่งเป็นคำกริยา จึงไม่ต้องมี {{am}}: {{I agree.}} {{I don't agree.}} เห็นด้วยกับใครใช้ {{with}}: {{I agree with you.}}"},
+        { "table": [
+          ["เห็นด้วย","ไม่เห็นด้วย (สุภาพ)"],
+          ["{{I agree.}} เห็นด้วย","{{I'm not sure.}} ไม่แน่ใจนะ"],
+          ["{{That's true.}} จริง","{{I see your point, but…}} เข้าใจนะ แต่…"],
+          ["{{Exactly!}} ใช่เลย","{{I don't really agree.}} ไม่ค่อยเห็นด้วย"],
+          ["{{Good idea.}} ความคิดดี","{{Maybe, but…}} อาจจะนะ แต่…"]
+        ] },
+        { "ex": [
+          {"t":"I think it's a great idea.","tr":"ฉันว่าเป็นความคิดที่ดีมาก"},
+          {"t":"I don't think he's right.","tr":"ฉันว่าเขาไม่ถูก"},
+          {"t":"In my opinion, Bangkok is too hot.","tr":"ในความคิดของฉัน กรุงเทพฯ ร้อนเกินไป"},
+          {"t":"I agree with you.","tr":"ฉันเห็นด้วยกับคุณ"},
+          {"t":"I see your point, but I don't really agree.","tr":"เข้าใจที่คุณพูดนะ แต่ไม่ค่อยเห็นด้วย"},
+          {"t":"What do you think about the new mall?","tr":"คิดยังไงกับห้างใหม่"}
+        ] },
+        {"tip":"คนอเมริกันมักไม่พูดว่า {{You're wrong.}} ตรงๆ เพราะฟังแรง ถ้าไม่เห็นด้วยให้เริ่มด้วย {{I see your point, but…}} หรือ {{Maybe, but…}} ก่อน"}
+      ],
+      "mistakes": [
+        {"wrong":"I am agree with you.","right":"I agree with you.","tr":"ฉันเห็นด้วยกับคุณ","why":"{{agree}} เป็นคำกริยา ไม่ต้องมี {{am}}"},
+        {"wrong":"I'm not agree.","right":"I don't agree.","tr":"ฉันไม่เห็นด้วย","why":"ปฏิเสธคำกริยาใช้ {{don't}}"},
+        {"wrong":"I think it's not a good idea.","right":"I don't think it's a good idea.","tr":"ฉันว่าไม่ใช่ความคิดที่ดี","why":"ภาษาอังกฤษนิยมปฏิเสธที่ {{think}}: {{I don't think…}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"I ___ with you. It's a good idea.","tr":"ฉันเห็นด้วยกับคุณ เป็นความคิดที่ดี","options":["agree","am agree","agreeing"],"answer":0,"why":"{{agree}} เป็นคำกริยา: {{I agree}}"},
+        {"type":"choice","q":"ไม่เห็นด้วยอย่างสุภาพ","options":["{{I see your point, but I'm not sure.}}","{{You're wrong.}}","{{I am not agree.}}"],"answer":0,"why":"เริ่มด้วย {{I see your point, but…}} ฟังนุ่มนวล"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ฉันว่าเขาไม่ถูก","words":["I","don't","think","he's","right."]},
+        {"type":"dialogue","q":"เพื่อนคุยเรื่องเรียนภาษา เลือกคำตอบ","from":"compare","lines":[{"who":"เพื่อน","t":"I think English is harder than Thai.","tr":"ฉันว่าภาษาอังกฤษยากกว่าภาษาไทย"},{"options":["Really? I don't agree. Thai is harder because of the tones.","Really? I'm not agree. Thai is more hard because of the tones."],"answer":0,"why":"{{I don't agree}} และ {{harder}}"},{"who":"เพื่อน","t":"That's true. Tones are difficult.","tr":"จริง วรรณยุกต์ยาก"},{"options":["Exactly! But I think both are fun.","Exactly! But I am think both are fun."],"answer":0,"why":"{{think}} เป็นคำกริยา ไม่ต้องมี {{am}}"}]},
+        {"type":"say","q":"พูดว่า “ฉันเห็นด้วยกับคุณ”","answer":"I agree with you."},
+        {"type":"free","q":"ถึงตาคุณ: คิดยังไงกับการทำงานที่บ้าน บอกความคิดเห็นพร้อมเหตุผล","answers":[{"t":"I think working from home is great because I don't have to sit in traffic. But I don't think it's good every day.","tr":"ฉันว่าทำงานที่บ้านดีมาก เพราะไม่ต้องเจอรถติด แต่ไม่คิดว่าทุกวันจะดี"},{"t":"In my opinion, it's better to work in the office. I agree that home is comfortable, but I miss my coworkers.","tr":"ผมว่าทำงานที่ออฟฟิศดีกว่า เห็นด้วยว่าบ้านสบาย แต่คิดถึงเพื่อนร่วมงาน"}]}
+      ]
+    },
+    {
+      "id": "if-i-were",
+      "unit": 8,
+      "level": "B1",
+      "title": "จินตนาการ: If I had…, I would…",
+      "summary": "พูดถึงสิ่งที่ไม่จริงหรือเป็นไปได้ยาก ถ้าถูกลอตเตอรี่ ถ้าเป็นคุณ: ภาษาอังกฤษใช้รูปอดีตเพื่อบอกว่า “ไม่จริง” แม้จะพูดถึงตอนนี้",
+      "topic": "second conditional: {{If}} + past simple, {{would}} + คำกริยา; {{If I were you…}}; {{I wish I had / were…}}; เทียบกับ {{If it rains, I'll…}}",
+      "blocks": [
+        {"goal":{"t":"If I had more time, I would travel more.","tr":"ถ้ามีเวลามากกว่านี้ ฉันจะไปเที่ยวให้มากขึ้น"}},
+        {"dialog":[{"who":"เจค","t":"What would you do if you won the lottery?","tr":"ถ้าถูกลอตเตอรี่จะทำอะไร"},{"who":"นก","t":"If I won the lottery, I would buy a house by the sea.","tr":"ถ้าถูกลอตเตอรี่ ฉันจะซื้อบ้านริมทะเล"},{"who":"เจค","t":"Would you stop working?","tr":"จะเลิกทำงานไหม"},{"who":"นก","t":"No, I wouldn't. I'd get bored!","tr":"ไม่หรอก เดี๋ยวเบื่อ"},{"who":"นก","t":"I wish I had a ticket right now.","tr":"อยากมีลอตเตอรี่สักใบตอนนี้จัง"}]},
+        {"p":"**อดีต = ไม่จริง** ภาษาไทยใช้ “ถ้า…จะ…” ทั้งเรื่องที่เป็นไปได้และเรื่องที่ไม่จริง แต่ภาษาอังกฤษแยกกัน: เรื่องที่ไม่จริงหรือเป็นไปได้ยาก ใช้ {{If}} + past simple, {{would}} + คำกริยา: {{If I had a car, I would drive to work.}} “ถ้ามีรถ (แต่ไม่มี) จะขับไปทำงาน” รูปอดีตตรงนี้ไม่ได้หมายถึงอดีต แต่บอกว่า “สมมติ”"},
+        { "table": [
+          ["เป็นไปได้ (if-will)","สมมติ ไม่จริง (if-would)"],
+          ["{{If I have time, I'll call you.}} ถ้ามีเวลา (อาจจะมี)","{{If I had time, I'd call you.}} ถ้ามีเวลา (แต่ไม่มี)"],
+          ["{{If it's sunny, we'll go.}}","{{If I lived by the sea, I'd swim every day.}}"]
+        ] },
+        {"p":"**If I were you** “ถ้าเป็นฉันนะ…” ใช้ให้คำแนะนำ: {{If I were you, I would see a doctor.}} หลัง {{if}} ใช้ {{were}} ได้กับทุกคน ({{If I were}}, {{If she were}}) ในภาษาพูดบางคนใช้ {{was}} แต่ {{were}} ถูกเสมอ"},
+        {"p":"**I wish: อยากให้…จัง** ใช้กับสิ่งที่อยากให้เป็นแต่ไม่เป็น: {{I wish}} + รูปอดีต: {{I wish I had more money.}} “อยากมีเงินมากกว่านี้จัง” {{I wish it were Friday.}} “อยากให้เป็นวันศุกร์จัง”"},
+        { "ex": [
+          {"t":"If I had more time, I would learn to play the guitar.","tr":"ถ้ามีเวลามากกว่านี้ จะหัดเล่นกีตาร์"},
+          {"t":"If I lived in Japan, I'd eat sushi every day.","tr":"ถ้าอยู่ญี่ปุ่น จะกินซูชิทุกวัน"},
+          {"t":"What would you do if you were rich?","tr":"ถ้ารวยจะทำอะไร"},
+          {"t":"If I were you, I wouldn't buy it.","tr":"ถ้าเป็นฉันนะ ฉันจะไม่ซื้อ"},
+          {"t":"I wish I could speak French.","tr":"อยากพูดภาษาฝรั่งเศสได้จัง"},
+          {"t":"I wish you were here.","tr":"อยากให้คุณอยู่ที่นี่จัง"}
+        ] },
+        {"tip":"{{I'd}} ย่อมาจาก {{I would}} เวลาพูดใช้รูปย่อเกือบตลอด: {{I'd love to.}} {{I'd buy a house.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"If I have a lot of money, I would buy a house.","right":"If I had a lot of money, I would buy a house.","tr":"ถ้ามีเงินเยอะ จะซื้อบ้าน","why":"สมมติ (ไม่จริง) ใช้รูปอดีตหลัง {{if}}: {{had}}"},
+        {"wrong":"If I would be you, I would rest.","right":"If I were you, I would rest.","tr":"ถ้าเป็นฉันนะ จะพักผ่อน","why":"หลัง {{if}} ไม่ใช้ {{would}}: {{If I were you}}"},
+        {"wrong":"I wish I have a car.","right":"I wish I had a car.","tr":"อยากมีรถจัง","why":"หลัง {{I wish}} ใช้รูปอดีต"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"If I ___ rich, I would travel around the world.","tr":"ถ้ารวย จะเที่ยวรอบโลก","options":["were","am","will be"],"answer":0,"why":"สมมติ: {{If I were}}"},
+        {"type":"choice","q":"เพื่อนปวดหัวมาสามวันแล้ว คุณแนะนำว่า","options":["{{If I were you, I'd see a doctor.}}","{{If I am you, I see a doctor.}}","{{If I would be you, I'd see a doctor.}}"],"answer":0,"why":"ให้คำแนะนำ: {{If I were you, I'd…}}"},
+        {"type":"order","q":"เรียงคำให้เป็นคำถาม","tr":"ถ้ารวยจะทำอะไร","words":["What","would","you","do","if","you were","rich?"]},
+        {"type":"dialogue","q":"เพื่อนชวนคุยเรื่องสมมติ เลือกคำตอบ","from":"if-will","lines":[{"who":"เจค","t":"If you could live anywhere, where would you live?","tr":"ถ้าอยู่ที่ไหนก็ได้ จะอยู่ที่ไหน"},{"options":["I'd live in Hawaii. I love the beach.","I'll live in Hawaii. I love the beach."],"answer":0,"why":"เรื่องสมมติใช้ {{would}}: {{I'd}}"},{"who":"เจค","t":"And this weekend? Any plans?","tr":"แล้วสุดสัปดาห์นี้ล่ะ มีแผนไหม"},{"options":["If the weather is nice, I'll go to the beach here!","If the weather was nice, I'll go to the beach here!"],"answer":0,"why":"เรื่องที่เป็นไปได้จริง: {{if}} + ปัจจุบัน, {{will}}"}]},
+        {"type":"say","q":"แนะนำเพื่อนว่า “ถ้าเป็นฉันนะ จะไม่ซื้อ”","answer":"If I were you, I wouldn't buy it."},
+        {"type":"free","q":"ถึงตาคุณ: ถ้าถูกลอตเตอรี่จะทำอะไร และบอกหนึ่งอย่างที่คุณ “อยากให้เป็นจัง” ด้วย {{I wish}}","answers":[{"t":"If I won the lottery, I would quit my job and travel. I wish I had more free time.","tr":"ถ้าถูกลอตเตอรี่ ฉันจะลาออกแล้วไปเที่ยว อยากมีเวลาว่างมากกว่านี้จัง"},{"t":"I'd buy my parents a new house. I wish I could speak English perfectly.","tr":"ผมจะซื้อบ้านใหม่ให้พ่อแม่ อยากพูดภาษาอังกฤษได้คล่องจัง"}]}
+      ]
+    },
+    {
+      "id": "phrasal-verbs",
+      "unit": 8,
+      "level": "B1",
+      "title": "ใช้กริยาวลีในชีวิตประจำวัน",
+      "summary": "พูดว่า “เปิดไฟ” “ไปรับ” “หา” “เลิก” แบบที่คนอเมริกันพูดจริง: คำกริยาบวกคำเล็กๆ อย่าง {{on}}, {{off}}, {{up}} ได้ความหมายใหม่",
+      "topic": "phrasal verbs: {{turn on / off}} (ไม่ใช่ {{open the light}}), {{get up}}, {{pick up}}, {{look for}}, {{find out}}, {{give up}}, {{put on}}, {{take off}}; ตำแหน่งของ {{it}} / {{them}}",
+      "blocks": [
+        {"goal":{"t":"Can you turn off the lights? I'll pick you up at seven.","tr":"ช่วยปิดไฟหน่อยได้ไหม เดี๋ยวจะไปรับตอนหนึ่งทุ่ม"}},
+        {"dialog":[{"who":"นก","t":"It's dark in here. Can you turn on the light?","tr":"ในนี้มืดจัง ช่วยเปิดไฟหน่อย"},{"who":"เจค","t":"Sure. What are you looking for?","tr":"ได้ หาอะไรอยู่"},{"who":"นก","t":"My keys. I need to pick up my mom at the airport.","tr":"กุญแจ ต้องไปรับแม่ที่สนามบิน"},{"who":"เจค","t":"Here they are! Don't forget to put on your jacket. It's cold.","tr":"นี่ไง อย่าลืมใส่เสื้อแจ็กเก็ตนะ อากาศหนาว"}]},
+        {"term":"กริยาวลี (phrasal verb)","means":"คำกริยาที่มีคำเล็กๆ อย่าง {{on}}, {{off}}, {{up}}, {{out}} ตามหลัง แล้วได้ความหมายใหม่ทั้งชุด เช่น {{give}} “ให้” แต่ {{give up}} “เลิก ยอมแพ้”"},
+        {"p":"**เปิดไฟ ไม่ใช่ open the light** ภาษาไทยใช้ “เปิด” “ปิด” กับทั้งประตูและไฟ แต่ภาษาอังกฤษแยกกัน: ประตู หน้าต่าง กล่อง ใช้ {{open}} / {{close}} ส่วนไฟ แอร์ ทีวี เครื่องใช้ไฟฟ้า ใช้ {{turn on}} / {{turn off}}: {{Turn on the air conditioner.}} “เปิดแอร์”"},
+        { "table": [
+          ["กริยาวลี","ความหมาย","ตัวอย่าง"],
+          ["{{turn on}} / {{turn off}}","เปิด / ปิด (ไฟ เครื่อง)","{{Turn off the TV.}}"],
+          ["{{get up}}","ตื่น ลุกจากเตียง","{{I get up at six.}}"],
+          ["{{pick up}}","ไปรับ หยิบขึ้นมา","{{I'll pick you up.}}"],
+          ["{{look for}}","หา","{{I'm looking for my phone.}}"],
+          ["{{find out}}","รู้ ค้นหาความจริง","{{I found out yesterday.}}"],
+          ["{{give up}}","เลิก ยอมแพ้","{{Don't give up!}}"],
+          ["{{put on}} / {{take off}}","ใส่ / ถอด","{{Take off your shoes.}}"]
+        ] },
+        {"p":"**it / them อยู่ตรงกลาง** phrasal verb ส่วนใหญ่ ถ้ากรรมเป็นคำนาม วางได้สองที่: {{turn off the light}} หรือ {{turn the light off}} แต่ถ้าเป็น {{it}}, {{them}}, {{me}}, {{you}} ต้องวาง**ตรงกลาง**: {{Turn it off.}} {{I'll pick you up.}} ไม่ใช่ {{Turn off it.}} (ยกเว้น {{look for}}: {{I'm looking for it.}})"},
+        { "ex": [
+          {"t":"Can you turn on the air conditioner?","tr":"ช่วยเปิดแอร์หน่อยได้ไหม"},
+          {"t":"Please turn it off.","tr":"ช่วยปิดหน่อย"},
+          {"t":"I'll pick you up at the station.","tr":"เดี๋ยวไปรับที่สถานี"},
+          {"t":"What time do you usually get up?","tr":"ปกติตื่นกี่โมง"},
+          {"t":"I'm looking for a cheap hotel.","tr":"กำลังหาโรงแรมราคาถูก"},
+          {"t":"She gave up smoking last year.","tr":"เขาเลิกสูบบุหรี่เมื่อปีที่แล้ว"},
+          {"t":"Please take off your shoes.","tr":"กรุณาถอดรองเท้า"}
+        ] },
+        {"tip":"“หา” มีสองคำ: หาข้อมูล ใช้ {{find out}}: {{I'll find out what time it starts.}} “เดี๋ยวจะลองหาดูว่าเริ่มกี่โมง” ส่วนหาของหรือคนที่หายไป ใช้ {{look for}}: {{I'm looking for my keys.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Can you open the light?","right":"Can you turn on the light?","tr":"ช่วยเปิดไฟหน่อยได้ไหม","why":"ไฟและเครื่องใช้ไฟฟ้าใช้ {{turn on}} / {{turn off}}"},
+        {"wrong":"Turn off it, please.","right":"Turn it off, please.","tr":"ช่วยปิดหน่อย","why":"{{it}} ต้องอยู่ระหว่างคำกริยากับ {{off}}"},
+        {"wrong":"I'll go to receive you at the airport.","right":"I'll pick you up at the airport.","tr":"เดี๋ยวไปรับที่สนามบิน","why":"“ไปรับคน” คือ {{pick up}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"It's hot. Can you ___ the air conditioner?","tr":"ร้อนจัง ช่วยเปิดแอร์หน่อยได้ไหม","options":["turn on","open","turn up on"],"answer":0,"why":"เครื่องใช้ไฟฟ้า: {{turn on}}"},
+        {"type":"choice","q":"“เดี๋ยวไปรับตอนหนึ่งทุ่ม”","options":["{{I'll pick you up at seven.}}","{{I'll pick up you at seven.}}","{{I'll receive you at seven.}}"],"answer":0,"why":"{{you}} อยู่ตรงกลาง: {{pick you up}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"กำลังหาโทรศัพท์อยู่","words":["I'm","looking","for","my","phone."]},
+        {"type":"dialogue","q":"เพื่อนร่วมห้องคุยกับคุณตอนเช้า","from":"daily-routine","lines":[{"who":"เพื่อน","t":"What time do you get up on weekdays?","tr":"วันธรรมดาตื่นกี่โมง"},{"options":["I get up at six and turn on the coffee maker.","I get up at six and open the coffee maker."],"answer":0,"why":"เครื่องชงกาแฟเป็นเครื่องใช้ไฟฟ้า: {{turn on}}"},{"who":"เพื่อน","t":"The TV is still on. Can I turn it off?","tr":"ทีวียังเปิดอยู่ ปิดได้ไหม"},{"options":["Sure, turn it off.","Sure, turn off it."],"answer":0,"why":"{{it}} อยู่ตรงกลาง"}]},
+        {"type":"say","q":"ขอให้ช่วยปิดไฟ","answer":"Can you turn off the lights?"},
+        {"type":"free","q":"ถึงตาคุณ: เล่าเช้าวันหนึ่งของคุณด้วย phrasal verb อย่างน้อยสามคำ","answers":[{"t":"I get up at six. I turn on the radio and put on my clothes. Then I pick up my friend and we go to work.","tr":"ฉันตื่นหกโมง เปิดวิทยุ แต่งตัว แล้วไปรับเพื่อนไปทำงานด้วยกัน"},{"t":"This morning I couldn't find my keys. I looked for them everywhere. Then I found out they were in my jacket!","tr":"เช้านี้หากุญแจไม่เจอ หาทุกที่เลย แล้วถึงรู้ว่ามันอยู่ในเสื้อแจ็กเก็ต"}]}
+      ]
+    },
+    {
+      "id": "let-make-have",
+      "unit": 8,
+      "level": "B1",
+      "title": "พูดคำว่า “ให้” เป็นภาษาอังกฤษ",
+      "summary": "“ให้” ในภาษาไทยมีหลายความหมาย ภาษาอังกฤษใช้คนละคำ: {{give}}, {{let}}, {{make}}, {{ask … to}}, {{for}}",
+      "topic": "ให้ → {{give}} (ให้ของ), {{let}} + คน + คำกริยา (อนุญาต), {{make}} + คน + คำกริยา (บังคับ ทำให้), {{ask / tell}} + คน + {{to}} (ขอให้ บอกให้), {{for}} (ทำให้ใคร)",
+      "blocks": [
+        {"goal":{"t":"My mom let me go, but she made me come home early.","tr":"แม่ให้ไป แต่ให้กลับบ้านเร็ว"}},
+        {"dialog":[{"who":"เจค","t":"Did your parents let you go to the concert?","tr":"พ่อแม่ให้ไปคอนเสิร์ตไหม"},{"who":"พลอย","t":"Yes, but my dad made me take my brother with me.","tr":"ให้ไป แต่พ่อบังคับให้พาน้องไปด้วย"},{"who":"เจค","t":"Ha! Did he ask you to call him, too?","tr":"ฮ่า แล้วพ่อขอให้โทรหาด้วยหรือเปล่า"},{"who":"พลอย","t":"Of course. And my mom gave me money for a taxi.","tr":"แน่นอน แล้วแม่ก็ให้เงินค่าแท็กซี่"},{"who":"พลอย","t":"I bought a T-shirt for my brother. He loved it!","tr":"ฉันซื้อเสื้อยืดให้น้องด้วย น้องชอบมาก"}]},
+        {"p":"**“ให้” มีหลายคำ** คนไทยใช้ “ให้” ได้แทบทุกที่ แต่ภาษาอังกฤษต้องดูว่า “ให้” แบบไหน: ให้ของ อนุญาต บังคับ ขอร้อง หรือทำเพื่อใคร แล้วเลือกคำให้ตรง"},
+        { "table": [
+          ["ภาษาไทย","ความหมาย","ภาษาอังกฤษ"],
+          ["แม่ให้เงินฉัน","ให้ของ","{{My mom gave me money.}}"],
+          ["แม่ให้ฉันไป","อนุญาต","{{My mom let me go.}}"],
+          ["แม่ให้ฉันทำการบ้าน","บังคับ","{{My mom made me do my homework.}}"],
+          ["แม่ให้ฉันช่วย","ขอร้อง","{{My mom asked me to help.}}"],
+          ["ฉันทำอาหารให้แม่","ทำเพื่อ","{{I cooked for my mom.}}"]
+        ] },
+        {"p":"**let และ make ไม่มี to** หลัง {{let}} + คน และ {{make}} + คน ใช้คำกริยารูปธรรมดา **ไม่มี** {{to}}: {{Let me help.}} “ให้ฉันช่วยนะ” {{It made me laugh.}} “มันทำให้ฉันหัวเราะ” แต่ {{ask}} / {{tell}} / {{want}} + คน ต้องมี {{to}}: {{I want you to come.}} “ฉันอยากให้คุณมา”"},
+        {"p":"**ทำให้ (ความรู้สึก)** “ทำให้ฉันมีความสุข” ใช้ {{make}} + คน + คำคุณศัพท์: {{This song makes me happy.}} {{The news made her sad.}}"},
+        { "ex": [
+          {"t":"Let me help you.","tr":"ให้ฉันช่วยนะ"},
+          {"t":"My boss let me leave early.","tr":"หัวหน้าให้ฉันกลับก่อน"},
+          {"t":"The movie made me cry.","tr":"หนังทำให้ฉันร้องไห้"},
+          {"t":"She asked me to wait.","tr":"เขาขอให้ฉันรอ"},
+          {"t":"I want you to meet my family.","tr":"อยากให้คุณเจอครอบครัวฉัน"},
+          {"t":"Can you buy some milk for me?","tr":"ช่วยซื้อนมให้หน่อยได้ไหม"},
+          {"t":"He gave his mom flowers.","tr":"เขาให้ดอกไม้แม่"}
+        ] },
+        {"tip":"“ขอให้โชคดี” ไม่ใช้ “ให้” ในภาษาอังกฤษเลย: {{Good luck!}} ส่วน “ขอให้มีความสุข” คือ {{I hope you're happy.}} หรือในวันเกิด {{Happy birthday!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"My mom gave me go to the party.","right":"My mom let me go to the party.","tr":"แม่ให้ฉันไปงานปาร์ตี้","why":"“ให้” แบบอนุญาตคือ {{let}} ไม่ใช่ {{give}}"},
+        {"wrong":"Let me to help you.","right":"Let me help you.","tr":"ให้ฉันช่วยนะ","why":"หลัง {{let}} + คน ไม่มี {{to}}"},
+        {"wrong":"I want that you come.","right":"I want you to come.","tr":"ฉันอยากให้คุณมา","why":"“อยากให้” คือ {{want}} + คน + {{to}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"My boss ___ me leave early yesterday.","tr":"เมื่อวานหัวหน้าให้ฉันกลับก่อน","options":["let","gave","let to"],"answer":0,"why":"อนุญาต: {{let}} + คน + คำกริยา"},
+        {"type":"choice","q":"“เพลงนี้ทำให้ฉันมีความสุข”","options":["{{This song makes me happy.}}","{{This song gives me happy.}}","{{This song makes me to happy.}}"],"answer":0,"why":"ทำให้รู้สึก: {{make}} + คน + คำคุณศัพท์"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"อยากให้คุณเจอครอบครัวฉัน","words":["I","want","you","to meet","my family."]},
+        {"type":"dialogue","q":"เพื่อนเล่าเรื่องงานใหม่","from":"said-that","lines":[{"who":"เพื่อน","t":"How's your new job?","tr":"งานใหม่เป็นยังไงบ้าง"},{"options":["It's good. My boss lets me work from home on Fridays.","It's good. My boss gives me work from home on Fridays."],"answer":0,"why":"อนุญาต: {{lets me}}"},{"who":"เพื่อน","t":"Lucky you! What did she say on your first day?","tr":"โชคดีจัง วันแรกเขาพูดว่าอะไร"},{"options":["She told me to ask her if I needed anything.","She said me to ask her if I needed anything."],"answer":0,"why":"บอกให้: {{told me to}}"}]},
+        {"type":"say","q":"เสนอว่า “ให้ฉันช่วยนะ”","answer":"Let me help you."},
+        {"type":"free","q":"ถึงตาคุณ: ตอนเด็กพ่อแม่ “ให้” คุณทำอะไรบ้าง (อนุญาต บังคับ) และใครเคยทำอะไรให้คุณ","answers":[{"t":"My parents let me play outside, but they made me do my homework first. My grandma always cooked for me.","tr":"พ่อแม่ให้ไปเล่นข้างนอก แต่บังคับให้ทำการบ้านก่อน ยายทำอาหารให้ฉันเสมอ"},{"t":"My dad didn't let me stay up late. He made me go to bed at nine. My brother taught me to ride a bike.","tr":"พ่อไม่ให้นอนดึก ให้เข้านอนสามทุ่ม พี่ชายสอนผมขี่จักรยาน"}]}
+      ]
+    },
+    {
+      "id": "passive",
+      "unit": 8,
+      "level": "B1",
+      "title": "เข้าใจประโยค passive: It was built in 1782",
+      "summary": "พูดว่า “วัดนี้สร้างเมื่อ…” “ทำจากไม้” “ภาษาอังกฤษใช้กันทั่วโลก”: passive ภาษาอังกฤษใช้ได้ทั้งเรื่องดีและไม่ดี ไม่เหมือน “ถูก” “โดน” ในภาษาไทย",
+      "topic": "passive: {{be}} + past participle ({{is made}}, {{was built}}); {{by}} + ผู้ทำ; ใช้ได้กับเรื่องกลางๆ และเรื่องดี (ไม่ใช่แค่โชคร้ายแบบ ถูก / โดน)",
+      "blocks": [
+        {"goal":{"t":"This temple was built in 1782.","tr":"วัดนี้สร้างเมื่อปี 1782"}},
+        {"dialog":[{"who":"นักท่องเที่ยว","t":"This temple is beautiful. When was it built?","tr":"วัดนี้สวยมาก สร้างเมื่อไร"},{"who":"ไกด์","t":"It was built in 1782 by King Rama I.","tr":"สร้างเมื่อปี 1782 โดยรัชกาลที่ 1"},{"who":"นักท่องเที่ยว","t":"Is the Buddha made of gold?","tr":"พระพุทธรูปทำจากทองหรือเปล่า"},{"who":"ไกด์","t":"No, it's made of jade. Photos aren't allowed inside, sorry.","tr":"ไม่ใช่ ทำจากหยก ขอโทษนะ ข้างในห้ามถ่ายรูป"}]},
+        {"term":"ประโยคกรรม (passive)","means":"ประโยคที่เอาสิ่งที่ถูกกระทำขึ้นต้น แล้วใช้ {{be}} + กริยาช่องที่ 3 เช่น {{The house was built in 1990.}} “บ้านหลังนี้สร้างเมื่อปี 1990”"},
+        {"p":"**be + กริยาช่องที่ 3** passive ใช้เมื่อสนใจสิ่งที่ถูกทำ มากกว่าคนที่ทำ (หรือไม่รู้ว่าใครทำ): {{Rice is grown in Thailand.}} “ข้าวปลูกในประเทศไทย” {{My car was stolen.}} “รถฉันถูกขโมย” {{be}} เปลี่ยนตามกาล: {{is}} / {{are}} (ปัจจุบัน) {{was}} / {{were}} (อดีต)"},
+        {"p":"**ไม่ใช่แค่ “ถูก” “โดน”** ภาษาไทยใช้ “ถูก” “โดน” กับเรื่องไม่ดีเป็นส่วนใหญ่ ส่วนเรื่องกลางๆ ภาษาไทยมักไม่ใช้ passive เลย (“วัดนี้สร้างปี…”) แต่ภาษาอังกฤษใช้ passive ได้กับทุกเรื่อง ดี ไม่ดี หรือกลางๆ: {{She was invited to the party.}} “เขาได้รับเชิญไปงาน” {{English is spoken all over the world.}} “ภาษาอังกฤษใช้พูดกันทั่วโลก”"},
+        { "table": [
+          ["ภาษาไทย","ภาษาอังกฤษ (passive)"],
+          ["บ้านนี้สร้างปี 1990","{{This house was built in 1990.}}"],
+          ["เสื้อตัวนี้ทำในไทย","{{This shirt is made in Thailand.}}"],
+          ["เขาได้รับเชิญ","{{He was invited.}}"],
+          ["กระเป๋าฉันโดนขโมย","{{My bag was stolen.}}"],
+          ["ห้ามสูบบุหรี่","{{Smoking is not allowed.}}"]
+        ] },
+        {"p":"**by: โดย** อยากบอกว่าใครทำ ใช้ {{by}}: {{This book was written by a Thai author.}} “หนังสือเล่มนี้เขียนโดยนักเขียนไทย” แต่ส่วนใหญ่ไม่ต้องบอก"},
+        { "ex": [
+          {"t":"This shirt is made in Thailand.","tr":"เสื้อตัวนี้ผลิตในประเทศไทย"},
+          {"t":"The temple was built in 1782.","tr":"วัดนี้สร้างเมื่อปี 1782"},
+          {"t":"My wallet was stolen on the bus.","tr":"กระเป๋าสตางค์ฉันโดนขโมยบนรถเมล์"},
+          {"t":"We were invited to their wedding.","tr":"เราได้รับเชิญไปงานแต่งของเขา"},
+          {"t":"Breakfast is served from 7 to 10.","tr":"อาหารเช้าเสิร์ฟตั้งแต่เจ็ดโมงถึงสิบโมง"},
+          {"t":"Harry Potter was written by J.K. Rowling.","tr":"แฮร์รี่ พอตเตอร์ เขียนโดยเจ.เค. โรว์ลิ่ง"}
+        ] },
+        {"tip":"ป้ายในอเมริกามักใช้ passive: {{Credit cards accepted}} “รับบัตรเครดิต” {{No pets allowed}} “ห้ามนำสัตว์เลี้ยงเข้า”"}
+      ],
+      "mistakes": [
+        {"wrong":"This temple built in 1782.","right":"This temple was built in 1782.","tr":"วัดนี้สร้างเมื่อปี 1782","why":"วัดไม่ได้สร้างเอง: ต้องเป็น passive {{was built}}"},
+        {"wrong":"My bag was steal.","right":"My bag was stolen.","tr":"กระเป๋าฉันโดนขโมย","why":"passive ใช้กริยาช่องที่ 3: {{stolen}}"},
+        {"wrong":"English is speaking all over the world.","right":"English is spoken all over the world.","tr":"ภาษาอังกฤษใช้พูดกันทั่วโลก","why":"passive ใช้ {{be}} + กริยาช่องที่ 3 ไม่ใช่ -ing"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"This shirt is ___ in Thailand.","tr":"เสื้อตัวนี้ทำในประเทศไทย","options":["made","make","making"],"answer":0,"why":"passive: {{is}} + กริยาช่องที่ 3 {{made}}"},
+        {"type":"choice","q":"“เราได้รับเชิญไปงานแต่ง”","options":["{{We were invited to the wedding.}}","{{We invited to the wedding.}}","{{We got invite to the wedding.}}"],"answer":0,"why":"เรื่องดีก็ใช้ passive ได้: {{were invited}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"กระเป๋าสตางค์ฉันโดนขโมย","words":["My","wallet","was","stolen."]},
+        {"type":"dialogue","q":"คุณพาเพื่อนต่างชาติเที่ยวอยุธยา","from":"past-irregular","lines":[{"who":"เจค","t":"Wow, these temples are old. When were they built?","tr":"ว้าว วัดพวกนี้เก่ามาก สร้างเมื่อไร"},{"options":["They were built about 600 years ago.","They built about 600 years ago."],"answer":0,"why":"วัดถูกสร้าง: passive {{were built}}"},{"who":"เจค","t":"What happened to them?","tr":"แล้วเกิดอะไรขึ้นกับวัดพวกนี้"},{"options":["The city was destroyed in a war in 1767.","The city destroyed in a war in 1767."],"answer":0,"why":"เมืองถูกทำลาย: passive {{was destroyed}}"}]},
+        {"type":"say","q":"บอกว่า “วัดนี้สร้างเมื่อปี 1782”","answer":"This temple was built in 1782."},
+        {"type":"free","q":"ถึงตาคุณ: เล่าเรื่องสถานที่ หรือสิ่งของที่คุณชอบ ว่าสร้าง ทำ หรือผลิตที่ไหน เมื่อไร","answers":[{"t":"My favorite place is Wat Arun. It was built a long time ago, and it's visited by thousands of tourists every day.","tr":"ที่ที่ชอบที่สุดคือวัดอรุณ สร้างมานานมากแล้ว และมีนักท่องเที่ยวมาเที่ยวเป็นพันคนทุกวัน"},{"t":"This bag was made by my grandmother. It's made of silk from Chiang Mai.","tr":"กระเป๋าใบนี้ยายทำให้ ทำจากผ้าไหมเชียงใหม่"}]}
+      ]
     }
   ]
 }
