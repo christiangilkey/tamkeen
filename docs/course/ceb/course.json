@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "ceb",
+ "title": "Bisaya basics",
+ "variety": "Bisaya (Cebuano) as spoken in Cebu",
+ "about": "The most common words of Bisaya (Cebuano), counted in the Cebuano web text of OPUS's NLLB collection (ODC-By 1.0) and grouped by root with tools/course/ceb/rank.mjs, most common first, 50 to a unit. Names of people and places, and English words, are left out. Verbs are listed by their root (kaon, to eat), as Bisaya dictionaries list them. Each word has one short everyday sentence that uses it the way people in Cebu say it, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "mms",
+  "name": "Meta MMS (ceb, CC BY-NC 4.0)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "sa",
+   "pos": "prep",
+   "meaning": "at; in; to; of (a place, a direction)",
+   "sentence": "Naa ko sa balay.",
+   "translation": "I'm ⟦at⟧ home.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.27,
+    "sent_start": 1.171,
+    "sent_end": 2.41
+   }
+  },
+  {
+   "n": 2,
+   "word": "nga",
+   "pos": "part",
+   "meaning": "that; who; which (joins a word to what describes it)",
+   "sentence": "Mao ni ang libro nga akong gibasa.",
+   "translation": "This is the book ⟦that⟧ I read.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.348,
+    "sent_start": 1.248,
+    "sent_end": 3.882
+   }
+  },
+  {
+   "n": 3,
+   "word": "ang",
+   "pos": "part",
+   "meaning": "the (marks who or what the sentence is about)",
+   "sentence": "Init kaayo ang kape.",
+   "translation": "⟦The⟧ coffee is very hot.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.342,
+    "sent_start": 1.242,
+    "sent_end": 2.991
+   }
+  },
+  {
+   "n": 4,
+   "word": "mga",
+   "pos": "part",
+   "meaning": "(makes the next word plural)",
+   "sentence": "Asa na ang mga bata?",
+   "translation": "Where are the ⟦kids⟧?",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.364,
+    "sent_start": 1.264,
+    "sent_end": 2.809
+   }
+  },
+  {
+   "n": 5,
+   "word": "ug",
+   "pos": "conj",
+   "meaning": "and",
+   "sentence": "Kape ug pan, palihug.",
+   "translation": "Coffee ⟦and⟧ bread, please.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.364,
+    "sent_start": 1.264,
+    "sent_end": 3.02
+   }
+  },
+  {
+   "n": 6,
+   "word": "ka",
+   "pos": "pron",
+   "meaning": "you (one person; after the verb)",
+   "sentence": "Asa ka paingon?",
+   "translation": "Where are ⟦you⟧ going?",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.29,
+    "sent_start": 1.19,
+    "sent_end": 2.436
+   }
+  },
+  {
+   "n": 7,
+   "word": "usa",
+   "pos": "num",
+   "meaning": "one; a",
+   "sentence": "Usa ka kape, palihug.",
+   "translation": "⟦One⟧ coffee, please.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.413,
+    "sent_start": 1.314,
+    "sent_end": 3.035
+   }
+  },
+  {
+   "n": 8,
+   "word": "kini",
+   "pos": "pron",
+   "meaning": "this",
+   "sentence": "Unsa man kini?",
+   "translation": "What is ⟦this⟧?",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.445,
+    "sent_start": 1.345,
+    "sent_end": 2.328
+   }
+  },
+  {
+   "n": 9,
+   "word": "dili",
+   "pos": "part",
+   "meaning": "not; no (now or later)",
+   "sentence": "Dili ko gusto ana.",
+   "translation": "I ⟦don't⟧ like that.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.507,
+    "sent_start": 1.407,
+    "sent_end": 2.934
+   }
+  },
+  {
+   "n": 10,
+   "word": "na",
+   "pos": "part",
+   "meaning": "already; now",
+   "sentence": "Kaon na ta!",
+   "translation": "Let's eat ⟦now⟧!",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.316,
+    "sent_start": 1.216,
+    "sent_end": 1.976
+   }
+  },
+  {
+   "n": 11,
+   "word": "imong",
+   "pos": "pron",
+   "meaning": "your (before a noun)",
+   "sentence": "Unsa ang imong ngalan?",
+   "translation": "What is ⟦your⟧ name?",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.499,
+    "sent_start": 1.399,
+    "sent_end": 2.9
+   }
+  },
+  {
+   "n": 12,
+   "word": "kay",
+   "pos": "conj",
+   "meaning": "because",
+   "sentence": "Wala ko moadto kay nag-ulan.",
+   "translation": "I didn't go ⟦because⟧ it was raining.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.353,
+    "sent_start": 1.253,
+    "sent_end": 3.526
+   }
+  },
+  {
+   "n": 13,
+   "word": "alang",
+   "pos": "prep",
+   "meaning": "for (alang sa, alang kanimo)",
+   "sentence": "Kini alang kanimo.",
+   "translation": "This is ⟦for⟧ you.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.492,
+    "sent_start": 1.392,
+    "sent_end": 3.079
+   }
+  },
+  {
+   "n": 14,
+   "word": "mao",
+   "pos": "pron",
+   "meaning": "it is (the one); that's it; mao ba?: really?",
+   "sentence": "Mao ba? Wala ko kabalo.",
+   "translation": "⟦Really⟧? I didn't know.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.365,
+    "sent_start": 1.265,
+    "sent_end": 2.861
+   }
+  },
+  {
+   "n": 15,
+   "word": "wala",
+   "pos": "part",
+   "meaning": "no; none; not (in the past)",
+   "sentence": "Wala koy kwarta.",
+   "translation": "I have ⟦no⟧ money.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.446,
+    "sent_start": 1.346,
+    "sent_end": 2.599
+   }
+  },
+  {
+   "n": 16,
+   "word": "ko",
+   "pos": "pron",
+   "meaning": "I; me (short, after the verb)",
+   "sentence": "Maayo ko, salamat.",
+   "translation": "⟦I'm⟧ fine, thanks.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.265,
+    "sent_start": 1.165,
+    "sent_end": 2.499
+   }
+  },
+  {
+   "n": 17,
+   "word": "ni",
+   "pos": "pron",
+   "meaning": "this (short for kini); of (before a name)",
+   "sentence": "Lami kaayo ni!",
+   "translation": "⟦This⟧ is really tasty!",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.364,
+    "sent_start": 1.264,
+    "sent_end": 2.503
+   }
+  },
+  {
+   "n": 18,
+   "word": "kung",
+   "pos": "conj",
+   "meaning": "if; when",
+   "sentence": "Kung gusto nimo, adto ta.",
+   "translation": "⟦If⟧ you want, let's go.",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.454,
+    "sent_start": 1.354,
+    "sent_end": 3.33
+   }
+  },
+  {
+   "n": 19,
+   "word": "pa",
+   "pos": "part",
+   "meaning": "still; yet; more",
+   "sentence": "Bata pa siya.",
+   "translation": "She's ⟦still⟧ a child.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.296,
+    "sent_start": 1.196,
+    "sent_end": 2.287
+   }
+  },
+  {
+   "n": 20,
+   "word": "iyang",
+   "pos": "pron",
+   "meaning": "his; her (before a noun)",
+   "sentence": "Doktor ang iyang amahan.",
+   "translation": "⟦Her⟧ father is a doctor.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.602,
+    "sent_start": 1.502,
+    "sent_end": 3.442
+   }
+  }
+ ]
+}

@@ -1,0 +1,188 @@
+{
+  "lang": "ceb",
+  "title": "Bisaya basics",
+  "variety": "Bisaya (Cebuano) as spoken in Cebu",
+  "about": "The most common words of Bisaya (Cebuano), counted in the Cebuano web text of OPUS's NLLB collection (ODC-By 1.0) and grouped by root with tools/course/ceb/rank.mjs, most common first, 50 to a unit. Names of people and places, and English words, are left out. Verbs are listed by their root (kaon, to eat), as Bisaya dictionaries list them. Each word has one short everyday sentence that uses it the way people in Cebu say it, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "sa",
+      "pos": "prep",
+      "meaning": "at; in; to; of (a place, a direction)",
+      "sentence": "Naa ko sa balay.",
+      "translation": "I'm ⟦at⟧ home."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "nga",
+      "pos": "part",
+      "meaning": "that; who; which (joins a word to what describes it)",
+      "sentence": "Mao ni ang libro nga akong gibasa.",
+      "translation": "This is the book ⟦that⟧ I read."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "ang",
+      "pos": "part",
+      "meaning": "the (marks who or what the sentence is about)",
+      "sentence": "Init kaayo ang kape.",
+      "translation": "⟦The⟧ coffee is very hot."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "mga",
+      "pos": "part",
+      "meaning": "(makes the next word plural)",
+      "sentence": "Asa na ang mga bata?",
+      "translation": "Where are the ⟦kids⟧?"
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "ug",
+      "pos": "conj",
+      "meaning": "and",
+      "sentence": "Kape ug pan, palihug.",
+      "translation": "Coffee ⟦and⟧ bread, please."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "ka",
+      "pos": "pron",
+      "meaning": "you (one person; after the verb)",
+      "sentence": "Asa ka paingon?",
+      "translation": "Where are ⟦you⟧ going?"
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "usa",
+      "pos": "num",
+      "meaning": "one; a",
+      "sentence": "Usa ka kape, palihug.",
+      "translation": "⟦One⟧ coffee, please."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "kini",
+      "pos": "pron",
+      "meaning": "this",
+      "sentence": "Unsa man kini?",
+      "translation": "What is ⟦this⟧?"
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "dili",
+      "pos": "part",
+      "meaning": "not; no (now or later)",
+      "sentence": "Dili ko gusto ana.",
+      "translation": "I ⟦don't⟧ like that."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "na",
+      "pos": "part",
+      "meaning": "already; now",
+      "sentence": "Kaon na ta!",
+      "translation": "Let's eat ⟦now⟧!"
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "imong",
+      "pos": "pron",
+      "meaning": "your (before a noun)",
+      "sentence": "Unsa ang imong ngalan?",
+      "translation": "What is ⟦your⟧ name?"
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "kay",
+      "pos": "conj",
+      "meaning": "because",
+      "sentence": "Wala ko moadto kay nag-ulan.",
+      "translation": "I didn't go ⟦because⟧ it was raining."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "alang",
+      "pos": "prep",
+      "meaning": "for (alang sa, alang kanimo)",
+      "sentence": "Kini alang kanimo.",
+      "translation": "This is ⟦for⟧ you."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "mao",
+      "pos": "pron",
+      "meaning": "it is (the one); that's it; mao ba?: really?",
+      "sentence": "Mao ba? Wala ko kabalo.",
+      "translation": "⟦Really⟧? I didn't know."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "wala",
+      "pos": "part",
+      "meaning": "no; none; not (in the past)",
+      "sentence": "Wala koy kwarta.",
+      "translation": "I have ⟦no⟧ money."
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "ko",
+      "pos": "pron",
+      "meaning": "I; me (short, after the verb)",
+      "sentence": "Maayo ko, salamat.",
+      "translation": "⟦I'm⟧ fine, thanks."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "ni",
+      "pos": "pron",
+      "meaning": "this (short for kini); of (before a name)",
+      "sentence": "Lami kaayo ni!",
+      "translation": "⟦This⟧ is really tasty!"
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "kung",
+      "pos": "conj",
+      "meaning": "if; when",
+      "sentence": "Kung gusto nimo, adto ta.",
+      "translation": "⟦If⟧ you want, let's go."
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "pa",
+      "pos": "part",
+      "meaning": "still; yet; more",
+      "sentence": "Bata pa siya.",
+      "translation": "She's ⟦still⟧ a child."
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "iyang",
+      "pos": "pron",
+      "meaning": "his; her (before a noun)",
+      "sentence": "Doktor ang iyang amahan.",
+      "translation": "⟦Her⟧ father is a doctor."
+    }
+  ]
+}
