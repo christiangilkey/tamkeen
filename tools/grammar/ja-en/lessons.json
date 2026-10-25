@@ -1035,6 +1035,239 @@
         {"type":"say","q":"相手が {{I don't eat meat.}} と言いました。「私も食べません」と長く答えましょう。","answer":"I don't eat meat either.","from":"ask-with-do"},
         {"type":"free","q":"あなたの番です。好きなことと好きではないことについて、「私も」を使って答える文を作りましょう。","answers":[{"t":"I love sushi too. And I don't like natto either.","tr":"私もお寿司が大好きです。そして、私も納豆は好きではありません。"},{"t":"So do I! I play tennis every weekend too.","tr":"私も！私も毎週末テニスをします。"}]}
       ]
+    },
+    {
+      "id": "say-where-you-were",
+      "unit": 5,
+      "level": "A2",
+      "title": "過去の状態を言う",
+      "summary": "{{was}} と {{were}} で、過去の状態や場所を言います：「昨日は家にいました。」「神戸生まれです。」",
+      "topic": "{{was}} と {{were}}; {{Were you …?}}; {{I was born in …}}",
+      "blocks": [
+        {"goal":{"t":"I was at home yesterday. I was really tired.","tr":"昨日は家にいました。本当に疲れていたんです。"}},
+        {"dialog":[{"who":"同僚","t":"Where were you on Saturday? I called you.","tr":"土曜日どこにいたの？電話したんだよ。"},{"who":"あなた","t":"Sorry, I was in Kyoto with my family.","tr":"ごめん、家族と京都にいたんだ。"},{"who":"同僚","t":"Oh, nice! Was it crowded?","tr":"へえ、いいね！混んでた？"},{"who":"あなた","t":"Yes, it was. But the temples were beautiful.","tr":"うん。でもお寺がきれいだったよ。"},{"who":"同僚","t":"Were your kids happy?","tr":"子どもたちは喜んでた？"},{"who":"あなた","t":"Yes, they were. But they were very tired at the end!","tr":"うん。でも最後はすごく疲れてたよ！"}]},
+        {"term":"過去形","means":"過去のことを表す動詞の形。be動詞の過去形は {{was}} と {{were}}。"},
+        {"p":"**be動詞の過去形：{{was}} と {{were}}。** {{am}} と {{is}} は {{was}} に、{{are}} は {{were}} になります：{{I was tired.}}（疲れていた）、{{They were at home.}}（彼らは家にいた）。"},
+        { "table": [
+          ["主語","現在","過去"],
+          ["{{I}}","{{am}}","{{was}}"],
+          ["{{he}} / {{she}} / {{it}}","{{is}}","{{was}}"],
+          ["{{you}} / {{we}} / {{they}}","{{are}}","{{were}}"]
+        ] },
+        {"p":"**疑問文と否定文の作り方は現在と同じ。** 疑問文は be動詞を前に出します：{{Were you at home?}}（家にいた？）→ {{Yes, I was.}} / {{No, I wasn't.}}。否定は {{not}}：{{wasn't}}（{{was not}}）、{{weren't}}（{{were not}}）。"},
+        {"p":"**{{I was born in …}}：「〜で生まれた」。** 生まれたのは過去のことなので、英語では過去の形で言います：{{I was born in Kobe.}}（神戸生まれです）、{{I was born in 1995.}}（1995年生まれです）。日本語の「〜生まれです」につられて {{I'm born}} と言わないようにしましょう。"},
+        {"p":"**過去を表す言葉。** {{yesterday}}（昨日）、{{last night}}（昨夜）、{{last week}}（先週）、{{two days ago}}（2日前）。{{last}} や {{ago}} には前置詞をつけません。そして英語では、こうした言葉があっても、動詞を必ず過去形にします。"},
+        { "ex": [
+          {"t":"It was very hot last summer.","tr":"去年の夏はとても暑かったです。"},
+          {"t":"Were you busy last week?","tr":"先週は忙しかったですか？"},
+          {"t":"No, I wasn't.","tr":"いいえ、忙しくありませんでした。"},
+          {"t":"The movie was boring.","tr":"映画は退屈でした。"},
+          {"t":"My parents were at the party too.","tr":"両親もパーティーに来ていました。"},
+          {"t":"I was born in Sapporo.","tr":"札幌生まれです。"}
+        ] },
+        {"tip":"{{How was …?}}（〜はどうだった？）は会話でとても便利です：{{How was your weekend?}}（週末どうだった？）、{{How was the movie?}}（映画どうだった？）。"}
+      ],
+      "mistakes": [
+        {"wrong":"I am born in Kobe.","right":"I was born in Kobe.","tr":"神戸生まれです。","why":"生まれたのは過去のことなので {{was born}}。"},
+        {"wrong":"They was at the party.","right":"They were at the party.","tr":"彼らはパーティーにいました。","why":"{{they}} の過去形は {{were}}。"},
+        {"wrong":"Yesterday I am very busy.","right":"Yesterday I was very busy.","tr":"昨日はとても忙しかったです。","why":"{{yesterday}} があっても、動詞を過去形にする必要があります。英語では時を動詞で表します。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I ___ very tired last night.","tr":"昨夜はとても疲れていました。","options":["was","were","am"],"answer":0,"why":"{{I}} の過去形は {{was}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Where ___ you yesterday?","tr":"昨日どこにいたの？","options":["were","was","are"],"answer":0,"why":"{{you}} の過去形は {{were}}。"},
+        {"type":"choice","q":"「1990年生まれです」は英語で？","options":["{{I was born in 1990.}}","{{I'm born in 1990.}}","{{I born in 1990.}}"],"answer":0,"why":"生まれたことは {{was born}}。"},
+        {"type":"dialogue","q":"月曜日の朝、会社で。返事を選んでください。","lines":[{"who":"同僚","t":"How was your weekend?","tr":"週末どうだった？"},{"options":["It was great! I was in Hakone.","It is great! I am in Hakone."],"answer":0,"why":"週末は過去なので {{was}}。"},{"who":"同僚","t":"Nice! Was the weather good?","tr":"いいね！天気はよかった？"},{"options":["Yes, it was. It was sunny.","Yes, it were. It was sunny."],"answer":0,"why":"{{it}} の過去形は {{was}}。"}],"from":"time-and-weather"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"先週は忙しかったですか？","words":["Were","you","busy","last","week?"],"why":"be動詞を前に：{{Were you busy last week?}}"},
+        {"type":"say","q":"英語で言ってみましょう：「その映画は本当に退屈でした。」","answer":"The movie was really boring.","from":"describe-things"},
+        {"type":"free","q":"あなたの番です。昨日（または先週末）どこにいて、どうだったかを言いましょう。","answers":[{"t":"I was at home yesterday. It was rainy, and I was a little bored.","tr":"昨日は家にいました。雨で、少し退屈でした。"},{"t":"Last weekend I was in Osaka. The food was amazing.","tr":"先週末は大阪にいました。食べ物が最高でした。"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "したことを言う",
+      "summary": "ふつうの動詞の過去形で、したことを言います：「昨夜、映画を見ました。」「宿題は終わった？」",
+      "topic": "過去形の {{-ed}}; {{did}} と {{didn't}}; {{Did you …?}}; {{ago}} と {{last}}",
+      "blocks": [
+        {"goal":{"t":"I watched a movie last night.","tr":"昨夜、映画を見ました。"}},
+        {"dialog":[{"who":"エマ","t":"What did you do last weekend?","tr":"先週末は何をしたの？"},{"who":"ハル","t":"I cleaned my room, and I cooked curry.","tr":"部屋を掃除して、カレーを作った。"},{"who":"エマ","t":"Did you watch the soccer game?","tr":"サッカーの試合は見た？"},{"who":"ハル","t":"No, I didn't. I studied all evening.","tr":"ううん、見なかった。夕方はずっと勉強してた。"},{"who":"エマ","t":"Wow. Did you finish your report?","tr":"すごい。レポートは終わった？"},{"who":"ハル","t":"Yes, I did. I finished it at midnight.","tr":"うん。夜中の12時に終わった。"}]},
+        {"p":"**過去形：動詞に {{-ed}}。** 多くの動詞は、最後に {{-ed}} をつけると過去形になります：{{watch}} → {{watched}}、{{clean}} → {{cleaned}}、{{play}} → {{played}}。主語が何でも同じ形です。"},
+        {"p":"**つけ方。** {{e}} で終わる動詞は {{-d}} だけ（{{live}} → {{lived}}）。子音 + {{y}} は {{-ied}}（{{study}} → {{studied}}）。「短い母音 + 子音」で終わる短い動詞は子音を重ねます（{{stop}} → {{stopped}}）。"},
+        {"p":"**疑問文と否定文は {{did}}。** 現在形の {{do}} / {{does}} が {{did}} になります。主語が何でも {{did}} で、動詞はもとの形に戻ります：{{Did you watch it?}}（見た？）、{{I didn't watch it.}}（見なかった）。答えは {{Yes, I did.}} / {{No, I didn't.}}"},
+        { "table": [
+          ["","現在","過去"],
+          ["肯定","{{I watch TV.}}","{{I watched TV.}}"],
+          ["否定","{{I don't watch TV.}}","{{I didn't watch TV.}}"],
+          ["疑問","{{Do you watch TV?}}","{{Did you watch TV?}}"]
+        ] },
+        {"p":"**{{-ed}} の発音は3通り。** {{watched}}（「ト」の音）、{{played}}（「ド」の音）、{{wanted}}（「ティド」の音）。「ウォッチェド」のように母音を足さずに、短く発音するのがコツです。"},
+        {"p":"**時の言葉。** {{ago}} は「〜前」で、時間の長さのあとに置きます：{{two days ago}}（2日前）。{{last}} は「この前の」：{{last week}}（先週）、{{last night}}（昨夜）。"},
+        { "ex": [
+          {"t":"We played tennis on Sunday.","tr":"日曜日にテニスをしました。"},
+          {"t":"She lived in Paris two years ago.","tr":"彼女は2年前パリに住んでいました。"},
+          {"t":"Did you call your mother?","tr":"お母さんに電話した？"},
+          {"t":"No, I didn't. I'm sorry.","tr":"ううん、してない。ごめん。"},
+          {"t":"I studied English for three hours yesterday.","tr":"昨日は英語を3時間勉強しました。"},
+          {"t":"The train stopped for ten minutes.","tr":"電車が10分止まりました。"}
+        ] },
+        {"tip":"日本語の「〜した」と同じく、英語の過去形は「もう終わったこと」を表します。過去のことを話すときは、まず動詞を過去形にすることを意識しましょう。"}
+      ],
+      "mistakes": [
+        {"wrong":"Did you watched the game?","right":"Did you watch the game?","tr":"試合を見た？","why":"{{did}} のあとは動詞のもとの形。過去の印は {{did}} だけで十分です。"},
+        {"wrong":"I didn't called him.","right":"I didn't call him.","tr":"彼に電話しませんでした。","why":"{{didn't}} のあとも動詞のもとの形。"},
+        {"wrong":"Two days before, I visited Kyoto.","right":"Two days ago, I visited Kyoto.","tr":"2日前、京都に行きました。","why":"今から数えて「〜前」は {{ago}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I ___ my room yesterday.","tr":"昨日、部屋を掃除しました。","options":["cleaned","clean","cleaning"],"answer":0,"why":"過去のことなので {{-ed}}：{{cleaned}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"___ you finish your homework?","tr":"宿題は終わった？","options":["Did","Do","Were"],"answer":0,"why":"過去の疑問文は {{Did}}。"},
+        {"type":"choice","q":"「彼に電話しませんでした」は英語で？","options":["{{I didn't call him.}}","{{I didn't called him.}}","{{I not called him.}}"],"answer":0,"why":"{{didn't}} + 動詞のもとの形。"},
+        {"type":"dialogue","q":"週末のことを聞かれました。返事を選んでください。","lines":[{"who":"エマ","t":"What did you do last weekend?","tr":"先週末は何したの？"},{"options":["I cleaned my room and watched a movie.","I clean my room and watch a movie."],"answer":0,"why":"過去のことは過去形。"},{"who":"エマ","t":"Did you go out?","tr":"出かけた？"},{"options":["No, I didn't. I stayed home.","No, I don't. I stayed home."],"answer":0,"why":"{{Did}} で聞かれたら {{didn't}} で答えます。"}],"from":"ask-with-do"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"彼女は2年前パリに住んでいました。","words":["She","lived","in","Paris","two","years","ago."],"why":"{{ago}} は時間の長さのあと。"},
+        {"type":"say","q":"英語で言ってみましょう：「昨日は家にいて、テレビを見ました。」","answer":"I was at home yesterday. I watched TV.","from":"say-where-you-were"},
+        {"type":"free","q":"あなたの番です。先週末にしたことを2つ、しなかったことを1つ言いましょう。","answers":[{"t":"I cooked dinner for my family and I watched a movie. I didn't study.","tr":"家族に夕食を作って、映画を見ました。勉強はしませんでした。"},{"t":"I played tennis and I visited my grandmother. I didn't clean my room.","tr":"テニスをして、祖母の家に行きました。部屋は掃除しませんでした。"}]}
+      ]
+    },
+    {
+      "id": "use-irregular-verbs",
+      "unit": 5,
+      "level": "A2",
+      "title": "よく使う不規則動詞で話す",
+      "summary": "{{went}}、{{ate}}、{{saw}} など、よく使う不規則動詞の過去形で話します：「昨日、友だちと渋谷に行きました。」",
+      "topic": "不規則動詞の過去形（{{go}} → {{went}} など）; {{Did you go?}}（{{went}} にしない）",
+      "blocks": [
+        {"goal":{"t":"I went to Shibuya with a friend yesterday.","tr":"昨日、友だちと渋谷に行きました。"}},
+        {"dialog":[{"who":"ベン","t":"Did you have a good weekend?","tr":"いい週末だった？"},{"who":"アヤ","t":"Yes! I went to Kamakura with my sister.","tr":"うん！姉と鎌倉に行ったの。"},{"who":"ベン","t":"What did you do there?","tr":"そこで何したの？"},{"who":"アヤ","t":"We saw the Great Buddha, and we ate a lot of street food.","tr":"大仏を見て、食べ歩きをたくさんしたよ。"},{"who":"ベン","t":"Did you buy anything?","tr":"何か買った？"},{"who":"アヤ","t":"Yes, I bought some cookies for you!","tr":"うん、あなたにクッキーを買ってきたよ！"}]},
+        {"term":"不規則動詞","means":"過去形が {{-ed}} にならない動詞：{{go}} → {{went}}、{{eat}} → {{ate}}。よく使う動詞ほど不規則です。"},
+        {"p":"**よく使う動詞ほど不規則。** 日常会話でよく使う動詞の多くは、過去形が {{-ed}} になりません。一つずつ覚えるしかありませんが、まず次の10個を覚えれば、過去の話のかなりの部分ができるようになります。"},
+        { "table": [
+          ["もとの形","過去形","意味"],
+          ["{{go}}","{{went}}","行く"],
+          ["{{have}}","{{had}}","持つ・食べる"],
+          ["{{eat}}","{{ate}}","食べる"],
+          ["{{see}}","{{saw}}","見る・会う"],
+          ["{{buy}}","{{bought}}","買う"],
+          ["{{get}}","{{got}}","もらう・着く"],
+          ["{{take}}","{{took}}","取る・乗る"],
+          ["{{make}}","{{made}}","作る"],
+          ["{{come}}","{{came}}","来る"],
+          ["{{do}}","{{did}}","する"]
+        ] },
+        {"p":"**{{did}} のあとはもとの形。** 疑問文と否定文では、不規則動詞でもいつも {{did}} + もとの形です：{{Did you go?}}（行った？）、{{I didn't go.}}（行かなかった）。{{Did you went?}} はまちがいです。"},
+        {"p":"**{{have}} は「食べる・過ごす」にも。** {{I had lunch with Ken.}}（ケンとお昼を食べた）、{{We had a great time.}}（とても楽しかった）。"},
+        { "ex": [
+          {"t":"We had sushi for dinner.","tr":"夕食にお寿司を食べました。"},
+          {"t":"I saw Ken at the station.","tr":"駅でケンに会いました。"},
+          {"t":"She bought a new phone.","tr":"彼女は新しいスマホを買いました。"},
+          {"t":"Did you go to the party?","tr":"パーティーに行きましたか？"},
+          {"t":"I took a lot of pictures.","tr":"写真をたくさん撮りました。"},
+          {"t":"My father made breakfast this morning.","tr":"今朝は父が朝ごはんを作りました。"}
+        ] },
+        {"tip":"{{read}}（読む）は過去形も {{read}} と書きますが、発音が「レッド」に変わります。{{put}}（置く）、{{cut}}（切る）は過去形もまったく同じ形です。"}
+      ],
+      "mistakes": [
+        {"wrong":"I goed to the park.","right":"I went to the park.","tr":"公園に行きました。","why":"{{go}} の過去形は不規則で {{went}}。"},
+        {"wrong":"Did you went to the party?","right":"Did you go to the party?","tr":"パーティーに行った？","why":"{{did}} のあとはもとの形：{{go}}。"},
+        {"wrong":"I didn't ate breakfast.","right":"I didn't eat breakfast.","tr":"朝ごはんを食べませんでした。","why":"{{didn't}} のあとももとの形：{{eat}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"We ___ to Okinawa last summer.","tr":"去年の夏、沖縄に行きました。","options":["went","goed","go"],"answer":0,"why":"{{go}} の過去形は {{went}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Did you ___ the new movie?","tr":"新しい映画見た？","options":["see","saw","seen"],"answer":0,"why":"{{did}} のあとはもとの形：{{see}}。"},
+        {"type":"choice","q":"「朝ごはんを食べませんでした」は英語で？","options":["{{I didn't eat breakfast.}}","{{I didn't ate breakfast.}}","{{I not ate breakfast.}}"],"answer":0,"why":"{{didn't}} + もとの形。"},
+        {"type":"dialogue","q":"週末のことを話します。返事を選んでください。","lines":[{"who":"ベン","t":"Did you have a good weekend?","tr":"いい週末だった？"},{"options":["Yes! I went to Kamakura.","Yes! I go to Kamakura."],"answer":0,"why":"過去のこと：{{went}}。"},{"who":"ベン","t":"Did you buy anything?","tr":"何か買った？"},{"options":["Yes, I bought some cookies.","Yes, I buyed some cookies."],"answer":0,"why":"{{buy}} の過去形は {{bought}}。"}],"from":"say-what-you-did"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"駅でケンに会いました。","words":["I","saw","Ken","at","the","station."],"why":"{{I saw Ken at the station.}}"},
+        {"type":"say","q":"英語で言ってみましょう：「パーティーに行きましたか？」「いいえ、行きませんでした。」","answer":"Did you go to the party? No, I didn't.","from":"say-what-you-did"},
+        {"type":"free","q":"あなたの番です。最近の休みの日に、どこに行って、何を食べて、何を見たかを言いましょう。","answers":[{"t":"I went to Yokohama. I ate Chinese food, and I saw a beautiful night view.","tr":"横浜に行きました。中華料理を食べて、きれいな夜景を見ました。"},{"t":"I went to a concert with my friends. We had pizza after that.","tr":"友だちとコンサートに行きました。そのあとピザを食べました。"}]}
+      ]
+    },
+    {
+      "id": "tell-what-happened",
+      "unit": 5,
+      "level": "A2",
+      "title": "出来事を順番に話す",
+      "summary": "過去の出来事を、背景や順番をつけて話します：「駅まで歩いていたら、雨が降りはじめました。」",
+      "topic": "過去進行形（{{I was walking when …}}）; {{when}} と {{while}}; {{first}}, {{then}}, {{after that}}",
+      "blocks": [
+        {"goal":{"t":"I was walking to the station when it started to rain.","tr":"駅まで歩いていたら、雨が降りはじめました。"}},
+        {"dialog":[{"who":"同僚","t":"You look tired. What happened?","tr":"疲れた顔してるね。何があったの？"},{"who":"あなた","t":"This morning, I was waiting for the train when I got a call from my boss.","tr":"今朝、電車を待っていたら、上司から電話があってね。"},{"who":"同僚","t":"Oh no. What did she say?","tr":"えっ。何て？"},{"who":"あなた","t":"There was a problem at the office. So first, I took a taxi. Then I called the client.","tr":"会社で問題が起きたって。だから、まずタクシーに乗って、それからお客さんに電話した。"},{"who":"同僚","t":"And after that?","tr":"それから？"},{"who":"あなた","t":"After that, I fixed the problem. But while I was working, I forgot to eat lunch!","tr":"そのあと問題を解決した。でも仕事をしている間、お昼を食べるのを忘れちゃった！"}]},
+        {"term":"過去進行形","means":"「〜していた」を表す形：{{was}} / {{were}} + {{-ing}}。過去のある時に、途中だった動作を表します。"},
+        {"p":"**「〜していた」：{{was}} / {{were}} + {{-ing}}。** 過去のある時に途中だったことを表します：{{At eight, I was eating breakfast.}}（8時には朝ごはんを食べていた）。現在進行形（{{am}} / {{is}} / {{are}} + {{-ing}}）の過去版です。"},
+        {"p":"**背景と出来事。** 物語では、過去進行形で背景（していたこと）を、過去形で出来事（起きたこと）を言います：{{I was walking to the station when it started to rain.}}（駅まで歩いていたら、雨が降りはじめた）。{{when}}（〜したとき）のあとに出来事、{{while}}（〜している間）のあとに背景が来ます。"},
+        { "table": [
+          ["","英語","意味"],
+          ["背景（過去進行形）","{{I was cooking …}}","料理をしていた…"],
+          ["出来事（過去形）","{{… when the phone rang.}}","…とき、電話が鳴った。"],
+          ["{{while}} を使って","{{While I was cooking, the phone rang.}}","料理をしている間に電話が鳴った。"]
+        ] },
+        {"p":"**順番を表す言葉。** {{First}}（まず）、{{Then}}（それから）、{{After that}}（そのあと）、{{Finally}}（最後に）。文の頭に置いて、話を順番に進めます。"},
+        { "ex": [
+          {"t":"What were you doing at ten last night?","tr":"昨夜10時には何をしていましたか？"},
+          {"t":"I was watching TV.","tr":"テレビを見ていました。"},
+          {"t":"While she was cooking, the baby woke up.","tr":"彼女が料理をしている間に、赤ちゃんが起きました。"},
+          {"t":"First, I took a shower. Then I had breakfast.","tr":"まずシャワーを浴びて、それから朝ごはんを食べました。"},
+          {"t":"We were talking when the teacher came in.","tr":"先生が入ってきたとき、私たちはおしゃべりをしていました。"},
+          {"t":"Finally, we got home at midnight.","tr":"最後に、夜12時に家に着きました。"}
+        ] },
+        {"tip":"日本語の「〜していたら、…した」は、英語では {{was …ing when …}} の形がぴったりです。"}
+      ],
+      "mistakes": [
+        {"wrong":"I was walk to the station.","right":"I was walking to the station.","tr":"駅まで歩いていました。","why":"過去進行形は {{was}} + {{-ing}}。"},
+        {"wrong":"While I cooked, the phone was ringing.","right":"While I was cooking, the phone rang.","tr":"料理をしている間に電話が鳴りました。","why":"背景（途中だったこと）が進行形、出来事（短く起きたこと）が過去形です。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I ___ TV when you called.","tr":"電話をもらったとき、テレビを見ていました。","options":["was watching","watched","am watching"],"answer":0,"why":"電話のとき途中だったこと：過去進行形。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"While I was walking home, I ___ an old friend.","tr":"歩いて帰る途中、昔の友だちに会いました。","options":["saw","was seeing","see"],"answer":0,"why":"出来事は過去形：{{saw}}。"},
+        {"type":"choice","q":"話の順番を表す「まず」「それから」は？","options":["{{First}}, {{Then}}","{{Before}}, {{After}}","{{One}}, {{Two}}"],"answer":0,"why":"{{First … Then …}} で順番に話します。"},
+        {"type":"dialogue","q":"遅刻の理由を話します。返事を選んでください。","lines":[{"who":"同僚","t":"You're late! What happened?","tr":"遅かったね！どうしたの？"},{"options":["I was waiting for the bus when it started to snow.","I waited for the bus when it was starting to snow."],"answer":0,"why":"背景（待っていた）は進行形、出来事（降りだした）は過去形。"},{"who":"同僚","t":"Oh no. What did you do?","tr":"大変。どうしたの？"},{"options":["First, I called the office. Then I took a taxi.","First, I call the office. Then I take a taxi."],"answer":0,"why":"過去の出来事なので過去形。"}],"from":"use-irregular-verbs"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"昨夜10時には何をしていましたか？","words":["What","were","you","doing","at","ten","last","night?"],"why":"{{What were you doing at ten last night?}}"},
+        {"type":"say","q":"英語で言ってみましょう：「昨夜8時には夕食を作っていました。」","answer":"I was making dinner at eight last night.","from":"say-whats-happening"},
+        {"type":"free","q":"あなたの番です。最近あった小さな出来事を、「〜していたら」と順番の言葉をつけて話しましょう。","answers":[{"t":"I was reading in a café when my friend came in. First, we talked. Then we went shopping.","tr":"カフェで本を読んでいたら、友だちが入ってきました。まずおしゃべりして、それから買い物に行きました。"},{"t":"I was cooking when the doorbell rang. It was my neighbor. She gave me some apples.","tr":"料理をしていたら、玄関のベルが鳴りました。お隣さんでした。リンゴをくれました。"}]}
+      ]
+    },
+    {
+      "id": "answer-negative-questions",
+      "unit": 5,
+      "level": "A2",
+      "title": "否定の質問に答える",
+      "summary": "「〜ないの？」と聞かれたときの答え方は、日本語と逆です：「お腹すいてないの？」「ううん、すいてるよ。」は {{Yes, I am.}}",
+      "topic": "{{Don't you …?}} や {{Aren't you …?}} への答え方; 付加疑問 {{…, isn't it?}}",
+      "blocks": [
+        {"goal":{"t":"Yes, I do! I love coffee.","tr":"（コーヒー好きじゃないの？と聞かれて）いいえ、好きですよ！コーヒー大好きです。"}},
+        {"dialog":[{"who":"ジェシカ","t":"You aren't eating. Aren't you hungry?","tr":"食べてないね。お腹すいてないの？"},{"who":"タクヤ","t":"Yes, I am. But I don't like raw fish.","tr":"ううん、すいてるよ。でも生の魚が苦手なんだ。"},{"who":"ジェシカ","t":"Really? Don't you eat sushi in Japan?","tr":"本当？日本でお寿司食べないの？"},{"who":"タクヤ","t":"No, I don't. I'm the only one in my family!","tr":"うん、食べない。家族でぼくだけなんだ！"},{"who":"ジェシカ","t":"That's funny. It's a nice restaurant, isn't it?","tr":"おもしろいね。いいレストランだよね？"},{"who":"タクヤ","t":"Yes, it is. The tempura is great.","tr":"うん。天ぷらが最高。"}]},
+        {"p":"**否定の質問。** {{Don't you like coffee?}}（コーヒー好きじゃないの？）、{{Aren't you hungry?}}（お腹すいてないの？）のように、否定の形で聞く質問です。驚いたときや、確かめたいときに使います。"},
+        {"p":"**答え方は日本語と逆。** 日本語では、相手の言ったことに対して「はい（そのとおり）」「いいえ（違う）」と答えます。でも英語の {{Yes}} / {{No}} は**事実**だけで決まります。好きなら {{Yes}}、好きでないなら {{No}}。質問が肯定の形でも否定の形でも、同じ答えになります。"},
+        { "table": [
+          ["質問","好きなとき","好きではないとき"],
+          ["{{Do you like coffee?}}","{{Yes, I do.}}（はい、好き）","{{No, I don't.}}（いいえ、好きじゃない）"],
+          ["{{Don't you like coffee?}}","{{Yes, I do.}}（いいえ、好きだよ）","{{No, I don't.}}（うん、好きじゃない）"]
+        ] },
+        {"p":"**コツ：{{Yes}} のあとは肯定、{{No}} のあとは否定。** {{Yes, I do.}}、{{No, I don't.}} のように短い答えをセットで言えば、まちがえにくくなります。{{Yes, I don't.}} という組み合わせはありません。"},
+        {"term":"付加疑問","means":"文の最後につけて「〜ですよね？」と確かめる短い質問：{{It's hot, isn't it?}}"},
+        {"p":"**「〜ですよね？」：付加疑問。** 肯定の文には否定の付加疑問を、否定の文には肯定の付加疑問をつけます：{{It's hot, isn't it?}}（暑いですよね？）、{{You're from Osaka, aren't you?}}（大阪出身ですよね？）、{{You don't eat meat, do you?}}（肉は食べないんですよね？）。答え方も事実で決まります。"},
+        { "ex": [
+          {"t":"Don't you like coffee?","tr":"コーヒー好きじゃないの？"},
+          {"t":"Aren't you cold?","tr":"寒くないの？"},
+          {"t":"No, I'm not. I'm fine.","tr":"うん、寒くないよ。大丈夫。"},
+          {"t":"It's a beautiful day, isn't it?","tr":"いい天気ですね。"},
+          {"t":"You're Ken's sister, aren't you?","tr":"ケンの妹さんですよね？"},
+          {"t":"You didn't call him, did you?","tr":"彼に電話しなかったんだよね？"}
+        ] },
+        {"tip":"付加疑問は、語尾を下げると「〜ですね」と同意を求める感じ、上げると「〜ですよね？」と本当に確かめる感じになります。"}
+      ],
+      "mistakes": [
+        {"wrong":"Don't you like it? — Yes, I don't.","right":"Don't you like it? — No, I don't.","tr":"好きじゃないの？—うん、好きじゃない。","why":"好きでないなら {{No}}。{{Yes}} と {{don't}} はいっしょに使いません。"},
+        {"wrong":"Aren't you hungry? — No, I'm hungry.","right":"Aren't you hungry? — Yes, I'm hungry.","tr":"お腹すいてないの？—ううん、すいてるよ。","why":"お腹がすいているなら、事実は肯定なので {{Yes}}。"},
+        {"wrong":"It's hot, is it?","right":"It's hot, isn't it?","tr":"暑いですよね。","why":"肯定の文には否定の付加疑問。"}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Aren't you tired?}} と聞かれました。あなたは疲れています。","options":["{{Yes, I am.}}","{{No, I am.}}","{{No, I'm not.}}"],"answer":0,"why":"疲れている（事実が肯定）なので {{Yes, I am.}}"},
+        {"type":"choice","q":"{{Don't you eat meat?}} と聞かれました。あなたは肉を食べません。","options":["{{No, I don't.}}","{{Yes, I don't.}}","{{Yes, I do.}}"],"answer":0,"why":"食べない（事実が否定）なので {{No, I don't.}}"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"You're from Osaka, ___ you?","tr":"大阪出身ですよね？","options":["aren't","are","don't"],"answer":0,"why":"肯定の文（{{You're}}）には否定の付加疑問 {{aren't you}}。"},
+        {"type":"dialogue","q":"レストランで。返事を選んでください。","lines":[{"who":"ジェシカ","t":"Aren't you hungry?","tr":"お腹すいてないの？"},{"options":["Yes, I am. Let's eat!","No, I am. Let's eat!"],"answer":0,"why":"すいている（肯定）なら {{Yes, I am.}}"},{"who":"ジェシカ","t":"You don't like spicy food, do you?","tr":"辛いもの苦手だよね？"},{"options":["No, I don't.","Yes, I don't."],"answer":0,"why":"苦手（否定）なら {{No, I don't.}}"}],"from":"agree-with-someone"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"It was a great party, ___ it?","tr":"いいパーティーでしたね。","options":["wasn't","was","didn't"],"answer":0,"why":"{{It was}} の文には {{wasn't it}}。","from":"say-where-you-were"},
+        {"type":"say","q":"{{Don't you like it?}} と聞かれました。「いいえ、好きですよ！」と答えましょう。","answer":"Yes, I do!"},
+        {"type":"free","q":"あなたの番です。友だちに付加疑問で確かめる文を2つ作りましょう。","answers":[{"t":"It's cold today, isn't it? You're coming to the party, aren't you?","tr":"今日は寒いですね。パーティーに来るよね？"},{"t":"You don't drink coffee, do you? This is your bag, isn't it?","tr":"コーヒーは飲まないんだよね？これ、あなたのかばんだよね？"}]}
+      ]
     }
   ]
 }
