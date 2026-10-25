@@ -838,6 +838,290 @@
         {"type":"say","q":"Tell a friend, casually: “Wait a moment.”","answer":"Hintay ka muna."},
         {"type":"free","q":"Your turn: welcome a friend to your home: tell them to come in and sit down, not to be shy, and invite them to eat.","answers":[{"t":"Pasok ka! Umupo ka. Huwag kang mahiya. Tara, kain tayo!","tr":"Come in! Sit down. Don't be shy. Come on, let's eat!"},{"t":"Tuloy ka! Upo ka lang. Huwag kang mahiya. Kumain ka!","tr":"Come in! Just sit down. Don't be shy. Eat!"}]}
       ]
+    },
+    {
+      "id": "count-and-pay",
+      "unit": 4,
+      "level": "A1",
+      "title": "Count, and ask how much",
+      "summary": "Count things, ask how many and how much, and pay: “How much is this?” “Twenty pesos.”",
+      "topic": "Numbers with the linker; {{ilan}} “how many”; {{magkano}} “how much”; Spanish-based numbers for prices",
+      "blocks": [
+        {"goal":{"t":"Magkano po ito?","tr":"How much is this?"}},
+        {"dialog":[{"who":"You","t":"Magkano po ang mangga?","tr":"How much are the mangoes?"},{"who":"Vendor","t":"Isang daan po ang isang kilo.","tr":"A hundred pesos a kilo."},{"who":"You","t":"Dalawang kilo po.","tr":"Two kilos, please."},{"who":"Vendor","t":"Dalawang daan po lahat.","tr":"Two hundred altogether."},{"who":"You","t":"Heto po.","tr":"Here you go."},{"who":"Vendor","t":"Salamat po!","tr":"Thank you!"}]},
+        {"p":"**How many?** {{ilan}}: {{Ilan ang anak mo?}} “How many kids do you have?”, word for word “how many are your children?”. Answer with a number: {{Dalawa.}} With a noun, the number takes the linker (lesson 8): {{dalawang anak}}, {{apat na tao}}."},
+        {"p":"**How much?** {{magkano}}: {{Magkano ito?}} “How much is this?”, {{Magkano lahat?}} “How much altogether?”"},
+        {"p":"**Two sets of numbers.** For counting things and people, Filipinos use the Tagalog numbers you know ({{isa}} to {{sampu}}). For **prices and the time**, they mostly use numbers that come from Spanish (or simply English): {{bente}} 20, {{singkuwenta}} 50. Hundreds and thousands are Tagalog again: {{isang daan}} 100, {{isang libo}} 1,000."},
+        { "table": [
+          ["","Tagalog (counting)","from Spanish (prices, time)"],
+          ["1","{{isa}}","{{uno}}"],
+          ["2","{{dalawa}}","{{dos}}"],
+          ["5","{{lima}}","{{singko}}"],
+          ["10","{{sampu}}","{{diyes}}"],
+          ["20","{{dalawampu}}","{{bente}}"],
+          ["50","{{limampu}}","{{singkuwenta}}"],
+          ["100","{{isang daan}}","{{isang daan}}"],
+          ["1,000","{{isang libo}}","{{isang libo}}"]
+        ] },
+        {"p":"**Money.** {{piso}} is the peso: {{sampung piso}} “ten pesos”, {{isang daang piso}} “a hundred pesos”. In a shop you'll mostly hear the bare number: {{Bente po.}} “Twenty (pesos).”"},
+        {"p":"**Each, altogether.** {{bawat isa}} “each one”, {{isang kilo}} “a kilo”, {{lahat}} “all, altogether”."},
+        { "ex": [
+          {"t":"Magkano po ito?","tr":"How much is this?"},
+          {"t":"Bente po.","tr":"Twenty pesos."},
+          {"t":"Ilan ang kapatid mo?","tr":"How many brothers and sisters do you have?"},
+          {"t":"Tatlo ang anak namin.","tr":"We have three kids.","note":"word for word “three are our children”"},
+          {"t":"Isang daang piso ang bawat isa.","tr":"A hundred pesos each."},
+          {"t":"Dalawang kape po.","tr":"Two coffees, please."},
+          {"t":"Magkano lahat?","tr":"How much altogether?"}
+        ] },
+        {"tip":"Handing over money: {{Heto po.}} “Here you go.” Not waiting for your change: {{Sa inyo na po ang sukli.}} “Keep the change.” ({{sukli}} is “change”.)"}
+      ],
+      "mistakes": [
+        {"wrong":"Ilan po ito?","right":"Magkano po ito?","tr":"How much is this?","why":"For a price, {{magkano}}; {{ilan}} is “how many”."},
+        {"wrong":"Dalawa kape po.","right":"Dalawang kape po.","tr":"Two coffees, please.","why":"A number is tied to its noun with the linker: {{dalawang}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"You want to know the price of a shirt. You ask…","options":["{{Magkano po ito?}}","{{Ilan po ito?}}","{{Ano po ito?}}"],"answer":0,"why":"A price: {{magkano}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ ang anak mo?","tr":"How many kids do you have?","options":["Ilan","Magkano","Sino"],"answer":0,"why":"How many: {{ilan}}."},
+        {"type":"choice","q":"“Two coffees, please” is…","options":["{{Dalawang kape po.}}","{{Dalawa kape po.}}","{{Dalawa na kape po.}}"],"answer":0,"why":"{{dalawa}} ends in a vowel: {{-ng}} added on.","from":"say-what-you-have"},
+        {"type":"order","q":"Put the words in order.","tr":"A hundred pesos each.","words":["Isang","daang piso","ang bawat isa."]},
+        {"type":"dialogue","q":"At a fruit stand. Choose your replies.","lines":[{"who":"Vendor","t":"Ano po iyon?","tr":"What can I get you?"},{"options":["Magkano po ang isang kilo ng mangga?","Ilan po ang mangga?"],"answer":0,"why":"A price: {{magkano}}."},{"who":"Vendor","t":"Isang daan po.","tr":"A hundred."},{"options":["Dalawang kilo po.","Dalawa kilo po."],"answer":0,"why":"The number and the noun, tied with the linker."},{"who":"Vendor","t":"Dalawang daan po lahat.","tr":"Two hundred altogether."},{"options":["Heto po. Salamat!","Ilan po?"],"answer":0,"why":"Hand it over: {{Heto po.}}"}],"from":"speak-politely"},
+        {"type":"say","q":"Ask: “How much altogether?”","answer":"Magkano lahat?"},
+        {"type":"free","q":"Your turn: order two things at a café, and ask how much it all is.","answers":[{"t":"Dalawang kape po at isang ensaymada. Magkano po lahat?","tr":"Two coffees and an ensaymada, please. How much is it altogether?"},{"t":"Isang tubig at dalawang pandesal po. Magkano po?","tr":"A water and two pandesal, please. How much?"}]}
+      ]
+    },
+    {
+      "id": "tell-the-time",
+      "unit": 4,
+      "level": "A1",
+      "title": "Ask and tell the time and the day",
+      "summary": "Ask what time it is, say when things happen and name the days: “It's three o'clock.” “Let's meet on Friday.”",
+      "topic": "{{Anong oras na?}}; {{alas-}} with Spanish numbers; {{ng umaga}}, {{ng hapon}}, {{ng gabi}}; the days; {{sa Lunes}} and {{noong Lunes}}",
+      "blocks": [
+        {"goal":{"t":"Anong oras na? Alas-tres na.","tr":"What time is it? It's three o'clock."}},
+        {"dialog":[{"who":"Ben","t":"Anong oras na?","tr":"What time is it?"},{"who":"Ana","t":"Alas-tres na.","tr":"It's three."},{"who":"Ben","t":"Ay, late na ako! Alas-tres y medya ang meeting ko.","tr":"Oh, I'm late! My meeting is at three-thirty."},{"who":"Ana","t":"Anong oras ka uuwi?","tr":"What time will you be home?"},{"who":"Ben","t":"Mga alas-siyete ng gabi.","tr":"Around seven in the evening."}]},
+        {"p":"**The time uses Spanish numbers** after {{alas-}}: {{alas-dos}} “two o'clock”, {{alas-tres}} “three o'clock”, and so on. One o'clock is {{ala-una}}."},
+        { "table": [
+          ["","o'clock","","o'clock"],
+          ["1","{{ala-una}}","7","{{alas-siyete}}"],
+          ["2","{{alas-dos}}","8","{{alas-otso}}"],
+          ["3","{{alas-tres}}","9","{{alas-nuwebe}}"],
+          ["4","{{alas-kuwatro}}","10","{{alas-diyes}}"],
+          ["5","{{alas-singko}}","11","{{alas-onse}}"],
+          ["6","{{alas-sais}}","12","{{alas-dose}}"]
+        ] },
+        {"p":"**Half past** is {{y medya}}: {{alas-tres y medya}} “half past three”. For other minutes many people simply say the time in English: “three-fifteen”."},
+        {"p":"**Morning or evening**: add {{ng umaga}} (morning), {{ng tanghali}} (noon), {{ng hapon}} (afternoon) or {{ng gabi}} (evening, night): {{alas-otso ng gabi}} “8 p.m.”."},
+        {"p":"**Asking**: {{Anong oras na?}} “What time is it (now)?” {{Anong oras ka…?}} “What time do you…?”: {{Anong oras ka uuwi?}} “What time will you be home?” “Around” is {{mga}}: {{mga alas-siyete}} “around seven”. To say when something is, put the time first: {{Alas-tres ang meeting.}} “The meeting is at three.”"},
+        {"p":"**The days**: {{Lunes}}, {{Martes}}, {{Miyerkoles}}, {{Huwebes}}, {{Biyernes}}, {{Sabado}}, {{Linggo}} (Monday to Sunday). A day coming takes {{sa}}: {{sa Lunes}} “on Monday”. A day gone takes {{noong}}: {{noong Lunes}} “last Monday”."},
+        { "ex": [
+          {"t":"Anong oras na?","tr":"What time is it?"},
+          {"t":"Alas-dos na ng hapon.","tr":"It's two in the afternoon."},
+          {"t":"Alas-tres y medya ang meeting ko.","tr":"My meeting is at three-thirty."},
+          {"t":"Anong oras ka uuwi?","tr":"What time will you be home?"},
+          {"t":"Mga alas-siyete ng gabi.","tr":"Around seven in the evening."},
+          {"t":"Sarado ang tindahan tuwing Linggo.","tr":"The store is closed on Sundays."},
+          {"t":"Dumating siya noong Biyernes.","tr":"She arrived last Friday."}
+        ] },
+        {"tip":"People joke about “Filipino time”: a party called for seven may get going at eight. To mean exactly seven, people add the English word: {{alas-siyete, sharp!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Alas-isa.","right":"Ala-una.","tr":"One o'clock.","why":"One o'clock is {{ala-una}}: the Spanish “una”, with {{ala-}} rather than {{alas-}}."},
+        {"wrong":"Alas-pito ng gabi.","right":"Alas-siyete ng gabi.","tr":"Seven p.m.","why":"After {{alas-}}, the numbers are Spanish: {{siyete}}, not Tagalog {{pito}}."},
+        {"wrong":"Dumating siya sa Lunes.","right":"Dumating siya noong Lunes.","tr":"He arrived on Monday.","why":"A day in the past takes {{noong}}; {{sa Lunes}} is a Monday coming."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Anong oras ___?","tr":"What time is it?","options":["na","pa","ba"],"answer":0,"why":"{{na}}: the time now."},
+        {"type":"choice","q":"How do you say 7 p.m.?","options":["{{alas-siyete ng gabi}}","{{alas-pito ng gabi}}","{{alas-siyete ng umaga}}"],"answer":0,"why":"A Spanish number after {{alas-}}, and {{ng gabi}} for the evening."},
+        {"type":"fill","q":"Choose the missing word.","t":"Darating si Lola ___ Sabado.","tr":"Grandma is coming on Saturday.","options":["sa","noong","ng"],"answer":0,"why":"A day coming: {{sa}}.","from":"say-what-you-will-do"},
+        {"type":"fill","q":"Choose the missing word.","t":"Pumunta kami sa Tagaytay ___ Linggo.","tr":"We went to Tagaytay last Sunday.","options":["noong","sa","ng"],"answer":0,"why":"A day gone: {{noong}}.","from":"say-what-you-did"},
+        {"type":"order","q":"Put the words in order.","tr":"My meeting is at three-thirty.","words":["Alas-tres","y medya","ang meeting","ko."]},
+        {"type":"dialogue","q":"A friend asks about your day. Choose your replies.","lines":[{"who":"Liza","t":"Anong oras ka pumapasok?","tr":"What time do you go to work?"},{"options":["Alas-otso ako pumapasok.","Alas-otso pumapasok ako."],"answer":0,"why":"The time first, then {{ako}}, then the verb."},{"who":"Liza","t":"E anong oras ka umuuwi?","tr":"And what time do you get home?"},{"options":["Mga alas-sais ng gabi.","Mga alas-anim ng gabi."],"answer":0,"why":"The time uses Spanish numbers: {{alas-sais}}."}],"from":"talk-about-your-day"},
+        {"type":"free","q":"Your turn: say what time you get up, what time you go to work or school, and what you do on Sundays.","answers":[{"t":"Alas-sais ako gumigising. Alas-otso ako pumapasok. Tuwing Linggo, nagsisimba kami.","tr":"I get up at six. I go to work at eight. On Sundays we go to church."},{"t":"Alas-siyete ako gumigising. Alas-nuwebe ako pumapasok sa eskuwela. Tuwing Linggo, natutulog ako!","tr":"I get up at seven. I go to school at nine. On Sundays I sleep!"}]}
+      ]
+    },
+    {
+      "id": "ask-for-things-politely",
+      "unit": 4,
+      "level": "A2",
+      "title": "Ask for things politely",
+      "summary": "Ask people to do things and to let you have things, the Filipino way: “Please pass the salt.” “May I ask something?” “I'd like to buy…”",
+      "topic": "{{paki-}} “please (do it)”; {{pa-}} “let me have” ({{pabili}}, {{pahingi}}, {{pahiram}}); {{Pwede po bang…?}}; {{makiki-}} ({{makikiraan po}})",
+      "blocks": [
+        {"goal":{"t":"Pakiabot po ng asin.","tr":"Please pass the salt."}},
+        {"dialog":[{"who":"You","t":"Pabili po!","tr":"Hello, I'd like to buy something!"},{"who":"Shopkeeper","t":"Ano po iyon?","tr":"What would you like?"},{"who":"You","t":"Pabili po ng tubig at dalawang pandesal.","tr":"Some water and two pandesal, please."},{"who":"Shopkeeper","t":"Heto po. Singkuwenta po lahat.","tr":"Here you go. Fifty altogether."},{"who":"You","t":"Isang libo lang po ang pera ko. Okay lang po ba?","tr":"I only have a thousand. Is that okay?"},{"who":"Shopkeeper","t":"Sige po.","tr":"Sure."}]},
+        {"p":"**{{paki-}} “please (do it)”** goes on the front of a root: {{abot}} “reach, hand over” → {{Pakiabot po ng asin.}} “Please pass the salt.”, {{ulit}} “again” → {{Pakiulit po.}} “Could you say that again, please?”. It asks someone to do something for you."},
+        {"p":"**{{pa-}} “let me (have)”** asks for something for yourself: {{Pabili po!}} “I'd like to buy!” (what you call into a sari-sari store), {{Pahingi ng tubig.}} “Can I have some water?”, {{Pahiram ng ballpen.}} “Can I borrow a pen?”, {{Patingin!}} “Let me see!”"},
+        { "table": [
+          ["","Tagalog","meaning"],
+          ["{{paki-}} + root","{{Pakiabot po ng asin.}}","Please pass the salt."],
+          ["","{{Pakiulit po.}}","Please say that again."],
+          ["{{pa-}} + root","{{Pabili po ng tubig.}}","I'd like to buy some water."],
+          ["","{{Pahiram ng ballpen.}}","Can I borrow a pen?"],
+          ["","{{Patingin.}}","Let me see."]
+        ] },
+        {"p":"Mind the difference: {{Pabili po ng tubig}} “I'd like to buy water”, but {{Pakibili po ng tubig}} “Please buy (me) some water”."},
+        {"p":"**{{Pwede po bang…?}} “May I…? Could we…?”**: {{pwede}} “can, may”, {{ba}} with the linker, then the basic form: {{Pwede po bang magtanong?}} “May I ask something?”, {{Pwede po bang magbayad ng card?}} “Can I pay by card?”."},
+        {"p":"**Excuse me.** To pass between people: {{Makikiraan po.}} “Excuse me, may I get through?” To use something of someone else's: {{Makikigamit po ng CR.}} “May I use your bathroom?” {{makiki-}} is “may I join in, may I share”: it's how a polite guest asks."},
+        { "ex": [
+          {"t":"Pakiabot po ng asin.","tr":"Please pass the salt."},
+          {"t":"Pakiulit po.","tr":"Could you say that again, please?"},
+          {"t":"Pabili po ng tubig.","tr":"I'd like to buy some water, please."},
+          {"t":"Pahingi ng tubig.","tr":"Can I have some water?"},
+          {"t":"Pwede po bang magtanong?","tr":"May I ask something?"},
+          {"t":"Pwede ko bang gamitin ang ballpen mo?","tr":"Can I use your pen?","note":"why it's {{ko}} here: lesson 24"},
+          {"t":"Makikiraan po.","tr":"Excuse me, may I get through?"}
+        ] },
+        {"tip":"On a jeepney, the fare goes from hand to hand up to the driver: {{Bayad po!}} “Here's my fare!”, and the change comes back the same way. To ask the person next to you to pass it on: {{Pakiabot po.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Pakibili po ng tubig.","right":"Pabili po ng tubig.","tr":"I'd like to buy some water. (you're the buyer)","why":"{{paki-}} asks someone else to do it: {{Pakibili po ng tubig}} is “Please buy some water for me”. To buy it yourself: {{pa-}}."},
+        {"wrong":"Pwede po ba magtanong?","right":"Pwede po bang magtanong?","tr":"May I ask something?","why":"{{ba}} is tied to the verb with the linker: {{bang}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"At a sari-sari store, you call out to the shopkeeper:","options":["{{Pabili po!}}","{{Pakibili po!}}","{{Bili ka!}}"],"answer":0,"why":"{{pa-}}: “let me buy”. {{Pakibili}} asks her to buy something for you."},
+        {"type":"fill","q":"Choose the missing word.","t":"Pwede po ___ umupo dito?","tr":"May I sit here?","options":["bang","ba","po"],"answer":0,"why":"{{ba}} + the linker: {{bang}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ po ng asin.","tr":"Please pass the salt.","options":["Pakiabot","Pakibili","Patingin"],"answer":0,"why":"{{paki-}} + {{abot}} “hand over”: please pass it."},
+        {"type":"order","q":"Put the words in order.","tr":"May I ask something?","words":["Pwede","po","bang","magtanong?"]},
+        {"type":"dialogue","q":"On a crowded jeepney. Choose your replies.","lines":[{"who":"Driver","t":"O, sakay na!","tr":"Okay, hop on!"},{"options":["Bayad po. Pakiabot po.","Bayad. Abot mo."],"answer":0,"why":"{{Pakiabot po}}: the polite way to ask your neighbor to pass your fare along."},{"who":"Passenger","t":"Ilan po ito?","tr":"How many is this for?"},{"options":["Isa lang po.","Isang lang po."],"answer":0,"why":"Just one: {{isa lang}}. (The linker only comes before a noun.)"},{"who":"Passenger","t":"Bababa ka na ba?","tr":"Are you getting off?"},{"options":["Opo. Makikiraan po.","Opo. Paraan ako."],"answer":0,"why":"{{Makikiraan po}}: excuse me, may I get through."}],"from":"count-and-pay"},
+        {"type":"say","q":"Ask a friend: “Can I borrow a pen?”","answer":"Pahiram ng ballpen."},
+        {"type":"free","q":"Your turn: you're visiting a friend's family. Politely ask to use the bathroom, and ask someone to pass the rice.","answers":[{"t":"Makikigamit po ng CR. Pakiabot po ng kanin.","tr":"May I use the bathroom? Please pass the rice."},{"t":"Pwede po bang makigamit ng CR? Pakiabot naman po ng kanin.","tr":"May I use the bathroom? Could you pass the rice, please?"}]}
+      ]
+    },
+    {
+      "id": "find-your-way",
+      "unit": 4,
+      "level": "A2",
+      "title": "Ask the way and get around by jeepney",
+      "summary": "Ask how to get somewhere, follow directions, and get on and off a jeepney: “How do I get to Quiapo?” “Stop here, please!”",
+      "topic": "{{Paano pumunta sa…?}}; directions as commands ({{kumanan}}, {{kumaliwa}}, {{dumiretso}}); {{sumakay}}, {{bumaba}}; {{Para po!}}",
+      "blocks": [
+        {"goal":{"t":"Paano po pumunta sa Quiapo?","tr":"How do I get to Quiapo?"}},
+        {"dialog":[{"who":"You","t":"Excuse me po. Paano po pumunta sa simbahan?","tr":"Excuse me. How do I get to the church?"},{"who":"Guard","t":"Dumiretso ka lang, tapos kumanan ka sa kanto.","tr":"Just go straight, then turn right at the corner."},{"who":"You","t":"Malayo po ba?","tr":"Is it far?"},{"who":"Guard","t":"Hindi, malapit lang. Mga limang minuto.","tr":"No, it's close. About five minutes."},{"who":"You","t":"Salamat po!","tr":"Thank you!"}]},
+        {"p":"**Asking the way**: {{Paano pumunta sa…?}} “How do you get to…?”, word for word “how go to…?”. Or simply {{Nasaan po ang…?}} “Where's…?”"},
+        {"p":"**Directions are commands** (lesson 17): the basic form + {{ka}}. They're {{-um-}} verbs made from {{kanan}} “right”, {{kaliwa}} “left” and {{diretso}} “straight”: {{Kumanan ka.}} “Turn right.”"},
+        { "table": [
+          ["","command","place"],
+          ["right","{{Kumanan ka.}} Turn right.","{{sa kanan}} on the right"],
+          ["left","{{Kumaliwa ka.}} Turn left.","{{sa kaliwa}} on the left"],
+          ["straight","{{Dumiretso ka.}} Go straight.","{{diretso lang}} straight on"],
+          ["across","{{Tumawid ka.}} Cross.","{{sa kabila}} on the other side"]
+        ] },
+        {"p":"**Getting around**: {{sumakay}} “ride, get on”, with {{ng}} for the vehicle ({{sumakay ng jeep}}), and {{bumaba}} “get off”, with {{sa}} for the place ({{bumaba sa Cubao}}). Not yet begun: {{sasakay}}, {{bababa}}. {{Saan ka bababa?}} “Where are you getting off?”"},
+        {"p":"**Stop!** On a jeepney you call out {{Para po!}} “Stop, please!” to get off. And {{malapit}} “near”, {{malayo}} “far”: {{Malapit lang.}} “It's just nearby.”"},
+        { "ex": [
+          {"t":"Paano po pumunta sa Quiapo?","tr":"How do I get to Quiapo?"},
+          {"t":"Sumakay ka ng jeep na papuntang Cubao.","tr":"Take a jeepney going to Cubao.","note":"{{papunta}} “heading to” + the linker"},
+          {"t":"Bumaba ka sa harap ng mall.","tr":"Get off in front of the mall."},
+          {"t":"Kumaliwa ka sa pangalawang kanto.","tr":"Turn left at the second corner."},
+          {"t":"Malayo pa ba?","tr":"Is it still far?"},
+          {"t":"Para po! Dito lang po.","tr":"Stop, please! Right here."},
+          {"t":"Nasa kanan ang bangko.","tr":"The bank is on the right."}
+        ] },
+        {"tip":"Jeepneys show their route on a sign in front. If you're not sure, ask before you get on: {{Dadaan po ba ito sa Quiapo?}} “Does this go through Quiapo?”"}
+      ],
+      "mistakes": [
+        {"wrong":"Kanan ka.","right":"Kumanan ka.","tr":"Turn right.","why":"{{kanan}} is “right”; “turn right” is the verb {{kumanan}}."},
+        {"wrong":"Bumaba po ako dito.","right":"Bababa po ako dito.","tr":"I'm getting off here.","why":"You haven't got off yet: the not-yet-begun form {{bababa}}. ({{bumaba}} is “got off”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ka sa kanto.","tr":"Turn right at the corner.","options":["Kumanan","Kanan","Kumaliwa"],"answer":0,"why":"The verb for turning right: {{kumanan}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Sumakay ka ___ jeep.","tr":"Take a jeepney.","options":["ng","ang","si"],"answer":0,"why":"The vehicle you ride takes {{ng}}."},
+        {"type":"choice","q":"You want the jeepney to stop. You say…","options":["{{Para po!}}","{{Huwag po!}}","{{Bababa ka!}}"],"answer":0,"why":"{{Para po!}}: what every passenger calls out."},
+        {"type":"fill","q":"Choose the missing word.","t":"Saan ka ___?","tr":"Where are you getting off?","options":["bababa","bumaba","bumababa"],"answer":0,"why":"Not yet: {{bababa}}.","from":"say-what-you-will-do"},
+        {"type":"order","q":"Put the words in order.","tr":"Get off in front of the mall.","words":["Bumaba","ka","sa harap","ng mall."],"from":"say-where-things-are"},
+        {"type":"dialogue","q":"You ask a security guard the way. Choose your replies.","lines":[{"who":"Guard","t":"Ano po iyon, ma'am?","tr":"Yes, ma'am, can I help you?"},{"options":["Paano po pumunta sa SM?","Saan po pumunta ang SM?"],"answer":0,"why":"“How do I get to…?”: {{Paano pumunta sa…?}}"},{"who":"Guard","t":"Dumiretso lang po kayo, tapos kumaliwa po kayo sa kanto.","tr":"Just go straight, then turn left at the corner."},{"options":["Malayo po ba?","Malayo po ka ba?"],"answer":0,"why":"{{ba}} after the first word (and {{po}})."},{"who":"Guard","t":"Hindi po, malapit lang.","tr":"No, it's close."},{"options":["Salamat po!","Para po!"],"answer":0,"why":"Thank him. ({{Para po}} is for stopping a jeepney.)"}],"from":"ask-yes-no-questions"},
+        {"type":"free","q":"Your turn: tell a visitor how to get from your door to the nearest store, in two or three steps.","answers":[{"t":"Dumiretso ka lang, tapos kumanan ka sa kanto. Nasa kaliwa ang tindahan.","tr":"Go straight, then turn right at the corner. The store is on the left."},{"t":"Sumakay ka ng jeep na papuntang Cubao. Bumaba ka sa harap ng simbahan. Malapit lang doon ang tindahan.","tr":"Take a jeepney going to Cubao. Get off in front of the church. The store is close to there."}]}
+      ]
+    },
+    {
+      "id": "make-plans",
+      "unit": 4,
+      "level": "A2",
+      "title": "Invite someone and make plans",
+      "summary": "Invite a friend, agree on a time and place, or say no nicely: “Do you want to see a movie later?” “Let's meet at the mall.”",
+      "topic": "{{Gusto mo bang…?}}; {{mag-}} for doing things together ({{magkita}}, {{mag-usap}}); saying yes ({{Sige!}}) and no ({{Pasensya na…}})",
+      "blocks": [
+        {"goal":{"t":"Gusto mo bang manood ng sine mamaya?","tr":"Do you want to see a movie later?"}},
+        {"dialog":[{"who":"Ben","t":"Gusto mo bang manood ng sine mamaya?","tr":"Do you want to see a movie later?"},{"who":"Ana","t":"Sige! Anong oras?","tr":"Sure! What time?"},{"who":"Ben","t":"Mga alas-siyete. Magkita tayo sa mall.","tr":"Around seven. Let's meet at the mall."},{"who":"Ana","t":"Alas-siyete? May klase pa ako. Pwede bang alas-otso na lang?","tr":"Seven? I still have class. Can we make it eight?"},{"who":"Ben","t":"Sige, alas-otso. Kita tayo!","tr":"Okay, eight. See you!"}]},
+        {"p":"**Inviting**: {{Gusto mo bang…?}} “Do you want to…?” + the basic form (lesson 7): {{Gusto mo bang kumain sa labas?}} “Do you want to eat out?”. To a group, {{ninyo}} comes after {{ba}} and takes the linker: {{Gusto ba ninyong sumama?}} “Do you all want to come?”"},
+        {"p":"Or suggest it with {{tayo}} “let's” (lesson 17): {{Kumain tayo sa labas!}} In casual speech even a noun + {{tayo}} works: {{Tara, sine tayo!}} “Come on, let's go to the movies!”"},
+        {"p":"**Doing it together.** Some {{mag-}} verbs mean two or more people doing something to each other: {{magkita}} “meet” (from {{kita}} “see”: seeing each other), {{mag-usap}} “talk (together)”. {{Magkita tayo sa Biyernes.}} “Let's meet on Friday.” And the goodbye {{Kita tayo!}} “See you!”"},
+        {"p":"**Saying yes**: {{Sige!}} “Okay! Sure!”, {{Game ako!}} “I'm in!”. **Saying no nicely**: Filipinos rarely give a bare {{hindi}}. Say sorry and give a reason: {{Pasensya na, may gagawin ako.}} “Sorry, I've got something on.” {{Sa susunod na lang.}} “Maybe next time.”"},
+        {"p":"**Where and when**: the place with {{sa}}, the time with {{alas-}}: {{Magkita tayo sa Jollibee, alas-singko.}} “Let's meet at Jollibee at five.”"},
+        { "ex": [
+          {"t":"Gusto mo bang sumama?","tr":"Do you want to come along?"},
+          {"t":"Gusto ba ninyong kumain sa labas?","tr":"Do you (all) want to eat out?"},
+          {"t":"Magkita tayo sa harap ng simbahan.","tr":"Let's meet in front of the church."},
+          {"t":"Sige, game ako!","tr":"Sure, I'm in!"},
+          {"t":"Pasensya na, may gagawin ako bukas.","tr":"Sorry, I've got something on tomorrow."},
+          {"t":"Sa susunod na lang.","tr":"Maybe next time."},
+          {"t":"Kita tayo mamaya!","tr":"See you later!"}
+        ] },
+        {"tip":"A Filipino {{Titingnan ko}} “I'll see” or {{Baka}} “Maybe” often means no. And {{Sa susunod na lang}} is a gentle no that keeps the friendship warm."}
+      ],
+      "mistakes": [
+        {"wrong":"Gusto mo ba manood ng sine?","right":"Gusto mo bang manood ng sine?","tr":"Do you want to see a movie?","why":"{{ba}} is tied to the verb with the linker: {{bang}}."},
+        {"wrong":"Magkita kami sa mall.","right":"Magkita tayo sa mall.","tr":"Let's meet at the mall.","why":"You and your friend are both meeting: “we, you too” is {{tayo}}."},
+        {"wrong":"Hindi.","right":"Pasensya na, may gagawin ako.","tr":"Sorry, I've got something on.","why":"A bare {{hindi}} to an invitation sounds cold. Say sorry and give a reason."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Gusto mo ___ manood ng sine?","tr":"Do you want to see a movie?","options":["bang","ba","na"],"answer":0,"why":"{{ba}} + the linker, before the verb.","from":"say-what-you-want"},
+        {"type":"fill","q":"Choose the missing word.","t":"Magkita ___ sa mall.","tr":"Let's meet at the mall.","options":["tayo","kami","kayo"],"answer":0,"why":"You're included: {{tayo}}.","from":"say-we-and-they"},
+        {"type":"choice","q":"A coworker invites you to karaoke, but you can't go. The kindest answer is…","options":["{{Pasensya na, may gagawin ako. Sa susunod na lang!}}","{{Hindi.}}","{{Ayoko.}}"],"answer":0,"why":"Sorry, a reason, and “next time”: a no that keeps things warm."},
+        {"type":"order","q":"Put the words in order.","tr":"Let's meet in front of the church at five.","words":["Magkita","tayo","sa harap","ng simbahan,","alas-singko."]},
+        {"type":"dialogue","q":"A friend invites you out. Choose your replies.","lines":[{"who":"Liza","t":"Gusto mo bang kumain sa labas mamaya?","tr":"Do you want to eat out later?"},{"options":["Sige! Anong oras?","Sige! Saan oras?"],"answer":0,"why":"“What time?” is {{Anong oras?}}"},{"who":"Liza","t":"Mga alas-siyete. Saan mo gusto?","tr":"Around seven. Where would you like to go?"},{"options":["Sa Jollibee na lang tayo!","Sa Jollibee na lang kami!"],"answer":0,"why":"Both of you are going: {{tayo}}."},{"who":"Liza","t":"Sige, kita tayo!","tr":"Okay, see you!"}],"from":"tell-the-time"},
+        {"type":"say","q":"Say “See you later!”","answer":"Kita tayo mamaya!"},
+        {"type":"free","q":"Your turn: invite a friend to do something this weekend, and say when and where to meet.","answers":[{"t":"Gusto mo bang manood ng sine sa Sabado? Magkita tayo sa mall, alas-tres.","tr":"Do you want to see a movie on Saturday? Let's meet at the mall at three."},{"t":"Tara, kain tayo sa labas sa Linggo! Magkita tayo sa harap ng simbahan, mga alas-singko.","tr":"Come on, let's eat out on Sunday! Let's meet in front of the church around five."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-need-to-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you need to, should, may and mustn't do",
+      "summary": "Say what you have to do, what someone should do, and what's allowed or not: “I have to go now.” “No smoking here.”",
+      "topic": "{{kailangan}}, {{dapat}}, {{pwede}}, {{bawal}} + the basic form; which pronoun; {{nang}} = {{na}} + the linker",
+      "blocks": [
+        {"goal":{"t":"Kailangan ko nang umalis.","tr":"I have to go now."}},
+        {"dialog":[{"who":"Mark","t":"Kailangan ko nang umalis.","tr":"I have to go now."},{"who":"Liza","t":"Agad? Maaga pa!","tr":"Already? It's still early!"},{"who":"Mark","t":"Oo, pero kailangan kong gumising nang maaga bukas.","tr":"Yes, but I have to get up early tomorrow."},{"who":"Liza","t":"Sige. Dapat kang magpahinga.","tr":"Okay. You should get some rest."},{"who":"Mark","t":"Salamat! Ingat kayo!","tr":"Thanks! Take care, everyone!"}]},
+        {"p":"These four words work like {{gusto}} (lesson 7): the word first, then who, tied on with the linker, then the basic form of the verb. **{{kailangan}}** “need to, have to”: {{Kailangan kong umalis.}} “I have to leave.”"},
+        {"p":"**{{dapat}}** “should, must”: {{Dapat kang magpahinga.}} “You should rest.” After {{dapat}} and {{pwede}}, the doer is from the {{ako}} set ({{ako}}, {{ka}}, {{siya}}); after {{kailangan}}, as after {{gusto}}, from the {{ko}} set."},
+        { "table": [
+          ["word","meaning","who","example"],
+          ["{{kailangan}}","need to, have to","{{ko}}, {{mo}}, {{niya}}…","{{Kailangan kong umalis.}}"],
+          ["{{dapat}}","should","{{ako}}, {{ka}}, {{siya}}…","{{Dapat kang magpahinga.}}"],
+          ["{{pwede}}","can, may","{{ako}}, {{ka}}, {{siya}}…","{{Pwede ba akong umupo dito?}}"],
+          ["{{bawal}}","not allowed","no one named","{{Bawal manigarilyo dito.}}"]
+        ] },
+        {"p":"**{{pwede}}** “can, may, it's okay to”: {{Pwede ka bang sumama?}} “Can you come along?”. **{{bawal}}** “not allowed”: {{Bawal pumarada dito.}} “No parking here.” With no one named, they're about everyone."},
+        {"p":"**Not.** {{hindi}} first, and the pronoun jumps up after it: {{Hindi mo kailangang magbayad.}} “You don't have to pay.” {{Hindi ka dapat mag-alala.}} “You shouldn't worry.”"},
+        {"p":"**{{nang}}.** In {{Kailangan ko nang umalis}}, the little word {{na}} “now” sits before the verb, so it takes the linker: {{na}} + {{-ng}} → {{nang}}."},
+        { "ex": [
+          {"t":"Kailangan kong mag-aral.","tr":"I have to study."},
+          {"t":"Dapat kang magpahinga.","tr":"You should get some rest."},
+          {"t":"Pwede ba akong umupo dito?","tr":"May I sit here?"},
+          {"t":"Bawal manigarilyo dito.","tr":"No smoking here."},
+          {"t":"Hindi mo kailangang magbayad.","tr":"You don't have to pay."},
+          {"t":"Kailangan ba nating magdala ng pagkain?","tr":"Do we need to bring food?"},
+          {"t":"Hindi ka dapat mag-alala.","tr":"You shouldn't worry."}
+        ] },
+        {"tip":"{{bawal}} is on signs all over the Philippines: {{Bawal pumarada}} “No parking”, {{Bawal tumawid}} “No crossing”, {{Bawal ang maingay}} “No noise”."}
+      ],
+      "mistakes": [
+        {"wrong":"Kailangan ako umalis.","right":"Kailangan kong umalis.","tr":"I have to leave.","why":"After {{kailangan}}: the {{ko}} set, and the linker before the verb: {{kong}}."},
+        {"wrong":"Dapat ka magpahinga.","right":"Dapat kang magpahinga.","tr":"You should rest.","why":"The pronoun is tied to the verb with the linker: {{kang}}."},
+        {"wrong":"Hindi kailangan mong magbayad.","right":"Hindi mo kailangang magbayad.","tr":"You don't have to pay.","why":"After {{hindi}}, the pronoun jumps up ({{hindi mo}}), and the linker goes on {{kailangan}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Kailangan ___ umalis.","tr":"I have to leave.","options":["kong","akong","ko"],"answer":0,"why":"{{kailangan}} takes {{ko}}, with the linker: {{kong}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Dapat ___ magpahinga.","tr":"You should rest.","options":["kang","mong","ka"],"answer":0,"why":"{{dapat}} takes {{ka}}, with the linker: {{kang}}."},
+        {"type":"choice","q":"A sign says {{Bawal manigarilyo}}. It means…","options":["No smoking","Smoking area","Smoking is required"],"answer":0,"why":"{{bawal}}: not allowed."},
+        {"type":"order","q":"Put the words in order.","tr":"You don't have to pay.","words":["Hindi","mo","kailangang","magbayad."],"from":"ask-yes-no-questions"},
+        {"type":"dialogue","q":"Leaving a friend's party. Choose your replies.","lines":[{"who":"Liza","t":"Uuwi ka na? Maaga pa!","tr":"Going home already? It's still early!"},{"options":["Oo, kailangan ko nang umalis.","Oo, kailangan ako umalis."],"answer":0,"why":"{{kailangan ko}}, and {{nang}} before the verb."},{"who":"Liza","t":"Bakit?","tr":"Why?"},{"options":["Kasi kailangan kong pumasok nang maaga bukas.","Kasi kailangan kong pumasok kahapon."],"answer":0,"why":"What you have to do is still to come: tomorrow, {{bukas}}."},{"who":"Liza","t":"Sige. Ingat ka!","tr":"Okay. Take care!"}],"from":"ask-questions"},
+        {"type":"say","q":"Ask, politely: “May I sit here?”","answer":"Pwede po ba akong umupo dito?"},
+        {"type":"free","q":"Your turn: say one thing you have to do this week, one thing you should do, and one thing that isn't allowed where you live.","answers":[{"t":"Kailangan kong magtrabaho sa Sabado. Dapat akong mag-ehersisyo. Bawal manigarilyo sa bahay namin.","tr":"I have to work on Saturday. I should exercise. Smoking isn't allowed in our house."},{"t":"Kailangan kong mag-aral ng Tagalog. Dapat akong matulog nang maaga. Bawal ang aso sa apartment namin.","tr":"I have to study Tagalog. I should go to bed early. Dogs aren't allowed in our apartment."}]}
+      ]
     }
   ]
 }
