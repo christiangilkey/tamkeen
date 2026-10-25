@@ -2051,6 +2051,252 @@
         {"type":"say","q":"بگویید: «گفت نگران نباشم.» (دربارهٔ یک آقا)","answer":"He told me not to worry."},
         {"type":"free","q":"نوبت شماست: حرفی را که کسی اخیراً به شما زد بازگو کنید، و سؤالی را که از شما پرسید.","answers":[{"t":"My friend said she had a new job. She asked if I was free on Friday.","tr":"دوستم گفت کار تازه‌ای پیدا کرده. پرسید که آیا جمعه وقتم آزاد است."},{"t":"My mother told me to rest more. She said I worked too much!","tr":"مادرم گفت بیشتر استراحت کنم. گفت زیادی کار می‌کنم!"}]}
       ]
+    },
+    {
+      "id": "use-make-do-take-get",
+      "unit": 8,
+      "level": "B1",
+      "title": "{{make}}، {{do}}، {{take}} و {{get}} را درست به کار ببرید",
+      "summary": "بگویید {{make a mistake}}، {{do the dishes}}، {{take a shower}} و {{get tired}}: همتاهای انگلیسی «کردن»، «گرفتن» و «شدن».",
+      "topic": "فعل‌های مرکب فارسی و همتاهای انگلیسی‌شان: {{make}} و {{do}} برای «کردن»؛ {{take}} برای «گرفتن»؛ {{get}} برای «شدن»",
+      "blocks": [
+        {"goal":{"t":"I made a mistake, so I have to do it again.","tr":"اشتباه کردم، برای همین باید دوباره انجامش بدهم."}},
+        {"dialog":[{"who":"مینا","t":"Did you do your homework?","tr":"تکلیفت را انجام دادی؟"},{"who":"آرش","t":"Yes, but I made a lot of mistakes.","tr":"آره، ولی کلی اشتباه کردم."},{"who":"مینا","t":"That's OK. Take a break and then check it again.","tr":"عیبی ندارد. کمی استراحت کن و بعد دوباره نگاهش کن."},{"who":"آرش","t":"OK. I'll take a shower first. I'm getting tired.","tr":"باشد. اول دوش می‌گیرم. دارم خسته می‌شوم."},{"who":"مینا","t":"Good idea. I'll make some tea.","tr":"فکر خوبی است. من چای درست می‌کنم."}]},
+        {"p":"**«کردن» در انگلیسی دو تاست.** فارسی برای خیلی کارها «کردن» دارد. انگلیسی معمولاً {{make}} یا {{do}} می‌گوید. {{make}} وقتی چیزی را **می‌سازید** یا پدید می‌آورید: {{make dinner}} «شام درست کردن»، {{make a mistake}} «اشتباه کردن»، {{make a decision}} «تصمیم گرفتن»، {{make money}} «پول درآوردن». {{do}} برای **کارها و وظیفه‌ها**: {{do homework}} «تکلیف انجام دادن»، {{do the dishes}} «ظرف شستن»، {{do exercise}} «ورزش کردن»، {{do your best}} «تمام تلاشت را کردن»."},
+        {"p":"**«گرفتن»: اغلب {{take}}.** {{take a shower}} «دوش گرفتن»، {{take a picture}} «عکس گرفتن»، {{take a taxi}} «تاکسی گرفتن»، {{take a break}} «استراحت کردن»، {{take medicine}} «دارو خوردن». دقت کنید: «تصمیم گرفتن» {{make a decision}} است."},
+        {"p":"**«شدن»: اغلب {{get}}.** {{get}} + صفت یعنی «… شدن»: {{get tired}} «خسته شدن»، {{get angry}} «عصبانی شدن»، {{get married}} «ازدواج کردن»، {{get lost}} «گم شدن»، {{get better}} «بهتر شدن». و {{get}} + اسم یا جا: {{get a job}} «کار پیدا کردن»، {{get home}} «به خانه رسیدن»."},
+        { "table": [
+          ["فارسی","انگلیسی"],
+          ["اشتباه کردن","{{make a mistake}}"],
+          ["تصمیم گرفتن","{{make a decision}}"],
+          ["تکلیف انجام دادن","{{do homework}}"],
+          ["ظرف شستن","{{do the dishes}}"],
+          ["دوش گرفتن","{{take a shower}}"],
+          ["عکس گرفتن","{{take a picture}}"],
+          ["خسته شدن","{{get tired}}"],
+          ["ازدواج کردن","{{get married}}"],
+          ["زنگ زدن","{{call}}"],
+          ["صحبت کردن","{{talk}}"]
+        ] },
+        {"p":"**گاهی فقط یک فعل.** بسیاری از فعل‌های مرکب فارسی در انگلیسی یک کلمه‌اند: «زنگ زدن» {{call}}، «صحبت کردن» {{talk}}، «کمک کردن» {{help}}، «استفاده کردن» {{use}}، «گوش دادن» {{listen}}. {{do a call}} یا {{make help}} نگویید."},
+        { "ex": [
+          {"t":"Don't worry, everyone makes mistakes.","tr":"نگران نباش، همه اشتباه می‌کنند."},
+          {"t":"I usually do the dishes after dinner.","tr":"معمولاً بعد از شام ظرف‌ها را می‌شویم."},
+          {"t":"Can you take a picture of us?","tr":"می‌شود از ما عکس بگیرید؟"},
+          {"t":"We got lost in the old city.","tr":"در شهر قدیمی گم شدیم."},
+          {"t":"They got married last summer.","tr":"تابستان پارسال ازدواج کردند."},
+          {"t":"I need to make a decision today.","tr":"امروز باید تصمیم بگیرم."}
+        ] },
+        {"tip":"این‌ها را جفت‌جفت یاد بگیرید، نه فقط خود فعل را: {{make a mistake}}، {{take a shower}}. آمریکایی‌ها {{take a shower}} می‌گویند؛ {{have a shower}} بیشتر بریتانیایی است."}
+      ],
+      "mistakes": [
+        {"wrong":"I did a mistake.","right":"I made a mistake.","tr":"اشتباه کردم.","why":"«اشتباه کردن» {{make a mistake}} است."},
+        {"wrong":"I got a shower.","right":"I took a shower.","tr":"دوش گرفتم.","why":"«دوش گرفتن» {{take a shower}} است."},
+        {"wrong":"I became tired.","right":"I got tired.","tr":"خسته شدم.","why":"در حرف زدن، «… شدن» معمولاً {{get}} است: {{got tired}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Everyone ___ mistakes.","tr":"همه اشتباه می‌کنند.","options":["makes","does","takes"],"answer":0,"why":"{{make a mistake}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Can you ___ a picture of us?","tr":"می‌شود از ما عکس بگیرید؟","options":["take","make","do"],"answer":0,"why":"{{take a picture}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I always ___ tired after work.","tr":"بعد از کار همیشه خسته می‌شوم.","options":["get","make","do"],"answer":0,"why":"«خسته شدن»: {{get tired}}."},
+        {"type":"dialogue","q":"دوستتان دربارهٔ امشب می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"offer-and-promise","lines":[{"who":"مینا","t":"What are you doing tonight?","tr":"امشب چه کار می‌کنی؟"},{"options":["I have to do my homework and do the dishes.","I have to make my homework and make the dishes."],"answer":0,"why":"کارها و وظیفه‌ها: {{do}}."},{"who":"مینا","t":"Do you want me to help?","tr":"می‌خواهی کمکت کنم؟"},{"options":["Thanks! I'll make dinner for us.","Thanks! I'll do dinner for us."],"answer":0,"why":"غذا درست کردن: {{make dinner}}؛ و پیشنهاد با {{I'll}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"امروز باید تصمیم بگیرم.","words":["I","need","to","make","a","decision","today."]},
+        {"type":"say","q":"بگویید: «دیروز در شهر گم شدیم.»","answer":"We got lost in the city yesterday.","from":"tell-what-happened"},
+        {"type":"free","q":"نوبت شماست: سه کار بگویید که هر روز یا هر هفته می‌کنید، با {{make}}، {{do}}، {{take}} یا {{get}}.","answers":[{"t":"I take a shower every morning, I make breakfast for my kids, and I do the laundry on Fridays.","tr":"هر صبح دوش می‌گیرم، برای بچه‌هایم صبحانه درست می‌کنم و جمعه‌ها لباس‌ها را می‌شویم."},{"t":"I usually get home at six. I do some exercise and then I make dinner.","tr":"معمولاً ساعت شش می‌رسم خانه. کمی ورزش می‌کنم و بعد شام درست می‌کنم."}]}
+      ]
+    },
+    {
+      "id": "use-phrasal-verbs",
+      "unit": 8,
+      "level": "B1",
+      "title": "فعل‌های دوکلمه‌ای رایج را به کار ببرید",
+      "summary": "بگویید {{get up}}، {{turn off the lights}}، {{look for my keys}} و {{find out}}: فعل‌هایی که با یک کلمهٔ کوچک معنای تازه‌ای پیدا می‌کنند.",
+      "topic": "فعل‌های دوکلمه‌ای: {{get up}}، {{wake up}}، {{turn on}}، {{turn off}}، {{look for}}، {{pick up}}، {{find out}}، {{give up}}؛ {{turn it off}}",
+      "blocks": [
+        {"goal":{"t":"Can you turn off the lights? I'm going to bed.","tr":"می‌شود چراغ‌ها را خاموش کنی؟ دارم می‌روم بخوابم."}},
+        {"dialog":[{"who":"مادر","t":"Wake up! It's seven thirty!","tr":"بیدار شو! ساعت هفت و نیم است!"},{"who":"آرش","t":"OK, OK, I'm getting up.","tr":"باشد، باشد، دارم بلند می‌شوم."},{"who":"مادر","t":"Put on your jacket. It's cold outside.","tr":"کاپشنت را بپوش. بیرون سرد است."},{"who":"آرش","t":"Where is it? I'm looking for it.","tr":"کجاست؟ دارم دنبالش می‌گردم."},{"who":"مادر","t":"It's on the chair. And turn off your phone in class!","tr":"روی صندلی است. و سر کلاس گوشی‌ات را خاموش کن!"}]},
+        {"p":"**فعل + یک کلمهٔ کوچک = معنای تازه.** انگلیسی فعل‌های زیادی دارد که با یک کلمهٔ کوچک ({{up}}، {{off}}، {{on}}، {{out}}، {{for}}) معنای تازه‌ای پیدا می‌کنند: {{get}} «گرفتن» است، ولی {{get up}} «از جا بلند شدن»؛ {{look}} «نگاه کردن» است، ولی {{look for}} «دنبال … گشتن». در حرف زدن روزمره این‌ها از فعل‌های رسمی رایج‌ترند."},
+        {"term":"فعل دوکلمه‌ای","means":"فعلی که با یک کلمهٔ کوچک بعد از خودش یک معنا می‌سازد: {{get up}} «بلند شدن»، {{turn off}} «خاموش کردن»."},
+        { "table": [
+          ["انگلیسی","فارسی"],
+          ["{{wake up}}","بیدار شدن"],
+          ["{{get up}}","از جا بلند شدن"],
+          ["{{turn on}}، {{turn off}}","روشن کردن، خاموش کردن"],
+          ["{{put on}}، {{take off}}","پوشیدن، درآوردن"],
+          ["{{look for}}","دنبال … گشتن"],
+          ["{{pick up}}","برداشتن؛ دنبال کسی رفتن"],
+          ["{{find out}}","فهمیدن، خبردار شدن"],
+          ["{{give up}}","دست کشیدن، ول کردن"],
+          ["{{go out}}","بیرون رفتن (برای تفریح)"],
+          ["{{come back}}","برگشتن"]
+        ] },
+        {"p":"**جای مفعول.** با بیشتر این فعل‌ها مفعول می‌تواند بعد از هر دو کلمه بیاید یا وسطشان: {{Turn off the TV.}} یا {{Turn the TV off.}} اما اگر مفعول ضمیر باشد ({{it}}، {{him}}، {{me}})، حتماً **وسط** می‌آید: {{Turn it off.}}، نه {{Turn off it.}}"},
+        {"p":"**بعضی‌ها جدا نمی‌شوند**، مثل {{look for}}: {{I'm looking for my keys.}}، {{I'm looking for them.}}"},
+        { "ex": [
+          {"t":"I wake up at six, but I get up at seven.","tr":"ساعت شش بیدار می‌شوم، ولی ساعت هفت بلند می‌شوم."},
+          {"t":"Please turn off your phones.","tr":"لطفاً گوشی‌هایتان را خاموش کنید."},
+          {"t":"I'm looking for a pharmacy.","tr":"دنبال یک داروخانه می‌گردم."},
+          {"t":"Can you pick me up at the airport?","tr":"می‌توانی بیایی فرودگاه دنبالم؟"},
+          {"t":"I found out the truth yesterday.","tr":"دیروز حقیقت را فهمیدم."},
+          {"t":"Don't give up!","tr":"دست نکش!"}
+        ] },
+        {"tip":"هر فعل دوکلمه‌ای را با یک مثال یاد بگیرید، چون معنایش را از دو کلمهٔ آن نمی‌شود حدس زد: {{give up}} یعنی «دست کشیدن»، نه «بالا دادن»!"}
+      ],
+      "mistakes": [
+        {"wrong":"Turn off it, please.","right":"Turn it off, please.","tr":"لطفاً خاموشش کن.","why":"ضمیر مفعولی ({{it}}) وسط دو کلمه می‌آید."},
+        {"wrong":"I'm looking my keys.","right":"I'm looking for my keys.","tr":"دنبال کلیدهایم می‌گردم.","why":"«دنبال … گشتن» {{look for}} است؛ {{for}} لازم است."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I usually ___ up at seven.","tr":"معمولاً ساعت هفت بلند می‌شوم.","options":["get","take","make"],"answer":0,"why":"{{get up}} «بلند شدن»."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"It's dark. Can you turn ___ the light?","tr":"تاریک است. می‌شود چراغ را روشن کنی؟","options":["on","off","up"],"answer":0,"why":"روشن کردن: {{turn on}}."},
+        {"type":"choice","q":"«خاموشش کن» (دربارهٔ تلویزیون):","options":["{{Turn it off.}}","{{Turn off it.}}","{{Off it turn.}}"],"answer":0,"why":"ضمیر وسط: {{turn it off}}."},
+        {"type":"dialogue","q":"در فرودگاه به دوستتان زنگ می‌زنید. جواب‌هایتان را انتخاب کنید.","from":"ask-for-what-you-want","lines":[{"who":"لیزا","t":"Hi! Have you landed?","tr":"سلام! هواپیما نشست؟"},{"options":["Yes! Can you pick me up?","Yes! Can you pick up me?"],"answer":0,"why":"ضمیر وسط: {{pick me up}}."},{"who":"لیزا","t":"Sure! I'm leaving now. Where are you?","tr":"حتماً! الان راه می‌افتم. کجایی؟"},{"options":["I'm at Door 4. I'm looking for a coffee shop.","I'm at Door 4. I'm looking a coffee shop."],"answer":0,"why":"«دنبال … گشتن»: {{look for}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"لطفاً گوشی‌هایتان را خاموش کنید.","words":["Please","turn","off","your","phones."]},
+        {"type":"say","q":"به دوستتان بگویید: «دست نکش!»","answer":"Don't give up!"},
+        {"type":"free","q":"نوبت شماست: صبحتان را با چند فعل دوکلمه‌ای تعریف کنید ({{wake up}}، {{get up}}، {{turn on}}، {{put on}}…).","answers":[{"t":"I wake up at six, I turn on the radio, and I get up at six thirty. Then I put on my clothes.","tr":"ساعت شش بیدار می‌شوم، رادیو را روشن می‌کنم و شش و نیم بلند می‌شوم. بعد لباس می‌پوشم."},{"t":"I get up late on weekends. I go out with friends in the afternoon and come back at night.","tr":"آخر هفته‌ها دیر بلند می‌شوم. بعدازظهر با دوستانم بیرون می‌روم و شب برمی‌گردم."}]}
+      ]
+    },
+    {
+      "id": "understand-the-passive",
+      "unit": 8,
+      "level": "B1",
+      "title": "جملهٔ مجهول را بفهمید",
+      "summary": "اخبار و تابلوها را بفهمید: {{The bridge was built in 1937}}، {{English is spoken here}}، {{My phone has been stolen!}}",
+      "topic": "مجهول: {{be}} + اسم مفعول ({{is made}}، {{was built}}، {{has been stolen}})؛ {{by}}؛ {{I was born}}",
+      "blocks": [
+        {"goal":{"t":"This bridge was built in 1937.","tr":"این پل سال ۱۹۳۷ ساخته شد."}},
+        {"dialog":[{"who":"راهنما","t":"The Golden Gate Bridge was built in the 1930s.","tr":"پل گلدن گیت در دههٔ ۱۹۳۰ ساخته شد."},{"who":"توریست","t":"Wow. Is it painted every year?","tr":"اوه. هر سال رنگ می‌شود؟"},{"who":"راهنما","t":"It's painted all the time! The color is called International Orange.","tr":"مدام رنگ می‌شود! اسم رنگش «نارنجی بین‌المللی» است."},{"who":"توریست","t":"Can we walk across it?","tr":"می‌شود پیاده از رویش رد شد؟"},{"who":"راهنما","t":"Yes, but bikes are not allowed on this side.","tr":"بله، ولی این طرف دوچرخه مجاز نیست."}]},
+        {"p":"**کار مهم است، نه کننده.** وقتی مهم نیست چه کسی کاری را کرده، یا نمی‌دانیم، انگلیسی جملهٔ مجهول می‌سازد: {{be}} + اسم مفعول: {{The bridge was built in 1937.}} «پل سال ۱۹۳۷ ساخته شد». فارسی هم دقیقاً همین کار را می‌کند، فقط با «شدن» به جای {{be}}: «ساخته **شد**»."},
+        {"term":"مجهول","means":"جمله‌ای که در آن خود کار مهم است و کننده‌اش گفته نمی‌شود یا بعد می‌آید: «پل ساخته شد»، {{The bridge was built.}}"},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["حال","{{English is spoken here.}}","اینجا انگلیسی صحبت می‌شود."],
+          ["گذشته","{{It was built in 1937.}}","سال ۱۹۳۷ ساخته شد."],
+          ["حال کامل","{{My phone has been stolen!}}","گوشی‌ام دزدیده شده!"],
+          ["آینده","{{It will be finished tomorrow.}}","فردا تمام می‌شود."],
+          ["با فعل کمکی","{{It can be done.}}","می‌شود انجامش داد."]
+        ] },
+        {"p":"**زمان را {{be}} نشان می‌دهد.** فقط {{be}} عوض می‌شود ({{is}}، {{was}}، {{has been}}، {{will be}})؛ اسم مفعول همیشه همان است: {{built}}، {{made}}، {{spoken}}."},
+        {"p":"**کننده با {{by}}.** اگر بخواهید بگویید چه کسی: {{These poems were written by Hafez.}} «این شعرها را حافظ سروده است». فارسی رسمی «توسط» می‌گوید؛ در حرف زدن روزمره بیشتر جملهٔ معلوم می‌گوییم."},
+        {"p":"**کجا می‌بینیدش:** روی تابلوها ({{Smoking is not allowed.}} «سیگار کشیدن ممنوع است»)، در اخبار ({{Two people were injured.}} «دو نفر زخمی شدند»)، و در {{I was born}} (درس ۲۷)، که خودش مجهول است."},
+        { "ex": [
+          {"t":"This carpet was made in Tabriz.","tr":"این فرش در تبریز بافته شده."},
+          {"t":"English is spoken all over the world.","tr":"در همهٔ دنیا انگلیسی صحبت می‌شود."},
+          {"t":"My phone was stolen on the bus.","tr":"گوشی‌ام توی اتوبوس دزدیده شد."},
+          {"t":"The meeting has been canceled.","tr":"جلسه لغو شده است.","note":"آمریکایی‌ها {{canceled}} را با یک {{l}} می‌نویسند"},
+          {"t":"Breakfast is served from seven to ten.","tr":"صبحانه از هفت تا ده سرو می‌شود."},
+          {"t":"Smoking is not allowed here.","tr":"اینجا سیگار کشیدن ممنوع است."}
+        ] },
+        {"tip":"در حرف زدن، آمریکایی‌ها گاهی به جای {{be}} از {{get}} استفاده می‌کنند: {{He got fired.}} «اخراج شد»، {{I got paid.}} «حقوقم را گرفتم»."}
+      ],
+      "mistakes": [
+        {"wrong":"The bridge built in 1937.","right":"The bridge was built in 1937.","tr":"پل سال ۱۹۳۷ ساخته شد.","why":"مجهول به {{be}} نیاز دارد: {{was built}}."},
+        {"wrong":"English is speaking here.","right":"English is spoken here.","tr":"اینجا انگلیسی صحبت می‌شود.","why":"مجهول با اسم مفعول ({{spoken}}) ساخته می‌شود، نه با {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"This house ___ built in 1950.","tr":"این خانه سال ۱۹۵۰ ساخته شد.","options":["was","is","has"],"answer":0,"why":"گذشته: {{was}} + اسم مفعول."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Breakfast is ___ from seven to ten.","tr":"صبحانه از هفت تا ده سرو می‌شود.","options":["served","serving","serve"],"answer":0,"why":"مجهول: اسم مفعول، {{served}}."},
+        {"type":"choice","q":"تابلوی {{Photos are not allowed.}} یعنی:","options":["عکس گرفتن ممنوع است.","عکس‌ها مجاز است.","عکس بگیرید."],"answer":0,"why":"{{are not allowed}} یعنی «مجاز نیست»."},
+        {"type":"dialogue","q":"در یک موزه از راهنما سؤال می‌کنید. سؤال‌هایتان را انتخاب کنید.","from":"ask-about-the-past","lines":[{"who":"راهنما","t":"This painting is very famous.","tr":"این نقاشی خیلی معروف است."},{"options":["When was it painted?","When did it painted?"],"answer":0,"why":"مجهول در گذشته: {{was painted}}."},{"who":"راهنما","t":"In 1890. It was painted by a young artist.","tr":"سال ۱۸۹۰. یک نقاش جوان کشیده‌اش."},{"options":["Can photos be taken here?","Can photos take here?"],"answer":0,"why":"مجهول با فعل کمکی: {{can be taken}}."},{"who":"راهنما","t":"Yes, but no flash, please.","tr":"بله، ولی بدون فلاش، لطفاً."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"گوشی‌ام توی اتوبوس دزدیده شد.","words":["My","phone","was","stolen","on","the","bus."]},
+        {"type":"say","q":"بگویید: «این فرش در تبریز بافته شده.»","answer":"This carpet was made in Tabriz."},
+        {"type":"free","q":"نوبت شماست: یک بنا یا چیز معروف از کشورتان را با دو جملهٔ مجهول معرفی کنید ({{It was built…}}، {{It is visited by…}}).","answers":[{"t":"Persepolis was built about 2,500 years ago. It is visited by thousands of tourists every year.","tr":"تخت جمشید حدود ۲۵۰۰ سال پیش ساخته شد. هر سال هزاران گردشگر از آن دیدن می‌کنند."},{"t":"The Shahnameh was written by Ferdowsi. It has been translated into many languages.","tr":"شاهنامه را فردوسی سروده است. به زبان‌های زیادی ترجمه شده است."}]}
+      ]
+    },
+    {
+      "id": "be-polite-the-american-way",
+      "unit": 8,
+      "level": "B1",
+      "title": "مثل آمریکایی‌ها مؤدب باشید",
+      "summary": "مؤدبانه خواهش کنید، تعارف را کنار بگذارید و تشکر کنید: {{Could you…?}}، {{Would you mind…?}}، {{Yes, please!}}",
+      "topic": "خواهش: {{Could you…?}}، {{Would you mind -ing?}}، {{Do you mind if I…?}}؛ پیشنهاد و قبول بدون تعارف؛ {{Excuse me}}، {{Sorry}}، {{You're welcome}}",
+      "blocks": [
+        {"goal":{"t":"Would you mind opening the window, please?","tr":"زحمت می‌کشید پنجره را باز کنید، لطفاً؟"}},
+        {"dialog":[{"who":"میزبان","t":"Would you like something to drink?","tr":"چیزی میل دارید بنوشید؟"},{"who":"شما","t":"Yes, please. A glass of water would be great.","tr":"بله، لطفاً. یک لیوان آب عالی است."},{"who":"میزبان","t":"Sure. Help yourself to some snacks too!","tr":"حتماً. از تنقلات هم بردارید!"},{"who":"شما","t":"Thank you! Do you mind if I take my shoes off?","tr":"ممنون! اشکالی ندارد کفش‌هایم را دربیاورم؟"},{"who":"میزبان","t":"Not at all. Make yourself at home.","tr":"اصلاً. راحت باشید، مثل خانهٔ خودتان."}]},
+        {"p":"**تعارف به انگلیسی ترجمه نمی‌شود.** در ایران میزبان اصرار می‌کند و مهمان چند بار «نه» می‌گوید. در آمریکا {{Would you like…?}} سؤالی واقعی است و جوابتان را جدی می‌گیرند: اگر بگویید {{No, thank you}}، دیگر تعارف نمی‌کنند! اگر می‌خواهید، همان بار اول بگویید {{Yes, please!}}، و اگر نمی‌خواهید، {{No, thank you, I'm fine.}}"},
+        {"p":"**خواهش مؤدبانه.** هر چه سؤال غیرمستقیم‌تر باشد، مؤدبانه‌تر است: {{Can you…?}} (معمولی)، {{Could you…?}} (مؤدب)، {{Would you mind -ing…?}} (خیلی مؤدب): {{Would you mind closing the door?}} «زحمت می‌کشید در را ببندید؟». جواب «نه، اشکالی ندارد» با {{No}} شروع می‌شود: {{No, not at all.}}"},
+        { "table": [
+          ["حالت","انگلیسی","یعنی"],
+          ["معمولی","{{Can you help me?}}","کمکم می‌کنی؟"],
+          ["مؤدب","{{Could you help me?}}","ممکن است کمکم کنید؟"],
+          ["خیلی مؤدب","{{Would you mind helping me?}}","زحمتش را می‌کشید کمکم کنید؟"],
+          ["اجازه","{{Do you mind if I sit here?}}","اشکالی ندارد اینجا بنشینم؟"],
+          ["پیشنهاد","{{Would you like some tea?}}","چای میل دارید؟"]
+        ] },
+        {"p":"**کلمه‌های جادویی.** {{please}} و {{thank you}} را زیاد بگویید. {{Excuse me}} برای جلب توجه یا رد شدن از کنار کسی است؛ {{Sorry}} برای عذرخواهی، یا وقتی چیزی را نشنیدید ({{Sorry?}} «ببخشید، چی؟»). به {{Thank you}} جواب بدهید {{You're welcome}} یا {{No problem}}."},
+        {"p":"**تعریف را قبول کنید.** در جواب تعریف، ایرانی‌ها اغلب می‌گویند «لطف دارید، قابلی ندارد». آمریکایی‌ها ساده می‌گویند {{Thank you!}}: {{I love your dress!}} … {{Thank you!}} رد کردن تعریف ({{No, it's ugly}}) عجیب به نظر می‌رسد."},
+        { "ex": [
+          {"t":"Could you speak a little louder, please?","tr":"ممکن است کمی بلندتر صحبت کنید، لطفاً؟"},
+          {"t":"Would you mind waiting a minute?","tr":"اشکالی ندارد یک دقیقه صبر کنید؟"},
+          {"t":"Do you mind if I open the window?","tr":"اشکالی ندارد پنجره را باز کنم؟"},
+          {"t":"Yes, please. That would be great.","tr":"بله، لطفاً. عالی می‌شود."},
+          {"t":"No, thank you. I'm fine.","tr":"نه، ممنون. همین‌طوری خوبم."},
+          {"t":"Excuse me, is this seat taken?","tr":"ببخشید، این صندلی خالی است؟","note":"کلمه به کلمه «این صندلی گرفته شده؟»: یک جملهٔ مجهول!"}
+        ] },
+        {"tip":"در آمریکا، در رستوران و کافه به گارسون انعام ({{tip}}) می‌دهند، معمولاً ۱۵ تا ۲۰ درصد. این بخشی از ادب است، نه تعارف!"}
+      ],
+      "mistakes": [
+        {"wrong":"Would you mind to close the door?","right":"Would you mind closing the door?","tr":"زحمت می‌کشید در را ببندید؟","why":"بعد از {{mind}}، فعل با {{-ing}}."},
+        {"wrong":"Give me water.","right":"Could I have some water, please?","tr":"ممکن است کمی آب بدهید، لطفاً؟","why":"امر بی‌مقدمه تند است؛ خواهش را به صورت سؤال بگویید، با {{please}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Would you mind ___ the window?","tr":"اشکالی ندارد پنجره را باز کنید؟","options":["opening","open","to open"],"answer":0,"why":"بعد از {{Would you mind}}: {{-ing}}."},
+        {"type":"choice","q":"میزبان آمریکایی می‌پرسد {{Would you like some cake?}} و شما می‌خواهید. بهترین جواب:","options":["{{Yes, please! Thank you.}}","{{No, no, I couldn't.}}، و بعد منتظر اصرار بمانید","{{Give me cake.}}"],"answer":0,"why":"همان بار اول مؤدبانه قبول کنید؛ معمولاً اصرار نمی‌کنند."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"___ you help me with this bag, please?","tr":"ممکن است با این کیف کمکم کنید، لطفاً؟","options":["Could","Do","Are"],"answer":0,"why":"خواهش مؤدب: {{Could you…?}}","from":"say-what-you-can-do"},
+        {"type":"dialogue","q":"در خانهٔ یک دوست آمریکایی. جواب‌هایتان را انتخاب کنید.","from":"suggest-and-invite","lines":[{"who":"میزبان","t":"Would you like something to drink?","tr":"چیزی میل دارید بنوشید؟"},{"options":["Yes, please. Some water would be great.","No, no, thank you. I'm fine."],"answer":0,"why":"اگر تشنه‌اید، همان بار اول بگویید؛ با تعارف ممکن است بی‌آب بمانید!"},{"who":"میزبان","t":"Here you go. I love your scarf, by the way!","tr":"بفرمایید. راستی، شالت خیلی قشنگ است!"},{"options":["Thank you! It's from Isfahan.","Oh no, it's nothing, it's very old and ugly."],"answer":0,"why":"به تعریف ساده {{Thank you!}} بگویید."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"اشکالی ندارد پنجره را باز کنم؟","words":["Do","you","mind","if","I","open","the","window?"]},
+        {"type":"say","q":"در اتوبوس بپرسید: «ببخشید، این صندلی خالی است؟»","answer":"Excuse me, is this seat taken?","from":"understand-the-passive"},
+        {"type":"free","q":"نوبت شماست: در محل کار دو خواهش خیلی مؤدبانه از یک همکار بکنید، و به یک پیشنهاد جواب بدهید.","answers":[{"t":"Could you send me the report, please? And would you mind checking my email? Yes, please, I'd love a coffee!","tr":"ممکن است گزارش را برایم بفرستید، لطفاً؟ و زحمت می‌کشید ایمیلم را نگاه کنید؟ بله، لطفاً، یک قهوه خیلی می‌چسبد!"},{"t":"Would you mind turning down the music? Do you mind if I open the window?","tr":"اشکالی ندارد صدای موسیقی را کم کنید؟ اشکالی ندارد پنجره را باز کنم؟"}]}
+      ]
+    },
+    {
+      "id": "check-and-confirm",
+      "unit": 8,
+      "level": "B1",
+      "title": "بپرسید تا مطمئن شوید: «…، نه؟»",
+      "summary": "بپرسید {{You're Iranian, aren't you?}} و به سؤال منفی درست جواب بدهید: {{Didn't you call?}} … {{Yes, I did.}}",
+      "topic": "سؤال تأکیدی: {{…, isn't it?}}، {{…, don't you?}}، {{…, didn't you?}}؛ جواب به سؤال منفی ({{Yes}} یعنی «چرا»)؛ {{…, right?}}",
+      "blocks": [
+        {"goal":{"t":"It's a beautiful day, isn't it?","tr":"روز قشنگی است، نه؟"}},
+        {"dialog":[{"who":"لیزا","t":"You're from Iran, aren't you?","tr":"اهل ایرانی، نه؟"},{"who":"رضا","t":"Yes, I am. From Tabriz.","tr":"بله. از تبریز."},{"who":"لیزا","t":"You don't eat pork, do you?","tr":"گوشت خوک نمی‌خوری، درست است؟"},{"who":"رضا","t":"No, I don't. But I love chicken!","tr":"نه، نمی‌خورم. ولی عاشق مرغم!"},{"who":"لیزا","t":"Didn't you go to Chicago last month?","tr":"ماه پیش شیکاگو نرفتی؟"},{"who":"رضا","t":"Yes, I did. It was really cold!","tr":"چرا، رفتم. خیلی سرد بود!"}]},
+        {"p":"**«…، نه؟» در انگلیسی.** فارسی آخر جمله «نه؟»، «مگر نه؟» یا «درست است؟» می‌گذارد. انگلیسی یک سؤال کوچک می‌سازد، با همان فعل کمکی جمله: {{It's cold, isn't it?}} «سرد است، نه؟»، {{You live here, don't you?}} «اینجا زندگی می‌کنی، نه؟»."},
+        {"term":"سؤال تأکیدی","means":"سؤال کوچکی در آخر جمله برای مطمئن شدن یا گرفتن تأیید: «…، نه؟»؛ {{…, isn't it?}}"},
+        {"p":"**قاعده: جملهٔ مثبت، سؤال منفی؛ جملهٔ منفی، سؤال مثبت.** فعل کمکی جمله را تکرار کنید ({{is}}، {{are}}، {{can}}، {{will}}، {{have}}…)، و برای فعل‌های معمولی {{do}}، {{does}} یا {{did}}: {{She works here, doesn't she?}}، {{You didn't call, did you?}}"},
+        { "table": [
+          ["جمله","سؤال کوچک","یعنی"],
+          ["{{It's cold,}}","{{isn't it?}}","سرد است، نه؟"],
+          ["{{You're tired,}}","{{aren't you?}}","خسته‌ای، نه؟"],
+          ["{{You can swim,}}","{{can't you?}}","شنا بلدی، نه؟"],
+          ["{{He works here,}}","{{doesn't he?}}","اینجا کار می‌کند، نه؟"],
+          ["{{You called her,}}","{{didn't you?}}","به او زنگ زدی، نه؟"],
+          ["{{She isn't here,}}","{{is she?}}","اینجا نیست، نه؟"],
+          ["{{You don't smoke,}}","{{do you?}}","سیگار نمی‌کشی، نه؟"]
+        ] },
+        {"p":"**جواب به سؤال منفی: «چرا» یعنی {{Yes}}.** فارسی برای جواب مثبت به سؤال منفی «چرا» دارد: «نرفتی؟» … «چرا، رفتم». انگلیسی چنین کلمه‌ای ندارد و فقط به **واقعیت** نگاه می‌کند، سؤال هر شکلی داشته باشد: اگر رفته‌اید {{Yes}}، اگر نرفته‌اید {{No}}. {{Didn't you go?}} … {{Yes, I did.}} «چرا، رفتم»، یا {{No, I didn't.}} «نه، نرفتم». جواب دادن به سبک «بله، نرفتم» آمریکایی‌ها را گیج می‌کند."},
+        {"p":"**لحن.** اگر مطمئنید و فقط تأیید می‌خواهید، صدایتان در سؤال کوچک پایین می‌آید؛ اگر واقعاً می‌پرسید، بالا می‌رود."},
+        { "ex": [
+          {"t":"You're a teacher, aren't you?","tr":"معلمی، نه؟"},
+          {"t":"It was a great party, wasn't it?","tr":"مهمانی عالی بود، نه؟"},
+          {"t":"You haven't seen my keys, have you?","tr":"کلیدهایم را ندیده‌ای، نه؟"},
+          {"t":"They live in Boston, don't they?","tr":"در بوستون زندگی می‌کنند، نه؟"},
+          {"t":"Aren't you hungry? Yes, I am!","tr":"گرسنه نیستی؟ چرا، هستم!"},
+          {"t":"Didn't she call you? No, she didn't.","tr":"به تو زنگ نزد؟ نه، نزد."}
+        ] },
+        {"tip":"در حرف زدن روزمره، آمریکایی‌ها اغلب به جای سؤال تأکیدی فقط {{right?}} می‌گویند: {{You're coming tomorrow, right?}} «فردا می‌آیی، دیگر؟»."}
+      ],
+      "mistakes": [
+        {"wrong":"You're Iranian, isn't it?","right":"You're Iranian, aren't you?","tr":"ایرانی هستی، نه؟","why":"سؤال کوچک همان فعل و همان فاعل جمله را تکرار می‌کند: {{aren't you}}."},
+        {"wrong":"Didn't you go? Yes, I didn't.","right":"Didn't you go? No, I didn't.","tr":"نرفتی؟ نه، نرفتم.","why":"جواب به واقعیت نگاه می‌کند: نرفته‌اید، پس {{No, I didn't.}}"},
+        {"wrong":"Aren't you tired? No, I am.","right":"Aren't you tired? Yes, I am.","tr":"خسته نیستی؟ چرا، هستم.","why":"«چرا» به انگلیسی {{Yes}} است."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"It's very hot today, ___ it?","tr":"امروز خیلی گرم است، نه؟","options":["isn't","is","doesn't"],"answer":0,"why":"جملهٔ مثبت با {{is}}: سؤال کوچک منفی، {{isn't it}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"You don't eat meat, ___ you?","tr":"گوشت نمی‌خوری، نه؟","options":["do","don't","are"],"answer":0,"why":"جملهٔ منفی: سؤال کوچک مثبت، {{do you}}."},
+        {"type":"choice","q":"کسی می‌پرسد {{Didn't you get my message?}} و شما پیامش را گرفته‌اید. جواب:","options":["{{Yes, I did.}}","{{No, I did.}}","{{Yes, I didn't.}}"],"answer":0,"why":"گرفته‌اید، پس {{Yes, I did.}}، یعنی «چرا، گرفتم»."},
+        {"type":"dialogue","q":"یک همکار می‌خواهد مطمئن شود. جواب‌هایتان را انتخاب کنید.","from":"say-what-youve-just-done","lines":[{"who":"لیزا","t":"You've finished the report, haven't you?","tr":"گزارش را تمام کرده‌ای، نه؟"},{"options":["Yes, I have. I sent it this morning.","Yes, I haven't. I sent it this morning."],"answer":0,"why":"تمامش کرده‌اید: {{Yes, I have.}}"},{"who":"لیزا","t":"Great. Didn't you get my email?","tr":"عالی. ایمیلم به دستت نرسید؟"},{"options":["No, I didn't. Can you send it again?","Yes, I didn't. Can you send it again?"],"answer":0,"why":"نرسیده: {{No, I didn't.}}"}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"معلمی، نه؟","words":["You're","a","teacher,","aren't","you?"]},
+        {"type":"say","q":"بگویید: «روز قشنگی است، نه؟»","answer":"It's a beautiful day, isn't it?"},
+        {"type":"free","q":"نوبت شماست: سه چیز دربارهٔ یک دوست بگویید که فکر می‌کنید درست است، و با سؤال تأکیدی تأیید بخواهید.","answers":[{"t":"You're from Mashhad, aren't you? You like soccer, don't you? You didn't come to the party, did you?","tr":"اهل مشهدی، نه؟ فوتبال دوست داری، نه؟ به مهمانی نیامدی، نه؟"},{"t":"You can speak French, can't you? You've been to Paris, haven't you?","tr":"فرانسه بلدی، نه؟ پاریس رفته‌ای، نه؟"}]}
+      ]
     }
   ]
 }
