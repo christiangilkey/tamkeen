@@ -244,6 +244,254 @@
         {"type":"say","q":"Ask a friend: “Where do you work?”","answer":"Dove lavori?","from":"talk-about-yourself"},
         {"type":"free","q":"Your turn: write three questions to get to know a new Italian friend.","answers":[{"t":"Come ti chiami? Di dove sei? Dove abiti?","tr":"What's your name? Where are you from? Where do you live?"},{"t":"Che lavoro fai? Parli inglese? Perché sei qui?","tr":"What do you do? Do you speak English? Why are you here?"}]}
       ]
+    },
+    {
+      "id": "ask-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask where things are",
+      "summary": "Find the station, the bathroom or your hotel: “Excuse me, where's the station?”",
+      "topic": "“The”: {{il, lo, la, l'}}; {{dov'è…?}}",
+      "blocks": [
+        {"goal":{"t":"Scusi, dov'è la stazione?","tr":"Excuse me, where's the station?"}},
+        {"dialog":[{"who":"You","t":"Scusi, dov'è il bagno?","tr":"Excuse me, where's the bathroom?"},{"who":"Waiter","t":"È lì, a destra.","tr":"It's over there, on the right."},{"who":"You","t":"E l'uscita?","tr":"And the exit?"},{"who":"Waiter","t":"L'uscita è a sinistra.","tr":"The exit is on the left."},{"who":"You","t":"Grazie mille!","tr":"Thanks a lot!"},{"who":"Waiter","t":"Prego!","tr":"You're welcome!"}]},
+        {"p":"**{{Dov'è…?}}** “Where is…?” is {{dove}} + {{è}} run together. Then the thing you're looking for, with “the”."},
+        {"term":"article","means":"a little word before a noun: “a, an” and “the”. Italian articles change with the noun's gender and its first sound."},
+        {"p":"**“The” has four forms in the singular**, chosen like the forms of “a”:"},
+        { "table": [
+          ["“the”","used before…","examples"],
+          ["{{il}}","most masculine nouns","{{il bagno, il treno, il museo}}"],
+          ["{{lo}}","masculine nouns starting with s + consonant, or z","{{lo stadio, lo zoo}}"],
+          ["{{la}}","feminine nouns","{{la stazione, la banca}}"],
+          ["{{l'}}","any noun starting with a vowel","{{l'albergo, l'uscita}}"]
+        ] },
+        {"p":"So the pairs go together: {{un treno, il treno}}; {{uno stadio, lo stadio}}; {{una banca, la banca}}; {{un albergo, l'albergo}} and {{un'uscita, l'uscita}}. Nouns ending in {{-ione}} are feminine: {{la stazione}}, {{la lezione}}."},
+        { "ex": [
+          {"t":"Dov'è il museo?","tr":"Where's the museum?"},
+          {"t":"Scusi, dov'è la farmacia?","tr":"Excuse me, where's the pharmacy?"},
+          {"t":"Dov'è l'albergo Roma?","tr":"Where's the Hotel Roma?"},
+          {"t":"Lo stadio è lontano?","tr":"Is the stadium far?"},
+          {"t":"Il bagno è qui.","tr":"The bathroom is here."},
+          {"t":"La stazione è lì, a destra.","tr":"The station is over there, on the right."}
+        ] },
+        {"tip":"{{Scusi}} “excuse me” is for someone you call {{Lei}}; to a friend, {{scusa}}. The answers you'll hear: {{qui}} “here”, {{lì}} “there”, {{a destra}} “on the right”, {{a sinistra}} “on the left”, {{dritto}} “straight ahead”, {{vicino}} “near”, {{lontano}} “far”."}
+      ],
+      "mistakes": [
+        {"wrong":"Dov'è il stazione?","right":"Dov'è la stazione?","tr":"Where's the station?","why":"{{stazione}} is feminine (like most nouns in {{-ione}}): {{la}}."},
+        {"wrong":"Dov'è il albergo?","right":"Dov'è l'albergo?","tr":"Where's the hotel?","why":"Before a vowel, “the” is {{l'}}: {{l'albergo}}."},
+        {"wrong":"Dov'è il zoo?","right":"Dov'è lo zoo?","tr":"Where's the zoo?","why":"A masculine noun starting with z: {{lo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which “the” goes with {{albergo}} “hotel”?","options":["{{l'}}","{{il}}","{{lo}}"],"answer":0,"why":"It starts with a vowel: {{l'albergo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Scusi, dov'è ___ banca?","tr":"Excuse me, where's the bank?","options":["la","il","l'"],"answer":0,"why":"{{banca}} is feminine: {{la}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Dov'è ___ stadio?","tr":"Where's the stadium?","options":["lo","il","la"],"answer":0,"why":"s + consonant: {{lo}}, just as you say {{uno stadio}}."},
+        {"type":"dialogue","q":"In the street: choose your replies.","lines":[{"who":"Woman","t":"Buongiorno.","tr":"Good morning."},{"options":["Buongiorno. Scusi, dov'è la stazione?","Buongiorno. Scusa, dov'è il stazione?"],"answer":0,"why":"{{Scusi}} to a stranger, and {{la stazione}}: it's feminine."},{"who":"Woman","t":"È lì, a sinistra.","tr":"It's over there, on the left."},{"options":["Grazie mille!","Prego!"],"answer":0,"why":"{{grazie}} to thank; {{prego}} “you're welcome” is the answer to {{grazie}}."},{"who":"Woman","t":"Prego!","tr":"You're welcome!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Excuse me, where's the museum?","words":["Scusi,","dov'è","il museo?"]},
+        {"type":"say","q":"At the café, order a water and ask where the bathroom is.","answer":"Vorrei un'acqua, per favore. Dov'è il bagno?","from":"order-at-the-cafe"},
+        {"type":"free","q":"Your turn: you've just arrived in an Italian town. Ask a stranger where two places are.","answers":[{"t":"Scusi, dov'è la stazione?","tr":"Excuse me, where's the station?"},{"t":"Scusi, dov'è l'albergo Bellavista? È lontano?","tr":"Excuse me, where's the Hotel Bellavista? Is it far?"}]}
+      ]
+    },
+    {
+      "id": "describe-things-and-people",
+      "unit": 2,
+      "level": "A1",
+      "title": "Describe things and people",
+      "summary": "Say what something or someone is like: big, small, nice, expensive, open, tired.",
+      "topic": "Adjectives agree with the noun ({{piccolo, piccola}}); where they go; {{molto}}",
+      "blocks": [
+        {"goal":{"t":"Il ristorante è piccolo, ma la pizza è buona!","tr":"The restaurant is small, but the pizza is good!"}},
+        {"dialog":[{"who":"Sara","t":"Com'è l'appartamento nuovo?","tr":"What's the new apartment like?"},{"who":"You","t":"È piccolo, ma è molto bello.","tr":"It's small, but it's very nice."},{"who":"Sara","t":"E la zona?","tr":"And the neighborhood?"},{"who":"You","t":"La zona è tranquilla e non è cara.","tr":"The neighborhood is quiet, and it isn't expensive."},{"who":"Sara","t":"Che fortuna!","tr":"Lucky you!"}]},
+        {"term":"adjective","means":"a word that describes a noun: big, red, nice, Italian."},
+        {"term":"agreement","means":"one word changing its ending to match another. In Italian, adjectives agree with their noun: masculine with masculine, feminine with feminine."},
+        {"p":"**Describing words agree.** Adjectives ending in {{-o}} change to {{-a}} for a feminine noun: {{il ristorante è piccolo}}, {{la cucina è piccola}}. Adjectives ending in {{-e}} stay the same for both: {{il libro è interessante}}, {{la città è interessante}}."},
+        { "table": [
+          ["","masculine","feminine"],
+          ["adjectives in -o","{{il vino rosso}}","{{la casa rossa}}"],
+          ["adjectives in -e","{{un libro interessante}}","{{una città grande}}"]
+        ] },
+        {"p":"**After the noun.** Most adjectives come after the noun: {{un vino rosso}} “a red wine”, {{una ragazza simpatica}} “a nice girl”. A few very common ones often go before it: {{bello}}, {{grande}}, {{piccolo}}, {{nuovo}}, {{vecchio}}, {{buono}}: {{una bella città}} “a beautiful city”, {{un buon caffè}} “a good coffee” ({{buono}} shortens to {{buon}} before a masculine noun, just as {{uno}} shortens to {{un}})."},
+        {"p":"**{{molto}}** “very” goes before the adjective: {{molto bello}}. And {{non}} goes before {{è}}: {{non è caro}} “it isn't expensive”."},
+        { "ex": [
+          {"t":"Il caffè è caldo.","tr":"The coffee is hot."},
+          {"t":"La birra è fredda.","tr":"The beer is cold."},
+          {"t":"Marco è alto e simpatico.","tr":"Marco is tall and nice."},
+          {"t":"Giulia è molto intelligente.","tr":"Giulia is very smart.","note":"{{intelligente}} ends in -e: the same for a man or a woman"},
+          {"t":"È una bella città.","tr":"It's a beautiful city."},
+          {"t":"Il museo non è aperto.","tr":"The museum isn't open."},
+          {"t":"Sono stanca.","tr":"I'm tired.","note":"said by a woman; a man says {{sono stanco}}"}
+        ] },
+        {"tip":"Adjectives about you agree with you: a man says {{sono stanco}}, {{sono contento}} “I'm happy”; a woman says {{sono stanca}}, {{sono contenta}}."}
+      ],
+      "mistakes": [
+        {"wrong":"La pizza è buono.","right":"La pizza è buona.","tr":"The pizza is good.","why":"{{pizza}} is feminine, so the adjective ends in {{-a}}."},
+        {"wrong":"Vorrei un rosso vino.","right":"Vorrei un vino rosso.","tr":"I'd like a red wine.","why":"Colors, like most adjectives, come after the noun."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"La camera è ___.","tr":"The room is small.","options":["piccola","piccolo"],"answer":0,"why":"{{camera}} is feminine: {{piccola}}."},
+        {"type":"choice","q":"A woman says “I'm tired”:","options":["{{Sono stanca.}}","{{Sono stanco.}}","{{È stanca.}}"],"answer":0,"why":"A woman: {{stanca}}; and “I am” is {{sono}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Il vino è ___ buono.","tr":"The wine is very good.","options":["molto","non","una"],"answer":0,"why":"{{molto}} “very” goes before the adjective."},
+        {"type":"dialogue","q":"A friend asks about your new apartment: choose your replies.","lines":[{"who":"Sara","t":"Com'è l'appartamento nuovo?","tr":"What's the new apartment like?"},{"options":["È piccolo, ma è bello.","È piccola, ma è bella."],"answer":0,"why":"{{appartamento}} is masculine: {{piccolo}}, {{bello}}."},{"who":"Sara","t":"E la cucina?","tr":"And the kitchen?"},{"options":["È grande e molto moderna.","È grande e molto moderno."],"answer":0,"why":"{{cucina}} is feminine: {{moderna}}. ({{grande}} is the same for both.)"}]},
+        {"type":"order","q":"Put the words in order.","tr":"It's a red car.","words":["È","una macchina","rossa."]},
+        {"type":"say","q":"Ask a stranger: “Excuse me, is the station far?”","answer":"Scusi, la stazione è lontana?","from":"ask-where-things-are"},
+        {"type":"free","q":"Your turn: describe your city and a friend, in two sentences.","answers":[{"t":"Boston è una città bella e tranquilla.","tr":"Boston is a beautiful, quiet city."},{"t":"Anna è alta, simpatica e molto intelligente.","tr":"Anna is tall, nice and very smart."}]}
+      ]
+    },
+    {
+      "id": "talk-about-more-than-one",
+      "unit": 2,
+      "level": "A1",
+      "title": "Talk about more than one",
+      "summary": "Order for the whole table, buy two tickets, and say what “we” and “they” are like.",
+      "topic": "Plurals ({{-i, -e}}); “the”: {{i, gli, le}}; {{siamo, siete, sono}}",
+      "blocks": [
+        {"goal":{"t":"Vorrei due biglietti per Firenze, per favore.","tr":"I'd like two tickets to Florence, please."}},
+        {"dialog":[{"who":"Waiter","t":"Buonasera! Quanti siete?","tr":"Good evening! How many of you are there?"},{"who":"You","t":"Siamo in tre.","tr":"There are three of us."},{"who":"Waiter","t":"Prego, i tavoli fuori sono liberi.","tr":"Please, the tables outside are free."},{"who":"You","t":"Perfetto! Vorremmo tre menù, per favore.","tr":"Perfect! We'd like three menus, please."},{"who":"Waiter","t":"Ecco i menù. Le pizze sono molto buone!","tr":"Here are the menus. The pizzas are very good!"}]},
+        {"p":"**Plurals change the last vowel**, never add -s: {{-o}} becomes {{-i}}, {{-a}} becomes {{-e}}, {{-e}} becomes {{-i}}."},
+        { "table": [
+          ["one","more than one","rule"],
+          ["{{il biglietto}}","{{i biglietti}}","-o → -i"],
+          ["{{la pizza}}","{{le pizze}}","-a → -e"],
+          ["{{il ristorante, la notte}}","{{i ristoranti, le notti}}","-e → -i"],
+          ["{{il caffè, la città, il film}}","{{i caffè, le città, i film}}","no change: an accent at the end, or a foreign word"]
+        ] },
+        {"p":"**“The” in the plural.** {{il}} becomes {{i}}; masculine {{lo}} and {{l'}} become {{gli}}; {{la}} and feminine {{l'}} become {{le}}: {{lo studente, gli studenti}}; {{l'aereo, gli aerei}}; {{l'uscita, le uscite}}. Adjectives go into the plural with their noun: {{i tavoli liberi}}, {{le birre fredde}}."},
+        {"p":"**We, you, they.** Here is all of {{essere}}. Yes, {{sono}} is both “I am” and “they are”: the rest of the sentence makes it clear."},
+        { "table": [
+          ["","{{essere}} (to be)"],
+          ["I","{{sono}}"],
+          ["you ({{tu}})","{{sei}}"],
+          ["he, she, you ({{Lei}})","{{è}}"],
+          ["we","{{siamo}}"],
+          ["you (two or more)","{{siete}}"],
+          ["they","{{sono}}"]
+        ] },
+        { "ex": [
+          {"t":"Le camere sono pulite.","tr":"The rooms are clean."},
+          {"t":"Gli spaghetti sono pronti!","tr":"The spaghetti is ready!","note":"{{spaghetti}} is a plural in Italian"},
+          {"t":"Siamo americani.","tr":"We're American."},
+          {"t":"Siete di qui?","tr":"Are you from here?","note":"to two or more people"},
+          {"t":"I negozi sono chiusi la domenica.","tr":"The stores are closed on Sundays."},
+          {"t":"Due cappuccini e due cornetti, per favore.","tr":"Two cappuccinos and two croissants, please."}
+        ] },
+        {"tip":"A group of men and women takes the masculine plural: {{Marco e Giulia sono italiani}}. The feminine plural is only for a group of women, or of feminine things."}
+      ],
+      "mistakes": [
+        {"wrong":"Le pizza sono buone.","right":"Le pizze sono buone.","tr":"The pizzas are good.","why":"The noun changes too: {{pizza}}, {{pizze}}."},
+        {"wrong":"I studenti sono in classe.","right":"Gli studenti sono in classe.","tr":"The students are in class.","why":"Before s + consonant, z or a vowel, the masculine plural “the” is {{gli}}."},
+        {"wrong":"Due caffès, per favore.","right":"Due caffè, per favore.","tr":"Two coffees, please.","why":"Italian never adds -s, and nouns ending in an accented vowel don't change at all."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The plural of {{la birra}} is…","options":["{{le birre}}","{{i birre}}","{{le birra}}"],"answer":0,"why":"-a becomes -e, and {{la}} becomes {{le}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ amici di Luca sono simpatici.","tr":"Luca's friends are nice.","options":["Gli","I","Le"],"answer":0,"why":"{{amico}} is masculine and starts with a vowel: {{gli amici}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Noi ___ di Chicago.","tr":"We're from Chicago.","options":["siamo","sono","siete"],"answer":0,"why":"“We are”: {{siamo}}.","from":"say-who-you-are"},
+        {"type":"dialogue","q":"At a restaurant with friends: choose your replies.","lines":[{"who":"Waiter","t":"Buonasera! Quanti siete?","tr":"Good evening! How many of you are there?"},{"options":["Siamo in quattro.","Sono in quattro."],"answer":0,"why":"You're part of the group: {{siamo}} “we are”. ({{Siamo in quattro}}: “we are four”.)"},{"who":"Waiter","t":"Prego. Cosa prendete?","tr":"Please. What will you have?"},{"options":["Due pizze e due birre, per favore.","Due pizza e due birra, per favore."],"answer":0,"why":"More than one: {{pizze}}, {{birre}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"The rooms are big and clean.","words":["Le camere","sono","grandi","e pulite."]},
+        {"type":"say","q":"Say to the barista: “I'd like two cappuccinos, please.”","answer":"Vorrei due cappuccini, per favore.","from":"order-at-the-cafe"},
+        {"type":"free","q":"Your turn: say two things about yourself and the people with you, or about the places around you, in the plural.","answers":[{"t":"Siamo americani e siamo in vacanza.","tr":"We're American and we're on vacation."},{"t":"I ristoranti qui sono buoni, ma sono cari.","tr":"The restaurants here are good, but they're expensive."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you have, your age, and how you feel",
+      "summary": "Check in with your reservation, say how old you are, and say you're hungry, thirsty or cold: in Italian, you “have” them.",
+      "topic": "{{avere}} “to have”; {{ho trent'anni}}, {{ho fame}}, {{ho freddo}} (and {{fa freddo}})",
+      "blocks": [
+        {"goal":{"t":"Ho venticinque anni e ho una sorella.","tr":"I'm twenty-five and I have a sister."}},
+        {"dialog":[{"who":"Receptionist","t":"Buonasera. Ha una prenotazione?","tr":"Good evening. Do you have a reservation?"},{"who":"You","t":"Sì, ho una prenotazione a nome Smith.","tr":"Yes, I have a reservation under the name Smith."},{"who":"Receptionist","t":"Perfetto. Avete valigie?","tr":"Perfect. Do you have any suitcases?"},{"who":"You","t":"Sì, due. E abbiamo fame: il ristorante è aperto?","tr":"Yes, two. And we're hungry: is the restaurant open?"},{"who":"Receptionist","t":"Sì, fino alle dieci.","tr":"Yes, until ten."}]},
+        {"term":"irregular","means":"a verb whose forms don't follow the usual pattern, so you learn them one by one."},
+        {"p":"**{{avere}} “to have”** is irregular: learn its forms by heart. Its {{h}} is never pronounced; it's there only to tell {{ho}} “I have” from {{o}} “or”, {{hai}} from {{ai}} “to the”, and {{ha}} from {{a}} “to”."},
+        { "table": [
+          ["","{{avere}} (to have)"],
+          ["I","{{ho}}"],
+          ["you ({{tu}})","{{hai}}"],
+          ["he, she, you ({{Lei}})","{{ha}}"],
+          ["we","{{abbiamo}}"],
+          ["you (two or more)","{{avete}}"],
+          ["they","{{hanno}}"]
+        ] },
+        {"p":"**Where English says “I am”, Italian often says “I have”.** Your age is something you have: {{Ho trent'anni}} “I'm thirty”, word for word “I have thirty years”. So are hunger, thirst, heat and cold:"},
+        { "table": [
+          ["English","Italian"],
+          ["I'm 30 (years old).","{{Ho trent'anni.}}"],
+          ["I'm hungry. I'm thirsty.","{{Ho fame. Ho sete.}}"],
+          ["I'm hot. I'm cold.","{{Ho caldo. Ho freddo.}}"],
+          ["I'm sleepy.","{{Ho sonno.}}"],
+          ["I'm in a hurry.","{{Ho fretta.}}"],
+          ["I'm scared.","{{Ho paura.}}"]
+        ] },
+        {"p":"To ask someone's age: {{Quanti anni hai?}} “How old are you?”, word for word “How many years do you have?”"},
+        { "ex": [
+          {"t":"Ho una sorella e un fratello.","tr":"I have a sister and a brother."},
+          {"t":"Hai una penna?","tr":"Do you have a pen?"},
+          {"t":"Luca ha ventidue anni.","tr":"Luca is twenty-two."},
+          {"t":"Abbiamo fame!","tr":"We're hungry!"},
+          {"t":"Ha una camera per stasera?","tr":"Do you have a room for tonight?","note":"polite: {{ha}}, to {{Lei}}"},
+          {"t":"I bambini hanno sonno.","tr":"The children are sleepy."},
+          {"t":"Non ho tempo.","tr":"I don't have time."}
+        ] },
+        {"tip":"The weather is different: {{Fa freddo}} “It's cold (out)” uses {{fare}}. {{Ho freddo}} is how you feel; {{fa freddo}} is the weather."}
+      ],
+      "mistakes": [
+        {"wrong":"Sono trent'anni.","right":"Ho trent'anni.","tr":"I'm thirty.","why":"Age uses {{avere}}: “I have thirty years”."},
+        {"wrong":"Sono fame.","right":"Ho fame.","tr":"I'm hungry.","why":"Hunger is something you have: {{ho fame}}."},
+        {"wrong":"O una prenotazione.","right":"Ho una prenotazione.","tr":"I have a reservation.","why":"“I have” is written {{ho}}, with a silent h; {{o}} means “or”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quanti anni ___?","tr":"How old are you?","options":["hai","sei","ha"],"answer":0,"why":"Age uses {{avere}}; to a friend, {{hai}}."},
+        {"type":"choice","q":"How you feel: “I'm cold” is…","options":["{{Ho freddo.}}","{{Sono freddo.}}","{{Fa freddo.}}"],"answer":0,"why":"How you feel: {{ho freddo}}. {{Fa freddo}} is “it's cold”, the weather."},
+        {"type":"fill","q":"Choose the missing word.","t":"Noi ___ due figli.","tr":"We have two children.","options":["abbiamo","avete","hanno"],"answer":0,"why":"“We have”: {{abbiamo}}."},
+        {"type":"dialogue","q":"Checking in at the hotel: choose your replies.","lines":[{"who":"Receptionist","t":"Buonasera! Ha una prenotazione?","tr":"Good evening! Do you have a reservation?"},{"options":["Sì, ho una prenotazione a nome Brown.","Sì, sono una prenotazione a nome Brown."],"answer":0,"why":"“I have”: {{ho}}."},{"who":"Receptionist","t":"Ecco la chiave. È la camera dodici.","tr":"Here's the key. It's room twelve."},{"options":["Grazie. Il ristorante è aperto? Ho fame!","Grazie. Il ristorante è aperto? Sono fame!"],"answer":0,"why":"Hunger is something you have: {{ho fame}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"The children are hungry and sleepy.","words":["I bambini","hanno","fame","e sonno."]},
+        {"type":"say","q":"Say at the station: “We have two tickets.”","answer":"Abbiamo due biglietti.","from":"talk-about-more-than-one"},
+        {"type":"free","q":"Your turn: say how old you are, who is in your family, and how you feel right now.","answers":[{"t":"Ho trentacinque anni e ho due figli. Adesso ho fame!","tr":"I'm thirty-five and I have two children. Right now I'm hungry!"},{"t":"Ho ventotto anni, ho un fratello e ho sonno.","tr":"I'm twenty-eight, I have a brother, and I'm sleepy."}]}
+      ]
+    },
+    {
+      "id": "say-what-there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what there is",
+      "summary": "Ask if there's an ATM, a pharmacy or a free table nearby, and understand the answer: “there is”, “there are”.",
+      "topic": "{{c'è}} “there is”, {{ci sono}} “there are”; {{non c'è}}; {{c'è}} or {{è}}",
+      "blocks": [
+        {"goal":{"t":"C'è un bancomat qui vicino?","tr":"Is there an ATM near here?"}},
+        {"dialog":[{"who":"You","t":"Scusi, c'è una farmacia qui vicino?","tr":"Excuse me, is there a pharmacy near here?"},{"who":"Man","t":"Sì, c'è una farmacia in piazza.","tr":"Yes, there's a pharmacy in the square."},{"who":"You","t":"E ci sono ristoranti economici?","tr":"And are there any cheap restaurants?"},{"who":"Man","t":"Ci sono due trattorie in via Roma. Sono buone e non sono care.","tr":"There are two trattorias on Via Roma. They're good and not expensive."},{"who":"You","t":"Grazie mille!","tr":"Thanks a lot!"}]},
+        {"p":"**{{c'è}} “there is”** ({{ci}} + {{è}}) for one thing, **{{ci sono}} “there are”** for more than one. Put {{non}} first for “there isn't, there aren't”."},
+        { "table": [
+          ["English","Italian","example"],
+          ["there is","{{c'è}}","{{C'è un bar.}} “There's a café.”"],
+          ["there are","{{ci sono}}","{{Ci sono due bagni.}} “There are two bathrooms.”"],
+          ["there isn't","{{non c'è}}","{{Non c'è latte.}} “There's no milk.”"],
+          ["there aren't","{{non ci sono}}","{{Non ci sono taxi.}} “There are no taxis.”"],
+          ["is there? are there?","{{c'è? ci sono?}}","{{C'è un bancomat?}} “Is there an ATM?”"]
+        ] },
+        {"p":"**{{c'è}} or {{è}}?** {{c'è}} says that something exists or is somewhere; {{è}} says what or how something is. {{C'è un museo}} “There's a museum”; {{È un museo}} “It's a museum”."},
+        {"p":"On the phone, {{c'è}} asks if someone is there: {{C'è Marco?}} “Is Marco there?” {{No, non c'è.}} “No, he isn't (here).”"},
+        { "ex": [
+          {"t":"C'è un problema.","tr":"There's a problem."},
+          {"t":"Ci sono molti turisti in agosto.","tr":"There are a lot of tourists in August."},
+          {"t":"Non c'è tempo!","tr":"There's no time!"},
+          {"t":"In camera c'è il Wi-Fi?","tr":"Is there Wi-Fi in the room?"},
+          {"t":"C'è Giulia? No, non c'è.","tr":"Is Giulia there? No, she isn't."},
+          {"t":"Non ci sono posti liberi.","tr":"There are no free seats."}
+        ] },
+        {"tip":"No word for “any” is needed: {{Ci sono negozi?}} “Are there any stores?”; {{Non c'è pane}} “There isn't any bread”."}
+      ],
+      "mistakes": [
+        {"wrong":"È un bancomat qui vicino?","right":"C'è un bancomat qui vicino?","tr":"Is there an ATM near here?","why":"“There is” is {{c'è}}. {{è}} alone means “it is”."},
+        {"wrong":"C'è due bagni.","right":"Ci sono due bagni.","tr":"There are two bathrooms.","why":"More than one: {{ci sono}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ un supermercato qui vicino?","tr":"Is there a supermarket near here?","options":["C'è","Ci sono","È"],"answer":0,"why":"One thing: {{c'è}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"In centro ___ tre musei.","tr":"There are three museums downtown.","options":["ci sono","c'è","sono"],"answer":0,"why":"More than one: {{ci sono}}."},
+        {"type":"choice","q":"{{È un ristorante}} means…","options":["It's a restaurant.","There's a restaurant."],"answer":0,"why":"{{è}} is “it is”; “there is” would be {{c'è}}."},
+        {"type":"dialogue","q":"You phone your friend Paolo's home: choose your replies.","lines":[{"who":"Woman","t":"Pronto?","tr":"Hello?"},{"options":["Buongiorno, c'è Paolo?","Buongiorno, è Paolo?"],"answer":0,"why":"“Is Paolo there?” is {{C'è Paolo?}} ({{È Paolo?}} would be “Is it Paolo?”)"},{"who":"Woman","t":"No, mi dispiace, non c'è.","tr":"No, I'm sorry, he isn't here."},{"options":["Va bene, grazie. Arrivederci!","Va bene, grazie. Ciao, bella!"],"answer":0,"why":"To someone you don't know: the polite {{arrivederci}}."}],"from":"greet-people"},
+        {"type":"order","q":"Put the words in order.","tr":"There's a nice café in the square.","words":["C'è","un bar","carino","in piazza."]},
+        {"type":"say","q":"Ask: “Are there any cheap hotels here?”","answer":"Ci sono alberghi economici qui?","from":"talk-about-more-than-one"},
+        {"type":"free","q":"Your turn: describe the area where you live: what is there, and what isn't? Use {{c'è}}, {{ci sono}}, {{non c'è}}.","answers":[{"t":"Qui c'è un parco e ci sono due supermercati, ma non c'è un cinema.","tr":"There's a park here and there are two supermarkets, but there isn't a movie theater."},{"t":"Vicino a casa c'è una farmacia, ma non ci sono ristoranti.","tr":"Near my house there's a pharmacy, but there are no restaurants."}]}
+      ]
     }
   ]
 }
