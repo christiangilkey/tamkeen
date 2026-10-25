@@ -8,13 +8,13 @@
    "title": "Arabic grammar",
    "variety": "Modern Standard Arabic",
    "units": 8,
-   "lessons": 40,
+   "lessons": 44,
    "levels": [
     "A1",
     "A2"
    ],
-   "bytes": 215230,
-   "sha256": "4b174f4c31233765fdcb9b4971f41e8d12cdd3f34c6fd3cac9cd4261fdad8769"
+   "bytes": 239951,
+   "sha256": "304ce3cd0919d465dc41214973a2f4b256928174d8968b2d76bc7da1dd424af9"
   }
  }
 }

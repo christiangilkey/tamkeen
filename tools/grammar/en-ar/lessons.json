@@ -1746,6 +1746,175 @@
         {"type":"say","q":"Ask: “What time is it?”","answer":"كَمِ السَّاعَةُ؟","r":"kami s-sāʿatu?"},
         {"type":"free","q":"Your turn: arrange to meet someone: say the day and the time.","answers":[{"t":"نَلْتَقِي يَوْمَ السَّبْتِ فِي الْعَاشِرَةِ.","r":"naltaqī yawma s-sabti fī l-ʿāshirati.","tr":"Let's meet on Saturday at ten."},{"t":"هَلْ أَنْتَ حُرٌّ يَوْمَ الْأَرْبِعَاءِ فِي السَّاعَةِ السَّادِسَةِ؟","r":"hal anta ḥurrun yawma l-arbiʿāʾi fī s-sāʿati s-sādisati?","tr":"Are you free on Wednesday at six?"}]}
       ]
+    },
+    {
+      "id": "because",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give reasons and join your ideas",
+      "summary": "“I stayed home because I was tired”, “Tea or coffee?”, “It was hot, so we stayed in”.",
+      "topic": "Joining words: {{وَ}}, {{أَوْ}}, {{أَمْ}}, {{لَكِنْ}}, {{لِأَنَّ}}, {{لِذَلِكَ}}",
+      "blocks": [
+        {"goal":{"t":"بَقِيتُ فِي الْبَيْتِ لِأَنِّي كُنْتُ مُتْعَبًا.","r":"baqītu fī l-bayti li-annī kuntu mutʿaban.","tr":"I stayed home because I was tired."}},
+        {"dialog":[{"who":"Manager","t":"لِمَاذَا لَمْ تَأْتِ إِلَى الِاجْتِمَاعِ؟","r":"limādhā lam taʾti ilā l-ijtimāʿi?","tr":"Why didn't you come to the meeting?"},{"who":"Tarek","t":"آسِفٌ، لِأَنَّ ابْنِي كَانَ مَرِيضًا.","r":"āsifun, li-anna bnī kāna marīḍan.","tr":"Sorry, because my son was ill."},{"who":"Manager","t":"لَا بَأْسَ. هَلْ تَسْتَطِيعُ أَنْ تَأْتِيَ غَدًا أَوْ بَعْدَ غَدٍ؟","r":"lā baʾsa. hal tastaṭīʿu an taʾtiya ghadan aw baʿda ghadin?","tr":"No problem. Can you come tomorrow or the day after?"},{"who":"Tarek","t":"غَدًا، لَكِنْ بَعْدَ الظُّهْرِ.","r":"ghadan, lākin baʿda ẓ-ẓuhri.","tr":"Tomorrow, but in the afternoon."}]},
+        {"term":"conjunction","means":"a word that joins words or sentences: and, but, or, because."},
+        { "table": [
+          ["","Arabic","Example"],
+          ["and","{{وَ|wa-}}","{{قَهْوَةٌ وَحَلِيبٌ|qahwatun wa-ḥalībun}} coffee and milk"],
+          ["or","{{أَوْ|aw}}","{{غَدًا أَوْ بَعْدَ غَدٍ|ghadan aw baʿda ghadin}} tomorrow or the day after"],
+          ["or (choosing, in a question)","{{أَمْ|am}}","{{شَايٌ أَمْ قَهْوَةٌ؟|shāyun am qahwatun?}} Tea or coffee?"],
+          ["but","{{لَكِنْ|lākin}}","{{أُرِيدُ، لَكِنْ لَيْسَ عِنْدِي وَقْتٌ.|urīdu, lākin laysa ʿindī waqtun.}} I'd like to, but I don't have time."],
+          ["because","{{لِأَنَّ|li-anna}}","{{لِأَنَّ الْجَوَّ جَمِيلٌ|li-anna l-jawwa jamīlun}} because the weather is nice"],
+          ["so, that's why","{{لِذَلِكَ|li-dhālika}}","{{كَانَ الْجَوُّ حَارًّا، لِذَلِكَ بَقِينَا فِي الْبَيْتِ.|kāna l-jawwu ḥārran, li-dhālika baqīnā fī l-bayti.}} It was hot, so we stayed home."],
+          ["in order to","{{لِـ|li-}} + -a form","{{جِئْتُ لِأَتَعَلَّمَ.|jiʾtu li-ataʿallama.}} I came to learn."]
+        ] },
+        {"p":"**{{لِأَنَّ}} “because”** is followed by a noun ending in -a, or by an ending: {{لِأَنَّ الْجَوَّ جَمِيلٌ}} “because the weather is nice”, {{لِأَنَّهُ مَشْغُولٌ}} “because he's busy”, {{لِأَنِّي|li-annī}} “because I…”. A later lesson shows the whole family of words that work like it."},
+        {"p":"**{{لِـ}} “in order to”** is followed by the -a form, like {{أَنْ}}: {{جِئْتُ لِأَتَعَلَّمَ}} “I came (in order) to learn”."},
+        { "ex": [
+          {"t":"شَايٌ أَمْ قَهْوَةٌ؟","r":"shāyun am qahwatun?","tr":"Tea or coffee?"},
+          {"t":"يُمْكِنُكَ أَنْ تَأْتِيَ الْيَوْمَ أَوْ غَدًا.","r":"yumkinuka an taʾtiya l-yawma aw ghadan.","tr":"You can come today or tomorrow."},
+          {"t":"لَا أَشْرَبُ الْقَهْوَةَ لِأَنَّهَا تُتْعِبُنِي.","r":"lā ashrabu l-qahwata li-annahā tutʿibunī.","tr":"I don't drink coffee because it makes me tired."},
+          {"t":"كَانَ الْجَوُّ حَارًّا، لِذَلِكَ بَقِينَا فِي الْبَيْتِ.","r":"kāna l-jawwu ḥārran, li-dhālika baqīnā fī l-bayti.","tr":"It was hot, so we stayed home."},
+          {"t":"ذَهَبْتُ إِلَى السُّوقِ لِأَشْتَرِيَ خُبْزًا.","r":"dhahabtu ilā s-sūqi li-ashtariya khubzan.","tr":"I went to the market to buy bread."}
+        ] },
+        {"tip":"{{أَمْ}} is for choices in questions (“tea or coffee?”); {{أَوْ}} for everything else."}
+      ],
+      "mistakes": [
+        {"wrong":"لِأَنَّ الْجَوُّ جَمِيلٌ","right":"لِأَنَّ الْجَوَّ جَمِيلٌ","tr":"because the weather is nice","why":"After {{لِأَنَّ}}, the noun takes -a."},
+        {"wrong":"لِأَنَّ هُوَ مَشْغُولٌ","right":"لِأَنَّهُ مَشْغُولٌ","tr":"because he's busy","why":"A pronoun after {{لِأَنَّ}} is an ending: li-annahu."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"شَايٌ ___ قَهْوَةٌ؟","tr":"Tea or coffee?","options":["أَمْ","لَكِنْ","لِأَنَّ"],"answer":0,"why":"A choice in a question: {{أَمْ}}."},
+        {"type":"choice","q":"“Because he's busy” is…","options":["{{لِأَنَّهُ مَشْغُولٌ}}","{{لِأَنَّ هُوَ مَشْغُولٌ}}"],"answer":0,"why":"An ending joins {{لِأَنَّ}}: li-annahu."},
+        {"type":"choice","q":"{{لِذَلِكَ}} means…","options":["so, that's why","but","because"],"answer":0,"why":"{{لِذَلِكَ}}, “for that”: so."},
+        {"type":"order","q":"Put the words in order.","tr":"I went to the market to buy bread.","words":["ذَهَبْتُ","إِلَى","السُّوقِ","لِأَشْتَرِيَ","خُبْزًا."],"from":"what-happened"},
+        {"type":"say","q":"A man says “I stayed home because I was tired.”","answer":"بَقِيتُ فِي الْبَيْتِ لِأَنِّي كُنْتُ مُتْعَبًا.","r":"baqītu fī l-bayti li-annī kuntu mutʿaban.","from":"was"},
+        {"type":"free","q":"Your turn: say why you're learning Arabic, and one thing you'd like to do but can't, and why.","answers":[{"t":"أَتَعَلَّمُ الْعَرَبِيَّةَ لِأَنِّي أُحِبُّ السَّفَرَ.","r":"ataʿallamu l-ʿarabiyyata li-annī uḥibbu s-safara.","tr":"I'm learning Arabic because I love travelling."},{"t":"أُرِيدُ أَنْ أُسَافِرَ، لَكِنْ لَيْسَ عِنْدِي وَقْتٌ.","r":"urīdu an usāfira, lākin laysa ʿindī waqtun.","tr":"I'd like to travel, but I don't have time."}]}
+      ]
+    },
+    {
+      "id": "when",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say when things happen",
+      "summary": "“When I arrived, he was asleep”, “before you leave”, “after the film”, “for two years”.",
+      "topic": "{{عِنْدَمَا}}, {{قَبْلَ (أَنْ)}}, {{بَعْدَ (أَنْ)}}, {{بَيْنَمَا}}, {{مُنْذُ}}, {{حَتَّى}}",
+      "blocks": [
+        {"goal":{"t":"عِنْدَمَا وَصَلْتُ، كَانَ الْجَمِيعُ نَائِمِينَ.","r":"ʿindamā waṣaltu, kāna l-jamīʿu nāʾimīna.","tr":"When I arrived, everyone was asleep."}},
+        {"dialog":[{"who":"Dina","t":"مُنْذُ مَتَى تَتَعَلَّمُ الْعَرَبِيَّةَ؟","r":"mundhu matā tataʿallamu l-ʿarabiyyata?","tr":"How long have you been learning Arabic?"},{"who":"Mark","t":"مُنْذُ سَنَةٍ. بَدَأْتُ عِنْدَمَا انْتَقَلْتُ إِلَى عَمَّانَ.","r":"mundhu sanatin. badaʾtu ʿindamā ntaqaltu ilā ʿammāna.","tr":"For a year. I started when I moved to Amman."},{"who":"Dina","t":"وَهَلْ تَدْرُسُ قَبْلَ الْعَمَلِ أَمْ بَعْدَهُ؟","r":"wa-hal tadrusu qabla l-ʿamali am baʿdahu?","tr":"And do you study before work or after it?"},{"who":"Mark","t":"بَعْدَ أَنْ أَرْجِعَ إِلَى الْبَيْتِ، كُلَّ مَسَاءٍ.","r":"baʿda an arjiʿa ilā l-bayti, kulla masāʾin.","tr":"After I get home, every evening."}]},
+        { "table": [
+          ["","Arabic","Example"],
+          ["when","{{عِنْدَمَا|ʿindamā}}","{{عِنْدَمَا وَصَلْتُ|ʿindamā waṣaltu}} when I arrived"],
+          ["before (a noun)","{{قَبْلَ|qabla}}","{{قَبْلَ الْعَشَاءِ|qabla l-ʿashāʾi}} before dinner"],
+          ["before (a verb)","{{قَبْلَ أَنْ|qabla an}} + -a form","{{قَبْلَ أَنْ تَخْرُجَ|qabla an takhruja}} before you go out"],
+          ["after (a noun)","{{بَعْدَ|baʿda}}","{{بَعْدَ الْفِيلْمِ|baʿda l-fīlmi}} after the film"],
+          ["after (a verb)","{{بَعْدَ أَنْ|baʿda an}}","{{بَعْدَ أَنْ أَكَلْنَا|baʿda an akalnā}} after we ate"],
+          ["while","{{بَيْنَمَا|baynamā}}","{{بَيْنَمَا كُنْتُ أَطْبُخُ|baynamā kuntu aṭbukhu}} while I was cooking"],
+          ["since, for (time)","{{مُنْذُ|mundhu}}","{{مُنْذُ سَنَتَيْنِ|mundhu sanatayni}} for two years"],
+          ["until","{{حَتَّى|ḥattā}}","{{حَتَّى الْمَسَاءِ|ḥattā l-masāʾi}} until the evening"]
+        ] },
+        {"p":"{{قَبْلَ أَنْ}} takes the -a form ({{قَبْلَ أَنْ تَنَامَ}} “before you sleep”); {{بَعْدَ أَنْ}} the past for what happened ({{بَعْدَ أَنْ وَصَلْنَا}}) and the -a form for what usually happens ({{بَعْدَ أَنْ أَرْجِعَ}})."},
+        {"p":"**{{مُنْذُ}} with the present** says how long something has been going on: {{أَسْكُنُ هُنَا مُنْذُ خَمْسِ سَنَوَاتٍ.|askunu hunā mundhu khamsi sanawātin.}} “I've been living here for five years.” English says “have been”; Arabic just uses the present."},
+        { "ex": [
+          {"t":"اِتَّصِلْ بِي قَبْلَ أَنْ تَأْتِيَ.","r":"ittaṣil bī qabla an taʾtiya.","tr":"Call me before you come."},
+          {"t":"بَعْدَ الْعَمَلِ نَذْهَبُ إِلَى الْمَقْهَى.","r":"baʿda l-ʿamali nadhhabu ilā l-maqhā.","tr":"After work we go to the café."},
+          {"t":"أَتَعَلَّمُ الْعَرَبِيَّةَ مُنْذُ سَنَةٍ.","r":"ataʿallamu l-ʿarabiyyata mundhu sanatin.","tr":"I've been learning Arabic for a year."},
+          {"t":"انْتَظَرْتُهُ حَتَّى الْمَسَاءِ.","r":"intaẓartuhu ḥattā l-masāʾi.","tr":"I waited for him until the evening."},
+          {"t":"بَيْنَمَا كُنْتُ أَطْبُخُ، رَنَّ الْهَاتِفُ.","r":"baynamā kuntu aṭbukhu, ranna l-hātifu.","tr":"While I was cooking, the phone rang."}
+        ] },
+        {"tip":"{{مَتَى}} asks “when?”; {{عِنْدَمَا}} says “when…” inside a sentence: {{مَتَى تَصِلُ؟}} “When do you arrive?”, {{عِنْدَمَا أَصِلُ}} “when I arrive”."}
+      ],
+      "mistakes": [
+        {"wrong":"مَتَى وَصَلْتُ، كَانَ نَائِمًا.","right":"عِنْدَمَا وَصَلْتُ، كَانَ نَائِمًا.","tr":"When I arrived, he was asleep.","why":"{{مَتَى}} only asks questions; in a sentence, “when” is {{عِنْدَمَا}}."},
+        {"wrong":"قَبْلَ تَخْرُجُ","right":"قَبْلَ أَنْ تَخْرُجَ","tr":"before you go out","why":"Before a verb: {{قَبْلَ أَنْ}} and the -a form."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ وَصَلْتُ، كَانَ الْجَمِيعُ نَائِمِينَ.","tr":"When I arrived, everyone was asleep.","options":["عِنْدَمَا","مَتَى","لِمَاذَا"],"answer":0,"why":"“When” inside a sentence: {{عِنْدَمَا}}."},
+        {"type":"choice","q":"{{أَسْكُنُ هُنَا مُنْذُ سَنَتَيْنِ.}} means…","options":["I lived here two years ago.","I've been living here for two years.","I'll live here for two years."],"answer":1,"why":"{{مُنْذُ}} + the present: “have been … for”.","from":"two"},
+        {"type":"choice","q":"“Before dinner” is…","options":["{{قَبْلَ الْعَشَاءِ}}","{{قَبْلَ أَنْ الْعَشَاءِ}}"],"answer":0,"why":"Before a noun: just {{قَبْلَ}}."},
+        {"type":"order","q":"Put the words in order.","tr":"After work we go to the café.","words":["بَعْدَ","الْعَمَلِ","نَذْهَبُ","إِلَى","الْمَقْهَى."]},
+        {"type":"say","q":"Tell a man: “Call me before you come.”","answer":"اِتَّصِلْ بِي قَبْلَ أَنْ تَأْتِيَ.","r":"ittaṣil bī qabla an taʾtiya.","from":"requests"},
+        {"type":"free","q":"Your turn: say how long you've been doing something, and what you do after work or school.","answers":[{"t":"أَسْكُنُ فِي هَذِهِ الْمَدِينَةِ مُنْذُ ثَلَاثِ سَنَوَاتٍ.","r":"askunu fī hādhihi l-madīnati mundhu thalāthi sanawātin.","tr":"I've been living in this city for three years."},{"t":"بَعْدَ الْعَمَلِ أَمْشِي فِي الْحَدِيقَةِ.","r":"baʿda l-ʿamali amshī fī l-ḥadīqati.","tr":"After work I walk in the park."}]}
+      ]
+    },
+    {
+      "id": "i-think-that",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say what you think, and what people said",
+      "summary": "“I think he's busy”, “She said she was tired”, “The house is small, but the garden is big”.",
+      "topic": "{{أَنَّ}} “that”, {{إِنَّ}} after {{قَالَ}}, and their family ({{لَكِنَّ}}, {{لِأَنَّ}}, {{لَعَلَّ}}): the noun after them takes -a",
+      "blocks": [
+        {"goal":{"t":"أَظُنُّ أَنَّ الْمَطْعَمَ مُغْلَقٌ الْيَوْمَ.","r":"aẓunnu anna l-maṭʿama mughlaquni l-yawma.","tr":"I think the restaurant is closed today.","note":"-un links to the next word with an i: mughlaquni l-yawma"}},
+        {"dialog":[{"who":"Laila","t":"أَيْنَ سَامِي؟ لَمْ يَرُدَّ عَلَى الْهَاتِفِ.","r":"ayna sāmī? lam yarudda ʿalā l-hātifi.","tr":"Where's Sami? He didn't answer the phone."},{"who":"Kamal","t":"أَظُنُّ أَنَّهُ فِي اجْتِمَاعٍ.","r":"aẓunnu annahu fī jtimāʿin.","tr":"I think he's in a meeting."},{"who":"Laila","t":"لَكِنَّهُ قَالَ إِنَّهُ سَيَتَّصِلُ بِي!","r":"lākinnahu qāla innahu sa-yattaṣilu bī!","tr":"But he said he'd call me!"},{"who":"Kamal","t":"لَعَلَّهُ نَسِيَ.","r":"laʿallahu nasiya.","tr":"Maybe he forgot."}]},
+        {"p":"To say “that” before a whole sentence (“I think that…”), Arabic uses {{أَنَّ|anna}}. The noun right after it ends in -a, and a pronoun joins it as an ending: {{أَعْرِفُ أَنَّ الْمَتْحَفَ مُغْلَقٌ.|aʿrifu anna l-matḥafa mughlaqun.}} “I know (that) the museum is closed.”, {{أَظُنُّ أَنَّهُ مَشْغُولٌ.|aẓunnu annahu mashghūlun.}} “I think he's busy.”"},
+        {"p":"After {{قَالَ}} “to say”, the word is {{إِنَّ|inna}}: {{قَالَ إِنَّهُ سَيَأْتِي.|qāla innahu sa-yaʾtī.}} “He said he would come.” The same family, all followed by -a: {{لِأَنَّ}} “because” (you met it), {{لَكِنَّ|lākinna}} “but” (before a noun or an ending), {{كَأَنَّ|ka-anna}} “as if”, {{لَعَلَّ|laʿalla}} “perhaps, hopefully”."},
+        { "table": [
+          ["","+ ending"],
+          ["that I","{{أَنِّي|annī}} / {{أَنَّنِي|annanī}}"],
+          ["that you (man / woman)","{{أَنَّكَ|annaka}} / {{أَنَّكِ|annaki}}"],
+          ["that he / she","{{أَنَّهُ|annahu}} / {{أَنَّهَا|annahā}}"],
+          ["that we","{{أَنَّنَا|annanā}}"],
+          ["that they","{{أَنَّهُمْ|annahum}}"]
+        ] },
+        {"p":"Don't mix it up with {{أَنْ}} (an), which comes before a **verb**: {{أُرِيدُ أَنْ أَذْهَبَ}}. {{أَنَّ}} (anna, with a shadda) comes before a **noun or a pronoun ending**."},
+        { "ex": [
+          {"t":"أَظُنُّ أَنَّهُ مَشْغُولٌ.","r":"aẓunnu annahu mashghūlun.","tr":"I think he's busy."},
+          {"t":"قَالَتْ إِنَّهَا مُتْعَبَةٌ.","r":"qālat innahā mutʿabatun.","tr":"She said she was tired."},
+          {"t":"يَبْدُو أَنَّ الْجَوَّ سَيَكُونُ جَمِيلًا.","r":"yabdū anna l-jawwa sa-yakūnu jamīlan.","tr":"It looks like the weather will be nice."},
+          {"t":"الْبَيْتُ صَغِيرٌ، لَكِنَّ الْحَدِيقَةَ كَبِيرَةٌ.","r":"al-baytu ṣaghīrun, lākinna l-ḥadīqata kabīratun.","tr":"The house is small, but the garden is big."},
+          {"t":"لَعَلَّكَ عَلَى حَقٍّ.","r":"laʿallaka ʿalā ḥaqqin.","tr":"Maybe you're right."}
+        ] },
+        {"tip":"{{إِنَّ}} can also start a sentence just to stress it, as in speeches and the news: {{إِنَّ الْوَضْعَ صَعْبٌ.|inna l-waḍʿa ṣaʿbun.}} “The situation is (indeed) difficult.”"}
+      ],
+      "mistakes": [
+        {"wrong":"أَعْرِفُ أَنَّ الْمَتْحَفُ مُغْلَقٌ.","right":"أَعْرِفُ أَنَّ الْمَتْحَفَ مُغْلَقٌ.","tr":"I know that the museum is closed.","why":"After {{أَنَّ}}, the noun takes -a."},
+        {"wrong":"أَظُنُّ أَنَّ هُوَ مَشْغُولٌ.","right":"أَظُنُّ أَنَّهُ مَشْغُولٌ.","tr":"I think he's busy.","why":"A pronoun after {{أَنَّ}} is an ending: annahu."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"أَظُنُّ ___ مَشْغُولَةٌ.","tr":"I think she's busy.","options":["أَنَّهَا","أَنْ هِيَ","أَنَّهُ"],"answer":0,"why":"{{أَنَّ}} + the ending for “she”: annahā."},
+        {"type":"choice","q":"Which needs {{أَنْ}}, not {{أَنَّ}}?","options":["“I want to sleep.”","“I know that he's here.”"],"answer":0,"why":"Before a verb: {{أَنْ}}: {{أُرِيدُ أَنْ أَنَامَ}}.","from":"say-what-you-want"},
+        {"type":"choice","q":"“He said that…” is…","options":["{{قَالَ إِنَّ…}}","{{قَالَ أَنْ…}}"],"answer":0,"why":"After {{قَالَ}}: {{إِنَّ}}."},
+        {"type":"order","q":"Put the words in order.","tr":"The house is small, but the garden is big.","words":["الْبَيْتُ","صَغِيرٌ،","لَكِنَّ","الْحَدِيقَةَ","كَبِيرَةٌ."],"from":"describe"},
+        {"type":"say","q":"Tell a man: “Maybe you're right.”","answer":"لَعَلَّكَ عَلَى حَقٍّ.","r":"laʿallaka ʿalā ḥaqqin."},
+        {"type":"free","q":"Your turn: give your opinion about your city or your job with {{أَظُنُّ أَنَّ…}}, and report something a friend said.","answers":[{"t":"أَظُنُّ أَنَّ مَدِينَتِي جَمِيلَةٌ جِدًّا.","r":"aẓunnu anna madīnatī jamīlatun jiddan.","tr":"I think my city is very beautiful."},{"t":"قَالَ صَدِيقِي إِنَّ الْفِيلْمَ رَائِعٌ.","r":"qāla ṣadīqī inna l-fīlma rāʾiʿun.","tr":"My friend said the film is great."}]}
+      ]
+    },
+    {
+      "id": "if",
+      "unit": 7,
+      "level": "A2",
+      "title": "Make plans with “if”",
+      "summary": "“If the weather's nice, we'll go to the sea”, “If you need anything, call me”, “If I were you…”.",
+      "topic": "{{إِذَا}} + past for real conditions (with {{فَـ}}); {{لَوْ}} … {{لَـ}} for imagined ones",
+      "blocks": [
+        {"goal":{"t":"إِذَا كَانَ الْجَوُّ جَمِيلًا، فَسَنَذْهَبُ إِلَى الْبَحْرِ.","r":"idhā kāna l-jawwu jamīlan, fa-sa-nadhhabu ilā l-baḥri.","tr":"If the weather's nice, we'll go to the sea."}},
+        {"dialog":[{"who":"Nadia","t":"هَلْ سَتَأْتِي إِلَى الْعَشَاءِ؟","r":"hal sa-taʾtī ilā l-ʿashāʾi?","tr":"Will you come to dinner?"},{"who":"Hani","t":"إِذَا انْتَهَيْتُ مِنَ الْعَمَلِ مُبَكِّرًا، فَسَآتِي.","r":"idhā ntahaytu mina l-ʿamali mubakkiran, fa-sa-ātī.","tr":"If I finish work early, I'll come."},{"who":"Nadia","t":"وَإِذَا تَأَخَّرْتَ، فَاتَّصِلْ بِي.","r":"wa-idhā taʾakhkharta, fa-ttaṣil bī.","tr":"And if you're late, call me."},{"who":"Hani","t":"طَبْعًا، إِنْ شَاءَ اللَّهُ.","r":"ṭabʿan, in shāʾa llāhu.","tr":"Of course, God willing."}]},
+        {"p":"**A real possibility**: {{إِذَا|idhā}} + the **past**, even when you mean now or later: {{إِذَا انْتَهَيْتُ مُبَكِّرًا}} “if I finish early” (word for word: if I finished)."},
+        {"p":"If the second half starts with {{سَـ}}, a command, {{لَا}}, or a sentence without a verb, put {{فَـ}} in front of it: {{إِذَا تَأَخَّرْتَ، فَاتَّصِلْ بِي.}} “If you're late, call me.”, {{إِذَا كَانَ الْجَوُّ جَمِيلًا، فَسَنَذْهَبُ.}}"},
+        {"p":"**Something imagined, not real**: {{لَوْ|law}} + past, and {{لَـ}} on the result: {{لَوْ كُنْتُ غَنِيًّا، لَسَافَرْتُ حَوْلَ الْعَالَمِ.|law kuntu ghaniyyan, la-sāfartu ḥawla l-ʿālami.}} “If I were rich, I'd travel around the world.” It also covers the past: {{لَوْ عَرَفْتُ، لَأَخْبَرْتُكَ.}} “If I'd known, I'd have told you.”"},
+        {"p":"{{إِنْ|in}} is a formal “if”, best known from {{إِنْ شَاءَ اللَّهُ}} “God willing”."},
+        { "ex": [
+          {"t":"إِذَا احْتَجْتَ شَيْئًا، فَاتَّصِلْ بِي.","r":"idhā ḥtajta shayʾan, fa-ttaṣil bī.","tr":"If you need anything, call me."},
+          {"t":"إِذَا لَمْ تَفْهَمْ، فَاسْأَلْنِي.","r":"idhā lam tafham, fa-sʾalnī.","tr":"If you don't understand, ask me."},
+          {"t":"لَوْ كُنْتُ مَكَانَكَ، لَقَبِلْتُ.","r":"law kuntu makānaka, la-qabiltu.","tr":"If I were you, I'd accept."},
+          {"t":"لَوْ عَرَفْتُ، لَأَخْبَرْتُكَ.","r":"law ʿaraftu, la-akhbartuka.","tr":"If I'd known, I'd have told you."},
+          {"t":"سَأَرَاكَ غَدًا، إِنْ شَاءَ اللَّهُ.","r":"sa-arāka ghadan, in shāʾa llāhu.","tr":"See you tomorrow, God willing."}
+        ] },
+        {"tip":"{{إِذَا}} + past, then whatever you'd normally say: that's most everyday “if” sentences."}
+      ],
+      "mistakes": [
+        {"wrong":"إِذَا تَكُونُ مَشْغُولًا، أَتَّصِلُ لَاحِقًا.","right":"إِذَا كُنْتَ مَشْغُولًا، أَتَّصِلُ لَاحِقًا.","tr":"If you're busy, I'll call later.","why":"After {{إِذَا}}, use the past form."},
+        {"wrong":"إِذَا تَأَخَّرْتَ، سَنَذْهَبُ بِدُونِكَ.","right":"إِذَا تَأَخَّرْتَ، فَسَنَذْهَبُ بِدُونِكَ.","tr":"If you're late, we'll go without you.","why":"A result starting with {{سَـ}} needs {{فَـ}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"إِذَا تَأَخَّرْتَ، ___ بِي.","tr":"If you're late, call me.","options":["فَاتَّصِلْ","اتَّصَلْتَ","تَتَّصِلُ"],"answer":0,"why":"A command after {{إِذَا}}: with {{فَـ}}."},
+        {"type":"choice","q":"Something imagined: “If I were rich…”","options":["{{لَوْ كُنْتُ غَنِيًّا…}}","{{إِذَا كُنْتُ غَنِيًّا…}}"],"answer":0,"why":"For something unreal, {{لَوْ}}."},
+        {"type":"choice","q":"{{إِنْ شَاءَ اللَّهُ}} means…","options":["God willing","thank God","in God's name"],"answer":0,"why":"Said about plans: “if God wills”."},
+        {"type":"dialogue","q":"Making plans with a friend. Choose your replies.","lines":[{"who":"Friend","t":"هَلْ نَذْهَبُ إِلَى الْبَحْرِ غَدًا؟","r":"hal nadhhabu ilā l-baḥri ghadan?","tr":"Shall we go to the sea tomorrow?"},{"options":["إِذَا كَانَ الْجَوُّ جَمِيلًا، فَسَنَذْهَبُ.","إِذَا يَكُونُ الْجَوُّ جَمِيلٌ، سَنَذْهَبُ."],"answer":0,"why":"{{إِذَا}} + past, -an after {{كَانَ}}, and {{فَـ}} before {{سَـ}}."},{"who":"Friend","t":"وَإِذَا كَانَ بَارِدًا؟","r":"wa-idhā kāna bāridan?","tr":"And if it's cold?"},{"options":["فَسَنَبْقَى فِي الْبَيْتِ وَنُشَاهِدُ فِيلْمًا.","فَنَبْقَى فِي الْبَيْتَ وَنُشَاهِدُ فِيلْمٌ."],"answer":0,"why":"After {{فِي}}: -i; the film is an object: -an."}],"from":"plans"},
+        {"type":"say","q":"Tell a man: “If I were you, I'd accept.”","answer":"لَوْ كُنْتُ مَكَانَكَ، لَقَبِلْتُ.","r":"law kuntu makānaka, la-qabiltu."},
+        {"type":"free","q":"Your turn: say what you'll do this weekend if the weather is good, and what you'd do if you were rich.","answers":[{"t":"إِذَا كَانَ الْجَوُّ جَمِيلًا، فَسَأَمْشِي فِي الْجِبَالِ.","r":"idhā kāna l-jawwu jamīlan, fa-sa-amshī fī l-jibāli.","tr":"If the weather's nice, I'll walk in the mountains."},{"t":"لَوْ كُنْتُ غَنِيًّا، لَاشْتَرَيْتُ بَيْتًا قُرْبَ الْبَحْرِ.","r":"law kuntu ghaniyyan, la-shtaraytu baytan qurba l-baḥri.","tr":"If I were rich, I'd buy a house near the sea."}]}
+      ]
     }
   ]
 }
