@@ -1,0 +1,188 @@
+{
+  "lang": "tl",
+  "title": "Tagalog basics",
+  "variety": "Tagalog (Filipino) as spoken in Manila",
+  "about": "The most common words of everyday Tagalog (wordfreq counts for Filipino, grouped by root with the app's Tagalog analyzer and tools/course/tl/rank.mjs), most common first, 50 to a unit. Names of people and places, and English words, are left out. Verbs are shown in the form a learner says them (kumain, magluto), adjectives with their ma- (maganda). Each word has one short everyday sentence in the Tagalog of Manila, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "sa",
+      "pos": "prep",
+      "meaning": "in; at; to",
+      "sentence": "Nakatira ako sa Maynila.",
+      "translation": "I live ⟦in⟧ Manila."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "ng",
+      "pos": "part",
+      "meaning": "of; 's (marks the owner, or what a verb acts on)",
+      "sentence": "Ito ang bahay ng lola ko.",
+      "translation": "This is my grandma⟦'s⟧ house."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "ang",
+      "pos": "part",
+      "meaning": "the (marks what the sentence is about)",
+      "sentence": "Mainit ang kape.",
+      "translation": "⟦The⟧ coffee is hot."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "na",
+      "pos": "adv",
+      "meaning": "already; now (also joins a word to the next)",
+      "sentence": "Kumain na ako.",
+      "translation": "I've ⟦already⟧ eaten."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "mga",
+      "pos": "part",
+      "meaning": "(makes a noun plural)",
+      "sentence": "Nasaan ang mga susi ko?",
+      "translation": "Where are my key⟦s⟧?"
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "at",
+      "pos": "conj",
+      "meaning": "and",
+      "sentence": "Gusto ko ng kape at tinapay.",
+      "translation": "I'd like coffee ⟦and⟧ bread."
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "ay",
+      "pos": "part",
+      "meaning": "is; are (joins the topic to what is said about it)",
+      "sentence": "Ang pangalan ko ay Ana.",
+      "translation": "My name ⟦is⟧ Ana."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "isa",
+      "pos": "num",
+      "meaning": "one; a",
+      "sentence": "Isa lang ang anak nila.",
+      "translation": "They have only ⟦one⟧ child."
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "hindi",
+      "pos": "part",
+      "meaning": "not; no",
+      "sentence": "Hindi ko alam.",
+      "translation": "I ⟦don't⟧ know."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "ito",
+      "pos": "pron",
+      "meaning": "this",
+      "sentence": "Para sa iyo ito.",
+      "translation": "⟦This⟧ is for you."
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "ko",
+      "pos": "pron",
+      "meaning": "my; I (after a verb)",
+      "sentence": "Ito ang nanay ko.",
+      "translation": "This is ⟦my⟧ mom."
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "kung",
+      "pos": "conj",
+      "meaning": "if; whether",
+      "sentence": "Tawagan mo ako kung may problema.",
+      "translation": "Call me ⟦if⟧ there's a problem."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "may",
+      "pos": "part",
+      "meaning": "there is; to have",
+      "sentence": "May pera ka ba?",
+      "translation": "Do you ⟦have⟧ any money?"
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "ni",
+      "pos": "part",
+      "meaning": "of; 's (before a person's name)",
+      "sentence": "Ito ang kotse ni Mark.",
+      "translation": "This is Mark⟦'s⟧ car."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "ako",
+      "pos": "pron",
+      "meaning": "I; me",
+      "sentence": "Ako ang nagluto nito.",
+      "translation": "⟦I⟧ cooked this."
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "si",
+      "pos": "part",
+      "meaning": "(before a person's name, as the topic)",
+      "sentence": "Si Ben ang kuya ko.",
+      "translation": "⟦Ben⟧ is my older brother."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "kapag",
+      "pos": "conj",
+      "meaning": "when; whenever; if",
+      "sentence": "Kapag umuulan, nasa bahay lang kami.",
+      "translation": "⟦When⟧ it rains, we just stay home."
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "siya",
+      "pos": "pron",
+      "meaning": "he; she",
+      "sentence": "Nasa trabaho siya ngayon.",
+      "translation": "⟦He⟧'s at work right now."
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "kanya",
+      "pos": "pron",
+      "meaning": "him; her; his (sa kanya: to him or her)",
+      "sentence": "Ibigay mo ito sa kanya.",
+      "translation": "Give this to ⟦her⟧."
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "mo",
+      "pos": "pron",
+      "meaning": "your; you (after a verb)",
+      "sentence": "Ano ang pangalan mo?",
+      "translation": "What's ⟦your⟧ name?"
+    }
+  ]
+}

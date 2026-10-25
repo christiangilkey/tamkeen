@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "tl",
+ "title": "Tagalog basics",
+ "variety": "Tagalog (Filipino) as spoken in Manila",
+ "about": "The most common words of everyday Tagalog (wordfreq counts for Filipino, grouped by root with the app's Tagalog analyzer and tools/course/tl/rank.mjs), most common first, 50 to a unit. Names of people and places, and English words, are left out. Verbs are shown in the form a learner says them (kumain, magluto), adjectives with their ma- (maganda). Each word has one short everyday sentence in the Tagalog of Manila, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Blessica (Azure, Philippines)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "sa",
+   "pos": "prep",
+   "meaning": "in; at; to",
+   "sentence": "Nakatira ako sa Maynila.",
+   "translation": "I live ⟦in⟧ Manila.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.543,
+    "sent_start": 1.443,
+    "sent_end": 2.976
+   }
+  },
+  {
+   "n": 2,
+   "word": "ng",
+   "pos": "part",
+   "meaning": "of; 's (marks the owner, or what a verb acts on)",
+   "sentence": "Ito ang bahay ng lola ko.",
+   "translation": "This is my grandma⟦'s⟧ house.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.545,
+    "sent_start": 1.446,
+    "sent_end": 3.036
+   }
+  },
+  {
+   "n": 3,
+   "word": "ang",
+   "pos": "part",
+   "meaning": "the (marks what the sentence is about)",
+   "sentence": "Mainit ang kape.",
+   "translation": "⟦The⟧ coffee is hot.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.573,
+    "sent_start": 1.474,
+    "sent_end": 2.697
+   }
+  },
+  {
+   "n": 4,
+   "word": "na",
+   "pos": "adv",
+   "meaning": "already; now (also joins a word to the next)",
+   "sentence": "Kumain na ako.",
+   "translation": "I've ⟦already⟧ eaten.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.518,
+    "sent_start": 1.418,
+    "sent_end": 2.491
+   }
+  },
+  {
+   "n": 5,
+   "word": "mga",
+   "pos": "part",
+   "meaning": "(makes a noun plural)",
+   "sentence": "Nasaan ang mga susi ko?",
+   "translation": "Where are my key⟦s⟧?",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.592,
+    "sent_start": 1.492,
+    "sent_end": 2.945
+   }
+  },
+  {
+   "n": 6,
+   "word": "at",
+   "pos": "conj",
+   "meaning": "and",
+   "sentence": "Gusto ko ng kape at tinapay.",
+   "translation": "I'd like coffee ⟦and⟧ bread.",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.422,
+    "sent_start": 1.322,
+    "sent_end": 3.047
+   }
+  },
+  {
+   "n": 7,
+   "word": "ay",
+   "pos": "part",
+   "meaning": "is; are (joins the topic to what is said about it)",
+   "sentence": "Ang pangalan ko ay Ana.",
+   "translation": "My name ⟦is⟧ Ana.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.511,
+    "sent_start": 1.411,
+    "sent_end": 3.002
+   }
+  },
+  {
+   "n": 8,
+   "word": "isa",
+   "pos": "num",
+   "meaning": "one; a",
+   "sentence": "Isa lang ang anak nila.",
+   "translation": "They have only ⟦one⟧ child.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.633,
+    "sent_start": 1.533,
+    "sent_end": 2.929
+   }
+  },
+  {
+   "n": 9,
+   "word": "hindi",
+   "pos": "part",
+   "meaning": "not; no",
+   "sentence": "Hindi ko alam.",
+   "translation": "I ⟦don't⟧ know.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.538,
+    "sent_start": 1.438,
+    "sent_end": 2.409
+   }
+  },
+  {
+   "n": 10,
+   "word": "ito",
+   "pos": "pron",
+   "meaning": "this",
+   "sentence": "Para sa iyo ito.",
+   "translation": "⟦This⟧ is for you.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.579,
+    "sent_start": 1.479,
+    "sent_end": 2.559
+   }
+  },
+  {
+   "n": 11,
+   "word": "ko",
+   "pos": "pron",
+   "meaning": "my; I (after a verb)",
+   "sentence": "Ito ang nanay ko.",
+   "translation": "This is ⟦my⟧ mom.",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.453,
+    "sent_start": 1.353,
+    "sent_end": 2.575
+   }
+  },
+  {
+   "n": 12,
+   "word": "kung",
+   "pos": "conj",
+   "meaning": "if; whether",
+   "sentence": "Tawagan mo ako kung may problema.",
+   "translation": "Call me ⟦if⟧ there's a problem.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.525,
+    "sent_start": 1.425,
+    "sent_end": 3.361
+   }
+  },
+  {
+   "n": 13,
+   "word": "may",
+   "pos": "part",
+   "meaning": "there is; to have",
+   "sentence": "May pera ka ba?",
+   "translation": "Do you ⟦have⟧ any money?",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.518,
+    "sent_start": 1.418,
+    "sent_end": 2.348
+   }
+  },
+  {
+   "n": 14,
+   "word": "ni",
+   "pos": "part",
+   "meaning": "of; 's (before a person's name)",
+   "sentence": "Ito ang kotse ni Mark.",
+   "translation": "This is Mark⟦'s⟧ car.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.463,
+    "sent_start": 1.363,
+    "sent_end": 2.768
+   }
+  },
+  {
+   "n": 15,
+   "word": "ako",
+   "pos": "pron",
+   "meaning": "I; me",
+   "sentence": "Ako ang nagluto nito.",
+   "translation": "⟦I⟧ cooked this.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.533,
+    "sent_start": 1.433,
+    "sent_end": 2.906
+   }
+  },
+  {
+   "n": 16,
+   "word": "si",
+   "pos": "part",
+   "meaning": "(before a person's name, as the topic)",
+   "sentence": "Si Ben ang kuya ko.",
+   "translation": "⟦Ben⟧ is my older brother.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.487,
+    "sent_start": 1.387,
+    "sent_end": 2.7
+   }
+  },
+  {
+   "n": 17,
+   "word": "kapag",
+   "pos": "conj",
+   "meaning": "when; whenever; if",
+   "sentence": "Kapag umuulan, nasa bahay lang kami.",
+   "translation": "⟦When⟧ it rains, we just stay home.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.526,
+    "sent_start": 1.426,
+    "sent_end": 3.676
+   }
+  },
+  {
+   "n": 18,
+   "word": "siya",
+   "pos": "pron",
+   "meaning": "he; she",
+   "sentence": "Nasa trabaho siya ngayon.",
+   "translation": "⟦He⟧'s at work right now.",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.588,
+    "sent_start": 1.488,
+    "sent_end": 2.969
+   }
+  },
+  {
+   "n": 19,
+   "word": "kanya",
+   "pos": "pron",
+   "meaning": "him; her; his (sa kanya: to him or her)",
+   "sentence": "Ibigay mo ito sa kanya.",
+   "translation": "Give this to ⟦her⟧.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.629,
+    "sent_start": 1.529,
+    "sent_end": 3.037
+   }
+  },
+  {
+   "n": 20,
+   "word": "mo",
+   "pos": "pron",
+   "meaning": "your; you (after a verb)",
+   "sentence": "Ano ang pangalan mo?",
+   "translation": "What's ⟦your⟧ name?",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.48,
+    "sent_start": 1.38,
+    "sent_end": 2.652
+   }
+  }
+ ]
+}
