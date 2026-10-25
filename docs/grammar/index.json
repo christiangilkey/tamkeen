@@ -14,6 +14,20 @@
    ],
    "bytes": 12646,
    "sha256": "a334c3093ffa5c6158d731c01c789946c65b33f9636888eb598ace5d2377b8d4"
+  },
+  "en-tl": {
+   "file": "en-tl/course.json",
+   "from": "en",
+   "to": "tl",
+   "title": "Tagalog grammar",
+   "variety": "Tagalog (Filipino) as spoken in Manila",
+   "units": 8,
+   "lessons": 5,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 23988,
+   "sha256": "45be5aa3fd07159d00240cbd1430c77ca4d3e01f28b3666f201f1a45cac392a6"
   }
  }
 }
