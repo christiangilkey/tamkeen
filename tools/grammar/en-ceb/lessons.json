@@ -2203,7 +2203,7 @@
       "topic": "Everything together: describing sentences, {{naa}}, done / going on / not yet, focus, time, reasons, plans and hopes",
       "blocks": [
         {"goal":{"t":"Tulo ka tuig na ko dinhi sa Cebu, ug dili na ko gusto mobiya!","tr":"I've been here in Cebu for three years, and I don't want to leave anymore!"}},
-        {"dialog":[{"who":"Lito","t":"Ben, nganong miabot ka dinhi sa Cebu?","tr":"Ben, why did you come to Cebu?"},{"who":"Ben","t":"Upat ka tuig na ang milabay, mibakasyon ko dinhi. Nalipay kaayo ko, mao nga mibalik ko.","tr":"Four years ago, I came here on vacation. I loved it, so I came back."},{"who":"Lito","t":"Unsay imong trabaho kaniadto sa Amerika?","tr":"What was your job back in America?"},{"who":"Ben","t":"Nagtrabaho ko sa usa ka bangko. Karon, nagtudlo ko og Iningles.","tr":"I worked at a bank. Now I teach English."},{"who":"Lito","t":"Ug unsay imong plano?","tr":"And what are your plans?"},{"who":"Ben","t":"Gusto ko magtukod og gamay nga resort sa Moalboal, puhon. Kung madawat ang akong aplikasyon, magsugod ko sa sunod tuig.","tr":"I want to build a small resort in Moalboal, God willing. If my application is accepted, I'll start next year."},{"who":"Lito","t":"Wow! Unta molampos ka!","tr":"Wow! I hope you succeed!"}]},
+        {"dialog":[{"who":"Lito","t":"Ben, nganong miabot ka dinhi sa Cebu?","tr":"Ben, why did you come to Cebu?"},{"who":"Ben","t":"Upat ka tuig na ang milabay, mibakasyon ko dinhi. Nalingaw kaayo ko, mao nga mibalik ko.","tr":"Four years ago, I came here on vacation. I loved it, so I came back."},{"who":"Lito","t":"Unsay imong trabaho kaniadto sa Amerika?","tr":"What was your job back in America?"},{"who":"Ben","t":"Nagtrabaho ko sa usa ka bangko. Karon, nagtudlo ko og Iningles.","tr":"I worked at a bank. Now I teach English."},{"who":"Lito","t":"Ug unsay imong plano?","tr":"And what are your plans?"},{"who":"Ben","t":"Gusto ko magtukod og gamay nga resort sa Moalboal, puhon. Kung madawat ang akong aplikasyon, magsugod ko sa sunod tuig.","tr":"I want to build a small resort in Moalboal, God willing. If my application is accepted, I'll start next year."},{"who":"Lito","t":"Wow! Unta molampos ka!","tr":"Wow! I hope you succeed!"}]},
         {"p":"This last lesson puts the whole course to work. Telling your own story is something Cebuanos will ask for again and again ({{Unsay imong istorya?}}), and it uses nearly everything you've learned. Each part has its lesson, if you want to look back:"},
         { "table": [
           ["part of the story","example","lessons"],
@@ -2218,7 +2218,7 @@
         { "ex": [
           {"t":"Taga-Canada ko, pero nagpuyo na ko sa Cebu.","tr":"I'm from Canada, but I live in Cebu now."},
           {"t":"Niadtong 2022, miadto ko dinhi sa unang higayon.","tr":"In 2022, I came here for the first time."},
-          {"t":"Nalipay kaayo ko sa mga tawo, mao nga mibalik ko.","tr":"I loved the people, so I came back."},
+          {"t":"Ganahan kaayo ko sa mga tawo, mao nga mibalik ko.","tr":"I loved the people, so I came back."},
           {"t":"Karon, nagtrabaho ko sa usa ka eskwelahan sa Mandaue.","tr":"Now I work at a school in Mandaue."},
           {"t":"Nakaadto na ko sa daghang isla, pero ang Bohol gihapon ang akong paborito.","tr":"I've been to lots of islands, but Bohol is still my favorite."},
           {"t":"Unta makasulti ko og Bisaya sama sa usa ka lumad.","tr":"I hope I can speak Bisaya like a native."}
@@ -2231,7 +2231,7 @@
       ],
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"Upat ka tuig ___ ang milabay, mibakasyon ko dinhi.","tr":"Four years ago, I came here on vacation.","options":["na","pa","ra"],"answer":0,"why":"{{X ka tuig na ang milabay}}: X years ago."},
-        {"type":"fill","q":"Choose the missing word.","t":"Nalipay kaayo ko, ___ nga mibalik ko.","tr":"I loved it, so I came back.","options":["mao","kay","aron"],"answer":0,"why":"That's why: {{mao nga}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nalingaw kaayo ko, ___ nga mibalik ko.","tr":"I loved it, so I came back.","options":["mao","kay","aron"],"answer":0,"why":"That's why: {{mao nga}}."},
         {"type":"choice","q":"{{Unta molampos ka!}} means…","options":["I hope you succeed!","You succeeded!","Succeed or else!"],"answer":0,"why":"{{unta}} + a not-yet verb: a hope."},
         {"type":"dialogue","q":"A new friend asks about your life. Choose your replies.","lines":[{"who":"Joy","t":"Kanus-a ka nagsugod og tuon og Bisaya?","tr":"When did you start studying Bisaya?"},{"options":["Usa ka tuig na ang milabay.","Usa ka tuig pa ang milabay."],"answer":0,"why":"A year ago: {{na ang milabay}}."},{"who":"Joy","t":"Ngano man?","tr":"Why?"},{"options":["Kay gusto ko makaistorya sa akong mga silingan.","Aron gusto ko makaistorya sa akong mga silingan."],"answer":0,"why":"The reason: {{kay}}."},{"who":"Joy","t":"Maayo kaayo imong Bisaya!","tr":"Your Bisaya is really good!"},{"options":["Salamat! Unta mas maayo pa sa sunod tuig.","Salamat! Kung mas maayo pa sa sunod tuig."],"answer":0,"why":"A hope: {{unta}}."}]},
         {"type":"order","q":"Put the words in order.","tr":"Now I teach English.","words":["Karon,","nagtudlo","ko","og","Iningles."]},
