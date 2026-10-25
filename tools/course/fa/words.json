@@ -6348,6 +6348,909 @@
       "meaning": "(sepas) then; afterwards (written)",
       "sentence": "اول دست‌هایت را بشوی، سپس غذا بخور.",
       "translation": "First wash your hands, ⟦then⟧ eat."
+    },
+    {
+      "n": 701,
+      "rank": 833,
+      "word": "غرب",
+      "pos": "noun",
+      "meaning": "(gharb) west",
+      "sentence": "خورشید در غرب غروب می‌کند.",
+      "translation": "The sun sets in the ⟦west⟧."
+    },
+    {
+      "n": 702,
+      "rank": 835,
+      "word": "بازیکن",
+      "pos": "noun",
+      "meaning": "(bâzikon) player",
+      "sentence": "او بهترین بازیکن تیم است.",
+      "translation": "He's the best ⟦player⟧ on the team."
+    },
+    {
+      "n": 703,
+      "rank": 836,
+      "word": "مهندسی",
+      "pos": "noun",
+      "meaning": "(mohandesi) engineering",
+      "sentence": "پسرم مهندسی کامپیوتر می‌خواند.",
+      "translation": "My son studies computer ⟦engineering⟧."
+    },
+    {
+      "n": 704,
+      "rank": 837,
+      "word": "اهمیت",
+      "pos": "noun",
+      "meaning": "(ahamiyat) importance (اهمیت دادن: to care about)",
+      "sentence": "سلامتی برای من خیلی اهمیت دارد.",
+      "translation": "Health is very ⟦important⟧ to me."
+    },
+    {
+      "n": 705,
+      "rank": 838,
+      "word": "کَشتی",
+      "pos": "noun",
+      "meaning": "(kashti) ship; boat",
+      "sentence": "با کشتی به جزیره رفتیم.",
+      "translation": "We went to the island by ⟦ship⟧.",
+      "form": "کشتی"
+    },
+    {
+      "n": 706,
+      "rank": 839,
+      "word": "سراسر",
+      "pos": "noun",
+      "meaning": "(sarâsar) all over; throughout",
+      "sentence": "در سراسر کشور باران بارید.",
+      "translation": "It rained ⟦all over⟧ the country."
+    },
+    {
+      "n": 707,
+      "rank": 840,
+      "word": "جام",
+      "pos": "noun",
+      "meaning": "(jâm) cup (trophy); glass",
+      "sentence": "تیم ما جام را برد.",
+      "translation": "Our team won the ⟦cup⟧."
+    },
+    {
+      "n": 708,
+      "rank": 841,
+      "word": "محصول",
+      "pos": "noun",
+      "meaning": "(mahsul) product; crop",
+      "sentence": "این محصول ساخت ایران است.",
+      "translation": "This ⟦product⟧ is made in Iran."
+    },
+    {
+      "n": 709,
+      "rank": 842,
+      "word": "کارشناس",
+      "pos": "noun",
+      "meaning": "(kârshenâs) expert",
+      "sentence": "باید با یک کارشناس مشورت کنیم.",
+      "translation": "We should consult an ⟦expert⟧."
+    },
+    {
+      "n": 710,
+      "rank": 843,
+      "word": "سند",
+      "pos": "noun",
+      "meaning": "(sanad) document; deed",
+      "sentence": "سند خانه را گم کردم.",
+      "translation": "I lost the ⟦deed⟧ to the house."
+    },
+    {
+      "n": 711,
+      "rank": 844,
+      "word": "آشنا",
+      "pos": "adj",
+      "meaning": "(âshnâ) familiar; acquaintance (آشنا شدن: to get to know)",
+      "sentence": "از آشنایی با شما خوشوقتم.",
+      "translation": "Nice to ⟦meet⟧ you."
+    },
+    {
+      "n": 712,
+      "rank": 846,
+      "word": "پلیس",
+      "pos": "noun",
+      "meaning": "(polis) police",
+      "sentence": "به پلیس زنگ بزن!",
+      "translation": "Call the ⟦police⟧!"
+    },
+    {
+      "n": 713,
+      "rank": 848,
+      "word": "تومان",
+      "pos": "noun",
+      "meaning": "(tomân) toman (ten rials)",
+      "sentence": "این چند تومان است؟",
+      "translation": "How many ⟦tomans⟧ is this?"
+    },
+    {
+      "n": 714,
+      "rank": 849,
+      "word": "برنده",
+      "pos": "noun",
+      "meaning": "(barande) winner",
+      "sentence": "برنده‌ی مسابقه کیست؟",
+      "translation": "Who's the ⟦winner⟧ of the competition?"
+    },
+    {
+      "n": 715,
+      "rank": 850,
+      "word": "دسترس",
+      "pos": "noun",
+      "meaning": "(dastras) reach (در دسترس: available)",
+      "sentence": "داروها را دور از دسترس بچه‌ها نگه دارید.",
+      "translation": "Keep medicines out of children's ⟦reach⟧."
+    },
+    {
+      "n": 716,
+      "rank": 854,
+      "word": "رژیم",
+      "pos": "noun",
+      "meaning": "(rezhim) diet; regime",
+      "sentence": "من رژیم دارم.",
+      "translation": "I'm on a ⟦diet⟧."
+    },
+    {
+      "n": 717,
+      "rank": 855,
+      "word": "طبقه",
+      "pos": "noun",
+      "meaning": "(tabaghe) floor; storey; class",
+      "sentence": "ما در طبقه‌ی سوم زندگی می‌کنیم.",
+      "translation": "We live on the third ⟦floor⟧."
+    },
+    {
+      "n": 718,
+      "rank": 856,
+      "word": "انجمن",
+      "pos": "noun",
+      "meaning": "(anjoman) society; association",
+      "sentence": "او عضو انجمن ادبی است.",
+      "translation": "She's a member of the literary ⟦society⟧."
+    },
+    {
+      "n": 719,
+      "rank": 858,
+      "word": "پاک",
+      "pos": "adj",
+      "meaning": "(pâk) clean; pure (پاک کردن: to clean; to wipe)",
+      "sentence": "میز را پاک کن.",
+      "translation": "⟦Wipe⟧ the table."
+    },
+    {
+      "n": 720,
+      "rank": 859,
+      "word": "دریا",
+      "pos": "noun",
+      "meaning": "(daryâ) sea",
+      "sentence": "آب دریا امروز سرد است.",
+      "translation": "The ⟦sea⟧ is cold today."
+    },
+    {
+      "n": 721,
+      "rank": 860,
+      "word": "موتور",
+      "pos": "noun",
+      "meaning": "(motor) motorbike; engine",
+      "sentence": "برادرم با موتور سر کار می‌رود.",
+      "translation": "My brother goes to work by ⟦motorbike⟧."
+    },
+    {
+      "n": 722,
+      "rank": 861,
+      "word": "قدیمی",
+      "pos": "adj",
+      "meaning": "(ghadimi) old (of things)",
+      "sentence": "این یک خانه‌ی قدیمی است.",
+      "translation": "This is an ⟦old⟧ house."
+    },
+    {
+      "n": 723,
+      "rank": 862,
+      "word": "کَره",
+      "pos": "noun",
+      "meaning": "(kare) butter",
+      "sentence": "صبحانه نان و کره خوردم.",
+      "translation": "I had bread and ⟦butter⟧ for breakfast.",
+      "form": "کره"
+    },
+    {
+      "n": 724,
+      "rank": 863,
+      "word": "مجبور",
+      "pos": "adj",
+      "meaning": "(majbur) forced (مجبور بودن: to have to)",
+      "sentence": "مجبور شدم تاکسی بگیرم.",
+      "translation": "I ⟦had to⟧ take a taxi."
+    },
+    {
+      "n": 725,
+      "rank": 864,
+      "word": "تلفن",
+      "pos": "noun",
+      "meaning": "(telefon) telephone",
+      "sentence": "تلفن زنگ می‌زند.",
+      "translation": "The ⟦phone⟧ is ringing."
+    },
+    {
+      "n": 726,
+      "rank": 866,
+      "word": "تبلیغ",
+      "pos": "noun",
+      "meaning": "(tabligh) advert (تبلیغات: advertising)",
+      "sentence": "تبلیغات تلویزیون خیلی زیاد است.",
+      "translation": "There are too many ⟦adverts⟧ on TV."
+    },
+    {
+      "n": 727,
+      "rank": 867,
+      "word": "گیاه",
+      "pos": "noun",
+      "meaning": "(giyâh) plant",
+      "sentence": "به گیاه‌ها آب بده.",
+      "translation": "Water the ⟦plants⟧."
+    },
+    {
+      "n": 728,
+      "rank": 872,
+      "word": "قطع",
+      "pos": "noun",
+      "meaning": "(ghat') cutting off (قطع شدن: to be cut off)",
+      "sentence": "تلفن قطع شد.",
+      "translation": "We got ⟦cut off⟧."
+    },
+    {
+      "n": 729,
+      "rank": 873,
+      "word": "ممنون",
+      "pos": "adj",
+      "meaning": "(mamnun) thankful; thanks",
+      "sentence": "ممنون از کمکت.",
+      "translation": "⟦Thanks⟧ for your help."
+    },
+    {
+      "n": 730,
+      "rank": 874,
+      "word": "هرگز",
+      "pos": "adv",
+      "meaning": "(hargez) never",
+      "sentence": "هرگز سیگار نکشیده‌ام.",
+      "translation": "I've ⟦never⟧ smoked."
+    },
+    {
+      "n": 731,
+      "rank": 875,
+      "word": "درآمد",
+      "pos": "noun",
+      "meaning": "(darâmad) income",
+      "sentence": "درآمد او خوب است.",
+      "translation": "His ⟦income⟧ is good."
+    },
+    {
+      "n": 732,
+      "rank": 876,
+      "word": "صحنه",
+      "pos": "noun",
+      "meaning": "(sahne) scene; stage",
+      "sentence": "بازیگرها روی صحنه آمدند.",
+      "translation": "The actors came on ⟦stage⟧."
+    },
+    {
+      "n": 733,
+      "rank": 877,
+      "word": "شیر",
+      "pos": "noun",
+      "meaning": "(shir) milk; lion; tap",
+      "sentence": "هر صبح یک لیوان شیر می‌خورم.",
+      "translation": "I drink a glass of ⟦milk⟧ every morning."
+    },
+    {
+      "n": 734,
+      "rank": 878,
+      "word": "افتخار",
+      "pos": "noun",
+      "meaning": "(eftekhâr) honour; pride (افتخار کردن: to be proud)",
+      "sentence": "به تو افتخار می‌کنم.",
+      "translation": "I'm ⟦proud⟧ of you."
+    },
+    {
+      "n": 735,
+      "rank": 879,
+      "word": "میدان",
+      "pos": "noun",
+      "meaning": "(meydân) square; field",
+      "sentence": "هتل ما نزدیک میدان اصلی است.",
+      "translation": "Our hotel is near the main ⟦square⟧."
+    },
+    {
+      "n": 736,
+      "rank": 881,
+      "word": "عدد",
+      "pos": "noun",
+      "meaning": "(adad) number; figure",
+      "sentence": "یک عدد بین یک تا ده انتخاب کن.",
+      "translation": "Choose a ⟦number⟧ between one and ten."
+    },
+    {
+      "n": 737,
+      "rank": 882,
+      "word": "کاربر",
+      "pos": "noun",
+      "meaning": "(kârbar) user",
+      "sentence": "این سایت میلیون‌ها کاربر دارد.",
+      "translation": "This website has millions of ⟦users⟧."
+    },
+    {
+      "n": 738,
+      "rank": 884,
+      "word": "ناراحت",
+      "pos": "adj",
+      "meaning": "(nârâhat) upset; sad; uncomfortable",
+      "sentence": "چرا ناراحتی؟",
+      "translation": "Why are you ⟦upset⟧?"
+    },
+    {
+      "n": 739,
+      "rank": 885,
+      "word": "تهیه",
+      "pos": "noun",
+      "meaning": "(tahiye) preparation (تهیه کردن: to prepare; to get)",
+      "sentence": "مادرم شام را تهیه کرد.",
+      "translation": "My mother ⟦made⟧ dinner."
+    },
+    {
+      "n": 740,
+      "rank": 886,
+      "word": "حقیقت",
+      "pos": "noun",
+      "meaning": "(haghighat) truth",
+      "sentence": "حقیقت را به من بگو.",
+      "translation": "Tell me the ⟦truth⟧."
+    },
+    {
+      "n": 741,
+      "rank": 888,
+      "word": "کلمه",
+      "pos": "noun",
+      "meaning": "(kalame) word",
+      "sentence": "این کلمه را بلد نیستم.",
+      "translation": "I don't know this ⟦word⟧."
+    },
+    {
+      "n": 742,
+      "rank": 889,
+      "word": "جاده",
+      "pos": "noun",
+      "meaning": "(jâdde) road",
+      "sentence": "جاده‌ی شمال خیلی زیباست.",
+      "translation": "The ⟦road⟧ to the north is very beautiful."
+    },
+    {
+      "n": 743,
+      "rank": 890,
+      "word": "جشنواره",
+      "pos": "noun",
+      "meaning": "(jashnvâre) festival",
+      "sentence": "به جشنواره‌ی فیلم رفتیم.",
+      "translation": "We went to the film ⟦festival⟧."
+    },
+    {
+      "n": 744,
+      "rank": 892,
+      "word": "پرونده",
+      "pos": "noun",
+      "meaning": "(parvande) file; case",
+      "sentence": "پرونده‌ی پزشکی‌ات را بیاور.",
+      "translation": "Bring your medical ⟦file⟧."
+    },
+    {
+      "n": 745,
+      "rank": 893,
+      "word": "خسته",
+      "pos": "adj",
+      "meaning": "(khaste) tired",
+      "sentence": "خیلی خسته‌ام.",
+      "translation": "I'm very ⟦tired⟧."
+    },
+    {
+      "n": 746,
+      "rank": 894,
+      "word": "درخت",
+      "pos": "noun",
+      "meaning": "(derakht) tree",
+      "sentence": "یک درخت در حیاط کاشتیم.",
+      "translation": "We planted a ⟦tree⟧ in the yard."
+    },
+    {
+      "n": 747,
+      "rank": 896,
+      "word": "معاون",
+      "pos": "noun",
+      "meaning": "(mo'âven) deputy; vice-",
+      "sentence": "معاون مدیر امروز به جلسه آمد.",
+      "translation": "The ⟦deputy⟧ manager came to the meeting today."
+    },
+    {
+      "n": 748,
+      "rank": 898,
+      "word": "امتحان",
+      "pos": "noun",
+      "meaning": "(emtehân) exam; test (امتحان کردن: to try)",
+      "sentence": "فردا امتحان ریاضی دارم.",
+      "translation": "I have a maths ⟦exam⟧ tomorrow."
+    },
+    {
+      "n": 749,
+      "rank": 899,
+      "word": "شهرداری",
+      "pos": "noun",
+      "meaning": "(shahrdâri) town council; town hall",
+      "sentence": "شهرداری خیابان را تعمیر کرد.",
+      "translation": "The ⟦council⟧ repaired the street."
+    },
+    {
+      "n": 750,
+      "rank": 902,
+      "word": "نهایت",
+      "pos": "noun",
+      "meaning": "(nahâyat) end; limit (در نهایت: in the end)",
+      "sentence": "در نهایت، همه چیز خوب شد.",
+      "translation": "⟦In the end⟧, everything turned out fine."
+    },
+    {
+      "n": 751,
+      "rank": 903,
+      "word": "تشخیص",
+      "pos": "noun",
+      "meaning": "(tashkhis) diagnosis (تشخیص دادن: to tell apart; to recognise)",
+      "sentence": "نمی‌توانم این دو رنگ را تشخیص بدهم.",
+      "translation": "I can't ⟦distinguish⟧ these two colours."
+    },
+    {
+      "n": 752,
+      "rank": 904,
+      "word": "قدم",
+      "pos": "noun",
+      "meaning": "(ghadam) step (قدم زدن: to go for a walk)",
+      "sentence": "بعد از شام قدم می‌زنیم.",
+      "translation": "We ⟦go for a walk⟧ after dinner."
+    },
+    {
+      "n": 753,
+      "rank": 905,
+      "word": "مثال",
+      "pos": "noun",
+      "meaning": "(mesâl) example",
+      "sentence": "یک مثال بزن.",
+      "translation": "Give an ⟦example⟧."
+    },
+    {
+      "n": 754,
+      "rank": 906,
+      "word": "آبی",
+      "pos": "adj",
+      "meaning": "(âbi) blue",
+      "sentence": "آسمان امروز خیلی آبی است.",
+      "translation": "The sky is very ⟦blue⟧ today."
+    },
+    {
+      "n": 755,
+      "rank": 907,
+      "word": "عربی",
+      "pos": "noun",
+      "meaning": "(arabi) Arabic",
+      "sentence": "او عربی را خوب صحبت می‌کند.",
+      "translation": "He speaks ⟦Arabic⟧ well."
+    },
+    {
+      "n": 756,
+      "rank": 909,
+      "word": "برخورد",
+      "pos": "noun",
+      "meaning": "(barkhord) collision; manner; treatment",
+      "sentence": "برخورد او با مشتری‌ها خیلی خوب است.",
+      "translation": "His ⟦manner⟧ with customers is very good."
+    },
+    {
+      "n": 757,
+      "rank": 910,
+      "word": "معماری",
+      "pos": "noun",
+      "meaning": "(me'mâri) architecture",
+      "sentence": "معماری این مسجد فوق‌العاده است.",
+      "translation": "The ⟦architecture⟧ of this mosque is amazing."
+    },
+    {
+      "n": 758,
+      "rank": 911,
+      "word": "مجازی",
+      "pos": "adj",
+      "meaning": "(majâzi) virtual; online (فضای مجازی: the internet)",
+      "sentence": "کلاس‌ها مجازی برگزار می‌شود.",
+      "translation": "Classes are held ⟦online⟧."
+    },
+    {
+      "n": 759,
+      "rank": 912,
+      "word": "باقی",
+      "pos": "adj",
+      "meaning": "(bâghi) remaining; the rest",
+      "sentence": "باقی پول را بعداً می‌دهم.",
+      "translation": "I'll give you the ⟦rest⟧ of the money later."
+    },
+    {
+      "n": 760,
+      "rank": 913,
+      "word": "نگران",
+      "pos": "adj",
+      "meaning": "(negarân) worried",
+      "sentence": "نگران نباش.",
+      "translation": "Don't ⟦worry⟧."
+    },
+    {
+      "n": 761,
+      "rank": 914,
+      "word": "سرزمین",
+      "pos": "noun",
+      "meaning": "(sarzamin) land; territory",
+      "sentence": "ایران سرزمین شعر است.",
+      "translation": "Iran is the ⟦land⟧ of poetry."
+    },
+    {
+      "n": 762,
+      "rank": 915,
+      "word": "جدی",
+      "pos": "adj",
+      "meaning": "(jeddi) serious",
+      "sentence": "شوخی نمی‌کنم، جدی می‌گویم.",
+      "translation": "I'm not joking, I'm ⟦serious⟧."
+    },
+    {
+      "n": 763,
+      "rank": 916,
+      "word": "فرمانده",
+      "pos": "noun",
+      "meaning": "(farmânde) commander",
+      "sentence": "فرمانده به سربازها دستور داد.",
+      "translation": "The ⟦commander⟧ gave orders to the soldiers."
+    },
+    {
+      "n": 764,
+      "rank": 917,
+      "word": "بنا",
+      "pos": "noun",
+      "meaning": "(banâ) building; construction",
+      "sentence": "این بنا پانصد سال قدمت دارد.",
+      "translation": "This ⟦building⟧ is five hundred years old."
+    },
+    {
+      "n": 765,
+      "rank": 918,
+      "word": "ظاهر",
+      "pos": "noun",
+      "meaning": "(zâher) appearance; look",
+      "sentence": "ظاهرش خیلی جوان است.",
+      "translation": "He ⟦looks⟧ very young."
+    },
+    {
+      "n": 766,
+      "rank": 919,
+      "word": "زیرا",
+      "pos": "conj",
+      "meaning": "(zirâ) because (written)",
+      "sentence": "دیر رسیدم، زیرا ترافیک بود.",
+      "translation": "I arrived late ⟦because⟧ there was traffic."
+    },
+    {
+      "n": 767,
+      "rank": 920,
+      "word": "شبیه",
+      "pos": "adj",
+      "meaning": "(shabih) similar; like",
+      "sentence": "تو خیلی شبیه مادرت هستی.",
+      "translation": "You ⟦look like⟧ your mother a lot."
+    },
+    {
+      "n": 768,
+      "rank": 921,
+      "word": "مشترک",
+      "pos": "adj",
+      "meaning": "(moshtarak) shared; joint; common",
+      "sentence": "ما علاقه‌های مشترک زیادی داریم.",
+      "translation": "We have a lot of interests in ⟦common⟧."
+    },
+    {
+      "n": 769,
+      "rank": 922,
+      "word": "اعتراض",
+      "pos": "noun",
+      "meaning": "(e'terâz) protest; objection (اعتراض کردن: to protest)",
+      "sentence": "کارگرها به حقوق کم اعتراض کردند.",
+      "translation": "The workers ⟦protested⟧ about low pay."
+    },
+    {
+      "n": 770,
+      "rank": 925,
+      "word": "شدت",
+      "pos": "noun",
+      "meaning": "(sheddat) intensity (به شدت: very; heavily)",
+      "sentence": "باران به شدت می‌بارد.",
+      "translation": "It's raining ⟦heavily⟧."
+    },
+    {
+      "n": 771,
+      "rank": 926,
+      "word": "اطراف",
+      "pos": "noun",
+      "meaning": "(atrâf) around; surroundings",
+      "sentence": "اطراف خانه‌ی ما پارک زیاد است.",
+      "translation": "There are lots of parks ⟦around⟧ our house."
+    },
+    {
+      "n": 772,
+      "rank": 927,
+      "word": "نقشه",
+      "pos": "noun",
+      "meaning": "(naghshe) map; plan",
+      "sentence": "نقشه‌ی شهر را داری؟",
+      "translation": "Do you have a ⟦map⟧ of the city?"
+    },
+    {
+      "n": 773,
+      "rank": 928,
+      "word": "دادگاه",
+      "pos": "noun",
+      "meaning": "(dâdgâh) court",
+      "sentence": "پرونده به دادگاه رفت.",
+      "translation": "The case went to ⟦court⟧."
+    },
+    {
+      "n": 774,
+      "rank": 929,
+      "word": "پایگاه",
+      "pos": "noun",
+      "meaning": "(pâygâh) base",
+      "sentence": "او در یک پایگاه هوایی کار می‌کند.",
+      "translation": "He works at an air ⟦base⟧."
+    },
+    {
+      "n": 775,
+      "rank": 930,
+      "word": "بیمارستان",
+      "pos": "noun",
+      "meaning": "(bimârestân) hospital",
+      "sentence": "مادربزرگم در بیمارستان است.",
+      "translation": "My grandmother is in ⟦hospital⟧."
+    },
+    {
+      "n": 776,
+      "rank": 931,
+      "word": "مسلمان",
+      "pos": "adj",
+      "meaning": "(mosalmân) Muslim",
+      "sentence": "بیشتر مردم ایران مسلمان هستند.",
+      "translation": "Most people in Iran are ⟦Muslim⟧."
+    },
+    {
+      "n": 777,
+      "rank": 932,
+      "word": "اساسی",
+      "pos": "adj",
+      "meaning": "(asâsi) basic; fundamental; major",
+      "sentence": "این خانه به تعمیر اساسی نیاز دارد.",
+      "translation": "This house needs ⟦major⟧ repairs."
+    },
+    {
+      "n": 778,
+      "rank": 933,
+      "word": "ورزشی",
+      "pos": "adj",
+      "meaning": "(varzeshi) sports; athletic",
+      "sentence": "یک جفت کفش ورزشی خریدم.",
+      "translation": "I bought a pair of ⟦sports⟧ shoes."
+    },
+    {
+      "n": 779,
+      "rank": 934,
+      "word": "نشستن",
+      "pos": "verb",
+      "meaning": "(neshastan) to sit",
+      "sentence": "روی صندلی نشستم.",
+      "translation": "I ⟦sat⟧ on the chair.",
+      "form": "نشستم"
+    },
+    {
+      "n": 780,
+      "rank": 935,
+      "word": "حادثه",
+      "pos": "noun",
+      "meaning": "(hâdese) accident; incident",
+      "sentence": "در این حادثه کسی آسیب ندید.",
+      "translation": "No one was hurt in the ⟦accident⟧."
+    },
+    {
+      "n": 781,
+      "rank": 936,
+      "word": "سریع",
+      "pos": "adj",
+      "meaning": "(sari') fast; quick",
+      "sentence": "او خیلی سریع می‌دود.",
+      "translation": "He runs very ⟦fast⟧."
+    },
+    {
+      "n": 782,
+      "rank": 937,
+      "word": "پوست",
+      "pos": "noun",
+      "meaning": "(pust) skin; peel",
+      "sentence": "پوستم خشک است.",
+      "translation": "My ⟦skin⟧ is dry."
+    },
+    {
+      "n": 783,
+      "rank": 939,
+      "word": "سالم",
+      "pos": "adj",
+      "meaning": "(sâlem) healthy; safe; intact",
+      "sentence": "غذای سالم بخور.",
+      "translation": "Eat ⟦healthy⟧ food."
+    },
+    {
+      "n": 784,
+      "rank": 940,
+      "word": "حکم",
+      "pos": "noun",
+      "meaning": "(hokm) verdict; order; ruling",
+      "sentence": "قاضی حکم را اعلام کرد.",
+      "translation": "The judge announced the ⟦verdict⟧."
+    },
+    {
+      "n": 785,
+      "rank": 941,
+      "word": "چپ",
+      "pos": "adj",
+      "meaning": "(chap) left",
+      "sentence": "دست چپم درد می‌کند.",
+      "translation": "My ⟦left⟧ hand hurts."
+    },
+    {
+      "n": 786,
+      "rank": 945,
+      "word": "فرار",
+      "pos": "noun",
+      "meaning": "(farâr) escape (فرار کردن: to run away)",
+      "sentence": "گربه از دست بچه فرار کرد.",
+      "translation": "The cat ⟦ran away⟧ from the child."
+    },
+    {
+      "n": 787,
+      "rank": 946,
+      "word": "نقل",
+      "pos": "noun",
+      "meaning": "(naghl) moving; quoting (حمل و نقل: transport)",
+      "sentence": "حمل و نقل عمومی در تهران خوب است.",
+      "translation": "Public ⟦transport⟧ in Tehran is good."
+    },
+    {
+      "n": 788,
+      "rank": 947,
+      "word": "اکنون",
+      "pos": "adv",
+      "meaning": "(aknun) now (written)",
+      "sentence": "اکنون ساعت ده است.",
+      "translation": "It's ten o'clock ⟦now⟧."
+    },
+    {
+      "n": 789,
+      "rank": 948,
+      "word": "صنعت",
+      "pos": "noun",
+      "meaning": "(san'at) industry (plural صنایع)",
+      "sentence": "صنعت خودرو در ایران بزرگ است.",
+      "translation": "The car ⟦industry⟧ in Iran is big."
+    },
+    {
+      "n": 790,
+      "rank": 950,
+      "word": "خراب",
+      "pos": "adj",
+      "meaning": "(kharâb) broken; out of order",
+      "sentence": "یخچال خراب است.",
+      "translation": "The fridge is ⟦broken⟧."
+    },
+    {
+      "n": 791,
+      "rank": 952,
+      "word": "تقریباً",
+      "pos": "adv",
+      "meaning": "(taghriban) almost; about",
+      "sentence": "کار تقریباً تمام شد.",
+      "translation": "The work is ⟦almost⟧ finished."
+    },
+    {
+      "n": 792,
+      "rank": 953,
+      "word": "سوار",
+      "pos": "adj",
+      "meaning": "(savâr) riding; on board (سوار شدن: to get on)",
+      "sentence": "سوار اتوبوس شدم.",
+      "translation": "I ⟦got on⟧ the bus."
+    },
+    {
+      "n": 793,
+      "rank": 955,
+      "word": "همچنان",
+      "pos": "adv",
+      "meaning": "(hamchenân) still (written)",
+      "sentence": "باران همچنان می‌بارد.",
+      "translation": "It's ⟦still⟧ raining."
+    },
+    {
+      "n": 794,
+      "rank": 956,
+      "word": "بند",
+      "pos": "noun",
+      "meaning": "(band) strap; lace; clause",
+      "sentence": "بند کفشت باز است.",
+      "translation": "Your ⟦shoelace⟧ is undone."
+    },
+    {
+      "n": 795,
+      "rank": 957,
+      "word": "عجیب",
+      "pos": "adj",
+      "meaning": "(ajib) strange",
+      "sentence": "چه خواب عجیبی دیدم!",
+      "translation": "What a ⟦strange⟧ dream I had!"
+    },
+    {
+      "n": 796,
+      "rank": 958,
+      "word": "فناوری",
+      "pos": "noun",
+      "meaning": "(fanâvari) technology",
+      "sentence": "فناوری خیلی سریع پیشرفت می‌کند.",
+      "translation": "⟦Technology⟧ is advancing very fast."
+    },
+    {
+      "n": 797,
+      "rank": 959,
+      "word": "بنابراین",
+      "pos": "conj",
+      "meaning": "(banâbar-in) so; therefore",
+      "sentence": "باران می‌آمد، بنابراین در خانه ماندیم.",
+      "translation": "It was raining, ⟦so⟧ we stayed at home."
+    },
+    {
+      "n": 798,
+      "rank": 960,
+      "word": "قصد",
+      "pos": "noun",
+      "meaning": "(ghasd) intention (قصد داشتن: to intend)",
+      "sentence": "قصد دارم سال بعد به ایران بروم.",
+      "translation": "I ⟦intend⟧ to go to Iran next year."
+    },
+    {
+      "n": 799,
+      "rank": 961,
+      "word": "چهارم",
+      "pos": "adj",
+      "meaning": "(chahârom) fourth",
+      "sentence": "او در مسابقه چهارم شد.",
+      "translation": "She came ⟦fourth⟧ in the race."
+    },
+    {
+      "n": 800,
+      "rank": 962,
+      "word": "مجله",
+      "pos": "noun",
+      "meaning": "(majalle) magazine",
+      "sentence": "این مجله را هر ماه می‌خرم.",
+      "translation": "I buy this ⟦magazine⟧ every month."
     }
   ]
 }
