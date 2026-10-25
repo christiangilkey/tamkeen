@@ -2161,6 +2161,178 @@
         {"type":"order","q":"Put the words in order.","tr":"I completely agree with you.","words":["Я","по́лностью","с","ва́ми","согла́сен."],"rs":["Ya","pólnost'yu","s","vámi","soglásen."],"from":"with-whom"},
         {"type":"free","q":"Your turn: which is better, the city or the country, summer or winter? Give your opinion with {{по-мо́ему|po-móyemu}} or {{мне ка́жется|mne kázhetsa}}, and a reason.","answers":[{"t":"По-мо́ему, лу́чше жить в го́роде, потому́ что там бо́льше возмо́жностей.","r":"Po-móyemu, lúchshe zhit' v górode, potomú shto tam ból'she vozmózhnostey.","tr":"I think it's better to live in the city, because there are more opportunities there."},{"t":"Мне ка́жется, зима́ лу́чше ле́та. Я люблю́ снег и лы́жи!","r":"Mne kázhetsa, zimá lúchshe léta. Ya lyublyú sneg i lýzhi!","tr":"I think winter is better than summer. I love snow and skiing!"}]}
       ]
+    },
+    {
+      "id": "groups-of-people",
+      "unit": 9,
+      "level": "B1",
+      "title": "Talk about groups of people and things",
+      "summary": "Talk about friends, children, colleagues and things in the plural, in every case: “I call my parents.” “I went with friends.”",
+      "topic": "The plural of the other cases: dative {{-ам|-am}}, instrumental {{-ами|-ami}}, prepositional {{-ах|-akh}}; adjectives in {{-ым|-ym}}, {{-ыми|-ymi}}, {{-ых|-ykh}}",
+      "blocks": [
+        {"goal":{"t":"Я живу́ с роди́телями и ча́сто звоню́ друзья́м.","r":"Ya zhivú s rodítelyami i chásto zvonyú druz'yám.","tr":"I live with my parents and often call my friends."}},
+        {"dialog":[{"who":"Nadya","t":"Ты ча́сто ви́дишься с друзья́ми?","r":"Ty chásto vídish'sya s druz'yámi?","tr":"Do you see your friends often?"},{"who":"Paul","t":"Да, по пя́тницам мы встреча́емся в ба́рах и́ли в кафе́.","r":"Da, po pyátnitsam my vstrecháyemsya v bárakh íli v kafé.","tr":"Yes, on Fridays we meet up in bars or cafés."},{"who":"Nadya","t":"А о чём вы говори́те?","r":"A o chom vy govoríte?","tr":"And what do you talk about?"},{"who":"Paul","t":"Обо всём: о рабо́те, о де́тях, о фи́льмах.","r":"Obo vsyom: o rabóte, o détyakh, o fíl'makh.","tr":"About everything: work, kids, movies."},{"who":"Nadya","t":"А с колле́гами ты дру́жишь?","r":"A s kollégami ty drúzhish'?","tr":"And are you friends with your colleagues?"},{"who":"Paul","t":"С не́которыми. Но с колле́гами я не люблю́ говори́ть о рабо́те!","r":"S nékotorymi. No s kollégami ya ne lyublyú govorít' o rabóte!","tr":"With some of them. But I don't like talking about work with colleagues!"}]},
+        {"p":"Good news: in the plural, three cases have the same endings for all three genders. Dative {{-ам|-am}}, instrumental {{-ами|-ami}}, prepositional {{-ах|-akh}}, with {{я|ya}} instead of {{а|a}} after a soft ending."},
+        { "table": [
+          ["","{{друзья́|druz'yá}}, {{де́ти|déti}}, {{кни́ги|knígi}}","ending"],
+          ["dative: to","{{друзья́м|druz'yám}}, {{де́тям|détyam}}, {{кни́гам|knígam}}","{{-ам|-am}}, {{-ям|-yam}}"],
+          ["instrumental: with","{{с друзья́ми|s druz'yámi}}, {{с детьми́|s det'mí}}, {{с кни́гами|s knígami}}","{{-ами|-ami}}, {{-ями|-yami}}"],
+          ["prepositional: about, in","{{о друзья́х|o druz'yákh}}, {{о де́тях|o détyakh}}, {{в кни́гах|v knígakh}}","{{-ах|-akh}}, {{-ях|-yakh}}"]
+        ] },
+        {"p":"Two famous exceptions: {{с детьми́|s det'mí}} “with children” and {{с людьми́|s lyud'mí}} “with people”. The accusative plural is the nominative for things ({{Я чита́ю кни́ги.|Ya chitáyu knígi.}}) and the genitive plural for people and animals ({{Я жду друзе́й.|Ya zhdu druzéy.}} “I'm waiting for my friends.”)."},
+        {"p":"**Adjectives in the plural** have {{ы|y}} (or {{и|i}}) and the same letters: {{-ых|-ykh}} (genitive, prepositional, and the accusative of people), {{-ым|-ym}} (dative), {{-ыми|-ymi}} (instrumental): {{с но́выми друзья́ми|s nóvymi druz'yámi}}, {{в ста́рых города́х|v stárykh gorodákh}}, {{ру́сским друзья́м|rússkim druz'yám}}. And {{по|po}} + the dative plural means “along, around” or “on (every)…”: {{по ста́рым у́лицам|po stárym úlitsam}}, {{по пя́тницам|po pyátnitsam}}."},
+        { "ex": [
+          {"t":"Я пишу́ пи́сьма друзья́м.","r":"Ya pishú pís'ma druz'yám.","tr":"I'm writing letters to my friends."},
+          {"t":"Мы гуля́ли с детьми́ в па́рке.","r":"My gulyáli s det'mí v párke.","tr":"We went for a walk in the park with the kids."},
+          {"t":"Он мно́го зна́ет о ру́сских писа́телях.","r":"On mnógo znáyet o rússkikh pisátelyakh.","tr":"He knows a lot about Russian writers."},
+          {"t":"Я люблю́ гуля́ть по ста́рым у́лицам.","r":"Ya lyublyú gulyát' po stárym úlitsam.","tr":"I like walking along old streets."},
+          {"t":"Нам на́до поговори́ть с роди́телями.","r":"Nam nádo pogovorít' s rodítelyami.","tr":"We need to talk to our parents."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я говори́л с друзья́.","right":"Я говори́л с друзья́ми.","tr":"I was talking with friends.","why":"“With”: the instrumental plural, {{-ами|-ami}}."},
+        {"wrong":"Я живу́ с де́тями.","right":"Я живу́ с детьми́.","tr":"I live with my children.","why":"{{де́ти|déti}} and {{лю́ди|lyúdi}} are irregular: {{с детьми́|s det'mí}}, {{с людьми́|s lyud'mí}}."},
+        {"wrong":"Я ду́маю о де́ти.","right":"Я ду́маю о де́тях.","tr":"I'm thinking about the kids.","why":"{{о|o}} + the prepositional plural: {{-ях|-yakh}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Я ча́сто звоню́ ___.","r":"Ya chásto zvonyú ___.","tr":"I often call my parents.","options":["роди́телям","роди́телей","роди́тели"],"rs":["rodítelyam","rodíteley","rodíteli"],"answer":0,"why":"{{звони́ть|zvonít'}} + the dative plural: {{-ям|-yam}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Мы е́здили на мо́ре с ___.","r":"My yézdili na móre s ___.","tr":"We went to the seaside with friends.","options":["друзья́ми","друзья́м","друзе́й"],"rs":["druz'yámi","druz'yám","druzéy"],"answer":0,"why":"{{с|s}} + the instrumental plural."},
+        {"type":"fill","q":"Choose the missing word.","t":"Он мно́го расска́зывал о ___.","r":"On mnógo rasskázyval o ___.","tr":"He talked a lot about his travels.","options":["путеше́ствиях","путеше́ствия","путеше́ствиями"],"rs":["puteshéstviyakh","puteshéstviya","puteshéstviyami"],"answer":0,"why":"{{о|o}} + the prepositional plural: {{-ях|-yakh}}."},
+        {"type":"choice","q":"“With children” is…","options":["{{с детьми́|s det'mí}}","{{с де́тями|s détyami}}"],"answer":0,"why":"One of the two exceptions, with {{людьми́|lyud'mí}}."},
+        {"type":"dialogue","q":"A neighbor is curious. Choose your replies.","from":"talk-about-things","lines":[{"who":"Neighbor","t":"О чём вы так до́лго говори́ли с сосе́дями?","r":"O chom vy tak dólgo govoríli s sosédyami?","tr":"What were you talking to the neighbors about for so long?"},{"options":["О на́ших де́тях и о шко́лах.","О на́ши де́ти и о шко́лы."],"rs":["O náshikh détyakh i o shkólakh.","O náshi déti i o shkóly."],"answer":0,"why":"{{о|o}} + the prepositional plural: {{-ях|-yakh}}, {{-ах|-akh}}, and {{на́ших|náshikh}}."},{"who":"Neighbor","t":"И что они́ сказа́ли?","r":"I shto oní skazáli?","tr":"And what did they say?"},{"options":["Что они́ дово́льны но́выми учителя́ми.","Что они́ дово́льны но́вые учителя́."],"rs":["Shto oní dovól'ny nóvymi uchitelyámi.","Shto oní dovól'ny nóvyye uchitelyá."],"answer":0,"why":"{{дово́лен|dovólen}} “pleased with” takes the instrumental: {{-ыми|-ymi}}, {{-ами|-ami}}."},{"who":"Neighbor","t":"Пра́вда? Здо́рово!","r":"Právda? Zdórovo!","tr":"Really? Great!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I like walking along old streets.","words":["Я","люблю́","гуля́ть","по","ста́рым","у́лицам."],"rs":["Ya","lyublyú","gulyát'","po","stárym","úlitsam."],"from":"say-what-you-like"},
+        {"type":"free","q":"Your turn: who do you spend time with, who do you call or write to, and what do you talk about? Use the plural: {{с друзья́ми|s druz'yámi}}, {{роди́телям|rodítelyam}}, {{о…ах|o…akh}}.","answers":[{"t":"По выходны́м я встреча́юсь с друзья́ми. Мы говори́м о фи́льмах и о кни́гах. Я ча́сто звоню́ роди́телям.","r":"Po vykhodným ya vstrecháyus' s druz'yámi. My govorím o fíl'makh i o knígakh. Ya chásto zvonyú rodítelyam.","tr":"On weekends I meet up with friends. We talk about movies and books. I often call my parents."},{"t":"Я рабо́таю с о́чень хоро́шими людьми́. Мы ча́сто обе́даем вме́сте и говори́м о де́тях.","r":"Ya rabótayu s óchen' khoróshimi lyud'mí. My chásto obédayem vméste i govorím o détyakh.","tr":"I work with really nice people. We often have lunch together and talk about our kids."}]}
+      ]
+    },
+    {
+      "id": "myself-and-my-own",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say “my own” and “myself”",
+      "summary": "Say “He loves his wife”, “Take it with you”, “Tell me about yourself”: Russian's {{свой|svoy}} and {{себя́|sebyá}}.",
+      "topic": "{{свой|svoy}} and {{его́|yevó}}, {{её|yeyó}}, {{их|ikh}}; {{себя́|sebyá}} ({{себе́|sebé}}, {{собо́й|sobóy}})",
+      "blocks": [
+        {"goal":{"t":"Расскажи́те, пожа́луйста, о себе́ и о свое́й семье́.","r":"Rasskazhíte, pozháluysta, o sebé i o svoyéy sem'yé.","tr":"Please tell us about yourself and your family."}},
+        {"dialog":[{"who":"Interviewer","t":"Расскажи́те, пожа́луйста, о себе́.","r":"Rasskazhíte, pozháluysta, o sebé.","tr":"Please tell me about yourself."},{"who":"Candidate","t":"Я программи́ст. Я рабо́таю в свое́й компа́нии уже́ пять лет.","r":"Ya programmíst. Ya rabótayu v svoyéy kompánii uzhé pyat' let.","tr":"I'm a programmer. I've been working at my company for five years."},{"who":"Interviewer","t":"Почему́ вы хоти́те уйти́?","r":"Pochemú vy khotíte uytí?","tr":"Why do you want to leave?"},{"who":"Candidate","t":"Я хочу́ развива́ться. И мне нра́вится ва́ша компа́ния и её прое́кты.","r":"Ya khochú razvivátsa. I mne nrávitsa vásha kompániya i yeyó proyékty.","tr":"I want to grow. And I like your company and its projects."},{"who":"Interviewer","t":"Хорошо́. У вас есть с собо́й резюме́?","r":"Khoroshó. U vas yest' s sobóy rezyumé?","tr":"Good. Do you have your résumé with you?"},{"who":"Candidate","t":"Да, вот оно́.","r":"Da, vot onó.","tr":"Yes, here it is."}]},
+        {"p":"**{{свой|svoy}}: one's own.** When “his”, “her” or “their” points back to the subject of the same sentence, Russian uses {{свой|svoy}}: {{Он лю́бит свою́ жену́.|On lyúbit svoyú zhenú.}} “He loves his wife.” With {{его́|yevó}} it would be someone else's: {{Он лю́бит его́ жену́.|On lyúbit yevó zhenú.}} “He loves his (another man's) wife”: quite a different story! {{свой|svoy}} changes like {{мой|moy}}: {{свой|svoy}}, {{своя́|svoyá}}, {{своё|svoyó}}, {{свои́|svoí}}, {{свою́|svoyú}}, {{своего́|svoyevó}}, {{свое́й|svoyéy}}…"},
+        { "table": [
+          ["","the subject's own","someone else's"],
+          ["Russian","{{Ива́н взял свою́ су́мку.|Iván vzyal svoyú súmku.}}","{{Ива́н взял его́ су́мку.|Iván vzyal yevó súmku.}}"],
+          ["English","Ivan took his (own) bag.","Ivan took his (another man's) bag."],
+          ["Russian","{{А́нна звони́т свое́й ма́ме.|Ánna zvonít svoyéy máme.}}","{{А́нна звони́т её ма́ме.|Ánna zvonít yeyó máme.}}"],
+          ["English","Anna is calling her (own) mom.","Anna is calling her (another woman's) mom."]
+        ] },
+        {"p":"With “I”, “you” and “we”, both are fine: {{Я взял свою́ су́мку|Ya vzyal svoyú súmku}} or {{мою́ су́мку|moyú súmku}}. But {{свой|svoy}} is never in the subject itself: {{Моя́ сестра́ живёт здесь|Moyá sestrá zhivyót zdes'}}, never {{своя́|svoyá}}."},
+        {"p":"**{{себя́|sebyá}}: oneself.** {{себя́|sebyá}} “myself, yourself, himself…” is one word for every person. It's never the subject, so it has no nominative; its forms are {{себя́|sebyá}} (accusative, genitive), {{себе́|sebé}} (dative, prepositional) and {{собо́й|sobóy}} (instrumental). It's in many everyday phrases: {{Расскажи́ о себе́.|Rasskazhí o sebé.}} “Tell me about yourself.” {{Возьми́ с собо́й зо́нтик.|Voz'mí s sobóy zóntik.}} “Take an umbrella with you.” {{Я купи́л себе́ но́вый телефо́н.|Ya kupíl sebé nóvyy telefón.}} “I bought myself a new phone.” {{Береги́ себя́!|Beregí sebyá!}} “Take care of yourself!”"},
+        { "ex": [
+          {"t":"Он живёт со свои́ми роди́телями.","r":"On zhivyót so svoími rodítelyami.","tr":"He lives with his parents."},
+          {"t":"Она́ ча́сто говори́т о свое́й рабо́те.","r":"Oná chásto govorít o svoyéy rabóte.","tr":"She often talks about her work."},
+          {"t":"Мы взя́ли с собо́й дете́й.","r":"My vzyáli s sobóy detéy.","tr":"We took the kids with us."},
+          {"t":"Ты ду́маешь то́лько о себе́!","r":"Ty dúmayesh' tól'ko o sebé!","tr":"You only think about yourself!"},
+          {"t":"Ка́ждый ребёнок лю́бит свою́ ма́му.","r":"Kázhdyy rebyónok lyúbit svoyú mámu.","tr":"Every child loves their mom."},
+          {"t":"Я дово́лен собо́й.","r":"Ya dovólen sobóy.","tr":"I'm pleased with myself."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Ма́ша позвони́ла её ма́ме.","right":"Ма́ша позвони́ла свое́й ма́ме.","tr":"Masha called her mom.","why":"Her own mom, the subject's: {{свое́й|svoyéy}}. {{её ма́ме|yeyó máme}} would be another woman's mom."},
+        {"wrong":"Своя́ кварти́ра о́чень больша́я.","right":"Моя́ кварти́ра о́чень больша́я.","tr":"My apartment is very big.","why":"{{свой|svoy}} is never in the subject."},
+        {"wrong":"Возьми́ зо́нтик с тобо́й.","right":"Возьми́ зо́нтик с собо́й.","tr":"Take an umbrella with you.","why":"Pointing back to the person doing it: {{собо́й|sobóy}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Он ча́сто звони́т ___ сестре́.","r":"On chásto zvonít ___ sestré.","tr":"He often calls his sister.","options":["свое́й","его́","её"],"rs":["svoyéy","yevó","yeyó"],"answer":0,"why":"His own sister: {{свое́й|svoyéy}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Расскажи́ о ___!","r":"Rasskazhí o ___!","tr":"Tell me about yourself!","options":["себе́","тебе́","себя́"],"rs":["sebé","tebé","sebyá"],"answer":0,"why":"{{о|o}} + the prepositional of {{себя́|sebyá}}: {{себе́|sebé}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Не забу́дь взять с ___ па́спорт.","r":"Ne zabúd' vzyat' s ___ pásport.","tr":"Don't forget to take your passport with you.","options":["собо́й","тобо́й","себе́"],"rs":["sobóy","tobóy","sebé"],"answer":0,"why":"“With you(rself)”: {{с собо́й|s sobóy}}."},
+        {"type":"choice","q":"{{Оле́г взял его́ маши́ну|Olég vzyal yevó mashínu}} means…","options":["Oleg took another man's car.","Oleg took his own car."],"answer":0,"why":"His own car would be {{свою́ маши́ну|svoyú mashínu}}."},
+        {"type":"dialogue","q":"You live with your girlfriend and her cat. Choose your replies.","from":"with-whom","lines":[{"who":"Friend","t":"С кем ты живёшь?","r":"S kem ty zhivyósh'?","tr":"Who do you live with?"},{"options":["Со свое́й де́вушкой и её ко́шкой.","С мое́й де́вушкой и свое́й ко́шкой."],"rs":["So svoyéy dévushkoy i yeyó kóshkoy.","S moyéy dévushkoy i svoyéy kóshkoy."],"answer":0,"why":"Your girlfriend: {{свое́й|svoyéy}}; her cat: {{её|yeyó}}. ({{свое́й ко́шкой|svoyéy kóshkoy}} would be your own cat.)"},{"who":"Friend","t":"А ко́шка тебе́ не меша́ет?","r":"A kóshka tebé ne mesháyet?","tr":"Doesn't the cat bother you?"},{"options":["Нет, я её о́чень люблю́. Я да́же купи́л ей но́вую игру́шку.","Нет, я её о́чень люблю́. Я да́же купи́л себе́ но́вую игру́шку."],"rs":["Net, ya yeyó óchen' lyublyú. Ya dázhe kupíl yey nóvuyu igrúshku.","Net, ya yeyó óchen' lyublyú. Ya dázhe kupíl sebé nóvuyu igrúshku."],"answer":0,"why":"A present for the cat: {{ей|yey}}. {{себе́|sebé}} would be for yourself!"},{"who":"Friend","t":"Как ми́ло!","r":"Kak mílo!","tr":"How sweet!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I bought myself a new phone.","words":["Я","купи́л","себе́","но́вый","телефо́н."],"rs":["Ya","kupíl","sebé","nóvyy","telefón."],"from":"give-and-tell"},
+        {"type":"free","q":"Your turn: tell someone about yourself and your family. Use {{свой|svoy}} at least once, and {{себе́|sebé}} or {{с собо́й|s sobóy}} once.","answers":[{"t":"Я живу́ со свое́й семьёй в Бо́стоне. Ле́том мы всегда́ берём с собо́й на мо́ре на́шу соба́ку.","r":"Ya zhivú so svoyéy sem'yóy v Bóstone. Létom my vsegdá beryóm s sobóy na móre náshu sobáku.","tr":"I live with my family in Boston. In summer we always take our dog with us to the seaside."},{"t":"Мой брат лю́бит свою́ рабо́ту. А я неда́вно купи́ла себе́ велосипе́д.","r":"Moy brat lyúbit svoyú rabótu. A ya nedávno kupíla sebé velosipéd.","tr":"My brother loves his job. And I recently bought myself a bike."}]}
+      ]
+    },
+    {
+      "id": "imagine-and-wish",
+      "unit": 9,
+      "level": "B1",
+      "title": "Imagine, wish and ask very politely",
+      "summary": "Say what you would do and what you'd like, and ask with extra politeness: “If I had time, I'd go to Russia.” “Could you help me?”",
+      "topic": "{{бы|by}} + the past: {{е́сли бы…|yésli by…}}, {{я бы хоте́л|ya by khotél}}, {{Не могли́ бы вы…?|Ne moglí by vy…?}}",
+      "blocks": [
+        {"goal":{"t":"Е́сли бы у меня́ бы́ло вре́мя, я бы пое́хал в Росси́ю.","r":"Yésli by u menyá býlo vrémya, ya by poyékhal v Rossíyu.","tr":"If I had time, I'd go to Russia.","note":"a man; a woman says {{пое́хала|poyékhala}}"}},
+        {"dialog":[{"who":"Masha","t":"Что бы ты сде́лал, е́сли бы вы́играл миллио́н?","r":"Shto by ty sdélal, yésli by výigral millión?","tr":"What would you do if you won a million?"},{"who":"Gleb","t":"Я бы купи́л дом у мо́ря и бро́сил рабо́ту!","r":"Ya by kupíl dom u mórya i brósil rabótu!","tr":"I'd buy a house by the sea and quit my job!"},{"who":"Masha","t":"А я бы путеше́ствовала по ми́ру.","r":"A ya by puteshéstvovala po míru.","tr":"And I'd travel around the world."},{"who":"Gleb","t":"Хорошо́ бы! Но пока́ на́до рабо́тать.","r":"Khoroshó by! No poká nádo rabótat'.","tr":"That'd be nice! But for now we have to work."},{"who":"Masha","t":"Да… Слу́шай, ты не мог бы мне помо́чь с отчётом?","r":"Da… Slúshay, ty ne mog by mne pomóch' s otchótom?","tr":"Yeah… Listen, could you help me with the report?"},{"who":"Gleb","t":"Коне́чно!","r":"Konéshno!","tr":"Of course!"}]},
+        {"p":"**One little word: {{бы|by}}.** {{бы|by}} with the past tense makes “would”: {{я бы купи́л|ya by kupíl}} “I would buy”. The form is the same whether you mean now, the future or the past, and the past follows the gender as usual: {{я бы купи́ла|ya by kupíla}} (a woman)."},
+        {"p":"**If only.** For something imagined, both halves get {{бы|by}}: {{е́сли бы|yésli by}} + the past, then {{бы|by}} + the past: {{Е́сли бы у меня́ бы́ло вре́мя, я бы пое́хал.|Yésli by u menyá býlo vrémya, ya by poyékhal.}} “If I had time, I'd go.” The same sentence can also mean “If I'd had time, I'd have gone”: the context tells you which. Compare a real possibility, from lesson 39:"},
+        { "table": [
+          ["","real: it may well happen","imagined: it isn't so"],
+          ["Russian","{{Е́сли бу́дет вре́мя, я пое́ду.|Yésli búdet vrémya, ya poyédu.}}","{{Е́сли бы бы́ло вре́мя, я бы пое́хал.|Yésli by býlo vrémya, ya by poyékhal.}}"],
+          ["English","If I have time, I'll go.","If I had time, I'd go."]
+        ] },
+        {"p":"**Wishes and politeness.** {{Я бы хоте́л|Ya by khotél}} (a woman: {{хоте́ла|khotéla}}) “I'd like” is softer than {{я хочу́|ya khochú}}: {{Я бы хоте́ла заказа́ть стол.|Ya by khotéla zakazát' stol.}} “I'd like to book a table.” {{Не могли́ бы вы…?|Ne moglí by vy…?}} “Could you…?” is the politest way to ask. And {{Хорошо́ бы…|Khoroshó by…}} “It would be nice…”, {{На твоём ме́сте я бы…|Na tvoyóm méste ya by…}} “If I were you, I'd…”."},
+        {"p":"**Where {{бы|by}} goes.** Usually right after the verb or after the first word: {{Я бы пое́хал|Ya by poyékhal}} or {{Я пое́хал бы|Ya poyékhal by}}. With {{е́сли|yésli}}, it sticks to it: {{е́сли бы|yésli by}}."},
+        { "ex": [
+          {"t":"Я бы хоте́л заказа́ть стол на двои́х.","r":"Ya by khotél zakazát' stol na dvoíkh.","tr":"I'd like to book a table for two."},
+          {"t":"Не могли́ бы вы мне помо́чь?","r":"Ne moglí by vy mne pomóch'?","tr":"Could you help me?"},
+          {"t":"На твоём ме́сте я бы ей позвони́л.","r":"Na tvoyóm méste ya by yey pozvoníl.","tr":"If I were you, I'd call her."},
+          {"t":"Е́сли бы я знал, я бы тебе́ сказа́л.","r":"Yésli by ya znal, ya by tebé skazál.","tr":"If I'd known, I'd have told you."},
+          {"t":"Я бы с удово́льствием, но не могу́.","r":"Ya by s udovól'stviyem, no ne mogú.","tr":"I'd love to, but I can't."},
+          {"t":"Хорошо́ бы сейча́с на мо́ре!","r":"Khoroshó by seychás na móre!","tr":"It'd be nice to be at the seaside right now!"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Е́сли бы у меня́ есть вре́мя, я бы пое́хал.","right":"Е́сли бы у меня́ бы́ло вре́мя, я бы пое́хал.","tr":"If I had time, I'd go.","why":"After {{е́сли бы|yésli by}}: the past, {{бы́ло|býlo}}."},
+        {"wrong":"Е́сли бы я вы́играл миллио́н, я куплю́ дом.","right":"Е́сли бы я вы́играл миллио́н, я бы купи́л дом.","tr":"If I won a million, I'd buy a house.","why":"Both halves are imagined: {{бы|by}} + the past in both."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Е́сли бы у меня́ ___ де́ньги, я бы купи́л маши́ну.","r":"Yésli by u menyá ___ dén'gi, ya by kupíl mashínu.","tr":"If I had money, I'd buy a car.","options":["бы́ли","есть","бу́дут"],"rs":["býli","yest'","búdut"],"answer":0,"why":"After {{е́сли бы|yésli by}}: the past; {{де́ньги|dén'gi}} is plural, so {{бы́ли|býli}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Я ___ хоте́ла заказа́ть стол.","r":"Ya ___ khotéla zakazát' stol.","tr":"I'd like to book a table.","options":["бы","бу́ду","е́сли"],"rs":["by","búdu","yésli"],"answer":0,"why":"“I'd like”: {{я бы хоте́ла|ya by khotéla}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Не ___ бы вы откры́ть окно́?","r":"Ne ___ by vy otkrýt' oknó?","tr":"Could you open the window?","options":["могли́","мо́жете","мог"],"rs":["moglí","mózhete","mog"],"answer":0,"why":"To {{вы|vy}}: {{могли́|moglí}}, always plural."},
+        {"type":"choice","q":"{{Е́сли бы я знал, я бы пришёл|Yésli by ya znal, ya by prishól}} means…","options":["If I'd known, I'd have come.","If I know, I'll come.","When I knew, I came."],"answer":0,"why":"Imagined, about the past here: {{бы|by}} + the past in both halves."},
+        {"type":"dialogue","q":"You're a man. A friend invites you out. Choose your replies.","from":"if-and-when","lines":[{"who":"Friend","t":"Пойдём в суббо́ту на конце́рт?","r":"Poydyóm v subbótu na kontsért?","tr":"Shall we go to the concert on Saturday?"},{"options":["Я бы с удово́льствием, но я рабо́таю.","Я с удово́льствием бы, е́сли я рабо́таю."],"rs":["Ya by s udovól'stviyem, no ya rabótayu.","Ya s udovól'stviyem by, yésli ya rabótayu."],"answer":0,"why":"“I'd love to”: {{я бы с удово́льствием|ya by s udovól'stviyem}}."},{"who":"Friend","t":"А е́сли бы ты не рабо́тал?","r":"A yésli by ty ne rabótal?","tr":"And if you weren't working?"},{"options":["Тогда́ я бы обяза́тельно пошёл!","Тогда́ я обяза́тельно пойду́ бы!"],"rs":["Togdá ya by obyazátel'no poshól!","Togdá ya obyazátel'no poydú by!"],"answer":0,"why":"Imagined: {{бы|by}} + the past."},{"who":"Friend","t":"Жаль!","r":"Zhal'!","tr":"Too bad!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Could you speak more slowly?","words":["Не","могли́","бы","вы","говори́ть","ме́дленнее?"],"rs":["Ne","moglí","by","vy","govorít'","médlenneye?"],"from":"ask-someone-to-do"},
+        {"type":"free","q":"Your turn: what would you do if you had a free year and plenty of money? Use {{е́сли бы…|yésli by…}} and {{я бы…|ya by…}}.","answers":[{"t":"Е́сли бы у меня́ был свобо́дный год, я бы пое́хал в Росси́ю и жил бы в Петербу́рге.","r":"Yésli by u menyá byl svobódnyy god, ya by poyékhal v Rossíyu i zhil by v Peterbúrge.","tr":"If I had a free year, I'd go to Russia and live in St. Petersburg."},{"t":"Е́сли бы у меня́ бы́ло мно́го де́нег, я бы купи́ла дом у мо́ря и учи́ла бы языки́.","r":"Yésli by u menyá býlo mnógo déneg, ya by kupíla dom u mórya i uchíla by yazykí.","tr":"If I had lots of money, I'd buy a house by the sea and learn languages."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 9,
+      "level": "B1",
+      "title": "Tell a story",
+      "summary": "Put it all together: tell the story of a trip, with what was going on, what happened, what people said and how it ended.",
+      "topic": "Everything together: aspect with {{как то́лько|kak tól'ko}}, {{пока́|poká}}, {{пе́ред тем как|péred tem kak}}, {{по́сле того́ как|pósle tovó kak}}; verbs of motion; reported speech",
+      "blocks": [
+        {"goal":{"t":"Как то́лько мы прие́хали в Петербу́рг, пошёл дождь.","r":"Kak tól'ko my priyékhali v Peterbúrg, poshól dozhd'.","tr":"As soon as we got to St. Petersburg, it started to rain."}},
+        {"dialog":[{"who":"Anton","t":"Ну, как съе́здили в Петербу́рг?","r":"Nu, kak syézdili v Peterbúrg?","tr":"So, how was your trip to St. Petersburg?"},{"who":"Vera","t":"Слу́шай, э́то бы́ло что́-то! Как то́лько мы прие́хали, пошёл дождь.","r":"Slúshay, éto býlo shtó-to! Kak tól'ko my priyékhali, poshól dozhd'.","tr":"Listen, it was something else! As soon as we arrived, it started to rain."},{"who":"Vera","t":"Пока́ мы иска́ли гости́ницу, мы промо́кли до ни́тки.","r":"Poká my iskáli gostínitsu, my promókli do nítki.","tr":"While we were looking for the hotel, we got soaked to the skin."},{"who":"Anton","t":"Ой! А пото́м?","r":"Oy! A potóm?","tr":"Oh no! And then?"},{"who":"Vera","t":"Пото́м мы зашли́ в ма́ленькое кафе́. Хозя́ин сказа́л, что угости́т нас ча́ем, потому́ что мы похо́жи на мо́крых котя́т!","r":"Potóm my zashlí v málen'koye kafé. Khozyáin skazál, shto ugostít nas cháyem, potomú shto my pokhózhi na mókrykh kotyát!","tr":"Then we went into a little café. The owner said he'd treat us to tea, because we looked like wet kittens!"},{"who":"Anton","t":"Вот э́то да! А что бы́ло да́льше?","r":"Vot éto da! A shto býlo dál'she?","tr":"Wow! What happened next?"},{"who":"Vera","t":"Пе́ред тем как уйти́, мы спроси́ли, како́е его́ люби́мое ме́сто в го́роде. И он нам всё показа́л!","r":"Péred tem kak uytí, my sprosíli, kakóye yevó lyubímoye mésto v górode. I on nam vsyo pokazál!","tr":"Before we left, we asked what his favorite place in the city was. And he showed us everything!"}]},
+        {"p":"A good story uses everything you know. The perfective moves the events on, the imperfective sets the scene, verbs of motion take people places, and reported speech brings in what they said. These joining words make it flow:"},
+        { "table": [
+          ["","Russian","for example"],
+          ["as soon as","{{как то́лько|kak tól'ko}}","{{Как то́лько мы прие́хали, пошёл дождь.|Kak tól'ko my priyékhali, poshól dozhd'.}}"],
+          ["while","{{пока́|poká}}","{{Пока́ мы иска́ли гости́ницу, мы промо́кли.|Poká my iskáli gostínitsu, my promókli.}}"],
+          ["before","{{пе́ред тем как|péred tem kak}}","{{Пе́ред тем как уйти́, мы попроща́лись.|Péred tem kak uytí, my poproshchális'.}}"],
+          ["after","{{по́сле того́ как|pósle tovó kak}}","{{По́сле того́ как мы поу́жинали, мы пошли́ гуля́ть.|Pósle tovó kak my poúzhinali, my poshlí gulyát'.}}"],
+          ["when","{{когда́|kogdá}}","{{Когда́ мы вы́шли, со́лнце уже́ свети́ло.|Kogdá my výshli, sóntse uzhé svetílo.}}"]
+        ] },
+        {"p":"**Aspect with them.** {{как то́лько|kak tól'ko}} and {{по́сле того́ как|pósle tovó kak}} come with finished events: the perfective. {{пока́|poká}} “while” sets a background: usually the imperfective. {{пе́ред тем как|péred tem kak}} takes an infinitive when it's the same person: {{пе́ред тем как уйти́|péred tem kak uytí}} “before leaving”."},
+        {"p":"**Telling it well.** Start with when and where ({{Два го́да наза́д мы е́здили в…|Dva góda nazád my yézdili v…}}), set the scene with imperfectives, give the events with perfectives, quote people with {{сказа́л, что…|skazál, shto…}}, and end with how it turned out: {{В конце́ концо́в…|V kontsé kontsóv…}}, {{С тех пор…|S tekh por…}} “Ever since then…”."},
+        { "ex": [
+          {"t":"Пока́ я гото́вил у́жин, де́ти смотре́ли мультфи́льмы.","r":"Poká ya gotóvil úzhin, déti smotréli mul'tfíl'my.","tr":"While I was making dinner, the kids were watching cartoons."},
+          {"t":"Как то́лько он вошёл, все замолча́ли.","r":"Kak tól'ko on voshól, vse zamolcháli.","tr":"As soon as he walked in, everyone went quiet."},
+          {"t":"Пе́ред тем как уе́хать, позвони́ мне.","r":"Péred tem kak uyékhat', pozvoní mne.","tr":"Call me before you leave."},
+          {"t":"По́сле того́ как мы посмотре́ли фильм, мы до́лго спо́рили.","r":"Pósle tovó kak my posmotréli fil'm, my dólgo spórili.","tr":"After we watched the movie, we argued for a long time."},
+          {"t":"С тех пор мы лу́чшие друзья́.","r":"S tekh por my lúchshiye druz'yá.","tr":"We've been best friends ever since."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Как то́лько мы приезжа́ли, пошёл дождь.","right":"Как то́лько мы прие́хали, пошёл дождь.","tr":"As soon as we arrived, it started to rain.","why":"{{как то́лько|kak tól'ko}}: a finished event, the perfective."},
+        {"wrong":"Пока́ мы нашли́ гости́ницу, мы промо́кли.","right":"Пока́ мы иска́ли гости́ницу, мы промо́кли.","tr":"While we were looking for the hotel, we got soaked.","why":"{{пока́|poká}} “while”: an ongoing background, the imperfective."},
+        {"wrong":"Пе́ред тем как я уйти́, я позвони́л.","right":"Пе́ред тем как уйти́, я позвони́л.","tr":"Before leaving, I called.","why":"The same person: {{пе́ред тем как|péred tem kak}} + the infinitive, with no pronoun."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Как то́лько я ___ домо́й, я тебе́ позвони́л.","r":"Kak tól'ko ya ___ domóy, ya tebé pozvoníl.","tr":"As soon as I got home, I called you.","options":["пришёл","приходи́л","шёл"],"rs":["prishól","prikhodíl","shol"],"answer":0,"why":"{{как то́лько|kak tól'ko}}: the perfective."},
+        {"type":"fill","q":"Choose the missing word.","t":"Пока́ мы ___ по́езд, мы пи́ли ко́фе.","r":"Poká my ___ póyezd, my píli kófe.","tr":"While we were waiting for the train, we drank coffee.","options":["жда́ли","подожда́ли"],"rs":["zhdáli","podozhdáli"],"answer":0,"why":"{{пока́|poká}}: the background, imperfective."},
+        {"type":"fill","q":"Choose the missing word.","t":"Пе́ред тем как ___, вы́ключи свет.","r":"Péred tem kak ___, výklyuchi svet.","tr":"Turn off the light before you leave.","options":["уйти́","уйдёшь","ушёл"],"rs":["uytí","uydyósh'","ushól"],"answer":0,"why":"The same person: {{пе́ред тем как|péred tem kak}} + the infinitive."},
+        {"type":"choice","q":"{{По́сле того́ как мы поу́жинали, мы пошли́ гуля́ть.|Pósle tovó kak my poúzhinali, my poshlí gulyát'.}} What happened first?","options":["dinner","the walk"],"answer":0,"why":"{{по́сле того́ как|pósle tovó kak}}: “after”."},
+        {"type":"dialogue","q":"You're a man, back from a job interview. Choose your replies.","from":"report-what-was-said","lines":[{"who":"Friend","t":"Ну, как прошло́ интервью́?","r":"Nu, kak proshló interv'yú?","tr":"So, how did the interview go?"},{"options":["Снача́ла я до́лго ждал, а пото́м мы поговори́ли полчаса́.","Снача́ла я до́лго подожда́л, а пото́м мы говори́ли полчаса́."],"rs":["Snachála ya dólgo zhdal, a potóm my pogovoríli polchasá.","Snachála ya dólgo podozhdál, a potóm my govoríli polchasá."],"answer":0,"why":"A long wait is background: {{ждал|zhdal}}; then a whole conversation: {{поговори́ли|pogovoríli}}."},{"who":"Friend","t":"И что они́ сказа́ли?","r":"I shto oní skazáli?","tr":"And what did they say?"},{"options":["Сказа́ли, что позвоня́т в пя́тницу.","Сказа́ли, что позвони́ли бы в пя́тницу."],"rs":["Skazáli, shto pozvonyát v pyátnitsu.","Skazáli, shto pozvoníli by v pyátnitsu."],"answer":0,"why":"Passing on a promise, the future stays future: {{позвоня́т|pozvonyát}}."},{"who":"Friend","t":"Держу́ за тебя́ кулаки́!","r":"Derzhú za tebyá kulakí!","tr":"I'll keep my fingers crossed for you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"As soon as he walked in, everyone went quiet.","words":["Как","то́лько","он","вошёл,","все","замолча́ли."],"rs":["Kak","tól'ko","on","voshól,","vse","zamolcháli."],"from":"tell-what-happened"},
+        {"type":"free","q":"Your turn: tell the story of a trip or a day you remember, in four or five sentences. Use {{когда́|kogdá}}, {{пока́|poká}} or {{как то́лько|kak tól'ko}}, both aspects, and pass on something someone said.","answers":[{"t":"Два го́да наза́д мы е́здили в Москву́. Как то́лько мы вы́шли из по́езда, мы потеря́ли су́мку. Пока́ мы её иска́ли, к нам подошёл полице́йский. Он сказа́л, что кто́-то принёс её в бюро́ нахо́док. С тех пор я всегда́ слежу́ за свои́ми веща́ми!","r":"Dva góda nazád my yézdili v Moskvú. Kak tól'ko my výshli iz póyezda, my poteryáli súmku. Poká my yeyó iskáli, k nam podoshól politséyskiy. On skazál, shto któ-to prinyós yeyó v byuró nakhódok. S tekh por ya vsegdá slezhú za svoími veshchámi!","tr":"Two years ago we went to Moscow. As soon as we got off the train, we lost a bag. While we were looking for it, a police officer came up to us. He said someone had brought it to the lost and found. Ever since then I always keep an eye on my things!"},{"t":"Когда́ я был студе́нтом, я жил в Петербу́рге. Одна́жды, пока́ я гуля́л по на́бережной, я встре́тил де́вушку. Она́ спроси́ла, как дойти́ до Эрмита́жа. Тепе́рь она́ моя́ жена́!","r":"Kogdá ya byl studéntom, ya zhil v Peterbúrge. Odnázhdy, poká ya gulyál po náberezhnoy, ya vstrétil dévushku. Oná sprosíla, kak doytí do Ermitázha. Tepér' oná moyá zhená!","tr":"When I was a student, I lived in St. Petersburg. One day, while I was walking along the embankment, I met a girl. She asked how to get to the Hermitage. Now she's my wife!"}]}
+      ]
     }
   ]
 }
