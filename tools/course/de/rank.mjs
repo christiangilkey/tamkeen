@@ -33,7 +33,7 @@ const FIX = {
   stunde: "Stunde", stunden: "Stunde", fragen: "Frage", spiele: "Spiel",
   seine: "sein (his)", seiner: "sein (his)", seinen: "sein (his)", seinem: "sein (his)", seines: "sein (his)",
   ihre: "ihr (her)", ihrer: "ihr (her)", ihren: "ihr (her)", ihrem: "ihr (her)", ihres: "ihr (her)",
-  macht: "machen", halt: "halt", stand: "stehen", lage: "Lage",
+  macht: "machen", halt: "halt", stand: "stehen", lage: "Lage", was: "was", gehört: "gehören",
 };
 const SPLIT = {
   leben: ["leben", "Leben"], essen: ["essen", "Essen"], weg: ["weg", "Weg"], morgen: ["morgen", "Morgen"],

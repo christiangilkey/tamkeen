@@ -188,6 +188,746 @@
       "meaning": "also, too",
       "sentence": "Ich habe auch Hunger.",
       "translation": "I'm hungry ⟦too⟧."
+    },
+    {
+      "n": 21,
+      "rank": 21,
+      "word": "können",
+      "pos": "verb",
+      "meaning": "can, to be able to",
+      "sentence": "Kannst du mir helfen?",
+      "translation": "⟦Can⟧ you help me?",
+      "form": "kannst"
+    },
+    {
+      "n": 22,
+      "rank": 22,
+      "word": "bei",
+      "pos": "prep",
+      "meaning": "at; near; with (at someone's home)",
+      "sentence": "Ich wohne noch bei meinen Eltern.",
+      "translation": "I still live ⟦with⟧ my parents."
+    },
+    {
+      "n": 23,
+      "rank": 23,
+      "word": "als",
+      "pos": "conj",
+      "meaning": "as; than; when (in the past)",
+      "sentence": "Sie arbeitet als Lehrerin.",
+      "translation": "She works ⟦as⟧ a teacher."
+    },
+    {
+      "n": 24,
+      "rank": 24,
+      "word": "du",
+      "pos": "pron",
+      "meaning": "you (one person, informal)",
+      "sentence": "Wie alt bist du?",
+      "translation": "How old are ⟦you⟧?"
+    },
+    {
+      "n": 25,
+      "rank": 25,
+      "word": "dieser",
+      "pos": "det",
+      "meaning": "this (dieser, diese, dieses)",
+      "sentence": "Dieses Buch ist sehr spannend.",
+      "translation": "⟦This⟧ book is very exciting.",
+      "form": "dieses"
+    },
+    {
+      "n": 26,
+      "rank": 26,
+      "word": "dass",
+      "pos": "conj",
+      "meaning": "that (I think that…)",
+      "sentence": "Ich glaube, dass er recht hat.",
+      "translation": "I think ⟦that⟧ he's right."
+    },
+    {
+      "n": 27,
+      "rank": 27,
+      "word": "so",
+      "pos": "adv",
+      "meaning": "so; like this, like that",
+      "sentence": "Das ist so schön!",
+      "translation": "That's ⟦so⟧ beautiful!"
+    },
+    {
+      "n": 28,
+      "rank": 28,
+      "word": "wir",
+      "pos": "pron",
+      "meaning": "we",
+      "sentence": "Wir gehen heute ins Kino.",
+      "translation": "⟦We⟧'re going to the movies today."
+    },
+    {
+      "n": 29,
+      "rank": 29,
+      "word": "wie",
+      "pos": "adv",
+      "meaning": "how; like, as",
+      "sentence": "Wie geht es dir?",
+      "translation": "⟦How⟧ are you?"
+    },
+    {
+      "n": 30,
+      "rank": 30,
+      "word": "aber",
+      "pos": "conj",
+      "meaning": "but",
+      "sentence": "Das Hotel ist schön, aber teuer.",
+      "translation": "The hotel is nice ⟦but⟧ expensive."
+    },
+    {
+      "n": 31,
+      "rank": 31,
+      "word": "aus",
+      "pos": "prep",
+      "meaning": "from; out of",
+      "sentence": "Ich komme aus Italien.",
+      "translation": "I'm ⟦from⟧ Italy."
+    },
+    {
+      "n": 32,
+      "rank": 32,
+      "word": "sein",
+      "pos": "det",
+      "meaning": "his; its",
+      "sentence": "Sein Auto ist neu.",
+      "translation": "⟦His⟧ car is new."
+    },
+    {
+      "n": 33,
+      "rank": 33,
+      "word": "nach",
+      "pos": "prep",
+      "meaning": "after; to (a city or country)",
+      "sentence": "Nach dem Essen trinken wir einen Kaffee.",
+      "translation": "⟦After⟧ the meal we have a coffee."
+    },
+    {
+      "n": 34,
+      "rank": 34,
+      "word": "ihr",
+      "pos": "det",
+      "meaning": "her; their; (Ihr) your, polite",
+      "sentence": "Ihr Mann ist Arzt.",
+      "translation": "⟦Her⟧ husband is a doctor."
+    },
+    {
+      "n": 35,
+      "rank": 35,
+      "word": "noch",
+      "pos": "adv",
+      "meaning": "still; yet; more (noch ein: another)",
+      "sentence": "Bist du noch wach?",
+      "translation": "Are you ⟦still⟧ awake?"
+    },
+    {
+      "n": 36,
+      "rank": 36,
+      "word": "alle",
+      "pos": "pron",
+      "meaning": "all; everyone (alles: everything)",
+      "sentence": "Alle sind schon da.",
+      "translation": "⟦Everyone⟧'s already here."
+    },
+    {
+      "n": 37,
+      "rank": 37,
+      "word": "nur",
+      "pos": "adv",
+      "meaning": "only, just",
+      "sentence": "Ich habe nur fünf Euro.",
+      "translation": "I ⟦only⟧ have five euros."
+    },
+    {
+      "n": 38,
+      "rank": 38,
+      "word": "wenn",
+      "pos": "conj",
+      "meaning": "if; when, whenever",
+      "sentence": "Wenn du Zeit hast, ruf mich an.",
+      "translation": "⟦If⟧ you have time, call me."
+    },
+    {
+      "n": 39,
+      "rank": 39,
+      "word": "gut",
+      "pos": "adj",
+      "meaning": "good; well",
+      "sentence": "Das Essen schmeckt sehr gut.",
+      "translation": "The food tastes very ⟦good⟧."
+    },
+    {
+      "n": 40,
+      "rank": 40,
+      "word": "oder",
+      "pos": "conj",
+      "meaning": "or",
+      "sentence": "Möchtest du Tee oder Kaffee?",
+      "translation": "Would you like tea ⟦or⟧ coffee?"
+    },
+    {
+      "n": 41,
+      "rank": 41,
+      "word": "was",
+      "pos": "pron",
+      "meaning": "what",
+      "sentence": "Was machst du heute Abend?",
+      "translation": "⟦What⟧ are you doing tonight?"
+    },
+    {
+      "n": 42,
+      "rank": 42,
+      "word": "um",
+      "pos": "prep",
+      "meaning": "at (a time); around",
+      "sentence": "Der Film beginnt um acht Uhr.",
+      "translation": "The movie starts ⟦at⟧ eight o'clock."
+    },
+    {
+      "n": 43,
+      "rank": 43,
+      "word": "man",
+      "pos": "pron",
+      "meaning": "one, you (people in general)",
+      "sentence": "Hier darf man nicht rauchen.",
+      "translation": "⟦You⟧ can't smoke here."
+    },
+    {
+      "n": 44,
+      "rank": 44,
+      "word": "kein",
+      "pos": "det",
+      "meaning": "no, not a, not any",
+      "sentence": "Das ist kein Problem.",
+      "translation": "That's ⟦no⟧ problem."
+    },
+    {
+      "n": 45,
+      "rank": 45,
+      "word": "mein",
+      "pos": "det",
+      "meaning": "my",
+      "sentence": "Das ist mein Bruder.",
+      "translation": "This is ⟦my⟧ brother."
+    },
+    {
+      "n": 46,
+      "rank": 46,
+      "word": "müssen",
+      "pos": "verb",
+      "meaning": "must, to have to",
+      "sentence": "Ich muss jetzt gehen.",
+      "translation": "I ⟦have to⟧ go now.",
+      "form": "muss"
+    },
+    {
+      "n": 47,
+      "rank": 47,
+      "word": "über",
+      "pos": "prep",
+      "meaning": "about; over, above",
+      "sentence": "Wir reden über die Arbeit.",
+      "translation": "We're talking ⟦about⟧ work."
+    },
+    {
+      "n": 48,
+      "rank": 48,
+      "word": "machen",
+      "pos": "verb",
+      "meaning": "to do; to make",
+      "sentence": "Ich mache gerade meine Hausaufgaben.",
+      "translation": "I'm ⟦doing⟧ my homework right now.",
+      "form": "mache"
+    },
+    {
+      "n": 49,
+      "rank": 49,
+      "word": "da",
+      "pos": "adv",
+      "meaning": "there; here (present)",
+      "sentence": "Ist jemand da?",
+      "translation": "Is anyone ⟦there⟧?"
+    },
+    {
+      "n": 50,
+      "rank": 50,
+      "word": "geben",
+      "pos": "verb",
+      "meaning": "to give (es gibt: there is, there are)",
+      "sentence": "Gib mir bitte deine Nummer.",
+      "translation": "⟦Give⟧ me your number, please.",
+      "form": "gib"
+    },
+    {
+      "n": 51,
+      "rank": 51,
+      "word": "dann",
+      "pos": "adv",
+      "meaning": "then",
+      "sentence": "Zuerst essen wir, dann gehen wir spazieren.",
+      "translation": "First we'll eat, ⟦then⟧ we'll go for a walk."
+    },
+    {
+      "n": 52,
+      "rank": 52,
+      "word": "schon",
+      "pos": "adv",
+      "meaning": "already; yet",
+      "sentence": "Bist du schon fertig?",
+      "translation": "Are you done ⟦already⟧?"
+    },
+    {
+      "n": 53,
+      "rank": 53,
+      "word": "ja",
+      "pos": "interj",
+      "meaning": "yes",
+      "sentence": "Ja, das stimmt.",
+      "translation": "⟦Yes⟧, that's right."
+    },
+    {
+      "n": 54,
+      "rank": 54,
+      "word": "mehr",
+      "pos": "adv",
+      "meaning": "more (nicht mehr: no longer)",
+      "sentence": "Möchtest du noch mehr Suppe?",
+      "translation": "Would you like some ⟦more⟧ soup?"
+    },
+    {
+      "n": 55,
+      "rank": 55,
+      "word": "das Jahr",
+      "pos": "noun",
+      "meaning": "year (pl. Jahre)",
+      "sentence": "Ich bin dreißig Jahre alt.",
+      "translation": "I'm thirty ⟦years⟧ old.",
+      "form": "Jahre"
+    },
+    {
+      "n": 56,
+      "rank": 56,
+      "word": "sollen",
+      "pos": "verb",
+      "meaning": "should, to be supposed to",
+      "sentence": "Was soll ich machen?",
+      "translation": "What ⟦should⟧ I do?",
+      "form": "soll"
+    },
+    {
+      "n": 57,
+      "rank": 57,
+      "word": "viel",
+      "pos": "adj",
+      "meaning": "much, a lot (viele: many)",
+      "sentence": "Ich habe heute viel Arbeit.",
+      "translation": "I have ⟦a lot of⟧ work today."
+    },
+    {
+      "n": 58,
+      "rank": 58,
+      "word": "wollen",
+      "pos": "verb",
+      "meaning": "to want",
+      "sentence": "Willst du mitkommen?",
+      "translation": "Do you ⟦want⟧ to come along?",
+      "form": "willst"
+    },
+    {
+      "n": 59,
+      "rank": 59,
+      "word": "vor",
+      "pos": "prep",
+      "meaning": "in front of; before; ago",
+      "sentence": "Das Auto steht vor dem Haus.",
+      "translation": "The car is ⟦in front of⟧ the house."
+    },
+    {
+      "n": 60,
+      "rank": 60,
+      "word": "gehen",
+      "pos": "verb",
+      "meaning": "to go; to walk",
+      "sentence": "Ich gehe jetzt nach Hause.",
+      "translation": "I'm ⟦going⟧ home now.",
+      "form": "gehe"
+    },
+    {
+      "n": 61,
+      "rank": 61,
+      "word": "kommen",
+      "pos": "verb",
+      "meaning": "to come",
+      "sentence": "Kommst du heute Abend zur Party?",
+      "translation": "Are you ⟦coming⟧ to the party tonight?",
+      "form": "kommst"
+    },
+    {
+      "n": 62,
+      "rank": 62,
+      "word": "durch",
+      "pos": "prep",
+      "meaning": "through",
+      "sentence": "Wir gehen durch den Park.",
+      "translation": "We walk ⟦through⟧ the park."
+    },
+    {
+      "n": 63,
+      "rank": 63,
+      "word": "hier",
+      "pos": "adv",
+      "meaning": "here",
+      "sentence": "Ich wohne seit drei Jahren hier.",
+      "translation": "I've lived ⟦here⟧ for three years."
+    },
+    {
+      "n": 64,
+      "rank": 64,
+      "word": "bis",
+      "pos": "prep",
+      "meaning": "until; up to, as far as",
+      "sentence": "Ich arbeite bis fünf Uhr.",
+      "translation": "I work ⟦until⟧ five o'clock."
+    },
+    {
+      "n": 65,
+      "rank": 65,
+      "word": "doch",
+      "pos": "part",
+      "meaning": "but; yes (answering a 'no'); do… (urging)",
+      "sentence": "Komm doch rein!",
+      "translation": "⟦Do⟧ come in!"
+    },
+    {
+      "n": 66,
+      "rank": 66,
+      "word": "immer",
+      "pos": "adv",
+      "meaning": "always",
+      "sentence": "Er kommt immer zu spät.",
+      "translation": "He's ⟦always⟧ late."
+    },
+    {
+      "n": 67,
+      "rank": 67,
+      "word": "jetzt",
+      "pos": "adv",
+      "meaning": "now",
+      "sentence": "Wo bist du jetzt?",
+      "translation": "Where are you ⟦now⟧?"
+    },
+    {
+      "n": 68,
+      "rank": 68,
+      "word": "andere",
+      "pos": "adj",
+      "meaning": "other; different",
+      "sentence": "Ich möchte ein anderes Zimmer.",
+      "translation": "I'd like a ⟦different⟧ room."
+    },
+    {
+      "n": 69,
+      "rank": 69,
+      "word": "ganz",
+      "pos": "adj",
+      "meaning": "whole; quite, really",
+      "sentence": "Ich habe den ganzen Tag gearbeitet.",
+      "translation": "I worked the ⟦whole⟧ day."
+    },
+    {
+      "n": 70,
+      "rank": 70,
+      "word": "sagen",
+      "pos": "verb",
+      "meaning": "to say; to tell",
+      "sentence": "Was hat er gesagt?",
+      "translation": "What did he ⟦say⟧?",
+      "form": "gesagt"
+    },
+    {
+      "n": 71,
+      "rank": 71,
+      "word": "neu",
+      "pos": "adj",
+      "meaning": "new",
+      "sentence": "Ich habe ein neues Handy.",
+      "translation": "I have a ⟦new⟧ phone."
+    },
+    {
+      "n": 72,
+      "rank": 72,
+      "word": "sehen",
+      "pos": "verb",
+      "meaning": "to see",
+      "sentence": "Wir sehen uns morgen!",
+      "translation": "⟦See⟧ you tomorrow!"
+    },
+    {
+      "n": 73,
+      "rank": 73,
+      "word": "wieder",
+      "pos": "adv",
+      "meaning": "again; back",
+      "sentence": "Ich habe meinen Schlüssel wieder vergessen.",
+      "translation": "I forgot my key ⟦again⟧."
+    },
+    {
+      "n": 74,
+      "rank": 74,
+      "word": "groß",
+      "pos": "adj",
+      "meaning": "big, large; tall",
+      "sentence": "Unser Haus ist nicht sehr groß.",
+      "translation": "Our house isn't very ⟦big⟧."
+    },
+    {
+      "n": 75,
+      "rank": 75,
+      "word": "weit",
+      "pos": "adj",
+      "meaning": "far; wide (weiter: further, on)",
+      "sentence": "Ist es noch weit?",
+      "translation": "Is it still ⟦far⟧?"
+    },
+    {
+      "n": 76,
+      "rank": 76,
+      "word": "sehr",
+      "pos": "adv",
+      "meaning": "very; very much",
+      "sentence": "Danke, das ist sehr nett.",
+      "translation": "Thanks, that's ⟦very⟧ kind."
+    },
+    {
+      "n": 77,
+      "rank": 77,
+      "word": "ihr",
+      "pos": "pron",
+      "meaning": "you (several people, informal)",
+      "sentence": "Habt ihr schon gegessen?",
+      "translation": "Have ⟦you guys⟧ eaten yet?"
+    },
+    {
+      "n": 78,
+      "rank": 78,
+      "word": "finden",
+      "pos": "verb",
+      "meaning": "to find; to think (have an opinion)",
+      "sentence": "Ich finde meine Brille nicht.",
+      "translation": "I can't ⟦find⟧ my glasses.",
+      "form": "finde"
+    },
+    {
+      "n": 79,
+      "rank": 79,
+      "word": "unter",
+      "pos": "prep",
+      "meaning": "under; among",
+      "sentence": "Die Katze schläft unter dem Tisch.",
+      "translation": "The cat is sleeping ⟦under⟧ the table."
+    },
+    {
+      "n": 80,
+      "rank": 80,
+      "word": "jeder",
+      "pos": "det",
+      "meaning": "every; each; everyone (jeder, jede, jedes)",
+      "sentence": "Er ruft mich jeden Tag an.",
+      "translation": "He calls me ⟦every⟧ day.",
+      "form": "jeden"
+    },
+    {
+      "n": 81,
+      "rank": 81,
+      "word": "unser",
+      "pos": "det",
+      "meaning": "our",
+      "sentence": "Unser Garten ist sehr klein.",
+      "translation": "⟦Our⟧ garden is very small."
+    },
+    {
+      "n": 82,
+      "rank": 82,
+      "word": "stehen",
+      "pos": "verb",
+      "meaning": "to stand",
+      "sentence": "Warum stehst du an der Tür?",
+      "translation": "Why are you ⟦standing⟧ at the door?",
+      "form": "stehst"
+    },
+    {
+      "n": 83,
+      "rank": 83,
+      "word": "lassen",
+      "pos": "verb",
+      "meaning": "to let; to leave",
+      "sentence": "Lass mich in Ruhe!",
+      "translation": "⟦Leave⟧ me alone!",
+      "form": "lass"
+    },
+    {
+      "n": 84,
+      "rank": 84,
+      "word": "erste",
+      "pos": "adj",
+      "meaning": "first",
+      "sentence": "Das ist mein erster Tag hier.",
+      "translation": "It's my ⟦first⟧ day here."
+    },
+    {
+      "n": 85,
+      "rank": 85,
+      "word": "die Zeit",
+      "pos": "noun",
+      "meaning": "time (pl. Zeiten)",
+      "sentence": "Hast du heute Zeit?",
+      "translation": "Do you have ⟦time⟧ today?",
+      "form": "Zeit"
+    },
+    {
+      "n": 86,
+      "rank": 86,
+      "word": "gegen",
+      "pos": "prep",
+      "meaning": "against; around (a time)",
+      "sentence": "Viele Leute sind gegen den Plan.",
+      "translation": "Many people are ⟦against⟧ the plan."
+    },
+    {
+      "n": 87,
+      "rank": 87,
+      "word": "dein",
+      "pos": "det",
+      "meaning": "your (one person, informal)",
+      "sentence": "Ist das dein Fahrrad?",
+      "translation": "Is that ⟦your⟧ bike?"
+    },
+    {
+      "n": 88,
+      "rank": 88,
+      "word": "einfach",
+      "pos": "adj",
+      "meaning": "simple, easy; simply, just",
+      "sentence": "Die Aufgabe ist ganz einfach.",
+      "translation": "The task is really ⟦easy⟧."
+    },
+    {
+      "n": 89,
+      "rank": 89,
+      "word": "also",
+      "pos": "adv",
+      "meaning": "so, well (not 'also')",
+      "sentence": "Also, was machen wir jetzt?",
+      "translation": "⟦So⟧, what do we do now?"
+    },
+    {
+      "n": 90,
+      "rank": 90,
+      "word": "das Mal",
+      "pos": "noun",
+      "meaning": "time, occasion (pl. Male)",
+      "sentence": "Das war das erste Mal.",
+      "translation": "That was the first ⟦time⟧.",
+      "form": "Mal"
+    },
+    {
+      "n": 91,
+      "rank": 91,
+      "word": "deutsch",
+      "pos": "adj",
+      "meaning": "German (Deutsch: the German language)",
+      "sentence": "Sprichst du Deutsch?",
+      "translation": "Do you speak ⟦German⟧?"
+    },
+    {
+      "n": 92,
+      "rank": 92,
+      "word": "wissen",
+      "pos": "verb",
+      "meaning": "to know (a fact)",
+      "sentence": "Weißt du, wo er wohnt?",
+      "translation": "Do you ⟦know⟧ where he lives?",
+      "form": "weißt"
+    },
+    {
+      "n": 93,
+      "rank": 93,
+      "word": "mal",
+      "pos": "part",
+      "meaning": "ever, once (schon mal); just (softens a request)",
+      "sentence": "Warst du schon mal in Wien?",
+      "translation": "Have you ⟦ever⟧ been to Vienna?"
+    },
+    {
+      "n": 94,
+      "rank": 94,
+      "word": "ab",
+      "pos": "prep",
+      "meaning": "from (a time on), starting; off",
+      "sentence": "Ab Montag habe ich Urlaub.",
+      "translation": "⟦Starting⟧ Monday, I'm on vacation."
+    },
+    {
+      "n": 95,
+      "rank": 95,
+      "word": "der Tag",
+      "pos": "noun",
+      "meaning": "day (pl. Tage)",
+      "sentence": "Wie war dein Tag?",
+      "translation": "How was your ⟦day⟧?",
+      "form": "Tag"
+    },
+    {
+      "n": 96,
+      "rank": 96,
+      "word": "der Mensch",
+      "pos": "noun",
+      "meaning": "person, human being (pl. Menschen)",
+      "sentence": "Jeder Mensch ist anders.",
+      "translation": "Every ⟦person⟧ is different.",
+      "form": "Mensch"
+    },
+    {
+      "n": 97,
+      "rank": 97,
+      "word": "denn",
+      "pos": "conj",
+      "meaning": "because; (in questions) then",
+      "sentence": "Wir nehmen ein Taxi, denn es regnet.",
+      "translation": "We're taking a taxi ⟦because⟧ it's raining."
+    },
+    {
+      "n": 98,
+      "rank": 98,
+      "word": "damit",
+      "pos": "conj",
+      "meaning": "so that; with it",
+      "sentence": "Ich spreche langsam, damit du mich verstehst.",
+      "translation": "I'm speaking slowly ⟦so that⟧ you understand me."
+    },
+    {
+      "n": 99,
+      "rank": 99,
+      "word": "lang",
+      "pos": "adj",
+      "meaning": "long (lange: for a long time)",
+      "sentence": "Sie hat lange Haare.",
+      "translation": "She has ⟦long⟧ hair."
+    },
+    {
+      "n": 100,
+      "rank": 100,
+      "word": "weil",
+      "pos": "conj",
+      "meaning": "because",
+      "sentence": "Ich bleibe zu Hause, weil ich krank bin.",
+      "translation": "I'm staying home ⟦because⟧ I'm sick."
     }
   ]
 }
