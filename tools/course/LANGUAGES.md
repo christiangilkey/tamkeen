@@ -68,6 +68,12 @@ Write the variety the voice speaks (build_course.py `AZURE`), and say it in word
      the words it usually goes with; it must make sense alone and end like a sentence;
    - `translation`: natural English with ⟦ ⟧ round exactly the part that translates the word;
    - `form`: the word as written in the sentence when it differs (string or list), so the test can find it.
+   - `say` (only where needed): how to voice the word said ALONE, when the voice would read it wrong.
+     Text (Japanese particles: は → `"わ"`, を → `"お"`, へ → `"え"`; a kanji with several readings → its kana),
+     or an exact sound: `{"alphabet": "sapi", "ph": "de 5"}` (Azure's pinyin with tone numbers, zh) or
+     `{"alphabet": "ipa", "ph": "u"}` (Portuguese "o" said as the article, not the letter's name). In a batch row
+     it is the 8th item (put `null` for `form` if there is none). The sentence is always voiced as written.
+     Adding `say` to a word already voiced remakes only that word's file.
    - Quality over speed: every sentence must be something a native speaker would actually say.
 4. **Sample first.** The owner wants each voice's accuracy checked before a whole language is voiced. Make
    words.json hold only your first 20 words, build their audio (command below), commit, then send ONE short
