@@ -2062,6 +2062,236 @@
         {"type":"say","q":"You're a man. Say “I got bitten by a dog yesterday.”","answer":"เมื่อวานผมโดนหมากัดครับ","r":"mʉ̂ʉa-waan pǒm doon mǎa gàt kráp"},
         {"type":"free","q":"Your turn: tell about a time something bad happened to you (cheated, rained on, told off…).","answers":[{"t":"ปีที่แล้วผมโดนหลอกที่ตลาดครับ ซื้อเสื้อแพงมาก","r":"bpii tîi-lɛ́ɛo pǒm doon lɔ̀ɔk tîi dtà-làat kráp, sʉ́ʉ sʉ̂ʉa pɛɛng mâak","tr":"Last year I got cheated at the market: I paid far too much for a shirt."},{"t":"เมื่อวานฉันโดนฝนค่ะ เปียกหมดเลย แล้วยังโดนยุงกัดอีก","r":"mʉ̂ʉa-waan chǎn doon fǒn kâ, bpìiak mòt ləəi, lɛ́ɛo yang doon yung gàt ìik","tr":"Yesterday I got caught in the rain and got soaked, and then I got bitten by mosquitoes too."}]}
       ]
+    },
+    {
+      "id": "talk-about-feelings",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say how you feel and what made you feel it",
+      "summary": "Say how you feel and why, what makes you feel that way, and talk about feelings and ideas as things: happiness, love, learning.",
+      "topic": "{{รู้สึก|rúu-sʉ̀k}} + an adjective; {{ดีใจที่…|dii-jai tîi}}, {{เสียใจที่…|sǐia-jai tîi}}; {{ทำให้|tam-hâi}} “make (someone feel)”; {{ความ|kwaam}} + adjective and {{การ|gaan}} + verb",
+      "blocks": [
+        {"goal":{"t":"ฉันดีใจที่ได้เจอคุณค่ะ","r":"chǎn dii-jai tîi dâai jəə kun kâ","tr":"I'm glad I got to meet you."}},
+        {"dialog":[{"who":"Nok","t":"วันนี้ดูเหนื่อยๆ นะคะ เป็นอะไรหรือเปล่า","r":"wan-níi duu nʉ̀ai-nʉ̀ai ná ká, bpen à-rai rʉ̌ʉ-bplàao","tr":"You look tired today. Is something wrong?"},{"who":"Tom","t":"รู้สึกเครียดนิดหน่อยครับ งานเยอะมาก","r":"rúu-sʉ̀k krîiat nít-nɔ̀i kráp, ngaan yə́ mâak","tr":"I feel a bit stressed. I've got so much work."},{"who":"Nok","t":"เสียใจด้วยนะคะ มีอะไรให้ช่วยไหม","r":"sǐia-jai dûai ná ká, mii à-rai hâi chûai mǎi","tr":"I'm sorry to hear that. Can I help with anything?"},{"who":"Tom","t":"ไม่เป็นไรครับ แค่คุยกับคุณก็ทำให้ผมรู้สึกดีขึ้นแล้ว","r":"mâi bpen rai kráp, kɛ̂ɛ kui gàp kun gɔ̂ tam-hâi pǒm rúu-sʉ̀k dii kʉ̂n lɛ́ɛo","tr":"It's OK. Just talking to you makes me feel better."},{"who":"Nok","t":"ดีใจที่ได้ยินแบบนั้นค่ะ","r":"dii-jai tîi dâi-yin bɛ̀ɛp nán kâ","tr":"I'm glad to hear that."}]},
+        {"p":"**รู้สึก: feel.** {{รู้สึก|rúu-sʉ̀k}} + an adjective says how you feel: {{รู้สึกดี|rúu-sʉ̀k dii}} “feel good”, {{รู้สึกเหงา|rúu-sʉ̀k ngǎo}} “feel lonely”. Often the adjective alone is enough: {{เหนื่อย|nʉ̀ai}} “(I'm) tired”. {{ดู|duu}} + an adjective is “look …”: {{ดูเหนื่อย|duu nʉ̀ai}} “you look tired”."},
+        { "table": [
+          ["Thai","meaning","Thai","meaning"],
+          ["{{ดีใจ|dii-jai}}","glad (about something)","{{เสียใจ|sǐia-jai}}","sad, sorry"],
+          ["{{มีความสุข|mii kwaam-sùk}}","happy (in life)","{{เหงา|ngǎo}}","lonely"],
+          ["{{ตื่นเต้น|dtʉ̀ʉn-dtên}}","excited","{{เครียด|krîiat}}","stressed"],
+          ["{{กลัว|gluua}}","afraid","{{โกรธ|gròot}}","angry"],
+          ["{{เบื่อ|bʉ̀a}}","bored, fed up","{{ห่วง|hùuang}}","worried (about someone)"]
+        ] },
+        {"p":"**Glad that, sorry that: ที่.** To say what a feeling is about, add {{ที่|tîi}} and a sentence: {{ดีใจที่คุณมา|dii-jai tîi kun maa}} “I'm glad you came”, {{เสียใจที่ไปไม่ได้|sǐia-jai tîi bpai mâi-dâi}} “I'm sorry I can't go”. {{ได้|dâai}} before the verb adds “got the chance to”: {{ดีใจที่ได้เจอคุณ|dii-jai tîi dâai jəə kun}} “glad I got to meet you”."},
+        {"p":"**Made me feel: ทำให้.** {{ทำให้|tam-hâi}} “make, cause”, then a person and a feeling: {{เพลงนี้ทำให้ฉันคิดถึงบ้าน|pleeng níi tam-hâi chǎn kít-tʉ̌ng bâan}} “this song makes me miss home”. The cause comes first, then {{ทำให้|tam-hâi}}, then who feels what. It's {{ให้|hâi}} again, as in lessons 37 and 38."},
+        {"p":"**Feelings and ideas as things: ความ and การ.** {{ความ|kwaam}} before an adjective or a feeling makes a noun: {{สุข|sùk}} “happy” → {{ความสุข|kwaam-sùk}} “happiness”, {{รัก|rák}} “love” → {{ความรัก|kwaam-rák}} “love (the thing)”. {{การ|gaan}} before a verb makes an activity: {{เรียน|riian}} “study” → {{การเรียน|gaan-riian}} “studying, education”. Written Thai is full of them."},
+        { "ex": [
+          {"t":"ผมรู้สึกเหงานิดหน่อยครับ","r":"pǒm rúu-sʉ̀k ngǎo nít-nɔ̀i kráp","tr":"I feel a bit lonely."},
+          {"t":"เสียใจที่ไปงานแต่งไม่ได้นะคะ","r":"sǐia-jai tîi bpai ngaan dtɛ̀ng mâi dâai ná ká","tr":"I'm sorry I can't come to the wedding."},
+          {"t":"เพลงนี้ทำให้ฉันคิดถึงบ้านค่ะ","r":"pleeng níi tam-hâi chǎn kít-tʉ̌ng bâan kâ","tr":"This song makes me miss home."},
+          {"t":"ข่าวนี้ทำให้ทุกคนตกใจครับ","r":"kàao níi tam-hâi túk kon dtòk-jai kráp","tr":"The news shocked everyone."},
+          {"t":"ความสุขไม่ต้องซื้อค่ะ","r":"kwaam-sùk mâi dtɔ̂ng sʉ́ʉ kâ","tr":"Happiness doesn't have to be bought."},
+          {"t":"การเรียนภาษาไทยสนุกมากครับ","r":"gaan riian paa-sǎa tai sà-nùk mâak kráp","tr":"Learning Thai is a lot of fun."},
+          {"t":"ตื่นเต้นมากเลยค่ะ พรุ่งนี้จะได้ไปญี่ปุ่น","r":"dtʉ̀ʉn-dtên mâak ləəi kâ, prûng-níi jà dâai bpai yîi-bpùn","tr":"I'm so excited: tomorrow I get to go to Japan."}
+        ] },
+        {"tip":"Many Thai feeling words are built on {{ใจ|jai}} “heart, mind”: {{ดีใจ|dii-jai}} “glad” (good heart), {{เสียใจ|sǐia-jai}} “sad” (spoiled heart), {{ใจดี|jai-dii}} “kind”, {{ตกใจ|dtòk-jai}} “startled” (heart drops)."}
+      ],
+      "mistakes": [
+        {"wrong":"ฉันเป็นดีใจค่ะ","right":"ฉันดีใจค่ะ","tr":"I'm glad.","why":"Feelings are adjectives: no {{เป็น|bpen}}, as in lesson 4."},
+        {"wrong":"เพลงนี้ทำฉันเศร้า","right":"เพลงนี้ทำให้ฉันเศร้า","tr":"This song makes me sad.","why":"“Make (someone feel)” is {{ทำให้|tam-hâi}}: don't drop the {{ให้|hâi}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ทำให้|tam-hâi}} “makes (someone feel)” or {{ให้|hâi}} “gives”.","t":"เพลงนี้___ฉันคิดถึงบ้านค่ะ","tr":"This song makes me miss home.","options":["ทำให้","ให้"],"answer":0,"why":"A cause and a feeling: {{ทำให้|tam-hâi}}."},
+        {"type":"choice","q":"“I'm glad you came.”","options":["{{ดีใจที่คุณมา|dii-jai tîi kun maa}}","{{ดีใจคุณที่มา|dii-jai kun tîi maa}}","{{คุณมาดีใจ|kun maa dii-jai}}"],"answer":0,"why":"The feeling, then {{ที่|tîi}} + what it's about."},
+        {"type":"order","q":"Put the words in order.","tr":"Learning Thai is a lot of fun. (a man speaking)","words":["การ","เรียน","ภาษาไทย","สนุก","มาก","ครับ"]},
+        {"type":"dialogue","q":"A friend notices you look down. Choose your replies (you're a man).","from":"say-why","lines":[{"who":"Friend","t":"ทำไมดูเศร้าจังคะ","r":"tam-mai duu sâo jang ká","tr":"Why do you look so sad?"},{"options":["เพราะแมวผมหายครับ","ก็เลยแมวผมหายครับ"],"answer":0,"why":"A reason: {{เพราะ|prɔ́}}."},{"who":"Friend","t":"เสียใจด้วยนะคะ","r":"sǐia-jai dûai ná ká","tr":"I'm so sorry."},{"options":["ขอบคุณครับ คุยกับคุณทำให้ผมรู้สึกดีขึ้น","ขอบคุณครับ คุยกับคุณให้ผมรู้สึกดีขึ้น"],"answer":0,"why":"“Makes me feel” is {{ทำให้|tam-hâi}}."}]},
+        {"type":"say","q":"You're a woman. Say “I'm glad I got to meet you.”","answer":"ฉันดีใจที่ได้เจอคุณค่ะ","r":"chǎn dii-jai tîi dâai jəə kun kâ"},
+        {"type":"free","q":"Your turn: say how you feel today and why, and something that always makes you happy.","answers":[{"t":"วันนี้ผมรู้สึกตื่นเต้นครับ เพราะจะไปเที่ยว อาหารไทยทำให้ผมมีความสุขเสมอ","r":"wan-níi pǒm rúu-sʉ̀k dtʉ̀ʉn-dtên kráp, prɔ́ jà bpai tîao, aa-hǎan tai tam-hâi pǒm mii kwaam-sùk sà-mə̌ə","tr":"I feel excited today, because I'm going on a trip. Thai food always makes me happy."},{"t":"วันนี้ฉันเหนื่อยนิดหน่อยค่ะ แต่ดนตรีทำให้ฉันมีความสุขเสมอ","r":"wan-níi chǎn nʉ̀ai nít-nɔ̀i kâ, dtɛ̀ɛ don-dtrii tam-hâi chǎn mii kwaam-sùk sà-mə̌ə","tr":"I'm a bit tired today, but music always makes me happy."}]}
+      ]
+    },
+    {
+      "id": "guess",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say what's probably true: maybe, probably, must be",
+      "summary": "Guess and suppose: maybe, might, probably, should be, definitely.",
+      "topic": "{{อาจจะ|àat jà}} “maybe, might” (+ {{ก็ได้|gɔ̂ɔ-dâai}}); {{คง(จะ)|kong (jà)}} “probably, must be”; {{น่าจะ|nâa jà}} “should be, likely”; {{แน่ๆ|nɛ̂ɛ-nɛ̂ɛ}} “definitely”; {{มั้ง|máng}} (casual)",
+      "blocks": [
+        {"goal":{"t":"เขาคงจะติดรถอยู่ค่ะ","r":"kǎo kong jà dtìt rót yùu kâ","tr":"He's probably stuck in traffic."}},
+        {"dialog":[{"who":"Tom","t":"ทำไมต้นยังไม่มาครับ","r":"tam-mai dtôn yang mâi maa kráp","tr":"Why isn't Ton here yet?"},{"who":"Nok","t":"คงจะติดรถอยู่ค่ะ ฝนตกหนัก","r":"kong jà dtìt rót yùu kâ, fǒn dtòk nàk","tr":"He's probably stuck in traffic. It's raining hard."},{"who":"Tom","t":"หรืออาจจะลืมก็ได้นะครับ","r":"rʉ̌ʉ àat jà lʉʉm gɔ̂ɔ-dâai ná kráp","tr":"Or maybe he forgot."},{"who":"Nok","t":"ไม่น่าจะลืมนะคะ เมื่อเช้าฉันเพิ่งเตือน","r":"mâi nâa jà lʉʉm ná ká, mʉ̂ʉa-cháao chǎn pə̂ng dtʉʉan","tr":"I doubt he forgot. I reminded him only this morning."},{"who":"Tom","t":"งั้นอีกสิบนาทีน่าจะถึงครับ","r":"ngán ìik sìp naa-tii nâa jà tʉ̌ng kráp","tr":"Then he should be here in ten minutes."}]},
+        {"p":"**Maybe: อาจจะ.** {{อาจจะ|àat jà}} (or {{อาจ|àat}}) before the verb is “may, might, maybe”: {{พรุ่งนี้อาจจะฝนตก|prûng-níi àat-jà fǒn dtòk}} “it might rain tomorrow”. Thais often add {{ก็ได้|gɔ̂ɔ-dâai}} “it's possible” at the end: {{เขาอาจจะลืมก็ได้|kǎo àat-jà lʉʉm gɔ̂ɔ-dâai}} “maybe he forgot”."},
+        {"p":"**Probably, must be: คง.** {{คง|kong}}, or {{คงจะ|kong jà}}, is a confident guess: {{เขาคงเหนื่อย|kǎo kong nʉ̀ai}} “she must be tired”, {{คงไม่มา|kong mâi maa}} “he probably isn't coming”."},
+        {"p":"**Should be, likely: น่าจะ.** {{น่าจะ|nâa jà}} says what's likely, or what ought to be so: {{น่าจะถึงแล้ว|nâa-jà tʉ̌ng lɛ́ɛo}} “they should have arrived by now”. It also gives soft advice: {{คุณน่าจะลองดู|kun nâa-jà lɔɔng duu}} “you should give it a try”. {{ไม่น่าจะ|mâi nâa-jà}} is “unlikely”."},
+        { "table": [
+          ["how sure","Thai","meaning"],
+          ["certain","{{มาแน่ๆ|maa nɛ̂ɛ-nɛ̂ɛ}}","is definitely coming"],
+          ["confident","{{คงมา|kong maa}}","is probably coming"],
+          ["likely","{{น่าจะมา|nâa jà maa}}","should be coming"],
+          ["possible","{{อาจจะมา|àat jà maa}}","might come"],
+          ["unlikely","{{ไม่น่าจะมา|mâi nâa jà maa}}","probably won't come"]
+        ] },
+        {"p":"**In speech: มั้ง.** At the end of a sentence, {{มั้ง|máng}} turns it into a guess, “I guess, I think”: {{เขาไม่อยู่มั้ง|kǎo mâi yùu máng}} “I guess he's not in”. It's casual: use it with friends."},
+        { "ex": [
+          {"t":"พรุ่งนี้อาจจะฝนตกครับ","r":"prûng-níi àat jà fǒn dtòk kráp","tr":"It might rain tomorrow."},
+          {"t":"เขาคงเหนื่อยมากค่ะ ทำงานทั้งวัน","r":"kǎo kong nʉ̀ai mâak kâ, tam-ngaan táng wan","tr":"She must be really tired: she worked all day."},
+          {"t":"ป่านนี้น่าจะถึงแล้วนะครับ","r":"bpàan-níi nâa jà tʉ̌ng lɛ́ɛo ná kráp","tr":"They should have arrived by now."},
+          {"t":"คุณน่าจะลองกินดูนะคะ อร่อยมาก","r":"kun nâa jà lɔɔng gin duu ná ká, à-rɔ̀i mâak","tr":"You should try it, it's delicious."},
+          {"t":"เขาอาจจะไม่รู้ก็ได้ครับ","r":"kǎo àat jà mâi rúu gɔ̂ɔ-dâai kráp","tr":"Maybe he doesn't know."},
+          {"t":"ร้านปิดแล้วมั้งคะ","r":"ráan bpìt lɛ́ɛo máng ká","tr":"I guess the shop's closed already."},
+          {"t":"เขามาแน่ๆ ครับ เขาสัญญาแล้ว","r":"kǎo maa nɛ̂ɛ-nɛ̂ɛ kráp, kǎo sǎn-yaa lɛ́ɛo","tr":"He'll definitely come: he promised."}
+        ] },
+        {"tip":"{{คง|kong}} and {{น่าจะ|nâa jà}} are close. {{คง|kong}} sounds a little more sure of itself; {{น่าจะ|nâa jà}} sounds a little more reasoned: “given the time, they should be here”."}
+      ],
+      "mistakes": [
+        {"wrong":"ฝนตกอาจจะ","right":"ฝนอาจจะตก","tr":"It might rain.","why":"{{อาจจะ|àat jà}} goes before the verb, like {{จะ|jà}}."},
+        {"wrong":"เขาคงจะไม่ใช่มา","right":"เขาคงจะไม่มา","tr":"He probably won't come.","why":"With a verb, “not” is just {{ไม่|mâi}}: {{คงจะไม่มา|kong-jà mâi maa}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{อาจจะ|àat jà}} “might” or {{แน่ๆ|nɛ̂ɛ-nɛ̂ɛ}} “definitely”.","t":"พรุ่งนี้___ฝนตกครับ ไม่แน่ใจ","tr":"It might rain tomorrow, I'm not sure.","options":["อาจจะ","แน่ๆ"],"answer":0,"why":"You're not sure: {{อาจจะ|àat jà}}, before the verb."},
+        {"type":"choice","q":"Your friend worked twelve hours. You say “She must be tired”:","options":["{{เขาคงเหนื่อย|kǎo kong nʉ̀ai}}","{{เขาอาจจะไม่เหนื่อย|kǎo àat jà mâi nʉ̀ai}}","{{เขาเหนื่อยคง|kǎo nʉ̀ai kong}}"],"answer":0,"why":"A confident guess: {{คง|kong}}, before the adjective."},
+        {"type":"order","q":"Put the words in order.","tr":"They should have arrived by now. (a man speaking)","words":["ป่านนี้","น่าจะ","ถึง","แล้ว","นะครับ"]},
+        {"type":"dialogue","q":"Nok worries about a present. Choose your replies (you're a man).","from":"say-what-you-think","lines":[{"who":"Nok","t":"คุณคิดว่าเขาจะชอบของขวัญไหมคะ","r":"kun kít wâa kǎo jà chɔ̂ɔp kɔ̌ɔng-kwǎn mǎi ká","tr":"Do you think she'll like the present?"},{"options":["น่าจะชอบนะครับ เขาชอบสีนี้","ชอบน่าจะนะครับ เขาชอบสีนี้"],"answer":0,"why":"{{น่าจะ|nâa jà}} goes before the verb."},{"who":"Nok","t":"ถ้าไม่ชอบล่ะคะ","r":"tâa mâi chɔ̂ɔp lâ ká","tr":"And if she doesn't?"},{"options":["เขาอาจจะเอาไปเปลี่ยนก็ได้ครับ","เขาเอาไปเปลี่ยนอาจจะก็ได้ครับ"],"answer":0,"why":"{{อาจจะ|àat jà}} before the verbs, {{ก็ได้|gɔ̂ɔ-dâai}} at the end."}]},
+        {"type":"say","q":"You're a woman. Say “He's probably stuck in traffic.”","answer":"เขาคงจะติดรถอยู่ค่ะ","r":"kǎo kong jà dtìt rót yùu kâ"},
+        {"type":"free","q":"Your turn: make two guesses about tomorrow: something that will probably happen, and something that might.","answers":[{"t":"พรุ่งนี้ผมคงจะทำงานถึงดึกครับ อาจจะไปกินข้าวกับเพื่อนด้วย","r":"prûng-níi pǒm kong jà tam-ngaan tʉ̌ng dʉ̀k kráp, àat jà bpai gin kâao gàp pʉ̂ʉan dûai","tr":"Tomorrow I'll probably work late. I might go out to eat with friends too."},{"t":"พรุ่งนี้น่าจะร้อนมากค่ะ ฉันอาจจะไปว่ายน้ำ","r":"prûng-níi nâa jà rɔ́ɔn mâak kâ, chǎn àat jà bpai wâai-náam","tr":"It should be very hot tomorrow. I might go swimming."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 9,
+      "level": "B1",
+      "title": "Imagine: if I were…, if only…",
+      "summary": "Talk about what isn't true, or didn't happen: if I had more time, if I'd known, I wish…",
+      "topic": "{{ถ้า…คงจะ…|tâa … kong jà}}; {{ถ้าเป็น…|tâa bpen}} “if I were…”; {{ถ้า…ก็คง…แล้ว|tâa … gɔ̂ kong … lɛ́ɛo}} (it didn't happen); wishes: {{อยากให้…|yàak hâi}}, {{ถ้า…ก็ดี|tâa … gɔ̂ dii}}",
+      "blocks": [
+        {"goal":{"t":"ถ้าฉันมีเงินเยอะ ฉันคงจะเที่ยวรอบโลกค่ะ","r":"tâa chǎn mii ngən yə́, chǎn kong jà tîao rɔ̂ɔp lôok kâ","tr":"If I had lots of money, I'd travel around the world."}},
+        {"dialog":[{"who":"Nok","t":"ถ้าคุณถูกลอตเตอรี่ คุณจะทำอะไรคะ","r":"tâa kun tùuk lɔ́t-dtəə-rîi, kun jà tam à-rai ká","tr":"If you won the lottery, what would you do?"},{"who":"Tom","t":"ผมคงจะซื้อบ้านริมทะเลครับ แล้วก็เลิกทำงาน","r":"pǒm kong jà sʉ́ʉ bâan rim tá-lee kráp, lɛ́ɛo-gɔ̂ lə̂ək tam-ngaan","tr":"I'd buy a house by the sea, and quit work."},{"who":"Nok","t":"ถ้าเป็นฉัน ฉันคงไปเรียนทำอาหารที่อิตาลี","r":"tâa bpen chǎn, chǎn kong bpai riian tam aa-hǎan tîi ì-dtaa-lîi","tr":"If it were me, I'd go and learn to cook in Italy."},{"who":"Tom","t":"ถ้ารู้ว่าคุณชอบทำอาหาร ผมก็คงชวนคุณมาบ้านนานแล้วครับ","r":"tâa rúu wâa kun chɔ̂ɔp tam aa-hǎan, pǒm gɔ̂ kong chuuan kun maa bâan naan lɛ́ɛo kráp","tr":"If I'd known you liked cooking, I'd have invited you over ages ago."},{"who":"Nok","t":"ยังไม่สายเกินไปค่ะ","r":"yang mâi sǎai gəən bpai kâ","tr":"It's not too late!"}]},
+        {"p":"**Imagining: ถ้า … คงจะ …** Thai has no special verb form for things that aren't true. It uses {{ถ้า|tâa}} “if” and, in the result, {{คงจะ|kong jà}} “would (probably)”: {{ถ้าฉันมีเวลา ฉันคงจะไป|tâa chǎn mii wee-laa chǎn kong-jà bpai}} “if I had time, I'd go”. The situation, and {{คง|kong}}, tell you it's imaginary."},
+        {"p":"**If I were you: ถ้าเป็น…** {{ถ้าเป็นฉัน|tâa bpen chǎn}} “if it were me, in my place” gives advice or an opinion: {{ถ้าเป็นผม ผมคงไม่ซื้อ|tâa bpen pǒm pǒm kong mâi sʉ́ʉ}} “if I were you, I wouldn't buy it”."},
+        {"p":"**The past that didn't happen: …ก็คง…แล้ว.** For what could have happened but didn't, put {{แล้ว|lɛ́ɛo}} at the end of the result: {{ถ้ารู้ ผมก็คงไปแล้ว|tâa rúu pǒm gɔ̂ kong bpai lɛ́ɛo}} “if I'd known, I would have gone”. A past time word helps: {{ถ้าเมื่อวานไม่ฝนตก…|tâa mʉ̂ʉa-waan mâi fǒn dtòk …}} “if it hadn't rained yesterday…”."},
+        { "table": [
+          ["","Thai","meaning"],
+          ["imagining","{{ถ้ามีเงิน ฉันคงจะซื้อ|tâa mii ngən, chǎn kong jà sʉ́ʉ}}","If I had the money, I'd buy it."],
+          ["advice","{{ถ้าเป็นผม ผมคงไม่ไป|tâa bpen pǒm, pǒm kong mâi bpai}}","If I were you, I wouldn't go."],
+          ["the past","{{ถ้ารู้ ฉันก็คงมาแล้ว|tâa rúu, chǎn gɔ̂ kong maa lɛ́ɛo}}","If I'd known, I'd have come."]
+        ] },
+        {"p":"**Wishes.** {{อยากให้|yàak hâi}} + a sentence wishes something were so: {{อยากให้วันนี้เป็นวันเสาร์|yàak hâi wan-níi bpen wan sǎo}} “I wish today were Saturday”. {{ถ้า…ก็ดี|tâa … gɔ̂ dii}} is “it would be nice if”: {{ถ้าคุณมาด้วยก็ดี|tâa kun maa dûai gɔ̂ɔ-dii}} “it'd be great if you came too”. And {{น่าจะ|nâa jà}} looks back with regret: {{น่าจะมาเร็วกว่านี้|nâa-jà maa reo gwàa níi}} “we should have come earlier”."},
+        { "ex": [
+          {"t":"ถ้าฉันมีเวลา ฉันคงจะเรียนภาษาญี่ปุ่นด้วยค่ะ","r":"tâa chǎn mii wee-laa, chǎn kong jà riian paa-sǎa yîi-bpùn dûai kâ","tr":"If I had time, I'd learn Japanese too."},
+          {"t":"ถ้าเป็นผม ผมคงไม่ซื้อครับ แพงเกินไป","r":"tâa bpen pǒm, pǒm kong mâi sʉ́ʉ kráp, pɛɛng gəən bpai","tr":"If I were you, I wouldn't buy it. It's too expensive."},
+          {"t":"ถ้าเมื่อวานไม่ฝนตก เราก็คงไปทะเลแล้วค่ะ","r":"tâa mʉ̂ʉa-waan mâi fǒn dtòk, rao gɔ̂ kong bpai tá-lee lɛ́ɛo kâ","tr":"If it hadn't rained yesterday, we'd have gone to the beach."},
+          {"t":"ถ้ารู้ว่าคุณป่วย ผมคงไปเยี่ยมแล้วครับ","r":"tâa rúu wâa kun bpùai, pǒm kong bpai yîiam lɛ́ɛo kráp","tr":"If I'd known you were ill, I'd have come to see you."},
+          {"t":"อยากให้วันนี้เป็นวันเสาร์จังค่ะ","r":"yàak hâi wan-níi bpen wan sǎo jang kâ","tr":"I wish today were Saturday."},
+          {"t":"ถ้าคุณมาด้วยก็ดีนะครับ","r":"tâa kun maa dûai gɔ̂ dii ná kráp","tr":"It'd be great if you came too."},
+          {"t":"เราน่าจะมาเร็วกว่านี้ค่ะ","r":"rao nâa jà maa reo gwàa níi kâ","tr":"We should have come earlier."}
+        ] },
+        {"tip":"“Win the lottery” is {{ถูกลอตเตอรี่|tùuk lɔ́t-dtəə-rîi}}, with {{ถูก|tùuk}} “hit, be right”. Every Thai has an answer to {{ถ้าถูกลอตเตอรี่จะทำอะไร|tâa tùuk lɔ́t-dtəə-rîi jà tam à-rai}}: ask someone!"}
+      ],
+      "mistakes": [
+        {"wrong":"ถ้ารู้ ผมก็ไป","right":"ถ้ารู้ ผมก็คงไปแล้ว","tr":"If I'd known, I would have gone.","why":"Without {{คง…แล้ว|kong … lɛ́ɛo}} it sounds like a real plan: “if I find out, I'll go”. {{คง…แล้ว|kong … lɛ́ɛo}} shows it didn't happen."},
+        {"wrong":"ถ้าเป็นผม คุณคงไม่ซื้อ","right":"ถ้าเป็นผม ผมคงไม่ซื้อ","tr":"If I were you, I wouldn't buy it.","why":"After {{ถ้าเป็นผม|tâa bpen pǒm}} “if it were me”, the one who wouldn't buy is “I”: {{ผม|pǒm}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{คงจะ|kong jà}} “would (probably)” or {{เคย|kəəi}} “have ever”.","t":"ถ้าฉันมีเงินเยอะ ฉัน___ซื้อบ้านใหม่ค่ะ","tr":"If I had lots of money, I'd buy a new house.","options":["คงจะ","เคย"],"answer":0,"why":"Imagining: {{ถ้า…คงจะ…|tâa … kong-jà …}}."},
+        {"type":"choice","q":"“If I'd known, I would have come.”","options":["{{ถ้ารู้ ฉันก็คงมาแล้ว|tâa rúu, chǎn gɔ̂ kong maa lɛ́ɛo}}","{{ถ้ารู้ ฉันจะมา|tâa rúu, chǎn jà maa}}","{{ถ้ารู้ ฉันกำลังมา|tâa rúu, chǎn gam-lang maa}}"],"answer":0,"why":"It didn't happen: {{ก็คง…แล้ว|gɔ̂-kong … lɛ́ɛo}}. {{จะมา|jà-maa}} would be a real plan."},
+        {"type":"order","q":"Put the words in order.","tr":"I wish today were Saturday. (a woman speaking)","words":["อยากให้","วันนี้","เป็น","วันเสาร์","จัง","ค่ะ"]},
+        {"type":"dialogue","q":"Nok asks you to imagine. Choose your replies (you're a man).","from":"say-if","lines":[{"who":"Nok","t":"ถ้าคุณพูดภาษาไทยเก่งๆ คุณจะทำงานอะไรคะ","r":"tâa kun pûut paa-sǎa tai gèng-gèng, kun jà tam-ngaan à-rai ká","tr":"If you spoke Thai really well, what job would you do?"},{"options":["ผมคงจะเป็นไกด์ครับ","ผมเป็นไกด์แล้วครับ"],"answer":0,"why":"Imagining: {{คงจะ|kong jà}}. {{เป็นไกด์แล้ว|bpen gái lɛ́ɛo}} would mean you already are one."},{"who":"Nok","t":"ถ้าเป็นฉัน ฉันคงเป็นครูค่ะ","r":"tâa bpen chǎn, chǎn kong bpen kruu kâ","tr":"If it were me, I'd be a teacher."},{"options":["ก็ดีนะครับ ถ้าเป็นครูก็ได้เที่ยวตอนปิดเทอม","ก็ดีนะครับ เป็นครูถ้าก็ได้เที่ยวตอนปิดเทอม"],"answer":0,"why":"{{ถ้า|tâa}} at the start of the condition, {{ก็|gɔ̂}} before the result."}]},
+        {"type":"say","q":"You're a man. Say “If I were you, I wouldn't buy it.”","answer":"ถ้าเป็นผม ผมคงไม่ซื้อครับ","r":"tâa bpen pǒm, pǒm kong mâi sʉ́ʉ kráp"},
+        {"type":"free","q":"Your turn: what would you do if you won the lottery? And say something you wish were different.","answers":[{"t":"ถ้าถูกลอตเตอรี่ ผมคงจะซื้อบ้านที่เชียงใหม่ครับ อยากให้ที่ทำงานอยู่ใกล้บ้านกว่านี้","r":"tâa tùuk lɔ́t-dtəə-rîi, pǒm kong jà sʉ́ʉ bâan tîi chiiang-mài kráp, yàak hâi tîi tam-ngaan yùu glâi bâan gwàa níi","tr":"If I won the lottery, I'd buy a house in Chiang Mai. I wish my work were closer to home."},{"t":"ถ้าฉันถูกลอตเตอรี่ ฉันคงจะเที่ยวรอบโลกค่ะ อยากให้ฉันพูดภาษาไทยเก่งกว่านี้","r":"tâa chǎn tùuk lɔ́t-dtəə-rîi, chǎn kong jà tîao rɔ̂ɔp lôok kâ, yàak hâi chǎn pûut paa-sǎa tai gèng gwàa níi","tr":"If I won the lottery, I'd travel around the world. I wish I spoke Thai better."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 9,
+      "level": "B1",
+      "title": "Give your opinion, agree and disagree",
+      "summary": "Say what you think about something, agree, disagree politely, and ask others for their view.",
+      "topic": "{{(ผม/ฉัน)ว่า|wâa}}, {{ในความคิดของ…|nai kwaam-kít kɔ̌ɔng}}; {{คุณว่าไง|kun wâa ngai}}; {{เห็นด้วย|hěn dûai}} / {{ไม่เห็นด้วย|mâi hěn dûai}}; {{ก็จริง แต่ว่า…|gɔ̂ jing, dtɛ̀ɛ wâa}}; {{น่า|nâa}} + a verb",
+      "blocks": [
+        {"goal":{"t":"ในความคิดของฉัน เชียงใหม่น่าอยู่ที่สุดค่ะ","r":"nai kwaam-kít kɔ̌ɔng chǎn, chiiang-mài nâa-yùu tîi-sùt kâ","tr":"In my opinion, Chiang Mai is the nicest place to live."}},
+        {"dialog":[{"who":"Ton","t":"คุณว่าอยู่กรุงเทพดีกว่าอยู่ต่างจังหวัดไหมครับ","r":"kun wâa yùu grung-têep dii gwàa yùu dtàang-jang-wàt mǎi kráp","tr":"Do you think living in Bangkok is better than living in the provinces?"},{"who":"Anna","t":"ในความคิดของฉัน ต่างจังหวัดน่าอยู่กว่าค่ะ อากาศดีกว่า","r":"nai kwaam-kít kɔ̌ɔng chǎn, dtàang-jang-wàt nâa-yùu gwàa kâ, aa-gàat dii gwàa","tr":"In my opinion, the provinces are nicer to live in. The air is better."},{"who":"Ton","t":"ก็จริงครับ แต่ว่างานในกรุงเทพเยอะกว่า","r":"gɔ̂ jing kráp, dtɛ̀ɛ wâa ngaan nai grung-têep yə́ gwàa","tr":"That's true, but there are more jobs in Bangkok."},{"who":"Anna","t":"เห็นด้วยค่ะ แต่รถติดมากจนไม่อยากออกจากบ้าน","r":"hěn dûai kâ, dtɛ̀ɛ rót dtìt mâak jon mâi yàak ɔ̀ɔk jàak bâan","tr":"I agree, but the traffic is so bad you don't want to leave the house."},{"who":"Ton","t":"ผมว่าเราพูดถูกทั้งคู่นะครับ","r":"pǒm wâa rao pûut tùuk táng kûu ná kráp","tr":"I think we're both right."}]},
+        {"p":"**Giving your view.** The simplest way is {{ผมว่า|pǒm wâa}} / {{ฉันว่า|chǎn wâa}} “I think”: {{ฉันว่าแพงไป|chǎn wâa pɛɛng bpai}} “I think it's too expensive”. A little more formal: {{ผมคิดว่า…|pǒm kít-wâa …}}, or {{ในความคิดของผม…|nai kwaam-kít kɔ̌ɔng pǒm}} “in my opinion…”, literally “in the thinking of me”."},
+        {"p":"**Asking for someone's view.** {{คุณว่าไง|kun wâa ngai}} or {{คุณคิดว่ายังไง|kun kít wâa yang-ngai}} “what do you think?”; {{คุณว่า…ไหม|kun wâa … mǎi}} “do you think…?”."},
+        {"p":"**Agreeing and disagreeing.** {{เห็นด้วย|hěn dûai}} “I agree” (literally “see with”), {{ไม่เห็นด้วย|mâi hěn dûai}} “I disagree”. Thais rarely disagree head-on: {{ก็จริง แต่ว่า…|gɔ̂ jing, dtɛ̀ɛ wâa}} “that's true, but…” and {{ไม่ค่อยเห็นด้วย|mâi kɔ̂i hěn dûai}} “I don't quite agree” are kinder."},
+        { "table": [
+          ["Thai","meaning"],
+          ["{{เห็นด้วยค่ะ|hěn dûai kâ}}","I agree."],
+          ["{{ใช่เลยครับ|châi ləəi kráp}}","Exactly!"],
+          ["{{ก็จริงครับ แต่ว่า…|gɔ̂ jing kráp, dtɛ̀ɛ wâa}}","That's true, but…"],
+          ["{{ไม่ค่อยเห็นด้วยค่ะ|mâi kɔ̂i hěn dûai kâ}}","I don't quite agree."],
+          ["{{ไม่เห็นด้วยครับ|mâi hěn dûai kráp}}","I disagree."],
+          ["{{แล้วแต่คุณค่ะ|lɛ́ɛo-dtɛ̀ɛ kun kâ}}","It's up to you."]
+        ] },
+        {"p":"**Worth it: น่า + a verb.** {{น่า|nâa}} before a verb means “worth …ing, …able”: {{น่าอยู่|nâa-yùu}} “nice to live in”, {{น่ากิน|nâa-gin}} “looks delicious”, {{น่าสนใจ|nâa-sǒn-jai}} “interesting”, {{น่ารัก|nâa-rák}} “cute, lovely”. Very handy for opinions."},
+        { "ex": [
+          {"t":"ผมว่าหนังเรื่องนี้น่าสนใจมากครับ","r":"pǒm wâa nǎng rʉ̂ʉang níi nâa-sǒn-jai mâak kráp","tr":"I think this movie is really interesting."},
+          {"t":"คุณว่าไงคะ ไปทะเลหรือภูเขาดี","r":"kun wâa ngai ká, bpai tá-lee rʉ̌ʉ puu-kǎo dii","tr":"What do you think: the sea or the mountains?"},
+          {"t":"เห็นด้วยครับ ร้านนี้อร่อยที่สุด","r":"hěn dûai kráp, ráan níi à-rɔ̀i tîi-sùt","tr":"I agree: this place is the best."},
+          {"t":"ก็จริงค่ะ แต่ว่ามันไกลไปหน่อย","r":"gɔ̂ jing kâ, dtɛ̀ɛ wâa man glai bpai nɔ̀i","tr":"That's true, but it's a bit too far."},
+          {"t":"ผมไม่ค่อยเห็นด้วยครับ","r":"pǒm mâi kɔ̂i hěn dûai kráp","tr":"I don't quite agree."},
+          {"t":"อาหารดูน่ากินมากเลยค่ะ","r":"aa-hǎan duu nâa-gin mâak ləəi kâ","tr":"The food looks so delicious!"}
+        ] },
+        {"tip":"{{…ไปหน่อย|bpai nɔ̀i}} after an adjective, “a bit too …”, is a gentle way to criticize: {{แพงไปหน่อย|pɛɛng bpai nɔ̀i}} “a bit pricey” is softer than {{แพงเกินไป|pɛɛng gəən-bpai}}."}
+      ],
+      "mistakes": [
+        {"wrong":"ตกลงค่ะ ร้านนี้อร่อยที่สุด","right":"เห็นด้วยค่ะ ร้านนี้อร่อยที่สุด","tr":"I agree: this place is the best.","why":"{{ตกลง|dtòk-long}} is “OK, it's a deal”, for plans. To agree with an opinion, say {{เห็นด้วย|hěn dûai}}."},
+        {"wrong":"ในความคิดฉันของ","right":"ในความคิดของฉัน","tr":"in my opinion","why":"{{ของ|kɔ̌ɔng}} comes before the owner: “in the thinking of me”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{เห็นด้วย|hěn dûai}} “agree” or {{ตกลง|dtòk-long}} “OK, deal”.","t":"ผม___ครับ ภาษาไทยไม่ยากอย่างที่คิด","tr":"I agree: Thai isn't as hard as people think.","options":["เห็นด้วย","ตกลง"],"answer":0,"why":"Agreeing with an opinion: {{เห็นด้วย|hěn dûai}}."},
+        {"type":"choice","q":"You want to disagree politely. You start with…","options":["{{ก็จริงครับ แต่ว่า…|gɔ̂ jing kráp, dtɛ̀ɛ wâa}}","{{ไม่ใช่เลย|mâi châi ləəi}}","{{คุณผิด|kun pìt}}"],"answer":0,"why":"“That's true, but…” softens it: Thais rarely say “you're wrong” outright."},
+        {"type":"order","q":"Put the words in order.","tr":"In my opinion, Chiang Mai is the nicest place to live. (a woman speaking)","words":["ในความคิด","ของฉัน","เชียงใหม่","น่าอยู่","ที่สุด","ค่ะ"]},
+        {"type":"dialogue","q":"Ton asks what you think of a restaurant. Choose your replies (you're a woman).","from":"but-and-although","lines":[{"who":"Ton","t":"คุณว่าร้านนี้เป็นยังไงครับ","r":"kun wâa ráan níi bpen yang-ngai kráp","tr":"What do you think of this place?"},{"options":["ฉันว่าอร่อยค่ะ แต่แพงไปหน่อย","ฉันว่าอร่อยค่ะ เพราะแพงไปหน่อย"],"answer":0,"why":"Good, but pricey: {{แต่|dtɛ̀ɛ}}."},{"who":"Ton","t":"ผมว่าไม่แพงนะครับ คุ้มมาก","r":"pǒm wâa mâi pɛɛng ná kráp, kúm mâak","tr":"I don't think it's expensive. It's great value."},{"options":["ก็จริงค่ะ ถึงจะแพงแต่ก็คุ้ม","ตกลงค่ะ ถึงจะแพงแต่ก็คุ้ม"],"answer":0,"why":"Agreeing with what he thinks: {{ก็จริง|gɔ̂ jing}}. {{ตกลง|dtòk-long}} is for accepting a plan."}]},
+        {"type":"say","q":"You're a man. Ask a friend, casually, “What do you think?”","answer":"คุณว่าไงครับ","r":"kun wâa ngai kráp"},
+        {"type":"free","q":"Your turn: give your opinion on something (a city, a food, learning Thai), and add a “but”.","answers":[{"t":"ผมว่าภาษาไทยน่าเรียนมากครับ แต่ว่าเรื่องเสียงยากไปหน่อย","r":"pǒm wâa paa-sǎa tai nâa riian mâak kráp, dtɛ̀ɛ wâa rʉ̂ʉang sǐiang yâak bpai nɔ̀i","tr":"I think Thai is really worth learning, but the tones are a bit hard."},{"t":"ในความคิดของฉัน อาหารไทยอร่อยที่สุดในโลกค่ะ แต่บางอย่างก็เผ็ดเกินไป","r":"nai kwaam-kít kɔ̌ɔng chǎn, aa-hǎan tai à-rɔ̀i tîi-sùt nai lôok kâ, dtɛ̀ɛ baang yàang gɔ̂ pèt gəən bpai","tr":"In my opinion, Thai food is the best in the world, but some of it is too spicy."}]}
+      ]
+    },
+    {
+      "id": "sound-natural",
+      "unit": 9,
+      "level": "B1",
+      "title": "Sound natural: the little words at the end",
+      "summary": "Use the little words Thais put at the end of a sentence to sound friendly, to urge, to soften, or to show surprise.",
+      "topic": "{{นะ|ná}}, {{สิ|sì}}, {{เลย|ləəi}}, {{หรอก|rɔ̀k}}, {{ล่ะ|lâ}}, {{เหรอ|rə̌ə}}, {{จ้ะ|jâ}} / {{จ้า|jâa}}: what each one adds",
+      "blocks": [
+        {"goal":{"t":"ลองชิมดูสิคะ อร่อยนะ","r":"lɔɔng chim duu sì ká, à-rɔ̀i ná","tr":"Go on, try it, it's good!"}},
+        {"dialog":[{"who":"Nok","t":"ทอม กินนี่สิ อร่อยมากเลย","r":"tɔm, gin nîi sì, à-rɔ̀i mâak ləəi","tr":"Tom, eat this! It's really good."},{"who":"Tom","t":"เผ็ดไหมครับ","r":"pèt mǎi kráp","tr":"Is it spicy?"},{"who":"Nok","t":"ไม่เผ็ดหรอก ลองดูนะ","r":"mâi pèt rɔ̀k, lɔɔng duu ná","tr":"It's not spicy, honestly. Give it a try."},{"who":"Tom","t":"โอ้โห เผ็ดมาก ไม่เผ็ดเหรอครับ","r":"ôo-hǒo, pèt mâak, mâi pèt rə̌ə kráp","tr":"Whoa, that's really spicy! “Not spicy”, huh?"},{"who":"Nok","t":"ขอโทษจ้า สำหรับคนไทยไม่เผ็ดนะ","r":"kɔ̌ɔ-tôot jâa, sǎm-ràp kon tai mâi pèt ná","tr":"Sorry! For a Thai it isn't spicy."},{"who":"Tom","t":"แล้วน้ำอยู่ไหนล่ะครับ","r":"lɛ́ɛo náam yùu nǎi lâ kráp","tr":"So where's the water?!"}]},
+        {"p":"**Beyond ครับ and ค่ะ.** Thai has a set of little words for the end of a sentence that add a feeling: friendliness, urging, softening, surprise. They come before {{ครับ|kráp}} / {{ค่ะ|kâ}} if you use those. With close friends, Thais often drop {{ครับ|kráp}} / {{ค่ะ|kâ}} and keep only these, as Nok does with Tom."},
+        { "table": [
+          ["word","what it adds","example"],
+          ["{{นะ|ná}}","softens, makes it friendly: “OK?”, “you know”","{{รอแป๊บนะ|rɔɔ bpɛ́p ná}} wait a sec, OK?"],
+          ["{{สิ|sì}}","urges: “go on!”, “of course!”","{{ลองดูสิ|lɔɔng duu sì}} go on, try it"],
+          ["{{เลย|ləəi}}","“right away”; or makes it stronger: “so, really”","{{อร่อยมากเลย|à-rɔ̀i mâak ləəi}} so good!"],
+          ["{{หรอก|rɔ̀k}}","softens a “no”: “not really, honestly”","{{ไม่เป็นไรหรอก|mâi bpen rai rɔ̀k}} it's really fine"],
+          ["{{ล่ะ|lâ}}","“then?”, “what about…?”; a little impatient","{{แล้วคุณล่ะ|lɛ́ɛo kun lâ}} and you?"],
+          ["{{เหรอ|rə̌ə}}","checks, with surprise: “really?”","{{จริงเหรอ|jing rə̌ə}} really?"],
+          ["{{จ้ะ|jâ}} / {{จ้า|jâa}}","warm and friendly, to friends and children","{{ได้จ้ะ|dâai jâ}} sure, dear"]
+        ] },
+        {"p":"**With ครับ and คะ.** The little word comes first: {{นะครับ|ná kráp}}, {{นะคะ|ná ká}}, {{สิคะ|sì ká}}. Notice that after {{นะ|ná}} and {{สิ|sì}} a woman says the high-tone {{คะ|ká}}, even when she isn't asking anything."},
+        {"p":"**สิ and เถอะ.** Both urge. {{ไปสิ|bpai sì}} “go on, go!” is lively, sometimes a little pushy; {{ไปเถอะ|bpai tə̀}} “do go, you'd better” is gentler. With {{ครับ|kráp}} / {{คะ|ká}}, {{สิ|sì}} becomes a warm invitation: {{เชิญนั่งสิคะ|chəən nâng sì ká}} “please, do sit down”."},
+        {"p":"**เหรอ for surprise.** {{เหรอ|rə̌ə}} (in careful writing, {{หรือ|rʉ̌ʉ}}) turns a statement into “really?”: {{คุณเป็นหมอเหรอ|kun bpen mɔ̌ɔ rə̌ə}} “you're a doctor? (I didn't know)”. Answer {{ใช่|châi}} “yes, that's right”."},
+        { "ex": [
+          {"t":"รอแป๊บนะครับ","r":"rɔɔ bpɛ́p ná kráp","tr":"Wait a sec, OK?"},
+          {"t":"เชิญนั่งสิคะ","r":"chəən nâng sì ká","tr":"Please, do sit down."},
+          {"t":"เข้ามาเลยครับ","r":"kâo maa ləəi kráp","tr":"Come right in!"},
+          {"t":"ไม่ต้องหรอกค่ะ ขอบคุณค่ะ","r":"mâi dtɔ̂ng rɔ̀k kâ, kɔ̀ɔp-kun kâ","tr":"There's really no need. Thank you."},
+          {"t":"แล้วจะไปกี่โมงล่ะครับ","r":"lɛ́ɛo jà bpai gìi moong lâ kráp","tr":"So what time are we going?"},
+          {"t":"คุณพูดภาษาไทยได้เหรอคะ","r":"kun pûut paa-sǎa tai dâai rə̌ə ká","tr":"You can speak Thai? (I didn't know!)"},
+          {"t":"ได้จ้ะ เดี๋ยวแม่ทำให้","r":"dâai jâ, dǐao mɛ̂ɛ tam hâi","tr":"Sure, sweetie. I'll make it for you.","note":"a mother to her child"}
+        ] },
+        {"tip":"Listen for these words on Thai TV and in songs: they carry the speaker's mood. Your voice matters too: {{นะ|ná}} said long and low pleads, said short just softens."}
+      ],
+      "mistakes": [
+        {"wrong":"นะเข้ามาครับ","right":"เข้ามานะครับ","tr":"Do come in.","why":"These little words go at the end, just before {{ครับ|kráp}} / {{ค่ะ|kâ}}."},
+        {"wrong":"รอแป๊บนะค่ะ","right":"รอแป๊บนะคะ","tr":"Wait a moment, please. (a woman speaking)","why":"After {{นะ|ná}} (and {{สิ|sì}}), a woman uses the high-tone {{คะ|ká}}, even when she isn't asking. Thais often mix them up in writing too."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{หรอก|rɔ̀k}} “not really, honestly” or {{สิ|sì}} “go on”.","t":"ไม่เป็นไร___ครับ","tr":"It's really no problem.","options":["หรอก","สิ"],"answer":0,"why":"Softening a “no”: {{หรอก|rɔ̀k}}."},
+        {"type":"choice","q":"A woman says “Wait a moment, please.”","options":["{{รอแป๊บนะคะ|rɔɔ bpɛ́p ná ká}}","{{รอแป๊บนะค่ะ|rɔɔ bpɛ́p ná kâ}}","{{นะรอแป๊บคะ|ná rɔɔ bpɛ́p ká}}"],"answer":0,"why":"After {{นะ|ná}}, a woman says {{คะ|ká}}, high tone."},
+        {"type":"order","q":"Put the words in order.","tr":"Please, do sit down. (a woman speaking)","words":["เชิญ","นั่ง","สิ","คะ"]},
+        {"type":"dialogue","q":"Nok wants you to try durian. Choose your replies (you're a man).","from":"talk-about-experiences","lines":[{"who":"Nok","t":"คุณเคยกินทุเรียนไหม","r":"kun kəəi gin tú-riian mǎi","tr":"Have you ever had durian?"},{"options":["ไม่เคยครับ อร่อยเหรอ","ไม่เคยครับ อร่อยหรอก"],"answer":0,"why":"Asking, a little surprised, “is it good?”: {{เหรอ|rə̌ə}}."},{"who":"Nok","t":"อร่อยมาก ลองดูสิ","r":"à-rɔ̀i mâak, lɔɔng duu sì","tr":"Really good! Go on, try it."},{"options":["ได้ครับ แต่ไม่เยอะนะ","ได้ครับ แต่ไม่เยอะสิ"],"answer":0,"why":"Asking gently, “not too much, OK?”: {{นะ|ná}}."}]},
+        {"type":"say","q":"You're a woman. Tell a friend “Go on, try it, it's good!”","answer":"ลองชิมดูสิคะ อร่อยนะ","r":"lɔɔng chim duu sì ká, à-rɔ̀i ná"},
+        {"type":"free","q":"Your turn: welcome a friend into your home, offer something, and say it's no trouble, with {{นะ|ná}}, {{สิ|sì}} or {{หรอก|rɔ̀k}}.","answers":[{"t":"เข้ามาเลยครับ นั่งสิ กินกาแฟไหม ไม่ต้องเกรงใจนะ","r":"kâo maa ləəi kráp, nâng sì, gin gaa-fɛɛ mǎi, mâi dtɔ̂ng greeng-jai ná","tr":"Come on in! Sit down. Coffee? Make yourself at home."},{"t":"เข้ามาสิคะ ดื่มน้ำก่อนนะ ไม่ลำบากหรอกค่ะ","r":"kâo maa sì ká, dʉ̀ʉm náam gɔ̀ɔn ná, mâi lam-bàak rɔ̀k kâ","tr":"Come in! Have some water first. It's no trouble at all."}]}
+      ]
     }
   ]
 }
