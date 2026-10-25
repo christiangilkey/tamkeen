@@ -22,9 +22,13 @@ const BRITISH = /\b(colour\w*|favour\w*|neighbour\w*|centre|centres|theatre|real
 const pieces = (s) => parseRich(s).filter((p) => p.kind === "target").map((p) => p.text);
 const own = (s) => parseRich(s).filter((p) => p.kind === "text").map((p) => p.text).join(" ");
 
+// Pieces quoted on purpose, to show what isn't said in Brazil.
+const QUOTED = new Set(["estou a falar"]);
+
 function problems(lessons, texts, rules) {
   const bad = [];
   for (const l of lessons) for (const t of texts(l)) for (const [name, re] of rules) {
+    if (QUOTED.has(String(t))) continue;
     const m = String(t).match(re);
     if (m) bad.push(`${l.id}: ${name} “${m[0]}” in “${String(t).slice(0, 70)}”`);
   }

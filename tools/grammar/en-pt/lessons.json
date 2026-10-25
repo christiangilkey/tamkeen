@@ -631,6 +631,349 @@
         {"type":"say","q":"Say: “I'm going to the bank; it's near the hotel.”","answer":"Vou ao banco, fica perto do hotel.","from":"say-where-things-are"},
         {"type":"free","q":"Your turn: where are you going today or this weekend, and how? Use {{Vou…}} and {{de…}} or {{a pé}}.","answers":[{"t":"Hoje vou ao trabalho de metrô e depois vou pra academia.","tr":"Today I'm going to work by subway, and then to the gym."},{"t":"No sábado vou à praia de carro com meus amigos.","tr":"On Saturday I'm going to the beach by car with my friends."}]}
       ]
+    },
+    {
+      "id": "say-what-you-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Talk about your work and your day",
+      "summary": "Say where you live and work and what you do, for yourself and for others: the present tense of regular verbs.",
+      "topic": "The present: regular {{-ar}}, {{-er}}, {{-ir}} verbs; {{nós}} and {{a gente}} “we”; {{num}}, {{numa}}",
+      "blocks": [
+        {"goal":{"t":"Eu trabalho num hospital e moro perto do centro.","tr":"I work in a hospital and live near downtown."}},
+        {"dialog":[{"who":"Paula","t":"Você trabalha com quê?","tr":"What do you do for work?"},{"who":"Jake","t":"Sou engenheiro. Trabalho numa empresa de energia.","tr":"I'm an engineer. I work at an energy company."},{"who":"Paula","t":"E você mora aqui no bairro?","tr":"And do you live here in the neighborhood?"},{"who":"Jake","t":"Moro, sim. A gente mora do lado da padaria.","tr":"Yes, I do. We live next to the bakery."},{"who":"Paula","t":"E vocês falam português em casa?","tr":"And do you speak Portuguese at home?"},{"who":"Jake","t":"Não, a gente fala inglês. Mas eu estudo português todo dia!","tr":"No, we speak English. But I study Portuguese every day!"}]},
+        {"term":"infinitive","means":"the basic form of a verb, the one in the dictionary: to speak, to eat. In Portuguese it ends in {{-r}}: {{falar}}, {{comer}}, {{abrir}}."},
+        {"p":"**Three families of verbs.** Every Portuguese infinitive ends in {{-ar}}, {{-er}} or {{-ir}}. To use a verb, take off those two letters and add the ending for who does it:"},
+        { "table": [
+          ["","{{falar}} speak","{{comer}} eat","{{abrir}} open"],
+          ["I","{{falo}}","{{como}}","{{abro}}"],
+          ["you, he, she, {{a gente}}","{{fala}}","{{come}}","{{abre}}"],
+          ["we ({{nós}})","{{falamos}}","{{comemos}}","{{abrimos}}"],
+          ["you all, they","{{falam}}","{{comem}}","{{abrem}}"]
+        ] },
+        {"p":"**Four forms are enough.** In Brazil, {{você}} “you”, {{ele}} “he”, {{ela}} “she” and {{a gente}} “we” share one form, and {{vocês}} “you all”, {{eles}} and {{elas}} “they” share another. (In some regions you'll hear {{tu}} for “you”, often with the same verb form as {{você}}.)"},
+        {"p":"**Two ways to say “we”.** {{nós}} takes {{-mos}}: {{nós falamos}}. But in conversation Brazilians usually say {{a gente}} (literally “the people”), with the same form as {{ele}}: {{a gente fala}}. Both mean “we speak”; {{a gente}} sounds relaxed, {{nós}} a little more careful."},
+        {"p":"**{{num}}, {{numa}}.** {{Em}} also joins {{um}} and {{uma}}: {{num banco}} “in a bank”, {{numa empresa}} “at a company”."},
+        { "ex": [
+          {"t":"Eu moro num apartamento pequeno.","tr":"I live in a small apartment."},
+          {"t":"Ela trabalha de casa.","tr":"She works from home."},
+          {"t":"A gente come muito arroz e feijão.","tr":"We eat a lot of rice and beans."},
+          {"t":"Nós abrimos às nove.","tr":"We open at nine.","note":"a shop assistant speaking"},
+          {"t":"Vocês falam inglês?","tr":"Do you speak English?","note":"to more than one person"},
+          {"t":"Meus amigos estudam na mesma escola.","tr":"My friends study at the same school."}
+        ] },
+        {"tip":"Everyday regular verbs to try: {{morar}} live, {{trabalhar}} work, {{estudar}} study, {{chegar}} arrive, {{comprar}} buy, {{tomar}} take, drink; {{beber}} drink, {{aprender}} learn, {{entender}} understand, {{vender}} sell; {{dividir}} share, {{decidir}} decide, {{assistir}} watch."}
+      ],
+      "mistakes": [
+        {"wrong":"A gente falamos inglês.","right":"A gente fala inglês.","tr":"We speak English.","why":"{{A gente}} takes the same form as {{ele}} and {{ela}}: {{fala}}. ({{Falamos}} goes with {{nós}}.)"},
+        {"wrong":"Eles come muito.","right":"Eles comem muito.","tr":"They eat a lot.","why":"With {{eles}}, {{elas}} or {{vocês}}, the verb ends in {{-m}}: {{comem}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Nós ___ em São Paulo.","tr":"We live in São Paulo.","options":["moramos","mora","moram"],"answer":0,"why":"With {{nós}}: {{-mos}}, {{moramos}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"A gente ___ muito café.","tr":"We drink a lot of coffee.","options":["bebe","bebemos","bebem"],"answer":0,"why":"{{A gente}} takes the {{ele}} form: {{bebe}}."},
+        {"type":"choice","q":"Which two mean the same thing?","options":["{{nós trabalhamos}} and {{a gente trabalha}}","{{nós trabalhamos}} and {{eles trabalham}}","{{a gente trabalha}} and {{eu trabalho}}"],"answer":0,"why":"Both are “we work”: {{a gente}} is the everyday way."},
+        {"type":"dialogue","q":"A new neighbor says hello. Choose your replies.","from":"say-yes-and-no","lines":[{"who":"Neighbor","t":"Vocês moram aqui?","tr":"Do you live here?"},{"options":["Moramos, sim. No terceiro andar.","Mora, sim. No terceiro andar."],"answer":0,"why":"About you and your family: the {{nós}} form, {{moramos}}, answering with the verb."},{"who":"Neighbor","t":"E vocês trabalham com quê?","tr":"And what do you do?"},{"options":["Eu sou professor e minha esposa trabalha num hospital.","Eu sou professor e minha esposa trabalham num hospital."],"answer":0,"why":"One person, {{minha esposa}}: {{trabalha}}."},{"who":"Neighbor","t":"Que legal! Bem-vindos!","tr":"How nice! Welcome!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"My friends study Portuguese.","words":["Meus","amigos","estudam","português."]},
+        {"type":"say","q":"How do you say “I work in a bank”?","answer":"Trabalho num banco."},
+        {"type":"free","q":"Your turn: say where you live, where you work or study, and one thing you do with your family or friends (with {{a gente}}).","answers":[{"t":"Moro em Boston e trabalho num banco. A gente come pizza toda sexta.","tr":"I live in Boston and work at a bank. We eat pizza every Friday."},{"t":"Eu estudo na universidade. Eu e meus amigos jogamos futebol no sábado.","tr":"I study at the university. My friends and I play soccer on Saturdays."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you like",
+      "summary": "Say what you like, love and hate, ask others, and agree: “Me too!”, “Me neither!”.",
+      "topic": "{{gostar de}} (with {{do}}, {{da}}); {{adorar}}, {{odiar}}; {{eu também}}, {{eu também não}}",
+      "blocks": [
+        {"goal":{"t":"Eu adoro café, mas não gosto de chá.","tr":"I love coffee, but I don't like tea."}},
+        {"dialog":[{"who":"Camila","t":"Você gosta de comida brasileira?","tr":"Do you like Brazilian food?"},{"who":"Ben","t":"Gosto muito! Adoro feijoada.","tr":"I really do! I love feijoada."},{"who":"Camila","t":"E de música? Você gosta de samba?","tr":"And music? Do you like samba?"},{"who":"Ben","t":"Gosto, mas gosto mais de bossa nova.","tr":"I do, but I like bossa nova more."},{"who":"Camila","t":"Eu também! E você gosta de dançar?","tr":"Me too! And do you like dancing?"},{"who":"Ben","t":"Não, não gosto. Danço muito mal!","tr":"No, I don't. I dance really badly!"}]},
+        {"p":"**{{gostar de}}.** “To like” is {{gostar}}, and it always takes {{de}} before what you like: {{Gosto de café.}} “I like coffee.” That {{de}} joins “the” as usual: {{Gosto do Brasil}}, {{Gosto da praia}}."},
+        { "table": [
+          ["","Portuguese","English"],
+          ["+ a noun","{{Gosto de chocolate.}}","I like chocolate."],
+          ["+ “the”","{{Gosto do bairro.}}","I like the neighborhood."],
+          ["+ a verb","{{Gosto de cozinhar.}}","I like cooking."],
+          ["asking","{{Você gosta de futebol?}}","Do you like soccer?"],
+          ["answering","{{Gosto!}} / {{Não gosto.}}","I do! / I don't."]
+        ] },
+        {"p":"After {{de}}, a verb stays in its infinitive: {{Gosto de ler}} “I like reading”."},
+        {"p":"**Love it, hate it.** {{adorar}} “love” and {{odiar}} “hate” take no {{de}}: {{Adoro praia}}, {{Odeio acordar cedo}}. Brazilians say {{adoro}} about things all the time."},
+        {"p":"**How much.** {{muito}} “a lot”, {{mais}} “more” and {{um pouco}} “a little” come right after {{gosto}}: {{Gosto muito de você}} “I really like you”. And to agree: {{Eu também}} “Me too”, {{Eu também não}} “Me neither” (literally “I also not”)."},
+        {"p":"**What do you like?** {{Do que você gosta?}}, or in relaxed speech {{Você gosta de quê?}}, with {{quê}} at the end, as in lesson 6."},
+        { "ex": [
+          {"t":"Gosto muito de viajar.","tr":"I really like traveling."},
+          {"t":"Ela não gosta de acordar cedo.","tr":"She doesn't like getting up early."},
+          {"t":"Vocês gostam da cidade?","tr":"Do you like the city?","note":"to more than one person"},
+          {"t":"Adoro esse restaurante!","tr":"I love this restaurant!"},
+          {"t":"Não gosto de futebol. — Eu também não.","tr":"I don't like soccer. — Me neither."},
+          {"t":"O que você gosta de fazer no fim de semana?","tr":"What do you like to do on the weekend?"}
+        ] },
+        {"tip":"{{Gosto de você}} is “I like you”; {{Eu te amo}} is “I love you” ({{te}} is “you”: lesson 24 shows how it works)."}
+      ],
+      "mistakes": [
+        {"wrong":"Eu gosto café.","right":"Eu gosto de café.","tr":"I like coffee.","why":"{{Gostar}} always takes {{de}} before what you like."},
+        {"wrong":"Gosto de o Brasil.","right":"Gosto do Brasil.","tr":"I like Brazil.","why":"{{De}} and {{o}} join: {{do}}."},
+        {"wrong":"Adoro de praia.","right":"Adoro praia.","tr":"I love the beach.","why":"Only {{gostar}} takes {{de}}; {{adorar}} doesn't."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Você gosta ___ chocolate?","tr":"Do you like chocolate?","options":["de","do","da"],"answer":0,"why":"No “the” here: plain {{de}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Gosto muito ___ cidade.","tr":"I really like the city.","options":["da","do","de"],"answer":0,"why":"{{A cidade}}: {{de}} + {{a}} = {{da}}.","from":"say-where-things-are"},
+        {"type":"choice","q":"Your friend says {{Não gosto de acordar cedo.}} You don't either. You say…","options":["{{Eu também não.}}","{{Eu também.}}","{{Eu não também.}}"],"answer":0,"why":"“Me neither”: {{eu também não}}."},
+        {"type":"dialogue","q":"Getting to know someone: choose your replies.","lines":[{"who":"Camila","t":"Você gosta de samba?","tr":"Do you like samba?"},{"options":["Gosto, mas gosto mais de rock.","Gosto de, mas gosto mais rock."],"answer":0,"why":"Answer with {{Gosto}} alone; {{de}} comes back only before the thing you like."},{"who":"Camila","t":"E você gosta de cozinhar?","tr":"And do you like cooking?"},{"options":["Adoro cozinhar!","Adoro de cozinhar!"],"answer":0,"why":"{{Adorar}} takes no {{de}}."},{"who":"Camila","t":"Que ótimo!","tr":"That's great!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We like going to the beach.","words":["A gente","gosta","de ir","à praia."],"from":"go-places"},
+        {"type":"say","q":"How do you say “I don't like tea”?","answer":"Não gosto de chá."},
+        {"type":"free","q":"Your turn: say two things you like and one you don't, with {{Gosto de…}}, {{Adoro…}} and {{Não gosto de…}}","answers":[{"t":"Adoro café e gosto muito de ler, mas não gosto de correr.","tr":"I love coffee and I really like reading, but I don't like running."},{"t":"Gosto de música brasileira e de praia. Não gosto de frio!","tr":"I like Brazilian music and the beach. I don't like the cold!"}]}
+      ]
+    },
+    {
+      "id": "talk-about-time",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what time and what day",
+      "summary": "Ask and tell the time, say when things happen, and talk about the days of the week.",
+      "topic": "{{Que horas são?}}; {{São duas.}} / {{É uma.}}; {{às três}}; {{de manhã}}; {{no sábado}}, {{na segunda}}, {{toda sexta}}",
+      "blocks": [
+        {"goal":{"t":"A aula começa às oito, de segunda a sexta.","tr":"The class starts at eight, Monday to Friday."}},
+        {"dialog":[{"who":"You","t":"Que horas são?","tr":"What time is it?"},{"who":"Rodrigo","t":"São seis e meia.","tr":"It's six thirty."},{"who":"You","t":"Que horas começa o filme?","tr":"What time does the movie start?"},{"who":"Rodrigo","t":"Às sete e quinze.","tr":"At seven fifteen."},{"who":"You","t":"E amanhã? Você trabalha?","tr":"And tomorrow? Are you working?"},{"who":"Rodrigo","t":"Não, sábado eu não trabalho. Só de segunda a sexta.","tr":"No, I don't work on Saturdays. Only Monday to Friday."}]},
+        {"p":"**What time is it?** {{Que horas são?}} The answer starts with {{são}} “they are” (the hours are plural), but with {{é}} for one o'clock, noon and midnight. Hours are feminine ({{a hora}}), so {{uma}}, {{duas}}:"},
+        { "table": [
+          ["","Portuguese"],
+          ["1:00","{{É uma hora.}}"],
+          ["2:00","{{São duas horas.}}"],
+          ["3:15","{{São três e quinze.}}"],
+          ["3:30","{{São três e meia.}}"],
+          ["3:45","{{São quinze pras quatro.}}"],
+          ["noon","{{É meio-dia.}}"],
+          ["midnight","{{É meia-noite.}}"]
+        ] },
+        {"p":"{{Meia}} is “half” (of an hour). {{Quinze pras quatro}} is “fifteen to four”."},
+        {"p":"**At what time?** Ask {{Que horas…?}} or {{A que horas…?}}; answer with {{às}} and the hour: {{às duas}}, {{às oito e meia}}. That's the {{à}} of lesson 12, “at the”. But {{à uma}} (one), {{ao meio-dia}}, {{à meia-noite}}. From… to…: {{das nove às seis}}."},
+        {"p":"**Parts of the day.** {{de manhã}} in the morning, {{à tarde}} in the afternoon, {{à noite}} at night. With an hour: {{às oito da manhã}}, {{às três da tarde}}, {{às dez da noite}}."},
+        {"p":"**Days.** Brazilians number the weekdays: {{segunda-feira}} Monday (“second day”), {{terça}} Tuesday, {{quarta}} Wednesday, {{quinta}} Thursday, {{sexta}} Friday; then {{sábado}} and {{domingo}}. The {{-feira}} is usually dropped. Monday to Friday are feminine, Saturday and Sunday masculine:"},
+        { "table": [
+          ["","Portuguese","example"],
+          ["on Saturday","{{no sábado}}","{{No sábado vou à praia.}}"],
+          ["on Monday","{{na segunda}}","{{Na segunda eu trabalho.}}"],
+          ["every Friday","{{toda sexta}}","{{Toda sexta tenho aula.}}"],
+          ["every Sunday","{{todo domingo}}","{{Todo domingo almoço com meus pais.}}"],
+          ["Monday to Friday","{{de segunda a sexta}}","{{Trabalho de segunda a sexta.}}"]
+        ] },
+        { "ex": [
+          {"t":"Que horas são? — São dez e vinte.","tr":"What time is it? — It's ten twenty."},
+          {"t":"O ônibus sai às sete e meia.","tr":"The bus leaves at seven thirty."},
+          {"t":"A loja abre ao meio-dia.","tr":"The store opens at noon."},
+          {"t":"Tenho aula às duas da tarde.","tr":"I have class at two in the afternoon."},
+          {"t":"Na sexta a gente vai ao cinema.","tr":"On Friday we're going to the movies."},
+          {"t":"Que dia é hoje? — Hoje é terça.","tr":"What day is it today? — Today is Tuesday."}
+        ] },
+        {"tip":"Timetables, tickets and TV use the 24-hour clock: {{às 19h}} is read {{às dezenove horas}}. In conversation people say {{às sete da noite}}."}
+      ],
+      "mistakes": [
+        {"wrong":"É duas horas.","right":"São duas horas.","tr":"It's two o'clock.","why":"From two o'clock on, the verb is plural: {{são}}. Only one o'clock, noon and midnight take {{é}}."},
+        {"wrong":"O filme começa em oito.","right":"O filme começa às oito.","tr":"The movie starts at eight.","why":"“At” a time is {{às}}, “at the (hours)”."},
+        {"wrong":"No segunda eu trabalho.","right":"Na segunda eu trabalho.","tr":"On Monday I work.","why":"Monday to Friday are feminine: {{na segunda}}, {{toda sexta}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"São três ___ meia.","tr":"It's three thirty.","options":["e","às","a"],"answer":0,"why":"Three “and” a half: {{três e meia}}."},
+        {"type":"choice","q":"It's 1:00. You say…","options":["{{É uma hora.}}","{{São uma hora.}}","{{É um hora.}}"],"answer":0,"why":"One o'clock: {{é}}, and {{hora}} is feminine, {{uma}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"A reunião é ___ dez.","tr":"The meeting is at ten.","options":["às","as","na"],"answer":0,"why":"“At” a time: {{às}}, with its accent."},
+        {"type":"dialogue","q":"Making plans: choose your replies.","from":"go-places","lines":[{"who":"Lia","t":"Vamos ao cinema na sexta?","tr":"Shall we go to the movies on Friday?"},{"options":["Vamos! Que horas começa o filme?","Vamos! Quantas horas começa o filme?"],"answer":0,"why":"“What time”: {{que horas}}. ({{Quantas horas}} is “how many hours”.)"},{"who":"Lia","t":"Às oito e meia.","tr":"At eight thirty."},{"options":["Ótimo! Até sexta, então.","Ótimo! Até o sexta, então."],"answer":0,"why":"{{Até sexta!}} “See you Friday!” ({{Sexta}} is feminine anyway.)"},{"who":"Lia","t":"Beijo, tchau!","tr":"Love, bye!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I work Monday to Friday.","words":["Trabalho","de","segunda","a","sexta."]},
+        {"type":"say","q":"How do you say “The store opens at nine in the morning”?","answer":"A loja abre às nove da manhã.","from":"say-what-you-do"},
+        {"type":"free","q":"Your turn: describe your week. What do you do, on which days, and at what time?","answers":[{"t":"De segunda a sexta eu trabalho das nove às seis. No sábado vou à academia de manhã.","tr":"Monday to Friday I work from nine to six. On Saturday I go to the gym in the morning."},{"t":"Toda terça tenho aula de português às sete da noite.","tr":"Every Tuesday I have Portuguese class at seven in the evening."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-week",
+      "unit": 3,
+      "level": "A1",
+      "title": "Talk about your week",
+      "summary": "Say what you do, where you go out and who you see, with the most common irregular verbs.",
+      "topic": "Irregular presents: {{fazer, sair, ver, vir, dizer, trazer, dar, saber}}; {{ir}} or {{vir}}",
+      "blocks": [
+        {"goal":{"t":"No fim de semana eu saio com os amigos e faço um churrasco.","tr":"On the weekend I go out with friends and have a barbecue."}},
+        {"dialog":[{"who":"Marina","t":"O que você faz no fim de semana?","tr":"What do you do on the weekend?"},{"who":"Chris","t":"Normalmente eu saio com meus amigos. E você?","tr":"Usually I go out with my friends. And you?"},{"who":"Marina","t":"Eu vejo minha família. Meus pais vêm aqui todo domingo.","tr":"I see my family. My parents come here every Sunday."},{"who":"Chris","t":"Que legal! Eles trazem alguma coisa?","tr":"That's nice! Do they bring anything?"},{"who":"Marina","t":"Trazem, sim. Minha mãe sempre traz um bolo.","tr":"Yes, they do. My mother always brings a cake."},{"who":"Chris","t":"Adoro bolo! Posso ir também?","tr":"I love cake! Can I come too?"}]},
+        {"p":"**Irregular verbs.** The most-used verbs don't quite follow lesson 13's pattern, especially in the “I” form. Here are eight you need to talk about your week:"},
+        { "table": [
+          ["","I","you, he, she","we","you all, they"],
+          ["{{fazer}} do, make","{{faço}}","{{faz}}","{{fazemos}}","{{fazem}}"],
+          ["{{sair}} go out, leave","{{saio}}","{{sai}}","{{saímos}}","{{saem}}"],
+          ["{{ver}} see, watch","{{vejo}}","{{vê}}","{{vemos}}","{{veem}}"],
+          ["{{vir}} come","{{venho}}","{{vem}}","{{vimos}}","{{vêm}}"],
+          ["{{dizer}} say","{{digo}}","{{diz}}","{{dizemos}}","{{dizem}}"],
+          ["{{trazer}} bring","{{trago}}","{{traz}}","{{trazemos}}","{{trazem}}"],
+          ["{{dar}} give","{{dou}}","{{dá}}","{{damos}}","{{dão}}"],
+          ["{{saber}} know","{{sei}}","{{sabe}}","{{sabemos}}","{{sabem}}"]
+        ] },
+        {"p":"Most of the surprise is in the “I” form; the others stay close to the regular pattern. {{Vêm}} “they come” has a hat; {{vem}} “comes” doesn't."},
+        {"p":"**{{fazer}}: do and make.** One verb for both: {{fazer o jantar}} “make dinner”, {{fazer exercício}} “exercise”, {{fazer compras}} “go shopping”. And the question about anyone's job or plans: {{O que você faz?}}"},
+        {"p":"**{{ir}} or {{vir}}?** {{Vir}} “come” is only toward the place where the speaker is. Chris is going to Marina's house, so he says {{Posso ir?}}, not {{Posso vir?}} And “I'm coming!” to someone calling you is {{Já vou!}}"},
+        {"p":"**{{ver}}: see and watch.** {{ver TV}}, {{ver um filme}}: “watch TV, watch a movie”. ({{Assistir}} also means “watch”: {{assistir a um filme}}.)"},
+        { "ex": [
+          {"t":"O que você faz no sábado?","tr":"What do you do on Saturdays?"},
+          {"t":"Saio de casa às sete.","tr":"I leave home at seven."},
+          {"t":"A gente vê um filme toda sexta.","tr":"We watch a movie every Friday."},
+          {"t":"Venho aqui todo dia.","tr":"I come here every day."},
+          {"t":"Eu sempre trago o vinho.","tr":"I always bring the wine."},
+          {"t":"Não sei o que dizer.","tr":"I don't know what to say."},
+          {"t":"Faço academia três vezes por semana.","tr":"I work out at the gym three times a week.","note":"{{fazer academia}}: very Brazilian"}
+        ] },
+        {"tip":"{{Sabe?}} at the end of a sentence is “you know?”: {{Eu adoro bolo, sabe?}} You'll hear it constantly."}
+      ],
+      "mistakes": [
+        {"wrong":"Eu fazo o jantar.","right":"Eu faço o jantar.","tr":"I make dinner.","why":"{{Fazer}} is irregular: “I do, I make” is {{faço}}."},
+        {"wrong":"Venho à sua casa amanhã.","right":"Vou à sua casa amanhã.","tr":"I'm coming to your house tomorrow.","why":"Going toward the other person is {{ir}}: you only “come” ({{vir}}) to where you are now."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ de casa às oito.","tr":"I leave home at eight.","options":["saio","sai","saímos"],"answer":0,"why":"“I leave”: {{saio}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Meus pais ___ aqui no domingo.","tr":"My parents are coming here on Sunday.","options":["vêm","vem","venho"],"answer":0,"why":"“They come”: {{vêm}}, with a hat."},
+        {"type":"choice","q":"A friend calls you from the next room. You answer “I'm coming!”:","options":["{{Já vou!}}","{{Já venho!}}"],"answer":0,"why":"Going toward the other person is {{ir}}. ({{Já venho!}} means “I'll be right back!”)"},
+        {"type":"dialogue","q":"A colleague asks about your weekend. Choose your replies.","from":"talk-about-time","lines":[{"who":"Colleague","t":"O que você faz no fim de semana?","tr":"What do you do on the weekend?"},{"options":["No sábado eu saio com amigos.","No sábado eu sai com amigos."],"answer":0,"why":"“I go out”: {{saio}}."},{"who":"Colleague","t":"E no domingo?","tr":"And on Sunday?"},{"options":["Faço um almoço pra minha família.","Fazo um almoço pra minha família."],"answer":0,"why":"{{Fazer}}: {{eu faço}}."},{"who":"Colleague","t":"Que delícia!","tr":"Sounds delicious!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We watch TV at night.","words":["A gente","vê","TV","à noite."]},
+        {"type":"say","q":"How do you say “I always bring a cake”?","answer":"Eu sempre trago um bolo."},
+        {"type":"free","q":"Your turn: what do you do on the weekend? Use at least two of {{faço}}, {{saio}}, {{vejo}}, {{vou}}.","answers":[{"t":"No sábado eu faço compras e à noite saio com meus amigos. No domingo vejo minha família.","tr":"On Saturday I go shopping and at night I go out with my friends. On Sunday I see my family."},{"t":"No fim de semana eu durmo muito, vejo filmes e vou ao parque.","tr":"On the weekend I sleep a lot, watch movies and go to the park."}]}
+      ]
+    },
+    {
+      "id": "describe-your-morning",
+      "unit": 3,
+      "level": "A1",
+      "title": "Describe your morning routine",
+      "summary": "Say when you wake up, get up and get ready, and introduce yourself the everyday way: “Me chamo…”.",
+      "topic": "Reflexive verbs: {{me levanto}}, {{se chama}}, {{nos vemos}}; the pronoun before the verb, as Brazilians say it",
+      "blocks": [
+        {"goal":{"t":"Eu acordo às seis, tomo banho e me visto rápido.","tr":"I wake up at six, shower and get dressed quickly."}},
+        {"dialog":[{"who":"Lúcia","t":"Você acorda cedo?","tr":"Do you wake up early?"},{"who":"Dan","t":"Acordo às seis, mas só me levanto às seis e meia.","tr":"I wake up at six, but I only get up at six thirty."},{"who":"Lúcia","t":"E você toma café da manhã?","tr":"And do you have breakfast?"},{"who":"Dan","t":"Tomo, sim. Depois eu me arrumo e saio às sete e meia.","tr":"Yes, I do. Then I get ready and leave at seven thirty."},{"who":"Lúcia","t":"Nossa, eu me atraso todo dia!","tr":"Wow, I'm late every day!"}]},
+        {"term":"reflexive verb","means":"a verb whose action goes back to the subject: you do it to yourself. In English: I hurt myself, enjoy yourself."},
+        {"p":"**Doing it to yourself.** Many everyday actions are reflexive in Portuguese: you “raise yourself” ({{levantar-se}}, get up), “dress yourself” ({{vestir-se}}), “call yourself” ({{chamar-se}}). The verb takes a small pronoun that matches the subject:"},
+        { "table": [
+          ["","pronoun","{{levantar-se}} get up"],
+          ["I","{{me}}","{{eu me levanto}}"],
+          ["you, he, she, {{a gente}}","{{se}}","{{você se levanta}}, {{a gente se levanta}}"],
+          ["we ({{nós}})","{{nos}}","{{nós nos levantamos}}"],
+          ["you all, they","{{se}}","{{eles se levantam}}"]
+        ] },
+        {"p":"**Before the verb, as Brazilians say it.** In Brazil the pronoun goes before the verb: {{Eu me levanto às sete.}} Dictionaries write {{levantar-se}}, with the pronoun after, and so does careful writing; but in Brazilian speech even a sentence can start with it: {{Me chamo Dan.}} “My name is Dan.”"},
+        {"p":"Some reflexive routine verbs: {{me levanto}} I get up, {{me visto}} I get dressed, {{me arrumo}} I get ready, {{me deito}} I lie down, {{me atraso}} I'm late, {{me sinto}} I feel. Others aren't reflexive: {{acordar}} wake up, {{tomar banho}} shower, {{tomar café}} have breakfast or coffee, {{escovar os dentes}} brush your teeth, {{sair}} leave."},
+        {"p":"**Each other.** With a plural subject, {{se}} and {{nos}} can mean “each other”: {{A gente se vê amanhã!}} “See you tomorrow!” (literally “We see each other tomorrow”)."},
+        { "ex": [
+          {"t":"Me chamo Daniel. E você, como se chama?","tr":"My name is Daniel. And you, what's your name?"},
+          {"t":"Ela se levanta às cinco.","tr":"She gets up at five."},
+          {"t":"Eu me visto e tomo café.","tr":"I get dressed and have breakfast."},
+          {"t":"Nós nos vemos todo dia.","tr":"We see each other every day."},
+          {"t":"Você se sente bem?","tr":"Do you feel OK?"},
+          {"t":"A gente se vê!","tr":"See you!","note":"literally “we see each other”"}
+        ] },
+        {"tip":"{{Tomar}} is a busy verb: {{tomar banho}} take a shower, {{tomar café}} have coffee or breakfast, {{tomar um remédio}} take a medicine, {{tomar uma cerveja}} have a beer, {{tomar sol}} sunbathe."}
+      ],
+      "mistakes": [
+        {"wrong":"Eu se levanto às sete.","right":"Eu me levanto às sete.","tr":"I get up at seven.","why":"With {{eu}}, the pronoun is {{me}}; {{se}} goes with {{você}}, {{ele}}, {{ela}}, {{a gente}} and {{eles}}."},
+        {"wrong":"Ele me chama Pedro.","right":"Ele se chama Pedro.","tr":"His name is Pedro.","why":"The pronoun matches the subject: {{ele se chama}}. ({{Ele me chama}} means “he calls me”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ levanto cedo.","tr":"I get up early.","options":["me","se","nos"],"answer":0,"why":"With {{eu}}: {{me}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Como você ___ chama?","tr":"What's your name?","options":["se","me","nos"],"answer":0,"why":"With {{você}}: {{se}}."},
+        {"type":"choice","q":"{{A gente se vê amanhã!}} means…","options":["See you tomorrow!","We see ourselves tomorrow.","We'll watch TV tomorrow."],"answer":0,"why":"{{Se}} here is “each other”: “we see each other tomorrow”."},
+        {"type":"dialogue","q":"Talking about mornings: choose your replies.","from":"talk-about-time","lines":[{"who":"Lúcia","t":"Que horas você se levanta?","tr":"What time do you get up?"},{"options":["Me levanto às seis e meia.","Se levanto às seis e meia."],"answer":0,"why":"About yourself: {{me}}. Starting with {{Me…}} is normal Brazilian speech."},{"who":"Lúcia","t":"E que horas você sai de casa?","tr":"And what time do you leave home?"},{"options":["Saio às oito.","Me saio às oito."],"answer":0,"why":"{{Sair}} isn't reflexive."},{"who":"Lúcia","t":"Nossa, que cedo!","tr":"Wow, that's early!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"She gets dressed and goes to work.","words":["Ela","se veste","e","vai","pro trabalho."],"from":"go-places"},
+        {"type":"say","q":"You're a man. How do you say “I feel tired”?","answer":"Eu me sinto cansado."},
+        {"type":"free","q":"Your turn: describe your morning, from waking up to leaving home. Use at least two reflexive verbs.","answers":[{"t":"Acordo às sete, me levanto, tomo banho e me visto. Saio de casa às oito.","tr":"I wake up at seven, get up, shower and get dressed. I leave home at eight."},{"t":"Eu me levanto cedo, tomo café e me arrumo rápido.","tr":"I get up early, have breakfast and get ready quickly."}]}
+      ]
+    },
+    {
+      "id": "say-what-is-happening-now",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what's happening right now",
+      "summary": "Say what you're doing at the moment, ask others, and talk about the weather: “It's raining.”",
+      "topic": "{{estar}} + the {{-ndo}} form ({{estou falando}}); the present for habits, {{estar}} + {{-ndo}} for now",
+      "blocks": [
+        {"goal":{"t":"O que você está fazendo? — Estou vendo um filme.","tr":"What are you doing? — I'm watching a movie."}},
+        {"dialog":[{"who":"Thiago","t":"Alô? Oi, Kelly! O que você está fazendo?","tr":"Hello? Hi, Kelly! What are you doing?"},{"who":"Kelly","t":"Estou estudando português. E você?","tr":"I'm studying Portuguese. And you?"},{"who":"Thiago","t":"Estou saindo do trabalho. Vamos jantar?","tr":"I'm leaving work. Shall we have dinner?"},{"who":"Kelly","t":"Vamos! Mas está chovendo muito aqui.","tr":"Sure! But it's raining a lot here."},{"who":"Thiago","t":"Sem problema, eu vou de carro.","tr":"No problem, I'll go by car."}]},
+        {"term":"gerund","means":"the “-ing” form of a verb: speaking, eating, going. In Portuguese it ends in {{-ndo}}."},
+        {"p":"**Right now: {{estar}} + {{-ndo}}.** For something happening at this moment, Brazilians use {{estar}} and the verb's {{-ndo}} form, just like English “am …-ing”: {{Estou trabalhando.}} “I'm working.”"},
+        {"p":"To make the {{-ndo}} form, take the {{-r}} off the infinitive and add {{-ndo}}. It works for every verb, even the irregular ones:"},
+        { "table": [
+          ["infinitive","{{-ndo}} form"],
+          ["{{falar}} speak","{{falando}}"],
+          ["{{comer}} eat","{{comendo}}"],
+          ["{{abrir}} open","{{abrindo}}"],
+          ["{{fazer}} do, make","{{fazendo}}"],
+          ["{{ir}} go","{{indo}}"],
+          ["{{ver}} see","{{vendo}}"]
+        ] },
+        {"p":"Only {{estar}} changes for the person: {{estou falando}}, {{você está falando}}, {{estamos falando}}, {{eles estão falando}}. A reflexive pronoun goes just before the {{-ndo}} form: {{Estou me arrumando}} “I'm getting ready”."},
+        {"p":"**Usually or now?** {{Trabalho num banco}}: that's my job, every day. {{Estou trabalhando}}: I'm doing it right now. Brazilians also use {{estar}} + {{-ndo}} for what's going on these days: {{Estou morando em Lisboa}} “I'm living in Lisbon (for now)”."},
+        {"p":"**The weather.** No “it”, as usual: {{Está chovendo}} “It's raining”, {{Está fazendo frio}} “It's cold”, {{Está fazendo calor}} “It's hot”."},
+        { "ex": [
+          {"t":"Estou estudando pra uma prova.","tr":"I'm studying for a test."},
+          {"t":"Ela está dormindo.","tr":"She's sleeping."},
+          {"t":"O que vocês estão fazendo?","tr":"What are you guys doing?"},
+          {"t":"Está chovendo muito.","tr":"It's raining a lot."},
+          {"t":"Estou chegando!","tr":"I'm almost there!","note":"literally “I'm arriving”: what Brazilians text on their way"},
+          {"t":"Estou morando com uns amigos.","tr":"I'm living with some friends (for now)."}
+        ] },
+        {"tip":"In Portugal you'd hear {{estou a falar}}; in Brazil it's always {{estou falando}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Eu trabalhando agora.","right":"Estou trabalhando agora.","tr":"I'm working now.","why":"The {{-ndo}} form needs {{estar}} before it, like “am” in English."},
+        {"wrong":"Estou fazindo o jantar.","right":"Estou fazendo o jantar.","tr":"I'm making dinner.","why":"The ending comes from the infinitive: {{fazer}} → {{fazendo}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Eu estou ___ um livro.","tr":"I'm reading a book.","options":["lendo","ler","leio"],"answer":0,"why":"{{Ler}} → {{lendo}}: {{estar}} + {{-ndo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eles ___ jantando.","tr":"They're having dinner.","options":["estão","são","está"],"answer":0,"why":"{{Estar}} with {{eles}}: {{estão}}."},
+        {"type":"choice","q":"A friend texts {{O que você está fazendo?}} while you're at work. You answer…","options":["{{Estou trabalhando.}}","{{Trabalho num banco.}}","{{Sou trabalhando.}}"],"answer":0,"why":"Right now: {{estar}} + {{-ndo}}. {{Trabalho num banco}} answers “What do you do for a living?”."},
+        {"type":"dialogue","q":"Your mother calls. Choose your replies.","from":"say-how-you-are","lines":[{"who":"Mom","t":"Oi, filho! Tudo bem? O que você está fazendo?","tr":"Hi, son! Everything OK? What are you doing?"},{"options":["Tudo bem! Estou fazendo o jantar.","Tudo bem! Estou faço o jantar."],"answer":0,"why":"{{Estar}} + the {{-ndo}} form: {{estou fazendo}}."},{"who":"Mom","t":"E aí, está chovendo?","tr":"And is it raining there?"},{"options":["Não, está fazendo muito calor.","Não, é fazendo muito calor."],"answer":0,"why":"The weather now: {{está}}."},{"who":"Mom","t":"Que bom! Beijo!","tr":"Good! Love you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"What are you guys doing?","words":["O que","vocês","estão","fazendo?"]},
+        {"type":"say","q":"How do you say “I'm getting ready”?","answer":"Estou me arrumando.","from":"describe-your-morning"},
+        {"type":"free","q":"Your turn: what are you doing right now? And what are your family or friends probably doing?","answers":[{"t":"Estou estudando português. Meu marido está trabalhando e meus filhos estão dormindo.","tr":"I'm studying Portuguese. My husband is working and my kids are sleeping."},{"t":"Agora estou tomando um café. Minha amiga está vendo TV.","tr":"Right now I'm having a coffee. My friend is watching TV."}]}
+      ]
+    },
+    {
+      "id": "make-plans",
+      "unit": 3,
+      "level": "A1",
+      "title": "Make plans",
+      "summary": "Say what you're going to do tonight, tomorrow and next year, and ask about other people's plans.",
+      "topic": "{{ir}} + infinitive ({{vou viajar}}); {{semana que vem}}, {{amanhã}}, {{hoje à noite}}; {{vou}} alone for “going to go”",
+      "blocks": [
+        {"goal":{"t":"Amanhã eu vou visitar meus avós.","tr":"Tomorrow I'm going to visit my grandparents."}},
+        {"dialog":[{"who":"Júlia","t":"O que você vai fazer no fim de semana?","tr":"What are you going to do on the weekend?"},{"who":"Mark","t":"Vou viajar pra Paraty com uns amigos.","tr":"I'm going to travel to Paraty with some friends."},{"who":"Júlia","t":"Que legal! Vocês vão ficar num hotel?","tr":"How cool! Are you going to stay at a hotel?"},{"who":"Mark","t":"Não, a gente vai alugar uma casa. E você?","tr":"No, we're going to rent a house. And you?"},{"who":"Júlia","t":"Eu não vou fazer nada. Vou descansar!","tr":"I'm not going to do anything. I'm going to rest!"}]},
+        {"p":"**{{ir}} + infinitive.** To talk about the future, Brazilians nearly always use {{ir}} and a second verb in its infinitive, exactly like English “going to”: {{Vou viajar}} “I'm going to travel”. You already know {{ir}}: {{vou, vai, vamos, vão}}."},
+        { "table": [
+          ["English","Portuguese"],
+          ["I'm going to travel.","{{Vou viajar.}}"],
+          ["Are you going to work tomorrow?","{{Você vai trabalhar amanhã?}}"],
+          ["We're going to eat out.","{{A gente vai comer fora.}}"],
+          ["They're not going to come.","{{Eles não vão vir.}}"]
+        ] },
+        {"p":"**“Not” goes before {{vou}}:** {{Não vou sair hoje.}} A reflexive pronoun goes before the second verb: {{Vou me arrumar.}}"},
+        {"p":"**Going to go.** For “I'm going to go”, Brazilians usually just say {{vou}}: {{Amanhã vou à praia}} “Tomorrow I'm going to the beach”. You'll also hear {{vou ir}} in relaxed speech, but many people find it clumsy."},
+        {"p":"**When.** {{hoje à noite}} tonight, {{amanhã}} tomorrow, {{depois de amanhã}} the day after tomorrow, {{semana que vem}} next week, {{mês que vem}} next month, {{ano que vem}} next year, {{daqui a pouco}} in a little while, {{mais tarde}} later."},
+        { "ex": [
+          {"t":"Vou ligar pra você mais tarde.","tr":"I'm going to call you later."},
+          {"t":"Ela vai começar um curso semana que vem.","tr":"She's going to start a course next week."},
+          {"t":"A gente vai comer fora hoje à noite.","tr":"We're going to eat out tonight."},
+          {"t":"Você vai fazer o quê no feriado?","tr":"What are you going to do on the holiday?"},
+          {"t":"Não vou sair hoje, estou cansado.","tr":"I'm not going to go out today, I'm tired."},
+          {"t":"Vai chover amanhã.","tr":"It's going to rain tomorrow."}
+        ] },
+        {"tip":"Portuguese also has a one-word future ({{viajarei}} “I will travel”), mostly in writing and the news; a later lesson shows it so you can recognise it. For your own plans, {{vou}} + a verb is all you need."}
+      ],
+      "mistakes": [
+        {"wrong":"Vou a viajar amanhã.","right":"Vou viajar amanhã.","tr":"I'm going to travel tomorrow.","why":"No “to” between {{vou}} and the second verb."},
+        {"wrong":"Eu vou não trabalhar.","right":"Eu não vou trabalhar.","tr":"I'm not going to work.","why":"{{Não}} goes before {{vou}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Amanhã eu ___ estudar.","tr":"Tomorrow I'm going to study.","options":["vou","vai","estou"],"answer":0,"why":"“I'm going to”: {{vou}} + infinitive."},
+        {"type":"fill","q":"Choose the missing word.","t":"A gente ___ jantar fora.","tr":"We're going to have dinner out.","options":["vai","vamos","vão"],"answer":0,"why":"{{A gente}} takes the {{ele}} form: {{vai}}.","from":"say-what-you-do"},
+        {"type":"choice","q":"“Next week” is…","options":["{{semana que vem}}","{{semana passada}}","{{essa semana}}"],"answer":0,"why":"{{Semana que vem}}, literally “week that comes”. ({{Semana passada}} is “last week”.)"},
+        {"type":"dialogue","q":"A friend asks about your weekend plans. Choose your replies.","from":"go-places","lines":[{"who":"Friend","t":"O que você vai fazer no sábado?","tr":"What are you going to do on Saturday?"},{"options":["Vou à praia com meu irmão.","Vou a ir praia com meu irmão."],"answer":0,"why":"Going somewhere: just {{vou}} + where."},{"who":"Friend","t":"E no domingo?","tr":"And on Sunday?"},{"options":["Não vou fazer nada!","Vou não fazer nada!"],"answer":0,"why":"{{Não}} goes before {{vou}}."},{"who":"Friend","t":"Que inveja!","tr":"I'm jealous!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'm not going to go out tonight.","words":["Não","vou","sair","hoje","à noite."]},
+        {"type":"say","q":"How do you say “It's going to rain tomorrow”?","answer":"Vai chover amanhã."},
+        {"type":"free","q":"Your turn: what are you going to do this weekend? Say two or three plans with {{Vou…}}","answers":[{"t":"No sábado vou dormir até tarde e depois vou almoçar com meus pais.","tr":"On Saturday I'm going to sleep in, and then I'm going to have lunch with my parents."},{"t":"Vou estudar português e no domingo a gente vai fazer um churrasco.","tr":"I'm going to study Portuguese, and on Sunday we're going to have a barbecue."}]}
+      ]
     }
   ]
 }
