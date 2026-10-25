@@ -1,0 +1,188 @@
+{
+  "lang": "th",
+  "title": "Thai basics",
+  "variety": "Central Thai (standard Thai, as spoken in Bangkok)",
+  "about": "The most common words of Thai (the Thai National Corpus counts as PyThaiNLP publishes them, the same counts as the app's Thai word list; see tools/course/th/rank.py), most common first, 50 to a unit. Names of people, places and nationalities are left out, and so are pairs of words the corpus counts together (ก็คือ, หรือไม่). Each word has one short everyday sentence in central Thai that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word. Each meaning starts with the word's reading in brackets, in the Paiboon romanisation the app uses for Thai.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "ที่",
+      "pos": "prep",
+      "meaning": "(tîi) at; that, who, which (joining a description); place",
+      "sentence": "เจอกันที่ร้านกาแฟนะ",
+      "translation": "See you ⟦at⟧ the coffee shop."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "การ",
+      "pos": "prefix",
+      "meaning": "(gaan) -ing, -tion (makes a verb into a noun); work, affairs",
+      "sentence": "การเรียนภาษาไทยสนุกมาก",
+      "translation": "Learn⟦ing⟧ Thai is a lot of fun."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "เป็น",
+      "pos": "verb",
+      "meaning": "(bpen) to be (a…); to have (an illness); can (do a skill)",
+      "sentence": "พ่อของฉันเป็นหมอ",
+      "translation": "My father ⟦is⟧ a doctor."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "ใน",
+      "pos": "prep",
+      "meaning": "(nai) in; inside",
+      "sentence": "แมวนอนอยู่ในกล่อง",
+      "translation": "The cat is sleeping ⟦in⟧ the box."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "ของ",
+      "pos": "prep",
+      "meaning": "(kɔ̌ɔng) of; belonging to (also: thing, stuff)",
+      "sentence": "กระเป๋าใบนี้เป็นของแม่",
+      "translation": "This bag ⟦belongs to⟧ Mum."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "มี",
+      "pos": "verb",
+      "meaning": "(mii) to have; there is, there are",
+      "sentence": "ฉันมีน้องสาวหนึ่งคน",
+      "translation": "I ⟦have⟧ one younger sister."
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "จะ",
+      "pos": "aux",
+      "meaning": "(jà) will, going to (before a verb)",
+      "sentence": "พรุ่งนี้ฝนจะตก",
+      "translation": "It ⟦will⟧ rain tomorrow."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "และ",
+      "pos": "conj",
+      "meaning": "(lɛ́) and",
+      "sentence": "ฉันชอบกินผักและผลไม้",
+      "translation": "I like eating vegetables ⟦and⟧ fruit."
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "ไม่",
+      "pos": "adv",
+      "meaning": "(mâi) not; no",
+      "sentence": "ฉันไม่ชอบอาหารเผ็ด",
+      "translation": "I ⟦don't⟧ like spicy food."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "ได้",
+      "pos": "verb",
+      "meaning": "(dâai) can, be able to (after a verb); to get; did (before a verb)",
+      "sentence": "เธอพูดภาษาอังกฤษได้",
+      "translation": "She ⟦can⟧ speak English."
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "ให้",
+      "pos": "verb",
+      "meaning": "(hâi) to give; to let, to have (someone do); for",
+      "sentence": "แม่ให้เงินฉันร้อยบาท",
+      "translation": "Mum ⟦gave⟧ me a hundred baht."
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "ว่า",
+      "pos": "conj",
+      "meaning": "(wâa) that (after say, think, know); to say",
+      "sentence": "ฉันคิดว่าเขาจะไม่มา",
+      "translation": "I think ⟦that⟧ he won't come."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "ไป",
+      "pos": "verb",
+      "meaning": "(bpai) to go",
+      "sentence": "ฉันไปทำงานทุกวัน",
+      "translation": "I ⟦go⟧ to work every day."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "มา",
+      "pos": "verb",
+      "meaning": "(maa) to come",
+      "sentence": "เพื่อนจะมาบ้านฉันคืนนี้",
+      "translation": "My friend is ⟦coming⟧ to my house tonight."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "ก็",
+      "pos": "conj",
+      "meaning": "(gɔ̂) then, so; also, too (a linking word)",
+      "sentence": "ถ้าเหนื่อยก็นอนเถอะ",
+      "translation": "If you're tired, ⟦then⟧ go to sleep."
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "ความ",
+      "pos": "prefix",
+      "meaning": "(kwaam) -ness, -ity (makes an adjective or verb into a noun)",
+      "sentence": "ขอให้มีความสุขนะ",
+      "translation": "Wishing you happi⟦ness⟧."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "คน",
+      "pos": "noun",
+      "meaning": "(kon) person, people (also the classifier for people)",
+      "sentence": "ที่นี่คนเยอะมาก",
+      "translation": "There are a lot of ⟦people⟧ here."
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "กับ",
+      "pos": "prep",
+      "meaning": "(gàp) with; and",
+      "sentence": "ฉันไปตลาดกับแม่",
+      "translation": "I went to the market ⟦with⟧ Mum."
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "แล้ว",
+      "pos": "adv",
+      "meaning": "(lɛ́ɛo) already; and then",
+      "sentence": "ฉันกินข้าวแล้ว",
+      "translation": "I've ⟦already⟧ eaten."
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "อยู่",
+      "pos": "verb",
+      "meaning": "(yùu) to be (somewhere), to live, to stay; be …-ing",
+      "sentence": "พี่สาวฉันอยู่กรุงเทพ",
+      "translation": "My older sister ⟦lives⟧ in Bangkok."
+    }
+  ]
+}

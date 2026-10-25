@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "th",
+ "title": "Thai basics",
+ "variety": "Central Thai (standard Thai, as spoken in Bangkok)",
+ "about": "The most common words of Thai (the Thai National Corpus counts as PyThaiNLP publishes them, the same counts as the app's Thai word list; see tools/course/th/rank.py), most common first, 50 to a unit. Names of people, places and nationalities are left out, and so are pairs of words the corpus counts together (ก็คือ, หรือไม่). Each word has one short everyday sentence in central Thai that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word. Each meaning starts with the word's reading in brackets, in the Paiboon romanisation the app uses for Thai.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Premwadee (Azure, Thailand)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "ที่",
+   "pos": "prep",
+   "meaning": "(tîi) at; that, who, which (joining a description); place",
+   "sentence": "เจอกันที่ร้านกาแฟนะ",
+   "translation": "See you ⟦at⟧ the coffee shop.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.548,
+    "sent_start": 1.448,
+    "sent_end": 3.014
+   }
+  },
+  {
+   "n": 2,
+   "word": "การ",
+   "pos": "prefix",
+   "meaning": "(gaan) -ing, -tion (makes a verb into a noun); work, affairs",
+   "sentence": "การเรียนภาษาไทยสนุกมาก",
+   "translation": "Learn⟦ing⟧ Thai is a lot of fun.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.561,
+    "sent_start": 1.461,
+    "sent_end": 3.375
+   }
+  },
+  {
+   "n": 3,
+   "word": "เป็น",
+   "pos": "verb",
+   "meaning": "(bpen) to be (a…); to have (an illness); can (do a skill)",
+   "sentence": "พ่อของฉันเป็นหมอ",
+   "translation": "My father ⟦is⟧ a doctor.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.493,
+    "sent_start": 1.393,
+    "sent_end": 2.784
+   }
+  },
+  {
+   "n": 4,
+   "word": "ใน",
+   "pos": "prep",
+   "meaning": "(nai) in; inside",
+   "sentence": "แมวนอนอยู่ในกล่อง",
+   "translation": "The cat is sleeping ⟦in⟧ the box.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.561,
+    "sent_start": 1.461,
+    "sent_end": 2.754
+   }
+  },
+  {
+   "n": 5,
+   "word": "ของ",
+   "pos": "prep",
+   "meaning": "(kɔ̌ɔng) of; belonging to (also: thing, stuff)",
+   "sentence": "กระเป๋าใบนี้เป็นของแม่",
+   "translation": "This bag ⟦belongs to⟧ Mum.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.633,
+    "sent_start": 1.533,
+    "sent_end": 3.129
+   }
+  },
+  {
+   "n": 6,
+   "word": "มี",
+   "pos": "verb",
+   "meaning": "(mii) to have; there is, there are",
+   "sentence": "ฉันมีน้องสาวหนึ่งคน",
+   "translation": "I ⟦have⟧ one younger sister.",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.548,
+    "sent_start": 1.448,
+    "sent_end": 3.047
+   }
+  },
+  {
+   "n": 7,
+   "word": "จะ",
+   "pos": "aux",
+   "meaning": "(jà) will, going to (before a verb)",
+   "sentence": "พรุ่งนี้ฝนจะตก",
+   "translation": "It ⟦will⟧ rain tomorrow.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.357,
+    "sent_start": 1.257,
+    "sent_end": 2.243
+   }
+  },
+  {
+   "n": 8,
+   "word": "และ",
+   "pos": "conj",
+   "meaning": "(lɛ́) and",
+   "sentence": "ฉันชอบกินผักและผลไม้",
+   "translation": "I like eating vegetables ⟦and⟧ fruit.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.386,
+    "sent_start": 1.286,
+    "sent_end": 3.185
+   }
+  },
+  {
+   "n": 9,
+   "word": "ไม่",
+   "pos": "adv",
+   "meaning": "(mâi) not; no",
+   "sentence": "ฉันไม่ชอบอาหารเผ็ด",
+   "translation": "I ⟦don't⟧ like spicy food.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.563,
+    "sent_start": 1.463,
+    "sent_end": 2.718
+   }
+  },
+  {
+   "n": 10,
+   "word": "ได้",
+   "pos": "verb",
+   "meaning": "(dâai) can, be able to (after a verb); to get; did (before a verb)",
+   "sentence": "เธอพูดภาษาอังกฤษได้",
+   "translation": "She ⟦can⟧ speak English.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.609,
+    "sent_start": 1.509,
+    "sent_end": 3.195
+   }
+  },
+  {
+   "n": 11,
+   "word": "ให้",
+   "pos": "verb",
+   "meaning": "(hâi) to give; to let, to have (someone do); for",
+   "sentence": "แม่ให้เงินฉันร้อยบาท",
+   "translation": "Mum ⟦gave⟧ me a hundred baht.",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.541,
+    "sent_start": 1.441,
+    "sent_end": 2.817
+   }
+  },
+  {
+   "n": 12,
+   "word": "ว่า",
+   "pos": "conj",
+   "meaning": "(wâa) that (after say, think, know); to say",
+   "sentence": "ฉันคิดว่าเขาจะไม่มา",
+   "translation": "I think ⟦that⟧ he won't come.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.6,
+    "sent_start": 1.5,
+    "sent_end": 3.012
+   }
+  },
+  {
+   "n": 13,
+   "word": "ไป",
+   "pos": "verb",
+   "meaning": "(bpai) to go",
+   "sentence": "ฉันไปทำงานทุกวัน",
+   "translation": "I ⟦go⟧ to work every day.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.52,
+    "sent_start": 1.42,
+    "sent_end": 2.867
+   }
+  },
+  {
+   "n": 14,
+   "word": "มา",
+   "pos": "verb",
+   "meaning": "(maa) to come",
+   "sentence": "เพื่อนจะมาบ้านฉันคืนนี้",
+   "translation": "My friend is ⟦coming⟧ to my house tonight.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.588,
+    "sent_start": 1.488,
+    "sent_end": 3.13
+   }
+  },
+  {
+   "n": 15,
+   "word": "ก็",
+   "pos": "conj",
+   "meaning": "(gɔ̂) then, so; also, too (a linking word)",
+   "sentence": "ถ้าเหนื่อยก็นอนเถอะ",
+   "translation": "If you're tired, ⟦then⟧ go to sleep.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.513,
+    "sent_start": 1.413,
+    "sent_end": 2.554
+   }
+  },
+  {
+   "n": 16,
+   "word": "ความ",
+   "pos": "prefix",
+   "meaning": "(kwaam) -ness, -ity (makes an adjective or verb into a noun)",
+   "sentence": "ขอให้มีความสุขนะ",
+   "translation": "Wishing you happi⟦ness⟧.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.616,
+    "sent_start": 1.516,
+    "sent_end": 2.806
+   }
+  },
+  {
+   "n": 17,
+   "word": "คน",
+   "pos": "noun",
+   "meaning": "(kon) person, people (also the classifier for people)",
+   "sentence": "ที่นี่คนเยอะมาก",
+   "translation": "There are a lot of ⟦people⟧ here.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.526,
+    "sent_start": 1.426,
+    "sent_end": 2.721
+   }
+  },
+  {
+   "n": 18,
+   "word": "กับ",
+   "pos": "prep",
+   "meaning": "(gàp) with; and",
+   "sentence": "ฉันไปตลาดกับแม่",
+   "translation": "I went to the market ⟦with⟧ Mum.",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.29,
+    "sent_start": 1.19,
+    "sent_end": 2.61
+   }
+  },
+  {
+   "n": 19,
+   "word": "แล้ว",
+   "pos": "adv",
+   "meaning": "(lɛ́ɛo) already; and then",
+   "sentence": "ฉันกินข้าวแล้ว",
+   "translation": "I've ⟦already⟧ eaten.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.544,
+    "sent_start": 1.444,
+    "sent_end": 2.583
+   }
+  },
+  {
+   "n": 20,
+   "word": "อยู่",
+   "pos": "verb",
+   "meaning": "(yùu) to be (somewhere), to live, to stay; be …-ing",
+   "sentence": "พี่สาวฉันอยู่กรุงเทพ",
+   "translation": "My older sister ⟦lives⟧ in Bangkok.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.528,
+    "sent_start": 1.428,
+    "sent_end": 3.053
+   }
+  }
+ ]
+}

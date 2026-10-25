@@ -16,6 +16,22 @@
     "synthetic": true
    },
    "built": "2026-10-24"
+  },
+  "th": {
+   "file": "th/course.json",
+   "title": "Thai basics",
+   "variety": "Central Thai (standard Thai, as spoken in Bangkok)",
+   "words": 20,
+   "planned": 1000,
+   "bytes": 9931,
+   "audio_bytes": 220994,
+   "sha256": "eb1dad5f625ec21bc8d9eca8b186006fcaecbb90320f97f489175da5914d7de5",
+   "voice": {
+    "engine": "azure",
+    "name": "Premwadee (Azure, Thailand)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
   }
  }
 }
