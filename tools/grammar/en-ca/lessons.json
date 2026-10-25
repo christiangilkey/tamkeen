@@ -1140,6 +1140,247 @@
         {"type":"say","q":"Someone offers you more wine, but you still have some. Say “No, thanks, I still have some.”","answer":"No, gràcies, encara en tinc."},
         {"type":"free","q":"Your turn: answer without repeating the thing. How many brothers and sisters do you have? How many languages do you speak?","answers":[{"t":"Germans? En tinc dos. Idiomes? En parlo tres.","tr":"Brothers and sisters? I have two. Languages? I speak three."},{"t":"No en tinc cap. Parlo anglès i una mica de català.","tr":"I don't have any. I speak English and a little Catalan."}]}
       ]
+    },
+    {
+      "id": "say-what-happened",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what happened yesterday",
+      "summary": "Tell someone what you did yesterday, last week or last year, with Catalan's own past: “Yesterday I went to the beach with some friends.”",
+      "topic": "The past with {{anar}}: {{vaig, vas, va, vam, vau, van}} + infinitive; {{vaig anar}} “I went” or {{vaig a…}} “I'm going to…”",
+      "blocks": [
+        {"goal":{"t":"Ahir vaig anar a la platja amb uns amics.","tr":"Yesterday I went to the beach with some friends."}},
+        {"dialog":[{"who":"Marta","t":"Què vas fer ahir?","tr":"What did you do yesterday?"},{"who":"Liam","t":"Vaig anar a la platja amb uns amics.","tr":"I went to the beach with some friends."},{"who":"Marta","t":"Que bé! Vau menjar allà?","tr":"Nice! Did you eat there?"},{"who":"Liam","t":"Sí, vam dinar en un xiringuito i després vam nedar.","tr":"Yes, we had lunch at a beach bar, and then we went swimming."},{"who":"Marta","t":"I a quina hora vau tornar?","tr":"And what time did you get back?"},{"who":"Liam","t":"Vam tornar molt tard. Avui estic mort!","tr":"We got back really late. I'm dead today!"}]},
+        {"p":"**A surprise.** To tell what happened, Catalan takes the present of {{anar}} “to go” (lesson 15) and adds the infinitive of the verb: {{vaig}} “I go” + {{menjar}} “to eat” = {{vaig menjar}} “I ate”. There's no going in it any more: it's simply the past."},
+        {"term":"auxiliary verb","means":"a helper verb that goes with another verb to make a tense: in “I have eaten”, “have” is the auxiliary."},
+        { "table": [
+          ["","helper","example"],
+          ["I","{{vaig}}","{{Vaig parlar amb ella.}} I spoke to her."],
+          ["you","{{vas}}","{{Vas anar a la festa?}} Did you go to the party?"],
+          ["he, she","{{va}}","{{Va fer molt de fred.}} It was very cold."],
+          ["we","{{vam}}","{{Vam sopar a casa.}} We had dinner at home."],
+          ["you (more than one)","{{vau}}","{{Vau veure el partit?}} Did you guys see the game?"],
+          ["they","{{van}}","{{Van arribar tard.}} They arrived late."]
+        ] },
+        {"p":"**The good news:** every verb works the same way, regular or not. Learn the six helpers and you can put any verb you know into the past: {{vaig ser}} “I was”, {{vaig tenir}} “I had”, {{vaig veure}} “I saw”. Note that “we” and “you” aren't the present forms: {{vam}}, {{vau}} (the present is {{anem}}, {{aneu}})."},
+        {"p":"**When.** Use it for things that happened at a time that's over: {{ahir}} “yesterday”, {{la setmana passada}} “last week”, {{l'any passat}} “last year”, {{dilluns}} “on Monday”, {{el 2015}} “in 2015”. For today, Catalan has another past (lesson 25)."},
+        {"p":"**{{vaig}} or {{vaig a}}?** Watch the little {{a}}. {{Vaig comprar pa.}} “I bought bread.” {{Vaig a comprar pa.}} “I'm going (out) to buy bread.” With the {{a}}, it's real going again."},
+        { "ex": [
+          {"t":"Ahir vaig treballar fins a les nou.","tr":"Yesterday I worked until nine."},
+          {"t":"On vas anar de vacances?","tr":"Where did you go on vacation?"},
+          {"t":"La Marta va néixer a Lleida.","tr":"Marta was born in Lleida."},
+          {"t":"Dissabte vam sopar a casa dels meus pares.","tr":"On Saturday we had dinner at my parents' place."},
+          {"t":"Què va dir?","tr":"What did he say?"},
+          {"t":"No vaig poder venir, ho sento.","tr":"I couldn't come, I'm sorry.","note":"{{no}} goes in front of the helper"}
+        ] },
+        {"tip":"In some places, and in writing, you'll also find {{vàrem}}, {{vàreu}}, {{varen}} for “we, you, they”: {{vàrem anar}} = {{vam anar}}. And if you know Spanish, beware: {{vaig anar}} looks like “I'm going to go”, but it means “I went”."}
+      ],
+      "mistakes": [
+        {"wrong":"Ahir vaig a anar a la platja.","right":"Ahir vaig anar a la platja.","tr":"Yesterday I went to the beach.","why":"The past is {{vaig}} + the infinitive, with no {{a}} between them."},
+        {"wrong":"Ahir anem al cinema.","right":"Ahir vam anar al cinema.","tr":"Yesterday we went to the movies.","why":"“We” in the past is {{vam}} + infinitive; {{anem}} is the present."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ahir ___ anar al cinema.","tr":"Yesterday we went to the movies.","options":["vam","anem","van"],"answer":0,"why":"“We” in the past: {{vam}} + infinitive."},
+        {"type":"fill","q":"Choose the missing word.","t":"Què ___ fer el cap de setmana?","tr":"What did you do on the weekend?","options":["vas","vaig","fas"],"answer":0,"why":"“You” in the past: {{vas}} + infinitive."},
+        {"type":"choice","q":"{{Vaig comprar pa.}} means…","options":["I bought bread.","I'm going to buy bread.","I buy bread."],"answer":0,"why":"{{vaig}} + an infinitive is the past."},
+        {"type":"choice","q":"{{Vaig a comprar pa.}} means…","options":["I'm going (out) to buy bread.","I bought bread."],"answer":0,"why":"With the {{a}}, {{anar}} is real going: “I'm off to buy bread”.","from":"say-where-you-go"},
+        {"type":"dialogue","q":"Monday morning at work. Choose your replies.","lines":[{"who":"Colleague","t":"Què vas fer el cap de setmana?","tr":"What did you do on the weekend?"},{"options":["Vaig anar a Girona amb la meva parella.","Vaig a Girona amb la meva parella."],"answer":0,"why":"Last weekend is over: {{vaig anar}}. {{Vaig a Girona}} would be “I'm going to Girona”."},{"who":"Colleague","t":"I què hi vau fer?","tr":"And what did you do there?"},{"options":["Vam visitar la catedral i vam menjar molt bé.","Visitem la catedral i mengem molt bé."],"answer":0,"why":"“We” in the past: {{vam}} + infinitive."}]},
+        {"type":"order","q":"Put the words in order.","tr":"On Saturday we had dinner at my parents' place.","words":["Dissabte","vam sopar","a casa","dels meus","pares."]},
+        {"type":"free","q":"Your turn: what did you do yesterday, or last weekend? Say two or three things.","answers":[{"t":"Ahir vaig treballar, després vaig anar al gimnàs i vaig sopar amb una amiga.","tr":"Yesterday I worked, then I went to the gym and had dinner with a friend."},{"t":"El cap de setmana vam anar a la muntanya i vam dormir molt.","tr":"On the weekend we went to the mountains and slept a lot."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did-today",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you've done today",
+      "summary": "Talk about today, this morning or this week with the other past: “I've worked a lot today, and I still haven't had lunch.”",
+      "topic": "The {{perfet}}: {{he, has, ha, hem, heu, han}} + participle ({{-at, -ut, -it}}); today or yesterday",
+      "blocks": [
+        {"goal":{"t":"Avui he treballat molt i encara no he dinat.","tr":"I've worked a lot today, and I still haven't had lunch."}},
+        {"dialog":[{"who":"Jordi","t":"Com ha anat el dia?","tr":"How was your day?"},{"who":"Ellen","t":"Bé, però he treballat molt. I tu?","tr":"Fine, but I've worked a lot. And you?"},{"who":"Jordi","t":"Aquest matí he anat al mercat i he fet una paella.","tr":"This morning I went to the market and made a paella."},{"who":"Ellen","t":"Que bé! N'has deixat una mica per a mi?","tr":"Great! Have you left some for me?"},{"who":"Jordi","t":"És clar! Vols sopar ara?","tr":"Of course! Do you want to have dinner now?"},{"who":"Ellen","t":"Sí, que avui encara no he menjat res!","tr":"Yes, I haven't eaten anything today!"}]},
+        {"p":"**Catalan has two pasts.** The past with {{anar}} (lesson 24) is for a time that's over: yesterday, last week. For a time that isn't over yet (today, this morning, this week, this year) Catalan uses the {{perfet}}, {{he}} + a participle, like English “I have worked”: {{Avui he treballat molt.}} “I've worked a lot today.” {{Ahir vaig treballar molt.}} “Yesterday I worked a lot.”"},
+        {"term":"participle","means":"the form of a verb used after “have”: worked, eaten, done. In Catalan it mostly ends in {{-at}}, {{-ut}} or {{-it}}."},
+        { "table": [
+          ["","{{haver}}","{{parlar}} → {{parlat}}"],
+          ["I","{{he}}","{{he parlat}}"],
+          ["you","{{has}}","{{has parlat}}"],
+          ["he, she","{{ha}}","{{ha parlat}}"],
+          ["we","{{hem}}","{{hem parlat}}"],
+          ["you (more than one)","{{heu}}","{{heu parlat}}"],
+          ["they","{{han}}","{{han parlat}}"]
+        ] },
+        {"p":"**Participles.** {{-ar}} verbs end in {{-at}} ({{parlat}}, {{menjat}}); most {{-er}} and {{-re}} verbs in {{-ut}} ({{perdut}} “lost”, {{begut}} “drunk”, {{viscut}} “lived”, {{tingut}} “had”, {{pogut}}, {{volgut}}); {{-ir}} verbs in {{-it}} ({{dormit}}, {{llegit}}). Some common ones are irregular:"},
+        { "table": [
+          ["verb","participle","verb","participle"],
+          ["{{fer}}","{{fet}} done, made","{{veure}}","{{vist}} seen"],
+          ["{{dir}}","{{dit}} said","{{escriure}}","{{escrit}} written"],
+          ["{{ser}}, {{estar}}","{{estat}} been","{{obrir}}","{{obert}} opened"],
+          ["{{prendre}}","{{pres}} taken","{{venir}}","{{vingut}} come"],
+          ["{{anar}}","{{anat}} gone","{{entendre}}","{{entès}} understood"]
+        ] },
+        {"p":"**Already, not yet.** {{ja}} “already”, {{encara no}} “not yet”: {{Ja he dinat.}} “I've already had lunch.” {{Encara no he dinat.}} “I haven't had lunch yet.” Nothing goes between {{he}} and the participle: {{he dinat}}, {{no he dinat}}."},
+        { "ex": [
+          {"t":"Aquest matí he anat al metge.","tr":"I went to the doctor this morning.","note":"English uses its simple past here; Catalan uses the {{perfet}} for anything today"},
+          {"t":"Aquesta setmana hem treballat molt.","tr":"We've worked a lot this week."},
+          {"t":"Has vist la Marta avui?","tr":"Have you seen Marta today?"},
+          {"t":"Què has dit?","tr":"What did you say?","note":"just now: the {{perfet}}"},
+          {"t":"Els nens ja han sopat.","tr":"The kids have already had dinner."},
+          {"t":"Encara no he fet els deures.","tr":"I haven't done my homework yet."}
+        ] },
+        {"tip":"{{Com ha anat?}} “How did it go?” is the question for something that has just happened: {{Com ha anat l'examen?}} “How did the exam go?”."}
+      ],
+      "mistakes": [
+        {"wrong":"Avui vaig treballar molt.","right":"Avui he treballat molt.","tr":"I've worked a lot today.","why":"Today isn't over: use the {{perfet}}."},
+        {"wrong":"Ahir he anat al cinema.","right":"Ahir vaig anar al cinema.","tr":"I went to the movies yesterday.","why":"Yesterday is over: use the past with {{anar}}."},
+        {"wrong":"He fat la compra.","right":"He fet la compra.","tr":"I've done the grocery shopping.","why":"{{fer}} is irregular: {{fet}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Aquest matí ___ anat al mercat.","tr":"I went to the market this morning.","options":["he","vaig","ha"],"answer":0,"why":"This morning is part of today: the {{perfet}}, {{he anat}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ahir ___ anar al mercat.","tr":"I went to the market yesterday.","options":["vaig","he","vam"],"answer":0,"why":"Yesterday: the past with {{anar}}, and “I” is {{vaig}}.","from":"say-what-happened"},
+        {"type":"choice","q":"Which participle is right for {{veure}} “to see”?","options":["{{vist}}","{{veut}}","{{veit}}"],"answer":0,"why":"{{veure}} is irregular: {{he vist}}."},
+        {"type":"dialogue","q":"Your partner calls in the afternoon. Choose your replies.","lines":[{"who":"Partner","t":"Com ha anat el dia?","tr":"How's your day been?"},{"options":["Molt bé! He acabat el projecte.","Molt bé! Ahir he acabat el projecte."],"answer":0,"why":"Today: {{he acabat}}. With {{ahir}} it would be {{vaig acabar}}."},{"who":"Partner","t":"I has dinat?","tr":"And have you had lunch?"},{"options":["Encara no. Tinc molta gana!","Ja no. Tinc molta gana!"],"answer":0,"why":"“Not yet” is {{encara no}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I haven't done my homework yet.","words":["Encara","no","he fet","els deures."]},
+        {"type":"say","q":"Ask a friend: “Have you had dinner yet?”","answer":"Ja has sopat?"},
+        {"type":"free","q":"Your turn: what have you done today? Say two or three things, with {{he}} + a participle.","answers":[{"t":"Avui m'he llevat a les set, he treballat i he anat al gimnàs.","tr":"Today I got up at seven, worked, and went to the gym."},{"t":"Aquest matí he fet la compra i he trucat a la meva germana.","tr":"This morning I did the grocery shopping and called my sister."}]}
+      ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 5,
+      "level": "A2",
+      "title": "Talk about your experiences",
+      "summary": "Ask if someone has ever done something, and say what you've done or never done: “Have you ever been to Menorca? —Yes, I've been there twice.”",
+      "topic": "{{Has … mai…?}} “Have you ever…?”; {{mai}}, {{ja}}, {{encara no}}; {{hi}} “there”: {{hi he estat}}",
+      "blocks": [
+        {"goal":{"t":"Has estat mai a Menorca?","tr":"Have you ever been to Menorca?"}},
+        {"dialog":[{"who":"Pau","t":"Has estat mai a Menorca?","tr":"Have you ever been to Menorca?"},{"who":"Grace","t":"No, mai. I tu?","tr":"No, never. And you?"},{"who":"Pau","t":"Sí, hi he estat moltes vegades. Hi tinc família.","tr":"Yes, I've been there lots of times. I have family there."},{"who":"Grace","t":"I has menjat mai caldereta de llagosta?","tr":"And have you ever eaten lobster stew?"},{"who":"Pau","t":"Sí, una vegada. És caríssima, però boníssima!","tr":"Yes, once. It's really expensive, but delicious!"},{"who":"Grace","t":"Doncs l'estiu que ve hi vull anar!","tr":"Well, I want to go there next summer!"}]},
+        {"p":"**Ever.** For experiences up to now, Catalan uses the {{perfet}} (lesson 25): your life isn't over! “Ever” is {{mai}}: {{Has estat mai a Roma?}} “Have you ever been to Rome?”. In an answer, {{mai}} is “never”, with {{no}} before the verb: {{No hi he estat mai.}} “I've never been there.”"},
+        {"p":"**How many times.** {{una vegada}} “once”, {{dues vegades}} “twice”, {{moltes vegades}} “many times”; in speech also {{un cop}}, {{dos cops}}."},
+        {"p":"**{{hi}}: there.** To avoid repeating a place, Catalan uses the weak pronoun {{hi}} “there”, before the verb: {{Has estat a Menorca? —Sí, hi he estat.}} “Have you been to Menorca? —Yes, I've been there.” It's the same {{hi}} as in {{hi ha}} (lesson 7), and it stands for a place with {{a}}, {{en}} or {{al}}: {{Vas a la platja? —Sí, hi vaig ara.}} “Are you going to the beach? —Yes, I'm going now.” On the end of an infinitive: {{Vull anar-hi.}} “I want to go there.”"},
+        { "table": [
+          ["without {{hi}}","with {{hi}}","English"],
+          ["{{He estat a Roma.}}","{{Hi he estat.}}","I've been there."],
+          ["{{Vaig a la platja.}}","{{Hi vaig.}}","I'm going (there)."],
+          ["{{Visc a Gràcia.}}","{{Hi visc.}}","I live there."],
+          ["{{Vull anar a Sitges.}}","{{Vull anar-hi.}}","I want to go there."]
+        ] },
+        { "ex": [
+          {"t":"Has provat mai els calçots?","tr":"Have you ever tried calçots?","note":"grilled spring onions, a Catalan winter feast"},
+          {"t":"No he vist mai la neu.","tr":"I've never seen snow."},
+          {"t":"Hem estat a Londres tres vegades.","tr":"We've been to London three times."},
+          {"t":"Coneixes Girona? —Sí, hi he estat un cop.","tr":"Do you know Girona? —Yes, I've been there once."},
+          {"t":"Ja has acabat el llibre?","tr":"Have you finished the book yet?"},
+          {"t":"Encara no hi hem anat.","tr":"We haven't been there yet."}
+        ] },
+        {"tip":"Everyday Catalan puts {{mai}} at the end: {{No hi he estat mai.}} You'll also hear and read {{Mai no hi he estat}} and {{Mai hi he estat}}: all three are correct."}
+      ],
+      "mistakes": [
+        {"wrong":"He estat mai a Roma.","right":"No he estat mai a Roma.","tr":"I've never been to Rome.","why":"When {{mai}} “never” comes after the verb, the verb needs {{no}} in front."},
+        {"wrong":"Sí, he estat.","right":"Sí, hi he estat.","tr":"Yes, I've been there.","why":"Without the place, Catalan needs {{hi}} “there”."},
+        {"wrong":"Vull anar-ho.","right":"Vull anar-hi.","tr":"I want to go there.","why":"A place is {{hi}}; {{ho}} is “it” for an idea (lesson 22)."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Has estat ___ a Mallorca?","tr":"Have you ever been to Mallorca?","options":["mai","ja","encara"],"answer":0,"why":"“Ever” in a question: {{mai}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Sí, ___ he estat dues vegades.","tr":"Yes, I've been there twice.","options":["hi","ho","en"],"answer":0,"why":"“There”, for a place: {{hi}}."},
+        {"type":"choice","q":"{{No hi he estat mai.}} means…","options":["I've never been there.","I wasn't there yesterday.","I'll never go there."],"answer":0,"why":"{{no}} … {{mai}}: never; {{hi}}: there."},
+        {"type":"dialogue","q":"Talking about trips with a new friend. Choose your replies.","lines":[{"who":"Friend","t":"Has estat mai a Nova York?","tr":"Have you ever been to New York?"},{"options":["Sí, hi he estat un cop.","Sí, he estat un cop."],"answer":0,"why":"Without the place: {{hi he estat}}."},{"who":"Friend","t":"I t'agrada?","tr":"And do you like it?"},{"options":["Sí, m'encanta. Hi vull tornar!","Sí, m'encanta. Vull tornar-ho!"],"answer":0,"why":"Going back to a place: {{hi}}. {{ho}} is for an idea."}],"from":"say-what-you-like"},
+        {"type":"order","q":"Put the words in order.","tr":"We haven't been there yet.","words":["Encara","no","hi","hem anat."]},
+        {"type":"say","q":"Ask a friend: “Have you ever tried calçots?”","answer":"Has provat mai els calçots?"},
+        {"type":"free","q":"Your turn: say one thing you've done many times, and one thing you've never done.","answers":[{"t":"He estat a París moltes vegades, però no he estat mai a Barcelona.","tr":"I've been to Paris many times, but I've never been to Barcelona."},{"t":"He vist aquesta pel·lícula tres vegades. No he menjat mai calçots.","tr":"I've seen this movie three times. I've never eaten calçots."}]}
+      ]
+    },
+    {
+      "id": "say-when-and-how-long",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say how long ago and how long",
+      "summary": "Say when something happened and how long it has been going on: “I've been living in Barcelona for three years.”",
+      "topic": "{{fa}} + a time “ago”; {{fa … que}} and {{des de fa}} “for”; {{des de}} “since”; dates",
+      "blocks": [
+        {"goal":{"t":"Fa tres anys que visc a Barcelona.","tr":"I've been living in Barcelona for three years."}},
+        {"dialog":[{"who":"Neus","t":"Quant de temps fa que vius aquí?","tr":"How long have you been living here?"},{"who":"Mike","t":"Fa tres anys. Vaig venir per feina.","tr":"Three years. I came for work."},{"who":"Neus","t":"I quan vas començar a estudiar català?","tr":"And when did you start learning Catalan?"},{"who":"Mike","t":"Fa un any. Estudio català des del setembre passat.","tr":"A year ago. I've been studying Catalan since last September."},{"who":"Neus","t":"Doncs el parles molt bé!","tr":"Well, you speak it really well!"}]},
+        {"p":"**Ago.** {{fa}} + a length of time means “… ago”: {{Vaig arribar fa tres anys.}} “I arrived three years ago.” {{La vaig veure fa una setmana.}} “I saw her a week ago.” It's {{fer}} again: word for word, “it makes three years”."},
+        {"p":"**For (up to now).** For something that started in the past and is still going on, Catalan uses the present, not a past: {{Fa tres anys que visc aquí.}} “I've been living here for three years”, word for word “it makes three years that I live here”. Or: {{Visc aquí des de fa tres anys.}} The question is {{Quant de temps fa que…?}} “How long have you been…?”"},
+        {"p":"**Since.** {{des de}} + a moment: {{Treballo aquí des del 2020.}} “I've worked here since 2020.” {{Estic malalt des de dilluns.}} “I've been sick since Monday.” Its partner is {{fins a}} “until”: {{des de les nou fins a les cinc}} “from nine to five”."},
+        { "table": [
+          ["Catalan","English"],
+          ["{{Vaig venir fa dos anys.}}","I came two years ago."],
+          ["{{Fa dos anys que visc aquí.}}","I've been living here for two years."],
+          ["{{Visc aquí des de fa dos anys.}}","I've been living here for two years."],
+          ["{{Visc aquí des del 2024.}}","I've been living here since 2024."]
+        ] },
+        {"p":"**Dates.** A year is said as a number: {{el 2024}} “in 2024”, {{dos mil vint-i-quatre}}. A date: {{el tres de maig}} “(on) May 3”. The months have a small letter: {{gener}}, {{febrer}}, {{març}}, {{abril}}, {{maig}}, {{juny}}, {{juliol}}, {{agost}}, {{setembre}}, {{octubre}}, {{novembre}}, {{desembre}}. Before a vowel, {{de}} becomes {{d'}}: {{el vint d'abril}}, {{el dotze d'octubre}}."},
+        { "ex": [
+          {"t":"Vam arribar fa una setmana.","tr":"We arrived a week ago."},
+          {"t":"Fa molt de temps que no et veig!","tr":"I haven't seen you in ages!","note":"word for word “it makes a long time that I don't see you”"},
+          {"t":"Quant de temps fa que estudies català?","tr":"How long have you been studying Catalan?"},
+          {"t":"Estudio català des de fa sis mesos.","tr":"I've been studying Catalan for six months."},
+          {"t":"Treballa en aquesta empresa des del 2019.","tr":"She has worked at this company since 2019."},
+          {"t":"El meu aniversari és el quinze de juliol.","tr":"My birthday is on July 15."}
+        ] },
+        {"tip":"Mind the present in {{Fa tres anys que visc aquí}}: the living is still going on, so Catalan says it in the present, where English needs “have been living”."}
+      ],
+      "mistakes": [
+        {"wrong":"Vaig arribar tres anys fa.","right":"Vaig arribar fa tres anys.","tr":"I arrived three years ago.","why":"{{fa}} goes before the time: {{fa tres anys}}."},
+        {"wrong":"Fa tres anys que he viscut aquí.","right":"Fa tres anys que visc aquí.","tr":"I've been living here for three years.","why":"It's still going on, so Catalan uses the present: {{visc}}."},
+        {"wrong":"Estudio català per sis mesos.","right":"Estudio català des de fa sis mesos.","tr":"I've been studying Catalan for six months.","why":"“For” up to now is {{des de fa}} (or {{fa … que}}), never {{per}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Vaig conèixer la Marta ___ dos anys.","tr":"I met Marta two years ago.","options":["fa","des de","per"],"answer":0,"why":"“Ago” is {{fa}} + the time."},
+        {"type":"fill","q":"Choose the missing word.","t":"Fa cinc anys que ___ a Girona.","tr":"I've been living in Girona for five years.","options":["visc","he viscut","vaig viure"],"answer":0,"why":"It's still going on: the present, {{visc}}."},
+        {"type":"choice","q":"{{Treballo aquí des del 2021.}} means…","options":["I've worked here since 2021.","I worked here in 2021.","I'll work here from 2021."],"answer":0,"why":"{{des de}} + a moment: since."},
+        {"type":"dialogue","q":"Meeting someone at a party. Choose your replies.","lines":[{"who":"Guest","t":"Quant de temps fa que vius a Barcelona?","tr":"How long have you been living in Barcelona?"},{"options":["Fa sis mesos.","Des de sis mesos."],"answer":0,"why":"A length of time: {{fa sis mesos}}. {{des de}} needs a moment, like {{des del gener}}."},{"who":"Guest","t":"I per què hi vas venir?","tr":"And why did you come here?"},{"options":["Vaig venir per feina.","Vinc per feina ahir."],"answer":0,"why":"A finished moment in the past: {{vaig venir}}."}],"from":"say-what-happened"},
+        {"type":"order","q":"Put the words in order.","tr":"I haven't seen you in ages!","words":["Fa","molt de temps","que","no","et veig!"]},
+        {"type":"say","q":"Say “My birthday is on May 3.”","answer":"El meu aniversari és el tres de maig."},
+        {"type":"free","q":"Your turn: how long have you been learning Catalan, and when did you start? Use {{fa}}.","answers":[{"t":"Fa tres mesos que estudio català. Vaig començar al juliol.","tr":"I've been studying Catalan for three months. I started in July."},{"t":"Vaig començar fa dues setmanes, i ja m'agrada molt!","tr":"I started two weeks ago, and I already like it a lot!"}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 5,
+      "level": "A2",
+      "title": "Tell what happened, step by step",
+      "summary": "Tell a story in order, from start to finish: “First we had dinner, then we went dancing, and in the end we walked home.”",
+      "topic": "The past with {{anar}} + {{primer, després, llavors, al final}}; {{quan}}; weak pronouns before {{vaig}}: {{la vaig veure}}",
+      "blocks": [
+        {"goal":{"t":"Primer vam sopar, després vam anar a ballar i al final vam tornar a peu.","tr":"First we had dinner, then we went dancing, and in the end we walked home."}},
+        {"dialog":[{"who":"Anna","t":"Què vau fer dissabte?","tr":"What did you guys do on Saturday?"},{"who":"Tom","t":"Primer vam sopar en un restaurant del Born.","tr":"First we had dinner at a restaurant in the Born."},{"who":"Anna","t":"I després?","tr":"And then?"},{"who":"Tom","t":"Després vam anar a un concert. I allà vam veure la Júlia!","tr":"Then we went to a concert. And we saw Júlia there!"},{"who":"Anna","t":"De debò? Què et va dir?","tr":"Really? What did she say to you?"},{"who":"Tom","t":"Res, només la vaig saludar. Al final vam tornar a casa a les tres!","tr":"Nothing, I just said hi to her. In the end we got home at three!"}]},
+        {"p":"**Putting events in order.** Each event is a verb in the past with {{anar}} (lesson 24), and little words link them: {{primer}} “first”, {{després}} “then, afterwards”, {{llavors}} “then, at that point”, {{de sobte}} “suddenly”, {{al final}} “in the end”."},
+        {"p":"**When.** {{quan}} “when” joins two events: {{Quan vam arribar, vam trucar a la Marta.}} “When we arrived, we called Marta.”"},
+        {"p":"**Pronouns in the past.** A weak pronoun goes before the helper {{vaig, vas, va…}}, never between the helper and the verb: {{La vaig veure.}} “I saw her.” {{Ho vaig dir.}} “I said it.” {{Em vaig llevar tard.}} “I got up late.”"},
+        { "table": [
+          ["pronoun","in the past","English"],
+          ["{{el}}, {{la}}","{{La vaig veure ahir.}}","I saw her yesterday."],
+          ["{{ho}}","{{No ho vaig entendre.}}","I didn't understand."],
+          ["{{em}}, {{et}}, {{es}}…","{{Ens vam llevar tard.}}","We got up late."],
+          ["{{li}}","{{Li vaig dir que sí.}}","I told him yes."],
+          ["{{hi}}","{{Hi vam anar en cotxe.}}","We went there by car."],
+          ["{{en}}","{{En vaig comprar tres.}}","I bought three."]
+        ] },
+        { "ex": [
+          {"t":"Primer vam visitar el museu i després vam dinar.","tr":"First we visited the museum, and then we had lunch."},
+          {"t":"Quan vaig arribar a casa, em vaig dutxar.","tr":"When I got home, I took a shower."},
+          {"t":"De sobte va començar a ploure.","tr":"Suddenly it started to rain."},
+          {"t":"La vaig veure al concert, però ella no em va veure.","tr":"I saw her at the concert, but she didn't see me."},
+          {"t":"Al final ho vam deixar per a un altre dia.","tr":"In the end we left it for another day."},
+          {"t":"Ens vam conèixer fa deu anys a Londres.","tr":"We met ten years ago in London.","note":"{{conèixer-se}} “to meet each other”"}
+        ] },
+        {"tip":"To keep a story going, react with {{De debò?}} “Really?”, {{I llavors?}} “And then what?”, or {{No m'ho puc creure!}} “I can't believe it!”."}
+      ],
+      "mistakes": [
+        {"wrong":"Vaig la veure ahir.","right":"La vaig veure ahir.","tr":"I saw her yesterday.","why":"The pronoun goes before {{vaig}}, not between {{vaig}} and the verb."},
+        {"wrong":"Primer vam sopar, després anem a ballar.","right":"Primer vam sopar, després vam anar a ballar.","tr":"First we had dinner, then we went dancing.","why":"Keep the whole story in the past: {{vam anar}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"La festa? Hi ___ anar amb la Clara.","tr":"The party? I went with Clara.","options":["vaig","he","vas"],"answer":0,"why":"“I” in the past: {{vaig}}, with {{hi}} in front."},
+        {"type":"fill","q":"Choose the missing word.","t":"No ___ vaig entendre.","tr":"I didn't understand.","options":["ho","el","hi"],"answer":0,"why":"Not understanding what was said: {{ho}}, before {{vaig}}.","from":"it-and-them"},
+        {"type":"choice","q":"Which is right for “I saw him yesterday”?","options":["{{Ahir el vaig veure.}}","{{Ahir vaig el veure.}}","{{Ahir vaig veure el.}}"],"answer":0,"why":"The pronoun goes before {{vaig}}."},
+        {"type":"order","q":"Put the words in order.","tr":"First we visited the museum, and then we had lunch.","words":["Primer","vam visitar","el museu","i després","vam dinar."]},
+        {"type":"dialogue","q":"Your friend wants to hear about your trip. Choose your replies.","lines":[{"who":"Friend","t":"Com va anar el viatge a Sevilla?","tr":"How did the trip to Seville go?"},{"options":["Molt bé! Primer vam visitar l'Alcázar i després vam menjar tapes.","Molt bé! Primer visitem l'Alcázar i després mengem tapes."],"answer":0,"why":"A finished trip: the past with {{anar}}, {{vam visitar}}, {{vam menjar}}."},{"who":"Friend","t":"I hi vau anar en tren?","tr":"And did you go there by train?"},{"options":["No, hi vam anar en avió.","No, vam hi anar en avió."],"answer":0,"why":"{{hi}} goes before {{vam}}."}]},
+        {"type":"say","q":"Say “We met ten years ago in London.”","answer":"Ens vam conèixer fa deu anys a Londres.","from":"say-when-and-how-long"},
+        {"type":"free","q":"Your turn: tell what you did last Saturday, in order. Use {{primer}}, {{després}} and {{al final}}.","answers":[{"t":"Primer em vaig llevar tard, després vaig fer la compra i al final vaig sopar amb uns amics.","tr":"First I got up late, then I did the grocery shopping, and in the end I had dinner with some friends."},{"t":"Primer vam anar a la platja, després vam dinar allà i al final vam tornar a casa en tren.","tr":"First we went to the beach, then we had lunch there, and in the end we went home by train."}]}
+      ]
     }
   ]
 }
