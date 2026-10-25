@@ -592,6 +592,229 @@
         {"type":"say","q":"Say: “It's so cold today!”","answer":"오늘 너무 추워요!","r":"oneul neomu chuwoyo!"},
         {"type":"free","q":"Your turn: describe your city or your favorite food, with two describing verbs.","answers":[{"t":"우리 동네는 작아요. 그리고 조용해요.","tr":"My neighborhood is small. And it's quiet.","r":"uri dongneneun jagayo. geurigo joyonghaeyo."},{"t":"김치찌개는 정말 맛있어요. 좀 매워요.","tr":"Kimchi stew is really good. It's a bit spicy.","r":"gimchijjigaeneun jeongmal masisseoyo. jom maewoyo."}]}
       ]
+    },
+    {
+      "id": "count-people-and-things",
+      "unit": 3,
+      "level": "A1",
+      "title": "Count people and things",
+      "summary": "Order two coffees, say how many people are in your family, and how old you are.",
+      "topic": "native Korean numbers {{하나|hana}}, {{둘|dul}}, {{셋|set}}…; {{한|han}}, {{두|du}}, {{세|se}}, {{네|ne}} + a counter ({{개|gae}}, {{명|myeong}}, {{잔|jan}}, {{병|byeong}}, {{권|gwon}}, {{마리|mari}}, {{살|sal}}); {{하고|hago}} “and”",
+      "blocks": [
+        {"goal":{"t":"커피 두 잔하고 물 한 병 주세요.","tr":"Two coffees and a bottle of water, please.","r":"keopi du janhago mul han byeong juseyo."}},
+        {"dialog":[{"who":"Server","t":"어서 오세요. 몇 분이세요?","tr":"Welcome. How many of you are there?","r":"eoseo oseyo. myeot buniseyo?"},{"who":"You","t":"세 명이요.","tr":"Three.","r":"se myeongiyo."},{"who":"Server","t":"이쪽으로 앉으세요. 뭐 드릴까요?","tr":"Please sit over here. What can I get you?","r":"ijjogeuro anjeuseyo. mwo deurilkkayo?"},{"who":"You","t":"비빔밥 두 개하고 냉면 하나 주세요. 그리고 콜라 한 병 주세요.","tr":"Two bibimbaps and one naengmyeon, please. And a bottle of Coke.","r":"bibimbap du gaehago naengmyeon hana juseyo. geurigo kolla han byeong juseyo."},{"who":"Server","t":"네, 알겠습니다.","tr":"Certainly.","r":"ne, algetseumnida."}]},
+        {"p":"**Two sets of numbers.** Korean has two sets of numbers: native Korean ({{하나|hana}}, {{둘|dul}}, {{셋|set}}…) and Sino-Korean ({{일|il}}, {{이|i}}, {{삼|sam}}…, which came from Chinese: next lesson). Native numbers are for **counting** things and people, for age, and for the hours of the clock."},
+        { "table": [
+          ["","counting","before a counter"],
+          ["1","{{하나|hana}}","{{한|han}}"],
+          ["2","{{둘|dul}}","{{두|du}}"],
+          ["3","{{셋|set}}","{{세|se}}"],
+          ["4","{{넷|net}}","{{네|ne}}"],
+          ["5","{{다섯|daseot}}","{{다섯|daseot}}"],
+          ["6","{{여섯|yeoseot}}","{{여섯|yeoseot}}"],
+          ["7","{{일곱|ilgop}}","{{일곱|ilgop}}"],
+          ["8","{{여덟|yeodeol}}","{{여덟|yeodeol}}"],
+          ["9","{{아홉|ahop}}","{{아홉|ahop}}"],
+          ["10","{{열|yeol}}","{{열|yeol}}"],
+          ["20","{{스물|seumul}}","{{스무|seumu}}"]
+        ] },
+        {"term":"counter","means":"a word that comes after a number to say what kind of thing is counted, like “two **cups** of coffee” in English. Korean uses one for almost everything: {{두 잔|du jan}} “two cups”, {{세 명|se myeong}} “three people”."},
+        {"p":"**Number + counter.** Korean counts like “coffee two cups”: the thing, the number, then a counter: {{커피 두 잔|keopi du jan}}. The numbers 1 to 4 and 20 get shorter before a counter: {{하나|hana}} → {{한|han}}, {{둘|dul}} → {{두|du}}, {{셋|set}} → {{세|se}}, {{넷|net}} → {{네|ne}}, {{스물|seumul}} → {{스무|seumu}}. So do 11 and 12: {{열한 개|yeolhan gae}}, {{열두 개|yeoldu gae}}."},
+        { "table": [
+          ["counter","for","example"],
+          ["{{개|gae}}","things (the all-purpose one)","{{사과 세 개|sagwa se gae}} three apples"],
+          ["{{명|myeong}}","people","{{학생 다섯 명|haksaeng daseot myeong}} five students"],
+          ["{{잔|jan}}","cups, glasses","{{커피 두 잔|keopi du jan}} two coffees"],
+          ["{{병|byeong}}","bottles","{{물 한 병|mul han byeong}} a bottle of water"],
+          ["{{권|gwon}}","books","{{책 네 권|chaek ne gwon}} four books"],
+          ["{{마리|mari}}","animals","{{고양이 두 마리|goyangi du mari}} two cats"],
+          ["{{살|sal}}","years of age","{{스무 살|seumu sal}} 20 years old"]
+        ] },
+        {"p":"**How many?** {{몇|myeot}} “how many” goes before the counter: {{몇 명이에요?|myeot myeongieyo?}} “How many people?”, {{몇 살이에요?|myeot sarieyo?}} “How old are you?”. And {{하고|hago}} after a noun joins it to the next one: {{커피하고 물|keopihago mul}} “coffee and water”."},
+        { "ex": [
+          {"t":"우리 가족은 네 명이에요.","tr":"There are four of us in my family.","note":"word for word “our family is four people”","r":"uri gajogeun ne myeongieyo."},
+          {"t":"저는 스물다섯 살이에요.","tr":"I'm 25 years old.","note":"{{스물다섯|seumuldaseot}} is written as one word","r":"jeoneun seumuldaseot sarieyo."},
+          {"t":"사과 세 개 주세요.","tr":"Three apples, please.","r":"sagwa se gae juseyo."},
+          {"t":"고양이가 두 마리 있어요.","tr":"I have two cats.","r":"goyangiga du mari isseoyo."},
+          {"t":"맥주 두 병하고 콜라 한 병 주세요.","tr":"Two bottles of beer and a Coke, please.","r":"maekju du byeonghago kolla han byeong juseyo."},
+          {"t":"동생이 몇 살이에요?","tr":"How old is your younger sibling?","r":"dongsaengi myeot sarieyo?"}
+        ] },
+        {"tip":"Asking someone's age is normal in Korea: it decides who speaks to whom how politely. To an adult you've just met, {{몇 살이에요?|myeot sarieyo?}} is too direct; {{나이가 어떻게 되세요?|naiga eotteoke doeseyo?}} “May I ask how old you are?” is the polite way."}
+      ],
+      "mistakes": [
+        {"wrong":"커피 둘 잔 주세요.","right":"커피 두 잔 주세요.","tr":"Two coffees, please.","why":"Before a counter, {{둘|dul}} becomes {{두|du}}."},
+        {"wrong":"저는 이십오 살이에요.","right":"저는 스물다섯 살이에요.","tr":"I'm 25 years old.","why":"Age with {{살|sal}} uses native numbers."},
+        {"wrong":"세 사과 주세요.","right":"사과 세 개 주세요.","tr":"Three apples, please.","why":"The thing first, then the number and its counter."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which counter goes with people?","options":["{{개|gae}}","{{명|myeong}}","{{잔|jan}}"],"answer":1,"why":"People: {{명|myeong}}. ({{개|gae}} is for things, {{잔|jan}} for cups.)"},
+        {"type":"fill","q":"Choose the number.","t":"커피 ___ 잔 주세요.","tr":"Two coffees, please.","options":["두","둘","이"],"answer":0,"why":"Native numbers count, and {{둘|dul}} becomes {{두|du}} before a counter."},
+        {"type":"fill","q":"Choose the counter.","t":"저는 스무 ___이에요.","tr":"I'm 20 years old.","options":["살","명","개"],"answer":0,"why":"Years of age: {{살|sal}}."},
+        {"type":"order","q":"Put the words in order.","tr":"There are four people in my family.","words":["우리","가족은","네","명이에요."]},
+        {"type":"dialogue","q":"At a restaurant: choose your replies.","from":"ask-for-things","lines":[{"who":"Server","t":"어서 오세요. 몇 분이세요?","tr":"Welcome. How many of you are there?","r":"eoseo oseyo. myeot buniseyo?"},{"options":["두 명이요.","둘 명이요."],"answer":0,"why":"Before a counter: {{두|du}}. And a short answer with {{이요|iyo}}."},{"who":"Server","t":"이쪽으로 앉으세요. 뭐 드릴까요?","tr":"Please sit over here. What can I get you?","r":"ijjogeuro anjeuseyo. mwo deurilkkayo?"},{"options":["비빔밥 두 개하고 콜라 한 병 주세요.","두 비빔밥하고 한 콜라 주세요."],"answer":0,"why":"Thing, number, counter: {{비빔밥 두 개|bibimbap du gae}}, {{콜라 한 병|kolla han byeong}}, joined by {{하고|hago}}."}]},
+        {"type":"say","q":"Ask a child: “How old are you?”","answer":"몇 살이에요?","r":"myeot sarieyo?"},
+        {"type":"free","q":"Your turn: how many people are in your family, how old are you, and do you have any pets?","answers":[{"t":"우리 가족은 다섯 명이에요. 저는 서른 살이에요. 강아지가 한 마리 있어요.","tr":"There are five of us in my family. I'm 30. I have a dog.","r":"uri gajogeun daseot myeongieyo. jeoneun seoreun sarieyo. gangajiga han mari isseoyo."},{"t":"우리 가족은 세 명이에요. 고양이가 두 마리 있어요.","tr":"There are three of us in my family. We have two cats.","r":"uri gajogeun se myeongieyo. goyangiga du mari isseoyo."}]}
+      ]
+    },
+    {
+      "id": "ask-the-price",
+      "unit": 3,
+      "level": "A1",
+      "title": "Ask prices and give numbers",
+      "summary": "Ask how much something is, understand the answer, and give a phone number or a date.",
+      "topic": "Sino-Korean numbers {{일|il}}, {{이|i}}, {{삼|sam}}…, {{백|baek}}, {{천|cheon}}, {{만|man}}; {{원|won}}; {{얼마예요?|eolmayeyo?}}; phone numbers, months and dates",
+      "blocks": [
+        {"goal":{"t":"이거 얼마예요?","tr":"How much is this?","r":"igeo eolmayeyo?"}},
+        {"dialog":[{"who":"You","t":"사장님, 이 사과 얼마예요?","tr":"Excuse me, how much are these apples?","r":"sajangnim, i sagwa eolmayeyo?"},{"who":"Seller","t":"한 개에 천 원이에요.","tr":"A thousand won each.","r":"han gaee cheon wonieyo."},{"who":"You","t":"그럼 다섯 개 주세요.","tr":"Then five, please.","r":"geureom daseot gae juseyo."},{"who":"Seller","t":"네, 오천 원이에요.","tr":"Sure, that's five thousand won.","r":"ne, ocheon wonieyo."},{"who":"You","t":"여기 만 원이요.","tr":"Here's ten thousand won.","r":"yeogi man woniyo."},{"who":"Seller","t":"거스름돈 오천 원이요. 감사합니다!","tr":"Five thousand won change. Thank you!","r":"geoseureumdon ocheon woniyo. gamsahamnida!"}]},
+        {"p":"**Sino-Korean numbers** came from Chinese and are used for money, phone numbers, dates, minutes and floors. They are very regular: learn 1 to 10, then build. 11 is “ten one” {{십일|sibil}}, 20 is “two ten” {{이십|isip}}, 35 is “three ten five” {{삼십오|samsibo}}."},
+        { "table": [
+          ["1","2","3","4","5","6","7","8","9","10"],
+          ["{{일|il}}","{{이|i}}","{{삼|sam}}","{{사|sa}}","{{오|o}}","{{육|yuk}}","{{칠|chil}}","{{팔|pal}}","{{구|gu}}","{{십|sip}}"]
+        ] },
+        {"p":"**Big numbers.** {{백|baek}} is 100, {{천|cheon}} 1,000 and, the important one, {{만|man}} **10,000**. Korean counts big numbers in ten-thousands, not thousands: 50,000 is {{오만|oman}} “five ten-thousands”, 120,000 is {{십이만|sibiman}}. On their own, {{백|baek}}, {{천|cheon}} and {{만|man}} already mean one of them: not {{일만|ilman}}. Korean won are small: 10,000 won is about seven or eight US dollars."},
+        { "table": [
+          ["number","Korean"],
+          ["100","{{백|baek}}"],
+          ["1,000","{{천|cheon}}"],
+          ["5,000","{{오천|ocheon}}"],
+          ["10,000","{{만|man}}"],
+          ["15,000","{{만 오천|man ocheon}}"],
+          ["100,000","{{십만|simman}}"]
+        ] },
+        {"p":"**How much?** {{얼마예요?|eolmayeyo?}} is “How much is it?”. The answer is the number, {{원|won}}, and {{이에요|ieyo}}: {{삼천 원이에요|samcheon wonieyo}} “It's 3,000 won.” {{한 개에|han gaee}} is “for one, each”."},
+        {"p":"**Phone numbers and dates.** Phone numbers are said digit by digit, with {{공|gong}} for zero: 010-1234-5678 is {{공일공 일이삼사 오육칠팔|gongilgong irisamsa oyukchilpal}}. A month is a number + {{월|wol}}, a day a number + {{일|il}}: {{오월 오일|owol oil}} “May 5th”. Two months change: June is {{유월|yuwol}}, October {{시월|siwol}}."},
+        { "ex": [
+          {"t":"만 이천 원이에요.","tr":"It's 12,000 won.","r":"man icheon wonieyo."},
+          {"t":"이 티셔츠는 이만 원이에요.","tr":"This T-shirt is 20,000 won.","r":"i tisyeocheuneun iman wonieyo."},
+          {"t":"제 전화번호는 공일공 칠팔오삼 이사육일이에요.","tr":"My phone number is 010-7853-2461.","r":"je jeonhwabeonhoneun gongilgong chilparosam isayugirieyo."},
+          {"t":"제 생일은 시월 삼일이에요.","tr":"My birthday is October 3rd.","r":"je saengireun siwol samirieyo."},
+          {"t":"저는 삼 층에 살아요.","tr":"I live on the third floor.","r":"jeoneun sam cheunge sarayo."},
+          {"t":"좀 깎아 주세요.","tr":"Could you give me a discount?","note":"word for word “please cut it down a little”","r":"jom kkakka juseyo."}
+        ] },
+        {"tip":"In shops and markets, Koreans call the owner {{사장님|sajangnim}} “boss”: it's friendly and polite. And in a market, {{좀 깎아 주세요|jom kkakka juseyo}} sometimes works!"}
+      ],
+      "mistakes": [
+        {"wrong":"일만 원이에요.","right":"만 원이에요.","tr":"It's 10,000 won.","why":"10,000 is just {{만|man}}, without {{일|il}}."},
+        {"wrong":"제 생일은 육월이에요.","right":"제 생일은 유월이에요.","tr":"My birthday is in June.","why":"June is {{유월|yuwol}}: the {{ㄱ}} drops. October is {{시월|siwol}}."},
+        {"wrong":"삼천 원예요.","right":"삼천 원이에요.","tr":"It's 3,000 won.","why":"{{원|won}} ends in a consonant: {{이에요|ieyo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{오만 원|oman won}} is…","options":["5,000 won","50,000 won","500,000 won"],"answer":1,"why":"{{만|man}} is 10,000: five ten-thousands."},
+        {"type":"fill","q":"Choose the question word.","t":"이거 ___예요?","tr":"How much is this?","options":["얼마","몇","뭐"],"answer":0,"why":"“How much”: {{얼마|eolma}}. ({{몇|myeot}} “how many” goes before a counter.)"},
+        {"type":"fill","q":"Choose the month.","t":"제 생일은 ___ 십일이에요.","tr":"My birthday is June 10th.","options":["유월","육월","여섯월"],"answer":0,"why":"June is {{유월|yuwol}}."},
+        {"type":"order","q":"Put the words in order.","tr":"It's 15,000 won.","words":["만","오천","원이에요."]},
+        {"type":"dialogue","q":"At the market: choose your replies.","from":"count-people-and-things","lines":[{"who":"Seller","t":"어서 오세요!","tr":"Welcome!","r":"eoseo oseyo!"},{"options":["사장님, 이 귤 얼마예요?","사장님, 이 귤 몇 개예요?"],"answer":0,"why":"Asking the price: {{얼마예요?|eolmayeyo?}}"},{"who":"Seller","t":"한 봉지에 오천 원이에요.","tr":"Five thousand won a bag.","r":"han bongjie ocheon wonieyo."},{"options":["그럼 두 봉지 주세요.","그럼 둘 봉지 주세요."],"answer":0,"why":"Before a counter, {{둘|dul}} becomes {{두|du}}."},{"who":"Seller","t":"네, 만 원이에요.","tr":"Okay, that's ten thousand won.","r":"ne, man wonieyo."}]},
+        {"type":"say","q":"Say: “It's 3,500 won.”","answer":"삼천오백 원이에요.","r":"samcheonobaek wonieyo."},
+        {"type":"free","q":"Your turn: say your phone number (or a made-up one) and your birthday.","answers":[{"t":"제 전화번호는 공일공 일이삼사 오육칠팔이에요.","tr":"My phone number is 010-1234-5678.","r":"je jeonhwabeonhoneun gongilgong irisamsa oyukchilparieyo."},{"t":"제 생일은 십이월 이십오일이에요.","tr":"My birthday is December 25th.","r":"je saengireun sibiwol isiboirieyo."}]}
+      ]
+    },
+    {
+      "id": "say-what-time",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say when you do things",
+      "summary": "Tell the time, say what time you get up or meet, and from when until when you work.",
+      "topic": "{{시|si}} (native numbers) and {{분|bun}} (Sino-Korean); {{에|e}} for time; {{부터|buteo}} … {{까지|kkaji}}; the days of the week",
+      "blocks": [
+        {"goal":{"t":"저는 아침 일곱 시에 일어나요.","tr":"I get up at seven in the morning.","r":"jeoneun achim ilgop sie ireonayo."}},
+        {"dialog":[{"who":"Coworker","t":"지금 몇 시예요?","tr":"What time is it now?","r":"jigeum myeot siyeyo?"},{"who":"You","t":"세 시 반이에요.","tr":"It's half past three.","r":"se si banieyo."},{"who":"Coworker","t":"회의가 몇 시에 있어요?","tr":"What time is the meeting?","r":"hoeuiga myeot sie isseoyo?"},{"who":"You","t":"네 시에 있어요.","tr":"It's at four.","r":"ne sie isseoyo."},{"who":"Coworker","t":"몇 시까지 해요?","tr":"Until what time?","r":"myeot sikkaji haeyo?"},{"who":"You","t":"네 시부터 다섯 시까지 해요.","tr":"From four to five.","r":"ne sibuteo daseot sikkaji haeyo."}]},
+        {"p":"**Two kinds of numbers in one time.** Hours use native numbers ({{한 시|han si}}, {{두 시|du si}}, {{세 시|se si}}…), minutes use Sino-Korean ones ({{십 분|sip bun}}, {{삼십 분|samsip bun}}): {{세 시 이십 분|se si isip bun}} is 3:20. {{반|ban}} is “half”: {{세 시 반|se si ban}} “half past three”."},
+        { "table": [
+          ["time","Korean"],
+          ["1:00","{{한 시|han si}}"],
+          ["2:00","{{두 시|du si}}"],
+          ["3:15","{{세 시 십오 분|se si sibo bun}}"],
+          ["4:30","{{네 시 반|ne si ban}}"],
+          ["7:00","{{일곱 시|ilgop si}}"],
+          ["11:05","{{열한 시 오 분|yeolhan si o bun}}"],
+          ["12:00","{{열두 시|yeoldu si}}"]
+        ] },
+        {"p":"**At a time: {{에|e}}.** The same {{에|e}} as for places: {{일곱 시에 일어나요|ilgop sie ireonayo}} “I get up at seven”, {{주말에|jumare}} “at the weekend”, {{월요일에|woryoire}} “on Monday”. But {{오늘|oneul}} “today”, {{내일|naeil}} “tomorrow”, {{어제|eoje}} “yesterday” and {{지금|jigeum}} “now” don't take it: {{내일 만나요|naeil mannayo}} “see you tomorrow”."},
+        {"p":"**From… until: {{부터|buteo}} … {{까지|kkaji}}.** {{아홉 시부터 여섯 시까지 일해요|ahop sibuteo yeoseot sikkaji ilhaeyo}} “I work from nine to six”. Put {{아침|achim}} “morning”, {{오후|ohu}} “afternoon, p.m.”, {{저녁|jeonyeok}} “evening” or {{밤|bam}} “night” before the hour: {{저녁 일곱 시|jeonyeok ilgop si}} “7 in the evening”."},
+        { "table": [
+          ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          ["{{월요일|woryoil}}","{{화요일|hwayoil}}","{{수요일|suyoil}}","{{목요일|mogyoil}}","{{금요일|geumyoil}}","{{토요일|toyoil}}","{{일요일|iryoil}}"]
+        ] },
+        { "ex": [
+          {"t":"지금 몇 시예요?","tr":"What time is it now?","r":"jigeum myeot siyeyo?"},
+          {"t":"열두 시 반에 점심을 먹어요.","tr":"I have lunch at 12:30.","r":"yeoldu si bane jeomsimeul meogeoyo."},
+          {"t":"은행은 오후 네 시까지 해요.","tr":"The bank is open until 4 p.m.","note":"{{해요|haeyo}} “does”: for a shop or a bank, “is open”","r":"eunhaengeun ohu ne sikkaji haeyo."},
+          {"t":"토요일에 만나요.","tr":"See you on Saturday.","r":"toyoire mannayo."},
+          {"t":"저는 밤 열한 시에 자요.","tr":"I go to bed at 11 at night.","r":"jeoneun bam yeolhan sie jayo."},
+          {"t":"수업은 월요일부터 금요일까지 있어요.","tr":"There are classes from Monday to Friday.","r":"sueobeun woryoilbuteo geumyoilkkaji isseoyo."},
+          {"t":"내일 아침에 운동해요.","tr":"I'm working out tomorrow morning.","r":"naeil achime undonghaeyo."}
+        ] },
+        {"tip":"Hours are native and minutes are Sino-Korean, so 1:01 is {{한 시 일 분|han si il bun}}: two different words for “one” in one time! Say a few times out loud and it sticks."}
+      ],
+      "mistakes": [
+        {"wrong":"삼 시에 만나요.","right":"세 시에 만나요.","tr":"Let's meet at three.","why":"Hours use native numbers: {{세 시|se si}}."},
+        {"wrong":"내일에 만나요.","right":"내일 만나요.","tr":"See you tomorrow.","why":"{{오늘|oneul}}, {{내일|naeil}}, {{어제|eoje}} and {{지금|jigeum}} don't take {{에|e}}."},
+        {"wrong":"일곱 시에서 일어나요.","right":"일곱 시에 일어나요.","tr":"I get up at seven.","why":"A time takes {{에|e}}, not {{에서|eseo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{네 시 반|ne si ban}} is…","options":["4:30","4:50","5:30"],"answer":0,"why":"{{네 시|ne si}} 4:00, {{반|ban}} half."},
+        {"type":"fill","q":"Choose the missing word.","t":"아홉 시___ 여섯 시까지 일해요.","tr":"I work from nine to six.","options":["부터","에","까지"],"answer":0,"why":"From: {{부터|buteo}}; until: {{까지|kkaji}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"저는 일곱 ___에 일어나요.","tr":"I get up at seven.","options":["시","분","살"],"answer":0,"why":"The hour: {{시|si}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I go to bed at 11 at night.","words":["저는","밤","열한","시에","자요."]},
+        {"type":"dialogue","q":"Making plans with a friend. Choose your replies.","from":"say-what-you-do","lines":[{"who":"Friend","t":"내일 몇 시에 만나요?","tr":"What time shall we meet tomorrow?","r":"naeil myeot sie mannayo?"},{"options":["두 시에 만나요.","이 시에 만나요."],"answer":0,"why":"Hours use native numbers: {{두 시|du si}}."},{"who":"Friend","t":"좋아요. 아침에는 뭐 해요?","tr":"Okay. What are you doing in the morning?","r":"joayo. achimeneun mwo haeyo?"},{"options":["아침에는 한국어를 공부해요.","아침에서는 한국어를 공부해요."],"answer":0,"why":"A time takes {{에|e}}: {{아침에|achime}}."}]},
+        {"type":"say","q":"Ask: “What time is it now?”","answer":"지금 몇 시예요?","r":"jigeum myeot siyeyo?"},
+        {"type":"free","q":"Your turn: describe a weekday. When do you get up, work or study, and go to bed?","answers":[{"t":"저는 일곱 시에 일어나요. 아홉 시부터 여섯 시까지 일해요. 밤 열두 시에 자요.","tr":"I get up at seven. I work from nine to six. I go to bed at midnight.","r":"jeoneun ilgop sie ireonayo. ahop sibuteo yeoseot sikkaji ilhaeyo. bam yeoldu sie jayo."},{"t":"저는 여덟 시 반에 일어나요. 월요일부터 금요일까지 학교에 가요.","tr":"I get up at 8:30. I go to school from Monday to Friday.","r":"jeoneun yeodeol si bane ireonayo. woryoilbuteo geumyoilkkaji hakgyoe gayo."}]}
+      ]
+    },
+    {
+      "id": "ask-someone-to-do-something",
+      "unit": 3,
+      "level": "A1",
+      "title": "Ask someone to do something",
+      "summary": "Ask people politely to speak slowly, wait, sit down or take you somewhere, and tell them not to worry.",
+      "topic": "{{-(으)세요|-(eu)seyo}} “please do”; {{-아/어 주세요|-a/eo juseyo}} “please do (for me)”; {{-지 마세요|-ji maseyo}} “please don't”; the helping vowel {{으|eu}}",
+      "blocks": [
+        {"goal":{"t":"천천히 말해 주세요.","tr":"Please speak slowly.","r":"cheoncheonhi malhae juseyo."}},
+        {"dialog":[{"who":"Driver","t":"어서 오세요. 어디로 가세요?","tr":"Hello. Where are you going?","r":"eoseo oseyo. eodiro gaseyo?"},{"who":"You","t":"명동으로 가 주세요.","tr":"To Myeongdong, please.","r":"myeongdongeuro ga juseyo."},{"who":"Driver","t":"네. 안전벨트 매세요.","tr":"Sure. Please fasten your seat belt.","r":"ne. anjeonbelteu maeseyo."},{"who":"You","t":"기사님, 좀 천천히 가 주세요.","tr":"Driver, could you go a little slower, please?","r":"gisanim, jom cheoncheonhi ga juseyo."},{"who":"Driver","t":"네, 걱정하지 마세요.","tr":"Sure, don't worry.","r":"ne, geokjeonghaji maseyo."}]},
+        {"p":"**Please do: {{-(으)세요|-(eu)seyo}}.** Add {{-세요|-seyo}} to a stem ending in a vowel, {{-으세요|-euseyo}} to one ending in a consonant: {{가세요|gaseyo}} “please go”, {{앉으세요|anjeuseyo}} “please sit down”. It's the polite way to tell someone what to do: directions, instructions, invitations. {{어서 오세요|eoseo oseyo}} “welcome” is “please come quickly”."},
+        {"term":"helping vowel","means":"the vowel {{으|eu}} that some endings add after a stem ending in a consonant, so two consonants don't meet: {{앉|an}} + {{세요|seyo}} → {{앉으세요|anjeuseyo}}. It's written {{(으)|(eu)}} in endings."},
+        { "table": [
+          ["stem ends in…","add","example"],
+          ["a vowel","{{-세요|-seyo}}","{{기다리다|gidarida}} → {{기다리세요|gidariseyo}} please wait"],
+          ["a consonant","{{-으세요|-euseyo}}","{{앉다|anda}} → {{앉으세요|anjeuseyo}} please sit"],
+          ["{{ㄹ}}","drop the {{ㄹ}}, add {{-세요|-seyo}}","{{열다|yeolda}} → {{여세요|yeoseyo}} please open"],
+          ["{{하다|hada}}","{{하세요|haseyo}}","{{말하다|malhada}} → {{말하세요|malhaseyo}} please speak"]
+        ] },
+        {"p":"**Please do it for me: {{-아/어 주세요|-a/eo juseyo}}.** When you ask a favor, something done **for you**, take the present form, drop {{요|yo}}, and add {{주세요|juseyo}} “please give”: {{말해요|malhaeyo}} → {{말해 주세요|malhae juseyo}} “please say (it for me)”. This is the softer, more usual way to ask for something."},
+        { "table": [
+          ["present","without {{요|yo}}","+ {{주세요|juseyo}}"],
+          ["{{말해요|malhaeyo}}","{{말해|malhae}}","{{말해 주세요|malhae juseyo}} please say"],
+          ["{{가요|gayo}}","{{가|ga}}","{{가 주세요|ga juseyo}} please go (take me)"],
+          ["{{기다려요|gidaryeoyo}}","{{기다려|gidaryeo}}","{{기다려 주세요|gidaryeo juseyo}} please wait"],
+          ["{{열어요|yeoreoyo}}","{{열어|yeoreo}}","{{열어 주세요|yeoreo juseyo}} please open"]
+        ] },
+        {"p":"**Please don't: {{-지 마세요|-ji maseyo}}.** Stem + {{-지 마세요|-ji maseyo}}: {{가지 마세요|gaji maseyo}} “please don't go”, {{걱정하지 마세요|geokjeonghaji maseyo}} “don't worry”."},
+        { "ex": [
+          {"t":"여기 앉으세요.","tr":"Please sit here.","r":"yeogi anjeuseyo."},
+          {"t":"잠깐만 기다려 주세요.","tr":"Please wait a moment.","r":"jamkkanman gidaryeo juseyo."},
+          {"t":"다시 한번 말해 주세요.","tr":"Could you say that again, please?","r":"dasi hanbeon malhae juseyo."},
+          {"t":"문 좀 열어 주세요.","tr":"Could you open the door, please?","r":"mun jom yeoreo juseyo."},
+          {"t":"사진 좀 찍어 주세요.","tr":"Could you take a picture of us, please?","r":"sajin jom jjigeo juseyo."},
+          {"t":"걱정하지 마세요.","tr":"Don't worry.","r":"geokjeonghaji maseyo."},
+          {"t":"여기에서 사진 찍지 마세요.","tr":"Please don't take pictures here.","r":"yeogieseo sajin jjikji maseyo."}
+        ] },
+        {"tip":"{{-(으)세요|-(eu)seyo}} is also the polite way to **ask** about someone: {{어디 가세요?|eodi gaseyo?}} “Where are you going?” (to someone you respect). You'll see why in lesson 29."}
+      ],
+      "mistakes": [
+        {"wrong":"앉세요.","right":"앉으세요.","tr":"Please sit down.","why":"{{앉|an}} ends in a consonant: add the helping vowel, {{-으세요|-euseyo}}."},
+        {"wrong":"만들으세요.","right":"만드세요.","tr":"Please make it.","why":"Stems ending in {{ㄹ}} drop it before {{-세요|-seyo}}: {{만드세요|mandeuseyo}}."},
+        {"wrong":"말하 주세요.","right":"말해 주세요.","tr":"Please say it.","why":"{{주세요|juseyo}} goes after the present form without {{요|yo}}: {{말해|malhae}}, not the stem."}
+      ],
+      "practice": [
+        {"type":"choice","q":"To a guest: “Please sit down.”","options":["{{앉으세요.|anjeuseyo.}}","{{앉세요.|anseyo.}}","{{앉지 마세요.|anji maseyo.}}"],"answer":0,"why":"{{앉|an}} ends in a consonant: {{앉으세요|anjeuseyo}}. ({{앉지 마세요|anji maseyo}} is “don't sit”!)"},
+        {"type":"fill","q":"Choose the missing word.","t":"다시 한번 말해 ___.","tr":"Could you say that again, please?","options":["주세요","마세요","세요"],"answer":0,"why":"A favor for you: {{-아/어 주세요|-a/eo juseyo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"걱정하지 ___.","tr":"Don't worry.","options":["마세요","주세요"],"answer":0,"why":"Please don't: {{-지 마세요|-ji maseyo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"창문 좀 ___.","tr":"Please open the window.","options":["여세요","열으세요","열세요"],"answer":0,"why":"{{열다|yeolda}}: the {{ㄹ}} drops before {{-세요|-seyo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Please wait a moment.","words":["잠깐만","기다려","주세요."]},
+        {"type":"dialogue","q":"In a taxi: choose your replies.","from":"ask-for-things","lines":[{"who":"Driver","t":"어디로 가세요?","tr":"Where to?","r":"eodiro gaseyo?"},{"options":["서울역으로 가 주세요.","서울역으로 가지 마세요."],"answer":0,"why":"A request: {{가 주세요|ga juseyo}} “please go (take me)”."},{"who":"Driver","t":"다 왔어요. 만 이천 원이에요.","tr":"Here we are. That's 12,000 won.","r":"da wasseoyo. man icheon wonieyo."},{"options":["여기요. 영수증 주세요.","여기요. 영수증 하세요."],"answer":0,"why":"Asking for a thing: {{주세요|juseyo}}."}]},
+        {"type":"say","q":"Ask someone: “Could you take a picture of us, please?”","answer":"사진 좀 찍어 주세요.","r":"sajin jom jjigeo juseyo."},
+        {"type":"free","q":"Your turn: your Korean teacher speaks fast. Ask them two things, like speaking slowly, saying it again or writing it down ({{써 주세요|sseo juseyo}}).","answers":[{"t":"천천히 말해 주세요.","tr":"Please speak slowly.","r":"cheoncheonhi malhae juseyo."},{"t":"다시 한번 말해 주세요.","tr":"Could you say that again, please?","r":"dasi hanbeon malhae juseyo."},{"t":"여기에 써 주세요.","tr":"Please write it here.","r":"yeogie sseo juseyo."}]}
+      ]
     }
   ]
 }
