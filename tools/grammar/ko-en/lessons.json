@@ -490,6 +490,289 @@
         {"type":"say","q":"친구에게 전화로: “버스 안이에요.”","answer":"I'm on the bus."},
         {"type":"free","q":"여러분 차례예요: 지금 어디에 있는지, 그리고 평소에 어디에 가는지 {{at}}, {{in}}, {{on}}, {{go to}}로 말해 보세요.","answers":[{"t":"I'm at home now. I go to work every day.","tr":"지금 집에 있어요. 매일 회사에 가요."},{"t":"I'm on the subway. I go to the gym after work.","tr":"지하철 안이에요. 퇴근하고 헬스장에 가요."}]}
       ]
+    },
+    {
+      "id": "talk-about-your-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "하루 일과 말하기",
+      "summary": "매일 하는 일을 말해요: 몇 시에 일어나고, 무엇을 먹고, 어디에서 일하는지.",
+      "topic": "현재형 (늘 하는 일); 주어 + 동사 + 목적어 순서; 장소와 시간은 문장 끝; {{always}}, {{usually}}, {{sometimes}}, {{never}}",
+      "blocks": [
+        {"goal":{"t":"I usually get up at seven.","tr":"저는 보통 일곱 시에 일어나요."}},
+        {"dialog":[{"who":"샘","t":"What do you do every day?","tr":"매일 뭐 해요?"},{"who":"지은","t":"I get up at seven and drink coffee. Then I go to work by subway.","tr":"일곱 시에 일어나서 커피를 마셔요. 그다음에 지하철로 회사에 가요."},{"who":"샘","t":"Do you eat breakfast?","tr":"아침은 먹어요?"},{"who":"지은","t":"No, I never eat breakfast. I'm always late!","tr":"아니요, 아침은 절대 안 먹어요. 항상 늦거든요!"},{"who":"샘","t":"Me too!","tr":"저도요!"}]},
+        {"term":"동사","means":"움직임이나 상태를 나타내는 말이에요: {{eat}} “먹다”, {{go}} “가다”, {{live}} “살다”. 영어에서는 주어 바로 다음에 와요."},
+        {"p":"**순서: 주어 + 동사 + 목적어.** 한국어는 “저는 커피를 마셔요”처럼 동사가 맨 끝에 오지만, 영어는 “저는 / 마셔요 / 커피를”: {{I drink coffee.}} 동사가 주어 바로 다음에 와요. 이 순서가 영어의 가장 중요한 규칙이에요."},
+        { "table": [
+          ["주어","동사","목적어","장소","시간"],
+          ["{{I}}","{{study}}","{{English}}","{{at home}}","{{every day.}}"],
+          ["{{We}}","{{eat}}","{{lunch}}","{{at work}}","{{at noon.}}"]
+        ] },
+        {"p":"**장소와 시간은 끝에.** 한국어는 “매일 집에서”를 앞에 두지만, 영어는 보통 “장소 → 시간” 순서로 문장 끝에 붙여요: {{I study English at home every day.}}"},
+        {"p":"**늘 하는 일: 현재형.** 습관이나 늘 하는 일은 동사의 기본 모양, 즉 현재형으로 말해요: {{I work at a bank.}} “은행에서 일해요.” {{always}} “항상”, {{usually}} “보통”, {{often}} “자주”, {{sometimes}} “가끔”, {{never}} “절대 안 ~”는 보통 동사 바로 **앞**에 와요: {{I usually get up at seven.}} 단, be동사일 때는 그 **뒤**에 와요: {{I'm always late.}}"},
+        { "ex": [
+          {"t":"I get up at six thirty.","tr":"저는 여섯 시 반에 일어나요."},
+          {"t":"I drink coffee every morning.","tr":"매일 아침 커피를 마셔요."},
+          {"t":"We eat dinner at home.","tr":"우리는 집에서 저녁을 먹어요."},
+          {"t":"I usually take the subway.","tr":"저는 보통 지하철을 타요."},
+          {"t":"I sometimes cook on weekends.","tr":"주말에는 가끔 요리해요."},
+          {"t":"I never drink coffee at night.","tr":"밤에는 절대 커피를 안 마셔요."},
+          {"t":"They're always busy.","tr":"그들은 항상 바빠요."}
+        ] },
+        {"tip":"한국어 문장을 영어로 바꿀 때는 먼저 “누가 / 뭘 한다”를 정하고, 나머지는 뒤에 붙인다고 생각하세요."}
+      ],
+      "mistakes": [
+        {"wrong":"I coffee drink every morning.","right":"I drink coffee every morning.","tr":"매일 아침 커피를 마셔요.","why":"동사는 주어 바로 다음에 와요: {{I drink coffee}}."},
+        {"wrong":"Every day at home I English study.","right":"I study English at home every day.","tr":"매일 집에서 영어를 공부해요.","why":"순서는 주어 + 동사 + 목적어 + 장소 + 시간이에요."},
+        {"wrong":"I get usually up at seven.","right":"I usually get up at seven.","tr":"보통 일곱 시에 일어나요.","why":"{{usually}}는 동사 앞에 와요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“저는 매일 커피를 마셔요.”","options":["{{I drink coffee every day.}}","{{I coffee drink every day.}}","{{Every day I coffee drink.}}"],"answer":0,"why":"주어 + 동사 + 목적어 + 시간."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I ___ get up late on Sundays.","tr":"일요일에는 보통 늦게 일어나요.","options":["usually","am usually","usual"],"answer":0,"why":"일반 동사 앞에: {{usually}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"저는 집에서 매일 영어를 공부해요.","words":["I","study","English","at","home","every","day."]},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"그들은 항상 바빠요.","words":["They","are","always","busy."]},
+        {"type":"dialogue","q":"친구가 주말에 대해 물어요. 알맞은 대답을 고르세요.","from":"say-where-you-are-going","lines":[{"who":"친구","t":"What do you do on weekends?","tr":"주말에 뭐 해요?"},{"options":["I usually go to the gym.","I usually to the gym go."],"answer":0,"why":"동사 {{go}}는 주어 다음, 장소는 그 뒤에."},{"who":"친구","t":"Really? Where's your gym?","tr":"그래요? 헬스장이 어디예요?"},{"options":["It's in Gangnam, next to my office.","It's in Gangnam, my office next."],"answer":0,"why":"{{next to}} + 장소."}]},
+        {"type":"say","q":"“저는 밤에 절대 커피를 안 마셔요.”","answer":"I never drink coffee at night."},
+        {"type":"free","q":"여러분 차례예요: 평일 하루를 영어로 말해 보세요. 하는 일 세 가지를 말하세요.","answers":[{"t":"I get up at seven. I drink coffee and go to work. I usually eat dinner at home.","tr":"일곱 시에 일어나요. 커피를 마시고 회사에 가요. 저녁은 보통 집에서 먹어요."},{"t":"I go to school by bus. I study English every day. I sometimes play games at night.","tr":"버스로 학교에 가요. 매일 영어를 공부해요. 밤에는 가끔 게임을 해요."}]}
+      ]
+    },
+    {
+      "id": "talk-about-other-people",
+      "unit": 3,
+      "level": "A1",
+      "title": "다른 사람의 일상 말하기",
+      "summary": "가족이나 친구가 매일 하는 일을 말해요: “우리 아빠는 은행에서 일해요.” 이때 동사 끝에 {{-s}}가 붙어요.",
+      "topic": "3인칭 단수 현재형 {{-s}}: {{works}}, {{goes}}, {{has}}, {{studies}}",
+      "blocks": [
+        {"goal":{"t":"My dad works at a bank. He gets up at six.","tr":"우리 아빠는 은행에서 일해요. 아빠는 여섯 시에 일어나요."}},
+        {"dialog":[{"who":"엘라","t":"Tell me about your family.","tr":"가족 이야기 좀 해 주세요."},{"who":"민수","t":"My mom is a teacher. She teaches math.","tr":"우리 엄마는 선생님이에요. 수학을 가르쳐요."},{"who":"엘라","t":"And your dad?","tr":"아빠는요?"},{"who":"민수","t":"He works at a hospital. He goes to work very early.","tr":"병원에서 일해요. 아주 일찍 출근해요."},{"who":"엘라","t":"Do you have any brothers or sisters?","tr":"형제자매는 있어요?"},{"who":"민수","t":"I have a brother. He studies in Japan. He watches anime every day!","tr":"남동생이 하나 있어요. 일본에서 공부해요. 매일 애니메이션을 봐요!"}]},
+        {"p":"**{{he}}, {{she}}, {{it}} 다음에는 {{-s}}.** 주어가 다른 사람 한 명이나 물건 하나일 때는 현재형 동사 끝에 {{-s}}를 붙여요: {{I work.}} → {{She works.}} 한국어에는 없는 규칙이라 한국 사람들이 아주 많이 빠뜨려요. 말할 때도 {{-s}}를 꼭 소리 내세요."},
+        {"term":"3인칭 단수","means":"나({{I}})도 듣는 사람({{you}})도 아닌, 다른 한 사람이나 하나의 물건이에요: {{he}}, {{she}}, {{it}}, {{my mom}}, {{the store}}."},
+        { "table": [
+          ["동사 끝","규칙","예"],
+          ["대부분","{{-s}}","{{work}} → {{works}}, {{live}} → {{lives}}, {{get}} → {{gets}}"],
+          ["{{s}}, {{sh}}, {{ch}}, {{x}}, {{o}}","{{-es}}","{{watch}} → {{watches}}, {{go}} → {{goes}}, {{do}} → {{does}}"],
+          ["자음 + {{y}}","{{y}} → {{-ies}}","{{study}} → {{studies}}, {{cry}} → {{cries}}"],
+          ["예외","","{{have}} → {{has}}"]
+        ] },
+        {"p":"**누구에게 붙나요?** {{I}}, {{you}}, {{we}}, {{they}}, 여러 명({{my parents}})에게는 붙이지 않아요. 한 사람의 이름이나 {{my mom}}, {{the store}} 같은 하나에게 붙여요: {{The store opens at nine.}} “가게는 아홉 시에 열어요.”"},
+        { "ex": [
+          {"t":"My mom teaches English.","tr":"우리 엄마는 영어를 가르쳐요."},
+          {"t":"She lives in New York.","tr":"그녀는 뉴욕에 살아요."},
+          {"t":"He watches TV every night.","tr":"그는 매일 밤 TV를 봐요."},
+          {"t":"My sister studies art.","tr":"제 여동생은 미술을 공부해요."},
+          {"t":"The bus comes every ten minutes.","tr":"버스는 10분마다 와요."},
+          {"t":"My parents live in Daejeon.","tr":"우리 부모님은 대전에 사세요.","note":"여러 명이라 {{-s}}가 없어요"}
+        ] },
+        {"tip":"**발음.** {{works}}는 “웍스”, {{lives}}는 “리브즈”, {{watches}}는 “와치즈”처럼 들려요. 한국어처럼 끝에 “으”를 붙이지 말고 짧게 끝내요."}
+      ],
+      "mistakes": [
+        {"wrong":"My dad work at a bank.","right":"My dad works at a bank.","tr":"우리 아빠는 은행에서 일해요.","why":"주어 {{my dad}}는 한 사람이니까 {{works}}예요."},
+        {"wrong":"She studys English.","right":"She studies English.","tr":"그녀는 영어를 공부해요.","why":"자음 + {{y}}는 {{-ies}}로 바뀌어요."},
+        {"wrong":"My parents lives in Busan.","right":"My parents live in Busan.","tr":"우리 부모님은 부산에 사세요.","why":"{{my parents}}는 두 사람이라 {{-s}}를 붙이지 않아요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“그녀는 매일 운동해요.”","options":["{{She exercises every day.}}","{{She exercise every day.}}","{{She is exercise every day.}}"],"answer":0,"why":"{{she}}: 동사 + {{-s}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"My brother ___ in Japan.","tr":"제 남동생은 일본에 살아요.","options":["lives","live","living"],"answer":0,"why":"한 사람: {{lives}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"He ___ TV every night.","tr":"그는 매일 밤 TV를 봐요.","options":["watches","watchs","watch"],"answer":0,"why":"{{ch}}로 끝나면 {{-es}}: {{watches}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"우리 엄마는 영어를 가르쳐요.","words":["My","mom","teaches","English."]},
+        {"type":"dialogue","q":"친구가 언니에 대해 물어요. 알맞은 대답을 고르세요.","from":"talk-about-your-day","lines":[{"who":"친구","t":"What does your sister do?","tr":"언니는 무슨 일 해요?"},{"options":["She works at a hotel.","She work at a hotel."],"answer":0,"why":"{{she}}: {{works}}."},{"who":"친구","t":"Does she work on weekends?","tr":"주말에도 일해요?"},{"options":["Yes. She usually works on Saturdays.","Yes. She works usually on Saturdays."],"answer":0,"why":"{{usually}}는 동사 앞이에요."}]},
+        {"type":"say","q":"“버스는 10분마다 와요.”","answer":"The bus comes every ten minutes."},
+        {"type":"free","q":"여러분 차례예요: 가족이나 친구 한 명의 하루를 말해 보세요. 동사의 {{-s}}를 잊지 마세요!","answers":[{"t":"My dad gets up at six. He drinks coffee and goes to work.","tr":"우리 아빠는 여섯 시에 일어나요. 커피를 마시고 출근해요."},{"t":"My friend Jina lives in Seoul. She works at a café. She studies English at night.","tr":"제 친구 지나는 서울에 살아요. 카페에서 일해요. 밤에는 영어를 공부해요."}]}
+      ]
+    },
+    {
+      "id": "ask-questions-with-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "do로 질문하기",
+      "summary": "“케이팝 좋아해요?”, “어디에 살아요?”, “주말에 뭐 해요?”처럼 일반 동사로 질문해요.",
+      "topic": "{{Do}} / {{Does}} + 주어 + 동사?; {{What}} / {{Where}} / {{When}} + {{do}} …?",
+      "blocks": [
+        {"goal":{"t":"What do you do on weekends?","tr":"주말에 뭐 해요?"}},
+        {"dialog":[{"who":"다니엘","t":"Do you like K-pop?","tr":"케이팝 좋아해요?"},{"who":"예린","t":"Yes, I do! Do you?","tr":"네, 좋아해요! 다니엘은요?"},{"who":"다니엘","t":"Not really. Where do you live?","tr":"별로요. 어디에 살아요?"},{"who":"예린","t":"I live in Mapo. What do you do on weekends?","tr":"마포에 살아요. 주말에 뭐 해요?"},{"who":"다니엘","t":"I usually play soccer. Does your brother play soccer?","tr":"보통 축구를 해요. 남동생도 축구해요?"},{"who":"예린","t":"Yes, he does!","tr":"네, 해요!"}]},
+        {"p":"**{{do}}가 질문을 만들어요.** be동사 문장은 be동사를 앞으로 보내면 질문이 되지만({{Are you tired?}}), 다른 동사는 앞으로 갈 수 없어요. 대신 맨 앞에 {{Do}}를 놓아요: {{You like coffee.}} → {{Do you like coffee?}} 동사는 기본 모양 그대로예요."},
+        {"p":"**{{Does}}.** 주어가 3인칭 단수({{he}}, {{she}}, {{it}})이면 {{Does}}를 쓰고, 동사의 {{-s}}는 빼요: {{She works here.}} → {{Does she work here?}} {{-s}}가 {{does}}로 옮겨 간 거예요."},
+        { "table": [
+          ["주어","질문","대답"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{Do you like coffee?}}","{{Yes, I do.}} / {{No, I don't.}}"],
+          ["{{he}}, {{she}}, {{it}}","{{Does she like coffee?}}","{{Yes, she does.}} / {{No, she doesn't.}}"]
+        ] },
+        {"p":"**의문사 + {{do}}.** “무엇”, “어디”, “언제”를 물을 때는 의문사를 맨 앞에, 그다음에 {{do}}/{{does}}를 놓아요: {{What do you eat for breakfast?}}, {{Where does he work?}} 한국어는 의문사가 문장 중간에 오지만(“주말에 뭐 해요?”), 영어는 항상 맨 앞이에요."},
+        { "table": [
+          ["의문사","뜻","예"],
+          ["{{What}}","무엇","{{What do you want?}}"],
+          ["{{Where}}","어디","{{Where do you live?}}"],
+          ["{{When}}","언제","{{When does the class start?}}"],
+          ["{{Who}}","누구","{{Who do you live with?}}"],
+          ["{{Why}}","왜","{{Why do you study English?}}"],
+          ["{{How}}","어떻게","{{How do you get to work?}}"]
+        ] },
+        { "ex": [
+          {"t":"Do you speak English?","tr":"영어 할 줄 알아요?"},
+          {"t":"Does this bus go to Gangnam?","tr":"이 버스 강남 가요?"},
+          {"t":"Where do you work?","tr":"어디에서 일해요?"},
+          {"t":"What time does the store open?","tr":"가게는 몇 시에 열어요?"},
+          {"t":"Why do you study English?","tr":"왜 영어를 공부해요?"},
+          {"t":"How do you get to work?","tr":"회사에 어떻게 가요?"}
+        ] },
+        {"tip":"{{What do you do?}}에는 {{do}}가 두 번 나와요. 앞의 {{do}}는 질문을 만드는 말, 뒤의 {{do}}는 “하다”예요. 직업을 묻는 말이에요(2과)."}
+      ],
+      "mistakes": [
+        {"wrong":"Do she like coffee?","right":"Does she like coffee?","tr":"그녀는 커피를 좋아해요?","why":"{{she}}에는 {{does}}예요."},
+        {"wrong":"Does he works here?","right":"Does he work here?","tr":"그는 여기서 일해요?","why":"{{does}}가 {{-s}}를 가져가니까 동사는 기본 모양이에요."},
+        {"wrong":"Where you live?","right":"Where do you live?","tr":"어디에 살아요?","why":"의문사 다음에 {{do}}가 필요해요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“그는 여기서 일해요?”","options":["{{Does he work here?}}","{{Does he works here?}}","{{Do he work here?}}"],"answer":0,"why":"{{Does}} + 주어 + 동사 기본 모양."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"___ you like spicy food?","tr":"매운 음식 좋아해요?","options":["Do","Are","Does"],"answer":0,"why":"일반 동사 {{like}}의 질문: {{Do you…?}}"},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Where ___ your sister live?","tr":"여동생은 어디에 살아요?","options":["does","do","is"],"answer":0,"why":"3인칭 단수: {{does}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"아침으로 뭐 먹어요?","words":["What","do","you","eat","for","breakfast?"]},
+        {"type":"dialogue","q":"새 친구와 이야기해요. 알맞은 대답을 고르세요.","from":"talk-about-other-people","lines":[{"who":"친구","t":"Do you have any brothers or sisters?","tr":"형제자매 있어요?"},{"options":["Yes. I have a sister.","Yes. I has a sister."],"answer":0,"why":"{{I}}: {{have}}."},{"who":"친구","t":"Cool! What does she do?","tr":"좋네요! 무슨 일 해요?"},{"options":["She teaches piano.","She teach piano."],"answer":0,"why":"{{she}}: {{teaches}}."},{"who":"친구","t":"Does she live in Seoul?","tr":"서울에 살아요?"},{"options":["No, she doesn't. She lives in Incheon.","No, she don't. She live in Incheon."],"answer":0,"why":"{{she}}: {{doesn't}}, {{lives}}."}]},
+        {"type":"say","q":"버스 기사에게: “이 버스 강남 가요?”","answer":"Does this bus go to Gangnam?"},
+        {"type":"free","q":"여러분 차례예요: 새로 만난 친구에게 {{do}}나 {{does}}로 질문해 보세요.","answers":[{"t":"Where do you live?","tr":"어디에 살아요?"},{"t":"Do you like Korean food?","tr":"한국 음식 좋아해요?"},{"t":"What do you do on weekends?","tr":"주말에 뭐 해요?"}]}
+      ]
+    },
+    {
+      "id": "say-no-and-answer-no",
+      "unit": 3,
+      "level": "A1",
+      "title": "부정하기, 부정 질문에 대답하기",
+      "summary": "“고기 안 먹어요”라고 말하고, “고기 안 먹어요?”라는 질문에 영어식으로 대답해요. {{Yes}}와 {{No}}가 한국어와 반대가 될 수 있어요.",
+      "topic": "{{don't}} / {{doesn't}} + 동사; 부정 질문의 대답 ({{No, I don't.}}); {{Me too.}} / {{Me neither.}}",
+      "blocks": [
+        {"goal":{"t":"No, I don't. I don't eat meat.","tr":"(고기 안 먹어요?) 네, 안 먹어요. 저는 고기를 안 먹어요."}},
+        {"dialog":[{"who":"크리스","t":"You don't eat meat?","tr":"고기 안 먹어요?"},{"who":"현아","t":"No, I don't. I'm a vegetarian.","tr":"네, 안 먹어요. 저는 채식주의자예요."},{"who":"크리스","t":"Oh! Don't you eat fish either?","tr":"아! 생선도 안 먹어요?"},{"who":"현아","t":"Yes, I do. I eat fish.","tr":"아니요, 먹어요. 생선은 먹어요."},{"who":"크리스","t":"OK. I don't like spicy food.","tr":"그렇군요. 저는 매운 음식을 안 좋아해요."},{"who":"현아","t":"Me neither!","tr":"저도요!"}]},
+        {"p":"**안 해요: {{don't}} + 동사.** 일반 동사를 부정할 때는 동사 앞에 {{don't}}({{do not}})를 붙여요: {{I don't eat meat.}} 3인칭 단수에는 {{doesn't}}를 쓰고, 동사의 {{-s}}는 빠져요: {{She doesn't eat meat.}}"},
+        { "table": [
+          ["","긍정","부정"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{I like it.}}","{{I don't like it.}}"],
+          ["{{he}}, {{she}}, {{it}}","{{She likes it.}}","{{She doesn't like it.}}"],
+          ["be동사","{{I'm busy.}}","{{I'm not busy.}}"]
+        ] },
+        {"p":"**부정 질문의 대답: 한국어와 반대.** 한국어의 “네/아니요”는 **질문에** 동의하는지를 말해요. “고기 안 먹어요?” “네(맞아요), 안 먹어요.” 그런데 영어의 {{Yes}}/{{No}}는 **사실**을 말해요. 먹으면 {{Yes}}, 안 먹으면 {{No}}예요. 질문이 어떻게 생겼든 상관없어요."},
+        { "table": [
+          ["질문","사실","한국어","영어"],
+          ["{{You don't eat meat?}}","안 먹어요","네, 안 먹어요.","{{No, I don't.}}"],
+          ["{{You don't eat meat?}}","먹어요","아니요, 먹어요.","{{Yes, I do.}}"]
+        ] },
+        {"p":"**요령: {{Yes}} 다음은 긍정, {{No}} 다음은 부정.** {{Yes, I don't}}나 {{No, I do}}라는 말은 영어에 없어요. 헷갈리면 {{Yes}}/{{No}} 뒤에 올 문장({{I do}}인지 {{I don't}}인지)부터 정하세요."},
+        {"p":"**저도요.** 긍정 문장에 “저도요”는 {{Me too.}}, 부정 문장에 “저도요”는 {{Me neither.}}예요. {{I don't like it.}} “저는 그거 안 좋아해요.” → {{Me neither.}} “저도 안 좋아해요.”"},
+        { "ex": [
+          {"t":"I don't drink coffee.","tr":"저는 커피를 안 마셔요."},
+          {"t":"He doesn't live here.","tr":"그는 여기 안 살아요."},
+          {"t":"We don't have class today.","tr":"오늘은 수업이 없어요."},
+          {"t":"Aren't you tired? No, I'm fine.","tr":"안 피곤해요? 네, 괜찮아요."},
+          {"t":"Don't you have a car? Yes, I do.","tr":"차 없어요? 아니요, 있어요."},
+          {"t":"I don't like horror movies. Me neither.","tr":"저는 공포 영화 안 좋아해요. 저도요."}
+        ] },
+        {"tip":"이 차이는 영어로 말하는 한국 사람들이 오래도록 헷갈려 하는 부분이에요. 대답할 때 {{Yes}}/{{No}}만 하지 말고 {{No, I don't.}}처럼 뒤 문장까지 말하면 오해가 없어요."}
+      ],
+      "mistakes": [
+        {"wrong":"She don't eat meat.","right":"She doesn't eat meat.","tr":"그녀는 고기를 안 먹어요.","why":"{{she}}에는 {{doesn't}}예요."},
+        {"wrong":"I no like it.","right":"I don't like it.","tr":"저는 그거 안 좋아해요.","why":"동사를 부정할 때는 {{don't}}를 써요. {{no}}만으로는 안 돼요."},
+        {"wrong":"You don't eat meat? — Yes, I don't.","right":"You don't eat meat? — No, I don't.","tr":"고기 안 먹어요? — 네, 안 먹어요.","why":"안 먹으면 {{No}}예요. 영어의 {{Yes}}/{{No}}는 사실을 따라가요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"친구가 {{You don't like spicy food?}}라고 물어요. 사실은 매운 음식을 아주 좋아해요. 대답은?","options":["{{Yes, I do. I love it!}}","{{No, I do. I love it!}}","{{Yes, I don't.}}"],"answer":0,"why":"좋아하니까 {{Yes, I do.}}"},
+        {"type":"choice","q":"친구가 {{Don't you have a car?}}라고 물어요. 차가 없어요.","options":["{{No, I don't.}}","{{Yes, I don't.}}","{{Yes, I do.}}"],"answer":0,"why":"없으니까 {{No, I don't.}}"},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"My brother ___ like vegetables.","tr":"제 남동생은 채소를 안 좋아해요.","options":["doesn't","don't","isn't"],"answer":0,"why":"3인칭 단수: {{doesn't}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I don't eat breakfast. Me ___.","tr":"저는 아침 안 먹어요. 저도요.","options":["neither","too"],"answer":0,"why":"부정 문장에 동의할 때: {{Me neither.}}"},
+        {"type":"dialogue","q":"동료가 커피를 권해요. 알맞은 대답을 고르세요.","from":"ask-questions-with-do","lines":[{"who":"동료","t":"Do you want some coffee?","tr":"커피 좀 마실래요?"},{"options":["No, thanks. I don't drink coffee.","No, thanks. I no drink coffee."],"answer":0,"why":"부정: {{don't}} + 동사."},{"who":"동료","t":"Really? You don't drink coffee at all?","tr":"정말요? 커피를 전혀 안 마셔요?"},{"options":["No, I don't. I drink tea.","Yes, I don't. I drink tea."],"answer":0,"why":"안 마시니까 {{No}}예요."}]},
+        {"type":"say","q":"“저는 고기를 안 먹어요.”","answer":"I don't eat meat."},
+        {"type":"free","q":"여러분 차례예요: 내가 안 하는 일 두 가지를 말해 보세요.","answers":[{"t":"I don't eat breakfast, and I don't watch TV.","tr":"저는 아침을 안 먹고, TV도 안 봐요."},{"t":"I don't drink coffee. I don't like horror movies.","tr":"저는 커피를 안 마셔요. 공포 영화도 안 좋아해요."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like-and-want",
+      "unit": 3,
+      "level": "A1",
+      "title": "좋아하는 것과 원하는 것 말하기",
+      "summary": "좋아하는 것, 하고 싶은 것을 말하고, 카페나 식당에서 공손하게 주문해요.",
+      "topic": "{{like}} + 복수 명사 ({{I like dogs.}}); {{like}} + {{-ing}}; {{want}} / {{want to}}; {{I'd like…}}",
+      "blocks": [
+        {"goal":{"t":"I'd like a latte, please.","tr":"라테 한 잔 주세요."}},
+        {"dialog":[{"who":"바리스타","t":"Hi! What can I get you?","tr":"안녕하세요! 뭐 드릴까요?"},{"who":"지수","t":"I'd like an iced latte, please.","tr":"아이스 라테 하나 주세요."},{"who":"바리스타","t":"Sure. Do you want anything else?","tr":"네. 다른 것도 필요하세요?"},{"who":"지수","t":"Do you have muffins? I love muffins.","tr":"머핀 있어요? 머핀 정말 좋아해요."},{"who":"바리스타","t":"Yes! Blueberry or chocolate?","tr":"네! 블루베리요, 초콜릿이요?"},{"who":"지수","t":"Blueberry, please.","tr":"블루베리로 주세요."}]},
+        {"p":"**좋아하는 것 전체: 복수.** “저는 개를 좋아해요”처럼 어떤 종류 전체를 좋아한다고 할 때, 셀 수 있는 명사는 **복수**로 말해요: {{I like dogs.}}, {{I love movies.}} {{I like the dogs}}라고 하면 특정한 개들을 가리키는 말이 돼요. 셀 수 없는 것은 그대로 써요: {{I like coffee.}}, {{I love music.}}"},
+        {"p":"**하는 것을 좋아해요: {{like}} + {{-ing}}.** 동사에 {{-ing}}를 붙여요: {{I like swimming.}} “수영하는 걸 좋아해요.” {{I love cooking.}}"},
+        {"p":"**원하는 것: {{want}}.** {{I want water.}} “물을 원해요.” 하고 싶은 것은 {{want to}} + 동사예요: {{I want to go home.}} “집에 가고 싶어요.” 3인칭은 {{wants}}: {{She wants to travel.}}"},
+        {"p":"**공손하게: {{I'd like…}}.** 가게에서 {{I want…}}는 조금 직접적으로 들려요. 주문할 때는 {{I'd like…}}({{I would like}})가 공손해요: {{I'd like a coffee, please.}} 하고 싶은 일은 {{I'd like to}} + 동사: {{I'd like to try this on.}} “이거 입어 보고 싶어요.”"},
+        { "table": [
+          ["","예","느낌"],
+          ["{{I want}}","{{I want a coffee.}}","커피를 원해요 (직접적)"],
+          ["{{I'd like}}","{{I'd like a coffee, please.}}","커피 주세요 (공손)"],
+          ["{{I want to}}","{{I want to go home.}}","집에 가고 싶어요"],
+          ["{{I'd like to}}","{{I'd like to pay by card.}}","카드로 계산할게요 (공손)"]
+        ] },
+        { "ex": [
+          {"t":"I love Korean food.","tr":"저는 한국 음식을 정말 좋아해요."},
+          {"t":"I like cats.","tr":"저는 고양이를 좋아해요."},
+          {"t":"She likes hiking.","tr":"그녀는 등산을 좋아해요."},
+          {"t":"I want to learn English.","tr":"저는 영어를 배우고 싶어요."},
+          {"t":"What do you want to eat?","tr":"뭐 먹고 싶어요?"},
+          {"t":"I'd like a table for two, please.","tr":"두 명 자리 부탁해요."}
+        ] },
+        {"tip":"{{like}}보다 {{love}}가 더 강해요. 미국 사람들은 음식, 영화, 장소에도 {{I love it!}}을 아주 자주 써요."}
+      ],
+      "mistakes": [
+        {"wrong":"I like dog.","right":"I like dogs.","tr":"저는 개를 좋아해요.","why":"종류 전체를 좋아할 때는 복수: {{dogs}}."},
+        {"wrong":"I want go home.","right":"I want to go home.","tr":"집에 가고 싶어요.","why":"{{want}} 다음에 동사가 오면 {{to}}가 필요해요."},
+        {"wrong":"I like swim.","right":"I like swimming.","tr":"저는 수영하는 걸 좋아해요.","why":"하는 것을 좋아할 때는 {{-ing}} (또는 {{to swim}})."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“저는 개를 좋아해요.”","options":["{{I like dogs.}}","{{I like dog.}}","{{I like the dog.}}"],"answer":0,"why":"개 전체: 복수 {{dogs}}. ({{the dog}}은 특정한 개예요.)"},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I want ___ travel to Japan.","tr":"일본으로 여행 가고 싶어요.","options":["to","for","go"],"answer":0,"why":"{{want to}} + 동사."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I'd ___ a cheeseburger, please.","tr":"치즈버거 하나 주세요.","options":["like","want","love"],"answer":0,"why":"공손한 주문: {{I'd like…}}"},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"그녀는 요리하는 걸 좋아해요.","words":["She","likes","cooking."]},
+        {"type":"dialogue","q":"식당에서 주문해요. 알맞은 말을 고르세요.","from":"ask-questions-with-do","lines":[{"who":"웨이터","t":"Hi, what can I get you?","tr":"안녕하세요, 뭐 드릴까요?"},{"options":["I'd like the pasta, please.","I like pasta, please."],"answer":0,"why":"주문할 때는 {{I'd like…}} ({{I like pasta}}는 “저는 파스타를 좋아해요”예요.)"},{"who":"웨이터","t":"Do you want anything to drink?","tr":"음료도 드릴까요?"},{"options":["Yes. Do you have lemonade?","Yes. Does you have lemonade?"],"answer":0,"why":"{{you}}에는 {{do}}."}]},
+        {"type":"say","q":"식당 입구에서: “두 명 자리 부탁해요.”","answer":"I'd like a table for two, please."},
+        {"type":"free","q":"여러분 차례예요: 좋아하는 것 두 가지와 올해 하고 싶은 것 한 가지를 말해 보세요.","answers":[{"t":"I love movies and I like cooking. I want to visit New York this year.","tr":"저는 영화를 정말 좋아하고 요리하는 것도 좋아해요. 올해 뉴욕에 가 보고 싶어요."},{"t":"I like cats. I love dancing. I want to learn English.","tr":"저는 고양이를 좋아해요. 춤추는 걸 정말 좋아해요. 영어를 배우고 싶어요."}]}
+      ]
+    },
+    {
+      "id": "use-a-and-the",
+      "unit": 3,
+      "level": "A1",
+      "title": "a와 the 구별하기",
+      "summary": "처음 말하는 것은 {{a}}, 서로 아는 것은 {{the}}. 한국어에 없는 관사를 언제 쓰는지 알아봐요.",
+      "topic": "처음 말할 때 {{a}}/{{an}}, 다시 말할 때 {{the}}; 하나뿐인 것 {{the}}; 일반적인 것은 관사 없이",
+      "blocks": [
+        {"goal":{"t":"I have a dog and a cat. The dog is very lazy.","tr":"저는 개 한 마리와 고양이 한 마리가 있어요. 그 개는 아주 게을러요."}},
+        {"dialog":[{"who":"에이미","t":"What's in the box?","tr":"상자 안에 뭐가 있어요?"},{"who":"준","t":"A present for my mom. It's a scarf.","tr":"엄마 선물이에요. 스카프예요."},{"who":"에이미","t":"Oh, nice! Is the scarf from Korea?","tr":"와, 좋네요! 그 스카프 한국 거예요?"},{"who":"준","t":"Yes. My mom loves Korean scarves.","tr":"네. 우리 엄마는 한국 스카프를 정말 좋아해요."},{"who":"에이미","t":"Look, the sun is out! Let's go to the park.","tr":"봐요, 해가 났어요! 공원에 가요."}]},
+        {"p":"**처음은 {{a}}, 다음은 {{the}}.** 대화에 처음 나오는 것은 {{a}}/{{an}} “어떤, 하나의”, 이미 말한 것이나 서로 아는 것은 {{the}} “그”예요: {{I have a dog. The dog is lazy.}} 한국어는 둘 다 그냥 “개”라고 하지만, 영어는 꼭 구별해요."},
+        { "table": [
+          ["","언제","예"],
+          ["{{a}} / {{an}}","처음 말하는 것, 아무거나 하나","{{There's a cat in the garden.}}"],
+          ["{{the}}","이미 말한 것, 서로 아는 것","{{The cat is black.}}"],
+          ["{{the}}","세상에 하나뿐인 것","{{the sun}} 해, {{the moon}} 달, {{the internet}} 인터넷"],
+          ["(없음)","종류 전체, 일반적인 이야기","{{Cats are cute.}}, {{I like music.}}"]
+        ] },
+        {"p":"**서로 아는 것.** 집 안의 {{the kitchen}}, 우리 동네 {{the park}}, 지금 같이 있는 방의 {{the door}}는 처음 말해도 {{the}}예요. 듣는 사람이 “어떤 것”인지 알기 때문이에요: {{Can you close the door?}} “문 좀 닫아 줄래요?”"},
+        {"p":"**일반적인 것은 관사 없이.** 어떤 종류 전체를 말할 때는 관사 없이 복수나 셀 수 없는 명사를 써요: {{Dogs are smart.}} “개는 똑똑해요.” {{I love coffee.}} 여기에 {{the}}를 붙이면 “그 개들”, “그 커피”처럼 특정한 것이 돼요."},
+        { "ex": [
+          {"t":"I have a question.","tr":"질문이 하나 있어요."},
+          {"t":"There's a bank near my house. The bank opens at nine.","tr":"우리 집 근처에 은행이 있어요. 그 은행은 아홉 시에 열어요."},
+          {"t":"Where's the bathroom?","tr":"화장실이 어디예요?","note":"이 건물의 화장실: 서로 알아요"},
+          {"t":"The sun is really hot today.","tr":"오늘 햇볕이 정말 뜨거워요."},
+          {"t":"Children love ice cream.","tr":"아이들은 아이스크림을 좋아해요."},
+          {"t":"Can you close the door?","tr":"문 좀 닫아 줄래요?"}
+        ] },
+        {"tip":"관사가 어려우면 이렇게 물어보세요: “듣는 사람이 어떤 건지 알까?” 안다면 {{the}}, 모른다면 {{a}}, 종류 전체라면 관사 없이."}
+      ],
+      "mistakes": [
+        {"wrong":"I have dog.","right":"I have a dog.","tr":"저는 개가 있어요.","why":"셀 수 있는 명사 하나 앞에는 관사가 꼭 필요해요."},
+        {"wrong":"I like the music.","right":"I like music.","tr":"저는 음악을 좋아해요.","why":"음악 전체를 좋아할 때는 관사 없이 {{music}}이에요."},
+        {"wrong":"There's a cat in the garden. A cat is black.","right":"There's a cat in the garden. The cat is black.","tr":"정원에 고양이가 있어요. 그 고양이는 검은색이에요.","why":"두 번째로 말할 때는 {{the}}예요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"처음 이야기를 꺼내요: “길에 고양이가 있어요.”","options":["{{There's a cat on the street.}}","{{There's the cat on the street.}}","{{There's cat on the street.}}"],"answer":0,"why":"처음 말하는 것: {{a cat}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I have a car and a bike. ___ car is red.","tr":"저는 차와 자전거가 있어요. 그 차는 빨간색이에요.","options":["The","A","An"],"answer":0,"why":"이미 말한 차: {{the}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Look at ___ moon!","tr":"달 좀 봐요!","options":["the","a","an"],"answer":0,"why":"하나뿐인 것: {{the moon}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I love ___.","tr":"저는 고양이를 정말 좋아해요.","options":["cats","the cat","a cat"],"answer":0,"why":"종류 전체: 관사 없이 복수."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"화장실이 어디예요?","words":["Where's","the","bathroom?"]},
+        {"type":"dialogue","q":"친구가 반려동물에 대해 물어요. 알맞은 대답을 고르세요.","from":"say-what-you-have","lines":[{"who":"친구","t":"Do you have a pet?","tr":"반려동물 있어요?"},{"options":["Yes, I have a cat.","Yes, I have the cat."],"answer":0,"why":"처음 말하는 것: {{a cat}}."},{"who":"친구","t":"Cute! What's the cat's name?","tr":"귀엽네요! 그 고양이 이름이 뭐예요?"},{"options":["Her name is Nabi.","A name is Nabi."],"answer":0,"why":"그 고양이의 이름: {{her name}}."}]},
+        {"type":"free","q":"여러분 차례예요: 가진 물건이나 사는 곳을 {{a}}로 소개하고, 그다음 {{the}}로 설명해 보세요.","answers":[{"t":"I live in an apartment. The apartment is small but nice.","tr":"저는 아파트에 살아요. 그 아파트는 작지만 좋아요."},{"t":"I have a bike. The bike is old, but I love it.","tr":"저는 자전거가 있어요. 그 자전거는 오래됐지만 정말 좋아해요."}]}
+      ]
     }
   ]
 }
