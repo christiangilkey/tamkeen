@@ -1184,6 +1184,325 @@
         {"type":"say","q":"Invite your friend Tom: “Will you come too?”","answer":"तुम भी चलोगे?","r":"tum bhī chaloge?"},
         {"type":"free","q":"Your turn: invite a friend to do something this weekend: say what, when, and where you'll meet.","answers":[{"t":"शनिवार को हम क्रिकेट खेलने जा रहे हैं। तुम भी चलोगे? दस बजे पार्क में मिलें?","r":"shanivār ko ham krikeṭ khelne jā rahe haĩ. tum bhī chaloge? das baje pārk mẽ milẽ?","tr":"On Saturday we're going to play cricket. Will you come too? Shall we meet in the park at ten?"},{"t":"रविवार को हमारे घर खाना खाने आओ। सात बजे आओ, ठीक है?","r":"ravivār ko hamāre ghar khānā khāne āo. sāt baje āo, ṭhīk hai?","tr":"Come to our place for dinner on Sunday. Come at seven, OK?"}]}
       ]
+    },
+    {
+      "id": "say-where-you-went",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say where you went",
+      "summary": "Tell someone where you went and when you got back: “I went to Jaipur; the train arrived late.”",
+      "topic": "The past of verbs like go, come, arrive, get up: {{गया|gayā}}, {{आया|āyā}}, {{पहुँचा|pahũchā}}, {{उठा|uṭhā}}, agreeing with the person",
+      "blocks": [
+        {"goal":{"t":"कल मैं बाज़ार गया और देर से घर आया।","r":"kal maĩ bāzār gayā aur der se ghar āyā.","tr":"Yesterday I went to the market and came home late.","note":"said by a man; a woman says {{गई|gaī}} … {{आई|āī}}"}},
+        {"dialog":[{"who":"Meera","t":"शनिवार को तुम कहाँ गए?","r":"shanivār ko tum kahā̃ gae?","tr":"Where did you go on Saturday?"},{"who":"Jack","t":"मैं दोस्तों के साथ जयपुर गया।","r":"maĩ dostõ ke sāth jaypur gayā.","tr":"I went to Jaipur with friends."},{"who":"Meera","t":"वाह! तुम कब लौटे?","r":"vāh! tum kab lauṭe?","tr":"Wow! When did you get back?"},{"who":"Jack","t":"कल रात लौटा। ट्रेन तीन घंटे देर से पहुँची!","r":"kal rāt lauṭā. ṭren tīn ghaṇṭe der se pahũchī!","tr":"Last night. The train arrived three hours late!"},{"who":"Meera","t":"अरे! और तुम्हारी पत्नी भी गई?","r":"are! aur tumhārī patnī bhī gaī?","tr":"Oh no! And did your wife go too?"},{"who":"Jack","t":"नहीं, वह घर पर रही।","r":"nahī̃, vah ghar par rahī.","tr":"No, she stayed at home."}]},
+        {"p":"**The past: what happened.** For one finished event, Hindi adds {{-आ|-ā}} to the stem: {{पहुँचना|pahũchnā}} → {{पहुँचा|pahũchā}} “arrived”, {{लौटना|lauṭnā}} → {{लौटा|lauṭā}} “came back”. Like {{था|thā}} (lesson 19), it changes for masculine, feminine and plural, and nothing comes after it: no {{है|hai}}."},
+        { "table": [
+          ["","masculine","feminine"],
+          ["one","{{वह पहुँचा|vah pahũchā}} he arrived","{{वह पहुँची|vah pahũchī}} she arrived"],
+          ["more than one, or {{आप, तुम, हम|āp, tum, ham}}","{{वे पहुँचे|ve pahũche}} they arrived","{{वे पहुँचीं|ve pahũchī̃}} they (women) arrived"]
+        ] },
+        {"p":"**Stems ending in a vowel** add {{-या|-yā}}: {{आना|ānā}} → {{आया|āyā}} “came”, {{सोना|sonā}} → {{सोया|soyā}} “slept”. And two of the commonest verbs are irregular: {{जाना|jānā}} → {{गया|gayā}} “went”, {{होना|honā}} → {{हुआ|huā}} “happened, was”."},
+        { "table": [
+          ["","masculine","feminine","plural"],
+          ["went","{{गया|gayā}}","{{गई|gaī}}","{{गए|gae}}"],
+          ["came","{{आया|āyā}}","{{आई|āī}}","{{आए|āe}}"],
+          ["got up","{{उठा|uṭhā}}","{{उठी|uṭhī}}","{{उठे|uṭhe}}"],
+          ["stayed","{{रहा|rahā}}","{{रही|rahī}}","{{रहे|rahe}}"],
+          ["happened","{{हुआ|huā}}","{{हुई|huī}}","{{हुए|hue}}"]
+        ] },
+        {"p":"**Only verbs like “go” and “come”.** This lesson's verbs have no object: you don't go *something*. Verbs that do something *to* something (eat food, see a film) work differently in the past: that is the next lesson, and the big one."},
+        { "ex": [
+          {"t":"मैं कल दिल्ली गया।","r":"maĩ kal dillī gayā.","tr":"I went to Delhi yesterday.","note":"a man; a woman: {{गई|gaī}}"},
+          {"t":"वह सुबह छह बजे उठी।","r":"vah subah chhah baje uṭhī.","tr":"She got up at six in the morning."},
+          {"t":"हम देर से पहुँचे।","r":"ham der se pahũche.","tr":"We arrived late."},
+          {"t":"बच्चे स्कूल से लौटे।","r":"bachche skūl se lauṭe.","tr":"The children came back from school."},
+          {"t":"क्या हुआ?","r":"kyā huā?","tr":"What happened?"},
+          {"t":"मैं रात को ठीक से नहीं सोई।","r":"maĩ rāt ko ṭhīk se nahī̃ soī.","tr":"I didn't sleep well last night.","note":"a woman speaking"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैं कल दिल्ली गया हूँ।","right":"मैं कल दिल्ली गया।","tr":"I went to Delhi yesterday.","why":"For a finished event, the past stands alone: {{गया|gayā}}, no {{हूँ|hū̃}}. ({{गया हूँ|gayā hū̃}} is “I have been”: lesson 30.)"},
+        {"wrong":"मैं बाज़ार गया।","right":"मैं बाज़ार गई।","tr":"I went to the market.","why":"A woman is speaking: {{गई|gaī}}."},
+        {"wrong":"मैं बाज़ार जाया।","right":"मैं बाज़ार गया।","tr":"I went to the market.","why":"{{जाना|jānā}} is irregular: {{गया|gayā}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"हम देर से ___।","tr":"We arrived late.","options":["पहुँचे","पहुँचा","पहुँची"],"answer":0,"why":"{{हम|ham}}: plural, {{-ए|-e}}.","r":"ham der se ___.","rs":["pahũche","pahũchā","pahũchī"]},
+        {"type":"fill","q":"A woman is speaking. Choose the right form.","t":"मैं सुबह छह बजे ___।","tr":"I got up at six in the morning.","options":["उठी","उठा","उठती"],"answer":0,"why":"A woman: {{उठी|uṭhī}}. ({{उठती|uṭhtī}} is “I get up”, a habit, and needs {{हूँ|hū̃}}.)","from":"say-what-you-do-every-day","r":"maĩ subah chhah baje ___.","rs":["uṭhī","uṭhā","uṭhtī"]},
+        {"type":"choice","q":"The past of {{जाना|jānā}} “to go”, for a man, is…","options":["{{गया|gayā}}","{{जाया|jāyā}}","{{जाता|jātā}}"],"answer":0,"why":"{{जाना|jānā}} is irregular: {{गया, गई, गए|gayā, gaī, gae}}."},
+        {"type":"order","q":"Put the words in order.","tr":"The children came back from school.","words":["बच्चे","स्कूल","से","लौटे।"],"rs":["bachche","skūl","se","lauṭe."]},
+        {"type":"dialogue","q":"Monday morning at work. Choose your replies (you're a man).","from":"say-where-you-were","lines":[{"who":"Colleague","t":"शनिवार को आप कहाँ गए?","r":"shanivār ko āp kahā̃ gae?","tr":"Where did you go on Saturday?"},{"options":["मैं आगरा गया।","मैं आगरा गया हूँ।"],"answer":0,"why":"A finished trip on Saturday: {{गया|gayā}} alone.","rs":["maĩ āgrā gayā.","maĩ āgrā gayā hū̃."]},{"who":"Colleague","t":"वहाँ मौसम कैसा था?","r":"vahā̃ mausam kaisā thā?","tr":"How was the weather there?"},{"options":["बहुत गरम था।","बहुत गरम गया।"],"answer":0,"why":"“Was” is {{था|thā}} (lesson 19).","rs":["bahut garam thā.","bahut garam gayā."]}]},
+        {"type":"say","q":"Ask: “What happened?”","answer":"क्या हुआ?","r":"kyā huā?"},
+        {"type":"free","q":"Your turn: say where you went last weekend, and when you got back.","answers":[{"t":"शनिवार को मैं दोस्तों के साथ पहाड़ों पर गया। मैं रविवार रात को लौटा।","r":"shanivār ko maĩ dostõ ke sāth pahāṛõ par gayā. maĩ ravivār rāt ko lauṭā.","tr":"On Saturday I went to the mountains with friends. I got back on Sunday night. (a man)"},{"t":"मैं कल बाज़ार गई और शाम को घर आई।","r":"maĩ kal bāzār gaī aur shām ko ghar āī.","tr":"I went to the market yesterday and came home in the evening. (a woman)"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you did",
+      "summary": "Say what you ate, bought or watched: “I drank tea, I saw a movie.” The famous ने.",
+      "topic": "{{ने|ne}} with transitive verbs in the past: {{मैंने|maĩne}}, {{उसने|usne}}, {{उन्होंने|unhõne}}; the verb agrees with the thing; {{किया|kiyā}}, {{लिया|liyā}}, {{दिया|diyā}}, {{पिया|piyā}}",
+      "blocks": [
+        {"goal":{"t":"मैंने आज बहुत अच्छा खाना खाया।","r":"maĩne āj bahut achchhā khānā khāyā.","tr":"I had a really good meal today.","note":"a man and a woman say it the same way"}},
+        {"dialog":[{"who":"Mom","t":"तुमने नाश्ता किया?","r":"tumne nāshtā kiyā?","tr":"Did you have breakfast?"},{"who":"Ria","t":"हाँ माँ, मैंने दो पराठे खाए और चाय पी।","r":"hā̃ mā̃, maĩne do parāṭhe khāe aur chāy pī.","tr":"Yes, Mom, I had two parathas and drank some tea."},{"who":"Mom","t":"और तुमने दवाई ली?","r":"aur tumne davāī lī?","tr":"And did you take your medicine?"},{"who":"Ria","t":"हाँ, मैंने दवाई भी ली।","r":"hā̃, maĩne davāī bhī lī.","tr":"Yes, I took the medicine too."},{"who":"Mom","t":"शाबाश!","r":"shābāsh!","tr":"Well done!"}]},
+        {"term":"object","means":"the person or thing a verb is done to: in “I ate a mango”, the mango."},
+        {"term":"transitive verb","means":"a verb that can take an object: eat, see, buy, do. “Go”, “come” and “sleep” are not transitive."},
+        {"p":"**The big one.** In the past, a transitive verb doesn't work like {{गया|gayā}} and {{आया|āyā}}. Two things happen. The person who did it gets {{ने|ne}} after them: {{मैंने|maĩne}} “I (did)”, {{राहुल ने|rāhul ne}} “Rahul (did)”. And the verb agrees with the **thing**, not with the person:"},
+        { "table": [
+          ["","Hindi","the verb agrees with"],
+          ["I ate a mango.","{{मैंने आम खाया।|maĩne ām khāyā.}}","{{आम|ām}} (masculine)"],
+          ["I drank tea.","{{मैंने चाय पी।|maĩne chāy pī.}}","{{चाय|chāy}} (feminine)"],
+          ["I bought two books.","{{मैंने दो किताबें ख़रीदीं।|maĩne do kitābẽ kharīdī̃.}}","{{किताबें|kitābẽ}} (feminine plural)"],
+          ["Priya ate a samosa.","{{प्रिया ने समोसा खाया।|priyā ne samosā khāyā.}}","{{समोसा|samosā}} (masculine): Priya being a woman changes nothing"]
+        ] },
+        {"p":"So a man and a woman both say {{मैंने चाय पी|maĩne chāy pī}} “I drank tea”: the {{-ई|-ī}} is for the tea. This feels upside down at first. It is the most famous thing about Hindi grammar, and it will come back in many lessons."},
+        {"p":"**{{ने|ne}} with pronouns.** {{मैं|maĩ}}, {{तुम|tum}}, {{हम|ham}} and {{आप|āp}} simply add it: {{मैंने|maĩne}}, {{तुमने|tumne}}, {{हमने|hamne}}, {{आपने|āpne}}. {{वह|vah}} and {{वे|ve}} take their oblique form: {{उसने|usne}} “he, she (did)”, {{उन्होंने|unhõne}} “they (did)”, also used for one person you respect."},
+        {"p":"**Irregular pasts.** A few common verbs: {{करना|karnā}} → {{किया|kiyā}} “did”, {{लेना|lenā}} → {{लिया|liyā}} “took”, {{देना|denā}} → {{दिया|diyā}} “gave”, {{पीना|pīnā}} → {{पिया|piyā}} “drank”. Their feminine forms are {{की|kī}}, {{ली|lī}}, {{दी|dī}}, {{पी|pī}}."},
+        { "ex": [
+          {"t":"मैंने एक नई गाड़ी ख़रीदी।","r":"maĩne ek naī gāṛī kharīdī.","tr":"I bought a new car."},
+          {"t":"राहुल ने खाना बनाया।","r":"rāhul ne khānā banāyā.","tr":"Rahul cooked dinner."},
+          {"t":"माँ ने खाना बनाया।","r":"mā̃ ne khānā banāyā.","tr":"Mom cooked dinner.","note":"the same {{बनाया|banāyā}}: it agrees with {{खाना|khānā}}, not with Mom"},
+          {"t":"हमने कल एक फ़िल्म देखी।","r":"hamne kal ek film dekhī.","tr":"We saw a movie yesterday."},
+          {"t":"उसने मुझे एक किताब दी।","r":"usne mujhe ek kitāb dī.","tr":"He (or she) gave me a book."},
+          {"t":"आपने क्या कहा?","r":"āpne kyā kahā?","tr":"What did you say?","note":"when the thing is not a noun (here “what”), the verb is masculine: {{कहा|kahā}}"},
+          {"t":"उन्होंने बहुत काम किया।","r":"unhõne bahut kām kiyā.","tr":"They did a lot of work."}
+        ] },
+        {"tip":"Two verbs never take {{ने|ne}}, though they seem to do something: {{लाना|lānā}} “to bring” ({{मैं चाय लाया|maĩ chāy lāyā}} “I brought tea”) and {{मिलना|milnā}} “to meet” (next lesson)."}
+      ],
+      "mistakes": [
+        {"wrong":"मैं चाय पी।","right":"मैंने चाय पी।","tr":"I drank tea.","why":"A transitive verb in the past needs {{ने|ne}}: {{मैंने|maĩne}}."},
+        {"wrong":"मैंने चाय पिया।","right":"मैंने चाय पी।","tr":"I drank tea.","why":"The verb agrees with {{चाय|chāy}}, which is feminine: {{पी|pī}}."},
+        {"wrong":"मैंने खाना खाई।","right":"मैंने खाना खाया।","tr":"I ate.","why":"A woman is speaking, but the verb agrees with {{खाना|khānā}} (masculine): {{खाया|khāyā}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right word.","t":"___ एक नई गाड़ी ख़रीदी।","tr":"I bought a new car.","options":["मैंने","मैं","मुझे"],"answer":0,"why":"A transitive verb in the past: {{मैंने|maĩne}}.","r":"___ ek naī gāṛī kharīdī.","rs":["maĩne","maĩ","mujhe"]},
+        {"type":"fill","q":"Priya is speaking. Choose the right form.","t":"मैंने कल एक फ़िल्म ___।","tr":"I saw a movie yesterday.","options":["देखी","देखा","देखे"],"answer":0,"why":"It agrees with {{फ़िल्म|film}} (feminine), not with Priya.","r":"maĩne kal ek film ___.","rs":["dekhī","dekhā","dekhe"]},
+        {"type":"fill","q":"Choose the right form.","t":"राहुल ने दो समोसे ___।","tr":"Rahul ate two samosas.","options":["खाए","खाया","खाई"],"answer":0,"why":"Two samosas: masculine plural, {{खाए|khāe}}.","from":"more-than-one","r":"rāhul ne do samose ___.","rs":["khāe","khāyā","khāī"]},
+        {"type":"choice","q":"Which one is right for “She drank coffee”?","options":["{{उसने कॉफ़ी पी।|usne kôfī pī.}}","{{वह कॉफ़ी पी।|vah kôfī pī.}}","{{उसने कॉफ़ी पिया।|usne kôfī piyā.}}"],"answer":0,"why":"{{उसने|usne}}, and {{पी|pī}} for {{कॉफ़ी|kôfī}} (feminine)."},
+        {"type":"order","q":"Put the words in order.","tr":"He gave me a book.","words":["उसने","मुझे","एक","किताब","दी।"],"rs":["usne","mujhe","ek","kitāb","dī."]},
+        {"type":"dialogue","q":"Your mother calls. Choose your replies.","from":"describe-things","lines":[{"who":"Mom","t":"तुमने खाना खाया?","r":"tumne khānā khāyā?","tr":"Did you eat?"},{"options":["हाँ, मैंने खाना खाया।","हाँ, मैं खाना खाया।"],"answer":0,"why":"{{खाना|khānā}} “to eat” is transitive: {{मैंने|maĩne}}.","rs":["hā̃, maĩne khānā khāyā.","hā̃, maĩ khānā khāyā."]},{"who":"Mom","t":"क्या खाया?","r":"kyā khāyā?","tr":"What did you eat?"},{"options":["मैंने दाल बनाई।","मैंने दाल बनाया।"],"answer":0,"why":"{{दाल|dāl}} is feminine: {{बनाई|banāī}}.","rs":["maĩne dāl banāī.","maĩne dāl banāyā."]},{"who":"Mom","t":"शाबाश!","r":"shābāsh!","tr":"Well done!"}]},
+        {"type":"free","q":"Your turn: say three things you did yesterday: what you ate, drank, bought or watched.","answers":[{"t":"कल मैंने पराठे खाए, कॉफ़ी पी और एक फ़िल्म देखी।","r":"kal maĩne parāṭhe khāe, kôfī pī aur ek film dekhī.","tr":"Yesterday I had parathas, drank coffee and watched a movie."},{"t":"मैंने नए जूते ख़रीदे और दोस्तों के साथ खाना बनाया।","r":"maĩne nae jūte kharīde aur dostõ ke sāth khānā banāyā.","tr":"I bought new shoes and cooked with friends."}]}
+      ]
+    },
+    {
+      "id": "say-who-you-saw",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say who you saw and met",
+      "summary": "Say “I saw your sister”, “She called me”, “I met the new boss”.",
+      "topic": "{{ने|ne}} with a {{को|ko}} object: the verb stays {{-आ|-ā}}; {{मुझे|mujhe}}, {{उसे|use}} as objects; {{मिलना|milnā}} + {{से|se}}, without {{ने|ne}}",
+      "blocks": [
+        {"goal":{"t":"कल मैंने तुम्हारी बहन को बाज़ार में देखा।","r":"kal maĩne tumhārī bahan ko bāzār mẽ dekhā.","tr":"I saw your sister at the market yesterday."}},
+        {"dialog":[{"who":"Ankit","t":"तुमने राहुल को देखा?","r":"tumne rāhul ko dekhā?","tr":"Did you see Rahul?"},{"who":"Sara","t":"हाँ, मैंने उसे सुबह देखा। वह स्टेशन जा रहा था।","r":"hā̃, maĩne use subah dekhā. vah sṭeshan jā rahā thā.","tr":"Yes, I saw him this morning. He was going to the station."},{"who":"Ankit","t":"और प्रिया?","r":"aur priyā?","tr":"And Priya?"},{"who":"Sara","t":"मैं उससे कल मिली। उसने मुझे तुम्हारा मैसेज दिया।","r":"maĩ usse kal milī. usne mujhe tumhārā maisej diyā.","tr":"I met her yesterday. She gave me your message."},{"who":"Ankit","t":"अच्छा! फिर तुमने उसे फ़ोन किया?","r":"achchhā! phir tumne use fon kiyā?","tr":"Oh! Then did you call her?"},{"who":"Sara","t":"नहीं, अभी नहीं।","r":"nahī̃, abhī nahī̃.","tr":"No, not yet."}]},
+        {"p":"**When the object has {{को|ko}}.** A person who is the object gets {{को|ko}} after them: {{मैंने राहुल को देखा|maĩne rāhul ko dekhā}} “I saw Rahul”. (So can a particular thing you point out: {{मैंने उस किताब को पढ़ा|maĩne us kitāb ko paṛhā}} “I read that book”.) Then the verb has nothing to agree with, so it takes the plain masculine {{-आ|-ā}}: “I saw Priya” is also {{मैंने प्रिया को देखा|maĩne priyā ko dekhā}}."},
+        { "table": [
+          ["","Hindi","the verb"],
+          ["I saw a film.","{{मैंने फ़िल्म देखी।|maĩne film dekhī.}}","agrees with {{फ़िल्म|film}}"],
+          ["I saw Priya.","{{मैंने प्रिया को देखा।|maĩne priyā ko dekhā.}}","after {{को|ko}}: always {{देखा|dekhā}}"],
+          ["I saw them.","{{मैंने उन्हें देखा।|maĩne unhẽ dekhā.}}","a pronoun object: always {{देखा|dekhā}}"]
+        ] },
+        {"p":"**Me, him, her.** Pronoun objects use the “to” forms of lesson 16: {{मुझे|mujhe}} “me”, {{तुम्हें|tumhẽ}} “you”, {{उसे|use}} “him, her”, {{हमें|hamẽ}} “us”, {{उन्हें|unhẽ}} “them”: {{उसने मुझे बुलाया|usne mujhe bulāyā}} “He (she) called me over”."},
+        {"p":"**Meeting: {{से|se}}, and no {{ने|ne}}.** {{मिलना|milnā}} “to meet” takes {{से|se}} (“meet *with*”) and never takes {{ने|ne}}, so its past agrees with the person, like {{गया|gayā}}: {{मैं प्रिया से मिली|maĩ priyā se milī}} “I met Priya” (a woman speaking), {{हम उनसे मिले|ham unse mile}} “We met them”. Before {{से|se}}, pronouns are {{मुझसे|mujhse}}, {{तुमसे|tumse}}, {{आपसे|āpse}}, {{उससे|usse}}, {{हमसे|hamse}}, {{उनसे|unse}}."},
+        {"p":"Now you can take apart the phrase from lesson 1: {{आपसे मिलकर ख़ुशी हुई|āpse milkar khushī huī}} is “having met with you, happiness happened”."},
+        { "ex": [
+          {"t":"मैंने तुम्हें कल पार्क में देखा।","r":"maĩne tumhẽ kal pārk mẽ dekhā.","tr":"I saw you in the park yesterday."},
+          {"t":"क्या आपने मेरे भाई को देखा?","r":"kyā āpne mere bhāī ko dekhā?","tr":"Have you seen my brother?"},
+          {"t":"उसने बच्चों को बुलाया।","r":"usne bachchõ ko bulāyā.","tr":"She called the children."},
+          {"t":"मैं कल नए बॉस से मिला।","r":"maĩ kal nae bôs se milā.","tr":"I met the new boss yesterday.","note":"a man speaking: {{मिला|milā}} agrees with him"},
+          {"t":"हम स्टेशन पर उनसे मिले।","r":"ham sṭeshan par unse mile.","tr":"We met them at the station."},
+          {"t":"मैंने उसे फ़ोन किया, लेकिन उसने फ़ोन नहीं उठाया।","r":"maĩne use fon kiyā, lekin usne fon nahī̃ uṭhāyā.","tr":"I called him, but he didn't pick up."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैंने प्रिया को देखी।","right":"मैंने प्रिया को देखा।","tr":"I saw Priya.","why":"After a {{को|ko}} object, the verb doesn't agree with anyone: always {{-आ|-ā}}."},
+        {"wrong":"मैंने राहुल से मिला।","right":"मैं राहुल से मिला।","tr":"I met Rahul.","why":"{{मिलना|milnā}} never takes {{ने|ne}}."},
+        {"wrong":"मैंने वह को देखा।","right":"मैंने उसे देखा।","tr":"I saw him.","why":"“Him, her” as an object is {{उसे|use}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"मैंने प्रिया को बाज़ार में ___।","tr":"I saw Priya at the market.","options":["देखा","देखी","देखे"],"answer":0,"why":"After {{को|ko}}: always {{देखा|dekhā}}.","r":"maĩne priyā ko bāzār mẽ ___.","rs":["dekhā","dekhī","dekhe"]},
+        {"type":"fill","q":"Choose the right word.","t":"कल मैं नए बॉस ___ मिला।","tr":"I met the new boss yesterday.","options":["से","को","ने"],"answer":0,"why":"{{मिलना|milnā}} takes {{से|se}}.","r":"kal maĩ nae bôs ___ milā.","rs":["se","ko","ne"]},
+        {"type":"choice","q":"Which one is right for “She met me”?","options":["{{वह मुझसे मिली।|vah mujhse milī.}}","{{उसने मुझसे मिली।|usne mujhse milī.}}","{{उसने मुझे मिला।|usne mujhe milā.}}"],"answer":0,"why":"{{मिलना|milnā}}: no {{ने|ne}}, and {{से|se}}; the verb agrees with her: {{मिली|milī}}."},
+        {"type":"fill","q":"Choose the right form.","t":"उसने मुझे एक तोहफ़ा ___।","tr":"She gave me a present.","options":["दिया","दी","दिए"],"answer":0,"why":"It agrees with {{तोहफ़ा|tohfā}} (masculine): {{दिया|diyā}}.","from":"say-what-you-did","r":"usne mujhe ek tohfā ___.","rs":["diyā","dī","die"]},
+        {"type":"order","q":"Put the words in order.","tr":"We met them at the station.","words":["हम","स्टेशन","पर","उनसे","मिले।"],"from":"say-where-things-are","rs":["ham","sṭeshan","par","unse","mile."]},
+        {"type":"dialogue","q":"A friend asks about the party. Choose your replies (you're a woman).","lines":[{"who":"Friend","t":"पार्टी में तुमने किसको देखा?","r":"pārṭī mẽ tumne kisko dekhā?","tr":"Who did you see at the party?"},{"options":["मैंने राहुल और उसकी बहन को देखा।","मैं राहुल और उसकी बहन को देखी।"],"answer":0,"why":"{{ने|ne}}, and after {{को|ko}} the verb is {{देखा|dekhā}}.","rs":["maĩne rāhul aur uskī bahan ko dekhā.","maĩ rāhul aur uskī bahan ko dekhī."]},{"who":"Friend","t":"क्या तुम उसकी बहन से मिलीं?","r":"kyā tum uskī bahan se milī̃?","tr":"Did you meet his sister?"},{"options":["हाँ, मैं उससे मिली। वह बहुत अच्छी है।","हाँ, मैंने उससे मिली। वह बहुत अच्छी है।"],"answer":0,"why":"{{मिलना|milnā}}: no {{ने|ne}}.","rs":["hā̃, maĩ usse milī. vah bahut achchhī hai.","hā̃, maĩne usse milī. vah bahut achchhī hai."]}]},
+        {"type":"free","q":"Your turn: say who you saw or met this week, and where.","answers":[{"t":"मैंने सोमवार को राज को जिम में देखा।","r":"maĩne somvār ko rāj ko jim mẽ dekhā.","tr":"I saw Raj at the gym on Monday."},{"t":"मैं कल एक पुरानी दोस्त से मिली। हमने साथ में कॉफ़ी पी।","r":"maĩ kal ek purānī dost se milī. hamne sāth mẽ kôfī pī.","tr":"I met an old friend yesterday. We had coffee together. (a woman)"}]}
+      ]
+    },
+    {
+      "id": "ask-what-happened",
+      "unit": 5,
+      "level": "A2",
+      "title": "Ask what happened, and say what didn't",
+      "summary": "Ask “What happened?”, “Why didn't you come?”, “Who did this?”, and say “I didn't eat anything.”",
+      "topic": "Questions in the past; {{किसने|kisne}} “who (did)”, {{किसको|kisko}} “whom”; {{नहीं|nahī̃}} + the past; {{क्या हुआ?|kyā huā?}}",
+      "blocks": [
+        {"goal":{"t":"क्या हुआ? तुम कल क्यों नहीं आए?","r":"kyā huā? tum kal kyõ nahī̃ āe?","tr":"What happened? Why didn't you come yesterday?"}},
+        {"dialog":[{"who":"Teacher","t":"तुम कल क्लास में क्यों नहीं आए?","r":"tum kal klās mẽ kyõ nahī̃ āe?","tr":"Why didn't you come to class yesterday?"},{"who":"Jay","t":"मैं बीमार था। मैंने कुछ नहीं खाया और पूरा दिन सोया।","r":"maĩ bīmār thā. maĩne kuchh nahī̃ khāyā aur pūrā din soyā.","tr":"I was sick. I didn't eat anything and slept all day."},{"who":"Teacher","t":"अरे! तुमने डॉक्टर को दिखाया?","r":"are! tumne ḍôkṭar ko dikhāyā?","tr":"Oh dear! Did you see a doctor?"},{"who":"Jay","t":"हाँ, शाम को गया। उन्होंने दवाई दी।","r":"hā̃, shām ko gayā. unhõne davāī dī.","tr":"Yes, I went in the evening. He gave me some medicine."},{"who":"Teacher","t":"और होमवर्क? तुमने होमवर्क किया?","r":"aur homvark? tumne homvark kiyā?","tr":"And the homework? Did you do it?"},{"who":"Jay","t":"जी, अभी नहीं किया।","r":"jī, abhī nahī̃ kiyā.","tr":"Not yet, sir."}]},
+        {"p":"**Asking about the past.** Questions work as in the present (lessons 3 and 15): the question word stands where the answer would be. With a transitive verb, the {{ने|ne}} stays: {{तुमने क्या खाया?|tumne kyā khāyā?}} “What did you eat?” Notice how Jay says {{उन्होंने दवाई दी|unhõne davāī dī}}: {{उन्होंने|unhõne}}, the respectful plural, for the doctor."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["what happened?","{{क्या हुआ?|kyā huā?}}","What happened? What's wrong?"],
+          ["why not?","{{तुम क्यों नहीं आए?|tum kyõ nahī̃ āe?}}","Why didn't you come?"],
+          ["who did it?","{{यह किसने किया?|yah kisne kiyā?}}","Who did this?"],
+          ["whom?","{{तुमने किसको देखा?|tumne kisko dekhā?}}","Who did you see?"],
+          ["when?","{{आप कब पहुँचे?|āp kab pahũche?}}","When did you arrive?"]
+        ] },
+        {"p":"**Who.** With {{ने|ne}}, “who” is {{किसने|kisne}}: {{यह किसने बनाया?|yah kisne banāyā?}} “Who made this?” As an object it is {{किसको|kisko}} (or {{किसे|kise}}): {{आपने किसको फ़ोन किया?|āpne kisko fon kiyā?}} “Who did you call?”"},
+        {"p":"**Not.** {{नहीं|nahī̃}} goes before the verb, as always: {{मैंने कुछ नहीं खाया|maĩne kuchh nahī̃ khāyā}} “I didn't eat anything”, {{वह नहीं आई|vah nahī̃ āī}} “She didn't come”. Jay's {{अभी नहीं किया|abhī nahī̃ kiyā}} “I haven't done it yet” leaves out {{मैंने|maĩne}} and the homework: it's clear what he means."},
+        { "ex": [
+          {"t":"तुमने कल रात क्या किया?","r":"tumne kal rāt kyā kiyā?","tr":"What did you do last night?"},
+          {"t":"मैंने कुछ नहीं खाया।","r":"maĩne kuchh nahī̃ khāyā.","tr":"I didn't eat anything."},
+          {"t":"वह आज ऑफ़िस नहीं आई।","r":"vah āj ôfis nahī̃ āī.","tr":"She didn't come to the office today."},
+          {"t":"यह किसने बनाया?","r":"yah kisne banāyā?","tr":"Who made this?"},
+          {"t":"आप भारत कब आए?","r":"āp bhārat kab āe?","tr":"When did you come to India?"},
+          {"t":"क्या हुआ? सब ठीक है?","r":"kyā huā? sab ṭhīk hai?","tr":"What happened? Is everything OK?"}
+        ] },
+        {"tip":"{{क्या हुआ?|kyā huā?}} is also how you ask “What's wrong?” when someone looks upset."}
+      ],
+      "mistakes": [
+        {"wrong":"तुम क्या खाया?","right":"तुमने क्या खाया?","tr":"What did you eat?","why":"Eating is transitive, so in the past: {{तुमने|tumne}}."},
+        {"wrong":"मैंने नहीं कुछ खाया।","right":"मैंने कुछ नहीं खाया।","tr":"I didn't eat anything.","why":"“Nothing” is {{कुछ नहीं|kuchh nahī̃}}, with {{नहीं|nahī̃}} just before the verb."},
+        {"wrong":"यह कौन ने किया?","right":"यह किसने किया?","tr":"Who did this?","why":"“Who” with {{ने|ne}}: {{किसने|kisne}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right word.","t":"यह ___ किया?","tr":"Who did this?","options":["किसने","कौन","किसको"],"answer":0,"why":"“Who” with {{ने|ne}}: {{किसने|kisne}}.","r":"yah ___ kiyā?","rs":["kisne","kaun","kisko"]},
+        {"type":"fill","q":"Choose the word for “not”.","t":"वह आज ऑफ़िस ___ आई।","tr":"She didn't come to the office today.","options":["नहीं","मत"],"answer":0,"why":"A statement: {{नहीं|nahī̃}}. ({{मत|mat}} is only for commands.)","from":"ask-people-to-do-things","r":"vah āj ôfis ___ āī.","rs":["nahī̃","mat"]},
+        {"type":"choice","q":"Your friend looks upset. You ask…","options":["{{क्या हुआ?|kyā huā?}}","{{क्या हो?|kyā ho?}}","{{कौन हुआ?|kaun huā?}}"],"answer":0,"why":"{{क्या हुआ?|kyā huā?}} “What happened? What's wrong?”"},
+        {"type":"order","q":"Put the words in order.","tr":"What did you do last night?","words":["तुमने","कल","रात","क्या","किया?"],"from":"say-what-you-did","rs":["tumne","kal","rāt","kyā","kiyā?"]},
+        {"type":"dialogue","q":"Your boss asks why you were late. Choose your replies (you're a man).","from":"say-where-you-went","lines":[{"who":"Boss","t":"आप देर से क्यों आए?","r":"āp der se kyõ āe?","tr":"Why were you late?"},{"options":["मेरी बस नहीं आई।","मेरी बस नहीं आया।"],"answer":0,"why":"{{बस|bas}} is feminine: {{आई|āī}}.","rs":["merī bas nahī̃ āī.","merī bas nahī̃ āyā."]},{"who":"Boss","t":"तो आपने टैक्सी क्यों नहीं ली?","r":"to āpne ṭaiksī kyõ nahī̃ lī?","tr":"So why didn't you take a taxi?"},{"options":["मैंने टैक्सी बुलाई, लेकिन नहीं मिली।","मैं टैक्सी बुलाई, लेकिन नहीं मिली।"],"answer":0,"why":"{{बुलाना|bulānā}} “to call” is transitive: {{मैंने|maĩne}}, and {{बुलाई|bulāī}} for the taxi. ({{नहीं मिली|nahī̃ milī}}: “I didn't get one”.)","rs":["maĩne ṭaiksī bulāī, lekin nahī̃ milī.","maĩ ṭaiksī bulāī, lekin nahī̃ milī."]}]},
+        {"type":"say","q":"Ask a colleague politely: “When did you arrive?”","answer":"आप कब पहुँचे?","r":"āp kab pahũche?"},
+        {"type":"free","q":"Your turn: a friend asks {{कल तुमने क्या किया?|kal tumne kyā kiyā?}} Say two things you did and one thing you didn't do.","answers":[{"t":"मैंने घर साफ़ किया और खाना बनाया, लेकिन मैंने कोई काम नहीं किया।","r":"maĩne ghar sāf kiyā aur khānā banāyā, lekin maĩne koī kām nahī̃ kiyā.","tr":"I cleaned the house and cooked, but I didn't do any work."},{"t":"मैं जिम गई, मैंने एक किताब पढ़ी, लेकिन मैंने टीवी नहीं देखा।","r":"maĩ jim gaī, maĩne ek kitāb paṛhī, lekin maĩne ṭīvī nahī̃ dekhā.","tr":"I went to the gym and read a book, but I didn't watch TV. (a woman)"}]}
+      ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you've done, and never done",
+      "summary": "Talk about experiences: “Have you ever been to India?”, “I've never seen snow”, “We haven't eaten yet.”",
+      "topic": "The past + {{है / हूँ / हैं|hai / hū̃ / haĩ}}: {{गया हूँ|gayā hū̃}}, {{देखा है|dekhā hai}}; {{कभी|kabhī}}, {{कभी नहीं|kabhī nahī̃}}, {{अभी तक नहीं|abhī tak nahī̃}}, {{पहले|pahle}}",
+      "blocks": [
+        {"goal":{"t":"मैं दो बार भारत गया हूँ, लेकिन मैंने ताजमहल कभी नहीं देखा।","r":"maĩ do bār bhārat gayā hū̃, lekin maĩne tājmahal kabhī nahī̃ dekhā.","tr":"I've been to India twice, but I've never seen the Taj Mahal.","note":"said by a man; a woman says {{गई हूँ|gaī hū̃}}"}},
+        {"dialog":[{"who":"Priya","t":"क्या आप पहले भी भारत आए हैं?","r":"kyā āp pahle bhī bhārat āe haĩ?","tr":"Have you been to India before?"},{"who":"Mark","t":"हाँ, मैं दो बार आया हूँ। लेकिन मैं कभी दक्षिण भारत नहीं गया।","r":"hā̃, maĩ do bār āyā hū̃. lekin maĩ kabhī dakshiṇ bhārat nahī̃ gayā.","tr":"Yes, I've come twice. But I've never been to South India."},{"who":"Priya","t":"अच्छा! क्या आपने कभी डोसा खाया है?","r":"achchhā! kyā āpne kabhī ḍosā khāyā hai?","tr":"Oh! Have you ever had a dosa?"},{"who":"Mark","t":"हाँ, लंदन में खाया है। मुझे बहुत पसंद है!","r":"hā̃, landan mẽ khāyā hai. mujhe bahut pasand hai!","tr":"Yes, I've had one in London. I love it!"},{"who":"Priya","t":"तो आपको चेन्नई ज़रूर जाना चाहिए।","r":"to āpko chennaī zarūr jānā chāhie.","tr":"Then you really should go to Chennai."}]},
+        {"p":"**Have done.** For experiences, and for things that have just happened, Hindi puts {{है|hai}} (or {{हूँ, हैं, हो|hū̃, haĩ, ho}}) after the past: {{मैं भारत गया हूँ|maĩ bhārat gayā hū̃}} “I have been to India”, {{मैंने यह फ़िल्म देखी है|maĩne yah film dekhī hai}} “I've seen this movie”. Everything else stays as in lessons 26 to 28: {{ने|ne}} with transitive verbs, and the verb agrees with the thing."},
+        { "table": [
+          ["","what happened","have done"],
+          ["go","{{मैं कल गया।|maĩ kal gayā.}} I went yesterday.","{{मैं वहाँ गया हूँ।|maĩ vahā̃ gayā hū̃.}} I've been there."],
+          ["see","{{मैंने कल फ़िल्म देखी।|maĩne kal film dekhī.}} I saw the movie yesterday.","{{मैंने यह फ़िल्म देखी है।|maĩne yah film dekhī hai.}} I've seen this movie."],
+          ["arrive","{{वह सुबह पहुँची।|vah subah pahũchī.}} She arrived this morning.","{{वह अभी पहुँची है।|vah abhī pahũchī hai.}} She's just arrived."]
+        ] },
+        {"p":"**Ever, never, not yet.** {{कभी|kabhī}} “ever”, {{कभी … नहीं|kabhī … nahī̃}} “never” (lesson 15), {{अभी तक … नहीं|abhī tak … nahī̃}} “not yet”, {{पहले|pahle}} “before”, {{दो बार|do bār}} “twice” (word for word “two times”). With {{नहीं|nahī̃}}, the {{है|hai}} at the end is usually left out: {{मैंने अभी तक नहीं खाया|maĩne abhī tak nahī̃ khāyā}} “I haven't eaten yet”."},
+        { "ex": [
+          {"t":"क्या आप कभी भारत गए हैं?","r":"kyā āp kabhī bhārat gae haĩ?","tr":"Have you ever been to India?"},
+          {"t":"मैं कई बार वहाँ गई हूँ।","r":"maĩ kaī bār vahā̃ gaī hū̃.","tr":"I've been there several times.","note":"a woman speaking"},
+          {"t":"मैंने यह किताब पढ़ी है।","r":"maĩne yah kitāb paṛhī hai.","tr":"I've read this book."},
+          {"t":"हमने अभी तक खाना नहीं खाया।","r":"hamne abhī tak khānā nahī̃ khāyā.","tr":"We haven't eaten yet."},
+          {"t":"मैं पहली बार भारत आई हूँ।","r":"maĩ pahlī bār bhārat āī hū̃.","tr":"This is my first time in India.","note":"a woman speaking; word for word “I have come to India for the first time”"},
+          {"t":"तुमने कभी साँप देखा है?","r":"tumne kabhī sā̃p dekhā hai?","tr":"Have you ever seen a snake?"}
+        ] },
+        {"tip":"Hindi uses “have done” more freely than English: {{वह कल आया है|vah kal āyā hai}}, word for word “he has come yesterday”, is fine Hindi for “he came yesterday (and he's still here)”."}
+      ],
+      "mistakes": [
+        {"wrong":"मैं यह फ़िल्म देखा है।","right":"मैंने यह फ़िल्म देखी है।","tr":"I've seen this movie.","why":"“Have done” keeps the {{ने|ne}} rules: {{मैंने|maĩne}}, and {{देखी|dekhī}} for {{फ़िल्म|film}}."},
+        {"wrong":"मैं पहली बार भारत आया हूँ।","right":"मैं पहली बार भारत आई हूँ।","tr":"This is my first time in India.","why":"A woman is speaking: {{आई हूँ|āī hū̃}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"क्या आप कभी भारत ___ हैं?","tr":"Have you ever been to India?","options":["गए","गया","जाते"],"answer":0,"why":"{{आप|āp}}: {{गए हैं|gae haĩ}}.","r":"kyā āp kabhī bhārat ___ haĩ?","rs":["gae","gayā","jāte"]},
+        {"type":"fill","q":"Choose the right form.","t":"मैंने यह किताब ___ है।","tr":"I've read this book.","options":["पढ़ी","पढ़ा","पढ़े"],"answer":0,"why":"With {{ने|ne}}, it agrees with {{किताब|kitāb}} (feminine).","from":"say-what-you-did","r":"maĩne yah kitāb ___ hai.","rs":["paṛhī","paṛhā","paṛhe"]},
+        {"type":"choice","q":"{{हमने अभी तक खाना नहीं खाया।|hamne abhī tak khānā nahī̃ khāyā.}} means…","options":["We haven't eaten yet.","We never eat.","We didn't eat yesterday."],"answer":0,"why":"{{अभी तक … नहीं|abhī tak … nahī̃}}: not yet."},
+        {"type":"order","q":"Put the words in order.","tr":"This is my first time in India. (a man)","words":["मैं","पहली","बार","भारत","आया","हूँ।"],"rs":["maĩ","pahlī","bār","bhārat","āyā","hū̃."]},
+        {"type":"dialogue","q":"A new friend asks about your travels. Choose your replies (you're a man).","from":"ask-about-routines","lines":[{"who":"Friend","t":"क्या तुमने कभी गोलगप्पे खाए हैं?","r":"kyā tumne kabhī golgappe khāe haĩ?","tr":"Have you ever had golgappas?"},{"options":["हाँ, मैंने कई बार खाए हैं!","हाँ, मैं कई बार खाया हूँ!"],"answer":0,"why":"{{ने|ne}}, and {{खाए|khāe}} for the golgappas (plural).","rs":["hā̃, maĩne kaī bār khāe haĩ!","hā̃, maĩ kaī bār khāyā hū̃!"]},{"who":"Friend","t":"और तुम कभी जयपुर गए हो?","r":"aur tum kabhī jaypur gae ho?","tr":"And have you ever been to Jaipur?"},{"options":["नहीं, मैं वहाँ कभी नहीं गया।","नहीं, मैंने वहाँ कभी नहीं गया।"],"answer":0,"why":"{{जाना|jānā}} never takes {{ने|ne}}; “never” is {{कभी … नहीं|kabhī … nahī̃}}.","rs":["nahī̃, maĩ vahā̃ kabhī nahī̃ gayā.","nahī̃, maĩne vahā̃ kabhī nahī̃ gayā."]}]},
+        {"type":"say","q":"Ask a friend: “Have you ever seen a snake?”","answer":"तुमने कभी साँप देखा है?","r":"tumne kabhī sā̃p dekhā hai?"},
+        {"type":"free","q":"Your turn: say one thing you have done many times, and one thing you have never done.","answers":[{"t":"मैं कई बार मेक्सिको गया हूँ, लेकिन मैंने कभी बर्फ़ नहीं देखी।","r":"maĩ kaī bār meksiko gayā hū̃, lekin maĩne kabhī barf nahī̃ dekhī.","tr":"I've been to Mexico many times, but I've never seen snow. (a man)"},{"t":"मैंने यह फ़िल्म तीन बार देखी है! लेकिन मैंने कभी हिंदी गाना नहीं गाया।","r":"maĩne yah film tīn bār dekhī hai! lekin maĩne kabhī hindī gānā nahī̃ gāyā.","tr":"I've seen this movie three times! But I've never sung a Hindi song."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-used-to-do",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what life used to be like",
+      "summary": "Talk about your childhood and the old days: “When I was little, we used to go to my grandmother's.”",
+      "topic": "{{-ता था|-tā thā}} “used to”; {{जब मैं छोटा था|jab maĩ chhoṭā thā}} “when I was little”; {{बचपन में|bachpan mẽ}}, {{पहले|pahle}}",
+      "blocks": [
+        {"goal":{"t":"जब मैं छोटा था, मैं हर गर्मी में दादी के घर जाता था।","r":"jab maĩ chhoṭā thā, maĩ har garmī mẽ dādī ke ghar jātā thā.","tr":"When I was little, I used to go to my grandmother's every summer.","note":"said by a man; a woman says {{छोटी थी|chhoṭī thī}} … {{जाती थी|jātī thī}}"}},
+        {"dialog":[{"who":"Anya","t":"दादी, आप बचपन में कहाँ रहती थीं?","r":"dādī, āp bachpan mẽ kahā̃ rahtī thī̃?","tr":"Grandma, where did you live as a child?"},{"who":"Grandma","t":"हम एक छोटे गाँव में रहते थे। वहाँ बिजली नहीं थी।","r":"ham ek chhoṭe gā̃v mẽ rahte the. vahā̃ bijlī nahī̃ thī.","tr":"We lived in a small village. There was no electricity there."},{"who":"Anya","t":"तो आप शाम को क्या करती थीं?","r":"to āp shām ko kyā kartī thī̃?","tr":"So what did you do in the evenings?"},{"who":"Grandma","t":"हम कहानियाँ सुनते थे और गाने गाते थे। मेरे पिताजी बहुत अच्छी कहानियाँ सुनाते थे।","r":"ham kahāniyā̃ sunte the aur gāne gāte the. mere pitājī bahut achchhī kahāniyā̃ sunāte the.","tr":"We listened to stories and sang songs. My father used to tell really good stories."}]},
+        {"p":"**Used to.** For what happened again and again in the past, take the present of lesson 14 and put {{था|thā}} where {{है|hai}} was: {{मैं जाता हूँ|maĩ jātā hū̃}} “I go” → {{मैं जाता था|maĩ jātā thā}} “I used to go”. Both parts agree with the person: {{मैं जाती थी|maĩ jātī thī}} (a woman), {{हम जाते थे|ham jāte the}}, {{वे जाती थीं|ve jātī thī̃}} (women)."},
+        { "table": [
+          ["","masculine","feminine"],
+          ["I","{{मैं खेलता था|maĩ kheltā thā}}","{{मैं खेलती थी|maĩ kheltī thī}}"],
+          ["he, she","{{वह खेलता था|vah kheltā thā}}","{{वह खेलती थी|vah kheltī thī}}"],
+          ["you, we, they","{{खेलते थे|khelte the}}","{{खेलती थीं|kheltī thī̃}}"]
+        ] },
+        {"p":"**No {{ने|ne}} here.** {{ने|ne}} goes only with the single finished past ({{मैंने खाया|maĩne khāyā}}). For “used to”, transitive verbs are just like the others: {{मैं रोज़ दूध पीता था|maĩ roz dūdh pītā thā}} “I used to drink milk every day”."},
+        {"p":"**When I was little.** {{जब|jab}} means “when”: {{जब मैं छोटा था|jab maĩ chhoṭā thā}} “when I was little”, {{जब मैं कॉलेज में थी|jab maĩ kôlej mẽ thī}} “when I was at college”. Then say what used to happen. {{बचपन में|bachpan mẽ}} is “as a child”, {{पहले|pahle}} “before, in the old days”."},
+        { "ex": [
+          {"t":"मैं पहले बहुत चाय पीता था।","r":"maĩ pahle bahut chāy pītā thā.","tr":"I used to drink a lot of tea."},
+          {"t":"हम हर रविवार को क्रिकेट खेलते थे।","r":"ham har ravivār ko krikeṭ khelte the.","tr":"We used to play cricket every Sunday."},
+          {"t":"मेरी माँ हमें कहानियाँ सुनाती थीं।","r":"merī mā̃ hamẽ kahāniyā̃ sunātī thī̃.","tr":"My mother used to tell us stories.","note":"{{थीं|thī̃}}: respect"},
+          {"t":"मेरे दादा खेती करते थे।","r":"mere dādā khetī karte the.","tr":"My grandfather was a farmer.","note":"word for word “used to do farming”"},
+          {"t":"जब मैं छोटी थी, मुझे सब्ज़ियाँ पसंद नहीं थीं।","r":"jab maĩ chhoṭī thī, mujhe sabziyā̃ pasand nahī̃ thī̃.","tr":"When I was little, I didn't like vegetables.","note":"a woman speaking"},
+          {"t":"वह पहले यहाँ काम करता था।","r":"vah pahle yahā̃ kām kartā thā.","tr":"He used to work here."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैंने हर दिन दूध पीता था।","right":"मैं हर दिन दूध पीता था।","tr":"I used to drink milk every day.","why":"No {{ने|ne}} with “used to”: just {{मैं|maĩ}}."},
+        {"wrong":"जब मैं छोटा था, मैं गाँव में रहता हूँ।","right":"जब मैं छोटा था, मैं गाँव में रहता था।","tr":"When I was little, I lived in a village.","why":"In the past: {{था|thā}} instead of {{हूँ|hū̃}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"हम हर रविवार को क्रिकेट ___ थे।","tr":"We used to play cricket every Sunday.","options":["खेलते","खेलता","खेले"],"answer":0,"why":"{{हम|ham}}: {{-ते थे|-te the}}.","r":"ham har ravivār ko krikeṭ ___ the.","rs":["khelte","kheltā","khele"]},
+        {"type":"fill","q":"Choose the right word.","t":"मेरी बहन बहुत अच्छा गाती ___।","tr":"My sister used to sing really well.","options":["थी","था","थे"],"answer":0,"why":"{{बहन|bahan}}: {{-ती थी|-tī thī}}.","from":"say-where-you-were","r":"merī bahan bahut achchhā gātī ___.","rs":["thī","thā","the"]},
+        {"type":"choice","q":"Which one means “I used to drink a lot of tea”?","options":["{{मैं बहुत चाय पीता था।|maĩ bahut chāy pītā thā.}}","{{मैंने बहुत चाय पी।|maĩne bahut chāy pī.}}","{{मैं बहुत चाय पी रहा हूँ।|maĩ bahut chāy pī rahā hū̃.}}"],"answer":0,"why":"“Used to”: {{-ता था|-tā thā}}, without {{ने|ne}}. ({{मैंने बहुत चाय पी|maĩne bahut chāy pī}} is “I drank a lot of tea”, once.)","from":"say-what-you-did"},
+        {"type":"order","q":"Put the words in order.","tr":"My grandfather was a farmer.","words":["मेरे","दादा","खेती","करते","थे।"],"rs":["mere","dādā","khetī","karte","the."]},
+        {"type":"dialogue","q":"A friend asks about your childhood. Choose your replies (you're a woman).","from":"around-town","lines":[{"who":"Friend","t":"बचपन में तुम कहाँ रहती थीं?","r":"bachpan mẽ tum kahā̃ rahtī thī̃?","tr":"Where did you live as a child?"},{"options":["मैं एक छोटे शहर में रहती थी।","मैं एक छोटा शहर में रहती थी।"],"answer":0,"why":"Before {{में|mẽ}}: {{छोटे शहर|chhoṭe shahar}} (the oblique form, lesson 9).","rs":["maĩ ek chhoṭe shahar mẽ rahtī thī.","maĩ ek chhoṭā shahar mẽ rahtī thī."]},{"who":"Friend","t":"और स्कूल के बाद क्या करती थीं?","r":"aur skūl ke bād kyā kartī thī̃?","tr":"And what did you do after school?"},{"options":["मैं दोस्तों के साथ खेलती थी।","मैंने दोस्तों के साथ खेलती थी।"],"answer":0,"why":"No {{ने|ne}} with “used to”.","rs":["maĩ dostõ ke sāth kheltī thī.","maĩne dostõ ke sāth kheltī thī."]}]},
+        {"type":"say","q":"Say: “He used to work here.”","answer":"वह पहले यहाँ काम करता था।","r":"vah pahle yahā̃ kām kartā thā."},
+        {"type":"free","q":"Your turn: say two things you used to do when you were little. Start with {{जब मैं छोटा था…|jab maĩ chhoṭā thā…}} (a woman: {{जब मैं छोटी थी…|jab maĩ chhoṭī thī…}})","answers":[{"t":"जब मैं छोटा था, मैं हर दिन फ़ुटबॉल खेलता था और बहुत टीवी देखता था।","r":"jab maĩ chhoṭā thā, maĩ har din fuṭbôl kheltā thā aur bahut ṭīvī dekhtā thā.","tr":"When I was little, I used to play soccer every day and watch a lot of TV."},{"t":"जब मैं छोटी थी, हम गर्मियों में दादी के घर जाते थे।","r":"jab maĩ chhoṭī thī, ham garmiyõ mẽ dādī ke ghar jāte the.","tr":"When I was little, we used to go to my grandmother's in the summer."}]}
+      ]
+    },
+    {
+      "id": "say-what-was-going-on",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what was going on when something happened",
+      "summary": "Say “I was sleeping when you called”, “It was raining”: the background of a story.",
+      "topic": "{{रहा था|rahā thā}} “was doing”, beside the simple past and {{-ता था|-tā thā}}",
+      "blocks": [
+        {"goal":{"t":"जब तुमने फ़ोन किया, मैं खाना बना रहा था।","r":"jab tumne fon kiyā, maĩ khānā banā rahā thā.","tr":"When you called, I was cooking.","note":"said by a man; a woman says {{बना रही थी|banā rahī thī}}"}},
+        {"dialog":[{"who":"Kiran","t":"कल रात मैंने तुम्हें तीन बार फ़ोन किया! तुम क्या कर रहे थे?","r":"kal rāt maĩne tumhẽ tīn bār fon kiyā! tum kyā kar rahe the?","tr":"I called you three times last night! What were you doing?"},{"who":"Max","t":"माफ़ करना! मैं सो रहा था।","r":"māf karnā! maĩ so rahā thā.","tr":"Sorry! I was asleep."},{"who":"Kiran","t":"नौ बजे?","r":"nau baje?","tr":"At nine?"},{"who":"Max","t":"हाँ, मैं बहुत थका हुआ था। क्या हुआ?","r":"hā̃, maĩ bahut thakā huā thā. kyā huā?","tr":"Yes, I was really tired. What happened?"},{"who":"Kiran","t":"हम सब पार्क में खाना खा रहे थे। हम तुम्हें बुलाना चाहते थे!","r":"ham sab pārk mẽ khānā khā rahe the. ham tumhẽ bulānā chāhte the!","tr":"We were all having dinner in the park. We wanted to invite you!"}]},
+        {"p":"**Was doing.** For something that was going on at a moment in the past, take the present continuous of lesson 17 and put {{था|thā}} where {{है|hai}} was: {{मैं सो रहा हूँ|maĩ so rahā hū̃}} “I'm sleeping” → {{मैं सो रहा था|maĩ so rahā thā}} “I was sleeping”. Both parts agree with the person, and there is never a {{ने|ne}}."},
+        { "table": [
+          ["","masculine","feminine"],
+          ["one","{{वह पढ़ रहा था|vah paṛh rahā thā}}","{{वह पढ़ रही थी|vah paṛh rahī thī}}"],
+          ["more than one, or {{आप, तुम, हम|āp, tum, ham}}","{{वे पढ़ रहे थे|ve paṛh rahe the}}","{{वे पढ़ रही थीं|ve paṛh rahī thī̃}}"]
+        ] },
+        {"p":"**The background and the event.** When you tell a story, the background (what was going on) takes {{रहा था|rahā thā}}, and the event that happened takes the simple past: {{जब मैं घर जा रहा था, बारिश शुरू हुई|jab maĩ ghar jā rahā thā, bārish shurū huī}} “As I was going home, it started to rain”. The three pasts you know now:"},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["it happened (once)","{{मैंने खाना खाया।|maĩne khānā khāyā.}}","I ate."],
+          ["it used to happen","{{मैं वहाँ खाना खाता था।|maĩ vahā̃ khānā khātā thā.}}","I used to eat there."],
+          ["it was going on","{{मैं खाना खा रहा था।|maĩ khānā khā rahā thā.}}","I was eating."]
+        ] },
+        { "ex": [
+          {"t":"कल इस समय मैं दफ़्तर में काम कर रहा था।","r":"kal is samay maĩ daftar mẽ kām kar rahā thā.","tr":"At this time yesterday I was working at the office."},
+          {"t":"बाहर बारिश हो रही थी।","r":"bāhar bārish ho rahī thī.","tr":"It was raining outside."},
+          {"t":"बच्चे सो रहे थे।","r":"bachche so rahe the.","tr":"The children were sleeping."},
+          {"t":"तुम किससे बात कर रही थीं?","r":"tum kisse bāt kar rahī thī̃?","tr":"Who were you talking to?","note":"to a woman; {{किससे|kisse}} “with whom”"},
+          {"t":"जब मैं पहुँचा, वे खाना खा रहे थे।","r":"jab maĩ pahũchā, ve khānā khā rahe the.","tr":"When I arrived, they were eating."},
+          {"t":"मुझे तुम्हारी चिंता हो रही थी।","r":"mujhe tumhārī chintā ho rahī thī.","tr":"I was worried about you.","note":"word for word “to me your worry was happening”"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैंने सो रहा था।","right":"मैं सो रहा था।","tr":"I was sleeping.","why":"Never {{ने|ne}} with {{रहा था|rahā thā}}."},
+        {"wrong":"जब तुमने फ़ोन किया, मैंने खाना बनाया।","right":"जब तुमने फ़ोन किया, मैं खाना बना रहा था।","tr":"When you called, I was cooking.","why":"What was going on when something happened: {{रहा था|rahā thā}}. ({{मैंने खाना बनाया|maĩne khānā banāyā}} would mean you started cooking because of the call.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"बच्चे सो ___ थे।","tr":"The children were sleeping.","options":["रहे","रहा","रही"],"answer":0,"why":"{{बच्चे|bachche}}: plural, {{रहे|rahe}}.","r":"bachche so ___ the.","rs":["rahe","rahā","rahī"]},
+        {"type":"fill","q":"A woman is speaking. Choose the right form.","t":"जब तुमने फ़ोन किया, मैं खाना बना रही ___।","tr":"When you called, I was cooking.","options":["थी","था","थीं"],"answer":0,"why":"{{मैं|maĩ}}, a woman: {{थी|thī}}.","r":"jab tumne fon kiyā, maĩ khānā banā rahī ___.","rs":["thī","thā","thī̃"]},
+        {"type":"choice","q":"Which one means “I was eating”?","options":["{{मैं खाना खा रहा था।|maĩ khānā khā rahā thā.}}","{{मैंने खाना खाया।|maĩne khānā khāyā.}}","{{मैं खाना खाता था।|maĩ khānā khātā thā.}}"],"answer":0,"why":"Going on at that time: {{रहा था|rahā thā}}.","from":"say-what-you-used-to-do"},
+        {"type":"order","q":"Put the words in order.","tr":"It was raining outside.","words":["बाहर","बारिश","हो","रही","थी।"],"from":"say-whats-happening-now","rs":["bāhar","bārish","ho","rahī","thī."]},
+        {"type":"dialogue","q":"Your friend asks why you didn't answer. Choose your replies (you're a man).","lines":[{"who":"Friend","t":"मैंने तुम्हें दो बार फ़ोन किया! तुम क्या कर रहे थे?","r":"maĩne tumhẽ do bār fon kiyā! tum kyā kar rahe the?","tr":"I called you twice! What were you doing?"},{"options":["मैं गाड़ी चला रहा था।","मैंने गाड़ी चला रहा था।"],"answer":0,"why":"No {{ने|ne}} with {{रहा था|rahā thā}}.","rs":["maĩ gāṛī chalā rahā thā.","maĩne gāṛī chalā rahā thā."]},{"who":"Friend","t":"अच्छा। कहाँ जा रहे थे?","r":"achchhā. kahā̃ jā rahe the?","tr":"OK. Where were you going?"},{"options":["मैं दफ़्तर जा रहा था।","मैं दफ़्तर जा रहा हूँ था।"],"answer":0,"why":"{{जा रहा था|jā rahā thā}}: “was going”.","rs":["maĩ daftar jā rahā thā.","maĩ daftar jā rahā hū̃ thā."]}]},
+        {"type":"say","q":"Ask your friend Meena: “Who were you talking to?”","answer":"तुम किससे बात कर रही थीं?","r":"tum kisse bāt kar rahī thī̃?"},
+        {"type":"free","q":"Your turn: say what you were doing at eight o'clock yesterday evening, and what someone at home was doing.","answers":[{"t":"कल रात आठ बजे मैं खाना खा रहा था, और मेरी बेटी पढ़ रही थी।","r":"kal rāt āṭh baje maĩ khānā khā rahā thā, aur merī beṭī paṛh rahī thī.","tr":"At eight last night I was having dinner, and my daughter was studying."},{"t":"आठ बजे मैं जिम से घर आ रही थी, और मेरे पति खाना बना रहे थे।","r":"āṭh baje maĩ jim se ghar ā rahī thī, aur mere pati khānā banā rahe the.","tr":"At eight I was coming home from the gym, and my husband was cooking."}]}
+      ]
     }
   ]
 }
