@@ -22,12 +22,12 @@
    "title": "Thai grammar",
    "variety": "Central Thai (standard Thai, as spoken in Bangkok)",
    "units": 9,
-   "lessons": 7,
+   "lessons": 14,
    "levels": [
     "A1"
    ],
-   "bytes": 49280,
-   "sha256": "2fe7c36919de89bd48bdd86757c351ff20458e906adcc5f8d8df6da2a432c68a"
+   "bytes": 103390,
+   "sha256": "8a6c984f96a9722d77bc6c074d977d26a93ac601cb9d330482ea604709d57596"
   }
  }
 }

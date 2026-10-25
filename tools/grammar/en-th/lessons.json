@@ -315,6 +315,335 @@
         {"type":"say","q":"You're a woman. Say “She's my friend.”","answer":"เขาเป็นเพื่อนฉันค่ะ","r":"kǎo bpen pʉ̂ʉan chǎn kâ"},
         {"type":"free","q":"Your turn: introduce someone you know: who they are, their name and what they do.","answers":[{"t":"นี่คือเพื่อนผมครับ เขาชื่อเจมส์ เขาเป็นครูครับ","r":"nîi kʉʉ pʉ̂ʉan pǒm kráp, kǎo chʉ̂ʉ jeem, kǎo bpen kruu kráp","tr":"This is my friend. His name is James. He's a teacher."},{"t":"แม่ฉันชื่อลินดาค่ะ เขาเป็นพยาบาลค่ะ","r":"mɛ̂ɛ chǎn chʉ̂ʉ lin-daa kâ, kǎo bpen pá-yaa-baan kâ","tr":"My mom's name is Linda. She's a nurse."}]}
       ]
+    },
+    {
+      "id": "ask-for-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask for what you want in a café or a shop",
+      "summary": "Order a drink, ask for the menu or the bill, and ask whether you may do something: with {{ขอ|kɔ̌ɔ}} and {{ได้ไหม|dâai mǎi}}.",
+      "topic": "{{ขอ|kɔ̌ɔ}} + a thing (+ {{หน่อย|nɔ̀i}}); {{เอา|ao}} “I'll take”; {{…ได้ไหม|dâai mǎi}} “can I…?, could you…?”",
+      "blocks": [
+        {"goal":{"t":"ขอกาแฟเย็นหน่อยครับ","r":"kɔ̌ɔ gaa-fɛɛ yen nɔ̀i kráp","tr":"Could I have an iced coffee, please?"}},
+        {"dialog":[{"who":"Barista","t":"รับอะไรดีคะ","r":"ráp à-rai dii ká","tr":"What would you like?"},{"who":"Tom","t":"ขอกาแฟเย็นหน่อยครับ หวานน้อยได้ไหมครับ","r":"kɔ̌ɔ gaa-fɛɛ yen nɔ̀i kráp, wǎan nɔ́ɔi dâai mǎi kráp","tr":"An iced coffee, please. Can I have it less sweet?"},{"who":"Barista","t":"ได้ค่ะ ทานที่นี่ไหมคะ","r":"dâai kâ, taan tîi-nîi mǎi ká","tr":"Sure. For here?"},{"who":"Tom","t":"เอากลับบ้านครับ","r":"ao glàp bâan kráp","tr":"To go, please."}]},
+        {"p":"**ขอ, “may I have”.** {{ขอ|kɔ̌ɔ}} and the thing you want is the everyday way to ask for something: {{ขอน้ำ|kɔ̌ɔ náam}} “water, please”. It's polite as it is; {{หน่อย|nɔ̀i}} “a little” at the end makes it softer, a bit like “please”."},
+        {"p":"**เอา, “I'll take”.** When you choose between things, {{เอา|ao}} “take” is the usual word: {{เอากาแฟร้อน|ao gaa-fɛɛ rɔ́ɔn}} “(I'll take) a hot coffee”. Staff ask {{รับอะไรดี|ráp à-rai dii}} “what will you have?”, or {{เอาอะไร|ao à-rai}} in a street stall."},
+        {"p":"**Can I…? Could you…?** Put {{ได้ไหม|dâai mǎi}} “is that possible?” after what you'd like: {{ขอเมนูได้ไหม|kɔ̌ɔ mee-nuu dâai mǎi}} “could I have the menu?”, {{จ่ายด้วยบัตรได้ไหม|jàai dûai bàt dâai mǎi}} “can I pay by card?”. The answer is {{ได้|dâai}} “yes, you can” or {{ไม่ได้|mâi dâai}} “no, you can't”."},
+        { "table": [
+          ["you say","meaning"],
+          ["{{ขอน้ำเปล่าหน่อย|kɔ̌ɔ náam bplàao nɔ̀i}}","Some water, please."],
+          ["{{ขอเมนูได้ไหม|kɔ̌ɔ mee-nuu dâai mǎi}}","Could I have the menu?"],
+          ["{{เอาข้าวผัด|ao kâao-pàt}}","I'll have the fried rice."],
+          ["{{เก็บเงินด้วย|gèp ngən dûai}}","The bill, please."]
+        ] },
+        { "ex": [
+          {"t":"ขอน้ำเปล่าหน่อยค่ะ","r":"kɔ̌ɔ náam bplàao nɔ̀i kâ","tr":"Some water, please.","note":"{{น้ำเปล่า|náam bplàao}} “plain water”"},
+          {"t":"ขอเมนูได้ไหมครับ","r":"kɔ̌ɔ mee-nuu dâai mǎi kráp","tr":"Could I have the menu?"},
+          {"t":"เอาข้าวผัดกุ้งค่ะ","r":"ao kâao-pàt gûng kâ","tr":"I'll have the shrimp fried rice."},
+          {"t":"ไม่เผ็ดได้ไหมคะ","r":"mâi pèt dâai mǎi ká","tr":"Can you make it not spicy?"},
+          {"t":"จ่ายด้วยบัตรได้ไหมครับ","r":"jàai dûai bàt dâai mǎi kráp","tr":"Can I pay by card?"},
+          {"t":"เก็บเงินด้วยครับ","r":"gèp ngən dûai kráp","tr":"The bill, please.","note":"word for word “collect the money, too”"}
+        ] },
+        {"tip":"{{ได้ไหม|dâai mǎi}} asks for permission as well: {{นั่งตรงนี้ได้ไหม|nâng dtrong-níi dâai mǎi}} “can I sit here?”. You'll meet {{ได้|dâai}} again for “can, be able to”."}
+      ],
+      "mistakes": [
+        {"wrong":"ฉันต้องการกาแฟค่ะ","right":"ขอกาแฟหน่อยค่ะ","tr":"A coffee, please.","why":"{{ต้องการ|dtɔ̂ng-gaan}} “want, need” is formal and sounds demanding at a counter. To order, say {{ขอ|kɔ̌ɔ}}."},
+        {"wrong":"ได้ไหมขอเมนูครับ","right":"ขอเมนูได้ไหมครับ","tr":"Could I have the menu?","why":"{{ได้ไหม|dâai mǎi}} goes at the end, after what you ask for."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the word for asking: {{ขอ|kɔ̌ɔ}} “may I have” or {{คือ|kʉʉ}} “is”.","t":"___น้ำเปล่าหน่อยค่ะ","tr":"Some water, please.","options":["ขอ","คือ"],"answer":0,"why":"Asking for a thing: {{ขอ|kɔ̌ɔ}}."},
+        {"type":"choice","q":"You'd like to pay by card. You ask…","options":["{{จ่ายด้วยบัตรได้ไหม|jàai dûai bàt dâai mǎi}}","{{จ่ายด้วยบัตรไหม|jàai dûai bàt mǎi}}","{{ได้ไหมจ่ายด้วยบัตร|dâai mǎi jàai dûai bàt}}"],"answer":0,"why":"“Is it possible?” is {{ได้ไหม|dâai mǎi}}, at the end. Plain {{ไหม|mǎi}} would ask “do you pay by card?”."},
+        {"type":"order","q":"Put the words in order.","tr":"Could I have the menu? (a woman asking)","words":["ขอ","เมนู","ได้","ไหม","คะ"]},
+        {"type":"fill","q":"The waiter is younger than you. Call him: {{น้อง|nɔ́ɔng}} or {{มัน|man}}?","t":"___ครับ ขอน้ำหน่อยครับ","tr":"Excuse me, some water please.","options":["น้อง","มัน"],"answer":0,"why":"Someone younger is {{น้อง|nɔ́ɔng}}; {{มัน|man}} is only for animals and things.","from":"talk-about-others"},
+        {"type":"dialogue","q":"At a noodle stall. Choose your replies (you're a woman).","from":"ask-yes-no","lines":[{"who":"Cook","t":"เอาอะไรครับ","r":"ao à-rai kráp","tr":"What'll it be?"},{"options":["ขอก๋วยเตี๋ยวหมูค่ะ","คือก๋วยเตี๋ยวหมูค่ะ"],"answer":0,"why":"Asking for something: {{ขอ|kɔ̌ɔ}}."},{"who":"Cook","t":"เผ็ดไหมครับ","r":"pèt mǎi kráp","tr":"Spicy?"},{"options":["ไม่เผ็ดค่ะ","ไม่ใช่ค่ะ"],"answer":0,"why":"Answer with the adjective: {{ไม่เผ็ด|mâi pèt}}."},{"who":"Cook","t":"ได้ครับ","r":"dâai kráp","tr":"OK."}]},
+        {"type":"say","q":"You're a man. Ask for the bill.","answer":"เก็บเงินด้วยครับ","r":"gèp ngən dûai kráp"},
+        {"type":"free","q":"Your turn: you're at a café. Order a drink, and ask for one thing (less sweet, no sugar, a seat…).","answers":[{"t":"ขอชาเย็นหน่อยครับ หวานน้อยได้ไหมครับ","r":"kɔ̌ɔ chaa yen nɔ̀i kráp, wǎan nɔ́ɔi dâai mǎi kráp","tr":"A Thai iced tea, please. Can I have it less sweet?"},{"t":"ขอกาแฟร้อนค่ะ ไม่ใส่น้ำตาลได้ไหมคะ","r":"kɔ̌ɔ gaa-fɛɛ rɔ́ɔn kâ, mâi sài nám-dtaan dâai mǎi ká","tr":"A hot coffee, please. Could you leave out the sugar?"}]}
+      ]
+    },
+    {
+      "id": "when-you-dont-understand",
+      "unit": 2,
+      "level": "A1",
+      "title": "Keep going when you don't understand",
+      "summary": "Ask people to slow down, to say it again or to explain a word: the phrases that keep a conversation going.",
+      "topic": "{{ช่วย|chûai}} + a verb + {{หน่อย|nɔ̀i}} “please (do)”; {{ไม่เข้าใจ|mâi kâo-jai}}; {{อีกที|ìik tii}}; {{แปลว่าอะไร|bplɛɛ wâa à-rai}}; doubled words ({{ช้าๆ|cháa-cháa}})",
+      "blocks": [
+        {"goal":{"t":"ช่วยพูดช้าๆ หน่อยได้ไหมคะ","r":"chûai pûut cháa-cháa nɔ̀i dâai mǎi ká","tr":"Could you speak slowly, please?"}},
+        {"dialog":[{"who":"Shopkeeper","t":"วันนี้มีโปรนะคะ ซื้อสองแถมหนึ่งค่ะ","r":"wan-níi mii bproo ná ká, sʉ́ʉ sɔ̌ɔng tɛ̌ɛm nʉ̀ng kâ","tr":"We have a special offer today: buy two, get one free."},{"who":"Tom","t":"ขอโทษครับ ผมไม่เข้าใจ ช่วยพูดอีกทีได้ไหมครับ","r":"kɔ̌ɔ-tôot kráp, pǒm mâi kâo-jai, chûai pûut ìik tii dâai mǎi kráp","tr":"Sorry, I don't understand. Could you say it again?"},{"who":"Shopkeeper","t":"ซื้อสอง แถมหนึ่งค่ะ","r":"sʉ́ʉ sɔ̌ɔng, tɛ̌ɛm nʉ̀ng kâ","tr":"Buy two… get one free."},{"who":"Tom","t":"แถมแปลว่าอะไรครับ","r":"tɛ̌ɛm bplɛɛ wâa à-rai kráp","tr":"What does “taem” mean?"},{"who":"Shopkeeper","t":"แปลว่าให้ฟรีค่ะ","r":"bplɛɛ wâa hâi frii kâ","tr":"It means you get it free."},{"who":"Tom","t":"อ๋อ เข้าใจแล้วครับ ขอบคุณครับ","r":"ɔ̌ɔ, kâo-jai lɛ́ɛo kráp, kɔ̀ɔp-kun kráp","tr":"Oh, I see now. Thank you."}]},
+        {"p":"**Please do…** {{ช่วย|chûai}} means “help”. Put it before a verb and {{หน่อย|nɔ̀i}} after, and you have a polite request: {{ช่วยพูดอีกทีหน่อย|chûai pûut ìik tii nɔ̀i}} “please say it again”. Add {{ได้ไหม|dâai mǎi}} to make it a question, and it's softer still: {{ช่วยพูดช้าๆ หน่อยได้ไหม|chûai pûut cháa-cháa nɔ̀i dâai mǎi}} “could you speak slowly?”."},
+        {"p":"**Doubled words.** Saying an adjective twice makes it gentler, “nice and…”: {{ช้าๆ|cháa-cháa}} “nice and slow”, {{ดีๆ|dii-dii}} “nicely, properly”. In writing, the second one is the little mark ๆ."},
+        {"p":"**Not understanding.** {{เข้าใจ|kâo-jai}} is “understand”: {{ไม่เข้าใจ|mâi kâo-jai}} “I don't understand”, {{เข้าใจแล้ว|kâo-jai lɛ́ɛo}} “I get it now”. To ask what a word means, say the word, then {{แปลว่าอะไร|bplɛɛ wâa à-rai}} “translates as what?”."},
+        { "table": [
+          ["you say","meaning"],
+          ["{{ไม่เข้าใจครับ|mâi kâo-jai kráp}}","I don't understand."],
+          ["{{ช่วยพูดอีกทีได้ไหมคะ|chûai pûut ìik tii dâai mǎi ká}}","Could you say that again?"],
+          ["{{ช่วยพูดช้าๆ หน่อยครับ|chûai pûut cháa-cháa nɔ̀i kráp}}","Please speak slowly."],
+          ["{{คำนี้แปลว่าอะไรคะ|kam níi bplɛɛ wâa à-rai ká}}","What does this word mean?"],
+          ["{{พูดภาษาอังกฤษได้ไหมครับ|pûut paa-sǎa ang-grìt dâai mǎi kráp}}","Can you speak English?"]
+        ] },
+        { "ex": [
+          {"t":"ขอโทษค่ะ ฉันไม่เข้าใจค่ะ","r":"kɔ̌ɔ-tôot kâ, chǎn mâi kâo-jai kâ","tr":"Sorry, I don't understand."},
+          {"t":"ช่วยพูดอีกทีได้ไหมครับ","r":"chûai pûut ìik tii dâai mǎi kráp","tr":"Could you say that again?"},
+          {"t":"ช่วยพูดช้าๆ หน่อยค่ะ","r":"chûai pûut cháa-cháa nɔ̀i kâ","tr":"Please speak slowly."},
+          {"t":"ช่วยเขียนให้หน่อยได้ไหมคะ","r":"chûai kǐian hâi nɔ̀i dâai mǎi ká","tr":"Could you write it down for me?"},
+          {"t":"คำนี้แปลว่าอะไรครับ","r":"kam níi bplɛɛ wâa à-rai kráp","tr":"What does this word mean?"},
+          {"t":"เข้าใจแล้วค่ะ ขอบคุณมากค่ะ","r":"kâo-jai lɛ́ɛo kâ, kɔ̀ɔp-kun mâak kâ","tr":"I understand now. Thank you so much."}
+        ] },
+        {"tip":"Thais are delighted when a foreigner tries Thai. When you don't know a word, ask {{ภาษาไทยพูดว่าอะไร|paa-sǎa tai pûut wâa à-rai}} “how do you say it in Thai?”."}
+      ],
+      "mistakes": [
+        {"wrong":"ช่วยหน่อยพูดช้าๆ","right":"ช่วยพูดช้าๆ หน่อย","tr":"Please speak slowly.","why":"{{หน่อย|nɔ̀i}} goes at the end of the request (only {{ได้ไหม|dâai mǎi}} and {{ครับ|kráp}} / {{ค่ะ|kâ}} come after it)."},
+        {"wrong":"ผมไม่รู้ครับ","right":"ผมไม่เข้าใจครับ","tr":"I don't understand.","why":"{{ไม่รู้|mâi rúu}} is “I don't know (the answer)”. When you didn't follow what was said, it's {{ไม่เข้าใจ|mâi kâo-jai}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ช่วย|chûai}} “please (help)” or {{ขอ|kɔ̌ɔ}} “may I have”.","t":"___พูดอีกทีได้ไหมคะ","tr":"Could you say that again?","options":["ช่วย","ขอ"],"answer":0,"why":"Asking someone to *do* something: {{ช่วย|chûai}} + the verb. {{ขอ|kɔ̌ɔ}} asks for a thing."},
+        {"type":"choice","q":"You didn't catch what the driver said. You say…","options":["{{ไม่เข้าใจครับ|mâi kâo-jai kráp}}","{{ไม่รู้ครับ|mâi rúu kráp}}","{{ไม่ชอบครับ|mâi chɔ̂ɔp kráp}}"],"answer":0,"why":"Not following what was said: {{ไม่เข้าใจ|mâi kâo-jai}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Please speak slowly. (a woman asking)","words":["ช่วย","พูด","ช้าๆ","หน่อย","ค่ะ"]},
+        {"type":"dialogue","q":"At a pharmacy. Choose your replies (you're a man).","from":"ask-for-things","lines":[{"who":"Pharmacist","t":"กินยาหลังอาหารนะคะ","r":"gin yaa lǎng aa-hǎan ná ká","tr":"Take the medicine after meals."},{"options":["ขอโทษครับ ช่วยพูดอีกทีได้ไหมครับ","ขอโทษครับ ไม่เป็นไรครับ"],"answer":0,"why":"Ask her to say it again: {{ช่วยพูดอีกทีได้ไหม|chûai pûut ìik tii dâai mǎi}}."},{"who":"Pharmacist","t":"กินยา หลังอาหารค่ะ","r":"gin yaa, lǎng aa-hǎan kâ","tr":"Take the medicine… after meals."},{"options":["หลังอาหารแปลว่าอะไรครับ","หลังอาหารอยู่ที่ไหนครับ"],"answer":0,"why":"What do the words mean? {{แปลว่าอะไร|bplɛɛ wâa à-rai}}."},{"who":"Pharmacist","t":"แปลว่ากินข้าวเสร็จแล้วค่ะ","r":"bplɛɛ wâa gin kâao sèt lɛ́ɛo kâ","tr":"It means after you've finished eating."}]},
+        {"type":"say","q":"You're a woman. Ask “Can you speak English?”","answer":"คุณพูดภาษาอังกฤษได้ไหมคะ","r":"kun pûut paa-sǎa ang-grìt dâai mǎi ká"},
+        {"type":"free","q":"Your turn: someone speaks to you too fast. Say you don't understand, and ask them to slow down or say it again.","answers":[{"t":"ขอโทษครับ ผมไม่เข้าใจ ช่วยพูดช้าๆ หน่อยได้ไหมครับ","r":"kɔ̌ɔ-tôot kráp, pǒm mâi kâo-jai, chûai pûut cháa-cháa nɔ̀i dâai mǎi kráp","tr":"Sorry, I don't understand. Could you speak slowly, please?"},{"t":"ไม่เข้าใจค่ะ ช่วยพูดอีกทีได้ไหมคะ","r":"mâi kâo-jai kâ, chûai pûut ìik tii dâai mǎi ká","tr":"I don't understand. Could you say it again?"}]}
+      ]
+    },
+    {
+      "id": "count-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Count things: two coffees, three people",
+      "summary": "Count anything in Thai, with a number and a counting word: two coffees, three people, one cat.",
+      "topic": "Numbers; noun + number + classifier ({{คน|kon}}, {{ตัว|dtuua}}, {{แก้ว|gɛ̂ɛo}}, {{ขวด|kùuat}}, {{จาน|jaan}}, {{ใบ|bai}}, {{เล่ม|lêm}}, {{คัน|kan}}, {{อัน|an}}); {{กี่|gìi}} “how many”",
+      "blocks": [
+        {"goal":{"t":"ขอกาแฟเย็นสองแก้วค่ะ","r":"kɔ̌ɔ gaa-fɛɛ yen sɔ̌ɔng gɛ̂ɛo kâ","tr":"Two iced coffees, please."}},
+        {"dialog":[{"who":"Waiter","t":"กี่ท่านครับ","r":"gìi tâan kráp","tr":"How many people?"},{"who":"Anna","t":"สามคนค่ะ","r":"sǎam kon kâ","tr":"Three."},{"who":"Waiter","t":"ดื่มอะไรดีครับ","r":"dʉ̀ʉm à-rai dii kráp","tr":"What would you like to drink?"},{"who":"Anna","t":"ขอโค้กสองขวด แล้วก็น้ำเปล่าหนึ่งขวดค่ะ","r":"kɔ̌ɔ kóok sɔ̌ɔng kùuat, lɛ́ɛo-gɔ̂ náam bplàao nʉ̀ng kùuat kâ","tr":"Two Cokes and one water, please."},{"who":"Waiter","t":"ได้ครับ","r":"dâai kráp","tr":"Sure."}]},
+        {"term":"classifier","means":"a counting word that comes after a number and shows what kind of thing is counted, like “cups” in “two cups of tea”. Thai uses one with every number."},
+        {"p":"**A counting word for everything.** English counts a few things with a word in between: “two cups of tea”, “three pieces of paper”. Thai does it with everything: the noun, the number, then the **classifier**: {{กาแฟสองแก้ว|gaa-fɛɛ sɔ̌ɔng gɛ̂ɛo}} “coffee two glass”, {{เพื่อนสามคน|pʉ̂ʉan sǎam kon}} “friend three person”."},
+        { "table": [
+          ["","Thai","","Thai"],
+          ["1","{{หนึ่ง|nʉ̀ng}}","6","{{หก|hòk}}"],
+          ["2","{{สอง|sɔ̌ɔng}}","7","{{เจ็ด|jèt}}"],
+          ["3","{{สาม|sǎam}}","8","{{แปด|bpɛ̀ɛt}}"],
+          ["4","{{สี่|sìi}}","9","{{เก้า|gâao}}"],
+          ["5","{{ห้า|hâa}}","10","{{สิบ|sìp}}"]
+        ] },
+        {"p":"**Bigger numbers** are built like English: 12 is {{สิบสอง|sìp-sɔ̌ɔng}} “ten-two”, 30 {{สามสิบ|sǎam-sìp}} “three-ten”. Two changes: 20 is {{ยี่สิบ|yîi-sìp}}, and a 1 at the end of a bigger number is {{เอ็ด|èt}}: 11 {{สิบเอ็ด|sìp-èt}}, 21 {{ยี่สิบเอ็ด|yîi-sìp-èt}}. 100 is {{ร้อย|rɔ́ɔi}}, 1,000 {{พัน|pan}}."},
+        { "table": [
+          ["classifier","for","example"],
+          ["{{คน|kon}}","people","{{เพื่อนสองคน|pʉ̂ʉan sɔ̌ɔng kon}} two friends"],
+          ["{{ตัว|dtuua}}","animals; clothes; tables and chairs","{{แมวสามตัว|mɛɛo sǎam dtuua}} three cats"],
+          ["{{แก้ว|gɛ̂ɛo}}","glasses and cups of a drink","{{ชาสองแก้ว|chaa sɔ̌ɔng gɛ̂ɛo}} two teas"],
+          ["{{ขวด|kùuat}}","bottles","{{น้ำสองขวด|náam sɔ̌ɔng kùuat}} two bottles of water"],
+          ["{{จาน|jaan}}","plates of food","{{ข้าวผัดหนึ่งจาน|kâao-pàt nʉ̀ng jaan}} one fried rice"],
+          ["{{ใบ|bai}}","bags, cups, tickets, leaves","{{ตั๋วสองใบ|dtǔua sɔ̌ɔng bai}} two tickets"],
+          ["{{เล่ม|lêm}}","books, notebooks","{{หนังสือห้าเล่ม|nǎng-sʉ̌ʉ hâa lêm}} five books"],
+          ["{{คัน|kan}}","cars, bikes, umbrellas","{{รถสองคัน|rót sɔ̌ɔng kan}} two cars"],
+          ["{{อัน|an}}","small things, and anything when you don't know its classifier","{{ขนมสามอัน|kà-nǒm sǎam an}} three snacks"]
+        ] },
+        {"p":"**One, and how many.** With {{หนึ่ง|nʉ̀ng}} “one”, the number can also go after the classifier: {{กาแฟแก้วหนึ่ง|gaa-fɛɛ gɛ̂ɛo nʉ̀ng}} is as natural as {{กาแฟหนึ่งแก้ว|gaa-fɛɛ nʉ̀ng gɛ̂ɛo}}. “How many?” is {{กี่|gìi}} + the classifier: {{กี่คน|gìi kon}} “how many people?”. In restaurants staff say {{กี่ท่าน|gìi tâan}}: {{ท่าน|tâan}} is a very polite classifier for people."},
+        { "ex": [
+          {"t":"ขอชาเย็นสองแก้วครับ","r":"kɔ̌ɔ chaa yen sɔ̌ɔng gɛ̂ɛo kráp","tr":"Two Thai iced teas, please."},
+          {"t":"ฉันมีแมวสองตัวค่ะ","r":"chǎn mii mɛɛo sɔ̌ɔng dtuua kâ","tr":"I have two cats."},
+          {"t":"เราไปสี่คนครับ","r":"rao bpai sìi kon kráp","tr":"There are four of us going."},
+          {"t":"ขอข้าวผัดหนึ่งจานค่ะ","r":"kɔ̌ɔ kâao-pàt nʉ̀ng jaan kâ","tr":"One fried rice, please."},
+          {"t":"ขอตั๋วไปเชียงใหม่สองใบครับ","r":"kɔ̌ɔ dtǔua bpai chiiang-mài sɔ̌ɔng bai kráp","tr":"Two tickets to Chiang Mai, please."},
+          {"t":"มีกี่คนคะ","r":"mii gìi kon ká","tr":"How many people are there?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"ขอสองกาแฟค่ะ","right":"ขอกาแฟสองแก้วค่ะ","tr":"Two coffees, please.","why":"The number goes **after** the noun, and the classifier after the number: coffee, two, glasses."},
+        {"wrong":"ผมมีสองแมวครับ","right":"ผมมีแมวสองตัวครับ","tr":"I have two cats.","why":"The same order for everything: noun, number, classifier ({{ตัว|dtuua}} for animals)."},
+        {"wrong":"เพื่อนสองตัว","right":"เพื่อนสองคน","tr":"two friends","why":"{{ตัว|dtuua}} is for animals; people are counted with {{คน|kon}}. Using {{ตัว|dtuua}} for people is an insult."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which classifier counts people?","options":["{{คน|kon}}","{{ตัว|dtuua}}","{{อัน|an}}"],"answer":0,"why":"People: {{คน|kon}}. {{ตัว|dtuua}} is for animals and clothes."},
+        {"type":"fill","q":"Choose the classifier for bottles: {{ขวด|kùuat}}, {{คน|kon}} or {{เล่ม|lêm}}.","t":"ขอน้ำเปล่าสอง___ครับ","tr":"Two bottles of water, please.","options":["ขวด","คน","เล่ม"],"answer":0,"why":"Bottles: {{ขวด|kùuat}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Two iced coffees, please. (a woman asking)","words":["ขอ","กาแฟเย็น","สอง","แก้ว","ค่ะ"]},
+        {"type":"dialogue","q":"In a restaurant. Choose your replies (you're a man).","from":"ask-for-things","lines":[{"who":"Waiter","t":"กี่ท่านคะ","r":"gìi tâan ká","tr":"How many people?"},{"options":["สองคนครับ","สองตัวครับ"],"answer":0,"why":"People are counted with {{คน|kon}}."},{"who":"Waiter","t":"รับอะไรดีคะ","r":"ráp à-rai dii ká","tr":"What would you like?"},{"options":["ขอผัดไทยสองจานครับ","ขอสองผัดไทยครับ"],"answer":0,"why":"Noun, number, classifier: {{ผัดไทยสองจาน|pàt-tai sɔ̌ɔng jaan}}."}]},
+        {"type":"choice","q":"Where does {{กี่|gìi}} “how many” go?","options":["just before the classifier: {{กี่คน|gìi kon}}","after the classifier: {{คนกี่|kon gìi}}","at the start of the sentence"],"answer":0,"why":"{{กี่|gìi}} takes the number's place: {{สามคน|sǎam kon}} “three people”, {{กี่คน|gìi kon}} “how many people?”."},
+        {"type":"say","q":"You're a man at the station. Ask for three tickets to Ayutthaya.","answer":"ขอตั๋วไปอยุธยาสามใบครับ","r":"kɔ̌ɔ dtǔua bpai à-yút-tá-yaa sǎam bai kráp"},
+        {"type":"free","q":"Your turn: you're ordering for your friends. Ask for two or three things, each with its number and classifier.","answers":[{"t":"ขอกาแฟเย็นสองแก้ว แล้วก็ชาร้อนหนึ่งแก้วค่ะ","r":"kɔ̌ɔ gaa-fɛɛ yen sɔ̌ɔng gɛ̂ɛo, lɛ́ɛo-gɔ̂ chaa rɔ́ɔn nʉ̀ng gɛ̂ɛo kâ","tr":"Two iced coffees and one hot tea, please."},{"t":"ขอน้ำเปล่าสามขวด แล้วก็ข้าวผัดสองจานครับ","r":"kɔ̌ɔ náam bplàao sǎam kùuat, lɛ́ɛo-gɔ̂ kâao-pàt sɔ̌ɔng jaan kráp","tr":"Three bottles of water and two fried rice, please."}]}
+      ]
+    },
+    {
+      "id": "this-one-how-much",
+      "unit": 2,
+      "level": "A1",
+      "title": "Shop: this one, that one, how much?",
+      "summary": "Point at what you want, ask the price and bargain a little: “How much is this shirt?”",
+      "topic": "noun + classifier + {{นี้|níi}} / {{นั้น|nán}} ({{เสื้อตัวนี้|sʉ̂ʉa dtuua níi}}, {{อันนั้น|an nán}}); {{เท่าไหร่|tâo-rài}}; {{ลดได้ไหม|lót dâai mǎi}}",
+      "blocks": [
+        {"goal":{"t":"เสื้อตัวนี้เท่าไหร่คะ","r":"sʉ̂ʉa dtuua níi tâo-rài ká","tr":"How much is this shirt?"}},
+        {"dialog":[{"who":"Anna","t":"เสื้อตัวนี้เท่าไหร่คะ","r":"sʉ̂ʉa dtuua níi tâo-rài ká","tr":"How much is this shirt?"},{"who":"Seller","t":"สามร้อยบาทครับ","r":"sǎam rɔ́ɔi bàat kráp","tr":"Three hundred baht."},{"who":"Anna","t":"แพงจังค่ะ ลดได้ไหมคะ","r":"pɛɛng jang kâ, lót dâai mǎi ká","tr":"That's expensive! Can you go lower?"},{"who":"Seller","t":"สองร้อยห้าสิบครับ","r":"sɔ̌ɔng rɔ́ɔi hâa-sìp kráp","tr":"Two hundred fifty."},{"who":"Anna","t":"แล้วตัวนั้นล่ะคะ","r":"lɛ́ɛo dtuua nán lâ ká","tr":"And that one?"},{"who":"Seller","t":"ตัวนั้นสองร้อยครับ","r":"dtuua nán sɔ̌ɔng rɔ́ɔi kráp","tr":"That one's two hundred."},{"who":"Anna","t":"เอาตัวนั้นค่ะ","r":"ao dtuua nán kâ","tr":"I'll take that one."}]},
+        {"p":"**This shirt, that car.** After a noun, “this” is {{นี้|níi}} and “that” is {{นั้น|nán}}, both high tone, and the classifier goes in between: {{เสื้อตัวนี้|sʉ̂ʉa dtuua níi}} “shirt (classifier) this” = this shirt, {{รถคันนั้น|rót kan nán}} “that car”. ({{นี่|nîi}} and {{นั่น|nân}}, falling, from lesson 6, stand on their own.)"},
+        { "table": [
+          ["","classifier","this","that"],
+          ["shirt {{เสื้อ|sʉ̂ʉa}}","{{ตัว|dtuua}}","{{เสื้อตัวนี้|sʉ̂ʉa dtuua níi}}","{{เสื้อตัวนั้น|sʉ̂ʉa dtuua nán}}"],
+          ["bag {{กระเป๋า|grà-bpǎo}}","{{ใบ|bai}}","{{กระเป๋าใบนี้|grà-bpǎo bai níi}}","{{กระเป๋าใบนั้น|grà-bpǎo bai nán}}"],
+          ["book {{หนังสือ|nǎng-sʉ̌ʉ}}","{{เล่ม|lêm}}","{{หนังสือเล่มนี้|nǎng-sʉ̌ʉ lêm níi}}","{{หนังสือเล่มนั้น|nǎng-sʉ̌ʉ lêm nán}}"]
+        ] },
+        {"p":"**This one, that one.** Leave the noun out and keep the classifier: {{ตัวนี้|dtuua níi}} “this one” (a shirt), {{ใบนั้น|bai nán}} “that one” (a bag). If you don't know the classifier, {{อันนี้|an níi}} “this one” works for almost any object."},
+        {"p":"**How much?** {{เท่าไหร่|tâo-rài}} “how much” goes at the end, where the price will go: {{อันนี้เท่าไหร่|an níi tâo-rài}} “this one, how much?”. Prices are in {{บาท|bàat}}, baht. To bargain: {{ลดได้ไหม|lót dâai mǎi}} “can you lower it?”. And {{จัง|jang}} after an adjective means “so”: {{แพงจัง|pɛɛng jang}} “so expensive!”."},
+        { "ex": [
+          {"t":"อันนี้เท่าไหร่ครับ","r":"an níi tâo-rài kráp","tr":"How much is this one?"},
+          {"t":"ร้อยห้าสิบบาทค่ะ","r":"rɔ́ɔi hâa-sìp bàat kâ","tr":"A hundred and fifty baht."},
+          {"t":"กระเป๋าใบนั้นสวยมากค่ะ","r":"grà-bpǎo bai nán sǔai mâak kâ","tr":"That bag is really pretty."},
+          {"t":"ขอดูตัวนั้นหน่อยครับ","r":"kɔ̌ɔ duu dtuua nán nɔ̀i kráp","tr":"Can I see that one?"},
+          {"t":"ลดได้ไหมคะ","r":"lót dâai mǎi ká","tr":"Can you give me a discount?"},
+          {"t":"เอาอันนี้ครับ","r":"ao an níi kráp","tr":"I'll take this one."},
+          {"t":"ทั้งหมดเท่าไหร่คะ","r":"táng-mòt tâo-rài ká","tr":"How much is it all together?"}
+        ] },
+        {"tip":"In the Basics words, “how much” is spelled {{เท่าไร|tâo-rai}}, the dictionary way. It's the same word: people say tâo-rài and usually write {{เท่าไหร่|tâo-rài}}."}
+      ],
+      "mistakes": [
+        {"wrong":"เสื้อนี้เท่าไหร่คะ","right":"เสื้อตัวนี้เท่าไหร่คะ","tr":"How much is this shirt?","why":"Between a noun and {{นี้|níi}} goes its classifier: {{เสื้อตัวนี้|sʉ̂ʉa dtuua níi}}."},
+        {"wrong":"เท่าไหร่เสื้อตัวนี้คะ","right":"เสื้อตัวนี้เท่าไหร่คะ","tr":"How much is this shirt?","why":"{{เท่าไหร่|tâo-rài}} goes at the end, where the price will go."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the classifier for a bag: {{ใบ|bai}}, {{ตัว|dtuua}} or {{คน|kon}}.","t":"กระเป๋า___นี้เท่าไหร่คะ","tr":"How much is this bag?","options":["ใบ","ตัว","คน"],"answer":0,"why":"Bags are {{ใบ|bai}}: {{กระเป๋าใบนี้|grà-bpǎo bai níi}}."},
+        {"type":"choice","q":"You point at a cake and don't know its classifier. “This one” is…","options":["{{อันนี้|an níi}}","{{นี้อัน|níi an}}","{{นี่อัน|nîi an}}"],"answer":0,"why":"Classifier first, then {{นี้|níi}}: {{อันนี้|an níi}}."},
+        {"type":"order","q":"Put the words in order.","tr":"How much is that car? (a man asking)","words":["รถ","คัน","นั้น","เท่าไหร่","ครับ"]},
+        {"type":"dialogue","q":"At the market. Choose your replies (you're a man).","from":"count-things","lines":[{"who":"Seller","t":"เสื้อตัวนี้สองร้อยบาทค่ะ","r":"sʉ̂ʉa dtuua níi sɔ̌ɔng rɔ́ɔi bàat kâ","tr":"This shirt is two hundred baht."},{"options":["ลดได้ไหมครับ","ลดไหมครับ"],"answer":0,"why":"“Can you…?” is {{ได้ไหม|dâai mǎi}}."},{"who":"Seller","t":"สองตัวสามร้อยค่ะ","r":"sɔ̌ɔng dtuua sǎam rɔ́ɔi kâ","tr":"Two for three hundred."},{"options":["เอาสองตัวครับ","เอาสองเสื้อครับ"],"answer":0,"why":"Count with the classifier: {{สองตัว|sɔ̌ɔng dtuua}} “two (shirts)”."}]},
+        {"type":"say","q":"You're a woman. Point at a hat and ask how much it is (hats are {{ใบ|bai}}).","answer":"หมวกใบนี้เท่าไหร่คะ","r":"mùuak bai níi tâo-rài ká"},
+        {"type":"free","q":"Your turn: you're at a market. Ask the price of something, and say which one you'll take.","answers":[{"t":"กระเป๋าใบนี้เท่าไหร่คะ เอาใบนี้ค่ะ","r":"grà-bpǎo bai níi tâo-rài ká, ao bai níi kâ","tr":"How much is this bag? I'll take this one."},{"t":"อันนี้เท่าไหร่ครับ ลดได้ไหมครับ","r":"an níi tâo-rài kráp, lót dâai mǎi kráp","tr":"How much is this one? Can you go lower?"}]}
+      ]
+    },
+    {
+      "id": "say-what-there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you have and what there is",
+      "summary": "Ask a hotel whether there's a room, say what you have, and what there isn't: all with one verb, {{มี|mii}}.",
+      "topic": "{{มี|mii}} “have” and “there is”; {{ไม่มี|mâi mii}}; {{มี…ไหม|mii … mǎi}}; {{มี…กี่…|mii … gìi …}}",
+      "blocks": [
+        {"goal":{"t":"มีห้องว่างไหมครับ","r":"mii hɔ̂ng wâang mǎi kráp","tr":"Do you have a room available?"}},
+        {"dialog":[{"who":"Tom","t":"สวัสดีครับ มีห้องว่างไหมครับ","r":"sà-wàt-dii kráp, mii hɔ̂ng wâang mǎi kráp","tr":"Hello. Do you have any rooms?"},{"who":"Receptionist","t":"มีค่ะ กี่คืนคะ","r":"mii kâ, gìi kʉʉn ká","tr":"Yes, we do. How many nights?"},{"who":"Tom","t":"สองคืนครับ ห้องมีแอร์ไหมครับ","r":"sɔ̌ɔng kʉʉn kráp, hɔ̂ng mii ɛɛ mǎi kráp","tr":"Two nights. Does the room have air conditioning?"},{"who":"Receptionist","t":"มีค่ะ มีแอร์และมีไวไฟค่ะ","r":"mii kâ, mii ɛɛ lɛ́ mii wai-fai kâ","tr":"Yes, it has air conditioning and Wi-Fi."},{"who":"Tom","t":"แถวนี้มีร้านอาหารไหมครับ","r":"tɛ̌o níi mii ráan-aa-hǎan mǎi kráp","tr":"Are there any restaurants around here?"},{"who":"Receptionist","t":"มีเยอะค่ะ","r":"mii yə́ kâ","tr":"Lots."}]},
+        {"p":"**One verb for “have” and “there is”.** {{มี|mii}} means “have”: {{ผมมีพี่สาว|pǒm mii pîi sǎao}} “I have an older sister”. With no one before it, it means “there is, there are”: {{มีร้านอาหาร|mii ráan aa-hǎan}} “there are restaurants”."},
+        {"p":"**Not, and asking.** {{ไม่มี|mâi mii}} is “don't have, there isn't”. {{มี…ไหม|mii … mǎi}} asks “is there…?, do you have…?”, and the answer is the verb: {{มี|mii}} or {{ไม่มี|mâi mii}}."},
+        { "table": [
+          ["","Thai","meaning"],
+          ["have","{{ฉันมีรถ|chǎn mii rót}}","I have a car."],
+          ["don't have","{{ฉันไม่มีรถ|chǎn mâi mii rót}}","I don't have a car."],
+          ["there is","{{มีปัญหา|mii bpan-hǎa}}","There's a problem."],
+          ["is there…?","{{มีห้องน้ำไหม|mii hɔ̂ng-náam mǎi}}","Is there a restroom?"]
+        ] },
+        {"p":"**How many?** {{มี|mii}}, the noun, then {{กี่|gìi}} and the classifier: {{คุณมีพี่น้องกี่คน|kun mii pîi nɔ́ɔng gìi kon}} “how many brothers and sisters do you have?”. Answer: {{มีสองคน|mii sɔ̌ɔng kon}} “I have two”."},
+        { "ex": [
+          {"t":"มีห้องน้ำไหมคะ","r":"mii hɔ̂ng-náam mǎi ká","tr":"Is there a restroom?"},
+          {"t":"ผมไม่มีเงินสดครับ","r":"pǒm mâi mii ngən sòt kráp","tr":"I don't have any cash."},
+          {"t":"วันนี้มีตลาดนัดค่ะ","r":"wan-níi mii dtà-làat nát kâ","tr":"There's a market today."},
+          {"t":"ร้านนี้มีอาหารมังสวิรัติไหมครับ","r":"ráan níi mii aa-hǎan mang-sà-wí-rát mǎi kráp","tr":"Does this restaurant have vegetarian food?"},
+          {"t":"ฉันมีพี่ชายหนึ่งคนค่ะ","r":"chǎn mii pîi-chaai nʉ̀ng kon kâ","tr":"I have one older brother."},
+          {"t":"คุณมีลูกกี่คนคะ","r":"kun mii lûuk gìi kon ká","tr":"How many children do you have?"},
+          {"t":"ไม่มีปัญหาครับ","r":"mâi mii bpan-hǎa kráp","tr":"No problem."}
+        ] },
+        {"tip":"As with {{ไหม|mǎi}} questions, the verb is the answer: {{มีค่ะ|mii kâ}} “yes, we do”, {{ไม่มีครับ|mâi-mii kráp}} “no, we don't”."}
+      ],
+      "mistakes": [
+        {"wrong":"ไม่ครับ","right":"ไม่มีครับ","tr":"(Do you have…?) No, we don't.","why":"Thai has no lone “no” here: answer with the verb, {{ไม่มี|mâi mii}}."},
+        {"wrong":"ฉันมีสองพี่ชายค่ะ","right":"ฉันมีพี่ชายสองคนค่ะ","tr":"I have two older brothers.","why":"Noun, number, classifier: {{พี่ชายสองคน|pîi chaai sɔ̌ɔng kon}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{มี|mii}} “there is” or {{เป็น|bpen}} “is (a)”.","t":"แถวนี้___ร้านกาแฟไหมครับ","tr":"Is there a café around here?","options":["มี","เป็น"],"answer":0,"why":"“Is there…?” is {{มี…ไหม|mii … mǎi}}."},
+        {"type":"choice","q":"The hotel is full. The receptionist says…","options":["{{ไม่มีห้องว่างค่ะ|mâi mii hɔ̂ng wâang kâ}}","{{มีห้องว่างค่ะ|mii hɔ̂ng wâang kâ}}","{{ไม่ใช่ห้องว่างค่ะ|mâi châi hɔ̂ng wâang kâ}}"],"answer":0,"why":"“There isn't”: {{ไม่มี|mâi mii}}."},
+        {"type":"order","q":"Put the words in order.","tr":"How many children do you have? (a woman asking)","words":["คุณ","มี","ลูก","กี่","คน","คะ"]},
+        {"type":"dialogue","q":"At a hotel desk. Choose your replies (you're a man).","from":"this-one-how-much","lines":[{"who":"Receptionist","t":"สวัสดีค่ะ","r":"sà-wàt-dii kâ","tr":"Hello."},{"options":["มีห้องว่างไหมครับ","ห้องว่างมีครับ"],"answer":0,"why":"“Do you have…?”: {{มี…ไหม|mii … mǎi}}."},{"who":"Receptionist","t":"มีค่ะ คืนละหนึ่งพันบาทค่ะ","r":"mii kâ, kʉʉn lá nʉ̀ng pan bàat kâ","tr":"Yes. It's one thousand baht a night."},{"options":["ลดได้ไหมครับ","ลดเท่าไหร่ครับ"],"answer":0,"why":"Asking for a lower price: {{ลดได้ไหม|lót dâai mǎi}}."},{"who":"Receptionist","t":"ได้ค่ะ เก้าร้อยค่ะ","r":"dâai kâ, gâao rɔ́ɔi kâ","tr":"OK, nine hundred."}]},
+        {"type":"say","q":"You're a woman. Ask in a shop: “Do you have water?”","answer":"มีน้ำไหมคะ","r":"mii náam mǎi ká"},
+        {"type":"free","q":"Your turn: say something you have and something you don't (a car, a pet, brothers or sisters…).","answers":[{"t":"ผมมีพี่สาวหนึ่งคนครับ แต่ผมไม่มีรถ","r":"pǒm mii pîi-sǎao nʉ̀ng kon kráp, dtɛ̀ɛ pǒm mâi mii rót","tr":"I have one older sister, but I don't have a car."},{"t":"ฉันมีแมวสองตัวค่ะ ไม่มีลูกค่ะ","r":"chǎn mii mɛɛo sɔ̌ɔng dtuua kâ, mâi mii lûuk kâ","tr":"I have two cats. I don't have children."}]}
+      ]
+    },
+    {
+      "id": "say-where-it-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say where things are",
+      "summary": "Ask where the restroom is, and say where things and people are: in, on, under, next to, near.",
+      "topic": "{{อยู่|yùu}} “be (somewhere)”; {{ที่ไหน|tîi-nǎi}}; {{ใน|nai}}, {{บน|bon}}, {{ใต้|dtâai}}, {{ข้าง|kâang}}, {{หน้า|nâa}}, {{หลัง|lǎng}}, {{ใกล้|glâi}}, {{ตรงข้าม|dtrong-kâam}}",
+      "blocks": [
+        {"goal":{"t":"ห้องน้ำอยู่ที่ไหนคะ","r":"hɔ̂ng-náam yùu tîi-nǎi ká","tr":"Where's the restroom?"}},
+        {"dialog":[{"who":"Anna","t":"ขอโทษค่ะ ห้องน้ำอยู่ที่ไหนคะ","r":"kɔ̌ɔ-tôot kâ, hɔ̂ng-náam yùu tîi-nǎi ká","tr":"Excuse me, where's the restroom?"},{"who":"Guard","t":"อยู่ชั้นสองครับ ข้างร้านกาแฟ","r":"yùu chán sɔ̌ɔng kráp, kâang ráan gaa-fɛɛ","tr":"It's on the second floor, next to the café."},{"who":"Anna","t":"แล้วธนาคารล่ะคะ","r":"lɛ́ɛo tá-naa-kaan lâ ká","tr":"And the bank?"},{"who":"Guard","t":"อยู่ข้างล่างครับ ตรงข้ามร้านขายยา","r":"yùu kâang-lâang kráp, dtrong-kâam ráan kǎai yaa","tr":"Downstairs, across from the pharmacy."}]},
+        {"p":"**อยู่, “to be (somewhere)”.** For *where* something is, Thai has a third “be”: {{อยู่|yùu}}. {{ห้องน้ำอยู่ชั้นสอง|hɔ̂ng-náam yùu chán sɔ̌ɔng}} “the restroom is (on) floor two”. Not {{เป็น|bpen}}, not {{คือ|kʉʉ}}: those say what a thing is; {{อยู่|yùu}} says where it is."},
+        {"p":"**Where?** {{ที่ไหน|tîi-nǎi}} “at which place” (or just {{ไหน|nǎi}}) goes at the end, where the answer will go: {{คุณอยู่ที่ไหน|kun yùu tîi-nǎi}} “where are you?”, {{บ้านคุณอยู่ไหน|bâan kun yùu nǎi}} “where's your house?”."},
+        {"term":"preposition","means":"a word that shows where something is, or how two things are linked: in, on, under, next to."},
+        { "table": [
+          ["Thai","meaning","example"],
+          ["{{ใน|nai}}","in","{{ในกระเป๋า|nai grà-bpǎo}} in the bag"],
+          ["{{บน|bon}}","on","{{บนโต๊ะ|bon dtó}} on the table"],
+          ["{{ใต้|dtâai}}","under","{{ใต้เตียง|dtâai dtiiang}} under the bed"],
+          ["{{ข้าง|kâang}}","next to, beside","{{ข้างธนาคาร|kâang tá-naa-kaan}} next to the bank"],
+          ["{{หน้า|nâa}}","in front of","{{หน้าโรงแรม|nâa roong-rɛɛm}} in front of the hotel"],
+          ["{{หลัง|lǎng}}","behind","{{หลังบ้าน|lǎng bâan}} behind the house"],
+          ["{{ใกล้|glâi}}","near","{{ใกล้ทะเล|glâi tá-lee}} near the sea"],
+          ["{{ตรงข้าม|dtrong-kâam}}","across from","{{ตรงข้ามตลาด|dtrong-kâam dtà-làat}} across from the market"]
+        ] },
+        {"p":"**Here, there.** {{ที่นี่|tîi-nîi}} “here”, {{ที่นั่น|tîi-nân}} “there”, {{ที่โน่น|tîi-nôon}} “over there”: {{ที่|tîi}} “place” and the pointing words you know. And {{ข้างบน|kâang-bon}} “upstairs”, {{ข้างล่าง|kâang-lâang}} “downstairs”."},
+        { "ex": [
+          {"t":"กุญแจอยู่บนโต๊ะค่ะ","r":"gun-jɛɛ yùu bon dtó kâ","tr":"The keys are on the table."},
+          {"t":"โรงแรมอยู่ใกล้ทะเลครับ","r":"roong-rɛɛm yùu glâi tá-lee kráp","tr":"The hotel is near the sea."},
+          {"t":"แมวอยู่ใต้เตียงค่ะ","r":"mɛɛo yùu dtâai dtiiang kâ","tr":"The cat is under the bed."},
+          {"t":"ตอนนี้ผมอยู่ที่สนามบินครับ","r":"dtɔɔn-níi pǒm yùu tîi sà-nǎam-bin kráp","tr":"I'm at the airport now."},
+          {"t":"ร้านขายยาอยู่ตรงข้ามธนาคารครับ","r":"ráan kǎai yaa yùu dtrong-kâam tá-naa-kaan kráp","tr":"The pharmacy is across from the bank."},
+          {"t":"คุณอยู่ที่ไหนคะ","r":"kun yùu tîi-nǎi ká","tr":"Where are you?"},
+          {"t":"บ้านฉันอยู่ไม่ไกลค่ะ","r":"bâan chǎn yùu mâi glai kâ","tr":"My house isn't far."}
+        ] },
+        {"tip":"{{อยู่|yùu}} also means “live”: {{ผมอยู่กรุงเทพ|pǒm yùu grung-têep}} “I live in Bangkok”. So {{คุณอยู่ที่ไหน|kun yùu tîi-nǎi}} can mean “where are you?” or “where do you live?”."}
+      ],
+      "mistakes": [
+        {"wrong":"ห้องน้ำเป็นที่ไหนคะ","right":"ห้องน้ำอยู่ที่ไหนคะ","tr":"Where's the restroom?","why":"For where something is, the “be” is {{อยู่|yùu}}."},
+        {"wrong":"ที่ไหนห้องน้ำคะ","right":"ห้องน้ำอยู่ที่ไหนคะ","tr":"Where's the restroom?","why":"The thing first, then {{อยู่|yùu}}, and {{ที่ไหน|tîi-nǎi}} at the end, where the answer goes."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the “be” for places: {{อยู่|yùu}}, {{เป็น|bpen}} or {{คือ|kʉʉ}}.","t":"ธนาคาร___ใกล้ไหมครับ","tr":"Is the bank close?","options":["อยู่","เป็น","คือ"],"answer":0,"why":"Where something is: {{อยู่|yùu}}."},
+        {"type":"choice","q":"The keys are *under* the bag: {{กุญแจอยู่…กระเป๋า|gun-jɛɛ yùu … grà-bpǎo}}","options":["{{ใต้|dtâai}}","{{บน|bon}}","{{ใน|nai}}"],"answer":0,"why":"Under: {{ใต้|dtâai}}. On is {{บน|bon}}, in is {{ใน|nai}}."},
+        {"type":"order","q":"Put the words in order.","tr":"The pharmacy is across from the bank.","words":["ร้านขายยา","อยู่","ตรงข้าม","ธนาคาร","ครับ"]},
+        {"type":"dialogue","q":"In the street. Choose your replies (you're a woman).","from":"say-what-there-is","lines":[{"who":"Man","t":"มีอะไรให้ช่วยไหมครับ","r":"mii à-rai hâi chûai mǎi kráp","tr":"Can I help you?"},{"options":["แถวนี้มีร้านขายยาไหมคะ","แถวนี้เป็นร้านขายยาไหมคะ"],"answer":0,"why":"“Is there…?”: {{มี…ไหม|mii … mǎi}}."},{"who":"Man","t":"มีครับ","r":"mii kráp","tr":"Yes, there is."},{"options":["อยู่ที่ไหนคะ","เป็นที่ไหนคะ"],"answer":0,"why":"Where it is: {{อยู่ที่ไหน|yùu tîi-nǎi}}."},{"who":"Man","t":"อยู่ข้างธนาคารครับ","r":"yùu kâang tá-naa-kaan kráp","tr":"It's next to the bank."}]},
+        {"type":"say","q":"You're a man. Ask “Where's the hotel?”","answer":"โรงแรมอยู่ที่ไหนครับ","r":"roong-rɛɛm yùu tîi-nǎi kráp"},
+        {"type":"free","q":"Your turn: say where you are now, and where one thing near you is.","answers":[{"t":"ตอนนี้ผมอยู่ที่บ้านครับ โทรศัพท์อยู่บนโต๊ะ","r":"dtɔɔn-níi pǒm yùu tîi bâan kráp, too-rá-sàp yùu bon dtó","tr":"I'm at home now. My phone is on the table."},{"t":"ฉันอยู่ที่ทำงานค่ะ กระเป๋าอยู่ใต้โต๊ะค่ะ","r":"chǎn yùu tîi tam-ngaan kâ, grà-bpǎo yùu dtâai dtó kâ","tr":"I'm at work. My bag is under the desk."}]}
+      ]
+    },
+    {
+      "id": "get-around",
+      "unit": 2,
+      "level": "A1",
+      "title": "Get around: go, come, and tell a taxi where",
+      "summary": "Say where you're going, ask how to get somewhere, and give a taxi driver directions.",
+      "topic": "{{ไป|bpai}} / {{มา|maa}} + a place (no “to”); {{ยังไง|yang-ngai}} “how”; directions; a verb on its own as a request; {{ขึ้น|kʉ̂n}}, {{ลง|long}}, {{เข้า|kâo}}, {{ออก|ɔ̀ɔk}}",
+      "blocks": [
+        {"goal":{"t":"ไปสนามบินยังไงครับ","r":"bpai sà-nǎam-bin yang-ngai kráp","tr":"How do I get to the airport?"}},
+        {"dialog":[{"who":"Driver","t":"ไปไหนครับ","r":"bpai nǎi kráp","tr":"Where to?"},{"who":"Anna","t":"ไปสยามค่ะ","r":"bpai sà-yǎam kâ","tr":"To Siam, please."},{"who":"Driver","t":"ได้ครับ","r":"dâai kráp","tr":"OK."},{"who":"Anna","t":"ตรงไปค่ะ แล้วเลี้ยวซ้ายที่ไฟแดงค่ะ","r":"dtrong bpai kâ, lɛ́ɛo líao sáai tîi fai-dɛɛng kâ","tr":"Go straight, then turn left at the lights."},{"who":"Driver","t":"ตรงนี้ใช่ไหมครับ","r":"dtrong-níi châi mǎi kráp","tr":"Here, right?"},{"who":"Anna","t":"ใช่ค่ะ จอดตรงนี้เลยค่ะ","r":"châi kâ, jɔ̀ɔt dtrong-níi ləəi kâ","tr":"Yes. Stop right here, please."}]},
+        {"p":"**No “to”.** {{ไป|bpai}} “go” and {{มา|maa}} “come” take the place straight after them: {{ไปตลาด|bpai dtà-làat}} “go (to the) market”, {{มาบ้านฉัน|maa bâan chǎn}} “come (to) my house”. “Go where?” is {{ไปไหน|bpai nǎi}}."},
+        {"p":"**How?** {{ยังไง|yang-ngai}} “how” goes at the end: {{ไปสนามบินยังไง|bpai sà-nǎam bin yang ngai}} “go (to the) airport how?”. The answer says the way: {{นั่งรถไฟฟ้าไป|nâng rót-fai-fáa bpai}} “take the Skytrain”, literally “sit Skytrain go”."},
+        {"p":"**Telling someone what to do.** A verb on its own is a request or an instruction: {{ตรงไป|dtrong bpai}} “go straight”, {{จอด|jɔ̀ɔt}} “stop (the car)”. Keep {{ครับ|kráp}} / {{ค่ะ|kâ}} to be polite, and add {{เลย|ləəi}} for “right away, go ahead”: {{จอดตรงนี้เลย|jɔ̀ɔt dtrong níi ləəi}} “stop right here”."},
+        { "table": [
+          ["Thai","meaning"],
+          ["{{ตรงไป|dtrong bpai}}","go straight"],
+          ["{{เลี้ยวซ้าย|líao sáai}}","turn left"],
+          ["{{เลี้ยวขวา|líao kwǎa}}","turn right"],
+          ["{{กลับรถ|glàp rót}}","make a U-turn"],
+          ["{{ที่ไฟแดง|tîi fai-dɛɛng}}","at the traffic lights"],
+          ["{{จอดตรงนี้|jɔ̀ɔt dtrong-níi}}","stop here"]
+        ] },
+        {"p":"**Up, down, in, out.** {{ขึ้น|kʉ̂n}} “go up, get on”, {{ลง|long}} “go down, get off”, {{เข้า|kâo}} “go in”, {{ออก|ɔ̀ɔk}} “go out” often team up with {{ไป|bpai}} or {{มา|maa}}, which say whether the move is away from the speaker or toward them: {{ขึ้นไป|kʉ̂n bpai}} “go up (there)”, {{เข้ามา|kâo maa}} “come in (here)”."},
+        { "ex": [
+          {"t":"ไปไหนคะ","r":"bpai nǎi ká","tr":"Where are you going?"},
+          {"t":"ไปตลาดครับ","r":"bpai dtà-làat kráp","tr":"To the market."},
+          {"t":"ไปสนามบินยังไงคะ","r":"bpai sà-nǎam-bin yang-ngai ká","tr":"How do I get to the airport?"},
+          {"t":"นั่งรถไฟฟ้าไปครับ","r":"nâng rót-fai-fáa bpai kráp","tr":"Take the Skytrain."},
+          {"t":"เข้ามาเลยค่ะ","r":"kâo maa ləəi kâ","tr":"Come on in!"},
+          {"t":"ลงตรงนี้ครับ","r":"long dtrong-níi kráp","tr":"I'll get off here."},
+          {"t":"ไกลไหมคะ","r":"glai mǎi ká","tr":"Is it far?"}
+        ] },
+        {"tip":"Before you get into a taxi, ask {{ไป…ไหม|bpai … mǎi}} “will you go to…?”: {{ไปสยามไหมคะ|bpai sà-yǎam mǎi ká}}. A driver may say no. Once inside, the place and your end word are enough: {{ไปสยามค่ะ|bpai sà-yǎam kâ}}."}
+      ],
+      "mistakes": [
+        {"wrong":"ยังไงไปสนามบินครับ","right":"ไปสนามบินยังไงครับ","tr":"How do I get to the airport?","why":"{{ยังไง|yang-ngai}} “how” goes at the end, like the other question words."},
+        {"wrong":"ซ้ายเลี้ยวค่ะ","right":"เลี้ยวซ้ายค่ะ","tr":"Turn left.","why":"The verb first, then the direction: {{เลี้ยว|líao}} “turn”, {{ซ้าย|sáai}} “left”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{มา|maa}} “come (toward me)” or {{ไป|bpai}} “go (away)”.","t":"เข้า___เลยค่ะ","tr":"Come on in!","options":["มา","ไป"],"answer":0,"why":"The guest moves toward you: {{มา|maa}}."},
+        {"type":"choice","q":"In the taxi, you want the driver to turn right. You say…","options":["{{เลี้ยวขวาครับ|líao kwǎa kráp}}","{{ขวาเลี้ยวครับ|kwǎa líao kráp}}","{{เลี้ยวซ้ายครับ|líao sáai kráp}}"],"answer":0,"why":"The verb first: {{เลี้ยว|líao}}, then {{ขวา|kwǎa}} “right”."},
+        {"type":"order","q":"Put the words in order.","tr":"How do I get to the airport? (a man asking)","words":["ไป","สนามบิน","ยังไง","ครับ"]},
+        {"type":"dialogue","q":"In a taxi. Choose your replies (you're a woman).","from":"say-where-it-is","lines":[{"who":"Driver","t":"ไปไหนครับ","r":"bpai nǎi kráp","tr":"Where to?"},{"options":["ไปตลาดค่ะ","ตลาดไปค่ะ"],"answer":0,"why":"{{ไป|bpai}}, then the place."},{"who":"Driver","t":"ตลาดอยู่ตรงไหนครับ","r":"dtà-làat yùu dtrong-nǎi kráp","tr":"Where exactly is the market?"},{"options":["อยู่ข้างโรงเรียนค่ะ","เป็นข้างโรงเรียนค่ะ"],"answer":0,"why":"Where it is: {{อยู่|yùu}}."},{"who":"Driver","t":"ถึงแล้วครับ","r":"tʉ̌ng lɛ́ɛo kráp","tr":"Here we are."},{"options":["จอดตรงนี้เลยค่ะ ขอบคุณค่ะ","จอดตรงนี้ไหมคะ"],"answer":0,"why":"An instruction is the verb on its own: {{จอด|jɔ̀ɔt}} “stop”."}]},
+        {"type":"say","q":"You're a woman. Ask a taxi driver whether he'll go to the airport.","answer":"ไปสนามบินไหมคะ","r":"bpai sà-nǎam-bin mǎi ká"},
+        {"type":"free","q":"Your turn: tell a taxi driver where you're going, and how to get there.","answers":[{"t":"ไปสยามครับ ตรงไปแล้วเลี้ยวขวาที่ไฟแดงครับ","r":"bpai sà-yǎam kráp, dtrong bpai lɛ́ɛo líao kwǎa tîi fai-dɛɛng kráp","tr":"To Siam, please. Go straight, then turn right at the lights."},{"t":"ไปโรงแรมค่ะ อยู่ตรงข้ามตลาด จอดตรงนี้เลยค่ะ","r":"bpai roong-rɛɛm kâ, yùu dtrong-kâam dtà-làat, jɔ̀ɔt dtrong-níi ləəi kâ","tr":"To the hotel, please. It's across from the market. Stop right here, please."}]}
+      ]
     }
   ]
 }
