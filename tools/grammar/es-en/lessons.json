@@ -979,6 +979,266 @@
         {"type":"say","q":"Pregunta “¿Qué tal tu fin de semana?”","answer":"How was your weekend?"},
         {"type":"free","q":"Te toca: ¿dónde naciste? ¿Y dónde estabas ayer a las ocho de la noche?","answers":[{"t":"I was born in Guadalajara. Yesterday at eight I was at home with my family.","tr":"Nací en Guadalajara. Ayer a las ocho estaba en mi casa con mi familia."},{"t":"I was born in a small town in Michoacán. Yesterday at eight I was at work.","tr":"Nací en un pueblito de Michoacán. Ayer a las ocho estaba en el trabajo."}]}
       ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 4,
+      "level": "A2",
+      "title": "Di qué hiciste ayer",
+      "summary": "Cuenta qué hiciste ayer, anoche o la semana pasada: {{Yesterday I worked late and watched a movie at home.}}",
+      "topic": "el pasado simple de los verbos regulares (-ed) y sus tres sonidos; {{yesterday}}, {{last night}}, {{ago}}",
+      "blocks": [
+        {"goal":{"t":"Yesterday I worked late and watched a movie at home.","tr":"Ayer trabajé hasta tarde y vi una película en la casa."}},
+        {"dialog":[{"who":"Nick","t":"How was your weekend?","tr":"¿Qué tal tu fin de semana?"},{"who":"Tú","t":"Good! On Saturday I cleaned the house and cooked for my family.","tr":"¡Bien! El sábado limpié la casa y le cociné a mi familia."},{"who":"Nick","t":"And on Sunday?","tr":"¿Y el domingo?"},{"who":"Tú","t":"I stayed home. I watched a movie and talked to my sister on the phone.","tr":"Me quedé en la casa. Vi una película y hablé por teléfono con mi hermana."},{"who":"Nick","t":"Sounds relaxing.","tr":"Suena relajante."}]},
+        {"p":"**Una sola forma para todos.** Buenas noticias: en pasado, el verbo es igual para todas las personas, ¡incluso con {{he}} y {{she}}! A los verbos regulares se les agrega **-ed**: {{work}} → {{worked}}. {{I worked}}, {{she worked}}, {{they worked}}: “trabajé”, “trabajó”, “trabajaron”."},
+        {"term":"pasado simple","means":"el tiempo del verbo para lo que pasó y ya terminó: {{I worked}} “trabajé” (y muchas veces “trabajaba”)."},
+        {"p":"**La ortografía.** Si el verbo termina en e, solo **-d**: {{live}} → {{lived}}. Consonante + y → **-ied**: {{study}} → {{studied}} (pero {{play}} → {{played}}). Vocal + consonante, con el golpe al final: la consonante se duplica: {{stop}} → {{stopped}}, {{plan}} → {{planned}}."},
+        {"p":"**Cómo suena la -ed: el gran truco.** Casi nunca es una sílaba de más. Suena “t” después de sonidos como p, k, s, sh y ch ({{worked}} suena “workt”, {{watched}} suena “wacht”); “d” después de casi todos los demás ({{lived}}, {{played}}); y solo después de t o d suena “id”, como una sílaba más ({{wanted}}, {{needed}}). Decir “wa-ched” en dos sílabas es el error más común."},
+        { "table": [
+          ["suena “t”","suena “d”","suena “id”"],
+          ["{{worked}}, {{watched}}, {{stopped}}","{{lived}}, {{played}}, {{cleaned}}","{{wanted}}, {{needed}}, {{visited}}"]
+        ] },
+        {"p":"**¿Cuándo?** {{yesterday}} (ayer), {{last night}} (anoche), {{last week}} (la semana pasada), {{last year}} (el año pasado), {{two days ago}} (hace dos días). {{ago}} va **después** del tiempo: {{three years ago}}, al revés que “hace tres años”."},
+        { "ex": [
+          {"t":"I called my mom last night.","tr":"Anoche le llamé a mi mamá."},
+          {"t":"We moved to Texas two years ago.","tr":"Nos mudamos a Texas hace dos años."},
+          {"t":"She studied nursing in Mexico.","tr":"Estudió enfermería en México."},
+          {"t":"The movie started at eight.","tr":"La película empezó a las ocho."},
+          {"t":"They visited us last summer.","tr":"Nos visitaron el verano pasado."},
+          {"t":"I wanted to call you, but I was busy.","tr":"Quería llamarte, pero estaba ocupado.","note":"el pasado simple también traduce “quería”, “estaba”"},
+          {"t":"It rained all day yesterday.","tr":"Ayer llovió todo el día."}
+        ] },
+        {"tip":"El pasado simple sirve para lo que en español es pretérito y también para muchos imperfectos: {{I lived in Puebla}} es “viví” o “vivía” en Puebla. La lección 25 regresa a esto."}
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday I work late.","right":"Yesterday I worked late.","tr":"Ayer trabajé hasta tarde.","why":"Lo que ya pasó: el verbo en pasado, {{worked}}."},
+        {"wrong":"She studyed English.","right":"She studied English.","tr":"Estudió inglés.","why":"Consonante + y → -ied: {{studied}}."},
+        {"wrong":"I arrived ago two days.","right":"I arrived two days ago.","tr":"Llegué hace dos días.","why":"{{ago}} va después del tiempo: {{two days ago}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Last night we ___ a movie.","tr":"Anoche vimos una película.","options":["watched","watch","watching"],"answer":0,"why":"Ya pasó: {{watched}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"She ___ in Mexico for ten years.","tr":"Vivió diez años en México.","options":["lived","lives","livied"],"answer":0,"why":"Termina en e: solo -d, {{lived}}."},
+        {"type":"choice","q":"¿Cómo suena {{watched}}?","options":["como “wacht”, en una sílaba","como “wa-ched”, en dos sílabas"],"answer":0,"why":"Después de ch, la -ed suena “t” y no agrega sílaba."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My parents ___ me last weekend.","tr":"Mis papás me visitaron el fin de semana pasado.","options":["visited","visit","visits"],"answer":0,"why":"Ya pasó, y en pasado no hay -s: {{visited}} para todos.","from":"talk-about-someone-else"},
+        {"type":"dialogue","q":"Tu compañera te pregunta por tu fin de semana. Escoge tus respuestas.","lines":[{"who":"Compañera","t":"How was your weekend?","tr":"¿Qué tal tu fin de semana?"},{"options":["It was nice. I cleaned the house and cooked.","It was nice. I clean the house and cook."],"answer":0,"why":"Ya pasó: {{cleaned}}, {{cooked}}."},{"who":"Compañera","t":"Did you go out?","tr":"¿Saliste?"},{"options":["No, I stayed home. I was tired.","No, I stayed home. I were tired."],"answer":0,"why":"Con {{I}}: {{was}}."},{"who":"Compañera","t":"Sounds nice.","tr":"Suena bien."}],"from":"say-where-you-were"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Nos mudamos a Texas hace dos años.","words":["We","moved","to Texas","two years ago."]},
+        {"type":"say","q":"Di “Anoche le llamé a mi mamá.”","answer":"I called my mom last night."},
+        {"type":"free","q":"Te toca: ¿qué hiciste ayer? Di tres cosas, en orden, con verbos regulares.","answers":[{"t":"Yesterday I worked, cooked dinner and watched TV.","tr":"Ayer trabajé, hice la cena y vi la tele."},{"t":"Yesterday I walked to the park, played with my kids and called my sister.","tr":"Ayer caminé al parque, jugué con mis hijos y le llamé a mi hermana."}]}
+      ]
+    },
+    {
+      "id": "tell-about-your-weekend",
+      "unit": 4,
+      "level": "A2",
+      "title": "Cuenta tu fin de semana",
+      "summary": "Cuenta qué pasó con los verbos irregulares que más se usan: {{On Saturday we went to the beach and ate fish tacos.}}",
+      "topic": "el pasado de los verbos irregulares: {{went, had, saw, ate, got, made, took, came, bought…}}",
+      "blocks": [
+        {"goal":{"t":"On Saturday we went to the beach and ate fish tacos.","tr":"El sábado fuimos a la playa y comimos tacos de pescado."}},
+        {"dialog":[{"who":"Megan","t":"What did you do this weekend?","tr":"¿Qué hiciste este fin de semana?"},{"who":"Tú","t":"We went to San Diego! We took the kids to the zoo.","tr":"¡Fuimos a San Diego! Llevamos a los niños al zoológico."},{"who":"Megan","t":"Fun! Did you see the elephants?","tr":"¡Qué divertido! ¿Vieron los elefantes?"},{"who":"Tú","t":"Yes, we saw a lot of animals. Then we had dinner at a great Mexican restaurant.","tr":"Sí, vimos un montón de animales. Luego cenamos en un restaurante mexicano buenísimo."},{"who":"Megan","t":"Sounds perfect.","tr":"Suena perfecto."}]},
+        {"p":"**Los que más se usan son irregulares.** Muchos de los verbos más comunes no llevan -ed en pasado: cambian. No hay truco, hay que aprendérselos. La buena noticia es que, igual que los regulares, son iguales para todas las personas: {{I went}}, {{she went}}, {{they went}}."},
+        {"term":"verbo irregular","means":"un verbo que no sigue la regla: en pasado no termina en -ed, sino que cambia: {{go}} → {{went}}."},
+        { "table": [
+          ["verbo","pasado","en español"],
+          ["{{go}}","{{went}}","ir"],
+          ["{{have}}","{{had}}","tener; también comer, tomar"],
+          ["{{do}}","{{did}}","hacer"],
+          ["{{get}}","{{got}}","conseguir, recibir, llegar"],
+          ["{{see}}","{{saw}}","ver"],
+          ["{{eat}}","{{ate}}","comer"],
+          ["{{make}}","{{made}}","hacer, preparar"],
+          ["{{take}}","{{took}}","tomar, llevar"],
+          ["{{come}}","{{came}}","venir"],
+          ["{{buy}}","{{bought}}","comprar"],
+          ["{{say}}","{{said}}","decir"],
+          ["{{give}}","{{gave}}","dar"]
+        ] },
+        { "table": [
+          ["verbo","pasado","en español"],
+          ["{{meet}}","{{met}}","conocer a alguien, quedar con"],
+          ["{{leave}}","{{left}}","irse, salir, dejar"],
+          ["{{sleep}}","{{slept}}","dormir"],
+          ["{{drink}}","{{drank}}","tomar, beber"],
+          ["{{find}}","{{found}}","encontrar"],
+          ["{{think}}","{{thought}}","pensar, creer"],
+          ["{{tell}}","{{told}}","decir, contar"],
+          ["{{know}}","{{knew}}","saber, conocer"],
+          ["{{write}}","{{wrote}}","escribir"],
+          ["{{put}}","{{put}}","poner"],
+          ["{{read}}","{{read}}","leer (en pasado suena “red”)"],
+          ["{{feel}}","{{felt}}","sentir"]
+        ] },
+        {"p":"**{{have}} para comer.** {{have breakfast}}, {{have lunch}} y {{have dinner}} son desayunar, comer y cenar: {{We had dinner at eight.}} “Cenamos a las ocho.” Y {{get}} es un comodín: {{I got a new job}} (conseguí), {{I got home at six}} (llegué), {{I got a message}} (recibí)."},
+        { "ex": [
+          {"t":"I went to the doctor yesterday.","tr":"Ayer fui al doctor."},
+          {"t":"We had a great time.","tr":"Nos la pasamos muy bien."},
+          {"t":"She bought a new car last month.","tr":"El mes pasado se compró un carro nuevo."},
+          {"t":"I met my husband at work.","tr":"Conocí a mi esposo en el trabajo.","note":"conocer a alguien por primera vez: {{meet}}"},
+          {"t":"They left at ten.","tr":"Se fueron a las diez."},
+          {"t":"I slept nine hours!","tr":"¡Dormí nueve horas!"},
+          {"t":"He told me the truth.","tr":"Me dijo la verdad."}
+        ] },
+        {"tip":"Apréndete los irregulares en grupitos que suenan parecido: {{buy, bought}}, {{think, thought}}, {{bring, brought}}; {{sleep, slept}}, {{feel, felt}}, {{leave, left}}; {{drink, drank}}, {{swim, swam}}."}
+      ],
+      "mistakes": [
+        {"wrong":"We goed to the beach.","right":"We went to the beach.","tr":"Fuimos a la playa.","why":"{{go}} es irregular: {{went}}."},
+        {"wrong":"I buyed a new phone.","right":"I bought a new phone.","tr":"Me compré un celular nuevo.","why":"{{buy}} → {{bought}}."},
+        {"wrong":"Last night I eat tacos.","right":"Last night I ate tacos.","tr":"Anoche comí tacos.","why":"Ya pasó: el pasado de {{eat}}, {{ate}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"We ___ to Cancún last year.","tr":"El año pasado fuimos a Cancún.","options":["went","go","goed"],"answer":0,"why":"{{go}} → {{went}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I ___ a new job last month!","tr":"¡El mes pasado conseguí un trabajo nuevo!","options":["got","get","getted"],"answer":0,"why":"{{get}} → {{got}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"She ___ me a beautiful gift.","tr":"Me dio un regalo precioso.","options":["gave","gived","give"],"answer":0,"why":"{{give}} → {{gave}}."},
+        {"type":"choice","q":"“Conocí a mi novia en una fiesta.” ¿Cuál está bien?","options":["{{I met my girlfriend at a party.}}","{{I knew my girlfriend at a party.}}","{{I meet my girlfriend in a party.}}"],"answer":0,"why":"Conocer a alguien por primera vez: {{meet}} → {{met}}. Y en una fiesta: {{at}}.","from":"say-where-and-when"},
+        {"type":"dialogue","q":"Le cuentas tu fin de semana a un amigo. Escoge tus respuestas.","lines":[{"who":"Amigo","t":"What did you do on Saturday?","tr":"¿Qué hiciste el sábado?"},{"options":["I went to a concert with my cousins.","I go to a concert with my cousins."],"answer":0,"why":"Ya pasó: {{went}}."},{"who":"Amigo","t":"Cool! How was it?","tr":"¡Qué padre! ¿Qué tal estuvo?"},{"options":["Amazing! We danced all night and got home at three.","Amazing! We dance all night and get home at three."],"answer":0,"why":"Ya pasó: {{danced}}, {{got}}."},{"who":"Amigo","t":"Wow!","tr":"¡Órale!"}],"from":"say-what-you-did"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Nos la pasamos muy bien.","words":["We","had","a great","time."]},
+        {"type":"say","q":"Di “Ayer fui al doctor.”","answer":"I went to the doctor yesterday."},
+        {"type":"free","q":"Te toca: cuéntale a alguien tu fin de semana. Usa al menos tres verbos irregulares ({{went, had, saw, ate, bought…}}).","answers":[{"t":"On Saturday I went to the market and bought fruit. On Sunday we had lunch with my parents.","tr":"El sábado fui al mercado y compré fruta. El domingo comimos con mis papás."},{"t":"I saw a movie with my friends, and then we ate pizza. On Sunday I slept a lot.","tr":"Vi una película con mis amigos, y luego comimos pizza. El domingo dormí mucho."}]}
+      ]
+    },
+    {
+      "id": "ask-about-the-past",
+      "unit": 4,
+      "level": "A2",
+      "title": "Pregunta qué hizo alguien",
+      "summary": "Pregunta y di lo que alguien hizo o no hizo: {{Did you go to the party? — No, I didn't. I stayed home.}}",
+      "topic": "{{Did…?}} y {{didn't}} + la forma base",
+      "blocks": [
+        {"goal":{"t":"Did you go to the party? — No, I didn't. I stayed home.","tr":"¿Fuiste a la fiesta? — No. Me quedé en la casa."}},
+        {"dialog":[{"who":"Jefa","t":"Did you send the email to the client?","tr":"¿Le mandaste el correo al cliente?"},{"who":"Tú","t":"Yes, I did. I sent it this morning.","tr":"Sí. Se lo mandé hoy en la mañana."},{"who":"Jefa","t":"Great. Did he answer?","tr":"Perfecto. ¿Contestó?"},{"who":"Tú","t":"No, not yet. Maybe he didn't see it.","tr":"Todavía no. A lo mejor no lo vio."},{"who":"Jefa","t":"Okay, call him after lunch.","tr":"Bueno, llámale después de comer."}]},
+        {"p":"**El ayudante en pasado: {{did}}.** Como {{do}} en presente, {{did}} hace las preguntas y las negaciones en pasado, con **todas** las personas. Y como el pasado ya está en {{did}}, **el verbo principal regresa a la forma base**:"},
+        { "table": [
+          ["afirmación","negación","pregunta"],
+          ["{{She went.}}","{{She didn't go.}}","{{Did she go?}}"],
+          ["{{They bought a car.}}","{{They didn't buy a car.}}","{{Did they buy a car?}}"]
+        ] },
+        {"p":"**El error clásico:** {{Did you went?}} o {{I didn't went}}. El pasado se dice una sola vez, en {{did}}. Después, siempre la forma base: {{Did you go?}}, {{I didn't go}}."},
+        {"p":"**Con palabra de pregunta:** {{What did you do?}} “¿Qué hiciste?”, {{Where did you go?}} “¿Adónde fuiste?”, {{When did they arrive?}} “¿Cuándo llegaron?”. Respuestas cortas: {{Yes, I did.}} y {{No, I didn't.}}"},
+        {"p":"**{{be}} no usa {{did}}**: {{Were you tired?}}, {{I wasn't there}} (lección 20)."},
+        { "ex": [
+          {"t":"What did you do last night?","tr":"¿Qué hiciste anoche?"},
+          {"t":"I didn't sleep well.","tr":"No dormí bien."},
+          {"t":"Did you like the movie? — Yes, I did!","tr":"¿Te gustó la película? — ¡Sí!"},
+          {"t":"Where did you buy that shirt?","tr":"¿Dónde compraste esa camisa?"},
+          {"t":"She didn't call me.","tr":"No me llamó."},
+          {"t":"Did they have a good time?","tr":"¿Se la pasaron bien?"},
+          {"t":"Why didn't you tell me?","tr":"¿Por qué no me dijiste?"}
+        ] },
+        {"tip":"{{What happened?}} “¿Qué pasó?” no lleva {{did}}, porque ahí {{what}} es el sujeto. Igual {{Who called?}} “¿Quién llamó?”."}
+      ],
+      "mistakes": [
+        {"wrong":"Did you went to the party?","right":"Did you go to the party?","tr":"¿Fuiste a la fiesta?","why":"Después de {{did}}, la forma base: {{go}}."},
+        {"wrong":"I didn't saw him.","right":"I didn't see him.","tr":"No lo vi.","why":"El pasado ya está en {{didn't}}: {{see}}."},
+        {"wrong":"You went to work yesterday?","right":"Did you go to work yesterday?","tr":"¿Fuiste a trabajar ayer?","why":"Para preguntar en pasado: {{Did you…?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"___ you see the game last night?","tr":"¿Viste el partido anoche?","options":["Did","Do","Were"],"answer":0,"why":"Pregunta en pasado: {{Did}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I didn't ___ breakfast this morning.","tr":"Hoy en la mañana no desayuné.","options":["have","had","has"],"answer":0,"why":"Después de {{didn't}}, la forma base: {{have}}."},
+        {"type":"choice","q":"¿Cuál está bien?","options":["{{Where did you buy it?}}","{{Where did you bought it?}}","{{Where you bought it?}}"],"answer":0,"why":"{{did}} + la forma base: {{buy}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"What ___ you do on Saturday?","tr":"¿Qué hiciste el sábado?","options":["did","do","were"],"answer":0,"why":"En pasado: {{did}}. (El segundo {{do}} es “hacer”.)","from":"ask-questions-with-do"},
+        {"type":"dialogue","q":"Tu amiga regresó de un viaje. Escoge tus preguntas.","lines":[{"who":"Amiga","t":"I'm back from Chicago!","tr":"¡Ya regresé de Chicago!"},{"options":["Welcome back! Did you have a good time?","Welcome back! Did you had a good time?"],"answer":0,"why":"Después de {{did}}: {{have}}."},{"who":"Amiga","t":"Yes! We saw a lot of museums.","tr":"¡Sí! Fuimos a un montón de museos."},{"options":["Did you eat deep-dish pizza?","Did you ate deep-dish pizza?"],"answer":0,"why":"Después de {{did}}: {{eat}}."},{"who":"Amiga","t":"Of course! It was delicious.","tr":"¡Claro! Estaba deliciosa."}],"from":"tell-about-your-weekend"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"¿Por qué no me dijiste?","words":["Why","didn't","you","tell me?"]},
+        {"type":"say","q":"Pregunta “¿Qué hiciste anoche?”","answer":"What did you do last night?"},
+        {"type":"free","q":"Te toca: piensa en tu último viaje o tu último cumpleaños. Hazte dos preguntas con {{did}} y contéstalas.","answers":[{"t":"Did I go out? Yes, I did. Did I eat cake? No, I didn't. I don't like cake!","tr":"¿Salí? Sí. ¿Comí pastel? No. ¡No me gusta el pastel!"},{"t":"Where did I go? I went to Veracruz. Did I swim? Yes, I swam every day.","tr":"¿Adónde fui? Fui a Veracruz. ¿Nadé? Sí, nadé todos los días."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 4,
+      "level": "A2",
+      "title": "Cuenta una historia",
+      "summary": "Cuenta qué pasó y qué estaba pasando en ese momento: {{I was walking home when it started to rain.}}",
+      "topic": "el pasado continuo ({{was}}, {{were}} + -ing) y el pasado simple; {{when}} y {{while}}",
+      "blocks": [
+        {"goal":{"t":"I was walking home when it started to rain.","tr":"Iba caminando a la casa cuando empezó a llover."}},
+        {"dialog":[{"who":"Sara","t":"What happened to your arm?","tr":"¿Qué te pasó en el brazo?"},{"who":"Tú","t":"I fell! I was running in the park and I didn't see a rock.","tr":"¡Me caí! Estaba corriendo en el parque y no vi una piedra."},{"who":"Sara","t":"Oh no! Were you alone?","tr":"¡Ay, no! ¿Estabas solo?"},{"who":"Tú","t":"No, my brother was with me. He laughed first, and then he took me to the doctor.","tr":"No, mi hermano estaba conmigo. Primero se rio y luego me llevó al doctor."},{"who":"Sara","t":"Brothers!","tr":"¡Hermanos!"}]},
+        {"p":"**Lo que estaba pasando.** El pasado continuo es {{was}} o {{were}} + el verbo con -ing: {{I was walking}} “iba caminando”, “estaba caminando”. Describe una acción **en progreso** en un momento del pasado: {{At eight o'clock I was having dinner.}} “A las ocho estaba cenando.”"},
+        {"term":"pasado continuo","means":"el tiempo para lo que estaba pasando en un momento del pasado: {{I was cooking}} “estaba cocinando”."},
+        {"p":"**Interrumpida.** Lo típico en una historia: algo estaba pasando (pasado continuo) y de repente pasó otra cosa (pasado simple). {{I was taking a shower when the phone rang.}} “Me estaba bañando cuando sonó el teléfono.” {{when}} va con el evento corto; {{while}} (mientras), con lo que estaba en progreso: {{While I was cooking, the lights went out.}}"},
+        { "table": [
+          ["pasado continuo: estaba pasando","pasado simple: pasó"],
+          ["{{I was walking home…}}","{{…when it started to rain.}}"],
+          ["{{We were watching TV…}}","{{…when you called.}}"],
+          ["{{While she was sleeping,…}}","{{…someone knocked on the door.}}"]
+        ] },
+        {"p":"**¡Ojo con el imperfecto!** En español usamos mucho el imperfecto (“vivía”, “era”, “tenía”). En inglés, eso **no** siempre es pasado continuo. Para describir cómo eran las cosas, o lo que hacías de costumbre, el inglés usa el pasado simple: {{When I was a kid, I lived in Puebla}} “Cuando era niño vivía en Puebla”, nunca {{I was living}}. El pasado continuo es solo para algo en progreso en un momento."},
+        { "ex": [
+          {"t":"What were you doing at ten last night? — I was sleeping.","tr":"¿Qué estabas haciendo anoche a las diez? — Estaba dormido."},
+          {"t":"It was raining when we left.","tr":"Estaba lloviendo cuando nos fuimos."},
+          {"t":"I was driving to work when I saw the accident.","tr":"Iba manejando al trabajo cuando vi el accidente."},
+          {"t":"While I was cooking, the kids were playing.","tr":"Mientras yo cocinaba, los niños jugaban.","note":"dos cosas en progreso a la vez: las dos en continuo"},
+          {"t":"She wasn't listening.","tr":"No estaba escuchando."},
+          {"t":"We met when we were working at the same company.","tr":"Nos conocimos cuando trabajábamos en la misma empresa."}
+        ] },
+        {"tip":"Para contar, une las partes con {{first}} (primero), {{then}} (luego), {{after that}} (después), {{suddenly}} (de repente) y {{finally}} (al final)."}
+      ],
+      "mistakes": [
+        {"wrong":"I was walk home.","right":"I was walking home.","tr":"Iba caminando a la casa.","why":"Después de {{was}}, el verbo con -ing."},
+        {"wrong":"When I was a kid, I was living in Puebla.","right":"When I was a kid, I lived in Puebla.","tr":"Cuando era niño, vivía en Puebla.","why":"Para describir cómo era tu vida: pasado simple. El continuo es solo para algo en progreso en un momento."},
+        {"wrong":"I was taking a shower when the phone was ringing.","right":"I was taking a shower when the phone rang.","tr":"Me estaba bañando cuando sonó el teléfono.","why":"Lo que interrumpe es un evento: pasado simple, {{rang}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge las palabras que faltan.","t":"I ___ dinner when you called.","tr":"Estaba cenando cuando llamaste.","options":["was having","had","were having"],"answer":0,"why":"En progreso e interrumpido: {{was}} + -ing."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"It was raining when we ___ the house.","tr":"Estaba lloviendo cuando salimos de la casa.","options":["left","were leaving","leave"],"answer":0,"why":"El evento: pasado simple, {{left}}.","from":"tell-about-your-weekend"},
+        {"type":"choice","q":"“Cuando era niña, me encantaban los perros.” ¿Cuál está bien?","options":["{{When I was a girl, I loved dogs.}}","{{When I was a girl, I was loving dogs.}}","{{When I was girl, I love dogs.}}"],"answer":0,"why":"Una descripción del pasado: pasado simple (y {{love}} es un estado).","from":"routines-and-right-now"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"What ___ you doing at midnight?","tr":"¿Qué estabas haciendo a la medianoche?","options":["were","was","did"],"answer":0,"why":"Con {{you}}: {{were}} + -ing."},
+        {"type":"dialogue","q":"Le explicas a tu amiga por qué llegaste tarde. Escoge tus respuestas.","lines":[{"who":"Amiga","t":"Why were you late?","tr":"¿Por qué llegaste tarde?"},{"options":["I was driving here when my car broke down.","I drove here when my car was breaking down."],"answer":0,"why":"En progreso: {{was driving}}; lo que pasó: {{broke down}}."},{"who":"Amiga","t":"Oh no! Did you call a tow truck?","tr":"¡No! ¿Llamaste una grúa?"},{"options":["No, I didn't. A man helped me.","No, I didn't called. A man helped me."],"answer":0,"why":"Después de {{didn't}}, la forma base, o nada."},{"who":"Amiga","t":"Lucky!","tr":"¡Qué suerte!"}],"from":"ask-about-the-past"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Me estaba bañando cuando sonó el teléfono.","words":["I was","taking a shower","when","the phone","rang."]},
+        {"type":"say","q":"Di “Estaba lloviendo cuando nos fuimos.”","answer":"It was raining when we left."},
+        {"type":"free","q":"Te toca: cuenta algo que te pasó. ¿Qué estabas haciendo, y qué pasó de repente?","answers":[{"t":"I was waiting for the bus when I saw my old teacher. We talked for an hour!","tr":"Estaba esperando el camión cuando vi a mi maestra de antes. ¡Platicamos una hora!"},{"t":"Last week I was cooking when the lights went out. We had dinner by candlelight.","tr":"La semana pasada estaba cocinando cuando se fue la luz. Cenamos con velas."}]}
+      ]
+    },
+    {
+      "id": "say-how-things-used-to-be",
+      "unit": 4,
+      "level": "A2",
+      "title": "Di cómo eran las cosas antes",
+      "summary": "Habla de lo que hacías antes y ya no: {{When I was a kid, I used to play soccer every day.}}",
+      "topic": "{{used to}} + la forma base; {{didn't use to}}; el imperfecto del español, en inglés",
+      "blocks": [
+        {"goal":{"t":"When I was a kid, I used to play soccer every day.","tr":"Cuando era niño, jugaba futbol todos los días."}},
+        {"dialog":[{"who":"Nieta","t":"Grandpa, what did you use to do for fun?","tr":"Abuelo, ¿qué hacías para divertirte?"},{"who":"Abuelo","t":"We used to play in the street. There weren't any video games!","tr":"Jugábamos en la calle. ¡No había videojuegos!"},{"who":"Nieta","t":"Did you use to watch TV?","tr":"¿Veías la tele?"},{"who":"Abuelo","t":"Not much. We didn't use to have a TV at home.","tr":"Poco. No teníamos tele en la casa."},{"who":"Nieta","t":"Wow. Life used to be very different!","tr":"¡Guau! ¡La vida era muy distinta!"}]},
+        {"p":"**Antes sí, ahora no.** {{used to}} + la forma base dice lo que hacías antes, como costumbre, y ya no haces: {{I used to smoke.}} “Antes fumaba.” Es una de las formas de decir en inglés el imperfecto de costumbre: “jugaba”, “vivía”, “iba”."},
+        { "table": [
+          ["","{{used to}}"],
+          ["afirmación","{{I used to live in Texas.}}"],
+          ["negación","{{I didn't use to like coffee.}}"],
+          ["pregunta","{{Did you use to play sports?}}"]
+        ] },
+        {"p":"Es igual para todas las personas ({{she used to}}). Con {{did}} se escribe {{use to}}, sin d: {{didn't use to}}, {{Did you use to…?}}"},
+        {"p":"**El imperfecto del español, en inglés.** “Vivía”, “era” y “jugaba” no tienen una sola traducción. Para costumbres que ya no son: {{used to}} ({{I used to play}}) o el pasado simple ({{I played a lot}}). Para describir: el pasado simple ({{The house was big}}, {{I had a dog}}). Para algo en progreso en un momento: el pasado continuo ({{I was sleeping}}). Lo que casi nunca funciona es traducir cada imperfecto con -ing."},
+        { "table": [
+          ["en español","en inglés"],
+          ["De niño jugaba futbol.","{{As a kid, I used to play soccer.}}"],
+          ["Mi casa era grande.","{{My house was big.}}"],
+          ["Tenía un perro.","{{I had a dog.}}"],
+          ["Estaba dormido cuando llegaste.","{{I was sleeping when you arrived.}}"]
+        ] },
+        { "ex": [
+          {"t":"I used to work at a restaurant.","tr":"Antes trabajaba en un restaurante."},
+          {"t":"She used to have long hair.","tr":"Antes tenía el pelo largo."},
+          {"t":"We used to go to Acapulco every summer.","tr":"Íbamos a Acapulco todos los veranos."},
+          {"t":"I didn't use to like vegetables.","tr":"Antes no me gustaban las verduras."},
+          {"t":"Did you use to live here?","tr":"¿Antes vivías aquí?"},
+          {"t":"There used to be a movie theater on this street.","tr":"En esta calle había un cine.","note":"{{there used to be}}: había, y ya no hay"}
+        ] },
+        {"tip":"No confundas {{used to}} + verbo (antes hacía) con {{be used to}} (estar acostumbrado): {{I'm used to the cold.}} “Ya estoy acostumbrado al frío.”"}
+      ],
+      "mistakes": [
+        {"wrong":"I use to play soccer when I was a kid.","right":"I used to play soccer when I was a kid.","tr":"De niño jugaba futbol.","why":"Para el pasado se escribe {{used to}}, con d."},
+        {"wrong":"I didn't used to like it.","right":"I didn't use to like it.","tr":"Antes no me gustaba.","why":"Con {{didn't}}, sin d: {{use to}}."},
+        {"wrong":"When I was young, I was going to the beach every summer.","right":"When I was young, I used to go to the beach every summer.","tr":"Cuando era joven, iba a la playa todos los veranos.","why":"Una costumbre del pasado: {{used to}}, no el continuo."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I ___ to live in Mexico City.","tr":"Antes vivía en la Ciudad de México.","options":["used","use","was use"],"answer":0,"why":"{{used to}} + la forma base."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"She didn't use to ___ coffee.","tr":"Antes no tomaba café.","options":["drink","drank","drinking"],"answer":0,"why":"{{use to}} + la forma base: {{drink}}."},
+        {"type":"choice","q":"“Mi casa era muy chica.” ¿Cuál está bien?","options":["{{My house was very small.}}","{{My house was being very small.}}","{{My house used to was very small.}}"],"answer":0,"why":"Una descripción: el pasado simple de {{be}}, {{was}}.","from":"say-where-you-were"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Did you ___ to play any sports?","tr":"¿Antes hacías algún deporte?","options":["use","used","using"],"answer":0,"why":"Con {{did}}: {{use to}}, sin d."},
+        {"type":"dialogue","q":"Platicas con un amigo de la infancia. Escoge tus respuestas.","lines":[{"who":"Amigo","t":"What did you use to do after school?","tr":"¿Qué hacías después de la escuela?"},{"options":["I used to play video games with my brother.","I was playing video games with my brother every day."],"answer":0,"why":"Una costumbre del pasado: {{used to}}."},{"who":"Amigo","t":"Were you a good student?","tr":"¿Eras buen estudiante?"},{"options":["Not really. I didn't use to study much.","Not really. I didn't used to study much."],"answer":0,"why":"Con {{didn't}}: {{use to}}, sin d."},{"who":"Amigo","t":"Ha! Me neither.","tr":"¡Ja! Yo tampoco."}],"from":"tell-a-story"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Íbamos a Acapulco todos los veranos.","words":["We","used to","go to Acapulco","every summer."]},
+        {"type":"say","q":"Di “Antes trabajaba en un restaurante.”","answer":"I used to work at a restaurant."},
+        {"type":"free","q":"Te toca: ¿cómo era tu vida hace diez años? Di dos cosas que hacías antes y ya no.","answers":[{"t":"Ten years ago I used to live with my parents, and I used to go out every weekend.","tr":"Hace diez años vivía con mis papás y salía todos los fines de semana."},{"t":"I used to work at night, and I didn't use to cook. Now I cook every day!","tr":"Antes trabajaba de noche y no cocinaba. ¡Ahora cocino todos los días!"}]}
+      ]
     }
   ]
 }
