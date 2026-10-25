@@ -1414,8 +1414,8 @@
       "word": "全国",
       "pos": "noun",
       "meaning": "(quánguó) the whole country; nationwide",
-      "sentence": "他的名字全国都知道。",
-      "translation": "The ⟦whole country⟧ knows his name."
+      "sentence": "他在全国都很有名。",
+      "translation": "He's famous across the ⟦whole country⟧."
     },
     {
       "n": 158,
@@ -1630,8 +1630,8 @@
       "word": "钱",
       "pos": "noun",
       "meaning": "(qián) money",
-      "sentence": "我没带钱。",
-      "translation": "I didn't bring any ⟦money⟧."
+      "sentence": "我想存点钱。",
+      "translation": "I want to save some ⟦money⟧."
     },
     {
       "n": 182,
@@ -1792,8 +1792,8 @@
       "word": "两",
       "pos": "num",
       "meaning": "(liǎng) two (before a measure word)",
-      "sentence": "我要两杯咖啡。",
-      "translation": "I'd like ⟦two⟧ cups of coffee."
+      "sentence": "我有两个妹妹。",
+      "translation": "I have ⟦two⟧ younger sisters."
     },
     {
       "n": 200,
@@ -3205,8 +3205,8 @@
       "word": "方法",
       "pos": "noun",
       "meaning": "(fāngfǎ) way; method",
-      "sentence": "这是个好方法。",
-      "translation": "That's a good ⟦way⟧ to do it."
+      "sentence": "学中文最好的方法是多说。",
+      "translation": "The best ⟦way⟧ to learn Chinese is to speak a lot."
     },
     {
       "n": 357,
@@ -5356,7 +5356,7 @@
       "word": "土地",
       "pos": "noun",
       "meaning": "(tǔdì) land; soil",
-      "sentence": "这里的土地很肥。",
+      "sentence": "这里的土地很肥沃。",
       "translation": "The ⟦land⟧ here is very fertile."
     },
     {
@@ -5716,8 +5716,8 @@
       "word": "空间",
       "pos": "noun",
       "meaning": "(kōngjiān) space; room",
-      "sentence": "这个房间空间很大。",
-      "translation": "This room has a lot of ⟦space⟧."
+      "sentence": "我需要一点自己的空间。",
+      "translation": "I need a bit of ⟦space⟧ of my own."
     },
     {
       "n": 636,
@@ -6283,8 +6283,8 @@
       "word": "职业",
       "pos": "noun",
       "meaning": "(zhíyè) occupation; profession; professional",
-      "sentence": "你的职业是什么？",
-      "translation": "What's your ⟦occupation⟧?"
+      "sentence": "教师是一个很好的职业。",
+      "translation": "Teaching is a great ⟦profession⟧."
     },
     {
       "n": 699,
@@ -7615,8 +7615,8 @@
       "word": "医疗",
       "pos": "adj",
       "meaning": "(yīliáo) medical; medical care",
-      "sentence": "这里的医疗条件很好。",
-      "translation": "The ⟦medical⟧ facilities here are good."
+      "sentence": "医疗费用太贵了。",
+      "translation": "⟦Medical⟧ costs are too high."
     },
     {
       "n": 847,
@@ -7659,7 +7659,7 @@
       "rank": 964,
       "word": "意识",
       "pos": "verb",
-      "meaning": "(yìshi) to realise (意识到); awareness; consciousness",
+      "meaning": "(yìshí) to realise (意识到); awareness; consciousness",
       "sentence": "我意识到自己错了。",
       "translation": "I ⟦realised⟧ I was wrong."
     },
@@ -8103,6 +8103,906 @@
       "meaning": "(tiáozhěng) to adjust; adjustment",
       "sentence": "我们需要调整计划。",
       "translation": "We need to ⟦adjust⟧ the plan."
+    },
+    {
+      "n": 901,
+      "rank": 1020,
+      "word": "购买",
+      "pos": "verb",
+      "meaning": "(gòumǎi) to buy; to purchase",
+      "sentence": "我在网上购买了一本书。",
+      "translation": "I ⟦bought⟧ a book online."
+    },
+    {
+      "n": 902,
+      "rank": 1021,
+      "word": "身上",
+      "pos": "noun",
+      "meaning": "(shēnshang) on (one's) body; on (me, you…)",
+      "sentence": "我身上没带钱。",
+      "translation": "I don't have any money ⟦on me⟧."
+    },
+    {
+      "n": 903,
+      "rank": 1022,
+      "word": "需求",
+      "pos": "noun",
+      "meaning": "(xūqiú) demand; need",
+      "sentence": "市场需求很大。",
+      "translation": "Market ⟦demand⟧ is high."
+    },
+    {
+      "n": 904,
+      "rank": 1023,
+      "word": "首先",
+      "pos": "adv",
+      "meaning": "(shǒuxiān) first (of all)",
+      "sentence": "首先，我要感谢大家。",
+      "translation": "⟦First of all⟧, I'd like to thank everyone."
+    },
+    {
+      "n": 905,
+      "rank": 1024,
+      "word": "几",
+      "pos": "pron",
+      "meaning": "(jǐ) how many; a few",
+      "sentence": "你有几个孩子？",
+      "translation": "⟦How many⟧ children do you have?"
+    },
+    {
+      "n": 906,
+      "rank": 1025,
+      "word": "危险",
+      "pos": "adj",
+      "meaning": "(wēixiǎn) dangerous; danger",
+      "sentence": "这里很危险。",
+      "translation": "It's very ⟦dangerous⟧ here."
+    },
+    {
+      "n": 907,
+      "rank": 1027,
+      "word": "商业",
+      "pos": "noun",
+      "meaning": "(shāngyè) business; commerce",
+      "sentence": "这里是商业区。",
+      "translation": "This is the ⟦business⟧ district."
+    },
+    {
+      "n": 908,
+      "rank": 1028,
+      "word": "团",
+      "pos": "noun",
+      "meaning": "(tuán) group; tour group; ball (of something)",
+      "sentence": "我们跟旅游团去的。",
+      "translation": "We went with a tour ⟦group⟧."
+    },
+    {
+      "n": 909,
+      "rank": 1029,
+      "word": "大会",
+      "pos": "noun",
+      "meaning": "(dàhuì) conference; general meeting",
+      "sentence": "大会明天开幕。",
+      "translation": "The ⟦conference⟧ opens tomorrow."
+    },
+    {
+      "n": 910,
+      "rank": 1030,
+      "word": "妇女",
+      "pos": "noun",
+      "meaning": "(fùnǚ) women",
+      "sentence": "三月八日是妇女节。",
+      "translation": "March 8th is ⟦Women⟧'s Day."
+    },
+    {
+      "n": 911,
+      "rank": 1031,
+      "word": "左右",
+      "pos": "noun",
+      "meaning": "(zuǒyòu) around; about (after a number); left and right",
+      "sentence": "我七点左右到。",
+      "translation": "I'll be there ⟦around⟧ seven."
+    },
+    {
+      "n": 912,
+      "rank": 1032,
+      "word": "广场",
+      "pos": "noun",
+      "meaning": "(guǎngchǎng) square; plaza",
+      "sentence": "我们在广场见面吧。",
+      "translation": "Let's meet in the ⟦square⟧."
+    },
+    {
+      "n": 913,
+      "rank": 1033,
+      "word": "拒绝",
+      "pos": "verb",
+      "meaning": "(jùjué) to refuse; to turn down",
+      "sentence": "她拒绝了我的邀请。",
+      "translation": "She ⟦turned down⟧ my invitation."
+    },
+    {
+      "n": 914,
+      "rank": 1034,
+      "word": "既",
+      "pos": "conj",
+      "meaning": "(jì) both … and (既…又…); since",
+      "sentence": "这件衣服既便宜又好看。",
+      "translation": "This top is ⟦both⟧ cheap and nice-looking."
+    },
+    {
+      "n": 915,
+      "rank": 1036,
+      "word": "求",
+      "pos": "verb",
+      "meaning": "(qiú) to beg; to ask for; to seek",
+      "sentence": "求求你，帮帮我。",
+      "translation": "I'm ⟦begging⟧ you, help me."
+    },
+    {
+      "n": 916,
+      "rank": 1037,
+      "word": "治疗",
+      "pos": "noun",
+      "meaning": "(zhìliáo) treatment; to treat (an illness)",
+      "sentence": "他在医院接受治疗。",
+      "translation": "He's receiving ⟦treatment⟧ in hospital."
+    },
+    {
+      "n": 917,
+      "rank": 1038,
+      "word": "现实",
+      "pos": "noun",
+      "meaning": "(xiànshí) reality; realistic",
+      "sentence": "这就是现实。",
+      "translation": "That's ⟦reality⟧."
+    },
+    {
+      "n": 918,
+      "rank": 1039,
+      "word": "监督",
+      "pos": "verb",
+      "meaning": "(jiāndū) to supervise; to monitor",
+      "sentence": "家长要监督孩子做作业。",
+      "translation": "Parents should ⟦supervise⟧ their children's homework."
+    },
+    {
+      "n": 919,
+      "rank": 1040,
+      "word": "网址",
+      "pos": "noun",
+      "meaning": "(wǎngzhǐ) web address; website",
+      "sentence": "请把网址发给我。",
+      "translation": "Please send me the ⟦web address⟧."
+    },
+    {
+      "n": 920,
+      "rank": 1041,
+      "word": "规划",
+      "pos": "noun",
+      "meaning": "(guīhuà) plan; planning; to plan",
+      "sentence": "你对未来有什么规划？",
+      "translation": "What ⟦plans⟧ do you have for the future?"
+    },
+    {
+      "n": 921,
+      "rank": 1042,
+      "word": "速度",
+      "pos": "noun",
+      "meaning": "(sùdù) speed",
+      "sentence": "他打字的速度很快。",
+      "translation": "His typing ⟦speed⟧ is fast."
+    },
+    {
+      "n": 922,
+      "rank": 1043,
+      "word": "针对",
+      "pos": "verb",
+      "meaning": "(zhēnduì) to be aimed at; to target; regarding",
+      "sentence": "我不是针对你。",
+      "translation": "I'm not ⟦getting at⟧ you."
+    },
+    {
+      "n": 923,
+      "rank": 1044,
+      "word": "面对",
+      "pos": "verb",
+      "meaning": "(miànduì) to face",
+      "sentence": "我们要勇敢面对困难。",
+      "translation": "We must ⟦face⟧ difficulties bravely."
+    },
+    {
+      "n": 924,
+      "rank": 1045,
+      "word": "主题",
+      "pos": "noun",
+      "meaning": "(zhǔtí) topic; theme",
+      "sentence": "今天会议的主题是什么？",
+      "translation": "What's the ⟦topic⟧ of today's meeting?"
+    },
+    {
+      "n": 925,
+      "rank": 1046,
+      "word": "事业",
+      "pos": "noun",
+      "meaning": "(shìyè) career; cause; undertaking",
+      "sentence": "他的事业很成功。",
+      "translation": "His ⟦career⟧ has been very successful."
+    },
+    {
+      "n": 926,
+      "rank": 1047,
+      "word": "作家",
+      "pos": "noun",
+      "meaning": "(zuòjiā) writer; author",
+      "sentence": "她想当作家。",
+      "translation": "She wants to be a ⟦writer⟧."
+    },
+    {
+      "n": 927,
+      "rank": 1049,
+      "word": "再次",
+      "pos": "adv",
+      "meaning": "(zàicì) once again; once more",
+      "sentence": "我再次向你道歉。",
+      "translation": "I apologise to you ⟦once again⟧."
+    },
+    {
+      "n": 928,
+      "rank": 1050,
+      "word": "创作",
+      "pos": "verb",
+      "meaning": "(chuàngzuò) to write; to create (art, music); creation",
+      "sentence": "这首歌是他自己创作的。",
+      "translation": "He ⟦wrote⟧ this song himself."
+    },
+    {
+      "n": 929,
+      "rank": 1052,
+      "word": "发行",
+      "pos": "verb",
+      "meaning": "(fāxíng) to release; to issue; to publish",
+      "sentence": "这张专辑明天发行。",
+      "translation": "This album is ⟦released⟧ tomorrow."
+    },
+    {
+      "n": 930,
+      "rank": 1053,
+      "word": "召开",
+      "pos": "verb",
+      "meaning": "(zhàokāi) to hold (a meeting); to convene",
+      "sentence": "会议将在下周召开。",
+      "translation": "The meeting will ⟦take place⟧ next week."
+    },
+    {
+      "n": 931,
+      "rank": 1054,
+      "word": "国外",
+      "pos": "noun",
+      "meaning": "(guówài) abroad; overseas",
+      "sentence": "他在国外留学。",
+      "translation": "He's studying ⟦abroad⟧."
+    },
+    {
+      "n": 932,
+      "rank": 1055,
+      "word": "多年",
+      "pos": "noun",
+      "meaning": "(duōnián) many years",
+      "sentence": "我们是多年的朋友。",
+      "translation": "We've been friends for ⟦many years⟧."
+    },
+    {
+      "n": 933,
+      "rank": 1056,
+      "word": "平均",
+      "pos": "adj",
+      "meaning": "(píngjūn) average; on average; equally",
+      "sentence": "我平均每天睡七个小时。",
+      "translation": "I sleep seven hours a night ⟦on average⟧."
+    },
+    {
+      "n": 934,
+      "rank": 1058,
+      "word": "数量",
+      "pos": "noun",
+      "meaning": "(shùliàng) quantity; number; amount",
+      "sentence": "数量有限。",
+      "translation": "⟦Quantities⟧ are limited."
+    },
+    {
+      "n": 935,
+      "rank": 1059,
+      "word": "文件",
+      "pos": "noun",
+      "meaning": "(wénjiàn) file; document",
+      "sentence": "我找不到那个文件了。",
+      "translation": "I can't find that ⟦file⟧."
+    },
+    {
+      "n": 936,
+      "rank": 1060,
+      "word": "明天",
+      "pos": "noun",
+      "meaning": "(míngtiān) tomorrow",
+      "sentence": "明天会更好。",
+      "translation": "⟦Tomorrow⟧ will be better."
+    },
+    {
+      "n": 937,
+      "rank": 1061,
+      "word": "群",
+      "pos": "noun",
+      "meaning": "(qún) group; crowd; flock (measure word); group chat",
+      "sentence": "一群孩子在公园里玩。",
+      "translation": "A ⟦group⟧ of children are playing in the park."
+    },
+    {
+      "n": 938,
+      "rank": 1062,
+      "word": "评论",
+      "pos": "noun",
+      "meaning": "(pínglùn) comment; review; to comment",
+      "sentence": "我看了网上的评论。",
+      "translation": "I read the ⟦comments⟧ online."
+    },
+    {
+      "n": 939,
+      "rank": 1063,
+      "word": "软件",
+      "pos": "noun",
+      "meaning": "(ruǎnjiàn) software; app",
+      "sentence": "你用什么软件？",
+      "translation": "What ⟦software⟧ do you use?"
+    },
+    {
+      "n": 940,
+      "rank": 1064,
+      "word": "通常",
+      "pos": "adv",
+      "meaning": "(tōngcháng) usually; normally",
+      "sentence": "我通常坐地铁上班。",
+      "translation": "I ⟦usually⟧ take the underground to work."
+    },
+    {
+      "n": 941,
+      "rank": 1065,
+      "word": "逼",
+      "pos": "verb",
+      "meaning": "(bī) to force; to push (someone)",
+      "sentence": "别逼我。",
+      "translation": "Don't ⟦push⟧ me."
+    },
+    {
+      "n": 942,
+      "rank": 1066,
+      "word": "部队",
+      "pos": "noun",
+      "meaning": "(bùduì) troops; army (unit)",
+      "sentence": "部队已经出发了。",
+      "translation": "The ⟦troops⟧ have set off."
+    },
+    {
+      "n": 943,
+      "rank": 1067,
+      "word": "铁路",
+      "pos": "noun",
+      "meaning": "(tiělù) railway",
+      "sentence": "这条铁路很长。",
+      "translation": "This ⟦railway⟧ is very long."
+    },
+    {
+      "n": 944,
+      "rank": 1068,
+      "word": "镇",
+      "pos": "noun",
+      "meaning": "(zhèn) town",
+      "sentence": "他住在一个小镇上。",
+      "translation": "He lives in a small ⟦town⟧."
+    },
+    {
+      "n": 945,
+      "rank": 1069,
+      "word": "难道",
+      "pos": "adv",
+      "meaning": "(nándào) do you mean to say …? (in surprised questions)",
+      "sentence": "难道你不知道吗？",
+      "translation": "⟦Do you mean to say⟧ you don't know?"
+    },
+    {
+      "n": 946,
+      "rank": 1070,
+      "word": "不用",
+      "pos": "adv",
+      "meaning": "(bùyòng) no need (to)",
+      "sentence": "不用谢。",
+      "translation": "⟦No need⟧ to thank me."
+    },
+    {
+      "n": 947,
+      "rank": 1071,
+      "word": "不管",
+      "pos": "conj",
+      "meaning": "(bùguǎn) no matter (what, how…)",
+      "sentence": "不管多忙，他都会给我打电话。",
+      "translation": "⟦No matter⟧ how busy he is, he calls me."
+    },
+    {
+      "n": 948,
+      "rank": 1073,
+      "word": "似乎",
+      "pos": "adv",
+      "meaning": "(sìhū) to seem; apparently",
+      "sentence": "他似乎不太高兴。",
+      "translation": "He ⟦seems⟧ a bit unhappy."
+    },
+    {
+      "n": 949,
+      "rank": 1074,
+      "word": "兄弟",
+      "pos": "noun",
+      "meaning": "(xiōngdì) brothers; brother",
+      "sentence": "我有两个兄弟。",
+      "translation": "I have two ⟦brothers⟧."
+    },
+    {
+      "n": 950,
+      "rank": 1075,
+      "word": "公里",
+      "pos": "noun",
+      "meaning": "(gōnglǐ) kilometre",
+      "sentence": "从这里到机场有二十公里。",
+      "translation": "It's twenty ⟦kilometres⟧ from here to the airport."
+    },
+    {
+      "n": 951,
+      "rank": 1076,
+      "word": "具体",
+      "pos": "adj",
+      "meaning": "(jùtǐ) specific; concrete; in detail",
+      "sentence": "你能说得具体一点吗？",
+      "translation": "Can you be a bit more ⟦specific⟧?"
+    },
+    {
+      "n": 952,
+      "rank": 1077,
+      "word": "办公室",
+      "pos": "noun",
+      "meaning": "(bàngōngshì) office",
+      "sentence": "我在办公室。",
+      "translation": "I'm in the ⟦office⟧."
+    },
+    {
+      "n": 953,
+      "rank": 1078,
+      "word": "呀",
+      "pos": "part",
+      "meaning": "(ya) adds a lively tone (like 啊)",
+      "sentence": "好呀！",
+      "translation": "⟦Sure⟧!"
+    },
+    {
+      "n": 954,
+      "rank": 1079,
+      "word": "头",
+      "pos": "noun",
+      "meaning": "(tóu) head; top; measure word for cattle",
+      "sentence": "我头疼。",
+      "translation": "My ⟦head⟧ hurts."
+    },
+    {
+      "n": 955,
+      "rank": 1080,
+      "word": "妻子",
+      "pos": "noun",
+      "meaning": "(qīzi) wife",
+      "sentence": "这是我的妻子。",
+      "translation": "This is my ⟦wife⟧."
+    },
+    {
+      "n": 956,
+      "rank": 1081,
+      "word": "实在",
+      "pos": "adv",
+      "meaning": "(shízài) really; honestly; truly",
+      "sentence": "我实在太累了。",
+      "translation": "I'm ⟦really⟧ exhausted."
+    },
+    {
+      "n": 957,
+      "rank": 1082,
+      "word": "年轻",
+      "pos": "adj",
+      "meaning": "(niánqīng) young",
+      "sentence": "你看起来很年轻。",
+      "translation": "You look very ⟦young⟧."
+    },
+    {
+      "n": 958,
+      "rank": 1083,
+      "word": "开展",
+      "pos": "verb",
+      "meaning": "(kāizhǎn) to carry out; to launch (an activity)",
+      "sentence": "公司开展了一次安全检查。",
+      "translation": "The company ⟦carried out⟧ a safety check."
+    },
+    {
+      "n": 959,
+      "rank": 1084,
+      "word": "律师",
+      "pos": "noun",
+      "meaning": "(lǜshī) lawyer",
+      "sentence": "我需要找一个律师。",
+      "translation": "I need to find a ⟦lawyer⟧."
+    },
+    {
+      "n": 960,
+      "rank": 1085,
+      "word": "战斗",
+      "pos": "noun",
+      "meaning": "(zhàndòu) battle; fight; to fight",
+      "sentence": "战斗持续了三天。",
+      "translation": "The ⟦battle⟧ lasted three days."
+    },
+    {
+      "n": 961,
+      "rank": 1086,
+      "word": "放弃",
+      "pos": "verb",
+      "meaning": "(fàngqì) to give up",
+      "sentence": "不要放弃！",
+      "translation": "Don't ⟦give up⟧!"
+    },
+    {
+      "n": 962,
+      "rank": 1087,
+      "word": "教",
+      "pos": "verb",
+      "meaning": "(jiāo) to teach",
+      "sentence": "她教我们中文。",
+      "translation": "She ⟦teaches⟧ us Chinese."
+    },
+    {
+      "n": 963,
+      "rank": 1088,
+      "word": "父母",
+      "pos": "noun",
+      "meaning": "(fùmǔ) parents",
+      "sentence": "我父母都退休了。",
+      "translation": "My ⟦parents⟧ are both retired."
+    },
+    {
+      "n": 964,
+      "rank": 1090,
+      "word": "称为",
+      "pos": "verb",
+      "meaning": "(chēngwéi) to be called; to call (something something)",
+      "sentence": "熊猫被称为中国的国宝。",
+      "translation": "The panda ⟦is called⟧ China's national treasure."
+    },
+    {
+      "n": 965,
+      "rank": 1091,
+      "word": "组",
+      "pos": "noun",
+      "meaning": "(zǔ) group; team; set",
+      "sentence": "我们分成三组。",
+      "translation": "We split into three ⟦groups⟧."
+    },
+    {
+      "n": 966,
+      "rank": 1092,
+      "word": "英语",
+      "pos": "noun",
+      "meaning": "(yīngyǔ) English (language)",
+      "sentence": "你会说英语吗？",
+      "translation": "Do you speak ⟦English⟧?"
+    },
+    {
+      "n": 967,
+      "rank": 1094,
+      "word": "角色",
+      "pos": "noun",
+      "meaning": "(juésè) role; part; character (in a play or game)",
+      "sentence": "她演的角色很有意思。",
+      "translation": "The ⟦role⟧ she plays is very interesting."
+    },
+    {
+      "n": 968,
+      "rank": 1095,
+      "word": "记得",
+      "pos": "verb",
+      "meaning": "(jìde) to remember",
+      "sentence": "你还记得我吗？",
+      "translation": "Do you still ⟦remember⟧ me?"
+    },
+    {
+      "n": 969,
+      "rank": 1096,
+      "word": "越来越",
+      "pos": "adv",
+      "meaning": "(yuèláiyuè) more and more",
+      "sentence": "你的中文越来越好了。",
+      "translation": "Your Chinese is getting ⟦better and better⟧."
+    },
+    {
+      "n": 970,
+      "rank": 1097,
+      "word": "过来",
+      "pos": "verb",
+      "meaning": "(guòlai) to come over (here)",
+      "sentence": "你过来一下。",
+      "translation": "Come ⟦over here⟧ a moment."
+    },
+    {
+      "n": 971,
+      "rank": 1098,
+      "word": "重大",
+      "pos": "adj",
+      "meaning": "(zhòngdà) major; important; big",
+      "sentence": "这是一个重大决定。",
+      "translation": "This is a ⟦major⟧ decision."
+    },
+    {
+      "n": 972,
+      "rank": 1099,
+      "word": "于是",
+      "pos": "conj",
+      "meaning": "(yúshì) so; and so; then",
+      "sentence": "下雨了，于是我们回家了。",
+      "translation": "It started raining, ⟦so⟧ we went home."
+    },
+    {
+      "n": 973,
+      "rank": 1100,
+      "word": "人权",
+      "pos": "noun",
+      "meaning": "(rénquán) human rights",
+      "sentence": "人权很重要。",
+      "translation": "⟦Human rights⟧ matter."
+    },
+    {
+      "n": 974,
+      "rank": 1101,
+      "word": "促进",
+      "pos": "verb",
+      "meaning": "(cùjìn) to promote; to help (something grow)",
+      "sentence": "运动可以促进健康。",
+      "translation": "Exercise ⟦promotes⟧ good health."
+    },
+    {
+      "n": 975,
+      "rank": 1102,
+      "word": "关心",
+      "pos": "noun",
+      "meaning": "(guānxīn) concern; care; to care about",
+      "sentence": "谢谢你的关心。",
+      "translation": "Thanks for your ⟦concern⟧."
+    },
+    {
+      "n": 976,
+      "rank": 1104,
+      "word": "前往",
+      "pos": "verb",
+      "meaning": "(qiánwǎng) to leave for; to go to",
+      "sentence": "他明天前往上海。",
+      "translation": "He's ⟦leaving for⟧ Shanghai tomorrow."
+    },
+    {
+      "n": 977,
+      "rank": 1105,
+      "word": "医生",
+      "pos": "noun",
+      "meaning": "(yīshēng) doctor",
+      "sentence": "你应该去看医生。",
+      "translation": "You should go and see a ⟦doctor⟧."
+    },
+    {
+      "n": 978,
+      "rank": 1106,
+      "word": "南",
+      "pos": "noun",
+      "meaning": "(nán) south",
+      "sentence": "我们往南走。",
+      "translation": "Let's head ⟦south⟧."
+    },
+    {
+      "n": 979,
+      "rank": 1110,
+      "word": "奖",
+      "pos": "noun",
+      "meaning": "(jiǎng) prize; award",
+      "sentence": "这次比赛的奖是什么？",
+      "translation": "What's the ⟦prize⟧ for this competition?"
+    },
+    {
+      "n": 980,
+      "rank": 1111,
+      "word": "广泛",
+      "pos": "adj",
+      "meaning": "(guǎngfàn) wide-ranging; widespread; widely",
+      "sentence": "他的兴趣很广泛。",
+      "translation": "He has ⟦wide-ranging⟧ interests."
+    },
+    {
+      "n": 981,
+      "rank": 1113,
+      "word": "感谢",
+      "pos": "verb",
+      "meaning": "(gǎnxiè) to thank; thanks",
+      "sentence": "非常感谢！",
+      "translation": "⟦Thank you⟧ very much!"
+    },
+    {
+      "n": 982,
+      "rank": 1114,
+      "word": "直到",
+      "pos": "prep",
+      "meaning": "(zhídào) until",
+      "sentence": "直到昨天我才知道。",
+      "translation": "I didn't know ⟦until⟧ yesterday."
+    },
+    {
+      "n": 983,
+      "rank": 1115,
+      "word": "相同",
+      "pos": "adj",
+      "meaning": "(xiāngtóng) the same; identical",
+      "sentence": "这两个字读音相同。",
+      "translation": "These two characters are pronounced the ⟦same⟧."
+    },
+    {
+      "n": 984,
+      "rank": 1116,
+      "word": "维护",
+      "pos": "verb",
+      "meaning": "(wéihù) to defend; to maintain; to protect",
+      "sentence": "我们要维护自己的权利。",
+      "translation": "We must ⟦defend⟧ our rights."
+    },
+    {
+      "n": 985,
+      "rank": 1117,
+      "word": "论坛",
+      "pos": "noun",
+      "meaning": "(lùntán) forum",
+      "sentence": "我在论坛上发了一个帖子。",
+      "translation": "I posted on a ⟦forum⟧."
+    },
+    {
+      "n": 986,
+      "rank": 1118,
+      "word": "道路",
+      "pos": "noun",
+      "meaning": "(dàolù) road; path; way",
+      "sentence": "道路很窄。",
+      "translation": "The ⟦road⟧ is very narrow."
+    },
+    {
+      "n": 987,
+      "rank": 1119,
+      "word": "停止",
+      "pos": "verb",
+      "meaning": "(tíngzhǐ) to stop",
+      "sentence": "请停止说话。",
+      "translation": "Please ⟦stop⟧ talking."
+    },
+    {
+      "n": 988,
+      "rank": 1120,
+      "word": "先进",
+      "pos": "adj",
+      "meaning": "(xiānjìn) advanced",
+      "sentence": "这是最先进的技术。",
+      "translation": "This is the most ⟦advanced⟧ technology."
+    },
+    {
+      "n": 989,
+      "rank": 1121,
+      "word": "公共",
+      "pos": "adj",
+      "meaning": "(gōnggòng) public",
+      "sentence": "公共场所不能抽烟。",
+      "translation": "No smoking in ⟦public⟧ places."
+    },
+    {
+      "n": 990,
+      "rank": 1123,
+      "word": "危机",
+      "pos": "noun",
+      "meaning": "(wēijī) crisis",
+      "sentence": "这是一场经济危机。",
+      "translation": "This is an economic ⟦crisis⟧."
+    },
+    {
+      "n": 991,
+      "rank": 1124,
+      "word": "去年",
+      "pos": "noun",
+      "meaning": "(qùnián) last year",
+      "sentence": "我去年去了日本。",
+      "translation": "I went to Japan ⟦last year⟧."
+    },
+    {
+      "n": 992,
+      "rank": 1125,
+      "word": "取消",
+      "pos": "verb",
+      "meaning": "(qǔxiāo) to cancel",
+      "sentence": "航班取消了。",
+      "translation": "The flight has been ⟦cancelled⟧."
+    },
+    {
+      "n": 993,
+      "rank": 1126,
+      "word": "地位",
+      "pos": "noun",
+      "meaning": "(dìwèi) position; status",
+      "sentence": "她在公司的地位很高。",
+      "translation": "She has a high ⟦position⟧ in the company."
+    },
+    {
+      "n": 994,
+      "rank": 1127,
+      "word": "基地",
+      "pos": "noun",
+      "meaning": "(jīdì) base",
+      "sentence": "这里是军事基地。",
+      "translation": "This is a military ⟦base⟧."
+    },
+    {
+      "n": 995,
+      "rank": 1128,
+      "word": "多数",
+      "pos": "noun",
+      "meaning": "(duōshù) majority; most",
+      "sentence": "多数人同意。",
+      "translation": "The ⟦majority⟧ agree."
+    },
+    {
+      "n": 996,
+      "rank": 1129,
+      "word": "定",
+      "pos": "verb",
+      "meaning": "(dìng) to fix; to set; to decide; to book",
+      "sentence": "时间定了吗？",
+      "translation": "Has the time been ⟦fixed⟧?"
+    },
+    {
+      "n": 997,
+      "rank": 1130,
+      "word": "寻找",
+      "pos": "verb",
+      "meaning": "(xúnzhǎo) to look for; to seek",
+      "sentence": "他在寻找新的机会。",
+      "translation": "He's ⟦looking for⟧ new opportunities."
+    },
+    {
+      "n": 998,
+      "rank": 1131,
+      "word": "工人",
+      "pos": "noun",
+      "meaning": "(gōngrén) worker",
+      "sentence": "工厂里有很多工人。",
+      "translation": "There are a lot of ⟦workers⟧ in the factory."
+    },
+    {
+      "n": 999,
+      "rank": 1133,
+      "word": "影片",
+      "pos": "noun",
+      "meaning": "(yǐngpiàn) film; movie",
+      "sentence": "这部影片很感人。",
+      "translation": "This ⟦film⟧ is very moving."
+    },
+    {
+      "n": 1000,
+      "rank": 1134,
+      "word": "懂",
+      "pos": "verb",
+      "meaning": "(dǒng) to understand",
+      "sentence": "你懂我的意思吗？",
+      "translation": "Do you ⟦understand⟧ what I mean?"
     }
   ]
 }
