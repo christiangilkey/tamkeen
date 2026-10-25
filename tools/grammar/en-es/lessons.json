@@ -2339,6 +2339,206 @@
         {"type":"say","q":"Say “Let's go before it rains.”","answer":"Vámonos antes de que llueva."},
         {"type":"free","q":"Your turn: what will you do when you speak Spanish well? Start with {{Cuando hable bien español…}}","answers":[{"t":"Cuando hable bien español, voy a viajar por todo México.","tr":"When I speak Spanish well, I'm going to travel all over Mexico."},{"t":"Cuando hable bien español, voy a ver películas sin subtítulos y a platicar con mis vecinos.","tr":"When I speak Spanish well, I'm going to watch movies without subtitles and chat with my neighbors."}]}
       ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 9,
+      "level": "B1",
+      "title": "Give your opinion, agree and doubt",
+      "summary": "Say what you think, agree or disagree, and say what you doubt: “I think it's a good idea.” “I don't think we have time.”",
+      "topic": "{{creo que}} + the normal forms, {{no creo que}} + subjunctive; {{me parece que}}; {{es posible que}}, {{dudo que}}; {{estoy de acuerdo}}",
+      "blocks": [
+        {"goal":{"t":"Creo que es buena idea, pero no creo que tengamos tiempo.","tr":"I think it's a good idea, but I don't think we have time."}},
+        {"dialog":[{"who":"Memo","t":"¿Qué te parece si vamos a Guanajuato en Semana Santa?","tr":"How about going to Guanajuato over Easter?"},{"who":"Ana","t":"Me parece muy buena idea. Pero creo que va a haber mucha gente.","tr":"I think it's a great idea. But I think there are going to be lots of people."},{"who":"Memo","t":"Sí, es posible que los hoteles estén llenos.","tr":"Yes, the hotels might be full."},{"who":"Ana","t":"No creo que sea tan difícil encontrar algo. Hoy busco.","tr":"I don't think it'll be that hard to find something. I'll look today."},{"who":"Memo","t":"¡De acuerdo! Vamos.","tr":"Agreed! Let's go."}]},
+        {"p":"**What you think: {{creo que}}** “I think (that)” and {{me parece que}} “it seems to me”. The normal forms follow, because you present it as true: {{Creo que tienes razón.}} “I think you're right.” {{Me parece que va a llover.}} Ask with {{¿Qué piensas?}} or {{¿Qué te parece?}} “What do you think?”"},
+        {"p":"**What you doubt: the subjunctive.** When you say you **don't** think something, or you doubt it, or that it's only possible, the subjunctive comes in: {{No creo que tengas razón.}} “I don't think you're right.”"},
+        { "table": [
+          ["presented as true: normal forms","doubted or only possible: subjunctive"],
+          ["{{Creo que es verdad.}} I think it's true.","{{No creo que sea verdad.}} I don't think it's true."],
+          ["{{Estoy seguro de que viene.}} I'm sure he's coming.","{{Dudo que venga.}} I doubt he's coming."],
+          ["{{Es verdad que hace calor.}} It's true that it's hot.","{{Es posible que haga calor.}} It might be hot."],
+          ["{{Me parece que está cerrado.}} I think it's closed.","{{Puede que esté cerrado.}} It may be closed."]
+        ] },
+        {"p":"**Agreeing and disagreeing.** {{Estoy de acuerdo (contigo).}} “I agree (with you).” {{No estoy de acuerdo.}} “I disagree.” {{Tienes razón.}} “You're right.” {{Creo que sí.}} and {{Creo que no.}} “I think so” and “I don't think so.” {{Depende.}} “It depends.” {{Para mí…}} “For me…”."},
+        { "ex": [
+          {"t":"Creo que este restaurante es el mejor de la ciudad.","tr":"I think this restaurant is the best in town."},
+          {"t":"No creo que llueva hoy.","tr":"I don't think it'll rain today."},
+          {"t":"¿Qué te pareció la película? — Me pareció un poco larga.","tr":"What did you think of the movie? — I thought it was a bit long."},
+          {"t":"Es posible que lleguemos tarde.","tr":"We might be late."},
+          {"t":"Dudo que el jefe acepte.","tr":"I doubt the boss will agree."},
+          {"t":"Estoy de acuerdo contigo: es demasiado caro.","tr":"I agree with you: it's too expensive."},
+          {"t":"¿Tú crees que va a venir? — Creo que no.","tr":"Do you think she's coming? — I don't think so."}
+        ] },
+        {"tip":"{{¿Qué te parece si…?}} + the present is a friendly way to suggest something: {{¿Qué te parece si vamos al cine?}} “How about going to the movies?”"}
+      ],
+      "mistakes": [
+        {"wrong":"No creo que es verdad.","right":"No creo que sea verdad.","tr":"I don't think it's true.","why":"After {{no creo que}}, the subjunctive: {{sea}}."},
+        {"wrong":"Creo que sea una buena idea.","right":"Creo que es una buena idea.","tr":"I think it's a good idea.","why":"{{creo que}} presents it as true: the normal form, {{es}}."},
+        {"wrong":"Estoy acuerdo.","right":"Estoy de acuerdo.","tr":"I agree.","why":"It's {{estar de acuerdo}}, with {{de}} (and never with {{ser}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"No creo que ___ mucho tráfico a esta hora.","tr":"I don't think there's much traffic at this time.","options":["haya","hay","habrá"],"answer":0,"why":"After {{no creo que}}, the subjunctive: {{hay}} → {{haya}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Creo que ___ razón.","tr":"I think you're right.","options":["tienes","tengas","tener"],"answer":0,"why":"{{creo que}}: the normal form, {{tienes}}."},
+        {"type":"choice","q":"“I agree with you.” Which one?","options":["{{Estoy de acuerdo contigo.}}","{{Soy de acuerdo contigo.}}","{{Estoy acuerdo con tú.}}"],"answer":0,"why":"{{estar de acuerdo}}, and “with you” is {{contigo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Es posible que ___ mañana.","tr":"It might rain tomorrow.","options":["llueva","llueve","lloverá"],"answer":0,"why":"Only possible: the subjunctive, {{llueva}}.","from":"talk-about-the-weather"},
+        {"type":"dialogue","q":"Choosing a place for dinner. Choose your replies.","lines":[{"who":"Friend","t":"¿Qué te parece si vamos al restaurante nuevo?","tr":"How about going to the new restaurant?"},{"options":["Me parece bien, pero creo que es más caro que el otro.","Me parece bien, pero creo que sea más caro que el otro."],"answer":0,"why":"{{creo que}}: the normal form, {{es}}; and “than” is {{que}}."},{"who":"Friend","t":"Sí, pero dicen que la comida es mejor.","tr":"Yes, but they say the food is better."},{"options":["Bueno, dudo que sea mejor, pero vamos.","Bueno, dudo que es mejor, pero vamos."],"answer":0,"why":"{{dudo que}} + subjunctive: {{sea}}."},{"who":"Friend","t":"¡Ya verás!","tr":"You'll see!"}],"from":"compare-things"},
+        {"type":"order","q":"Put the words in order.","tr":"I don't think it'll rain today.","words":["No","creo","que","llueva","hoy."]},
+        {"type":"say","q":"Answer a friend's plan: “I think it's a great idea.”","answer":"Me parece muy buena idea."},
+        {"type":"free","q":"Your turn: what do you think of learning a language with an app? Give your opinion with {{creo que}}, and a doubt with {{no creo que}} or {{dudo que}}.","answers":[{"t":"Creo que es muy útil, pero no creo que sea suficiente: también hay que hablar con la gente.","tr":"I think it's very useful, but I don't think it's enough: you also have to talk to people."},{"t":"Me parece una buena idea. Dudo que aprenda todo con una app, pero ayuda mucho.","tr":"I think it's a good idea. I doubt I'll learn everything with an app, but it helps a lot."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-would-do",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say what you would do, and ask politely",
+      "summary": "Say what you'd like, what you'd do in someone's place, and ask for things very politely: “I'd love to go.” “Could you help me?”",
+      "topic": "the conditional ({{me gustaría, podría, haría}}); {{yo que tú}}; {{quisiera}}; {{deberías}}",
+      "blocks": [
+        {"goal":{"t":"Me encantaría ir, pero no puedo. ¿Podríamos vernos el domingo?","tr":"I'd love to go, but I can't. Could we meet on Sunday?"}},
+        {"dialog":[{"who":"You","t":"Buenas tardes. Quisiera una habitación para dos noches.","tr":"Good afternoon. I'd like a room for two nights."},{"who":"Receptionist","t":"Claro. ¿Le gustaría con vista al mar?","tr":"Of course. Would you like a sea view?"},{"who":"You","t":"Sí, me encantaría. ¿Cuánto costaría?","tr":"Yes, I'd love that. How much would it be?"},{"who":"Receptionist","t":"Mil ochocientos pesos por noche, con desayuno.","tr":"One thousand eight hundred pesos a night, breakfast included."},{"who":"You","t":"Perfecto. ¿Me podría ayudar con las maletas?","tr":"Perfect. Could you help me with my bags?"}]},
+        {"p":"**Would.** The conditional says what would happen: wishes, polite requests, what you'd do in another situation. It's built like the future (lesson 41), from the whole infinitive with the **same irregular stems**, but with the endings of the -er imperfect:"},
+        {"term":"conditional","means":"the verb form for what would happen: {{me gustaría}} “I would like”, {{iría}} “I would go”."},
+        { "table": [
+          ["","{{hablar}}","{{comer}}","{{tener}} ({{tendr-}})"],
+          ["I","{{hablaría}}","{{comería}}","{{tendría}}"],
+          ["you (friendly)","{{hablarías}}","{{comerías}}","{{tendrías}}"],
+          ["he, she, you (polite)","{{hablaría}}","{{comería}}","{{tendría}}"],
+          ["we","{{hablaríamos}}","{{comeríamos}}","{{tendríamos}}"],
+          ["you (all), they","{{hablarían}}","{{comerían}}","{{tendrían}}"]
+        ] },
+        {"p":"The irregular stems are the future's: {{podría}}, {{haría}}, {{diría}}, {{saldría}}, {{vendría}}, {{pondría}}, {{sabría}}, {{querría}}, and {{habría}} “there would be”."},
+        {"p":"**Polite requests.** {{¿Podría…?}} “Could you…?” (to {{usted}}), {{¿Podrías…?}} (to {{tú}}), {{¿Le importaría…?}} “Would you mind…?”. To ask for something, {{quisiera}} “I'd like”, a special form of {{querer}}, is the politest of all: {{Quisiera un café.}} And {{me gustaría}} + infinitive is “I'd like to”."},
+        {"p":"**Advice: {{yo que tú}}.** “If I were you” is simply {{Yo que tú}} + the conditional: {{Yo que tú, no lo compraría.}} “If I were you, I wouldn't buy it.” {{Deberías}} + infinitive is “you should”: {{Deberías descansar.}}"},
+        { "ex": [
+          {"t":"Me gustaría aprender a bailar salsa.","tr":"I'd like to learn to dance salsa."},
+          {"t":"¿Podría hablar más despacio, por favor?","tr":"Could you speak more slowly, please?"},
+          {"t":"Yo que tú, hablaría con el jefe.","tr":"If I were you, I'd talk to the boss."},
+          {"t":"¿Te gustaría cenar conmigo el viernes?","tr":"Would you like to have dinner with me on Friday?"},
+          {"t":"Quisiera cambiar estos zapatos.","tr":"I'd like to exchange these shoes."},
+          {"t":"Deberías dormir más.","tr":"You should sleep more."},
+          {"t":"Sería genial vivir en la playa.","tr":"It would be great to live by the beach."}
+        ] },
+        {"tip":"{{¿Me podría…?}} is more polite than {{¿Me puede…?}}, which is more polite than {{¿Me das…?}} Choose by the place: at a hotel or a government office, {{¿Me podría…?}}; at a taco stand, {{¿Me da…?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Me gustaré ir.","right":"Me gustaría ir.","tr":"I'd like to go.","why":"“Would like”: the conditional, {{gustaría}}."},
+        {"wrong":"¿Poderías ayudarme?","right":"¿Podrías ayudarme?","tr":"Could you help me?","why":"The conditional uses the future's irregular stems: {{podr-}}."},
+        {"wrong":"Yo que tú, no lo compro.","right":"Yo que tú, no lo compraría.","tr":"If I were you, I wouldn't buy it.","why":"After {{yo que tú}}, the conditional: {{compraría}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Me ___ conocer Oaxaca.","tr":"I'd like to visit Oaxaca.","options":["gustaría","gustará","gusta"],"answer":0,"why":"“Would like”: {{gustaría}}.","from":"talk-about-people-you-know"},
+        {"type":"fill","q":"Choose the missing word.","t":"¿___ cerrar la ventana, por favor?","tr":"Could you close the window, please?","options":["Podría","Podrá","Puedo"],"answer":0,"why":"A polite request to {{usted}}: {{¿Podría…?}}"},
+        {"type":"fill","q":"Choose the missing word.","t":"Yo que tú, ___ con ella.","tr":"If I were you, I'd talk to her.","options":["hablaría","hablaré","hablo"],"answer":0,"why":"{{yo que tú}} + the conditional: {{hablaría}}."},
+        {"type":"choice","q":"At a hotel, the most polite way to say “I'd like a room” is…","options":["{{Quisiera una habitación.}}","{{Quiero una habitación.}}","{{Querré una habitación.}}"],"answer":0,"why":"{{quisiera}} is the politest “I'd like”. ({{Quiero}} is fine at a taco stand.)","from":"order-food-and-drinks"},
+        {"type":"dialogue","q":"A friend can't decide about a job. Choose your replies.","lines":[{"who":"Friend","t":"Me ofrecieron un trabajo en Monterrey. ¿Qué harías tú?","tr":"They've offered me a job in Monterrey. What would you do?"},{"options":["Yo que tú, lo aceptaría.","Yo que tú, lo acepto."],"answer":0,"why":"{{yo que tú}} + the conditional: {{aceptaría}}."},{"who":"Friend","t":"Pero mi familia está aquí.","tr":"But my family is here."},{"options":["Es importante que lo hables con ellos.","Es importante que lo hablas con ellos."],"answer":0,"why":"{{es importante que}} + subjunctive: {{hables}}."},{"who":"Friend","t":"Tienes razón. Hoy les digo.","tr":"You're right. I'll tell them today."}],"from":"give-advice"},
+        {"type":"order","q":"Put the words in order.","tr":"Would you like to have dinner with me?","words":["¿Te","gustaría","cenar","conmigo?"]},
+        {"type":"say","q":"Ask very politely: “Could you help me, please?” (to {{usted}})","answer":"¿Me podría ayudar, por favor?"},
+        {"type":"free","q":"Your turn: what would you like to do next year? And give a friend some advice with {{yo que tú}}.","answers":[{"t":"Me gustaría viajar a Perú. Y tú, yo que tú, aprendería a cocinar.","tr":"I'd like to travel to Peru. And you: if I were you, I'd learn to cook."},{"t":"El próximo año me gustaría cambiar de trabajo. Tú deberías tomar vacaciones: yo que tú, iría a la playa.","tr":"Next year I'd like to change jobs. You should take a vacation: if I were you, I'd go to the beach."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 9,
+      "level": "B1",
+      "title": "Imagine: if I had…",
+      "summary": "Talk about situations that aren't real, or aren't likely: “If I had more time, I'd learn to play the guitar.” “If I were you…”",
+      "topic": "{{si}} + the imperfect subjunctive ({{tuviera, fuera, pudiera}}), then the conditional",
+      "blocks": [
+        {"goal":{"t":"Si tuviera más tiempo, aprendería a tocar la guitarra.","tr":"If I had more time, I'd learn to play the guitar."}},
+        {"dialog":[{"who":"Carla","t":"¿Qué harías si ganaras la lotería?","tr":"What would you do if you won the lottery?"},{"who":"Beto","t":"Si ganara la lotería, compraría una casa en la playa.","tr":"If I won the lottery, I'd buy a house at the beach."},{"who":"Carla","t":"¿Y dejarías de trabajar?","tr":"And would you stop working?"},{"who":"Beto","t":"¡Claro! Viajaría por todo el mundo. ¿Y tú?","tr":"Of course! I'd travel all over the world. And you?"},{"who":"Carla","t":"Yo le daría la mitad a mi familia y abriría un restaurante.","tr":"I'd give half to my family and open a restaurant."}]},
+        {"p":"**Two kinds of “if”.** In lesson 42, {{Si tengo tiempo, te ayudo}} is a real possibility. For something that **isn't real**, or hard to imagine, Spanish uses {{si}} + the **imperfect subjunctive**, then the conditional: {{Si tuviera tiempo, te ayudaría.}} “If I had time, I'd help you” (but I don't)."},
+        { "table": [
+          ["real: it may happen","imagined: not real, or unlikely"],
+          ["{{Si tengo dinero, viajo.}} If I have money, I'll travel.","{{Si tuviera dinero, viajaría.}} If I had money, I'd travel."],
+          ["{{Si llueve, no vamos.}} If it rains, we won't go.","{{Si lloviera, no iríamos.}} If it rained, we wouldn't go."],
+          ["{{Si puedes, ven.}} If you can, come.","{{Si pudieras, ¿vendrías?}} If you could, would you come?"]
+        ] },
+        {"term":"imperfect subjunctive","means":"the past form of the subjunctive: {{tuviera}}, {{fuera}}, {{pudiera}}. It follows {{si}} for what isn't real, and it's the form in {{quisiera}}."},
+        {"p":"**Making it.** Take the “they” form of the **preterite**, drop **-ron**, and add **-ra, -ras, -ra, -ramos, -ran** (“we” takes an accent on the vowel before). Every irregular preterite comes along:"},
+        { "table": [
+          ["“they” (preterite)","I, he, she","we"],
+          ["{{hablaron}}","{{hablara}}","{{habláramos}}"],
+          ["{{tuvieron}}","{{tuviera}}","{{tuviéramos}}"],
+          ["{{fueron}} ({{ser}}, {{ir}})","{{fuera}}","{{fuéramos}}"],
+          ["{{pudieron}}","{{pudiera}}","{{pudiéramos}}"],
+          ["{{hicieron}}","{{hiciera}}","{{hiciéramos}}"],
+          ["{{dijeron}}","{{dijera}}","{{dijéramos}}"]
+        ] },
+        {"p":"You already know one: {{quisiera}} “I'd like” is the imperfect subjunctive of {{querer}}. And “if I were you” is {{si yo fuera tú}} (or {{yo que tú}}, lesson 48). Never the conditional right after {{si}}."},
+        { "ex": [
+          {"t":"Si fuera rico, no trabajaría.","tr":"If I were rich, I wouldn't work."},
+          {"t":"Si viviera en la playa, nadaría todos los días.","tr":"If I lived by the beach, I'd swim every day."},
+          {"t":"¿Qué harías si fueras presidente?","tr":"What would you do if you were president?"},
+          {"t":"Si yo fuera tú, no le diría nada.","tr":"If I were you, I wouldn't tell him anything."},
+          {"t":"Si pudiera, me iría de vacaciones mañana.","tr":"If I could, I'd go on vacation tomorrow."},
+          {"t":"Si hablaras con ella, todo sería más fácil.","tr":"If you talked to her, everything would be easier."}
+        ] },
+        {"tip":"In books and songs you'll also meet forms in -se ({{tuviese}}, {{fuese}}). They mean the same; the -ra forms are what Mexicans say."}
+      ],
+      "mistakes": [
+        {"wrong":"Si tendría dinero, viajaría.","right":"Si tuviera dinero, viajaría.","tr":"If I had money, I'd travel.","why":"Right after {{si}}, never the conditional: the imperfect subjunctive, {{tuviera}}."},
+        {"wrong":"Si tuviera tiempo, te ayudo.","right":"Si tuviera tiempo, te ayudaría.","tr":"If I had time, I'd help you.","why":"An imagined “if”: the result is in the conditional, {{ayudaría}}."},
+        {"wrong":"Si yo era tú, no iría.","right":"Si yo fuera tú, no iría.","tr":"If I were you, I wouldn't go.","why":"“If I were”: {{si yo fuera}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Si ___ más tiempo, leería más.","tr":"If I had more time, I'd read more.","options":["tuviera","tendría","tengo"],"answer":0,"why":"Imagined: {{si}} + imperfect subjunctive, {{tuviera}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Si fuera millonario, ___ una casa en Cancún.","tr":"If I were a millionaire, I'd buy a house in Cancún.","options":["compraría","compraré","compro"],"answer":0,"why":"The imagined result: the conditional, {{compraría}}.","from":"say-what-you-would-do"},
+        {"type":"choice","q":"Which one is a real possibility (it may well happen)?","options":["{{Si llueve, nos quedamos en casa.}}","{{Si lloviera, nos quedaríamos en casa.}}"],"answer":0,"why":"{{si}} + present: a real possibility. With {{lloviera}}, you're only imagining it.","from":"say-what-happens-if"},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Qué harías si ___ hablar con los animales?","tr":"What would you do if you could talk to animals?","options":["pudieras","podrías","puedes"],"answer":0,"why":"Imagined: {{pudieras}}, from {{pudieron}}.","from":"tell-about-your-weekend"},
+        {"type":"dialogue","q":"A fun question at dinner. Choose your replies.","lines":[{"who":"Friend","t":"Si pudieras vivir en cualquier país, ¿dónde vivirías?","tr":"If you could live in any country, where would you live?"},{"options":["Si pudiera, viviría en Italia.","Si podría, viviría en Italia."],"answer":0,"why":"After {{si}}: {{pudiera}}, never {{podría}}."},{"who":"Friend","t":"¿Por qué Italia?","tr":"Why Italy?"},{"options":["Porque comería pasta todos los días.","Porque comiera pasta todos los días."],"answer":0,"why":"The imagined result: the conditional, {{comería}}."},{"who":"Friend","t":"¡Buena razón!","tr":"Good reason!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"If I were you, I wouldn't tell him anything.","words":["Si yo","fuera tú,","no le","diría nada."]},
+        {"type":"say","q":"Ask a friend “What would you do if you won the lottery?”","answer":"¿Qué harías si ganaras la lotería?"},
+        {"type":"free","q":"Your turn: if you could change one thing in your life, what would it be? Start with {{Si pudiera…}}","answers":[{"t":"Si pudiera, viviría en México un año para aprender español.","tr":"If I could, I'd live in Mexico for a year to learn Spanish."},{"t":"Si pudiera, trabajaría menos y pasaría más tiempo con mi familia.","tr":"If I could, I'd work less and spend more time with my family."}]}
+      ]
+    },
+    {
+      "id": "pass-on-a-message",
+      "unit": 9,
+      "level": "B1",
+      "title": "Pass on what someone said",
+      "summary": "Tell someone what another person said, asked or wanted: “She said she was tired.” “He asked me to call him.”",
+      "topic": "{{dice que}} + present; {{dijo que}} + imperfect; {{me preguntó si}}; {{me pidió que}} + imperfect subjunctive",
+      "blocks": [
+        {"goal":{"t":"Llamó tu mamá. Dijo que iba a llegar tarde y que la llamaras.","tr":"Your mom called. She said she was going to be late and that you should call her."}},
+        {"dialog":[{"who":"You","t":"Oye, llamó Rodrigo.","tr":"Hey, Rodrigo called."},{"who":"Ale","t":"¿Y qué dijo?","tr":"And what did he say?"},{"who":"You","t":"Dijo que no podía venir a la fiesta porque estaba enfermo.","tr":"He said he couldn't come to the party because he was sick."},{"who":"Ale","t":"¡Qué lástima! ¿Algo más?","tr":"What a shame! Anything else?"},{"who":"You","t":"Sí, preguntó si tenías su libro y te pidió que se lo devolvieras.","tr":"Yes, he asked if you had his book, and he asked you to give it back to him."}]},
+        {"p":"**Right now: {{dice que}}.** For what someone is saying now (on the phone, in a message), nothing changes: {{Dice que llega a las ocho.}} “She says she'll be there at eight.” {{Dice que tiene hambre.}}"},
+        {"p":"**In the past: {{dijo que}}.** When you report what someone said earlier, Spanish shifts the verbs back, much as English does:"},
+        { "table": [
+          ["what they said","what you report","English"],
+          ["{{“Estoy cansada.”}}","{{Dijo que estaba cansada.}}","She said she was tired."],
+          ["{{“Voy a llegar tarde.”}}","{{Dijo que iba a llegar tarde.}}","She said she was going to be late."],
+          ["{{“Ya comí.”}}","{{Dijo que ya había comido.}}","He said he had already eaten."],
+          ["{{“Llámame.”}}","{{Me pidió que lo llamara.}}","He asked me to call him."]
+        ] },
+        {"p":"{{había}} + participle is “had done”: {{había comido}} “had eaten”. In everyday Mexican speech you'll often just hear the preterite instead: {{Dijo que ya comió.}}"},
+        {"p":"**Questions.** Yes/no questions are reported with {{si}} “if, whether”: {{Me preguntó si tenía hambre.}} “He asked me if I was hungry.” Questions with a question word keep it, accent and all: {{Me preguntó dónde vivía.}} “She asked me where I lived.”"},
+        {"p":"**Requests** are reported with {{que}} + the subjunctive, which in the past is the imperfect subjunctive: {{Me pidió que la llamara.}} “She asked me to call her.” {{Te dijo que no llegaras tarde.}} “She told you not to be late.” So {{decir que}} + the normal forms is “to say that”, and {{decir que}} + subjunctive is “to tell someone to”."},
+        { "ex": [
+          {"t":"El doctor dice que no es nada grave.","tr":"The doctor says it's nothing serious."},
+          {"t":"Mi jefe dijo que la reunión era a las diez.","tr":"My boss said the meeting was at ten."},
+          {"t":"Me preguntó si quería ir con ellos.","tr":"She asked me if I wanted to go with them."},
+          {"t":"Les pedí que no hicieran ruido.","tr":"I asked them not to make any noise."},
+          {"t":"¿Qué te dijo? — Que te iba a llamar mañana.","tr":"What did he tell you? — That he was going to call you tomorrow.","note":"in a quick answer, just {{que}}"},
+          {"t":"Me dijo que tuviera cuidado.","tr":"She told me to be careful."},
+          {"t":"Me preguntó a qué hora salía el camión.","tr":"He asked me what time the bus left."}
+        ] },
+        {"tip":"In quick Mexican speech, people often keep the original tense when it's still true: {{Dijo que viene mañana}} “He said he's coming tomorrow”. The shifted form is always safe."}
+      ],
+      "mistakes": [
+        {"wrong":"Me pidió que la llamo.","right":"Me pidió que la llamara.","tr":"She asked me to call her.","why":"Reporting a request in the past: {{que}} + imperfect subjunctive, {{llamara}}."},
+        {"wrong":"Me dijo que tengo cuidado.","right":"Me dijo que tuviera cuidado.","tr":"She told me to be careful.","why":"Telling someone to do something: {{decir que}} + subjunctive; in the past, {{tuviera}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mi hermana dijo que ___ muy cansada.","tr":"My sister said she was very tired.","options":["estaba","está","estuvo"],"answer":0,"why":"Reporting what she said: {{está}} shifts back to {{estaba}}.","from":"say-how-things-used-to-be"},
+        {"type":"fill","q":"Choose the missing word.","t":"Me pidió que le ___ un mensaje.","tr":"He asked me to send him a message.","options":["mandara","mando","mandaré"],"answer":0,"why":"A request, reported in the past: {{que}} + imperfect subjunctive, {{mandara}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Me preguntó ___ quería un café.","tr":"She asked me if I wanted a coffee.","options":["si","que","sí"],"answer":0,"why":"Reporting a yes/no question: {{si}}, without an accent."},
+        {"type":"choice","q":"Your friend said “I'm going to be late.” You tell someone…","options":["{{Dijo que iba a llegar tarde.}}","{{Dijo que voy a llegar tarde.}}","{{Dijo que iré a llegar tarde.}}"],"answer":0,"why":"{{voy a}} shifts back to {{iba a}}, and “I” becomes “she”.","from":"make-plans"},
+        {"type":"dialogue","q":"Your roommate missed a call. Choose your replies.","lines":[{"who":"Roommate","t":"¿Quién llamó?","tr":"Who called?"},{"options":["Tu jefa. Dijo que la reunión era mañana a las nueve.","Tu jefa. Dijo que la reunión fue mañana a las nueve."],"answer":0,"why":"Reporting “it is”: {{es}} shifts back to {{era}}."},{"who":"Roommate","t":"¿Y qué más?","tr":"And what else?"},{"options":["Te pidió que llevaras el informe.","Te pidió que llevas el informe."],"answer":0,"why":"A request: {{que}} + imperfect subjunctive, {{llevaras}}."},{"who":"Roommate","t":"Ay, todavía no lo termino.","tr":"Ugh, I still haven't finished it."}],"from":"tell-a-story"},
+        {"type":"order","q":"Put the words in order.","tr":"She asked me where I lived.","words":["Me","preguntó","dónde","vivía."]},
+        {"type":"say","q":"Pass on a message: “Your mom called. She said she was going to be late.”","answer":"Llamó tu mamá. Dijo que iba a llegar tarde."},
+        {"type":"free","q":"Your turn: think of a conversation you had this week. Report something the other person said, and something they asked you.","answers":[{"t":"Mi amiga me dijo que estaba muy contenta con su trabajo nuevo, y me preguntó si quería cenar con ella el sábado.","tr":"My friend told me she was very happy with her new job, and she asked me if I wanted to have dinner with her on Saturday."},{"t":"Mi jefe dijo que teníamos mucho trabajo y me pidió que llegara temprano mañana.","tr":"My boss said we had a lot of work and asked me to come in early tomorrow."}]}
+      ]
     }
   ]
 }
