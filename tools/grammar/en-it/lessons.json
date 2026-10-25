@@ -1081,6 +1081,355 @@
         {"type":"say","q":"Text a friend: “Sorry, I'm late! I'm on my way!”","answer":"Scusa, sono in ritardo! Sto arrivando!","from":"tell-the-time"},
         {"type":"free","q":"Your turn: it's Saturday at eleven. Say what you and two people you know are doing right now.","answers":[{"t":"Io sto leggendo, mia sorella sta lavorando e i miei genitori stanno facendo la spesa.","tr":"I'm reading, my sister is working, and my parents are doing the grocery shopping."},{"t":"Sto facendo colazione e mio marito sta ancora dormendo.","tr":"I'm having breakfast and my husband is still sleeping."}]}
       ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you did",
+      "summary": "Tell someone what you did yesterday or this morning: “I worked late and ordered a pizza.”",
+      "topic": "The passato prossimo with {{avere}}: {{ho lavorato, ho avuto, ho finito}}",
+      "blocks": [
+        {"goal":{"t":"Ieri ho lavorato tutto il giorno e ho cenato con Sara.","tr":"Yesterday I worked all day and had dinner with Sara."}},
+        {"dialog":[{"who":"Luca","t":"Ciao! Hai finito il progetto?","tr":"Hi! Did you finish the project?"},{"who":"You","t":"Sì, ho finito ieri sera. Ho lavorato fino alle undici!","tr":"Yes, I finished last night. I worked until eleven!"},{"who":"Luca","t":"E hai mangiato?","tr":"And did you eat?"},{"who":"You","t":"Sì, ho ordinato una pizza e ho guardato un film.","tr":"Yes, I ordered a pizza and watched a movie."},{"who":"Luca","t":"Hai dormito?","tr":"Did you sleep?"},{"who":"You","t":"Pochissimo! Stamattina ho bevuto tre caffè.","tr":"Hardly at all! I've had three coffees this morning."}]},
+        {"term":"tense","means":"the form of a verb that shows when something happens: present (I live), past (I lived), future (I'll live)."},
+        {"p":"**The past of what happened.** For something you did, Italian uses the {{passato prossimo}}: {{ho}} (from {{avere}}) + the past form of the verb: {{ho lavorato}} “I worked”, {{ho finito}} “I finished”. It covers both the English “I worked” and “I have worked”."},
+        {"term":"past participle","means":"the form of a verb used to make the past: worked, eaten, finished. In Italian: {{lavorato}}, {{avuto}}, {{finito}}."},
+        { "table": [
+          ["verbs in…","past participle","example"],
+          ["{{-are}}: {{lavorare}}","{{-ato}}: {{lavorato}}","{{Ho lavorato.}} “I worked.”"],
+          ["{{-ere}}: {{avere}}","{{-uto}}: {{avuto}}","{{Ho avuto un problema.}} “I had a problem.”"],
+          ["{{-ire}}: {{finire}}","{{-ito}}: {{finito}}","{{Ho finito.}} “I've finished.”"]
+        ] },
+        { "table": [
+          ["","{{avere}} + {{mangiato}}"],
+          ["I","{{ho mangiato}}"],
+          ["you ({{tu}})","{{hai mangiato}}"],
+          ["he, she, you ({{Lei}})","{{ha mangiato}}"],
+          ["we","{{abbiamo mangiato}}"],
+          ["you (two or more)","{{avete mangiato}}"],
+          ["they","{{hanno mangiato}}"]
+        ] },
+        {"p":"Only {{avere}} changes; the participle stays the same for everyone. {{non}} goes before {{ho}}: {{Non ho capito}} “I didn't understand”. A question is the same sentence with the voice going up: {{Hai mangiato?}} “Did you eat? Have you eaten?”"},
+        {"p":"**Time words**: {{ieri}} “yesterday”, {{ieri sera}} “last night”, {{stamattina}} “this morning”, {{oggi}} “today”, {{stasera}} “this evening”."},
+        { "ex": [
+          {"t":"Ho comprato un vestito nuovo.","tr":"I bought a new dress."},
+          {"t":"Abbiamo mangiato benissimo!","tr":"We ate really well!"},
+          {"t":"Hai dormito bene?","tr":"Did you sleep well?"},
+          {"t":"Non ho capito.","tr":"I didn't understand."},
+          {"t":"Marco ha venduto la macchina.","tr":"Marco sold his car."},
+          {"t":"Ieri sera hanno guardato la partita.","tr":"Last night they watched the game."},
+          {"t":"Ha ricevuto la mia email?","tr":"Did you get my email?","note":"polite: {{ha}}, to {{Lei}}"}
+        ] },
+        {"tip":"When you've just missed what someone said, {{Non ho capito}} “I didn't get that” is more natural than {{Non capisco}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Ieri io lavorato.","right":"Ieri ho lavorato.","tr":"Yesterday I worked.","why":"The past needs its helper: {{ho}} + {{lavorato}}."},
+        {"wrong":"Ho mangiare una pizza.","right":"Ho mangiato una pizza.","tr":"I ate a pizza.","why":"After {{ho}}, the past participle ({{mangiato}}), not the infinitive."},
+        {"wrong":"Hanno mangiati.","right":"Hanno mangiato.","tr":"They ate.","why":"With {{avere}}, the participle doesn't change: {{-ato}} for everyone."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ieri sera ___ guardato un film.","tr":"Last night I watched a movie.","options":["ho","sono","hai"],"answer":0,"why":"“I” + {{avere}}: {{ho}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Abbiamo ___ alle otto.","tr":"We had dinner at eight.","options":["cenato","cenare","ceniamo"],"answer":0,"why":"After {{abbiamo}}, the participle: {{cenato}}.","from":"tell-the-time"},
+        {"type":"choice","q":"The past participle of {{finire}} is…","options":["{{finito}}","{{finato}}","{{finuto}}"],"answer":0,"why":"-ire verbs: {{-ito}}."},
+        {"type":"dialogue","q":"Monday morning at work: choose your replies.","lines":[{"who":"Colleague","t":"Buongiorno! Hai passato un bel weekend?","tr":"Good morning! Did you have a nice weekend?"},{"options":["Sì, ho riposato molto.","Sì, ho riposare molto."],"answer":0,"why":"{{ho}} + the participle: {{riposato}}."},{"who":"Colleague","t":"E hai visto la partita?","tr":"And did you see the game?"},{"options":["No, ho lavorato tutto il giorno.","No, lavorato tutto il giorno."],"answer":0,"why":"The past needs {{ho}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I didn't understand the question.","words":["Non","ho capito","la domanda."]},
+        {"type":"say","q":"Ask a friend: “Did you sleep well?”","answer":"Hai dormito bene?"},
+        {"type":"free","q":"Your turn: say three things you did yesterday. Use {{ho}} + {{-ato, -uto, -ito}}.","answers":[{"t":"Ieri ho lavorato, ho cucinato la cena e ho guardato un film.","tr":"Yesterday I worked, I cooked dinner and I watched a movie."},{"t":"Stamattina ho comprato il pane e ho telefonato a mia madre.","tr":"This morning I bought bread and called my mother."}]}
+      ]
+    },
+    {
+      "id": "tell-about-your-weekend",
+      "unit": 5,
+      "level": "A2",
+      "title": "Tell someone about your weekend",
+      "summary": "Say what you did, saw, read and took, in order: “First I did the shopping, then I saw a movie.”",
+      "topic": "Irregular past participles: {{fatto, visto, preso, detto, letto, scritto, messo}}…; {{prima, poi, alla fine}}",
+      "blocks": [
+        {"goal":{"t":"Sabato ho fatto una passeggiata e ho visto un bel film.","tr":"On Saturday I went for a walk and saw a good movie."}},
+        {"dialog":[{"who":"Sara","t":"Cosa hai fatto nel weekend?","tr":"What did you do over the weekend?"},{"who":"You","t":"Sabato ho fatto la spesa e ho letto tutto il pomeriggio.","tr":"On Saturday I did the grocery shopping and read all afternoon."},{"who":"Sara","t":"Che libro hai letto?","tr":"What book did you read?"},{"who":"You","t":"Un giallo. E domenica ho preso il treno per Verona e ho visto l'Arena!","tr":"A crime novel. And on Sunday I took the train to Verona and saw the Arena!"},{"who":"Sara","t":"Che bello! Hai fatto foto?","tr":"How lovely! Did you take pictures?"},{"who":"You","t":"Sì, tantissime!","tr":"Yes, loads!"}]},
+        {"p":"**The most common verbs have irregular participles.** You'll use these every day, so learn them as words of their own:"},
+        { "table": [
+          ["infinitive","past participle","example"],
+          ["{{fare}} (to do, make)","{{fatto}}","{{Ho fatto la spesa.}}"],
+          ["{{vedere}} (to see)","{{visto}}","{{Ho visto un film.}}"],
+          ["{{prendere}} (to take)","{{preso}}","{{Ho preso il treno.}}"],
+          ["{{dire}} (to say)","{{detto}}","{{Cosa hai detto?}}"],
+          ["{{leggere}} (to read)","{{letto}}","{{Ho letto un libro.}}"],
+          ["{{scrivere}} (to write)","{{scritto}}","{{Ho scritto un messaggio.}}"],
+          ["{{mettere}} (to put)","{{messo}}","{{Dove hai messo le chiavi?}}"],
+          ["{{aprire}} (to open)","{{aperto}}","{{Ho aperto la finestra.}}"],
+          ["{{chiudere}} (to close)","{{chiuso}}","{{Hai chiuso la porta?}}"],
+          ["{{bere}} (to drink)","{{bevuto}}","{{Abbiamo bevuto un caffè.}}"],
+          ["{{chiedere}} (to ask)","{{chiesto}}","{{Ho chiesto il conto.}}"],
+          ["{{perdere}} (to lose, to miss)","{{perso}}","{{Ho perso il treno!}}"]
+        ] },
+        {"p":"A dictionary gives each verb's participle; these twelve cover most conversations."},
+        {"p":"**Telling it in order**: {{prima}} “first”, {{poi}} “then”, {{dopo}} “afterwards”, {{alla fine}} “in the end”. {{Prima ho fatto colazione, poi ho preso l'autobus.}} “First I had breakfast, then I took the bus.”"},
+        { "ex": [
+          {"t":"Ho fatto una passeggiata al parco.","tr":"I went for a walk in the park."},
+          {"t":"Abbiamo visto il Duomo.","tr":"We saw the cathedral."},
+          {"t":"Cosa hai detto?","tr":"What did you say?"},
+          {"t":"Ho perso il portafoglio!","tr":"I've lost my wallet!"},
+          {"t":"Hanno scritto una cartolina alla nonna.","tr":"They wrote a postcard to their grandma."},
+          {"t":"Avete preso un taxi?","tr":"Did you take a taxi?"},
+          {"t":"Prima ho letto il giornale, poi ho chiamato Marco.","tr":"First I read the paper, then I called Marco."}
+        ] },
+        {"tip":"In Italian you “make” a photo: {{Ho fatto una foto}} “I took a photo”."}
+      ],
+      "mistakes": [
+        {"wrong":"Ho prenduto il treno.","right":"Ho preso il treno.","tr":"I took the train.","why":"{{prendere}} has an irregular participle: {{preso}}."},
+        {"wrong":"Ho vedito il Colosseo.","right":"Ho visto il Colosseo.","tr":"I saw the Colosseum.","why":"{{vedere}} has an irregular participle: {{visto}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The past participle of {{fare}} is…","options":["{{fatto}}","{{fato}}","{{faciuto}}"],"answer":0,"why":"{{fatto}}, with a double t."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ieri ho ___ un bel libro.","tr":"Yesterday I read a good book.","options":["letto","leggiuto","leggito"],"answer":0,"why":"{{leggere}} → {{letto}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Dove hai ___ le chiavi?","tr":"Where did you put the keys?","options":["messo","mettuto","mettito"],"answer":0,"why":"{{mettere}} → {{messo}}."},
+        {"type":"dialogue","q":"A friend asks about your trip: choose your replies.","lines":[{"who":"Sara","t":"Allora, cosa avete fatto a Roma?","tr":"So, what did you do in Rome?"},{"options":["Abbiamo visto il Colosseo e abbiamo preso un gelato.","Abbiamo veduto il Colosseo e abbiamo prenduto un gelato."],"answer":0,"why":"{{visto}} and {{preso}}: irregular participles."},{"who":"Sara","t":"E avete fatto foto?","tr":"And did you take pictures?"},{"options":["Sì, abbiamo fatto tante foto!","Sì, abbiamo fato tante foto!"],"answer":0,"why":"{{fatto}}, with a double t."}]},
+        {"type":"order","q":"Put the words in order.","tr":"First we had breakfast, then we took the bus.","words":["Prima","abbiamo fatto colazione,","poi","abbiamo preso","l'autobus."]},
+        {"type":"say","q":"Say: “I missed the train! What time does the next one leave?”","answer":"Ho perso il treno! A che ora parte il prossimo?","from":"tell-the-time"},
+        {"type":"free","q":"Your turn: tell a friend about your last weekend: three things, in order, with {{prima}}, {{poi}}, {{alla fine}}.","answers":[{"t":"Prima ho fatto la spesa, poi ho letto un libro e alla fine ho visto un film con mio marito.","tr":"First I did the grocery shopping, then I read a book, and in the end I watched a movie with my husband."},{"t":"Sabato ho preso il treno per il mare. Poi ho fatto una passeggiata e ho bevuto uno spritz.","tr":"On Saturday I took the train to the seaside. Then I went for a walk and had a spritz."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-went",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say where you went",
+      "summary": "Tell someone where you went, when you left and came back, and whether you liked it: “I went to Naples.”",
+      "topic": "The passato prossimo with {{essere}}: {{sono andato / andata}}; {{mi sono svegliato}}; {{mi è piaciuto}}",
+      "blocks": [
+        {"goal":{"t":"Sono andata a Napoli e sono tornata ieri.","tr":"I went to Naples and came back yesterday.","note":"said by a woman; a man says {{sono andato… sono tornato}}"}},
+        {"dialog":[{"who":"Marco","t":"Ciao, Giulia! Dove sei stata?","tr":"Hi, Giulia! Where have you been?"},{"who":"Giulia","t":"Sono andata in Sicilia con mia sorella.","tr":"I went to Sicily with my sister."},{"who":"Marco","t":"Che bello! Quando siete partite?","tr":"How lovely! When did you leave?"},{"who":"Giulia","t":"Siamo partite lunedì e siamo tornate domenica.","tr":"We left on Monday and came back on Sunday."},{"who":"Marco","t":"E vi è piaciuta?","tr":"And did you like it?"},{"who":"Giulia","t":"Tantissimo! Ci siamo divertite molto.","tr":"Very much! We had a great time."}]},
+        {"p":"**Some verbs use {{essere}}, not {{avere}}.** Verbs of going and coming, of staying, and of changing make their past with {{essere}}: {{sono andato}} “I went”, {{sono arrivato}} “I arrived”, {{sono stato}} “I was, I've been”."},
+        { "table": [
+          ["infinitive","past (said by a man)","meaning"],
+          ["{{andare}}","{{sono andato}}","I went"],
+          ["{{venire}}","{{sono venuto}}","I came"],
+          ["{{arrivare}}","{{sono arrivato}}","I arrived"],
+          ["{{partire}}","{{sono partito}}","I left"],
+          ["{{uscire}}","{{sono uscito}}","I went out"],
+          ["{{tornare}}","{{sono tornato}}","I came back"],
+          ["{{rimanere}}, {{restare}}","{{sono rimasto}}, {{sono restato}}","I stayed"],
+          ["{{essere}}, {{stare}}","{{sono stato}}","I was, I've been"],
+          ["{{nascere}}","{{sono nato}}","I was born"]
+        ] },
+        {"p":"**With {{essere}}, the participle agrees** with the subject, like an adjective: a man says {{sono andato}}, a woman {{sono andata}}; a group says {{siamo andati}}, a group of women {{siamo andate}}."},
+        { "table": [
+          ["","man","woman"],
+          ["I went","{{sono andato}}","{{sono andata}}"],
+          ["you went","{{sei andato}}","{{sei andata}}"],
+          ["he went, she went","{{è andato}}","{{è andata}}"],
+          ["we went","{{siamo andati}}","{{siamo andate}}"],
+          ["you went (two or more)","{{siete andati}}","{{siete andate}}"],
+          ["they went","{{sono andati}}","{{sono andate}}"]
+        ] },
+        {"p":"**Reflexive verbs use {{essere}} too**: {{mi sono svegliato}} “I woke up”, {{ci siamo divertiti}} “we had fun”. And so does {{piacere}}, agreeing with the thing you liked: {{Mi è piaciuto il film}} “I liked the movie”, {{Mi è piaciuta la città}} “I liked the city”."},
+        { "ex": [
+          {"t":"Sono arrivato ieri sera.","tr":"I arrived last night.","note":"said by a man"},
+          {"t":"Marta è uscita alle otto.","tr":"Marta went out at eight."},
+          {"t":"Siamo stati a Venezia.","tr":"We've been to Venice."},
+          {"t":"Quando siete tornati?","tr":"When did you get back?"},
+          {"t":"Sono nata a Toronto.","tr":"I was born in Toronto.","note":"said by a woman"},
+          {"t":"Mi sono svegliato tardi.","tr":"I woke up late."},
+          {"t":"Ti è piaciuto il concerto?","tr":"Did you like the concert?"}
+        ] },
+        {"tip":"A quick test: if the verb can take an object (you eat something, you see something), it uses {{avere}}; if it's about moving or changing yourself, it usually uses {{essere}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Ho andato a Roma.","right":"Sono andato a Roma.","tr":"I went to Rome.","why":"{{andare}} makes its past with {{essere}}."},
+        {"wrong":"Maria è andato al cinema.","right":"Maria è andata al cinema.","tr":"Maria went to the movies.","why":"With {{essere}}, the participle agrees: Maria is a woman, so {{andata}}."},
+        {"wrong":"Mi ho svegliato tardi.","right":"Mi sono svegliato tardi.","tr":"I woke up late.","why":"Reflexive verbs make their past with {{essere}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ieri Luca ___ arrivato tardi.","tr":"Yesterday Luca arrived late.","options":["è","ha","sono"],"answer":0,"why":"{{arrivare}} uses {{essere}}: {{è arrivato}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Anna e Sara sono ___ in vacanza.","tr":"Anna and Sara went on vacation.","options":["andate","andati","andato"],"answer":0,"why":"Two women: {{andate}}."},
+        {"type":"choice","q":"Which one is right?","options":["{{Ho mangiato e sono uscito.}}","{{Sono mangiato e ho uscito.}}","{{Ho mangiato e ho uscito.}}"],"answer":0,"why":"{{mangiare}} can take an object: {{avere}}. {{uscire}} is about moving: {{essere}}.","from":"say-what-you-did"},
+        {"type":"dialogue","q":"You're Kate, just back from Sicily: choose your replies.","lines":[{"who":"Marco","t":"Ciao! Dove sei stata?","tr":"Hi! Where have you been?"},{"options":["Sono andata in Sicilia!","Ho andata in Sicilia!"],"answer":0,"why":"{{andare}} uses {{essere}}, and Kate is a woman: {{sono andata}}."},{"who":"Marco","t":"Ti è piaciuta?","tr":"Did you like it?"},{"options":["Sì, mi è piaciuta moltissimo.","Sì, mi ha piaciuto moltissimo."],"answer":0,"why":"{{piacere}} uses {{essere}} and agrees with {{la Sicilia}}: {{piaciuta}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We had a great time at the party.","words":["Ci siamo","divertiti","molto","alla festa."]},
+        {"type":"say","q":"Say (as a man): “I woke up late and missed the bus.”","answer":"Mi sono svegliato tardi e ho perso l'autobus.","from":"tell-about-your-weekend"},
+        {"type":"free","q":"Your turn: tell someone about a trip: where you went, when you left and came back, and whether you liked it.","answers":[{"t":"A maggio sono andato a Parigi. Sono partito di venerdì e sono tornato dopo una settimana. Mi è piaciuta molto!","tr":"In May I went to Paris. I left on a Friday and came back a week later. I liked it a lot!"},{"t":"A luglio siamo andati al mare in Puglia. Ci siamo divertiti tantissimo.","tr":"In July we went to the seaside in Puglia. We had a wonderful time."}]}
+      ]
+    },
+    {
+      "id": "say-when-it-happened",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say when it happened, and if it's done yet",
+      "summary": "Two days ago, last week, already, just, not yet: put your past in time.",
+      "topic": "{{fa}} “ago”, {{scorso}} “last”; {{già}}, {{appena}}, {{non… ancora}}",
+      "blocks": [
+        {"goal":{"t":"Sono arrivato due giorni fa e ho già visto il Colosseo.","tr":"I arrived two days ago and I've already seen the Colosseum."}},
+        {"dialog":[{"who":"Paolo","t":"Quando sei arrivata a Roma?","tr":"When did you arrive in Rome?"},{"who":"Emma","t":"Tre giorni fa.","tr":"Three days ago."},{"who":"Paolo","t":"Hai già visto i Musei Vaticani?","tr":"Have you seen the Vatican Museums yet?"},{"who":"Emma","t":"Non ancora. Ma ho appena comprato i biglietti per domani!","tr":"Not yet. But I've just bought the tickets for tomorrow!"},{"who":"Paolo","t":"E la Fontana di Trevi?","tr":"And the Trevi Fountain?"},{"who":"Emma","t":"Sì, ieri sera. Bellissima!","tr":"Yes, last night. Gorgeous!"}]},
+        {"p":"**When?** {{fa}} after a length of time means “ago”: {{due giorni fa}} “two days ago”, {{un anno fa}} “a year ago”. {{scorso}} “last” agrees with its noun and usually goes after it: {{la settimana scorsa}}, {{il mese scorso}}, {{l'anno scorso}}, {{sabato scorso}}."},
+        { "table": [
+          ["English","Italian"],
+          ["yesterday, the day before yesterday","{{ieri, l'altro ieri}}"],
+          ["last night","{{ieri sera}}"],
+          ["three days ago","{{tre giorni fa}}"],
+          ["last week, last month","{{la settimana scorsa, il mese scorso}}"],
+          ["last year","{{l'anno scorso}}"],
+          ["in 2019","{{nel 2019}}"]
+        ] },
+        {"p":"**Done yet?** {{già}} “already” and {{appena}} “just” go between the helper and the participle: {{Ho già mangiato}} “I've already eaten”, {{È appena partito}} “He's just left”. {{non… ancora}} is “not yet”: {{Non ho ancora finito}} “I haven't finished yet”, or simply {{Non ancora!}} “Not yet!”"},
+        {"p":"Italian uses the same past for all of these, where English switches between “I ate” and “I've eaten”: {{Ho mangiato un'ora fa}} “I ate an hour ago”, {{Ho già mangiato}} “I've already eaten”."},
+        { "ex": [
+          {"t":"Ho conosciuto Marco un anno fa.","tr":"I met Marco a year ago."},
+          {"t":"Il mese scorso siamo andati a Parigi.","tr":"Last month we went to Paris."},
+          {"t":"Hai già fatto colazione?","tr":"Have you had breakfast yet?","note":"in a question, {{già}} can be “yet” or “already”"},
+          {"t":"Il film è appena cominciato.","tr":"The movie has just started."},
+          {"t":"Non ho ancora deciso.","tr":"I haven't decided yet."},
+          {"t":"Sono nato nel 1990.","tr":"I was born in 1990."}
+        ] },
+        {"tip":"“Ever” in a question is {{mai}}: {{Sei mai stato a Napoli?}} “Have you ever been to Naples?” {{No, mai!}} “No, never!”"}
+      ],
+      "mistakes": [
+        {"wrong":"Sono arrivato fa due giorni.","right":"Sono arrivato due giorni fa.","tr":"I arrived two days ago.","why":"{{fa}} goes after the length of time, just like “ago”."},
+        {"wrong":"Il mese scorsa siamo andati a Parigi.","right":"Il mese scorso siamo andati a Parigi.","tr":"Last month we went to Paris.","why":"{{scorso}} agrees with its noun: {{il mese scorso}}, but {{la settimana scorsa}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Sono tornato a casa un'ora ___.","tr":"I got home an hour ago.","options":["fa","scorso","già"],"answer":0,"why":"“Ago” is {{fa}}, after the time."},
+        {"type":"fill","q":"Choose the missing word.","t":"L'anno ___ ho cambiato lavoro.","tr":"Last year I changed jobs.","options":["scorso","scorsa","fa"],"answer":0,"why":"{{anno}} is masculine: {{l'anno scorso}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Hai ___ finito? Sì, ho finito.","tr":"Have you finished already? Yes, I've finished.","options":["già","fa","mai"],"answer":0,"why":"“Already”: {{già}}, between {{hai}} and {{finito}}."},
+        {"type":"dialogue","q":"You're Emma, on vacation in Rome: choose your replies.","lines":[{"who":"Paolo","t":"Hai già visto i Musei Vaticani?","tr":"Have you seen the Vatican Museums yet?"},{"options":["Non ancora. Vado domani.","Non già. Vado domani."],"answer":0,"why":"“Not yet”: {{non ancora}}."},{"who":"Paolo","t":"Quando sei arrivata?","tr":"When did you arrive?"},{"options":["Sono arrivata tre giorni fa.","Ho arrivato tre giorni fa."],"answer":0,"why":"{{arrivare}} uses {{essere}}, agreeing with Emma: {{sono arrivata}}."}],"from":"say-where-you-went"},
+        {"type":"order","q":"Put the words in order.","tr":"The train has just left!","words":["Il treno","è","appena","partito!"]},
+        {"type":"say","q":"Say: “I haven't decided yet.”","answer":"Non ho ancora deciso."},
+        {"type":"free","q":"Your turn: say one thing you did a long time ago, one you did last week, and one you haven't done yet.","answers":[{"t":"Dieci anni fa sono andato in Giappone. La settimana scorsa ho visto un concerto. Non ho ancora visto Venezia.","tr":"Ten years ago I went to Japan. Last week I saw a concert. I haven't seen Venice yet."},{"t":"Ho imparato a guidare vent'anni fa. Sabato scorso ho fatto una festa. Non ho ancora finito il libro.","tr":"I learned to drive twenty years ago. Last Saturday I had a party. I haven't finished the book yet."}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say how long you've been doing something",
+      "summary": "“I've been studying Italian for six months”: in Italian, that's the present tense.",
+      "topic": "{{da}} + the present ({{abito qui da tre anni}}); {{da quanto tempo…?}}; {{per}} + the past for what is over",
+      "blocks": [
+        {"goal":{"t":"Studio italiano da sei mesi.","tr":"I've been studying Italian for six months."}},
+        {"dialog":[{"who":"Elena","t":"Da quanto tempo abiti a Bologna?","tr":"How long have you been living in Bologna?"},{"who":"You","t":"Abito qui da due anni.","tr":"I've been living here for two years."},{"who":"Elena","t":"E da quando studi italiano?","tr":"And since when have you been studying Italian?"},{"who":"You","t":"Da gennaio. Prima ho studiato spagnolo per cinque anni.","tr":"Since January. Before that I studied Spanish for five years."},{"who":"Elena","t":"Complimenti, parli già bene!","tr":"Well done, you already speak well!"}]},
+        {"p":"**Still going on: the present + {{da}}.** For something that started in the past and is still true now, Italian uses the present tense with {{da}}: {{Abito qui da due anni}}, word for word “I live here since two years”. English says “I've been living” or “I've lived” here; Italian doesn't."},
+        { "table": [
+          ["English","Italian"],
+          ["I've lived here for two years.","{{Abito qui da due anni.}}"],
+          ["I've known Anna since 2015.","{{Conosco Anna dal 2015.}}"],
+          ["We've been waiting for an hour!","{{Aspettiamo da un'ora!}}"],
+          ["How long have you been working here?","{{Da quanto tempo lavori qui?}}"],
+          ["Since when…?","{{Da quando…?}}"]
+        ] },
+        {"p":"{{da}} works for both “for”, a length of time ({{da tre mesi}}), and “since”, a starting point ({{da lunedì}}, {{da gennaio}}, {{dal 2020}}: years take “the”)."},
+        {"p":"**Over and done: the past + {{per}}.** When it's finished, use the passato prossimo with {{per}}: {{Ho abitato a Roma per due anni}} “I lived in Rome for two years” (and I don't anymore)."},
+        { "ex": [
+          {"t":"Lavoro in questa azienda da dieci anni.","tr":"I've been working at this company for ten years."},
+          {"t":"Non vedo Luca da molto tempo.","tr":"I haven't seen Luca for a long time.","note":"negative too: it's still true now"},
+          {"t":"Siamo sposati da vent'anni.","tr":"We've been married for twenty years."},
+          {"t":"Piove da stamattina.","tr":"It's been raining since this morning."},
+          {"t":"Da quanto tempo aspetta?","tr":"How long have you been waiting?","note":"polite: {{aspetta}}"},
+          {"t":"Ho studiato francese per tre anni, a scuola.","tr":"I studied French for three years, at school."}
+        ] },
+        {"tip":"Don't translate “have been”: {{Sono qui da una settimana}} “I've been here for a week” keeps the present of {{essere}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Ho abitato qui per due anni.","right":"Abito qui da due anni.","tr":"I've been living here for two years.","why":"If you still live here, use the present with {{da}}. ({{Ho abitato qui per due anni}} means you don't live here anymore.)"},
+        {"wrong":"Studio italiano per sei mesi.","right":"Studio italiano da sei mesi.","tr":"I've been studying Italian for six months.","why":"Still going on: {{da}}, not {{per}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Abito a Milano ___ tre anni.","tr":"I've been living in Milan for three years.","options":["da","per","fa"],"answer":0,"why":"Still true now: the present + {{da}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ quanto tempo studi italiano?","tr":"How long have you been studying Italian?","options":["Da","Per","Fa"],"answer":0,"why":"{{Da quanto tempo…?}} asks how long something has been going on."},
+        {"type":"choice","q":"“I lived in London for five years” (you don't live there anymore) is…","options":["{{Ho abitato a Londra per cinque anni.}}","{{Abito a Londra da cinque anni.}}"],"answer":0,"why":"It's over: passato prossimo + {{per}}. The other one means you still live there.","from":"say-what-you-did"},
+        {"type":"dialogue","q":"At a party: choose your replies.","lines":[{"who":"Elena","t":"Da quanto tempo sei in Italia?","tr":"How long have you been in Italy?"},{"options":["Sono qui da un mese.","Sono stato qui per un mese."],"answer":0,"why":"You're still here: the present + {{da}}."},{"who":"Elena","t":"E ti piace?","tr":"And do you like it?"},{"options":["Sì, moltissimo! Ma non vedo la mia famiglia da settimane.","Sì, moltissimo! Ma non vedo la mia famiglia per settimane."],"answer":0,"why":"It's still true now (you still haven't seen them): {{da}}."}],"from":"say-what-you-like"},
+        {"type":"order","q":"Put the words in order.","tr":"We've been waiting for the bus for twenty minutes!","words":["Aspettiamo","l'autobus","da","venti minuti!"]},
+        {"type":"say","q":"Ask your doctor politely: “How long have you been working here?”","answer":"Da quanto tempo lavora qui?","from":"get-to-know-someone"},
+        {"type":"free","q":"Your turn: say how long you've been doing three things: living where you live, your work or studies, learning Italian.","answers":[{"t":"Abito a Seattle da otto anni, lavoro in un ospedale da cinque anni e studio italiano da marzo.","tr":"I've lived in Seattle for eight years, I've worked in a hospital for five years, and I've been studying Italian since March."},{"t":"Sono sposata da dieci anni e suono la chitarra da quando ho quindici anni.","tr":"I've been married for ten years, and I've played the guitar since I was fifteen."}]}
+      ]
+    },
+    {
+      "id": "describe-the-past",
+      "unit": 5,
+      "level": "A2",
+      "title": "Describe how things used to be",
+      "summary": "Talk about your childhood, the old days, what people were like and what you used to do.",
+      "topic": "The imperfetto: {{abitavo, avevo, ero, facevo}}; {{c'era, c'erano}}",
+      "blocks": [
+        {"goal":{"t":"Da bambino abitavo in campagna e andavo a scuola in bicicletta.","tr":"As a child I lived in the countryside and rode my bike to school.","note":"said by a man; a woman says {{da bambina}}"}},
+        {"dialog":[{"who":"You","t":"Nonna, com'era la vita quando eri giovane?","tr":"Grandma, what was life like when you were young?"},{"who":"Grandma","t":"Era molto diversa! Non avevamo la televisione.","tr":"It was very different! We didn't have a TV."},{"who":"You","t":"E cosa facevate la sera?","tr":"And what did you do in the evenings?"},{"who":"Grandma","t":"Parlavamo, giocavamo a carte... e la domenica andavamo a ballare!","tr":"We talked, we played cards… and on Sundays we went dancing!"},{"who":"You","t":"E il nonno ballava bene?","tr":"And did Grandpa dance well?"},{"who":"Grandma","t":"Malissimo! Ma era molto simpatico.","tr":"Terribly! But he was very charming."}]},
+        {"p":"**The imperfetto describes the past.** Italian has a second past, the {{imperfetto}}, for what things were like and what used to happen: the background, not the events. {{Abitavo in campagna}} “I lived (used to live) in the countryside”; {{Era una bella giornata}} “It was a beautiful day”."},
+        { "table": [
+          ["","{{abitare}}","{{avere}}","{{dormire}}"],
+          ["I","{{abitavo}}","{{avevo}}","{{dormivo}}"],
+          ["you ({{tu}})","{{abitavi}}","{{avevi}}","{{dormivi}}"],
+          ["he, she, you ({{Lei}})","{{abitava}}","{{aveva}}","{{dormiva}}"],
+          ["we","{{abitavamo}}","{{avevamo}}","{{dormivamo}}"],
+          ["you (two or more)","{{abitavate}}","{{avevate}}","{{dormivate}}"],
+          ["they","{{abitavano}}","{{avevano}}","{{dormivano}}"]
+        ] },
+        {"p":"It's the most regular tense in Italian: take off the {{-re}} of the infinitive and add {{-vo, -vi, -va, -vamo, -vate, -vano}}. Only {{essere}} is really different: {{ero, eri, era, eravamo, eravate, erano}}. And three verbs use their old stems: {{fare → facevo}}, {{bere → bevevo}}, {{dire → dicevo}}."},
+        {"p":"**Use it for** habits in the past ({{Ogni estate andavamo al mare}} “Every summer we went to the beach”); descriptions of people, places, weather and feelings ({{Era stanco}} “He was tired”, {{Faceva freddo}} “It was cold”); age and the time ({{Avevo dieci anni}}, {{Erano le otto}}); and {{c'era, c'erano}} “there was, there were”."},
+        { "ex": [
+          {"t":"Quando ero piccola, avevo un cane.","tr":"When I was little, I had a dog.","note":"said by a woman"},
+          {"t":"Mio nonno faceva il panettiere.","tr":"My grandfather was a baker.","note":"{{fare}} + “the” + a job: what someone did for a living"},
+          {"t":"Il sabato giocavamo a calcio.","tr":"On Saturdays we used to play soccer."},
+          {"t":"C'era molta gente in piazza.","tr":"There were a lot of people in the square.","note":"{{gente}} “people” is singular in Italian"},
+          {"t":"Faceva caldo e il mare era calmo.","tr":"It was hot, and the sea was calm."},
+          {"t":"Prima non mi piaceva il caffè.","tr":"I didn't use to like coffee."}
+        ] },
+        {"tip":"{{prima}} “before, I used to” and {{da bambino}} “as a child” are the imperfetto's best friends: {{Prima fumavo, adesso no}} “I used to smoke, now I don't”."}
+      ],
+      "mistakes": [
+        {"wrong":"Da bambino ho abitato in campagna e ogni giorno sono andato a scuola a piedi.","right":"Da bambino abitavo in campagna e ogni giorno andavo a scuola a piedi.","tr":"As a child I lived in the countryside and walked to school every day.","why":"Habits and descriptions of the past take the imperfetto."},
+        {"wrong":"Quando ho avuto dieci anni, abitavo a Roma.","right":"Quando avevo dieci anni, abitavo a Roma.","tr":"When I was ten, I lived in Rome.","why":"Age in the past is a description: imperfetto."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Da piccolo ___ sempre la pasta.","tr":"As a child I always ate pasta.","options":["mangiavo","ho mangiato","mangio"],"answer":0,"why":"A habit in the past: imperfetto."},
+        {"type":"fill","q":"Choose the missing word.","t":"Quando ___ vent'anni, abitavo a Londra.","tr":"When I was twenty, I lived in London.","options":["avevo","ero","ho avuto"],"answer":0,"why":"Age uses {{avere}}, and age in the past takes the imperfetto: {{avevo}}.","from":"say-what-you-have"},
+        {"type":"choice","q":"{{C'erano molti turisti}} means…","options":["There were a lot of tourists.","There are a lot of tourists.","There have been a lot of tourists."],"answer":0,"why":"{{c'erano}} is the imperfetto of {{ci sono}}."},
+        {"type":"dialogue","q":"Grandpa tells you about the old days: choose your replies.","lines":[{"who":"Grandpa","t":"Quando ero giovane, non c'erano i telefonini!","tr":"When I was young, there were no cell phones!"},{"options":["E come parlavate con gli amici?","E come avete parlato con gli amici?"],"answer":0,"why":"You're asking about a habit: imperfetto."},{"who":"Grandpa","t":"Andavamo a casa loro, o scrivevamo lettere.","tr":"We went to their houses, or we wrote letters."},{"options":["Che bello! E la nonna dove abitava?","Che bello! E la nonna dove abitavo?"],"answer":0,"why":"Grandma is “she”: {{abitava}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Every summer we went to the mountains.","words":["Ogni estate","andavamo","in montagna."]},
+        {"type":"say","q":"Say: “I used to smoke; now I don't anymore.”","answer":"Prima fumavo, adesso non fumo più.","from":"say-how-often"},
+        {"type":"free","q":"Your turn: describe your childhood: where did you live, what was your house like, what did you do on weekends?","answers":[{"t":"Da bambino abitavo a Chicago. La nostra casa era piccola e il sabato giocavo a baseball con mio padre.","tr":"As a child I lived in Chicago. Our house was small, and on Saturdays I played baseball with my father."},{"t":"Quando ero piccola, abitavo al mare. D'estate nuotavamo tutti i giorni.","tr":"When I was little, I lived by the sea. In summer we swam every day."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 5,
+      "level": "A2",
+      "title": "Tell a story",
+      "summary": "Set the scene, then say what happened: “While I was waiting for the bus, I ran into Paolo.”",
+      "topic": "The imperfetto (the background) and the passato prossimo (the events) together; {{mentre}}",
+      "blocks": [
+        {"goal":{"t":"Mentre aspettavo l'autobus, ho incontrato Paolo.","tr":"While I was waiting for the bus, I ran into Paolo."}},
+        {"dialog":[{"who":"Sara","t":"Allora, com'è andato il viaggio?","tr":"So, how did the trip go?"},{"who":"You","t":"Un disastro! Era sera e pioveva. Quando siamo arrivati alla stazione, il treno è partito davanti a noi!","tr":"A disaster! It was evening and it was raining. When we got to the station, the train left right in front of us!"},{"who":"Sara","t":"Oh no! E cosa avete fatto?","tr":"Oh no! And what did you do?"},{"who":"You","t":"Eravamo stanchi e avevamo fame, così siamo andati in un bar. E lì abbiamo conosciuto una coppia molto simpatica...","tr":"We were tired and hungry, so we went to a café. And there we met a really nice couple…"},{"who":"Sara","t":"E...?","tr":"And…?"},{"who":"You","t":"Ci hanno dato un passaggio fino a Firenze!","tr":"They gave us a ride all the way to Florence!"}]},
+        {"p":"**Two pasts in one story.** A story has a background (what things were like, what was going on) and events (what happened next). Italian gives each its own tense:"},
+        { "table": [
+          ["","imperfetto: the background","passato prossimo: the events"],
+          ["what it answers","What was it like? What was going on?","What happened? And then?"],
+          ["example","{{Era tardi e pioveva.}} “It was late and it was raining.”","{{Il treno è partito.}} “The train left.”"],
+          ["words that go with it","{{mentre}} “while”, {{sempre}}, {{ogni giorno}}","{{all'improvviso}} “suddenly”, {{poi}}, {{una volta}} “once”"]
+        ] },
+        {"p":"**An action interrupted**: the longer action takes the imperfetto, the one that cuts in takes the passato prossimo: {{Mentre cucinavo, è arrivato Marco}} “While I was cooking, Marco arrived”. Two things going on at the same time both take the imperfetto: {{Mentre io cucinavo, lui leggeva}}."},
+        {"p":"**The same verb, two meanings.** {{Conoscevo Paolo}} “I knew Paolo (already)”; {{Ho conosciuto Paolo}} “I met Paolo”. {{Sapevo}} “I knew”; {{Ho saputo}} “I found out”."},
+        { "ex": [
+          {"t":"Era una bella giornata, così siamo andati al lago.","tr":"It was a beautiful day, so we went to the lake."},
+          {"t":"Mentre dormivo, è suonato il telefono.","tr":"While I was sleeping, the phone rang."},
+          {"t":"Non sono uscito perché ero stanco.","tr":"I didn't go out because I was tired."},
+          {"t":"Quando sono entrata, tutti ridevano.","tr":"When I came in, everyone was laughing."},
+          {"t":"Avevo fame, quindi ho ordinato una pizza.","tr":"I was hungry, so I ordered a pizza."},
+          {"t":"Ieri ho saputo che Anna aspetta un bambino.","tr":"Yesterday I found out that Anna is expecting a baby."}
+        ] },
+        {"tip":"Ask yourself: is it the scenery or the plot? The scenery (weather, time, feelings, what was going on): imperfetto. The plot (one event, then the next): passato prossimo."}
+      ],
+      "mistakes": [
+        {"wrong":"Mentre ho cucinato, è arrivato Marco.","right":"Mentre cucinavo, è arrivato Marco.","tr":"While I was cooking, Marco arrived.","why":"The action in progress, the background, takes the imperfetto."},
+        {"wrong":"Ho avuto fame, quindi ho ordinato una pizza.","right":"Avevo fame, quindi ho ordinato una pizza.","tr":"I was hungry, so I ordered a pizza.","why":"How you felt is the background: imperfetto. Ordering was the event: passato prossimo."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mentre ___ la TV, è andata via la luce.","tr":"While I was watching TV, the power went out.","options":["guardavo","ho guardato","guardo"],"answer":0,"why":"The action in progress: imperfetto."},
+        {"type":"fill","q":"Choose the missing word.","t":"Era tardi, quindi ___ un taxi.","tr":"It was late, so we took a taxi.","options":["abbiamo preso","prendevamo","prendiamo"],"answer":0,"why":"The event: passato prossimo, with the irregular {{preso}}.","from":"tell-about-your-weekend"},
+        {"type":"choice","q":"{{Ho conosciuto Paolo a una festa}} means…","options":["I met Paolo at a party.","I knew Paolo from a party.","I used to know Paolo at parties."],"answer":0,"why":"{{conoscere}} in the passato prossimo means meeting someone for the first time."},
+        {"type":"dialogue","q":"A friend asks about last night: choose your replies.","lines":[{"who":"Sara","t":"Perché non sei venuto alla festa?","tr":"Why didn't you come to the party?"},{"options":["Perché ero molto stanco.","Perché sono stato molto stanco."],"answer":0,"why":"A state, the background: imperfetto."},{"who":"Sara","t":"Peccato! Cosa hai fatto, allora?","tr":"Too bad! So what did you do?"},{"options":["Sono rimasto a casa e ho dormito.","Rimanevo a casa e dormivo."],"answer":0,"why":"The events of the evening: passato prossimo."}]},
+        {"type":"order","q":"Put the words in order.","tr":"While I was walking, I saw an old friend.","words":["Mentre","camminavo,","ho visto","un vecchio amico."]},
+        {"type":"say","q":"Say (as a woman): “It was raining, so I stayed home.”","answer":"Pioveva, quindi sono rimasta a casa.","from":"say-where-you-went"},
+        {"type":"free","q":"Your turn: tell a short story about something unexpected. Set the scene (where you were, the weather, what you were doing), then say what happened.","answers":[{"t":"Ero in un bar a Roma e bevevo un caffè. All'improvviso è entrato un attore famoso!","tr":"I was in a café in Rome, having a coffee. Suddenly a famous actor walked in!"},{"t":"Era domenica e faceva bel tempo. Mentre camminavo nel parco, ho trovato un portafoglio con cento euro.","tr":"It was Sunday and the weather was nice. While I was walking in the park, I found a wallet with a hundred euros in it."}]}
+      ]
     }
   ]
 }
