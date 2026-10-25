@@ -1655,6 +1655,249 @@
         {"type":"dialogue","q":"A friend isn't feeling well. Choose your replies.","lines":[{"who":"Ben","t":"Ay, masakit ang tiyan ko.","tr":"Oh, my stomach hurts."},{"options":["Kawawa ka naman! Uminom ka na ba ng gamot?","Kawawa ka naman! Uminom ka ba ng gamot bukas?"],"answer":0,"why":"Have you taken some (already)? {{na}} with the completed form."},{"who":"Ben","t":"Hindi pa. Wala akong gamot.","tr":"Not yet. I don't have any medicine."},{"options":["Sandali, bibili ako ng gamot para sa iyo.","Sandali, bumili ako ng gamot para sa iyo."],"answer":0,"why":"You're about to go: not yet begun, {{bibili}}."}],"from":"say-what-you-did"},
         {"type":"free","q":"Your turn: say how you feel right now and why, with at least one {{nakaka-}} word.","answers":[{"t":"Pagod na ako, kasi nakakapagod ang trabaho ngayon.","tr":"I'm tired, because work was so tiring today."},{"t":"Masaya ako ngayon. Nakakatuwa ang mga kaibigan ko!","tr":"I'm happy today. My friends are so much fun!"}]}
       ]
+    },
+    {
+      "id": "say-why",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say why",
+      "summary": "Give reasons and results: “I couldn't go because it rained.” “It was raining, so we took a taxi.”",
+      "topic": "{{kasi}}, {{dahil}} and {{dahil sa}} “because (of)”; {{kaya}} “so”; {{Bakit naman?}}",
+      "blocks": [
+        {"goal":{"t":"Hindi ako nakapunta kasi umulan.","tr":"I couldn't go because it rained."}},
+        {"dialog":[{"who":"Liza","t":"Bakit wala ka sa party kagabi?","tr":"Why weren't you at the party last night?"},{"who":"Mark","t":"Pasensya na, hindi ako nakapunta kasi may sakit ang anak ko.","tr":"Sorry, I couldn't make it because my son was sick."},{"who":"Liza","t":"Ay, kawawa naman! Okay na ba siya?","tr":"Oh, poor thing! Is he okay now?"},{"who":"Mark","t":"Oo, okay na. Uminom siya ng gamot, kaya gumaling agad.","tr":"Yes, he's fine now. He took some medicine, so he got better quickly."},{"who":"Liza","t":"Mabuti naman.","tr":"That's good."}]},
+        {"p":"**Because**: {{kasi}} is the everyday word; {{dahil}} is a little more careful, and the one you'll read. Both come before the reason: {{Hindi ako nakapunta kasi umulan.}} “I couldn't go because it rained.”"},
+        {"p":"**Because of** + a noun: {{dahil sa}}: {{dahil sa ulan}} “because of the rain”, {{dahil sa traffic}}."},
+        {"p":"**So**: {{kaya}} brings in the result: {{Umuulan, kaya nag-taxi kami.}} “It was raining, so we took a taxi.” After {{kaya}} the pronoun may jump up or not: {{kaya ako umuwi}} and {{kaya umuwi ako}} are both said. ({{kaya}} is also “can manage”, lesson 33; the sentence tells you which.)"},
+        { "table": [
+          ["","Tagalog","meaning"],
+          ["reason","{{Nag-taxi kami kasi umuulan.}}","We took a taxi because it was raining."],
+          ["result","{{Umuulan, kaya nag-taxi kami.}}","It was raining, so we took a taxi."],
+          ["because of","{{Late ako dahil sa traffic.}}","I'm late because of the traffic."]
+        ] },
+        {"p":"**Asking why**: {{Bakit?}}. {{Bakit naman?}} is softer and more curious, “How come?”; {{Bakit hindi?}} “Why not?”. The pronoun jumps up after {{bakit}}: {{Bakit ka umiiyak?}} “Why are you crying?”"},
+        { "ex": [
+          {"t":"Hindi ako nakapunta kasi umulan.","tr":"I couldn't go because it rained."},
+          {"t":"Late ako dahil sa traffic.","tr":"I'm late because of the traffic."},
+          {"t":"Umuulan, kaya nag-taxi kami.","tr":"It was raining, so we took a taxi."},
+          {"t":"Bakit ka umiiyak?","tr":"Why are you crying?"},
+          {"t":"Pagod ako, kaya maaga akong natulog.","tr":"I was tired, so I went to bed early."},
+          {"t":"Bakit naman?","tr":"How come?"},
+          {"t":"Nag-aaral ako ng Tagalog dahil gusto kong makausap ang pamilya ng asawa ko.","tr":"I'm learning Tagalog because I want to be able to talk to my wife's family."}
+        ] },
+        {"tip":"Starting an answer with {{kasi}} is how Filipinos explain themselves: {{Kasi… ang dami kong ginagawa.}} “It's just that… I've got so much to do.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Hindi ako nakapunta, kaya umulan.","right":"Hindi ako nakapunta kasi umulan.","tr":"I couldn't go because it rained.","why":"{{kaya}} brings in a result (“so”), {{kasi}} a reason. The rain didn't happen because you stayed home!"},
+        {"wrong":"Late ako kasi sa traffic.","right":"Late ako dahil sa traffic.","tr":"I'm late because of the traffic.","why":"Before a noun on its own, “because of” is {{dahil sa}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Hindi ako pumasok ___ may sakit ako.","tr":"I didn't go to work because I was sick.","options":["kasi","kaya","pero"],"answer":0,"why":"A reason: {{kasi}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Umuulan, ___ nag-taxi kami.","tr":"It was raining, so we took a taxi.","options":["kaya","kasi","dahil"],"answer":0,"why":"A result: {{kaya}}."},
+        {"type":"choice","q":"“I'm late because of the traffic.”","options":["{{Late ako dahil sa traffic.}}","{{Late ako kaya traffic.}}","{{Late ako kasi sa traffic.}}"],"answer":0,"why":"Because of + a noun: {{dahil sa}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Why are you crying?","words":["Bakit","ka","umiiyak?"],"from":"ask-questions"},
+        {"type":"order","q":"Put the words in order.","tr":"I was tired, so I went to bed early.","words":["Pagod ako,","kaya","maaga","akong","natulog."]},
+        {"type":"dialogue","q":"A friend asks why you missed her birthday. Choose your replies.","lines":[{"who":"Liza","t":"Bakit hindi ka pumunta sa birthday ko?","tr":"Why didn't you come to my birthday?"},{"options":["Pasensya na! Hindi ako nakapunta kasi may trabaho ako.","Pasensya na! Hindi ako nakapunta kaya may trabaho ako."],"answer":0,"why":"A reason: {{kasi}}."},{"who":"Liza","t":"Ay, okay lang. Busy ka ba bukas?","tr":"Oh, that's okay. Are you busy tomorrow?"},{"options":["Hindi na. Kaya pupuntahan kita bukas!","Hindi na. Kasi pinuntahan kita bukas!"],"answer":0,"why":"{{kaya}} “so”, and tomorrow is still to come: {{pupuntahan}}."}],"from":"do-things-to-people-and-places"},
+        {"type":"free","q":"Your turn: say why you're learning Tagalog, and something you did (or didn't do) because of the weather or the traffic.","answers":[{"t":"Nag-aaral ako ng Tagalog kasi may mga kaibigan akong Pilipino. Noong Lunes, umuulan, kaya hindi ako lumabas.","tr":"I'm learning Tagalog because I have Filipino friends. On Monday it was raining, so I didn't go out."},{"t":"Nag-aaral ako ng Tagalog dahil pupunta ako sa Pilipinas. Na-late ako sa trabaho dahil sa traffic.","tr":"I'm learning Tagalog because I'm going to the Philippines. I was late for work because of the traffic."}]}
+      ]
+    },
+    {
+      "id": "say-when",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say when, and in what order",
+      "summary": "Join two actions in time: “Before you eat, wash your hands.” “While Mom was cooking, we played.” “When I was a kid…”",
+      "topic": "{{bago}} “before”, {{pagkatapos}} “after”, {{habang}} “while”, {{kapag}} / {{pag}} “when, whenever”, {{noong}} “when (in the past)”, and the verb form after each",
+      "blocks": [
+        {"goal":{"t":"Bago kumain, maghugas ka ng kamay.","tr":"Before you eat, wash your hands."}},
+        {"dialog":[{"who":"Mom","t":"Bago kumain, maghugas kayo ng kamay!","tr":"Before you eat, wash your hands!"},{"who":"Ben","t":"Opo! Pagkatapos naming kumain, pwede po ba kaming maglaro?","tr":"Okay! After we eat, can we play?"},{"who":"Mom","t":"Sige, pero kapag dumilim na, umuwi kayo agad.","tr":"All right, but when it gets dark, come home right away."},{"who":"Ben","t":"Opo, Nay!","tr":"Okay, Mom!"}]},
+        {"p":"**{{bago}} “before”** + the basic form: {{Bago kumain, maghugas ka ng kamay.}} To say who, the pronoun comes right after {{bago}}: {{Bago ka umalis, tawagan mo ako.}} “Before you leave, call me.”"},
+        {"p":"**{{pagkatapos}} “after”** + a noun with {{ng}} ({{pagkatapos ng trabaho}} “after work”), or + the {{ko}} set, the linker and the basic form: {{Pagkatapos kong kumain, natulog ako.}} “After I ate, I took a nap.”"},
+        {"p":"**{{habang}} “while”** + the ongoing form: {{Habang nagluluto si Nanay, naglalaro kami.}} “While Mom was cooking, we played.”"},
+        {"p":"**{{kapag}} (in speech {{pag}}) “when, whenever”**: for what happens every time, with the ongoing form ({{Kapag umuulan, nasa bahay lang ako.}} “When it rains, I just stay home.”), and for a moment still to come, with the completed form: {{Kapag dumating siya, tawagan mo ako.}} “When she gets here, call me.”"},
+        {"p":"**{{noong}} “when (in the past)”**: {{Noong dumating siya, kumakain kami.}} “When she arrived, we were eating.” {{Noong bata pa ako…}} “When I was a kid…” needs no verb at all."},
+        { "table": [
+          ["word","meaning","the verb after it"],
+          ["{{bago}}","before","basic form"],
+          ["{{pagkatapos}}","after","basic form (with {{ko}}, {{mo}}…)"],
+          ["{{habang}}","while","ongoing"],
+          ["{{kapag}}, {{pag}}","when, whenever","ongoing (every time), completed (next time)"],
+          ["{{noong}}","when (in the past)","completed or ongoing"]
+        ] },
+        { "ex": [
+          {"t":"Bago kumain, maghugas ka ng kamay.","tr":"Before you eat, wash your hands."},
+          {"t":"Bago ka umalis, tawagan mo ako.","tr":"Before you leave, call me."},
+          {"t":"Pagkatapos kong kumain, natulog ako.","tr":"After I ate, I took a nap."},
+          {"t":"Habang nagluluto si Nanay, naglalaro kami.","tr":"While Mom was cooking, we played."},
+          {"t":"Kapag umuulan, nasa bahay lang ako.","tr":"When it rains, I just stay home."},
+          {"t":"Pag dumating siya, tawagan mo ako.","tr":"When she gets here, call me."},
+          {"t":"Noong bata pa ako, nakatira kami sa Batangas.","tr":"When I was a kid, we lived in Batangas."}
+        ] },
+        {"tip":"{{kapag}} looks ahead, or is about every time; {{noong}} looks back at one time. {{Kapag pumunta ka sa Cebu…}} “When you go to Cebu (one day)…”, but {{Noong pumunta ako sa Cebu…}} “When I went to Cebu…”."}
+      ],
+      "mistakes": [
+        {"wrong":"Bago kumakain, maghugas ka ng kamay.","right":"Bago kumain, maghugas ka ng kamay.","tr":"Before you eat, wash your hands.","why":"After {{bago}}, the basic form."},
+        {"wrong":"Habang nagluto si Nanay, naglalaro kami.","right":"Habang nagluluto si Nanay, naglalaro kami.","tr":"While Mom was cooking, we played.","why":"{{habang}} is for something going on: the ongoing form."},
+        {"wrong":"Kapag bata pa ako, nakatira kami sa Batangas.","right":"Noong bata pa ako, nakatira kami sa Batangas.","tr":"When I was a kid, we lived in Batangas.","why":"Looking back at the past: {{noong}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ kumain, maghugas ka ng kamay.","tr":"Before you eat, wash your hands.","options":["Bago","Habang","Noong"],"answer":0,"why":"Before: {{bago}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Habang ___ si Nanay, naglalaro kami.","tr":"While Mom was cooking, we played.","options":["nagluluto","nagluto","magluto"],"answer":0,"why":"After {{habang}}: the ongoing form.","from":"say-what-youre-doing"},
+        {"type":"choice","q":"“When I was a kid, …”","options":["{{Noong bata pa ako, …}}","{{Kapag bata pa ako, …}}","{{Habang bata ako, …}}"],"answer":0,"why":"One time in the past: {{noong}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Pagkatapos ___ kumain, natulog ako.","tr":"After I ate, I took a nap.","options":["kong","akong","ko"],"answer":0,"why":"{{pagkatapos}} + the {{ko}} set + the linker.","from":"say-what-you-want"},
+        {"type":"order","q":"Put the words in order.","tr":"When she gets here, call me.","words":["Pag","dumating","siya,","tawagan mo","ako."],"from":"do-things-to-people-and-places"},
+        {"type":"dialogue","q":"Your Filipino host gives you advice for your trip. Choose your replies.","lines":[{"who":"Tita","t":"Kapag pumunta ka sa Baguio, magdala ka ng jacket. Malamig doon!","tr":"When you go to Baguio, bring a jacket. It's cold there!"},{"options":["Opo! Magdadala po ako ng jacket.","Opo! Nagdala po ako ng jacket."],"answer":0,"why":"You'll do it: not yet begun, {{magdadala}}."},{"who":"Tita","t":"At bago ka bumalik sa Maynila, bumili ka ng strawberry!","tr":"And before you come back to Manila, buy some strawberries!"},{"options":["Sige po, bibili po ako bago ako umalis.","Sige po, bibili po ako bago ako umaalis."],"answer":0,"why":"After {{bago}}, the basic form: {{umalis}}."}],"from":"say-what-you-will-do"},
+        {"type":"free","q":"Your turn: describe a habit with {{kapag}}, and say what you did yesterday before or after something.","answers":[{"t":"Kapag Linggo, nagsisimba kami. Kahapon, bago ako matulog, nanood ako ng pelikula.","tr":"On Sundays we go to church. Yesterday, before I went to bed, I watched a movie."},{"t":"Kapag pagod ako, nakikinig ako ng musika. Pagkatapos kong magtrabaho kahapon, pumunta ako sa gym.","tr":"When I'm tired, I listen to music. After I worked yesterday, I went to the gym."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 7,
+      "level": "A2",
+      "title": "Compare people and things",
+      "summary": "Say which is bigger, which is the best, or that two are the same: “Manila is bigger than Cebu.” “Grandma's adobo is the best!”",
+      "topic": "{{mas}} … {{kaysa (sa)}}; {{pinaka-}}; {{kasing-}} and {{magkasing-}}; {{alin}} “which”; {{mas gusto}} “prefer”",
+      "blocks": [
+        {"goal":{"t":"Pinakamasarap ang adobo ni Lola!","tr":"Grandma's adobo is the best!"}},
+        {"dialog":[{"who":"Tom","t":"Alin ang mas maganda, Boracay o Palawan?","tr":"Which is nicer, Boracay or Palawan?"},{"who":"Liza","t":"Para sa akin, mas maganda ang Palawan. Mas tahimik doon kaysa sa Boracay.","tr":"For me, Palawan is nicer. It's quieter there than in Boracay."},{"who":"Tom","t":"E ang pagkain?","tr":"And the food?"},{"who":"Liza","t":"Pareho silang masarap! Pero ang pinakamasarap na pagkain, nasa bahay ni Lola!","tr":"They're both delicious! But the best food is at Grandma's house!"}]},
+        {"p":"**More, -er**: {{mas}} + the adjective: {{mas malaki}} “bigger”, {{mas mura}} “cheaper”. The adjective still comes first in the sentence: {{Mas malaki ang Maynila.}} “Manila is bigger.”"},
+        {"p":"**Than**: {{kaysa sa}} (with a name, {{kaysa kay}}): {{Mas malaki ang Maynila kaysa sa Cebu.}} “Manila is bigger than Cebu.” {{Mas matangkad si Ben kaysa kay Mark.}} “Ben is taller than Mark.”"},
+        {"p":"**The most, -est**: {{pinaka-}} joined to the adjective: {{pinakamalaki}} “the biggest”, {{pinakamasarap}} “the most delicious, the best”. With a noun, add the linker: {{ang pinakamagandang beach}} “the most beautiful beach”."},
+        {"p":"**As … as**: {{kasing-}} + the root, without {{ma-}}: {{Kasingtaas ni Ben si Mark.}} “Mark is as tall as Ben.” For two together, {{magkasing-}}: {{Magkasingtaas sila.}} “They're the same height.” And simply {{pareho}} “both, the same”: {{Pareho silang masarap.}} “They're both delicious.”"},
+        { "table": [
+          ["","Tagalog","meaning"],
+          ["more","{{mas mahal}}","more expensive"],
+          ["than","{{mas mahal kaysa sa…}}","more expensive than…"],
+          ["the most","{{pinakamahal}}","the most expensive"],
+          ["as … as","{{kasingmahal ng…}}","as expensive as…"],
+          ["the same","{{magkasingmahal}}","just as expensive (both)"]
+        ] },
+        {"p":"**Which?** {{alin}}, for choosing between things: {{Alin ang mas mura?}} “Which one is cheaper?”"},
+        { "ex": [
+          {"t":"Mas malaki ang Maynila kaysa sa Cebu.","tr":"Manila is bigger than Cebu."},
+          {"t":"Mas matangkad si Ben kaysa kay Mark.","tr":"Ben is taller than Mark."},
+          {"t":"Pinakamasarap ang adobo ni Lola.","tr":"Grandma's adobo is the best."},
+          {"t":"Ito ang pinakamagandang beach sa Pilipinas.","tr":"This is the most beautiful beach in the Philippines."},
+          {"t":"Alin ang mas mura?","tr":"Which one is cheaper?"},
+          {"t":"Magkasingtaas kami ng kapatid ko.","tr":"My brother and I are the same height."},
+          {"t":"Mas gusto ko ang kape kaysa sa tsaa.","tr":"I like coffee better than tea.","note":"{{mas gusto}}: prefer"}
+        ] },
+        {"tip":"{{mas gusto}} is the everyday “prefer, would rather”: {{Mas gusto kong manood sa bahay.}} “I'd rather watch at home.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Mas pinakamalaki ang Maynila.","right":"Pinakamalaki ang Maynila.","tr":"Manila is the biggest.","why":"{{pinaka-}} already means “the most”: no {{mas}}."},
+        {"wrong":"Mas matangkad si Ben kaysa si Mark.","right":"Mas matangkad si Ben kaysa kay Mark.","tr":"Ben is taller than Mark.","why":"After {{kaysa}}, a name takes {{kay}}."},
+        {"wrong":"Kasingmalaki ng Cebu ang Davao.","right":"Kasinglaki ng Cebu ang Davao.","tr":"Davao is as big as Cebu.","why":"{{kasing-}} goes on the root, without {{ma-}}: {{laki}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mas malaki ang Maynila ___ sa Cebu.","tr":"Manila is bigger than Cebu.","options":["kaysa","mas","pinaka"],"answer":0,"why":"“Than” is {{kaysa}}."},
+        {"type":"choice","q":"“Grandma's adobo is the best.”","options":["{{Pinakamasarap ang adobo ni Lola.}}","{{Mas pinakamasarap ang adobo ni Lola.}}","{{Masarap pinaka ang adobo ni Lola.}}"],"answer":0,"why":"{{pinaka-}} joined to the adjective, alone."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mas matangkad si Ben kaysa ___ Mark.","tr":"Ben is taller than Mark.","options":["kay","sa","si"],"answer":0,"why":"Before a name, {{sa}} becomes {{kay}}.","from":"say-where-things-are"},
+        {"type":"choice","q":"“They're the same height.”","options":["{{Magkasingtaas sila.}}","{{Mas taas sila.}}","{{Pinakamataas sila.}}"],"answer":0,"why":"Two the same: {{magkasing-}} + the root."},
+        {"type":"order","q":"Put the words in order.","tr":"This is the most beautiful beach in the Philippines.","words":["Ito","ang","pinakamagandang","beach","sa Pilipinas."],"from":"describe-people-and-things"},
+        {"type":"dialogue","q":"Shopping for a phone. Choose your replies.","lines":[{"who":"Salesperson","t":"Alin po ang gusto ninyo, ito o iyan?","tr":"Which would you like, this one or that one?"},{"options":["Alin po ang mas mura?","Ano po ang mas mura?"],"answer":0,"why":"Choosing between two: {{alin}}."},{"who":"Salesperson","t":"Mas mura po ito, pero mas maganda po ang camera niyan.","tr":"This one's cheaper, but that one has a better camera."},{"options":["Mas gusto ko po ang mas mura.","Pinaka gusto ko po ang mas mura."],"answer":0,"why":"“I prefer”: {{mas gusto ko}}."}],"from":"say-what-you-want"},
+        {"type":"free","q":"Your turn: compare two places you know, and name the best food you've ever had.","answers":[{"t":"Mas malaki ang New York kaysa sa Boston, pero mas tahimik ang Boston. Pinakamasarap ang sinigang ni Lola.","tr":"New York is bigger than Boston, but Boston is quieter. Grandma's sinigang is the best."},{"t":"Mas mainit ang Maynila kaysa sa London! Pinakamasarap ang lechon.","tr":"Manila is hotter than London! Lechon is the best."}]}
+      ]
+    },
+    {
+      "id": "sound-natural-with-little-words",
+      "unit": 7,
+      "level": "A2",
+      "title": "Sound natural with the little words",
+      "summary": "Use the little words that give Tagalog its warmth (“just”, “oh, so…”, “I think”, “first”, “too”) and put them in the right order.",
+      "topic": "The particles {{lang}}, {{naman}}, {{nga}}, {{pala}}, {{muna}}, {{yata}}, {{din}} / {{rin}}, {{daw}} / {{raw}}; their place and their order",
+      "blocks": [
+        {"goal":{"t":"Ikaw pala si Ben! Kumusta ka naman?","tr":"Oh, so you're Ben! And how are you?"}},
+        {"dialog":[{"who":"Ana","t":"Ikaw pala si Ben! Kumusta?","tr":"Oh, so you're Ben! How are you?"},{"who":"Ben","t":"Mabuti naman. Ikaw si Ana, di ba?","tr":"I'm fine. You're Ana, right?"},{"who":"Ana","t":"Oo! Kumain ka na ba? Kain muna tayo.","tr":"Yes! Have you eaten? Let's eat first."},{"who":"Ben","t":"Sige, pero kaunti lang. Busog pa yata ako.","tr":"Okay, but just a little. I think I'm still full."},{"who":"Ana","t":"Ako rin! Kape na lang tayo.","tr":"Me too! Let's just have coffee."}]},
+        {"p":"Tagalog has a set of little words that add a feeling to a sentence: “just”, “really”, “oh, so…”, “I think”, “first”. They're why two sentences with the same words can sound cold or warm. You've met {{po}}, {{ba}}, {{na}} and {{pa}}; here are the others."},
+        {"term":"particle","means":"a little word that doesn't name anything but adds a feeling or a shade of meaning: {{po}}, {{ba}}, {{na}}, {{lang}}, {{naman}}."},
+        { "table": [
+          ["word","what it adds","example"],
+          ["{{lang}}","just, only; makes things smaller and softer","{{Kaunti lang.}} Just a little."],
+          ["{{naman}}","softens; “on the other hand”; “and you?”","{{Mabuti naman.}} I'm fine. {{Ikaw naman?}} And you?"],
+          ["{{nga}}","really, indeed; softens a request","{{Oo nga!}} That's right! {{Pakiabot nga.}} Could you pass it?"],
+          ["{{pala}}","oh, so… (you've just found out)","{{Ikaw pala si Ben!}} Oh, so you're Ben!"],
+          ["{{muna}}","first, for now","{{Kain muna tayo.}} Let's eat first."],
+          ["{{yata}}","I think, it seems","{{Uulan yata.}} I think it's going to rain."],
+          ["{{din}} / {{rin}}","too, also","{{Ako rin!}} Me too!"],
+          ["{{daw}} / {{raw}}","they say, reportedly","{{Masarap daw dito.}} They say it's good here."]
+        ] },
+        {"p":"**Where they go**: like {{ba}}, right after the first word or phrase: {{Busog pa yata ako.}} After {{hindi}}, they come right after it: {{Hindi naman ako galit.}} “I'm not angry, really.”"},
+        {"p":"**Their order**, when several meet: first the short pronouns {{ka}}, {{ko}}, {{mo}}; then {{na}} or {{pa}}; then the other little words ({{lang}}, {{din}}, {{po}}, {{ba}}…); last, the longer pronouns like {{ako}}, {{siya}}, {{kayo}}. {{Kumain ka na ba?}}, {{Kumain na po ba kayo?}}, {{Busog pa yata ako.}}"},
+        {"p":"**{{din}} or {{rin}}, {{daw}} or {{raw}}**: after a vowel (or w, y) say {{rin}} and {{raw}}; after a consonant, {{din}} and {{daw}}. {{Ako rin.}} {{Pagod din ako.}} {{Uuwi raw siya.}} {{Masarap daw.}}"},
+        { "ex": [
+          {"t":"Kaunti lang po.","tr":"Just a little, please."},
+          {"t":"Ikaw naman?","tr":"And you?"},
+          {"t":"Oo nga!","tr":"That's right!"},
+          {"t":"Ikaw pala si Ben!","tr":"Oh, so you're Ben!"},
+          {"t":"Kain muna tayo.","tr":"Let's eat first."},
+          {"t":"Uulan yata mamaya.","tr":"I think it's going to rain later."},
+          {"t":"Pagod din ako.","tr":"I'm tired too."},
+          {"t":"Masarap daw ang pagkain dito.","tr":"They say the food here is good."}
+        ] },
+        {"tip":"{{di ba?}} at the end of a sentence is “right?”: {{Taga-Cebu ka, di ba?}} “You're from Cebu, right?”. You'll hear it all the time."}
+      ],
+      "mistakes": [
+        {"wrong":"Ako din.","right":"Ako rin.","tr":"Me too.","why":"After a vowel, {{din}} becomes {{rin}}."},
+        {"wrong":"Kain tayo muna.","right":"Kain muna tayo.","tr":"Let's eat first.","why":"The little word comes before a longer pronoun like {{tayo}}."},
+        {"wrong":"Busog ako pa.","right":"Busog pa ako.","tr":"I'm still full.","why":"{{pa}} comes right after the first word, before {{ako}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ako ___!","tr":"Me too!","options":["rin","din","daw"],"answer":0,"why":"{{ako}} ends in a vowel: {{rin}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Kain ___ tayo.","tr":"Let's eat first.","options":["muna","pala","yata"],"answer":0,"why":"{{muna}}: first."},
+        {"type":"choice","q":"You've just found out the man you're talking to is Ana's brother. You say…","options":["{{Kapatid ka pala ni Ana!}}","{{Kapatid ka yata ni Ana!}}","{{Kapatid ka muna ni Ana!}}"],"answer":0,"why":"{{pala}}: oh, so… (you've just found out).","from":"say-whose-it-is"},
+        {"type":"order","q":"Put the words in order.","tr":"I think I'm still full.","words":["Busog","pa","yata","ako."]},
+        {"type":"order","q":"Put the words in order.","tr":"Have you eaten? (to someone older)","words":["Kumain","na","po","ba","kayo?"],"from":"say-what-you-did"},
+        {"type":"dialogue","q":"Chatting with a coworker. Choose your replies.","lines":[{"who":"Coworker","t":"Pagod na ako. Ikaw?","tr":"I'm tired. You?"},{"options":["Pagod din ako!","Pagod rin ako!"],"answer":0,"why":"{{pagod}} ends in a consonant: {{din}}."},{"who":"Coworker","t":"Masarap daw ang bagong restaurant sa tapat.","tr":"They say the new restaurant across the street is good."},{"options":["Talaga? Subukan natin mamaya!","Talaga? Subukan natin daw mamaya!"],"answer":0,"why":"{{daw}} passes on what others say; here the idea is yours."}]},
+        {"type":"free","q":"Your turn: write three short sentences with three different little words: one with {{lang}}, one with {{pala}}, one with {{din}} or {{rin}}.","answers":[{"t":"Sandali lang. Ikaw pala ang bagong guro! Gutom na rin ako.","tr":"Just a moment. Oh, so you're the new teacher! I'm hungry too."},{"t":"Isa lang po. Ang galing mo palang mag-Tagalog! Pupunta rin ako.","tr":"Just one, please. Wow, you speak Tagalog really well! I'm going too."}]}
+      ]
+    },
+    {
+      "id": "describe-with-clauses",
+      "unit": 7,
+      "level": "B1",
+      "title": "Say which one: “the woman who…”, “the book I bought”",
+      "summary": "Point people and things out by what they did or what was done to them: “the woman who lives next door”, “the phone I bought yesterday”.",
+      "topic": "Clauses tied on with the linker: {{ang babaeng nakatira sa tabi namin}}, {{ang cellphone na binili ko}}; the focus decides who is meant",
+      "blocks": [
+        {"goal":{"t":"Siya ang babaeng nakatira sa tabi namin.","tr":"She's the woman who lives next door to us."}},
+        {"dialog":[{"who":"Tom","t":"Sino iyong lalaking kausap ni Ana?","tr":"Who's that man Ana's talking to?"},{"who":"Liza","t":"Siya ang gurong nagturo sa akin ng Ingles.","tr":"He's the teacher who taught me English."},{"who":"Tom","t":"Ah! E iyong babaeng nakasuot ng pula?","tr":"Oh! And the woman in red?"},{"who":"Liza","t":"Asawa niya iyon. Siya ang nagluto ng pansit na kinain natin!","tr":"That's his wife. She's the one who cooked the pancit we ate!"}]},
+        {"p":"To say **which** person or thing you mean, Tagalog ties a whole description to the noun with the linker, just like an adjective (lesson 9): {{ang babaeng nakatira sa tabi namin}} “the woman who lives next to us”, word for word “the woman-that living next to us”. No separate word for “who” or “which” is needed."},
+        {"term":"clause","means":"a group of words with its own verb inside a bigger sentence: “who lives next door”, “that I bought”."},
+        {"p":"**The focus decides who is meant.** The noun is always the one **in focus** of the verb in the clause. With an actor-focus verb, the noun is the doer: {{ang taong bumili ng bahay}} “the person who bought a house”. With an object-focus verb, the noun is the thing: {{ang bahay na binili ni Ben}} “the house Ben bought”."},
+        { "table": [
+          ["","Tagalog","meaning"],
+          ["actor focus","{{ang gurong nagturo sa akin}}","the teacher who taught me"],
+          ["object focus","{{ang librong binasa ko}}","the book I read"],
+          ["actor focus","{{ang batang kumain ng cake}}","the child who ate the cake"],
+          ["object focus","{{ang cake na kinain ng bata}}","the cake the child ate"]
+        ] },
+        {"p":"So {{ang batang kumain}} is the child who ate, and {{ang kinain ng bata}} is what the child ate. Mix up the focus and you change who did what."},
+        {"p":"**Without the noun**, {{ang}} + the verb means “the one who…, what…”: {{Siya ang nagluto.}} “She's the one who cooked.” (lesson 27), {{Ito ang binili ko.}} “This is what I bought.”"},
+        { "ex": [
+          {"t":"Siya ang babaeng nakatira sa tabi namin.","tr":"She's the woman who lives next door."},
+          {"t":"Nasaan ang cellphone na binili ko kahapon?","tr":"Where's the phone I bought yesterday?"},
+          {"t":"Kilala mo ba ang lalaking kausap ni Ana?","tr":"Do you know the man Ana's talking to?"},
+          {"t":"Masarap ang pansit na niluto ni Lola.","tr":"The pancit Grandma cooked is delicious."},
+          {"t":"Mababait ang mga taong nagtatrabaho dito.","tr":"The people who work here are nice."},
+          {"t":"Ito ang lugar na pinuntahan namin noong bakasyon.","tr":"This is the place we went to on vacation."}
+        ] },
+        {"tip":"{{iyong}} ({{iyon}} + the linker), in speech {{yung}}, is how people say “that one…, you know, the…”: {{Yung babaeng nakapula, sino siya?}} “That woman in red, who is she?”"}
+      ],
+      "mistakes": [
+        {"wrong":"ang librong binasa ako","right":"ang librong binasa ko","tr":"the book I read","why":"Object focus inside the clause: the reader is in the {{ko}} set."},
+        {"wrong":"ang batang kinain ang cake","right":"ang batang kumain ng cake","tr":"the child who ate the cake","why":"The child is the eater, so the verb is in actor focus. ({{ang batang kinain}} would be “the child who got eaten”!)"},
+        {"wrong":"ang babae nakatira sa tabi namin","right":"ang babaeng nakatira sa tabi namin","tr":"the woman who lives next door","why":"The description is tied on with the linker: {{babaeng}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“the house Ben bought”","options":["{{ang bahay na binili ni Ben}}","{{ang bahay na bumili si Ben}}","{{ang bahay binili ni Ben}}"],"answer":0,"why":"The house is what was bought: object focus, and the linker {{na}}.","from":"focus-on-the-thing"},
+        {"type":"choice","q":"“the person who bought the house”","options":["{{ang taong bumili ng bahay}}","{{ang taong binili ang bahay}}","{{ang tao bumili ng bahay}}"],"answer":0,"why":"The person is the buyer: actor focus, and the linker {{-ng}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Masarap ang pansit na ___ ni Lola.","tr":"The pancit Grandma cooked is delicious.","options":["niluto","nagluto","magluto"],"answer":0,"why":"The pancit is what was cooked: object focus.","from":"ask-who-did-what"},
+        {"type":"fill","q":"Choose the missing word.","t":"Siya ang ___ nakatira sa tabi namin.","tr":"She's the woman who lives next door.","options":["babaeng","babae","babae ang"],"answer":0,"why":"{{babae}} ends in a vowel: the linker {{-ng}} is added on."},
+        {"type":"order","q":"Put the words in order.","tr":"Where's the phone I bought yesterday?","words":["Nasaan","ang cellphone","na","binili ko","kahapon?"]},
+        {"type":"dialogue","q":"At a party, a friend points people out. Choose your replies.","lines":[{"who":"Ana","t":"Nakikita mo ba iyong lalaking nakasuot ng asul?","tr":"Do you see that man in blue?"},{"options":["Oo. Siya ba ang lalaking tumawag sa iyo kahapon?","Oo. Siya ba ang lalaking tinawagan sa iyo kahapon?"],"answer":0,"why":"He's the one who called: actor focus, {{tumawag}}."},{"who":"Ana","t":"Oo! At siya rin ang nagdala ng cake na kinakain mo!","tr":"Yes! And he's also the one who brought the cake you're eating!"},{"options":["Talaga? Ang sarap ng cake na dinala niya!","Talaga? Ang sarap ng cake na nagdala niya!"],"answer":0,"why":"The cake is what he brought: object focus, {{dinala niya}}."}],"from":"describe-people-and-things"},
+        {"type":"free","q":"Your turn: describe two people or things in your life with a description tied on: “the friend who…”, “the food I…”.","answers":[{"t":"Si Ana ang kaibigang tumulong sa akin noong lumipat ako. Adobo ang pagkaing pinakagusto ko.","tr":"Ana is the friend who helped me when I moved. Adobo is the food I like best."},{"t":"Ito ang librong binabasa ko ngayon. Mababait ang mga taong nakatira sa tabi namin.","tr":"This is the book I'm reading now. The people who live next door are nice."}]}
+      ]
     }
   ]
 }
