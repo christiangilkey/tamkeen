@@ -1217,6 +1217,271 @@
         {"type":"say","q":"Tell a woman: “You're right.”","answer":"أَنْتِ عَلَى حَقٍّ.","r":"anti ʿalā ḥaqqin."},
         {"type":"free","q":"Your turn: greet a group of guests, ask how they are, and invite them to sit.","answers":[{"t":"أَهْلًا وَسَهْلًا! كَيْفَ حَالُكُمْ؟","r":"ahlan wa-sahlan! kayfa ḥālukum?","tr":"Welcome! How are you all?"},{"t":"تَفَضَّلُوا، اِجْلِسُوا هُنَا.","r":"tafaḍḍalū, ijlisū hunā.","tr":"Please, sit here."}]}
       ]
+    },
+    {
+      "id": "what-happened",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what happened",
+      "summary": "“I went to the market yesterday”, “When did you arrive?”, “She wrote me a letter”.",
+      "topic": "The past tense: I, you, he, she (endings, not letters in front)",
+      "blocks": [
+        {"goal":{"t":"ذَهَبْتُ إِلَى السُّوقِ أَمْسِ، وَاشْتَرَيْتُ فَاكِهَةً.","r":"dhahabtu ilā s-sūqi amsi, wa-shtaraytu fākihatan.","tr":"I went to the market yesterday, and I bought some fruit."}},
+        {"dialog":[{"who":"Mona","t":"مَتَى وَصَلْتَ؟","r":"matā waṣalta?","tr":"When did you arrive?"},{"who":"Ali","t":"وَصَلْتُ أَمْسِ فِي الْمَسَاءِ.","r":"waṣaltu amsi fī l-masāʾi.","tr":"I arrived yesterday evening."},{"who":"Mona","t":"وَهَلْ أَكَلْتَ؟","r":"wa-hal akalta?","tr":"And have you eaten?"},{"who":"Ali","t":"نَعَمْ، أَكَلْتُ فِي الْمَطَارِ.","r":"naʿam, akaltu fī l-maṭāri.","tr":"Yes, I ate at the airport."}]},
+        {"p":"The past is the verb's dictionary form, “he did”: {{كَتَبَ|kataba}} “he wrote”. For the other persons, an **ending** replaces the last -a (the present had letters in front; the past has endings):"},
+        { "table": [
+          ["","Arabic","ending"],
+          ["I wrote","{{كَتَبْتُ|katabtu}}","-tu"],
+          ["you wrote (man)","{{كَتَبْتَ|katabta}}","-ta"],
+          ["you wrote (woman)","{{كَتَبْتِ|katabti}}","-ti"],
+          ["he wrote","{{كَتَبَ|kataba}}","-a"],
+          ["she wrote","{{كَتَبَتْ|katabat}}","-at"]
+        ] },
+        {"p":"Only the last vowel tells “I wrote” ({{كَتَبْتُ}}, -tu) from “you wrote” ({{كَتَبْتَ}}, -ta, or {{كَتَبْتِ}}, -ti): say it clearly. And as in the present, the pronoun is usually left out."},
+        {"p":"The Arabic past also covers English “have done”: {{هَلْ أَكَلْتَ؟}} “Have you eaten?”, {{وَصَلْتُ}} “I've arrived”."},
+        { "ex": [
+          {"t":"مَتَى وَصَلْتِ؟","r":"matā waṣalti?","tr":"When did you arrive?","note":"to a woman"},
+          {"t":"شَرِبَ الْقَهْوَةَ وَخَرَجَ.","r":"shariba l-qahwata wa-kharaja.","tr":"He drank the coffee and went out."},
+          {"t":"كَتَبَتْ لِي رِسَالَةً جَمِيلَةً.","r":"katabat lī risālatan jamīlatan.","tr":"She wrote me a beautiful letter."},
+          {"t":"فَهِمْتُ.","r":"fahimtu.","tr":"Got it. (I've understood.)"},
+          {"t":"هَلْ سَمِعْتَ الْخَبَرَ؟","r":"hal samiʿta l-khabara?","tr":"Have you heard the news?"}
+        ] },
+        {"tip":"Learn a new verb with both its past and its present: {{كَتَبَ يَكْتُبُ}}, {{شَرِبَ يَشْرَبُ}}, {{فَهِمَ يَفْهَمُ}}. The vowels inside change, and dictionaries give both."}
+      ],
+      "mistakes": [
+        {"wrong":"أَنَا كَتَبَ.","right":"كَتَبْتُ.","tr":"I wrote.","why":"“I wrote” has the ending -tu."},
+        {"wrong":"هِيَ ذَهَبَ.","right":"هِيَ ذَهَبَتْ.","tr":"She went.","why":"“She” in the past ends in -at: dhahabat."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ أَمْسِ فِي الْمَسَاءِ.","tr":"I arrived yesterday evening.","options":["وَصَلْتُ","وَصَلَ","وَصَلَتْ"],"answer":0,"why":"“I” in the past: -tu."},
+        {"type":"choice","q":"{{هَلْ أَكَلْتِ؟}} is asked to…","options":["a man","a woman"],"answer":1,"why":"-ti: a woman."},
+        {"type":"choice","q":"“She went out” is…","options":["{{خَرَجَتْ}}","{{خَرَجْتَ}}","{{خَرَجَ}}"],"answer":0,"why":"“She”: -at."},
+        {"type":"dialogue","q":"A colleague asks about your weekend. Choose your replies.","lines":[{"who":"Colleague","t":"مَاذَا فَعَلْتَ أَمْسِ؟","r":"mādhā faʿalta amsi?","tr":"What did you do yesterday?"},{"options":["ذَهَبْتُ إِلَى الْبَحْرِ.","أَذْهَبُ إِلَى الْبَحْرِ."],"answer":0,"why":"Yesterday: the past."},{"who":"Colleague","t":"وَهَلْ سَبَحْتَ؟","r":"wa-hal sabaḥta?","tr":"And did you swim?"},{"options":["لَا، الْمَاءُ كَانَ بَارِدًا جِدًّا!","لَا، الْمَاءُ بَارِدٌ جِدًّا أَمْسِ!"],"answer":0,"why":"In the past, “was” is said: {{كَانَ}} (coming soon)."}],"from":"how-often"},
+        {"type":"say","q":"Ask a man: “When did you arrive?”","answer":"مَتَى وَصَلْتَ؟","r":"matā waṣalta?","from":"ask-questions"},
+        {"type":"free","q":"Your turn: say three things you did yesterday.","answers":[{"t":"ذَهَبْتُ إِلَى الْعَمَلِ.","r":"dhahabtu ilā l-ʿamali.","tr":"I went to work."},{"t":"شَرِبْتُ الْقَهْوَةَ مَعَ صَدِيقِي.","r":"sharibtu l-qahwata maʿa ṣadīqī.","tr":"I had coffee with my friend."},{"t":"قَرَأْتُ كِتَابًا فِي الْمَسَاءِ.","r":"qaraʾtu kitāban fī l-masāʾi.","tr":"I read a book in the evening."}]}
+      ]
+    },
+    {
+      "id": "what-we-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what we, you and they did",
+      "summary": "“We travelled to Tunisia”, “Did you (all) understand?”, “They left early”.",
+      "topic": "The past tense: we, you (group), they; the whole pattern",
+      "blocks": [
+        {"goal":{"t":"سَافَرْنَا إِلَى تُونِسَ فِي الصَّيْفِ، وَزُرْنَا الْمَدِينَةَ الْقَدِيمَةَ.","r":"sāfarnā ilā tūnisa fī ṣ-ṣayfi, wa-zurnā l-madīnata l-qadīmata.","tr":"We travelled to Tunisia in the summer, and we visited the old city."}},
+        {"dialog":[{"who":"Uncle","t":"أَيْنَ ذَهَبْتُمْ فِي الْعُطْلَةِ؟","r":"ayna dhahabtum fī l-ʿuṭlati?","tr":"Where did you go in the holidays?"},{"who":"Leila","t":"سَافَرْنَا إِلَى تُونِسَ.","r":"sāfarnā ilā tūnisa.","tr":"We travelled to Tunisia."},{"who":"Uncle","t":"وَالْأَوْلَادُ؟ هَلْ أَحَبُّوهَا؟","r":"wa-l-awlādu? hal aḥabbūhā?","tr":"And the children? Did they love it?"},{"who":"Leila","t":"نَعَمْ! سَبَحُوا كُلَّ يَوْمٍ.","r":"naʿam! sabaḥū kulla yawmin.","tr":"Yes! They swam every day."}]},
+        { "table": [
+          ["","Arabic","ending"],
+          ["we wrote","{{كَتَبْنَا|katabnā}}","-nā"],
+          ["you wrote (group)","{{كَتَبْتُمْ|katabtum}}","-tum"],
+          ["they wrote","{{كَتَبُوا|katabū}}","-ū"]
+        ] },
+        {"p":"The alif at the end of {{كَتَبُوا}} is silent: it is written, never said. And remember the word-order rule: a verb before its subject stays singular: {{وَصَلَ الضُّيُوفُ.|waṣala ḍ-ḍuyūfu.}} “The guests have arrived.”, but {{الضُّيُوفُ وَصَلُوا.}}"},
+        { "table": [
+          ["","write","go","understand"],
+          ["I","{{كَتَبْتُ}}","{{ذَهَبْتُ}}","{{فَهِمْتُ}}"],
+          ["you (man / woman)","{{كَتَبْتَ}} / {{كَتَبْتِ}}","{{ذَهَبْتَ}} / {{ذَهَبْتِ}}","{{فَهِمْتَ}} / {{فَهِمْتِ}}"],
+          ["he / she","{{كَتَبَ}} / {{كَتَبَتْ}}","{{ذَهَبَ}} / {{ذَهَبَتْ}}","{{فَهِمَ}} / {{فَهِمَتْ}}"],
+          ["we","{{كَتَبْنَا}}","{{ذَهَبْنَا}}","{{فَهِمْنَا}}"],
+          ["you (group)","{{كَتَبْتُمْ}}","{{ذَهَبْتُمْ}}","{{فَهِمْتُمْ}}"],
+          ["they","{{كَتَبُوا}}","{{ذَهَبُوا}}","{{فَهِمُوا}}"]
+        ] },
+        { "ex": [
+          {"t":"هَلْ فَهِمْتُمْ؟","r":"hal fahimtum?","tr":"Did you understand?","note":"to a group"},
+          {"t":"خَرَجُوا مِنَ الْبَيْتِ مُبَكِّرًا.","r":"kharajū mina l-bayti mubakkiran.","tr":"They left the house early."},
+          {"t":"وَصَلَ الضُّيُوفُ.","r":"waṣala ḍ-ḍuyūfu.","tr":"The guests have arrived."},
+          {"t":"شَاهَدْنَا فِيلْمًا جَمِيلًا.","r":"shāhadnā fīlman jamīlan.","tr":"We watched a good film."},
+          {"t":"أَيْنَ ذَهَبْتُمْ؟","r":"ayna dhahabtum?","tr":"Where did you go?","note":"to a group"}
+        ] },
+        {"tip":"-nā means “we” in the past ({{ذَهَبْنَا}}) and “us, our” on nouns and verbs ({{بَيْتُنَا}}, {{يَعْرِفُنَا}}): the same little word."}
+      ],
+      "mistakes": [
+        {"wrong":"هُمْ ذَهَبُو.","right":"هُمْ ذَهَبُوا.","tr":"They went.","why":"Write the silent alif: {{ـُوا}}."},
+        {"wrong":"وَصَلُوا الضُّيُوفُ.","right":"وَصَلَ الضُّيُوفُ.","tr":"The guests arrived.","why":"A verb before its subject stays singular."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ إِلَى تُونِسَ فِي الصَّيْفِ.","tr":"We travelled to Tunisia in the summer.","options":["سَافَرْنَا","سَافَرُوا","نُسَافِرُ"],"answer":0,"why":"“We” in the past: -nā."},
+        {"type":"choice","q":"{{خَرَجُوا}} means…","options":["they went out","we went out","he went out"],"answer":0,"why":"-ū (written {{ـُوا}}): “they”."},
+        {"type":"choice","q":"“The guests arrived”, verb first:","options":["{{وَصَلَ الضُّيُوفُ.}}","{{وَصَلُوا الضُّيُوفُ.}}"],"answer":0,"why":"Verb first: singular.","from":"who-does-what"},
+        {"type":"order","q":"Put the words in order.","tr":"We watched a good film.","words":["شَاهَدْنَا","فِيلْمًا","جَمِيلًا."],"from":"likes"},
+        {"type":"say","q":"Ask a group: “Did you understand?”","answer":"هَلْ فَهِمْتُمْ؟","r":"hal fahimtum?"},
+        {"type":"free","q":"Your turn: tell what you and your friends or family did last weekend.","answers":[{"t":"أَكَلْنَا فِي مَطْعَمٍ جَدِيدٍ.","r":"akalnā fī maṭʿamin jadīdin.","tr":"We ate at a new restaurant."},{"t":"لَعِبَ الْأَوْلَادُ فِي الْحَدِيقَةِ.","r":"laʿiba l-awlādu fī l-ḥadīqati.","tr":"The children played in the garden."}]}
+      ]
+    },
+    {
+      "id": "didnt",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what didn't happen",
+      "summary": "“I didn't understand”, “He didn't eat anything”, “The train hasn't arrived yet”.",
+      "topic": "{{لَمْ}} + the short form (jussive); {{مَا}} + the past",
+      "blocks": [
+        {"goal":{"t":"لَمْ أَفْهَمْ. هَلْ يُمْكِنُ أَنْ تُكَرِّرَ؟","r":"lam afham. hal yumkinu an tukarrira?","tr":"I didn't understand. Could you say it again?"}},
+        {"dialog":[{"who":"Boss","t":"هَلْ وَصَلَتِ الرِّسَالَةُ؟","r":"hal waṣalati r-risālatu?","tr":"Has the message arrived?"},{"who":"Nadia","t":"لَا، لَمْ تَصِلْ بَعْدُ.","r":"lā, lam taṣil baʿdu.","tr":"No, it hasn't arrived yet."},{"who":"Boss","t":"وَلِمَاذَا لَمْ يَتَّصِلُوا؟","r":"wa-limādhā lam yattaṣilū?","tr":"And why didn't they call?"},{"who":"Nadia","t":"مَا عَرَفْتُ. سَأَسْأَلُهُمْ.","r":"mā ʿaraftu. sa-asʾaluhum.","tr":"I don't know (I didn't find out). I'll ask them."}]},
+        {"p":"The most common way to say “didn't” is surprising: {{لَمْ|lam}} followed by the **present** form, with its last vowel taken off: {{أَذْهَبُ}} “I go” → {{لَمْ أَذْهَبْ.|lam adhhab.}} “I didn't go.” That short form is the **jussive** you met with “don't!”: no vowel at the end, and no n in -īna and -ūna."},
+        { "table": [
+          ["","present","didn't"],
+          ["I","{{أَذْهَبُ}}","{{لَمْ أَذْهَبْ}}"],
+          ["you (man / woman)","{{تَذْهَبُ}} / {{تَذْهَبِينَ}}","{{لَمْ تَذْهَبْ}} / {{لَمْ تَذْهَبِي}}"],
+          ["he / she","{{يَذْهَبُ}} / {{تَذْهَبُ}}","{{لَمْ يَذْهَبْ}} / {{لَمْ تَذْهَبْ}}"],
+          ["we","{{نَذْهَبُ}}","{{لَمْ نَذْهَبْ}}"],
+          ["they","{{يَذْهَبُونَ}}","{{لَمْ يَذْهَبُوا}}"]
+        ] },
+        {"p":"The other way, common in speech and also correct: {{مَا|mā}} + the past: {{مَا ذَهَبْتُ.|mā dhahabtu.}} “I didn't go.” And “not yet”: {{لَمْ…بَعْدُ}}: {{لَمْ تَصِلْ بَعْدُ}} “It hasn't arrived yet.”"},
+        { "ex": [
+          {"t":"لَمْ يَأْكُلْ شَيْئًا.","r":"lam yaʾkul shayʾan.","tr":"He didn't eat anything."},
+          {"t":"لِمَاذَا لَمْ تَتَّصِلِي؟","r":"limādhā lam tattaṣilī?","tr":"Why didn't you call?","note":"to a woman"},
+          {"t":"لَمْ يَصِلِ الْقِطَارُ بَعْدُ.","r":"lam yaṣili l-qiṭāru baʿdu.","tr":"The train hasn't arrived yet."},
+          {"t":"مَا عَرَفْتُ.","r":"mā ʿaraftu.","tr":"I didn't know."},
+          {"t":"لَمْ يَذْهَبُوا إِلَى الْحَفْلَةِ.","r":"lam yadhhabū ilā l-ḥaflati.","tr":"They didn't go to the party."}
+        ] },
+        {"tip":"When a short form meets {{الْـ}}, it borrows an i to join on: {{لَمْ يَصِلِ الْقِطَارُ|lam yaṣili l-qiṭāru}}."}
+      ],
+      "mistakes": [
+        {"wrong":"لَمْ ذَهَبْتُ.","right":"لَمْ أَذْهَبْ.","tr":"I didn't go.","why":"{{لَمْ}} takes the present form (short), not the past."},
+        {"wrong":"لَمْ يَذْهَبُونَ.","right":"لَمْ يَذْهَبُوا.","tr":"They didn't go.","why":"After {{لَمْ}}, -ūna becomes -ū."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"لَمْ ___.","tr":"I didn't understand.","options":["أَفْهَمْ","فَهِمْتُ","أَفْهَمُ"],"answer":0,"why":"{{لَمْ}} + the short present form."},
+        {"type":"choice","q":"Which also means “I didn't know”?","options":["{{مَا عَرَفْتُ.}}","{{لَمْ عَرَفْتُ.}}"],"answer":0,"why":"{{مَا}} + the past, or {{لَمْ}} + the short present ({{لَمْ أَعْرِفْ}})."},
+        {"type":"choice","q":"“They didn't go” is…","options":["{{لَمْ يَذْهَبُوا.}}","{{لَمْ يَذْهَبُونَ.}}"],"answer":0,"why":"No n after {{لَمْ}}."},
+        {"type":"order","q":"Put the words in order.","tr":"He didn't eat anything.","words":["لَمْ","يَأْكُلْ","شَيْئًا."]},
+        {"type":"say","q":"Tell someone you didn't understand, and ask them to say it again.","answer":"لَمْ أَفْهَمْ. هَلْ يُمْكِنُ أَنْ تُكَرِّرَ؟","r":"lam afham. hal yumkinu an tukarrira?","from":"can-must"},
+        {"type":"free","q":"Your turn: say two things you didn't do this week, with {{لَمْ}}.","answers":[{"t":"لَمْ أَذْهَبْ إِلَى النَّادِي.","r":"lam adhhab ilā n-nādī.","tr":"I didn't go to the gym."},{"t":"لَمْ أَنَمْ جَيِّدًا.","r":"lam anam jayyidan.","tr":"I didn't sleep well."}]}
+      ]
+    },
+    {
+      "id": "was",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say how things were, and what you used to do",
+      "summary": "“The weather was nice”, “Where were you?”, “I used to live in Beirut”.",
+      "topic": "{{كَانَ}} “was”, with -an after it; {{كَانَ}} + present = “used to, was doing”",
+      "blocks": [
+        {"goal":{"t":"كَانَ الْجَوُّ جَمِيلًا، وَكُنَّا سُعَدَاءَ.","r":"kāna l-jawwu jamīlan, wa-kunnā suʿadāʾa.","tr":"The weather was nice, and we were happy."}},
+        {"dialog":[{"who":"Friend","t":"أَيْنَ كُنْتَ أَمْسِ؟","r":"ayna kunta amsi?","tr":"Where were you yesterday?"},{"who":"Omar","t":"كُنْتُ مَرِيضًا، فَبَقِيتُ فِي الْبَيْتِ.","r":"kuntu marīḍan, fa-baqītu fī l-bayti.","tr":"I was ill, so I stayed at home."},{"who":"Friend","t":"سَلَامَتُكَ! كَانَ عِنْدَنَا اجْتِمَاعٌ مُهِمٌّ.","r":"salāmatuka! kāna ʿindanā jtimāʿun muhimmun.","tr":"Get well soon! We had an important meeting."}]},
+        {"p":"Sentences like {{الْجَوُّ جَمِيلٌ}} have no verb in the present. In the past they need one: {{كَانَ|kāna}} “was”. What you say about the subject then ends in -a / -an, as after {{لَيْسَ}}: {{كَانَ الْجَوُّ جَمِيلًا.|kāna l-jawwu jamīlan.}} “The weather was nice.”"},
+        { "table": [
+          ["","was, were"],
+          ["I was","{{كُنْتُ|kuntu}}"],
+          ["you were (man / woman)","{{كُنْتَ|kunta}} / {{كُنْتِ|kunti}}"],
+          ["he / she was","{{كَانَ|kāna}} / {{كَانَتْ|kānat}}"],
+          ["we were","{{كُنَّا|kunnā}}"],
+          ["you were (group)","{{كُنْتُمْ|kuntum}}"],
+          ["they were","{{كَانُوا|kānū}}"]
+        ] },
+        {"p":"With a place, nothing changes but {{كَانَ}}: {{كُنْتُ فِي الْبَيْتِ.}} “I was at home.” With {{عِنْدَ}} the thing keeps -un: {{كَانَ عِنْدَنَا اجْتِمَاعٌ.}} “We had a meeting.”"},
+        {"p":"**“Used to” and “was doing”**: {{كَانَ}} + a present verb: {{كُنْتُ أَسْكُنُ فِي بَيْرُوتَ.|kuntu askunu fī bayrūta.}} “I used to live in Beirut.”, {{كَانَتْ تَقْرَأُ.|kānat taqraʾu.}} “She was reading.”"},
+        { "ex": [
+          {"t":"كُنْتُ مَرِيضًا.","r":"kuntu marīḍan.","tr":"I was ill.","note":"a woman: {{كُنْتُ مَرِيضَةً}}"},
+          {"t":"كُنَّا أَصْدِقَاءَ فِي الْمَدْرَسَةِ.","r":"kunnā aṣdiqāʾa fī l-madrasati.","tr":"We were friends at school."},
+          {"t":"كَانَ عِنْدِي مَوْعِدٌ مَعَ الطَّبِيبِ.","r":"kāna ʿindī mawʿidun maʿa ṭ-ṭabībi.","tr":"I had an appointment with the doctor."},
+          {"t":"كُنْتُ أَسْكُنُ فِي بَيْرُوتَ.","r":"kuntu askunu fī bayrūta.","tr":"I used to live in Beirut."},
+          {"t":"كَانُوا يَلْعَبُونَ فِي الْحَدِيقَةِ.","r":"kānū yalʿabūna fī l-ḥadīqati.","tr":"They were playing in the garden."}
+        ] },
+        {"tip":"“Wasn't”: {{لَمْ يَكُنْ|lam yakun}} or {{مَا كَانَ}}: {{لَمْ يَكُنِ الْفِيلْمُ جَيِّدًا.|lam yakuni l-fīlmu jayyidan.}} “The film wasn't good.”"}
+      ],
+      "mistakes": [
+        {"wrong":"كَانَ الْجَوُّ جَمِيلٌ.","right":"كَانَ الْجَوُّ جَمِيلًا.","tr":"The weather was nice.","why":"After {{كَانَ}}, what you say about the subject ends in -an."},
+        {"wrong":"كَانَ عِنْدِي مَوْعِدًا.","right":"كَانَ عِنْدِي مَوْعِدٌ.","tr":"I had an appointment.","why":"With {{عِنْدِي}}, the thing had is the subject: it keeps -un."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"كَانَ الْجَوُّ ___.","tr":"The weather was nice.","options":["جَمِيلًا","جَمِيلٌ","الْجَمِيلُ"],"answer":0,"why":"After {{كَانَ}}: -an."},
+        {"type":"choice","q":"{{كُنْتُ أَسْكُنُ هُنَا.}} means…","options":["I live here.","I used to live here.","I'll live here."],"answer":1,"why":"{{كَانَ}} + present: “used to”."},
+        {"type":"choice","q":"“Where were you?” (to a woman)","options":["{{أَيْنَ كُنْتِ؟}}","{{أَيْنَ كُنْتَ؟}}","{{أَيْنَ كَانَتْ؟}}"],"answer":0,"why":"To a woman: -ti."},
+        {"type":"order","q":"Put the words in order.","tr":"I had an appointment with the doctor.","words":["كَانَ","عِنْدِي","مَوْعِدٌ","مَعَ","الطَّبِيبِ."],"from":"have"},
+        {"type":"say","q":"Say “The shop wasn't open.”","answer":"لَمْ يَكُنِ الْمَحَلُّ مَفْتُوحًا.","r":"lam yakuni l-maḥallu maftūḥan.","from":"is-not"},
+        {"type":"free","q":"Your turn: describe yourself as a child: where you lived, what you used to do, what you were like.","answers":[{"t":"كُنْتُ أَسْكُنُ فِي قَرْيَةٍ صَغِيرَةٍ.","r":"kuntu askunu fī qaryatin ṣaghīratin.","tr":"I used to live in a small village."},{"t":"كُنْتُ أَلْعَبُ كُرَةَ الْقَدَمِ كُلَّ يَوْمٍ.","r":"kuntu alʿabu kurata l-qadami kulla yawmin.","tr":"I used to play football every day."},{"t":"كُنْتُ وَلَدًا هَادِئًا.","r":"kuntu waladan hādiʾan.","tr":"I was a quiet boy."}]}
+      ]
+    },
+    {
+      "id": "common-verbs",
+      "unit": 5,
+      "level": "A2",
+      "title": "Use the commonest verbs: said, slept, saw, came",
+      "summary": "Some of the most useful verbs have و or ي in their root: learn how they change, and you can tell a story.",
+      "topic": "Weak verbs (roots with {{و}} or {{ي}}): {{قَالَ}}, {{نَامَ}}, {{مَشَى}}, {{وَصَلَ}}, {{رَأَى}}, {{جَاءَ}}",
+      "blocks": [
+        {"goal":{"t":"قُلْتُ لَهُ الْحَقِيقَةَ، ثُمَّ نِمْتُ.","r":"qultu lahu l-ḥaqīqata, thumma nimtu.","tr":"I told him the truth, then I went to sleep."}},
+        {"dialog":[{"who":"Huda","t":"مَاذَا قَالَ الطَّبِيبُ؟","r":"mādhā qāla ṭ-ṭabību?","tr":"What did the doctor say?"},{"who":"Sami","t":"قَالَ: نَمْ كَثِيرًا وَامْشِ قَلِيلًا كُلَّ يَوْمٍ.","r":"qāla: nam kathīran wa-mshi qalīlan kulla yawmin.","tr":"He said: sleep a lot and walk a little every day."},{"who":"Huda","t":"وَهَلْ نِمْتَ جَيِّدًا أَمْسِ؟","r":"wa-hal nimta jayyidan amsi?","tr":"And did you sleep well last night?"},{"who":"Sami","t":"نَعَمْ، نِمْتُ عَشْرَ سَاعَاتٍ!","r":"naʿam, nimtu ʿashra sāʿātin!","tr":"Yes, I slept ten hours!"}]},
+        {"term":"weak verb","means":"a verb whose root has {{و}} or {{ي}} (or a hamza). Those letters turn into long vowels, and the long vowel shortens in some forms."},
+        {"p":"**A long ā in the middle** ({{قَالَ}}, {{كَانَ}}, {{نَامَ}}, {{زَارَ}}): in the past, it shortens before -tu, -ta, -nā, -tum: {{قَالَ}} “he said”, but {{قُلْتُ|qultu}} “I said”; {{نَامَ}}, but {{نِمْتُ|nimtu}}."},
+        { "table": [
+          ["he (past)","I (past)","he (present)","meaning"],
+          ["{{قَالَ}}","{{قُلْتُ}}","{{يَقُولُ}}","say"],
+          ["{{كَانَ}}","{{كُنْتُ}}","{{يَكُونُ}}","be"],
+          ["{{زَارَ}}","{{زُرْتُ}}","{{يَزُورُ}}","visit"],
+          ["{{نَامَ}}","{{نِمْتُ}}","{{يَنَامُ}}","sleep"],
+          ["{{بَاعَ}}","{{بِعْتُ}}","{{يَبِيعُ}}","sell"]
+        ] },
+        {"p":"**A long vowel at the end** ({{مَشَى}}, {{نَسِيَ}}, {{دَعَا}}): the present ends in a long vowel, with no -u to see: {{يَمْشِي|yamshī}} “he walks”, {{يَنْسَى|yansā}} “he forgets”, {{يَدْعُو|yadʿū}} “he invites”. In the short form it shortens: {{لَمْ يَنْسَ|lam yansa}}, and the command “walk!” is {{اِمْشِ|imshi}}."},
+        {"p":"**{{و}} at the start** ({{وَصَلَ}}, {{وَجَدَ}}): the {{و}} disappears in the present: {{يَصِلُ|yaṣilu}} “arrives”, {{يَجِدُ|yajidu}} “finds”. And two irregular favourites: {{رَأَى|raʾā}} “he saw” ({{رَأَيْتُ}} “I saw”, {{يَرَى}} “he sees”), and {{جَاءَ|jāʾa}} “he came” ({{جِئْتُ}} “I came”), whose present is usually {{يَأْتِي|yaʾtī}}."},
+        { "ex": [
+          {"t":"مَاذَا قَالَتْ؟","r":"mādhā qālat?","tr":"What did she say?"},
+          {"t":"زُرْنَا جَدَّتَنَا.","r":"zurnā jaddatanā.","tr":"We visited our grandmother."},
+          {"t":"أَمْشِي إِلَى الْعَمَلِ.","r":"amshī ilā l-ʿamali.","tr":"I walk to work."},
+          {"t":"لَا أَجِدُ مِفْتَاحِي.","r":"lā ajidu miftāḥī.","tr":"I can't find my key."},
+          {"t":"رَأَيْتُهُ فِي السُّوقِ.","r":"raʾaytuhu fī s-sūqi.","tr":"I saw him at the market."},
+          {"t":"جَاءَ أَخِي مِنَ الْكُوَيْتِ.","r":"jāʾa akhī mina l-kuwayti.","tr":"My brother came from Kuwait."}
+        ] },
+        {"tip":"Learn these verbs by their “I” form in the past ({{قُلْتُ}}, {{كُنْتُ}}, {{نِمْتُ}}, {{رَأَيْتُ}}) as well as their dictionary form: those are the forms you'll say most when you tell a story."}
+      ],
+      "mistakes": [
+        {"wrong":"قَالْتُ","right":"قُلْتُ","tr":"I said","why":"Before -tu, the long ā shortens: qultu."},
+        {"wrong":"يَوْصِلُ","right":"يَصِلُ","tr":"he arrives","why":"In the present, the {{و}} of {{وَصَلَ}} disappears."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ لَهُ الْحَقِيقَةَ.","tr":"I told him the truth.","options":["قُلْتُ","قَالْتُ","قَالَ"],"answer":0,"why":"“I said”: the long ā shortens, qultu."},
+        {"type":"choice","q":"{{نِمْتُ}} means…","options":["I slept","he sleeps","she slept"],"answer":0,"why":"From {{نَامَ}}, with -tu."},
+        {"type":"choice","q":"“He arrives” is…","options":["{{يَوْصِلُ}}","{{يَصِلُ}}","{{وَصَلَ}}"],"answer":1,"why":"The {{و}} disappears in the present."},
+        {"type":"order","q":"Put the words in order.","tr":"I saw him at the market.","words":["رَأَيْتُهُ","فِي","السُّوقِ."],"from":"me-and-you"},
+        {"type":"say","q":"Ask a man: “What did you say?”","answer":"مَاذَا قُلْتَ؟","r":"mādhā qulta?"},
+        {"type":"free","q":"Your turn: say whom you visited, what you saw, and how you slept recently.","answers":[{"t":"زُرْتُ صَدِيقِي فِي الْمُسْتَشْفَى.","r":"zurtu ṣadīqī fī l-mustashfā.","tr":"I visited my friend in hospital."},{"t":"رَأَيْتُ فِيلْمًا مُضْحِكًا.","r":"raʾaytu fīlman muḍḥikan.","tr":"I saw a funny film."},{"t":"لَمْ أَنَمْ جَيِّدًا.","r":"lam anam jayyidan.","tr":"I didn't sleep well."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 5,
+      "level": "A2",
+      "title": "Tell a story in order",
+      "summary": "Tell what happened from start to finish: “First…, then…, after that…, in the end…”.",
+      "topic": "The past in a sequence: {{أَوَّلًا}}, {{ثُمَّ}}, {{بَعْدَ ذَلِكَ}}, {{فَـ}}, {{فِي النِّهَايَةِ}}",
+      "blocks": [
+        {"goal":{"t":"اسْتَيْقَظْتُ مُتَأَخِّرًا، ثُمَّ رَكَضْتُ إِلَى الْمَحَطَّةِ، لَكِنْ ذَهَبَ الْقِطَارُ!","r":"istayqaẓtu mutaʾakhkhiran, thumma rakaḍtu ilā l-maḥaṭṭati, lākin dhahaba l-qiṭāru!","tr":"I woke up late, then I ran to the station, but the train had gone!"}},
+        {"dialog":[{"who":"Rana","t":"لِمَاذَا تَأَخَّرْتَ؟","r":"limādhā taʾakhkharta?","tr":"Why were you late?"},{"who":"Faris","t":"أَوَّلًا، لَمْ أَسْمَعِ الْمُنَبِّهَ.","r":"awwalan, lam asmaʿi l-munabbiha.","tr":"First, I didn't hear the alarm."},{"who":"Faris","t":"ثُمَّ ذَهَبْتُ إِلَى الْمَحَطَّةِ، فَوَجَدْتُهَا مُغْلَقَةً.","r":"thumma dhahabtu ilā l-maḥaṭṭati, fa-wajadtuhā mughlaqatan.","tr":"Then I went to the station, and found it closed."},{"who":"Faris","t":"بَعْدَ ذَلِكَ أَخَذْتُ سَيَّارَةَ أُجْرَةٍ، وَفِي النِّهَايَةِ وَصَلْتُ!","r":"baʿda dhālika akhadhtu sayyārata ujratin, wa-fī n-nihāyati waṣaltu!","tr":"After that I took a taxi, and in the end I made it!"}]},
+        {"p":"Now that you have the past, you can tell a story. What makes it a story is the order, and Arabic has a set of little words for it:"},
+        { "table": [
+          ["","Arabic"],
+          ["first","{{أَوَّلًا|awwalan}}"],
+          ["then","{{ثُمَّ|thumma}}"],
+          ["and so, and then (straight after)","{{فَـ|fa-}}"],
+          ["after that","{{بَعْدَ ذَلِكَ|baʿda dhālika}}"],
+          ["but","{{لَكِنْ|lākin}}"],
+          ["in the end","{{فِي النِّهَايَةِ|fī n-nihāyati}}"]
+        ] },
+        {"p":"{{فَـ}} is joined to the next word and shows that one thing led straight to the next: {{ذَهَبْتُ إِلَى الْمَحَطَّةِ فَوَجَدْتُهَا مُغْلَقَةً}} “I went to the station and (so) found it closed.” {{ثُمَّ}} leaves a little more time between the two."},
+        {"p":"Arabic stories link sentences with {{وَ}} and {{فَـ}} much more than English does: often nearly every sentence starts with one. That's good style in Arabic, not repetition."},
+        { "ex": [
+          {"t":"أَوَّلًا شَرِبْتُ الْقَهْوَةَ، ثُمَّ خَرَجْتُ.","r":"awwalan sharibtu l-qahwata, thumma kharajtu.","tr":"First I had coffee, then I went out."},
+          {"t":"فَتَحْتُ الْبَابَ فَرَأَيْتُ صَدِيقِي.","r":"fataḥtu l-bāba fa-raʾaytu ṣadīqī.","tr":"I opened the door and saw my friend."},
+          {"t":"بَعْدَ ذَلِكَ ذَهَبْنَا إِلَى الْمَطْعَمِ.","r":"baʿda dhālika dhahabnā ilā l-maṭʿami.","tr":"After that we went to the restaurant."},
+          {"t":"فِي النِّهَايَةِ رَجَعْنَا إِلَى الْبَيْتِ مُتْعَبِينَ.","r":"fī n-nihāyati rajaʿnā ilā l-bayti mutʿabīna.","tr":"In the end we came home tired."}
+        ] },
+        {"tip":"To keep a listener with you, add a word for how you felt: {{كُنْتُ خَائِفًا|kuntu khāʾifan}} “I was scared”, {{كُنْتُ سَعِيدًا جِدًّا|kuntu saʿīdan jiddan}} “I was very happy”."}
+      ],
+      "mistakes": [
+        {"wrong":"ثُمَّ أَذْهَبُ إِلَى الْمَطْعَمِ أَمْسِ.","right":"ثُمَّ ذَهَبْتُ إِلَى الْمَطْعَمِ أَمْسِ.","tr":"Then I went to the restaurant yesterday.","why":"A story about yesterday stays in the past."},
+        {"wrong":"فَ وَجَدْتُهَا","right":"فَوَجَدْتُهَا","tr":"and found it","why":"{{فَـ}} is written joined to the next word, like {{وَ}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"أَوَّلًا شَرِبْتُ الْقَهْوَةَ، ___ خَرَجْتُ.","tr":"First I had coffee, then I went out.","options":["ثُمَّ","لَكِنْ","أَيْنَ"],"answer":0,"why":"{{ثُمَّ}}: “then”."},
+        {"type":"choice","q":"{{فِي النِّهَايَةِ}} means…","options":["at first","in the end","after that"],"answer":1,"why":"{{النِّهَايَةُ}} is “the end”."},
+        {"type":"order","q":"Put the story in order.","tr":"I opened the door and saw my friend.","words":["فَتَحْتُ","الْبَابَ","فَرَأَيْتُ","صَدِيقِي."],"from":"common-verbs"},
+        {"type":"dialogue","q":"A friend asks about your trip. Choose your replies.","lines":[{"who":"Friend","t":"كَيْفَ كَانَتِ الرِّحْلَةُ؟","r":"kayfa kānati r-riḥlatu?","tr":"How was the trip?"},{"options":["كَانَتْ رَائِعَةً!","كَانَتْ رَائِعَةٌ!"],"answer":0,"why":"After {{كَانَ}}: -an."},{"who":"Friend","t":"مَاذَا فَعَلْتُمْ؟","r":"mādhā faʿaltum?","tr":"What did you do?"},{"options":["أَوَّلًا زُرْنَا الْمَتْحَفَ، ثُمَّ أَكَلْنَا فِي السُّوقِ.","أَوَّلًا نَزُورُ الْمَتْحَفَ، ثُمَّ أَكَلْنَا فِي السُّوقِ."],"answer":0,"why":"Keep the whole story in the past."}],"from":"was"},
+        {"type":"say","q":"Say “After that we went to the restaurant.”","answer":"بَعْدَ ذَلِكَ ذَهَبْنَا إِلَى الْمَطْعَمِ.","r":"baʿda dhālika dhahabnā ilā l-maṭʿami."},
+        {"type":"free","q":"Your turn: tell the story of your morning in four sentences: first, then, after that, in the end.","answers":[{"t":"أَوَّلًا اسْتَيْقَظْتُ فِي السَّابِعَةِ.","r":"awwalani stayqaẓtu fī s-sābiʿati.","tr":"First I woke up at seven."},{"t":"ثُمَّ شَرِبْتُ الشَّايَ وَأَكَلْتُ.","r":"thumma sharibtu sh-shāya wa-akaltu.","tr":"Then I had tea and ate."},{"t":"بَعْدَ ذَلِكَ ذَهَبْتُ إِلَى الْعَمَلِ، وَفِي النِّهَايَةِ وَصَلْتُ مُتَأَخِّرًا!","r":"baʿda dhālika dhahabtu ilā l-ʿamali, wa-fī n-nihāyati waṣaltu mutaʾakhkhiran!","tr":"After that I went to work, and in the end I arrived late!"}]}
+      ]
     }
   ]
 }
