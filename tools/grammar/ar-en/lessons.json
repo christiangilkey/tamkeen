@@ -1363,6 +1363,204 @@
         {"type":"say","q":"قل «كنّا نتعشّى حين رنّ الهاتف».","answer":"We were having dinner when the phone rang."},
         {"type":"free","q":"دورك: احكِ قصة قصيرة من ثلاث جمل أو أربع: ماذا كنت تفعل، وماذا حدث فجأة، وماذا فعلت بعد ذلك؟","answers":[{"t":"I was waiting for the bus when it started to rain. I didn't have an umbrella, so I went into a café. Then I had a coffee and waited.","tr":"كنت أنتظر الحافلة حين بدأ المطر. لم تكن معي مظلّة، فدخلت مقهى. ثم شربت قهوة وانتظرت."},{"t":"Last week, I was cooking dinner when my phone rang. It was my old friend from school! We talked for an hour, and the rice burned.","tr":"الأسبوع الماضي كنت أطبخ العشاء حين رنّ هاتفي. كان صديقي القديم من المدرسة! تحدّثنا ساعة، واحترق الأرز."}]}
       ]
+    },
+    {
+      "id": "talk-about-plans",
+      "unit": 6,
+      "level": "A2",
+      "title": "تحدَّث عن خططك",
+      "summary": "قل «سأزور عائلتي الأسبوع القادم»: {{be going to}} لما قرّرت أن تفعله، ومعه {{am, is, are}} من جديد.",
+      "topic": "{{be going to}} + الفعل في صورته الأصلية؛ {{tomorrow, next week, this weekend, in two days}}",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit my family next week.","tr":"سأزور عائلتي الأسبوع القادم."}},
+        {"dialog":[{"who":"مايك","t":"Any plans for the summer?","tr":"هل عندك خطط للصيف؟"},{"who":"عمر","t":"Yes! We're going to visit my parents in Jordan.","tr":"نعم! سنزور والديّ في الأردن."},{"who":"مايك","t":"Nice! How long are you going to stay?","tr":"جميل! كم ستبقون؟"},{"who":"عمر","t":"Three weeks. And my brother is going to get married!","tr":"ثلاثة أسابيع. وأخي سيتزوّج!"},{"who":"مايك","t":"Congratulations! Are you going to give a speech?","tr":"مبروك! هل ستلقي كلمة؟"},{"who":"عمر","t":"No way! I'm not going to speak. I'm going to eat!","tr":"مستحيل! لن أتكلّم. سآكل!"}]},
+        {"p":"**«سـ» و«سوف» للخطط.** في العربية تقول «سأزور» أو «سوف أزور». وللإنجليزية طريقتان للمستقبل؛ الأولى، وهي الأكثر في الكلام عن الخطط والقرارات، {{be going to}}: {{I'm going to visit}} «سأزور»، أي قرّرت ذلك وهو في خطّتي."},
+        { "table": [
+          ["الفاعل","{{be}}","","الفعل"],
+          ["{{I}}","{{am}} ({{I'm}})","{{going to}}","{{travel}}"],
+          ["{{you, we, they}}","{{are}}","{{going to}}","{{travel}}"],
+          ["{{he, she, it}}","{{is}}","{{going to}}","{{travel}}"]
+        ] },
+        {"p":"**ثلاثة أجزاء، كلّها لازمة:** {{am, is, are}}، ثم {{going to}}، ثم الفعل في صورته الأصلية. لا تحذف {{be}} ({{I going to}})، ولا تضع {{-ing}} على الفعل الأخير ({{going to visiting}}). و{{going}} هنا لا تعني الذهاب، بل هي جزء من صيغة المستقبل: {{I'm going to stay home.}} «سأبقى في البيت»."},
+        {"p":"**النفي والسؤال** بـ{{be}} كما تعلّمت: {{I'm not going to buy it.}} «لن أشتريه»، {{Are you going to call her?}} «هل ستتّصل بها؟»، {{What are you going to do?}} «ماذا ستفعل؟»"},
+        {"p":"**ما تدلّ عليه العلامات.** وتأتي أيضًا لما تراه الآن علامة على ما سيحدث: {{Look at those clouds! It's going to rain.}} «انظر إلى تلك الغيوم! ستمطر»."},
+        {"p":"**كلمات المستقبل:** {{tomorrow}} «غدًا»، {{tonight}} «الليلة»، {{next week}} «الأسبوع القادم»، {{next year}} «العام القادم»، {{this weekend}} «في عطلة نهاية هذا الأسبوع»، {{in two days}} «بعد يومين»."},
+        { "ex": [
+          {"t":"We're going to buy a new car.","tr":"سنشتري سيارة جديدة."},
+          {"t":"She's going to study medicine.","tr":"ستدرس الطبّ."},
+          {"t":"I'm not going to work tomorrow.","tr":"لن أعمل غدًا."},
+          {"t":"Are you going to watch the game tonight?","tr":"هل ستشاهد المباراة الليلة؟"},
+          {"t":"What are you going to do this weekend?","tr":"ماذا ستفعل في عطلة نهاية هذا الأسبوع؟"},
+          {"t":"Be careful! You're going to fall!","tr":"انتبه! ستسقط!"}
+        ] },
+        {"tip":"في الكلام السريع يقول الأمريكيون {{gonna}} بدل {{going to}}: {{I'm gonna call you.}} ستسمعها كثيرًا في الأفلام والحياة اليومية، لكن اكتب {{going to}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I going to travel next month.","right":"I'm going to travel next month.","tr":"سأسافر الشهر القادم.","why":"لا تحذف {{am}}: {{I'm going to}}."},
+        {"wrong":"We're going to visiting my uncle.","right":"We're going to visit my uncle.","tr":"سنزور عمّي.","why":"بعد {{going to}} الفعل في صورته الأصلية."},
+        {"wrong":"I'm going to call you after two days.","right":"I'm going to call you in two days.","tr":"سأتّصل بك بعد يومين.","why":"«بعد يومين» من الآن تُقال بالإنجليزية {{in two days}}، لا {{after two days}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"She's going ___ start a new job.","tr":"ستبدأ عملًا جديدًا.","options":["to","for","at"],"answer":0,"why":"{{going to}} + الفعل."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"They ___ going to move to Canada.","tr":"سينتقلون إلى كندا.","options":["are","is","do"],"answer":0,"why":"مع {{they}}: {{are}}.","from":"say-what-you-do"},
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{I'm not going to buy it.}}","{{I don't going to buy it.}}","{{I'm going not to buy it.}}"],"answer":0,"why":"النفي بـ{{not}} بعد {{am}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"ماذا ستفعل الليلة؟","words":["What","are","you","going","to","do","tonight?"]},
+        {"type":"dialogue","q":"زميلك يسألك عن خطّتك للعطلة: اختر ردودك.","lines":[{"who":"زميلك","t":"Are you going to travel this summer?","tr":"هل ستسافر هذا الصيف؟"},{"options":["Yes, I am. I'm going to visit Turkey.","Yes, I do. I going to visit Turkey."],"answer":0,"why":"السؤال بـ{{Are}}، فالجواب {{I am}}؛ ولا تحذف {{am}}."},{"who":"زميلك","t":"Cool! How long are you going to stay?","tr":"رائع! كم ستبقى؟"},{"options":["Two weeks. We're going to rent an apartment in Istanbul.","Two weeks. We're going to renting an apartment in Istanbul."],"answer":0,"why":"بعد {{going to}} الفعل في صورته الأصلية."},{"who":"زميلك","t":"Sounds amazing. Send me pictures!","tr":"يبدو رائعًا. أرسل لي صورًا!"}],"from":"ask-yes-or-no"},
+        {"type":"say","q":"قل «انظر إلى تلك الغيوم! ستمطر».","answer":"Look at those clouds! It's going to rain."},
+        {"type":"free","q":"دورك: ما خططك لعطلة نهاية الأسبوع القادمة؟ اكتب ثلاث جمل بـ{{going to}}، واحدة منها منفيّة.","answers":[{"t":"I'm going to clean the house on Saturday. On Sunday, I'm going to see my friends. I'm not going to work!","tr":"سأنظّف البيت يوم السبت. ويوم الأحد سأرى أصدقائي. لن أعمل!"},{"t":"We're going to have a barbecue with our neighbors. My wife is going to make a cake. I'm not going to cook!","tr":"سنقيم حفلة شواء مع جيراننا. زوجتي ستصنع كعكة. أنا لن أطبخ!"}]}
+      ]
+    },
+    {
+      "id": "make-arrangements",
+      "unit": 6,
+      "level": "A2",
+      "title": "حدِّد موعدًا",
+      "summary": "اسأل «ماذا ستفعل يوم الجمعة؟» وأجب «سأقابل سارة في السادسة»: المضارع المستمر للمواعيد المرتّبة في المستقبل.",
+      "topic": "المضارع المستمر للمستقبل؛ {{What are you doing on…?}}؛ {{Are you free…?}}",
+      "blocks": [
+        {"goal":{"t":"What are you doing on Friday? — I'm meeting Sara at six.","tr":"ماذا ستفعل يوم الجمعة؟ — سأقابل سارة في السادسة."}},
+        {"dialog":[{"who":"جيسيكا","t":"Hey, are you free on Saturday?","tr":"هل أنتِ متفرّغة يوم السبت؟"},{"who":"لينا","t":"Saturday morning, no. I'm taking my son to the dentist. But I'm free in the afternoon.","tr":"صباح السبت لا. سآخذ ابني إلى طبيب الأسنان. لكني متفرّغة بعد الظهر."},{"who":"جيسيكا","t":"Great! Do you want to go shopping?","tr":"رائع! هل تريدين أن نذهب للتسوّق؟"},{"who":"لينا","t":"Sure! What time?","tr":"بالتأكيد! في أيّ ساعة؟"},{"who":"جيسيكا","t":"How about three? I'm having lunch with my mom at one.","tr":"ما رأيك في الثالثة؟ سأتغدّى مع أمي في الواحدة."},{"who":"لينا","t":"Three is perfect. See you on Saturday!","tr":"الثالثة مناسبة تمامًا. أراكِ يوم السبت!"}]},
+        {"p":"**المضارع المستمر للمستقبل.** تعلّمت أن {{I'm working}} معناها «أعمل الآن». لكنها تأتي أيضًا لما رتّبته في المستقبل: موعد محدّد له وقت ومكان، وفيه غالبًا أشخاص آخرون: {{I'm meeting Sara at six.}} «سأقابل سارة في السادسة». والكلمة الدالّة على الزمن ({{tomorrow}}، {{on Friday}}، {{at six}}) هي التي تقول إنه مستقبل."},
+        { "table": [
+          ["الجملة","المعنى"],
+          ["{{I'm working now.}}","أعمل الآن."],
+          ["{{I'm working on Saturday.}}","سأعمل يوم السبت (هذا مرتّب)."],
+          ["{{We're flying to Dubai tomorrow.}}","سنسافر بالطائرة إلى دبي غدًا (التذاكر معنا)."]
+        ] },
+        {"p":"**{{going to}} أم المضارع المستمر؟** كثيرًا ما يصلح الاثنان: {{I'm going to see the doctor tomorrow}} و{{I'm seeing the doctor tomorrow}}. لكن المضارع المستمر أطبع حين يكون الموعد مرتّبًا محدّدًا، و{{going to}} أطبع حين يكون قرارًا أو نيّة: {{I'm going to learn to swim one day.}} «سأتعلّم السباحة يومًا ما»."},
+        {"p":"**السؤال عن موعد.** {{What are you doing on Friday?}} «ماذا ستفعل يوم الجمعة؟»، {{Are you free tomorrow?}} «هل أنت متفرّغ غدًا؟». وانتبه إلى الفرق بينه وبين سؤال العادة:"},
+        { "table": [
+          ["السؤال","المعنى"],
+          ["{{What do you do on Fridays?}}","ماذا تفعل أيام الجمعة عادةً؟"],
+          ["{{What are you doing on Friday?}}","ماذا ستفعل هذه الجمعة؟"]
+        ] },
+        { "ex": [
+          {"t":"I'm seeing the doctor tomorrow morning.","tr":"عندي موعد عند الطبيب صباح الغد."},
+          {"t":"We're having a party on Saturday. Can you come?","tr":"سنقيم حفلة يوم السبت. هل تستطيع أن تأتي؟"},
+          {"t":"My parents are arriving at ten tonight.","tr":"يصل والداي في العاشرة الليلة."},
+          {"t":"Are you doing anything this weekend?","tr":"هل عندك شيء في عطلة نهاية هذا الأسبوع؟"},
+          {"t":"Sorry, I can't. I'm working late on Thursday.","tr":"آسف، لا أستطيع. سأعمل حتى وقت متأخّر يوم الخميس."},
+          {"t":"What time are you leaving?","tr":"متى ستغادر؟"}
+        ] },
+        {"tip":"لإنهاء المكالمة بعد تحديد موعد: {{See you on Saturday!}} «أراك يوم السبت!»، {{See you then!}} «أراك حينها!»، {{Sounds good!}} «اتّفقنا!»."}
+      ],
+      "mistakes": [
+        {"wrong":"What do you do on Friday? — I meet my friends.","right":"What are you doing on Friday? — I'm meeting my friends.","tr":"ماذا ستفعل يوم الجمعة؟ — سأقابل أصدقائي.","why":"لموعد مرتّب في المستقبل: المضارع المستمر. أما {{What do you do…?}} فسؤال عن العادة."},
+        {"wrong":"I meeting my boss at ten.","right":"I'm meeting my boss at ten.","tr":"سأقابل مديري في العاشرة.","why":"لا تحذف {{am}}: المضارع المستمر يحتاج إليها."},
+        {"wrong":"Are you free in Saturday?","right":"Are you free on Saturday?","tr":"هل أنت متفرّغ يوم السبت؟","why":"الأيام مع {{on}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"I'm ___ my cousin at the airport tomorrow.","tr":"سأستقبل ابن عمّي في المطار غدًا.","options":["meeting","meet","meets"],"answer":0,"why":"موعد مرتّب: {{am}} + {{-ing}}."},
+        {"type":"choice","q":"صديقك يسألك {{What are you doing tonight?}} ما معناها؟","options":["ماذا ستفعل الليلة؟","ماذا تفعل كل ليلة؟","ماذا فعلت ليلة أمس؟"],"answer":0,"why":"المضارع المستمر مع {{tonight}}: موعد في المستقبل القريب."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"We're having dinner with my in-laws ___ Sunday.","tr":"سنتعشّى مع أهل زوجتي يوم الأحد.","options":["on","in","at"],"answer":0,"why":"الأيام مع {{on}}.","from":"talk-about-your-day"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"متى ستغادر؟","words":["What","time","are","you","leaving?"]},
+        {"type":"dialogue","q":"صديقة تريد أن تراك هذا الأسبوع: اختر ردودك.","lines":[{"who":"جيسيكا","t":"Are you free on Wednesday?","tr":"هل أنت متفرّغ يوم الأربعاء؟"},{"options":["Sorry, I'm working late on Wednesday.","Sorry, I working late on Wednesday."],"answer":0,"why":"لا تحذف {{am}}: {{I'm working}}."},{"who":"جيسيكا","t":"What about Thursday?","tr":"وماذا عن الخميس؟"},{"options":["Thursday works. Where are we meeting?","Thursday works. Where we are meeting?"],"answer":0,"why":"في السؤال يتقدّم {{are}} على الفاعل."},{"who":"جيسيكا","t":"At the new café on Main Street. Seven o'clock?","tr":"في المقهى الجديد في الشارع الرئيسي. في السابعة؟"},{"options":["Sounds good. See you then!","Sounds good. I see you then!"],"answer":0,"why":"العبارة المعتادة: {{See you then!}} «أراك حينها!»."}],"from":"ask-name-age-and-more"},
+        {"type":"say","q":"اسأل صديقك: «هل أنت متفرّغ غدًا؟»","answer":"Are you free tomorrow?"},
+        {"type":"free","q":"دورك: اكتب ثلاثة مواعيد عندك هذا الأسبوع بالمضارع المستمر، مع اليوم أو الساعة.","answers":[{"t":"I'm seeing the dentist on Tuesday. On Thursday, I'm having lunch with my boss. I'm flying to Chicago on Saturday.","tr":"عندي موعد عند طبيب الأسنان يوم الثلاثاء. ويوم الخميس سأتغدّى مع مديري. وسأسافر بالطائرة إلى شيكاغو يوم السبت."},{"t":"I'm meeting my friends tonight at eight. Tomorrow I'm working from home, and on Friday we're visiting my aunt.","tr":"سأقابل أصدقائي الليلة في الثامنة. وغدًا سأعمل من البيت، ويوم الجمعة سنزور خالتي."}]}
+      ]
+    },
+    {
+      "id": "promise-offer-predict",
+      "unit": 6,
+      "level": "A2",
+      "title": "عِد واعرض وتوقَّع",
+      "summary": "قل «سأتّصل بك الليلة» و«أظنّ أنها ستمطر غدًا»: {{will}} للوعد والعرض والقرار في اللحظة والتوقّع.",
+      "topic": "{{will}} و{{won't}} + الفعل في صورته الأصلية؛ {{I'll}}؛ الفرق بين {{will}} و{{going to}}",
+      "blocks": [
+        {"goal":{"t":"Don't worry, I'll call you tonight.","tr":"لا تقلق، سأتّصل بك الليلة."}},
+        {"dialog":[{"who":"زميلته","t":"Oh no, the printer isn't working again!","tr":"يا للمصيبة، الطابعة لا تعمل مرة أخرى!"},{"who":"عمر","t":"Don't worry. I'll fix it.","tr":"لا تقلقي. سأصلحها."},{"who":"زميلته","t":"Thanks! I'll buy you a coffee.","tr":"شكرًا! سأشتري لك قهوة."},{"who":"عمر","t":"Deal! Hmm… it isn't the paper. I think we'll need a new printer.","tr":"اتّفقنا! همم… ليست المشكلة في الورق. أظنّ أننا سنحتاج إلى طابعة جديدة."},{"who":"زميلته","t":"The boss won't be happy.","tr":"المدير لن يكون سعيدًا."},{"who":"عمر","t":"I'll talk to him. I promise.","tr":"سأكلّمه. أعدك."}]},
+        {"p":"**{{will}}: الطريقة الثانية للمستقبل.** {{will}} فعل ناقص مثل {{can}}: صورة واحدة مع كل فاعل، وبعده الفعل في صورته الأصلية بلا {{to}}. ويُختصر في الكلام: {{I will}} ← {{I'll}}، و{{will not}} ← {{won't}}."},
+        { "table": [
+          ["","مثال","المعنى"],
+          ["الخبر","{{I'll help you.}}","سأساعدك."],
+          ["النفي","{{I won't tell anyone.}}","لن أخبر أحدًا."],
+          ["السؤال","{{Will you be there?}}","هل ستكون هناك؟"]
+        ] },
+        {"p":"**متى {{will}}؟** في أربعة مواضع تقريبًا:"},
+        { "table": [
+          ["الموضع","مثال"],
+          ["قرار في اللحظة نفسها","{{The phone's ringing. — I'll get it!}} «سأردّ أنا!»"],
+          ["عرض المساعدة","{{I'll carry your bag.}} «سأحمل حقيبتك»"],
+          ["الوعد","{{I'll call you tonight. I promise.}} «سأتّصل بك الليلة، أعدك»"],
+          ["التوقّع والرأي","{{I think it'll rain tomorrow.}} «أظنّ أنها ستمطر غدًا»"]
+        ] },
+        {"p":"**{{will}} أم {{going to}}؟** الفرق في وقت القرار: {{going to}} لما قرّرته من قبل وصار خطّة ({{I'm going to buy a car. I saved the money.}})، و{{will}} لما تقرّره الآن وأنت تتكلّم ({{Oh, it's cheap! I'll buy it.}} «رخيص! سأشتريه»). أما العربية فتقول «سأشتري» في الحالتين."},
+        {"p":"**العرض بسؤال.** وتعرض المساعدة أيضًا بسؤال: {{Do you want me to help?}} «هل تريد أن أساعدك؟». و{{Will you…?}} للطلب أحيانًا: {{Will you marry me?}} «هل تتزوّجينني؟»"},
+        { "ex": [
+          {"t":"I'll have the chicken, please.","tr":"سآخذ الدجاج، من فضلك.","note":"عند الطلب في المطعم: قرار في اللحظة"},
+          {"t":"It's late. I'll take a taxi.","tr":"الوقت متأخّر. سآخذ سيارة أجرة."},
+          {"t":"Don't worry, I won't forget.","tr":"لا تقلق، لن أنسى."},
+          {"t":"I think you'll love this movie.","tr":"أظنّ أن هذا الفيلم سيعجبك كثيرًا."},
+          {"t":"Will you be home at six?","tr":"هل ستكون في البيت في السادسة؟"},
+          {"t":"She'll be thirty next month.","tr":"ستبلغ الثلاثين الشهر القادم."}
+        ] },
+        {"tip":"{{I'll have…}} «سآخذ…» طريقة شائعة جدًّا للطلب في المطعم الأمريكي، بجانب {{Can I get…?}} التي تعلّمتها: {{I'll have a burger and fries, please.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I will to call you.","right":"I'll call you.","tr":"سأتّصل بك.","why":"{{will}} فعل ناقص: بعده الفعل مباشرة بلا {{to}}."},
+        {"wrong":"I will going to the store.","right":"I'll go to the store.","tr":"سأذهب إلى المتجر.","why":"لا تخلط الطريقتين: إما {{I'll go}} وإما {{I'm going to go}}."},
+        {"wrong":"She wills come.","right":"She'll come.","tr":"ستأتي.","why":"{{will}} لا يأخذ {{-s}} أبدًا."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"Wait, I ___ help you with that bag.","tr":"انتظر، سأساعدك في تلك الحقيبة.","options":["will","will to","am going"],"answer":0,"why":"عرض المساعدة في اللحظة: {{will}} + الفعل."},
+        {"type":"choice","q":"الهاتف يرنّ وتريد أن تردّ. تقول…","options":["{{I'll get it!}}","{{I get it!}}","{{I'm getting it tomorrow!}}"],"answer":0,"why":"قرار في اللحظة نفسها: {{will}}."},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"I'm sorry. I ___ do it again.","tr":"أنا آسف، لن أفعلها مرة أخرى.","options":["won't","willn't","don't will"],"answer":0,"why":"النفي: {{won't}}."},
+        {"type":"choice","q":"قرّرت قبل شهر أن تتعلّم القيادة، وسجّلت في مدرسة. تقول…","options":["{{I'm going to learn to drive.}}","{{I'll learn to drive.}}"],"answer":0,"why":"قرار سابق وخطّة: {{going to}}.","from":"talk-about-plans"},
+        {"type":"dialogue","q":"في المطعم: اختر ردودك.","lines":[{"who":"النادل","t":"Are you ready to order?","tr":"هل أنت مستعد للطلب؟"},{"options":["Yes. I'll have the steak, please.","Yes. I will to have the steak, please."],"answer":0,"why":"{{I'll have…}} للطلب، بلا {{to}}."},{"who":"النادل","t":"Great choice. Anything to drink?","tr":"اختيار ممتاز. وماذا تشرب؟"},{"options":["Just water. I think I'll get dessert later.","Just water. I think I get dessert later."],"answer":0,"why":"قرار للمستقبل: {{I'll get}}."},{"who":"النادل","t":"Sure. I'll be right back.","tr":"بالتأكيد. سأعود حالًا."}],"from":"ask-for-things"},
+        {"type":"say","q":"قل «لا تقلق، لن أنسى».","answer":"Don't worry, I won't forget."},
+        {"type":"free","q":"دورك: صديقك انتقل إلى بيت جديد وعنده عمل كثير. اعرض عليه شيئين تفعلهما له، وعِده بشيء.","answers":[{"t":"I'll help you with the boxes. I'll bring some pizza for lunch. And I promise I won't be late!","tr":"سأساعدك في الصناديق، وسأحضر بيتزا للغداء. وأعدك ألّا أتأخّر!"},{"t":"Don't worry, I'll clean the kitchen, and my brother will bring his truck. I'll be there at nine.","tr":"لا تقلق، سأنظّف المطبخ، وأخي سيحضر شاحنته. سأكون هناك في التاسعة."}]}
+      ]
+    },
+    {
+      "id": "invite-and-suggest",
+      "unit": 6,
+      "level": "A2",
+      "title": "ادعُ واقترِح",
+      "summary": "ادعُ صديقك بـ{{Would you like to come for dinner?}} واقترح بـ{{Let's…}} و{{How about…?}}، واقبل الدعوة أو اعتذر عنها بلطف.",
+      "topic": "{{Would you like to…?}}؛ {{Let's…}}، {{How about}} + {{-ing}}، {{Why don't we…?}}؛ القبول والاعتذار",
+      "blocks": [
+        {"goal":{"t":"Would you like to come for dinner on Friday? — I'd love to!","tr":"هل تحبّ أن تأتي للعشاء يوم الجمعة؟ — يسعدني ذلك!"}},
+        {"dialog":[{"who":"عمر","t":"Would you like to come to our house for dinner on Friday?","tr":"هل تحبّ أن تأتي إلى بيتنا للعشاء يوم الجمعة؟"},{"who":"مايك","t":"I'd love to! What time?","tr":"يسعدني ذلك! في أيّ ساعة؟"},{"who":"عمر","t":"How about seven? My wife is making mansaf.","tr":"ما رأيك في السابعة؟ زوجتي ستطبخ المنسف."},{"who":"مايك","t":"Mansaf? Sounds delicious. Can I bring anything?","tr":"المنسف؟ يبدو لذيذًا. هل أحضر شيئًا؟"},{"who":"عمر","t":"Just bring your appetite! Oh, and why don't we watch the game after dinner?","tr":"أحضر شهيّتك فقط! وما رأيك أن نشاهد المباراة بعد العشاء؟"},{"who":"مايك","t":"Great idea. Let's do it!","tr":"فكرة رائعة. هيّا نفعل ذلك!"}]},
+        {"p":"**الدعوة: {{Would you like to…?}}** معناها «هل تحبّ أن…؟»، وهي أكثر الطرق تهذيبًا لدعوة أحد، وبعدها {{to}} ثم الفعل: {{Would you like to come?}} وانتبه: {{Do you like…?}} سؤال عن العادة «هل تحبّ عادةً…؟»، لا دعوة."},
+        { "table": [
+          ["السؤال","المعنى"],
+          ["{{Would you like to go to the movies?}}","هل تحبّ أن نذهب إلى السينما؟ (دعوة)"],
+          ["{{Do you like going to the movies?}}","هل تحبّ الذهاب إلى السينما عمومًا؟ (عادة)"]
+        ] },
+        {"p":"**الاقتراح.** للاقتراح على صديق أربع صيغ شائعة، وانتبه إلى ما يأتي بعد كلّ منها:"},
+        { "table": [
+          ["الصيغة","بعدها","مثال"],
+          ["{{Let's…}}","الفعل في صورته الأصلية","{{Let's eat out tonight.}}"],
+          ["{{Why don't we…?}}","الفعل في صورته الأصلية","{{Why don't we take a walk?}}"],
+          ["{{How about…?}}","فعل بـ{{-ing}}، أو اسم","{{How about going to the beach?}} {{How about Friday?}}"],
+          ["{{We could…}}","الفعل في صورته الأصلية","{{We could order pizza.}}"]
+        ] },
+        {"p":"و{{Why don't we…?}} ليست سؤالًا عن السبب، بل اقتراح: «لمَ لا…؟ ما رأيك أن…؟»."},
+        {"p":"**القبول والاعتذار.** للقبول: {{I'd love to!}} «يسعدني ذلك!»، {{Sounds great!}} «فكرة رائعة!»، {{Sure, why not?}} «بالتأكيد، لمَ لا؟». وللاعتذار بلطف: اشكر، ثم اعتذر، ثم اذكر السبب: {{Thanks, but I can't. I'm working on Friday.}} «شكرًا، لكني لا أستطيع. سأعمل يوم الجمعة». ويَحسُن أن تقترح وقتًا آخر: {{Maybe next week?}}"},
+        { "ex": [
+          {"t":"Would you like to join us for lunch?","tr":"هل تحبّ أن تنضمّ إلينا للغداء؟"},
+          {"t":"Let's meet at the café at five.","tr":"لنلتقِ في المقهى في الخامسة."},
+          {"t":"How about watching a movie tonight?","tr":"ما رأيك أن نشاهد فيلمًا الليلة؟"},
+          {"t":"Why don't we go by train? It's faster.","tr":"لمَ لا نذهب بالقطار؟ إنه أسرع."},
+          {"t":"I'd love to, but I'm busy tonight. How about tomorrow?","tr":"يسعدني، لكني مشغول الليلة. ما رأيك في الغد؟"},
+          {"t":"Sounds good. Let's do it!","tr":"اتّفقنا. هيّا نفعلها!"}
+        ] },
+        {"tip":"إذا دُعيت إلى بيت في أمريكا، فمن المعتاد أن تسأل {{Can I bring anything?}} «هل أحضر شيئًا؟». وقد يكون الجواب {{Just bring yourself!}} «أحضر نفسك فقط!»."}
+      ],
+      "mistakes": [
+        {"wrong":"Do you like to come to my party?","right":"Would you like to come to my party?","tr":"هل تحبّ أن تأتي إلى حفلتي؟","why":"للدعوة {{Would you like to…?}}. أما {{Do you like…?}} فسؤال عن العادة."},
+        {"wrong":"How about go to the beach?","right":"How about going to the beach?","tr":"ما رأيك أن نذهب إلى الشاطئ؟","why":"بعد {{How about}} الفعل بـ{{-ing}}."},
+        {"wrong":"Let's to go out.","right":"Let's go out.","tr":"هيّا نخرج.","why":"بعد {{Let's}} الفعل مباشرة."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Would you like ___ come with us?","tr":"هل تحبّ أن تأتي معنا؟","options":["to","for","at"],"answer":0,"why":"{{Would you like to}} + الفعل."},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"How about ___ a picnic on Sunday?","tr":"ما رأيك أن نقيم نزهة يوم الأحد؟","options":["having","have","to have"],"answer":0,"why":"بعد {{How about}}: {{-ing}}."},
+        {"type":"choice","q":"صديقك يدعوك إلى السينما الليلة وأنت مشغول. أيّ ردّ أنسب؟","options":["{{Thanks, but I can't. I'm working tonight. Maybe tomorrow?}}","{{No.}}","{{No, I'm not want.}}"],"answer":0,"why":"اشكر، واعتذر، واذكر السبب، واقترح وقتًا آخر.","from":"make-arrangements"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"لمَ لا نذهب بالقطار؟","words":["Why","don't","we","go","by","train?"]},
+        {"type":"dialogue","q":"زميلتك الأمريكية تدعوك: اختر ردودك.","lines":[{"who":"إميلي","t":"We're having a barbecue on Saturday. Would you like to come?","tr":"سنقيم حفلة شواء يوم السبت. هل تحبّ أن تأتي؟"},{"options":["I'd love to! Can I bring anything?","I like! Can I bring anything?"],"answer":0,"why":"للقبول: {{I'd love to!}}"},{"who":"إميلي","t":"Maybe some dessert?","tr":"ربما بعض الحلوى؟"},{"options":["Sure. I'll bring some baklava.","Sure. I bring some baklava."],"answer":0,"why":"عرض وقرار في اللحظة: {{I'll bring}}."},{"who":"إميلي","t":"Perfect! Oh, and why don't you bring your wife, too?","tr":"ممتاز! ولمَ لا تحضر زوجتك أيضًا؟"},{"options":["Great idea. We'll see you on Saturday!","Great idea. We see you in Saturday!"],"answer":0,"why":"{{We'll see you}}، والأيام مع {{on}}."}],"from":"promise-offer-predict"},
+        {"type":"say","q":"اقترح على صديقك: «هيّا نأكل خارج البيت الليلة».","answer":"Let's eat out tonight."},
+        {"type":"free","q":"دورك: ادعُ صديقًا إلى شيء تحبّه، واقترح يومًا وساعة، ثم اكتب ردّه بالقبول أو بالاعتذار.","answers":[{"t":"Would you like to play soccer with us on Sunday? How about ten o'clock? — I'd love to! See you then.","tr":"هل تحبّ أن تلعب كرة القدم معنا يوم الأحد؟ ما رأيك في العاشرة؟ — يسعدني ذلك! أراك حينها."},{"t":"Why don't we try the new Lebanese restaurant on Friday? — Thanks, but I can't. I'm visiting my parents. How about next week?","tr":"لمَ لا نجرّب المطعم اللبناني الجديد يوم الجمعة؟ — شكرًا، لكني لا أستطيع. سأزور والديّ. ما رأيك في الأسبوع القادم؟"}]}
+      ]
     }
   ]
 }
