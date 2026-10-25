@@ -616,7 +616,11 @@
       "pos": "verb",
       "meaning": "to do something with a tool, machine or thing (used)",
       "sentence": "Can I use your phone?",
-      "translation": "Can I ⟦use⟧ your phone?"
+      "translation": "Can I ⟦use⟧ your phone?",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈjuz"
+      }
     },
     {
       "n": 69,
@@ -1369,7 +1373,11 @@
       "pos": "verb",
       "meaning": "to have your home in a place; to be alive",
       "sentence": "Where do you live?",
-      "translation": "Where do you ⟦live⟧?"
+      "translation": "Where do you ⟦live⟧?",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈlɪv"
+      }
     },
     {
       "n": 152,
@@ -1731,7 +1739,11 @@
       "pos": "verb",
       "meaning": "to look at words and understand them (read, read)",
       "sentence": "I like to read before bed.",
-      "translation": "I like to ⟦read⟧ before bed."
+      "translation": "I like to ⟦read⟧ before bed.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈrid"
+      }
     },
     {
       "n": 192,
@@ -2051,7 +2063,11 @@
       "meaning": "to go first and show the way; to be in charge of a group (led)",
       "sentence": "She leads a team of ten people.",
       "translation": "She ⟦leads⟧ a team of ten people.",
-      "form": "leads"
+      "form": "leads",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈlid"
+      }
     },
     {
       "n": 227,
@@ -2196,7 +2212,11 @@
       "pos": "verb",
       "meaning": "to shut something; to stop business for the day",
       "sentence": "What time does the store close?",
-      "translation": "What time does the store ⟦close⟧?"
+      "translation": "What time does the store ⟦close⟧?",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈkloʊz"
+      }
     },
     {
       "n": 243,
@@ -2907,7 +2927,11 @@
       "pos": "noun",
       "meaning": "the best result ever; written information kept for later",
       "sentence": "He broke the world record.",
-      "translation": "He broke the world ⟦record⟧."
+      "translation": "He broke the world ⟦record⟧.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈrɛkɚd"
+      }
     },
     {
       "n": 321,
@@ -3143,7 +3167,11 @@
       "pos": "noun",
       "meaning": "sixty seconds",
       "sentence": "Wait a minute.",
-      "translation": "Wait a ⟦minute⟧."
+      "translation": "Wait a ⟦minute⟧.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈmɪnɪt"
+      }
     },
     {
       "n": 347,
@@ -3444,7 +3472,11 @@
       "meaning": "to become or make bigger in number or amount",
       "sentence": "Prices increased again.",
       "translation": "Prices ⟦increased⟧ again.",
-      "form": "increased"
+      "form": "increased",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ɪnˈkris"
+      }
     },
     {
       "n": 380,
@@ -3987,7 +4019,11 @@
       "pos": "noun",
       "meaning": "a gift; also the time now",
       "sentence": "I bought a present for my mom.",
-      "translation": "I bought a ⟦present⟧ for my mom."
+      "translation": "I bought a ⟦present⟧ for my mom.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈprɛzənt"
+      }
     },
     {
       "n": 440,
@@ -4006,7 +4042,11 @@
       "pos": "noun",
       "meaning": "a planned piece of work",
       "sentence": "We're working on a big project.",
-      "translation": "We're working on a big ⟦project⟧."
+      "translation": "We're working on a big ⟦project⟧.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈprɑdʒɛkt"
+      }
     },
     {
       "n": 442,
@@ -5437,7 +5477,11 @@
       "meaning": "to make or grow something",
       "sentence": "This farm produces milk and cheese.",
       "translation": "This farm ⟦produces⟧ milk and cheese.",
-      "form": "produces"
+      "form": "produces",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "prəˈdus"
+      }
     },
     {
       "n": 599,
@@ -7752,7 +7796,11 @@
       "pos": "noun",
       "meaning": "a written legal agreement",
       "sentence": "I signed the contract.",
-      "translation": "I signed the ⟦contract⟧."
+      "translation": "I signed the ⟦contract⟧.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈkɑntrækt"
+      }
     },
     {
       "n": 853,
@@ -7906,7 +7954,11 @@
       "pos": "noun",
       "meaning": "what something is about; something you study at school",
       "sentence": "Let's change the subject.",
-      "translation": "Let's change the ⟦subject⟧."
+      "translation": "Let's change the ⟦subject⟧.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈsʌbdʒɪkt"
+      }
     },
     {
       "n": 870,
@@ -8318,7 +8370,11 @@
       "pos": "verb",
       "meaning": "to connect one thing with another in your mind",
       "sentence": "I associate this song with summer.",
-      "translation": "I ⟦associate⟧ this song with summer."
+      "translation": "I ⟦associate⟧ this song with summer.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "əˈsoʊʃiˌeɪt"
+      }
     },
     {
       "n": 915,
@@ -8364,7 +8420,11 @@
       "pos": "noun",
       "meaning": "what is inside something; the information on a website or channel",
       "sentence": "This website has great content.",
-      "translation": "This website has great ⟦content⟧."
+      "translation": "This website has great ⟦content⟧.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈkɑntɛnt"
+      }
     },
     {
       "n": 920,
@@ -8856,7 +8916,11 @@
       "pos": "noun",
       "meaning": "air moving fast outside",
       "sentence": "The wind is very strong today.",
-      "translation": "The ⟦wind⟧ is very strong today."
+      "translation": "The ⟦wind⟧ is very strong today.",
+      "say": {
+        "alphabet": "ipa",
+        "ph": "ˈwɪnd"
+      }
     },
     {
       "n": 974,
