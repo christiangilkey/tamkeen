@@ -33,6 +33,22 @@
    },
    "built": "2026-10-24"
   },
+  "de": {
+   "file": "de/course.json",
+   "title": "German basics",
+   "variety": "Standard German (Germany)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 352033,
+   "audio_bytes": 12871131,
+   "sha256": "d166a2036303ab7d52e6a5835fcae47ef5a553c8bdd678fb3533048b1f139b81",
+   "voice": {
+    "engine": "azure",
+    "name": "Katja (Azure, Germany)",
+    "synthetic": true
+   },
+   "built": "2026-10-25"
+  },
   "es": {
    "file": "es/course.json",
    "title": "Spanish basics",
