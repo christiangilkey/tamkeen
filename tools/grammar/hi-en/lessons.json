@@ -924,6 +924,279 @@
         {"type":"say","q":"होटल में कहिए: “हम एक कमरा बुक करना चाहते हैं।”","answer":"We'd like to book a room."},
         {"type":"free","q":"आपकी बारी: बताइए इस साल आप क्या करना चाहते हैं, और इस हफ़्ते आपको क्या करना है।","answers":[{"t":"This year I want to learn English and travel to Canada. This week I need to finish a report.","tr":"इस साल मैं अंग्रेज़ी सीखना और कनाडा घूमना चाहता हूँ। इस हफ़्ते मुझे एक रिपोर्ट पूरी करनी है।"},{"t":"I want to buy a new car. Today I need to call my bank.","tr":"मैं नई गाड़ी ख़रीदना चाहती हूँ। आज मुझे अपने बैंक को फ़ोन करना है।"}]}
       ]
+    },
+    {
+      "id": "past-regular",
+      "unit": 4,
+      "level": "A2",
+      "title": "कल क्या किया: {{-ed}}",
+      "summary": "बीती बातें बताइए: “{{I worked late}}”, “{{We watched a movie}}”, और {{-ed}} को कैसे बोलें।",
+      "topic": "{{past simple}}: {{-ed}} ({{worked, played, studied}}); सबके लिए एक रूप; {{-ed}} के तीन उच्चारण",
+      "blocks": [
+        {"goal":{"t":"Yesterday I worked late and then watched a movie.","tr":"कल मैंने देर तक काम किया और फिर एक फ़िल्म देखी।"}},
+        {"dialog":[{"who":"राज","t":"I cooked dinner last night.","tr":"कल रात मैंने खाना बनाया।"},{"who":"लीसा","t":"Nice! I stayed home and watched TV.","tr":"बढ़िया! मैं घर पर रही और टीवी देखा।"},{"who":"राज","t":"My wife called her sister. They talked for two hours!","tr":"मेरी पत्नी ने अपनी बहन को फ़ोन किया। दोनों ने दो घंटे बात की!"},{"who":"लीसा","t":"Ha! My kids played video games all evening.","tr":"हा! मेरे बच्चे पूरी शाम वीडियो गेम खेलते रहे।"}]},
+        {"p":"**बीती बात: {{-ed}}.** ज़्यादातर क्रियाओं में {{-ed}} लगाकर अतीत बनता है: {{work}} → {{worked}}, {{play}} → {{played}}। और अच्छी ख़बर: यह रूप **सबके लिए एक** है: {{I worked}}, {{she worked}}, {{they worked}}। हिंदी के “किया / की / किए” या “ने” जैसा कोई झंझट नहीं।"},
+        { "table": [
+          ["नियम","क्रिया","बीता रूप"],
+          ["ज़्यादातर: {{-ed}}","{{watch}}, {{call}}","{{watched}}, {{called}}"],
+          ["{{e}} पर ख़त्म: {{-d}}","{{live}}, {{like}}","{{lived}}, {{liked}}"],
+          ["व्यंजन + {{y}}: {{-ied}}","{{study}}, {{try}}","{{studied}}, {{tried}}"],
+          ["छोटी क्रिया: आख़िरी अक्षर दुगना","{{stop}}, {{plan}}","{{stopped}}, {{planned}}"]
+        ] },
+        {"p":"**{{-ed}} बोलना.** लिखा एक जैसा, बोला तीन तरह से: {{worked}} (“वर्क्ट”, आख़िर में “ट”), {{played}} (“प्लेड”, “ड”), और {{t}} या {{d}} के बाद पूरा “इड”: {{wanted}} (“वॉन्टिड”), {{needed}}। {{worked}} को “वर्किड” मत बोलिए।"},
+        {"p":"**समय के शब्द** अक्सर आख़िर में आते हैं: {{I called him yesterday.}}, {{We moved here in 2020.}}, {{She arrived two hours ago.}}"},
+        { "ex": [
+          {"t":"I called my mom yesterday.","tr":"मैंने कल माँ को फ़ोन किया।"},
+          {"t":"We watched a movie last night.","tr":"कल रात हमने एक फ़िल्म देखी।"},
+          {"t":"She studied in Boston.","tr":"उसने बोस्टन में पढ़ाई की।"},
+          {"t":"The train arrived late.","tr":"ट्रेन देर से आई।"},
+          {"t":"They lived in Delhi for ten years.","tr":"वे दस साल दिल्ली में रहे।"},
+          {"t":"I worked from home on Monday.","tr":"सोमवार को मैंने घर से काम किया।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday I work late.","right":"Yesterday I worked late.","tr":"कल मैंने देर तक काम किया।","why":"बीती बात: {{-ed}}।"},
+        {"wrong":"She studyed hard.","right":"She studied hard.","tr":"उसने ख़ूब मेहनत से पढ़ाई की।","why":"व्यंजन + {{y}}: {{-ied}}।"},
+        {"wrong":"I had called him yesterday.","right":"I called him yesterday.","tr":"मैंने कल उसे फ़ोन किया।","why":"कल की सीधी बात: बस {{called}}। {{had called}} का मतलब कुछ और है (पाठ 46)।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"We ___ a movie last night.","tr":"कल रात हमने एक फ़िल्म देखी।","options":["watched","watch","watching"],"answer":0,"why":"बीती बात: {{-ed}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"She ___ in Boston for two years.","tr":"वह दो साल बोस्टन में रही।","options":["lived","lives","living"],"answer":0,"why":"बीती बात: {{lived}}।"},
+        {"type":"choice","q":"{{worked}} कैसे बोलते हैं?","options":["“वर्क्ट”: आख़िर में “ट”","“वर्किड”","“वर्कड”"],"answer":0,"why":"{{k}} की आवाज़ के बाद {{-ed}} “ट” बोला जाता है।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मैंने कल माँ को फ़ोन किया।","words":["I","called","my","mom","yesterday."]},
+        {"type":"dialogue","q":"सोमवार को एक साथी पूछता है।","from":"was-were","lines":[{"who":"साथी","t":"How was your weekend?","tr":"आपका वीकेंड कैसा रहा?"},{"options":["It was nice. I visited my cousins.","It was nice. I visit my cousins."],"answer":0,"why":"बीती बात: {{visited}}।"},{"who":"साथी","t":"Cool! What about Sunday?","tr":"बढ़िया! और रविवार?"},{"options":["I stayed home and cleaned the house.","I stay home and clean the house."],"answer":0,"why":"बीती बात: {{stayed}}, {{cleaned}}।"}]},
+        {"type":"say","q":"कहिए: “ट्रेन देर से आई।”","answer":"The train arrived late."},
+        {"type":"free","q":"आपकी बारी: बताइए कल आपने कौन-से तीन काम किए ({{-ed}} वाली क्रियाओं के साथ)।","answers":[{"t":"Yesterday I worked until six, cooked dinner and watched TV.","tr":"कल मैंने छह बजे तक काम किया, खाना बनाया और टीवी देखा।"},{"t":"I called my friend, cleaned my room and played cricket with my son.","tr":"मैंने अपने दोस्त को फ़ोन किया, अपना कमरा साफ़ किया और बेटे के साथ क्रिकेट खेला।"}]}
+      ]
+    },
+    {
+      "id": "past-irregular",
+      "unit": 4,
+      "level": "A2",
+      "title": "कहाँ गए, क्या देखा: {{went, saw, ate}}",
+      "summary": "सबसे ज़रूरी क्रियाओं के बीते रूप: {{went, saw, ate, came, had, made…}}",
+      "topic": "अनियमित बीते रूप: {{go → went}}, {{see → saw}}, {{eat → ate}}, {{have → had}}…",
+      "blocks": [
+        {"goal":{"t":"Last summer we went to Shimla and saw the snow.","tr":"पिछली गर्मियों में हम शिमला गए और बर्फ़ देखी।"}},
+        {"dialog":[{"who":"माइक","t":"You look tired!","tr":"आप थकी हुई लग रही हैं!"},{"who":"प्रिया","t":"I am! I went to a wedding last night.","tr":"हूँ! कल रात मैं एक शादी में गई थी।"},{"who":"माइक","t":"Fun! Was it big?","tr":"मज़ेदार! बड़ी शादी थी?"},{"who":"प्रिया","t":"Huge! I ate too much and I slept at three.","tr":"बहुत बड़ी! मैंने बहुत ज़्यादा खा लिया और तीन बजे सोई।"},{"who":"माइक","t":"Ha! I'm sure you danced a lot.","tr":"हा! आपने ख़ूब डांस किया होगा।"},{"who":"प्रिया","t":"Of course. Everyone danced!","tr":"बिल्कुल। सबने डांस किया!"}]},
+        {"p":"**सबसे आम क्रियाएँ अनियमित हैं.** {{-ed}} वाला नियम ज़्यादातर क्रियाओं पर चलता है, लेकिन सबसे ज़्यादा बोली जाने वाली क्रियाओं का बीता रूप अपना होता है। अच्छी बात: ये भी सबके लिए एक हैं: {{I went}}, {{she went}}, {{they went}}।"},
+        { "table": [
+          ["क्रिया","बीता रूप","हिंदी"],
+          ["{{go}}","{{went}}","गया"],
+          ["{{come}}","{{came}}","आया"],
+          ["{{see}}","{{saw}}","देखा"],
+          ["{{eat}}","{{ate}}","खाया"],
+          ["{{drink}}","{{drank}}","पिया"],
+          ["{{have}}","{{had}}","था (पास में); खाया"],
+          ["{{make}}","{{made}}","बनाया"],
+          ["{{take}}","{{took}}","लिया"],
+          ["{{give}}","{{gave}}","दिया"],
+          ["{{get}}","{{got}}","मिला; पहुँचा"],
+          ["{{buy}}","{{bought}}","ख़रीदा"],
+          ["{{say}}","{{said}}","कहा"],
+          ["{{tell}}","{{told}}","बताया"],
+          ["{{sleep}}","{{slept}}","सोया"],
+          ["{{leave}}","{{left}}","निकला; छोड़ा"]
+        ] },
+        {"p":"**{{have}} → {{had}}.** {{had}} कई कामों में आता है: {{I had a car}} “मेरे पास गाड़ी थी”, {{We had lunch}} “हमने दोपहर का खाना खाया”, {{I had a headache}} “मेरे सिर में दर्द था”।"},
+        {"p":"इन्हें एक साथ रटने की ज़रूरत नहीं: रोज़ पाँच-छह को वाक्यों में बोलिए, जल्दी याद हो जाएँगे।"},
+        { "ex": [
+          {"t":"I went to the market.","tr":"मैं बाज़ार गया।"},
+          {"t":"She came home late.","tr":"वह देर से घर आई।"},
+          {"t":"We had dinner at a nice restaurant.","tr":"हमने एक अच्छे रेस्टोरेंट में खाना खाया।"},
+          {"t":"I bought a new phone last week.","tr":"मैंने पिछले हफ़्ते नया फ़ोन ख़रीदा।"},
+          {"t":"He told me the news.","tr":"उसने मुझे ख़बर बताई।"},
+          {"t":"They left at six.","tr":"वे छह बजे निकले।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I goed to the market.","right":"I went to the market.","tr":"मैं बाज़ार गया।","why":"{{go}} अनियमित है: {{went}}।"},
+        {"wrong":"We eated pizza.","right":"We ate pizza.","tr":"हमने पिज़्ज़ा खाया।","why":"{{eat}} → {{ate}}।"},
+        {"wrong":"I buyed a phone.","right":"I bought a phone.","tr":"मैंने एक फ़ोन ख़रीदा।","why":"{{buy}} → {{bought}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"We ___ to Shimla last summer.","tr":"पिछली गर्मियों में हम शिमला गए।","options":["went","goed","go"],"answer":0,"why":"{{go}} → {{went}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I ___ a headache yesterday.","tr":"कल मेरे सिर में दर्द था।","options":["had","have","haved"],"answer":0,"why":"{{have}} → {{had}}।","from":"what-you-have"},
+        {"type":"choice","q":"{{see}} का बीता रूप…","options":["{{saw}}","{{seed}}","{{seen}}"],"answer":0,"why":"{{see}} → {{saw}}। ({{seen}} तीसरा रूप है: पाठ 33।)"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"उसने मुझे ख़बर बताई।","words":["He","told","me","the","news."]},
+        {"type":"dialogue","q":"आपकी दोस्त शादी के बारे में पूछती है।","from":"was-were","lines":[{"who":"दोस्त","t":"How was the wedding?","tr":"शादी कैसी थी?"},{"options":["It was amazing! I ate so much.","It was amazing! I eated so much."],"answer":0,"why":"{{eat}} → {{ate}}।"},{"who":"दोस्त","t":"What time did you get home?","tr":"घर कितने बजे पहुँचे?"},{"options":["I got home at two.","I getted home at two."],"answer":0,"why":"{{get}} → {{got}}।"}]},
+        {"type":"say","q":"कहिए: “मैंने पिछले हफ़्ते नया फ़ोन ख़रीदा।”","answer":"I bought a new phone last week."},
+        {"type":"free","q":"आपकी बारी: बताइए पिछले वीकेंड आप कहाँ गए, क्या खाया और क्या देखा।","answers":[{"t":"Last weekend I went to Agra. I saw the Taj Mahal and ate a lot of sweets.","tr":"पिछले वीकेंड मैं आगरा गया। मैंने ताजमहल देखा और बहुत मिठाइयाँ खाईं।"},{"t":"On Sunday I went to the mall with my kids. We had lunch and saw a movie.","tr":"रविवार को मैं बच्चों के साथ मॉल गई। हमने खाना खाया और एक फ़िल्म देखी।"}]}
+      ]
+    },
+    {
+      "id": "did-questions",
+      "unit": 4,
+      "level": "A2",
+      "title": "बीती बातों के सवाल: {{did}}",
+      "summary": "पूछिए “{{Did you sleep well?}}”, “{{What did you eat?}}”, और कहिए “{{I didn't go.}}”",
+      "topic": "{{did}} सवाल और “नहीं” में; {{did}} के बाद क्रिया का मूल रूप; {{What happened?}}",
+      "blocks": [
+        {"goal":{"t":"Did you sleep well? — No, I didn't. The neighbors were noisy.","tr":"क्या आप ठीक से सोए? — नहीं। पड़ोसी शोर कर रहे थे।"}},
+        {"dialog":[{"who":"माँ","t":"Did you eat lunch?","tr":"दोपहर का खाना खाया?"},{"who":"बेटा","t":"Yes, I did.","tr":"हाँ।"},{"who":"माँ","t":"What did you eat?","tr":"क्या खाया?"},{"who":"बेटा","t":"I had a sandwich.","tr":"सैंडविच खाया।"},{"who":"माँ","t":"Did you finish your homework?","tr":"होमवर्क पूरा किया?"},{"who":"बेटा","t":"No, I didn't. But I started it!","tr":"नहीं। लेकिन शुरू कर दिया है!"}]},
+        {"p":"**बीते समय में {{do}} → {{did}}.** पाठ 15 का {{do}} बीते समय में {{did}} बन जाता है, और वह भी सबके लिए एक: {{Did you go?}}, {{Did she go?}} “नहीं” के लिए {{didn't}}: {{I didn't go.}}"},
+        {"p":"**{{did}} के बाद मूल रूप.** बीते समय का निशान {{did}} में आ गया, इसलिए मुख्य क्रिया अपने मूल रूप में रहती है: {{Did you go?}} (न कि {{Did you went?}}), {{She didn't eat}} (न कि {{didn't ate}})।"},
+        { "table": [
+          ["","बात","सवाल","नहीं"],
+          ["{{-ed}} वाली","{{You called.}}","{{Did you call?}}","{{You didn't call.}}"],
+          ["अनियमित","{{She went.}}","{{Did she go?}}","{{She didn't go.}}"],
+          ["सवाल वाला शब्द","{{You went somewhere.}}","{{Where did you go?}}","{{I didn't go anywhere.}}"]
+        ] },
+        {"p":"**{{What happened?}}** “क्या हुआ?” में {{what}} ख़ुद कर्ता है, इसलिए {{did}} नहीं लगता: {{What happened?}}, {{Who called?}} “किसने फ़ोन किया?” लेकिन {{Who did you call?}} “आपने किसे फ़ोन किया?” छोटे जवाब: {{Yes, I did.}}, {{No, we didn't.}}"},
+        { "ex": [
+          {"t":"Did you have a good weekend?","tr":"आपका वीकेंड अच्छा रहा?"},
+          {"t":"What did you buy?","tr":"आपने क्या ख़रीदा?"},
+          {"t":"I didn't see him.","tr":"मैंने उसे नहीं देखा।"},
+          {"t":"Where did you go on vacation?","tr":"छुट्टियों में आप कहाँ गए?"},
+          {"t":"She didn't call me back.","tr":"उसने मुझे वापस फ़ोन नहीं किया।"},
+          {"t":"What happened?","tr":"क्या हुआ?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Did you went to the party?","right":"Did you go to the party?","tr":"क्या आप पार्टी में गए?","why":"{{did}} के बाद मूल रूप: {{go}}।"},
+        {"wrong":"I not went.","right":"I didn't go.","tr":"मैं नहीं गया।","why":"“नहीं”: {{didn't}} + मूल रूप।"},
+        {"wrong":"What did happen?","right":"What happened?","tr":"क्या हुआ?","why":"{{what}} ख़ुद कर्ता है: {{did}} नहीं लगता।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Did you ___ well last night?","tr":"क्या आप कल रात ठीक से सोए?","options":["sleep","slept","sleeping"],"answer":0,"why":"{{did}} के बाद मूल रूप।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I ___ see him yesterday.","tr":"मैंने उसे कल नहीं देखा।","options":["didn't","don't","wasn't"],"answer":0,"why":"बीती बात, “नहीं”: {{didn't}}।"},
+        {"type":"choice","q":"“क्या हुआ?”","options":["{{What happened?}}","{{What did happen?}}","{{What happen?}}"],"answer":0,"why":"{{what}} कर्ता है: {{What happened?}}"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"छुट्टियों में आप कहाँ गए?","words":["Where","did","you","go","on","vacation?"],"from":"do-questions"},
+        {"type":"dialogue","q":"आपकी माँ फ़ोन करती हैं।","from":"past-irregular","lines":[{"who":"माँ","t":"Did you eat dinner?","tr":"खाना खाया?"},{"options":["Yes, I did. I made dal.","Yes, I did. I make dal."],"answer":0,"why":"बीती बात: {{made}}।"},{"who":"माँ","t":"Did you call your sister?","tr":"बहन को फ़ोन किया?"},{"options":["No, I didn't. I forgot.","No, I didn't called. I forgot."],"answer":0,"why":"{{didn't}} के बाद मूल रूप, या छोटा जवाब: {{No, I didn't.}}"}]},
+        {"type":"say","q":"पूछिए: “आपने क्या ख़रीदा?”","answer":"What did you buy?"},
+        {"type":"free","q":"आपकी बारी: किसी दोस्त से उसके वीकेंड के बारे में तीन सवाल पूछिए।","answers":[{"t":"Did you have a good weekend? Where did you go? What did you eat?","tr":"वीकेंड अच्छा रहा? कहाँ गए? क्या खाया?"},{"t":"What did you do on Saturday? Did you see the game?","tr":"शनिवार को क्या किया? मैच देखा?"}]}
+      ]
+    },
+    {
+      "id": "tell-about-your-weekend",
+      "unit": 4,
+      "level": "A2",
+      "title": "छुट्टी या सफ़र के बारे में बताइए",
+      "summary": "बीती बातें जोड़कर एक छोटी कहानी: “{{First we…, then…, after that…}}”",
+      "topic": "बीता काल फिर से; {{first, then, after that, finally}}; {{ago}}; {{was / were}} + विशेषण",
+      "blocks": [
+        {"goal":{"t":"Two weeks ago we went to Goa. First we went to the beach, then we had seafood.","tr":"दो हफ़्ते पहले हम गोवा गए। पहले हम समुद्र किनारे गए, फिर सीफ़ूड खाया।"}},
+        {"dialog":[{"who":"सारा","t":"How was your trip?","tr":"आपका सफ़र कैसा रहा?"},{"who":"अमित","t":"It was wonderful! We flew to Jaipur on Friday.","tr":"बहुत बढ़िया! हम शुक्रवार को हवाई जहाज़ से जयपुर गए।"},{"who":"सारा","t":"What did you do there?","tr":"वहाँ क्या किया?"},{"who":"अमित","t":"First we visited the fort. Then we went shopping. After that we had dinner on a roof.","tr":"पहले हम क़िला देखने गए। फिर ख़रीदारी की। उसके बाद एक छत पर खाना खाया।"},{"who":"सारा","t":"Sounds great! When did you get back?","tr":"बहुत अच्छा लगता है! वापस कब आए?"},{"who":"अमित","t":"We got back two days ago.","tr":"दो दिन पहले वापस आए।"}]},
+        {"p":"**कहानी जोड़ने वाले शब्द:** {{first}} “पहले”, {{then}} “फिर”, {{after that}} “उसके बाद”, {{finally}} “आख़िर में”। वाक्य छोटे रखिए; ये शब्द उन्हें जोड़ देंगे।"},
+        {"p":"**{{ago}}: “पहले”.** {{two days ago}} “दो दिन पहले”: {{ago}} समय के **बाद** आता है (हिंदी की तरह), और सिर्फ़ बीती बात के साथ: {{I came here three years ago.}}"},
+        {"p":"**कैसा था?** {{How was it?}} — {{It was great / fun / boring / tiring.}} लोगों के बारे में: {{The people were very friendly.}} और सफ़र की कुछ और अनियमित क्रियाएँ:"},
+        { "table": [
+          ["क्रिया","बीता रूप","हिंदी"],
+          ["{{fly}}","{{flew}}","हवाई जहाज़ से गया"],
+          ["{{drive}}","{{drove}}","गाड़ी चलाकर गया"],
+          ["{{swim}}","{{swam}}","तैरा"],
+          ["{{spend}}","{{spent}}","बिताया; ख़र्च किया"],
+          ["{{meet}}","{{met}}","मिला"]
+        ] },
+        { "ex": [
+          {"t":"We spent three days in Kerala.","tr":"हमने केरल में तीन दिन बिताए।"},
+          {"t":"First we took a boat ride.","tr":"पहले हमने नाव की सैर की।"},
+          {"t":"Then we met some nice people.","tr":"फिर हम कुछ अच्छे लोगों से मिले।"},
+          {"t":"After that we drove to the mountains.","tr":"उसके बाद हम गाड़ी से पहाड़ों पर गए।"},
+          {"t":"Finally we came home on Sunday.","tr":"आख़िर में हम रविवार को घर आए।"},
+          {"t":"I moved here five years ago.","tr":"मैं पाँच साल पहले यहाँ आया।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Before two days I came.","right":"I came two days ago.","tr":"मैं दो दिन पहले आया।","why":"“दो दिन पहले”: {{two days ago}}; {{before}} ऐसे नहीं लगता।"},
+        {"wrong":"We meet many people there.","right":"We met many people there.","tr":"हम वहाँ बहुत लोगों से मिले।","why":"पूरी कहानी बीते समय में: {{met}}।"},
+        {"wrong":"The trip was very enjoy.","right":"The trip was a lot of fun.","tr":"सफ़र में बहुत मज़ा आया।","why":"{{enjoy}} क्रिया है, विशेषण नहीं। कहिए {{It was a lot of fun}} या {{We enjoyed it}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I moved here five years ___.","tr":"मैं पाँच साल पहले यहाँ आया।","options":["ago","before","back"],"answer":0,"why":"“पहले” (अब से): {{ago}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"We ___ three days in Kerala.","tr":"हमने केरल में तीन दिन बिताए।","options":["spent","spend","spended"],"answer":0,"why":"{{spend}} → {{spent}}।","from":"past-irregular"},
+        {"type":"choice","q":"कहानी की सबसे आख़िरी बात से पहले कौन-सा शब्द आएगा?","options":["{{finally}}","{{first}}","{{ago}}"],"answer":0,"why":"“आख़िर में”: {{finally}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"उसके बाद हम गाड़ी से पहाड़ों पर गए।","words":["After","that","we","drove","to","the","mountains."]},
+        {"type":"dialogue","q":"एक साथी आपके सफ़र के बारे में पूछता है।","from":"did-questions","lines":[{"who":"साथी","t":"Did you have fun in Goa?","tr":"गोवा में मज़ा आया?"},{"options":["Yes, it was a lot of fun!","Yes, it was very enjoy!"],"answer":0,"why":"{{enjoy}} विशेषण नहीं: {{a lot of fun}}।"},{"who":"साथी","t":"What did you do?","tr":"क्या-क्या किया?"},{"options":["First we went to the beach, then we had seafood.","First we go to the beach, then we have seafood."],"answer":0,"why":"पूरी कहानी बीते समय में।"}]},
+        {"type":"say","q":"कहिए: “मैं पाँच साल पहले यहाँ आया।”","answer":"I came here five years ago."},
+        {"type":"free","q":"आपकी बारी: किसी सफ़र या छुट्टी के बारे में चार-पाँच वाक्य बताइए, {{first}}, {{then}}, {{after that}}, {{finally}} के साथ।","answers":[{"t":"Last year I went to Kashmir with my family. First we stayed on a houseboat. Then we went to Gulmarg and saw the snow. Finally we came home after a week. It was beautiful!","tr":"पिछले साल मैं परिवार के साथ कश्मीर गया। पहले हम एक हाउसबोट में रुके। फिर गुलमर्ग गए और बर्फ़ देखी। आख़िर में एक हफ़्ते बाद घर आए। बहुत सुंदर था!"},{"t":"Two months ago we drove to the mountains. First we had breakfast on the way. After that we walked in the forest. It was a lot of fun.","tr":"दो महीने पहले हम गाड़ी से पहाड़ों पर गए। पहले रास्ते में नाश्ता किया। उसके बाद जंगल में घूमे। बहुत मज़ा आया।"}]}
+      ]
+    },
+    {
+      "id": "used-to",
+      "unit": 4,
+      "level": "A2",
+      "title": "पहले कैसा था: {{used to}}",
+      "summary": "बचपन और पुराने दिनों के बारे में बताइए: “{{I used to play cricket every day.}}”",
+      "topic": "{{used to}} + क्रिया; {{didn't use to}}; {{Did you use to…?}}; पुरानी आदत के लिए {{was going}} नहीं",
+      "blocks": [
+        {"goal":{"t":"When I was a kid, I used to play cricket every evening.","tr":"जब मैं बच्चा था, मैं हर शाम क्रिकेट खेलता था।"}},
+        {"dialog":[{"who":"लियो","t":"Grandpa, what did you use to do after school?","tr":"दादाजी, आप स्कूल के बाद क्या करते थे?"},{"who":"दादाजी","t":"I used to help my father on the farm.","tr":"मैं खेत पर अपने पिताजी की मदद करता था।"},{"who":"लियो","t":"Did you use to watch TV?","tr":"क्या आप टीवी देखते थे?"},{"who":"दादाजी","t":"No! We didn't have a TV. We used to listen to the radio.","tr":"नहीं! हमारे पास टीवी नहीं था। हम रेडियो सुनते थे।"},{"who":"लियो","t":"Wow. Life used to be really different!","tr":"वाह। पहले ज़िंदगी सच में अलग थी!"}]},
+        {"p":"**हिंदी का “-ता था” → {{used to}}.** पहले की आदतें, जो अब नहीं हैं: {{I used to live in Delhi}} “मैं दिल्ली में रहता था (अब नहीं)”। {{used to}} के बाद क्रिया का मूल रूप, और यह सबके लिए एक: {{she used to}}, {{we used to}}।"},
+        {"p":"**नहीं और सवाल:** {{did}} के साथ {{use to}} (आख़िर का {{d}} हट जाता है): {{I didn't use to like coffee.}}, {{Did you use to play?}}"},
+        {"p":"**पुरानी आदत के लिए {{-ing}} नहीं.** भारत की अंग्रेज़ी में अक्सर {{I was going to school by bus daily}} सुनते हैं। अमेरिका में पुरानी आदत के लिए {{I used to go to school by bus}}, या सीधे {{I went to school by bus}}। {{was going}} का मतलब है “उस पल जा रहा था” (पाठ 26)।"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["आदत","{{We used to visit my grandparents.}}","हम दादा-दादी के घर जाते थे।"],
+          ["हालत","{{There used to be a cinema here.}}","यहाँ पहले एक सिनेमा था।"],
+          ["नहीं","{{I didn't use to wear glasses.}}","मैं पहले चश्मा नहीं पहनता था।"],
+          ["सवाल","{{Did you use to live here?}}","क्या आप पहले यहाँ रहते थे?"]
+        ] },
+        { "ex": [
+          {"t":"I used to live in Lucknow.","tr":"मैं पहले लखनऊ में रहता था।"},
+          {"t":"My mother used to make the best parathas.","tr":"मेरी माँ सबसे अच्छे पराठे बनाती थीं।"},
+          {"t":"We used to walk to school.","tr":"हम पैदल स्कूल जाते थे।"},
+          {"t":"There used to be a big tree here.","tr":"यहाँ पहले एक बड़ा पेड़ था।"},
+          {"t":"I didn't use to like vegetables.","tr":"मुझे पहले सब्ज़ियाँ पसंद नहीं थीं।"},
+          {"t":"Did you use to play any sports?","tr":"क्या आप पहले कोई खेल खेलते थे?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I was going to school by bus daily.","right":"I used to go to school by bus every day.","tr":"मैं रोज़ बस से स्कूल जाता था।","why":"पुरानी आदत: {{used to}}; और बोलचाल में {{daily}} की जगह {{every day}}।"},
+        {"wrong":"I use to live in Delhi.","right":"I used to live in Delhi.","tr":"मैं पहले दिल्ली में रहता था।","why":"सीधी बात में {{used to}} ({{d}} के साथ)।"},
+        {"wrong":"I am used to play cricket.","right":"I used to play cricket.","tr":"मैं पहले क्रिकेट खेलता था।","why":"{{be used to}} का मतलब अलग है (“आदी होना”); पुरानी आदत के लिए सिर्फ़ {{used to}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I ___ to live in Lucknow.","tr":"मैं पहले लखनऊ में रहता था।","options":["used","use","was"],"answer":0,"why":"पुरानी बात: {{used to}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Did you ___ to play cricket?","tr":"क्या आप पहले क्रिकेट खेलते थे?","options":["use","used","using"],"answer":0,"why":"{{did}} के बाद {{use}}।","from":"did-questions"},
+        {"type":"choice","q":"“बचपन में मैं रोज़ पैदल स्कूल जाता था।”","options":["{{When I was a kid, I used to walk to school every day.}}","{{When I was a kid, I was walking to school daily.}}"],"answer":0,"why":"पुरानी आदत: {{used to}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"यहाँ पहले एक बड़ा पेड़ था।","words":["There","used","to","be","a","big tree","here."]},
+        {"type":"dialogue","q":"एक दोस्त आपके बचपन के बारे में पूछता है।","from":"was-were","lines":[{"who":"दोस्त","t":"Where did you grow up?","tr":"आप कहाँ बड़े हुए?"},{"options":["In a small town. We used to live near a river.","In a small town. We use to live near a river."],"answer":0,"why":"{{used to}}।"},{"who":"दोस्त","t":"What did you use to do for fun?","tr":"मज़े के लिए क्या करते थे?"},{"options":["We used to swim and fly kites.","We were swimming and flying kites daily."],"answer":0,"why":"पुरानी आदत: {{used to}}।"}]},
+        {"type":"say","q":"कहिए: “मुझे पहले सब्ज़ियाँ पसंद नहीं थीं।”","answer":"I didn't use to like vegetables."},
+        {"type":"free","q":"आपकी बारी: बताइए बचपन में आप क्या करते थे, और कौन-सी चीज़ अब बदल गई है।","answers":[{"t":"When I was a kid, I used to play cricket every evening. Now I don't have time.","tr":"बचपन में मैं हर शाम क्रिकेट खेलता था। अब मेरे पास समय नहीं है।"},{"t":"I used to live in a village. There didn't use to be a road, but now there's a highway.","tr":"मैं पहले एक गाँव में रहती थी। वहाँ पहले सड़क नहीं थी, लेकिन अब हाईवे है।"}]}
+      ]
+    },
+    {
+      "id": "was-doing",
+      "unit": 4,
+      "level": "A2",
+      "title": "क्या कर रहे थे: {{past continuous}}",
+      "summary": "“{{I was sleeping when you called}}”: कहानी की पृष्ठभूमि।",
+      "topic": "{{was / were + -ing}}; {{when}} और {{while}}; पृष्ठभूमि बनाम घटना",
+      "blocks": [
+        {"goal":{"t":"I was cooking when the lights went out.","tr":"मैं खाना बना रहा था, तभी बिजली चली गई।"}},
+        {"dialog":[{"who":"राज","t":"I called you last night. Where were you?","tr":"मैंने कल रात फ़ोन किया था। आप कहाँ थीं?"},{"who":"लीसा","t":"Sorry! I was taking a shower.","tr":"माफ़ कीजिए! मैं नहा रही थी।"},{"who":"राज","t":"At nine?","tr":"नौ बजे?"},{"who":"लीसा","t":"Yes. And then I was helping my son with his homework. What were you doing?","tr":"हाँ। और फिर बेटे के होमवर्क में मदद कर रही थी। आप क्या कर रहे थे?"},{"who":"राज","t":"I was watching the game.","tr":"मैं मैच देख रहा था।"}]},
+        {"p":"**उस पल चल रहा काम: {{was / were + -ing}}.** हिंदी के “रहा था / रही थी” जैसा: {{I was sleeping}} “मैं सो रहा था”, {{They were eating}} “वे खा रहे थे”। {{I}}, {{he}}, {{she}}, {{it}} के साथ {{was}}; {{you}}, {{we}}, {{they}} के साथ {{were}} (पाठ 19)।"},
+        {"p":"**पृष्ठभूमि और घटना.** लंबा चलता काम {{was …ing}} में, और बीच में हुई घटना सीधे बीते रूप में: {{I was cooking when the phone rang.}} “मैं खाना बना रहा था जब फ़ोन बजा।” {{while}} “के दौरान” भी चलते काम के साथ आता है: {{While I was driving, it started to rain.}}"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["चल रहा था","{{I was working at 8 p.m.}}","रात आठ बजे मैं काम कर रहा था।"],
+          ["घटना","{{The phone rang.}}","फ़ोन बजा।"],
+          ["दोनों","{{I was working when the phone rang.}}","मैं काम कर रहा था जब फ़ोन बजा।"]
+        ] },
+        { "ex": [
+          {"t":"What were you doing at ten?","tr":"दस बजे आप क्या कर रहे थे?"},
+          {"t":"It was raining all morning.","tr":"पूरी सुबह बारिश हो रही थी।"},
+          {"t":"We were having dinner when they arrived.","tr":"हम खाना खा रहे थे जब वे आए।"},
+          {"t":"She was talking on the phone.","tr":"वह फ़ोन पर बात कर रही थी।"},
+          {"t":"While I was walking home, I saw an old friend.","tr":"घर जाते हुए मुझे एक पुराना दोस्त दिखा।"},
+          {"t":"Sorry, I wasn't listening.","tr":"माफ़ कीजिए, मैं सुन नहीं रहा था।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I cooked when the phone rang.","right":"I was cooking when the phone rang.","tr":"मैं खाना बना रहा था जब फ़ोन बजा।","why":"पृष्ठभूमि में चलता काम: {{was cooking}}।"},
+        {"wrong":"When I was reaching home, it was raining.","right":"When I got home, it was raining.","tr":"जब मैं घर पहुँचा, बारिश हो रही थी।","why":"घर पहुँचना एक पल की घटना है: सीधा बीता रूप; और अमेरिका में {{get home}} ज़्यादा आम है।"},
+        {"wrong":"They was playing.","right":"They were playing.","tr":"वे खेल रहे थे।","why":"{{they}}: {{were}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I ___ sleeping when you called.","tr":"जब आपने फ़ोन किया, मैं सो रहा था।","options":["was","were","am"],"answer":0,"why":"{{I}}: {{was}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"We were having dinner when they ___.","tr":"हम खाना खा रहे थे जब वे आए।","options":["arrived","were arriving","arrive"],"answer":0,"why":"बीच में आई घटना: सीधा बीता रूप।","from":"past-regular"},
+        {"type":"choice","q":"“जब मैं घर पहुँचा, बारिश हो रही थी।”","options":["{{When I got home, it was raining.}}","{{When I was reaching home, it rained.}}"],"answer":0,"why":"पहुँचना घटना ({{got}}), बारिश पृष्ठभूमि ({{was raining}})।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"दस बजे आप क्या कर रहे थे?","words":["What","were","you","doing","at","ten?"]},
+        {"type":"dialogue","q":"आपका दोस्त पूछता है कि आपने फ़ोन क्यों नहीं उठाया।","from":"did-questions","lines":[{"who":"दोस्त","t":"Why didn't you answer my call?","tr":"मेरा फ़ोन क्यों नहीं उठाया?"},{"options":["Sorry, I was driving.","Sorry, I drove."],"answer":0,"why":"उस पल चल रहा काम: {{was driving}}।"},{"who":"दोस्त","t":"Where were you going?","tr":"कहाँ जा रहे थे?"},{"options":["I was going to the airport.","I was go to the airport."],"answer":0,"why":"{{was}} + {{-ing}}।"}]},
+        {"type":"say","q":"कहिए: “पूरी सुबह बारिश हो रही थी।”","answer":"It was raining all morning."},
+        {"type":"free","q":"आपकी बारी: बताइए कल शाम सात बजे आप क्या कर रहे थे, और तभी क्या हुआ।","answers":[{"t":"At seven I was cooking dinner when my sister called.","tr":"सात बजे मैं खाना बना रहा था जब मेरी बहन का फ़ोन आया।"},{"t":"I was watching TV when the lights went out.","tr":"मैं टीवी देख रही थी, तभी बिजली चली गई।"}]}
+      ]
     }
   ]
 }
