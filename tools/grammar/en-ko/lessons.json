@@ -1519,6 +1519,324 @@
         {"type":"say","q":"Offer to a tourist: “Shall I take a picture for you?”","answer":"사진 찍어 드릴까요?","r":"sajin jjigeo deurilkkayo?"},
         {"type":"free","q":"Your turn: a friend is moving house this weekend. Offer two kinds of help with {{-(으)ㄹ게요|-(eu)lgeyo}}.","answers":[{"t":"제가 차로 짐을 옮길게요. 그리고 점심은 제가 살게요.","tr":"I'll move your things in my car. And lunch is on me.","r":"jega charo jimeul omgilgeyo. geurigo jeomsimeun jega salgeyo."},{"t":"토요일 아침에 일찍 갈게요. 청소도 도와줄게요.","tr":"I'll come early on Saturday morning. I'll help with the cleaning too.","r":"toyoil achime iljjik galgeyo. cheongsodo dowajulgeyo."}]}
       ]
+    },
+    {
+      "id": "give-reasons",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say why",
+      "summary": "Give reasons and explain: “The bus didn't come, so I took a taxi”, “I'm learning Korean because I love K-dramas.”",
+      "topic": "{{-아서|-aseo}} / {{-어서|-eoseo}} “because, so”; {{그래서|geuraeseo}} “so”; {{왜요?|waeyo?}} “why?”",
+      "blocks": [
+        {"goal":{"t":"배가 아파서 학교에 못 갔어요.","tr":"I couldn't go to school because I had a stomachache.","r":"baega apaseo hakgyoe mot gasseoyo."}},
+        {"dialog":[{"who":"Teacher","t":"어제 왜 안 왔어요?","tr":"Why didn't you come yesterday?","r":"eoje wae an wasseoyo?"},{"who":"Student","t":"죄송해요. 감기에 걸려서 못 왔어요.","tr":"I'm sorry. I caught a cold, so I couldn't come.","r":"joesonghaeyo. gamgie geollyeoseo mot wasseoyo."},{"who":"Teacher","t":"아, 그래요? 지금은 괜찮아요?","tr":"Oh, really? Are you okay now?","r":"a, geuraeyo? jigeumeun gwaenchanayo?"},{"who":"Student","t":"네, 약을 먹어서 괜찮아요.","tr":"Yes, I took some medicine, so I'm fine.","r":"ne, yageul meogeoseo gwaenchanayo."},{"who":"Teacher","t":"다행이에요.","tr":"I'm glad to hear it.","r":"dahaengieyo."}]},
+        {"p":"**Because: {{-아서|-aseo}}/{{-어서|-eoseo}}.** Take the present form without {{요|yo}} and add {{서|seo}}: {{아파요|apayo}} → {{아파서|apaseo}}, {{바빠요|bappayo}} → {{바빠서|bappaseo}}, {{해요|haeyo}} → {{해서|haeseo}}. The reason comes first, then what happens because of it: {{바빠서 못 갔어요|bappaseo mot gasseoyo}} “I was busy, so I couldn't go” (busy-so couldn't-go). With a noun, it's {{이라서|iraseo}} (often {{라서|raseo}} after a vowel)."},
+        { "table": [
+          ["present","+ {{서|seo}}","example"],
+          ["{{바빠요|bappayo}}","{{바빠서|bappaseo}}","{{바빠서 못 가요.|bappaseo mot gayo.}} I'm busy, so I can't go."],
+          ["{{비가 와요|biga wayo}}","{{비가 와서|biga waseo}}","{{비가 와서 집에 있어요.|biga waseo jibe isseoyo.}} It's raining, so I'm staying in."],
+          ["{{배고파요|baegopayo}}","{{배고파서|baegopaseo}}","{{배고파서 라면을 먹었어요.|baegopaseo ramyeoneul meogeosseoyo.}} I was hungry, so I had ramyeon."],
+          ["{{피곤해요|pigonhaeyo}}","{{피곤해서|pigonhaeseo}}","{{피곤해서 일찍 잤어요.|pigonhaeseo iljjik jasseoyo.}} I was tired, so I went to bed early."],
+          ["{{학생이에요|haksaengieyo}}","{{학생이라서|haksaengiraseo}}","{{학생이라서 돈이 없어요.|haksaengiraseo doni eopseoyo.}} I'm a student, so I have no money."]
+        ] },
+        {"p":"**No past before {{서|seo}}.** The reason has no tense of its own: {{어제 아파서 못 갔어요|eoje apaseo mot gasseoyo}} “I was ill yesterday, so I couldn't go”, never {{아팠어서|apasseoseo}}. The last verb says when. Between two sentences, {{그래서|geuraeseo}} “so” does the same job: {{비가 왔어요. 그래서 집에 있었어요.|biga wasseoyo. geuraeseo jibe isseosseoyo.}}"},
+        {"p":"**A limit.** After a {{-아서|-aseo}} reason, you can say what happened or what is, but you can't ask someone to do something or suggest something. For that, Korean uses {{-(으)니까|-(eu)nikka}}: the next lesson."},
+        { "ex": [
+          {"t":"늦어서 미안해요.","tr":"Sorry I'm late.","note":"word for word “I'm late, so I'm sorry”","r":"neujeoseo mianhaeyo."},
+          {"t":"버스가 안 와서 택시를 탔어요.","tr":"The bus didn't come, so I took a taxi.","r":"beoseuga an waseo taeksireul tasseoyo."},
+          {"t":"오늘은 너무 더워서 밖에 안 나갈 거예요.","tr":"It's so hot today that I'm not going out.","r":"oneureun neomu deowoseo bakke an nagal geoyeyo."},
+          {"t":"한국 드라마를 좋아해서 한국어를 배워요.","tr":"I'm learning Korean because I like Korean dramas.","r":"hanguk deuramareul joahaeseo hangugeoreul baewoyo."},
+          {"t":"만나서 반가워요.","tr":"Nice to meet you.","note":"word for word “we've met, so I'm glad”","r":"mannaseo bangawoyo."},
+          {"t":"감기에 걸려서 목이 아파요.","tr":"I've caught a cold, so my throat hurts.","r":"gamgie geollyeoseo mogi apayo."}
+        ] },
+        {"tip":"To answer {{왜요?|waeyo?}} “why?” with just a reason, add {{요|yo}}: {{바빠서요.|bappaseoyo.}} “Because I'm busy.”, {{비가 와서요.|biga waseoyo.}} “Because it's raining.”"}
+      ],
+      "mistakes": [
+        {"wrong":"어제 아팠어서 못 갔어요.","right":"어제 아파서 못 갔어요.","tr":"I was ill yesterday, so I couldn't go.","why":"No past before {{-아서|-aseo}}/{{-어서|-eoseo}}: the last verb has it."},
+        {"wrong":"바쁘어서 못 가요.","right":"바빠서 못 가요.","tr":"I'm busy, so I can't go.","why":"{{-아서|-aseo}} goes on the present form: {{바빠요|bappayo}} → {{바빠서|bappaseo}}."},
+        {"wrong":"비가 와서 우산을 가져가세요.","right":"비가 오니까 우산을 가져가세요.","tr":"It's raining, so take an umbrella.","why":"Before a request, a reason takes {{-(으)니까|-(eu)nikka}}, not {{-아서|-aseo}} (next lesson)."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“I was tired, so I went to bed early” is…","options":["{{피곤해서 일찍 잤어요.|pigonhaeseo iljjik jasseoyo.}}","{{피곤했어서 일찍 잤어요.|pigonhaesseoseo iljjik jasseoyo.}}","{{피곤하고 일찍 잤어요.|pigonhago iljjik jasseoyo.}}"],"answer":0,"why":"A reason: {{피곤해서|pigonhaeseo}}, with no past of its own. ({{피곤하고|pigonhago}} would be just “and”.)"},
+        {"type":"fill","q":"Choose the right form.","t":"버스가 안 ___ 택시를 탔어요.","tr":"The bus didn't come, so I took a taxi.","options":["와서","왔어서","오고"],"answer":0,"why":"A reason: {{와서|waseo}}, with the past only on {{탔어요|tasseoyo}}."},
+        {"type":"fill","q":"Choose the ending.","t":"늦___ 미안해요.","tr":"Sorry I'm late.","options":["어서","아서","고"],"answer":0,"why":"{{늦어요|neujeoyo}} → {{늦어서|neujeoseo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm learning Korean because I like Korean dramas.","words":["한국","드라마를","좋아해서","한국어를","배워요."]},
+        {"type":"dialogue","q":"A coworker asks about the team dinner. Choose your replies.","from":"say-what-you-can-do","lines":[{"who":"Coworker","t":"오늘 회식에 와요?","tr":"Are you coming to the team dinner tonight?","r":"oneul hoesige wayo?"},{"options":["미안해요. 오늘은 일이 많아서 못 가요.","미안해요. 오늘은 일이 많아서 안 가요."],"answer":0,"why":"Something stops you: {{못 가요|mot gayo}}. ({{안 가요|an gayo}} sounds as if you just don't want to.)"},{"who":"Coworker","t":"아쉬워요. 다음에 같이 가요.","tr":"That's a shame. Let's go together next time.","r":"aswiwoyo. daeume gachi gayo."},{"options":["네, 다음에는 꼭 갈게요.","네, 다음에는 꼭 갔어요."],"answer":0,"why":"A promise: {{갈게요|galgeyo}}."}]},
+        {"type":"say","q":"Say: “Sorry I'm late.”","answer":"늦어서 미안해요.","r":"neujeoseo mianhaeyo."},
+        {"type":"free","q":"Your turn: why are you learning Korean? Give a reason or two with {{-아서|-aseo}}/{{-어서|-eoseo}}.","answers":[{"t":"한국 음악을 좋아해서 한국어를 배워요.","tr":"I'm learning Korean because I like Korean music.","r":"hanguk eumageul joahaeseo hangugeoreul baewoyo."},{"t":"한국 친구가 있어서 한국어를 공부해요.","tr":"I study Korean because I have Korean friends.","r":"hanguk chinguga isseoseo hangugeoreul gongbuhaeyo."}]}
+      ]
+    },
+    {
+      "id": "give-a-reason-and-advice",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give a reason with advice or a suggestion",
+      "summary": "Give a reason, then tell someone what to do or suggest something: “It's cold, so wear a coat.”",
+      "topic": "{{-(으)니까|-(eu)nikka}} “since, so”; when it must replace {{-아서|-aseo}}",
+      "blocks": [
+        {"goal":{"t":"비가 오니까 우산을 가져가세요.","tr":"It's raining, so take an umbrella.","r":"biga onikka usaneul gajyeogaseyo."}},
+        {"dialog":[{"who":"Jina","t":"밖에 많이 추워요?","tr":"Is it very cold outside?","r":"bakke mani chuwoyo?"},{"who":"You","t":"네, 바람이 많이 부니까 따뜻하게 입으세요.","tr":"Yes, it's really windy, so dress warmly.","r":"ne, barami mani bunikka ttatteutage ibeuseyo."},{"who":"Jina","t":"알았어요. 그럼 오늘은 버스를 탈까요?","tr":"Got it. Shall we take the bus today, then?","r":"arasseoyo. geureom oneureun beoseureul talkkayo?"},{"who":"You","t":"지금은 사람이 많으니까 조금 이따가 가요.","tr":"It's crowded right now, so let's go a bit later.","r":"jigeumeun sarami maneunikka jogeum ittaga gayo."},{"who":"Jina","t":"좋아요.","tr":"Okay.","r":"joayo."}]},
+        {"p":"**Since, so: {{-(으)니까|-(eu)nikka}}.** Stem + {{-니까|-nikka}} after a vowel, {{-으니까|-eunikka}} after a consonant: {{비가 오니까|biga onikka}} “it's raining, so”, {{시간이 없으니까|sigani eopseunikka}} “we don't have time, so”. Stems ending in {{ㄹ}} drop it before {{ㄴ}}: {{알다|alda}} → {{아니까|anikka}}, {{불다|bulda}} → {{부니까|bunikka}}. As with {{-아서|-aseo}}, the reason comes first."},
+        { "table": [
+          ["stem ends in…","add","example"],
+          ["a vowel","{{-니까|-nikka}}","{{오다|oda}} → {{오니까|onikka}}"],
+          ["{{ㄹ}} (it drops)","{{-니까|-nikka}}","{{멀다|meolda}} → {{머니까|meonikka}}"],
+          ["another consonant","{{-으니까|-eunikka}}","{{없다|eopda}} → {{없으니까|eopseunikka}}"]
+        ] },
+        {"p":"**When you must use it.** When the second half asks someone to do something (“please do”, “don't”), or suggests (“let's”, “shall we?”), the reason must take {{-(으)니까|-(eu)nikka}}. For a plain fact, both work."},
+        { "table": [
+          ["second half","with {{-아서|-aseo}}","with {{-(으)니까|-(eu)nikka}}"],
+          ["a fact","{{추워서 집에 있었어요.|chuwoseo jibe isseosseoyo.}} fine","{{추우니까 집에 있었어요.|chuunikka jibe isseosseoyo.}} fine"],
+          ["please do","not possible","{{추우니까 코트를 입으세요.|chuunikka koteureul ibeuseyo.}}"],
+          ["let's","not possible","{{추우니까 들어가요.|chuunikka deureogayo.}}"],
+          ["shall we?","not possible","{{추우니까 택시를 탈까요?|chuunikka taeksireul talkkayo?}}"]
+        ] },
+        {"p":"**The past is allowed.** Unlike {{-아서|-aseo}}, {{-(으)니까|-(eu)nikka}} can take the past: {{어제 많이 걸었으니까 오늘은 쉬세요|eoje mani georeosseunikka oneureun swiseyo}} “You walked a lot yesterday, so rest today.” It also stresses the reason a little, like “since”."},
+        { "ex": [
+          {"t":"시간이 없으니까 빨리 가요.","tr":"We don't have time, so let's hurry.","r":"sigani eopseunikka ppalli gayo."},
+          {"t":"내일 시험이 있으니까 일찍 자세요.","tr":"You have a test tomorrow, so go to bed early.","r":"naeil siheomi isseunikka iljjik jaseyo."},
+          {"t":"여기는 비싸니까 다른 데 갈까요?","tr":"It's expensive here, so shall we go somewhere else?","r":"yeogineun bissanikka dareun de galkkayo?"},
+          {"t":"길이 막히니까 지하철을 타세요.","tr":"The roads are jammed, so take the subway.","r":"giri makinikka jihacheoreul taseyo."},
+          {"t":"제가 길을 아니까 따라오세요.","tr":"I know the way, so follow me.","r":"jega gireul anikka ttaraoseyo."},
+          {"t":"어제 많이 먹었으니까 오늘은 조금만 먹을게요.","tr":"I ate a lot yesterday, so I'll eat just a little today.","r":"eoje mani meogeosseunikka oneureun jogeumman meogeulgeyo."}
+        ] },
+        {"tip":"{{-(으)니까|-(eu)nikka}} also explains, like “you see”: {{오늘은 안 돼요. 약속이 있으니까요.|oneureun an dwaeyo. yaksogi isseunikkayo.}} “Not today. I have plans, you see.”"}
+      ],
+      "mistakes": [
+        {"wrong":"추워서 코트를 입으세요.","right":"추우니까 코트를 입으세요.","tr":"It's cold, so wear a coat.","why":"Before a request, the reason takes {{-(으)니까|-(eu)nikka}}, not {{-아서|-aseo}}."},
+        {"wrong":"제가 길을 알으니까 따라오세요.","right":"제가 길을 아니까 따라오세요.","tr":"I know the way, so follow me.","why":"{{알다|alda}}: the {{ㄹ}} drops before {{-니까|-nikka}}."},
+        {"wrong":"시간이 없니까 빨리 가요.","right":"시간이 없으니까 빨리 가요.","tr":"We don't have time, so let's hurry.","why":"{{없|eop}} ends in a consonant: {{-으니까|-eunikka}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"It's raining. You tell a friend to take an umbrella:","options":["{{비가 오니까 우산을 가져가세요.|biga onikka usaneul gajyeogaseyo.}}","{{비가 와서 우산을 가져가세요.|biga waseo usaneul gajyeogaseyo.}}"],"answer":0,"why":"A request follows, so {{-(으)니까|-(eu)nikka}}."},
+        {"type":"fill","q":"Choose the ending.","t":"시간이 없___ 택시를 탈까요?","tr":"We don't have time, so shall we take a taxi?","options":["으니까","어서","니까"],"answer":0,"why":"A suggestion follows: {{-(으)니까|-(eu)nikka}}, and {{없|eop}} ends in a consonant."},
+        {"type":"fill","q":"Choose the right form.","t":"제가 길을 ___ 따라오세요.","tr":"I know the way, so follow me.","options":["아니까","알니까","알으니까"],"answer":0,"why":"{{알다|alda}} drops its {{ㄹ}}: {{아니까|anikka}}."},
+        {"type":"order","q":"Put the words in order.","tr":"You have a test tomorrow, so go to bed early.","words":["내일","시험이","있으니까","일찍","자세요."]},
+        {"type":"dialogue","q":"A friend is tired. Choose your replies.","from":"give-reasons","lines":[{"who":"Friend","t":"오늘 너무 피곤해요.","tr":"I'm so tired today.","r":"oneul neomu pigonhaeyo."},{"options":["피곤하니까 오늘은 일찍 쉬세요.","피곤해서 오늘은 일찍 쉬세요."],"answer":0,"why":"Advice follows, so {{-(으)니까|-(eu)nikka}}."},{"who":"Friend","t":"네, 어제 늦게 자서 그래요.","tr":"Yeah, it's because I went to bed late last night.","r":"ne, eoje neutge jaseo geuraeyo."},{"options":["그럼 커피 한잔할까요?","그럼 커피 한잔했어요?"],"answer":0,"why":"Suggesting: {{-(으)ㄹ까요?|-(eu)lkkayo?}}"}]},
+        {"type":"say","q":"Say: “It's cold, so wear a coat.” ({{춥다|chupda}}, {{코트|koteu}}, {{입다|ipda}})","answer":"추우니까 코트를 입으세요.","r":"chuunikka koteureul ibeuseyo."},
+        {"type":"free","q":"Your turn: give a friend some advice for a trip to Korea, with a reason. Use {{-(으)니까|-(eu)nikka}}.","answers":[{"t":"여름에는 더우니까 가벼운 옷을 가져가세요.","tr":"It's hot in summer, so take light clothes.","r":"yeoreumeneun deounikka gabyeoun oseul gajyeogaseyo."},{"t":"지하철이 편하니까 교통카드를 사세요.","tr":"The subway is convenient, so get a transit card.","r":"jihacheori pyeonhanikka gyotongkadeureul saseyo."}]}
+      ]
+    },
+    {
+      "id": "say-but",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say “but” and contrast two things",
+      "summary": "Put two opposite ideas in one sentence (“Korean is hard, but it's fun”) and change the subject politely.",
+      "topic": "{{-지만|-jiman}} “but”; {{그런데|geureonde}} / {{근데|geunde}}, {{그렇지만|geureochiman}}; {{은|eun}}/{{는|neun}} for contrast",
+      "blocks": [
+        {"goal":{"t":"한국어는 어렵지만 재미있어요.","tr":"Korean is hard, but it's fun.","r":"hangugeoneun eoryeopjiman jaemiisseoyo."}},
+        {"dialog":[{"who":"Friend","t":"새 집 어때요?","tr":"How's your new place?","r":"sae jip eottaeyo?"},{"who":"You","t":"방은 좀 작지만 정말 깨끗해요.","tr":"The room's a bit small, but it's really clean.","r":"bangeun jom jakjiman jeongmal kkaekkeutaeyo."},{"who":"Friend","t":"회사에서 멀어요?","tr":"Is it far from work?","r":"hoesaeseo meoreoyo?"},{"who":"You","t":"좀 멀어요. 그런데 지하철역이 가까워요.","tr":"A bit. But the subway station is close.","r":"jom meoreoyo. geureonde jihacheollyeogi gakkawoyo."},{"who":"Friend","t":"월세는 비싸지 않아요?","tr":"Isn't the rent expensive?","r":"wolseneun bissaji anayo?"},{"who":"You","t":"비싸지만 괜찮아요. 위치가 좋아요.","tr":"It is, but that's okay. The location is good.","r":"bissajiman gwaenchanayo. wichiga joayo."}]},
+        {"p":"**But: {{-지만|-jiman}}.** Stem + {{-지만|-jiman}}, the same after a consonant or a vowel: {{비싸지만|bissajiman}} “it's expensive, but”, {{작지만|jakjiman}} “it's small, but”. Unlike {{-아서|-aseo}}, it can take the past: {{공부했지만|gongbuhaetjiman}} “I studied, but”. With a noun: {{학생이지만|haksaengijiman}} (after a vowel, {{친구지만|chingujiman}})."},
+        { "table": [
+          ["","Korean","meaning"],
+          ["present","{{비싸지만 맛있어요.|bissajiman masisseoyo.}}","It's expensive, but it's good."],
+          ["past","{{열심히 공부했지만 시험이 어려웠어요.|yeolsimhi gongbuhaetjiman siheomi eoryeowosseoyo.}}","I studied hard, but the test was hard."],
+          ["a noun","{{학생이지만 돈이 많아요.|haksaengijiman doni manayo.}}","He's a student, but he has a lot of money."]
+        ] },
+        {"p":"**Between sentences: {{그렇지만|geureochiman}}, {{그런데|geureonde}}, {{근데|geunde}}.** {{그렇지만|geureochiman}} is “but, however”, a little formal. {{그런데|geureonde}}, in speech often {{근데|geunde}}, is “but” and also “by the way”, to change the subject: {{근데 내일 시간 있어요?|geunde naeil sigan isseoyo?}} “By the way, are you free tomorrow?”"},
+        {"p":"**Contrast with {{은|eun}}/{{는|neun}}.** When two things are contrasted, Koreans mark both with {{은|eun}}/{{는|neun}} (lesson 10), and {{-지만|-jiman}} joins them: {{고기는 좋아하지만 생선은 안 좋아해요|gogineun joahajiman saengseoneun an joahaeyo}} “I like meat, but not fish.”"},
+        { "ex": [
+          {"t":"이 식당은 비싸지만 맛있어요.","tr":"This restaurant is expensive, but it's good.","r":"i sikdangeun bissajiman masisseoyo."},
+          {"t":"열심히 공부했지만 시험을 잘 못 봤어요.","tr":"I studied hard, but I didn't do well on the test.","r":"yeolsimhi gongbuhaetjiman siheomeul jal mot bwasseoyo."},
+          {"t":"저는 커피는 좋아하지만 차는 안 좋아해요.","tr":"I like coffee, but not tea.","r":"jeoneun keopineun joahajiman chaneun an joahaeyo."},
+          {"t":"미안하지만 좀 도와줄 수 있어요?","tr":"Sorry, but could you help me a bit?","r":"mianhajiman jom dowajul su isseoyo?"},
+          {"t":"근데 내일 시간 있어요?","tr":"By the way, are you free tomorrow?","r":"geunde naeil sigan isseoyo?"},
+          {"t":"그 영화는 길었어요. 그렇지만 재미있었어요.","tr":"The movie was long. But it was good.","r":"geu yeonghwaneun gireosseoyo. geureochiman jaemiisseosseoyo."}
+        ] },
+        {"tip":"{{죄송하지만|joesonghajiman}} or {{미안하지만|mianhajiman}} “I'm sorry, but” is the polite way to start a request to a stranger: {{죄송하지만 사진 좀 찍어 주시겠어요?|joesonghajiman sajin jom jjigeo jusigesseoyo?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"비싸요지만 맛있어요.","right":"비싸지만 맛있어요.","tr":"It's expensive, but it's good.","why":"{{-지만|-jiman}} goes on the stem: {{비싸|bissa}} + {{지만|jiman}}."},
+        {"wrong":"작지만 그런데 깨끗해요.","right":"작지만 깨끗해요.","tr":"It's small, but it's clean.","why":"{{-지만|-jiman}} already means “but”: no {{그런데|geureonde}} as well."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which means “It's small, but it's comfortable”?","options":["{{작지만 편해요.|jakjiman pyeonhaeyo.}}","{{작아서 편해요.|jagaseo pyeonhaeyo.}}","{{작으면 편해요.|jageumyeon pyeonhaeyo.}}"],"answer":0,"why":"“But”: {{-지만|-jiman}}. ({{작아서|jagaseo}} “because it's small”, {{작으면|jageumyeon}} “if it's small”.)"},
+        {"type":"fill","q":"Choose the right form.","t":"이 옷은 ___ 예뻐요.","tr":"These clothes are expensive, but pretty.","options":["비싸지만","비싸서","비싸면"],"answer":0,"why":"Two opposite ideas: {{-지만|-jiman}}."},
+        {"type":"fill","q":"Choose the right form.","t":"어제 열심히 공부___ 시험을 잘 못 봤어요.","tr":"I studied hard yesterday, but I didn't do well on the test.","options":["했지만","해서","하면"],"answer":0,"why":"“But”, and in the past: {{했지만|haetjiman}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I like coffee, but I don't like tea.","words":["커피는","좋아하지만","차는","안","좋아해요."]},
+        {"type":"dialogue","q":"Talking about food. Choose your replies.","from":"say-what-you-like","lines":[{"who":"Friend","t":"매운 음식 좋아해요?","tr":"Do you like spicy food?","r":"maeun eumsik joahaeyo?"},{"options":["떡볶이는 좋아하지만 불닭은 못 먹어요.","떡볶이는 좋아해서 불닭은 못 먹어요."],"answer":0,"why":"A contrast: {{-지만|-jiman}}, with {{은|eun}}/{{는|neun}} on the two foods."},{"who":"Friend","t":"하하, 불닭은 저도 못 먹어요. 근데 오늘 저녁에 뭐 해요?","tr":"Haha, I can't eat buldak either. By the way, what are you doing tonight?","r":"haha, buldalgeun jeodo mot meogeoyo. geunde oneul jeonyeoge mwo haeyo?"},{"options":["아무것도 안 해요. 왜요?","아무것도 안 했어요. 왜요?"],"answer":0,"why":"Tonight hasn't happened yet: not the past."}]},
+        {"type":"say","q":"Say: “Sorry, but could you help me a bit?”","answer":"미안하지만 좀 도와줄 수 있어요?","r":"mianhajiman jom dowajul su isseoyo?"},
+        {"type":"free","q":"Your turn: describe your city or your job, with something good and something not so good. Use {{-지만|-jiman}}.","answers":[{"t":"제 일은 좀 힘들지만 재미있어요.","tr":"My job is a bit tough, but it's interesting.","r":"je ireun jom himdeuljiman jaemiisseoyo."},{"t":"우리 도시는 작지만 조용하고 깨끗해요.","tr":"My town is small, but it's quiet and clean.","r":"uri dosineun jakjiman joyonghago kkaekkeutaeyo."}]}
+      ]
+    },
+    {
+      "id": "go-and-do",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say where you went and what you did there",
+      "summary": "Say you went somewhere to do something, and tell how one action led to the next: “I went to the market and bought fruit there.”",
+      "topic": "{{-아서|-aseo}} / {{-어서|-eoseo}} for “and then (there, with it)”; {{-(으)러 가요|-(eu)reo gayo}} “go to do”; {{-고|-go}} vs {{-아서|-aseo}}",
+      "blocks": [
+        {"goal":{"t":"시장에 가서 과일을 샀어요.","tr":"I went to the market and bought some fruit.","r":"sijange gaseo gwaireul sasseoyo."}},
+        {"dialog":[{"who":"Friend","t":"주말에 뭐 했어요?","tr":"What did you do at the weekend?","r":"jumare mwo haesseoyo?"},{"who":"You","t":"친구를 만나서 같이 남대문 시장에 갔어요.","tr":"I met a friend, and we went to Namdaemun Market together.","r":"chingureul mannaseo gachi namdaemun sijange gasseoyo."},{"who":"Friend","t":"시장에 뭐 하러 갔어요?","tr":"What did you go to the market for?","r":"sijange mwo hareo gasseoyo?"},{"who":"You","t":"옷을 사러 갔어요. 모자를 사서 동생한테 줬어요.","tr":"We went to buy clothes. I bought a hat and gave it to my younger sibling.","r":"oseul sareo gasseoyo. mojareul saseo dongsaenghante jwosseoyo."},{"who":"Friend","t":"재미있었어요?","tr":"Was it fun?","r":"jaemiisseosseoyo?"},{"who":"You","t":"네, 정말 재미있었어요!","tr":"Yes, it was great fun!","r":"ne, jeongmal jaemiisseosseoyo!"}]},
+        {"p":"**And then, there: {{-아서|-aseo}}/{{-어서|-eoseo}}.** Besides “because” (lesson 32), {{-아서|-aseo}}/{{-어서|-eoseo}} joins two actions when the second **depends on** the first: it happens at the place you went to, or with the person you met, or with the thing you got. {{시장에 가서 과일을 샀어요|sijange gaseo gwaireul sasseoyo}} “I went to the market and bought fruit (there).” {{빵을 사서 먹었어요|ppangeul saseo meogeosseoyo}} “I bought bread and ate it.”"},
+        {"p":"**{{-고|-go}} or {{-아서|-aseo}}?** {{-고|-go}} just puts one thing after another, with no link between them. With moving ({{가다|gada}}, {{오다|oda}}, {{일어나다|ireonada}}, {{앉다|anda}}), meeting someone, or making and buying something you then use, Koreans say {{-아서|-aseo}}."},
+        { "table": [
+          ["","Korean","meaning"],
+          ["{{-아서|-aseo}}: linked","{{친구를 만나서 밥을 먹었어요.|chingureul mannaseo babeul meogeosseoyo.}}","I met a friend and we ate together."],
+          ["{{-고|-go}}: one, then another","{{친구를 만나고 집에 왔어요.|chingureul mannago jibe wasseoyo.}}","I met a friend, then came home."],
+          ["{{-아서|-aseo}}: linked","{{케이크를 만들어서 선물했어요.|keikeureul mandeureoseo seonmulhaesseoyo.}}","I made a cake and gave it as a present."],
+          ["{{-고|-go}}: one, then another","{{케이크를 만들고 청소했어요.|keikeureul mandeulgo cheongsohaesseoyo.}}","I made a cake, then cleaned."]
+        ] },
+        {"p":"**Go to do: {{-(으)러 가요|-(eu)reo gayo}}.** Stem + {{-러|-reo}} after a vowel or {{ㄹ}}, {{-으러|-eureo}} after another consonant, then a verb of going or coming: {{밥 먹으러 가요|bap meogeureo gayo}} “I'm going to eat”, {{책을 사러 서점에 가요|chaegeul sareo seojeome gayo}} “I'm going to the bookstore to buy a book”, {{놀러 오세요|nolleo oseyo}} “come over (to have fun)”. With any other verb, “in order to” is {{-(으)려고|-(eu)ryeogo}} (lesson 26)."},
+        { "ex": [
+          {"t":"일어나서 물을 한 잔 마셔요.","tr":"I get up and drink a glass of water.","r":"ireonaseo mureul han jan masyeoyo."},
+          {"t":"의자에 앉아서 기다리세요.","tr":"Please sit down and wait.","r":"uijae anjaseo gidariseyo."},
+          {"t":"김밥을 사서 공원에서 먹었어요.","tr":"I bought gimbap and ate it in the park.","r":"gimbabeul saseo gongwoneseo meogeosseoyo."},
+          {"t":"점심 먹으러 가요!","tr":"Let's go to lunch!","r":"jeomsim meogeureo gayo!"},
+          {"t":"한국어를 배우러 한국에 왔어요.","tr":"I came to Korea to learn Korean.","r":"hangugeoreul baeureo hanguge wasseoyo."},
+          {"t":"주말에 우리 집에 놀러 오세요.","tr":"Come over to my place at the weekend.","r":"jumare uri jibe nolleo oseyo."}
+        ] },
+        {"tip":"{{한테|hante}} after a person is “to”: {{동생한테 줬어요|dongsaenghante jwosseoyo}} “I gave it to my younger sibling”. In writing it's {{에게|ege}}, and to someone you respect, {{께|kke}}."}
+      ],
+      "mistakes": [
+        {"wrong":"밥을 먹을러 가요.","right":"밥을 먹으러 가요.","tr":"I'm going to eat.","why":"After a consonant: {{-으러|-eureo}}, with no {{ㄹ}}."},
+        {"wrong":"친구를 만나어서 영화를 봤어요.","right":"친구를 만나서 영화를 봤어요.","tr":"I met a friend and we saw a movie.","why":"{{-아서|-aseo}} goes on the present form: {{만나요|mannayo}} → {{만나서|mannaseo}}."},
+        {"wrong":"주말에 놀으러 가요.","right":"주말에 놀러 가요.","tr":"I'm going out to have fun at the weekend.","why":"Stems ending in {{ㄹ}} take just {{-러|-reo}}: {{놀러|nolleo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“I bought bread and ate it” is…","options":["{{빵을 사서 먹었어요.|ppangeul saseo meogeosseoyo.}}","{{빵을 사고 먹었어요.|ppangeul sago meogeosseoyo.}}","{{빵을 사러 먹었어요.|ppangeul sareo meogeosseoyo.}}"],"answer":0,"why":"You ate the bread you bought: the actions are linked, so {{-아서|-aseo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"책을 ___ 서점에 가요.","tr":"I'm going to the bookstore to buy a book.","options":["사러","사서","사고"],"answer":0,"why":"Going somewhere to do something: {{-(으)러|-(eu)reo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"의자에 ___ 기다리세요.","tr":"Please sit down and wait.","options":["앉아서","앉고","앉으러"],"answer":0,"why":"You wait sitting there: linked, so {{앉아서|anjaseo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I came to Korea to learn Korean.","words":["한국어를","배우러","한국에","왔어요."]},
+        {"type":"dialogue","q":"A friend asks about yesterday. Choose your replies.","from":"say-what-you-did","lines":[{"who":"Friend","t":"어제 뭐 했어요?","tr":"What did you do yesterday?","r":"eoje mwo haesseoyo?"},{"options":["친구를 만나서 같이 저녁을 먹었어요.","친구를 만나러 같이 저녁을 먹었어요."],"answer":0,"why":"You met, then ate together: {{-아서|-aseo}}. ({{-(으)러|-(eu)reo}} only goes with going and coming.)"},{"who":"Friend","t":"어디에 갔어요?","tr":"Where did you go?","r":"eodie gasseoyo?"},{"options":["삼겹살을 먹으러 홍대에 갔어요.","삼겹살을 먹어서 홍대에 갔어요."],"answer":0,"why":"Going somewhere to do something: {{-(으)러 가다|-(eu)reo gada}}. ({{먹어서|meogeoseo}} would mean “because we ate”!)"}]},
+        {"type":"say","q":"Suggest to a coworker: “Let's go to lunch!”","answer":"점심 먹으러 가요!","from":"suggest-doing-something","r":"jeomsim meogeureo gayo!"},
+        {"type":"free","q":"Your turn: tell someone about a day out. Where did you go, why, and what did you do there?","answers":[{"t":"주말에 쇼핑하러 명동에 갔어요. 명동에 가서 옷을 샀어요.","tr":"At the weekend I went to Myeongdong to shop. I went there and bought clothes.","r":"jumare syopinghareo myeongdonge gasseoyo. myeongdonge gaseo oseul sasseoyo."},{"t":"친구를 만나서 한강에 갔어요. 치킨을 사서 같이 먹었어요.","tr":"I met a friend and we went to the Han River. We bought chicken and ate it together.","r":"chingureul mannaseo hangange gasseoyo. chikineul saseo gachi meogeosseoyo."}]}
+      ]
+    },
+    {
+      "id": "say-before-and-after",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say what you do before and after",
+      "summary": "Put events in order: what you do before bed and after work, how long ago something happened, and for how long.",
+      "topic": "{{-기 전에|-gi jeone}} “before”; {{-(으)ㄴ 후에|-(eu)n hue}} / {{다음에|daeume}} “after”; N {{전에|jeone}} / {{후에|hue}}; {{동안|dongan}} “during, for”",
+      "blocks": [
+        {"goal":{"t":"자기 전에 책을 읽어요.","tr":"I read before going to bed.","r":"jagi jeone chaegeul ilgeoyo."}},
+        {"dialog":[{"who":"Doctor","t":"이 약은 하루에 세 번 드세요.","tr":"Take this medicine three times a day.","r":"i yageun harue se beon deuseyo."},{"who":"You","t":"밥 먹기 전에 먹어요?","tr":"Do I take it before meals?","r":"bap meokgi jeone meogeoyo?"},{"who":"Doctor","t":"아니요, 식사하신 후에 드세요.","tr":"No, take it after meals.","r":"aniyo, siksahasin hue deuseyo."},{"who":"You","t":"얼마 동안 먹어야 돼요?","tr":"For how long do I need to take it?","r":"eolma dongan meogeoya dwaeyo?"},{"who":"Doctor","t":"일주일 동안 드세요. 그리고 일주일 후에 다시 오세요.","tr":"For a week. And come back in a week.","r":"iljuil dongan deuseyo. geurigo iljuil hue dasi oseyo."}]},
+        {"p":"**Before: {{-기 전에|-gi jeone}}.** Stem + {{-기 전에|-gi jeone}}, the same for every verb: {{자기 전에|jagi jeone}} “before going to bed”, {{먹기 전에|meokgi jeone}} “before eating”. After a noun, just {{전에|jeone}}: {{수업 전에|sueop jeone}} “before class”. After a length of time it means “ago”: {{삼 년 전에|sam nyeon jeone}} “three years ago”."},
+        {"p":"**After: {{-(으)ㄴ 후에|-(eu)n hue}}.** Stem + {{-ㄴ 후에|-n hue}} after a vowel, {{-은 후에|-eun hue}} after a consonant; stems ending in {{ㄹ}} drop it ({{놀다|nolda}} → {{논 후에|non hue}}). {{일이 끝난 후에|iri kkeunnan hue}} “after work finishes”, {{밥을 먹은 후에|babeul meogeun hue}} “after eating”. {{다음에|daeume}} can take the place of {{후에|hue}}: {{먹은 다음에|meogeun daeume}}. After a noun: {{수업 후에|sueop hue}}, and after a length of time, “later, in”: {{일주일 후에|iljuil hue}} “in a week”. (This {{-(으)ㄴ|-(eu)n}} comes back in lesson 41.)"},
+        { "table": [
+          ["","after a verb","after a noun"],
+          ["before","{{자기 전에|jagi jeone}} before going to bed","{{수업 전에|sueop jeone}} before class"],
+          ["after","{{먹은 후에|meogeun hue}} after eating","{{점심 후에|jeomsim hue}} after lunch"],
+          ["ago, later","","{{삼 년 전에|sam nyeon jeone}} three years ago; {{한 시간 후에|han sigan hue}} in an hour"]
+        ] },
+        {"p":"**During, for: {{동안|dongan}}.** {{방학 동안|banghak dongan}} “during the vacation”, {{두 시간 동안|du sigan dongan}} “for two hours”, {{얼마 동안?|eolma dongan?}} “for how long?”. The “before” or “after” part comes first, then the main part: {{퇴근한 후에 운동해요|toegeunhan hue undonghaeyo}} “After work, I work out.”"},
+        { "ex": [
+          {"t":"밥 먹기 전에 손을 씻으세요.","tr":"Wash your hands before eating.","r":"bap meokgi jeone soneul ssiseuseyo."},
+          {"t":"퇴근한 후에 헬스장에 가요.","tr":"After work, I go to the gym.","r":"toegeunhan hue helseujange gayo."},
+          {"t":"영화가 끝난 다음에 저녁을 먹었어요.","tr":"After the movie finished, we had dinner.","r":"yeonghwaga kkeunnan daeume jeonyeogeul meogeosseoyo."},
+          {"t":"저는 오 년 전에 한국에 왔어요.","tr":"I came to Korea five years ago.","r":"jeoneun o nyeon jeone hanguge wasseoyo."},
+          {"t":"방학 동안 한국어를 공부했어요.","tr":"I studied Korean during the vacation.","r":"banghak dongan hangugeoreul gongbuhaesseoyo."},
+          {"t":"매일 삼십 분 동안 운동해요.","tr":"I work out for thirty minutes every day.","r":"maeil samsip bun dongan undonghaeyo."}
+        ] },
+        {"tip":"Medicine is “eaten” in Korean: {{약을 먹다|yageul meokda}}. And the doctor said {{드세요|deuseyo}}, the respectful “eat” (lesson 29), as staff and doctors do with customers and patients."}
+      ],
+      "mistakes": [
+        {"wrong":"자는 전에 책을 읽어요.","right":"자기 전에 책을 읽어요.","tr":"I read before going to bed.","why":"“Before” is always {{-기 전에|-gi jeone}}."},
+        {"wrong":"밥을 먹고 후에 커피를 마셔요.","right":"밥을 먹은 후에 커피를 마셔요.","tr":"After eating, I have coffee.","why":"“After” is {{-(으)ㄴ 후에|-(eu)n hue}}: {{먹은 후에|meogeun hue}}."},
+        {"wrong":"삼 년 후에 한국에 왔어요.","right":"삼 년 전에 한국에 왔어요.","tr":"I came to Korea three years ago.","why":"In the past, “ago” is {{전에|jeone}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“Before going to bed” is…","options":["{{자기 전에|jagi jeone}}","{{잔 후에|jan hue}}","{{자고|jago}}"],"answer":0,"why":"Before: {{-기 전에|-gi jeone}}. ({{잔 후에|jan hue}} is “after going to bed”.)"},
+        {"type":"fill","q":"Choose the right form.","t":"밥을 ___ 후에 커피를 마셔요.","tr":"After eating, I have coffee.","options":["먹은","먹기","먹는"],"answer":0,"why":"After: {{-(으)ㄴ 후에|-(eu)n hue}}, and {{먹|meok}} ends in a consonant: {{먹은|meogeun}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"저는 삼 년 ___ 서울에 왔어요.","tr":"I came to Seoul three years ago.","options":["전에","후에","동안"],"answer":0,"why":"“Ago”: {{전에|jeone}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Wash your hands before eating.","words":["밥","먹기","전에","손을","씻으세요."]},
+        {"type":"dialogue","q":"At the doctor's. Choose your replies.","from":"say-what-you-have-to-do","lines":[{"who":"Doctor","t":"이 약은 하루에 세 번 드세요.","tr":"Take this medicine three times a day.","r":"i yageun harue se beon deuseyo."},{"options":["밥 먹기 전에 먹어요?","밥 먹는 전에 먹어요?"],"answer":0,"why":"“Before” is {{-기 전에|-gi jeone}}."},{"who":"Doctor","t":"아니요, 식사하신 후에 드세요.","tr":"No, take it after meals.","r":"aniyo, siksahasin hue deuseyo."},{"options":["네. 얼마 동안 먹어야 해요?","네. 얼마 전에 먹어야 해요?"],"answer":0,"why":"“For how long”: {{얼마 동안|eolma dongan}}."},{"who":"Doctor","t":"일주일 동안 드세요.","tr":"For a week.","r":"iljuil dongan deuseyo."}]},
+        {"type":"say","q":"Say: “I'll call you again in an hour.”","answer":"한 시간 후에 다시 전화할게요.","from":"offer-and-promise","r":"han sigan hue dasi jeonhwahalgeyo."},
+        {"type":"free","q":"Your turn: describe your evenings. What do you do after work or school, and before bed?","answers":[{"t":"퇴근한 후에 저녁을 먹어요. 자기 전에 한국 드라마를 봐요.","tr":"After work I have dinner. Before bed I watch a Korean drama.","r":"toegeunhan hue jeonyeogeul meogeoyo. jagi jeone hanguk deuramareul bwayo."},{"t":"학교가 끝난 다음에 친구들하고 놀아요. 자기 전에 샤워해요.","tr":"After school I hang out with friends. Before bed I take a shower.","r":"hakgyoga kkeunnan daeume chingudeulhago norayo. jagi jeone syawohaeyo."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 7,
+      "level": "A2",
+      "title": "Compare things",
+      "summary": "Say which is bigger, cheaper or better, which is the best, and what's the same, similar or different.",
+      "topic": "{{보다|boda}} (+ {{더|deo}}) “than (more)”; {{제일|jeil}} / {{가장|gajang}} “the most”; {{같아요|gatayo}}, {{달라요|dallayo}}, {{비슷해요|biseutaeyo}}; {{처럼|cheoreom}} “like”",
+      "blocks": [
+        {"goal":{"t":"서울이 부산보다 더 커요.","tr":"Seoul is bigger than Busan.","r":"seouri busanboda deo keoyo."}},
+        {"dialog":[{"who":"You","t":"이거하고 저거 중에서 뭐가 더 좋아요?","tr":"Of this one and that one, which is better?","r":"igeohago jeogeo jungeseo mwoga deo joayo?"},{"who":"Clerk","t":"이게 저거보다 카메라가 더 좋아요.","tr":"This one has a better camera than that one.","r":"ige jeogeoboda kameraga deo joayo."},{"who":"You","t":"가격은요?","tr":"And the price?","r":"gagyeogeunyo?"},{"who":"Clerk","t":"이게 좀 더 비싸요. 그래도 우리 가게에서 제일 인기가 많아요.","tr":"This one's a bit more expensive. But it's the most popular one in our store.","r":"ige jom deo bissayo. geuraedo uri gageeseo jeil ingiga manayo."},{"who":"You","t":"저거는 이거하고 많이 달라요?","tr":"Is that one very different from this one?","r":"jeogeoneun igeohago mani dallayo?"},{"who":"Clerk","t":"아니요, 거의 비슷해요.","tr":"No, they're almost the same.","r":"aniyo, geoui biseutaeyo."}]},
+        {"p":"**Than: {{보다|boda}}.** What you compare **with** takes {{보다|boda}} “than”, and {{더|deo}} “more” often comes just before the describing verb: {{서울이 부산보다 (더) 커요|seouri busanboda (deo) keoyo}} “Seoul is bigger than Busan” (Seoul Busan-than more big). Korean has no “-er” ending: {{더|deo}} does that job, and it can even be left out when {{보다|boda}} is there. {{덜|deol}} is “less”."},
+        {"p":"**The most: {{제일|jeil}}, {{가장|gajang}}.** {{제일|jeil}} (everyday) or {{가장|gajang}} (a little more formal) goes before the verb: {{제일 좋아요|jeil joayo}} “it's the best”, {{가장 비싸요|gajang bissayo}} “it's the most expensive”. “In” or “of” a group is {{에서|eseo}} or {{중에서|jungeseo}}: {{우리 반에서 제일 키가 커요|uri baneseo jeil kiga keoyo}} “He's the tallest in our class.” In speech, {{이것이|igeosi}} “this one” (subject) usually shortens to {{이게|ige}}."},
+        { "table": [
+          ["","Korean","meaning"],
+          ["more","{{이게 더 싸요.|ige deo ssayo.}}","This one is cheaper."],
+          ["than","{{이게 저거보다 싸요.|ige jeogeoboda ssayo.}}","This is cheaper than that."],
+          ["the most","{{이게 제일 싸요.|ige jeil ssayo.}}","This is the cheapest."],
+          ["less","{{이게 덜 매워요.|ige deol maewoyo.}}","This one is less spicy."]
+        ] },
+        {"p":"**Same, different, like.** {{같아요|gatayo}} “it's the same”, {{비슷해요|biseutaeyo}} “it's similar”, {{달라요|dallayo}} “it's different” ({{다르다|dareuda}}, which doubles its {{ㄹ}} like {{모르다|moreuda}} → {{몰라요|mollayo}}), each with {{하고|hago}} or {{와|wa}}/{{과|gwa}}: {{제 가방하고 같아요|je gabanghago gatayo}} “It's the same as my bag.” And {{처럼|cheoreom}} after a noun is “like”: {{가수처럼 노래해요|gasucheoreom noraehaeyo}} “She sings like a singer.”"},
+        { "ex": [
+          {"t":"커피가 차보다 더 비싸요.","tr":"Coffee is more expensive than tea.","r":"keopiga chaboda deo bissayo."},
+          {"t":"오늘이 어제보다 더 추워요.","tr":"Today is colder than yesterday.","r":"oneuri eojeboda deo chuwoyo."},
+          {"t":"저는 여름보다 겨울을 더 좋아해요.","tr":"I like winter more than summer.","r":"jeoneun yeoreumboda gyeoureul deo joahaeyo."},
+          {"t":"한국 음식 중에서 뭐가 제일 맛있어요?","tr":"What's the most delicious Korean food?","note":"{{뭐가|mwoga}}: {{뭐|mwo}} + {{가|ga}}","r":"hanguk eumsik jungeseo mwoga jeil masisseoyo?"},
+          {"t":"제 동생은 저하고 성격이 많이 달라요.","tr":"My younger sibling is very different from me in personality.","r":"je dongsaengeun jeohago seonggyeogi mani dallayo."},
+          {"t":"이 노래는 그 노래하고 비슷해요.","tr":"This song is similar to that one.","r":"i noraeneun geu noraehago biseutaeyo."}
+        ] },
+        {"tip":"In a comparison, what you're describing usually takes {{이|i}}/{{가|ga}} (new information, as in lesson 11): {{어디가 더 좋아요?|eodiga deo joayo?}} “Which is better?” → {{부산이 더 좋아요.|busani deo joayo.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"서울이 더 커요 부산보다.","right":"서울이 부산보다 더 커요.","tr":"Seoul is bigger than Busan.","why":"{{부산보다|busanboda}} comes before the verb: the verb is always last."},
+        {"wrong":"제 가방을 같아요.","right":"제 가방하고 같아요.","tr":"It's the same as my bag.","why":"“The same as”: {{하고 같아요|hago gatayo}} (or {{와|wa}}/{{과|gwa}})."},
+        {"wrong":"저는 동생하고 다르어요.","right":"저는 동생하고 달라요.","tr":"I'm different from my younger sibling.","why":"{{다르다|dareuda}} doubles its {{ㄹ}}: {{달라요|dallayo}}, like {{몰라요|mollayo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{이게 저거보다 싸요|ige jeogeoboda ssayo}} means…","options":["That one is cheaper than this one.","This one is cheaper than that one.","This one is the cheapest."],"answer":1,"why":"{{저거보다|jeogeoboda}} “than that one”: this one is cheaper."},
+        {"type":"fill","q":"Choose the missing word.","t":"오늘이 어제___ 더 추워요.","tr":"Today is colder than yesterday.","options":["보다","처럼","하고"],"answer":0,"why":"“Than”: {{보다|boda}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"한국 음식 중에서 비빔밥이 ___ 좋아요.","tr":"Of all Korean foods, I like bibimbap best.","options":["제일","더","보다"],"answer":0,"why":"The most: {{제일|jeil}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Seoul is bigger than Busan.","words":["서울이","부산보다","더","커요."]},
+        {"type":"dialogue","q":"A friend asks which city you prefer. Choose your replies.","from":"describe-things","lines":[{"who":"Friend","t":"부산하고 서울 중에서 어디가 더 좋아요?","tr":"Which do you like more, Busan or Seoul?","r":"busanhago seoul jungeseo eodiga deo joayo?"},{"options":["저는 부산이 더 좋아요.","저는 부산보다 더 좋아요."],"answer":0,"why":"The one you prefer takes {{이|i}}/{{가|ga}}; {{보다|boda}} goes on the other one."},{"who":"Friend","t":"왜요?","tr":"Why?","r":"waeyo?"},{"options":["서울보다 덜 복잡하고 바다가 예뻐요.","서울보다 덜 복잡하고 바다가 예쁘어요."],"answer":0,"why":"{{예쁘다|yeppeuda}} drops its {{ㅡ}}: {{예뻐요|yeppeoyo}}."}]},
+        {"type":"say","q":"Ask: “What's the most delicious Korean food?”","answer":"한국 음식 중에서 뭐가 제일 맛있어요?","r":"hanguk eumsik jungeseo mwoga jeil masisseoyo?"},
+        {"type":"free","q":"Your turn: compare your hometown with a big city, or two foods you like.","answers":[{"t":"제 고향은 서울보다 작지만 더 조용해요.","tr":"My hometown is smaller than Seoul, but it's quieter.","r":"je gohyangeun seoulboda jakjiman deo joyonghaeyo."},{"t":"저는 김치찌개보다 된장찌개를 더 좋아해요. 덜 매워요.","tr":"I like soybean paste stew more than kimchi stew. It's less spicy.","r":"jeoneun gimchijjigaeboda doenjangjjigaereul deo joahaeyo. deol maewoyo."}]}
+      ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say what you've tried, and what you've ever done",
+      "summary": "Encourage someone to try something, say what you've tried, and ask “Have you ever…?”",
+      "topic": "{{-아/어 보세요|-a/eo boseyo}} “try (doing it)”; {{-아/어 봤어요|-a/eo bwasseoyo}} “I've tried”; {{-(으)ㄴ 적이 있어요|-(eu)n jeogi isseoyo}} / {{없어요|eopseoyo}} “have ever / have never”",
+      "blocks": [
+        {"goal":{"t":"한국에 가 본 적이 있어요?","tr":"Have you ever been to Korea?","r":"hanguge ga bon jeogi isseoyo?"}},
+        {"dialog":[{"who":"Minho","t":"김치 먹어 봤어요?","tr":"Have you tried kimchi?","r":"gimchi meogeo bwasseoyo?"},{"who":"You","t":"네, 먹어 봤어요. 정말 맛있었어요!","tr":"Yes, I have. It was really good!","r":"ne, meogeo bwasseoyo. jeongmal masisseosseoyo!"},{"who":"Minho","t":"그럼 산낙지도 먹어 본 적이 있어요?","tr":"Then have you ever eaten live octopus?","r":"geureom sannakjido meogeo bon jeogi isseoyo?"},{"who":"You","t":"아니요, 한 번도 먹어 본 적이 없어요.","tr":"No, I've never eaten it.","r":"aniyo, han beondo meogeo bon jeogi eopseoyo."},{"who":"Minho","t":"그럼 이번에 한번 먹어 보세요!","tr":"Then give it a try this time!","r":"geureom ibeone hanbeon meogeo boseyo!"},{"who":"You","t":"음… 생각해 볼게요.","tr":"Hmm… I'll think about it.","r":"eum… saenggakae bolgeyo."}]},
+        {"p":"**Try: {{-아/어 보다|-a/eo boda}}.** The present form without {{요|yo}}, then {{보다|boda}} “to see”: do it and see. {{먹어 보세요|meogeo boseyo}} “try it”, {{입어 보세요|ibeo boseyo}} “try it on”, {{가 보세요|ga boseyo}} “go and see it (it's worth it)”. To ask permission: {{입어 봐도 돼요?|ibeo bwado dwaeyo?}} “Can I try it on?”. {{한번|hanbeon}} “once, just” often goes before it: {{한번 해 보세요|hanbeon hae boseyo}} “give it a go”."},
+        {"p":"**I've tried it: {{-아/어 봤어요|-a/eo bwasseoyo}}.** In the past, it says you've had the experience: {{먹어 봤어요|meogeo bwasseoyo}} “I've tried it”, {{가 봤어요|ga bwasseoyo}} “I've been there”."},
+        {"p":"**Have you ever: {{-(으)ㄴ 적이 있어요?|-(eu)n jeogi isseoyo?}}** Stem + {{-ㄴ 적이 있어요|-n jeogi isseoyo}} after a vowel ({{ㄹ}} stems drop the {{ㄹ}}), {{-은 적이 있어요|-eun jeogi isseoyo}} after a consonant, word for word “there has been a time (I did it)”. Never: {{없어요|eopseoyo}}. It's very often added to {{-아/어 보다|-a/eo boda}}: {{가 본 적이 있어요?|ga bon jeogi isseoyo?}} “Have you ever been?”. {{한 번도|han beondo}} “not even once” makes “never” stronger. The {{-(으)ㄴ|-(eu)n}} is the one from {{-(으)ㄴ 후에|-(eu)n hue}}."},
+        { "table": [
+          ["","Korean","meaning"],
+          ["try","{{한번 먹어 보세요.|hanbeon meogeo boseyo.}}","Give it a try."],
+          ["have tried","{{먹어 봤어요.|meogeo bwasseoyo.}}","I've tried it."],
+          ["have ever","{{먹어 본 적이 있어요.|meogeo bon jeogi isseoyo.}}","I've eaten it before."],
+          ["never","{{한 번도 먹어 본 적이 없어요.|han beondo meogeo bon jeogi eopseoyo.}}","I've never eaten it."]
+        ] },
+        { "ex": [
+          {"t":"이 옷 입어 봐도 돼요?","tr":"Can I try these clothes on?","r":"i ot ibeo bwado dwaeyo?"},
+          {"t":"제주도에 가 봤어요?","tr":"Have you been to Jeju Island?","r":"jejudoe ga bwasseoyo?"},
+          {"t":"한국 드라마를 본 적이 있어요.","tr":"I've seen Korean dramas before.","r":"hanguk deuramareul bon jeogi isseoyo."},
+          {"t":"저는 한 번도 스키를 타 본 적이 없어요.","tr":"I've never skied.","r":"jeoneun han beondo seukireul ta bon jeogi eopseoyo."},
+          {"t":"이 책 정말 재미있어요. 한번 읽어 보세요.","tr":"This book is really good. Give it a read.","r":"i chaek jeongmal jaemiisseoyo. hanbeon ilgeo boseyo."},
+          {"t":"혹시 한복을 입어 본 적이 있어요?","tr":"Have you ever worn a hanbok, by any chance?","note":"{{혹시|hoksi}} “by any chance”","r":"hoksi hanbogeul ibeo bon jeogi isseoyo?"}
+        ] },
+        {"tip":"{{생각해 볼게요|saenggakae bolgeyo}} “I'll think about it” is also how Koreans say no politely, in a shop or to an invitation."}
+      ],
+      "mistakes": [
+        {"wrong":"한국에 갔은 적이 있어요.","right":"한국에 간 적이 있어요.","tr":"I've been to Korea.","why":"{{-(으)ㄴ|-(eu)n}} goes on the stem: {{가|ga}} + {{ㄴ}} → {{간|gan}}."},
+        {"wrong":"김치를 먹어 봐요?","right":"김치를 먹어 봤어요?","tr":"Have you tried kimchi?","why":"Asking about an experience: the past, {{봤어요|bwasseoyo}}. ({{먹어 봐요|meogeo bwayo}} is “try it”.)"}
+      ],
+      "practice": [
+        {"type":"choice","q":"In a clothes shop, you ask “Can I try it on?”","options":["{{입어 봐도 돼요?|ibeo bwado dwaeyo?}}","{{입어 봤어요?|ibeo bwasseoyo?}}","{{입은 적이 있어요?|ibeun jeogi isseoyo?}}"],"answer":0,"why":"Permission to try: {{-아/어 봐도 돼요?|-a/eo bwado dwaeyo?}}"},
+        {"type":"fill","q":"Choose the missing word.","t":"한국에 가 본 적이 ___?","tr":"Have you ever been to Korea?","options":["있어요","했어요","봤어요"],"answer":0,"why":"Have ever: {{-(으)ㄴ 적이 있어요|-(eu)n jeogi isseoyo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"이 떡볶이 정말 맛있어요. 한번 먹어 ___.","tr":"This tteokbokki is really good. Give it a try.","options":["보세요","봤어요","본 적이 있어요"],"answer":0,"why":"Encouraging someone to try: {{-아/어 보세요|-a/eo boseyo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I've never skied.","words":["저는","한","번도","스키를","타","본","적이","없어요."]},
+        {"type":"dialogue","q":"A friend asks about karaoke. Choose your replies.","from":"say-how-it-was","lines":[{"who":"Friend","t":"노래방에 가 봤어요?","tr":"Have you been to a karaoke room?","r":"noraebange ga bwasseoyo?"},{"options":["네, 지난주에 처음 가 봤어요.","네, 지난주에 처음 가 봐요."],"answer":0,"why":"An experience in the past: {{가 봤어요|ga bwasseoyo}}."},{"who":"Friend","t":"어땠어요?","tr":"How was it?","r":"eottaesseoyo?"},{"options":["정말 재미있었어요. 또 가고 싶어요!","정말 재미있어요. 또 갔어요!"],"answer":0,"why":"How it was: {{재미있었어요|jaemiisseosseoyo}}; then what you want: {{가고 싶어요|gago sipeoyo}}."}]},
+        {"type":"say","q":"Ask a friend: “Have you ever eaten samgyetang?”","answer":"삼계탕 먹어 본 적이 있어요?","r":"samgyetang meogeo bon jeogi isseoyo?"},
+        {"type":"free","q":"Your turn: say one Korean thing you've tried, one you've never done, and recommend something with {{-아/어 보세요|-a/eo boseyo}}.","answers":[{"t":"저는 비빔밥을 먹어 봤어요. 한복은 한 번도 입어 본 적이 없어요.","tr":"I've tried bibimbap. I've never worn a hanbok.","r":"jeoneun bibimbabeul meogeo bwasseoyo. hanbogeun han beondo ibeo bon jeogi eopseoyo."},{"t":"경복궁에 꼭 가 보세요. 정말 예뻐요!","tr":"Be sure to visit Gyeongbokgung Palace. It's really beautiful!","r":"gyeongbokgunge kkok ga boseyo. jeongmal yeppeoyo!"}]}
+      ]
     }
   ]
 }
