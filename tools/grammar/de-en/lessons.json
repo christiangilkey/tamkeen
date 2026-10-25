@@ -594,6 +594,255 @@
         {"type":"fill","q":"Wähl das fehlende Wort.","t":"___ you close the window, please?","tr":"Könntest du bitte das Fenster zumachen?","options":["Could","Do","Are"],"answer":0,"why":"Eine höfliche Bitte: {{Could you…?}}","from":"say-what-you-can-do"},
         {"type":"free","q":"Jetzt du: Ein Freund kommt zum ersten Mal in deine Stadt. Gib ihm zwei Tipps und mach einen Vorschlag mit {{Let's}}.","answers":[{"t":"Take the subway, it's fast. Don't eat at the station. Let's meet at the museum!","tr":"Nimm die U-Bahn, die ist schnell. Iss nicht am Bahnhof. Treffen wir uns am Museum!"},{"t":"Visit the old town and try the beer! Let's have dinner on Saturday.","tr":"Besuch die Altstadt und probier das Bier! Lass uns am Samstag zusammen essen."}]}
       ]
+    },
+    {
+      "id": "say-what-is-happening-now",
+      "unit": 4,
+      "level": "A1",
+      "title": "Sag, was gerade passiert",
+      "summary": "Sag, was du gerade machst: „I'm cooking right now.“ Diese Zeitform gibt es im Deutschen nicht.",
+      "topic": "Das Present Continuous: {{am / is / are}} + {{-ing}} ({{I'm working}})",
+      "blocks": [
+        {"goal":{"t":"I can't talk right now. I'm driving!","tr":"Ich kann gerade nicht reden. Ich fahre Auto!"}},
+        {"dialog":[{"who":"Mom","t":"Hi, honey! What are you doing?","tr":"Hallo, Schatz! Was machst du gerade?"},{"who":"Jonas","t":"I'm cooking dinner. Lisa is helping me.","tr":"Ich koche gerade Abendessen. Lisa hilft mir."},{"who":"Mom","t":"And the kids?","tr":"Und die Kinder?"},{"who":"Jonas","t":"They're playing in the yard. Wait, it's raining. Kids, come in!","tr":"Sie spielen im Garten. Moment, es regnet. Kinder, kommt rein!"},{"who":"Mom","t":"OK, you're busy. Call me later!","tr":"Okay, du hast zu tun. Ruf mich später an!"}]},
+        {"term":"Present Continuous","means":"die Verlaufsform der Gegenwart: {{am, is, are}} + Verb mit {{-ing}}. Für das, was gerade passiert: {{I'm reading}} „ich lese gerade“."},
+        {"p":"**Zwei Gegenwarten.** Das Deutsche hat eine: „Ich koche.“ Englisch hat zwei: {{I cook}} (allgemein, regelmäßig: „Ich koche gern, jeden Tag“) und {{I'm cooking}} (genau jetzt: „Ich bin gerade am Kochen“). Für alles, was in diesem Moment passiert, brauchst du die zweite."},
+        {"p":"**Der Bauplan:** {{am / is / are}} + Verb mit {{-ing}}. Das {{be}} darfst du nie weglassen: {{I'm working}}, nicht {{I working}}."},
+        { "table": [
+          ["","Englisch","Deutsch"],
+          ["{{I}}","{{I'm working.}}","Ich arbeite gerade."],
+          ["{{you / we / they}}","{{They're sleeping.}}","Sie schlafen gerade."],
+          ["{{he / she / it}}","{{It's raining.}}","Es regnet."],
+          ["Frage","{{What are you doing?}}","Was machst du gerade?"],
+          ["nein","{{She isn't listening.}}","Sie hört nicht zu."]
+        ] },
+        {"p":"**Schreibregeln für -ing:** Ein stummes {{e}} fällt weg ({{make}} → {{making}}, {{write}} → {{writing}}); nach einem kurzen, betonten Vokal wird der letzte Konsonant verdoppelt ({{sit}} → {{sitting}}, {{run}} → {{running}}, {{stop}} → {{stopping}})."},
+        {"p":"Signalwörter: {{now}}, {{right now}} „gerade“, {{at the moment}} „im Moment“, {{Look!}}, {{Listen!}}"},
+        { "ex": [
+          {"t":"Look! It's snowing!","tr":"Schau! Es schneit!"},
+          {"t":"I'm waiting for the bus.","tr":"Ich warte auf den Bus."},
+          {"t":"What are you reading?","tr":"Was liest du gerade?"},
+          {"t":"She's talking on the phone.","tr":"Sie telefoniert gerade."},
+          {"t":"Shh! The baby is sleeping.","tr":"Psst! Das Baby schläft."},
+          {"t":"We aren't watching TV. You can turn it off.","tr":"Wir schauen nicht fern. Du kannst ihn ausmachen."}
+        ] },
+        {"tip":"Wo du auf Deutsch „gerade“, „im Moment“ oder „bin am…“ sagen würdest, ist das ein sicheres Zeichen: Englisch braucht hier {{-ing}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Sorry, I can't talk. I drive.","right":"Sorry, I can't talk. I'm driving.","tr":"Sorry, ich kann nicht reden. Ich fahre gerade.","why":"Genau jetzt: die Verlaufsform, {{I'm driving}}."},
+        {"wrong":"I working.","right":"I'm working.","tr":"Ich arbeite gerade.","why":"Ohne {{am / is / are}} geht es nicht."},
+        {"wrong":"Look, it rains!","right":"Look, it's raining!","tr":"Schau, es regnet!","why":"Es passiert gerade: {{it's raining}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Am Telefon: „Was machst du gerade?“","options":["{{What are you doing?}}","{{What do you do?}}","{{What you doing?}}"],"answer":0,"why":"Genau jetzt: {{are you doing}}. ({{What do you do?}} fragt nach dem Beruf!)"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Shh! The kids ___ sleeping.","tr":"Psst! Die Kinder schlafen gerade.","options":["are","is","do"],"answer":0,"why":"{{the kids}} = {{they}}: {{are}} + {{-ing}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Look! It's ___!","tr":"Schau! Es schneit!","options":["snowing","snows","snow"],"answer":0,"why":"Nach {{it's}}: {{-ing}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I ___ for the bus right now.","tr":"Ich warte gerade auf den Bus.","options":["am waiting","wait","waits"],"answer":0,"why":"Gerade jetzt: {{am waiting}}. {{I wait}} wäre allgemein.","from":"talk-about-your-life"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Was liest du gerade?","words":["What","are","you","reading?"],"from":"ask-about-someone"},
+        {"type":"dialogue","q":"Eine Freundin ruft an.","lines":[{"who":"Friend","t":"Hey! Are you busy?","tr":"Hey! Hast du gerade zu tun?"},{"options":["Kind of. I'm cooking dinner.","Kind of. I cook dinner."],"answer":0,"why":"Gerade jetzt: {{I'm cooking}}."},{"who":"Friend","t":"Is Paul there?","tr":"Ist Paul da?"},{"options":["Yes, but he's taking a shower.","Yes, but he takes a shower."],"answer":0,"why":"Auch das passiert gerade: {{he's taking}}."}]},
+        {"type":"free","q":"Jetzt du: Was passiert gerade um dich herum? Sag drei Dinge mit {{-ing}}.","answers":[{"t":"I'm sitting on the sofa. My cat is sleeping. It's raining outside.","tr":"Ich sitze auf dem Sofa. Meine Katze schläft. Draußen regnet es."},{"t":"I'm learning English. My husband is cooking, and the kids are playing.","tr":"Ich lerne gerade Englisch. Mein Mann kocht, und die Kinder spielen."}]}
+      ]
+    },
+    {
+      "id": "now-or-usually",
+      "unit": 4,
+      "level": "A1",
+      "title": "Sag, was du sonst machst und was gerade",
+      "summary": "Unterscheide „normalerweise“ und „gerade“: „I usually work in the office, but this week I'm working from home.“",
+      "topic": "Simple Present oder Present Continuous; {{know, like, want}} nie mit {{-ing}}",
+      "blocks": [
+        {"goal":{"t":"I usually work in the office, but this week I'm working from home.","tr":"Normalerweise arbeite ich im Büro, aber diese Woche arbeite ich von zu Hause aus."}},
+        {"dialog":[{"who":"Neighbor","t":"Hi! You're not at work today?","tr":"Hallo! Heute nicht bei der Arbeit?"},{"who":"Anna","t":"No, I'm working from home this week. I usually go to the office.","tr":"Nein, diese Woche arbeite ich von zu Hause aus. Normalerweise gehe ich ins Büro."},{"who":"Neighbor","t":"Nice! And what's that noise?","tr":"Schön! Und was ist das für ein Lärm?"},{"who":"Anna","t":"My husband is painting the kitchen. He paints the whole apartment every two years!","tr":"Mein Mann streicht gerade die Küche. Er streicht alle zwei Jahre die ganze Wohnung!"},{"who":"Neighbor","t":"Wow. I know a good painter, by the way.","tr":"Wow. Ich kenne übrigens einen guten Maler."},{"who":"Anna","t":"Thanks, but he loves it!","tr":"Danke, aber er liebt das!"}]},
+        {"p":"**Immer oder jetzt?** Bei jedem englischen Verb fragst du dich: Ist das allgemein, regelmäßig, immer so? Dann Simple Present: {{I work in an office.}} Passiert es gerade oder nur für eine Weile? Dann Present Continuous: {{I'm working from home this week.}}"},
+        { "table": [
+          ["Simple Present: immer, regelmäßig","Present Continuous: jetzt, vorübergehend"],
+          ["{{I usually walk to work.}}","{{Today I'm taking the bus.}}"],
+          ["{{She speaks three languages.}}","{{She's speaking Italian right now.}}"],
+          ["{{It rains a lot here.}}","{{It's raining.}}"],
+          ["{{What do you do?}} (Beruf)","{{What are you doing?}} (jetzt)"]
+        ] },
+        {"p":"Signalwörter fürs Simple Present: {{usually}} „normalerweise“, {{always}}, {{often}}, {{every day}}, {{on Mondays}}. Für die Verlaufsform: {{now}}, {{right now}}, {{today}}, {{this week}}, {{at the moment}}."},
+        {"p":"**Manche Verben nie mit -ing.** Verben für Wissen, Mögen und Besitz beschreiben einen Zustand, keine Handlung, und stehen fast nie in der Verlaufsform, auch wenn es „gerade“ so ist: {{know}}, {{understand}}, {{like}}, {{love}}, {{want}}, {{need}}, {{believe}}, {{own}}. Also {{I know}}, nie {{I'm knowing}}; {{I don't understand}}, nie {{I'm not understanding}}."},
+        { "ex": [
+          {"t":"He usually drinks tea, but today he's having coffee.","tr":"Normalerweise trinkt er Tee, aber heute trinkt er Kaffee."},
+          {"t":"Do you understand me? – Yes, I understand.","tr":"Verstehst du mich? – Ja."},
+          {"t":"I want a new phone.","tr":"Ich will ein neues Handy."},
+          {"t":"My brother lives in Texas, but he's staying with us this month.","tr":"Mein Bruder wohnt in Texas, aber diesen Monat wohnt er bei uns."},
+          {"t":"What do you do? – I'm a nurse.","tr":"Was machst du beruflich? – Ich bin Krankenpflegerin."},
+          {"t":"Why are you laughing?","tr":"Warum lachst du?"}
+        ] },
+        {"tip":"{{I'm loving it}} aus der Werbung ist eine bewusste Ausnahme, Werbesprache eben. Im Alltag sagt man {{I love it.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I'm knowing him.","right":"I know him.","tr":"Ich kenne ihn.","why":"{{know}} ist ein Zustand: nie mit {{-ing}}."},
+        {"wrong":"I'm usually getting up at seven.","right":"I usually get up at seven.","tr":"Normalerweise stehe ich um sieben auf.","why":"Regelmäßig, mit {{usually}}: Simple Present."},
+        {"wrong":"What do you do right now?","right":"What are you doing right now?","tr":"Was machst du gerade?","why":"Gerade jetzt: die Verlaufsform."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ich verstehe dich nicht.“","options":["{{I don't understand you.}}","{{I'm not understanding you.}}"],"answer":0,"why":"{{understand}} steht nicht in der Verlaufsform."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She usually ___ to work.","tr":"Normalerweise fährt sie mit dem Fahrrad zur Arbeit.","options":["bikes","is biking","bike"],"answer":0,"why":"Regelmäßig: Simple Present, mit {{-s}} nach {{she}}.","from":"talk-about-your-life"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Today she ___ the bus because it's raining.","tr":"Heute nimmt sie den Bus, weil es regnet.","options":["is taking","takes","take"],"answer":0,"why":"Nur heute: die Verlaufsform."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I ___ a glass of water, please.","tr":"Ich brauche ein Glas Wasser, bitte.","options":["need","am needing","needs"],"answer":0,"why":"{{need}} steht nicht in der Verlaufsform."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Normalerweise trinke ich Tee.","words":["I","usually","drink","tea."]},
+        {"type":"dialogue","q":"Ein Kollege trifft dich in einem Café.","from":"say-what-you-like","lines":[{"who":"Colleague","t":"Hey! What are you doing here?","tr":"Hey! Was machst du denn hier?"},{"options":["I'm meeting a friend. I come here every Friday.","I meet a friend. I'm coming here every Friday."],"answer":0,"why":"Jetzt: {{I'm meeting}}; jeden Freitag: {{I come}}."},{"who":"Colleague","t":"Do you know the owner?","tr":"Kennst du die Besitzerin?"},{"options":["Yes, I know her well.","Yes, I'm knowing her well."],"answer":0,"why":"{{know}}: nie mit {{-ing}}."}]},
+        {"type":"free","q":"Jetzt du: Was machst du normalerweise am Wochenende, und was machst du gerade?","answers":[{"t":"I usually go hiking on weekends. Right now I'm sitting at home and learning English.","tr":"Am Wochenende gehe ich normalerweise wandern. Gerade sitze ich zu Hause und lerne Englisch."},{"t":"On Saturdays I usually play soccer. At the moment I'm drinking coffee.","tr":"Samstags spiele ich normalerweise Fußball. Im Moment trinke ich Kaffee."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 4,
+      "level": "A1",
+      "title": "Sag, wo etwas ist",
+      "summary": "Frag, ob es etwas gibt, und sag, wo es ist: „Is there a pharmacy near here?“ „Your keys are on the table.“",
+      "topic": "{{there is}} und {{there are}}; {{in, on, under, next to, behind, in front of}}",
+      "blocks": [
+        {"goal":{"t":"Is there a pharmacy near here?","tr":"Gibt es hier in der Nähe eine Apotheke?"}},
+        {"dialog":[{"who":"Landlord","t":"So, this is the kitchen. There's a dishwasher, but there isn't a microwave.","tr":"Also, das ist die Küche. Es gibt eine Spülmaschine, aber keine Mikrowelle."},{"who":"Ella","t":"That's OK. Is there a laundry room?","tr":"Kein Problem. Gibt es eine Waschküche?"},{"who":"Landlord","t":"Yes, it's in the basement, next to the storage room.","tr":"Ja, im Keller, neben dem Abstellraum."},{"who":"Ella","t":"And are there any stores nearby?","tr":"Und gibt es Geschäfte in der Nähe?"},{"who":"Landlord","t":"There's a supermarket across the street.","tr":"Gegenüber ist ein Supermarkt."}]},
+        {"p":"**Es gibt = there is / there are.** {{there is}} (kurz {{there's}}) für eins, {{there are}} für mehrere: {{There's a bank on the corner.}} „An der Ecke ist eine Bank.“, {{There are two bedrooms.}} „Es gibt zwei Schlafzimmer.“ Frage: {{Is there…?}}, {{Are there…?}}; Verneinung: {{There isn't…}}, {{There aren't any…}}"},
+        {"p":"**Nicht wörtlich übersetzen.** „Es gibt“ ist nie {{it gives}}! Und wo Deutsch „ist“ oder „liegt“ sagt, um zu sagen, dass etwas irgendwo vorhanden ist, nimmt Englisch oft {{there is}}: „Im Kühlschrank ist Milch.“ → {{There's some milk in the fridge.}}"},
+        {"term":"Präposition","means":"ein kleines Wort, das sagt, wo, wann oder wie: in, auf, unter, mit."},
+        {"p":"**Wo genau?** Die englischen Präpositionen sind einfach: kein Dativ, kein Akkusativ, die Wörter ändern sich nie."},
+        { "table": [
+          ["Deutsch","Englisch","Beispiel"],
+          ["in","{{in}}","{{in the box}}"],
+          ["auf","{{on}}","{{on the table}}"],
+          ["unter","{{under}}","{{under the bed}}"],
+          ["neben","{{next to}}","{{next to the door}}"],
+          ["hinter","{{behind}}","{{behind the house}}"],
+          ["vor","{{in front of}}","{{in front of the station}}"],
+          ["zwischen","{{between}}","{{between the bank and the café}}"],
+          ["gegenüber","{{across from}}","{{across from the park}}"]
+        ] },
+        {"p":"Ob etwas liegt, steht oder hängt, sagt Englisch meist einfach mit {{is}}: {{The keys are on the table.}} „Die Schlüssel liegen auf dem Tisch.“, {{The picture is on the wall.}} „Das Bild hängt an der Wand.“ (Achtung: „an der Wand“ ist {{on the wall}}.)"},
+        { "ex": [
+          {"t":"There's a great café next to my office.","tr":"Neben meinem Büro ist ein tolles Café."},
+          {"t":"Are there any good restaurants around here?","tr":"Gibt es hier gute Restaurants?"},
+          {"t":"There isn't any milk.","tr":"Es ist keine Milch da."},
+          {"t":"Your phone is on the sofa.","tr":"Dein Handy liegt auf dem Sofa."},
+          {"t":"The cat is under the bed.","tr":"Die Katze ist unter dem Bett."},
+          {"t":"Let's meet in front of the movie theater.","tr":"Treffen wir uns vor dem Kino."}
+        ] },
+        {"tip":"{{in front of}} heißt „vor“ beim Ort. „Vor“ bei der Zeit ist etwas anderes: {{two days ago}} „vor zwei Tagen“, {{before dinner}} „vor dem Abendessen“."}
+      ],
+      "mistakes": [
+        {"wrong":"It gives a bank near here.","right":"There's a bank near here.","tr":"Hier in der Nähe gibt es eine Bank.","why":"„Es gibt“ ist {{there is}}, nie {{it gives}}."},
+        {"wrong":"There is two bedrooms.","right":"There are two bedrooms.","tr":"Es gibt zwei Schlafzimmer.","why":"Mehrere: {{there are}}."},
+        {"wrong":"The picture is at the wall.","right":"The picture is on the wall.","tr":"Das Bild hängt an der Wand.","why":"„An der Wand“ ist {{on the wall}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Gibt es hier ein Café?“","options":["{{Is there a café here?}}","{{Gives it a café here?}}","{{Is it a café here?}}"],"answer":0,"why":"„Gibt es…?“ ist {{Is there…?}}"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"There ___ three bedrooms in the apartment.","tr":"Die Wohnung hat drei Schlafzimmer.","options":["are","is","have"],"answer":0,"why":"Mehrere: {{there are}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Your keys are ___ the table.","tr":"Deine Schlüssel liegen auf dem Tisch.","options":["on","in","at"],"answer":0,"why":"„Auf“ ist {{on}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Is there a bank near here? – Yes, ___ is.","tr":"Gibt es hier eine Bank? – Ja.","options":["there","it","he"],"answer":0,"why":"Die Kurzantwort wiederholt {{there is}}.","from":"answer-yes-or-no"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Treffen wir uns vor dem Bahnhof.","words":["Let's","meet","in front of","the station."],"from":"tell-someone-what-to-do"},
+        {"type":"dialogue","q":"Du besichtigst eine Wohnung.","lines":[{"who":"Agent","t":"This is the living room.","tr":"Das ist das Wohnzimmer."},{"options":["Nice! Is there a balcony?","Nice! Gives it a balcony?"],"answer":0,"why":"„Gibt es…?“ ist {{Is there…?}}"},{"who":"Agent","t":"No, but there's a big yard behind the house.","tr":"Nein, aber hinter dem Haus ist ein großer Garten."},{"options":["Great! Are there any schools nearby?","Great! Is there any schools nearby?"],"answer":0,"why":"Mehrere: {{are there}}."}]},
+        {"type":"free","q":"Jetzt du: Beschreib dein Zimmer oder deine Straße: Was gibt es, und wo ist es?","answers":[{"t":"There's a big window in my room. My desk is next to the window, and there are books on the shelf.","tr":"In meinem Zimmer ist ein großes Fenster. Mein Schreibtisch steht neben dem Fenster, und auf dem Regal stehen Bücher."},{"t":"On my street there's a bakery and a small park. The bus stop is in front of my house.","tr":"In meiner Straße gibt es eine Bäckerei und einen kleinen Park. Die Bushaltestelle ist vor meinem Haus."}]}
+      ]
+    },
+    {
+      "id": "say-when",
+      "unit": 4,
+      "level": "A1",
+      "title": "Sag, wann",
+      "summary": "Sag die Uhrzeit, den Tag und den Monat: „at 7:30, on Monday, in July“, und tappe nicht in die Halb-acht-Falle.",
+      "topic": "{{at}} (Uhrzeit), {{on}} (Tag), {{in}} (Monat, Jahr); die Uhrzeit ({{seven thirty}}, {{half past seven}})",
+      "blocks": [
+        {"goal":{"t":"The meeting is on Monday at 7:30.","tr":"Das Meeting ist am Montag um halb acht."}},
+        {"dialog":[{"who":"Mark","t":"When's your flight?","tr":"Wann geht dein Flug?"},{"who":"Katrin","t":"On Friday at 6 a.m.","tr":"Am Freitag um 6 Uhr morgens."},{"who":"Mark","t":"Wow, early! What time do you need to be at the airport?","tr":"Wow, früh! Wann musst du am Flughafen sein?"},{"who":"Katrin","t":"At four thirty.","tr":"Um halb fünf."},{"who":"Mark","t":"I can drive you. I'm free in the morning.","tr":"Ich kann dich fahren. Morgens habe ich Zeit."},{"who":"Katrin","t":"Really? Thanks!","tr":"Echt? Danke!"}]},
+        {"p":"**at, on, in.** Wo Deutsch „um, am, im“ sagt, sagt Englisch {{at, on, in}}, aber nicht immer an denselben Stellen:"},
+        { "table": [
+          ["","Englisch","Deutsch"],
+          ["Uhrzeit","{{at 8 o'clock}}, {{at noon}}, {{at night}}","um 8 Uhr, mittags, nachts"],
+          ["Tag, Datum","{{on Monday}}, {{on May 5}}, {{on the weekend}}","am Montag, am 5. Mai, am Wochenende"],
+          ["Monat, Jahr, Jahreszeit","{{in July}}, {{in 2025}}, {{in the summer}}","im Juli, 2025, im Sommer"],
+          ["Tageszeit","{{in the morning}}, {{in the evening}}","morgens, abends"]
+        ] },
+        {"p":"Ohne Präposition: {{today}}, {{tomorrow}}, {{tonight}}, {{next week}}, {{last year}}, {{this morning}}."},
+        {"p":"**Die Uhrzeit: Vorsicht bei „halb“!** Das deutsche „halb acht“ ist 7:30, also halb auf dem Weg *zu* acht. Im Englischen schaut man zurück: 7:30 ist {{half past seven}}, wörtlich „halb nach sieben“. Noch häufiger sagen Amerikaner einfach die Zahlen: {{seven thirty}}."},
+        { "table": [
+          ["Uhrzeit","amerikanisch","auch möglich"],
+          ["7:00","{{seven o'clock}}","{{seven}}"],
+          ["7:15","{{seven fifteen}}","{{a quarter after seven}}"],
+          ["7:30","{{seven thirty}}","{{half past seven}}"],
+          ["7:45","{{seven forty-five}}","{{a quarter to eight}}"],
+          ["14:00","{{two p.m.}}","{{two in the afternoon}}"]
+        ] },
+        {"p":"**a.m. und p.m.** Im Alltag benutzen Amerikaner die 12-Stunden-Uhr: {{a.m.}} vor Mittag, {{p.m.}} nach Mittag. 15 Uhr ist {{3 p.m.}}"},
+        { "ex": [
+          {"t":"The store opens at 9 a.m.","tr":"Der Laden öffnet um 9 Uhr."},
+          {"t":"My birthday is on March 12.","tr":"Ich habe am 12. März Geburtstag.","note":"gesprochen: {{March twelfth}}"},
+          {"t":"We go skiing in February.","tr":"Im Februar fahren wir Ski."},
+          {"t":"I'm meeting Tom on Friday night.","tr":"Ich treffe Tom am Freitagabend."},
+          {"t":"What time is it? – It's ten thirty.","tr":"Wie spät ist es? – Halb elf."},
+          {"t":"See you tomorrow morning!","tr":"Bis morgen früh!"}
+        ] },
+        {"tip":"Ein Datum auf Amerikanisch: erst der Monat, dann der Tag. {{5/12/2025}} ist der 12. Mai, nicht der 5. Dezember! Gesprochen: {{May twelfth}}."}
+      ],
+      "mistakes": [
+        {"wrong":"It's half eight.","right":"It's seven thirty.","tr":"Es ist halb acht.","why":"„Halb acht“ ist 7:30: {{seven thirty}} oder {{half past seven}}."},
+        {"wrong":"I'm free in Monday.","right":"I'm free on Monday.","tr":"Am Montag habe ich Zeit.","why":"Tage: {{on}}."},
+        {"wrong":"The meeting is in 3 o'clock.","right":"The meeting is at 3 o'clock.","tr":"Das Meeting ist um 3 Uhr.","why":"Uhrzeiten: {{at}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Halb neun“ (8:30) ist…","options":["{{eight thirty}}","{{half nine}}","{{nine thirty}}"],"answer":0,"why":"8:30: {{eight thirty}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"The concert is ___ Saturday.","tr":"Das Konzert ist am Samstag.","options":["on","in","at"],"answer":0,"why":"Tage: {{on}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We're going to Italy ___ August.","tr":"Im August fahren wir nach Italien.","options":["in","on","at"],"answer":0,"why":"Monate: {{in}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"What time ___ the store close?","tr":"Wann macht der Laden zu?","options":["does","do","is"],"answer":0,"why":"{{the store}} = {{it}}: {{does}}.","from":"ask-with-do"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Montags arbeite ich bis halb sechs.","words":["I","work","until","five thirty","on Mondays."]},
+        {"type":"dialogue","q":"Du machst einen Termin beim Arzt.","lines":[{"who":"Receptionist","t":"When can you come in?","tr":"Wann können Sie kommen?"},{"options":["On Tuesday morning, please.","In Tuesday morning, please."],"answer":0,"why":"Tage: {{on}}."},{"who":"Receptionist","t":"Is nine thirty OK?","tr":"Passt halb zehn?"},{"options":["Yes, nine thirty is perfect.","Yes, half ten is perfect."],"answer":0,"why":"9:30 ist {{nine thirty}}. „Halb zehn“ wörtlich übersetzt ({{half ten}}) verstehen Amerikaner nicht, und Briten verstehen 10:30!"}]},
+        {"type":"free","q":"Jetzt du: Wann machst du was? Sag drei Dinge mit {{at}}, {{on}} und {{in}}.","answers":[{"t":"I get up at 6:30. On Saturdays I play tennis. In the summer I go to the beach.","tr":"Ich stehe um halb sieben auf. Samstags spiele ich Tennis. Im Sommer fahre ich ans Meer."},{"t":"My English class is on Tuesday at seven. My birthday is in October.","tr":"Mein Englischkurs ist dienstags um sieben. Ich habe im Oktober Geburtstag."}]}
+      ]
+    },
+    {
+      "id": "say-how-often",
+      "unit": 4,
+      "level": "A1",
+      "title": "Sag, wie oft du etwas machst",
+      "summary": "Erzähl von deinen Gewohnheiten (immer, oft, nie) und lern die feste englische Wortstellung: „I always drink coffee in the morning.“",
+      "topic": "Wortstellung: Subjekt – Verb – Objekt; {{always, usually, often, never}} vor dem Verb; Ort und Zeit am Ende",
+      "blocks": [
+        {"goal":{"t":"I always drink coffee in the morning, but I never drink it at night.","tr":"Morgens trinke ich immer Kaffee, aber abends nie."}},
+        {"dialog":[{"who":"Doctor","t":"How often do you exercise?","tr":"Wie oft treiben Sie Sport?"},{"who":"Paul","t":"I usually go running twice a week.","tr":"Ich gehe normalerweise zweimal pro Woche laufen."},{"who":"Doctor","t":"Good. Do you smoke?","tr":"Gut. Rauchen Sie?"},{"who":"Paul","t":"No, never.","tr":"Nein, nie."},{"who":"Doctor","t":"And how much coffee do you drink?","tr":"Und wie viel Kaffee trinken Sie?"},{"who":"Paul","t":"Well… I always have three cups in the morning.","tr":"Na ja… Morgens trinke ich immer drei Tassen."},{"who":"Doctor","t":"Hmm. That's a lot!","tr":"Hm. Das ist viel!"}]},
+        {"p":"**Subjekt, Verb, Objekt: immer.** Im Deutschen kann fast alles an den Anfang, und das Verb bleibt auf Platz zwei: „Morgens trinke ich Kaffee.“ Englisch ist viel strenger: Das Subjekt steht vor dem Verb, fast ohne Ausnahme: {{In the morning I drink coffee.}}, nie {{In the morning drink I coffee.}}"},
+        { "table": [
+          ["Deutsch","Englisch"],
+          ["Morgen fahre ich nach Boston.","{{Tomorrow I'm driving to Boston.}}"],
+          ["Am Wochenende spielen wir Tennis.","{{On the weekend we play tennis.}}"],
+          ["Heute habe ich keine Zeit.","{{Today I don't have time.}}"]
+        ] },
+        {"p":"**Ort und Zeit gehören ans Ende.** Am natürlichsten stehen sie nach dem Objekt, erst der Ort, dann die Zeit: {{I play tennis at the club on Saturdays.}} Zwischen Verb und Objekt darf nichts stehen: {{I drink coffee every day}}, nicht {{I drink every day coffee}}."},
+        {"p":"**Häufigkeitswörter vor das Verb.** {{always}} „immer“, {{usually}} „normalerweise“, {{often}} „oft“, {{sometimes}} „manchmal“, {{rarely}} „selten“ und {{never}} „nie“ stehen vor dem Hauptverb, aber nach {{be}}: {{I always walk to work.}} / {{I'm always tired.}}"},
+        { "table": [
+          ["","Beispiel","Deutsch"],
+          ["vor dem Verb","{{She often works late.}}","Sie arbeitet oft lange."],
+          ["nach {{be}}","{{He's never late.}}","Er kommt nie zu spät."],
+          ["mit {{don't}}","{{I don't usually eat breakfast.}}","Normalerweise frühstücke ich nicht."]
+        ] },
+        {"p":"Längere Angaben wie {{every day}}, {{once a week}} „einmal pro Woche“ oder {{twice a month}} „zweimal im Monat“ stehen am Ende: {{I call my mom every day.}}"},
+        { "ex": [
+          {"t":"I usually get up at seven.","tr":"Normalerweise stehe ich um sieben auf."},
+          {"t":"We sometimes eat out on Fridays.","tr":"Freitags gehen wir manchmal essen."},
+          {"t":"She's always happy.","tr":"Sie ist immer fröhlich."},
+          {"t":"He never drinks alcohol.","tr":"Er trinkt nie Alkohol."},
+          {"t":"I go to the gym three times a week.","tr":"Ich gehe dreimal pro Woche ins Fitnessstudio."},
+          {"t":"Every morning I read the news.","tr":"Jeden Morgen lese ich die Nachrichten."}
+        ] },
+        {"tip":"Du darfst eine Zeitangabe an den Anfang stellen ({{Every morning I read the news.}}), aber dann kommt trotzdem erst das Subjekt, dann das Verb. Das ist der Satz, den Deutschsprachige am häufigsten verdrehen."}
+      ],
+      "mistakes": [
+        {"wrong":"On Sundays sleep I late.","right":"On Sundays I sleep late.","tr":"Sonntags schlafe ich lange.","why":"Englisch: das Subjekt vor dem Verb, auch nach einer Zeitangabe."},
+        {"wrong":"I drink always coffee.","right":"I always drink coffee.","tr":"Ich trinke immer Kaffee.","why":"{{always}} steht vor dem Verb."},
+        {"wrong":"I play every Saturday tennis.","right":"I play tennis every Saturday.","tr":"Ich spiele jeden Samstag Tennis.","why":"Nichts zwischen Verb und Objekt; die Zeit ans Ende."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Morgen habe ich keine Zeit.“","options":["{{Tomorrow I don't have time.}}","{{Tomorrow have I no time.}}","{{Tomorrow I have not time.}}"],"answer":0,"why":"Nach {{Tomorrow}}: erst das Subjekt, dann das Verb (mit {{don't}})."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Ich trinke morgens immer Tee.","words":["I","always","drink","tea","in the morning."]},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Er kommt nie zu spät.","words":["He's","never","late."]},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I ___ eat meat.","tr":"Ich esse nie Fleisch.","options":["never","don't never","not"],"answer":0,"why":"{{never}} ist schon die Verneinung: kein {{don't}} dazu."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She often ___ on weekends.","tr":"Am Wochenende kocht sie oft.","options":["cooks","cook","cooking"],"answer":0,"why":"Nach {{she}}: {{-s}}, auch mit {{often}} davor.","from":"talk-about-your-life"},
+        {"type":"dialogue","q":"Eine Umfrage auf der Straße.","from":"say-when","lines":[{"who":"Interviewer","t":"How often do you watch TV?","tr":"Wie oft schauen Sie fern?"},{"options":["I usually watch TV in the evening.","I watch usually TV in the evening."],"answer":0,"why":"{{usually}} vor dem Verb, die Zeit ans Ende."},{"who":"Interviewer","t":"And do you read the news?","tr":"Und lesen Sie Nachrichten?"},{"options":["Yes, every morning I read the news online.","Yes, every morning read I the news online."],"answer":0,"why":"Auch nach {{every morning}}: erst das Subjekt, dann das Verb."}]},
+        {"type":"free","q":"Jetzt du: Erzähl von deiner Woche: Was machst du immer, oft, manchmal und nie?","answers":[{"t":"I always have breakfast at home. I often go swimming, I sometimes cook, and I never watch soccer.","tr":"Ich frühstücke immer zu Hause. Ich gehe oft schwimmen, koche manchmal und schaue nie Fußball."},{"t":"On weekdays I usually work until five. On weekends I sometimes visit my parents.","tr":"Unter der Woche arbeite ich normalerweise bis fünf. Am Wochenende besuche ich manchmal meine Eltern."}]}
+      ]
     }
   ]
 }
