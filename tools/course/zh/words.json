@@ -38,7 +38,11 @@
       "pos": "part",
       "meaning": "(le) shows that something has happened or changed",
       "sentence": "他已经走了。",
-      "translation": "He ⟦has⟧ already left."
+      "translation": "He ⟦has⟧ already left.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "le 5"
+      }
     },
     {
       "n": 5,
@@ -110,7 +114,11 @@
       "pos": "prep",
       "meaning": "(wèi) for; for the sake of",
       "sentence": "我为你高兴。",
-      "translation": "I'm happy ⟦for⟧ you."
+      "translation": "I'm happy ⟦for⟧ you.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "wei 4"
+      }
     },
     {
       "n": 13,
@@ -182,7 +190,11 @@
       "pos": "adv",
       "meaning": "(dōu) all; both",
       "sentence": "我们都是学生。",
-      "translation": "We are ⟦all⟧ students."
+      "translation": "We are ⟦all⟧ students.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "dou 1"
+      }
     },
     {
       "n": 21,
@@ -209,7 +221,11 @@
       "pos": "part",
       "meaning": "(ma) turns a sentence into a yes/no question",
       "sentence": "你喝咖啡吗？",
-      "translation": "⟦Do⟧ you drink coffee?"
+      "translation": "⟦Do⟧ you drink coffee?",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "ma 5"
+      }
     },
     {
       "n": 24,
@@ -299,7 +315,11 @@
       "pos": "adv",
       "meaning": "(hái) still; also; even more",
       "sentence": "他还在睡觉。",
-      "translation": "He's ⟦still⟧ asleep."
+      "translation": "He's ⟦still⟧ asleep.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "hai 2"
+      }
     },
     {
       "n": 34,
@@ -479,7 +499,11 @@
       "pos": "part",
       "meaning": "(zhe) shows something going on or staying as it is (-ing)",
       "sentence": "她穿着一件红衣服。",
-      "translation": "She's ⟦wearing⟧ a red top."
+      "translation": "She's ⟦wearing⟧ a red top.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "zhe 5"
+      }
     },
     {
       "n": 54,
@@ -632,7 +656,11 @@
       "pos": "part",
       "meaning": "(de) -ly (joins a describing word to a verb); (dì) ground, earth",
       "sentence": "他高兴地笑了。",
-      "translation": "He laughed ⟦happily⟧."
+      "translation": "He laughed ⟦happily⟧.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "de 5"
+      }
     },
     {
       "n": 71,
@@ -704,7 +732,11 @@
       "pos": "part",
       "meaning": "(de) joins a verb to how it's done (说得很好 speaks well); (děi) must",
       "sentence": "他中文说得很好。",
-      "translation": "He speaks Chinese very ⟦well⟧."
+      "translation": "He speaks Chinese very ⟦well⟧.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "de 5"
+      }
     },
     {
       "n": 79,
@@ -830,7 +862,11 @@
       "pos": "part",
       "meaning": "(ba) let's; …, right? (makes a suggestion or a guess)",
       "sentence": "我们走吧。",
-      "translation": "⟦Let's⟧ go."
+      "translation": "⟦Let's⟧ go.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "ba 5"
+      }
     },
     {
       "n": 93,
@@ -884,7 +920,11 @@
       "pos": "adv",
       "meaning": "(zhǐ) only; just",
       "sentence": "我只想睡觉。",
-      "translation": "I ⟦just⟧ want to sleep."
+      "translation": "I ⟦just⟧ want to sleep.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "zhi 3"
+      }
     },
     {
       "n": 99,
@@ -1010,7 +1050,11 @@
       "pos": "verb",
       "meaning": "(dāng) to be; to work as; when",
       "sentence": "我小时候想当老师。",
-      "translation": "When I was little I wanted to ⟦be⟧ a teacher."
+      "translation": "When I was little I wanted to ⟦be⟧ a teacher.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "dang 1"
+      }
     },
     {
       "n": 113,
@@ -1028,7 +1072,11 @@
       "pos": "part",
       "meaning": "(men) makes words for people plural (朋友们 friends)",
       "sentence": "孩子们都睡了。",
-      "translation": "The ⟦children⟧ are all asleep."
+      "translation": "The ⟦children⟧ are all asleep.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "men 5"
+      }
     },
     {
       "n": 115,
@@ -1388,7 +1436,11 @@
       "pos": "adj",
       "meaning": "(cháng) long",
       "sentence": "她的头发很长。",
-      "translation": "Her hair is very ⟦long⟧."
+      "translation": "Her hair is very ⟦long⟧.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "chang 2"
+      }
     },
     {
       "n": 155,
@@ -1442,7 +1494,11 @@
       "pos": "part",
       "meaning": "(ne) and …? (asks back); shows something is going on",
       "sentence": "我很好，你呢？",
-      "translation": "I'm fine, ⟦and you⟧?"
+      "translation": "I'm fine, ⟦and you⟧?",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "ne 5"
+      }
     },
     {
       "n": 161,
@@ -2054,7 +2110,11 @@
       "pos": "verb",
       "meaning": "(yuē) to arrange (to meet); about (roughly)",
       "sentence": "我约了朋友吃饭。",
-      "translation": "I've ⟦arranged⟧ to have dinner with a friend."
+      "translation": "I've ⟦arranged⟧ to have dinner with a friend.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "yue 1"
+      }
     },
     {
       "n": 229,
@@ -2414,7 +2474,11 @@
       "pos": "adv",
       "meaning": "(céng) once; at one time (in the past)",
       "sentence": "我曾在北京住过。",
-      "translation": "I ⟦once⟧ lived in Beijing."
+      "translation": "I ⟦once⟧ lived in Beijing.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "ceng 2"
+      }
     },
     {
       "n": 269,
@@ -2774,7 +2838,11 @@
       "pos": "verb",
       "meaning": "(gàn) to do (in everyday speech)",
       "sentence": "你在干什么？",
-      "translation": "What are you ⟦doing⟧?"
+      "translation": "What are you ⟦doing⟧?",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "gan 4"
+      }
     },
     {
       "n": 309,
@@ -2864,7 +2932,11 @@
       "pos": "verb",
       "meaning": "(chēng) to weigh; to call (someone something)",
       "sentence": "请帮我称一下。",
-      "translation": "Could you ⟦weigh⟧ this for me?"
+      "translation": "Could you ⟦weigh⟧ this for me?",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "cheng 1"
+      }
     },
     {
       "n": 319,
@@ -3152,7 +3224,11 @@
       "pos": "noun",
       "meaning": "(zhǒng) kind; type; sort",
       "sentence": "你喜欢哪种水果？",
-      "translation": "What ⟦kind⟧ of fruit do you like?"
+      "translation": "What ⟦kind⟧ of fruit do you like?",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "zhong 3"
+      }
     },
     {
       "n": 351,
@@ -3665,7 +3741,11 @@
       "pos": "verb",
       "meaning": "(xíng) OK; to be all right; to work; capable",
       "sentence": "行，就这么办。",
-      "translation": "⟦OK⟧, let's do that."
+      "translation": "⟦OK⟧, let's do that.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "xing 2"
+      }
     },
     {
       "n": 408,
@@ -3926,7 +4006,11 @@
       "pos": "verb",
       "meaning": "(zhàn) to make up; to take up; to occupy",
       "sentence": "我们班女生占一半。",
-      "translation": "Girls ⟦make up⟧ half of our class."
+      "translation": "Girls ⟦make up⟧ half of our class.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "zhan 4"
+      }
     },
     {
       "n": 437,
@@ -4493,7 +4577,11 @@
       "pos": "part",
       "meaning": "(la) adds a lively or soothing tone (了 + 啊)",
       "sentence": "好啦，别哭了。",
-      "translation": "⟦All right⟧, stop crying."
+      "translation": "⟦All right⟧, stop crying.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "la 5"
+      }
     },
     {
       "n": 500,
@@ -5582,7 +5670,11 @@
       "pos": "noun",
       "meaning": "(zhòngdiǎn) key point; main point; focus",
       "sentence": "这是重点。",
-      "translation": "This is the ⟦key point⟧."
+      "translation": "This is the ⟦key point⟧.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "zhong 4 dian 3"
+      }
     },
     {
       "n": 621,
@@ -6608,7 +6700,11 @@
       "pos": "verb",
       "meaning": "(zhuǎn) to turn; to transfer; to pass on",
       "sentence": "在前面路口右转。",
-      "translation": "⟦Turn⟧ right at the next junction."
+      "translation": "⟦Turn⟧ right at the next junction.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "zhuan 3"
+      }
     },
     {
       "n": 735,
@@ -7787,7 +7883,11 @@
       "pos": "part",
       "meaning": "(ma) come on; obviously (makes a point or a request softer)",
       "sentence": "别生气嘛。",
-      "translation": "⟦Come on⟧, don't be angry."
+      "translation": "⟦Come on⟧, don't be angry.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "ma 5"
+      }
     },
     {
       "n": 866,
@@ -7904,7 +8004,11 @@
       "pos": "adj",
       "meaning": "(zhòng) heavy; serious; important",
       "sentence": "这个箱子很重。",
-      "translation": "This box is very ⟦heavy⟧."
+      "translation": "This box is very ⟦heavy⟧.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "zhong 4"
+      }
     },
     {
       "n": 879,
@@ -7949,7 +8053,11 @@
       "pos": "verb",
       "meaning": "(dào) to pour; to go backwards; actually; (dǎo) to fall over",
       "sentence": "请给我倒杯水。",
-      "translation": "Please ⟦pour⟧ me a glass of water."
+      "translation": "Please ⟦pour⟧ me a glass of water.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "dao 4"
+      }
     },
     {
       "n": 884,
@@ -8030,7 +8138,11 @@
       "pos": "verb",
       "meaning": "(shǔ) to count; (shù) number",
       "sentence": "你数一数有多少人。",
-      "translation": "⟦Count⟧ how many people there are."
+      "translation": "⟦Count⟧ how many people there are.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "shu 3"
+      }
     },
     {
       "n": 893,
@@ -8147,7 +8259,11 @@
       "pos": "pron",
       "meaning": "(jǐ) how many; a few",
       "sentence": "你有几个孩子？",
-      "translation": "⟦How many⟧ children do you have?"
+      "translation": "⟦How many⟧ children do you have?",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "ji 3"
+      }
     },
     {
       "n": 906,
@@ -8579,7 +8695,11 @@
       "pos": "part",
       "meaning": "(ya) adds a lively tone (like 啊)",
       "sentence": "好呀！",
-      "translation": "⟦Sure⟧!"
+      "translation": "⟦Sure⟧!",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "ya 5"
+      }
     },
     {
       "n": 954,
@@ -8660,7 +8780,11 @@
       "pos": "verb",
       "meaning": "(jiāo) to teach",
       "sentence": "她教我们中文。",
-      "translation": "She ⟦teaches⟧ us Chinese."
+      "translation": "She ⟦teaches⟧ us Chinese.",
+      "say": {
+        "alphabet": "sapi",
+        "ph": "jiao 1"
+      }
     },
     {
       "n": 963,
