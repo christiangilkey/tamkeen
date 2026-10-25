@@ -1587,6 +1587,222 @@
         {"type":"say","q":"Say “It's nearly your birthday!”","answer":"快到你的生日了！","r":"Kuài dào nǐ de shēngrì le!"},
         {"type":"free","q":"Your turn: say something that's about to happen in your life, and something that's happening next week.","answers":[{"t":"我快要毕业了。下个星期我就要去上海了！","r":"Wǒ kuàiyào bìyè le. Xià ge xīngqī wǒ jiùyào qù Shànghǎi le!","tr":"I'm about to graduate. Next week I'm off to Shanghai!"},{"t":"快春节了。我下个月就要回国了。","r":"Kuài Chūnjié le. Wǒ xià ge yuè jiùyào huí guó le.","tr":"It's nearly Spring Festival. Next month I'm going back to my country."}]}
       ]
+    },
+    {
+      "id": "say-why",
+      "unit": 8,
+      "level": "A2",
+      "title": "Say why",
+      "summary": "“Why are you learning Chinese?”, “Because I want to work in China”, “It rained, so we stayed in”: ask for reasons and give them.",
+      "topic": "{{为什么|wèishénme}}; {{因为…所以…|yīnwèi… suǒyǐ…}}: Chinese likes both halves",
+      "blocks": [
+        {"goal":{"t":"因为我想去中国工作，所以我学中文。","r":"Yīnwèi wǒ xiǎng qù Zhōngguó gōngzuò, suǒyǐ wǒ xué Zhōngwén.","tr":"I'm learning Chinese because I want to work in China."}},
+        {"dialog":[{"who":"Xiao Li","t":"你为什么学中文？","r":"Nǐ wèishénme xué Zhōngwén?","tr":"Why are you learning Chinese?"},{"who":"Tom","t":"因为我女朋友是中国人。","r":"Yīnwèi wǒ nǚpéngyou shì Zhōngguórén.","tr":"Because my girlfriend is Chinese."},{"who":"Xiao Li","t":"真的？她是哪儿人？","r":"Zhēn de? Tā shì nǎr rén?","tr":"Really? Where's she from?"},{"who":"Tom","t":"她是成都人，所以我也很喜欢吃辣的！","r":"Tā shì Chéngdūrén, suǒyǐ wǒ yě hěn xǐhuan chī là de!","tr":"She's from Chengdu, so I love spicy food too!"},{"who":"Xiao Li","t":"你昨天为什么没来上课？","r":"Nǐ zuótiān wèishénme méi lái shàngkè?","tr":"Why didn't you come to class yesterday?"},{"who":"Tom","t":"因为我感冒了。","r":"Yīnwèi wǒ gǎnmào le.","tr":"Because I had a cold."}]},
+        {"p":"**Why?** {{为什么|wèishénme}} goes before the verb, where a reason would go: {{你为什么学中文？|Nǐ wèishénme xué Zhōngwén?}} “Why are you learning Chinese?” {{你为什么没来？|Nǐ wèishénme méi lái?}} “Why didn't you come?” Like every question word, it takes no {{吗|ma}}."},
+        {"p":"**Because… so…** English uses one or the other; Chinese happily uses both. {{因为|yīnwèi}} “because” starts the reason and {{所以|suǒyǐ}} “so” starts the result: {{因为下雨了，所以我们没出去。|Yīnwèi xiàyǔ le, suǒyǐ wǒmen méi chūqù.}} “It was raining, so we didn't go out.” Either half can also stand alone."},
+        {"p":"**The reason usually comes first.** In an answer to {{为什么|wèishénme}}, {{因为…|yīnwèi…}} alone is enough: {{因为我很忙。|Yīnwèi wǒ hěn máng.}} “Because I'm busy.”"},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["asking","{{你为什么不吃？|Nǐ wèishénme bù chī?}}","Why aren't you eating?"],
+          ["both halves","{{因为太辣了，所以我不吃。|Yīnwèi tài là le, suǒyǐ wǒ bù chī.}}","I'm not eating it because it's too spicy."],
+          ["just the reason","{{因为太辣了。|Yīnwèi tài là le.}}","Because it's too spicy."],
+          ["just the result","{{太辣了，所以我不吃。|Tài là le, suǒyǐ wǒ bù chī.}}","It's too spicy, so I'm not eating it."]
+        ] },
+        { "ex": [
+          {"t":"你为什么学中文？","r":"Nǐ wèishénme xué Zhōngwén?","tr":"Why are you learning Chinese?"},
+          {"t":"因为我想去中国工作，所以我学中文。","r":"Yīnwèi wǒ xiǎng qù Zhōngguó gōngzuò, suǒyǐ wǒ xué Zhōngwén.","tr":"I'm learning Chinese because I want to work in China."},
+          {"t":"我今天很累，因为昨天睡得太晚了。","r":"Wǒ jīntiān hěn lèi, yīnwèi zuótiān shuì de tài wǎn le.","tr":"I'm tired today because I went to bed too late last night.","note":"the reason can come second too"},
+          {"t":"今天是周末，所以人很多。","r":"Jīntiān shì zhōumò, suǒyǐ rén hěn duō.","tr":"It's the weekend, so it's crowded."},
+          {"t":"他为什么不高兴？","r":"Tā wèishénme bù gāoxìng?","tr":"Why is he upset?"},
+          {"t":"因为下雨了，所以我们没去公园。","r":"Yīnwèi xiàyǔ le, suǒyǐ wǒmen méi qù gōngyuán.","tr":"Because it rained, we didn't go to the park."}
+        ] },
+        {"tip":"{{怎么|zěnme}} can ask “how come?”, with surprise: {{你怎么不吃？|Nǐ zěnme bù chī?}} “How come you're not eating?”"}
+      ],
+      "mistakes": [
+        {"wrong":"所以下雨了，我们没出去。","right":"因为下雨了，所以我们没出去。","tr":"It was raining, so we didn't go out.","why":"{{因为|yīnwèi}} goes with the reason, {{所以|suǒyǐ}} with the result: {{因为下雨了，所以我们没出去。|Yīnwèi xiàyǔ le, suǒyǐ wǒmen méi chūqù.}}"},
+        {"wrong":"你为什么学中文吗？","right":"你为什么学中文？","tr":"Why are you learning Chinese?","why":"{{为什么|wèishénme}} is a question word: no {{吗|ma}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___下雨了，所以我们没出去。","r":"___ xiàyǔ le, suǒyǐ wǒmen méi chūqù.","tr":"It was raining, so we didn't go out.","options":["因为","所以","为什么"],"rs":["yīnwèi","suǒyǐ","wèishénme"],"answer":0,"why":"The reason starts with {{因为|yīnwèi}}."},
+        {"type":"choice","q":"“Why didn't you come yesterday?” is…","options":["{{你昨天为什么没来？|Nǐ zuótiān wèishénme méi lái?}}","{{你昨天没来为什么？|Nǐ zuótiān méi lái wèishénme?}}","{{你昨天为什么没来吗？|Nǐ zuótiān wèishénme méi lái ma?}}"],"answer":0,"why":"{{为什么|wèishénme}} before the verb, and no {{吗|ma}}.","from":"say-what-you-did"},
+        {"type":"order","q":"Put the words in order.","tr":"It's the weekend, so it's crowded.","words":["今天","是","周末，","所以","人很多。"],"rs":["jīntiān","shì","zhōumò,","suǒyǐ","rén hěn duō."]},
+        {"type":"dialogue","q":"A colleague asks why you were off. Choose your replies.","lines":[{"who":"Colleague","t":"你昨天为什么没来上班？","r":"Nǐ zuótiān wèishénme méi lái shàngbān?","tr":"Why didn't you come to work yesterday?"},{"options":["因为我发烧了。","所以我发烧了。"],"rs":["Yīnwèi wǒ fāshāo le.","Suǒyǐ wǒ fāshāo le."],"answer":0,"why":"A reason: {{因为|yīnwèi}}."},{"who":"Colleague","t":"现在好了吗？","r":"Xiànzài hǎo le ma?","tr":"Are you better now?"},{"options":["好多了，谢谢！","好了多，谢谢！"],"rs":["Hǎo duō le, xièxie!","Hǎo le duō, xièxie!"],"answer":0,"why":"“Much better” is {{好多了|hǎo duō le}}, as in comparisons."}],"from":"compare-things"},
+        {"type":"say","q":"Answer “Why are you learning Chinese?”: “Because I like China.”","answer":"因为我喜欢中国。","r":"Yīnwèi wǒ xǐhuan Zhōngguó."},
+        {"type":"free","q":"Your turn: why are you learning Chinese? Answer with {{因为…所以…|yīnwèi… suǒyǐ…}}","answers":[{"t":"因为我想去中国旅游，所以我学中文。","r":"Yīnwèi wǒ xiǎng qù Zhōngguó lǚyóu, suǒyǐ wǒ xué Zhōngwén.","tr":"I'm learning Chinese because I want to travel in China."},{"t":"因为我的公司在中国有很多客户，所以我得学中文。","r":"Yīnwèi wǒ de gōngsī zài Zhōngguó yǒu hěn duō kèhù, suǒyǐ wǒ děi xué Zhōngwén.","tr":"My company has lots of customers in China, so I have to learn Chinese."}]}
+      ]
+    },
+    {
+      "id": "say-but-and-although",
+      "unit": 8,
+      "level": "A2",
+      "title": "Say “but” and “although”",
+      "summary": "“It's cheap but not very good”, “Although I'm tired, I'm happy”, “It's raining, but we're still going”: put two ideas against each other.",
+      "topic": "{{但是|dànshì}}, {{可是|kěshì}}, {{不过|búguò}}; {{虽然…但是…|suīrán… dànshì…}} (both halves); {{还是|háishi}} “still”",
+      "blocks": [
+        {"goal":{"t":"虽然中文很难，但是很有意思。","r":"Suīrán Zhōngwén hěn nán, dànshì hěn yǒu yìsi.","tr":"Chinese is hard, but it's really interesting."}},
+        {"dialog":[{"who":"Anna","t":"这家饭馆怎么样？","r":"Zhè jiā fànguǎn zěnmeyàng?","tr":"What's this restaurant like?"},{"who":"Xiao Wang","t":"菜很好吃，可是有点儿贵。","r":"Cài hěn hǎochī, kěshì yǒudiǎnr guì.","tr":"The food's great, but it's a bit expensive."},{"who":"Anna","t":"外面下雨了。我们还去吗？","r":"Wàimiàn xiàyǔ le. Wǒmen hái qù ma?","tr":"It's raining outside. Are we still going?"},{"who":"Xiao Wang","t":"虽然下雨了，但是我们还是去吧！","r":"Suīrán xiàyǔ le, dànshì wǒmen háishi qù ba!","tr":"It's raining, but let's go anyway!"},{"who":"Anna","t":"好吧，不过你请客！","r":"Hǎo ba, búguò nǐ qǐngkè!","tr":"OK, but it's your treat!"}]},
+        {"p":"**But**: {{但是|dànshì}}, {{可是|kěshì}} or {{不过|búguò}}, at the start of the second part. They mean the same; {{可是|kěshì}} is very spoken, and {{不过|búguò}} softer, like “though”."},
+        {"p":"**Although… but…** English never says “although… but”; Chinese nearly always does: {{虽然|suīrán}} “although” starts the first part, and {{但是|dànshì}} or {{可是|kěshì}} starts the second: {{虽然我很累，但是很开心。|Suīrán wǒ hěn lèi, dànshì hěn kāixīn.}} “Although I'm tired, I'm happy.” {{虽然|suīrán}} can also come after the subject: {{我虽然很累，…|Wǒ suīrán hěn lèi, …}}"},
+        {"p":"**Still**: {{还是|háishi}}, before the verb in the second part: {{虽然下雨了，我们还是去了。|Suīrán xiàyǔ le, wǒmen háishi qù le.}} “It was raining, but we still went.” It's the {{还是|háishi}} of “or” questions, doing another job."},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["but","{{很便宜，可是不太好。|Hěn piányi, kěshì bú tài hǎo.}}","It's cheap, but not very good."],
+          ["although… but","{{虽然很贵，但是很好。|Suīrán hěn guì, dànshì hěn hǎo.}}","Although it's expensive, it's good."],
+          ["still","{{他病了，还是来上班了。|Tā bìng le, háishi lái shàngbān le.}}","He was ill, but he still came to work."]
+        ] },
+        { "ex": [
+          {"t":"虽然中文很难，但是很有意思。","r":"Suīrán Zhōngwén hěn nán, dànshì hěn yǒu yìsi.","tr":"Chinese is hard, but it's really interesting."},
+          {"t":"我想去，可是我没有时间。","r":"Wǒ xiǎng qù, kěshì wǒ méiyǒu shíjiān.","tr":"I'd like to go, but I don't have time."},
+          {"t":"这件衣服很漂亮，不过有点儿贵。","r":"Zhè jiàn yīfu hěn piàoliang, búguò yǒudiǎnr guì.","tr":"This top is lovely, though it's a bit expensive."},
+          {"t":"虽然他是美国人，但是他中文说得很好。","r":"Suīrán tā shì Měiguórén, dànshì tā Zhōngwén shuō de hěn hǎo.","tr":"Although he's American, he speaks Chinese very well."},
+          {"t":"我吃饱了，可是还想吃！","r":"Wǒ chībǎo le, kěshì hái xiǎng chī!","tr":"I'm full, but I still want more!"},
+          {"t":"虽然下雨了，我们还是去了。","r":"Suīrán xiàyǔ le, wǒmen háishi qù le.","tr":"It was raining, but we still went."}
+        ] },
+        {"tip":"{{还是|háishi}} can also mean “had better”: {{我们还是走吧。|Wǒmen háishi zǒu ba.}} “We'd better go.”"}
+      ],
+      "mistakes": [
+        {"wrong":"虽然很贵，所以我买了。","right":"虽然很贵，但是我买了。","tr":"Although it was expensive, I bought it.","why":"{{虽然|suīrán}} pairs with {{但是|dànshì}} or {{可是|kěshì}}, never with {{所以|suǒyǐ}}."},
+        {"wrong":"虽然下雨了，我们去还是了。","right":"虽然下雨了，我们还是去了。","tr":"It was raining, but we still went.","why":"{{还是|háishi}} “still” goes before the verb: {{还是去了|háishi qù le}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"虽然很累，___我很开心。","r":"Suīrán hěn lèi, ___ wǒ hěn kāixīn.","tr":"Although I'm tired, I'm happy.","options":["但是","所以","因为"],"rs":["dànshì","suǒyǐ","yīnwèi"],"answer":0,"why":"{{虽然|suīrán}} … {{但是|dànshì}}: Chinese uses both halves.","from":"say-why"},
+        {"type":"choice","q":"“I'd like to go, but I don't have time” is…","options":["{{我想去，可是我没有时间。|Wǒ xiǎng qù, kěshì wǒ méiyǒu shíjiān.}}","{{我想去，所以我没有时间。|Wǒ xiǎng qù, suǒyǐ wǒ méiyǒu shíjiān.}}","{{可是我想去，我没有时间。|Kěshì wǒ xiǎng qù, wǒ méiyǒu shíjiān.}}"],"answer":0,"why":"“But” starts the second part: {{可是|kěshì}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Although it's expensive, it's good.","words":["虽然","很贵，","但是","很好。"],"rs":["suīrán","hěn guì,","dànshì","hěn hǎo."]},
+        {"type":"dialogue","q":"It's cold, and you planned to go running. Choose your replies.","lines":[{"who":"Friend","t":"外面很冷，你还去跑步吗？","r":"Wàimiàn hěn lěng, nǐ hái qù pǎobù ma?","tr":"It's cold outside, are you still going running?"},{"options":["虽然很冷，但是我还是去。","虽然很冷，所以我还是去。"],"rs":["Suīrán hěn lěng, dànshì wǒ háishi qù.","Suīrán hěn lěng, suǒyǐ wǒ háishi qù."],"answer":0,"why":"{{虽然|suīrán}} … {{但是|dànshì}}, and {{还是|háishi}} “still” before the verb."},{"who":"Friend","t":"你不累吗？","r":"Nǐ bú lèi ma?","tr":"Aren't you tired?"},{"options":["有点儿累，不过没关系。","一点儿累，不过没关系。"],"rs":["Yǒudiǎnr lèi, búguò méi guānxi.","Yìdiǎnr lèi, búguò méi guānxi."],"answer":0,"why":"“A bit tired”: {{有点儿累|yǒudiǎnr lèi}}; then “but it doesn't matter”: {{不过|búguò}}."}],"from":"say-a-bit-or-too"},
+        {"type":"say","q":"Say “Chinese is hard, but it's really interesting”, with {{虽然|suīrán}}.","answer":"虽然中文很难，但是很有意思。","r":"Suīrán Zhōngwén hěn nán, dànshì hěn yǒu yìsi."},
+        {"type":"free","q":"Your turn: say something good and something not so good about where you live, with {{虽然…但是…|suīrán… dànshì…}}","answers":[{"t":"虽然我的城市很小，但是很漂亮。","r":"Suīrán wǒ de chéngshì hěn xiǎo, dànshì hěn piàoliang.","tr":"My city is small, but it's beautiful."},{"t":"虽然北京冬天很冷，但是我很喜欢北京。","r":"Suīrán Běijīng dōngtiān hěn lěng, dànshì wǒ hěn xǐhuan Běijīng.","tr":"Beijing is cold in winter, but I really like it."}]}
+      ]
+    },
+    {
+      "id": "say-what-if",
+      "unit": 8,
+      "level": "A2",
+      "title": "Say what happens if…",
+      "summary": "“If it rains, we won't go”, “If you're free, come round”, “Call me if there's a problem”: talk about conditions.",
+      "topic": "{{如果|rúguǒ}} / {{要是|yàoshi}} … ({{的话|dehuà}}), {{就|jiù}} …; {{就|jiù}} after the subject",
+      "blocks": [
+        {"goal":{"t":"如果明天下雨，我们就不去了。","r":"Rúguǒ míngtiān xiàyǔ, wǒmen jiù bú qù le.","tr":"If it rains tomorrow, we won't go."}},
+        {"dialog":[{"who":"Xiao Wang","t":"周末我们去爬山，好吗？","r":"Zhōumò wǒmen qù pá shān, hǎo ma?","tr":"Shall we go hiking at the weekend?"},{"who":"Anna","t":"好啊。可是如果下雨呢？","r":"Hǎo a. Kěshì rúguǒ xiàyǔ ne?","tr":"Sure. But what if it rains?"},{"who":"Xiao Wang","t":"要是下雨的话，我们就去看电影。","r":"Yàoshi xiàyǔ dehuà, wǒmen jiù qù kàn diànyǐng.","tr":"If it rains, we'll go to the cinema."},{"who":"Anna","t":"好主意！你有时间就给我打电话。","r":"Hǎo zhǔyi! Nǐ yǒu shíjiān jiù gěi wǒ dǎ diànhuà.","tr":"Good idea! Call me when you're free."}]},
+        {"p":"**If: {{如果|rúguǒ}}**, or the more spoken {{要是|yàoshi}}, starts the condition, and {{就|jiù}} “then” comes in the second part: {{如果明天下雨，我们就不去了。|Rúguǒ míngtiān xiàyǔ, wǒmen jiù bú qù le.}} {{的话|dehuà}} at the end of the first part is common in speech: {{要是下雨的话|yàoshi xiàyǔ dehuà}} “if it rains”."},
+        {"p":"**{{就|jiù}} goes after the subject**, just before the verb (or before {{不|bù}}, {{会|huì}}, {{要|yào}}): {{如果你有时间，我们就去。|Rúguǒ nǐ yǒu shíjiān, wǒmen jiù qù.}} Never before the subject. The condition comes first, and there's still no future tense: the situation says it."},
+        { "table": [
+          ["If…","then…","Meaning"],
+          ["{{如果你累了，|Rúguǒ nǐ lèi le,}}","{{就休息一下吧。|jiù xiūxi yíxià ba.}}","If you're tired, take a break."],
+          ["{{要是太贵的话，|Yàoshi tài guì dehuà,}}","{{我就不买了。|wǒ jiù bù mǎi le.}}","If it's too expensive, I won't buy it."],
+          ["{{你有时间，|Nǐ yǒu shíjiān,}}","{{就来我家吧。|jiù lái wǒ jiā ba.}}","If you have time, come round."]
+        ] },
+        {"p":"In a short, chatty sentence {{如果|rúguǒ}} can be dropped, and {{就|jiù}} alone does the job: {{你有时间就来吧。|Nǐ yǒu shíjiān jiù lái ba.}} “Come if you have time.”"},
+        { "ex": [
+          {"t":"如果明天下雨，我们就不去了。","r":"Rúguǒ míngtiān xiàyǔ, wǒmen jiù bú qù le.","tr":"If it rains tomorrow, we won't go."},
+          {"t":"要是你不喜欢，就别吃了。","r":"Yàoshi nǐ bù xǐhuan, jiù bié chī le.","tr":"If you don't like it, don't eat it."},
+          {"t":"如果有问题，就给我打电话。","r":"Rúguǒ yǒu wèntí, jiù gěi wǒ dǎ diànhuà.","tr":"If there's a problem, give me a call."},
+          {"t":"你有时间就来我家吃饭吧。","r":"Nǐ yǒu shíjiān jiù lái wǒ jiā chīfàn ba.","tr":"Come round for dinner if you have time."},
+          {"t":"如果你想学中文，我可以教你。","r":"Rúguǒ nǐ xiǎng xué Zhōngwén, wǒ kěyǐ jiāo nǐ.","tr":"If you want to learn Chinese, I can teach you.","note":"{{就|jiù}} isn't needed here, but you can add it"},
+          {"t":"不舒服的话，就回家休息吧。","r":"Bù shūfu dehuà, jiù huí jiā xiūxi ba.","tr":"If you don't feel well, go home and rest."}
+        ] },
+        {"tip":"{{给|gěi}} “give” also means “to, for” before a person: {{给我打电话|gěi wǒ dǎ diànhuà}} “call me”, {{给妈妈写信|gěi māma xiě xìn}} “write to Mum”. Like a place, it goes before the verb."}
+      ],
+      "mistakes": [
+        {"wrong":"如果明天下雨，就我们不去了。","right":"如果明天下雨，我们就不去了。","tr":"If it rains tomorrow, we won't go.","why":"{{就|jiù}} goes after the subject, just before the verb: {{我们就不去了|wǒmen jiù bú qù le}}."},
+        {"wrong":"我们不去，如果明天下雨。","right":"如果明天下雨，我们就不去。","tr":"We won't go if it rains tomorrow.","why":"In Chinese the condition comes first: {{如果明天下雨，我们就不去。|Rúguǒ míngtiān xiàyǔ, wǒmen jiù bú qù.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"如果你累了，___休息一下吧。","r":"Rúguǒ nǐ lèi le, ___ xiūxi yíxià ba.","tr":"If you're tired, take a break.","options":["就","所以","但是"],"rs":["jiù","suǒyǐ","dànshì"],"answer":0,"why":"{{如果|rúguǒ}} … {{就|jiù}}: “if … then”."},
+        {"type":"choice","q":"“If it's too expensive, I won't buy it.” Where does {{就|jiù}} go?","options":["{{要是太贵的话，我就不买了。|Yàoshi tài guì dehuà, wǒ jiù bù mǎi le.}}","{{要是太贵的话，就我不买了。|Yàoshi tài guì dehuà, jiù wǒ bù mǎi le.}}","{{要是太贵的话，我不买就了。|Yàoshi tài guì dehuà, wǒ bù mǎi jiù le.}}"],"answer":0,"why":"After the subject, before {{不|bù}} and the verb."},
+        {"type":"order","q":"Put the words in order.","tr":"If there's a problem, give me a call.","words":["如果","有问题，","就","给我","打电话。"],"rs":["rúguǒ","yǒu wèntí,","jiù","gěi wǒ","dǎ diànhuà."]},
+        {"type":"dialogue","q":"Planning the weekend. Choose your replies.","lines":[{"who":"Friend","t":"星期天我们去公园吧？","r":"Xīngqītiān wǒmen qù gōngyuán ba?","tr":"Shall we go to the park on Sunday?"},{"options":["好啊。要是下雨呢？","好啊。下雨要是呢？"],"rs":["Hǎo a. Yàoshi xiàyǔ ne?","Hǎo a. Xiàyǔ yàoshi ne?"],"answer":0,"why":"“What if…?”: {{要是|yàoshi}} + the situation + {{呢|ne}}."},{"who":"Friend","t":"下雨的话，我们就在家看电影。","r":"Xiàyǔ dehuà, wǒmen jiù zài jiā kàn diànyǐng.","tr":"If it rains, we'll watch a film at home."},{"options":["好！那我们几点见？","好！那我们见几点？"],"rs":["Hǎo! Nà wǒmen jǐ diǎn jiàn?","Hǎo! Nà wǒmen jiàn jǐ diǎn?"],"answer":0,"why":"The time goes before the verb, even in a question: {{几点见|jǐ diǎn jiàn}}."}],"from":"say-when"},
+        {"type":"say","q":"Say “Come round for dinner if you have time.”","answer":"你有时间就来我家吃饭吧。","r":"Nǐ yǒu shíjiān jiù lái wǒ jiā chīfàn ba.","from":"make-plans"},
+        {"type":"free","q":"Your turn: what will you do this weekend if the weather is good, and if it isn't?","answers":[{"t":"如果天气好，我就去爬山。如果下雨，我就在家看书。","r":"Rúguǒ tiānqì hǎo, wǒ jiù qù pá shān. Rúguǒ xiàyǔ, wǒ jiù zài jiā kàn shū.","tr":"If the weather's good, I'll go hiking. If it rains, I'll stay at home and read."},{"t":"要是天气好的话，我们就去海边。要是不好，就去看电影。","r":"Yàoshi tiānqì hǎo dehuà, wǒmen jiù qù hǎibiān. Yàoshi bù hǎo, jiù qù kàn diànyǐng.","tr":"If the weather's good, we'll go to the seaside. If not, we'll go to the cinema."}]}
+      ]
+    },
+    {
+      "id": "say-what-comes-first",
+      "unit": 8,
+      "level": "A2",
+      "title": "Say what happens first, next, and when",
+      "summary": "“After work I go to the gym”, “When I was little…”, “As soon as I get home, I'll call you”: put events in order.",
+      "topic": "{{以前|yǐqián}}, {{以后|yǐhòu}}, {{的时候|de shíhou}} after the event; {{先…再…|xiān… zài…}}; {{一…就…|yī… jiù…}}",
+      "blocks": [
+        {"goal":{"t":"下班以后，我去健身房。","r":"Xiàbān yǐhòu, wǒ qù jiànshēnfáng.","tr":"After work, I go to the gym."}},
+        {"dialog":[{"who":"Xiao Lin","t":"你每天下班以后做什么？","r":"Nǐ měitiān xiàbān yǐhòu zuò shénme?","tr":"What do you do after work every day?"},{"who":"Mark","t":"我先去健身房，再回家做饭。","r":"Wǒ xiān qù jiànshēnfáng, zài huí jiā zuò fàn.","tr":"First I go to the gym, then I go home and cook."},{"who":"Xiao Lin","t":"你周末呢？","r":"Nǐ zhōumò ne?","tr":"And at weekends?"},{"who":"Mark","t":"我一起床就去公园跑步。","r":"Wǒ yì qǐchuáng jiù qù gōngyuán pǎobù.","tr":"As soon as I get up, I go running in the park."},{"who":"Xiao Lin","t":"你小时候也喜欢运动吗？","r":"Nǐ xiǎoshíhou yě xǐhuan yùndòng ma?","tr":"Did you like sport as a child too?"},{"who":"Mark","t":"不，我小的时候只喜欢玩儿游戏！","r":"Bù, wǒ xiǎo de shíhou zhǐ xǐhuan wánr yóuxì!","tr":"No, when I was little I only liked playing games!"}]},
+        {"p":"**Before, after, when: at the end of the event.** English says “*after* work”; Chinese says “work *after*”: {{下班以后|xiàbān yǐhòu}}. The same goes for {{以前|yǐqián}} “before” and {{的时候|de shíhou}} “when, while”: {{吃饭以前|chīfàn yǐqián}} “before eating”, {{我在中国的时候|wǒ zài Zhōngguó de shíhou}} “when I was in China”. The whole time phrase comes first, like any time word."},
+        { "table": [
+          ["English","Chinese"],
+          ["after work","{{下班以后|xiàbān yǐhòu}}"],
+          ["before you go to bed","{{睡觉以前|shuìjiào yǐqián}}"],
+          ["when I was little","{{我小的时候|wǒ xiǎo de shíhou}}"],
+          ["while I'm eating","{{吃饭的时候|chīfàn de shíhou}}"],
+          ["two years ago","{{两年以前|liǎng nián yǐqián}}"]
+        ] },
+        {"p":"**First…, then…** {{先|xiān}}… {{再|zài}}… is “first this, then that”, for plans and instructions: {{你先洗手，再吃饭。|Nǐ xiān xǐ shǒu, zài chīfàn.}} “Wash your hands first, then eat.” ({{然后|ránhòu}} works too.)"},
+        {"p":"**As soon as: {{一…就…|yī… jiù…}}.** {{一|yī}} before the first verb, {{就|jiù}} before the second: {{我一到家就给你打电话。|Wǒ yí dào jiā jiù gěi nǐ dǎ diànhuà.}} “I'll call you as soon as I get home.”"},
+        { "ex": [
+          {"t":"下班以后，我去健身房。","r":"Xiàbān yǐhòu, wǒ qù jiànshēnfáng.","tr":"After work, I go to the gym."},
+          {"t":"睡觉以前别看手机。","r":"Shuìjiào yǐqián bié kàn shǒujī.","tr":"Don't look at your phone before bed."},
+          {"t":"我在北京的时候，常常吃烤鸭。","r":"Wǒ zài Běijīng de shíhou, chángcháng chī kǎoyā.","tr":"When I was in Beijing, I often ate roast duck."},
+          {"t":"你先洗手，再吃饭。","r":"Nǐ xiān xǐ shǒu, zài chīfàn.","tr":"Wash your hands first, then eat."},
+          {"t":"我一到家就给你打电话。","r":"Wǒ yí dào jiā jiù gěi nǐ dǎ diànhuà.","tr":"I'll call you as soon as I get home."},
+          {"t":"他一喝酒就脸红。","r":"Tā yì hē jiǔ jiù liǎn hóng.","tr":"As soon as he drinks, his face goes red."}
+        ] },
+        {"tip":"{{以前|yǐqián}} on its own means “before, in the past”: {{我以前不喜欢吃辣的。|Wǒ yǐqián bù xǐhuan chī là de.}} “I didn't use to like spicy food.” And {{以后|yǐhòu}} alone means “later, in future”: {{以后再说吧。|Yǐhòu zài shuō ba.}} “Let's talk about it later.”"}
+      ],
+      "mistakes": [
+        {"wrong":"以后下班，我去健身房。","right":"下班以后，我去健身房。","tr":"After work, I go to the gym.","why":"{{以后|yǐhòu}} goes after the event: {{下班以后|xiàbān yǐhòu}} “work after”."},
+        {"wrong":"我就一到家给你打电话。","right":"我一到家就给你打电话。","tr":"I'll call you as soon as I get home.","why":"{{一|yī}} before the first verb, {{就|jiù}} before the second: {{一到家就打电话|yí dào jiā jiù dǎ diànhuà}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"吃饭___，请先洗手。","r":"Chīfàn ___, qǐng xiān xǐ shǒu.","tr":"Please wash your hands before eating.","options":["以前","以后","的时候"],"rs":["yǐqián","yǐhòu","de shíhou"],"answer":0,"why":"“Before” is {{以前|yǐqián}}, after the event."},
+        {"type":"choice","q":"“When I was in China, I learned to cook Chinese food” is…","options":["{{我在中国的时候，学会了做中国菜。|Wǒ zài Zhōngguó de shíhou, xuéhuì le zuò Zhōngguó cài.}}","{{的时候我在中国，学会了做中国菜。|De shíhou wǒ zài Zhōngguó, xuéhuì le zuò Zhōngguó cài.}}"],"answer":0,"why":"{{的时候|de shíhou}} closes the time phrase. ({{学会|xuéhuì}} “learn-able”: learn to.)","from":"say-if-you-got-it"},
+        {"type":"order","q":"Put the words in order.","tr":"I'll call you as soon as I get home.","words":["我","一到家","就","给你","打电话。"],"rs":["wǒ","yí dào jiā","jiù","gěi nǐ","dǎ diànhuà."],"from":"say-what-if"},
+        {"type":"dialogue","q":"A new colleague asks about your evenings. Choose your replies.","lines":[{"who":"Colleague","t":"你下班以后做什么？","r":"Nǐ xiàbān yǐhòu zuò shénme?","tr":"What do you do after work?"},{"options":["我先去超市，再回家做饭。","我再去超市，先回家做饭。"],"rs":["Wǒ xiān qù chāoshì, zài huí jiā zuò fàn.","Wǒ zài qù chāoshì, xiān huí jiā zuò fàn."],"answer":0,"why":"{{先|xiān}} “first”, then {{再|zài}} “then”."},{"who":"Colleague","t":"你几点吃晚饭？","r":"Nǐ jǐ diǎn chī wǎnfàn?","tr":"What time do you have dinner?"},{"options":["我一到家就吃。","我到家一就吃。"],"rs":["Wǒ yí dào jiā jiù chī.","Wǒ dào jiā yī jiù chī."],"answer":0,"why":"{{一|yī}} before the first action, {{就|jiù}} before the second."},{"who":"Colleague","t":"我也是！","r":"Wǒ yě shì!","tr":"Me too!"}],"from":"describe-your-day"},
+        {"type":"say","q":"Say “Don't look at your phone before bed.”","answer":"睡觉以前别看手机。","r":"Shuìjiào yǐqián bié kàn shǒujī.","from":"give-advice-and-rules"},
+        {"type":"free","q":"Your turn: describe your evening in order: what you do after work or school, and before bed.","answers":[{"t":"下班以后我先去健身房，再回家做饭。睡觉以前我看一会儿书。","r":"Xiàbān yǐhòu wǒ xiān qù jiànshēnfáng, zài huí jiā zuò fàn. Shuìjiào yǐqián wǒ kàn yíhuìr shū.","tr":"After work I go to the gym first, then home to cook. Before bed I read for a while."},{"t":"我一到家就洗澡。吃饭的时候我常常看电视。","r":"Wǒ yí dào jiā jiù xǐzǎo. Chīfàn de shíhou wǒ chángcháng kàn diànshì.","tr":"As soon as I get home, I have a shower. I often watch TV while I eat."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Give your opinion and your reasons",
+      "summary": "“I think the train is better”, “For me, the price matters most”, “I agree”, “Not necessarily”: say what you think, and why.",
+      "topic": "{{我觉得|wǒ juéde}}, {{我认为|wǒ rènwéi}}; {{对…来说|duì… lái shuō}}; {{同意|tóngyì}}; {{不一定|bù yídìng}}; {{而且|érqiě}}",
+      "blocks": [
+        {"goal":{"t":"我觉得坐高铁比坐飞机方便。","r":"Wǒ juéde zuò gāotiě bǐ zuò fēijī fāngbiàn.","tr":"I think the high-speed train is more convenient than flying."}},
+        {"dialog":[{"who":"Xiao Wang","t":"去上海，你觉得坐飞机好还是坐高铁好？","r":"Qù Shànghǎi, nǐ juéde zuò fēijī hǎo háishi zuò gāotiě hǎo?","tr":"To get to Shanghai, do you think flying or the high-speed train is better?"},{"who":"Anna","t":"我觉得坐高铁好，因为不用很早去机场。","r":"Wǒ juéde zuò gāotiě hǎo, yīnwèi búyòng hěn zǎo qù jīchǎng.","tr":"I think the train is better, because you don't have to get to the airport early."},{"who":"Xiao Wang","t":"我同意。而且坐高铁也很舒服。","r":"Wǒ tóngyì. Érqiě zuò gāotiě yě hěn shūfu.","tr":"I agree. And the train's comfortable too."},{"who":"Anna","t":"对我来说，最重要的是便宜！","r":"Duì wǒ lái shuō, zuì zhòngyào de shì piányi!","tr":"For me, the most important thing is the price!"},{"who":"Xiao Wang","t":"那不一定，有时候飞机票更便宜。","r":"Nà bù yídìng, yǒu shíhou fēijīpiào gèng piányi.","tr":"Not necessarily: sometimes plane tickets are cheaper."}]},
+        {"p":"**I think: {{我觉得|wǒ juéde}}** + your opinion, as a whole sentence: {{我觉得中文很有意思。|Wǒ juéde Zhōngwén hěn yǒu yìsi.}} {{我认为|wǒ rènwéi}} is more formal, for serious opinions. Ask with {{你觉得…？|Nǐ juéde…?}}, or simply {{你觉得呢？|Nǐ juéde ne?}} “What do you think?”"},
+        {"p":"**For me, as far as … is concerned: {{对…来说|duì… lái shuō}}**, at the start: {{对我来说，太贵了。|Duì wǒ lái shuō, tài guì le.}} “For me, it's too expensive.” {{对学生来说|duì xuésheng lái shuō}} “for students”."},
+        {"p":"**Agreeing and disagreeing**: {{我同意。|Wǒ tóngyì.}} “I agree.” {{我不同意。|Wǒ bù tóngyì.}} “I disagree.” Softer, and more Chinese: {{不一定。|Bù yídìng.}} “Not necessarily.” **To add another reason**, {{而且|érqiě}} “and what's more”, as well as the {{因为|yīnwèi}} you know."},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["opinion","{{我觉得这个主意不错。|Wǒ juéde zhège zhǔyi búcuò.}}","I think it's a good idea."],
+          ["asking","{{你觉得呢？|Nǐ juéde ne?}}","What do you think?"],
+          ["for me","{{对我来说，健康最重要。|Duì wǒ lái shuō, jiànkāng zuì zhòngyào.}}","For me, health matters most."],
+          ["agree","{{我同意你的看法。|Wǒ tóngyì nǐ de kànfǎ.}}","I agree with you."],
+          ["not so sure","{{那不一定。|Nà bù yídìng.}}","Not necessarily."],
+          ["what's more","{{而且很便宜。|Érqiě hěn piányi.}}","And it's cheap, too."]
+        ] },
+        { "ex": [
+          {"t":"我觉得坐高铁比坐飞机方便。","r":"Wǒ juéde zuò gāotiě bǐ zuò fēijī fāngbiàn.","tr":"I think the high-speed train is more convenient than flying."},
+          {"t":"你觉得这部电影怎么样？","r":"Nǐ juéde zhè bù diànyǐng zěnmeyàng?","tr":"What did you think of the film?"},
+          {"t":"我觉得有点儿贵，不过质量很好。","r":"Wǒ juéde yǒudiǎnr guì, búguò zhìliàng hěn hǎo.","tr":"I think it's a bit pricey, but the quality is good."},
+          {"t":"对孩子来说，玩儿也很重要。","r":"Duì háizi lái shuō, wánr yě hěn zhòngyào.","tr":"For children, playing matters too."},
+          {"t":"我不同意。我觉得在家工作更好。","r":"Wǒ bù tóngyì. Wǒ juéde zài jiā gōngzuò gèng hǎo.","tr":"I disagree. I think working from home is better."},
+          {"t":"学中文不一定很难。","r":"Xué Zhōngwén bù yídìng hěn nán.","tr":"Learning Chinese isn't necessarily hard."}
+        ] },
+        {"tip":"Chinese conversation tends to avoid a flat “No, you're wrong.” {{不一定|bù yídìng}} “not necessarily”, {{也有道理|yě yǒu dàoli}} “that's a fair point too” and {{我觉得…|wǒ juéde…}} keep things friendly."}
+      ],
+      "mistakes": [
+        {"wrong":"我觉得是中文很有意思。","right":"我觉得中文很有意思。","tr":"I think Chinese is really interesting.","why":"After {{我觉得|wǒ juéde}} comes an ordinary sentence, and an adjective still takes no {{是|shì}}."},
+        {"wrong":"我是同意。","right":"我同意。","tr":"I agree.","why":"{{同意|tóngyì}} is already the verb “agree”: no {{是|shì}}. {{我同意。|Wǒ tóngyì.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___我来说，健康最重要。","r":"___ wǒ lái shuō, jiànkāng zuì zhòngyào.","tr":"For me, health matters most.","options":["对","在","给"],"rs":["duì","zài","gěi"],"answer":0,"why":"“For me”: {{对我来说|duì wǒ lái shuō}}."},
+        {"type":"choice","q":"Your friend says Shanghai is better than Beijing. You're not so sure. You say…","options":["{{那不一定。|Nà bù yídìng.}}","{{那不同意。|Nà bù tóngyì.}}","{{那不觉得。|Nà bù juéde.}}"],"answer":0,"why":"“Not necessarily”: {{不一定|bù yídìng}}, the polite way to doubt."},
+        {"type":"order","q":"Put the words in order.","tr":"I think working from home is better.","words":["我","觉得","在家","工作","更好。"],"rs":["wǒ","juéde","zài jiā","gōngzuò","gèng hǎo."],"from":"say-where-you-do-things"},
+        {"type":"dialogue","q":"Talking about a film you've just seen. Choose your replies.","lines":[{"who":"Friend","t":"你觉得这部电影怎么样？","r":"Nǐ juéde zhè bù diànyǐng zěnmeyàng?","tr":"What did you think of the film?"},{"options":["我觉得很好看，因为故事很有意思。","我觉得是很好看，因为故事很有意思。"],"rs":["Wǒ juéde hěn hǎokàn, yīnwèi gùshi hěn yǒu yìsi.","Wǒ juéde shì hěn hǎokàn, yīnwèi gùshi hěn yǒu yìsi."],"answer":0,"why":"An opinion, then the reason with {{因为|yīnwèi}}; no {{是|shì}} before an adjective."},{"who":"Friend","t":"我觉得有点儿长。你觉得呢？","r":"Wǒ juéde yǒudiǎnr cháng. Nǐ juéde ne?","tr":"I thought it was a bit long. What do you think?"},{"options":["我不同意，我觉得不长。","我不同意，我觉得没长。"],"rs":["Wǒ bù tóngyì, wǒ juéde bù cháng.","Wǒ bù tóngyì, wǒ juéde méi cháng."],"answer":0,"why":"An adjective takes {{不|bù}}, not {{没|méi}}: {{不长|bù cháng}}."}],"from":"say-why"},
+        {"type":"say","q":"Ask a friend: “What do you think?”","answer":"你觉得呢？","r":"Nǐ juéde ne?","from":"say-who-you-are"},
+        {"type":"free","q":"Your turn: is it better to live in a big city or a small town? Give your opinion and a reason or two.","answers":[{"t":"我觉得住在大城市更好，因为工作机会多，而且很方便。","r":"Wǒ juéde zhù zài dà chéngshì gèng hǎo, yīnwèi gōngzuò jīhuì duō, érqiě hěn fāngbiàn.","tr":"I think a big city is better, because there are more jobs, and it's convenient too."},{"t":"对我来说，小城市更好。虽然没有大城市那么方便，但是很安静。","r":"Duì wǒ lái shuō, xiǎo chéngshì gèng hǎo. Suīrán méiyǒu dà chéngshì nàme fāngbiàn, dànshì hěn ānjìng.","tr":"For me, a small town is better. It's not as convenient as a big city, but it's quiet."}]}
+      ]
     }
   ]
 }
