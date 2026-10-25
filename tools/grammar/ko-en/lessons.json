@@ -773,6 +773,238 @@
         {"type":"dialogue","q":"친구가 반려동물에 대해 물어요. 알맞은 대답을 고르세요.","from":"say-what-you-have","lines":[{"who":"친구","t":"Do you have a pet?","tr":"반려동물 있어요?"},{"options":["Yes, I have a cat.","Yes, I have the cat."],"answer":0,"why":"처음 말하는 것: {{a cat}}."},{"who":"친구","t":"Cute! What's the cat's name?","tr":"귀엽네요! 그 고양이 이름이 뭐예요?"},{"options":["Her name is Nabi.","A name is Nabi."],"answer":0,"why":"그 고양이의 이름: {{her name}}."}]},
         {"type":"free","q":"여러분 차례예요: 가진 물건이나 사는 곳을 {{a}}로 소개하고, 그다음 {{the}}로 설명해 보세요.","answers":[{"t":"I live in an apartment. The apartment is small but nice.","tr":"저는 아파트에 살아요. 그 아파트는 작지만 좋아요."},{"t":"I have a bike. The bike is old, but I love it.","tr":"저는 자전거가 있어요. 그 자전거는 오래됐지만 정말 좋아해요."}]}
       ]
+    },
+    {
+      "id": "ask-how-much-and-how-many",
+      "unit": 4,
+      "level": "A1",
+      "title": "얼마인지, 몇 개인지 말하기",
+      "summary": "가격을 묻고, 시간이나 돈이 얼마나 있는지, 물건이 몇 개인지 말해요.",
+      "topic": "셀 수 있는 명사와 셀 수 없는 명사; {{How much}} / {{How many}}; {{some}} / {{any}}; {{a lot of}}",
+      "blocks": [
+        {"goal":{"t":"How much is this?","tr":"이거 얼마예요?"}},
+        {"dialog":[{"who":"미나","t":"Excuse me, how much are these apples?","tr":"실례합니다, 이 사과 얼마예요?"},{"who":"상인","t":"They're two dollars each.","tr":"하나에 2달러예요."},{"who":"미나","t":"OK. I'd like five, please. And how much is this cheese?","tr":"좋아요. 다섯 개 주세요. 그리고 이 치즈는 얼마예요?"},{"who":"상인","t":"It's twelve dollars.","tr":"12달러예요."},{"who":"미나","t":"Hmm, I don't have much money. Just the apples, please.","tr":"음, 돈이 별로 없어요. 사과만 주세요."}]},
+        {"p":"**셀 수 있는 것, 셀 수 없는 것.** 영어 명사는 둘로 나뉘어요. 하나, 둘 셀 수 있는 것({{an apple}}, {{two apples}})과 셀 수 없는 것({{water}}, {{money}}, {{time}}, {{rice}}, {{information}})이에요. 셀 수 없는 명사에는 {{a}}도 {{-s}}도 붙이지 않아요. 한국어로는 셀 수 있을 것 같은 {{homework}} “숙제”, {{advice}} “조언”, {{furniture}} “가구”도 영어에서는 셀 수 없어요."},
+        {"term":"셀 수 없는 명사","means":"하나, 둘로 나눠 세지 않는 것이에요: {{water}}, {{money}}, {{advice}}. {{a}}나 {{-s}}를 붙이지 않아요."},
+        { "table": [
+          ["","셀 수 있는 것","셀 수 없는 것"],
+          ["예","{{a book}}, {{two books}}","{{water}}, {{money}}, {{time}}"],
+          ["얼마나?","{{How many books?}}","{{How much water?}}"],
+          ["많이","{{a lot of books}}, {{many books}}","{{a lot of water}}, {{much water}}"],
+          ["조금","{{a few books}}","{{a little water}}"]
+        ] },
+        {"p":"**가격.** 가격은 돈의 양이라서 {{How much…?}}로 물어요: {{How much is this?}} “이거 얼마예요?”, 여러 개면 {{How much are these?}}"},
+        {"p":"**{{some}}과 {{any}}.** “조금, 몇 개”는 보통 {{some}}, 질문과 부정문에서는 {{any}}예요: {{I have some money.}}, {{Do you have any questions?}}, {{I don't have any time.}} 무언가를 권할 때는 질문이어도 {{some}}: {{Do you want some coffee?}} 그리고 일상 회화에서 “많이 있어요”는 {{a lot of}}가 가장 자연스러워요. {{much}}는 주로 질문과 부정문에 써요: {{I don't have much time.}}"},
+        { "ex": [
+          {"t":"How much is this jacket?","tr":"이 재킷 얼마예요?"},
+          {"t":"How many people are in your family?","tr":"가족이 몇 명이에요?"},
+          {"t":"I don't have much time.","tr":"시간이 별로 없어요."},
+          {"t":"There are a lot of cars on the street.","tr":"길에 차가 많아요."},
+          {"t":"Can I have some water?","tr":"물 좀 주실래요?"},
+          {"t":"I have a few questions.","tr":"질문이 몇 개 있어요."}
+        ] },
+        {"tip":"**가격 읽기.** {{$12.50}}은 “twelve fifty” 또는 “twelve dollars and fifty cents”라고 읽어요. 미국에서는 가격표에 세금이 빠져 있는 경우가 많아서 계산할 때 더 나올 수 있어요."}
+      ],
+      "mistakes": [
+        {"wrong":"How many money do you have?","right":"How much money do you have?","tr":"돈이 얼마나 있어요?","why":"{{money}}는 셀 수 없어서 {{How much}}예요."},
+        {"wrong":"I need an information.","right":"I need some information.","tr":"정보가 좀 필요해요.","why":"{{information}}은 셀 수 없어요: {{a}}도 {{-s}}도 안 돼요."},
+        {"wrong":"I have many homeworks.","right":"I have a lot of homework.","tr":"숙제가 많아요.","why":"{{homework}}는 셀 수 없어요. {{a lot of}}가 자연스러워요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"가게에서: “이거 얼마예요?”","options":["{{How much is this?}}","{{How many is this?}}","{{How much this?}}"],"answer":0,"why":"가격: {{How much is…?}}"},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"How ___ brothers do you have?","tr":"남자 형제가 몇 명이에요?","options":["many","much","a lot"],"answer":0,"why":"셀 수 있는 것: {{How many}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I don't have ___ money.","tr":"돈이 별로 없어요.","options":["much","many","a few"],"answer":0,"why":"셀 수 없는 {{money}}: {{much}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Do you have ___ questions?","tr":"질문 있어요?","options":["any","much","a"],"answer":0,"why":"질문에서는 {{any}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"길에 차가 많아요.","words":["There","are","a","lot","of","cars","on","the","street."]},
+        {"type":"dialogue","q":"선글라스를 사러 왔어요. 알맞은 말을 고르세요.","from":"say-what-you-like-and-want","lines":[{"who":"점원","t":"Can I help you?","tr":"도와드릴까요?"},{"options":["Yes. How much are these sunglasses?","Yes. How many are these sunglasses?"],"answer":0,"why":"가격: {{How much}}."},{"who":"점원","t":"They're forty dollars.","tr":"40달러예요."},{"options":["OK. I'd like these, please.","OK. I like these, please."],"answer":0,"why":"사고 싶을 때: {{I'd like…}}"}]},
+        {"type":"free","q":"여러분 차례예요: 내 방에 있는 물건이 몇 개인지, 그리고 오늘 시간이나 돈이 얼마나 있는지 말해 보세요.","answers":[{"t":"I have a lot of books and two plants. I don't have much time today.","tr":"책이 많고 화분이 두 개 있어요. 오늘은 시간이 별로 없어요."},{"t":"There are three chairs in my room. I have a little money.","tr":"제 방에 의자가 세 개 있어요. 돈은 조금 있어요."}]}
+      ]
+    },
+    {
+      "id": "say-when",
+      "unit": 4,
+      "level": "A1",
+      "title": "날짜와 시간 말하기",
+      "summary": "생일, 약속, 수업이 언제인지 말해요. 시간 앞에 {{at}}, {{on}}, {{in}} 중 무엇을 쓰는지 알아봐요.",
+      "topic": "시간 전치사 {{at}} (시각), {{on}} (요일, 날짜), {{in}} (월, 연도, 계절, 오전/오후); 전치사 없이 쓰는 {{today}}, {{tomorrow}}, {{next week}}",
+      "blocks": [
+        {"goal":{"t":"My birthday is on May 5th.","tr":"제 생일은 5월 5일이에요."}},
+        {"dialog":[{"who":"케이트","t":"When's the meeting?","tr":"회의가 언제예요?"},{"who":"도윤","t":"It's on Monday at ten.","tr":"월요일 열 시예요."},{"who":"케이트","t":"In the morning?","tr":"오전이요?"},{"who":"도윤","t":"Yes, at 10 a.m. And the conference is in March.","tr":"네, 오전 열 시요. 그리고 학회는 3월이에요."},{"who":"케이트","t":"OK, thanks!","tr":"알겠어요, 고마워요!"}]},
+        {"p":"**한국어 “~에”가 영어로는 셋.** 시간 앞에도 {{at}}, {{on}}, {{in}}을 골라 써요. 작은 단위(정확한 시각)부터 큰 단위(월, 연도)로 생각하면 쉬워요."},
+        { "table": [
+          ["전치사","언제","예"],
+          ["{{at}}","정확한 시각","{{at 7:00}}, {{at noon}} 정오에, {{at night}} 밤에"],
+          ["{{on}}","요일, 날짜","{{on Monday}}, {{on May 5th}}, {{on my birthday}}"],
+          ["{{in}}","월, 연도, 계절, 하루 중 때","{{in July}}, {{in 2025}}, {{in winter}}, {{in the morning}}"]
+        ] },
+        {"p":"**전치사가 없는 말.** {{today}}, {{tomorrow}}, {{yesterday}}, {{tonight}}, {{every day}}, {{next week}}, {{last year}} 앞에는 전치사를 쓰지 않아요: {{See you tomorrow!}}, {{I'm busy next week.}}"},
+        {"p":"**날짜 읽기.** 날짜는 순서를 나타내는 숫자로 읽어요: {{May 5th}}는 “May fifth”, {{October 3rd}}는 “October third”. {{1st}} first, {{2nd}} second, {{3rd}} third, 나머지는 대부분 {{-th}}예요: {{4th}}, {{20th}}."},
+        { "ex": [
+          {"t":"The class starts at nine.","tr":"수업은 아홉 시에 시작해요."},
+          {"t":"I go to the gym on Tuesdays.","tr":"저는 화요일마다 헬스장에 가요.","note":"요일 + {{-s}}: “~요일마다”"},
+          {"t":"We go skiing in winter.","tr":"우리는 겨울에 스키 타러 가요."},
+          {"t":"I study in the morning and work in the afternoon.","tr":"오전에는 공부하고 오후에는 일해요."},
+          {"t":"My sister was born in 1998.","tr":"제 여동생은 1998년에 태어났어요.","note":"{{was born}} “태어났다” (46과)"},
+          {"t":"See you tomorrow!","tr":"내일 봐요!"}
+        ] },
+        {"tip":"미국에서는 날짜를 “월/일/연도” 순서로 써요: {{5/3/2025}}는 5월 3일이에요. 한국과 순서가 다르니 조심하세요."}
+      ],
+      "mistakes": [
+        {"wrong":"My birthday is in May 5th.","right":"My birthday is on May 5th.","tr":"제 생일은 5월 5일이에요.","why":"날짜는 {{on}}이에요. 달만 말할 때는 {{in May}}."},
+        {"wrong":"See you on tomorrow.","right":"See you tomorrow.","tr":"내일 봐요.","why":"{{tomorrow}} 앞에는 전치사가 없어요."},
+        {"wrong":"I run at the morning.","right":"I run in the morning.","tr":"저는 아침에 달려요.","why":"하루 중 때는 {{in the morning}}, {{in the afternoon}}. 단, “밤에”는 {{at night}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“월요일에 봐요.”","options":["{{See you on Monday.}}","{{See you in Monday.}}","{{See you at Monday.}}"],"answer":0,"why":"요일은 {{on}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"The movie starts ___ 8:30.","tr":"영화는 8시 30분에 시작해요.","options":["at","on","in"],"answer":0,"why":"정확한 시각: {{at}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I was born ___ 1995.","tr":"저는 1995년에 태어났어요.","options":["in","on","at"],"answer":0,"why":"연도: {{in}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I'm busy ___ week.","tr":"다음 주에 바빠요.","options":["next","on next","in next"],"answer":0,"why":"{{next week}} 앞에는 전치사가 없어요."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"제 생일은 5월 5일이에요.","words":["My","birthday","is","on","May","5th."]},
+        {"type":"dialogue","q":"친구가 수업 시간을 물어요. 알맞은 대답을 고르세요.","from":"ask-questions-with-do","lines":[{"who":"친구","t":"When does your English class start?","tr":"영어 수업 언제 시작해요?"},{"options":["It starts on Monday at seven.","It start in Monday on seven."],"answer":0,"why":"{{it}}: {{starts}}, 요일은 {{on}}, 시각은 {{at}}."},{"who":"친구","t":"In the evening?","tr":"저녁이요?"},{"options":["Yes, at 7 p.m.","Yes, in 7 p.m."],"answer":0,"why":"시각: {{at}}."}]},
+        {"type":"free","q":"여러분 차례예요: 생일이 언제인지, 그리고 이번 주에 언제 무엇을 하는지 말해 보세요.","answers":[{"t":"My birthday is on August 12th. I play tennis on Saturdays.","tr":"제 생일은 8월 12일이에요. 토요일마다 테니스를 쳐요."},{"t":"My birthday is in March. I have English class on Tuesday at seven.","tr":"제 생일은 3월이에요. 화요일 일곱 시에 영어 수업이 있어요."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 4,
+      "level": "A1",
+      "title": "할 수 있는 것 말하고 부탁하기",
+      "summary": "할 수 있는 것과 못 하는 것을 말하고, {{Can you…?}}로 부탁하고, {{Can I…?}}로 허락을 구해요.",
+      "topic": "{{can}} / {{can't}} + 동사; {{Can you…?}} (부탁); {{Can I…?}} (허락)",
+      "blocks": [
+        {"goal":{"t":"Can you help me? I can't find my key.","tr":"좀 도와줄래요? 열쇠를 못 찾겠어요."}},
+        {"dialog":[{"who":"라이언","t":"Can you cook?","tr":"요리할 줄 알아요?"},{"who":"서연","t":"Yes, I can! I can make kimchi stew.","tr":"네, 할 수 있어요! 김치찌개를 만들 수 있어요."},{"who":"라이언","t":"Wow! I can't cook at all.","tr":"와! 저는 요리를 전혀 못 해요."},{"who":"서연","t":"Can you drive?","tr":"운전은 할 줄 알아요?"},{"who":"라이언","t":"Yes, I can. Can I use your rice cooker?","tr":"네, 할 수 있어요. 밥솥 좀 써도 돼요?"},{"who":"서연","t":"Sure!","tr":"그럼요!"}]},
+        {"p":"**할 수 있어요: {{can}} + 동사.** {{can}} 다음에는 동사의 기본 모양이 와요: {{I can swim.}}, {{She can speak Japanese.}} {{can}}은 주어가 무엇이든 모양이 같아서, 3인칭에도 {{-s}}가 붙지 않아요: {{He can drive.}}"},
+        {"term":"조동사","means":"동사 앞에서 “할 수 있다”, “해야 한다” 같은 뜻을 더해 주는 말이에요: {{can}}, {{will}}, {{should}}, {{must}}. 뒤에는 동사의 기본 모양이 와요."},
+        {"p":"**못 해요: {{can't}}.** {{can't}}({{cannot}}): {{I can't swim.}} 질문은 {{can}}을 주어 앞으로 보내요: {{Can you swim?}} → {{Yes, I can.}} / {{No, I can't.}} {{do}}는 필요 없어요."},
+        {"p":"**부탁과 허락.** {{Can you…?}}는 “~해 줄래요?”라는 부탁, {{Can I…?}}는 “~해도 돼요?”라는 허락을 구하는 말이에요: {{Can you open the door?}}, {{Can I sit here?}} 끝에 {{please}}를 붙이면 더 공손해요."},
+        { "table": [
+          ["","예","뜻"],
+          ["능력","{{I can swim.}}","수영할 수 있어요."],
+          ["못 함","{{I can't come today.}}","오늘 못 가요."],
+          ["부탁","{{Can you help me?}}","도와줄래요?"],
+          ["허락","{{Can I use your phone?}}","휴대폰 좀 써도 돼요?"]
+        ] },
+        { "ex": [
+          {"t":"I can speak a little English.","tr":"영어를 조금 할 수 있어요."},
+          {"t":"She can play the piano.","tr":"그녀는 피아노를 칠 수 있어요."},
+          {"t":"I can't find my phone.","tr":"휴대폰을 못 찾겠어요."},
+          {"t":"Can you speak more slowly, please?","tr":"좀 더 천천히 말해 줄래요?"},
+          {"t":"Can I pay by card?","tr":"카드로 계산해도 돼요?"},
+          {"t":"Sorry, I can't come tomorrow.","tr":"미안해요, 내일 못 가요."}
+        ] },
+        {"tip":"**발음.** 미국 영어에서 {{can}}은 약하고 짧게 “큰”처럼, {{can't}}는 강하고 길게 “캐앤(트)”처럼 들려요. 끝의 {{t}}가 잘 안 들리니까 강세와 모음 길이로 구별해요."}
+      ],
+      "mistakes": [
+        {"wrong":"I can to swim.","right":"I can swim.","tr":"수영할 수 있어요.","why":"{{can}} 다음에는 {{to}} 없이 동사가 와요."},
+        {"wrong":"He cans drive.","right":"He can drive.","tr":"그는 운전할 수 있어요.","why":"{{can}}에는 {{-s}}가 붙지 않아요."},
+        {"wrong":"Do you can help me?","right":"Can you help me?","tr":"도와줄래요?","why":"{{can}} 질문에는 {{do}}가 필요 없어요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“카드로 계산해도 돼요?”","options":["{{Can I pay by card?}}","{{Can you pay by card?}}","{{Do I can pay by card?}}"],"answer":0,"why":"내가 해도 되는지 묻기: {{Can I…?}}"},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"She can ___ three languages.","tr":"그녀는 3개 국어를 할 수 있어요.","options":["speak","speaks","to speak"],"answer":0,"why":"{{can}} + 동사 기본 모양."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Sorry, I ___ come tomorrow.","tr":"미안해요, 내일 못 가요.","options":["can't","don't can","not can"],"answer":0,"why":"못 해요: {{can't}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"좀 더 천천히 말해 줄래요?","words":["Can","you","speak","more","slowly?"]},
+        {"type":"dialogue","q":"친구가 수영에 대해 물어요. 알맞은 대답을 고르세요.","from":"say-no-and-answer-no","lines":[{"who":"친구","t":"Can you swim?","tr":"수영할 줄 알아요?"},{"options":["No, I can't. I'm scared of water.","No, I don't. I'm scared of water."],"answer":0,"why":"{{can}} 질문에는 {{can}}으로 대답해요."},{"who":"친구","t":"Really? You can't swim at all?","tr":"정말요? 전혀 못 해요?"},{"options":["No, I can't.","Yes, I can't."],"answer":0,"why":"못 하니까 {{No}}예요 (14과)."}]},
+        {"type":"say","q":"외국인 친구에게: “좀 도와줄래요?”","answer":"Can you help me?"},
+        {"type":"free","q":"여러분 차례예요: 할 수 있는 것 두 가지와 못 하는 것 한 가지를 말해 보세요.","answers":[{"t":"I can cook and I can play the guitar. I can't swim.","tr":"저는 요리할 수 있고 기타도 칠 수 있어요. 수영은 못 해요."},{"t":"I can speak Korean and a little English. I can't drive.","tr":"한국어와 영어를 조금 할 수 있어요. 운전은 못 해요."}]}
+      ]
+    },
+    {
+      "id": "say-what-youre-doing-now",
+      "unit": 4,
+      "level": "A2",
+      "title": "지금 하고 있는 일 말하기",
+      "summary": "전화를 받을 때 “지금 운전 중이에요”처럼 지금 하고 있는 일을 말하고, 늘 하는 일과 구별해요.",
+      "topic": "현재진행형 {{am}}/{{is}}/{{are}} + {{-ing}}; 현재형과의 차이",
+      "blocks": [
+        {"goal":{"t":"I'm watching TV right now.","tr":"지금 TV 보고 있어요."}},
+        {"dialog":[{"who":"리암","t":"Hey, Jina! What are you doing?","tr":"안녕, 지나 씨! 뭐 하고 있어요?"},{"who":"지나","t":"I'm cooking dinner.","tr":"저녁 만들고 있어요."},{"who":"리암","t":"Oh, sorry! Are you busy?","tr":"아, 미안해요! 바빠요?"},{"who":"지나","t":"A little. My sister is helping me. We're making pasta.","tr":"조금요. 언니가 도와주고 있어요. 파스타를 만들고 있어요."},{"who":"리암","t":"OK. I'm studying at a café. Call me later!","tr":"알겠어요. 저는 카페에서 공부하고 있어요. 나중에 전화해요!"}]},
+        {"p":"**지금 하는 중: be동사 + {{-ing}}.** 말하는 지금 하고 있는 일은 be동사 + 동사{{-ing}}로 말해요: {{I'm eating.}} “먹고 있어요.”, {{She's sleeping.}} “자고 있어요.” 한국어 “~하고 있어요”와 비슷하지만, be동사를 빼먹기 쉬우니 조심하세요."},
+        {"term":"현재진행형","means":"지금 이 순간 하고 있는 일을 말하는 모양이에요: {{am}}/{{is}}/{{are}} + 동사{{-ing}}. {{I'm reading.}}"},
+        { "table": [
+          ["주어","be동사","동사-ing"],
+          ["{{I}}","{{am}}","{{working}}"],
+          ["{{he}}, {{she}}, {{it}}","{{is}}","{{sleeping}}"],
+          ["{{you}}, {{we}}, {{they}}","{{are}}","{{eating}}"]
+        ] },
+        {"p":"**{{-ing}} 붙이는 법.** 대부분 그냥 {{-ing}}: {{play}} → {{playing}}. {{e}}로 끝나면 {{e}}를 빼요: {{make}} → {{making}}. 짧은 단어가 “모음 하나 + 자음”으로 끝나면 자음을 하나 더 써요: {{run}} → {{running}}, {{sit}} → {{sitting}}."},
+        {"p":"**현재형과 진행형.** 한국어 “뭐 해요?”는 두 가지 뜻이지만 영어는 달라요. 늘 하는 일은 현재형 {{What do you do?}} “무슨 일 하세요?”, 지금 하는 일은 진행형 {{What are you doing?}} “지금 뭐 해요?”예요. 그리고 {{like}}, {{love}}, {{want}}, {{know}}, {{need}}처럼 마음이나 상태를 나타내는 동사는 보통 진행형으로 쓰지 않아요: {{I know.}} ({{I'm knowing}}이라고 하지 않아요.)"},
+        { "table": [
+          ["","현재형: 늘","진행형: 지금"],
+          ["예","{{I work at a bank.}}","{{I'm working now.}}"],
+          ["뜻","은행에서 일해요.","지금 일하는 중이에요."],
+          ["질문","{{What do you do?}}","{{What are you doing?}}"]
+        ] },
+        { "ex": [
+          {"t":"What are you doing?","tr":"지금 뭐 해요?"},
+          {"t":"I'm driving. Can I call you back?","tr":"운전 중이에요. 다시 전화해도 돼요?"},
+          {"t":"It's raining outside.","tr":"밖에 비가 와요."},
+          {"t":"The baby is sleeping.","tr":"아기가 자고 있어요."},
+          {"t":"We're waiting for the bus.","tr":"우리는 버스를 기다리고 있어요."},
+          {"t":"She isn't working today.","tr":"그녀는 오늘 일 안 해요."}
+        ] },
+        {"tip":"{{right now}} “바로 지금”, {{at the moment}} “지금은”을 붙이면 진행형이라는 게 더 분명해져요: {{I'm busy at the moment.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I watching TV.","right":"I'm watching TV.","tr":"TV 보고 있어요.","why":"진행형에는 be동사가 꼭 필요해요."},
+        {"wrong":"What do you do now?","right":"What are you doing now?","tr":"지금 뭐 해요?","why":"지금 하는 일은 진행형으로 물어요. {{What do you do?}}는 직업을 묻는 말이에요."},
+        {"wrong":"I'm wanting a coffee.","right":"I want a coffee.","tr":"커피 마시고 싶어요.","why":"{{want}}는 진행형으로 쓰지 않아요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"전화를 받았는데 운전 중이에요.","options":["{{I'm driving.}}","{{I drive.}}","{{I driving.}}"],"answer":0,"why":"지금 하는 중: {{I'm driving.}}"},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"She ___ sleeping now.","tr":"그녀는 지금 자고 있어요.","options":["is","are","does"],"answer":0,"why":"{{she}}: {{is}} + {{-ing}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"We're ___ for the bus.","tr":"우리는 버스를 기다리고 있어요.","options":["waiting","wait","waits"],"answer":0,"why":"be동사 다음에 {{-ing}}."},
+        {"type":"choice","q":"처음 만난 사람의 직업을 물어볼 때 알맞은 질문은?","options":["{{What do you do?}}","{{What are you doing?}}"],"answer":0,"why":"직업, 늘 하는 일: 현재형 {{What do you do?}}"},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"지금 뭐 해요?","words":["What","are","you","doing?"]},
+        {"type":"dialogue","q":"친구가 전화했어요. 알맞은 대답을 고르세요.","from":"say-what-you-can-do","lines":[{"who":"친구","t":"Hi! What are you doing?","tr":"안녕! 뭐 하고 있어요?"},{"options":["I'm studying for a test.","I study for a test now."],"answer":0,"why":"지금 하는 일: 진행형."},{"who":"친구","t":"Can you talk now?","tr":"지금 통화할 수 있어요?"},{"options":["Sorry, I can't. Can I call you later?","Sorry, I don't can. Can I call you later?"],"answer":0,"why":"{{can}}의 부정은 {{can't}}."}]},
+        {"type":"free","q":"여러분 차례예요: 지금 무엇을 하고 있는지, 주변 사람들은 무엇을 하고 있는지 말해 보세요.","answers":[{"t":"I'm learning English on my phone. My sister is watching TV.","tr":"휴대폰으로 영어를 배우고 있어요. 여동생은 TV를 보고 있어요."},{"t":"I'm sitting at a café. People are drinking coffee and talking.","tr":"카페에 앉아 있어요. 사람들이 커피를 마시면서 이야기하고 있어요."}]}
+      ]
+    },
+    {
+      "id": "ask-politely",
+      "unit": 4,
+      "level": "A2",
+      "title": "공손하게 부탁하기",
+      "summary": "영어에는 존댓말이 없지만 공손하게 말하는 방법은 있어요. {{Could you…?}}, {{May I…?}}, {{Would you like…?}}로 정중하게 말해요.",
+      "topic": "{{Could you…?}}, {{Would you…?}}; {{Can I / Could I / May I…?}}; {{Would you like…?}}; {{please}}, {{Excuse me}}",
+      "blocks": [
+        {"goal":{"t":"Could you open the window, please?","tr":"창문 좀 열어 주시겠어요?"}},
+        {"dialog":[{"who":"지민","t":"Excuse me. Could you help me with my bag?","tr":"실례합니다. 가방 좀 도와주시겠어요?"},{"who":"승무원","t":"Of course.","tr":"물론이죠."},{"who":"지민","t":"Thank you. And could I have a blanket, please?","tr":"감사합니다. 그리고 담요 좀 주시겠어요?"},{"who":"승무원","t":"Sure. Would you like something to drink?","tr":"네. 음료 드시겠어요?"},{"who":"지민","t":"Yes, please. May I have some orange juice?","tr":"네, 주세요. 오렌지 주스 주시겠어요?"},{"who":"승무원","t":"Here you go.","tr":"여기 있습니다."}]},
+        {"p":"**영어에는 존댓말이 없어요.** 영어는 친구에게도, 선생님에게도, 사장님에게도 같은 {{you}}, 같은 동사를 써요. 대신 **어떤 표현을 고르느냐**로 공손함을 나타내요. 같은 부탁도 이렇게 달라져요."},
+        { "table": [
+          ["","예","느낌"],
+          ["명령","{{Open the window.}}","창문 열어. (무례하게 들릴 수 있음)"],
+          ["보통","{{Can you open the window?}}","창문 좀 열어 줄래요?"],
+          ["공손","{{Could you open the window, please?}}","창문 좀 열어 주시겠어요?"],
+          ["아주 공손","{{Would you mind opening the window?}}","혹시 창문 좀 열어 주실 수 있을까요?"]
+        ] },
+        {"p":"**{{Could you…?}}와 {{Would you…?}}.** {{could}}는 {{can}}보다, {{would}}는 {{will}}보다 부드러워요. 처음 보는 사람, 손님, 윗사람에게는 {{Could you…?}}가 가장 무난해요. {{please}}는 문장 끝이나 동사 앞에 붙여요."},
+        {"p":"**허락 구하기와 권하기.** {{Can I…?}}, {{Could I…?}}, {{May I…?}} 순서로 더 공손해요: {{May I come in?}} “들어가도 될까요?” 가게나 식당에서는 {{Could I have…?}}로 주문해요. 무언가를 권할 때는 {{Would you like…?}} “~ 드시겠어요?”: {{Would you like some coffee?}} 대답은 {{Yes, please.}} / {{No, thank you.}}"},
+        { "ex": [
+          {"t":"Excuse me, could you take a picture of us?","tr":"실례합니다, 저희 사진 좀 찍어 주시겠어요?"},
+          {"t":"Could you say that again, please?","tr":"다시 한번 말씀해 주시겠어요?"},
+          {"t":"May I sit here?","tr":"여기 앉아도 될까요?"},
+          {"t":"Would you like some tea? Yes, please.","tr":"차 드시겠어요? 네, 주세요."},
+          {"t":"Could I have the check, please?","tr":"계산서 좀 주시겠어요?","note":"미국에서는 식당 계산서를 보통 {{check}}라고 해요"},
+          {"t":"I'm sorry, I don't understand.","tr":"죄송하지만, 이해를 못 했어요."}
+        ] },
+        {"tip":"{{Excuse me}}는 말을 걸거나 지나갈 때, {{I'm sorry}}는 사과할 때 써요. 사람 사이를 지나가면서 짧게 {{Sorry!}}라고 하는 것도 자연스러워요."}
+      ],
+      "mistakes": [
+        {"wrong":"Give me water.","right":"Could I have some water, please?","tr":"물 좀 주시겠어요?","why":"명령문은 무례하게 들릴 수 있어요. 식당에서는 {{Could I have…?}}가 좋아요."},
+        {"wrong":"Could you to help me?","right":"Could you help me?","tr":"도와주시겠어요?","why":"{{could}} 다음에는 {{to}} 없이 동사가 와요."},
+        {"wrong":"Would you like a coffee? — Yes, I would like.","right":"Would you like a coffee? — Yes, please.","tr":"커피 드시겠어요? — 네, 주세요.","why":"권유에는 {{Yes, please.}} / {{No, thank you.}}로 대답해요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"처음 보는 사람에게 사진을 부탁할 때 가장 공손한 말은?","options":["{{Could you take a picture of us, please?}}","{{Take a picture of us.}}","{{You take a picture.}}"],"answer":0,"why":"{{Could you…, please?}}가 공손해요."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"___ I sit here?","tr":"여기 앉아도 될까요?","options":["May","Would","Do"],"answer":0,"why":"공손하게 허락 구하기: {{May I…?}}"},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Would you ___ some coffee?","tr":"커피 드시겠어요?","options":["like","want to","have to"],"answer":0,"why":"권유: {{Would you like…?}}"},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"다시 한번 말씀해 주시겠어요?","words":["Could","you","say","that","again,","please?"]},
+        {"type":"dialogue","q":"식당에서 웨이터와 이야기해요. 알맞은 말을 고르세요.","from":"say-what-you-like-and-want","lines":[{"who":"웨이터","t":"Would you like something to drink?","tr":"음료 드시겠어요?"},{"options":["Yes, please. Could I have a lemonade?","Yes, I would like. Give me lemonade."],"answer":0,"why":"{{Yes, please}}, 그리고 {{Could I have…?}}"},{"who":"웨이터","t":"Sure. Anything else?","tr":"네. 더 필요한 거 있으세요?"},{"options":["No, thank you.","No, I don't like."],"answer":0,"why":"공손한 거절: {{No, thank you.}}"}]},
+        {"type":"say","q":"식당에서: “계산서 좀 주시겠어요?”","answer":"Could I have the check, please?"},
+        {"type":"free","q":"여러분 차례예요: 호텔 직원에게 공손하게 두 가지를 부탁해 보세요.","answers":[{"t":"Could you call a taxi for me, please?","tr":"택시 좀 불러 주시겠어요?"},{"t":"Could I have an extra towel, please?","tr":"수건 하나 더 주시겠어요?"},{"t":"May I check out late?","tr":"늦게 체크아웃해도 될까요?"}]}
+      ]
     }
   ]
 }
