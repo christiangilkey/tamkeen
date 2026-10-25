@@ -1,0 +1,306 @@
+{
+  "from": "ar",
+  "to": "en",
+  "title": "قواعد اللغة الإنجليزية",
+  "variety": "الإنجليزية الأمريكية",
+  "about": "من أول جملة تقولها إلى المحادثة اليومية، درسًا قصيرًا بعد درس. كل درس يعطيك شيئًا تستطيع أن تقوله فورًا، ثم القاعدة التي تجعله صحيحًا، مع مقارنة دائمة بالعربية: أين تتشابه اللغتان، وأين تختلفان. لا تحتاج إلى معرفة سابقة بالقواعد: كل مصطلح يُشرح أول مرة تحتاج إليه. الأمثلة كلها بالإنجليزية الأمريكية كما يتكلمها أهلها، والمس أي مثال لتسمعه.",
+  "reading": "",
+  "units": [
+    {"n":1,"title":"أولى المحادثات"},
+    {"n":2,"title":"الناس والأماكن"},
+    {"n":3,"title":"الحياة اليومية"},
+    {"n":4,"title":"الآن، وما تستطيع فعله"},
+    {"n":5,"title":"رواية ما حدث"},
+    {"n":6,"title":"الخطط والدعوات"},
+    {"n":7,"title":"المقارنة والكميات والنصيحة"},
+    {"n":8,"title":"تجاربك وحياتك"},
+    {"n":9,"title":"الآراء والاحتمالات ونقل الكلام"}
+  ],
+  "lessons": [
+    {
+      "id": "say-who-you-are",
+      "unit": 1,
+      "level": "A1",
+      "title": "ألقِ التحية وقدِّم نفسك",
+      "summary": "حيِّ شخصًا، وقل اسمك ومن أين أنت، واسأله السؤال نفسه: أول محادثة لك بالإنجليزية.",
+      "topic": "{{I am}} و{{you are}}: الفعل «يكون» يُقال دائمًا في الإنجليزية",
+      "blocks": [
+        {"goal":{"t":"Hi, I'm Omar. I'm from Jordan.","tr":"مرحبًا، أنا عمر. أنا من الأردن."}},
+        {"dialog":[{"who":"مايك","t":"Hi! I'm Mike.","tr":"مرحبًا! أنا مايك."},{"who":"عمر","t":"Hello, Mike. I'm Omar.","tr":"أهلًا يا مايك. أنا عمر."},{"who":"مايك","t":"Where are you from, Omar?","tr":"من أين أنت يا عمر؟"},{"who":"عمر","t":"I'm from Jordan. And you?","tr":"أنا من الأردن. وأنت؟"},{"who":"مايك","t":"I'm from Chicago. Nice to meet you!","tr":"أنا من شيكاغو. تشرّفنا!"},{"who":"عمر","t":"Nice to meet you, too.","tr":"وأنا أيضًا تشرّفت بك."}]},
+        {"p":"انظر إلى ما يقوله عمر: {{I'm Omar}}، أي «أنا عمر». في العربية نضع الكلمتين جنبًا إلى جنب بلا فعل بينهما، أما الإنجليزية فلا بدّ فيها من فعل صغير بينهما معناه «يكون»: {{I am Omar}}، كأنك تقول «أنا أكونُ عمر». هذا أهمّ فرق بين اللغتين في أول جملة تقولها."},
+        {"term":"الضمير","means":"كلمة قصيرة تقوم مقام اسم شخص أو شيء: {{I}} «أنا»، {{you}} «أنت»."},
+        {"term":"الفعل","means":"كلمة تدل على عمل أو حال: {{eat}} «يأكل»، {{go}} «يذهب»، {{am}} «أكون»."},
+        {"p":"**أنا وأنت.** مع {{I}} يأتي {{am}}، ومع {{you}} يأتي {{are}}. وفي الكلام يُختصران دائمًا تقريبًا: {{I am}} تصير {{I'm}}، و{{you are}} تصير {{you're}}. والعلامة الصغيرة ' تقوم مقام الحرف المحذوف."},
+        { "table": [
+          ["","كاملة","مختصرة (في الكلام)"],
+          ["أنا","{{I am}}","{{I'm}}"],
+          ["أنتَ، أنتِ، أنتم","{{you are}}","{{you're}}"]
+        ] },
+        {"p":"**«أنت» كلمة واحدة للجميع.** في العربية نقول «أنتَ» للرجل و«أنتِ» للمرأة و«أنتم» للجماعة. أما الإنجليزية فتقول {{you}} لهم جميعًا، وبعدها {{are}} دائمًا. فسؤال {{Where are you from?}} يصلح لرجل أو امرأة أو مجموعة."},
+        {"p":"**السؤال.** كلمة السؤال أولًا، ثم الفعل، ثم الشخص: {{Where are you from?}} «من أين أنت؟»، وحرفيًّا «أين تكون أنت من؟»: كلمة {{from}} «من» تنتقل إلى آخر السؤال. وتردّ السؤال على محدّثك بـ{{And you?}} «وأنت؟»."},
+        { "ex": [
+          {"t":"I'm Sara.","tr":"أنا سارة."},
+          {"t":"I'm from Egypt.","tr":"أنا من مصر."},
+          {"t":"I'm fine, thanks.","tr":"أنا بخير، شكرًا.","note":"جواب {{How are you?}} «كيف حالك؟»"},
+          {"t":"I'm here on vacation.","tr":"أنا هنا في إجازة."},
+          {"t":"You're very kind.","tr":"أنت لطيف جدًّا.","note":"تقولها لرجل أو امرأة أو جماعة"},
+          {"t":"Where are you from?","tr":"من أين أنت؟"}
+        ] },
+        {"tip":"**القراءة والكتابة.** الإنجليزية تُكتب من اليسار إلى اليمين، ولحروفها صورتان: كبيرة وصغيرة. الحرف الكبير يأتي في أول الجملة، وفي أول أسماء الناس والبلاد والمدن: {{Omar}}، {{Jordan}}، {{Chicago}}. و{{I}} «أنا» تُكتب حرفًا كبيرًا دائمًا، حتى في وسط الجملة."}
+      ],
+      "mistakes": [
+        {"wrong":"I Omar.","right":"I'm Omar.","tr":"أنا عمر.","why":"لا تُترك الجملة بلا فعل كما في العربية: بين {{I}} واسمك يأتي {{am}}، أو مختصرًا {{I'm}}."},
+        {"wrong":"Where you from?","right":"Where are you from?","tr":"من أين أنت؟","why":"في السؤال أيضًا لا بدّ من الفعل: {{are}} بعد كلمة السؤال."},
+        {"wrong":"i'm from egypt.","right":"I'm from Egypt.","tr":"أنا من مصر.","why":"{{I}} حرف كبير دائمًا، وكذلك أول حرف من اسم البلد، وأول حرف في الجملة."}
+      ],
+      "practice": [
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{I'm from Iraq.}}","{{I from Iraq.}}","{{I are from Iraq.}}"],"answer":0,"why":"مع {{I}} يأتي {{am}}، ومختصره {{I'm}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Where ___ you from?","tr":"من أين أنت؟","options":["are","am","I"],"answer":0,"why":"مع {{you}} يأتي {{are}}."},
+        {"type":"dialogue","q":"أنت سامي من لبنان. اختر ردودك.","lines":[{"who":"جيسيكا","t":"Hi! I'm Jessica.","tr":"مرحبًا! أنا جيسيكا."},{"options":["Hi, Jessica. I'm Sami.","Hi, Jessica. I Sami."],"answer":0,"why":"بين {{I}} واسمك يأتي {{am}}، مختصرًا {{I'm}}."},{"who":"جيسيكا","t":"Where are you from, Sami?","tr":"من أين أنت يا سامي؟"},{"options":["I'm from Lebanon. And you?","You're from Lebanon. And you?"],"answer":0,"why":"عن نفسك تقول {{I'm}}؛ أما {{You're}} فمعناها «أنت»."},{"who":"جيسيكا","t":"I'm from Texas. Nice to meet you!","tr":"أنا من تكساس. تشرّفنا!"},{"options":["Nice to meet you, too.","I'm nice to meet you."],"answer":0,"why":"الردّ المعتاد: {{Nice to meet you, too.}} «وأنا أيضًا تشرّفت بك»."}]},
+        {"type":"order","q":"رتّب الكلمات.","tr":"أنا من الأردن.","words":["I'm","from","Jordan."]},
+        {"type":"say","q":"اسأل شخصًا: «من أين أنت؟»","answer":"Where are you from?"},
+        {"type":"free","q":"دورك: ألقِ التحية، وقل اسمك ومن أين أنت. ابدأ بـ{{Hi, I'm…}}","answers":[{"t":"Hi, I'm Khaled. I'm from Kuwait.","tr":"مرحبًا، أنا خالد. أنا من الكويت."},{"t":"Hello, I'm Nour. I'm from Tunisia. Nice to meet you!","tr":"أهلًا، أنا نور. أنا من تونس. تشرّفنا!"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-do",
+      "unit": 1,
+      "level": "A1",
+      "title": "قل ما عملك",
+      "summary": "قل ما تعمل وما يعمل غيرك: «أنا معلّم، وزوجتي طبيبة»، وتعرّف إلى {{a}}، الكلمة التي لا تراها في العربية.",
+      "topic": "{{he is, she is, we are, they are}}؛ و{{a}} أو {{an}} قبل المهنة",
+      "blocks": [
+        {"goal":{"t":"I'm a teacher, and my wife is a doctor.","tr":"أنا معلّم، وزوجتي طبيبة."}},
+        {"dialog":[{"who":"إميلي","t":"What do you do, Omar?","tr":"ماذا تعمل يا عمر؟"},{"who":"عمر","t":"I'm an engineer. And you?","tr":"أنا مهندس. وأنتِ؟"},{"who":"إميلي","t":"I'm a nurse. My husband is a nurse, too.","tr":"أنا ممرضة. وزوجي ممرض أيضًا."},{"who":"عمر","t":"Really? My sister is a nurse. She's in Boston.","tr":"حقًّا؟ أختي ممرضة. هي في بوسطن."},{"who":"إميلي","t":"Oh, we're in Boston, too!","tr":"نحن أيضًا في بوسطن!"}]},
+        {"p":"**سؤال تحفظه كما هو.** {{What do you do?}} معناه «ماذا تعمل؟»، وهو السؤال المعتاد عن المهنة. احفظه الآن كما هو؛ وستفهم تركيبه في درس قادم."},
+        {"p":"**هو وهي ونحن وهم.** الفعل الذي تعلّمته في الدرس الأول اسمه في المعجم {{be}} «يكون»، وله في الحاضر ثلاث صور: {{am}} مع {{I}} وحدها، و{{is}} مع شخص واحد غيرك أو شيء واحد، و{{are}} مع {{you}} ومع الجماعة."},
+        { "table": [
+          ["الضمير","معناه","الفعل","مختصرًا"],
+          ["{{I}}","أنا","{{am}}","{{I'm}}"],
+          ["{{you}}","أنتَ، أنتِ، أنتم","{{are}}","{{you're}}"],
+          ["{{he}}","هو","{{is}}","{{he's}}"],
+          ["{{she}}","هي","{{is}}","{{she's}}"],
+          ["{{we}}","نحن","{{are}}","{{we're}}"],
+          ["{{they}}","هم، هنّ، هما","{{are}}","{{they're}}"]
+        ] },
+        {"p":"والأمر نفسه مع الأسماء: {{My wife is a doctor.}} «زوجتي طبيبة»، و{{Omar and Sara are teachers.}} «عمر وسارة معلّمان». ({{my}} معناها «ـي»: {{my wife}} «زوجتي».)"},
+        {"term":"الاسم","means":"كلمة تسمّي شخصًا أو شيئًا أو مكانًا: {{teacher}} «معلّم»، {{car}} «سيارة»، {{Cairo}} «القاهرة»."},
+        {"p":"**{{a}}: كلمة لا تراها في العربية.** في العربية يكفي أن تقول «أنا معلّمٌ»: التنوين في آخر الكلمة يدلّ على أنها نكرة، ولا يُكتب كلمة مستقلة. أما الإنجليزية فتضع قبل الاسم المفرد النكرة كلمة صغيرة هي {{a}}، ومعناها تقريبًا «واحد ما»: {{I'm a teacher.}} وهذه الكلمة لازمة، فـ{{I'm teacher}} خطأ."},
+        {"term":"أداة النكرة","means":"{{a}} أو {{an}} قبل اسم مفرد غير معيَّن: {{a teacher}} «معلّمٌ»، {{an apple}} «تفاحةٌ». تعمل عمل التنوين في العربية، لكنها كلمة تُكتب وتُقال قبل الاسم."},
+        {"p":"**{{a}} أم {{an}}؟** العبرة بالصوت لا بالحرف المكتوب: قبل اسم يبدأ بصوت حرف علّة (a, e, i, o, u) تقول {{an}}: {{an engineer}}، {{an artist}}؛ وقبل غيره {{a}}: {{a doctor}}، {{a nurse}}. أما في الجمع فلا تأتي {{a}}: {{They're doctors.}} «هم أطباء»."},
+        { "ex": [
+          {"t":"He's a driver.","tr":"هو سائق."},
+          {"t":"She's an engineer.","tr":"هي مهندسة."},
+          {"t":"My father is a doctor.","tr":"أبي طبيب."},
+          {"t":"My brother is an artist.","tr":"أخي فنّان."},
+          {"t":"We're students.","tr":"نحن طلاب.","note":"في الجمع لا تأتي {{a}}"},
+          {"t":"They're from Morocco.","tr":"هم من المغرب."}
+        ] },
+        {"tip":"اسم المهنة في الإنجليزية لا يتغيّر غالبًا بين الرجل والمرأة: {{a teacher}} معلّم أو معلّمة، و{{a doctor}} طبيب أو طبيبة. أما الضمير فيتغيّر: {{he}} للرجل، و{{she}} للمرأة."}
+      ],
+      "mistakes": [
+        {"wrong":"My sister doctor.","right":"My sister is a doctor.","tr":"أختي طبيبة.","why":"نقصت كلمتان معًا: الفعل {{is}}، والأداة {{a}} قبل المهنة."},
+        {"wrong":"I'm engineer.","right":"I'm an engineer.","tr":"أنا مهندس.","why":"المهنة المفردة تحتاج إلى {{a}} أو {{an}}؛ و{{engineer}} تبدأ بصوت حرف علّة، فتقول {{an}}."},
+        {"wrong":"They is teachers.","right":"They're teachers.","tr":"هم معلمون.","why":"مع {{they}} يأتي {{are}} لا {{is}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My mother ___ a teacher.","tr":"أمي معلّمة.","options":["is","are","am"],"answer":0,"why":"شخص واحد: {{is}}."},
+        {"type":"choice","q":"أيّها صحيح؟","options":["{{an engineer}}","{{a engineer}}","{{engineer}}"],"answer":0,"why":"{{engineer}} تبدأ بصوت حرف علّة، فتقول {{an}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"We ___ from Syria.","tr":"نحن من سوريا.","options":["are","is","am"],"answer":0,"why":"مع {{we}} يأتي {{are}}.","from":"say-who-you-are"},
+        {"type":"dialogue","q":"في حفلة: اختر ردودك.","lines":[{"who":"جيسيكا","t":"What do you do?","tr":"ماذا تعمل؟"},{"options":["I'm a dentist.","I dentist.","I'm dentist."],"answer":0,"why":"{{I'm}}، ثم {{a}}، ثم المهنة."},{"who":"جيسيكا","t":"Oh, nice. My brother is a dentist, too.","tr":"جميل. أخي طبيب أسنان أيضًا."},{"options":["My wife is a dentist, too!","My wife are a dentist, too!"],"answer":0,"why":"زوجتي شخص واحد، فالفعل {{is}}."}]},
+        {"type":"order","q":"رتّب الكلمات.","tr":"هي ممرضة في بوسطن.","words":["She's","a","nurse","in","Boston."]},
+        {"type":"say","q":"كيف تقول «هم طلاب»؟","answer":"They're students."},
+        {"type":"free","q":"دورك: قل ما عملك، وما عمل شخص من عائلتك. مثلًا: {{I'm a… My father is a…}}","answers":[{"t":"I'm a student, and my mother is a teacher.","tr":"أنا طالب، وأمي معلّمة."},{"t":"I'm an accountant. My brothers are engineers.","tr":"أنا محاسب. إخوتي مهندسون."}]}
+      ]
+    },
+    {
+      "id": "ask-yes-or-no",
+      "unit": 1,
+      "level": "A1",
+      "title": "اسأل وأجب بنعم أو لا",
+      "summary": "اسأل {{Are you…?}} و{{Is he…?}}، وأجب إجابة قصيرة، وانفِ ما ليس صحيحًا بـ{{not}}.",
+      "topic": "السؤال والنفي مع {{am, is, are}}؛ الإجابة المختصرة {{Yes, I am.}}",
+      "blocks": [
+        {"goal":{"t":"Are you a student? — No, I'm not. I'm a teacher.","tr":"هل أنت طالب؟ — لا، لستُ طالبًا. أنا معلّم."}},
+        {"dialog":[{"who":"سارة","t":"Excuse me, are you Mr. Brown?","tr":"عفوًا، هل أنت السيد براون؟"},{"who":"الرجل","t":"No, I'm not. I'm Mr. Smith.","tr":"لا، لستُ هو. أنا السيد سميث."},{"who":"سارة","t":"Oh, sorry! Is Mr. Brown here today?","tr":"آسفة! هل السيد براون هنا اليوم؟"},{"who":"الرجل","t":"Yes, he is. He's in room twelve.","tr":"نعم، هو هنا. إنه في الغرفة ١٢."},{"who":"سارة","t":"Thank you!","tr":"شكرًا!"},{"who":"الرجل","t":"You're welcome.","tr":"عفوًا."}]},
+        {"p":"**السؤال: قدِّم الفعل.** في العربية تضع «هل» في أول الجملة ولا تغيّر شيئًا: «أنت طالب» ← «هل أنت طالب؟». أما الإنجليزية فليس فيها «هل»؛ بل تقدّم الفعل على الضمير:"},
+        { "table": [
+          ["الخبر","السؤال"],
+          ["{{You are a student.}}","{{Are you a student?}}"],
+          ["{{He is here.}}","{{Is he here?}}"],
+          ["{{They are from Iraq.}}","{{Are they from Iraq?}}"]
+        ] },
+        {"p":"فالفعل {{are}} أو {{is}} نفسه يقوم مقام «هل» حين يتقدّم، ونبرة الصوت ترتفع في آخر السؤال. (قد تسمع في الكلام {{You're a student?}} بنبرة المتعجّب، لكن السؤال العادي يبدأ بالفعل.)"},
+        {"p":"**الجواب المختصر.** لا يقتصر الجواب عادةً على {{Yes}} أو {{No}}، بل يعيد الضمير والفعل: {{Yes, I am.}} «نعم»، {{No, she isn't.}} «لا». وفي الجواب بـ«نعم» لا يُختصر الفعل: {{Yes, I am}} لا {{Yes, I'm}}."},
+        {"term":"الإجابة المختصرة","means":"جواب قصير يعيد الضمير والفعل من السؤال: {{Are you tired? — Yes, I am.}} «هل أنت متعب؟ — نعم»."},
+        {"p":"**النفي بـ{{not}}.** تضع {{not}} «لا / ليس» بعد الفعل: {{I'm not tired.}} «لستُ متعبًا». وفي الكلام تُختصر {{is not}} إلى {{isn't}}، و{{are not}} إلى {{aren't}}؛ أما {{am not}} فتبقى {{I'm not}}."},
+        { "table": [
+          ["","النفي","مختصرًا"],
+          ["أنا","{{I am not}}","{{I'm not}}"],
+          ["هو، هي","{{he is not}}","{{he isn't}}، {{she isn't}}"],
+          ["أنت، نحن، هم","{{you are not}}","{{you aren't}}، {{they aren't}}"]
+        ] },
+        { "ex": [
+          {"t":"Are you okay?","tr":"هل أنت بخير؟"},
+          {"t":"Is she a doctor? — Yes, she is.","tr":"هل هي طبيبة؟ — نعم."},
+          {"t":"Are they at home? — No, they aren't.","tr":"هل هم في البيت؟ — لا."},
+          {"t":"I'm not hungry, thanks.","tr":"لستُ جائعًا، شكرًا."},
+          {"t":"He isn't here today.","tr":"هو ليس هنا اليوم."},
+          {"t":"We aren't from here.","tr":"لسنا من هنا."}
+        ] },
+        {"tip":"هل لاحظت مكان {{not}}؟ في العربية تأتي «لستُ» و«ليس» في أول الجملة، أما في الإنجليزية فالترتيب: الضمير، ثم الفعل، ثم {{not}}: {{I'm not}}، {{he isn't}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I not tired.","right":"I'm not tired.","tr":"لستُ متعبًا.","why":"{{not}} وحدها لا تكفي: لا بدّ من الفعل قبلها، {{I'm not}}."},
+        {"wrong":"She no is here.","right":"She isn't here.","tr":"هي ليست هنا.","why":"النفي بـ{{not}} بعد الفعل، لا بـ{{no}} قبله. أما {{No}} فهي «لا» في أول الجواب فقط."},
+        {"wrong":"Yes, I'm.","right":"Yes, I am.","tr":"نعم.","why":"في جواب «نعم» القصير لا يُختصر الفعل: {{Yes, I am}}، {{Yes, she is}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"كيف تسأل «هل هي هنا؟»","options":["{{Is she here?}}","{{Are she here?}}","{{Is here she?}}"],"answer":0,"why":"الفعل أولًا ({{is}} مع {{she}})، ثم الضمير، ثم الباقي."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"___ you from Libya?","tr":"هل أنت من ليبيا؟","options":["Are","Is","Am"],"answer":0,"why":"مع {{you}} يأتي {{Are}}، في أول السؤال.","from":"say-who-you-are"},
+        {"type":"dialogue","q":"في الفندق: اختر ردودك.","lines":[{"who":"موظف الاستقبال","t":"Are you Mr. Haddad?","tr":"هل أنت السيد حدّاد؟"},{"options":["Yes, I am.","Yes, I'm."],"answer":0,"why":"في الجواب القصير بـ{{Yes}} لا يُختصر الفعل: {{Yes, I am.}}"},{"who":"موظف الاستقبال","t":"Are you here on vacation?","tr":"هل أنت هنا في إجازة؟"},{"options":["No, I'm not. I'm here for work.","No, I not. I'm here for work."],"answer":0,"why":"النفي: {{I'm not}}، بالفعل قبل {{not}}."},{"who":"موظف الاستقبال","t":"Okay. Welcome to New York!","tr":"حسنًا. أهلًا بك في نيويورك!"}]},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"He ___ a doctor. He's a nurse.","tr":"هو ليس طبيبًا. هو ممرض.","options":["isn't","aren't","not"],"answer":0,"why":"{{he}} مع {{is}}، ونفيه {{isn't}}.","from":"say-what-you-do"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"هل هم من المغرب؟","words":["Are","they","from","Morocco?"]},
+        {"type":"say","q":"أجب بالنفي عن سؤال {{Are you hungry?}}","answer":"No, I'm not."},
+        {"type":"free","q":"دورك: اكتب سؤالين بـ{{Are you…?}} تسأل بهما شخصًا تقابله أول مرة، وأجب عنهما بنفسك.","answers":[{"t":"Are you a student? — No, I'm not. I'm a teacher.","tr":"هل أنت طالب؟ — لا. أنا معلّم."},{"t":"Are you from here? — Yes, I am. I'm from Dallas.","tr":"هل أنت من هنا؟ — نعم. أنا من دالاس."}]}
+      ]
+    },
+    {
+      "id": "ask-name-age-and-more",
+      "unit": 1,
+      "level": "A1",
+      "title": "اسأل عن الاسم والعمر وغيرهما",
+      "summary": "اسأل {{What's your name?}} و{{How old are you?}}، وأجب عن عمرك كما يقوله الأمريكيون: {{I'm 25.}}",
+      "topic": "أدوات الاستفهام مع {{is}} و{{are}}: {{What, Where, Who, How, How old}}",
+      "blocks": [
+        {"goal":{"t":"What's your name? — My name is Lina. I'm twenty-five.","tr":"ما اسمك؟ — اسمي لينا. عمري خمسة وعشرون عامًا."}},
+        {"dialog":[{"who":"المعلّم","t":"Hi! What's your name?","tr":"مرحبًا! ما اسمك؟"},{"who":"لينا","t":"My name is Lina.","tr":"اسمي لينا."},{"who":"المعلّم","t":"Where are you from, Lina?","tr":"من أين أنتِ يا لينا؟"},{"who":"لينا","t":"I'm from Iraq. I'm from Baghdad.","tr":"أنا من العراق، من بغداد."},{"who":"المعلّم","t":"And how old are you?","tr":"وكم عمركِ؟"},{"who":"لينا","t":"I'm twenty-five.","tr":"عمري خمسة وعشرون عامًا."},{"who":"المعلّم","t":"Great. Welcome to the class!","tr":"رائع. أهلًا بكِ في الصف!"}]},
+        {"p":"**كلمة السؤال، ثم الفعل.** في الدرس السابق بدأ السؤال بالفعل: {{Are you…?}}. فإذا أردت معلومة (اسمًا أو مكانًا أو عمرًا) فضع كلمة السؤال قبل الفعل: {{Where are you from?}}، {{What is your name?}}."},
+        {"term":"أداة الاستفهام","means":"كلمة يبدأ بها السؤال عن معلومة: {{what}} «ما، ماذا»، {{where}} «أين»، {{who}} «مَن»، {{how}} «كيف»."},
+        { "table": [
+          ["الكلمة","معناها","مثال"],
+          ["{{What}}","ما، ماذا","{{What's your name?}}"],
+          ["{{Where}}","أين","{{Where are you from?}}"],
+          ["{{Who}}","مَن","{{Who is she?}}"],
+          ["{{How}}","كيف","{{How are you?}}"],
+          ["{{How old}}","كم عمر…","{{How old are you?}}"]
+        ] },
+        {"p":"**لا تنسَ الفعل.** في العربية تقول «ما اسمك؟» بكلمتين. أما الإنجليزية فتحتاج إلى الفعل {{is}} بينهما: {{What is your name?}}، ويُختصر في الكلام: {{What's your name?}}. ومثله {{Who's she?}} و{{Where's Omar?}}."},
+        {"p":"**العمر بالفعل {{be}}.** العربية تقول «عمري خمسة وعشرون عامًا»، والإنجليزية تقول «أنا خمسة وعشرون»: {{I'm twenty-five.}} أو {{I'm twenty-five years old.}}. ويُسأل عنه بـ{{How old are you?}} «كم عمرك؟»، وحرفيًّا «كم أنت كبير؟»."},
+        { "ex": [
+          {"t":"What's your phone number?","tr":"ما رقم هاتفك؟"},
+          {"t":"Where's the bathroom?","tr":"أين الحمّام؟","note":"{{Where's}} = {{Where is}}"},
+          {"t":"Who's your teacher?","tr":"مَن معلّمك؟"},
+          {"t":"How are you? — I'm fine, thanks.","tr":"كيف حالك؟ — بخير، شكرًا."},
+          {"t":"My son is ten years old.","tr":"عمر ابني عشر سنوات."},
+          {"t":"How old is your daughter? — She's six.","tr":"كم عمر ابنتك؟ — ست سنوات."}
+        ] },
+        {"tip":"الأعداد من ٢١ إلى ٩٩ تُكتب بشَرطة بين جزأيها: {{twenty-one}}، {{thirty-five}}. والعشرات فيها قبل الآحاد، عكس العربية: «خمسة وعشرون» ← {{twenty-five}}، أي «عشرون-خمسة»."}
+      ],
+      "mistakes": [
+        {"wrong":"What your name?","right":"What's your name?","tr":"ما اسمك؟","why":"لا بدّ من الفعل {{is}} بعد كلمة السؤال، ومختصره: {{What's}}."},
+        {"wrong":"My age is 25 years.","right":"I'm 25.","tr":"عمري ٢٥ عامًا.","why":"هذه ترجمة حرفية من العربية، ولا يقولها أحد هكذا. العمر بالفعل {{be}}: {{I'm 25}} أو {{I'm 25 years old}}."},
+        {"wrong":"How old you are?","right":"How old are you?","tr":"كم عمرك؟","why":"في السؤال يتقدّم الفعل على الضمير: {{are you}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"___ are you from?","tr":"من أين أنت؟","options":["Where","What","Who"],"answer":0,"why":"{{Where}} «أين».","from":"say-who-you-are"},
+        {"type":"choice","q":"كيف تقول «عمري ثلاثون عامًا»؟","options":["{{I'm thirty.}}","{{I have thirty years.}}","{{My age thirty.}}"],"answer":0,"why":"العمر بالفعل {{be}}: {{I'm thirty}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"كم عمر أخيك؟","words":["How","old","is","your","brother?"]},
+        {"type":"dialogue","q":"في نادٍ رياضي يسجّلون اسمك: اختر ردودك.","lines":[{"who":"الموظفة","t":"Hi! What's your name?","tr":"مرحبًا! ما اسمك؟"},{"options":["My name is Adam.","My name Adam."],"answer":0,"why":"بين {{My name}} والاسم يأتي {{is}}."},{"who":"الموظفة","t":"And how old are you, Adam?","tr":"وكم عمرك يا آدم؟"},{"options":["I'm nineteen.","I have nineteen."],"answer":0,"why":"العمر بـ{{I'm}}."},{"who":"الموظفة","t":"Are you a student?","tr":"هل أنت طالب؟"},{"options":["Yes, I am.","Yes, I'm."],"answer":0,"why":"في الجواب القصير لا يُختصر الفعل: {{Yes, I am.}}"}],"from":"ask-yes-or-no"},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Who ___ your teacher?","tr":"مَن معلّمك؟","options":["is","are","am"],"answer":0,"why":"شخص واحد: {{is}}.","from":"say-what-you-do"},
+        {"type":"say","q":"اسأل طفلًا: «كم عمرك؟»","answer":"How old are you?"},
+        {"type":"free","q":"دورك: أجب عن الأسئلة الثلاثة: {{What's your name? Where are you from? How old are you?}}","answers":[{"t":"My name is Yousef. I'm from Palestine. I'm thirty-two.","tr":"اسمي يوسف. أنا من فلسطين. عمري اثنان وثلاثون عامًا."},{"t":"My name is Maryam. I'm from Oman, and I'm twenty.","tr":"اسمي مريم. أنا من عُمان، وعمري عشرون عامًا."}]}
+      ]
+    },
+    {
+      "id": "point-and-name",
+      "unit": 1,
+      "level": "A1",
+      "title": "أشِر إلى الأشياء وسمِّها",
+      "summary": "قل «هذا هاتفي، وهذه مفاتيحي»: أشِر إلى القريب والبعيد، واحدًا أو أكثر، وسمِّ الأشياء بـ{{it}} لا بـ«هو» و«هي».",
+      "topic": "{{this, that, these, those}}؛ الجمع بـ{{-s}}؛ {{it}} و{{they}} للأشياء",
+      "blocks": [
+        {"goal":{"t":"This is my phone, and these are my keys.","tr":"هذا هاتفي، وهذه مفاتيحي."}},
+        {"dialog":[{"who":"الموظفة","t":"Is this your bag?","tr":"هل هذه حقيبتك؟"},{"who":"عمر","t":"No, it isn't. My bag is black.","tr":"لا. حقيبتي سوداء."},{"who":"الموظفة","t":"What about that bag?","tr":"وتلك الحقيبة؟"},{"who":"عمر","t":"Yes! That's my bag.","tr":"نعم! تلك حقيبتي."},{"who":"الموظفة","t":"And are these your keys?","tr":"وهل هذه مفاتيحك؟"},{"who":"عمر","t":"Yes, they are. Thank you so much!","tr":"نعم، هي مفاتيحي. شكرًا جزيلًا!"}]},
+        {"p":"**القريب والبعيد، الواحد والأكثر.** للإشارة في الإنجليزية أربع كلمات، ولا فرق فيها بين المذكّر والمؤنّث:"},
+        { "table": [
+          ["","قريب","بعيد"],
+          ["واحد","{{this}}: هذا، هذه","{{that}}: ذلك، تلك"],
+          ["أكثر من واحد","{{these}}: هؤلاء، هذه","{{those}}: أولئك، تلك"]
+        ] },
+        {"p":"ومع كل واحدة الفعل الذي يناسبها: {{This is…}} و{{That's…}} للمفرد، و{{These are…}} و{{Those are…}} للجمع. وهنا أيضًا لا يُحذف الفعل: «هذا هاتفي» ← {{This is my phone}}."},
+        {"term":"المفرد والجمع","means":"المفرد واحد: {{a key}} «مفتاح». والجمع أكثر من واحد: {{keys}} «مفاتيح». وليس في الإنجليزية مثنّى: الاثنان جمع، {{two keys}}."},
+        {"p":"**الجمع بـ{{-s}}.** في العربية صور كثيرة للجمع: كتاب ← كتب، مفتاح ← مفاتيح، سيارة ← سيارات. أما الإنجليزية فتضيف غالبًا {{-s}} إلى آخر الاسم: {{key}} ← {{keys}}، {{book}} ← {{books}}، {{car}} ← {{cars}}؛ و{{-es}} بعد s وsh وch وx: {{bus}} ← {{buses}}، {{watch}} ← {{watches}}. وقليل من الأسماء شاذّ، أشهرها: {{man}} ← {{men}}، {{woman}} ← {{women}}، {{child}} ← {{children}}، {{person}} ← {{people}}."},
+        {"p":"**{{it}} للأشياء.** في العربية كل شيء مذكّر أو مؤنّث: الهاتف «هو»، والحقيبة «هي». أما في الإنجليزية فـ{{he}} و{{she}} للناس وحدهم، والشيء الواحد {{it}}، والأشياء {{they}}: {{Where's my phone? — It's here.}} «أين هاتفي؟ — هو هنا»."},
+        { "ex": [
+          {"t":"This is my friend, Sara.","tr":"هذه صديقتي سارة.","note":"{{this}} للناس أيضًا، حين تعرّف بهم"},
+          {"t":"That's my car.","tr":"تلك سيارتي."},
+          {"t":"These are my children.","tr":"هؤلاء أولادي."},
+          {"t":"Are those your books?","tr":"هل تلك كتبك؟"},
+          {"t":"What's this? — It's a gift for you.","tr":"ما هذا؟ — إنها هدية لك."},
+          {"t":"Where are my keys? — They're on the table.","tr":"أين مفاتيحي؟ — إنها على الطاولة."}
+        ] },
+        {"tip":"**صوت {{th}}.** هذا صوت سهل عليك: في {{this}} و{{that}} و{{these}} و{{those}} يُنطق مثل الذال العربية، وفي {{think}} و{{three}} مثل الثاء. فلا تقلبه زايًا أو سينًا أو دالًا كما في بعض اللهجات."}
+      ],
+      "mistakes": [
+        {"wrong":"This my phone.","right":"This is my phone.","tr":"هذا هاتفي.","why":"في الإشارة أيضًا لا بدّ من الفعل: {{This is}}."},
+        {"wrong":"Where's my bag? — She's here.","right":"Where's my bag? — It's here.","tr":"أين حقيبتي؟ — هي هنا.","why":"الحقيبة مؤنّثة في العربية، لكنها في الإنجليزية شيء، والشيء {{it}}."},
+        {"wrong":"These is my keys.","right":"These are my keys.","tr":"هذه مفاتيحي.","why":"{{these}} للجمع، والجمع مع {{are}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"تشير إلى كتب بعيدة عنك. تقول…","options":["{{those books}}","{{these books}}","{{that books}}"],"answer":0,"why":"بعيدة، وأكثر من واحد: {{those}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Where's my phone? — ___ is in your bag.","tr":"أين هاتفي؟ — هو في حقيبتك.","options":["It","She","He"],"answer":0,"why":"الهاتف شيء، والشيء {{it}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"These ___ my children.","tr":"هؤلاء أولادي.","options":["are","is","am"],"answer":0,"why":"الجمع مع {{are}}.","from":"say-what-you-do"},
+        {"type":"choice","q":"ما جمع {{child}} «طفل»؟","options":["{{children}}","{{childs}}","{{childes}}"],"answer":0,"why":"جمع شاذّ: {{child}} ← {{children}}."},
+        {"type":"dialogue","q":"في متجر الهدايا: اختر ردودك.","lines":[{"who":"البائع","t":"Can I help you?","tr":"هل أستطيع مساعدتك؟"},{"options":["Yes. How much is this?","Yes. How much this?"],"answer":0,"why":"لا تنسَ الفعل: {{How much is this?}} «بكم هذا؟»."},{"who":"البائع","t":"It's ten dollars.","tr":"ثمنه عشرة دولارات."},{"options":["And those cups? Are they ten dollars, too?","And those cups? Is it ten dollars, too?"],"answer":0,"why":"الأكواب جمع، فتقول {{they}} و{{are}}."},{"who":"البائع","t":"No, they're five dollars.","tr":"لا، ثمنها خمسة دولارات."}],"from":"ask-yes-or-no"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"هل تلك سيارتك؟","words":["Is","that","your","car?"],"from":"ask-yes-or-no"},
+        {"type":"free","q":"دورك: انظر حولك وسمِّ ثلاثة أشياء: شيئًا قريبًا، وشيئًا بعيدًا، وأشياء كثيرة.","answers":[{"t":"This is my laptop. That's my door. These are my books.","tr":"هذا حاسوبي. ذلك بابي. هذه كتبي."},{"t":"This is a cup of tea. That's a window. Those are my shoes.","tr":"هذا كوب شاي. تلك نافذة. تلك أحذيتي."}]}
+      ]
+    },
+    {
+      "id": "ask-for-things",
+      "unit": 1,
+      "level": "A1",
+      "title": "اطلب ما تريد بأدب",
+      "summary": "اطلب في المقهى والمطعم والمتجر كما يطلب الأمريكيون: {{Can I have a coffee, please?}} و{{I'd like some water.}}",
+      "topic": "{{Can I have…? Can I get…? I'd like…}}؛ و{{a}} و{{an}} و{{some}}",
+      "blocks": [
+        {"goal":{"t":"Can I have a coffee, please?","tr":"هل لي بقهوة، من فضلك؟"}},
+        {"dialog":[{"who":"البائع","t":"Hi! What can I get you?","tr":"أهلًا! ماذا أحضر لك؟"},{"who":"أنت","t":"Hi. Can I get a latte, please?","tr":"مرحبًا. هل لي بلاتيه، من فضلك؟"},{"who":"البائع","t":"Sure. What size?","tr":"بالتأكيد. أيّ حجم؟"},{"who":"أنت","t":"Small, please. And I'd like a muffin, too.","tr":"صغير، من فضلك. وأودّ كعكة أيضًا."},{"who":"البائع","t":"Anything else?","tr":"شيء آخر؟"},{"who":"أنت","t":"Some water, please. That's it, thanks.","tr":"وبعض الماء، من فضلك. هذا كل شيء، شكرًا."},{"who":"البائع","t":"Okay. That's seven fifty.","tr":"حسنًا. الحساب سبعة دولارات وخمسون سنتًا."}]},
+        {"p":"**الطلب بأدب.** في العربية يكفي غالبًا أن تقول «أريد قهوة من فضلك». أما بالإنجليزية فـ{{I want a coffee}} تبدو مباشرة أكثر مما ينبغي، كأنك تأمر. لذلك يطلب الأمريكيون بسؤال:"},
+        { "table": [
+          ["العبارة","متى تُقال"],
+          ["{{Can I have…, please?}}","في كل مكان: المقهى والمطعم والمتجر"],
+          ["{{Can I get…, please?}}","شائعة جدًّا في أمريكا عند الطلب في المقهى والمطعم"],
+          ["{{I'd like…, please.}}","أكثر تهذيبًا قليلًا"],
+          ["{{Could I have…, please?}}","أكثرها تهذيبًا"]
+        ] },
+        {"p":"{{I'd like}} اختصار {{I would like}}، ومعناها «أودّ». و{{please}} «من فضلك» تأتي في آخر الطلب عادةً، وتجعله ألطف."},
+        {"p":"**{{a}} و{{some}}.** الشيء الذي يُعَدّ تطلبه بـ{{a}} أو {{an}}: {{a sandwich}} «شطيرة»، {{an orange}} «برتقالة»، وفي المقهى {{a coffee}} أي «فنجان قهوة». أما ما لا يُعَدّ، كالماء والسكر والخبز، فتطلبه بـ{{some}} «شيء من، بعض»: {{some water}}، {{some sugar}}، {{some bread}}. ومع الجمع أيضًا {{some}}: {{some cookies}} «بعض البسكويت»."},
+        { "ex": [
+          {"t":"Can I have the menu, please?","tr":"هل لي بقائمة الطعام، من فضلك؟"},
+          {"t":"I'd like a chicken sandwich.","tr":"أودّ شطيرة دجاج."},
+          {"t":"Can I get some water, please?","tr":"هل لي ببعض الماء، من فضلك؟"},
+          {"t":"Could I have the check, please?","tr":"هل لي بالحساب، من فضلك؟","note":"{{the check}} في أمريكا: فاتورة المطعم"},
+          {"t":"I'd like two tickets, please.","tr":"أودّ تذكرتين، من فضلك."},
+          {"t":"Can I have a bag, please?","tr":"هل لي بكيس، من فضلك؟"}
+        ] },
+        {"tip":"**صوت {{p}}.** ليس في العربية حرف «پ»، فقد يخرج {{please}} و{{pay}} و{{cup}} بالباء: «بليز». الفرق في النَّفَس: مع {{p}} تخرج دفعة هواء من بين الشفتين، ولا يهتزّ الحلق. ضع يدك أمام فمك وقل {{pay}}: يجب أن تشعر بالهواء."}
+      ],
+      "mistakes": [
+        {"wrong":"Give me a coffee.","right":"Can I have a coffee, please?","tr":"هل لي بقهوة، من فضلك؟","why":"{{Give me}} أمر، ويبدو فظًّا في المقهى. اطلب بسؤال، وأضف {{please}}."},
+        {"wrong":"Can I have sandwich, please?","right":"Can I have a sandwich, please?","tr":"هل لي بشطيرة، من فضلك؟","why":"الشيء المفرد الذي يُعَدّ يحتاج إلى {{a}}، كما تحتاج إليها المهنة."},
+        {"wrong":"I like a coffee, please.","right":"I'd like a coffee, please.","tr":"أودّ فنجان قهوة، من فضلك.","why":"{{I like}} معناها «أحبّ» بوجه عام، و{{I'd like}} «أودّ» الآن. الفرق حرفان: {{'d}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"أيّ طلب مهذّب في المقهى؟","options":["{{Can I get a tea, please?}}","{{I want tea.}}","{{Give me tea.}}"],"answer":0,"why":"الطلب بسؤال، مع {{please}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Can I have ___ water, please?","tr":"هل لي ببعض الماء، من فضلك؟","options":["some","a","an"],"answer":0,"why":"الماء لا يُعَدّ، فتقول {{some}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"I'd like ___ apple, please.","tr":"أودّ تفاحة، من فضلك.","options":["an","a"],"answer":0,"why":"{{apple}} تبدأ بصوت حرف علّة: {{an}}.","from":"say-what-you-do"},
+        {"type":"dialogue","q":"في المطعم: اختر ردودك.","lines":[{"who":"النادل","t":"Are you ready to order?","tr":"هل أنت مستعد للطلب؟"},{"options":["Yes. I'd like the chicken, please.","Yes. I like the chicken."],"answer":0,"why":"{{I'd like}} للطلب الآن."},{"who":"النادل","t":"And to drink?","tr":"وماذا تشرب؟"},{"options":["Can I get a lemonade, please?","Give me lemonade."],"answer":0,"why":"اطلب بسؤال مهذّب."},{"who":"النادل","t":"Sure. Anything else?","tr":"بالتأكيد. شيء آخر؟"},{"options":["No, that's it. Thank you.","No, that it. Thank you."],"answer":0,"why":"{{That's it}} «هذا كل شيء»، ولا يُحذف فيها الفعل: {{that is}}."}],"from":"point-and-name"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"هل لي بالحساب، من فضلك؟","words":["Could","I","have","the","check,","please?"]},
+        {"type":"say","q":"اطلب في المقهى شايًا وبعض البسكويت.","answer":"Can I have a tea and some cookies, please?"},
+        {"type":"free","q":"دورك: أنت في مقهى. اطلب مشروبًا وشيئًا تأكله.","answers":[{"t":"Can I get a cappuccino and a croissant, please?","tr":"هل لي بكابتشينو وكرواسون، من فضلك؟"},{"t":"I'd like a tea with milk and some cookies, please.","tr":"أودّ شايًا بالحليب وبعض البسكويت، من فضلك."}]}
+      ]
+    }
+  ]
+}

@@ -1,6 +1,20 @@
 {
  "format": 1,
  "courses": {
+  "ar-en": {
+   "file": "ar-en/course.json",
+   "from": "ar",
+   "to": "en",
+   "title": "قواعد اللغة الإنجليزية",
+   "variety": "الإنجليزية الأمريكية",
+   "units": 9,
+   "lessons": 6,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 39562,
+   "sha256": "8501451e0db6e6f7c40871f11dd69fdf0df7f1710fb68d5f9a3e827bb0055b15"
+  },
   "en-ar": {
    "file": "en-ar/course.json",
    "from": "en",
