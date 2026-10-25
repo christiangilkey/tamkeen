@@ -582,6 +582,340 @@
         {"type":"choice","q":"“Gusto niya (babaye) moadto.”","options":["{{She wants to go.}}","{{He wants to go.}}","{{She want go.}}"],"answer":0,"why":"Babaye: {{she}}, ug {{wants to go}}.","from":"talk-about-people"},
         {"type":"free","q":"Ikaw na: isulti ang duha ka butang nga gusto nimong buhaton karong tuiga, ug usa nga dili.","answers":[{"t":"I want to visit Japan. I want to learn English. I don't want to work on weekends.","tr":"Gusto ko mobisita sa Japan. Gusto ko mokat-on og Iningles. Dili ko gusto motrabaho matag weekend."},{"t":"I'd like to buy a house. I don't want to move to Manila.","tr":"Gusto unta ko mopalit og balay. Dili ko gusto mobalhin sa Manila."}]}
       ]
+    },
+    {
+      "id": "talk-about-your-routine",
+      "unit": 3,
+      "level": "A1",
+      "title": "Isulti ang imong adlaw-adlaw",
+      "summary": "Isulti kung unsay imong buhaton matag adlaw ug kanus-a: “I get up at six and I go to work at seven.”",
+      "topic": "Ang present simple ({{I work}}, {{we eat}}); {{don't}}; {{always}}, {{usually}}, {{sometimes}}, {{never}}; {{at}} + oras",
+      "blocks": [
+        {"goal":{"t":"I get up at six and I go to work at seven.","tr":"Mobangon ko alas sais ug moadto ko sa trabaho alas siyete."}},
+        {"dialog":[{"who":"Amy","t":"What time do you get up?","tr":"Unsang orasa ka mobangon?"},{"who":"Ana","t":"I usually get up at six. Then I drink coffee.","tr":"Kasagaran mobangon ko alas sais. Dayon moinom ko og kape."},{"who":"Amy","t":"Do you eat breakfast?","tr":"Mamahaw ka?"},{"who":"Ana","t":"Yes, I always eat rice for breakfast!","tr":"Oo, kanunay ko mokaon og kan-on sa pamahaw!"},{"who":"Amy","t":"Rice for breakfast? I don't eat rice in the morning.","tr":"Kan-on sa pamahaw? Dili ko mokaon og kan-on sa buntag."},{"who":"Ana","t":"We Filipinos eat rice three times a day!","tr":"Kaming mga Pilipino mokaon og kan-on tulo ka beses sa usa ka adlaw!"}]},
+        {"p":"Sa Bisaya, ang “mo-” para sa naandan: “Mobangon ko alas sais matag adlaw.” Sa Iningles, ang naandan gisulti sa **present simple**: ang berbo nga walay usab: {{I get up at six.}} {{We eat rice.}} Walay {{-ing}}, walay {{will}}."},
+        {"term":"tense","means":"ang porma sa berbo nga nagsulti KANUS-A nahitabo ang lihok: karon, kaniadto o unya. Ang berbo sa Bisaya nagsulti kung nahuman na o wala pa; ang berbo sa Iningles nagsulti kung kanus-a."},
+        {"p":"**Dili: {{don't}}.** Ang “dili” sa naandan: {{don't}} + berbo: {{I don't eat rice in the morning.}} ({{don't}} = {{do not}}). Dili {{I not eat}}."},
+        {"p":"**Kapila?** Kini nga mga pulong mag-una sa berbo: {{I always eat rice.}} {{We sometimes eat out.}} Pero human sa {{am}}, {{is}}, {{are}}: {{I'm always late.}}"},
+        { "table": [
+          ["Iningles","Bisaya"],
+          ["{{always}}","kanunay"],
+          ["{{usually}}","kasagaran"],
+          ["{{often}}","sagad, kanunay-kanunay"],
+          ["{{sometimes}}","usahay"],
+          ["{{never}}","dili gyud"]
+        ] },
+        {"p":"**Ang oras**: {{at}} + oras ({{at six}}, {{at 7:30}}); {{in the morning}}, {{in the afternoon}}, {{in the evening}}, pero {{at night}}; ug {{every day}} “matag adlaw”."},
+        { "ex": [
+          {"t":"I get up at six.","tr":"Mobangon ko alas sais."},
+          {"t":"We eat rice every day.","tr":"Mokaon mi og kan-on matag adlaw."},
+          {"t":"I usually take a jeepney to work.","tr":"Kasagaran mosakay ko og jeep paingon sa trabaho."},
+          {"t":"They sometimes eat out.","tr":"Usahay mokaon sila sa gawas."},
+          {"t":"I don't drink coffee.","tr":"Dili ko moinom og kape."},
+          {"t":"I never eat breakfast.","tr":"Dili gyud ko mamahaw."},
+          {"t":"I'm always late!","tr":"Kanunay ko ulahi!"}
+        ] },
+        {"tip":"Ang {{never}} na mismo ang “dili”: {{I never eat breakfast.}}, dili {{I don't never eat}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I not drink coffee.","right":"I don't drink coffee.","tr":"Dili ko moinom og kape.","why":"Ang “dili” sa naandan: {{don't}} + berbo."},
+        {"wrong":"I eat always rice.","right":"I always eat rice.","tr":"Kanunay ko mokaon og kan-on.","why":"Ang {{always}}, {{usually}}, {{sometimes}} mag-una sa berbo."},
+        {"wrong":"I get up in six.","right":"I get up at six.","tr":"Mobangon ko alas sais.","why":"Ang oras sa orasan: {{at}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ drink coffee.","tr":"Dili ko moinom og kape.","options":["don't","not","no"],"answer":0,"why":"{{don't}} + berbo."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I get up ___ six.","tr":"Mobangon ko alas sais.","options":["at","in","on"],"answer":0,"why":"Oras: {{at}}."},
+        {"type":"choice","q":"Asa ang husto?","options":["{{I always eat rice.}}","{{I eat always rice.}}","{{Always I eat rice.}}"],"answer":0,"why":"Ang {{always}} mag-una sa berbo."},
+        {"type":"dialogue","q":"Gipangutana ka sa imong bag-ong kauban sa trabaho. Pilia ang imong mga tubag.","lines":[{"who":"Kauban","t":"What time do you get up?","tr":"Unsang orasa ka mobangon?"},{"options":["I get up at five.","I getting up at five."],"answer":0,"why":"Naandan: present simple, {{I get up}}."},{"who":"Kauban","t":"Wow, early! Do you drink coffee?","tr":"Wow, sayo! Moinom ka og kape?"},{"options":["No, I don't drink coffee. I drink tea.","No, I not drink coffee. I drink tea."],"answer":0,"why":"{{I don't drink…}}"}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Usahay mokaon mi sa gawas.","words":["We","sometimes","eat","out."]},
+        {"type":"choice","q":"“Mokaon ko og kan-on matag adlaw.”","options":["{{I eat rice every day.}}","{{I want to eat rice every day.}}","{{I eating rice every day.}}"],"answer":0,"why":"Naandan: ang berbo lang, {{I eat}}. Ang {{want to}} nagpasabot og “gusto”.","from":"say-what-you-want-to-do"},
+        {"type":"say","q":"Isulti: “Naa ko sa trabaho matag Sabado.”","answer":"I'm at work every Saturday.","from":"say-where-things-are"},
+        {"type":"free","q":"Ikaw na: isulti ang imong buntag: kanus-a ka mobangon ug unsay imong buhaton.","answers":[{"t":"I get up at five. I drink coffee, and then I go to work.","tr":"Mobangon ko alas singko. Moinom ko og kape, dayon moadto ko sa trabaho."},{"t":"I usually get up at seven. I never eat breakfast.","tr":"Kasagaran mobangon ko alas siyete. Dili gyud ko mamahaw."}]}
+      ]
+    },
+    {
+      "id": "talk-about-someone-elses-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Isulti ang adlaw-adlaw sa uban",
+      "summary": "Isulti kung unsay buhaton sa imong papa, mama o higala matag adlaw, uban ang gamay nga {{-s}} nga dali makalimtan.",
+      "topic": "{{he}} / {{she}} / {{it}} + berbo-{{s}} ({{she works}}); {{doesn't}}; {{has}}, {{goes}}, {{does}}, {{studies}}",
+      "blocks": [
+        {"goal":{"t":"My mom works at a bank. She doesn't work on Sundays.","tr":"Nagtrabaho sa bangko ang akong mama. Dili siya motrabaho kung Domingo."}},
+        {"dialog":[{"who":"Amy","t":"What does your dad do?","tr":"Unsay trabaho sa imong papa?"},{"who":"Ben","t":"He drives a taxi. He works every day.","tr":"Nagdrayb siya og taxi. Motrabaho siya matag adlaw."},{"who":"Amy","t":"Every day? Does he ever rest?","tr":"Matag adlaw? Mopahulay ba siya?"},{"who":"Ben","t":"He doesn't work on Sundays. He goes to church and watches basketball.","tr":"Dili siya motrabaho kung Domingo. Mosimba siya ug motan-aw og basketball."},{"who":"Amy","t":"And your mom?","tr":"Ug imong mama?"},{"who":"Ben","t":"She has a small store. She opens it at six.","tr":"Naa siyay gamay nga tindahan. Ablihan niya kini alas sais."}]},
+        {"p":"**Ang gamay nga {{-s}}.** Sa present simple, kung ang nagbuhat kay {{he}}, {{she}}, {{it}}, o usa ka tawo o butang, ang berbo makadawat og **{{-s}}**: {{I work}} → {{she works}}; {{I drive}} → {{he drives}}. Ang berbo sa Bisaya dili mausab bisan kinsa ang nagbuhat, busa kini nga {{-s}} dali makalimtan, ug mamatikdan dayon kini sa mga Amerikano."},
+        { "table": [
+          ["ako, ikaw, kami, sila","siya, kini (usa)"],
+          ["{{I work}}","{{she works}}"],
+          ["{{you drive}}","{{he drives}}"],
+          ["{{we watch}}","{{he watches}}"],
+          ["{{they go}}","{{she goes}}"],
+          ["{{I study}}","{{she studies}}"],
+          ["{{I have}}","{{he has}}"],
+          ["{{I don't work}}","{{she doesn't work}}"]
+        ] },
+        {"p":"**Ang pagsulat**: {{-es}} human sa s, sh, ch, x, o: {{watches}}, {{goes}}, {{does}}. Ang y nahimong {{-ies}}: {{study}} → {{studies}}. Ug ang {{have}} nahimong {{has}}."},
+        {"p":"**Dili: {{doesn't}}.** Uban sa {{he}}, {{she}}, {{it}}: {{doesn't}} + berbo nga **walay {{-s}}**: {{He doesn't work.}} Ang {{-s}} mibalhin na sa {{doesn't}}; dili {{He doesn't works}}."},
+        { "ex": [
+          {"t":"She works at a bank.","tr":"Nagtrabaho siya sa bangko."},
+          {"t":"He drives a taxi.","tr":"Nagdrayb siya og taxi."},
+          {"t":"My sister studies nursing.","tr":"Nagtuon og nursing ang akong igsoon."},
+          {"t":"He goes to church every Sunday.","tr":"Mosimba siya matag Domingo."},
+          {"t":"She has a small store.","tr":"Naa siyay gamay nga tindahan."},
+          {"t":"He doesn't eat pork.","tr":"Dili siya mokaon og baboy."},
+          {"t":"It rains a lot in June.","tr":"Daghan og ulan kung Hunyo."}
+        ] },
+        {"tip":"Usa ka paagi sa paghinumdom: {{he}}, {{she}}, {{it}} naay {{s}} sa ilang berbo, sama sa {{is}} ug {{has}}. {{She is}}, {{she has}}, {{she works}}."}
+      ],
+      "mistakes": [
+        {"wrong":"She work at a bank.","right":"She works at a bank.","tr":"Nagtrabaho siya sa bangko.","why":"Uban sa {{she}}: {{works}}, uban ang {{-s}}."},
+        {"wrong":"He doesn't works.","right":"He doesn't work.","tr":"Dili siya motrabaho.","why":"Human sa {{doesn't}}, walay {{-s}}."},
+        {"wrong":"My mom works at a bank. He works hard.","right":"My mom works at a bank. She works hard.","tr":"Nagtrabaho sa bangko ang akong mama. Kugihan siya.","why":"Babaye ang imong mama: {{she}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"She ___ at a bank.","tr":"Nagtrabaho siya sa bangko.","options":["works","work","working"],"answer":0,"why":"{{she}} + {{-s}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"He ___ eat pork.","tr":"Dili siya mokaon og baboy.","options":["doesn't","don't","not"],"answer":0,"why":"Uban sa {{he}}: {{doesn't}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"My dad ___ to church every Sunday.","tr":"Mosimba ang akong papa matag Domingo.","options":["goes","go","gos"],"answer":0,"why":"{{go}} → {{goes}}."},
+        {"type":"choice","q":"“Naa siyay gamay nga tindahan.” (babaye)","options":["{{She has a small store.}}","{{She have a small store.}}","{{He has a small store.}}"],"answer":0,"why":"Babaye: {{she}}; ug {{have}} → {{has}}."},
+        {"type":"dialogue","q":"Gipangutana ka bahin sa imong igsoon. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"What does your sister do?","tr":"Unsay trabaho sa imong igsoon?"},{"options":["She teaches English.","She teach English."],"answer":0,"why":"{{she}} + {{-es}}: {{teaches}}."},{"who":"Amy","t":"Does she work on weekends?","tr":"Motrabaho ba siya kung weekend?"},{"options":["No, she doesn't work on weekends.","No, she don't work on weekends."],"answer":0,"why":"Uban sa {{she}}: {{doesn't}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Dili siya mokaon og baboy.","words":["He","doesn't","eat","pork."]},
+        {"type":"choice","q":"Ang {{I don't}}, uban sa {{she}}:","options":["{{she doesn't}}","{{she don't}}","{{she not}}"],"answer":0,"why":"Ang {{-s}} sa {{he}}, {{she}}, {{it}} moadto sa {{doesn't}}.","from":"talk-about-your-routine"},
+        {"type":"free","q":"Ikaw na: isulti ang adlaw-adlaw sa usa ka tawo sa imong pamilya.","answers":[{"t":"My dad gets up at five. He works on a farm. He doesn't work on Sundays.","tr":"Mobangon ang akong papa alas singko. Nagtrabaho siya sa uma. Dili siya motrabaho kung Domingo."},{"t":"My sister studies in Manila. She calls me every night.","tr":"Nagtuon ang akong igsoon sa Manila. Motawag siya nako matag gabii."}]}
+      ]
+    },
+    {
+      "id": "ask-about-habits",
+      "unit": 3,
+      "level": "A1",
+      "title": "Pangutana bahin sa naandan",
+      "summary": "Pangutana kung asa nagpuyo o nagtrabaho ang usa ka tawo ug unsay iyang ganahan: ang pangutana nga naay {{do}}.",
+      "topic": "{{Do you…?}}, {{Does she…?}}; {{Where do you…?}}, {{What does he do?}}; {{Yes, I do.}} / {{No, she doesn't.}}",
+      "blocks": [
+        {"goal":{"t":"Do you speak English? — Yes, I do. A little.","tr":"Makasulti ka og Iningles? — Oo. Gamay."}},
+        {"dialog":[{"who":"Mark","t":"Do you live in Cebu?","tr":"Nagpuyo ka sa Cebu?"},{"who":"Joy","t":"Yes, I do. I live in Lahug.","tr":"Oo. Nagpuyo ko sa Lahug."},{"who":"Mark","t":"Where do you work?","tr":"Asa ka nagtrabaho?"},{"who":"Joy","t":"I work at a call center. Do you work here too?","tr":"Nagtrabaho ko sa usa ka call center. Nagtrabaho sad ka dinhi?"},{"who":"Mark","t":"No, I don't. I'm on vacation. Does your sister work with you?","tr":"Dili. Nagbakasyon ko. Kauban ba nimo sa trabaho ang imong igsoon?"},{"who":"Joy","t":"Yes, she does!","tr":"Oo!"}]},
+        {"p":"Sa Bisaya, mopataas lang ta sa tingog o mobutang og “ba”. Sa Iningles, ang pangutana sa present simple kinahanglan og **{{do}}** sa unahan: {{You live in Cebu.}} → {{Do you live in Cebu?}} Uban sa {{he}}, {{she}}, {{it}}: **{{does}}**, ug ang berbo mawad-an sa iyang {{-s}}: {{She works here.}} → {{Does she work here?}}"},
+        { "table": [
+          ["pahayag","pangutana"],
+          ["{{You live in Cebu.}}","{{Do you live in Cebu?}}"],
+          ["{{They like rice.}}","{{Do they like rice?}}"],
+          ["{{She works here.}}","{{Does she work here?}}"],
+          ["{{He drives.}}","{{Does he drive?}}"]
+        ] },
+        {"p":"**Unsa, asa, kanus-a**: ang pulong sa pangutana una, dayon {{do}} o {{does}}: {{Where do you work?}} {{What time do you get up?}} {{What does she do?}} (“Unsay iyang trabaho?”)"},
+        {"p":"**Mubo nga tubag**: {{Yes, I do.}} {{No, I don't.}} {{Yes, she does.}} {{No, he doesn't.}} Ug hinumdomi: kung naay {{am}}, {{is}}, {{are}} ang sentence ({{I'm a nurse}}), walay {{do}}: {{Are you a nurse?}} Kung laing berbo, {{do}}: {{Do you work?}}"},
+        { "ex": [
+          {"t":"Do you speak English?","tr":"Makasulti ka og Iningles?"},
+          {"t":"Does she live here?","tr":"Nagpuyo ba siya dinhi?"},
+          {"t":"Where do you work?","tr":"Asa ka nagtrabaho?"},
+          {"t":"What does your dad do?","tr":"Unsay trabaho sa imong papa?"},
+          {"t":"What time do you eat lunch?","tr":"Unsang orasa ka maniudto?"},
+          {"t":"Do you like spicy food? — Yes, I do!","tr":"Ganahan ka sa halang nga pagkaon? — Oo!"}
+        ] },
+        {"tip":"Ang {{What do you do?}} wala nangutana kung unsay imong gibuhat karon: nangutana kini sa imong trabaho. Tubaga: {{I'm a nurse.}} o {{I work at a hotel.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"You live in Cebu?","right":"Do you live in Cebu?","tr":"Nagpuyo ka sa Cebu?","why":"Ang naandan nga pangutana kinahanglan og {{do}} sa unahan."},
+        {"wrong":"Does she works here?","right":"Does she work here?","tr":"Nagtrabaho ba siya dinhi?","why":"Human sa {{does}}, walay {{-s}} ang berbo."},
+        {"wrong":"Where you work?","right":"Where do you work?","tr":"Asa ka nagtrabaho?","why":"Human sa {{where}}: {{do}}, dayon {{you}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ you live in Cebu?","tr":"Nagpuyo ka sa Cebu?","options":["Do","Does","Are"],"answer":0,"why":"Uban sa {{you}}: {{do}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ she work here?","tr":"Nagtrabaho ba siya dinhi?","options":["Does","Do","Is"],"answer":0,"why":"Uban sa {{she}}: {{does}}."},
+        {"type":"choice","q":"Pangutana: {{Do you like coffee?}} Ganahan ka. Unsay imong tubag?","options":["{{Yes, I do.}}","{{Yes, I like.}}","{{Yes, I am.}}"],"answer":0,"why":"Ang mubo nga tubag mogamit sa {{do}}."},
+        {"type":"dialogue","q":"Nakaila ka og bag-ong higala. Pilia ang imong mga pangutana.","lines":[{"options":["Where do you live?","Where you live?"],"answer":0,"why":"{{Where do you…?}}"},{"who":"Mark","t":"I live in Talisay. And you?","tr":"Nagpuyo ko sa Talisay. Ikaw?"},{"options":["I live in Mandaue. Does your wife work?","I live in Mandaue. Do your wife works?"],"answer":0,"why":"Uban sa {{your wife}} ({{she}}): {{does}}, ug walay {{-s}} ang {{work}}."},{"who":"Mark","t":"Yes, she does. She's a teacher.","tr":"Oo. Maestra siya."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Unsay trabaho sa imong papa?","words":["What","does","your dad","do?"]},
+        {"type":"choice","q":"Asa ang husto?","options":["{{Are you a nurse?}}","{{Do you a nurse?}}"],"answer":0,"why":"Walay laing berbo, naa ra ang {{are}}: walay {{do}}.","from":"ask-with-be"},
+        {"type":"choice","q":"{{She works here.}} → pangutana:","options":["{{Does she work here?}}","{{Does she works here?}}","{{Do she work here?}}"],"answer":0,"why":"{{does}}, ug ang {{-s}} mobalhin gikan sa berbo.","from":"talk-about-someone-elses-day"},
+        {"type":"free","q":"Ikaw na: pangutan-a og tulo ka pangutana bahin sa adlaw-adlaw sa usa ka tawo.","answers":[{"t":"Where do you live? What time do you get up? Do you like your job?","tr":"Asa ka nagpuyo? Unsang orasa ka mobangon? Ganahan ka sa imong trabaho?"},{"t":"Does your sister work? What does she do?","tr":"Nagtrabaho ba ang imong igsoon? Unsay iyang trabaho?"}]}
+      ]
+    },
+    {
+      "id": "say-what-youre-doing-now",
+      "unit": 3,
+      "level": "A1",
+      "title": "Isulti ang imong gibuhat karon",
+      "summary": "Isulti kung unsay imong gibuhat karon dayon: “I'm cooking right now.” Ang usa ka “nag-” nahimong duha sa Iningles.",
+      "topic": "Ang present continuous ({{am}} / {{is}} / {{are}} + {{-ing}}) para sa karon; ang present simple para sa naandan",
+      "blocks": [
+        {"goal":{"t":"I'm cooking right now. Can I call you back?","tr":"Nagluto ko karon. Tawagan ra tika unya?"}},
+        {"dialog":[{"who":"Joy","t":"Hi! What are you doing?","tr":"Hi! Nag-unsa ka?"},{"who":"Ana","t":"I'm cooking dinner. Ben is watching TV.","tr":"Nagluto ko sa panihapon. Nagtan-aw og TV si Ben."},{"who":"Joy","t":"Are the kids sleeping?","tr":"Natulog na ba ang mga bata?"},{"who":"Ana","t":"No, they're playing outside. Why?","tr":"Wala, nagdula sila sa gawas. Ngano man?"},{"who":"Joy","t":"I'm at the mall. There's a big sale!","tr":"Naa ko sa mall. Naay dakong sale!"},{"who":"Ana","t":"Really? Wait, I'm turning off the stove!","tr":"Tinuod? Hulat, palungon nako ang stove!"}]},
+        {"p":"Sa Bisaya, ang “Nagluto ko” mahimong “nagluto ko karon”, “naandan nako ang pagluto”, o “nagluto ko gahapon”. Ang Iningles **mopili**: kung karon dayon, ang **present continuous**: {{am}} / {{is}} / {{are}} + berbo-{{ing}}: {{I'm cooking.}} Kung naandan, ang present simple: {{I cook every day.}} (Ang kaniadto, sa unit 4.)"},
+        { "table": [
+          ["Bisaya","kahulogan","Iningles"],
+          ["Nagluto ko.","karon dayon","{{I'm cooking.}}"],
+          ["Moluto ko matag adlaw.","naandan","{{I cook every day.}}"],
+          ["Nagtrabaho siya sa bangko.","iyang trabaho (kanunay)","{{She works at a bank.}}"],
+          ["Nagtrabaho siya karon.","karon dayon","{{She's working now.}}"]
+        ] },
+        {"p":"**Ang porma**: kinahanglan ang {{am}}, {{is}} o {{are}}, dili lang ang {{-ing}}: {{I am cooking}}, {{she is watching}}, {{they are playing}}. Dili {{I cooking}}. Sa pangutana ug sa “dili”, ang {{am}}/{{is}}/{{are}} ang molihok, walay {{do}}: {{Are you working?}} {{I'm not sleeping.}}"},
+        {"p":"**Pagsulat sa {{-ing}}**: {{make}} → {{making}} (mawala ang e), {{sit}} → {{sitting}}, {{swim}} → {{swimming}} (doble ang katapusang letra). Ug ang ubang berbo sa gibati ug hunahuna kasagaran walay {{-ing}}: {{I like}}, {{I want}}, {{I know}}, {{I need}}: {{I want a coffee}}, dili {{I'm wanting}}."},
+        { "ex": [
+          {"t":"I'm cooking dinner.","tr":"Nagluto ko sa panihapon."},
+          {"t":"She's watching TV.","tr":"Nagtan-aw siya og TV."},
+          {"t":"They're playing outside.","tr":"Nagdula sila sa gawas."},
+          {"t":"It's raining.","tr":"Nag-ulan."},
+          {"t":"Are you working today?","tr":"Nagtrabaho ka karon?"},
+          {"t":"I cook every day, but today I'm not cooking.","tr":"Moluto ko matag adlaw, pero karon dili ko moluto."}
+        ] },
+        {"tip":"Ang {{I'm living in Lahug}} husto para sa temporaryo nga sitwasyon. Pero para sa imong permanente nga puy-anan, mas natural ang {{I live in Lahug.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I cooking now.","right":"I'm cooking now.","tr":"Nagluto ko karon.","why":"Kinahanglan ang {{am}}: {{I am cooking}}."},
+        {"wrong":"I'm wanting a coffee.","right":"I want a coffee.","tr":"Gusto ko og kape.","why":"Ang {{want}}, {{like}}, {{know}} kasagaran walay {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ cooking dinner.","tr":"Nagluto ko sa panihapon.","options":["am","do","is"],"answer":0,"why":"{{I am}} + {{-ing}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"She's ___ TV.","tr":"Nagtan-aw siya og TV.","options":["watching","watch","watches"],"answer":0,"why":"{{is}} + berbo-{{ing}}."},
+        {"type":"choice","q":"Karon dayon: “Nag-ulan.”","options":["{{It's raining.}}","{{It rains.}}","{{It raining.}}"],"answer":0,"why":"Karon dayon: {{is}} + {{-ing}}."},
+        {"type":"choice","q":"Naandan: “Moluto ko matag adlaw.”","options":["{{I cook every day.}}","{{I cooking every day.}}"],"answer":0,"why":"Naandan: present simple."},
+        {"type":"dialogue","q":"Gitawagan ka sa imong higala. Pilia ang imong mga tubag.","lines":[{"who":"Mark","t":"Hey! What are you doing?","tr":"Hoy! Nag-unsa ka?"},{"options":["I'm studying English.","I study English now."],"answer":0,"why":"Karon dayon: {{I'm studying}}."},{"who":"Mark","t":"Is your brother home?","tr":"Naa ba sa balay ang imong igsoon?"},{"options":["Yes, but he's sleeping.","Yes, but he sleeping."],"answer":0,"why":"Kinahanglan ang {{is}}: {{he's sleeping}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Nagdula sila sa gawas.","words":["They're","playing","outside."]},
+        {"type":"choice","q":"“Nagtrabaho siya sa bangko.” (iyang trabaho, babaye)","options":["{{She works at a bank.}}","{{She's work at a bank.}}"],"answer":0,"why":"Iyang trabaho kanunay: present simple, {{works}}.","from":"talk-about-someone-elses-day"},
+        {"type":"free","q":"Ikaw na: unsay imong gibuhat karon, ug unsay gibuhat sa imong pamilya?","answers":[{"t":"I'm studying English. My mom is cooking, and my brother is sleeping.","tr":"Nagtuon ko og Iningles. Nagluto akong mama, ug natulog akong igsoon."},{"t":"I'm sitting in a café. I'm drinking coffee.","tr":"Naglingkod ko sa usa ka café. Nag-inom ko og kape."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "Isulti ang imong ganahan",
+      "summary": "Isulti kung unsay imong ganahan ug dili ganahan: “I love swimming, and I like dogs.” Ug nganong ang “ang” dili kanunay {{the}}.",
+      "topic": "{{like}}, {{love}}, {{hate}} + {{-ing}}; mga butang sa kinatibuk-an walay {{the}} ({{I like dogs.}})",
+      "blocks": [
+        {"goal":{"t":"I love swimming, and I like dogs.","tr":"Ganahan kaayo ko molangoy, ug ganahan ko sa iro."}},
+        {"dialog":[{"who":"Amy","t":"What do you like doing on weekends?","tr":"Unsay ganahan nimong buhaton kung weekend?"},{"who":"Ana","t":"I love swimming. And I like cooking for my family.","tr":"Ganahan kaayo ko molangoy. Ug ganahan ko magluto para sa akong pamilya."},{"who":"Amy","t":"Do you like cats?","tr":"Ganahan ka sa iring?"},{"who":"Ana","t":"Not really. I like dogs. I have three!","tr":"Dili kaayo. Ganahan ko sa iro. Naa koy tulo!"},{"who":"Amy","t":"I hate waking up early on weekends.","tr":"Dili gyud ko ganahan mobangon og sayo kung weekend."},{"who":"Ana","t":"Me too!","tr":"Ako sad!"}]},
+        {"p":"**Ganahan + berbo.** “Ganahan ko molangoy” sa Iningles: {{I like swimming.}} (o {{I like to swim.}}). Ang {{love}} = ganahan kaayo; ang {{hate}} = dili gyud ganahan. Human niini, ang berbo kasagaran {{-ing}}: {{I love cooking.}} {{She hates waiting.}}"},
+        {"p":"**Ang lit-ag: “ang” dili kanunay {{the}}.** Sa Bisaya, “Ganahan ko sa iro”, “Lami ang lechon”. Sa Iningles, kung ang imong gipasabot **ang tanan sa kinatibuk-an**, walay {{the}}, ug plural ang mga butang nga maihap: {{I like dogs.}} {{Lechon is delicious.}} Kung naay {{the}}, partikular na nga mga butang: {{I like the dogs next door.}} “Ganahan ko sa mga iro sa silingan.”"},
+        { "table": [
+          ["Bisaya","kahulogan","Iningles"],
+          ["Ganahan ko sa iro.","iro sa kinatibuk-an","{{I like dogs.}}"],
+          ["Lami ang lechon.","lechon sa kinatibuk-an","{{Lechon is delicious.}}"],
+          ["Lami ang lechon ni Lola.","usa ka partikular nga lechon","{{Lola's lechon is delicious.}}"],
+          ["Ganahan ko sa sinina sa bintana.","kana nga sinina","{{I like the dress in the window.}}"]
+        ] },
+        { "ex": [
+          {"t":"I like dogs.","tr":"Ganahan ko sa iro."},
+          {"t":"I love swimming.","tr":"Ganahan kaayo ko molangoy."},
+          {"t":"She hates waking up early.","tr":"Dili gyud siya ganahan mobangon og sayo."},
+          {"t":"Lechon is delicious.","tr":"Lami ang lechon."},
+          {"t":"Do you like spicy food?","tr":"Ganahan ka sa halang nga pagkaon?"},
+          {"t":"I like the dress in the window.","tr":"Ganahan ko sa sinina sa bintana."}
+        ] },
+        {"tip":"Kung ganahan ka sa usa ka butang karon dayon (pagkaon nga imong gitilawan, sinina nga imong gisul-ob), {{I like it!}} o {{I love it!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I like swim.","right":"I like swimming.","tr":"Ganahan ko molangoy.","why":"Human sa {{like}}: berbo-{{ing}} (o {{to swim}})."},
+        {"wrong":"I like dog.","right":"I like dogs.","tr":"Ganahan ko sa iro.","why":"Iro sa kinatibuk-an: plural, {{dogs}}."},
+        {"wrong":"The lechon is delicious.","right":"Lechon is delicious.","tr":"Lami ang lechon.","why":"Kung lechon sa kinatibuk-an ang imong gipasabot, walay {{the}}. Ang {{The lechon is delicious}} nagpasabot og usa ka partikular nga lechon."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I love ___.","tr":"Ganahan kaayo ko molangoy.","options":["swimming","swim","swims"],"answer":0,"why":"Human sa {{love}}: {{-ing}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I like ___.","tr":"Ganahan ko sa iring (sa kinatibuk-an).","options":["cats","the cat","cat"],"answer":0,"why":"Sa kinatibuk-an: plural, walay {{the}}."},
+        {"type":"choice","q":"“Lami ang mangga.” (sa kinatibuk-an)","options":["{{Mangoes are delicious.}}","{{The mango are delicious.}}","{{Mango delicious.}}"],"answer":0,"why":"Sa kinatibuk-an: plural, walay {{the}}, ug {{are}}."},
+        {"type":"dialogue","q":"Nag-istorya mo bahin sa pagkaon. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"Do you like American food?","tr":"Ganahan ka sa pagkaon sa Amerika?"},{"options":["Yes! I love burgers.","Yes! I love the burger."],"answer":0,"why":"Burger sa kinatibuk-an: {{burgers}}, walay {{the}}."},{"who":"Amy","t":"What about cooking? Do you like it?","tr":"Ug ang pagluto? Ganahan ka?"},{"options":["Yes, I like cooking for my friends.","Yes, I like cook for my friends."],"answer":0,"why":"Human sa {{like}}: {{cooking}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Dili gyud siya ganahan mobangon og sayo.","words":["She","hates","waking up","early."]},
+        {"type":"say","q":"Pangutana: “Ganahan ka sa halang nga pagkaon?”","answer":"Do you like spicy food?","from":"ask-about-habits"},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"My brother ___ basketball.","tr":"Ganahan og basketball ang akong igsoon.","options":["likes","like","liking"],"answer":0,"why":"{{my brother}} = {{he}}: {{likes}}.","from":"talk-about-someone-elses-day"},
+        {"type":"free","q":"Ikaw na: isulti ang duha ka butang nga imong ganahan, ug usa nga dili.","answers":[{"t":"I love cooking and I like music. I hate cold weather.","tr":"Ganahan kaayo ko magluto ug ganahan ko sa musika. Dili gyud ko ganahan sa bugnaw nga panahon."},{"t":"I like dogs, but I don't like cats.","tr":"Ganahan ko sa iro, pero dili ko ganahan sa iring."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Isulti ang imong mahimo",
+      "summary": "Isulti kung unsay imong mahimo ug dili, pangayo og tabang, ug ilha ang kalainan sa {{borrow}} ug {{lend}}.",
+      "topic": "{{can}} / {{can't}} + berbo; {{Can you…?}}, {{Can I…?}}, {{Could you…?}}; {{borrow}} ug {{lend}} (ang usa ka “hulam”)",
+      "blocks": [
+        {"goal":{"t":"I can speak English and Bisaya, but I can't swim.","tr":"Makasulti ko og Iningles ug Bisaya, pero dili ko kahibalo molangoy."}},
+        {"dialog":[{"who":"Mark","t":"Can you swim?","tr":"Kahibalo ka molangoy?"},{"who":"Joy","t":"Yes, I can! Can you?","tr":"Oo! Ikaw?"},{"who":"Mark","t":"No, I can't. Can you teach me?","tr":"Dili. Pwede nimo ko tudloan?"},{"who":"Joy","t":"Sure! Can you lend me your goggles?","tr":"Sige! Pahulama ko sa imong goggles?"},{"who":"Mark","t":"Of course. Can I borrow your towel?","tr":"Siyempre. Pahulama sad ko sa imong tualya?"},{"who":"Joy","t":"Here you go.","tr":"Ania."}]},
+        {"p":"**Usa ka pulong, daghang trabaho.** Ang {{can}} mao ang “maka-” (abilidad), “kahibalo” (kahanas) ug “pwede” (pagtugot). {{can}} + berbo nga walay usab: {{I can swim.}} {{She can drive.}} Walay {{to}}, walay {{-s}}: dili {{She cans}}, dili {{can to swim}}."},
+        {"p":"**Dili: {{can't}}** ({{cannot}}): {{I can't swim.}} **Pangutana**: ibalhin ang {{can}} sa unahan, walay {{do}}: {{Can you swim?}} Mubo nga tubag: {{Yes, I can.}} / {{No, I can't.}}"},
+        {"p":"**Pagpangayo.** {{Can I…?}} “Pwede ko…?” ({{Can I sit here?}}) ug {{Can you…?}} “Pwede nimo…?” ({{Can you help me?}}). Mas humok ang {{Could you…?}}: {{Could you open the window, please?}}"},
+        {"p":"**{{borrow}} ug {{lend}}.** Ang “hulam” sa Bisaya duha sa Iningles. {{borrow}}: ikaw ang **mokuha** ({{Can I borrow your pen?}} “Pahulama ko sa imong ballpen.”). {{lend}}: ikaw ang **mohatag** ({{Can you lend me your pen?}} “Pwede nimo ko pahulaman sa imong ballpen?”). Dili {{Can you borrow me…?}}"},
+        { "table": [
+          ["Bisaya","Iningles"],
+          ["Kahibalo ko molangoy.","{{I can swim.}}"],
+          ["Dili ko makaadto.","{{I can't come.}}"],
+          ["Pwede ko molingkod?","{{Can I sit down?}}"],
+          ["Pwede nimo ko tabangan?","{{Can you help me?}}"],
+          ["Pahulama ko sa imong ballpen.","{{Can I borrow your pen?}}"]
+        ] },
+        { "ex": [
+          {"t":"I can swim.","tr":"Kahibalo ko molangoy."},
+          {"t":"She can't drive.","tr":"Dili siya kahibalo modrayb."},
+          {"t":"Can you help me?","tr":"Pwede nimo ko tabangan?"},
+          {"t":"Can I sit here?","tr":"Pwede ko molingkod dinhi?"},
+          {"t":"Could you open the window, please?","tr":"Pwede nimo ablihan ang bintana, palihug?"},
+          {"t":"Can I borrow your pen?","tr":"Pahulama ko sa imong ballpen."},
+          {"t":"Can you lend me fifty pesos?","tr":"Pwede ko nimo pahulaman og singkwenta?"}
+        ] },
+        {"tip":"Pamatii og maayo: {{can}} ug {{can't}} halos parehas pamation. Ang {{can't}} mas taas ug mas kusog ang tingog: “I CAN'T swim”, samtang ang {{can}} hinay: “I c'n swim”."}
+      ],
+      "mistakes": [
+        {"wrong":"I can to swim.","right":"I can swim.","tr":"Kahibalo ko molangoy.","why":"Human sa {{can}}: berbo dayon, walay {{to}}."},
+        {"wrong":"She cans drive.","right":"She can drive.","tr":"Kahibalo siya modrayb.","why":"Ang {{can}} dili makadawat og {{-s}}, bisan uban sa {{she}}."},
+        {"wrong":"Can you borrow me your pen?","right":"Can you lend me your pen?","tr":"Pwede nimo ko pahulaman sa imong ballpen?","why":"Kung ang lain ang mohatag: {{lend}}. Kung ikaw ang mokuha: {{borrow}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I can ___.","tr":"Kahibalo ko molangoy.","options":["swim","to swim","swimming"],"answer":0,"why":"{{can}} + berbo dayon."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Can I ___ your pen?","tr":"Pahulama ko sa imong ballpen.","options":["borrow","lend","borrowing"],"answer":0,"why":"Ikaw ang mokuha: {{borrow}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Can you ___ me fifty pesos?","tr":"Pwede ko nimo pahulaman og singkwenta?","options":["lend","borrow","lends"],"answer":0,"why":"Siya ang mohatag: {{lend}}."},
+        {"type":"choice","q":"Pangutana: {{Can you drive?}} Dili ka kahibalo. Unsay imong tubag?","options":["{{No, I can't.}}","{{No, I don't.}}","{{No, I not can.}}"],"answer":0,"why":"Ang mubo nga tubag mogamit sa {{can}}: {{No, I can't.}}"},
+        {"type":"dialogue","q":"Naa kay gikinahanglan sa opisina. Pilia ang imong mga pangutana.","lines":[{"options":["Excuse me, can I borrow your charger?","Excuse me, can you borrow me your charger?"],"answer":0,"why":"Ikaw ang mokuha: {{Can I borrow…?}}"},{"who":"Kauban","t":"Sure, here.","tr":"Sige, ania."},{"options":["Thanks! Could you help me with this report?","Thanks! Could you to help me with this report?"],"answer":0,"why":"Human sa {{could}}: berbo dayon."},{"who":"Kauban","t":"Of course!","tr":"Siyempre!"}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Pwede nimo ko tabangan?","words":["Can","you","help","me?"]},
+        {"type":"choice","q":"“Kahibalo siya (lalaki) moluto.”","options":["{{He can cook.}}","{{He cans cook.}}","{{He can cooks.}}"],"answer":0,"why":"Ang {{can}} ug ang berbo human niini walay {{-s}}.","from":"talk-about-someone-elses-day"},
+        {"type":"free","q":"Ikaw na: isulti ang duha ka butang nga imong mahimo, ug usa nga dili.","answers":[{"t":"I can cook and I can sing. I can't drive.","tr":"Kahibalo ko moluto ug mokanta. Dili ko kahibalo modrayb."},{"t":"I can speak English and Bisaya. I can't swim very well.","tr":"Makasulti ko og Iningles ug Bisaya. Dili kaayo ko kahibalo molangoy."}]}
+      ]
+    },
+    {
+      "id": "tell-people-what-to-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Pagsugo nga matinahuron",
+      "summary": "Dawata ang usa ka bisita: “Please sit down. Let's eat!” Ug ang husto nga Iningles sa “ablihi ang suga”.",
+      "topic": "Ang sugo (ang berbo lang); {{please}}; {{Don't…}}; {{Let's…}}; {{turn on}} / {{turn off}}",
+      "blocks": [
+        {"goal":{"t":"Please sit down. Let's eat!","tr":"Lingkod, palihug. Kaon ta!"}},
+        {"dialog":[{"who":"Ikaw","t":"Come in! Please sit down.","tr":"Dayon! Lingkod, palihug."},{"who":"Bisita","t":"Thank you. It's hot in here!","tr":"Salamat. Init diri sa sulod!"},{"who":"Ikaw","t":"Oh, sorry! Let me turn on the fan. And let's turn off the TV.","tr":"Ay, sorry! Ablihan nako ang bentilador. Ug palungon nato ang TV."},{"who":"Bisita","t":"That's better!","tr":"Mas maayo na!"},{"who":"Ikaw","t":"Let's eat! Don't be shy. Have some more rice!","tr":"Kaon ta! Ayaw kaulaw. Kuha pa og kan-on!"},{"who":"Bisita","t":"Thanks! It's delicious!","tr":"Salamat! Lami kaayo!"}]},
+        {"p":"**Ang sugo**: ang berbo lang, walay {{you}}: {{Sit down.}} {{Come in.}} {{Wait.}} Sama sa Bisaya nga “Lingkod!”, “Dayon!”. Para matinahuron, idugang ang {{please}}: {{Please sit down.}} o {{Sit down, please.}}"},
+        {"p":"**Ayaw: {{Don't}}** + berbo: {{Don't worry.}} “Ayaw kabalaka.” Uban sa adjective, {{Don't be}}: {{Don't be shy.}} “Ayaw kaulaw.” {{Don't be late.}} “Ayaw ulahi.”"},
+        {"p":"**“…ta!”: {{Let's}}** + berbo: {{Let's eat!}} “Kaon ta!”, {{Let's go!}} “Adto ta!”. Ang dili: {{Let's not…}}: {{Let's not go.}}"},
+        {"p":"**Ang lit-ag sa Philippine English**: sa Bisaya, “ablihi ang suga”, “sirad-i ang TV”. Sa Iningles, ang mga makina ug suga dili {{open}} o {{close}}: {{turn on}} ug {{turn off}}. Ang {{open}} ug {{close}} para lang sa pultahan, bintana, kahon, tindahan."},
+        { "table": [
+          ["Bisaya","Iningles"],
+          ["Ablihi ang suga.","{{Turn on the light.}}"],
+          ["Palonga ang TV.","{{Turn off the TV.}}"],
+          ["Ablihi ang aircon.","{{Turn on the AC.}}"],
+          ["Ablihi ang pultahan.","{{Open the door.}}"],
+          ["Sirad-i ang bintana.","{{Close the window.}}"]
+        ] },
+        { "ex": [
+          {"t":"Please sit down.","tr":"Lingkod, palihug."},
+          {"t":"Come in!","tr":"Dayon!"},
+          {"t":"Don't worry.","tr":"Ayaw kabalaka."},
+          {"t":"Let's go!","tr":"Adto ta!"},
+          {"t":"Turn on the light, please.","tr":"Ablihi ang suga, palihug."},
+          {"t":"Turn off the TV.","tr":"Palonga ang TV."},
+          {"t":"Close the door.","tr":"Sirad-i ang pultahan."}
+        ] },
+        {"tip":"Ang {{Let me…}} = “Ako na…”: {{Let me help you.}} “Tabangan tika.” {{Let me turn on the fan.}} “Ako nay moabli sa bentilador.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Open the light.","right":"Turn on the light.","tr":"Ablihi ang suga.","why":"Ang suga, bentilador, TV ug aircon: {{turn on}} / {{turn off}}. Ang {{open}} para sa pultahan ug bintana."},
+        {"wrong":"Close the aircon.","right":"Turn off the AC.","tr":"Palonga ang aircon.","why":"Makina: {{turn off}}. (Sa Amerika, {{AC}} o {{air conditioning}}.)"},
+        {"wrong":"Don't to worry.","right":"Don't worry.","tr":"Ayaw kabalaka.","why":"Human sa {{don't}}: berbo dayon."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ worry.","tr":"Ayaw kabalaka.","options":["Don't","Not","No"],"answer":0,"why":"Ayaw: {{Don't}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Turn ___ the light, please.","tr":"Ablihi ang suga, palihug.","options":["on","open","up"],"answer":0,"why":"Suga: {{turn on}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Let's ___!","tr":"Kaon ta!","options":["eat","to eat","eating"],"answer":0,"why":"{{Let's}} + berbo dayon."},
+        {"type":"choice","q":"“Palonga ang aircon.”","options":["{{Turn off the AC.}}","{{Close the AC.}}","{{Open the AC.}}"],"answer":0,"why":"Makina: {{turn off}}."},
+        {"type":"dialogue","q":"Naa kay Amerikano nga bisita. Pilia ang imong mga sulti.","lines":[{"options":["Come in! Please sit down.","Come in! You sit down."],"answer":0,"why":"Matinahuron: {{Please sit down.}}"},{"who":"Bisita","t":"Thanks! It's a little dark in here.","tr":"Salamat! Medyo ngitngit diri."},{"options":["Oh, let me turn on the light.","Oh, let me open the light."],"answer":0,"why":"Suga: {{turn on}}."},{"who":"Bisita","t":"Thank you!","tr":"Salamat!"}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Sirad-i ang pultahan, palihug.","words":["Please","close","the door."]},
+        {"type":"choice","q":"Asa ang mas matinahuron?","options":["{{Could you close the window, please?}}","{{Close the window!}}"],"answer":0,"why":"{{Could you…, please?}}: humok nga pangayo.","from":"say-what-you-can-do"},
+        {"type":"free","q":"Ikaw na: dawata ang usa ka bisita sa imong balay sa Iningles.","answers":[{"t":"Come in! Please sit down. Let's eat!","tr":"Dayon! Lingkod, palihug. Kaon ta!"},{"t":"Welcome! Don't be shy. Let me turn on the fan.","tr":"Dayon! Ayaw kaulaw. Ablihan nako ang bentilador."}]}
+      ]
     }
   ]
 }
