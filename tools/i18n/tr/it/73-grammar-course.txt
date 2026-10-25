@@ -52,3 +52,19 @@ f5206956 Dillo, poi guarda la risposta
 471492a9 ← Precedente
 dd17342c Grammatica
 0336262a Questo dispositivo non ha una voce per questa lingua.
+# Function-first lessons: goal, conversations, new practice, mixed review
+fc1d3462 Ripasso misto
+629ee920 {0} domande dalle lezioni già fatte, perché restino
+a87476c8 Alla fine di questa lezione saprai dire
+2a20c750 Conversazione
+62a063a2 Ascolta tutto
+76b0e210 Dalla lezione {0}
+ba203e07 Scrivi qui la tua risposta, o dilla ad alta voce
+3ae5ff6e La tua risposta
+c63ce1c1 Controlla con l'IA
+faed9e0c Mostra risposte di esempio
+f02acd47 Sembra giusto!
+5d51c1f2 Un suggerimento:
+059c3e8c Per esempio:
+5d3ba53e Sei riuscito a dire qualcosa del genere?
+61dda140 Domande dalle lezioni già fatte, prima le più vecchie e quelle che ti sono sembrate più difficili. Ripescarle dalla memoria è ciò che le fa restare.

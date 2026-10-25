@@ -52,3 +52,19 @@ f5206956 Dites-le, puis affichez la réponse
 471492a9 ← Précédente
 dd17342c Grammaire
 0336262a Cet appareil n'a pas de voix pour cette langue.
+# Function-first lessons: goal, conversations, new practice, mixed review
+fc1d3462 Révision mélangée
+629ee920 {0} questions des leçons déjà faites, pour qu'elles restent
+a87476c8 À la fin de cette leçon, vous saurez dire
+2a20c750 Conversation
+62a063a2 Tout écouter
+76b0e210 De la leçon {0}
+ba203e07 Écrivez votre réponse ici, ou dites-la à voix haute
+3ae5ff6e Votre réponse
+c63ce1c1 Vérifier avec l'IA
+faed9e0c Voir des exemples de réponse
+f02acd47 Ça a l'air juste !
+5d51c1f2 Une suggestion :
+059c3e8c Par exemple :
+5d3ba53e Avez-vous pu dire quelque chose comme ça ?
+61dda140 Des questions des leçons déjà faites, d'abord les plus anciennes et celles qui vous ont semblé les plus difficiles. Les retrouver dans sa mémoire, c'est ce qui les fait rester.

@@ -378,3 +378,4 @@ e9369867  # fill in: {0}
 448c1d15  # There is no such grammar file. (app/grammar.py: a 404 the page never shows)
 c084abda  # That grammar course hasn't been made yet. (app/grammar.py: a 404 the page never shows)
 56bbfd55  # Couldn't download the grammar course ({0})... (app/grammar.py: a 404 the page never shows)
+18ed69a4  # <{0} class="gx" data-say="{1}" ...  (grammarpanel.js example: a tag, not words)

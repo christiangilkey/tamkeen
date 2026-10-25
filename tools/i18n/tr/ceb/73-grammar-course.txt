@@ -52,3 +52,19 @@ f5206956 Isulti kini, dayon ipakita ang tubag
 471492a9 ← Miagi
 dd17342c Grammar
 0336262a Walay tingog alang niini nga pinulongan kining device.
+# Function-first lessons: goal, conversations, new practice, mixed review
+fc1d3462 Sinagol nga repaso
+629ee920 {0} ka pangutana gikan sa mga leksyon nga nahuman na nimo, aron dili makalimtan
+a87476c8 Sa katapusan niining leksyon, masulti na nimo
+2a20c750 Panag-istoryahanay
+62a063a2 Paminawa tanan
+76b0e210 Gikan sa leksyon {0}
+ba203e07 Isulat diri ang imong tubag, o isulti kini og kusog
+3ae5ff6e Imong tubag
+c63ce1c1 Susiha gamit ang AI
+faed9e0c Ipakita ang mga pananglitan nga tubag
+f02acd47 Murag sakto!
+5d51c1f2 Usa ka sugyot:
+059c3e8c Pananglitan:
+5d3ba53e Nasulti ba nimo ang sama niini?
+61dda140 Mga pangutana gikan sa mga leksyon nga nahuman na nimo, una ang pinakadugay na ug ang pinakalisod para nimo. Ang paghinumdom niini mao ang makapahimo nga dili nimo kalimtan.

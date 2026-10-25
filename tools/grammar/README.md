@@ -139,6 +139,7 @@ the lessons of another file to it). `tools/grammar/en-ar/lessons.json` is the mo
   "variety": "Modern Standard Arabic",
   "about": "From your very first sentence to everyday conversation…",
   "reading": "transliteration",              // what an example's `r` is, if the course has readings
+  "draft": false,                            // true: checked, but not published (learners don't see it yet)
   "units": [{ "n": 1, "title": "First conversations" }, …],
   "lessons": [
     {
@@ -199,6 +200,18 @@ the lessons of another file to it). `tools/grammar/en-ar/lessons.json` is the mo
     answers. With an AI key, the app can check what they wrote.
 - **Examples**: every `t` is a whole, natural sentence or phrase with its translation `tr`; a course with
   readings (`reading`) gives every example its `r`. Arabic: fully vowelled, case endings included.
+- **Readings of the choices** (optional; for a script the learner can't read yet, give them): a `fill`
+  question's `r` is its sentence's reading with the same `___`, and its `rs` one reading per option; an
+  `order` question's `rs` is one reading per word; a dialogue reply's `rs` is one reading per option. All in
+  the same order as what they read. The app shows them under the tiles and buttons when readings are on,
+  and fills the gap of `r` with the right option's reading once answered. A `choice` option is explanation
+  text, so it gives its reading inside the marks: `{{word|reading}}`.
+
+  ```jsonc
+  { "type": "fill", "t": "我___咖啡。", "r": "Wǒ ___ kāfēi.", "options": ["要", "是"], "rs": ["yào", "shì"], … }
+  { "type": "order", "words": ["我", "要", "咖啡。"], "rs": ["wǒ", "yào", "kāfēi."], … }
+  { "options": ["好的。", "不是。"], "rs": ["Hǎo de.", "Bú shì."], "answer": 0, "why": "…" }
+  ```
 
 
 ## Progress

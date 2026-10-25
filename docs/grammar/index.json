@@ -8,12 +8,14 @@
    "title": "Arabic grammar",
    "variety": "Modern Standard Arabic",
    "units": 8,
-   "lessons": 2,
+   "lessons": 54,
    "levels": [
-    "A1"
+    "A1",
+    "A2",
+    "B1"
    ],
-   "bytes": 12646,
-   "sha256": "a334c3093ffa5c6158d731c01c789946c65b33f9636888eb598ace5d2377b8d4"
+   "bytes": 301021,
+   "sha256": "34199545373d24384fe53288622e8ca8d1b768e9b7fbbfd6a1fc47c69f7e77d1"
   },
   "en-ja": {
    "file": "en-ja/course.json",
@@ -30,22 +32,6 @@
    ],
    "bytes": 361220,
    "sha256": "2dc4c5239cd563231235e612163bb5da899e69c52f29cd2576a5c69d9b27cae4"
-  },
-  "ja-en": {
-   "file": "ja-en/course.json",
-   "from": "ja",
-   "to": "en",
-   "title": "英語の文法",
-   "variety": "アメリカ英語",
-   "units": 8,
-   "lessons": 45,
-   "levels": [
-    "A1",
-    "A2",
-    "B1"
-   ],
-   "bytes": 279623,
-   "sha256": "7d9ee53e9948fa23b72c2feae904f0a7cec853ea23237ca68e962cb3a129dcff"
   }
  }
 }

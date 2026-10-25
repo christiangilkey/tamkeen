@@ -3,10 +3,10 @@
 // published copy in docs/grammar is up to date with it.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import {
   GRAMMAR_BASE, checkCourse, cleanProgress, costCents, courseFor, explanationTexts, finished, grammarUrl, groups,
-  checkPrompt, keepsMarks, lessonVersion, listTexts, makeLesson, markProblem, reviewQuestions, mergeProgress, orderIsRight, parseRich, plainText, progressOf,
+  checkPrompt, keepsMarks, lessonVersion, listTexts, makeLesson, markProblem, reviewQuestions, mergeProgress, optionOrder, orderIsRight, parseRich, plainText, progressOf,
   richHtml, shuffled, taughtTexts, targetsOf, translationPrompt, unvowelled, withListTexts, withTexts,
 } from "../../web/js/grammardata.js";
 import { LANGUAGE_CODES } from "../../web/js/languages.js";
@@ -166,6 +166,18 @@ test("order questions: shuffled the same way every time, never already right, wi
   assert.ok(orderIsRight({ words: ["a", "b"], also: [["b", "a"]] }, ["b", "a"]));
 });
 
+test("options are shown mixed, the same way every time, so the right one isn't always first", () => {
+  const course = JSON.parse(readFileSync(new URL("../../tools/grammar/en-ar/lessons.json", import.meta.url), "utf8"));
+  const sets = course.lessons.flatMap((l) => l.practice.flatMap((q) => (q.type === "dialogue" ? q.lines.filter((x) => x.options) : q.options ? [q] : [])));
+  for (const s of sets) {
+    const order = optionOrder(s.options);
+    assert.deepEqual([...order].sort(), s.options.map((_, i) => i), "every option shown once");
+    assert.deepEqual(optionOrder(s.options), order, "the same order every time");
+  }
+  const first = sets.filter((s) => optionOrder(s.options)[0] === s.answer).length;
+  assert.ok(first < sets.length * 0.6, `the right answer is first in ${first} of ${sets.length}`);
+});
+
 test("a lesson's version changes with its content, and only with it", () => {
   assert.equal(lessonVersion(LESSON), lessonVersion(JSON.parse(JSON.stringify(LESSON))));
   assert.equal(lessonVersion({ ...LESSON, v: "old" }), lessonVersion(LESSON));
@@ -212,6 +224,27 @@ test("the new kinds of practice keep their languages apart: fill and dialogue op
   for (const t of ["أُرِيدُ قَهْوَةً.", "مَاذَا تُرِيدُ؟", "أَنْ", "أُرِيدُ  أَذْهَبَ.", "لَا، شُكْرًا.", "بِسُكَّرٍ؟", "أُرِيدُ شَايًا."]) assert.ok(taught.includes(t), t);
 });
 
+test("the choices a learner taps can carry readings: one for each, never sent to be translated", () => {
+  const course = JSON.parse(readFileSync(new URL("../../tools/grammar/en-ar/lessons.json", import.meta.url), "utf8"));
+  const lesson = course.lessons.find((l) => l.practice.some((q) => q.type === "fill") && l.practice.some((q) => q.type === "order") && l.practice.some((q) => q.type === "dialogue"));
+  const fill = lesson.practice.find((q) => q.type === "fill");
+  const order = lesson.practice.find((q) => q.type === "order");
+  const reply = lesson.practice.find((q) => q.type === "dialogue").lines.find((x) => x.options);
+  fill.r = "reading ___ here"; fill.rs = fill.options.map((_, k) => `opt${k}`);
+  order.rs = order.words.map((_, k) => `word${k}`);
+  reply.rs = reply.options.map((_, k) => `reply${k}`);
+  assert.deepEqual(checkCourse(course), []);
+  const texts = explanationTexts(lesson).map((t) => t.text).join("\n");
+  assert.doesNotMatch(texts, /opt0|word0|reply0|reading ___/);
+
+  fill.r = "no gap"; fill.rs = ["one"]; order.rs = [...order.rs, "extra"]; reply.rs = reply.options.map(() => "");
+  const problems = checkCourse(course).join("\n");
+  assert.match(problems, /the sentence's reading \(r\) must have exactly one gap/);
+  assert.match(problems, /the options: rs must give one reading for each/);
+  assert.match(problems, /the words: rs must give one reading for each/);
+  assert.match(problems, /a reply's options: rs must give one reading for each/);
+});
+
 test("the mixed review brings back done lessons, the oldest and weakest most, never one lesson twice in a row", () => {
   const q = (n) => ({ type: "choice", q: `q${n}`, options: ["a", "b"], answer: 0, why: "w" });
   const course = { lessons: ["one", "two", "three"].map((id) => ({ id, practice: [q(1), q(2), q(3), { type: "free", q: "mine", answers: [] }] })) };
@@ -239,8 +272,12 @@ test("the AI's look at a “your turn” sentence names the grammar, the models 
 
 for (const id of sources()) {
   test(`the ${id} course passes every check and its published copy is up to date`, () => {
-    const { problems, text, entry } = buildCourse(id);
+    const { problems, text, entry, draft } = buildCourse(id);
     assert.deepEqual(problems, [], problems.join("\n"));
+    if (draft) {
+      assert.ok(!existsSync(`${PUBLISHED}/${id}`) && !readIndex().courses[id], `${id} is a draft but is published: run node tools/grammar/build.mjs ${id}`);
+      return;
+    }
     // (git may have checked it out with Windows line endings)
     const published = readFileSync(`${PUBLISHED}/${id}/course.json`, "utf8").replace(/\r\n/g, "\n");
     assert.equal(published, text, `run node tools/grammar/build.mjs ${id}`);

@@ -52,3 +52,19 @@ f5206956 Sag es laut, dann zeig die Antwort
 471492a9 ← Zurück
 dd17342c Grammatik
 0336262a Dieses Gerät hat keine Stimme für diese Sprache.
+# Function-first lessons: goal, conversations, new practice, mixed review
+fc1d3462 Gemischte Wiederholung
+629ee920 {0} Fragen aus den Lektionen, die du schon gemacht hast, damit es hängen bleibt
+a87476c8 Am Ende dieser Lektion kannst du sagen
+2a20c750 Gespräch
+62a063a2 Alles anhören
+76b0e210 Aus Lektion {0}
+ba203e07 Schreib deine Antwort hier hin, oder sag sie laut
+3ae5ff6e Deine Antwort
+c63ce1c1 Mit KI prüfen
+faed9e0c Beispielantworten zeigen
+f02acd47 Sieht richtig aus!
+5d51c1f2 Ein Vorschlag:
+059c3e8c Zum Beispiel:
+5d3ba53e Konntest du so etwas sagen?
+61dda140 Fragen aus den Lektionen, die du schon gemacht hast, zuerst die ältesten und die, die dir am schwersten fielen. Sie selbst aus dem Gedächtnis zu holen, lässt sie hängen bleiben.

@@ -9,6 +9,10 @@ session per language writes **both** of its courses:
 - **<lang> → English** (`tools/grammar/<lang>-en/lessons.json`): English taught to a speaker of <lang>,
   explanations written in natural <lang> (not translated from English: written for that speaker).
 
+**For now: finish `en-<lang>` first, and pause `<lang>-en`** (the owner, 2026-10-25: English for speakers of
+other languages comes in the next update). Keep any `<lang>-en` lessons already written, set `"draft": true`
+at the top of its lessons.json (checked, not published), and write no more of it until he says.
+
 (Arabic: `en-ar` is the model course, written on branch `grammar-course`; the Arabic session writes
 `ar-en`.) The session that started you is the grammar-course session: it owns the app and the format. Nobody
 here merges anything; the main Tamkeen chat merges once the owner approves.
@@ -73,6 +77,10 @@ courses, is American English. A course whose examples are in a script the learne
 | en-ru | a Latin transliteration; `t` in Cyrillic with stress marks |
 | en-ar | transliteration (done) |
 | Latin-script courses (es, fr, it, pt, ca, de, tl, ceb) and every `<lang>-en` | none (`"reading": ""`) |
+
+In those courses, give the choices the learner taps their readings too (README, "Readings of the choices"):
+`r` (with `___`) and `rs` on `fill` questions, `rs` on `order` questions and on dialogue replies, and
+`{{word|reading}}` in `choice` options. A beginner can't pick a word they can't read.
 
 ## Starting points, language by language
 
