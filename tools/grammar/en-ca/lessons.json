@@ -2057,6 +2057,289 @@
         {"type":"say","q":"Ask a colleague: “Can you tell him I called?”","answer":"Pots dir-li que he trucat?"},
         {"type":"free","q":"Your turn: someone told you some news yesterday. Pass it on, starting with {{Em va dir que…}}","answers":[{"t":"La meva amiga em va dir que es casaria l'any que ve.","tr":"My friend told me she was getting married next year."},{"t":"El meu cap em va dir que divendres no havia de treballar.","tr":"My boss told me I didn't have to work on Friday."}]}
       ]
+    },
+    {
+      "id": "say-what-you-want-others-to-do",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say what you want others to do",
+      "summary": "Ask for things to happen, and wish people well: “I want you to come to my party.”",
+      "topic": "The present subjunctive: {{vull que vinguis}}, {{espero que}}; its forms ({{parli}}, {{vingui}}, {{faci}}, {{sigui}}…); {{que}} + subjunctive for wishes",
+      "blocks": [
+        {"goal":{"t":"Vull que vinguis a la meva festa.","tr":"I want you to come to my party."}},
+        {"dialog":[{"who":"Núria","t":"Dissabte faig trenta anys i vull que vinguis a la festa!","tr":"I'm turning thirty on Saturday, and I want you to come to the party!"},{"who":"Chris","t":"És clar que vindré! Vols que porti alguna cosa?","tr":"Of course I'll come! Do you want me to bring anything?"},{"who":"Núria","t":"Si pots, porta unes cerveses. I no diguis res a la Marta: és una sorpresa!","tr":"If you can, bring some beers. And don't say anything to Marta: it's a surprise!"},{"who":"Chris","t":"Tranquil·la, no li diré res.","tr":"Don't worry, I won't tell her anything."},{"who":"Núria","t":"Espero que faci bon temps, que la fem a la terrassa!","tr":"I hope the weather's nice, because we're having it on the terrace!"},{"who":"Chris","t":"Segur que sí!","tr":"I'm sure it will be!"}]},
+        {"term":"subjunctive","means":"a form of the verb for what is wanted, hoped for or uncertain, after words like “I want that…”. English hardly has it any more (“I suggest he go”); Catalan uses it a lot."},
+        {"p":"**Wanting someone else to do it.** To do something yourself: {{vull}} + infinitive (lesson 19): {{Vull venir.}} “I want to come.” For someone else, English says “I want you to come”, but Catalan says {{Vull que vinguis}}, word for word “I want that you come”, with the verb in the subjunctive."},
+        {"p":"**The forms.** Take the “I” form of the present without its {{-o}} and add {{-i}}, {{-is}}, {{-i}}, {{-em}}, {{-eu}}, {{-in}}, for every kind of verb: {{parlo}} → {{parli}}, {{dormo}} → {{dormi}}, {{llegeixo}} → {{llegeixi}}. Spelling keeps the sound: {{menjar}} → {{mengi}}, {{trucar}} → {{truqui}}. When the “I” form ends in {{-c}}, the subjunctive has {{-gui}}: {{puc}} → {{pugui}}, {{tinc}} → {{tingui}}, {{vinc}} → {{vingui}}, {{dic}} → {{digui}}, {{estic}} → {{estigui}}."},
+        { "table": [
+          ["","{{parlar}}","{{venir}}","{{fer}}","{{ser}}"],
+          ["I","{{parli}}","{{vingui}}","{{faci}}","{{sigui}}"],
+          ["you","{{parlis}}","{{vinguis}}","{{facis}}","{{siguis}}"],
+          ["he, she","{{parli}}","{{vingui}}","{{faci}}","{{sigui}}"],
+          ["we","{{parlem}}","{{vinguem}}","{{fem}}","{{siguem}}"],
+          ["you (more than one)","{{parleu}}","{{vingueu}}","{{feu}}","{{sigueu}}"],
+          ["they","{{parlin}}","{{vinguin}}","{{facin}}","{{siguin}}"]
+        ] },
+        {"p":"You already know some of these: they're the {{vostè}} imperative ({{giri}}, {{vingui}}, lesson 33) and the “don't” forms ({{no vinguis}}, lesson 34). A few more to learn by heart: {{anar}} → {{vagi}}, {{saber}} → {{sàpiga}}, {{voler}} → {{vulgui}}, {{haver}} → {{hagi}}, {{veure}} → {{vegi}}."},
+        {"p":"**Hoping and wishing.** {{Espero que}} + subjunctive is “I hope (that)”: {{Espero que t'agradi.}} “I hope you like it.” And {{Que}} + subjunctive on its own makes a wish: {{Que vagi bé!}} “Hope it goes well!” {{Que et milloris!}} “Get well soon!” {{Que tinguis un bon dia!}} “Have a nice day!”"},
+        { "ex": [
+          {"t":"Vull que vinguis a la meva festa.","tr":"I want you to come to my party."},
+          {"t":"Vols que t'ajudi?","tr":"Do you want me to help you?"},
+          {"t":"Espero que facis bon viatge.","tr":"I hope you have a good trip."},
+          {"t":"La meva mare vol que estudiï medicina.","tr":"My mom wants me to study medicine.","note":"{{estudiar}} → {{estudiï}}: the two dots keep the last {{i}} sounded on its own"},
+          {"t":"Que tinguis un bon dia!","tr":"Have a nice day!"},
+          {"t":"Que et milloris!","tr":"Get well soon!"}
+        ] },
+        {"tip":"For a birthday: {{Per molts anys!}} “Happy birthday!”, word for word “for many years!”. And with a drink: {{Salut!}} “Cheers!”."}
+      ],
+      "mistakes": [
+        {"wrong":"Vull que tu vens.","right":"Vull que vinguis.","tr":"I want you to come.","why":"After {{vull que}}, the subjunctive: {{vinguis}}."},
+        {"wrong":"Vull tu venir.","right":"Vull que vinguis.","tr":"I want you to come.","why":"Catalan can't copy “I want you to come”: it's {{vull que}} + the subjunctive."},
+        {"wrong":"Espero que fas bon viatge.","right":"Espero que facis bon viatge.","tr":"I hope you have a good trip.","why":"{{espero que}} takes the subjunctive: {{facis}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Vull que ___ a la festa.","tr":"I want you to come to the party.","options":["vinguis","vens","venir"],"answer":0,"why":"Someone else: {{vull que}} + subjunctive, {{vinguis}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Espero que t'___ el regal.","tr":"I hope you like the present.","options":["agradi","agrada","agradarà"],"answer":0,"why":"{{espero que}} + subjunctive: {{agradi}}.","from":"say-what-you-like"},
+        {"type":"choice","q":"“Do you want me to help you?” is…","options":["{{Vols que t'ajudi?}}","{{Vols ajudar-te?}}","{{Vols que t'ajudo?}}"],"answer":0,"why":"Me helping you: {{vols que}} + subjunctive, {{t'ajudi}}. {{Vols ajudar-te?}} would be “Do you want to help yourself?”"},
+        {"type":"dialogue","q":"A friend is leaving for a job interview. Choose your replies.","lines":[{"who":"Friend","t":"Me'n vaig, que tinc l'entrevista a les deu.","tr":"I'm off, my interview is at ten."},{"options":["Que vagi molt bé!","Que va molt bé!"],"answer":0,"why":"A wish: {{que}} + subjunctive, {{vagi}}."},{"who":"Friend","t":"Gràcies! Estic molt nerviós.","tr":"Thanks! I'm really nervous."},{"options":["Tranquil. Vols que t'acompanyi?","Tranquil. Vols que t'acompanyo?"],"answer":0,"why":"{{vols que}} + subjunctive: {{t'acompanyi}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"My mom wants me to study medicine.","words":["La meva mare","vol","que","estudiï","medicina."]},
+        {"type":"say","q":"Wish a sick friend: “Get well soon!”","answer":"Que et milloris!"},
+        {"type":"free","q":"Your turn: what do you want the people around you to do? Say two things with {{vull que}} or {{espero que}}.","answers":[{"t":"Vull que els meus fills parlin català, i espero que la meva parella vingui a viure aquí.","tr":"I want my kids to speak Catalan, and I hope my partner comes to live here."},{"t":"Espero que faci bon temps dissabte. Vull que vinguis a la platja amb nosaltres!","tr":"I hope the weather's nice on Saturday. I want you to come to the beach with us!"}]}
+      ]
+    },
+    {
+      "id": "react-to-news",
+      "unit": 9,
+      "level": "B1",
+      "title": "React to news and say how you feel",
+      "summary": "Show you're happy, sorry or worried about what someone tells you: “I'm sorry you can't come.”",
+      "topic": "{{m'alegro que}}, {{em sap greu que}}, {{quina pena que}}, {{és normal que}}, {{em fa por que}} + subjunctive; {{de}} + infinitive for the same person",
+      "blocks": [
+        {"goal":{"t":"Em sap greu que no puguis venir.","tr":"I'm sorry you can't come."}},
+        {"dialog":[{"who":"Laia","t":"Tinc una notícia: m'han donat la feina!","tr":"I have news: I got the job!"},{"who":"Tom","t":"Que bé! M'alegro molt per tu!","tr":"Great! I'm so happy for you!"},{"who":"Laia","t":"Però hauré d'anar a viure a Madrid…","tr":"But I'll have to move to Madrid…"},{"who":"Tom","t":"Ostres, quina pena que te'n vagis!","tr":"Oh no, what a shame you're leaving!"},{"who":"Laia","t":"Sí, i és normal que estigui nerviosa, no?","tr":"Yes, and it's normal that I'm nervous, isn't it?"},{"who":"Tom","t":"És clar. Em sap greu que no et pugui ajudar amb la mudança.","tr":"Of course. I'm sorry I can't help you with the move."}]},
+        {"p":"**Feelings about a fact.** When you react to something with a feeling, the something goes in the subjunctive (lesson 43): {{M'alegro que vinguis.}} “I'm glad you're coming.” {{Em sap greu que estiguis malalt.}} “I'm sorry you're sick.” English uses the ordinary verb here; Catalan uses the subjunctive."},
+        { "table": [
+          ["feeling","Catalan","example"],
+          ["glad","{{m'alegro que}}","{{M'alegro que t'agradi.}} I'm glad you like it."],
+          ["sorry","{{em sap greu que}}","{{Em sap greu que marxis.}} I'm sorry you're leaving."],
+          ["what a shame","{{quina pena que}}","{{Quina pena que plogui!}} What a shame it's raining!"],
+          ["it's normal","{{és normal que}}","{{És normal que estiguis cansat.}} It's normal that you're tired."],
+          ["it's important","{{és important que}}","{{És important que descansis.}} It's important that you rest."],
+          ["afraid","{{em fa por que}}","{{Em fa por que sigui massa tard.}} I'm afraid it's too late."]
+        ] },
+        {"p":"**The same person: {{de}} + infinitive.** When the one who feels and the one who does are the same, use {{de}} + an infinitive instead: {{M'alegro de veure't.}} “I'm glad to see you.” {{Em sap greu d'arribar tard.}} “I'm sorry I'm late.”"},
+        {"p":"**Quick reactions.** {{Que bé!}} “Great!”, {{Quina alegria!}} “How wonderful!”, {{Quina pena!}} or {{Quina llàstima!}} “What a shame!”, {{Ostres!}} “Wow!” or “Oh no!”, {{De debò?}} “Really?”."},
+        { "ex": [
+          {"t":"M'alegro que estiguis millor.","tr":"I'm glad you're feeling better."},
+          {"t":"Em sap greu que no puguis venir.","tr":"I'm sorry you can't come."},
+          {"t":"Quina pena que se'n vagin tan aviat!","tr":"What a shame they're leaving so soon!"},
+          {"t":"És normal que tinguis por.","tr":"It's normal to be scared."},
+          {"t":"M'alegro de veure't!","tr":"Great to see you!","note":"the same person: {{de}} + infinitive"},
+          {"t":"És important que ho sàpiguen.","tr":"It's important that they know."}
+        ] },
+        {"tip":"{{em sap greu}} is the everyday “I'm sorry” for something sad; {{perdona}} (or {{perdoni}}) is “sorry” for something you did, like bumping into someone."}
+      ],
+      "mistakes": [
+        {"wrong":"M'alegro que estàs millor.","right":"M'alegro que estiguis millor.","tr":"I'm glad you're feeling better.","why":"After a feeling + {{que}}, the subjunctive: {{estiguis}}."},
+        {"wrong":"Em sap greu que arribo tard.","right":"Em sap greu d'arribar tard.","tr":"I'm sorry I'm late.","why":"The same person is sorry and late: {{de}} + infinitive."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"M'alegro que ___ venir.","tr":"I'm glad you can come.","options":["puguis","pots","podràs"],"answer":0,"why":"After {{m'alegro que}}, the subjunctive: {{puguis}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Quina pena que ___!","tr":"What a shame it's raining!","options":["plogui","plou","ploure"],"answer":0,"why":"{{quina pena que}} + subjunctive: {{plogui}}.","from":"talk-about-weather"},
+        {"type":"choice","q":"“I'm glad to see you” is…","options":["{{M'alegro de veure't.}}","{{M'alegro que et vegi.}}","{{M'alegro veure't que.}}"],"answer":0,"why":"The same person is glad and sees: {{de}} + infinitive."},
+        {"type":"dialogue","q":"A friend tells you her news. Choose your replies.","lines":[{"who":"Friend","t":"M'han acceptat a la Universitat de Girona!","tr":"I've been accepted at the University of Girona!"},{"options":["Que bé! M'alegro molt per tu!","Quina pena! Em sap greu."],"answer":0,"why":"Good news: {{Que bé!}}, {{M'alegro molt per tu}}."},{"who":"Friend","t":"Però hauré de deixar la feina…","tr":"But I'll have to leave my job…"},{"options":["Bé, és normal que estiguis una mica nerviosa.","Bé, és normal que estàs una mica nerviosa."],"answer":0,"why":"{{és normal que}} + subjunctive: {{estiguis}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'm sorry you can't come.","words":["Em sap","greu","que","no","puguis venir."]},
+        {"type":"say","q":"Your friend is ill. Say “I'm sorry you're sick.”","answer":"Em sap greu que estiguis malalt."},
+        {"type":"free","q":"Your turn: a friend tells you they're moving to another country. React with two feelings.","answers":[{"t":"M'alegro molt per tu, però em sap greu que te'n vagis tan lluny!","tr":"I'm really happy for you, but I'm sorry you're going so far away!"},{"t":"Quina notícia! És normal que estiguis nerviós. Espero que et vagi molt bé.","tr":"What news! It's normal that you're nervous. I hope it goes really well for you."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 9,
+      "level": "B1",
+      "title": "Give your opinion and disagree politely",
+      "summary": "Say what you think, and agree or disagree without sounding rude: “I think you're right, but I don't think it's that easy.”",
+      "topic": "{{crec que}}, {{penso que}}, {{em sembla que}} + the ordinary verb; {{no crec que}} + subjunctive; {{hi estic d'acord}}, {{tens raó}}",
+      "blocks": [
+        {"goal":{"t":"Crec que tens raó, però no crec que sigui tan fàcil.","tr":"I think you're right, but I don't think it's that easy."}},
+        {"dialog":[{"who":"Jordi","t":"Jo crec que a Barcelona hi ha massa turistes.","tr":"I think there are too many tourists in Barcelona."},{"who":"Emma","t":"Hi estic d'acord. El centre està ple de gent.","tr":"I agree. Downtown is packed."},{"who":"Jordi","t":"Cal posar un límit, oi?","tr":"There needs to be a limit, right?"},{"who":"Emma","t":"No sé… No crec que sigui tan fàcil. La ciutat també viu del turisme.","tr":"I don't know… I don't think it's that easy. The city also lives off tourism."},{"who":"Jordi","t":"Bé, en això tens raó.","tr":"Well, you're right about that."},{"who":"Emma","t":"Per a mi, el problema són els preus dels pisos.","tr":"For me, the problem is the price of apartments."}]},
+        {"p":"**Saying what you think.** {{Crec que}}, {{Penso que}} “I think (that)”, {{Em sembla que}} “It seems to me that”, {{Per a mi}} “For me”, {{Al meu parer}} “In my view”. After them, the ordinary verb: {{Crec que és una bona idea.}} “I think it's a good idea.”"},
+        {"p":"**Not thinking: the subjunctive.** With {{no}} in front, the doubt calls for the subjunctive (lesson 43): {{No crec que sigui una bona idea.}} “I don't think it's a good idea.” {{No em sembla que vingui.}} “I don't think he's coming.”"},
+        { "table": [
+          ["","Catalan","English"],
+          ["I think","{{Crec que té raó.}}","I think she's right."],
+          ["I don't think","{{No crec que tingui raó.}}","I don't think she's right."],
+          ["I think so","{{Crec que sí.}}","I think so."],
+          ["I don't think so","{{Crec que no.}}","I don't think so."]
+        ] },
+        {"p":"**Agreeing and disagreeing.** {{Hi estic d'acord.}} “I agree (with that).” {{No hi estic d'acord.}} “I disagree.” (the {{hi}} of lesson 40). {{Tens raó.}} “You're right”, word for word “you have reason”. {{Depèn.}} “It depends.” To soften: {{Potser sí, però…}} “Maybe, but…”, {{Entenc el que dius, però…}} “I see what you mean, but…”."},
+        { "ex": [
+          {"t":"Crec que el català no és tan difícil.","tr":"I think Catalan isn't that hard."},
+          {"t":"No crec que plogui avui.","tr":"I don't think it'll rain today."},
+          {"t":"Em sembla que tens raó.","tr":"I think you're right."},
+          {"t":"Hi estic totalment d'acord.","tr":"I totally agree."},
+          {"t":"Entenc el que dius, però no hi estic d'acord.","tr":"I see what you mean, but I don't agree."},
+          {"t":"I tu, què en penses?","tr":"And what do you think about it?"}
+        ] },
+        {"tip":"{{tenir raó}} “to be right” takes {{tenir}}, like {{tenir gana}} (lesson 10). To disagree kindly instead of {{No tens raó}} “You're wrong”: {{No n'estic tan segur.}} “I'm not so sure.”"}
+      ],
+      "mistakes": [
+        {"wrong":"No crec que és veritat.","right":"No crec que sigui veritat.","tr":"I don't think it's true.","why":"After {{no crec que}}, the subjunctive: {{sigui}}."},
+        {"wrong":"Crec que sigui veritat.","right":"Crec que és veritat.","tr":"I think it's true.","why":"Without {{no}}, the ordinary verb: {{és}}."},
+        {"wrong":"Estic d'acord això.","right":"Hi estic d'acord.","tr":"I agree with that.","why":"“With that” is {{hi}}: {{hi estic d'acord}}, or {{estic d'acord amb això}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"No crec que ___ tan car.","tr":"I don't think it's that expensive.","options":["sigui","és","serà"],"answer":0,"why":"{{no crec que}} + subjunctive: {{sigui}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Crec que ___ raó.","tr":"I think you're right.","options":["tens","tinguis","ets"],"answer":0,"why":"{{crec que}} without {{no}}: the ordinary verb. And “to be right” is {{tenir raó}}.","from":"say-what-you-have"},
+        {"type":"choice","q":"Your friend says {{El català és molt difícil.}} You disagree, politely. You say…","options":["{{Entenc el que dius, però no hi estic d'acord.}}","{{No tens raó, mai.}}","{{Estic d'acord això.}}"],"answer":0,"why":"{{Entenc el que dius, però…}} softens it, and {{no hi estic d'acord}} disagrees."},
+        {"type":"dialogue","q":"A classmate asks your opinion. Choose your replies.","lines":[{"who":"Classmate","t":"Creus que l'examen serà difícil?","tr":"Do you think the exam will be hard?"},{"options":["Crec que no. Hem estudiat molt.","Crec que no sigui. Hem estudiat molt."],"answer":0,"why":"{{Crec que no}}: “I don't think so”."},{"who":"Classmate","t":"I creus que aprovarem?","tr":"And do you think we'll pass?"},{"options":["Sí, n'estic segur!","Sí, hi estic segur!"],"answer":0,"why":"{{estar segur de}}: something with {{de}} becomes {{en}}, {{n'estic segur}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I don't think it'll rain today.","words":["No","crec","que","plogui","avui."]},
+        {"type":"say","q":"Say “I totally agree.”","answer":"Hi estic totalment d'acord."},
+        {"type":"free","q":"Your turn: give your opinion about the city where you live. Say one thing you think, and one thing you don't think.","answers":[{"t":"Crec que la meva ciutat és molt bonica, però no crec que sigui fàcil trobar pis.","tr":"I think my city is very beautiful, but I don't think it's easy to find an apartment."},{"t":"Em sembla que hi ha massa cotxes. No crec que la gent vulgui canviar.","tr":"I think there are too many cars. I don't think people want to change."}]}
+      ]
+    },
+    {
+      "id": "talk-about-when",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say what will happen when",
+      "summary": "Talk about moments still to come: “When you get to Barcelona, call me.”",
+      "topic": "{{quan}} + subjunctive for the future ({{quan arribis}}); {{quan}} + the ordinary verb for habits; {{abans que}}, {{fins que}}, {{així que}}",
+      "blocks": [
+        {"goal":{"t":"Quan arribis a Barcelona, truca'm.","tr":"When you get to Barcelona, call me."}},
+        {"dialog":[{"who":"Mom","t":"Quan arribis a l'aeroport, envia'm un missatge.","tr":"When you get to the airport, send me a message."},{"who":"Joan","t":"Sí, mama. I quan sigui a l'hotel, et trucaré.","tr":"Yes, Mom. And when I'm at the hotel, I'll call you."},{"who":"Mom","t":"I no surtis de nit fins que coneguis la ciutat!","tr":"And don't go out at night until you know the city!"},{"who":"Joan","t":"Mama! Tinc vint-i-cinc anys…","tr":"Mom! I'm twenty-five…"},{"who":"Mom","t":"Ja ho sé. Però truca'm abans d'anar a dormir, eh?","tr":"I know. But call me before you go to bed, OK?"}]},
+        {"p":"**When, in the future.** When {{quan}} “when” is about a moment still to come, the verb after it goes in the subjunctive (lesson 43): {{Quan arribis, truca'm.}} “When you arrive, call me.” {{Quan tingui temps, t'ho explicaré.}} “When I have time, I'll explain it to you.” English uses the present here; Catalan, the subjunctive."},
+        {"p":"**When, as a habit.** For something that always happens, the ordinary present: {{Quan plou, em quedo a casa.}} “When it rains, I stay home.” And for the past, a past: {{Quan vaig arribar, era tard.}} (lesson 28)."},
+        { "table": [
+          ["","Catalan","English"],
+          ["the future","{{Quan plogui, em quedaré a casa.}}","When it rains (one day), I'll stay home."],
+          ["a habit","{{Quan plou, em quedo a casa.}}","When it rains, I (always) stay home."],
+          ["the past","{{Quan va ploure, em vaig quedar a casa.}}","When it rained, I stayed home."]
+        ] },
+        {"p":"**Before, until, as soon as.** {{abans que}} “before” and {{fins que}} “until” always take the subjunctive: {{Truca'm abans que surtin.}} “Call me before they leave.” {{Espera't fins que torni.}} “Wait until I come back.” {{així que}}, about the future, means “as soon as”: {{Així que ho sàpiga, t'ho diré.}} “As soon as I know, I'll tell you.” When it's the same person, use {{abans de}} + infinitive: {{Truca'm abans de sortir.}} “Call me before you go out.”"},
+        { "ex": [
+          {"t":"Quan acabi la feina, aniré al gimnàs.","tr":"When I finish work, I'll go to the gym."},
+          {"t":"Quan siguis gran, ho entendràs.","tr":"When you're older, you'll understand."},
+          {"t":"Quan tinc son, em faig un cafè.","tr":"When I'm sleepy, I make myself a coffee.","note":"a habit: the ordinary present"},
+          {"t":"Espera't aquí fins que vingui.","tr":"Wait here until he comes."},
+          {"t":"Així que arribem, et trucarem.","tr":"As soon as we arrive, we'll call you."},
+          {"t":"Renta't les mans abans de dinar.","tr":"Wash your hands before lunch."}
+        ] },
+        {"tip":"{{Quan…?}} as a question, “when?”, takes the ordinary verb: {{Quan arribes?}} “When are you arriving?”. The subjunctive is only for “when” that links two parts of a sentence."}
+      ],
+      "mistakes": [
+        {"wrong":"Quan arribaràs, truca'm.","right":"Quan arribis, truca'm.","tr":"When you arrive, call me.","why":"After {{quan}}, a moment to come goes in the subjunctive, never the future."},
+        {"wrong":"Quan arribes, truca'm.","right":"Quan arribis, truca'm.","tr":"When you arrive, call me.","why":"A moment still to come: the subjunctive {{arribis}}, not the present."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quan ___ a casa, envia'm un missatge.","tr":"When you get home, send me a message.","options":["arribis","arribes","arribaràs"],"answer":0,"why":"A moment to come, after {{quan}}: the subjunctive, {{arribis}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Quan ___, em quedo a casa.","tr":"When it rains, I stay home.","options":["plou","plogui","plourà"],"answer":0,"why":"A habit: the ordinary present, {{plou}}."},
+        {"type":"choice","q":"{{Espera't fins que torni.}} means…","options":["Wait until I come back.","Wait, I'm coming back.","Wait before I come back."],"answer":0,"why":"{{fins que}} + subjunctive: “until”."},
+        {"type":"dialogue","q":"Your friend is going on a trip. Choose your replies.","lines":[{"who":"Friend","t":"Demà me'n vaig a Lisboa!","tr":"I'm off to Lisbon tomorrow!"},{"options":["Que bé! Quan arribis, envia'm una foto.","Que bé! Quan arribes, envia'm una foto."],"answer":0,"why":"A moment to come: {{quan arribis}}."},{"who":"Friend","t":"I tu, quan em vindràs a veure?","tr":"And you, when will you come and see me?"},{"options":["Quan tingui vacances!","Quan tinc vacances!"],"answer":0,"why":"A moment to come: the subjunctive, {{tingui}}."}],"from":"talk-about-the-future"},
+        {"type":"order","q":"Put the words in order.","tr":"When I finish work, I'll go to the gym.","words":["Quan","acabi","la feina,","aniré","al gimnàs."]},
+        {"type":"say","q":"Tell a friend: “Call me before you leave.”","answer":"Truca'm abans de marxar."},
+        {"type":"free","q":"Your turn: what will you do when you speak Catalan well? Start with {{Quan parli bé català…}}","answers":[{"t":"Quan parli bé català, aniré a viure a Girona.","tr":"When I speak Catalan well, I'll go and live in Girona."},{"t":"Quan parli bé català, llegiré novel·les i veuré pel·lícules sense subtítols.","tr":"When I speak Catalan well, I'll read novels and watch movies without subtitles."}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 9,
+      "level": "B1",
+      "title": "Give advice",
+      "summary": "Tell someone what you think they should do, kindly: “You should rest more. If I were you, I'd go to the doctor.”",
+      "topic": "The conditional in full; {{hauries de}} + infinitive “you should”; {{jo que tu}} + conditional “if I were you”; {{et recomano que}} + subjunctive",
+      "blocks": [
+        {"goal":{"t":"Hauries de descansar més. Jo que tu, aniria al metge.","tr":"You should rest more. If I were you, I'd go to the doctor."}},
+        {"dialog":[{"who":"Pau","t":"Estic esgotat. Dormo molt malament.","tr":"I'm exhausted. I'm sleeping really badly."},{"who":"Lisa","t":"Hauries de treballar menys. Fas massa hores.","tr":"You should work less. You work too many hours."},{"who":"Pau","t":"Ja ho sé, però tinc molta feina.","tr":"I know, but I have a lot of work."},{"who":"Lisa","t":"Jo que tu, en parlaria amb el teu cap.","tr":"If I were you, I'd talk to your boss about it."},{"who":"Pau","t":"Potser tens raó. I què més faries?","tr":"Maybe you're right. What else would you do?"},{"who":"Lisa","t":"Et recomano que facis esport. I no miris el mòbil abans de dormir!","tr":"I'd recommend you exercise. And don't look at your phone before bed!"}]},
+        {"p":"**The conditional in full.** You met {{podria}} and {{voldria}} in lesson 36. Every verb has a conditional: take the future (lesson 37) and swap its endings for {{-ia}}, {{-ies}}, {{-ia}}, {{-íem}}, {{-íeu}}, {{-ien}}: {{parlaré}} → {{parlaria}} “I would speak”, {{faré}} → {{faria}} “I would do”, {{aniré}} → {{aniria}} “I would go”."},
+        { "table": [
+          ["","{{parlar}}","{{fer}}","{{haver}}"],
+          ["I","{{parlaria}}","{{faria}}","{{hauria}}"],
+          ["you","{{parlaries}}","{{faries}}","{{hauries}}"],
+          ["he, she","{{parlaria}}","{{faria}}","{{hauria}}"],
+          ["we","{{parlaríem}}","{{faríem}}","{{hauríem}}"],
+          ["you (more than one)","{{parlaríeu}}","{{faríeu}}","{{hauríeu}}"],
+          ["they","{{parlarien}}","{{farien}}","{{haurien}}"]
+        ] },
+        {"p":"**You should.** {{haver de}} “have to” (lesson 20) in the conditional is “should”: {{Hauries de descansar.}} “You should rest.” {{No hauries de fumar.}} “You shouldn't smoke.” {{Què hauria de fer?}} “What should I do?”"},
+        {"p":"**If I were you.** {{Jo que tu}}, word for word “I that you”, + the conditional: {{Jo que tu, hi aniria.}} “If I were you, I'd go.” A little more formal: {{Jo en el teu lloc…}} “In your place…”."},
+        {"p":"**Recommending.** {{Et recomano que}} or {{T'aconsello que}} + subjunctive (lesson 43): {{Et recomano que provis la crema catalana.}} “I recommend you try the crema catalana.”"},
+        { "ex": [
+          {"t":"Hauries de dormir més.","tr":"You should sleep more."},
+          {"t":"No hauríem de fer tant de soroll.","tr":"We shouldn't make so much noise."},
+          {"t":"Jo que tu, no hi aniria.","tr":"If I were you, I wouldn't go."},
+          {"t":"Què faries tu?","tr":"What would you do?"},
+          {"t":"T'aconsello que reservis taula.","tr":"I'd advise you to book a table."},
+          {"t":"Seria millor sortir d'hora.","tr":"It would be better to leave early."}
+        ] },
+        {"tip":"Two more useful conditionals: {{Seria millor}} “it would be better” and {{Valdria la pena}} “it would be worth it”: {{Valdria la pena visitar Cadaqués.}} “It would be worth visiting Cadaqués.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Hauries que descansar.","right":"Hauries de descansar.","tr":"You should rest.","why":"{{haver de}}: always {{de}}, never {{que}}."},
+        {"wrong":"Jo que tu, aniré al metge.","right":"Jo que tu, aniria al metge.","tr":"If I were you, I'd go to the doctor.","why":"{{Jo que tu}} goes with the conditional: {{aniria}}."},
+        {"wrong":"Et recomano que proves la crema catalana.","right":"Et recomano que provis la crema catalana.","tr":"I recommend you try the crema catalana.","why":"{{et recomano que}} + subjunctive: {{provis}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ de descansar més.","tr":"You should rest more.","options":["Hauries","Has","Hauràs"],"answer":0,"why":"“Should”: the conditional of {{haver de}}, {{hauries de}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Jo que tu, ___ amb ella.","tr":"If I were you, I'd talk to her.","options":["parlaria","parlaré","parlo"],"answer":0,"why":"{{Jo que tu}} + conditional: {{parlaria}}."},
+        {"type":"choice","q":"{{Què hauria de fer?}} means…","options":["What should I do?","What did I have to do?","What will I have to do?"],"answer":0,"why":"The conditional of {{haver de}}: “should”."},
+        {"type":"dialogue","q":"A friend asks for advice about a trip. Choose your replies.","lines":[{"who":"Friend","t":"Vull visitar Catalunya. Què em recomanes?","tr":"I want to visit Catalonia. What do you recommend?"},{"options":["Et recomano que vagis a Girona i a la Costa Brava.","Et recomano que vas a Girona i a la Costa Brava."],"answer":0,"why":"{{et recomano que}} + subjunctive: {{vagis}}."},{"who":"Friend","t":"I a l'agost? Hi haurà molta gent?","tr":"And in August? Will there be lots of people?"},{"options":["Sí. Jo que tu, hi aniria al setembre.","Sí. Jo que tu, hi vaig al setembre."],"answer":0,"why":"{{Jo que tu}} + conditional: {{aniria}}."}],"from":"say-what-you-want-others-to-do"},
+        {"type":"order","q":"Put the words in order.","tr":"If I were you, I wouldn't go.","words":["Jo","que tu,","no","hi","aniria."]},
+        {"type":"say","q":"Ask a friend: “What would you do?”","answer":"Què faries tu?"},
+        {"type":"free","q":"Your turn: a friend is always tired and stressed. Give two pieces of advice.","answers":[{"t":"Hauries de dormir més i fer esport. Jo que tu, faria vacances.","tr":"You should sleep more and exercise. If I were you, I'd take a vacation."},{"t":"No hauries de treballar tant. Et recomano que facis ioga.","tr":"You shouldn't work so much. I'd recommend you do yoga."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 9,
+      "level": "B1",
+      "title": "Imagine: what would you do if…?",
+      "summary": "Imagine things that aren't true, or not yet: “If I had more time, I'd learn to play the guitar.”",
+      "topic": "{{si}} + the imperfect subjunctive ({{tingués}}, {{fos}}, {{pogués}}) + the conditional; {{si}} + present for real conditions; {{tant de bo}}",
+      "blocks": [
+        {"goal":{"t":"Si tingués més temps, aprendria a tocar la guitarra.","tr":"If I had more time, I'd learn to play the guitar."}},
+        {"dialog":[{"who":"Marc","t":"Què faries si et toqués la loteria?","tr":"What would you do if you won the lottery?"},{"who":"Ana","t":"Si em toqués, deixaria la feina i viatjaria per tot el món!","tr":"If I won, I'd quit my job and travel all over the world!"},{"who":"Marc","t":"Jo em compraria una casa a l'Empordà.","tr":"I'd buy myself a house in the Empordà."},{"who":"Ana","t":"I si poguessis viure a qualsevol lloc, on viuries?","tr":"And if you could live anywhere, where would you live?"},{"who":"Marc","t":"Aquí mateix! Si fos ric, només tindria més temps per anar a la platja.","tr":"Right here! If I were rich, I'd just have more time to go to the beach."}]},
+        {"p":"**Real or imagined?** {{si}} “if” + the present is for something that may really happen: {{Si plou, em quedaré a casa.}} “If it rains, I'll stay home.” For something imagined, unlikely or untrue, Catalan uses {{si}} + the imperfect subjunctive, with the conditional (lesson 47) for the result: {{Si plogués, em quedaria a casa.}} “If it rained, I'd stay home.”"},
+        {"p":"**The imperfect subjunctive.** {{-ar}} verbs end in {{-és}}: {{parlar}} → {{parlés}}. The others mostly end in {{-és}} or {{-ís}}: {{perdre}} → {{perdés}}, {{dormir}} → {{dormís}}. Verbs with {{-gui}} in the present subjunctive keep the {{-gu-}}: {{tingui}} → {{tingués}}, {{vingui}} → {{vingués}}, {{digui}} → {{digués}}. Learn these by heart: {{ser}} → {{fos}}, {{fer}} → {{fes}}, {{poder}} → {{pogués}}, {{anar}} → {{anés}}, {{saber}} → {{sabés}}, {{haver}} → {{hagués}}."},
+        { "table": [
+          ["","{{parlar}}","{{tenir}}","{{ser}}"],
+          ["I","{{parlés}}","{{tingués}}","{{fos}}"],
+          ["you","{{parlessis}}","{{tinguessis}}","{{fossis}}"],
+          ["he, she","{{parlés}}","{{tingués}}","{{fos}}"],
+          ["we","{{parléssim}}","{{tinguéssim}}","{{fóssim}}"],
+          ["you (more than one)","{{parléssiu}}","{{tinguéssiu}}","{{fóssiu}}"],
+          ["they","{{parlessin}}","{{tinguessin}}","{{fossin}}"]
+        ] },
+        {"p":"**Wishing.** {{M'agradaria que}} + the imperfect subjunctive is “I'd like (someone) to…”: {{M'agradaria que vinguessis.}} “I'd love you to come.” And {{Tant de bo}} + subjunctive is “If only…, I wish…”: {{Tant de bo fos divendres!}} “I wish it were Friday!”"},
+        { "table": [
+          ["","Catalan","English"],
+          ["real","{{Si tinc temps, vindré.}}","If I have time, I'll come."],
+          ["imagined","{{Si tingués temps, vindria.}}","If I had time, I'd come."],
+          ["a wish","{{Tant de bo tingués temps!}}","If only I had time!"]
+        ] },
+        { "ex": [
+          {"t":"Si fos ric, viatjaria per tot el món.","tr":"If I were rich, I'd travel all over the world."},
+          {"t":"Si poguessis viure a qualsevol lloc, on viuries?","tr":"If you could live anywhere, where would you live?"},
+          {"t":"Si sabés cuinar, faria una paella cada diumenge.","tr":"If I knew how to cook, I'd make a paella every Sunday."},
+          {"t":"Què faries si et toqués la loteria?","tr":"What would you do if you won the lottery?","note":"{{tocar}} “to fall to”: the lottery “touches” you"},
+          {"t":"M'agradaria que em truquessis més sovint.","tr":"I'd like you to call me more often."},
+          {"t":"Tant de bo fos divendres!","tr":"I wish it were Friday!"}
+        ] },
+        {"tip":"You've come a long way, from {{Em dic…}} and {{Soc de…}} to imagining a whole different life. {{Si tinguessis un dia lliure a Barcelona, què hi faries?}} “If you had a free day in Barcelona, what would you do there?” is a question you can now answer in Catalan."}
+      ],
+      "mistakes": [
+        {"wrong":"Si tindria temps, vindria.","right":"Si tingués temps, vindria.","tr":"If I had time, I'd come.","why":"After {{si}}, never the conditional: the imperfect subjunctive, {{tingués}}."},
+        {"wrong":"Si tingués temps, vindré.","right":"Si tingués temps, vindria.","tr":"If I had time, I'd come.","why":"An imagined condition goes with the conditional: {{vindria}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Si ___ més temps, aprendria a cuinar.","tr":"If I had more time, I'd learn to cook.","options":["tingués","tindria","tinc"],"answer":0,"why":"After {{si}}, an imagined condition: {{tingués}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Si fos ric, ___ una casa a la platja.","tr":"If I were rich, I'd buy a house on the beach.","options":["compraria","compraré","compro"],"answer":0,"why":"The result of an imagined condition: the conditional, {{compraria}}.","from":"give-advice"},
+        {"type":"choice","q":"{{Si plou, em quedaré a casa.}} and {{Si plogués, em quedaria a casa.}} The second one…","options":["imagines it (rain seems unlikely)","is about the past","means the same, just more politely"],"answer":0,"why":"{{si}} + the imperfect subjunctive: an imagined or unlikely condition."},
+        {"type":"dialogue","q":"A friend asks you a fun question. Choose your replies.","lines":[{"who":"Friend","t":"Què faries si poguessis viatjar en el temps?","tr":"What would you do if you could travel in time?"},{"options":["Aniria a la Barcelona del 1900!","Aniré a la Barcelona del 1900!"],"answer":0,"why":"An imagined situation: the conditional, {{aniria}}."},{"who":"Friend","t":"I si fossis invisible un dia?","tr":"And if you were invisible for a day?"},{"options":["Entraria al Camp Nou sense pagar!","Entraré al Camp Nou sense pagar!"],"answer":0,"why":"Still imagining: the conditional, {{entraria}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I wish it were Friday!","words":["Tant","de bo","fos","divendres!"]},
+        {"type":"say","q":"Ask a friend: “What would you do if you won the lottery?”","answer":"Què faries si et toqués la loteria?"},
+        {"type":"free","q":"Your turn: imagine. If you could live anywhere for a year, where would you live, and what would you do?","answers":[{"t":"Si pogués viure a qualsevol lloc, viuria a Mallorca. Cada dia aniria a la platja i parlaria català amb els veïns.","tr":"If I could live anywhere, I'd live in Mallorca. I'd go to the beach every day and speak Catalan with the neighbors."},{"t":"Si tingués un any lliure, viuria a Barcelona i aprendria a cuinar plats catalans.","tr":"If I had a year off, I'd live in Barcelona and learn to cook Catalan dishes."}]}
+      ]
     }
   ]
 }
