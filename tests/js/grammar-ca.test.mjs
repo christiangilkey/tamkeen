@@ -21,7 +21,7 @@ const LOANS = ["bueno", "vale", "entonces", "pues", "hasta", "aburrit", "aburrid
 
 const words = (s) => String(s).toLowerCase().split(/[^\p{L}·']+/u).filter(Boolean);
 function problems(text) {
-  const w = words(text), joined = ` ${String(text).toLowerCase().replace(/[^p{L}·'s]+/gu, " | ").replace(/s+/g, " ")} `;
+  const w = words(text), joined = ` ${String(text).toLowerCase().replace(/[^\p{L}·'\s]+/gu, " | ").replace(/\s+/g, " ")} `;
   return [...OLD_ACCENTS.filter((x) => w.includes(x)), ...LOANS.filter((x) => joined.includes(` ${x} `))];
 }
 
