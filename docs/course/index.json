@@ -16,6 +16,22 @@
     "synthetic": true
    },
    "built": "2026-10-24"
+  },
+  "es": {
+   "file": "es/course.json",
+   "title": "Spanish basics",
+   "variety": "Latin American Spanish (Mexico)",
+   "words": 20,
+   "planned": 1000,
+   "bytes": 8552,
+   "audio_bytes": 208271,
+   "sha256": "255243afaf1286b366a6a390e68785f383bdeaea8420377bd853b015df2e80a9",
+   "voice": {
+    "engine": "azure",
+    "name": "Dalia (Azure, Mexico)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
   }
  }
 }

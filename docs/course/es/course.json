@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "es",
+ "title": "Spanish basics",
+ "variety": "Latin American Spanish (Mexico)",
+ "about": "The most common words of written and spoken Spanish (wordfreq counts, grouped by dictionary word with tools/course/es/rank_es.py), most common first, 50 to a unit. Names of people and places and nationalities are left out. Each word has one short everyday sentence in the Spanish of Mexico (ustedes, not vosotros) that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Dalia (Azure, Mexico)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "el",
+   "pos": "art",
+   "meaning": "the (la before feminine nouns; los, las in the plural)",
+   "sentence": "El café está muy caliente.",
+   "translation": "⟦The⟧ coffee is very hot.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.397,
+    "sent_start": 1.297,
+    "sent_end": 3.203
+   }
+  },
+  {
+   "n": 2,
+   "word": "de",
+   "pos": "prep",
+   "meaning": "of; from",
+   "sentence": "Soy de Guadalajara.",
+   "translation": "I'm ⟦from⟧ Guadalajara.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.447,
+    "sent_start": 1.347,
+    "sent_end": 2.714
+   }
+  },
+  {
+   "n": 3,
+   "word": "que",
+   "pos": "conj",
+   "meaning": "that; than",
+   "sentence": "Dice que no puede venir.",
+   "translation": "He says ⟦that⟧ he can't come.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.364,
+    "sent_start": 1.264,
+    "sent_end": 2.87
+   }
+  },
+  {
+   "n": 4,
+   "word": "en",
+   "pos": "prep",
+   "meaning": "in; on; at",
+   "sentence": "Vivo en una casa pequeña.",
+   "translation": "I live ⟦in⟧ a small house.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.426,
+    "sent_start": 1.326,
+    "sent_end": 3.028
+   }
+  },
+  {
+   "n": 5,
+   "word": "y",
+   "pos": "conj",
+   "meaning": "and",
+   "sentence": "Quiero pan y café.",
+   "translation": "I want bread ⟦and⟧ coffee.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.702,
+    "sent_start": 1.602,
+    "sent_end": 2.753
+   }
+  },
+  {
+   "n": 6,
+   "word": "a",
+   "pos": "prep",
+   "meaning": "to; at",
+   "sentence": "Voy a la tienda.",
+   "translation": "I'm going ⟦to⟧ the store.",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.374,
+    "sent_start": 1.274,
+    "sent_end": 2.428
+   }
+  },
+  {
+   "n": 7,
+   "word": "ser",
+   "pos": "verb",
+   "meaning": "to be (what or who someone or something is)",
+   "sentence": "Mi hermana es doctora.",
+   "translation": "My sister ⟦is⟧ a doctor.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.563,
+    "sent_start": 1.463,
+    "sent_end": 2.871
+   }
+  },
+  {
+   "n": 8,
+   "word": "un",
+   "pos": "art",
+   "meaning": "a, an (una before feminine nouns); one",
+   "sentence": "Tengo un perro.",
+   "translation": "I have ⟦a⟧ dog.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.44,
+    "sent_start": 1.34,
+    "sent_end": 2.301
+   }
+  },
+  {
+   "n": 9,
+   "word": "no",
+   "pos": "adv",
+   "meaning": "no; not",
+   "sentence": "No tengo hambre.",
+   "translation": "I'm ⟦not⟧ hungry.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.43,
+    "sent_start": 1.33,
+    "sent_end": 2.481
+   }
+  },
+  {
+   "n": 10,
+   "word": "se",
+   "pos": "pron",
+   "meaning": "himself, herself, themselves (makes a verb reflexive)",
+   "sentence": "Ella se mira en el espejo.",
+   "translation": "She looks at ⟦herself⟧ in the mirror.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.518,
+    "sent_start": 1.418,
+    "sent_end": 3.144
+   }
+  },
+  {
+   "n": 11,
+   "word": "por",
+   "pos": "prep",
+   "meaning": "for; through; by; because of",
+   "sentence": "Gracias por tu ayuda.",
+   "translation": "Thanks ⟦for⟧ your help.",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.38,
+    "sent_start": 1.28,
+    "sent_end": 2.582
+   }
+  },
+  {
+   "n": 12,
+   "word": "del",
+   "pos": "prep",
+   "meaning": "of the; from the (de + el)",
+   "sentence": "Vengo del mercado.",
+   "translation": "I'm coming ⟦from the⟧ market.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.529,
+    "sent_start": 1.429,
+    "sent_end": 2.674
+   }
+  },
+  {
+   "n": 13,
+   "word": "con",
+   "pos": "prep",
+   "meaning": "with",
+   "sentence": "Vivo con mis padres.",
+   "translation": "I live ⟦with⟧ my parents.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.433,
+    "sent_start": 1.333,
+    "sent_end": 2.767
+   }
+  },
+  {
+   "n": 14,
+   "word": "su",
+   "pos": "adj",
+   "meaning": "his, her, its, their; your (usted)",
+   "sentence": "Su casa es muy bonita.",
+   "translation": "⟦Her⟧ house is very pretty.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.56,
+    "sent_start": 1.46,
+    "sent_end": 3.1
+   }
+  },
+  {
+   "n": 15,
+   "word": "para",
+   "pos": "prep",
+   "meaning": "for; in order to",
+   "sentence": "Este regalo es para ti.",
+   "translation": "This present is ⟦for⟧ you.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.441,
+    "sent_start": 1.341,
+    "sent_end": 2.857
+   }
+  },
+  {
+   "n": 16,
+   "word": "lo",
+   "pos": "pron",
+   "meaning": "it; him (lo que: what)",
+   "sentence": "Lo compré ayer.",
+   "translation": "I bought ⟦it⟧ yesterday.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.519,
+    "sent_start": 1.419,
+    "sent_end": 2.568
+   }
+  },
+  {
+   "n": 17,
+   "word": "haber",
+   "pos": "verb",
+   "meaning": "there is, there are (hay); to have (before a past participle)",
+   "sentence": "Hay un banco cerca de aquí.",
+   "translation": "⟦There's⟧ a bank near here.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.565,
+    "sent_start": 1.465,
+    "sent_end": 3.119
+   }
+  },
+  {
+   "n": 18,
+   "word": "este",
+   "pos": "adj",
+   "meaning": "this (esta, esto; estos, estas: these)",
+   "sentence": "Este libro es muy bueno.",
+   "translation": "⟦This⟧ book is very good.",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.682,
+    "sent_start": 1.582,
+    "sent_end": 3.17
+   }
+  },
+  {
+   "n": 19,
+   "word": "estar",
+   "pos": "verb",
+   "meaning": "to be (how or where someone or something is)",
+   "sentence": "Estoy muy cansado.",
+   "translation": "⟦I'm⟧ very tired.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.652,
+    "sent_start": 1.552,
+    "sent_end": 2.862
+   }
+  },
+  {
+   "n": 20,
+   "word": "tener",
+   "pos": "verb",
+   "meaning": "to have",
+   "sentence": "Tengo dos hermanos.",
+   "translation": "I ⟦have⟧ two brothers.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.531,
+    "sent_start": 1.431,
+    "sent_end": 2.887
+   }
+  }
+ ]
+}

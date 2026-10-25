@@ -1,0 +1,192 @@
+{
+  "lang": "es",
+  "title": "Spanish basics",
+  "variety": "Latin American Spanish (Mexico)",
+  "about": "The most common words of written and spoken Spanish (wordfreq counts, grouped by dictionary word with tools/course/es/rank_es.py), most common first, 50 to a unit. Names of people and places and nationalities are left out. Each word has one short everyday sentence in the Spanish of Mexico (ustedes, not vosotros) that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "el",
+      "pos": "art",
+      "meaning": "the (la before feminine nouns; los, las in the plural)",
+      "sentence": "El café está muy caliente.",
+      "translation": "⟦The⟧ coffee is very hot."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "de",
+      "pos": "prep",
+      "meaning": "of; from",
+      "sentence": "Soy de Guadalajara.",
+      "translation": "I'm ⟦from⟧ Guadalajara."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "que",
+      "pos": "conj",
+      "meaning": "that; than",
+      "sentence": "Dice que no puede venir.",
+      "translation": "He says ⟦that⟧ he can't come."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "en",
+      "pos": "prep",
+      "meaning": "in; on; at",
+      "sentence": "Vivo en una casa pequeña.",
+      "translation": "I live ⟦in⟧ a small house."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "y",
+      "pos": "conj",
+      "meaning": "and",
+      "sentence": "Quiero pan y café.",
+      "translation": "I want bread ⟦and⟧ coffee."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "a",
+      "pos": "prep",
+      "meaning": "to; at",
+      "sentence": "Voy a la tienda.",
+      "translation": "I'm going ⟦to⟧ the store."
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "ser",
+      "pos": "verb",
+      "meaning": "to be (what or who someone or something is)",
+      "sentence": "Mi hermana es doctora.",
+      "translation": "My sister ⟦is⟧ a doctor.",
+      "form": "es"
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "un",
+      "pos": "art",
+      "meaning": "a, an (una before feminine nouns); one",
+      "sentence": "Tengo un perro.",
+      "translation": "I have ⟦a⟧ dog."
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "no",
+      "pos": "adv",
+      "meaning": "no; not",
+      "sentence": "No tengo hambre.",
+      "translation": "I'm ⟦not⟧ hungry."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "se",
+      "pos": "pron",
+      "meaning": "himself, herself, themselves (makes a verb reflexive)",
+      "sentence": "Ella se mira en el espejo.",
+      "translation": "She looks at ⟦herself⟧ in the mirror."
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "por",
+      "pos": "prep",
+      "meaning": "for; through; by; because of",
+      "sentence": "Gracias por tu ayuda.",
+      "translation": "Thanks ⟦for⟧ your help."
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "del",
+      "pos": "prep",
+      "meaning": "of the; from the (de + el)",
+      "sentence": "Vengo del mercado.",
+      "translation": "I'm coming ⟦from the⟧ market."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "con",
+      "pos": "prep",
+      "meaning": "with",
+      "sentence": "Vivo con mis padres.",
+      "translation": "I live ⟦with⟧ my parents."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "su",
+      "pos": "adj",
+      "meaning": "his, her, its, their; your (usted)",
+      "sentence": "Su casa es muy bonita.",
+      "translation": "⟦Her⟧ house is very pretty."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "para",
+      "pos": "prep",
+      "meaning": "for; in order to",
+      "sentence": "Este regalo es para ti.",
+      "translation": "This present is ⟦for⟧ you."
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "lo",
+      "pos": "pron",
+      "meaning": "it; him (lo que: what)",
+      "sentence": "Lo compré ayer.",
+      "translation": "I bought ⟦it⟧ yesterday."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "haber",
+      "pos": "verb",
+      "meaning": "there is, there are (hay); to have (before a past participle)",
+      "sentence": "Hay un banco cerca de aquí.",
+      "translation": "⟦There's⟧ a bank near here.",
+      "form": "hay"
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "este",
+      "pos": "adj",
+      "meaning": "this (esta, esto; estos, estas: these)",
+      "sentence": "Este libro es muy bueno.",
+      "translation": "⟦This⟧ book is very good."
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "estar",
+      "pos": "verb",
+      "meaning": "to be (how or where someone or something is)",
+      "sentence": "Estoy muy cansado.",
+      "translation": "⟦I'm⟧ very tired.",
+      "form": "estoy"
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "tener",
+      "pos": "verb",
+      "meaning": "to have",
+      "sentence": "Tengo dos hermanos.",
+      "translation": "I ⟦have⟧ two brothers.",
+      "form": "tengo"
+    }
+  ]
+}
