@@ -875,6 +875,207 @@
         {"type":"say","q":"قل «لا أتأخّر أبدًا».","answer":"I'm never late."},
         {"type":"free","q":"دورك: قل كم مرة تفعل ثلاثة أشياء، بثلاث كلمات تكرار مختلفة.","answers":[{"t":"I always have breakfast. I often read before bed. I never drink soda.","tr":"أتناول الفطور دائمًا. كثيرًا ما أقرأ قبل النوم. لا أشرب المشروبات الغازية أبدًا."},{"t":"I usually go to the gym three times a week, I sometimes cook, and I'm never late for work.","tr":"أذهب عادةً إلى النادي الرياضي ثلاث مرّات في الأسبوع، وأطبخ أحيانًا، ولا أتأخّر عن العمل أبدًا."}]}
       ]
+    },
+    {
+      "id": "say-what-is-happening",
+      "unit": 4,
+      "level": "A1",
+      "title": "قل ما يحدث الآن",
+      "summary": "قل «أطبخ العشاء الآن، أتّصل بك لاحقًا»: المضارع المستمر لما يحدث في هذه اللحظة، والفرق بينه وبين المضارع البسيط.",
+      "topic": "المضارع المستمر: {{am, is, are}} + {{-ing}}؛ الفرق بين {{I work}} و{{I'm working}}",
+      "blocks": [
+        {"goal":{"t":"I'm cooking dinner right now. Can I call you back?","tr":"أطبخ العشاء الآن. هل أتّصل بك لاحقًا؟"}},
+        {"dialog":[{"who":"سارة","t":"Hi! What are you doing?","tr":"مرحبًا! ماذا تفعلين؟"},{"who":"لينا","t":"I'm making dinner. The kids are doing their homework.","tr":"أُعدّ العشاء، والأولاد يحلّون واجباتهم."},{"who":"سارة","t":"And Ahmed?","tr":"وأحمد؟"},{"who":"لينا","t":"He's watching the game. As usual!","tr":"يشاهد المباراة. كالعادة!"},{"who":"سارة","t":"Ha! Okay, call me back later.","tr":"حسنًا، اتّصلي بي لاحقًا."},{"who":"لينا","t":"Sure. Bye!","tr":"بالتأكيد. مع السلامة!"}]},
+        {"p":"**للمضارع العربي معنيان.** «أطبخ» في العربية قد تعني «أطبخ كل يوم» أو «أطبخ الآن». أما الإنجليزية ففيها زمنان مختلفان: {{I cook}} لما تفعله عادةً (المضارع البسيط)، و{{I'm cooking}} لما تفعله الآن، في هذه اللحظة."},
+        {"term":"المضارع المستمر","means":"زمن الفعل لما يحدث الآن أو في هذه الأيام: {{am, is, are}} ثم الفعل بـ{{-ing}}: {{I'm reading.}} «أقرأ الآن»."},
+        { "table": [
+          ["الفاعل","{{be}}","الفعل + {{-ing}}"],
+          ["{{I}}","{{am}} ({{I'm}})","{{working}}"],
+          ["{{you, we, they}}","{{are}} ({{you're}}…)","{{working}}"],
+          ["{{he, she, it}}","{{is}} ({{he's}}…)","{{working}}"]
+        ] },
+        {"p":"هنا يعود الفعل {{be}}: لا يكفي {{I cooking}}، بل {{I'm cooking}}. والنفي بـ{{not}} بعده: {{I'm not working today.}} والسؤال بتقديمه: {{Are you working?}} {{What are you doing?}} «ماذا تفعل؟»"},
+        {"p":"**كيف يُكتب {{-ing}}؟** يُضاف غالبًا كما هو: {{work}} ← {{working}}، {{read}} ← {{reading}}. والفعل المنتهي بـ e تُحذف منه: {{make}} ← {{making}}، {{write}} ← {{writing}}. والفعل القصير المنتهي بحرف علّة واحد ثم حرف آخر يُضاعَف آخره: {{sit}} ← {{sitting}}، {{run}} ← {{running}}، {{swim}} ← {{swimming}}."},
+        { "table": [
+          ["المضارع البسيط: عادةً","المضارع المستمر: الآن"],
+          ["{{I work in a bank.}} «أعمل في بنك»","{{I'm working from home today.}} «أعمل من البيت اليوم»"],
+          ["{{He usually drinks tea.}} «يشرب الشاي عادةً»","{{He's drinking coffee right now.}} «يشرب القهوة الآن»"],
+          ["{{It rains a lot here.}} «تمطر هنا كثيرًا»","{{It's raining.}} «إنها تمطر»"]
+        ] },
+        {"p":"**أفعال لا تأتي بـ{{-ing}}.** بعض الأفعال تدلّ على حال لا على عمل، فتبقى في المضارع البسيط وإن كان معناها «الآن»: {{know}} «يعرف»، {{like}} «يحبّ»، {{want}} «يريد»، {{need}} «يحتاج»، {{understand}} «يفهم». تقول {{I know.}} «أعرف»، لا {{I'm knowing}}، و{{I want a coffee now.}}"},
+        { "ex": [
+          {"t":"I'm reading a great book.","tr":"أقرأ كتابًا رائعًا.","note":"في هذه الأيام، لا في هذه اللحظة بالضرورة"},
+          {"t":"She's talking on the phone.","tr":"تتكلّم في الهاتف."},
+          {"t":"We're waiting for the bus.","tr":"ننتظر الحافلة."},
+          {"t":"It's raining. Take an umbrella!","tr":"إنها تمطر. خذ مظلّة!"},
+          {"t":"Are you listening to me?","tr":"هل تستمع إليّ؟"},
+          {"t":"I'm not working today. I'm sick.","tr":"لا أعمل اليوم. أنا مريض."}
+        ] },
+        {"tip":"{{right now}} «الآن بالذات» و{{at the moment}} «في هذه اللحظة» و{{today}} و{{these days}} «هذه الأيام» تأتي كثيرًا مع المضارع المستمر. أما {{every day}} و{{usually}} و{{always}} فمع المضارع البسيط."}
+      ],
+      "mistakes": [
+        {"wrong":"I cooking dinner.","right":"I'm cooking dinner.","tr":"أطبخ العشاء.","why":"المضارع المستمر يحتاج إلى {{am, is, are}} قبل الفعل بـ{{-ing}}."},
+        {"wrong":"Look! It rains.","right":"Look! It's raining.","tr":"انظر! إنها تمطر.","why":"ما يحدث الآن أمام عينيك: المضارع المستمر."},
+        {"wrong":"I'm knowing the answer.","right":"I know the answer.","tr":"أعرف الجواب.","why":"{{know}} حال لا عمل، فلا تأتي بـ{{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Shh! The baby ___ sleeping.","tr":"هدوءًا! الطفل نائم.","options":["is","are","does"],"answer":0,"why":"{{the baby}} مفرد: {{is}} + {{-ing}}.","from":"say-what-you-do"},
+        {"type":"choice","q":"ما معنى {{I work at night}}؟","options":["أعمل في الليل عادةً.","أعمل الآن، في هذه الليلة."],"answer":0,"why":"المضارع البسيط لما يتكرّر: عادةً."},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"My father usually ___ tea, but today he's drinking coffee.","tr":"أبي يشرب الشاي عادةً، لكنه اليوم يشرب القهوة.","options":["drinks","is drinking","drinking"],"answer":0,"why":"{{usually}} عادة، فالمضارع البسيط بـ{{-s}}.","from":"say-how-often"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"ماذا تفعل؟","words":["What","are","you","doing?"]},
+        {"type":"dialogue","q":"صديقك يتّصل بك: اختر ردودك.","lines":[{"who":"مايك","t":"Hey! What are you doing?","tr":"مرحبًا! ماذا تفعل؟"},{"options":["I'm watching a movie with my family.","I watch a movie with my family."],"answer":0,"why":"الآن، في هذه اللحظة: المضارع المستمر."},{"who":"مايك","t":"Oh, sorry! Do you want to call me back later?","tr":"آسف! هل تريد أن تتّصل بي لاحقًا؟"},{"options":["Yes, please. I want to see the end!","Yes, please. I'm wanting to see the end!"],"answer":0,"why":"{{want}} حال، فلا تأتي بـ{{-ing}}."},{"who":"مايك","t":"Ha! Okay, talk later.","tr":"حسنًا، نتكلّم لاحقًا."}]},
+        {"type":"say","q":"قل «إنها تمطر».","answer":"It's raining."},
+        {"type":"free","q":"دورك: ماذا يفعل الناس من حولك الآن؟ اكتب ثلاث جمل بالمضارع المستمر.","answers":[{"t":"I'm studying English. My wife is cooking. The kids are playing outside.","tr":"أدرس الإنجليزية. زوجتي تطبخ. والأولاد يلعبون في الخارج."},{"t":"I'm sitting in a café. A man is reading the newspaper, and two girls are talking.","tr":"أجلس في مقهى. رجل يقرأ الجريدة، وفتاتان تتحدّثان."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 4,
+      "level": "A1",
+      "title": "قل ما تستطيع فعله",
+      "summary": "قل «أتكلّم العربية وقليلًا من الإنجليزية» و«هل تستطيع أن تساعدني؟»: {{can}} بلا {{to}} بعدها، على عكس «أستطيع أن».",
+      "topic": "{{can}} و{{can't}} + الفعل في صورته الأصلية؛ {{Can you…?}}",
+      "blocks": [
+        {"goal":{"t":"I can speak Arabic and a little English.","tr":"أستطيع أن أتكلّم العربية وقليلًا من الإنجليزية."}},
+        {"dialog":[{"who":"المديرة","t":"So, what languages can you speak?","tr":"إذن، ما اللغات التي تتكلّمها؟"},{"who":"نور","t":"I can speak Arabic and French, and I can speak a little English.","tr":"أتكلّم العربية والفرنسية، وقليلًا من الإنجليزية."},{"who":"المديرة","t":"Great. Can you drive?","tr":"رائع. هل تستطيع القيادة؟"},{"who":"نور","t":"Yes, I can. I have a license.","tr":"نعم. عندي رخصة."},{"who":"المديرة","t":"Can you work on weekends?","tr":"هل تستطيع العمل في عطلة نهاية الأسبوع؟"},{"who":"نور","t":"I can work on Saturdays, but I can't work on Sundays.","tr":"أستطيع العمل أيام السبت، لكن لا أستطيع أيام الأحد."},{"who":"المديرة","t":"That's fine.","tr":"لا بأس."}]},
+        {"p":"**{{can}}: «يستطيع، يقدر».** وهو فعل خاصّ: له صورة واحدة مع كل فاعل، بلا {{-s}} أبدًا: {{I can}}، {{she can}}، {{they can}}. وبعده الفعل في صورته الأصلية مباشرة."},
+        {"p":"**بلا {{to}}.** في العربية تقول «أستطيع أن أسبح»، فيميل المتعلّم إلى أن يقول {{I can to swim}}. لكن {{can}} لا تأتي بعده {{to}}: {{I can swim.}}"},
+        {"term":"الأفعال الناقصة","means":"أفعال مساعدة صغيرة تضيف معنى إلى الفعل الذي بعدها، كالقدرة أو الإذن أو الوجوب، مثل {{can}} «يستطيع»، وتُسمّى بالإنجليزية {{modal verbs}}. لا تأخذ {{-s}}، وبعدها الفعل في صورته الأصلية بلا {{to}}."},
+        { "table": [
+          ["","مثال","المعنى"],
+          ["الخبر","{{I can swim.}}","أستطيع أن أسبح."],
+          ["النفي","{{I can't swim.}} ({{cannot}})","لا أستطيع أن أسبح."],
+          ["السؤال","{{Can you swim?}}","هل تستطيع أن تسبح؟"],
+          ["الجواب","{{Yes, I can. / No, I can't.}}","نعم. / لا."]
+        ] },
+        {"p":"ولاحظ أن {{can}} يعمل كما يعمل {{am, is, are}}: النفي بإضافة {{not}} إليه ({{can't}})، والسؤال بتقديمه ({{Can you…?}})، فلا حاجة إلى {{do}}. لا تقل {{Do you can…?}}"},
+        {"p":"**الطلب والإذن.** و{{can}} أيضًا للطلب: {{Can you help me?}} «هل تساعدني؟»، وللاستئذان: {{Can I sit here?}} «هل أجلس هنا؟». وقد قلته من قبل في المقهى: {{Can I have a coffee?}}"},
+        { "ex": [
+          {"t":"My son can read, and he's only four!","tr":"ابني يستطيع القراءة، وعمره أربع سنوات فقط!"},
+          {"t":"I can't find my keys.","tr":"لا أجد مفاتيحي."},
+          {"t":"Can you speak more slowly, please?","tr":"هل تتكلّم ببطء أكثر، من فضلك؟"},
+          {"t":"She can cook very well.","tr":"تطبخ جيدًا جدًّا."},
+          {"t":"Can I pay by card?","tr":"هل أستطيع الدفع بالبطاقة؟"},
+          {"t":"We can't come tonight. Sorry!","tr":"لا نستطيع المجيء الليلة. آسفون!"}
+        ] },
+        {"tip":"**{{can}} و{{can't}} في الكلام.** في الجملة المثبتة تُنطق {{can}} خفيفة سريعة، قريبة من «كِن». أما {{can't}} فواضحة قويّة طويلة، قريبة من «كانت». فاستمع جيدًا: الفرق في القوّة والطول أكثر منه في حرف {{t}}."},
+        {"tip":"**{{sp}} و{{st}} و{{sch}}.** في {{speak}} و{{study}} و{{school}} يبدأ الكلام بحرفين ساكنين معًا. لا تضع قبلهما همزة («إسبيك»)، ولا بينهما حركة («سِبيك»): ابدأ بالسين مباشرة."}
+      ],
+      "mistakes": [
+        {"wrong":"I can to swim.","right":"I can swim.","tr":"أستطيع أن أسبح.","why":"«أن» بعد «أستطيع» لا تُترجم: بعد {{can}} يأتي الفعل مباشرة."},
+        {"wrong":"She cans drive.","right":"She can drive.","tr":"تستطيع القيادة.","why":"{{can}} لا يأخذ {{-s}} أبدًا."},
+        {"wrong":"Do you can help me?","right":"Can you help me?","tr":"هل تستطيع أن تساعدني؟","why":"{{can}} يتقدّم بنفسه في السؤال، بلا {{do}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"I ___ speak Spanish.","tr":"لا أستطيع أن أتكلّم الإسبانية.","options":["can't","don't can","not can"],"answer":0,"why":"النفي: {{can't}}."},
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{He can play the piano.}}","{{He can to play the piano.}}","{{He cans play the piano.}}"],"answer":0,"why":"بعد {{can}} الفعل مباشرة، و{{can}} بلا {{-s}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"هل تستطيع أن تساعدني، من فضلك؟","words":["Can","you","help","me,","please?"]},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"Can I ___ by card?","tr":"هل أستطيع الدفع بالبطاقة؟","options":["pay","to pay","paying"],"answer":0,"why":"بعد {{can}} الفعل في صورته الأصلية."},
+        {"type":"dialogue","q":"مقابلة عمل في مطعم: اختر ردودك.","lines":[{"who":"المدير","t":"Can you work on weekends?","tr":"هل تستطيع العمل في عطلة نهاية الأسبوع؟"},{"options":["Yes, I can.","Yes, I do."],"answer":0,"why":"السؤال بـ{{Can}}، فالجواب بـ{{can}}."},{"who":"المدير","t":"Do you have experience?","tr":"هل عندك خبرة؟"},{"options":["Yes, I do. I work at a café now.","Yes, I can. I'm work at a café now."],"answer":0,"why":"السؤال بـ{{Do}}: {{Yes, I do}}؛ و{{work}} فعل، فلا {{am}} قبله."},{"who":"المدير","t":"Great. Can you start on Monday?","tr":"ممتاز. هل تستطيع أن تبدأ يوم الاثنين؟"},{"options":["Sure, I can start on Monday.","Sure, I can starting on Monday."],"answer":0,"why":"بعد {{can}} الفعل في صورته الأصلية."}],"from":"ask-about-routines"},
+        {"type":"say","q":"قل «هل تتكلّم ببطء أكثر، من فضلك؟»","answer":"Can you speak more slowly, please?"},
+        {"type":"free","q":"دورك: قل ثلاثة أشياء تستطيع أن تفعلها، وشيئًا لا تستطيعه.","answers":[{"t":"I can cook, I can drive, and I can speak two languages. I can't swim.","tr":"أستطيع أن أطبخ، وأن أقود السيارة، وأتكلّم لغتين. لا أستطيع السباحة."},{"t":"I can play the oud, fix computers, and make great coffee. I can't sing!","tr":"أستطيع العزف على العود وإصلاح الحواسيب وصنع قهوة رائعة. لا أستطيع الغناء!"}]}
+      ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 4,
+      "level": "A1",
+      "title": "صِف الطريق وأعطِ التعليمات",
+      "summary": "قل «امشِ إلى الأمام، ثم انعطف يسارًا عند الإشارة»: فعل الأمر في الإنجليزية هو الفعل في صورته الأصلية، و{{Don't}} للنهي.",
+      "topic": "فعل الأمر؛ النهي بـ{{Don't}}؛ {{Let's}}؛ كلمات الاتجاه {{left, right, straight, past}}",
+      "blocks": [
+        {"goal":{"t":"Go straight, then turn left at the light.","tr":"امشِ إلى الأمام، ثم انعطف يسارًا عند الإشارة."}},
+        {"dialog":[{"who":"أنت","t":"Excuse me, how do I get to the museum?","tr":"عفوًا، كيف أصل إلى المتحف؟"},{"who":"رجل","t":"Go straight down this street. Then turn right at the light.","tr":"امشِ إلى الأمام في هذا الشارع، ثم انعطف يمينًا عند الإشارة."},{"who":"أنت","t":"Turn right at the light. Okay.","tr":"أنعطف يمينًا عند الإشارة. حسنًا."},{"who":"رجل","t":"Walk past the bank. The museum is on your left, across from the park.","tr":"امشِ متجاوزًا البنك. المتحف على يسارك، مقابل الحديقة."},{"who":"أنت","t":"Is it far?","tr":"هل هو بعيد؟"},{"who":"رجل","t":"No, it's about five minutes. Don't take a taxi. Just walk!","tr":"لا، نحو خمس دقائق. لا تأخذ سيارة أجرة، امشِ فقط!"}]},
+        {"p":"**الأمر سهل في الإنجليزية.** في العربية لفعل الأمر صور كثيرة: امشِ، امشي، امشوا. أما في الإنجليزية فهو صورة واحدة للجميع: الفعل في صورته الأصلية، بلا فاعل قبله: {{Go!}} «اذهب، اذهبي، اذهبوا»، {{Turn left.}} «انعطف يسارًا»."},
+        {"term":"فعل الأمر","means":"صيغة الفعل التي تطلب بها من غيرك أن يفعل شيئًا، وهي في الإنجليزية الفعل في صورته الأصلية بلا فاعل: {{Sit down.}} «اجلس»."},
+        {"p":"**النهي بـ{{Don't}}.** وللنهي تضع {{Don't}} قبل الفعل: {{Don't worry.}} «لا تقلق»، {{Don't touch it!}} «لا تلمسه!». فهي «لا» الناهية العربية، لكنها تأتي هنا مع {{do}} كما في كل نفي."},
+        {"p":"**الأمر بلطف.** الأمر وحده يصلح لوصف الطريق، وللتعليمات، والوصفات. أما في الطلب من الناس فأضف {{please}}: {{Please sit down.}} أو {{Sit down, please.}} وأكثر أدبًا منه السؤال: {{Can you…?}}"},
+        { "table": [
+          ["العبارة","المعنى"],
+          ["{{Go straight.}}","امشِ إلى الأمام."],
+          ["{{Turn left.}} / {{Turn right.}}","انعطف يسارًا / يمينًا."],
+          ["{{Take the second street on the right.}}","خذ الشارع الثاني على اليمين."],
+          ["{{Go past the bank.}}","امشِ متجاوزًا البنك."],
+          ["{{It's on your left.}}","هو على يسارك."],
+          ["{{at the light}}، {{at the corner}}","عند الإشارة، عند الزاوية"]
+        ] },
+        {"p":"**{{Let's}}: «هيّا».** وإذا أردت أن تأمر نفسك ومن معك، فقل {{Let's}} ثم الفعل: {{Let's go!}} «هيّا بنا!»، {{Let's take a taxi.}} «لنأخذ سيارة أجرة»."},
+        { "ex": [
+          {"t":"Take the second left.","tr":"خذ الشارع الثاني على اليسار."},
+          {"t":"Open your books to page ten.","tr":"افتحوا كتبكم على الصفحة العاشرة."},
+          {"t":"Don't forget your passport!","tr":"لا تنسَ جواز سفرك!"},
+          {"t":"Please wait here.","tr":"انتظر هنا، من فضلك."},
+          {"t":"Mix the eggs and the sugar.","tr":"اخلط البيض والسكر."},
+          {"t":"Let's go home.","tr":"هيّا نعد إلى البيت."}
+        ] },
+        {"tip":"{{How do I get to…?}} «كيف أصل إلى…؟» هو السؤال المعتاد عن الطريق. وإذا لم تفهم الجواب فقل {{Sorry, can you say that again?}} «عفوًا، هل تعيد ما قلت؟»"}
+      ],
+      "mistakes": [
+        {"wrong":"No smoke here.","right":"Don't smoke here.","tr":"لا تدخّن هنا.","why":"النهي بـ{{Don't}} قبل الفعل، لا بـ{{No}}. (قد ترى على اللافتات {{No smoking}}، وهي صيغة أخرى للّافتات.)"},
+        {"wrong":"Don't to worry.","right":"Don't worry.","tr":"لا تقلق.","why":"بعد {{Don't}} الفعل مباشرة، بلا {{to}}."},
+        {"wrong":"Let's going.","right":"Let's go.","tr":"هيّا بنا.","why":"بعد {{Let's}} الفعل في صورته الأصلية."}
+      ],
+      "practice": [
+        {"type":"choice","q":"تريد أن تقول لصديقك «لا تقلق». تقول…","options":["{{Don't worry.}}","{{No worry.}}","{{You not worry.}}"],"answer":0,"why":"النهي: {{Don't}} + الفعل."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"___ left at the corner.","tr":"انعطف يسارًا عند الزاوية.","options":["Turn","Turns","Turning"],"answer":0,"why":"الأمر: الفعل في صورته الأصلية."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"The bank is ___ your right.","tr":"البنك على يمينك.","options":["on","in","at"],"answer":0,"why":"{{on your right}} «على يمينك».","from":"say-where-things-are"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"هيّا نأخذ سيارة أجرة.","words":["Let's","take","a","taxi."]},
+        {"type":"dialogue","q":"سائح يسألك عن الطريق إلى المحطة: اختر ردودك.","lines":[{"who":"السائح","t":"Excuse me, how do I get to the train station?","tr":"عفوًا، كيف أصل إلى محطة القطار؟"},{"options":["Go straight and take the first right.","You going straight and taking the first right."],"answer":0,"why":"وصف الطريق بفعل الأمر: {{Go}}، {{take}}."},{"who":"السائح","t":"Is it far?","tr":"هل هي بعيدة؟"},{"options":["No, it isn't. It's next to a big hotel.","No, it doesn't. It's next to a big hotel."],"answer":0,"why":"السؤال بـ{{Is}}، فالجواب {{it isn't}}."},{"who":"السائح","t":"Thank you so much!","tr":"شكرًا جزيلًا!"},{"options":["You're welcome. Don't take the bus. It's slow!","You're welcome. Not take the bus. It's slow!"],"answer":0,"why":"النهي: {{Don't}} + الفعل."}],"from":"ask-yes-or-no"},
+        {"type":"say","q":"قل «لا تنسَ مفاتيحك!»","answer":"Don't forget your keys!"},
+        {"type":"free","q":"دورك: صِف لشخص الطريق من بيتك إلى أقرب متجر أو مسجد، في ثلاث جمل أو أكثر.","answers":[{"t":"Go out of the building and turn right. Walk past the school. The store is on your left.","tr":"اخرج من البناية وانعطف يمينًا. امشِ متجاوزًا المدرسة. المتجر على يسارك."},{"t":"Go straight for two blocks. Turn left at the light. The mosque is across from the pharmacy.","tr":"امشِ إلى الأمام مسافة شارعين. انعطف يسارًا عند الإشارة. المسجد مقابل الصيدلية."}]}
+      ]
+    },
+    {
+      "id": "ask-politely",
+      "unit": 4,
+      "level": "A2",
+      "title": "اطلب بلطف",
+      "summary": "اطلب من الناس بأدب يناسب المقام: {{Could you help me, please?}} و{{Would you mind closing the door?}}",
+      "topic": "{{Could you…? Would you…? Would you mind…? May I…?}}؛ الردّ بالموافقة والاعتذار",
+      "blocks": [
+        {"goal":{"t":"Could you help me with this bag, please?","tr":"هل يمكنك أن تساعدني في هذه الحقيبة، من فضلك؟"}},
+        {"dialog":[{"who":"أنت","t":"Excuse me. Could you help me with my bag, please?","tr":"عفوًا. هل يمكنك أن تساعدني في حقيبتي، من فضلك؟"},{"who":"رجل","t":"Sure, no problem.","tr":"بالتأكيد، لا مشكلة."},{"who":"أنت","t":"Thank you. And would you mind switching seats with me? I'd like to sit with my son.","tr":"شكرًا. وهل تمانع أن تبادلني المقعد؟ أودّ أن أجلس مع ابني."},{"who":"رجل","t":"Not at all. Here you go.","tr":"لا أمانع أبدًا. تفضّل."},{"who":"أنت","t":"Thank you so much. That's very kind of you.","tr":"شكرًا جزيلًا. هذا لطف كبير منك."},{"who":"المضيفة","t":"Sir, could you turn off your phone, please?","tr":"سيّدي، هل يمكنك أن تُطفئ هاتفك، من فضلك؟"},{"who":"أنت","t":"Oh, sorry! Of course.","tr":"آسف! بالطبع."}]},
+        {"p":"**درجات الأدب.** في العربية تُبدي التهذيب بكلمات مثل «لو سمحت» و«من فضلك» و«هل يمكنك». والإنجليزية كذلك، لكن الأمريكيين يعتمدون على صيغة السؤال اعتمادًا كبيرًا: كلّما كان الطلب أكبر، أو كان الشخص غريبًا، كانت الصيغة أكثر تهذيبًا:"},
+        { "table": [
+          ["الصيغة","متى"],
+          ["{{Can you…?}}","مع الأصدقاء والعائلة، وللطلبات الصغيرة"],
+          ["{{Could you…?}}","مع الناس عمومًا، والغرباء، وفي العمل"],
+          ["{{Would you…?}}","مثلها في التهذيب"],
+          ["{{Would you mind}} + {{-ing}}","لطلب أكبر أو فيه إزعاج: «هل تمانع أن…؟»"]
+        ] },
+        {"p":"{{could}} و{{would}} فعلان ناقصان مثل {{can}}: بلا {{-s}}، وبعدهما الفعل في صورته الأصلية بلا {{to}}: {{Could you open the window?}} لا {{Could you to open}}."},
+        {"p":"**{{Would you mind…?}}** معناها حرفيًّا «هل تمانع…؟»، وبعدها الفعل بـ{{-ing}}: {{Would you mind closing the door?}} وانتبه إلى الجواب: إذا قبلت فأنت «لا تمانع»، فتقول {{No, not at all.}} أو {{Sure, no problem.}}؛ أما {{Yes}} وحدها فمعناها «نعم، أمانع»!"},
+        {"p":"**الاستئذان.** لتطلب الإذن لنفسك تقول {{Can I…?}} أو {{Could I…?}}، أو، وهي أكثرها رسمية، {{May I…?}}: {{May I come in?}} «هل أدخل؟»"},
+        { "table": [
+          ["الطلب","الموافقة","الاعتذار"],
+          ["{{Could you…?}}","{{Sure.}} {{Of course.}} {{No problem.}}","{{Sorry, I can't.}}"],
+          ["{{Would you mind…?}}","{{Not at all.}} {{No problem.}}","{{Sorry, I'd rather not.}}"],
+          ["{{May I…?}}","{{Of course.}} {{Go ahead.}}","{{I'm sorry, but…}}"]
+        ] },
+        { "ex": [
+          {"t":"Could you repeat that, please?","tr":"هل يمكنك أن تعيد ذلك، من فضلك؟"},
+          {"t":"Would you take a picture of us?","tr":"هل تلتقط لنا صورة؟"},
+          {"t":"Would you mind waiting a minute?","tr":"هل تمانع أن تنتظر دقيقة؟"},
+          {"t":"May I use your bathroom?","tr":"هل لي أن أستعمل حمّامكم؟"},
+          {"t":"Could I have a glass of water?","tr":"هل لي بكأس ماء؟"},
+          {"t":"Can you pass the salt?","tr":"هل تناولني الملح؟","note":"على مائدة العائلة تكفي {{Can you}}"}
+        ] },
+        {"tip":"**{{Excuse me}} و{{Sorry}}.** {{Excuse me}} قبل أن تطلب، أو تقاطع، أو تمرّ بين الناس: «عفوًا، لو سمحت». و{{Sorry}} بعد خطأ صغير: «آسف». ويقول الأمريكيون أيضًا {{Excuse me?}} بنبرة سؤال إذا لم يسمعوا جيدًا."}
+      ],
+      "mistakes": [
+        {"wrong":"Could you to help me?","right":"Could you help me?","tr":"هل يمكنك أن تساعدني؟","why":"{{could}} مثل {{can}}: بعده الفعل مباشرة."},
+        {"wrong":"Would you mind to close the door?","right":"Would you mind closing the door?","tr":"هل تمانع أن تغلق الباب؟","why":"بعد {{mind}} يأتي الفعل بـ{{-ing}}."},
+        {"wrong":"Would you mind helping me? — Yes.","right":"Would you mind helping me? — No, not at all.","tr":"هل تمانع أن تساعدني؟ — لا أمانع أبدًا.","why":"{{Yes}} هنا معناها «نعم، أمانع». فإذا أردت الموافقة فقل {{No, not at all}} أو {{Sure}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"تطلب من موظف الفندق أن يطلب لك سيارة أجرة. أيّها أنسب؟","options":["{{Could you call a taxi for me, please?}}","{{Call me a taxi.}}","{{I want taxi.}}"],"answer":0,"why":"مع الغرباء وفي العمل: {{Could you…, please?}}"},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Would you mind ___ the window?","tr":"هل تمانع أن تفتح النافذة؟","options":["opening","open","to open"],"answer":0,"why":"بعد {{mind}}: {{-ing}}."},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"Could you ___ me the way to the station?","tr":"هل يمكنك أن تدلّني على الطريق إلى المحطة؟","options":["show","to show","showing"],"answer":0,"why":"بعد {{could}} الفعل في صورته الأصلية.","from":"say-what-you-can-do"},
+        {"type":"choice","q":"سُئلت {{Would you mind waiting a minute?}} وتريد أن تقبل. تقول…","options":["{{No, not at all.}}","{{Yes, I mind.}}","{{Yes.}}"],"answer":0,"why":"«لا أمانع»: {{No, not at all.}}"},
+        {"type":"dialogue","q":"في الطائرة: اختر ردودك.","lines":[{"who":"امرأة","t":"Excuse me, is this seat 14B?","tr":"عفوًا، هل هذا المقعد 14B؟"},{"options":["Yes, it is. Here, let me move my bag.","Yes, it does. Here, let me move my bag."],"answer":0,"why":"السؤال بـ{{is}}: {{Yes, it is.}}"},{"who":"امرأة","t":"Thank you. Would you mind closing the window shade? The sun is very bright.","tr":"شكرًا. هل تمانع أن تغلق ستارة النافذة؟ الشمس ساطعة جدًّا."},{"options":["Not at all.","Yes, I mind."],"answer":0,"why":"لتوافق: {{Not at all}} «لا أمانع أبدًا»."},{"who":"امرأة","t":"That's very kind of you.","tr":"هذا لطف منك."},{"options":["No problem. Could you wake me up for lunch, please?","No problem. Could you to wake me up for lunch, please?"],"answer":0,"why":"بعد {{could}} الفعل مباشرة."}],"from":"ask-yes-or-no"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"هل تلتقط لنا صورة، من فضلك؟","words":["Would","you","take","a","picture","of","us,","please?"]},
+        {"type":"free","q":"دورك: اكتب ثلاثة طلبات مهذّبة: لزميل في العمل، ولغريب في الشارع، ولموظف في فندق.","answers":[{"t":"Could you send me the report, please? Excuse me, could you take a picture of us? Would you mind calling a taxi for me?","tr":"هل يمكنك أن ترسل لي التقرير، من فضلك؟ عفوًا، هل تلتقط لنا صورة؟ هل تمانع أن تطلب لي سيارة أجرة؟"},{"t":"Can you help me with this printer? Excuse me, could you tell me the time? Could I have an extra towel, please?","tr":"هل تساعدني في هذه الطابعة؟ عفوًا، هل تخبرني كم الساعة؟ هل لي بمنشفة إضافية، من فضلك؟"}]}
+      ]
     }
   ]
 }
