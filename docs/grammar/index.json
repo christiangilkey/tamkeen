@@ -30,22 +30,6 @@
    ],
    "bytes": 423725,
    "sha256": "720886b8f5ff9f23acae806cfd33384e6f0d2b78e684494d951885c447b6e20f"
-  },
-  "ru-en": {
-   "file": "ru-en/course.json",
-   "from": "ru",
-   "to": "en",
-   "title": "Грамматика английского языка",
-   "variety": "американский английский",
-   "units": 8,
-   "lessons": 49,
-   "levels": [
-    "A1",
-    "A2",
-    "B1"
-   ],
-   "bytes": 334237,
-   "sha256": "38f1660f3cb82c05d237ab86afbe5e39e94b6d8b501cc176bde8af01609ec16b"
   }
  }
 }
