@@ -39,7 +39,7 @@ function persianProblem(text) {
 
 /** What is wrong with a reading ("" when nothing is). */
 function readingProblem(r, piece = false) {
-  if (!/^[a-zâA-ZÂ'\- .,!?;:()…"“”0-9/]+$/.test(r)) return "a letter outside the course's romanisation (a â e o i u, kh gh sh ch zh, ')";
+  if (!/^[a-zâA-ZÂ'\- .,!?;:()…"“”0-9/_]+$/.test(r)) return "a letter outside the course's romanisation (a â e o i u, kh gh sh ch zh, ')";
   if (!piece && /--|^-|-$| -|- /.test(r)) return "a stray hyphen";
   return "";
 }
@@ -106,6 +106,38 @@ if (enfa) {
         const p = readingProblem(r, piece) || (piece ? "" : pairProblem(t, r));
         if (p) bad.push(`${l.id} ${where}: ${p} (“${t}” / “${r}”)`);
       }
+    }
+    assert.deepEqual(bad, [], bad.join("\n"));
+  });
+
+  test("en-fa: every choice a learner taps has its reading, and the readings match", () => {
+    const bad = [];
+    const check = (where, t, r) => {
+      const p = !String(r || "").trim() ? "no reading" : readingProblem(r) || pairProblem(t, r);
+      if (p) bad.push(`${where}: ${p} (“${t}” / “${r}”)`);
+    };
+    for (const l of enfa.lessons) {
+      l.practice.forEach((q, qi) => {
+        const at = `${l.id} practice ${qi + 1}`;
+        if (q.type === "fill") {
+          if ((String(q.r || "").match(/___/g) || []).length !== 1) bad.push(`${at}: r needs exactly one ___`);
+          check(`${at} r`, q.t, q.r);
+          if ((q.rs || []).length !== q.options.length) bad.push(`${at}: rs must give one reading per option`);
+          q.options.forEach((o, i) => check(`${at} option ${i + 1}`, o, (q.rs || [])[i]));
+        }
+        if (q.type === "order") {
+          if ((q.rs || []).length !== q.words.length) bad.push(`${at}: rs must give one reading per word`);
+          q.words.forEach((w, i) => check(`${at} word ${i + 1}`, w, (q.rs || [])[i]));
+        }
+        if (q.type === "dialogue") q.lines.forEach((x, li) => {
+          if (!x.options) return;
+          if ((x.rs || []).length !== x.options.length) bad.push(`${at} line ${li + 1}: rs must give one reading per option`);
+          x.options.forEach((o, i) => check(`${at} line ${li + 1} option ${i + 1}`, o, (x.rs || [])[i]));
+        });
+        if (q.type === "choice") q.options.forEach((o, i) => {
+          for (const piece of targetsOf(o)) if (PERSIAN.test(piece) && !piece.includes("|")) bad.push(`${at} option ${i + 1}: {{${piece}}} has no reading`);
+        });
+      });
     }
     assert.deepEqual(bad, [], bad.join("\n"));
   });
