@@ -1829,6 +1829,284 @@
         {"type":"say","q":"英語で言ってみましょう：「たいてい7時に起きます。」","answer":"I usually get up at seven.","from":"say-how-often"},
         {"type":"free","q":"あなたの番です。朝起きてから家を出るまでにすることを、句動詞を2つ以上使って言いましょう。","answers":[{"t":"I wake up at six and get up at six thirty. I put on my clothes and turn off the lights.","tr":"6時に目が覚めて、6時半に起きます。服を着て、電気を消します。"},{"t":"I get up, turn on the TV and watch the news. Then I put on my coat and go out.","tr":"起きて、テレビをつけてニュースを見ます。それからコートを着て出かけます。"}]}
       ]
+    },
+    {
+      "id": "describe-with-clauses",
+      "unit": 8,
+      "level": "B1",
+      "title": "人や物をくわしく説明する",
+      "summary": "{{who}}・{{which}}・{{that}} で、名詞のあとに説明をつけます：「隣に住んでいる女性は先生です。」「昨日見た映画はよかった。」",
+      "topic": "関係代名詞 {{who}} / {{which}} / {{that}}; 説明は名詞のあと; {{that}} の省略（{{the book I bought}}）",
+      "blocks": [
+        {"goal":{"t":"The woman who lives next door is a teacher.","tr":"隣に住んでいる女性は先生です。"}},
+        {"dialog":[{"who":"アレックス","t":"Who's the man who's talking to Emma?","tr":"エマと話している男の人はだれ？"},{"who":"ナナ","t":"That's Tom. He's the guy who made this cake.","tr":"トムだよ。このケーキを作った人。"},{"who":"アレックス","t":"Wow, it's the best cake I've ever eaten!","tr":"すごい、今まで食べた中でいちばんおいしいケーキだよ！"},{"who":"ナナ","t":"He has a café that sells amazing desserts.","tr":"彼、すごくおいしいデザートを売ってるカフェをやってるの。"},{"who":"アレックス","t":"Is it the café you told me about last week?","tr":"先週話してくれたカフェ？"},{"who":"ナナ","t":"Yes, that's the one!","tr":"そう、それ！"}]},
+        {"term":"関係代名詞","means":"名詞のあとに説明の文をつなげる言葉：{{who}}（人）、{{which}}（物）、{{that}}（人にも物にも）。"},
+        {"p":"**説明は名詞のあと。** 日本語では「隣に住んでいる女性」のように、説明が名詞の前に来ます。英語では反対に、名詞を先に言ってから、そのあとに {{who}} などで説明を続けます：{{the woman}} + {{who lives next door}}。"},
+        { "table": [
+          ["日本語","英語"],
+          ["隣に住んでいる女性","{{the woman who lives next door}}"],
+          ["昨日買った本","{{the book that I bought yesterday}}"],
+          ["空港へ行くバス","{{the bus that goes to the airport}}"]
+        ] },
+        {"p":"**{{who}}・{{which}}・{{that}}。** 人には {{who}}、物には {{which}}、{{that}} はどちらにも使えます。会話では {{that}} がとてもよく使われます。"},
+        {"p":"**{{that}} を省けるとき。** 説明の文に別の主語があるとき（「**私が**買った本」）は、{{that}} や {{who}} を省けます：{{the book (that) I bought}}、{{the café (that) you told me about}}。{{who}} や {{that}} のすぐあとに動詞が来るとき（「隣に**住んでいる**」）は省けません。"},
+        { "table": [
+          ["","英語","意味"],
+          ["省けない（すぐあとに動詞）","{{the man who lives here}}","ここに住んでいる男性"],
+          ["省ける（すぐあとに主語）","{{the man (who) I met}}","私が会った男性"]
+        ] },
+        { "ex": [
+          {"t":"I have a friend who speaks five languages.","tr":"5か国語を話す友だちがいます。"},
+          {"t":"This is the bus that goes to the airport.","tr":"これは空港へ行くバスです。"},
+          {"t":"The movie I saw yesterday was great.","tr":"昨日見た映画はすばらしかったです。"},
+          {"t":"Is this the bag you lost?","tr":"これがなくしたかばんですか？"},
+          {"t":"He's the best teacher I've ever had.","tr":"彼は今まで習った中でいちばんいい先生です。"},
+          {"t":"I like people who are honest.","tr":"正直な人が好きです。"}
+        ] },
+        {"tip":"説明が長くなっても、まず名詞を言って、あとから説明を足していけばいいので、慣れると話しやすい形です。「先に名詞、それから説明」と考えましょう。"}
+      ],
+      "mistakes": [
+        {"wrong":"The next door lives woman is a teacher.","right":"The woman who lives next door is a teacher.","tr":"隣に住んでいる女性は先生です。","why":"英語では名詞が先、説明があと。"},
+        {"wrong":"I have a friend which is a doctor.","right":"I have a friend who is a doctor.","tr":"医者の友だちがいます。","why":"人には {{who}}（または {{that}}）。{{which}} は物だけです。"},
+        {"wrong":"The man lives here is kind.","right":"The man who lives here is kind.","tr":"ここに住んでいる男性は親切です。","why":"すぐあとに動詞が来るときは {{who}} を省けません。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I have a friend ___ lives in London.","tr":"ロンドンに住んでいる友だちがいます。","options":["who","which","what"],"answer":0,"why":"人には {{who}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"This is the train ___ goes to Kyoto.","tr":"これは京都へ行く電車です。","options":["that","who","where"],"answer":0,"why":"物には {{that}}（または {{which}}）。"},
+        {"type":"choice","q":"「昨日買った本」は英語で？","options":["{{the book I bought yesterday}}","{{the yesterday bought book}}","{{the book who I bought yesterday}}"],"answer":0,"why":"名詞が先。あとに主語（{{I}}）が来るので {{that}} は省けます。"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"5か国語を話す友だちがいます。","words":["I","have","a","friend","who","speaks","five","languages."],"why":"{{I have a friend who speaks five languages.}}"},
+        {"type":"dialogue","q":"パーティーで。返事を選んでください。","lines":[{"who":"アレックス","t":"Who's that man?","tr":"あの男の人はだれ？"},{"options":["He's the man who made this cake.","He's the man made this cake."],"answer":0,"why":"すぐあとに動詞が来るので {{who}} は省けません。"},{"who":"アレックス","t":"It's delicious!","tr":"おいしい！"},{"options":["I know! It's the best cake I've ever eaten.","I know! It's the best cake I've ever eat."],"answer":0,"why":"現在完了なので過去分詞 {{eaten}}。"}],"from":"talk-about-experiences"},
+        {"type":"say","q":"英語で言ってみましょう：「昨日見た映画はすばらしかったです。」","answer":"The movie I saw yesterday was great.","from":"use-irregular-verbs"},
+        {"type":"free","q":"あなたの番です。{{who}} か {{that}} を使って、知っている人を1人と、好きな物を1つ説明しましょう。","answers":[{"t":"I have a friend who lives in Canada. I love the café that's next to my office.","tr":"カナダに住んでいる友だちがいます。会社の隣にあるカフェが大好きです。"},{"t":"My sister is the person who helps me the most. The best book I've ever read is Kokoro.","tr":"姉はいちばん私を助けてくれる人です。今まで読んだ中でいちばんいい本は『こころ』です。"}]}
+      ]
+    },
+    {
+      "id": "talk-about-conditions",
+      "unit": 8,
+      "level": "B1",
+      "title": "条件を言う",
+      "summary": "「もし〜なら、…する」と、実際に起こりそうな条件を言います：「明日雨が降ったら、家にいます。」",
+      "topic": "{{if}} + 現在形, {{will}} …; 未来の {{when}} + 現在形",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, I'll stay home.","tr":"明日雨が降ったら、家にいます。"}},
+        {"dialog":[{"who":"ジュン","t":"Are you going to the beach tomorrow?","tr":"明日海に行くの？"},{"who":"メグ","t":"If the weather is good, I'll go.","tr":"天気がよかったら行くよ。"},{"who":"ジュン","t":"And if it rains?","tr":"雨だったら？"},{"who":"メグ","t":"If it rains, I'll stay home and watch movies.","tr":"雨なら、家で映画を見るよ。"},{"who":"ジュン","t":"OK. When you get to the beach, send me a photo!","tr":"わかった。海に着いたら写真送ってね！"},{"who":"メグ","t":"Sure. And I'll call you when I get home.","tr":"うん。それと家に帰ったら電話するね。"}]},
+        {"term":"条件文","means":"{{if}}（もし〜なら）を使って、条件とその結果を言う文。"},
+        {"p":"**「もし〜なら、…する」：{{If}} + 現在形, {{will}} + 動詞。** 実際に起こりそうな未来の条件を言います：{{If it rains, I'll stay home.}}（雨が降ったら、家にいる）。大事なのは、{{if}} の部分は未来のことでも**現在形**を使うことです。{{If it will rain}} とは言いません。"},
+        { "table": [
+          ["{{if}} の部分（現在形）","結果（{{will}}）"],
+          ["{{If it rains,}}","{{I'll stay home.}}"],
+          ["{{If you're tired,}}","{{I'll drive.}}"],
+          ["{{If she calls,}}","{{I'll tell her.}}"]
+        ] },
+        {"p":"**順番は入れかえられる。** {{I'll stay home if it rains.}} でも同じ意味です。{{if}} が先のときは、間にカンマ（,）を入れます。"},
+        {"p":"**未来の {{when}} も同じ。** 未来のことを「〜したら」と言う {{when}} の部分も現在形です：{{I'll call you when I get home.}}（家に着いたら電話するね）。日本語の「〜たら」は、起こるかどうかわからなければ {{if}}、必ず起こることなら {{when}} になります。"},
+        { "ex": [
+          {"t":"If you're hungry, I'll make a sandwich.","tr":"お腹がすいてるなら、サンドイッチを作るよ。"},
+          {"t":"I'll be late if I miss the train.","tr":"電車に乗り遅れたら遅刻します。"},
+          {"t":"If you don't hurry, you'll miss the bus.","tr":"急がないと、バスに乗り遅れるよ。"},
+          {"t":"I'll call you when I get to the hotel.","tr":"ホテルに着いたら電話します。"},
+          {"t":"When you see Ken, say hi for me.","tr":"ケンに会ったら、よろしく伝えてね。"},
+          {"t":"If you have any questions, please ask.","tr":"ご質問があれば、どうぞ聞いてください。"}
+        ] },
+        {"tip":"{{If you have any questions, please ask.}}（ご質問があればどうぞ）は、仕事でもよく使う決まった言い方です。"}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, I'll stay home.","right":"If it rains, I'll stay home.","tr":"雨が降ったら家にいます。","why":"{{if}} の部分は、未来のことでも現在形。"},
+        {"wrong":"I call you when I will get home.","right":"I'll call you when I get home.","tr":"家に着いたら電話します。","why":"結果のほうに {{will}}、{{when}} の部分は現在形。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"If it ___ tomorrow, we'll cancel the picnic.","tr":"明日雨が降ったら、ピクニックは中止にします。","options":["rains","will rain","rained"],"answer":0,"why":"{{if}} の部分は現在形：{{rains}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I'll call you when I ___ home.","tr":"家に着いたら電話するね。","options":["get","will get","got"],"answer":0,"why":"未来の {{when}} の部分も現在形。"},
+        {"type":"choice","q":"「急がないと、バスに乗り遅れるよ」は英語で？","options":["{{If you don't hurry, you'll miss the bus.}}","{{If you won't hurry, you miss the bus.}}","{{If you don't hurry, you missed the bus.}}"],"answer":0,"why":"{{if}} + 現在形、結果は {{will}}。"},
+        {"type":"dialogue","q":"パーティーに誘われました。返事を選んでください。","lines":[{"who":"ジュン","t":"Are you coming to the party tonight?","tr":"今夜のパーティー来る？"},{"options":["If I finish work early, I'll come.","If I will finish work early, I come."],"answer":0,"why":"{{if}} の部分は現在形、結果は {{will}}。"},{"who":"ジュン","t":"OK. Text me when you leave the office.","tr":"わかった。会社を出るとき連絡して。"},{"options":["Sure. I'll text you when I leave.","Sure. I'll text you when I will leave."],"answer":0,"why":"{{when}} の部分は現在形。"}],"from":"decide-and-promise"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"ホテルに着いたら電話します。","words":["I'll","call","you","when","I","get","to","the","hotel."],"why":"{{I'll call you when I get to the hotel.}}"},
+        {"type":"say","q":"英語で言ってみましょう：「疲れているなら、早く寝たほうがいいよ。」","answer":"If you're tired, you should go to bed early.","from":"give-advice"},
+        {"type":"free","q":"あなたの番です。今週末の天気によって何をするか、{{If …, I'll …}} で言いましょう。","answers":[{"t":"If it's sunny, I'll go hiking. If it rains, I'll read a book at home.","tr":"晴れたらハイキングに行きます。雨なら家で本を読みます。"},{"t":"If the weather is nice, I'll have a barbecue with my family.","tr":"天気がよければ、家族とバーベキューをします。"}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 8,
+      "level": "B1",
+      "title": "想像する・仮定する",
+      "summary": "現実とちがうことを想像して話します：「宝くじが当たったら、世界一周旅行をするのに。」「私があなたなら、そうするよ。」",
+      "topic": "{{if}} + 過去形, {{would}} …; {{If I were you}}; {{I wish …}}",
+      "blocks": [
+        {"goal":{"t":"If I won the lottery, I would travel around the world.","tr":"もし宝くじが当たったら、世界一周旅行をするのに。"}},
+        {"dialog":[{"who":"ケイト","t":"What would you do if you had a million dollars?","tr":"100万ドルあったら何をする？"},{"who":"ショウ","t":"I'd buy a house by the sea. What about you?","tr":"海のそばに家を買うかな。君は？"},{"who":"ケイト","t":"I'd quit my job and travel!","tr":"仕事をやめて旅行する！"},{"who":"ショウ","t":"I wish I could travel more. I'm always busy.","tr":"もっと旅行できたらいいのに。いつも忙しくて。"},{"who":"ケイト","t":"If I were you, I'd take a vacation next month.","tr":"私があなたなら、来月休みを取るよ。"},{"who":"ショウ","t":"Maybe you're right.","tr":"そうかもね。"}]},
+        {"p":"**現実とちがう想像：{{If}} + 過去形, {{would}} + 動詞。** 今のことでも、{{if}} の部分を過去形にします。過去形にすることで「現実ではない」「ありえない、可能性が低い」という気持ちを表すのです：{{If I had more time, I would learn the piano.}}（もっと時間があればピアノを習うのに：実際は時間がない）。{{would}} の短い形は {{'d}}：{{I'd}}。"},
+        { "table": [
+          ["","英語","意味"],
+          ["ありそうなこと（前のレッスン）","{{If I have time, I'll call you.}}","時間があれば電話するね。"],
+          ["現実とちがう想像","{{If I had time, I'd call you.}}","時間があれば電話するのに（でもない）。"]
+        ] },
+        {"p":"**「私があなたなら」：{{If I were you}}。** アドバイスでよく使う形です。主語が {{I}} でも {{were}} を使うのが正式です：{{If I were you, I'd take a break.}}（私があなたなら、休むよ）。"},
+        {"p":"**「〜だったらいいのに」：{{I wish}} + 過去形。** 今の現実へのかなわない願いを言います：{{I wish I had a car.}}（車があればいいのに）、{{I wish I could speak French.}}（フランス語が話せたらいいのに）。"},
+        {"p":"**{{could}}：** {{can}} の過去形で、「〜できたら」という想像にも使います：{{If I could fly, I'd go to Hawaii.}}（空を飛べたら、ハワイに行くのに）。"},
+        { "ex": [
+          {"t":"If I had a car, I'd drive to the mountains.","tr":"車があれば、山までドライブするのに。"},
+          {"t":"What would you do if you were the president?","tr":"もし大統領だったら何をしますか？"},
+          {"t":"If I were you, I'd ask the teacher.","tr":"私があなたなら、先生に聞くよ。"},
+          {"t":"I wish I lived near the beach.","tr":"海の近くに住んでいたらいいのに。"},
+          {"t":"I wish I could sing well.","tr":"歌がうまく歌えたらいいのに。"},
+          {"t":"If I could fly, I'd go to Hawaii.","tr":"空を飛べたら、ハワイに行くのに。"}
+        ] },
+        {"tip":"{{I'd love to!}}（ぜひ！）や {{Would you like some tea?}}（お茶はいかがですか？）の {{would}} も、同じ「やわらかさ」から来ています。"}
+      ],
+      "mistakes": [
+        {"wrong":"If I have a million dollars, I would buy a house.","right":"If I had a million dollars, I would buy a house.","tr":"100万ドルあったら家を買うのに。","why":"現実とちがう想像では、{{if}} の部分は過去形。"},
+        {"wrong":"If I would be you, I'd go.","right":"If I were you, I'd go.","tr":"私があなたなら行くよ。","why":"{{if}} の部分に {{would}} は使いません：{{If I were you}}。"},
+        {"wrong":"I wish I can swim.","right":"I wish I could swim.","tr":"泳げたらいいのに。","why":"{{I wish}} のあとは過去形：{{could}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"If I ___ more money, I'd buy a new car.","tr":"もっとお金があれば、新しい車を買うのに。","options":["had","have","will have"],"answer":0,"why":"現実とちがう想像：{{if}} + 過去形。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"If I were you, I ___ take the job.","tr":"私があなたなら、その仕事を受けるよ。","options":["would","will","am"],"answer":0,"why":"想像の結果は {{would}}。"},
+        {"type":"choice","q":"「フランス語が話せたらいいのに」は英語で？","options":["{{I wish I could speak French.}}","{{I wish I can speak French.}}","{{I hope I could speak French.}}"],"answer":0,"why":"かなわない願いは {{I wish}} + 過去形。"},
+        {"type":"dialogue","q":"「もしも」の話をしています。返事を選んでください。","lines":[{"who":"ケイト","t":"What would you do if you had a month off?","tr":"1か月休みがあったら何をする？"},{"options":["I'd go to Europe.","I'll go to Europe."],"answer":0,"why":"想像の話なので {{would}}（{{I'd}}）。"},{"who":"ケイト","t":"Me too! I wish I had more vacation days.","tr":"私も！もっと休みがあったらいいのに。"},{"options":["Me too. If I were the boss, I'd give everyone more vacation!","Me too. If I am the boss, I give everyone more vacation!"],"answer":0,"why":"現実とちがう想像：{{If I were …, I'd …}}"}],"from":"agree-with-someone"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"私があなたなら、先生に聞くよ。","words":["If","I","were","you,","I'd","ask","the","teacher."],"why":"{{If I were you, I'd ask the teacher.}}"},
+        {"type":"say","q":"比べてみましょう。英語で：「時間があったら（ありそうな話）、電話するね。」","answer":"If I have time, I'll call you.","from":"talk-about-conditions"},
+        {"type":"free","q":"あなたの番です。100万ドルあったら何をするか（{{If I had …, I'd …}}）、そして今の生活で「〜だったらいいのに」と思うことを {{I wish}} で1つ言いましょう。","answers":[{"t":"If I had a million dollars, I'd buy a house in Okinawa. I wish I had more free time.","tr":"100万ドルあったら、沖縄に家を買うのに。もっと自由な時間があればいいのに。"},{"t":"If I had a lot of money, I'd open a restaurant. I wish I could cook better.","tr":"お金がたくさんあったら、レストランを開くのに。もっと料理が上手だったらいいのに。"}]}
+      ]
+    },
+    {
+      "id": "understand-the-passive",
+      "unit": 8,
+      "level": "B1",
+      "title": "受け身を理解する",
+      "summary": "「〜される」「〜された」という受け身の文を理解し、使います：「このお寺は800年前に建てられました。」",
+      "topic": "受け身（be動詞 + 過去分詞）; {{by}} …; ニュースや案内での使い方",
+      "blocks": [
+        {"goal":{"t":"This temple was built 800 years ago.","tr":"このお寺は800年前に建てられました。"}},
+        {"dialog":[{"who":"ガイド","t":"This is Kinkakuji. It was built in 1397.","tr":"こちらが金閣寺です。1397年に建てられました。"},{"who":"観光客","t":"Wow. Is it covered with real gold?","tr":"わあ。本物の金で覆われているんですか？"},{"who":"ガイド","t":"Yes, the walls are covered with gold leaf.","tr":"はい、壁は金箔で覆われています。"},{"who":"観光客","t":"Amazing. Was it ever damaged?","tr":"すごい。壊されたことはあるんですか？"},{"who":"ガイド","t":"Yes. It was burned down in 1950 and rebuilt in 1955.","tr":"はい。1950年に焼失して、1955年に再建されました。"},{"who":"観光客","t":"I see. Can we take pictures?","tr":"なるほど。写真は撮れますか？"},{"who":"ガイド","t":"Yes, but photos aren't allowed inside.","tr":"はい、でも中での撮影は禁止されています。"}]},
+        {"term":"受け身","means":"「〜される」「〜された」を表す形：be動詞 + 過去分詞。だれがしたかより、何がされたかに注目するときに使います。"},
+        {"p":"**受け身：be動詞 + 過去分詞。** {{This temple was built in 1397.}}（この寺は1397年に建てられた）。だれが建てたかより、「寺」に注目している文です。時は be動詞で表します：{{is made}}（作られている）、{{was made}}（作られた）。"},
+        { "table": [
+          ["","ふつうの文","受け身"],
+          ["現在","{{They speak English here.}}","{{English is spoken here.}}"],
+          ["過去","{{Someone stole my bike.}}","{{My bike was stolen.}}"],
+          ["だれが","{{Picasso painted this.}}","{{This was painted by Picasso.}}"]
+        ] },
+        {"p":"**だれがしたかは {{by}}。** 言う必要があるときだけ、{{by}} で加えます：{{This book was written by Murakami Haruki.}}（この本は村上春樹が書いた）。だれがしたかわからないときや、重要でないときは言いません。"},
+        {"p":"**よく出会う場所。** 受け身は、ニュース、説明、案内、看板でよく使われます：{{Made in Japan}}（日本製）、{{The store is closed on Mondays.}}（月曜定休）、{{Smoking is not allowed.}}（禁煙）。日本語の「〜されている」をそのまま英語にすると不自然になることもあるので、まずは読んで・聞いてわかるようにしましょう。"},
+        {"p":"自分の身に起きたことも受け身で言えます：{{I was born in Kobe.}}（神戸で生まれた：実はこれも受け身です！）、{{My wallet was stolen.}}（財布を盗まれた）。"},
+        { "ex": [
+          {"t":"English is spoken all over the world.","tr":"英語は世界中で話されています。"},
+          {"t":"My bike was stolen last night.","tr":"昨夜、自転車を盗まれました。"},
+          {"t":"This song was written by John Lennon.","tr":"この歌はジョン・レノンが書きました。"},
+          {"t":"The store is closed on Sundays.","tr":"その店は日曜日は閉まっています。"},
+          {"t":"Breakfast is served from seven to ten.","tr":"朝食は7時から10時までです。"},
+          {"t":"This table is made of wood.","tr":"このテーブルは木でできています。"}
+        ] },
+        {"tip":"{{be made of}}（〜でできている）：{{This table is made of wood.}}。{{be made in}}（〜で作られた）：{{This car was made in Japan.}}。"}
+      ],
+      "mistakes": [
+        {"wrong":"This temple built in 1397.","right":"This temple was built in 1397.","tr":"この寺は1397年に建てられました。","why":"受け身には be動詞が必要です。"},
+        {"wrong":"My bike was steal.","right":"My bike was stolen.","tr":"自転車を盗まれました。","why":"be動詞のあとは過去分詞：{{stolen}}。"},
+        {"wrong":"This book was written from Murakami.","right":"This book was written by Murakami.","tr":"この本は村上春樹が書きました。","why":"「〜によって」は {{by}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"This car was ___ in Germany.","tr":"この車はドイツで作られました。","options":["made","make","making"],"answer":0,"why":"be動詞 + 過去分詞：{{was made}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Spanish ___ spoken in Mexico.","tr":"メキシコではスペイン語が話されています。","options":["is","are","does"],"answer":0,"why":"{{Spanish}} は1つ（三人称単数）なので {{is}}。"},
+        {"type":"choice","q":"看板の {{Photos are not allowed.}} の意味は？","options":["写真撮影は禁止です。","写真がありません。","写真を撮ってください。"],"answer":0,"why":"{{allowed}}（許可されている）の否定：禁止。"},
+        {"type":"dialogue","q":"お城の見学ツアーで。質問を選んでください。","lines":[{"who":"ガイド","t":"This castle was built in 1609.","tr":"この城は1609年に建てられました。"},{"options":["Wow. Who was it built by?","Wow. Who built by it?"],"answer":0,"why":"受け身の「だれによって？」は {{Who was it built by?}}"},{"who":"ガイド","t":"It was built by a famous samurai.","tr":"有名な武士によって建てられました。"},{"options":["Was it damaged in the war?","Did it damaged in the war?"],"answer":0,"why":"受け身の疑問文は be動詞を前に：{{Was it damaged …?}}"}],"from":"say-where-you-were"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"昨夜、自転車を盗まれました。","words":["My","bike","was","stolen","last","night."],"why":"{{My bike was stolen last night.}}"},
+        {"type":"say","q":"受け身を使って、英語で言ってみましょう：「この歌はジョン・レノンが書きました。」","answer":"This song was written by John Lennon.","from":"use-irregular-verbs"},
+        {"type":"free","q":"あなたの番です。あなたの町や国について、受け身を使って2つ説明しましょう。","answers":[{"t":"My town is known for its hot springs. The castle was built 400 years ago.","tr":"私の町は温泉で知られています。お城は400年前に建てられました。"},{"t":"A lot of rice is grown in my area. Japanese is spoken everywhere, but English is taught in schools.","tr":"私の地域ではお米がたくさん作られています。どこでも日本語が話されていますが、学校では英語が教えられています。"}]}
+      ]
+    },
+    {
+      "id": "pass-on-messages",
+      "unit": 8,
+      "level": "B1",
+      "title": "人の言ったことを伝える",
+      "summary": "ほかの人が言ったことを伝えます：「ケンは遅れるって言っていました。」「上司に早く来るように言われました。」",
+      "topic": "{{said (that)}} + 文（時制を一つ過去に）; {{told me to …}}; {{asked if …}}",
+      "blocks": [
+        {"goal":{"t":"Ken said he was going to be late.","tr":"ケンは遅れるって言っていました。"}},
+        {"dialog":[{"who":"上司","t":"Has Ken arrived yet?","tr":"ケンはもう来た？"},{"who":"あなた","t":"No. He called and said he was sick.","tr":"いいえ。電話があって、具合が悪いと言っていました。"},{"who":"上司","t":"Oh no. Did he say when he would come back?","tr":"それは困ったな。いつ戻るか言ってた？"},{"who":"あなた","t":"He said he'd be back on Thursday. And he asked if you could send him the report.","tr":"木曜日に戻ると言っていました。それと、レポートを送ってもらえないかと聞いていました。"},{"who":"上司","t":"OK. Tell him to rest.","tr":"わかった。休むように伝えておいて。"},{"who":"あなた","t":"I will.","tr":"伝えます。"}]},
+        {"p":"**「〜と言った」：{{said (that)}} + 文。** 人の言ったことを伝えるときは、{{He said (that) …}} のあとに文を続けます。そのとき、もとの言葉の時制を一つ過去にずらすのがふつうです：{{I'm sick.}} → {{He said he was sick.}}（具合が悪いと言っていた）。{{that}} は省けます。"},
+        { "table": [
+          ["もとの言葉","伝えるとき"],
+          ["{{I'm tired.}}","{{She said she was tired.}}"],
+          ["{{I'll call you.}}","{{He said he would call me.}}"],
+          ["{{I can't come.}}","{{She said she couldn't come.}}"],
+          ["{{I'm going to quit.}}","{{He said he was going to quit.}}"]
+        ] },
+        {"p":"**主語も変わる。** もとの言葉の {{I}} は {{he}} / {{she}} に、{{you}} は {{me}} などに変わります。日本語でも、人の話を伝えるとき「ぼくは」が「彼は」になるのと同じです。"},
+        {"p":"**頼まれたこと：{{told}} / {{asked}} + 人 + {{to}} + 動詞。** {{My boss told me to come early.}}（上司に早く来るように言われた）、{{She asked me to help her.}}（彼女に手伝ってと頼まれた）。"},
+        {"p":"**聞かれたこと：{{asked if …}}。** 「はい・いいえ」の質問は {{if}} でつなぎます：{{He asked if I was free.}}（ひまかどうか聞かれた）。疑問詞の質問は疑問詞のまま：{{She asked where I lived.}}（どこに住んでいるか聞かれた）。どちらも、語順はふつうの文です。"},
+        {"p":"今言われたばかりのことを伝えるときは、時制をずらさないこともよくあります：{{She says she's busy.}}（彼女、忙しいって言ってるよ）。"},
+        { "ex": [
+          {"t":"She said she loved the gift.","tr":"彼女はプレゼントがとても気に入ったと言っていました。"},
+          {"t":"He told me to wait here.","tr":"彼にここで待つように言われました。"},
+          {"t":"My mother asked me to buy some milk.","tr":"母に牛乳を買ってくるように頼まれました。"},
+          {"t":"She asked if I could speak Japanese.","tr":"日本語が話せるかと聞かれました。"},
+          {"t":"He asked where the station was.","tr":"彼は駅がどこにあるか聞きました。"},
+          {"t":"The doctor said I needed to rest.","tr":"医者に休む必要があると言われました。"}
+        ] },
+        {"tip":"{{say}} と {{tell}}：{{say}} は「言う」（{{said that …}}）、{{tell}} は「（人に）言う・伝える」で、すぐあとに人が来ます：{{He told me …}}。{{He said me …}} とは言いません。"}
+      ],
+      "mistakes": [
+        {"wrong":"He said me he was busy.","right":"He told me he was busy.","tr":"彼は忙しいと私に言いました。","why":"すぐあとに人が来るときは {{told}}。{{said}} のすぐあとに人は来ません。"},
+        {"wrong":"She asked me where do I live.","right":"She asked me where I lived.","tr":"どこに住んでいるか聞かれました。","why":"伝える文の中は、ふつうの文の語順にします。"},
+        {"wrong":"He told me wait here.","right":"He told me to wait here.","tr":"ここで待つように言われました。","why":"{{told}} + 人 + {{to}} + 動詞。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"She ___ me to call her tomorrow.","tr":"明日電話してと彼女に言われました。","options":["told","said","asked to"],"answer":0,"why":"{{told}} + 人 + {{to}} + 動詞。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Ken said he ___ tired.","tr":"ケンは疲れていると言っていました。","options":["was","is being","be"],"answer":0,"why":"伝えるときは時制を一つ過去に：{{was}}。"},
+        {"type":"choice","q":"「ひまかどうか聞かれました」は英語で？","options":["{{He asked if I was free.}}","{{He asked am I free.}}","{{He said if I was free.}}"],"answer":0,"why":"「はい・いいえ」の質問は {{asked if}} + ふつうの語順。"},
+        {"type":"dialogue","q":"会社で上司に伝言を伝えます。返事を選んでください。","lines":[{"who":"上司","t":"Did Emma call?","tr":"エマから電話あった？"},{"options":["Yes. She said she would be late.","Yes. She said me she will late."],"answer":0,"why":"{{said}} + 文、そして {{will}} は {{would}} に。"},{"who":"上司","t":"Did she say anything else?","tr":"ほかに何か言ってた？"},{"options":["She asked if you could start the meeting without her.","She asked could you start the meeting without her."],"answer":0,"why":"伝える文はふつうの語順：{{if you could …}}。"}],"from":"decide-and-promise"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"彼にここで待つように言われました。","words":["He","told","me","to","wait","here."],"why":"{{He told me to wait here.}}"},
+        {"type":"say","q":"マイクが {{I'm going to move on Saturday.}} と言いました。それを伝えましょう。","answer":"Mike said he was going to move on Saturday.","from":"talk-about-plans"},
+        {"type":"free","q":"あなたの番です。最近だれかに言われたこと、頼まれたことを伝えましょう（{{said}}、{{told me to}}、{{asked}}）。","answers":[{"t":"My friend said she was getting married! She asked me to give a speech.","tr":"友だちが結婚すると言っていました！スピーチをしてほしいと頼まれました。"},{"t":"My boss told me to finish the report by Friday. He said it was very important.","tr":"上司に金曜日までにレポートを終わらせるように言われました。とても大事だと言っていました。"}]}
+      ]
+    },
+    {
+      "id": "keep-the-conversation-going",
+      "unit": 8,
+      "level": "B1",
+      "title": "会話を続ける",
+      "summary": "これまで学んだことを全部使って、会話を広げます：「へえ、本当？それでどうなったの？」",
+      "topic": "あいづちと質問の返し方; 短い答え + ひと言; 時制の使い分け（総まとめ）",
+      "blocks": [
+        {"goal":{"t":"Oh, really? What happened next?","tr":"へえ、本当？それでどうなったの？"}},
+        {"dialog":[{"who":"ジェニー","t":"Guess what? I went to Hawaii last month!","tr":"ねえ聞いて！先月ハワイに行ったの！"},{"who":"リョウ","t":"No way! How was it?","tr":"うそ！どうだった？"},{"who":"ジェニー","t":"It was amazing. I've never seen such a beautiful beach.","tr":"最高だった。あんなにきれいなビーチは見たことない。"},{"who":"リョウ","t":"Lucky you! What did you do there?","tr":"いいなあ！そこで何をしたの？"},{"who":"ジェニー","t":"I went surfing. Have you ever tried it?","tr":"サーフィンをしたよ。やったことある？"},{"who":"リョウ","t":"No, I haven't. Was it hard?","tr":"ううん、ない。難しかった？"},{"who":"ジェニー","t":"Yes, it was! I fell a lot. But I'd love to go again.","tr":"うん！何回も落ちた。でもまた行きたいな。"},{"who":"リョウ","t":"If I save some money, I'll go next year!","tr":"お金を貯めたら、ぼくも来年行くよ！"}]},
+        {"p":"**話を広げる質問。** 相手の話に興味を示すいちばんの方法は、質問を返すことです。過去の話なら {{How was it?}}（どうだった？）、{{What did you do?}}（何をしたの？）、{{Who did you go with?}}（だれと行ったの？）。今の話なら {{How's it going?}}（調子はどう？）。"},
+        { "table": [
+          ["場面","英語","意味"],
+          ["驚く","{{Really?}} / {{No way!}}","本当？／うそ！"],
+          ["喜ぶ","{{That's great!}} / {{Lucky you!}}","よかったね！／いいなあ！"],
+          ["同情する","{{Oh no!}} / {{That's too bad.}}","大変！／それは残念。"],
+          ["続きを聞く","{{What happened next?}}","それでどうなったの？"],
+          ["同意する","{{Me too.}} / {{So do I.}}","私も。"]
+        ] },
+        {"p":"**短い答え + ひと言。** {{Yes.}} / {{No.}} だけで終わらせず、短い答えに情報をひとつ足すと、会話が続きます：{{Have you been to Hawaii?}} → {{No, I haven't. But I want to go!}}（ううん、ない。でも行ってみたい！）"},
+        {"p":"**時制を使い分ける。** 会話では、話している時に合わせて形を選びます：経験は現在完了（{{Have you ever …?}}）、いつのことかを言うなら過去形（{{I went last month.}}）、これからの予定は {{going to}}、想像は {{would}}。どれもこのコースで学んできたものです。"},
+        {"p":"**話を始める・変える。** {{Guess what?}}（ねえ聞いて！）はニュースを話しはじめるときの決まり文句です。{{By the way, …}}（ところで）で話題を変えられます。"},
+        { "ex": [
+          {"t":"How was your trip?","tr":"旅行はどうだった？"},
+          {"t":"That sounds fun! Who did you go with?","tr":"楽しそう！だれと行ったの？"},
+          {"t":"No, I haven't. But I'd love to try it.","tr":"ううん、ない。でもやってみたいな。"},
+          {"t":"It was a great movie, wasn't it?","tr":"いい映画だったよね？"},
+          {"t":"By the way, are you free next weekend?","tr":"ところで、来週末はひま？"},
+          {"t":"Oh no! Are you OK?","tr":"大変！大丈夫？"}
+        ] },
+        {"tip":"話を聞きながら {{Uh-huh.}}（うんうん）、{{I see.}}（なるほど）、{{Right.}}（そうだね）とあいづちを打つと、ちゃんと聞いていることが伝わります。日本語のあいづちより少し少なめでも大丈夫です。"}
+      ],
+      "mistakes": [
+        {"wrong":"Have you been to Hawaii? — No.","right":"Have you been to Hawaii? — No, I haven't. But I want to go!","tr":"ハワイに行ったことある？—ううん、ない。でも行ってみたい！","why":"{{No.}} だけでは会話が止まってしまいます。短い答えにひと言足しましょう。"},
+        {"wrong":"How is your trip last month?","right":"How was your trip last month?","tr":"先月の旅行はどうだった？","why":"過去の話なので {{was}}。"},
+        {"wrong":"Did you ever been to Kyoto?","right":"Have you ever been to Kyoto?","tr":"京都に行ったことはある？","why":"経験を聞くのは現在完了：{{Have you ever been …?}}"}
+      ],
+      "practice": [
+        {"type":"choice","q":"友だちが {{I got a new job!}} と言いました。あなたの返事は？","options":["{{That's great! Where is it?}}","{{That's too bad.}}","{{No, I don't.}}"],"answer":0,"why":"よいニュースには喜んで、質問を返しましょう。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"How ___ your weekend?","tr":"週末はどうだった？","options":["was","is","did"],"answer":0,"why":"過去の話なので {{was}}。"},
+        {"type":"dialogue","q":"久しぶりに会った友だちと話します。返事を選んでください。","lines":[{"who":"ジェニー","t":"Guess what? I went to Hawaii last month!","tr":"ねえ聞いて！先月ハワイに行ったの！"},{"options":["No way! How was it?","No way! How is it?"],"answer":0,"why":"過去の旅行なので {{How was it?}}"},{"who":"ジェニー","t":"Amazing! I went surfing. Have you ever tried it?","tr":"最高だった！サーフィンしたよ。やったことある？"},{"options":["No, I haven't. Was it hard?","No, I didn't. Is it hard?"],"answer":0,"why":"{{Have you …?}} には {{haven't}}。彼女の体験は過去なので {{Was it …?}}"},{"who":"ジェニー","t":"Yes! But I'd love to go again.","tr":"うん！でもまた行きたいな。"},{"options":["Me too! If I save some money, I'll go next year.","Me too! If I will save some money, I go next year."],"answer":0,"why":"{{if}} の部分は現在形、結果は {{will}}。"}],"from":"talk-about-experiences"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"It was a great party, ___ it?","tr":"いいパーティーだったよね？","options":["wasn't","didn't","isn't"],"answer":0,"why":"{{It was}} の文には {{wasn't it}}。","from":"answer-negative-questions"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"楽しそう！だれと行ったの？","words":["That","sounds","fun!","Who","did","you","go","with?"],"why":"{{That sounds fun! Who did you go with?}}"},
+        {"type":"say","q":"英語で言ってみましょう：「ハワイには行ったことがないけど、行ってみたいな。」","answer":"I've never been to Hawaii, but I'd love to go.","from":"imagine"},
+        {"type":"free","q":"あなたの番です。友だちが {{I went to Kyoto last weekend!}} と言いました。反応して、質問を2つ以上して、会話を続けましょう。","answers":[{"t":"Really? How was it? What did you see?","tr":"本当？どうだった？何を見たの？"},{"t":"Lucky you! Who did you go with? Did you eat anything good?","tr":"いいなあ！だれと行ったの？何かおいしいもの食べた？"}]}
+      ]
     }
   ]
 }

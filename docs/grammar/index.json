@@ -38,14 +38,14 @@
    "title": "英語の文法",
    "variety": "アメリカ英語",
    "units": 8,
-   "lessons": 39,
+   "lessons": 45,
    "levels": [
     "A1",
     "A2",
     "B1"
    ],
-   "bytes": 239132,
-   "sha256": "b919a780ff1d273ff02373dedf004a027d65b6ff6ae2f75e099cf45c39e2a13c"
+   "bytes": 279617,
+   "sha256": "ab62cdcc4409d4a54d31fa94e5639066272f431e8a4349489e081a5cd366c443"
   }
  }
 }
