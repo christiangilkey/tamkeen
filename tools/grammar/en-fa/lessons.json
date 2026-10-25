@@ -1447,6 +1447,192 @@
         {"type":"say","q":"Arriving late, say: “Sorry I'm late!”","answer":"ببخشید، دیرم شد!","r":"bebakhshid, diram shod!","from":"say-how-you-feel"},
         {"type":"free","q":"Your turn: tell about something that went wrong recently, with one {{… کردم}} and one {{… شد}}.","answers":[{"t":"دیروز گوشی‌ام خراب شد و همهٔ عکس‌هایم را گم کردم.","r":"diruz gushi-am kharâb shod va hame-ye aks-hâyam râ gom kardam.","tr":"Yesterday my phone broke and I lost all my photos."},{"t":"صبح دیر بیدار شدم و دیرم شد.","r":"sobh dir bidâr shodam va diram shod.","tr":"I woke up late this morning and I was late."}]}
       ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Compare things",
+      "summary": "Say “Tehran is bigger than Shiraz”, “the best restaurant in town” and “She's like her mother”.",
+      "topic": "{{ـتر}} + {{از}} “-er than”; {{ـترین}} before the noun “the -est”; {{بهتر}}, {{بیشتر}}; {{مثل}}, {{به اندازهٔ}}",
+      "blocks": [
+        {"goal":{"t":"تهران از شیراز بزرگ‌تر است، ولی شیراز قشنگ‌تر است.","r":"tehrân az shirâz bozorg-tar ast, vali shirâz ghashang-tar ast.","tr":"Tehran is bigger than Shiraz, but Shiraz is prettier."}},
+        {"dialog":[{"who":"Seller","t":"این گوشی را ببینید. از آن یکی سبک‌تر است.","r":"in gushi râ bebinid. az ân yeki sabok-tar ast.","tr":"Look at this phone. It's lighter than that one."},{"who":"You","t":"ولی گران‌تر است، نه؟","r":"vali gerân-tar ast, na?","tr":"But it's more expensive, isn't it?"},{"who":"Seller","t":"بله، کمی گران‌تر است، ولی دوربینش خیلی بهتر است.","r":"bale, kami gerân-tar ast, vali durbinash kheyli behtar ast.","tr":"Yes, it's a bit more expensive, but its camera is much better."},{"who":"You","t":"ارزان‌ترین گوشی‌تان کدام است؟","r":"arzân-tarin gushi-tân kodâm ast?","tr":"Which is your cheapest phone?"},{"who":"Seller","t":"این یکی. ولی آن یکی بهترین گوشی ماست!","r":"in yeki. vali ân yeki behtarin gushi-ye mâst!","tr":"This one. But that one is our best phone!"}]},
+        {"p":"**Bigger, cheaper.** Add {{ـتر|-tar}} to the adjective, after a small gap: {{بزرگ|bozorg}} “big” → {{بزرگ‌تر|bozorg-tar}} “bigger”, {{ارزان|arzân}} “cheap” → {{ارزان‌تر|arzân-tar}} “cheaper”. “Than” is {{از|az}}, before what you compare with: {{تهران از شیراز بزرگ‌تر است.}} is, word for word, “Tehran from Shiraz bigger is”."},
+        {"term":"comparative","means":"the form of an adjective that compares two things: bigger, more expensive. In Persian: the adjective + {{ـتر|-tar}}."},
+        {"p":"**The biggest.** {{ـترین|-tarin}}, and then the adjective goes **before** the noun, with no ezafe: {{بزرگ‌ترین شهر|bozorg-tarin shahr}} “the biggest city”, {{بهترین دوستم|behtarin dustam}} “my best friend”. “In …” is an ezafe on the noun: {{بزرگ‌ترین شهر ایران|bozorg-tarin shahr-e irân}} “the biggest city in Iran”."},
+        { "table": [
+          ["","-er (than)","the -est"],
+          ["big","{{بزرگ‌تر|bozorg-tar}}","{{بزرگ‌ترین|bozorg-tarin}}"],
+          ["cheap","{{ارزان‌تر|arzân-tar}}","{{ارزان‌ترین|arzân-tarin}}"],
+          ["good","{{بهتر|behtar}}","{{بهترین|behtarin}}"],
+          ["much, many","{{بیشتر|bishtar}}","{{بیشترین|bishtarin}}"],
+          ["little, few","{{کمتر|kamtar}}","{{کمترین|kamtarin}}"]
+        ] },
+        {"p":"**Good, better, best.** {{خوب|khub}} has its own forms: {{بهتر|behtar}} “better”, {{بهترین|behtarin}} “best”. {{بیشتر|bishtar}} “more” and {{کمتر|kamtar}} “less” also go with verbs: {{بیشتر کار می‌کند.|bishtar kâr mi-konad.}} “He works more.” Much bigger, a bit cheaper: {{خیلی|kheyli}} or {{کمی|kami}} before it, {{خیلی گران‌تر|kheyli gerân-tar}} “much more expensive”."},
+        {"p":"**Like, as … as.** {{مثل|mesl-e}} + ezafe is “like”: {{مثل مادرش است.|mesl-e mâdarash ast.}} “She's like her mother.” {{به اندازهٔ|be andâze-ye}} is “as … as”: {{به اندازهٔ برادرش قدبلند است.|be andâze-ye barâdarash ghadboland ast.}} “He's as tall as his brother.”"},
+        { "ex": [
+          {"t":"این کتاب از آن یکی جالب‌تر است.","r":"in ketâb az ân yeki jâleb-tar ast.","tr":"This book is more interesting than that one."},
+          {"t":"امروز هوا از دیروز گرم‌تر است.","r":"emruz havâ az diruz garm-tar ast.","tr":"It's warmer today than yesterday."},
+          {"t":"بهترین رستوران شهر کجاست؟","r":"behtarin resturân-e shahr kojâst?","tr":"Where's the best restaurant in town?"},
+          {"t":"خواهرم دو سال از من بزرگ‌تر است.","r":"khâharam do sâl az man bozorg-tar ast.","tr":"My sister is two years older than me.","note":"for people, {{بزرگ‌تر}} “bigger” is also “older”"},
+          {"t":"تو مثل یک برادر هستی.","r":"to mesl-e yek barâdar hasti.","tr":"You're like a brother."},
+          {"t":"لطفاً کمی آهسته‌تر.","r":"lotfan kami âheste-tar.","tr":"A bit slower, please."}
+        ] },
+        {"tip":"Two handy phrases: {{هر چه زود‌تر|har che zud-tar}} “as soon as possible” and {{بیشتر و بیشتر|bishtar o bishtar}} “more and more”."}
+      ],
+      "mistakes": [
+        {"wrong":"شهر بزرگ‌ترین ایران","right":"بزرگ‌ترین شهر ایران","tr":"the biggest city in Iran","why":"With {{ـترین}} the adjective comes before the noun: {{بزرگ‌ترین شهر}}."},
+        {"wrong":"این کتاب از آن یکی بیشتر خوب است.","right":"این کتاب از آن یکی بهتر است.","tr":"This book is better than that one.","why":"“Better” is one word, {{بهتر}}: Persian doesn't say “more good”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"تهران ___ شیراز بزرگ‌تر است.","tr":"Tehran is bigger than Shiraz.","options":["از","مثل","به"],"answer":0,"why":"“Than” is {{از}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"اینجا ___ رستوران شهر است.","tr":"This is the best restaurant in town.","options":["بهترین","بهتر","خوب"],"answer":0,"why":"“The best”: {{بهترین}}, before the noun."},
+        {"type":"choice","q":"{{خواهرم دو سال از من بزرگ‌تر است.}} means…","options":["My sister is two years older than me.","My sister is two years younger than me.","My sister is two years old."],"answer":0,"why":"{{بزرگ‌تر از من}} “bigger (older) than me”."},
+        {"type":"dialogue","q":"Choosing a hotel with a friend. Choose your replies.","from":"say-what-there-is","lines":[{"who":"Friend","t":"این هتل یا آن یکی؟","r":"in hotel yâ ân yeki?","tr":"This hotel or that one?"},{"options":["این یکی ارزان‌تر است، ولی آن یکی نزدیک‌تر است.","این یکی ارزان‌ترین است، ولی آن یکی نزدیک است."],"answer":0,"why":"Comparing two: {{ارزان‌تر}} and {{نزدیک‌تر}}."},{"who":"Friend","t":"آن یکی استخر هم دارد؟","r":"ân yeki estakhr ham dârad?","tr":"Does that one have a pool too?"},{"options":["بله، و رستورانش هم بهتر است.","بله، و رستورانش هم بیشتر خوب است."],"answer":0,"why":"“Better” is one word: {{بهتر}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Where's the best restaurant in town?","words":["بهترین","رستوران","شهر","کجاست؟"]},
+        {"type":"say","q":"Say: “It's warmer today than yesterday.”","answer":"امروز هوا از دیروز گرم‌تر است.","r":"emruz havâ az diruz garm-tar ast."},
+        {"type":"free","q":"Your turn: compare two cities, or two people you know, in two sentences. Use {{ـتر از}} and {{ـترین}}.","answers":[{"t":"لندن از پاریس بزرگ‌تر است، ولی پاریس قشنگ‌تر است.","r":"landan az pâris bozorg-tar ast, vali pâris ghashang-tar ast.","tr":"London is bigger than Paris, but Paris is prettier."},{"t":"برادرم از من قدبلند‌تر است. او بهترین دوست من است.","r":"barâdaram az man ghadboland-tar ast. u behtarin dust-e man ast.","tr":"My brother is taller than me. He's my best friend."}]}
+      ]
+    },
+    {
+      "id": "say-what-hurts",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what hurts",
+      "summary": "At the doctor's or the pharmacy: “My head hurts”, “I have a fever”, “What should I do?”",
+      "topic": "{{سرم درد می‌کند}}: a possessive ending + {{درد کردن}}; {{تب دارم}}, {{سرما خورده‌ام}}; {{باید}} again",
+      "blocks": [
+        {"goal":{"t":"سرم درد می‌کند و تب دارم.","r":"saram dard mi-konad va tab dâram.","tr":"I have a headache and a fever."}},
+        {"dialog":[{"who":"Doctor","t":"بفرمایید، چه مشکلی دارید؟","r":"befarmâyid, che moshkeli dârid?","tr":"Please, what's the problem?"},{"who":"You","t":"از دیروز گلویم درد می‌کند و سرفه می‌کنم.","r":"az diruz galuyam dard mi-konad va sorfe mi-konam.","tr":"My throat has been hurting since yesterday, and I'm coughing."},{"who":"Doctor","t":"تب هم دارید؟","r":"tab ham dârid?","tr":"Do you have a fever too?"},{"who":"You","t":"بله، کمی. و خیلی خسته‌ام.","r":"bale, kami. va kheyli khaste-am.","tr":"Yes, a little. And I'm very tired."},{"who":"Doctor","t":"سرما خورده‌اید. باید استراحت کنید و زیاد آب بخورید.","r":"sarmâ khorde-id. bâyad esterâhat konid va ziyâd âb bokhorid.","tr":"You've caught a cold. You should rest and drink plenty of water."},{"who":"You","t":"دارو هم لازم است؟","r":"dâru ham lâzem ast?","tr":"Do I need medicine too?"},{"who":"Doctor","t":"بله، این نسخه را به داروخانه ببرید.","r":"bale, in noskhe râ be dârukhâne bebarid.","tr":"Yes, take this prescription to the pharmacy."}]},
+        {"p":"**It hurts: “my head does pain”.** Persian says, word for word, “my head does pain”: the body part with a possessive ending, then {{درد می‌کند|dard mi-konad}}. {{سرم درد می‌کند.|saram dard mi-konad.}} “My head hurts, I have a headache.” {{دندانش درد می‌کند.|dandânash dard mi-konad.}} “He has toothache.” The verb is always “it”, because it's the head that hurts."},
+        { "table": [
+          ["","Persian","it hurts"],
+          ["head","{{سر|sar}}","{{سرم درد می‌کند|saram dard mi-konad}}"],
+          ["stomach","{{دل|del}}","{{دلم درد می‌کند|delam dard mi-konad}}"],
+          ["throat","{{گلو|galu}}","{{گلویم درد می‌کند|galuyam dard mi-konad}}"],
+          ["back","{{کمر|kamar}}","{{کمرم درد می‌کند|kamaram dard mi-konad}}"],
+          ["tooth","{{دندان|dandân}}","{{دندانم درد می‌کند|dandânam dard mi-konad}}"],
+          ["foot, leg","{{پا|pâ}}","{{پایم درد می‌کند|pâyam dard mi-konad}}"]
+        ] },
+        {"p":"**After a vowel** (other than a final {{ه}}), the endings take a y: {{گلویم|galuyam}} “my throat”, {{پایت|pâyat}} “your foot”, {{پایش|pâyash}} “his foot”."},
+        {"p":"**I have a fever, I've caught a cold.** {{تب دارم|tab dâram}} “I have a fever”, {{سرفه می‌کنم|sorfe mi-konam}} “I'm coughing”, {{سرما خورده‌ام|sarmâ khorde-am}} “I've caught a cold” (word for word “I've eaten cold”!), {{حالت تهوع دارم|hâlat-e tahavvo' dâram}} “I feel sick”."},
+        {"p":"**What should I do?** The doctor's advice comes with {{باید}} (lesson 21): {{باید استراحت کنید.}} “You should rest.” {{نباید ورزش کنید.|nabâyad varzesh konid.}} “You mustn't exercise.” {{این قرص را روزی سه بار بخورید.|in ghors râ ruzi se bâr bokhorid.}} “Take this pill three times a day.”"},
+        { "ex": [
+          {"t":"دلم درد می‌کند.","r":"delam dard mi-konad.","tr":"I have a stomach ache."},
+          {"t":"از دیشب دندانم درد می‌کند.","r":"az dishab dandânam dard mi-konad.","tr":"I've had toothache since last night.","note":"Persian uses the present here: next lesson"},
+          {"t":"بچه تب دارد.","r":"bachche tab dârad.","tr":"The child has a fever."},
+          {"t":"فکر می‌کنم سرما خورده‌ام.","r":"fekr mi-konam sarmâ khorde-am.","tr":"I think I've caught a cold."},
+          {"t":"یک قرص برای سردرد دارید؟","r":"yek ghors barâye sardard dârid?","tr":"Do you have a pill for a headache?","note":"at the pharmacy"},
+          {"t":"این شربت را بعد از غذا بخورید.","r":"in sharbat râ ba'd az ghazâ bokhorid.","tr":"Take this syrup after meals."}
+        ] },
+        {"tip":"When someone is ill you'll hear {{بلا دور باشد|balâ dur bâshad}} “may harm stay far away” and {{خدا بد ندهد|khodâ bad nadahad}} “God forbid (anything bad)”. Saying them back is kind."}
+      ],
+      "mistakes": [
+        {"wrong":"سرم درد می‌کنم.","right":"سرم درد می‌کند.","tr":"My head hurts.","why":"The head does the hurting, so the verb is “it”: {{می‌کند}}. The {{م}} on {{سر}} says whose head."},
+        {"wrong":"پام درد می‌کند.","right":"پایم درد می‌کند.","tr":"My foot hurts.","why":"After a vowel, the ending takes a y in writing: {{پایم}}. ({{پام|pâm}} is how it's said in speech.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"سرم درد ___.","tr":"My head hurts.","options":["می‌کند","می‌کنم","دارم"],"answer":0,"why":"“My head does pain”: the verb is “it”, {{می‌کند}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"باید استراحت ___.","tr":"You should rest.","options":["کنید","می‌کنید","کردید"],"answer":0,"why":"After {{باید}}, the subjunctive: {{استراحت کنید}}.","from":"say-what-you-must-do"},
+        {"type":"choice","q":"{{سرما خورده‌ام}} means…","options":["I've caught a cold.","I've eaten something cold.","I'm cold."],"answer":0,"why":"Word for word “I've eaten cold”: Persian for catching a cold."},
+        {"type":"dialogue","q":"At the pharmacy. Choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Pharmacist","t":"بفرمایید، چه می‌خواهید؟","r":"befarmâyid, che mi-khâhid?","tr":"Yes, what would you like?"},{"options":["یک قرص برای سردرد می‌خواهم. سرم خیلی درد می‌کند.","یک قرص برای سردرد می‌خواهم. سرم خیلی درد می‌کنم."],"answer":0,"why":"It's the head that hurts: {{درد می‌کند}}."},{"who":"Pharmacist","t":"تب هم دارید؟","r":"tab ham dârid?","tr":"Do you have a fever too?"},{"options":["نه، تب ندارم.","نه، تب نیستم."],"answer":0,"why":"“Have a fever” is {{تب داشتن}}: {{تب ندارم}}."},{"who":"Pharmacist","t":"این را روزی دو بار بخورید.","r":"in râ ruzi do bâr bokhorid.","tr":"Take this twice a day."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I think I've caught a cold.","words":["فکر","می‌کنم","سرما","خورده‌ام."]},
+        {"type":"say","q":"Tell the doctor: “My back hurts.”","answer":"کمرم درد می‌کند.","r":"kamaram dard mi-konad."},
+        {"type":"free","q":"Your turn: you're at the doctor's. Say what hurts and since when, and ask what you should do.","answers":[{"t":"از دیروز گلویم درد می‌کند و تب دارم. چه کار باید بکنم؟","r":"az diruz galuyam dard mi-konad va tab dâram. che kâr bâyad bokonam?","tr":"My throat has hurt since yesterday and I have a fever. What should I do?"},{"t":"پایم خیلی درد می‌کند. می‌توانم راه بروم؟","r":"pâyam kheyli dard mi-konad. mi-tavânam râh beravam?","tr":"My foot really hurts. Can I walk?"}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how long and since when",
+      "summary": "Say “I've lived here for two years” and “since last year”, and ask “How long have you been learning Persian?”",
+      "topic": "the time + {{است که}} + present ({{دو سال است که اینجا زندگی می‌کنم}}); {{چند وقت است که … ؟}}; {{از … تا حالا}}; {{از وقتی که}}",
+      "blocks": [
+        {"goal":{"t":"دو سال است که فارسی یاد می‌گیرم.","r":"do sâl ast ke fârsi yâd mi-giram.","tr":"I've been learning Persian for two years."}},
+        {"dialog":[{"who":"Neda","t":"فارسی‌ات خیلی خوب است! چند وقت است که فارسی یاد می‌گیری؟","r":"fârsi-at kheyli khub ast! chand vaght ast ke fârsi yâd mi-giri?","tr":"Your Persian is very good! How long have you been learning?"},{"who":"Tom","t":"ممنون! حدود دو سال است. از وقتی که با همسرم آشنا شدم.","r":"mamnun! hodud-e do sâl ast. az vaghti ke bâ hamsaram âshnâ shodam.","tr":"Thanks! About two years. Since I met my wife."},{"who":"Neda","t":"چند وقت است که در تهران هستی؟","r":"chand vaght ast ke dar tehrân hasti?","tr":"How long have you been in Tehran?"},{"who":"Tom","t":"سه ماه است که اینجا هستم.","r":"se mâh ast ke injâ hastam.","tr":"I've been here for three months."},{"who":"Neda","t":"پس دیگر تهرانی شده‌ای!","r":"pas digar tehrâni shode-i!","tr":"So you're a real Tehrani now!"}]},
+        {"p":"**“It's two years that…”** For something that started in the past and is still going on, Persian says, word for word, “it is two years that I live here”: the length of time + {{است که}} + the **present**: {{دو سال است که اینجا زندگی می‌کنم.|do sâl ast ke injâ zendegi mi-konam.}} “I've lived here for two years.” English says “have been”; Persian keeps the present, because it is still true."},
+        {"p":"**How long?** {{چند وقت است که … ؟|chand vaght ast ke …?}} “how long is it that…?”: {{چند وقت است که اینجا کار می‌کنی؟|chand vaght ast ke injâ kâr mi-koni?}} “How long have you been working here?” Or with a unit: {{چند سال است که …؟|chand sâl ast ke …?}} “how many years…?”."},
+        {"p":"**Since.** {{از|az}} + a starting point, often with {{تا حالا|tâ hâlâ}} “until now”: {{از پارسال تا حالا اینجا هستم.|az pârsâl tâ hâlâ injâ hastam.}} “I've been here since last year.” Before a clause: {{از وقتی که|az vaghti ke}} + past, “since (the time when)”: {{از وقتی که آمدم، باران می‌آید.|az vaghti ke âmadam, bârân mi-âyad.}} “It's been raining since I arrived.”"},
+        {"p":"**Over now.** For a time that has ended, the simple past, with no {{است که}}: {{دو سال در شیراز زندگی کردم.|do sâl dar shirâz zendegi kardam.}} “I lived in Shiraz for two years” (and then left)."},
+        { "table": [
+          ["","Persian","meaning"],
+          ["for (still going on)","{{دو سال است که اینجا هستم.|do sâl ast ke injâ hastam.}}","I've been here for two years."],
+          ["how long?","{{چند وقت است که اینجا هستی؟|chand vaght ast ke injâ hasti?}}","How long have you been here?"],
+          ["since","{{از پارسال اینجا هستم.|az pârsâl injâ hastam.}}","I've been here since last year."],
+          ["since (a clause)","{{از وقتی که آمدم …|az vaghti ke âmadam …}}","since I arrived…"],
+          ["for (over now)","{{دو سال آنجا بودم.|do sâl ânjâ budam.}}","I was there for two years."]
+        ] },
+        { "ex": [
+          {"t":"ده سال است که او را می‌شناسم.","r":"dah sâl ast ke u râ mi-shenâsam.","tr":"I've known her for ten years."},
+          {"t":"یک ساعت است که منتظرت هستم!","r":"yek sâ'at ast ke montazerat hastam!","tr":"I've been waiting for you for an hour!","note":"{{منتظر|montazer}} “waiting”, with the ending for “you”"},
+          {"t":"چند سال است که ازدواج کرده‌اید؟","r":"chand sâl ast ke ezdevâj karde-id?","tr":"How long have you been married?","note":"here the perfect: word for word “that you have married”"},
+          {"t":"از صبح تا حالا چیزی نخورده‌ام.","r":"az sobh tâ hâlâ chizi nakhorde-am.","tr":"I haven't eaten anything since this morning."},
+          {"t":"از وقتی که بچه بودم، فوتبال بازی می‌کنم.","r":"az vaghti ke bachche budam, futbâl bâzi mi-konam.","tr":"I've played football since I was a child."},
+          {"t":"خیلی وقت است که همدیگر را ندیده‌ایم!","r":"kheyli vaght ast ke hamdigar râ nadide-im!","tr":"We haven't seen each other for ages!"}
+        ] },
+        {"tip":"In speech, {{است که}} shrinks: you'll hear {{دو ساله که اینجام|do sâle ke injâm}} for {{دو سال است که اینجا هستم}}."}
+      ],
+      "mistakes": [
+        {"wrong":"دو سال است که اینجا زندگی کردم.","right":"دو سال است که اینجا زندگی می‌کنم.","tr":"I've lived here for two years.","why":"Still going on: Persian uses {{… است که}} + the present, {{زندگی می‌کنم}}."},
+        {"wrong":"از دو سال اینجا هستم.","right":"دو سال است که اینجا هستم.","tr":"I've been here for two years.","why":"{{از}} “since” goes with a starting point ({{از پارسال}}); a length of time takes {{… است که}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"سه سال ___ که اینجا کار می‌کنم.","tr":"I've been working here for three years.","options":["است","بود","هستم"],"answer":0,"why":"“It is three years that…”: {{سه سال است که}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"دو سال است که در تهران زندگی ___.","tr":"I've lived in Tehran for two years.","options":["می‌کنم","کردم","کنم"],"answer":0,"why":"Still true now: the present, {{زندگی می‌کنم}}.","from":"say-what-you-do-every-day"},
+        {"type":"choice","q":"{{چند وقت است که فارسی یاد می‌گیری؟}} means…","options":["How long have you been learning Persian?","When did you learn Persian?","Why are you learning Persian?"],"answer":0,"why":"{{چند وقت است که}} + the present: “how long have you been…”."},
+        {"type":"dialogue","q":"Meeting someone at a party. Choose your replies.","from":"say-what-you-have-done","lines":[{"who":"Neda","t":"چند وقت است که در ایران هستید؟","r":"chand vaght ast ke dar irân hastid?","tr":"How long have you been in Iran?"},{"options":["شش ماه است که اینجا هستم.","از شش ماه اینجا هستم."],"answer":0,"why":"A length of time: {{شش ماه است که}}."},{"who":"Neda","t":"تا حالا به اصفهان رفته‌اید؟","r":"tâ hâlâ be esfahân rafte-id?","tr":"Have you been to Isfahan yet?"},{"options":["نه، هنوز نرفته‌ام.","نه، هنوز نمی‌روم."],"answer":0,"why":"“Not yet”: the perfect, {{نرفته‌ام}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I've known her for ten years.","words":["ده","سال","است","که","او","را","می‌شناسم."]},
+        {"type":"say","q":"Ask a colleague: “How long have you been working here?”","answer":"چند وقت است که اینجا کار می‌کنید؟","r":"chand vaght ast ke injâ kâr mi-konid?"},
+        {"type":"free","q":"Your turn: say how long you've been doing two or three things in your life: where you live, your job, a hobby.","answers":[{"t":"پنج سال است که در لندن زندگی می‌کنم و دو سال است که معلم هستم.","r":"panj sâl ast ke dar landan zendegi mi-konam va do sâl ast ke mo'allem hastam.","tr":"I've lived in London for five years and I've been a teacher for two years."},{"t":"از وقتی که بچه بودم، گیتار می‌زنم.","r":"az vaghti ke bachche budam, gitâr mi-zanam.","tr":"I've played the guitar since I was a child."}]}
+      ]
+    },
+    {
+      "id": "talk-about-people-and-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Talk about people and things without naming them",
+      "summary": "Say “I saw him”, “I bought it for her”, “Tell me!” and “I made it myself”.",
+      "topic": "{{او را}}, {{آن را}}; the endings on prepositions ({{برایش}}, {{برایم}}) and, in speech, on verbs ({{دیدمش}}); {{خودم}}",
+      "blocks": [
+        {"goal":{"t":"این کتاب را برای مادرم خریدم. می‌خواهم آن را به او بدهم.","r":"in ketâb râ barâye mâdaram kharidam. mi-khâham ân râ be u bedaham.","tr":"I bought this book for my mother. I want to give it to her."}},
+        {"dialog":[{"who":"Sara","t":"علی را دیدی؟","r":"ali râ didi?","tr":"Have you seen Ali?"},{"who":"Reza","t":"بله، دیروز او را دیدم. چطور؟","r":"bale, diruz u râ didam. chetowr?","tr":"Yes, I saw him yesterday. Why?"},{"who":"Sara","t":"کتابش پیش من است. می‌خواهم آن را به او پس بدهم.","r":"ketâbash pish-e man ast. mi-khâham ân râ be u pas bedaham.","tr":"I have his book. I want to give it back to him."},{"who":"Reza","t":"به من بده. فردا برایش می‌برم.","r":"be man bedeh. fardâ barâyash mi-baram.","tr":"Give it to me. I'll take it to him tomorrow."},{"who":"Sara","t":"خیلی ممنون!","r":"kheyli mamnun!","tr":"Thanks a lot!"}]},
+        {"p":"**Him, her, it.** As an object, {{او|u}} “him, her” and {{آن|ân}} “it” take {{را}} like any particular object: {{او را دیدم.|u râ didam.}} “I saw him (her).” {{آن را خریدم.|ân râ kharidam.}} “I bought it.” For things, Persian often leaves “it” out altogether: {{خریدم.}} “I bought (it).”"},
+        {"p":"**To him, for her.** After a preposition, the pronoun is either a word ({{به او|be u}} “to him”, {{با تو|bâ to}} “with you”, {{برای ما|barâye mâ}} “for us”) or, very often, one of the possessive endings of lesson 4: {{برایم|barâyam}} “for me”, {{برایت|barâyat}} “for you”, {{برایش|barâyash}} “for him, her”."},
+        { "table": [
+          ["","a word","an ending"],
+          ["for me","{{برای من|barâye man}}","{{برایم|barâyam}}"],
+          ["for you (friend)","{{برای تو|barâye to}}","{{برایت|barâyat}}"],
+          ["for him, her","{{برای او|barâye u}}","{{برایش|barâyash}}"],
+          ["for us","{{برای ما|barâye mâ}}","{{برایمان|barâyemân}}"],
+          ["for them","{{برای آن‌ها|barâye ân-hâ}}","{{برایشان|barâyeshân}}"]
+        ] },
+        {"p":"**On verbs, in speech.** Everyday speech also hangs these endings on verbs and on the noun of a compound verb: {{دیدمش|didamash}} “I saw him”, {{بخورش|bokhorash}} “eat it”, {{کمکت می‌کنم|komakat mi-konam}} “I'll help you”. You've met some already ({{کمکم کنید}}, {{درستش می‌کنم}}). In careful writing, use {{او را}} and {{آن را}}."},
+        {"p":"**Myself.** {{خود|khod}} + an ending: {{خودم|khodam}} “myself”, {{خودت|khodat}} “yourself”, {{خودش|khodash}} “himself, herself”: {{خودم درست کردم.|khodam dorost kardam.}} “I made it myself.” “Each other” is {{همدیگر|hamdigar}}, as in lesson 24."},
+        { "ex": [
+          {"t":"او را از کجا می‌شناسی؟","r":"u râ az kojâ mi-shenâsi?","tr":"How do you know him?","note":"word for word “from where do you know him?”"},
+          {"t":"برایت یک هدیه خریدم.","r":"barâyat yek hedye kharidam.","tr":"I bought you a present."},
+          {"t":"به من بگو!","r":"be man bogu!","tr":"Tell me!"},
+          {"t":"این غذا را خودش درست کرد.","r":"in ghazâ râ khodash dorost kard.","tr":"She made this food herself."},
+          {"t":"آن را کجا گذاشتی؟","r":"ân râ kojâ gozâshti?","tr":"Where did you put it?","note":"{{گذاشتن|gozâshtan}} “to put”, present stem {{گذار|gozâr}}"},
+          {"t":"با آن‌ها صحبت کردم.","r":"bâ ân-hâ sohbat kardam.","tr":"I talked to them."}
+        ] },
+        {"tip":"{{دلم برایت تنگ شده است.|delam barâyat tang shode ast.}} “I miss you” (word for word “my heart has become tight for you”) is one of the most loved sentences in Persian."}
+      ],
+      "mistakes": [
+        {"wrong":"دیدم او.","right":"او را دیدم.","tr":"I saw him.","why":"The object comes before the verb, with {{را}}: {{او را دیدم}}."},
+        {"wrong":"خودم را درست کردم.","right":"خودم درست کردم.","tr":"I made it myself.","why":"“By myself” is just {{خودم}}. ({{خودم را}} is “myself” as an object: {{خودم را در آینه دیدم}} “I saw myself in the mirror”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"دیروز ___ را در بازار دیدم.","tr":"I saw her at the bazaar yesterday.","options":["او","آن","من"],"answer":0,"why":"A person, “her”: {{او را}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"این گل‌ها را ___ خریدم.","tr":"I bought these flowers for you.","options":["برایت","برایم","برایشان"],"answer":0,"why":"“For you”: {{برای}} + {{ـت}}, {{برایت}}."},
+        {"type":"choice","q":"{{خودش درست کرد.}} means…","options":["She made it herself.","She made it for herself.","I made it for her."],"answer":0,"why":"{{خودش}}: “herself, by herself”."},
+        {"type":"dialogue","q":"A friend wants back something you borrowed. Choose your replies.","from":"say-what-happened-to-you","lines":[{"who":"Ali","t":"کتابم را آوردی؟","r":"ketâbam râ âvardi?","tr":"Did you bring my book?"},{"options":["ببخشید، آن را در خانه جا گذاشتم.","ببخشید، او را در خانه جا گذاشتم."],"answer":0,"why":"A thing is {{آن}}, not {{او}}: {{آن را}}. ({{جا گذاشتن}} “to leave behind”.)"},{"who":"Ali","t":"عیبی ندارد. فردا برایم بیاور.","r":"eybi nadârad. fardâ barâyam biyâvar.","tr":"Never mind. Bring it for me tomorrow."},{"options":["حتماً، فردا برایت می‌آورم.","حتماً، فردا برایم می‌آورم."],"answer":0,"why":"“For you”: {{برایت}}. ({{برایم}} would be “for me”.)"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I bought you a present.","words":["برایت","یک","هدیه","خریدم."]},
+        {"type":"say","q":"Say “I miss you.”","answer":"دلم برایت تنگ شده است.","r":"delam barâyat tang shode ast."},
+        {"type":"free","q":"Your turn: say what you did for someone recently, or what someone did for you. Use {{برایش}}, {{برایم}} or {{به او}}.","answers":[{"t":"دیروز برای مادرم گل خریدم و به او زنگ زدم.","r":"diruz barâye mâdaram gol kharidam va be u zang zadam.","tr":"Yesterday I bought flowers for my mother and called her."},{"t":"دوستم برایم یک کیک درست کرد. خودش درست کرد!","r":"dustam barâyam yek keyk dorost kard. khodash dorost kard!","tr":"My friend made me a cake. She made it herself!"}]}
+      ]
     }
   ]
 }

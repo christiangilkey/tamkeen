@@ -22,13 +22,13 @@
    "title": "Persian grammar",
    "variety": "Iranian Persian (standard written)",
    "units": 8,
-   "lessons": 31,
+   "lessons": 35,
    "levels": [
     "A1",
     "A2"
    ],
-   "bytes": 214972,
-   "sha256": "fc103e2439dc03543e0177afc7cc55157abdfe497940cf776521d89ccbb35695"
+   "bytes": 245708,
+   "sha256": "5ed1443db206cd6a61ce1a6b333f27dea000090d1ca48eda647652d8b142e931"
   }
  }
 }
