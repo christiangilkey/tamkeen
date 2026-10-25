@@ -21,7 +21,7 @@ const LOANS = ["bueno", "vale", "entonces", "pues", "hasta", "aburrit", "aburrid
 
 const words = (s) => String(s).toLowerCase().split(/[^\p{L}·']+/u).filter(Boolean);
 function problems(text) {
-  const w = words(text), joined = ` ${w.join(" ")} `;
+  const w = words(text), joined = ` ${String(text).toLowerCase().replace(/[^p{L}·'s]+/gu, " | ").replace(/s+/g, " ")} `;
   return [...OLD_ACCENTS.filter((x) => w.includes(x)), ...LOANS.filter((x) => joined.includes(` ${x} `))];
 }
 
@@ -45,7 +45,7 @@ function rightCatalan(l) {
 }
 
 /** The Catalan explanations of a Catalan → English lesson, without its pieces of English. */
-const catalanExplanations = (l) => explanationTexts(l).map((x) => targetsOf(x.text).reduce((s, t) => s.replace(`{{${t}}}`, " "), x.text));
+const catalanExplanations = (l) => explanationTexts(l).map((x) => targetsOf(x.text).reduce((s, t) => s.replace(`{{${t}}}`, " | "), x.text));
 
 for (const [id, texts] of [["en-ca", rightCatalan], ["ca-en", catalanExplanations]]) {
   const c = course(id);

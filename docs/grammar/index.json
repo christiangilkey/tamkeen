@@ -1,6 +1,20 @@
 {
  "format": 1,
  "courses": {
+  "ca-en": {
+   "file": "ca-en/course.json",
+   "from": "ca",
+   "to": "en",
+   "title": "Gramàtica anglesa",
+   "variety": "Anglès americà",
+   "units": 9,
+   "lessons": 6,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 28548,
+   "sha256": "97ec98f1b4d5e3230e467ad54d8851428a2b27a1f536f18e098fce9c38ace79f"
+  },
   "en-ar": {
    "file": "en-ar/course.json",
    "from": "en",
