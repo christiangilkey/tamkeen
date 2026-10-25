@@ -718,6 +718,181 @@
         {"type":"order","q":"把单词排成正确的顺序。","tr":"我很喜欢他。","words":["I","like","him","a","lot."]},
         {"type":"free","q":"轮到你了：说两件你很喜欢做的事和一件你不喜欢的事。","answers":[{"t":"I really like reading and I love traveling. I don't like cold weather.","tr":"我很喜欢看书，也特别爱旅行。我不喜欢冷天。"},{"t":"I like cooking a lot, and I love music. I hate getting up early.","tr":"我很喜欢做饭，也特别爱音乐。我讨厌早起。"}]}
       ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 4,
+      "level": "A1",
+      "title": "说东西在哪儿",
+      "summary": "“我的钥匙在哪儿？”“在桌子上。”：用 {{be}} + 介词说人和东西在哪儿。",
+      "topic": "{{be}} + {{in}}、{{on}}、{{under}}、{{next to}}、{{behind}}、{{in front of}}；{{Where is…?}}",
+      "blocks": [
+        {"goal":{"t":"Where are my keys?","tr":"我的钥匙在哪儿？"}},
+        {"dialog":[{"who":"王芳","t":"Where are my keys?","tr":"我的钥匙在哪儿？"},{"who":"Kate","t":"They're on the kitchen table.","tr":"在厨房的桌子上。"},{"who":"王芳","t":"No, they aren't.","tr":"不在。"},{"who":"Kate","t":"Are they in your bag?","tr":"在你包里吗？"},{"who":"王芳","t":"Oh, yes! They're in my bag. Thanks!","tr":"哦，对！在我包里。谢谢！"}]},
+        {"p":"**说“在哪儿”也要用 {{be}}。** 中文说“我在家”，“在”就是动词；英语要用 {{be}} 再加一个表示位置的小词：{{I'm at home.}}（我在家。）{{The keys are on the table.}}（钥匙在桌子上。）"},
+        {"term":"介词","means":"放在名词前面、表示位置或关系的小词，比如 {{in}}（在……里）、{{on}}（在……上）、{{under}}（在……下面）。"},
+        {"p":"**英语的介词在前面。** 中文说“桌子上”，“上”在名词后面；英语正好相反，介词在名词前面：{{on the table}}。所以“在桌子上”是 {{on the table}}，而不是 {{the table on}}。"},
+        { "table": [
+          ["中文","英语"],
+          ["在包里","{{in the bag}}"],
+          ["在桌子上","{{on the table}}"],
+          ["在椅子下面","{{under the chair}}"],
+          ["在银行旁边","{{next to the bank}}"],
+          ["在门后面","{{behind the door}}"],
+          ["在学校前面","{{in front of the school}}"]
+        ] },
+        {"p":"**问位置：{{Where is…?}} / {{Where are…?}}** 一样东西用 {{is}}，几样东西用 {{are}}：{{Where's the bathroom?}}（洗手间在哪儿？）{{Where are my glasses?}}（我的眼镜在哪儿？）注意：名词前面通常有 {{the}} 或 {{my}}。"},
+        { "ex": [
+          {"t":"Where's the bathroom?","tr":"洗手间在哪儿？"},
+          {"t":"It's on the table.","tr":"在桌子上。"},
+          {"t":"The cat is under the bed.","tr":"猫在床底下。"},
+          {"t":"The bank is next to the supermarket.","tr":"银行在超市旁边。"},
+          {"t":"I'm at work.","tr":"我在上班。","note":"{{at}}：在某个场所，比如家、公司、学校"},
+          {"t":"My parents are in China.","tr":"我父母在中国。","note":"城市、国家用 {{in}}"}
+        ] },
+        {"tip":"最常用的三个：{{in}}（在里面，也用于城市和国家）、{{on}}（在表面上）、{{at}}（在某个点或场所：{{at home}}、{{at work}}、{{at the station}}）。"}
+      ],
+      "mistakes": [
+        {"wrong":"My phone is the table on.","right":"My phone is on the table.","tr":"我的手机在桌子上。","why":"英语的介词放在名词前面：{{on the table}}。"},
+        {"wrong":"I in the office.","right":"I'm in the office.","tr":"我在办公室。","why":"说在哪儿也要有 {{be}}：{{I'm in…}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"The keys are ___ the bag.","tr":"钥匙在包里。","options":["in","on","under"],"answer":0,"why":"在里面：{{in}}。"},
+        {"type":"choice","q":"“猫在椅子下面。”","options":["{{The cat is under the chair.}}","{{The cat is the chair under.}}","{{The cat under the chair.}}"],"answer":0,"why":"{{be}} + 介词 + 名词。"},
+        {"type":"choice","q":"“我的眼镜在哪儿？”","options":["{{Where are my glasses?}}","{{Where is my glasses?}}","{{My glasses are where?}}"],"answer":0,"why":"{{glasses}} 是复数，用 {{are}}，疑问词放在最前面。","from":"ask-who-what-where"},
+        {"type":"dialogue","q":"朋友打来电话。选出你的回答。","lines":[{"who":"Friend","t":"Hi! Where are you?","tr":"喂！你在哪儿？"},{"options":["I'm at the supermarket.","I at the supermarket."],"answer":0,"why":"别忘了 {{am}}：{{I'm at…}}"},{"who":"Friend","t":"Where's the supermarket?","tr":"超市在哪儿？"},{"options":["It's next to the bank.","It's the bank next to."],"answer":0,"why":"介词在前：{{next to the bank}}。"},{"who":"Friend","t":"OK, see you soon!","tr":"好，一会儿见！"}],"from":"say-what-people-are-like"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"银行在超市旁边。","words":["The","bank","is","next","to","the","supermarket."]},
+        {"type":"free","q":"轮到你了：说说你房间里三样东西在哪儿。","answers":[{"t":"My phone is on the desk. My bag is under the chair. My books are on the shelf.","tr":"我的手机在书桌上，包在椅子下面，书在书架上。"},{"t":"The TV is in the living room. My cat is on the sofa.","tr":"电视在客厅里。我的猫在沙发上。"}]}
+      ]
+    },
+    {
+      "id": "say-what-is-there",
+      "unit": 4,
+      "level": "A1",
+      "title": "说哪儿有什么：there is / there are",
+      "summary": "“附近有一家银行”“房间里有两张床”：英语说“哪儿有什么”要用 {{there is}} 和 {{there are}}，不用 {{have}}。",
+      "topic": "{{There's a…}} / {{There are…}}；{{Is there…?}}；{{any}}；不说 {{Have a bank near here}}",
+      "blocks": [
+        {"goal":{"t":"Is there a bank near here?","tr":"这附近有银行吗？"}},
+        {"dialog":[{"who":"李明","t":"Excuse me, is there a pharmacy near here?","tr":"请问，这附近有药店吗？"},{"who":"Woman","t":"Yes, there's one on Main Street.","tr":"有，缅因街上有一家。"},{"who":"李明","t":"Is it far?","tr":"远吗？"},{"who":"Woman","t":"No, it's five minutes from here. There's a bank next to it.","tr":"不远，走五分钟就到。旁边还有一家银行。"},{"who":"李明","t":"Great, thank you!","tr":"太好了，谢谢！"}]},
+        {"p":"**中文的“有”，英语有两种说法。** “我有一辆车”是 {{I have a car.}}；但“这儿有一家银行”说的是某个地方存在什么，英语要用 {{there is}}：{{There's a bank here.}} 不能说 {{Have a bank here.}}，这是中国学生非常常见的错误。"},
+        {"p":"**一个用 {{there is}}，几个用 {{there are}}。** {{There's a cat in the room.}}（房间里有一只猫。）{{There are two beds.}}（有两张床。）口语里 {{there is}} 常常缩成 {{there's}}。地点一般放在句子最后。"},
+        { "table": [
+          ["","一个 / 不可数","几个"],
+          ["有","{{There's a park.}}","{{There are three parks.}}"],
+          ["没有","{{There isn't a park.}}","{{There aren't any parks.}}"],
+          ["有吗？","{{Is there a park?}}","{{Are there any parks?}}"]
+        ] },
+        {"p":"**{{any}} 用在否定句和问句里**：{{Are there any restaurants near here?}}（这附近有餐厅吗？）{{There aren't any.}}（一家也没有。）回答 {{Is there…?}}，就说 {{Yes, there is.}} 或 {{No, there isn't.}}"},
+        { "ex": [
+          {"t":"Is there a bank near here?","tr":"这附近有银行吗？"},
+          {"t":"There's a café on the corner.","tr":"拐角有一家咖啡店。"},
+          {"t":"There are a lot of people here.","tr":"这里人很多。"},
+          {"t":"There isn't any milk in the fridge.","tr":"冰箱里没有牛奶了。","note":"{{milk}} 不可数，用 {{there is}}"},
+          {"t":"Are there any good restaurants near here?","tr":"这附近有好餐厅吗？"},
+          {"t":"There are two bedrooms in my apartment.","tr":"我的公寓有两个卧室。"}
+        ] },
+        {"tip":"{{there is}} 后面的东西常常是“新出现的”，所以用 {{a}}：{{There's a problem.}}（有个问题。）"}
+      ],
+      "mistakes": [
+        {"wrong":"Have a bank near here?","right":"Is there a bank near here?","tr":"这附近有银行吗？","why":"说某个地方“有”什么，用 {{there is}}，不用 {{have}}。"},
+        {"wrong":"There is many people.","right":"There are many people.","tr":"人很多。","why":"{{people}} 是复数：{{there are}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"There ___ two parks near my house.","tr":"我家附近有两个公园。","options":["are","is","have"],"answer":0,"why":"两个公园，复数：{{there are}}。"},
+        {"type":"choice","q":"“这附近有超市吗？”","options":["{{Is there a supermarket near here?}}","{{Have a supermarket near here?}}","{{There is a supermarket near here?}}"],"answer":0,"why":"提问时把 {{is}} 放到前面：{{Is there…?}}","from":"ask-yes-or-no"},
+        {"type":"choice","q":"“冰箱里没有鸡蛋。”","options":["{{There aren't any eggs in the fridge.}}","{{There isn't any eggs in the fridge.}}","{{The fridge has not eggs.}}"],"answer":0,"why":"{{eggs}} 是复数：{{there aren't any}}。","from":"count-things"},
+        {"type":"dialogue","q":"在酒店前台。选出你的问题。","lines":[{"who":"Receptionist","t":"Here's your key. Anything else?","tr":"这是您的钥匙。还需要别的吗？"},{"options":["Yes. Is there a gym in the hotel?","Yes. Have a gym in the hotel?"],"answer":0,"why":"问某个地方有没有：{{Is there…?}}"},{"who":"Receptionist","t":"Yes, there is. It's on the second floor.","tr":"有，在二楼。"},{"options":["Are there any restaurants near here?","Is there any restaurants near here?"],"answer":0,"why":"{{restaurants}} 是复数：{{Are there any…?}}"},{"who":"Receptionist","t":"Yes, there are lots on this street.","tr":"有，这条街上有很多。"}]},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"拐角有一家咖啡店。","words":["There's","a","café","on","the","corner."]},
+        {"type":"free","q":"轮到你了：描述一下你住的地方附近：有什么，没有什么？","answers":[{"t":"There's a park and a big supermarket near my home. There isn't a subway station.","tr":"我家附近有一个公园和一家大超市，没有地铁站。"},{"t":"There are a lot of restaurants on my street, but there aren't any banks.","tr":"我住的街上有很多餐厅，但是一家银行也没有。"}]}
+      ]
+    },
+    {
+      "id": "say-when",
+      "unit": 4,
+      "level": "A1",
+      "title": "说时间：at、on、in",
+      "summary": "“七点见”“星期一见”“十月见”：英语说时间要用 {{at}}、{{on}}、{{in}}，写日期的顺序也和中文相反。",
+      "topic": "{{at}}（钟点）、{{on}}（某一天）、{{in}}（月、年、季节、上午）；日期 {{October 24, 2026}}；{{It's three o'clock.}}",
+      "blocks": [
+        {"goal":{"t":"See you on Monday at ten.","tr":"星期一十点见。"}},
+        {"dialog":[{"who":"Receptionist","t":"Can you come on Monday?","tr":"您星期一能来吗？"},{"who":"王芳","t":"Yes. What time?","tr":"可以。几点？"},{"who":"Receptionist","t":"At 10:30 in the morning.","tr":"上午十点半。"},{"who":"王芳","t":"Monday is October 26, right?","tr":"星期一是十月二十六号，对吧？"},{"who":"Receptionist","t":"That's right. See you then!","tr":"对。到时候见！"}]},
+        {"p":"**三个时间小词。** {{at}} 用于钟点：{{at seven}}（七点）、{{at noon}}（中午）。{{on}} 用于某一天：{{on Monday}}（星期一）、{{on May 1}}（五月一号）、{{on my birthday}}（我生日那天）。{{in}} 用于更长的时间：{{in October}}（十月）、{{in 2026}}、{{in the morning}}（上午）、{{in the summer}}（夏天）。"},
+        { "table": [
+          ["小词","用于","例子"],
+          ["{{at}}","钟点","{{at 7:30}}、{{at night}}"],
+          ["{{on}}","某一天、某个日期","{{on Sunday}}、{{on June 3}}"],
+          ["{{in}}","月、年、季节、一天里的时段","{{in July}}、{{in 1998}}、{{in the evening}}"]
+        ] },
+        {"p":"**日期：英语从小到大，中文从大到小。** 中文写“二〇二六年十月二十四日”；美式英语写 {{October 24, 2026}}，读作 {{October twenty-fourth, twenty twenty-six}}。日子要读成“第几”：{{first}}、{{second}}、{{third}}、{{fourth}}……"},
+        {"p":"**说钟点要有 {{It's}}。** 中文说“现在三点”，英语要有主语 {{it}}：{{What time is it?}}（几点了？）{{It's three o'clock.}}（三点。）{{It's 3:30.}} 读作 {{three thirty}}。"},
+        { "ex": [
+          {"t":"See you on Monday at ten.","tr":"星期一十点见。"},
+          {"t":"The meeting is at two.","tr":"会议两点开始。"},
+          {"t":"My birthday is on March 5.","tr":"我的生日是三月五号。","note":"读作 {{March fifth}}"},
+          {"t":"We go to the beach in the summer.","tr":"我们夏天去海边。"},
+          {"t":"It's ten thirty.","tr":"十点半了。"},
+          {"t":"I work out in the morning.","tr":"我早上锻炼。"}
+        ] },
+        {"tip":"有些时间说法不用介词：{{today}}、{{tomorrow}}、{{every day}}、{{this week}}、{{next Monday}}。不能说 {{on next Monday}}。"}
+      ],
+      "mistakes": [
+        {"wrong":"See you in Monday.","right":"See you on Monday.","tr":"星期一见。","why":"某一天用 {{on}}：{{on Monday}}。"},
+        {"wrong":"Now three o'clock.","right":"It's three o'clock.","tr":"现在三点。","why":"英语说钟点要有主语和 {{be}}：{{It's…}}"},
+        {"wrong":"2026, October 24","right":"October 24, 2026","tr":"二〇二六年十月二十四日","why":"美式英语的日期顺序是：月、日、年。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"The party is ___ Saturday.","tr":"聚会在星期六。","options":["on","in","at"],"answer":0,"why":"某一天：{{on}}。"},
+        {"type":"choice","q":"“我们七月去北京。”","options":["{{We go to Beijing in July.}}","{{We go to Beijing on July.}}","{{We in July go to Beijing.}}"],"answer":0,"why":"月份用 {{in}}，时间放在句子后面。","from":"say-what-you-do-every-day"},
+        {"type":"choice","q":"“几点了？——两点。”","options":["{{What time is it? — It's two.}}","{{What time? — Now two.}}","{{What time it is? — Two is.}}"],"answer":0,"why":"{{What time is it?}}，回答要有 {{It's}}。"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"会议两点开始。","words":["The","meeting","is","at","two."]},
+        {"type":"dialogue","q":"约朋友见面。选出你的回答。","lines":[{"who":"Friend","t":"Are you free this weekend?","tr":"这个周末你有空吗？"},{"options":["Yes, on Sunday.","Yes, in Sunday."],"answer":0,"why":"某一天：{{on Sunday}}。"},{"who":"Friend","t":"Great. What time?","tr":"好啊。几点？"},{"options":["At two in the afternoon?","In two at the afternoon?"],"answer":0,"why":"钟点用 {{at}}，“下午”是 {{in the afternoon}}。"},{"who":"Friend","t":"Perfect. See you then!","tr":"好，到时候见！"}],"from":"ask-yes-or-no"},
+        {"type":"free","q":"轮到你了：你的生日是哪天？你一般几点起床、几点睡觉？","answers":[{"t":"My birthday is on April 12. I get up at seven and go to bed at eleven.","tr":"我的生日是四月十二号。我七点起床，十一点睡觉。"},{"t":"My birthday is in December, on December 3. I go to bed at midnight.","tr":"我的生日在十二月，是十二月三号。我半夜十二点睡觉。"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 4,
+      "level": "A1",
+      "title": "说会做什么、能做什么：can",
+      "summary": "“我会游泳”“我明天不能来”“我可以坐这儿吗？”：中文的“会”“能”“可以”，英语常常都用一个 {{can}}。",
+      "topic": "{{can}} / {{can't}} + 动词原形（不加 {{-s}}，不加 {{to}}）；{{Can you…?}}（请求）；{{Can I…?}}（许可）",
+      "blocks": [
+        {"goal":{"t":"I can speak a little English.","tr":"我会说一点儿英语。"}},
+        {"dialog":[{"who":"Tom","t":"Can you drive?","tr":"你会开车吗？"},{"who":"张伟","t":"Yes, I can. Why?","tr":"会啊，怎么了？"},{"who":"Tom","t":"Can you drive me to the airport tomorrow?","tr":"明天你能开车送我去机场吗？"},{"who":"张伟","t":"Sorry, I can't. I have a meeting.","tr":"不好意思，去不了，我有个会。"},{"who":"Tom","t":"No problem. Can I use your phone? My battery is dead.","tr":"没关系。我能用一下你的手机吗？我的没电了。"},{"who":"张伟","t":"Sure, here you go.","tr":"当然，给你。"}]},
+        {"p":"**{{can}}：会、能、可以。** 中文分得很细：学会的本领是“会”，有能力、有条件是“能”，被允许是“可以”。英语这三种意思常常都用 {{can}}：{{I can swim.}}（我会游泳。）{{I can't come tomorrow.}}（我明天不能来。）{{Can I sit here?}}（我可以坐这儿吗？）"},
+        {"term":"情态动词","means":"放在动词前面、表示“能”“应该”“必须”等意思的词，比如 {{can}}、{{should}}、{{must}}。后面的动词总是用原形。"},
+        {"p":"**{{can}} 永远不变，后面的动词也不变。** {{can}} 后面直接跟动词原形，不加 {{to}}，也不加 {{-s}}；说他、她、它的时候，{{can}} 本身也不加 {{-s}}：{{She can speak French.}}（她会说法语。）否定是 {{can't}}（也写作 {{cannot}}）；提问就把 {{can}} 放到前面：{{Can you help me?}}，不需要 {{do}}。"},
+        { "table": [
+          ["意思","例句","中文"],
+          ["会","{{He can play the piano.}}","他会弹钢琴。"],
+          ["能","{{I can't sleep.}}","我睡不着。"],
+          ["可以","{{You can park here.}}","你可以在这儿停车。"],
+          ["请求","{{Can you help me?}}","你能帮我一下吗？"],
+          ["许可","{{Can I come in?}}","我可以进来吗？"]
+        ] },
+        { "ex": [
+          {"t":"I can speak a little English.","tr":"我会说一点儿英语。"},
+          {"t":"She can't come tonight.","tr":"她今晚来不了。"},
+          {"t":"Can you help me?","tr":"你能帮我一下吗？"},
+          {"t":"Can I sit here?","tr":"我可以坐这儿吗？"},
+          {"t":"My son can swim.","tr":"我儿子会游泳。"},
+          {"t":"You can't smoke here.","tr":"这儿不能抽烟。"}
+        ] },
+        {"tip":"{{can}} 和 {{can't}} 听起来很像：{{can}} 在句子里读得很轻，像 /kən/；{{can't}} 读得又重又长，像 /kænt/。听重音就能分辨。"}
+      ],
+      "mistakes": [
+        {"wrong":"She cans swim.","right":"She can swim.","tr":"她会游泳。","why":"{{can}} 不加 {{-s}}，后面的动词也不加。"},
+        {"wrong":"I can to speak English.","right":"I can speak English.","tr":"我会说英语。","why":"{{can}} 后面直接跟动词原形，不加 {{to}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"My daughter can ___ the piano.","tr":"我女儿会弹钢琴。","options":["play","plays","to play"],"answer":0,"why":"{{can}} + 动词原形：{{play}}。"},
+        {"type":"choice","q":"在博物馆，你想问“可以拍照吗？”","options":["{{Can I take photos?}}","{{Do I can take photos?}}","{{I can take photos?}}"],"answer":0,"why":"问许可：{{Can I…?}}，{{can}} 放在前面，不用 {{do}}。","from":"ask-about-habits"},
+        {"type":"choice","q":"{{He can cook.}} 的否定是……","options":["{{He can't cook.}}","{{He doesn't can cook.}}","{{He can cooks not.}}"],"answer":0,"why":"{{can}} 自己变否定：{{can't}}，不用 {{doesn't}}。","from":"say-what-you-dont-do"},
+        {"type":"dialogue","q":"同事请你帮忙。选出你的回答。","lines":[{"who":"Colleague","t":"Can you help me with this report?","tr":"你能帮我看看这份报告吗？"},{"options":["Sure, I can help you after lunch.","Sure, I can helping you after lunch."],"answer":0,"why":"{{can}} + 动词原形：{{help}}。"},{"who":"Colleague","t":"Thanks! Can you also come to the meeting at three?","tr":"谢谢！你三点也能来开会吗？"},{"options":["Sorry, I can't. I have a doctor's appointment.","Sorry, I don't can. I have a doctor's appointment."],"answer":0,"why":"否定：{{can't}}。"},{"who":"Colleague","t":"OK, no problem.","tr":"好，没关系。"}]},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"你能帮我一下吗？","words":["Can","you","help","me?"]},
+        {"type":"free","q":"轮到你了：说两件你会做的事和一件你不会做的事。","answers":[{"t":"I can cook and I can swim. I can't drive.","tr":"我会做饭，也会游泳。我不会开车。"},{"t":"I can speak Chinese and a little English. I can't sing.","tr":"我会说中文和一点儿英语。我不会唱歌。"}]}
+      ]
     }
   ]
 }
