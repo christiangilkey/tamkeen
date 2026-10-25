@@ -921,6 +921,912 @@
       "meaning": "(ketâb) book",
       "sentence": "این کتاب را خوانده‌ای؟",
       "translation": "Have you read this ⟦book⟧?"
+    },
+    {
+      "n": 101,
+      "rank": 116,
+      "word": "مثل",
+      "pos": "prep",
+      "meaning": "(mesl) like; as",
+      "sentence": "او مثل پدرش است.",
+      "translation": "He's ⟦like⟧ his father."
+    },
+    {
+      "n": 102,
+      "rank": 117,
+      "word": "صورت",
+      "pos": "noun",
+      "meaning": "(surat) face (به صورت: as; in the form of)",
+      "sentence": "صورتش را شست.",
+      "translation": "She washed her ⟦face⟧."
+    },
+    {
+      "n": 103,
+      "rank": 118,
+      "word": "دانشگاه",
+      "pos": "noun",
+      "meaning": "(dâneshgâh) university",
+      "sentence": "خواهرم در دانشگاه درس می‌خواند.",
+      "translation": "My sister studies at ⟦university⟧."
+    },
+    {
+      "n": 104,
+      "rank": 119,
+      "word": "زمان",
+      "pos": "noun",
+      "meaning": "(zamân) time",
+      "sentence": "زمان زیادی نداریم.",
+      "translation": "We don't have much ⟦time⟧."
+    },
+    {
+      "n": 105,
+      "rank": 120,
+      "word": "خوردن",
+      "pos": "verb",
+      "meaning": "(khordan) to eat; to drink",
+      "sentence": "صبحانه خوردی؟",
+      "translation": "Have you ⟦eaten⟧ breakfast?",
+      "form": "خوردی"
+    },
+    {
+      "n": 106,
+      "rank": 121,
+      "word": "سه",
+      "pos": "num",
+      "meaning": "(se) three",
+      "sentence": "سه روز در شیراز ماندیم.",
+      "translation": "We stayed in Shiraz for ⟦three⟧ days."
+    },
+    {
+      "n": 107,
+      "rank": 122,
+      "word": "آن‌ها",
+      "pos": "pron",
+      "meaning": "(ânhâ) they; those",
+      "sentence": "آن‌ها دیروز رسیدند.",
+      "translation": "⟦They⟧ arrived yesterday."
+    },
+    {
+      "n": 108,
+      "rank": 123,
+      "word": "گذاشتن",
+      "pos": "verb",
+      "meaning": "(gozâshtan) to put; to leave",
+      "sentence": "کلیدها را کجا گذاشتی؟",
+      "translation": "Where did you ⟦put⟧ the keys?",
+      "form": "گذاشتی"
+    },
+    {
+      "n": 109,
+      "rank": 124,
+      "word": "شب",
+      "pos": "noun",
+      "meaning": "(shab) night; evening",
+      "sentence": "شب بخیر!",
+      "translation": "Good ⟦night⟧!"
+    },
+    {
+      "n": 110,
+      "rank": 125,
+      "word": "تنها",
+      "pos": "adj",
+      "meaning": "(tanhâ) alone; only",
+      "sentence": "او تنها زندگی می‌کند.",
+      "translation": "He lives ⟦alone⟧."
+    },
+    {
+      "n": 111,
+      "rank": 126,
+      "word": "بچه",
+      "pos": "noun",
+      "meaning": "(bachche) child; kid",
+      "sentence": "ما دو بچه داریم.",
+      "translation": "We have two ⟦children⟧."
+    },
+    {
+      "n": 112,
+      "rank": 127,
+      "word": "عنوان",
+      "pos": "noun",
+      "meaning": "(onvân) title (به عنوان: as)",
+      "sentence": "او به عنوان معلم کار می‌کند.",
+      "translation": "She works ⟦as⟧ a teacher."
+    },
+    {
+      "n": 113,
+      "rank": 128,
+      "word": "بدون",
+      "pos": "prep",
+      "meaning": "(bedun) without",
+      "sentence": "قهوه را بدون شکر می‌خورم.",
+      "translation": "I drink my coffee ⟦without⟧ sugar."
+    },
+    {
+      "n": 114,
+      "rank": 131,
+      "word": "بالا",
+      "pos": "adv",
+      "meaning": "(bâlâ) up; upstairs; top",
+      "sentence": "بیا بالا، در باز است.",
+      "translation": "Come ⟦up⟧, the door's open."
+    },
+    {
+      "n": 115,
+      "rank": 132,
+      "word": "زیر",
+      "pos": "prep",
+      "meaning": "(zir) under; below",
+      "sentence": "گربه زیر میز است.",
+      "translation": "The cat is ⟦under⟧ the table."
+    },
+    {
+      "n": 116,
+      "rank": 133,
+      "word": "بار",
+      "pos": "noun",
+      "meaning": "(bâr) time (once, twice...); load",
+      "sentence": "یک بار دیگر بگو.",
+      "translation": "Say it one more ⟦time⟧."
+    },
+    {
+      "n": 117,
+      "rank": 134,
+      "word": "جدید",
+      "pos": "adj",
+      "meaning": "(jadid) new",
+      "sentence": "یک ماشین جدید خریدم.",
+      "translation": "I bought a ⟦new⟧ car."
+    },
+    {
+      "n": 118,
+      "rank": 135,
+      "word": "ساعت",
+      "pos": "noun",
+      "meaning": "(sâ'at) hour; clock; watch; o'clock",
+      "sentence": "ساعت چند است؟",
+      "translation": "What ⟦time⟧ is it?"
+    },
+    {
+      "n": 119,
+      "rank": 136,
+      "word": "همان",
+      "pos": "pron",
+      "meaning": "(hamân) the same; that very",
+      "sentence": "همان کتاب را می‌خواهم.",
+      "translation": "I want ⟦the same⟧ book."
+    },
+    {
+      "n": 120,
+      "rank": 137,
+      "word": "امروز",
+      "pos": "adv",
+      "meaning": "(emruz) today",
+      "sentence": "امروز تعطیل است.",
+      "translation": "⟦Today⟧ is a holiday."
+    },
+    {
+      "n": 121,
+      "rank": 138,
+      "word": "مهم",
+      "pos": "adj",
+      "meaning": "(mohem) important",
+      "sentence": "این خیلی مهم است.",
+      "translation": "This is very ⟦important⟧."
+    },
+    {
+      "n": 122,
+      "rank": 139,
+      "word": "کشتن",
+      "pos": "verb",
+      "meaning": "(koshtan) to kill",
+      "sentence": "گربه یک موش کشت.",
+      "translation": "The cat ⟦killed⟧ a mouse.",
+      "form": "کشت"
+    },
+    {
+      "n": 123,
+      "rank": 140,
+      "word": "واقعاً",
+      "pos": "adv",
+      "meaning": "(vâghe'an) really",
+      "sentence": "واقعاً خوشحالم.",
+      "translation": "I'm ⟦really⟧ happy."
+    },
+    {
+      "n": 124,
+      "rank": 141,
+      "word": "مشکل",
+      "pos": "noun",
+      "meaning": "(moshkel) problem; (as adjective) difficult",
+      "sentence": "مشکلی نیست.",
+      "translation": "No ⟦problem⟧."
+    },
+    {
+      "n": 125,
+      "rank": 142,
+      "word": "قبل",
+      "pos": "adv",
+      "meaning": "(ghabl) before",
+      "sentence": "قبل از خواب مسواک بزن.",
+      "translation": "Brush your teeth ⟦before⟧ bed."
+    },
+    {
+      "n": 126,
+      "rank": 143,
+      "word": "خدا",
+      "pos": "noun",
+      "meaning": "(khodâ) God",
+      "sentence": "خدا را شکر!",
+      "translation": "Thank ⟦God⟧!"
+    },
+    {
+      "n": 127,
+      "rank": 145,
+      "word": "توسط",
+      "pos": "prep",
+      "meaning": "(tavassot) by (in passive sentences)",
+      "sentence": "این نامه توسط مدیر نوشته شد.",
+      "translation": "This letter was written ⟦by⟧ the manager."
+    },
+    {
+      "n": 128,
+      "rank": 146,
+      "word": "درباره",
+      "pos": "prep",
+      "meaning": "(darbâre) about",
+      "sentence": "این کتاب درباره‌ی ایران است.",
+      "translation": "This book is ⟦about⟧ Iran."
+    },
+    {
+      "n": 129,
+      "rank": 147,
+      "word": "باز",
+      "pos": "adj",
+      "meaning": "(bâz) open; (as adverb) again",
+      "sentence": "مغازه باز است؟",
+      "translation": "Is the shop ⟦open⟧?"
+    },
+    {
+      "n": 130,
+      "rank": 148,
+      "word": "جا",
+      "pos": "noun",
+      "meaning": "(jâ) place; room; space",
+      "sentence": "جا برای همه هست.",
+      "translation": "There's ⟦room⟧ for everyone."
+    },
+    {
+      "n": 131,
+      "rank": 149,
+      "word": "دولت",
+      "pos": "noun",
+      "meaning": "(dowlat) government",
+      "sentence": "دولت قیمت بنزین را بالا برد.",
+      "translation": "The ⟦government⟧ raised the price of petrol."
+    },
+    {
+      "n": 132,
+      "rank": 150,
+      "word": "ماه",
+      "pos": "noun",
+      "meaning": "(mâh) month; moon",
+      "sentence": "ماه آینده به سفر می‌روم.",
+      "translation": "I'm going on a trip next ⟦month⟧."
+    },
+    {
+      "n": 133,
+      "rank": 151,
+      "word": "درست",
+      "pos": "adj",
+      "meaning": "(dorost) right; correct (درست کردن: to make; to fix)",
+      "sentence": "جواب تو درست است.",
+      "translation": "Your answer is ⟦right⟧."
+    },
+    {
+      "n": 134,
+      "rank": 152,
+      "word": "آب",
+      "pos": "noun",
+      "meaning": "(âb) water",
+      "sentence": "آب سرد می‌خواهی؟",
+      "translation": "Do you want some cold ⟦water⟧?"
+    },
+    {
+      "n": 135,
+      "rank": 154,
+      "word": "هنوز",
+      "pos": "adv",
+      "meaning": "(hanuz) still; yet",
+      "sentence": "او هنوز خواب است.",
+      "translation": "He's ⟦still⟧ asleep."
+    },
+    {
+      "n": 136,
+      "rank": 155,
+      "word": "همین",
+      "pos": "pron",
+      "meaning": "(hamin) this very; just",
+      "sentence": "همین الان رسیدم.",
+      "translation": "I ⟦just⟧ got here."
+    },
+    {
+      "n": 137,
+      "rank": 156,
+      "word": "آخر",
+      "pos": "noun",
+      "meaning": "(âkhar) end; (as adjective) last",
+      "sentence": "آخر فیلم خیلی غمگین بود.",
+      "translation": "The ⟦end⟧ of the film was very sad."
+    },
+    {
+      "n": 138,
+      "rank": 157,
+      "word": "وقت",
+      "pos": "noun",
+      "meaning": "(vaght) time",
+      "sentence": "وقت ندارم.",
+      "translation": "I don't have ⟦time⟧."
+    },
+    {
+      "n": 139,
+      "rank": 158,
+      "word": "پسر",
+      "pos": "noun",
+      "meaning": "(pesar) boy; son",
+      "sentence": "پسرم کلاس اول است.",
+      "translation": "My ⟦son⟧ is in first grade."
+    },
+    {
+      "n": 140,
+      "rank": 159,
+      "word": "نگاه",
+      "pos": "noun",
+      "meaning": "(negâh) look (نگاه کردن: to look)",
+      "sentence": "به این عکس نگاه کن.",
+      "translation": "⟦Look⟧ at this picture."
+    },
+    {
+      "n": 141,
+      "rank": 160,
+      "word": "آوردن",
+      "pos": "verb",
+      "meaning": "(âvardan) to bring",
+      "sentence": "یک لیوان آب برایم بیاور.",
+      "translation": "⟦Bring⟧ me a glass of water.",
+      "form": "بیاور"
+    },
+    {
+      "n": 142,
+      "rank": 161,
+      "word": "اینجا",
+      "pos": "adv",
+      "meaning": "(injâ) here",
+      "sentence": "بیا اینجا!",
+      "translation": "Come ⟦here⟧!"
+    },
+    {
+      "n": 143,
+      "rank": 162,
+      "word": "هیچ",
+      "pos": "adj",
+      "meaning": "(hich) no; not any; none",
+      "sentence": "هیچ‌کس نیامد.",
+      "translation": "⟦No⟧ one came."
+    },
+    {
+      "n": 144,
+      "rank": 164,
+      "word": "بخش",
+      "pos": "noun",
+      "meaning": "(bakhsh) part; section; ward",
+      "sentence": "این بخش از شهر قدیمی است.",
+      "translation": "This ⟦part⟧ of town is old."
+    },
+    {
+      "n": 145,
+      "rank": 168,
+      "word": "نوشتن",
+      "pos": "verb",
+      "meaning": "(neveshtan) to write",
+      "sentence": "برای مادرم نامه نوشتم.",
+      "translation": "I ⟦wrote⟧ a letter to my mother.",
+      "form": "نوشتم"
+    },
+    {
+      "n": 146,
+      "rank": 169,
+      "word": "خب",
+      "pos": "interj",
+      "meaning": "(khob) well; OK",
+      "sentence": "خب، برویم.",
+      "translation": "⟦Well⟧, let's go."
+    },
+    {
+      "n": 147,
+      "rank": 170,
+      "word": "ملی",
+      "pos": "adj",
+      "meaning": "(melli) national",
+      "sentence": "تیم ملی امشب بازی دارد.",
+      "translation": "The ⟦national⟧ team plays tonight."
+    },
+    {
+      "n": 148,
+      "rank": 171,
+      "word": "وقتی",
+      "pos": "conj",
+      "meaning": "(vaghti) when",
+      "sentence": "وقتی بچه بودم، اینجا زندگی می‌کردیم.",
+      "translation": "⟦When⟧ I was a child, we lived here."
+    },
+    {
+      "n": 149,
+      "rank": 172,
+      "word": "البته",
+      "pos": "adv",
+      "meaning": "(albatte) of course",
+      "sentence": "البته که می‌آیم.",
+      "translation": "⟦Of course⟧ I'm coming."
+    },
+    {
+      "n": 150,
+      "rank": 173,
+      "word": "چیز",
+      "pos": "noun",
+      "meaning": "(chiz) thing (چیزی: something; anything)",
+      "sentence": "چیزی برای خوردن داری؟",
+      "translation": "Do you have ⟦something⟧ to eat?"
+    },
+    {
+      "n": 151,
+      "rank": 174,
+      "word": "جهان",
+      "pos": "noun",
+      "meaning": "(jahân) world",
+      "sentence": "می‌خواهم به دور جهان سفر کنم.",
+      "translation": "I want to travel around the ⟦world⟧."
+    },
+    {
+      "n": 152,
+      "rank": 175,
+      "word": "سازمان",
+      "pos": "noun",
+      "meaning": "(sâzmân) organisation",
+      "sentence": "این سازمان به کودکان کمک می‌کند.",
+      "translation": "This ⟦organisation⟧ helps children."
+    },
+    {
+      "n": 153,
+      "rank": 176,
+      "word": "دور",
+      "pos": "adj",
+      "meaning": "(dur) far",
+      "sentence": "خانه‌ی ما از اینجا دور نیست.",
+      "translation": "Our house isn't ⟦far⟧ from here."
+    },
+    {
+      "n": 154,
+      "rank": 177,
+      "word": "همچنین",
+      "pos": "adv",
+      "meaning": "(hamchenin) also; as well (written)",
+      "sentence": "او پزشک است و همچنین نقاشی می‌کند.",
+      "translation": "She's a doctor, and she ⟦also⟧ paints."
+    },
+    {
+      "n": 155,
+      "rank": 178,
+      "word": "گروه",
+      "pos": "noun",
+      "meaning": "(goruh) group",
+      "sentence": "با یک گروه به سفر رفتیم.",
+      "translation": "We went on a trip with a ⟦group⟧."
+    },
+    {
+      "n": 156,
+      "rank": 179,
+      "word": "نوع",
+      "pos": "noun",
+      "meaning": "(no') kind; type",
+      "sentence": "چه نوع موسیقی دوست داری؟",
+      "translation": "What ⟦kind⟧ of music do you like?"
+    },
+    {
+      "n": 157,
+      "rank": 180,
+      "word": "صدا",
+      "pos": "noun",
+      "meaning": "(sedâ) sound; voice; noise",
+      "sentence": "صدایت را خوب نمی‌شنوم.",
+      "translation": "I can't hear your ⟦voice⟧ well."
+    },
+    {
+      "n": 158,
+      "rank": 181,
+      "word": "دوم",
+      "pos": "adj",
+      "meaning": "(dovvom) second",
+      "sentence": "دفتر من در طبقه‌ی دوم است.",
+      "translation": "My office is on the ⟦second⟧ floor."
+    },
+    {
+      "n": 159,
+      "rank": 182,
+      "word": "زیاد",
+      "pos": "adj",
+      "meaning": "(ziyâd) a lot; much; many",
+      "sentence": "امروز کار زیادی دارم.",
+      "translation": "I have ⟦a lot of⟧ work today."
+    },
+    {
+      "n": 160,
+      "rank": 183,
+      "word": "عکس",
+      "pos": "noun",
+      "meaning": "(aks) photo; picture",
+      "sentence": "یک عکس از ما بگیر.",
+      "translation": "Take a ⟦photo⟧ of us."
+    },
+    {
+      "n": 161,
+      "rank": 184,
+      "word": "کم",
+      "pos": "adj",
+      "meaning": "(kam) little; few; low",
+      "sentence": "وقت کم است، عجله کن.",
+      "translation": "Time is ⟦short⟧, hurry up."
+    },
+    {
+      "n": 162,
+      "rank": 185,
+      "word": "زبان",
+      "pos": "noun",
+      "meaning": "(zabân) language; tongue",
+      "sentence": "چند زبان بلدی؟",
+      "translation": "How many ⟦languages⟧ do you speak?"
+    },
+    {
+      "n": 163,
+      "rank": 186,
+      "word": "دلیل",
+      "pos": "noun",
+      "meaning": "(dalil) reason",
+      "sentence": "دلیلش را نمی‌دانم.",
+      "translation": "I don't know the ⟦reason⟧."
+    },
+    {
+      "n": 164,
+      "rank": 188,
+      "word": "هزار",
+      "pos": "num",
+      "meaning": "(hezâr) thousand",
+      "sentence": "این کتاب صد هزار تومان است.",
+      "translation": "This book is a hundred ⟦thousand⟧ tomans."
+    },
+    {
+      "n": 165,
+      "rank": 189,
+      "word": "کمک",
+      "pos": "noun",
+      "meaning": "(komak) help (کمک کردن: to help)",
+      "sentence": "می‌توانی به من کمک کنی؟",
+      "translation": "Can you ⟦help⟧ me?"
+    },
+    {
+      "n": 166,
+      "rank": 190,
+      "word": "استان",
+      "pos": "noun",
+      "meaning": "(ostân) province",
+      "sentence": "در کدام استان زندگی می‌کنی؟",
+      "translation": "Which ⟦province⟧ do you live in?"
+    },
+    {
+      "n": 167,
+      "rank": 191,
+      "word": "آدم",
+      "pos": "noun",
+      "meaning": "(âdam) person; human being",
+      "sentence": "او آدم خوبی است.",
+      "translation": "He's a good ⟦person⟧."
+    },
+    {
+      "n": 168,
+      "rank": 192,
+      "word": "زنده",
+      "pos": "adj",
+      "meaning": "(zende) alive; live",
+      "sentence": "ماهی هنوز زنده است.",
+      "translation": "The fish is still ⟦alive⟧."
+    },
+    {
+      "n": 169,
+      "rank": 193,
+      "word": "تیم",
+      "pos": "noun",
+      "meaning": "(tim) team",
+      "sentence": "تیم ما برد.",
+      "translation": "Our ⟦team⟧ won."
+    },
+    {
+      "n": 170,
+      "rank": 194,
+      "word": "تاریخ",
+      "pos": "noun",
+      "meaning": "(târikh) date; history",
+      "sentence": "امروز چه تاریخی است؟",
+      "translation": "What's the ⟦date⟧ today?"
+    },
+    {
+      "n": 171,
+      "rank": 195,
+      "word": "پول",
+      "pos": "noun",
+      "meaning": "(pul) money",
+      "sentence": "پول کافی ندارم.",
+      "translation": "I don't have enough ⟦money⟧."
+    },
+    {
+      "n": 172,
+      "rank": 196,
+      "word": "پیدا",
+      "pos": "adj",
+      "meaning": "(peydâ) found (پیدا کردن: to find)",
+      "sentence": "کلیدم را پیدا کردم.",
+      "translation": "I ⟦found⟧ my key."
+    },
+    {
+      "n": 173,
+      "rank": 197,
+      "word": "توی",
+      "pos": "prep",
+      "meaning": "(tu-ye) in; inside (everyday)",
+      "sentence": "کیفم توی ماشین است.",
+      "translation": "My bag is ⟦in⟧ the car."
+    },
+    {
+      "n": 174,
+      "rank": 198,
+      "word": "دکتر",
+      "pos": "noun",
+      "meaning": "(doktor) doctor",
+      "sentence": "باید پیش دکتر بروم.",
+      "translation": "I need to go to the ⟦doctor⟧."
+    },
+    {
+      "n": 175,
+      "rank": 199,
+      "word": "خبر",
+      "pos": "noun",
+      "meaning": "(khabar) news",
+      "sentence": "یک خبر خوب دارم.",
+      "translation": "I have some good ⟦news⟧."
+    },
+    {
+      "n": 176,
+      "rank": 200,
+      "word": "منطقه",
+      "pos": "noun",
+      "meaning": "(mantaghe) area; region",
+      "sentence": "این منطقه خیلی آرام است.",
+      "translation": "This ⟦area⟧ is very quiet."
+    },
+    {
+      "n": 177,
+      "rank": 201,
+      "word": "برنامه",
+      "pos": "noun",
+      "meaning": "(barnâme) programme; plan",
+      "sentence": "برای آخر هفته چه برنامه‌ای داری؟",
+      "translation": "What ⟦plans⟧ do you have for the weekend?"
+    },
+    {
+      "n": 178,
+      "rank": 203,
+      "word": "دنبال",
+      "pos": "prep",
+      "meaning": "(donbâl) after (دنبال ... گشتن: to look for)",
+      "sentence": "دنبال یک کار جدید می‌گردم.",
+      "translation": "I'm ⟦looking for⟧ a new job."
+    },
+    {
+      "n": 179,
+      "rank": 204,
+      "word": "جنگ",
+      "pos": "noun",
+      "meaning": "(jang) war",
+      "sentence": "پدربزرگم در جنگ بود.",
+      "translation": "My grandfather was in the ⟦war⟧."
+    },
+    {
+      "n": 180,
+      "rank": 206,
+      "word": "تولید",
+      "pos": "noun",
+      "meaning": "(towlid) production (تولید کردن: to produce)",
+      "sentence": "این کارخانه کفش تولید می‌کند.",
+      "translation": "This factory ⟦makes⟧ shoes."
+    },
+    {
+      "n": 181,
+      "rank": 207,
+      "word": "بیرون",
+      "pos": "adv",
+      "meaning": "(birun) out; outside",
+      "sentence": "بیا برویم بیرون.",
+      "translation": "Let's go ⟦out⟧."
+    },
+    {
+      "n": 182,
+      "rank": 208,
+      "word": "اسم",
+      "pos": "noun",
+      "meaning": "(esm) name",
+      "sentence": "اسمت چیست؟",
+      "translation": "What's your ⟦name⟧?"
+    },
+    {
+      "n": 183,
+      "rank": 209,
+      "word": "باعث",
+      "pos": "noun",
+      "meaning": "(bâ'es) cause (باعث شدن: to cause)",
+      "sentence": "باران باعث ترافیک شد.",
+      "translation": "The rain ⟦caused⟧ traffic."
+    },
+    {
+      "n": 184,
+      "rank": 210,
+      "word": "مادر",
+      "pos": "noun",
+      "meaning": "(mâdar) mother",
+      "sentence": "مادرم آشپز خوبی است.",
+      "translation": "My ⟦mother⟧ is a good cook."
+    },
+    {
+      "n": 185,
+      "rank": 212,
+      "word": "دنیا",
+      "pos": "noun",
+      "meaning": "(donyâ) world",
+      "sentence": "دنیا کوچک است!",
+      "translation": "It's a small ⟦world⟧!"
+    },
+    {
+      "n": 186,
+      "rank": 213,
+      "word": "طرف",
+      "pos": "noun",
+      "meaning": "(taraf) side; direction",
+      "sentence": "از کدام طرف برویم؟",
+      "translation": "Which ⟦way⟧ should we go?"
+    },
+    {
+      "n": 187,
+      "rank": 215,
+      "word": "اصلاً",
+      "pos": "adv",
+      "meaning": "(aslan) at all",
+      "sentence": "اصلاً نمی‌دانم.",
+      "translation": "I don't know ⟦at all⟧."
+    },
+    {
+      "n": 188,
+      "rank": 216,
+      "word": "همراه",
+      "pos": "adj",
+      "meaning": "(hamrâh) with (someone); companion",
+      "sentence": "همیشه گوشی‌ام همراهم است.",
+      "translation": "I always have my phone ⟦with⟧ me."
+    },
+    {
+      "n": 189,
+      "rank": 217,
+      "word": "ادامه",
+      "pos": "noun",
+      "meaning": "(edâme) continuation (ادامه دادن: to go on)",
+      "sentence": "لطفاً ادامه بده.",
+      "translation": "Please ⟦go on⟧."
+    },
+    {
+      "n": 190,
+      "rank": 218,
+      "word": "کنار",
+      "pos": "noun",
+      "meaning": "(kenâr) side; next to",
+      "sentence": "کنار من بنشین.",
+      "translation": "Sit ⟦next to⟧ me."
+    },
+    {
+      "n": 191,
+      "rank": 220,
+      "word": "پدر",
+      "pos": "noun",
+      "meaning": "(pedar) father",
+      "sentence": "پدرم معلم است.",
+      "translation": "My ⟦father⟧ is a teacher."
+    },
+    {
+      "n": 192,
+      "rank": 221,
+      "word": "اثر",
+      "pos": "noun",
+      "meaning": "(asar) effect; work (of art)",
+      "sentence": "این دارو روی من اثر نکرد.",
+      "translation": "This medicine had no ⟦effect⟧ on me."
+    },
+    {
+      "n": 193,
+      "rank": 222,
+      "word": "سیاسی",
+      "pos": "adj",
+      "meaning": "(siyâsi) political",
+      "sentence": "من به مسائل سیاسی علاقه ندارم.",
+      "translation": "I'm not interested in ⟦political⟧ issues."
+    },
+    {
+      "n": 194,
+      "rank": 223,
+      "word": "حقوق",
+      "pos": "noun",
+      "meaning": "(hoghugh) salary; rights; law",
+      "sentence": "حقوقم کم است.",
+      "translation": "My ⟦salary⟧ is low."
+    },
+    {
+      "n": 195,
+      "rank": 224,
+      "word": "نتیجه",
+      "pos": "noun",
+      "meaning": "(natije) result",
+      "sentence": "نتیجه‌ی بازی چه شد؟",
+      "translation": "What was the ⟦result⟧ of the game?"
+    },
+    {
+      "n": 196,
+      "rank": 225,
+      "word": "بابا",
+      "pos": "noun",
+      "meaning": "(bâbâ) dad",
+      "sentence": "بابا، کجا می‌روی؟",
+      "translation": "⟦Dad⟧, where are you going?"
+    },
+    {
+      "n": 197,
+      "rank": 226,
+      "word": "ماده",
+      "pos": "noun",
+      "meaning": "(mâdde) material; substance (مواد غذایی: food; groceries)",
+      "sentence": "مواد غذایی را از کجا می‌خری؟",
+      "translation": "Where do you buy your ⟦groceries⟧?",
+      "form": "مواد"
+    },
+    {
+      "n": 198,
+      "rank": 227,
+      "word": "حتی",
+      "pos": "adv",
+      "meaning": "(hattâ) even",
+      "sentence": "حتی بچه‌ها هم این را می‌دانند.",
+      "translation": "⟦Even⟧ children know this."
+    },
+    {
+      "n": 199,
+      "rank": 228,
+      "word": "چشم",
+      "pos": "noun",
+      "meaning": "(cheshm) eye (چشم!: certainly!)",
+      "sentence": "چشم‌هایش آبی است.",
+      "translation": "Her ⟦eyes⟧ are blue."
+    },
+    {
+      "n": 200,
+      "rank": 229,
+      "word": "انتخاب",
+      "pos": "noun",
+      "meaning": "(entekhâb) choice (انتخاب کردن: to choose)",
+      "sentence": "یک رنگ انتخاب کن.",
+      "translation": "⟦Choose⟧ a colour."
     }
   ]
 }
